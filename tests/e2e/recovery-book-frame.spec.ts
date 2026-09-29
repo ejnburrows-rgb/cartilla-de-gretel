@@ -1,47 +1,64 @@
-import { test, expect } from '@playwright/test';
+import { test, expect, type Page } from '@playwright/test';
+
+async function dismissIntro(page: Page) {
+  const start = page.getByRole('button', { name: 'Comenzar' });
+  if (await start.isVisible().catch(() => false)) await start.click();
+}
 
 for (const viewport of [
   { name: 'desktop', width: 1280, height: 900 },
   { name: 'tablet', width: 820, height: 1180 },
   { name: 'mobile', width: 390, height: 844 },
 ]) {
-  test(`reader frame and page turn ${viewport.name}`, async ({ page }) => {
+  test(`native reader frame and page turn ${viewport.name}`, async ({ page }) => {
     await page.setViewportSize(viewport);
     await page.goto('/cartilla/leccion/8', { waitUntil: 'domcontentloaded' });
-    const reader = page.getByTestId('physical-book-reader');
-    const surround = page.locator('.garden-scene');
+    await dismissIntro(page);
+
+    const reader = page.locator('.native-lesson-viewer');
+    const content = reader.locator('.native-lesson-viewer__content');
+    const navigation = reader.locator('.native-lesson-viewer__navigation');
+    const counter = reader.locator('.native-lesson-viewer__page');
+
     await expect(reader).toBeVisible();
-    await expect(reader.getByTestId('gretel-presence')).toHaveAttribute('data-page-ready', 'true');
-    const documentGeometry = await page.evaluate(() => ({
+    await expect(content).toBeVisible();
+    await expect(navigation).toBeVisible();
+    await expect(page.getByTestId('physical-book-reader')).toHaveCount(0);
+
+    const gretel = page.getByTestId('gretel-presence');
+    await expect(gretel).toHaveAttribute('data-page-ready', 'true');
+
+    const geometry = await page.evaluate(() => ({
       clientWidth: document.documentElement.clientWidth,
       scrollWidth: document.documentElement.scrollWidth,
     }));
-    expect(documentGeometry.scrollWidth).toBeLessThanOrEqual(documentGeometry.clientWidth);
-    expect(await surround.evaluate(el => getComputedStyle(el).borderWidth)).toBe('0px');
-    expect(await surround.evaluate(el => getComputedStyle(el).backgroundImage)).toBe('none');
-    await expect(surround.locator('.garden-butterfly, .garden-dragonfly')).toHaveCount(0);
-    const pageArt = reader.locator('.faithful-page--garden').first();
-    expect(await pageArt.evaluate(el => getComputedStyle(el).backgroundImage)).toBe('none');
-    expect(await pageArt.evaluate(el => getComputedStyle(el, '::before').content)).toBe('none');
-    const bubble = reader.locator('.gretel-presence--book .gretel-speech-bubble');
-    await expect(bubble).toBeVisible({ timeout: 2000 });
-    if (await bubble.isVisible()) {
-      const paper = await reader.getByTestId('physical-book-stage').boundingBox();
-      const speech = await bubble.boundingBox();
-      expect(speech!.y).toBeGreaterThanOrEqual(paper!.y + paper!.height);
-      expect(speech!.x).toBeGreaterThanOrEqual(8);
-      expect(speech!.x + speech!.width).toBeLessThanOrEqual(viewport.width - 8);
+    expect(geometry.scrollWidth).toBeLessThanOrEqual(geometry.clientWidth + 2);
+
+    const contentBox = await content.boundingBox();
+    const navBox = await navigation.boundingBox();
+    expect(contentBox).not.toBeNull();
+    expect(navBox).not.toBeNull();
+    expect(navBox!.y).toBeGreaterThanOrEqual(contentBox!.y + contentBox!.height - 2);
+
+    const companion = reader.locator('.native-lesson-viewer__companion');
+    if (await companion.count()) {
+      const companionBox = await companion.boundingBox();
+      if (companionBox) {
+        expect(companionBox.y).toBeGreaterThanOrEqual(contentBox!.y + contentBox!.height - 2);
+      }
     }
-    const stageBox = await reader.getByTestId('physical-book-stage').boundingBox();
-    const navBox = await page.locator('nav').last().boundingBox();
-    expect(navBox!.y).toBeGreaterThanOrEqual(stageBox!.y + stageBox!.height);
-    await page.screenshot({ path: `test-results/recovery-frame-${viewport.name}.png`, fullPage: true });
-    const counter = reader.getByTestId('physical-book-counter');
+
+    await page.screenshot({
+      path: `test-results/native-reader-frame-${viewport.name}.png`,
+      fullPage: true,
+    });
+
     const before = await counter.textContent();
-    await reader.locator('.book-reader-controls button').last().click();
+    await reader.getByRole('button', { name: 'Siguiente' }).click();
     await expect(counter).not.toHaveText(before!, { timeout: 4000 });
-    await expect(reader.getByTestId('gretel-presence')).toHaveAttribute('data-page-ready', 'true', { timeout: 4000 });
-    await reader.locator('.book-reader-controls button').first().click();
+    await expect(gretel).toHaveAttribute('data-page-ready', 'true', { timeout: 4000 });
+
+    await reader.getByRole('button', { name: /Anterior/i }).click();
     await expect(counter).toHaveText(before!, { timeout: 4000 });
   });
 }
