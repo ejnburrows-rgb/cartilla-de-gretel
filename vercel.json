@@ -1,5 +1,5 @@
 {
-  "buildCommand": "(pnpm typecheck >/tmp/typecheck.log 2>&1||true)&&rm -rf dist&&mkdir dist&&cp /tmp/typecheck.log dist/typecheck.log&&echo '<pre>typecheck diagnostic</pre>'>dist/index.html",
+  "buildCommand": "(pnpm test >/tmp/test.log 2>&1||true)&&rm -rf dist&&mkdir dist&&cp /tmp/test.log dist/test.log&&echo '<pre>unit test diagnostic</pre>'>dist/index.html",
   "installCommand": "pnpm install --frozen-lockfile",
   "outputDirectory": "dist",
   "framework": "vite",
