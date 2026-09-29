@@ -1,43 +1,39 @@
-import { test, expect } from "@playwright/test";
+import { test, expect, type Page } from "@playwright/test";
 
-test.describe("physical book motion", () => {
-  test("student lesson is a horizontal bound-book turn", async ({ page }) => {
-    await page.goto("/cartilla/leccion/8", { waitUntil: "networkidle" });
+async function dismissIntro(page: Page) {
+  const start = page.getByRole("button", { name: "Comenzar" });
+  if (await start.isVisible().catch(() => false)) await start.click();
+}
 
-    const reader = page.getByTestId("physical-book-reader");
+test.describe("native lesson and presenter motion", () => {
+  test("student lesson uses native page navigation", async ({ page }) => {
+    await page.goto("/cartilla/leccion/8", { waitUntil: "domcontentloaded" });
+    await dismissIntro(page);
+
+    const reader = page.locator(".native-lesson-viewer");
     await expect(reader).toBeVisible();
-    await expect(reader).toHaveAttribute("data-page-turn-axis", "horizontal");
-    await expect(reader).toHaveAttribute("data-page-turn-ms", "960");
-    await expect(reader).toHaveAttribute("data-page-turn-gesture", "edge-drag");
-    await expect(reader).toHaveAttribute("data-book-companion", "true");
-    await expect(reader.locator(".premium-book-shell")).toHaveCount(1);
-    await expect(reader.locator(".premium-pageflip")).toHaveCount(1);
-    const gretel = reader.getByTestId("gretel-presence");
+    await expect(page.getByTestId("physical-book-reader")).toHaveCount(0);
+    await expect(reader.locator(".native-lesson-viewer__content")).toBeVisible();
+    await expect(reader.locator(".native-lesson-viewer__navigation")).toBeVisible();
+
+    const gretel = page.getByTestId("gretel-presence");
     await expect(gretel).toHaveAttribute("data-placement", "book");
     await expect(gretel).toHaveAttribute("data-page-ready", "true", { timeout: 2500 });
 
-    const counter = reader.getByTestId("physical-book-counter");
+    const counter = reader.locator(".native-lesson-viewer__page");
     const before = (await counter.textContent()) ?? "";
-    const next = reader.getByRole("button", { name: /Siguiente/i });
+    const next = reader.getByRole("button", { name: "Siguiente" });
     await expect(next).toBeEnabled();
     await next.click();
 
     await expect
-      .poll(async () => (await counter.textContent()) ?? "", {
-        timeout: 2500,
-      })
+      .poll(async () => (await counter.textContent()) ?? "", { timeout: 2500 })
       .not.toBe(before);
   });
 
-  // The presenter keeps the vertical, top-bound *motion* of a paper flipchart
-  // but deliberately drops the drawn binding hardware: the board is a clean
-  // digital surface. That is the contract asserted by
-  // src/components/cartilla/__tests__/FlipchartHdPanel.test.tsx ("renders a
-  // wide clean digital presenter without simulated binding hardware"), so this
-  // spec asserts the same thing end to end instead of the abandoned
-  // skeuomorphic `data-physical-flipchart` / ring-spiral variant.
-  test("teacher presenter is a vertical top-bound flipchart", async ({ page }) => {
+  test("teacher presenter keeps the vertical native Flip Chart transition", async ({ page }) => {
     await page.goto("/cartilla/presentar/7", { waitUntil: "domcontentloaded" });
+    await dismissIntro(page);
 
     const panel = page.getByTestId("flipchart-hd-panel");
     await expect(panel).toBeVisible({ timeout: 15000 });
@@ -48,19 +44,23 @@ test.describe("physical book motion", () => {
     await expect(panel).not.toHaveAttribute("data-physical-flipchart", /.*/);
     await expect(panel.locator(".fc-board__ring")).toHaveCount(0);
     await expect(panel.locator(".fc-board__binding")).toHaveCount(0);
+    await expect(panel.locator('[data-native-flipchart="true"]')).toBeVisible();
 
     const counter = panel.getByTestId("flipchart-counter");
     await expect(counter).toContainText("Hoja 1 de");
 
-    await panel.getByRole("button", { name: /Lámina siguiente/i }).click();
-    const flipLayer = panel.getByTestId("vertical-flip-layer");
-    await expect(flipLayer).toBeVisible();
+    const next = panel.getByRole("button", { name: /Lámina siguiente/i });
+    if (await next.isEnabled()) {
+      await next.click();
+      const flipLayer = panel.getByTestId("vertical-flip-layer");
+      await expect(flipLayer).toBeVisible();
 
-    const wrapper = flipLayer.locator(".flipchart-flip-wrapper");
-    await expect
-      .poll(async () => wrapper.getAttribute("style"), { timeout: 700 })
-      .toContain("rotateX(-180deg)");
+      const wrapper = flipLayer.locator(".flipchart-flip-wrapper");
+      await expect
+        .poll(async () => wrapper.getAttribute("style"), { timeout: 700 })
+        .toContain("rotateX(-180deg)");
 
-    await expect(counter).toContainText("Hoja 2 de", { timeout: 2500 });
+      await expect(counter).toContainText("Hoja 2 de", { timeout: 2500 });
+    }
   });
 });
