@@ -1,8 +1,10 @@
 import { useEffect, useMemo, useRef, useState } from "react";
 import { Volume2, VolumeX, RotateCcw, SkipForward } from "lucide-react";
-import { GretelLiveAvatar, type GretelLiveAvatarRef, type GretelPerformanceAction } from "@/components/gretel/GretelLiveAvatar";
-import { isGretelVoiceMuted, setGretelVoiceMuted } from "@/lib/gretel-voice";
+import { cancelGretelSpeech, isGretelVoiceMuted, setGretelVoiceMuted, speakAsGretel } from "@/lib/gretel-voice";
 import type { GretelCinematic as GretelCinematicSpec } from "@/content/gretel-cinematics";
+
+/** Canonical full-body portrait of the authentic Gretel (EJN-confirmed reference). */
+export const GRETEL_AUTHENTIC_PORTRAIT_SRC = "/cartilla/images/gretel/gretel-autentica.png";
 
 export function GretelCinematic({
   cinematic,
@@ -11,7 +13,6 @@ export function GretelCinematic({
   cinematic: GretelCinematicSpec;
   onComplete: () => void;
 }) {
-  const avatarRef = useRef<GretelLiveAvatarRef>(null);
   const onCompleteRef = useRef(onComplete);
   const [muted, setMuted] = useState(isGretelVoiceMuted());
   const [run, setRun] = useState(0);
@@ -39,28 +40,25 @@ export function GretelCinematic({
         timers.add(timer);
       });
 
-    const perform = async (action: GretelPerformanceAction) => {
-      avatarRef.current?.perform(action);
-      const dwell =
-        action === "enter" ? 320 :
-        action === "wave" ? 650 :
-        action.startsWith("point") ? 620 :
-        action === "listen" ? 520 :
-        action === "teach" ? 620 :
-        action === "help" ? 620 :
-        action === "gentle-error" ? 560 :
-        action === "celebrate" ? 760 :
-        action === "exit" ? 360 : 220;
-      await wait(dwell);
-    };
+    const dwellFor = (action: string) =>
+      action === "enter" ? 320 :
+      action === "wave" ? 650 :
+      action.startsWith("point") ? 620 :
+      action === "listen" ? 520 :
+      action === "teach" ? 620 :
+      action === "help" ? 620 :
+      action === "gentle-error" ? 560 :
+      action === "celebrate" ? 760 :
+      action === "exit" ? 360 : 220;
 
     const timer = window.setTimeout(async () => {
       for (const action of cinematic.actions) {
         if (cancelled) return;
         if (action === "talk") {
-          await avatarRef.current?.speakMessage(cinematic.script);
+          // Voice-over carries the spoken line; the caption card carries the text.
+          await speakAsGretel(cinematic.script);
         } else {
-          await perform(action as GretelPerformanceAction);
+          await wait(dwellFor(action));
         }
       }
       if (!cancelled) onCompleteRef.current();
@@ -71,7 +69,7 @@ export function GretelCinematic({
       window.clearTimeout(timer);
       timers.forEach((item) => window.clearTimeout(item));
       window.clearInterval(progressTimer);
-      avatarRef.current?.cancel();
+      cancelGretelSpeech();
     };
   }, [cinematic.actions, cinematic.id, cinematic.script, run]);
 
@@ -86,7 +84,7 @@ export function GretelCinematic({
     const next = !muted;
     setMuted(next);
     setGretelVoiceMuted(next);
-    if (next) avatarRef.current?.cancel();
+    if (next) cancelGretelSpeech();
     else setRun((value) => value + 1);
   };
 
@@ -107,9 +105,14 @@ export function GretelCinematic({
           <div className="rounded-full border border-[#c98c4f]/25 bg-[#fff8e8]/90 px-3 py-1 text-[10px] font-black uppercase tracking-[0.18em] text-[#9a612b]">
             {cinematic.kind === "lesson" ? `Lección ${cinematic.lesson}` : cinematic.kind === "welcome" ? "Bienvenida" : cinematic.kind === "how-to" ? "Cómo aprender con Gretel" : cinematic.kind === "final" ? "Celebración final" : "Momento especial"}
           </div>
-          {/* No floating bubble: the caption card below carries the spoken line,
-              and the bubble would cover Gretel's face. */}
-          <GretelLiveAvatar ref={avatarRef} size="lg" managed showBubble={false} />
+          {/* The authentic book-cover Gretel. No floating bubble: the caption card
+              below carries the spoken line, and a bubble would cover her face. */}
+          <img
+            src={GRETEL_AUTHENTIC_PORTRAIT_SRC}
+            alt="Gretel, la niña de la cartilla"
+            className="gretel-cinematic-portrait"
+            draggable={false}
+          />
           <div className="min-h-[5.6rem] rounded-2xl border border-amber-200/70 bg-[#fff8e8]/95 px-5 py-4 text-xl font-black leading-relaxed text-stone-800 shadow-sm sm:text-2xl" role="status" aria-live="polite">
             {activeCaption}
           </div>
