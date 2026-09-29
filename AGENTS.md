@@ -5,17 +5,26 @@ project manager — work out what needs doing and do it.
 
 ---
 
-## CARTILLA LAYOUT RULE — HIGHEST PRIORITY, NO EXCEPTIONS
+## CARTILLA DIGITAL DIRECTIVE — HIGHEST PRIORITY, NO EXCEPTIONS
 
 Before doing any work on the Cartilla Workbook or teacher Flip Chart, read
-`CARTILLA_SOURCE_OF_TRUTH.md`.
+`CARTILLA_DIGITAL_DIRECTIVE.md`. It is the canonical directive and overrides
+all prior layout/fidelity instructions.
 
-The physical books define the LAYOUT. The digital product must have the same
-layout as the book — it should look like the book, but in a modern, digitized,
-user-friendly, seamless, interactive way. It does NOT need to be identical
-inch-for-inch.
+**In brief:** Every page must have the same layout STRUCTURE as the physical
+book (same elements, same arrangement, same order, same content) — but as a
+modern, digitized, user-friendly, interactive digital product. NOT inch-for-inch
+identical. The book defines WHAT goes WHERE. You define HOW it looks and feels
+digitally.
 
-Authoritative source files are in:
+The three layers:
+- **STRUCTURE** (what goes where) → MUST match the book
+- **CONTENT** (text, images) → MUST match the book (images locked, do not modify)
+- **PRESENTATION** (styling, interactions) → MODERN digital, your judgment
+
+**Recognition test:** Would the teacher recognize this as that page from the book? If yes on structure, you got it right — even if the visual style is modern.
+
+Authoritative source files (define the layout structure):
 
 `Google Drive > Cartilla Production Hub > 01 Source Documents`
 
