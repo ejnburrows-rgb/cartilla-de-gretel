@@ -1,7 +1,22 @@
-import { test, expect } from '@playwright/test';
+import { test, expect, type Page } from '@playwright/test';
+
+async function dismissIntro(page: Page) {
+  const start = page.getByRole('button', { name: 'Comenzar' });
+  if (await start.isVisible().catch(() => false)) await start.click();
+}
+
+async function goToSecondNativePage(page: Page) {
+  const reader = page.locator('.native-lesson-viewer');
+  await expect(reader).toBeVisible();
+  const counter = reader.locator('.native-lesson-viewer__page');
+  await reader.getByRole('button', { name: 'Siguiente' }).click();
+  await expect(counter).toContainText('Página 2');
+}
+
 
 test('picture selection grades a wrong attempt, retry, and independent completion', async ({ page }) => {
   await page.goto('/cartilla/leccion/1', { waitUntil: 'domcontentloaded' });
+  await dismissIntro(page);
   const grid = page.locator('.fp-ix-grid').first();
   await expect(grid).toBeVisible();
   const wrong = grid.locator('.fp-ix-cell[data-gretel-correct="false"]:not(:disabled)').first();
@@ -20,6 +35,7 @@ test('picture selection grades a wrong attempt, retry, and independent completio
 
 test('real letter tracing completes and can reset', async ({ page }) => {
   await page.goto('/cartilla/leccion/7', { waitUntil: 'domcontentloaded' });
+  await dismissIntro(page);
   const trace = page.locator('.fp-trace:visible').first();
   await expect(trace).toBeVisible();
   for (let i = 0; i < 70; i++) {
@@ -35,8 +51,8 @@ test('real letter tracing completes and can reset', async ({ page }) => {
 test('vowel choice responds to wrong and correct placement', async ({ page }) => {
   await page.setViewportSize({ width: 390, height: 844 });
   await page.goto('/cartilla/leccion/1', { waitUntil: 'domcontentloaded' });
-  await page.getByTestId('physical-book-reader').locator('.book-reader-controls button').last().click();
-  await expect(page.getByTestId('physical-book-counter')).toContainText('Página 2');
+  await dismissIntro(page);
+  await goToSecondNativePage(page);
   const row = page.locator('.fp-ix-pick__row:visible').first();
   await expect(row).toBeVisible();
   const letter = row.locator('.fp-ix-pick__letter');
@@ -52,6 +68,7 @@ test('vowel choice responds to wrong and correct placement', async ({ page }) =>
 
 test('drawing accepts a real stroke and completes', async ({ page }) => {
   await page.goto('/cartilla/leccion/7', { waitUntil: 'domcontentloaded' });
+  await dismissIntro(page);
   const draw = page.locator('.am-dibuja:visible').first();
   await expect(draw).toBeVisible();
   await draw.getByRole('button', { name: 'Dibujar', exact: true }).click();
@@ -73,6 +90,7 @@ test('touch tap can place a vowel without dragging', async ({ browser }) => {
   const page = await context.newPage();
   try {
     await page.goto('/cartilla/leccion/1', { waitUntil: 'domcontentloaded' });
+  await dismissIntro(page);
     await page.getByTestId('physical-book-reader').locator('.book-reader-controls button').last().tap();
     await expect(page.getByTestId('physical-book-counter')).toContainText('Página 2');
     const row = page.locator('.fp-ix-pick__row:visible').first();
