@@ -8,6 +8,7 @@
 import { getFullWorkbookPages } from "./book-faithful";
 
 const WORKBOOK_PAGE_COUNT = 90;
+const MISSING_CANONICAL_SOURCE_PAGES = new Set([86, 87]);
 
 function zeroPad(n: number): string {
   return String(n).padStart(3, "0");
@@ -18,9 +19,15 @@ export function getRestoredPageImage(_pageNumber: number): string | null {
   return null;
 }
 
-/** Stable repository-controlled source page path. */
+/** Stable repository-controlled source page path.
+ * Printed pages 86–87 are a verified gap in the authoritative source scan.
+ * Native structured pages remain the product surface for those pages. */
 export function getBookPageImage(pageNumber: number): string | null {
-  if (pageNumber >= 1 && pageNumber <= WORKBOOK_PAGE_COUNT) {
+  if (
+    pageNumber >= 1 &&
+    pageNumber <= WORKBOOK_PAGE_COUNT &&
+    !MISSING_CANONICAL_SOURCE_PAGES.has(pageNumber)
+  ) {
     return `/cartilla/art/source/workbook/page-${zeroPad(pageNumber)}.jpg`;
   }
   return null;
