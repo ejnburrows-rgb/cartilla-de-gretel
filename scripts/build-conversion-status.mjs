@@ -18,6 +18,7 @@ const allInteractions = Array.isArray(interactions) ? interactions : Object.valu
 // Certification remains a separate QA state; native rendering alone does not
 // imply animation/cinematic certification.
 const nativePages = new Set(Array.from({ length: 90 }, (_, i) => i + 1));
+const missingCanonicalSourcePages = new Set([86, 87]);
 const records = inventory.flatMap(({ lessonId, pages }) => {
   const [start, end] = lessonRanges.get(lessonId).split('-').map(Number);
   return Array.from({ length: end - start + 1 }, (_, offset) => {
@@ -25,7 +26,9 @@ const records = inventory.flatMap(({ lessonId, pages }) => {
     const regions = layouts[String(physicalPage)]?.regions ?? [];
     const census = manifest.find((p) => p.physicalPage === physicalPage);
     const listedScan = pages[offset] ? `/cartilla/images/source/${pages[offset]}` : null;
-    const canonicalScan = `/cartilla/art/source/workbook/page-${String(physicalPage).padStart(3, '0')}.jpg`;
+    const canonicalScan = missingCanonicalSourcePages.has(physicalPage)
+      ? null
+      : `/cartilla/art/source/workbook/page-${String(physicalPage).padStart(3, '0')}.jpg`;
     const image = canonicalScan;
     const illustrationAssets = [...new Set(regions.flatMap((r) => [
       r.illustrationSrc,
@@ -65,7 +68,7 @@ const output = {
   notes: [
     'The separate 90-page workbook manifest disagrees with lesson-exercises/lesson-07.ts about Lesson 7 numbering; the actual student route uses page-layouts.json pages 19–22.',
     'Pages 1–90 use the native student route and FaithfulPageRenderer. Native promotion is complete; animation/cinematic certification remains separate.',
-    'All 90 canonical instructional source pages are present in the repository; provenance references remain for comparison and must never be substituted with unrelated artwork.',
+    'The authoritative source scan has a verified gap at printed pages 86–87. Native structured content remains the product surface there; no substitute scan is invented.',
   ],
   pages: records,
 };
