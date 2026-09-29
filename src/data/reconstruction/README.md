@@ -1,18 +1,25 @@
-# Cartilla deterministic reconstruction
+# Cartilla page mapping / placement data
 
-This directory is separate from the HTML `FaithfulPageRenderer`.
+This directory contains reference data for identifying the correct Workbook and Flip Chart pages.
+
+It does **not** authorize image editing, color transfer, remastering, illustration replacement, or rebuilding book pages from separate objects.
+
+Read `../../../BOOK_FIDELITY_RULE.md` first.
 
 ## Canonical inputs
 
-- `student-to-flipchart-284.json` — exact copy of the authoritative 98-record Workbook-PDF-sheet ↔ Flip Chart mapping. It contains **284 total page links** (109 primary + 175 supplemental). It is a reference-pool gate, not an object-placement map.
+- `student-to-flipchart-284.json` — authoritative Workbook-PDF-sheet ↔ Flip Chart relationship data. It is a reference-pool/page-relationship gate, not permission to copy artwork between books.
 - `pdf-sheet-to-printed-page.json` — verified translation between the 98-sheet source PDF and printed Workbook page numbers 1–90. Printed pages 86–87 are absent from the 98-sheet source scan.
-- `reconstruction-plan.json` — object-level placements. Coordinates must be verified against the actual PDFs; never reuse the failed Lovable overlay coordinates.
-- `production-manifest.json` — only visually approved reconstructed masters with full provenance. The application may use an entry only when its verification status is PASS and all provenance fields validate.
+- `reconstruction-plan.json` — historical placement data. Treat coordinates as hints only; verify placement visually against the authoritative physical-book PDFs.
+- `production-manifest.json` — historical provenance/verification metadata. It does not override the current book-fidelity rule.
 
-## Reconstruction priority
+## Current priority
 
-1. If the mapped Flip Chart contains the exact same drawing, reuse the authentic colored Flip Chart crop directly in the exact Workbook illustration region.
-2. If geometry is not identical, keep the Workbook drawing and use only a separately verified color-transfer result.
-3. Never substitute a merely similar illustration.
+1. Identify the exact target book and page.
+2. Use that book's authoritative page as the visual layout reference.
+3. Place the existing approved/fixed/cropped image assets in the correct source-faithful positions.
+4. Preserve page geometry, spacing, scale, order, and composition.
+5. Do not alter the image pixels or transfer artwork/colors between books.
+6. Verify side-by-side against the corresponding book page.
 
-The engine is `scripts/reconstruct-workbook.mjs`. It operates on PDF pixels and does not call `FaithfulPageRenderer`.
+If historical reconstruction tooling conflicts with this rule, the tooling must be changed or bypassed; the book must not be changed to fit the tooling.
