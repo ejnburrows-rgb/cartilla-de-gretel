@@ -163,3 +163,16 @@
 @media (max-width: 640px) {
   .gretel-presence--book .gretel-speech-bubble { right: calc(100% - 20px); }
 }
+
+/* Talking mouth: gentle open/close cycle (replaces framer-motion ry tween
+   which left the ry attribute undefined and threw console errors). */
+@keyframes gretel-mouth-talk {
+  0%, 100% { ry: 7; }
+  50% { ry: 12; }
+}
+.gretel-mouth--talking {
+  animation: gretel-mouth-talk 0.42s ease-in-out infinite;
+}
+@media (prefers-reduced-motion: reduce) {
+  .gretel-mouth--talking { animation: none; }
+}

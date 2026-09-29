@@ -229,14 +229,13 @@ export function GretelLayerRig({
         <motion.g data-rig-part="mouth">
           {mouthOpen ? (
             <>
-              <motion.ellipse
+              <ellipse
                 cx="180"
                 cy="222"
                 rx="18"
                 ry="9"
                 fill="#8b3942"
-                animate={activeMotion ? { ry: [7, 12, 7, 10] } : { ry: 9 }}
-                transition={activeMotion ? { duration: 0.42, repeat: Infinity, ease: "easeInOut" } : { duration: 0 }}
+                className={activeMotion ? "gretel-mouth--talking" : undefined}
               />
               <path d="M166 220 Q180 229 194 220" fill="none" stroke="#ef9b9f" strokeWidth="3" strokeLinecap="round" />
             </>
