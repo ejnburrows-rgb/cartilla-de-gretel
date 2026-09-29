@@ -37,7 +37,14 @@ describe("GretelMachine", () => {
     expect(gretelReducer("idle", { type: "EXIT" })).toBe("exiting");
   });
 
-  it("heals illegal transitions to idle", () => {
+  it("lets the lesson-start wave interrupt settling without warning-heal loops", () => {
+    expect(canTransition("settling", { type: "WAVE" })).toBe(true);
+    expect(gretelReducer("settling", { type: "WAVE" })).toBe("waving");
+    expect(canTransition("waving", { type: "WAVE" })).toBe(true);
+    expect(gretelReducer("waving", { type: "WAVE" })).toBe("waving");
+  });
+
+  it("heals genuinely illegal transitions to idle", () => {
     expect(gretelReducer("talking", { type: "WAVE" })).toBe("idle");
   });
 

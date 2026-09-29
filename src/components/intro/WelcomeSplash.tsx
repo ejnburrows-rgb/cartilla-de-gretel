@@ -3,7 +3,7 @@ import "@/styles/welcome-splash.css";
 import { getGeneratedScene } from "@/lib/generated-art";
 
 /**
- * WelcomeSplash — the "¡Bienvenidos!" first screen at "/" (src/routes/index.tsx).
+ * WelcomeSplash — the first screen at "/" (src/routes/index.tsx).
  *
  * Direction (owner decision 2026-07-25, issue #345): ONE cohesive crowded-garden
  * welcome scene, superseding both #243's "Gretel alone" and the earlier cutout
@@ -18,10 +18,12 @@ import { getGeneratedScene } from "@/lib/generated-art";
  * approved yet, it falls back to the existing painted garden plate (real book
  * art) so the screen always works.
  *
- * TEXT IS NEVER BAKED INTO THE PICTURE. The headline, the subtitle and the
- * Entrar button are real HTML/CSS, so they stay selectable, screen-reader
- * readable and crisp at any zoom — and can be corrected without regenerating
- * artwork.
+ * TEXT IS NEVER BAKED INTO THE PICTURE. The headline and the Entrar button
+ * are real HTML/CSS, so they stay selectable, screen-reader readable and
+ * crisp at any zoom — and can be corrected without regenerating artwork.
+ *
+ * Headline direction (owner, 2026-09-29): big colorful kid-friendly sticker
+ * words — "Bienvenido a La Cartilla de Gretel", one bright color per word.
  */
 
 /** Fallback: the painted garden plate already used elsewhere (real book art). */
@@ -50,8 +52,14 @@ export function WelcomeSplash() {
       <div className="wc-splash__scrim" aria-hidden />
 
       <header className="wc-splash__headline">
-        <h1 className="wc-splash__title">¡Bienvenidos!</h1>
-        <p className="wc-splash__subtitle">La Cartilla de Gretel</p>
+        <h1 className="wc-splash__title" aria-label="Bienvenido a La Cartilla de Gretel">
+          <span className="wc-word wc-word--w1" aria-hidden="true">Bienvenido</span>{" "}
+          <span className="wc-word wc-word--tiny" aria-hidden="true">a</span>{" "}
+          <span className="wc-word wc-word--w2" aria-hidden="true">La</span>{" "}
+          <span className="wc-word wc-word--w3" aria-hidden="true">Cartilla</span>{" "}
+          <span className="wc-word wc-word--tiny" aria-hidden="true">de</span>{" "}
+          <span className="wc-word wc-word--w4" aria-hidden="true">Gretel</span>
+        </h1>
       </header>
 
       <div className="wc-splash__cta-wrap">

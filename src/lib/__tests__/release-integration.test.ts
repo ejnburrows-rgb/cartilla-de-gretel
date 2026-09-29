@@ -59,15 +59,17 @@ describe("release integration — workbook + lessons", () => {
     expect(buildPageArray(24)).toHaveLength(4);
   });
 
-  it("fallback chain prefers improved art then lineart then scan", () => {
-    const chain = getWorkbookPageFallbackChain(4);
-    expect(chain.length).toBeGreaterThanOrEqual(2);
-    expect(chain[0]).toMatch(
-      /art\/(restored|hd)\/workbook\/page-004\.(png|jpg)|art\/color\/workbook/,
+  it("keeps the fallback chain repository-controlled and does not invent restored artwork", () => {
+    const chain = getWorkbookPageFallbackChain(
+      4,
+      "/cartilla/art/hd/lineart/page-004.png",
     );
-    // scan or lineart appears later
+    expect(chain[0]).toBe("/cartilla/art/source/workbook/page-004.jpg");
+    expect(chain).toContain("/cartilla/art/hd/lineart/page-004.png");
     expect(
-      chain.some((p) => p.includes("lineart") || p.includes("source") || p.includes("images")),
-    ).toBe(true);
+      chain.some((p) =>
+        /art\/(restored|hd)\/workbook|art\/color\/workbook/.test(p),
+      ),
+    ).toBe(false);
   });
 });

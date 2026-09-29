@@ -45,12 +45,12 @@ async function renderSplash() {
 }
 
 describe('Welcome splash ("/") — one generated garden scene (issue #345)', () => {
-  it("shows the Bienvenidos headline, subtitle, and a single Entrar button to /entrar", async () => {
+  it("shows the colorful Bienvenido headline and a single Entrar button to /entrar", async () => {
     await renderSplash();
 
     const splash = await screen.findByTestId("welcome-splash");
-    expect(splash.textContent).toContain("¡Bienvenidos!");
-    expect(splash.textContent).toContain("La Cartilla de Gretel");
+    // Owner direction 2026-09-29: big colorful kid-friendly sticker words.
+    expect(splash.textContent).toContain("Bienvenido a La Cartilla de Gretel");
 
     const entrar = await screen.findByTestId("wc-entrar");
     expect(entrar.textContent?.trim()).toBe("Entrar");
@@ -67,7 +67,7 @@ describe('Welcome splash ("/") — one generated garden scene (issue #345)', () 
     // A real <h1> is what keeps the title selectable, translatable and
     // readable by a screen reader.
     const heading = await screen.findByRole("heading", { level: 1 });
-    expect(heading.textContent).toBe("¡Bienvenidos!");
+    expect(heading.textContent).toBe("Bienvenido a La Cartilla de Gretel");
   });
 
   it("renders exactly one full-scene image, and it is decorative", async () => {

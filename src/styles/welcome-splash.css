@@ -52,29 +52,42 @@
 }
 
 .wc-splash__title {
-  margin: 0;
+  margin: 0 auto;
+  max-width: 14em;
   font-family: var(--font-book-title, "Fredoka", ui-rounded, system-ui, sans-serif);
   font-weight: 800;
-  font-size: clamp(2.5rem, 9vw, 5rem);
-  line-height: 1.05;
-  color: #fff8e6;
+  font-size: clamp(2.4rem, 9vw, 4.8rem);
+  line-height: 1.12;
   letter-spacing: 0.01em;
-  /* Layered warm outline so the type reads over a busy, colourful scene. */
-  text-shadow:
-    0 2px 0 #b8430f,
-    0 4px 0 rgba(120, 55, 12, 0.55),
-    0 6px 22px rgba(30, 16, 4, 0.6);
+  text-wrap: balance;
 }
 
-.wc-splash__subtitle {
-  margin: 0.4rem 0 0;
-  font-family: var(--font-book-title, "Fredoka", ui-rounded, system-ui, sans-serif);
-  font-weight: 700;
-  font-size: clamp(1rem, 3vw, 1.5rem);
-  color: #fff3d6;
+/* Big colorful kid-sticker words: one bright color per word, white sticker
+ * outline, playful tilt. The aria-label on the h1 carries the plain text for
+ * screen readers; these spans are decorative. */
+.wc-word {
+  display: inline-block;
+  padding: 0 0.08em;
+  -webkit-text-stroke: 2px #fffdf6;
+  paint-order: stroke fill;
   text-shadow:
-    0 1px 0 rgba(120, 55, 12, 0.7),
-    0 3px 14px rgba(30, 16, 4, 0.7);
+    0 3px 0 rgba(255, 253, 246, 0.9),
+    0 8px 22px rgba(30, 16, 4, 0.55);
+}
+
+.wc-word--w1 { color: #ff9f1c; transform: rotate(-2deg); }
+.wc-word--w2 { color: #4d96ff; transform: rotate(1.6deg); }
+.wc-word--w3 { color: #5fbf3f; transform: rotate(-1.4deg); }
+.wc-word--w4 { color: #ff5d8f; transform: rotate(1.8deg); }
+.wc-word--tiny {
+  color: #fffdf6;
+  font-size: 0.62em;
+  -webkit-text-stroke: 0;
+  text-shadow:
+    0 2px 0 rgba(120, 55, 12, 0.65),
+    0 5px 16px rgba(30, 16, 4, 0.6);
+  transform: rotate(-1deg);
+  vertical-align: 0.12em;
 }
 
 /* ── Entrar ─────────────────────────────────────────────────────── */

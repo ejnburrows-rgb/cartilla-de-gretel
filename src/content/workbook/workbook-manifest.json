@@ -9045,10 +9045,10 @@
       "physicalPage": 87,
       "lesson": 24,
       "instruction": "Traza con tu mejor letra.",
-      "background": "/cartilla/art/source/workbook/page-087.jpg",
+      "background": null,
       "objects": [],
       "status": "mapped",
-      "source": "real full-page scan (/cartilla/images/source/z/z-page-58.jpg) used as a temporary fallback — no per-object crops exist yet for tracing/fill-in-blank content on page 87"
+      "source": "source-pending: the authoritative original scan for printed page 87 is absent; the native structured page remains the production learning surface and no substitute scan is fabricated"
     },
     {
       "physicalPage": 88,

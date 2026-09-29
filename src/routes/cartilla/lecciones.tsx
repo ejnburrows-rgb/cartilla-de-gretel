@@ -5,6 +5,8 @@ import {
   ArrowLeft,
   Check,
   Lock,
+  Volume2,
+  VolumeX,
 } from "lucide-react";
 import { CATALOG, TOTAL_LESSONS } from "@/lib/lesson-catalog";
 import {
@@ -16,7 +18,7 @@ import { useStudentSession } from "@/lib/student-session";
 import { useLanguage } from "@/context/LanguageContext";
 import { sCopy } from "@/content/student-copy";
 import { GardenBackdrop } from "@/components/cartilla/GardenBackdrop";
-import { GretelPresence } from "@/components/gretel/GretelPresence";
+import { speakAsGretel, cancelGretelSpeech, HOME_GREETING } from "@/lib/gretel-voice";
 import { playUiTick } from "@/lib/piano-audio";
 import { computeLessonStatus } from "@/lib/progress-calculation";
 
@@ -24,6 +26,50 @@ export const Route = createFileRoute("/cartilla/lecciones")({
   component: Lecciones,
   head: () => ({ meta: [{ title: "24 Lecciones — La Cartilla de Gretel" }] }),
 });
+
+/**
+ * The real Gretel welcomes kids on the learning path: the authentic book
+ * portrait (cropped from the owner's approved cover art), not the redrawn
+ * rig avatar. The spoken greeting stays via the existing Gretel voice.
+ */
+function GretelBienvenida() {
+  const [speaking, setSpeaking] = useState(false);
+  const toggleSaludo = () => {
+    if (speaking) {
+      cancelGretelSpeech();
+      setSpeaking(false);
+      return;
+    }
+    setSpeaking(true);
+    void speakAsGretel(HOME_GREETING, { onEnd: () => setSpeaking(false) }).catch(
+      () => setSpeaking(false),
+    );
+  };
+  return (
+    <figure className="mx-auto mt-6 max-w-[300px]">
+      <img
+        src="/cartilla/images/gretel/gretel-autentica.jpg"
+        alt="Gretel, la niña de la cartilla"
+        className="w-full rounded-3xl border-4 border-white shadow-[0_10px_30px_rgba(120,72,20,0.25)]"
+        draggable={false}
+      />
+      <figcaption className="mt-3 flex items-center justify-center gap-2">
+        <span className="rounded-full border border-stone-200 bg-white px-3 py-1 text-sm font-black text-stone-700 shadow-sm">
+          Gretel
+        </span>
+        <button
+          type="button"
+          onClick={toggleSaludo}
+          aria-pressed={speaking}
+          className="inline-flex items-center gap-1.5 rounded-full border border-stone-200 bg-white px-3 py-1 text-sm font-bold text-stone-600 shadow-sm hover:text-stone-900"
+        >
+          {speaking ? <VolumeX className="w-4 h-4" /> : <Volume2 className="w-4 h-4" />}
+          <span>{speaking ? "Silenciar" : "Escuchar saludo"}</span>
+        </button>
+      </figcaption>
+    </figure>
+  );
+}
 
 function Lecciones() {
   const { lang } = useLanguage();
@@ -102,10 +148,7 @@ function Lecciones() {
         </h1>
         <p className="text-stone-500 font-medium mt-2">{import.meta.env.VITE_CRM_REVIEW === "true" ? "Elige cualquiera de las 24 lecciones y practica a tu ritmo." : t.aprendePaso[lang]}</p>
 
-        <GretelPresence
-          variant="home"
-          className="cartilla-journey-gretel"
-        />
+        <GretelBienvenida />
 
         {/* Progress Bar */}
         <div className="mt-8 max-w-sm mx-auto bg-white p-4 rounded-2xl shadow-sm border border-stone-200">
