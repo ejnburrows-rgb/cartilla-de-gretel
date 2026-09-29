@@ -32,6 +32,24 @@ export type FlipchartWordGroup = {
   color: string;
 };
 
+/**
+ * Exact-replica layout types (book §2). Each flipchart page has one of 6
+ * distinct designs in the physical book:
+ * - frontmatter: pages 1-2 (cover, copyright)
+ * - vowel-header (Type A): pages 3-8 — verse in pastel panel + vowel circles + vocab grid
+ * - consonant-vocab (Type B): lesson page 1 — syllable crescent + letter oval + 3-col grid
+ * - syllable-drill (Type C): lesson page 2 — syllable rows/bars + word columns + reading bar
+ * - reading-panel (Type D): lesson page 3 — pastel panel with bold title + verse
+ * - story-letter (Type E): pages 44, 62 — asymmetric story layout
+ */
+export type FlipchartLayoutType =
+  | "frontmatter"
+  | "vowel-header"
+  | "consonant-vocab"
+  | "syllable-drill"
+  | "reading-panel"
+  | "story-letter";
+
 export type NativeFlipchartPage = {
   flipchartPage: number;
   lesson: number;
@@ -43,8 +61,25 @@ export type NativeFlipchartPage = {
   slots: string[];
   art: Array<{ src: string; word: string }>;
   compositionKind: "art" | "typography-only" | "frontmatter";
+  /** Exact-replica layout type (book §2) — drives the page renderer. */
+  layoutType: FlipchartLayoutType;
   hasDigitalText: boolean;
 };
+
+/**
+ * Classify a flipchart page into its exact-replica layout type.
+ * Consonant lessons (7-24) each span 3 pages: vocab → drill → reading.
+ * Pages 44 ("rr") and 62 ("Z") are story/letter exceptions.
+ */
+export function classifyLayoutType(pageNumber: number): FlipchartLayoutType {
+  if (pageNumber <= 2) return "frontmatter";
+  if (pageNumber >= 3 && pageNumber <= 8) return "vowel-header";
+  if (pageNumber === 44 || pageNumber === 62) return "story-letter";
+  const lessonPageIndex = (pageNumber - 9) % 3;
+  if (lessonPageIndex === 0) return "consonant-vocab";
+  if (lessonPageIndex === 1) return "syllable-drill";
+  return "reading-panel";
+}
 
 const digitalPages = { ...firstPages, ...middlePages, ...lastPages } as Record<string, FlipchartTextItem[]>;
 const frameMap = frames as Record<string, { width: number; height: number; left: number; right: number; bottom: number }>;
@@ -382,6 +417,7 @@ export function getNativeFlipchartPage(pageNumber: number): NativeFlipchartPage 
     art,
     compositionKind:
       pageNumber <= 2 ? "frontmatter" : art.length > 0 ? "art" : "typography-only",
+    layoutType: classifyLayoutType(pageNumber),
     hasDigitalText,
   };
 }

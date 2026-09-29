@@ -39,7 +39,13 @@ describe("FlipchartHdPanel — CRM-grade presenter board", () => {
       expect(images.every((img) => !(img.getAttribute("src") ?? "").includes("/delivery/flipchart/"))).toBe(true);
       expect(container.textContent?.trim().length).toBeGreaterThan(0);
       if (page.flipchartPage > 2) {
-        expect(container.querySelector('[data-testid="flipchart-art-grid"]') || container.querySelector(".fc-native-board__letter-stage")).toBeTruthy();
+        // Exact replica: pages render via layout-type-specific compositions (book §2).
+        // Accept the art grid, legacy letter stage, or any layout-type marker.
+        expect(
+          container.querySelector('[data-testid="flipchart-art-grid"]') ||
+          container.querySelector(".fc-native-board__letter-stage") ||
+          container.querySelector("[data-layout-type]"),
+        ).toBeTruthy();
       }
       unmount();
     }
