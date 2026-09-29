@@ -193,15 +193,18 @@ function classify(items: FlipchartTextItem[]) {
   }
 
   const rest = remainder.filter((item) => !syllableParts.has(item));
-  const isStoryPage = storyTitle.length > 0;
-  const lower = isStoryPage
-    ? []
-    : rest.filter(
-        (item) =>
-          item.y >= 340 &&
-          item.fontSize >= 30 &&
-          !/\s/.test(item.text.trim()),
-      );
+  // Single-token items in the lower zone are drill vocabulary, grouped into
+  // word chips below. Multi-word narrative prose is excluded by the no-space
+  // filter, so story pages keep their reading passages intact without needing
+  // a separate suppression: sheets 3-8 have italic titles but are vocabulary
+  // pages, and suppressing their word grouping left fragments stacked as plain
+  // body text.
+  const lower = rest.filter(
+    (item) =>
+      item.y >= 340 &&
+      item.fontSize >= 30 &&
+      !/\s/.test(item.text.trim()),
+  );
   const body = rest.filter((item) => !lower.includes(item));
   const narrativeLines: FlipchartTextItem[] = [];
 
@@ -227,7 +230,18 @@ function classify(items: FlipchartTextItem[]) {
     // PDF extraction often emits one item per word with wider spacing than a
     // color-split vocabulary label. Treat the whole row as prose before
     // vocabulary clustering so sentences never collapse into fake word chips.
-    if (row.length >= 3 && row[0]!.y >= 780) {
+    // But color-split vocabulary (sheets 3-8: vowel + word-fragment pairs like
+    // "a"+"vión") also lands in this zone with 3+ items per row. Those pairs
+    // sit tight (gap <= 18, the same threshold the clusterer uses), while prose
+    // words are spaced wider — so a row containing any tight pair is
+    // vocabulary, not prose, and must go through word clustering.
+    const hasTightPair = row.some((item, i) => {
+      if (i === 0) return false;
+      const prev = row[i - 1]!;
+      const gap = item.x - (prev.x + prev.width);
+      return gap >= -10 && gap <= 18;
+    });
+    if (row.length >= 3 && row[0]!.y >= 780 && !hasTightPair) {
       const x = Math.min(...row.map((member) => member.x));
       const y = Math.min(...row.map((member) => member.y));
       narrativeLines.push({
