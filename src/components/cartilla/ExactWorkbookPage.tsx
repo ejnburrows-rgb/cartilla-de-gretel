@@ -1,3 +1,5 @@
+import "@/styles/exact-workbook.css";
+
 interface ExactWorkbookPageProps {
   pageNumber: number;
   className?: string;
