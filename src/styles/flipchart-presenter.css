@@ -578,6 +578,7 @@
 
 .fc-native-board__grid {
   min-height: 0;
+  height: 100%;
   display: grid;
   grid-template-columns: minmax(0, 1.25fr) minmax(17rem, .75fr);
   gap: clamp(.7rem, 1.5vw, 1.25rem);
@@ -586,6 +587,7 @@
 .fc-native-board__art {
   min-width: 0;
   min-height: 0;
+  height: 100%;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -862,6 +864,7 @@
   border: 1px solid rgba(130, 94, 50, .11);
   background: rgba(255,255,255,.78);
   padding: .45rem;
+  overflow: hidden;
   box-shadow: 0 8px 22px -20px rgba(73,51,29,.34);
 }
 
@@ -870,8 +873,10 @@
   min-height: 0;
   width: 100%;
   height: 100%;
-  display: grid;
-  place-items: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
 }
 
 .fc-native-board__living-art .living-illustration__art,
@@ -884,6 +889,7 @@
   max-width: 100%;
   max-height: 100%;
   object-fit: contain;
+  flex: 0 1 auto;
 }
 
 /* Hard containment: art must never bleed out of its tile card. */
