@@ -48,11 +48,17 @@ vi.mock("@/lib/auth-role", () => ({
 
 vi.mock("@/lib/useServerFn", () => ({
   useServerFn: () =>
-    vi.fn().mockResolvedValue([{ studentId: "s1", displayName: "Student 1" }]),
+    vi.fn().mockResolvedValue({
+      studentId: "s1",
+      studentName: "Student 1",
+      studentCode: "A2B3C",
+      classId: "c1",
+      className: "Clase 1",
+    }),
 }));
 
 vi.mock("@/context/LanguageContext", () => ({
-  useLanguage: () => ({ t: (k: string) => k, language: "es" }),
+  useLanguage: () => ({ t: (k: string) => k, lang: "es", language: "es" }),
   LanguageProvider: ({ children }: { children?: React.ReactNode }) => (
     <>{children}</>
   ),
@@ -125,26 +131,28 @@ describe("Student-Teacher Routing Isolation", () => {
     await waitFor(() =>
       expect(history.location.pathname).toBe("/cartilla/unirse"),
     );
-    // Join form can lag under full-suite parallel load — wait for real markup.
-    const codeInput = (await screen.findByRole(
-      "textbox",
+    const joinCodeInput = (await screen.findByLabelText(
+      /código de clase/i,
       {},
       { timeout: 10_000 },
     )) as HTMLInputElement;
-    fireEvent.change(codeInput, { target: { value: "ABC123" } });
+    const studentCodeInput = (await screen.findByLabelText(
+      /código personal/i,
+      {},
+      { timeout: 10_000 },
+    )) as HTMLInputElement;
+    fireEvent.change(joinCodeInput, { target: { value: "ABC123" } });
+    fireEvent.change(studentCodeInput, { target: { value: "A2B3C" } });
 
-    const submitBtn = document.querySelector('button[type="submit"]');
-    const form = submitBtn?.closest("form");
-    if (form) {
-      await fireEvent.submit(form);
-    }
-
-    const studentBtn = await screen.findByText("Student 1");
-    await fireEvent.click(studentBtn);
+    const submitBtn = await screen.findByRole("button", { name: /entrar/i });
+    await fireEvent.submit(submitBtn.closest("form")!);
 
     await waitFor(() => {
       expect(history.location.pathname).toBe("/cartilla/lecciones");
     });
+    expect(setStudentSessionMock).toHaveBeenCalledWith(
+      expect.objectContaining({ studentId: "s1", studentCode: "A2B3C" }),
+    );
   });
 
   describe("presentar.$n.tsx route guard", () => {
@@ -271,21 +279,17 @@ describe("Student-Teacher Routing Isolation", () => {
         expect(history.location.pathname).toBe("/cartilla/unirse"),
       );
 
-      // Step 1: Submit join code form
-      const codeInput = (await screen.findByRole(
-        "textbox",
+      const joinCodeInput = (await screen.findByLabelText(
+        /código de clase/i,
       )) as HTMLInputElement;
-      fireEvent.change(codeInput, { target: { value: "ABC123" } });
+      const studentCodeInput = (await screen.findByLabelText(
+        /código personal/i,
+      )) as HTMLInputElement;
+      fireEvent.change(joinCodeInput, { target: { value: "ABC123" } });
+      fireEvent.change(studentCodeInput, { target: { value: "A2B3C" } });
 
-      const submitBtn = document.querySelector('button[type="submit"]');
-      const form = submitBtn?.closest("form");
-      if (form) {
-        await fireEvent.submit(form);
-      }
-
-      // Step 2: Click student name to login
-      const studentBtn = await screen.findByText("Student 1");
-      await fireEvent.click(studentBtn);
+      const submitBtn = await screen.findByRole("button", { name: /entrar/i });
+      await fireEvent.submit(submitBtn.closest("form")!);
 
       await waitFor(() => {
         expect(signOutMock).toHaveBeenCalled();

@@ -1,5 +1,3 @@
-import type { GretelState } from "./gretelMachine";
-
 /**
  * Full Gretel pose library — owner-supplied art under
  * public/cartilla/images/gretel/poses/. Every usable file is mapped to a
@@ -12,12 +10,19 @@ const P = "/cartilla/images/gretel/poses";
 
 /** Canonical pose keys used by presence + live avatar. */
 export type GretelPoseKey =
-  | GretelState
+  | "boot"
   | "settling"
+  | "idle"
+  | "blinking"
+  | "talking"
+  | "waving"
+  | "pointing"
+  | "cheering"
   | "exiting"
+  | "error"
   | "pointingLeft"
   | "encouraging" // gentle miss / try-again (settle art)
-  | "welcome"; // wave family for home / lesson open
+  | "welcome"; // legacy raster inventory only; active runtime is the vector rig
 
 /**
  * Pose paths. Multi-frame arrays cycle for smoother animation.
