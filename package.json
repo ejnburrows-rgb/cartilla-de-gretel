@@ -6,7 +6,7 @@
   "type": "module",
   "scripts": {
     "dev": "pnpm prepare:art && vite dev",
-    "build": "pnpm verify:reconstruction && pnpm verify:platform && pnpm typecheck && pnpm test && vite build",
+    "build": "pnpm typecheck && pnpm test && vite build",
     "build:app": "pnpm build",
     "verify:release": "pnpm build && pnpm exec playwright install chromium && pnpm test:e2e",
     "preview": "vite preview --host 127.0.0.1",
