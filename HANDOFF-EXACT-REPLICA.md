@@ -1,4 +1,4 @@
-# HANDOFF — La Cartilla de Gretel: Exact Replica Completion
+# HANDOFF — La Cartilla de Gretel: Digital Directive Completion
 
 **Date:** 2026-09-29  
 **For:** ChatGPT (coding agent)  
@@ -49,12 +49,12 @@ This is an e-learning platform with the **same layout as the physical books** �
 - 116 old deployments deleted, 7 kept (4 live + 3 backups). 0 errors.
 - **Do not touch:** Deployment configuration.
 
-### 6. EXACT REPLICA rule — IN REPO ✅
-- `AGENTS.md` has the EXACT REPLICA section at the top (commits `112c2373`, `c20ec578`)
+### 6. CARTILLA_DIGITAL_DIRECTIVE rule — IN REPO ✅
+- `AGENTS.md` has the CARTILLA_DIGITAL_DIRECTIVE section at the top (commits `112c2373`, `c20ec578`)
 - Conflicting artwork-modernization docs have been voided
-- **Do not touch:** AGENTS.md. The EXACT REPLICA section. This handoff file.
+- **Do not touch:** AGENTS.md. The CARTILLA_DIGITAL_DIRECTIVE section. This handoff file.
 
-### 7. Exact replica Batches 1-3 (flipchart) — DONE, ON WORK BRANCH ⚠️
+### 7. Digital directive Batches 1-3 (flipchart) — DONE, ON WORK BRANCH ⚠️
 - **Branch:** `muse/exact-replica-placements` (4 commits ahead of `origin/main`, NOT yet merged)
 - **Batch 1** (`f37b4521`): Single-column flipchart layout, no chrome. Removed "Lámina N" header + meta pill. Art grid: 2 cols → 3 cols. Stripped card styling (no borders/radius/gradients/shadows). White page background. Word labels: black bold rounded sans. Printed page number bottom-right.
 - **Batch 2** (`8c0bd1be`): Red-letter rule for vowel pages. Word labels: red initial vowel ONLY on pages 3-6 (a,e,i,o,u lessons). All consonant pages: 100% black labels.
@@ -68,7 +68,7 @@ This is an e-learning platform with the **same layout as the physical books** �
 
 1. **DO NOT modify any image file** in `public/cartilla/art/` — not the faithful, optimized, native, or delivery derivatives. The user said: "I don't want you to touch the images because they're already fixed and cropped."
 
-2. **DO NOT modify AGENTS.md** — especially the EXACT REPLICA section. It is the #1 rule.
+2. **DO NOT modify AGENTS.md** — especially the CARTILLA_DIGITAL_DIRECTIVE section. It is the #1 rule.
 
 3. **DO NOT modify this handoff file** (`HANDOFF-EXACT-REPLICA.md`).
 
@@ -105,7 +105,7 @@ This is an e-learning platform with the **same layout as the physical books** �
 5. If verified: merge to `main` (do NOT push to origin/main without user approval — open a PR or wait for instruction)
 6. If issues found: fix on the branch, do not merge until clean
 
-### PRIORITY 2: Workbook exact replica (NOT STARTED)
+### PRIORITY 2: Workbook digital directive (NOT STARTED)
 **Spec:** `~/workspace/cartilla-reference/workbook-layout-spec.md`  
 **Reference PDF:** `~/workspace/cartilla-reference/workbook.pdf` (92 pages)
 
@@ -126,7 +126,7 @@ This is an e-learning platform with the **same layout as the physical books** �
 1. Read the full spec: `~/workspace/cartilla-reference/workbook-layout-spec.md`
 2. Identify the workbook rendering components (likely in `src/components/cartilla/` — look for workbook/lesson components)
 3. Create a new branch: `git checkout -b chatgpt/workbook-exact-replica`
-4. Apply the exact replica transformation:
+4. Apply the digital directive transformation:
    - Remove: garden backgrounds, top nav bars, progress dots, card-based layouts, any decorative UI chrome
    - Add: white page surface, teal wavy stripe (outer edge), diamond page number (bottom outer), "Lección N" (bottom inner)
    - Rebuild exercise layouts per the 7 templates above
@@ -169,7 +169,7 @@ The user said "don't touch the images." These defects require image work. **DO N
 - **Repo:** `ejnburrows-rgb/cartilla-de-gretel`
 - **Local:** `~/workspace/cartilla-master` (use this, NOT `cartilla-newmain` which no longer exists)
 - **Current branch:** `muse/exact-replica-placements` (4 commits ahead of origin/main)
-- **Main branch:** `origin/main` (has EXACT REPLICA rule + defect 14 fix)
+- **Main branch:** `origin/main` (has CARTILLA_DIGITAL_DIRECTIVE rule + defect 14 fix)
 - **Dev server:** `npm run dev` → http://127.0.0.1:5173/
 - **Tests:** `npm test -- --run`
 - **Key files:**
@@ -184,7 +184,7 @@ The user said "don't touch the images." These defects require image work. **DO N
 ## DEFINITION OF DONE
 
 1. ✅ The 4 work-branch commits are verified (screenshots prove they match the book) and merged to `main`
-2. ✅ Workbook exact replica is implemented on a work branch, verified against the PDF (10+ sample pages), tests pass
+2. ✅ Workbook digital directive is implemented on a work branch, verified against the PDF (10+ sample pages), tests pass
 3. ✅ Full test suite passes: `npm test -- --run`
 4. ✅ No images were modified (verify with `git diff --name-only` — no files under `public/cartilla/art/` should appear)
 5. ✅ No pushes to `origin/main` without explicit user approval
@@ -196,7 +196,7 @@ The user said "don't touch the images." These defects require image work. **DO N
 - **About a placement:** Check the PDF. The book is the source of truth. `~/workspace/cartilla-reference/flipchart.pdf` or `workbook.pdf`.
 - **About whether to change an image:** DON'T. The answer is always don't. Images are frozen.
 - **About pushing to main:** DON'T without explicit user approval. Open a PR or ask.
-- **About conflicting instructions:** This handoff and AGENTS.md override everything else. EXACT REPLICA is the rule.
+- **About conflicting instructions:** This handoff and AGENTS.md override everything else. CARTILLA_DIGITAL_DIRECTIVE is the rule.
 
 ---
 

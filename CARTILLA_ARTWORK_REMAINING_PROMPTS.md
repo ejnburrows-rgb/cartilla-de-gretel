@@ -1,9 +1,9 @@
 # Cartilla Artwork — Remaining Execution Prompts
 
-**VOID — SUPERSEDED BY AGENTS.md EXACT REPLICA RULE (2026-09-29).**
+**VOID — SUPERSEDED BY CARTILLA_DIGITAL_DIRECTIVE.md (2026-09-29).**
 Do not touch the images. They are already fixed and cropped. Only placements,
-layout, and CSS positioning may change — and ONLY to make each page match the
-physical book exactly. This file is preserved for historical reference only.
+layout, and CSS positioning may change — to match the book's layout structure
+as a modern digital experience. This file is preserved for historical reference only.
 
 ---
 

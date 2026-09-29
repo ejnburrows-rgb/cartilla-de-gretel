@@ -122,3 +122,7 @@ Use the existing approved image files unchanged. Place them according to the boo
 ---
 
 **If you're unsure:** Match the book's structure. Make the digital experience excellent. When in doubt about a visual detail, choose the modern user-friendly option — the owner explicitly said inch-for-inch identity is not required.
+
+### Directive protection
+
+`CARTILLA_DIGITAL_DIRECTIVE.md` is the standing owner directive. Do not modify, soften, reinterpret, or supersede it without the owner's explicit instruction in chat. If you find a file that contradicts it, the directive wins — update the contradicting file, not the directive. If you believe the directive is wrong, raise it with the owner in chat and wait for their decision. Do not unilaterally change it.
