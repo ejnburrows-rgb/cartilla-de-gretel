@@ -55,7 +55,7 @@ export function getWorkbookPageFallbackChain(
   if (repositorySource) chain.push(repositorySource);
 
   let resolvedSource = sourceScanPath;
-  if (!resolvedSource) {
+  if (!resolvedSource && !MISSING_CANONICAL_SOURCE_PAGES.has(safePage)) {
     const found = getFullWorkbookPages().find((page) => page.page === safePage);
     resolvedSource = found?.imageScanReference ?? null;
   }
