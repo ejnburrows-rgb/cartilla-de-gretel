@@ -851,6 +851,16 @@
   padding: 0;
 }
 
+/* Book pattern (Type B consonant pages): bottom row has 2 items —
+   left column and right column, middle column EMPTY.
+   For 5-item grids: items 4 and 5 go to columns 1 and 3. */
+.fc-native-board__art-grid[data-art-count="5"] > :nth-child(4) {
+  grid-column: 1;
+}
+.fc-native-board__art-grid[data-art-count="5"] > :nth-child(5) {
+  grid-column: 3;
+}
+
 /* Art card: stripped. Image floats on white, label below. */
 .fc-native-board__art-card {
   min-width: 0;
