@@ -38,12 +38,15 @@ assert(workbookPages.length === 90, `expected 90 workbook pages, found ${workboo
 assert(workbookPages.every((page) => page.status === "NATIVE_COMPLETE"), "all workbook pages must be NATIVE_COMPLETE");
 assert(Object.keys(layouts.pages ?? {}).length === 90, "page-layouts must contain exactly 90 instructional pages");
 
+const verifiedSourceGap = new Set([86, 87]);
 for (let page = 1; page <= 90; page += 1) {
   assert(Boolean(layouts.pages?.[String(page)]), `missing native layout for workbook page ${page}`);
-  assert(
-    exists(`public/cartilla/art/source/workbook/page-${pad(page)}.jpg`),
-    `missing repository workbook source page ${page}`,
-  );
+  const sourcePath = `public/cartilla/art/source/workbook/page-${pad(page)}.jpg`;
+  if (verifiedSourceGap.has(page)) {
+    assert(!exists(sourcePath), `page ${page} must remain an explicit source-scan gap, not a substitute image`);
+  } else {
+    assert(exists(sourcePath), `missing repository workbook source page ${page}`);
+  }
 }
 
 const flipPages = flipchart.pages ?? [];
@@ -129,7 +132,7 @@ if (process.exitCode) process.exit(process.exitCode);
 console.log("[platform-certification] PASS");
 console.log(JSON.stringify({
   workbookNative: "90/90",
-  workbookSourceAssets: "90/90",
+  workbookSourceAssets: "88 canonical source pages + verified scan gap at 86–87",
   flipchartNativeRegistry: "62/62",
   flipchartCanonicalMasters: "62/62",
   flipchartSurface: "62/62 native boards; pages 1-2 native frontmatter; pages 3-62 separate faithful learning objects",
