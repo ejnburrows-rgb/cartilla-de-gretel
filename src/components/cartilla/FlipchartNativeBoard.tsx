@@ -130,23 +130,31 @@ export function FlipchartNativeBoard({
 
             {native.words.length > 0 && (
               <ul className="fc-native-board__words" data-testid="flipchart-words">
-                {native.words.map((word, index) => (
-                  <li
-                    key={`${word.x}-${word.y}-${index}`}
-                    className="fc-native-board__word"
-                    style={{ borderColor: WORD_ACCENTS[index % WORD_ACCENTS.length] }}
-                  >
-                    {word.lead ? (
-                      <span
-                        className="fc-native-board__word-lead"
-                        style={{ color: WORD_ACCENTS[index % WORD_ACCENTS.length] }}
-                      >
-                        {word.lead}
-                      </span>
-                    ) : null}
-                    <span className="fc-native-board__word-rest">{word.rest || word.parts.join("")}</span>
-                  </li>
-                ))}
+                {native.words.map((word, index) => {
+                  // Red-letter rule (book §1.5): red target vowel in word pills
+                  // ONLY on vowel pages 3-6, matching the art-label rule above.
+                  const wordText = word.rest || word.parts.join("");
+                  const fullWord = word.lead ? word.lead + wordText : wordText;
+                  const useRedLead = isVowelPage && word.lead && /^[aeiouáéíóú]/i.test(fullWord);
+                  const leadColor = useRedLead ? "#bb0733" : WORD_ACCENTS[index % WORD_ACCENTS.length];
+                  return (
+                    <li
+                      key={`${word.x}-${word.y}-${index}`}
+                      className="fc-native-board__word"
+                      style={{ borderColor: WORD_ACCENTS[index % WORD_ACCENTS.length] }}
+                    >
+                      {word.lead ? (
+                        <span
+                          className="fc-native-board__word-lead"
+                          style={{ color: leadColor }}
+                        >
+                          {word.lead}
+                        </span>
+                      ) : null}
+                      <span className="fc-native-board__word-rest">{wordText}</span>
+                    </li>
+                  );
+                })}
               </ul>
             )}
           </div>
