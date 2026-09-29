@@ -12,7 +12,7 @@ for (const viewport of [{ width: 1280, height: 900 }, { width: 820, height: 1180
   test(`Gretel interaction policy and safe placement ${viewport.width}`, async ({ page }) => {
     await page.setViewportSize(viewport);
     await page.goto('/cartilla/leccion/7', { waitUntil: 'domcontentloaded' });
-    await dismissIntro(page);
+  await dismissIntro(page);
     const guide = page.getByTestId('gretel-presence');
     await expect(guide).toHaveAttribute('data-page-ready', 'true');
     const region = page.locator('.gretel-activity').filter({ has: page.locator('.fp-trace') }).first();
@@ -40,7 +40,7 @@ for (const viewport of [{ width: 1280, height: 900 }, { width: 820, height: 1180
     expect(mascot!.y).toBeGreaterThanOrEqual(paper!.y + paper!.height);
     const avatarRig = guide.locator('svg[data-gretel-rig="svg"]');
     await expect(avatarRig).toBeVisible();
-    await expect(avatarRig).toHaveAttribute('data-rig-part', null).catch(() => undefined);
+    await expect(avatarRig.locator('[data-rig-part="head"]')).toHaveCount(1);
     await expect.poll(() => avatarRig.evaluate(el => el.getBoundingClientRect().width)).toBeGreaterThan(50);
     await page.waitForTimeout(500);
     await page.screenshot({ path: `test-results/gretel-${viewport.width}.png`, fullPage: true });
