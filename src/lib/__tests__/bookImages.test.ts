@@ -29,8 +29,10 @@ describe("bookImages repository-controlled fallback chain", () => {
     expect(chain.some((path) => path.includes("/hd/workbook/"))).toBe(false);
   });
 
-  it("uses repository source without requiring a legacy catalog image", () => {
-    const chain = getWorkbookPageFallbackChain(86);
-    expect(chain[0]).toBe("/cartilla/art/source/workbook/page-086.jpg");
+  it("does not invent source pages inside the verified 86–87 scan gap", () => {
+    expect(getBookPageImage(86)).toBeNull();
+    expect(getBookPageImage(87)).toBeNull();
+    expect(getWorkbookPageFallbackChain(86)).toEqual([]);
+    expect(getWorkbookPageFallbackChain(87)).toEqual([]);
   });
 });
