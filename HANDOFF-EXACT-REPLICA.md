@@ -9,13 +9,13 @@
 
 ## THE #1 RULE (from AGENTS.md — do not modify)
 
-This is an e-learning platform that is a **digitized exact replica** of the physical books. Not a reinterpretation. Not "inspired by." EXACT.
+This is an e-learning platform with the **same layout as the physical books** — it should look like the book, but in a modern, digitized, user-friendly, seamless, interactive way. NOT identical inch-for-inch.
 
-- **The flipbook** must look exactly like the physical flipbook, digitized.
-- **The workbook** must look exactly like the physical workbook, digitized.
+- **The flipbook** must have the same layout as the physical flipbook — same structure, same element positions, same reading order — presented as a modern interactive digital experience.
+- **The workbook** must have the same layout as the physical workbook — same exercise structure, same element positions — presented as a modern interactive digital experience.
 - **DO NOT touch the images.** They are already fixed and cropped. Never modify, redraw, regenerate, or "improve" any artwork image.
-- **What you MAY change:** placements, layout, CSS positioning — ONLY to make each page match the book exactly.
-- **Reference PDFs:** `~/workspace/cartilla-reference/flipchart.pdf` (62 pages) and `~/workspace/cartilla-reference/workbook.pdf` (92 pages). These are the physical books. If a page doesn't look like the book, the page is wrong — not the book.
+- **What you MAY change:** placements, layout, CSS positioning — to match the book's layout structure. Modern digital presentation (smooth interactions, responsive behavior, clean styling) is welcome.
+- **Reference PDFs:** `~/workspace/cartilla-reference/flipchart.pdf` (62 pages) and `~/workspace/cartilla-reference/workbook.pdf` (92 pages). These define the layout. If the layout doesn't match the book, the layout is wrong — not the book.
 
 ---
 
@@ -79,7 +79,7 @@ This is an e-learning platform that is a **digitized exact replica** of the phys
 
 5. **DO NOT push to `main`** without explicit user approval. The user has a HARD RULE: never push to production without FIRST explaining in plain non-technical language WHY and getting explicit go-ahead. Work on a branch.
 
-6. **DO NOT redesign, modernize, or reinterpret** any layout. The book is the design. If the book has it, replicate it. If the book doesn't have it, remove it.
+6. **DO NOT do a pixel-perfect facsimile** — match the book's layout structure, but present it as a modern, user-friendly, interactive digital experience. Same layout, modern finish. Do not force an inch-for-inch reproduction.
 
 ---
 

@@ -5,12 +5,15 @@ project manager — work out what needs doing and do it.
 
 ---
 
-## CARTILLA SOURCE-FIDELITY RULE — HIGHEST PRIORITY, NO EXCEPTIONS
+## CARTILLA LAYOUT RULE — HIGHEST PRIORITY, NO EXCEPTIONS
 
 Before doing any work on the Cartilla Workbook or teacher Flip Chart, read
 `CARTILLA_SOURCE_OF_TRUTH.md`.
 
-The physical books are the design. The digital product must reproduce them.
+The physical books define the LAYOUT. The digital product must have the same
+layout as the book — it should look like the book, but in a modern, digitized,
+user-friendly, seamless, interactive way. It does NOT need to be identical
+inch-for-inch.
 
 Authoritative source files are in:
 
@@ -20,22 +23,26 @@ Authoritative source files are in:
 - `Libro del alumno - Rescan and Optimize (2).pdf`
 
 ### Teacher Flip Chart / flipbook
-The digital teacher Flip Chart must look like the source Flip Chart page for
-page, as if the physical Flip Chart were open on the computer.
+The digital teacher Flip Chart must have the same layout as the source Flip
+Chart. Same structure, same element positions, same reading order — presented
+as a modern, interactive digital experience.
 
-Preserve the source page's:
-- page aspect and composition;
-- text, wording, line breaks, typography hierarchy, and reading order;
-- illustration identity, crop, scale, and position;
-- borders, boxes, backgrounds, margins, spacing, and relative geometry;
-- page sequence and lesson mapping.
+Match the source page's:
+- layout structure and composition (where elements go);
+- text, wording, line breaks, and reading order;
+- illustration identity and placement.
+
+Modern digital presentation is welcome: smooth interactions, responsive
+behavior, clean modern styling. The layout follows the book; the finish is
+modern.
 
 ### Student Workbook
-The digital student Workbook must look like the source student Workbook page
-for page, as if the physical workbook were open on the computer.
+The digital student Workbook must have the same layout as the source student
+Workbook. Same exercise structure, same element positions — presented as a
+modern, interactive digital experience.
 
-Preserve the same page geometry, text placement, boxes, writing areas,
-illustration placement, scale, crop, spacing, and sequence.
+Match the same layout structure, text placement, exercise flow, illustration
+placement, and page sequence. Modern digital presentation is welcome.
 
 ### Images are locked
 The approved/corrected/cropped book images are already the artwork.
@@ -50,21 +57,22 @@ DO NOT:
 - substitute similar artwork;
 - change their internal geometry.
 
-Use the existing approved image files unchanged and place them in the exact
-source-book positions. Uniform responsive scaling of the whole page is allowed;
-responsive reflow that changes the page composition is not.
+Use the existing approved image files unchanged and place them per the book's
+layout. Uniform responsive scaling of the whole page is allowed.
 
 ### Conflict rule
-The two source PDFs override derived JSON, old prompts, old modernization
-plans, comments, manifests, screenshots, and prior agent instructions whenever
-there is a visual/layout conflict.
+The two source PDFs define the layout. They override derived JSON, old prompts,
+old modernization plans, comments, manifests, screenshots, and prior agent
+instructions whenever there is a layout conflict.
 
-If implementation and source book disagree, the source book wins.
+If implementation and source book disagree on LAYOUT, the source book wins.
 
 Do not infer a page design from memory or from another page. Compare against
 the matching source PDF page.
 
-"Digitized" means a faithful digital facsimile of the book, not a redesign.
+"Digitized" means the same layout as the book, in a modern, user-friendly,
+interactive digital form. Not inch-for-inch identical — same structure, modern
+finish.
 
 ---
 
