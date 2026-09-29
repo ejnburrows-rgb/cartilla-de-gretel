@@ -51,24 +51,10 @@ export function FlipchartNativeBoard({
       style={{ "--fc-accent": accentColor } as CSSProperties}
       aria-hidden={decorative || undefined}
     >
-      <header className="fc-native-board__head">
-        {titleText ? (
-          <h2 className="fc-native-board__title">{titleText}</h2>
-        ) : (
-          <h2 className="fc-native-board__title">Lámina {page.flipchartPage}</h2>
-        )}
-        {!decorative && (
-          <p className="fc-native-board__meta">
-            {page.lesson > 0 ? `Lección ${page.lesson}` : "Apertura"} · Lámina {page.flipchartPage}/62
-          </p>
-        )}
-      </header>
-
-      <div className="fc-native-board__grid">
-        <section
-          className="fc-native-board__art"
-          aria-label={decorative ? undefined : `Ilustraciones de la lámina ${page.flipchartPage}`}
-        >
+      {/* Exact replica: single-column vertical flow. Header zone (~top 40%) then body below.
+          No page chrome — the book has no "Lámina N" title or meta pill inside the page. */}
+      <div className="fc-native-board__page">
+        <div className="fc-native-board__header-zone">
           {native.art.length > 0 ? (
             <div
               className="fc-native-board__art-grid"
@@ -102,10 +88,10 @@ export function FlipchartNativeBoard({
               <span>{titleText.slice(0, 2) || native.syllables[0] || "Aa"}</span>
             </div>
           )}
-        </section>
+        </div>
 
         {(bodyLines.length > 0 || native.syllables.length > 0 || native.words.length > 0) && (
-          <section className="fc-native-board__content">
+          <div className="fc-native-board__body-zone">
             {native.syllables.length > 0 && (
               <div className="fc-native-board__syllables" aria-label="Sílabas">
                 {native.syllables.map((syllable, index) => (
@@ -152,9 +138,15 @@ export function FlipchartNativeBoard({
                 ))}
               </ul>
             )}
-          </section>
+          </div>
         )}
       </div>
+      {/* Printed page number, bottom-right (book style) */}
+      {!decorative && (
+        <div className="fc-native-board__pagenum" aria-hidden="true">
+          {page.flipchartPage}
+        </div>
+      )}
     </article>
   );
 }
