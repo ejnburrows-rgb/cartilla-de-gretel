@@ -16,7 +16,7 @@ const lessonRanges = new Map([
 const allInteractions = Array.isArray(interactions) ? interactions : Object.values(interactions).flat();
 // Every instructional page now renders through the same native lesson shell.
 // Certification remains a separate QA state; native rendering alone does not
-// imply Rive/video certification.
+// imply animation/cinematic certification.
 const nativePages = new Set(Array.from({ length: 90 }, (_, i) => i + 1));
 const records = inventory.flatMap(({ lessonId, pages }) => {
   const [start, end] = lessonRanges.get(lessonId).split('-').map(Number);
