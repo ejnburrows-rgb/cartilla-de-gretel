@@ -23,8 +23,6 @@ export type GretelCinematic = {
   durationSeconds: number;
   actions: GretelCinematicAction[];
   voice: { primary: string; fallback: string; locale: "es-MX" };
-  poster: string | null;
-  output: string | null;
 };
 
 function lessonScript(entry: CatalogEntry): string {
@@ -37,12 +35,10 @@ function lessonScript(entry: CatalogEntry): string {
   return `Hoy trabajaremos con la letra ${entry.letter.toUpperCase()} y sus sílabas: ${entry.data.syllables.join(", ")}. Mira, escucha y después inténtalo tú.`;
 }
 
-function cinematicBase(partial: Omit<GretelCinematic, "voice" | "poster" | "output">): GretelCinematic {
+function cinematicBase(partial: Omit<GretelCinematic, "voice">): GretelCinematic {
   return {
     ...partial,
     voice: { primary: GRETEL_PRIMARY_VOICE, fallback: GRETEL_FALLBACK_VOICE, locale: "es-MX" },
-    poster: null,
-    output: null,
   };
 }
 
