@@ -24,6 +24,12 @@ interface FlipchartHdPanelProps {
   lessonNumber: number;
   /** Optional accent for nav highlight (book palette). */
   accentColor?: string;
+  /**
+   * "full" (default): presenter chrome — nav controls + thumbnail strip.
+   * "bare": zero chrome — renders ONLY the page board. No nav buttons,
+   * no counter, no thumbnails. The book has no chrome inside the page.
+   */
+  chrome?: "full" | "bare";
 }
 
 function FlipchartFace({
@@ -47,7 +53,7 @@ function FlipchartFace({
   );
 }
 
-export function FlipchartHdPanel({ lessonNumber, accentColor }: FlipchartHdPanelProps) {
+export function FlipchartHdPanel({ lessonNumber, accentColor, chrome = "full" }: FlipchartHdPanelProps) {
   const pages: FlipchartPage[] = useMemo(
     () => getFlipchartPagesForLesson(lessonNumber),
     [lessonNumber],
@@ -192,6 +198,7 @@ export function FlipchartHdPanel({ lessonNumber, accentColor }: FlipchartHdPanel
       data-page-turn-axis="vertical"
       data-page-turn-ms={FLIPCHART_FLIP_MS}
       data-reduced-motion={reducedMotion ? "true" : "false"}
+      data-chrome={chrome}
     >
       <div
         className="fc-board__easel"
@@ -243,38 +250,40 @@ export function FlipchartHdPanel({ lessonNumber, accentColor }: FlipchartHdPanel
         </div>
       </div>
 
-      <div className="fc-board__controls">
-        <button
-          type="button"
-          onClick={handlePrev}
-          disabled={safeIdx === 0 || isFlipping}
-          className="fc-board__nav"
-          aria-label="Lámina anterior"
-        >
-          <ChevronUp className="h-5 w-5" aria-hidden />
-          <span className="hidden sm:inline">Anterior</span>
-        </button>
+      {chrome === "full" && (
+        <div className="fc-board__controls">
+          <button
+            type="button"
+            onClick={handlePrev}
+            disabled={safeIdx === 0 || isFlipping}
+            className="fc-board__nav"
+            aria-label="Lámina anterior"
+          >
+            <ChevronUp className="h-5 w-5" aria-hidden />
+            <span className="hidden sm:inline">Anterior</span>
+          </button>
 
-        <div className="fc-board__counter" data-testid="flipchart-counter">
-          <span>Hoja {safeIdx + 1} de {pages.length}</span>
-          <span className="fc-board__counter-sub">
-            Lámina {currentPage?.flipchartPage ?? "—"} · Lección {lessonNumber}
-          </span>
+          <div className="fc-board__counter" data-testid="flipchart-counter">
+            <span>Hoja {safeIdx + 1} de {pages.length}</span>
+            <span className="fc-board__counter-sub">
+              Lámina {currentPage?.flipchartPage ?? "—"} · Lección {lessonNumber}
+            </span>
+          </div>
+
+          <button
+            type="button"
+            onClick={handleNext}
+            disabled={safeIdx >= pages.length - 1 || isFlipping}
+            className="fc-board__nav fc-board__nav--next"
+            aria-label="Lámina siguiente"
+          >
+            <span className="hidden sm:inline">Siguiente</span>
+            <ChevronDown className="h-5 w-5" aria-hidden />
+          </button>
         </div>
+      )}
 
-        <button
-          type="button"
-          onClick={handleNext}
-          disabled={safeIdx >= pages.length - 1 || isFlipping}
-          className="fc-board__nav fc-board__nav--next"
-          aria-label="Lámina siguiente"
-        >
-          <span className="hidden sm:inline">Siguiente</span>
-          <ChevronDown className="h-5 w-5" aria-hidden />
-        </button>
-      </div>
-
-      {pages.length > 1 && (
+      {chrome === "full" && pages.length > 1 && (
         <div className="fc-board__strip" role="tablist" aria-label="Láminas del flipchart">
           {pages.map((page, index) => (
             <button

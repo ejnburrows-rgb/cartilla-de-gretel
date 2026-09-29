@@ -79,7 +79,7 @@ function ArtGrid({ native, isVowelPage, decorative }: Pick<BoardProps, "native" 
             loading={decorative ? "lazy" : "eager"}
             className="fc-native-board__living-art"
           />
-          {!decorative && (
+          {!decorative && !asset.labelInImage && (
             <figcaption className="fc-native-board__art-label">
               {isVowelPage && /^[aeiouáéíóú]/i.test(asset.word) ? (
                 <>

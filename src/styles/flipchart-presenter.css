@@ -188,6 +188,26 @@
   padding: 0.35rem 0.5rem 0.5rem;
 }
 
+/* Bare mode: the viewport IS the book page — plain white, edge to edge,
+   zero chrome. The book has no cream surround inside the page. */
+.fc-presenter.is-bare {
+  background: #ffffff;
+}
+.fc-presenter.is-bare .fc-presenter__main {
+  padding: 0;
+}
+/* Bare mode: the easel card chrome (rounded paper, border, shadow) goes away
+   too — the page fills the viewport like the physical book page. */
+.fc-presenter.is-bare .fc-board__easel {
+  border-radius: 0;
+  border: none;
+  box-shadow: none;
+  background: #ffffff;
+}
+.fc-presenter.is-bare .fc-board {
+  gap: 0;
+}
+
 /* Stage occupies ≥ ~70% of content width on desktop */
 .fc-presenter__stage {
   flex: 1 1 auto;
@@ -1089,11 +1109,27 @@
   align-items: center;
   justify-content: center;
   min-height: 0;
+  /* Definite height: without it, img max-height:100% never resolves and the
+     hero renders at natural size, overflowing the header zone (bug: frog /
+     tomato / rooster dominating the page). vh units always resolve. */
+  height: clamp(9rem, 30vh, 17rem);
+  max-height: 100%;
   overflow: hidden;
 }
-.fc-consonant-vocab__scene img {
+/* Override the generic 3/2 aspect-ratio tile: the scene is a fitted hero,
+   height-bound with natural aspect ratio preserved. Later in the file, so
+   equal-specificity rules win over the generic living-art sizing. */
+.fc-consonant-vocab__scene .fc-native-board__living-art {
+  height: 100%;
+  width: auto;
   max-width: 100%;
-  max-height: 100%;
+  aspect-ratio: auto;
+  flex: 0 1 auto;
+}
+.fc-consonant-vocab__scene .living-illustration__art {
+  height: 100%;
+  width: auto;
+  max-width: 100%;
   object-fit: contain;
 }
 /* Big red letter in soft white/pale oval */

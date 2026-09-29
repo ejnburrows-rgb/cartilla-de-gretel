@@ -135,6 +135,57 @@ describe("FlipchartHdPanel — CRM-grade presenter board", () => {
   });
 });
 
+describe("FlipchartHdPanel bare chrome mode", () => {
+  it("renders zero chrome in bare mode: no nav, no counter, no thumbnails", () => {
+    const { container } = render(<FlipchartHdPanel lessonNumber={7} chrome="bare" />);
+    const panel = container.querySelector('[data-testid="flipchart-hd-panel"]');
+    expect(panel).toBeTruthy();
+    expect(panel?.getAttribute("data-chrome")).toBe("bare");
+    // Board still renders
+    expect(container.querySelector('[data-testid="flipchart-stage"]')).toBeTruthy();
+    expect(container.querySelector('[data-native-flipchart="true"]')).toBeTruthy();
+    // Zero chrome
+    expect(container.querySelector(".fc-board__controls")).toBeNull();
+    expect(container.querySelector(".fc-board__strip")).toBeNull();
+    expect(screen.queryByTestId("flipchart-counter")).toBeNull();
+    expect(screen.queryByLabelText(/L\u00e1mina anterior/i)).toBeNull();
+    expect(screen.queryByLabelText(/L\u00e1mina siguiente/i)).toBeNull();
+  });
+
+  it("keeps full chrome by default", () => {
+    const { container } = render(<FlipchartHdPanel lessonNumber={7} />);
+    expect(container.querySelector(".fc-board__controls")).toBeTruthy();
+    expect(screen.getByTestId("flipchart-counter")).toBeTruthy();
+  });
+
+  it("skips figcaption for art with baked-in labels (no doubled word)", () => {
+    // Page 21 (Dd): dados/dedo/didi/dunia have the word baked into the image.
+    const page = FLIPCHART_PAGES.find((entry) => entry.flipchartPage === 21)!;
+    const { container } = render(<FlipchartNativeBoard page={page} />);
+    const grid = container.querySelector('[data-testid="flipchart-art-grid"]');
+    expect(grid).toBeTruthy();
+    const captions = [...grid!.querySelectorAll(".fc-native-board__art-label")];
+    const captionTexts = captions.map((c) => c.textContent?.trim().toLowerCase());
+    // None of the baked-label words may have a duplicate figcaption.
+    for (const word of ["dados", "dedo", "didi", "dunia"]) {
+      expect(captionTexts, `duplicate label for "${word}"`).not.toContain(word);
+    }
+  });
+
+  it("shell bare mode renders stage with no header", () => {
+    const { container } = render(
+      <TeacherPresentationShell bare onExit={() => {}}>
+        <div>board</div>
+      </TeacherPresentationShell>,
+    );
+    const shell = container.querySelector('[data-testid="teacher-presenter-shell"]');
+    expect(shell).toBeTruthy();
+    expect(shell?.getAttribute("data-bare")).toBe("true");
+    expect(container.querySelector('[data-testid="teacher-presenter-stage"]')).toBeTruthy();
+    expect(container.querySelector('[data-testid="teacher-presenter-header"]')).toBeNull();
+  });
+});
+
 describe("TeacherPresentationShell — book-warm presenter chrome", () => {
   it("renders full-viewport shell with stage landmark (not dark max-w column)", () => {
     const { container } = render(

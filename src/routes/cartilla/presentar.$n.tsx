@@ -88,6 +88,7 @@ function PresentarLesson() {
       <TeacherPresentationShell
         accentColor={accentColor}
         onExit={handleExit}
+        bare
         eyebrow={`Lección ${n} · Flipchart`}
         title={entry.title}
         subtitle={
@@ -96,8 +97,8 @@ function PresentarLesson() {
           : "Proyector del maestro"
         }
       >
-        {/* Full-bleed native board — no page-scan surface. */}
-        <FlipchartHdPanel key={n} lessonNumber={n} accentColor={accentColor} />
+        {/* Full-bleed native board — zero chrome, the page IS the book page. */}
+        <FlipchartHdPanel key={n} lessonNumber={n} accentColor={accentColor} chrome="bare" />
       </TeacherPresentationShell>
     </>
   );

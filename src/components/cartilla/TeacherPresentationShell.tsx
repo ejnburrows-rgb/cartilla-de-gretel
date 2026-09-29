@@ -17,6 +17,11 @@ interface TeacherPresentationShellProps {
   subtitle?: string;
   /** Short eyebrow, e.g. "Lección 2" */
   eyebrow?: string;
+  /**
+   * Bare mode: zero chrome — no header, no toolbar buttons. Renders ONLY the
+   * stage. The book has no chrome inside the page. Escape key exits.
+   */
+  bare?: boolean;
 }
 
 export function TeacherPresentationShell({
@@ -26,6 +31,7 @@ export function TeacherPresentationShell({
   title = "Presentación del flipchart",
   subtitle = "Proyector del maestro",
   eyebrow = "Panel del docente",
+  bare = false,
 }: TeacherPresentationShellProps) {
   const [isFullscreen, setIsFullscreen] = useState(false);
   const [laserPointer, setLaserPointer] = useState(false);
@@ -75,6 +81,16 @@ export function TeacherPresentationShell({
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [focusMode]);
 
+  // Bare mode: Escape exits (no visible exit button in zero-chrome mode).
+  useEffect(() => {
+    if (!bare) return;
+    const onKey = (e: KeyboardEvent) => {
+      if (e.key === "Escape") onExit?.();
+    };
+    window.addEventListener("keydown", onKey);
+    return () => window.removeEventListener("keydown", onKey);
+  }, [bare, onExit]);
+
   const handleMouseMove = (e: MouseEvent) => {
     if (laserPointer) setLaserPos({ x: e.clientX, y: e.clientY });
   };
@@ -94,15 +110,17 @@ export function TeacherPresentationShell({
 
   return (
     <div
-      className={`fc-presenter${focusClass}`}
+      className={`fc-presenter${focusClass}${bare ? " is-bare" : ""}`}
       style={shellStyle}
       data-accent=""
       data-testid="teacher-presenter-shell"
+      data-bare={bare ? "true" : "false"}
       onMouseMove={handleMouseMove}
     >
       {laserPointer && <div className="fc-presenter__laser" style={laserStyle} aria-hidden />}
 
-      <header className="fc-presenter__header" data-testid="teacher-presenter-header">
+      {!bare && (
+        <header className="fc-presenter__header" data-testid="teacher-presenter-header">
         <div className="fc-presenter__brand">
           <button
             type="button"
@@ -154,7 +172,8 @@ export function TeacherPresentationShell({
             <span className="hidden sm:inline">Pantalla completa</span>
           </button>
         </div>
-      </header>
+        </header>
+      )}
 
       {/* Full-width stage — no max-w postage stamp */}
       <main className="fc-presenter__main" data-testid="teacher-presenter-stage">

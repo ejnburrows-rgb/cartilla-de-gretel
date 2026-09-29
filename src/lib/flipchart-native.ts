@@ -59,7 +59,7 @@ export type NativeFlipchartPage = {
   syllables: string[];
   artRegion: { top: number; bottom: number; left: number; right: number };
   slots: string[];
-  art: Array<{ src: string; word: string }>;
+  art: Array<{ src: string; word: string; labelInImage?: boolean }>;
   compositionKind: "art" | "typography-only" | "frontmatter";
   /** Exact-replica layout type (book §2) — drives the page renderer. */
   layoutType: FlipchartLayoutType;
@@ -106,6 +106,19 @@ type OptimizedExclusiveEntry = {
 
 const OPTIMIZED_EXCLUSIVE = optimizedExclusive as OptimizedExclusiveEntry[];
 
+/**
+ * Images with the word label baked into the image file itself (bottom strip).
+ * Rendering a figcaption label under these would double the label, so the
+ * renderer skips the caption for these assets. Images are locked — this flag
+ * is the code-side fix, not an image edit.
+ */
+const BAKED_LABEL_SRCS = new Set([
+  "/cartilla/art/faithful/flipchart-native/p021-dados.webp",
+  "/cartilla/art/faithful/flipchart-native/p021-dedo.webp",
+  "/cartilla/art/faithful/flipchart-native/p021-didi.webp",
+  "/cartilla/art/faithful/flipchart-native/p021-dunia.webp",
+]);
+
 function normalizeWord(value: string) {
   return value
     .normalize("NFD")
@@ -141,20 +154,29 @@ function pageArt(
     return word && tokens.has(word);
   });
 
-  const unique = new Map<string, { src: string; word: string }>();
+  const unique = new Map<string, { src: string; word: string; labelInImage?: boolean }>();
   for (const entry of OPTIMIZED_EXCLUSIVE) {
     if (entry.flipchartPage !== flipchartPage || !entry.src || unique.has(entry.src)) continue;
-    unique.set(entry.src, { src: entry.src, word: entry.word });
+    unique.set(entry.src, {
+      src: entry.src,
+      word: entry.word,
+      ...(BAKED_LABEL_SRCS.has(entry.src) ? { labelInImage: true as const } : {}),
+    });
   }
   for (const entry of NATIVE_EXTRAS[String(flipchartPage)] ?? []) {
     if (!entry.src || unique.has(entry.src)) continue;
-    unique.set(entry.src, { src: entry.src, word: entry.word });
+    unique.set(entry.src, {
+      src: entry.src,
+      word: entry.word,
+      ...(BAKED_LABEL_SRCS.has(entry.src) ? { labelInImage: true as const } : {}),
+    });
   }
   for (const entry of textMatches) {
     if (!entry.src || unique.has(entry.src)) continue;
     unique.set(entry.src, {
       src: entry.src,
       word: entry.word ?? entry.slug ?? "Ilustración",
+      ...(BAKED_LABEL_SRCS.has(entry.src) ? { labelInImage: true as const } : {}),
     });
     if (unique.size >= 8) break;
   }
