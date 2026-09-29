@@ -54,14 +54,14 @@ jobs:
       - name: Compare recovery layouts with approved references
         run: pnpm test:visual
 
-      - name: Capture full workbook visual audit
+      - name: Capture full Workbook and Flip Chart visual audit
         run: pnpm exec playwright test tests/e2e/visual-audit.spec.ts --project=chromium
 
       - name: Upload visual audit screenshots
         if: always()
         uses: actions/upload-artifact@v4
         with:
-          name: cartilla-visual-audit
+          name: cartilla-platform-visual-audit
           path: test-results/visual-audit
           if-no-files-found: error
           retention-days: 7
