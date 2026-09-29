@@ -43,6 +43,12 @@
 .native-lesson-viewer__content .fp-writing-response textarea:focus-visible { outline: 3px solid #167d72; outline-offset: 2px; }
 .native-lesson-viewer__content .fp-ix-fill { gap: 12px; }
 .native-lesson-viewer__content .fp-ix-fill__item { display: grid; grid-template-columns: minmax(70px, 1fr) minmax(80px, 1fr) auto; gap: 10px; align-items: center; padding: 10px; border: 1px solid #eadcc6; border-radius: 13px; background: white; }
+/* Items with an illustration: keep the choice buttons attached to the wordbox row, not detached at bottom-left. */
+.native-lesson-viewer__content .fp-ix-fill__item:has(.fp-ix-fill__img) { grid-template-columns: auto 1fr auto; grid-template-areas: "img wordbox blank" "img choices choices"; }
+.native-lesson-viewer__content .fp-ix-fill__item:has(.fp-ix-fill__img) .fp-ix-fill__img { grid-area: img; }
+.native-lesson-viewer__content .fp-ix-fill__item:has(.fp-ix-fill__img) .fp-ix-fill__wordbox { grid-area: wordbox; }
+.native-lesson-viewer__content .fp-ix-fill__item:has(.fp-ix-fill__img) .fp-ix-fill__blank { grid-area: blank; }
+.native-lesson-viewer__content .fp-ix-fill__item:has(.fp-ix-fill__img) .fp-ix-fill__choices { grid-area: choices; justify-content: flex-start; }
 .native-lesson-viewer__content .fp-ix-fill__wordbox, .native-lesson-viewer__content .fp-ix-fill__blank { font-size: 18px; }
 .native-lesson-viewer__content .fp-ix-fill__choice { min-height: 46px; min-width: 46px; font-size: 17px; padding: 6px 10px; }
 .native-lesson-viewer__content .fp-ix-check-btn { min-height: 48px; padding: 10px 22px; font-size: 16px; }

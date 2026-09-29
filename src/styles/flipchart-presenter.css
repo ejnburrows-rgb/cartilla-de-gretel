@@ -632,8 +632,12 @@
   min-height: 0;
   display: flex;
   flex-direction: column;
-  justify-content: center;
+  justify-content: flex-start;
   gap: clamp(.75rem, 1.3vw, 1.2rem);
+  overflow-y: auto;
+  overflow-x: hidden;
+  scrollbar-width: thin;
+  padding-block: .25rem;
 }
 
 .fc-native-board__rhyme {
@@ -872,11 +876,23 @@
 
 .fc-native-board__living-art .living-illustration__art,
 .fc-native-board__living-art .living-illustration__part {
+  display: block;
+  min-width: 0;
+  min-height: 0;
   width: auto;
   height: auto;
-  max-width: 96%;
+  max-width: 100%;
   max-height: 100%;
   object-fit: contain;
+}
+
+/* Hard containment: art must never bleed out of its tile card. */
+.fc-native-board__art-card {
+  overflow: hidden;
+}
+.fc-native-board__art-card .fc-native-board__living-art {
+  max-width: 100%;
+  overflow: hidden;
 }
 
 .fc-native-board__art-label {
