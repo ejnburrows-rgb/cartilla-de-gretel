@@ -1,23 +1,19 @@
-import { createFileRoute, Link } from "@tanstack/react-router";
+import { createFileRoute } from "@tanstack/react-router";
 import { useMemo } from "react";
-import { ArrowLeft } from "lucide-react";
 import { DigitalPageViewer } from "@/components/StudentBook/DigitalPageViewer";
 import type { WorkbookPageEntry } from "@/components/StudentBook/SimplePageViewer";
-import { ReconstructedWorkbookPage } from "@/components/cartilla/ReconstructedWorkbookPage";
-import { FaithfulPageRenderer } from "@/components/cartilla/FaithfulPageRenderer";
-import { GretelPresence } from "@/components/gretel/GretelPresence";
+import { ExactWorkbookPage } from "@/components/cartilla/ExactWorkbookPage";
 import { buildGretelPageLine } from "@/lib/gretel-page-guide";
 import { getPageLayout } from "@/lib/book-faithful";
-import pageLayouts from "@/data/page-layouts.json";
 
 export const Route = createFileRoute("/cartilla/cuaderno")({
-  component: ReconstructedWorkbook,
+  component: ExactWorkbook,
   head: () => ({
     meta: [
       { title: "Cuaderno completo — La Cartilla de Gretel" },
       {
         name: "description",
-        content: "Cuaderno digital interactivo con páginas fieles y guía de Gretel.",
+        content: "Cuaderno digital fiel al libro físico.",
       },
     ],
   }),
@@ -29,43 +25,22 @@ const AVAILABLE_PRINTED_PAGES = [
   89,
   90,
 ];
-const digitalPages = pageLayouts.pages as Record<string, { digitalStatus?: string }>;
 
-function ReconstructedWorkbook() {
+function ExactWorkbook() {
   const pages = useMemo<WorkbookPageEntry[]>(
     () =>
       AVAILABLE_PRINTED_PAGES.map((pageNumber) => ({
         id: `workbook-page-${pageNumber}`,
         pageNumber,
         gretelLine: buildGretelPageLine(getPageLayout(pageNumber), pageNumber),
-        content: digitalPages[String(pageNumber)]?.digitalStatus === "verified"
-          ? <FaithfulPageRenderer pageNumber={pageNumber} interactive fixedLayout fallback={<ReconstructedWorkbookPage pageNumber={pageNumber} />} />
-          : <ReconstructedWorkbookPage pageNumber={pageNumber} />,
+        content: <ExactWorkbookPage pageNumber={pageNumber} />,
       })),
     [],
   );
 
   return (
-    <main className="min-h-screen bg-[#f3f7f5] px-3 py-5 text-[#263a40] sm:px-6">
-      <div className="mx-auto mb-4 flex w-full max-w-5xl items-center justify-between gap-3">
-        <Link
-          to="/cartilla/lecciones"
-          className="inline-flex min-h-11 items-center gap-2 rounded-xl bg-white px-4 py-2 text-sm font-bold text-[#096d67] shadow-sm transition hover:bg-[#eaf5f1]"
-        >
-          <ArrowLeft className="h-4 w-4" /> Lecciones
-        </Link>
-        <div className="text-right">
-          <h1 className="text-base font-black sm:text-xl">Cuaderno completo</h1>
-          <p className="text-xs font-bold text-[#63817c]">Cuaderno digital interactivo</p>
-        </div>
-      </div>
-
-      <div className="mx-auto w-full max-w-5xl">
-        <DigitalPageViewer
-          pages={pages}
-          bookCompanion={<GretelPresence autoIntro={false} bookMode hideChrome />}
-        />
-      </div>
+    <main className="workbook-exact-shell">
+      <DigitalPageViewer pages={pages} exactReplica />
     </main>
   );
 }
