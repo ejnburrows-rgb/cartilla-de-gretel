@@ -120,7 +120,7 @@ test.describe("complete native platform visual audit", () => {
       expect(errors, `Browser errors during ${viewport.name} workbook sweep`).toEqual([]);
     });
 
-    test(`capture all 62 native Flip Chart pages — ${viewport.name}`, async ({ page }) => {
+    test(`capture all 60 instructional Flip Chart pages — ${viewport.name}`, async ({ page }) => {
       test.setTimeout(12 * 60 * 1000);
       await page.setViewportSize({ width: viewport.width, height: viewport.height });
 
@@ -200,8 +200,10 @@ test.describe("complete native platform visual audit", () => {
         }
       }
 
+      // Presenter lesson routes expose instructional pages 3–62.
+      // Native frontmatter pages 1–2 are certified by component coverage tests.
       expect([...seen].sort((a, b) => a - b)).toEqual(
-        Array.from({ length: 62 }, (_, index) => index + 1),
+        Array.from({ length: 60 }, (_, index) => index + 3),
       );
       expect(errors, `Browser errors during ${viewport.name} Flip Chart sweep`).toEqual([]);
     });
