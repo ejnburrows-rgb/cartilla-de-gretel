@@ -3,29 +3,32 @@ import type { WorkbookPageEntry } from "@/components/StudentBook/SimplePageViewe
 import pageInventory from "@/data/page-inventory.json";
 import { CATALOG } from "@/lib/lesson-catalog";
 import { getLessonPageNumbers } from "@/lib/cartilla-crm-theme";
-import { getPageLayout, hasPageLayout } from "@/lib/book-faithful";
+import { getPageLayout } from "@/lib/book-faithful";
 import { buildGretelPageLine } from "@/lib/gretel-page-guide";
-import { FaithfulPageRenderer } from "@/components/cartilla/FaithfulPageRenderer";
-import { PdfPage } from "@/components/cartilla/PdfPage";
+import { ExactWorkbookPage } from "@/components/cartilla/ExactWorkbookPage";
 
 const BASE = "/cartilla/images/source";
 
 /** Honest pending shell — never invents book text or art. */
 function PendingPageShell({ lessonId, pageNum, globalPage }: { lessonId: number; pageNum: number; globalPage?: number }) {
   return (
-    <div className="w-full h-full flex flex-col items-center justify-center gap-2 text-stone-500 text-sm font-bold bg-stone-50 border border-dashed border-stone-300 p-6 text-center" role="status">
+    <div className="w-full h-full flex flex-col items-center justify-center gap-2 text-stone-500 text-sm font-bold bg-white p-6 text-center" role="status">
       <span>Página pendiente</span>
       <span className="text-xs font-medium text-stone-400">
         Lección {lessonId} · página {pageNum}{typeof globalPage === "number" ? ` (libro ${globalPage})` : ""}
       </span>
-      <span className="text-xs font-medium text-stone-400">Sin diseño verificado ni escaneo disponible — no se inventa contenido.</span>
+      <span className="text-xs font-medium text-stone-400">Sin página fuente verificada — no se inventa contenido.</span>
     </div>
   );
 }
 
 /**
- * Builds the WorkbookPageEntry[] for a specific lesson. Lesson slices contain
- * interior worksheet leaves only; none is mislabeled as a hard book cover.
+ * Builds the WorkbookPageEntry[] for a specific lesson.
+ *
+ * Exact-replica rule: when a printed workbook page number is known, render the
+ * locked canonical full-page source image unchanged. The physical book controls
+ * placement, geometry, typography, chrome, and artwork; the app only scales the
+ * whole page uniformly.
  */
 export function buildPageArray(lessonId: number): WorkbookPageEntry[] {
   const lessonEntry = (pageInventory.workbook.lessons as Array<{ lessonId: number; pages: string[] }>).find((l) => l.lessonId === lessonId);
@@ -47,23 +50,13 @@ export function buildPageArray(lessonId: number): WorkbookPageEntry[] {
       pageNumberForGuide,
     );
 
-    if (typeof globalPage === "number" && hasPageLayout(globalPage)) {
-      return {
-        id: `lesson-${lessonId}-page-${pageNum}`,
-        src,
-        pageNumber: pageNumberForGuide,
-        gretelLine,
-        content: <FaithfulPageRenderer pageNumber={globalPage} lessonNumber={lessonId} interactive native />,
-      };
-    }
-
     if (typeof globalPage === "number") {
       return {
         id: `lesson-${lessonId}-page-${pageNum}`,
         src,
         pageNumber: pageNumberForGuide,
         gretelLine,
-        content: <FaithfulPageRenderer pageNumber={globalPage} lessonNumber={lessonId} fallback={<PdfPage pageNumber={globalPage} />} />,
+        content: <ExactWorkbookPage pageNumber={globalPage} />,
       };
     }
 
@@ -74,13 +67,13 @@ export function buildPageArray(lessonId: number): WorkbookPageEntry[] {
         pageNumber: pageNumberForGuide,
         gretelLine,
         content: isAnimated ? (
-          <video src={src} autoPlay loop muted playsInline className="w-full h-full object-cover" />
+          <video src={src} autoPlay loop muted playsInline className="w-full h-full object-contain bg-white" />
         ) : (
-          <img src={src} alt={`Lección ${lessonId} — Página ${pageNum}`} loading="lazy" decoding="async" className="w-full h-full object-cover" onError={(e) => {
+          <img src={src} alt={`Lección ${lessonId} — Página ${pageNum}`} loading="lazy" decoding="async" className="w-full h-full object-contain bg-white" onError={(e) => {
             const t = e.currentTarget;
             t.style.display = "none";
             const fb = document.createElement("div");
-            fb.className = "w-full h-full flex items-center justify-center text-text-muted text-sm font-bold bg-surface";
+            fb.className = "w-full h-full flex items-center justify-center text-text-muted text-sm font-bold bg-white";
             fb.textContent = `Página ${pageNum} — pendiente`;
             t.parentNode?.appendChild(fb);
           }} />
