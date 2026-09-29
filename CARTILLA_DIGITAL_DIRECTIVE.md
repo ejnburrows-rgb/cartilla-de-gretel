@@ -93,6 +93,10 @@ DO NOT:
 
 Use the existing approved image files unchanged. Place them according to the book's layout structure.
 
+### Image acceptance rule
+
+Only images uploaded by ChatGPT are accepted into the repo. ChatGPT is the agent that handles image work correctly. No other agent (Muse, Jules, Qwen, or any other) may add, replace, or modify image files in the repo. If image work is needed, it goes through ChatGPT.
+
 ---
 
 ## Reference materials
