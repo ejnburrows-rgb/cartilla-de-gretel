@@ -10,9 +10,11 @@ const TURN_MS = 740;
 export function DigitalPageViewer({
   pages,
   bookCompanion,
+  exactReplica = false,
 }: {
   pages: WorkbookPageEntry[];
   bookCompanion?: ReactNode;
+  exactReplica?: boolean;
 }) {
   const [index, setIndex] = useState(0);
   const [navigatorOpen, setNavigatorOpen] = useState(false);
@@ -52,20 +54,29 @@ export function DigitalPageViewer({
   }, [index, pages]);
 
   const page = pages[index];
+  if (!page) return null;
+
   const pageLabel = page.pageNumber === index + 1
     ? `Página ${page.pageNumber} de ${pages.length}`
     : `Página ${page.pageNumber} · hoja ${index + 1} de ${pages.length}`;
+
   return (
-    <div className="digital-reader" aria-label="Cuaderno interactivo de La Cartilla de Gretel">
-      <div className="digital-reader__toolbar">
-        <button type="button" className="digital-reader__nav-toggle" aria-expanded={navigatorOpen} onClick={() => setNavigatorOpen((open) => !open)}>
-          <List size={18} /> Páginas
-        </button>
-        <span aria-live="polite">{pageLabel}</span>
-      </div>
+    <div
+      className={`digital-reader${exactReplica ? " digital-reader--exact" : ""}`}
+      aria-label="Cuaderno interactivo de La Cartilla de Gretel"
+      data-exact-replica={exactReplica || undefined}
+    >
+      {!exactReplica && (
+        <div className="digital-reader__toolbar">
+          <button type="button" className="digital-reader__nav-toggle" aria-expanded={navigatorOpen} onClick={() => setNavigatorOpen((open) => !open)}>
+            <List size={18} /> Páginas
+          </button>
+          <span aria-live="polite">{pageLabel}</span>
+        </div>
+      )}
 
       <div className="digital-reader__content">
-        {navigatorOpen && (
+        {!exactReplica && navigatorOpen && (
           <nav className="digital-reader__page-list" aria-label="Navegación vertical de páginas">
             {pages.map((entry, target) => (
               <button
@@ -84,6 +95,14 @@ export function DigitalPageViewer({
         <div className="digital-reader__stage">
           <div
             className="digital-reader__page-slot"
+            data-exact-page-slot={exactReplica || undefined}
+            onClick={(event) => {
+              if (!exactReplica) return;
+              if (event.target instanceof HTMLElement && event.target.closest("button, input, textarea, select, [contenteditable], [data-interactive]")) return;
+              const rect = event.currentTarget.getBoundingClientRect();
+              const target = event.clientX - rect.left < rect.width / 2 ? index - 1 : index + 1;
+              goTo(target);
+            }}
             onTouchStart={(event) => {
               if (event.target instanceof HTMLElement && event.target.closest(".digital-region--grid, button, canvas, [data-interactive]")) {
                 touchStart.current = null;
@@ -102,15 +121,17 @@ export function DigitalPageViewer({
               {page.content}
             </div>
           </div>
-          {bookCompanion && <aside className="digital-reader__companion" aria-label="Gretel, guía del cuaderno">{bookCompanion}</aside>}
+          {!exactReplica && bookCompanion && <aside className="digital-reader__companion" aria-label="Gretel, guía del cuaderno">{bookCompanion}</aside>}
         </div>
       </div>
 
-      <div className="digital-reader__controls">
-        <button type="button" onClick={() => goTo(index - 1)} disabled={index === 0} aria-label="Página anterior"><ChevronLeft size={20} /> Anterior</button>
-        <span>{pageLabel}</span>
-        <button type="button" onClick={() => goTo(index + 1)} disabled={index === pages.length - 1} aria-label="Página siguiente">Siguiente <ChevronRight size={20} /></button>
-      </div>
+      {!exactReplica && (
+        <div className="digital-reader__controls">
+          <button type="button" onClick={() => goTo(index - 1)} disabled={index === 0} aria-label="Página anterior"><ChevronLeft size={20} /> Anterior</button>
+          <span>{pageLabel}</span>
+          <button type="button" onClick={() => goTo(index + 1)} disabled={index === pages.length - 1} aria-label="Página siguiente">Siguiente <ChevronRight size={20} /></button>
+        </div>
+      )}
     </div>
   );
 }
