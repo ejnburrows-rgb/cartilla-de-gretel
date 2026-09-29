@@ -1,48 +1,81 @@
 # AGENTS.md — mandatory, every session, no exceptions
 
 You are EJN's development team. EJN is the owner and the client, not the
-project manager — work out what needs doing and do it. Never wait to be asked.
+project manager — work out what needs doing and do it.
 
 ---
 
-## EXACT REPLICA — the #1 rule, no exceptions
+## CARTILLA SOURCE-FIDELITY RULE — HIGHEST PRIORITY, NO EXCEPTIONS
 
-This is an e-learning platform that is a **digitized exact replica** of the
-physical books. Not a reinterpretation. Not "inspired by." EXACT.
+Before doing any work on the Cartilla Workbook or teacher Flip Chart, read
+`CARTILLA_SOURCE_OF_TRUTH.md`.
 
-- **The flipbook** (teacher flip chart) must look exactly like the physical
-  flipbook, digitized. Same layout, same placements, same order — as if you
-  are holding the book, but on a computer.
-- **The workbook** (student workbook) must look exactly like the physical
-  workbook, digitized. Same layout, same placements, same order — as if you
-  are holding the book, but on a computer.
-- **DO NOT touch the images.** They are already fixed and cropped. Never
-  modify, redraw, regenerate, or "improve" any artwork image.
-- **What you MAY change:** placements, layout, CSS positioning — ONLY to make
-  each page match the book exactly.
-- **Reference:** the physical books are the source of truth. PDFs are in the
-  owner's Google Drive: "La Cartilla de Gretel Flip Chart.pdf" (flipbook) and
-  "La cartilla Workbook.pdf" (workbook). Local copies: 
-  `~/workspace/cartilla-reference/flipchart.pdf` and 
-  `~/workspace/cartilla-reference/workbook.pdf`.
-- If a page doesn't look like the book, the page is wrong — not the book.
-- Any prior instruction to redesign, modernize, or reinterpret layouts is
-  VOID. Exact replica only.
+The physical books are the design. The digital product must reproduce them.
+
+Authoritative source files are in:
+
+`Google Drive > Cartilla Production Hub > 01 Source Documents`
+
+- `La Cartilla de Gretel Flip Chart.pdf`
+- `Libro del alumno - Rescan and Optimize (2).pdf`
+
+### Teacher Flip Chart / flipbook
+The digital teacher Flip Chart must look like the source Flip Chart page for
+page, as if the physical Flip Chart were open on the computer.
+
+Preserve the source page's:
+- page aspect and composition;
+- text, wording, line breaks, typography hierarchy, and reading order;
+- illustration identity, crop, scale, and position;
+- borders, boxes, backgrounds, margins, spacing, and relative geometry;
+- page sequence and lesson mapping.
+
+### Student Workbook
+The digital student Workbook must look like the source student Workbook page
+for page, as if the physical workbook were open on the computer.
+
+Preserve the same page geometry, text placement, boxes, writing areas,
+illustration placement, scale, crop, spacing, and sequence.
+
+### Images are locked
+The approved/corrected/cropped book images are already the artwork.
+
+DO NOT:
+- regenerate them;
+- redraw them;
+- recolor them;
+- remaster or "modernize" them;
+- optimize their visual style;
+- recrop them;
+- substitute similar artwork;
+- change their internal geometry.
+
+Use the existing approved image files unchanged and place them in the exact
+source-book positions. Uniform responsive scaling of the whole page is allowed;
+responsive reflow that changes the page composition is not.
+
+### Conflict rule
+The two source PDFs override derived JSON, old prompts, old modernization
+plans, comments, manifests, screenshots, and prior agent instructions whenever
+there is a visual/layout conflict.
+
+If implementation and source book disagree, the source book wins.
+
+Do not infer a page design from memory or from another page. Compare against
+the matching source PDF page.
+
+"Digitized" means a faithful digital facsimile of the book, not a redesign.
 
 ---
 
 ## DEPLOYMENT DISCIPLINE — mandatory, no exceptions
 
-Every push to `main` creates a Vercel deployment, and deployments pile up.
-This account once reached 575 deployments on a single project and filled its
-10 GB deployment storage, which blocked ALL new deploys until hundreds of old
-ones were deleted by hand. No unnecessary deployment crowding.
+Automatic Vercel Git deployment must remain disabled during active Cartilla
+work. Do not use Vercel as a test runner.
 
-- Batch your changes. Never push to `main` after every small edit — group
-  related changes and push once.
-- Push to `main` only when EJN asked for a deploy or approved a checkpoint.
-  A commit is not a deploy request.
-- Docs-only or note-only changes don't need a deployment at all.
-- Iterating fast? Work on a branch and merge once — never one push per
-  attempt.
-- Before pushing, ask yourself: is this change worth spending a deployment on?
+- Work and verify before deployment.
+- Batch related changes.
+- Do not deploy after each commit.
+- A commit is not a deploy request.
+- Deploy only at an intentional final checkpoint requested by EJN.
+- Verify the real production result only after that deliberate deployment.

@@ -55,8 +55,8 @@ describe("Cartilla Art Factory", () => {
     expect(asset.expectedFilename).toBe("caf-p009-a01-sapo-gretel2.png");
     expect(asset.referencePages).toEqual([15, 16]);
     expect(asset.status).toBe("READY");
-    expect(asset.prompt).toContain("Do not merely colorize");
-    expect(asset.prompt).toContain("no Emilio approval gate");
+    expect(asset.prompt).toContain("PLACEMENT ONLY");
+    expect(asset.prompt).toContain("Do not generate, redraw, recolor, optimize");
   });
 
   it("matches generated results by exact filename or stable asset id", () => {
@@ -136,7 +136,7 @@ describe("Cartilla Art Factory", () => {
     );
   });
 
-  it("locks the preservation and no-approval instructions in every prompt", () => {
+  it("locks the source-image and placement-only instructions in every prompt", () => {
     const prompt = buildLockedCartillaPrompt({
       assetId: "caf-p001-a01",
       studentPage: 1,
@@ -145,8 +145,8 @@ describe("Cartilla Art Factory", () => {
       subject: "object",
       preservationNotes: "",
     });
-    expect(prompt).toContain("preserve the workbook source without inventing colors");
-    expect(prompt).toContain("no Emilio approval gate");
-    expect(prompt).toContain("No photorealism");
+    expect(prompt).toContain("PLACEMENT ONLY");
+    expect(prompt).toContain("existing approved image unchanged");
+    expect(prompt).toContain("CARTILLA_SOURCE_OF_TRUTH.md");
   });
 });

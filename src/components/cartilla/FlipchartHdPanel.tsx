@@ -1,12 +1,11 @@
 /**
- * FlipchartHdPanel — native teacher presentation board for classroom projection.
+ * FlipchartHdPanel — teacher Flip Chart viewer.
  *
- * Canonical full-page masters remain provenance/reference only under
- * public/cartilla/art/hd/flipchart/. The visible presenter composes separate
- * faithful learning-object assets with selectable digital text.
- *
- * The presenter uses a clean native surface with a vertical page transition,
- * never simulated rings, binding hardware, scan chrome, or a photographed page.
+ * OWNER RULE: the visible page must reproduce the matching physical Flip Chart
+ * page as faithfully as possible. Implementation details are subordinate to
+ * source-page fidelity. Do not redesign, reflow, modernize, or re-compose the
+ * book page. Existing approved/cropped artwork is placement-only and must not
+ * be altered. See CARTILLA_SOURCE_OF_TRUTH.md.
  */
 import { useCallback, useEffect, useMemo, useRef, useState, type CSSProperties } from "react";
 import { ChevronDown, ChevronUp } from "lucide-react";

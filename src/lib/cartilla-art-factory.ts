@@ -147,21 +147,20 @@ export function buildLockedCartillaPrompt(input: {
   const notes = input.preservationNotes.trim() || "Preserve every defining source detail.";
 
   return [
-    `CARTILLA ART FACTORY JOB ${input.assetId}`,
+    `CARTILLA SOURCE-LOCKED PLACEMENT JOB ${input.assetId}`,
     `Workbook page: ${input.studentPage}.`,
     `Mapped Flip Chart reference pages: ${references}.`,
     `Subject/category: ${input.subject || "unnamed subject"} / ${input.category}.`,
     "",
-    "Re-render this exact source illustration as premium Gretel 2.0 / La Cartilla digital storybook art.",
-    "Do not merely colorize, upscale, trace, clean, or redraw the old scan as the final treatment.",
-    "Preserve educational identity, subject count, defining pose/action, silhouette, proportions, face/expression, major clothing, props, patterns, composition, and instructional meaning.",
-    "When an exact mapped Flip Chart counterpart exists, use its established colors and visual identity as the authoritative reference.",
-    "Use a handcrafted dimensional children's storybook finish with warm country/tole DNA, polished digital edges, warm brown/sienna outlines, consistent materials and lighting, and screen-ready resolution.",
-    "No photorealism. No unrelated flowers, borders, text, scenery, characters, props, or decorative inventions.",
-    "Do not crop meaningful content and do not stretch anatomy or objects.",
-    `Preservation notes: ${notes}`,
+    "PLACEMENT ONLY. The approved source image is already final.",
+    "Do not generate, redraw, recolor, optimize, remaster, modernize, restyle, recrop, or otherwise alter the image pixels.",
+    "Use the existing approved image unchanged.",
+    "Open the matching authoritative source PDF page and reproduce the image's exact page position, scale, crop relationship, and surrounding page geometry.",
+    "The student Workbook must look like the physical Workbook; the teacher Flip Chart must look like the physical Flip Chart.",
+    "Do not use the mapped Flip Chart as permission to redesign or recolor Workbook artwork.",
+    `Placement/source notes: ${notes}`,
     "",
-    "Execution rule: quality validation is part of the production workflow, but there is no Emilio approval gate. Continue through integration-ready output unless an objective fidelity defect is found.",
+    "CARTILLA_SOURCE_OF_TRUTH.md overrides any older artwork-generation instruction.",
   ].join("\n");
 }
 

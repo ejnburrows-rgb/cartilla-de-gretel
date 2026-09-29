@@ -4,12 +4,19 @@ Digital classroom edition of *La Cartilla de Gretel* by Leonor Lopetegui.
 
 ## Source of truth
 
-- `main` is the only production source of truth.
+- `main` is the production code source of truth.
+- **Book appearance is governed by `CARTILLA_SOURCE_OF_TRUTH.md` and the two
+  authoritative PDFs in `Google Drive > Cartilla Production Hub > 01 Source Documents`:**
+  - `La Cartilla de Gretel Flip Chart.pdf`
+  - `Libro del alumno - Rescan and Optimize (2).pdf`
+- The digital Flip Chart must look like the source Flip Chart page-for-page.
+- The digital student Workbook must look like the source Workbook page-for-page.
+- Approved/cropped book images are locked pixels: placement only, no
+  regeneration/recoloring/remastering/recropping.
 - Vite + React + TypeScript + TanStack Router + Supabase.
 - Production host: Vercel.
-- Git contains only production code and small assets actually required by the app.
+- Git contains production code and the small assets actually required by the app.
 
-Large archival workbook scans, flipchart masters, proof files, screenshots, crop sources, restoration work, and agent scratch are not stored in active Git history. Runtime fallbacks for the original workbook PDF and scan families are served from the immutable production asset snapshot configured in `vercel.json`.
 
 ## Run locally
 
