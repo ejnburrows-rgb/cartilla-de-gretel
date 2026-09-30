@@ -592,3 +592,11 @@
   outline-offset: 3px;
   border-radius: 4px;
 }
+
+/* Keep the approved full character and immediate entry visible on the welcome screen. */
+.home-landing__hero-col .gretel-cinematic-portrait {
+  width: auto;
+  height: min(40svh, 360px);
+  max-width: 100%;
+  object-fit: contain;
+}

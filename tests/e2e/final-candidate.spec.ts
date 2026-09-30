@@ -174,6 +174,8 @@ test('single welcome entry and approved still at every presentation size', async
     await page.goto('/cartilla/', { waitUntil: 'domcontentloaded' });
     const start = page.getByRole('link', { name: 'Comenzar', exact: true });
     await expect(start).toBeVisible();
+    const startBounds = await start.boundingBox();
+    expect(startBounds!.y + startBounds!.height).toBeLessThanOrEqual(viewport.height);
     const still = page.locator('img[src="/cartilla/images/gretel/gretel-approved-master.png"]');
     await expect.poll(() => still.evaluate((el) => (el as HTMLImageElement).complete && (el as HTMLImageElement).naturalWidth > 0)).toBe(true);
     expect(await page.locator('video').count()).toBe(0);
