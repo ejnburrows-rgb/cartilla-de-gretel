@@ -33,6 +33,16 @@ const flipchart = readJson("src/data/teacher-flipchart.json");
 const frames = readJson("src/data/flipchart-frames.json");
 const nativeFlipchartAssets = readJson("src/data/flipchart-native-assets.json");
 const optimizedFlipchartAssets = readJson("src/data/optimized-flipchart-exclusive.json");
+const gretelClips = readJson("src/data/gretel-approved-clips.json");
+for (const [scene, clip] of Object.entries(gretelClips)) {
+  for (const [kind, src] of Object.entries(clip)) {
+    assert(typeof src === "string" && src.startsWith("/cartilla/") && !src.includes(".."), `invalid Gretel ${kind} path for ${scene}`);
+    if (typeof src === "string") assert(exists(`public${src}`), `missing registered Gretel ${kind} for ${scene}: ${src}`);
+  }
+  assert(Boolean(clip.mp4 && clip.poster), `Gretel ${scene} requires a produced clip and approved poster`);
+}
+const nativeCompletePages = (conversion.pages ?? []).filter((page) => page.status === "NATIVE_COMPLETE").length;
+const blockedPages = (conversion.pages ?? []).filter((page) => page.status === "SOURCE_BLOCKED").map((page) => page.physicalPage);
 
 const workbookPages = conversion.pages ?? [];
 assert(workbookPages.length === 90, `expected 90 workbook pages, found ${workbookPages.length}`);
@@ -158,15 +168,18 @@ assert(!lessonSource.includes("<CurlPageViewer"), "legacy scan/book viewer must 
 
 if (process.exitCode) process.exit(process.exitCode);
 
-console.log("[platform-certification] PASS");
+console.log("[platform-certification] PASS: structural checks only; product completion remains PARTIAL");
 console.log(JSON.stringify({
-  workbookNative: "90/90",
+  completionStatus: "PARTIAL",
+  workbookNative: `${nativeCompletePages}/${workbookPages.length}`,
+  workbookSourceBlocked: blockedPages,
   workbookSourceAssets: "88 canonical source pages + verified scan gap at 86–87",
   flipchartNativeRegistry: "62/62",
   flipchartCanonicalMasters: "62/62",
   flipchartSurface: "62/62 native boards; pages 1-2 native frontmatter; pages 3-62 separate faithful learning objects",
-  flipchartOptimizedExclusive: "32 final optimized Flip Chart-only assets wired; Workbook mappings remain separate",
-  gretelRig: "vector-part rig with head/eyes/eyelids/pupils/mouth/torso/independent arms",
+  flipchartOptimizedExclusive: `${optimizedFlipchartAssets.length} assets wired; deleted experiments remain excluded`,
+  gretelRig: "vector-part rig present; character fidelity is not certified by this structural check",
   livingArt: "semantic registry with independent wings/tails/ears/trunk and reduced-motion policy",
-  cinematics: "31 scenes: welcome + how-to + 24 lessons + 4 milestones + final",
+  cinematics: "31 scripted scenes; scripts do not prove that approved motion clips exist",
+  gretelClips: `${Object.keys(gretelClips).length}/31 approved clips registered; missing clips use the static fallback`,
 }, null, 2));

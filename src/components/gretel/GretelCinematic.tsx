@@ -3,6 +3,7 @@ import { useEffect, useMemo, useRef, useState } from "react";
 import { Volume2, VolumeX, RotateCcw, SkipForward } from "lucide-react";
 import { cancelGretelSpeech, isGretelVoiceMuted, setGretelVoiceMuted, speakAsGretel } from "@/lib/gretel-voice";
 import type { GretelCinematic as GretelCinematicSpec } from "@/content/gretel-cinematics";
+import { GretelSceneMedia } from "./GretelSceneMedia";
 
 /** Canonical full-body portrait of the authentic Gretel (EJN-confirmed reference). */
 export const GRETEL_AUTHENTIC_PORTRAIT_SRC = "/cartilla/images/gretel/gretel-autentica.png";
@@ -18,6 +19,7 @@ export function GretelCinematic({
   const [muted, setMuted] = useState(isGretelVoiceMuted());
   const [run, setRun] = useState(0);
   const [elapsedMs, setElapsedMs] = useState(0);
+  const settledMedia = useRef<string | null>(null);
 
   useEffect(() => {
     onCompleteRef.current = onComplete;
@@ -62,6 +64,12 @@ export function GretelCinematic({
           await wait(dwellFor(action));
         }
       }
+      // Muted or unavailable speech must still leave time to read the caption.
+      if (!cancelled) await wait(Math.max(0, cinematic.durationSeconds * 1000 - (performance.now() - started)));
+      while (!cancelled && cinematic.video && settledMedia.current !== `${cinematic.id}-${run}`
+        && performance.now() - started < (cinematic.durationSeconds + 3) * 1000) {
+        await wait(100);
+      }
       if (!cancelled) onCompleteRef.current();
     }, 220);
 
@@ -72,7 +80,7 @@ export function GretelCinematic({
       window.clearInterval(progressTimer);
       cancelGretelSpeech();
     };
-  }, [cinematic.actions, cinematic.id, cinematic.script, run]);
+  }, [cinematic.actions, cinematic.id, cinematic.script, cinematic.durationSeconds, cinematic.video, run]);
 
   const progress = Math.min(1, elapsedMs / Math.max(1000, cinematic.durationSeconds * 1000));
   const captionIndex = useMemo(
@@ -86,7 +94,8 @@ export function GretelCinematic({
     setMuted(next);
     setGretelVoiceMuted(next);
     if (next) cancelGretelSpeech();
-    else setRun((value) => value + 1);
+    // Unmuting must not replay the scene or restart its animation.
+    else void speakAsGretel(cinematic.script);
   };
 
   return (
@@ -108,11 +117,12 @@ export function GretelCinematic({
           </div>
           {/* The authentic book-cover Gretel. No floating bubble: the caption card
               below carries the spoken line, and a bubble would cover her face. */}
-          <img
-            src={GRETEL_AUTHENTIC_PORTRAIT_SRC}
-            alt="Gretel, la niña de la cartilla"
-            className="gretel-cinematic-portrait"
-            draggable={false}
+          <GretelSceneMedia
+            key={`${cinematic.id}-${run}`}
+            video={cinematic.video}
+            fallback={GRETEL_AUTHENTIC_PORTRAIT_SRC}
+            durationSeconds={cinematic.durationSeconds}
+            onSettled={() => { settledMedia.current = `${cinematic.id}-${run}`; }}
           />
           <div className="min-h-[5.6rem] rounded-2xl border border-amber-200/70 bg-[#fff8e8]/95 px-5 py-4 text-xl font-black leading-relaxed text-stone-800 shadow-sm sm:text-2xl" role="status" aria-live="polite">
             {activeCaption}
@@ -129,9 +139,6 @@ export function GretelCinematic({
               <SkipForward className="mr-2 inline h-4 w-4" /> Comenzar
             </button>
           </div>
-          <p className="text-xs font-bold text-stone-500">
-            Voz canónica: {cinematic.voice.primary} · {cinematic.voice.locale}
-          </p>
         </div>
       </div>
     </section>

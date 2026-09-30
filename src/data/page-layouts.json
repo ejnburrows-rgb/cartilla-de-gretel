@@ -1883,7 +1883,8 @@
           "regionType": "vocab-grid",
           "order": 3,
           "fontRole": "body",
-          "text": "mamá · mami · Mimo · mío · me · mímame · Meme · ama · mía · Mumi · Memo · mima · amo · Mimí · ámame"
+          "text": "mamá · mami · Mimo · mío · me · mímame · Meme · ama · mía · Mumi · Memo · mima · amo · Mimí · ámame",
+          "columns": 3
         },
         {
           "id": "p21-sight",
@@ -2001,7 +2002,8 @@
                 }
               ]
             }
-          ]
+          ],
+          "columns": 3
         },
         {
           "id": "p22-instr2",
@@ -2292,7 +2294,8 @@
           "regionType": "vocab-grid",
           "order": 3,
           "fontRole": "body",
-          "text": "papá · mapo · Mapi · papi · puma · pie · Pepe · Mupi · púa · pipo · mapa · pomo · Pupi · ¡upa! · Pepo"
+          "text": "papá · mapo · Mapi · papi · puma · pie · Pepe · Mupi · púa · pipo · mapa · pomo · Pupi · ¡upa! · Pepo",
+          "columns": 3
         },
         {
           "id": "p25-sight",
@@ -2409,7 +2412,8 @@
                 }
               ]
             }
-          ]
+          ],
+          "columns": 3
         },
         {
           "id": "p26-instr2",
@@ -2700,7 +2704,8 @@
           "regionType": "vocab-grid",
           "order": 3,
           "fontRole": "body",
-          "text": "masa · mesa · suma · sapo · seso · Susi · así · sopa · paso · puso · supo · supe · Sisi · ese · esa"
+          "text": "masa · mesa · suma · sapo · seso · Susi · así · sopa · paso · puso · supo · supe · Sisi · ese · esa",
+          "columns": 3
         },
         {
           "id": "p29-sight",
@@ -2819,7 +2824,8 @@
                 }
               ]
             }
-          ]
+          ],
+          "columns": 3
         },
         {
           "id": "p30-instr2",
@@ -3110,7 +3116,8 @@
           "regionType": "vocab-grid",
           "order": 3,
           "fontRole": "body",
-          "text": "toma · teme · seta · tute · Titi · pata · Soto · tupe · tapa · mete · Mota · Piti · topo · sapito · peseta · tomate · Poti · pato"
+          "text": "toma · teme · seta · tute · Titi · pata · Soto · tupe · tapa · mete · Mota · Piti · topo · sapito · peseta · tomate · Poti · pato",
+          "columns": 3
         },
         {
           "id": "p33-sight",
@@ -3229,7 +3236,8 @@
                 }
               ]
             }
-          ]
+          ],
+          "columns": 3
         },
         {
           "id": "p34-instr2",
@@ -3520,7 +3528,8 @@
           "regionType": "vocab-grid",
           "order": 3,
           "fontRole": "body",
-          "text": "dedo · dónde · deme · dame · Duma · de · día · dime · duda · Ada · pide · mudo · moneda · mide · Dunia"
+          "text": "dedo · dónde · deme · dame · Duma · de · día · dime · duda · Ada · pide · mudo · moneda · mide · Dunia",
+          "columns": 3
         },
         {
           "id": "p37-sight",
@@ -3639,7 +3648,8 @@
                 }
               ]
             }
-          ]
+          ],
+          "columns": 3
         },
         {
           "id": "p38-instr2",
@@ -3930,7 +3940,8 @@
           "regionType": "vocab-grid",
           "order": 3,
           "fontRole": "body",
-          "text": "lima · lata · aleta · maleta · lupa · sale · paloma · pala · lomo · pelusa · Lilo · Lola · Luli · tela · Tula"
+          "text": "lima · lata · aleta · maleta · lupa · sale · paloma · pala · lomo · pelusa · Lilo · Lola · Luli · tela · Tula",
+          "columns": 3
         },
         {
           "id": "p41-sight",
@@ -4048,7 +4059,8 @@
                 }
               ]
             }
-          ]
+          ],
+          "columns": 3
         },
         {
           "id": "p42-instr2",
@@ -4339,7 +4351,8 @@
           "regionType": "vocab-grid",
           "order": 3,
           "fontRole": "body",
-          "text": "nido · tina · nada · nené · mano · nulo · Nono · Tono · Alina · poni · Nena · nata · mono · luna · Neli"
+          "text": "nido · tina · nada · nené · mano · nulo · Nono · Tono · Alina · poni · Nena · nata · mono · luna · Neli",
+          "columns": 3
         },
         {
           "id": "p45-sight",
@@ -4457,7 +4470,8 @@
                 }
               ]
             }
-          ]
+          ],
+          "columns": 3
         },
         {
           "id": "p46-instr2",
@@ -4748,7 +4762,8 @@
           "regionType": "vocab-grid",
           "order": 3,
           "fontRole": "body",
-          "text": "ñame · año · moñudo · moño · niña · sueña · Meñe · paño · piña · niñito · sueño · puño · uña · añitos · pañuelo"
+          "text": "ñame · año · moñudo · moño · niña · sueña · Meñe · paño · piña · niñito · sueño · puño · uña · añitos · pañuelo",
+          "columns": 3
         },
         {
           "id": "p49-sight",
@@ -4866,7 +4881,8 @@
                 }
               ]
             }
-          ]
+          ],
+          "columns": 3
         },
         {
           "id": "p50-instr2",
@@ -5157,7 +5173,8 @@
           "regionType": "vocab-grid",
           "order": 3,
           "fontRole": "body",
-          "text": "baño · bota · bolo · bebé · Bebo · bonito · bueno · lobo · bate · bonita · sube · batea · cubito · bote · nube"
+          "text": "baño · bota · bolo · bebé · Bebo · bonito · bueno · lobo · bate · bonita · sube · batea · cubito · bote · nube",
+          "columns": 3
         },
         {
           "id": "p53-sight",
@@ -5276,7 +5293,8 @@
                 }
               ]
             }
-          ]
+          ],
+          "columns": 3
         },
         {
           "id": "p54-instr2",
@@ -5567,7 +5585,8 @@
           "regionType": "vocab-grid",
           "order": 3,
           "fontRole": "body",
-          "text": "vaso · avena · vivo · vela · ventana · vive · vale · pavo · vine · vino · lava · Vuli · venas · lavamanos · ven"
+          "text": "vaso · avena · vivo · vela · ventana · vive · vale · pavo · vine · vino · lava · Vuli · venas · lavamanos · ven",
+          "columns": 3
         },
         {
           "id": "p57-sight",
@@ -5686,7 +5705,8 @@
                 }
               ]
             }
-          ]
+          ],
+          "columns": 3
         },
         {
           "id": "p58-instr2",
@@ -5977,7 +5997,8 @@
           "regionType": "vocab-grid",
           "order": 3,
           "fontRole": "body",
-          "text": "ramo · remo · ropa · rosa · rana · rosado · risa · ruta · rulo · rata · Rita · Rolo · roto · Roma · rebaño"
+          "text": "ramo · remo · ropa · rosa · rana · rosado · risa · ruta · rulo · rata · Rita · Rolo · roto · Roma · rebaño",
+          "columns": 3
         },
         {
           "id": "p61-sight",
@@ -6095,7 +6116,8 @@
                 }
               ]
             }
-          ]
+          ],
+          "columns": 3
         },
         {
           "id": "p62-instr2",
@@ -6385,7 +6407,8 @@
           "regionType": "vocab-grid",
           "order": 3,
           "fontRole": "body",
-          "text": "tarro · burro · tierra · perro · amarro · carrusel · barro · arrebato · torre · arroba · parra · burrito · arriba · arruina · carro"
+          "text": "tarro · burro · tierra · perro · amarro · carrusel · barro · arrebato · torre · arroba · parra · burrito · arriba · arruina · carro",
+          "columns": 3
         },
         {
           "id": "p65-sight",
@@ -6503,7 +6526,8 @@
                 }
               ]
             }
-          ]
+          ],
+          "columns": 3
         },
         {
           "id": "p66-instr2",
@@ -6726,7 +6750,8 @@
           "regionType": "vocab-grid",
           "order": 3,
           "fontRole": "body",
-          "text": "gato · Gustavo · gotero · goma · mago · laguna · Magali · lago · golosina · ganas · agua · gorra · gusta · gusano · góndola"
+          "text": "gato · Gustavo · gotero · goma · mago · laguna · Magali · lago · golosina · ganas · agua · gorra · gusta · gusano · góndola",
+          "columns": 3
         },
         {
           "id": "p69-sight",
@@ -6846,7 +6871,8 @@
                 }
               ]
             }
-          ]
+          ],
+          "columns": 3
         },
         {
           "id": "p70-instr2",
@@ -7137,7 +7163,8 @@
           "regionType": "vocab-grid",
           "order": 3,
           "fontRole": "body",
-          "text": "familia · fino · fila · Fígaro · fusta · falso · fama · fumiga · fortuna · famoso · teléfono · Ofelia · foto · feo · foca"
+          "text": "familia · fino · fila · Fígaro · fusta · falso · fama · fumiga · fortuna · famoso · teléfono · Ofelia · foto · feo · foca",
+          "columns": 3
         },
         {
           "id": "p73-sight",
@@ -7255,7 +7282,8 @@
                 }
               ]
             }
-          ]
+          ],
+          "columns": 3
         },
         {
           "id": "p74-instr2",
@@ -7546,7 +7574,8 @@
           "regionType": "vocab-grid",
           "order": 3,
           "fontRole": "body",
-          "text": "jaba · jicotea · ají · baja · jura · jinete · jabón · vieja · jefe · Jesús · jamón · José · Julia · jarro · joven"
+          "text": "jaba · jicotea · ají · baja · jura · jinete · jabón · vieja · jefe · Jesús · jamón · José · Julia · jarro · joven",
+          "columns": 3
         },
         {
           "id": "p77-sight",
@@ -7665,7 +7694,8 @@
                 }
               ]
             }
-          ]
+          ],
+          "columns": 3
         },
         {
           "id": "p78-instr2",
@@ -7882,7 +7912,8 @@
           "regionType": "vocab-grid",
           "order": 3,
           "fontRole": "body",
-          "text": "carro · boca · cuna · coco · Colombia · saco · casa · poco · roca · Cuba · pico · cumbia · camisa · Cuco · colonia"
+          "text": "carro · boca · cuna · coco · Colombia · saco · casa · poco · roca · Cuba · pico · cumbia · camisa · Cuco · colonia",
+          "columns": 3
         },
         {
           "id": "p81-sight",
@@ -8001,7 +8032,8 @@
                 }
               ]
             }
-          ]
+          ],
+          "columns": 3
         },
         {
           "id": "p82-instr2",
@@ -8292,7 +8324,8 @@
           "regionType": "vocab-grid",
           "order": 3,
           "fontRole": "body",
-          "text": "yuca · ayer · cayo · yema · payaso · Mayito · yate · yute · joya · yegua · yoyo · yucateco · yagua · Yucatán · yeso"
+          "text": "yuca · ayer · cayo · yema · payaso · Mayito · yate · yute · joya · yegua · yoyo · yucateco · yagua · Yucatán · yeso",
+          "columns": 3
         },
         {
           "id": "p85-sight",
@@ -8617,7 +8650,8 @@
           "regionType": "vocab-grid",
           "order": 3,
           "fontRole": "body",
-          "text": "zorro · zeta · calabaza · zapato · taza · zumo · azul · lazo · azúcar · zig-zag · zapote · zepelín · Zila · Zulema · azucarado"
+          "text": "zorro · zeta · calabaza · zapato · taza · zumo · azul · lazo · azúcar · zig-zag · zapote · zepelín · Zila · Zulema · azucarado",
+          "columns": 3
         },
         {
           "id": "p89-sight",
@@ -8735,7 +8769,8 @@
                 }
               ]
             }
-          ]
+          ],
+          "columns": 3
         },
         {
           "id": "p90-instr2",

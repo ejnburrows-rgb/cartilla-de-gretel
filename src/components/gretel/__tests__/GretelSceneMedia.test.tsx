@@ -1,0 +1,91 @@
+import "@testing-library/jest-dom/vitest";
+import { act, cleanup, fireEvent, render } from "@testing-library/react";
+import { afterEach, beforeEach, describe, expect, it, vi } from "vitest";
+import { GretelSceneMedia } from "../GretelSceneMedia";
+
+const settings = vi.hoisted(() => ({ reduced: false }));
+vi.mock("framer-motion", () => ({ useReducedMotion: () => settings.reduced }));
+const clip = { mp4: "/approved.mp4", webm: "/approved.webm", poster: "/approved.webp" };
+const props = { video: clip, fallback: "/still.webp", durationSeconds: 8 };
+
+beforeEach(() => {
+  vi.useFakeTimers();
+  settings.reduced = false;
+  Object.defineProperty(navigator, "connection", { configurable: true, value: { saveData: false } });
+  vi.spyOn(HTMLMediaElement.prototype, "play").mockResolvedValue();
+  vi.spyOn(HTMLMediaElement.prototype, "pause").mockImplementation(() => {});
+});
+afterEach(() => { cleanup(); vi.restoreAllMocks(); vi.useRealTimers(); });
+
+describe("approved Gretel scene playback", () => {
+  it("plays once, then shows the approved still and reports completion", () => {
+    const settled = vi.fn();
+    const { container } = render(<GretelSceneMedia {...props} onSettled={settled} />);
+    const video = container.querySelector("video")!;
+    expect(video).not.toHaveAttribute("loop");
+    fireEvent.canPlay(video);
+    fireEvent.canPlay(video);
+    expect(video.play).toHaveBeenCalledTimes(1);
+    fireEvent.playing(video);
+    expect(container.querySelector("[data-gretel-media]")).toHaveAttribute("data-gretel-media", "playing");
+    fireEvent.ended(video);
+    expect(container.querySelector("video")).toBeNull();
+    expect(container.querySelector("img")).toHaveAttribute("src", clip.poster);
+    expect(settled).toHaveBeenCalledTimes(1);
+  });
+  it("returns to the still if the clip does not start within two seconds", () => {
+    const { container } = render(<GretelSceneMedia {...props} />);
+    act(() => vi.advanceTimersByTime(2000));
+    expect(container.querySelector("video")).toBeNull();
+  });
+  it("also times out a pending play request, rather than hiding the still indefinitely", () => {
+    vi.mocked(HTMLMediaElement.prototype.play).mockReturnValue(new Promise(() => {}));
+    const { container } = render(<GretelSceneMedia {...props} />);
+    fireEvent.canPlay(container.querySelector("video")!);
+    act(() => vi.advanceTimersByTime(2000));
+    expect(container.querySelector("video")).toBeNull();
+  });
+  it("keeps a playing clip alive beyond the loading timeout", () => {
+    const { container } = render(<GretelSceneMedia {...props} />);
+    fireEvent.canPlay(container.querySelector("video")!);
+    fireEvent.playing(container.querySelector("video")!);
+    act(() => vi.advanceTimersByTime(2000));
+    expect(container.querySelector("video")).not.toBeNull();
+  });
+  it("falls back on a failed media load", () => {
+    const { container } = render(<GretelSceneMedia {...props} />);
+    fireEvent.error(container.querySelector("video")!);
+    expect(container.querySelector("video")).toBeNull();
+  });
+  it("falls back when autoplay is rejected", async () => {
+    vi.mocked(HTMLMediaElement.prototype.play).mockRejectedValue(new Error("blocked"));
+    const { container } = render(<GretelSceneMedia {...props} />);
+    await act(async () => fireEvent.canPlay(container.querySelector("video")!));
+    expect(container.querySelector("video")).toBeNull();
+  });
+  it("never loads a clip when reduced motion is requested", () => {
+    settings.reduced = true;
+    const { container } = render(<GretelSceneMedia {...props} />);
+    expect(container.querySelector("video")).toBeNull();
+  });
+  it("never loads a clip when data saving is requested", () => {
+    Object.defineProperty(navigator, "connection", { configurable: true, value: { saveData: true } });
+    const { container } = render(<GretelSceneMedia {...props} />);
+    expect(container.querySelector("video")).toBeNull();
+  });
+  it("uses the current still when no approved clip is registered", () => {
+    const { container } = render(<GretelSceneMedia fallback={props.fallback} durationSeconds={8} />);
+    expect(container.querySelector("video")).toBeNull();
+    expect(container.querySelector("img")).toHaveAttribute("src", props.fallback);
+  });
+  it("bounds stalled playback and starts a new player only for explicit replay", () => {
+    const { container, rerender } = render(<GretelSceneMedia key="first" {...props} />);
+    fireEvent.canPlay(container.querySelector("video")!);
+    fireEvent.playing(container.querySelector("video")!);
+    act(() => vi.advanceTimersByTime(11000));
+    expect(container.querySelector("video")).toBeNull();
+    rerender(<GretelSceneMedia key="replay" {...props} />);
+    fireEvent.canPlay(container.querySelector("video")!);
+    expect(HTMLMediaElement.prototype.play).toHaveBeenCalledTimes(2);
+  });
+});

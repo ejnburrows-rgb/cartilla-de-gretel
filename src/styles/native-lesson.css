@@ -116,7 +116,7 @@
 
 .fp-native-vocab {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(6.8rem, 1fr));
+  grid-template-columns: repeat(3, minmax(0, 1fr));
   gap: .55rem;
   padding: .2rem 0;
 }
@@ -165,8 +165,34 @@
 
 @media (max-width: 600px) {
   .fp-native-vocab {
-    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: .35rem;
   }
+}
+
+/* The book's letter sits beside two syllable strips, above its word grid. */
+.native-lesson-viewer__content .fp-native-letter-page .faithful-page__body {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 3fr);
+  align-items: center;
+  gap: 16px;
+}
+.fp-native-letter-page .faithful-page__body > .gretel-activity { display: block; grid-column: 1 / -1; min-width: 0; }
+.fp-native-letter-page .faithful-page__body > .gretel-activity:has(.fp-native-title) { grid-column: 1; grid-row: 1 / span 2; }
+.fp-native-letter-page .faithful-page__body > .gretel-activity:has(.fp-native-syllables) { grid-column: 2; }
+.fp-native-letter-page .fp-native-title { display: grid; place-items: center; aspect-ratio: 1; border-radius: 50%; background: radial-gradient(ellipse, #fff 35%, #d6eee6 85%); font-size: clamp(2rem, 6vw, 4.5rem); }
+.fp-native-letter-page .fp-native-syllables { display: grid; grid-template-columns: repeat(5, minmax(0, 1fr)); gap: 4px; padding: 8px; border-radius: 16px; }
+.fp-native-letter-page .fp-native-syllables span { min-width: 0; padding: .4rem .1rem; font-size: clamp(1rem, 3vw, 1.8rem); }
+.fp-native-letter-page .fp-native-vocab span { min-width: 0; overflow-wrap: anywhere; }
+
+/* Each Completa item stays a vertical unit in the book's two-by-three grid. */
+.native-lesson-viewer__content .fp-ix-fill--book-grid { display: grid; grid-template-columns: repeat(var(--fill-columns, 3), minmax(0, 1fr)); gap: 14px; }
+.native-lesson-viewer__content .fp-ix-fill--book-grid .fp-ix-fill__item { display: flex; flex-direction: column; justify-content: space-between; min-width: 0; gap: 14px; text-align: center; padding: 14px 8px; }
+.fp-ix-fill--book-grid .fp-ix-fill__wordbox, .fp-ix-fill--book-grid .fp-ix-fill__blank { overflow-wrap: anywhere; max-width: 100%; }
+.native-lesson-viewer__content .fp-ix-fill--book-grid .fp-ix-fill__choices { justify-content: center; flex-wrap: wrap; gap: 6px; }
+.fp-ix-fill--book-grid .fp-ix-check-row { grid-column: 1 / -1; }
+@media (max-width: 600px) {
+  .native-lesson-viewer__content .fp-ix-fill--book-grid { grid-template-columns: 1fr; }
+  .native-lesson-viewer__content .fp-native-letter-page .faithful-page__body { gap: 10px; }
 }
 
 .fp-source-blocked { margin: 24px 0 0; padding: 10px 14px; border-radius: 12px; border: 1px dashed #c9a86a; background: #fffaf0; color: #7a5b1e; font: 600 14px/1.4 system-ui, sans-serif; }

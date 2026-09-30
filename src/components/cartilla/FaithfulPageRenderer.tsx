@@ -567,7 +567,7 @@ function RegionView({
       );
     case "vocab-grid":
       return native ? (
-        <div className="fp-native-vocab">
+        <div className="fp-native-vocab" style={{ gridTemplateColumns: `repeat(${region.columns ?? 3}, minmax(0, 1fr))` }}>
           {(region.text ?? "").split("·").map((word) => word.trim()).filter(Boolean).map((word) => (
             <span key={word}>{word}</span>
           ))}
@@ -627,6 +627,8 @@ export function FaithfulPageRenderer({
   }
 
   const ordered = [...layout].sort((a, b) => a.order - b.order);
+  const letterReadingPage = native && ordered.some((region) => region.regionType === "vocab-grid")
+    && ordered.filter((region) => region.regionType === "syllable-bubble").length === 2;
   const accent = lessonNumber ? CATALOG.find((e) => e.n === lessonNumber)?.color : undefined;
   const lessonId = lessonNumber ? String(lessonNumber) : undefined;
   const gardenBg = lessonNumber ? LESSON_GARDEN_BG[lessonNumber] : undefined;
@@ -650,6 +652,7 @@ export function FaithfulPageRenderer({
       lessonNumber={lessonNumber}
       garden={interactive}
       gardenBg={gardenBg}
+      className={letterReadingPage ? "fp-native-letter-page" : undefined}
     >
       {ordered.map((region) => {
         if (region.regionType === "instruction" && region.text) {

@@ -727,7 +727,7 @@ export function InteractiveFillInBlank({
   };
 
   return (
-    <div className="fp-ix-fill" style={{ ["--ix-accent" as string]: accent }}>
+    <div className={`fp-ix-fill${region.columns ? " fp-ix-fill--book-grid" : ""}`} style={{ ["--ix-accent" as string]: accent, ["--fill-columns" as string]: region.columns }}>
       {items.map((item, i) => {
         const flagged = !item.choices.some((c) => c.correct);
         return (

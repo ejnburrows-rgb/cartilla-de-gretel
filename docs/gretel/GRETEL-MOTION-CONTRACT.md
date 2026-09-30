@@ -1,7 +1,11 @@
 # Gretel: candidates and Flow motion contract
 
-Status: **no master chosen**. The owner picks the master Gretel from the side-by-side candidate
-sheet delivered with the completion report. Nothing new is generated until then.
+Status: **Gretel 2.0 direction already approved; exact source file unresolved**.
+The FIRST approved modernized Gretel 2.0 is the master, as specified in
+`PROJECT_SOURCE_OF_TRUTH.md` and `ASSET_FIDELITY_POLICY.md`. Do not reopen the
+character design or choose by filename. The existing candidate sheet helps
+identify the approved file; it does not authorize a new character family.
+No new character or clip is generated until that exact source identity is established.
 
 ## What exists today (20 files)
 
@@ -15,13 +19,21 @@ sheet delivered with the completion report. Nothing new is generated until then.
 | `poses/gretel-closed-idle`, `-point-left` | 666×1000 | **black box** | painted doll | Needs clean-up |
 | `poses/gretel-blink`, `-cheer-1`, `-talk-1`, `-talk-2`, `-wave`, `-wave-1`, `-wave-2`, `-wave-exit` | 1024×1024 | **fake checkerboard baked in** or black | mixed; `-wave` is off-model (white blouse, teal skirt) | No |
 
-Two visual families exist (book-cover vs painted doll). The master must be one of them; the
-other family is retired.
+The master must match the approved Gretel 2.0, including her striped blouse,
+blue dress, floral trim, blonde hair and red bow. Existing files do not become
+approved merely because they have real transparency.
 
 ## Where it plugs in
 
 - Scene list: `src/content/gretel-cinematics.ts` (`GRETEL_CINEMATICS`, 31 scenes).
-- Player: `src/components/gretel/GretelCinematic.tsx` (today: still portrait + caption + voice).
+- Player: `src/components/gretel/GretelCinematic.tsx` with `GretelSceneMedia.tsx`.
+  `src/data/gretel-approved-clips.json` maps scene IDs to
+  `{ mp4, webm?, poster }` for produced, approved clips. The catalog reads this
+  registry; it is currently empty. No placeholder video URLs are registered. The player runs each clip
+  once, restores the poster on completion, supports explicit replay, and falls
+  back after load/play errors or a two-second startup timeout. Reduced motion
+  and data-saving requests prevent video loading. Browser speech is temporary;
+  the final owner-supplied voice remains deferred.
 - Live helper: `src/components/gretel/GretelLiveAvatar.tsx` (poses above; respects reduced motion).
 
 ## Motion contract (for Google Flow clips)
@@ -44,5 +56,6 @@ other family is retired.
 - 1 clean transparent master still (PNG/WebP, ≥1400 px tall) + 4 matching poses
   (idle, point, talk, cheer) in the same family.
 - 31 Flow clips per the contract above (62 files with both aspect ratios), plus a poster frame each.
-- Wire-up: add an optional `video` field per scene in `gretel-cinematics.ts` and play it in
-  `GretelCinematic.tsx` with the rules above.
+- Register only produced and visually approved files in the existing optional
+  `video` field per scene. Playback integration is implemented; media production
+  and exact-master confirmation remain unfinished.
