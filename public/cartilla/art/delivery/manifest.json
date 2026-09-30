@@ -1,20 +1,20 @@
 {
-  "generatedAt": "2026-09-30T18:24:15.084Z",
+  "generatedAt": "2026-09-30T19:53:02.009Z",
   "sourceManifest": "/cartilla/art/faithful/manifest.json",
   "canonicalPolicy": "Canonical faithful WebP files remain untouched. Delivery derivatives are disposable build output.",
   "counts": {
     "manifestEntries": 158,
     "quarantinedAssets": 35,
-    "wiredProductionAssets": 136,
-    "processedCanonicalAssets": 158,
+    "wiredProductionAssets": 86,
+    "processedCanonicalAssets": 108,
     "unavailableManifestAssets": 0,
-    "wiredQaPass": 136,
-    "backgroundCleaned": 149,
-    "paddingTrimmed": 154,
-    "edgeTouchWarnings": 19,
+    "wiredQaPass": 86,
+    "backgroundCleaned": 99,
+    "paddingTrimmed": 104,
+    "edgeTouchWarnings": 9,
     "duplicateContentGroups": 0,
     "errors": 0,
-    "warnings": 34,
+    "warnings": 24,
     "flipchartCanonicalMasters": 62,
     "flipchartNativeBoards": 62,
     "flipchartNativeCrops": 167
@@ -44,17 +44,7 @@
     "/cartilla/art/faithful/leccion-18-rr/barril.webp: crop/canonical aspect drift 53%",
     "/cartilla/art/faithful/leccion-22-y/yema.webp: crop/canonical aspect drift 47%",
     "/cartilla/art/faithful/leccion-23-z/zorro.webp: visible content touches canonical crop edge; source recrop may be required",
-    "/cartilla/art/faithful/leccion-19-c/catalina.webp: crop/canonical aspect drift 48%",
-    "/cartilla/art/faithful/flipchart-native/p009-mama.webp: visible content touches canonical crop edge; source recrop may be required",
-    "/cartilla/art/faithful/flipchart-native/p012-puma.webp: visible content touches canonical crop edge; source recrop may be required",
-    "/cartilla/art/faithful/flipchart-native/p015-sopa.webp: visible content touches canonical crop edge; source recrop may be required",
-    "/cartilla/art/faithful/flipchart-native/p018-tipi.webp: visible content touches canonical crop edge; source recrop may be required",
-    "/cartilla/art/faithful/flipchart-native/p018-topo.webp: visible content touches canonical crop edge; source recrop may be required",
-    "/cartilla/art/faithful/flipchart-native/p018-tuto.webp: visible content touches canonical crop edge; source recrop may be required",
-    "/cartilla/art/faithful/flipchart-native/p024-lala.webp: visible content touches canonical crop edge; source recrop may be required",
-    "/cartilla/art/faithful/flipchart-native/p024-loma.webp: visible content touches canonical crop edge; source recrop may be required",
-    "/cartilla/art/faithful/flipchart-native/p024-luli.webp: visible content touches canonical crop edge; source recrop may be required",
-    "/cartilla/art/faithful/flipchart-native/p030-nuno.webp: visible content touches canonical crop edge; source recrop may be required"
+    "/cartilla/art/faithful/leccion-19-c/catalina.webp: crop/canonical aspect drift 48%"
   ],
   "duplicateContent": [],
   "unresolvedSourceIssues": [],
@@ -7770,3626 +7760,6 @@
       ],
       "warnings": [],
       "errors": []
-    },
-    {
-      "slug": "p009-amo",
-      "word": "amo",
-      "lessonNumber": 7,
-      "pageNumber": null,
-      "sourcePage": "page-009.jpg",
-      "sourceAsset": "page-009.jpg",
-      "canonicalSrc": "/cartilla/art/faithful/flipchart-native/p009-amo.webp",
-      "canonical": {
-        "width": 689,
-        "height": 727,
-        "bytes": 51672,
-        "format": "webp",
-        "hasAlpha": false,
-        "sha256": "1a4b89e1b7cb46f3614ecc9dd46cfbccf6baf658e3cffa578a8129b0d23b9c14"
-      },
-      "cropBox": [
-        895,
-        1402,
-        688,
-        727
-      ],
-      "provenanceStatus": null,
-      "cleanup": {
-        "backgroundRemoved": true,
-        "removedPixels": 325313,
-        "estimatedBackground": {
-          "color": {
-            "r": 255,
-            "g": 255,
-            "b": 255
-          },
-          "agreement": 1,
-          "paperLike": true
-        },
-        "transparentPaddingTrimmed": true,
-        "normalizedWidth": 660,
-        "normalizedHeight": 698,
-        "contentBounds": {
-          "x": 25,
-          "y": 26,
-          "width": 640,
-          "height": 678,
-          "opaquePixels": 175590
-        },
-        "touchesCropEdge": {
-          "left": false,
-          "top": false,
-          "right": false,
-          "bottom": false
-        },
-        "interiorTransparentPixels": 0
-      },
-      "derivatives": [
-        {
-          "widthTier": 384,
-          "path": "/cartilla/art/delivery/faithful/384/flipchart-native/p009-amo.webp",
-          "width": 384,
-          "height": 406,
-          "bytes": 33398
-        },
-        {
-          "widthTier": 768,
-          "path": "/cartilla/art/delivery/faithful/768/flipchart-native/p009-amo.webp",
-          "width": 660,
-          "height": 698,
-          "bytes": 64910
-        }
-      ],
-      "warnings": [],
-      "errors": []
-    },
-    {
-      "slug": "p009-mama",
-      "word": "mamá",
-      "lessonNumber": 7,
-      "pageNumber": null,
-      "sourcePage": "page-009.jpg",
-      "sourceAsset": "page-009.jpg",
-      "canonicalSrc": "/cartilla/art/faithful/flipchart-native/p009-mama.webp",
-      "canonical": {
-        "width": 554,
-        "height": 729,
-        "bytes": 35148,
-        "format": "webp",
-        "hasAlpha": false,
-        "sha256": "d0c4f91b092f2e0b0a4467b69b0b7c8742965b6050327be94ba7c1d55f7097b0"
-      },
-      "cropBox": [
-        117,
-        1431,
-        553,
-        729
-      ],
-      "provenanceStatus": null,
-      "cleanup": {
-        "backgroundRemoved": true,
-        "removedPixels": 214348,
-        "estimatedBackground": {
-          "color": {
-            "r": 255,
-            "g": 255,
-            "b": 255
-          },
-          "agreement": 0.9964871194379391,
-          "paperLike": true
-        },
-        "transparentPaddingTrimmed": true,
-        "normalizedWidth": 527,
-        "normalizedHeight": 715,
-        "contentBounds": {
-          "x": 25,
-          "y": 24,
-          "width": 507,
-          "height": 705,
-          "opaquePixels": 189518
-        },
-        "touchesCropEdge": {
-          "left": false,
-          "top": false,
-          "right": false,
-          "bottom": true
-        },
-        "interiorTransparentPixels": 0
-      },
-      "derivatives": [
-        {
-          "widthTier": 384,
-          "path": "/cartilla/art/delivery/faithful/384/flipchart-native/p009-mama.webp",
-          "width": 384,
-          "height": 521,
-          "bytes": 29696
-        },
-        {
-          "widthTier": 768,
-          "path": "/cartilla/art/delivery/faithful/768/flipchart-native/p009-mama.webp",
-          "width": 527,
-          "height": 715,
-          "bytes": 43726
-        }
-      ],
-      "warnings": [
-        "visible content touches canonical crop edge; source recrop may be required"
-      ],
-      "errors": []
-    },
-    {
-      "slug": "p009-meme",
-      "word": "Meme",
-      "lessonNumber": 7,
-      "pageNumber": null,
-      "sourcePage": "page-009.jpg",
-      "sourceAsset": "page-009.jpg",
-      "canonicalSrc": "/cartilla/art/faithful/flipchart-native/p009-meme.webp",
-      "canonical": {
-        "width": 383,
-        "height": 788,
-        "bytes": 38452,
-        "format": "webp",
-        "hasAlpha": false,
-        "sha256": "d7856b1b50fc9edb769e3c3ff62671a356fdfa561614c92c901683a173f30bbc"
-      },
-      "cropBox": [
-        586,
-        2443,
-        382,
-        788
-      ],
-      "provenanceStatus": null,
-      "cleanup": {
-        "backgroundRemoved": true,
-        "removedPixels": 157886,
-        "estimatedBackground": {
-          "color": {
-            "r": 255,
-            "g": 255,
-            "b": 255
-          },
-          "agreement": 1,
-          "paperLike": true
-        },
-        "transparentPaddingTrimmed": true,
-        "normalizedWidth": 353,
-        "normalizedHeight": 762,
-        "contentBounds": {
-          "x": 27,
-          "y": 25,
-          "width": 333,
-          "height": 742,
-          "opaquePixels": 143918
-        },
-        "touchesCropEdge": {
-          "left": false,
-          "top": false,
-          "right": false,
-          "bottom": false
-        },
-        "interiorTransparentPixels": 0
-      },
-      "derivatives": [
-        {
-          "widthTier": 384,
-          "path": "/cartilla/art/delivery/faithful/384/flipchart-native/p009-meme.webp",
-          "width": 353,
-          "height": 762,
-          "bytes": 47808
-        },
-        {
-          "widthTier": 768,
-          "path": "/cartilla/art/delivery/faithful/768/flipchart-native/p009-meme.webp",
-          "width": 353,
-          "height": 762,
-          "bytes": 47808
-        }
-      ],
-      "warnings": [],
-      "errors": []
-    },
-    {
-      "slug": "p009-mima",
-      "word": "mima",
-      "lessonNumber": 7,
-      "pageNumber": null,
-      "sourcePage": "page-009.jpg",
-      "sourceAsset": "page-009.jpg",
-      "canonicalSrc": "/cartilla/art/faithful/flipchart-native/p009-mima.webp",
-      "canonical": {
-        "width": 775,
-        "height": 775,
-        "bytes": 66630,
-        "format": "webp",
-        "hasAlpha": false,
-        "sha256": "7b554fba27e4323d678968d7f6faaa2553c7a647e89f824f7d4fdbfcf6b1a7f9"
-      },
-      "cropBox": [
-        1686,
-        1349,
-        775,
-        775
-      ],
-      "provenanceStatus": null,
-      "cleanup": {
-        "backgroundRemoved": true,
-        "removedPixels": 373395,
-        "estimatedBackground": {
-          "color": {
-            "r": 255,
-            "g": 255,
-            "b": 255
-          },
-          "agreement": 1,
-          "paperLike": true
-        },
-        "transparentPaddingTrimmed": true,
-        "normalizedWidth": 748,
-        "normalizedHeight": 749,
-        "contentBounds": {
-          "x": 25,
-          "y": 25,
-          "width": 728,
-          "height": 729,
-          "opaquePixels": 227230
-        },
-        "touchesCropEdge": {
-          "left": false,
-          "top": false,
-          "right": false,
-          "bottom": false
-        },
-        "interiorTransparentPixels": 0
-      },
-      "derivatives": [
-        {
-          "widthTier": 384,
-          "path": "/cartilla/art/delivery/faithful/384/flipchart-native/p009-mima.webp",
-          "width": 384,
-          "height": 385,
-          "bytes": 42640
-        },
-        {
-          "widthTier": 768,
-          "path": "/cartilla/art/delivery/faithful/768/flipchart-native/p009-mima.webp",
-          "width": 748,
-          "height": 749,
-          "bytes": 89902
-        }
-      ],
-      "warnings": [],
-      "errors": []
-    },
-    {
-      "slug": "p009-mumi",
-      "word": "Mumi",
-      "lessonNumber": 7,
-      "pageNumber": null,
-      "sourcePage": "page-009.jpg",
-      "sourceAsset": "page-009.jpg",
-      "canonicalSrc": "/cartilla/art/faithful/flipchart-native/p009-mumi.webp",
-      "canonical": {
-        "width": 717,
-        "height": 755,
-        "bytes": 61032,
-        "format": "webp",
-        "hasAlpha": false,
-        "sha256": "111e6cb0b232f614d423c4d89a1cddd9e57d265fd632359fb9487e8478ecff01"
-      },
-      "cropBox": [
-        1359,
-        2448,
-        717,
-        755
-      ],
-      "provenanceStatus": null,
-      "cleanup": {
-        "backgroundRemoved": true,
-        "removedPixels": 267606,
-        "estimatedBackground": {
-          "color": {
-            "r": 255,
-            "g": 255,
-            "b": 255
-          },
-          "agreement": 1,
-          "paperLike": true
-        },
-        "transparentPaddingTrimmed": true,
-        "normalizedWidth": 688,
-        "normalizedHeight": 738,
-        "contentBounds": {
-          "x": 26,
-          "y": 27,
-          "width": 668,
-          "height": 723,
-          "opaquePixels": 273729
-        },
-        "touchesCropEdge": {
-          "left": false,
-          "top": false,
-          "right": false,
-          "bottom": false
-        },
-        "interiorTransparentPixels": 0
-      },
-      "derivatives": [
-        {
-          "widthTier": 384,
-          "path": "/cartilla/art/delivery/faithful/384/flipchart-native/p009-mumi.webp",
-          "width": 384,
-          "height": 412,
-          "bytes": 36856
-        },
-        {
-          "widthTier": 768,
-          "path": "/cartilla/art/delivery/faithful/768/flipchart-native/p009-mumi.webp",
-          "width": 688,
-          "height": 738,
-          "bytes": 74838
-        }
-      ],
-      "warnings": [],
-      "errors": []
-    },
-    {
-      "slug": "p012-papa",
-      "word": "papá",
-      "lessonNumber": 8,
-      "pageNumber": null,
-      "sourcePage": "page-012.jpg",
-      "sourceAsset": "page-012.jpg",
-      "canonicalSrc": "/cartilla/art/faithful/flipchart-native/p012-papa.webp",
-      "canonical": {
-        "width": 464,
-        "height": 708,
-        "bytes": 36274,
-        "format": "webp",
-        "hasAlpha": false,
-        "sha256": "e7bac6cc5e763d65eb2e58a27cbb32faf2c057ccdd3df16413dc406614742fa3"
-      },
-      "cropBox": [
-        143,
-        1380,
-        464,
-        709
-      ],
-      "provenanceStatus": null,
-      "cleanup": {
-        "backgroundRemoved": true,
-        "removedPixels": 159160,
-        "estimatedBackground": {
-          "color": {
-            "r": 255,
-            "g": 255,
-            "b": 255
-          },
-          "agreement": 1,
-          "paperLike": true
-        },
-        "transparentPaddingTrimmed": true,
-        "normalizedWidth": 437,
-        "normalizedHeight": 692,
-        "contentBounds": {
-          "x": 25,
-          "y": 26,
-          "width": 417,
-          "height": 675,
-          "opaquePixels": 169352
-        },
-        "touchesCropEdge": {
-          "left": false,
-          "top": false,
-          "right": false,
-          "bottom": false
-        },
-        "interiorTransparentPixels": 0
-      },
-      "derivatives": [
-        {
-          "widthTier": 384,
-          "path": "/cartilla/art/delivery/faithful/384/flipchart-native/p012-papa.webp",
-          "width": 384,
-          "height": 608,
-          "bytes": 38038
-        },
-        {
-          "widthTier": 768,
-          "path": "/cartilla/art/delivery/faithful/768/flipchart-native/p012-papa.webp",
-          "width": 437,
-          "height": 692,
-          "bytes": 46182
-        }
-      ],
-      "warnings": [],
-      "errors": []
-    },
-    {
-      "slug": "p012-pepe",
-      "word": "Pepe",
-      "lessonNumber": 8,
-      "pageNumber": null,
-      "sourcePage": "page-012.jpg",
-      "sourceAsset": "page-012.jpg",
-      "canonicalSrc": "/cartilla/art/faithful/flipchart-native/p012-pepe.webp",
-      "canonical": {
-        "width": 777,
-        "height": 781,
-        "bytes": 40790,
-        "format": "webp",
-        "hasAlpha": false,
-        "sha256": "0fe2f7c5e4bb24d926f9a9c02113981a26928d6055a7d47db067a721136e11b6"
-      },
-      "cropBox": [
-        1737,
-        1313,
-        778,
-        780
-      ],
-      "provenanceStatus": null,
-      "cleanup": {
-        "backgroundRemoved": true,
-        "removedPixels": 273565,
-        "estimatedBackground": {
-          "color": {
-            "r": 255,
-            "g": 255,
-            "b": 255
-          },
-          "agreement": 1,
-          "paperLike": true
-        },
-        "transparentPaddingTrimmed": true,
-        "normalizedWidth": 749,
-        "normalizedHeight": 762,
-        "contentBounds": {
-          "x": 25,
-          "y": 26,
-          "width": 729,
-          "height": 742,
-          "opaquePixels": 333272
-        },
-        "touchesCropEdge": {
-          "left": false,
-          "top": false,
-          "right": false,
-          "bottom": false
-        },
-        "interiorTransparentPixels": 0
-      },
-      "derivatives": [
-        {
-          "widthTier": 384,
-          "path": "/cartilla/art/delivery/faithful/384/flipchart-native/p012-pepe.webp",
-          "width": 384,
-          "height": 391,
-          "bytes": 20916
-        },
-        {
-          "widthTier": 768,
-          "path": "/cartilla/art/delivery/faithful/768/flipchart-native/p012-pepe.webp",
-          "width": 749,
-          "height": 762,
-          "bytes": 49062
-        }
-      ],
-      "warnings": [],
-      "errors": []
-    },
-    {
-      "slug": "p012-pie",
-      "word": "pie",
-      "lessonNumber": 8,
-      "pageNumber": null,
-      "sourcePage": "page-012.jpg",
-      "sourceAsset": "page-012.jpg",
-      "canonicalSrc": "/cartilla/art/faithful/flipchart-native/p012-pie.webp",
-      "canonical": {
-        "width": 676,
-        "height": 456,
-        "bytes": 23388,
-        "format": "webp",
-        "hasAlpha": false,
-        "sha256": "bdb6aef2ece8cf1b01f98eb1e354841f0a25af14bb9614b85faa8f6cfbdeaa01"
-      },
-      "cropBox": [
-        885,
-        1612,
-        676,
-        456
-      ],
-      "provenanceStatus": null,
-      "cleanup": {
-        "backgroundRemoved": true,
-        "removedPixels": 181035,
-        "estimatedBackground": {
-          "color": {
-            "r": 255,
-            "g": 255,
-            "b": 255
-          },
-          "agreement": 1,
-          "paperLike": true
-        },
-        "transparentPaddingTrimmed": true,
-        "normalizedWidth": 648,
-        "normalizedHeight": 430,
-        "contentBounds": {
-          "x": 26,
-          "y": 25,
-          "width": 628,
-          "height": 410,
-          "opaquePixels": 127221
-        },
-        "touchesCropEdge": {
-          "left": false,
-          "top": false,
-          "right": false,
-          "bottom": false
-        },
-        "interiorTransparentPixels": 0
-      },
-      "derivatives": [
-        {
-          "widthTier": 384,
-          "path": "/cartilla/art/delivery/faithful/384/flipchart-native/p012-pie.webp",
-          "width": 384,
-          "height": 255,
-          "bytes": 14672
-        },
-        {
-          "widthTier": 768,
-          "path": "/cartilla/art/delivery/faithful/768/flipchart-native/p012-pie.webp",
-          "width": 648,
-          "height": 430,
-          "bytes": 27568
-        }
-      ],
-      "warnings": [],
-      "errors": []
-    },
-    {
-      "slug": "p012-pomo",
-      "word": "pomo",
-      "lessonNumber": 8,
-      "pageNumber": null,
-      "sourcePage": "page-012.jpg",
-      "sourceAsset": "page-012.jpg",
-      "canonicalSrc": "/cartilla/art/faithful/flipchart-native/p012-pomo.webp",
-      "canonical": {
-        "width": 393,
-        "height": 706,
-        "bytes": 25608,
-        "format": "webp",
-        "hasAlpha": false,
-        "sha256": "11ad9f73ca6947962dc7d35cb88816d8b9186240ffa8ddedf70bf58a0bd55c06"
-      },
-      "cropBox": [
-        1596,
-        2512,
-        393,
-        706
-      ],
-      "provenanceStatus": null,
-      "cleanup": {
-        "backgroundRemoved": true,
-        "removedPixels": 85808,
-        "estimatedBackground": {
-          "color": {
-            "r": 255,
-            "g": 255,
-            "b": 255
-          },
-          "agreement": 1,
-          "paperLike": true
-        },
-        "transparentPaddingTrimmed": true,
-        "normalizedWidth": 364,
-        "normalizedHeight": 679,
-        "contentBounds": {
-          "x": 26,
-          "y": 27,
-          "width": 344,
-          "height": 659,
-          "opaquePixels": 191650
-        },
-        "touchesCropEdge": {
-          "left": false,
-          "top": false,
-          "right": false,
-          "bottom": false
-        },
-        "interiorTransparentPixels": 0
-      },
-      "derivatives": [
-        {
-          "widthTier": 384,
-          "path": "/cartilla/art/delivery/faithful/384/flipchart-native/p012-pomo.webp",
-          "width": 364,
-          "height": 679,
-          "bytes": 31682
-        },
-        {
-          "widthTier": 768,
-          "path": "/cartilla/art/delivery/faithful/768/flipchart-native/p012-pomo.webp",
-          "width": 364,
-          "height": 679,
-          "bytes": 31682
-        }
-      ],
-      "warnings": [],
-      "errors": []
-    },
-    {
-      "slug": "p012-puma",
-      "word": "puma",
-      "lessonNumber": 8,
-      "pageNumber": null,
-      "sourcePage": "page-012.jpg",
-      "sourceAsset": "page-012.jpg",
-      "canonicalSrc": "/cartilla/art/faithful/flipchart-native/p012-puma.webp",
-      "canonical": {
-        "width": 694,
-        "height": 753,
-        "bytes": 38994,
-        "format": "webp",
-        "hasAlpha": false,
-        "sha256": "bfbf40e17a429d19f4dae8f2f2ab46f22e56f13e41f3a9aba476021412b6d77d"
-      },
-      "cropBox": [
-        176,
-        2468,
-        694,
-        752
-      ],
-      "provenanceStatus": null,
-      "cleanup": {
-        "backgroundRemoved": true,
-        "removedPixels": 268582,
-        "estimatedBackground": {
-          "color": {
-            "r": 255,
-            "g": 255,
-            "b": 255
-          },
-          "agreement": 0.9844290657439446,
-          "paperLike": true
-        },
-        "transparentPaddingTrimmed": true,
-        "normalizedWidth": 667,
-        "normalizedHeight": 737,
-        "contentBounds": {
-          "x": 25,
-          "y": 26,
-          "width": 647,
-          "height": 727,
-          "opaquePixels": 254000
-        },
-        "touchesCropEdge": {
-          "left": false,
-          "top": false,
-          "right": false,
-          "bottom": true
-        },
-        "interiorTransparentPixels": 0
-      },
-      "derivatives": [
-        {
-          "widthTier": 384,
-          "path": "/cartilla/art/delivery/faithful/384/flipchart-native/p012-puma.webp",
-          "width": 384,
-          "height": 424,
-          "bytes": 23520
-        },
-        {
-          "widthTier": 768,
-          "path": "/cartilla/art/delivery/faithful/768/flipchart-native/p012-puma.webp",
-          "width": 667,
-          "height": 737,
-          "bytes": 48128
-        }
-      ],
-      "warnings": [
-        "visible content touches canonical crop edge; source recrop may be required"
-      ],
-      "errors": []
-    },
-    {
-      "slug": "p015-pisa",
-      "word": "pisa",
-      "lessonNumber": 9,
-      "pageNumber": null,
-      "sourcePage": "page-015.jpg",
-      "sourceAsset": "page-015.jpg",
-      "canonicalSrc": "/cartilla/art/faithful/flipchart-native/p015-pisa.webp",
-      "canonical": {
-        "width": 813,
-        "height": 561,
-        "bytes": 24328,
-        "format": "webp",
-        "hasAlpha": false,
-        "sha256": "7ee71d1a03b81d0126a0c5b35f08ff881fa339a4b5d2a4ed79fbe306423b7153"
-      },
-      "cropBox": [
-        342,
-        2606,
-        813,
-        561
-      ],
-      "provenanceStatus": null,
-      "cleanup": {
-        "backgroundRemoved": true,
-        "removedPixels": 344984,
-        "estimatedBackground": {
-          "color": {
-            "r": 255,
-            "g": 255,
-            "b": 255
-          },
-          "agreement": 1,
-          "paperLike": true
-        },
-        "transparentPaddingTrimmed": true,
-        "normalizedWidth": 787,
-        "normalizedHeight": 537,
-        "contentBounds": {
-          "x": 24,
-          "y": 23,
-          "width": 767,
-          "height": 517,
-          "opaquePixels": 111109
-        },
-        "touchesCropEdge": {
-          "left": false,
-          "top": false,
-          "right": false,
-          "bottom": false
-        },
-        "interiorTransparentPixels": 0
-      },
-      "derivatives": [
-        {
-          "widthTier": 384,
-          "path": "/cartilla/art/delivery/faithful/384/flipchart-native/p015-pisa.webp",
-          "width": 384,
-          "height": 262,
-          "bytes": 12960
-        },
-        {
-          "widthTier": 768,
-          "path": "/cartilla/art/delivery/faithful/768/flipchart-native/p015-pisa.webp",
-          "width": 768,
-          "height": 524,
-          "bytes": 29814
-        }
-      ],
-      "warnings": [],
-      "errors": []
-    },
-    {
-      "slug": "p015-sapo",
-      "word": "sapo",
-      "lessonNumber": 9,
-      "pageNumber": null,
-      "sourcePage": "page-015.jpg",
-      "sourceAsset": "page-015.jpg",
-      "canonicalSrc": "/cartilla/art/faithful/flipchart-native/p015-sapo.webp",
-      "canonical": {
-        "width": 691,
-        "height": 538,
-        "bytes": 35662,
-        "format": "webp",
-        "hasAlpha": false,
-        "sha256": "e12ebfc7ccbc8cffc4feee8b6ffe8ec67dc8dda8285016184819c937bdc1487d"
-      },
-      "cropBox": [
-        1734,
-        1584,
-        691,
-        538
-      ],
-      "provenanceStatus": null,
-      "cleanup": {
-        "backgroundRemoved": true,
-        "removedPixels": 216612,
-        "estimatedBackground": {
-          "color": {
-            "r": 255,
-            "g": 255,
-            "b": 255
-          },
-          "agreement": 1,
-          "paperLike": true
-        },
-        "transparentPaddingTrimmed": true,
-        "normalizedWidth": 665,
-        "normalizedHeight": 514,
-        "contentBounds": {
-          "x": 24,
-          "y": 22,
-          "width": 645,
-          "height": 494,
-          "opaquePixels": 155146
-        },
-        "touchesCropEdge": {
-          "left": false,
-          "top": false,
-          "right": false,
-          "bottom": false
-        },
-        "interiorTransparentPixels": 0
-      },
-      "derivatives": [
-        {
-          "widthTier": 384,
-          "path": "/cartilla/art/delivery/faithful/384/flipchart-native/p015-sapo.webp",
-          "width": 384,
-          "height": 297,
-          "bytes": 23994
-        },
-        {
-          "widthTier": 768,
-          "path": "/cartilla/art/delivery/faithful/768/flipchart-native/p015-sapo.webp",
-          "width": 665,
-          "height": 514,
-          "bytes": 45628
-        }
-      ],
-      "warnings": [],
-      "errors": []
-    },
-    {
-      "slug": "p015-sesi",
-      "word": "Sesi",
-      "lessonNumber": 9,
-      "pageNumber": null,
-      "sourcePage": "page-015.jpg",
-      "sourceAsset": "page-015.jpg",
-      "canonicalSrc": "/cartilla/art/faithful/flipchart-native/p015-sesi.webp",
-      "canonical": {
-        "width": 615,
-        "height": 750,
-        "bytes": 41600,
-        "format": "webp",
-        "hasAlpha": false,
-        "sha256": "9f1b94d5e20075d4cdcbd004eed33d8c9e57fde85e0388472ab1a0ade4db02d1"
-      },
-      "cropBox": [
-        252,
-        1443,
-        615,
-        750
-      ],
-      "provenanceStatus": null,
-      "cleanup": {
-        "backgroundRemoved": true,
-        "removedPixels": 290206,
-        "estimatedBackground": {
-          "color": {
-            "r": 255,
-            "g": 255,
-            "b": 255
-          },
-          "agreement": 1,
-          "paperLike": true
-        },
-        "transparentPaddingTrimmed": true,
-        "normalizedWidth": 380,
-        "normalizedHeight": 729,
-        "contentBounds": {
-          "x": 26,
-          "y": 26,
-          "width": 360,
-          "height": 709,
-          "opaquePixels": 171044
-        },
-        "touchesCropEdge": {
-          "left": false,
-          "top": false,
-          "right": false,
-          "bottom": false
-        },
-        "interiorTransparentPixels": 0
-      },
-      "derivatives": [
-        {
-          "widthTier": 384,
-          "path": "/cartilla/art/delivery/faithful/384/flipchart-native/p015-sesi.webp",
-          "width": 380,
-          "height": 729,
-          "bytes": 49204
-        },
-        {
-          "widthTier": 768,
-          "path": "/cartilla/art/delivery/faithful/768/flipchart-native/p015-sesi.webp",
-          "width": 380,
-          "height": 729,
-          "bytes": 49204
-        }
-      ],
-      "warnings": [],
-      "errors": []
-    },
-    {
-      "slug": "p015-sopa",
-      "word": "sopa",
-      "lessonNumber": 9,
-      "pageNumber": null,
-      "sourcePage": "page-015.jpg",
-      "sourceAsset": "page-015.jpg",
-      "canonicalSrc": "/cartilla/art/faithful/flipchart-native/p015-sopa.webp",
-      "canonical": {
-        "width": 614,
-        "height": 380,
-        "bytes": 37256,
-        "format": "webp",
-        "hasAlpha": false,
-        "sha256": "c8480221257ddebdad63ed5fc02c9487003f2cefd3360530bf7f00e004feb31d"
-      },
-      "cropBox": [
-        954,
-        1701,
-        615,
-        380
-      ],
-      "provenanceStatus": null,
-      "cleanup": {
-        "backgroundRemoved": true,
-        "removedPixels": 72331,
-        "estimatedBackground": {
-          "color": {
-            "r": 255,
-            "g": 255,
-            "b": 255
-          },
-          "agreement": 0.7983870967741935,
-          "paperLike": true
-        },
-        "transparentPaddingTrimmed": true,
-        "normalizedWidth": 589,
-        "normalizedHeight": 367,
-        "contentBounds": {
-          "x": 24,
-          "y": 0,
-          "width": 569,
-          "height": 357,
-          "opaquePixels": 160989
-        },
-        "touchesCropEdge": {
-          "left": false,
-          "top": true,
-          "right": false,
-          "bottom": false
-        },
-        "interiorTransparentPixels": 0
-      },
-      "derivatives": [
-        {
-          "widthTier": 384,
-          "path": "/cartilla/art/delivery/faithful/384/flipchart-native/p015-sopa.webp",
-          "width": 384,
-          "height": 239,
-          "bytes": 26148
-        },
-        {
-          "widthTier": 768,
-          "path": "/cartilla/art/delivery/faithful/768/flipchart-native/p015-sopa.webp",
-          "width": 589,
-          "height": 367,
-          "bytes": 44240
-        }
-      ],
-      "warnings": [
-        "visible content touches canonical crop edge; source recrop may be required"
-      ],
-      "errors": []
-    },
-    {
-      "slug": "p015-susi",
-      "word": "Susi",
-      "lessonNumber": 9,
-      "pageNumber": null,
-      "sourcePage": "page-015.jpg",
-      "sourceAsset": "page-015.jpg",
-      "canonicalSrc": "/cartilla/art/faithful/flipchart-native/p015-susi.webp",
-      "canonical": {
-        "width": 587,
-        "height": 786,
-        "bytes": 55940,
-        "format": "webp",
-        "hasAlpha": false,
-        "sha256": "725c0b6aecaed64ff565a3e6c6b715cd47d0dc282e128bb10a4efb816c9f9f0d"
-      },
-      "cropBox": [
-        1415,
-        2430,
-        586,
-        785
-      ],
-      "provenanceStatus": null,
-      "cleanup": {
-        "backgroundRemoved": true,
-        "removedPixels": 229409,
-        "estimatedBackground": {
-          "color": {
-            "r": 255,
-            "g": 255,
-            "b": 255
-          },
-          "agreement": 1,
-          "paperLike": true
-        },
-        "transparentPaddingTrimmed": true,
-        "normalizedWidth": 558,
-        "normalizedHeight": 763,
-        "contentBounds": {
-          "x": 25,
-          "y": 27,
-          "width": 538,
-          "height": 743,
-          "opaquePixels": 231973
-        },
-        "touchesCropEdge": {
-          "left": false,
-          "top": false,
-          "right": false,
-          "bottom": false
-        },
-        "interiorTransparentPixels": 0
-      },
-      "derivatives": [
-        {
-          "widthTier": 384,
-          "path": "/cartilla/art/delivery/faithful/384/flipchart-native/p015-susi.webp",
-          "width": 384,
-          "height": 525,
-          "bytes": 42034
-        },
-        {
-          "widthTier": 768,
-          "path": "/cartilla/art/delivery/faithful/768/flipchart-native/p015-susi.webp",
-          "width": 558,
-          "height": 763,
-          "bytes": 67666
-        }
-      ],
-      "warnings": [],
-      "errors": []
-    },
-    {
-      "slug": "p018-tapa",
-      "word": "tapa",
-      "lessonNumber": 10,
-      "pageNumber": null,
-      "sourcePage": "page-018.jpg",
-      "sourceAsset": "page-018.jpg",
-      "canonicalSrc": "/cartilla/art/faithful/flipchart-native/p018-tapa.webp",
-      "canonical": {
-        "width": 727,
-        "height": 587,
-        "bytes": 28724,
-        "format": "webp",
-        "hasAlpha": false,
-        "sha256": "d73f3b4a9eb750c57390b821120229eb7cb31fcd1b60f61d0578b3faad911134"
-      },
-      "cropBox": [
-        892,
-        1454,
-        727,
-        586
-      ],
-      "provenanceStatus": null,
-      "cleanup": {
-        "backgroundRemoved": true,
-        "removedPixels": 281006,
-        "estimatedBackground": {
-          "color": {
-            "r": 255,
-            "g": 255,
-            "b": 255
-          },
-          "agreement": 1,
-          "paperLike": true
-        },
-        "transparentPaddingTrimmed": true,
-        "normalizedWidth": 660,
-        "normalizedHeight": 492,
-        "contentBounds": {
-          "x": 46,
-          "y": 105,
-          "width": 640,
-          "height": 479,
-          "opaquePixels": 145743
-        },
-        "touchesCropEdge": {
-          "left": false,
-          "top": false,
-          "right": false,
-          "bottom": false
-        },
-        "interiorTransparentPixels": 0
-      },
-      "derivatives": [
-        {
-          "widthTier": 384,
-          "path": "/cartilla/art/delivery/faithful/384/flipchart-native/p018-tapa.webp",
-          "width": 384,
-          "height": 286,
-          "bytes": 20296
-        },
-        {
-          "widthTier": 768,
-          "path": "/cartilla/art/delivery/faithful/768/flipchart-native/p018-tapa.webp",
-          "width": 660,
-          "height": 492,
-          "bytes": 37164
-        }
-      ],
-      "warnings": [],
-      "errors": []
-    },
-    {
-      "slug": "p018-tipi",
-      "word": "tipi",
-      "lessonNumber": 10,
-      "pageNumber": null,
-      "sourcePage": "page-018.jpg",
-      "sourceAsset": "page-018.jpg",
-      "canonicalSrc": "/cartilla/art/faithful/flipchart-native/p018-tipi.webp",
-      "canonical": {
-        "width": 816,
-        "height": 778,
-        "bytes": 42072,
-        "format": "webp",
-        "hasAlpha": false,
-        "sha256": "5eb357321ddd1bd27eb55bf201c71fe0fa752d1606ab67e4d4a745c28fd5de97"
-      },
-      "cropBox": [
-        242,
-        2270,
-        816,
-        778
-      ],
-      "provenanceStatus": null,
-      "cleanup": {
-        "backgroundRemoved": true,
-        "removedPixels": 495741,
-        "estimatedBackground": {
-          "color": {
-            "r": 255,
-            "g": 255,
-            "b": 255
-          },
-          "agreement": 0.8319723618090452,
-          "paperLike": true
-        },
-        "transparentPaddingTrimmed": true,
-        "normalizedWidth": 568,
-        "normalizedHeight": 578,
-        "contentBounds": {
-          "x": 98,
-          "y": 210,
-          "width": 548,
-          "height": 568,
-          "opaquePixels": 139107
-        },
-        "touchesCropEdge": {
-          "left": false,
-          "top": false,
-          "right": false,
-          "bottom": true
-        },
-        "interiorTransparentPixels": 0
-      },
-      "derivatives": [
-        {
-          "widthTier": 384,
-          "path": "/cartilla/art/delivery/faithful/384/flipchart-native/p018-tipi.webp",
-          "width": 384,
-          "height": 391,
-          "bytes": 33704
-        },
-        {
-          "widthTier": 768,
-          "path": "/cartilla/art/delivery/faithful/768/flipchart-native/p018-tipi.webp",
-          "width": 568,
-          "height": 578,
-          "bytes": 49588
-        }
-      ],
-      "warnings": [
-        "visible content touches canonical crop edge; source recrop may be required"
-      ],
-      "errors": []
-    },
-    {
-      "slug": "p018-tomate",
-      "word": "tomate",
-      "lessonNumber": 10,
-      "pageNumber": null,
-      "sourcePage": "page-018.jpg",
-      "sourceAsset": "page-018.jpg",
-      "canonicalSrc": "/cartilla/art/faithful/flipchart-native/p018-tomate.webp",
-      "canonical": {
-        "width": 688,
-        "height": 625,
-        "bytes": 18292,
-        "format": "webp",
-        "hasAlpha": false,
-        "sha256": "b7ff96be31e328117961d8c150aedc3e579a027ce0ceef16e1c3d8472eb26122"
-      },
-      "cropBox": [
-        89,
-        1466,
-        688,
-        625
-      ],
-      "provenanceStatus": null,
-      "cleanup": {
-        "backgroundRemoved": true,
-        "removedPixels": 260684,
-        "estimatedBackground": {
-          "color": {
-            "r": 255,
-            "g": 255,
-            "b": 255
-          },
-          "agreement": 1,
-          "paperLike": true
-        },
-        "transparentPaddingTrimmed": true,
-        "normalizedWidth": 589,
-        "normalizedHeight": 446,
-        "contentBounds": {
-          "x": 21,
-          "y": 132,
-          "width": 569,
-          "height": 426,
-          "opaquePixels": 169316
-        },
-        "touchesCropEdge": {
-          "left": false,
-          "top": false,
-          "right": false,
-          "bottom": false
-        },
-        "interiorTransparentPixels": 0
-      },
-      "derivatives": [
-        {
-          "widthTier": 384,
-          "path": "/cartilla/art/delivery/faithful/384/flipchart-native/p018-tomate.webp",
-          "width": 384,
-          "height": 291,
-          "bytes": 13996
-        },
-        {
-          "widthTier": 768,
-          "path": "/cartilla/art/delivery/faithful/768/flipchart-native/p018-tomate.webp",
-          "width": 589,
-          "height": 446,
-          "bytes": 22722
-        }
-      ],
-      "warnings": [],
-      "errors": []
-    },
-    {
-      "slug": "p018-topo",
-      "word": "topo",
-      "lessonNumber": 10,
-      "pageNumber": null,
-      "sourcePage": "page-018.jpg",
-      "sourceAsset": "page-018.jpg",
-      "canonicalSrc": "/cartilla/art/faithful/flipchart-native/p018-topo.webp",
-      "canonical": {
-        "width": 663,
-        "height": 689,
-        "bytes": 37064,
-        "format": "webp",
-        "hasAlpha": false,
-        "sha256": "a759cb907af80dab141ccc84ed84e5d7b0644728bd11a27c1b9a9ffc278c49a0"
-      },
-      "cropBox": [
-        1759,
-        1390,
-        663,
-        688
-      ],
-      "provenanceStatus": null,
-      "cleanup": {
-        "backgroundRemoved": true,
-        "removedPixels": 274128,
-        "estimatedBackground": {
-          "color": {
-            "r": 255,
-            "g": 255,
-            "b": 255
-          },
-          "agreement": 0.902962962962963,
-          "paperLike": true
-        },
-        "transparentPaddingTrimmed": true,
-        "normalizedWidth": 613,
-        "normalizedHeight": 598,
-        "contentBounds": {
-          "x": 60,
-          "y": 101,
-          "width": 603,
-          "height": 588,
-          "opaquePixels": 182679
-        },
-        "touchesCropEdge": {
-          "left": false,
-          "top": false,
-          "right": true,
-          "bottom": true
-        },
-        "interiorTransparentPixels": 0
-      },
-      "derivatives": [
-        {
-          "widthTier": 384,
-          "path": "/cartilla/art/delivery/faithful/384/flipchart-native/p018-topo.webp",
-          "width": 384,
-          "height": 375,
-          "bytes": 25778
-        },
-        {
-          "widthTier": 768,
-          "path": "/cartilla/art/delivery/faithful/768/flipchart-native/p018-topo.webp",
-          "width": 613,
-          "height": 598,
-          "bytes": 47534
-        }
-      ],
-      "warnings": [
-        "visible content touches canonical crop edge; source recrop may be required"
-      ],
-      "errors": []
-    },
-    {
-      "slug": "p018-tuto",
-      "word": "Tuto",
-      "lessonNumber": 10,
-      "pageNumber": null,
-      "sourcePage": "page-018.jpg",
-      "sourceAsset": "page-018.jpg",
-      "canonicalSrc": "/cartilla/art/faithful/flipchart-native/p018-tuto.webp",
-      "canonical": {
-        "width": 803,
-        "height": 775,
-        "bytes": 53830,
-        "format": "webp",
-        "hasAlpha": false,
-        "sha256": "c4c9cdd67c92e032d61c3686bcb36f6e9f0ce3d3dfad993d1b20dfbf5bb1f78c"
-      },
-      "cropBox": [
-        1377,
-        2323,
-        803,
-        775
-      ],
-      "provenanceStatus": null,
-      "cleanup": {
-        "backgroundRemoved": true,
-        "removedPixels": 390453,
-        "estimatedBackground": {
-          "color": {
-            "r": 255,
-            "g": 255,
-            "b": 255
-          },
-          "agreement": 0.9219543147208121,
-          "paperLike": true
-        },
-        "transparentPaddingTrimmed": true,
-        "normalizedWidth": 575,
-        "normalizedHeight": 699,
-        "contentBounds": {
-          "x": 94,
-          "y": 86,
-          "width": 555,
-          "height": 689,
-          "opaquePixels": 231872
-        },
-        "touchesCropEdge": {
-          "left": false,
-          "top": false,
-          "right": false,
-          "bottom": true
-        },
-        "interiorTransparentPixels": 0
-      },
-      "derivatives": [
-        {
-          "widthTier": 384,
-          "path": "/cartilla/art/delivery/faithful/384/flipchart-native/p018-tuto.webp",
-          "width": 384,
-          "height": 467,
-          "bytes": 37170
-        },
-        {
-          "widthTier": 768,
-          "path": "/cartilla/art/delivery/faithful/768/flipchart-native/p018-tuto.webp",
-          "width": 575,
-          "height": 699,
-          "bytes": 57642
-        }
-      ],
-      "warnings": [
-        "visible content touches canonical crop edge; source recrop may be required"
-      ],
-      "errors": []
-    },
-    {
-      "slug": "p021-dados",
-      "word": "dados",
-      "lessonNumber": 11,
-      "pageNumber": null,
-      "sourcePage": "page-021.jpg",
-      "sourceAsset": "page-021.jpg",
-      "canonicalSrc": "/cartilla/art/faithful/flipchart-native/p021-dados.webp",
-      "canonical": {
-        "width": 625,
-        "height": 637,
-        "bytes": 33378,
-        "format": "webp",
-        "hasAlpha": false,
-        "sha256": "3342c86705b6386762c968bee3e4f621382f0a6a86501bd47472afcf225fb998"
-      },
-      "cropBox": [
-        959,
-        1316,
-        625,
-        638
-      ],
-      "provenanceStatus": null,
-      "cleanup": {
-        "backgroundRemoved": true,
-        "removedPixels": 206903,
-        "estimatedBackground": {
-          "color": {
-            "r": 255,
-            "g": 255,
-            "b": 255
-          },
-          "agreement": 1,
-          "paperLike": true
-        },
-        "transparentPaddingTrimmed": true,
-        "normalizedWidth": 595,
-        "normalizedHeight": 609,
-        "contentBounds": {
-          "x": 27,
-          "y": 27,
-          "width": 575,
-          "height": 589,
-          "opaquePixels": 191222
-        },
-        "touchesCropEdge": {
-          "left": false,
-          "top": false,
-          "right": false,
-          "bottom": false
-        },
-        "interiorTransparentPixels": 0
-      },
-      "derivatives": [
-        {
-          "widthTier": 384,
-          "path": "/cartilla/art/delivery/faithful/384/flipchart-native/p021-dados.webp",
-          "width": 384,
-          "height": 393,
-          "bytes": 22180
-        },
-        {
-          "widthTier": 768,
-          "path": "/cartilla/art/delivery/faithful/768/flipchart-native/p021-dados.webp",
-          "width": 595,
-          "height": 609,
-          "bytes": 40420
-        }
-      ],
-      "warnings": [],
-      "errors": []
-    },
-    {
-      "slug": "p021-dedo",
-      "word": "dedo",
-      "lessonNumber": 11,
-      "pageNumber": null,
-      "sourcePage": "page-021.jpg",
-      "sourceAsset": "page-021.jpg",
-      "canonicalSrc": "/cartilla/art/faithful/flipchart-native/p021-dedo.webp",
-      "canonical": {
-        "width": 459,
-        "height": 653,
-        "bytes": 27824,
-        "format": "webp",
-        "hasAlpha": false,
-        "sha256": "9d938f668fd9ca6d6388074a4f3549916b1973a7a708b5afdf8077860e8fe94b"
-      },
-      "cropBox": [
-        1887,
-        1308,
-        459,
-        653
-      ],
-      "provenanceStatus": null,
-      "cleanup": {
-        "backgroundRemoved": true,
-        "removedPixels": 147139,
-        "estimatedBackground": {
-          "color": {
-            "r": 255,
-            "g": 255,
-            "b": 255
-          },
-          "agreement": 1,
-          "paperLike": true
-        },
-        "transparentPaddingTrimmed": true,
-        "normalizedWidth": 430,
-        "normalizedHeight": 635,
-        "contentBounds": {
-          "x": 26,
-          "y": 28,
-          "width": 410,
-          "height": 615,
-          "opaquePixels": 152588
-        },
-        "touchesCropEdge": {
-          "left": false,
-          "top": false,
-          "right": false,
-          "bottom": false
-        },
-        "interiorTransparentPixels": 0
-      },
-      "derivatives": [
-        {
-          "widthTier": 384,
-          "path": "/cartilla/art/delivery/faithful/384/flipchart-native/p021-dedo.webp",
-          "width": 384,
-          "height": 567,
-          "bytes": 26960
-        },
-        {
-          "widthTier": 768,
-          "path": "/cartilla/art/delivery/faithful/768/flipchart-native/p021-dedo.webp",
-          "width": 430,
-          "height": 635,
-          "bytes": 34476
-        }
-      ],
-      "warnings": [],
-      "errors": []
-    },
-    {
-      "slug": "p021-didi",
-      "word": "Didi",
-      "lessonNumber": 11,
-      "pageNumber": null,
-      "sourcePage": "page-021.jpg",
-      "sourceAsset": "page-021.jpg",
-      "canonicalSrc": "/cartilla/art/faithful/flipchart-native/p021-didi.webp",
-      "canonical": {
-        "width": 528,
-        "height": 589,
-        "bytes": 29850,
-        "format": "webp",
-        "hasAlpha": false,
-        "sha256": "ef2d07779fb9d20d8743da9294a742ddba3403711a7eeb53b2cf90a12cc69daf"
-      },
-      "cropBox": [
-        107,
-        1390,
-        528,
-        589
-      ],
-      "provenanceStatus": null,
-      "cleanup": {
-        "backgroundRemoved": true,
-        "removedPixels": 213825,
-        "estimatedBackground": {
-          "color": {
-            "r": 255,
-            "g": 255,
-            "b": 255
-          },
-          "agreement": 1,
-          "paperLike": true
-        },
-        "transparentPaddingTrimmed": true,
-        "normalizedWidth": 500,
-        "normalizedHeight": 562,
-        "contentBounds": {
-          "x": 26,
-          "y": 26,
-          "width": 480,
-          "height": 542,
-          "opaquePixels": 97167
-        },
-        "touchesCropEdge": {
-          "left": false,
-          "top": false,
-          "right": false,
-          "bottom": false
-        },
-        "interiorTransparentPixels": 0
-      },
-      "derivatives": [
-        {
-          "widthTier": 384,
-          "path": "/cartilla/art/delivery/faithful/384/flipchart-native/p021-didi.webp",
-          "width": 384,
-          "height": 432,
-          "bytes": 27036
-        },
-        {
-          "widthTier": 768,
-          "path": "/cartilla/art/delivery/faithful/768/flipchart-native/p021-didi.webp",
-          "width": 500,
-          "height": 562,
-          "bytes": 35850
-        }
-      ],
-      "warnings": [],
-      "errors": []
-    },
-    {
-      "slug": "p021-doce",
-      "word": "doce",
-      "lessonNumber": 11,
-      "pageNumber": null,
-      "sourcePage": "page-021.jpg",
-      "sourceAsset": "page-021.jpg",
-      "canonicalSrc": "/cartilla/art/faithful/flipchart-native/p021-doce.webp",
-      "canonical": {
-        "width": 592,
-        "height": 739,
-        "bytes": 63178,
-        "format": "webp",
-        "hasAlpha": false,
-        "sha256": "86e04a7c46f465589f54ef7125a118132360276360fed52766debacc5e8f1023"
-      },
-      "cropBox": [
-        311,
-        2318,
-        592,
-        740
-      ],
-      "provenanceStatus": null,
-      "cleanup": {
-        "backgroundRemoved": true,
-        "removedPixels": 217354,
-        "estimatedBackground": {
-          "color": {
-            "r": 255,
-            "g": 255,
-            "b": 255
-          },
-          "agreement": 1,
-          "paperLike": true
-        },
-        "transparentPaddingTrimmed": true,
-        "normalizedWidth": 564,
-        "normalizedHeight": 712,
-        "contentBounds": {
-          "x": 26,
-          "y": 26,
-          "width": 544,
-          "height": 692,
-          "opaquePixels": 220134
-        },
-        "touchesCropEdge": {
-          "left": false,
-          "top": false,
-          "right": false,
-          "bottom": false
-        },
-        "interiorTransparentPixels": 0
-      },
-      "derivatives": [
-        {
-          "widthTier": 384,
-          "path": "/cartilla/art/delivery/faithful/384/flipchart-native/p021-doce.webp",
-          "width": 384,
-          "height": 485,
-          "bytes": 52184
-        },
-        {
-          "widthTier": 768,
-          "path": "/cartilla/art/delivery/faithful/768/flipchart-native/p021-doce.webp",
-          "width": 564,
-          "height": 712,
-          "bytes": 76668
-        }
-      ],
-      "warnings": [],
-      "errors": []
-    },
-    {
-      "slug": "p021-dunia",
-      "word": "Dunia",
-      "lessonNumber": 11,
-      "pageNumber": null,
-      "sourcePage": "page-021.jpg",
-      "sourceAsset": "page-021.jpg",
-      "canonicalSrc": "/cartilla/art/faithful/flipchart-native/p021-dunia.webp",
-      "canonical": {
-        "width": 921,
-        "height": 653,
-        "bytes": 82800,
-        "format": "webp",
-        "hasAlpha": false,
-        "sha256": "1ae8f46b1e9ae747a4acf361c936d0271ed0d97f0102ff90d9b07c2851027d0f"
-      },
-      "cropBox": [
-        1295,
-        2331,
-        921,
-        653
-      ],
-      "provenanceStatus": null,
-      "cleanup": {
-        "backgroundRemoved": true,
-        "removedPixels": 256927,
-        "estimatedBackground": {
-          "color": {
-            "r": 255,
-            "g": 255,
-            "b": 255
-          },
-          "agreement": 1,
-          "paperLike": true
-        },
-        "transparentPaddingTrimmed": true,
-        "normalizedWidth": 892,
-        "normalizedHeight": 625,
-        "contentBounds": {
-          "x": 26,
-          "y": 27,
-          "width": 872,
-          "height": 605,
-          "opaquePixels": 344486
-        },
-        "touchesCropEdge": {
-          "left": false,
-          "top": false,
-          "right": false,
-          "bottom": false
-        },
-        "interiorTransparentPixels": 0
-      },
-      "derivatives": [
-        {
-          "widthTier": 384,
-          "path": "/cartilla/art/delivery/faithful/384/flipchart-native/p021-dunia.webp",
-          "width": 384,
-          "height": 269,
-          "bytes": 33764
-        },
-        {
-          "widthTier": 768,
-          "path": "/cartilla/art/delivery/faithful/768/flipchart-native/p021-dunia.webp",
-          "width": 768,
-          "height": 538,
-          "bytes": 77492
-        }
-      ],
-      "warnings": [],
-      "errors": []
-    },
-    {
-      "slug": "p024-lala",
-      "word": "Lala",
-      "lessonNumber": 12,
-      "pageNumber": null,
-      "sourcePage": "page-024.jpg",
-      "sourceAsset": "page-024.jpg",
-      "canonicalSrc": "/cartilla/art/faithful/flipchart-native/p024-lala.webp",
-      "canonical": {
-        "width": 714,
-        "height": 625,
-        "bytes": 21686,
-        "format": "webp",
-        "hasAlpha": false,
-        "sha256": "de21b2c2f96372d1978bdd6d8f19fe6cdfdbcb408bf1200ab0c35dd4615442b7"
-      },
-      "cropBox": [
-        1441,
-        2474,
-        714,
-        625
-      ],
-      "provenanceStatus": null,
-      "cleanup": {
-        "backgroundRemoved": true,
-        "removedPixels": 366439,
-        "estimatedBackground": {
-          "color": {
-            "r": 255,
-            "g": 255,
-            "b": 255
-          },
-          "agreement": 0.9827973074046372,
-          "paperLike": true
-        },
-        "transparentPaddingTrimmed": true,
-        "normalizedWidth": 516,
-        "normalizedHeight": 357,
-        "contentBounds": {
-          "x": 48,
-          "y": 278,
-          "width": 496,
-          "height": 347,
-          "opaquePixels": 79811
-        },
-        "touchesCropEdge": {
-          "left": false,
-          "top": false,
-          "right": false,
-          "bottom": true
-        },
-        "interiorTransparentPixels": 0
-      },
-      "derivatives": [
-        {
-          "widthTier": 384,
-          "path": "/cartilla/art/delivery/faithful/384/flipchart-native/p024-lala.webp",
-          "width": 384,
-          "height": 266,
-          "bytes": 19582
-        },
-        {
-          "widthTier": 768,
-          "path": "/cartilla/art/delivery/faithful/768/flipchart-native/p024-lala.webp",
-          "width": 516,
-          "height": 357,
-          "bytes": 28736
-        }
-      ],
-      "warnings": [
-        "visible content touches canonical crop edge; source recrop may be required"
-      ],
-      "errors": []
-    },
-    {
-      "slug": "p024-lata",
-      "word": "lata",
-      "lessonNumber": 12,
-      "pageNumber": null,
-      "sourcePage": "page-024.jpg",
-      "sourceAsset": "page-024.jpg",
-      "canonicalSrc": "/cartilla/art/faithful/flipchart-native/p024-lata.webp",
-      "canonical": {
-        "width": 625,
-        "height": 688,
-        "bytes": 33154,
-        "format": "webp",
-        "hasAlpha": false,
-        "sha256": "19ff984afcddec9e04047c1375503bc7369a55bc265e60d338cb8f7f7466f93f"
-      },
-      "cropBox": [
-        982,
-        1415,
-        625,
-        688
-      ],
-      "provenanceStatus": null,
-      "cleanup": {
-        "backgroundRemoved": true,
-        "removedPixels": 258939,
-        "estimatedBackground": {
-          "color": {
-            "r": 255,
-            "g": 255,
-            "b": 255
-          },
-          "agreement": 1,
-          "paperLike": true
-        },
-        "transparentPaddingTrimmed": true,
-        "normalizedWidth": 540,
-        "normalizedHeight": 596,
-        "contentBounds": {
-          "x": 64,
-          "y": 102,
-          "width": 520,
-          "height": 583,
-          "opaquePixels": 171061
-        },
-        "touchesCropEdge": {
-          "left": false,
-          "top": false,
-          "right": false,
-          "bottom": false
-        },
-        "interiorTransparentPixels": 0
-      },
-      "derivatives": [
-        {
-          "widthTier": 384,
-          "path": "/cartilla/art/delivery/faithful/384/flipchart-native/p024-lata.webp",
-          "width": 384,
-          "height": 424,
-          "bytes": 26404
-        },
-        {
-          "widthTier": 768,
-          "path": "/cartilla/art/delivery/faithful/768/flipchart-native/p024-lata.webp",
-          "width": 540,
-          "height": 596,
-          "bytes": 41354
-        }
-      ],
-      "warnings": [],
-      "errors": []
-    },
-    {
-      "slug": "p024-loma",
-      "word": "loma",
-      "lessonNumber": 12,
-      "pageNumber": null,
-      "sourcePage": "page-024.jpg",
-      "sourceAsset": "page-024.jpg",
-      "canonicalSrc": "/cartilla/art/faithful/flipchart-native/p024-loma.webp",
-      "canonical": {
-        "width": 918,
-        "height": 740,
-        "bytes": 25564,
-        "format": "webp",
-        "hasAlpha": false,
-        "sha256": "ef5d85cdcf3437862a97f1a7ac0c440e915bcb49f974b5b532f8a33ff8ed0cb5"
-      },
-      "cropBox": [
-        229,
-        2422,
-        918,
-        740
-      ],
-      "provenanceStatus": null,
-      "cleanup": {
-        "backgroundRemoved": true,
-        "removedPixels": 447960,
-        "estimatedBackground": {
-          "color": {
-            "r": 255,
-            "g": 255,
-            "b": 255
-          },
-          "agreement": 0.7657004830917874,
-          "paperLike": true
-        },
-        "transparentPaddingTrimmed": true,
-        "normalizedWidth": 796,
-        "normalizedHeight": 612,
-        "contentBounds": {
-          "x": 68,
-          "y": 138,
-          "width": 776,
-          "height": 602,
-          "opaquePixels": 231360
-        },
-        "touchesCropEdge": {
-          "left": false,
-          "top": false,
-          "right": false,
-          "bottom": true
-        },
-        "interiorTransparentPixels": 0
-      },
-      "derivatives": [
-        {
-          "widthTier": 384,
-          "path": "/cartilla/art/delivery/faithful/384/flipchart-native/p024-loma.webp",
-          "width": 384,
-          "height": 295,
-          "bytes": 11818
-        },
-        {
-          "widthTier": 768,
-          "path": "/cartilla/art/delivery/faithful/768/flipchart-native/p024-loma.webp",
-          "width": 768,
-          "height": 590,
-          "bytes": 28464
-        }
-      ],
-      "warnings": [
-        "visible content touches canonical crop edge; source recrop may be required"
-      ],
-      "errors": []
-    },
-    {
-      "slug": "p024-luli",
-      "word": "Luli",
-      "lessonNumber": 12,
-      "pageNumber": null,
-      "sourcePage": "page-024.jpg",
-      "sourceAsset": "page-024.jpg",
-      "canonicalSrc": "/cartilla/art/faithful/flipchart-native/p024-luli.webp",
-      "canonical": {
-        "width": 562,
-        "height": 816,
-        "bytes": 37712,
-        "format": "webp",
-        "hasAlpha": false,
-        "sha256": "ad9ebbfafcb62e3c6ac735925a7bd8a1e414756162e65c00467682db943be153"
-      },
-      "cropBox": [
-        1836,
-        1275,
-        561,
-        816
-      ],
-      "provenanceStatus": null,
-      "cleanup": {
-        "backgroundRemoved": true,
-        "removedPixels": 305917,
-        "estimatedBackground": {
-          "color": {
-            "r": 255,
-            "g": 255,
-            "b": 255
-          },
-          "agreement": 0.9603924418604651,
-          "paperLike": true
-        },
-        "transparentPaddingTrimmed": true,
-        "normalizedWidth": 396,
-        "normalizedHeight": 786,
-        "contentBounds": {
-          "x": 44,
-          "y": 40,
-          "width": 376,
-          "height": 776,
-          "opaquePixels": 152675
-        },
-        "touchesCropEdge": {
-          "left": false,
-          "top": false,
-          "right": false,
-          "bottom": true
-        },
-        "interiorTransparentPixels": 0
-      },
-      "derivatives": [
-        {
-          "widthTier": 384,
-          "path": "/cartilla/art/delivery/faithful/384/flipchart-native/p024-luli.webp",
-          "width": 384,
-          "height": 762,
-          "bytes": 43314
-        },
-        {
-          "widthTier": 768,
-          "path": "/cartilla/art/delivery/faithful/768/flipchart-native/p024-luli.webp",
-          "width": 396,
-          "height": 786,
-          "bytes": 49604
-        }
-      ],
-      "warnings": [
-        "visible content touches canonical crop edge; source recrop may be required"
-      ],
-      "errors": []
-    },
-    {
-      "slug": "p024-maleta",
-      "word": "maleta",
-      "lessonNumber": 12,
-      "pageNumber": null,
-      "sourcePage": "page-024.jpg",
-      "sourceAsset": "page-024.jpg",
-      "canonicalSrc": "/cartilla/art/faithful/flipchart-native/p024-maleta.webp",
-      "canonical": {
-        "width": 625,
-        "height": 701,
-        "bytes": 26736,
-        "format": "webp",
-        "hasAlpha": false,
-        "sha256": "e0a8cb597b060cb6f429066ef8a3d9760c661a6d400741e4e3e67e03fde80571"
-      },
-      "cropBox": [
-        115,
-        1415,
-        625,
-        701
-      ],
-      "provenanceStatus": null,
-      "cleanup": {
-        "backgroundRemoved": true,
-        "removedPixels": 195799,
-        "estimatedBackground": {
-          "color": {
-            "r": 255,
-            "g": 255,
-            "b": 255
-          },
-          "agreement": 1,
-          "paperLike": true
-        },
-        "transparentPaddingTrimmed": true,
-        "normalizedWidth": 506,
-        "normalizedHeight": 619,
-        "contentBounds": {
-          "x": 45,
-          "y": 85,
-          "width": 486,
-          "height": 599,
-          "opaquePixels": 242326
-        },
-        "touchesCropEdge": {
-          "left": false,
-          "top": false,
-          "right": false,
-          "bottom": false
-        },
-        "interiorTransparentPixels": 0
-      },
-      "derivatives": [
-        {
-          "widthTier": 384,
-          "path": "/cartilla/art/delivery/faithful/384/flipchart-native/p024-maleta.webp",
-          "width": 384,
-          "height": 470,
-          "bytes": 22894
-        },
-        {
-          "widthTier": 768,
-          "path": "/cartilla/art/delivery/faithful/768/flipchart-native/p024-maleta.webp",
-          "width": 506,
-          "height": 619,
-          "bytes": 34446
-        }
-      ],
-      "warnings": [],
-      "errors": []
-    },
-    {
-      "slug": "p027-mono",
-      "word": "mono",
-      "lessonNumber": 13,
-      "pageNumber": null,
-      "sourcePage": "page-027.jpg",
-      "sourceAsset": "page-027.jpg",
-      "canonicalSrc": "/cartilla/art/faithful/flipchart-native/p027-mono.webp",
-      "canonical": {
-        "width": 461,
-        "height": 765,
-        "bytes": 28838,
-        "format": "webp",
-        "hasAlpha": false,
-        "sha256": "55d9cc677a58f684fe497b92614a3e7e1d20c2dbdc6f3ea4fa5cc7a2e23ef0b6"
-      },
-      "cropBox": [
-        1821,
-        1336,
-        462,
-        765
-      ],
-      "provenanceStatus": null,
-      "cleanup": {
-        "backgroundRemoved": true,
-        "removedPixels": 210688,
-        "estimatedBackground": {
-          "color": {
-            "r": 255,
-            "g": 255,
-            "b": 255
-          },
-          "agreement": 1,
-          "paperLike": true
-        },
-        "transparentPaddingTrimmed": true,
-        "normalizedWidth": 436,
-        "normalizedHeight": 748,
-        "contentBounds": {
-          "x": 23,
-          "y": 26,
-          "width": 416,
-          "height": 728,
-          "opaquePixels": 141977
-        },
-        "touchesCropEdge": {
-          "left": false,
-          "top": false,
-          "right": false,
-          "bottom": false
-        },
-        "interiorTransparentPixels": 0
-      },
-      "derivatives": [
-        {
-          "widthTier": 384,
-          "path": "/cartilla/art/delivery/faithful/384/flipchart-native/p027-mono.webp",
-          "width": 384,
-          "height": 659,
-          "bytes": 32694
-        },
-        {
-          "widthTier": 768,
-          "path": "/cartilla/art/delivery/faithful/768/flipchart-native/p027-mono.webp",
-          "width": 436,
-          "height": 748,
-          "bytes": 38044
-        }
-      ],
-      "warnings": [],
-      "errors": []
-    },
-    {
-      "slug": "p027-napi",
-      "word": "Napi",
-      "lessonNumber": 13,
-      "pageNumber": null,
-      "sourcePage": "page-027.jpg",
-      "sourceAsset": "page-027.jpg",
-      "canonicalSrc": "/cartilla/art/faithful/flipchart-native/p027-napi.webp",
-      "canonical": {
-        "width": 673,
-        "height": 714,
-        "bytes": 40316,
-        "format": "webp",
-        "hasAlpha": false,
-        "sha256": "1b45ecfe4d3eddbdfbfb7a191f661ae092d88f0c32621f16d3c07107376b3e3f"
-      },
-      "cropBox": [
-        311,
-        2471,
-        673,
-        714
-      ],
-      "provenanceStatus": null,
-      "cleanup": {
-        "backgroundRemoved": true,
-        "removedPixels": 250327,
-        "estimatedBackground": {
-          "color": {
-            "r": 255,
-            "g": 255,
-            "b": 255
-          },
-          "agreement": 1,
-          "paperLike": true
-        },
-        "transparentPaddingTrimmed": true,
-        "normalizedWidth": 646,
-        "normalizedHeight": 694,
-        "contentBounds": {
-          "x": 25,
-          "y": 27,
-          "width": 626,
-          "height": 674,
-          "opaquePixels": 230195
-        },
-        "touchesCropEdge": {
-          "left": false,
-          "top": false,
-          "right": false,
-          "bottom": false
-        },
-        "interiorTransparentPixels": 0
-      },
-      "derivatives": [
-        {
-          "widthTier": 384,
-          "path": "/cartilla/art/delivery/faithful/384/flipchart-native/p027-napi.webp",
-          "width": 384,
-          "height": 413,
-          "bytes": 25312
-        },
-        {
-          "widthTier": 768,
-          "path": "/cartilla/art/delivery/faithful/768/flipchart-native/p027-napi.webp",
-          "width": 646,
-          "height": 694,
-          "bytes": 52154
-        }
-      ],
-      "warnings": [],
-      "errors": []
-    },
-    {
-      "slug": "p027-nido",
-      "word": "nido",
-      "lessonNumber": 13,
-      "pageNumber": null,
-      "sourcePage": "page-027.jpg",
-      "sourceAsset": "page-027.jpg",
-      "canonicalSrc": "/cartilla/art/faithful/flipchart-native/p027-nido.webp",
-      "canonical": {
-        "width": 625,
-        "height": 429,
-        "bytes": 30928,
-        "format": "webp",
-        "hasAlpha": false,
-        "sha256": "885109a1989f07fb0bdc5bd2f18b2588252f3aa681436cb2443a18151ed3e868"
-      },
-      "cropBox": [
-        145,
-        1619,
-        625,
-        428
-      ],
-      "provenanceStatus": null,
-      "cleanup": {
-        "backgroundRemoved": true,
-        "removedPixels": 101891,
-        "estimatedBackground": {
-          "color": {
-            "r": 255,
-            "g": 255,
-            "b": 255
-          },
-          "agreement": 1,
-          "paperLike": true
-        },
-        "transparentPaddingTrimmed": true,
-        "normalizedWidth": 596,
-        "normalizedHeight": 400,
-        "contentBounds": {
-          "x": 27,
-          "y": 27,
-          "width": 576,
-          "height": 380,
-          "opaquePixels": 166234
-        },
-        "touchesCropEdge": {
-          "left": false,
-          "top": false,
-          "right": false,
-          "bottom": false
-        },
-        "interiorTransparentPixels": 0
-      },
-      "derivatives": [
-        {
-          "widthTier": 384,
-          "path": "/cartilla/art/delivery/faithful/384/flipchart-native/p027-nido.webp",
-          "width": 384,
-          "height": 258,
-          "bytes": 22124
-        },
-        {
-          "widthTier": 768,
-          "path": "/cartilla/art/delivery/faithful/768/flipchart-native/p027-nido.webp",
-          "width": 596,
-          "height": 400,
-          "bytes": 37538
-        }
-      ],
-      "warnings": [],
-      "errors": []
-    },
-    {
-      "slug": "p027-nudo",
-      "word": "nudo",
-      "lessonNumber": 13,
-      "pageNumber": null,
-      "sourcePage": "page-027.jpg",
-      "sourceAsset": "page-027.jpg",
-      "canonicalSrc": "/cartilla/art/faithful/flipchart-native/p027-nudo.webp",
-      "canonical": {
-        "width": 663,
-        "height": 521,
-        "bytes": 28242,
-        "format": "webp",
-        "hasAlpha": false,
-        "sha256": "09eec515f634d3add4064a0ae890e1505b5f2325398f5b1dc388990bf4d8f9bc"
-      },
-      "cropBox": [
-        900,
-        1573,
-        663,
-        520
-      ],
-      "provenanceStatus": null,
-      "cleanup": {
-        "backgroundRemoved": true,
-        "removedPixels": 176457,
-        "estimatedBackground": {
-          "color": {
-            "r": 255,
-            "g": 255,
-            "b": 255
-          },
-          "agreement": 1,
-          "paperLike": true
-        },
-        "transparentPaddingTrimmed": true,
-        "normalizedWidth": 637,
-        "normalizedHeight": 493,
-        "contentBounds": {
-          "x": 24,
-          "y": 24,
-          "width": 617,
-          "height": 473,
-          "opaquePixels": 168966
-        },
-        "touchesCropEdge": {
-          "left": false,
-          "top": false,
-          "right": false,
-          "bottom": false
-        },
-        "interiorTransparentPixels": 0
-      },
-      "derivatives": [
-        {
-          "widthTier": 384,
-          "path": "/cartilla/art/delivery/faithful/384/flipchart-native/p027-nudo.webp",
-          "width": 384,
-          "height": 297,
-          "bytes": 19556
-        },
-        {
-          "widthTier": 768,
-          "path": "/cartilla/art/delivery/faithful/768/flipchart-native/p027-nudo.webp",
-          "width": 637,
-          "height": 493,
-          "bytes": 36860
-        }
-      ],
-      "warnings": [],
-      "errors": []
-    },
-    {
-      "slug": "p027-tenedor",
-      "word": "tenedor",
-      "lessonNumber": 13,
-      "pageNumber": null,
-      "sourcePage": "page-027.jpg",
-      "sourceAsset": "page-027.jpg",
-      "canonicalSrc": "/cartilla/art/faithful/flipchart-native/p027-tenedor.webp",
-      "canonical": {
-        "width": 176,
-        "height": 824,
-        "bytes": 5976,
-        "format": "webp",
-        "hasAlpha": false,
-        "sha256": "b01d32721d20d1b2047e004b6be9f024dec6fe9ea055c3c3856b53383a6607f0"
-      },
-      "cropBox": [
-        1637,
-        2361,
-        176,
-        824
-      ],
-      "provenanceStatus": null,
-      "cleanup": {
-        "backgroundRemoved": true,
-        "removedPixels": 83116,
-        "estimatedBackground": {
-          "color": {
-            "r": 255,
-            "g": 255,
-            "b": 255
-          },
-          "agreement": 1,
-          "paperLike": true
-        },
-        "transparentPaddingTrimmed": true,
-        "normalizedWidth": 147,
-        "normalizedHeight": 799,
-        "contentBounds": {
-          "x": 25,
-          "y": 27,
-          "width": 127,
-          "height": 779,
-          "opaquePixels": 61908
-        },
-        "touchesCropEdge": {
-          "left": false,
-          "top": false,
-          "right": false,
-          "bottom": false
-        },
-        "interiorTransparentPixels": 0
-      },
-      "derivatives": [
-        {
-          "widthTier": 384,
-          "path": "/cartilla/art/delivery/faithful/384/flipchart-native/p027-tenedor.webp",
-          "width": 147,
-          "height": 799,
-          "bytes": 7660
-        },
-        {
-          "widthTier": 768,
-          "path": "/cartilla/art/delivery/faithful/768/flipchart-native/p027-tenedor.webp",
-          "width": 147,
-          "height": 799,
-          "bytes": 7660
-        }
-      ],
-      "warnings": [],
-      "errors": []
-    },
-    {
-      "slug": "p030-mene",
-      "word": "Meñe",
-      "lessonNumber": 14,
-      "pageNumber": null,
-      "sourcePage": "page-030.jpg",
-      "sourceAsset": "page-030.jpg",
-      "canonicalSrc": "/cartilla/art/faithful/flipchart-native/p030-mene.webp",
-      "canonical": {
-        "width": 500,
-        "height": 804,
-        "bytes": 41718,
-        "format": "webp",
-        "hasAlpha": false,
-        "sha256": "b708061745d31c09a484a64873b766a51e198494677a79ae9ac51bb4c43af66f"
-      },
-      "cropBox": [
-        1446,
-        2310,
-        500,
-        803
-      ],
-      "provenanceStatus": null,
-      "cleanup": {
-        "backgroundRemoved": true,
-        "removedPixels": 209575,
-        "estimatedBackground": {
-          "color": {
-            "r": 255,
-            "g": 255,
-            "b": 255
-          },
-          "agreement": 1,
-          "paperLike": true
-        },
-        "transparentPaddingTrimmed": true,
-        "normalizedWidth": 470,
-        "normalizedHeight": 781,
-        "contentBounds": {
-          "x": 26,
-          "y": 28,
-          "width": 450,
-          "height": 761,
-          "opaquePixels": 192425
-        },
-        "touchesCropEdge": {
-          "left": false,
-          "top": false,
-          "right": false,
-          "bottom": false
-        },
-        "interiorTransparentPixels": 0
-      },
-      "derivatives": [
-        {
-          "widthTier": 384,
-          "path": "/cartilla/art/delivery/faithful/384/flipchart-native/p030-mene.webp",
-          "width": 384,
-          "height": 638,
-          "bytes": 38186
-        },
-        {
-          "widthTier": 768,
-          "path": "/cartilla/art/delivery/faithful/768/flipchart-native/p030-mene.webp",
-          "width": 470,
-          "height": 781,
-          "bytes": 49994
-        }
-      ],
-      "warnings": [],
-      "errors": []
-    },
-    {
-      "slug": "p030-mono",
-      "word": "moño",
-      "lessonNumber": 14,
-      "pageNumber": null,
-      "sourcePage": "page-030.jpg",
-      "sourceAsset": "page-030.jpg",
-      "canonicalSrc": "/cartilla/art/faithful/flipchart-native/p030-mono.webp",
-      "canonical": {
-        "width": 617,
-        "height": 744,
-        "bytes": 56566,
-        "format": "webp",
-        "hasAlpha": false,
-        "sha256": "cc89f53c7bbd07288e02476091dfb096f790033cd466885ecc978330c74781c7"
-      },
-      "cropBox": [
-        319,
-        2359,
-        617,
-        745
-      ],
-      "provenanceStatus": null,
-      "cleanup": {
-        "backgroundRemoved": true,
-        "removedPixels": 166169,
-        "estimatedBackground": {
-          "color": {
-            "r": 255,
-            "g": 255,
-            "b": 255
-          },
-          "agreement": 1,
-          "paperLike": true
-        },
-        "transparentPaddingTrimmed": true,
-        "normalizedWidth": 588,
-        "normalizedHeight": 719,
-        "contentBounds": {
-          "x": 25,
-          "y": 25,
-          "width": 568,
-          "height": 699,
-          "opaquePixels": 292879
-        },
-        "touchesCropEdge": {
-          "left": false,
-          "top": false,
-          "right": false,
-          "bottom": false
-        },
-        "interiorTransparentPixels": 0
-      },
-      "derivatives": [
-        {
-          "widthTier": 384,
-          "path": "/cartilla/art/delivery/faithful/384/flipchart-native/p030-mono.webp",
-          "width": 384,
-          "height": 470,
-          "bytes": 37944
-        },
-        {
-          "widthTier": 768,
-          "path": "/cartilla/art/delivery/faithful/768/flipchart-native/p030-mono.webp",
-          "width": 588,
-          "height": 719,
-          "bytes": 67608
-        }
-      ],
-      "warnings": [],
-      "errors": []
-    },
-    {
-      "slug": "p030-ninito",
-      "word": "niñito",
-      "lessonNumber": 14,
-      "pageNumber": null,
-      "sourcePage": "page-030.jpg",
-      "sourceAsset": "page-030.jpg",
-      "canonicalSrc": "/cartilla/art/faithful/flipchart-native/p030-ninito.webp",
-      "canonical": {
-        "width": 490,
-        "height": 666,
-        "bytes": 47104,
-        "format": "webp",
-        "hasAlpha": false,
-        "sha256": "6b3906857d66d2f6a4d1def8fb05ead9fa7dc98138a809b5184fe18eb2196578"
-      },
-      "cropBox": [
-        1833,
-        1364,
-        490,
-        666
-      ],
-      "provenanceStatus": null,
-      "cleanup": {
-        "backgroundRemoved": true,
-        "removedPixels": 145385,
-        "estimatedBackground": {
-          "color": {
-            "r": 255,
-            "g": 255,
-            "b": 255
-          },
-          "agreement": 1,
-          "paperLike": true
-        },
-        "transparentPaddingTrimmed": true,
-        "normalizedWidth": 462,
-        "normalizedHeight": 645,
-        "contentBounds": {
-          "x": 26,
-          "y": 26,
-          "width": 442,
-          "height": 625,
-          "opaquePixels": 180955
-        },
-        "touchesCropEdge": {
-          "left": false,
-          "top": false,
-          "right": false,
-          "bottom": false
-        },
-        "interiorTransparentPixels": 0
-      },
-      "derivatives": [
-        {
-          "widthTier": 384,
-          "path": "/cartilla/art/delivery/faithful/384/flipchart-native/p030-ninito.webp",
-          "width": 384,
-          "height": 536,
-          "bytes": 42734
-        },
-        {
-          "widthTier": 768,
-          "path": "/cartilla/art/delivery/faithful/768/flipchart-native/p030-ninito.webp",
-          "width": 462,
-          "height": 645,
-          "bytes": 52520
-        }
-      ],
-      "warnings": [],
-      "errors": []
-    },
-    {
-      "slug": "p030-nuno",
-      "word": "Ñuno",
-      "lessonNumber": 14,
-      "pageNumber": null,
-      "sourcePage": "page-030.jpg",
-      "sourceAsset": "page-030.jpg",
-      "canonicalSrc": "/cartilla/art/faithful/flipchart-native/p030-nuno.webp",
-      "canonical": {
-        "width": 489,
-        "height": 735,
-        "bytes": 27470,
-        "format": "webp",
-        "hasAlpha": false,
-        "sha256": "38fde4a1359b0ace4d98184059e6cee3b699e640a7ab452ce8b7cdb829bce4a3"
-      },
-      "cropBox": [
-        1033,
-        1300,
-        490,
-        734
-      ],
-      "provenanceStatus": null,
-      "cleanup": {
-        "backgroundRemoved": true,
-        "removedPixels": 242154,
-        "estimatedBackground": {
-          "color": {
-            "r": 255,
-            "g": 255,
-            "b": 255
-          },
-          "agreement": 0.9819967266775778,
-          "paperLike": true
-        },
-        "transparentPaddingTrimmed": true,
-        "normalizedWidth": 462,
-        "normalizedHeight": 735,
-        "contentBounds": {
-          "x": 25,
-          "y": 0,
-          "width": 442,
-          "height": 734,
-          "opaquePixels": 117261
-        },
-        "touchesCropEdge": {
-          "left": false,
-          "top": true,
-          "right": false,
-          "bottom": true
-        },
-        "interiorTransparentPixels": 0
-      },
-      "derivatives": [
-        {
-          "widthTier": 384,
-          "path": "/cartilla/art/delivery/faithful/384/flipchart-native/p030-nuno.webp",
-          "width": 384,
-          "height": 611,
-          "bytes": 30490
-        },
-        {
-          "widthTier": 768,
-          "path": "/cartilla/art/delivery/faithful/768/flipchart-native/p030-nuno.webp",
-          "width": 462,
-          "height": 735,
-          "bytes": 36268
-        }
-      ],
-      "warnings": [
-        "visible content touches canonical crop edge; source recrop may be required"
-      ],
-      "errors": []
-    },
-    {
-      "slug": "p030-pinata",
-      "word": "piñata",
-      "lessonNumber": 14,
-      "pageNumber": null,
-      "sourcePage": "page-030.jpg",
-      "sourceAsset": "page-030.jpg",
-      "canonicalSrc": "/cartilla/art/faithful/flipchart-native/p030-pinata.webp",
-      "canonical": {
-        "width": 554,
-        "height": 602,
-        "bytes": 32304,
-        "format": "webp",
-        "hasAlpha": false,
-        "sha256": "d4efb17454937739e721b5678827cf498967f4c4c28268c5b2978561a52d6bcc"
-      },
-      "cropBox": [
-        117,
-        1433,
-        553,
-        602
-      ],
-      "provenanceStatus": null,
-      "cleanup": {
-        "backgroundRemoved": true,
-        "removedPixels": 221974,
-        "estimatedBackground": {
-          "color": {
-            "r": 255,
-            "g": 255,
-            "b": 255
-          },
-          "agreement": 1,
-          "paperLike": true
-        },
-        "transparentPaddingTrimmed": true,
-        "normalizedWidth": 524,
-        "normalizedHeight": 586,
-        "contentBounds": {
-          "x": 26,
-          "y": 26,
-          "width": 504,
-          "height": 567,
-          "opaquePixels": 111534
-        },
-        "touchesCropEdge": {
-          "left": false,
-          "top": false,
-          "right": false,
-          "bottom": false
-        },
-        "interiorTransparentPixels": 0
-      },
-      "derivatives": [
-        {
-          "widthTier": 384,
-          "path": "/cartilla/art/delivery/faithful/384/flipchart-native/p030-pinata.webp",
-          "width": 384,
-          "height": 429,
-          "bytes": 29658
-        },
-        {
-          "widthTier": 768,
-          "path": "/cartilla/art/delivery/faithful/768/flipchart-native/p030-pinata.webp",
-          "width": 524,
-          "height": 586,
-          "bytes": 39594
-        }
-      ],
-      "warnings": [],
-      "errors": []
-    },
-    {
-      "slug": "p033-bate",
-      "word": "bate",
-      "lessonNumber": 15,
-      "pageNumber": null,
-      "sourcePage": "page-033.jpg",
-      "sourceAsset": "page-033.jpg",
-      "canonicalSrc": "/cartilla/art/faithful/flipchart-native/p033-bate.webp",
-      "canonical": {
-        "width": 548,
-        "height": 673,
-        "bytes": 23744,
-        "format": "webp",
-        "hasAlpha": false,
-        "sha256": "4c2ea6bb31e69212b50ac902fb1c0da17291ee7f9f222b6d443fd6d3a38dea5c"
-      },
-      "cropBox": [
-        1785,
-        1344,
-        548,
-        673
-      ],
-      "provenanceStatus": null,
-      "cleanup": {
-        "backgroundRemoved": true,
-        "removedPixels": 310239,
-        "estimatedBackground": {
-          "color": {
-            "r": 255,
-            "g": 255,
-            "b": 255
-          },
-          "agreement": 1,
-          "paperLike": true
-        },
-        "transparentPaddingTrimmed": true,
-        "normalizedWidth": 524,
-        "normalizedHeight": 645,
-        "contentBounds": {
-          "x": 23,
-          "y": 25,
-          "width": 504,
-          "height": 625,
-          "opaquePixels": 58565
-        },
-        "touchesCropEdge": {
-          "left": false,
-          "top": false,
-          "right": false,
-          "bottom": false
-        },
-        "interiorTransparentPixels": 0
-      },
-      "derivatives": [
-        {
-          "widthTier": 384,
-          "path": "/cartilla/art/delivery/faithful/384/flipchart-native/p033-bate.webp",
-          "width": 384,
-          "height": 473,
-          "bytes": 21888
-        },
-        {
-          "widthTier": 768,
-          "path": "/cartilla/art/delivery/faithful/768/flipchart-native/p033-bate.webp",
-          "width": 524,
-          "height": 645,
-          "bytes": 31024
-        }
-      ],
-      "warnings": [],
-      "errors": []
-    },
-    {
-      "slug": "p033-beba",
-      "word": "Beba",
-      "lessonNumber": 15,
-      "pageNumber": null,
-      "sourcePage": "page-033.jpg",
-      "sourceAsset": "page-033.jpg",
-      "canonicalSrc": "/cartilla/art/faithful/flipchart-native/p033-beba.webp",
-      "canonical": {
-        "width": 605,
-        "height": 568,
-        "bytes": 29574,
-        "format": "webp",
-        "hasAlpha": false,
-        "sha256": "cb388e13aebd3c8513a7bd02ab94bcb5f6f78e8da2fde0b3678d0dc706fa8a9d"
-      },
-      "cropBox": [
-        145,
-        1459,
-        604,
-        569
-      ],
-      "provenanceStatus": null,
-      "cleanup": {
-        "backgroundRemoved": true,
-        "removedPixels": 196834,
-        "estimatedBackground": {
-          "color": {
-            "r": 255,
-            "g": 255,
-            "b": 255
-          },
-          "agreement": 1,
-          "paperLike": true
-        },
-        "transparentPaddingTrimmed": true,
-        "normalizedWidth": 578,
-        "normalizedHeight": 543,
-        "contentBounds": {
-          "x": 25,
-          "y": 25,
-          "width": 558,
-          "height": 523,
-          "opaquePixels": 146806
-        },
-        "touchesCropEdge": {
-          "left": false,
-          "top": false,
-          "right": false,
-          "bottom": false
-        },
-        "interiorTransparentPixels": 0
-      },
-      "derivatives": [
-        {
-          "widthTier": 384,
-          "path": "/cartilla/art/delivery/faithful/384/flipchart-native/p033-beba.webp",
-          "width": 384,
-          "height": 361,
-          "bytes": 24234
-        },
-        {
-          "widthTier": 768,
-          "path": "/cartilla/art/delivery/faithful/768/flipchart-native/p033-beba.webp",
-          "width": 578,
-          "height": 543,
-          "bytes": 39144
-        }
-      ],
-      "warnings": [],
-      "errors": []
-    },
-    {
-      "slug": "p033-bebita",
-      "word": "bebita",
-      "lessonNumber": 15,
-      "pageNumber": null,
-      "sourcePage": "page-033.jpg",
-      "sourceAsset": "page-033.jpg",
-      "canonicalSrc": "/cartilla/art/faithful/flipchart-native/p033-bebita.webp",
-      "canonical": {
-        "width": 712,
-        "height": 783,
-        "bytes": 59482,
-        "format": "webp",
-        "hasAlpha": false,
-        "sha256": "c1a28a7b3dffe383717a9638f6b328473c5e5a530550232f6e272e3ebbf00fbb"
-      },
-      "cropBox": [
-        1364,
-        2346,
-        711,
-        783
-      ],
-      "provenanceStatus": null,
-      "cleanup": {
-        "backgroundRemoved": true,
-        "removedPixels": 303039,
-        "estimatedBackground": {
-          "color": {
-            "r": 255,
-            "g": 255,
-            "b": 255
-          },
-          "agreement": 1,
-          "paperLike": true
-        },
-        "transparentPaddingTrimmed": true,
-        "normalizedWidth": 683,
-        "normalizedHeight": 766,
-        "contentBounds": {
-          "x": 27,
-          "y": 27,
-          "width": 663,
-          "height": 752,
-          "opaquePixels": 254457
-        },
-        "touchesCropEdge": {
-          "left": false,
-          "top": false,
-          "right": false,
-          "bottom": false
-        },
-        "interiorTransparentPixels": 0
-      },
-      "derivatives": [
-        {
-          "widthTier": 384,
-          "path": "/cartilla/art/delivery/faithful/384/flipchart-native/p033-bebita.webp",
-          "width": 384,
-          "height": 431,
-          "bytes": 35724
-        },
-        {
-          "widthTier": 768,
-          "path": "/cartilla/art/delivery/faithful/768/flipchart-native/p033-bebita.webp",
-          "width": 683,
-          "height": 766,
-          "bytes": 75250
-        }
-      ],
-      "warnings": [],
-      "errors": []
-    },
-    {
-      "slug": "p033-bota",
-      "word": "bota",
-      "lessonNumber": 15,
-      "pageNumber": null,
-      "sourcePage": "page-033.jpg",
-      "sourceAsset": "page-033.jpg",
-      "canonicalSrc": "/cartilla/art/faithful/flipchart-native/p033-bota.webp",
-      "canonical": {
-        "width": 607,
-        "height": 663,
-        "bytes": 52268,
-        "format": "webp",
-        "hasAlpha": false,
-        "sha256": "fc2da55403ec16b9b267e091445ca9852cb4359e092e62146d4dfa9dd3ea1cc0"
-      },
-      "cropBox": [
-        342,
-        2456,
-        607,
-        663
-      ],
-      "provenanceStatus": null,
-      "cleanup": {
-        "backgroundRemoved": true,
-        "removedPixels": 66496,
-        "estimatedBackground": {
-          "color": {
-            "r": 255,
-            "g": 255,
-            "b": 255
-          },
-          "agreement": 1,
-          "paperLike": true
-        },
-        "transparentPaddingTrimmed": true,
-        "normalizedWidth": 580,
-        "normalizedHeight": 635,
-        "contentBounds": {
-          "x": 24,
-          "y": 27,
-          "width": 560,
-          "height": 615,
-          "opaquePixels": 335945
-        },
-        "touchesCropEdge": {
-          "left": false,
-          "top": false,
-          "right": false,
-          "bottom": false
-        },
-        "interiorTransparentPixels": 0
-      },
-      "derivatives": [
-        {
-          "widthTier": 384,
-          "path": "/cartilla/art/delivery/faithful/384/flipchart-native/p033-bota.webp",
-          "width": 384,
-          "height": 420,
-          "bytes": 33442
-        },
-        {
-          "widthTier": 768,
-          "path": "/cartilla/art/delivery/faithful/768/flipchart-native/p033-bota.webp",
-          "width": 580,
-          "height": 635,
-          "bytes": 59988
-        }
-      ],
-      "warnings": [],
-      "errors": []
-    },
-    {
-      "slug": "p033-bubi",
-      "word": "Bubi",
-      "lessonNumber": 15,
-      "pageNumber": null,
-      "sourcePage": "page-033.jpg",
-      "sourceAsset": "page-033.jpg",
-      "canonicalSrc": "/cartilla/art/faithful/flipchart-native/p033-bubi.webp",
-      "canonical": {
-        "width": 640,
-        "height": 587,
-        "bytes": 22434,
-        "format": "webp",
-        "hasAlpha": false,
-        "sha256": "6b73de2e181f00de20d5626299d21851c4e4831a81a59e92d5da233e6ea1dd08"
-      },
-      "cropBox": [
-        931,
-        1433,
-        640,
-        586
-      ],
-      "provenanceStatus": null,
-      "cleanup": {
-        "backgroundRemoved": true,
-        "removedPixels": 241963,
-        "estimatedBackground": {
-          "color": {
-            "r": 255,
-            "g": 255,
-            "b": 255
-          },
-          "agreement": 1,
-          "paperLike": true
-        },
-        "transparentPaddingTrimmed": true,
-        "normalizedWidth": 610,
-        "normalizedHeight": 561,
-        "contentBounds": {
-          "x": 27,
-          "y": 26,
-          "width": 590,
-          "height": 541,
-          "opaquePixels": 133717
-        },
-        "touchesCropEdge": {
-          "left": false,
-          "top": false,
-          "right": false,
-          "bottom": false
-        },
-        "interiorTransparentPixels": 0
-      },
-      "derivatives": [
-        {
-          "widthTier": 384,
-          "path": "/cartilla/art/delivery/faithful/384/flipchart-native/p033-bubi.webp",
-          "width": 384,
-          "height": 353,
-          "bytes": 18102
-        },
-        {
-          "widthTier": 768,
-          "path": "/cartilla/art/delivery/faithful/768/flipchart-native/p033-bubi.webp",
-          "width": 610,
-          "height": 561,
-          "bytes": 30008
-        }
-      ],
-      "warnings": [],
-      "errors": []
-    },
-    {
-      "slug": "p036-pavo",
-      "word": "pavo",
-      "lessonNumber": 16,
-      "pageNumber": null,
-      "sourcePage": "page-036.jpg",
-      "sourceAsset": "page-036.jpg",
-      "canonicalSrc": "/cartilla/art/faithful/flipchart-native/p036-pavo.webp",
-      "canonical": {
-        "width": 589,
-        "height": 663,
-        "bytes": 61176,
-        "format": "webp",
-        "hasAlpha": false,
-        "sha256": "dd2d60aec7c1fcfce5bcc709f62d7284d7bf40658a034e14e5e4708ed1c699ec"
-      },
-      "cropBox": [
-        380,
-        2486,
-        589,
-        663
-      ],
-      "provenanceStatus": null,
-      "cleanup": {
-        "backgroundRemoved": true,
-        "removedPixels": 74540,
-        "estimatedBackground": {
-          "color": {
-            "r": 255,
-            "g": 255,
-            "b": 255
-          },
-          "agreement": 1,
-          "paperLike": true
-        },
-        "transparentPaddingTrimmed": true,
-        "normalizedWidth": 561,
-        "normalizedHeight": 635,
-        "contentBounds": {
-          "x": 25,
-          "y": 27,
-          "width": 541,
-          "height": 615,
-          "opaquePixels": 315967
-        },
-        "touchesCropEdge": {
-          "left": false,
-          "top": false,
-          "right": false,
-          "bottom": false
-        },
-        "interiorTransparentPixels": 0
-      },
-      "derivatives": [
-        {
-          "widthTier": 384,
-          "path": "/cartilla/art/delivery/faithful/384/flipchart-native/p036-pavo.webp",
-          "width": 384,
-          "height": 435,
-          "bytes": 42896
-        },
-        {
-          "widthTier": 768,
-          "path": "/cartilla/art/delivery/faithful/768/flipchart-native/p036-pavo.webp",
-          "width": 561,
-          "height": 635,
-          "bytes": 71190
-        }
-      ],
-      "warnings": [],
-      "errors": []
-    },
-    {
-      "slug": "p036-vaso",
-      "word": "vaso",
-      "lessonNumber": 16,
-      "pageNumber": null,
-      "sourcePage": "page-036.jpg",
-      "sourceAsset": "page-036.jpg",
-      "canonicalSrc": "/cartilla/art/faithful/flipchart-native/p036-vaso.webp",
-      "canonical": {
-        "width": 258,
-        "height": 494,
-        "bytes": 13130,
-        "format": "webp",
-        "hasAlpha": false,
-        "sha256": "aadb5865b0574e99816dc545d6092b2a6c654bacc69f758c49e7e23b14e0b9b0"
-      },
-      "cropBox": [
-        288,
-        1533,
-        258,
-        495
-      ],
-      "provenanceStatus": null,
-      "cleanup": {
-        "backgroundRemoved": true,
-        "removedPixels": 47377,
-        "estimatedBackground": {
-          "color": {
-            "r": 255,
-            "g": 255,
-            "b": 255
-          },
-          "agreement": 0.982,
-          "paperLike": true
-        },
-        "transparentPaddingTrimmed": true,
-        "normalizedWidth": 228,
-        "normalizedHeight": 470,
-        "contentBounds": {
-          "x": 26,
-          "y": 21,
-          "width": 208,
-          "height": 450,
-          "opaquePixels": 80075
-        },
-        "touchesCropEdge": {
-          "left": false,
-          "top": false,
-          "right": false,
-          "bottom": false
-        },
-        "interiorTransparentPixels": 0
-      },
-      "derivatives": [
-        {
-          "widthTier": 384,
-          "path": "/cartilla/art/delivery/faithful/384/flipchart-native/p036-vaso.webp",
-          "width": 228,
-          "height": 470,
-          "bytes": 15434
-        },
-        {
-          "widthTier": 768,
-          "path": "/cartilla/art/delivery/faithful/768/flipchart-native/p036-vaso.webp",
-          "width": 228,
-          "height": 470,
-          "bytes": 15434
-        }
-      ],
-      "warnings": [],
-      "errors": []
-    },
-    {
-      "slug": "p036-vela",
-      "word": "vela",
-      "lessonNumber": 16,
-      "pageNumber": null,
-      "sourcePage": "page-036.jpg",
-      "sourceAsset": "page-036.jpg",
-      "canonicalSrc": "/cartilla/art/faithful/flipchart-native/p036-vela.webp",
-      "canonical": {
-        "width": 556,
-        "height": 599,
-        "bytes": 25978,
-        "format": "webp",
-        "hasAlpha": false,
-        "sha256": "3d4e94a5795631bfe845df2f8af7bbd02b9983efd1a572368513d4e62c524bad"
-      },
-      "cropBox": [
-        1012,
-        1451,
-        556,
-        599
-      ],
-      "provenanceStatus": null,
-      "cleanup": {
-        "backgroundRemoved": true,
-        "removedPixels": 240246,
-        "estimatedBackground": {
-          "color": {
-            "r": 255,
-            "g": 255,
-            "b": 255
-          },
-          "agreement": 1,
-          "paperLike": true
-        },
-        "transparentPaddingTrimmed": true,
-        "normalizedWidth": 529,
-        "normalizedHeight": 572,
-        "contentBounds": {
-          "x": 26,
-          "y": 25,
-          "width": 509,
-          "height": 552,
-          "opaquePixels": 92798
-        },
-        "touchesCropEdge": {
-          "left": false,
-          "top": false,
-          "right": false,
-          "bottom": false
-        },
-        "interiorTransparentPixels": 0
-      },
-      "derivatives": [
-        {
-          "widthTier": 384,
-          "path": "/cartilla/art/delivery/faithful/384/flipchart-native/p036-vela.webp",
-          "width": 384,
-          "height": 415,
-          "bytes": 21550
-        },
-        {
-          "widthTier": 768,
-          "path": "/cartilla/art/delivery/faithful/768/flipchart-native/p036-vela.webp",
-          "width": 529,
-          "height": 572,
-          "bytes": 30972
-        }
-      ],
-      "warnings": [],
-      "errors": []
-    },
-    {
-      "slug": "p036-vita",
-      "word": "Vita",
-      "lessonNumber": 16,
-      "pageNumber": null,
-      "sourcePage": "page-036.jpg",
-      "sourceAsset": "page-036.jpg",
-      "canonicalSrc": "/cartilla/art/faithful/flipchart-native/p036-vita.webp",
-      "canonical": {
-        "width": 561,
-        "height": 642,
-        "bytes": 38402,
-        "format": "webp",
-        "hasAlpha": false,
-        "sha256": "e35d98f0d9f92a41de80718d57d8aa2cda1d151e8ae72e532781930e09d8cc8a"
-      },
-      "cropBox": [
-        1803,
-        1413,
-        561,
-        643
-      ],
-      "provenanceStatus": null,
-      "cleanup": {
-        "backgroundRemoved": true,
-        "removedPixels": 143219,
-        "estimatedBackground": {
-          "color": {
-            "r": 255,
-            "g": 255,
-            "b": 255
-          },
-          "agreement": 1,
-          "paperLike": true
-        },
-        "transparentPaddingTrimmed": true,
-        "normalizedWidth": 534,
-        "normalizedHeight": 620,
-        "contentBounds": {
-          "x": 25,
-          "y": 26,
-          "width": 514,
-          "height": 600,
-          "opaquePixels": 216943
-        },
-        "touchesCropEdge": {
-          "left": false,
-          "top": false,
-          "right": false,
-          "bottom": false
-        },
-        "interiorTransparentPixels": 0
-      },
-      "derivatives": [
-        {
-          "widthTier": 384,
-          "path": "/cartilla/art/delivery/faithful/384/flipchart-native/p036-vita.webp",
-          "width": 384,
-          "height": 446,
-          "bytes": 31930
-        },
-        {
-          "widthTier": 768,
-          "path": "/cartilla/art/delivery/faithful/768/flipchart-native/p036-vita.webp",
-          "width": 534,
-          "height": 620,
-          "bytes": 47688
-        }
-      ],
-      "warnings": [],
-      "errors": []
-    },
-    {
-      "slug": "p036-vuli",
-      "word": "Vuli",
-      "lessonNumber": 16,
-      "pageNumber": null,
-      "sourcePage": "page-036.jpg",
-      "sourceAsset": "page-036.jpg",
-      "canonicalSrc": "/cartilla/art/faithful/flipchart-native/p036-vuli.webp",
-      "canonical": {
-        "width": 783,
-        "height": 533,
-        "bytes": 29330,
-        "format": "webp",
-        "hasAlpha": false,
-        "sha256": "1e5ecd44fae84effec6368c4d42b7b1699da105edb2e31716be9013c2ddddf30"
-      },
-      "cropBox": [
-        1367,
-        2639,
-        783,
-        533
-      ],
-      "provenanceStatus": null,
-      "cleanup": {
-        "backgroundRemoved": true,
-        "removedPixels": 273400,
-        "estimatedBackground": {
-          "color": {
-            "r": 255,
-            "g": 255,
-            "b": 255
-          },
-          "agreement": 1,
-          "paperLike": true
-        },
-        "transparentPaddingTrimmed": true,
-        "normalizedWidth": 755,
-        "normalizedHeight": 510,
-        "contentBounds": {
-          "x": 24,
-          "y": 25,
-          "width": 735,
-          "height": 490,
-          "opaquePixels": 143939
-        },
-        "touchesCropEdge": {
-          "left": false,
-          "top": false,
-          "right": false,
-          "bottom": false
-        },
-        "interiorTransparentPixels": 0
-      },
-      "derivatives": [
-        {
-          "widthTier": 384,
-          "path": "/cartilla/art/delivery/faithful/384/flipchart-native/p036-vuli.webp",
-          "width": 384,
-          "height": 259,
-          "bytes": 16158
-        },
-        {
-          "widthTier": 768,
-          "path": "/cartilla/art/delivery/faithful/768/flipchart-native/p036-vuli.webp",
-          "width": 755,
-          "height": 510,
-          "bytes": 38220
-        }
-      ],
-      "warnings": [],
-      "errors": []
     }
   ],
   "flipchart": {
@@ -11834,1505 +8204,1505 @@
       {
         "page": 3,
         "word": "Ilustración de la página 3",
-        "src": "/cartilla/art/faithful/flipchart-native/p003-escena.webp",
-        "width": 1303,
-        "height": 819,
-        "bytes": 175086,
-        "backgroundRemoved": true
+        "src": "/cartilla/art/optimized/flipchart-native/p003-scene.png",
+        "width": 539,
+        "height": 539,
+        "bytes": 177783,
+        "approvedInput": true
       },
       {
         "page": 3,
         "word": "avión",
-        "src": "/cartilla/art/faithful/flipchart-native/p003-avion.webp",
-        "width": 547,
-        "height": 504,
-        "bytes": 42870,
-        "backgroundRemoved": true
+        "src": "/cartilla/art/optimized/flipchart-native/p003-avion.png",
+        "width": 320,
+        "height": 320,
+        "bytes": 43248,
+        "approvedInput": true
       },
       {
         "page": 3,
         "word": "escoba",
-        "src": "/cartilla/art/faithful/flipchart-native/p003-escoba.webp",
-        "width": 429,
-        "height": 530,
-        "bytes": 49488,
-        "backgroundRemoved": true
+        "src": "/cartilla/art/optimized/flipchart-native/p003-escoba.png",
+        "width": 320,
+        "height": 320,
+        "bytes": 55553,
+        "approvedInput": true
       },
       {
         "page": 3,
         "word": "imán",
-        "src": "/cartilla/art/faithful/flipchart-native/p003-iman.webp",
-        "width": 549,
-        "height": 546,
-        "bytes": 45232,
-        "backgroundRemoved": true
+        "src": "/cartilla/art/optimized/flipchart-native/p003-iman.png",
+        "width": 320,
+        "height": 320,
+        "bytes": 49205,
+        "approvedInput": true
       },
       {
         "page": 3,
         "word": "olla",
-        "src": "/cartilla/art/faithful/flipchart-native/p003-olla.webp",
-        "width": 492,
-        "height": 409,
-        "bytes": 38416,
-        "backgroundRemoved": true
+        "src": "/cartilla/art/optimized/flipchart-native/p003-olla.png",
+        "width": 320,
+        "height": 320,
+        "bytes": 55420,
+        "approvedInput": true
       },
       {
         "page": 3,
         "word": "uña",
-        "src": "/cartilla/art/faithful/flipchart-native/p003-una.webp",
-        "width": 404,
-        "height": 454,
-        "bytes": 25296,
-        "backgroundRemoved": true
+        "src": "/cartilla/art/optimized/flipchart-native/p003-una.png",
+        "width": 320,
+        "height": 320,
+        "bytes": 49948,
+        "approvedInput": true
       },
       {
         "page": 4,
         "word": "Ilustración de la página 4",
-        "src": "/cartilla/art/faithful/flipchart-native/p004-escena.webp",
-        "width": 1175,
-        "height": 1044,
-        "bytes": 150904,
-        "backgroundRemoved": true
+        "src": "/cartilla/art/optimized/flipchart-native/p004-scene.png",
+        "width": 560,
+        "height": 560,
+        "bytes": 203733,
+        "approvedInput": true
       },
       {
         "page": 4,
         "word": "olla",
-        "src": "/cartilla/art/faithful/flipchart-native/p004-olla.webp",
-        "width": 543,
-        "height": 435,
-        "bytes": 39600,
-        "backgroundRemoved": true
+        "src": "/cartilla/art/optimized/flipchart-native/p004-olla.png",
+        "width": 320,
+        "height": 320,
+        "bytes": 46668,
+        "approvedInput": true
       },
       {
         "page": 4,
         "word": "Oto",
-        "src": "/cartilla/art/faithful/flipchart-native/p004-oto.webp",
-        "width": 550,
-        "height": 444,
-        "bytes": 39996,
-        "backgroundRemoved": true
+        "src": "/cartilla/art/optimized/flipchart-native/p004-oto.png",
+        "width": 320,
+        "height": 320,
+        "bytes": 48351,
+        "approvedInput": true
       },
       {
         "page": 4,
         "word": "oveja",
-        "src": "/cartilla/art/faithful/flipchart-native/p004-oveja.webp",
-        "width": 549,
-        "height": 517,
-        "bytes": 47928,
-        "backgroundRemoved": true
+        "src": "/cartilla/art/optimized/flipchart-native/p004-oveja.png",
+        "width": 320,
+        "height": 320,
+        "bytes": 41334,
+        "approvedInput": true
       },
       {
         "page": 4,
         "word": "oso",
-        "src": "/cartilla/art/faithful/flipchart-native/p004-oso.webp",
-        "width": 533,
-        "height": 627,
-        "bytes": 85050,
-        "backgroundRemoved": true
+        "src": "/cartilla/art/optimized/flipchart-native/p004-oso.png",
+        "width": 320,
+        "height": 320,
+        "bytes": 79390,
+        "approvedInput": true
       },
       {
         "page": 4,
         "word": "oreja",
-        "src": "/cartilla/art/faithful/flipchart-native/p004-oreja.webp",
-        "width": 372,
-        "height": 591,
-        "bytes": 61958,
-        "backgroundRemoved": true
+        "src": "/cartilla/art/optimized/flipchart-native/p004-oreja.png",
+        "width": 320,
+        "height": 320,
+        "bytes": 56308,
+        "approvedInput": true
       },
       {
         "page": 4,
         "word": "ocho",
-        "src": "/cartilla/art/faithful/flipchart-native/p004-ocho.webp",
-        "width": 501,
-        "height": 636,
-        "bytes": 61580,
-        "backgroundRemoved": true
+        "src": "/cartilla/art/optimized/flipchart-native/p004-ocho.png",
+        "width": 320,
+        "height": 320,
+        "bytes": 62819,
+        "approvedInput": true
       },
       {
         "page": 5,
         "word": "Ilustración de la página 5",
-        "src": "/cartilla/art/faithful/flipchart-native/p005-escena.webp",
-        "width": 991,
-        "height": 1316,
-        "bytes": 153326,
-        "backgroundRemoved": true
+        "src": "/cartilla/art/optimized/flipchart-native/p005-scene.png",
+        "width": 556,
+        "height": 556,
+        "bytes": 223023,
+        "approvedInput": true
       },
       {
         "page": 5,
         "word": "abanico",
-        "src": "/cartilla/art/faithful/flipchart-native/p005-abanico.webp",
-        "width": 564,
-        "height": 574,
-        "bytes": 75510,
-        "backgroundRemoved": true
+        "src": "/cartilla/art/optimized/flipchart-native/p005-abanico.png",
+        "width": 320,
+        "height": 320,
+        "bytes": 66045,
+        "approvedInput": true
       },
       {
         "page": 5,
         "word": "anillo",
-        "src": "/cartilla/art/faithful/flipchart-native/p005-anillo.webp",
-        "width": 523,
-        "height": 460,
-        "bytes": 53192,
-        "backgroundRemoved": true
+        "src": "/cartilla/art/optimized/flipchart-native/p005-anillo.png",
+        "width": 320,
+        "height": 320,
+        "bytes": 42308,
+        "approvedInput": true
       },
       {
         "page": 5,
         "word": "araña",
-        "src": "/cartilla/art/faithful/flipchart-native/p005-arana.webp",
-        "width": 451,
-        "height": 478,
-        "bytes": 40454,
-        "backgroundRemoved": true
+        "src": "/cartilla/art/optimized/flipchart-native/p005-arana.png",
+        "width": 320,
+        "height": 320,
+        "bytes": 35567,
+        "approvedInput": true
       },
       {
         "page": 5,
         "word": "ala",
-        "src": "/cartilla/art/faithful/flipchart-native/p005-ala.webp",
-        "width": 699,
-        "height": 526,
-        "bytes": 37032,
-        "backgroundRemoved": true
+        "src": "/cartilla/art/optimized/flipchart-native/p005-ala.png",
+        "width": 320,
+        "height": 320,
+        "bytes": 37012,
+        "approvedInput": true
       },
       {
         "page": 5,
         "word": "aro",
-        "src": "/cartilla/art/faithful/flipchart-native/p005-aro.webp",
-        "width": 535,
-        "height": 649,
-        "bytes": 78978,
-        "backgroundRemoved": true
+        "src": "/cartilla/art/optimized/flipchart-native/p005-aro.png",
+        "width": 320,
+        "height": 320,
+        "bytes": 66758,
+        "approvedInput": true
       },
       {
         "page": 5,
         "word": "Ana",
-        "src": "/cartilla/art/faithful/flipchart-native/p005-ana.webp",
-        "width": 596,
-        "height": 629,
-        "bytes": 57202,
-        "backgroundRemoved": true
+        "src": "/cartilla/art/optimized/flipchart-native/p005-ana.png",
+        "width": 320,
+        "height": 320,
+        "bytes": 57436,
+        "approvedInput": true
       },
       {
         "page": 6,
         "word": "Ilustración de la página 6",
-        "src": "/cartilla/art/faithful/flipchart-native/p006-escena.webp",
-        "width": 989,
-        "height": 1289,
-        "bytes": 177658,
-        "backgroundRemoved": true
+        "src": "/cartilla/art/optimized/flipchart-native/p006-scene.png",
+        "width": 560,
+        "height": 560,
+        "bytes": 200364,
+        "approvedInput": true
       },
       {
         "page": 6,
         "word": "elefante",
-        "src": "/cartilla/art/faithful/flipchart-native/p006-elefante.webp",
-        "width": 574,
-        "height": 552,
-        "bytes": 54216,
-        "backgroundRemoved": true
+        "src": "/cartilla/art/optimized/flipchart-native/p006-elefante.png",
+        "width": 320,
+        "height": 320,
+        "bytes": 55059,
+        "approvedInput": true
       },
       {
         "page": 6,
         "word": "espejo",
-        "src": "/cartilla/art/faithful/flipchart-native/p006-espejo.webp",
-        "width": 559,
-        "height": 575,
-        "bytes": 45596,
-        "backgroundRemoved": true
+        "src": "/cartilla/art/optimized/flipchart-native/p006-espejo.png",
+        "width": 320,
+        "height": 320,
+        "bytes": 42808,
+        "approvedInput": true
       },
       {
         "page": 6,
         "word": "Ema",
-        "src": "/cartilla/art/faithful/flipchart-native/p006-ema.webp",
-        "width": 438,
-        "height": 590,
-        "bytes": 44468,
-        "backgroundRemoved": true
+        "src": "/cartilla/art/optimized/flipchart-native/p006-ema.png",
+        "width": 320,
+        "height": 320,
+        "bytes": 50267,
+        "approvedInput": true
       },
       {
         "page": 6,
         "word": "estrella",
-        "src": "/cartilla/art/faithful/flipchart-native/p006-estrella.webp",
-        "width": 548,
-        "height": 626,
-        "bytes": 49522,
-        "backgroundRemoved": true
+        "src": "/cartilla/art/optimized/flipchart-native/p006-estrella.png",
+        "width": 320,
+        "height": 320,
+        "bytes": 53872,
+        "approvedInput": true
       },
       {
         "page": 6,
         "word": "erizo",
-        "src": "/cartilla/art/faithful/flipchart-native/p006-erizo.webp",
-        "width": 577,
-        "height": 635,
-        "bytes": 77914,
-        "backgroundRemoved": true
+        "src": "/cartilla/art/optimized/flipchart-native/p006-erizo.png",
+        "width": 320,
+        "height": 320,
+        "bytes": 83658,
+        "approvedInput": true
       },
       {
         "page": 6,
         "word": "escalera",
-        "src": "/cartilla/art/faithful/flipchart-native/p006-escalera.webp",
-        "width": 523,
-        "height": 702,
-        "bytes": 51768,
-        "backgroundRemoved": true
+        "src": "/cartilla/art/optimized/flipchart-native/p006-escalera.png",
+        "width": 320,
+        "height": 320,
+        "bytes": 51385,
+        "approvedInput": true
       },
       {
         "page": 7,
         "word": "Ilustración de la página 7",
-        "src": "/cartilla/art/faithful/flipchart-native/p007-escena.webp",
-        "width": 1029,
-        "height": 1334,
-        "bytes": 133478,
-        "backgroundRemoved": true
+        "src": "/cartilla/art/optimized/flipchart-native/p007-scene.png",
+        "width": 560,
+        "height": 560,
+        "bytes": 129226,
+        "approvedInput": true
       },
       {
         "page": 7,
         "word": "imán",
-        "src": "/cartilla/art/faithful/flipchart-native/p007-iman.webp",
-        "width": 555,
-        "height": 524,
-        "bytes": 44348,
-        "backgroundRemoved": true
+        "src": "/cartilla/art/optimized/flipchart-native/p007-iman.png",
+        "width": 320,
+        "height": 320,
+        "bytes": 39281,
+        "approvedInput": true
       },
       {
         "page": 7,
         "word": "iglú",
-        "src": "/cartilla/art/faithful/flipchart-native/p007-iglu.webp",
-        "width": 542,
-        "height": 539,
-        "bytes": 56910,
-        "backgroundRemoved": true
+        "src": "/cartilla/art/optimized/flipchart-native/p007-iglu.png",
+        "width": 320,
+        "height": 320,
+        "bytes": 35084,
+        "approvedInput": true
       },
       {
         "page": 7,
         "word": "indio",
-        "src": "/cartilla/art/faithful/flipchart-native/p007-indio.webp",
-        "width": 502,
-        "height": 748,
-        "bytes": 48306,
-        "backgroundRemoved": true
+        "src": "/cartilla/art/optimized/flipchart-native/p007-indio.png",
+        "width": 320,
+        "height": 320,
+        "bytes": 33627,
+        "approvedInput": true
       },
       {
         "page": 7,
         "word": "insecto",
-        "src": "/cartilla/art/faithful/flipchart-native/p007-insecto.webp",
-        "width": 625,
-        "height": 544,
-        "bytes": 70880,
-        "backgroundRemoved": true
+        "src": "/cartilla/art/optimized/flipchart-native/p007-insecto.png",
+        "width": 320,
+        "height": 320,
+        "bytes": 67825,
+        "approvedInput": true
       },
       {
         "page": 7,
         "word": "isla",
-        "src": "/cartilla/art/faithful/flipchart-native/p007-isla.webp",
-        "width": 684,
-        "height": 617,
-        "bytes": 61216,
-        "backgroundRemoved": true
+        "src": "/cartilla/art/optimized/flipchart-native/p007-isla.png",
+        "width": 320,
+        "height": 320,
+        "bytes": 49951,
+        "approvedInput": true
       },
       {
         "page": 7,
         "word": "Irma",
-        "src": "/cartilla/art/faithful/flipchart-native/p007-irma.webp",
-        "width": 589,
-        "height": 676,
-        "bytes": 61710,
-        "backgroundRemoved": true
+        "src": "/cartilla/art/optimized/flipchart-native/p007-irma.png",
+        "width": 320,
+        "height": 320,
+        "bytes": 56587,
+        "approvedInput": true
       },
       {
         "page": 8,
         "word": "Ilustración de la página 8",
-        "src": "/cartilla/art/faithful/flipchart-native/p008-escena.webp",
-        "width": 1107,
-        "height": 1100,
-        "bytes": 141390,
-        "backgroundRemoved": true
+        "src": "/cartilla/art/optimized/flipchart-native/p008-scene.png",
+        "width": 480,
+        "height": 480,
+        "bytes": 191446,
+        "approvedInput": true
       },
       {
         "page": 8,
         "word": "uno",
-        "src": "/cartilla/art/faithful/flipchart-native/p008-uno.webp",
-        "width": 574,
-        "height": 585,
-        "bytes": 75204,
-        "backgroundRemoved": true
+        "src": "/cartilla/art/optimized/flipchart-native/p008-uno.png",
+        "width": 320,
+        "height": 320,
+        "bytes": 80479,
+        "approvedInput": true
       },
       {
         "page": 8,
         "word": "uva",
-        "src": "/cartilla/art/faithful/flipchart-native/p008-uva.webp",
-        "width": 577,
-        "height": 560,
-        "bytes": 65520,
-        "backgroundRemoved": true
+        "src": "/cartilla/art/optimized/flipchart-native/p008-uva.png",
+        "width": 320,
+        "height": 320,
+        "bytes": 78680,
+        "approvedInput": true
       },
       {
         "page": 8,
         "word": "urraca",
-        "src": "/cartilla/art/faithful/flipchart-native/p008-urraca.webp",
-        "width": 543,
-        "height": 550,
-        "bytes": 36604,
-        "backgroundRemoved": true
+        "src": "/cartilla/art/optimized/flipchart-native/p008-urraca.png",
+        "width": 320,
+        "height": 320,
+        "bytes": 33697,
+        "approvedInput": true
       },
       {
         "page": 8,
         "word": "unicornio",
-        "src": "/cartilla/art/faithful/flipchart-native/p008-unicornio.webp",
-        "width": 629,
-        "height": 634,
-        "bytes": 57010,
-        "backgroundRemoved": true
+        "src": "/cartilla/art/optimized/flipchart-native/p008-unicornio.png",
+        "width": 320,
+        "height": 320,
+        "bytes": 60538,
+        "approvedInput": true
       },
       {
         "page": 8,
         "word": "uniforme",
-        "src": "/cartilla/art/faithful/flipchart-native/p008-uniforme.webp",
-        "width": 406,
-        "height": 614,
-        "bytes": 35552,
-        "backgroundRemoved": true
+        "src": "/cartilla/art/optimized/flipchart-native/p008-uniforme.png",
+        "width": 320,
+        "height": 320,
+        "bytes": 42650,
+        "approvedInput": true
       },
       {
         "page": 8,
         "word": "Ulises",
-        "src": "/cartilla/art/faithful/flipchart-native/p008-ulises.webp",
-        "width": 596,
-        "height": 490,
-        "bytes": 65936,
-        "backgroundRemoved": true
+        "src": "/cartilla/art/optimized/flipchart-native/p008-ulises.png",
+        "width": 320,
+        "height": 320,
+        "bytes": 69778,
+        "approvedInput": true
       },
       {
         "page": 9,
         "word": "Ilustración de la página 9",
-        "src": "/cartilla/art/faithful/flipchart-native/p009-escena.webp",
-        "width": 1310,
-        "height": 1236,
-        "bytes": 267570,
-        "backgroundRemoved": true
+        "src": "/cartilla/art/optimized/flipchart-native/p009-scene.png",
+        "width": 530,
+        "height": 530,
+        "bytes": 269934,
+        "approvedInput": true
       },
       {
         "page": 9,
         "word": "mamá",
-        "src": "/cartilla/art/faithful/flipchart-native/p009-mama.webp",
-        "width": 527,
-        "height": 715,
-        "bytes": 57678,
-        "backgroundRemoved": true
+        "src": "/cartilla/art/optimized/flipchart-native/p009-mama.png",
+        "width": 344,
+        "height": 344,
+        "bytes": 58231,
+        "approvedInput": true
       },
       {
         "page": 9,
         "word": "amo",
-        "src": "/cartilla/art/faithful/flipchart-native/p009-amo.webp",
-        "width": 660,
-        "height": 698,
-        "bytes": 80282,
-        "backgroundRemoved": true
+        "src": "/cartilla/art/optimized/flipchart-native/p009-amo.png",
+        "width": 320,
+        "height": 320,
+        "bytes": 64626,
+        "approvedInput": true
       },
       {
         "page": 9,
         "word": "mima",
-        "src": "/cartilla/art/faithful/flipchart-native/p009-mima.webp",
-        "width": 748,
-        "height": 756,
-        "bytes": 106050,
-        "backgroundRemoved": true
+        "src": "/cartilla/art/optimized/flipchart-native/p009-mima.png",
+        "width": 328,
+        "height": 328,
+        "bytes": 101089,
+        "approvedInput": true
       },
       {
         "page": 9,
         "word": "Meme",
-        "src": "/cartilla/art/faithful/flipchart-native/p009-meme.webp",
-        "width": 354,
-        "height": 762,
-        "bytes": 60984,
-        "backgroundRemoved": true
+        "src": "/cartilla/art/optimized/flipchart-native/p009-meme.png",
+        "width": 320,
+        "height": 320,
+        "bytes": 42639,
+        "approvedInput": true
       },
       {
         "page": 9,
         "word": "Mumi",
-        "src": "/cartilla/art/faithful/flipchart-native/p009-mumi.webp",
-        "width": 688,
-        "height": 738,
-        "bytes": 96516,
-        "backgroundRemoved": true
+        "src": "/cartilla/art/optimized/flipchart-native/p009-mumi.png",
+        "width": 320,
+        "height": 320,
+        "bytes": 64622,
+        "approvedInput": true
       },
       {
         "page": 11,
         "word": "Ilustración de la página 11",
-        "src": "/cartilla/art/faithful/flipchart-native/p011-escena.webp",
-        "width": 1610,
-        "height": 1330,
-        "bytes": 255534,
-        "backgroundRemoved": true
+        "src": "/cartilla/art/optimized/flipchart-native/p011-scene.png",
+        "width": 630,
+        "height": 630,
+        "bytes": 199944,
+        "approvedInput": true
       },
       {
         "page": 12,
         "word": "Ilustración de la página 12",
-        "src": "/cartilla/art/faithful/flipchart-native/p012-escena.webp",
-        "width": 1391,
-        "height": 1308,
-        "bytes": 226294,
-        "backgroundRemoved": true
+        "src": "/cartilla/art/optimized/flipchart-native/p012-scene.png",
+        "width": 560,
+        "height": 560,
+        "bytes": 188737,
+        "approvedInput": true
       },
       {
         "page": 12,
         "word": "papá",
-        "src": "/cartilla/art/faithful/flipchart-native/p012-papa.webp",
-        "width": 437,
-        "height": 693,
-        "bytes": 59538,
-        "backgroundRemoved": true
+        "src": "/cartilla/art/optimized/flipchart-native/p012-papa.png",
+        "width": 320,
+        "height": 320,
+        "bytes": 52592,
+        "approvedInput": true
       },
       {
         "page": 12,
         "word": "pie",
-        "src": "/cartilla/art/faithful/flipchart-native/p012-pie.webp",
-        "width": 648,
-        "height": 430,
-        "bytes": 37336,
-        "backgroundRemoved": true
+        "src": "/cartilla/art/optimized/flipchart-native/p012-pie.png",
+        "width": 320,
+        "height": 320,
+        "bytes": 35828,
+        "approvedInput": true
       },
       {
         "page": 12,
         "word": "Pepe",
-        "src": "/cartilla/art/faithful/flipchart-native/p012-pepe.webp",
-        "width": 748,
-        "height": 762,
-        "bytes": 69270,
-        "backgroundRemoved": true
+        "src": "/cartilla/art/optimized/flipchart-native/p012-pepe.png",
+        "width": 320,
+        "height": 320,
+        "bytes": 64078,
+        "approvedInput": true
       },
       {
         "page": 12,
         "word": "puma",
-        "src": "/cartilla/art/faithful/flipchart-native/p012-puma.webp",
-        "width": 667,
-        "height": 736,
-        "bytes": 65022,
-        "backgroundRemoved": true
+        "src": "/cartilla/art/optimized/flipchart-native/p012-puma.png",
+        "width": 320,
+        "height": 320,
+        "bytes": 62327,
+        "approvedInput": true
       },
       {
         "page": 12,
         "word": "pomo",
-        "src": "/cartilla/art/faithful/flipchart-native/p012-pomo.webp",
-        "width": 364,
-        "height": 679,
-        "bytes": 42096,
-        "backgroundRemoved": true
+        "src": "/cartilla/art/optimized/flipchart-native/p012-pomo.png",
+        "width": 320,
+        "height": 320,
+        "bytes": 46993,
+        "approvedInput": true
       },
       {
         "page": 14,
         "word": "Ilustración de la página 14",
-        "src": "/cartilla/art/faithful/flipchart-native/p014-escena.webp",
-        "width": 1596,
-        "height": 1317,
-        "bytes": 234324,
-        "backgroundRemoved": true
+        "src": "/cartilla/art/optimized/flipchart-native/p014-scene.png",
+        "width": 654,
+        "height": 654,
+        "bytes": 272998,
+        "approvedInput": true
       },
       {
         "page": 15,
         "word": "Ilustración de la página 15",
-        "src": "/cartilla/art/faithful/flipchart-native/p015-escena.webp",
-        "width": 1146,
-        "height": 1272,
-        "bytes": 302034,
-        "backgroundRemoved": true
+        "src": "/cartilla/art/optimized/flipchart-native/p015-scene.png",
+        "width": 560,
+        "height": 560,
+        "bytes": 287347,
+        "approvedInput": true
       },
       {
         "page": 15,
         "word": "Sesi",
-        "src": "/cartilla/art/faithful/flipchart-native/p015-sesi.webp",
-        "width": 380,
-        "height": 729,
-        "bytes": 66084,
-        "backgroundRemoved": true
+        "src": "/cartilla/art/optimized/flipchart-native/p015-sesi.png",
+        "width": 342,
+        "height": 342,
+        "bytes": 58380,
+        "approvedInput": true
       },
       {
         "page": 15,
         "word": "sopa",
-        "src": "/cartilla/art/faithful/flipchart-native/p015-sopa.webp",
-        "width": 589,
-        "height": 367,
-        "bytes": 55996,
-        "backgroundRemoved": true
+        "src": "/cartilla/art/optimized/flipchart-native/p015-sopa.png",
+        "width": 320,
+        "height": 320,
+        "bytes": 61061,
+        "approvedInput": true
       },
       {
         "page": 15,
         "word": "sapo",
-        "src": "/cartilla/art/faithful/flipchart-native/p015-sapo.webp",
-        "width": 665,
-        "height": 514,
-        "bytes": 57856,
-        "backgroundRemoved": true
+        "src": "/cartilla/art/optimized/flipchart-native/p015-sapo.png",
+        "width": 320,
+        "height": 320,
+        "bytes": 51491,
+        "approvedInput": true
       },
       {
         "page": 15,
         "word": "pisa",
-        "src": "/cartilla/art/faithful/flipchart-native/p015-pisa.webp",
-        "width": 787,
-        "height": 537,
-        "bytes": 38774,
-        "backgroundRemoved": true
+        "src": "/cartilla/art/optimized/flipchart-native/p015-pisa.png",
+        "width": 320,
+        "height": 320,
+        "bytes": 23189,
+        "approvedInput": true
       },
       {
         "page": 15,
         "word": "Susi",
-        "src": "/cartilla/art/faithful/flipchart-native/p015-susi.webp",
-        "width": 558,
-        "height": 763,
-        "bytes": 87052,
-        "backgroundRemoved": true
+        "src": "/cartilla/art/optimized/flipchart-native/p015-susi.png",
+        "width": 320,
+        "height": 320,
+        "bytes": 68028,
+        "approvedInput": true
       },
       {
         "page": 17,
         "word": "Ilustración de la página 17",
-        "src": "/cartilla/art/faithful/flipchart-native/p017-escena.webp",
-        "width": 974,
-        "height": 1753,
-        "bytes": 237110,
-        "backgroundRemoved": true
+        "src": "/cartilla/art/optimized/flipchart-native/p017-scene.png",
+        "width": 645,
+        "height": 645,
+        "bytes": 173867,
+        "approvedInput": true
       },
       {
         "page": 18,
         "word": "Ilustración de la página 18",
-        "src": "/cartilla/art/faithful/flipchart-native/p018-escena.webp",
-        "width": 1149,
-        "height": 1329,
-        "bytes": 205226,
-        "backgroundRemoved": true
+        "src": "/cartilla/art/optimized/flipchart-native/p018-scene.png",
+        "width": 558,
+        "height": 558,
+        "bytes": 217046,
+        "approvedInput": true
       },
       {
         "page": 18,
         "word": "tomate",
-        "src": "/cartilla/art/faithful/flipchart-native/p018-tomate.webp",
-        "width": 589,
-        "height": 446,
-        "bytes": 31796,
-        "backgroundRemoved": true
+        "src": "/cartilla/art/optimized/flipchart-native/p018-tomate.webp",
+        "width": 1536,
+        "height": 1395,
+        "bytes": 96285,
+        "approvedInput": true
       },
       {
         "page": 18,
         "word": "tapa",
-        "src": "/cartilla/art/faithful/flipchart-native/p018-tapa.webp",
-        "width": 660,
-        "height": 493,
-        "bytes": 46124,
-        "backgroundRemoved": true
+        "src": "/cartilla/art/optimized/flipchart-native/p018-tapa.webp",
+        "width": 1536,
+        "height": 1240,
+        "bytes": 127625,
+        "approvedInput": true
       },
       {
         "page": 18,
         "word": "topo",
-        "src": "/cartilla/art/faithful/flipchart-native/p018-topo.webp",
-        "width": 613,
-        "height": 599,
-        "bytes": 58510,
-        "backgroundRemoved": true
+        "src": "/cartilla/art/optimized/flipchart-native/p018-topo.webp",
+        "width": 1478,
+        "height": 1536,
+        "bytes": 169656,
+        "approvedInput": true
       },
       {
         "page": 18,
         "word": "tipi",
-        "src": "/cartilla/art/faithful/flipchart-native/p018-tipi.webp",
-        "width": 569,
-        "height": 579,
-        "bytes": 64718,
-        "backgroundRemoved": true
+        "src": "/cartilla/art/optimized/flipchart-native/p018-tipi.webp",
+        "width": 1536,
+        "height": 1464,
+        "bytes": 146747,
+        "approvedInput": true
       },
       {
         "page": 18,
         "word": "Tuto",
-        "src": "/cartilla/art/faithful/flipchart-native/p018-tuto.webp",
-        "width": 574,
-        "height": 699,
-        "bytes": 81928,
-        "backgroundRemoved": true
+        "src": "/cartilla/art/optimized/flipchart-native/p018-tuto.webp",
+        "width": 1536,
+        "height": 1482,
+        "bytes": 201825,
+        "approvedInput": true
       },
       {
         "page": 20,
         "word": "Ilustración de la página 20",
-        "src": "/cartilla/art/faithful/flipchart-native/p020-escena.webp",
-        "width": 1650,
-        "height": 1270,
-        "bytes": 300256,
-        "backgroundRemoved": true
+        "src": "/cartilla/art/optimized/flipchart-native/p020-scene.png",
+        "width": 658,
+        "height": 658,
+        "bytes": 356866,
+        "approvedInput": true
       },
       {
         "page": 21,
         "word": "Ilustración de la página 21",
-        "src": "/cartilla/art/faithful/flipchart-native/p021-escena.webp",
-        "width": 798,
-        "height": 1301,
-        "bytes": 97226,
-        "backgroundRemoved": true
+        "src": "/cartilla/art/optimized/flipchart-native/p021-scene.png",
+        "width": 559,
+        "height": 559,
+        "bytes": 104462,
+        "approvedInput": true
       },
       {
         "page": 21,
         "word": "Didi",
-        "src": "/cartilla/art/faithful/flipchart-native/p021-didi.webp",
-        "width": 500,
-        "height": 563,
-        "bytes": 46128,
-        "backgroundRemoved": true
+        "src": "/cartilla/art/optimized/flipchart-native/p021-didi.webp",
+        "width": 1536,
+        "height": 1360,
+        "bytes": 125316,
+        "approvedInput": true
       },
       {
         "page": 21,
         "word": "dados",
-        "src": "/cartilla/art/faithful/flipchart-native/p021-dados.webp",
-        "width": 595,
-        "height": 609,
-        "bytes": 52684,
-        "backgroundRemoved": true
+        "src": "/cartilla/art/optimized/flipchart-native/p021-dados.webp",
+        "width": 1536,
+        "height": 1440,
+        "bytes": 136317,
+        "approvedInput": true
       },
       {
         "page": 21,
         "word": "dedo",
-        "src": "/cartilla/art/faithful/flipchart-native/p021-dedo.webp",
-        "width": 430,
-        "height": 635,
-        "bytes": 44010,
-        "backgroundRemoved": true
+        "src": "/cartilla/art/optimized/flipchart-native/p021-dedo.webp",
+        "width": 1281,
+        "height": 1536,
+        "bytes": 127794,
+        "approvedInput": true
       },
       {
         "page": 21,
         "word": "doce",
-        "src": "/cartilla/art/faithful/flipchart-native/p021-doce.webp",
-        "width": 564,
-        "height": 712,
-        "bytes": 99252,
-        "backgroundRemoved": true
+        "src": "/cartilla/art/optimized/flipchart-native/p021-doce.webp",
+        "width": 1355,
+        "height": 1536,
+        "bytes": 195221,
+        "approvedInput": true
       },
       {
         "page": 21,
         "word": "Dunia",
-        "src": "/cartilla/art/faithful/flipchart-native/p021-dunia.webp",
-        "width": 892,
-        "height": 624,
-        "bytes": 127942,
-        "backgroundRemoved": true
+        "src": "/cartilla/art/optimized/flipchart-native/p021-dunia.webp",
+        "width": 1536,
+        "height": 1324,
+        "bytes": 218652,
+        "approvedInput": true
       },
       {
         "page": 23,
         "word": "Ilustración de la página 23",
-        "src": "/cartilla/art/faithful/flipchart-native/p023-escena.webp",
-        "width": 1185,
-        "height": 1406,
-        "bytes": 271694,
-        "backgroundRemoved": true
+        "src": "/cartilla/art/optimized/flipchart-native/p023-scene.png",
+        "width": 621,
+        "height": 621,
+        "bytes": 307816,
+        "approvedInput": true
       },
       {
         "page": 24,
         "word": "Ilustración de la página 24",
-        "src": "/cartilla/art/faithful/flipchart-native/p024-escena.webp",
-        "width": 514,
-        "height": 1323,
-        "bytes": 99732,
-        "backgroundRemoved": true
+        "src": "/cartilla/art/optimized/flipchart-native/p024-scene.png",
+        "width": 549,
+        "height": 549,
+        "bytes": 180981,
+        "approvedInput": true
       },
       {
         "page": 24,
         "word": "maleta",
-        "src": "/cartilla/art/faithful/flipchart-native/p024-maleta.webp",
-        "width": 506,
-        "height": 619,
-        "bytes": 49284,
-        "backgroundRemoved": true
+        "src": "/cartilla/art/optimized/flipchart-native/p024-maleta.webp",
+        "width": 1369,
+        "height": 1536,
+        "bytes": 140465,
+        "approvedInput": true
       },
       {
         "page": 24,
         "word": "lata",
-        "src": "/cartilla/art/faithful/flipchart-native/p024-lata.webp",
-        "width": 540,
-        "height": 597,
-        "bytes": 51958,
-        "backgroundRemoved": true
+        "src": "/cartilla/art/optimized/flipchart-native/p024-lata.webp",
+        "width": 1395,
+        "height": 1536,
+        "bytes": 158721,
+        "approvedInput": true
       },
       {
         "page": 24,
         "word": "Luli",
-        "src": "/cartilla/art/faithful/flipchart-native/p024-luli.webp",
-        "width": 396,
-        "height": 786,
-        "bytes": 58996,
-        "backgroundRemoved": true
+        "src": "/cartilla/art/optimized/flipchart-native/p024-luli.webp",
+        "width": 1058,
+        "height": 1536,
+        "bytes": 132783,
+        "approvedInput": true
       },
       {
         "page": 24,
         "word": "loma",
-        "src": "/cartilla/art/faithful/flipchart-native/p024-loma.webp",
-        "width": 798,
-        "height": 613,
-        "bytes": 46354,
-        "backgroundRemoved": true
+        "src": "/cartilla/art/optimized/flipchart-native/p024-loma.webp",
+        "width": 1536,
+        "height": 1238,
+        "bytes": 91971,
+        "approvedInput": true
       },
       {
         "page": 24,
         "word": "Lala",
-        "src": "/cartilla/art/faithful/flipchart-native/p024-lala.webp",
-        "width": 516,
-        "height": 358,
-        "bytes": 34508,
-        "backgroundRemoved": true
+        "src": "/cartilla/art/optimized/flipchart-native/p024-lala.png",
+        "width": 320,
+        "height": 320,
+        "bytes": 30674,
+        "approvedInput": true
       },
       {
         "page": 26,
         "word": "Ilustración de la página 26",
-        "src": "/cartilla/art/faithful/flipchart-native/p026-escena.webp",
-        "width": 953,
-        "height": 991,
-        "bytes": 170964,
-        "backgroundRemoved": true
+        "src": "/cartilla/art/optimized/flipchart-native/p026-scene.png",
+        "width": 638,
+        "height": 638,
+        "bytes": 189595,
+        "approvedInput": true
       },
       {
         "page": 27,
         "word": "Ilustración de la página 27",
-        "src": "/cartilla/art/faithful/flipchart-native/p027-escena.webp",
-        "width": 1260,
-        "height": 1336,
-        "bytes": 257020,
-        "backgroundRemoved": true
+        "src": "/cartilla/art/optimized/flipchart-native/p027-scene.png",
+        "width": 560,
+        "height": 560,
+        "bytes": 279018,
+        "approvedInput": true
       },
       {
         "page": 27,
         "word": "nido",
-        "src": "/cartilla/art/faithful/flipchart-native/p027-nido.webp",
-        "width": 596,
-        "height": 400,
-        "bytes": 50042,
-        "backgroundRemoved": true
+        "src": "/cartilla/art/optimized/flipchart-native/p027-nido.png",
+        "width": 320,
+        "height": 320,
+        "bytes": 43656,
+        "approvedInput": true
       },
       {
         "page": 27,
         "word": "nudo",
-        "src": "/cartilla/art/faithful/flipchart-native/p027-nudo.webp",
-        "width": 637,
-        "height": 493,
-        "bytes": 47214,
-        "backgroundRemoved": true
+        "src": "/cartilla/art/optimized/flipchart-native/p027-nudo.png",
+        "width": 320,
+        "height": 320,
+        "bytes": 44142,
+        "approvedInput": true
       },
       {
         "page": 27,
         "word": "mono",
-        "src": "/cartilla/art/faithful/flipchart-native/p027-mono.webp",
-        "width": 436,
-        "height": 748,
-        "bytes": 48200,
-        "backgroundRemoved": true
+        "src": "/cartilla/art/optimized/flipchart-native/p027-mono.png",
+        "width": 320,
+        "height": 320,
+        "bytes": 40787,
+        "approvedInput": true
       },
       {
         "page": 27,
         "word": "Napi",
-        "src": "/cartilla/art/faithful/flipchart-native/p027-napi.webp",
-        "width": 646,
-        "height": 694,
-        "bytes": 64940,
-        "backgroundRemoved": true
+        "src": "/cartilla/art/optimized/flipchart-native/p027-napi.png",
+        "width": 320,
+        "height": 320,
+        "bytes": 70916,
+        "approvedInput": true
       },
       {
         "page": 27,
         "word": "tenedor",
-        "src": "/cartilla/art/faithful/flipchart-native/p027-tenedor.webp",
-        "width": 147,
-        "height": 799,
-        "bytes": 10354,
-        "backgroundRemoved": true
+        "src": "/cartilla/art/optimized/flipchart-native/p027-tenedor.png",
+        "width": 320,
+        "height": 320,
+        "bytes": 12037,
+        "approvedInput": true
       },
       {
         "page": 29,
         "word": "Ilustración de la página 29",
-        "src": "/cartilla/art/faithful/flipchart-native/p029-escena.webp",
-        "width": 1195,
-        "height": 1387,
-        "bytes": 261456,
-        "backgroundRemoved": true
+        "src": "/cartilla/art/optimized/flipchart-native/p029-scene.png",
+        "width": 665,
+        "height": 665,
+        "bytes": 264645,
+        "approvedInput": true
       },
       {
         "page": 30,
         "word": "Ilustración de la página 30",
-        "src": "/cartilla/art/faithful/flipchart-native/p030-escena.webp",
-        "width": 843,
-        "height": 1286,
-        "bytes": 278652,
-        "backgroundRemoved": true
+        "src": "/cartilla/art/optimized/flipchart-native/p030-scene.png",
+        "width": 545,
+        "height": 545,
+        "bytes": 260707,
+        "approvedInput": true
       },
       {
         "page": 30,
         "word": "piñata",
-        "src": "/cartilla/art/faithful/flipchart-native/p030-pinata.webp",
-        "width": 524,
-        "height": 586,
-        "bytes": 50712,
-        "backgroundRemoved": true
+        "src": "/cartilla/art/optimized/flipchart-native/p030-pinata.png",
+        "width": 320,
+        "height": 320,
+        "bytes": 43865,
+        "approvedInput": true
       },
       {
         "page": 30,
         "word": "Ñuno",
-        "src": "/cartilla/art/faithful/flipchart-native/p030-nuno.webp",
-        "width": 462,
-        "height": 734,
-        "bytes": 43714,
-        "backgroundRemoved": true
+        "src": "/cartilla/art/optimized/flipchart-native/p030-nuno.png",
+        "width": 320,
+        "height": 320,
+        "bytes": 36499,
+        "approvedInput": true
       },
       {
         "page": 30,
         "word": "niñito",
-        "src": "/cartilla/art/faithful/flipchart-native/p030-ninito.webp",
-        "width": 462,
-        "height": 645,
-        "bytes": 72516,
-        "backgroundRemoved": true
+        "src": "/cartilla/art/optimized/flipchart-native/p030-ninito.png",
+        "width": 320,
+        "height": 320,
+        "bytes": 55302,
+        "approvedInput": true
       },
       {
         "page": 30,
         "word": "moño",
-        "src": "/cartilla/art/faithful/flipchart-native/p030-mono.webp",
-        "width": 588,
-        "height": 719,
-        "bytes": 93052,
-        "backgroundRemoved": true
+        "src": "/cartilla/art/optimized/flipchart-native/p030-mono.png",
+        "width": 320,
+        "height": 320,
+        "bytes": 84380,
+        "approvedInput": true
       },
       {
         "page": 30,
         "word": "Meñe",
-        "src": "/cartilla/art/faithful/flipchart-native/p030-mene.webp",
-        "width": 470,
-        "height": 781,
-        "bytes": 65018,
-        "backgroundRemoved": true
+        "src": "/cartilla/art/optimized/flipchart-native/p030-mene.png",
+        "width": 320,
+        "height": 320,
+        "bytes": 51822,
+        "approvedInput": true
       },
       {
         "page": 32,
         "word": "Ilustración de la página 32",
-        "src": "/cartilla/art/faithful/flipchart-native/p032-escena.webp",
-        "width": 1238,
-        "height": 1303,
-        "bytes": 220196,
-        "backgroundRemoved": true
+        "src": "/cartilla/art/optimized/flipchart-native/p032-scene.png",
+        "width": 682,
+        "height": 682,
+        "bytes": 231822,
+        "approvedInput": true
       },
       {
         "page": 33,
         "word": "Ilustración de la página 33",
-        "src": "/cartilla/art/faithful/flipchart-native/p033-escena.webp",
-        "width": 1199,
-        "height": 1306,
-        "bytes": 222656,
-        "backgroundRemoved": true
+        "src": "/cartilla/art/optimized/flipchart-native/p033-scene.png",
+        "width": 549,
+        "height": 549,
+        "bytes": 227395,
+        "approvedInput": true
       },
       {
         "page": 33,
         "word": "Beba",
-        "src": "/cartilla/art/faithful/flipchart-native/p033-beba.webp",
-        "width": 578,
-        "height": 543,
-        "bytes": 49358,
-        "backgroundRemoved": true
+        "src": "/cartilla/art/optimized/flipchart-native/p033-beba.png",
+        "width": 320,
+        "height": 320,
+        "bytes": 46539,
+        "approvedInput": true
       },
       {
         "page": 33,
         "word": "Bubi",
-        "src": "/cartilla/art/faithful/flipchart-native/p033-bubi.webp",
-        "width": 610,
-        "height": 561,
-        "bytes": 38970,
-        "backgroundRemoved": true
+        "src": "/cartilla/art/optimized/flipchart-native/p033-bubi.png",
+        "width": 320,
+        "height": 320,
+        "bytes": 42247,
+        "approvedInput": true
       },
       {
         "page": 33,
         "word": "bate",
-        "src": "/cartilla/art/faithful/flipchart-native/p033-bate.webp",
-        "width": 524,
-        "height": 645,
-        "bytes": 36934,
-        "backgroundRemoved": true
+        "src": "/cartilla/art/optimized/flipchart-native/p033-bate.png",
+        "width": 320,
+        "height": 320,
+        "bytes": 25693,
+        "approvedInput": true
       },
       {
         "page": 33,
         "word": "bota",
-        "src": "/cartilla/art/faithful/flipchart-native/p033-bota.webp",
-        "width": 580,
-        "height": 635,
-        "bytes": 85696,
-        "backgroundRemoved": true
+        "src": "/cartilla/art/optimized/flipchart-native/p033-bota.png",
+        "width": 320,
+        "height": 320,
+        "bytes": 92719,
+        "approvedInput": true
       },
       {
         "page": 33,
         "word": "bebita",
-        "src": "/cartilla/art/faithful/flipchart-native/p033-bebita.webp",
-        "width": 683,
-        "height": 766,
-        "bytes": 91868,
-        "backgroundRemoved": true
+        "src": "/cartilla/art/optimized/flipchart-native/p033-bebita.png",
+        "width": 320,
+        "height": 320,
+        "bytes": 75124,
+        "approvedInput": true
       },
       {
         "page": 35,
         "word": "Ilustración de la página 35",
-        "src": "/cartilla/art/faithful/flipchart-native/p035-escena.webp",
-        "width": 1169,
-        "height": 783,
-        "bytes": 106000,
-        "backgroundRemoved": true
+        "src": "/cartilla/art/optimized/flipchart-native/p035-scene.png",
+        "width": 666,
+        "height": 666,
+        "bytes": 177075,
+        "approvedInput": true
       },
       {
         "page": 36,
         "word": "Ilustración de la página 36",
-        "src": "/cartilla/art/faithful/flipchart-native/p036-escena.webp",
-        "width": 1221,
-        "height": 795,
-        "bytes": 145616,
-        "backgroundRemoved": true
+        "src": "/cartilla/art/optimized/flipchart-native/p036-scene.png",
+        "width": 526,
+        "height": 526,
+        "bytes": 191915,
+        "approvedInput": true
       },
       {
         "page": 36,
         "word": "vaso",
-        "src": "/cartilla/art/faithful/flipchart-native/p036-vaso.webp",
-        "width": 228,
-        "height": 469,
-        "bytes": 21686,
-        "backgroundRemoved": true
+        "src": "/cartilla/art/optimized/flipchart-native/p036-vaso.png",
+        "width": 320,
+        "height": 320,
+        "bytes": 23211,
+        "approvedInput": true
       },
       {
         "page": 36,
         "word": "vela",
-        "src": "/cartilla/art/faithful/flipchart-native/p036-vela.webp",
-        "width": 529,
-        "height": 572,
-        "bytes": 39470,
-        "backgroundRemoved": true
+        "src": "/cartilla/art/optimized/flipchart-native/p036-vela.png",
+        "width": 320,
+        "height": 320,
+        "bytes": 30920,
+        "approvedInput": true
       },
       {
         "page": 36,
         "word": "Vita",
-        "src": "/cartilla/art/faithful/flipchart-native/p036-vita.webp",
-        "width": 534,
-        "height": 620,
-        "bytes": 61680,
-        "backgroundRemoved": true
+        "src": "/cartilla/art/optimized/flipchart-native/p036-vita.png",
+        "width": 320,
+        "height": 320,
+        "bytes": 63379,
+        "approvedInput": true
       },
       {
         "page": 36,
         "word": "pavo",
-        "src": "/cartilla/art/faithful/flipchart-native/p036-pavo.webp",
-        "width": 561,
-        "height": 635,
-        "bytes": 95368,
-        "backgroundRemoved": true
+        "src": "/cartilla/art/optimized/flipchart-native/p036-pavo.png",
+        "width": 320,
+        "height": 320,
+        "bytes": 93181,
+        "approvedInput": true
       },
       {
         "page": 36,
         "word": "Vuli",
-        "src": "/cartilla/art/faithful/flipchart-native/p036-vuli.webp",
-        "width": 755,
-        "height": 510,
-        "bytes": 48354,
-        "backgroundRemoved": true
+        "src": "/cartilla/art/optimized/flipchart-native/p036-vuli.png",
+        "width": 330,
+        "height": 330,
+        "bytes": 36595,
+        "approvedInput": true
       },
       {
         "page": 38,
         "word": "Ilustración de la página 38",
-        "src": "/cartilla/art/faithful/flipchart-native/p038-escena.webp",
-        "width": 1184,
-        "height": 1331,
-        "bytes": 204066,
-        "backgroundRemoved": true
+        "src": "/cartilla/art/optimized/flipchart-native/p038-scene.png",
+        "width": 636,
+        "height": 636,
+        "bytes": 209332,
+        "approvedInput": true
       },
       {
         "page": 39,
         "word": "Ilustración de la página 39",
-        "src": "/cartilla/art/faithful/flipchart-native/p039-escena.webp",
-        "width": 1107,
-        "height": 1189,
-        "bytes": 177318,
-        "backgroundRemoved": true
+        "src": "/cartilla/art/optimized/flipchart-native/p039-scene.png",
+        "width": 519,
+        "height": 519,
+        "bytes": 178166,
+        "approvedInput": true
       },
       {
         "page": 39,
         "word": "rana",
-        "src": "/cartilla/art/faithful/flipchart-native/p039-rana.webp",
-        "width": 561,
-        "height": 537,
-        "bytes": 75378,
-        "backgroundRemoved": true
+        "src": "/cartilla/art/optimized/flipchart-native/p039-rana.png",
+        "width": 320,
+        "height": 320,
+        "bytes": 62419,
+        "approvedInput": true
       },
       {
         "page": 39,
         "word": "remos",
-        "src": "/cartilla/art/faithful/flipchart-native/p039-remos.webp",
-        "width": 608,
-        "height": 547,
-        "bytes": 73238,
-        "backgroundRemoved": true
+        "src": "/cartilla/art/optimized/flipchart-native/p039-remos.png",
+        "width": 320,
+        "height": 320,
+        "bytes": 65623,
+        "approvedInput": true
       },
       {
         "page": 39,
         "word": "Rita",
-        "src": "/cartilla/art/faithful/flipchart-native/p039-rita.webp",
-        "width": 659,
-        "height": 548,
-        "bytes": 65052,
-        "backgroundRemoved": true
+        "src": "/cartilla/art/optimized/flipchart-native/p039-rita.png",
+        "width": 324,
+        "height": 324,
+        "bytes": 52168,
+        "approvedInput": true
       },
       {
         "page": 39,
         "word": "rosa",
-        "src": "/cartilla/art/faithful/flipchart-native/p039-rosa.webp",
-        "width": 451,
-        "height": 601,
-        "bytes": 51904,
-        "backgroundRemoved": true
+        "src": "/cartilla/art/optimized/flipchart-native/p039-rosa.png",
+        "width": 320,
+        "height": 320,
+        "bytes": 54742,
+        "approvedInput": true
       },
       {
         "page": 39,
         "word": "rueda",
-        "src": "/cartilla/art/faithful/flipchart-native/p039-rueda.webp",
-        "width": 747,
-        "height": 635,
-        "bytes": 114996,
-        "backgroundRemoved": true
+        "src": "/cartilla/art/optimized/flipchart-native/p039-rueda.png",
+        "width": 320,
+        "height": 320,
+        "bytes": 87137,
+        "approvedInput": true
       },
       {
         "page": 41,
         "word": "Ilustración de la página 41",
-        "src": "/cartilla/art/faithful/flipchart-native/p041-escena.webp",
-        "width": 1295,
-        "height": 1285,
-        "bytes": 232648,
-        "backgroundRemoved": true
+        "src": "/cartilla/art/optimized/flipchart-native/p041-scene.png",
+        "width": 586,
+        "height": 586,
+        "bytes": 254340,
+        "approvedInput": true
       },
       {
         "page": 42,
         "word": "Ilustración de la página 42",
-        "src": "/cartilla/art/faithful/flipchart-native/p042-escena.webp",
-        "width": 1259,
-        "height": 987,
-        "bytes": 300664,
-        "backgroundRemoved": true
+        "src": "/cartilla/art/optimized/flipchart-native/p042-scene.png",
+        "width": 529,
+        "height": 529,
+        "bytes": 261932,
+        "approvedInput": true
       },
       {
         "page": 42,
         "word": "burro",
-        "src": "/cartilla/art/faithful/flipchart-native/p042-burro.webp",
-        "width": 638,
-        "height": 590,
-        "bytes": 41726,
-        "backgroundRemoved": true
+        "src": "/cartilla/art/optimized/flipchart-native/p042-burro.png",
+        "width": 320,
+        "height": 320,
+        "bytes": 46838,
+        "approvedInput": true
       },
       {
         "page": 42,
         "word": "carrusel",
-        "src": "/cartilla/art/faithful/flipchart-native/p042-carrusel.webp",
-        "width": 595,
-        "height": 577,
-        "bytes": 98194,
-        "backgroundRemoved": true
+        "src": "/cartilla/art/optimized/flipchart-native/p042-carrusel.png",
+        "width": 320,
+        "height": 320,
+        "bytes": 87851,
+        "approvedInput": true
       },
       {
         "page": 42,
         "word": "torre",
-        "src": "/cartilla/art/faithful/flipchart-native/p042-torre.webp",
-        "width": 262,
-        "height": 695,
-        "bytes": 27032,
-        "backgroundRemoved": true
+        "src": "/cartilla/art/optimized/flipchart-native/p042-torre.png",
+        "width": 320,
+        "height": 320,
+        "bytes": 24379,
+        "approvedInput": true
       },
       {
         "page": 42,
         "word": "barril",
-        "src": "/cartilla/art/faithful/flipchart-native/p042-barril.webp",
-        "width": 422,
-        "height": 661,
-        "bytes": 75286,
-        "backgroundRemoved": true
+        "src": "/cartilla/art/optimized/flipchart-native/p042-barril.png",
+        "width": 320,
+        "height": 320,
+        "bytes": 64861,
+        "approvedInput": true
       },
       {
         "page": 42,
         "word": "Tierra",
-        "src": "/cartilla/art/faithful/flipchart-native/p042-tierra.webp",
-        "width": 676,
-        "height": 709,
-        "bytes": 99890,
-        "backgroundRemoved": true
+        "src": "/cartilla/art/optimized/flipchart-native/p042-tierra.png",
+        "width": 320,
+        "height": 320,
+        "bytes": 95440,
+        "approvedInput": true
       },
       {
         "page": 44,
         "word": "Ilustración de la página 44",
-        "src": "/cartilla/art/faithful/flipchart-native/p044-escena.webp",
-        "width": 1315,
-        "height": 1387,
-        "bytes": 525136,
-        "backgroundRemoved": true
+        "src": "/cartilla/art/optimized/flipchart-native/p044-scene.png",
+        "width": 653,
+        "height": 653,
+        "bytes": 552239,
+        "approvedInput": true
       },
       {
         "page": 45,
         "word": "Ilustración de la página 45",
-        "src": "/cartilla/art/faithful/flipchart-native/p045-escena.webp",
-        "width": 1009,
-        "height": 1285,
-        "bytes": 147396,
-        "backgroundRemoved": true
+        "src": "/cartilla/art/optimized/flipchart-native/p045-scene.png",
+        "width": 557,
+        "height": 557,
+        "bytes": 166965,
+        "approvedInput": true
       },
       {
         "page": 45,
         "word": "gaveta",
-        "src": "/cartilla/art/faithful/flipchart-native/p045-gaveta.webp",
-        "width": 648,
-        "height": 550,
-        "bytes": 72810,
-        "backgroundRemoved": true
+        "src": "/cartilla/art/optimized/flipchart-native/p045-gaveta.png",
+        "width": 321,
+        "height": 321,
+        "bytes": 80865,
+        "approvedInput": true
       },
       {
         "page": 45,
         "word": "gusano",
-        "src": "/cartilla/art/faithful/flipchart-native/p045-gusano.webp",
-        "width": 679,
-        "height": 332,
-        "bytes": 27028,
-        "backgroundRemoved": true
+        "src": "/cartilla/art/optimized/flipchart-native/p045-gusano.png",
+        "width": 333,
+        "height": 333,
+        "bytes": 27873,
+        "approvedInput": true
       },
       {
         "page": 45,
         "word": "Goloso",
-        "src": "/cartilla/art/faithful/flipchart-native/p045-goloso.webp",
-        "width": 592,
-        "height": 670,
-        "bytes": 73034,
-        "backgroundRemoved": true
+        "src": "/cartilla/art/optimized/flipchart-native/p045-goloso.png",
+        "width": 320,
+        "height": 320,
+        "bytes": 71135,
+        "approvedInput": true
       },
       {
         "page": 45,
         "word": "gorra",
-        "src": "/cartilla/art/faithful/flipchart-native/p045-gorra.webp",
-        "width": 620,
-        "height": 484,
-        "bytes": 64630,
-        "backgroundRemoved": true
+        "src": "/cartilla/art/optimized/flipchart-native/p045-gorra.png",
+        "width": 320,
+        "height": 320,
+        "bytes": 55671,
+        "approvedInput": true
       },
       {
         "page": 45,
         "word": "mago",
-        "src": "/cartilla/art/faithful/flipchart-native/p045-mago.webp",
-        "width": 578,
-        "height": 663,
-        "bytes": 86364,
-        "backgroundRemoved": true
+        "src": "/cartilla/art/optimized/flipchart-native/p045-mago.png",
+        "width": 320,
+        "height": 320,
+        "bytes": 75805,
+        "approvedInput": true
       },
       {
         "page": 47,
         "word": "Ilustración de la página 47",
-        "src": "/cartilla/art/faithful/flipchart-native/p047-escena.webp",
-        "width": 1247,
-        "height": 1337,
-        "bytes": 253588,
-        "backgroundRemoved": true
+        "src": "/cartilla/art/optimized/flipchart-native/p047-scene.png",
+        "width": 667,
+        "height": 667,
+        "bytes": 238929,
+        "approvedInput": true
       },
       {
         "page": 48,
         "word": "Ilustración de la página 48",
-        "src": "/cartilla/art/faithful/flipchart-native/p048-escena.webp",
-        "width": 849,
-        "height": 1313,
-        "bytes": 112344,
-        "backgroundRemoved": true
+        "src": "/cartilla/art/optimized/flipchart-native/p048-scene.png",
+        "width": 552,
+        "height": 552,
+        "bytes": 122839,
+        "approvedInput": true
       },
       {
         "page": 48,
         "word": "foto",
-        "src": "/cartilla/art/faithful/flipchart-native/p048-foto.webp",
-        "width": 487,
-        "height": 641,
-        "bytes": 58782,
-        "backgroundRemoved": true
+        "src": "/cartilla/art/optimized/flipchart-native/p048-foto.png",
+        "width": 320,
+        "height": 320,
+        "bytes": 65853,
+        "approvedInput": true
       },
       {
         "page": 48,
         "word": "fideos",
-        "src": "/cartilla/art/faithful/flipchart-native/p048-fideos.webp",
-        "width": 514,
-        "height": 678,
-        "bytes": 93878,
-        "backgroundRemoved": true
+        "src": "/cartilla/art/optimized/flipchart-native/p048-fideos.png",
+        "width": 325,
+        "height": 325,
+        "bytes": 69470,
+        "approvedInput": true
       },
       {
         "page": 48,
         "word": "familia",
-        "src": "/cartilla/art/faithful/flipchart-native/p048-familia.webp",
-        "width": 418,
-        "height": 819,
-        "bytes": 84422,
-        "backgroundRemoved": true
+        "src": "/cartilla/art/optimized/flipchart-native/p048-familia.png",
+        "width": 323,
+        "height": 323,
+        "bytes": 69178,
+        "approvedInput": true
       },
       {
         "page": 48,
         "word": "Felo",
-        "src": "/cartilla/art/faithful/flipchart-native/p048-felo.webp",
-        "width": 736,
-        "height": 737,
-        "bytes": 99460,
-        "backgroundRemoved": true
+        "src": "/cartilla/art/optimized/flipchart-native/p048-felo.png",
+        "width": 321,
+        "height": 321,
+        "bytes": 80269,
+        "approvedInput": true
       },
       {
         "page": 48,
         "word": "funda",
-        "src": "/cartilla/art/faithful/flipchart-native/p048-funda.webp",
-        "width": 592,
-        "height": 598,
-        "bytes": 60044,
-        "backgroundRemoved": true
+        "src": "/cartilla/art/optimized/flipchart-native/p048-funda.png",
+        "width": 320,
+        "height": 320,
+        "bytes": 56851,
+        "approvedInput": true
       },
       {
         "page": 50,
         "word": "Ilustración de la página 50",
-        "src": "/cartilla/art/faithful/flipchart-native/p050-escena.webp",
-        "width": 1312,
-        "height": 1331,
-        "bytes": 284324,
-        "backgroundRemoved": true
+        "src": "/cartilla/art/optimized/flipchart-native/p050-scene.png",
+        "width": 644,
+        "height": 644,
+        "bytes": 330647,
+        "approvedInput": true
       },
       {
         "page": 51,
         "word": "Ilustración de la página 51",
-        "src": "/cartilla/art/faithful/flipchart-native/p051-escena.webp",
-        "width": 1166,
-        "height": 1244,
-        "bytes": 252184,
-        "backgroundRemoved": true
+        "src": "/cartilla/art/optimized/flipchart-native/p051-scene.png",
+        "width": 537,
+        "height": 537,
+        "bytes": 239137,
+        "approvedInput": true
       },
       {
         "page": 51,
         "word": "jicotea",
-        "src": "/cartilla/art/faithful/flipchart-native/p051-jicotea.webp",
-        "width": 659,
-        "height": 543,
-        "bytes": 58676,
-        "backgroundRemoved": true
+        "src": "/cartilla/art/optimized/flipchart-native/p051-jicotea.png",
+        "width": 322,
+        "height": 322,
+        "bytes": 82182,
+        "approvedInput": true
       },
       {
         "page": 51,
         "word": "jugo",
-        "src": "/cartilla/art/faithful/flipchart-native/p051-jugo.webp",
-        "width": 473,
-        "height": 554,
-        "bytes": 47060,
-        "backgroundRemoved": true
+        "src": "/cartilla/art/optimized/flipchart-native/p051-jugo.png",
+        "width": 320,
+        "height": 320,
+        "bytes": 41769,
+        "approvedInput": true
       },
       {
         "page": 51,
         "word": "Jesús",
-        "src": "/cartilla/art/faithful/flipchart-native/p051-jesus.webp",
-        "width": 610,
-        "height": 698,
-        "bytes": 54654,
-        "backgroundRemoved": true
+        "src": "/cartilla/art/optimized/flipchart-native/p051-jesus.png",
+        "width": 320,
+        "height": 320,
+        "bytes": 46181,
+        "approvedInput": true
       },
       {
         "page": 51,
         "word": "ajo",
-        "src": "/cartilla/art/faithful/flipchart-native/p051-ajo.webp",
-        "width": 601,
-        "height": 513,
-        "bytes": 48944,
-        "backgroundRemoved": true
+        "src": "/cartilla/art/optimized/flipchart-native/p051-ajo.png",
+        "width": 320,
+        "height": 320,
+        "bytes": 51115,
+        "approvedInput": true
       },
       {
         "page": 51,
         "word": "jarra",
-        "src": "/cartilla/art/faithful/flipchart-native/p051-jarra.webp",
-        "width": 483,
-        "height": 661,
-        "bytes": 52532,
-        "backgroundRemoved": true
+        "src": "/cartilla/art/optimized/flipchart-native/p051-jarra.png",
+        "width": 320,
+        "height": 320,
+        "bytes": 54311,
+        "approvedInput": true
       },
       {
         "page": 53,
         "word": "Ilustración de la página 53",
-        "src": "/cartilla/art/faithful/flipchart-native/p053-escena.webp",
-        "width": 1283,
-        "height": 1433,
-        "bytes": 362380,
-        "backgroundRemoved": true
+        "src": "/cartilla/art/optimized/flipchart-native/p053-scene.png",
+        "width": 671,
+        "height": 671,
+        "bytes": 335717,
+        "approvedInput": true
       },
       {
         "page": 54,
         "word": "Ilustración de la página 54",
-        "src": "/cartilla/art/faithful/flipchart-native/p054-escena.webp",
-        "width": 1242,
-        "height": 971,
-        "bytes": 244916,
-        "backgroundRemoved": true
+        "src": "/cartilla/art/optimized/flipchart-native/p054-scene.png",
+        "width": 561,
+        "height": 561,
+        "bytes": 252038,
+        "approvedInput": true
       },
       {
         "page": 54,
         "word": "cuna",
-        "src": "/cartilla/art/faithful/flipchart-native/p054-cuna.webp",
-        "width": 612,
-        "height": 470,
-        "bytes": 69090,
-        "backgroundRemoved": true
+        "src": "/cartilla/art/optimized/flipchart-native/p054-cuna.png",
+        "width": 320,
+        "height": 320,
+        "bytes": 66603,
+        "approvedInput": true
       },
       {
         "page": 54,
         "word": "conejo",
-        "src": "/cartilla/art/faithful/flipchart-native/p054-conejo.webp",
-        "width": 423,
-        "height": 602,
-        "bytes": 51702,
-        "backgroundRemoved": true
+        "src": "/cartilla/art/optimized/flipchart-native/p054-conejo.png",
+        "width": 320,
+        "height": 320,
+        "bytes": 39496,
+        "approvedInput": true
       },
       {
         "page": 54,
         "word": "casa",
-        "src": "/cartilla/art/faithful/flipchart-native/p054-casa.webp",
-        "width": 721,
-        "height": 633,
-        "bytes": 80686,
-        "backgroundRemoved": true
+        "src": "/cartilla/art/optimized/flipchart-native/p054-casa.png",
+        "width": 339,
+        "height": 339,
+        "bytes": 70088,
+        "approvedInput": true
       },
       {
         "page": 54,
         "word": "cubo",
-        "src": "/cartilla/art/faithful/flipchart-native/p054-cubo.webp",
-        "width": 562,
-        "height": 694,
-        "bytes": 57872,
-        "backgroundRemoved": true
+        "src": "/cartilla/art/optimized/flipchart-native/p054-cubo.png",
+        "width": 320,
+        "height": 320,
+        "bytes": 52382,
+        "approvedInput": true
       },
       {
         "page": 54,
         "word": "Catalina",
-        "src": "/cartilla/art/faithful/flipchart-native/p054-catalina.webp",
-        "width": 347,
-        "height": 759,
-        "bytes": 51442,
-        "backgroundRemoved": true
+        "src": "/cartilla/art/optimized/flipchart-native/p054-catalina.png",
+        "width": 320,
+        "height": 320,
+        "bytes": 46615,
+        "approvedInput": true
       },
       {
         "page": 56,
         "word": "Ilustración de la página 56",
-        "src": "/cartilla/art/faithful/flipchart-native/p056-escena.webp",
-        "width": 1191,
-        "height": 1709,
-        "bytes": 388710,
-        "backgroundRemoved": true
+        "src": "/cartilla/art/optimized/flipchart-native/p056-caramelos.webp",
+        "width": 1034,
+        "height": 1536,
+        "bytes": 290425,
+        "approvedInput": true
       },
       {
         "page": 57,
         "word": "Ilustración de la página 57",
-        "src": "/cartilla/art/faithful/flipchart-native/p057-escena.webp",
-        "width": 1213,
-        "height": 1295,
-        "bytes": 205284,
-        "backgroundRemoved": true
+        "src": "/cartilla/art/optimized/flipchart-native/p057-scene.png",
+        "width": 560,
+        "height": 560,
+        "bytes": 213847,
+        "approvedInput": true
       },
       {
         "page": 57,
         "word": "yate",
-        "src": "/cartilla/art/faithful/flipchart-native/p057-yate.webp",
-        "width": 702,
-        "height": 457,
-        "bytes": 65438,
-        "backgroundRemoved": true
+        "src": "/cartilla/art/optimized/flipchart-native/p057-yate.png",
+        "width": 338,
+        "height": 338,
+        "bytes": 68646,
+        "approvedInput": true
       },
       {
         "page": 57,
         "word": "yema",
-        "src": "/cartilla/art/faithful/flipchart-native/p057-yema.webp",
-        "width": 697,
-        "height": 254,
-        "bytes": 18942,
-        "backgroundRemoved": true
+        "src": "/cartilla/art/optimized/flipchart-native/p057-yema.png",
+        "width": 333,
+        "height": 333,
+        "bytes": 14093,
+        "approvedInput": true
       },
       {
         "page": 57,
         "word": "Yayita",
-        "src": "/cartilla/art/faithful/flipchart-native/p057-yayita.webp",
-        "width": 612,
-        "height": 570,
-        "bytes": 87538,
-        "backgroundRemoved": true
+        "src": "/cartilla/art/optimized/flipchart-native/p057-yayita.png",
+        "width": 320,
+        "height": 320,
+        "bytes": 80945,
+        "approvedInput": true
       },
       {
         "page": 57,
         "word": "mayúscula",
-        "src": "/cartilla/art/faithful/flipchart-native/p057-mayuscula.webp",
-        "width": 558,
-        "height": 622,
-        "bytes": 65778,
-        "backgroundRemoved": true
+        "src": "/cartilla/art/optimized/flipchart-native/p057-mayuscula.png",
+        "width": 320,
+        "height": 320,
+        "bytes": 62566,
+        "approvedInput": true
       },
       {
         "page": 57,
         "word": "yoyo",
-        "src": "/cartilla/art/faithful/flipchart-native/p057-yoyo.webp",
-        "width": 589,
-        "height": 621,
-        "bytes": 52176,
-        "backgroundRemoved": true
+        "src": "/cartilla/art/optimized/flipchart-native/p057-yoyo.png",
+        "width": 320,
+        "height": 320,
+        "bytes": 51013,
+        "approvedInput": true
       },
       {
         "page": 59,
         "word": "Ilustración de la página 59",
-        "src": "/cartilla/art/faithful/flipchart-native/p059-escena.webp",
-        "width": 1256,
-        "height": 1452,
-        "bytes": 292250,
-        "backgroundRemoved": true
+        "src": "/cartilla/art/optimized/flipchart-native/p059-scene.png",
+        "width": 567,
+        "height": 567,
+        "bytes": 281079,
+        "approvedInput": true
       },
       {
         "page": 60,
         "word": "Ilustración de la página 60",
-        "src": "/cartilla/art/faithful/flipchart-native/p060-escena.webp",
-        "width": 1208,
-        "height": 1185,
-        "bytes": 175926,
-        "backgroundRemoved": true
+        "src": "/cartilla/art/optimized/flipchart-native/p060-scene.png",
+        "width": 505,
+        "height": 505,
+        "bytes": 187254,
+        "approvedInput": true
       },
       {
         "page": 60,
         "word": "zapato",
-        "src": "/cartilla/art/faithful/flipchart-native/p060-zapato.webp",
-        "width": 607,
-        "height": 568,
-        "bytes": 55684,
-        "backgroundRemoved": true
+        "src": "/cartilla/art/optimized/flipchart-native/p060-zapato.png",
+        "width": 320,
+        "height": 320,
+        "bytes": 61591,
+        "approvedInput": true
       },
       {
         "page": 60,
         "word": "zig-zag",
-        "src": "/cartilla/art/faithful/flipchart-native/p060-zig-zag.webp",
-        "width": 521,
-        "height": 596,
-        "bytes": 34896,
-        "backgroundRemoved": true
+        "src": "/cartilla/art/optimized/flipchart-native/p060-zigzag.png",
+        "width": 344,
+        "height": 344,
+        "bytes": 35412,
+        "approvedInput": true
       },
       {
         "page": 60,
         "word": "zorro",
-        "src": "/cartilla/art/faithful/flipchart-native/p060-zorro.webp",
-        "width": 537,
-        "height": 640,
-        "bytes": 61666,
-        "backgroundRemoved": true
+        "src": "/cartilla/art/optimized/flipchart-native/p060-zorro.png",
+        "width": 320,
+        "height": 320,
+        "bytes": 49029,
+        "approvedInput": true
       },
       {
         "page": 60,
         "word": "zepelín",
-        "src": "/cartilla/art/faithful/flipchart-native/p060-zepelin.webp",
-        "width": 763,
-        "height": 588,
-        "bytes": 76298,
-        "backgroundRemoved": true
+        "src": "/cartilla/art/optimized/flipchart-native/p060-zepelin.png",
+        "width": 362,
+        "height": 362,
+        "bytes": 74842,
+        "approvedInput": true
       },
       {
         "page": 60,
         "word": "Zulema",
-        "src": "/cartilla/art/faithful/flipchart-native/p060-zulema.webp",
-        "width": 458,
-        "height": 704,
-        "bytes": 56972,
-        "backgroundRemoved": true
+        "src": "/cartilla/art/optimized/flipchart-native/p060-zulema.png",
+        "width": 320,
+        "height": 320,
+        "bytes": 51690,
+        "approvedInput": true
       },
       {
         "page": 62,
         "word": "Ilustración de la página 62",
-        "src": "/cartilla/art/faithful/flipchart-native/p062-escena.webp",
-        "width": 1341,
-        "height": 1429,
-        "bytes": 341888,
-        "backgroundRemoved": true
+        "src": "/cartilla/art/optimized/flipchart-native/p062-scene.png",
+        "width": 633,
+        "height": 633,
+        "bytes": 350896,
+        "approvedInput": true
       }
     ]
   }

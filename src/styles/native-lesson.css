@@ -196,3 +196,5 @@
 }
 
 .fp-source-blocked { margin: 24px 0 0; padding: 10px 14px; border-radius: 12px; border: 1px dashed #c9a86a; background: #fffaf0; color: #7a5b1e; font: 600 14px/1.4 system-ui, sans-serif; }
+.fp-writing-line--freehand { display: block; }
+.fp-writing-line--freehand .fp-writing-line__model { font-size: 48px; }

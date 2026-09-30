@@ -89,3 +89,14 @@ describe("approved Gretel scene playback", () => {
     expect(HTMLMediaElement.prototype.play).toHaveBeenCalledTimes(2);
   });
 });
+
+ it("loops the approved welcome silently without a forced deadline", () => {
+  const { container } = render(<GretelSceneMedia video={clip} fallback="/still.png" durationSeconds={6} loop />);
+  const video = container.querySelector("video")!;
+  expect(video.loop).toBe(true);
+  expect(video.muted).toBe(true);
+  fireEvent.playing(video);
+  fireEvent.ended(video);
+  act(() => vi.advanceTimersByTime(12000));
+  expect(container.querySelector("[data-gretel-media]")).toHaveAttribute("data-gretel-media", "playing");
+ });

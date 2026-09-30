@@ -10,12 +10,12 @@
  */
 import { useEffect, useMemo, useState } from "react";
 import { getPageLayout, type PageRegion } from "@/lib/book-faithful";
-import { getLetterTemplate } from "@/components/cartilla/letter-stroke-templates";
 import { onGretelEvent } from "@/lib/gretel-bus";
 import {
   getCompletedPageActivities,
   isLessonCompleted,
   markPageActivityCompleted,
+  unmarkPageActivityCompleted,
 } from "@/lib/lesson-progress";
 
 export type RequiredActivity = { id: string; regionId: string; kind: string; label: string };
@@ -56,8 +56,7 @@ function hasContent(region: PageRegion): boolean {
 
 /**
  * Required activities of one printed page, in reading order. Mirrors what
- * FaithfulPageRenderer renders interactively: a writing line is required only
- * when a verified stroke template makes it a real tracing exercise. Pages with
+ * FaithfulPageRenderer renders interactively: writing lines require their existing trace or freehand writing control. Pages with
  * only reading/instruction content have no requirement (the reading itself is
  * the page's work), so they can never become permanently blocked.
  */
@@ -70,7 +69,7 @@ export function requiredActivitiesForPage(pageNumber: number): RequiredActivity[
     if (region.regionType === "writing-line") {
       const letter = region.modelText || lastModel;
       lastModel = region.modelText || lastModel;
-      if (letter && getLetterTemplate(letter) !== null) {
+      if (letter) {
         out.push({ id, regionId: region.id, kind: region.regionType, label: `el trazo de la letra ${letter}` });
       }
       continue;
@@ -109,8 +108,9 @@ export function usePageCompletion(pageNumber: number | undefined, lessonNumber?:
     if (typeof pageNumber !== "number") return;
     const prefix = `page-${pageNumber}-`;
     const off = onGretelEvent((type, detail) => {
-      if (type !== "activity:complete" || !detail.activityId?.startsWith(prefix)) return;
-      markPageActivityCompleted(pageNumber, detail.activityId);
+      if (!detail.activityId?.startsWith(prefix)) return;
+      if (type === "activity:complete") markPageActivityCompleted(pageNumber, detail.activityId);
+      if (type === "activity:retry") unmarkPageActivityCompleted(pageNumber, detail.activityId);
     });
     const refresh = () => setTick((t) => t + 1);
     window.addEventListener("cartilla:lesson-progress", refresh);

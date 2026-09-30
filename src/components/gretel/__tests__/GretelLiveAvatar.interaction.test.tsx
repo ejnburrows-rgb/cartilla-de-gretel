@@ -25,15 +25,13 @@ describe("GretelLiveAvatar direct interaction", () => {
     expect(screen.queryByRole("status")).toBeNull();
   });
 
-  it("uses the vector Gretel rig instead of full-pose frame swapping", () => {
+  it("uses the exact approved still while retaining the interactive host", () => {
     const { container } = render(<GretelLiveAvatar size="sm" />);
     const rig = container.querySelector('[data-gretel-rig="svg"]');
     expect(rig).toBeTruthy();
     expect(rig?.getAttribute("data-gretel-rig-state")).toBeTruthy();
-    expect(container.querySelector('[data-rig-part="eyes"]')).toBeTruthy();
-    expect(container.querySelector('[data-rig-part="mouth"]')).toBeTruthy();
-    expect(container.querySelector('[data-rig-part="left-arm"]')).toBeTruthy();
-    expect(container.querySelector('[data-rig-part="right-arm"]')).toBeTruthy();
+    expect(rig?.querySelector("image")?.getAttribute("href")).toBe("/cartilla/images/gretel/gretel-approved-master.png");
+    expect(rig?.querySelectorAll("image").length).toBe(1);
   });
 
   it("is a real tappable and keyboard-focusable character", () => {

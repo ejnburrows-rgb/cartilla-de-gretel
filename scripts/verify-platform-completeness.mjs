@@ -83,7 +83,7 @@ for (const [page, assets] of Object.entries(nativeFlipchartAssets)) {
   assert(Array.isArray(assets) && assets.length > 0, `native Flip Chart crop page ${page} is empty`);
   for (const asset of assets) {
     assert(
-      typeof asset.src === "string" && asset.src.startsWith("/cartilla/art/faithful/flipchart-native/"),
+      typeof asset.src === "string" && asset.src.startsWith("/cartilla/art/optimized/flipchart-native/"),
       `invalid native Flip Chart crop destination on page ${page}`,
     );
     assert(
@@ -123,14 +123,9 @@ const gretelMachineSource = fs.readFileSync(
   path.join(srcDir, "components", "gretel", "gretelMachine.ts"),
   "utf8",
 );
-for (const part of ["head", "eyes", "pupils", "eyelids", "mouth", "torso", "left-arm", "right-arm"]) {
-  assert(
-    gretelRigSource.includes(`data-rig-part="${part}"`),
-    `Gretel SVG rig is missing independent part ${part}`,
-  );
-}
-assert(gretelRigSource.includes('data-gretel-rig="svg"'), "Gretel must use the vector rig");
-assert(!gretelRigSource.includes("<img"), "Gretel rig must not fall back to raster pose swapping");
+assert(gretelRigSource.includes("GRETEL_APPROVED_MASTER_SRC"), "Gretel host must display the exact approved master");
+const gretelMaster = readJson("src/data/gretel-approved-master.json");
+assert(gretelMaster.status === "owner-approved" && exists(`public${gretelMaster.productionSrc}`), "approved Gretel master must exist");
 for (const state of ["listening", "teaching", "help", "gentle-error", "cheering"]) {
   assert(gretelMachineSource.includes(`"${state}"`), `Gretel state machine is missing ${state}`);
 }
@@ -177,8 +172,8 @@ console.log(JSON.stringify({
   flipchartNativeRegistry: "62/62",
   flipchartCanonicalMasters: "62/62",
   flipchartSurface: "62/62 native boards; pages 1-2 native frontmatter; pages 3-62 separate faithful learning objects",
-  flipchartOptimizedExclusive: `${optimizedFlipchartAssets.length} assets wired; deleted experiments remain excluded`,
-  gretelRig: "vector-part rig present; character fidelity is not certified by this structural check",
+  flipchartOptimizedExclusive: `${optimizedFlipchartAssets.length} fabricated/exclusive assets; 167 approved standalone book images use the native registry`,
+  gretelRig: "owner-approved master still installed; existing host state machine retained",
   livingArt: "semantic registry with independent wings/tails/ears/trunk and reduced-motion policy",
   cinematics: "Existing lesson scripts retained; owner scope requires one looping welcome video only",
   gretelClips: `${gretelClips["master-welcome"] ? 1 : 0}/1 approved welcome clip registered; no lesson videos required`,

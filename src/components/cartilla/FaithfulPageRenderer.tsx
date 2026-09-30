@@ -14,6 +14,7 @@ import {
 } from "./InteractivePageExercises";
 import { WorkbookLetterTrace } from "./WorkbookLetterTrace";
 import { WorkbookWritingResponse } from "./WorkbookWritingResponse";
+import { DibujaHost } from "@/cartilla/interactions/DibujaHost";
 import { SyllableWordCircle } from "@/cartilla/interactions/SyllableWordCircle";
 import { getLetterTemplate } from "./letter-stroke-templates";
 import { LivingIllustration } from "@/components/living/LivingIllustration";
@@ -516,6 +517,12 @@ function RegionView({
           </div>
         );
       }
+      if (interactive && native) return (
+        <div className="fp-writing-line fp-writing-line--freehand">
+          {traceLetter && <span className="fp-writing-line__model">{traceLetter}</span>}
+          <DibujaHost pageKey={region.id} hint={traceLetter} lessonId={lessonId} initialMode="draw" verb="Escribe" />
+        </div>
+      );
       return (
         <div className="fp-writing-line">
           {region.modelText ? (

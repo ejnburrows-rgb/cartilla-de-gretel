@@ -27,6 +27,10 @@ export function WorkbookWritingResponse({ pageNumber, interactive }: { pageNumbe
             reported.current = true;
             gretelEvent("activity:complete");
           }
+          if (reported.current && !isWritingResponseDone(event.target.value)) {
+            reported.current = false;
+            gretelEvent("activity:retry");
+          }
           try { window.localStorage.setItem(key, event.target.value); } catch { /* storage can be disabled */ }
         }}
       />

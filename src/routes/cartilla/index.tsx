@@ -1,8 +1,6 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
-import { useEffect, useState } from "react";
-import { BookHeroGretel } from "@/components/intro/BookHeroGretel";
-import { HOME_GREETING } from "@/lib/gretel-voice";
-import { GretelCinematic } from "@/components/gretel/GretelCinematic";
+import { GretelSceneMedia } from "@/components/gretel/GretelSceneMedia";
+import { GRETEL_APPROVED_MASTER_SRC } from "@/lib/gretel-master";
 import { getCinematicById } from "@/content/gretel-cinematics";
 import "@/styles/home-hero.css";
 import "@/styles/gretel-presence.css";
@@ -15,36 +13,10 @@ export const Route = createFileRoute("/cartilla/")({
 });
 
 function CartillaSplash() {
-  const [onboardingStep, setOnboardingStep] = useState<0 | 1 | 2>(2);
-
-  useEffect(() => {
-    try {
-      setOnboardingStep(localStorage.getItem("cartilla.gretel.onboarding.v1") === "done" ? 2 : 0);
-    } catch {
-      setOnboardingStep(0);
-    }
-  }, []);
-
-  const finishOnboarding = () => {
-    try {
-      localStorage.setItem("cartilla.gretel.onboarding.v1", "done");
-    } catch {
-      /* onboarding still completes for this visit */
-    }
-    setOnboardingStep(2);
-  };
-
   const welcome = getCinematicById("master-welcome");
-  const howTo = getCinematicById("how-to");
 
   return (
     <main className="home-landing" data-testid="cartilla-splash">
-      {onboardingStep === 0 && welcome && (
-        <GretelCinematic cinematic={welcome} onComplete={() => setOnboardingStep(1)} />
-      )}
-      {onboardingStep === 1 && howTo && (
-        <GretelCinematic cinematic={howTo} onComplete={finishOnboarding} />
-      )}
       <div className="home-landing__wash" aria-hidden />
 
       <div className="home-landing__inner" style={{ maxWidth: 720 }}>
@@ -59,18 +31,15 @@ function CartillaSplash() {
             style={{ marginInline: "auto", textAlign: "center" }}
             data-testid="cartilla-greeting"
           >
-            {HOME_GREETING}
+            ¡Bienvenido a La Cartilla de Gretel!
           </p>
 
           <div
             className="home-landing__hero-col"
             style={{ marginTop: "1.15rem" }}
           >
-            <BookHeroGretel
-              size="md"
-              objectPosition="center 18%"
-              autoIntro={false}
-            />
+            <GretelSceneMedia video={welcome?.video} fallback={GRETEL_APPROVED_MASTER_SRC}
+              durationSeconds={6} loop />
           </div>
 
           <div
@@ -82,7 +51,7 @@ function CartillaSplash() {
               className="home-landing__cta home-landing__cta--student"
               data-testid="cartilla-splash-enter"
             >
-              Entrar como estudiante
+              Comenzar
             </Link>
             <Link
               to="/cartilla/practica"

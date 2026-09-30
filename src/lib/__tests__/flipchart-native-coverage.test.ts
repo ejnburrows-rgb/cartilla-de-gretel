@@ -42,7 +42,9 @@ describe("native Flip Chart coverage", () => {
     // Spot-check that pages still have art from legitimate sources
     const page21 = getNativeFlipchartPage(21);
     expect(page21?.art.length).toBeGreaterThan(0);
-    expect(page21?.art[0]?.src).toMatch(/^\/cartilla\/art\/faithful\//);
+    expect(page21?.art[0]?.src).toMatch(/^\/cartilla\/art\/optimized\/flipchart-native\//);
+    expect(page21?.art.map((art) => art.word)).toEqual(["Didi", "dados", "dedo", "doce", "Dunia"]);
+    expect(page21?.scene?.word).toContain("campana");
   });
 
   it("keeps drill-page vocabulary in word chips while story pages stay prose", () => {
@@ -83,4 +85,11 @@ describe("native Flip Chart coverage", () => {
       expect(page?.flipchartPage).toBe(pageNumber);
     }
   });
+  it("retains book caption accents and every reading fragment", () => {
+    expect(getNativeFlipchartPage(3)?.art.map((asset) => asset.word)).toEqual(["avión", "escoba", "imán", "olla", "uña"]);
+    expect(getNativeFlipchartPage(15)?.art.map((asset) => asset.word)).toContain("Sesi");
+    expect(getNativeFlipchartPage(41)?.body.some((line) => line.text === "La r para la rama")).toBe(true);
+    expect(getNativeFlipchartPage(44)?.body.some((line) => line.text === "arrebatado")).toBe(true);
+  });
+
 });

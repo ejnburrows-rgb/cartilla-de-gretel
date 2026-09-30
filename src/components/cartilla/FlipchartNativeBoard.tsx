@@ -1,8 +1,13 @@
 import { useEffect, type CSSProperties } from "react";
 import { FlipchartFrontmatter } from "@/components/cartilla/FlipchartFrontmatter";
-import { getNativeFlipchartPage, type FlipchartLayoutType, type NativeFlipchartPage } from "@/lib/flipchart-native";
+import { getNativeFlipchartPage, type FlipchartLayoutType, type NativeFlipchartPage, type FlipchartTextItem } from "@/lib/flipchart-native";
 import { LivingIllustration } from "@/components/living/LivingIllustration";
 import type { FlipchartPage } from "@/lib/flipchart-hd";
+
+function BookLine({ line }: { line: FlipchartTextItem }) {
+  return line.segments ? <>{line.segments.map((part, index) => <span key={index} style={{ color: part.color }}>{index > 0 ? " " : ""}{part.text}</span>)}</> : <>{line.text}</>;
+}
+
 import sourceColors from "@/data/flipchart-source-colors.json";
 
 /** The Flip Chart prints the taught letter in this red on every page. */
@@ -72,20 +77,20 @@ type BoardProps = {
 };
 
 /** Shared: vocabulary grid with red-letter rule */
-function VocabGrid({ native, isVowelPage, decorative, pageNumber }: Pick<BoardProps, "native" | "isVowelPage" | "decorative" | "pageNumber">) {
+function VocabGrid({ native, isVowelPage, decorative }: Pick<BoardProps, "native" | "isVowelPage" | "decorative">) {
   if (native.words.length === 0) return null;
   return (
     <ul className="fc-native-board__words" data-testid="flipchart-words">
       {native.words.map((word, index) => {
         const wordText = word.rest || word.parts.join("");
         const fullWord = word.lead ? word.lead + wordText : wordText;
-        // Book rule: the letter being taught is printed red, the rest black.
-        const leadColor = BOOK_RED;
+        const useRedLead = isVowelPage && word.lead && /^[aeiouáéíóú]/i.test(fullWord);
+        const leadColor = useRedLead ? "#bb0733" : BOOK_RED;
         return (
           <li
             key={`${word.x}-${word.y}-${index}`}
             className="fc-native-board__word"
-            style={{ borderColor: panelColorFor(pageNumber) }}
+            style={{ borderColor: BOOK_RED }}
           >
             {word.lead ? (
               <span className="fc-native-board__word-lead" style={{ color: leadColor }}>
@@ -105,13 +110,14 @@ function ArtGrid({ native, isVowelPage, decorative }: Pick<BoardProps, "native" 
   if (native.art.length === 0) return null;
   // Baked-label guard: these image files have the word printed inside the image itself.
   // Never render a figcaption for them (would duplicate the baked text as ghost).
-  const BAKED_LABEL_SLUGS = ["p021-dados", "p021-dedo", "p021-didi", "p021-dunia"];
+
   return (
     <div className="fc-native-board__art-grid" data-testid="flipchart-art-grid" data-art-count={native.art.length}>
       {native.art.map((asset, index) => {
-        const hasBakedLabel = asset.labelInImage || BAKED_LABEL_SLUGS.some((s) => asset.src.includes(s));
+        const hasBakedLabel = asset.labelInImage;
         return (
         <figure key={asset.src} className="fc-native-board__art-card" data-art-index={index}>
+          {native.flipchartPage === 3 && <span className="fc-vocab-vowel" style={{ backgroundColor: vowelCircleColorFor(3, asset.word[0]!) }}>{asset.word[0]}</span>}
           <LivingIllustration
             src={asset.src}
             alt={decorative ? "" : asset.word}
@@ -144,10 +150,8 @@ function ArtGrid({ native, isVowelPage, decorative }: Pick<BoardProps, "native" 
  */
 function VowelHeaderLayout(props: BoardProps) {
   const { native, pageNumber, decorative, isVowelPage } = props;
-  // Verse lines are body items in the top zone (the last verse line on page 4
-  // sits at y≈516, so the zone ends above the picture rows, not at 500).
-  // Single letters there are the page-3 vowel circles, not verse.
-  const verseLines = native.body.filter((item) => item.y < 600 && item.text.trim().length > 1);
+  // Verse lines are body items in the top zone (y < 500)
+  const verseLines = native.body.filter((item) => item.y < 500 && item.text.trim().length > 0);
   // Vowel circles: large single vowels (page 3 variant)
   const vowelCircles = native.body.filter(
     (item) => item.y >= 450 && item.y < 650 && item.text.trim().length === 1 && /^[aeiou]/i.test(item.text.trim())
@@ -158,11 +162,11 @@ function VowelHeaderLayout(props: BoardProps) {
     <>
       <div className="fc-native-board__header-zone fc-layout-vowel-header">
         {/* Scene illustration (left) */}
-        {native.art.length > 0 && (
+        {native.scene && (
           <div className="fc-vowel-header__scene">
             <LivingIllustration
-              src={native.art[0]!.src}
-              alt={decorative ? "" : native.art[0]!.word}
+              src={native.scene!.src}
+              alt={decorative ? "" : native.scene!.word}
               static={decorative}
               loading={decorative ? "lazy" : "eager"}
               className="fc-native-board__living-art"
@@ -175,12 +179,13 @@ function VowelHeaderLayout(props: BoardProps) {
             className="fc-vowel-header__panel"
             style={{ backgroundColor: panelColorFor(pageNumber) }}
           >
+            <h3 className="fc-vowel-header__title">{native.title.map((line) => line.text).join(" ")}</h3>
             {verseLines.map((line, index) => (
               <p
                 key={`${line.x}-${line.y}-${index}`}
-                className={index === 0 ? "fc-vowel-header__title" : "fc-vowel-header__verse"}
+                className="fc-vowel-header__verse"
               >
-                {line.text}
+                <BookLine line={line} />
               </p>
             ))}
           </div>
@@ -194,7 +199,7 @@ function VowelHeaderLayout(props: BoardProps) {
               <div
                 key={`${vowel.x}-${vowel.y}-${index}`}
                 className="fc-vowel-circle"
-                style={{ backgroundColor: vowelCircleColorFor(pageNumber, vowel.text) }}
+                style={{ backgroundColor: panelColorFor(pageNumber + index) }}
               >
                 <span>{vowel.text.trim()}</span>
               </div>
@@ -202,16 +207,16 @@ function VowelHeaderLayout(props: BoardProps) {
           </div>
         )}
         {/* Vocab grid (excluding scene art already shown) */}
-        {native.art.length > 1 ? (
-          <ArtGrid native={{ ...native, art: native.art.slice(1) }} isVowelPage={isVowelPage} decorative={decorative} />
+        {native.art.length > 0 ? (
+          <ArtGrid native={native} isVowelPage={isVowelPage} decorative={decorative} />
         ) : (
-          <VocabGrid native={native} isVowelPage={isVowelPage} decorative={decorative} pageNumber={pageNumber} />
+          <VocabGrid native={native} isVowelPage={isVowelPage} decorative={decorative} />
         )}
         {remainingBody.length > 0 && (
           <div className="fc-native-board__rhyme">
             {remainingBody.map((line, index) => (
               <p key={`${line.x}-${line.y}-${index}`} className="fc-native-board__line">
-                {line.text}
+                <BookLine line={line} />
               </p>
             ))}
           </div>
@@ -233,11 +238,11 @@ function ConsonantVocabLayout(props: BoardProps) {
     <>
       <div className="fc-native-board__header-zone fc-layout-consonant-vocab">
         {/* Scene illustration (left) */}
-        {native.art.length > 0 && (
+        {native.scene && (
           <div className="fc-consonant-vocab__scene">
             <LivingIllustration
-              src={native.art[0]!.src}
-              alt={decorative ? "" : native.art[0]!.word}
+              src={native.scene!.src}
+              alt={decorative ? "" : native.scene!.word}
               static={decorative}
               loading={decorative ? "lazy" : "eager"}
               className="fc-native-board__living-art"
@@ -245,24 +250,17 @@ function ConsonantVocabLayout(props: BoardProps) {
           </div>
         )}
         {/* Big red letter in soft oval (center) */}
-        <div
-          className="fc-letter-oval"
-          aria-label={`Letra ${letterText}`}
-          style={{ "--fc-oval-ring": crescentColorsFor(pageNumber).edge } as CSSProperties}
-        >
+        <div className="fc-letter-oval" style={{ "--fc-letter-ring": panelColorFor(pageNumber) } as CSSProperties} aria-label={`Letra ${letterText}`}>
           <span>{letterText}</span>
         </div>
-        {/* Syllable crescent (right): pastel moon with vertical syllable stack */}
-        {native.syllables.length > 0 && (
-          <SyllableCrescent pageNumber={pageNumber} syllables={native.syllables} />
-        )}
+        {native.syllables.length > 0 && <SyllableCrescent pageNumber={pageNumber} syllables={native.syllables} />}
       </div>
       <div className="fc-native-board__body-zone">
         {/* Vocab grid (excluding scene art) */}
-        {native.art.length > 1 ? (
-          <ArtGrid native={{ ...native, art: native.art.slice(1) }} isVowelPage={isVowelPage} decorative={decorative} />
+        {native.art.length > 0 ? (
+          <ArtGrid native={native} isVowelPage={isVowelPage} decorative={decorative} />
         ) : (
-          <VocabGrid native={native} isVowelPage={isVowelPage} decorative={decorative} pageNumber={pageNumber} />
+          <VocabGrid native={native} isVowelPage={isVowelPage} decorative={decorative} />
         )}
       </div>
     </>
@@ -324,7 +322,7 @@ function SyllableDrillLayout(props: BoardProps) {
         {(native.words.length > 0 || wordListItems.length > 0) && (
           <div className="fc-word-columns">
             {native.words.length > 0 ? (
-              <VocabGrid native={native} isVowelPage={false} decorative={decorative} pageNumber={pageNumber} />
+              <VocabGrid native={native} isVowelPage={false} decorative={decorative} />
             ) : (
               <ul className="fc-word-columns__list">
                 {wordListItems.map((item, index) => (
@@ -338,11 +336,11 @@ function SyllableDrillLayout(props: BoardProps) {
         {proseLines.length > 0 && (
           <div
             className="fc-reading-bar"
-            style={{ backgroundColor: panelColorFor(pageNumber) }}
+            style={{ backgroundColor: panelColorFor(pageNumber + 1) }}
           >
             {proseLines.map((line, index) => (
               <p key={`${line.x}-${line.y}-${index}`} className="fc-reading-bar__line">
-                {line.text}
+                <BookLine line={line} />
               </p>
             ))}
           </div>
@@ -372,11 +370,11 @@ function ReadingPanelLayout(props: BoardProps) {
           <span>{letterText}</span>
         </div>
         {/* Small scene illustration (right) */}
-        {native.art.length > 0 && (
+        {native.scene && (
           <div className="fc-reading-panel__scene">
             <LivingIllustration
-              src={native.art[0]!.src}
-              alt={decorative ? "" : native.art[0]!.word}
+              src={native.scene!.src}
+              alt={decorative ? "" : native.scene!.word}
               static={decorative}
               loading={decorative ? "lazy" : "eager"}
               className="fc-native-board__living-art"
@@ -396,7 +394,7 @@ function ReadingPanelLayout(props: BoardProps) {
             )}
             {verseLines.map((line, index) => (
               <p key={`${line.x}-${line.y}-${index}`} className="fc-reading-panel__verse">
-                {line.text}
+                <BookLine line={line} />
               </p>
             ))}
           </div>
@@ -427,11 +425,11 @@ function StoryLetterLayout(props: BoardProps) {
           <span>{letterText}</span>
         </div>
         {/* Large scene illustration (right) */}
-        {native.art.length > 0 && (
+        {native.scene && (
           <div className="fc-story-letter__scene">
             <LivingIllustration
-              src={native.art[0]!.src}
-              alt={decorative ? "" : native.art[0]!.word}
+              src={native.scene!.src}
+              alt={decorative ? "" : native.scene!.word}
               static={decorative}
               loading={decorative ? "lazy" : "eager"}
               className="fc-native-board__living-art"
@@ -449,7 +447,7 @@ function StoryLetterLayout(props: BoardProps) {
             {storyTitle && <h3 className="fc-story-panel__title">{storyTitle.text}</h3>}
             {storyLines.map((line, index) => (
               <p key={`${line.x}-${line.y}-${index}`} className="fc-story-panel__verse">
-                {line.text}
+                <BookLine line={line} />
               </p>
             ))}
           </div>
@@ -459,7 +457,7 @@ function StoryLetterLayout(props: BoardProps) {
             {storyTitle && <h3 className="fc-story-fullwidth__title">{storyTitle.text}</h3>}
             {storyLines.map((line, index) => (
               <p key={`${line.x}-${line.y}-${index}`} className="fc-story-fullwidth__para">
-                {line.text}
+                <BookLine line={line} />
               </p>
             ))}
           </div>
@@ -500,7 +498,7 @@ export function FlipchartNativeBoard({
 
   const layoutType: FlipchartLayoutType = native.layoutType;
   // Red-letter rule (book §1.5): red target vowel in word labels ONLY on vowel pages 3-6.
-  const isVowelPage = page.flipchartPage >= 3 && page.flipchartPage <= 6;
+  const isVowelPage = page.flipchartPage >= 3 && page.flipchartPage <= 8;
   const boardProps: BoardProps = {
     native,
     pageNumber: page.flipchartPage,

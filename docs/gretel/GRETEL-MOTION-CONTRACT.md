@@ -53,9 +53,7 @@ not create a requirement to produce lesson, milestone or completion videos.
 ## Integration status and remaining work
 
 Approved master: complete. Produced welcome clip: **0/1**.
-The existing media player supports one-shot playback and still fallback. The
-looping welcome behavior and direct single-step entry described above remain
-implementation work; they are not claimed complete by this scope correction.
+The existing media player now supports the silent welcome loop, static fallback, reduced-motion/data-saving behavior and bounded load/stall failures. Comenzar enters the lesson path immediately in one step. The approved still is installed unchanged. The future approved MP4 can be registered without another player implementation.
 
 The existing optional registry is `src/data/gretel-approved-clips.json`.
 Register only the produced welcome asset under `master-welcome` with its MP4

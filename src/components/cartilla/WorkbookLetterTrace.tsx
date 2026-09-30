@@ -206,6 +206,7 @@ export function WorkbookLetterTrace({
   }
 
   function reset() {
+    gretelEvent("activity:retry");
     setStrokeIdx(0);
     setPointIdx(0);
     setCompleted([]);

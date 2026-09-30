@@ -136,7 +136,7 @@ describe("FlipchartHdPanel — CRM-grade presenter board", () => {
 });
 
 describe("FlipchartHdPanel bare chrome mode", () => {
-  it("renders zero chrome in bare mode: no nav, no counter, no thumbnails", () => {
+  it("keeps controls outside the book in bare mode without thumbnails", () => {
     const { container } = render(<FlipchartHdPanel lessonNumber={7} chrome="bare" />);
     const panel = container.querySelector('[data-testid="flipchart-hd-panel"]');
     expect(panel).toBeTruthy();
@@ -144,12 +144,12 @@ describe("FlipchartHdPanel bare chrome mode", () => {
     // Board still renders
     expect(container.querySelector('[data-testid="flipchart-stage"]')).toBeTruthy();
     expect(container.querySelector('[data-native-flipchart="true"]')).toBeTruthy();
-    // Zero chrome
-    expect(container.querySelector(".fc-board__controls")).toBeNull();
+    expect(container.querySelector(".fc-board__controls")).toBeTruthy();
+    expect(container.querySelector('[data-testid="flipchart-stage"] .fc-board__controls')).toBeNull();
     expect(container.querySelector(".fc-board__strip")).toBeNull();
-    expect(screen.queryByTestId("flipchart-counter")).toBeNull();
-    expect(screen.queryByLabelText(/L\u00e1mina anterior/i)).toBeNull();
-    expect(screen.queryByLabelText(/L\u00e1mina siguiente/i)).toBeNull();
+    expect(screen.queryByTestId("flipchart-counter")).toBeTruthy();
+    expect(screen.queryByLabelText(/L\u00e1mina anterior/i)).toBeTruthy();
+    expect(screen.queryByLabelText(/L\u00e1mina siguiente/i)).toBeTruthy();
   });
 
   it("keeps full chrome by default", () => {
@@ -158,7 +158,7 @@ describe("FlipchartHdPanel bare chrome mode", () => {
     expect(screen.getByTestId("flipchart-counter")).toBeTruthy();
   });
 
-  it("skips figcaption for art with baked-in labels (no doubled word)", () => {
+  it("renders one complete native caption for each label-free D-page image", () => {
     // Page 21 (Dd): dados/dedo/didi/dunia have the word baked into the image.
     const page = FLIPCHART_PAGES.find((entry) => entry.flipchartPage === 21)!;
     const { container } = render(<FlipchartNativeBoard page={page} />);
@@ -168,7 +168,7 @@ describe("FlipchartHdPanel bare chrome mode", () => {
     const captionTexts = captions.map((c) => c.textContent?.trim().toLowerCase());
     // None of the baked-label words may have a duplicate figcaption.
     for (const word of ["dados", "dedo", "didi", "dunia"]) {
-      expect(captionTexts, `duplicate label for "${word}"`).not.toContain(word);
+      expect(captionTexts.filter((text) => text === word), `one label for "${word}"`).toHaveLength(1);
     }
   });
 

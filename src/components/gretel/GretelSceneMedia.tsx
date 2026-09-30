@@ -8,11 +8,13 @@ export function GretelSceneMedia({
   fallback,
   durationSeconds,
   onSettled,
+  loop = false,
 }: {
   video?: GretelCinematic["video"];
   fallback: string;
   durationSeconds: number;
   onSettled?: () => void;
+  loop?: boolean;
 }) {
   const reducedMotion = useReducedMotion();
   const saveData = Boolean(
@@ -24,6 +26,7 @@ export function GretelSceneMedia({
   const live = useRef(true);
   const started = useRef(false);
   const playing = useRef(false);
+  const stallTimer = useRef<number | undefined>(undefined);
 
   useEffect(() => {
     live.current = true;
@@ -32,13 +35,14 @@ export function GretelSceneMedia({
       if (!playing.current) setState("still");
     }, 2000);
     // A stalled clip must not remain on screen indefinitely.
-    const deadline = window.setTimeout(() => setState("still"), (durationSeconds + 3) * 1000);
+    const deadline = window.setTimeout(() => { if (!loop || !playing.current) setState("still"); }, (durationSeconds + 3) * 1000);
     return () => {
       live.current = false;
       window.clearTimeout(loading);
       window.clearTimeout(deadline);
+      window.clearTimeout(stallTimer.current);
     };
-  }, [eligible, durationSeconds]);
+  }, [eligible, durationSeconds, loop]);
 
   useEffect(() => {
     if (!eligible || state === "still") player.current?.pause();
@@ -72,12 +76,14 @@ export function GretelSceneMedia({
           style={{ visibility: state === "playing" ? "visible" : "hidden" }}
           aria-hidden="true"
           muted
+          loop={loop}
           playsInline
           preload="auto"
           poster={video.poster}
           onCanPlay={playOnce}
-          onPlaying={() => { playing.current = true; setState("playing"); }}
-          onEnded={() => setState("still")}
+          onPlaying={() => { window.clearTimeout(stallTimer.current); playing.current = true; setState("playing"); }}
+          onWaiting={() => { window.clearTimeout(stallTimer.current); stallTimer.current = window.setTimeout(() => setState("still"), 2000); }}
+          onEnded={() => { if (!loop) setState("still"); }}
           onError={() => setState("still")}
         >
           {video.webm && <source src={video.webm} type="video/webm" />}

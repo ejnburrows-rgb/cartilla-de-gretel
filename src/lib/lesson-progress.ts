@@ -93,6 +93,14 @@ export function markPageActivityCompleted(pageNumber: number, activityId: string
   writePages(all);
 }
 
+export function unmarkPageActivityCompleted(pageNumber: number, activityId: string) {
+  const all = readPages();
+  const list = all[String(pageNumber)] ?? [];
+  if (!list.includes(activityId)) return;
+  all[String(pageNumber)] = list.filter((id) => id !== activityId);
+  writePages(all);
+}
+
 export function useLessonProgress() {
   const [, setTick] = useState(0);
   useEffect(() => {

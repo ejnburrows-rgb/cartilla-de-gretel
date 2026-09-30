@@ -3,10 +3,11 @@ import { useEffect, useMemo, useRef, useState } from "react";
 import { Volume2, VolumeX, RotateCcw, SkipForward } from "lucide-react";
 import { cancelGretelSpeech, isGretelVoiceMuted, setGretelVoiceMuted, speakAsGretel } from "@/lib/gretel-voice";
 import type { GretelCinematic as GretelCinematicSpec } from "@/content/gretel-cinematics";
+import { GRETEL_APPROVED_MASTER_SRC } from "@/lib/gretel-master";
 import { GretelSceneMedia } from "./GretelSceneMedia";
 
 /** Canonical full-body portrait of the authentic Gretel (EJN-confirmed reference). */
-export const GRETEL_AUTHENTIC_PORTRAIT_SRC = "/cartilla/images/gretel/gretel-autentica.png";
+export const GRETEL_AUTHENTIC_PORTRAIT_SRC = GRETEL_APPROVED_MASTER_SRC;
 
 export function GretelCinematic({
   cinematic,

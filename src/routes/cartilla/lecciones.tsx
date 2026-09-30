@@ -1,3 +1,4 @@
+import { GRETEL_APPROVED_MASTER_SRC } from "@/lib/gretel-master";
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { useEffect, useState } from "react";
 import { useServerFn } from "@/lib/useServerFn";
@@ -48,7 +49,7 @@ function GretelBienvenida() {
   return (
     <figure className="mx-auto mt-6 max-w-[300px]">
       <img
-        src="/cartilla/images/gretel/gretel-autentica.jpg"
+        src={GRETEL_APPROVED_MASTER_SRC}
         alt="Gretel, la niña de la cartilla"
         className="w-full rounded-3xl border-4 border-white shadow-[0_10px_30px_rgba(120,72,20,0.25)]"
         draggable={false}

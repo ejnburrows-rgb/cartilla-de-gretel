@@ -376,7 +376,7 @@ async function prepareFlipchartDelivery(_checkOnly) {
   return { pages: assets.length, errors, assets };
 }
 
-async function prepareFlipchartNativeCrops(checkOnly) {
+export async function prepareFlipchartNativeCrops(checkOnly) {
   const mapping = readJson(flipchartNativeAssetsPath);
   const frames = readJson(flipchartFramesPath);
   const generated = [];
@@ -405,6 +405,20 @@ async function prepareFlipchartNativeCrops(checkOnly) {
     const sy = sourceHeight / Number(frame.height);
 
     for (const asset of assets) {
+      // Owner-selected final files are immutable inputs, never regenerated
+      // from an older PDF crop when development starts.
+      if (String(asset.src).startsWith("/cartilla/art/optimized/flipchart-native/")) {
+        const out = path.join(publicDir, String(asset.src).replace(/^\//, ""));
+        if (!fs.existsSync(out)) {
+          errors.push("missing approved production asset " + asset.src);
+          continue;
+        }
+        const metadata = await sharp(out).metadata();
+        generated.push({ page: pageNumber, word: asset.word, src: asset.src,
+          width: metadata.width, height: metadata.height,
+          bytes: fs.statSync(out).size, approvedInput: true });
+        continue;
+      }
       const [x, y, w, h] = asset.crop.map(Number);
       const left = Math.max(0, Math.min(sourceWidth - 1, Math.round(x * sx)));
       const top = Math.max(0, Math.min(sourceHeight - 1, Math.round(y * sy)));

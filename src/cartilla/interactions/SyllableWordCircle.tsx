@@ -41,6 +41,7 @@ export function SyllableWordCircle({ region, lessonId }: { region: PageRegion; l
     try { localStorage.setItem(key, JSON.stringify([...next])); } catch { /* storage can be disabled */ }
 
     if (adding) gretelEvent("answer:correct");
+    else gretelEvent("activity:retry");
     if (adding && correctCount > 0 && next.size === correctCount) {
       gretelEvent("activity:complete");
       if (lessonId) {

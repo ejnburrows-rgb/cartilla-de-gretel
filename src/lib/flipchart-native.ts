@@ -6,8 +6,10 @@ import frames from "@/data/flipchart-frames.json";
 import faithfulManifest from "@/data/faithful-art-manifest.json";
 import nativeExtras from "@/data/flipchart-native-assets.json";
 import optimizedExclusive from "@/data/optimized-flipchart-exclusive.json";
+import productionArt from "@/data/flipchart-production-art.json";
 
 export type FlipchartTextItem = {
+  segments?: Array<{ text: string; color: string }>;
   x: number;
   y: number;
   width: number;
@@ -60,6 +62,7 @@ export type NativeFlipchartPage = {
   artRegion: { top: number; bottom: number; left: number; right: number };
   slots: string[];
   art: Array<{ src: string; word: string; labelInImage?: boolean }>;
+  scene?: { src: string; word: string };
   compositionKind: "art" | "typography-only" | "frontmatter";
   /** Exact-replica layout type (book §2) — drives the page renderer. */
   layoutType: FlipchartLayoutType;
@@ -105,16 +108,10 @@ type OptimizedExclusiveEntry = {
 };
 
 const OPTIMIZED_EXCLUSIVE = optimizedExclusive as OptimizedExclusiveEntry[];
-
-/**
- * Images with the word label baked into the image file itself (bottom strip).
- * Rendering a figcaption label under these would double the label, so the
- * renderer skips the caption for these assets. Images are locked — this flag
- * is the code-side fix, not an image edit.
- */
-// Crops whose printed word is inside the image. Empty since the page-21 crops
-// were re-cut above their labels; kept so a future baked crop is never double-labelled.
-const BAKED_LABEL_SRCS = new Set<string>([]);
+const PRODUCTION_ART = productionArt as Record<string, {
+  scene?: { src: string; word: string };
+  vocab: Array<{ src: string; word: string; labelInImage?: boolean }>;
+}>;
 
 function normalizeWord(value: string) {
   return value
@@ -134,6 +131,16 @@ function pageArt(
   words: FlipchartWordGroup[],
   body: FlipchartTextItem[],
 ) {
+  const production = PRODUCTION_ART[String(flipchartPage)];
+  if (production) return production.vocab.map((asset) => {
+    // Archive filenames omit accents/case. Captions retain the transcribed book.
+    const labelKey = (value: string) => value.normalize("NFD").replace(/[\u0300-\u036f]/g, "").toLowerCase().replace(/[^a-z0-9]/g, "");
+    const labels = new Set([
+      ...words.map((word) => word.parts.join("")),
+      ...(digitalPages[String(flipchartPage)] ?? []).map((item) => item.text),
+    ].filter((text) => labelKey(text) === labelKey(asset.word)));
+    return { ...asset, word: labels.size === 1 ? [...labels][0]! : asset.word };
+  });
   const tokens = new Set<string>();
   for (const word of words) {
     const joined = word.parts.join("");
@@ -146,45 +153,33 @@ function pageArt(
     }
   }
 
-  const layoutType = classifyLayoutType(flipchartPage);
-  // Syllable-drill plates print no pictures in the book: never borrow art.
-  if (layoutType === "syllable-drill" || layoutType === "frontmatter") return [];
+  const textMatches = FAITHFUL.filter((entry) => {
+    const word = normalizeWord(entry.word ?? entry.slug ?? "");
+    return word && tokens.has(word);
+  });
 
-  // Art may only come from THIS page of the Flip Chart: its own crops first
-  // (scene + vocabulary plate), then faithful crops of the same lesson whose
-  // word is printed on this page. Never another lesson's or page's picture.
   const unique = new Map<string, { src: string; word: string; labelInImage?: boolean }>();
+  for (const entry of OPTIMIZED_EXCLUSIVE) {
+    if (entry.flipchartPage !== flipchartPage || !entry.src || unique.has(entry.src)) continue;
+    unique.set(entry.src, {
+      src: entry.src,
+      word: entry.word,
+    });
+  }
   for (const entry of NATIVE_EXTRAS[String(flipchartPage)] ?? []) {
     if (!entry.src || unique.has(entry.src)) continue;
     unique.set(entry.src, {
       src: entry.src,
       word: entry.word,
-      ...(BAKED_LABEL_SRCS.has(entry.src) ? { labelInImage: true as const } : {}),
     });
   }
-  const pairedWords = new Set([...unique.values()].map((entry) => normalizeWord(entry.word)));
-  const sameSource = (entry: FaithfulManifestEntry) =>
-    layoutType === "vowel-header"
-      ? entry.src.includes("/faithful/vocal-")
-      : entry.lessonNumber === lesson;
-  // Reading/story plates show only their own scene (crop above); the words
-  // of their verse are not separate pictures in the book.
-  // When this plate has its own vocabulary crops (every vowel and consonant
-  // vocabulary plate does), they are complete and in printed reading order.
-  const hasOwnVocab = [...unique.values()].some((entry) => !entry.word.startsWith("Ilustración"));
-  if (!hasOwnVocab && (layoutType === "consonant-vocab" || layoutType === "vowel-header")) {
-    for (const entry of FAITHFUL) {
-      const word = normalizeWord(entry.word ?? entry.slug ?? "");
-      if (!entry.src || !word || !tokens.has(word) || !sameSource(entry)) continue;
-      if (unique.has(entry.src) || pairedWords.has(word)) continue;
-      pairedWords.add(word);
-      unique.set(entry.src, {
-        src: entry.src,
-        word: entry.word ?? entry.slug ?? "Ilustración",
-        ...(BAKED_LABEL_SRCS.has(entry.src) ? { labelInImage: true as const } : {}),
-      });
-      if (unique.size >= 8) break;
-    }
+  for (const entry of textMatches) {
+    if (!entry.src || unique.has(entry.src)) continue;
+    unique.set(entry.src, {
+      src: entry.src,
+      word: entry.word ?? entry.slug ?? "Ilustración",
+    });
+    if (unique.size >= 8) break;
   }
   return [...unique.values()].slice(0, 8);
 }
@@ -199,7 +194,7 @@ function normalizedLetterPair(text: string) {
   return first === second && chars[0] !== chars[1];
 }
 
-function classify(items: FlipchartTextItem[]) {
+function classify(items: FlipchartTextItem[], pageNumber: number) {
   const real = items.filter((item) => item.text.trim().length > 0);
   if (!real.length) {
     return {
@@ -266,8 +261,10 @@ function classify(items: FlipchartTextItem[]) {
   // a separate suppression: sheets 3-8 have italic titles but are vocabulary
   // pages, and suppressing their word grouping left fragments stacked as plain
   // body text.
+  const readingLayout = ["story-letter", "reading-panel"].includes(classifyLayoutType(pageNumber));
   const lower = rest.filter(
     (item) =>
+      !readingLayout &&
       item.y >= 340 &&
       item.fontSize >= 30 &&
       !/\s/.test(item.text.trim()),
@@ -391,9 +388,22 @@ function classify(items: FlipchartTextItem[]) {
     }
   }
 
+  let readingBody = [...body, ...narrativeLines].sort((a, b) => a.y - b.y || a.x - b.x);
+  if (readingLayout) {
+    const lines: FlipchartTextItem[][] = [];
+    for (const item of readingBody) {
+      const line = lines.find((row) => Math.abs(row[0]!.y - item.y) < 9);
+      if (line) line.push(item); else lines.push([item]);
+    }
+    readingBody = lines.map((row) => {
+      row.sort((a, b) => a.x - b.x);
+      return { ...row[0]!, text: row.map((item) => item.text).join(" "),
+        ...(row.length > 1 ? { segments: row.map((item) => ({ text: item.text, color: item.color })) } : {}) };
+    });
+  }
   return {
     title,
-    body: [...body, ...narrativeLines].sort((a, b) => a.y - b.y || a.x - b.x),
+    body: readingBody,
     words,
     syllables: syllables
       .sort((a, b) => a.y - b.y || a.x - b.x)
@@ -430,9 +440,10 @@ export function getNativeFlipchartPage(pageNumber: number): NativeFlipchartPage 
   const meta = PAGE_META.find((page) => page.flipchartPage === pageNumber);
   if (!meta) return null;
   const items = digitalPages[String(pageNumber)] ?? [];
-  const { title, body, words, syllables } = classify(items);
+  const { title, body, words, syllables } = classify(items, pageNumber);
   const hasDigitalText = items.some((item) => item.text.trim().length > 0);
   const art = pageArt(pageNumber, meta.lesson, words, body);
+  const scene = PRODUCTION_ART[String(pageNumber)]?.scene;
   return {
     flipchartPage: pageNumber,
     lesson: meta.lesson,
@@ -443,8 +454,9 @@ export function getNativeFlipchartPage(pageNumber: number): NativeFlipchartPage 
     artRegion: deriveArtRegion(pageNumber, body, words, hasDigitalText),
     slots: flipchartArtSlots(pageNumber, meta.lesson, words.length),
     art,
+    scene,
     compositionKind:
-      pageNumber <= 2 ? "frontmatter" : art.length > 0 ? "art" : "typography-only",
+      pageNumber <= 2 ? "frontmatter" : art.length > 0 || scene ? "art" : "typography-only",
     layoutType: classifyLayoutType(pageNumber),
     hasDigitalText,
   };

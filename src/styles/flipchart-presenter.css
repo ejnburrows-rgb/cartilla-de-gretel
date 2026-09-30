@@ -1397,3 +1397,84 @@
   color: #1a1a1a;
   line-height: 1.5;
 }
+
+/* Classroom finish: preserve the book's zones and let the artwork fill them. */
+.fc-presenter.is-bare { background: #f2f4f3; }
+.fc-presenter.is-bare .fc-presenter__main { padding: 12px; }
+.fc-presenter.is-bare .fc-board__easel { box-shadow: 0 8px 32px #17313b12; border-radius: 12px; }
+.fc-presenter.is-bare .fc-board__page { background: white; padding: 0; }
+.fc-presenter.is-bare .fc-board__page-inner { border-radius: 0; box-shadow: none; }
+.fc-presenter.is-bare .fc-board { gap: 8px; }
+.fc-presenter.is-bare .fc-board__controls { flex: 0 0 48px; padding: 0; max-width: 900px; width: 100%; margin: auto; }
+.fc-native-board { container-type: size; font-family: "Nunito", system-ui, sans-serif; }
+.fc-native-board__page { width: min(100%, 110cqh); margin: auto; padding: 2cqh 3cqh 3cqh; }
+.fc-native-board__header-zone { flex: 0 0 34%; max-height: none; overflow: visible; padding: 0; }
+.fc-native-board__body-zone { padding: 2cqh 0 2.5cqh; overflow: visible; gap: 1.5cqh; }
+.fc-consonant-vocab__scene, .fc-vowel-header__scene { height: 100%; overflow: visible; }
+.fc-layout-consonant-vocab { grid-template-columns: 1.3fr 0.8fr 0.9fr; }
+.fc-letter-oval { width: 100%; max-width: 21cqh; aspect-ratio: .9; background: radial-gradient(ellipse, #fff 20%, #f1ecf6 68%, #fff 73%); border: 0; box-shadow: none; }
+.fc-letter-oval span { font-size: clamp(30px, 9cqh, 100px); font-weight: 800; }
+.fc-crescent { position: relative; width: 100%; max-width: 23cqh; height: 100%; min-height: 0; border-radius: 0; background: transparent; box-shadow: none; padding: 2cqh 0 2cqh 30%; gap: 0; justify-content: space-evenly; }
+.fc-crescent__shape { position: absolute; inset: 0; width: 100%; height: 100%; fill: var(--crescent-color); filter: drop-shadow(0 2px 3px #33261615); }
+.fc-crescent__syllable { position: relative; font-size: clamp(18px, 4.4cqh, 50px); font-weight: 650; line-height: 1.1; }
+.fc-native-board__art-grid { flex: 1; height: 100%; min-height: 0; grid-template-rows: repeat(2, minmax(0, 1fr)); gap: 2cqh 3cqh; align-items: stretch; }
+.fc-native-board__art-card { height: 100%; width: 100%; overflow: visible; gap: .7cqh; }
+.fc-native-board__art-card .fc-native-board__living-art { flex: 1; height: 100%; aspect-ratio: auto; max-height: none; overflow: visible; }
+.fc-native-board__living-art .living-illustration__art { object-fit: contain; mix-blend-mode: multiply; }
+.fc-native-board__art-label { flex: 0 0 auto; font-family: "Nunito", system-ui, sans-serif; font-size: clamp(18px, 4cqh, 44px); font-weight: 650; line-height: 1.15; text-transform: none; }
+.fc-reading-panel__scene, .fc-story-letter__scene { height: 100%; }
+.fc-reading-panel__scene .fc-native-board__living-art, .fc-story-letter__scene .fc-native-board__living-art { height: 100%; aspect-ratio: auto; max-height: none; }
+.fc-reading-panel__scene img, .fc-story-letter__scene img { max-width: 100%; }
+.fc-reading-panel, .fc-story-panel { background-image: linear-gradient(135deg, #ffffff45, transparent); box-shadow: 0 2px 8px #3326160c; }
+.fc-reading-panel__verse, .fc-story-panel__verse, .fc-story-fullwidth__para { font-size: clamp(18px, 3.7cqh, 38px); line-height: 1.35; margin: .6cqh 0; }
+.fc-reading-panel__title, .fc-story-panel__title, .fc-story-fullwidth__title { font-size: clamp(22px, 4.6cqh, 48px); }
+.fc-native-board__word { font-family: "Nunito", system-ui, sans-serif; border: 0; box-shadow: none; border-radius: 0; font-size: clamp(18px, 3.4cqh, 36px); padding: .6cqh; font-weight: 650; }
+.fc-native-board__word-lead { font-size: 1em; }
+.fc-syllable-row__item { font-size: clamp(20px, 4.5cqh, 44px); }
+.fc-reading-bar__line { font-size: clamp(18px, 3.4cqh, 34px); }
+.fc-native-board__words { grid-template-columns: repeat(3, minmax(0, 1fr)); gap: .5cqh 2cqh; }
+@media (max-width: 560px) {
+  .fc-presenter.is-bare .fc-presenter__main { padding: 6px; }
+  .fc-native-board__page { padding: 1.5cqh 2cqw 3cqh; }
+  .fc-native-board__header-zone { flex-basis: 27%; }
+  .fc-native-board__art-label { font-size: clamp(15px, 4.2cqw, 22px); }
+  .fc-letter-oval span { font-size: 10cqw; }
+  .fc-crescent__syllable { font-size: 5cqw; }
+}
+.fc-crescent { padding: 1cqh 2cqh 1cqh 9cqh; }
+/* Dense reading plates use the book's compact heading and three word columns. */
+.fc-native-board[data-layout-type="syllable-drill"] .fc-native-board__header-zone { flex-basis: 22%; }
+.fc-native-board[data-layout-type="syllable-drill"] .fc-native-board__page { width: min(100%, 130cqh); }
+.fc-native-board[data-layout-type="syllable-drill"] .fc-native-board__word { font-size: clamp(18px, 3cqh, 30px); padding: .25cqh; }
+.fc-reading-bar { padding: 1.5cqh 2cqh; }
+.fc-reading-bar__line { font-size: clamp(18px, 3cqh, 30px); line-height: 1.25; margin: .4cqh 0; }
+/* Display-only masks remove stray neighbouring printed labels from approved
+   archive cutouts. The authoritative image files remain byte-for-byte intact. */
+.fc-native-board img[src$="p003-avion.png"],
+.fc-native-board img[src$="p003-escoba.png"],
+.fc-native-board img[src$="p003-iman.png"] { clip-path: inset(27% 0 0); }
+.fc-native-board img[src$="p003-olla.png"],
+.fc-native-board img[src$="p003-una.png"] { clip-path: inset(30% 0 20%); }
+.fc-native-board img[src$="p009-mama.png"] { clip-path: inset(0 0 10%); }
+.fc-native-board img[src$="p012-papa.png"],
+.fc-native-board img[src$="p012-pepe.png"],
+.fc-native-board img[src$="p030-nuno.png"] { clip-path: inset(0 0 7%); }
+.fc-native-board[data-layout-type="vowel-header"] .fc-native-board__header-zone { flex-basis: 43%; }
+.fc-vowel-header__panel { padding: 1.4cqh 2cqh; }
+.fc-vowel-header__title { font-size: clamp(18px, 3.6cqh, 36px); line-height: 1.15; margin: 0 0 1cqh; }
+.fc-vowel-header__verse { font-size: clamp(16px, 2.8cqh, 28px); line-height: 1.15; margin: .35cqh 0; }
+.fc-vocab-vowel { flex: 0 0 auto; border-radius: 50%; width: 4cqh; height: 4cqh; display: grid; place-items: center; font-size: 3cqh; color: #bb0733; }
+.fc-layout-vowel-header { grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); }
+.fc-vowel-header__scene, .fc-vowel-header__panel { min-width: 0; max-width: 100%; }
+.fc-vowel-header__scene .fc-native-board__living-art { width: 100%; height: 100%; aspect-ratio: auto; }
+.fc-vowel-header__scene img { width: 100%; height: 100%; object-fit: contain; }
+.fc-vowel-header__title { font-family: "Nunito", system-ui, sans-serif; font-size: clamp(18px, 3.6cqmin, 36px); }
+.fc-vowel-header__verse { font-size: clamp(16px, 2.8cqmin, 28px); }
+.fc-story-panel__verse { font-size: clamp(18px, 3.1cqmin, 32px); }
+.fc-native-board img[src$="p021-dados.webp"] { clip-path: inset(0 0 19%); }
+.fc-native-board img[src$="p021-dedo.webp"] { clip-path: inset(0 0 11%); }
+.fc-native-board img[src$="p021-dunia.webp"] { clip-path: inset(0 0 9%); }
+/* The caramelos plate gives its tall narrative illustration the source book's
+   larger upper zone, instead of squeezing it into a vocabulary-sized header. */
+.fc-native-board[data-flipchart-page="56"] .fc-native-board__header-zone { flex-basis: 55%; }
+.fc-native-board[data-flipchart-page="56"] .fc-native-board__page { width: min(100%, 130cqh); }

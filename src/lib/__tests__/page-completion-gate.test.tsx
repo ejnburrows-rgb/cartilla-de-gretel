@@ -159,4 +159,16 @@ describe("real workbook activities feed the gate through their own events", () =
     fireEvent.click(next());
     expect(current()).toBe(25);
   });
+  it("requires the new freehand writing controls and relocks after clearing work", () => {
+    expect(requiredActivitiesForPage(47).filter((a) => a.kind === "writing-line")).toHaveLength(4);
+    render(<NativeLessonViewer pages={PAGES} chapterLabel="P" />);
+    completePage(23);
+    expect(next().getAttribute("data-locked")).toBeNull();
+    const activity = requiredActivitiesForPage(23)[0]!;
+    act(() => gretelEvent("activity:retry", { activityId: activity.id }));
+    fireEvent.click(next());
+    expect(current()).toBe(23);
+    expect(next().getAttribute("data-locked")).toBe("true");
+  });
+
 });
