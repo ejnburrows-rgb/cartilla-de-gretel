@@ -7,6 +7,7 @@ import { getPageLayout, hasPageLayout } from "@/lib/book-faithful";
 import { buildGretelPageLine } from "@/lib/gretel-page-guide";
 import { FaithfulPageRenderer } from "@/components/cartilla/FaithfulPageRenderer";
 import { PdfPage } from "@/components/cartilla/PdfPage";
+import { pageRequiresActivity } from "@/lib/page-activity-gate";
 
 const BASE = "/cartilla/images/source";
 
@@ -53,6 +54,7 @@ export function buildPageArray(lessonId: number): WorkbookPageEntry[] {
         src,
         pageNumber: pageNumberForGuide,
         gretelLine,
+        requiresActivity: pageRequiresActivity(globalPage),
         content: <FaithfulPageRenderer pageNumber={globalPage} lessonNumber={lessonId} interactive native />,
       };
     }

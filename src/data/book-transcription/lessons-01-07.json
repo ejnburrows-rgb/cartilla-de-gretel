@@ -1,0 +1,966 @@
+{
+  "_comment": "VERBATIM transcription of La Cartilla de Gretel student workbook, Lessons 1-7 (pages 1-22), read directly from the rescan PDF (Libro del alumno - Rescan and Optimize (2).pdf) on 2026-09-30. This file is the fidelity reference for src/data/page-layouts.json pages 1-22; the test src/lib/__tests__/book-fidelity-lessons-01-07.test.ts fails if the page data drifts from it. Edit ONLY by re-reading the scan. Picture identity was verified against the printed pages: the arch image is 'umbral', the uniform image is 'uniforme', the ring image is 'anillo', the airplane image is 'avión', the black bird is 'urraca'.",
+  "sourceScans": "Libro del alumno - Rescan and Optimize (2).pdf (PDF pages 3-24 = printed pages 1-22)",
+  "lessons": {
+    "1": {
+      "lesson": 1,
+      "title": "Introducción de las vocales",
+      "pages": {
+        "sameSound": 1,
+        "vowelPick": 2,
+        "vowelMatch": 3
+      },
+      "sameSoundInstruction": "Circula los dibujos de las palabras en cada línea horizontal que comienzan con el mismo sonido.",
+      "sameSoundRows": [
+        [
+          {
+            "word": "abrigo",
+            "correct": true
+          },
+          {
+            "word": "imán",
+            "correct": false
+          },
+          {
+            "word": "abanico",
+            "correct": true
+          },
+          {
+            "word": "oso",
+            "correct": false
+          }
+        ],
+        [
+          {
+            "word": "isla",
+            "correct": true
+          },
+          {
+            "word": "avión",
+            "correct": true
+          },
+          {
+            "word": "imán",
+            "correct": true
+          },
+          {
+            "word": "anillo",
+            "correct": true
+          }
+        ],
+        [
+          {
+            "word": "escalera",
+            "correct": true
+          },
+          {
+            "word": "uno",
+            "correct": false
+          },
+          {
+            "word": "escuela",
+            "correct": true
+          },
+          {
+            "word": "oreja",
+            "correct": false
+          }
+        ],
+        [
+          {
+            "word": "uniforme",
+            "correct": true
+          },
+          {
+            "word": "umbral",
+            "correct": true
+          },
+          {
+            "word": "oveja",
+            "correct": false
+          },
+          {
+            "word": "elefante",
+            "correct": false
+          }
+        ],
+        [
+          {
+            "word": "ojos",
+            "correct": true
+          },
+          {
+            "word": "maíz",
+            "correct": false
+          },
+          {
+            "word": "abeja",
+            "correct": false
+          },
+          {
+            "word": "olla",
+            "correct": true
+          }
+        ]
+      ],
+      "vowelPickInstruction": "Circula el dibujo que comienza con la vocal del recuadro.",
+      "vowelPickRows": [
+        {
+          "letter": "a",
+          "words": [
+            "anillo",
+            "manzana",
+            "libro"
+          ],
+          "answer": "anillo"
+        },
+        {
+          "letter": "e",
+          "words": [
+            "casa",
+            "árbol",
+            "estrella"
+          ],
+          "answer": "estrella"
+        },
+        {
+          "letter": "i",
+          "words": [
+            "taza",
+            "indio",
+            "pera"
+          ],
+          "answer": "indio"
+        },
+        {
+          "letter": "o",
+          "words": [
+            "pájaro",
+            "oso",
+            "carro"
+          ],
+          "answer": "oso"
+        },
+        {
+          "letter": "u",
+          "words": [
+            "uniforme",
+            "globo",
+            "dulce"
+          ],
+          "answer": "uniforme"
+        }
+      ],
+      "vowelMatchInstruction": "Traza una línea de la vocal al dibujo que le corresponde.",
+      "vowelMatchPairs": [
+        {
+          "letter": "o",
+          "word": "ocho"
+        },
+        {
+          "letter": "a",
+          "word": "araña"
+        },
+        {
+          "letter": "i",
+          "word": "iglesia"
+        },
+        {
+          "letter": "e",
+          "word": "escoba"
+        },
+        {
+          "letter": "u",
+          "word": "uno"
+        }
+      ]
+    },
+    "2": {
+      "lesson": 2,
+      "vowel": "o",
+      "title": "Vocal O o",
+      "pages": {
+        "mark": 4,
+        "line": 5,
+        "write": 6
+      },
+      "markInstruction": "Marca con una x los dibujos que comienzan con O o.",
+      "markCells": [
+        {
+          "word": "ola",
+          "correct": true
+        },
+        {
+          "word": "iglú",
+          "correct": false
+        },
+        {
+          "word": "oso",
+          "correct": true
+        },
+        {
+          "word": "maíz",
+          "correct": false
+        },
+        {
+          "word": "umbral",
+          "correct": false
+        },
+        {
+          "word": "oveja",
+          "correct": true
+        },
+        {
+          "word": "alas",
+          "correct": false
+        },
+        {
+          "word": "oreja",
+          "correct": true
+        },
+        {
+          "word": "olla",
+          "correct": true
+        },
+        {
+          "word": "uvas",
+          "correct": false
+        },
+        {
+          "word": "ocho",
+          "correct": true
+        },
+        {
+          "word": "uno",
+          "correct": false
+        },
+        {
+          "word": "araña",
+          "correct": false
+        },
+        {
+          "word": "oso",
+          "correct": true
+        },
+        {
+          "word": "uniforme",
+          "correct": false
+        },
+        {
+          "word": "ojos",
+          "correct": true
+        }
+      ],
+      "lineInstruction": "Traza una línea desde la vocal Oo hasta el dibujo de la palabra que comienza con Oo.",
+      "linePair": "Oo",
+      "lineExample": "ola",
+      "lineCells": [
+        {
+          "word": "iglú",
+          "correct": false
+        },
+        {
+          "word": "oveja",
+          "correct": true
+        },
+        {
+          "word": "ojos",
+          "correct": true
+        },
+        {
+          "word": "oreja",
+          "correct": true
+        },
+        {
+          "word": "olla",
+          "correct": true
+        },
+        {
+          "word": "ola",
+          "correct": true
+        },
+        {
+          "word": "oso",
+          "correct": true
+        },
+        {
+          "word": "alas",
+          "correct": false
+        }
+      ],
+      "writeInstruction": "Escribe con tu mejor letra.",
+      "models": [
+        "O",
+        "o"
+      ],
+      "drawInstruction": "Haz un dibujo que represente una palabra que comienza con o."
+    },
+    "3": {
+      "lesson": 3,
+      "vowel": "a",
+      "title": "Vocal A a",
+      "pages": {
+        "mark": 7,
+        "line": 8,
+        "write": 9
+      },
+      "markInstruction": "Marca con una x los dibujos de las palabras que comienzan con A a.",
+      "markCells": [
+        {
+          "word": "abanico",
+          "correct": true
+        },
+        {
+          "word": "oruga",
+          "correct": false
+        },
+        {
+          "word": "anillo",
+          "correct": true
+        },
+        {
+          "word": "imán",
+          "correct": false
+        },
+        {
+          "word": "oveja",
+          "correct": false
+        },
+        {
+          "word": "abeja",
+          "correct": true
+        },
+        {
+          "word": "árbol",
+          "correct": true
+        },
+        {
+          "word": "elefante",
+          "correct": false
+        },
+        {
+          "word": "uno",
+          "correct": false
+        },
+        {
+          "word": "alas",
+          "correct": true
+        },
+        {
+          "word": "estrella",
+          "correct": false
+        },
+        {
+          "word": "ardilla",
+          "correct": true
+        },
+        {
+          "word": "ojos",
+          "correct": false
+        },
+        {
+          "word": "avión",
+          "correct": true
+        },
+        {
+          "word": "aguja",
+          "correct": true
+        },
+        {
+          "word": "oso",
+          "correct": false
+        }
+      ],
+      "lineInstruction": "Traza una línea desde la vocal Aa hasta el dibujo de la palabra que comienza con Aa.",
+      "linePair": "Aa",
+      "lineExample": "abeja",
+      "lineCells": [
+        {
+          "word": "oso",
+          "correct": false
+        },
+        {
+          "word": "iglú",
+          "correct": false
+        },
+        {
+          "word": "alas",
+          "correct": true
+        },
+        {
+          "word": "abeja",
+          "correct": true
+        },
+        {
+          "word": "aguja",
+          "correct": true
+        },
+        {
+          "word": "maíz",
+          "correct": false
+        },
+        {
+          "word": "avión",
+          "correct": true
+        },
+        {
+          "word": "anillo",
+          "correct": true
+        }
+      ],
+      "writeInstruction": "Escribe con tu mejor letra.",
+      "models": [
+        "A",
+        "a"
+      ],
+      "drawInstruction": "Haz un dibujo que represente una palabra que comienza con a."
+    },
+    "4": {
+      "lesson": 4,
+      "vowel": "e",
+      "title": "Vocal E e",
+      "pages": {
+        "mark": 10,
+        "line": 11,
+        "write": 12
+      },
+      "markInstruction": "Marca con una x los dibujos de las palabras que comienzan con E e.",
+      "markCells": [
+        {
+          "word": "elefante",
+          "correct": true
+        },
+        {
+          "word": "iglú",
+          "correct": false
+        },
+        {
+          "word": "maíz",
+          "correct": false
+        },
+        {
+          "word": "indio",
+          "correct": false
+        },
+        {
+          "word": "escalera",
+          "correct": true
+        },
+        {
+          "word": "erizo",
+          "correct": true
+        },
+        {
+          "word": "abeja",
+          "correct": false
+        },
+        {
+          "word": "aguja",
+          "correct": false
+        },
+        {
+          "word": "escoba",
+          "correct": true
+        },
+        {
+          "word": "unicornio",
+          "correct": false
+        },
+        {
+          "word": "estrella",
+          "correct": true
+        },
+        {
+          "word": "águila",
+          "correct": false
+        },
+        {
+          "word": "escuela",
+          "correct": true
+        },
+        {
+          "word": "uniforme",
+          "correct": false
+        },
+        {
+          "word": "espejo",
+          "correct": true
+        },
+        {
+          "word": "uno",
+          "correct": false
+        }
+      ],
+      "lineInstruction": "Traza una línea desde la vocal Ee hasta el dibujo de la palabra que comienza con Ee.",
+      "linePair": "Ee",
+      "lineExample": "escalera",
+      "lineCells": [
+        {
+          "word": "oso",
+          "correct": false
+        },
+        {
+          "word": "elefante",
+          "correct": true
+        },
+        {
+          "word": "abeja",
+          "correct": false
+        },
+        {
+          "word": "erizo",
+          "correct": true
+        },
+        {
+          "word": "maíz",
+          "correct": false
+        },
+        {
+          "word": "escalera",
+          "correct": true
+        },
+        {
+          "word": "estrella",
+          "correct": true
+        },
+        {
+          "word": "abrigo",
+          "correct": false
+        }
+      ],
+      "writeInstruction": "Escribe con tu mejor letra.",
+      "models": [
+        "E",
+        "e"
+      ],
+      "drawInstruction": "Haz un dibujo que represente una palabra que comienza con e."
+    },
+    "5": {
+      "lesson": 5,
+      "vowel": "i",
+      "title": "Vocal I i",
+      "pages": {
+        "mark": 13,
+        "line": 14,
+        "write": 15
+      },
+      "markInstruction": "Marca con una x los dibujos de las palabras que comienzan con I i.",
+      "markCells": [
+        {
+          "word": "iglú",
+          "correct": true
+        },
+        {
+          "word": "avión",
+          "correct": false
+        },
+        {
+          "word": "iguana",
+          "correct": true
+        },
+        {
+          "word": "abanico",
+          "correct": false
+        },
+        {
+          "word": "oso",
+          "correct": false
+        },
+        {
+          "word": "indio",
+          "correct": true
+        },
+        {
+          "word": "alas",
+          "correct": false
+        },
+        {
+          "word": "invierno",
+          "correct": true
+        },
+        {
+          "word": "ola",
+          "correct": false
+        },
+        {
+          "word": "imán",
+          "correct": true
+        },
+        {
+          "word": "uno",
+          "correct": false
+        },
+        {
+          "word": "isla",
+          "correct": true
+        },
+        {
+          "word": "umbral",
+          "correct": false
+        },
+        {
+          "word": "igual",
+          "correct": true
+        },
+        {
+          "word": "insecto",
+          "correct": true
+        },
+        {
+          "word": "olla",
+          "correct": false
+        }
+      ],
+      "lineInstruction": "Traza una línea desde la vocal Ii hasta el dibujo de la palabra que comienza con Ii.",
+      "linePair": "Ii",
+      "lineExample": "iguana",
+      "lineCells": [
+        {
+          "word": "imán",
+          "correct": true
+        },
+        {
+          "word": "oso",
+          "correct": false
+        },
+        {
+          "word": "iglú",
+          "correct": true
+        },
+        {
+          "word": "igual",
+          "correct": true
+        },
+        {
+          "word": "indio",
+          "correct": true
+        },
+        {
+          "word": "umbral",
+          "correct": false
+        },
+        {
+          "word": "iguana",
+          "correct": true
+        },
+        {
+          "word": "abeja",
+          "correct": false
+        }
+      ],
+      "writeInstruction": "Escribe con tu mejor letra.",
+      "models": [
+        "I",
+        "i"
+      ],
+      "drawInstruction": "Haz un dibujo que represente una palabra que comienza con i."
+    },
+    "6": {
+      "lesson": 6,
+      "vowel": "u",
+      "title": "Vocal U u",
+      "pages": {
+        "mark": 16,
+        "line": 17,
+        "write": 18
+      },
+      "markInstruction": "Marca con una x los dibujos de las palabras que comienzan con U u.",
+      "markCells": [
+        {
+          "word": "unicornio",
+          "correct": true
+        },
+        {
+          "word": "oveja",
+          "correct": false
+        },
+        {
+          "word": "avión",
+          "correct": false
+        },
+        {
+          "word": "umbral",
+          "correct": true
+        },
+        {
+          "word": "uvas",
+          "correct": true
+        },
+        {
+          "word": "estrella",
+          "correct": false
+        },
+        {
+          "word": "uniforme",
+          "correct": true
+        },
+        {
+          "word": "elefante",
+          "correct": false
+        },
+        {
+          "word": "árbol",
+          "correct": false
+        },
+        {
+          "word": "uno",
+          "correct": true
+        },
+        {
+          "word": "oso",
+          "correct": false
+        },
+        {
+          "word": "urraca",
+          "correct": true
+        },
+        {
+          "word": "abeja",
+          "correct": false
+        },
+        {
+          "word": "uniforme",
+          "correct": true
+        },
+        {
+          "word": "insecto",
+          "correct": false
+        },
+        {
+          "word": "uno",
+          "correct": true
+        }
+      ],
+      "lineInstruction": "Traza una línea desde la vocal Uu hasta el dibujo de la palabra que comienza con Uu.",
+      "linePair": "Uu",
+      "lineExample": "umbral",
+      "lineCells": [
+        {
+          "word": "uniforme",
+          "correct": false
+        },
+        {
+          "word": "uno",
+          "correct": true
+        },
+        {
+          "word": "oso",
+          "correct": false
+        },
+        {
+          "word": "uvas",
+          "correct": true
+        },
+        {
+          "word": "unicornio",
+          "correct": true
+        },
+        {
+          "word": "umbral",
+          "correct": true
+        },
+        {
+          "word": "estrella",
+          "correct": false
+        },
+        {
+          "word": "imán",
+          "correct": false
+        }
+      ],
+      "writeInstruction": "Escribe con tu mejor letra.",
+      "models": [
+        "U",
+        "u"
+      ],
+      "drawInstruction": "Haz un dibujo que represente una palabra que comienza con u."
+    },
+    "7": {
+      "lesson": 7,
+      "letter": "m",
+      "title": "Mm",
+      "pages": {
+        "write": 19,
+        "circle": 20,
+        "letter": 21,
+        "complete": 22
+      },
+      "models": [
+        "M",
+        "m"
+      ],
+      "drawInstruction": "Haz un dibujo que represente una palabra que comienza con m.",
+      "circle": [
+        {
+          "syllable": "ma",
+          "rows": [
+            [
+              "mami",
+              "ama",
+              "mamá"
+            ],
+            [
+              "mima",
+              "Coloma",
+              "Manolo"
+            ]
+          ]
+        },
+        {
+          "syllable": "me",
+          "rows": [
+            [
+              "media",
+              "Memo",
+              "melón"
+            ],
+            [
+              "mesa",
+              "meta",
+              "Meme"
+            ]
+          ]
+        },
+        {
+          "syllable": "mi",
+          "rows": [
+            [
+              "mío",
+              "amigo",
+              "mima"
+            ],
+            [
+              "mira",
+              "misa",
+              "Mimí"
+            ]
+          ]
+        },
+        {
+          "syllable": "mo",
+          "rows": [
+            [
+              "amo",
+              "Memo",
+              "mono"
+            ],
+            [
+              "como",
+              "moneda",
+              "moto"
+            ]
+          ]
+        },
+        {
+          "syllable": "mu",
+          "rows": [
+            [
+              "mulo",
+              "muleta",
+              "muro"
+            ],
+            [
+              "mudo",
+              "mujer",
+              "Mumi"
+            ]
+          ]
+        }
+      ],
+      "syllableBubbles": [
+        "ma  me  mi  mo  mu",
+        "mu  mo  ma  me  mi"
+      ],
+      "vocab": [
+        "mamá",
+        "mío",
+        "Meme",
+        "Mumi",
+        "amo",
+        "mami",
+        "me",
+        "ama",
+        "Memo",
+        "Mimí",
+        "Mimo",
+        "mímame",
+        "mía",
+        "mima",
+        "ámame"
+      ],
+      "sightWords": [
+        "y"
+      ],
+      "sentences": [
+        "Mi mamá me ama.",
+        "Amo a mami. Mamá mía.",
+        "Mamá ama a Meme y a Mimí.",
+        "Memo ama a Mumi.",
+        "Mamá mía ámame. Mímame a mí.",
+        "Mi mamá me mima."
+      ],
+      "fill": [
+        {
+          "wordBox": "amo",
+          "blank": "a ___",
+          "choices": [
+            "mo",
+            "mu"
+          ],
+          "answer": "mo",
+          "word": "amo"
+        },
+        {
+          "wordBox": "M",
+          "blank": "Me ___",
+          "choices": [
+            "mo",
+            "mu"
+          ],
+          "answer": "mo",
+          "word": "Memo"
+        },
+        {
+          "wordBox": "mamá",
+          "blank": "ma ___",
+          "choices": [
+            "mi",
+            "má"
+          ],
+          "answer": "má",
+          "word": "mamá"
+        },
+        {
+          "wordBox": "mima",
+          "blank": "mi ___",
+          "choices": [
+            "ma",
+            "mu"
+          ],
+          "answer": "ma",
+          "word": "mima"
+        },
+        {
+          "wordBox": "Mumi",
+          "blank": "___ mi",
+          "choices": [
+            "mi",
+            "Mu"
+          ],
+          "answer": "Mu",
+          "word": "Mumi"
+        },
+        {
+          "wordBox": "mío",
+          "blank": "___ o",
+          "choices": [
+            "mí",
+            "mo"
+          ],
+          "answer": "mí",
+          "word": "mío"
+        }
+      ]
+    }
+  }
+}

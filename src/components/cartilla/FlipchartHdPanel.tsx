@@ -5,7 +5,7 @@
  * page as faithfully as possible. Implementation details are subordinate to
  * source-page fidelity. Do not redesign, reflow, modernize, or re-compose the
  * book page. Existing approved/cropped artwork is placement-only and must not
- * be altered. See CARTILLA_SOURCE_OF_TRUTH.md.
+ * be altered. See PROJECT_SOURCE_OF_TRUTH.md.
  */
 import { useCallback, useEffect, useMemo, useRef, useState, type CSSProperties } from "react";
 import { ChevronDown, ChevronUp } from "lucide-react";

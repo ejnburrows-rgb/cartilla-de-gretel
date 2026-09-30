@@ -158,18 +158,28 @@ describe("FlipchartHdPanel bare chrome mode", () => {
     expect(screen.getByTestId("flipchart-counter")).toBeTruthy();
   });
 
-  it("skips figcaption for art with baked-in labels (no doubled word)", () => {
-    // Page 21 (Dd): dados/dedo/didi/dunia have the word baked into the image.
+  it("clips the defective baked label strip and shows the app caption (one complete word)", () => {
+    // Page 21 (Dd): the dados/dedo/dunia image files carry a word baked into
+    // the file's bottom edge, but cut mid-letter inside the file itself.
+    // Presentation hides that broken strip (bakedLabelTrimPct) and prints the
+    // complete word as the figcaption instead — exactly one word, complete.
     const page = FLIPCHART_PAGES.find((entry) => entry.flipchartPage === 21)!;
     const { container } = render(<FlipchartNativeBoard page={page} />);
     const grid = container.querySelector('[data-testid="flipchart-art-grid"]');
     expect(grid).toBeTruthy();
     const captions = [...grid!.querySelectorAll(".fc-native-board__art-label")];
     const captionTexts = captions.map((c) => c.textContent?.trim().toLowerCase());
-    // None of the baked-label words may have a duplicate figcaption.
-    for (const word of ["dados", "dedo", "didi", "dunia"]) {
-      expect(captionTexts, `duplicate label for "${word}"`).not.toContain(word);
+    for (const word of ["dados", "dedo", "dunia"]) {
+      expect(
+        captionTexts.filter((t) => t === word),
+        `expected exactly one complete caption for "${word}"`,
+      ).toHaveLength(1);
     }
+    // didi is the scene image (art[0]); image-only, never a captioned card.
+    expect(captionTexts).not.toContain("didi");
+    // The three defective assets carry the trim treatment.
+    const trimmed = grid!.querySelectorAll(".fc-native-board__art-card--trim-baked");
+    expect(trimmed).toHaveLength(3);
   });
 
   it("shell bare mode renders stage with no header", () => {

@@ -7,9 +7,7 @@ project manager — work out what needs doing and do it.
 
 ## CARTILLA DIGITAL DIRECTIVE — HIGHEST PRIORITY, NO EXCEPTIONS
 
-Before doing any work on the Cartilla Workbook or teacher Flip Chart, read
-`CARTILLA_DIGITAL_DIRECTIVE.md`. It is the canonical directive and overrides
-all prior layout/fidelity instructions.
+Before doing any work, read `PROJECT_SOURCE_OF_TRUTH.md`. For Workbook or teacher Flip Chart work, also read `CARTILLA_DIGITAL_DIRECTIVE.md`. For image or motion work, read `ASSET_FIDELITY_POLICY.md`.
 
 **In brief:** Every page must have the same layout STRUCTURE as the physical
 book (same elements, same arrangement, same order, same content) — but as a
@@ -55,6 +53,11 @@ placement, and page sequence. Modern digital presentation is welcome.
 
 ### Images are locked
 The approved/corrected/cropped book images are already the artwork.
+
+**Read `ASSET_FIDELITY_POLICY.md` before touching any image or animation.** It is
+the only active art rule (owner decision, 30 Sep 2026). It allows technical
+cleanup (background removal, transparency, resolution/format) and Google Flow
+motion from approved art — never redesign. Superseded image/Flow instructions have been removed from the active repository.
 
 DO NOT:
 - regenerate them;

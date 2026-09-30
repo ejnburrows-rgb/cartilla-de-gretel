@@ -22,10 +22,22 @@ function panelColorFor(pageNumber: number): string {
   return colors[pageNumber % colors.length]!;
 }
 
-/** Crescent colors per book §2 (purple, pink, blue, teal — varies by lesson) */
+/** Crescent colors sampled from the physical Flip Chart (source-specific, not cycled).
+ *  p15 (S): pink #e8b8e0 | p18 (T): purple #a880b0 | p21 (D): slate #707080
+ *  Other pages use harmonious book-palette colors keyed by page (deterministic). */
+const CRESCENT_COLORS: Record<number, string> = {
+  15: "#e8b8e0", // S — pink (sampled from book)
+  18: "#a880b0", // T — purple (sampled from book)
+  21: "#707080", // D — slate blue-gray (sampled from book)
+  24: "#90b8d8", // M — soft blue (book palette family)
+  56: "#d8a8b8", // L — dusty rose (book palette family)
+};
+
 function crescentColorFor(pageNumber: number): string {
-  const colors = ["#ddd6fe", "#fce7f3", "#dbeafe", "#ccfbf1", "#e9d5ff"];
-  return colors[Math.floor(pageNumber / 3) % colors.length]!;
+  if (CRESCENT_COLORS[pageNumber]) return CRESCENT_COLORS[pageNumber]!;
+  // Fallback: deterministic book-palette pick (no arbitrary cycling)
+  const palette = ["#e8b8e0", "#a880b0", "#707080", "#90b8d8", "#d8a8b8"];
+  return palette[pageNumber % palette.length]!;
 }
 
 type BoardProps = {
@@ -68,15 +80,20 @@ function VocabGrid({ native, isVowelPage, decorative }: Pick<BoardProps, "native
 /** Shared: art grid (images float on white, labels below) */
 function ArtGrid({ native, isVowelPage, decorative }: Pick<BoardProps, "native" | "isVowelPage" | "decorative">) {
   if (native.art.length === 0) return null;
-  // Baked-label guard: these image files have the word printed inside the image itself.
-  // Never render a figcaption for them (would duplicate the baked text as ghost).
-  const BAKED_LABEL_SLUGS = ["p021-dados", "p021-dedo", "p021-didi", "p021-dunia"];
   return (
     <div className="fc-native-board__art-grid" data-testid="flipchart-art-grid" data-art-count={native.art.length}>
       {native.art.map((asset, index) => {
-        const hasBakedLabel = asset.labelInImage || BAKED_LABEL_SLUGS.some((s) => asset.src.includes(s));
+        // Assets with a baked-in label strip have that strip clipped in
+        // presentation (see BAKED_LABEL_TRIM_PCT in flipchart-native.ts) and
+        // always show the app caption, so the word on the page is complete.
+        const trimPct = asset.bakedLabelTrimPct;
         return (
-        <figure key={asset.src} className="fc-native-board__art-card" data-art-index={index}>
+        <figure
+          key={asset.src}
+          className={`fc-native-board__art-card${trimPct != null ? " fc-native-board__art-card--trim-baked" : ""}`}
+          data-art-index={index}
+          style={trimPct != null ? ({ "--baked-trim": `${trimPct}%` } as React.CSSProperties) : undefined}
+        >
           <LivingIllustration
             src={asset.src}
             alt={decorative ? "" : asset.word}
@@ -84,7 +101,7 @@ function ArtGrid({ native, isVowelPage, decorative }: Pick<BoardProps, "native" 
             loading={decorative ? "lazy" : "eager"}
             className="fc-native-board__living-art"
           />
-          {!decorative && !hasBakedLabel && (
+          {!decorative && (
             <figcaption className="fc-native-board__art-label">
               {isVowelPage && /^[aeiouáéíóú]/i.test(asset.word) ? (
                 <>
@@ -215,7 +232,7 @@ function ConsonantVocabLayout(props: BoardProps) {
         {native.syllables.length > 0 && (
           <div
             className="fc-crescent"
-            style={{ backgroundColor: crescentColorFor(pageNumber) }}
+            style={{ "--crescent-bg": crescentColorFor(pageNumber) } as React.CSSProperties}
             aria-label="Sílabas"
           >
             {native.syllables.map((syllable, index) => (
@@ -289,7 +306,7 @@ function SyllableDrillLayout(props: BoardProps) {
           </div>
         )}
       </div>
-      <div className="fc-native-board__body-zone">
+      <div className="fc-native-board__body-zone fc-body-syllable-drill">
         {/* 3-column word lists */}
         {(native.words.length > 0 || wordListItems.length > 0) && (
           <div className="fc-word-columns">

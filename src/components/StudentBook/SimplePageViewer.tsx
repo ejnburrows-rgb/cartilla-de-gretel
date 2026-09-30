@@ -17,6 +17,12 @@ export interface WorkbookPageEntry {
   pageNumber?: number;
   gretelLine?: string;
   content: ReactNode;
+  /**
+   * True when the page has a gradable interactive activity the student must
+   * finish before Siguiente unlocks. Reading/instruction-only pages leave
+   * this unset (view-complete) so they never deadlock.
+   */
+  requiresActivity?: boolean;
 }
 
 export interface SimplePageViewerProps {

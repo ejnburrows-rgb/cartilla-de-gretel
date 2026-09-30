@@ -58,6 +58,9 @@
 .native-lesson-viewer__navigation button:hover:not(:disabled) { background: #e8f8f3; }
 .native-lesson-viewer__navigation button:focus-visible { outline: 3px solid #126b62; outline-offset: 3px; }
 .native-lesson-viewer__navigation button:disabled { opacity: .42; cursor: default; }
+/* Page completion gate: shown when Siguiente is blocked until the page's
+ * required activity is finished. Back/Anterior is never gated. */
+.native-lesson-viewer__gate-hint { margin: 14px 0 0; text-align: center; font: 700 14px system-ui, sans-serif; color: #9a6b1f; background: #fdf6e3; border: 1px solid #ecd9a8; border-radius: 12px; padding: 10px 14px; }
 .native-lesson-viewer__companion { position: relative; display: flex; justify-content: flex-end; min-height: 96px; margin-top: 16px; }
 .native-lesson-viewer__companion .gretel-presence--book { position: relative; inset: auto; right: auto; bottom: auto; width: 96px; min-width: 96px; }
 .native-lesson-viewer__companion .gretel-presence--book .gretel-speech-bubble { right: calc(100% + 8px); width: min(220px, 53vw); max-height: none; overflow: visible; }

@@ -160,7 +160,7 @@ export function buildLockedCartillaPrompt(input: {
     "Do not use the mapped Flip Chart as permission to redesign or recolor Workbook artwork.",
     `Placement/source notes: ${notes}`,
     "",
-    "CARTILLA_SOURCE_OF_TRUTH.md overrides any older artwork-generation instruction.",
+    "PROJECT_SOURCE_OF_TRUTH.md overrides any older artwork-generation instruction.",
   ].join("\n");
 }
 

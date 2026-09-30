@@ -237,6 +237,7 @@ export function Leccion() {
               <NativeLessonViewer
                 key={n}
                 pages={pages}
+                lessonId={n}
                 chapterLabel={`${t.leccion[lang]} ${n} · ${entry.kind === "consonant" ? `${entry.letter.toUpperCase()}${entry.letter}` : entry.title}`}
                 initialPage={initialPage}
                 onPageChange={handlePageChange}

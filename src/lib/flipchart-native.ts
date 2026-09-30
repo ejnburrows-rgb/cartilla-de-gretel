@@ -59,7 +59,7 @@ export type NativeFlipchartPage = {
   syllables: string[];
   artRegion: { top: number; bottom: number; left: number; right: number };
   slots: string[];
-  art: Array<{ src: string; word: string; labelInImage?: boolean }>;
+  art: Array<{ src: string; word: string; bakedLabelTrimPct?: number }>;
   compositionKind: "art" | "typography-only" | "frontmatter";
   /** Exact-replica layout type (book §2) — drives the page renderer. */
   layoutType: FlipchartLayoutType;
@@ -107,17 +107,27 @@ type OptimizedExclusiveEntry = {
 const OPTIMIZED_EXCLUSIVE = optimizedExclusive as OptimizedExclusiveEntry[];
 
 /**
- * Images with the word label baked into the image file itself (bottom strip).
- * Rendering a figcaption label under these would double the label, so the
- * renderer skips the caption for these assets. Images are locked — this flag
- * is the code-side fix, not an image edit.
+ * Images whose word label is baked into the image file's bottom strip —
+ * and cut off mid-word at the file edge (pixel-verified 2026-09-30:
+ * dados/dedo/dunia label pixels touch the last image row). The missing
+ * letter bottoms do not exist in the file, so no caption suppression can
+ * show a complete word. Code-side fix (images are locked): the renderer
+ * clips the defective strip through the verified all-white band between
+ * drawing and label, and prints the app's own caption instead.
+ * Values: percent of image height to hide from the bottom. Each cut sits
+ * inside a measured all-white band (drawing above, label below), so no
+ * drawing pixel is ever hidden.
  */
-const BAKED_LABEL_SRCS = new Set([
-  "/cartilla/art/faithful/flipchart-native/p021-dados.webp",
-  "/cartilla/art/faithful/flipchart-native/p021-dedo.webp",
-  "/cartilla/art/faithful/flipchart-native/p021-didi.webp",
-  "/cartilla/art/faithful/flipchart-native/p021-dunia.webp",
+const BAKED_LABEL_TRIM_PCT = new Map<string, number>([
+  ["/cartilla/art/faithful/flipchart-native/p021-dados.webp", 13],
+  ["/cartilla/art/faithful/flipchart-native/p021-dedo.webp", 11],
+  ["/cartilla/art/faithful/flipchart-native/p021-dunia.webp", 9],
 ]);
+
+function bakedLabelTrim(src: string): { bakedLabelTrimPct?: number } {
+  const pct = BAKED_LABEL_TRIM_PCT.get(src);
+  return pct == null ? {} : { bakedLabelTrimPct: pct };
+}
 
 function normalizeWord(value: string) {
   return value
@@ -154,13 +164,13 @@ function pageArt(
     return word && tokens.has(word);
   });
 
-  const unique = new Map<string, { src: string; word: string; labelInImage?: boolean }>();
+  const unique = new Map<string, { src: string; word: string; bakedLabelTrimPct?: number }>();
   for (const entry of OPTIMIZED_EXCLUSIVE) {
     if (entry.flipchartPage !== flipchartPage || !entry.src || unique.has(entry.src)) continue;
     unique.set(entry.src, {
       src: entry.src,
       word: entry.word,
-      ...(BAKED_LABEL_SRCS.has(entry.src) ? { labelInImage: true as const } : {}),
+      ...bakedLabelTrim(entry.src),
     });
   }
   for (const entry of NATIVE_EXTRAS[String(flipchartPage)] ?? []) {
@@ -168,7 +178,7 @@ function pageArt(
     unique.set(entry.src, {
       src: entry.src,
       word: entry.word,
-      ...(BAKED_LABEL_SRCS.has(entry.src) ? { labelInImage: true as const } : {}),
+      ...bakedLabelTrim(entry.src),
     });
   }
   for (const entry of textMatches) {
@@ -176,7 +186,7 @@ function pageArt(
     unique.set(entry.src, {
       src: entry.src,
       word: entry.word ?? entry.slug ?? "Ilustración",
-      ...(BAKED_LABEL_SRCS.has(entry.src) ? { labelInImage: true as const } : {}),
+      ...bakedLabelTrim(entry.src),
     });
     if (unique.size >= 8) break;
   }
