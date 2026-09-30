@@ -56,6 +56,12 @@ placement, and page sequence. Modern digital presentation is welcome.
 ### Images are locked
 The approved/corrected/cropped book images are already the artwork.
 
+**Read `ASSET_FIDELITY_POLICY.md` before touching any image or animation.** It is
+the only active art rule (owner decision, 30 Sep 2026). It allows technical
+cleanup (background removal, transparency, resolution/format) and Google Flow
+motion from approved art — never redesign. `IMAGE_GENERATION_BAN.md` and
+`docs/GOOGLE_FLOW_PROMPTS.md` are HISTORICAL and must not be followed.
+
 DO NOT:
 - regenerate them;
 - redraw them;

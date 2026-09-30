@@ -1,3 +1,7 @@
+> **HISTORICAL / ARCHIVE — NOT ACTIVE (retired by EJN, 30 Sep 2026).**
+> Do not follow this file. The active rule for all artwork and animation is
+> [`ASSET_FIDELITY_POLICY.md`](ASSET_FIDELITY_POLICY.md). Kept only as history.
+
 # IMAGE GENERATION BAN — ChatGPT and All AI Agents
 
 **Owner directive, 2026-09-29. No agent may modify or override this file without the owner's explicit chat instruction.**

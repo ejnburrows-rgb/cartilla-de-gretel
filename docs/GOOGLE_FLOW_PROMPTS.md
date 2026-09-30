@@ -1,3 +1,8 @@
+> **HISTORICAL / ARCHIVE — NOT ACTIVE (retired by EJN, 30 Sep 2026).**
+> The 3D / polymer-clay direction below is cancelled. Do not follow this file.
+> The active rule for all artwork and Google Flow motion is
+> [`../ASSET_FIDELITY_POLICY.md`](../ASSET_FIDELITY_POLICY.md). Kept only as history.
+
 # GOOGLE FLOW PROMPTS — Cartilla de Gretel
 
 ## STATUS: HOLD UNTIL THE NEW 3D ART IS APPROVED

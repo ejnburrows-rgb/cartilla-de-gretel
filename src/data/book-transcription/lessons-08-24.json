@@ -1,0 +1,2969 @@
+{
+  "_comment": "VERBATIM transcription of La Cartilla de Gretel student workbook, Lessons 8-24 (pages 23-90), read directly from the book scans in public/cartilla/art/source/workbook/page-NNN.jpg on 2026-09-30. This file is the fidelity reference for src/data/page-layouts.json and src/content/consonants.json; the test src/lib/__tests__/book-fidelity-lessons-08-24.test.ts fails if either drifts from it. Edit ONLY by re-reading the scan.",
+  "sourceScans": "public/cartilla/art/source/workbook/page-NNN.jpg",
+  "pendingPages": {
+    "86": "Local scan set is missing page 86 (Lección 23 Completa). The public Double R PDF is a 7-page product brochure, not the student book, so it cannot restore this page. Fill-in items stay empty until the Rescan PDF is provided.",
+    "87": "Local scan set is missing page 87 (Lección 24 writing page). Content follows the identical fixed pattern of all 16 other consonant writing pages (Escribe con tu mejor letra / Z z / Haz un dibujo ... con z.) but is NOT yet verified against a scan."
+  },
+  "lessons": {
+    "8": {
+      "lesson": 8,
+      "pages": {
+        "write": 23,
+        "circle": 24,
+        "letter": 25,
+        "complete": 26
+      },
+      "title": "Pp",
+      "models": [
+        "P",
+        "p"
+      ],
+      "drawInstruction": "Haz un dibujo que represente una palabra que comienza con p.",
+      "circle": [
+        {
+          "syllable": "pa",
+          "rows": [
+            [
+              "papá",
+              "pupa",
+              "mapa"
+            ],
+            [
+              "Papo",
+              "¡upa!",
+              "pala"
+            ]
+          ]
+        },
+        {
+          "syllable": "pe",
+          "rows": [
+            [
+              "Pepe",
+              "pelo",
+              "tapete"
+            ],
+            [
+              "pesa",
+              "pelota",
+              "chupete"
+            ]
+          ]
+        },
+        {
+          "syllable": "pi",
+          "rows": [
+            [
+              "pipo",
+              "Pupi",
+              "Mupi"
+            ],
+            [
+              "papi",
+              "Mapi",
+              "pío"
+            ]
+          ]
+        },
+        {
+          "syllable": "po",
+          "rows": [
+            [
+              "pomo",
+              "polo",
+              "sapo"
+            ],
+            [
+              "mapo",
+              "tapo",
+              "Pepo"
+            ]
+          ]
+        },
+        {
+          "syllable": "pu",
+          "rows": [
+            [
+              "puso",
+              "Pupa",
+              "puma"
+            ],
+            [
+              "apura",
+              "Pupi",
+              "púa"
+            ]
+          ]
+        }
+      ],
+      "syllableBubbles": [
+        "pa  pe  pi  po  pu",
+        "pu  po  pa  pe  pi"
+      ],
+      "vocab": [
+        "papá",
+        "mapo",
+        "Mapi",
+        "papi",
+        "puma",
+        "pie",
+        "Pepe",
+        "Mupi",
+        "púa",
+        "pipo",
+        "mapa",
+        "pomo",
+        "Pupi",
+        "¡upa!",
+        "Pepo"
+      ],
+      "sightWords": [
+        "yo"
+      ],
+      "sentences": [
+        "Papá y Pepe aman a mamá.",
+        "Pupi ama a papá.",
+        "Yo amo a mamá y a papá.",
+        "Mi papá ama a Pupi.",
+        "Papá y mamá me aman."
+      ],
+      "fill": [
+        {
+          "wordBox": "papá",
+          "blank": "pa ___",
+          "choices": [
+            "pa",
+            "pá"
+          ],
+          "answer": "pá"
+        },
+        {
+          "wordBox": "mapa",
+          "blank": "ma ___",
+          "choices": [
+            "pa",
+            "po"
+          ],
+          "answer": "pa"
+        },
+        {
+          "wordBox": "puma",
+          "blank": "___ ma",
+          "choices": [
+            "pe",
+            "pu"
+          ],
+          "answer": "pu"
+        },
+        {
+          "wordBox": "Mapi",
+          "blank": "Ma ___",
+          "choices": [
+            "pi",
+            "po"
+          ],
+          "answer": "pi"
+        },
+        {
+          "wordBox": "pío",
+          "blank": "___ o",
+          "choices": [
+            "pí",
+            "po"
+          ],
+          "answer": "pí"
+        },
+        {
+          "wordBox": "Pepe",
+          "blank": "___ pe",
+          "choices": [
+            "Pe",
+            "pe"
+          ],
+          "answer": "Pe"
+        }
+      ]
+    },
+    "9": {
+      "lesson": 9,
+      "pages": {
+        "write": 27,
+        "circle": 28,
+        "letter": 29,
+        "complete": 30
+      },
+      "title": "Ss",
+      "models": [
+        "S",
+        "s"
+      ],
+      "drawInstruction": "Haz un dibujo que represente una palabra que comienza con s.",
+      "circle": [
+        {
+          "syllable": "sa",
+          "rows": [
+            [
+              "masa",
+              "casa",
+              "pesa"
+            ],
+            [
+              "sala",
+              "mesa",
+              "sapo"
+            ]
+          ]
+        },
+        {
+          "syllable": "se",
+          "rows": [
+            [
+              "sello",
+              "pase",
+              "caseta"
+            ],
+            [
+              "seca",
+              "semilla",
+              "secante"
+            ]
+          ]
+        },
+        {
+          "syllable": "si",
+          "rows": [
+            [
+              "silla",
+              "casita",
+              "cosita"
+            ],
+            [
+              "pasito",
+              "osito",
+              "sitio"
+            ]
+          ]
+        },
+        {
+          "syllable": "so",
+          "rows": [
+            [
+              "paso",
+              "sopa",
+              "soga"
+            ],
+            [
+              "oso",
+              "toso",
+              "puso"
+            ]
+          ]
+        },
+        {
+          "syllable": "su",
+          "rows": [
+            [
+              "suyo",
+              "suma",
+              "Susi"
+            ],
+            [
+              "supo",
+              "sube",
+              "sudor"
+            ]
+          ]
+        }
+      ],
+      "syllableBubbles": [
+        "sa  se  si  so  su",
+        "su  so  sa  se  si"
+      ],
+      "vocab": [
+        "masa",
+        "mesa",
+        "suma",
+        "sapo",
+        "seso",
+        "Susi",
+        "así",
+        "sopa",
+        "paso",
+        "puso",
+        "supo",
+        "supe",
+        "Sisi",
+        "ese",
+        "esa"
+      ],
+      "sightWords": [
+        "es",
+        "de",
+        "un",
+        "está",
+        "en",
+        "la",
+        "el"
+      ],
+      "sentences": [
+        "La mesa es de Susi.",
+        "La sopa está en la mesa.",
+        "Papá pasa la sopa a Susi.",
+        "Sisi pasa la sopa a mamá.",
+        "Ese sapo es de Sisi. Es el sapo Samapo.",
+        "Sisi pasa el sapo a Pepe.",
+        "Pepe puso un sapo en la mesa."
+      ],
+      "fill": [
+        {
+          "wordBox": "sapo",
+          "blank": "___ po",
+          "choices": [
+            "sa",
+            "sá"
+          ],
+          "answer": "sa"
+        },
+        {
+          "wordBox": "puso",
+          "blank": "pu ___",
+          "choices": [
+            "so",
+            "se"
+          ],
+          "answer": "so"
+        },
+        {
+          "wordBox": "masa",
+          "blank": "ma ___",
+          "choices": [
+            "sa",
+            "su"
+          ],
+          "answer": "sa"
+        },
+        {
+          "wordBox": "así",
+          "blank": "a ___",
+          "choices": [
+            "sí",
+            "so"
+          ],
+          "answer": "sí"
+        },
+        {
+          "wordBox": "supo",
+          "blank": "___ po",
+          "choices": [
+            "su",
+            "sa"
+          ],
+          "answer": "su"
+        },
+        {
+          "wordBox": "pase",
+          "blank": "pa ___",
+          "choices": [
+            "se",
+            "si"
+          ],
+          "answer": "se"
+        }
+      ]
+    },
+    "10": {
+      "lesson": 10,
+      "pages": {
+        "write": 31,
+        "circle": 32,
+        "letter": 33,
+        "complete": 34
+      },
+      "title": "Tt",
+      "models": [
+        "T",
+        "t"
+      ],
+      "drawInstruction": "Haz un dibujo que represente una palabra que comienza con t.",
+      "circle": [
+        {
+          "syllable": "ta",
+          "rows": [
+            [
+              "tapa",
+              "Mota",
+              "Tota"
+            ],
+            [
+              "seta",
+              "peseta",
+              "pata"
+            ]
+          ]
+        },
+        {
+          "syllable": "te",
+          "rows": [
+            [
+              "tema",
+              "tomate",
+              "mete"
+            ],
+            [
+              "teme",
+              "Teté",
+              "tapete"
+            ]
+          ]
+        },
+        {
+          "syllable": "ti",
+          "rows": [
+            [
+              "Tito",
+              "Piti",
+              "timón"
+            ],
+            [
+              "tina",
+              "Poti",
+              "tipi"
+            ]
+          ]
+        },
+        {
+          "syllable": "to",
+          "rows": [
+            [
+              "topo",
+              "moto",
+              "tomate"
+            ],
+            [
+              "pato",
+              "toma",
+              "sapito"
+            ]
+          ]
+        },
+        {
+          "syllable": "tu",
+          "rows": [
+            [
+              "tupe",
+              "tubo",
+              "tulipán"
+            ],
+            [
+              "tuna",
+              "tuba",
+              "Matute"
+            ]
+          ]
+        }
+      ],
+      "syllableBubbles": [
+        "ta  te  ti  to  tu",
+        "tu  to  ta  te  ti"
+      ],
+      "vocab": [
+        "toma",
+        "teme",
+        "seta",
+        "tute",
+        "Titi",
+        "pata",
+        "Soto",
+        "tupe",
+        "tapa",
+        "mete",
+        "Mota",
+        "Piti",
+        "topo",
+        "sapito",
+        "peseta",
+        "tomate",
+        "Poti",
+        "pato"
+      ],
+      "sightWords": [
+        "tiene",
+        "patio",
+        "no"
+      ],
+      "sentences": [
+        "La mesa tiene un tapete.",
+        "El pomo está en la mesa.",
+        "La mesa está en el patio.",
+        "El pomo tiene sopa. El pomo tiene tapa.",
+        "Tito tapa el pomo.",
+        "–¡No Tito, no, no tapes el pomo!",
+        "Papá tapa la sopa."
+      ],
+      "fill": [
+        {
+          "wordBox": "toma",
+          "blank": "___ ma",
+          "choices": [
+            "to",
+            "ta"
+          ],
+          "answer": "to"
+        },
+        {
+          "wordBox": "mata",
+          "blank": "ma ___",
+          "choices": [
+            "ta",
+            "ti"
+          ],
+          "answer": "ta"
+        },
+        {
+          "wordBox": "topo",
+          "blank": "___ po",
+          "choices": [
+            "tu",
+            "to"
+          ],
+          "answer": "to"
+        },
+        {
+          "wordBox": "tomate",
+          "blank": "___ mate",
+          "choices": [
+            "to",
+            "tu"
+          ],
+          "answer": "to"
+        },
+        {
+          "wordBox": "tupe",
+          "blank": "___ pe",
+          "choices": [
+            "ti",
+            "tu"
+          ],
+          "answer": "tu"
+        },
+        {
+          "wordBox": "tipi",
+          "blank": "___ pi",
+          "choices": [
+            "to",
+            "ti"
+          ],
+          "answer": "ti"
+        }
+      ]
+    },
+    "11": {
+      "lesson": 11,
+      "pages": {
+        "write": 35,
+        "circle": 36,
+        "letter": 37,
+        "complete": 38
+      },
+      "title": "Dd",
+      "models": [
+        "D",
+        "d"
+      ],
+      "drawInstruction": "Haz un dibujo que represente una palabra que comienza con d.",
+      "circle": [
+        {
+          "syllable": "da",
+          "rows": [
+            [
+              "dame",
+              "Ada",
+              "Made"
+            ],
+            [
+              "duda",
+              "dado",
+              "poda"
+            ]
+          ]
+        },
+        {
+          "syllable": "de",
+          "rows": [
+            [
+              "dedo",
+              "además",
+              "deme"
+            ],
+            [
+              "modelo",
+              "pide",
+              "debajo"
+            ]
+          ]
+        },
+        {
+          "syllable": "di",
+          "rows": [
+            [
+              "dime",
+              "Adi",
+              "dice"
+            ],
+            [
+              "dinero",
+              "día",
+              "Didi"
+            ]
+          ]
+        },
+        {
+          "syllable": "do",
+          "rows": [
+            [
+              "dado",
+              "podo",
+              "doce"
+            ],
+            [
+              "dedo",
+              "modo",
+              "mudo"
+            ]
+          ]
+        },
+        {
+          "syllable": "du",
+          "rows": [
+            [
+              "Duma",
+              "duro",
+              "duda"
+            ],
+            [
+              "durazno",
+              "maduro",
+              "ducha"
+            ]
+          ]
+        }
+      ],
+      "syllableBubbles": [
+        "da  de  di  do  du",
+        "du  do  da  de  di"
+      ],
+      "vocab": [
+        "dedo",
+        "dónde",
+        "deme",
+        "dame",
+        "Duma",
+        "de",
+        "día",
+        "dime",
+        "duda",
+        "Ada",
+        "pide",
+        "mudo",
+        "moneda",
+        "mide",
+        "Dunia"
+      ],
+      "sightWords": [
+        "son",
+        "están"
+      ],
+      "sentences": [
+        "Dime si Ada tiene dados.",
+        "Los dados son de Dunia.",
+        "– ¿Dónde están los dados?",
+        "Dunia pone los dados en el pomo.",
+        "– Dunia dame el pomo.",
+        "El pomo de Dunia está en la mesa.",
+        "– Ada, ¿Dónde está Dunia?"
+      ],
+      "fill": [
+        {
+          "wordBox": "dedo",
+          "blank": "___ do",
+          "choices": [
+            "di",
+            "de"
+          ],
+          "answer": "de"
+        },
+        {
+          "wordBox": "mide",
+          "blank": "mi ___",
+          "choices": [
+            "di",
+            "de"
+          ],
+          "answer": "de"
+        },
+        {
+          "wordBox": "mudo",
+          "blank": "mu ___",
+          "choices": [
+            "do",
+            "du"
+          ],
+          "answer": "do"
+        },
+        {
+          "wordBox": "Ada",
+          "blank": "A ___",
+          "choices": [
+            "de",
+            "da"
+          ],
+          "answer": "da"
+        },
+        {
+          "wordBox": "pide",
+          "blank": "pi ___",
+          "choices": [
+            "de",
+            "di"
+          ],
+          "answer": "de"
+        },
+        {
+          "wordBox": "Duma",
+          "blank": "___ ma",
+          "choices": [
+            "Du",
+            "do"
+          ],
+          "answer": "Du"
+        }
+      ]
+    },
+    "12": {
+      "lesson": 12,
+      "pages": {
+        "write": 39,
+        "circle": 40,
+        "letter": 41,
+        "complete": 42
+      },
+      "title": "Ll",
+      "models": [
+        "L",
+        "l"
+      ],
+      "drawInstruction": "Haz un dibujo que represente una palabra que comienza con l.",
+      "circle": [
+        {
+          "syllable": "la",
+          "rows": [
+            [
+              "lata",
+              "mala",
+              "pala"
+            ],
+            [
+              "Lamas",
+              "mula",
+              "pila"
+            ]
+          ]
+        },
+        {
+          "syllable": "le",
+          "rows": [
+            [
+              "Leo",
+              "aleta",
+              "saleta"
+            ],
+            [
+              "maleta",
+              "sale",
+              "paleta"
+            ]
+          ]
+        },
+        {
+          "syllable": "li",
+          "rows": [
+            [
+              "lima",
+              "Lila",
+              "alita"
+            ],
+            [
+              "liso",
+              "palito",
+              "limón"
+            ]
+          ]
+        },
+        {
+          "syllable": "lo",
+          "rows": [
+            [
+              "pelota",
+              "palo",
+              "Lolo"
+            ],
+            [
+              "Polo",
+              "Lola",
+              "paloma"
+            ]
+          ]
+        },
+        {
+          "syllable": "lu",
+          "rows": [
+            [
+              "lupa",
+              "pelusa",
+              "Luli"
+            ],
+            [
+              "luna",
+              "saluda",
+              "Lupe"
+            ]
+          ]
+        }
+      ],
+      "syllableBubbles": [
+        "la  le  li  lo  lu",
+        "lu  lo  la  le  li"
+      ],
+      "vocab": [
+        "lima",
+        "lata",
+        "aleta",
+        "maleta",
+        "lupa",
+        "sale",
+        "paloma",
+        "pala",
+        "lomo",
+        "pelusa",
+        "Lilo",
+        "Lola",
+        "Luli",
+        "tela",
+        "Tula"
+      ],
+      "sightWords": [
+        "también"
+      ],
+      "sentences": [
+        "La maleta de Luli está en la mesa.",
+        "La tela de la maleta tiene pelusas.",
+        "La maleta de Polo es de tela.",
+        "Mamá le da la maleta a Polo.",
+        "Polo toma su maleta de tela.",
+        "Lalo tiene una maleta de tela también."
+      ],
+      "fill": [
+        {
+          "wordBox": "paleta",
+          "blank": "pa ___ ta",
+          "choices": [
+            "le",
+            "lo"
+          ],
+          "answer": "le"
+        },
+        {
+          "wordBox": "solo",
+          "blank": "so ___",
+          "choices": [
+            "li",
+            "lo"
+          ],
+          "answer": "lo"
+        },
+        {
+          "wordBox": "pala",
+          "blank": "pa ___",
+          "choices": [
+            "la",
+            "lu"
+          ],
+          "answer": "la"
+        },
+        {
+          "wordBox": "lata",
+          "blank": "___ ta",
+          "choices": [
+            "la",
+            "le"
+          ],
+          "answer": "la"
+        },
+        {
+          "wordBox": "maleta",
+          "blank": "ma ___ ta",
+          "choices": [
+            "le",
+            "li"
+          ],
+          "answer": "le"
+        },
+        {
+          "wordBox": "lupa",
+          "blank": "___ pa",
+          "choices": [
+            "lu",
+            "la"
+          ],
+          "answer": "lu"
+        }
+      ]
+    },
+    "13": {
+      "lesson": 13,
+      "pages": {
+        "write": 43,
+        "circle": 44,
+        "letter": 45,
+        "complete": 46
+      },
+      "title": "Nn",
+      "models": [
+        "N",
+        "n"
+      ],
+      "drawInstruction": "Haz un dibujo que represente una palabra que comienza con n.",
+      "circle": [
+        {
+          "syllable": "na",
+          "rows": [
+            [
+              "nata",
+              "nariz",
+              "tina"
+            ],
+            [
+              "nada",
+              "Napi",
+              "lana"
+            ]
+          ]
+        },
+        {
+          "syllable": "ne",
+          "rows": [
+            [
+              "Nena",
+              "negro",
+              "Nela"
+            ],
+            [
+              "tenedor",
+              "negar",
+              "Nenita"
+            ]
+          ]
+        },
+        {
+          "syllable": "ni",
+          "rows": [
+            [
+              "nido",
+              "niño",
+              "poni"
+            ],
+            [
+              "sonido",
+              "anida",
+              "Nino"
+            ]
+          ]
+        },
+        {
+          "syllable": "no",
+          "rows": [
+            [
+              "mono",
+              "Nora",
+              "pino"
+            ],
+            [
+              "Nono",
+              "noche",
+              "mano"
+            ]
+          ]
+        },
+        {
+          "syllable": "nu",
+          "rows": [
+            [
+              "nudo",
+              "menudo",
+              "nulo"
+            ],
+            [
+              "Anuca",
+              "anudo",
+              "nube"
+            ]
+          ]
+        }
+      ],
+      "syllableBubbles": [
+        "na  ne  ni  no  nu",
+        "nu  no  na  ne  ni"
+      ],
+      "vocab": [
+        "nido",
+        "tina",
+        "nada",
+        "nené",
+        "mano",
+        "nulo",
+        "Nono",
+        "Tono",
+        "Alina",
+        "poni",
+        "Nena",
+        "nata",
+        "mono",
+        "luna",
+        "Neli"
+      ],
+      "sightWords": [
+        "esa",
+        "a"
+      ],
+      "sentences": [
+        "Tomás dame esa tina. La tina es de Napi.",
+        "Tono y Alina aman a Napi.",
+        "Napi tiene pelo.",
+        "Tono le pone la tina a Napi en el piso.",
+        "Nono no le pone nada a esa tina.",
+        "Esa tina no tiene nada."
+      ],
+      "fill": [
+        {
+          "wordBox": "nido",
+          "blank": "___ do",
+          "choices": [
+            "no",
+            "ni"
+          ],
+          "answer": "ni"
+        },
+        {
+          "wordBox": "tina",
+          "blank": "ti ___",
+          "choices": [
+            "nu",
+            "na"
+          ],
+          "answer": "na"
+        },
+        {
+          "wordBox": "suena",
+          "blank": "sue ___",
+          "choices": [
+            "ni",
+            "na"
+          ],
+          "answer": "na"
+        },
+        {
+          "wordBox": "mono",
+          "blank": "mo ___",
+          "choices": [
+            "no",
+            "ne"
+          ],
+          "answer": "no"
+        },
+        {
+          "wordBox": "sano",
+          "blank": "sa ___",
+          "choices": [
+            "no",
+            "nu"
+          ],
+          "answer": "no"
+        },
+        {
+          "wordBox": "pone",
+          "blank": "po ___",
+          "choices": [
+            "ne",
+            "ni"
+          ],
+          "answer": "ne"
+        }
+      ]
+    },
+    "14": {
+      "lesson": 14,
+      "pages": {
+        "write": 47,
+        "circle": 48,
+        "letter": 49,
+        "complete": 50
+      },
+      "title": "Ññ",
+      "models": [
+        "Ñ",
+        "ñ"
+      ],
+      "drawInstruction": "Haz un dibujo que represente una palabra que comienza con ñ.",
+      "circle": [
+        {
+          "syllable": "ña",
+          "rows": [
+            [
+              "maña",
+              "mañana",
+              "montaña"
+            ],
+            [
+              "ñame",
+              "araña",
+              "caña"
+            ]
+          ]
+        },
+        {
+          "syllable": "ñe",
+          "rows": [
+            [
+              "Meñe",
+              "añejo",
+              "sueñe"
+            ],
+            [
+              "adueñe",
+              "cañengo",
+              "apañe"
+            ]
+          ]
+        },
+        {
+          "syllable": "ñi",
+          "rows": [
+            [
+              "añico",
+              "pañito",
+              "cañita"
+            ],
+            [
+              "niñito",
+              "arañita",
+              "reñido"
+            ]
+          ]
+        },
+        {
+          "syllable": "ño",
+          "rows": [
+            [
+              "moño",
+              "niño",
+              "sueño"
+            ],
+            [
+              "Ñoña",
+              "año",
+              "Ñuco"
+            ]
+          ]
+        },
+        {
+          "syllable": "ñu",
+          "rows": [
+            [
+              "Ñuto",
+              "cañuto",
+              "moñudo"
+            ],
+            [
+              "ceñudo",
+              "pañuelo",
+              "puño"
+            ]
+          ]
+        }
+      ],
+      "syllableBubbles": [
+        "ña  ñe  ñi  ño  ñu",
+        "ñu  ño  ña  ñe  ñi"
+      ],
+      "vocab": [
+        "ñame",
+        "año",
+        "moñudo",
+        "moño",
+        "niña",
+        "sueña",
+        "Meñe",
+        "paño",
+        "piña",
+        "niñito",
+        "sueño",
+        "puño",
+        "uña",
+        "añitos",
+        "pañuelo"
+      ],
+      "sightWords": [
+        "del"
+      ],
+      "sentences": [
+        "Meñe es dueña de esa piñata.",
+        "La piñata es del año pasado.",
+        "La piñata está en el patio.",
+        "Noña tiene una niña.",
+        "La niña tiene sueño.",
+        "Noña le pone el pañal a la niña."
+      ],
+      "fill": [
+        {
+          "wordBox": "maña",
+          "blank": "ma ___",
+          "choices": [
+            "ñe",
+            "ña"
+          ],
+          "answer": "ña"
+        },
+        {
+          "wordBox": "pañito",
+          "blank": "pa ___ to",
+          "choices": [
+            "ño",
+            "ñi"
+          ],
+          "answer": "ñi"
+        },
+        {
+          "wordBox": "niño",
+          "blank": "ni ___",
+          "choices": [
+            "ñi",
+            "ño"
+          ],
+          "answer": "ño"
+        },
+        {
+          "wordBox": "moño",
+          "blank": "mo ___",
+          "choices": [
+            "ño",
+            "ñe"
+          ],
+          "answer": "ño"
+        },
+        {
+          "wordBox": "año",
+          "blank": "a ___",
+          "choices": [
+            "ña",
+            "ño"
+          ],
+          "answer": "ño"
+        },
+        {
+          "wordBox": "puño",
+          "blank": "pu ___",
+          "choices": [
+            "ño",
+            "ñu"
+          ],
+          "answer": "ño"
+        }
+      ]
+    },
+    "15": {
+      "lesson": 15,
+      "pages": {
+        "write": 51,
+        "circle": 52,
+        "letter": 53,
+        "complete": 54
+      },
+      "title": "Bb",
+      "models": [
+        "B",
+        "b"
+      ],
+      "drawInstruction": "Haz un dibujo que represente una palabra que comienza con b.",
+      "circle": [
+        {
+          "syllable": "ba",
+          "rows": [
+            [
+              "baño",
+              "bala",
+              "batir"
+            ],
+            [
+              "batea",
+              "abanico",
+              "loba"
+            ]
+          ]
+        },
+        {
+          "syllable": "be",
+          "rows": [
+            [
+              "sube",
+              "Bebo",
+              "bebé"
+            ],
+            [
+              "abeja",
+              "nube",
+              "cubeta"
+            ]
+          ]
+        },
+        {
+          "syllable": "bi",
+          "rows": [
+            [
+              "bebida",
+              "cabito",
+              "bicicleta"
+            ],
+            [
+              "bisagra",
+              "bisonte",
+              "cubito"
+            ]
+          ]
+        },
+        {
+          "syllable": "bo",
+          "rows": [
+            [
+              "lobo",
+              "bonita",
+              "tubo"
+            ],
+            [
+              "bodega",
+              "bola",
+              "botella"
+            ]
+          ]
+        },
+        {
+          "syllable": "bu",
+          "rows": [
+            [
+              "burro",
+              "aburre",
+              "aburrido"
+            ],
+            [
+              "bulla",
+              "abuso",
+              "buche"
+            ]
+          ]
+        }
+      ],
+      "syllableBubbles": [
+        "ba  be  bi  bo  bu",
+        "bu  bo  ba  be  bi"
+      ],
+      "vocab": [
+        "baño",
+        "bota",
+        "bolo",
+        "bebé",
+        "Bebo",
+        "bonito",
+        "bueno",
+        "lobo",
+        "bate",
+        "bonita",
+        "sube",
+        "batea",
+        "cubito",
+        "bote",
+        "nube"
+      ],
+      "sightWords": [
+        "alto",
+        "con",
+        "bueno"
+      ],
+      "sentences": [
+        "La nube sube y sube. Es una nube bonita.",
+        "Bebo, batea la bola de Pepito.",
+        "La bola sube y sube alto.",
+        "La bola sube a la nube.",
+        "Pepito batea la bola con el bate.",
+        "La bola sube y sube alto también.",
+        "Pepito es bueno en la pelota."
+      ],
+      "fill": [
+        {
+          "wordBox": "cubo",
+          "blank": "cu ___",
+          "choices": [
+            "bu",
+            "bo"
+          ],
+          "answer": "bo"
+        },
+        {
+          "wordBox": "bolo",
+          "blank": "___ lo",
+          "choices": [
+            "bo",
+            "be"
+          ],
+          "answer": "bo"
+        },
+        {
+          "wordBox": "cubito",
+          "blank": "cu ___ to",
+          "choices": [
+            "bo",
+            "bi"
+          ],
+          "answer": "bi"
+        },
+        {
+          "wordBox": "batido",
+          "blank": "___ tido",
+          "choices": [
+            "be",
+            "ba"
+          ],
+          "answer": "ba"
+        },
+        {
+          "wordBox": "burro",
+          "blank": "___ rro",
+          "choices": [
+            "ba",
+            "bu"
+          ],
+          "answer": "bu"
+        },
+        {
+          "wordBox": "nube",
+          "blank": "nu ___",
+          "choices": [
+            "be",
+            "bi"
+          ],
+          "answer": "be"
+        }
+      ]
+    },
+    "16": {
+      "lesson": 16,
+      "pages": {
+        "write": 55,
+        "circle": 56,
+        "letter": 57,
+        "complete": 58
+      },
+      "title": "Vv",
+      "models": [
+        "V",
+        "v"
+      ],
+      "drawInstruction": "Haz un dibujo que represente una palabra que comienza con v.",
+      "circle": [
+        {
+          "syllable": "va",
+          "rows": [
+            [
+              "vaso",
+              "lavamos",
+              "vámonos"
+            ],
+            [
+              "lava",
+              "nieva",
+              "lavamanos"
+            ]
+          ]
+        },
+        {
+          "syllable": "ve",
+          "rows": [
+            [
+              "venado",
+              "ave",
+              "vela"
+            ],
+            [
+              "venas",
+              "velo",
+              "nave"
+            ]
+          ]
+        },
+        {
+          "syllable": "vi",
+          "rows": [
+            [
+              "vino",
+              "vivo",
+              "vidente"
+            ],
+            [
+              "vine",
+              "aviso",
+              "vitamina"
+            ]
+          ]
+        },
+        {
+          "syllable": "vo",
+          "rows": [
+            [
+              "lavo",
+              "vivo",
+              "pavo"
+            ],
+            [
+              "clavo",
+              "volar",
+              "Tavo"
+            ]
+          ]
+        },
+        {
+          "syllable": "vu",
+          "rows": [
+            [
+              "vuela",
+              "vuelta",
+              "vuelan"
+            ],
+            [
+              "vuelo",
+              "revuelta",
+              "revuelo"
+            ]
+          ]
+        }
+      ],
+      "syllableBubbles": [
+        "va  ve  vi  vo  vu",
+        "vu  vo  va  ve  vi"
+      ],
+      "vocab": [
+        "vaso",
+        "avena",
+        "vivo",
+        "vela",
+        "ventana",
+        "vive",
+        "vale",
+        "pavo",
+        "vine",
+        "vino",
+        "lava",
+        "Vuli",
+        "venas",
+        "lavamanos",
+        "ven"
+      ],
+      "sightWords": [],
+      "sentences": [
+        "La nieve se va. Vita se lava",
+        "las manos en el lavamanos.",
+        "Mamá lava las mesas del patio.",
+        "Mamá pone unos manteles nuevos.",
+        "El viento mueve los manteles de mamá y",
+        "mueve el papalote de Valentín.",
+        "El papalote vuela y vuela."
+      ],
+      "fill": [
+        {
+          "wordBox": "nave",
+          "blank": "na ___",
+          "choices": [
+            "ve",
+            "vu"
+          ],
+          "answer": "ve"
+        },
+        {
+          "wordBox": "vaso",
+          "blank": "___ so",
+          "choices": [
+            "va",
+            "vo"
+          ],
+          "answer": "va"
+        },
+        {
+          "wordBox": "vela",
+          "blank": "___ la",
+          "choices": [
+            "vi",
+            "ve"
+          ],
+          "answer": "ve"
+        },
+        {
+          "wordBox": "pavo",
+          "blank": "pa ___",
+          "choices": [
+            "vo",
+            "vu"
+          ],
+          "answer": "vo"
+        },
+        {
+          "wordBox": "vine",
+          "blank": "___ ne",
+          "choices": [
+            "va",
+            "vi"
+          ],
+          "answer": "vi"
+        },
+        {
+          "wordBox": "aviso",
+          "blank": "a ___ so",
+          "choices": [
+            "vi",
+            "vo"
+          ],
+          "answer": "vi"
+        }
+      ]
+    },
+    "17": {
+      "lesson": 17,
+      "pages": {
+        "write": 59,
+        "circle": 60,
+        "letter": 61,
+        "complete": 62
+      },
+      "title": "Rr",
+      "models": [
+        "R",
+        "r"
+      ],
+      "drawInstruction": "Haz un dibujo que represente una palabra que comienza con r.",
+      "circle": [
+        {
+          "syllable": "ra",
+          "rows": [
+            [
+              "rana",
+              "rama",
+              "ratón"
+            ],
+            [
+              "rata",
+              "raso",
+              "rama"
+            ]
+          ]
+        },
+        {
+          "syllable": "re",
+          "rows": [
+            [
+              "remo",
+              "reloj",
+              "relevo"
+            ],
+            [
+              "rezo",
+              "revista",
+              "rema"
+            ]
+          ]
+        },
+        {
+          "syllable": "ri",
+          "rows": [
+            [
+              "riña",
+              "rima",
+              "rimamos"
+            ],
+            [
+              "Rita",
+              "risa",
+              "rizo"
+            ]
+          ]
+        },
+        {
+          "syllable": "ro",
+          "rows": [
+            [
+              "rosa",
+              "roto",
+              "Rolo"
+            ],
+            [
+              "roca",
+              "rota",
+              "Roberto"
+            ]
+          ]
+        },
+        {
+          "syllable": "ru",
+          "rows": [
+            [
+              "ruta",
+              "Rufino",
+              "rubio"
+            ],
+            [
+              "ruso",
+              "rutina",
+              "rudo"
+            ]
+          ]
+        }
+      ],
+      "syllableBubbles": [
+        "ra  re  ri  ro  ru",
+        "ru  ro  ra  re  ri"
+      ],
+      "vocab": [
+        "ramo",
+        "remo",
+        "ropa",
+        "rosa",
+        "rana",
+        "rosado",
+        "risa",
+        "ruta",
+        "rulo",
+        "rata",
+        "Rita",
+        "Rolo",
+        "roto",
+        "Roma",
+        "rebaño"
+      ],
+      "sightWords": [
+        "bien"
+      ],
+      "sentences": [
+        "La bola de Roberto rueda bien.",
+        "Rolo patea la bola. La bola rueda y",
+        "le da a un bolo. El bolo se rompe y",
+        "Roberto se ríe. Rolo se ríe también.",
+        "Rita le da al bolo. Rita se ríe.",
+        "Rolo y Roberto se ríen también."
+      ],
+      "fill": [
+        {
+          "wordBox": "rana",
+          "blank": "___ na",
+          "choices": [
+            "ru",
+            "ra"
+          ],
+          "answer": "ra"
+        },
+        {
+          "wordBox": "Rita",
+          "blank": "___ ta",
+          "choices": [
+            "Ri",
+            "re"
+          ],
+          "answer": "Ri"
+        },
+        {
+          "wordBox": "ruta",
+          "blank": "___ ta",
+          "choices": [
+            "ru",
+            "ra"
+          ],
+          "answer": "ru"
+        },
+        {
+          "wordBox": "remo",
+          "blank": "___ mo",
+          "choices": [
+            "re",
+            "ro"
+          ],
+          "answer": "re"
+        },
+        {
+          "wordBox": "rosa",
+          "blank": "___ sa",
+          "choices": [
+            "ro",
+            "ri"
+          ],
+          "answer": "ro"
+        },
+        {
+          "wordBox": "rubio",
+          "blank": "___ bio",
+          "choices": [
+            "re",
+            "ru"
+          ],
+          "answer": "ru"
+        }
+      ]
+    },
+    "18": {
+      "lesson": 18,
+      "pages": {
+        "write": 63,
+        "circle": 64,
+        "letter": 65,
+        "complete": 66
+      },
+      "title": "rr",
+      "models": [
+        "rr"
+      ],
+      "drawInstruction": "Haz un dibujo que represente una palabra que contenga la letra rr.",
+      "circle": [
+        {
+          "syllable": "rra",
+          "rows": [
+            [
+              "barra",
+              "amarra",
+              "pizarra"
+            ],
+            [
+              "Porra",
+              "arrasar",
+              "perra"
+            ]
+          ]
+        },
+        {
+          "syllable": "rre",
+          "rows": [
+            [
+              "torre",
+              "amarre",
+              "arrebatado"
+            ],
+            [
+              "barre",
+              "arrebatar",
+              "arrepiente"
+            ]
+          ]
+        },
+        {
+          "syllable": "rri",
+          "rows": [
+            [
+              "arriba",
+              "arrima",
+              "parrilla"
+            ],
+            [
+              "perrita",
+              "barril",
+              "carrito"
+            ]
+          ]
+        },
+        {
+          "syllable": "rro",
+          "rows": [
+            [
+              "carro",
+              "arroyo",
+              "burro"
+            ],
+            [
+              "perro",
+              "amarro",
+              "tarro"
+            ]
+          ]
+        },
+        {
+          "syllable": "rru",
+          "rows": [
+            [
+              "arruga",
+              "arrugado",
+              "arrullo"
+            ],
+            [
+              "verruga",
+              "arrullar",
+              "arrullador"
+            ]
+          ]
+        }
+      ],
+      "syllableBubbles": [
+        "rra  rre  rri  rro  rru",
+        "rru  rro  rra  rre  rri"
+      ],
+      "vocab": [
+        "tarro",
+        "burro",
+        "tierra",
+        "perro",
+        "amarro",
+        "carrusel",
+        "barro",
+        "arrebato",
+        "torre",
+        "arroba",
+        "parra",
+        "burrito",
+        "arriba",
+        "arruina",
+        "carro"
+      ],
+      "sightWords": [],
+      "sentences": [
+        "Rode tiene un perro. Es un perro alemán.",
+        "El perro de Rode tiene una tina de barro.",
+        "La tina de barro está en el piso.",
+        "Rosi amarra el perro en la mata.",
+        "El perro no muerde. El perro Tito mueve el",
+        "rabo. Tito arruinó el carro de rosas."
+      ],
+      "fill": [
+        {
+          "wordBox": "perro",
+          "blank": "pe ___",
+          "choices": [
+            "rra",
+            "rro"
+          ],
+          "answer": "rro"
+        },
+        {
+          "wordBox": "barre",
+          "blank": "ba ___",
+          "choices": [
+            "rre",
+            "rri"
+          ],
+          "answer": "rre"
+        },
+        {
+          "wordBox": "torre",
+          "blank": "to ___",
+          "choices": [
+            "rro",
+            "rre"
+          ],
+          "answer": "rre"
+        },
+        {
+          "wordBox": "burro",
+          "blank": "bu ___",
+          "choices": [
+            "rro",
+            "rru"
+          ],
+          "answer": "rro"
+        },
+        {
+          "wordBox": "carro",
+          "blank": "ca ___",
+          "choices": [
+            "rro",
+            "rru"
+          ],
+          "answer": "rro"
+        },
+        {
+          "wordBox": "amarro",
+          "blank": "ama ___",
+          "choices": [
+            "rru",
+            "rro"
+          ],
+          "answer": "rro"
+        }
+      ]
+    },
+    "19": {
+      "lesson": 19,
+      "pages": {
+        "write": 67,
+        "circle": 68,
+        "letter": 69,
+        "complete": 70
+      },
+      "title": "Gg",
+      "models": [
+        "G",
+        "g"
+      ],
+      "drawInstruction": "Haz un dibujo que represente una palabra que comienza con g.",
+      "circle": [
+        {
+          "syllable": "ga",
+          "rows": [
+            [
+              "garras",
+              "gasolina"
+            ],
+            [
+              "gato",
+              "paga"
+            ],
+            [
+              "ganas",
+              "maga"
+            ]
+          ]
+        },
+        {
+          "syllable": "go",
+          "rows": [
+            [
+              "goma",
+              "gorra"
+            ],
+            [
+              "lago",
+              "gota"
+            ],
+            [
+              "mago",
+              "goloso"
+            ]
+          ]
+        },
+        {
+          "syllable": "gu",
+          "rows": [
+            [
+              "gusano",
+              "gula"
+            ],
+            [
+              "agudo",
+              "mangú"
+            ],
+            [
+              "laguna",
+              "aguja"
+            ]
+          ]
+        }
+      ],
+      "syllableBubbles": [
+        "ga  go  gu",
+        "gu  go  ga"
+      ],
+      "vocab": [
+        "gato",
+        "Gustavo",
+        "gotero",
+        "goma",
+        "mago",
+        "laguna",
+        "Magali",
+        "lago",
+        "golosina",
+        "ganas",
+        "agua",
+        "gorra",
+        "gusta",
+        "gusano",
+        "góndola"
+      ],
+      "sightWords": [],
+      "sentences": [
+        "El gato de Magali bebe agua en el lago.",
+        "Magali le pone una gorra a su gato Goloso.",
+        "Goloso ve a Musulunga, la gata gordita.",
+        "Magali y Gustavo van al lago. En el lago",
+        "ven el agua. A Magali le gusta el agua.",
+        "Goloso y Musulunga van a la laguna.",
+        "Goloso le regala un gusanito rosadito a",
+        "Musulunga."
+      ],
+      "fill": [
+        {
+          "wordBox": "aguja",
+          "blank": "a ___ ja",
+          "choices": [
+            "gu",
+            "go"
+          ],
+          "answer": "gu"
+        },
+        {
+          "wordBox": "ganas",
+          "blank": "___ nas",
+          "choices": [
+            "ga",
+            "go"
+          ],
+          "answer": "ga"
+        },
+        {
+          "wordBox": "mago",
+          "blank": "ma ___",
+          "choices": [
+            "go",
+            "gu"
+          ],
+          "answer": "go"
+        },
+        {
+          "wordBox": "gato",
+          "blank": "___ to",
+          "choices": [
+            "ga",
+            "gu"
+          ],
+          "answer": "ga"
+        },
+        {
+          "wordBox": "goma",
+          "blank": "___ ma",
+          "choices": [
+            "gu",
+            "go"
+          ],
+          "answer": "go"
+        },
+        {
+          "wordBox": "lago",
+          "blank": "la ___",
+          "choices": [
+            "go",
+            "ga"
+          ],
+          "answer": "go"
+        }
+      ]
+    },
+    "20": {
+      "lesson": 20,
+      "pages": {
+        "write": 71,
+        "circle": 72,
+        "letter": 73,
+        "complete": 74
+      },
+      "title": "Ff",
+      "models": [
+        "F",
+        "f"
+      ],
+      "drawInstruction": "Haz un dibujo que represente una palabra que comienza con f.",
+      "circle": [
+        {
+          "syllable": "fa",
+          "rows": [
+            [
+              "fama",
+              "familia",
+              "faro"
+            ],
+            [
+              "famoso",
+              "fatiga",
+              "afanado"
+            ]
+          ]
+        },
+        {
+          "syllable": "fe",
+          "rows": [
+            [
+              "feo",
+              "fecha",
+              "Felo"
+            ],
+            [
+              "feliz",
+              "felino",
+              "Felicia"
+            ]
+          ]
+        },
+        {
+          "syllable": "fi",
+          "rows": [
+            [
+              "fila",
+              "filo",
+              "afinado"
+            ],
+            [
+              "afina",
+              "fino",
+              "afilar"
+            ]
+          ]
+        },
+        {
+          "syllable": "fo",
+          "rows": [
+            [
+              "foto",
+              "sofoca",
+              "fosa"
+            ],
+            [
+              "foso",
+              "teléfono",
+              "foca"
+            ]
+          ]
+        },
+        {
+          "syllable": "fu",
+          "rows": [
+            [
+              "furia",
+              "funda",
+              "futuro"
+            ],
+            [
+              "furor",
+              "perfume",
+              "fuga"
+            ]
+          ]
+        }
+      ],
+      "syllableBubbles": [
+        "fa  fe  fi  fo  fu",
+        "fu  fo  fa  fe  fi"
+      ],
+      "vocab": [
+        "familia",
+        "fino",
+        "fila",
+        "Fígaro",
+        "fusta",
+        "falso",
+        "fama",
+        "fumiga",
+        "fortuna",
+        "famoso",
+        "teléfono",
+        "Ofelia",
+        "foto",
+        "feo",
+        "foca"
+      ],
+      "sightWords": [
+        "hay"
+      ],
+      "sentences": [
+        "La familia de Ofelia va a la finca de Felo.",
+        "En la finca de Felo hay aves y ganado.",
+        "Felo arrea el ganado con una fusta. El",
+        "ganado vale una fortuna. Es un ganado",
+        "de fama. Felo pone todo el ganado",
+        "en fila."
+      ],
+      "fill": [
+        {
+          "wordBox": "fama",
+          "blank": "___ ma",
+          "choices": [
+            "fa",
+            "fo"
+          ],
+          "answer": "fa"
+        },
+        {
+          "wordBox": "fila",
+          "blank": "___ la",
+          "choices": [
+            "fi",
+            "fe"
+          ],
+          "answer": "fi"
+        },
+        {
+          "wordBox": "teléfono",
+          "blank": "telé ___ no",
+          "choices": [
+            "fo",
+            "fu"
+          ],
+          "answer": "fo"
+        },
+        {
+          "wordBox": "foca",
+          "blank": "___ ca",
+          "choices": [
+            "fo",
+            "fi"
+          ],
+          "answer": "fo"
+        },
+        {
+          "wordBox": "fecha",
+          "blank": "___ cha",
+          "choices": [
+            "fe",
+            "fu"
+          ],
+          "answer": "fe"
+        },
+        {
+          "wordBox": "foto",
+          "blank": "___ to",
+          "choices": [
+            "fo",
+            "fi"
+          ],
+          "answer": "fo"
+        }
+      ]
+    },
+    "21": {
+      "lesson": 21,
+      "pages": {
+        "write": 75,
+        "circle": 76,
+        "letter": 77,
+        "complete": 78
+      },
+      "title": "Jj",
+      "models": [
+        "J",
+        "j"
+      ],
+      "drawInstruction": "Haz un dibujo que represente una palabra que comienza con j.",
+      "circle": [
+        {
+          "syllable": "ja",
+          "rows": [
+            [
+              "jaba",
+              "jabón",
+              "jamás"
+            ],
+            [
+              "jarra",
+              "jamón",
+              "baja"
+            ]
+          ]
+        },
+        {
+          "syllable": "je",
+          "rows": [
+            [
+              "Jesús",
+              "jefe",
+              "baje"
+            ],
+            [
+              "jefatura",
+              "jerez",
+              "ajeno"
+            ]
+          ]
+        },
+        {
+          "syllable": "ji",
+          "rows": [
+            [
+              "jicotea",
+              "jíbaro",
+              "jirafa"
+            ],
+            [
+              "ají",
+              "ajillo",
+              "jinete"
+            ]
+          ]
+        },
+        {
+          "syllable": "jo",
+          "rows": [
+            [
+              "jobo",
+              "José",
+              "bajo"
+            ],
+            [
+              "ajo",
+              "jota",
+              "jorobado"
+            ]
+          ]
+        },
+        {
+          "syllable": "ju",
+          "rows": [
+            [
+              "júbilo",
+              "Julio",
+              "jutía"
+            ],
+            [
+              "juventud",
+              "jugo",
+              "jugar"
+            ]
+          ]
+        }
+      ],
+      "syllableBubbles": [
+        "ja  je  ji  jo  ju",
+        "ju  jo  ja  je  ji"
+      ],
+      "vocab": [
+        "jaba",
+        "jicotea",
+        "ají",
+        "baja",
+        "jura",
+        "jinete",
+        "jabón",
+        "vieja",
+        "jefe",
+        "Jesús",
+        "jamón",
+        "José",
+        "Julia",
+        "jarro",
+        "joven"
+      ],
+      "sightWords": [],
+      "sentences": [
+        "Jesús y Julia son amigos. A José le gusta",
+        "el jamón y a Julia le gusta el jugo de",
+        "tomate. Juan tiene una jutía y la baña con",
+        "jabón. José y Josefa juegan en la",
+        "laguna. Jabela es una jicotea.",
+        "A Jabela le gusta la laguna. A Jabela",
+        "no le gusta la espuma de jabón."
+      ],
+      "fill": [
+        {
+          "wordBox": "jaba",
+          "blank": "___ ba",
+          "choices": [
+            "ja",
+            "jo"
+          ],
+          "answer": "ja"
+        },
+        {
+          "wordBox": "jugo",
+          "blank": "___ go",
+          "choices": [
+            "ju",
+            "je"
+          ],
+          "answer": "ju"
+        },
+        {
+          "wordBox": "jamón",
+          "blank": "___ món",
+          "choices": [
+            "ja",
+            "ju"
+          ],
+          "answer": "ja"
+        },
+        {
+          "wordBox": "jefe",
+          "blank": "___ fe",
+          "choices": [
+            "je",
+            "ja"
+          ],
+          "answer": "je"
+        },
+        {
+          "wordBox": "jugar",
+          "blank": "___ gar",
+          "choices": [
+            "ju",
+            "je"
+          ],
+          "answer": "ju"
+        },
+        {
+          "wordBox": "jutía",
+          "blank": "___ tía",
+          "choices": [
+            "ju",
+            "ji"
+          ],
+          "answer": "ju"
+        }
+      ]
+    },
+    "22": {
+      "lesson": 22,
+      "pages": {
+        "write": 79,
+        "circle": 80,
+        "letter": 81,
+        "complete": 82
+      },
+      "title": "Cc",
+      "models": [
+        "C",
+        "c"
+      ],
+      "drawInstruction": "Haz un dibujo que represente una palabra que comienza con c.",
+      "circle": [
+        {
+          "syllable": "ca",
+          "rows": [
+            [
+              "cama",
+              "cala",
+              "casa"
+            ],
+            [
+              "cana",
+              "loca",
+              "saca"
+            ]
+          ]
+        },
+        {
+          "syllable": "co",
+          "rows": [
+            [
+              "coma",
+              "cosa",
+              "poco"
+            ],
+            [
+              "cola",
+              "copa",
+              "saco"
+            ]
+          ]
+        },
+        {
+          "syllable": "cu",
+          "rows": [
+            [
+              "cuna",
+              "Cuba",
+              "acuna"
+            ],
+            [
+              "acuso",
+              "acumula",
+              "cubo"
+            ]
+          ]
+        }
+      ],
+      "syllableBubbles": [
+        "ca  co  cu",
+        "cu  co  ca"
+      ],
+      "vocab": [
+        "carro",
+        "boca",
+        "cuna",
+        "coco",
+        "Colombia",
+        "saco",
+        "casa",
+        "poco",
+        "roca",
+        "Cuba",
+        "pico",
+        "cumbia",
+        "camisa",
+        "Cuco",
+        "colonia"
+      ],
+      "sightWords": [],
+      "sentences": [
+        "Cuco Casanova es un buen amigo del",
+        "papá y de la mamá de Paco. El señor",
+        "Casanova es cubano. El vive en el",
+        "campo, vive con Doña María, su mamá.",
+        "Cuco Casanova juega con los niños y los",
+        "cuida también. Todos en la casa de",
+        "Paco aman a Cuco."
+      ],
+      "fill": [
+        {
+          "wordBox": "coma",
+          "blank": "___ ma",
+          "choices": [
+            "co",
+            "cu"
+          ],
+          "answer": "co"
+        },
+        {
+          "wordBox": "cosa",
+          "blank": "___ sa",
+          "choices": [
+            "co",
+            "ca"
+          ],
+          "answer": "co"
+        },
+        {
+          "wordBox": "saca",
+          "blank": "sa ___",
+          "choices": [
+            "ca",
+            "co"
+          ],
+          "answer": "ca"
+        },
+        {
+          "wordBox": "cola",
+          "blank": "___ la",
+          "choices": [
+            "ca",
+            "co"
+          ],
+          "answer": "co"
+        },
+        {
+          "wordBox": "loca",
+          "blank": "lo ___",
+          "choices": [
+            "co",
+            "ca"
+          ],
+          "answer": "ca"
+        },
+        {
+          "wordBox": "cubo",
+          "blank": "___ bo",
+          "choices": [
+            "co",
+            "cu"
+          ],
+          "answer": "cu"
+        }
+      ]
+    },
+    "23": {
+      "lesson": 23,
+      "pages": {
+        "write": 83,
+        "circle": 84,
+        "letter": 85,
+        "complete": 86
+      },
+      "title": "Yy",
+      "models": [
+        "Y",
+        "y"
+      ],
+      "drawInstruction": "Haz un dibujo que represente una palabra que comienza con y.",
+      "circle": [
+        {
+          "syllable": "ya",
+          "rows": [
+            [
+              "yate",
+              "Yara",
+              "payaso"
+            ],
+            [
+              "yana",
+              "yagua",
+              "maya"
+            ]
+          ]
+        },
+        {
+          "syllable": "ye",
+          "rows": [
+            [
+              "yegua",
+              "enyesado",
+              "yema"
+            ],
+            [
+              "Yesenia",
+              "Yeyo",
+              "yeso"
+            ]
+          ]
+        },
+        {
+          "syllable": "yi",
+          "rows": [
+            [
+              "Mayito",
+              "Yayita",
+              "Yayi"
+            ],
+            [
+              "Yigüiro",
+              "Yoyita",
+              "Mayita"
+            ]
+          ]
+        },
+        {
+          "syllable": "yo",
+          "rows": [
+            [
+              "cayo",
+              "yoyo",
+              "rayo"
+            ],
+            [
+              "coyote",
+              "yo",
+              "Yayo"
+            ]
+          ]
+        },
+        {
+          "syllable": "yu",
+          "rows": [
+            [
+              "Yucatán",
+              "Cayuco",
+              "ayudar"
+            ],
+            [
+              "yuca",
+              "ayuda",
+              "desayuno"
+            ]
+          ]
+        }
+      ],
+      "syllableBubbles": [
+        "ya  ye  yi  yo  yu",
+        "yu  yo  ya  ye  yi"
+      ],
+      "vocab": [
+        "yuca",
+        "ayer",
+        "cayo",
+        "yema",
+        "payaso",
+        "Mayito",
+        "yate",
+        "yute",
+        "joya",
+        "yegua",
+        "yoyo",
+        "yucateco",
+        "yagua",
+        "Yucatán",
+        "yeso"
+      ],
+      "sightWords": [],
+      "sentences": [
+        "El yate de Yayo está en Yateras. Yayo fue",
+        "a los cayos a pescar con sus amigas",
+        "yucatecas. Yayo tiene una soga de yute",
+        "para amarrar su yate. Yayo comió yuca y",
+        "guacamole. A Yayo le gusta el arroz con",
+        "yemas de huevos también. Su mamá le",
+        "dio el arroz con yemas de huevos ayer.",
+        "Yayo se lo comió todo."
+      ],
+      "fill": null
+    },
+    "24": {
+      "lesson": 24,
+      "pages": {
+        "write": 87,
+        "circle": 88,
+        "letter": 89,
+        "complete": 90
+      },
+      "title": "Zz",
+      "models": [
+        "Z",
+        "z"
+      ],
+      "drawInstruction": "Haz un dibujo que represente una palabra que comienza con z.",
+      "circle": [
+        {
+          "syllable": "za",
+          "rows": [
+            [
+              "taza",
+              "caza",
+              "zapatero"
+            ],
+            [
+              "plaza",
+              "zapato",
+              "zapote"
+            ]
+          ]
+        },
+        {
+          "syllable": "ze",
+          "rows": [
+            [
+              "zepelín",
+              "zebra",
+              "Zenaida"
+            ],
+            [
+              "zeta",
+              "Zegrí",
+              "Zema"
+            ]
+          ]
+        },
+        {
+          "syllable": "zi",
+          "rows": [
+            [
+              "zig-zag",
+              "Zimba"
+            ],
+            [
+              "Zila",
+              "Zita"
+            ]
+          ]
+        },
+        {
+          "syllable": "zo",
+          "rows": [
+            [
+              "zorro",
+              "portazo",
+              "zocato"
+            ],
+            [
+              "azotes",
+              "zopilote",
+              "lazo"
+            ]
+          ]
+        },
+        {
+          "syllable": "zu",
+          "rows": [
+            [
+              "azúcar",
+              "zurra",
+              "azucarado"
+            ],
+            [
+              "azules",
+              "Zulema",
+              "azulado"
+            ]
+          ]
+        }
+      ],
+      "syllableBubbles": [
+        "za  ze  zi  zo  zu",
+        "zu  zo  za  ze  zi"
+      ],
+      "vocab": [
+        "zorro",
+        "zeta",
+        "calabaza",
+        "zapato",
+        "taza",
+        "zumo",
+        "azul",
+        "lazo",
+        "azúcar",
+        "zig-zag",
+        "zapote",
+        "zepelín",
+        "Zila",
+        "Zulema",
+        "azucarado"
+      ],
+      "sightWords": [],
+      "sentences": [
+        "Zulema toma zumo de melón.",
+        "A Zulema le gusta el zumo con azúcar.",
+        "Ella se bebe el zumo y se pone sus zapatos",
+        "azules.",
+        "Zila va con Zulema, van en un carro con",
+        "ruedas de calabazas."
+      ],
+      "fill": [
+        {
+          "wordBox": "zapato",
+          "blank": "___ pato",
+          "choices": [
+            "za",
+            "zo"
+          ],
+          "answer": "za"
+        },
+        {
+          "wordBox": "zeta",
+          "blank": "___ ta",
+          "choices": [
+            "za",
+            "ze"
+          ],
+          "answer": "ze"
+        },
+        {
+          "wordBox": "zumo",
+          "blank": "___ mo",
+          "choices": [
+            "zo",
+            "zu"
+          ],
+          "answer": "zu"
+        },
+        {
+          "wordBox": "lazo",
+          "blank": "la ___",
+          "choices": [
+            "zo",
+            "zú"
+          ],
+          "answer": "zo"
+        },
+        {
+          "wordBox": "azules",
+          "blank": "a ___ les",
+          "choices": [
+            "zu",
+            "za"
+          ],
+          "answer": "zu"
+        },
+        {
+          "wordBox": "Zita",
+          "blank": "___ ta",
+          "choices": [
+            "Zo",
+            "Zi"
+          ],
+          "answer": "Zi"
+        }
+      ]
+    }
+  }
+}
