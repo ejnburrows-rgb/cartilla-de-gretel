@@ -31,7 +31,7 @@ describe("native Flip Chart coverage", () => {
 
   it("uses faithful book art after fabricated exclusive images were removed", () => {
     // 2026-09-29: All 32 ChatGPT-fabricated "exclusive" images were deleted per owner directive
-    // (IMAGE_GENERATION_BAN.md). Pages now fall back to faithful book crops. This test verifies
+    // (ASSET_FIDELITY_POLICY.md). Pages now fall back to faithful book crops. This test verifies
     // no page references the deleted fabricated images.
     for (let pageNumber = 3; pageNumber <= 62; pageNumber += 1) {
       const page = getNativeFlipchartPage(pageNumber);
