@@ -1,11 +1,17 @@
 # Gretel: candidates and Flow motion contract
 
-Status: **Gretel 2.0 direction already approved; exact source file unresolved**.
-The FIRST approved modernized Gretel 2.0 is the master, as specified in
-`PROJECT_SOURCE_OF_TRUTH.md` and `ASSET_FIDELITY_POLICY.md`. Do not reopen the
-character design or choose by filename. The existing candidate sheet helps
-identify the approved file; it does not authorize a new character family.
-No new character or clip is generated until that exact source identity is established.
+Status: **Exact Gretel 2.0 master confirmed by Emilio on 2026-09-30**.
+Emilio selected **A / the left image** from the presented side-by-side candidates.
+The approved original is **Folk Art Girl with Red Bow.png**, Google Drive file
+`1UDgi3wPfKhrp9P_fovYisN5E0G0Wnw6W`:
+https://drive.google.com/file/d/1UDgi3wPfKhrp9P_fovYisN5E0G0Wnw6W/view
+
+This exact image is the source for all Gretel stills, poses and 31 animation clips.
+The right candidate is not the selected master. Preserve the approved face,
+hair, red bow, striped blouse, blue dress, floral trim and proportions; never
+create a third character style. The machine-readable source identity is recorded
+in `src/data/gretel-approved-master.json`. Selection does not certify existing
+poses as matching or imply that any clip has been produced.
 
 ## What exists today (20 files)
 
@@ -51,11 +57,11 @@ approved merely because they have real transparency.
    and the child can always press "Comenzar" to skip.
 8. Same outfit, face and proportions as the chosen master in every clip.
 
-## Still to produce (after the owner picks the master)
+## Still to produce (master choice complete)
 
 - 1 clean transparent master still (PNG/WebP, ≥1400 px tall) + 4 matching poses
   (idle, point, talk, cheer) in the same family.
 - 31 Flow clips per the contract above (62 files with both aspect ratios), plus a poster frame each.
 - Register only produced and visually approved files in the existing optional
   `video` field per scene. Playback integration is implemented; media production
-  and exact-master confirmation remain unfinished.
+  remains unfinished. The exact-master confirmation is complete.
