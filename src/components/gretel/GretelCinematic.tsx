@@ -1,3 +1,4 @@
+import "@/styles/gretel.css";
 import { useEffect, useMemo, useRef, useState } from "react";
 import { Volume2, VolumeX, RotateCcw, SkipForward } from "lucide-react";
 import { cancelGretelSpeech, isGretelVoiceMuted, setGretelVoiceMuted, speakAsGretel } from "@/lib/gretel-voice";
@@ -90,7 +91,7 @@ export function GretelCinematic({
 
   return (
     <section
-      className="fixed inset-0 z-[250] flex items-center justify-center bg-[#f7f2e8]/95 p-4 backdrop-blur-sm"
+      className="fixed inset-0 z-[250] flex items-center justify-center overflow-y-auto bg-[#f7f2e8]/95 p-4 backdrop-blur-sm"
       role="dialog"
       aria-modal="true"
       aria-label="Introducción de Gretel"

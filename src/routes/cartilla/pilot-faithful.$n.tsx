@@ -1,39 +1,53 @@
+import { useState } from "react";
 import { createFileRoute, Link, redirect } from "@tanstack/react-router";
 import { ArrowLeft } from "lucide-react";
 import { FaithfulPageRenderer } from "@/components/cartilla/FaithfulPageRenderer";
-import { PdfPage } from "@/components/cartilla/PdfPage";
+import { lessonForWorkbookPage, SOURCE_BLOCKED_WORKBOOK_PAGES } from "@/lib/workbook-pages";
 
-const PILOT_PAGES = [
-  1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 21, 23, 25, 27, 29, 31, 33, 35,
-  37, 39, 41, 43, 45, 20, 22, 47, 49, 51, 53, 55, 56, 57, 58, 59, 60, 61, 62, 63, 64, 65, 66, 67,
-  68, 69, 70, 71, 72, 73, 74, 75, 76, 77, 78, 79, 80, 81, 82, 83, 84, 85, 86, 87, 88, 89, 90,
-];
-
-/** Lesson number for a given book page: intro=1 (pp1-3), vowels 2-6 (pp4-18,
- * 3pp each), consonants 7+ (pp19+, 4pp each). Preview-only helper. */
-function lessonForPage(pageNumber: number): number {
-  if (pageNumber <= 3) return 1;
-  if (pageNumber <= 18) return 2 + Math.floor((pageNumber - 4) / 3);
-  return 7 + Math.floor((pageNumber - 19) / 4);
-}
+/** Every printed instructional Workbook page (1–90) can be opened here for
+ * source-vs-digital QA. The left column is exactly what the student sees in the
+ * lesson (native interactive renderer); the right column is the raw book scan. */
+const QA_PAGES = Array.from({ length: 90 }, (_, i) => i + 1);
 
 export const Route = createFileRoute("/cartilla/pilot-faithful/$n")({
   component: PilotFaithfulPage,
+  head: () => ({ meta: [{ name: "robots", content: "noindex" }] }),
   beforeLoad: ({ params }) => {
     const n = Number(params.n);
-    if (!Number.isFinite(n) || !PILOT_PAGES.includes(n)) {
+    if (!Number.isInteger(n) || !QA_PAGES.includes(n)) {
       throw redirect({ to: "/cartilla/pilot-faithful/$n", params: { n: "1" } });
     }
   },
 });
 
+function SourceScan({ pageNumber }: { pageNumber: number }) {
+  const [failed, setFailed] = useState(false);
+  if (SOURCE_BLOCKED_WORKBOOK_PAGES.includes(pageNumber) || failed) {
+    return (
+      <div className="flex h-full w-full items-center justify-center bg-stone-50 p-8 text-center text-sm font-bold text-stone-500" role="status">
+        Escaneo fuente no disponible para la página {pageNumber} — la página no se inventa.
+      </div>
+    );
+  }
+  return (
+    <img
+      key={pageNumber}
+      src={`/cartilla/art/source/workbook/page-${String(pageNumber).padStart(3, "0")}.jpg`}
+      alt={`Escaneo del libro, página ${pageNumber}`}
+      className="h-full w-full object-contain"
+      onError={() => setFailed(true)}
+    />
+  );
+}
+
 function PilotFaithfulPage() {
   const { n } = Route.useParams();
   const pageNumber = Number(n);
+  const lesson = lessonForWorkbookPage(pageNumber);
 
   return (
     <div className="min-h-screen bg-background px-4 py-6">
-      <div className="mx-auto max-w-5xl">
+      <div className="mx-auto max-w-6xl">
         <Link
           to="/cartilla"
           className="inline-flex items-center gap-2 text-sm font-bold text-foreground/70 hover:text-foreground"
@@ -42,50 +56,50 @@ function PilotFaithfulPage() {
         </Link>
 
         <h1 className="mt-3 text-2xl font-black">
-          Página faithful vs. scan original — página {pageNumber}
+          Libro vs. digital — página {pageNumber} · Lección {lesson}
         </h1>
         <p className="mt-1 text-sm text-foreground/60">
-          Vista previa de las páginas reconstruidas (texto verificado + arte a color). Las páginas
-          sin diseño verificado muestran “en preparación”.
+          Control de calidad: a la izquierda la página tal como la ve el estudiante; a la derecha
+          el escaneo del libro del alumno.
         </p>
 
-        <div className="mt-4 flex flex-wrap gap-2">
-          {PILOT_PAGES.map((p) => (
+        <nav className="mt-4 flex flex-wrap gap-1.5" aria-label="Páginas del cuaderno">
+          {QA_PAGES.map((p) => (
             <Link
               key={p}
               to="/cartilla/pilot-faithful/$n"
               params={{ n: String(p) }}
-              className={`rounded-lg border px-3 py-1.5 text-sm font-bold ${
+              className={`min-w-10 rounded-lg border px-2.5 py-1.5 text-center text-sm font-bold ${
                 p === pageNumber
                   ? "border-primary bg-primary text-primary-foreground"
-                  : "border-foreground/15 hover:bg-secondary"
+                  : SOURCE_BLOCKED_WORKBOOK_PAGES.includes(p)
+                    ? "border-amber-400 text-amber-700 hover:bg-amber-50"
+                    : "border-foreground/15 hover:bg-secondary"
               }`}
             >
               {p}
             </Link>
           ))}
-        </div>
+        </nav>
 
-        <div className="mt-6 grid gap-6 sm:grid-cols-2">
-          <div>
+        <div className="mt-6 grid gap-6 lg:grid-cols-2">
+          <section data-qa="digital">
             <h2 className="mb-2 text-xs font-bold uppercase tracking-wide text-foreground/50">
-              HTML fiel (nuevo)
+              Digital (estudiante)
             </h2>
-            <div className="overflow-hidden rounded-xl border border-foreground/10">
-              <FaithfulPageRenderer
-                pageNumber={pageNumber}
-                lessonNumber={lessonForPage(pageNumber)}
-              />
+            {/* Same container the student lesson viewer uses, so this shows exactly what the child sees. */}
+            <div className="native-lesson-viewer__content overflow-hidden rounded-xl border border-foreground/10 bg-[#fffaf0] p-4">
+              <FaithfulPageRenderer key={pageNumber} pageNumber={pageNumber} lessonNumber={lesson} interactive native />
             </div>
-          </div>
-          <div>
+          </section>
+          <section data-qa="source">
             <h2 className="mb-2 text-xs font-bold uppercase tracking-wide text-foreground/50">
-              Escaneo original
+              Libro del alumno (escaneo)
             </h2>
-            <div className="aspect-[2550/3301] overflow-hidden rounded-xl border border-foreground/10">
-              <PdfPage pageNumber={pageNumber} className="h-full w-full" />
+            <div className="aspect-[935/1210] overflow-hidden rounded-xl border border-foreground/10 bg-white">
+              <SourceScan pageNumber={pageNumber} />
             </div>
-          </div>
+          </section>
         </div>
       </div>
     </div>

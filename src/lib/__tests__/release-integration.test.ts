@@ -1,11 +1,7 @@
 import { describe, expect, it } from "vitest";
 import { CATALOG, TOTAL_LESSONS } from "@/lib/lesson-catalog";
 import { getWorkbookPageFallbackChain } from "@/lib/bookImages";
-import {
-  getWorkbookManifest,
-  getWorkbookPage,
-  listAvailablePhysicalPages,
-} from "@/content/workbook/loader";
+import pageLayouts from "@/data/page-layouts.json";
 import { buildPageArray } from "@/utils/buildPageArray";
 
 describe("release integration — workbook + lessons", () => {
@@ -17,24 +13,12 @@ describe("release integration — workbook + lessons", () => {
     }
   });
 
-  it("manifest contains 90 real application pages", () => {
-    const manifest = getWorkbookManifest();
-    expect(manifest.pages.length).toBe(90);
-    const pages = listAvailablePhysicalPages();
-    expect(pages).toHaveLength(90);
-    expect(pages[0]).toBe(1);
-    expect(pages[pages.length - 1]).toBe(90);
-  });
-
-  it("every mapped page resolves via getWorkbookPage", () => {
-    for (const n of listAvailablePhysicalPages()) {
-      const page = getWorkbookPage(n);
-      expect(page, `page ${n}`).toBeTruthy();
-      expect(page!.pageNumber).toBe(n);
-      // background may be scan fallback; must not invent interaction content
-      expect(
-        page!.interaction?.kind === undefined || typeof page!.interaction?.kind === "string",
-      ).toBe(true);
+  it("page-layouts (the single workbook content source) covers all 90 printed pages", () => {
+    const pages = Object.keys(pageLayouts.pages).map(Number).sort((a, b) => a - b);
+    expect(pages).toEqual(Array.from({ length: 90 }, (_, i) => i + 1));
+    for (const n of pages) {
+      const layout = (pageLayouts.pages as Record<string, { regions?: unknown[] }>)[String(n)];
+      expect(layout.regions?.length, `page ${n} regions`).toBeGreaterThan(0);
     }
   });
 

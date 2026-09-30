@@ -10,7 +10,6 @@ import { useMemo } from "react";
 import { ArrowLeft, Printer } from "lucide-react";
 import { CATALOG, type CatalogEntry } from "@/lib/lesson-catalog";
 import { PdfPage } from "@/components/cartilla/PdfPage";
-import interactionsData from "@/data/workbook-interactions.json";
 import { supabase } from "@/integrations/supabase/client";
 import { hasTeacherOrAdminRole } from "@/lib/auth-role";
 import { isSeedSessionActive } from "@/lib/seed-data";
@@ -78,17 +77,7 @@ function ImprimirPage() {
         (arr) => arr.length === 0 || arr[0].includes("PENDIENTE"),
       ));
 
-  const isScaffold =
-    isPendingLesson ||
-    (
-      interactionsData.interactions as {
-        lessonNumber?: number;
-        lessonId?: string;
-        sourceStatus?: string;
-      }[]
-    ).some(
-      (i) => (i.lessonNumber === n || i.lessonId === String(n)) && i.sourceStatus === "scaffold",
-    );
+  const isScaffold = isPendingLesson;
 
   return (
     <div className="min-h-screen bg-white">

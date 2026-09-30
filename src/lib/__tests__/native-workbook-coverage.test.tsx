@@ -10,7 +10,10 @@ describe("native workbook coverage", () => {
     const layoutPages = Object.keys(pageLayouts.pages).map(Number).sort((a, b) => a - b);
     expect(layoutPages).toEqual(Array.from({ length: 90 }, (_, index) => index + 1));
     expect(conversionStatus.pages).toHaveLength(90);
-    expect(conversionStatus.pages.every((page) => page.status === "NATIVE_COMPLETE")).toBe(true);
+    for (const page of conversionStatus.pages) {
+      const expected = [86, 87].includes(page.physicalPage) ? "SOURCE_BLOCKED" : "NATIVE_COMPLETE";
+      expect(page.status, `page ${page.physicalPage}`).toBe(expected);
+    }
   });
 
   it("routes every lesson page through the native FaithfulPageRenderer", () => {
