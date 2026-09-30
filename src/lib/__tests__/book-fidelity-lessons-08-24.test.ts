@@ -9,7 +9,7 @@
  *
  * Only two explicit exceptions exist, both flagged in the data with `_source`:
  *   - page 86 (Lección 23 Completa): scan missing -> fill-in items withheld.
- *   - page 87 (Lección 24 writing): scan missing -> pattern-derived.
+ *   - page 87 (Lección 24 writing): scan missing -> SOURCE-BLOCKED (pattern shown, not verified).
  */
 import { describe, it, expect } from "vitest";
 import layouts from "@/data/page-layouts.json";
@@ -100,7 +100,7 @@ describe("book fidelity — Lessons 8–24", () => {
         expect(r[0].text).toBe(WRITE);
         expect(r.filter((x) => x.modelText).map((x) => x.modelText)).toEqual(l.models);
         expect(r[r.length - 2].text).toBe(l.drawInstruction);
-        if (l.pages.write === 87) expect(p._source?.status).toBe("pattern-derived-pending-rescan");
+        if (l.pages.write === 87) expect(p._source?.status).toBe("SOURCE-BLOCKED");
         else expect(p._source).toBeUndefined();
       });
 
@@ -146,7 +146,7 @@ describe("book fidelity — Lessons 8–24", () => {
         if (l.fill === null) {
           // Only page 86 may be missing its Completa items, and it must say why.
           expect(l.pages.complete).toBe(86);
-          expect(p._source?.status).toBe("pending-rescan");
+          expect(p._source?.status).toBe("SOURCE-BLOCKED");
           expect(pending["86"]).toBeTruthy();
           expect(r.map((x) => x.regionType)).toEqual(["instruction", "instruction", "writing-response"]);
           expect(r[0].text).toBe(COMPLETE);

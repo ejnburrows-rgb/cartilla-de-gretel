@@ -36,7 +36,12 @@ const optimizedFlipchartAssets = readJson("src/data/optimized-flipchart-exclusiv
 
 const workbookPages = conversion.pages ?? [];
 assert(workbookPages.length === 90, `expected 90 workbook pages, found ${workbookPages.length}`);
-assert(workbookPages.every((page) => page.status === "NATIVE_COMPLETE"), "all workbook pages must be NATIVE_COMPLETE");
+assert(
+  workbookPages.every((page) =>
+    [86, 87].includes(page.physicalPage) ? page.status === "SOURCE_BLOCKED" : page.status === "NATIVE_COMPLETE",
+  ),
+  "workbook pages must be NATIVE_COMPLETE except the source-blocked pages 86–87",
+);
 assert(Object.keys(layouts.pages ?? {}).length === 90, "page-layouts must contain exactly 90 instructional pages");
 
 const verifiedSourceGap = new Set([86, 87]);
@@ -78,19 +83,11 @@ for (const [page, assets] of Object.entries(nativeFlipchartAssets)) {
   }
 }
 
-const expectedOptimizedFlipchartPages = [
-  3, 4, 5, 6, 7, 8, 9, 11, 12, 14, 15, 17, 18, 20, 21, 23,
-  24, 26, 27, 29, 30, 32, 33, 35, 36, 38, 39, 47, 51, 53, 60, 62,
-];
+// The 32 generated "exclusive" Flip Chart images were deleted per
+// ASSET_FIDELITY_POLICY.md (not book art). The manifest must stay empty.
 assert(
-  Array.isArray(optimizedFlipchartAssets) &&
-    optimizedFlipchartAssets.length === expectedOptimizedFlipchartPages.length,
-  "optimized Flip Chart exclusive manifest must contain exactly 32 final assets",
-);
-assert(
-  optimizedFlipchartAssets.map((asset) => Number(asset.flipchartPage)).join(",") ===
-    expectedOptimizedFlipchartPages.join(","),
-  "optimized Flip Chart exclusive page set mismatch",
+  Array.isArray(optimizedFlipchartAssets) && optimizedFlipchartAssets.length === 0,
+  "optimized Flip Chart exclusive manifest must stay empty (fabricated images were removed)",
 );
 for (const asset of optimizedFlipchartAssets) {
   assert(

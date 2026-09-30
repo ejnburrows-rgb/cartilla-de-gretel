@@ -1,6 +1,6 @@
 {
   "_comment": "CANONICAL faithful page layouts — the single source of truth for the student CRM view, student workbook, and teacher flipbook. Each page is an ordered list of regions; text regions hold VERIFIED transcriptions checked against the official workbook. Picture cells use source-faithful crops: the identical teacher-color drawing when the flip chart contains it, otherwise the exact original student-workbook drawing. Never generate, redraw, or guess colors. A page absent here uses its existing fallback.",
-  "_status": "Pages 1-22 (introduction, vowels, Lesson 7) and pages 23-90 (Lessons 8-24) have structured native layouts. Lessons 8-24 were re-transcribed verbatim from the book scans on 2026-09-30 (write -> circle -> letter -> complete order, book instruction wording, no added pictures); src/data/book-transcription/lessons-08-24.json is the reference and src/lib/__tests__/book-fidelity-lessons-08-24.test.ts guards it. Exceptions: page 86 fill-in items are pending the Rescan PDF; page 87 follows the fixed writing-page pattern but is not yet scan-verified.",
+  "_status": "Pages 1-22 (introduction, vowels, Lesson 7) and pages 23-90 (Lessons 8-24) have structured native layouts. Pages 1-22 were re-checked verbatim against the book scans on 2026-09-30 (printed instruction wording, picture identity, answer keys); src/data/book-transcription/lessons-01-07.json is the reference and src/lib/__tests__/book-fidelity-lessons-01-07.test.ts guards it. Lessons 8-24 were re-transcribed verbatim from the book scans on 2026-09-30 (write -> circle -> letter -> complete order, book instruction wording, no added pictures); src/data/book-transcription/lessons-08-24.json is the reference and src/lib/__tests__/book-fidelity-lessons-08-24.test.ts guards it. Exceptions: page 86 fill-in items are pending the Rescan PDF; page 87 follows the fixed writing-page pattern but is not yet scan-verified.",
   "pages": {
     "1": {
       "regions": [
@@ -132,20 +132,22 @@
               "height": 0.135393
             },
             {
-              "caption": "traje",
+              "caption": "uniforme",
               "illustrationSrc": "/cartilla/art/digital/page-001/r4-c1.png",
               "x": 0.036337,
               "y": 0.630337,
               "width": 0.196221,
-              "height": 0.135393
+              "height": 0.135393,
+              "correct": true
             },
             {
-              "caption": "arco",
+              "caption": "uña",
               "illustrationSrc": "/cartilla/art/digital/page-001/r4-c2.png",
               "x": 0.239826,
               "y": 0.630337,
               "width": 0.201308,
-              "height": 0.135393
+              "height": 0.135393,
+              "correct": true
             },
             {
               "caption": "oveja",
@@ -153,7 +155,8 @@
               "x": 0.448401,
               "y": 0.630337,
               "width": 0.196948,
-              "height": 0.135393
+              "height": 0.135393,
+              "correct": false
             },
             {
               "caption": "elefante",
@@ -161,7 +164,8 @@
               "x": 0.652616,
               "y": 0.630337,
               "width": 0.200581,
-              "height": 0.135393
+              "height": 0.135393,
+              "correct": false
             },
             {
               "caption": "ojos",
@@ -497,7 +501,8 @@
           "regionType": "instruction",
           "order": 0,
           "fontRole": "body",
-          "text": "Traza una línea de la vocal al dibujo que le corresponde."
+          "text": "Traza una línea de la vocal al dibujo que le corresponde.",
+          "label": "Instrucciones:"
         },
         {
           "id": "p3-pairs",
@@ -547,7 +552,7 @@
           "order": 0,
           "fontRole": "body",
           "label": "Instrucciones:",
-          "text": "Presiona los dibujos que comienzan con O o."
+          "text": "Marca con una x los dibujos que comienzan con O o."
         },
         {
           "id": "p4-grid",
@@ -577,24 +582,24 @@
               "correct": false
             },
             {
-              "caption": "arco",
-              "correct": true,
+              "caption": "uña",
+              "correct": false,
               "illustrationSrc": "/cartilla/art/faithful/leccion-1/arco.webp"
             },
             {
               "caption": "oveja",
               "illustrationSrc": "/cartilla/art/faithful/vocal-o/oveja.webp",
-              "correct": false
+              "correct": true
             },
             {
               "caption": "alas",
               "illustrationSrc": "/cartilla/art/faithful/vocal-a/alas.webp",
-              "correct": true
+              "correct": false
             },
             {
               "caption": "oreja",
               "illustrationSrc": "/cartilla/art/faithful/vocal-o/oreja.webp",
-              "correct": false
+              "correct": true
             },
             {
               "caption": "olla",
@@ -627,7 +632,7 @@
               "correct": true
             },
             {
-              "caption": "traje",
+              "caption": "uniforme",
               "correct": false,
               "illustrationSrc": "/cartilla/art/faithful/leccion-1/traje.webp"
             },
@@ -647,7 +652,8 @@
           "regionType": "instruction",
           "order": 0,
           "fontRole": "body",
-          "text": "Traza una línea desde la vocal Oo hasta el dibujo de la palabra que comienza con Oo."
+          "text": "Traza una línea desde la vocal Oo hasta el dibujo de la palabra que comienza con Oo.",
+          "label": "Instrucciones:"
         },
         {
           "id": "p5-match",
@@ -708,7 +714,7 @@
           "regionType": "instruction",
           "order": 0,
           "fontRole": "body",
-          "text": "Traza con tu mejor letra."
+          "text": "Escribe con tu mejor letra."
         },
         {
           "id": "p6-write-O",
@@ -759,7 +765,7 @@
           "order": 0,
           "fontRole": "body",
           "label": "Instrucciones:",
-          "text": "Presiona los dibujos de las palabras que comienzan con A a."
+          "text": "Marca con una x los dibujos de las palabras que comienzan con A a."
         },
         {
           "id": "p7-grid",
@@ -844,9 +850,9 @@
               "illustrationSrc": "/cartilla/art/faithful/vocal-a/aguja.webp"
             },
             {
-              "caption": "aro",
-              "illustrationSrc": "/cartilla/art/faithful/vocal-a/aro.webp",
-              "correct": true
+              "caption": "oso",
+              "illustrationSrc": "/cartilla/art/faithful/vocal-o/oso.webp",
+              "correct": false
             }
           ]
         }
@@ -859,7 +865,8 @@
           "regionType": "instruction",
           "order": 0,
           "fontRole": "body",
-          "text": "Traza una línea desde la vocal Aa hasta el dibujo de la palabra que comienza con Aa."
+          "text": "Traza una línea desde la vocal Aa hasta el dibujo de la palabra que comienza con Aa.",
+          "label": "Instrucciones:"
         },
         {
           "id": "p8-match",
@@ -900,13 +907,13 @@
               "correct": false
             },
             {
-              "caption": "pez",
-              "correct": false,
+              "caption": "avión",
+              "correct": true,
               "illustrationSrc": "/cartilla/art/faithful/leccion-1/pez.webp"
             },
             {
               "caption": "aro",
-              "correct": false,
+              "correct": true,
               "illustrationSrc": "/cartilla/art/faithful/vocal-a/aro.webp"
             }
           ]
@@ -920,7 +927,7 @@
           "regionType": "instruction",
           "order": 0,
           "fontRole": "body",
-          "text": "Traza con tu mejor letra."
+          "text": "Escribe con tu mejor letra."
         },
         {
           "id": "p9-write-A",
@@ -971,7 +978,7 @@
           "order": 0,
           "fontRole": "body",
           "label": "Instrucciones:",
-          "text": "Presiona los dibujos de las palabras que comienzan con E e."
+          "text": "Marca con una x los dibujos de las palabras que comienzan con E e."
         },
         {
           "id": "p10-grid",
@@ -983,11 +990,11 @@
             {
               "caption": "elefante",
               "illustrationSrc": "/cartilla/art/faithful/vocal-e/elefante.webp",
-              "correct": false
+              "correct": true
             },
             {
               "caption": "iglú",
-              "correct": true,
+              "correct": false,
               "illustrationSrc": "/cartilla/art/faithful/vocal-i/iglu.webp"
             },
             {
@@ -998,7 +1005,7 @@
             {
               "caption": "indio",
               "illustrationSrc": "/cartilla/art/faithful/vocal-i/indio.webp",
-              "correct": true
+              "correct": false
             },
             {
               "caption": "escalera",
@@ -1046,7 +1053,7 @@
               "correct": true
             },
             {
-              "caption": "traje",
+              "caption": "uniforme",
               "correct": false,
               "illustrationSrc": "/cartilla/art/faithful/leccion-1/traje.webp"
             },
@@ -1071,7 +1078,8 @@
           "regionType": "instruction",
           "order": 0,
           "fontRole": "body",
-          "text": "Traza una línea desde la vocal Ee hasta el dibujo de la palabra que comienza con Ee."
+          "text": "Traza una línea desde la vocal Ee hasta el dibujo de la palabra que comienza con Ee.",
+          "label": "Instrucciones:"
         },
         {
           "id": "p11-match",
@@ -1079,7 +1087,7 @@
           "order": 1,
           "fontRole": "body",
           "letterPair": "Ee",
-          "exampleCaption": "erizo",
+          "exampleCaption": "escalera",
           "cells": [
             {
               "caption": "oso",
@@ -1132,7 +1140,7 @@
           "regionType": "instruction",
           "order": 0,
           "fontRole": "body",
-          "text": "Traza con tu mejor letra."
+          "text": "Escribe con tu mejor letra."
         },
         {
           "id": "p12-write-E",
@@ -1183,7 +1191,7 @@
           "order": 0,
           "fontRole": "body",
           "label": "Instrucciones:",
-          "text": "Presiona los dibujos de las palabras que comienzan con I i."
+          "text": "Marca con una x los dibujos de las palabras que comienzan con I i."
         },
         {
           "id": "p13-grid",
@@ -1198,7 +1206,7 @@
               "illustrationSrc": "/cartilla/art/faithful/vocal-i/iglu.webp"
             },
             {
-              "caption": "pez",
+              "caption": "avión",
               "correct": false,
               "illustrationSrc": "/cartilla/art/faithful/leccion-1/pez.webp"
             },
@@ -1253,7 +1261,7 @@
               "correct": true
             },
             {
-              "caption": "arco",
+              "caption": "uña",
               "correct": false,
               "illustrationSrc": "/cartilla/art/faithful/leccion-1/arco.webp"
             },
@@ -1283,7 +1291,8 @@
           "regionType": "instruction",
           "order": 0,
           "fontRole": "body",
-          "text": "Traza una línea desde la vocal Ii hasta el dibujo de la palabra que comienza con Ii."
+          "text": "Traza una línea desde la vocal Ii hasta el dibujo de la palabra que comienza con Ii.",
+          "label": "Instrucciones:"
         },
         {
           "id": "p14-match",
@@ -1319,7 +1328,7 @@
               "correct": true
             },
             {
-              "caption": "arco",
+              "caption": "uña",
               "correct": false,
               "illustrationSrc": "/cartilla/art/faithful/leccion-1/arco.webp"
             },
@@ -1344,7 +1353,7 @@
           "regionType": "instruction",
           "order": 0,
           "fontRole": "body",
-          "text": "Traza con tu mejor letra."
+          "text": "Escribe con tu mejor letra."
         },
         {
           "id": "p15-write-I",
@@ -1395,7 +1404,7 @@
           "order": 0,
           "fontRole": "body",
           "label": "Instrucciones:",
-          "text": "Presiona los dibujos de las palabras que comienzan con U u."
+          "text": "Marca con una x los dibujos de las palabras que comienzan con U u."
         },
         {
           "id": "p16-grid",
@@ -1406,49 +1415,53 @@
           "cells": [
             {
               "caption": "unicornio",
-              "illustrationSrc": "/cartilla/art/faithful/vocal-u/unicornio.webp"
+              "illustrationSrc": "/cartilla/art/faithful/vocal-u/unicornio.webp",
+              "correct": true
             },
             {
               "caption": "oveja",
-              "illustrationSrc": "/cartilla/art/faithful/vocal-o/oveja.webp"
+              "illustrationSrc": "/cartilla/art/faithful/vocal-o/oveja.webp",
+              "correct": false
             },
             {
-              "caption": "pez",
-              "illustrationSrc": "/cartilla/art/faithful/leccion-1/pez.webp"
+              "caption": "avión",
+              "illustrationSrc": "/cartilla/art/faithful/leccion-1/pez.webp",
+              "correct": false
             },
             {
-              "caption": "arco",
-              "illustrationSrc": "/cartilla/art/faithful/leccion-1/arco.webp"
+              "caption": "uña",
+              "illustrationSrc": "/cartilla/art/faithful/leccion-1/arco.webp",
+              "correct": true
             },
             {
               "caption": "uvas",
               "illustrationSrc": "/cartilla/art/faithful/vocal-u/uvas.webp",
-              "correct": false
+              "correct": true
             },
             {
               "caption": "estrella",
               "illustrationSrc": "/cartilla/art/faithful/vocal-e/estrella.webp",
-              "correct": true
+              "correct": false
             },
             {
-              "caption": "traje",
-              "correct": false,
+              "caption": "uniforme",
+              "correct": true,
               "illustrationSrc": "/cartilla/art/faithful/leccion-1/traje.webp"
             },
             {
               "caption": "elefante",
               "illustrationSrc": "/cartilla/art/faithful/vocal-e/elefante.webp",
-              "correct": true
+              "correct": false
             },
             {
               "caption": "árbol",
               "illustrationSrc": "/cartilla/art/faithful/vocal-a/arbol.webp",
-              "correct": true
+              "correct": false
             },
             {
               "caption": "uno",
               "illustrationSrc": "/cartilla/art/faithful/vocal-u/uno.webp",
-              "correct": false
+              "correct": true
             },
             {
               "caption": "oso",
@@ -1457,24 +1470,28 @@
             },
             {
               "caption": "águila",
-              "correct": true,
+              "correct": false,
               "illustrationSrc": "/cartilla/art/faithful/leccion-1/aguila.webp"
             },
             {
               "caption": "abeja",
-              "illustrationSrc": "/cartilla/art/faithful/vocal-a/abeja.webp"
+              "illustrationSrc": "/cartilla/art/faithful/vocal-a/abeja.webp",
+              "correct": false
             },
             {
-              "caption": "traje",
-              "illustrationSrc": "/cartilla/art/faithful/leccion-1/traje.webp"
+              "caption": "uniforme",
+              "illustrationSrc": "/cartilla/art/faithful/leccion-1/traje.webp",
+              "correct": true
             },
             {
               "caption": "insecto",
-              "illustrationSrc": "/cartilla/art/faithful/vocal-i/insecto.webp"
+              "illustrationSrc": "/cartilla/art/faithful/vocal-i/insecto.webp",
+              "correct": false
             },
             {
               "caption": "uno",
-              "illustrationSrc": "/cartilla/art/faithful/vocal-u/uno.webp"
+              "illustrationSrc": "/cartilla/art/faithful/vocal-u/uno.webp",
+              "correct": true
             }
           ]
         }
@@ -1487,7 +1504,8 @@
           "regionType": "instruction",
           "order": 0,
           "fontRole": "body",
-          "text": "Traza una línea desde la vocal Uu hasta el dibujo de la palabra que comienza con Uu."
+          "text": "Traza una línea desde la vocal Uu hasta el dibujo de la palabra que comienza con Uu.",
+          "label": "Instrucciones:"
         },
         {
           "id": "p17-match",
@@ -1495,11 +1513,11 @@
           "order": 1,
           "fontRole": "body",
           "letterPair": "Uu",
-          "exampleCaption": "uvas",
+          "exampleCaption": "uña",
           "cells": [
             {
-              "caption": "traje",
-              "correct": false,
+              "caption": "uniforme",
+              "correct": true,
               "illustrationSrc": "/cartilla/art/faithful/leccion-1/traje.webp"
             },
             {
@@ -1523,8 +1541,8 @@
               "correct": true
             },
             {
-              "caption": "arco",
-              "correct": false,
+              "caption": "uña",
+              "correct": true,
               "illustrationSrc": "/cartilla/art/faithful/leccion-1/arco.webp"
             },
             {
@@ -1548,7 +1566,7 @@
           "regionType": "instruction",
           "order": 0,
           "fontRole": "body",
-          "text": "Traza con tu mejor letra."
+          "text": "Escribe con tu mejor letra."
         },
         {
           "id": "p18-write-U",
@@ -8325,8 +8343,8 @@
         }
       ],
       "_source": {
-        "status": "pending-rescan",
-        "note": "Local scan set is missing page 86 (Lección 23 Completa). The public Double R PDF is a 7-page product brochure, not the student book, so it cannot restore this page. Fill-in items stay empty until the Rescan PDF is provided."
+        "status": "SOURCE-BLOCKED",
+        "note": "Printed page 86 (Lección 23 · Completa) is absent from the owner's authoritative Rescan PDF itself (documented 86–87 gap), from every repository source archive, and from the Teacher Guide transcription. The public Double R PDF is a 7-page brochure, not the student book. Fill-in items are withheld — never inferred — until a matching-edition scan exists."
       }
     },
     "87": {
@@ -8379,8 +8397,8 @@
         }
       ],
       "_source": {
-        "status": "pattern-derived-pending-rescan",
-        "note": "Local scan set is missing page 87 (Lección 24 writing page). Content follows the identical fixed pattern of all 16 other consonant writing pages (Escribe con tu mejor letra / Z z / Haz un dibujo ... con z.) but is NOT yet verified against a scan."
+        "status": "SOURCE-BLOCKED",
+        "note": "Printed page 87 (Lección 24 · writing page) is absent from the Rescan PDF (documented 86–87 gap) and every other available source. The regions shown follow the fixed pattern of the other 17 consonant writing pages; they are NOT verified book content and must be re-checked when a matching-edition scan exists."
       }
     },
     "88": {

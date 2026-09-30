@@ -132,6 +132,29 @@
 .fp-ix-cell.picked .fp-ix-cell__lasso ellipse {
   stroke-dashoffset: 0;
 }
+/* "Marca con una x" pages: the picked picture gets the printed X, not a ring. */
+.fp-ix-cell__lasso path {
+  fill: none;
+  stroke: var(--ix-accent);
+  stroke-width: 7;
+  stroke-linecap: round;
+  stroke-dasharray: 92;
+  stroke-dashoffset: 92;
+  transition: stroke-dashoffset 0.35s cubic-bezier(0.22, 1, 0.36, 1);
+}
+.fp-ix-cell--mark-x .fp-ix-cell__lasso {
+  inset: 6%;
+  width: 88%;
+  height: 88%;
+}
+.fp-ix-cell.picked .fp-ix-cell__lasso path,
+.fp-ix-cell.graded-missed .fp-ix-cell__lasso path {
+  stroke-dashoffset: 0;
+}
+.fp-ix-cell.graded-missed .fp-ix-cell__lasso path {
+  stroke-dasharray: 10 8;
+  stroke: var(--color-correct, #10b981);
+}
 .fp-ix-cell.picked {
   transform: scale(1.06);
   border-color: var(--ix-accent);
@@ -150,7 +173,8 @@
 }
 @media (prefers-reduced-motion: reduce) {
   .fp-ix-cell__lasso,
-  .fp-ix-cell__lasso ellipse {
+  .fp-ix-cell__lasso ellipse,
+  .fp-ix-cell__lasso path {
     transition: none !important;
   }
 }

@@ -8,7 +8,13 @@ export type ConsonantLessonData = {
   pages: string;
   color: string;
   syllables: string[];
+  /**
+   * Picture vocabulary from the Teacher Flip Chart vocabulary plate
+   * (see `vocabSource`). NOT Workbook content — Workbook activities and
+   * Workbook printouts must use `getWorkbookWords()` instead.
+   */
   vocab: { word: string; emoji: string; illustrationSrc?: string }[];
+  vocabSource: { book: "flipchart"; flipchartPage: number; note: string };
   examples: Record<string, string[]>;
   sentences: string[];
 };

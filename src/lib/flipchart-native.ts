@@ -112,12 +112,9 @@ const OPTIMIZED_EXCLUSIVE = optimizedExclusive as OptimizedExclusiveEntry[];
  * renderer skips the caption for these assets. Images are locked — this flag
  * is the code-side fix, not an image edit.
  */
-const BAKED_LABEL_SRCS = new Set([
-  "/cartilla/art/faithful/flipchart-native/p021-dados.webp",
-  "/cartilla/art/faithful/flipchart-native/p021-dedo.webp",
-  "/cartilla/art/faithful/flipchart-native/p021-didi.webp",
-  "/cartilla/art/faithful/flipchart-native/p021-dunia.webp",
-]);
+// Crops whose printed word is inside the image. Empty since the page-21 crops
+// were re-cut above their labels; kept so a future baked crop is never double-labelled.
+const BAKED_LABEL_SRCS = new Set<string>([]);
 
 function normalizeWord(value: string) {
   return value
@@ -149,20 +146,14 @@ function pageArt(
     }
   }
 
-  const textMatches = FAITHFUL.filter((entry) => {
-    const word = normalizeWord(entry.word ?? entry.slug ?? "");
-    return word && tokens.has(word);
-  });
+  const layoutType = classifyLayoutType(flipchartPage);
+  // Syllable-drill plates print no pictures in the book: never borrow art.
+  if (layoutType === "syllable-drill" || layoutType === "frontmatter") return [];
 
+  // Art may only come from THIS page of the Flip Chart: its own crops first
+  // (scene + vocabulary plate), then faithful crops of the same lesson whose
+  // word is printed on this page. Never another lesson's or page's picture.
   const unique = new Map<string, { src: string; word: string; labelInImage?: boolean }>();
-  for (const entry of OPTIMIZED_EXCLUSIVE) {
-    if (entry.flipchartPage !== flipchartPage || !entry.src || unique.has(entry.src)) continue;
-    unique.set(entry.src, {
-      src: entry.src,
-      word: entry.word,
-      ...(BAKED_LABEL_SRCS.has(entry.src) ? { labelInImage: true as const } : {}),
-    });
-  }
   for (const entry of NATIVE_EXTRAS[String(flipchartPage)] ?? []) {
     if (!entry.src || unique.has(entry.src)) continue;
     unique.set(entry.src, {
@@ -171,14 +162,29 @@ function pageArt(
       ...(BAKED_LABEL_SRCS.has(entry.src) ? { labelInImage: true as const } : {}),
     });
   }
-  for (const entry of textMatches) {
-    if (!entry.src || unique.has(entry.src)) continue;
-    unique.set(entry.src, {
-      src: entry.src,
-      word: entry.word ?? entry.slug ?? "Ilustración",
-      ...(BAKED_LABEL_SRCS.has(entry.src) ? { labelInImage: true as const } : {}),
-    });
-    if (unique.size >= 8) break;
+  const pairedWords = new Set([...unique.values()].map((entry) => normalizeWord(entry.word)));
+  const sameSource = (entry: FaithfulManifestEntry) =>
+    layoutType === "vowel-header"
+      ? entry.src.includes("/faithful/vocal-")
+      : entry.lessonNumber === lesson;
+  // Reading/story plates show only their own scene (crop above); the words
+  // of their verse are not separate pictures in the book.
+  // When this plate has its own vocabulary crops (every vowel and consonant
+  // vocabulary plate does), they are complete and in printed reading order.
+  const hasOwnVocab = [...unique.values()].some((entry) => !entry.word.startsWith("Ilustración"));
+  if (!hasOwnVocab && (layoutType === "consonant-vocab" || layoutType === "vowel-header")) {
+    for (const entry of FAITHFUL) {
+      const word = normalizeWord(entry.word ?? entry.slug ?? "");
+      if (!entry.src || !word || !tokens.has(word) || !sameSource(entry)) continue;
+      if (unique.has(entry.src) || pairedWords.has(word)) continue;
+      pairedWords.add(word);
+      unique.set(entry.src, {
+        src: entry.src,
+        word: entry.word ?? entry.slug ?? "Ilustración",
+        ...(BAKED_LABEL_SRCS.has(entry.src) ? { labelInImage: true as const } : {}),
+      });
+      if (unique.size >= 8) break;
+    }
   }
   return [...unique.values()].slice(0, 8);
 }
