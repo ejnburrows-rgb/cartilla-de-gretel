@@ -5,7 +5,9 @@ This repository is the digital edition and classroom platform for *La Cartilla d
 Before changing any teacher Flip Chart / flipbook or Student Workbook surface, read:
 
 - `AGENTS.md`
-- `CARTILLA_SOURCE_OF_TRUTH.md`
+- `PROJECT_SOURCE_OF_TRUTH.md`
+- `CARTILLA_DIGITAL_DIRECTIVE.md`
+- `ASSET_FIDELITY_POLICY.md`
 
 ## Accepted
 
@@ -18,28 +20,28 @@ Before changing any teacher Flip Chart / flipbook or Student Workbook surface, r
 
 - Edits to lesson content, illustrations, or pedagogy order (vowel order, consonant order, sight-word lists).
 - Replacing original illustrations with emoji, clip-art, AI-generated images, alternate images, or remastered versions.
-- Recoloring, regenerating, redrawing, recropping, retouching, restyling, or otherwise modifying approved book images.
+- Inventing replacement artwork, changing composition/object count/identity, or altering educational meaning.
 - Rebuilding a book page from separate “modernized” objects or redesigning it into a new layout.
 
 ## Book-image handling
 
 The approved/fixed/cropped book images are finished assets for this phase.
 
-Use them unchanged. Use the authoritative source PDFs to verify page order, placement, scale, orientation, spacing, composition, and fidelity.
+Use the authoritative source PDFs to verify page order, placement, scale, orientation, spacing, composition, and fidelity. Technical cleanup or motion must follow `ASSET_FIDELITY_POLICY.md`.
 
 If a visual problem is caused by placement, fix the placement. Do not modify the image to compensate.
 
 ## Local setup
 
 ```bash
-npm install
-npm run dev
+pnpm install --frozen-lockfile
+pnpm dev
 ```
 
 Before opening a pull request, make sure the project builds:
 
 ```bash
-npm run build
+pnpm build
 ```
 
 ## Reporting issues
