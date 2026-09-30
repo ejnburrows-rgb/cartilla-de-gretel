@@ -1,4 +1,10 @@
-import { useState } from "react";
+import { useRef, useState } from "react";
+import { gretelEvent } from "@/lib/gretel-bus";
+
+/** Enough writing to count the page's open-ended task as done (no grading). */
+export function isWritingResponseDone(value: string): boolean {
+  return value.trim().split(/\s+/).filter((w) => /\p{L}/u.test(w)).length >= 2;
+}
 
 /** Open-ended writing stays open-ended; no guessed grading or answer key. */
 export function WorkbookWritingResponse({ pageNumber, interactive }: { pageNumber: number; interactive: boolean }) {
@@ -6,6 +12,7 @@ export function WorkbookWritingResponse({ pageNumber, interactive }: { pageNumbe
   const [value, setValue] = useState(() => {
     try { return window.localStorage.getItem(key) ?? ""; } catch { return ""; }
   });
+  const reported = useRef(false);
   if (!interactive) return <div className="fp-writing-response__lines" aria-label="Renglones para escribir" />;
   return (
     <label className="fp-writing-response">
@@ -16,6 +23,10 @@ export function WorkbookWritingResponse({ pageNumber, interactive }: { pageNumbe
         value={value}
         onChange={(event) => {
           setValue(event.target.value);
+          if (!reported.current && isWritingResponseDone(event.target.value)) {
+            reported.current = true;
+            gretelEvent("activity:complete");
+          }
           try { window.localStorage.setItem(key, event.target.value); } catch { /* storage can be disabled */ }
         }}
       />

@@ -241,6 +241,7 @@ export function Leccion() {
                 initialPage={initialPage}
                 onPageChange={handlePageChange}
                 onFinish={goNext}
+                lessonNumber={n}
                 bookCompanion={bookCompanion}
               />
             )}

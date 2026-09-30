@@ -49,6 +49,48 @@ export function markLessonCompleted(n: number) {
 }
 export function resetProgress() {
   write(new Set());
+  writePages({});
+}
+
+/* ── Page-level completion (same progress model, finer grain) ──────────────
+ * Records which required workbook activities of a printed page the student
+ * finished, keyed by printed page number. Fed only by the existing
+ * `activity:complete` events of the workbook activities (see page-completion.ts). */
+const PAGE_KEY = "cartilla.page-completion.v1";
+
+function readPages(): Record<string, string[]> {
+  if (typeof window === "undefined") return {};
+  try {
+    const raw = localStorage.getItem(PAGE_KEY);
+    const parsed = raw ? (JSON.parse(raw) as Record<string, string[]>) : {};
+    return parsed && typeof parsed === "object" ? parsed : {};
+  } catch {
+    return {};
+  }
+}
+
+function writePages(value: Record<string, string[]>) {
+  if (typeof window === "undefined") return;
+  try {
+    localStorage.setItem(PAGE_KEY, JSON.stringify(value));
+    window.dispatchEvent(new Event("cartilla:lesson-progress"));
+  } catch {
+    /* ignore */
+  }
+}
+
+export function getCompletedPageActivities(pageNumber: number): string[] {
+  const list = readPages()[String(pageNumber)];
+  return Array.isArray(list) ? list.filter((id) => typeof id === "string") : [];
+}
+
+export function markPageActivityCompleted(pageNumber: number, activityId: string) {
+  const all = readPages();
+  const list = new Set(all[String(pageNumber)] ?? []);
+  if (list.has(activityId)) return;
+  list.add(activityId);
+  all[String(pageNumber)] = [...list];
+  writePages(all);
 }
 
 export function useLessonProgress() {

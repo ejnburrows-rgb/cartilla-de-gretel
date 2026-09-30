@@ -15,22 +15,34 @@
       {
         "word": "mamá",
         "emoji": "👩",
-        "illustrationSrc": "/cartilla/art/faithful/leccion-7-m/mama.webp"
+        "illustrationSrc": "/cartilla/art/faithful/flipchart-native/p009-mama.webp"
       },
       {
-        "word": "mono",
-        "emoji": "🐒",
-        "illustrationSrc": "/cartilla/art/faithful/leccion-7-m/mono.webp"
+        "word": "amo",
+        "emoji": "",
+        "illustrationSrc": "/cartilla/art/faithful/flipchart-native/p009-amo.webp"
       },
       {
-        "word": "moto",
-        "emoji": "🛵"
+        "word": "mima",
+        "emoji": "",
+        "illustrationSrc": "/cartilla/art/faithful/flipchart-native/p009-mima.webp"
       },
       {
-        "word": "mapa",
-        "emoji": "🗺️"
+        "word": "Meme",
+        "emoji": "",
+        "illustrationSrc": "/cartilla/art/faithful/flipchart-native/p009-meme.webp"
+      },
+      {
+        "word": "Mumi",
+        "emoji": "",
+        "illustrationSrc": "/cartilla/art/faithful/flipchart-native/p009-mumi.webp"
       }
     ],
+    "vocabSource": {
+      "book": "flipchart",
+      "flipchartPage": 9,
+      "note": "Picture vocabulary plate of the Teacher Flip Chart. Not Workbook content: Workbook activities/print use page-layouts.json."
+    },
     "examples": {
       "ma": [
         "mami",
@@ -100,22 +112,34 @@
       {
         "word": "papá",
         "emoji": "👨",
-        "illustrationSrc": "/cartilla/art/faithful/leccion-8-p/papa.webp"
+        "illustrationSrc": "/cartilla/art/faithful/flipchart-native/p012-papa.webp"
       },
       {
-        "word": "pez",
-        "emoji": "🐟",
-        "illustrationSrc": "/cartilla/art/faithful/leccion-1/pez.webp"
+        "word": "pie",
+        "emoji": "🦶",
+        "illustrationSrc": "/cartilla/art/faithful/flipchart-native/p012-pie.webp"
       },
       {
-        "word": "pino",
-        "emoji": "🌲"
+        "word": "Pepe",
+        "emoji": "",
+        "illustrationSrc": "/cartilla/art/faithful/flipchart-native/p012-pepe.webp"
       },
       {
-        "word": "pulpo",
-        "emoji": "🐙"
+        "word": "puma",
+        "emoji": "🐆",
+        "illustrationSrc": "/cartilla/art/faithful/flipchart-native/p012-puma.webp"
+      },
+      {
+        "word": "pomo",
+        "emoji": "",
+        "illustrationSrc": "/cartilla/art/faithful/flipchart-native/p012-pomo.webp"
       }
     ],
+    "vocabSource": {
+      "book": "flipchart",
+      "flipchartPage": 12,
+      "note": "Picture vocabulary plate of the Teacher Flip Chart. Not Workbook content: Workbook activities/print use page-layouts.json."
+    },
     "examples": {
       "pa": [
         "papá",
@@ -180,24 +204,36 @@
     ],
     "vocab": [
       {
-        "word": "sapo",
-        "emoji": "🐸",
-        "illustrationSrc": "/cartilla/art/faithful/leccion-9-s/sapo.webp"
-      },
-      {
-        "word": "sol",
-        "emoji": "☀️"
+        "word": "Sesi",
+        "emoji": "",
+        "illustrationSrc": "/cartilla/art/faithful/flipchart-native/p015-sesi.webp"
       },
       {
         "word": "sopa",
         "emoji": "🍲",
-        "illustrationSrc": "/cartilla/art/faithful/leccion-9-s/sopa.webp"
+        "illustrationSrc": "/cartilla/art/faithful/flipchart-native/p015-sopa.webp"
       },
       {
-        "word": "silla",
-        "emoji": "💺"
+        "word": "sapo",
+        "emoji": "🐸",
+        "illustrationSrc": "/cartilla/art/faithful/flipchart-native/p015-sapo.webp"
+      },
+      {
+        "word": "pisa",
+        "emoji": "",
+        "illustrationSrc": "/cartilla/art/faithful/flipchart-native/p015-pisa.webp"
+      },
+      {
+        "word": "Susi",
+        "emoji": "",
+        "illustrationSrc": "/cartilla/art/faithful/flipchart-native/p015-susi.webp"
       }
     ],
+    "vocabSource": {
+      "book": "flipchart",
+      "flipchartPage": 15,
+      "note": "Picture vocabulary plate of the Teacher Flip Chart. Not Workbook content: Workbook activities/print use page-layouts.json."
+    },
     "examples": {
       "sa": [
         "masa",
@@ -265,22 +301,36 @@
     ],
     "vocab": [
       {
-        "word": "tapa",
-        "emoji": "🫙"
-      },
-      {
         "word": "tomate",
-        "emoji": "🍅"
+        "emoji": "🍅",
+        "illustrationSrc": "/cartilla/art/faithful/flipchart-native/p018-tomate.webp"
       },
       {
-        "word": "tina",
-        "emoji": "🛁"
+        "word": "tapa",
+        "emoji": "",
+        "illustrationSrc": "/cartilla/art/faithful/flipchart-native/p018-tapa.webp"
       },
       {
-        "word": "tulipán",
-        "emoji": "🌷"
+        "word": "topo",
+        "emoji": "",
+        "illustrationSrc": "/cartilla/art/faithful/flipchart-native/p018-topo.webp"
+      },
+      {
+        "word": "tipi",
+        "emoji": "",
+        "illustrationSrc": "/cartilla/art/faithful/flipchart-native/p018-tipi.webp"
+      },
+      {
+        "word": "Tuto",
+        "emoji": "",
+        "illustrationSrc": "/cartilla/art/faithful/flipchart-native/p018-tuto.webp"
       }
     ],
+    "vocabSource": {
+      "book": "flipchart",
+      "flipchartPage": 18,
+      "note": "Picture vocabulary plate of the Teacher Flip Chart. Not Workbook content: Workbook activities/print use page-layouts.json."
+    },
     "examples": {
       "ta": [
         "tapa",
@@ -348,23 +398,36 @@
     ],
     "vocab": [
       {
-        "word": "dado",
+        "word": "Didi",
+        "emoji": "",
+        "illustrationSrc": "/cartilla/art/faithful/flipchart-native/p021-didi.webp"
+      },
+      {
+        "word": "dados",
         "emoji": "🎲",
-        "illustrationSrc": "/cartilla/art/faithful/leccion-11-d/dado.webp"
+        "illustrationSrc": "/cartilla/art/faithful/flipchart-native/p021-dados.webp"
       },
       {
-        "word": "delfín",
-        "emoji": "🐬"
+        "word": "dedo",
+        "emoji": "☝️",
+        "illustrationSrc": "/cartilla/art/faithful/flipchart-native/p021-dedo.webp"
       },
       {
-        "word": "dona",
-        "emoji": "🍩"
+        "word": "doce",
+        "emoji": "",
+        "illustrationSrc": "/cartilla/art/faithful/flipchart-native/p021-doce.webp"
       },
       {
-        "word": "ducha",
-        "emoji": "🚿"
+        "word": "Dunia",
+        "emoji": "",
+        "illustrationSrc": "/cartilla/art/faithful/flipchart-native/p021-dunia.webp"
       }
     ],
+    "vocabSource": {
+      "book": "flipchart",
+      "flipchartPage": 21,
+      "note": "Picture vocabulary plate of the Teacher Flip Chart. Not Workbook content: Workbook activities/print use page-layouts.json."
+    },
     "examples": {
       "da": [
         "dame",
@@ -431,22 +494,36 @@
     ],
     "vocab": [
       {
-        "word": "luna",
-        "emoji": "🌙"
+        "word": "maleta",
+        "emoji": "🧳",
+        "illustrationSrc": "/cartilla/art/faithful/flipchart-native/p024-maleta.webp"
       },
       {
-        "word": "lobo",
-        "emoji": "🐺"
+        "word": "lata",
+        "emoji": "🥫",
+        "illustrationSrc": "/cartilla/art/faithful/flipchart-native/p024-lata.webp"
       },
       {
-        "word": "loro",
-        "emoji": "🦜"
+        "word": "Luli",
+        "emoji": "",
+        "illustrationSrc": "/cartilla/art/faithful/flipchart-native/p024-luli.webp"
       },
       {
-        "word": "lupa",
-        "emoji": "🔍"
+        "word": "loma",
+        "emoji": "",
+        "illustrationSrc": "/cartilla/art/faithful/flipchart-native/p024-loma.webp"
+      },
+      {
+        "word": "Lala",
+        "emoji": "",
+        "illustrationSrc": "/cartilla/art/faithful/flipchart-native/p024-lala.webp"
       }
     ],
+    "vocabSource": {
+      "book": "flipchart",
+      "flipchartPage": 24,
+      "note": "Picture vocabulary plate of the Teacher Flip Chart. Not Workbook content: Workbook activities/print use page-layouts.json."
+    },
     "examples": {
       "la": [
         "lata",
@@ -512,23 +589,36 @@
     ],
     "vocab": [
       {
-        "word": "nariz",
-        "emoji": "👃"
-      },
-      {
         "word": "nido",
-        "emoji": "🪹",
-        "illustrationSrc": "/cartilla/art/faithful/leccion-13-n/nido.webp"
+        "emoji": "🪺",
+        "illustrationSrc": "/cartilla/art/faithful/flipchart-native/p027-nido.webp"
       },
       {
-        "word": "nube",
-        "emoji": "☁️"
+        "word": "nudo",
+        "emoji": "",
+        "illustrationSrc": "/cartilla/art/faithful/flipchart-native/p027-nudo.webp"
       },
       {
-        "word": "nata",
-        "emoji": "🍦"
+        "word": "mono",
+        "emoji": "🐒",
+        "illustrationSrc": "/cartilla/art/faithful/flipchart-native/p027-mono.webp"
+      },
+      {
+        "word": "Napi",
+        "emoji": "",
+        "illustrationSrc": "/cartilla/art/faithful/flipchart-native/p027-napi.webp"
+      },
+      {
+        "word": "tenedor",
+        "emoji": "🍴",
+        "illustrationSrc": "/cartilla/art/faithful/flipchart-native/p027-tenedor.webp"
       }
     ],
+    "vocabSource": {
+      "book": "flipchart",
+      "flipchartPage": 27,
+      "note": "Picture vocabulary plate of the Teacher Flip Chart. Not Workbook content: Workbook activities/print use page-layouts.json."
+    },
     "examples": {
       "na": [
         "nata",
@@ -595,24 +685,36 @@
     ],
     "vocab": [
       {
-        "word": "piña",
-        "emoji": "🍍"
+        "word": "piñata",
+        "emoji": "🪅",
+        "illustrationSrc": "/cartilla/art/faithful/flipchart-native/p030-pinata.webp"
       },
       {
-        "word": "muñeca",
-        "emoji": "🪆"
+        "word": "Ñuno",
+        "emoji": "",
+        "illustrationSrc": "/cartilla/art/faithful/flipchart-native/p030-nuno.webp"
       },
       {
-        "word": "niño",
-        "emoji": "👦",
-        "illustrationSrc": "/cartilla/art/faithful/leccion-14-n/nino.webp"
+        "word": "niñito",
+        "emoji": "",
+        "illustrationSrc": "/cartilla/art/faithful/flipchart-native/p030-ninito.webp"
       },
       {
-        "word": "araña",
-        "emoji": "🕷️",
-        "illustrationSrc": "/cartilla/art/faithful/vocal-a/arana.webp"
+        "word": "moño",
+        "emoji": "",
+        "illustrationSrc": "/cartilla/art/faithful/flipchart-native/p030-mono.webp"
+      },
+      {
+        "word": "Meñe",
+        "emoji": "",
+        "illustrationSrc": "/cartilla/art/faithful/flipchart-native/p030-mene.webp"
       }
     ],
+    "vocabSource": {
+      "book": "flipchart",
+      "flipchartPage": 30,
+      "note": "Picture vocabulary plate of the Teacher Flip Chart. Not Workbook content: Workbook activities/print use page-layouts.json."
+    },
     "examples": {
       "ña": [
         "maña",
@@ -678,24 +780,36 @@
     ],
     "vocab": [
       {
-        "word": "barco",
-        "emoji": "🚢"
+        "word": "Beba",
+        "emoji": "",
+        "illustrationSrc": "/cartilla/art/faithful/flipchart-native/p033-beba.webp"
       },
       {
-        "word": "bebé",
-        "emoji": "👶",
-        "illustrationSrc": "/cartilla/art/faithful/leccion-15-b/bebe.webp"
+        "word": "Bubi",
+        "emoji": "",
+        "illustrationSrc": "/cartilla/art/faithful/flipchart-native/p033-bubi.webp"
       },
       {
-        "word": "bici",
-        "emoji": "🚲"
+        "word": "bate",
+        "emoji": "🏏",
+        "illustrationSrc": "/cartilla/art/faithful/flipchart-native/p033-bate.webp"
       },
       {
         "word": "bota",
         "emoji": "👢",
-        "illustrationSrc": "/cartilla/art/faithful/leccion-15-b/bota.webp"
+        "illustrationSrc": "/cartilla/art/faithful/flipchart-native/p033-bota.webp"
+      },
+      {
+        "word": "bebita",
+        "emoji": "",
+        "illustrationSrc": "/cartilla/art/faithful/flipchart-native/p033-bebita.webp"
       }
     ],
+    "vocabSource": {
+      "book": "flipchart",
+      "flipchartPage": 33,
+      "note": "Picture vocabulary plate of the Teacher Flip Chart. Not Workbook content: Workbook activities/print use page-layouts.json."
+    },
     "examples": {
       "ba": [
         "baño",
@@ -763,23 +877,36 @@
     ],
     "vocab": [
       {
-        "word": "vaca",
-        "emoji": "🐄"
+        "word": "vaso",
+        "emoji": "🥛",
+        "illustrationSrc": "/cartilla/art/faithful/flipchart-native/p036-vaso.webp"
       },
       {
         "word": "vela",
         "emoji": "🕯️",
-        "illustrationSrc": "/cartilla/art/faithful/leccion-16-v/vela.webp"
+        "illustrationSrc": "/cartilla/art/faithful/flipchart-native/p036-vela.webp"
       },
       {
-        "word": "vino",
-        "emoji": "🍷"
+        "word": "Vita",
+        "emoji": "",
+        "illustrationSrc": "/cartilla/art/faithful/flipchart-native/p036-vita.webp"
       },
       {
-        "word": "volcán",
-        "emoji": "🌋"
+        "word": "pavo",
+        "emoji": "🦃",
+        "illustrationSrc": "/cartilla/art/faithful/flipchart-native/p036-pavo.webp"
+      },
+      {
+        "word": "Vuli",
+        "emoji": "",
+        "illustrationSrc": "/cartilla/art/faithful/flipchart-native/p036-vuli.webp"
       }
     ],
+    "vocabSource": {
+      "book": "flipchart",
+      "flipchartPage": 36,
+      "note": "Picture vocabulary plate of the Teacher Flip Chart. Not Workbook content: Workbook activities/print use page-layouts.json."
+    },
     "examples": {
       "va": [
         "vaso",
@@ -870,6 +997,11 @@
         "illustrationSrc": "/cartilla/art/faithful/leccion-17-r/rueda.webp"
       }
     ],
+    "vocabSource": {
+      "book": "flipchart",
+      "flipchartPage": 39,
+      "note": "Picture vocabulary plate of the Teacher Flip Chart. Not Workbook content: Workbook activities/print use page-layouts.json."
+    },
     "examples": {
       "ra": [
         "rana",
@@ -961,6 +1093,11 @@
         "illustrationSrc": "/cartilla/art/faithful/leccion-18-rr/tierra.webp"
       }
     ],
+    "vocabSource": {
+      "book": "flipchart",
+      "flipchartPage": 42,
+      "note": "Picture vocabulary plate of the Teacher Flip Chart. Not Workbook content: Workbook activities/print use page-layouts.json."
+    },
     "examples": {
       "rra": [
         "barra",
@@ -1051,6 +1188,11 @@
         "illustrationSrc": "/cartilla/art/faithful/leccion-19-g/mago.webp"
       }
     ],
+    "vocabSource": {
+      "book": "flipchart",
+      "flipchartPage": 45,
+      "note": "Picture vocabulary plate of the Teacher Flip Chart. Not Workbook content: Workbook activities/print use page-layouts.json."
+    },
     "examples": {
       "ga": [
         "garras",
@@ -1127,6 +1269,11 @@
         "illustrationSrc": "/cartilla/art/faithful/leccion-20-f/funda.webp"
       }
     ],
+    "vocabSource": {
+      "book": "flipchart",
+      "flipchartPage": 48,
+      "note": "Picture vocabulary plate of the Teacher Flip Chart. Not Workbook content: Workbook activities/print use page-layouts.json."
+    },
     "examples": {
       "fa": [
         "fama",
@@ -1216,6 +1363,11 @@
         "illustrationSrc": "/cartilla/art/faithful/leccion-21-j/jarra.webp"
       }
     ],
+    "vocabSource": {
+      "book": "flipchart",
+      "flipchartPage": 51,
+      "note": "Picture vocabulary plate of the Teacher Flip Chart. Not Workbook content: Workbook activities/print use page-layouts.json."
+    },
     "examples": {
       "ja": [
         "jaba",
@@ -1305,6 +1457,11 @@
         "illustrationSrc": "/cartilla/art/faithful/leccion-19-c/catalina.webp"
       }
     ],
+    "vocabSource": {
+      "book": "flipchart",
+      "flipchartPage": 54,
+      "note": "Picture vocabulary plate of the Teacher Flip Chart. Not Workbook content: Workbook activities/print use page-layouts.json."
+    },
     "examples": {
       "ca": [
         "cama",
@@ -1378,6 +1535,11 @@
         "illustrationSrc": "/cartilla/art/faithful/leccion-22-y/yoyo.webp"
       }
     ],
+    "vocabSource": {
+      "book": "flipchart",
+      "flipchartPage": 57,
+      "note": "Picture vocabulary plate of the Teacher Flip Chart. Not Workbook content: Workbook activities/print use page-layouts.json."
+    },
     "examples": {
       "ya": [
         "yate",
@@ -1469,6 +1631,11 @@
         "illustrationSrc": "/cartilla/art/faithful/leccion-23-z/zulema.webp"
       }
     ],
+    "vocabSource": {
+      "book": "flipchart",
+      "flipchartPage": 60,
+      "note": "Picture vocabulary plate of the Teacher Flip Chart. Not Workbook content: Workbook activities/print use page-layouts.json."
+    },
     "examples": {
       "za": [
         "taza",

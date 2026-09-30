@@ -1,5 +1,7 @@
+import "@/styles/native-lesson.css";
 import type { ReactNode } from "react";
 import { GretelActivity } from "@/components/gretel/GretelActivity";
+import { SOURCE_BLOCKED_WORKBOOK_PAGES } from "@/lib/workbook-pages";
 import { getPageLayout, type PageGridCell, type PageRegion } from "@/lib/book-faithful";
 // PageGridCell used by RegionView siblingCells for Dibuja pick options
 import { PageFrame } from "./PageFrame";
@@ -8,6 +10,7 @@ import {
   InteractivePictureGrid,
   InteractiveVowelPickOne,
   InteractiveFillInBlank,
+  pictureMarkFor,
 } from "./InteractivePageExercises";
 import { WorkbookLetterTrace } from "./WorkbookLetterTrace";
 import { WorkbookWritingResponse } from "./WorkbookWritingResponse";
@@ -426,6 +429,7 @@ function RegionView({
           region={region}
           accent={accent ?? "hsl(230 75% 58%)"}
           lessonId={lessonId}
+          mark={pictureMarkFor(precedingInstruction)}
         />
       ) : (
         <PictureGrid region={region} />
@@ -672,6 +676,11 @@ export function FaithfulPageRenderer({
           </GretelActivity>
         );
       })}
+      {SOURCE_BLOCKED_WORKBOOK_PAGES.includes(pageNumber) ? (
+        <p className="fp-source-blocked" data-source-blocked="true" role="note">
+          Esta página falta en el escaneo del libro. Su contenido está pendiente de verificación con el libro impreso.
+        </p>
+      ) : null}
     </PageFrame>
   );
 }

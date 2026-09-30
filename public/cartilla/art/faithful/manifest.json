@@ -1487,5 +1487,705 @@
     "cropBox": null,
     "provenanceStatus": "QA-PASS-AUTHORED-BLINK-2026-09-25",
     "note": "Explicitly allow-listed closed-eye derivative. Existing faithful QA marks this authored blink PASS; contaminated mono, papa and sapo blink frames remain unwired."
+  },
+  {
+    "slug": "p009-amo",
+    "word": "amo",
+    "lessonNumber": 7,
+    "pageNumber": null,
+    "src": "/cartilla/art/faithful/flipchart-native/p009-amo.webp",
+    "sourceFlipchartPage": "page-009.jpg",
+    "cropBox": [
+      895,
+      1402,
+      688,
+      727
+    ]
+  },
+  {
+    "slug": "p009-mama",
+    "word": "mamá",
+    "lessonNumber": 7,
+    "pageNumber": null,
+    "src": "/cartilla/art/faithful/flipchart-native/p009-mama.webp",
+    "sourceFlipchartPage": "page-009.jpg",
+    "cropBox": [
+      117,
+      1431,
+      553,
+      729
+    ]
+  },
+  {
+    "slug": "p009-meme",
+    "word": "Meme",
+    "lessonNumber": 7,
+    "pageNumber": null,
+    "src": "/cartilla/art/faithful/flipchart-native/p009-meme.webp",
+    "sourceFlipchartPage": "page-009.jpg",
+    "cropBox": [
+      586,
+      2443,
+      382,
+      788
+    ]
+  },
+  {
+    "slug": "p009-mima",
+    "word": "mima",
+    "lessonNumber": 7,
+    "pageNumber": null,
+    "src": "/cartilla/art/faithful/flipchart-native/p009-mima.webp",
+    "sourceFlipchartPage": "page-009.jpg",
+    "cropBox": [
+      1686,
+      1349,
+      775,
+      775
+    ]
+  },
+  {
+    "slug": "p009-mumi",
+    "word": "Mumi",
+    "lessonNumber": 7,
+    "pageNumber": null,
+    "src": "/cartilla/art/faithful/flipchart-native/p009-mumi.webp",
+    "sourceFlipchartPage": "page-009.jpg",
+    "cropBox": [
+      1359,
+      2448,
+      717,
+      755
+    ]
+  },
+  {
+    "slug": "p012-papa",
+    "word": "papá",
+    "lessonNumber": 8,
+    "pageNumber": null,
+    "src": "/cartilla/art/faithful/flipchart-native/p012-papa.webp",
+    "sourceFlipchartPage": "page-012.jpg",
+    "cropBox": [
+      143,
+      1380,
+      464,
+      709
+    ]
+  },
+  {
+    "slug": "p012-pepe",
+    "word": "Pepe",
+    "lessonNumber": 8,
+    "pageNumber": null,
+    "src": "/cartilla/art/faithful/flipchart-native/p012-pepe.webp",
+    "sourceFlipchartPage": "page-012.jpg",
+    "cropBox": [
+      1737,
+      1313,
+      778,
+      780
+    ]
+  },
+  {
+    "slug": "p012-pie",
+    "word": "pie",
+    "lessonNumber": 8,
+    "pageNumber": null,
+    "src": "/cartilla/art/faithful/flipchart-native/p012-pie.webp",
+    "sourceFlipchartPage": "page-012.jpg",
+    "cropBox": [
+      885,
+      1612,
+      676,
+      456
+    ]
+  },
+  {
+    "slug": "p012-pomo",
+    "word": "pomo",
+    "lessonNumber": 8,
+    "pageNumber": null,
+    "src": "/cartilla/art/faithful/flipchart-native/p012-pomo.webp",
+    "sourceFlipchartPage": "page-012.jpg",
+    "cropBox": [
+      1596,
+      2512,
+      393,
+      706
+    ]
+  },
+  {
+    "slug": "p012-puma",
+    "word": "puma",
+    "lessonNumber": 8,
+    "pageNumber": null,
+    "src": "/cartilla/art/faithful/flipchart-native/p012-puma.webp",
+    "sourceFlipchartPage": "page-012.jpg",
+    "cropBox": [
+      176,
+      2468,
+      694,
+      752
+    ]
+  },
+  {
+    "slug": "p015-pisa",
+    "word": "pisa",
+    "lessonNumber": 9,
+    "pageNumber": null,
+    "src": "/cartilla/art/faithful/flipchart-native/p015-pisa.webp",
+    "sourceFlipchartPage": "page-015.jpg",
+    "cropBox": [
+      342,
+      2606,
+      813,
+      561
+    ]
+  },
+  {
+    "slug": "p015-sapo",
+    "word": "sapo",
+    "lessonNumber": 9,
+    "pageNumber": null,
+    "src": "/cartilla/art/faithful/flipchart-native/p015-sapo.webp",
+    "sourceFlipchartPage": "page-015.jpg",
+    "cropBox": [
+      1734,
+      1584,
+      691,
+      538
+    ]
+  },
+  {
+    "slug": "p015-sesi",
+    "word": "Sesi",
+    "lessonNumber": 9,
+    "pageNumber": null,
+    "src": "/cartilla/art/faithful/flipchart-native/p015-sesi.webp",
+    "sourceFlipchartPage": "page-015.jpg",
+    "cropBox": [
+      252,
+      1443,
+      615,
+      750
+    ]
+  },
+  {
+    "slug": "p015-sopa",
+    "word": "sopa",
+    "lessonNumber": 9,
+    "pageNumber": null,
+    "src": "/cartilla/art/faithful/flipchart-native/p015-sopa.webp",
+    "sourceFlipchartPage": "page-015.jpg",
+    "cropBox": [
+      954,
+      1701,
+      615,
+      380
+    ]
+  },
+  {
+    "slug": "p015-susi",
+    "word": "Susi",
+    "lessonNumber": 9,
+    "pageNumber": null,
+    "src": "/cartilla/art/faithful/flipchart-native/p015-susi.webp",
+    "sourceFlipchartPage": "page-015.jpg",
+    "cropBox": [
+      1415,
+      2430,
+      586,
+      785
+    ]
+  },
+  {
+    "slug": "p018-tapa",
+    "word": "tapa",
+    "lessonNumber": 10,
+    "pageNumber": null,
+    "src": "/cartilla/art/faithful/flipchart-native/p018-tapa.webp",
+    "sourceFlipchartPage": "page-018.jpg",
+    "cropBox": [
+      892,
+      1454,
+      727,
+      586
+    ]
+  },
+  {
+    "slug": "p018-tipi",
+    "word": "tipi",
+    "lessonNumber": 10,
+    "pageNumber": null,
+    "src": "/cartilla/art/faithful/flipchart-native/p018-tipi.webp",
+    "sourceFlipchartPage": "page-018.jpg",
+    "cropBox": [
+      242,
+      2270,
+      816,
+      778
+    ]
+  },
+  {
+    "slug": "p018-tomate",
+    "word": "tomate",
+    "lessonNumber": 10,
+    "pageNumber": null,
+    "src": "/cartilla/art/faithful/flipchart-native/p018-tomate.webp",
+    "sourceFlipchartPage": "page-018.jpg",
+    "cropBox": [
+      89,
+      1466,
+      688,
+      625
+    ]
+  },
+  {
+    "slug": "p018-topo",
+    "word": "topo",
+    "lessonNumber": 10,
+    "pageNumber": null,
+    "src": "/cartilla/art/faithful/flipchart-native/p018-topo.webp",
+    "sourceFlipchartPage": "page-018.jpg",
+    "cropBox": [
+      1759,
+      1390,
+      663,
+      688
+    ]
+  },
+  {
+    "slug": "p018-tuto",
+    "word": "Tuto",
+    "lessonNumber": 10,
+    "pageNumber": null,
+    "src": "/cartilla/art/faithful/flipchart-native/p018-tuto.webp",
+    "sourceFlipchartPage": "page-018.jpg",
+    "cropBox": [
+      1377,
+      2323,
+      803,
+      775
+    ]
+  },
+  {
+    "slug": "p021-dados",
+    "word": "dados",
+    "lessonNumber": 11,
+    "pageNumber": null,
+    "src": "/cartilla/art/faithful/flipchart-native/p021-dados.webp",
+    "sourceFlipchartPage": "page-021.jpg",
+    "cropBox": [
+      959,
+      1316,
+      625,
+      638
+    ]
+  },
+  {
+    "slug": "p021-dedo",
+    "word": "dedo",
+    "lessonNumber": 11,
+    "pageNumber": null,
+    "src": "/cartilla/art/faithful/flipchart-native/p021-dedo.webp",
+    "sourceFlipchartPage": "page-021.jpg",
+    "cropBox": [
+      1887,
+      1308,
+      459,
+      653
+    ]
+  },
+  {
+    "slug": "p021-didi",
+    "word": "Didi",
+    "lessonNumber": 11,
+    "pageNumber": null,
+    "src": "/cartilla/art/faithful/flipchart-native/p021-didi.webp",
+    "sourceFlipchartPage": "page-021.jpg",
+    "cropBox": [
+      107,
+      1390,
+      528,
+      589
+    ]
+  },
+  {
+    "slug": "p021-doce",
+    "word": "doce",
+    "lessonNumber": 11,
+    "pageNumber": null,
+    "src": "/cartilla/art/faithful/flipchart-native/p021-doce.webp",
+    "sourceFlipchartPage": "page-021.jpg",
+    "cropBox": [
+      311,
+      2318,
+      592,
+      740
+    ]
+  },
+  {
+    "slug": "p021-dunia",
+    "word": "Dunia",
+    "lessonNumber": 11,
+    "pageNumber": null,
+    "src": "/cartilla/art/faithful/flipchart-native/p021-dunia.webp",
+    "sourceFlipchartPage": "page-021.jpg",
+    "cropBox": [
+      1295,
+      2331,
+      921,
+      653
+    ]
+  },
+  {
+    "slug": "p024-lala",
+    "word": "Lala",
+    "lessonNumber": 12,
+    "pageNumber": null,
+    "src": "/cartilla/art/faithful/flipchart-native/p024-lala.webp",
+    "sourceFlipchartPage": "page-024.jpg",
+    "cropBox": [
+      1441,
+      2474,
+      714,
+      625
+    ]
+  },
+  {
+    "slug": "p024-lata",
+    "word": "lata",
+    "lessonNumber": 12,
+    "pageNumber": null,
+    "src": "/cartilla/art/faithful/flipchart-native/p024-lata.webp",
+    "sourceFlipchartPage": "page-024.jpg",
+    "cropBox": [
+      982,
+      1415,
+      625,
+      688
+    ]
+  },
+  {
+    "slug": "p024-loma",
+    "word": "loma",
+    "lessonNumber": 12,
+    "pageNumber": null,
+    "src": "/cartilla/art/faithful/flipchart-native/p024-loma.webp",
+    "sourceFlipchartPage": "page-024.jpg",
+    "cropBox": [
+      229,
+      2422,
+      918,
+      740
+    ]
+  },
+  {
+    "slug": "p024-luli",
+    "word": "Luli",
+    "lessonNumber": 12,
+    "pageNumber": null,
+    "src": "/cartilla/art/faithful/flipchart-native/p024-luli.webp",
+    "sourceFlipchartPage": "page-024.jpg",
+    "cropBox": [
+      1836,
+      1275,
+      561,
+      816
+    ]
+  },
+  {
+    "slug": "p024-maleta",
+    "word": "maleta",
+    "lessonNumber": 12,
+    "pageNumber": null,
+    "src": "/cartilla/art/faithful/flipchart-native/p024-maleta.webp",
+    "sourceFlipchartPage": "page-024.jpg",
+    "cropBox": [
+      115,
+      1415,
+      625,
+      701
+    ]
+  },
+  {
+    "slug": "p027-mono",
+    "word": "mono",
+    "lessonNumber": 13,
+    "pageNumber": null,
+    "src": "/cartilla/art/faithful/flipchart-native/p027-mono.webp",
+    "sourceFlipchartPage": "page-027.jpg",
+    "cropBox": [
+      1821,
+      1336,
+      462,
+      765
+    ]
+  },
+  {
+    "slug": "p027-napi",
+    "word": "Napi",
+    "lessonNumber": 13,
+    "pageNumber": null,
+    "src": "/cartilla/art/faithful/flipchart-native/p027-napi.webp",
+    "sourceFlipchartPage": "page-027.jpg",
+    "cropBox": [
+      311,
+      2471,
+      673,
+      714
+    ]
+  },
+  {
+    "slug": "p027-nido",
+    "word": "nido",
+    "lessonNumber": 13,
+    "pageNumber": null,
+    "src": "/cartilla/art/faithful/flipchart-native/p027-nido.webp",
+    "sourceFlipchartPage": "page-027.jpg",
+    "cropBox": [
+      145,
+      1619,
+      625,
+      428
+    ]
+  },
+  {
+    "slug": "p027-nudo",
+    "word": "nudo",
+    "lessonNumber": 13,
+    "pageNumber": null,
+    "src": "/cartilla/art/faithful/flipchart-native/p027-nudo.webp",
+    "sourceFlipchartPage": "page-027.jpg",
+    "cropBox": [
+      900,
+      1573,
+      663,
+      520
+    ]
+  },
+  {
+    "slug": "p027-tenedor",
+    "word": "tenedor",
+    "lessonNumber": 13,
+    "pageNumber": null,
+    "src": "/cartilla/art/faithful/flipchart-native/p027-tenedor.webp",
+    "sourceFlipchartPage": "page-027.jpg",
+    "cropBox": [
+      1637,
+      2361,
+      176,
+      824
+    ]
+  },
+  {
+    "slug": "p030-mene",
+    "word": "Meñe",
+    "lessonNumber": 14,
+    "pageNumber": null,
+    "src": "/cartilla/art/faithful/flipchart-native/p030-mene.webp",
+    "sourceFlipchartPage": "page-030.jpg",
+    "cropBox": [
+      1446,
+      2310,
+      500,
+      803
+    ]
+  },
+  {
+    "slug": "p030-mono",
+    "word": "moño",
+    "lessonNumber": 14,
+    "pageNumber": null,
+    "src": "/cartilla/art/faithful/flipchart-native/p030-mono.webp",
+    "sourceFlipchartPage": "page-030.jpg",
+    "cropBox": [
+      319,
+      2359,
+      617,
+      745
+    ]
+  },
+  {
+    "slug": "p030-ninito",
+    "word": "niñito",
+    "lessonNumber": 14,
+    "pageNumber": null,
+    "src": "/cartilla/art/faithful/flipchart-native/p030-ninito.webp",
+    "sourceFlipchartPage": "page-030.jpg",
+    "cropBox": [
+      1833,
+      1364,
+      490,
+      666
+    ]
+  },
+  {
+    "slug": "p030-nuno",
+    "word": "Ñuno",
+    "lessonNumber": 14,
+    "pageNumber": null,
+    "src": "/cartilla/art/faithful/flipchart-native/p030-nuno.webp",
+    "sourceFlipchartPage": "page-030.jpg",
+    "cropBox": [
+      1033,
+      1300,
+      490,
+      734
+    ]
+  },
+  {
+    "slug": "p030-pinata",
+    "word": "piñata",
+    "lessonNumber": 14,
+    "pageNumber": null,
+    "src": "/cartilla/art/faithful/flipchart-native/p030-pinata.webp",
+    "sourceFlipchartPage": "page-030.jpg",
+    "cropBox": [
+      117,
+      1433,
+      553,
+      602
+    ]
+  },
+  {
+    "slug": "p033-bate",
+    "word": "bate",
+    "lessonNumber": 15,
+    "pageNumber": null,
+    "src": "/cartilla/art/faithful/flipchart-native/p033-bate.webp",
+    "sourceFlipchartPage": "page-033.jpg",
+    "cropBox": [
+      1785,
+      1344,
+      548,
+      673
+    ]
+  },
+  {
+    "slug": "p033-beba",
+    "word": "Beba",
+    "lessonNumber": 15,
+    "pageNumber": null,
+    "src": "/cartilla/art/faithful/flipchart-native/p033-beba.webp",
+    "sourceFlipchartPage": "page-033.jpg",
+    "cropBox": [
+      145,
+      1459,
+      604,
+      569
+    ]
+  },
+  {
+    "slug": "p033-bebita",
+    "word": "bebita",
+    "lessonNumber": 15,
+    "pageNumber": null,
+    "src": "/cartilla/art/faithful/flipchart-native/p033-bebita.webp",
+    "sourceFlipchartPage": "page-033.jpg",
+    "cropBox": [
+      1364,
+      2346,
+      711,
+      783
+    ]
+  },
+  {
+    "slug": "p033-bota",
+    "word": "bota",
+    "lessonNumber": 15,
+    "pageNumber": null,
+    "src": "/cartilla/art/faithful/flipchart-native/p033-bota.webp",
+    "sourceFlipchartPage": "page-033.jpg",
+    "cropBox": [
+      342,
+      2456,
+      607,
+      663
+    ]
+  },
+  {
+    "slug": "p033-bubi",
+    "word": "Bubi",
+    "lessonNumber": 15,
+    "pageNumber": null,
+    "src": "/cartilla/art/faithful/flipchart-native/p033-bubi.webp",
+    "sourceFlipchartPage": "page-033.jpg",
+    "cropBox": [
+      931,
+      1433,
+      640,
+      586
+    ]
+  },
+  {
+    "slug": "p036-pavo",
+    "word": "pavo",
+    "lessonNumber": 16,
+    "pageNumber": null,
+    "src": "/cartilla/art/faithful/flipchart-native/p036-pavo.webp",
+    "sourceFlipchartPage": "page-036.jpg",
+    "cropBox": [
+      380,
+      2486,
+      589,
+      663
+    ]
+  },
+  {
+    "slug": "p036-vaso",
+    "word": "vaso",
+    "lessonNumber": 16,
+    "pageNumber": null,
+    "src": "/cartilla/art/faithful/flipchart-native/p036-vaso.webp",
+    "sourceFlipchartPage": "page-036.jpg",
+    "cropBox": [
+      288,
+      1533,
+      258,
+      495
+    ]
+  },
+  {
+    "slug": "p036-vela",
+    "word": "vela",
+    "lessonNumber": 16,
+    "pageNumber": null,
+    "src": "/cartilla/art/faithful/flipchart-native/p036-vela.webp",
+    "sourceFlipchartPage": "page-036.jpg",
+    "cropBox": [
+      1012,
+      1451,
+      556,
+      599
+    ]
+  },
+  {
+    "slug": "p036-vita",
+    "word": "Vita",
+    "lessonNumber": 16,
+    "pageNumber": null,
+    "src": "/cartilla/art/faithful/flipchart-native/p036-vita.webp",
+    "sourceFlipchartPage": "page-036.jpg",
+    "cropBox": [
+      1803,
+      1413,
+      561,
+      643
+    ]
+  },
+  {
+    "slug": "p036-vuli",
+    "word": "Vuli",
+    "lessonNumber": 16,
+    "pageNumber": null,
+    "src": "/cartilla/art/faithful/flipchart-native/p036-vuli.webp",
+    "sourceFlipchartPage": "page-036.jpg",
+    "cropBox": [
+      1367,
+      2639,
+      783,
+      533
+    ]
   }
 ]

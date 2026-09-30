@@ -1,5 +1,735 @@
 {
+  "3": [
+    {
+      "word": "Ilustración de la página 3",
+      "src": "/cartilla/art/faithful/flipchart-native/p003-escena.webp",
+      "sourcePage": 3,
+      "crop": [
+        13,
+        56,
+        514,
+        337
+      ],
+      "role": "scene"
+    },
+    {
+      "word": "avión",
+      "src": "/cartilla/art/faithful/flipchart-native/p003-avion.webp",
+      "sourcePage": 3,
+      "crop": [
+        66,
+        644,
+        225,
+        207
+      ]
+    },
+    {
+      "word": "escoba",
+      "src": "/cartilla/art/faithful/flipchart-native/p003-escoba.webp",
+      "sourcePage": 3,
+      "crop": [
+        408,
+        644,
+        178,
+        212
+      ]
+    },
+    {
+      "word": "imán",
+      "src": "/cartilla/art/faithful/flipchart-native/p003-iman.webp",
+      "sourcePage": 3,
+      "crop": [
+        706,
+        638,
+        222,
+        214
+      ]
+    },
+    {
+      "word": "olla",
+      "src": "/cartilla/art/faithful/flipchart-native/p003-olla.webp",
+      "sourcePage": 3,
+      "crop": [
+        235,
+        1140,
+        204,
+        171
+      ]
+    },
+    {
+      "word": "uña",
+      "src": "/cartilla/art/faithful/flipchart-native/p003-una.webp",
+      "sourcePage": 3,
+      "crop": [
+        568,
+        1130,
+        170,
+        182
+      ]
+    }
+  ],
+  "4": [
+    {
+      "word": "Ilustración de la página 4",
+      "src": "/cartilla/art/faithful/flipchart-native/p004-escena.webp",
+      "sourcePage": 4,
+      "crop": [
+        18,
+        50,
+        469,
+        460
+      ],
+      "role": "scene"
+    },
+    {
+      "word": "olla",
+      "src": "/cartilla/art/faithful/flipchart-native/p004-olla.webp",
+      "sourcePage": 4,
+      "crop": [
+        64,
+        647,
+        223,
+        182
+      ]
+    },
+    {
+      "word": "Oto",
+      "src": "/cartilla/art/faithful/flipchart-native/p004-oto.webp",
+      "sourcePage": 4,
+      "crop": [
+        377,
+        640,
+        225,
+        184
+      ]
+    },
+    {
+      "word": "oveja",
+      "src": "/cartilla/art/faithful/flipchart-native/p004-oveja.webp",
+      "sourcePage": 4,
+      "crop": [
+        706,
+        628,
+        227,
+        211
+      ]
+    },
+    {
+      "word": "oso",
+      "src": "/cartilla/art/faithful/flipchart-native/p004-oso.webp",
+      "sourcePage": 4,
+      "crop": [
+        58,
+        979,
+        220,
+        257
+      ]
+    },
+    {
+      "word": "oreja",
+      "src": "/cartilla/art/faithful/flipchart-native/p004-oreja.webp",
+      "sourcePage": 4,
+      "crop": [
+        418,
+        987,
+        158,
+        243
+      ]
+    },
+    {
+      "word": "ocho",
+      "src": "/cartilla/art/faithful/flipchart-native/p004-ocho.webp",
+      "sourcePage": 4,
+      "crop": [
+        714,
+        973,
+        208,
+        260
+      ]
+    }
+  ],
+  "5": [
+    {
+      "word": "Ilustración de la página 5",
+      "src": "/cartilla/art/faithful/flipchart-native/p005-escena.webp",
+      "sourcePage": 5,
+      "crop": [
+        66,
+        36,
+        396,
+        516
+      ],
+      "role": "scene"
+    },
+    {
+      "word": "abanico",
+      "src": "/cartilla/art/faithful/flipchart-native/p005-abanico.webp",
+      "sourcePage": 5,
+      "crop": [
+        65,
+        642,
+        232,
+        236
+      ]
+    },
+    {
+      "word": "anillo",
+      "src": "/cartilla/art/faithful/flipchart-native/p005-anillo.webp",
+      "sourcePage": 5,
+      "crop": [
+        394,
+        658,
+        216,
+        191
+      ]
+    },
+    {
+      "word": "araña",
+      "src": "/cartilla/art/faithful/flipchart-native/p005-arana.webp",
+      "sourcePage": 5,
+      "crop": [
+        718,
+        675,
+        188,
+        192
+      ]
+    },
+    {
+      "word": "ala",
+      "src": "/cartilla/art/faithful/flipchart-native/p005-ala.webp",
+      "sourcePage": 5,
+      "crop": [
+        39,
+        1029,
+        285,
+        217
+      ]
+    },
+    {
+      "word": "aro",
+      "src": "/cartilla/art/faithful/flipchart-native/p005-aro.webp",
+      "sourcePage": 5,
+      "crop": [
+        390,
+        1010,
+        220,
+        265
+      ]
+    },
+    {
+      "word": "Ana",
+      "src": "/cartilla/art/faithful/flipchart-native/p005-ana.webp",
+      "sourcePage": 5,
+      "crop": [
+        706,
+        1025,
+        243,
+        252
+      ]
+    }
+  ],
+  "6": [
+    {
+      "word": "Ilustración de la página 6",
+      "src": "/cartilla/art/faithful/flipchart-native/p006-escena.webp",
+      "sourcePage": 6,
+      "crop": [
+        48,
+        46,
+        402,
+        506
+      ],
+      "role": "scene"
+    },
+    {
+      "word": "elefante",
+      "src": "/cartilla/art/faithful/flipchart-native/p006-elefante.webp",
+      "sourcePage": 6,
+      "crop": [
+        50,
+        645,
+        235,
+        228
+      ]
+    },
+    {
+      "word": "espejo",
+      "src": "/cartilla/art/faithful/flipchart-native/p006-espejo.webp",
+      "sourcePage": 6,
+      "crop": [
+        368,
+        630,
+        231,
+        236
+      ]
+    },
+    {
+      "word": "Ema",
+      "src": "/cartilla/art/faithful/flipchart-native/p006-ema.webp",
+      "sourcePage": 6,
+      "crop": [
+        733,
+        624,
+        183,
+        238
+      ]
+    },
+    {
+      "word": "estrella",
+      "src": "/cartilla/art/faithful/flipchart-native/p006-estrella.webp",
+      "sourcePage": 6,
+      "crop": [
+        55,
+        996,
+        225,
+        256
+      ]
+    },
+    {
+      "word": "erizo",
+      "src": "/cartilla/art/faithful/flipchart-native/p006-erizo.webp",
+      "sourcePage": 6,
+      "crop": [
+        369,
+        988,
+        237,
+        256
+      ]
+    },
+    {
+      "word": "escalera",
+      "src": "/cartilla/art/faithful/flipchart-native/p006-escalera.webp",
+      "sourcePage": 6,
+      "crop": [
+        711,
+        977,
+        215,
+        286
+      ]
+    }
+  ],
+  "7": [
+    {
+      "word": "Ilustración de la página 7",
+      "src": "/cartilla/art/faithful/flipchart-native/p007-escena.webp",
+      "sourcePage": 7,
+      "crop": [
+        41,
+        29,
+        417,
+        523
+      ],
+      "role": "scene"
+    },
+    {
+      "word": "imán",
+      "src": "/cartilla/art/faithful/flipchart-native/p007-iman.webp",
+      "sourcePage": 7,
+      "crop": [
+        71,
+        642,
+        224,
+        212
+      ]
+    },
+    {
+      "word": "iglú",
+      "src": "/cartilla/art/faithful/flipchart-native/p007-iglu.webp",
+      "sourcePage": 7,
+      "crop": [
+        380,
+        645,
+        218,
+        222
+      ]
+    },
+    {
+      "word": "indio",
+      "src": "/cartilla/art/faithful/flipchart-native/p007-indio.webp",
+      "sourcePage": 7,
+      "crop": [
+        712,
+        575,
+        202,
+        297
+      ]
+    },
+    {
+      "word": "insecto",
+      "src": "/cartilla/art/faithful/flipchart-native/p007-insecto.webp",
+      "sourcePage": 7,
+      "crop": [
+        56,
+        1001,
+        256,
+        224
+      ]
+    },
+    {
+      "word": "isla",
+      "src": "/cartilla/art/faithful/flipchart-native/p007-isla.webp",
+      "sourcePage": 7,
+      "crop": [
+        355,
+        997,
+        279,
+        253
+      ]
+    },
+    {
+      "word": "Irma",
+      "src": "/cartilla/art/faithful/flipchart-native/p007-irma.webp",
+      "sourcePage": 7,
+      "crop": [
+        696,
+        994,
+        235,
+        274
+      ]
+    }
+  ],
+  "8": [
+    {
+      "word": "Ilustración de la página 8",
+      "src": "/cartilla/art/faithful/flipchart-native/p008-escena.webp",
+      "sourcePage": 8,
+      "crop": [
+        14,
+        28,
+        441,
+        439
+      ],
+      "role": "scene"
+    },
+    {
+      "word": "uno",
+      "src": "/cartilla/art/faithful/flipchart-native/p008-uno.webp",
+      "sourcePage": 8,
+      "crop": [
+        72,
+        570,
+        232,
+        240
+      ]
+    },
+    {
+      "word": "uva",
+      "src": "/cartilla/art/faithful/flipchart-native/p008-uva.webp",
+      "sourcePage": 8,
+      "crop": [
+        391,
+        568,
+        237,
+        230
+      ]
+    },
+    {
+      "word": "urraca",
+      "src": "/cartilla/art/faithful/flipchart-native/p008-urraca.webp",
+      "sourcePage": 8,
+      "crop": [
+        719,
+        557,
+        223,
+        227
+      ]
+    },
+    {
+      "word": "unicornio",
+      "src": "/cartilla/art/faithful/flipchart-native/p008-unicornio.webp",
+      "sourcePage": 8,
+      "crop": [
+        56,
+        904,
+        258,
+        260
+      ]
+    },
+    {
+      "word": "uniforme",
+      "src": "/cartilla/art/faithful/flipchart-native/p008-uniforme.webp",
+      "sourcePage": 8,
+      "crop": [
+        429,
+        906,
+        163,
+        252
+      ]
+    },
+    {
+      "word": "Ulises",
+      "src": "/cartilla/art/faithful/flipchart-native/p008-ulises.webp",
+      "sourcePage": 8,
+      "crop": [
+        711,
+        927,
+        243,
+        200
+      ]
+    }
+  ],
+  "9": [
+    {
+      "word": "Ilustración de la página 9",
+      "src": "/cartilla/art/faithful/flipchart-native/p009-escena.webp",
+      "sourcePage": 9,
+      "crop": [
+        20,
+        30,
+        528,
+        500
+      ],
+      "role": "scene"
+    },
+    {
+      "word": "mamá",
+      "src": "/cartilla/art/faithful/flipchart-native/p009-mama.webp",
+      "sourcePage": 9,
+      "crop": [
+        46,
+        561,
+        217,
+        286
+      ]
+    },
+    {
+      "word": "amo",
+      "src": "/cartilla/art/faithful/flipchart-native/p009-amo.webp",
+      "sourcePage": 9,
+      "crop": [
+        351,
+        550,
+        270,
+        285
+      ]
+    },
+    {
+      "word": "mima",
+      "src": "/cartilla/art/faithful/flipchart-native/p009-mima.webp",
+      "sourcePage": 9,
+      "crop": [
+        661,
+        529,
+        304,
+        304
+      ]
+    },
+    {
+      "word": "Meme",
+      "src": "/cartilla/art/faithful/flipchart-native/p009-meme.webp",
+      "sourcePage": 9,
+      "crop": [
+        230,
+        958,
+        150,
+        309
+      ]
+    },
+    {
+      "word": "Mumi",
+      "src": "/cartilla/art/faithful/flipchart-native/p009-mumi.webp",
+      "sourcePage": 9,
+      "crop": [
+        533,
+        960,
+        281,
+        296
+      ]
+    }
+  ],
+  "11": [
+    {
+      "word": "Ilustración de la página 11",
+      "src": "/cartilla/art/faithful/flipchart-native/p011-escena.webp",
+      "sourcePage": 11,
+      "crop": [
+        295,
+        186,
+        636,
+        529
+      ],
+      "role": "scene"
+    }
+  ],
+  "12": [
+    {
+      "word": "Ilustración de la página 12",
+      "src": "/cartilla/art/faithful/flipchart-native/p012-escena.webp",
+      "sourcePage": 12,
+      "crop": [
+        6,
+        28,
+        552,
+        520
+      ],
+      "role": "scene"
+    },
+    {
+      "word": "papá",
+      "src": "/cartilla/art/faithful/flipchart-native/p012-papa.webp",
+      "sourcePage": 12,
+      "crop": [
+        56,
+        541,
+        182,
+        278
+      ]
+    },
+    {
+      "word": "pie",
+      "src": "/cartilla/art/faithful/flipchart-native/p012-pie.webp",
+      "sourcePage": 12,
+      "crop": [
+        347,
+        632,
+        265,
+        179
+      ]
+    },
+    {
+      "word": "Pepe",
+      "src": "/cartilla/art/faithful/flipchart-native/p012-pepe.webp",
+      "sourcePage": 12,
+      "crop": [
+        681,
+        515,
+        305,
+        306
+      ]
+    },
+    {
+      "word": "puma",
+      "src": "/cartilla/art/faithful/flipchart-native/p012-puma.webp",
+      "sourcePage": 12,
+      "crop": [
+        69,
+        968,
+        272,
+        295
+      ]
+    },
+    {
+      "word": "pomo",
+      "src": "/cartilla/art/faithful/flipchart-native/p012-pomo.webp",
+      "sourcePage": 12,
+      "crop": [
+        626,
+        985,
+        154,
+        277
+      ]
+    }
+  ],
+  "14": [
+    {
+      "word": "Ilustración de la página 14",
+      "src": "/cartilla/art/faithful/flipchart-native/p014-escena.webp",
+      "sourcePage": 14,
+      "crop": [
+        355,
+        63,
+        626,
+        523
+      ],
+      "role": "scene"
+    }
+  ],
+  "15": [
+    {
+      "word": "Ilustración de la página 15",
+      "src": "/cartilla/art/faithful/flipchart-native/p015-escena.webp",
+      "sourcePage": 15,
+      "crop": [
+        63,
+        53,
+        457,
+        499
+      ],
+      "role": "scene"
+    },
+    {
+      "word": "Sesi",
+      "src": "/cartilla/art/faithful/flipchart-native/p015-sesi.webp",
+      "sourcePage": 15,
+      "crop": [
+        99,
+        566,
+        241,
+        294
+      ]
+    },
+    {
+      "word": "sopa",
+      "src": "/cartilla/art/faithful/flipchart-native/p015-sopa.webp",
+      "sourcePage": 15,
+      "crop": [
+        374,
+        667,
+        241,
+        149
+      ]
+    },
+    {
+      "word": "sapo",
+      "src": "/cartilla/art/faithful/flipchart-native/p015-sapo.webp",
+      "sourcePage": 15,
+      "crop": [
+        680,
+        621,
+        271,
+        211
+      ]
+    },
+    {
+      "word": "pisa",
+      "src": "/cartilla/art/faithful/flipchart-native/p015-pisa.webp",
+      "sourcePage": 15,
+      "crop": [
+        134,
+        1022,
+        319,
+        220
+      ]
+    },
+    {
+      "word": "Susi",
+      "src": "/cartilla/art/faithful/flipchart-native/p015-susi.webp",
+      "sourcePage": 15,
+      "crop": [
+        555,
+        953,
+        230,
+        308
+      ]
+    }
+  ],
+  "17": [
+    {
+      "word": "Ilustración de la página 17",
+      "src": "/cartilla/art/faithful/flipchart-native/p017-escena.webp",
+      "sourcePage": 17,
+      "crop": [
+        590,
+        28,
+        398,
+        698
+      ],
+      "role": "scene"
+    }
+  ],
   "18": [
+    {
+      "word": "Ilustración de la página 18",
+      "src": "/cartilla/art/faithful/flipchart-native/p018-escena.webp",
+      "sourcePage": 18,
+      "crop": [
+        72,
+        28,
+        466,
+        521
+      ],
+      "role": "scene"
+    },
     {
       "word": "tomate",
       "src": "/cartilla/art/faithful/flipchart-native/p018-tomate.webp",
@@ -56,16 +786,42 @@
       ]
     }
   ],
+  "20": [
+    {
+      "word": "Ilustración de la página 20",
+      "src": "/cartilla/art/faithful/flipchart-native/p020-escena.webp",
+      "sourcePage": 20,
+      "crop": [
+        340,
+        92,
+        660,
+        505
+      ],
+      "role": "scene"
+    }
+  ],
   "21": [
+    {
+      "word": "Ilustración de la página 21",
+      "src": "/cartilla/art/faithful/flipchart-native/p021-escena.webp",
+      "sourcePage": 21,
+      "crop": [
+        165,
+        28,
+        313,
+        510
+      ],
+      "role": "scene"
+    },
     {
       "word": "Didi",
       "src": "/cartilla/art/faithful/flipchart-native/p021-didi.webp",
       "sourcePage": 21,
       "crop": [
-        40,
-        500,
-        280,
-        300
+        42,
+        545,
+        207,
+        231
       ]
     },
     {
@@ -73,10 +829,10 @@
       "src": "/cartilla/art/faithful/flipchart-native/p021-dados.webp",
       "sourcePage": 21,
       "crop": [
-        350,
-        505,
-        320,
-        300
+        376,
+        516,
+        245,
+        250
       ]
     },
     {
@@ -84,10 +840,10 @@
       "src": "/cartilla/art/faithful/flipchart-native/p021-dedo.webp",
       "sourcePage": 21,
       "crop": [
-        710,
-        500,
-        250,
-        300
+        740,
+        513,
+        180,
+        256
       ]
     },
     {
@@ -95,10 +851,10 @@
       "src": "/cartilla/art/faithful/flipchart-native/p021-doce.webp",
       "sourcePage": 21,
       "crop": [
-        120,
-        860,
-        300,
-        340
+        122,
+        909,
+        232,
+        290
       ]
     },
     {
@@ -106,14 +862,40 @@
       "src": "/cartilla/art/faithful/flipchart-native/p021-dunia.webp",
       "sourcePage": 21,
       "crop": [
-        510,
-        860,
-        400,
-        345
+        508,
+        914,
+        361,
+        256
       ]
     }
   ],
+  "23": [
+    {
+      "word": "Ilustración de la página 23",
+      "src": "/cartilla/art/faithful/flipchart-native/p023-escena.webp",
+      "sourcePage": 23,
+      "crop": [
+        452,
+        28,
+        471,
+        559
+      ],
+      "role": "scene"
+    }
+  ],
   "24": [
+    {
+      "word": "Ilustración de la página 24",
+      "src": "/cartilla/art/faithful/flipchart-native/p024-escena.webp",
+      "sourcePage": 24,
+      "crop": [
+        71,
+        28,
+        209,
+        519
+      ],
+      "role": "scene"
+    },
     {
       "word": "maleta",
       "src": "/cartilla/art/faithful/flipchart-native/p024-maleta.webp",
@@ -170,17 +952,1014 @@
       ]
     }
   ],
+  "26": [
+    {
+      "word": "Ilustración de la página 26",
+      "src": "/cartilla/art/faithful/flipchart-native/p026-escena.webp",
+      "sourcePage": 26,
+      "crop": [
+        512,
+        220,
+        455,
+        396
+      ],
+      "role": "scene"
+    }
+  ],
+  "27": [
+    {
+      "word": "Ilustración de la página 27",
+      "src": "/cartilla/art/faithful/flipchart-native/p027-escena.webp",
+      "sourcePage": 27,
+      "crop": [
+        15,
+        28,
+        501,
+        524
+      ],
+      "role": "scene"
+    },
+    {
+      "word": "nido",
+      "src": "/cartilla/art/faithful/flipchart-native/p027-nido.webp",
+      "sourcePage": 27,
+      "crop": [
+        57,
+        635,
+        245,
+        168
+      ]
+    },
+    {
+      "word": "nudo",
+      "src": "/cartilla/art/faithful/flipchart-native/p027-nudo.webp",
+      "sourcePage": 27,
+      "crop": [
+        353,
+        617,
+        260,
+        204
+      ]
+    },
+    {
+      "word": "mono",
+      "src": "/cartilla/art/faithful/flipchart-native/p027-mono.webp",
+      "sourcePage": 27,
+      "crop": [
+        714,
+        524,
+        181,
+        300
+      ]
+    },
+    {
+      "word": "Napi",
+      "src": "/cartilla/art/faithful/flipchart-native/p027-napi.webp",
+      "sourcePage": 27,
+      "crop": [
+        122,
+        969,
+        264,
+        280
+      ]
+    },
+    {
+      "word": "tenedor",
+      "src": "/cartilla/art/faithful/flipchart-native/p027-tenedor.webp",
+      "sourcePage": 27,
+      "crop": [
+        642,
+        926,
+        69,
+        323
+      ]
+    }
+  ],
+  "29": [
+    {
+      "word": "Ilustración de la página 29",
+      "src": "/cartilla/art/faithful/flipchart-native/p029-escena.webp",
+      "sourcePage": 29,
+      "crop": [
+        495,
+        28,
+        481,
+        544
+      ],
+      "role": "scene"
+    }
+  ],
+  "30": [
+    {
+      "word": "Ilustración de la página 30",
+      "src": "/cartilla/art/faithful/flipchart-native/p030-escena.webp",
+      "sourcePage": 30,
+      "crop": [
+        100,
+        28,
+        347,
+        512
+      ],
+      "role": "scene"
+    },
+    {
+      "word": "piñata",
+      "src": "/cartilla/art/faithful/flipchart-native/p030-pinata.webp",
+      "sourcePage": 30,
+      "crop": [
+        46,
+        562,
+        217,
+        236
+      ]
+    },
+    {
+      "word": "Ñuno",
+      "src": "/cartilla/art/faithful/flipchart-native/p030-nuno.webp",
+      "sourcePage": 30,
+      "crop": [
+        405,
+        510,
+        192,
+        288
+      ]
+    },
+    {
+      "word": "niñito",
+      "src": "/cartilla/art/faithful/flipchart-native/p030-ninito.webp",
+      "sourcePage": 30,
+      "crop": [
+        719,
+        535,
+        192,
+        261
+      ]
+    },
+    {
+      "word": "moño",
+      "src": "/cartilla/art/faithful/flipchart-native/p030-mono.webp",
+      "sourcePage": 30,
+      "crop": [
+        125,
+        925,
+        242,
+        292
+      ]
+    },
+    {
+      "word": "Meñe",
+      "src": "/cartilla/art/faithful/flipchart-native/p030-mene.webp",
+      "sourcePage": 30,
+      "crop": [
+        567,
+        906,
+        196,
+        315
+      ]
+    }
+  ],
+  "32": [
+    {
+      "word": "Ilustración de la página 32",
+      "src": "/cartilla/art/faithful/flipchart-native/p032-escena.webp",
+      "sourcePage": 32,
+      "crop": [
+        491,
+        28,
+        502,
+        511
+      ],
+      "role": "scene"
+    }
+  ],
+  "33": [
+    {
+      "word": "Ilustración de la página 33",
+      "src": "/cartilla/art/faithful/flipchart-native/p033-escena.webp",
+      "sourcePage": 33,
+      "crop": [
+        102,
+        29,
+        470,
+        520
+      ],
+      "role": "scene"
+    },
+    {
+      "word": "Beba",
+      "src": "/cartilla/art/faithful/flipchart-native/p033-beba.webp",
+      "sourcePage": 33,
+      "crop": [
+        57,
+        572,
+        237,
+        223
+      ]
+    },
+    {
+      "word": "Bubi",
+      "src": "/cartilla/art/faithful/flipchart-native/p033-bubi.webp",
+      "sourcePage": 33,
+      "crop": [
+        365,
+        562,
+        251,
+        230
+      ]
+    },
+    {
+      "word": "bate",
+      "src": "/cartilla/art/faithful/flipchart-native/p033-bate.webp",
+      "sourcePage": 33,
+      "crop": [
+        700,
+        527,
+        215,
+        264
+      ]
+    },
+    {
+      "word": "bota",
+      "src": "/cartilla/art/faithful/flipchart-native/p033-bota.webp",
+      "sourcePage": 33,
+      "crop": [
+        134,
+        963,
+        238,
+        260
+      ]
+    },
+    {
+      "word": "bebita",
+      "src": "/cartilla/art/faithful/flipchart-native/p033-bebita.webp",
+      "sourcePage": 33,
+      "crop": [
+        535,
+        920,
+        279,
+        307
+      ]
+    }
+  ],
+  "35": [
+    {
+      "word": "Ilustración de la página 35",
+      "src": "/cartilla/art/faithful/flipchart-native/p035-escena.webp",
+      "sourcePage": 35,
+      "crop": [
+        474,
+        193,
+        498,
+        315
+      ],
+      "role": "scene"
+    }
+  ],
+  "36": [
+    {
+      "word": "Ilustración de la página 36",
+      "src": "/cartilla/art/faithful/flipchart-native/p036-escena.webp",
+      "sourcePage": 36,
+      "crop": [
+        30,
+        64,
+        487,
+        327
+      ],
+      "role": "scene"
+    },
+    {
+      "word": "vaso",
+      "src": "/cartilla/art/faithful/flipchart-native/p036-vaso.webp",
+      "sourcePage": 36,
+      "crop": [
+        113,
+        601,
+        101,
+        194
+      ]
+    },
+    {
+      "word": "vela",
+      "src": "/cartilla/art/faithful/flipchart-native/p036-vela.webp",
+      "sourcePage": 36,
+      "crop": [
+        397,
+        569,
+        218,
+        235
+      ]
+    },
+    {
+      "word": "Vita",
+      "src": "/cartilla/art/faithful/flipchart-native/p036-vita.webp",
+      "sourcePage": 36,
+      "crop": [
+        707,
+        554,
+        220,
+        252
+      ]
+    },
+    {
+      "word": "pavo",
+      "src": "/cartilla/art/faithful/flipchart-native/p036-pavo.webp",
+      "sourcePage": 36,
+      "crop": [
+        149,
+        975,
+        231,
+        260
+      ]
+    },
+    {
+      "word": "Vuli",
+      "src": "/cartilla/art/faithful/flipchart-native/p036-vuli.webp",
+      "sourcePage": 36,
+      "crop": [
+        536,
+        1035,
+        307,
+        209
+      ]
+    }
+  ],
+  "38": [
+    {
+      "word": "Ilustración de la página 38",
+      "src": "/cartilla/art/faithful/flipchart-native/p038-escena.webp",
+      "sourcePage": 38,
+      "crop": [
+        486,
+        28,
+        487,
+        522
+      ],
+      "role": "scene"
+    }
+  ],
+  "39": [
+    {
+      "word": "Ilustración de la página 39",
+      "src": "/cartilla/art/faithful/flipchart-native/p039-escena.webp",
+      "sourcePage": 39,
+      "crop": [
+        87,
+        28,
+        434,
+        474
+      ],
+      "role": "scene"
+    },
+    {
+      "word": "rana",
+      "src": "/cartilla/art/faithful/flipchart-native/p039-rana.webp",
+      "sourcePage": 39,
+      "crop": [
+        47,
+        553,
+        231,
+        221
+      ]
+    },
+    {
+      "word": "remos",
+      "src": "/cartilla/art/faithful/flipchart-native/p039-remos.webp",
+      "sourcePage": 39,
+      "crop": [
+        364,
+        550,
+        243,
+        225
+      ]
+    },
+    {
+      "word": "Rita",
+      "src": "/cartilla/art/faithful/flipchart-native/p039-rita.webp",
+      "sourcePage": 39,
+      "crop": [
+        675,
+        550,
+        270,
+        221
+      ]
+    },
+    {
+      "word": "rosa",
+      "src": "/cartilla/art/faithful/flipchart-native/p039-rosa.webp",
+      "sourcePage": 39,
+      "crop": [
+        152,
+        932,
+        187,
+        244
+      ]
+    },
+    {
+      "word": "rueda",
+      "src": "/cartilla/art/faithful/flipchart-native/p039-rueda.webp",
+      "sourcePage": 39,
+      "crop": [
+        515,
+        932,
+        303,
+        249
+      ]
+    }
+  ],
+  "41": [
+    {
+      "word": "Ilustración de la página 41",
+      "src": "/cartilla/art/faithful/flipchart-native/p041-escena.webp",
+      "sourcePage": 41,
+      "crop": [
+        444,
+        28,
+        531,
+        504
+      ],
+      "role": "scene"
+    }
+  ],
+  "42": [
+    {
+      "word": "Ilustración de la página 42",
+      "src": "/cartilla/art/faithful/flipchart-native/p042-escena.webp",
+      "sourcePage": 42,
+      "crop": [
+        12,
+        97,
+        509,
+        401
+      ],
+      "role": "scene"
+    },
+    {
+      "word": "burro",
+      "src": "/cartilla/art/faithful/flipchart-native/p042-burro.webp",
+      "sourcePage": 42,
+      "crop": [
+        37,
+        566,
+        262,
+        240
+      ]
+    },
+    {
+      "word": "carrusel",
+      "src": "/cartilla/art/faithful/flipchart-native/p042-carrusel.webp",
+      "sourcePage": 42,
+      "crop": [
+        363,
+        570,
+        244,
+        238
+      ]
+    },
+    {
+      "word": "torre",
+      "src": "/cartilla/art/faithful/flipchart-native/p042-torre.webp",
+      "sourcePage": 42,
+      "crop": [
+        759,
+        526,
+        111,
+        283
+      ]
+    },
+    {
+      "word": "barril",
+      "src": "/cartilla/art/faithful/flipchart-native/p042-barril.webp",
+      "sourcePage": 42,
+      "crop": [
+        163,
+        975,
+        176,
+        270
+      ]
+    },
+    {
+      "word": "Tierra",
+      "src": "/cartilla/art/faithful/flipchart-native/p042-tierra.webp",
+      "sourcePage": 42,
+      "crop": [
+        535,
+        963,
+        277,
+        290
+      ]
+    }
+  ],
+  "44": [
+    {
+      "word": "Ilustración de la página 44",
+      "src": "/cartilla/art/faithful/flipchart-native/p044-escena.webp",
+      "sourcePage": 44,
+      "crop": [
+        452,
+        28,
+        531,
+        544
+      ],
+      "role": "scene"
+    }
+  ],
+  "45": [
+    {
+      "word": "Ilustración de la página 45",
+      "src": "/cartilla/art/faithful/flipchart-native/p045-escena.webp",
+      "sourcePage": 45,
+      "crop": [
+        131,
+        31,
+        403,
+        511
+      ],
+      "role": "scene"
+    },
+    {
+      "word": "gaveta",
+      "src": "/cartilla/art/faithful/flipchart-native/p045-gaveta.webp",
+      "sourcePage": 45,
+      "crop": [
+        37,
+        572,
+        265,
+        223
+      ]
+    },
+    {
+      "word": "gusano",
+      "src": "/cartilla/art/faithful/flipchart-native/p045-gusano.webp",
+      "sourcePage": 45,
+      "crop": [
+        356,
+        639,
+        277,
+        141
+      ]
+    },
+    {
+      "word": "Goloso",
+      "src": "/cartilla/art/faithful/flipchart-native/p045-goloso.webp",
+      "sourcePage": 45,
+      "crop": [
+        701,
+        524,
+        242,
+        270
+      ]
+    },
+    {
+      "word": "gorra",
+      "src": "/cartilla/art/faithful/flipchart-native/p045-gorra.webp",
+      "sourcePage": 45,
+      "crop": [
+        127,
+        969,
+        255,
+        201
+      ]
+    },
+    {
+      "word": "mago",
+      "src": "/cartilla/art/faithful/flipchart-native/p045-mago.webp",
+      "sourcePage": 45,
+      "crop": [
+        560,
+        919,
+        238,
+        272
+      ]
+    }
+  ],
+  "47": [
+    {
+      "word": "Ilustración de la página 47",
+      "src": "/cartilla/art/faithful/flipchart-native/p047-escena.webp",
+      "sourcePage": 47,
+      "crop": [
+        473,
+        29,
+        506,
+        532
+      ],
+      "role": "scene"
+    }
+  ],
+  "48": [
+    {
+      "word": "Ilustración de la página 48",
+      "src": "/cartilla/art/faithful/flipchart-native/p048-escena.webp",
+      "sourcePage": 48,
+      "crop": [
+        137,
+        28,
+        338,
+        522
+      ],
+      "role": "scene"
+    },
+    {
+      "word": "foto",
+      "src": "/cartilla/art/faithful/flipchart-native/p048-foto.webp",
+      "sourcePage": 48,
+      "crop": [
+        66,
+        584,
+        199,
+        261
+      ]
+    },
+    {
+      "word": "fideos",
+      "src": "/cartilla/art/faithful/flipchart-native/p048-fideos.webp",
+      "sourcePage": 48,
+      "crop": [
+        428,
+        566,
+        212,
+        276
+      ]
+    },
+    {
+      "word": "familia",
+      "src": "/cartilla/art/faithful/flipchart-native/p048-familia.webp",
+      "sourcePage": 48,
+      "crop": [
+        726,
+        510,
+        175,
+        329
+      ]
+    },
+    {
+      "word": "Felo",
+      "src": "/cartilla/art/faithful/flipchart-native/p048-felo.webp",
+      "sourcePage": 48,
+      "crop": [
+        158,
+        960,
+        300,
+        295
+      ]
+    },
+    {
+      "word": "funda",
+      "src": "/cartilla/art/faithful/flipchart-native/p048-funda.webp",
+      "sourcePage": 48,
+      "crop": [
+        588,
+        990,
+        244,
+        245
+      ]
+    }
+  ],
+  "50": [
+    {
+      "word": "Ilustración de la página 50",
+      "src": "/cartilla/art/faithful/flipchart-native/p050-escena.webp",
+      "sourcePage": 50,
+      "crop": [
+        441,
+        28,
+        530,
+        529
+      ],
+      "role": "scene"
+    }
+  ],
+  "51": [
+    {
+      "word": "Ilustración de la página 51",
+      "src": "/cartilla/art/faithful/flipchart-native/p051-escena.webp",
+      "sourcePage": 51,
+      "crop": [
+        63,
+        31,
+        465,
+        496
+      ],
+      "role": "scene"
+    },
+    {
+      "word": "jicotea",
+      "src": "/cartilla/art/faithful/flipchart-native/p051-jicotea.webp",
+      "sourcePage": 51,
+      "crop": [
+        37,
+        562,
+        269,
+        221
+      ]
+    },
+    {
+      "word": "jugo",
+      "src": "/cartilla/art/faithful/flipchart-native/p051-jugo.webp",
+      "sourcePage": 51,
+      "crop": [
+        399,
+        561,
+        196,
+        224
+      ]
+    },
+    {
+      "word": "Jesús",
+      "src": "/cartilla/art/faithful/flipchart-native/p051-jesus.webp",
+      "sourcePage": 51,
+      "crop": [
+        728,
+        510,
+        250,
+        276
+      ]
+    },
+    {
+      "word": "ajo",
+      "src": "/cartilla/art/faithful/flipchart-native/p051-ajo.webp",
+      "sourcePage": 51,
+      "crop": [
+        141,
+        974,
+        246,
+        211
+      ]
+    },
+    {
+      "word": "jarra",
+      "src": "/cartilla/art/faithful/flipchart-native/p051-jarra.webp",
+      "sourcePage": 51,
+      "crop": [
+        584,
+        937,
+        200,
+        270
+      ]
+    }
+  ],
+  "53": [
+    {
+      "word": "Ilustración de la página 53",
+      "src": "/cartilla/art/faithful/flipchart-native/p053-escena.webp",
+      "sourcePage": 53,
+      "crop": [
+        481,
+        28,
+        504,
+        562
+      ],
+      "role": "scene"
+    }
+  ],
+  "54": [
+    {
+      "word": "Ilustración de la página 54",
+      "src": "/cartilla/art/faithful/flipchart-native/p054-escena.webp",
+      "sourcePage": 54,
+      "crop": [
+        36,
+        42,
+        503,
+        397
+      ],
+      "role": "scene"
+    },
+    {
+      "word": "cuna",
+      "src": "/cartilla/art/faithful/flipchart-native/p054-cuna.webp",
+      "sourcePage": 54,
+      "crop": [
+        48,
+        552,
+        251,
+        196
+      ]
+    },
+    {
+      "word": "conejo",
+      "src": "/cartilla/art/faithful/flipchart-native/p054-conejo.webp",
+      "sourcePage": 54,
+      "crop": [
+        415,
+        512,
+        172,
+        247
+      ]
+    },
+    {
+      "word": "casa",
+      "src": "/cartilla/art/faithful/flipchart-native/p054-casa.webp",
+      "sourcePage": 54,
+      "crop": [
+        667,
+        510,
+        293,
+        254
+      ]
+    },
+    {
+      "word": "cubo",
+      "src": "/cartilla/art/faithful/flipchart-native/p054-cubo.webp",
+      "sourcePage": 54,
+      "crop": [
+        141,
+        919,
+        230,
+        278
+      ]
+    },
+    {
+      "word": "Catalina",
+      "src": "/cartilla/art/faithful/flipchart-native/p054-catalina.webp",
+      "sourcePage": 54,
+      "crop": [
+        599,
+        886,
+        147,
+        309
+      ]
+    }
+  ],
   "56": [
     {
-      "word": "Los caramelos",
-      "src": "/cartilla/art/faithful/flipchart-native/p056-caramelos.webp",
+      "word": "Ilustración de la página 56",
+      "src": "/cartilla/art/faithful/flipchart-native/p056-escena.webp",
       "sourcePage": 56,
       "crop": [
-        500,
-        0,
-        485,
-        720
+        502,
+        28,
+        482,
+        677
+      ],
+      "role": "scene"
+    }
+  ],
+  "57": [
+    {
+      "word": "Ilustración de la página 57",
+      "src": "/cartilla/art/faithful/flipchart-native/p057-escena.webp",
+      "sourcePage": 57,
+      "crop": [
+        48,
+        28,
+        484,
+        515
+      ],
+      "role": "scene"
+    },
+    {
+      "word": "yate",
+      "src": "/cartilla/art/faithful/flipchart-native/p057-yate.webp",
+      "sourcePage": 57,
+      "crop": [
+        37,
+        579,
+        287,
+        186
       ]
+    },
+    {
+      "word": "yema",
+      "src": "/cartilla/art/faithful/flipchart-native/p057-yema.webp",
+      "sourcePage": 57,
+      "crop": [
+        352,
+        661,
+        284,
+        107
+      ]
+    },
+    {
+      "word": "Yayita",
+      "src": "/cartilla/art/faithful/flipchart-native/p057-yayita.webp",
+      "sourcePage": 57,
+      "crop": [
+        702,
+        538,
+        251,
+        230
+      ]
+    },
+    {
+      "word": "mayúscula",
+      "src": "/cartilla/art/faithful/flipchart-native/p057-mayuscula.webp",
+      "sourcePage": 57,
+      "crop": [
+        131,
+        936,
+        229,
+        253
+      ]
+    },
+    {
+      "word": "yoyo",
+      "src": "/cartilla/art/faithful/flipchart-native/p057-yoyo.webp",
+      "sourcePage": 57,
+      "crop": [
+        556,
+        925,
+        243,
+        254
+      ]
+    }
+  ],
+  "59": [
+    {
+      "word": "Ilustración de la página 59",
+      "src": "/cartilla/art/faithful/flipchart-native/p059-escena.webp",
+      "sourcePage": 59,
+      "crop": [
+        441,
+        28,
+        508,
+        571
+      ],
+      "role": "scene"
+    }
+  ],
+  "60": [
+    {
+      "word": "Ilustración de la página 60",
+      "src": "/cartilla/art/faithful/flipchart-native/p060-escena.webp",
+      "sourcePage": 60,
+      "crop": [
+        81,
+        28,
+        481,
+        472
+      ],
+      "role": "scene"
+    },
+    {
+      "word": "zapato",
+      "src": "/cartilla/art/faithful/flipchart-native/p060-zapato.webp",
+      "sourcePage": 60,
+      "crop": [
+        40,
+        552,
+        249,
+        231
+      ]
+    },
+    {
+      "word": "zig-zag",
+      "src": "/cartilla/art/faithful/flipchart-native/p060-zig-zag.webp",
+      "sourcePage": 60,
+      "crop": [
+        395,
+        545,
+        209,
+        238
+      ]
+    },
+    {
+      "word": "zorro",
+      "src": "/cartilla/art/faithful/flipchart-native/p060-zorro.webp",
+      "sourcePage": 60,
+      "crop": [
+        717,
+        520,
+        222,
+        261
+      ]
+    },
+    {
+      "word": "zepelín",
+      "src": "/cartilla/art/faithful/flipchart-native/p060-zepelin.webp",
+      "sourcePage": 60,
+      "crop": [
+        105,
+        965,
+        310,
+        242
+      ]
+    },
+    {
+      "word": "Zulema",
+      "src": "/cartilla/art/faithful/flipchart-native/p060-zulema.webp",
+      "sourcePage": 60,
+      "crop": [
+        573,
+        932,
+        190,
+        282
+      ]
+    }
+  ],
+  "62": [
+    {
+      "word": "Ilustración de la página 62",
+      "src": "/cartilla/art/faithful/flipchart-native/p062-escena.webp",
+      "sourcePage": 62,
+      "crop": [
+        437,
+        28,
+        542,
+        568
+      ],
+      "role": "scene"
     }
   ]
 }
