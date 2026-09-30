@@ -180,6 +180,6 @@ console.log(JSON.stringify({
   flipchartOptimizedExclusive: `${optimizedFlipchartAssets.length} assets wired; deleted experiments remain excluded`,
   gretelRig: "vector-part rig present; character fidelity is not certified by this structural check",
   livingArt: "semantic registry with independent wings/tails/ears/trunk and reduced-motion policy",
-  cinematics: "31 scripted scenes; scripts do not prove that approved motion clips exist",
-  gretelClips: `${Object.keys(gretelClips).length}/31 approved clips registered; missing clips use the static fallback`,
+  cinematics: "Existing lesson scripts retained; owner scope requires one looping welcome video only",
+  gretelClips: `${gretelClips["master-welcome"] ? 1 : 0}/1 approved welcome clip registered; no lesson videos required`,
 }, null, 2));

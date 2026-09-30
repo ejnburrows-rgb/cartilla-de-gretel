@@ -29,39 +29,35 @@ The master must match the approved Gretel 2.0, including her striped blouse,
 blue dress, floral trim, blonde hair and red bow. Existing files do not become
 approved merely because they have real transparency.
 
-## Where it plugs in
+## Owner-corrected scope — 2026-09-30
 
-- Scene list: `src/content/gretel-cinematics.ts` (`GRETEL_CINEMATICS`, 31 scenes).
-- Player: `src/components/gretel/GretelCinematic.tsx` with `GretelSceneMedia.tsx`.
-  `src/data/gretel-approved-clips.json` maps scene IDs to
-  `{ mp4, webm?, poster }` for produced, approved clips. The catalog reads this
-  registry; it is currently empty. No placeholder video URLs are registered. The player runs each clip
-  once, restores the poster on completion, supports explicit replay, and falls
-  back after load/play errors or a two-second startup timeout. Reduced motion
-  and data-saving requests prevent video loading. Browser speech is temporary;
-  the final owner-supplied voice remains deferred.
-- Live helper: `src/components/gretel/GretelLiveAvatar.tsx` (poses above; respects reduced motion).
+Emilio clarified: one splash-screen welcome clip with a simple waving loop.
+The earlier 31-video production plan is superseded. Existing lesson scripts do
+not create a requirement to produce lesson, milestone or completion videos.
 
-## Motion contract (for Google Flow clips)
+## Simplest welcome experience
 
-1. **31 clips**, one per scene id: `master-welcome`, `how-to`, `lesson-01-intro` … `lesson-24-intro`,
-   `milestone-6`, `milestone-12`, `milestone-18`, `milestone-24`, `cartilla-final`.
-2. Length = the scene's `durationSeconds` (7–10 s). 16:9 and 9:16 masters, 1080p, H.264 MP4 + WebM,
-   no burned-in text (captions stay live text), no background music.
-3. Every clip **starts and ends on the same master still** (first and last frame identical to the
-   master pose), so it can hand off to the still without a jump.
-4. **Plays once**, then settles on the still. Never loops. "Repetir" replays it on request.
-5. **Reduced motion** (`prefers-reduced-motion`): no video; show the still + caption + voice.
-6. **Static fallback**: if the clip fails to load within 2 s, or on slow data, show the still.
-7. Gretel never covers instructional content: clips play only in the intro/celebration dialog,
-   and the child can always press "Comenzar" to skip.
-8. Same outfit, face and proportions as the chosen master in every clip.
+- Produce **one 5–6 second MP4** from the approved left Gretel source: warm smile,
+  a gentle hand wave, natural blink and subtle breathing. Keep face, outfit and
+  proportions identical. Begin and end in the same resting pose for a seamless loop.
+- Loop silently on the welcome splash until **Comenzar** is tapped. No repeated
+  spoken greeting, soundtrack, progress countdown or forced watching period.
+- Comenzar enters the app immediately, without a second how-to video.
+- Keep the welcome text as ordinary screen text: “¡Bienvenido a La Cartilla de Gretel!”
+- Reuse the same clip for everyone; no personalized or lesson-specific renders.
+- One responsive video is enough; separate portrait copies and WebM versions are
+  not required. Fit the entire character on phone, tablet and desktop.
+- Reduced-motion or data-saving preference, slow loading and errors show the
+  approved still, while keeping Comenzar available.
 
-## Still to produce (master choice complete)
+## Integration status and remaining work
 
-- 1 clean transparent master still (PNG/WebP, ≥1400 px tall) + 4 matching poses
-  (idle, point, talk, cheer) in the same family.
-- 31 Flow clips per the contract above (62 files with both aspect ratios), plus a poster frame each.
-- Register only produced and visually approved files in the existing optional
-  `video` field per scene. Playback integration is implemented; media production
-  remains unfinished. The exact-master confirmation is complete.
+Approved master: complete. Produced welcome clip: **0/1**.
+The existing media player supports one-shot playback and still fallback. The
+looping welcome behavior and direct single-step entry described above remain
+implementation work; they are not claimed complete by this scope correction.
+
+The existing optional registry is `src/data/gretel-approved-clips.json`.
+Register only the produced welcome asset under `master-welcome` with its MP4
+and poster. Existing static lesson content can remain; it does not need videos.
+No new character design, video service, paid API or multi-video pipeline is required.
