@@ -119,9 +119,9 @@ const OPTIMIZED_EXCLUSIVE = optimizedExclusive as OptimizedExclusiveEntry[];
  * drawing pixel is ever hidden.
  */
 const BAKED_LABEL_TRIM_PCT = new Map<string, number>([
-  ["/cartilla/art/faithful/flipchart-native/p021-dados.webp", 13],
-  ["/cartilla/art/faithful/flipchart-native/p021-dedo.webp", 11],
-  ["/cartilla/art/faithful/flipchart-native/p021-dunia.webp", 9],
+  ["/cartilla/art/optimized/flipchart-native/p021-dados.webp", 13],
+  ["/cartilla/art/optimized/flipchart-native/p021-dedo.webp", 11],
+  ["/cartilla/art/optimized/flipchart-native/p021-dunia.webp", 9],
 ]);
 
 function bakedLabelTrim(src: string): { bakedLabelTrimPct?: number } {

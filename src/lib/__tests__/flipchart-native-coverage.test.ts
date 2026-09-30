@@ -29,20 +29,27 @@ describe("native Flip Chart coverage", () => {
     }
   });
 
-  it("uses faithful book art after fabricated exclusive images were removed", () => {
-    // 2026-09-29: All 32 ChatGPT-fabricated "exclusive" images were deleted per owner directive
-    // (ASSET_FIDELITY_POLICY.md). Pages now fall back to faithful book crops. This test verifies
-    // no page references the deleted fabricated images.
+  it("uses verified native replacement art after fabricated exclusive images were removed", () => {
+    // The 16 approved native replacements are faithful book crops promoted to the
+    // optimized production path without changing their artwork.
     for (let pageNumber = 3; pageNumber <= 62; pageNumber += 1) {
       const page = getNativeFlipchartPage(pageNumber);
       for (const asset of page?.art ?? []) {
         expect(asset.src).not.toContain("/optimized/flipchart-exclusive/");
       }
     }
-    // Spot-check that pages still have art from legitimate sources
-    const page21 = getNativeFlipchartPage(21);
-    expect(page21?.art.length).toBeGreaterThan(0);
-    expect(page21?.art[0]?.src).toMatch(/^\/cartilla\/art\/faithful\//);
+
+    const optimizedCounts = new Map([[18, 5], [21, 5], [24, 5], [56, 1]]);
+    for (const [pageNumber, count] of optimizedCounts) {
+      const page = getNativeFlipchartPage(pageNumber);
+      expect(page?.art.length).toBeGreaterThanOrEqual(count);
+      expect(
+        page?.art.slice(0, count).every((asset) =>
+          asset.src.startsWith("/cartilla/art/optimized/flipchart-native/"),
+        ),
+        `page ${pageNumber} did not use the verified optimized native replacements`,
+      ).toBe(true);
+    }
   });
 
   it("keeps drill-page vocabulary in word chips while story pages stay prose", () => {

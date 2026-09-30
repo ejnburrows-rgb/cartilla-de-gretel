@@ -2,7 +2,7 @@
   "18": [
     {
       "word": "tomate",
-      "src": "/cartilla/art/faithful/flipchart-native/p018-tomate.webp",
+      "src": "/cartilla/art/optimized/flipchart-native/p018-tomate.webp",
       "sourcePage": 18,
       "crop": [
         35,
@@ -13,7 +13,7 @@
     },
     {
       "word": "tapa",
-      "src": "/cartilla/art/faithful/flipchart-native/p018-tapa.webp",
+      "src": "/cartilla/art/optimized/flipchart-native/p018-tapa.webp",
       "sourcePage": 18,
       "crop": [
         350,
@@ -24,7 +24,7 @@
     },
     {
       "word": "topo",
-      "src": "/cartilla/art/faithful/flipchart-native/p018-topo.webp",
+      "src": "/cartilla/art/optimized/flipchart-native/p018-topo.webp",
       "sourcePage": 18,
       "crop": [
         690,
@@ -35,7 +35,7 @@
     },
     {
       "word": "tipi",
-      "src": "/cartilla/art/faithful/flipchart-native/p018-tipi.webp",
+      "src": "/cartilla/art/optimized/flipchart-native/p018-tipi.webp",
       "sourcePage": 18,
       "crop": [
         95,
@@ -46,7 +46,7 @@
     },
     {
       "word": "Tuto",
-      "src": "/cartilla/art/faithful/flipchart-native/p018-tuto.webp",
+      "src": "/cartilla/art/optimized/flipchart-native/p018-tuto.webp",
       "sourcePage": 18,
       "crop": [
         540,
@@ -59,7 +59,7 @@
   "21": [
     {
       "word": "Didi",
-      "src": "/cartilla/art/faithful/flipchart-native/p021-didi.webp",
+      "src": "/cartilla/art/optimized/flipchart-native/p021-didi.webp",
       "sourcePage": 21,
       "crop": [
         40,
@@ -70,7 +70,7 @@
     },
     {
       "word": "dados",
-      "src": "/cartilla/art/faithful/flipchart-native/p021-dados.webp",
+      "src": "/cartilla/art/optimized/flipchart-native/p021-dados.webp",
       "sourcePage": 21,
       "crop": [
         350,
@@ -81,7 +81,7 @@
     },
     {
       "word": "dedo",
-      "src": "/cartilla/art/faithful/flipchart-native/p021-dedo.webp",
+      "src": "/cartilla/art/optimized/flipchart-native/p021-dedo.webp",
       "sourcePage": 21,
       "crop": [
         710,
@@ -92,7 +92,7 @@
     },
     {
       "word": "doce",
-      "src": "/cartilla/art/faithful/flipchart-native/p021-doce.webp",
+      "src": "/cartilla/art/optimized/flipchart-native/p021-doce.webp",
       "sourcePage": 21,
       "crop": [
         120,
@@ -103,7 +103,7 @@
     },
     {
       "word": "Dunia",
-      "src": "/cartilla/art/faithful/flipchart-native/p021-dunia.webp",
+      "src": "/cartilla/art/optimized/flipchart-native/p021-dunia.webp",
       "sourcePage": 21,
       "crop": [
         510,
@@ -116,7 +116,7 @@
   "24": [
     {
       "word": "maleta",
-      "src": "/cartilla/art/faithful/flipchart-native/p024-maleta.webp",
+      "src": "/cartilla/art/optimized/flipchart-native/p024-maleta.webp",
       "sourcePage": 24,
       "crop": [
         45,
@@ -127,7 +127,7 @@
     },
     {
       "word": "lata",
-      "src": "/cartilla/art/faithful/flipchart-native/p024-lata.webp",
+      "src": "/cartilla/art/optimized/flipchart-native/p024-lata.webp",
       "sourcePage": 24,
       "crop": [
         385,
@@ -138,7 +138,7 @@
     },
     {
       "word": "Luli",
-      "src": "/cartilla/art/faithful/flipchart-native/p024-luli.webp",
+      "src": "/cartilla/art/optimized/flipchart-native/p024-luli.webp",
       "sourcePage": 24,
       "crop": [
         720,
@@ -149,7 +149,7 @@
     },
     {
       "word": "loma",
-      "src": "/cartilla/art/faithful/flipchart-native/p024-loma.webp",
+      "src": "/cartilla/art/optimized/flipchart-native/p024-loma.webp",
       "sourcePage": 24,
       "crop": [
         90,
@@ -160,7 +160,7 @@
     },
     {
       "word": "Lala",
-      "src": "/cartilla/art/faithful/flipchart-native/p024-lala.webp",
+      "src": "/cartilla/art/optimized/flipchart-native/p024-lala.webp",
       "sourcePage": 24,
       "crop": [
         565,
@@ -173,7 +173,7 @@
   "56": [
     {
       "word": "Los caramelos",
-      "src": "/cartilla/art/faithful/flipchart-native/p056-caramelos.webp",
+      "src": "/cartilla/art/optimized/flipchart-native/p056-caramelos.webp",
       "sourcePage": 56,
       "crop": [
         500,
