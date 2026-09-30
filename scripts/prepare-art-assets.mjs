@@ -585,10 +585,13 @@ export async function prepareArtAssets({ checkOnly = false } = {}) {
   );
   if (!checkOnly) fs.rmSync(deliveryDir, { recursive: true, force: true });
 
+  // Flip Chart native crops are generated from the HD book pages first, so the
+  // manifest entries that point at them find their canonical file even on a
+  // fresh checkout where the crops are not committed.
+  const flipchartNative = await prepareFlipchartNativeCrops(checkOnly);
   const records = [];
   for (const entry of manifest) records.push(await processEntry(entry, checkOnly));
   const flipchart = await prepareFlipchartDelivery(checkOnly);
-  const flipchartNative = await prepareFlipchartNativeCrops(checkOnly);
 
   const bySrc = new Map();
   const duplicateSrcs = [];
