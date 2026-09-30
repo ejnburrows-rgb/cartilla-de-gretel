@@ -11,7 +11,7 @@ Use the owner's Google Drive originals:
 - Teacher: `La Cartilla de Gretel Flip Chart.pdf`
 - Student: `Libro del alumno - Rescan and Optimize (2).pdf`
 
-For book-page appearance and layout, these two PDFs are authoritative. Read `../../CARTILLA_SOURCE_OF_TRUTH.md`.
+For book-page appearance and layout, these two PDFs are authoritative. Read `../../PROJECT_SOURCE_OF_TRUTH.md`.
 
 ## Verified authoritative material
 - Student workbook original rescan: 98 PDF pages.
