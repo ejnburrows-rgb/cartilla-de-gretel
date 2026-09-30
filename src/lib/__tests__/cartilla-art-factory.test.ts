@@ -147,6 +147,6 @@ describe("Cartilla Art Factory", () => {
     });
     expect(prompt).toContain("PLACEMENT ONLY");
     expect(prompt).toContain("existing approved image unchanged");
-    expect(prompt).toContain("CARTILLA_SOURCE_OF_TRUTH.md");
+    expect(prompt).toContain("PROJECT_SOURCE_OF_TRUTH.md");
   });
 });
