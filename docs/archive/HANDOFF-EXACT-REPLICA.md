@@ -1,3 +1,9 @@
+# ARCHIVED — historical reference only
+
+Superseded by `CARTILLA_DIGITAL_DIRECTIVE.md` and current repo state. Do not use this file as an active source of truth.
+
+---
+
 # HANDOFF — La Cartilla de Gretel: Digital Directive Completion
 
 **Date:** 2026-09-29  
