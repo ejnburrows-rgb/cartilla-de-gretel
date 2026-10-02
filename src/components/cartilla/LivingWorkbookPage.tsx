@@ -15,9 +15,6 @@ import { LivingIllustration } from "@/components/living/LivingIllustration";
 
 /** Known non-page placeholders that must NOT stand in for real page art. */
 const PLACEHOLDER_BACKGROUNDS = new Set([
-  "/art/hd/gretel-authentic.jpg",
-  "art/hd/gretel-authentic.jpg",
-  "/cartilla/images/gretel/gretel-authentic.jpg",
 ]);
 
 function isPlaceholderBackground(src: string | null | undefined): boolean {
