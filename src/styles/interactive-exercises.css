@@ -654,3 +654,81 @@
 .key-bounce {
   animation: key-bounce 0.5s cubic-bezier(0.34, 1.56, 0.64, 1) forwards;
 }
+
+
+/* ── Approved on-page exercise controls ── */
+.fp-ix-cell {
+  min-width: 64px;
+  min-height: 64px;
+  border: 0;
+  border-radius: 0;
+  background: transparent;
+  box-shadow: none;
+}
+.fp-ix-cell:hover { box-shadow:none; }
+.fp-ix-cell img,
+.game-pic-float { animation:none; filter:none; }
+.fp-ix-check-btn,
+.fp-ix-pick__letter,
+.fp-ix-letter-btn,
+.fp-ix-syllable__word,
+.fp-ix-fill__choice {
+  min-width:64px;
+  min-height:64px;
+  font-family:"Andika",ui-rounded,system-ui,sans-serif;
+}
+.fp-ix-check-btn {
+  background:var(--lc-red,#bf3040);
+  color:#fff;
+  border-radius:14px;
+  font-size:clamp(18px,2.6cqw,24px);
+  box-shadow:none;
+}
+.fp-ix-pick__letter,
+.fp-ix-syllable__label {
+  background:var(--ix-accent);
+  font-family:"Fredoka",ui-rounded,system-ui,sans-serif;
+}
+.fp-ix-letter-btn,
+.fp-ix-syllable__word,
+.fp-ix-fill__choice {
+  border-color:var(--ix-accent);
+  background:var(--lc-paper,#fffdf9);
+}
+.fp-ix-fill__wordbox {
+  background:transparent;
+  border:0;
+  font-family:"Andika",ui-rounded,system-ui,sans-serif;
+  font-size:clamp(20px,3.2cqw,28px);
+}
+.fp-ix-fill__blank {
+  font-family:"Andika",ui-rounded,system-ui,sans-serif;
+  font-size:clamp(20px,3.2cqw,28px);
+}
+.fp-ix-cell:focus-visible,
+.fp-ix-check-btn:focus-visible,
+.fp-ix-letter-btn:focus-visible,
+.fp-ix-fill__choice:focus-visible,
+.fp-ix-syllable__word:focus-visible {
+  outline:4px solid var(--lc-focus,#1668c7);
+  outline-offset:3px;
+}
+.fp-ix-cell.graded-correct .fp-ix-cell__badge,
+.fp-ix-fill__choice.graded-correct,
+.fp-ix-syllable__word.graded-correct {
+  background:var(--lc-success,#2f7d4a);
+  border-color:var(--lc-success,#2f7d4a);
+}
+.fp-ix-cell.graded-wrong .fp-ix-cell__badge,
+.fp-ix-fill__choice.graded-wrong {
+  background:var(--lc-error,#b53a3a);
+  border-color:var(--lc-error,#b53a3a);
+}
+@media (prefers-reduced-motion:reduce) {
+  .fp-ix-cell,
+  .fp-ix-cell__lasso,
+  .fp-ix-cell__lasso ellipse,
+  .fp-ix-cell__lasso path,
+  .fp-ix-fill__choice,
+  .fp-ix-syllable__word { transition:none !important; animation:none !important; }
+}
