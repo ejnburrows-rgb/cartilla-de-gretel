@@ -101,7 +101,7 @@ export function GretelPresence({ lesson, instruction, className = '', autoIntro 
     return () => { off(); clearInterval(idleTimer); clearTimeout(speechTimer.current); clearTimeout(focusTimer.current); cancelGretelSpeech(); };
   }, [autoIntro, bookMode, instruction, say, variant]);
 
-  // Proof pages only: the articulated storybook Gretel (same brain, new body language).
+  // Proof pages keep the approved Gretel master intact; this flag only scopes layout and help behavior.
   const storybook = bookMode && isStorybookPage(context.pageNumber);
   // On proof pages Ayuda is available before the first touch: it helps with the page's activity.
   const helpContext = (): GretelBusDetail => {
@@ -114,7 +114,7 @@ export function GretelPresence({ lesson, instruction, className = '', autoIntro 
     aria-label="Gretel, la guía de la cartilla" aria-hidden={!entered} inert={!entered}
     data-testid={variant === 'home' ? 'book-hero-gretel' : 'gretel-presence'} data-sticker="false" data-gretel-system="presence" data-variant={variant}
     data-placement={bookMode ? 'book' : 'standalone'} data-page-ready={String(entered)} data-page-number={context.pageNumber} data-activity-id={context.activityId} data-target-id={context.targetId} data-reaction={reaction} data-focused={String(focused)}>
-    <GretelLiveAvatar ref={avatarRef} size={variant === 'home' ? 'md' : 'sm'} bubblePosition={bookMode && !storybook ? 'right' : 'top'} paused={focused || !entered} managed articulated={storybook} />
+    <GretelLiveAvatar ref={avatarRef} size={variant === 'home' ? 'md' : 'sm'} bubblePosition={bookMode && !storybook ? 'right' : 'top'} paused={focused || !entered} managed />
     {bookMode && (context.activityId || storybook) && entered && <button className="gretel-presence__help" onClick={() => gretelEvent('hint:show', helpContext())}>Ayuda</button>}
     {!hideChrome && <div className="gretel-presence__chrome"><p className="gretel-presence__name">Gretel</p><button type="button" onClick={toggleMute} className="gretel-presence__mute" aria-pressed={muted} aria-label={muted ? 'Activar voz de Gretel' : 'Silenciar voz de Gretel'}>{muted ? <VolumeX className="w-4 h-4" /> : <Volume2 className="w-4 h-4" />}<span>{muted ? 'Sin voz' : 'Con voz'}</span></button></div>}
   </aside>;
