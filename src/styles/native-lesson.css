@@ -432,3 +432,19 @@
 }
 @media (max-width: 620px) { .native-syllable__words { grid-template-columns: repeat(2, minmax(0,1fr)); } }
 @media (prefers-reduced-motion: reduce) { .native-syllable__word.is-wrong { animation:none; } }
+
+/* Tracing touch targets: 10 SVG units on a >=240px canvas = >=48px. */
+.native-lesson-viewer__content .fp-trace__svg {
+  width: clamp(240px, 38vw, 320px);
+  max-width: 100%;
+}
+.native-lesson-viewer__content .fp-trace__footer {
+  width: clamp(240px, 38vw, 320px);
+  max-width: 100%;
+}
+.native-lesson-viewer__content .fp-trace__reset {
+  min-width: 48px;
+  min-height: 48px;
+  width: 48px;
+  height: 48px;
+}
