@@ -32,7 +32,7 @@ describe('page-aware exercise help', () => {
     expect(screen.getByText('Distractor')).not.toBeDisabled();
     fireEvent.focus(screen.getByText('Target'));
     fireEvent.click(screen.getByText('Target'));
-    expect(screen.getByTestId('gretel-presence')).toHaveAttribute('data-reaction', 'mastery');
+    expect(screen.getByTestId('gretel-presence')).toHaveAttribute('data-reaction', 'independent-retry');
   });
   it('hides and cancels queued guidance during a turn', async () => {
     vi.useFakeTimers();

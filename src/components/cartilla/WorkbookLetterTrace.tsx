@@ -8,10 +8,9 @@
 // genuinely means "stayed on the letter." Reports through the same pipeline as
 // the other interactive exercises (recordEvent + gretelEvent); student
 // workbook only.
-import { useCallback, useMemo, useRef, useState } from "react";
+import { useCallback, useEffect, useMemo, useRef, useState } from "react";
 import { playNote, playCorrectChord } from "@/lib/piano-audio";
-import { recordEvent } from "@/lib/student-session";
-import { gretelEvent } from "@/lib/gretel-bus";
+import { useActivityEvents, useActivityState } from "@/lib/activity-events";
 import {
   getLetterTemplate,
   distanceToStroke,
@@ -40,6 +39,9 @@ export function WorkbookLetterTrace({
   accent = "#3FA9A6",
   lessonId,
 }: WorkbookLetterTraceProps) {
+  const { emit: gretelEvent, record: recordEvent } = useActivityEvents();
+  const [finishedWork, setFinishedWork] = useActivityState("finishedWork", false);
+  useEffect(() => { if (finishedWork) gretelEvent("activity:complete", { restored: true }); }, [finishedWork, gretelEvent]);
   const strokes = useMemo(() => getLetterTemplate(modelText), [modelText]);
 
   const [strokeIdx, setStrokeIdx] = useState(0);
@@ -72,7 +74,9 @@ export function WorkbookLetterTrace({
       const score = Math.max(0, 1 - slipCount * 0.25);
       const passed = score >= 0.75;
       gretelEvent(passed ? "answer:correct" : "answer:wrong");
-      if (passed) gretelEvent("activity:complete");
+      // Finishing the full path is completion; quality remains separate evidence.
+      setFinishedWork(true);
+      gretelEvent("activity:complete");
       if (!reportedRef.current) {
         reportedRef.current = true;
         recordEvent({
@@ -90,7 +94,7 @@ export function WorkbookLetterTrace({
         });
       }
     },
-    [lessonId, modelText],
+    [lessonId, modelText, gretelEvent, recordEvent, setFinishedWork],
   );
 
   const onTapComplete = useCallback(
@@ -132,7 +136,7 @@ export function WorkbookLetterTrace({
   }
 
   function handlePointerDown(e: React.PointerEvent<SVGSVGElement>) {
-    if (status === "done" || !nextCheckpoint) return;
+    if (finishedWork || status === "done" || !nextCheckpoint) return;
     const p = toViewport(e);
     if (Math.hypot(p.x - nextCheckpoint.x, p.y - nextCheckpoint.y) <= START_TOL) {
       e.currentTarget.setPointerCapture(e.pointerId);
@@ -206,7 +210,8 @@ export function WorkbookLetterTrace({
   }
 
   function reset() {
-    gretelEvent("activity:retry");
+    setFinishedWork(false);
+    gretelEvent("activity:retry", { reason: "work-cleared" });
     setStrokeIdx(0);
     setPointIdx(0);
     setCompleted([]);
@@ -223,9 +228,9 @@ export function WorkbookLetterTrace({
 
   // ── Tap mode (mouse-primary): same letter, same template, tapped in order ──
   const isTap = inputMode === "tap";
-  const shownCompleted = isTap ? tap.completedStrokes : completed;
-  const shownCurrent = isTap ? tap.currentStrokePoints : current;
-  const shownStatus: Status = isTap
+  const shownCompleted = finishedWork ? strokes : isTap ? tap.completedStrokes : completed;
+  const shownCurrent = finishedWork ? [] : isTap ? tap.currentStrokePoints : current;
+  const shownStatus: Status = finishedWork ? "done" : isTap
     ? tap.finished
       ? "done"
       : shownCompleted.length || shownCurrent.length
@@ -304,7 +309,7 @@ export function WorkbookLetterTrace({
             endpoints, so a later checkpoint's invisible hit area can sit right
             on top of the active dot. Drawing the active dot last guarantees it
             always wins the hit test. */}
-        {isTap && !tap.finished && (
+        {isTap && !tap.finished && !finishedWork && (
           <>
             {strokes.map((stroke, sIdx) =>
               stroke.map((pt, pIdx) => {

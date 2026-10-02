@@ -1,3 +1,4 @@
+import { learnerScope, learnerStorageKey } from "./learner-storage";
 // Typed event bus for the Gretel character system.
 // Reuse this channel for all character reactions; do not create a parallel bus.
 export type GretelBusEvent =
@@ -25,6 +26,10 @@ export type GretelBusEvent =
 export type GretelBusDetail = {
   activityId?: string;
   targetId?: string;
+  itemId?: string;
+  encounterId?: string;
+  reason?: "work-cleared" | "independent-follow-up";
+  restored?: boolean;
   kind?: string;
   reaction?: string;
   text?: string;
@@ -33,9 +38,24 @@ export type GretelBusDetail = {
 
 let activeContext: GretelBusDetail = {};
 const assistedActivities = new Set<string>();
-export function isGretelAssistedAttempt() { return !!activeContext.activityId && assistedActivities.has(activeContext.activityId); }
-export function releaseGretelActivity(id: string) { if (activeContext.activityId === id) activeContext = {}; }
+let assistanceScope = learnerScope();
+const ASSISTANCE_KEY = "cartilla.gretel-assistance.v1";
+function ensureLearnerScope() {
+  if (assistanceScope !== learnerScope()) { assistedActivities.clear(); activeContext = {}; assistanceScope = learnerScope(); }
+}
+function readAssistance(): Set<string> {
+  ensureLearnerScope();
+  try { return new Set(JSON.parse(localStorage.getItem(learnerStorageKey(ASSISTANCE_KEY)) ?? "[]") as string[]); }
+  catch { return new Set(assistedActivities); }
+}
+function saveAssistance(ids: Set<string>) {
+  assistedActivities.clear(); ids.forEach(id => assistedActivities.add(id));
+  try { localStorage.setItem(learnerStorageKey(ASSISTANCE_KEY), JSON.stringify([...ids])); } catch { /* optional storage */ }
+}
+export function isGretelAssistedAttempt(activityId = activeContext.activityId) { return !!activityId && readAssistance().has(activityId); }
+export function releaseGretelActivity(id: string, encounterId?: string) { if (activeContext.activityId === id && (!encounterId || activeContext.encounterId === encounterId)) activeContext = {}; }
 export function focusGretelActivity(detail: GretelBusDetail) {
+  ensureLearnerScope();
   activeContext = detail;
   gretelEvent("activity:focus", detail);
 }
@@ -44,11 +64,12 @@ const CHANNEL = "gretel:bus";
 
 export function gretelEvent(type: GretelBusEvent, detail: GretelBusDetail = {}): void {
   if (typeof window === "undefined") return;
+  ensureLearnerScope();
   const id = detail.activityId || activeContext.activityId;
-  if (id && type === "guide:reaction" && ["hint", "demonstration", "independent-retry"].includes(detail.reaction || "")) assistedActivities.add(id);
-  if (id && type === "activity:retry") assistedActivities.delete(id);
-  if (type === "page-turn:start") activeContext = {};
-  window.dispatchEvent(new CustomEvent(CHANNEL, { detail: { ...activeContext, type, ...detail } }));
+  if (id && type === "guide:reaction" && ["cue", "hint", "demonstration"].includes(detail.reaction || "")) saveAssistance(new Set(readAssistance()).add(id));
+  if (id && type === "activity:retry" && detail.reason === "work-cleared") { const ids = readAssistance(); ids.delete(id); saveAssistance(ids); }
+  if (type === "page-turn:start" || type === "page:revealed") activeContext = {};
+  window.dispatchEvent(new CustomEvent(CHANNEL, { detail: { ...(detail.activityId ? {} : activeContext), type, ...detail } }));
 }
 
 export function onGretelEvent(

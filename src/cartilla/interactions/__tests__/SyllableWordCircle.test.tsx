@@ -46,7 +46,7 @@ describe("SyllableWordCircle", () => {
     const wrong = screen.getByRole("button", { name: "semana" });
     fireEvent.click(wrong);
     expect(wrong.getAttribute("aria-pressed")).toBe("false");
-    expect(gretelEvent).toHaveBeenCalledWith("answer:wrong");
+    expect(gretelEvent).toHaveBeenCalledWith("answer:wrong", { itemId: "test-sa-0" });
     // Gentle retry feedback first, then the unchanged count.
     expect(screen.getByRole("status").textContent).toContain("Inténtalo otra vez");
     act(() => {

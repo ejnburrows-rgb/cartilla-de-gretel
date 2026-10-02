@@ -12,8 +12,7 @@ import {
   loadCanvasSnapshot,
   saveCanvasSnapshot,
 } from "@/lib/activity-canvas-store";
-import { recordEvent } from "@/lib/student-session";
-import { gretelEvent } from "@/lib/gretel-bus";
+import { useActivityEvents, useActivityState } from "@/lib/activity-events";
 import { useReducedMotion } from "@/hooks/useReducedMotion";
 import "@/styles/activity-mechanics.css";
 
@@ -110,6 +109,7 @@ export function PaintCanvas({
   onComplete,
   className,
 }: PaintCanvasProps) {
+  const { emit: gretelEvent, record: recordEvent } = useActivityEvents();
   const paintRef = useRef<HTMLCanvasElement>(null);
   const maskRef = useRef<HTMLCanvasElement | null>(null);
   const wrapRef = useRef<HTMLDivElement>(null);
@@ -124,10 +124,12 @@ export function PaintCanvas({
   const [tool, setTool] = useState<Tool>("brush");
   const [brushSize, setBrushSize] = useState<BrushSize>("normal");
   const [hasPaint, setHasPaint] = useState(false);
-  const [done, setDone] = useState(false);
+  const [done, setDone] = useActivityState("done", false);
   const [confirmClear, setConfirmClear] = useState(false);
   const [hover, setHover] = useState<{ x: number; y: number } | null>(null);
   const reducedMotion = useReducedMotion();
+
+  useEffect(() => { if (done) gretelEvent("activity:complete", { restored: true }); }, [done, gretelEvent]);
 
   const resizeCanvases = useCallback(() => {
     const canvas = paintRef.current;
@@ -350,6 +352,8 @@ export function PaintCanvas({
     const rect = canvas.getBoundingClientRect();
     ctx.clearRect(0, 0, rect.width, rect.height);
     clearCanvasSnapshot(pageKey);
+    setDone(false);
+    gretelEvent("activity:retry", { reason: "work-cleared" });
     paintPixelsRef.current = 0;
     setHasPaint(false);
     setConfirmClear(false);

@@ -23,19 +23,19 @@ export function NativeLessonViewer({
   lessonNumber?: number;
 }) {
   const [index, setIndex] = useState(() => Math.min(Math.max(0, initialPage), pages.length - 1));
+  const revealTimer = useRef<number | undefined>(undefined);
   const [hint, setHint] = useState("");
-  const hintTimer = useRef<number | undefined>(undefined);
   const page = pages[index];
   const completion = usePageCompletion(page?.pageNumber, lessonNumber);
   const isLast = index === pages.length - 1;
 
   useEffect(() => {
     gretelEvent("mount");
-    const timer = window.setTimeout(() => gretelEvent("page:revealed", {
+    revealTimer.current = window.setTimeout(() => gretelEvent("page:revealed", {
       pageNumber: pages[index]?.pageNumber,
       text: pages[index]?.gretelLine,
     }), 150);
-    return () => window.clearTimeout(timer);
+    return () => window.clearTimeout(revealTimer.current);
     // The initial reveal occurs once; navigation handles subsequent reveals.
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
@@ -55,8 +55,6 @@ export function NativeLessonViewer({
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [remainingKey]);
 
-  useEffect(() => () => window.clearTimeout(hintTimer.current), []);
-
   const turn = (next: number) => {
     if (next < 0 || next >= pages.length || next === index) return;
     setHint("");
@@ -64,7 +62,8 @@ export function NativeLessonViewer({
     setIndex(next);
     onPageChange?.(next);
     window.scrollTo({ top: 0, behavior: "instant" });
-    window.setTimeout(() => gretelEvent("page:revealed", {
+    window.clearTimeout(revealTimer.current);
+    revealTimer.current = window.setTimeout(() => gretelEvent("page:revealed", {
       pageNumber: pages[next]?.pageNumber,
       text: pages[next]?.gretelLine,
     }), 150);
@@ -73,7 +72,6 @@ export function NativeLessonViewer({
   const showRemaining = () => {
     const text = remainingHint(completion.remaining);
     setHint(text);
-    gretelEvent("hint:show", { text, pageNumber: page?.pageNumber });
     document.querySelectorAll("[data-page-remaining]").forEach((el) => el.removeAttribute("data-page-remaining"));
     completion.remaining.forEach((activity) => {
       document.querySelector(`[data-gretel-activity="${activity.id}"]`)?.setAttribute("data-page-remaining", "true");
@@ -82,8 +80,6 @@ export function NativeLessonViewer({
     const target = first ? document.querySelector<HTMLElement>(`[data-gretel-activity="${first.id}"]`) : null;
     const reduce = typeof window.matchMedia === "function" && window.matchMedia("(prefers-reduced-motion: reduce)").matches;
     target?.scrollIntoView?.({ behavior: reduce ? "auto" : "smooth", block: "center" });
-    window.clearTimeout(hintTimer.current);
-    hintTimer.current = window.setTimeout(() => gretelEvent("hint:hide"), 4000);
   };
 
   const forward = () => {

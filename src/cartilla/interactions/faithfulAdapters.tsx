@@ -280,6 +280,8 @@ export function LassoVowelLineMatch({
     label: cell.caption ?? `dibujo ${i + 1}`,
     src: cell.illustrationSrc,
     correct: cell.correct,
+    // Workbook p5 prints ola as the already-connected example.
+    example: Boolean(region.exampleCaption) && cell.caption === region.exampleCaption,
     role: "solo",
   }));
   return (

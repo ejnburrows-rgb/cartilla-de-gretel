@@ -4,13 +4,13 @@ export type LearningInput = 'wrong' | 'hint' | 'correct' | 'complete' | 'retry';
 export type LearningReaction = 'cue' | 'hint' | 'demonstration' | 'independent-retry' | 'success' | 'mastery' | null;
 export const freshLearningState = (): LearningState => ({ errors: 0, assisted: false, retryPending: false, mastered: false });
 export function advanceLearning(state: LearningState, input: LearningInput): { state: LearningState; reaction: LearningReaction } {
+  if (input === 'retry') return { state: freshLearningState(), reaction: null };
   if (state.mastered) return { state, reaction: null };
-  if (input === 'retry') return { state: { ...state, errors: 0, assisted: false, retryPending: false }, reaction: null };
-  if (state.retryPending) return { state, reaction: null };
+  if (state.retryPending && (input === 'correct' || input === 'complete')) return { state, reaction: null };
   if (input === 'wrong' || input === 'hint') {
     const errors = input === 'wrong' ? state.errors + 1 : Math.max(2, state.errors);
     const reaction = errors === 1 ? 'cue' : errors === 2 ? 'hint' : 'demonstration';
-    return { state: { ...state, errors, assisted: state.assisted || errors >= 2, mastered: false }, reaction };
+    return { state: { ...state, errors, retryPending: false, assisted: state.assisted || errors >= 2, mastered: false }, reaction };
   }
   if ((input === 'correct' || input === 'complete') && state.assisted) {
     return { state: { ...state, retryPending: true }, reaction: 'independent-retry' };

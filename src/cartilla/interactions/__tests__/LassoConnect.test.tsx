@@ -127,7 +127,7 @@ describe("LassoConnect — cinematic rope", () => {
     fireEvent.click(screen.getByRole("button", { name: "mamá" }));
     await flushAnim(500);
     expect(playCorrectChord).toHaveBeenCalled();
-    expect(gretelEvent).toHaveBeenCalledWith("answer:correct");
+    expect(gretelEvent).toHaveBeenCalledWith("answer:correct", { itemId: "a" });
     expect(speakGretelPhrase).toHaveBeenCalledWith("¡Buen trabajo!");
   });
 
@@ -144,7 +144,7 @@ describe("LassoConnect — cinematic rope", () => {
     fireEvent.click(screen.getByRole("button", { name: "oso" }));
     await flushAnim(500);
     expect(playWrongBuzz).toHaveBeenCalled();
-    expect(gretelEvent).toHaveBeenCalledWith("answer:wrong");
+    expect(gretelEvent).toHaveBeenCalledWith("answer:wrong", { itemId: "b" });
     expect(speakGretelPhrase).toHaveBeenCalledWith("Oh no, inténtalo de nuevo.");
   });
 

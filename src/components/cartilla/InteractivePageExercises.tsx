@@ -1,19 +1,7 @@
-import { useEffect, useState } from "react";
-import {
-  DndContext,
-  useDraggable,
-  useDroppable,
-  MouseSensor,
-  TouchSensor,
-  KeyboardSensor,
-  useSensor,
-  useSensors,
-  type DragEndEvent,
-} from "@dnd-kit/core";
+import { useEffect, useRef, useState } from "react";
 import "@/styles/interactive-exercises.css";
 import type { PageGridCell, PageRegion } from "@/lib/book-faithful";
-import { recordEvent } from "@/lib/student-session";
-import { gretelEvent } from "@/lib/gretel-bus";
+import { useActivityEvents, useActivityState } from "@/lib/activity-events";
 import { playCorrectChord, playWrongBuzz } from "@/lib/piano-audio";
 import { LivingIllustration } from "@/components/living/LivingIllustration";
 
@@ -136,12 +124,15 @@ export function InteractivePictureGrid({
   precise = false,
   mark = "circle",
 }: ExerciseProps & { precise?: boolean; mark?: PictureMark }) {
+  const { emit: gretelEvent, record: recordEvent } = useActivityEvents();
   const cells = region.cells ?? [];
   const columns = region.columns ?? 4;
-  const [picked, setPicked] = useState<Set<number>>(new Set());
-  const [graded, setGraded] = useState(false);
-  const [solved, setSolved] = useState(false);
+  const [picked, setPicked] = useActivityState<Set<number>>("picked", new Set());
+  const [graded, setGraded] = useActivityState("graded", false);
+  const [solved, setSolved] = useActivityState("solved", false);
   const [attempts, setAttempts] = useState(0);
+
+  useEffect(() => { if (solved) gretelEvent("activity:complete", { restored: true }); }, [solved, gretelEvent]);
 
   const toggle = (i: number) => {
     if (graded) return;
@@ -245,64 +236,27 @@ export function InteractivePictureGrid({
   );
 }
 
-/** The draggable vowel-letter chip for one row of InteractiveVowelPickOne.
- * Real pointer/touch drag via dnd-kit; also a plain tappable/focusable
- * button so "Presiona el dibujo..." (the real printed instruction) stays
- * true even for students who tap instead of drag. */
-function DraggableVowelLetter({
-  rowIdx,
+/** Digital vowel cue: keep the printed vowel visible, but use the natural
+ * on-screen action — the child taps the matching picture directly. */
+function VowelLetterLabel({
   letter,
-  locked,
-  selected,
-  onSelect,
   precise = false,
 }: {
-  rowIdx: number;
   letter: string;
-  locked: boolean;
-  selected: boolean;
-  onSelect: () => void;
   precise?: boolean;
 }) {
-  const { attributes, listeners, setNodeRef, transform, isDragging } =
-    useDraggable({
-      id: `vp-letter-${rowIdx}`,
-      data: { rowIdx },
-      disabled: locked,
-    });
-
-  const style: React.CSSProperties = {
-    transform: transform
-      ? `translate3d(${Math.round(transform.x)}px, ${Math.round(transform.y)}px, 0)`
-      : undefined,
-    zIndex: isDragging ? 999 : undefined,
-    opacity: locked ? 0.35 : 1,
-  };
-
   return (
-    <button
-      type="button"
-      ref={setNodeRef}
-      {...listeners}
-      {...attributes}
-      className={`fp-ix-pick__letter fp-ix-pick__letter--draggable${isDragging ? " is-dragging" : ""}${selected ? " is-selected" : ""}`}
-      style={style}
-      disabled={locked}
-      aria-pressed={selected}
-      aria-label={`Vocal ${letter}, arrástrala o presiónala y luego presiona el dibujo correcto`}
-      onClick={onSelect}
+    <span
+      className="fp-ix-pick__letter"
+      aria-label={`Vocal ${letter}`}
     >
       {precise ? letter : `${letter.toUpperCase()}${letter}`}
-    </button>
+    </span>
   );
 }
 
-/** A droppable picture cell for one row of InteractiveVowelPickOne. Also a
- * plain tap target so the tap-to-select-then-tap-to-place path (keyboard
- * and touch-without-drag) grades identically to a real drop. */
-function DroppableVowelCell({
-  rowIdx,
-  cellIdx,
+/** Direct-tap picture target for one vowel row. */
+function VowelPictureCell({
   cell,
   index,
   grade,
@@ -310,8 +264,6 @@ function DroppableVowelCell({
   disabled,
   onTap,
 }: {
-  rowIdx: number;
-  cellIdx: number;
   cell: PageGridCell;
   index: number;
   grade: Grade;
@@ -319,15 +271,9 @@ function DroppableVowelCell({
   disabled: boolean;
   onTap: () => void;
 }) {
-  const { isOver, setNodeRef } = useDroppable({
-    id: `vp-cell-${rowIdx}-${cellIdx}`,
-    data: { rowIdx, cellIdx },
-  });
   const flagged = cell.correct === undefined;
   const classes = [
     "fp-ix-cell",
-    "fp-ix-cell--droppable",
-    isOver ? "is-over" : "",
     grade === "correct" ? "graded-correct" : "",
     wrong ? "graded-wrong-flash" : "",
   ]
@@ -335,7 +281,6 @@ function DroppableVowelCell({
     .join(" ");
   return (
     <button
-      ref={setNodeRef}
       type="button"
       className={classes}
       data-gretel-correct={cell.correct === undefined ? undefined : String(cell.correct)}
@@ -351,18 +296,16 @@ function DroppableVowelCell({
   );
 }
 
-/** "Presiona el dibujo que comienza con la vocal del recuadro." — real
- * drag-the-vowel-onto-the-picture (mouse/touch via dnd-kit), with a
- * tap-to-select-then-tap-to-place fallback so touch-without-drag and
- * keyboard users get the identical graded interaction. Every drop grades
- * immediately: snap + chime + Gretel cheer on correct, bounce + soft buzz
- * on wrong (row stays open to retry). */
+/** The printed page asks the child to identify the picture for each vowel.
+ * On screen, translate that objective into a direct tap: no drag or extra
+ * vowel-selection step is required. */
 export function InteractiveVowelPickOne({
   region,
   accent,
   lessonId,
   precise = false,
 }: ExerciseProps & { precise?: boolean }) {
+  const { emit: gretelEvent, record: recordEvent } = useActivityEvents();
   const rows = region.vowelRows ?? [];
   const exactRows = precise && region.gridRowFracs?.length === rows.length
     ? region.gridRowFracs.map((fraction) => `${fraction * 100}%`).join(" ")
@@ -370,25 +313,20 @@ export function InteractiveVowelPickOne({
   const exactColumns = precise && region.gridColumnFracs?.length === 4
     ? region.gridColumnFracs
     : undefined;
-  const [correctRows, setCorrectRows] = useState<Set<number>>(new Set());
+  const [correctRows, setCorrectRows] = useActivityState<Set<number>>("correctRows", new Set());
   const [wrongFlash, setWrongFlash] = useState<{
     row: number;
     cell: number;
   } | null>(null);
-  const [selectedRow, setSelectedRow] = useState<number | null>(null);
   const [completed, setCompleted] = useState(false);
-
-  const sensors = useSensors(
-    useSensor(MouseSensor, { activationConstraint: { distance: 5 } }),
-    useSensor(TouchSensor, { activationConstraint: { distance: 5 } }),
-    useSensor(KeyboardSensor),
-  );
+  const restoredComplete = useRef(rows.length > 0 && correctRows.size === rows.length);
 
   useEffect(() => {
     if (rows.length > 0 && correctRows.size === rows.length && !completed) {
       setCompleted(true);
-      gretelEvent("activity:complete");
-      if (lessonId) {
+      if (restoredComplete.current) gretelEvent("activity:complete", { restored: true });
+      else gretelEvent("activity:complete");
+      if (lessonId && !restoredComplete.current) {
         recordEvent({
           lessonId,
           kind: "exercise",
@@ -405,72 +343,51 @@ export function InteractiveVowelPickOne({
     const cell = rows[rowIdx]?.cells[cellIdx];
     if (cell?.correct) {
       setCorrectRows((prev) => new Set(prev).add(rowIdx));
-      setSelectedRow(null);
       playCorrectChord();
-      gretelEvent("answer:correct");
+      gretelEvent("answer:correct", { itemId: `${region.id}-${rowIdx}-${cellIdx}` });
     } else {
       setWrongFlash({ row: rowIdx, cell: cellIdx });
       playWrongBuzz();
-      gretelEvent("answer:wrong");
+      gretelEvent("answer:wrong", { itemId: `${region.id}-${rowIdx}-${cellIdx}` });
       setTimeout(() => setWrongFlash(null), 400);
     }
-  };
-
-  const onDragEnd = (e: DragEndEvent) => {
-    const activeRow = e.active.data.current?.rowIdx as number | undefined;
-    const overRow = e.over?.data.current?.rowIdx as number | undefined;
-    const overCell = e.over?.data.current?.cellIdx as number | undefined;
-    if (
-      activeRow === undefined ||
-      overRow === undefined ||
-      overCell === undefined
-    )
-      return;
-    if (activeRow !== overRow) {
-      // Dropped on a different row's picture — not a valid target, bounce back.
-      setWrongFlash({ row: activeRow, cell: -1 });
-      playWrongBuzz();
-      gretelEvent("answer:wrong");
-      setTimeout(() => setWrongFlash(null), 400);
-      return;
-    }
-    attempt(overRow, overCell);
   };
 
   return (
-    <DndContext sensors={sensors} onDragEnd={onDragEnd}>
-      <div className={`fp-ix-pick${precise ? " fp-ix-pick--precise" : ""}`} style={{ ["--ix-accent" as string]: accent, gridTemplateRows: exactRows }}>
-        {rows.map((row, r) => (
-          <div key={r} className="fp-ix-pick__row" style={exactColumns ? { gridTemplateColumns: `${exactColumns[0] * 100}% 1fr` } : undefined}>
-            <DraggableVowelLetter
-              rowIdx={r}
-              letter={row.letter}
-              locked={correctRows.has(r)}
-              selected={selectedRow === r}
-              onSelect={() => setSelectedRow((prev) => (prev === r ? null : r))}
-              precise={precise}
-            />
-            <div className="fp-ix-pick__cells" style={exactColumns ? { gridTemplateColumns: exactColumns.slice(1).map((fraction) => `${fraction / (1 - exactColumns[0]) * 100}%`).join(" ") } : undefined}>
-              {row.cells.map((cell, c) => (
-                <DroppableVowelCell
-                  key={c}
-                  rowIdx={r}
-                  cellIdx={c}
-                  cell={cell}
-                  index={r * 3 + c}
-                  grade={correctRows.has(r) && cell.correct ? "correct" : null}
-                  wrong={wrongFlash?.row === r && wrongFlash.cell === c}
-                  disabled={correctRows.has(r)}
-                  onTap={() => {
-                    attempt(r, c);
-                  }}
-                />
-              ))}
-            </div>
+    <div
+      className={`fp-ix-pick${precise ? " fp-ix-pick--precise" : ""}`}
+      style={{ ["--ix-accent" as string]: accent, gridTemplateRows: exactRows }}
+    >
+      {rows.map((row, r) => (
+        <div
+          key={r}
+          className="fp-ix-pick__row"
+          style={exactColumns ? { gridTemplateColumns: `${exactColumns[0] * 100}% 1fr` } : undefined}
+        >
+          <VowelLetterLabel letter={row.letter} precise={precise} />
+          <div
+            className="fp-ix-pick__cells"
+            style={exactColumns ? {
+              gridTemplateColumns: exactColumns.slice(1)
+                .map((fraction) => `${fraction / (1 - exactColumns[0]) * 100}%`)
+                .join(" "),
+            } : undefined}
+          >
+            {row.cells.map((cell, cellIdx) => (
+              <VowelPictureCell
+                key={cellIdx}
+                cell={cell}
+                index={r * 3 + cellIdx}
+                grade={correctRows.has(r) && cell.correct ? "correct" : null}
+                wrong={wrongFlash?.row === r && wrongFlash.cell === cellIdx}
+                disabled={correctRows.has(r)}
+                onTap={() => attempt(r, cellIdx)}
+              />
+            ))}
           </div>
-        ))}
-      </div>
-    </DndContext>
+        </div>
+      ))}
+    </div>
   );
 }
 
@@ -480,8 +397,11 @@ export function InteractiveVowelMatchAll({
   accent,
   lessonId,
 }: ExerciseProps) {
+  const { emit: gretelEvent, record: recordEvent } = useActivityEvents();
   const pairs = region.vowelPairs ?? [];
-  const [linked, setLinked] = useState<Set<number>>(new Set());
+  const [linked, setLinked] = useActivityState<Set<number>>("picked", new Set());
+
+  useEffect(() => { if (pairs.length > 0 && linked.size === pairs.length) gretelEvent("activity:complete", { restored: true }); }, [linked, pairs.length, gretelEvent]);
 
   const connect = (i: number) => {
     if (linked.has(i)) return;
@@ -551,12 +471,15 @@ export function InteractiveSyllableMatch({
   accent,
   lessonId,
 }: ExerciseProps) {
+  const { emit: gretelEvent, record: recordEvent } = useActivityEvents();
   const rows = region.matchRows ?? [];
-  const [picked, setPicked] = useState<Set<string>>(new Set());
-  const [graded, setGraded] = useState(false);
-  const [solved, setSolved] = useState(false);
+  const [picked, setPicked] = useActivityState<Set<string>>("picked", new Set());
+  const [graded, setGraded] = useActivityState("graded", false);
+  const [solved, setSolved] = useActivityState("solved", false);
   const [attempts, setAttempts] = useState(0);
   const total = rows.reduce((n, row) => n + row.length, 0);
+
+  useEffect(() => { if (solved) gretelEvent("activity:complete", { restored: true }); }, [solved, gretelEvent]);
 
   const toggle = (key: string) => {
     if (graded) return;
@@ -679,11 +602,14 @@ export function InteractiveFillInBlank({
   accent,
   lessonId,
 }: ExerciseProps) {
+  const { emit: gretelEvent, record: recordEvent } = useActivityEvents();
   const items = region.fillItems ?? [];
-  const [picked, setPicked] = useState<Record<number, number>>({});
-  const [graded, setGraded] = useState(false);
-  const [solved, setSolved] = useState(false);
+  const [picked, setPicked] = useActivityState<Record<number, number>>("picked", {});
+  const [graded, setGraded] = useActivityState("graded", false);
+  const [solved, setSolved] = useActivityState("solved", false);
   const [attempts, setAttempts] = useState(0);
+
+  useEffect(() => { if (solved) gretelEvent("activity:complete", { restored: true }); }, [solved, gretelEvent]);
 
   const pick = (itemIdx: number, choiceIdx: number) => {
     if (graded) return;
@@ -811,11 +737,14 @@ export function InteractiveVowelLineMatch({
   accent,
   lessonId,
 }: ExerciseProps) {
+  const { emit: gretelEvent, record: recordEvent } = useActivityEvents();
   const cells = region.cells ?? [];
-  const [picked, setPicked] = useState<Set<number>>(new Set());
-  const [graded, setGraded] = useState(false);
-  const [solved, setSolved] = useState(false);
+  const [picked, setPicked] = useActivityState<Set<number>>("picked", new Set());
+  const [graded, setGraded] = useActivityState("graded", false);
+  const [solved, setSolved] = useActivityState("solved", false);
   const [attempts, setAttempts] = useState(0);
+
+  useEffect(() => { if (solved) gretelEvent("activity:complete", { restored: true }); }, [solved, gretelEvent]);
 
   const toggle = (i: number) => {
     if (graded) return;

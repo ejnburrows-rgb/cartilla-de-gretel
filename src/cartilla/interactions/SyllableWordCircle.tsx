@@ -1,7 +1,7 @@
-import { useState } from "react";
+import { learnerStorageKey } from "@/lib/learner-storage";
+import { useEffect, useState } from "react";
 import type { PageRegion } from "@/lib/book-faithful";
-import { recordEvent } from "@/lib/student-session";
-import { gretelEvent } from "@/lib/gretel-bus";
+import { useActivityEvents } from "@/lib/activity-events";
 
 function syllableRange(word: string, syllable: string): [string, string, string] {
   const normalize = (value: string) =>
@@ -13,10 +13,11 @@ function syllableRange(word: string, syllable: string): [string, string, string]
 }
 
 export function SyllableWordCircle({ region, lessonId }: { region: PageRegion; lessonId?: string }) {
+  const { emit: gretelEvent, record: recordEvent } = useActivityEvents();
   const words = (region.matchRows ?? []).flat();
   const isTarget = (i: number) => words[i]?.correct !== false;
   const correctCount = words.filter((entry) => entry.correct !== false).length;
-  const key = `cartilla-circle-${region.id}`;
+  const key = learnerStorageKey(`cartilla-circle-${region.id}`);
   const [marked, setMarked] = useState<Set<number>>(() => {
     try {
       const stored = JSON.parse(localStorage.getItem(key) ?? "[]") as number[];
@@ -28,11 +29,15 @@ export function SyllableWordCircle({ region, lessonId }: { region: PageRegion; l
   const [wrongIndex, setWrongIndex] = useState<number | null>(null);
   const syllable = region.syllable ?? "";
 
+  useEffect(() => {
+    if (correctCount > 0 && marked.size === correctCount) gretelEvent("activity:complete", { restored: true });
+  }, [correctCount, marked, gretelEvent]);
+
   const toggle = (i: number) => {
     if (!isTarget(i)) {
       setWrongIndex(i);
       window.setTimeout(() => setWrongIndex((current) => current === i ? null : current), 450);
-      gretelEvent("answer:wrong");
+      gretelEvent("answer:wrong", { itemId: `${region.id}-${i}` });
       return;
     }
 
@@ -43,8 +48,8 @@ export function SyllableWordCircle({ region, lessonId }: { region: PageRegion; l
     setMarked(next);
     try { localStorage.setItem(key, JSON.stringify([...next])); } catch { /* storage can be disabled */ }
 
-    if (adding) gretelEvent("answer:correct");
-    else gretelEvent("activity:retry");
+    if (adding) gretelEvent("answer:correct", { itemId: `${region.id}-${i}` });
+    else gretelEvent("activity:retry", { reason: "work-cleared" });
     if (adding && correctCount > 0 && next.size === correctCount) {
       gretelEvent("activity:complete");
       if (lessonId) {
