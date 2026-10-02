@@ -1,14 +1,68 @@
 // letter-stroke-templates.ts
-// Shared letter stroke-path templates + small geometry helpers, used by both
-// the games' DragLetterTrace and the workbook WorkbookLetterTrace so the two
-// never drift apart. Each template is an ordered list of strokes; each stroke
-// is an ordered list of checkpoint Points inside a 100 (w) x 120 (h) viewport.
-// The order encodes the correct writing direction; a trace is graded by
-// following the checkpoints in order while staying near the stroke path.
+// Workbook handwriting templates are derived from the printed Workbook source
+// listed in the completed handwriting audit below, not generic letter shapes.
+// LETTER_TEMPLATES is also used directly by the games' DragLetterTrace; the
+// Workbook uses the source-scoped getLetterTemplate lookup. Legacy game-only
+// H/K/Z paths remain in the shared data but are not verified Workbook models.
+// Each template is an ordered list of strokes; each stroke is an ordered list
+// of checkpoint Points inside a 100 (w) x 120 (h) viewport. The order encodes
+// writing direction; grading follows the checkpoints near the stroke path.
+// These handwriting paths are not replacement illustrations.
 //
-// ART/CONTENT NOTE: these are letterform *paths* for handwriting practice, not
-// illustrations — they don't fall under the "never redraw the art" rule. They
-// are standard uppercase letter shapes.
+// Printed Workbook source table (public/cartilla/art/source/workbook/page-NNN.jpg).
+// Counts below describe PRINTED strokes, not inferred or newly created paths.
+// "Deferred" means source readable but no source-specific implementation yet.
+// U is retained only as far as its single unnumbered down arrow verifies it;
+// the book does not specify the rest of U/u's stroke plan. Do not extend it.
+// A's stroke-2 arrow is medium-high confidence; lowercase e/g/y need higher-
+// resolution confirmation before implementation. No lowercase paths are added.
+//
+// Letter | Printed page | Strokes | Direction / order | Verification status
+// O      | 6  | 1 | upper-right start, counterclockwise loop | verified; corrected
+// o      | 6  | 1 | upper-right start, counterclockwise loop | verified; deferred (no lowercase path)
+// A      | 9  | 3 | apex to lower-left; lower-right to apex; bar left to right | verified; corrected
+// a      | 9  | 2 | bowl counterclockwise; right stem down | verified; deferred
+// E      | 12 | 4 | down; top, middle, bottom bars left to right | verified; unchanged
+// e      | 12 | 2 | bar left to right; curve counterclockwise | readable; deferred (start needs confirmation)
+// I      | 15 | 3 | down; top then bottom bar left to right | verified; unchanged
+// i      | 15 | 2 | down; dot | verified; deferred
+// U      | 18 | 1 unnumbered arrow | left side down; rest unspecified | partially verified; unchanged
+// u      | 18 | unspecified | left side down; right stem plan absent | incomplete source; freehand
+// M      | 19 | 4 | left down; diagonal down-right; diagonal up-right; right down | verified; corrected
+// m      | 19 | 3 | down; arch; arch | verified; deferred
+// P      | 23 | 2 | down; clockwise bowl from top | verified; unchanged
+// p      | 23 | 2 | stem down below baseline; clockwise bowl | verified; deferred
+// S      | 27 | 1 | upper-right start, counterclockwise over top | verified; unchanged
+// s      | 27 | 1 | same source-verified path as S | verified; unchanged
+// T      | 31 | 2 | vertical down; crossbar left to right | verified; corrected
+// t      | 31 | 2 | down; crossbar left to right | verified; deferred
+// D      | 35 | 2 | down; clockwise bowl from top to bottom | verified; unchanged
+// d      | 35 | 2 | bowl counterclockwise; tall stem down | verified; deferred
+// L      | 39 | 2 | down; bottom bar left to right | verified; unchanged
+// l      | 39 | 1 | down | verified; deferred
+// N      | 43 | 3 | left down; diagonal down-right; right UP | verified; corrected (stroke 1 only)
+// n      | 43 | 2 | down; arch | verified; deferred
+// Ñ      | 47 | 4 | N's order; tilde left to right | verified; deferred
+// ñ      | 47 | 3 | down; arch; tilde left to right | verified; deferred
+// B      | 51 | 3 | down; top clockwise bowl; bottom clockwise bowl | verified; unchanged
+// b      | 51 | 2 | tall stem down; clockwise bowl at midline | verified; deferred
+// V      | 55 | 2 | down to point; separate stroke up-right | verified; corrected
+// v      | 55 | 2 | down to point; separate stroke up-right | verified; deferred (no lowercase path)
+// R      | 59 | 3 | down; clockwise bowl; leg down-right | verified; unchanged
+// r      | 59 | 2 | down; arch right | verified; deferred
+// rr     | 63 | 2 per r | down then arch for each r; numbering restarts | verified; deferred (no capital RR in source)
+// G      | 67 | 2 | counterclockwise curve; crossbar right to left | verified; corrected to audited coordinates
+// g      | 67 | 2 | bowl counterclockwise; right stem down into tail | readable; deferred (tail needs confirmation)
+// F      | 71 | 3 | down; top then middle bar left to right | verified; unchanged
+// f      | 71 | 2 | hook from top-right, left then down; crossbar left to right | verified; deferred
+// J      | 75 | 1 | stem down, hook left; NO top bar | verified; corrected
+// j      | 75 | 2 | down into left-hooked tail; dot | readable; deferred (tail needs confirmation)
+// C      | 79 | 1 | upper-right start, counterclockwise | verified; unchanged
+// c      | 79 | 1 | same source-verified path as C | verified; unchanged
+// Y      | 83 | 3 | left arm to junction; right arm to junction; stem down | verified; corrected
+// y      | 83 | 2 | short left arm down; long right arm down-left into tail | readable; deferred (tail needs confirmation)
+// Z      | 87 | unknown | unknown (printed page missing) | unverified; Workbook freehand, game path retained
+// z      | 87 | unknown | unknown (printed page missing) | unverified; freehand
 
 export type Point = { x: number; y: number };
 
@@ -20,9 +74,9 @@ export const LETTER_TEMPLATES: Record<string, Point[][]> = {
       { x: 20, y: 100 },
     ],
     [
-      { x: 50, y: 20 },
-      { x: 65, y: 60 },
       { x: 80, y: 100 },
+      { x: 65, y: 60 },
+      { x: 50, y: 20 },
     ],
     [
       { x: 30, y: 65 },
@@ -71,15 +125,15 @@ export const LETTER_TEMPLATES: Record<string, Point[][]> = {
   ],
   O: [
     [
+      { x: 72, y: 27 },
       { x: 50, y: 20 },
-      { x: 75, y: 25 },
-      { x: 80, y: 60 },
-      { x: 75, y: 95 },
-      { x: 50, y: 100 },
-      { x: 25, y: 95 },
-      { x: 20, y: 60 },
       { x: 25, y: 25 },
-      { x: 50, y: 20 },
+      { x: 20, y: 60 },
+      { x: 25, y: 95 },
+      { x: 50, y: 100 },
+      { x: 75, y: 95 },
+      { x: 80, y: 60 },
+      { x: 72, y: 27 },
     ],
   ],
   U: [
@@ -95,9 +149,9 @@ export const LETTER_TEMPLATES: Record<string, Point[][]> = {
   ],
   M: [
     [
-      { x: 20, y: 100 },
-      { x: 20, y: 60 },
       { x: 20, y: 20 },
+      { x: 20, y: 60 },
+      { x: 20, y: 100 },
     ],
     [
       { x: 20, y: 20 },
@@ -156,21 +210,19 @@ export const LETTER_TEMPLATES: Record<string, Point[][]> = {
   ],
   T: [
     [
-      { x: 30, y: 20 },
       { x: 50, y: 20 },
-      { x: 70, y: 20 },
+      { x: 50, y: 100 },
     ],
     [
-      { x: 50, y: 20 },
-      { x: 50, y: 60 },
-      { x: 50, y: 100 },
+      { x: 30, y: 20 },
+      { x: 70, y: 20 },
     ],
   ],
   N: [
     [
-      { x: 25, y: 100 },
-      { x: 25, y: 60 },
       { x: 25, y: 20 },
+      { x: 25, y: 60 },
+      { x: 25, y: 100 },
     ],
     [
       { x: 25, y: 20 },
@@ -272,9 +324,12 @@ export const LETTER_TEMPLATES: Record<string, Point[][]> = {
       { x: 30, y: 40 },
       { x: 30, y: 80 },
       { x: 50, y: 100 },
-      { x: 70, y: 100 },
-      { x: 70, y: 70 },
-      { x: 55, y: 70 },
+      { x: 70, y: 95 },
+      { x: 72, y: 62 },
+    ],
+    [
+      { x: 72, y: 62 },
+      { x: 50, y: 62 },
     ],
   ],
   H: [
@@ -296,16 +351,13 @@ export const LETTER_TEMPLATES: Record<string, Point[][]> = {
   ],
   J: [
     [
-      { x: 35, y: 20 },
-      { x: 55, y: 20 },
-      { x: 75, y: 20 },
-    ],
-    [
-      { x: 55, y: 20 },
-      { x: 55, y: 75 },
-      { x: 50, y: 95 },
-      { x: 35, y: 95 },
-      { x: 30, y: 80 },
+      { x: 65, y: 20 },
+      { x: 65, y: 60 },
+      { x: 65, y: 82 },
+      { x: 55, y: 98 },
+      { x: 40, y: 98 },
+      { x: 30, y: 85 },
+      { x: 30, y: 77 },
     ],
   ],
   K: [
@@ -325,11 +377,14 @@ export const LETTER_TEMPLATES: Record<string, Point[][]> = {
       { x: 70, y: 100 },
     ],
   ],
-  // Added for the workbook writing-line coverage (standard letterforms):
+  // Workbook paths verified against the printed source table above:
   V: [
     [
       { x: 20, y: 20 },
       { x: 35, y: 60 },
+      { x: 50, y: 100 },
+    ],
+    [
       { x: 50, y: 100 },
       { x: 65, y: 60 },
       { x: 80, y: 20 },
@@ -340,15 +395,19 @@ export const LETTER_TEMPLATES: Record<string, Point[][]> = {
       { x: 20, y: 20 },
       { x: 35, y: 40 },
       { x: 50, y: 60 },
-      { x: 50, y: 80 },
-      { x: 50, y: 100 },
     ],
     [
       { x: 80, y: 20 },
       { x: 65, y: 40 },
       { x: 50, y: 60 },
     ],
+    [
+      { x: 50, y: 60 },
+      { x: 50, y: 80 },
+      { x: 50, y: 100 },
+    ],
   ],
+  // Legacy game path only: Workbook page 87 is missing and unverified.
   Z: [
     [
       { x: 25, y: 20 },
@@ -363,62 +422,44 @@ export const LETTER_TEMPLATES: Record<string, Point[][]> = {
 };
 
 /**
- * Letters whose lowercase print-manuscript form is genuinely the same shape
- * as its uppercase (just smaller), so sharing one template is faithful, not
- * a guess: O/o, U/u, C/c, S/s, V/v, Z/z. Every other lowercase letter in this
- * workbook's alphabet (a, e, i, m, p, t, d, l, n, b, r, g, f, j, y) has a
- * shape that genuinely differs from its uppercase (a is a bowl+stem not a
- * peaked triangle, e is a loop not three bars, etc.) — inventing those
- * lowercase paths from memory without a real handwriting-curriculum
- * reference risks teaching a child an incorrect letterform, so they are
- * intentionally NOT templated yet and fall back to the static line.
+ * Only these printed Workbook models have an approved guided implementation.
+ * Lowercase s/c are the only audited capital-path matches retained here.
+ * o/v have no source-specific lowercase path; u is incomplete; Z/z lack p87.
+ * All other lowercase letters and Ñ/ñ/rr remain freehand. The source prints
+ * only lowercase rr, so this lookup must not synthesize a capital RR path.
+ * Games still access LETTER_TEMPLATES directly, retaining their H/K/Z data.
  */
-const CASE_SHAPE_MATCHES_UPPER = new Set(["O", "U", "C", "S", "V", "Z"]);
+const WORKBOOK_GUIDED_MODELS = new Set([
+  "O",
+  "A",
+  "E",
+  "I",
+  "U",
+  "M",
+  "P",
+  "S",
+  "T",
+  "D",
+  "L",
+  "N",
+  "B",
+  "V",
+  "R",
+  "G",
+  "F",
+  "J",
+  "C",
+  "Y",
+  "s",
+  "c",
+]);
 
-/**
- * A doubled-uppercase digraph (e.g. "RR") traced as its already-verified
- * single letterform placed twice, scaled down and spaced side by side. This
- * is not a guessed shape — it's the same real, already-audited stroke path
- * reused twice, which is exactly how a doubled letter is written.
- */
-function buildDigraphTemplate(base: Point[][]): Point[][] {
-  const SCALE = 0.55;
-  const ORIGIN_CENTER = 50;
-  const place =
-    (offsetCenter: number) =>
-    (pt: Point): Point => ({
-      x: (pt.x - ORIGIN_CENTER) * SCALE + offsetCenter,
-      y: pt.y,
-    });
-  return [
-    ...base.map((stroke) => stroke.map(place(25))),
-    ...base.map((stroke) => stroke.map(place(75))),
-  ];
-}
-
-/**
- * Returns the trace template for a printed model letter, or null when there is
- * no faithful template yet. A doubled-uppercase digraph (RR) is derived from
- * its real single-letter template (see buildDigraphTemplate). A lowercase
- * digraph (rr) still needs the underlying lowercase letter's own shape, which
- * isn't templated (see CASE_SHAPE_MATCHES_UPPER), so it correctly returns
- * null, as does Ñ/ñ (no unambiguous single-glyph stroke path exists for it
- * yet) — both fall back to the static writing line rather than trace a
- * guessed shape.
- */
+/** Workbook-only lookup: null means use the existing freehand writing area. */
 export function getLetterTemplate(modelText: string | undefined | null): Point[][] | null {
   if (!modelText) return null;
   const trimmed = modelText.trim();
-  const isLower = trimmed === trimmed.toLowerCase() && trimmed !== trimmed.toUpperCase();
-  const key = trimmed.toUpperCase();
-
-  if (!isLower && key.length === 2 && key[0] === key[1]) {
-    const base = LETTER_TEMPLATES[key[0]];
-    return base ? buildDigraphTemplate(base) : null;
-  }
-
-  if (isLower && !CASE_SHAPE_MATCHES_UPPER.has(key)) return null;
-  return LETTER_TEMPLATES[key] ?? null;
+  if (!WORKBOOK_GUIDED_MODELS.has(trimmed)) return null;
+  return LETTER_TEMPLATES[trimmed.toUpperCase()] ?? null;
 }
 
 /* ── Tap-mode shared logic ───────────────────────────────────────────────
