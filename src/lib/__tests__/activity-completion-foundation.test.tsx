@@ -1,3 +1,4 @@
+import { setStudentSession } from "../student-session";
 import { act, cleanup, fireEvent, render, screen, within } from '@testing-library/react';
 import { afterEach, beforeEach, describe, expect, it, vi } from 'vitest';
 import { NativeLessonViewer } from '@/components/StudentBook/NativeLessonViewer';
@@ -115,4 +116,26 @@ it('malformed saved selections cannot crash or unlock p2', () => {
   render(<NativeLessonViewer pages={[{ id: '2', pageNumber: 2, content: <FaithfulPageRenderer pageNumber={2} lessonNumber={1} interactive native /> }, { id: '3', pageNumber: 3, content: null }]} chapterLabel="Proof" />);
   expect(next().getAttribute('aria-disabled')).toBe('true');
   expect(screen.getByRole('button', { name: 'anillo' }).hasAttribute('disabled')).toBe(false);
+});
+
+const learner = (id: string) => ({ studentId: id, studentName: id, studentCode: id, classId: "class", className: "Class" });
+it("actual p5 saved answers and gate stay with A when switching to B and back", () => {
+  setStudentSession(learner("A"));
+  saveLassoProgress('2:p5-match', ['p5-match-1', 'p5-match-2', 'p5-match-3', 'p5-match-4', 'p5-match-6']);
+  mountP5();
+  expect(next().hasAttribute('aria-disabled')).toBe(false);
+  act(() => setStudentSession(learner("B")));
+  expect(next().getAttribute('aria-disabled')).toBe('true');
+  expect(screen.getByRole('button', { name: 'oso' }).getAttribute('aria-pressed')).toBe('false');
+  act(() => setStudentSession(learner("A")));
+  expect(next().hasAttribute('aria-disabled')).toBe(false);
+  expect(screen.getByRole('button', { name: 'oso' }).getAttribute('aria-pressed')).toBe('true');
+});
+it("actual p5 never adopts anonymous completed answers into a signed-in learner", () => {
+  saveLassoProgress('2:p5-match', ['p5-match-1', 'p5-match-2', 'p5-match-3', 'p5-match-4', 'p5-match-6']);
+  mountP5();
+  expect(next().hasAttribute('aria-disabled')).toBe(false);
+  act(() => setStudentSession(learner("new")));
+  expect(next().getAttribute('aria-disabled')).toBe('true');
+  expect(screen.getByRole('button', { name: 'oso' }).getAttribute('aria-pressed')).toBe('false');
 });

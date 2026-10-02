@@ -1,3 +1,4 @@
+import { learnerStorageKey } from "./learner-storage";
 import { useEffect, useState } from "react";
 
 const KEY = "cartilla.lesson-progress.v1";
@@ -5,7 +6,7 @@ const KEY = "cartilla.lesson-progress.v1";
 function read(): Set<number> {
   if (typeof window === "undefined") return new Set();
   try {
-    const raw = localStorage.getItem(KEY);
+    const raw = localStorage.getItem(learnerStorageKey(KEY));
     if (!raw) return new Set();
     const arr = JSON.parse(raw) as number[];
     return new Set(arr.filter((n) => Number.isFinite(n)));
@@ -17,7 +18,7 @@ function read(): Set<number> {
 function write(set: Set<number>) {
   if (typeof window === "undefined") return;
   try {
-    localStorage.setItem(KEY, JSON.stringify([...set].sort((a, b) => a - b)));
+    localStorage.setItem(learnerStorageKey(KEY), JSON.stringify([...set].sort((a, b) => a - b)));
     window.dispatchEvent(new Event("cartilla:lesson-progress"));
   } catch {
     /* ignore */
@@ -61,7 +62,7 @@ const PAGE_KEY = "cartilla.page-completion.v1";
 function readPages(): Record<string, string[]> {
   if (typeof window === "undefined") return {};
   try {
-    const raw = localStorage.getItem(PAGE_KEY);
+    const raw = localStorage.getItem(learnerStorageKey(PAGE_KEY));
     const parsed = raw ? (JSON.parse(raw) as Record<string, string[]>) : {};
     return parsed && typeof parsed === "object" ? parsed : {};
   } catch {
@@ -72,7 +73,7 @@ function readPages(): Record<string, string[]> {
 function writePages(value: Record<string, string[]>) {
   if (typeof window === "undefined") return;
   try {
-    localStorage.setItem(PAGE_KEY, JSON.stringify(value));
+    localStorage.setItem(learnerStorageKey(PAGE_KEY), JSON.stringify(value));
     window.dispatchEvent(new Event("cartilla:lesson-progress"));
   } catch {
     /* ignore */
@@ -106,9 +107,11 @@ export function useLessonProgress() {
   useEffect(() => {
     const h = () => setTick((t) => t + 1);
     window.addEventListener("storage", h);
+    window.addEventListener("cartilla:student-session", h);
     window.addEventListener("cartilla:lesson-progress", h);
     return () => {
       window.removeEventListener("storage", h);
+      window.removeEventListener("cartilla:student-session", h);
       window.removeEventListener("cartilla:lesson-progress", h);
     };
   }, []);

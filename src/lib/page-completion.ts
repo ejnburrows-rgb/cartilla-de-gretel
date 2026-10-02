@@ -118,10 +118,12 @@ export function usePageCompletion(pageNumber: number | undefined, lessonNumber?:
     const refresh = () => setTick((t) => t + 1);
     window.addEventListener("cartilla:lesson-progress", refresh);
     window.addEventListener("storage", refresh);
+    window.addEventListener("cartilla:student-session", refresh);
     return () => {
       off();
       window.removeEventListener("cartilla:lesson-progress", refresh);
       window.removeEventListener("storage", refresh);
+      window.removeEventListener("cartilla:student-session", refresh);
     };
   }, [pageNumber]);
   return useMemo(

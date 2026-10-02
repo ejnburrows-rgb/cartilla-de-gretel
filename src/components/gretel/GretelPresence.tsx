@@ -1,3 +1,4 @@
+import { learnerScope } from "@/lib/learner-storage";
 /** Page-aware host, using the existing pose reducer, assets and event bus. */
 import { useCallback, useEffect, useRef, useState } from 'react';
 import { Volume2, VolumeX } from 'lucide-react';
@@ -43,6 +44,17 @@ export function GretelPresence({ lesson, instruction, className = '', autoIntro 
   useEffect(() => {
     setMuted(isGretelVoiceMuted());
     if (!bookMode && autoIntro) say(variant === 'home' ? '¡Hola! Soy Gretel. Vamos a aprender juntos.' : instruction || 'Estoy aquí para ayudarte.', 400);
+    let currentLearner = learnerScope();
+    const resetLearner = () => {
+      if (currentLearner === learnerScope()) return;
+      currentLearner = learnerScope();
+      learning.current.clear(); seen.current.clear(); active.current = {}; setContext({});
+      contextToken.current += 1; setReaction("idle"); setFocused(false);
+      clearTimeout(speechTimer.current); clearTimeout(focusTimer.current);
+      cancelGretelSpeech(); avatarRef.current?.cancel();
+    };
+    window.addEventListener("cartilla:student-session", resetLearner);
+    window.addEventListener("storage", resetLearner);
     const off = onGretelEvent((type, detail) => {
       if (type === 'page-turn:start') {
         contextToken.current += 1;
@@ -96,7 +108,7 @@ export function GretelPresence({ lesson, instruction, className = '', autoIntro 
         say('Si necesitas una pista, toca Ayuda.');
       }
     }, 5000);
-    return () => { off(); clearInterval(idleTimer); clearTimeout(speechTimer.current); clearTimeout(focusTimer.current); cancelGretelSpeech(); };
+    return () => { window.removeEventListener("cartilla:student-session", resetLearner); window.removeEventListener("storage", resetLearner); off(); clearInterval(idleTimer); clearTimeout(speechTimer.current); clearTimeout(focusTimer.current); cancelGretelSpeech(); };
   }, [autoIntro, bookMode, instruction, say, variant]);
 
   const toggleMute = () => { const next = !muted; setMuted(next); setGretelVoiceMuted(next); if (next) cancelGretelSpeech(); };

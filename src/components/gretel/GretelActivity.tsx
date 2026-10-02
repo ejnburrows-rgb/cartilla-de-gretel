@@ -1,3 +1,4 @@
+import { learnerScope, useLearnerScope } from "@/lib/learner-storage";
 import { useEffect, useLayoutEffect, useMemo, useRef, type ReactNode } from 'react';
 import { ActivityContext } from '@/lib/activity-events';
 import { focusGretelActivity, releaseGretelActivity, gretelEvent, onGretelEvent } from '@/lib/gretel-bus';
@@ -14,16 +15,19 @@ export function resolveGretelTarget(root: HTMLElement, requestedId?: string): HT
 }
 
 /** Adds context to existing exercises without replacing their mechanics. */
-export function GretelActivity({ id, pageNumber, kind, children }: {
-  id: string; pageNumber: number; kind: string; children: ReactNode;
-}) {
+type Props = { id: string; pageNumber: number; kind: string; children: ReactNode };
+export function GretelActivity(props: Props) {
+  const scope = useLearnerScope();
+  return <LearnerActivity key={scope} {...props} scope={scope} />;
+}
+function LearnerActivity({ id, pageNumber, kind, children, scope }: Props & { scope: string }) {
   const ref = useRef<HTMLDivElement>(null);
   const mounted = useRef(true);
   const currentEncounter = useRef("");
   const context = useMemo(() => {
     const encounterId = crypto.randomUUID();
-    return { activityId: id, pageNumber, kind, encounterId, isCurrent: () => mounted.current && currentEncounter.current === encounterId };
-  }, [id, pageNumber, kind]);
+    return { activityId: id, pageNumber, kind, encounterId, isCurrent: () => mounted.current && learnerScope() === scope && currentEncounter.current === encounterId };
+  }, [id, pageNumber, kind, scope]);
   currentEncounter.current = context.encounterId;
   useLayoutEffect(() => {
     mounted.current = true;

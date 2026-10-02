@@ -1,3 +1,4 @@
+import { learnerStorageKey } from "./learner-storage";
 /**
  * Local-first persistence for freehand paint / draw strokes and lasso progress.
  * Same localStorage convention as page-progress / student-session — never Supabase.
@@ -18,7 +19,7 @@ export type LassoProgressSnapshot = {
 };
 
 function key(scope: string, pageKey: string): string {
-  return `${PREFIX}${scope}:${pageKey}`;
+  return learnerStorageKey(`${PREFIX}${scope}:${pageKey}`);
 }
 
 export function loadCanvasSnapshot(pageKey: string): CanvasSnapshot | null {

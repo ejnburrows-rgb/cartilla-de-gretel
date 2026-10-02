@@ -1,3 +1,4 @@
+import { learnerStorageKey } from "@/lib/learner-storage";
 import { useEffect, useState } from "react";
 import type { PageRegion } from "@/lib/book-faithful";
 import { useActivityEvents } from "@/lib/activity-events";
@@ -16,7 +17,7 @@ export function SyllableWordCircle({ region, lessonId }: { region: PageRegion; l
   const words = (region.matchRows ?? []).flat();
   const isTarget = (i: number) => words[i]?.correct !== false;
   const correctCount = words.filter((entry) => entry.correct !== false).length;
-  const key = `cartilla-circle-${region.id}`;
+  const key = learnerStorageKey(`cartilla-circle-${region.id}`);
   const [marked, setMarked] = useState<Set<number>>(() => {
     try {
       const stored = JSON.parse(localStorage.getItem(key) ?? "[]") as number[];

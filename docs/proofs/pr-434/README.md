@@ -15,3 +15,16 @@ Browser checks use `tests/e2e/activity-completion-foundation.spec.ts`. In this r
 ![p2 completed through keyboard-accessible direct tap](p2-direct-tap.png)
 
 ![p5 assisted completion: five learner answers, example preserved, Siguiente available](p5-assisted-complete.png)
+
+## Shared-browser learner isolation
+
+Post-review correction: activity selections, lasso/canvas work, circle selections,
+writing responses, page/lesson completion and delivered assistance now use the
+current classroom/student identity. Anonymous history stays anonymous. Changing
+learner remounts the activity and invalidates stale callbacks; returning to the
+original learner restores that learner's work.
+
+Added regressions cover actual p5 A→B→A and anonymous→student transitions,
+mounted writing/circle controls, assistance and lesson/page gates.
+Final verification: 112 Vitest files; 1,375 passed and two existing expected
+failures. Type checking, Vite build and both p2/p5 browser checks passed.

@@ -1,3 +1,4 @@
+import { learnerStorageKey } from "@/lib/learner-storage";
 import { useEffect, useRef, useState } from "react";
 import { useActivityEvents } from "@/lib/activity-events";
 
@@ -9,7 +10,7 @@ export function isWritingResponseDone(value: string): boolean {
 /** Open-ended writing stays open-ended; no guessed grading or answer key. */
 export function WorkbookWritingResponse({ pageNumber, interactive }: { pageNumber: number; interactive: boolean }) {
   const { emit: gretelEvent } = useActivityEvents();
-  const key = `cartilla-writing-page-${pageNumber}`;
+  const key = learnerStorageKey(`cartilla-writing-page-${pageNumber}`);
   const [value, setValue] = useState(() => {
     try { return window.localStorage.getItem(key) ?? ""; } catch { return ""; }
   });

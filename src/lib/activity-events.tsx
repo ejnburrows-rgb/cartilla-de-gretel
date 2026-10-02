@@ -1,3 +1,4 @@
+import { learnerStorageKey } from "./learner-storage";
 import { createContext, useCallback, useContext, useEffect, useState, type Dispatch, type SetStateAction } from 'react';
 import { gretelEvent, type GretelBusDetail, type GretelBusEvent } from './gretel-bus';
 import { recordEvent } from './student-session';
@@ -25,7 +26,7 @@ export function useActivityEvents() {
 /** Preserve the existing control's state across page remounts, including Sets. */
 export function useActivityState<T>(field: string, initial: T): [T, Dispatch<SetStateAction<T>>] {
   const context = useContext(ActivityContext);
-  const key = context?.activityId ? `cartilla.activity-state.v1:${context.activityId}:${field}` : undefined;
+  const key = context?.activityId ? learnerStorageKey(`cartilla.activity-state.v1:${context.activityId}:${field}`) : undefined;
   const [value, setValue] = useState<T>(() => {
     if (!key) return initial;
     try {
