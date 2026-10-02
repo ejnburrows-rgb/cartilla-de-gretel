@@ -256,26 +256,6 @@ html[data-storybook] .lc-lesson-shell main > div:first-child > div {
   }
 }
 
-/* Guide light (from Gretel's hands to the real target). */
-.sb-guide-light {
-  position: fixed;
-  left: 0;
-  top: 0;
-  z-index: 80;
-  width: 28px;
-  height: 28px;
-  border-radius: 50%;
-  pointer-events: none;
-  background: radial-gradient(
-    circle,
-    #fffbe8 0%,
-    #ffe28a 38%,
-    rgba(255, 214, 102, 0.55) 58%,
-    rgba(255, 214, 102, 0) 72%
-  );
-  filter: drop-shadow(0 0 8px rgba(255, 200, 80, 0.9));
-}
-
 /* ── Page content (cqw = page width) ───────────────────────────────────── */
 .sb-page .faithful-page__body {
   gap: 2.6cqw;
@@ -488,7 +468,6 @@ html[data-storybook] .lc-lesson-shell main > div:first-child > div {
 .sb-page [data-gretel-narrowed] .sb-cell__art,
 .sb-page [data-gretel-narrowed] .living-illustration {
   opacity: 0.26;
-  filter: grayscale(0.8);
   transition: opacity 0.3s ease;
 }
 
@@ -823,10 +802,6 @@ html[data-storybook] .lc-lesson-shell main > div:first-child > div {
   width: 100%;
   height: 100%;
   object-fit: contain;
-  mix-blend-mode: multiply;
-  /* hides the sliver of the Ss halo that the approved crop caught on its left edge */
-  -webkit-mask-image: linear-gradient(to right, transparent 0, #000 9%);
-  mask-image: linear-gradient(to right, transparent 0, #000 9%);
   user-select: none;
 }
 .sbfc__verse {
