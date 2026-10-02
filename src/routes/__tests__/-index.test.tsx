@@ -44,68 +44,44 @@ async function renderSplash() {
   await router.load();
 }
 
-describe('Welcome splash ("/") — one generated garden scene (issue #345)', () => {
-  it("shows the colorful Bienvenido headline and a single Entrar button to /entrar", async () => {
+describe('Approved single welcome ("/")', () => {
+  it("shows the approved title, greeting, and two entry choices", async () => {
     await renderSplash();
-
     const splash = await screen.findByTestId("welcome-splash");
-    // Owner direction 2026-09-29: big colorful kid-friendly sticker words.
-    expect(splash.textContent).toContain("Bienvenido a La Cartilla de Gretel");
+    expect(splash.textContent).toContain("La Cartilla de Gretel");
+    expect(splash.textContent).toContain("¡Hola! Soy Gretel. Vamos a aprender a leer juntos.");
 
-    const entrar = await screen.findByTestId("wc-entrar");
-    expect(entrar.textContent?.trim()).toBe("Entrar");
-    expect(entrar.getAttribute("href")).toBe("/entrar");
+    const comenzar = await screen.findByTestId("wc-entrar");
+    expect(comenzar.textContent?.trim()).toBe("Comenzar");
+    expect(comenzar.getAttribute("href")).toBe("/cartilla/lecciones");
 
-    // Exactly one Entrar control on the splash — not the dual student/teacher
-    // cards, which live one tap later on /entrar.
-    expect(screen.queryByTestId("home-cta-student")).toBeNull();
-    expect(screen.queryByTestId("home-cta-teacher")).toBeNull();
+    const teacher = screen.getByRole("link", { name: "Soy maestro" });
+    expect(teacher.getAttribute("href")).toBe("/cartilla/teacher/crm");
   });
 
-  it("renders the headline as real HTML text, never baked into the image", async () => {
+  it("keeps title and greeting as real HTML text", async () => {
     await renderSplash();
-    // A real <h1> is what keeps the title selectable, translatable and
-    // readable by a screen reader.
-    const heading = await screen.findByRole("heading", { level: 1 });
-    expect(heading.textContent).toBe("Bienvenido a La Cartilla de Gretel");
+    expect((await screen.findByRole("heading", { level: 1 })).textContent).toBe("La Cartilla de Gretel");
   });
 
-  it("renders exactly one full-scene image, and it is decorative", async () => {
+  it("uses only the owner-approved Gretel master", async () => {
     await renderSplash();
     const splash = await screen.findByTestId("welcome-splash");
     const imgs = Array.from(splash.querySelectorAll("img"));
     expect(imgs).toHaveLength(1);
-    // The scene carries no information the text does not already give, so it
-    // is hidden from screen readers rather than given a redundant description.
-    expect(imgs[0].getAttribute("alt")).toBe("");
-    expect(imgs[0].getAttribute("aria-hidden")).toBe("true");
+    expect(imgs[0]?.getAttribute("src")).toBe("/cartilla/images/gretel/gretel-approved-master.png");
+    expect(imgs[0]?.getAttribute("alt")).toBe("Gretel");
   });
 
-  it("uses the owner-approved generated scene from the manifest", async () => {
-    const { getGeneratedScene } = await import("@/lib/generated-art");
-    const scene = getGeneratedScene("welcome-splash");
-    expect(scene, "no approved welcome-splash entry in the generated manifest").not.toBeNull();
-
+  it("contains no generated or garden art reference", async () => {
     await renderSplash();
-    const splash = await screen.findByTestId("welcome-splash");
-    const img = splash.querySelector("img")!;
-    expect(img.getAttribute("src")).toBe(scene!.src);
+    const html = (await screen.findByTestId("welcome-splash")).innerHTML;
+    expect(html).not.toContain("/art/generated/");
+    expect(html).not.toContain("/art/hd/garden/");
   });
 
-  it("keeps generated art out of the faithful book-art folders", async () => {
+  it("is Spanish-only", async () => {
     await renderSplash();
-    const splash = await screen.findByTestId("welcome-splash");
-    const img = splash.querySelector("img")!;
-    const src = img.getAttribute("src")!;
-    // Generated scene art lives in its own folder and must never be served
-    // from, or mistaken for, the book's faithful crops.
-    expect(src.startsWith("/cartilla/art/generated/")).toBe(true);
-    expect(src).not.toContain("/art/faithful/");
-  });
-
-  it("is Spanish-only — no English anywhere on the first screen", async () => {
-    await renderSplash();
-    const splash = await screen.findByTestId("welcome-splash");
-    expect(splash.textContent).not.toMatch(/\b(welcome|enter|start|login|sign in)\b/i);
+    expect((await screen.findByTestId("welcome-splash")).textContent).not.toMatch(/\b(welcome|enter|start|login|sign in)\b/i);
   });
 });
