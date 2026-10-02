@@ -165,21 +165,6 @@ self.addEventListener("fetch", (event) => {
   // 5. Images Strategy: Cache-first, expire after 30 days
   const isImage = /\.(png|jpg|jpeg|webp|avif|gif|svg|ico)$/i.test(path);
   if (isImage) {
-    // Production workbook masters can be replaced at the same path. Always
-    // check the network so a returning reader sees corrected pages immediately.
-    if (path.startsWith("/cartilla/art/reconstructed/workbook/")) {
-      event.respondWith(
-        caches.open(CACHE_NAMES.assets).then((cache) =>
-          fetch(request)
-            .then((fresh) => {
-              if (fresh.ok) cache.put(request, fresh.clone());
-              return fresh;
-            })
-            .catch(async () => (await cache.match(request)) || Response.error()),
-        ),
-      );
-      return;
-    }
     event.respondWith(
       caches.open(CACHE_NAMES.assets).then((cache) => {
         return cache.match(request).then((cached) => {
