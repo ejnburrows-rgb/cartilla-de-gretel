@@ -110,7 +110,9 @@ export function usePageCompletion(pageNumber: number | undefined, lessonNumber?:
     const off = onGretelEvent((type, detail) => {
       if (!detail.activityId?.startsWith(prefix)) return;
       if (type === "activity:complete") markPageActivityCompleted(pageNumber, detail.activityId);
-      if (type === "activity:retry") unmarkPageActivityCompleted(pageNumber, detail.activityId);
+      if (type === "activity:retry" && detail.reaction !== "independent-retry") {
+        unmarkPageActivityCompleted(pageNumber, detail.activityId);
+      }
     });
     const refresh = () => setTick((t) => t + 1);
     window.addEventListener("cartilla:lesson-progress", refresh);
