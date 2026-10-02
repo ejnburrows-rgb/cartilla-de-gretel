@@ -1029,3 +1029,5 @@ html.student-pencil.a11y-xlarge body {
   text-decoration:none;
 }
 .lc-lesson-header__back:focus-visible { outline:4px solid var(--lc-focus,#1668c7); outline-offset:3px; border-radius:8px; }
+
+/* Tonight demo: approved lc-* system. */
