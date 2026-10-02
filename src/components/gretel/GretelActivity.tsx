@@ -25,7 +25,7 @@ export function GretelActivity({ id, pageNumber, kind, children }: {
       ref.current?.querySelectorAll<HTMLButtonElement>('[data-gretel-narrowed]').forEach(el => { el.disabled = false; el.removeAttribute('data-gretel-narrowed'); });
     };
     const off = onGretelEvent((type, detail) => {
-      if (type === 'page-turn:start') { clear(); if (timer) { clearTimeout(timer); timer = undefined; setAttempt(value => value + 1); gretelEvent('activity:retry', { activityId: id }); } return; }
+      if (type === 'page-turn:start') { clear(); if (timer) { clearTimeout(timer); timer = undefined; setAttempt(value => value + 1); gretelEvent('activity:retry', { activityId: id, reaction: 'independent-retry' }); } return; }
       if (detail.activityId !== id) return;
       if (type === 'guide:reaction') {
         clear();
@@ -45,7 +45,7 @@ export function GretelActivity({ id, pageNumber, kind, children }: {
           timer = setTimeout(() => {
             timer = undefined;
             setAttempt(value => value + 1);
-            gretelEvent('activity:retry', { activityId: id });
+            gretelEvent('activity:retry', { activityId: id, reaction: 'independent-retry' });
           }, 1600);
         }
       }
