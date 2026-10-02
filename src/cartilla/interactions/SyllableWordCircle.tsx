@@ -4,14 +4,14 @@ import { recordEvent } from "@/lib/student-session";
 import { gretelEvent } from "@/lib/gretel-bus";
 
 function syllableRange(word: string, syllable: string): [string, string, string] {
-  const normalize = (value: string) => value.normalize("NFD").replace(/[\u0300-\u036f]/g, "").toLocaleLowerCase("es");
+  const normalize = (value: string) =>
+    value.normalize("NFD").replace(/[\u0300-\u036f]/g, "").toLocaleLowerCase("es");
   const position = normalize(word).indexOf(normalize(syllable));
-  return position < 0 ? [word, "", ""] : [word.slice(0, position), word.slice(position, position + syllable.length), word.slice(position + syllable.length)];
+  return position < 0
+    ? [word, "", ""]
+    : [word.slice(0, position), word.slice(position, position + syllable.length), word.slice(position + syllable.length)];
 }
 
-/** Native syllable discrimination. Words explicitly marked correct=false are
- * distractors; legacy regions without correctness metadata keep the historical
- * all-target behavior. */
 export function SyllableWordCircle({ region, lessonId }: { region: PageRegion; lessonId?: string }) {
   const words = (region.matchRows ?? []).flat();
   const isTarget = (i: number) => words[i]?.correct !== false;
@@ -25,10 +25,13 @@ export function SyllableWordCircle({ region, lessonId }: { region: PageRegion; l
       return new Set();
     }
   });
+  const [wrongIndex, setWrongIndex] = useState<number | null>(null);
   const syllable = region.syllable ?? "";
 
   const toggle = (i: number) => {
     if (!isTarget(i)) {
+      setWrongIndex(i);
+      window.setTimeout(() => setWrongIndex((current) => current === i ? null : current), 450);
       gretelEvent("answer:wrong");
       return;
     }
@@ -62,19 +65,42 @@ export function SyllableWordCircle({ region, lessonId }: { region: PageRegion; l
       <div className="native-syllable__words">
         {words.map((entry, i) => {
           const [before, match, after] = syllableRange(entry.word, syllable);
+          const target = isTarget(i);
+          const wrong = wrongIndex === i;
           return (
-            <button
+            <span
               key={`${i}-${entry.word}`}
-              type="button"
-              aria-pressed={marked.has(i)}
-              onClick={() => toggle(i)}
+              className={`native-syllable__word${wrong ? " is-wrong" : ""}`}
             >
-              {before}<span className={marked.has(i) ? "is-circled" : ""}>{match}</span>{after}
-            </button>
+              {target && match ? (
+                <>
+                  <span>{before}</span>
+                  <button
+                    type="button"
+                    className={`native-syllable__tap${marked.has(i) ? " is-circled" : ""}`}
+                    aria-pressed={marked.has(i)}
+                    onClick={() => toggle(i)}
+                  >
+                    {match}
+                  </button>
+                  <span>{after}</span>
+                </>
+              ) : (
+                <button
+                  type="button"
+                  className="native-syllable__distractor"
+                  onClick={() => toggle(i)}
+                >
+                  {entry.word}
+                </button>
+              )}
+            </span>
           );
         })}
       </div>
-      <p role="status">{marked.size} de {correctCount} respuestas correctas</p>
+      <p role="status" aria-live="polite">
+        {wrongIndex !== null ? "Inténtalo otra vez" : `${marked.size} de ${correctCount} respuestas correctas`}
+      </p>
     </section>
   );
 }
