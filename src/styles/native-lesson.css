@@ -198,3 +198,169 @@
 .fp-source-blocked { margin: 24px 0 0; padding: 10px 14px; border-radius: 12px; border: 1px dashed #c9a86a; background: #fffaf0; color: #7a5b1e; font: 600 14px/1.4 system-ui, sans-serif; }
 .fp-writing-line--freehand { display: block; }
 .fp-writing-line--freehand .fp-writing-line__model { font-size: 48px; }
+
+
+/* ── Approved book-page-is-the-screen layout ── */
+.native-lesson-viewer {
+  width: min(100%, 1180px);
+  margin: 0 auto;
+  padding: 0;
+  border: 0;
+  border-radius: 0;
+  background: transparent;
+  box-shadow: none;
+  color: var(--lc-ink, #25313a);
+  font-family: "Andika", ui-rounded, system-ui, sans-serif;
+}
+.native-lesson-viewer__topline {
+  max-width: 900px;
+  margin: 0 auto 10px;
+  padding: 0 4px;
+  font-family: "Andika", ui-rounded, system-ui, sans-serif;
+  color: var(--lc-ink-soft, #53616b);
+}
+.native-lesson-viewer__chapter {
+  color: var(--lc-ink, #25313a);
+  font-family: "Fredoka", ui-rounded, system-ui, sans-serif;
+}
+.native-lesson-viewer__layout {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) 220px;
+  gap: clamp(18px, 3vw, 34px);
+  align-items: center;
+}
+.native-lesson-viewer__content {
+  min-width: 0;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+}
+.native-lesson-viewer__content .faithful-page {
+  width: auto;
+  height: min(82dvh, 900px);
+  max-width: 100%;
+  aspect-ratio: 612 / 792;
+  overflow: hidden;
+  background: var(--lc-paper, #fffdf9);
+  border: 1px solid rgba(37,49,58,.14);
+  border-radius: 8px;
+  box-shadow: 0 12px 34px rgba(37,49,58,.12);
+}
+.native-lesson-viewer__content .faithful-page__sidebar { display: block; }
+.native-lesson-viewer__content .faithful-page__pagenum { display: flex; }
+.native-lesson-viewer__content .faithful-page__lesson { display: block; }
+.native-lesson-viewer__content .faithful-page__body {
+  position: absolute;
+  inset: 0;
+  padding: 6% 7% 9% 12%;
+  overflow: auto;
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  gap: 3cqw;
+}
+.native-lesson-viewer__content .faithful-page--edge-right .faithful-page__body {
+  padding: 6% 12% 9% 7%;
+}
+.native-lesson-viewer__side {
+  align-self: center;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  min-width: 0;
+}
+.native-lesson-viewer__companion {
+  display: flex;
+  justify-content: center;
+  align-items: flex-end;
+  min-height: 210px;
+  margin: 0;
+}
+.native-lesson-viewer__companion .gretel-presence--book {
+  width: 170px;
+  min-width: 170px;
+}
+.native-lesson-viewer__companion .gretel-presence--book .gretel-avatar-interactive {
+  width: 170px;
+  height: 210px;
+}
+.native-lesson-viewer__companion .gretel-presence--book .gretel-speech-bubble {
+  left: auto !important;
+  right: calc(100% + 8px) !important;
+  width: 240px;
+  max-width: min(240px, 42vw);
+  font-size: 1rem;
+  line-height: 1.3;
+  font-family: "Andika", ui-rounded, system-ui, sans-serif;
+  border-color: var(--lc-teal, #1f9e94);
+}
+.native-lesson-viewer__navigation {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 10px;
+  margin: 0;
+  padding: 14px 0 0;
+  border-top: 1px solid rgba(37,49,58,.14);
+  font-family: "Fredoka", ui-rounded, system-ui, sans-serif;
+}
+.native-lesson-viewer__navigation > span {
+  grid-column: 1 / -1;
+  grid-row: 1;
+  text-align: center;
+  color: var(--lc-ink-soft, #53616b);
+  font-family: "Andika", ui-rounded, system-ui, sans-serif;
+}
+.native-lesson-viewer__navigation button {
+  min-height: 64px;
+  border: 2px solid var(--lc-teal, #1f9e94);
+  border-radius: 14px;
+  background: var(--lc-paper, #fffdf9);
+  color: var(--lc-teal, #1f9e94);
+  font-size: 1rem;
+  font-family: "Fredoka", ui-rounded, system-ui, sans-serif;
+  font-weight: 700;
+}
+.native-lesson-viewer__navigation button:last-child {
+  background: var(--lc-red, #bf3040);
+  border-color: var(--lc-red, #bf3040);
+  color: #fff;
+}
+.native-lesson-viewer__navigation button[data-locked="true"] {
+  background: #e9e5dc;
+  border-color: #b9b4aa;
+  color: #6c6a65;
+  opacity: .78;
+}
+.native-lesson-viewer__hint {
+  margin: 0;
+  border: 1px solid rgba(191,48,64,.28);
+  background: var(--lc-paper, #fffdf9);
+  color: var(--lc-error, #b53a3a);
+  font-family: "Andika", ui-rounded, system-ui, sans-serif;
+}
+@media (max-width: 760px) {
+  .native-lesson-viewer__layout { grid-template-columns: 1fr; gap: 16px; }
+  .native-lesson-viewer__topline { padding-inline: 10px; }
+  .native-lesson-viewer__content { width: 100%; }
+  .native-lesson-viewer__content .faithful-page {
+    width: 100%;
+    height: auto;
+    min-height: calc((100vw - 28px) * 1.294);
+    aspect-ratio: 612 / 792;
+    border-radius: 0;
+    box-shadow: none;
+  }
+  .native-lesson-viewer__content .faithful-page__body { overflow-y: auto; }
+  .native-lesson-viewer__side { width: 100%; }
+  .native-lesson-viewer__companion { min-height: 160px; justify-content: flex-end; padding-right: 18px; }
+  .native-lesson-viewer__companion .gretel-presence--book,
+  .native-lesson-viewer__companion .gretel-presence--book .gretel-avatar-interactive {
+    width: 120px;
+    min-width: 120px;
+    height: 150px;
+  }
+  .native-lesson-viewer__companion .gretel-presence--book .gretel-speech-bubble {
+    max-width: calc(100vw - 170px);
+    font-size: .95rem;
+  }
+}
