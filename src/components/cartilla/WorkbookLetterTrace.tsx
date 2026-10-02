@@ -206,6 +206,7 @@ export function WorkbookLetterTrace({
   }
 
   function reset() {
+    gretelEvent("activity:retry");
     setStrokeIdx(0);
     setPointIdx(0);
     setCompleted([]);
@@ -319,7 +320,7 @@ export function WorkbookLetterTrace({
                     style={{ cursor: "pointer" }}
                     onClick={() => tap.tapCheckpoint(sIdx, pIdx)}
                   >
-                    <circle cx={pt.x} cy={pt.y} r="7" fill="transparent" />
+                    <circle cx={pt.x} cy={pt.y} r="10" fill="transparent" />
                     <circle
                       cx={pt.x}
                       cy={pt.y}

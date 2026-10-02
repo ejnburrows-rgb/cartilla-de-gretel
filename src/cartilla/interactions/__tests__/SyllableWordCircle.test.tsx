@@ -1,8 +1,8 @@
 /**
  * @vitest-environment jsdom
  */
-import { beforeEach, describe, expect, it, vi } from "vitest";
-import { fireEvent, render, screen } from "@testing-library/react";
+import { afterEach, beforeEach, describe, expect, it, vi } from "vitest";
+import { act, cleanup, fireEvent, render, screen } from "@testing-library/react";
 import { SyllableWordCircle } from "../SyllableWordCircle";
 import type { PageRegion } from "@/lib/book-faithful";
 
@@ -34,14 +34,24 @@ describe("SyllableWordCircle", () => {
     localStorage.clear();
     vi.clearAllMocks();
   });
+  afterEach(() => {
+    cleanup();
+    vi.useRealTimers();
+  });
 
   it("rejects distractors instead of counting every word as correct", () => {
+    vi.useFakeTimers();
     render(<SyllableWordCircle region={region} lessonId="9" />);
 
     const wrong = screen.getByRole("button", { name: "semana" });
     fireEvent.click(wrong);
     expect(wrong.getAttribute("aria-pressed")).toBe("false");
     expect(gretelEvent).toHaveBeenCalledWith("answer:wrong");
+    // Gentle retry feedback first, then the unchanged count.
+    expect(screen.getByRole("status").textContent).toContain("Inténtalo otra vez");
+    act(() => {
+      vi.advanceTimersByTime(500);
+    });
     expect(screen.getByRole("status").textContent).toContain("0 de 3");
   });
 

@@ -1,14 +1,14 @@
 {
-  "generatedAt": "2026-09-29T19:25:32.247Z",
+  "generatedAt": "2026-09-30T19:53:02.009Z",
   "sourceManifest": "/cartilla/art/faithful/manifest.json",
   "canonicalPolicy": "Canonical faithful WebP files remain untouched. Delivery derivatives are disposable build output.",
   "counts": {
-    "manifestEntries": 108,
+    "manifestEntries": 158,
     "quarantinedAssets": 35,
-    "wiredProductionAssets": 97,
+    "wiredProductionAssets": 86,
     "processedCanonicalAssets": 108,
     "unavailableManifestAssets": 0,
-    "wiredQaPass": 97,
+    "wiredQaPass": 86,
     "backgroundCleaned": 99,
     "paddingTrimmed": 104,
     "edgeTouchWarnings": 9,
@@ -17,7 +17,7 @@
     "warnings": 24,
     "flipchartCanonicalMasters": 62,
     "flipchartNativeBoards": 62,
-    "flipchartNativeCrops": 16
+    "flipchartNativeCrops": 167
   },
   "errors": [],
   "warnings": [
@@ -8202,148 +8202,1507 @@
     ],
     "nativeCrops": [
       {
+        "page": 3,
+        "word": "Ilustración de la página 3",
+        "src": "/cartilla/art/optimized/flipchart-native/p003-scene.png",
+        "width": 539,
+        "height": 539,
+        "bytes": 177783,
+        "approvedInput": true
+      },
+      {
+        "page": 3,
+        "word": "avión",
+        "src": "/cartilla/art/optimized/flipchart-native/p003-avion.png",
+        "width": 320,
+        "height": 320,
+        "bytes": 43248,
+        "approvedInput": true
+      },
+      {
+        "page": 3,
+        "word": "escoba",
+        "src": "/cartilla/art/optimized/flipchart-native/p003-escoba.png",
+        "width": 320,
+        "height": 320,
+        "bytes": 55553,
+        "approvedInput": true
+      },
+      {
+        "page": 3,
+        "word": "imán",
+        "src": "/cartilla/art/optimized/flipchart-native/p003-iman.png",
+        "width": 320,
+        "height": 320,
+        "bytes": 49205,
+        "approvedInput": true
+      },
+      {
+        "page": 3,
+        "word": "olla",
+        "src": "/cartilla/art/optimized/flipchart-native/p003-olla.png",
+        "width": 320,
+        "height": 320,
+        "bytes": 55420,
+        "approvedInput": true
+      },
+      {
+        "page": 3,
+        "word": "uña",
+        "src": "/cartilla/art/optimized/flipchart-native/p003-una.png",
+        "width": 320,
+        "height": 320,
+        "bytes": 49948,
+        "approvedInput": true
+      },
+      {
+        "page": 4,
+        "word": "Ilustración de la página 4",
+        "src": "/cartilla/art/optimized/flipchart-native/p004-scene.png",
+        "width": 560,
+        "height": 560,
+        "bytes": 203733,
+        "approvedInput": true
+      },
+      {
+        "page": 4,
+        "word": "olla",
+        "src": "/cartilla/art/optimized/flipchart-native/p004-olla.png",
+        "width": 320,
+        "height": 320,
+        "bytes": 46668,
+        "approvedInput": true
+      },
+      {
+        "page": 4,
+        "word": "Oto",
+        "src": "/cartilla/art/optimized/flipchart-native/p004-oto.png",
+        "width": 320,
+        "height": 320,
+        "bytes": 48351,
+        "approvedInput": true
+      },
+      {
+        "page": 4,
+        "word": "oveja",
+        "src": "/cartilla/art/optimized/flipchart-native/p004-oveja.png",
+        "width": 320,
+        "height": 320,
+        "bytes": 41334,
+        "approvedInput": true
+      },
+      {
+        "page": 4,
+        "word": "oso",
+        "src": "/cartilla/art/optimized/flipchart-native/p004-oso.png",
+        "width": 320,
+        "height": 320,
+        "bytes": 79390,
+        "approvedInput": true
+      },
+      {
+        "page": 4,
+        "word": "oreja",
+        "src": "/cartilla/art/optimized/flipchart-native/p004-oreja.png",
+        "width": 320,
+        "height": 320,
+        "bytes": 56308,
+        "approvedInput": true
+      },
+      {
+        "page": 4,
+        "word": "ocho",
+        "src": "/cartilla/art/optimized/flipchart-native/p004-ocho.png",
+        "width": 320,
+        "height": 320,
+        "bytes": 62819,
+        "approvedInput": true
+      },
+      {
+        "page": 5,
+        "word": "Ilustración de la página 5",
+        "src": "/cartilla/art/optimized/flipchart-native/p005-scene.png",
+        "width": 556,
+        "height": 556,
+        "bytes": 223023,
+        "approvedInput": true
+      },
+      {
+        "page": 5,
+        "word": "abanico",
+        "src": "/cartilla/art/optimized/flipchart-native/p005-abanico.png",
+        "width": 320,
+        "height": 320,
+        "bytes": 66045,
+        "approvedInput": true
+      },
+      {
+        "page": 5,
+        "word": "anillo",
+        "src": "/cartilla/art/optimized/flipchart-native/p005-anillo.png",
+        "width": 320,
+        "height": 320,
+        "bytes": 42308,
+        "approvedInput": true
+      },
+      {
+        "page": 5,
+        "word": "araña",
+        "src": "/cartilla/art/optimized/flipchart-native/p005-arana.png",
+        "width": 320,
+        "height": 320,
+        "bytes": 35567,
+        "approvedInput": true
+      },
+      {
+        "page": 5,
+        "word": "ala",
+        "src": "/cartilla/art/optimized/flipchart-native/p005-ala.png",
+        "width": 320,
+        "height": 320,
+        "bytes": 37012,
+        "approvedInput": true
+      },
+      {
+        "page": 5,
+        "word": "aro",
+        "src": "/cartilla/art/optimized/flipchart-native/p005-aro.png",
+        "width": 320,
+        "height": 320,
+        "bytes": 66758,
+        "approvedInput": true
+      },
+      {
+        "page": 5,
+        "word": "Ana",
+        "src": "/cartilla/art/optimized/flipchart-native/p005-ana.png",
+        "width": 320,
+        "height": 320,
+        "bytes": 57436,
+        "approvedInput": true
+      },
+      {
+        "page": 6,
+        "word": "Ilustración de la página 6",
+        "src": "/cartilla/art/optimized/flipchart-native/p006-scene.png",
+        "width": 560,
+        "height": 560,
+        "bytes": 200364,
+        "approvedInput": true
+      },
+      {
+        "page": 6,
+        "word": "elefante",
+        "src": "/cartilla/art/optimized/flipchart-native/p006-elefante.png",
+        "width": 320,
+        "height": 320,
+        "bytes": 55059,
+        "approvedInput": true
+      },
+      {
+        "page": 6,
+        "word": "espejo",
+        "src": "/cartilla/art/optimized/flipchart-native/p006-espejo.png",
+        "width": 320,
+        "height": 320,
+        "bytes": 42808,
+        "approvedInput": true
+      },
+      {
+        "page": 6,
+        "word": "Ema",
+        "src": "/cartilla/art/optimized/flipchart-native/p006-ema.png",
+        "width": 320,
+        "height": 320,
+        "bytes": 50267,
+        "approvedInput": true
+      },
+      {
+        "page": 6,
+        "word": "estrella",
+        "src": "/cartilla/art/optimized/flipchart-native/p006-estrella.png",
+        "width": 320,
+        "height": 320,
+        "bytes": 53872,
+        "approvedInput": true
+      },
+      {
+        "page": 6,
+        "word": "erizo",
+        "src": "/cartilla/art/optimized/flipchart-native/p006-erizo.png",
+        "width": 320,
+        "height": 320,
+        "bytes": 83658,
+        "approvedInput": true
+      },
+      {
+        "page": 6,
+        "word": "escalera",
+        "src": "/cartilla/art/optimized/flipchart-native/p006-escalera.png",
+        "width": 320,
+        "height": 320,
+        "bytes": 51385,
+        "approvedInput": true
+      },
+      {
+        "page": 7,
+        "word": "Ilustración de la página 7",
+        "src": "/cartilla/art/optimized/flipchart-native/p007-scene.png",
+        "width": 560,
+        "height": 560,
+        "bytes": 129226,
+        "approvedInput": true
+      },
+      {
+        "page": 7,
+        "word": "imán",
+        "src": "/cartilla/art/optimized/flipchart-native/p007-iman.png",
+        "width": 320,
+        "height": 320,
+        "bytes": 39281,
+        "approvedInput": true
+      },
+      {
+        "page": 7,
+        "word": "iglú",
+        "src": "/cartilla/art/optimized/flipchart-native/p007-iglu.png",
+        "width": 320,
+        "height": 320,
+        "bytes": 35084,
+        "approvedInput": true
+      },
+      {
+        "page": 7,
+        "word": "indio",
+        "src": "/cartilla/art/optimized/flipchart-native/p007-indio.png",
+        "width": 320,
+        "height": 320,
+        "bytes": 33627,
+        "approvedInput": true
+      },
+      {
+        "page": 7,
+        "word": "insecto",
+        "src": "/cartilla/art/optimized/flipchart-native/p007-insecto.png",
+        "width": 320,
+        "height": 320,
+        "bytes": 67825,
+        "approvedInput": true
+      },
+      {
+        "page": 7,
+        "word": "isla",
+        "src": "/cartilla/art/optimized/flipchart-native/p007-isla.png",
+        "width": 320,
+        "height": 320,
+        "bytes": 49951,
+        "approvedInput": true
+      },
+      {
+        "page": 7,
+        "word": "Irma",
+        "src": "/cartilla/art/optimized/flipchart-native/p007-irma.png",
+        "width": 320,
+        "height": 320,
+        "bytes": 56587,
+        "approvedInput": true
+      },
+      {
+        "page": 8,
+        "word": "Ilustración de la página 8",
+        "src": "/cartilla/art/optimized/flipchart-native/p008-scene.png",
+        "width": 480,
+        "height": 480,
+        "bytes": 191446,
+        "approvedInput": true
+      },
+      {
+        "page": 8,
+        "word": "uno",
+        "src": "/cartilla/art/optimized/flipchart-native/p008-uno.png",
+        "width": 320,
+        "height": 320,
+        "bytes": 80479,
+        "approvedInput": true
+      },
+      {
+        "page": 8,
+        "word": "uva",
+        "src": "/cartilla/art/optimized/flipchart-native/p008-uva.png",
+        "width": 320,
+        "height": 320,
+        "bytes": 78680,
+        "approvedInput": true
+      },
+      {
+        "page": 8,
+        "word": "urraca",
+        "src": "/cartilla/art/optimized/flipchart-native/p008-urraca.png",
+        "width": 320,
+        "height": 320,
+        "bytes": 33697,
+        "approvedInput": true
+      },
+      {
+        "page": 8,
+        "word": "unicornio",
+        "src": "/cartilla/art/optimized/flipchart-native/p008-unicornio.png",
+        "width": 320,
+        "height": 320,
+        "bytes": 60538,
+        "approvedInput": true
+      },
+      {
+        "page": 8,
+        "word": "uniforme",
+        "src": "/cartilla/art/optimized/flipchart-native/p008-uniforme.png",
+        "width": 320,
+        "height": 320,
+        "bytes": 42650,
+        "approvedInput": true
+      },
+      {
+        "page": 8,
+        "word": "Ulises",
+        "src": "/cartilla/art/optimized/flipchart-native/p008-ulises.png",
+        "width": 320,
+        "height": 320,
+        "bytes": 69778,
+        "approvedInput": true
+      },
+      {
+        "page": 9,
+        "word": "Ilustración de la página 9",
+        "src": "/cartilla/art/optimized/flipchart-native/p009-scene.png",
+        "width": 530,
+        "height": 530,
+        "bytes": 269934,
+        "approvedInput": true
+      },
+      {
+        "page": 9,
+        "word": "mamá",
+        "src": "/cartilla/art/optimized/flipchart-native/p009-mama.png",
+        "width": 344,
+        "height": 344,
+        "bytes": 58231,
+        "approvedInput": true
+      },
+      {
+        "page": 9,
+        "word": "amo",
+        "src": "/cartilla/art/optimized/flipchart-native/p009-amo.png",
+        "width": 320,
+        "height": 320,
+        "bytes": 64626,
+        "approvedInput": true
+      },
+      {
+        "page": 9,
+        "word": "mima",
+        "src": "/cartilla/art/optimized/flipchart-native/p009-mima.png",
+        "width": 328,
+        "height": 328,
+        "bytes": 101089,
+        "approvedInput": true
+      },
+      {
+        "page": 9,
+        "word": "Meme",
+        "src": "/cartilla/art/optimized/flipchart-native/p009-meme.png",
+        "width": 320,
+        "height": 320,
+        "bytes": 42639,
+        "approvedInput": true
+      },
+      {
+        "page": 9,
+        "word": "Mumi",
+        "src": "/cartilla/art/optimized/flipchart-native/p009-mumi.png",
+        "width": 320,
+        "height": 320,
+        "bytes": 64622,
+        "approvedInput": true
+      },
+      {
+        "page": 11,
+        "word": "Ilustración de la página 11",
+        "src": "/cartilla/art/optimized/flipchart-native/p011-scene.png",
+        "width": 630,
+        "height": 630,
+        "bytes": 199944,
+        "approvedInput": true
+      },
+      {
+        "page": 12,
+        "word": "Ilustración de la página 12",
+        "src": "/cartilla/art/optimized/flipchart-native/p012-scene.png",
+        "width": 560,
+        "height": 560,
+        "bytes": 188737,
+        "approvedInput": true
+      },
+      {
+        "page": 12,
+        "word": "papá",
+        "src": "/cartilla/art/optimized/flipchart-native/p012-papa.png",
+        "width": 320,
+        "height": 320,
+        "bytes": 52592,
+        "approvedInput": true
+      },
+      {
+        "page": 12,
+        "word": "pie",
+        "src": "/cartilla/art/optimized/flipchart-native/p012-pie.png",
+        "width": 320,
+        "height": 320,
+        "bytes": 35828,
+        "approvedInput": true
+      },
+      {
+        "page": 12,
+        "word": "Pepe",
+        "src": "/cartilla/art/optimized/flipchart-native/p012-pepe.png",
+        "width": 320,
+        "height": 320,
+        "bytes": 64078,
+        "approvedInput": true
+      },
+      {
+        "page": 12,
+        "word": "puma",
+        "src": "/cartilla/art/optimized/flipchart-native/p012-puma.png",
+        "width": 320,
+        "height": 320,
+        "bytes": 62327,
+        "approvedInput": true
+      },
+      {
+        "page": 12,
+        "word": "pomo",
+        "src": "/cartilla/art/optimized/flipchart-native/p012-pomo.png",
+        "width": 320,
+        "height": 320,
+        "bytes": 46993,
+        "approvedInput": true
+      },
+      {
+        "page": 14,
+        "word": "Ilustración de la página 14",
+        "src": "/cartilla/art/optimized/flipchart-native/p014-scene.png",
+        "width": 654,
+        "height": 654,
+        "bytes": 272998,
+        "approvedInput": true
+      },
+      {
+        "page": 15,
+        "word": "Ilustración de la página 15",
+        "src": "/cartilla/art/optimized/flipchart-native/p015-scene.png",
+        "width": 560,
+        "height": 560,
+        "bytes": 287347,
+        "approvedInput": true
+      },
+      {
+        "page": 15,
+        "word": "Sesi",
+        "src": "/cartilla/art/optimized/flipchart-native/p015-sesi.png",
+        "width": 342,
+        "height": 342,
+        "bytes": 58380,
+        "approvedInput": true
+      },
+      {
+        "page": 15,
+        "word": "sopa",
+        "src": "/cartilla/art/optimized/flipchart-native/p015-sopa.png",
+        "width": 320,
+        "height": 320,
+        "bytes": 61061,
+        "approvedInput": true
+      },
+      {
+        "page": 15,
+        "word": "sapo",
+        "src": "/cartilla/art/optimized/flipchart-native/p015-sapo.png",
+        "width": 320,
+        "height": 320,
+        "bytes": 51491,
+        "approvedInput": true
+      },
+      {
+        "page": 15,
+        "word": "pisa",
+        "src": "/cartilla/art/optimized/flipchart-native/p015-pisa.png",
+        "width": 320,
+        "height": 320,
+        "bytes": 23189,
+        "approvedInput": true
+      },
+      {
+        "page": 15,
+        "word": "Susi",
+        "src": "/cartilla/art/optimized/flipchart-native/p015-susi.png",
+        "width": 320,
+        "height": 320,
+        "bytes": 68028,
+        "approvedInput": true
+      },
+      {
+        "page": 17,
+        "word": "Ilustración de la página 17",
+        "src": "/cartilla/art/optimized/flipchart-native/p017-scene.png",
+        "width": 645,
+        "height": 645,
+        "bytes": 173867,
+        "approvedInput": true
+      },
+      {
+        "page": 18,
+        "word": "Ilustración de la página 18",
+        "src": "/cartilla/art/optimized/flipchart-native/p018-scene.png",
+        "width": 558,
+        "height": 558,
+        "bytes": 217046,
+        "approvedInput": true
+      },
+      {
         "page": 18,
         "word": "tomate",
-        "src": "/cartilla/art/faithful/flipchart-native/p018-tomate.webp",
-        "width": 589,
-        "height": 446,
-        "bytes": 31796,
-        "backgroundRemoved": true
+        "src": "/cartilla/art/optimized/flipchart-native/p018-tomate.webp",
+        "width": 1536,
+        "height": 1395,
+        "bytes": 96285,
+        "approvedInput": true
       },
       {
         "page": 18,
         "word": "tapa",
-        "src": "/cartilla/art/faithful/flipchart-native/p018-tapa.webp",
-        "width": 660,
-        "height": 493,
-        "bytes": 46124,
-        "backgroundRemoved": true
+        "src": "/cartilla/art/optimized/flipchart-native/p018-tapa.webp",
+        "width": 1536,
+        "height": 1240,
+        "bytes": 127625,
+        "approvedInput": true
       },
       {
         "page": 18,
         "word": "topo",
-        "src": "/cartilla/art/faithful/flipchart-native/p018-topo.webp",
-        "width": 613,
-        "height": 599,
-        "bytes": 58510,
-        "backgroundRemoved": true
+        "src": "/cartilla/art/optimized/flipchart-native/p018-topo.webp",
+        "width": 1478,
+        "height": 1536,
+        "bytes": 169656,
+        "approvedInput": true
       },
       {
         "page": 18,
         "word": "tipi",
-        "src": "/cartilla/art/faithful/flipchart-native/p018-tipi.webp",
-        "width": 569,
-        "height": 579,
-        "bytes": 64718,
-        "backgroundRemoved": true
+        "src": "/cartilla/art/optimized/flipchart-native/p018-tipi.webp",
+        "width": 1536,
+        "height": 1464,
+        "bytes": 146747,
+        "approvedInput": true
       },
       {
         "page": 18,
         "word": "Tuto",
-        "src": "/cartilla/art/faithful/flipchart-native/p018-tuto.webp",
-        "width": 574,
-        "height": 699,
-        "bytes": 81928,
-        "backgroundRemoved": true
+        "src": "/cartilla/art/optimized/flipchart-native/p018-tuto.webp",
+        "width": 1536,
+        "height": 1482,
+        "bytes": 201825,
+        "approvedInput": true
+      },
+      {
+        "page": 20,
+        "word": "Ilustración de la página 20",
+        "src": "/cartilla/art/optimized/flipchart-native/p020-scene.png",
+        "width": 658,
+        "height": 658,
+        "bytes": 356866,
+        "approvedInput": true
+      },
+      {
+        "page": 21,
+        "word": "Ilustración de la página 21",
+        "src": "/cartilla/art/optimized/flipchart-native/p021-scene.png",
+        "width": 559,
+        "height": 559,
+        "bytes": 104462,
+        "approvedInput": true
       },
       {
         "page": 21,
         "word": "Didi",
-        "src": "/cartilla/art/faithful/flipchart-native/p021-didi.webp",
-        "width": 551,
-        "height": 765,
-        "bytes": 51446,
-        "backgroundRemoved": true
+        "src": "/cartilla/art/optimized/flipchart-native/p021-didi.webp",
+        "width": 1536,
+        "height": 1360,
+        "bytes": 125316,
+        "approvedInput": true
       },
       {
         "page": 21,
         "word": "dados",
-        "src": "/cartilla/art/faithful/flipchart-native/p021-dados.webp",
-        "width": 595,
-        "height": 720,
-        "bytes": 59394,
-        "backgroundRemoved": true
+        "src": "/cartilla/art/optimized/flipchart-native/p021-dados.webp",
+        "width": 1536,
+        "height": 1440,
+        "bytes": 136317,
+        "approvedInput": true
       },
       {
         "page": 21,
         "word": "dedo",
-        "src": "/cartilla/art/faithful/flipchart-native/p021-dedo.webp",
-        "width": 454,
-        "height": 714,
-        "bytes": 49658,
-        "backgroundRemoved": true
+        "src": "/cartilla/art/optimized/flipchart-native/p021-dedo.webp",
+        "width": 1281,
+        "height": 1536,
+        "bytes": 127794,
+        "approvedInput": true
       },
       {
         "page": 21,
         "word": "doce",
-        "src": "/cartilla/art/faithful/flipchart-native/p021-doce.webp",
-        "width": 564,
-        "height": 712,
-        "bytes": 99252,
-        "backgroundRemoved": true
+        "src": "/cartilla/art/optimized/flipchart-native/p021-doce.webp",
+        "width": 1355,
+        "height": 1536,
+        "bytes": 195221,
+        "approvedInput": true
       },
       {
         "page": 21,
         "word": "Dunia",
-        "src": "/cartilla/art/faithful/flipchart-native/p021-dunia.webp",
-        "width": 892,
-        "height": 724,
-        "bytes": 128314,
-        "backgroundRemoved": true
+        "src": "/cartilla/art/optimized/flipchart-native/p021-dunia.webp",
+        "width": 1536,
+        "height": 1324,
+        "bytes": 218652,
+        "approvedInput": true
+      },
+      {
+        "page": 23,
+        "word": "Ilustración de la página 23",
+        "src": "/cartilla/art/optimized/flipchart-native/p023-scene.png",
+        "width": 621,
+        "height": 621,
+        "bytes": 307816,
+        "approvedInput": true
+      },
+      {
+        "page": 24,
+        "word": "Ilustración de la página 24",
+        "src": "/cartilla/art/optimized/flipchart-native/p024-scene.png",
+        "width": 549,
+        "height": 549,
+        "bytes": 180981,
+        "approvedInput": true
       },
       {
         "page": 24,
         "word": "maleta",
-        "src": "/cartilla/art/faithful/flipchart-native/p024-maleta.webp",
-        "width": 506,
-        "height": 619,
-        "bytes": 49284,
-        "backgroundRemoved": true
+        "src": "/cartilla/art/optimized/flipchart-native/p024-maleta.webp",
+        "width": 1369,
+        "height": 1536,
+        "bytes": 140465,
+        "approvedInput": true
       },
       {
         "page": 24,
         "word": "lata",
-        "src": "/cartilla/art/faithful/flipchart-native/p024-lata.webp",
-        "width": 540,
-        "height": 597,
-        "bytes": 51958,
-        "backgroundRemoved": true
+        "src": "/cartilla/art/optimized/flipchart-native/p024-lata.webp",
+        "width": 1395,
+        "height": 1536,
+        "bytes": 158721,
+        "approvedInput": true
       },
       {
         "page": 24,
         "word": "Luli",
-        "src": "/cartilla/art/faithful/flipchart-native/p024-luli.webp",
-        "width": 396,
-        "height": 786,
-        "bytes": 58996,
-        "backgroundRemoved": true
+        "src": "/cartilla/art/optimized/flipchart-native/p024-luli.webp",
+        "width": 1058,
+        "height": 1536,
+        "bytes": 132783,
+        "approvedInput": true
       },
       {
         "page": 24,
         "word": "loma",
-        "src": "/cartilla/art/faithful/flipchart-native/p024-loma.webp",
-        "width": 798,
-        "height": 613,
-        "bytes": 46354,
-        "backgroundRemoved": true
+        "src": "/cartilla/art/optimized/flipchart-native/p024-loma.webp",
+        "width": 1536,
+        "height": 1238,
+        "bytes": 91971,
+        "approvedInput": true
       },
       {
         "page": 24,
         "word": "Lala",
-        "src": "/cartilla/art/faithful/flipchart-native/p024-lala.webp",
-        "width": 516,
-        "height": 358,
-        "bytes": 34508,
-        "backgroundRemoved": true
+        "src": "/cartilla/art/optimized/flipchart-native/p024-lala.png",
+        "width": 320,
+        "height": 320,
+        "bytes": 30674,
+        "approvedInput": true
+      },
+      {
+        "page": 26,
+        "word": "Ilustración de la página 26",
+        "src": "/cartilla/art/optimized/flipchart-native/p026-scene.png",
+        "width": 638,
+        "height": 638,
+        "bytes": 189595,
+        "approvedInput": true
+      },
+      {
+        "page": 27,
+        "word": "Ilustración de la página 27",
+        "src": "/cartilla/art/optimized/flipchart-native/p027-scene.png",
+        "width": 560,
+        "height": 560,
+        "bytes": 279018,
+        "approvedInput": true
+      },
+      {
+        "page": 27,
+        "word": "nido",
+        "src": "/cartilla/art/optimized/flipchart-native/p027-nido.png",
+        "width": 320,
+        "height": 320,
+        "bytes": 43656,
+        "approvedInput": true
+      },
+      {
+        "page": 27,
+        "word": "nudo",
+        "src": "/cartilla/art/optimized/flipchart-native/p027-nudo.png",
+        "width": 320,
+        "height": 320,
+        "bytes": 44142,
+        "approvedInput": true
+      },
+      {
+        "page": 27,
+        "word": "mono",
+        "src": "/cartilla/art/optimized/flipchart-native/p027-mono.png",
+        "width": 320,
+        "height": 320,
+        "bytes": 40787,
+        "approvedInput": true
+      },
+      {
+        "page": 27,
+        "word": "Napi",
+        "src": "/cartilla/art/optimized/flipchart-native/p027-napi.png",
+        "width": 320,
+        "height": 320,
+        "bytes": 70916,
+        "approvedInput": true
+      },
+      {
+        "page": 27,
+        "word": "tenedor",
+        "src": "/cartilla/art/optimized/flipchart-native/p027-tenedor.png",
+        "width": 320,
+        "height": 320,
+        "bytes": 12037,
+        "approvedInput": true
+      },
+      {
+        "page": 29,
+        "word": "Ilustración de la página 29",
+        "src": "/cartilla/art/optimized/flipchart-native/p029-scene.png",
+        "width": 665,
+        "height": 665,
+        "bytes": 264645,
+        "approvedInput": true
+      },
+      {
+        "page": 30,
+        "word": "Ilustración de la página 30",
+        "src": "/cartilla/art/optimized/flipchart-native/p030-scene.png",
+        "width": 545,
+        "height": 545,
+        "bytes": 260707,
+        "approvedInput": true
+      },
+      {
+        "page": 30,
+        "word": "piñata",
+        "src": "/cartilla/art/optimized/flipchart-native/p030-pinata.png",
+        "width": 320,
+        "height": 320,
+        "bytes": 43865,
+        "approvedInput": true
+      },
+      {
+        "page": 30,
+        "word": "Ñuno",
+        "src": "/cartilla/art/optimized/flipchart-native/p030-nuno.png",
+        "width": 320,
+        "height": 320,
+        "bytes": 36499,
+        "approvedInput": true
+      },
+      {
+        "page": 30,
+        "word": "niñito",
+        "src": "/cartilla/art/optimized/flipchart-native/p030-ninito.png",
+        "width": 320,
+        "height": 320,
+        "bytes": 55302,
+        "approvedInput": true
+      },
+      {
+        "page": 30,
+        "word": "moño",
+        "src": "/cartilla/art/optimized/flipchart-native/p030-mono.png",
+        "width": 320,
+        "height": 320,
+        "bytes": 84380,
+        "approvedInput": true
+      },
+      {
+        "page": 30,
+        "word": "Meñe",
+        "src": "/cartilla/art/optimized/flipchart-native/p030-mene.png",
+        "width": 320,
+        "height": 320,
+        "bytes": 51822,
+        "approvedInput": true
+      },
+      {
+        "page": 32,
+        "word": "Ilustración de la página 32",
+        "src": "/cartilla/art/optimized/flipchart-native/p032-scene.png",
+        "width": 682,
+        "height": 682,
+        "bytes": 231822,
+        "approvedInput": true
+      },
+      {
+        "page": 33,
+        "word": "Ilustración de la página 33",
+        "src": "/cartilla/art/optimized/flipchart-native/p033-scene.png",
+        "width": 549,
+        "height": 549,
+        "bytes": 227395,
+        "approvedInput": true
+      },
+      {
+        "page": 33,
+        "word": "Beba",
+        "src": "/cartilla/art/optimized/flipchart-native/p033-beba.png",
+        "width": 320,
+        "height": 320,
+        "bytes": 46539,
+        "approvedInput": true
+      },
+      {
+        "page": 33,
+        "word": "Bubi",
+        "src": "/cartilla/art/optimized/flipchart-native/p033-bubi.png",
+        "width": 320,
+        "height": 320,
+        "bytes": 42247,
+        "approvedInput": true
+      },
+      {
+        "page": 33,
+        "word": "bate",
+        "src": "/cartilla/art/optimized/flipchart-native/p033-bate.png",
+        "width": 320,
+        "height": 320,
+        "bytes": 25693,
+        "approvedInput": true
+      },
+      {
+        "page": 33,
+        "word": "bota",
+        "src": "/cartilla/art/optimized/flipchart-native/p033-bota.png",
+        "width": 320,
+        "height": 320,
+        "bytes": 92719,
+        "approvedInput": true
+      },
+      {
+        "page": 33,
+        "word": "bebita",
+        "src": "/cartilla/art/optimized/flipchart-native/p033-bebita.png",
+        "width": 320,
+        "height": 320,
+        "bytes": 75124,
+        "approvedInput": true
+      },
+      {
+        "page": 35,
+        "word": "Ilustración de la página 35",
+        "src": "/cartilla/art/optimized/flipchart-native/p035-scene.png",
+        "width": 666,
+        "height": 666,
+        "bytes": 177075,
+        "approvedInput": true
+      },
+      {
+        "page": 36,
+        "word": "Ilustración de la página 36",
+        "src": "/cartilla/art/optimized/flipchart-native/p036-scene.png",
+        "width": 526,
+        "height": 526,
+        "bytes": 191915,
+        "approvedInput": true
+      },
+      {
+        "page": 36,
+        "word": "vaso",
+        "src": "/cartilla/art/optimized/flipchart-native/p036-vaso.png",
+        "width": 320,
+        "height": 320,
+        "bytes": 23211,
+        "approvedInput": true
+      },
+      {
+        "page": 36,
+        "word": "vela",
+        "src": "/cartilla/art/optimized/flipchart-native/p036-vela.png",
+        "width": 320,
+        "height": 320,
+        "bytes": 30920,
+        "approvedInput": true
+      },
+      {
+        "page": 36,
+        "word": "Vita",
+        "src": "/cartilla/art/optimized/flipchart-native/p036-vita.png",
+        "width": 320,
+        "height": 320,
+        "bytes": 63379,
+        "approvedInput": true
+      },
+      {
+        "page": 36,
+        "word": "pavo",
+        "src": "/cartilla/art/optimized/flipchart-native/p036-pavo.png",
+        "width": 320,
+        "height": 320,
+        "bytes": 93181,
+        "approvedInput": true
+      },
+      {
+        "page": 36,
+        "word": "Vuli",
+        "src": "/cartilla/art/optimized/flipchart-native/p036-vuli.png",
+        "width": 330,
+        "height": 330,
+        "bytes": 36595,
+        "approvedInput": true
+      },
+      {
+        "page": 38,
+        "word": "Ilustración de la página 38",
+        "src": "/cartilla/art/optimized/flipchart-native/p038-scene.png",
+        "width": 636,
+        "height": 636,
+        "bytes": 209332,
+        "approvedInput": true
+      },
+      {
+        "page": 39,
+        "word": "Ilustración de la página 39",
+        "src": "/cartilla/art/optimized/flipchart-native/p039-scene.png",
+        "width": 519,
+        "height": 519,
+        "bytes": 178166,
+        "approvedInput": true
+      },
+      {
+        "page": 39,
+        "word": "rana",
+        "src": "/cartilla/art/optimized/flipchart-native/p039-rana.png",
+        "width": 320,
+        "height": 320,
+        "bytes": 62419,
+        "approvedInput": true
+      },
+      {
+        "page": 39,
+        "word": "remos",
+        "src": "/cartilla/art/optimized/flipchart-native/p039-remos.png",
+        "width": 320,
+        "height": 320,
+        "bytes": 65623,
+        "approvedInput": true
+      },
+      {
+        "page": 39,
+        "word": "Rita",
+        "src": "/cartilla/art/optimized/flipchart-native/p039-rita.png",
+        "width": 324,
+        "height": 324,
+        "bytes": 52168,
+        "approvedInput": true
+      },
+      {
+        "page": 39,
+        "word": "rosa",
+        "src": "/cartilla/art/optimized/flipchart-native/p039-rosa.png",
+        "width": 320,
+        "height": 320,
+        "bytes": 54742,
+        "approvedInput": true
+      },
+      {
+        "page": 39,
+        "word": "rueda",
+        "src": "/cartilla/art/optimized/flipchart-native/p039-rueda.png",
+        "width": 320,
+        "height": 320,
+        "bytes": 87137,
+        "approvedInput": true
+      },
+      {
+        "page": 41,
+        "word": "Ilustración de la página 41",
+        "src": "/cartilla/art/optimized/flipchart-native/p041-scene.png",
+        "width": 586,
+        "height": 586,
+        "bytes": 254340,
+        "approvedInput": true
+      },
+      {
+        "page": 42,
+        "word": "Ilustración de la página 42",
+        "src": "/cartilla/art/optimized/flipchart-native/p042-scene.png",
+        "width": 529,
+        "height": 529,
+        "bytes": 261932,
+        "approvedInput": true
+      },
+      {
+        "page": 42,
+        "word": "burro",
+        "src": "/cartilla/art/optimized/flipchart-native/p042-burro.png",
+        "width": 320,
+        "height": 320,
+        "bytes": 46838,
+        "approvedInput": true
+      },
+      {
+        "page": 42,
+        "word": "carrusel",
+        "src": "/cartilla/art/optimized/flipchart-native/p042-carrusel.png",
+        "width": 320,
+        "height": 320,
+        "bytes": 87851,
+        "approvedInput": true
+      },
+      {
+        "page": 42,
+        "word": "torre",
+        "src": "/cartilla/art/optimized/flipchart-native/p042-torre.png",
+        "width": 320,
+        "height": 320,
+        "bytes": 24379,
+        "approvedInput": true
+      },
+      {
+        "page": 42,
+        "word": "barril",
+        "src": "/cartilla/art/optimized/flipchart-native/p042-barril.png",
+        "width": 320,
+        "height": 320,
+        "bytes": 64861,
+        "approvedInput": true
+      },
+      {
+        "page": 42,
+        "word": "Tierra",
+        "src": "/cartilla/art/optimized/flipchart-native/p042-tierra.png",
+        "width": 320,
+        "height": 320,
+        "bytes": 95440,
+        "approvedInput": true
+      },
+      {
+        "page": 44,
+        "word": "Ilustración de la página 44",
+        "src": "/cartilla/art/optimized/flipchart-native/p044-scene.png",
+        "width": 653,
+        "height": 653,
+        "bytes": 552239,
+        "approvedInput": true
+      },
+      {
+        "page": 45,
+        "word": "Ilustración de la página 45",
+        "src": "/cartilla/art/optimized/flipchart-native/p045-scene.png",
+        "width": 557,
+        "height": 557,
+        "bytes": 166965,
+        "approvedInput": true
+      },
+      {
+        "page": 45,
+        "word": "gaveta",
+        "src": "/cartilla/art/optimized/flipchart-native/p045-gaveta.png",
+        "width": 321,
+        "height": 321,
+        "bytes": 80865,
+        "approvedInput": true
+      },
+      {
+        "page": 45,
+        "word": "gusano",
+        "src": "/cartilla/art/optimized/flipchart-native/p045-gusano.png",
+        "width": 333,
+        "height": 333,
+        "bytes": 27873,
+        "approvedInput": true
+      },
+      {
+        "page": 45,
+        "word": "Goloso",
+        "src": "/cartilla/art/optimized/flipchart-native/p045-goloso.png",
+        "width": 320,
+        "height": 320,
+        "bytes": 71135,
+        "approvedInput": true
+      },
+      {
+        "page": 45,
+        "word": "gorra",
+        "src": "/cartilla/art/optimized/flipchart-native/p045-gorra.png",
+        "width": 320,
+        "height": 320,
+        "bytes": 55671,
+        "approvedInput": true
+      },
+      {
+        "page": 45,
+        "word": "mago",
+        "src": "/cartilla/art/optimized/flipchart-native/p045-mago.png",
+        "width": 320,
+        "height": 320,
+        "bytes": 75805,
+        "approvedInput": true
+      },
+      {
+        "page": 47,
+        "word": "Ilustración de la página 47",
+        "src": "/cartilla/art/optimized/flipchart-native/p047-scene.png",
+        "width": 667,
+        "height": 667,
+        "bytes": 238929,
+        "approvedInput": true
+      },
+      {
+        "page": 48,
+        "word": "Ilustración de la página 48",
+        "src": "/cartilla/art/optimized/flipchart-native/p048-scene.png",
+        "width": 552,
+        "height": 552,
+        "bytes": 122839,
+        "approvedInput": true
+      },
+      {
+        "page": 48,
+        "word": "foto",
+        "src": "/cartilla/art/optimized/flipchart-native/p048-foto.png",
+        "width": 320,
+        "height": 320,
+        "bytes": 65853,
+        "approvedInput": true
+      },
+      {
+        "page": 48,
+        "word": "fideos",
+        "src": "/cartilla/art/optimized/flipchart-native/p048-fideos.png",
+        "width": 325,
+        "height": 325,
+        "bytes": 69470,
+        "approvedInput": true
+      },
+      {
+        "page": 48,
+        "word": "familia",
+        "src": "/cartilla/art/optimized/flipchart-native/p048-familia.png",
+        "width": 323,
+        "height": 323,
+        "bytes": 69178,
+        "approvedInput": true
+      },
+      {
+        "page": 48,
+        "word": "Felo",
+        "src": "/cartilla/art/optimized/flipchart-native/p048-felo.png",
+        "width": 321,
+        "height": 321,
+        "bytes": 80269,
+        "approvedInput": true
+      },
+      {
+        "page": 48,
+        "word": "funda",
+        "src": "/cartilla/art/optimized/flipchart-native/p048-funda.png",
+        "width": 320,
+        "height": 320,
+        "bytes": 56851,
+        "approvedInput": true
+      },
+      {
+        "page": 50,
+        "word": "Ilustración de la página 50",
+        "src": "/cartilla/art/optimized/flipchart-native/p050-scene.png",
+        "width": 644,
+        "height": 644,
+        "bytes": 330647,
+        "approvedInput": true
+      },
+      {
+        "page": 51,
+        "word": "Ilustración de la página 51",
+        "src": "/cartilla/art/optimized/flipchart-native/p051-scene.png",
+        "width": 537,
+        "height": 537,
+        "bytes": 239137,
+        "approvedInput": true
+      },
+      {
+        "page": 51,
+        "word": "jicotea",
+        "src": "/cartilla/art/optimized/flipchart-native/p051-jicotea.png",
+        "width": 322,
+        "height": 322,
+        "bytes": 82182,
+        "approvedInput": true
+      },
+      {
+        "page": 51,
+        "word": "jugo",
+        "src": "/cartilla/art/optimized/flipchart-native/p051-jugo.png",
+        "width": 320,
+        "height": 320,
+        "bytes": 41769,
+        "approvedInput": true
+      },
+      {
+        "page": 51,
+        "word": "Jesús",
+        "src": "/cartilla/art/optimized/flipchart-native/p051-jesus.png",
+        "width": 320,
+        "height": 320,
+        "bytes": 46181,
+        "approvedInput": true
+      },
+      {
+        "page": 51,
+        "word": "ajo",
+        "src": "/cartilla/art/optimized/flipchart-native/p051-ajo.png",
+        "width": 320,
+        "height": 320,
+        "bytes": 51115,
+        "approvedInput": true
+      },
+      {
+        "page": 51,
+        "word": "jarra",
+        "src": "/cartilla/art/optimized/flipchart-native/p051-jarra.png",
+        "width": 320,
+        "height": 320,
+        "bytes": 54311,
+        "approvedInput": true
+      },
+      {
+        "page": 53,
+        "word": "Ilustración de la página 53",
+        "src": "/cartilla/art/optimized/flipchart-native/p053-scene.png",
+        "width": 671,
+        "height": 671,
+        "bytes": 335717,
+        "approvedInput": true
+      },
+      {
+        "page": 54,
+        "word": "Ilustración de la página 54",
+        "src": "/cartilla/art/optimized/flipchart-native/p054-scene.png",
+        "width": 561,
+        "height": 561,
+        "bytes": 252038,
+        "approvedInput": true
+      },
+      {
+        "page": 54,
+        "word": "cuna",
+        "src": "/cartilla/art/optimized/flipchart-native/p054-cuna.png",
+        "width": 320,
+        "height": 320,
+        "bytes": 66603,
+        "approvedInput": true
+      },
+      {
+        "page": 54,
+        "word": "conejo",
+        "src": "/cartilla/art/optimized/flipchart-native/p054-conejo.png",
+        "width": 320,
+        "height": 320,
+        "bytes": 39496,
+        "approvedInput": true
+      },
+      {
+        "page": 54,
+        "word": "casa",
+        "src": "/cartilla/art/optimized/flipchart-native/p054-casa.png",
+        "width": 339,
+        "height": 339,
+        "bytes": 70088,
+        "approvedInput": true
+      },
+      {
+        "page": 54,
+        "word": "cubo",
+        "src": "/cartilla/art/optimized/flipchart-native/p054-cubo.png",
+        "width": 320,
+        "height": 320,
+        "bytes": 52382,
+        "approvedInput": true
+      },
+      {
+        "page": 54,
+        "word": "Catalina",
+        "src": "/cartilla/art/optimized/flipchart-native/p054-catalina.png",
+        "width": 320,
+        "height": 320,
+        "bytes": 46615,
+        "approvedInput": true
       },
       {
         "page": 56,
-        "word": "Los caramelos",
-        "src": "/cartilla/art/faithful/flipchart-native/p056-caramelos.webp",
-        "width": 1191,
-        "height": 1763,
-        "bytes": 399706,
-        "backgroundRemoved": true
+        "word": "Ilustración de la página 56",
+        "src": "/cartilla/art/optimized/flipchart-native/p056-caramelos.webp",
+        "width": 1034,
+        "height": 1536,
+        "bytes": 290425,
+        "approvedInput": true
+      },
+      {
+        "page": 57,
+        "word": "Ilustración de la página 57",
+        "src": "/cartilla/art/optimized/flipchart-native/p057-scene.png",
+        "width": 560,
+        "height": 560,
+        "bytes": 213847,
+        "approvedInput": true
+      },
+      {
+        "page": 57,
+        "word": "yate",
+        "src": "/cartilla/art/optimized/flipchart-native/p057-yate.png",
+        "width": 338,
+        "height": 338,
+        "bytes": 68646,
+        "approvedInput": true
+      },
+      {
+        "page": 57,
+        "word": "yema",
+        "src": "/cartilla/art/optimized/flipchart-native/p057-yema.png",
+        "width": 333,
+        "height": 333,
+        "bytes": 14093,
+        "approvedInput": true
+      },
+      {
+        "page": 57,
+        "word": "Yayita",
+        "src": "/cartilla/art/optimized/flipchart-native/p057-yayita.png",
+        "width": 320,
+        "height": 320,
+        "bytes": 80945,
+        "approvedInput": true
+      },
+      {
+        "page": 57,
+        "word": "mayúscula",
+        "src": "/cartilla/art/optimized/flipchart-native/p057-mayuscula.png",
+        "width": 320,
+        "height": 320,
+        "bytes": 62566,
+        "approvedInput": true
+      },
+      {
+        "page": 57,
+        "word": "yoyo",
+        "src": "/cartilla/art/optimized/flipchart-native/p057-yoyo.png",
+        "width": 320,
+        "height": 320,
+        "bytes": 51013,
+        "approvedInput": true
+      },
+      {
+        "page": 59,
+        "word": "Ilustración de la página 59",
+        "src": "/cartilla/art/optimized/flipchart-native/p059-scene.png",
+        "width": 567,
+        "height": 567,
+        "bytes": 281079,
+        "approvedInput": true
+      },
+      {
+        "page": 60,
+        "word": "Ilustración de la página 60",
+        "src": "/cartilla/art/optimized/flipchart-native/p060-scene.png",
+        "width": 505,
+        "height": 505,
+        "bytes": 187254,
+        "approvedInput": true
+      },
+      {
+        "page": 60,
+        "word": "zapato",
+        "src": "/cartilla/art/optimized/flipchart-native/p060-zapato.png",
+        "width": 320,
+        "height": 320,
+        "bytes": 61591,
+        "approvedInput": true
+      },
+      {
+        "page": 60,
+        "word": "zig-zag",
+        "src": "/cartilla/art/optimized/flipchart-native/p060-zigzag.png",
+        "width": 344,
+        "height": 344,
+        "bytes": 35412,
+        "approvedInput": true
+      },
+      {
+        "page": 60,
+        "word": "zorro",
+        "src": "/cartilla/art/optimized/flipchart-native/p060-zorro.png",
+        "width": 320,
+        "height": 320,
+        "bytes": 49029,
+        "approvedInput": true
+      },
+      {
+        "page": 60,
+        "word": "zepelín",
+        "src": "/cartilla/art/optimized/flipchart-native/p060-zepelin.png",
+        "width": 362,
+        "height": 362,
+        "bytes": 74842,
+        "approvedInput": true
+      },
+      {
+        "page": 60,
+        "word": "Zulema",
+        "src": "/cartilla/art/optimized/flipchart-native/p060-zulema.png",
+        "width": 320,
+        "height": 320,
+        "bytes": 51690,
+        "approvedInput": true
+      },
+      {
+        "page": 62,
+        "word": "Ilustración de la página 62",
+        "src": "/cartilla/art/optimized/flipchart-native/p062-scene.png",
+        "width": 633,
+        "height": 633,
+        "bytes": 350896,
+        "approvedInput": true
       }
     ]
   }

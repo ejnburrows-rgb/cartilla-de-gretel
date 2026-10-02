@@ -38,6 +38,7 @@ export interface DibujaHostProps {
   initialMode?: InputModeDefault;
   onComplete?: () => void;
   className?: string;
+  verb?: "Dibuja" | "Escribe";
 }
 
 const MIN_STROKE_POINTS = 12;
@@ -50,6 +51,7 @@ export function DibujaHost({
   initialMode,
   onComplete,
   className,
+  verb = "Dibuja",
 }: DibujaHostProps) {
   const [mode, setMode] = useState<InputModeDefault>(() => initialMode ?? defaultDibujaMode());
   const reducedMotion = useReducedMotion();
@@ -299,10 +301,10 @@ export function DibujaHost({
     <div
       className={`am-dibuja${className ? ` ${className}` : ""}${done ? " is-done" : ""}`}
       data-mode={mode}
-      data-verb="Dibuja"
+      data-verb={verb}
     >
       <div className="am-dibuja__header">
-        <span className="am-dibuja__verb">Dibuja</span>
+        <span className="am-dibuja__verb">{verb}</span>
         {hint ? <span className="am-dibuja__hint">{hint}</span> : null}
       </div>
 
@@ -342,7 +344,7 @@ export function DibujaHost({
               onPointerUp={onPointerUp}
               onPointerCancel={onPointerUp}
               onPointerLeave={onPointerUp}
-              aria-label="Área para dibujar"
+              aria-label={verb === "Escribe" ? "Área para escribir" : "Área para dibujar"}
             />
           </div>
           {!drawDone && (

@@ -58,6 +58,12 @@
 .native-lesson-viewer__navigation button:hover:not(:disabled) { background: #e8f8f3; }
 .native-lesson-viewer__navigation button:focus-visible { outline: 3px solid #126b62; outline-offset: 3px; }
 .native-lesson-viewer__navigation button:disabled { opacity: .42; cursor: default; }
+/* Page-completion gate: Siguiente stays tappable so the child gets a hint. */
+.native-lesson-viewer__navigation button[data-locked="true"] { opacity: .55; border-style: dashed; cursor: help; }
+.native-lesson-viewer__hint { margin: 20px 0 0; padding: 12px 16px; border-radius: 14px; background: #fff6df; border: 1px solid #f2d27a; color: #6b4a00; font: 700 16px/1.4 system-ui, sans-serif; }
+.gretel-activity[data-page-remaining="true"] { outline: 3px dashed #e0a100; outline-offset: 6px; border-radius: 12px; animation: native-remaining-pulse 1.2s ease-in-out 2; }
+@keyframes native-remaining-pulse { 50% { outline-color: #ffcd4a; outline-offset: 10px; } }
+@media (prefers-reduced-motion: reduce) { .gretel-activity[data-page-remaining="true"] { animation: none; } }
 .native-lesson-viewer__companion { position: relative; display: flex; justify-content: flex-end; min-height: 96px; margin-top: 16px; }
 .native-lesson-viewer__companion .gretel-presence--book { position: relative; inset: auto; right: auto; bottom: auto; width: 96px; min-width: 96px; }
 .native-lesson-viewer__companion .gretel-presence--book .gretel-speech-bubble { right: calc(100% + 8px); width: min(220px, 53vw); max-height: none; overflow: visible; }
@@ -110,7 +116,7 @@
 
 .fp-native-vocab {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(6.8rem, 1fr));
+  grid-template-columns: repeat(3, minmax(0, 1fr));
   gap: .55rem;
   padding: .2rem 0;
 }
@@ -159,6 +165,331 @@
 
 @media (max-width: 600px) {
   .fp-native-vocab {
-    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: .35rem;
   }
+}
+
+/* The book's letter sits beside two syllable strips, above its word grid. */
+.native-lesson-viewer__content .fp-native-letter-page .faithful-page__body {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 3fr);
+  align-items: center;
+  gap: 16px;
+}
+.fp-native-letter-page .faithful-page__body > .gretel-activity { display: block; grid-column: 1 / -1; min-width: 0; }
+.fp-native-letter-page .faithful-page__body > .gretel-activity:has(.fp-native-title) { grid-column: 1; grid-row: 1 / span 2; }
+.fp-native-letter-page .faithful-page__body > .gretel-activity:has(.fp-native-syllables) { grid-column: 2; }
+.fp-native-letter-page .fp-native-title { display: grid; place-items: center; aspect-ratio: 1; border-radius: 50%; background: radial-gradient(ellipse, #fff 35%, #d6eee6 85%); font-size: clamp(2rem, 6vw, 4.5rem); }
+.fp-native-letter-page .fp-native-syllables { display: grid; grid-template-columns: repeat(5, minmax(0, 1fr)); gap: 4px; padding: 8px; border-radius: 16px; }
+.fp-native-letter-page .fp-native-syllables span { min-width: 0; padding: .4rem .1rem; font-size: clamp(1rem, 3vw, 1.8rem); }
+.fp-native-letter-page .fp-native-vocab span { min-width: 0; overflow-wrap: anywhere; }
+
+/* Each Completa item stays a vertical unit in the book's two-by-three grid. */
+.native-lesson-viewer__content .fp-ix-fill--book-grid { display: grid; grid-template-columns: repeat(var(--fill-columns, 3), minmax(0, 1fr)); gap: 14px; }
+.native-lesson-viewer__content .fp-ix-fill--book-grid .fp-ix-fill__item { display: flex; flex-direction: column; justify-content: space-between; min-width: 0; gap: 14px; text-align: center; padding: 14px 8px; }
+.fp-ix-fill--book-grid .fp-ix-fill__wordbox, .fp-ix-fill--book-grid .fp-ix-fill__blank { overflow-wrap: anywhere; max-width: 100%; }
+.native-lesson-viewer__content .fp-ix-fill--book-grid .fp-ix-fill__choices { justify-content: center; flex-wrap: wrap; gap: 6px; }
+.fp-ix-fill--book-grid .fp-ix-check-row { grid-column: 1 / -1; }
+@media (max-width: 600px) {
+  .native-lesson-viewer__content .fp-ix-fill--book-grid { grid-template-columns: 1fr; }
+  .native-lesson-viewer__content .fp-native-letter-page .faithful-page__body { gap: 10px; }
+}
+
+.fp-source-blocked { margin: 24px 0 0; padding: 10px 14px; border-radius: 12px; border: 1px dashed #c9a86a; background: #fffaf0; color: #7a5b1e; font: 600 14px/1.4 system-ui, sans-serif; }
+.fp-writing-line--freehand { display: block; }
+.fp-writing-line--freehand .fp-writing-line__model { font-size: 48px; }
+
+
+/* ── Approved book-page-is-the-screen layout ── */
+.native-lesson-viewer {
+  width: min(100%, 1180px);
+  margin: 0 auto;
+  padding: 0;
+  border: 0;
+  border-radius: 0;
+  background: transparent;
+  box-shadow: none;
+  color: var(--lc-ink, #25313a);
+  font-family: "Andika", ui-rounded, system-ui, sans-serif;
+}
+.native-lesson-viewer__topline {
+  max-width: 900px;
+  margin: 0 auto 10px;
+  padding: 0 4px;
+  font-family: "Andika", ui-rounded, system-ui, sans-serif;
+  color: var(--lc-ink-soft, #53616b);
+}
+.native-lesson-viewer__chapter {
+  color: var(--lc-ink, #25313a);
+  font-family: "Fredoka", ui-rounded, system-ui, sans-serif;
+}
+.native-lesson-viewer__layout {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) 220px;
+  gap: clamp(18px, 3vw, 34px);
+  align-items: center;
+}
+.native-lesson-viewer__content {
+  min-width: 0;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+}
+.native-lesson-viewer__content .faithful-page {
+  width: auto;
+  height: min(82dvh, 900px);
+  max-width: 100%;
+  aspect-ratio: 612 / 792;
+  overflow: hidden;
+  background: var(--lc-paper, #fffdf9);
+  border: 1px solid rgba(37,49,58,.14);
+  border-radius: 8px;
+  box-shadow: 0 12px 34px rgba(37,49,58,.12);
+}
+.native-lesson-viewer__content .faithful-page__sidebar { display: block; }
+.native-lesson-viewer__content .faithful-page__pagenum { display: flex; }
+.native-lesson-viewer__content .faithful-page__lesson { display: block; }
+.native-lesson-viewer__content .faithful-page__body {
+  position: absolute;
+  inset: 0;
+  padding: 6% 7% 9% 12%;
+  overflow: auto;
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  gap: 3cqw;
+}
+.native-lesson-viewer__content .faithful-page--edge-right .faithful-page__body {
+  padding: 6% 12% 9% 7%;
+}
+.native-lesson-viewer__side {
+  align-self: center;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  min-width: 0;
+}
+.native-lesson-viewer__companion {
+  display: flex;
+  justify-content: center;
+  align-items: flex-end;
+  min-height: 210px;
+  margin: 0;
+}
+.native-lesson-viewer__companion .gretel-presence--book {
+  width: 170px;
+  min-width: 170px;
+}
+.native-lesson-viewer__companion .gretel-presence--book .gretel-avatar-interactive {
+  width: 170px;
+  height: 210px;
+}
+.native-lesson-viewer__companion .gretel-presence--book .gretel-speech-bubble {
+  left: auto !important;
+  right: calc(100% + 8px) !important;
+  width: 240px;
+  max-width: min(240px, 42vw);
+  font-size: 1rem;
+  line-height: 1.3;
+  font-family: "Andika", ui-rounded, system-ui, sans-serif;
+  border-color: var(--lc-teal, #1f9e94);
+}
+.native-lesson-viewer__navigation {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 10px;
+  margin: 0;
+  padding: 14px 0 0;
+  border-top: 1px solid rgba(37,49,58,.14);
+  font-family: "Fredoka", ui-rounded, system-ui, sans-serif;
+}
+.native-lesson-viewer__navigation > span {
+  grid-column: 1 / -1;
+  grid-row: 1;
+  text-align: center;
+  color: var(--lc-ink-soft, #53616b);
+  font-family: "Andika", ui-rounded, system-ui, sans-serif;
+}
+.native-lesson-viewer__navigation button {
+  min-height: 64px;
+  border: 2px solid var(--lc-teal, #1f9e94);
+  border-radius: 14px;
+  background: var(--lc-paper, #fffdf9);
+  color: var(--lc-teal, #1f9e94);
+  font-size: 1rem;
+  font-family: "Fredoka", ui-rounded, system-ui, sans-serif;
+  font-weight: 700;
+}
+.native-lesson-viewer__navigation button:last-child {
+  background: var(--lc-red, #bf3040);
+  border-color: var(--lc-red, #bf3040);
+  color: #fff;
+}
+.native-lesson-viewer__navigation button[data-locked="true"] {
+  background: #e9e5dc;
+  border-color: #b9b4aa;
+  color: #6c6a65;
+  opacity: .78;
+}
+.native-lesson-viewer__hint {
+  margin: 0;
+  border: 1px solid rgba(191,48,64,.28);
+  background: var(--lc-paper, #fffdf9);
+  color: var(--lc-error, #b53a3a);
+  font-family: "Andika", ui-rounded, system-ui, sans-serif;
+}
+@media (max-width: 760px) {
+  .native-lesson-viewer__layout { grid-template-columns: 1fr; gap: 16px; }
+  .native-lesson-viewer__topline { padding-inline: 10px; }
+  .native-lesson-viewer__content { width: 100%; }
+  .native-lesson-viewer__content .faithful-page {
+    width: 100%;
+    height: auto;
+    min-height: calc((100vw - 28px) * 1.294);
+    aspect-ratio: 612 / 792;
+    border-radius: 0;
+    box-shadow: none;
+  }
+  .native-lesson-viewer__content .faithful-page__body { overflow-y: auto; }
+  .native-lesson-viewer__side { width: 100%; }
+  .native-lesson-viewer__companion { min-height: 160px; justify-content: flex-end; padding-right: 18px; }
+  .native-lesson-viewer__companion .gretel-presence--book,
+  .native-lesson-viewer__companion .gretel-presence--book .gretel-avatar-interactive {
+    width: 120px;
+    min-width: 120px;
+    height: 150px;
+  }
+  .native-lesson-viewer__companion .gretel-presence--book .gretel-speech-bubble {
+    max-width: calc(100vw - 170px);
+    font-size: .95rem;
+  }
+}
+
+
+/* ── In-word syllable circling ── */
+.native-syllable {
+  border: 0;
+  border-radius: 0;
+  background: transparent;
+  padding: 0;
+}
+.native-syllable h2 {
+  font-family: "Fredoka", ui-rounded, system-ui, sans-serif;
+  color: var(--lc-teal, #1f9e94);
+}
+.native-syllable__words {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0,1fr));
+  gap: 12px 18px;
+}
+.native-syllable__word {
+  min-height: 64px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--lc-ink, #25313a);
+  font-family: "Andika", ui-rounded, system-ui, sans-serif;
+  font-size: clamp(20px, 2.4vw, 28px);
+  font-weight: 700;
+}
+.native-syllable__tap,
+.native-syllable__distractor {
+  min-width: 64px;
+  min-height: 64px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border: 0;
+  background: transparent;
+  color: inherit;
+  font: inherit;
+  padding: 6px 8px;
+  cursor: pointer;
+}
+.native-syllable__tap.is-circled {
+  border: 4px solid var(--lc-teal, #1f9e94);
+  border-radius: 999px;
+  padding: 2px 8px;
+}
+.native-syllable__tap:focus-visible,
+.native-syllable__distractor:focus-visible {
+  outline: 4px solid var(--lc-focus, #1668c7);
+  outline-offset: 2px;
+  border-radius: 999px;
+}
+.native-syllable__word.is-wrong { animation: lc-gentle-shake .34s ease-in-out; }
+.native-syllable > p {
+  min-height: 1.5em;
+  margin-top: 10px;
+  color: var(--lc-error, #b53a3a);
+  font-size: 1rem;
+  font-weight: 700;
+}
+@keyframes lc-gentle-shake {
+  0%,100% { transform: translateX(0); }
+  30% { transform: translateX(-5px); }
+  65% { transform: translateX(5px); }
+}
+@media (max-width: 620px) { .native-syllable__words { grid-template-columns: repeat(2, minmax(0,1fr)); } }
+@media (prefers-reduced-motion: reduce) { .native-syllable__word.is-wrong { animation:none; } }
+
+/* Tracing touch targets: 10 SVG units on a >=240px canvas = >=48px. */
+.native-lesson-viewer__content .fp-trace__svg {
+  width: clamp(240px, 38vw, 320px);
+  max-width: 100%;
+}
+.native-lesson-viewer__content .fp-trace__footer {
+  width: clamp(240px, 38vw, 320px);
+  max-width: 100%;
+}
+.native-lesson-viewer__content .fp-trace__reset {
+  min-width: 48px;
+  min-height: 48px;
+  width: 48px;
+  height: 48px;
+}
+
+/* ── Responsive fit fixes for the approved lesson layout ── */
+/* Keep scrolled page content clear of the "Lección N" footer and page diamond. */
+.native-lesson-viewer__content .faithful-page__body,
+.native-lesson-viewer__content .faithful-page--edge-right .faithful-page__body {
+  bottom: 9%;
+  padding-bottom: 2%;
+}
+.native-lesson-viewer__content .faithful-page__lesson,
+.native-lesson-viewer__content .faithful-page__pagenum { pointer-events: none; }
+/* The 220px side column cannot hold Anterior + Siguiente/Terminar lección
+ * side by side; stack them so the gated button is never clipped. */
+@media (min-width: 761px) {
+  .native-lesson-viewer__navigation { grid-template-columns: minmax(0, 1fr); }
+  .native-lesson-viewer__navigation button { width: 100%; min-width: 0; justify-content: center; }
+}
+/* Phones: the page grows with its content instead of trapping the child in a
+ * nested scroll box inside the scrolling screen. */
+@media (max-width: 760px) {
+  .native-lesson-viewer__content .faithful-page {
+    height: auto;
+    aspect-ratio: auto;
+  }
+  .native-lesson-viewer__content .faithful-page__body,
+  .native-lesson-viewer__content .faithful-page--edge-right .faithful-page__body {
+    position: relative;
+    inset: auto;
+    overflow: visible;
+    padding-bottom: calc(9% + 28px);
+  }
+  /* Percent offsets would drift upward as the page grows; pin the footer. */
+  .native-lesson-viewer__content .faithful-page__lesson { bottom: 14px; }
+  .native-lesson-viewer__content .faithful-page__pagenum { bottom: 12px; }
+}
+/* Hover/sticky-tap must not wash out the primary button's white label. */
+.native-lesson-viewer__navigation button:last-child:hover:not(:disabled) {
+  background: #a32636;
+  border-color: #a32636;
+  color: #fff;
+}
+.native-lesson-viewer__navigation button[data-locked="true"]:hover:not(:disabled) {
+  background: #e9e5dc;
+  border-color: #b9b4aa;
+  color: #6c6a65;
 }

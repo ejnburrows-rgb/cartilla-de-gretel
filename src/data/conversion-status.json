@@ -2,6 +2,7 @@
   "schemaVersion": 1,
   "sourceOfPageNumbers": "src/lib/lesson-catalog.ts + src/data/page-inventory.json",
   "statusDefinitions": [
+    "SOURCE_BLOCKED",
     "SCAN_ONLY",
     "STRUCTURED_PARTIAL",
     "NATIVE_COMPLETE",
@@ -9,8 +10,8 @@
     "CERTIFIED"
   ],
   "notes": [
-    "The separate 90-page workbook manifest disagrees with lesson-exercises/lesson-07.ts about Lesson 7 numbering; the actual student route uses page-layouts.json pages 19–22.",
-    "Pages 1–90 use the native student route and FaithfulPageRenderer. Native promotion is complete; animation/cinematic certification remains separate.",
+    "page-layouts.json is the single workbook content source; the old parallel workbook-manifest.json pipeline was removed.",
+    "Pages 1–90 use the native student route and FaithfulPageRenderer. Pages 86–87 are SOURCE_BLOCKED: they render, but cannot be verified against the printed book until the owner supplies a rescan.",
     "The authoritative source scan has a verified gap at printed pages 86–87. Native structured content remains the product surface there; no substitute scan is invented."
   ],
   "pages": [
@@ -19,11 +20,9 @@
       "lesson": 1,
       "renderer": "FaithfulPageRenderer",
       "structuredContent": "src/data/page-layouts.json#pages.1",
-      "manifestRecord": "src/content/workbook/workbook-manifest.json#1",
       "exerciseMechanics": [
         "picture-grid"
       ],
-      "workbookInteractions": [],
       "faithfulIllustrations": [
         "/cartilla/art/digital/page-001/r1-c1.png",
         "/cartilla/art/digital/page-001/r1-c2.png",
@@ -61,11 +60,9 @@
       "lesson": 1,
       "renderer": "FaithfulPageRenderer",
       "structuredContent": "src/data/page-layouts.json#pages.2",
-      "manifestRecord": "src/content/workbook/workbook-manifest.json#2",
       "exerciseMechanics": [
         "vowel-pick-one"
       ],
-      "workbookInteractions": [],
       "faithfulIllustrations": [
         "/cartilla/art/digital/page-002/r1-c2.png",
         "/cartilla/art/digital/page-002/r1-c3.png",
@@ -98,11 +95,9 @@
       "lesson": 1,
       "renderer": "FaithfulPageRenderer",
       "structuredContent": "src/data/page-layouts.json#pages.3",
-      "manifestRecord": "src/content/workbook/workbook-manifest.json#3",
       "exerciseMechanics": [
         "vowel-match-all"
       ],
-      "workbookInteractions": [],
       "faithfulIllustrations": [
         "/cartilla/art/faithful/vocal-o/ocho.webp",
         "/cartilla/art/faithful/vocal-a/arana.webp",
@@ -125,12 +120,8 @@
       "lesson": 2,
       "renderer": "FaithfulPageRenderer",
       "structuredContent": "src/data/page-layouts.json#pages.4",
-      "manifestRecord": "src/content/workbook/workbook-manifest.json#4",
       "exerciseMechanics": [
         "picture-grid"
-      ],
-      "workbookInteractions": [
-        "l2-p4-listen-o"
       ],
       "faithfulIllustrations": [
         "/cartilla/art/faithful/vocal-o/ola.webp",
@@ -156,7 +147,7 @@
         "/cartilla/art/faithful/vocal-o/oso.webp"
       ],
       "gretelGuidance": [
-        "Presiona los dibujos que comienzan con O o."
+        "Marca con una x los dibujos que comienzan con O o."
       ],
       "status": "NATIVE_COMPLETE",
       "certification": null
@@ -166,11 +157,9 @@
       "lesson": 2,
       "renderer": "FaithfulPageRenderer",
       "structuredContent": "src/data/page-layouts.json#pages.5",
-      "manifestRecord": "src/content/workbook/workbook-manifest.json#5",
       "exerciseMechanics": [
         "vowel-line-match"
       ],
-      "workbookInteractions": [],
       "faithfulIllustrations": [
         "/cartilla/art/faithful/vocal-i/iglu.webp",
         "/cartilla/art/faithful/vocal-o/oveja.webp",
@@ -198,19 +187,17 @@
       "lesson": 2,
       "renderer": "FaithfulPageRenderer",
       "structuredContent": "src/data/page-layouts.json#pages.6",
-      "manifestRecord": "src/content/workbook/workbook-manifest.json#6",
       "exerciseMechanics": [
         "writing-line",
         "draw-box"
       ],
-      "workbookInteractions": [],
       "faithfulIllustrations": [],
       "sourceScan": "/cartilla/art/source/workbook/page-006.jpg",
       "legacyScanReference": "/cartilla/images/source/o/o-page-5.jpg",
       "sourceScanPresentInCheckout": true,
       "animationCandidates": [],
       "gretelGuidance": [
-        "Traza con tu mejor letra.",
+        "Escribe con tu mejor letra.",
         "Haz un dibujo que represente una palabra que comienza con o."
       ],
       "status": "NATIVE_COMPLETE",
@@ -221,12 +208,8 @@
       "lesson": 3,
       "renderer": "FaithfulPageRenderer",
       "structuredContent": "src/data/page-layouts.json#pages.7",
-      "manifestRecord": "src/content/workbook/workbook-manifest.json#7",
       "exerciseMechanics": [
         "picture-grid"
-      ],
-      "workbookInteractions": [
-        "l3-p7-drag-word-a"
       ],
       "faithfulIllustrations": [
         "/cartilla/art/faithful/vocal-a/abanico.webp",
@@ -243,17 +226,19 @@
         "/cartilla/art/faithful/vocal-a/ardilla.webp",
         "/cartilla/art/faithful/leccion-1/ojos.webp",
         "/cartilla/art/faithful/vocal-a/avion.webp",
-        "/cartilla/art/faithful/vocal-a/aguja.webp"
+        "/cartilla/art/faithful/vocal-a/aguja.webp",
+        "/cartilla/art/faithful/vocal-o/oso.webp"
       ],
       "sourceScan": "/cartilla/art/source/workbook/page-007.jpg",
       "legacyScanReference": "/cartilla/images/source/a/a-page-4.jpg",
       "sourceScanPresentInCheckout": true,
       "animationCandidates": [
         "/cartilla/art/faithful/vocal-o/oruga.webp",
-        "/cartilla/art/faithful/vocal-a/abeja.webp"
+        "/cartilla/art/faithful/vocal-a/abeja.webp",
+        "/cartilla/art/faithful/vocal-o/oso.webp"
       ],
       "gretelGuidance": [
-        "Presiona los dibujos de las palabras que comienzan con A a."
+        "Marca con una x los dibujos de las palabras que comienzan con A a."
       ],
       "status": "NATIVE_COMPLETE",
       "certification": null
@@ -263,11 +248,9 @@
       "lesson": 3,
       "renderer": "FaithfulPageRenderer",
       "structuredContent": "src/data/page-layouts.json#pages.8",
-      "manifestRecord": "src/content/workbook/workbook-manifest.json#8",
       "exerciseMechanics": [
         "vowel-line-match"
       ],
-      "workbookInteractions": [],
       "faithfulIllustrations": [
         "/cartilla/art/faithful/vocal-o/oso.webp",
         "/cartilla/art/faithful/vocal-i/iglu.webp",
@@ -297,19 +280,17 @@
       "lesson": 3,
       "renderer": "FaithfulPageRenderer",
       "structuredContent": "src/data/page-layouts.json#pages.9",
-      "manifestRecord": "src/content/workbook/workbook-manifest.json#9",
       "exerciseMechanics": [
         "writing-line",
         "draw-box"
       ],
-      "workbookInteractions": [],
       "faithfulIllustrations": [],
       "sourceScan": "/cartilla/art/source/workbook/page-009.jpg",
       "legacyScanReference": "/cartilla/images/source/a/a-page-6.jpg",
       "sourceScanPresentInCheckout": true,
       "animationCandidates": [],
       "gretelGuidance": [
-        "Traza con tu mejor letra.",
+        "Escribe con tu mejor letra.",
         "Haz un dibujo que represente una palabra que comienza con a."
       ],
       "status": "NATIVE_COMPLETE",
@@ -320,12 +301,8 @@
       "lesson": 4,
       "renderer": "FaithfulPageRenderer",
       "structuredContent": "src/data/page-layouts.json#pages.10",
-      "manifestRecord": "src/content/workbook/workbook-manifest.json#10",
       "exerciseMechanics": [
         "picture-grid"
-      ],
-      "workbookInteractions": [
-        "l4-p10-drag-word-e"
       ],
       "faithfulIllustrations": [
         "/cartilla/art/faithful/vocal-e/elefante.webp",
@@ -352,7 +329,7 @@
         "/cartilla/art/faithful/vocal-a/abeja.webp"
       ],
       "gretelGuidance": [
-        "Presiona los dibujos de las palabras que comienzan con E e."
+        "Marca con una x los dibujos de las palabras que comienzan con E e."
       ],
       "status": "NATIVE_COMPLETE",
       "certification": null
@@ -362,11 +339,9 @@
       "lesson": 4,
       "renderer": "FaithfulPageRenderer",
       "structuredContent": "src/data/page-layouts.json#pages.11",
-      "manifestRecord": "src/content/workbook/workbook-manifest.json#11",
       "exerciseMechanics": [
         "vowel-line-match"
       ],
-      "workbookInteractions": [],
       "faithfulIllustrations": [
         "/cartilla/art/faithful/vocal-o/oso.webp",
         "/cartilla/art/faithful/vocal-e/elefante.webp",
@@ -395,19 +370,17 @@
       "lesson": 4,
       "renderer": "FaithfulPageRenderer",
       "structuredContent": "src/data/page-layouts.json#pages.12",
-      "manifestRecord": "src/content/workbook/workbook-manifest.json#12",
       "exerciseMechanics": [
         "writing-line",
         "draw-box"
       ],
-      "workbookInteractions": [],
       "faithfulIllustrations": [],
       "sourceScan": "/cartilla/art/source/workbook/page-012.jpg",
       "legacyScanReference": "/cartilla/images/source/e/e-page-12.jpg",
       "sourceScanPresentInCheckout": true,
       "animationCandidates": [],
       "gretelGuidance": [
-        "Traza con tu mejor letra.",
+        "Escribe con tu mejor letra.",
         "Haz un dibujo que represente una palabra que comienza con e."
       ],
       "status": "NATIVE_COMPLETE",
@@ -418,12 +391,8 @@
       "lesson": 5,
       "renderer": "FaithfulPageRenderer",
       "structuredContent": "src/data/page-layouts.json#pages.13",
-      "manifestRecord": "src/content/workbook/workbook-manifest.json#13",
       "exerciseMechanics": [
         "picture-grid"
-      ],
-      "workbookInteractions": [
-        "l5-p13-drag-word-i"
       ],
       "faithfulIllustrations": [
         "/cartilla/art/faithful/vocal-i/iglu.webp",
@@ -451,7 +420,7 @@
         "/cartilla/art/faithful/vocal-o/oso.webp"
       ],
       "gretelGuidance": [
-        "Presiona los dibujos de las palabras que comienzan con I i."
+        "Marca con una x los dibujos de las palabras que comienzan con I i."
       ],
       "status": "NATIVE_COMPLETE",
       "certification": null
@@ -461,11 +430,9 @@
       "lesson": 5,
       "renderer": "FaithfulPageRenderer",
       "structuredContent": "src/data/page-layouts.json#pages.14",
-      "manifestRecord": "src/content/workbook/workbook-manifest.json#14",
       "exerciseMechanics": [
         "vowel-line-match"
       ],
-      "workbookInteractions": [],
       "faithfulIllustrations": [
         "/cartilla/art/faithful/vocal-i/iman.webp",
         "/cartilla/art/faithful/vocal-o/oso.webp",
@@ -494,19 +461,17 @@
       "lesson": 5,
       "renderer": "FaithfulPageRenderer",
       "structuredContent": "src/data/page-layouts.json#pages.15",
-      "manifestRecord": "src/content/workbook/workbook-manifest.json#15",
       "exerciseMechanics": [
         "writing-line",
         "draw-box"
       ],
-      "workbookInteractions": [],
       "faithfulIllustrations": [],
       "sourceScan": "/cartilla/art/source/workbook/page-015.jpg",
       "legacyScanReference": "/cartilla/images/source/i/i-page-15.jpg",
       "sourceScanPresentInCheckout": true,
       "animationCandidates": [],
       "gretelGuidance": [
-        "Traza con tu mejor letra.",
+        "Escribe con tu mejor letra.",
         "Haz un dibujo que represente una palabra que comienza con i."
       ],
       "status": "NATIVE_COMPLETE",
@@ -517,12 +482,8 @@
       "lesson": 6,
       "renderer": "FaithfulPageRenderer",
       "structuredContent": "src/data/page-layouts.json#pages.16",
-      "manifestRecord": "src/content/workbook/workbook-manifest.json#16",
       "exerciseMechanics": [
         "picture-grid"
-      ],
-      "workbookInteractions": [
-        "l6-p16-drag-word-u"
       ],
       "faithfulIllustrations": [
         "/cartilla/art/faithful/vocal-u/unicornio.webp",
@@ -549,7 +510,7 @@
         "/cartilla/art/faithful/vocal-a/abeja.webp"
       ],
       "gretelGuidance": [
-        "Presiona los dibujos de las palabras que comienzan con U u."
+        "Marca con una x los dibujos de las palabras que comienzan con U u."
       ],
       "status": "NATIVE_COMPLETE",
       "certification": null
@@ -559,11 +520,9 @@
       "lesson": 6,
       "renderer": "FaithfulPageRenderer",
       "structuredContent": "src/data/page-layouts.json#pages.17",
-      "manifestRecord": "src/content/workbook/workbook-manifest.json#17",
       "exerciseMechanics": [
         "vowel-line-match"
       ],
-      "workbookInteractions": [],
       "faithfulIllustrations": [
         "/cartilla/art/faithful/leccion-1/traje.webp",
         "/cartilla/art/faithful/vocal-u/uno.webp",
@@ -591,19 +550,17 @@
       "lesson": 6,
       "renderer": "FaithfulPageRenderer",
       "structuredContent": "src/data/page-layouts.json#pages.18",
-      "manifestRecord": "src/content/workbook/workbook-manifest.json#18",
       "exerciseMechanics": [
         "writing-line",
         "draw-box"
       ],
-      "workbookInteractions": [],
       "faithfulIllustrations": [],
       "sourceScan": "/cartilla/art/source/workbook/page-018.jpg",
       "legacyScanReference": "/cartilla/images/source/u/u-page-18.jpg",
       "sourceScanPresentInCheckout": true,
       "animationCandidates": [],
       "gretelGuidance": [
-        "Traza con tu mejor letra.",
+        "Escribe con tu mejor letra.",
         "Haz un dibujo que represente una palabra que comienza con u."
       ],
       "status": "NATIVE_COMPLETE",
@@ -614,13 +571,9 @@
       "lesson": 7,
       "renderer": "FaithfulPageRenderer",
       "structuredContent": "src/data/page-layouts.json#pages.19",
-      "manifestRecord": "src/content/workbook/workbook-manifest.json#19",
       "exerciseMechanics": [
         "writing-line",
         "draw-box"
-      ],
-      "workbookInteractions": [
-        "l7-p19-letter-tracing"
       ],
       "faithfulIllustrations": [],
       "sourceScan": "/cartilla/art/source/workbook/page-019.jpg",
@@ -639,12 +592,8 @@
       "lesson": 7,
       "renderer": "FaithfulPageRenderer",
       "structuredContent": "src/data/page-layouts.json#pages.20",
-      "manifestRecord": "src/content/workbook/workbook-manifest.json#20",
       "exerciseMechanics": [
         "syllable-match"
-      ],
-      "workbookInteractions": [
-        "l7-p20-syllable-circle"
       ],
       "faithfulIllustrations": [],
       "sourceScan": "/cartilla/art/source/workbook/page-020.jpg",
@@ -662,13 +611,7 @@
       "lesson": 7,
       "renderer": "FaithfulPageRenderer",
       "structuredContent": "src/data/page-layouts.json#pages.21",
-      "manifestRecord": "src/content/workbook/workbook-manifest.json#21",
       "exerciseMechanics": [],
-      "workbookInteractions": [
-        "l7-p21-syllable-tap",
-        "l7-p21-word-bank",
-        "l7-p21-mini-story"
-      ],
       "faithfulIllustrations": [],
       "sourceScan": "/cartilla/art/source/workbook/page-021.jpg",
       "legacyScanReference": "/cartilla/images/source/m/m-page-10.jpg",
@@ -685,12 +628,8 @@
       "lesson": 7,
       "renderer": "FaithfulPageRenderer",
       "structuredContent": "src/data/page-layouts.json#pages.22",
-      "manifestRecord": "src/content/workbook/workbook-manifest.json#22",
       "exerciseMechanics": [
         "fill-in-blank"
-      ],
-      "workbookInteractions": [
-        "l7-p22-fill-in-blank"
       ],
       "faithfulIllustrations": [],
       "sourceScan": "/cartilla/art/source/workbook/page-022.jpg",
@@ -709,13 +648,9 @@
       "lesson": 8,
       "renderer": "FaithfulPageRenderer",
       "structuredContent": "src/data/page-layouts.json#pages.23",
-      "manifestRecord": "src/content/workbook/workbook-manifest.json#23",
       "exerciseMechanics": [
         "writing-line",
         "draw-box"
-      ],
-      "workbookInteractions": [
-        "l8-p23-letter-tracing"
       ],
       "faithfulIllustrations": [],
       "sourceScan": "/cartilla/art/source/workbook/page-023.jpg",
@@ -723,7 +658,7 @@
       "sourceScanPresentInCheckout": true,
       "animationCandidates": [],
       "gretelGuidance": [
-        "Traza con tu mejor letra.",
+        "Escribe con tu mejor letra.",
         "Haz un dibujo que represente una palabra que comienza con p."
       ],
       "status": "NATIVE_COMPLETE",
@@ -734,25 +669,16 @@
       "lesson": 8,
       "renderer": "FaithfulPageRenderer",
       "structuredContent": "src/data/page-layouts.json#pages.24",
-      "manifestRecord": "src/content/workbook/workbook-manifest.json#24",
       "exerciseMechanics": [
         "syllable-match"
       ],
-      "workbookInteractions": [
-        "l8-p24-syllable-circle"
-      ],
-      "faithfulIllustrations": [
-        "/cartilla/art/faithful/leccion-8-p/papa.webp",
-        "/cartilla/art/faithful/leccion-1/pez.webp"
-      ],
+      "faithfulIllustrations": [],
       "sourceScan": "/cartilla/art/source/workbook/page-024.jpg",
       "legacyScanReference": "/cartilla/images/source/p/p-page-12.jpg",
       "sourceScanPresentInCheckout": true,
-      "animationCandidates": [
-        "/cartilla/art/faithful/leccion-1/pez.webp"
-      ],
+      "animationCandidates": [],
       "gretelGuidance": [
-        "Presiona la sílaba correspondiente."
+        "Encierra en un círculo la sílaba correspondiente."
       ],
       "status": "NATIVE_COMPLETE",
       "certification": null
@@ -762,21 +688,29 @@
       "lesson": 8,
       "renderer": "FaithfulPageRenderer",
       "structuredContent": "src/data/page-layouts.json#pages.25",
-      "manifestRecord": "src/content/workbook/workbook-manifest.json#25",
-      "exerciseMechanics": [
-        "fill-in-blank",
-        "draw-box"
-      ],
-      "workbookInteractions": [
-        "l8-p25-syllable-tap",
-        "l8-p25-word-bank",
-        "l8-p25-mini-story"
-      ],
-      "faithfulIllustrations": [
-        "/cartilla/art/faithful/leccion-8-p/papa.webp"
-      ],
+      "exerciseMechanics": [],
+      "faithfulIllustrations": [],
       "sourceScan": "/cartilla/art/source/workbook/page-025.jpg",
       "legacyScanReference": "/cartilla/images/source/p/p-page-13.jpg",
+      "sourceScanPresentInCheckout": true,
+      "animationCandidates": [],
+      "gretelGuidance": [
+        "Pp"
+      ],
+      "status": "NATIVE_COMPLETE",
+      "certification": null
+    },
+    {
+      "physicalPage": 26,
+      "lesson": 8,
+      "renderer": "FaithfulPageRenderer",
+      "structuredContent": "src/data/page-layouts.json#pages.26",
+      "exerciseMechanics": [
+        "fill-in-blank"
+      ],
+      "faithfulIllustrations": [],
+      "sourceScan": "/cartilla/art/source/workbook/page-026.jpg",
+      "legacyScanReference": "/cartilla/images/source/p/p-page-14.jpg",
       "sourceScanPresentInCheckout": true,
       "animationCandidates": [],
       "gretelGuidance": [
@@ -787,39 +721,13 @@
       "certification": null
     },
     {
-      "physicalPage": 26,
-      "lesson": 8,
-      "renderer": "FaithfulPageRenderer",
-      "structuredContent": "src/data/page-layouts.json#pages.26",
-      "manifestRecord": "src/content/workbook/workbook-manifest.json#26",
-      "exerciseMechanics": [],
-      "workbookInteractions": [
-        "l8-p26-fill-in-blank"
-      ],
-      "faithfulIllustrations": [],
-      "sourceScan": "/cartilla/art/source/workbook/page-026.jpg",
-      "legacyScanReference": "/cartilla/images/source/p/p-page-14.jpg",
-      "sourceScanPresentInCheckout": true,
-      "animationCandidates": [],
-      "gretelGuidance": [
-        "Pp"
-      ],
-      "status": "NATIVE_COMPLETE",
-      "certification": null
-    },
-    {
       "physicalPage": 27,
       "lesson": 9,
       "renderer": "FaithfulPageRenderer",
       "structuredContent": "src/data/page-layouts.json#pages.27",
-      "manifestRecord": "src/content/workbook/workbook-manifest.json#27",
       "exerciseMechanics": [
         "writing-line",
         "draw-box"
-      ],
-      "workbookInteractions": [
-        "l9-p27-word-reveal",
-        "l9-p27-names-reveal"
       ],
       "faithfulIllustrations": [],
       "sourceScan": "/cartilla/art/source/workbook/page-027.jpg",
@@ -827,7 +735,7 @@
       "sourceScanPresentInCheckout": true,
       "animationCandidates": [],
       "gretelGuidance": [
-        "Traza con tu mejor letra.",
+        "Escribe con tu mejor letra.",
         "Haz un dibujo que represente una palabra que comienza con s."
       ],
       "status": "NATIVE_COMPLETE",
@@ -838,24 +746,16 @@
       "lesson": 9,
       "renderer": "FaithfulPageRenderer",
       "structuredContent": "src/data/page-layouts.json#pages.28",
-      "manifestRecord": "src/content/workbook/workbook-manifest.json#28",
       "exerciseMechanics": [
         "syllable-match"
       ],
-      "workbookInteractions": [
-        "l9-p28-sight-words",
-        "l9-p28-syllable-tap"
-      ],
-      "faithfulIllustrations": [
-        "/cartilla/art/faithful/leccion-9-s/sapo.webp",
-        "/cartilla/art/faithful/leccion-9-s/sopa.webp"
-      ],
+      "faithfulIllustrations": [],
       "sourceScan": "/cartilla/art/source/workbook/page-028.jpg",
       "legacyScanReference": "/cartilla/images/source/ss/ss-page-15.jpg",
       "sourceScanPresentInCheckout": true,
       "animationCandidates": [],
       "gretelGuidance": [
-        "Presiona la sílaba correspondiente."
+        "Encierra en un círculo la sílaba correspondiente."
       ],
       "status": "NATIVE_COMPLETE",
       "certification": null
@@ -865,38 +765,10 @@
       "lesson": 9,
       "renderer": "FaithfulPageRenderer",
       "structuredContent": "src/data/page-layouts.json#pages.29",
-      "manifestRecord": "src/content/workbook/workbook-manifest.json#29",
-      "exerciseMechanics": [
-        "fill-in-blank"
-      ],
-      "workbookInteractions": [
-        "l9-p29-tap-obj",
-        "l9-p29-mini-story-ss"
-      ],
+      "exerciseMechanics": [],
       "faithfulIllustrations": [],
       "sourceScan": "/cartilla/art/source/workbook/page-029.jpg",
       "legacyScanReference": "/cartilla/images/source/ss/ss-page-16.jpg",
-      "sourceScanPresentInCheckout": true,
-      "animationCandidates": [],
-      "gretelGuidance": [
-        "Completa las palabras con la sílaba correcta."
-      ],
-      "status": "NATIVE_COMPLETE",
-      "certification": null
-    },
-    {
-      "physicalPage": 30,
-      "lesson": 9,
-      "renderer": "FaithfulPageRenderer",
-      "structuredContent": "src/data/page-layouts.json#pages.30",
-      "manifestRecord": "src/content/workbook/workbook-manifest.json#30",
-      "exerciseMechanics": [],
-      "workbookInteractions": [
-        "l9-p30-read-aloud"
-      ],
-      "faithfulIllustrations": [],
-      "sourceScan": "/cartilla/art/source/workbook/page-030.jpg",
-      "legacyScanReference": "/cartilla/images/source/ss/ss-page-17.jpg",
       "sourceScanPresentInCheckout": true,
       "animationCandidates": [],
       "gretelGuidance": [
@@ -906,17 +778,33 @@
       "certification": null
     },
     {
+      "physicalPage": 30,
+      "lesson": 9,
+      "renderer": "FaithfulPageRenderer",
+      "structuredContent": "src/data/page-layouts.json#pages.30",
+      "exerciseMechanics": [
+        "fill-in-blank"
+      ],
+      "faithfulIllustrations": [],
+      "sourceScan": "/cartilla/art/source/workbook/page-030.jpg",
+      "legacyScanReference": "/cartilla/images/source/ss/ss-page-17.jpg",
+      "sourceScanPresentInCheckout": true,
+      "animationCandidates": [],
+      "gretelGuidance": [
+        "Completa las palabras con la sílaba correcta.",
+        "Escribe oraciones. Usa las sílabas que aprendiste."
+      ],
+      "status": "NATIVE_COMPLETE",
+      "certification": null
+    },
+    {
       "physicalPage": 31,
       "lesson": 10,
       "renderer": "FaithfulPageRenderer",
       "structuredContent": "src/data/page-layouts.json#pages.31",
-      "manifestRecord": "src/content/workbook/workbook-manifest.json#31",
       "exerciseMechanics": [
         "writing-line",
         "draw-box"
-      ],
-      "workbookInteractions": [
-        "l10-pX-letter-tracing"
       ],
       "faithfulIllustrations": [],
       "sourceScan": "/cartilla/art/source/workbook/page-031.jpg",
@@ -924,7 +812,7 @@
       "sourceScanPresentInCheckout": true,
       "animationCandidates": [],
       "gretelGuidance": [
-        "Traza con tu mejor letra.",
+        "Escribe con tu mejor letra.",
         "Haz un dibujo que represente una palabra que comienza con t."
       ],
       "status": "NATIVE_COMPLETE",
@@ -935,12 +823,8 @@
       "lesson": 10,
       "renderer": "FaithfulPageRenderer",
       "structuredContent": "src/data/page-layouts.json#pages.32",
-      "manifestRecord": "src/content/workbook/workbook-manifest.json#32",
       "exerciseMechanics": [
         "syllable-match"
-      ],
-      "workbookInteractions": [
-        "l10-pX-syllable-circle"
       ],
       "faithfulIllustrations": [],
       "sourceScan": "/cartilla/art/source/workbook/page-032.jpg",
@@ -948,7 +832,7 @@
       "sourceScanPresentInCheckout": true,
       "animationCandidates": [],
       "gretelGuidance": [
-        "Presiona la sílaba correspondiente."
+        "Encierra en un círculo la sílaba correspondiente."
       ],
       "status": "NATIVE_COMPLETE",
       "certification": null
@@ -958,37 +842,10 @@
       "lesson": 10,
       "renderer": "FaithfulPageRenderer",
       "structuredContent": "src/data/page-layouts.json#pages.33",
-      "manifestRecord": "src/content/workbook/workbook-manifest.json#33",
-      "exerciseMechanics": [
-        "fill-in-blank"
-      ],
-      "workbookInteractions": [
-        "l10-pX-word-bank"
-      ],
+      "exerciseMechanics": [],
       "faithfulIllustrations": [],
       "sourceScan": "/cartilla/art/source/workbook/page-033.jpg",
       "legacyScanReference": "/cartilla/images/source/t/t-page-19.jpg",
-      "sourceScanPresentInCheckout": true,
-      "animationCandidates": [],
-      "gretelGuidance": [
-        "Completa las palabras con la sílaba correcta."
-      ],
-      "status": "NATIVE_COMPLETE",
-      "certification": null
-    },
-    {
-      "physicalPage": 34,
-      "lesson": 10,
-      "renderer": "FaithfulPageRenderer",
-      "structuredContent": "src/data/page-layouts.json#pages.34",
-      "manifestRecord": "src/content/workbook/workbook-manifest.json#34",
-      "exerciseMechanics": [],
-      "workbookInteractions": [
-        "l10-pX-mini-story"
-      ],
-      "faithfulIllustrations": [],
-      "sourceScan": "/cartilla/art/source/workbook/page-034.jpg",
-      "legacyScanReference": "/cartilla/images/source/t/t-page-20.jpg",
       "sourceScanPresentInCheckout": true,
       "animationCandidates": [],
       "gretelGuidance": [
@@ -998,17 +855,33 @@
       "certification": null
     },
     {
+      "physicalPage": 34,
+      "lesson": 10,
+      "renderer": "FaithfulPageRenderer",
+      "structuredContent": "src/data/page-layouts.json#pages.34",
+      "exerciseMechanics": [
+        "fill-in-blank"
+      ],
+      "faithfulIllustrations": [],
+      "sourceScan": "/cartilla/art/source/workbook/page-034.jpg",
+      "legacyScanReference": "/cartilla/images/source/t/t-page-20.jpg",
+      "sourceScanPresentInCheckout": true,
+      "animationCandidates": [],
+      "gretelGuidance": [
+        "Completa las palabras con la sílaba correcta.",
+        "Escribe oraciones. Usa las sílabas que aprendiste."
+      ],
+      "status": "NATIVE_COMPLETE",
+      "certification": null
+    },
+    {
       "physicalPage": 35,
       "lesson": 11,
       "renderer": "FaithfulPageRenderer",
       "structuredContent": "src/data/page-layouts.json#pages.35",
-      "manifestRecord": "src/content/workbook/workbook-manifest.json#35",
       "exerciseMechanics": [
         "writing-line",
         "draw-box"
-      ],
-      "workbookInteractions": [
-        "l11-pX-syllable-circle"
       ],
       "faithfulIllustrations": [],
       "sourceScan": "/cartilla/art/source/workbook/page-035.jpg",
@@ -1016,7 +889,7 @@
       "sourceScanPresentInCheckout": true,
       "animationCandidates": [],
       "gretelGuidance": [
-        "Traza con tu mejor letra.",
+        "Escribe con tu mejor letra.",
         "Haz un dibujo que represente una palabra que comienza con d."
       ],
       "status": "NATIVE_COMPLETE",
@@ -1027,22 +900,16 @@
       "lesson": 11,
       "renderer": "FaithfulPageRenderer",
       "structuredContent": "src/data/page-layouts.json#pages.36",
-      "manifestRecord": "src/content/workbook/workbook-manifest.json#36",
       "exerciseMechanics": [
         "syllable-match"
       ],
-      "workbookInteractions": [
-        "l11-pX-word-bank"
-      ],
-      "faithfulIllustrations": [
-        "/cartilla/art/faithful/leccion-11-d/dado.webp"
-      ],
+      "faithfulIllustrations": [],
       "sourceScan": "/cartilla/art/source/workbook/page-036.jpg",
       "legacyScanReference": "/cartilla/images/source/d/d-page-20.jpg",
       "sourceScanPresentInCheckout": true,
       "animationCandidates": [],
       "gretelGuidance": [
-        "Presiona la sílaba correspondiente."
+        "Encierra en un círculo la sílaba correspondiente."
       ],
       "status": "NATIVE_COMPLETE",
       "certification": null
@@ -1052,37 +919,10 @@
       "lesson": 11,
       "renderer": "FaithfulPageRenderer",
       "structuredContent": "src/data/page-layouts.json#pages.37",
-      "manifestRecord": "src/content/workbook/workbook-manifest.json#37",
-      "exerciseMechanics": [
-        "fill-in-blank"
-      ],
-      "workbookInteractions": [
-        "l11-pX-mini-story"
-      ],
+      "exerciseMechanics": [],
       "faithfulIllustrations": [],
       "sourceScan": "/cartilla/art/source/workbook/page-037.jpg",
       "legacyScanReference": "/cartilla/images/source/d/d-page-21.jpg",
-      "sourceScanPresentInCheckout": true,
-      "animationCandidates": [],
-      "gretelGuidance": [
-        "Completa las palabras con la sílaba correcta."
-      ],
-      "status": "NATIVE_COMPLETE",
-      "certification": null
-    },
-    {
-      "physicalPage": 38,
-      "lesson": 11,
-      "renderer": "FaithfulPageRenderer",
-      "structuredContent": "src/data/page-layouts.json#pages.38",
-      "manifestRecord": "src/content/workbook/workbook-manifest.json#38",
-      "exerciseMechanics": [],
-      "workbookInteractions": [
-        "l11-pX-fill-in-blank"
-      ],
-      "faithfulIllustrations": [],
-      "sourceScan": "/cartilla/art/source/workbook/page-038.jpg",
-      "legacyScanReference": "/cartilla/images/source/d/d-page-22.jpg",
       "sourceScanPresentInCheckout": true,
       "animationCandidates": [],
       "gretelGuidance": [
@@ -1092,17 +932,33 @@
       "certification": null
     },
     {
+      "physicalPage": 38,
+      "lesson": 11,
+      "renderer": "FaithfulPageRenderer",
+      "structuredContent": "src/data/page-layouts.json#pages.38",
+      "exerciseMechanics": [
+        "fill-in-blank"
+      ],
+      "faithfulIllustrations": [],
+      "sourceScan": "/cartilla/art/source/workbook/page-038.jpg",
+      "legacyScanReference": "/cartilla/images/source/d/d-page-22.jpg",
+      "sourceScanPresentInCheckout": true,
+      "animationCandidates": [],
+      "gretelGuidance": [
+        "Completa las palabras con la sílaba correcta.",
+        "Escribe oraciones. Usa las sílabas que aprendiste."
+      ],
+      "status": "NATIVE_COMPLETE",
+      "certification": null
+    },
+    {
       "physicalPage": 39,
       "lesson": 12,
       "renderer": "FaithfulPageRenderer",
       "structuredContent": "src/data/page-layouts.json#pages.39",
-      "manifestRecord": "src/content/workbook/workbook-manifest.json#39",
       "exerciseMechanics": [
         "writing-line",
         "draw-box"
-      ],
-      "workbookInteractions": [
-        "l12-pX-word-bank"
       ],
       "faithfulIllustrations": [],
       "sourceScan": "/cartilla/art/source/workbook/page-039.jpg",
@@ -1110,7 +966,7 @@
       "sourceScanPresentInCheckout": true,
       "animationCandidates": [],
       "gretelGuidance": [
-        "Traza con tu mejor letra.",
+        "Escribe con tu mejor letra.",
         "Haz un dibujo que represente una palabra que comienza con l."
       ],
       "status": "NATIVE_COMPLETE",
@@ -1121,12 +977,8 @@
       "lesson": 12,
       "renderer": "FaithfulPageRenderer",
       "structuredContent": "src/data/page-layouts.json#pages.40",
-      "manifestRecord": "src/content/workbook/workbook-manifest.json#40",
       "exerciseMechanics": [
         "syllable-match"
-      ],
-      "workbookInteractions": [
-        "l12-pX-mini-story"
       ],
       "faithfulIllustrations": [],
       "sourceScan": "/cartilla/art/source/workbook/page-040.jpg",
@@ -1134,7 +986,7 @@
       "sourceScanPresentInCheckout": true,
       "animationCandidates": [],
       "gretelGuidance": [
-        "Presiona la sílaba correspondiente."
+        "Encierra en un círculo la sílaba correspondiente."
       ],
       "status": "NATIVE_COMPLETE",
       "certification": null
@@ -1144,35 +996,10 @@
       "lesson": 12,
       "renderer": "FaithfulPageRenderer",
       "structuredContent": "src/data/page-layouts.json#pages.41",
-      "manifestRecord": "src/content/workbook/workbook-manifest.json#41",
-      "exerciseMechanics": [
-        "fill-in-blank"
-      ],
-      "workbookInteractions": [
-        "l12-pX-fill-in-blank"
-      ],
+      "exerciseMechanics": [],
       "faithfulIllustrations": [],
       "sourceScan": "/cartilla/art/source/workbook/page-041.jpg",
       "legacyScanReference": "/cartilla/images/source/l/l-page-24.jpg",
-      "sourceScanPresentInCheckout": true,
-      "animationCandidates": [],
-      "gretelGuidance": [
-        "Completa las palabras con la sílaba correcta."
-      ],
-      "status": "NATIVE_COMPLETE",
-      "certification": null
-    },
-    {
-      "physicalPage": 42,
-      "lesson": 12,
-      "renderer": "FaithfulPageRenderer",
-      "structuredContent": "src/data/page-layouts.json#pages.42",
-      "manifestRecord": "src/content/workbook/workbook-manifest.json#42",
-      "exerciseMechanics": [],
-      "workbookInteractions": [],
-      "faithfulIllustrations": [],
-      "sourceScan": "/cartilla/art/source/workbook/page-042.jpg",
-      "legacyScanReference": "/cartilla/images/source/l/l-page-25.jpg",
       "sourceScanPresentInCheckout": true,
       "animationCandidates": [],
       "gretelGuidance": [
@@ -1182,17 +1009,33 @@
       "certification": null
     },
     {
+      "physicalPage": 42,
+      "lesson": 12,
+      "renderer": "FaithfulPageRenderer",
+      "structuredContent": "src/data/page-layouts.json#pages.42",
+      "exerciseMechanics": [
+        "fill-in-blank"
+      ],
+      "faithfulIllustrations": [],
+      "sourceScan": "/cartilla/art/source/workbook/page-042.jpg",
+      "legacyScanReference": "/cartilla/images/source/l/l-page-25.jpg",
+      "sourceScanPresentInCheckout": true,
+      "animationCandidates": [],
+      "gretelGuidance": [
+        "Completa las palabras con la sílaba correcta.",
+        "Escribe oraciones. Usa las sílabas que aprendiste."
+      ],
+      "status": "NATIVE_COMPLETE",
+      "certification": null
+    },
+    {
       "physicalPage": 43,
       "lesson": 13,
       "renderer": "FaithfulPageRenderer",
       "structuredContent": "src/data/page-layouts.json#pages.43",
-      "manifestRecord": "src/content/workbook/workbook-manifest.json#43",
       "exerciseMechanics": [
         "writing-line",
         "draw-box"
-      ],
-      "workbookInteractions": [
-        "l13-pX-mini-story"
       ],
       "faithfulIllustrations": [],
       "sourceScan": "/cartilla/art/source/workbook/page-043.jpg",
@@ -1200,7 +1043,7 @@
       "sourceScanPresentInCheckout": true,
       "animationCandidates": [],
       "gretelGuidance": [
-        "Traza con tu mejor letra.",
+        "Escribe con tu mejor letra.",
         "Haz un dibujo que represente una palabra que comienza con n."
       ],
       "status": "NATIVE_COMPLETE",
@@ -1211,26 +1054,16 @@
       "lesson": 13,
       "renderer": "FaithfulPageRenderer",
       "structuredContent": "src/data/page-layouts.json#pages.44",
-      "manifestRecord": "src/content/workbook/workbook-manifest.json#44",
       "exerciseMechanics": [
         "syllable-match"
       ],
-      "workbookInteractions": [
-        "l13-pX-fill-in-blank"
-      ],
-      "faithfulIllustrations": [
-        "/cartilla/art/faithful/leccion-14-n/nino.webp",
-        "/cartilla/art/faithful/leccion-13-n/nido.webp",
-        "/cartilla/art/faithful/leccion-7-m/mono.webp"
-      ],
+      "faithfulIllustrations": [],
       "sourceScan": "/cartilla/art/source/workbook/page-044.jpg",
       "legacyScanReference": "/cartilla/images/source/n/n-page-26.jpg",
       "sourceScanPresentInCheckout": true,
-      "animationCandidates": [
-        "/cartilla/art/faithful/leccion-7-m/mono.webp"
-      ],
+      "animationCandidates": [],
       "gretelGuidance": [
-        "Presiona la sílaba correspondiente."
+        "Encierra en un círculo la sílaba correspondiente."
       ],
       "status": "NATIVE_COMPLETE",
       "certification": null
@@ -1240,33 +1073,10 @@
       "lesson": 13,
       "renderer": "FaithfulPageRenderer",
       "structuredContent": "src/data/page-layouts.json#pages.45",
-      "manifestRecord": "src/content/workbook/workbook-manifest.json#45",
-      "exerciseMechanics": [
-        "fill-in-blank"
-      ],
-      "workbookInteractions": [],
+      "exerciseMechanics": [],
       "faithfulIllustrations": [],
       "sourceScan": "/cartilla/art/source/workbook/page-045.jpg",
       "legacyScanReference": "/cartilla/images/source/n/n-page-27.jpg",
-      "sourceScanPresentInCheckout": true,
-      "animationCandidates": [],
-      "gretelGuidance": [
-        "Completa las palabras con la sílaba correcta."
-      ],
-      "status": "NATIVE_COMPLETE",
-      "certification": null
-    },
-    {
-      "physicalPage": 46,
-      "lesson": 13,
-      "renderer": "FaithfulPageRenderer",
-      "structuredContent": "src/data/page-layouts.json#pages.46",
-      "manifestRecord": "src/content/workbook/workbook-manifest.json#46",
-      "exerciseMechanics": [],
-      "workbookInteractions": [],
-      "faithfulIllustrations": [],
-      "sourceScan": "/cartilla/art/source/workbook/page-046.jpg",
-      "legacyScanReference": "/cartilla/images/source/n/n-page-28.jpg",
       "sourceScanPresentInCheckout": true,
       "animationCandidates": [],
       "gretelGuidance": [
@@ -1276,17 +1086,33 @@
       "certification": null
     },
     {
+      "physicalPage": 46,
+      "lesson": 13,
+      "renderer": "FaithfulPageRenderer",
+      "structuredContent": "src/data/page-layouts.json#pages.46",
+      "exerciseMechanics": [
+        "fill-in-blank"
+      ],
+      "faithfulIllustrations": [],
+      "sourceScan": "/cartilla/art/source/workbook/page-046.jpg",
+      "legacyScanReference": "/cartilla/images/source/n/n-page-28.jpg",
+      "sourceScanPresentInCheckout": true,
+      "animationCandidates": [],
+      "gretelGuidance": [
+        "Completa las palabras con la sílaba correcta.",
+        "Escribe oraciones. Usa las sílabas que aprendiste."
+      ],
+      "status": "NATIVE_COMPLETE",
+      "certification": null
+    },
+    {
       "physicalPage": 47,
       "lesson": 14,
       "renderer": "FaithfulPageRenderer",
       "structuredContent": "src/data/page-layouts.json#pages.47",
-      "manifestRecord": "src/content/workbook/workbook-manifest.json#47",
       "exerciseMechanics": [
         "writing-line",
         "draw-box"
-      ],
-      "workbookInteractions": [
-        "l14-p47-syllable-n"
       ],
       "faithfulIllustrations": [],
       "sourceScan": "/cartilla/art/source/workbook/page-047.jpg",
@@ -1294,7 +1120,7 @@
       "sourceScanPresentInCheckout": true,
       "animationCandidates": [],
       "gretelGuidance": [
-        "Traza con tu mejor letra.",
+        "Escribe con tu mejor letra.",
         "Haz un dibujo que represente una palabra que comienza con ñ."
       ],
       "status": "NATIVE_COMPLETE",
@@ -1305,27 +1131,16 @@
       "lesson": 14,
       "renderer": "FaithfulPageRenderer",
       "structuredContent": "src/data/page-layouts.json#pages.48",
-      "manifestRecord": "src/content/workbook/workbook-manifest.json#48",
       "exerciseMechanics": [
         "syllable-match"
       ],
-      "workbookInteractions": [
-        "l14-p48-words-n",
-        "l14-p48-sight-word-del"
-      ],
-      "faithfulIllustrations": [
-        "/cartilla/art/faithful/vocal-a/arana.webp",
-        "/cartilla/art/faithful/leccion-7-m/mono.webp",
-        "/cartilla/art/faithful/leccion-14-n/nino.webp"
-      ],
+      "faithfulIllustrations": [],
       "sourceScan": "/cartilla/art/source/workbook/page-048.jpg",
       "legacyScanReference": "/cartilla/images/source/ñ/ñ-page-29.jpg",
       "sourceScanPresentInCheckout": true,
-      "animationCandidates": [
-        "/cartilla/art/faithful/leccion-7-m/mono.webp"
-      ],
+      "animationCandidates": [],
       "gretelGuidance": [
-        "Presiona la sílaba correspondiente."
+        "Encierra en un círculo la sílaba correspondiente."
       ],
       "status": "NATIVE_COMPLETE",
       "certification": null
@@ -1335,39 +1150,10 @@
       "lesson": 14,
       "renderer": "FaithfulPageRenderer",
       "structuredContent": "src/data/page-layouts.json#pages.49",
-      "manifestRecord": "src/content/workbook/workbook-manifest.json#49",
-      "exerciseMechanics": [
-        "fill-in-blank"
-      ],
-      "workbookInteractions": [
-        "l14-p49-read-aloud"
-      ],
-      "faithfulIllustrations": [
-        "/cartilla/art/faithful/vocal-a/arana.webp"
-      ],
+      "exerciseMechanics": [],
+      "faithfulIllustrations": [],
       "sourceScan": "/cartilla/art/source/workbook/page-049.jpg",
       "legacyScanReference": "/cartilla/images/source/ñ/ñ-page-30.jpg",
-      "sourceScanPresentInCheckout": true,
-      "animationCandidates": [],
-      "gretelGuidance": [
-        "Completa las palabras con la sílaba correcta."
-      ],
-      "status": "NATIVE_COMPLETE",
-      "certification": null
-    },
-    {
-      "physicalPage": 50,
-      "lesson": 14,
-      "renderer": "FaithfulPageRenderer",
-      "structuredContent": "src/data/page-layouts.json#pages.50",
-      "manifestRecord": "src/content/workbook/workbook-manifest.json#50",
-      "exerciseMechanics": [],
-      "workbookInteractions": [
-        "l14-p50-mini-story"
-      ],
-      "faithfulIllustrations": [],
-      "sourceScan": "/cartilla/art/source/workbook/page-050.jpg",
-      "legacyScanReference": "/cartilla/images/source/ñ/ñ-page-31.jpg",
       "sourceScanPresentInCheckout": true,
       "animationCandidates": [],
       "gretelGuidance": [
@@ -1377,23 +1163,41 @@
       "certification": null
     },
     {
+      "physicalPage": 50,
+      "lesson": 14,
+      "renderer": "FaithfulPageRenderer",
+      "structuredContent": "src/data/page-layouts.json#pages.50",
+      "exerciseMechanics": [
+        "fill-in-blank"
+      ],
+      "faithfulIllustrations": [],
+      "sourceScan": "/cartilla/art/source/workbook/page-050.jpg",
+      "legacyScanReference": "/cartilla/images/source/ñ/ñ-page-31.jpg",
+      "sourceScanPresentInCheckout": true,
+      "animationCandidates": [],
+      "gretelGuidance": [
+        "Completa las palabras con la sílaba correcta.",
+        "Escribe oraciones. Usa las sílabas que aprendiste."
+      ],
+      "status": "NATIVE_COMPLETE",
+      "certification": null
+    },
+    {
       "physicalPage": 51,
       "lesson": 15,
       "renderer": "FaithfulPageRenderer",
       "structuredContent": "src/data/page-layouts.json#pages.51",
-      "manifestRecord": "src/content/workbook/workbook-manifest.json#51",
       "exerciseMechanics": [
         "writing-line",
         "draw-box"
       ],
-      "workbookInteractions": [],
       "faithfulIllustrations": [],
       "sourceScan": "/cartilla/art/source/workbook/page-051.jpg",
       "legacyScanReference": "/cartilla/images/source/b/b-page-31.jpg",
       "sourceScanPresentInCheckout": true,
       "animationCandidates": [],
       "gretelGuidance": [
-        "Traza con tu mejor letra.",
+        "Escribe con tu mejor letra.",
         "Haz un dibujo que represente una palabra que comienza con b."
       ],
       "status": "NATIVE_COMPLETE",
@@ -1404,22 +1208,16 @@
       "lesson": 15,
       "renderer": "FaithfulPageRenderer",
       "structuredContent": "src/data/page-layouts.json#pages.52",
-      "manifestRecord": "src/content/workbook/workbook-manifest.json#52",
       "exerciseMechanics": [
         "syllable-match"
       ],
-      "workbookInteractions": [],
-      "faithfulIllustrations": [
-        "/cartilla/art/faithful/leccion-15-b/bebe.webp",
-        "/cartilla/art/faithful/leccion-15-b/bota.webp",
-        "/cartilla/art/faithful/leccion-18-rr/burro.webp"
-      ],
+      "faithfulIllustrations": [],
       "sourceScan": "/cartilla/art/source/workbook/page-052.jpg",
       "legacyScanReference": "/cartilla/images/source/b/b-page-32.jpg",
       "sourceScanPresentInCheckout": true,
       "animationCandidates": [],
       "gretelGuidance": [
-        "Presiona la sílaba correspondiente."
+        "Encierra en un círculo la sílaba correspondiente."
       ],
       "status": "NATIVE_COMPLETE",
       "certification": null
@@ -1429,35 +1227,10 @@
       "lesson": 15,
       "renderer": "FaithfulPageRenderer",
       "structuredContent": "src/data/page-layouts.json#pages.53",
-      "manifestRecord": "src/content/workbook/workbook-manifest.json#53",
-      "exerciseMechanics": [
-        "fill-in-blank"
-      ],
-      "workbookInteractions": [],
-      "faithfulIllustrations": [
-        "/cartilla/art/faithful/leccion-15-b/bota.webp"
-      ],
+      "exerciseMechanics": [],
+      "faithfulIllustrations": [],
       "sourceScan": "/cartilla/art/source/workbook/page-053.jpg",
       "legacyScanReference": "/cartilla/images/source/b/b-page-33.jpg",
-      "sourceScanPresentInCheckout": true,
-      "animationCandidates": [],
-      "gretelGuidance": [
-        "Completa las palabras con la sílaba correcta."
-      ],
-      "status": "NATIVE_COMPLETE",
-      "certification": null
-    },
-    {
-      "physicalPage": 54,
-      "lesson": 15,
-      "renderer": "FaithfulPageRenderer",
-      "structuredContent": "src/data/page-layouts.json#pages.54",
-      "manifestRecord": "src/content/workbook/workbook-manifest.json#54",
-      "exerciseMechanics": [],
-      "workbookInteractions": [],
-      "faithfulIllustrations": [],
-      "sourceScan": "/cartilla/art/source/workbook/page-054.jpg",
-      "legacyScanReference": "/cartilla/images/source/b/b-page-39.png",
       "sourceScanPresentInCheckout": true,
       "animationCandidates": [],
       "gretelGuidance": [
@@ -1467,23 +1240,41 @@
       "certification": null
     },
     {
+      "physicalPage": 54,
+      "lesson": 15,
+      "renderer": "FaithfulPageRenderer",
+      "structuredContent": "src/data/page-layouts.json#pages.54",
+      "exerciseMechanics": [
+        "fill-in-blank"
+      ],
+      "faithfulIllustrations": [],
+      "sourceScan": "/cartilla/art/source/workbook/page-054.jpg",
+      "legacyScanReference": "/cartilla/images/source/b/b-page-39.png",
+      "sourceScanPresentInCheckout": true,
+      "animationCandidates": [],
+      "gretelGuidance": [
+        "Completa las palabras con la sílaba correcta.",
+        "Escribe oraciones. Usa las sílabas que aprendiste."
+      ],
+      "status": "NATIVE_COMPLETE",
+      "certification": null
+    },
+    {
       "physicalPage": 55,
       "lesson": 16,
       "renderer": "FaithfulPageRenderer",
       "structuredContent": "src/data/page-layouts.json#pages.55",
-      "manifestRecord": "src/content/workbook/workbook-manifest.json#55",
       "exerciseMechanics": [
         "writing-line",
         "draw-box"
       ],
-      "workbookInteractions": [],
       "faithfulIllustrations": [],
       "sourceScan": "/cartilla/art/source/workbook/page-055.jpg",
       "legacyScanReference": "/cartilla/images/source/v/v-page-34.jpg",
       "sourceScanPresentInCheckout": true,
       "animationCandidates": [],
       "gretelGuidance": [
-        "Traza con tu mejor letra.",
+        "Escribe con tu mejor letra.",
         "Haz un dibujo que represente una palabra que comienza con v."
       ],
       "status": "NATIVE_COMPLETE",
@@ -1494,20 +1285,16 @@
       "lesson": 16,
       "renderer": "FaithfulPageRenderer",
       "structuredContent": "src/data/page-layouts.json#pages.56",
-      "manifestRecord": "src/content/workbook/workbook-manifest.json#56",
       "exerciseMechanics": [
         "syllable-match"
       ],
-      "workbookInteractions": [],
-      "faithfulIllustrations": [
-        "/cartilla/art/faithful/leccion-16-v/vela.webp"
-      ],
+      "faithfulIllustrations": [],
       "sourceScan": "/cartilla/art/source/workbook/page-056.jpg",
       "legacyScanReference": "/cartilla/images/source/v/v-page-35.jpg",
       "sourceScanPresentInCheckout": true,
       "animationCandidates": [],
       "gretelGuidance": [
-        "Presiona la sílaba correspondiente."
+        "Encierra en un círculo la sílaba correspondiente."
       ],
       "status": "NATIVE_COMPLETE",
       "certification": null
@@ -1517,35 +1304,10 @@
       "lesson": 16,
       "renderer": "FaithfulPageRenderer",
       "structuredContent": "src/data/page-layouts.json#pages.57",
-      "manifestRecord": "src/content/workbook/workbook-manifest.json#57",
-      "exerciseMechanics": [
-        "fill-in-blank"
-      ],
-      "workbookInteractions": [],
-      "faithfulIllustrations": [
-        "/cartilla/art/faithful/leccion-16-v/vela.webp"
-      ],
+      "exerciseMechanics": [],
+      "faithfulIllustrations": [],
       "sourceScan": "/cartilla/art/source/workbook/page-057.jpg",
       "legacyScanReference": "/cartilla/images/source/v/v-page-36.jpg",
-      "sourceScanPresentInCheckout": true,
-      "animationCandidates": [],
-      "gretelGuidance": [
-        "Completa las palabras con la sílaba correcta."
-      ],
-      "status": "NATIVE_COMPLETE",
-      "certification": null
-    },
-    {
-      "physicalPage": 58,
-      "lesson": 16,
-      "renderer": "FaithfulPageRenderer",
-      "structuredContent": "src/data/page-layouts.json#pages.58",
-      "manifestRecord": "src/content/workbook/workbook-manifest.json#58",
-      "exerciseMechanics": [],
-      "workbookInteractions": [],
-      "faithfulIllustrations": [],
-      "sourceScan": "/cartilla/art/source/workbook/page-058.jpg",
-      "legacyScanReference": "/cartilla/images/source/v/v-page-37.jpg",
       "sourceScanPresentInCheckout": true,
       "animationCandidates": [],
       "gretelGuidance": [
@@ -1555,17 +1317,33 @@
       "certification": null
     },
     {
+      "physicalPage": 58,
+      "lesson": 16,
+      "renderer": "FaithfulPageRenderer",
+      "structuredContent": "src/data/page-layouts.json#pages.58",
+      "exerciseMechanics": [
+        "fill-in-blank"
+      ],
+      "faithfulIllustrations": [],
+      "sourceScan": "/cartilla/art/source/workbook/page-058.jpg",
+      "legacyScanReference": "/cartilla/images/source/v/v-page-37.jpg",
+      "sourceScanPresentInCheckout": true,
+      "animationCandidates": [],
+      "gretelGuidance": [
+        "Completa las palabras con la sílaba correcta.",
+        "Escribe oraciones. Usa las sílabas que aprendiste."
+      ],
+      "status": "NATIVE_COMPLETE",
+      "certification": null
+    },
+    {
       "physicalPage": 59,
       "lesson": 17,
       "renderer": "FaithfulPageRenderer",
       "structuredContent": "src/data/page-layouts.json#pages.59",
-      "manifestRecord": "src/content/workbook/workbook-manifest.json#59",
       "exerciseMechanics": [
         "writing-line",
         "draw-box"
-      ],
-      "workbookInteractions": [
-        "l17-p59-word-reveal-r"
       ],
       "faithfulIllustrations": [],
       "sourceScan": "/cartilla/art/source/workbook/page-059.jpg",
@@ -1573,7 +1351,7 @@
       "sourceScanPresentInCheckout": true,
       "animationCandidates": [],
       "gretelGuidance": [
-        "Traza con tu mejor letra.",
+        "Escribe con tu mejor letra.",
         "Haz un dibujo que represente una palabra que comienza con r."
       ],
       "status": "NATIVE_COMPLETE",
@@ -1584,27 +1362,16 @@
       "lesson": 17,
       "renderer": "FaithfulPageRenderer",
       "structuredContent": "src/data/page-layouts.json#pages.60",
-      "manifestRecord": "src/content/workbook/workbook-manifest.json#60",
       "exerciseMechanics": [
         "syllable-match"
       ],
-      "workbookInteractions": [
-        "l17-p60-syllable-r",
-        "l17-p60-sight-word-bien",
-        "l17-p60-mini-story-r"
-      ],
-      "faithfulIllustrations": [
-        "/cartilla/art/faithful/leccion-17-r/rueda.webp",
-        "/cartilla/art/faithful/leccion-17-r/remo.webp",
-        "/cartilla/art/faithful/leccion-17-r/rana.webp",
-        "/cartilla/art/faithful/leccion-17-r/rosa.webp"
-      ],
+      "faithfulIllustrations": [],
       "sourceScan": "/cartilla/art/source/workbook/page-060.jpg",
       "legacyScanReference": "/cartilla/images/source/r/r-page-38.jpg",
       "sourceScanPresentInCheckout": true,
       "animationCandidates": [],
       "gretelGuidance": [
-        "Presiona la sílaba correspondiente."
+        "Encierra en un círculo la sílaba correspondiente."
       ],
       "status": "NATIVE_COMPLETE",
       "certification": null
@@ -1614,39 +1381,10 @@
       "lesson": 17,
       "renderer": "FaithfulPageRenderer",
       "structuredContent": "src/data/page-layouts.json#pages.61",
-      "manifestRecord": "src/content/workbook/workbook-manifest.json#61",
-      "exerciseMechanics": [
-        "fill-in-blank"
-      ],
-      "workbookInteractions": [
-        "l17-p61-poem-r"
-      ],
-      "faithfulIllustrations": [
-        "/cartilla/art/faithful/leccion-17-r/rana.webp"
-      ],
+      "exerciseMechanics": [],
+      "faithfulIllustrations": [],
       "sourceScan": "/cartilla/art/source/workbook/page-061.jpg",
       "legacyScanReference": "/cartilla/images/source/r/r-page-39.jpg",
-      "sourceScanPresentInCheckout": true,
-      "animationCandidates": [],
-      "gretelGuidance": [
-        "Completa las palabras con la sílaba correcta."
-      ],
-      "status": "NATIVE_COMPLETE",
-      "certification": null
-    },
-    {
-      "physicalPage": 62,
-      "lesson": 17,
-      "renderer": "FaithfulPageRenderer",
-      "structuredContent": "src/data/page-layouts.json#pages.62",
-      "manifestRecord": "src/content/workbook/workbook-manifest.json#62",
-      "exerciseMechanics": [],
-      "workbookInteractions": [
-        "l17-p62-read-aloud"
-      ],
-      "faithfulIllustrations": [],
-      "sourceScan": "/cartilla/art/source/workbook/page-062.jpg",
-      "legacyScanReference": "/cartilla/images/source/r/r-page-40.jpg",
       "sourceScanPresentInCheckout": true,
       "animationCandidates": [],
       "gretelGuidance": [
@@ -1656,17 +1394,33 @@
       "certification": null
     },
     {
+      "physicalPage": 62,
+      "lesson": 17,
+      "renderer": "FaithfulPageRenderer",
+      "structuredContent": "src/data/page-layouts.json#pages.62",
+      "exerciseMechanics": [
+        "fill-in-blank"
+      ],
+      "faithfulIllustrations": [],
+      "sourceScan": "/cartilla/art/source/workbook/page-062.jpg",
+      "legacyScanReference": "/cartilla/images/source/r/r-page-40.jpg",
+      "sourceScanPresentInCheckout": true,
+      "animationCandidates": [],
+      "gretelGuidance": [
+        "Completa las palabras con la sílaba correcta.",
+        "Escribe oraciones. Usa las sílabas que aprendiste."
+      ],
+      "status": "NATIVE_COMPLETE",
+      "certification": null
+    },
+    {
       "physicalPage": 63,
       "lesson": 18,
       "renderer": "FaithfulPageRenderer",
       "structuredContent": "src/data/page-layouts.json#pages.63",
-      "manifestRecord": "src/content/workbook/workbook-manifest.json#63",
       "exerciseMechanics": [
         "writing-line",
         "draw-box"
-      ],
-      "workbookInteractions": [
-        "l18-p63-letter-tracing"
       ],
       "faithfulIllustrations": [],
       "sourceScan": "/cartilla/art/source/workbook/page-063.jpg",
@@ -1674,8 +1428,8 @@
       "sourceScanPresentInCheckout": true,
       "animationCandidates": [],
       "gretelGuidance": [
-        "Traza con tu mejor letra.",
-        "Haz un dibujo que represente una palabra que comienza con rr."
+        "Escribe con tu mejor letra.",
+        "Haz un dibujo que represente una palabra que contenga la letra rr."
       ],
       "status": "NATIVE_COMPLETE",
       "certification": null
@@ -1685,23 +1439,16 @@
       "lesson": 18,
       "renderer": "FaithfulPageRenderer",
       "structuredContent": "src/data/page-layouts.json#pages.64",
-      "manifestRecord": "src/content/workbook/workbook-manifest.json#64",
       "exerciseMechanics": [
         "syllable-match"
       ],
-      "workbookInteractions": [
-        "l18-p64-syllable-circle"
-      ],
-      "faithfulIllustrations": [
-        "/cartilla/art/faithful/leccion-18-rr/torre.webp",
-        "/cartilla/art/faithful/leccion-18-rr/burro.webp"
-      ],
+      "faithfulIllustrations": [],
       "sourceScan": "/cartilla/art/source/workbook/page-064.jpg",
       "legacyScanReference": "/cartilla/images/source/rr/rr-page-41.jpg",
       "sourceScanPresentInCheckout": true,
       "animationCandidates": [],
       "gretelGuidance": [
-        "Presiona la sílaba correspondiente."
+        "Encierra en un círculo la sílaba correspondiente."
       ],
       "status": "NATIVE_COMPLETE",
       "certification": null
@@ -1711,21 +1458,14 @@
       "lesson": 18,
       "renderer": "FaithfulPageRenderer",
       "structuredContent": "src/data/page-layouts.json#pages.65",
-      "manifestRecord": "src/content/workbook/workbook-manifest.json#65",
-      "exerciseMechanics": [
-        "fill-in-blank"
-      ],
-      "workbookInteractions": [
-        "l18-p65-word-bank",
-        "l18-p65-mini-story"
-      ],
+      "exerciseMechanics": [],
       "faithfulIllustrations": [],
       "sourceScan": "/cartilla/art/source/workbook/page-065.jpg",
       "legacyScanReference": "/cartilla/images/source/rr/rr-page-42.jpg",
       "sourceScanPresentInCheckout": true,
       "animationCandidates": [],
       "gretelGuidance": [
-        "Completa las palabras con la sílaba correcta."
+        "rr"
       ],
       "status": "NATIVE_COMPLETE",
       "certification": null
@@ -1735,10 +1475,8 @@
       "lesson": 18,
       "renderer": "FaithfulPageRenderer",
       "structuredContent": "src/data/page-layouts.json#pages.66",
-      "manifestRecord": "src/content/workbook/workbook-manifest.json#66",
-      "exerciseMechanics": [],
-      "workbookInteractions": [
-        "l18-p66-fill-in-blank"
+      "exerciseMechanics": [
+        "fill-in-blank"
       ],
       "faithfulIllustrations": [],
       "sourceScan": "/cartilla/art/source/workbook/page-066.jpg",
@@ -1746,7 +1484,8 @@
       "sourceScanPresentInCheckout": true,
       "animationCandidates": [],
       "gretelGuidance": [
-        "RRrr"
+        "Completa las palabras con la sílaba correcta.",
+        "Escribe oraciones. Usa las sílabas que aprendiste."
       ],
       "status": "NATIVE_COMPLETE",
       "certification": null
@@ -1756,13 +1495,9 @@
       "lesson": 19,
       "renderer": "FaithfulPageRenderer",
       "structuredContent": "src/data/page-layouts.json#pages.67",
-      "manifestRecord": "src/content/workbook/workbook-manifest.json#67",
       "exerciseMechanics": [
         "writing-line",
         "draw-box"
-      ],
-      "workbookInteractions": [
-        "l19-p67-letter-tracing"
       ],
       "faithfulIllustrations": [],
       "sourceScan": "/cartilla/art/source/workbook/page-067.jpg",
@@ -1770,7 +1505,7 @@
       "sourceScanPresentInCheckout": true,
       "animationCandidates": [],
       "gretelGuidance": [
-        "Traza con tu mejor letra.",
+        "Escribe con tu mejor letra.",
         "Haz un dibujo que represente una palabra que comienza con g."
       ],
       "status": "NATIVE_COMPLETE",
@@ -1781,24 +1516,16 @@
       "lesson": 19,
       "renderer": "FaithfulPageRenderer",
       "structuredContent": "src/data/page-layouts.json#pages.68",
-      "manifestRecord": "src/content/workbook/workbook-manifest.json#68",
       "exerciseMechanics": [
         "syllable-match"
       ],
-      "workbookInteractions": [
-        "l19-p68-syllable-circle"
-      ],
-      "faithfulIllustrations": [
-        "/cartilla/art/faithful/leccion-19-g/gato.webp",
-        "/cartilla/art/faithful/leccion-19-g/gusano.webp",
-        "/cartilla/art/faithful/leccion-1/aguila.webp"
-      ],
+      "faithfulIllustrations": [],
       "sourceScan": "/cartilla/art/source/workbook/page-068.jpg",
       "legacyScanReference": "/cartilla/images/source/g/g-page-44.jpg",
       "sourceScanPresentInCheckout": true,
       "animationCandidates": [],
       "gretelGuidance": [
-        "Presiona la sílaba correspondiente."
+        "Encierra en un círculo la sílaba correspondiente."
       ],
       "status": "NATIVE_COMPLETE",
       "certification": null
@@ -1808,38 +1535,10 @@
       "lesson": 19,
       "renderer": "FaithfulPageRenderer",
       "structuredContent": "src/data/page-layouts.json#pages.69",
-      "manifestRecord": "src/content/workbook/workbook-manifest.json#69",
-      "exerciseMechanics": [
-        "fill-in-blank"
-      ],
-      "workbookInteractions": [
-        "l19-p69-word-bank",
-        "l19-p69-mini-story"
-      ],
+      "exerciseMechanics": [],
       "faithfulIllustrations": [],
       "sourceScan": "/cartilla/art/source/workbook/page-069.jpg",
       "legacyScanReference": "/cartilla/images/source/g/g-page-45.jpg",
-      "sourceScanPresentInCheckout": true,
-      "animationCandidates": [],
-      "gretelGuidance": [
-        "Completa las palabras con la sílaba correcta."
-      ],
-      "status": "NATIVE_COMPLETE",
-      "certification": null
-    },
-    {
-      "physicalPage": 70,
-      "lesson": 19,
-      "renderer": "FaithfulPageRenderer",
-      "structuredContent": "src/data/page-layouts.json#pages.70",
-      "manifestRecord": "src/content/workbook/workbook-manifest.json#70",
-      "exerciseMechanics": [],
-      "workbookInteractions": [
-        "l19-p70-fill-in-blank"
-      ],
-      "faithfulIllustrations": [],
-      "sourceScan": "/cartilla/art/source/workbook/page-070.jpg",
-      "legacyScanReference": "/cartilla/images/source/g/g-page-46.jpg",
       "sourceScanPresentInCheckout": true,
       "animationCandidates": [],
       "gretelGuidance": [
@@ -1849,17 +1548,33 @@
       "certification": null
     },
     {
+      "physicalPage": 70,
+      "lesson": 19,
+      "renderer": "FaithfulPageRenderer",
+      "structuredContent": "src/data/page-layouts.json#pages.70",
+      "exerciseMechanics": [
+        "fill-in-blank"
+      ],
+      "faithfulIllustrations": [],
+      "sourceScan": "/cartilla/art/source/workbook/page-070.jpg",
+      "legacyScanReference": "/cartilla/images/source/g/g-page-46.jpg",
+      "sourceScanPresentInCheckout": true,
+      "animationCandidates": [],
+      "gretelGuidance": [
+        "Completa las palabras con la sílaba correcta.",
+        "Escribe oraciones. Usa las sílabas que aprendiste."
+      ],
+      "status": "NATIVE_COMPLETE",
+      "certification": null
+    },
+    {
       "physicalPage": 71,
       "lesson": 20,
       "renderer": "FaithfulPageRenderer",
       "structuredContent": "src/data/page-layouts.json#pages.71",
-      "manifestRecord": "src/content/workbook/workbook-manifest.json#71",
       "exerciseMechanics": [
         "writing-line",
         "draw-box"
-      ],
-      "workbookInteractions": [
-        "l20-p71-letter-tracing"
       ],
       "faithfulIllustrations": [],
       "sourceScan": "/cartilla/art/source/workbook/page-071.jpg",
@@ -1867,7 +1582,7 @@
       "sourceScanPresentInCheckout": true,
       "animationCandidates": [],
       "gretelGuidance": [
-        "Traza con tu mejor letra.",
+        "Escribe con tu mejor letra.",
         "Haz un dibujo que represente una palabra que comienza con f."
       ],
       "status": "NATIVE_COMPLETE",
@@ -1878,23 +1593,16 @@
       "lesson": 20,
       "renderer": "FaithfulPageRenderer",
       "structuredContent": "src/data/page-layouts.json#pages.72",
-      "manifestRecord": "src/content/workbook/workbook-manifest.json#72",
       "exerciseMechanics": [
         "syllable-match"
       ],
-      "workbookInteractions": [
-        "l20-p72-syllable-circle"
-      ],
-      "faithfulIllustrations": [
-        "/cartilla/art/faithful/leccion-20-f/foto.webp",
-        "/cartilla/art/faithful/leccion-20-f/fiesta.webp"
-      ],
+      "faithfulIllustrations": [],
       "sourceScan": "/cartilla/art/source/workbook/page-072.jpg",
       "legacyScanReference": "/cartilla/images/source/f/f-page-47.jpg",
       "sourceScanPresentInCheckout": true,
       "animationCandidates": [],
       "gretelGuidance": [
-        "Presiona la sílaba correspondiente."
+        "Encierra en un círculo la sílaba correspondiente."
       ],
       "status": "NATIVE_COMPLETE",
       "certification": null
@@ -1904,38 +1612,10 @@
       "lesson": 20,
       "renderer": "FaithfulPageRenderer",
       "structuredContent": "src/data/page-layouts.json#pages.73",
-      "manifestRecord": "src/content/workbook/workbook-manifest.json#73",
-      "exerciseMechanics": [
-        "fill-in-blank"
-      ],
-      "workbookInteractions": [
-        "l20-p73-word-bank",
-        "l20-p73-mini-story"
-      ],
+      "exerciseMechanics": [],
       "faithfulIllustrations": [],
       "sourceScan": "/cartilla/art/source/workbook/page-073.jpg",
       "legacyScanReference": "/cartilla/images/source/f/f-page-48.jpg",
-      "sourceScanPresentInCheckout": true,
-      "animationCandidates": [],
-      "gretelGuidance": [
-        "Completa las palabras con la sílaba correcta."
-      ],
-      "status": "NATIVE_COMPLETE",
-      "certification": null
-    },
-    {
-      "physicalPage": 74,
-      "lesson": 20,
-      "renderer": "FaithfulPageRenderer",
-      "structuredContent": "src/data/page-layouts.json#pages.74",
-      "manifestRecord": "src/content/workbook/workbook-manifest.json#74",
-      "exerciseMechanics": [],
-      "workbookInteractions": [
-        "l20-p74-fill-in-blank"
-      ],
-      "faithfulIllustrations": [],
-      "sourceScan": "/cartilla/art/source/workbook/page-074.jpg",
-      "legacyScanReference": "/cartilla/images/source/f/f-page-49.jpg",
       "sourceScanPresentInCheckout": true,
       "animationCandidates": [],
       "gretelGuidance": [
@@ -1945,17 +1625,33 @@
       "certification": null
     },
     {
+      "physicalPage": 74,
+      "lesson": 20,
+      "renderer": "FaithfulPageRenderer",
+      "structuredContent": "src/data/page-layouts.json#pages.74",
+      "exerciseMechanics": [
+        "fill-in-blank"
+      ],
+      "faithfulIllustrations": [],
+      "sourceScan": "/cartilla/art/source/workbook/page-074.jpg",
+      "legacyScanReference": "/cartilla/images/source/f/f-page-49.jpg",
+      "sourceScanPresentInCheckout": true,
+      "animationCandidates": [],
+      "gretelGuidance": [
+        "Completa las palabras con la sílaba correcta.",
+        "Escribe oraciones. Usa las sílabas que aprendiste."
+      ],
+      "status": "NATIVE_COMPLETE",
+      "certification": null
+    },
+    {
       "physicalPage": 75,
       "lesson": 21,
       "renderer": "FaithfulPageRenderer",
       "structuredContent": "src/data/page-layouts.json#pages.75",
-      "manifestRecord": "src/content/workbook/workbook-manifest.json#75",
       "exerciseMechanics": [
         "writing-line",
         "draw-box"
-      ],
-      "workbookInteractions": [
-        "l21-p75-syllable-j"
       ],
       "faithfulIllustrations": [],
       "sourceScan": "/cartilla/art/source/workbook/page-075.jpg",
@@ -1963,7 +1659,7 @@
       "sourceScanPresentInCheckout": true,
       "animationCandidates": [],
       "gretelGuidance": [
-        "Traza con tu mejor letra.",
+        "Escribe con tu mejor letra.",
         "Haz un dibujo que represente una palabra que comienza con j."
       ],
       "status": "NATIVE_COMPLETE",
@@ -1974,25 +1670,16 @@
       "lesson": 21,
       "renderer": "FaithfulPageRenderer",
       "structuredContent": "src/data/page-layouts.json#pages.76",
-      "manifestRecord": "src/content/workbook/workbook-manifest.json#76",
       "exerciseMechanics": [
         "syllable-match"
       ],
-      "workbookInteractions": [
-        "l21-p76-words-j",
-        "l21-p76-read-aloud"
-      ],
-      "faithfulIllustrations": [
-        "/cartilla/art/faithful/leccion-21-j/jirafa.webp",
-        "/cartilla/art/faithful/leccion-21-j/jarra.webp",
-        "/cartilla/art/faithful/leccion-21-j/jugo.webp"
-      ],
+      "faithfulIllustrations": [],
       "sourceScan": "/cartilla/art/source/workbook/page-076.jpg",
       "legacyScanReference": "/cartilla/images/source/j/j-page-50.jpg",
       "sourceScanPresentInCheckout": true,
       "animationCandidates": [],
       "gretelGuidance": [
-        "Presiona la sílaba correspondiente."
+        "Encierra en un círculo la sílaba correspondiente."
       ],
       "status": "NATIVE_COMPLETE",
       "certification": null
@@ -2002,37 +1689,10 @@
       "lesson": 21,
       "renderer": "FaithfulPageRenderer",
       "structuredContent": "src/data/page-layouts.json#pages.77",
-      "manifestRecord": "src/content/workbook/workbook-manifest.json#77",
-      "exerciseMechanics": [
-        "fill-in-blank"
-      ],
-      "workbookInteractions": [
-        "l21-p77-mini-story"
-      ],
+      "exerciseMechanics": [],
       "faithfulIllustrations": [],
       "sourceScan": "/cartilla/art/source/workbook/page-077.jpg",
       "legacyScanReference": "/cartilla/images/source/j/j-page-51.jpg",
-      "sourceScanPresentInCheckout": true,
-      "animationCandidates": [],
-      "gretelGuidance": [
-        "Completa las palabras con la sílaba correcta."
-      ],
-      "status": "NATIVE_COMPLETE",
-      "certification": null
-    },
-    {
-      "physicalPage": 78,
-      "lesson": 21,
-      "renderer": "FaithfulPageRenderer",
-      "structuredContent": "src/data/page-layouts.json#pages.78",
-      "manifestRecord": "src/content/workbook/workbook-manifest.json#78",
-      "exerciseMechanics": [],
-      "workbookInteractions": [
-        "l21-p78-sentences"
-      ],
-      "faithfulIllustrations": [],
-      "sourceScan": "/cartilla/art/source/workbook/page-078.jpg",
-      "legacyScanReference": null,
       "sourceScanPresentInCheckout": true,
       "animationCandidates": [],
       "gretelGuidance": [
@@ -2042,17 +1702,33 @@
       "certification": null
     },
     {
+      "physicalPage": 78,
+      "lesson": 21,
+      "renderer": "FaithfulPageRenderer",
+      "structuredContent": "src/data/page-layouts.json#pages.78",
+      "exerciseMechanics": [
+        "fill-in-blank"
+      ],
+      "faithfulIllustrations": [],
+      "sourceScan": "/cartilla/art/source/workbook/page-078.jpg",
+      "legacyScanReference": null,
+      "sourceScanPresentInCheckout": true,
+      "animationCandidates": [],
+      "gretelGuidance": [
+        "Completa las palabras con la sílaba correcta.",
+        "Escribe oraciones. Usa las sílabas que aprendiste."
+      ],
+      "status": "NATIVE_COMPLETE",
+      "certification": null
+    },
+    {
       "physicalPage": 79,
       "lesson": 22,
       "renderer": "FaithfulPageRenderer",
       "structuredContent": "src/data/page-layouts.json#pages.79",
-      "manifestRecord": "src/content/workbook/workbook-manifest.json#79",
       "exerciseMechanics": [
         "writing-line",
         "draw-box"
-      ],
-      "workbookInteractions": [
-        "l22-p79-syllable-c"
       ],
       "faithfulIllustrations": [],
       "sourceScan": "/cartilla/art/source/workbook/page-079.jpg",
@@ -2060,7 +1736,7 @@
       "sourceScanPresentInCheckout": true,
       "animationCandidates": [],
       "gretelGuidance": [
-        "Traza con tu mejor letra.",
+        "Escribe con tu mejor letra.",
         "Haz un dibujo que represente una palabra que comienza con c."
       ],
       "status": "NATIVE_COMPLETE",
@@ -2071,24 +1747,16 @@
       "lesson": 22,
       "renderer": "FaithfulPageRenderer",
       "structuredContent": "src/data/page-layouts.json#pages.80",
-      "manifestRecord": "src/content/workbook/workbook-manifest.json#80",
       "exerciseMechanics": [
         "syllable-match"
       ],
-      "workbookInteractions": [
-        "l22-p80-words-c",
-        "l22-p80-read-aloud"
-      ],
-      "faithfulIllustrations": [
-        "/cartilla/art/faithful/leccion-19-c/casa.webp",
-        "/cartilla/art/faithful/leccion-19-c/cuna.webp"
-      ],
+      "faithfulIllustrations": [],
       "sourceScan": "/cartilla/art/source/workbook/page-080.jpg",
       "legacyScanReference": "/cartilla/images/source/c/c-page-53.jpg",
       "sourceScanPresentInCheckout": true,
       "animationCandidates": [],
       "gretelGuidance": [
-        "Presiona la sílaba correspondiente."
+        "Encierra en un círculo la sílaba correspondiente."
       ],
       "status": "NATIVE_COMPLETE",
       "certification": null
@@ -2098,37 +1766,10 @@
       "lesson": 22,
       "renderer": "FaithfulPageRenderer",
       "structuredContent": "src/data/page-layouts.json#pages.81",
-      "manifestRecord": "src/content/workbook/workbook-manifest.json#81",
-      "exerciseMechanics": [
-        "fill-in-blank"
-      ],
-      "workbookInteractions": [
-        "l22-p81-mini-story"
-      ],
+      "exerciseMechanics": [],
       "faithfulIllustrations": [],
       "sourceScan": "/cartilla/art/source/workbook/page-081.jpg",
       "legacyScanReference": "/cartilla/images/source/c/c-page-54.jpg",
-      "sourceScanPresentInCheckout": true,
-      "animationCandidates": [],
-      "gretelGuidance": [
-        "Completa las palabras con la sílaba correcta."
-      ],
-      "status": "NATIVE_COMPLETE",
-      "certification": null
-    },
-    {
-      "physicalPage": 82,
-      "lesson": 22,
-      "renderer": "FaithfulPageRenderer",
-      "structuredContent": "src/data/page-layouts.json#pages.82",
-      "manifestRecord": "src/content/workbook/workbook-manifest.json#82",
-      "exerciseMechanics": [],
-      "workbookInteractions": [
-        "l22-p82-sentences"
-      ],
-      "faithfulIllustrations": [],
-      "sourceScan": "/cartilla/art/source/workbook/page-082.jpg",
-      "legacyScanReference": null,
       "sourceScanPresentInCheckout": true,
       "animationCandidates": [],
       "gretelGuidance": [
@@ -2138,17 +1779,33 @@
       "certification": null
     },
     {
+      "physicalPage": 82,
+      "lesson": 22,
+      "renderer": "FaithfulPageRenderer",
+      "structuredContent": "src/data/page-layouts.json#pages.82",
+      "exerciseMechanics": [
+        "fill-in-blank"
+      ],
+      "faithfulIllustrations": [],
+      "sourceScan": "/cartilla/art/source/workbook/page-082.jpg",
+      "legacyScanReference": null,
+      "sourceScanPresentInCheckout": true,
+      "animationCandidates": [],
+      "gretelGuidance": [
+        "Completa las palabras con la sílaba correcta.",
+        "Escribe oraciones. Usa las sílabas que aprendiste."
+      ],
+      "status": "NATIVE_COMPLETE",
+      "certification": null
+    },
+    {
       "physicalPage": 83,
       "lesson": 23,
       "renderer": "FaithfulPageRenderer",
       "structuredContent": "src/data/page-layouts.json#pages.83",
-      "manifestRecord": "src/content/workbook/workbook-manifest.json#83",
       "exerciseMechanics": [
         "writing-line",
         "draw-box"
-      ],
-      "workbookInteractions": [
-        "l23-p83-syllable-y"
       ],
       "faithfulIllustrations": [],
       "sourceScan": "/cartilla/art/source/workbook/page-083.jpg",
@@ -2156,7 +1813,7 @@
       "sourceScanPresentInCheckout": true,
       "animationCandidates": [],
       "gretelGuidance": [
-        "Traza con tu mejor letra.",
+        "Escribe con tu mejor letra.",
         "Haz un dibujo que represente una palabra que comienza con y."
       ],
       "status": "NATIVE_COMPLETE",
@@ -2167,24 +1824,16 @@
       "lesson": 23,
       "renderer": "FaithfulPageRenderer",
       "structuredContent": "src/data/page-layouts.json#pages.84",
-      "manifestRecord": "src/content/workbook/workbook-manifest.json#84",
       "exerciseMechanics": [
         "syllable-match"
       ],
-      "workbookInteractions": [
-        "l23-p84-words-y",
-        "l23-p84-read-aloud"
-      ],
-      "faithfulIllustrations": [
-        "/cartilla/art/faithful/leccion-22-y/yate.webp",
-        "/cartilla/art/faithful/leccion-22-y/yoyo.webp"
-      ],
+      "faithfulIllustrations": [],
       "sourceScan": "/cartilla/art/source/workbook/page-084.jpg",
       "legacyScanReference": "/cartilla/images/source/y/y-page-56.jpg",
       "sourceScanPresentInCheckout": true,
       "animationCandidates": [],
       "gretelGuidance": [
-        "Presiona la sílaba correspondiente."
+        "Encierra en un círculo la sílaba correspondiente."
       ],
       "status": "NATIVE_COMPLETE",
       "certification": null
@@ -2194,20 +1843,14 @@
       "lesson": 23,
       "renderer": "FaithfulPageRenderer",
       "structuredContent": "src/data/page-layouts.json#pages.85",
-      "manifestRecord": "src/content/workbook/workbook-manifest.json#85",
-      "exerciseMechanics": [
-        "fill-in-blank"
-      ],
-      "workbookInteractions": [
-        "l23-p85-mini-story"
-      ],
+      "exerciseMechanics": [],
       "faithfulIllustrations": [],
       "sourceScan": "/cartilla/art/source/workbook/page-085.jpg",
       "legacyScanReference": "/cartilla/images/source/y/y-page-57.jpg",
       "sourceScanPresentInCheckout": true,
       "animationCandidates": [],
       "gretelGuidance": [
-        "Completa las palabras con la sílaba correcta."
+        "Yy"
       ],
       "status": "NATIVE_COMPLETE",
       "certification": null
@@ -2217,20 +1860,17 @@
       "lesson": 23,
       "renderer": "FaithfulPageRenderer",
       "structuredContent": "src/data/page-layouts.json#pages.86",
-      "manifestRecord": "src/content/workbook/workbook-manifest.json#86",
       "exerciseMechanics": [],
-      "workbookInteractions": [
-        "l23-p86-sentences"
-      ],
       "faithfulIllustrations": [],
       "sourceScan": null,
       "legacyScanReference": null,
       "sourceScanPresentInCheckout": false,
       "animationCandidates": [],
       "gretelGuidance": [
-        "Yy"
+        "Completa las palabras con la sílaba correcta.",
+        "Escribe oraciones. Usa las sílabas que aprendiste."
       ],
-      "status": "NATIVE_COMPLETE",
+      "status": "SOURCE_BLOCKED",
       "certification": null
     },
     {
@@ -2238,13 +1878,9 @@
       "lesson": 24,
       "renderer": "FaithfulPageRenderer",
       "structuredContent": "src/data/page-layouts.json#pages.87",
-      "manifestRecord": "src/content/workbook/workbook-manifest.json#87",
       "exerciseMechanics": [
         "writing-line",
         "draw-box"
-      ],
-      "workbookInteractions": [
-        "l24-p87-syllable-z"
       ],
       "faithfulIllustrations": [],
       "sourceScan": null,
@@ -2252,10 +1888,10 @@
       "sourceScanPresentInCheckout": false,
       "animationCandidates": [],
       "gretelGuidance": [
-        "Traza con tu mejor letra.",
+        "Escribe con tu mejor letra.",
         "Haz un dibujo que represente una palabra que comienza con z."
       ],
-      "status": "NATIVE_COMPLETE",
+      "status": "SOURCE_BLOCKED",
       "certification": null
     },
     {
@@ -2263,25 +1899,16 @@
       "lesson": 24,
       "renderer": "FaithfulPageRenderer",
       "structuredContent": "src/data/page-layouts.json#pages.88",
-      "manifestRecord": "src/content/workbook/workbook-manifest.json#88",
       "exerciseMechanics": [
         "syllable-match"
       ],
-      "workbookInteractions": [
-        "l24-p88-words-z",
-        "l24-p88-read-aloud"
-      ],
-      "faithfulIllustrations": [
-        "/cartilla/art/faithful/leccion-23-z/zapato.webp",
-        "/cartilla/art/faithful/leccion-23-z/zorro.webp",
-        "/cartilla/art/faithful/leccion-23-z/zulema.webp"
-      ],
+      "faithfulIllustrations": [],
       "sourceScan": "/cartilla/art/source/workbook/page-088.jpg",
       "legacyScanReference": "/cartilla/images/source/z/z-page-59.jpg",
       "sourceScanPresentInCheckout": true,
       "animationCandidates": [],
       "gretelGuidance": [
-        "Presiona la sílaba correspondiente."
+        "Encierra en un círculo la sílaba correspondiente."
       ],
       "status": "NATIVE_COMPLETE",
       "certification": null
@@ -2291,20 +1918,14 @@
       "lesson": 24,
       "renderer": "FaithfulPageRenderer",
       "structuredContent": "src/data/page-layouts.json#pages.89",
-      "manifestRecord": "src/content/workbook/workbook-manifest.json#89",
-      "exerciseMechanics": [
-        "fill-in-blank"
-      ],
-      "workbookInteractions": [
-        "l24-p89-mini-story"
-      ],
+      "exerciseMechanics": [],
       "faithfulIllustrations": [],
       "sourceScan": "/cartilla/art/source/workbook/page-089.jpg",
       "legacyScanReference": "/cartilla/images/source/z/z-page-60.jpg",
       "sourceScanPresentInCheckout": true,
       "animationCandidates": [],
       "gretelGuidance": [
-        "Completa las palabras con la sílaba correcta."
+        "Zz"
       ],
       "status": "NATIVE_COMPLETE",
       "certification": null
@@ -2314,10 +1935,8 @@
       "lesson": 24,
       "renderer": "FaithfulPageRenderer",
       "structuredContent": "src/data/page-layouts.json#pages.90",
-      "manifestRecord": "src/content/workbook/workbook-manifest.json#90",
-      "exerciseMechanics": [],
-      "workbookInteractions": [
-        "l24-p90-sentences"
+      "exerciseMechanics": [
+        "fill-in-blank"
       ],
       "faithfulIllustrations": [],
       "sourceScan": "/cartilla/art/source/workbook/page-090.jpg",
@@ -2325,7 +1944,8 @@
       "sourceScanPresentInCheckout": true,
       "animationCandidates": [],
       "gretelGuidance": [
-        "Zz"
+        "Completa las palabras con la sílaba correcta.",
+        "Escribe oraciones. Usa las sílabas que aprendiste."
       ],
       "status": "NATIVE_COMPLETE",
       "certification": null

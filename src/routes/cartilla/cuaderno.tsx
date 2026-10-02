@@ -46,17 +46,17 @@ function ReconstructedWorkbook() {
   );
 
   return (
-    <main className="min-h-screen bg-[#f3f7f5] px-3 py-5 text-[#263a40] sm:px-6">
+    <main className="min-h-screen bg-[var(--lc-bg)] px-3 py-5 text-[var(--lc-ink)] sm:px-6">
       <div className="mx-auto mb-4 flex w-full max-w-5xl items-center justify-between gap-3">
         <Link
           to="/cartilla/lecciones"
-          className="inline-flex min-h-11 items-center gap-2 rounded-xl bg-white px-4 py-2 text-sm font-bold text-[#096d67] shadow-sm transition hover:bg-[#eaf5f1]"
+          className="inline-flex min-h-11 items-center gap-2 rounded-xl border-2 border-[var(--lc-teal)] bg-[var(--lc-paper)] px-4 py-2 text-sm font-bold text-[var(--lc-teal)]"
         >
           <ArrowLeft className="h-4 w-4" /> Lecciones
         </Link>
         <div className="text-right">
           <h1 className="text-base font-black sm:text-xl">Cuaderno completo</h1>
-          <p className="text-xs font-bold text-[#63817c]">Cuaderno digital interactivo</p>
+          <p className="text-xs font-bold text-[var(--lc-ink-soft)]">Cuaderno digital interactivo</p>
         </div>
       </div>
 

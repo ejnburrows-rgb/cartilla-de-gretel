@@ -1,5 +1,6 @@
 import { CATALOG, type CatalogEntry } from "@/lib/lesson-catalog";
 import { GRETEL_PRIMARY_VOICE, GRETEL_FALLBACK_VOICE } from "@/lib/gretel-voice";
+import approvedClips from "@/data/gretel-approved-clips.json";
 
 export type GretelCinematicAction =
   | "enter"
@@ -23,6 +24,8 @@ export type GretelCinematic = {
   durationSeconds: number;
   actions: GretelCinematicAction[];
   voice: { primary: string; fallback: string; locale: "es-MX" };
+  /** Register only produced, approved files. An absent clip uses the still. */
+  video?: { mp4: string; webm?: string; poster: string };
 };
 
 function lessonScript(entry: CatalogEntry): string {
@@ -38,6 +41,7 @@ function lessonScript(entry: CatalogEntry): string {
 function cinematicBase(partial: Omit<GretelCinematic, "voice">): GretelCinematic {
   return {
     ...partial,
+    video: (approvedClips as Record<string, GretelCinematic["video"]>)[partial.id],
     voice: { primary: GRETEL_PRIMARY_VOICE, fallback: GRETEL_FALLBACK_VOICE, locale: "es-MX" },
   };
 }

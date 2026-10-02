@@ -1,13 +1,14 @@
 /**
  * Ensures consonants.json picture-vocab matches the PR #173 book lists
- * transcribed in lesson-exercises (source of truth for L17–L24).
+ * — the Teacher Flip Chart vocabulary plates (source by surface).
  */
 import { describe, it, expect } from "vitest";
 import consonants from "../consonants.json";
-import { readFileSync } from "node:fs";
-import { join } from "node:path";
+import firstPages from "@/data/flipchart-text-3-22.json";
+import middlePages from "@/data/flipchart-text-23-42.json";
+import lastPages from "@/data/flipchart-text-43-62.json";
 
-/** Verbatim picture-vocab labels from lesson-exercises (scan-backed). */
+/** Verbatim picture-vocab labels from the Flip Chart vocabulary plates. */
 const BOOK_PICTURE_VOCAB: Record<number, string[]> = {
   17: ["rana", "remos", "Rita", "rosa", "rueda"],
   18: ["burro", "carrusel", "torre", "barril", "Tierra"],
@@ -49,10 +50,25 @@ describe("consonants.json vocab vs book (L17–L24)", () => {
     expect(words).toContain("familia");
   });
 
-  it("lesson-exercises L20 picture-vocab still agrees with consonants.json", () => {
-    const src = readFileSync(join(process.cwd(), "src/data/lesson-exercises/lesson-20.ts"), "utf8");
-    for (const w of BOOK_PICTURE_VOCAB[20]) {
-      expect(src).toContain(`label: "${w}"`);
+  it("L7–L24 picture vocab is exactly the Flip Chart vocabulary plate, with its source declared", () => {
+    const fc: Record<string, { text: string; y: number; fontSize: number }[]> = {
+      ...firstPages,
+      ...middlePages,
+      ...lastPages,
+    } as never;
+    for (const entry of consonants as Array<{
+      lesson: number;
+      vocab: { word: string; illustrationSrc?: string }[];
+      vocabSource: { book: string; flipchartPage: number };
+    }>) {
+      const page = entry.lesson === 7 ? 9 : 12 + 3 * (entry.lesson - 8);
+      expect(entry.vocabSource, `L${entry.lesson}`).toMatchObject({ book: "flipchart", flipchartPage: page });
+      const plateWords = fc[String(page)]
+        .filter((t) => t.text.trim().length > 1 && t.y > 700)
+        .map((t) => t.text.trim());
+      expect(entry.vocab.map((v) => v.word).sort(), `L${entry.lesson} vs Flip Chart p${page}`).toEqual(
+        [...plateWords].sort(),
+      );
     }
   });
 });

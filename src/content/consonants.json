@@ -15,61 +15,85 @@
       {
         "word": "mamá",
         "emoji": "👩",
-        "illustrationSrc": "/cartilla/art/faithful/leccion-7-m/mama.webp"
+        "illustrationSrc": "/cartilla/art/optimized/flipchart-native/p009-mama.png"
       },
       {
-        "word": "mono",
-        "emoji": "🐒",
-        "illustrationSrc": "/cartilla/art/faithful/leccion-7-m/mono.webp"
+        "word": "amo",
+        "emoji": "",
+        "illustrationSrc": "/cartilla/art/optimized/flipchart-native/p009-amo.png"
       },
       {
-        "word": "moto",
-        "emoji": "🛵"
+        "word": "mima",
+        "emoji": "",
+        "illustrationSrc": "/cartilla/art/optimized/flipchart-native/p009-mima.png"
       },
       {
-        "word": "mapa",
-        "emoji": "🗺️"
+        "word": "Meme",
+        "emoji": "",
+        "illustrationSrc": "/cartilla/art/optimized/flipchart-native/p009-meme.png"
+      },
+      {
+        "word": "Mumi",
+        "emoji": "",
+        "illustrationSrc": "/cartilla/art/optimized/flipchart-native/p009-mumi.png"
       }
     ],
+    "vocabSource": {
+      "book": "flipchart",
+      "flipchartPage": 9,
+      "note": "Picture vocabulary plate of the Teacher Flip Chart. Not Workbook content: Workbook activities/print use page-layouts.json."
+    },
     "examples": {
       "ma": [
+        "mami",
+        "ama",
         "mamá",
-        "mapa",
-        "maleta",
-        "mago",
-        "marisco"
+        "mima",
+        "Coloma",
+        "Manolo"
       ],
       "me": [
+        "media",
+        "Memo",
+        "melón",
         "mesa",
-        "miel",
-        "mecha",
-        "menudo",
-        "Memo"
+        "meta",
+        "Meme"
       ],
       "mi": [
-        "mimo",
+        "mío",
+        "amigo",
+        "mima",
         "mira",
-        "mina",
-        "Mimi"
+        "misa",
+        "Mimí"
       ],
       "mo": [
+        "amo",
+        "Memo",
         "mono",
-        "moto",
-        "moda",
-        "momia",
-        "modo"
+        "como",
+        "moneda",
+        "moto"
       ],
       "mu": [
         "mulo",
         "muleta",
         "muro",
         "mudo",
-        "mujer"
+        "mujer",
+        "Mumi"
       ]
     },
     "sentences": [
-      "Mi mamá me mima.",
-      "Mamá ama a Memo."
+      "Mi mamá me ama.",
+      "Amo a mami.",
+      "Mamá mía.",
+      "Mamá ama a Meme y a Mimí.",
+      "Memo ama a Mumi.",
+      "Mamá mía ámame.",
+      "Mímame a mí.",
+      "Mi mamá me mima."
     ]
   },
   {
@@ -88,60 +112,80 @@
       {
         "word": "papá",
         "emoji": "👨",
-        "illustrationSrc": "/cartilla/art/faithful/leccion-8-p/papa.webp"
+        "illustrationSrc": "/cartilla/art/optimized/flipchart-native/p012-papa.png"
       },
       {
-        "word": "pez",
-        "emoji": "🐟",
-        "illustrationSrc": "/cartilla/art/faithful/leccion-1/pez.webp"
+        "word": "pie",
+        "emoji": "🦶",
+        "illustrationSrc": "/cartilla/art/optimized/flipchart-native/p012-pie.png"
       },
       {
-        "word": "pino",
-        "emoji": "🌲"
+        "word": "Pepe",
+        "emoji": "",
+        "illustrationSrc": "/cartilla/art/optimized/flipchart-native/p012-pepe.png"
       },
       {
-        "word": "pulpo",
-        "emoji": "🐙"
+        "word": "puma",
+        "emoji": "🐆",
+        "illustrationSrc": "/cartilla/art/optimized/flipchart-native/p012-puma.png"
+      },
+      {
+        "word": "pomo",
+        "emoji": "",
+        "illustrationSrc": "/cartilla/art/optimized/flipchart-native/p012-pomo.png"
       }
     ],
+    "vocabSource": {
+      "book": "flipchart",
+      "flipchartPage": 12,
+      "note": "Picture vocabulary plate of the Teacher Flip Chart. Not Workbook content: Workbook activities/print use page-layouts.json."
+    },
     "examples": {
       "pa": [
         "papá",
-        "pala",
-        "pasa",
-        "patata",
-        "Pamela"
+        "pupa",
+        "mapa",
+        "Papo",
+        "¡upa!",
+        "pala"
       ],
       "pe": [
-        "pelo",
-        "pera",
-        "pez",
         "Pepe",
-        "peso"
+        "pelo",
+        "tapete",
+        "pesa",
+        "pelota",
+        "chupete"
       ],
       "pi": [
-        "pino",
-        "pisa",
-        "pipa",
-        "Pipo",
-        "pista"
+        "pipo",
+        "Pupi",
+        "Mupi",
+        "papi",
+        "Mapi",
+        "pío"
       ],
       "po": [
         "pomo",
-        "poma",
-        "popa",
-        "poco",
-        "polo"
+        "polo",
+        "sapo",
+        "mapo",
+        "tapo",
+        "Pepo"
       ],
       "pu": [
+        "puso",
+        "Pupa",
         "puma",
-        "pupa",
+        "apura",
         "Pupi",
-        "pulpo",
         "púa"
       ]
     },
     "sentences": [
+      "Papá y Pepe aman a mamá.",
+      "Pupi ama a papá.",
+      "Yo amo a mamá y a papá.",
       "Mi papá ama a Pupi.",
       "Papá y mamá me aman."
     ]
@@ -160,64 +204,87 @@
     ],
     "vocab": [
       {
-        "word": "sapo",
-        "emoji": "🐸",
-        "illustrationSrc": "/cartilla/art/faithful/leccion-9-s/sapo.webp"
-      },
-      {
-        "word": "sol",
-        "emoji": "☀️"
+        "word": "Sesi",
+        "emoji": "",
+        "illustrationSrc": "/cartilla/art/optimized/flipchart-native/p015-sesi.png"
       },
       {
         "word": "sopa",
         "emoji": "🍲",
-        "illustrationSrc": "/cartilla/art/faithful/leccion-9-s/sopa.webp"
+        "illustrationSrc": "/cartilla/art/optimized/flipchart-native/p015-sopa.png"
       },
       {
-        "word": "silla",
-        "emoji": "💺"
+        "word": "sapo",
+        "emoji": "🐸",
+        "illustrationSrc": "/cartilla/art/optimized/flipchart-native/p015-sapo.png"
+      },
+      {
+        "word": "pisa",
+        "emoji": "",
+        "illustrationSrc": "/cartilla/art/optimized/flipchart-native/p015-pisa.png"
+      },
+      {
+        "word": "Susi",
+        "emoji": "",
+        "illustrationSrc": "/cartilla/art/optimized/flipchart-native/p015-susi.png"
       }
     ],
+    "vocabSource": {
+      "book": "flipchart",
+      "flipchartPage": 15,
+      "note": "Picture vocabulary plate of the Teacher Flip Chart. Not Workbook content: Workbook activities/print use page-layouts.json."
+    },
     "examples": {
       "sa": [
-        "sapo",
+        "masa",
+        "casa",
+        "pesa",
         "sala",
-        "sano",
-        "Sandi",
-        "salida"
+        "mesa",
+        "sapo"
       ],
       "se": [
-        "seda",
-        "señal",
-        "sed",
-        "Sela",
-        "semana"
+        "sello",
+        "pase",
+        "caseta",
+        "seca",
+        "semilla",
+        "secante"
       ],
       "si": [
-        "sino",
-        "sima",
-        "Simón",
         "silla",
+        "casita",
+        "cosita",
+        "pasito",
+        "osito",
         "sitio"
       ],
       "so": [
+        "paso",
         "sopa",
-        "sol",
         "soga",
-        "soso",
-        "Soto"
+        "oso",
+        "toso",
+        "puso"
       ],
       "su": [
         "suyo",
         "suma",
         "Susi",
         "supo",
-        "sube"
+        "sube",
+        "sudor"
       ]
     },
     "sentences": [
-      "Pepe puso un sapo en la mesa.",
-      "Susi suma sopa."
+      "La mesa es de Susi.",
+      "La sopa está en la mesa.",
+      "Papá pasa la sopa a Susi.",
+      "Sisi pasa la sopa a mamá.",
+      "Ese sapo es de Sisi.",
+      "Es el sapo Samapo.",
+      "Sisi pasa el sapo a Pepe.",
+      "Pepe puso un sapo en la mesa."
     ]
   },
   {
@@ -234,60 +301,86 @@
     ],
     "vocab": [
       {
-        "word": "tapa",
-        "emoji": "🫙"
-      },
-      {
         "word": "tomate",
-        "emoji": "🍅"
+        "emoji": "🍅",
+        "illustrationSrc": "/cartilla/art/optimized/flipchart-native/p018-tomate.webp"
       },
       {
-        "word": "tina",
-        "emoji": "🛁"
+        "word": "tapa",
+        "emoji": "",
+        "illustrationSrc": "/cartilla/art/optimized/flipchart-native/p018-tapa.webp"
       },
       {
-        "word": "tulipán",
-        "emoji": "🌷"
+        "word": "topo",
+        "emoji": "",
+        "illustrationSrc": "/cartilla/art/optimized/flipchart-native/p018-topo.webp"
+      },
+      {
+        "word": "tipi",
+        "emoji": "",
+        "illustrationSrc": "/cartilla/art/optimized/flipchart-native/p018-tipi.webp"
+      },
+      {
+        "word": "Tuto",
+        "emoji": "",
+        "illustrationSrc": "/cartilla/art/optimized/flipchart-native/p018-tuto.webp"
       }
     ],
+    "vocabSource": {
+      "book": "flipchart",
+      "flipchartPage": 18,
+      "note": "Picture vocabulary plate of the Teacher Flip Chart. Not Workbook content: Workbook activities/print use page-layouts.json."
+    },
     "examples": {
       "ta": [
         "tapa",
-        "tasa",
-        "Tati",
-        "tarima",
-        "tarea"
+        "Mota",
+        "Tota",
+        "seta",
+        "peseta",
+        "pata"
       ],
       "te": [
+        "tema",
+        "tomate",
+        "mete",
         "teme",
-        "tela",
-        "tetera",
         "Teté",
-        "techo"
+        "tapete"
       ],
       "ti": [
-        "tipo",
-        "tina",
         "Tito",
-        "tirita"
+        "Piti",
+        "timón",
+        "tina",
+        "Poti",
+        "tipi"
       ],
       "to": [
         "topo",
+        "moto",
         "tomate",
-        "Toño",
-        "toldo",
-        "todo"
+        "pato",
+        "toma",
+        "sapito"
       ],
       "tu": [
         "tupe",
         "tubo",
         "tulipán",
         "tuna",
+        "tuba",
         "Matute"
       ]
     },
     "sentences": [
-      "¡No Tito, no, no tapes el pomo!",
+      "La mesa tiene un tapete.",
+      "El pomo está en la mesa.",
+      "La mesa está en el patio.",
+      "El pomo tiene sopa.",
+      "El pomo tiene tapa.",
+      "Tito tapa el pomo.",
+      "–¡No Tito, no, no tapes el pomo!",
       "Papá tapa la sopa."
     ]
   },
@@ -305,62 +398,86 @@
     ],
     "vocab": [
       {
-        "word": "dado",
+        "word": "Didi",
+        "emoji": "",
+        "illustrationSrc": "/cartilla/art/optimized/flipchart-native/p021-didi.webp"
+      },
+      {
+        "word": "dados",
         "emoji": "🎲",
-        "illustrationSrc": "/cartilla/art/faithful/leccion-11-d/dado.webp"
+        "illustrationSrc": "/cartilla/art/optimized/flipchart-native/p021-dados.webp"
       },
       {
-        "word": "delfín",
-        "emoji": "🐬"
+        "word": "dedo",
+        "emoji": "☝️",
+        "illustrationSrc": "/cartilla/art/optimized/flipchart-native/p021-dedo.webp"
       },
       {
-        "word": "dona",
-        "emoji": "🍩"
+        "word": "doce",
+        "emoji": "",
+        "illustrationSrc": "/cartilla/art/optimized/flipchart-native/p021-doce.webp"
       },
       {
-        "word": "ducha",
-        "emoji": "🚿"
+        "word": "Dunia",
+        "emoji": "",
+        "illustrationSrc": "/cartilla/art/optimized/flipchart-native/p021-dunia.webp"
       }
     ],
+    "vocabSource": {
+      "book": "flipchart",
+      "flipchartPage": 21,
+      "note": "Picture vocabulary plate of the Teacher Flip Chart. Not Workbook content: Workbook activities/print use page-layouts.json."
+    },
     "examples": {
       "da": [
+        "dame",
+        "Ada",
+        "Made",
+        "duda",
         "dado",
-        "dama",
-        "Dani",
-        "danza"
+        "poda"
       ],
       "de": [
         "dedo",
-        "delfín",
-        "demora",
-        "Dela",
-        "Delia"
+        "además",
+        "deme",
+        "modelo",
+        "pide",
+        "debajo"
       ],
       "di": [
         "dime",
-        "Dina",
-        "Diego",
-        "dieta",
-        "diadema"
+        "Adi",
+        "dice",
+        "dinero",
+        "día",
+        "Didi"
       ],
       "do": [
-        "dona",
+        "dado",
+        "podo",
         "doce",
-        "domo",
-        "Dora",
-        "dormido"
+        "dedo",
+        "modo",
+        "mudo"
       ],
       "du": [
         "Duma",
         "duro",
         "duda",
         "durazno",
+        "maduro",
         "ducha"
       ]
     },
     "sentences": [
+      "Dime si Ada tiene dados.",
+      "Los dados son de Dunia.",
+      "– ¿Dónde están los dados?",
+      "Dunia pone los dados en el pomo.",
+      "– Dunia dame el pomo.",
       "El pomo de Dunia está en la mesa.",
-      "—Ada, ¿dónde está Dunia?"
+      "– Ada, ¿Dónde está Dunia?"
     ]
   },
   {
@@ -377,60 +494,83 @@
     ],
     "vocab": [
       {
-        "word": "luna",
-        "emoji": "🌙"
+        "word": "maleta",
+        "emoji": "🧳",
+        "illustrationSrc": "/cartilla/art/optimized/flipchart-native/p024-maleta.webp"
       },
       {
-        "word": "lobo",
-        "emoji": "🐺"
+        "word": "lata",
+        "emoji": "🥫",
+        "illustrationSrc": "/cartilla/art/optimized/flipchart-native/p024-lata.webp"
       },
       {
-        "word": "loro",
-        "emoji": "🦜"
+        "word": "Luli",
+        "emoji": "",
+        "illustrationSrc": "/cartilla/art/optimized/flipchart-native/p024-luli.webp"
       },
       {
-        "word": "lupa",
-        "emoji": "🔍"
+        "word": "loma",
+        "emoji": "",
+        "illustrationSrc": "/cartilla/art/optimized/flipchart-native/p024-loma.webp"
+      },
+      {
+        "word": "Lala",
+        "emoji": "",
+        "illustrationSrc": "/cartilla/art/optimized/flipchart-native/p024-lala.png"
       }
     ],
+    "vocabSource": {
+      "book": "flipchart",
+      "flipchartPage": 24,
+      "note": "Picture vocabulary plate of the Teacher Flip Chart. Not Workbook content: Workbook activities/print use page-layouts.json."
+    },
     "examples": {
       "la": [
         "lata",
-        "lana",
-        "Lalo",
-        "lago",
-        "lazo"
+        "mala",
+        "pala",
+        "Lamas",
+        "mula",
+        "pila"
       ],
       "le": [
-        "lema",
-        "leña",
-        "Lela",
-        "lente",
-        "letra"
+        "Leo",
+        "aleta",
+        "saleta",
+        "maleta",
+        "sale",
+        "paleta"
       ],
       "li": [
         "lima",
-        "lila",
-        "Lili",
-        "litro",
-        "lista"
+        "Lila",
+        "alita",
+        "liso",
+        "palito",
+        "limón"
       ],
       "lo": [
-        "lobo",
-        "loma",
+        "pelota",
+        "palo",
         "Lolo",
-        "loro",
-        "lodo"
+        "Polo",
+        "Lola",
+        "paloma"
       ],
       "lu": [
         "lupa",
         "pelusa",
         "Luli",
         "luna",
+        "saluda",
         "Lupe"
       ]
     },
     "sentences": [
+      "La maleta de Luli está en la mesa.",
+      "La tela de la maleta tiene pelusas.",
+      "La maleta de Polo es de tela.",
+      "Mamá le da la maleta a Polo.",
       "Polo toma su maleta de tela.",
       "Lalo tiene una maleta de tela también."
     ]
@@ -449,63 +589,86 @@
     ],
     "vocab": [
       {
-        "word": "nariz",
-        "emoji": "👃"
-      },
-      {
         "word": "nido",
-        "emoji": "🪹",
-        "illustrationSrc": "/cartilla/art/faithful/leccion-13-n/nido.webp"
+        "emoji": "🪺",
+        "illustrationSrc": "/cartilla/art/optimized/flipchart-native/p027-nido.png"
       },
       {
-        "word": "nube",
-        "emoji": "☁️"
+        "word": "nudo",
+        "emoji": "",
+        "illustrationSrc": "/cartilla/art/optimized/flipchart-native/p027-nudo.png"
       },
       {
-        "word": "nata",
-        "emoji": "🍦"
+        "word": "mono",
+        "emoji": "🐒",
+        "illustrationSrc": "/cartilla/art/optimized/flipchart-native/p027-mono.png"
+      },
+      {
+        "word": "Napi",
+        "emoji": "",
+        "illustrationSrc": "/cartilla/art/optimized/flipchart-native/p027-napi.png"
+      },
+      {
+        "word": "tenedor",
+        "emoji": "🍴",
+        "illustrationSrc": "/cartilla/art/optimized/flipchart-native/p027-tenedor.png"
       }
     ],
+    "vocabSource": {
+      "book": "flipchart",
+      "flipchartPage": 27,
+      "note": "Picture vocabulary plate of the Teacher Flip Chart. Not Workbook content: Workbook activities/print use page-layouts.json."
+    },
     "examples": {
       "na": [
         "nata",
         "nariz",
         "tina",
         "nada",
-        "Napi"
+        "Napi",
+        "lana"
       ],
       "ne": [
         "Nena",
         "negro",
         "Nela",
         "tenedor",
-        "negar"
+        "negar",
+        "Nenita"
       ],
       "ni": [
         "nido",
         "niño",
         "poni",
         "sonido",
-        "anida"
+        "anida",
+        "Nino"
       ],
       "no": [
         "mono",
         "Nora",
         "pino",
         "Nono",
-        "noche"
+        "noche",
+        "mano"
       ],
       "nu": [
         "nudo",
         "menudo",
         "nulo",
         "Anuca",
+        "anudo",
         "nube"
       ]
     },
     "sentences": [
-      "Nina ata el nudo.",
-      "Nono mira la nube."
+      "Tomás dame esa tina.",
+      "La tina es de Napi.",
+      "Tono y Alina aman a Napi.",
+      "Napi tiene pelo.",
+      "Tono le pone la tina a Napi en el piso.",
+      "Nono no le pone nada a esa tina.",
+      "Esa tina no tiene nada."
     ]
   },
   {
@@ -522,64 +685,85 @@
     ],
     "vocab": [
       {
-        "word": "piña",
-        "emoji": "🍍"
+        "word": "piñata",
+        "emoji": "🪅",
+        "illustrationSrc": "/cartilla/art/optimized/flipchart-native/p030-pinata.png"
       },
       {
-        "word": "muñeca",
-        "emoji": "🪆"
+        "word": "Ñuno",
+        "emoji": "",
+        "illustrationSrc": "/cartilla/art/optimized/flipchart-native/p030-nuno.png"
       },
       {
-        "word": "niño",
-        "emoji": "👦",
-        "illustrationSrc": "/cartilla/art/faithful/leccion-14-n/nino.webp"
+        "word": "niñito",
+        "emoji": "",
+        "illustrationSrc": "/cartilla/art/optimized/flipchart-native/p030-ninito.png"
       },
       {
-        "word": "araña",
-        "emoji": "🕷️",
-        "illustrationSrc": "/cartilla/art/faithful/vocal-a/arana.webp"
+        "word": "moño",
+        "emoji": "",
+        "illustrationSrc": "/cartilla/art/optimized/flipchart-native/p030-mono.png"
+      },
+      {
+        "word": "Meñe",
+        "emoji": "",
+        "illustrationSrc": "/cartilla/art/optimized/flipchart-native/p030-mene.png"
       }
     ],
+    "vocabSource": {
+      "book": "flipchart",
+      "flipchartPage": 30,
+      "note": "Picture vocabulary plate of the Teacher Flip Chart. Not Workbook content: Workbook activities/print use page-layouts.json."
+    },
     "examples": {
       "ña": [
-        "caña",
+        "maña",
+        "mañana",
+        "montaña",
+        "ñame",
         "araña",
-        "leña",
-        "España",
-        "piña"
+        "caña"
       ],
       "ñe": [
-        "ñeque",
-        "muñeca",
-        "ñero",
-        "ñesa",
-        "ordeñe"
+        "Meñe",
+        "añejo",
+        "sueñe",
+        "adueñe",
+        "cañengo",
+        "apañe"
       ],
       "ñi": [
-        "ñiquiñaque",
-        "muñido",
-        "ceñido",
-        "moñito",
-        "puñito"
+        "añico",
+        "pañito",
+        "cañita",
+        "niñito",
+        "arañita",
+        "reñido"
       ],
       "ño": [
-        "niño",
         "moño",
-        "puño",
+        "niño",
         "sueño",
-        "cariño"
+        "Ñoña",
+        "año",
+        "Ñuco"
       ],
       "ñu": [
-        "ñu",
-        "ñudo",
-        "ñublado",
-        "añublo",
-        "ñutu"
+        "Ñuto",
+        "cañuto",
+        "moñudo",
+        "ceñudo",
+        "pañuelo",
+        "puño"
       ]
     },
     "sentences": [
-      "El niño tiene un moño.",
-      "La piña es dulce."
+      "Meñe es dueña de esa piñata.",
+      "La piñata es del año pasado.",
+      "La piñata está en el patio.",
+      "Noña tiene una niña.",
+      "La niña tiene sueño.",
+      "Noña le pone el pañal a la niña."
     ]
   },
   {
@@ -596,64 +780,87 @@
     ],
     "vocab": [
       {
-        "word": "barco",
-        "emoji": "🚢"
+        "word": "Beba",
+        "emoji": "",
+        "illustrationSrc": "/cartilla/art/optimized/flipchart-native/p033-beba.png"
       },
       {
-        "word": "bebé",
-        "emoji": "👶",
-        "illustrationSrc": "/cartilla/art/faithful/leccion-15-b/bebe.webp"
+        "word": "Bubi",
+        "emoji": "",
+        "illustrationSrc": "/cartilla/art/optimized/flipchart-native/p033-bubi.png"
       },
       {
-        "word": "bici",
-        "emoji": "🚲"
+        "word": "bate",
+        "emoji": "🏏",
+        "illustrationSrc": "/cartilla/art/optimized/flipchart-native/p033-bate.png"
       },
       {
         "word": "bota",
         "emoji": "👢",
-        "illustrationSrc": "/cartilla/art/faithful/leccion-15-b/bota.webp"
+        "illustrationSrc": "/cartilla/art/optimized/flipchart-native/p033-bota.png"
+      },
+      {
+        "word": "bebita",
+        "emoji": "",
+        "illustrationSrc": "/cartilla/art/optimized/flipchart-native/p033-bebita.png"
       }
     ],
+    "vocabSource": {
+      "book": "flipchart",
+      "flipchartPage": 33,
+      "note": "Picture vocabulary plate of the Teacher Flip Chart. Not Workbook content: Workbook activities/print use page-layouts.json."
+    },
     "examples": {
       "ba": [
-        "bata",
-        "Bambi",
-        "balde",
-        "banda",
-        "barco"
+        "baño",
+        "bala",
+        "batir",
+        "batea",
+        "abanico",
+        "loba"
       ],
       "be": [
+        "sube",
+        "Bebo",
         "bebé",
-        "beso",
-        "Beto",
-        "bestia",
-        "Bela"
+        "abeja",
+        "nube",
+        "cubeta"
       ],
       "bi": [
-        "bici",
-        "biberón",
-        "Bibi",
-        "binario",
-        "bingo"
+        "bebida",
+        "cabito",
+        "bicicleta",
+        "bisagra",
+        "bisonte",
+        "cubito"
       ],
       "bo": [
-        "bota",
-        "boca",
+        "lobo",
+        "bonita",
+        "tubo",
+        "bodega",
         "bola",
-        "Bobo",
-        "bonito"
+        "botella"
       ],
       "bu": [
-        "buho",
-        "buque",
-        "Bubu",
         "burro",
-        "bufanda"
+        "aburre",
+        "aburrido",
+        "bulla",
+        "abuso",
+        "buche"
       ]
     },
     "sentences": [
-      "El bebé bebe.",
-      "Beto besa a la abuela."
+      "La nube sube y sube.",
+      "Es una nube bonita.",
+      "Bebo, batea la bola de Pepito.",
+      "La bola sube y sube alto.",
+      "La bola sube a la nube.",
+      "Pepito batea la bola con el bate.",
+      "La bola sube y sube alto también.",
+      "Pepito es bueno en la pelota."
     ]
   },
   {
@@ -670,63 +877,85 @@
     ],
     "vocab": [
       {
-        "word": "vaca",
-        "emoji": "🐄"
+        "word": "vaso",
+        "emoji": "🥛",
+        "illustrationSrc": "/cartilla/art/optimized/flipchart-native/p036-vaso.png"
       },
       {
         "word": "vela",
         "emoji": "🕯️",
-        "illustrationSrc": "/cartilla/art/faithful/leccion-16-v/vela.webp"
+        "illustrationSrc": "/cartilla/art/optimized/flipchart-native/p036-vela.png"
       },
       {
-        "word": "vino",
-        "emoji": "🍷"
+        "word": "Vita",
+        "emoji": "",
+        "illustrationSrc": "/cartilla/art/optimized/flipchart-native/p036-vita.png"
       },
       {
-        "word": "volcán",
-        "emoji": "🌋"
+        "word": "pavo",
+        "emoji": "🦃",
+        "illustrationSrc": "/cartilla/art/optimized/flipchart-native/p036-pavo.png"
+      },
+      {
+        "word": "Vuli",
+        "emoji": "",
+        "illustrationSrc": "/cartilla/art/optimized/flipchart-native/p036-vuli.png"
       }
     ],
+    "vocabSource": {
+      "book": "flipchart",
+      "flipchartPage": 36,
+      "note": "Picture vocabulary plate of the Teacher Flip Chart. Not Workbook content: Workbook activities/print use page-layouts.json."
+    },
     "examples": {
       "va": [
-        "vaca",
         "vaso",
-        "Valeria",
-        "vapor",
-        "vainilla"
+        "lavamos",
+        "vámonos",
+        "lava",
+        "nieva",
+        "lavamanos"
       ],
       "ve": [
+        "venado",
+        "ave",
         "vela",
-        "verde",
-        "Vero",
-        "vestido",
-        "ventana"
+        "venas",
+        "velo",
+        "nave"
       ],
       "vi": [
         "vino",
-        "vida",
-        "Vivi",
-        "viento",
-        "violeta"
+        "vivo",
+        "vidente",
+        "vine",
+        "aviso",
+        "vitamina"
       ],
       "vo": [
-        "voto",
-        "volcán",
-        "vómito",
-        "voz",
-        "voltaje"
+        "lavo",
+        "vivo",
+        "pavo",
+        "clavo",
+        "volar",
+        "Tavo"
       ],
       "vu": [
-        "vudú",
-        "vulgar",
-        "vuelo",
+        "vuela",
         "vuelta",
-        "vuestra"
+        "vuelan",
+        "vuelo",
+        "revuelta",
+        "revuelo"
       ]
     },
     "sentences": [
-      "La vaca ve a Vero.",
-      "Vivi viene en el vuelo."
+      "La nieve se va.",
+      "Vita se lava las manos en el lavamanos.",
+      "Mamá lava las mesas del patio.",
+      "Mamá pone unos manteles nuevos.",
+      "El viento mueve los manteles de mamá y mueve el papalote de Valentín.",
+      "El papalote vuela y vuela."
     ]
   },
   {
@@ -768,26 +997,61 @@
         "illustrationSrc": "/cartilla/art/faithful/leccion-17-r/rueda.webp"
       }
     ],
+    "vocabSource": {
+      "book": "flipchart",
+      "flipchartPage": 39,
+      "note": "Picture vocabulary plate of the Teacher Flip Chart. Not Workbook content: Workbook activities/print use page-layouts.json."
+    },
     "examples": {
       "ra": [
-        "rana"
+        "rana",
+        "rama",
+        "ratón",
+        "rata",
+        "raso"
       ],
       "re": [
-        "remos"
+        "remo",
+        "reloj",
+        "relevo",
+        "rezo",
+        "revista",
+        "rema"
       ],
       "ri": [
-        "Rita"
+        "riña",
+        "rima",
+        "rimamos",
+        "Rita",
+        "risa",
+        "rizo"
       ],
       "ro": [
-        "rosa"
+        "rosa",
+        "roto",
+        "Rolo",
+        "roca",
+        "rota",
+        "Roberto"
       ],
       "ru": [
-        "rueda"
+        "ruta",
+        "Rufino",
+        "rubio",
+        "ruso",
+        "rutina",
+        "rudo"
       ]
     },
     "sentences": [
-      "La rana ríe.",
-      "Rita toma la rosa."
+      "La bola de Roberto rueda bien.",
+      "Rolo patea la bola.",
+      "La bola rueda y le da a un bolo.",
+      "El bolo se rompe y Roberto se ríe.",
+      "Rolo se ríe también.",
+      "Rita le da al bolo.",
+      "Rita se ríe.",
+      "Rolo y Roberto se ríen también."
     ]
   },
   {
@@ -829,26 +1093,62 @@
         "illustrationSrc": "/cartilla/art/faithful/leccion-18-rr/tierra.webp"
       }
     ],
+    "vocabSource": {
+      "book": "flipchart",
+      "flipchartPage": 42,
+      "note": "Picture vocabulary plate of the Teacher Flip Chart. Not Workbook content: Workbook activities/print use page-layouts.json."
+    },
     "examples": {
       "rra": [
-        "Tierra"
+        "barra",
+        "amarra",
+        "pizarra",
+        "Porra",
+        "arrasar",
+        "perra"
       ],
       "rre": [
-        "torre"
+        "torre",
+        "amarre",
+        "arrebatado",
+        "barre",
+        "arrebatar",
+        "arrepiente"
       ],
       "rri": [
-        "barril"
+        "arriba",
+        "arrima",
+        "parrilla",
+        "perrita",
+        "barril",
+        "carrito"
       ],
       "rro": [
-        "burro"
+        "carro",
+        "arroyo",
+        "burro",
+        "perro",
+        "amarro",
+        "tarro"
       ],
       "rru": [
-        "carrusel"
+        "arruga",
+        "arrugado",
+        "arrullo",
+        "verruga",
+        "arrullar",
+        "arrullador"
       ]
     },
     "sentences": [
-      "El burro pasa la torre.",
-      "El barril está en la tierra."
+      "Rode tiene un perro.",
+      "Es un perro alemán.",
+      "El perro de Rode tiene una tina de barro.",
+      "La tina de barro está en el piso.",
+      "Rosi amarra el perro en la mata.",
+      "El perro no muerde.",
+      "El perro Tito mueve el rabo.",
+      "Tito arruinó el carro de rosas."
     ]
   },
   {
@@ -858,8 +1158,6 @@
     "color": "#2A9D8F",
     "syllables": [
       "ga",
-      "gue",
-      "gui",
       "go",
       "gu"
     ],
@@ -890,24 +1188,46 @@
         "illustrationSrc": "/cartilla/art/faithful/leccion-19-g/mago.webp"
       }
     ],
+    "vocabSource": {
+      "book": "flipchart",
+      "flipchartPage": 45,
+      "note": "Picture vocabulary plate of the Teacher Flip Chart. Not Workbook content: Workbook activities/print use page-layouts.json."
+    },
     "examples": {
       "ga": [
-        "gaveta"
+        "garras",
+        "gasolina",
+        "gato",
+        "paga",
+        "ganas",
+        "maga"
       ],
-      "gue": [],
-      "gui": [],
       "go": [
-        "Goloso",
+        "goma",
         "gorra",
-        "mago"
+        "lago",
+        "gota",
+        "mago",
+        "goloso"
       ],
       "gu": [
-        "gusano"
+        "gusano",
+        "gula",
+        "agudo",
+        "mangú",
+        "laguna",
+        "aguja"
       ]
     },
     "sentences": [
-      "El gusano es de Goloso.",
-      "El mago tiene gorra."
+      "El gato de Magali bebe agua en el lago.",
+      "Magali le pone una gorra a su gato Goloso.",
+      "Goloso ve a Musulunga, la gata gordita.",
+      "Magali y Gustavo van al lago.",
+      "En el lago ven el agua.",
+      "A Magali le gusta el agua.",
+      "Goloso y Musulunga van a la laguna.",
+      "Goloso le regala un gusanito rosadito a Musulunga."
     ]
   },
   {
@@ -949,26 +1269,60 @@
         "illustrationSrc": "/cartilla/art/faithful/leccion-20-f/funda.webp"
       }
     ],
+    "vocabSource": {
+      "book": "flipchart",
+      "flipchartPage": 48,
+      "note": "Picture vocabulary plate of the Teacher Flip Chart. Not Workbook content: Workbook activities/print use page-layouts.json."
+    },
     "examples": {
       "fa": [
-        "familia"
+        "fama",
+        "familia",
+        "faro",
+        "famoso",
+        "fatiga",
+        "afanado"
       ],
       "fe": [
-        "Felo"
+        "feo",
+        "fecha",
+        "Felo",
+        "feliz",
+        "felino",
+        "Felicia"
       ],
       "fi": [
-        "fideos"
+        "fila",
+        "filo",
+        "afinado",
+        "afina",
+        "fino",
+        "afilar"
       ],
       "fo": [
-        "foto"
+        "foto",
+        "sofoca",
+        "fosa",
+        "foso",
+        "teléfono",
+        "foca"
       ],
       "fu": [
-        "funda"
+        "furia",
+        "funda",
+        "futuro",
+        "furor",
+        "perfume",
+        "fuga"
       ]
     },
     "sentences": [
-      "La familia de Felo.",
-      "Felo toma una foto."
+      "La familia de Ofelia va a la finca de Felo.",
+      "En la finca de Felo hay aves y ganado.",
+      "Felo arrea el ganado con una fusta.",
+      "El ganado vale una fortuna.",
+      "Es un ganado de fama.",
+      "Felo pone todo el ganado en fila."
     ]
   },
   {
@@ -1009,26 +1363,61 @@
         "illustrationSrc": "/cartilla/art/faithful/leccion-21-j/jarra.webp"
       }
     ],
+    "vocabSource": {
+      "book": "flipchart",
+      "flipchartPage": 51,
+      "note": "Picture vocabulary plate of the Teacher Flip Chart. Not Workbook content: Workbook activities/print use page-layouts.json."
+    },
     "examples": {
       "ja": [
-        "jarra"
+        "jaba",
+        "jabón",
+        "jamás",
+        "jarra",
+        "jamón",
+        "baja"
       ],
       "je": [
-        "Jesús"
+        "Jesús",
+        "jefe",
+        "baje",
+        "jefatura",
+        "jerez",
+        "ajeno"
       ],
       "ji": [
-        "jicotea"
+        "jicotea",
+        "jíbaro",
+        "jirafa",
+        "ají",
+        "ajillo",
+        "jinete"
       ],
       "jo": [
-        "ajo"
+        "jobo",
+        "José",
+        "bajo",
+        "ajo",
+        "jota",
+        "jorobado"
       ],
       "ju": [
-        "jugo"
+        "júbilo",
+        "Julio",
+        "jutía",
+        "juventud",
+        "jugo",
+        "jugar"
       ]
     },
     "sentences": [
-      "Jesús toma jugo.",
-      "La jarra tiene ajo."
+      "Jesús y Julia son amigos.",
+      "A José le gusta el jamón y a Julia le gusta el jugo de tomate.",
+      "Juan tiene una jutía y la baña con jabón.",
+      "José y Josefa juegan en la laguna.",
+      "Jabela es una jicotea.",
+      "A Jabela le gusta la laguna.",
+      "A Jabela no le gusta la espuma de jabón."
     ]
   },
   {
@@ -1038,8 +1427,6 @@
     "color": "#E63946",
     "syllables": [
       "ca",
-      "que",
-      "qui",
       "co",
       "cu"
     ],
@@ -1070,24 +1457,43 @@
         "illustrationSrc": "/cartilla/art/faithful/leccion-19-c/catalina.webp"
       }
     ],
+    "vocabSource": {
+      "book": "flipchart",
+      "flipchartPage": 54,
+      "note": "Picture vocabulary plate of the Teacher Flip Chart. Not Workbook content: Workbook activities/print use page-layouts.json."
+    },
     "examples": {
       "ca": [
+        "cama",
+        "cala",
         "casa",
-        "Catalina"
+        "cana",
+        "loca",
+        "saca"
       ],
-      "que": [],
-      "qui": [],
       "co": [
-        "conejo"
+        "coma",
+        "cosa",
+        "poco",
+        "cola",
+        "copa",
+        "saco"
       ],
       "cu": [
         "cuna",
+        "Cuba",
+        "acuna",
+        "acuso",
+        "acumula",
         "cubo"
       ]
     },
     "sentences": [
-      "Catalina tiene casa.",
-      "El conejo está en la cuna."
+      "Cuco Casanova es un buen amigo del papá y de la mamá de Paco.",
+      "El señor Casanova es cubano.",
+      "El vive en el campo, vive con Doña María, su mamá.",
+      "Cuco Casanova juega con los niños y los cuida también.",
+      "Todos en la casa de Paco aman a Cuco."
     ]
   },
   {
@@ -1129,25 +1535,61 @@
         "illustrationSrc": "/cartilla/art/faithful/leccion-22-y/yoyo.webp"
       }
     ],
+    "vocabSource": {
+      "book": "flipchart",
+      "flipchartPage": 57,
+      "note": "Picture vocabulary plate of the Teacher Flip Chart. Not Workbook content: Workbook activities/print use page-layouts.json."
+    },
     "examples": {
       "ya": [
         "yate",
-        "Yayita"
+        "Yara",
+        "payaso",
+        "yana",
+        "yagua",
+        "maya"
       ],
       "ye": [
-        "yema"
+        "yegua",
+        "enyesado",
+        "yema",
+        "Yesenia",
+        "Yeyo",
+        "yeso"
       ],
-      "yi": [],
+      "yi": [
+        "Mayito",
+        "Yayita",
+        "Yayi",
+        "Yigüiro",
+        "Yoyita",
+        "Mayita"
+      ],
       "yo": [
-        "yoyo"
+        "cayo",
+        "yoyo",
+        "rayo",
+        "coyote",
+        "yo",
+        "Yayo"
       ],
       "yu": [
-        "mayúscula"
+        "Yucatán",
+        "Cayuco",
+        "ayudar",
+        "yuca",
+        "ayuda",
+        "desayuno"
       ]
     },
     "sentences": [
-      "Yayita juega con el yoyo.",
-      "La yema es de Yayita."
+      "El yate de Yayo está en Yateras.",
+      "Yayo fue a los cayos a pescar con sus amigas yucatecas.",
+      "Yayo tiene una soga de yute para amarrar su yate.",
+      "Yayo comió yuca y guacamole.",
+      "A Yayo le gusta el arroz con yemas de huevos también.",
+      "Su mamá le dio el arroz con yemas de huevos ayer.",
+      "Yayo se lo comió todo."
     ]
   },
   {
@@ -1157,8 +1599,8 @@
     "color": "#2A9D8F",
     "syllables": [
       "za",
-      "ce",
-      "ci",
+      "ze",
+      "zi",
       "zo",
       "zu"
     ],
@@ -1189,24 +1631,56 @@
         "illustrationSrc": "/cartilla/art/faithful/leccion-23-z/zulema.webp"
       }
     ],
+    "vocabSource": {
+      "book": "flipchart",
+      "flipchartPage": 60,
+      "note": "Picture vocabulary plate of the Teacher Flip Chart. Not Workbook content: Workbook activities/print use page-layouts.json."
+    },
     "examples": {
       "za": [
+        "taza",
+        "caza",
+        "zapatero",
+        "plaza",
         "zapato",
-        "zig-zag",
-        "zepelín"
+        "zapote"
       ],
-      "ce": [],
-      "ci": [],
+      "ze": [
+        "zepelín",
+        "zebra",
+        "Zenaida",
+        "zeta",
+        "Zegrí",
+        "Zema"
+      ],
+      "zi": [
+        "zig-zag",
+        "Zimba",
+        "Zila",
+        "Zita"
+      ],
       "zo": [
-        "zorro"
+        "zorro",
+        "portazo",
+        "zocato",
+        "azotes",
+        "zopilote",
+        "lazo"
       ],
       "zu": [
-        "Zulema"
+        "azúcar",
+        "zurra",
+        "azucarado",
+        "azules",
+        "Zulema",
+        "azulado"
       ]
     },
     "sentences": [
-      "El zorro de Zulema.",
-      "Zulema tiene un zapato."
+      "Zulema toma zumo de melón.",
+      "A Zulema le gusta el zumo con azúcar.",
+      "Ella se bebe el zumo y se pone sus zapatos azules.",
+      "Zila va con Zulema, van en un carro con ruedas de calabazas."
     ]
   }
 ]

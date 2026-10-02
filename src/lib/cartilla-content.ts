@@ -12,7 +12,9 @@ export type VowelLesson = {
   colorGradient: string;
   characterName: string;
   characterDesc: string;
+  /** Workbook vowel-page pictures (see `vocabSource`). */
   vocab: VocabWord[];
+  vocabSource?: { book: "workbook"; workbookPages: number[]; note: string };
   matchPairs: MatchPair[];
   checkboxItems: CheckboxItem[];
 };

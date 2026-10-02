@@ -879,11 +879,20 @@
 /* Book pattern (Type B consonant pages): bottom row has 2 items —
    left column and right column, middle column EMPTY.
    For 5-item grids: items 4 and 5 go to columns 1 and 3. */
+/* Five-picture plates (e.g. pages 12 and 60): the book centres the bottom
+   pair, at about one third and two thirds of the width. A 6-track grid with
+   2-track items reproduces that. */
+.fc-native-board__art-grid[data-art-count="5"] {
+  grid-template-columns: repeat(6, minmax(0, 1fr));
+}
+.fc-native-board__art-grid[data-art-count="5"] > * {
+  grid-column: span 2;
+}
 .fc-native-board__art-grid[data-art-count="5"] > :nth-child(4) {
-  grid-column: 1;
+  grid-column: 2 / span 2;
 }
 .fc-native-board__art-grid[data-art-count="5"] > :nth-child(5) {
-  grid-column: 3;
+  grid-column: 4 / span 2;
 }
 
 /* Art card: stripped. Image floats on white, label below.
@@ -913,7 +922,7 @@
   /* Definite height via aspect-ratio: breaks the percentage-height circularity.
      3/2 ratio gives a proper image area; img fills it with object-fit:contain. */
   aspect-ratio: 3 / 2;
-  max-height: calc(100% - 2rem);
+  max-height: calc(100% - clamp(1.7rem, 3.5vw, 3.8rem));
   display: flex;
   align-items: center;
   justify-content: center;
@@ -951,11 +960,13 @@
   color: #1a1a1a;
   font-family: "Comic Sans MS", "Chalkboard SE", "Comic Neue", system-ui, sans-serif;
   font-weight: 700;
-  font-size: clamp(0.75rem, 1.3vw, 1.05rem);
+  /* Projector-size words, as printed (the book keeps capitals: Oto, Pepe). */
+  font-size: clamp(1rem, 2.3vw, 2.6rem);
   line-height: 1.15;
   text-align: center;
-  text-transform: lowercase;
   margin: 0;
+  padding-bottom: 0.12em; /* keeps descenders (j, g, p) inside the card */
+  flex: 0 0 auto;
 }
 
 /* Red target vowel (vowel pages 3-6 only) */
@@ -1059,7 +1070,7 @@
 .fc-vowel-header__title {
   margin: 0;
   font-weight: 900;
-  font-size: clamp(1.2rem, 2.6vw, 2.2rem);
+  font-size: clamp(1.3rem, 3vw, 2.8rem);
   color: #bb0733;
   text-align: center;
   line-height: 1.15;
@@ -1067,10 +1078,11 @@
 .fc-vowel-header__verse {
   margin: 0;
   font-weight: 700;
-  font-size: clamp(0.95rem, 1.9vw, 1.5rem);
+  /* The book prints the verse large enough to read from the back of the room. */
+  font-size: clamp(1rem, 1.9vw, 1.9rem);
   color: #1a1a1a;
   text-align: center;
-  line-height: 1.3;
+  line-height: 1.2;
 }
 /* Vowel circles (page 3): large red vowel in pastel circle */
 .fc-vowel-circles {
@@ -1112,7 +1124,7 @@
   /* Definite height: without it, img max-height:100% never resolves and the
      hero renders at natural size, overflowing the header zone (bug: frog /
      tomato / rooster dominating the page). vh units always resolve. */
-  height: clamp(9rem, 30vh, 17rem);
+  height: clamp(9rem, 34vh, 24rem);
   max-height: 100%;
   overflow: hidden;
 }
@@ -1136,35 +1148,54 @@
 .fc-letter-oval {
   display: grid;
   place-items: center;
-  background: rgba(255, 255, 255, 0.9);
+  /* The book prints the letter in a white disc with a soft ring in the
+     crescent's colour (e.g. pink on Pp, page 12). */
+  background: radial-gradient(circle, #fff 0 60%, color-mix(in srgb, var(--fc-oval-ring, #bb0733) 22%, #fff) 72%, #fff 86%);
   border-radius: 50%;
   aspect-ratio: 1;
-  max-width: clamp(4rem, 10vw, 7rem);
+  width: clamp(6rem, 15vw, 13rem);
+  max-width: 100%;
   margin: 0 auto;
-  box-shadow: 0 4px 16px -8px rgba(0, 0, 0, 0.12);
-  border: 2px solid rgba(187, 7, 51, 0.08);
+  box-shadow: 0 0 0 clamp(3px, 0.35vw, 6px) color-mix(in srgb, var(--fc-oval-ring, #bb0733) 28%, #fff);
 }
 .fc-letter-oval span {
   font-weight: 900;
-  font-size: clamp(2rem, 5vw, 3.8rem);
+  font-size: clamp(2.4rem, 6vw, 5.5rem);
   color: #bb0733;
   line-height: 1;
 }
-/* Syllable crescent: pastel moon shape, vertical syllable stack */
+/* Syllable crescent: the book's lune (SVG path, not a rounded box), with the
+   syllable stack sitting in its thick right half. Colors come from the source
+   page (FlipchartNativeBoard → flipchart-source-colors.json). */
 .fc-crescent {
-  border-radius: 50% 50% 50% 8px / 60% 60% 40% 40%;
-  padding: clamp(0.6rem, 1.4vw, 1rem) clamp(0.4rem, 1vw, 0.7rem);
+  position: relative;
   display: flex;
   flex-direction: column;
-  align-items: center;
+  align-items: flex-end;
   justify-content: center;
-  gap: 0.15rem;
-  box-shadow: 0 4px 14px -8px rgba(0, 0, 0, 0.15);
-  min-height: clamp(6rem, 16vw, 11rem);
+  aspect-ratio: 1 / 2;
+  min-height: clamp(9rem, 22vw, 20rem);
+  max-height: 100%;
+  padding: 8% 12% 8% 38%;
+  isolation: isolate;
+}
+.fc-crescent__shape {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  z-index: -1;
+  filter: drop-shadow(0 4px 10px rgba(0, 0, 0, 0.08));
+}
+.fc-crescent__stack {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 0.1rem;
 }
 .fc-crescent__syllable {
   font-weight: 800;
-  font-size: clamp(1rem, 2.2vw, 1.7rem);
+  font-size: clamp(1.1rem, 2.6vw, 2.6rem);
   line-height: 1.25;
   letter-spacing: 0.02em;
 }
@@ -1365,4 +1396,166 @@
   font-size: clamp(1rem, 2vw, 1.5rem);
   color: #1a1a1a;
   line-height: 1.5;
+}
+
+/* Classroom finish: preserve the book's zones and let the artwork fill them. */
+.fc-presenter.is-bare { background: #f2f4f3; }
+.fc-presenter.is-bare .fc-presenter__main { padding: 12px; }
+.fc-presenter.is-bare .fc-board__easel { box-shadow: 0 8px 32px #17313b12; border-radius: 12px; }
+.fc-presenter.is-bare .fc-board__page { background: white; padding: 0; }
+.fc-presenter.is-bare .fc-board__page-inner { border-radius: 0; box-shadow: none; }
+.fc-presenter.is-bare .fc-board { gap: 8px; }
+.fc-presenter.is-bare .fc-board__controls { flex: 0 0 48px; padding: 0; max-width: 900px; width: 100%; margin: auto; }
+.fc-native-board { container-type: size; font-family: "Nunito", system-ui, sans-serif; }
+.fc-native-board__page { width: min(100%, 110cqh); margin: auto; padding: 2cqh 3cqh 3cqh; }
+.fc-native-board__header-zone { flex: 0 0 34%; max-height: none; overflow: visible; padding: 0; }
+.fc-native-board__body-zone { padding: 2cqh 0 2.5cqh; overflow: visible; gap: 1.5cqh; }
+.fc-consonant-vocab__scene, .fc-vowel-header__scene { height: 100%; overflow: visible; }
+.fc-layout-consonant-vocab { grid-template-columns: 1.3fr 0.8fr 0.9fr; }
+.fc-letter-oval { width: 100%; max-width: 21cqh; aspect-ratio: .9; background: radial-gradient(ellipse, #fff 20%, #f1ecf6 68%, #fff 73%); border: 0; box-shadow: none; }
+.fc-letter-oval span { font-size: clamp(30px, 9cqh, 100px); font-weight: 800; }
+.fc-crescent { position: relative; width: 100%; max-width: 23cqh; height: 100%; min-height: 0; border-radius: 0; background: transparent; box-shadow: none; padding: 2cqh 0 2cqh 30%; gap: 0; justify-content: space-evenly; }
+.fc-crescent__shape { position: absolute; inset: 0; width: 100%; height: 100%; fill: var(--crescent-color); filter: drop-shadow(0 2px 3px #33261615); }
+.fc-crescent__syllable { position: relative; font-size: clamp(18px, 4.4cqh, 50px); font-weight: 650; line-height: 1.1; }
+.fc-native-board__art-grid { flex: 1; height: 100%; min-height: 0; grid-template-rows: repeat(2, minmax(0, 1fr)); gap: 2cqh 3cqh; align-items: stretch; }
+.fc-native-board__art-card { height: 100%; width: 100%; overflow: visible; gap: .7cqh; }
+.fc-native-board__art-card .fc-native-board__living-art { flex: 1; height: 100%; aspect-ratio: auto; max-height: none; overflow: visible; }
+.fc-native-board__living-art .living-illustration__art { object-fit: contain; mix-blend-mode: multiply; }
+.fc-native-board__art-label { flex: 0 0 auto; font-family: "Nunito", system-ui, sans-serif; font-size: clamp(18px, 4cqh, 44px); font-weight: 650; line-height: 1.15; text-transform: none; }
+.fc-reading-panel__scene, .fc-story-letter__scene { height: 100%; }
+.fc-reading-panel__scene .fc-native-board__living-art, .fc-story-letter__scene .fc-native-board__living-art { height: 100%; aspect-ratio: auto; max-height: none; }
+.fc-reading-panel__scene img, .fc-story-letter__scene img { max-width: 100%; }
+.fc-reading-panel, .fc-story-panel { background-image: linear-gradient(135deg, #ffffff45, transparent); box-shadow: 0 2px 8px #3326160c; }
+.fc-reading-panel__verse, .fc-story-panel__verse, .fc-story-fullwidth__para { font-size: clamp(18px, 3.7cqh, 38px); line-height: 1.35; margin: .6cqh 0; }
+.fc-reading-panel__title, .fc-story-panel__title, .fc-story-fullwidth__title { font-size: clamp(22px, 4.6cqh, 48px); }
+.fc-native-board__word { font-family: "Nunito", system-ui, sans-serif; border: 0; box-shadow: none; border-radius: 0; font-size: clamp(18px, 3.4cqh, 36px); padding: .6cqh; font-weight: 650; }
+.fc-native-board__word-lead { font-size: 1em; }
+.fc-syllable-row__item { font-size: clamp(20px, 4.5cqh, 44px); }
+.fc-reading-bar__line { font-size: clamp(18px, 3.4cqh, 34px); }
+.fc-native-board__words { grid-template-columns: repeat(3, minmax(0, 1fr)); gap: .5cqh 2cqh; }
+@media (max-width: 560px) {
+  .fc-presenter.is-bare .fc-presenter__main { padding: 6px; }
+  .fc-native-board__page { padding: 1.5cqh 2cqw 3cqh; }
+  .fc-native-board__header-zone { flex-basis: 27%; }
+  .fc-native-board__art-label { font-size: clamp(15px, 4.2cqw, 22px); }
+  .fc-letter-oval span { font-size: 10cqw; }
+  .fc-crescent__syllable { font-size: 5cqw; }
+}
+.fc-crescent { padding: 1cqh 2cqh 1cqh 9cqh; }
+/* Dense reading plates use the book's compact heading and three word columns. */
+.fc-native-board[data-layout-type="syllable-drill"] .fc-native-board__header-zone { flex-basis: 22%; }
+.fc-native-board[data-layout-type="syllable-drill"] .fc-native-board__page { width: min(100%, 130cqh); }
+.fc-native-board[data-layout-type="syllable-drill"] .fc-native-board__word { font-size: clamp(18px, 3cqh, 30px); padding: .25cqh; }
+.fc-reading-bar { padding: 1.5cqh 2cqh; }
+.fc-reading-bar__line { font-size: clamp(18px, 3cqh, 30px); line-height: 1.25; margin: .4cqh 0; }
+/* Display-only masks remove stray neighbouring printed labels from approved
+   archive cutouts. The authoritative image files remain byte-for-byte intact. */
+.fc-native-board img[src$="p003-avion.png"],
+.fc-native-board img[src$="p003-escoba.png"],
+.fc-native-board img[src$="p003-iman.png"] { clip-path: inset(27% 0 0); }
+.fc-native-board img[src$="p003-olla.png"],
+.fc-native-board img[src$="p003-una.png"] { clip-path: inset(30% 0 20%); }
+.fc-native-board img[src$="p009-mama.png"] { clip-path: inset(0 0 10%); }
+.fc-native-board img[src$="p012-papa.png"],
+.fc-native-board img[src$="p012-pepe.png"],
+.fc-native-board img[src$="p030-nuno.png"] { clip-path: inset(0 0 7%); }
+.fc-native-board[data-layout-type="vowel-header"] .fc-native-board__header-zone { flex-basis: 43%; }
+.fc-vowel-header__panel { padding: 1.4cqh 2cqh; }
+.fc-vowel-header__title { font-size: clamp(18px, 3.6cqh, 36px); line-height: 1.15; margin: 0 0 1cqh; }
+.fc-vowel-header__verse { font-size: clamp(16px, 2.8cqh, 28px); line-height: 1.15; margin: .35cqh 0; }
+.fc-vocab-vowel { flex: 0 0 auto; border-radius: 50%; width: 4cqh; height: 4cqh; display: grid; place-items: center; font-size: 3cqh; color: #bb0733; }
+.fc-layout-vowel-header { grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); }
+.fc-vowel-header__scene, .fc-vowel-header__panel { min-width: 0; max-width: 100%; }
+.fc-vowel-header__scene .fc-native-board__living-art { width: 100%; height: 100%; aspect-ratio: auto; }
+.fc-vowel-header__scene img { width: 100%; height: 100%; object-fit: contain; }
+.fc-vowel-header__title { font-family: "Nunito", system-ui, sans-serif; font-size: clamp(18px, 3.6cqmin, 36px); }
+.fc-vowel-header__verse { font-size: clamp(16px, 2.8cqmin, 28px); }
+.fc-story-panel__verse { font-size: clamp(18px, 3.1cqmin, 32px); }
+.fc-native-board img[src$="p021-dados.webp"] { clip-path: inset(0 0 19%); }
+.fc-native-board img[src$="p021-dedo.webp"] { clip-path: inset(0 0 11%); }
+.fc-native-board img[src$="p021-dunia.webp"] { clip-path: inset(0 0 9%); }
+/* The caramelos plate gives its tall narrative illustration the source book's
+   larger upper zone, instead of squeezing it into a vocabulary-sized header. */
+.fc-native-board[data-flipchart-page="56"] .fc-native-board__header-zone { flex-basis: 55%; }
+.fc-native-board[data-flipchart-page="56"] .fc-native-board__page { width: min(100%, 130cqh); }
+
+
+/* ── Approved Cartilla presenter palette ── */
+.fc-presenter {
+  --fc-paper: var(--lc-paper, #fffdf9);
+  --fc-paper-soft: var(--lc-paper, #fffdf9);
+  --fc-ink: var(--lc-ink, #25313a);
+  --fc-ink-soft: var(--lc-ink-soft, #53616b);
+  --fc-border: rgba(37,49,58,.14);
+  --fc-wash: var(--lc-bg, #f5f1e8);
+  --fc-accent: var(--lc-teal, #1f9e94);
+  --fc-stage-shadow: 0 12px 34px rgba(37,49,58,.10);
+  background: var(--lc-bg, #f5f1e8);
+  font-family: "Andika", ui-rounded, system-ui, sans-serif;
+}
+.fc-presenter[data-accent] { --fc-accent: var(--lc-teal, #1f9e94); }
+.fc-presenter__header {
+  background: color-mix(in srgb, var(--lc-paper, #fffdf9) 96%, transparent);
+  backdrop-filter: none;
+}
+.fc-presenter__title,
+.fc-presenter__eyebrow,
+.fc-presenter__btn,
+.fc-board__nav {
+  font-family: "Fredoka", ui-rounded, system-ui, sans-serif;
+}
+.fc-presenter__exit,
+.fc-presenter__btn,
+.fc-board__nav {
+  min-width: 44px;
+  min-height: 44px;
+  border-color: var(--lc-teal, #1f9e94);
+  border-radius: 12px;
+  background: var(--lc-paper, #fffdf9);
+  color: var(--lc-ink, #25313a);
+  box-shadow: none;
+}
+.fc-presenter__exit:focus-visible,
+.fc-presenter__btn:focus-visible,
+.fc-board__nav:focus-visible,
+.fc-board__thumb:focus-visible {
+  outline: 4px solid var(--lc-focus, #1668c7);
+  outline-offset: 3px;
+}
+.fc-board__easel {
+  background: var(--lc-paper, #fffdf9);
+  border-color: rgba(37,49,58,.14);
+  box-shadow: 0 10px 28px rgba(37,49,58,.08);
+}
+.fc-board__page,
+.fc-board__page-inner,
+.fc-board__face,
+.fc-native-board,
+.fc-native-board__page {
+  background: var(--lc-paper, #fffdf9);
+}
+.fc-board__page-inner { box-shadow: none; }
+.fc-board__nav--next {
+  background: var(--lc-red, #bf3040);
+  border-color: var(--lc-red, #bf3040);
+  color: #fff;
+}
+.fc-board__counter {
+  background: var(--lc-paper, #fffdf9);
+  box-shadow: none;
+}
+.fc-native-board__word {
+  border-color: var(--lc-teal, #1f9e94);
+  border-radius: 12px;
+  background: transparent;
+  box-shadow: none;
+  font-family: "Andika", ui-rounded, system-ui, sans-serif;
+}
+@media (prefers-reduced-motion: reduce) {
+  .fc-presenter *,
+  .fc-presenter *::before,
+  .fc-presenter *::after {
+    animation-duration: .01ms !important;
+    transition-duration: .01ms !important;
+  }
 }

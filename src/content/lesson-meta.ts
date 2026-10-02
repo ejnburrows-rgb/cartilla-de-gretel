@@ -228,7 +228,7 @@ export const LESSONS: LessonMeta[] = [
     syllables: ["va", "ve", "vi", "vo", "vu"],
     keywords: ["vaca", "vela", "vino", "voto", "vuelo"],
   },
-  // keywords = picture-vocab from student book (lesson-exercises L17–L24 / PR #173)
+  // keywords = Flip Chart vocabulary-plate words (consonants.json vocab, source: flipchart)
   {
     n: 17,
     title: "Consonant Rr (soft)",

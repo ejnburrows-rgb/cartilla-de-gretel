@@ -151,7 +151,9 @@ export async function findGrayscaleArt() {
  * Consonant AND vowel vocab words that appear (as text) in a lesson but have
  * NO colored illustration anywhere in this book edition — verified by opening
  * every real source page for the lesson, not from prior docs. They correctly
- * fall back to emoji.
+ * fall back to emoji. Since 2026-09-30 consonants.json vocab is exactly the
+ * Flip Chart vocabulary plate (with crops of that plate), so the L7–L16 words
+ * below are no longer wired as vocab; they stay listed for other surfaces.
  */
 export const CONFIRMED_ABSENT = new Set([
   // L7 M (m-page-8 picture panel: mamá/mono/... only)
@@ -163,9 +165,7 @@ export const CONFIRMED_ABSENT = new Set([
   // L9 S
   "sol",
   "silla",
-  // L10 T (t-page-17 is a pure word-list page — no picture panel at all)
-  "tapa",
-  "tomate",
+  // L10 T — tapa/tomate now use the Flip Chart p.18 vocabulary-plate crops.
   "tina",
   "tulipán",
   // L11 D

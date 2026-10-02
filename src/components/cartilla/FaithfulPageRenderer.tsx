@@ -1,5 +1,7 @@
+import "@/styles/native-lesson.css";
 import type { ReactNode } from "react";
 import { GretelActivity } from "@/components/gretel/GretelActivity";
+import { SOURCE_BLOCKED_WORKBOOK_PAGES } from "@/lib/workbook-pages";
 import { getPageLayout, type PageGridCell, type PageRegion } from "@/lib/book-faithful";
 // PageGridCell used by RegionView siblingCells for Dibuja pick options
 import { PageFrame } from "./PageFrame";
@@ -8,9 +10,11 @@ import {
   InteractivePictureGrid,
   InteractiveVowelPickOne,
   InteractiveFillInBlank,
+  pictureMarkFor,
 } from "./InteractivePageExercises";
 import { WorkbookLetterTrace } from "./WorkbookLetterTrace";
 import { WorkbookWritingResponse } from "./WorkbookWritingResponse";
+import { DibujaHost } from "@/cartilla/interactions/DibujaHost";
 import { SyllableWordCircle } from "@/cartilla/interactions/SyllableWordCircle";
 import { getLetterTemplate } from "./letter-stroke-templates";
 import { LivingIllustration } from "@/components/living/LivingIllustration";
@@ -25,48 +29,6 @@ import {
   PaintFromRegion,
   resolveFaithfulHost,
 } from "@/cartilla/interactions/faithfulAdapters";
-
-/**
- * Per-lesson garden background overrides. The CSS default is gretel-authentic.jpg
- * (set on .faithful-page--garden in faithful-page.css). Add an entry here when
- * a dedicated lesson background arrives from the image-gen pipeline — just the
- * URL path, no `url()` wrapper needed. Hot-swappable without any other change.
- *
- * LESSON NUMBERS confirmed from src/lib/lesson-catalog.ts CATALOG:
- *   2 = Vocal A, 3 = Vocal E, 4 = Vocal I, 5 = Vocal O, 6 = Vocal U
- *
- * Lessons 1 and 7-24 (Lección 1 intro + all 18 consonants) use
- * `leccion-N.jpg` — the same real base.jpg garden painting used for the
- * vowel lessons, with a subtle color wash matching that lesson's own accent
- * color from consonants.json (same derive-from-real-art technique, not new
- * art). Generated once directly; no image-gen dependency.
- */
-const LESSON_GARDEN_BG: Record<number, string> = {
-  1: "/art/hd/garden/leccion-1.jpg",
-  2: "/art/hd/garden/vocal-a.jpg",
-  3: "/art/hd/garden/vocal-e.jpg",
-  4: "/art/hd/garden/vocal-i.jpg",
-  5: "/art/hd/garden/vocal-o.jpg",
-  6: "/art/hd/garden/vocal-u.jpg",
-  7: "/art/hd/garden/leccion-7.jpg",
-  8: "/art/hd/garden/leccion-8.jpg",
-  9: "/art/hd/garden/leccion-9.jpg",
-  10: "/art/hd/garden/leccion-10.jpg",
-  11: "/art/hd/garden/leccion-11.jpg",
-  12: "/art/hd/garden/leccion-12.jpg",
-  13: "/art/hd/garden/leccion-13.jpg",
-  14: "/art/hd/garden/leccion-14.jpg",
-  15: "/art/hd/garden/leccion-15.jpg",
-  16: "/art/hd/garden/leccion-16.jpg",
-  17: "/art/hd/garden/leccion-17.jpg",
-  18: "/art/hd/garden/leccion-18.jpg",
-  19: "/art/hd/garden/leccion-19.jpg",
-  20: "/art/hd/garden/leccion-20.jpg",
-  21: "/art/hd/garden/leccion-21.jpg",
-  22: "/art/hd/garden/leccion-22.jpg",
-  23: "/art/hd/garden/leccion-23.jpg",
-  24: "/art/hd/garden/leccion-24.jpg",
-};
 
 /**
  * Renders a workbook page from its faithful, verified region layout
@@ -426,6 +388,7 @@ function RegionView({
           region={region}
           accent={accent ?? "hsl(230 75% 58%)"}
           lessonId={lessonId}
+          mark={pictureMarkFor(precedingInstruction)}
         />
       ) : (
         <PictureGrid region={region} />
@@ -512,6 +475,12 @@ function RegionView({
           </div>
         );
       }
+      if (interactive && native) return (
+        <div className="fp-writing-line fp-writing-line--freehand">
+          {traceLetter && <span className="fp-writing-line__model">{traceLetter}</span>}
+          <DibujaHost pageKey={region.id} hint={traceLetter} lessonId={lessonId} initialMode="draw" verb="Escribe" />
+        </div>
+      );
       return (
         <div className="fp-writing-line">
           {region.modelText ? (
@@ -563,7 +532,7 @@ function RegionView({
       );
     case "vocab-grid":
       return native ? (
-        <div className="fp-native-vocab">
+        <div className="fp-native-vocab" style={{ gridTemplateColumns: `repeat(${region.columns ?? 3}, minmax(0, 1fr))` }}>
           {(region.text ?? "").split("·").map((word) => word.trim()).filter(Boolean).map((word) => (
             <span key={word}>{word}</span>
           ))}
@@ -623,9 +592,10 @@ export function FaithfulPageRenderer({
   }
 
   const ordered = [...layout].sort((a, b) => a.order - b.order);
+  const letterReadingPage = native && ordered.some((region) => region.regionType === "vocab-grid")
+    && ordered.filter((region) => region.regionType === "syllable-bubble").length === 2;
   const accent = lessonNumber ? CATALOG.find((e) => e.n === lessonNumber)?.color : undefined;
   const lessonId = lessonNumber ? String(lessonNumber) : undefined;
-  const gardenBg = lessonNumber ? LESSON_GARDEN_BG[lessonNumber] : undefined;
 
   // Every letter's writing-line pair is [model line with modelText, blank
   // "trace it again" line with no modelText] — the blank one inherits the
@@ -644,8 +614,8 @@ export function FaithfulPageRenderer({
     <PageFrame
       pageNumber={pageNumber}
       lessonNumber={lessonNumber}
-      garden={interactive}
-      gardenBg={gardenBg}
+
+      className={letterReadingPage ? "fp-native-letter-page" : undefined}
     >
       {ordered.map((region) => {
         if (region.regionType === "instruction" && region.text) {
@@ -672,6 +642,11 @@ export function FaithfulPageRenderer({
           </GretelActivity>
         );
       })}
+      {SOURCE_BLOCKED_WORKBOOK_PAGES.includes(pageNumber) ? (
+        <p className="fp-source-blocked" data-source-blocked="true" role="note">
+          Esta página falta en el escaneo del libro. Su contenido está pendiente de verificación con el libro impreso.
+        </p>
+      ) : null}
     </PageFrame>
   );
 }

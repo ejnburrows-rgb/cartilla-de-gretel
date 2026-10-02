@@ -12,13 +12,11 @@ import { Route as rootRouteImport } from './routes/__root'
 import { Route as LoginRouteImport } from './routes/login'
 import { Route as IntroRouteImport } from './routes/intro'
 import { Route as EntrarRouteImport } from './routes/entrar'
-import { Route as DevWorkbookManifestRouteImport } from './routes/dev-workbook-manifest'
 import { Route as DevLivingWorkbookRouteImport } from './routes/dev-living-workbook'
 import { Route as DevGretelRouteImport } from './routes/dev-gretel'
 import { Route as CreditsRouteImport } from './routes/credits'
 import { Route as ClassroomRouteImport } from './routes/classroom'
 import { Route as BookRouteImport } from './routes/book'
-import { Route as ActivitiesRouteImport } from './routes/activities'
 import { Route as IndexRouteImport } from './routes/index'
 import { Route as CartillaIndexRouteImport } from './routes/cartilla/index'
 import { Route as CartillaVocesRouteImport } from './routes/cartilla/voces'
@@ -77,11 +75,6 @@ const EntrarRoute = EntrarRouteImport.update({
   path: '/entrar',
   getParentRoute: () => rootRouteImport,
 } as any)
-const DevWorkbookManifestRoute = DevWorkbookManifestRouteImport.update({
-  id: '/dev-workbook-manifest',
-  path: '/dev-workbook-manifest',
-  getParentRoute: () => rootRouteImport,
-} as any)
 const DevLivingWorkbookRoute = DevLivingWorkbookRouteImport.update({
   id: '/dev-living-workbook',
   path: '/dev-living-workbook',
@@ -105,11 +98,6 @@ const ClassroomRoute = ClassroomRouteImport.update({
 const BookRoute = BookRouteImport.update({
   id: '/book',
   path: '/book',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const ActivitiesRoute = ActivitiesRouteImport.update({
-  id: '/activities',
-  path: '/activities',
   getParentRoute: () => rootRouteImport,
 } as any)
 const IndexRoute = IndexRouteImport.update({
@@ -338,13 +326,11 @@ const CartillaTeacherCrmClassIdStudentIdLessonIdRoute =
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
-  '/activities': typeof ActivitiesRoute
   '/book': typeof BookRoute
   '/classroom': typeof ClassroomRoute
   '/credits': typeof CreditsRoute
   '/dev-gretel': typeof DevGretelRoute
   '/dev-living-workbook': typeof DevLivingWorkbookRoute
-  '/dev-workbook-manifest': typeof DevWorkbookManifestRoute
   '/entrar': typeof EntrarRoute
   '/intro': typeof IntroRoute
   '/login': typeof LoginRoute
@@ -392,13 +378,11 @@ export interface FileRoutesByFullPath {
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
-  '/activities': typeof ActivitiesRoute
   '/book': typeof BookRoute
   '/classroom': typeof ClassroomRoute
   '/credits': typeof CreditsRoute
   '/dev-gretel': typeof DevGretelRoute
   '/dev-living-workbook': typeof DevLivingWorkbookRoute
-  '/dev-workbook-manifest': typeof DevWorkbookManifestRoute
   '/entrar': typeof EntrarRoute
   '/intro': typeof IntroRoute
   '/login': typeof LoginRoute
@@ -443,13 +427,11 @@ export interface FileRoutesByTo {
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
-  '/activities': typeof ActivitiesRoute
   '/book': typeof BookRoute
   '/classroom': typeof ClassroomRoute
   '/credits': typeof CreditsRoute
   '/dev-gretel': typeof DevGretelRoute
   '/dev-living-workbook': typeof DevLivingWorkbookRoute
-  '/dev-workbook-manifest': typeof DevWorkbookManifestRoute
   '/entrar': typeof EntrarRoute
   '/intro': typeof IntroRoute
   '/login': typeof LoginRoute
@@ -499,13 +481,11 @@ export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
   fullPaths:
     | '/'
-    | '/activities'
     | '/book'
     | '/classroom'
     | '/credits'
     | '/dev-gretel'
     | '/dev-living-workbook'
-    | '/dev-workbook-manifest'
     | '/entrar'
     | '/intro'
     | '/login'
@@ -553,13 +533,11 @@ export interface FileRouteTypes {
   fileRoutesByTo: FileRoutesByTo
   to:
     | '/'
-    | '/activities'
     | '/book'
     | '/classroom'
     | '/credits'
     | '/dev-gretel'
     | '/dev-living-workbook'
-    | '/dev-workbook-manifest'
     | '/entrar'
     | '/intro'
     | '/login'
@@ -603,13 +581,11 @@ export interface FileRouteTypes {
   id:
     | '__root__'
     | '/'
-    | '/activities'
     | '/book'
     | '/classroom'
     | '/credits'
     | '/dev-gretel'
     | '/dev-living-workbook'
-    | '/dev-workbook-manifest'
     | '/entrar'
     | '/intro'
     | '/login'
@@ -658,13 +634,11 @@ export interface FileRouteTypes {
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
-  ActivitiesRoute: typeof ActivitiesRoute
   BookRoute: typeof BookRoute
   ClassroomRoute: typeof ClassroomRoute
   CreditsRoute: typeof CreditsRoute
   DevGretelRoute: typeof DevGretelRoute
   DevLivingWorkbookRoute: typeof DevLivingWorkbookRoute
-  DevWorkbookManifestRoute: typeof DevWorkbookManifestRoute
   EntrarRoute: typeof EntrarRoute
   IntroRoute: typeof IntroRoute
   LoginRoute: typeof LoginRoute
@@ -712,13 +686,6 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof EntrarRouteImport
       parentRoute: typeof rootRouteImport
     }
-    '/dev-workbook-manifest': {
-      id: '/dev-workbook-manifest'
-      path: '/dev-workbook-manifest'
-      fullPath: '/dev-workbook-manifest'
-      preLoaderRoute: typeof DevWorkbookManifestRouteImport
-      parentRoute: typeof rootRouteImport
-    }
     '/dev-living-workbook': {
       id: '/dev-living-workbook'
       path: '/dev-living-workbook'
@@ -752,13 +719,6 @@ declare module '@tanstack/react-router' {
       path: '/book'
       fullPath: '/book'
       preLoaderRoute: typeof BookRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/activities': {
-      id: '/activities'
-      path: '/activities'
-      fullPath: '/activities'
-      preLoaderRoute: typeof ActivitiesRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/': {
@@ -1150,13 +1110,11 @@ const CartillaTeacherRouteRouteWithChildren =
 
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
-  ActivitiesRoute: ActivitiesRoute,
   BookRoute: BookRoute,
   ClassroomRoute: ClassroomRoute,
   CreditsRoute: CreditsRoute,
   DevGretelRoute: DevGretelRoute,
   DevLivingWorkbookRoute: DevLivingWorkbookRoute,
-  DevWorkbookManifestRoute: DevWorkbookManifestRoute,
   EntrarRoute: EntrarRoute,
   IntroRoute: IntroRoute,
   LoginRoute: LoginRoute,

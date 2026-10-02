@@ -1,8 +1,738 @@
 {
+  "3": [
+    {
+      "word": "Ilustración de la página 3",
+      "src": "/cartilla/art/optimized/flipchart-native/p003-scene.png",
+      "sourcePage": 3,
+      "crop": [
+        13,
+        56,
+        514,
+        337
+      ],
+      "role": "scene"
+    },
+    {
+      "word": "avión",
+      "src": "/cartilla/art/optimized/flipchart-native/p003-avion.png",
+      "sourcePage": 3,
+      "crop": [
+        66,
+        644,
+        225,
+        207
+      ]
+    },
+    {
+      "word": "escoba",
+      "src": "/cartilla/art/optimized/flipchart-native/p003-escoba.png",
+      "sourcePage": 3,
+      "crop": [
+        408,
+        644,
+        178,
+        212
+      ]
+    },
+    {
+      "word": "imán",
+      "src": "/cartilla/art/optimized/flipchart-native/p003-iman.png",
+      "sourcePage": 3,
+      "crop": [
+        706,
+        638,
+        222,
+        214
+      ]
+    },
+    {
+      "word": "olla",
+      "src": "/cartilla/art/optimized/flipchart-native/p003-olla.png",
+      "sourcePage": 3,
+      "crop": [
+        235,
+        1140,
+        204,
+        171
+      ]
+    },
+    {
+      "word": "uña",
+      "src": "/cartilla/art/optimized/flipchart-native/p003-una.png",
+      "sourcePage": 3,
+      "crop": [
+        568,
+        1130,
+        170,
+        182
+      ]
+    }
+  ],
+  "4": [
+    {
+      "word": "Ilustración de la página 4",
+      "src": "/cartilla/art/optimized/flipchart-native/p004-scene.png",
+      "sourcePage": 4,
+      "crop": [
+        18,
+        50,
+        469,
+        460
+      ],
+      "role": "scene"
+    },
+    {
+      "word": "olla",
+      "src": "/cartilla/art/optimized/flipchart-native/p004-olla.png",
+      "sourcePage": 4,
+      "crop": [
+        64,
+        647,
+        223,
+        182
+      ]
+    },
+    {
+      "word": "Oto",
+      "src": "/cartilla/art/optimized/flipchart-native/p004-oto.png",
+      "sourcePage": 4,
+      "crop": [
+        377,
+        640,
+        225,
+        184
+      ]
+    },
+    {
+      "word": "oveja",
+      "src": "/cartilla/art/optimized/flipchart-native/p004-oveja.png",
+      "sourcePage": 4,
+      "crop": [
+        706,
+        628,
+        227,
+        211
+      ]
+    },
+    {
+      "word": "oso",
+      "src": "/cartilla/art/optimized/flipchart-native/p004-oso.png",
+      "sourcePage": 4,
+      "crop": [
+        58,
+        979,
+        220,
+        257
+      ]
+    },
+    {
+      "word": "oreja",
+      "src": "/cartilla/art/optimized/flipchart-native/p004-oreja.png",
+      "sourcePage": 4,
+      "crop": [
+        418,
+        987,
+        158,
+        243
+      ]
+    },
+    {
+      "word": "ocho",
+      "src": "/cartilla/art/optimized/flipchart-native/p004-ocho.png",
+      "sourcePage": 4,
+      "crop": [
+        714,
+        973,
+        208,
+        260
+      ]
+    }
+  ],
+  "5": [
+    {
+      "word": "Ilustración de la página 5",
+      "src": "/cartilla/art/optimized/flipchart-native/p005-scene.png",
+      "sourcePage": 5,
+      "crop": [
+        66,
+        36,
+        396,
+        516
+      ],
+      "role": "scene"
+    },
+    {
+      "word": "abanico",
+      "src": "/cartilla/art/optimized/flipchart-native/p005-abanico.png",
+      "sourcePage": 5,
+      "crop": [
+        65,
+        642,
+        232,
+        236
+      ]
+    },
+    {
+      "word": "anillo",
+      "src": "/cartilla/art/optimized/flipchart-native/p005-anillo.png",
+      "sourcePage": 5,
+      "crop": [
+        394,
+        658,
+        216,
+        191
+      ]
+    },
+    {
+      "word": "araña",
+      "src": "/cartilla/art/optimized/flipchart-native/p005-arana.png",
+      "sourcePage": 5,
+      "crop": [
+        718,
+        675,
+        188,
+        192
+      ]
+    },
+    {
+      "word": "ala",
+      "src": "/cartilla/art/optimized/flipchart-native/p005-ala.png",
+      "sourcePage": 5,
+      "crop": [
+        39,
+        1029,
+        285,
+        217
+      ]
+    },
+    {
+      "word": "aro",
+      "src": "/cartilla/art/optimized/flipchart-native/p005-aro.png",
+      "sourcePage": 5,
+      "crop": [
+        390,
+        1010,
+        220,
+        265
+      ]
+    },
+    {
+      "word": "Ana",
+      "src": "/cartilla/art/optimized/flipchart-native/p005-ana.png",
+      "sourcePage": 5,
+      "crop": [
+        706,
+        1025,
+        243,
+        252
+      ]
+    }
+  ],
+  "6": [
+    {
+      "word": "Ilustración de la página 6",
+      "src": "/cartilla/art/optimized/flipchart-native/p006-scene.png",
+      "sourcePage": 6,
+      "crop": [
+        48,
+        46,
+        402,
+        506
+      ],
+      "role": "scene"
+    },
+    {
+      "word": "elefante",
+      "src": "/cartilla/art/optimized/flipchart-native/p006-elefante.png",
+      "sourcePage": 6,
+      "crop": [
+        50,
+        645,
+        235,
+        228
+      ]
+    },
+    {
+      "word": "espejo",
+      "src": "/cartilla/art/optimized/flipchart-native/p006-espejo.png",
+      "sourcePage": 6,
+      "crop": [
+        368,
+        630,
+        231,
+        236
+      ]
+    },
+    {
+      "word": "Ema",
+      "src": "/cartilla/art/optimized/flipchart-native/p006-ema.png",
+      "sourcePage": 6,
+      "crop": [
+        733,
+        624,
+        183,
+        238
+      ]
+    },
+    {
+      "word": "estrella",
+      "src": "/cartilla/art/optimized/flipchart-native/p006-estrella.png",
+      "sourcePage": 6,
+      "crop": [
+        55,
+        996,
+        225,
+        256
+      ]
+    },
+    {
+      "word": "erizo",
+      "src": "/cartilla/art/optimized/flipchart-native/p006-erizo.png",
+      "sourcePage": 6,
+      "crop": [
+        369,
+        988,
+        237,
+        256
+      ]
+    },
+    {
+      "word": "escalera",
+      "src": "/cartilla/art/optimized/flipchart-native/p006-escalera.png",
+      "sourcePage": 6,
+      "crop": [
+        711,
+        977,
+        215,
+        286
+      ]
+    }
+  ],
+  "7": [
+    {
+      "word": "Ilustración de la página 7",
+      "src": "/cartilla/art/optimized/flipchart-native/p007-scene.png",
+      "sourcePage": 7,
+      "crop": [
+        41,
+        29,
+        417,
+        523
+      ],
+      "role": "scene"
+    },
+    {
+      "word": "imán",
+      "src": "/cartilla/art/optimized/flipchart-native/p007-iman.png",
+      "sourcePage": 7,
+      "crop": [
+        71,
+        642,
+        224,
+        212
+      ]
+    },
+    {
+      "word": "iglú",
+      "src": "/cartilla/art/optimized/flipchart-native/p007-iglu.png",
+      "sourcePage": 7,
+      "crop": [
+        380,
+        645,
+        218,
+        222
+      ]
+    },
+    {
+      "word": "indio",
+      "src": "/cartilla/art/optimized/flipchart-native/p007-indio.png",
+      "sourcePage": 7,
+      "crop": [
+        712,
+        575,
+        202,
+        297
+      ]
+    },
+    {
+      "word": "insecto",
+      "src": "/cartilla/art/optimized/flipchart-native/p007-insecto.png",
+      "sourcePage": 7,
+      "crop": [
+        56,
+        1001,
+        256,
+        224
+      ]
+    },
+    {
+      "word": "isla",
+      "src": "/cartilla/art/optimized/flipchart-native/p007-isla.png",
+      "sourcePage": 7,
+      "crop": [
+        355,
+        997,
+        279,
+        253
+      ]
+    },
+    {
+      "word": "Irma",
+      "src": "/cartilla/art/optimized/flipchart-native/p007-irma.png",
+      "sourcePage": 7,
+      "crop": [
+        696,
+        994,
+        235,
+        274
+      ]
+    }
+  ],
+  "8": [
+    {
+      "word": "Ilustración de la página 8",
+      "src": "/cartilla/art/optimized/flipchart-native/p008-scene.png",
+      "sourcePage": 8,
+      "crop": [
+        14,
+        28,
+        441,
+        439
+      ],
+      "role": "scene"
+    },
+    {
+      "word": "uno",
+      "src": "/cartilla/art/optimized/flipchart-native/p008-uno.png",
+      "sourcePage": 8,
+      "crop": [
+        72,
+        570,
+        232,
+        240
+      ]
+    },
+    {
+      "word": "uva",
+      "src": "/cartilla/art/optimized/flipchart-native/p008-uva.png",
+      "sourcePage": 8,
+      "crop": [
+        391,
+        568,
+        237,
+        230
+      ]
+    },
+    {
+      "word": "urraca",
+      "src": "/cartilla/art/optimized/flipchart-native/p008-urraca.png",
+      "sourcePage": 8,
+      "crop": [
+        719,
+        557,
+        223,
+        227
+      ]
+    },
+    {
+      "word": "unicornio",
+      "src": "/cartilla/art/optimized/flipchart-native/p008-unicornio.png",
+      "sourcePage": 8,
+      "crop": [
+        56,
+        904,
+        258,
+        260
+      ]
+    },
+    {
+      "word": "uniforme",
+      "src": "/cartilla/art/optimized/flipchart-native/p008-uniforme.png",
+      "sourcePage": 8,
+      "crop": [
+        429,
+        906,
+        163,
+        252
+      ]
+    },
+    {
+      "word": "Ulises",
+      "src": "/cartilla/art/optimized/flipchart-native/p008-ulises.png",
+      "sourcePage": 8,
+      "crop": [
+        711,
+        927,
+        243,
+        200
+      ]
+    }
+  ],
+  "9": [
+    {
+      "word": "Ilustración de la página 9",
+      "src": "/cartilla/art/optimized/flipchart-native/p009-scene.png",
+      "sourcePage": 9,
+      "crop": [
+        20,
+        30,
+        528,
+        500
+      ],
+      "role": "scene"
+    },
+    {
+      "word": "mamá",
+      "src": "/cartilla/art/optimized/flipchart-native/p009-mama.png",
+      "sourcePage": 9,
+      "crop": [
+        46,
+        561,
+        217,
+        286
+      ]
+    },
+    {
+      "word": "amo",
+      "src": "/cartilla/art/optimized/flipchart-native/p009-amo.png",
+      "sourcePage": 9,
+      "crop": [
+        351,
+        550,
+        270,
+        285
+      ]
+    },
+    {
+      "word": "mima",
+      "src": "/cartilla/art/optimized/flipchart-native/p009-mima.png",
+      "sourcePage": 9,
+      "crop": [
+        661,
+        529,
+        304,
+        304
+      ]
+    },
+    {
+      "word": "Meme",
+      "src": "/cartilla/art/optimized/flipchart-native/p009-meme.png",
+      "sourcePage": 9,
+      "crop": [
+        230,
+        958,
+        150,
+        309
+      ]
+    },
+    {
+      "word": "Mumi",
+      "src": "/cartilla/art/optimized/flipchart-native/p009-mumi.png",
+      "sourcePage": 9,
+      "crop": [
+        533,
+        960,
+        281,
+        296
+      ]
+    }
+  ],
+  "11": [
+    {
+      "word": "Ilustración de la página 11",
+      "src": "/cartilla/art/optimized/flipchart-native/p011-scene.png",
+      "sourcePage": 11,
+      "crop": [
+        295,
+        186,
+        636,
+        529
+      ],
+      "role": "scene"
+    }
+  ],
+  "12": [
+    {
+      "word": "Ilustración de la página 12",
+      "src": "/cartilla/art/optimized/flipchart-native/p012-scene.png",
+      "sourcePage": 12,
+      "crop": [
+        6,
+        28,
+        552,
+        520
+      ],
+      "role": "scene"
+    },
+    {
+      "word": "papá",
+      "src": "/cartilla/art/optimized/flipchart-native/p012-papa.png",
+      "sourcePage": 12,
+      "crop": [
+        56,
+        541,
+        182,
+        278
+      ]
+    },
+    {
+      "word": "pie",
+      "src": "/cartilla/art/optimized/flipchart-native/p012-pie.png",
+      "sourcePage": 12,
+      "crop": [
+        347,
+        632,
+        265,
+        179
+      ]
+    },
+    {
+      "word": "Pepe",
+      "src": "/cartilla/art/optimized/flipchart-native/p012-pepe.png",
+      "sourcePage": 12,
+      "crop": [
+        681,
+        515,
+        305,
+        306
+      ]
+    },
+    {
+      "word": "puma",
+      "src": "/cartilla/art/optimized/flipchart-native/p012-puma.png",
+      "sourcePage": 12,
+      "crop": [
+        69,
+        968,
+        272,
+        295
+      ]
+    },
+    {
+      "word": "pomo",
+      "src": "/cartilla/art/optimized/flipchart-native/p012-pomo.png",
+      "sourcePage": 12,
+      "crop": [
+        626,
+        985,
+        154,
+        277
+      ]
+    }
+  ],
+  "14": [
+    {
+      "word": "Ilustración de la página 14",
+      "src": "/cartilla/art/optimized/flipchart-native/p014-scene.png",
+      "sourcePage": 14,
+      "crop": [
+        355,
+        63,
+        626,
+        523
+      ],
+      "role": "scene"
+    }
+  ],
+  "15": [
+    {
+      "word": "Ilustración de la página 15",
+      "src": "/cartilla/art/optimized/flipchart-native/p015-scene.png",
+      "sourcePage": 15,
+      "crop": [
+        63,
+        53,
+        457,
+        499
+      ],
+      "role": "scene"
+    },
+    {
+      "word": "Sesi",
+      "src": "/cartilla/art/optimized/flipchart-native/p015-sesi.png",
+      "sourcePage": 15,
+      "crop": [
+        99,
+        566,
+        241,
+        294
+      ]
+    },
+    {
+      "word": "sopa",
+      "src": "/cartilla/art/optimized/flipchart-native/p015-sopa.png",
+      "sourcePage": 15,
+      "crop": [
+        374,
+        667,
+        241,
+        149
+      ]
+    },
+    {
+      "word": "sapo",
+      "src": "/cartilla/art/optimized/flipchart-native/p015-sapo.png",
+      "sourcePage": 15,
+      "crop": [
+        680,
+        621,
+        271,
+        211
+      ]
+    },
+    {
+      "word": "pisa",
+      "src": "/cartilla/art/optimized/flipchart-native/p015-pisa.png",
+      "sourcePage": 15,
+      "crop": [
+        134,
+        1022,
+        319,
+        220
+      ]
+    },
+    {
+      "word": "Susi",
+      "src": "/cartilla/art/optimized/flipchart-native/p015-susi.png",
+      "sourcePage": 15,
+      "crop": [
+        555,
+        953,
+        230,
+        308
+      ]
+    }
+  ],
+  "17": [
+    {
+      "word": "Ilustración de la página 17",
+      "src": "/cartilla/art/optimized/flipchart-native/p017-scene.png",
+      "sourcePage": 17,
+      "crop": [
+        590,
+        28,
+        398,
+        698
+      ],
+      "role": "scene"
+    }
+  ],
   "18": [
     {
+      "word": "Ilustración de la página 18",
+      "src": "/cartilla/art/optimized/flipchart-native/p018-scene.png",
+      "sourcePage": 18,
+      "crop": [
+        72,
+        28,
+        466,
+        521
+      ],
+      "role": "scene"
+    },
+    {
       "word": "tomate",
-      "src": "/cartilla/art/faithful/flipchart-native/p018-tomate.webp",
+      "src": "/cartilla/art/optimized/flipchart-native/p018-tomate.webp",
       "sourcePage": 18,
       "crop": [
         35,
@@ -13,7 +743,7 @@
     },
     {
       "word": "tapa",
-      "src": "/cartilla/art/faithful/flipchart-native/p018-tapa.webp",
+      "src": "/cartilla/art/optimized/flipchart-native/p018-tapa.webp",
       "sourcePage": 18,
       "crop": [
         350,
@@ -24,7 +754,7 @@
     },
     {
       "word": "topo",
-      "src": "/cartilla/art/faithful/flipchart-native/p018-topo.webp",
+      "src": "/cartilla/art/optimized/flipchart-native/p018-topo.webp",
       "sourcePage": 18,
       "crop": [
         690,
@@ -35,7 +765,7 @@
     },
     {
       "word": "tipi",
-      "src": "/cartilla/art/faithful/flipchart-native/p018-tipi.webp",
+      "src": "/cartilla/art/optimized/flipchart-native/p018-tipi.webp",
       "sourcePage": 18,
       "crop": [
         95,
@@ -46,7 +776,7 @@
     },
     {
       "word": "Tuto",
-      "src": "/cartilla/art/faithful/flipchart-native/p018-tuto.webp",
+      "src": "/cartilla/art/optimized/flipchart-native/p018-tuto.webp",
       "sourcePage": 18,
       "crop": [
         540,
@@ -56,67 +786,119 @@
       ]
     }
   ],
+  "20": [
+    {
+      "word": "Ilustración de la página 20",
+      "src": "/cartilla/art/optimized/flipchart-native/p020-scene.png",
+      "sourcePage": 20,
+      "crop": [
+        340,
+        92,
+        660,
+        505
+      ],
+      "role": "scene"
+    }
+  ],
   "21": [
     {
-      "word": "Didi",
-      "src": "/cartilla/art/faithful/flipchart-native/p021-didi.webp",
+      "word": "Ilustración de la página 21",
+      "src": "/cartilla/art/optimized/flipchart-native/p021-scene.png",
       "sourcePage": 21,
       "crop": [
-        40,
-        500,
-        280,
-        300
+        165,
+        28,
+        313,
+        510
+      ],
+      "role": "scene"
+    },
+    {
+      "word": "Didi",
+      "src": "/cartilla/art/optimized/flipchart-native/p021-didi.webp",
+      "sourcePage": 21,
+      "crop": [
+        42,
+        545,
+        207,
+        231
       ]
     },
     {
       "word": "dados",
-      "src": "/cartilla/art/faithful/flipchart-native/p021-dados.webp",
+      "src": "/cartilla/art/optimized/flipchart-native/p021-dados.webp",
       "sourcePage": 21,
       "crop": [
-        350,
-        505,
-        320,
-        300
+        376,
+        516,
+        245,
+        250
       ]
     },
     {
       "word": "dedo",
-      "src": "/cartilla/art/faithful/flipchart-native/p021-dedo.webp",
+      "src": "/cartilla/art/optimized/flipchart-native/p021-dedo.webp",
       "sourcePage": 21,
       "crop": [
-        710,
-        500,
-        250,
-        300
+        740,
+        513,
+        180,
+        256
       ]
     },
     {
       "word": "doce",
-      "src": "/cartilla/art/faithful/flipchart-native/p021-doce.webp",
+      "src": "/cartilla/art/optimized/flipchart-native/p021-doce.webp",
       "sourcePage": 21,
       "crop": [
-        120,
-        860,
-        300,
-        340
+        122,
+        909,
+        232,
+        290
       ]
     },
     {
       "word": "Dunia",
-      "src": "/cartilla/art/faithful/flipchart-native/p021-dunia.webp",
+      "src": "/cartilla/art/optimized/flipchart-native/p021-dunia.webp",
       "sourcePage": 21,
       "crop": [
-        510,
-        860,
-        400,
-        345
+        508,
+        914,
+        361,
+        256
       ]
+    }
+  ],
+  "23": [
+    {
+      "word": "Ilustración de la página 23",
+      "src": "/cartilla/art/optimized/flipchart-native/p023-scene.png",
+      "sourcePage": 23,
+      "crop": [
+        452,
+        28,
+        471,
+        559
+      ],
+      "role": "scene"
     }
   ],
   "24": [
     {
+      "word": "Ilustración de la página 24",
+      "src": "/cartilla/art/optimized/flipchart-native/p024-scene.png",
+      "sourcePage": 24,
+      "crop": [
+        71,
+        28,
+        209,
+        519
+      ],
+      "role": "scene"
+    },
+    {
       "word": "maleta",
-      "src": "/cartilla/art/faithful/flipchart-native/p024-maleta.webp",
+      "src": "/cartilla/art/optimized/flipchart-native/p024-maleta.webp",
       "sourcePage": 24,
       "crop": [
         45,
@@ -127,7 +909,7 @@
     },
     {
       "word": "lata",
-      "src": "/cartilla/art/faithful/flipchart-native/p024-lata.webp",
+      "src": "/cartilla/art/optimized/flipchart-native/p024-lata.webp",
       "sourcePage": 24,
       "crop": [
         385,
@@ -138,7 +920,7 @@
     },
     {
       "word": "Luli",
-      "src": "/cartilla/art/faithful/flipchart-native/p024-luli.webp",
+      "src": "/cartilla/art/optimized/flipchart-native/p024-luli.webp",
       "sourcePage": 24,
       "crop": [
         720,
@@ -149,7 +931,7 @@
     },
     {
       "word": "loma",
-      "src": "/cartilla/art/faithful/flipchart-native/p024-loma.webp",
+      "src": "/cartilla/art/optimized/flipchart-native/p024-loma.webp",
       "sourcePage": 24,
       "crop": [
         90,
@@ -160,7 +942,7 @@
     },
     {
       "word": "Lala",
-      "src": "/cartilla/art/faithful/flipchart-native/p024-lala.webp",
+      "src": "/cartilla/art/optimized/flipchart-native/p024-lala.png",
       "sourcePage": 24,
       "crop": [
         565,
@@ -170,17 +952,1014 @@
       ]
     }
   ],
+  "26": [
+    {
+      "word": "Ilustración de la página 26",
+      "src": "/cartilla/art/optimized/flipchart-native/p026-scene.png",
+      "sourcePage": 26,
+      "crop": [
+        512,
+        220,
+        455,
+        396
+      ],
+      "role": "scene"
+    }
+  ],
+  "27": [
+    {
+      "word": "Ilustración de la página 27",
+      "src": "/cartilla/art/optimized/flipchart-native/p027-scene.png",
+      "sourcePage": 27,
+      "crop": [
+        15,
+        28,
+        501,
+        524
+      ],
+      "role": "scene"
+    },
+    {
+      "word": "nido",
+      "src": "/cartilla/art/optimized/flipchart-native/p027-nido.png",
+      "sourcePage": 27,
+      "crop": [
+        57,
+        635,
+        245,
+        168
+      ]
+    },
+    {
+      "word": "nudo",
+      "src": "/cartilla/art/optimized/flipchart-native/p027-nudo.png",
+      "sourcePage": 27,
+      "crop": [
+        353,
+        617,
+        260,
+        204
+      ]
+    },
+    {
+      "word": "mono",
+      "src": "/cartilla/art/optimized/flipchart-native/p027-mono.png",
+      "sourcePage": 27,
+      "crop": [
+        714,
+        524,
+        181,
+        300
+      ]
+    },
+    {
+      "word": "Napi",
+      "src": "/cartilla/art/optimized/flipchart-native/p027-napi.png",
+      "sourcePage": 27,
+      "crop": [
+        122,
+        969,
+        264,
+        280
+      ]
+    },
+    {
+      "word": "tenedor",
+      "src": "/cartilla/art/optimized/flipchart-native/p027-tenedor.png",
+      "sourcePage": 27,
+      "crop": [
+        642,
+        926,
+        69,
+        323
+      ]
+    }
+  ],
+  "29": [
+    {
+      "word": "Ilustración de la página 29",
+      "src": "/cartilla/art/optimized/flipchart-native/p029-scene.png",
+      "sourcePage": 29,
+      "crop": [
+        495,
+        28,
+        481,
+        544
+      ],
+      "role": "scene"
+    }
+  ],
+  "30": [
+    {
+      "word": "Ilustración de la página 30",
+      "src": "/cartilla/art/optimized/flipchart-native/p030-scene.png",
+      "sourcePage": 30,
+      "crop": [
+        100,
+        28,
+        347,
+        512
+      ],
+      "role": "scene"
+    },
+    {
+      "word": "piñata",
+      "src": "/cartilla/art/optimized/flipchart-native/p030-pinata.png",
+      "sourcePage": 30,
+      "crop": [
+        46,
+        562,
+        217,
+        236
+      ]
+    },
+    {
+      "word": "Ñuno",
+      "src": "/cartilla/art/optimized/flipchart-native/p030-nuno.png",
+      "sourcePage": 30,
+      "crop": [
+        405,
+        510,
+        192,
+        288
+      ]
+    },
+    {
+      "word": "niñito",
+      "src": "/cartilla/art/optimized/flipchart-native/p030-ninito.png",
+      "sourcePage": 30,
+      "crop": [
+        719,
+        535,
+        192,
+        261
+      ]
+    },
+    {
+      "word": "moño",
+      "src": "/cartilla/art/optimized/flipchart-native/p030-mono.png",
+      "sourcePage": 30,
+      "crop": [
+        125,
+        925,
+        242,
+        292
+      ]
+    },
+    {
+      "word": "Meñe",
+      "src": "/cartilla/art/optimized/flipchart-native/p030-mene.png",
+      "sourcePage": 30,
+      "crop": [
+        567,
+        906,
+        196,
+        315
+      ]
+    }
+  ],
+  "32": [
+    {
+      "word": "Ilustración de la página 32",
+      "src": "/cartilla/art/optimized/flipchart-native/p032-scene.png",
+      "sourcePage": 32,
+      "crop": [
+        491,
+        28,
+        502,
+        511
+      ],
+      "role": "scene"
+    }
+  ],
+  "33": [
+    {
+      "word": "Ilustración de la página 33",
+      "src": "/cartilla/art/optimized/flipchart-native/p033-scene.png",
+      "sourcePage": 33,
+      "crop": [
+        102,
+        29,
+        470,
+        520
+      ],
+      "role": "scene"
+    },
+    {
+      "word": "Beba",
+      "src": "/cartilla/art/optimized/flipchart-native/p033-beba.png",
+      "sourcePage": 33,
+      "crop": [
+        57,
+        572,
+        237,
+        223
+      ]
+    },
+    {
+      "word": "Bubi",
+      "src": "/cartilla/art/optimized/flipchart-native/p033-bubi.png",
+      "sourcePage": 33,
+      "crop": [
+        365,
+        562,
+        251,
+        230
+      ]
+    },
+    {
+      "word": "bate",
+      "src": "/cartilla/art/optimized/flipchart-native/p033-bate.png",
+      "sourcePage": 33,
+      "crop": [
+        700,
+        527,
+        215,
+        264
+      ]
+    },
+    {
+      "word": "bota",
+      "src": "/cartilla/art/optimized/flipchart-native/p033-bota.png",
+      "sourcePage": 33,
+      "crop": [
+        134,
+        963,
+        238,
+        260
+      ]
+    },
+    {
+      "word": "bebita",
+      "src": "/cartilla/art/optimized/flipchart-native/p033-bebita.png",
+      "sourcePage": 33,
+      "crop": [
+        535,
+        920,
+        279,
+        307
+      ]
+    }
+  ],
+  "35": [
+    {
+      "word": "Ilustración de la página 35",
+      "src": "/cartilla/art/optimized/flipchart-native/p035-scene.png",
+      "sourcePage": 35,
+      "crop": [
+        474,
+        193,
+        498,
+        315
+      ],
+      "role": "scene"
+    }
+  ],
+  "36": [
+    {
+      "word": "Ilustración de la página 36",
+      "src": "/cartilla/art/optimized/flipchart-native/p036-scene.png",
+      "sourcePage": 36,
+      "crop": [
+        30,
+        64,
+        487,
+        327
+      ],
+      "role": "scene"
+    },
+    {
+      "word": "vaso",
+      "src": "/cartilla/art/optimized/flipchart-native/p036-vaso.png",
+      "sourcePage": 36,
+      "crop": [
+        113,
+        601,
+        101,
+        194
+      ]
+    },
+    {
+      "word": "vela",
+      "src": "/cartilla/art/optimized/flipchart-native/p036-vela.png",
+      "sourcePage": 36,
+      "crop": [
+        397,
+        569,
+        218,
+        235
+      ]
+    },
+    {
+      "word": "Vita",
+      "src": "/cartilla/art/optimized/flipchart-native/p036-vita.png",
+      "sourcePage": 36,
+      "crop": [
+        707,
+        554,
+        220,
+        252
+      ]
+    },
+    {
+      "word": "pavo",
+      "src": "/cartilla/art/optimized/flipchart-native/p036-pavo.png",
+      "sourcePage": 36,
+      "crop": [
+        149,
+        975,
+        231,
+        260
+      ]
+    },
+    {
+      "word": "Vuli",
+      "src": "/cartilla/art/optimized/flipchart-native/p036-vuli.png",
+      "sourcePage": 36,
+      "crop": [
+        536,
+        1035,
+        307,
+        209
+      ]
+    }
+  ],
+  "38": [
+    {
+      "word": "Ilustración de la página 38",
+      "src": "/cartilla/art/optimized/flipchart-native/p038-scene.png",
+      "sourcePage": 38,
+      "crop": [
+        486,
+        28,
+        487,
+        522
+      ],
+      "role": "scene"
+    }
+  ],
+  "39": [
+    {
+      "word": "Ilustración de la página 39",
+      "src": "/cartilla/art/optimized/flipchart-native/p039-scene.png",
+      "sourcePage": 39,
+      "crop": [
+        87,
+        28,
+        434,
+        474
+      ],
+      "role": "scene"
+    },
+    {
+      "word": "rana",
+      "src": "/cartilla/art/optimized/flipchart-native/p039-rana.png",
+      "sourcePage": 39,
+      "crop": [
+        47,
+        553,
+        231,
+        221
+      ]
+    },
+    {
+      "word": "remos",
+      "src": "/cartilla/art/optimized/flipchart-native/p039-remos.png",
+      "sourcePage": 39,
+      "crop": [
+        364,
+        550,
+        243,
+        225
+      ]
+    },
+    {
+      "word": "Rita",
+      "src": "/cartilla/art/optimized/flipchart-native/p039-rita.png",
+      "sourcePage": 39,
+      "crop": [
+        675,
+        550,
+        270,
+        221
+      ]
+    },
+    {
+      "word": "rosa",
+      "src": "/cartilla/art/optimized/flipchart-native/p039-rosa.png",
+      "sourcePage": 39,
+      "crop": [
+        152,
+        932,
+        187,
+        244
+      ]
+    },
+    {
+      "word": "rueda",
+      "src": "/cartilla/art/optimized/flipchart-native/p039-rueda.png",
+      "sourcePage": 39,
+      "crop": [
+        515,
+        932,
+        303,
+        249
+      ]
+    }
+  ],
+  "41": [
+    {
+      "word": "Ilustración de la página 41",
+      "src": "/cartilla/art/optimized/flipchart-native/p041-scene.png",
+      "sourcePage": 41,
+      "crop": [
+        444,
+        28,
+        531,
+        504
+      ],
+      "role": "scene"
+    }
+  ],
+  "42": [
+    {
+      "word": "Ilustración de la página 42",
+      "src": "/cartilla/art/optimized/flipchart-native/p042-scene.png",
+      "sourcePage": 42,
+      "crop": [
+        12,
+        97,
+        509,
+        401
+      ],
+      "role": "scene"
+    },
+    {
+      "word": "burro",
+      "src": "/cartilla/art/optimized/flipchart-native/p042-burro.png",
+      "sourcePage": 42,
+      "crop": [
+        37,
+        566,
+        262,
+        240
+      ]
+    },
+    {
+      "word": "carrusel",
+      "src": "/cartilla/art/optimized/flipchart-native/p042-carrusel.png",
+      "sourcePage": 42,
+      "crop": [
+        363,
+        570,
+        244,
+        238
+      ]
+    },
+    {
+      "word": "torre",
+      "src": "/cartilla/art/optimized/flipchart-native/p042-torre.png",
+      "sourcePage": 42,
+      "crop": [
+        759,
+        526,
+        111,
+        283
+      ]
+    },
+    {
+      "word": "barril",
+      "src": "/cartilla/art/optimized/flipchart-native/p042-barril.png",
+      "sourcePage": 42,
+      "crop": [
+        163,
+        975,
+        176,
+        270
+      ]
+    },
+    {
+      "word": "Tierra",
+      "src": "/cartilla/art/optimized/flipchart-native/p042-tierra.png",
+      "sourcePage": 42,
+      "crop": [
+        535,
+        963,
+        277,
+        290
+      ]
+    }
+  ],
+  "44": [
+    {
+      "word": "Ilustración de la página 44",
+      "src": "/cartilla/art/optimized/flipchart-native/p044-scene.png",
+      "sourcePage": 44,
+      "crop": [
+        452,
+        28,
+        531,
+        544
+      ],
+      "role": "scene"
+    }
+  ],
+  "45": [
+    {
+      "word": "Ilustración de la página 45",
+      "src": "/cartilla/art/optimized/flipchart-native/p045-scene.png",
+      "sourcePage": 45,
+      "crop": [
+        131,
+        31,
+        403,
+        511
+      ],
+      "role": "scene"
+    },
+    {
+      "word": "gaveta",
+      "src": "/cartilla/art/optimized/flipchart-native/p045-gaveta.png",
+      "sourcePage": 45,
+      "crop": [
+        37,
+        572,
+        265,
+        223
+      ]
+    },
+    {
+      "word": "gusano",
+      "src": "/cartilla/art/optimized/flipchart-native/p045-gusano.png",
+      "sourcePage": 45,
+      "crop": [
+        356,
+        639,
+        277,
+        141
+      ]
+    },
+    {
+      "word": "Goloso",
+      "src": "/cartilla/art/optimized/flipchart-native/p045-goloso.png",
+      "sourcePage": 45,
+      "crop": [
+        701,
+        524,
+        242,
+        270
+      ]
+    },
+    {
+      "word": "gorra",
+      "src": "/cartilla/art/optimized/flipchart-native/p045-gorra.png",
+      "sourcePage": 45,
+      "crop": [
+        127,
+        969,
+        255,
+        201
+      ]
+    },
+    {
+      "word": "mago",
+      "src": "/cartilla/art/optimized/flipchart-native/p045-mago.png",
+      "sourcePage": 45,
+      "crop": [
+        560,
+        919,
+        238,
+        272
+      ]
+    }
+  ],
+  "47": [
+    {
+      "word": "Ilustración de la página 47",
+      "src": "/cartilla/art/optimized/flipchart-native/p047-scene.png",
+      "sourcePage": 47,
+      "crop": [
+        473,
+        29,
+        506,
+        532
+      ],
+      "role": "scene"
+    }
+  ],
+  "48": [
+    {
+      "word": "Ilustración de la página 48",
+      "src": "/cartilla/art/optimized/flipchart-native/p048-scene.png",
+      "sourcePage": 48,
+      "crop": [
+        137,
+        28,
+        338,
+        522
+      ],
+      "role": "scene"
+    },
+    {
+      "word": "foto",
+      "src": "/cartilla/art/optimized/flipchart-native/p048-foto.png",
+      "sourcePage": 48,
+      "crop": [
+        66,
+        584,
+        199,
+        261
+      ]
+    },
+    {
+      "word": "fideos",
+      "src": "/cartilla/art/optimized/flipchart-native/p048-fideos.png",
+      "sourcePage": 48,
+      "crop": [
+        428,
+        566,
+        212,
+        276
+      ]
+    },
+    {
+      "word": "familia",
+      "src": "/cartilla/art/optimized/flipchart-native/p048-familia.png",
+      "sourcePage": 48,
+      "crop": [
+        726,
+        510,
+        175,
+        329
+      ]
+    },
+    {
+      "word": "Felo",
+      "src": "/cartilla/art/optimized/flipchart-native/p048-felo.png",
+      "sourcePage": 48,
+      "crop": [
+        158,
+        960,
+        300,
+        295
+      ]
+    },
+    {
+      "word": "funda",
+      "src": "/cartilla/art/optimized/flipchart-native/p048-funda.png",
+      "sourcePage": 48,
+      "crop": [
+        588,
+        990,
+        244,
+        245
+      ]
+    }
+  ],
+  "50": [
+    {
+      "word": "Ilustración de la página 50",
+      "src": "/cartilla/art/optimized/flipchart-native/p050-scene.png",
+      "sourcePage": 50,
+      "crop": [
+        441,
+        28,
+        530,
+        529
+      ],
+      "role": "scene"
+    }
+  ],
+  "51": [
+    {
+      "word": "Ilustración de la página 51",
+      "src": "/cartilla/art/optimized/flipchart-native/p051-scene.png",
+      "sourcePage": 51,
+      "crop": [
+        63,
+        31,
+        465,
+        496
+      ],
+      "role": "scene"
+    },
+    {
+      "word": "jicotea",
+      "src": "/cartilla/art/optimized/flipchart-native/p051-jicotea.png",
+      "sourcePage": 51,
+      "crop": [
+        37,
+        562,
+        269,
+        221
+      ]
+    },
+    {
+      "word": "jugo",
+      "src": "/cartilla/art/optimized/flipchart-native/p051-jugo.png",
+      "sourcePage": 51,
+      "crop": [
+        399,
+        561,
+        196,
+        224
+      ]
+    },
+    {
+      "word": "Jesús",
+      "src": "/cartilla/art/optimized/flipchart-native/p051-jesus.png",
+      "sourcePage": 51,
+      "crop": [
+        728,
+        510,
+        250,
+        276
+      ]
+    },
+    {
+      "word": "ajo",
+      "src": "/cartilla/art/optimized/flipchart-native/p051-ajo.png",
+      "sourcePage": 51,
+      "crop": [
+        141,
+        974,
+        246,
+        211
+      ]
+    },
+    {
+      "word": "jarra",
+      "src": "/cartilla/art/optimized/flipchart-native/p051-jarra.png",
+      "sourcePage": 51,
+      "crop": [
+        584,
+        937,
+        200,
+        270
+      ]
+    }
+  ],
+  "53": [
+    {
+      "word": "Ilustración de la página 53",
+      "src": "/cartilla/art/optimized/flipchart-native/p053-scene.png",
+      "sourcePage": 53,
+      "crop": [
+        481,
+        28,
+        504,
+        562
+      ],
+      "role": "scene"
+    }
+  ],
+  "54": [
+    {
+      "word": "Ilustración de la página 54",
+      "src": "/cartilla/art/optimized/flipchart-native/p054-scene.png",
+      "sourcePage": 54,
+      "crop": [
+        36,
+        42,
+        503,
+        397
+      ],
+      "role": "scene"
+    },
+    {
+      "word": "cuna",
+      "src": "/cartilla/art/optimized/flipchart-native/p054-cuna.png",
+      "sourcePage": 54,
+      "crop": [
+        48,
+        552,
+        251,
+        196
+      ]
+    },
+    {
+      "word": "conejo",
+      "src": "/cartilla/art/optimized/flipchart-native/p054-conejo.png",
+      "sourcePage": 54,
+      "crop": [
+        415,
+        512,
+        172,
+        247
+      ]
+    },
+    {
+      "word": "casa",
+      "src": "/cartilla/art/optimized/flipchart-native/p054-casa.png",
+      "sourcePage": 54,
+      "crop": [
+        667,
+        510,
+        293,
+        254
+      ]
+    },
+    {
+      "word": "cubo",
+      "src": "/cartilla/art/optimized/flipchart-native/p054-cubo.png",
+      "sourcePage": 54,
+      "crop": [
+        141,
+        919,
+        230,
+        278
+      ]
+    },
+    {
+      "word": "Catalina",
+      "src": "/cartilla/art/optimized/flipchart-native/p054-catalina.png",
+      "sourcePage": 54,
+      "crop": [
+        599,
+        886,
+        147,
+        309
+      ]
+    }
+  ],
   "56": [
     {
-      "word": "Los caramelos",
-      "src": "/cartilla/art/faithful/flipchart-native/p056-caramelos.webp",
+      "word": "Ilustración de la página 56",
+      "src": "/cartilla/art/optimized/flipchart-native/p056-caramelos.webp",
       "sourcePage": 56,
       "crop": [
-        500,
-        0,
-        485,
-        720
+        502,
+        28,
+        482,
+        677
+      ],
+      "role": "scene"
+    }
+  ],
+  "57": [
+    {
+      "word": "Ilustración de la página 57",
+      "src": "/cartilla/art/optimized/flipchart-native/p057-scene.png",
+      "sourcePage": 57,
+      "crop": [
+        48,
+        28,
+        484,
+        515
+      ],
+      "role": "scene"
+    },
+    {
+      "word": "yate",
+      "src": "/cartilla/art/optimized/flipchart-native/p057-yate.png",
+      "sourcePage": 57,
+      "crop": [
+        37,
+        579,
+        287,
+        186
       ]
+    },
+    {
+      "word": "yema",
+      "src": "/cartilla/art/optimized/flipchart-native/p057-yema.png",
+      "sourcePage": 57,
+      "crop": [
+        352,
+        661,
+        284,
+        107
+      ]
+    },
+    {
+      "word": "Yayita",
+      "src": "/cartilla/art/optimized/flipchart-native/p057-yayita.png",
+      "sourcePage": 57,
+      "crop": [
+        702,
+        538,
+        251,
+        230
+      ]
+    },
+    {
+      "word": "mayúscula",
+      "src": "/cartilla/art/optimized/flipchart-native/p057-mayuscula.png",
+      "sourcePage": 57,
+      "crop": [
+        131,
+        936,
+        229,
+        253
+      ]
+    },
+    {
+      "word": "yoyo",
+      "src": "/cartilla/art/optimized/flipchart-native/p057-yoyo.png",
+      "sourcePage": 57,
+      "crop": [
+        556,
+        925,
+        243,
+        254
+      ]
+    }
+  ],
+  "59": [
+    {
+      "word": "Ilustración de la página 59",
+      "src": "/cartilla/art/optimized/flipchart-native/p059-scene.png",
+      "sourcePage": 59,
+      "crop": [
+        441,
+        28,
+        508,
+        571
+      ],
+      "role": "scene"
+    }
+  ],
+  "60": [
+    {
+      "word": "Ilustración de la página 60",
+      "src": "/cartilla/art/optimized/flipchart-native/p060-scene.png",
+      "sourcePage": 60,
+      "crop": [
+        81,
+        28,
+        481,
+        472
+      ],
+      "role": "scene"
+    },
+    {
+      "word": "zapato",
+      "src": "/cartilla/art/optimized/flipchart-native/p060-zapato.png",
+      "sourcePage": 60,
+      "crop": [
+        40,
+        552,
+        249,
+        231
+      ]
+    },
+    {
+      "word": "zig-zag",
+      "src": "/cartilla/art/optimized/flipchart-native/p060-zigzag.png",
+      "sourcePage": 60,
+      "crop": [
+        395,
+        545,
+        209,
+        238
+      ]
+    },
+    {
+      "word": "zorro",
+      "src": "/cartilla/art/optimized/flipchart-native/p060-zorro.png",
+      "sourcePage": 60,
+      "crop": [
+        717,
+        520,
+        222,
+        261
+      ]
+    },
+    {
+      "word": "zepelín",
+      "src": "/cartilla/art/optimized/flipchart-native/p060-zepelin.png",
+      "sourcePage": 60,
+      "crop": [
+        105,
+        965,
+        310,
+        242
+      ]
+    },
+    {
+      "word": "Zulema",
+      "src": "/cartilla/art/optimized/flipchart-native/p060-zulema.png",
+      "sourcePage": 60,
+      "crop": [
+        573,
+        932,
+        190,
+        282
+      ]
+    }
+  ],
+  "62": [
+    {
+      "word": "Ilustración de la página 62",
+      "src": "/cartilla/art/optimized/flipchart-native/p062-scene.png",
+      "sourcePage": 62,
+      "crop": [
+        437,
+        28,
+        542,
+        568
+      ],
+      "role": "scene"
     }
   ]
 }

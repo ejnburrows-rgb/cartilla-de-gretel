@@ -20,7 +20,7 @@ describe("faithful art delivery paths", () => {
   });
 
   it("leaves non-faithful sources untouched", () => {
-    const gretel = "/cartilla/images/gretel/poses/gretel-idle.webp";
+    const gretel = "/cartilla/images/gretel/gretel-approved-master.png";
     expect(isFaithfulCanonicalArt(gretel)).toBe(false);
     expect(getFaithfulDeliverySrc(gretel, 384)).toBe(gretel);
     expect(getFaithfulDeliverySrcSet(gretel)).toBeUndefined();

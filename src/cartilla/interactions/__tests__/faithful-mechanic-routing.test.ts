@@ -100,7 +100,7 @@ describe("faithful mechanic routing (Colorea / Dibuja / Lasso)", () => {
     expect(resolveFaithfulHost("illustration-slot", undefined)).toBe("static");
   });
 
-  it("draw-box always resolves to DibujaHost (24 printed draw boxes)", () => {
+  it("draw-box always resolves to DibujaHost (23 printed draw boxes)", () => {
     expect(resolveFaithfulHost("draw-box")).toBe("dibuja");
     expect(
       resolveFaithfulHost(
@@ -109,7 +109,9 @@ describe("faithful mechanic routing (Colorea / Dibuja / Lasso)", () => {
       ),
     ).toBe("dibuja");
     const { drawBoxIds } = census();
-    expect(drawBoxIds.length).toBeGreaterThanOrEqual(24);
+    // Book count: 6 vowel pages + 17 consonant writing pages (23, 27, … 87).
+    // The old count of 24 included an invented draw box on page 25.
+    expect(drawBoxIds.length).toBeGreaterThanOrEqual(23);
   });
 
   it("Encierra / Une / Traza una línea → lasso hosts", () => {
@@ -139,9 +141,9 @@ describe("faithful mechanic routing (Colorea / Dibuja / Lasso)", () => {
     expect(instructionSuggestsColorea("Pinta el dibujo de la rosa.")).toBe(true);
   });
 
-  it("page-layouts census: draw-box ≥24; paint-box only when present; no invented Colorea text", () => {
+  it("page-layouts census: draw-box ≥23; paint-box only when present; no invented Colorea text", () => {
     const c = census();
-    expect(c.counts["draw-box"] ?? 0).toBeGreaterThanOrEqual(24);
+    expect(c.counts["draw-box"] ?? 0).toBeGreaterThanOrEqual(23);
     expect(c.counts["syllable-match"] ?? 0).toBeGreaterThanOrEqual(18);
     // Honest: verified transcriptions currently have zero "Colorea" labels
     // (SPEC paper-action sweep). paint-box may be 0 until owner-verified.

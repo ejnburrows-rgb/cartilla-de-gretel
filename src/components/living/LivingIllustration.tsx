@@ -3,11 +3,12 @@
  * True blink frames remain strictly allow-listed; ambient motion is CSS transform
  * only and never redraws, recolors, warps, or replaces the source pixels.
  */
-import { useEffect, useMemo, useState } from "react";
+import { useEffect, useMemo, useState, useRef } from "react";
 import { BLINK_HOLD_MS, nextBlinkDelayMs, prefersReducedMotion } from "@/lib/living-motion";
 import { resolveTrueBlinkFrame } from "@/lib/living-blink-map";
 import { getLivingActor } from "@/lib/living-actor-registry";
 import { getFaithfulDeliverySrcSet } from "@/lib/art-delivery";
+import approvedMotion from "@/content/approved-art-motion.json";
 
 export interface LivingIllustrationProps {
   src: string;
@@ -16,6 +17,8 @@ export interface LivingIllustrationProps {
   /** Optional: disable ambient motion for a specific asset. */
   static?: boolean;
   loading?: "lazy" | "eager";
+  /** Approved, silent Flow clip; plays once, then rests on the still. */
+  clipSrc?: string;
 }
 
 function phaseFor(src: string): number {
@@ -30,10 +33,20 @@ export function LivingIllustration({
   className = "",
   static: forceStatic = false,
   loading = "lazy",
+  clipSrc,
 }: LivingIllustrationProps) {
   const actor = useMemo(() => (forceStatic ? null : getLivingActor(src)), [forceStatic, src]);
   const trueBlink = actor?.blinkFrame ?? resolveTrueBlinkFrame(src);
-  const [reduced, setReduced] = useState(false);
+  const [reduced, setReduced] = useState(prefersReducedMotion);
+  const videoRef = useRef<HTMLVideoElement>(null);
+  const approvedClip = clipSrc ?? (approvedMotion as Record<string, string>)[src];
+  const [finishedClip, setFinishedClip] = useState<string | null>(null);
+  const clipActive = Boolean(approvedClip) && finishedClip !== approvedClip && !forceStatic && !reduced;
+  useEffect(() => {
+    if (!clipActive || !videoRef.current) return;
+    const playback = videoRef.current.play();
+    playback?.catch(() => setFinishedClip(approvedClip ?? null));
+  }, [clipActive, approvedClip]);
   const [blinkReady, setBlinkReady] = useState(false);
   const [blinking, setBlinking] = useState(false);
   const [reacting, setReacting] = useState(false);
@@ -110,8 +123,8 @@ export function LivingIllustration({
     };
   }, [blinkReady, canBlink, reduced, src]);
 
-  const blinkActive = canBlink && blinkReady && !reduced;
-  const ambientActive = Boolean(ambientProfile) && !reduced;
+  const blinkActive = canBlink && blinkReady && !reduced && !approvedClip;
+  const ambientActive = Boolean(ambientProfile) && !reduced && !approvedClip;
   const partBased = Boolean(actor?.parts?.length);
   const wholeActionActive = ambientActive && !partBased;
   const displaySrc = blinkActive && blinking && trueBlink ? trueBlink : src;
@@ -144,7 +157,9 @@ export function LivingIllustration({
       data-interactive={ambientActive ? "true" : "false"}
       onPointerDown={reactToPointer}
     >
+      {clipActive && <video ref={videoRef} src={approvedClip} autoPlay muted playsInline preload="metadata" aria-hidden className="living-illustration__clip" onEnded={() => setFinishedClip(approvedClip ?? null)} onError={() => setFinishedClip(approvedClip ?? null)} />}
       <img
+        style={clipActive ? { visibility: "hidden" } : undefined}
         src={displaySrc}
         srcSet={deliverySrcSet}
         onError={() => {

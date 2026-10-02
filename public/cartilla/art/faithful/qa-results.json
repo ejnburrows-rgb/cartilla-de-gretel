@@ -1,8 +1,8 @@
 {
   "$schema": "color-quality QA pass/fail per published faithful crop + Gretel pose cutout",
   "generatedBy": "manual visual QA (contact sheets + full-res zoom + source comparison)",
-  "population": 179,
-  "pass": 116,
+  "population": 229,
+  "pass": 166,
   "fail": 63,
   "criteria": [
     "colors match the book original (verified against public/art/hd/gretel-authentic.jpg for Gretel; book scan pages for crops)",
@@ -878,6 +878,206 @@
       "verdict": "PASS",
       "reason": "Exact lossless crop from the authoritative student-workbook page; drawing and crop box verified. No generated, redrawn, or recolored content.",
       "wasWiredInProduction": true
+    },
+    {
+      "file": "public/cartilla/art/faithful/flipchart-native/p009-amo.webp",
+      "verdict": "PASS"
+    },
+    {
+      "file": "public/cartilla/art/faithful/flipchart-native/p009-mama.webp",
+      "verdict": "PASS"
+    },
+    {
+      "file": "public/cartilla/art/faithful/flipchart-native/p009-meme.webp",
+      "verdict": "PASS"
+    },
+    {
+      "file": "public/cartilla/art/faithful/flipchart-native/p009-mima.webp",
+      "verdict": "PASS"
+    },
+    {
+      "file": "public/cartilla/art/faithful/flipchart-native/p009-mumi.webp",
+      "verdict": "PASS"
+    },
+    {
+      "file": "public/cartilla/art/faithful/flipchart-native/p012-papa.webp",
+      "verdict": "PASS"
+    },
+    {
+      "file": "public/cartilla/art/faithful/flipchart-native/p012-pepe.webp",
+      "verdict": "PASS"
+    },
+    {
+      "file": "public/cartilla/art/faithful/flipchart-native/p012-pie.webp",
+      "verdict": "PASS"
+    },
+    {
+      "file": "public/cartilla/art/faithful/flipchart-native/p012-pomo.webp",
+      "verdict": "PASS"
+    },
+    {
+      "file": "public/cartilla/art/faithful/flipchart-native/p012-puma.webp",
+      "verdict": "PASS"
+    },
+    {
+      "file": "public/cartilla/art/faithful/flipchart-native/p015-pisa.webp",
+      "verdict": "PASS"
+    },
+    {
+      "file": "public/cartilla/art/faithful/flipchart-native/p015-sapo.webp",
+      "verdict": "PASS"
+    },
+    {
+      "file": "public/cartilla/art/faithful/flipchart-native/p015-sesi.webp",
+      "verdict": "PASS"
+    },
+    {
+      "file": "public/cartilla/art/faithful/flipchart-native/p015-sopa.webp",
+      "verdict": "PASS"
+    },
+    {
+      "file": "public/cartilla/art/faithful/flipchart-native/p015-susi.webp",
+      "verdict": "PASS"
+    },
+    {
+      "file": "public/cartilla/art/faithful/flipchart-native/p018-tapa.webp",
+      "verdict": "PASS"
+    },
+    {
+      "file": "public/cartilla/art/faithful/flipchart-native/p018-tipi.webp",
+      "verdict": "PASS"
+    },
+    {
+      "file": "public/cartilla/art/faithful/flipchart-native/p018-tomate.webp",
+      "verdict": "PASS"
+    },
+    {
+      "file": "public/cartilla/art/faithful/flipchart-native/p018-topo.webp",
+      "verdict": "PASS"
+    },
+    {
+      "file": "public/cartilla/art/faithful/flipchart-native/p018-tuto.webp",
+      "verdict": "PASS"
+    },
+    {
+      "file": "public/cartilla/art/faithful/flipchart-native/p021-dados.webp",
+      "verdict": "PASS"
+    },
+    {
+      "file": "public/cartilla/art/faithful/flipchart-native/p021-dedo.webp",
+      "verdict": "PASS"
+    },
+    {
+      "file": "public/cartilla/art/faithful/flipchart-native/p021-didi.webp",
+      "verdict": "PASS"
+    },
+    {
+      "file": "public/cartilla/art/faithful/flipchart-native/p021-doce.webp",
+      "verdict": "PASS"
+    },
+    {
+      "file": "public/cartilla/art/faithful/flipchart-native/p021-dunia.webp",
+      "verdict": "PASS"
+    },
+    {
+      "file": "public/cartilla/art/faithful/flipchart-native/p024-lala.webp",
+      "verdict": "PASS"
+    },
+    {
+      "file": "public/cartilla/art/faithful/flipchart-native/p024-lata.webp",
+      "verdict": "PASS"
+    },
+    {
+      "file": "public/cartilla/art/faithful/flipchart-native/p024-loma.webp",
+      "verdict": "PASS"
+    },
+    {
+      "file": "public/cartilla/art/faithful/flipchart-native/p024-luli.webp",
+      "verdict": "PASS"
+    },
+    {
+      "file": "public/cartilla/art/faithful/flipchart-native/p024-maleta.webp",
+      "verdict": "PASS"
+    },
+    {
+      "file": "public/cartilla/art/faithful/flipchart-native/p027-mono.webp",
+      "verdict": "PASS"
+    },
+    {
+      "file": "public/cartilla/art/faithful/flipchart-native/p027-napi.webp",
+      "verdict": "PASS"
+    },
+    {
+      "file": "public/cartilla/art/faithful/flipchart-native/p027-nido.webp",
+      "verdict": "PASS"
+    },
+    {
+      "file": "public/cartilla/art/faithful/flipchart-native/p027-nudo.webp",
+      "verdict": "PASS"
+    },
+    {
+      "file": "public/cartilla/art/faithful/flipchart-native/p027-tenedor.webp",
+      "verdict": "PASS"
+    },
+    {
+      "file": "public/cartilla/art/faithful/flipchart-native/p030-mene.webp",
+      "verdict": "PASS"
+    },
+    {
+      "file": "public/cartilla/art/faithful/flipchart-native/p030-mono.webp",
+      "verdict": "PASS"
+    },
+    {
+      "file": "public/cartilla/art/faithful/flipchart-native/p030-ninito.webp",
+      "verdict": "PASS"
+    },
+    {
+      "file": "public/cartilla/art/faithful/flipchart-native/p030-nuno.webp",
+      "verdict": "PASS"
+    },
+    {
+      "file": "public/cartilla/art/faithful/flipchart-native/p030-pinata.webp",
+      "verdict": "PASS"
+    },
+    {
+      "file": "public/cartilla/art/faithful/flipchart-native/p033-bate.webp",
+      "verdict": "PASS"
+    },
+    {
+      "file": "public/cartilla/art/faithful/flipchart-native/p033-beba.webp",
+      "verdict": "PASS"
+    },
+    {
+      "file": "public/cartilla/art/faithful/flipchart-native/p033-bebita.webp",
+      "verdict": "PASS"
+    },
+    {
+      "file": "public/cartilla/art/faithful/flipchart-native/p033-bota.webp",
+      "verdict": "PASS"
+    },
+    {
+      "file": "public/cartilla/art/faithful/flipchart-native/p033-bubi.webp",
+      "verdict": "PASS"
+    },
+    {
+      "file": "public/cartilla/art/faithful/flipchart-native/p036-pavo.webp",
+      "verdict": "PASS"
+    },
+    {
+      "file": "public/cartilla/art/faithful/flipchart-native/p036-vaso.webp",
+      "verdict": "PASS"
+    },
+    {
+      "file": "public/cartilla/art/faithful/flipchart-native/p036-vela.webp",
+      "verdict": "PASS"
+    },
+    {
+      "file": "public/cartilla/art/faithful/flipchart-native/p036-vita.webp",
+      "verdict": "PASS"
+    },
+    {
+      "file": "public/cartilla/art/faithful/flipchart-native/p036-vuli.webp",
+      "verdict": "PASS"
     }
   ]
 }

@@ -1,0 +1,821 @@
+{
+  "3": {
+    "vocab": [
+      {
+        "word": "avión",
+        "src": "/cartilla/art/optimized/flipchart-native/p003-avion.png"
+      },
+      {
+        "word": "escoba",
+        "src": "/cartilla/art/optimized/flipchart-native/p003-escoba.png"
+      },
+      {
+        "word": "imán",
+        "src": "/cartilla/art/optimized/flipchart-native/p003-iman.png"
+      },
+      {
+        "word": "olla",
+        "src": "/cartilla/art/optimized/flipchart-native/p003-olla.png"
+      },
+      {
+        "word": "uña",
+        "src": "/cartilla/art/optimized/flipchart-native/p003-una.png"
+      }
+    ],
+    "scene": {
+      "word": "hermanitas vocales",
+      "src": "/cartilla/art/optimized/flipchart-native/p003-scene.png"
+    }
+  },
+  "4": {
+    "vocab": [
+      {
+        "word": "olla",
+        "src": "/cartilla/art/optimized/flipchart-native/p004-olla.png"
+      },
+      {
+        "word": "Oto",
+        "src": "/cartilla/art/optimized/flipchart-native/p004-oto.png"
+      },
+      {
+        "word": "oveja",
+        "src": "/cartilla/art/optimized/flipchart-native/p004-oveja.png"
+      },
+      {
+        "word": "oso",
+        "src": "/cartilla/art/optimized/flipchart-native/p004-oso.png"
+      },
+      {
+        "word": "oreja",
+        "src": "/cartilla/art/optimized/flipchart-native/p004-oreja.png"
+      },
+      {
+        "word": "ocho",
+        "src": "/cartilla/art/optimized/flipchart-native/p004-ocho.png"
+      }
+    ],
+    "scene": {
+      "word": "arre caballito",
+      "src": "/cartilla/art/optimized/flipchart-native/p004-scene.png"
+    }
+  },
+  "5": {
+    "vocab": [
+      {
+        "word": "abanico",
+        "src": "/cartilla/art/optimized/flipchart-native/p005-abanico.png"
+      },
+      {
+        "word": "anillo",
+        "src": "/cartilla/art/optimized/flipchart-native/p005-anillo.png"
+      },
+      {
+        "word": "araña",
+        "src": "/cartilla/art/optimized/flipchart-native/p005-arana.png"
+      },
+      {
+        "word": "ala",
+        "src": "/cartilla/art/optimized/flipchart-native/p005-ala.png"
+      },
+      {
+        "word": "aro",
+        "src": "/cartilla/art/optimized/flipchart-native/p005-aro.png"
+      },
+      {
+        "word": "Ana",
+        "src": "/cartilla/art/optimized/flipchart-native/p005-ana.png"
+      }
+    ],
+    "scene": {
+      "word": "nina enfermita",
+      "src": "/cartilla/art/optimized/flipchart-native/p005-scene.png"
+    }
+  },
+  "6": {
+    "vocab": [
+      {
+        "word": "elefante",
+        "src": "/cartilla/art/optimized/flipchart-native/p006-elefante.png"
+      },
+      {
+        "word": "espejo",
+        "src": "/cartilla/art/optimized/flipchart-native/p006-espejo.png"
+      },
+      {
+        "word": "Ema",
+        "src": "/cartilla/art/optimized/flipchart-native/p006-ema.png"
+      },
+      {
+        "word": "estrella",
+        "src": "/cartilla/art/optimized/flipchart-native/p006-estrella.png"
+      },
+      {
+        "word": "erizo",
+        "src": "/cartilla/art/optimized/flipchart-native/p006-erizo.png"
+      },
+      {
+        "word": "escalera",
+        "src": "/cartilla/art/optimized/flipchart-native/p006-escalera.png"
+      }
+    ],
+    "scene": {
+      "word": "nina sordita",
+      "src": "/cartilla/art/optimized/flipchart-native/p006-scene.png"
+    }
+  },
+  "7": {
+    "vocab": [
+      {
+        "word": "imán",
+        "src": "/cartilla/art/optimized/flipchart-native/p007-iman.png"
+      },
+      {
+        "word": "iglú",
+        "src": "/cartilla/art/optimized/flipchart-native/p007-iglu.png"
+      },
+      {
+        "word": "indio",
+        "src": "/cartilla/art/optimized/flipchart-native/p007-indio.png"
+      },
+      {
+        "word": "insecto",
+        "src": "/cartilla/art/optimized/flipchart-native/p007-insecto.png"
+      },
+      {
+        "word": "isla",
+        "src": "/cartilla/art/optimized/flipchart-native/p007-isla.png"
+      },
+      {
+        "word": "Irma",
+        "src": "/cartilla/art/optimized/flipchart-native/p007-irma.png"
+      }
+    ],
+    "scene": {
+      "word": "nina llorona",
+      "src": "/cartilla/art/optimized/flipchart-native/p007-scene.png"
+    }
+  },
+  "8": {
+    "vocab": [
+      {
+        "word": "uno",
+        "src": "/cartilla/art/optimized/flipchart-native/p008-uno.png"
+      },
+      {
+        "word": "uva",
+        "src": "/cartilla/art/optimized/flipchart-native/p008-uva.png"
+      },
+      {
+        "word": "urraca",
+        "src": "/cartilla/art/optimized/flipchart-native/p008-urraca.png"
+      },
+      {
+        "word": "unicornio",
+        "src": "/cartilla/art/optimized/flipchart-native/p008-unicornio.png"
+      },
+      {
+        "word": "uniforme",
+        "src": "/cartilla/art/optimized/flipchart-native/p008-uniforme.png"
+      },
+      {
+        "word": "Ulises",
+        "src": "/cartilla/art/optimized/flipchart-native/p008-ulises.png"
+      }
+    ],
+    "scene": {
+      "word": "brujita",
+      "src": "/cartilla/art/optimized/flipchart-native/p008-scene.png"
+    }
+  },
+  "9": {
+    "vocab": [
+      {
+        "word": "mamá",
+        "src": "/cartilla/art/optimized/flipchart-native/p009-mama.png"
+      },
+      {
+        "word": "amo",
+        "src": "/cartilla/art/optimized/flipchart-native/p009-amo.png"
+      },
+      {
+        "word": "mima",
+        "src": "/cartilla/art/optimized/flipchart-native/p009-mima.png"
+      },
+      {
+        "word": "Meme",
+        "src": "/cartilla/art/optimized/flipchart-native/p009-meme.png"
+      },
+      {
+        "word": "Mumi",
+        "src": "/cartilla/art/optimized/flipchart-native/p009-mumi.png"
+      }
+    ],
+    "scene": {
+      "word": "toro m",
+      "src": "/cartilla/art/optimized/flipchart-native/p009-scene.png"
+    }
+  },
+  "12": {
+    "vocab": [
+      {
+        "word": "papá",
+        "src": "/cartilla/art/optimized/flipchart-native/p012-papa.png"
+      },
+      {
+        "word": "pie",
+        "src": "/cartilla/art/optimized/flipchart-native/p012-pie.png"
+      },
+      {
+        "word": "Pepe",
+        "src": "/cartilla/art/optimized/flipchart-native/p012-pepe.png"
+      },
+      {
+        "word": "puma",
+        "src": "/cartilla/art/optimized/flipchart-native/p012-puma.png"
+      },
+      {
+        "word": "pomo",
+        "src": "/cartilla/art/optimized/flipchart-native/p012-pomo.png"
+      }
+    ],
+    "scene": {
+      "word": "pollito p",
+      "src": "/cartilla/art/optimized/flipchart-native/p012-scene.png"
+    }
+  },
+  "15": {
+    "vocab": [
+      {
+        "word": "Sesi",
+        "src": "/cartilla/art/optimized/flipchart-native/p015-sesi.png"
+      },
+      {
+        "word": "sopa",
+        "src": "/cartilla/art/optimized/flipchart-native/p015-sopa.png"
+      },
+      {
+        "word": "sapo",
+        "src": "/cartilla/art/optimized/flipchart-native/p015-sapo.png"
+      },
+      {
+        "word": "pisa",
+        "src": "/cartilla/art/optimized/flipchart-native/p015-pisa.png"
+      },
+      {
+        "word": "Susi",
+        "src": "/cartilla/art/optimized/flipchart-native/p015-susi.png"
+      }
+    ],
+    "scene": {
+      "word": "serpiente s",
+      "src": "/cartilla/art/optimized/flipchart-native/p015-scene.png"
+    }
+  },
+  "18": {
+    "vocab": [
+      {
+        "word": "tomate",
+        "src": "/cartilla/art/optimized/flipchart-native/p018-tomate.webp"
+      },
+      {
+        "word": "tapa",
+        "src": "/cartilla/art/optimized/flipchart-native/p018-tapa.webp"
+      },
+      {
+        "word": "topo",
+        "src": "/cartilla/art/optimized/flipchart-native/p018-topo.webp"
+      },
+      {
+        "word": "tipi",
+        "src": "/cartilla/art/optimized/flipchart-native/p018-tipi.webp"
+      },
+      {
+        "word": "Tuto",
+        "src": "/cartilla/art/optimized/flipchart-native/p018-tuto.webp"
+      }
+    ],
+    "scene": {
+      "word": "nino tambor t",
+      "src": "/cartilla/art/optimized/flipchart-native/p018-scene.png"
+    }
+  },
+  "21": {
+    "vocab": [
+      {
+        "word": "Didi",
+        "src": "/cartilla/art/optimized/flipchart-native/p021-didi.webp"
+      },
+      {
+        "word": "dados",
+        "src": "/cartilla/art/optimized/flipchart-native/p021-dados.webp"
+      },
+      {
+        "word": "dedo",
+        "src": "/cartilla/art/optimized/flipchart-native/p021-dedo.webp"
+      },
+      {
+        "word": "doce",
+        "src": "/cartilla/art/optimized/flipchart-native/p021-doce.webp"
+      },
+      {
+        "word": "Dunia",
+        "src": "/cartilla/art/optimized/flipchart-native/p021-dunia.webp"
+      }
+    ],
+    "scene": {
+      "word": "campana d",
+      "src": "/cartilla/art/optimized/flipchart-native/p021-scene.png"
+    }
+  },
+  "24": {
+    "vocab": [
+      {
+        "word": "maleta",
+        "src": "/cartilla/art/optimized/flipchart-native/p024-maleta.webp"
+      },
+      {
+        "word": "lata",
+        "src": "/cartilla/art/optimized/flipchart-native/p024-lata.webp"
+      },
+      {
+        "word": "Luli",
+        "src": "/cartilla/art/optimized/flipchart-native/p024-luli.webp"
+      },
+      {
+        "word": "loma",
+        "src": "/cartilla/art/optimized/flipchart-native/p024-loma.webp"
+      },
+      {
+        "word": "Lala",
+        "src": "/cartilla/art/optimized/flipchart-native/p024-lala.png"
+      }
+    ],
+    "scene": {
+      "word": "nina l",
+      "src": "/cartilla/art/optimized/flipchart-native/p024-scene.png"
+    }
+  },
+  "27": {
+    "vocab": [
+      {
+        "word": "nido",
+        "src": "/cartilla/art/optimized/flipchart-native/p027-nido.png"
+      },
+      {
+        "word": "nudo",
+        "src": "/cartilla/art/optimized/flipchart-native/p027-nudo.png"
+      },
+      {
+        "word": "mono",
+        "src": "/cartilla/art/optimized/flipchart-native/p027-mono.png"
+      },
+      {
+        "word": "Napi",
+        "src": "/cartilla/art/optimized/flipchart-native/p027-napi.png"
+      },
+      {
+        "word": "tenedor",
+        "src": "/cartilla/art/optimized/flipchart-native/p027-tenedor.png"
+      }
+    ],
+    "scene": {
+      "word": "ternero n",
+      "src": "/cartilla/art/optimized/flipchart-native/p027-scene.png"
+    }
+  },
+  "30": {
+    "vocab": [
+      {
+        "word": "piñata",
+        "src": "/cartilla/art/optimized/flipchart-native/p030-pinata.png"
+      },
+      {
+        "word": "Ñuno",
+        "src": "/cartilla/art/optimized/flipchart-native/p030-nuno.png"
+      },
+      {
+        "word": "niñito",
+        "src": "/cartilla/art/optimized/flipchart-native/p030-ninito.png"
+      },
+      {
+        "word": "moño",
+        "src": "/cartilla/art/optimized/flipchart-native/p030-mono.png"
+      },
+      {
+        "word": "Meñe",
+        "src": "/cartilla/art/optimized/flipchart-native/p030-mene.png"
+      }
+    ],
+    "scene": {
+      "word": "nina enmarcada ny",
+      "src": "/cartilla/art/optimized/flipchart-native/p030-scene.png"
+    }
+  },
+  "33": {
+    "vocab": [
+      {
+        "word": "Beba",
+        "src": "/cartilla/art/optimized/flipchart-native/p033-beba.png"
+      },
+      {
+        "word": "Bubi",
+        "src": "/cartilla/art/optimized/flipchart-native/p033-bubi.png"
+      },
+      {
+        "word": "bate",
+        "src": "/cartilla/art/optimized/flipchart-native/p033-bate.png"
+      },
+      {
+        "word": "bota",
+        "src": "/cartilla/art/optimized/flipchart-native/p033-bota.png"
+      },
+      {
+        "word": "bebita",
+        "src": "/cartilla/art/optimized/flipchart-native/p033-bebita.png"
+      }
+    ],
+    "scene": {
+      "word": "burro b",
+      "src": "/cartilla/art/optimized/flipchart-native/p033-scene.png"
+    }
+  },
+  "36": {
+    "vocab": [
+      {
+        "word": "vaso",
+        "src": "/cartilla/art/optimized/flipchart-native/p036-vaso.png"
+      },
+      {
+        "word": "vela",
+        "src": "/cartilla/art/optimized/flipchart-native/p036-vela.png"
+      },
+      {
+        "word": "Vita",
+        "src": "/cartilla/art/optimized/flipchart-native/p036-vita.png"
+      },
+      {
+        "word": "pavo",
+        "src": "/cartilla/art/optimized/flipchart-native/p036-pavo.png"
+      },
+      {
+        "word": "Vuli",
+        "src": "/cartilla/art/optimized/flipchart-native/p036-vuli.png"
+      }
+    ],
+    "scene": {
+      "word": "viento v",
+      "src": "/cartilla/art/optimized/flipchart-native/p036-scene.png"
+    }
+  },
+  "39": {
+    "vocab": [
+      {
+        "word": "rana",
+        "src": "/cartilla/art/optimized/flipchart-native/p039-rana.png"
+      },
+      {
+        "word": "remos",
+        "src": "/cartilla/art/optimized/flipchart-native/p039-remos.png"
+      },
+      {
+        "word": "Rita",
+        "src": "/cartilla/art/optimized/flipchart-native/p039-rita.png"
+      },
+      {
+        "word": "rosa",
+        "src": "/cartilla/art/optimized/flipchart-native/p039-rosa.png"
+      },
+      {
+        "word": "rueda",
+        "src": "/cartilla/art/optimized/flipchart-native/p039-rueda.png"
+      }
+    ],
+    "scene": {
+      "word": "raton r",
+      "src": "/cartilla/art/optimized/flipchart-native/p039-scene.png"
+    }
+  },
+  "42": {
+    "vocab": [
+      {
+        "word": "burro",
+        "src": "/cartilla/art/optimized/flipchart-native/p042-burro.png"
+      },
+      {
+        "word": "carrusel",
+        "src": "/cartilla/art/optimized/flipchart-native/p042-carrusel.png"
+      },
+      {
+        "word": "torre",
+        "src": "/cartilla/art/optimized/flipchart-native/p042-torre.png"
+      },
+      {
+        "word": "barril",
+        "src": "/cartilla/art/optimized/flipchart-native/p042-barril.png"
+      },
+      {
+        "word": "Tierra",
+        "src": "/cartilla/art/optimized/flipchart-native/p042-tierra.png"
+      }
+    ],
+    "scene": {
+      "word": "carro rr",
+      "src": "/cartilla/art/optimized/flipchart-native/p042-scene.png"
+    }
+  },
+  "45": {
+    "vocab": [
+      {
+        "word": "gaveta",
+        "src": "/cartilla/art/optimized/flipchart-native/p045-gaveta.png"
+      },
+      {
+        "word": "gusano",
+        "src": "/cartilla/art/optimized/flipchart-native/p045-gusano.png"
+      },
+      {
+        "word": "Goloso",
+        "src": "/cartilla/art/optimized/flipchart-native/p045-goloso.png"
+      },
+      {
+        "word": "gorra",
+        "src": "/cartilla/art/optimized/flipchart-native/p045-gorra.png"
+      },
+      {
+        "word": "mago",
+        "src": "/cartilla/art/optimized/flipchart-native/p045-mago.png"
+      }
+    ],
+    "scene": {
+      "word": "saltamontes g",
+      "src": "/cartilla/art/optimized/flipchart-native/p045-scene.png"
+    }
+  },
+  "48": {
+    "vocab": [
+      {
+        "word": "foto",
+        "src": "/cartilla/art/optimized/flipchart-native/p048-foto.png"
+      },
+      {
+        "word": "fideos",
+        "src": "/cartilla/art/optimized/flipchart-native/p048-fideos.png"
+      },
+      {
+        "word": "familia",
+        "src": "/cartilla/art/optimized/flipchart-native/p048-familia.png"
+      },
+      {
+        "word": "Felo",
+        "src": "/cartilla/art/optimized/flipchart-native/p048-felo.png"
+      },
+      {
+        "word": "funda",
+        "src": "/cartilla/art/optimized/flipchart-native/p048-funda.png"
+      }
+    ],
+    "scene": {
+      "word": "flor abeja f",
+      "src": "/cartilla/art/optimized/flipchart-native/p048-scene.png"
+    }
+  },
+  "51": {
+    "vocab": [
+      {
+        "word": "jicotea",
+        "src": "/cartilla/art/optimized/flipchart-native/p051-jicotea.png"
+      },
+      {
+        "word": "jugo",
+        "src": "/cartilla/art/optimized/flipchart-native/p051-jugo.png"
+      },
+      {
+        "word": "Jesús",
+        "src": "/cartilla/art/optimized/flipchart-native/p051-jesus.png"
+      },
+      {
+        "word": "ajo",
+        "src": "/cartilla/art/optimized/flipchart-native/p051-ajo.png"
+      },
+      {
+        "word": "jarra",
+        "src": "/cartilla/art/optimized/flipchart-native/p051-jarra.png"
+      }
+    ],
+    "scene": {
+      "word": "jirafa j",
+      "src": "/cartilla/art/optimized/flipchart-native/p051-scene.png"
+    }
+  },
+  "54": {
+    "vocab": [
+      {
+        "word": "cuna",
+        "src": "/cartilla/art/optimized/flipchart-native/p054-cuna.png"
+      },
+      {
+        "word": "conejo",
+        "src": "/cartilla/art/optimized/flipchart-native/p054-conejo.png"
+      },
+      {
+        "word": "casa",
+        "src": "/cartilla/art/optimized/flipchart-native/p054-casa.png"
+      },
+      {
+        "word": "cubo",
+        "src": "/cartilla/art/optimized/flipchart-native/p054-cubo.png"
+      },
+      {
+        "word": "Catalina",
+        "src": "/cartilla/art/optimized/flipchart-native/p054-catalina.png"
+      }
+    ],
+    "scene": {
+      "word": "gallina c",
+      "src": "/cartilla/art/optimized/flipchart-native/p054-scene.png"
+    }
+  },
+  "57": {
+    "vocab": [
+      {
+        "word": "yate",
+        "src": "/cartilla/art/optimized/flipchart-native/p057-yate.png"
+      },
+      {
+        "word": "yema",
+        "src": "/cartilla/art/optimized/flipchart-native/p057-yema.png"
+      },
+      {
+        "word": "Yayita",
+        "src": "/cartilla/art/optimized/flipchart-native/p057-yayita.png"
+      },
+      {
+        "word": "mayúscula",
+        "src": "/cartilla/art/optimized/flipchart-native/p057-mayuscula.png"
+      },
+      {
+        "word": "yoyo",
+        "src": "/cartilla/art/optimized/flipchart-native/p057-yoyo.png"
+      }
+    ],
+    "scene": {
+      "word": "nino yoyo y",
+      "src": "/cartilla/art/optimized/flipchart-native/p057-scene.png"
+    }
+  },
+  "60": {
+    "vocab": [
+      {
+        "word": "zapato",
+        "src": "/cartilla/art/optimized/flipchart-native/p060-zapato.png"
+      },
+      {
+        "word": "zig-zag",
+        "src": "/cartilla/art/optimized/flipchart-native/p060-zigzag.png",
+        "labelInImage": true
+      },
+      {
+        "word": "zorro",
+        "src": "/cartilla/art/optimized/flipchart-native/p060-zorro.png"
+      },
+      {
+        "word": "zepelín",
+        "src": "/cartilla/art/optimized/flipchart-native/p060-zepelin.png"
+      },
+      {
+        "word": "Zulema",
+        "src": "/cartilla/art/optimized/flipchart-native/p060-zulema.png"
+      }
+    ],
+    "scene": {
+      "word": "abejas z",
+      "src": "/cartilla/art/optimized/flipchart-native/p060-scene.png"
+    }
+  },
+  "11": {
+    "vocab": [],
+    "scene": {
+      "word": "mi mama scene",
+      "src": "/cartilla/art/optimized/flipchart-native/p011-scene.png"
+    }
+  },
+  "14": {
+    "vocab": [],
+    "scene": {
+      "word": "mi papa scene",
+      "src": "/cartilla/art/optimized/flipchart-native/p014-scene.png"
+    }
+  },
+  "17": {
+    "vocab": [],
+    "scene": {
+      "word": "sapo samapo scene",
+      "src": "/cartilla/art/optimized/flipchart-native/p017-scene.png"
+    }
+  },
+  "20": {
+    "vocab": [],
+    "scene": {
+      "word": "sopa de pato scene",
+      "src": "/cartilla/art/optimized/flipchart-native/p020-scene.png"
+    }
+  },
+  "23": {
+    "vocab": [],
+    "scene": {
+      "word": "made y papa scene",
+      "src": "/cartilla/art/optimized/flipchart-native/p023-scene.png"
+    }
+  },
+  "26": {
+    "vocab": [],
+    "scene": {
+      "word": "leo lee gretel scene",
+      "src": "/cartilla/art/optimized/flipchart-native/p026-scene.png"
+    }
+  },
+  "29": {
+    "vocab": [],
+    "scene": {
+      "word": "nino nada scene",
+      "src": "/cartilla/art/optimized/flipchart-native/p029-scene.png"
+    }
+  },
+  "32": {
+    "vocab": [],
+    "scene": {
+      "word": "nina suena scene",
+      "src": "/cartilla/art/optimized/flipchart-native/p032-scene.png"
+    }
+  },
+  "35": {
+    "vocab": [],
+    "scene": {
+      "word": "sube la bola scene",
+      "src": "/cartilla/art/optimized/flipchart-native/p035-scene.png"
+    }
+  },
+  "38": {
+    "vocab": [],
+    "scene": {
+      "word": "mi bote de vela scene",
+      "src": "/cartilla/art/optimized/flipchart-native/p038-scene.png"
+    }
+  },
+  "41": {
+    "vocab": [],
+    "scene": {
+      "word": "rosca manolo scene",
+      "src": "/cartilla/art/optimized/flipchart-native/p041-scene.png"
+    }
+  },
+  "44": {
+    "vocab": [],
+    "scene": {
+      "word": "rapido arriba scene",
+      "src": "/cartilla/art/optimized/flipchart-native/p044-scene.png"
+    }
+  },
+  "47": {
+    "vocab": [],
+    "scene": {
+      "word": "gato enamorado scene",
+      "src": "/cartilla/art/optimized/flipchart-native/p047-scene.png"
+    }
+  },
+  "50": {
+    "vocab": [],
+    "scene": {
+      "word": "a la fiesta scene",
+      "src": "/cartilla/art/optimized/flipchart-native/p050-scene.png"
+    }
+  },
+  "53": {
+    "vocab": [],
+    "scene": {
+      "word": "jicotea jabela scene",
+      "src": "/cartilla/art/optimized/flipchart-native/p053-scene.png"
+    }
+  },
+  "56": {
+    "vocab": [],
+    "scene": {
+      "word": "los caramelos scene",
+      "src": "/cartilla/art/optimized/flipchart-native/p056-caramelos.webp"
+    }
+  },
+  "59": {
+    "vocab": [],
+    "scene": {
+      "word": "yate de yayo scene",
+      "src": "/cartilla/art/optimized/flipchart-native/p059-scene.png"
+    }
+  },
+  "62": {
+    "vocab": [],
+    "scene": {
+      "word": "carro calabaza scene",
+      "src": "/cartilla/art/optimized/flipchart-native/p062-scene.png"
+    }
+  }
+}

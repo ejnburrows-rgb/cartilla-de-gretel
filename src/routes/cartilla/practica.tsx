@@ -2,6 +2,7 @@ import { createFileRoute, Link, useNavigate } from "@tanstack/react-router";
 import { useEffect, useMemo, useRef, useState } from "react";
 import { ArrowLeft, Volume2, Zap, RotateCcw, Trophy } from "lucide-react";
 import { CATALOG, getCanonicalArtPool, type ActivityId } from "@/lib/lesson-catalog";
+import { getPracticePictureWords } from "@/lib/vocabulary-sources";
 import { canBuildSoundSearch } from "@/lib/activity-mechanics";
 import { normalizeActivityId } from "@/lib/activity-routing";
 import { speak } from "@/lib/speak";
@@ -28,12 +29,6 @@ export const Route = createFileRoute("/cartilla/practica")({
 
 type Card = { syllable: string; options: string[]; lessonN: number; color: string };
 
-const INTRO_WORDS = [
-  { word: "abanico", illustrationSrc: "/cartilla/art/faithful/vocal-a/abanico.webp" },
-  { word: "anillo", illustrationSrc: "/cartilla/art/faithful/vocal-a/anillo.webp" },
-  { word: "araña", illustrationSrc: "/cartilla/art/faithful/vocal-a/arana.webp" },
-  { word: "avión", illustrationSrc: "/cartilla/art/faithful/vocal-a/avion.webp" },
-];
 
 function FamilyPractice({ lessonNumber, requestedActivity }: { lessonNumber: number; requestedActivity: ActivityId }) {
   const entry = CATALOG.find((item) => item.n === lessonNumber);
@@ -56,8 +51,9 @@ function FamilyPractice({ lessonNumber, requestedActivity }: { lessonNumber: num
       : entry.kind === "vowel"
         ? [entry.vowel]
         : entry.data.syllables;
-  const words =
-    entry.kind === "intro" ? INTRO_WORDS : entry.kind === "vowel" ? entry.lesson.vocab : entry.data.vocab;
+  // Source-by-surface: the list carries its book (Workbook vs Flip Chart).
+  const practiceWords = getPracticePictureWords(entry.n);
+  const words = practiceWords.items;
   const letter = entry.kind === "consonant" ? entry.letter : entry.kind === "vowel" ? entry.vowel : "";
   const pictureCount = words.filter((word) => Boolean(word.illustrationSrc)).length;
   // Every activity falls back to "silabas" when this lesson's canonical
@@ -90,6 +86,9 @@ function FamilyPractice({ lessonNumber, requestedActivity }: { lessonNumber: num
         <section className="rounded-3xl border border-[#eadfc8] bg-white p-4 sm:p-6 shadow-sm">
           <p className="mb-4 text-sm font-semibold text-stone-600">
             Practica esta actividad directamente. Este enlace no contiene nombre, código de estudiante ni datos de la clase.
+          </p>
+          <p className="mb-4 text-xs font-bold text-stone-500" data-vocab-source={practiceWords.book}>
+            {practiceWords.sourceLabel}
           </p>
           <ActivityCarousel
             lessonNumber={entry.n}

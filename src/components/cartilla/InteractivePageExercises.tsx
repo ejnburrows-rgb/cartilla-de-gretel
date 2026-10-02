@@ -48,6 +48,12 @@ function ArtOrPending({ cell }: { cell: PageGridCell }) {
 
 type Grade = "correct" | "wrong" | "missed" | null;
 
+/** How a picked picture is marked — follows the printed verb of the page. */
+export type PictureMark = "circle" | "x";
+export function pictureMarkFor(instruction?: string): PictureMark {
+  return instruction && /marca con una x/i.test(instruction) ? "x" : "circle";
+}
+
 function gradeOf(picked: boolean, correct: boolean | undefined): Grade {
   if (correct === undefined) return null;
   if (picked && correct) return "correct";
@@ -63,6 +69,7 @@ function Cell({
   grade,
   disabled,
   onToggle,
+  mark = "circle",
 }: {
   cell: PageGridCell;
   index: number;
@@ -70,10 +77,13 @@ function Cell({
   grade: Grade;
   disabled: boolean;
   onToggle: () => void;
+  /** Printed gesture: "Circula…" draws a ring, "Marca con una x…" draws an X. */
+  mark?: PictureMark;
 }) {
   const flagged = cell.correct === undefined;
   const classes = [
     "fp-ix-cell",
+    mark === "x" ? "fp-ix-cell--mark-x" : "",
     picked ? "picked" : "",
     grade === "correct" ? "graded-correct" : "",
     grade === "wrong" ? "graded-wrong" : "",
@@ -97,7 +107,14 @@ function Cell({
         viewBox="0 0 100 100"
         aria-hidden="true"
       >
-        <ellipse cx="50" cy="48" rx="42" ry="38" />
+        {mark === "x" ? (
+          <>
+            <path d="M18 18 L82 82" />
+            <path d="M82 18 L18 82" />
+          </>
+        ) : (
+          <ellipse cx="50" cy="48" rx="42" ry="38" />
+        )}
       </svg>
       <ArtOrPending cell={cell} />
       <span className="fp-ix-cell__badge" aria-hidden="true" />
@@ -117,7 +134,8 @@ export function InteractivePictureGrid({
   accent,
   lessonId,
   precise = false,
-}: ExerciseProps & { precise?: boolean }) {
+  mark = "circle",
+}: ExerciseProps & { precise?: boolean; mark?: PictureMark }) {
   const cells = region.cells ?? [];
   const columns = region.columns ?? 4;
   const [picked, setPicked] = useState<Set<number>>(new Set());
@@ -198,6 +216,7 @@ export function InteractivePictureGrid({
                 grade={graded ? gradeOf(picked.has(i), cell.correct) : null}
                 disabled={graded}
                 onToggle={() => toggle(i)}
+                mark={mark}
               />
             );
           })}
@@ -708,7 +727,7 @@ export function InteractiveFillInBlank({
   };
 
   return (
-    <div className="fp-ix-fill" style={{ ["--ix-accent" as string]: accent }}>
+    <div className={`fp-ix-fill${region.columns ? " fp-ix-fill--book-grid" : ""}`} style={{ ["--ix-accent" as string]: accent, ["--fill-columns" as string]: region.columns }}>
       {items.map((item, i) => {
         const flagged = !item.choices.some((c) => c.correct);
         return (
@@ -725,7 +744,11 @@ export function InteractiveFillInBlank({
               />
             )}
             <span className="fp-ix-fill__wordbox">{item.wordBox}</span>
-            <span className="fp-ix-fill__blank">{item.blank}</span>
+            <span className="fp-ix-fill__blank">
+              {picked[i] === undefined
+                ? item.blank
+                : item.blank.replace("___", item.choices[picked[i]]?.text ?? "___")}
+            </span>
             <div className="fp-ix-fill__choices">
               {item.choices.map((choice, c) => {
                 const isPicked = picked[i] === c;

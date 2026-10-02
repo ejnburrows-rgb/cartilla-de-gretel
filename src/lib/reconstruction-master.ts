@@ -1,5 +1,3 @@
-import manifestData from "@/data/reconstruction/production-manifest.json";
-
 type NormBox = { x: number; y: number; width: number; height: number };
 
 type ReconstructionPlacement = {
@@ -119,14 +117,6 @@ export function hasFullReconstructionProvenance(value: unknown): value is Recons
   );
 }
 
-const manifest = manifestData as unknown as { assets?: unknown[] };
-
-export function getReconstructedMasterAsset(pageNumber: number): ReconstructedMasterAsset | null {
-  const candidate = (manifest.assets ?? []).find(
-    (asset) =>
-      asset &&
-      typeof asset === "object" &&
-      (asset as Record<string, unknown>).printed_page === pageNumber,
-  );
-  return hasFullReconstructionProvenance(candidate) ? candidate : null;
+export function getReconstructedMasterAsset(_pageNumber: number): ReconstructedMasterAsset | null {
+  return null;
 }

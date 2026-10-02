@@ -647,3 +647,74 @@
   text-align: center;
   color: var(--book-ink-soft);
 }
+
+
+/* ── Approved book-page presentation overrides ── */
+.faithful-page {
+  background: var(--lc-paper, #fffdf9);
+  color: var(--lc-ink, #25313a);
+  font-family: "Andika", ui-rounded, system-ui, sans-serif;
+  border: 1px solid rgba(37,49,58,.14);
+  border-radius: 8px;
+  box-shadow: 0 10px 32px rgba(37,49,58,.10);
+}
+.faithful-page__sidebar { color: var(--lc-teal, #1f9e94); }
+.faithful-page--edge-right .faithful-page__sidebar {
+  left: auto;
+  right: 0;
+  transform: scaleX(-1);
+}
+.faithful-page--edge-right .faithful-page__body { padding: 6% 12% 9% 7%; }
+.faithful-page--edge-right .faithful-page__pagenum { left:auto; right:2.2%; }
+.faithful-page--edge-right .faithful-page__lesson { right:auto; left:5%; }
+.faithful-page__pagenum { background: var(--lc-teal, #1f9e94); box-shadow:none; }
+.faithful-page__lesson { color: var(--lc-ink-soft, #53616b); font-family:"Andika",ui-rounded,system-ui,sans-serif; }
+.fp-region--title,
+.fp-native-title { font-family:"Fredoka",ui-rounded,system-ui,sans-serif; }
+.fp-region--instruction {
+  font-family:"Andika",ui-rounded,system-ui,sans-serif;
+  font-size: clamp(28px, 4.2cqw, 38px);
+  line-height:1.35;
+  color:var(--lc-ink,#25313a);
+}
+.fp-region--vocab-grid,
+.fp-region--sentence-line,
+.fp-region--reading-sentences,
+.fp-region--footer,
+.fp-syllable-match__word,
+.fp-fill-in-blank__wordbox,
+.fp-fill-in-blank__blank {
+  font-family:"Andika",ui-rounded,system-ui,sans-serif;
+  font-size: clamp(20px, 3.5cqw, 32px);
+  line-height:1.4;
+}
+.fp-illustration img { filter:none; border-radius:0; }
+.fp-picture-grid__cell,
+.fp-vowel-match__cell,
+.fp-vowel-pick__cell,
+.fp-vowel-match-all__cell {
+  border:0;
+  background:transparent;
+  box-shadow:none;
+  border-radius:0;
+}
+.fp-art-pending {
+  visibility:hidden;
+  border:0;
+  background:transparent;
+}
+.fp-writing-line__model,
+.fp-region--syllable-bubble,
+.fp-syllable-match__syllable,
+.fp-vowel-match__letters {
+  font-family:"Fredoka",ui-rounded,system-ui,sans-serif;
+}
+.fp-instruction__escuchar button,
+.fp-instruction__escuchar {
+  min-height:44px;
+  min-width:44px;
+}
+@media (max-width: 700px) {
+  .faithful-page { border-radius:0; box-shadow:none; }
+  .faithful-page__body { overflow: visible; }
+}

@@ -33,10 +33,25 @@ const flipchart = readJson("src/data/teacher-flipchart.json");
 const frames = readJson("src/data/flipchart-frames.json");
 const nativeFlipchartAssets = readJson("src/data/flipchart-native-assets.json");
 const optimizedFlipchartAssets = readJson("src/data/optimized-flipchart-exclusive.json");
+const gretelClips = readJson("src/data/gretel-approved-clips.json");
+for (const [scene, clip] of Object.entries(gretelClips)) {
+  for (const [kind, src] of Object.entries(clip)) {
+    assert(typeof src === "string" && src.startsWith("/cartilla/") && !src.includes(".."), `invalid Gretel ${kind} path for ${scene}`);
+    if (typeof src === "string") assert(exists(`public${src}`), `missing registered Gretel ${kind} for ${scene}: ${src}`);
+  }
+  assert(Boolean(clip.mp4 && clip.poster), `Gretel ${scene} requires a produced clip and approved poster`);
+}
+const nativeCompletePages = (conversion.pages ?? []).filter((page) => page.status === "NATIVE_COMPLETE").length;
+const blockedPages = (conversion.pages ?? []).filter((page) => page.status === "SOURCE_BLOCKED").map((page) => page.physicalPage);
 
 const workbookPages = conversion.pages ?? [];
 assert(workbookPages.length === 90, `expected 90 workbook pages, found ${workbookPages.length}`);
-assert(workbookPages.every((page) => page.status === "NATIVE_COMPLETE"), "all workbook pages must be NATIVE_COMPLETE");
+assert(
+  workbookPages.every((page) =>
+    [86, 87].includes(page.physicalPage) ? page.status === "SOURCE_BLOCKED" : page.status === "NATIVE_COMPLETE",
+  ),
+  "workbook pages must be NATIVE_COMPLETE except the source-blocked pages 86–87",
+);
 assert(Object.keys(layouts.pages ?? {}).length === 90, "page-layouts must contain exactly 90 instructional pages");
 
 const verifiedSourceGap = new Set([86, 87]);
@@ -68,7 +83,7 @@ for (const [page, assets] of Object.entries(nativeFlipchartAssets)) {
   assert(Array.isArray(assets) && assets.length > 0, `native Flip Chart crop page ${page} is empty`);
   for (const asset of assets) {
     assert(
-      typeof asset.src === "string" && asset.src.startsWith("/cartilla/art/faithful/flipchart-native/"),
+      typeof asset.src === "string" && asset.src.startsWith("/cartilla/art/optimized/flipchart-native/"),
       `invalid native Flip Chart crop destination on page ${page}`,
     );
     assert(
@@ -78,19 +93,11 @@ for (const [page, assets] of Object.entries(nativeFlipchartAssets)) {
   }
 }
 
-const expectedOptimizedFlipchartPages = [
-  3, 4, 5, 6, 7, 8, 9, 11, 12, 14, 15, 17, 18, 20, 21, 23,
-  24, 26, 27, 29, 30, 32, 33, 35, 36, 38, 39, 47, 51, 53, 60, 62,
-];
+// The 32 generated "exclusive" Flip Chart images were deleted per
+// ASSET_FIDELITY_POLICY.md (not book art). The manifest must stay empty.
 assert(
-  Array.isArray(optimizedFlipchartAssets) &&
-    optimizedFlipchartAssets.length === expectedOptimizedFlipchartPages.length,
-  "optimized Flip Chart exclusive manifest must contain exactly 32 final assets",
-);
-assert(
-  optimizedFlipchartAssets.map((asset) => Number(asset.flipchartPage)).join(",") ===
-    expectedOptimizedFlipchartPages.join(","),
-  "optimized Flip Chart exclusive page set mismatch",
+  Array.isArray(optimizedFlipchartAssets) && optimizedFlipchartAssets.length === 0,
+  "optimized Flip Chart exclusive manifest must stay empty (fabricated images were removed)",
 );
 for (const asset of optimizedFlipchartAssets) {
   assert(
@@ -116,14 +123,9 @@ const gretelMachineSource = fs.readFileSync(
   path.join(srcDir, "components", "gretel", "gretelMachine.ts"),
   "utf8",
 );
-for (const part of ["head", "eyes", "pupils", "eyelids", "mouth", "torso", "left-arm", "right-arm"]) {
-  assert(
-    gretelRigSource.includes(`data-rig-part="${part}"`),
-    `Gretel SVG rig is missing independent part ${part}`,
-  );
-}
-assert(gretelRigSource.includes('data-gretel-rig="svg"'), "Gretel must use the vector rig");
-assert(!gretelRigSource.includes("<img"), "Gretel rig must not fall back to raster pose swapping");
+assert(gretelRigSource.includes("GRETEL_APPROVED_MASTER_SRC"), "Gretel host must display the exact approved master");
+const gretelMaster = readJson("src/data/gretel-approved-master.json");
+assert(gretelMaster.status === "owner-approved" && exists(`public${gretelMaster.productionSrc}`), "approved Gretel master must exist");
 for (const state of ["listening", "teaching", "help", "gentle-error", "cheering"]) {
   assert(gretelMachineSource.includes(`"${state}"`), `Gretel state machine is missing ${state}`);
 }
@@ -161,15 +163,18 @@ assert(!lessonSource.includes("<CurlPageViewer"), "legacy scan/book viewer must 
 
 if (process.exitCode) process.exit(process.exitCode);
 
-console.log("[platform-certification] PASS");
+console.log("[platform-certification] PASS: structural checks only; product completion remains PARTIAL");
 console.log(JSON.stringify({
-  workbookNative: "90/90",
+  completionStatus: "PARTIAL",
+  workbookNative: `${nativeCompletePages}/${workbookPages.length}`,
+  workbookSourceBlocked: blockedPages,
   workbookSourceAssets: "88 canonical source pages + verified scan gap at 86–87",
   flipchartNativeRegistry: "62/62",
   flipchartCanonicalMasters: "62/62",
   flipchartSurface: "62/62 native boards; pages 1-2 native frontmatter; pages 3-62 separate faithful learning objects",
-  flipchartOptimizedExclusive: "32 final optimized Flip Chart-only assets wired; Workbook mappings remain separate",
-  gretelRig: "vector-part rig with head/eyes/eyelids/pupils/mouth/torso/independent arms",
+  flipchartOptimizedExclusive: `${optimizedFlipchartAssets.length} fabricated/exclusive assets; 167 approved standalone book images use the native registry`,
+  gretelRig: "owner-approved master still installed; existing host state machine retained",
   livingArt: "semantic registry with independent wings/tails/ears/trunk and reduced-motion policy",
-  cinematics: "31 scenes: welcome + how-to + 24 lessons + 4 milestones + final",
+  cinematics: "Existing lesson scripts retained; owner scope requires one looping welcome video only",
+  gretelClips: `${gretelClips["master-welcome"] ? 1 : 0}/1 approved welcome clip registered; no lesson videos required`,
 }, null, 2));

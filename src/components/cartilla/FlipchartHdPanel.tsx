@@ -5,7 +5,7 @@
  * page as faithfully as possible. Implementation details are subordinate to
  * source-page fidelity. Do not redesign, reflow, modernize, or re-compose the
  * book page. Existing approved/cropped artwork is placement-only and must not
- * be altered. See CARTILLA_SOURCE_OF_TRUTH.md.
+ * be altered. See PROJECT_SOURCE_OF_TRUTH.md.
  */
 import { useCallback, useEffect, useMemo, useRef, useState, type CSSProperties } from "react";
 import { ChevronDown, ChevronUp } from "lucide-react";
@@ -75,7 +75,7 @@ export function FlipchartHdPanel({ lessonNumber, accentColor, chrome = "full" }:
     if (flipTimerRef.current) clearTimeout(flipTimerRef.current);
     setSelectedIdx(0);
     setIsFlipping(false);
-    setPageReady(false);
+    setPageReady((pages[0]?.flipchartPage ?? 0) > 2);
     setFlipDirection(null);
     setFlipTransform("rotateX(0deg)");
     return () => {
@@ -101,7 +101,7 @@ export function FlipchartHdPanel({ lessonNumber, accentColor, chrome = "full" }:
     (index: number, direction: "next" | "prev") => {
       if (flipLockedRef.current || isFlipping || pages.length === 0) return;
       if (index < 0 || index >= pages.length || index === safeIdx) return;
-      setPageReady(false);
+      setPageReady((pages[index]?.flipchartPage ?? 0) > 2);
 
       if (reducedMotion) {
         setSelectedIdx(index);
@@ -250,7 +250,7 @@ export function FlipchartHdPanel({ lessonNumber, accentColor, chrome = "full" }:
         </div>
       </div>
 
-      {chrome === "full" && (
+      {(
         <div className="fc-board__controls">
           <button
             type="button"

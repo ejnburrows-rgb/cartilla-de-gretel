@@ -5,15 +5,12 @@ const root = process.cwd();
 const read = (file) => JSON.parse(readFileSync(join(root, file), 'utf8'));
 const layouts = read('src/data/page-layouts.json').pages;
 const inventory = read('src/data/page-inventory.json').workbook.lessons;
-const manifest = read('src/content/workbook/workbook-manifest.json').pages;
 const consonants = read('src/content/consonants.json');
-const interactions = read('src/data/workbook-interactions.json');
 const lessonRanges = new Map([
   [1, '1-3'], [2, '4-6'], [3, '7-9'], [4, '10-12'], [5, '13-15'], [6, '16-18'],
   ...consonants.map(({ lesson, pages }) => [lesson, pages]),
 ]);
 
-const allInteractions = Array.isArray(interactions) ? interactions : Object.values(interactions).flat();
 // Every instructional page now renders through the same native lesson shell.
 // Certification remains a separate QA state; native rendering alone does not
 // imply animation/cinematic certification.
@@ -24,7 +21,6 @@ const records = inventory.flatMap(({ lessonId, pages }) => {
   return Array.from({ length: end - start + 1 }, (_, offset) => {
     const physicalPage = start + offset;
     const regions = layouts[String(physicalPage)]?.regions ?? [];
-    const census = manifest.find((p) => p.physicalPage === physicalPage);
     const listedScan = pages[offset] ? `/cartilla/images/source/${pages[offset]}` : null;
     const canonicalScan = missingCanonicalSourcePages.has(physicalPage)
       ? null
@@ -46,16 +42,14 @@ const records = inventory.flatMap(({ lessonId, pages }) => {
       physicalPage, lesson: lessonId,
       renderer: regions.length ? 'FaithfulPageRenderer' : 'PdfPage fallback',
       structuredContent: regions.length ? `src/data/page-layouts.json#pages.${physicalPage}` : null,
-      manifestRecord: census ? `src/content/workbook/workbook-manifest.json#${physicalPage}` : null,
       exerciseMechanics: mechanics,
-      workbookInteractions: allInteractions.filter((i) => i && i.lessonNumber === lessonId && i.pageNumber === physicalPage).map((i) => i.id),
       faithfulIllustrations: illustrationAssets,
       sourceScan: image,
       legacyScanReference: listedScan,
       sourceScanPresentInCheckout: Boolean(existingSource && (() => { try { readFileSync(existingSource); return true; } catch { return false; } })()),
       animationCandidates: illustrationAssets.filter((asset) => /\/(mono|mariposa|oso|oruga|abeja|pajaro|pez)\./i.test(asset)),
       gretelGuidance: regions.filter((r) => r.regionType === 'instruction' || r.regionType === 'title').map((r) => r.text).filter(Boolean),
-      status: nativePages.has(physicalPage) ? 'NATIVE_COMPLETE' : regions.length ? 'STRUCTURED_PARTIAL' : 'SCAN_ONLY',
+      status: missingCanonicalSourcePages.has(physicalPage) ? 'SOURCE_BLOCKED' : nativePages.has(physicalPage) ? 'NATIVE_COMPLETE' : regions.length ? 'STRUCTURED_PARTIAL' : 'SCAN_ONLY',
       certification: null,
     };
   });
@@ -64,13 +58,13 @@ const records = inventory.flatMap(({ lessonId, pages }) => {
 const output = {
   schemaVersion: 1,
   sourceOfPageNumbers: 'src/lib/lesson-catalog.ts + src/data/page-inventory.json',
-  statusDefinitions: ['SCAN_ONLY', 'STRUCTURED_PARTIAL', 'NATIVE_COMPLETE', 'ANIMATION_READY', 'CERTIFIED'],
+  statusDefinitions: ['SOURCE_BLOCKED', 'SCAN_ONLY', 'STRUCTURED_PARTIAL', 'NATIVE_COMPLETE', 'ANIMATION_READY', 'CERTIFIED'],
   notes: [
-    'The separate 90-page workbook manifest disagrees with lesson-exercises/lesson-07.ts about Lesson 7 numbering; the actual student route uses page-layouts.json pages 19–22.',
-    'Pages 1–90 use the native student route and FaithfulPageRenderer. Native promotion is complete; animation/cinematic certification remains separate.',
+    'page-layouts.json is the single workbook content source; the old parallel workbook-manifest.json pipeline was removed.',
+    'Pages 1–90 use the native student route and FaithfulPageRenderer. Pages 86–87 are SOURCE_BLOCKED: they render, but cannot be verified against the printed book until the owner supplies a rescan.',
     'The authoritative source scan has a verified gap at printed pages 86–87. Native structured content remains the product surface there; no substitute scan is invented.',
   ],
   pages: records,
 };
 writeFileSync(join(root, 'src/data/conversion-status.json'), JSON.stringify(output, null, 2) + '\n');
-console.log(`Mapped ${records.length} student pages; ${records.filter((p) => p.status === 'SCAN_ONLY').length} scan-only; ${records.filter((p) => p.status === 'NATIVE_COMPLETE').length} native complete.`);
+console.log(`Mapped ${records.length} student pages; ${records.filter((p) => p.status === 'SCAN_ONLY').length} scan-only; ${records.filter((p) => p.status === 'NATIVE_COMPLETE').length} native complete; ${records.filter((p) => p.status === 'SOURCE_BLOCKED').length} source-blocked.`);

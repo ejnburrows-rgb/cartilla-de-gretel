@@ -83,6 +83,8 @@ The test is about **structure and content**, not visual style. A modern-looking 
 
 ## Image Lock (unchanged — still in force)
 
+> Owner clarification (EJN, 30 Sep 2026): the exact list of allowed technical cleanup and Google Flow motion, and what stays forbidden, is in `ASSET_FIDELITY_POLICY.md`. That file is the active art rule; `IMAGE_GENERATION_BAN.md` and `docs/GOOGLE_FLOW_PROMPTS.md` are historical only.
+
 The approved/corrected/cropped book images are final.
 
 DO NOT:
