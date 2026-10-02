@@ -1478,3 +1478,84 @@
    larger upper zone, instead of squeezing it into a vocabulary-sized header. */
 .fc-native-board[data-flipchart-page="56"] .fc-native-board__header-zone { flex-basis: 55%; }
 .fc-native-board[data-flipchart-page="56"] .fc-native-board__page { width: min(100%, 130cqh); }
+
+
+/* ── Approved Cartilla presenter palette ── */
+.fc-presenter {
+  --fc-paper: var(--lc-paper, #fffdf9);
+  --fc-paper-soft: var(--lc-paper, #fffdf9);
+  --fc-ink: var(--lc-ink, #25313a);
+  --fc-ink-soft: var(--lc-ink-soft, #53616b);
+  --fc-border: rgba(37,49,58,.14);
+  --fc-wash: var(--lc-bg, #f5f1e8);
+  --fc-accent: var(--lc-teal, #1f9e94);
+  --fc-stage-shadow: 0 12px 34px rgba(37,49,58,.10);
+  background: var(--lc-bg, #f5f1e8);
+  font-family: "Andika", ui-rounded, system-ui, sans-serif;
+}
+.fc-presenter[data-accent] { --fc-accent: var(--lc-teal, #1f9e94); }
+.fc-presenter__header {
+  background: color-mix(in srgb, var(--lc-paper, #fffdf9) 96%, transparent);
+  backdrop-filter: none;
+}
+.fc-presenter__title,
+.fc-presenter__eyebrow,
+.fc-presenter__btn,
+.fc-board__nav {
+  font-family: "Fredoka", ui-rounded, system-ui, sans-serif;
+}
+.fc-presenter__exit,
+.fc-presenter__btn,
+.fc-board__nav {
+  min-width: 44px;
+  min-height: 44px;
+  border-color: var(--lc-teal, #1f9e94);
+  border-radius: 12px;
+  background: var(--lc-paper, #fffdf9);
+  color: var(--lc-ink, #25313a);
+  box-shadow: none;
+}
+.fc-presenter__exit:focus-visible,
+.fc-presenter__btn:focus-visible,
+.fc-board__nav:focus-visible,
+.fc-board__thumb:focus-visible {
+  outline: 4px solid var(--lc-focus, #1668c7);
+  outline-offset: 3px;
+}
+.fc-board__easel {
+  background: var(--lc-paper, #fffdf9);
+  border-color: rgba(37,49,58,.14);
+  box-shadow: 0 10px 28px rgba(37,49,58,.08);
+}
+.fc-board__page,
+.fc-board__page-inner,
+.fc-board__face,
+.fc-native-board,
+.fc-native-board__page {
+  background: var(--lc-paper, #fffdf9);
+}
+.fc-board__page-inner { box-shadow: none; }
+.fc-board__nav--next {
+  background: var(--lc-red, #bf3040);
+  border-color: var(--lc-red, #bf3040);
+  color: #fff;
+}
+.fc-board__counter {
+  background: var(--lc-paper, #fffdf9);
+  box-shadow: none;
+}
+.fc-native-board__word {
+  border-color: var(--lc-teal, #1f9e94);
+  border-radius: 12px;
+  background: transparent;
+  box-shadow: none;
+  font-family: "Andika", ui-rounded, system-ui, sans-serif;
+}
+@media (prefers-reduced-motion: reduce) {
+  .fc-presenter *,
+  .fc-presenter *::before,
+  .fc-presenter *::after {
+    animation-duration: .01ms !important;
+    transition-duration: .01ms !important;
+  }
+}
