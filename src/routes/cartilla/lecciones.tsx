@@ -1,6 +1,7 @@
 import { GRETEL_APPROVED_MASTER_SRC } from "@/lib/gretel-master";
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { ArrowLeft, Check } from "lucide-react";
+import type { CSSProperties } from "react";
 import { CATALOG, TOTAL_LESSONS, type CatalogEntry } from "@/lib/lesson-catalog";
 import { useLessonProgress } from "@/lib/lesson-progress";
 import { playUiTick } from "@/lib/piano-audio";
@@ -58,7 +59,7 @@ function Lecciones() {
               params={{ n: String(entry.n) }}
               onClick={() => playUiTick()}
               className={`lc-lesson-tile${current ? " is-current" : ""}${done ? " is-done" : ""}`}
-              style={{ ["--lesson-color" as string]: entry.color }}
+              style={{ "--lesson-color": entry.color } as CSSProperties}
               aria-label={`Lección ${entry.n}: ${entry.title}`}
             >
               <span className="lc-lesson-tile__number">{entry.n}</span>
