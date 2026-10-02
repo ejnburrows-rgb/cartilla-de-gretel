@@ -146,7 +146,7 @@
   body {
     background-color: var(--color-background);
     color: var(--color-foreground);
-    font-family: ui-sans-serif, system-ui, sans-serif;
+    font-family: "Andika", ui-rounded, system-ui, sans-serif;
   }
   h1,
   h2,
@@ -269,10 +269,7 @@ html.student-pencil.a11y-xlarge body {
 @layer base {
   body {
     min-height: 100vh;
-    background:
-      radial-gradient(circle at 15% 10%, hsl(var(--warning) / 0.16), transparent 28rem),
-      radial-gradient(circle at 85% 5%, hsl(var(--primary) / 0.12), transparent 26rem),
-      linear-gradient(180deg, hsl(var(--background)), hsl(var(--secondary) / 0.22));
+    background: var(--lc-bg, hsl(var(--background)));
   }
 
   button,
@@ -285,7 +282,7 @@ html.student-pencil.a11y-xlarge body {
   input:focus-visible,
   select:focus-visible,
   textarea:focus-visible {
-    outline: 3px solid hsl(var(--primary) / 0.45);
+    outline: 3px solid var(--lc-focus, #1668c7);
     outline-offset: 3px;
   }
 }
@@ -838,20 +835,32 @@ html.student-pencil.a11y-xlarge body {
   /* Fonts — all self-hosted (Andika, Fredoka, Lora, Caveat, OpenDyslexic), so
      nothing depends on the blocked Google Fonts network. Century Gothic is
      gone: it does not exist on student Chromebooks/tablets and only fell back. */
-  --font-book-faithful: "Andika", "Segoe UI", ui-rounded, system-ui, sans-serif;
-  --font-book-title: "Fredoka", ui-rounded, system-ui, sans-serif;
-  --font-book-serif: "Lora", Georgia, "Times New Roman", serif;
-  --font-book-hand: "Caveat", "Segoe Script", cursive;
+  --lc-bg: #f5f1e8;
+  --lc-paper: #fffdf9;
+  --lc-ink: #25313a;
+  --lc-ink-soft: #53616b;
+  --lc-teal: #1f9e94;
+  --lc-red: #bf3040;
+  --lc-focus: #1668c7;
+  --lc-success: #2f7d4a;
+  --lc-error: #b53a3a;
+  --lc-pink: #c24d75;
+  --lc-violet: #7756a8;
+  --lc-blue: #356fbd;
+  --lc-gray-blue: #607d96;
+  --lc-blue-gray: #536f8a;
 
-  /* Interior worksheet palette — green & cream kid-friendly aesthetic
-     (owner-directed repaint, superseding the earlier teal/white book-exact
-     palette; variable names kept as-is to avoid touching every consumer). */
-  --book-teal: #5fa777; /* signature garden green: sidebar, borders, guides */
-  --book-teal-deep: #3d7a5c; /* darker green for text-on-cream accents */
-  --book-paper: #fbf3e0; /* warm cream page */
-  --book-ink: #2b2a22; /* warm near-black body + headings */
-  --book-ink-soft: #8a8272; /* warm secondary/footer gray */
-  --book-guide: #a8d9b5; /* dashed handwriting midline */
+  --font-book-faithful: "Andika", ui-rounded, system-ui, sans-serif;
+  --font-book-title: "Fredoka", ui-rounded, system-ui, sans-serif;
+  --font-book-serif: "Andika", ui-rounded, system-ui, sans-serif;
+  --font-book-hand: "Andika", ui-rounded, system-ui, sans-serif;
+
+  --book-teal: var(--lc-teal);
+  --book-teal-deep: #167a72;
+  --book-paper: var(--lc-paper);
+  --book-ink: var(--lc-ink);
+  --book-ink-soft: var(--lc-ink-soft);
+  --book-guide: #8bc9c3;
 
   /* Gretel brand (app shell / character moments — NOT the worksheet interior) */
   --gretel-blue: #1f5fa8;
