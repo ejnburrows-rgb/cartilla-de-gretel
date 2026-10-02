@@ -3,8 +3,16 @@ export type LearningState = { errors: number; assisted: boolean; retryPending: b
 export type LearningInput = 'wrong' | 'hint' | 'correct' | 'complete' | 'retry';
 export type LearningReaction = 'cue' | 'hint' | 'demonstration' | 'independent-retry' | 'success' | 'mastery' | null;
 export const freshLearningState = (): LearningState => ({ errors: 0, assisted: false, retryPending: false, mastered: false });
-export function advanceLearning(state: LearningState, input: LearningInput): { state: LearningState; reaction: LearningReaction } {
+export function advanceLearning(state: LearningState, input: LearningInput, options: { perItem?: boolean } = {}): { state: LearningState; reaction: LearningReaction } {
   if (state.mastered) return { state, reaction: null };
+  // Per-item activities grade every tap, so the next item IS the independent
+  // retry: after help, a correct item hands control back without a reset.
+  if (options.perItem && input === 'correct' && state.assisted) {
+    return { state: { ...state, errors: 0, assisted: false, retryPending: false }, reaction: 'independent-retry' };
+  }
+  if (options.perItem && input === 'complete') {
+    return { state: { ...state, mastered: true }, reaction: 'mastery' };
+  }
   if (input === 'retry') return { state: { ...state, errors: 0, assisted: false, retryPending: false }, reaction: null };
   if (state.retryPending) return { state, reaction: null };
   if (input === 'wrong' || input === 'hint') {

@@ -1,6 +1,8 @@
 import "@/styles/native-lesson.css";
 import type { ReactNode } from "react";
 import { GretelActivity } from "@/components/gretel/GretelActivity";
+import { StorybookWorkbookPage } from "@/components/storybook/StorybookWorkbookPage";
+import { isStorybookPage } from "@/content/storybook-proof";
 import { SOURCE_BLOCKED_WORKBOOK_PAGES } from "@/lib/workbook-pages";
 import { getPageLayout, type PageGridCell, type PageRegion } from "@/lib/book-faithful";
 // PageGridCell used by RegionView siblingCells for Dibuja pick options
@@ -576,6 +578,11 @@ export function FaithfulPageRenderer({
         <p>Página en preparación</p>
       </PageFrame>
     );
+  }
+
+  // Owner proof-of-direction pages only (Lección 2, book pages 4–5).
+  if (interactive && native && !fixedLayout && isStorybookPage(pageNumber)) {
+    return <StorybookWorkbookPage pageNumber={pageNumber} lessonNumber={lessonNumber} regions={layout} />;
   }
 
   if (fixedLayout) {

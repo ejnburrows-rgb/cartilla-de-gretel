@@ -3,6 +3,8 @@ import { ChevronLeft, ChevronRight } from "lucide-react";
 import { gretelEvent } from "@/lib/gretel-bus";
 import { remainingHint, usePageCompletion } from "@/lib/page-completion";
 import type { WorkbookPageEntry } from "./SimplePageViewer";
+import { STORYBOOK_WORKBOOK_PAGES, isStorybookPage } from "@/content/storybook-proof";
+import { StorybookWorld } from "@/components/storybook/StorybookWorld";
 import "@/styles/native-lesson.css";
 
 /** One readable, scrollable learning page at a time, retaining the book's
@@ -24,6 +26,7 @@ export function NativeLessonViewer({
 }) {
   const [index, setIndex] = useState(() => Math.min(Math.max(0, initialPage), pages.length - 1));
   const [hint, setHint] = useState("");
+  const [turnDir, setTurnDir] = useState<"next" | "prev">("next");
   const hintTimer = useRef<number | undefined>(undefined);
   const page = pages[index];
   const completion = usePageCompletion(page?.pageNumber, lessonNumber);
@@ -60,6 +63,7 @@ export function NativeLessonViewer({
   const turn = (next: number) => {
     if (next < 0 || next >= pages.length || next === index) return;
     setHint("");
+    setTurnDir(next > index ? "next" : "prev");
     gretelEvent("page-turn:start");
     setIndex(next);
     onPageChange?.(next);
@@ -96,20 +100,30 @@ export function NativeLessonViewer({
   };
 
   if (!page) return null;
+  // Owner proof-of-direction: only the listed pages enter the storybook world.
+  const storybook = typeof page.pageNumber === "number" && isStorybookPage(page.pageNumber) ? STORYBOOK_WORKBOOK_PAGES[page.pageNumber] : undefined;
   return (
     <section
       className="native-lesson-viewer"
       aria-label="Página de aprendizaje"
       data-native-page={page.pageNumber}
       data-page-complete={completion.complete ? "true" : "false"}
+      data-storybook={storybook ? storybook.scene : undefined}
     >
+      {storybook && <StorybookWorld scene={storybook.scene} camera={storybook.camera} />}
       <div className="native-lesson-viewer__topline">
         <span className="native-lesson-viewer__chapter">{chapterLabel}</span>
         <span className="native-lesson-viewer__page">Página {page.pageNumber} · {index + 1} de {pages.length}</span>
       </div>
 
       <div className="native-lesson-viewer__layout">
-        <div className="native-lesson-viewer__content">{page.content}</div>
+        <div
+          className="native-lesson-viewer__content"
+          key={storybook ? `sb-${page.pageNumber}` : undefined}
+          data-turn={storybook ? turnDir : undefined}
+        >
+          {page.content}
+        </div>
 
         <aside className="native-lesson-viewer__side" aria-label="Gretel y navegación">
           {bookCompanion && <div className="native-lesson-viewer__companion">{bookCompanion}</div>}
@@ -129,6 +143,7 @@ export function NativeLessonViewer({
               aria-disabled={completion.complete ? undefined : true}
               aria-describedby={hint ? "native-lesson-next-hint" : undefined}
               data-locked={completion.complete ? undefined : "true"}
+              data-invite={storybook && completion.complete ? "true" : undefined}
               title={completion.complete ? undefined : "Termina la actividad de esta página para seguir"}
             >
               {isLast ? "Terminar lección" : "Siguiente"} <ChevronRight size={20} />

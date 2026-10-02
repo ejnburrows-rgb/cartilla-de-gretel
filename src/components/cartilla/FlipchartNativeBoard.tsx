@@ -3,6 +3,8 @@ import { FlipchartFrontmatter } from "@/components/cartilla/FlipchartFrontmatter
 import { getNativeFlipchartPage, type FlipchartLayoutType, type NativeFlipchartPage, type FlipchartTextItem } from "@/lib/flipchart-native";
 import { LivingIllustration } from "@/components/living/LivingIllustration";
 import type { FlipchartPage } from "@/lib/flipchart-hd";
+import { isStorybookPlate } from "@/content/storybook-proof";
+import { StorybookFlipchartPlate } from "@/components/storybook/StorybookFlipchartPlate";
 
 function BookLine({ line }: { line: FlipchartTextItem }) {
   return line.segments ? <>{line.segments.map((part, index) => <span key={index} style={{ color: part.color }}>{index > 0 ? " " : ""}{part.text}</span>)}</> : <>{line.text}</>;
@@ -506,6 +508,30 @@ export function FlipchartNativeBoard({
     accentColor,
     isVowelPage,
   };
+
+  // Storybook proof plates (owner review): the live plate only. Decorative
+  // thumbnails keep the existing static board so the sheet strip is unchanged.
+  if (!decorative && isStorybookPlate(page.flipchartPage)) {
+    return (
+      <article
+        className="fc-native-board fc-native-board--storybook"
+        data-testid="flipchart-native-board"
+        data-flipchart-page={page.flipchartPage}
+        data-lesson={page.lesson}
+        data-surface="native"
+        data-composition={native.compositionKind}
+        data-layout-type={layoutType}
+        data-native-flipchart="true"
+        data-storybook-plate="true"
+        style={{ "--fc-accent": accentColor } as CSSProperties}
+      >
+        <StorybookFlipchartPlate plate={page.flipchartPage} />
+        <div className="fc-native-board__pagenum" aria-hidden="true">
+          {page.flipchartPage}
+        </div>
+      </article>
+    );
+  }
 
   return (
     <article

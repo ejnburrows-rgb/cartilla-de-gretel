@@ -12,7 +12,8 @@ import { Heart, Sparkles, Star } from "lucide-react";
 import { onGretelEvent } from "@/lib/gretel-bus";
 import { speakAsGretel } from "@/lib/gretel-voice";
 import { useGretelAnimation } from "./useGretelAnimation";
-import { GretelLayerRig } from "./GretelLayerRig";
+import { GretelLayerRig, rigPoseForState, type GretelRigPose } from "./GretelLayerRig";
+import { flyGuideLight } from "@/components/storybook/guideLight";
 
 export type GretelPerformanceAction =
   | "enter"
@@ -47,6 +48,12 @@ interface GretelLiveAvatarProps {
    * Gretel's face and duplicate the text.
    */
   showBubble?: boolean;
+  /**
+   * Storybook proof pages only: the articulated rig shows distinct body
+   * language (point / listen / help / nod / celebrate) instead of tilting the
+   * whole still. The state machine and bus still decide WHEN each happens.
+   */
+  articulated?: boolean;
 }
 
 const CONGRATULATIONS = ["¡Muy bien!", "¡Excelente!", "¡Lo lograste!", "¡Qué bien!"];
@@ -79,7 +86,7 @@ function bodyTransition(state: string) {
 }
 
 export const GretelLiveAvatar = forwardRef<GretelLiveAvatarRef, GretelLiveAvatarProps>(
-  ({ className = "", size = "md", bubblePosition = "top", paused = false, managed = false, showBubble = true }, ref) => {
+  ({ className = "", size = "md", bubblePosition = "top", paused = false, managed = false, showBubble = true, articulated = false }, ref) => {
     const reducedMotion = useReducedMotion();
     const { machineState, send, isSpeaking } = useGretelAnimation(paused || !!reducedMotion);
     const [bubbleText, setBubbleText] = useState<string | null>(null);
@@ -88,6 +95,27 @@ export const GretelLiveAvatar = forwardRef<GretelLiveAvatarRef, GretelLiveAvatar
     const [particles, setParticles] = useState<Particle[]>([]);
     const particleId = useRef(0);
     const speechRequestId = useRef(0);
+    const rootRef = useRef<HTMLDivElement>(null);
+    const [gesture, setGesture] = useState<GretelRigPose | null>(null);
+    const [direction, setDirection] = useState<"left" | "right">("left");
+    const gestureTimer = useRef<number | undefined>(undefined);
+    const greeted = useRef(false);
+    /** One short body-language beat on the articulated rig, then back to the machine pose. */
+    const playGesture = useCallback((pose: GretelRigPose, ms: number) => {
+      window.clearTimeout(gestureTimer.current);
+      setGesture(null);
+      // Two frames so a repeated beat (nod, nod) restarts its keyframes.
+      window.requestAnimationFrame(() => window.requestAnimationFrame(() => setGesture(pose)));
+      gestureTimer.current = window.setTimeout(() => setGesture(null), ms);
+    }, []);
+    useEffect(() => () => window.clearTimeout(gestureTimer.current), []);
+    // Entering the storybook world: one friendly greeting, then rest.
+    useEffect(() => {
+      if (!articulated || greeted.current) return;
+      greeted.current = true;
+      const timer = window.setTimeout(() => playGesture("greet", 1400), 320);
+      return () => window.clearTimeout(timer);
+    }, [articulated, playGesture]);
 
     const burst = useCallback((kind: Particle["kind"], count: number) => {
       if (reducedMotion) return;
@@ -191,9 +219,13 @@ export const GretelLiveAvatar = forwardRef<GretelLiveAvatarRef, GretelLiveAvatar
 
     const interact = useCallback(() => {
       if (isSpeaking) return;
+      if (articulated) {
+        playGesture("greet", 1400);
+        return;
+      }
       send({ type: "WAVE" });
       burst("star", 3);
-    }, [burst, isSpeaking, send]);
+    }, [articulated, burst, isSpeaking, playGesture, send]);
 
     const handleKeyDown = (event: KeyboardEvent<HTMLDivElement>) => {
       if (event.key !== "Enter" && event.key !== " ") return;
@@ -202,18 +234,50 @@ export const GretelLiveAvatar = forwardRef<GretelLiveAvatarRef, GretelLiveAvatar
     };
 
     useEffect(() => {
+      if (articulated) return;
       const entrance = window.setTimeout(() => burst("star", 7), 180);
       return () => window.clearTimeout(entrance);
-    }, [burst]);
+    }, [articulated, burst]);
+
+    const rigPose: GretelRigPose | undefined = articulated
+      ? gesture ?? (listening ? "listen" : rigPoseForState(machineState))
+      : undefined;
 
     useEffect(() => {
       const off = onGretelEvent((type, detail) => {
         if (type === "guide:reaction") {
+          if (articulated) {
+            const beat: Partial<Record<string, [GretelRigPose, number]>> = {
+              success: ["nod", 900],
+              "independent-retry": ["nod", 900],
+              mastery: ["celebrate", 2100],
+              cue: ["help", 2600],
+              hint: ["point", 3400],
+              demonstration: ["point", 3800],
+            };
+            const next = beat[detail.reaction ?? ""];
+            if (next) playGesture(next[0], next[1]);
+            if (detail.reaction === "mastery") burst("star", 5);
+            return;
+          }
           const celebrate = detail.reaction === "mastery" || detail.reaction === "success";
           if (!isSpeaking) send({ type: celebrate ? "CHEER" : "TEACH" });
           if (detail.reaction === "mastery") burst("star", 5);
           return;
         }
+        if (articulated && type === "task:point" && detail.targetId) {
+          const target = document.getElementById(detail.targetId);
+          const self = rootRef.current?.getBoundingClientRect();
+          if (target && self) {
+            const t = target.getBoundingClientRect();
+            setDirection(t.left + t.width / 2 < self.left + self.width / 2 ? "left" : "right");
+            playGesture("point", 3400);
+            const hands = new DOMRect(self.left + self.width * 0.5 - 10, self.top + self.height * 0.5 - 10, 20, 20);
+            window.setTimeout(() => flyGuideLight(hands, target, !!reducedMotion), reducedMotion ? 0 : 260);
+          }
+          return;
+        }
+
         if (managed && ["answer:correct", "answer:wrong", "activity:complete", "lesson:complete", "hint:show"].includes(type)) return;
         if (type === "lesson:start") {
           send({ type: "WAVE" });
@@ -282,7 +346,7 @@ export const GretelLiveAvatar = forwardRef<GretelLiveAvatarRef, GretelLiveAvatar
         window.removeEventListener("gretel:celebrate", handleLegacyCelebrate);
         window.removeEventListener("gretel:exit", handleExit);
       };
-    }, [burst, celebrate, send, managed, isSpeaking]);
+    }, [burst, celebrate, send, managed, isSpeaking, articulated, playGesture, reducedMotion]);
 
     return (
       <div
@@ -294,13 +358,16 @@ export const GretelLiveAvatar = forwardRef<GretelLiveAvatarRef, GretelLiveAvatar
         data-interactive="true"
         data-paused={String(paused)}
         data-reduced-motion={String(!!reducedMotion)}
+        data-articulated={articulated ? "true" : undefined}
+        data-pose={rigPose}
+        ref={rootRef}
         role="button"
         tabIndex={0}
         aria-label="Interactuar con Gretel"
         onClick={interact}
         onKeyDown={handleKeyDown}
       >
-        {listening && (
+        {listening && !articulated && (
           <motion.span
             className="absolute inset-[8%] rounded-full border-2 border-sky-400/70"
             aria-hidden
@@ -328,14 +395,17 @@ export const GretelLiveAvatar = forwardRef<GretelLiveAvatarRef, GretelLiveAvatar
         <motion.div
           className="absolute inset-0 z-10 h-full w-full origin-bottom"
           initial={reducedMotion ? false : { opacity: 0, y: 28, scale: 0.72 }}
-          animate={paused || reducedMotion ? { opacity: 1, y: 0, rotate: 0, scale: 1 } : { opacity: 1, ...bodyAnimation(machineState) }}
-          transition={paused || reducedMotion ? { duration: 0 } : { opacity: { duration: 0.35 }, ...bodyTransition(machineState) }}
+          animate={paused || reducedMotion || articulated ? { opacity: 1, y: 0, rotate: 0, scale: 1 } : { opacity: 1, ...bodyAnimation(machineState) }}
+          transition={reducedMotion ? { duration: 0 } : articulated ? { duration: 0.5, ease: "easeOut" } : paused ? { duration: 0 } : { opacity: { duration: 0.35 }, ...bodyTransition(machineState) }}
         >
           <GretelLayerRig
             state={machineState}
             pointingLeft={machineState === "pointing" ? pointingLeft : bubblePosition === "right"}
             speaking={isSpeaking || machineState === "talking"}
             paused={paused}
+            articulated={articulated}
+            pose={rigPose}
+            direction={direction}
           />
         </motion.div>
 

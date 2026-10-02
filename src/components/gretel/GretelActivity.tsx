@@ -40,7 +40,7 @@ export function GretelActivity({ id, pageNumber, kind, children }: {
         if (detail.reaction === 'demonstration') {
           ref.current?.querySelectorAll<HTMLButtonElement>('button[data-gretel-correct="false"]:not(:disabled)').forEach(el => { el.disabled = true; el.setAttribute('data-gretel-narrowed', 'true'); });
         }
-        if (detail.reaction === 'independent-retry') {
+        if (detail.reaction === 'independent-retry' && !detail.perItem) {
           if (timer) clearTimeout(timer);
           timer = setTimeout(() => {
             timer = undefined;

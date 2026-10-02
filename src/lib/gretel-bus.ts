@@ -29,6 +29,10 @@ export type GretelBusDetail = {
   reaction?: string;
   text?: string;
   pageNumber?: number;
+  /** Per-item activities (each tap is graded at once) never remount on retry. */
+  perItem?: boolean;
+  /** Item-specific spoken lines; the learning ladder still decides which one. */
+  lines?: Partial<Record<string, string>>;
 };
 
 let activeContext: GretelBusDetail = {};

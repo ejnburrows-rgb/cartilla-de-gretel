@@ -5,6 +5,7 @@ import { CATALOG } from "@/lib/lesson-catalog";
 import { getLessonPageNumbers } from "@/lib/cartilla-crm-theme";
 import { getPageLayout, hasPageLayout } from "@/lib/book-faithful";
 import { buildGretelPageLine } from "@/lib/gretel-page-guide";
+import { STORYBOOK_INTRO } from "@/content/storybook-proof";
 import { FaithfulPageRenderer } from "@/components/cartilla/FaithfulPageRenderer";
 import { PdfPage } from "@/components/cartilla/PdfPage";
 
@@ -42,7 +43,7 @@ export function buildPageArray(lessonId: number): WorkbookPageEntry[] {
     const globalPage = globalPages[i];
     const isAnimated = Boolean(filename?.endsWith(".mp4"));
     const pageNumberForGuide = typeof globalPage === "number" ? globalPage : pageNum;
-    const gretelLine = buildGretelPageLine(
+    const gretelLine = (typeof globalPage === "number" ? STORYBOOK_INTRO[globalPage] : undefined) ?? buildGretelPageLine(
       typeof globalPage === "number" ? getPageLayout(globalPage) : null,
       pageNumberForGuide,
     );

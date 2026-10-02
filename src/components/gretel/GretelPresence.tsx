@@ -5,6 +5,13 @@ import { cancelGretelSpeech, isGretelVoiceMuted, setGretelVoiceMuted, type Intro
 import { gretelEvent, onGretelEvent, type GretelBusDetail } from '@/lib/gretel-bus';
 import { GretelLiveAvatar, type GretelLiveAvatarRef } from './GretelLiveAvatar';
 import { advanceLearning, freshLearningState, REACTION_TEXT, type LearningState, type LearningInput } from './gretelLearning';
+import { isStorybookPage } from '@/content/storybook-proof';
+
+/** Item-specific lines an activity may publish in the DOM (e.g. for Ayuda). */
+function activityLines(activityId: string): Partial<Record<string, string>> | undefined {
+  const el = document.querySelector(`[data-gretel-activity="${activityId}"] [data-gretel-lines]`);
+  try { return el ? JSON.parse(el.getAttribute('data-gretel-lines') || '{}') : undefined; } catch { return undefined; }
+}
 
 export type GretelPresenceProps = {
   lesson?: IntroCatalogSlice; instruction?: string | null; className?: string;
@@ -73,14 +80,16 @@ export function GretelPresence({ lesson, instruction, className = '', autoIntro 
       const inputs: Record<string, LearningInput> = { 'answer:wrong': 'wrong', 'hint:show': 'hint', 'answer:correct': 'correct', 'activity:complete': 'complete', 'lesson:complete': 'complete', 'activity:retry': 'retry' };
       const input = inputs[type];
       if (!input) return;
-      const id = detail.activityId || active.current.activityId || `page-${active.current.pageNumber ?? 'current'}`;
-      const result = advanceLearning(learning.current.get(id) || freshLearningState(), input);
+      const pageActivity = isStorybookPage(active.current.pageNumber) ? document.querySelector('[data-gretel-activity]')?.getAttribute('data-gretel-activity') : undefined;
+      const id = detail.activityId || active.current.activityId || pageActivity || `page-${active.current.pageNumber ?? 'current'}`;
+      const result = advanceLearning(learning.current.get(id) || freshLearningState(), input, { perItem: detail.perItem });
       learning.current.set(id, result.state);
       if (!result.reaction) return;
       setFocused(false); setReaction(result.reaction); lastActivity.current = Date.now();
       gretelEvent('guide:reaction', { ...active.current, ...detail, activityId: id, reaction: result.reaction });
       // Completion immediately follows a correct answer; one sentence is enough.
-      say(REACTION_TEXT[result.reaction], 80);
+      const lines = detail.lines ?? activityLines(id);
+      say(lines?.[result.reaction] || REACTION_TEXT[result.reaction], 80);
     });
     const idleTimer = setInterval(() => {
       if (!ready.current || nudged.current || document.hidden || !active.current.activityId) return;
@@ -92,13 +101,21 @@ export function GretelPresence({ lesson, instruction, className = '', autoIntro 
     return () => { off(); clearInterval(idleTimer); clearTimeout(speechTimer.current); clearTimeout(focusTimer.current); cancelGretelSpeech(); };
   }, [autoIntro, bookMode, instruction, say, variant]);
 
+  // Proof pages only: the articulated storybook Gretel (same brain, new body language).
+  const storybook = bookMode && isStorybookPage(context.pageNumber);
+  // On proof pages Ayuda is available before the first touch: it helps with the page's activity.
+  const helpContext = (): GretelBusDetail => {
+    if (active.current.activityId || !storybook) return active.current;
+    const first = document.querySelector('[data-gretel-activity]')?.getAttribute('data-gretel-activity') ?? undefined;
+    return { ...active.current, activityId: first };
+  };
   const toggleMute = () => { const next = !muted; setMuted(next); setGretelVoiceMuted(next); if (next) cancelGretelSpeech(); };
-  return <aside className={['gretel-presence', entered ? 'gretel-presence--in' : '', variant === 'home' ? 'gretel-presence--home' : '', bookMode ? 'gretel-presence--book' : '', className].filter(Boolean).join(' ')}
+  return <aside className={['gretel-presence', entered ? 'gretel-presence--in' : '', storybook ? 'gretel-presence--storybook' : '', variant === 'home' ? 'gretel-presence--home' : '', bookMode ? 'gretel-presence--book' : '', className].filter(Boolean).join(' ')}
     aria-label="Gretel, la guía de la cartilla" aria-hidden={!entered} inert={!entered}
     data-testid={variant === 'home' ? 'book-hero-gretel' : 'gretel-presence'} data-sticker="false" data-gretel-system="presence" data-variant={variant}
     data-placement={bookMode ? 'book' : 'standalone'} data-page-ready={String(entered)} data-page-number={context.pageNumber} data-activity-id={context.activityId} data-target-id={context.targetId} data-reaction={reaction} data-focused={String(focused)}>
-    <GretelLiveAvatar ref={avatarRef} size={variant === 'home' ? 'md' : 'sm'} bubblePosition={bookMode ? 'right' : 'top'} paused={focused || !entered} managed />
-    {bookMode && context.activityId && entered && <button className="gretel-presence__help" onClick={() => gretelEvent('hint:show', active.current)}>Ayuda</button>}
+    <GretelLiveAvatar ref={avatarRef} size={variant === 'home' ? 'md' : 'sm'} bubblePosition={bookMode && !storybook ? 'right' : 'top'} paused={focused || !entered} managed articulated={storybook} />
+    {bookMode && (context.activityId || storybook) && entered && <button className="gretel-presence__help" onClick={() => gretelEvent('hint:show', helpContext())}>Ayuda</button>}
     {!hideChrome && <div className="gretel-presence__chrome"><p className="gretel-presence__name">Gretel</p><button type="button" onClick={toggleMute} className="gretel-presence__mute" aria-pressed={muted} aria-label={muted ? 'Activar voz de Gretel' : 'Silenciar voz de Gretel'}>{muted ? <VolumeX className="w-4 h-4" /> : <Volume2 className="w-4 h-4" />}<span>{muted ? 'Sin voz' : 'Con voz'}</span></button></div>}
   </aside>;
 }
