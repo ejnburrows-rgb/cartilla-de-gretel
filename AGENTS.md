@@ -5,6 +5,17 @@ project manager — work out what needs doing and do it.
 
 ---
 
+## CANONICAL INSTRUCTION HIERARCHY
+
+There are only two active repo-wide instruction files:
+
+1. `AGENTS.md` — execution, safety, Git, and deployment rules.
+2. `CARTILLA_DIGITAL_DIRECTIVE.md` — authoritative Cartilla structure, content, image-lock, and presentation rules.
+
+Anything under `docs/archive/` is historical reference only and must not override either file above.
+
+---
+
 ## CARTILLA DIGITAL DIRECTIVE — HIGHEST PRIORITY, NO EXCEPTIONS
 
 Before doing any work on the Cartilla Workbook or teacher Flip Chart, read

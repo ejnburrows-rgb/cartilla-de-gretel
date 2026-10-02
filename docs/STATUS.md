@@ -1,13 +1,14 @@
 # STATUS — La Cartilla de Gretel
 
-Updated: 2026-09-19
+Updated: 2026-10-02
 
 - Production source of truth: `main`.
-- Active Git history is intentionally lean and does not inherit obsolete scan/proof history.
-- Active tree is below 25 MB.
-- Only QA-PASS faithful crops are retained from `public/cartilla/art/faithful`.
-- Failed crops, duplicate originals, recrop scratch, raw/restored scan masters, screenshots, generated proofs, archived source clutter, and stale agent instructions are excluded.
-- Workbook PDF, workbook scan fallbacks, and teacher flipchart scan/delivery families remain available at runtime through the immutable Vercel asset snapshot in `vercel.json`.
-- Build path: TypeScript check → unit tests → Vite build.
+- Active repo-wide instructions: `AGENTS.md` and `CARTILLA_DIGITAL_DIRECTIVE.md`.
+- Historical fidelity/artwork directives are archived under `docs/archive/directives/` and are not active requirements.
+- Build path: TypeScript check → unit tests → Vite production build.
+- Visual audit workflow separately runs production-art checks and Playwright visual coverage.
 - Supabase remains the cloud data/auth backend.
-- No paid AI API is required.
+- Approved/cropped Cartilla artwork is locked; placement/layout changes must follow the digital directive.
+- The authoritative source rescan has a documented gap for printed workbook pages 86–87; do not invent replacements.
+- GitHub-hosted Actions are currently unable to start because GitHub reports an account billing lock. This is an account-level runner block, not a repository workflow failure.
+- No paid AI API is required by the application.
