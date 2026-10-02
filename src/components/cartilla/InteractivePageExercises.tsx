@@ -1,15 +1,4 @@
 import { useEffect, useState } from "react";
-import {
-  DndContext,
-  useDraggable,
-  useDroppable,
-  MouseSensor,
-  TouchSensor,
-  KeyboardSensor,
-  useSensor,
-  useSensors,
-  type DragEndEvent,
-} from "@dnd-kit/core";
 import "@/styles/interactive-exercises.css";
 import type { PageGridCell, PageRegion } from "@/lib/book-faithful";
 import { recordEvent } from "@/lib/student-session";
@@ -245,64 +234,27 @@ export function InteractivePictureGrid({
   );
 }
 
-/** The draggable vowel-letter chip for one row of InteractiveVowelPickOne.
- * Real pointer/touch drag via dnd-kit; also a plain tappable/focusable
- * button so "Presiona el dibujo..." (the real printed instruction) stays
- * true even for students who tap instead of drag. */
-function DraggableVowelLetter({
-  rowIdx,
+/** Digital vowel cue: keep the printed vowel visible, but use the natural
+ * on-screen action — the child taps the matching picture directly. */
+function VowelLetterLabel({
   letter,
-  locked,
-  selected,
-  onSelect,
   precise = false,
 }: {
-  rowIdx: number;
   letter: string;
-  locked: boolean;
-  selected: boolean;
-  onSelect: () => void;
   precise?: boolean;
 }) {
-  const { attributes, listeners, setNodeRef, transform, isDragging } =
-    useDraggable({
-      id: `vp-letter-${rowIdx}`,
-      data: { rowIdx },
-      disabled: locked,
-    });
-
-  const style: React.CSSProperties = {
-    transform: transform
-      ? `translate3d(${Math.round(transform.x)}px, ${Math.round(transform.y)}px, 0)`
-      : undefined,
-    zIndex: isDragging ? 999 : undefined,
-    opacity: locked ? 0.35 : 1,
-  };
-
   return (
-    <button
-      type="button"
-      ref={setNodeRef}
-      {...listeners}
-      {...attributes}
-      className={`fp-ix-pick__letter fp-ix-pick__letter--draggable${isDragging ? " is-dragging" : ""}${selected ? " is-selected" : ""}`}
-      style={style}
-      disabled={locked}
-      aria-pressed={selected}
-      aria-label={`Vocal ${letter}, arrástrala o presiónala y luego presiona el dibujo correcto`}
-      onClick={onSelect}
+    <span
+      className="fp-ix-pick__letter"
+      aria-label={`Vocal ${letter}`}
     >
       {precise ? letter : `${letter.toUpperCase()}${letter}`}
-    </button>
+    </span>
   );
 }
 
-/** A droppable picture cell for one row of InteractiveVowelPickOne. Also a
- * plain tap target so the tap-to-select-then-tap-to-place path (keyboard
- * and touch-without-drag) grades identically to a real drop. */
-function DroppableVowelCell({
-  rowIdx,
-  cellIdx,
+/** Direct-tap picture target for one vowel row. */
+function VowelPictureCell({
   cell,
   index,
   grade,
@@ -310,8 +262,6 @@ function DroppableVowelCell({
   disabled,
   onTap,
 }: {
-  rowIdx: number;
-  cellIdx: number;
   cell: PageGridCell;
   index: number;
   grade: Grade;
@@ -319,15 +269,9 @@ function DroppableVowelCell({
   disabled: boolean;
   onTap: () => void;
 }) {
-  const { isOver, setNodeRef } = useDroppable({
-    id: `vp-cell-${rowIdx}-${cellIdx}`,
-    data: { rowIdx, cellIdx },
-  });
   const flagged = cell.correct === undefined;
   const classes = [
     "fp-ix-cell",
-    "fp-ix-cell--droppable",
-    isOver ? "is-over" : "",
     grade === "correct" ? "graded-correct" : "",
     wrong ? "graded-wrong-flash" : "",
   ]
@@ -335,7 +279,6 @@ function DroppableVowelCell({
     .join(" ");
   return (
     <button
-      ref={setNodeRef}
       type="button"
       className={classes}
       data-gretel-correct={cell.correct === undefined ? undefined : String(cell.correct)}
@@ -351,12 +294,9 @@ function DroppableVowelCell({
   );
 }
 
-/** "Presiona el dibujo que comienza con la vocal del recuadro." — real
- * drag-the-vowel-onto-the-picture (mouse/touch via dnd-kit), with a
- * tap-to-select-then-tap-to-place fallback so touch-without-drag and
- * keyboard users get the identical graded interaction. Every drop grades
- * immediately: snap + chime + Gretel cheer on correct, bounce + soft buzz
- * on wrong (row stays open to retry). */
+/** The printed page asks the child to identify the picture for each vowel.
+ * On screen, translate that objective into a direct tap: no drag or extra
+ * vowel-selection step is required. */
 export function InteractiveVowelPickOne({
   region,
   accent,
@@ -375,14 +315,7 @@ export function InteractiveVowelPickOne({
     row: number;
     cell: number;
   } | null>(null);
-  const [selectedRow, setSelectedRow] = useState<number | null>(null);
   const [completed, setCompleted] = useState(false);
-
-  const sensors = useSensors(
-    useSensor(MouseSensor, { activationConstraint: { distance: 5 } }),
-    useSensor(TouchSensor, { activationConstraint: { distance: 5 } }),
-    useSensor(KeyboardSensor),
-  );
 
   useEffect(() => {
     if (rows.length > 0 && correctRows.size === rows.length && !completed) {
@@ -405,7 +338,6 @@ export function InteractiveVowelPickOne({
     const cell = rows[rowIdx]?.cells[cellIdx];
     if (cell?.correct) {
       setCorrectRows((prev) => new Set(prev).add(rowIdx));
-      setSelectedRow(null);
       playCorrectChord();
       gretelEvent("answer:correct");
     } else {
@@ -416,61 +348,41 @@ export function InteractiveVowelPickOne({
     }
   };
 
-  const onDragEnd = (e: DragEndEvent) => {
-    const activeRow = e.active.data.current?.rowIdx as number | undefined;
-    const overRow = e.over?.data.current?.rowIdx as number | undefined;
-    const overCell = e.over?.data.current?.cellIdx as number | undefined;
-    if (
-      activeRow === undefined ||
-      overRow === undefined ||
-      overCell === undefined
-    )
-      return;
-    if (activeRow !== overRow) {
-      // Dropped on a different row's picture — not a valid target, bounce back.
-      setWrongFlash({ row: activeRow, cell: -1 });
-      playWrongBuzz();
-      gretelEvent("answer:wrong");
-      setTimeout(() => setWrongFlash(null), 400);
-      return;
-    }
-    attempt(overRow, overCell);
-  };
-
   return (
-    <DndContext sensors={sensors} onDragEnd={onDragEnd}>
-      <div className={`fp-ix-pick${precise ? " fp-ix-pick--precise" : ""}`} style={{ ["--ix-accent" as string]: accent, gridTemplateRows: exactRows }}>
-        {rows.map((row, r) => (
-          <div key={r} className="fp-ix-pick__row" style={exactColumns ? { gridTemplateColumns: `${exactColumns[0] * 100}% 1fr` } : undefined}>
-            <DraggableVowelLetter
-              rowIdx={r}
-              letter={row.letter}
-              locked={correctRows.has(r)}
-              selected={selectedRow === r}
-              onSelect={() => setSelectedRow((prev) => (prev === r ? null : r))}
-              precise={precise}
-            />
-            <div className="fp-ix-pick__cells" style={exactColumns ? { gridTemplateColumns: exactColumns.slice(1).map((fraction) => `${fraction / (1 - exactColumns[0]) * 100}%`).join(" ") } : undefined}>
-              {row.cells.map((cell, c) => (
-                <DroppableVowelCell
-                  key={c}
-                  rowIdx={r}
-                  cellIdx={c}
-                  cell={cell}
-                  index={r * 3 + c}
-                  grade={correctRows.has(r) && cell.correct ? "correct" : null}
-                  wrong={wrongFlash?.row === r && wrongFlash.cell === c}
-                  disabled={correctRows.has(r)}
-                  onTap={() => {
-                    attempt(r, c);
-                  }}
-                />
-              ))}
-            </div>
+    <div
+      className={`fp-ix-pick${precise ? " fp-ix-pick--precise" : ""}`}
+      style={{ ["--ix-accent" as string]: accent, gridTemplateRows: exactRows }}
+    >
+      {rows.map((row, r) => (
+        <div
+          key={r}
+          className="fp-ix-pick__row"
+          style={exactColumns ? { gridTemplateColumns: `${exactColumns[0] * 100}% 1fr` } : undefined}
+        >
+          <VowelLetterLabel letter={row.letter} precise={precise} />
+          <div
+            className="fp-ix-pick__cells"
+            style={exactColumns ? {
+              gridTemplateColumns: exactColumns.slice(1)
+                .map((fraction) => `${fraction / (1 - exactColumns[0]) * 100}%`)
+                .join(" "),
+            } : undefined}
+          >
+            {row.cells.map((cell, cellIdx) => (
+              <VowelPictureCell
+                key={cellIdx}
+                cell={cell}
+                index={r * 3 + cellIdx}
+                grade={correctRows.has(r) && cell.correct ? "correct" : null}
+                wrong={wrongFlash?.row === r && wrongFlash.cell === cellIdx}
+                disabled={correctRows.has(r)}
+                onTap={() => attempt(r, cellIdx)}
+              />
+            ))}
           </div>
-        ))}
-      </div>
-    </DndContext>
+        </div>
+      ))}
+    </div>
   );
 }
 
