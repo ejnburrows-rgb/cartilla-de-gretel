@@ -6,7 +6,7 @@
 import { afterEach, beforeEach, describe, expect, it, vi } from "vitest";
 import { act, cleanup, fireEvent, render, screen } from "@testing-library/react";
 import { NativeLessonViewer } from "@/components/StudentBook/NativeLessonViewer";
-import { focusGretelActivity, gretelEvent } from "@/lib/gretel-bus";
+import { focusGretelActivity, gretelEvent, onGretelEvent } from "@/lib/gretel-bus";
 import { requiredActivitiesForPage, pageCompletionState } from "@/lib/page-completion";
 import { markLessonCompleted, resetProgress } from "@/lib/lesson-progress";
 import type { WorkbookPageEntry } from "@/components/StudentBook/SimplePageViewer";
@@ -69,7 +69,9 @@ describe("page requirements come from the verified page layout", () => {
 });
 
 describe("NativeLessonViewer completion gate", () => {
-  it("an incomplete page cannot advance and shows a friendly hint naming what remains", () => {
+  it("an incomplete page cannot advance and shows navigation guidance without counting it as a Gretel hint", () => {
+    const busEvents: string[] = [];
+    const off = onGretelEvent((type) => busEvents.push(type));
     render(<NativeLessonViewer pages={PAGES} chapterLabel="Lección 8" lessonNumber={8} />);
     expect(current()).toBe(23);
     expect(next().getAttribute("aria-disabled")).toBe("true");
@@ -77,9 +79,11 @@ describe("NativeLessonViewer completion gate", () => {
     expect(current()).toBe(23);
     expect(screen.getByRole("status").textContent).toMatch(/termina/i);
     expect(screen.getByRole("status").textContent).toMatch(/tu dibujo/);
+    expect(busEvents).not.toContain("hint:show");
     // keyboard activation goes through the same guard
     fireEvent.keyDown(next(), { key: "Enter" });
     expect(current()).toBe(23);
+    off();
   });
 
   it("completing the page's required work enables Siguiente immediately", () => {
@@ -159,6 +163,18 @@ describe("real workbook activities feed the gate through their own events", () =
     fireEvent.click(next());
     expect(current()).toBe(25);
   });
+  it("Gretel's independent retry does not erase an already completed page activity", () => {
+    render(<NativeLessonViewer pages={PAGES} chapterLabel="P" />);
+    completePage(23);
+    expect(next().getAttribute("data-locked")).toBeNull();
+    const activity = requiredActivitiesForPage(23)[0]!;
+    act(() => gretelEvent("activity:retry", {
+      activityId: activity.id,
+      reaction: "independent-retry",
+    }));
+    expect(next().getAttribute("data-locked")).toBeNull();
+  });
+
   it("requires the new freehand writing controls and relocks after clearing work", () => {
     expect(requiredActivitiesForPage(47).filter((a) => a.kind === "writing-line")).toHaveLength(4);
     render(<NativeLessonViewer pages={PAGES} chapterLabel="P" />);
