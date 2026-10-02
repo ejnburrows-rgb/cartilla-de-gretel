@@ -7,10 +7,11 @@ project manager — work out what needs doing and do it.
 
 ## CANONICAL INSTRUCTION HIERARCHY
 
-There are only two active repo-wide instruction files:
+There are three active repo-wide instruction files:
 
 1. `AGENTS.md` — execution, safety, Git, and deployment rules.
 2. `CARTILLA_DIGITAL_DIRECTIVE.md` — authoritative Cartilla structure, content, image-lock, and presentation rules.
+3. `repo.md` — locked Workbook + Flip Chart background-generation method.
 
 Anything under `docs/archive/` is historical reference only and must not override either file above.
 
@@ -19,7 +20,7 @@ Anything under `docs/archive/` is historical reference only and must not overrid
 ## CARTILLA DIGITAL DIRECTIVE — HIGHEST PRIORITY, NO EXCEPTIONS
 
 Before doing any work on the Cartilla Workbook or teacher Flip Chart, read
-`CARTILLA_DIGITAL_DIRECTIVE.md`. It is the canonical directive and overrides
+`CARTILLA_DIGITAL_DIRECTIVE.md`. Before generating or designing any Workbook or Flip Chart background image, also read and follow `repo.md`. It is the canonical directive and overrides
 all prior layout/fidelity instructions.
 
 **In brief:** Every page must have the same layout STRUCTURE as the physical
