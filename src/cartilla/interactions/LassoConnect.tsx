@@ -9,9 +9,8 @@
 import { useCallback, useEffect, useMemo, useRef, useState } from "react";
 import { GretelLayerRig } from "@/components/gretel/GretelLayerRig";
 import { speakGretelPhrase } from "@/lib/gretel-tts";
-import { gretelEvent } from "@/lib/gretel-bus";
+import { useActivityEvents } from "@/lib/activity-events";
 import { playCorrectChord, playWrongBuzz } from "@/lib/piano-audio";
-import { recordEvent } from "@/lib/student-session";
 import { loadLassoProgress, saveLassoProgress } from "@/lib/activity-canvas-store";
 import { useReducedMotion } from "@/hooks/useReducedMotion";
 import type { WorkbookObject } from "@/content/workbook/types";
@@ -25,6 +24,8 @@ export type LassoTarget = {
   /** Absolute or percent box when used in free layout; grid layout ignores. */
   box?: { xPct: number; yPct: number; wPct: number; hPct: number };
   correct?: boolean;
+  /** Source-provided example: visible, already connected, never learner evidence. */
+  example?: boolean;
   /** Pair matching: role + shared pairId */
   role?: "left" | "right" | "solo";
   pairId?: string;
@@ -155,6 +156,7 @@ export function LassoConnect({
   absoluteLayout = false,
   className,
 }: LassoConnectProps) {
+  const { emit: gretelEvent, record: recordEvent } = useActivityEvents();
   const reducedMotionHook = useReducedMotion();
   const reducedMotion = reducedMotionProp ?? reducedMotionHook;
   const verb = verbFamily ?? detectVerbFamily(instruction);
@@ -164,8 +166,23 @@ export function LassoConnect({
   const [flight, setFlight] = useState<FlightState>({ kind: "idle" });
   const [ropePath, setRopePath] = useState("");
   const [loopScale, setLoopScale] = useState(1);
-  const [marked, setMarked] = useState<Set<string>>(() => new Set());
-  const [links, setLinks] = useState<Array<{ a: string; b: string; path: string }>>([]);
+  const validMarkIds = new Set(targets.filter(t => t.example || t.correct === true || targets.every(item => item.correct === undefined)).map(t => t.id));
+  const [marked, setMarked] = useState<Set<string>>(() => new Set([
+    ...targets.filter(t => t.example).map(t => t.id),
+    ...(mode === "mark" ? loadLassoProgress(pageKey)?.completedIds ?? [] : []).filter(id => validMarkIds.has(id)),
+  ]));
+  const [links, setLinks] = useState<Array<{ a: string; b: string; path: string }>>(() => {
+    if (mode !== "pair") return [];
+    const used = new Set<string>();
+    return (loadLassoProgress(pageKey)?.completedIds ?? []).flatMap(id => {
+      const [a, b] = id.split("|");
+      const left = targets.find(t => t.id === a && t.role === "left");
+      const right = targets.find(t => t.id === b && t.role === "right");
+      if (!left || !right || !left.pairId || left.pairId !== right.pairId || used.has(a) || used.has(b)) return [];
+      used.add(a); used.add(b);
+      return [{ a, b, path: "" }];
+    });
+  });
   const [heldLeft, setHeldLeft] = useState<string | null>(null);
   const [wrongId, setWrongId] = useState<string | null>(null);
   const [pose, setPose] = useState<"idle" | "cheer" | "talk">("idle");
@@ -174,27 +191,17 @@ export function LassoConnect({
   const [completed, setCompleted] = useState(false);
   const [linkPaths, setLinkPaths] = useState<Record<string, string>>({});
   const rafRef = useRef<number | null>(null);
+  const timers = useRef(new Set<number>());
+  const later = useCallback((callback: () => void, ms: number) => {
+    const timer = window.setTimeout(() => { timers.current.delete(timer); callback(); }, ms);
+    timers.current.add(timer);
+    return timer;
+  }, []);
+  const finishedRef = useRef(false);
 
   const throwMs = reducedMotion ? 220 : THROW_MS;
   const wrapMs = reducedMotion ? 120 : WRAP_MS;
   const reelMs = reducedMotion ? 180 : REEL_MS;
-
-  // Restore progress
-  useEffect(() => {
-    const snap = loadLassoProgress(pageKey);
-    if (!snap?.completedIds?.length) return;
-    if (mode === "mark") {
-      setMarked(new Set(snap.completedIds));
-    } else {
-      // pairs stored as "leftId|rightId"
-      const restored: Array<{ a: string; b: string; path: string }> = [];
-      for (const id of snap.completedIds) {
-        const [a, b] = id.split("|");
-        if (a && b) restored.push({ a, b, path: "" });
-      }
-      setLinks(restored);
-    }
-  }, [pageKey, mode]);
 
   // Intro VO + wind
   useEffect(() => {
@@ -204,13 +211,13 @@ export function LassoConnect({
     } catch {
       /* audio optional */
     }
-    const windEnd = window.setTimeout(() => setWinding(false), reducedMotion ? 200 : 900);
-    const poseEnd = window.setTimeout(() => setPose("idle"), reducedMotion ? 400 : 1600);
+    const windEnd = later(() => setWinding(false), reducedMotion ? 200 : 900);
+    const poseEnd = later(() => setPose("idle"), reducedMotion ? 400 : 1600);
     return () => {
       window.clearTimeout(windEnd);
       window.clearTimeout(poseEnd);
     };
-  }, [verb, reducedMotion, pageKey]);
+  }, [verb, reducedMotion, pageKey, later]);
 
   // Recompute link paths when links change
   useEffect(() => {
@@ -255,8 +262,8 @@ export function LassoConnect({
 
   const totalNeeded = useMemo(() => {
     if (mode === "mark") {
-      const n = targets.filter((t) => t.correct).length;
-      return n > 0 ? n : targets.length;
+      const n = targets.filter((t) => t.correct && !t.example).length;
+      return targets.some(t => t.correct !== undefined) ? n : targets.filter(t => !t.example).length;
     }
     const lefts = targets.filter((t) => t.role === "left");
     return lefts.length > 0 ? lefts.length : Math.floor(targets.length / 2);
@@ -271,7 +278,8 @@ export function LassoConnect({
 
   const finishIfDone = useCallback(
     (markedCount: number) => {
-      if (markedCount >= totalNeeded && totalNeeded > 0 && !completed) {
+      if (markedCount >= totalNeeded && totalNeeded > 0 && !finishedRef.current) {
+        finishedRef.current = true;
         setCompleted(true);
         setPose("cheer");
         gretelEvent("activity:complete");
@@ -287,8 +295,18 @@ export function LassoConnect({
         onComplete?.();
       }
     },
-    [totalNeeded, completed, lessonId, pageKey, mode, onComplete],
+    [totalNeeded, lessonId, pageKey, mode, onComplete, gretelEvent, recordEvent],
   );
+
+  const learnerMarked = [...marked].filter(id => !targets.find(t => t.id === id)?.example).length;
+  useEffect(() => {
+    const count = mode === "mark" ? learnerMarked : links.length;
+    if (count >= totalNeeded && totalNeeded > 0 && !finishedRef.current) {
+      finishedRef.current = true;
+      setCompleted(true);
+      gretelEvent("activity:complete", { restored: true });
+    }
+  }, [learnerMarked, links.length, mode, totalNeeded, gretelEvent]);
 
   const runThrow = useCallback(
     (targetId: string, willHit: boolean, onLand: () => void) => {
@@ -303,22 +321,22 @@ export function LassoConnect({
       // (never remove the ability to complete — only shorten decorative thrash).
       if (reducedMotion) {
         setRopePath(buildRopePath(from, to, 1, 1, 40));
-        window.setTimeout(() => {
+        later(() => {
           if (willHit) {
             setLoopScale(0.75);
             setFlight({ kind: "wrap", targetId, t0: performance.now() });
-            window.setTimeout(() => {
+            later(() => {
               onLand();
               setRopePath("");
               setFlight({ kind: "idle" });
               setBusy(false);
               setPose("cheer");
-              window.setTimeout(() => setPose("idle"), 200);
+              later(() => setPose("idle"), 200);
             }, wrapMs);
           } else {
             setFlight({ kind: "reel", from: to, to: from, t0: performance.now() });
             setRopePath(buildRopePath(from, to, 0.35, 0.7, 20));
-            window.setTimeout(() => {
+            later(() => {
               setRopePath("");
               setFlight({ kind: "idle" });
               setBusy(false);
@@ -355,7 +373,7 @@ export function LassoConnect({
             setFlight({ kind: "idle" });
             setBusy(false);
             setPose("cheer");
-            window.setTimeout(() => setPose("idle"), 900);
+            later(() => setPose("idle"), 900);
           };
           rafRef.current = requestAnimationFrame(wrapAnim);
         } else {
@@ -382,12 +400,15 @@ export function LassoConnect({
       };
       rafRef.current = requestAnimationFrame(animateThrow);
     },
-    [handPoint, targetCenter, throwMs, wrapMs, reelMs, reducedMotion],
+    [handPoint, targetCenter, throwMs, wrapMs, reelMs, reducedMotion, later],
   );
 
   useEffect(() => {
+    const pendingTimers = timers.current;
     return () => {
       if (rafRef.current != null) cancelAnimationFrame(rafRef.current);
+      for (const timer of pendingTimers) window.clearTimeout(timer);
+      pendingTimers.clear();
     };
   }, []);
 
@@ -405,29 +426,27 @@ export function LassoConnect({
       runThrow(target.id, ok, () => {
         if (ok) {
           playCorrectChord();
-          gretelEvent("answer:correct");
+          gretelEvent("answer:correct", { itemId: target.id });
           try {
             speakGretelPhrase("¡Buen trabajo!");
           } catch {
             /* optional */
           }
-          setMarked((prev) => {
-            const next = new Set(prev).add(target.id);
-            persist([...next]);
-            finishIfDone(next.size);
-            return next;
-          });
+          const next = new Set(marked).add(target.id);
+          setMarked(next);
+          persist([...next]);
+          finishIfDone([...next].filter(id => !targets.find(t => t.id === id)?.example).length);
           onResult?.({ objectId: target.id, result: "correct" });
         } else {
           playWrongBuzz();
-          gretelEvent("answer:wrong");
+          gretelEvent("answer:wrong", { itemId: target.id });
           try {
             speakGretelPhrase("Oh no, inténtalo de nuevo.");
           } catch {
             /* optional */
           }
           setWrongId(target.id);
-          window.setTimeout(() => setWrongId(null), 500);
+          later(() => setWrongId(null), 500);
           onResult?.({ objectId: target.id, result: "wrong" });
         }
       });
@@ -440,7 +459,7 @@ export function LassoConnect({
       setHeldLeft(target.id);
       // soft hold — short wind, no full throw yet
       setWinding(true);
-      window.setTimeout(() => setWinding(false), 200);
+      later(() => setWinding(false), 200);
       return;
     }
 
@@ -476,30 +495,28 @@ export function LassoConnect({
     runThrow(right.id, pairOk, () => {
       if (pairOk && left) {
         playCorrectChord();
-        gretelEvent("answer:correct");
+        gretelEvent("answer:correct", { itemId: `${left?.id}|${right.id}` });
         try {
           speakGretelPhrase("¡Buen trabajo!");
         } catch {
           /* optional */
         }
-        setLinks((prev) => {
-          const next = [...prev, { a: left.id, b: right.id, path: "" }];
-          persist(next.map((l) => `${l.a}|${l.b}`));
-          finishIfDone(next.length);
-          return next;
-        });
+        const next = [...links, { a: left.id, b: right.id, path: "" }];
+        setLinks(next);
+        persist(next.map(l => `${l.a}|${l.b}`));
+        finishIfDone(next.length);
         setHeldLeft(null);
         onResult?.({ objectId: left.id, result: "correct" });
       } else {
         playWrongBuzz();
-        gretelEvent("answer:wrong");
+        gretelEvent("answer:wrong", { itemId: `${left?.id}|${right.id}` });
         try {
           speakGretelPhrase("Oh no, inténtalo de nuevo.");
         } catch {
           /* optional */
         }
         setWrongId(right.id);
-        window.setTimeout(() => setWrongId(null), 500);
+        later(() => setWrongId(null), 500);
         // keep first selection held for clearer retry UX
         onResult?.({ objectId: right.id, result: "wrong" });
       }
@@ -511,9 +528,11 @@ export function LassoConnect({
   return (
     <div
       className={`am-lasso${className ? ` ${className}` : ""}${absoluteLayout ? " am-lasso--absolute" : ""}`}
+      data-complete={String(completed)}
       data-mode={mode}
       data-verb={verb}
     >
+      {targets.some(t => t.example) && <p role="status">{learnerMarked} de {totalNeeded} respuestas correctas</p>}
       {instruction ? <p className="am-lasso__instruction">{instruction}</p> : null}
       <div className="am-lasso__stage" ref={stageRef}>
         {/* Full-presence Gretel */}
@@ -658,7 +677,6 @@ export function LassoConnect({
             return (
               <button
                 key={t.id}
-                data-gretel-correct={String(t.correct !== false)}
                 type="button"
                 ref={(el) => {
                   if (el) targetEls.current.set(t.id, el);
@@ -677,6 +695,8 @@ export function LassoConnect({
                 onClick={() => handleTap(t)}
                 aria-label={t.label}
                 aria-pressed={isMarked || linked || held}
+                data-gretel-correct={t.correct === undefined ? undefined : String(t.correct)}
+                data-example={t.example ? "true" : undefined}
               >
                 {t.src ? (
                   <img src={t.src} alt="" draggable={false} loading="lazy" />
@@ -717,6 +737,8 @@ export function LassoConnectFromWorkbook({
   const targets: LassoTarget[] = objects.map((o: WorkbookObject) => {
     const data = (o.interaction?.data ?? {}) as {
       correct?: boolean;
+  /** Source-provided example: visible, already connected, never learner evidence. */
+  example?: boolean;
       role?: "left" | "right";
       pairId?: string;
     };

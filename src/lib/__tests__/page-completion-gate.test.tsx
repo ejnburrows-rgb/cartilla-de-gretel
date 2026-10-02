@@ -181,7 +181,7 @@ describe("real workbook activities feed the gate through their own events", () =
     completePage(23);
     expect(next().getAttribute("data-locked")).toBeNull();
     const activity = requiredActivitiesForPage(23)[0]!;
-    act(() => gretelEvent("activity:retry", { activityId: activity.id }));
+    act(() => gretelEvent("activity:retry", { activityId: activity.id, reason: "work-cleared" }));
     fireEvent.click(next());
     expect(current()).toBe(23);
     expect(next().getAttribute("data-locked")).toBe("true");

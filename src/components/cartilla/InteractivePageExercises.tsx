@@ -1,8 +1,7 @@
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import "@/styles/interactive-exercises.css";
 import type { PageGridCell, PageRegion } from "@/lib/book-faithful";
-import { recordEvent } from "@/lib/student-session";
-import { gretelEvent } from "@/lib/gretel-bus";
+import { useActivityEvents, useActivityState } from "@/lib/activity-events";
 import { playCorrectChord, playWrongBuzz } from "@/lib/piano-audio";
 import { LivingIllustration } from "@/components/living/LivingIllustration";
 
@@ -125,12 +124,15 @@ export function InteractivePictureGrid({
   precise = false,
   mark = "circle",
 }: ExerciseProps & { precise?: boolean; mark?: PictureMark }) {
+  const { emit: gretelEvent, record: recordEvent } = useActivityEvents();
   const cells = region.cells ?? [];
   const columns = region.columns ?? 4;
-  const [picked, setPicked] = useState<Set<number>>(new Set());
-  const [graded, setGraded] = useState(false);
-  const [solved, setSolved] = useState(false);
+  const [picked, setPicked] = useActivityState<Set<number>>("picked", new Set());
+  const [graded, setGraded] = useActivityState("graded", false);
+  const [solved, setSolved] = useActivityState("solved", false);
   const [attempts, setAttempts] = useState(0);
+
+  useEffect(() => { if (solved) gretelEvent("activity:complete", { restored: true }); }, [solved, gretelEvent]);
 
   const toggle = (i: number) => {
     if (graded) return;
@@ -303,6 +305,7 @@ export function InteractiveVowelPickOne({
   lessonId,
   precise = false,
 }: ExerciseProps & { precise?: boolean }) {
+  const { emit: gretelEvent, record: recordEvent } = useActivityEvents();
   const rows = region.vowelRows ?? [];
   const exactRows = precise && region.gridRowFracs?.length === rows.length
     ? region.gridRowFracs.map((fraction) => `${fraction * 100}%`).join(" ")
@@ -310,18 +313,20 @@ export function InteractiveVowelPickOne({
   const exactColumns = precise && region.gridColumnFracs?.length === 4
     ? region.gridColumnFracs
     : undefined;
-  const [correctRows, setCorrectRows] = useState<Set<number>>(new Set());
+  const [correctRows, setCorrectRows] = useActivityState<Set<number>>("correctRows", new Set());
   const [wrongFlash, setWrongFlash] = useState<{
     row: number;
     cell: number;
   } | null>(null);
   const [completed, setCompleted] = useState(false);
+  const restoredComplete = useRef(rows.length > 0 && correctRows.size === rows.length);
 
   useEffect(() => {
     if (rows.length > 0 && correctRows.size === rows.length && !completed) {
       setCompleted(true);
-      gretelEvent("activity:complete");
-      if (lessonId) {
+      if (restoredComplete.current) gretelEvent("activity:complete", { restored: true });
+      else gretelEvent("activity:complete");
+      if (lessonId && !restoredComplete.current) {
         recordEvent({
           lessonId,
           kind: "exercise",
@@ -339,11 +344,11 @@ export function InteractiveVowelPickOne({
     if (cell?.correct) {
       setCorrectRows((prev) => new Set(prev).add(rowIdx));
       playCorrectChord();
-      gretelEvent("answer:correct");
+      gretelEvent("answer:correct", { itemId: `${region.id}-${rowIdx}-${cellIdx}` });
     } else {
       setWrongFlash({ row: rowIdx, cell: cellIdx });
       playWrongBuzz();
-      gretelEvent("answer:wrong");
+      gretelEvent("answer:wrong", { itemId: `${region.id}-${rowIdx}-${cellIdx}` });
       setTimeout(() => setWrongFlash(null), 400);
     }
   };
@@ -392,8 +397,11 @@ export function InteractiveVowelMatchAll({
   accent,
   lessonId,
 }: ExerciseProps) {
+  const { emit: gretelEvent, record: recordEvent } = useActivityEvents();
   const pairs = region.vowelPairs ?? [];
-  const [linked, setLinked] = useState<Set<number>>(new Set());
+  const [linked, setLinked] = useActivityState<Set<number>>("picked", new Set());
+
+  useEffect(() => { if (pairs.length > 0 && linked.size === pairs.length) gretelEvent("activity:complete", { restored: true }); }, [linked, pairs.length, gretelEvent]);
 
   const connect = (i: number) => {
     if (linked.has(i)) return;
@@ -463,12 +471,15 @@ export function InteractiveSyllableMatch({
   accent,
   lessonId,
 }: ExerciseProps) {
+  const { emit: gretelEvent, record: recordEvent } = useActivityEvents();
   const rows = region.matchRows ?? [];
-  const [picked, setPicked] = useState<Set<string>>(new Set());
-  const [graded, setGraded] = useState(false);
-  const [solved, setSolved] = useState(false);
+  const [picked, setPicked] = useActivityState<Set<string>>("picked", new Set());
+  const [graded, setGraded] = useActivityState("graded", false);
+  const [solved, setSolved] = useActivityState("solved", false);
   const [attempts, setAttempts] = useState(0);
   const total = rows.reduce((n, row) => n + row.length, 0);
+
+  useEffect(() => { if (solved) gretelEvent("activity:complete", { restored: true }); }, [solved, gretelEvent]);
 
   const toggle = (key: string) => {
     if (graded) return;
@@ -591,11 +602,14 @@ export function InteractiveFillInBlank({
   accent,
   lessonId,
 }: ExerciseProps) {
+  const { emit: gretelEvent, record: recordEvent } = useActivityEvents();
   const items = region.fillItems ?? [];
-  const [picked, setPicked] = useState<Record<number, number>>({});
-  const [graded, setGraded] = useState(false);
-  const [solved, setSolved] = useState(false);
+  const [picked, setPicked] = useActivityState<Record<number, number>>("picked", {});
+  const [graded, setGraded] = useActivityState("graded", false);
+  const [solved, setSolved] = useActivityState("solved", false);
   const [attempts, setAttempts] = useState(0);
+
+  useEffect(() => { if (solved) gretelEvent("activity:complete", { restored: true }); }, [solved, gretelEvent]);
 
   const pick = (itemIdx: number, choiceIdx: number) => {
     if (graded) return;
@@ -723,11 +737,14 @@ export function InteractiveVowelLineMatch({
   accent,
   lessonId,
 }: ExerciseProps) {
+  const { emit: gretelEvent, record: recordEvent } = useActivityEvents();
   const cells = region.cells ?? [];
-  const [picked, setPicked] = useState<Set<number>>(new Set());
-  const [graded, setGraded] = useState(false);
-  const [solved, setSolved] = useState(false);
+  const [picked, setPicked] = useActivityState<Set<number>>("picked", new Set());
+  const [graded, setGraded] = useActivityState("graded", false);
+  const [solved, setSolved] = useActivityState("solved", false);
   const [attempts, setAttempts] = useState(0);
+
+  useEffect(() => { if (solved) gretelEvent("activity:complete", { restored: true }); }, [solved, gretelEvent]);
 
   const toggle = (i: number) => {
     if (graded) return;

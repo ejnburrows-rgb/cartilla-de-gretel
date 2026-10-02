@@ -65,7 +65,7 @@ describe("InteractiveVowelPickOne — direct tap grading", () => {
     fireEvent.click(getAllByRole("button", { name: "oso" })[0]);
 
     expect(playCorrectChord).toHaveBeenCalledTimes(1);
-    expect(gretelEvent).toHaveBeenCalledWith("answer:correct");
+    expect(gretelEvent).toHaveBeenCalledWith("answer:correct", { itemId: "p2-pick-0-0" });
     expect(recordEvent).not.toHaveBeenCalled();
   });
 
@@ -77,7 +77,7 @@ describe("InteractiveVowelPickOne — direct tap grading", () => {
     fireEvent.click(alaCell); // wrong picture for "o"
 
     expect(playWrongBuzz).toHaveBeenCalledTimes(1);
-    expect(gretelEvent).toHaveBeenCalledWith("answer:wrong");
+    expect(gretelEvent).toHaveBeenCalledWith("answer:wrong", { itemId: "p2-pick-0-1" });
     expect(playCorrectChord).not.toHaveBeenCalled();
 
     // Row stays open — the child simply taps the correct picture next.

@@ -2,7 +2,7 @@
 import { useCallback, useEffect, useRef, useState } from 'react';
 import { Volume2, VolumeX } from 'lucide-react';
 import { cancelGretelSpeech, isGretelVoiceMuted, setGretelVoiceMuted, type IntroCatalogSlice } from '@/lib/gretel-voice';
-import { gretelEvent, onGretelEvent, type GretelBusDetail } from '@/lib/gretel-bus';
+import { gretelEvent, isGretelAssistedAttempt, onGretelEvent, type GretelBusDetail } from '@/lib/gretel-bus';
 import { GretelLiveAvatar, type GretelLiveAvatarRef } from './GretelLiveAvatar';
 import { advanceLearning, freshLearningState, REACTION_TEXT, type LearningState, type LearningInput } from './gretelLearning';
 
@@ -59,7 +59,7 @@ export function GretelPresence({ lesson, instruction, className = '', autoIntro 
         if ((autoIntro || detail.text) && !seen.current.has(key)) { seen.current.add(key); say(detail.text || instruction || 'Vamos a explorar esta página.', 220); }
         return;
       }
-      if (type === 'task:point' && detail.targetId) { active.current = { ...active.current, targetId: detail.targetId }; setContext(active.current); return; }
+      if (type === 'task:point' && detail.targetId && detail.activityId === active.current.activityId) { active.current = { ...active.current, targetId: detail.targetId }; setContext(active.current); return; }
       if (type === 'activity:focus') {
         contextToken.current += 1;
         clearTimeout(speechTimer.current); avatarRef.current?.cancel();
@@ -69,16 +69,23 @@ export function GretelPresence({ lesson, instruction, className = '', autoIntro 
         focusTimer.current = setTimeout(() => setFocused(false), 8000);
         return;
       }
+      // Restoring finished work reconciles the gate, not a new pedagogical attempt.
+      if (detail.restored) return;
+      if (type === 'activity:retry' && detail.reason !== 'work-cleared') return;
       if ((!ready.current && type !== 'activity:retry') || variant === 'home') return;
       const inputs: Record<string, LearningInput> = { 'answer:wrong': 'wrong', 'hint:show': 'hint', 'answer:correct': 'correct', 'activity:complete': 'complete', 'lesson:complete': 'complete', 'activity:retry': 'retry' };
       const input = inputs[type];
       if (!input) return;
-      const id = detail.activityId || active.current.activityId || `page-${active.current.pageNumber ?? 'current'}`;
-      const result = advanceLearning(learning.current.get(id) || freshLearningState(), input);
+      const id = detail.activityId || (!bookMode ? active.current.activityId : undefined);
+      if (!id) return;
+      if (bookMode && detail.pageNumber !== undefined && detail.pageNumber !== active.current.pageNumber) return;
+      const previous = learning.current.get(id) || freshLearningState();
+      const state = isGretelAssistedAttempt(id) ? { ...previous, assisted: true } : previous;
+      const result = advanceLearning(state, input);
       learning.current.set(id, result.state);
       if (!result.reaction) return;
       setFocused(false); setReaction(result.reaction); lastActivity.current = Date.now();
-      gretelEvent('guide:reaction', { ...active.current, ...detail, activityId: id, reaction: result.reaction });
+      gretelEvent('guide:reaction', { ...detail, activityId: id, reaction: result.reaction });
       // Completion immediately follows a correct answer; one sentence is enough.
       say(REACTION_TEXT[result.reaction], 80);
     });
@@ -98,6 +105,7 @@ export function GretelPresence({ lesson, instruction, className = '', autoIntro 
     data-testid={variant === 'home' ? 'book-hero-gretel' : 'gretel-presence'} data-sticker="false" data-gretel-system="presence" data-variant={variant}
     data-placement={bookMode ? 'book' : 'standalone'} data-page-ready={String(entered)} data-page-number={context.pageNumber} data-activity-id={context.activityId} data-target-id={context.targetId} data-reaction={reaction} data-focused={String(focused)}>
     <GretelLiveAvatar ref={avatarRef} size={variant === 'home' ? 'md' : 'sm'} bubblePosition={bookMode ? 'right' : 'top'} paused={focused || !entered} managed />
+    {['cue', 'hint', 'demonstration'].includes(reaction) && <p className="sr-only" role="status">{REACTION_TEXT[reaction as 'cue' | 'hint' | 'demonstration']}</p>}
     {bookMode && context.activityId && entered && <button className="gretel-presence__help" onClick={() => gretelEvent('hint:show', active.current)}>Ayuda</button>}
     {!hideChrome && <div className="gretel-presence__chrome"><p className="gretel-presence__name">Gretel</p><button type="button" onClick={toggleMute} className="gretel-presence__mute" aria-pressed={muted} aria-label={muted ? 'Activar voz de Gretel' : 'Silenciar voz de Gretel'}>{muted ? <VolumeX className="w-4 h-4" /> : <Volume2 className="w-4 h-4" />}<span>{muted ? 'Sin voz' : 'Con voz'}</span></button></div>}
   </aside>;

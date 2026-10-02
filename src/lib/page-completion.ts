@@ -8,7 +8,7 @@
  * Gretel bus (activityId = `page-<n>-<regionId>`, set by GretelActivity), and
  * persisted through lesson-progress.ts next to completed lessons.
  */
-import { useEffect, useMemo, useState } from "react";
+import { useLayoutEffect, useMemo, useState } from "react";
 import { getPageLayout, type PageRegion } from "@/lib/book-faithful";
 import { onGretelEvent } from "@/lib/gretel-bus";
 import {
@@ -104,13 +104,14 @@ export function pageCompletionState(
 /** Live completion state for the page on screen. */
 export function usePageCompletion(pageNumber: number | undefined, lessonNumber?: number): PageCompletionState {
   const [tick, setTick] = useState(0);
-  useEffect(() => {
+  useLayoutEffect(() => {
     if (typeof pageNumber !== "number") return;
-    const prefix = `page-${pageNumber}-`;
+    const requiredIds = new Set(requiredActivitiesForPage(pageNumber).map(activity => activity.id));
     const off = onGretelEvent((type, detail) => {
-      if (!detail.activityId?.startsWith(prefix)) return;
+      if (!detail.activityId || !requiredIds.has(detail.activityId)) return;
+      if (detail.pageNumber !== undefined && detail.pageNumber !== pageNumber) return;
       if (type === "activity:complete") markPageActivityCompleted(pageNumber, detail.activityId);
-      if (type === "activity:retry" && detail.reaction !== "independent-retry") {
+      if (type === "activity:retry" && detail.reason === "work-cleared") {
         unmarkPageActivityCompleted(pageNumber, detail.activityId);
       }
     });

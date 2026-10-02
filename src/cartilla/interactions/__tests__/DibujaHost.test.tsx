@@ -2,7 +2,7 @@
  * @vitest-environment jsdom
  */
 import { describe, it, expect, vi, beforeEach, afterEach } from "vitest";
-import { render, fireEvent, cleanup, screen } from "@testing-library/react";
+import { render, fireEvent, cleanup, screen, act } from "@testing-library/react";
 import { DibujaHost } from "../DibujaHost";
 
 vi.mock("@/lib/piano-audio", () => ({
@@ -93,7 +93,17 @@ describe("DibujaHost — dual mode", () => {
       },
     });
   });
-  afterEach(() => cleanup());
+  afterEach(() => { cleanup(); vi.useRealTimers(); });
+
+  it("a prior wrong-answer timer cannot erase the subsequent correct choice", () => {
+    vi.useFakeTimers();
+    render(<DibujaHost pageKey="timer-proof" pickOptions={picks} initialMode="pick" />);
+    fireEvent.click(screen.getByRole("option", { name: /^ala/ }));
+    fireEvent.click(screen.getByRole("option", { name: /^oso/ }));
+    act(() => vi.advanceTimersByTime(600));
+    expect(screen.getByRole("option", { name: /^oso/ }).getAttribute("aria-selected")).toBe("true");
+    vi.useRealTimers();
+  });
 
   it("fine-pointer default is pick mode", () => {
     render(<DibujaHost pageKey="d1" pickOptions={picks} initialMode="pick" lessonId="2" />);

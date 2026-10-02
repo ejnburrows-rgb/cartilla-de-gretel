@@ -1,4 +1,4 @@
-import { useEffect, useState, type ReactNode } from "react";
+import { useEffect, useRef, useState, type ReactNode } from "react";
 import { ChevronLeft, ChevronRight } from "lucide-react";
 import { gretelEvent } from "@/lib/gretel-bus";
 import { remainingHint, usePageCompletion } from "@/lib/page-completion";
@@ -23,6 +23,7 @@ export function NativeLessonViewer({
   lessonNumber?: number;
 }) {
   const [index, setIndex] = useState(() => Math.min(Math.max(0, initialPage), pages.length - 1));
+  const revealTimer = useRef<number | undefined>(undefined);
   const [hint, setHint] = useState("");
   const page = pages[index];
   const completion = usePageCompletion(page?.pageNumber, lessonNumber);
@@ -30,11 +31,11 @@ export function NativeLessonViewer({
 
   useEffect(() => {
     gretelEvent("mount");
-    const timer = window.setTimeout(() => gretelEvent("page:revealed", {
+    revealTimer.current = window.setTimeout(() => gretelEvent("page:revealed", {
       pageNumber: pages[index]?.pageNumber,
       text: pages[index]?.gretelLine,
     }), 150);
-    return () => window.clearTimeout(timer);
+    return () => window.clearTimeout(revealTimer.current);
     // The initial reveal occurs once; navigation handles subsequent reveals.
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
@@ -61,7 +62,8 @@ export function NativeLessonViewer({
     setIndex(next);
     onPageChange?.(next);
     window.scrollTo({ top: 0, behavior: "instant" });
-    window.setTimeout(() => gretelEvent("page:revealed", {
+    window.clearTimeout(revealTimer.current);
+    revealTimer.current = window.setTimeout(() => gretelEvent("page:revealed", {
       pageNumber: pages[next]?.pageNumber,
       text: pages[next]?.gretelLine,
     }), 150);

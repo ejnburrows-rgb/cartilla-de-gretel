@@ -13,8 +13,7 @@ import {
   saveCanvasSnapshot,
 } from "@/lib/activity-canvas-store";
 import { defaultDibujaMode, type InputModeDefault } from "@/lib/pointer-policy";
-import { recordEvent } from "@/lib/student-session";
-import { gretelEvent } from "@/lib/gretel-bus";
+import { useActivityEvents, useActivityState } from "@/lib/activity-events";
 import { playCorrectChord, playWrongBuzz } from "@/lib/piano-audio";
 import { useReducedMotion } from "@/hooks/useReducedMotion";
 import { LivingIllustration } from "@/components/living/LivingIllustration";
@@ -53,6 +52,7 @@ export function DibujaHost({
   className,
   verb = "Dibuja",
 }: DibujaHostProps) {
+  const { emit: gretelEvent, record: recordEvent } = useActivityEvents();
   const [mode, setMode] = useState<InputModeDefault>(() => initialMode ?? defaultDibujaMode());
   const reducedMotion = useReducedMotion();
 
@@ -65,14 +65,16 @@ export function DibujaHost({
   const [color, setColor] = useState<string>(BOOK_DRAW_SWATCHES[0]);
   const [erasing, setErasing] = useState(false);
   const [strokePoints, setStrokePoints] = useState(0);
-  const [drawDone, setDrawDone] = useState(false);
+  const [drawDone, setDrawDone] = useActivityState("drawDone", false);
   const hasStroke = strokePoints >= 3;
   const canFinishDraw = strokePoints >= MIN_STROKE_POINTS;
 
   // ── Pick mode state ──────────────────────────────────────────────
-  const [pickedId, setPickedId] = useState<string | null>(null);
+  const [pickedId, setPickedId] = useActivityState<string>("pickedId", "");
   const [pickGrade, setPickGrade] = useState<"correct" | "wrong" | null>(null);
-  const [pickDone, setPickDone] = useState(false);
+  const [pickDone, setPickDone] = useActivityState("pickDone", false);
+  const wrongTimer = useRef<number | undefined>(undefined);
+  useEffect(() => () => window.clearTimeout(wrongTimer.current), []);
   const [shakeId, setShakeId] = useState<string | null>(null);
 
   const usablePicks = useMemo(() => {
@@ -80,6 +82,8 @@ export function DibujaHost({
     if (withArt.length >= 2) return withArt.slice(0, 4);
     return withArt;
   }, [pickOptions]);
+
+  useEffect(() => { if (drawDone || pickDone) gretelEvent("activity:complete", { restored: true }); }, [drawDone, pickDone, gretelEvent]);
 
   const resize = useCallback(() => {
     const canvas = canvasRef.current;
@@ -223,6 +227,8 @@ export function DibujaHost({
     const rect = canvas.getBoundingClientRect();
     ctx.clearRect(0, 0, rect.width, rect.height);
     clearCanvasSnapshot(`dibuja:${pageKey}`);
+    setDrawDone(false);
+    gretelEvent("activity:retry", { reason: "work-cleared" });
     pointsRef.current = 0;
     setStrokePoints(0);
   };
@@ -257,6 +263,8 @@ export function DibujaHost({
 
   const onPick = (opt: DibujaPickOption) => {
     if (pickDone) return;
+    window.clearTimeout(wrongTimer.current);
+    setShakeId(null);
     setPickedId(opt.id);
     if (opt.correct) {
       setPickGrade("correct");
@@ -284,11 +292,11 @@ export function DibujaHost({
       setShakeId(opt.id);
       playWrongBuzz();
       gretelEvent("answer:wrong");
-      window.setTimeout(
+      wrongTimer.current = window.setTimeout(
         () => {
           setShakeId(null);
           setPickGrade(null);
-          setPickedId(null);
+          setPickedId("");
         },
         reducedMotion ? 200 : 480,
       );
@@ -414,7 +422,7 @@ export function DibujaHost({
               const selected = pickedId === opt.id;
               const classes = [
                 "am-dibuja__card",
-                selected && pickGrade === "correct" ? "is-correct" : "",
+                selected && (pickGrade === "correct" || pickDone) ? "is-correct" : "",
                 shakeId === opt.id ? "is-shake" : "",
               ]
                 .filter(Boolean)
@@ -448,7 +456,7 @@ export function DibujaHost({
               Inténtalo de nuevo
             </p>
           )}
-          {pickDone && pickGrade === "correct" && (
+          {pickDone && (
             <p className="am-dibuja__success" role="status">
               ¡Buen trabajo!
             </p>

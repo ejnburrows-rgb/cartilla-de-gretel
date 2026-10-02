@@ -13,3 +13,29 @@ describe("gretel bus detail", () => {
     off();
   });
 });
+
+it('explicit activity identity does not inherit another activity page or encounter', async () => {
+  const { focusGretelActivity } = await import('../gretel-bus');
+  const handler = vi.fn(); const off = onGretelEvent(handler);
+  focusGretelActivity({ activityId: 'B', pageNumber: 26, encounterId: 'B-run' });
+  gretelEvent('activity:complete', { activityId: 'A', pageNumber: 24, encounterId: 'A-run' });
+  expect(handler).toHaveBeenLastCalledWith('activity:complete', expect.objectContaining({ activityId: 'A', pageNumber: 24, encounterId: 'A-run' }));
+  off();
+});
+
+it('retry invitation is not assistance, delivered help belongs to its source, and clearing only resets that source', async () => {
+  const { focusGretelActivity, isGretelAssistedAttempt } = await import('../gretel-bus');
+  localStorage.clear();
+  focusGretelActivity({ activityId: 'B' });
+  gretelEvent('guide:reaction', { activityId: 'A', reaction: 'independent-retry' });
+  expect(isGretelAssistedAttempt('A')).toBe(false);
+  gretelEvent('guide:reaction', { activityId: 'A', reaction: 'cue' });
+  expect(isGretelAssistedAttempt('A')).toBe(true);
+  expect(isGretelAssistedAttempt('B')).toBe(false);
+  gretelEvent('activity:retry', { activityId: 'A', reaction: 'independent-retry' });
+  expect(isGretelAssistedAttempt('A')).toBe(true);
+  gretelEvent('activity:retry', { activityId: 'B', reason: 'work-cleared' });
+  expect(isGretelAssistedAttempt('A')).toBe(true);
+  gretelEvent('activity:retry', { activityId: 'A', reason: 'work-cleared' });
+  expect(isGretelAssistedAttempt('A')).toBe(false);
+});

@@ -72,8 +72,8 @@ type LogInput = {
 
 /** Save immediately, then sync signed-in student events in order. */
 export function recordEvent(input: LogInput) {
-  if (input.kind === "exercise" && isGretelAssistedAttempt()) {
-    input = { ...input, score: 0, meta: { ...input.meta, completed: false, assisted: true, needsIndependentAttempt: true } };
+  if (input.kind === "exercise" && isGretelAssistedAttempt(typeof input.meta?.activityId === "string" ? input.meta.activityId : undefined)) {
+    input = { ...input, meta: { ...input.meta, assisted: true, needsIndependentAttempt: true } };
   }
   // Always mirror exercise results to local stats (works for anonymous users too).
   if (
