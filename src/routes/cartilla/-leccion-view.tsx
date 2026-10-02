@@ -28,7 +28,7 @@ export function Leccion() {
   const { n: nParam } = useParams({ from: "/cartilla/leccion/$n" });
   const navigate = useNavigate();
   const n = Number(nParam);
-  const [showIntro, setShowIntro] = useState(true);
+  const showIntro = false;
   const [completionCinematic, setCompletionCinematic] = useState<GretelCinematicSpec | null>(null);
   useLessonProgress();
   const session = useStudentSession();
@@ -118,9 +118,6 @@ export function Leccion() {
     if (entry && !unlocked) navigate({ to: "/cartilla/lecciones" });
   }, [entry, navigate, unlocked]);
 
-  useEffect(() => {
-    setShowIntro(true);
-  }, [n]);
 
   useEffect(() => {
     startedAt.current = Date.now();
@@ -166,52 +163,16 @@ export function Leccion() {
   );
 
   return (
-    <div className="min-h-screen bg-background flex flex-col">
-      <header className={`px-4 max-w-3xl w-full mx-auto ${session ? "pt-4" : "pt-20"}`}>
-        <div className="flex items-center justify-between gap-3 mb-3 flex-wrap">
-          <Link
-            to="/cartilla/lecciones"
-            className="inline-flex items-center gap-2 text-sm font-bold text-foreground/70 hover:text-foreground"
-          >
-            <ArrowLeft className="w-4 h-4" /> {t.indice[lang]}
-          </Link>
-          <div className="flex items-center gap-3">
-            <div className="flex items-center gap-2">
-              <LessonTimer limitSeconds={assignment?.time_limit_seconds ?? null} />
-              <span className="text-xs font-bold text-foreground/60">
-                L{n}/{TOTAL_LESSONS}
-              </span>
-            </div>
-          </div>
-        </div>
-        <div className="h-2 bg-secondary rounded-full overflow-hidden border border-foreground/10">
-          <div
-            className="h-full transition-all"
-            style={{ width: `${pct}%`, backgroundColor: entry.color }}
-          />
-        </div>
-        {assignment && (
-          <div
-            className="mt-3 rounded-xl border-2 px-3 py-2 text-xs font-bold inline-flex items-start gap-2"
-            style={{
-              borderColor: `color-mix(in srgb, ${entry.color} 30%, transparent)`,
-              background: `color-mix(in srgb, ${entry.color} 5%, transparent)`,
-              color: entry.color,
-            }}
-          >
-            <ClipboardList className="w-4 h-4 shrink-0 mt-0.5" />
-            <span>
-              {t.tareaAsignada[lang]}
-              {assignment.title ? `: ${assignment.title}` : ""}.
-              {assignment.due_at &&
-                ` ${t.entrega[lang]} ${new Date(assignment.due_at).toLocaleDateString()}.`}
-              {assignment.time_limit_seconds &&
-                ` ${t.limite[lang]} ${Math.round(assignment.time_limit_seconds / 60)} ${t.min[lang]}.`}
-            </span>
-          </div>
-        )}
+    <div className="lc-lesson-shell min-h-screen flex flex-col">
+      <header className="lc-lesson-header">
+        <Link
+          to="/cartilla/lecciones"
+          className="lc-lesson-header__back"
+        >
+          <ArrowLeft className="w-5 h-5" /> Mis lecciones
+        </Link>
       </header>
-      <main className="flex-1 px-4 pt-6 pb-6 max-w-7xl w-full mx-auto flex flex-col items-center">
+      <main className="flex-1 px-3 pb-6 max-w-7xl w-full mx-auto flex flex-col items-center">
         <div className="w-full max-w-3xl text-left mb-4">
           <div className="text-xs font-bold uppercase tracking-wide text-foreground/50">
             {t.leccion[lang]} {n} · {t.paginas[lang].toLowerCase()} {entry.pages}
