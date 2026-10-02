@@ -5,18 +5,17 @@ Digital classroom edition of *La Cartilla de Gretel* by Leonor Lopetegui.
 ## Source of truth
 
 - `main` is the production code source of truth.
-- **Book appearance is governed by `CARTILLA_SOURCE_OF_TRUTH.md` and the two
-  authoritative PDFs in `Google Drive > Cartilla Production Hub > 01 Source Documents`:**
+- `AGENTS.md` governs execution, safety, Git, and deployment.
+- `CARTILLA_DIGITAL_DIRECTIVE.md` is the canonical Cartilla fidelity and presentation directive.
+- Authoritative book sources are the owner's originals in:
+  `Google Drive > Cartilla Production Hub > 01 Source Documents`
   - `La Cartilla de Gretel Flip Chart.pdf`
   - `Libro del alumno - Rescan and Optimize (2).pdf`
-- The digital Flip Chart must look like the source Flip Chart page-for-page.
-- The digital student Workbook must look like the source Workbook page-for-page.
-- Approved/cropped book images are locked pixels: placement only, no
-  regeneration/recoloring/remastering/recropping.
+- Structure and content follow the matching source book page.
+- Presentation is modern digital and responsive, as defined by the digital directive.
+- Approved/cropped book images are locked: do not regenerate, redraw, recolor, remaster, recrop, or substitute them.
 - Vite + React + TypeScript + TanStack Router + Supabase.
 - Production host: Vercel.
-- Git contains production code and the small assets actually required by the app.
-
 
 ## Run locally
 
@@ -44,4 +43,5 @@ No paid AI API is required.
 
 ## Repository hygiene
 
+Historical directives live under `docs/archive/directives/` and are not active instructions.
 Do not recommit raw scans, restoration outputs, proof PDFs, screenshots, temporary crops, generated delivery derivatives, or agent scratch folders.
