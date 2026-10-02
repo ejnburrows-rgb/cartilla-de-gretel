@@ -5,9 +5,22 @@ project manager — work out what needs doing and do it.
 
 ---
 
+## CANONICAL INSTRUCTION HIERARCHY
+
+There are only two active repo-wide instruction files:
+
+1. `AGENTS.md` — execution, safety, Git, and deployment rules.
+2. `CARTILLA_DIGITAL_DIRECTIVE.md` — authoritative Cartilla structure, content, image-lock, and presentation rules.
+
+Anything under `docs/archive/` is historical reference only and must not override either file above.
+
+---
+
 ## CARTILLA DIGITAL DIRECTIVE — HIGHEST PRIORITY, NO EXCEPTIONS
 
-Before doing any work, read `PROJECT_SOURCE_OF_TRUTH.md`. For Workbook or teacher Flip Chart work, also read `CARTILLA_DIGITAL_DIRECTIVE.md`. For image or motion work, read `ASSET_FIDELITY_POLICY.md`.
+Before doing any work on the Cartilla Workbook or teacher Flip Chart, read
+`CARTILLA_DIGITAL_DIRECTIVE.md`. It is the canonical directive and overrides
+all prior layout/fidelity instructions.
 
 **In brief:** Every page must have the same layout STRUCTURE as the physical
 book (same elements, same arrangement, same order, same content) — but as a
@@ -54,11 +67,6 @@ placement, and page sequence. Modern digital presentation is welcome.
 ### Images are locked
 The approved/corrected/cropped book images are already the artwork.
 
-**Read `ASSET_FIDELITY_POLICY.md` before touching any image or animation.** It is
-the only active art rule (owner decision, 30 Sep 2026). It allows technical
-cleanup (background removal, transparency, resolution/format) and Google Flow
-motion from approved art — never redesign. Superseded image/Flow instructions have been removed from the active repository.
-
 DO NOT:
 - regenerate them;
 - redraw them;
@@ -99,3 +107,10 @@ work. Do not use Vercel as a test runner.
 - A commit is not a deploy request.
 - Deploy only at an intentional final checkpoint requested by EJN.
 - Verify the real production result only after that deliberate deployment.
+
+## GITHUB ACCOUNT LIMITS
+
+- EJN uses a free GitHub account and does not have GitHub Actions available.
+- Do not depend on GitHub Actions, required CI checks, or hosted Actions runners to complete or verify work.
+- Use direct verification, local/sandbox testing, or other available tools instead.
+- Do not recommend upgrading GitHub solely to enable Actions unless EJN explicitly asks about paid options.

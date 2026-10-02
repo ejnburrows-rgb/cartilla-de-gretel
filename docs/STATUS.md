@@ -1,0 +1,14 @@
+# STATUS — La Cartilla de Gretel
+
+Updated: 2026-10-02
+
+- Production source of truth: `main`.
+- Active repo-wide instructions: `AGENTS.md` and `CARTILLA_DIGITAL_DIRECTIVE.md`.
+- Historical fidelity/artwork directives are archived under `docs/archive/directives/` and are not active requirements.
+- Build path: TypeScript check → unit tests → Vite production build.
+- Visual audit workflow separately runs production-art checks and Playwright visual coverage.
+- Supabase remains the cloud data/auth backend.
+- Approved/cropped Cartilla artwork is locked; placement/layout changes must follow the digital directive.
+- The authoritative source rescan has a documented gap for printed workbook pages 86–87; do not invent replacements.
+- GitHub-hosted Actions are currently unable to start because GitHub reports an account billing lock. This is an account-level runner block, not a repository workflow failure.
+- No paid AI API is required by the application.
