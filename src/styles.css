@@ -958,14 +958,13 @@ html.student-pencil.a11y-xlarge body {
   height: 38px;
   display: grid;
   place-items: center;
-  transform: rotate(45deg);
-  border-radius: 4px;
+  clip-path: polygon(50% 0,100% 50%,50% 100%,0 50%);
+  border-radius: 0;
   background: var(--lc-teal, #1f9e94);
   color: #fff;
   font-family: "Fredoka", ui-rounded, system-ui, sans-serif;
   font-weight: 700;
 }
-.lc-lesson-tile__number::first-line { transform: rotate(-45deg); }
 .lc-lesson-tile > img {
   width: 78px;
   height: 70px;
@@ -1011,3 +1010,22 @@ html.student-pencil.a11y-xlarge body {
   .lc-lesson-tile { min-height: 190px; }
 }
 @media (prefers-reduced-motion: reduce) { .lc-lesson-tile { transition: none; } .lc-lesson-tile:hover { transform:none; } }
+
+
+/* ── Approved lesson shell ── */
+.lc-lesson-shell { background: var(--lc-bg, #f5f1e8); color:var(--lc-ink,#25313a); font-family:"Andika",ui-rounded,system-ui,sans-serif; }
+.lc-lesson-header {
+  width:min(1180px,100%);
+  margin:0 auto;
+  padding:14px 14px 8px;
+}
+.lc-lesson-header__back {
+  min-height:44px;
+  display:inline-flex;
+  align-items:center;
+  gap:8px;
+  color:var(--lc-ink-soft,#53616b);
+  font-weight:700;
+  text-decoration:none;
+}
+.lc-lesson-header__back:focus-visible { outline:4px solid var(--lc-focus,#1668c7); outline-offset:3px; border-radius:8px; }
