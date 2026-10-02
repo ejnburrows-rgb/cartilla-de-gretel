@@ -31,3 +31,28 @@ export const GRETEL_ASSET_INVENTORY: GretelAssetRow[] = [{
 }];
 export function allWiredPosePaths(): string[] { return [GRETEL_APPROVED_MASTER_SRC]; }
 export function poseForGretelEvent(): GretelPoseKey | null { return "idle"; }
+
+export function getGretelPose(key: GretelPoseKey): string {
+  const pose = GRETEL_POSES[key];
+  return Array.isArray(pose) ? pose[0]! : pose;
+}
+
+export function getGretelPoseFrames(key: GretelPoseKey): string[] {
+  const pose = GRETEL_POSES[key];
+  return Array.isArray(pose) ? pose : [pose];
+}
+
+export function poseForBusEvent(event: string): GretelPoseKey {
+  switch (event) {
+    case "lesson:start": return "welcome";
+    case "answer:correct":
+    case "lesson:complete":
+    case "activity:complete": return "cheering";
+    case "answer:wrong": return "encouraging";
+    case "hint:show": return "pointing";
+    case "page-turn:start": return "settling";
+    case "talk:start": return "talking";
+    case "talk:stop": return "idle";
+    default: return "idle";
+  }
+}
