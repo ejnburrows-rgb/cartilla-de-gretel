@@ -14,7 +14,7 @@ import { getWorkbookPageFallbackChain } from "@/lib/bookImages";
 import { LivingIllustration } from "@/components/living/LivingIllustration";
 
 /** Known non-page placeholders that must NOT stand in for real page art. */
-const PLACEHOLDER_BACKGROUNDS = new Set([
+const PLACEHOLDER_BACKGROUNDS = new Set<string>([
 ]);
 
 function isPlaceholderBackground(src: string | null | undefined): boolean {

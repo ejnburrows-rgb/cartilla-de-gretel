@@ -28,7 +28,7 @@ export function Leccion() {
   const { n: nParam } = useParams({ from: "/cartilla/leccion/$n" });
   const navigate = useNavigate();
   const n = Number(nParam);
-  const showIntro = false;
+  const [showIntro, setShowIntro] = useState(false);
   const [completionCinematic, setCompletionCinematic] = useState<GretelCinematicSpec | null>(null);
   useLessonProgress();
   const session = useStudentSession();

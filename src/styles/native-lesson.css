@@ -448,3 +448,37 @@
   width: 48px;
   height: 48px;
 }
+
+/* ── Responsive fit fixes for the approved lesson layout ── */
+/* Keep scrolled page content clear of the "Lección N" footer and page diamond. */
+.native-lesson-viewer__content .faithful-page__body,
+.native-lesson-viewer__content .faithful-page--edge-right .faithful-page__body {
+  bottom: 9%;
+  padding-bottom: 2%;
+}
+.native-lesson-viewer__content .faithful-page__lesson,
+.native-lesson-viewer__content .faithful-page__pagenum { pointer-events: none; }
+/* The 220px side column cannot hold Anterior + Siguiente/Terminar lección
+ * side by side; stack them so the gated button is never clipped. */
+@media (min-width: 761px) {
+  .native-lesson-viewer__navigation { grid-template-columns: minmax(0, 1fr); }
+  .native-lesson-viewer__navigation button { width: 100%; min-width: 0; justify-content: center; }
+}
+/* Phones: the page grows with its content instead of trapping the child in a
+ * nested scroll box inside the scrolling screen. */
+@media (max-width: 760px) {
+  .native-lesson-viewer__content .faithful-page {
+    height: auto;
+    aspect-ratio: auto;
+  }
+  .native-lesson-viewer__content .faithful-page__body,
+  .native-lesson-viewer__content .faithful-page--edge-right .faithful-page__body {
+    position: relative;
+    inset: auto;
+    overflow: visible;
+    padding-bottom: calc(9% + 28px);
+  }
+  /* Percent offsets would drift upward as the page grows; pin the footer. */
+  .native-lesson-viewer__content .faithful-page__lesson { bottom: 14px; }
+  .native-lesson-viewer__content .faithful-page__pagenum { bottom: 12px; }
+}

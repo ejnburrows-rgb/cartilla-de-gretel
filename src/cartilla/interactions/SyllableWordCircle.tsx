@@ -78,6 +78,7 @@ export function SyllableWordCircle({ region, lessonId }: { region: PageRegion; l
                   <button
                     type="button"
                     className={`native-syllable__tap${marked.has(i) ? " is-circled" : ""}`}
+                    aria-label={entry.word}
                     aria-pressed={marked.has(i)}
                     onClick={() => toggle(i)}
                   >
@@ -89,6 +90,7 @@ export function SyllableWordCircle({ region, lessonId }: { region: PageRegion; l
                 <button
                   type="button"
                   className="native-syllable__distractor"
+                  aria-pressed={false}
                   onClick={() => toggle(i)}
                 >
                   {entry.word}
