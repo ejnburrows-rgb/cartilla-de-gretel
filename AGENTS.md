@@ -7,21 +7,26 @@ project manager — work out what needs doing and do it.
 
 ## CANONICAL INSTRUCTION HIERARCHY
 
-There are three active repo-wide instruction files:
+There are four active repo-wide instruction files:
 
 1. `AGENTS.md` — execution, safety, Git, and deployment rules.
 2. `CARTILLA_DIGITAL_DIRECTIVE.md` — authoritative Cartilla structure, content, image-lock, and presentation rules.
-3. `repo.md` — locked Workbook + Flip Chart background-generation method.
+3. `ASSET_FIDELITY_POLICY.md` — active artwork, image, and motion rules (referenced by the directive's Image Lock).
+4. `repo.md` — authoritative, locked method for Workbook and Flip Chart background-only generation. Background-only generation is the sole exception to the image lock.
 
-Anything under `docs/archive/` is historical reference only and must not override either file above.
+Anything under `docs/archive/` is historical reference only and must not override any file above.
 
 ---
 
 ## CARTILLA DIGITAL DIRECTIVE — HIGHEST PRIORITY, NO EXCEPTIONS
 
 Before doing any work on the Cartilla Workbook or teacher Flip Chart, read
-`CARTILLA_DIGITAL_DIRECTIVE.md`. Before generating or designing any Workbook or Flip Chart background image, also read and follow `repo.md`. It is the canonical directive and overrides
+`CARTILLA_DIGITAL_DIRECTIVE.md`. It is the canonical directive and overrides
 all prior layout/fidelity instructions.
+
+Before generating or designing any Workbook or Flip Chart background, also
+read and follow `repo.md`. It is the authoritative method for background-only
+generation.
 
 **In brief:** Every page must have the same layout STRUCTURE as the physical
 book (same elements, same arrangement, same order, same content) — but as a
@@ -31,7 +36,7 @@ digitally.
 
 The three layers:
 - **STRUCTURE** (what goes where) → MUST match the book
-- **CONTENT** (text, images) → MUST match the book (images locked, do not modify)
+- **CONTENT** (text, images) → MUST match the book (images locked, do not modify; the sole exception is new scenic backgrounds that follow `repo.md`)
 - **PRESENTATION** (styling, interactions) → MODERN digital, your judgment
 
 **Recognition test:** Would the teacher recognize this as that page from the book? If yes on structure, you got it right — even if the visual style is modern.
@@ -80,6 +85,12 @@ DO NOT:
 
 Use the existing approved image files unchanged and place them per the book's
 layout. Uniform responsive scaling of the whole page is allowed.
+
+### Sole exception: background-only generation (`repo.md`)
+New scenic backgrounds may be created for Workbook and Flip Chart pages when they follow `repo.md`. This exception applies only to the background environment. Original foreground illustrations, characters, objects, text, lesson content, educational meaning, composition, and page structure remain locked and may not be recreated, replaced, redrawn, recolored, modified, or invented.
+
+Every other image-lock rule above still applies. This exception does not
+permit regenerating or altering any approved image file.
 
 ### Conflict rule
 The two source PDFs define the layout. They override derived JSON, old prompts,

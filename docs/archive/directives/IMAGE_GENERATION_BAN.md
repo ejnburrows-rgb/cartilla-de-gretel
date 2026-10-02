@@ -1,3 +1,9 @@
+# ARCHIVED — historical reference only. Do not follow.
+
+Superseded by `ASSET_FIDELITY_POLICY.md` (owner decision, 30 Sep 2026). Background-only generation is governed by `repo.md`. This file is kept as history and must not guide any agent.
+
+---
+
 # IMAGE GENERATION BAN — ChatGPT and All AI Agents
 
 **Owner directive, 2026-09-29. No agent may modify or override this file without the owner's explicit chat instruction.**

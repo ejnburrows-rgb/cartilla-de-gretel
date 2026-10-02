@@ -7,13 +7,14 @@ Digital classroom edition of *La Cartilla de Gretel* by Leonor Lopetegui.
 - `main` is the production code source of truth.
 - `AGENTS.md` governs execution, safety, Git, and deployment.
 - `CARTILLA_DIGITAL_DIRECTIVE.md` is the canonical Cartilla fidelity and presentation directive.
+- `ASSET_FIDELITY_POLICY.md` is the active artwork, image, and motion rule; `repo.md` is the authoritative method for Workbook and Flip Chart background-only generation.
 - Authoritative book sources are the owner's originals in:
   `Google Drive > Cartilla Production Hub > 01 Source Documents`
   - `La Cartilla de Gretel Flip Chart.pdf`
   - `Libro del alumno - Rescan and Optimize (2).pdf`
 - Structure and content follow the matching source book page.
 - Presentation is modern digital and responsive, as defined by the digital directive.
-- Approved/cropped book images are locked: do not regenerate, redraw, recolor, remaster, recrop, or substitute them.
+- Approved/cropped book images are locked: do not regenerate, redraw, recolor, remaster, recrop, or substitute them. The sole exception is new scenic backgrounds (background environment only) that follow `repo.md`.
 - Vite + React + TypeScript + TanStack Router + Supabase.
 - Production host: Vercel.
 
