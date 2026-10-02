@@ -1,6 +1,7 @@
 # ASSET FIDELITY POLICY — La Cartilla de Gretel
 
-**Owner decision (EJN), 30 Sep 2026. This is the ONLY active rule for artwork, images, and animation.**
+**Owner decision (EJN), 30 Sep 2026. This is the active rule for artwork, images, and animation.**
+**Background-only generation is the sole exception, and `repo.md` is its authoritative method** (see "Background-only exception" below).
 It replaces `IMAGE_GENERATION_BAN.md` and `docs/GOOGLE_FLOW_PROMPTS.md`, which are kept only as history and must not guide any agent.
 
 ## The one-line rule
@@ -15,6 +16,13 @@ It replaces `IMAGE_GENERATION_BAN.md` and `docs/GOOGLE_FLOW_PROMPTS.md`, which a
 - Improve resolution or file format (for example PNG → WebP) without changing the art.
 - Create motion from an approved static source image.
 - Use Google Flow to subtly animate approved art.
+- Create a new scenic background for a Workbook or Flip Chart page, background environment only, following `repo.md`.
+
+## Background-only exception (`repo.md`)
+
+New scenic backgrounds may be created for Workbook and Flip Chart pages when they follow `repo.md`. This exception applies only to the background environment. Original foreground illustrations, characters, objects, text, lesson content, educational meaning, composition, and page structure remain locked and may not be recreated, replaced, redrawn, recolored, modified, or invented.
+
+Every NOT ALLOWED rule below still applies to all original art.
 
 ## NOT ALLOWED
 
@@ -34,7 +42,7 @@ It replaces `IMAGE_GENERATION_BAN.md` and `docs/GOOGLE_FLOW_PROMPTS.md`, which a
 
 ## Pages with no pictures
 
-If the printed book page has no picture, the digital page has no picture. Do not add decorative art to book pages.
+If the printed book page has no picture, the digital page adds no picture: do not add illustrations, characters, objects, or decorative art to the page content. The only permitted addition is a scenic background environment that follows `repo.md` (see "Background-only exception").
 
 ## Motion (Google Flow)
 
@@ -48,4 +56,11 @@ If the printed book page has no picture, the digital page has no picture. Do not
 1. Name the approved source file it came from.
 2. Show a before/after side by side.
 3. Confirm: same character, same objects, same composition, same meaning.
+4. If any answer is "no" or "not sure", do not commit it — ask EJN.
+
+For a new scenic background made under `repo.md`:
+
+1. Name the Workbook or Flip Chart page and the original foreground illustration and text it sits behind.
+2. Show the page side by side without and with the new background, with the original foreground composited unchanged.
+3. Confirm: the background follows `repo.md`, and the foreground illustrations, characters, objects, text, lesson content, educational meaning, composition, and page structure are unchanged.
 4. If any answer is "no" or "not sure", do not commit it — ask EJN.

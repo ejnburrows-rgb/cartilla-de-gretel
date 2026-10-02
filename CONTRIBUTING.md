@@ -8,6 +8,7 @@ Before changing any teacher Flip Chart / flipbook or Student Workbook surface, r
 - `PROJECT_SOURCE_OF_TRUTH.md`
 - `CARTILLA_DIGITAL_DIRECTIVE.md`
 - `ASSET_FIDELITY_POLICY.md`
+- `repo.md` (before creating any Workbook or Flip Chart background)
 
 ## Accepted
 
@@ -27,7 +28,7 @@ Before changing any teacher Flip Chart / flipbook or Student Workbook surface, r
 
 The approved/fixed/cropped book images are finished assets for this phase.
 
-Use the authoritative source PDFs to verify page order, placement, scale, orientation, spacing, composition, and fidelity. Technical cleanup or motion must follow `ASSET_FIDELITY_POLICY.md`.
+Use the authoritative source PDFs to verify page order, placement, scale, orientation, spacing, composition, and fidelity. Technical cleanup or motion must follow `ASSET_FIDELITY_POLICY.md`. New scenic backgrounds (background environment only) must follow `repo.md`.
 
 If a visual problem is caused by placement, fix the placement. Do not modify the image to compensate.
 
