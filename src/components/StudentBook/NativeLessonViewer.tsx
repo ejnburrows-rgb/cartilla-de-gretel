@@ -24,7 +24,6 @@ export function NativeLessonViewer({
 }) {
   const [index, setIndex] = useState(() => Math.min(Math.max(0, initialPage), pages.length - 1));
   const [hint, setHint] = useState("");
-  const hintTimer = useRef<number | undefined>(undefined);
   const page = pages[index];
   const completion = usePageCompletion(page?.pageNumber, lessonNumber);
   const isLast = index === pages.length - 1;
@@ -55,8 +54,6 @@ export function NativeLessonViewer({
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [remainingKey]);
 
-  useEffect(() => () => window.clearTimeout(hintTimer.current), []);
-
   const turn = (next: number) => {
     if (next < 0 || next >= pages.length || next === index) return;
     setHint("");
@@ -73,7 +70,6 @@ export function NativeLessonViewer({
   const showRemaining = () => {
     const text = remainingHint(completion.remaining);
     setHint(text);
-    gretelEvent("hint:show", { text, pageNumber: page?.pageNumber });
     document.querySelectorAll("[data-page-remaining]").forEach((el) => el.removeAttribute("data-page-remaining"));
     completion.remaining.forEach((activity) => {
       document.querySelector(`[data-gretel-activity="${activity.id}"]`)?.setAttribute("data-page-remaining", "true");
@@ -82,8 +78,6 @@ export function NativeLessonViewer({
     const target = first ? document.querySelector<HTMLElement>(`[data-gretel-activity="${first.id}"]`) : null;
     const reduce = typeof window.matchMedia === "function" && window.matchMedia("(prefers-reduced-motion: reduce)").matches;
     target?.scrollIntoView?.({ behavior: reduce ? "auto" : "smooth", block: "center" });
-    window.clearTimeout(hintTimer.current);
-    hintTimer.current = window.setTimeout(() => gretelEvent("hint:hide"), 4000);
   };
 
   const forward = () => {
