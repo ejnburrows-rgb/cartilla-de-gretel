@@ -1,4 +1,4 @@
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useRef, useState, type ReactNode } from "react";
 import { ChevronLeft, ChevronRight } from "lucide-react";
 import { gretelEvent } from "@/lib/gretel-bus";
 import { remainingHint, usePageCompletion } from "@/lib/page-completion";
@@ -17,7 +17,7 @@ export function NativeLessonViewer({
   chapterLabel: string;
   initialPage?: number;
   onPageChange?: (index: number) => void;
-  bookCompanion?: React.ReactNode;
+  bookCompanion?: ReactNode;
   onFinish?: () => void;
   /** Lesson being studied; an already-completed lesson is never re-gated. */
   lessonNumber?: number;
@@ -97,35 +97,45 @@ export function NativeLessonViewer({
 
   if (!page) return null;
   return (
-    <section className="native-lesson-viewer" aria-label="Página de aprendizaje" data-native-page={page.pageNumber} data-page-complete={completion.complete ? "true" : "false"}>
+    <section
+      className="native-lesson-viewer"
+      aria-label="Página de aprendizaje"
+      data-native-page={page.pageNumber}
+      data-page-complete={completion.complete ? "true" : "false"}
+    >
       <div className="native-lesson-viewer__topline">
         <span className="native-lesson-viewer__chapter">{chapterLabel}</span>
         <span className="native-lesson-viewer__page">Página {page.pageNumber} · {index + 1} de {pages.length}</span>
       </div>
-      <div className="native-lesson-viewer__progress" role="progressbar" aria-valuenow={index + 1} aria-valuemin={1} aria-valuemax={pages.length} aria-label="Progreso de páginas">
-        {pages.map((entry, step) => <span key={entry.id} className={step <= index ? "is-done" : ""} />)}
+
+      <div className="native-lesson-viewer__layout">
+        <div className="native-lesson-viewer__content">{page.content}</div>
+
+        <aside className="native-lesson-viewer__side" aria-label="Gretel y navegación">
+          {bookCompanion && <div className="native-lesson-viewer__companion">{bookCompanion}</div>}
+          {hint && (
+            <p className="native-lesson-viewer__hint" role="status" aria-live="polite" id="native-lesson-next-hint">
+              {hint}
+            </p>
+          )}
+          <nav className="native-lesson-viewer__navigation" aria-label="Navegación de páginas">
+            <button type="button" onClick={() => turn(index - 1)} disabled={index === 0}>
+              <ChevronLeft size={20} /> Anterior
+            </button>
+            <span>{index + 1} / {pages.length}</span>
+            <button
+              type="button"
+              onClick={forward}
+              aria-disabled={completion.complete ? undefined : true}
+              aria-describedby={hint ? "native-lesson-next-hint" : undefined}
+              data-locked={completion.complete ? undefined : "true"}
+              title={completion.complete ? undefined : "Termina la actividad de esta página para seguir"}
+            >
+              {isLast ? "Terminar lección" : "Siguiente"} <ChevronRight size={20} />
+            </button>
+          </nav>
+        </aside>
       </div>
-      <div className="native-lesson-viewer__content">{page.content}</div>
-      {hint && (
-        <p className="native-lesson-viewer__hint" role="status" aria-live="polite" id="native-lesson-next-hint">
-          {hint}
-        </p>
-      )}
-      <nav className="native-lesson-viewer__navigation" aria-label="Navegación de páginas">
-        <button type="button" onClick={() => turn(index - 1)} disabled={index === 0}><ChevronLeft size={18} /> Anterior</button>
-        <span>{index + 1} / {pages.length}</span>
-        <button
-          type="button"
-          onClick={forward}
-          aria-disabled={completion.complete ? undefined : true}
-          aria-describedby={hint ? "native-lesson-next-hint" : undefined}
-          data-locked={completion.complete ? undefined : "true"}
-          title={completion.complete ? undefined : "Termina la actividad de esta página para seguir"}
-        >
-          {isLast ? "Terminar lección" : "Siguiente"} <ChevronRight size={18} />
-        </button>
-      </nav>
-      {bookCompanion && <div className="native-lesson-viewer__companion">{bookCompanion}</div>}
     </section>
   );
 }
