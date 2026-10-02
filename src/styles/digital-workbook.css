@@ -250,3 +250,87 @@
   .digital-reader__controls button { min-height: 40px; padding: 6px 8px; font-size: 12px; }
 }
 @media (prefers-reduced-motion: reduce) { .digital-reader__page-motion { animation: none; } }
+
+
+/* ── Approved full-workbook presentation ── */
+.digital-reader {
+  color: var(--lc-ink, #25313a);
+  font-family: "Andika", ui-rounded, system-ui, sans-serif;
+}
+.digital-reader__toolbar,
+.digital-reader__controls { max-width: 900px; }
+.digital-reader__toolbar { color: var(--lc-ink-soft, #53616b); }
+.digital-reader__toolbar button,
+.digital-reader__controls button {
+  min-height: 44px;
+  border: 2px solid var(--lc-teal, #1f9e94);
+  border-radius: 12px;
+  background: var(--lc-paper, #fffdf9);
+  color: var(--lc-teal, #1f9e94);
+  font-family: "Fredoka", ui-rounded, system-ui, sans-serif;
+  box-shadow: none;
+}
+.digital-reader__controls button:last-child:not(:disabled) {
+  background: var(--lc-red, #bf3040);
+  border-color: var(--lc-red, #bf3040);
+  color: #fff;
+}
+.digital-reader__toolbar button:focus-visible,
+.digital-reader__controls button:focus-visible,
+.digital-reader__page-list button:focus-visible {
+  outline: 4px solid var(--lc-focus, #1668c7);
+  outline-offset: 3px;
+}
+.digital-reader__page-slot {
+  width: min(100%, 696px, calc((100dvh - 190px) * .772727));
+  max-height: 85dvh;
+}
+.digital-reader__page-list {
+  background: var(--lc-paper, #fffdf9);
+  border-color: rgba(37,49,58,.16);
+  box-shadow: 0 10px 24px rgba(37,49,58,.08);
+}
+.digital-reader__page-list button:hover,
+.digital-reader__page-list button.is-current {
+  background: color-mix(in srgb, var(--lc-teal, #1f9e94) 10%, white);
+  color: var(--lc-teal, #1f9e94);
+}
+@media (max-width: 600px) {
+  .digital-reader__stage {
+    display: block;
+    width: 100%;
+  }
+  .digital-reader__page-slot {
+    width: 100%;
+    max-height: none;
+    height: auto;
+    aspect-ratio: auto;
+    overflow: visible;
+    touch-action: pan-y;
+  }
+  .digital-reader__page-motion,
+  .digital-reader__page-motion > * {
+    width: 100%;
+    height: auto;
+    min-height: calc(100vw * 1.294);
+    overflow: visible;
+  }
+  .digital-reader__page-motion img {
+    width: 100%;
+    height: auto;
+    max-height: none;
+    object-fit: contain;
+  }
+  .digital-reader__companion {
+    width: 100%;
+    min-width: 0;
+    height: auto;
+    display: flex;
+    justify-content: flex-end;
+    padding: 8px 12px;
+  }
+  .digital-reader__controls {
+    position: static;
+    margin-top: 12px;
+  }
+}
