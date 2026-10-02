@@ -744,7 +744,11 @@ export function InteractiveFillInBlank({
               />
             )}
             <span className="fp-ix-fill__wordbox">{item.wordBox}</span>
-            <span className="fp-ix-fill__blank">{item.blank}</span>
+            <span className="fp-ix-fill__blank">
+              {picked[i] === undefined
+                ? item.blank
+                : item.blank.replace("___", item.choices[picked[i]]?.text ?? "___")}
+            </span>
             <div className="fp-ix-fill__choices">
               {item.choices.map((choice, c) => {
                 const isPicked = picked[i] === c;
