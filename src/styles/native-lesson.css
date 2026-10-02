@@ -482,3 +482,14 @@
   .native-lesson-viewer__content .faithful-page__lesson { bottom: 14px; }
   .native-lesson-viewer__content .faithful-page__pagenum { bottom: 12px; }
 }
+/* Hover/sticky-tap must not wash out the primary button's white label. */
+.native-lesson-viewer__navigation button:last-child:hover:not(:disabled) {
+  background: #a32636;
+  border-color: #a32636;
+  color: #fff;
+}
+.native-lesson-viewer__navigation button[data-locked="true"]:hover:not(:disabled) {
+  background: #e9e5dc;
+  border-color: #b9b4aa;
+  color: #6c6a65;
+}
