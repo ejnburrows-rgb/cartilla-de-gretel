@@ -1,6 +1,5 @@
 import React, { type ReactNode } from "react";
 import "@/styles/faithful-page.css";
-import "@/styles/generated-lesson-art.css";
 
 interface PageFrameProps {
   pageNumber?: number;
