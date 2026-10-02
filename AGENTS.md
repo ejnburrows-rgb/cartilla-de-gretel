@@ -107,3 +107,10 @@ work. Do not use Vercel as a test runner.
 - A commit is not a deploy request.
 - Deploy only at an intentional final checkpoint requested by EJN.
 - Verify the real production result only after that deliberate deployment.
+
+## GITHUB ACCOUNT LIMITS
+
+- EJN uses a free GitHub account and does not have GitHub Actions available.
+- Do not depend on GitHub Actions, required CI checks, or hosted Actions runners to complete or verify work.
+- Use direct verification, local/sandbox testing, or other available tools instead.
+- Do not recommend upgrading GitHub solely to enable Actions unless EJN explicitly asks about paid options.
