@@ -47,7 +47,7 @@ describe("flipchart-hd — HD-first presentation assets", () => {
 
   it("isHdFlipchartPath rejects non-HD / scan-like paths", () => {
     expect(isHdFlipchartPath("/cartilla/art/raw/scan-01.jpg")).toBe(false);
-    expect(isHdFlipchartPath("/cartilla/images/gretel/poses/gretel-idle.webp")).toBe(false);
+    expect(isHdFlipchartPath("/cartilla/images/gretel/gretel-approved-master.png")).toBe(false);
     expect(isHdFlipchartPath("/cartilla/art/hd/flipchart/page-004.jpg")).toBe(true);
   });
 });
