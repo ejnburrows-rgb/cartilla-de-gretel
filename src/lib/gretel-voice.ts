@@ -1,3 +1,4 @@
+import { claimSpeech, registerSpeechCleanup, releaseSpeech, speechIsCurrent, stopSpeech } from "./speech-playback";
 /**
  * Gretel voice — neutral, child-friendly Spanish browser TTS.
  * Web Speech API only: free/offline when the device exposes a local voice.
@@ -79,6 +80,7 @@ export function setGretelVoiceMuted(muted: boolean): void {
     }
   }
   if (muted) cancelGretelSpeech();
+  if (typeof window !== "undefined") window.dispatchEvent(new Event("cartilla:audio-settings"));
 }
 
 export function getSelectedGretelVoiceName(): string {
@@ -86,12 +88,8 @@ export function getSelectedGretelVoiceName(): string {
 }
 
 export function cancelGretelSpeech(): void {
-  if (typeof window === "undefined" || !("speechSynthesis" in window)) return;
-  try {
-    window.speechSynthesis.cancel();
-  } catch {
-    /* no-op */
-  }
+  stopSpeech();
+  if (typeof window === "undefined") return;
   window.dispatchEvent(new CustomEvent("gretel:speak_stop"));
 }
 
@@ -104,11 +102,12 @@ export async function speakAsGretel(text: string, handlers: GretelVoiceHandlers 
     handlers.onEnd?.();
     return;
   }
+  const token = claimSpeech("gretel");
   await ensureVoices();
+  if (!speechIsCurrent(token) || isGretelVoiceMuted()) { handlers.onEnd?.(); return; }
   return new Promise((resolve) => {
     try {
       const synth = window.speechSynthesis;
-      synth.cancel();
       const utterance = new SpeechSynthesisUtterance(text.trim());
       const voice = cached ?? pickVoice();
       cached = voice;
@@ -128,15 +127,20 @@ export async function speakAsGretel(text: string, handlers: GretelVoiceHandlers 
         window.dispatchEvent(new CustomEvent("gretel:speak_start"));
         handlers.onStart?.();
       };
+      let finished = false;
       const finish = () => {
+        if (finished) return; finished = true;
+        releaseSpeech(token);
         window.dispatchEvent(new CustomEvent("gretel:speak_stop"));
         handlers.onEnd?.();
         resolve();
       };
       utterance.onend = finish;
       utterance.onerror = finish;
+      registerSpeechCleanup(token, finish);
       synth.speak(utterance);
     } catch {
+      releaseSpeech(token);
       handlers.onEnd?.();
       resolve();
     }

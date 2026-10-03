@@ -1,3 +1,4 @@
+import { claimSpeech, releaseSpeech, registerSpeechCleanup, speechIsCurrent } from "./speech-playback";
 // Free Spanish TTS using the browser's SpeechSynthesis API.
 let cachedVoice: SpeechSynthesisVoice | null = null;
 let voicesReady: Promise<void> | null = null;
@@ -113,23 +114,25 @@ function ensureVoices(): Promise<void> {
 
 export async function speak(text: string): Promise<void> {
   if (typeof window === "undefined" || !("speechSynthesis" in window)) return;
+  const token = claimSpeech("reading");
   await ensureVoices();
+  if (!speechIsCurrent(token)) return;
   return new Promise((resolve) => {
     try {
       const synth = window.speechSynthesis;
-      synth.cancel();
       const u = new SpeechSynthesisUtterance(text);
 
       // Dispatch events for Gretel Mascot
       u.onstart = () => window.dispatchEvent(new CustomEvent("gretel:speak_start"));
-      u.onend = () => {
+      let finished = false;
+      const finish = () => {
+        if (finished) return; finished = true;
+        releaseSpeech(token);
         window.dispatchEvent(new CustomEvent("gretel:speak_stop"));
         resolve();
       };
-      u.onerror = () => {
-        window.dispatchEvent(new CustomEvent("gretel:speak_stop"));
-        resolve();
-      };
+      u.onend = u.onerror = finish;
+      registerSpeechCleanup(token, finish);
 
       const voice = getVoice();
       if (voice) {
@@ -151,6 +154,7 @@ export async function speak(text: string): Promise<void> {
       u.volume = 1;
       synth.speak(u);
     } catch {
+      releaseSpeech(token);
       resolve();
     }
   });
@@ -159,23 +163,25 @@ export async function speak(text: string): Promise<void> {
 export async function speakVowel(v: string): Promise<void> {
   const lower = v.toLowerCase();
   if (typeof window === "undefined" || !("speechSynthesis" in window)) return;
+  const token = claimSpeech("reading");
   await ensureVoices();
+  if (!speechIsCurrent(token)) return;
   return new Promise((resolve) => {
     try {
       const synth = window.speechSynthesis;
-      synth.cancel();
       const u = new SpeechSynthesisUtterance(lower.repeat(5));
 
       // Dispatch events for Gretel Mascot
       u.onstart = () => window.dispatchEvent(new CustomEvent("gretel:speak_start"));
-      u.onend = () => {
+      let finished = false;
+      const finish = () => {
+        if (finished) return; finished = true;
+        releaseSpeech(token);
         window.dispatchEvent(new CustomEvent("gretel:speak_stop"));
         resolve();
       };
-      u.onerror = () => {
-        window.dispatchEvent(new CustomEvent("gretel:speak_stop"));
-        resolve();
-      };
+      u.onend = u.onerror = finish;
+      registerSpeechCleanup(token, finish);
 
       const voice = getVoice();
       if (voice) {
@@ -195,6 +201,7 @@ export async function speakVowel(v: string): Promise<void> {
       u.volume = 1;
       synth.speak(u);
     } catch {
+      releaseSpeech(token);
       resolve();
     }
   });

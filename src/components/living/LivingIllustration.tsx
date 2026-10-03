@@ -1,9 +1,10 @@
+import { resolvePictureName } from "@/lib/picture-vocabulary";
 /**
  * LivingIllustration — subtle life on EXISTING faithful art pixels only.
  * True blink frames remain strictly allow-listed; ambient motion is CSS transform
  * only and never redraws, recolors, warps, or replaces the source pixels.
  */
-import { useEffect, useMemo, useState, useRef } from "react";
+import { useEffect, useLayoutEffect, useMemo, useState, useRef } from "react";
 import { BLINK_HOLD_MS, nextBlinkDelayMs, prefersReducedMotion } from "@/lib/living-motion";
 import { resolveTrueBlinkFrame } from "@/lib/living-blink-map";
 import { getLivingActor } from "@/lib/living-actor-registry";
@@ -35,6 +36,10 @@ export function LivingIllustration({
   loading = "lazy",
   clipSrc,
 }: LivingIllustrationProps) {
+  const picture = resolvePictureName(src, alt);
+  const pictureRef = useRef<HTMLSpanElement>(null);
+  const [insideControl, setInsideControl] = useState(true);
+  useLayoutEffect(() => { setInsideControl(Boolean(pictureRef.current?.parentElement?.closest("button, a, [role=button], [draggable=true], [aria-hidden=true], [inert]"))); }, [src]);
   const actor = useMemo(() => (forceStatic ? null : getLivingActor(src)), [forceStatic, src]);
   const trueBlink = actor?.blinkFrame ?? resolveTrueBlinkFrame(src);
   const [reduced, setReduced] = useState(prefersReducedMotion);
@@ -138,6 +143,13 @@ export function LivingIllustration({
 
   return (
     <span
+      ref={pictureRef}
+      data-picture-name={picture?.name}
+      data-picture-src={picture ? src : undefined}
+      role={picture && !insideControl ? "button" : undefined}
+      tabIndex={picture && !insideControl ? 0 : undefined}
+      aria-label={picture && !insideControl ? "Escuchar el nombre del dibujo" : undefined}
+      onKeyDown={picture && !insideControl ? event => { if (event.key === "Enter" || event.key === " ") { event.preventDefault(); event.currentTarget.click(); } } : undefined}
       className={[
         "living-illustration",
         blinkActive ? "living-illustration--alive" : "",

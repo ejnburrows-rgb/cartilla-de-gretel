@@ -1,3 +1,4 @@
+import { PictureAudioLifecycle } from "@/components/audio/PictureAudioLifecycle";
 import * as React from "react";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import {
@@ -127,6 +128,7 @@ function RootComponent() {
     <QueryClientProvider client={queryClient}>
       <LanguageProvider>
         <ServiceWorkerRegister />
+        <PictureAudioLifecycle />
         <StudentCursor />
         <SkipLink />
         <div id="main-content" tabIndex={-1}>

@@ -1,3 +1,4 @@
+import { stopSpeech } from "./speech-playback";
 /**
  * audio-engine.ts
  *
@@ -20,6 +21,8 @@ export const audioEngine = {
   setVolume(val: number) {
     if (typeof window === "undefined") return;
     localStorage.setItem(VOL_KEY, String(val));
+    if (val <= 0) stopSpeech("picture");
+    window.dispatchEvent(new Event("cartilla:audio-settings"));
     if (ambientAudio) {
       ambientAudio.volume = val * 0.4; // Keep ambient background soft
     }
@@ -33,6 +36,8 @@ export const audioEngine = {
   setMuted(muted: boolean) {
     if (typeof window === "undefined") return;
     localStorage.setItem(MUTE_KEY, String(muted));
+    if (muted) stopSpeech("picture");
+    window.dispatchEvent(new Event("cartilla:audio-settings"));
     if (ambientAudio) {
       if (muted) {
         ambientAudio.pause();

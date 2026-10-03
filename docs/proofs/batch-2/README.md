@@ -37,4 +37,4 @@ Five real Chromium scenarios passed using the committed Playwright specification
 - [Direct tap + keyboard/reload](direct-tap-reload.png)
 - [Assisted completion](assisted-complete.png)
 
-Batch 3 waits for Batch 2 acceptance. No merge or deployment performed.
+The user subsequently accepted proceeding to Batch 3; see ../batch-3/README.md. No merge or deployment performed.
