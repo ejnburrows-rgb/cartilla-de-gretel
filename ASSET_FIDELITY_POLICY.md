@@ -1,12 +1,12 @@
 # ASSET FIDELITY POLICY — La Cartilla de Gretel
 
-**Owner decision (EJN), 30 Sep 2026. This is the active rule for artwork, images, and animation.**
-**Background-only generation is the sole exception, and `repo.md` is its authoritative method** (see "Background-only exception" below).
+**Owner decisions (EJN), 30 Sep 2026 and 3 Oct 2026. This is the active rule for artwork, images, color transfer, and animation.**
+**Two narrow source-safe exceptions exist:** verified source-preserving color transfer for eligible Workbook foreground art, and background-only generation under `repo.md`.
 It replaces `IMAGE_GENERATION_BAN.md` and `docs/GOOGLE_FLOW_PROMPTS.md`, which are kept only as history and must not guide any agent.
 
 ## The one-line rule
 
-**Keep the approved art. Clean it up, never redesign it. Google Flow is for MOTION, not redesign.**
+**Keep the approved art. Preserve the source drawing. Verified color transfer may add only source-backed color; Google Flow is for MOTION, not redesign.**
 
 ## ALLOWED
 
@@ -14,49 +14,64 @@ It replaces `IMAGE_GENERATION_BAN.md` and `docs/GOOGLE_FLOW_PROMPTS.md`, which a
 - Remove a bad black, gray, or checkerboard background.
 - Preserve or create real transparency.
 - Improve resolution or file format (for example PNG → WebP) without changing the art.
+- Apply verified source-preserving color transfer to an existing Workbook drawing when an exact mapped Flip Chart/canonical counterpart exists and geometry/linework/content remain unchanged.
 - Create motion from an approved static source image.
 - Use Google Flow to subtly animate approved art.
 - Create a new scenic background for a Workbook or Flip Chart page, background environment only, following `repo.md`.
 
+## Source-preserving color-transfer exception
+
+Owner-approved on 2026-10-03.
+
+For an existing Workbook illustration, verified colors may be transferred from an exact mapped Flip Chart/canonical counterpart only when all of the following remain exactly preserved: line art, geometry, pose, proportions, expression, composition, object count, lesson meaning, and content. Do not import source-only scenery, labels, action marks, or extra objects. If an exact/source-preserving transfer cannot be verified, leave the item pending.
+
 ## Background-only exception (`repo.md`)
 
-New scenic backgrounds may be created for Workbook and Flip Chart pages when they follow `repo.md`. This exception applies only to the background environment. Original foreground illustrations, characters, objects, text, lesson content, educational meaning, composition, and page structure remain locked and may not be recreated, replaced, redrawn, recolored, modified, or invented.
-
-Every NOT ALLOWED rule below still applies to all original art.
+New scenic backgrounds may be created for Workbook and Flip Chart pages when they follow `repo.md`. This exception applies only to the background environment. Original foreground illustrations, characters, objects, text, lesson content, educational meaning, composition, and page structure remain unchanged.
 
 ## NOT ALLOWED
 
 - Invent replacement illustrations.
 - Redraw art to make it "prettier".
 - Change the composition.
-- Change a character's identity (face, hair, clothes, colors, proportions).
+- Change a character's identity (face, hair, clothes, proportions) or invent/guess colors. Verified source-preserving color transfer is not an identity change.
 - Add or remove objects.
 - Change the educational meaning of a picture.
 - Bulk-convert art to a generic 3D / polymer-clay / toy style.
 
 ## Gretel
 
-- The master reference is the FIRST approved modernized **Gretel 2.0**: blonde hair, red bow, large blue eyes, doll-like face, blue dress, striped blouse, floral / country-tole details, warm brown or sienna outlines, bright clean digital finish. Not generic 3D.
-- Do not pick a master by filename (for example `gretel-autentica.png`). If the master is not confirmed by EJN, stop and show EJN only the viable candidates side by side.
-- Never create a third Gretel style.
+The master is confirmed and locked.
+
+- Machine-readable identity: `src/data/gretel-approved-master.json`.
+- Production master: `public/cartilla/images/gretel/gretel-approved-master.png`.
+- Original approved source: `Folk Art Girl with Red Bow.png`, selection A / left.
+- Preserve the approved face, blonde hair, red bow, large blue eyes, doll-like proportions, striped blouse, blue dress, floral/country-tole details, and warm handcrafted finish.
+- Never substitute a legacy pose or create a third Gretel style.
 
 ## Pages with no pictures
 
 If the printed book page has no picture, the digital page adds no picture: do not add illustrations, characters, objects, or decorative art to the page content. The only permitted addition is a scenic background environment that follows `repo.md` (see "Background-only exception").
 
-## Motion (Google Flow)
+## Motion
 
-- Only a small approved subset of clips (about 31).
-- A clip plays once when the page opens, then rests on the static approved image.
-- Always keep the static image as the fallback, and respect "reduced motion".
-- Every clip must start from an approved static image and must not change what the image shows.
+### Welcome video
+- The current owner-approved production target is **one** 5–6 second silent welcome loop, not 31 lesson clips.
+- It starts from the exact owner-approved final welcome still and approved Gretel identity.
+- Motion is restrained: gentle wave, subtle breathing, natural blink, warm smile; scene and identity remain stable.
+- Keep the approved still as poster/fallback and respect reduced motion/data-saving/load failure.
 
-## Before any image or clip goes into the repo
+### In-app Gretel
+- Lesson interaction uses the existing approved Gretel master/state system rather than generating a separate video/pose set.
+- Motion must be purposeful and restrained; no constant distracting loops while the learner is answering/writing.
+- Follow `STUDENT_INTERACTION_STANDARD.md` for student feedback motion.
 
-1. Name the approved source file it came from.
-2. Show a before/after side by side.
-3. Confirm: same character, same objects, same composition, same meaning.
-4. If any answer is "no" or "not sure", do not commit it — ask EJN.
+## Before any image, source-preserving color transfer, or clip goes into the repo
+
+1. Name the exact approved/canonical source file(s).
+2. Show a before/after side by side for any changed production pixels.
+3. Confirm: same line art/character, same objects, same composition, same meaning; for color transfer also prove the mapped color source.
+4. If any answer is "no" or "not sure", do not commit it — leave pending or ask EJN.
 
 For a new scenic background made under `repo.md`:
 
