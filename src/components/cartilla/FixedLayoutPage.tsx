@@ -1,3 +1,5 @@
+import { FinalPageBackground } from "./FinalPageBackground";
+import { workbookBackground } from "@/lib/final-backgrounds";
 import { useLayoutEffect, useRef, useState } from "react";
 import type { CSSProperties } from "react";
 import type { PageRegion } from "@/lib/book-faithful";
@@ -104,6 +106,7 @@ export function FixedLayoutPage({
         style={{ transform: `scale(${scale})` }}
         aria-label={`Página digital ${pageNumber}`}
       >
+        <FinalPageBackground asset={workbookBackground(pageNumber)} />
         {[...regions].sort((a, b) => a.order - b.order).map((region) => (
           <FixedRegion key={region.id} region={region} interactive={interactive} />
         ))}

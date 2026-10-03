@@ -1,14 +1,14 @@
 {
-  "generatedAt": "2026-09-30T19:53:02.009Z",
+  "generatedAt": "2026-10-03T13:46:47.514Z",
   "sourceManifest": "/cartilla/art/faithful/manifest.json",
   "canonicalPolicy": "Canonical faithful WebP files remain untouched. Delivery derivatives are disposable build output.",
   "counts": {
     "manifestEntries": 158,
     "quarantinedAssets": 35,
-    "wiredProductionAssets": 86,
+    "wiredProductionAssets": 96,
     "processedCanonicalAssets": 108,
     "unavailableManifestAssets": 0,
-    "wiredQaPass": 86,
+    "wiredQaPass": 96,
     "backgroundCleaned": 99,
     "paddingTrimmed": 104,
     "edgeTouchWarnings": 9,
