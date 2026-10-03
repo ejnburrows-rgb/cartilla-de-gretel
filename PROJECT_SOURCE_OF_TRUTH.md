@@ -1,7 +1,7 @@
 # PROJECT SOURCE OF TRUTH — La Cartilla de Gretel
 
 **Status:** Active project entry point  
-**Last verified:** 2026-09-30
+**Last verified:** 2026-10-03
 
 ## Goal
 
@@ -24,27 +24,36 @@ For curriculum, wording, page order, exercise content, and source-page structure
 ## Active rules
 
 1. Read `CARTILLA_DIGITAL_DIRECTIVE.md` for page/content/presentation rules.
-2. Read `ASSET_FIDELITY_POLICY.md` before touching images or motion, and `repo.md` before generating any Workbook or Flip Chart background (background-only generation is the sole exception to the image lock).
+2. Read `ASSET_FIDELITY_POLICY.md` before touching images, verified color transfer, or motion; read `STUDENT_INTERACTION_STANDARD.md` before changing student Workbook interactions; read `repo.md` before generating any Workbook or Flip Chart background.
 3. Lessons 8–24 must match the physical Workbook **word for word** and in the correct order.
 4. Digital interaction may change the physical gesture, not the lesson content or educational objective.
 5. A student cannot advance with **Next** until the required work on the current page is completed.
 6. Workbook and Flip Chart are separate experiences:
    - Workbook = student interaction.
    - Flip Chart/Presenter = teacher classroom presentation.
-7. Gretel uses the approved Gretel 2.0 direction and the existing character system. Final voice is deferred until the owner supplies it.
-8. Google Flow is for a small approved motion set (about 31 clips), using approved static art; clips play once on page open unless explicitly defined otherwise; reduced-motion uses a still.
+7. Gretel uses the exact approved master identified by `src/data/gretel-approved-master.json` and the existing character system. Final voice/TTS direction is deferred until the owner explicitly approves it.
+8. Google Flow's current production scope is one owner-approved 5–6 second silent welcome loop from the exact approved final still. In-app lesson reactions use the existing Gretel state system; no 31-clip requirement remains.
 9. Automatic Vercel deployment stays off during active work. Do not use production deployment as a test runner.
 10. Do not reopen historical audits/branches unless current source or a failing test proves a current problem.
 
 ## Current work
 
-Active implementation branch:
-`fix/lessons-08-24-book-fidelity`
+Current product-completion execution is intentionally parallel where scopes are isolated.
 
-Current priority:
-- restore Lessons 8–24 from the physical Workbook;
-- enforce fidelity with tests;
-- then finish premium Workbook, Flip Chart/Presenter, Gretel, motion, and final school-pilot QA.
+Active independent lanes include:
+- direct cloud release verification;
+- active instruction/source-of-truth reconciliation;
+- production foreground art remediation with verified source-preserving color transfer;
+- Gretel behavior/motion discipline;
+- welcome-media readiness/integration;
+- the current student-activity stage.
+
+The student activity chain remains dependency-ordered:
+`#445 → #446 → #447 → #448 → #449`.
+
+Final gates follow with whole-Workbook regression, teacher/Flip Chart validation, performance, welcome-media integration, and final assembled-product release proof.
+
+Supabase/live-auth work is deferred from the current product-completion path.
 
 ## Proof rule
 
@@ -57,7 +66,7 @@ No task is "done" without visible or test evidence:
 
 ## Do not waste time on
 
-- another full repository audit;
+- another full repository or visual-source audit without a specific new defect/source gap;
 - another rewrite/replatform;
 - repeated Vercel previews;
 - new duplicate Gretel systems;

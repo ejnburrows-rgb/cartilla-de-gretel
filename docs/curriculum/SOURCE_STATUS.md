@@ -1,6 +1,6 @@
 # Cartilla Source Status
 
-> Compact source status for implementation agents. For rules, read `../../AGENTS.md` and `../../CARTILLA_DIGITAL_DIRECTIVE.md`.
+> Compact source status for implementation agents. For rules, read `../../AGENTS.md`, `../../CARTILLA_DIGITAL_DIRECTIVE.md`, `../../ASSET_FIDELITY_POLICY.md`, and `../../STUDENT_INTERACTION_STANDARD.md`.
 
 ## Authoritative visual/page-layout sources
 
@@ -42,9 +42,9 @@ Do not invent, reconstruct, or silently substitute content and label it as origi
 For the teacher Flip Chart and Student Workbook:
 
 - preserve the matching book's structure, content, reading order, and page sequence;
-- use approved/fixed/cropped images unchanged;
-- do not recolor, remaster, regenerate, redraw, recrop, retouch, restyle, or replace approved artwork;
-- do not transfer artwork or content between the two books;
+- preserve approved/fixed/cropped artwork source geometry and identity;
+- do not regenerate, redraw, replace, restyle, or guess visual content;
+- verified source-preserving color transfer from an exact mapped Flip Chart/canonical counterpart is allowed under `ASSET_FIDELITY_POLICY.md`; preserve the Workbook drawing exactly and do not transfer extra objects/backgrounds/content between books;
 - use modern digital typography, spacing, interaction, and responsive behavior only within the limits of `CARTILLA_DIGITAL_DIRECTIVE.md`.
 
 ## Corrections

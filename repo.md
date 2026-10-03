@@ -56,3 +56,8 @@ No watercolor or transparent washes, realism, photorealism, painterly blending, 
 
 ## Locked Rule
 This is the approved default method for all Workbook and Flip Chart background-image generation unless the owner explicitly changes it in chat.
+
+
+## Relationship to foreground color transfer
+
+This file governs **background generation only**. Its instruction not to recolor foreground art means a background-generation task must never alter foreground pixels. The separate owner-approved source-preserving foreground color-transfer workflow is governed by `ASSET_FIDELITY_POLICY.md` and is not performed as part of background generation.

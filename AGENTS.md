@@ -7,12 +7,14 @@ project manager — work out what needs doing and do it.
 
 ## CANONICAL INSTRUCTION HIERARCHY
 
-There are four active repo-wide instruction files:
+There are six active repo-wide instruction files:
 
 1. `AGENTS.md` — execution, safety, Git, and deployment rules.
-2. `CARTILLA_DIGITAL_DIRECTIVE.md` — authoritative Cartilla structure, content, image-lock, and presentation rules.
-3. `ASSET_FIDELITY_POLICY.md` — active artwork, image, and motion rules (referenced by the directive's Image Lock).
-4. `repo.md` — authoritative, locked method for Workbook and Flip Chart background-only generation. Background-only generation is the sole exception to the image lock.
+2. `PROJECT_SOURCE_OF_TRUTH.md` — current product state, priorities, and owner-decided scope.
+3. `CARTILLA_DIGITAL_DIRECTIVE.md` — authoritative Cartilla structure, content, fidelity, and presentation rules.
+4. `ASSET_FIDELITY_POLICY.md` — active artwork, image, color-transfer, and motion rules.
+5. `STUDENT_INTERACTION_STANDARD.md` — canonical owner-approved student Workbook interaction and motion language.
+6. `repo.md` — authoritative, locked method for Workbook and Flip Chart background-only generation.
 
 Anything under `docs/archive/` is historical reference only and must not override any file above.
 
@@ -23,6 +25,8 @@ Anything under `docs/archive/` is historical reference only and must not overrid
 Before doing any work on the Cartilla Workbook or teacher Flip Chart, read
 `CARTILLA_DIGITAL_DIRECTIVE.md`. It is the canonical directive and overrides
 all prior layout/fidelity instructions.
+
+Before changing student Workbook interactions, also read and follow `STUDENT_INTERACTION_STANDARD.md`.
 
 Before generating or designing any Workbook or Flip Chart background, also
 read and follow `repo.md`. It is the authoritative method for background-only
@@ -36,7 +40,7 @@ digitally.
 
 The three layers:
 - **STRUCTURE** (what goes where) → MUST match the book
-- **CONTENT** (text, images) → MUST match the book (images locked, do not modify; the sole exception is new scenic backgrounds that follow `repo.md`)
+- **CONTENT** (text, images) → MUST match the book. Approved foreground art stays source-faithful; only the narrow source-preserving color-transfer exception in `ASSET_FIDELITY_POLICY.md` is allowed. Scenic backgrounds follow `repo.md`.
 - **PRESENTATION** (styling, interactions) → MODERN digital, your judgment
 
 **Recognition test:** Would the teacher recognize this as that page from the book? If yes on structure, you got it right — even if the visual style is modern.
@@ -70,27 +74,23 @@ modern, interactive digital experience.
 Match the same layout structure, text placement, exercise flow, illustration
 placement, and page sequence. Modern digital presentation is welcome.
 
-### Images are locked
-The approved/corrected/cropped book images are already the artwork.
+### Images are source-locked
+The approved/corrected/cropped book images are the artwork.
 
 DO NOT:
 - regenerate them;
 - redraw them;
-- recolor them;
-- remaster or "modernize" them;
-- optimize their visual style;
-- recrop them;
-- substitute similar artwork;
-- change their internal geometry.
+- replace them with similar artwork;
+- remaster or "modernize" their style;
+- change their line art, internal geometry, composition, pose, proportions, object count, identity, or educational meaning;
+- guess or invent colors.
 
-Use the existing approved image files unchanged and place them per the book's
-layout. Uniform responsive scaling of the whole page is allowed.
+Two owner-approved exceptions exist:
 
-### Sole exception: background-only generation (`repo.md`)
-New scenic backgrounds may be created for Workbook and Flip Chart pages when they follow `repo.md`. This exception applies only to the background environment. Original foreground illustrations, characters, objects, text, lesson content, educational meaning, composition, and page structure remain locked and may not be recreated, replaced, redrawn, recolored, modified, or invented.
+1. **Source-preserving color transfer.** For an existing Workbook drawing, verified color may be transferred from an exact mapped Flip Chart/canonical counterpart while preserving the Workbook drawing exactly. Follow `ASSET_FIDELITY_POLICY.md`; if the counterpart cannot be verified, leave the asset pending.
+2. **Background-only generation.** New scenic backgrounds may be created only under `repo.md`; foreground art and lesson content remain unchanged.
 
-Every other image-lock rule above still applies. This exception does not
-permit regenerating or altering any approved image file.
+Uniform responsive scaling of the whole page is allowed.
 
 ### Conflict rule
 The two source PDFs define the layout. They override derived JSON, old prompts,
@@ -135,7 +135,7 @@ EJN does not review code or GitHub internals. Agents own the technical judgment 
 
 - Never put unfinished or unverified work into `main`.
 - One branch per active job. No backup, experiment, duplicate, or unrelated branches.
-- Maximum two active coding lanes at once. Before changing shared areas, check the other active lane and avoid overlap.
+- Multiple Jules/coding lanes may run in parallel when their scopes are genuinely isolated. Dependency chains that touch the same activity family remain sequential. Before merge, every parallel PR must be rechecked against current `main`; stale/conflicting work must be updated before merge.
 - Make normal technical choices yourself. Do not ask EJN to choose libraries, Git methods, file structure, or test methods unless it changes what he will actually see or use.
 - Before asking for approval, fix obvious issues, run relevant tests, confirm the project builds, check the actual feature/screen, and address known important review findings.
 - Preserve unrelated working parts of the project. Do not reorganize or modernize outside the task.
@@ -160,7 +160,7 @@ READY TO PUSH:
 Yes or No.
 ```
 
-Then stop and wait.
+For ad-hoc work without prior merge authorization, stop and wait. For the owner-authorized Cartilla completion queue, the designated queue controller may merge a fully verified, scope-correct PR and advance its declared dependency chain without a separate per-PR owner prompt.
 
 ### Meaning of "Push it"
 When EJN says **"Push it"**, put the completed, tested work into `main`, confirm it is there, let the finished branch be removed when safe, and report back. EJN should never have to merge, rebase, cherry-pick, resolve conflicts, or supervise GitHub.
@@ -173,4 +173,6 @@ Do not enable automatic merging. Do not depend on GitHub Actions or paid GitHub 
 
 If something goes wrong after "Push it", diagnose the cause, repair it if clearly within the approved task, verify the repair, and show the result without making EJN perform Git operations.
 
-Normal workflow: EJN asks → agent builds safely → agent tests → agent shows proof → EJN says "Push it" → agent puts finished work in `main` → agent confirms it.
+Normal ad-hoc workflow: EJN asks → agent builds safely → agent tests → agent shows proof → EJN says "Push it" → agent puts finished work in `main` → agent confirms it.
+
+Authorized Cartilla queue exception: for issues explicitly placed in the owner-authorized completion queue, the queue controller may merge after independent verification and advance the next dependency automatically. This is not permission for Jules to self-merge.
