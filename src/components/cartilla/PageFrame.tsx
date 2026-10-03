@@ -1,3 +1,5 @@
+import { FinalPageBackground } from "./FinalPageBackground";
+import { workbookBackground } from "@/lib/final-backgrounds";
 import React, { type ReactNode } from "react";
 import "@/styles/faithful-page.css";
 
@@ -32,6 +34,7 @@ export function PageFrame({ pageNumber, lessonNumber, children, className, garde
 
   return (
     <div className={classes} style={style}>
+      <FinalPageBackground asset={typeof pageNumber === "number" ? workbookBackground(pageNumber) : undefined} />
       <div className="faithful-page__sidebar"><WavySidebar /></div>
       <div className="faithful-page__body">{children}</div>
       {typeof pageNumber === "number" && <div className="faithful-page__pagenum" aria-label={`Página ${pageNumber}`}><span>{pageNumber}</span></div>}

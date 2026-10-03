@@ -1,0 +1,17 @@
+/* Fit the whole delivered composition uniformly without cropping or stretching. */
+.final-page-background {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  max-width: none;
+  object-fit: contain;
+  object-position: center;
+  pointer-events: none;
+  user-select: none;
+  z-index: -1;
+}
+.faithful-page, .digital-page-canvas, .fc-native-board { isolation: isolate; }
+
+/* Existing page paper otherwise covers the decorative layer. */
+.fc-native-board:has(> .final-page-background) .fc-native-board__page { background: transparent; }
