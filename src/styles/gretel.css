@@ -188,21 +188,21 @@
   }
 }
 
-/* Gretel mascot animation classes and keyframes */
+/* Gretel mascot animation classes and keyframes (brief 1-cycle reactions) */
 .animate-gretel-bob {
-  animation: gretel-bob 3s ease-in-out infinite;
+  animation: gretel-bob 2.5s ease-in-out 1;
 }
 
 .animate-gretel-wave {
-  animation: gretel-wave 1.5s ease-in-out infinite;
+  animation: gretel-wave 1.2s ease-in-out 1;
 }
 
 .animate-gretel-point {
-  animation: gretel-point 1s ease-in-out infinite;
+  animation: gretel-point 0.9s ease-in-out 1;
 }
 
 .animate-gretel-bounce {
-  animation: gretel-bounce 1.2s ease-in-out infinite;
+  animation: gretel-bounce 1s ease-in-out 1;
 }
 
 @keyframes gretel-bob {
@@ -295,15 +295,15 @@
 }
 
 .animate-gretel-shadow-bob {
-  animation: gretel-shadow-bob 3s ease-in-out infinite;
+  animation: gretel-shadow-bob 2.5s ease-in-out 1;
 }
 
 .animate-gretel-shadow-point {
-  animation: gretel-shadow-point 1s ease-in-out infinite;
+  animation: gretel-shadow-point 0.9s ease-in-out 1;
 }
 
 .animate-gretel-shadow-bounce {
-  animation: gretel-shadow-bounce 1.2s ease-in-out infinite;
+  animation: gretel-shadow-bounce 1s ease-in-out 1;
 }
 
 @keyframes gretel-shadow-bob {

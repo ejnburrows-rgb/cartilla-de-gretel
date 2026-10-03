@@ -60,22 +60,23 @@ const SIZES = {
 type Particle = { id: number; x: number; y: number; kind: "star" | "heart" };
 
 function bodyAnimation(state: string) {
-  if (state === "cheering") return { y: [0, -18, 0], scale: [1, 1.08, 1], rotate: [0, -4, 4, 0] };
-  if (state === "waving") return { rotate: [0, -3, 3, 0], scale: [1, 1.015, 1] };
-  if (state === "talking") return { rotate: [0, -1.2, 1.2, 0], scale: [1, 1.01, 1] };
-  if (state === "pointing" || state === "teaching" || state === "help") return { rotate: [0, 1.4, 0], scale: [1, 1.015, 1] };
-  if (state === "listening") return { rotate: [-2.2, -1.2, -2.2], scale: [1, 1.006, 1] };
-  if (state === "gentle-error") return { y: [0, 1.5, 0], rotate: [1.2, -1.2, 1.2], scale: [1, 0.995, 1] };
-  return { y: 0, rotate: [-0.25, 0.25, -0.25], scale: [1, 1.008, 1] };
+  if (state === "cheering") return { y: [0, -14, 0], scale: [1, 1.05, 1], rotate: [0, -2, 2, 0] };
+  if (state === "waving") return { rotate: [0, -2.5, 2.5, 0], scale: [1, 1.01, 1] };
+  if (state === "talking") return { rotate: [0, -0.8, 0.8, 0], scale: [1, 1.008, 1] };
+  if (state === "pointing" || state === "teaching" || state === "help") return { rotate: [0, 1.2, 0], scale: [1, 1.01, 1] };
+  if (state === "listening") return { rotate: -1.5, scale: 1.01, y: 0 };
+  if (state === "gentle-error") return { y: [0, 1, 0], rotate: [0.8, -0.8, 0], scale: [1, 0.998, 1] };
+  // Settle quietly when idle or settling without continuous infinite movement
+  return { y: 0, rotate: 0, scale: 1 };
 }
 
 function bodyTransition(state: string) {
-  if (state === "cheering") return { duration: 0.65, repeat: 2, ease: "easeInOut" as const };
-  if (state === "waving") return { duration: 1.2, repeat: 1, ease: "easeInOut" as const };
-  if (state === "talking") return { duration: 0.7, repeat: Infinity, ease: "easeInOut" as const };
-  if (["pointing", "teaching", "help", "gentle-error"].includes(state)) return { duration: 0.55, ease: "easeOut" as const };
-  if (state === "listening") return { duration: 2.1, repeat: Infinity, ease: "easeInOut" as const };
-  return { duration: 5.5, repeat: Infinity, ease: "easeInOut" as const };
+  if (state === "cheering") return { duration: 0.6, repeat: 0, ease: "easeInOut" as const };
+  if (state === "waving") return { duration: 0.9, repeat: 0, ease: "easeInOut" as const };
+  if (state === "talking") return { duration: 0.8, repeat: Infinity, ease: "easeInOut" as const };
+  if (["pointing", "teaching", "help", "gentle-error"].includes(state)) return { duration: 0.45, ease: "easeOut" as const };
+  if (state === "listening") return { duration: 0.4, ease: "easeOut" as const };
+  return { duration: 0.35, ease: "easeOut" as const };
 }
 
 export const GretelLiveAvatar = forwardRef<GretelLiveAvatarRef, GretelLiveAvatarProps>(
