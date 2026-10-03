@@ -1,3 +1,4 @@
+import { startDemoStudentSession } from "@/lib/demo-student-session";
 import { useEffect, useMemo, useState } from "react";
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { useQuery, useQueryClient } from "@tanstack/react-query";
@@ -162,6 +163,11 @@ function EstudianteDetail() {
                 <h1 className="text-3xl font-black text-stone-800">{progress.student.display_name}</h1>
                 <p className="mt-1 text-sm font-bold text-stone-500">Código: <span className="font-mono text-vowel-e">{progress.student.student_code}</span></p>
               </div>
+              <div className="flex flex-wrap gap-2">
+              {isSeed && <button onClick={() => {
+                startDemoStudentSession(classId, studentId);
+                window.location.assign(`/cartilla/leccion/${assignments?.[0]?.lesson_id ?? "1"}`);
+              }} className="rounded-xl border border-amber-200 bg-amber-100 px-4 py-3 text-sm font-bold text-amber-950">Probar como alumno</button>}
               <Link
                 to="/cartilla/teacher/crm/$classId/$studentId/reporte"
                 params={{ classId, studentId }}
@@ -169,6 +175,7 @@ function EstudianteDetail() {
               >
                 <FileText className="h-4 w-4" /> Reporte para Familias
               </Link>
+              </div>
             </header>
 
             {insight.recommendation && (

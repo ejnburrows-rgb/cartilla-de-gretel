@@ -109,3 +109,8 @@
     padding: 16px;
   }
 }
+
+/* The daily dashboard uses document scrolling so headings and actions stay reachable. */
+.crm-daily .crm-main { height: auto; min-height: 0; overflow: visible; }
+.crm-daily .crm-content { overflow: visible; flex: none; }
+.crm-daily .crm-topbar { flex-shrink: 0; min-height: 64px; gap: 12px; }

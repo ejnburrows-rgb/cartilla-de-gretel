@@ -1,3 +1,4 @@
+import { endDemoStudentSession } from "@/lib/demo-student-session";
 import {
   createFileRoute,
   Outlet,
@@ -36,6 +37,7 @@ import "@/styles/teacher-chrome.css";
 export const Route = createFileRoute("/cartilla/teacher")({
   beforeLoad: async () => {
     if (import.meta.env.VITE_CRM_REVIEW === "true") {
+      endDemoStudentSession();
       startTeacherReview();
       normalizeFacultyDemoRoster();
       return;

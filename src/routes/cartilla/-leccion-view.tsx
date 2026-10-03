@@ -1,3 +1,6 @@
+import { DemoStudentBanner } from "@/components/cartilla/DemoStudentBanner";
+import { getDemoStudentSession } from "@/lib/demo-student-session";
+import { listSeedStudentAssignments } from "@/lib/seed-data";
 import { useEffect, useMemo, useRef, useState } from "react";
 import { Link, useNavigate, useParams } from "@tanstack/react-router";
 import { useQuery } from "@tanstack/react-query";
@@ -34,6 +37,7 @@ export function Leccion() {
   const [completionCinematic, setCompletionCinematic] = useState<GretelCinematicSpec | null>(null);
   useLessonProgress();
   const session = useStudentSession();
+  const demo = getDemoStudentSession();
   const scope = useLearnerScope();
   const entry = useMemo<CatalogEntry | undefined>(() => CATALOG.find((e) => e.n === n), [n]);
 
@@ -43,9 +47,9 @@ export function Leccion() {
 
   const fetchAssignments = useServerFn(listMyAssignments);
   const { data: assignments } = useQuery({
-    queryKey: ["my-assignments", session?.classId],
+    queryKey: ["my-assignments", demo?.classId ?? session?.classId, demo?.studentId ?? session?.studentId],
     queryFn: () =>
-      session
+      demo ? Promise.resolve(listSeedStudentAssignments(demo)) : session
         ? fetchAssignments({
             data: {
               classId: session.classId,
@@ -54,7 +58,7 @@ export function Leccion() {
             },
           })
         : Promise.resolve([]),
-    enabled: !!session,
+    enabled: !!session || !!demo,
   });
   const assignment = useMemo(
     () => (assignments ?? []).find((a: { lesson_id: string }) => a.lesson_id === String(n)),
@@ -178,6 +182,7 @@ export function Leccion() {
 
   return (
     <div className="lc-lesson-shell min-h-screen flex flex-col">
+      <DemoStudentBanner />
       <header className="lc-lesson-header">
         <Link
           to="/cartilla/lecciones"

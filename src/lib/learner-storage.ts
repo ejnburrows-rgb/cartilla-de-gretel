@@ -1,8 +1,11 @@
+import { getDemoStudentSession } from "./demo-student-session";
 import { useSyncExternalStore } from "react";
 
 /** Anonymous history remains anonymous; never adopt it into a student account. */
 export function learnerScope(): string {
   if (typeof window === "undefined") return "anonymous";
+  const demo = getDemoStudentSession();
+  if (demo) return `demo:${encodeURIComponent(demo.classId)}:${encodeURIComponent(demo.studentId)}`;
   if (import.meta.env.VITE_CRM_REVIEW === "true" && import.meta.env.MODE !== "test") return "anonymous";
   try {
     const session = JSON.parse(localStorage.getItem("cartilla.student-session.v1") ?? "null");
