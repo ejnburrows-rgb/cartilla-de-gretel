@@ -40,7 +40,6 @@ create or replace function public.enter_class_as_student(
 returns table (
   student_id uuid,
   student_name text,
-  student_code text,
   class_id uuid,
   class_name text
 )
@@ -51,7 +50,6 @@ as $$
   select
     s.id as student_id,
     s.display_name as student_name,
-    s.student_code,
     c.id as class_id,
     c.name as class_name
   from public.classes c

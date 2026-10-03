@@ -461,7 +461,6 @@ export type Database = {
         Returns: {
           student_id: string;
           student_name: string;
-          student_code: string;
           class_id: string;
           class_name: string;
         }[];
@@ -483,7 +482,6 @@ export type Database = {
         Returns: {
           student_id: string;
           student_name: string;
-          student_code: string;
           class_id: string;
           class_name: string;
         }[];

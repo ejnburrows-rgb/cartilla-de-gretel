@@ -109,7 +109,6 @@ export async function enterClassAsStudent(input: Call<z.infer<typeof enterClassS
   const result = row as {
     student_id: string;
     student_name: string;
-    student_code: string;
     class_id: string;
     class_name: string;
   };
@@ -117,7 +116,6 @@ export async function enterClassAsStudent(input: Call<z.infer<typeof enterClassS
   return {
     studentId: result.student_id,
     studentName: result.student_name,
-    studentCode: result.student_code,
     classId: result.class_id,
     className: result.class_name,
   };

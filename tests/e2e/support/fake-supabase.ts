@@ -129,7 +129,6 @@ export async function installFakeSupabase(
         return json(route, {
           student_id: student.id,
           student_name: student.name,
-          student_code: student.code,
           class_id: setup.classId,
           class_name: setup.className,
         });

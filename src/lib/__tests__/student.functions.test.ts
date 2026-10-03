@@ -158,7 +158,6 @@ describe("student.functions tests", () => {
       const mockResult = {
         student_id: "11111111-1111-1111-1111-111111111111",
         student_name: "Ana",
-        student_code: "X9YZ2",
         class_id: "22222222-2222-2222-2222-222222222222",
         class_name: "Clase Demo",
       };
@@ -176,7 +175,6 @@ describe("student.functions tests", () => {
       expect(result).toEqual({
         studentId: mockResult.student_id,
         studentName: mockResult.student_name,
-        studentCode: mockResult.student_code,
         classId: mockResult.class_id,
         className: mockResult.class_name,
       });
