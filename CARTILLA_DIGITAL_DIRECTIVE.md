@@ -86,7 +86,7 @@ The test is about **structure and content**, not visual style. A modern-looking 
 
 > Owner clarification (EJN, 30 Sep 2026): the exact list of allowed technical cleanup and Google Flow motion, and what stays forbidden, is in `ASSET_FIDELITY_POLICY.md`. That file is the active art rule; `IMAGE_GENERATION_BAN.md` and `docs/GOOGLE_FLOW_PROMPTS.md` are historical only.
 >
-> Owner clarification (EJN): `repo.md` is the active, authoritative method for background-only generation. Background-only generation is the sole exception to this Image Lock (see below).
+> Owner clarification (EJN, updated 3 Oct 2026): `repo.md` is the authoritative method for background-only generation. The two narrow owner-approved exceptions to the source lock are verified source-preserving foreground color transfer under `ASSET_FIDELITY_POLICY.md` and background-only generation under `repo.md`.
 
 The approved/corrected/cropped book images remain source-locked.
 
