@@ -21,10 +21,8 @@ export function PartialLessonGuide({ lessonId }: { lessonId: number }) {
   return (
     <div className="space-y-12">
       <div className="rounded-xl border-2 border-amber-300 bg-amber-50 px-4 py-3 text-sm font-bold text-amber-800">
-        ⚠️ No existe en este repositorio un escaneo de la Guía del profesor impresa para la Lección{" "}
-        {lessonId}. La transcripción disponible (docs/Transcripción Integral...) termina a mitad de
-        la Lección 15 y no llega hasta aquí. Lo que se muestra abajo viene únicamente de las páginas
-        reales del cuaderno del estudiante ya digitalizadas.
+        La guía original de la Lección {lessonId} está pendiente. Puedes usar el vocabulario y el poema disponibles, las actividades del cuaderno y el Flip Chart.
+
       </div>
 
       <section id="objetivos" className="scroll-mt-24">
@@ -33,8 +31,7 @@ export function PartialLessonGuide({ lessonId }: { lessonId: number }) {
         </h2>
         <div className="bg-orange-50/50 border border-orange-100 rounded-2xl p-6">
           <p className="text-amber-600 italic">
-            SOURCE-NOT-IN-REPO — los objetivos de esta lección no están disponibles en el
-            repositorio.
+            Objetivos pendientes de la guía original.
           </p>
         </div>
       </section>
@@ -44,8 +41,7 @@ export function PartialLessonGuide({ lessonId }: { lessonId: number }) {
           <span className="text-emerald-500">2.</span> Procedimiento Sugerido
         </h2>
         <p className="text-amber-600 italic">
-          SOURCE-NOT-IN-REPO — el guion del maestro para esta lección no está disponible en el
-          repositorio.
+          Procedimiento pendiente de la guía original.
         </p>
       </section>
 
@@ -66,7 +62,7 @@ export function PartialLessonGuide({ lessonId }: { lessonId: number }) {
           </div>
         ) : (
           <p className="text-amber-600 italic">
-            SOURCE-NOT-IN-REPO — el poema de esta lección no está disponible en el repositorio.
+            Poema pendiente de la fuente original.
           </p>
         )}
       </section>
@@ -82,8 +78,7 @@ export function PartialLessonGuide({ lessonId }: { lessonId: number }) {
               : ""}
           </p>
           <p className="text-amber-600 italic mt-2">
-            SOURCE-NOT-IN-REPO — el texto de instrucción de la evaluación no está disponible en el
-            repositorio.
+            Instrucciones de evaluación pendientes de la guía original.
           </p>
         </div>
       </section>

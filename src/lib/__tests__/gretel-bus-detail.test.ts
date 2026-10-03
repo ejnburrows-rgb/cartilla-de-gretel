@@ -29,7 +29,7 @@ it('retry invitation is not assistance, delivered help belongs to its source, an
   focusGretelActivity({ activityId: 'B' });
   gretelEvent('guide:reaction', { activityId: 'A', reaction: 'independent-retry' });
   expect(isGretelAssistedAttempt('A')).toBe(false);
-  gretelEvent('guide:reaction', { activityId: 'A', reaction: 'cue' });
+  gretelEvent('support:delivered', { activityId: 'A', reaction: 'cue', text: 'Escucha el sonido inicial.' });
   expect(isGretelAssistedAttempt('A')).toBe(true);
   expect(isGretelAssistedAttempt('B')).toBe(false);
   gretelEvent('activity:retry', { activityId: 'A', reaction: 'independent-retry' });

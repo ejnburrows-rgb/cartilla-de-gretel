@@ -9,8 +9,8 @@
 // (recordEvent + gretelEvent); student workbook only.
 import { useRef, useState, useEffect } from "react";
 import { Eraser, Check } from "lucide-react";
-import { recordEvent } from "@/lib/student-session";
-import { gretelEvent } from "@/lib/gretel-bus";
+import { useActivityEvents } from "@/lib/activity-events";
+
 
 const CRAYON_COLORS = ["#1f2937", "#dc2626", "#2563eb", "#16a34a", "#f59e0b", "#9333ea"];
 
@@ -21,6 +21,7 @@ interface DrawBoxCanvasProps {
 }
 
 export function DrawBoxCanvas({ regionId, hint, lessonId }: DrawBoxCanvasProps) {
+  const { emit: gretelEvent, record: recordEvent } = useActivityEvents();
   const canvasRef = useRef<HTMLCanvasElement>(null);
   const drawingRef = useRef(false);
   const hasStrokeRef = useRef(false);
@@ -96,14 +97,14 @@ export function DrawBoxCanvas({ regionId, hint, lessonId }: DrawBoxCanvasProps) 
   const finish = () => {
     if (!hasStroke || done) return;
     setDone(true);
-    gretelEvent("answer:correct");
+    gretelEvent("activity:complete");
     if (lessonId) {
       recordEvent({
         lessonId,
         kind: "exercise",
-        score: 1,
-        total: 1,
-        meta: { exercise: `draw_box_${regionId}`, completed: true },
+        score: 0,
+        total: 0,
+        meta: { exercise: `draw_box_${regionId}`, completed: true, grading: "ungraded" },
       });
     }
   };

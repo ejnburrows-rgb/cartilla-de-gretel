@@ -113,7 +113,7 @@ describe("LassoConnect — cinematic rope", () => {
     expect(speakGretelPhrase).toHaveBeenCalledWith("Vamos a encerrar la respuesta.");
   });
 
-  it("correct target → wrap + success VO path", async () => {
+  it("correct target gives visual and sound feedback without repetitive Gretel speech", async () => {
     render(
       <LassoConnect
         pageKey="lasso-ok"
@@ -128,7 +128,7 @@ describe("LassoConnect — cinematic rope", () => {
     await flushAnim(500);
     expect(playCorrectChord).toHaveBeenCalled();
     expect(gretelEvent).toHaveBeenCalledWith("answer:correct", { itemId: "a" });
-    expect(speakGretelPhrase).toHaveBeenCalledWith("¡Buen trabajo!");
+    expect(speakGretelPhrase).not.toHaveBeenCalledWith("¡Buen trabajo!");
   });
 
   it("wrong target → reel-back + retry VO path", async () => {

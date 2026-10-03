@@ -68,7 +68,7 @@ const FOLDERS: FolderDef[] = [
   },
   {
     key: "poemas",
-    label: "Poemas y audio",
+    label: "Poemas",
     description: "El poema de cada lección para leer en clase.",
     color: "#e11d48",
     icon: <Music className="w-6 h-6" />,
@@ -199,16 +199,16 @@ function FolderLessonRow({
       <span>Refuerzo de sílabas + practicar en casa la rima "{data.rhymeTitle}".</span>
     ) : (
       <span className="text-amber-600 font-bold">
-        AWAITING-SOURCE-SCAN — tarea aún no transcrita.
+        Material pendiente de la guía original.
       </span>
     );
     activityLabel = `Tarea para el hogar — Lección ${entry.n}`;
   } else if (folderKey === "evaluaciones") {
     content = data.evaluationPage ? (
-      <span>Evaluación, página {data.evaluationPage}.</span>
+      <Link to="/cartilla/teacher/paginas/$n" params={{ n: String(entry.n) }} className="underline decoration-dotted">Abrir actividades · evaluación, página {data.evaluationPage}.</Link>
     ) : (
       <span className="text-amber-600 font-bold">
-        AWAITING-SOURCE-SCAN — evaluación aún no transcrita.
+        Referencia pendiente de la guía original.
       </span>
     );
     activityLabel = `Evaluación — Lección ${entry.n} (página ${data.evaluationPage ?? "?"})`;
@@ -222,14 +222,14 @@ function FolderLessonRow({
       </span>
     ) : (
       <span className="text-amber-600 font-bold">
-        AWAITING-SOURCE-SCAN — poema aún no transcrito.
+        Poema pendiente de la guía original.
       </span>
     );
     activityLabel = `Poema — Lección ${entry.n} (${data.rhymeTitle ?? "sin título"})`;
   }
 
   return (
-    <div className="flex items-center gap-3 rounded-2xl border border-[var(--tc-border)] px-4 py-3 hover:bg-white/60">
+    <div className="flex flex-wrap items-center gap-3 rounded-2xl border border-[var(--tc-border)] px-4 py-3 hover:bg-white/60">
       <span
         className="w-8 h-8 shrink-0 rounded-full flex items-center justify-center text-xs font-black text-white"
         style={{ background: accent }}

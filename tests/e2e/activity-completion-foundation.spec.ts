@@ -24,9 +24,12 @@ test('p2 is direct tap and keyboard accessible; completed answers survive reload
     else { await target.focus(); await page.keyboard.press('Enter'); }
   }
   await expect(next).not.toHaveAttribute('aria-disabled', 'true');
+  const stats = await page.evaluate(() => JSON.parse(localStorage.getItem('cartilla.exercise-stats.v1') || '{}'));
+  const result = Object.values(stats['1']).find((s: any) => s.meta?.exercise?.startsWith('vowel_pick_one')) as any;
+  expect(result.hits).toBe(5); expect(result.attempts).toBe(6);
+  expect(result.meta.completed).toBe(true);
   await page.screenshot({ path: 'verification-screenshots/p0-p2-direct-tap.png', fullPage: true });
   await page.reload();
-  await viewer.getByRole('button', { name: 'Siguiente' }).click();
   await expect(viewer).toHaveAttribute('data-native-page', '2');
   await expect(next).not.toHaveAttribute('aria-disabled', 'true');
   await expect(viewer.locator('.fp-ix-cell.graded-correct')).toHaveCount(5);
@@ -61,7 +64,6 @@ test('p5 example + five answers; help, reload and return never strand completed 
   }
   await expect(next).toHaveAttribute('aria-disabled', 'true');
   await page.reload();
-  await viewer.getByRole('button', { name: 'Siguiente' }).click();
   await expect(viewer).toHaveAttribute('data-native-page', '5');
   await expect(viewer.getByRole('button', { name: 'oveja', exact: true })).toHaveAttribute('aria-pressed', 'true');
   for (const name of ['oreja', 'olla']) {
@@ -72,6 +74,10 @@ test('p5 example + five answers; help, reload and return never strand completed 
   const last = viewer.getByRole('button', { name: 'oso', exact: true }); await last.click();
   await expect(last).toHaveAttribute('aria-pressed', 'true');
   await expect(next).not.toHaveAttribute('aria-disabled', 'true');
+  const stats = await page.evaluate(() => JSON.parse(localStorage.getItem('cartilla.exercise-stats.v1') || '{}'));
+  const result = Object.values(stats['2']).find((s: any) => s.meta?.exercise?.startsWith('lasso_')) as any;
+  expect(result.meta).toMatchObject({ outcome: 'assisted-success', completed: true, assisted: true });
+  expect(result.hits).toBe(5); expect(result.attempts).toBe(6);
   // Advance the browser clock beyond the former delayed-reset window.
   await page.clock.install(); await page.clock.fastForward(10000);
   await expect(last).toHaveAttribute('aria-pressed', 'true');
@@ -84,7 +90,6 @@ test('p5 example + five answers; help, reload and return never strand completed 
   await expect(viewer).toHaveAttribute('data-native-page', '5');
   await expect(next).not.toHaveAttribute('aria-disabled', 'true');
   await page.reload();
-  await viewer.getByRole('button', { name: 'Siguiente' }).click();
   await expect(viewer).toHaveAttribute('data-native-page', '5');
   await expect(next).not.toHaveAttribute('aria-disabled', 'true');
   await expect(viewer.getByRole('button', { name: 'oso', exact: true })).toHaveAttribute('aria-pressed', 'true');

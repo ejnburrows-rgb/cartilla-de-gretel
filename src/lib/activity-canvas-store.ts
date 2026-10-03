@@ -18,6 +18,8 @@ export type LassoProgressSnapshot = {
   updatedAt: number;
 };
 
+export function canvasStorageKey(pageKey: string): string { return key("paint", pageKey); }
+
 function key(scope: string, pageKey: string): string {
   return learnerStorageKey(`${PREFIX}${scope}:${pageKey}`);
 }
@@ -33,13 +35,13 @@ export function loadCanvasSnapshot(pageKey: string): CanvasSnapshot | null {
   }
 }
 
-export function saveCanvasSnapshot(pageKey: string, dataUrl: string): void {
+export function saveCanvasSnapshot(pageKey: string, dataUrl: string, capturedKey = canvasStorageKey(pageKey)): void {
   if (typeof window === "undefined") return;
   try {
     const snap: CanvasSnapshot = { dataUrl, updatedAt: Date.now() };
-    window.localStorage.setItem(key("paint", pageKey), JSON.stringify(snap));
+    window.localStorage.setItem(capturedKey, JSON.stringify(snap));
   } catch {
-    /* quota */
+    window.dispatchEvent(new Event("cartilla:work-save-failed"));
   }
 }
 
@@ -69,7 +71,7 @@ export function saveLassoProgress(pageKey: string, completedIds: string[]): void
     const snap: LassoProgressSnapshot = { completedIds, updatedAt: Date.now() };
     window.localStorage.setItem(key("lasso", pageKey), JSON.stringify(snap));
   } catch {
-    /* quota */
+    window.dispatchEvent(new Event("cartilla:work-save-failed"));
   }
 }
 

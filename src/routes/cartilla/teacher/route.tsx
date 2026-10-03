@@ -100,16 +100,22 @@ const NAV_ITEMS: Array<{
     match: "/guia",
   },
   {
-    to: "/cartilla/presentar/1",
+    to: "/cartilla/teacher/flipchart",
     icon: <MonitorPlay className="w-4 h-4" />,
     label: "Presentar",
-    match: "/presentar",
+    match: "/flipchart",
   },
   {
     to: "/cartilla/imprimir/all",
     icon: <Printer className="w-4 h-4" />,
     label: "Imprimir",
     match: "/imprimir",
+  },
+  {
+    to: "/cartilla/teacher/progreso",
+    icon: <GraduationCap className="w-4 h-4" />,
+    label: "Progreso",
+    match: "/progreso",
   },
   {
     to: "/cartilla/teacher/reportes",
@@ -181,7 +187,7 @@ function TeacherLayout() {
             </div>
           </div>
 
-          <nav className="hidden md:flex items-center gap-5">
+          <nav className="hidden xl:flex items-center gap-4">
             {navItems.map((item) => (
               <NavLink
                 key={item.to}
@@ -203,7 +209,7 @@ function TeacherLayout() {
 
           <button
             type="button"
-            className="md:hidden min-h-11 min-w-11 flex items-center justify-center rounded-xl border border-[var(--tc-border)] text-[var(--tc-ink-soft)]"
+            className="xl:hidden min-h-11 min-w-11 flex items-center justify-center rounded-xl border border-[var(--tc-border)] text-[var(--tc-ink-soft)]"
             aria-label={mobileMenuOpen ? "Cerrar menú" : "Abrir menú"}
             aria-expanded={mobileMenuOpen}
             onClick={() => setMobileMenuOpen((open) => !open)}
@@ -217,7 +223,7 @@ function TeacherLayout() {
         </div>
 
         {mobileMenuOpen && (
-          <nav className="md:hidden border-t border-[var(--tc-border)] bg-[var(--tc-paper-soft)]/95 px-4 py-3 space-y-1">
+          <nav className="xl:hidden border-t border-[var(--tc-border)] bg-[var(--tc-paper-soft)]/95 px-4 py-3 space-y-1">
             {navItems.map((item) => (
               <Link
                 key={item.to}

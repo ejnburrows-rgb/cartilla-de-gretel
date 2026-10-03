@@ -6,7 +6,7 @@ import { defineConfig } from "@playwright/test";
 const CHROMIUM = process.env.PLAYWRIGHT_CHROMIUM_PATH;
 
 // Specs that need open access switched OFF (real login-gated screens).
-const GATED_SPECS = ["**/student-assignment-flow.spec.ts"];
+const GATED_SPECS = ["**/student-assignment-flow.spec.ts", "**/classroom-readiness-gated.spec.ts"];
 
 export default defineConfig({
   testDir: "./tests/e2e",

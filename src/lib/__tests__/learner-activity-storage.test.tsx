@@ -22,7 +22,7 @@ it("switching learners restores only their own work, including returning to A", 
 });
 it("assistance and page/lesson completion stay with their learner", () => {
   setStudentSession(student("A"));
-  gretelEvent("guide:reaction", { activityId: "same", reaction: "cue" });
+  gretelEvent("support:delivered", { activityId: "same", reaction: "cue", text: "Escucha el sonido inicial." });
   markPageActivityCompleted(5, "same"); markLessonCompleted(2);
   setStudentSession(student("B"));
   expect(isGretelAssistedAttempt("same")).toBe(false);

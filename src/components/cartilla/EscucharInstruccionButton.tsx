@@ -1,3 +1,4 @@
+import { AUDIO_POLICY } from "@/content/audio-manifest";
 import { Volume2 } from "lucide-react";
 import { useAudio } from "@/hooks/useAudio";
 
@@ -9,6 +10,7 @@ export function EscucharInstruccionButton({
   className?: string;
 }) {
   const { play, playingText } = useAudio();
+  if (!AUDIO_POLICY.allowTts) return null;
   const isPlaying = playingText === text;
 
   return (

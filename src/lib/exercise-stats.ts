@@ -1,3 +1,4 @@
+import { countsForLiteracy } from "./progress-semantics";
 import { useEffect, useState } from "react";
 
 export type ExerciseStat = {
@@ -5,6 +6,7 @@ export type ExerciseStat = {
   hits: number;
   lastUpdated: number;
   completedRounds: number;
+  meta?: Record<string, unknown>;
 };
 
 export type LessonStats = Record<string, ExerciseStat>;
@@ -39,6 +41,7 @@ export function recordExerciseStat(input: {
   score: number;
   total: number;
   completed?: boolean;
+  meta?: Record<string, unknown>;
 }) {
   if (!input.lessonId || !input.exercise) return;
   const all = read();
@@ -51,10 +54,11 @@ export function recordExerciseStat(input: {
   };
   // Use latest snapshot as authoritative for this round (recordEvent sends cumulative per session)
   lesson[input.exercise] = {
-    attempts: Math.max(prev.attempts, input.total ?? 0),
-    hits: Math.max(prev.hits, input.score ?? 0),
+    attempts: input.total ?? 0,
+    hits: input.score ?? 0,
     completedRounds: prev.completedRounds + (input.completed ? 1 : 0),
     lastUpdated: Date.now(),
+    meta: input.meta,
   };
   all[input.lessonId] = lesson;
   write(all);
@@ -72,8 +76,8 @@ export function resetStats() {
 export function isLessonWeak(lessonId: string, stats: AllStats = read()): boolean {
   const lesson = stats[lessonId];
   if (!lesson) return false;
-  return Object.values(lesson).some(
-    (s) => s.attempts >= 3 && s.hits / Math.max(s.attempts, 1) < 0.7,
+  return Object.entries(lesson).some(
+    ([exercise, s]) => countsForLiteracy({ ...s.meta, exercise }) && s.attempts >= 3 && s.hits / Math.max(s.attempts, 1) < 0.7,
   );
 }
 
@@ -82,7 +86,8 @@ export function lessonAccuracy(lessonId: string, stats: AllStats = read()): numb
   if (!lesson) return null;
   let h = 0,
     a = 0;
-  for (const s of Object.values(lesson)) {
+  for (const [exercise, s] of Object.entries(lesson)) {
+    if (!countsForLiteracy({ ...s.meta, exercise })) continue;
     h += s.hits;
     a += s.attempts;
   }

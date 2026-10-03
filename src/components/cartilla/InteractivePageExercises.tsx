@@ -75,7 +75,6 @@ function Cell({
     picked ? "picked" : "",
     grade === "correct" ? "graded-correct" : "",
     grade === "wrong" ? "graded-wrong" : "",
-    grade === "missed" ? "graded-missed" : "",
   ]
     .filter(Boolean)
     .join(" ");
@@ -130,12 +129,13 @@ export function InteractivePictureGrid({
   const [picked, setPicked] = useActivityState<Set<number>>("picked", new Set());
   const [graded, setGraded] = useActivityState("graded", false);
   const [solved, setSolved] = useActivityState("solved", false);
+  const [validated, setValidated] = useActivityState<Set<number>>("validated", new Set());
   const [attempts, setAttempts] = useState(0);
 
   useEffect(() => { if (solved) gretelEvent("activity:complete", { restored: true }); }, [solved, gretelEvent]);
 
   const toggle = (i: number) => {
-    if (graded) return;
+    if (graded || validated.has(i)) return;
     setPicked((prev) => {
       const next = new Set(prev);
       if (next.has(i)) next.delete(i);
@@ -144,7 +144,10 @@ export function InteractivePictureGrid({
     });
   };
 
+  const targets = cells.map((entry, i) => ({ key: i, correct: entry.correct }));
+  const remaining = targets.filter(t => t.correct === true && !picked.has(t.key)).length;
   const check = () => {
+    setValidated(new Set(targets.filter(t => t.correct === true && picked.has(t.key)).map(t => t.key)));
     setGraded(true);
     let allCorrect = true;
     cells.forEach((cell, i) => {
@@ -164,8 +167,8 @@ export function InteractivePictureGrid({
       recordEvent({
         lessonId,
         kind: "exercise",
-        score: allCorrect ? 1 : 0,
-        total: 1,
+        score: targets.filter(t => t.correct === true && picked.has(t.key)).length,
+        total: targets.filter(t => t.correct === true || (t.correct === false && picked.has(t.key))).length,
         meta: {
           exercise: `picture_grid_${region.id}`,
           completed: allCorrect,
@@ -204,8 +207,8 @@ export function InteractivePictureGrid({
                 cell={cell}
                 index={i}
                 picked={picked.has(i)}
-                grade={graded ? gradeOf(picked.has(i), cell.correct) : null}
-                disabled={graded}
+                grade={graded || validated.has(i) ? gradeOf(picked.has(i), cell.correct) : null}
+                disabled={graded || validated.has(i)}
                 onToggle={() => toggle(i)}
                 mark={mark}
               />
@@ -213,6 +216,7 @@ export function InteractivePictureGrid({
           })}
         </div>
       ))}
+      {graded && !solved && <p role="status">Revisa las selecciones marcadas. Faltan {remaining} respuestas.</p>}
       <div className="fp-ix-check-row">
         <button
           type="button"
@@ -226,7 +230,7 @@ export function InteractivePictureGrid({
           <button
             type="button"
             className="fp-ix-check-btn"
-            onClick={() => setGraded(false)}
+            onClick={() => { setPicked(new Set(targets.filter(t => t.correct === true && picked.has(t.key)).map(t => t.key))); setGraded(false); }}
           >
             Corregir respuestas
           </button>
@@ -318,6 +322,7 @@ export function InteractiveVowelPickOne({
     row: number;
     cell: number;
   } | null>(null);
+  const [incorrectAttempts, setIncorrectAttempts] = useActivityState("incorrectAttempts", 0);
   const [completed, setCompleted] = useState(false);
   const restoredComplete = useRef(rows.length > 0 && correctRows.size === rows.length);
 
@@ -331,8 +336,8 @@ export function InteractiveVowelPickOne({
           lessonId,
           kind: "exercise",
           score: rows.length,
-          total: rows.length,
-          meta: { exercise: `vowel_pick_one_${region.id}`, completed: true },
+          total: rows.length + incorrectAttempts,
+          meta: { exercise: `vowel_pick_one_${region.id}`, completed: true, attemptCorrect: true },
         });
       }
     }
@@ -346,6 +351,8 @@ export function InteractiveVowelPickOne({
       playCorrectChord();
       gretelEvent("answer:correct", { itemId: `${region.id}-${rowIdx}-${cellIdx}` });
     } else {
+      setIncorrectAttempts(n => n + 1);
+      if (lessonId) recordEvent({ lessonId, kind: "exercise", score: correctRows.size, total: rows.length + incorrectAttempts + 1, meta: { exercise: `vowel_pick_one_${region.id}`, completed: false, attemptCorrect: false } });
       setWrongFlash({ row: rowIdx, cell: cellIdx });
       playWrongBuzz();
       gretelEvent("answer:wrong", { itemId: `${region.id}-${rowIdx}-${cellIdx}` });
@@ -476,13 +483,14 @@ export function InteractiveSyllableMatch({
   const [picked, setPicked] = useActivityState<Set<string>>("picked", new Set());
   const [graded, setGraded] = useActivityState("graded", false);
   const [solved, setSolved] = useActivityState("solved", false);
+  const [validated, setValidated] = useActivityState<Set<string>>("validated", new Set());
   const [attempts, setAttempts] = useState(0);
   const total = rows.reduce((n, row) => n + row.length, 0);
 
   useEffect(() => { if (solved) gretelEvent("activity:complete", { restored: true }); }, [solved, gretelEvent]);
 
   const toggle = (key: string) => {
-    if (graded) return;
+    if (graded || validated.has(key)) return;
     setPicked((prev) => {
       const next = new Set(prev);
       if (next.has(key)) next.delete(key);
@@ -491,7 +499,10 @@ export function InteractiveSyllableMatch({
     });
   };
 
+  const targets = rows.flatMap((row, r) => row.map((entry, w) => ({ key: `${r}-${w}`, correct: entry.correct })));
+  const remaining = targets.filter(t => t.correct === true && !picked.has(t.key)).length;
   const check = () => {
+    setValidated(new Set(targets.filter(t => t.correct === true && picked.has(t.key)).map(t => t.key)));
     setGraded(true);
     let allCorrect = true;
     rows.forEach((row, r) => {
@@ -512,8 +523,8 @@ export function InteractiveSyllableMatch({
       recordEvent({
         lessonId,
         kind: "exercise",
-        score: allCorrect ? 1 : 0,
-        total: 1,
+        score: targets.filter(t => t.correct === true && picked.has(t.key)).length,
+        total: targets.filter(t => t.correct === true || (t.correct === false && picked.has(t.key))).length,
         meta: {
           exercise: `syllable_match_${region.id}`,
           completed: allCorrect,
@@ -538,13 +549,13 @@ export function InteractiveSyllableMatch({
               {row.map((entry, w) => {
                 const key = `${r}-${w}`;
                 const isPicked = picked.has(key);
-                const g = graded ? gradeOf(isPicked, entry.correct) : null;
+                const g = graded || validated.has(key) ? gradeOf(isPicked, entry.correct) : null;
                 const flagged = entry.correct === undefined;
                 const classes = [
                   "fp-ix-syllable__word",
                   isPicked ? "picked" : "",
                   g === "correct" ? "graded-correct" : "",
-                  g === "missed" ? "graded-missed" : "",
+                  g === "wrong" ? "graded-wrong" : "",
                 ]
                   .filter(Boolean)
                   .join(" ");
@@ -554,7 +565,7 @@ export function InteractiveSyllableMatch({
                     type="button"
                     className={classes}
                     data-gretel-correct={entry.correct === undefined ? undefined : String(entry.correct)}
-                    disabled={flagged || graded}
+                    disabled={flagged || graded || validated.has(key)}
                     onClick={() => toggle(key)}
                   >
                     {entry.illustrationSrc && (
@@ -573,6 +584,7 @@ export function InteractiveSyllableMatch({
           ))}
         </div>
       </div>
+      {graded && !solved && <p role="status">Revisa las selecciones marcadas. Faltan {remaining} respuestas.</p>}
       <div className="fp-ix-check-row">
         <button
           type="button"
@@ -586,7 +598,7 @@ export function InteractiveSyllableMatch({
           <button
             type="button"
             className="fp-ix-check-btn"
-            onClick={() => setGraded(false)}
+            onClick={() => { setPicked(new Set(targets.filter(t => t.correct === true && picked.has(t.key)).map(t => t.key))); setGraded(false); }}
           >
             Corregir respuestas
           </button>
@@ -612,44 +624,19 @@ export function InteractiveFillInBlank({
   useEffect(() => { if (solved) gretelEvent("activity:complete", { restored: true }); }, [solved, gretelEvent]);
 
   const pick = (itemIdx: number, choiceIdx: number) => {
-    if (graded) return;
-    setPicked((prev) => ({ ...prev, [itemIdx]: choiceIdx }));
-  };
-
-  const check = () => {
-    setGraded(true);
-    let allCorrect = true;
-    let gradable = 0;
-    items.forEach((item, i) => {
-      const hasCorrect = item.choices.some((c) => c.correct);
-      if (!hasCorrect) return;
-      gradable += 1;
-      const chosen = picked[i];
-      if (chosen === undefined || !item.choices[chosen]?.correct)
-        allCorrect = false;
-    });
-    setSolved(allCorrect);
-    setAttempts((n) => n + 1);
-    gretelEvent(allCorrect ? "answer:correct" : "answer:wrong");
-    if (allCorrect) {
-      playCorrectChord();
-      gretelEvent("activity:complete");
-    } else playWrongBuzz();
-    if (lessonId) {
-      recordEvent({
-        lessonId,
-        kind: "exercise",
-        score: allCorrect ? 1 : 0,
-        total: 1,
-        meta: {
-          exercise: `fill_in_blank_${region.id}`,
-          completed: allCorrect,
-          itemCount: gradable,
-          attempt: attempts + 1,
-          corrected: attempts > 0,
-        },
-      });
-    }
+    if (items[itemIdx]?.choices[picked[itemIdx]]?.correct) return;
+    const next = { ...picked, [itemIdx]: choiceIdx };
+    setPicked(next); setGraded(true);
+    const correct = items[itemIdx]?.choices[choiceIdx]?.correct === true;
+    const gradable = items.filter(item => item.choices.some(c => c.correct));
+    const score = items.filter((item, i) => item.choices[next[i]]?.correct).length;
+    const complete = gradable.length > 0 && score === gradable.length;
+    setSolved(complete); setAttempts(n => n + 1);
+    gretelEvent(correct ? "answer:correct" : "answer:wrong");
+    if (correct) playCorrectChord(); else playWrongBuzz();
+    if (complete) gretelEvent("activity:complete");
+    if (lessonId) recordEvent({ lessonId, kind: "exercise", score, total: gradable.length,
+      meta: { exercise: `fill_in_blank_${region.id}`, completed: complete, attemptCorrect: correct, attempt: attempts + 1 } });
   };
 
   return (
@@ -678,7 +665,7 @@ export function InteractiveFillInBlank({
             <div className="fp-ix-fill__choices">
               {item.choices.map((choice, c) => {
                 const isPicked = picked[i] === c;
-                const g = graded ? gradeOf(isPicked, choice.correct) : null;
+                const g = graded ? gradeOf(isPicked, choice.correct === true) : null;
                 const classes = [
                   "fp-ix-fill__choice",
                   isPicked ? "picked" : "",
@@ -692,8 +679,8 @@ export function InteractiveFillInBlank({
                     key={c}
                     type="button"
                     className={classes}
-                    data-gretel-correct={choice.correct === undefined ? undefined : String(choice.correct)}
-                    disabled={flagged || graded}
+                    data-gretel-correct={flagged ? undefined : String(choice.correct === true)}
+                    disabled={flagged || items[i].choices[picked[i]]?.correct === true}
                     onClick={() => pick(i, c)}
                   >
                     {choice.text}
@@ -704,29 +691,7 @@ export function InteractiveFillInBlank({
           </div>
         );
       })}
-      <div className="fp-ix-check-row">
-        <button
-          type="button"
-          className="fp-ix-check-btn"
-          onClick={check}
-          disabled={
-            graded ||
-            Object.keys(picked).length <
-              items.filter((it) => it.choices.some((c) => c.correct)).length
-          }
-        >
-          {solved ? "Completado" : "Comprobar"}
-        </button>
-        {graded && !solved && (
-          <button
-            type="button"
-            className="fp-ix-check-btn"
-            onClick={() => setGraded(false)}
-          >
-            Corregir respuestas
-          </button>
-        )}
-      </div>
+      {graded && <p role="status">{solved ? "Completado" : items.some((item, i) => picked[i] !== undefined && !item.choices[picked[i]]?.correct) ? "Revisa la opción marcada e inténtalo otra vez." : "Bien. Sigue con la siguiente palabra."}</p>}
     </div>
   );
 }
@@ -742,12 +707,13 @@ export function InteractiveVowelLineMatch({
   const [picked, setPicked] = useActivityState<Set<number>>("picked", new Set());
   const [graded, setGraded] = useActivityState("graded", false);
   const [solved, setSolved] = useActivityState("solved", false);
+  const [validated, setValidated] = useActivityState<Set<number>>("validated", new Set());
   const [attempts, setAttempts] = useState(0);
 
   useEffect(() => { if (solved) gretelEvent("activity:complete", { restored: true }); }, [solved, gretelEvent]);
 
   const toggle = (i: number) => {
-    if (graded) return;
+    if (graded || validated.has(i)) return;
     setPicked((prev) => {
       const next = new Set(prev);
       if (next.has(i)) next.delete(i);
@@ -756,7 +722,10 @@ export function InteractiveVowelLineMatch({
     });
   };
 
+  const targets = cells.map((entry, i) => ({ key: i, correct: entry.correct }));
+  const remaining = targets.filter(t => t.correct === true && !picked.has(t.key)).length;
   const check = () => {
+    setValidated(new Set(targets.filter(t => t.correct === true && picked.has(t.key)).map(t => t.key)));
     setGraded(true);
     let allCorrect = true;
     cells.forEach((cell, i) => {
@@ -774,8 +743,8 @@ export function InteractiveVowelLineMatch({
       recordEvent({
         lessonId,
         kind: "exercise",
-        score: allCorrect ? 1 : 0,
-        total: 1,
+        score: targets.filter(t => t.correct === true && picked.has(t.key)).length,
+        total: targets.filter(t => t.correct === true || (t.correct === false && picked.has(t.key))).length,
         meta: {
           exercise: `vowel_line_match_${region.id}`,
           completed: allCorrect,
@@ -802,12 +771,13 @@ export function InteractiveVowelLineMatch({
             cell={cell}
             index={i}
             picked={picked.has(i)}
-            grade={graded ? gradeOf(picked.has(i), cell.correct) : null}
-            disabled={graded}
+            grade={graded || validated.has(i) ? gradeOf(picked.has(i), cell.correct) : null}
+            disabled={graded || validated.has(i)}
             onToggle={() => toggle(i)}
           />
         ))}
       </div>
+      {graded && !solved && <p role="status">Revisa las selecciones marcadas. Faltan {remaining} respuestas.</p>}
       <div className="fp-ix-check-row">
         <button
           type="button"
@@ -821,7 +791,7 @@ export function InteractiveVowelLineMatch({
           <button
             type="button"
             className="fp-ix-check-btn"
-            onClick={() => setGraded(false)}
+            onClick={() => { setPicked(new Set(targets.filter(t => t.correct === true && picked.has(t.key)).map(t => t.key))); setGraded(false); }}
           >
             Corregir respuestas
           </button>

@@ -732,3 +732,12 @@
   .fp-ix-fill__choice,
   .fp-ix-syllable__word { transition:none !important; animation:none !important; }
 }
+
+/* Every letter has equal treatment before the learner attempts a syllable. */
+.native-syllable__letter { font: inherit; color: inherit; border: 0; background: transparent; padding: .15em .05em; cursor: pointer; }
+.native-syllable__letter.is-circled { background: #d9f4dc; border-bottom: 3px solid #348044; }
+.native-syllable__letter:focus-visible { outline: 2px solid #276bb1; }
+.native-syllable__word.is-wrong { outline: 2px solid #b45b39; border-radius: .2em; }
+.gretel-presence__support { max-width: 16rem; background: white; color: #413325; border-radius: .7rem; padding: .6rem; font-size: .9rem; }
+.native-syllable__words .native-syllable__word .native-syllable__letter { min-height: 44px; border: 0; border-radius: 0; background: transparent; font: inherit; padding: .15em .05em; }
+.native-syllable__words .native-syllable__word .native-syllable__letter.is-circled { background: #d9f4dc; border-bottom: 3px solid #348044; }

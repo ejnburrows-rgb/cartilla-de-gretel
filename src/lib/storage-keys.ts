@@ -12,6 +12,8 @@ export const KEYS = {
   // Tutorial
   tutorialDone: "cartilla.tutorial.done.v1",
 
+  learnerResume: "cartilla.learner-resume.v1",
+
   // Page progress (student session)
   pageState: "cartilla.page.state.v1",
 

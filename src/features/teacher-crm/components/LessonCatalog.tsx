@@ -41,7 +41,7 @@ export function LessonCatalog() {
 
       <div className="mt-auto w-full flex flex-col gap-2 z-10">
         <Link
-          to={`/cartilla/leccion/$n`}
+          to="/cartilla/teacher/paginas/$n"
           params={{ n: l.n.toString() }}
           className="w-full py-2.5 rounded-xl bg-stone-100 text-stone-600 font-bold text-sm hover:bg-stone-200 transition-colors flex items-center justify-center gap-2"
         >
@@ -66,12 +66,12 @@ export function LessonCatalog() {
   );
 
   return (
-    <div className="cartilla-crm-theme h-full overflow-y-auto p-8 relative">
+    <div className="cartilla-crm-theme h-full overflow-y-auto p-4 sm:p-8 relative">
       <div className="max-w-6xl mx-auto">
         {/* Sticky Header & Search */}
         <header className="mb-12 sticky top-0 z-50 bg-[#fdf3e0]/90 backdrop-blur-md pt-4 pb-6 border-b border-stone-200/50 -mx-8 px-8 flex flex-col md:flex-row md:items-center justify-between gap-6">
           <div>
-            <h1 className="text-4xl font-black text-[#3b2a12] font-fredoka flex items-center gap-3">
+            <h1 className="text-2xl sm:text-4xl font-black text-[#3b2a12] font-fredoka flex items-center gap-3 min-w-0">
               <FolderOpen className="w-10 h-10 text-[#ea580c]" />
               Catálogo de Lecciones
             </h1>

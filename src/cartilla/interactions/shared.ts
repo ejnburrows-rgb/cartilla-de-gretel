@@ -1,7 +1,8 @@
 import type { WorkbookObject } from "@/content/workbook/types";
 import { gretelEvent } from "@/lib/gretel-bus";
 import { playCorrectChord, playWrongBuzz } from "@/lib/piano-audio";
-import { speak } from "@/lib/speak";
+import { playPictureName } from "@/lib/picture-audio";
+import { resolvePictureName } from "@/lib/picture-vocabulary";
 
 /** Common props every interaction component receives from LivingWorkbookPage.
  * Each interaction owns its own reading of `object.interaction?.data` — see
@@ -29,35 +30,11 @@ export function fireWrongFeedback() {
   gretelEvent("answer:wrong");
 }
 
-/** Plays an object's real recorded audio cue when one exists (`audio.src`
- * non-empty); otherwise — or if the recorded file fails to load/decode —
- * falls back to the same Web Speech TTS voice used everywhere else in the
- * app (src/lib/speak.ts: real Spanish voice, little-girl pitch, no AI
- * voice clone). Tapping to listen must always be audible, never a silent
- * no-op — recorded audio is preferred when it exists, TTS is the honest
- * fallback until real recordings land for every word.
- * Returns whether something audible was attempted, so callers can decide
- * whether this counts as a real audio_played progress event. */
+/** Shared vocabulary playback obeys approved recording policy and never reports progress. */
 export function playObjectAudio(object: WorkbookObject): boolean {
-  const src = object.audio?.src;
-  const fallbackText = object.audio?.label || object.text || object.alt;
-  let spoken = false;
-  const speakFallback = () => {
-    if (spoken || !fallbackText) return;
-    spoken = true;
-    void speak(fallbackText);
-  };
-  if (src) {
-    const audio = new Audio(src);
-    audio.addEventListener("error", speakFallback);
-    audio.play().catch(speakFallback);
-    return true;
-  }
-  if (fallbackText) {
-    speakFallback();
-    return true;
-  }
-  return false;
+  const entry = object.src ? resolvePictureName(object.src, object.audio?.label ?? object.alt ?? object.text ?? "") : null;
+  if (!entry) return false;
+  return ["recorded", "tts"].includes(playPictureName(entry));
 }
 
 /** dnd-kit sensors covering mouse, touch, and keyboard, shared by every

@@ -1,3 +1,5 @@
+import { claimSpeech, releaseSpeech, registerSpeechCleanup } from "./speech-playback";
+import { isGretelVoiceMuted } from "./gretel-voice";
 // gretel-tts.ts — speaks Gretel's short feedback phrases aloud using the
 // browser's built-in speech synthesis, instead of showing them as on-screen
 // text. Real recorded voice clips can replace this later without changing
@@ -12,7 +14,8 @@ import { getVoice } from "@/lib/speak";
 
 export function speakGretelPhrase(phrase: string) {
   if (typeof window === "undefined" || !("speechSynthesis" in window)) return;
-  window.speechSynthesis.cancel();
+  if (isGretelVoiceMuted()) return;
+  const token = claimSpeech("gretel");
   const utterance = new SpeechSynthesisUtterance(phrase);
   utterance.rate = 0.95;
   utterance.pitch = 1.15;
@@ -23,5 +26,7 @@ export function speakGretelPhrase(phrase: string) {
   } else {
     utterance.lang = "es-MX";
   }
+  utterance.onend = utterance.onerror = () => releaseSpeech(token);
+  registerSpeechCleanup(token, () => { utterance.onend = null; utterance.onerror = null; });
   window.speechSynthesis.speak(utterance);
 }

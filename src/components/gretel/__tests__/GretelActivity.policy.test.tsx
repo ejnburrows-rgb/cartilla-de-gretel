@@ -10,7 +10,7 @@ vi.mock('@/lib/gretel-voice', async importOriginal => ({
 }));
 afterEach(() => vi.useRealTimers());
 describe('page-aware exercise help', () => {
-  it('highlights the actual target, narrows choices, and requests independent retry', async () => {
+  it('demonstrates one target without disabling distractors; recovery remains assisted', async () => {
     vi.useFakeTimers();
     render(<><GretelPresence bookMode autoIntro={false} /><GretelActivity id="test-exercise" pageNumber={19} kind="picture-grid">
       <button data-gretel-correct="false" onClick={() => gretelEvent('answer:wrong')}>Distractor</button>
@@ -24,7 +24,7 @@ describe('page-aware exercise help', () => {
     fireEvent.click(wrong);
     expect(screen.getByText('Target')).toHaveAttribute('data-gretel-highlight', 'hint');
     fireEvent.click(wrong);
-    expect(wrong).toBeDisabled();
+    expect(wrong).toBeEnabled();
     expect(screen.getByText('Target')).toHaveAttribute('data-gretel-highlight', 'demonstration');
     fireEvent.click(screen.getByText('Target'));
     expect(screen.getByTestId('gretel-presence')).toHaveAttribute('data-reaction', 'independent-retry');
@@ -53,15 +53,22 @@ describe('page-aware exercise help', () => {
     expect(screen.queryByRole('status')).toBeNull();
   });
 
-  it('uses only stable, unambiguous targets and safely falls back otherwise', () => {
+  it('uses an explicit target or one remaining target', () => {
     const root = document.createElement('div');
     root.innerHTML = '<svg></svg><button data-gretel-correct="true">A</button><button data-gretel-correct="true">B</button>';
     document.body.appendChild(root);
-    expect(resolveGretelTarget(root)).toBeNull();
+    expect(resolveGretelTarget(root)).toBe(root.querySelector("button"));
     const target = root.querySelector('button')!;
     target.id = 'stable-target';
     target.setAttribute('data-gretel-target', 'primary');
     expect(resolveGretelTarget(root)).toBe(target);
     root.remove();
   });
+});
+
+it('a delayed reveal of the same page preserves the help control for focused work', () => {
+  render(<><GretelPresence bookMode autoIntro={false} /><GretelActivity id="late-reveal" pageNumber={5} kind="vowel-line-match"><button>Work</button></GretelActivity></>);
+  fireEvent.focus(screen.getByText('Work'));
+  act(() => gretelEvent('page:revealed', { pageNumber: 5 }));
+  expect(screen.getByRole('button', { name: 'Ayuda' })).toBeTruthy();
 });

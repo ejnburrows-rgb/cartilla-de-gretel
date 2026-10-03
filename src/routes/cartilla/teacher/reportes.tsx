@@ -22,6 +22,8 @@ export const Route = createFileRoute("/cartilla/teacher/reportes")({
 });
 
 function TeacherReportsPage() {
+  const [exporting, setExporting] = useState(false);
+  const [exportError, setExportError] = useState("");
   const [classId, setClassId] = useState<string>("");
   const [studentId, setStudentId] = useState<string | null>(null);
 
@@ -32,7 +34,9 @@ function TeacherReportsPage() {
 
   // ── CSV Export Handler ──
   const handleExportCSV = async () => {
-    if (!classId) return;
+    if (!classId || exporting) return;
+    setExporting(true); setExportError("");
+    try {
 
     if (studentId) {
       const data = isSeedSessionActive() ? getSeedStudentProgress(studentId) : await getStudentProgress({ data: { id: studentId } });
@@ -41,6 +45,8 @@ function TeacherReportsPage() {
       const data = isSeedSessionActive() ? getSeedClassProgress(classId) : await getClassProgress({ data: { id: classId } });
       exportClassProgressCsv(`clase_${classId.slice(0, 8)}`, [], data);
     }
+    } catch { setExportError("No se pudo exportar el reporte. Comprueba la conexión e inténtalo de nuevo."); }
+    finally { setExporting(false); }
   };
 
   return (
@@ -54,14 +60,14 @@ function TeacherReportsPage() {
           </p>
         </div>
 
-        <div className="flex gap-2">
+        <div className="flex flex-wrap gap-2">
           <button
             onClick={handleExportCSV}
-            disabled={!classId}
+            disabled={!classId || exporting}
             className="px-4 py-2 bg-stone-800 hover:bg-stone-900 disabled:opacity-50 text-white font-bold text-sm rounded-xl shadow-sm inline-flex items-center gap-2 transition"
           >
             <FileSpreadsheet className="w-4 h-4" />
-            Exportar CSV
+            {exporting ? "Exportando…" : "Exportar CSV"}
           </button>
           <button
             onClick={() => window.print()}
@@ -74,6 +80,7 @@ function TeacherReportsPage() {
         </div>
       </header>
 
+      {exportError && <p role="alert" className="no-print rounded-xl bg-amber-100 p-3 text-amber-950">{exportError}</p>}
       {/* Picker (No print) */}
       <StudentPicker onSelectionChange={handleSelectionChange} />
 

@@ -50,8 +50,8 @@ describe("workbook recovery and earned completion", () => {
     expect(gretelEvent).not.toHaveBeenCalledWith("activity:complete");
     expect(recordEvent).toHaveBeenLastCalledWith(
       expect.objectContaining({
-        score: 0,
-        total: 1,
+        score: 1,
+        total: 2,
         meta: expect.objectContaining({ completed: false }),
       }),
     );
@@ -61,8 +61,8 @@ describe("workbook recovery and earned completion", () => {
     expect(view.getByRole("button", { name: "Completado" })).toBeDisabled();
     expect(recordEvent).toHaveBeenLastCalledWith(
       expect.objectContaining({
-        score: 1,
-        total: 1,
+        score: 2,
+        total: 2,
         meta: expect.objectContaining({
           completed: true,
           corrected: true,

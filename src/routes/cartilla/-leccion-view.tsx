@@ -11,6 +11,8 @@ import { listMyAssignments } from "@/lib/assignments.functions";
 import { getMyProgress, saveLastPage } from "@/lib/student.functions";
 import { useLanguage } from "@/context/LanguageContext";
 import { sCopy } from "@/content/student-copy";
+import { useLearnerScope } from "@/lib/learner-storage";
+import { readLearnerResume, saveLearnerResume } from "@/lib/learner-resume";
 import { gretelEvent } from "@/lib/gretel-bus";
 
 import { NativeLessonViewer } from "@/components/StudentBook/NativeLessonViewer";
@@ -32,6 +34,7 @@ export function Leccion() {
   const [completionCinematic, setCompletionCinematic] = useState<GretelCinematicSpec | null>(null);
   useLessonProgress();
   const session = useStudentSession();
+  const scope = useLearnerScope();
   const entry = useMemo<CatalogEntry | undefined>(() => CATALOG.find((e) => e.n === n), [n]);
 
   // Build this lesson from the canonical structured workbook page data.
@@ -79,6 +82,8 @@ export function Leccion() {
   // query settles (success OR error) so a dead backend can't blank the page.
   const progressReady = !session || isFetched || isError;
   const initialPage = useMemo(() => {
+    const local = readLearnerResume(n);
+    if (local) return Math.min(local.page, Math.max(0, pages.length - 1));
     if (!session) return 0;
     const lessonProgress =
       (
@@ -88,7 +93,15 @@ export function Leccion() {
       )?.lessonProgress ?? [];
     const row = lessonProgress.find((p) => p.lesson_id === String(n));
     return row?.last_page ?? 0;
-  }, [session, progressData, n]);
+  }, [session, progressData, n, pages.length]);
+
+  useEffect(() => { if (progressReady) saveLearnerResume(n, initialPage); }, [n, progressReady, initialPage]);
+  const [saveFailed, setSaveFailed] = useState(false);
+  useEffect(() => {
+    const fail = () => setSaveFailed(true);
+    window.addEventListener("cartilla:work-save-failed", fail);
+    return () => window.removeEventListener("cartilla:work-save-failed", fail);
+  }, []);
 
   const gardenRef = useRef<HTMLDivElement>(null);
   const saveLastPageFn = useServerFn(saveLastPage);
@@ -97,6 +110,7 @@ export function Leccion() {
     // the workbook and its interactive flip never re-render. CSS caps + eases
     // it and disables it under prefers-reduced-motion (garden-scene.css).
     gardenRef.current?.style.setProperty("--garden-parallax", String(index));
+    saveLearnerResume(n, index);
     if (!session) return;
     void saveLastPageFn({
       data: {
@@ -172,8 +186,10 @@ export function Leccion() {
           <ArrowLeft className="w-5 h-5" /> Mis lecciones
         </Link>
       </header>
+      {saveFailed && <p role="alert" className="mx-3 rounded-xl bg-amber-100 p-3 text-amber-950">No se pudo guardar tu trabajo. Mantén esta página abierta y libera espacio en este navegador antes de salir.</p>}
       <main className="flex-1 px-3 pb-6 max-w-7xl w-full mx-auto flex flex-col items-center">
         <div className="w-full max-w-3xl text-left mb-4">
+          <p className="mb-2 text-sm text-stone-600">Las grabaciones de voz están pendientes. Puedes completar las actividades con tu maestro.</p>
           <div className="text-xs font-bold uppercase tracking-wide text-foreground/50">
             {t.leccion[lang]} {n} · {t.paginas[lang].toLowerCase()} {entry.pages}
           </div>
@@ -196,7 +212,7 @@ export function Leccion() {
           <GardenScene ref={gardenRef}>
             {progressReady && (
               <NativeLessonViewer
-                key={n}
+                key={`${n}:${scope}`}
                 pages={pages}
                 chapterLabel={`${t.leccion[lang]} ${n} · ${entry.kind === "consonant" ? `${entry.letter.toUpperCase()}${entry.letter}` : entry.title}`}
                 initialPage={initialPage}
