@@ -18,6 +18,23 @@ There are six active repo-wide instruction files:
 
 Anything under `docs/archive/` is historical reference only and must not override any file above.
 
+### JULES PREFLIGHT — mandatory on every Jules task
+
+Jules must treat CURRENT `main` as the instruction baseline, not the task's start-time snapshot, old issue comments, old PR descriptions, archived documents, or prior agent memory.
+
+Before reviewing, coding, or resuming any Cartilla task, Jules must:
+1. sync/read CURRENT `main`;
+2. read the six canonical files above, with special attention to the files relevant to that task;
+3. inspect the issue's latest owner/queue-controller directives;
+4. compare any existing task branch/PR against CURRENT `main` before continuing;
+5. stop and correct course if older task context conflicts with CURRENT `main` or a newer owner directive.
+
+Canonical repo files and newer owner directives override stale Jules plans, earlier bot comments, earlier recommendations, and task-start snapshots. Do not implement a remembered or previously proposed interaction when `STUDENT_INTERACTION_STANDARD.md` now specifies another one.
+
+Jules must stay inside the issue scope. Do not opportunistically change adjacent activities, artwork, Gretel behavior, voice/TTS, auth/Supabase, deployment, or other active lanes unless the issue explicitly owns that scope. Supabase/live-auth remains deferred unless the owner explicitly re-authorizes it.
+
+For application code/assets, Jules must provide task-specific proof and complete direct-cloud `pnpm verify:release`. GitHub Actions/check badges are not proof. Jules never self-merges.
+
 ---
 
 ## CARTILLA DIGITAL DIRECTIVE — HIGHEST PRIORITY, NO EXCEPTIONS
