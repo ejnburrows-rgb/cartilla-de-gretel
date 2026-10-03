@@ -1,7 +1,7 @@
 # CARTILLA DIGITAL DIRECTIVE — For All AI Agents
 
 **Status:** CANONICAL. This overrides all prior layout/fidelity instructions.
-**Last updated:** 2026-09-29 (owner clarified: same layout, modern digital, not inch-for-inch)
+**Last updated:** 2026-10-03 (owner locked premium student interactions + source-preserving color transfer)
 
 ---
 
@@ -29,7 +29,7 @@ This is **fixed**. Do not change it.
 This is **fixed**. Do not change it.
 
 - All text: exact words, in the same order
-- All images: the approved files, unmodified (see Image Lock below; the sole exception is new scenic backgrounds that follow `repo.md`)
+- All images: approved source-faithful files. The only allowed foreground change is the narrow source-preserving color-transfer exception defined below; scenic backgrounds follow `repo.md`.
 - All exercises: same questions, same answer choices, same structure
 
 **Example:** If the book says "Completa las palabras" with specific words and syllable options, you use those exact words and options. You do not rewrite, simplify, or add hints.
@@ -65,7 +65,7 @@ The test is about **structure and content**, not visual style. A modern-looking 
 - ✅ Arrange elements to match the book's page structure
 - ✅ Use all the book's text content verbatim
 - ✅ Place the approved images where the book places them
-- ✅ Make interactions smooth and delightful (page turns, tap feedback, audio)
+- ✅ Make interactions smooth and premium. Student Workbook interaction behavior must follow `STUDENT_INTERACTION_STANDARD.md`.
 - ✅ Use clean modern typography and spacing
 - ✅ Adapt layout responsively (stack on mobile, expand on desktop) while preserving element order
 - ✅ Add digital-native features that serve the book's pedagogy (audio read-aloud, answer checking, progress tracking)
@@ -75,7 +75,7 @@ The test is about **structure and content**, not visual style. A modern-looking 
 - ❌ Rearrange the page structure (move the grid above the header, put exercises in a different order)
 - ❌ Add new content not in the book (extra exercises, new characters, new text)
 - ❌ Remove content that's in the book (skip a verse, drop an image)
-- ❌ Modify any image file (see Image Lock)
+- ❌ Modify source artwork except for the explicitly authorized source-preserving color-transfer or background-only workflows below
 - ❌ Produce a "scanned page" aesthetic (paper texture, scan artifacts, rigid print layout)
 - ❌ Chase pixel-perfect measurements (matching the book's exact margins in millimeters)
 - ❌ Replicate print limitations digitally (if the book's layout was constrained by print, you're free to use the screen better — as long as the structure matches)
@@ -88,27 +88,32 @@ The test is about **structure and content**, not visual style. A modern-looking 
 >
 > Owner clarification (EJN): `repo.md` is the active, authoritative method for background-only generation. Background-only generation is the sole exception to this Image Lock (see below).
 
-The approved/corrected/cropped book images are final.
+The approved/corrected/cropped book images remain source-locked.
 
 DO NOT:
-- regenerate, redraw, recolor, remaster, or "modernize" them
-- optimize their visual style
-- recrop or substitute them
-- change their internal geometry
+- regenerate or redraw them;
+- replace them with similar artwork;
+- remaster or stylistically modernize them;
+- change line art, geometry, pose, proportions, composition, object count, identity, or educational meaning;
+- guess or invent colors.
 
-Use the existing approved image files unchanged. Place them according to the book's layout structure.
+### Authorized foreground exception: source-preserving color transfer
 
-### Sole exception: background-only generation (`repo.md`)
+Owner-approved on 2026-10-03. For an existing Workbook drawing, verified colors may be transferred from an exact mapped Flip Chart/canonical counterpart only when the Workbook drawing itself is preserved exactly. Preserve line art, geometry, pose, proportions, composition, object count, meaning, and content. Do not import Flip Chart-only scenery, labels, action marks, or objects. If a source-preserving transfer cannot be verified, leave the asset pending rather than substituting or inventing art.
 
-New scenic backgrounds may be created for Workbook and Flip Chart pages when they follow `repo.md`. This exception applies only to the background environment. Original foreground illustrations, characters, objects, text, lesson content, educational meaning, composition, and page structure remain locked and may not be recreated, replaced, redrawn, recolored, modified, or invented.
+### Authorized background exception: background-only generation (`repo.md`)
 
-Every other Image Lock rule, including the image acceptance rule below, still applies.
+New scenic backgrounds may be created for Workbook and Flip Chart pages only when they follow `repo.md`. This applies only to the environment behind the original content. Foreground illustrations, characters, objects, text, lesson content, educational meaning, composition, and page structure remain unchanged.
 
 ### Image acceptance rule
 
-Only images uploaded by ChatGPT are accepted into the repo. ChatGPT is the agent that handles image work correctly. No other agent (Muse, Jules, Qwen, or any other) may add, replace, or modify image files in the repo. If image work is needed, it goes through ChatGPT.
+Newly generated or creatively altered artwork still requires owner/ChatGPT visual approval before production use. Technical source-faithful operations — verified crop correction, transparency cleanup, lossless optimization, and the authorized source-preserving color-transfer workflow — may be executed by Jules or another implementation agent when the exact source is identified and the required before/after/provenance proof is supplied. No agent may invent replacement art.
 
 ---
+
+## Student interaction standard
+
+`STUDENT_INTERACTION_STANDARD.md` is the owner-approved source of truth for student-facing Workbook behavior and motion. It defines Pencil Retry, real Workbook marks, pencil-drawn matching lines, progressive-fade tracing, premium pencil/eraser drawing tools, real pencil syllable circles, pencil-written word completion, and direct sentence handwriting. Older lasso/red-X/game-like treatments are superseded.
 
 ## Reference materials
 
@@ -124,7 +129,7 @@ Only images uploaded by ChatGPT are accepted into the repo. ChatGPT is the agent
 |---|---|
 | Page structure (what goes where) | MUST match the book |
 | Text content | MUST match the book (verbatim) |
-| Images | MUST use approved files, unmodified |
+| Foreground images | MUST remain source-faithful; verified source-preserving color transfer is allowed under `ASSET_FIDELITY_POLICY.md` |
 | Scenic backgrounds (Workbook + Flip Chart) | MAY be newly created — background environment only, following `repo.md` |
 | Page sequence | MUST match the book |
 | Visual style | MODERN digital (your judgment) |
