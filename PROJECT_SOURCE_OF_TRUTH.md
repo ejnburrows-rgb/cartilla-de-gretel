@@ -42,7 +42,6 @@ Current product-completion execution is intentionally parallel where scopes are 
 
 Active independent lanes include:
 - direct cloud release verification;
-- active instruction/source-of-truth reconciliation;
 - production foreground art remediation with verified source-preserving color transfer;
 - Gretel behavior/motion discipline;
 - welcome-media readiness/integration;
