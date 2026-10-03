@@ -32,3 +32,9 @@ The replacement is a lossless PNG extraction of source pixels at left=1460, top=
 ![Flip Chart landscape](flipchart-landscape-after.png)
 
 Publication and live verification are a separate final checkpoint; local evidence alone is not a deployment claim.
+
+## Live readability follow-up
+
+Production inspection of Workbook page 1 showed scenery behind its instructions. A paint-only light backing now protects instruction and lesson-footer contrast on pages with final backgrounds. No text, layout dimensions, targets or image pixels change. The rendered correction and production build were checked.
+
+![Readable instructions](workbook-instructions-readable.png)
