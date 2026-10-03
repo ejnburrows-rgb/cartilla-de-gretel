@@ -1,3 +1,5 @@
+import { getDemoStudentSession } from "./demo-student-session";
+import { logSeedProgress } from "./seed-data";
 import { evidenceFor, isUngradedProduction } from "@/lib/progress-semantics";
 import { hasGretelDemonstration, isGretelAssistedAttempt } from "@/lib/gretel-bus";
 import { useEffect, useState } from "react";
@@ -23,10 +25,10 @@ function openStudentAccessActive(): boolean {
 
 export function getStudentSession(): StudentSession | null {
   if (typeof window === "undefined") return null;
+  if (getDemoStudentSession()) return null;
   if (openStudentAccessActive()) {
-    // Open mode is browser-local. Remove any identity left by an older real
-    // classroom session so anonymous practice can never write as that child.
-    localStorage.removeItem(KEY);
+    // Open mode never activates a cloud identity. Retain an older real session
+    // untouched so trying the isolated demo cannot erase its identity.
     return null;
   }
   try {
@@ -98,6 +100,11 @@ export function recordEvent(input: LogInput) {
         completed: meta.completed,
       });
     }
+  }
+  const demo = getDemoStudentSession();
+  if (demo) {
+    logSeedProgress({ ...input, studentId: demo.studentId, meta: { ...input.meta, demo: true } });
+    return;
   }
   const s = getStudentSession();
   if (!s) return;

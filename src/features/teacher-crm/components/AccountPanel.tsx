@@ -4,12 +4,14 @@ import type { DashboardStudent } from "./PipelineBoard";
 
 interface AccountPanelProps {
   student: DashboardStudent | null;
-  onUpdate?: (id: string, updates: Partial<DashboardStudent>) => void;
+  onUpdate?: (id: string, updates: Partial<DashboardStudent>) => void | Promise<void>;
 }
 
 export function AccountPanel({ student, onUpdate }: AccountPanelProps) {
   const [notes, setNotes] = useState("");
   const [isEditingNotes, setIsEditingNotes] = useState(false);
+  const [saving, setSaving] = useState(false);
+  const [saveError, setSaveError] = useState("");
 
   // Reset the notes draft only when the SELECTED student changes (by id) —
   // not on every parent re-render — so in-progress edits aren't clobbered.
@@ -22,14 +24,18 @@ export function AccountPanel({ student, onUpdate }: AccountPanelProps) {
     if (current) {
       setNotes(current.teacher_notes || "");
       setIsEditingNotes(false);
+      setSaveError("");
     }
   }, [studentId]);
 
-  const handleSave = () => {
-    if (student && onUpdate) {
-      onUpdate(student.id, { teacher_notes: notes });
-    }
-    setIsEditingNotes(false);
+  const handleSave = async () => {
+    if (!student || !onUpdate || saving) return;
+    setSaving(true); setSaveError("");
+    try {
+      await onUpdate(student.id, { teacher_notes: notes });
+      setIsEditingNotes(false);
+    } catch { setSaveError("No se pudieron guardar las notas. Tu texto sigue aquí para reintentar."); }
+    finally { setSaving(false); }
   };
 
   if (!student) {
@@ -79,6 +85,7 @@ export function AccountPanel({ student, onUpdate }: AccountPanelProps) {
           </div>
         </div>
 
+        {saveError && <p role="alert" className="text-sm text-amber-800">{saveError}</p>}
         {/* Teacher Notes Area */}
         <div className="bg-[#fefce8] p-4 rounded-2xl border border-[#fef08a]">
           <div className="flex justify-between items-center mb-2">
@@ -86,7 +93,7 @@ export function AccountPanel({ student, onUpdate }: AccountPanelProps) {
               <MessageSquare className="w-4 h-4" /> Comentarios del Maestro
             </label>
           </div>
-          <textarea
+          <textarea aria-label="Notas del alumno" disabled={saving}
             placeholder="Añade un comentario sobre el progreso o áreas de mejora..."
             value={notes}
             onChange={(e) => {
@@ -99,9 +106,10 @@ export function AccountPanel({ student, onUpdate }: AccountPanelProps) {
             <div className="flex justify-end mt-2">
               <button
                 onClick={handleSave}
+                disabled={saving}
                 className="flex items-center gap-1 px-4 py-2 bg-[#ca8a04] hover:bg-[#a16207] text-white text-xs font-black rounded-xl shadow-sm transition"
               >
-                <Save className="w-3 h-3" /> Guardar Notas
+                <Save className="w-3 h-3" /> {saving ? "Guardando…" : "Guardar Notas"}
               </button>
             </div>
           )}

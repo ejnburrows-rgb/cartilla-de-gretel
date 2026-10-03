@@ -1,3 +1,4 @@
+import { resetDemoClassroom } from "@/lib/demo-student-session";
 import { useEffect, useMemo, useState } from "react";
 import { useQueries, useQuery } from "@tanstack/react-query";
 import { Link } from "@tanstack/react-router";
@@ -16,6 +17,8 @@ import { listAssignments } from "@/lib/assignments.functions";
 import {
   addSeedStudents,
   createSeedClass,
+  createSeedAssignment,
+  deleteSeedAssignment,
   getSeedClass,
   isSeedSessionActive,
   listSeedAssignments,
@@ -41,10 +44,14 @@ export function TeacherDailyHome() {
   const isSeed = useMemo(() => isSeedSessionActive(), []);
   const [selectedClassId, setSelectedClassId] = useState("");
   const [className, setClassName] = useState("");
+  const [creatingClass, setCreatingClass] = useState(false);
   const [studentName, setStudentName] = useState("");
   const [busy, setBusy] = useState(false);
   const [message, setMessage] = useState("");
   const [seedVersion, setSeedVersion] = useState(0);
+  const [assignmentLesson, setAssignmentLesson] = useState("1");
+  const [assignmentTitle, setAssignmentTitle] = useState("");
+  const [search, setSearch] = useState("");
 
   useEffect(() => {
     if (!isSeed) return;
@@ -181,6 +188,7 @@ export function TeacherDailyHome() {
         setSelectedClassId(created.id);
       }
       setClassName("");
+      setCreatingClass(false);
       setMessage("Clase creada.");
     } catch (error) {
       setMessage(error instanceof Error ? error.message : "No se pudo crear la clase.");
@@ -211,12 +219,12 @@ export function TeacherDailyHome() {
   };
 
   return (
-    <div className="crm-app bg-[#f7f2e8]">
+    <div className="crm-app crm-daily bg-[#f7f2e8]">
       <Sidebar />
       <main className="crm-main flex min-h-screen flex-1 flex-col overflow-hidden">
-        <Topbar />
+        <Topbar search={search} onSearch={setSearch} />
         <div className="crm-content flex-1 overflow-y-auto p-4 sm:p-6 lg:p-8">
-          <div className="mx-auto max-w-6xl space-y-6">
+          <div className="mx-auto w-full min-w-0 max-w-6xl space-y-6">
             <header className="rounded-[2rem] border border-[#eadfc8] bg-white p-6 shadow-sm">
               <div className="flex flex-col gap-5 lg:flex-row lg:items-end lg:justify-between">
                 <div>
@@ -225,6 +233,11 @@ export function TeacherDailyHome() {
                   <p className="mt-2 max-w-2xl text-sm font-semibold text-stone-600">Atención, práctica y progreso basados únicamente en lo registrado en la Cartilla.</p>
                 </div>
                 <div className="flex flex-wrap items-center gap-2">
+                  {classes.length > 0 && <button onClick={() => setCreatingClass(value => !value)} className="min-h-11 rounded-xl border border-stone-300 bg-white px-4 text-sm font-bold">{creatingClass ? "Cancelar nueva clase" : "Nueva clase"}</button>}
+                  {isSeed && <button className="min-h-11 rounded-xl border border-stone-300 bg-white px-4 text-sm font-bold" onClick={() => {
+                    if (!window.confirm("¿Restablecer la clase de ejemplo? Se borrarán sus clases, alumnos, notas, tareas y trabajos de demostración. El trabajo normal de alumnos no se modifica.")) return;
+                    try { resetDemoClassroom(); window.location.reload(); } catch { setMessage("No se pudo restablecer la demostración."); }
+                  }}>Restablecer demostración</button>}
                   {classes.length > 0 && (
                     <select
                       aria-label="Clase activa"
@@ -244,9 +257,18 @@ export function TeacherDailyHome() {
                   </Link>
                 </div>
               </div>
+              {creatingClass && classes.length > 0 && <form onSubmit={createNewClass} className="mt-4 flex flex-wrap gap-2">
+                <input aria-label="Nombre de la nueva clase" value={className} onChange={event => setClassName(event.target.value)} maxLength={80} placeholder="Nombre de la clase" className="min-h-11 min-w-0 flex-1 rounded-xl border p-3" />
+                <button disabled={busy || !className.trim()} className="rounded-xl bg-[#a45d22] px-5 py-3 font-bold text-white disabled:opacity-50">Crear clase</button>
+              </form>}
               {message && <p className="mt-4 text-sm font-bold text-stone-600">{message}</p>}
             </header>
 
+            {search.trim() && <section aria-label="Resultados de búsqueda" className="rounded-2xl border bg-white p-5">
+              <h2 className="font-bold">Alumnos en esta clase</h2>
+              {students.filter(student => student.display_name.toLocaleLowerCase().includes(search.trim().toLocaleLowerCase())).map(student => <a key={student.id} href={`/cartilla/teacher/crm/${selectedClassId}/${student.id}`} className="mt-2 block rounded-xl border p-3 font-bold">{student.display_name}</a>)}
+              {!students.some(student => student.display_name.toLocaleLowerCase().includes(search.trim().toLocaleLowerCase())) && <p className="mt-2 text-sm">No hay alumnos con ese nombre en esta clase.</p>}
+            </section>}
             {classes.length === 0 ? (
               <section className="rounded-[2rem] border border-[#eadfc8] bg-white p-8 text-center shadow-sm">
                 <Users className="mx-auto h-10 w-10 text-[#a45d22]" />
@@ -265,7 +287,7 @@ export function TeacherDailyHome() {
                       <p className="mt-1 text-sm font-semibold text-stone-500">{students.length} estudiantes · Código {activeClass?.join_code}</p>
                     </div>
                     <form onSubmit={addNewStudent} className="flex w-full gap-2 md:max-w-md">
-                      <input value={studentName} onChange={(event) => setStudentName(event.target.value)} placeholder="Añadir estudiante" maxLength={60} className="min-h-11 flex-1 rounded-xl border border-stone-300 px-3 text-sm font-semibold" />
+                      <input value={studentName} onChange={(event) => setStudentName(event.target.value)} placeholder="Añadir estudiante" maxLength={60} className="min-h-11 min-w-0 flex-1 rounded-xl border border-stone-300 px-3 text-sm font-semibold" />
                       <button aria-label="Añadir estudiante" disabled={busy || !studentName.trim()} className="inline-flex min-h-11 items-center gap-2 rounded-xl bg-[#356b43] px-4 text-sm font-black text-white disabled:opacity-50"><Plus className="h-4 w-4" /> Añadir</button>
                     </form>
                   </div>
@@ -303,11 +325,28 @@ export function TeacherDailyHome() {
 
                       <section className="rounded-[2rem] border border-[#eadfc8] bg-white p-6 shadow-sm">
                         <div className="flex items-center gap-3"><ClipboardList className="h-5 w-5 text-[#4759a6]" /><h2 className="text-xl font-black text-stone-800">Asignado</h2></div>
+                        {isSeed && <form className="mt-4 flex flex-wrap items-end gap-3" onSubmit={event => {
+                          event.preventDefault();
+                          try {
+                            if (assignments.some(row => row.lesson_id === assignmentLesson)) { setMessage("Esta lección ya está asignada."); return; }
+                            createSeedAssignment({classId: selectedClassId, lessonId: assignmentLesson, title: assignmentTitle.trim()});
+                            setAssignmentTitle(""); setMessage("Lección asignada a la clase de ejemplo.");
+                          } catch { setMessage("No se pudo guardar la asignación. Mantén abierta esta página y comprueba el espacio del navegador."); }
+                        }}>
+                          <label className="min-w-[200px] flex-1 text-sm font-bold">Lección
+                            <select aria-label="Lección para asignar" value={assignmentLesson} onChange={event => setAssignmentLesson(event.target.value)} className="mt-1 block w-full min-h-11 rounded-xl border p-2">{CATALOG.map(entry => <option key={entry.n} value={entry.n}>{entry.n} · {entry.title}</option>)}</select>
+                          </label>
+                          <label className="min-w-[160px] flex-1 text-sm font-bold">Título opcional
+                            <input aria-label="Título de la tarea" value={assignmentTitle} onChange={event => setAssignmentTitle(event.target.value)} className="mt-1 block w-full min-h-11 rounded-xl border p-2" maxLength={120} />
+                          </label>
+                          <button className="min-h-11 rounded-xl bg-[#4759a6] px-4 text-sm font-bold text-white">Asignar lección</button>
+                        </form>}
                         <div className="mt-4 space-y-2">
                           {assignmentRows.length === 0 ? <p className="text-sm font-semibold text-stone-500">No hay lecciones asignadas a esta clase.</p> : assignmentRows.map((assignment) => (
-                            <div key={assignment.id} className="flex items-center justify-between gap-4 rounded-xl bg-[#f7f7fb] px-4 py-3">
+                            <div key={assignment.id} className="flex flex-wrap items-center justify-between gap-4 rounded-xl bg-[#f7f7fb] px-4 py-3">
                               <div><p className="text-sm font-black text-stone-800">{assignment.title || lessonTitle(assignment.lesson_id)}</p><p className="mt-0.5 text-xs font-semibold text-stone-500">{assignment.completed} de {students.length} completaron{assignment.due_at ? ` · vence ${new Date(assignment.due_at).toLocaleDateString("es")}` : ""}</p></div>
                               <a href={`/cartilla/leccion/${assignment.lesson_id}`} className="text-xs font-black text-[#4759a6]">Abrir</a>
+                              {isSeed && <button aria-label={`Quitar asignación ${assignment.title || lessonTitle(assignment.lesson_id)}`} className="text-xs font-bold text-stone-600 p-2" onClick={() => { try { deleteSeedAssignment(assignment.id); setMessage("Asignación retirada."); } catch { setMessage("No se pudo retirar la asignación."); } }}>Quitar</button>}
                             </div>
                           ))}
                         </div>
