@@ -363,15 +363,14 @@ export function PaintCanvas({
     if (!hasPaint || done) return;
     setDone(true);
     persist();
-    gretelEvent("answer:correct");
     gretelEvent("activity:complete");
     if (lessonId) {
       recordEvent({
         lessonId,
         kind: "exercise",
-        score: 1,
-        total: 1,
-        meta: { exercise: `paint_${pageKey}`, completed: true, verb: verbLabel },
+        score: 0,
+        total: 0,
+        meta: { exercise: `paint_${pageKey}`, completed: true, grading: "ungraded", verb: verbLabel },
       });
     }
     onComplete?.();

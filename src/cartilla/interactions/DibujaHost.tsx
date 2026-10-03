@@ -247,15 +247,14 @@ export function DibujaHost({
     setDrawDone(true);
     persistDraw();
     playCorrectChord();
-    gretelEvent("answer:correct");
     gretelEvent("activity:complete");
     if (lessonId) {
       recordEvent({
         lessonId,
         kind: "exercise",
-        score: 1,
-        total: 1,
-        meta: { exercise: `dibuja_draw_${pageKey}`, completed: true, mode: "draw" },
+        score: 0,
+        total: 0,
+        meta: { exercise: `dibuja_draw_${pageKey}`, completed: true, grading: "ungraded", mode: "draw" },
       });
     }
     onComplete?.();

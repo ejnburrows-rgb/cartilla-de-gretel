@@ -1,3 +1,4 @@
+import { countsForLiteracy } from "./progress-semantics";
 import { z } from "zod";
 import { supabase } from "@/integrations/supabase/client";
 import {
@@ -445,6 +446,7 @@ export async function getClassProgress(input: Call<{ id: string }>) {
         const key = `${e.student_id}:${e.lesson_id}:${exerciseName(e)}`;
         if (latestExercise.has(key)) return;
         latestExercise.add(key);
+        if (!countsForLiteracy((e.meta ?? {}) as Record<string, unknown>)) return;
         ps.score += e.score ?? 0;
         ps.total += e.total ?? 0;
         pl.score += e.score ?? 0;
@@ -468,6 +470,7 @@ export async function getClassProgress(input: Call<{ id: string }>) {
   });
   (exerciseSummaries ?? []).forEach(
     (row: { student_id: string; exercise: string; hits: number; attempts: number }) => {
+      if (!countsForLiteracy({ exercise: row.exercise })) return;
       const kind = exerciseKind(row.exercise);
       const bucket = (perStudentExercise[row.student_id] ??= {});
       const cell = (bucket[kind] ??= { hits: 0, attempts: 0 });

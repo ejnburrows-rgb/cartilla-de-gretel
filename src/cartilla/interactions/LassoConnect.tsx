@@ -9,7 +9,7 @@
 import { useCallback, useEffect, useMemo, useRef, useState } from "react";
 import { GretelLayerRig } from "@/components/gretel/GretelLayerRig";
 import { speakGretelPhrase } from "@/lib/gretel-tts";
-import { useActivityEvents } from "@/lib/activity-events";
+import { useActivityEvents, useActivityState } from "@/lib/activity-events";
 import { playCorrectChord, playWrongBuzz } from "@/lib/piano-audio";
 import { loadLassoProgress, saveLassoProgress } from "@/lib/activity-canvas-store";
 import { useReducedMotion } from "@/hooks/useReducedMotion";
@@ -157,6 +157,13 @@ export function LassoConnect({
   className,
 }: LassoConnectProps) {
   const { emit: gretelEvent, record: recordEvent } = useActivityEvents();
+  const [incorrectAttempts, setIncorrectAttempts] = useActivityState("incorrectAttempts", 0);
+  const incorrectRef = useRef(incorrectAttempts);
+  incorrectRef.current = incorrectAttempts;
+  const recordWrong = () => {
+    incorrectRef.current += 1; setIncorrectAttempts(incorrectRef.current);
+    if (lessonId) recordEvent({ lessonId, kind: "exercise", score: mode === "mark" ? learnerMarked : links.length, total: totalNeeded + incorrectRef.current, meta: { exercise: `lasso_${pageKey}`, completed: false, attemptCorrect: false, mode } });
+  };
   const reducedMotionHook = useReducedMotion();
   const reducedMotion = reducedMotionProp ?? reducedMotionHook;
   const verb = verbFamily ?? detectVerbFamily(instruction);
@@ -288,8 +295,8 @@ export function LassoConnect({
             lessonId,
             kind: "exercise",
             score: totalNeeded,
-            total: totalNeeded,
-            meta: { exercise: `lasso_${pageKey}`, completed: true, mode },
+            total: totalNeeded + incorrectRef.current,
+            meta: { exercise: `lasso_${pageKey}`, completed: true, attemptCorrect: true, mode },
           });
         }
         onComplete?.();
@@ -427,11 +434,7 @@ export function LassoConnect({
         if (ok) {
           playCorrectChord();
           gretelEvent("answer:correct", { itemId: target.id });
-          try {
-            speakGretelPhrase("¡Buen trabajo!");
-          } catch {
-            /* optional */
-          }
+
           const next = new Set(marked).add(target.id);
           setMarked(next);
           persist([...next]);
@@ -440,6 +443,7 @@ export function LassoConnect({
         } else {
           playWrongBuzz();
           gretelEvent("answer:wrong", { itemId: target.id });
+          recordWrong();
           try {
             speakGretelPhrase("Oh no, inténtalo de nuevo.");
           } catch {
@@ -496,11 +500,7 @@ export function LassoConnect({
       if (pairOk && left) {
         playCorrectChord();
         gretelEvent("answer:correct", { itemId: `${left?.id}|${right.id}` });
-        try {
-          speakGretelPhrase("¡Buen trabajo!");
-        } catch {
-          /* optional */
-        }
+
         const next = [...links, { a: left.id, b: right.id, path: "" }];
         setLinks(next);
         persist(next.map(l => `${l.a}|${l.b}`));
@@ -510,6 +510,7 @@ export function LassoConnect({
       } else {
         playWrongBuzz();
         gretelEvent("answer:wrong", { itemId: `${left?.id}|${right.id}` });
+        recordWrong();
         try {
           speakGretelPhrase("Oh no, inténtalo de nuevo.");
         } catch {

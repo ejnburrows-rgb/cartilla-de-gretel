@@ -28,12 +28,12 @@ describe("exercise-stats", () => {
       expect(getStats()).toEqual({});
     });
 
-    it("keeps the best snapshot (Math.max), so a weaker later round never lowers it", () => {
+    it("keeps one coherent latest snapshot instead of mixing best scores", () => {
       recordExerciseStat({ lessonId: "1", exercise: "syllable_match", score: 8, total: 10 });
       recordExerciseStat({ lessonId: "1", exercise: "syllable_match", score: 3, total: 4 });
       const cell = getStats()["1"]?.syllable_match;
-      expect(cell?.hits).toBe(8);
-      expect(cell?.attempts).toBe(10);
+      expect(cell?.hits).toBe(3);
+      expect(cell?.attempts).toBe(4);
     });
 
     it("increments completedRounds only when completed is true", () => {

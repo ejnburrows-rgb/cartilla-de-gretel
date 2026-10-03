@@ -3,13 +3,10 @@ import { useEffect, useState } from "react";
 import type { PageRegion } from "@/lib/book-faithful";
 import { useActivityEvents } from "@/lib/activity-events";
 
-function syllableRange(word: string, syllable: string): [string, string, string] {
-  const normalize = (value: string) =>
-    value.normalize("NFD").replace(/[\u0300-\u036f]/g, "").toLocaleLowerCase("es");
-  const position = normalize(word).indexOf(normalize(syllable));
-  return position < 0
-    ? [word, "", ""]
-    : [word.slice(0, position), word.slice(position, position + syllable.length), word.slice(position + syllable.length)];
+export function validSyllableStarts(word: string, syllable: string): number[] {
+  const normalize = (value: string) => value.normalize("NFD").replace(/[\u0300-\u036f]/g, "").toLocaleLowerCase("es");
+  const text = normalize(word), target = normalize(syllable);
+  return target ? Array.from({ length: word.length }, (_, i) => i).filter(i => text.startsWith(target, i)) : [];
 }
 
 export function SyllableWordCircle({ region, lessonId }: { region: PageRegion; lessonId?: string }) {
@@ -26,6 +23,7 @@ export function SyllableWordCircle({ region, lessonId }: { region: PageRegion; l
       return new Set();
     }
   });
+  const [selectedStarts, setSelectedStarts] = useState<Record<number, number>>({});
   const [wrongIndex, setWrongIndex] = useState<number | null>(null);
   const syllable = region.syllable ?? "";
 
@@ -33,16 +31,18 @@ export function SyllableWordCircle({ region, lessonId }: { region: PageRegion; l
     if (correctCount > 0 && marked.size === correctCount) gretelEvent("activity:complete", { restored: true });
   }, [correctCount, marked, gretelEvent]);
 
-  const toggle = (i: number) => {
-    if (!isTarget(i)) {
+  const toggle = (i: number, position: number) => {
+    if (!isTarget(i) || !validSyllableStarts(words[i].word, syllable).includes(position)) {
       setWrongIndex(i);
       window.setTimeout(() => setWrongIndex((current) => current === i ? null : current), 450);
       gretelEvent("answer:wrong", { itemId: `${region.id}-${i}` });
       return;
     }
 
+    setWrongIndex(null);
     const next = new Set(marked);
-    const adding = !next.has(i);
+    const adding = !next.has(i) || (selectedStarts[i] ?? validSyllableStarts(words[i].word, syllable)[0]) !== position;
+    setSelectedStarts(prev => ({ ...prev, [i]: position }));
     if (adding) next.add(i);
     else next.delete(i);
     setMarked(next);
@@ -69,38 +69,19 @@ export function SyllableWordCircle({ region, lessonId }: { region: PageRegion; l
       <h2>{syllable}</h2>
       <div className="native-syllable__words">
         {words.map((entry, i) => {
-          const [before, match, after] = syllableRange(entry.word, syllable);
-          const target = isTarget(i);
           const wrong = wrongIndex === i;
           return (
             <span
               key={`${i}-${entry.word}`}
               className={`native-syllable__word${wrong ? " is-wrong" : ""}`}
             >
-              {target && match ? (
-                <>
-                  <span>{before}</span>
-                  <button
-                    type="button"
-                    className={`native-syllable__tap${marked.has(i) ? " is-circled" : ""}`}
-                    aria-label={entry.word}
-                    aria-pressed={marked.has(i)}
-                    onClick={() => toggle(i)}
-                  >
-                    {match}
-                  </button>
-                  <span>{after}</span>
-                </>
-              ) : (
-                <button
-                  type="button"
-                  className="native-syllable__distractor"
-                  aria-pressed={false}
-                  onClick={() => toggle(i)}
-                >
-                  {entry.word}
-                </button>
-              )}
+              {Array.from(entry.word).map((letter, position) => (
+                <button key={position} type="button"
+                  className={`native-syllable__letter${marked.has(i) && position >= (selectedStarts[i] ?? validSyllableStarts(words[i].word, syllable)[0]) && position < (selectedStarts[i] ?? validSyllableStarts(words[i].word, syllable)[0]) + syllable.length ? " is-circled" : ""}`}
+                  aria-label={position === 0 ? entry.word : `${entry.word}, posición ${position + 1}: ${letter}`}
+                  aria-pressed={marked.has(i) && (selectedStarts[i] ?? validSyllableStarts(words[i].word, syllable)[0]) === position}
+                  onClick={() => toggle(i, position)}>{letter}</button>
+              ))}
             </span>
           );
         })}

@@ -141,14 +141,15 @@ describe("PaintCanvas — Colorea freehand", () => {
     expect(screen.queryByText("¿Borrar todo el color?")).toBeNull();
   });
 
-  it("finish records progress and gretel correct", () => {
+  it("finish records ungraded completion", () => {
     render(<PaintCanvas pageKey="test-paint-4" verbLabel="Colorea" lessonId="7" />);
     const canvas = screen.getByLabelText(/Colorea: pinta/i);
     fireEvent.pointerDown(canvas, { clientX: 15, clientY: 15, pointerId: 1, buttons: 1 });
     fireEvent.pointerMove(canvas, { clientX: 50, clientY: 50, pointerId: 1, buttons: 1 });
     fireEvent.pointerUp(canvas, { pointerId: 1 });
     fireEvent.click(screen.getByRole("button", { name: /Listo/i }));
-    expect(gretelEvent).toHaveBeenCalledWith("answer:correct");
+    expect(gretelEvent).not.toHaveBeenCalledWith("answer:correct");
+    expect(gretelEvent).toHaveBeenCalledWith("activity:complete");
     expect(recordEvent).toHaveBeenCalled();
     expect(screen.getByText(/Qué bonito quedó/i)).toBeTruthy();
   });

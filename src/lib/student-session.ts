@@ -1,4 +1,5 @@
-import { isGretelAssistedAttempt } from "@/lib/gretel-bus";
+import { evidenceFor, isUngradedProduction } from "@/lib/progress-semantics";
+import { hasGretelDemonstration, isGretelAssistedAttempt } from "@/lib/gretel-bus";
 import { useEffect, useState } from "react";
 import { logProgress } from "@/lib/student.functions";
 import { recordExerciseStat } from "@/lib/exercise-stats";
@@ -72,14 +73,16 @@ type LogInput = {
 
 /** Save immediately, then sync signed-in student events in order. */
 export function recordEvent(input: LogInput) {
-  if (input.kind === "exercise" && isGretelAssistedAttempt(typeof input.meta?.activityId === "string" ? input.meta.activityId : undefined)) {
-    input = { ...input, meta: { ...input.meta, assisted: true, needsIndependentAttempt: true } };
+  if (input.kind === "exercise") {
+    const activityId = typeof input.meta?.activityId === "string" ? input.meta.activityId : undefined;
+    input = { ...input, meta: evidenceFor(input, { assisted: isGretelAssistedAttempt(activityId), demonstration: hasGretelDemonstration(activityId) }) };
+    if (isUngradedProduction(input.meta)) input = { ...input, score: undefined, total: undefined };
   }
   // Always mirror exercise results to local stats (works for anonymous users too).
   if (
     input.kind === "exercise" &&
     input.lessonId &&
-    typeof input.total === "number"
+    (typeof input.total === "number" || isUngradedProduction(input.meta))
   ) {
     const meta = (input.meta ?? {}) as {
       exercise?: string;
@@ -90,7 +93,8 @@ export function recordEvent(input: LogInput) {
         lessonId: input.lessonId,
         exercise: meta.exercise,
         score: input.score ?? 0,
-        total: input.total,
+        total: input.total ?? 0,
+        meta: input.meta,
         completed: meta.completed,
       });
     }
