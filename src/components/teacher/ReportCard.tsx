@@ -226,7 +226,7 @@ export function ReportCard({ classId, studentId }: ReportCardProps) {
                     <td className="p-3 font-mono text-xs">
                       {new Date(e.created_at ?? 0).toLocaleDateString()}
                     </td>
-                    <td className="p-3 capitalize font-bold text-stone-700">{e.event_kind}</td>
+                    <td className="p-3 capitalize font-bold text-stone-700">{{ exercise: "Actividad", time: "Tiempo de trabajo", lesson_completed: "Lección completada", badge: "Reconocimiento", level: "Nivel" }[e.event_kind ?? ""] ?? "Actividad"}</td>
                     <td className="p-3">Lección {e.lesson_id}</td>
                     <td className="p-3">
                       {e.event_kind === "exercise" && (e.total ?? 0) > 0

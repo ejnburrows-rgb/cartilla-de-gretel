@@ -44,15 +44,15 @@ export function WorkbookLetterTrace({
   useEffect(() => { if (finishedWork) gretelEvent("activity:complete", { restored: true }); }, [finishedWork, gretelEvent]);
   const strokes = useMemo(() => getLetterTemplate(modelText), [modelText]);
 
-  const [strokeIdx, setStrokeIdx] = useState(0);
-  const [pointIdx, setPointIdx] = useState(0); // next checkpoint within current stroke
-  const [completed, setCompleted] = useState<Point[][]>([]);
-  const [current, setCurrent] = useState<Point[]>([]);
+  const [strokeIdx, setStrokeIdx] = useActivityState("traceStroke", 0);
+  const [pointIdx, setPointIdx] = useActivityState("tracePoint", 0); // next checkpoint within current stroke
+  const [completed, setCompleted] = useActivityState<Point[][]>("traceCompleted", []);
+  const [current, setCurrent] = useActivityState<Point[]>("traceCurrent", []);
   const [status, setStatus] = useState<Status>("idle");
-  const [slips, setSlips] = useState(0);
+  const [slips, setSlips] = useActivityState("traceSlips", 0);
   const [offFlash, setOffFlash] = useState(false);
 
-  const slipsRef = useRef(0);
+  const slipsRef = useRef(slips);
   const offActiveRef = useRef(false);
   const reportedRef = useRef(false);
   const wrongFiredRef = useRef(false);
@@ -202,9 +202,8 @@ export function WorkbookLetterTrace({
 
   function handlePointerUp() {
     if (status === "tracing") {
-      // Lifting mid-stroke abandons the partial stroke; finished strokes remain.
-      setCurrent([]);
-      setPointIdx(0);
+      // Retain the partial path and resume at its next checkpoint.
+      setStatus("idle");
       offActiveRef.current = false;
     }
   }

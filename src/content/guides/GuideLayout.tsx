@@ -20,9 +20,14 @@ export function GuideLayout({
   const [activeTab, setActiveTab] = useState<TabId>("objetivos");
 
   return (
-    <div className="flex flex-col md:flex-row gap-6 items-start relative h-[85vh]">
+    <div className="flex flex-col lg:flex-row gap-6 items-start relative min-h-[70vh] guide-layout">
+      <label className="lg:hidden w-full no-print font-bold">Lección
+        <select aria-label="Seleccionar lección de la guía" className="block w-full mt-2 rounded-xl border p-3" value={selectedLesson} onChange={(event) => onSelectLesson(Number(event.target.value))}>
+          {CATALOG.map(entry => <option key={entry.n} value={entry.n}>{entry.n} · {entry.title}</option>)}
+        </select>
+      </label>
       {/* Master Sidebar: Curriculum Map */}
-      <aside className="w-full md:w-72 shrink-0 premium-glass bg-white/80 rounded-2xl border border-stone-200 shadow-sm hidden md:flex flex-col h-full overflow-hidden">
+      <aside className="w-full lg:w-72 shrink-0 premium-glass bg-white/80 rounded-2xl border border-stone-200 shadow-sm hidden lg:flex no-print flex-col h-full overflow-hidden">
         <div className="p-5 border-b border-stone-200/50">
           <h3 className="text-xs font-black uppercase tracking-wider text-stone-400">
             Mapa Curricular
@@ -65,9 +70,9 @@ export function GuideLayout({
       </aside>
 
       {/* Detail Area: Seamless Tabs + HTML Content */}
-      <div className="flex-1 premium-glass bg-white/90 rounded-2xl border border-stone-200 shadow-sm flex flex-col h-full overflow-hidden min-w-0">
+      <div className="flex-1 premium-glass bg-white/90 rounded-2xl border border-stone-200 shadow-sm flex flex-col w-full h-full overflow-hidden min-w-0 guide-detail">
         {/* Horizontal Seamless Tabs */}
-        <div className="flex items-center gap-2 p-3 bg-stone-50/80 border-b border-stone-200/60 overflow-x-auto no-scrollbar">
+        <div className="flex items-center gap-2 p-3 bg-stone-50/80 no-print border-b border-stone-200/60 overflow-x-auto no-scrollbar">
           <button
             onClick={() => setActiveTab("objetivos")}
             className={`flex items-center gap-2 px-4 py-2 rounded-lg font-bold text-sm transition-colors whitespace-nowrap ${
@@ -126,7 +131,7 @@ export function GuideLayout({
         </div>
 
         {/* HTML Rendering Area */}
-        <div className="flex-1 overflow-y-auto p-8 md:p-12">
+        <div className="flex-1 overflow-y-auto p-5 lg:p-12 guide-scroll">
           <div
             className={`prose prose-stone max-w-none guide-html-content active-tab-${activeTab}`}
           >

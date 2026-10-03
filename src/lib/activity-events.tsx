@@ -42,7 +42,7 @@ export function useActivityState<T>(field: string, initial: T): [T, Dispatch<Set
   });
   useEffect(() => {
     if (!key) return;
-    try { localStorage.setItem(key, JSON.stringify(value instanceof Set ? [...value] : value)); } catch { /* optional persistence */ }
+    try { localStorage.setItem(key, JSON.stringify(value instanceof Set ? [...value] : value)); } catch { window.dispatchEvent(new Event("cartilla:work-save-failed")); }
   }, [key, value]);
   return [value, setValue];
 }

@@ -48,7 +48,7 @@ export function setStudentSession(s: StudentSession | null) {
 }
 
 export function useStudentSession() {
-  const [session, setSession] = useState<StudentSession | null>(null);
+  const [session, setSession] = useState<StudentSession | null>(() => getStudentSession());
   useEffect(() => {
     setSession(getStudentSession());
     const h = () => setSession(getStudentSession());

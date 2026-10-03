@@ -64,6 +64,7 @@ function LearnerActivity({ id, pageNumber, kind, children, scope }: Props & { sc
             'syllable-match': 'Lee la sílaba de la consigna. Busca ese sonido dentro de cada palabra.',
             'fill-in-blank': 'Prueba cada sílaba en el espacio y lee la palabra completa.',
             'draw-box': 'Dibuja lo que pide la consigna. Cuando termines, toca Listo.',
+            'writing-line': 'Sigue los puntos en orden y continúa el trazo de la letra. Tu escritura se conserva.',
             'writing-response': 'Escribe tu respuesta a la consigna. Cuando termines, toca Listo.',
             'connect': 'Di el nombre del dibujo y escucha el sonido inicial antes de unirlo.',
           };

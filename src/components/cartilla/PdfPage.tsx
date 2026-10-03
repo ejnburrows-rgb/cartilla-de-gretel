@@ -20,9 +20,11 @@ export function prefetchPage(pageNumber: number) {
 interface PdfPageProps {
   pageNumber: number;
   className?: string;
+  eager?: boolean;
+  onStatus?: (ready: boolean) => void;
 }
 
-export function PdfPage({ pageNumber, className = "" }: PdfPageProps) {
+export function PdfPage({ pageNumber, className = "", eager = false, onStatus }: PdfPageProps) {
   const safe = Math.max(1, Math.min(pageNumber, 95));
   const chain = useMemo(() => getWorkbookPageFallbackChain(safe), [safe]);
 
@@ -49,10 +51,11 @@ export function PdfPage({ pageNumber, className = "" }: PdfPageProps) {
           alt={`Página ${safe} del libro`}
           className={`w-full h-full object-contain transition-opacity duration-300 ${loaded ? "opacity-100" : "opacity-0"}`}
           draggable={false}
-          loading="lazy"
-          onLoad={() => setLoaded(true)}
+          loading={eager ? "eager" : "lazy"}
+          onLoad={() => { setLoaded(true); onStatus?.(true); }}
           onError={() => {
             setLoaded(false);
+            if (chainIndex + 1 >= chain.length) onStatus?.(false);
             setChainIndex((i) => i + 1);
           }}
         />

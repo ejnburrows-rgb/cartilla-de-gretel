@@ -13,6 +13,7 @@
 // Detection is by matchMedia only — never user-agent sniffing — and it
 // re-checks on change, so a tablet with a mouse plugged in switches live.
 import { useCallback, useEffect, useRef, useState } from "react";
+import { useActivityState } from "@/lib/activity-events";
 import { advanceTap, type Point, type TapPosition } from "./letter-stroke-templates";
 
 export type TraceInputMode = "drag" | "tap";
@@ -115,16 +116,17 @@ export function useLetterTapTrace({
   onCorrectTap,
   onWrongTap,
 }: UseLetterTapTraceArgs): LetterTapTrace {
-  const [position, setPosition] = useState<TapPosition>({ strokeIdx: 0, pointIdx: 0 });
-  const [completedStrokes, setCompletedStrokes] = useState<Point[][]>([]);
-  const [currentStrokePoints, setCurrentStrokePoints] = useState<Point[]>([]);
-  const [finished, setFinished] = useState(false);
+  const [position, setPosition] = useActivityState<TapPosition>("tapPosition", { strokeIdx: 0, pointIdx: 0 });
+  const [completedStrokes, setCompletedStrokes] = useActivityState<Point[][]>("tapCompleted", []);
+  const [currentStrokePoints, setCurrentStrokePoints] = useActivityState<Point[]>("tapCurrent", []);
+  const [finished, setFinished] = useActivityState("tapFinished", false);
   const [wrongFlash, setWrongFlash] = useState(false);
-  const [wrongCheckpoints, setWrongCheckpoints] = useState(0);
+  const [wrongCheckpoints, setWrongCheckpoints] = useActivityState("tapWrongCount", 0);
 
   // Checkpoints already counted as fumbled, so repeated wrong taps on the same
   // dot never stack up a punishing score.
-  const fumbledRef = useRef<Set<string>>(new Set());
+  const [fumbled, setFumbled] = useActivityState<Set<string>>("tapFumbled", new Set());
+  const fumbledRef = useRef<Set<string>>(fumbled);
   const wrongTimerRef = useRef<ReturnType<typeof setTimeout> | null>(null);
 
   useEffect(
@@ -142,6 +144,7 @@ export function useLetterTapTrace({
     setWrongFlash(false);
     setWrongCheckpoints(0);
     fumbledRef.current = new Set();
+    setFumbled(new Set());
     if (wrongTimerRef.current) clearTimeout(wrongTimerRef.current);
   }, []);
 
@@ -154,6 +157,7 @@ export function useLetterTapTrace({
         const key = `${position.strokeIdx}:${position.pointIdx}`;
         if (!fumbledRef.current.has(key)) {
           fumbledRef.current.add(key);
+          setFumbled(new Set(fumbledRef.current));
           setWrongCheckpoints((n) => n + 1);
           onWrongTap?.();
         }

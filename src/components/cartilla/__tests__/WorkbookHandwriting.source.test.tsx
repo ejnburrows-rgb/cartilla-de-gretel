@@ -27,6 +27,7 @@ beforeEach(() => {
   vi.spyOn(HTMLCanvasElement.prototype, "toDataURL").mockReturnValue("data:image/png;base64,mock");
   vi.spyOn(HTMLCanvasElement.prototype, "getContext").mockReturnValue({
     setTransform: vi.fn(),
+    drawImage: vi.fn(),
   } as unknown as CanvasRenderingContext2D);
 });
 

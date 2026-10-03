@@ -4,6 +4,7 @@
  * alpha mask from the activity illustration, eraser, undo, clear confirm,
  * and local persistence. Not click-to-flood-fill (flood-fill is optional assist only).
  */
+import { useCanvasContinuity } from "@/lib/use-canvas-continuity";
 import { useCallback, useEffect, useRef, useState } from "react";
 import { Eraser, RotateCcw, Check, Paintbrush } from "lucide-react";
 import {
@@ -120,9 +121,9 @@ export function PaintCanvas({
   const rafRef = useRef<number | null>(null);
   const paintPixelsRef = useRef(0);
 
-  const [color, setColor] = useState<string>(BOOK_PAINT_SWATCHES[0]);
-  const [tool, setTool] = useState<Tool>("brush");
-  const [brushSize, setBrushSize] = useState<BrushSize>("normal");
+  const [color, setColor] = useActivityState<string>("paintColor", BOOK_PAINT_SWATCHES[0]);
+  const [tool, setTool] = useActivityState<Tool>("paintTool", "brush");
+  const [brushSize, setBrushSize] = useActivityState<BrushSize>("paintBrushSize", "normal");
   const [hasPaint, setHasPaint] = useState(false);
   const [done, setDone] = useActivityState("done", false);
   const [confirmClear, setConfirmClear] = useState(false);
@@ -135,11 +136,15 @@ export function PaintCanvas({
     const canvas = paintRef.current;
     const wrap = wrapRef.current;
     if (!canvas || !wrap) return;
-    const rect = wrap.getBoundingClientRect();
+    const rect = { width: wrap.clientWidth, height: wrap.clientHeight };
     const dpr = Math.min(window.devicePixelRatio || 1, 2);
     const w = Math.max(1, Math.floor(rect.width));
     const h = Math.max(1, Math.floor(rect.height));
-    const prev = canvas.toDataURL("image/png");
+    if (canvas.width === w * dpr && canvas.height === h * dpr) return;
+    const prev = document.createElement("canvas");
+    prev.width = canvas.width;
+    prev.height = canvas.height;
+    prev.getContext("2d")?.drawImage(canvas, 0, 0);
     canvas.width = w * dpr;
     canvas.height = h * dpr;
     canvas.style.width = `${w}px`;
@@ -151,13 +156,7 @@ export function PaintCanvas({
     ctx.imageSmoothingQuality = "high";
 
     // Restore previous paint after resize
-    if (prev && prev.length > 100) {
-      const img = new Image();
-      img.onload = () => {
-        ctx.drawImage(img, 0, 0, w, h);
-      };
-      img.src = prev;
-    }
+    if (prev.width && prev.height) ctx.drawImage(prev, 0, 0, w, h);
 
     // Build / rebuild mask from illustration alpha (drawable where opaque)
     if (illustrationSrc) {
@@ -203,7 +202,9 @@ export function PaintCanvas({
   useEffect(() => {
     resizeCanvases();
     window.addEventListener("resize", resizeCanvases);
-    return () => window.removeEventListener("resize", resizeCanvases);
+    const observer = typeof ResizeObserver === "undefined" ? null : new ResizeObserver(resizeCanvases);
+    if (wrapRef.current) observer?.observe(wrapRef.current);
+    return () => { observer?.disconnect(); window.removeEventListener("resize", resizeCanvases); };
   }, [resizeCanvases]);
 
   // Restore saved paint
@@ -214,13 +215,17 @@ export function PaintCanvas({
     const ctx = canvas?.getContext("2d");
     if (!canvas || !ctx) return;
     const img = new Image();
+    let disposed = false;
     img.onload = () => {
-      const rect = canvas.getBoundingClientRect();
-      ctx.drawImage(img, 0, 0, rect.width, rect.height);
+      if (disposed) return;
+      const dpr = Math.min(window.devicePixelRatio || 1, 2);
+      ctx.clearRect(0, 0, canvas.width / dpr, canvas.height / dpr);
+      ctx.drawImage(img, 0, 0, canvas.width / dpr, canvas.height / dpr);
       setHasPaint(true);
       paintPixelsRef.current = 1;
     };
     img.src = snap.dataUrl;
+    return () => { disposed = true; img.onload = null; };
   }, [pageKey]);
 
   const getPoint = (e: React.PointerEvent) => {
@@ -324,8 +329,13 @@ export function PaintCanvas({
     }
   };
 
+  useCanvasContinuity(paintRef, drawingRef, pageKey, () => { if (pendingMoveRef.current) flushStroke(); });
+
   const handlePointerUp = () => {
-    if (drawingRef.current) persist();
+    if (drawingRef.current) {
+      if (pendingMoveRef.current) flushStroke();
+      persist();
+    }
     drawingRef.current = false;
     lastRef.current = null;
     pendingMoveRef.current = null;

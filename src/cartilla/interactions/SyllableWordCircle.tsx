@@ -1,7 +1,7 @@
 import { learnerStorageKey } from "@/lib/learner-storage";
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import type { PageRegion } from "@/lib/book-faithful";
-import { useActivityEvents } from "@/lib/activity-events";
+import { useActivityEvents, useActivityState } from "@/lib/activity-events";
 
 export function validSyllableStarts(word: string, syllable: string): number[] {
   const normalize = (value: string) => value.normalize("NFD").replace(/[\u0300-\u036f]/g, "").toLocaleLowerCase("es");
@@ -23,8 +23,10 @@ export function SyllableWordCircle({ region, lessonId }: { region: PageRegion; l
       return new Set();
     }
   });
-  const [selectedStarts, setSelectedStarts] = useState<Record<number, number>>({});
+  const [selectedStarts, setSelectedStarts] = useActivityState<Record<number, number>>("syllableStarts", {});
   const [wrongIndex, setWrongIndex] = useState<number | null>(null);
+  const wrongTimer = useRef<number | undefined>(undefined);
+  useEffect(() => () => window.clearTimeout(wrongTimer.current), []);
   const syllable = region.syllable ?? "";
 
   useEffect(() => {
@@ -34,11 +36,13 @@ export function SyllableWordCircle({ region, lessonId }: { region: PageRegion; l
   const toggle = (i: number, position: number) => {
     if (!isTarget(i) || !validSyllableStarts(words[i].word, syllable).includes(position)) {
       setWrongIndex(i);
-      window.setTimeout(() => setWrongIndex((current) => current === i ? null : current), 450);
+      window.clearTimeout(wrongTimer.current);
+      wrongTimer.current = window.setTimeout(() => setWrongIndex((current) => current === i ? null : current), 450);
       gretelEvent("answer:wrong", { itemId: `${region.id}-${i}` });
       return;
     }
 
+    window.clearTimeout(wrongTimer.current);
     setWrongIndex(null);
     const next = new Set(marked);
     const adding = !next.has(i) || (selectedStarts[i] ?? validSyllableStarts(words[i].word, syllable)[0]) !== position;

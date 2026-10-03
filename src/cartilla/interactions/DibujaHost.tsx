@@ -4,6 +4,7 @@
  * - Fine pointer (mouse) default: pick-the-correct-picture
  * - Toggle always available both ways
  */
+import { useCanvasContinuity } from "@/lib/use-canvas-continuity";
 import { useCallback, useEffect, useMemo, useRef, useState } from "react";
 import { Check, Eraser, Pencil, Images, RotateCcw } from "lucide-react";
 import {
@@ -53,7 +54,7 @@ export function DibujaHost({
   verb = "Dibuja",
 }: DibujaHostProps) {
   const { emit: gretelEvent, record: recordEvent } = useActivityEvents();
-  const [mode, setMode] = useState<InputModeDefault>(() => initialMode ?? defaultDibujaMode());
+  const [mode, setMode] = useActivityState<InputModeDefault>("drawingMode", initialMode ?? defaultDibujaMode());
   const reducedMotion = useReducedMotion();
 
   // ── Draw mode state ──────────────────────────────────────────────
@@ -62,9 +63,10 @@ export function DibujaHost({
   const lastRef = useRef<{ x: number; y: number } | null>(null);
   const pointsRef = useRef(0);
   const undoStackRef = useRef<ImageData[]>([]);
-  const [color, setColor] = useState<string>(BOOK_DRAW_SWATCHES[0]);
-  const [erasing, setErasing] = useState(false);
-  const [strokePoints, setStrokePoints] = useState(0);
+  const [color, setColor] = useActivityState<string>("drawColor", BOOK_DRAW_SWATCHES[0]);
+  const [erasing, setErasing] = useActivityState("drawErasing", false);
+  const [strokePoints, setStrokePoints] = useActivityState("drawPoints", 0);
+  useCanvasContinuity(canvasRef, drawingRef, `dibuja:${pageKey}`, () => setStrokePoints(pointsRef.current));
   const [drawDone, setDrawDone] = useActivityState("drawDone", false);
   const hasStroke = strokePoints >= 3;
   const canFinishDraw = strokePoints >= MIN_STROKE_POINTS;
@@ -90,11 +92,17 @@ export function DibujaHost({
     if (!canvas) return;
     const parent = canvas.parentElement;
     if (!parent) return;
-    const rect = parent.getBoundingClientRect();
+    const rect = { width: parent.clientWidth, height: parent.clientHeight };
     const dpr = Math.min(window.devicePixelRatio || 1, 2);
-    const prev = canvas.toDataURL("image/png");
-    canvas.width = Math.max(1, Math.floor(rect.width * dpr));
-    canvas.height = Math.max(1, Math.floor(rect.height * dpr));
+    const width = Math.max(1, Math.floor(rect.width * dpr));
+    const height = Math.max(1, Math.floor(rect.height * dpr));
+    if (canvas.width === width && canvas.height === height) return;
+    const prev = document.createElement("canvas");
+    prev.width = canvas.width;
+    prev.height = canvas.height;
+    prev.getContext("2d")?.drawImage(canvas, 0, 0);
+    canvas.width = width;
+    canvas.height = height;
     // Keep the bitmap sharp at the current rendered size, but leave CSS sizing
     // responsive so a desktop measurement never freezes the canvas wider than
     // its container on mobile.
@@ -106,18 +114,16 @@ export function DibujaHost({
     ctx.lineCap = "round";
     ctx.lineJoin = "round";
     ctx.imageSmoothingEnabled = true;
-    if (prev && prev.length > 100) {
-      const img = new Image();
-      img.onload = () => ctx.drawImage(img, 0, 0, rect.width, rect.height);
-      img.src = prev;
-    }
+    if (prev.width && prev.height) ctx.drawImage(prev, 0, 0, rect.width, rect.height);
   }, []);
 
   useEffect(() => {
     if (mode !== "draw") return;
     resize();
     window.addEventListener("resize", resize);
-    return () => window.removeEventListener("resize", resize);
+    const observer = typeof ResizeObserver === "undefined" ? null : new ResizeObserver(resize);
+    if (canvasRef.current?.parentElement) observer?.observe(canvasRef.current.parentElement);
+    return () => { observer?.disconnect(); window.removeEventListener("resize", resize); };
   }, [mode, resize]);
 
   useEffect(() => {
@@ -128,13 +134,16 @@ export function DibujaHost({
     const ctx = canvas?.getContext("2d");
     if (!canvas || !ctx) return;
     const img = new Image();
+    let disposed = false;
     img.onload = () => {
-      const rect = canvas.getBoundingClientRect();
-      ctx.drawImage(img, 0, 0, rect.width, rect.height);
-      pointsRef.current = MIN_STROKE_POINTS;
-      setStrokePoints(MIN_STROKE_POINTS);
+      if (disposed) return;
+      const dpr = Math.min(window.devicePixelRatio || 1, 2);
+      ctx.clearRect(0, 0, canvas.width / dpr, canvas.height / dpr);
+      ctx.drawImage(img, 0, 0, canvas.width / dpr, canvas.height / dpr);
+      pointsRef.current = strokePoints;
     };
     img.src = snap.dataUrl;
+    return () => { disposed = true; img.onload = null; };
   }, [pageKey, mode]);
 
   const getPoint = (e: React.PointerEvent<HTMLCanvasElement>) => {
@@ -214,7 +223,7 @@ export function DibujaHost({
   };
 
   const onPointerUp = () => {
-    if (drawingRef.current) persistDraw();
+    if (drawingRef.current) { setStrokePoints(pointsRef.current); persistDraw(); }
     drawingRef.current = false;
     lastRef.current = null;
   };

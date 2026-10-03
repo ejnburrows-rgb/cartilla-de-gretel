@@ -39,7 +39,7 @@ export function WorkbookWritingResponse({ pageNumber, interactive }: { pageNumbe
             reported.current = false;
             gretelEvent("activity:retry", { reason: "work-cleared" });
           }
-          try { window.localStorage.setItem(key, event.target.value); } catch { /* storage can be disabled */ }
+          try { window.localStorage.setItem(key, event.target.value); } catch { window.dispatchEvent(new Event("cartilla:work-save-failed")); }
         }}
       />
     </label>

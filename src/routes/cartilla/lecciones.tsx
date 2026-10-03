@@ -4,6 +4,7 @@ import { ArrowLeft, Check } from "lucide-react";
 import type { CSSProperties } from "react";
 import { CATALOG, TOTAL_LESSONS, type CatalogEntry } from "@/lib/lesson-catalog";
 import { useLessonProgress } from "@/lib/lesson-progress";
+import { readLearnerResume } from "@/lib/learner-resume";
 import { playUiTick } from "@/lib/piano-audio";
 
 export const Route = createFileRoute("/cartilla/lecciones")({
@@ -31,6 +32,7 @@ function lessonPicture(entry: CatalogEntry): string | undefined {
 
 function Lecciones() {
   const { isCompleted, completed } = useLessonProgress();
+  const resume = readLearnerResume();
   const doneCount = [...completed].filter((n) => n >= 1 && n <= TOTAL_LESSONS).length;
   const currentLesson = CATALOG.find((entry) => !isCompleted(entry.n))?.n ?? TOTAL_LESSONS;
 
@@ -47,6 +49,8 @@ function Lecciones() {
         </div>
       </header>
 
+      {resume && <Link to="/cartilla/leccion/$n" params={{ n: String(resume.lesson) }} className="inline-flex items-center rounded-xl bg-white px-5 py-3 mb-5 font-bold border border-stone-200">Continuar lección {resume.lesson}</Link>}
+      <p className="mb-4 text-sm text-stone-600">Tu escritura y tus dibujos se conservan en este navegador. Vuelve desde el mismo dispositivo y navegador.</p>
       <section className="lc-lesson-grid" aria-label="24 lecciones">
         {CATALOG.map((entry) => {
           const done = isCompleted(entry.n);

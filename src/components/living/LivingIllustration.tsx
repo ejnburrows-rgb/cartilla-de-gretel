@@ -1,3 +1,5 @@
+import { AUDIO_POLICY } from "@/content/audio-manifest";
+import { approvedPictureRecording } from "@/lib/picture-vocabulary";
 import { resolvePictureName } from "@/lib/picture-vocabulary";
 /**
  * LivingIllustration — subtle life on EXISTING faithful art pixels only.
@@ -37,6 +39,7 @@ export function LivingIllustration({
   clipSrc,
 }: LivingIllustrationProps) {
   const picture = resolvePictureName(src, alt);
+  const canListen = !!picture && (!!approvedPictureRecording(picture.key) || AUDIO_POLICY.allowTts);
   const pictureRef = useRef<HTMLSpanElement>(null);
   const [insideControl, setInsideControl] = useState(true);
   useLayoutEffect(() => { setInsideControl(Boolean(pictureRef.current?.parentElement?.closest("button, a, [role=button], [draggable=true], [aria-hidden=true], [inert]"))); }, [src]);
@@ -146,10 +149,10 @@ export function LivingIllustration({
       ref={pictureRef}
       data-picture-name={picture?.name}
       data-picture-src={picture ? src : undefined}
-      role={picture && !insideControl ? "button" : undefined}
-      tabIndex={picture && !insideControl ? 0 : undefined}
-      aria-label={picture && !insideControl ? "Escuchar el nombre del dibujo" : undefined}
-      onKeyDown={picture && !insideControl ? event => { if (event.key === "Enter" || event.key === " ") { event.preventDefault(); event.currentTarget.click(); } } : undefined}
+      role={canListen && !insideControl ? "button" : undefined}
+      tabIndex={canListen && !insideControl ? 0 : undefined}
+      aria-label={canListen && !insideControl ? "Escuchar el nombre del dibujo" : undefined}
+      onKeyDown={canListen && !insideControl ? event => { if (event.key === "Enter" || event.key === " ") { event.preventDefault(); event.currentTarget.click(); } } : undefined}
       className={[
         "living-illustration",
         blinkActive ? "living-illustration--alive" : "",

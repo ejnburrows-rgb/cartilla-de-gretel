@@ -83,13 +83,16 @@ export function TeacherPresentationShell({
 
   // Bare mode: Escape exits (no visible exit button in zero-chrome mode).
   useEffect(() => {
-    if (!bare) return;
+
     const onKey = (e: KeyboardEvent) => {
-      if (e.key === "Escape") onExit?.();
+      if (e.key === "Escape") {
+        if (focusMode) { setFocusMode(false); setIsIdle(false); }
+        else if (!document.fullscreenElement) onExit?.();
+      }
     };
     window.addEventListener("keydown", onKey);
     return () => window.removeEventListener("keydown", onKey);
-  }, [bare, onExit]);
+  }, [bare, onExit, focusMode]);
 
   const handleMouseMove = (e: MouseEvent) => {
     if (laserPointer) setLaserPos({ x: e.clientX, y: e.clientY });
@@ -106,7 +109,7 @@ export function TeacherPresentationShell({
     boxShadow: `0 0 18px 4px ${accentColor}`,
   };
 
-  const focusClass = focusMode || isIdle ? " is-focus" : "";
+  const focusClass = focusMode && isIdle ? " is-focus" : "";
 
   return (
     <div

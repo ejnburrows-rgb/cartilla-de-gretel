@@ -26,7 +26,7 @@ describe("teacher lesson catalog", () => {
       const card = screen.getByText(`Lección ${lesson.n}`).closest("div.group") as HTMLElement | null;
       expect(card).not.toBeNull();
       expect(within(card!).getByRole("link", { name: "Ver Cuaderno" }).getAttribute("href"))
-        .toBe(`/cartilla/leccion/${lesson.n}`);
+        .toBe(`/cartilla/teacher/paginas/${lesson.n}`);
       expect(within(card!).getByRole("link", { name: "Proyectar" }).getAttribute("href"))
         .toBe(`/cartilla/presentar/${lesson.n}`);
       expect(within(card!).getByRole("link", { name: "Guía del profesor" }).getAttribute("href"))

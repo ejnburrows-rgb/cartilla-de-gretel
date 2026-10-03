@@ -1,6 +1,7 @@
 import { createFileRoute, Link, useNavigate, redirect } from "@tanstack/react-router";
 import { Printer, ChevronLeft, MonitorPlay, BookOpenCheck, FolderOpen } from "lucide-react";
 import { CATALOG } from "@/lib/lesson-catalog";
+import "@/styles/teacher-print.css";
 import { GuideLayout } from "@/content/guides/GuideLayout";
 
 // Eagerly import all guide components. Rooted at /src so keys match the
@@ -47,9 +48,9 @@ function TeacherGuideLeccion() {
   const GuideComponent = mod ? mod[`Lesson${n}Guide`] : null;
 
   return (
-    <div className="space-y-4 max-w-[1400px] mx-auto h-[90vh] flex flex-col">
+    <div className="space-y-4 max-w-[1400px] mx-auto min-h-[90vh] teacher-guide-page flex flex-col">
       {/* Top action row */}
-      <div className="flex items-center justify-between no-print shrink-0 px-2">
+      <div className="flex flex-wrap gap-3 items-center justify-between no-print shrink-0 px-2">
         <Link
           to="/cartilla/teacher/crm"
           className="flex items-center gap-1.5 text-xs font-bold text-[var(--tc-ink-soft)] hover:text-[var(--tc-ink)] transition-colors"
@@ -58,7 +59,7 @@ function TeacherGuideLeccion() {
           Volver al Panel
         </Link>
 
-        <div className="flex items-center gap-2">
+        <div className="flex flex-wrap items-center gap-2">
           <Link
             to="/cartilla/teacher/guia"
             className="flex items-center gap-1.5 px-3 py-2 bg-white hover:bg-[var(--tc-paper-soft)] text-[var(--tc-ink)] rounded-xl text-xs font-bold border border-[var(--tc-border)] transition-all"

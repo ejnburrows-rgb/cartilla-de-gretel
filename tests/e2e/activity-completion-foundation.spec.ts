@@ -30,7 +30,6 @@ test('p2 is direct tap and keyboard accessible; completed answers survive reload
   expect(result.meta.completed).toBe(true);
   await page.screenshot({ path: 'verification-screenshots/p0-p2-direct-tap.png', fullPage: true });
   await page.reload();
-  await viewer.getByRole('button', { name: 'Siguiente' }).click();
   await expect(viewer).toHaveAttribute('data-native-page', '2');
   await expect(next).not.toHaveAttribute('aria-disabled', 'true');
   await expect(viewer.locator('.fp-ix-cell.graded-correct')).toHaveCount(5);
@@ -65,7 +64,6 @@ test('p5 example + five answers; help, reload and return never strand completed 
   }
   await expect(next).toHaveAttribute('aria-disabled', 'true');
   await page.reload();
-  await viewer.getByRole('button', { name: 'Siguiente' }).click();
   await expect(viewer).toHaveAttribute('data-native-page', '5');
   await expect(viewer.getByRole('button', { name: 'oveja', exact: true })).toHaveAttribute('aria-pressed', 'true');
   for (const name of ['oreja', 'olla']) {
@@ -92,7 +90,6 @@ test('p5 example + five answers; help, reload and return never strand completed 
   await expect(viewer).toHaveAttribute('data-native-page', '5');
   await expect(next).not.toHaveAttribute('aria-disabled', 'true');
   await page.reload();
-  await viewer.getByRole('button', { name: 'Siguiente' }).click();
   await expect(viewer).toHaveAttribute('data-native-page', '5');
   await expect(next).not.toHaveAttribute('aria-disabled', 'true');
   await expect(viewer.getByRole('button', { name: 'oso', exact: true })).toHaveAttribute('aria-pressed', 'true');
