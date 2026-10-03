@@ -76,7 +76,7 @@ The approved/corrected/cropped book images are already the artwork.
 DO NOT:
 - regenerate them;
 - redraw them;
-- recolor them;
+- recolor without a verified matching Flip Chart/canonical source;
 - remaster or "modernize" them;
 - optimize their visual style;
 - recrop them;
@@ -86,11 +86,15 @@ DO NOT:
 Use the existing approved image files unchanged and place them per the book's
 layout. Uniform responsive scaling of the whole page is allowed.
 
-### Sole exception: background-only generation (`repo.md`)
-New scenic backgrounds may be created for Workbook and Flip Chart pages when they follow `repo.md`. This exception applies only to the background environment. Original foreground illustrations, characters, objects, text, lesson content, educational meaning, composition, and page structure remain locked and may not be recreated, replaced, redrawn, recolored, modified, or invented.
+### Authorized artwork exceptions
 
-Every other image-lock rule above still applies. This exception does not
-permit regenerating or altering any approved image file.
+1. **Source-preserving color transfer for Workbook foreground artwork:**
+   Source-preserving color transfer IS allowed for Workbook foreground artwork when a verified matching Flip Chart/canonical source exists. Preserve the exact Workbook drawing: line art, geometry, pose, proportions, composition, object count, educational meaning, and content. Transfer only verified colors. Do not redraw, regenerate, replace, modernize, or guess colors. If a valid counterpart cannot be verified, leave the asset pending.
+
+2. **Background-only generation (`repo.md`):**
+   New scenic backgrounds may be created for Workbook and Flip Chart pages when they follow `repo.md`. This exception applies only to the background environment. Original foreground illustrations, characters, objects, text, lesson content, educational meaning, composition, and page structure remain locked and may not be recreated, replaced, redrawn, recolored, modified, or invented.
+
+Every other image-lock rule above still applies.
 
 ### Conflict rule
 The two source PDFs define the layout. They override derived JSON, old prompts,

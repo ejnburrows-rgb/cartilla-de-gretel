@@ -29,7 +29,7 @@ This is **fixed**. Do not change it.
 This is **fixed**. Do not change it.
 
 - All text: exact words, in the same order
-- All images: the approved files, unmodified (see Image Lock below; the sole exception is new scenic backgrounds that follow `repo.md`)
+- All images: the approved files, unmodified (see Image Lock below; exceptions apply for authorized source-preserving color transfer and scenic background generation following `repo.md`)
 - All exercises: same questions, same answer choices, same structure
 
 **Example:** If the book says "Completa las palabras" with specific words and syllable options, you use those exact words and options. You do not rewrite, simplify, or add hints.
@@ -86,21 +86,26 @@ The test is about **structure and content**, not visual style. A modern-looking 
 
 > Owner clarification (EJN, 30 Sep 2026): the exact list of allowed technical cleanup and Google Flow motion, and what stays forbidden, is in `ASSET_FIDELITY_POLICY.md`. That file is the active art rule; `IMAGE_GENERATION_BAN.md` and `docs/GOOGLE_FLOW_PROMPTS.md` are historical only.
 >
-> Owner clarification (EJN): `repo.md` is the active, authoritative method for background-only generation. Background-only generation is the sole exception to this Image Lock (see below).
+> Owner clarification (EJN): `ASSET_FIDELITY_POLICY.md` defines active image and color rules. Source-preserving color transfer for Workbook foreground artwork is allowed when a verified matching Flip Chart/canonical source exists. `repo.md` is the active, authoritative method for background-only generation.
 
 The approved/corrected/cropped book images are final.
 
 DO NOT:
-- regenerate, redraw, recolor, remaster, or "modernize" them
+- regenerate, redraw, remaster, or "modernize" them
+- recolor without a verified matching Flip Chart/canonical source
 - optimize their visual style
 - recrop or substitute them
 - change their internal geometry
 
 Use the existing approved image files unchanged. Place them according to the book's layout structure.
 
-### Sole exception: background-only generation (`repo.md`)
+### Authorized artwork exceptions
 
-New scenic backgrounds may be created for Workbook and Flip Chart pages when they follow `repo.md`. This exception applies only to the background environment. Original foreground illustrations, characters, objects, text, lesson content, educational meaning, composition, and page structure remain locked and may not be recreated, replaced, redrawn, recolored, modified, or invented.
+1. **Source-preserving color transfer for Workbook foreground artwork:**
+   Source-preserving color transfer IS allowed for Workbook foreground artwork when a verified matching Flip Chart/canonical source exists. Preserve the exact Workbook drawing: line art, geometry, pose, proportions, composition, object count, educational meaning, and content. Transfer only verified colors. Do not redraw, regenerate, replace, modernize, or guess colors. If a valid counterpart cannot be verified, leave the asset pending.
+
+2. **Background-only generation (`repo.md`):**
+   New scenic backgrounds may be created for Workbook and Flip Chart pages when they follow `repo.md`. This exception applies only to the background environment. Original foreground illustrations, characters, objects, text, lesson content, educational meaning, composition, and page structure remain locked and may not be recreated, replaced, redrawn, recolored, modified, or invented.
 
 Every other Image Lock rule, including the image acceptance rule below, still applies.
 
@@ -124,7 +129,8 @@ Only images uploaded by ChatGPT are accepted into the repo. ChatGPT is the agent
 |---|---|
 | Page structure (what goes where) | MUST match the book |
 | Text content | MUST match the book (verbatim) |
-| Images | MUST use approved files, unmodified |
+| Images | MUST use approved files, unmodified (except authorized source-preserving color transfer when verified source exists) |
+| Foreground color transfer | ALLOWED for Workbook foreground art ONLY when a verified matching Flip Chart/canonical source exists (preserve exact drawing, transfer verified colors only) |
 | Scenic backgrounds (Workbook + Flip Chart) | MAY be newly created — background environment only, following `repo.md` |
 | Page sequence | MUST match the book |
 | Visual style | MODERN digital (your judgment) |

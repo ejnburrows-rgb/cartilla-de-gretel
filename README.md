@@ -14,7 +14,7 @@ Digital classroom edition of *La Cartilla de Gretel* by Leonor Lopetegui.
   - `Libro del alumno - Rescan and Optimize (2).pdf`
 - Structure and content follow the matching source book page.
 - Presentation is modern digital and responsive, as defined by the digital directive.
-- Approved/cropped book images are locked: do not regenerate, redraw, recolor, remaster, recrop, or substitute them. The sole exception is new scenic backgrounds (background environment only) that follow `repo.md`.
+- Approved/cropped book images are locked: do not regenerate, redraw, remaster, recrop, or substitute them. Exceptions apply for authorized source-preserving color transfer (Workbook foreground artwork when a verified matching Flip Chart/canonical source exists, preserving exact drawing and transferring verified colors only) and new scenic backgrounds (background environment only) that follow `repo.md`.
 - Vite + React + TypeScript + TanStack Router + Supabase.
 - Production host: Vercel.
 

@@ -1,7 +1,7 @@
 # ASSET FIDELITY POLICY — La Cartilla de Gretel
 
 **Owner decision (EJN), 30 Sep 2026. This is the active rule for artwork, images, and animation.**
-**Background-only generation is the sole exception, and `repo.md` is its authoritative method** (see "Background-only exception" below).
+**Source-preserving color transfer (when a verified matching source exists) and background-only generation (`repo.md`) are the authorized artwork exceptions** (see details below).
 It replaces `IMAGE_GENERATION_BAN.md` and `docs/GOOGLE_FLOW_PROMPTS.md`, which are kept only as history and must not guide any agent.
 
 ## The one-line rule
@@ -16,7 +16,13 @@ It replaces `IMAGE_GENERATION_BAN.md` and `docs/GOOGLE_FLOW_PROMPTS.md`, which a
 - Improve resolution or file format (for example PNG → WebP) without changing the art.
 - Create motion from an approved static source image.
 - Use Google Flow to subtly animate approved art.
+- Source-preserving color transfer for Workbook foreground artwork when a verified matching Flip Chart/canonical source exists. Preserve the exact Workbook drawing: line art, geometry, pose, proportions, composition, object count, educational meaning, and content. Transfer only verified colors.
 - Create a new scenic background for a Workbook or Flip Chart page, background environment only, following `repo.md`.
+
+## Source-preserving color transfer rule
+
+Source-preserving color transfer IS allowed for Workbook foreground artwork when a verified matching Flip Chart/canonical source exists.
+Preserve the exact Workbook drawing: line art, geometry, pose, proportions, composition, object count, educational meaning, and content. Transfer only verified colors. Do not redraw, regenerate, replace, modernize, or guess colors. If a valid counterpart cannot be verified, leave the asset pending.
 
 ## Background-only exception (`repo.md`)
 
@@ -28,6 +34,7 @@ Every NOT ALLOWED rule below still applies to all original art.
 
 - Invent replacement illustrations.
 - Redraw art to make it "prettier".
+- Guess colors or recolor artwork when no verified matching Flip Chart/canonical source exists.
 - Change the composition.
 - Change a character's identity (face, hair, clothes, colors, proportions).
 - Add or remove objects.

@@ -24,7 +24,7 @@ For curriculum, wording, page order, exercise content, and source-page structure
 ## Active rules
 
 1. Read `CARTILLA_DIGITAL_DIRECTIVE.md` for page/content/presentation rules.
-2. Read `ASSET_FIDELITY_POLICY.md` before touching images or motion, and `repo.md` before generating any Workbook or Flip Chart background (background-only generation is the sole exception to the image lock).
+2. Read `ASSET_FIDELITY_POLICY.md` before touching images, color transfer, or motion, and `repo.md` before generating any Workbook or Flip Chart background. Source-preserving color transfer for Workbook foreground artwork is allowed when a verified matching Flip Chart/canonical source exists (preserving exact drawing and transferring verified colors only). Background-only generation following `repo.md` is authorized for scenic environments.
 3. Lessons 8–24 must match the physical Workbook **word for word** and in the correct order.
 4. Digital interaction may change the physical gesture, not the lesson content or educational objective.
 5. A student cannot advance with **Next** until the required work on the current page is completed.

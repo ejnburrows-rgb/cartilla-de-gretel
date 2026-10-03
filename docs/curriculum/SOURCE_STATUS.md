@@ -43,8 +43,9 @@ For the teacher Flip Chart and Student Workbook:
 
 - preserve the matching book's structure, content, reading order, and page sequence;
 - use approved/fixed/cropped images unchanged;
-- do not recolor, remaster, regenerate, redraw, recrop, retouch, restyle, or replace approved artwork;
-- do not transfer artwork or content between the two books;
+- do not remaster, regenerate, redraw, recrop, retouch, restyle, or replace approved artwork;
+- do not guess colors or recolor without a verified matching source; source-preserving color transfer IS allowed for Workbook foreground artwork when a verified matching Flip Chart/canonical source exists (preserving exact drawing and transferring verified colors only);
+- do not transfer artwork or content between the two books except for verified source-preserving color transfer;
 - use modern digital typography, spacing, interaction, and responsive behavior only within the limits of `CARTILLA_DIGITAL_DIRECTIVE.md`.
 
 ## Corrections
