@@ -5,9 +5,68 @@ project manager — work out what needs doing and do it.
 
 ---
 
+## EXECUTION GATEWAY — EVERY TRIGGER, EVERY CONTROLLER RUN
+
+`AGENTS.md` is the single mandatory entrypoint for all Cartilla engineering work. Do not begin by reading a random issue, old PR, old handoff, or archived document. Start here, then route to only the scope-specific sources below.
+
+### Trigger loop
+
+Every new request, scheduled controller run, Jules result, failed verification, PR update, or owner correction must execute this loop in order:
+
+1. **READ CURRENT STATE**
+   - Read CURRENT `main` and record its exact SHA.
+   - Read this `AGENTS.md`.
+   - Read the latest owner/controller directive on the relevant issue.
+   - Inspect the current PR head, actual diff/files, Jules bot/task evidence, and verification evidence.
+
+2. **ROUTE BY SCOPE**
+   - Always read `PROJECT_SOURCE_OF_TRUTH.md`.
+   - Page/content/layout fidelity: also read `CARTILLA_DIGITAL_DIRECTIVE.md`.
+   - Foreground art/color/source work: also read `ASSET_FIDELITY_POLICY.md`.
+   - Student interactions: also read `STUDENT_INTERACTION_STANDARD.md`, `DESIGN.md`, and `UX-CONTRACT.md`.
+   - Workbook/Flip Chart page turns: also read `DESIGN.md` and `UX-CONTRACT.md`.
+   - Scenic background generation only: also read `repo.md`.
+   - Do not reread unrelated canonical files merely to create activity; scope-routing is deliberate.
+
+3. **DECIDE BEFORE DELEGATING**
+   The controller must choose exactly one next state:
+   - **MERGE/ADVANCE** — only if exact-head review and all required proof pass.
+   - **CONTROLLER FIX** — if a real defect exists and the controller has tools/write access to fix it safely.
+   - **DELEGATE ONCE** — only for a new, clearly scoped implementation task or when the controller cannot perform the implementation directly.
+   - **WAIT/BLOCK** — only for a genuine dependency, external result, or unavoidable owner-only action.
+
+4. **CONTROLLER-FIRST REMEDIATION**
+   - If Jules or another worker returns defective/incomplete work and the controller can fix it, the controller fixes it directly.
+   - Do **not** send the same defect back to the same worker for repeated remediation.
+   - One worker crash before producing work may receive one safe relaunch.
+   - A second material failure in the same lane ends worker-led remediation; controller takeover or a different execution path is required.
+   - A new SHA is not progress unless the tree materially changed.
+   - Empty commits, check reruns, metadata-only changes, and timestamp churn never count as remediation.
+
+5. **VERIFY INDEPENDENTLY**
+   - Worker self-review is not controller review.
+   - Meaningful code/behavior changes require exact-head controller review + SonarQube Cloud + task-specific verification + complete `pnpm verify:release`.
+   - Visual/UI work also requires actual browser proof for the states owned by the issue.
+   - If the head changes materially, repeat exact-head review and verification.
+
+6. **STOP ONLY AT A VALID TERMINAL STATE**
+   A controller run may end only when one of these is true:
+   - verified work was merged/advanced;
+   - the controller made a concrete repair and sent that exact head to independent verification;
+   - the lane is genuinely waiting on a declared dependency;
+   - an unavoidable owner-only action blocks further safe work.
+
+   **Invalid terminal state:** “I found the problem and told Jules/another agent to fix it.”
+
+### Worker role
+
+Jules and other coding agents are workers, not project controllers. They do not decide scope, merge policy, dependency activation, or whether their own work is acceptable. Controller-owned repair branches are read-only to workers unless the controller explicitly hands that exact branch/head back for implementation.
+
+---
+
 ## CANONICAL INSTRUCTION HIERARCHY
 
-There are eight active repo-wide instruction files:
+`AGENTS.md` is the only mandatory entrypoint. The files below are canonical scope references loaded through the Execution Gateway routing rules:
 
 1. `AGENTS.md` — execution, safety, Git, and deployment rules.
 2. `PROJECT_SOURCE_OF_TRUTH.md` — current product state, priorities, and owner-decided scope.
@@ -26,7 +85,7 @@ Jules must treat CURRENT `main` as the instruction baseline, not the task's star
 
 Before reviewing, coding, or resuming any Cartilla task, Jules must:
 1. sync/read CURRENT `main`;
-2. read the eight canonical files above, with special attention to the files relevant to that task;
+2. follow the Execution Gateway scope-routing rules above and read the relevant canonical files for that task;
 3. inspect the issue's latest owner/queue-controller directives;
 4. compare any existing task branch/PR against CURRENT `main` before continuing;
 5. stop and correct course if older task context conflicts with CURRENT `main` or a newer owner directive.
