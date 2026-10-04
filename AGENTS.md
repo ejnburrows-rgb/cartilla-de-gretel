@@ -81,6 +81,21 @@ If Jules cannot access the required branch/files, hits a tool/quota/auth/environ
 
 A session that produces no material tree change when implementation was requested is not progress. Empty commits, timestamp changes, metadata churn, repeated test reruns, or review-trigger commits are prohibited.
 
+#### Jules-safe verification rule
+
+Implementation sessions must NOT run commands that mutate the tracked asset tree merely to prove unrelated code work.
+
+For ordinary code/UI implementation tasks, Jules must not run `pnpm build` or `pnpm verify:release` because the current production build intentionally runs `prepare:art`, which regenerates delivery assets/manifests and can explode a narrow code task into a large unrelated working-tree diff.
+
+Instead Jules uses:
+- the narrow targeted Vitest/Playwright test(s) for the changed behavior;
+- `pnpm typecheck`;
+- `pnpm verify:worker` only when a broader non-mutating repository check is useful.
+
+Only a task that explicitly owns production-art generation may run `pnpm prepare:art` during implementation.
+
+The controller/release verifier runs the mutating/full production pipeline in a clean verification checkout after the implementation PR has been persisted. Generated release artifacts from that verification checkout are verification output, not worker-scope changes unless the owning issue explicitly requires them.
+
 #### Verification boundary
 
 Jules should use its environment to prove its **own bounded change** with targeted tests/checks and, for visible work, representative browser evidence when practical.
