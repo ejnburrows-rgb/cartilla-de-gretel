@@ -23,7 +23,7 @@ Use the book's established country/tole folk-art DNA and school-material vocabul
 - nostalgic muted-red school eraser;
 - source-faithful illustrations and scenic backgrounds.
 
-Digital chrome should recede. The book/page is the main object.
+Digital chrome should recede. The book/page is the main object. Do not surround the learner page with dashboard-like cards, developer status panels, or ornamental app chrome; production controls should stay quiet and subordinate to the Workbook/Flip Chart surface.
 
 ## Shared school-tool family
 
@@ -38,6 +38,10 @@ The same family must drive:
 - handwriting-adjacent feedback.
 
 Do not create screen-local pencil variants, cartoon-faced tools, generic flat eraser icons, glossy game controls, or unrelated animation styles.
+
+### Pencil presence
+
+Outside the drawing-tool activity, the pencil behaves like a physical **actor**, not permanent UI chrome: it appears near the learner's action, performs one clear mark/draw/erase action, then settles or leaves the active area. It must not float continuously while the child is thinking or cover source lesson content. The drawing activity is the exception because the pencil is an explicitly selected tool.
 
 ## Motion language
 
