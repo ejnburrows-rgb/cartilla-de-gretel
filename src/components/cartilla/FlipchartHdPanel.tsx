@@ -19,6 +19,7 @@ import { FLIPCHART_FLIP_MS, flipchartFlipTransforms } from "@/lib/living-motion"
 import { useReducedMotion } from "@/hooks/useReducedMotion";
 import { FlipchartNativeBoard } from "./FlipchartNativeBoard";
 import "@/styles/flipchart-presenter.css";
+import "@/styles/physical-book.css";
 
 interface FlipchartHdPanelProps {
   lessonNumber: number;
@@ -197,6 +198,7 @@ export function FlipchartHdPanel({ lessonNumber, accentColor, chrome = "full" }:
       data-delivery-tier="independent-faithful-assets"
       data-page-turn-axis="vertical"
       data-page-turn-ms={FLIPCHART_FLIP_MS}
+      data-physical-flipchart="true"
       data-reduced-motion={reducedMotion ? "true" : "false"}
       data-chrome={chrome}
     >
@@ -206,6 +208,9 @@ export function FlipchartHdPanel({ lessonNumber, accentColor, chrome = "full" }:
         onPointerDown={handlePointerDown}
         onPointerUp={handlePointerUp}
       >
+        <div className="fc-board__binding" aria-hidden="true">
+          {Array.from({ length: 6 }, (_, index) => <span className="fc-board__ring" key={index} />)}
+        </div>
         <div className="fc-board__page">
           <div className="fc-board__page-inner">
             <div className="absolute inset-0 h-full w-full">

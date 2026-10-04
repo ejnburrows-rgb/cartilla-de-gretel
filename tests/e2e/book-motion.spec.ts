@@ -5,62 +5,85 @@ async function dismissIntro(page: Page) {
   if (await start.isVisible().catch(() => false)) await start.click();
 }
 
-test.describe("native lesson and presenter motion", () => {
-  test("student lesson uses native page navigation", async ({ page }) => {
+test.describe("physical Workbook and Flip Chart motion", () => {
+  test("full Workbook turns a real leaf and locks rapid navigation", async ({ page }) => {
+    await page.goto("/cartilla/cuaderno", { waitUntil: "domcontentloaded" });
+    await dismissIntro(page);
+
+    const reader = page.locator(".digital-reader");
+    await expect(reader).toHaveAttribute("data-physical-workbook", "true");
+    await expect(reader).toHaveAttribute("data-page-turn-ms", "800");
+
+    const next = reader.getByRole("button", { name: "Página siguiente" });
+    await next.click();
+    await expect(next).toBeDisabled();
+
+    const leaf = reader.getByTestId("workbook-turn-leaf");
+    await expect(leaf).toBeVisible();
+    await expect
+      .poll(async () => leaf.locator(".workbook-flip-wrapper").getAttribute("style"), { timeout: 700 })
+      .toContain("rotateY(-180deg)");
+
+    await expect(leaf).toHaveCount(0, { timeout: 1800 });
+    const previous = reader.getByRole("button", { name: "Página anterior" });
+    await previous.click();
+    await expect(reader.getByTestId("workbook-turn-leaf")).toBeVisible();
+  });
+
+  test("lesson viewer keeps completion gating while using the physical leaf", async ({ page }) => {
     await page.goto("/cartilla/leccion/8", { waitUntil: "domcontentloaded" });
     await dismissIntro(page);
 
     const reader = page.locator(".native-lesson-viewer");
-    await expect(reader).toBeVisible();
-    await expect(page.getByTestId("physical-book-reader")).toHaveCount(0);
-    await expect(reader.locator(".native-lesson-viewer__content")).toBeVisible();
-    await expect(reader.locator(".native-lesson-viewer__navigation")).toBeVisible();
+    await expect(reader).toHaveAttribute("data-physical-workbook", "true");
+    await expect(reader).toHaveAttribute("data-page-turn-ms", "800");
 
-    const gretel = page.getByTestId("gretel-presence");
-    await expect(gretel).toHaveAttribute("data-placement", "book");
-    await expect(gretel).toHaveAttribute("data-page-ready", "true", { timeout: 2500 });
-
-    const counter = reader.locator(".native-lesson-viewer__page");
-    const before = (await counter.textContent()) ?? "";
     const next = reader.getByRole("button", { name: "Siguiente" });
     await expect(next).toBeEnabled();
     await next.click();
-
-    await expect
-      .poll(async () => (await counter.textContent()) ?? "", { timeout: 2500 })
-      .not.toBe(before);
+    await expect(reader.getByTestId("workbook-turn-leaf")).toBeVisible();
+    await expect(reader.getByTestId("workbook-turn-leaf")).toHaveCount(0, { timeout: 1800 });
   });
 
-  test("teacher presenter keeps the vertical native Flip Chart transition", async ({ page }) => {
+  test("teacher Flip Chart turns upward over visible top rings", async ({ page }) => {
     await page.goto("/cartilla/presentar/7", { waitUntil: "domcontentloaded" });
     await dismissIntro(page);
 
     const panel = page.getByTestId("flipchart-hd-panel");
     await expect(panel).toBeVisible({ timeout: 15000 });
-    await expect(panel).toHaveAttribute("data-hd-primary", "true");
-    await expect(panel).toHaveAttribute("data-presenter-mode", "native");
+    await expect(panel).toHaveAttribute("data-physical-flipchart", "true");
     await expect(panel).toHaveAttribute("data-page-turn-axis", "vertical");
-    await expect(panel).toHaveAttribute("data-page-turn-ms", "1120");
-    await expect(panel).not.toHaveAttribute("data-physical-flipchart", /.*/);
-    await expect(panel.locator(".fc-board__ring")).toHaveCount(0);
-    await expect(panel.locator(".fc-board__binding")).toHaveCount(0);
-    await expect(panel.locator('[data-native-flipchart="true"]')).toBeVisible();
+    await expect(panel).toHaveAttribute("data-page-turn-ms", "980");
+    await expect(panel.locator(".fc-board__binding")).toHaveCount(1);
+    await expect(panel.locator(".fc-board__ring")).toHaveCount(6);
 
     const counter = panel.getByTestId("flipchart-counter");
     await expect(counter).toContainText("Hoja 1 de");
-
     const next = panel.getByRole("button", { name: /Lámina siguiente/i });
     if (await next.isEnabled()) {
       await next.click();
-      const flipLayer = panel.getByTestId("vertical-flip-layer");
-      await expect(flipLayer).toBeVisible();
-
-      const wrapper = flipLayer.locator(".flipchart-flip-wrapper");
+      const layer = panel.getByTestId("vertical-flip-layer");
+      await expect(layer).toBeVisible();
       await expect
-        .poll(async () => wrapper.getAttribute("style"), { timeout: 700 })
+        .poll(async () => layer.locator(".flipchart-flip-wrapper").getAttribute("style"), { timeout: 700 })
         .toContain("rotateX(-180deg)");
+      await expect(counter).toContainText("Hoja 2 de", { timeout: 2200 });
 
-      await expect(counter).toContainText("Hoja 2 de", { timeout: 2500 });
+      const previous = panel.getByRole("button", { name: /Lámina anterior/i });
+      await previous.click();
+      await expect(panel.getByTestId("vertical-flip-layer")).toBeVisible();
     }
+  });
+
+  test("reduced motion replaces 3D turns without changing navigation", async ({ page }) => {
+    await page.emulateMedia({ reducedMotion: "reduce" });
+    await page.goto("/cartilla/cuaderno", { waitUntil: "domcontentloaded" });
+    await dismissIntro(page);
+
+    const reader = page.locator(".digital-reader");
+    const next = reader.getByRole("button", { name: "Página siguiente" });
+    await next.click();
+    await expect(reader.getByTestId("workbook-turn-leaf")).toHaveCount(0);
+    await expect(reader.getByRole("button", { name: "Página anterior" })).toBeEnabled();
   });
 });

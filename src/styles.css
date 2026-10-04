@@ -489,8 +489,8 @@ html.student-pencil.a11y-xlarge body {
   height: 100%;
   transform-style: preserve-3d;
   transform-origin: left center;
-  /* Elegant R→L free-edge turn — 780ms; living-art.css may refine */
-  transition: transform 780ms cubic-bezier(0.22, 1, 0.36, 1);
+  /* Elegant R→L free-edge turn — owner target 800ms. */
+  transition: transform 800ms cubic-bezier(0.22, 1, 0.36, 1);
   /* Hint the compositor so the 3D turn stays on the GPU (no layout thrash). */
   will-change: transform;
 }
