@@ -1,7 +1,7 @@
 # CARTILLA DIGITAL DIRECTIVE — For All AI Agents
 
 **Status:** CANONICAL. This overrides all prior layout/fidelity instructions.
-**Last updated:** 2026-10-03 (owner locked premium student interactions + source-preserving color transfer)
+**Last updated:** 2026-10-04 (owner locked clean Student Workbook canvas while preserving Flip Chart scenic presentation)
 
 ---
 
@@ -69,7 +69,7 @@ The test is about **structure and content**, not visual style. A modern-looking 
 - ✅ Use clean modern typography and spacing
 - ✅ Adapt layout responsively (stack on mobile, expand on desktop) while preserving element order
 - ✅ Add digital-native features that serve the book's pedagogy (audio read-aloud, answer checking, progress tracking)
-- ✅ Create a new scenic background environment for a Workbook or Flip Chart page only when it follows `repo.md` (see Image Lock → Sole exception)
+- ✅ Create a new scenic background environment only when the target surface calls for it and it follows `repo.md`. For dense Student Workbook exercises, the default is the clean digital canvas rather than full scenic wallpaper; the teacher Flip Chart may retain richer scenery.
 
 ### DON'T
 - ❌ Rearrange the page structure (move the grid above the header, put exercises in a different order)
@@ -103,13 +103,17 @@ Owner-approved on 2026-10-03. For an existing Workbook drawing, verified colors 
 
 ### Authorized background exception: background-only generation (`repo.md`)
 
-New scenic backgrounds may be created for Workbook and Flip Chart pages only when they follow `repo.md`. This applies only to the environment behind the original content. Foreground illustrations, characters, objects, text, lesson content, educational meaning, composition, and page structure remain unchanged.
+New scenic backgrounds may be created only when they follow `repo.md`. This permission does not mean every surface must render them. Dense Student Workbook exercises use the owner-approved clean digital canvas rather than full scenic wallpaper; the teacher Flip Chart may retain richer source-appropriate scenery. Existing scenic assets remain preserved. Wherever a scenic background is used, it applies only to the environment behind the original content. Foreground illustrations, characters, objects, text, lesson content, educational meaning, composition, and page structure remain unchanged.
 
 ### Image acceptance rule
 
 Newly generated or creatively altered artwork still requires owner/ChatGPT visual approval before production use. Technical source-faithful operations — verified crop correction, transparency cleanup, lossless optimization, and the authorized source-preserving color-transfer workflow — may be executed by an implementation agent when the exact source is identified and the required before/after/provenance proof is supplied. No agent may invent replacement art.
 
 ---
+
+## Surface presentation rule
+
+The Student Workbook and teacher Flip Chart share book-faithful structure/content but not the same background treatment. The Student Workbook uses a clean, quiet digital canvas for dense learner exercises and must not use a full scenic image as wallpaper behind them. The teacher Flip Chart may use the richer scenic presentation when appropriate. This is a presentation distinction only: source structure, wording, page order, foreground illustration identity, and educational meaning remain locked.
 
 ## Student interaction standard
 
@@ -130,7 +134,7 @@ Newly generated or creatively altered artwork still requires owner/ChatGPT visua
 | Page structure (what goes where) | MUST match the book |
 | Text content | MUST match the book (verbatim) |
 | Foreground images | MUST remain source-faithful; verified source-preserving color transfer is allowed under `ASSET_FIDELITY_POLICY.md` |
-| Scenic backgrounds (Workbook + Flip Chart) | MAY be newly created — background environment only, following `repo.md` |
+| Scenic backgrounds | MAY be created under `repo.md`; dense Student Workbook exercises default to the clean digital canvas, while Flip Chart/explicitly approved contexts may use richer scenery |
 | Page sequence | MUST match the book |
 | Visual style | MODERN digital (your judgment) |
 | Typography | MODERN readable (not print replica) |
