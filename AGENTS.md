@@ -94,7 +94,9 @@ Instead Jules uses:
 
 Only a task that explicitly owns production-art generation may run `pnpm prepare:art` during implementation.
 
-The controller/release verifier runs the mutating/full production pipeline in a clean verification checkout after the implementation PR has been persisted. Generated release artifacts from that verification checkout are verification output, not worker-scope changes unless the owning issue explicitly requires them.
+A dedicated verification-only Jules session may run `pnpm verify:release` in a clean checkout when full release verification is itself the assigned job. In that case it must not export/regard regenerated delivery assets or manifests as implementation changes; it reports the verification result only.
+
+For ordinary implementation lanes, the controller/release verifier runs the mutating/full production pipeline in a clean verification checkout after the implementation PR has been persisted. Generated release artifacts from that verification checkout are verification output, not worker-scope changes unless the owning issue explicitly requires them.
 
 #### Verification boundary
 
