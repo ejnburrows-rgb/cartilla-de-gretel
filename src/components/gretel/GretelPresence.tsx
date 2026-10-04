@@ -26,13 +26,14 @@ export function GretelPresence({ lesson, instruction, className = '', autoIntro 
   const speechTimer = useRef<ReturnType<typeof setTimeout> | undefined>(undefined);
   const focusTimer = useRef<ReturnType<typeof setTimeout> | undefined>(undefined);
   const lastSpeech = useRef({ text: '', at: 0 });
+  const lastOutcome = useRef<{ type: 'correct' | 'wrong' | 'complete' | ''; at: number }>({ type: '', at: 0 });
   const lastActivity = useRef(Date.now());
   const nudged = useRef(false);
   const contextToken = useRef(0);
 
-  const say = useCallback((text: string, delay = 0) => {
+  const say = useCallback((text: string, delay = 0, allowRepeat = false) => {
     if (!text.trim() || !ready.current) return;
-    if (text === lastSpeech.current.text && Date.now() - lastSpeech.current.at < 7000) return;
+    if (!allowRepeat && text === lastSpeech.current.text && Date.now() - lastSpeech.current.at < 7000) return;
     const token = contextToken.current;
     clearTimeout(speechTimer.current);
     speechTimer.current = setTimeout(() => {
@@ -50,6 +51,7 @@ export function GretelPresence({ lesson, instruction, className = '', autoIntro 
       if (currentLearner === learnerScope()) return;
       currentLearner = learnerScope();
       learning.current.clear(); seen.current.clear(); active.current = {}; setContext({});
+      lastOutcome.current = { type: '', at: 0 };
       contextToken.current += 1; setReaction("idle"); setFocused(false);
       clearTimeout(speechTimer.current); clearTimeout(focusTimer.current);
       cancelGretelSpeech(); avatarRef.current?.cancel();
@@ -66,6 +68,7 @@ export function GretelPresence({ lesson, instruction, className = '', autoIntro 
       if (type === 'page:revealed') {
         contextToken.current += 1;
         ready.current = true; setEntered(true); setFocused(false); setReaction('idle');
+        lastOutcome.current = { type: '', at: 0 };
         active.current = active.current.pageNumber === detail.pageNumber ? active.current : { pageNumber: detail.pageNumber }; setContext(active.current);
         lastActivity.current = Date.now(); nudged.current = false;
         const key = `${detail.pageNumber}:${detail.text || ''}`;
@@ -93,15 +96,28 @@ export function GretelPresence({ lesson, instruction, className = '', autoIntro 
       const id = detail.activityId || (!bookMode ? active.current.activityId : undefined);
       if (!id) return;
       if (bookMode && detail.pageNumber !== undefined && detail.pageNumber !== active.current.pageNumber) return;
+      const now = Date.now();
+      let suppressReaction = false;
+      if (input === 'wrong') {
+        lastOutcome.current = { type: 'wrong', at: now };
+        say('Inténtalo otra vez.', 80, true);
+      } else if (input === 'correct') {
+        lastOutcome.current = { type: 'correct', at: now };
+        say('Buen trabajo.', 80, true);
+      } else if (input === 'complete') {
+        const followsCorrect = lastOutcome.current.type === 'correct' && now - lastOutcome.current.at < 700;
+        suppressReaction = followsCorrect;
+        lastOutcome.current = { type: 'complete', at: now };
+        if (!followsCorrect) say('Buen trabajo.', 80, true);
+      }
+
       const previous = learning.current.get(id) || freshLearningState();
       const state = { ...previous, assisted: isGretelAssistedAttempt(id) };
       const result = advanceLearning(state, input);
       learning.current.set(id, result.state);
-      if (!result.reaction) return;
+      if (!result.reaction || suppressReaction) return;
       setFocused(false); setReaction(result.reaction); lastActivity.current = Date.now();
       gretelEvent('guide:reaction', { ...detail, activityId: id, reaction: result.reaction });
-      // Completion immediately follows a correct answer; one sentence is enough.
-      if (input === 'complete') say('Terminaste la actividad.', 80);
     });
     const idleTimer = setInterval(() => {
       if (!ready.current || nudged.current || document.hidden || !active.current.activityId) return;

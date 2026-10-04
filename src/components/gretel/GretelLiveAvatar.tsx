@@ -60,22 +60,22 @@ const SIZES = {
 type Particle = { id: number; x: number; y: number; kind: "star" | "heart" };
 
 function bodyAnimation(state: string) {
-  if (state === "cheering") return { y: [0, -18, 0], scale: [1, 1.08, 1], rotate: [0, -4, 4, 0] };
-  if (state === "waving") return { rotate: [0, -3, 3, 0], scale: [1, 1.015, 1] };
-  if (state === "talking") return { rotate: [0, -1.2, 1.2, 0], scale: [1, 1.01, 1] };
-  if (state === "pointing" || state === "teaching" || state === "help") return { rotate: [0, 1.4, 0], scale: [1, 1.015, 1] };
-  if (state === "listening") return { rotate: [-2.2, -1.2, -2.2], scale: [1, 1.006, 1] };
-  if (state === "gentle-error") return { y: [0, 1.5, 0], rotate: [1.2, -1.2, 1.2], scale: [1, 0.995, 1] };
-  return { y: 0, rotate: [-0.25, 0.25, -0.25], scale: [1, 1.008, 1] };
+  if (state === "cheering") return { y: [0, -10, 0], scale: [1, 1.03, 1], rotate: [0, -1, 1, 0] };
+  if (state === "waving") return { rotate: [0, -1.5, 1.5, 0], scale: [1, 1.008, 1] };
+  if (state === "talking") return { rotate: [0, -0.6, 0.6, 0], scale: [1, 1.006, 1] };
+  if (state === "pointing" || state === "teaching" || state === "help") return { rotate: [0, 0.8, 0], scale: [1, 1.006, 1] };
+  if (state === "listening") return { rotate: -1, scale: 1.005, y: 0 };
+  if (state === "gentle-error") return { y: [0, 1, 0], rotate: [0.7, -0.7, 0], scale: [1, 0.999, 1] };
+  return { y: 0, rotate: 0, scale: 1 };
 }
 
 function bodyTransition(state: string) {
-  if (state === "cheering") return { duration: 0.65, repeat: 2, ease: "easeInOut" as const };
-  if (state === "waving") return { duration: 1.2, repeat: 1, ease: "easeInOut" as const };
+  if (state === "cheering") return { duration: 0.55, repeat: 0, ease: "easeInOut" as const };
+  if (state === "waving") return { duration: 0.7, repeat: 0, ease: "easeInOut" as const };
   if (state === "talking") return { duration: 0.7, repeat: Infinity, ease: "easeInOut" as const };
-  if (["pointing", "teaching", "help", "gentle-error"].includes(state)) return { duration: 0.55, ease: "easeOut" as const };
-  if (state === "listening") return { duration: 2.1, repeat: Infinity, ease: "easeInOut" as const };
-  return { duration: 5.5, repeat: Infinity, ease: "easeInOut" as const };
+  if (["pointing", "teaching", "help", "gentle-error"].includes(state)) return { duration: 0.4, ease: "easeOut" as const };
+  if (state === "listening") return { duration: 0.35, ease: "easeOut" as const };
+  return { duration: 0.3, ease: "easeOut" as const };
 }
 
 export const GretelLiveAvatar = forwardRef<GretelLiveAvatarRef, GretelLiveAvatarProps>(
@@ -84,6 +84,8 @@ export const GretelLiveAvatar = forwardRef<GretelLiveAvatarRef, GretelLiveAvatar
     const { machineState, send, isSpeaking } = useGretelAnimation(paused || !!reducedMotion);
     const [bubbleText, setBubbleText] = useState<string | null>(null);
     const [listening, setListening] = useState(false);
+    const [nodding, setNodding] = useState(false);
+    const nodTimer = useRef<number | undefined>(undefined);
     const [pointingLeft, setPointingLeft] = useState(bubblePosition === "right");
     const [particles, setParticles] = useState<Particle[]>([]);
     const particleId = useRef(0);
@@ -202,16 +204,32 @@ export const GretelLiveAvatar = forwardRef<GretelLiveAvatarRef, GretelLiveAvatar
     };
 
     useEffect(() => {
+      if (managed || reducedMotion) return;
       const entrance = window.setTimeout(() => burst("star", 7), 180);
       return () => window.clearTimeout(entrance);
-    }, [burst]);
+    }, [burst, managed, reducedMotion]);
 
     useEffect(() => {
       const off = onGretelEvent((type, detail) => {
         if (type === "guide:reaction") {
-          const celebrate = detail.reaction === "mastery" || detail.reaction === "success";
-          if (!isSpeaking) send({ type: celebrate ? "CHEER" : "TEACH" });
-          if (detail.reaction === "mastery") burst("star", 5);
+          if (isSpeaking) return;
+          if (detail.reaction === "mastery") {
+            send({ type: "CHEER" });
+            burst("star", 5);
+          } else if (detail.reaction === "success") {
+            send({ type: "SETTLE" });
+            window.clearTimeout(nodTimer.current);
+            setNodding(true);
+            nodTimer.current = window.setTimeout(() => setNodding(false), 520);
+          } else if (detail.reaction === "cue") {
+            send({ type: "GENTLE_ERROR" });
+          } else if (detail.reaction === "hint") {
+            send({ type: "HELP" });
+          } else if (detail.reaction === "demonstration" || detail.reaction === "independent-retry") {
+            send({ type: "TEACH" });
+          } else {
+            send({ type: "SETTLE" });
+          }
           return;
         }
         if (managed && ["answer:correct", "answer:wrong", "activity:complete", "lesson:complete", "hint:show"].includes(type)) return;
@@ -279,6 +297,7 @@ export const GretelLiveAvatar = forwardRef<GretelLiveAvatarRef, GretelLiveAvatar
       window.addEventListener("gretel:exit", handleExit);
       return () => {
         off();
+        window.clearTimeout(nodTimer.current);
         window.removeEventListener("gretel:celebrate", handleLegacyCelebrate);
         window.removeEventListener("gretel:exit", handleExit);
       };
@@ -291,6 +310,7 @@ export const GretelLiveAvatar = forwardRef<GretelLiveAvatarRef, GretelLiveAvatar
         data-state={machineState}
         data-speaking={isSpeaking ? "true" : "false"}
         data-listening={listening ? "true" : "false"}
+        data-nodding={nodding ? "true" : "false"}
         data-interactive="true"
         data-paused={String(paused)}
         data-reduced-motion={String(!!reducedMotion)}
@@ -304,8 +324,8 @@ export const GretelLiveAvatar = forwardRef<GretelLiveAvatarRef, GretelLiveAvatar
           <motion.span
             className="absolute inset-[8%] rounded-full border-2 border-sky-400/70"
             aria-hidden
-            animate={reducedMotion ? { scale: 1, opacity: 0.65 } : { scale: [0.94, 1.08, 0.94], opacity: [0.35, 0.9, 0.35] }}
-            transition={reducedMotion ? { duration: 0 } : { duration: 1.2, repeat: Infinity, ease: "easeInOut" }}
+            animate={reducedMotion ? { scale: 1, opacity: 0.65 } : { scale: [0.97, 1.04, 1], opacity: [0.4, 0.8, 0.65] }}
+            transition={reducedMotion ? { duration: 0 } : { duration: 0.6, ease: "easeOut" }}
           />
         )}
 
@@ -328,8 +348,20 @@ export const GretelLiveAvatar = forwardRef<GretelLiveAvatarRef, GretelLiveAvatar
         <motion.div
           className="absolute inset-0 z-10 h-full w-full origin-bottom"
           initial={reducedMotion ? false : { opacity: 0, y: 28, scale: 0.72 }}
-          animate={paused || reducedMotion ? { opacity: 1, y: 0, rotate: 0, scale: 1 } : { opacity: 1, ...bodyAnimation(machineState) }}
-          transition={paused || reducedMotion ? { duration: 0 } : { opacity: { duration: 0.35 }, ...bodyTransition(machineState) }}
+          animate={
+            paused || reducedMotion
+              ? { opacity: 1, y: 0, rotate: 0, scale: 1 }
+              : nodding
+                ? { opacity: 1, y: [0, 1.5, 0], rotate: [0, 0.7, 0], scale: 1 }
+                : { opacity: 1, ...bodyAnimation(machineState) }
+          }
+          transition={
+            paused || reducedMotion
+              ? { duration: 0 }
+              : nodding
+                ? { duration: 0.45, ease: "easeInOut" }
+                : { opacity: { duration: 0.35 }, ...bodyTransition(machineState) }
+          }
         >
           <GretelLayerRig
             state={machineState}
