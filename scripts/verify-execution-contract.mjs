@@ -27,6 +27,7 @@ if (fs.existsSync("EMILIO_QUALITY_ROUTER.md")) {
     "## Material-progress rule",
     "## Independent review gate",
     "## Tooling standard",
+    "## Execution failover",
   ]) {
     if (!router.includes(marker)) failures.push(`EMILIO_QUALITY_ROUTER.md missing execution marker: ${marker}`);
   }
@@ -40,6 +41,7 @@ if (fs.existsSync("AGENTS.md")) {
     "### Worker role",
     "CONTROLLER-FIRST REMEDIATION",
     "STOP ONLY AT A VALID TERMINAL STATE",
+    "### Execution failover ladder — mandatory before reporting a blocker",
   ]) {
     if (!agents.includes(marker)) failures.push(`AGENTS.md missing execution marker: ${marker}`);
   }
@@ -61,7 +63,7 @@ if (fs.existsSync(".github/PULL_REQUEST_TEMPLATE.md")) {
 if (fs.existsSync("package.json")) {
   const pkg = JSON.parse(fs.readFileSync("package.json", "utf8"));
   const release = pkg?.scripts?.["verify:release"] ?? "";
-  if (!release.includes("verify-execution-contract.mjs")) {
+  if (!release.includes("verify:execution-contract") && !release.includes("verify-execution-contract.mjs")) {
     failures.push("verify:release does not run the execution-contract guard");
   }
 }
