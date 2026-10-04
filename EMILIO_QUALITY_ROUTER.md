@@ -71,6 +71,10 @@ Default engineering stack:
 
 Do not stack arbitrary overlapping plugins.
 
+## Execution failover
+
+The Controller must treat a failed tool/channel as a routing event, not a terminal state. Before reporting execution blocked, exhaust the applicable safe authorized paths: native repository connector, connected cloud shell, independent clean cloud verifier, primary browser automation, browser fallback, then any other already-authorized non-paid cloud execution route. A timeout, offline device, failed worker, or unhealthy sandbox does not by itself justify stopping. Continue independent lanes while a dependency-bound lane waits.
+
 ## Proof of work
 
 Before merge, require evidence appropriate to the diff:
