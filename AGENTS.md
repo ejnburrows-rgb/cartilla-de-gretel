@@ -44,6 +44,7 @@ Jules is a worker, not the project controller. The controller owns scope selecti
 - Run multiple Jules sessions in parallel when their file ownership and dependencies are genuinely isolated.
 - One session = one bounded deliverable. Do not combine unrelated lanes or a long dependency chain into one session.
 - **Persist progress early:** after the first material implementation change passes its narrow targeted check, commit/push that material checkpoint and open or update the task PR immediately. Do not wait until the end of the session to create the PR. Continue subsequent work on that same branch/PR so a later session failure cannot erase useful progress.
+- The controller/supervisor must use Jules' supported **Export at any time** control to persist a work-in-progress branch/PR as soon as that first material checkpoint exists when the session has not already published one. Do not rely on end-of-session export for substantial work.
 - Reuse the existing issue/branch/PR when one already exists. Do not create duplicate competing work.
 - Give each session explicit owned files/behavior and explicit forbidden scope.
 - Start from CURRENT `main` and current repo instructions. Older task snapshots, prior bot comments, and archived docs never override current truth.
@@ -65,6 +66,15 @@ A session that produces no material tree change when implementation was requeste
 #### Verification boundary
 
 Jules should use its environment to prove its **own bounded change** with targeted tests/checks and, for visible work, representative browser evidence when practical.
+
+**Critical worker rule — keep verification read-only and scope-clean:**
+- For non-asset tasks, Jules must NOT run `pnpm prepare:art` or any command whose purpose is to regenerate delivery art.
+- `pnpm dev`, `pnpm build`, and `pnpm verify:release` must remain read-only with respect to tracked source/delivery assets. Asset generation is an explicit asset-task operation only.
+- Default implementation-worker verification is: the narrow targeted tests for the changed behavior plus `pnpm verify:worker`. The controller runs the full release gate afterward.
+- Do not create or commit screenshot/video/proof binaries merely to prove ordinary implementation work. Visual proof belongs in Jules/browser session output or controller evidence, not in the task diff, unless the issue explicitly owns proof artifacts.
+- Before any GitHub publish/export, run `git status --short` and remove/revert files outside the declared task scope. Unexpected delivery images, manifests, generated snapshots, or proof binaries are a stop signal, not part of the implementation.
+- Asset-owning issues may run `pnpm prepare:art` only when they intentionally change the canonical asset inputs and after the resulting generated diff has been reviewed as in-scope.
+
 
 Jules is **not required to consume its session running the entire project release gate** before handing back a candidate implementation. The controller owns:
 - independent diff review;
