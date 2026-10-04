@@ -1,7 +1,8 @@
-import { useEffect, useRef, useState, type ReactNode } from "react";
+import { useCallback, useEffect, useRef, useState, type ReactNode } from "react";
 import { ChevronLeft, ChevronRight } from "lucide-react";
 import { gretelEvent } from "@/lib/gretel-bus";
 import { remainingHint, usePageCompletion } from "@/lib/page-completion";
+import { STUDENT_PAGE_TURN_MS, prefersReducedMotion } from "@/lib/living-motion";
 import type { WorkbookPageEntry } from "./SimplePageViewer";
 import "@/styles/native-lesson.css";
 
@@ -23,8 +24,16 @@ export function NativeLessonViewer({
   lessonNumber?: number;
 }) {
   const [index, setIndex] = useState(() => Math.min(Math.max(0, initialPage), pages.length - 1));
+  const [isTurning, setIsTurning] = useState(false);
+  const [turnDirection, setTurnDirection] = useState<"next" | "prev">("next");
+  const [destIndex, setDestIndex] = useState<number | null>(null);
+  const [leafTransform, setLeafTransform] = useState("rotateY(0deg)");
+
   const revealTimer = useRef<number | undefined>(undefined);
+  const turnTimerRef = useRef<number | undefined>(undefined);
+  const turningRef = useRef(false);
   const [hint, setHint] = useState("");
+
   const page = pages[index];
   const completion = usePageCompletion(page?.pageNumber, lessonNumber);
   const isLast = index === pages.length - 1;
@@ -35,7 +44,10 @@ export function NativeLessonViewer({
       pageNumber: pages[index]?.pageNumber,
       text: pages[index]?.gretelLine,
     }), 150);
-    return () => window.clearTimeout(revealTimer.current);
+    return () => {
+      window.clearTimeout(revealTimer.current);
+      if (turnTimerRef.current) window.clearTimeout(turnTimerRef.current);
+    };
     // The initial reveal occurs once; navigation handles subsequent reveals.
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
@@ -55,19 +67,56 @@ export function NativeLessonViewer({
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [remainingKey]);
 
-  const turn = (next: number) => {
-    if (next < 0 || next >= pages.length || next === index) return;
+  const turn = useCallback((next: number) => {
+    if (turningRef.current || next < 0 || next >= pages.length || next === index) return;
+    turningRef.current = true;
+
+    const direction = next > index ? "next" : "prev";
     setHint("");
-    gretelEvent("page-turn:start");
-    setIndex(next);
+
+    // Save/commit learner state BEFORE navigation animation starts
     onPageChange?.(next);
-    window.scrollTo({ top: 0, behavior: "instant" });
-    window.clearTimeout(revealTimer.current);
-    revealTimer.current = window.setTimeout(() => gretelEvent("page:revealed", {
-      pageNumber: pages[next]?.pageNumber,
-      text: pages[next]?.gretelLine,
-    }), 150);
-  };
+    gretelEvent("page-turn:start");
+
+    const reduced = prefersReducedMotion();
+    if (reduced) {
+      setIndex(next);
+      turningRef.current = false;
+      window.scrollTo({ top: 0, behavior: "instant" });
+      window.clearTimeout(revealTimer.current);
+      revealTimer.current = window.setTimeout(() => gretelEvent("page:revealed", {
+        pageNumber: pages[next]?.pageNumber,
+        text: pages[next]?.gretelLine,
+      }), 50);
+      return;
+    }
+
+    setTurnDirection(direction);
+    setDestIndex(next);
+    setIsTurning(true);
+    setLeafTransform(direction === "next" ? "rotateY(0deg)" : "rotateY(-180deg)");
+
+    requestAnimationFrame(() => {
+      requestAnimationFrame(() => {
+        setLeafTransform(direction === "next" ? "rotateY(-180deg)" : "rotateY(0deg)");
+      });
+    });
+
+    if (turnTimerRef.current) window.clearTimeout(turnTimerRef.current);
+    turnTimerRef.current = window.setTimeout(() => {
+      setIndex(next);
+      setIsTurning(false);
+      setDestIndex(null);
+      turningRef.current = false;
+      window.scrollTo({ top: 0, behavior: "instant" });
+
+      window.clearTimeout(revealTimer.current);
+      revealTimer.current = window.setTimeout(() => gretelEvent("page:revealed", {
+        pageNumber: pages[next]?.pageNumber,
+        text: pages[next]?.gretelLine,
+      }), 100);
+    }, STUDENT_PAGE_TURN_MS);
+  }, [index, onPageChange, pages]);
 
   const showRemaining = () => {
     const text = remainingHint(completion.remaining);
@@ -92,12 +141,17 @@ export function NativeLessonViewer({
   };
 
   if (!page) return null;
+  const targetPage = destIndex !== null ? pages[destIndex] : null;
+
   return (
     <section
       className="native-lesson-viewer"
       aria-label="Página de aprendizaje"
       data-native-page={page.pageNumber}
       data-page-complete={completion.complete ? "true" : "false"}
+      data-is-turning={isTurning ? "true" : "false"}
+      data-page-turn-axis="horizontal"
+      data-page-turn-ms={STUDENT_PAGE_TURN_MS}
     >
       <div className="native-lesson-viewer__topline">
         <span className="native-lesson-viewer__chapter">{chapterLabel}</span>
@@ -105,7 +159,63 @@ export function NativeLessonViewer({
       </div>
 
       <div className="native-lesson-viewer__layout">
-        <div className="native-lesson-viewer__content">{page.content}</div>
+        <div className="native-lesson-viewer__content relative" style={{ perspective: "2200px" }}>
+          {/* Static under-page: renders the destination page underneath during the turn so there is zero blank flash */}
+          <div className="w-full h-full">
+            {isTurning && targetPage ? targetPage.content : page.content}
+          </div>
+
+          {/* Animated turning leaf overlay */}
+          {isTurning && targetPage && (
+            <div
+              className="pointer-events-none absolute inset-0 z-30"
+              data-testid="horizontal-curl-layer"
+              style={{ transformStyle: "preserve-3d" }}
+            >
+              <div
+                className="workbook-curl-wrapper"
+                style={{
+                  transform: leafTransform,
+                  transformOrigin: turnDirection === "next" ? "left center" : "right center",
+                  transition: `transform ${STUDENT_PAGE_TURN_MS}ms cubic-bezier(0.22, 1, 0.36, 1)`,
+                  willChange: "transform",
+                  width: "100%",
+                  height: "100%",
+                  transformStyle: "preserve-3d",
+                  position: "relative",
+                }}
+              >
+                <div
+                  className="workbook-curl-front"
+                  style={{
+                    backfaceVisibility: "hidden",
+                    position: "absolute",
+                    inset: 0,
+                    background: "#fffaf0",
+                    boxShadow: turnDirection === "next" ? "12px 0 24px rgba(45,29,17,0.22)" : "-12px 0 24px rgba(45,29,17,0.22)",
+                  }}
+                >
+                  {turnDirection === "next" ? page.content : targetPage.content}
+                  <div className="workbook-curl-shadow-overlay" style={{ position: "absolute", inset: 0, pointerEvents: "none", background: "linear-gradient(to right, rgba(0,0,0,0.18) 0%, transparent 40%)" }} />
+                </div>
+                <div
+                  className="workbook-curl-back"
+                  style={{
+                    backfaceVisibility: "hidden",
+                    transform: "rotateY(180deg)",
+                    position: "absolute",
+                    inset: 0,
+                    background: "#fffdf6",
+                    boxShadow: turnDirection === "next" ? "-12px 0 24px rgba(45,29,17,0.22)" : "12px 0 24px rgba(45,29,17,0.22)",
+                  }}
+                >
+                  {turnDirection === "next" ? targetPage.content : page.content}
+                  <div className="workbook-curl-shadow-overlay" style={{ position: "absolute", inset: 0, pointerEvents: "none", background: "linear-gradient(to left, rgba(0,0,0,0.18) 0%, transparent 40%)" }} />
+                </div>
+              </div>
+            </div>
+          )}
+        </div>
 
         <aside className="native-lesson-viewer__side" aria-label="Gretel y navegación">
           {bookCompanion && <div className="native-lesson-viewer__companion">{bookCompanion}</div>}
@@ -115,13 +225,14 @@ export function NativeLessonViewer({
             </p>
           )}
           <nav className="native-lesson-viewer__navigation" aria-label="Navegación de páginas">
-            <button type="button" onClick={() => turn(index - 1)} disabled={index === 0}>
+            <button type="button" onClick={() => turn(index - 1)} disabled={isTurning || index === 0}>
               <ChevronLeft size={20} /> Anterior
             </button>
             <span>{index + 1} / {pages.length}</span>
             <button
               type="button"
               onClick={forward}
+              disabled={isTurning}
               aria-disabled={completion.complete ? undefined : true}
               aria-describedby={hint ? "native-lesson-next-hint" : undefined}
               data-locked={completion.complete ? undefined : "true"}

@@ -6,11 +6,11 @@
 /** Soft cubic used for elegant page / flipchart turns (not linear, not springy). */
 export const ELEGANT_EASE = "cubic-bezier(0.22, 1, 0.36, 1)";
 
-/** Physical student-workbook curl: intentionally slow enough to read as a real paper leaf. */
-export const STUDENT_PAGE_TURN_MS = 960;
+/** Physical student-workbook curl: side-bound turn across center spine (target 0.75–0.85s). */
+export const STUDENT_PAGE_TURN_MS = 800;
 
-/** Teacher flipchart: slower top-hinged turn so the sheet visibly travels over the binding. */
-export const FLIPCHART_FLIP_MS = 1120;
+/** Teacher flipchart: top-bound turn upward over top binding (target 0.9–1.05s). */
+export const FLIPCHART_FLIP_MS = 980;
 
 /** Blink hold while lids are closed (ms). */
 export const BLINK_HOLD_MS = 110;

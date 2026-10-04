@@ -69,7 +69,7 @@ describe("FlipchartHdPanel — CRM-grade presenter board", () => {
     expect(stage).toBeTruthy();
     expect(panel?.getAttribute("data-hd-primary")).toBe("true");
     expect(panel?.getAttribute("data-presenter-mode")).toBe("native");
-    expect(panel?.hasAttribute("data-physical-flipchart")).toBe(false);
+    expect(panel?.hasAttribute("data-physical-flipchart")).toBe(true);
     expect(panel?.getAttribute("data-page-turn-axis")).toBe("vertical");
     expect(panel?.getAttribute("data-page-turn-ms")).toBe(
       String(FLIPCHART_FLIP_MS),

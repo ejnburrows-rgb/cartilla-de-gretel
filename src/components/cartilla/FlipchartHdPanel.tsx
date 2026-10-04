@@ -195,6 +195,7 @@ export function FlipchartHdPanel({ lessonNumber, accentColor, chrome = "full" }:
       data-hd-primary="true"
       data-presenter-mode="native"
       data-delivery-tier="independent-faithful-assets"
+      data-physical-flipchart="true"
       data-page-turn-axis="vertical"
       data-page-turn-ms={FLIPCHART_FLIP_MS}
       data-reduced-motion={reducedMotion ? "true" : "false"}
