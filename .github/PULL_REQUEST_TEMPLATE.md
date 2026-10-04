@@ -19,6 +19,7 @@
 
 ## Verification
 - Focused tests:
+- Test coverage for changed behavior:
 - Typecheck:
 - Full tests:
 - Build:
