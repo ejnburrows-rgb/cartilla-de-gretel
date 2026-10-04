@@ -35,6 +35,16 @@ Jules must stay inside the issue scope. Do not opportunistically change adjacent
 
 For application code/assets, Jules must provide task-specific proof and complete direct-cloud `pnpm verify:release`. GitHub Actions/check badges are not proof. Jules never self-merges.
 
+### VISUAL MILESTONE PROOF — mandatory for UI/visual Jules work
+
+Do not wait until the final regression task to show visible work. For every meaningful visible milestone, Jules must capture and publish/attach current browser screenshots (PNG or equivalent visual artifacts) of the actual implementation.
+
+For student activities, show representative states owned by the task: normal/resting, correct, incorrect/retry, plus the distinctive interaction state (for example pencil-to-eraser, pencil-drawn line/circle, Progressive Fade, drawing tools, handwriting, or completion).
+
+For Gretel, welcome, teacher/Flip Chart, and production-art work, show the relevant rendered states and representative responsive/device views.
+
+Milestone screenshots are early design proof, not a substitute for final browser QA, task-specific tests, or `pnpm verify:release`. If a screenshot exposes the wrong visual direction, correct it before propagating that interaction pattern to later dependent work.
+
 ### MANDATORY DUAL REVIEW — meaningful code/behavior PRs
 
 Before any meaningful code, behavior, security, data, or application-asset PR is merged, the exact current PR head must pass two independent review layers:
