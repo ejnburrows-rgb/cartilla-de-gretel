@@ -2,6 +2,7 @@ import fs from "node:fs";
 
 const requiredFiles = [
   "AGENTS.md",
+  "EMILIO_QUALITY_ROUTER.md",
   "PROJECT_SOURCE_OF_TRUTH.md",
   "CARTILLA_DIGITAL_DIRECTIVE.md",
   "ASSET_FIDELITY_POLICY.md",
@@ -16,6 +17,19 @@ const failures = [];
 
 for (const file of requiredFiles) {
   if (!fs.existsSync(file)) failures.push(`missing required control/source file: ${file}`);
+}
+
+if (fs.existsSync("EMILIO_QUALITY_ROUTER.md")) {
+  const router = fs.readFileSync("EMILIO_QUALITY_ROUTER.md", "utf8");
+  for (const marker of [
+    "## Controller mandate",
+    "## Termination rule",
+    "## Material-progress rule",
+    "## Independent review gate",
+    "## Tooling standard",
+  ]) {
+    if (!router.includes(marker)) failures.push(`EMILIO_QUALITY_ROUTER.md missing execution marker: ${marker}`);
+  }
 }
 
 if (fs.existsSync("AGENTS.md")) {
@@ -37,6 +51,7 @@ if (fs.existsSync(".github/PULL_REQUEST_TEMPLATE.md")) {
     "## Material change",
     "## Verification",
     "## Independent review",
+    "Test coverage for changed behavior",
     "DUAL REVIEW VERIFIED FOR THIS HEAD",
   ]) {
     if (!template.includes(marker)) failures.push(`PR template missing gate marker: ${marker}`);
