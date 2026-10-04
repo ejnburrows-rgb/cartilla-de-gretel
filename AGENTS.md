@@ -44,6 +44,25 @@ Every new request, scheduled controller run, Jules result, failed verification, 
    - A new SHA is not progress unless the tree materially changed.
    - Empty commits, check reruns, metadata-only changes, and timestamp churn never count as remediation.
 
+### Execution failover ladder — mandatory before reporting a blocker
+
+One unavailable tool, agent, device, sandbox, or execution channel is never sufficient reason to stop. The controller must exhaust the applicable safe, authorized, non-paid paths in this order before classifying execution as blocked:
+
+1. Native connected GitHub tools for repository truth, branch writes, PR review, comments, and merges.
+2. Composio cloud shell for direct repository checkout, focused tests, typecheck, build, and release commands.
+3. Firecrawl Interact clean verifier using an exact-head source archive when the primary shell is unhealthy or unavailable.
+4. Composio Browser Tool for actual rendered UI navigation, interaction, and screenshots.
+5. Firecrawl Interact/browser as the browser fallback when Composio Browser cannot complete the required proof.
+6. Other already-authorized cloud execution connectors that do not add cost or deploy production.
+
+Operational rules:
+- A timeout, offline device, failed worker, broken sandbox, or one connector error is a **channel failure**, not a project blocker.
+- Long commands must be split into bounded deterministic stages, or detached and polled when the environment safely supports that pattern.
+- Preserve and reuse accepted evidence from unchanged exact heads; do not rerun passing work merely because the channel changed.
+- If one lane is waiting on an external dependency, continue every other independent actionable lane in the same run.
+- Jules is never a required dependency for Cartilla completion. If Jules is disabled or fails repeatedly, the controller continues directly.
+- Report a blocker only after the applicable ladder above has actually been attempted and no independent actionable lane remains.
+
 5. **VERIFY INDEPENDENTLY**
    - Worker self-review is not controller review.
    - Meaningful code/behavior changes require exact-head controller review + SonarQube Cloud + task-specific verification + complete `pnpm verify:release`.
