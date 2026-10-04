@@ -1,7 +1,7 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { useMemo } from "react";
 import { ArrowLeft } from "lucide-react";
-import { DigitalPageViewer } from "@/components/StudentBook/DigitalPageViewer";
+import { CurlPageViewer } from "@/components/StudentBook/CurlPageViewer";
 import type { WorkbookPageEntry } from "@/components/StudentBook/SimplePageViewer";
 import { ReconstructedWorkbookPage } from "@/components/cartilla/ReconstructedWorkbookPage";
 import { FaithfulPageRenderer } from "@/components/cartilla/FaithfulPageRenderer";
@@ -9,6 +9,7 @@ import { GretelPresence } from "@/components/gretel/GretelPresence";
 import { buildGretelPageLine } from "@/lib/gretel-page-guide";
 import { getPageLayout } from "@/lib/book-faithful";
 import pageLayouts from "@/data/page-layouts.json";
+import { saveLearnerResume } from "@/lib/learner-resume";
 
 export const Route = createFileRoute("/cartilla/cuaderno")({
   component: ReconstructedWorkbook,
@@ -61,8 +62,12 @@ function ReconstructedWorkbook() {
       </div>
 
       <div className="mx-auto w-full max-w-5xl">
-        <DigitalPageViewer
+        <CurlPageViewer
           pages={pages}
+          onPageChange={(index) => {
+            const pageNum = AVAILABLE_PRINTED_PAGES[index];
+            if (pageNum) saveLearnerResume(pageNum, index);
+          }}
           bookCompanion={<GretelPresence autoIntro={false} bookMode hideChrome />}
         />
       </div>

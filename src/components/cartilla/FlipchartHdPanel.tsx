@@ -139,6 +139,7 @@ export function FlipchartHdPanel({ lessonNumber, accentColor, chrome = "full" }:
 
   useEffect(() => {
     const onKey = (e: KeyboardEvent) => {
+      if (e.target instanceof HTMLElement && e.target.closest("input, textarea, select, [contenteditable]")) return;
       if (["ArrowDown", "ArrowRight", "PageDown", " "].includes(e.key)) {
         e.preventDefault();
         handleNext();

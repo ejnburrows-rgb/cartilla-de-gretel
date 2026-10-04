@@ -293,10 +293,11 @@ export function CurlPageViewer({
     );
     if (!startTurn()) return;
     pendingDestinationRef.current = expectedIndex;
+    onPageChange?.(expectedIndex);
     const api = getApi();
     if (api?.flip) api.flip(expectedIndex); else api?.flipPrev?.();
     armTurnFallback(expectedIndex);
-  }, [armTurnFallback, currentIndex, getApi, pages.length, spread, startTurn]);
+  }, [armTurnFallback, currentIndex, getApi, onPageChange, pages.length, spread, startTurn]);
 
   const handleNext = useCallback(() => {
     const expectedIndex = expectedTurnIndex(
@@ -307,10 +308,32 @@ export function CurlPageViewer({
     );
     if (!startTurn()) return;
     pendingDestinationRef.current = expectedIndex;
+    onPageChange?.(expectedIndex);
     const api = getApi();
     if (api?.flip) api.flip(expectedIndex); else api?.flipNext?.();
     armTurnFallback(expectedIndex);
-  }, [armTurnFallback, currentIndex, getApi, pages.length, spread, startTurn]);
+  }, [armTurnFallback, currentIndex, getApi, onPageChange, pages.length, spread, startTurn]);
+
+  useEffect(() => {
+    const onKeyDown = (event: KeyboardEvent) => {
+      if (event.altKey || event.ctrlKey || event.metaKey) return;
+      if (
+        event.target instanceof HTMLElement &&
+        event.target.closest("input, textarea, select, [contenteditable], button")
+      ) {
+        return;
+      }
+      if (event.key === "ArrowRight" || event.key === "PageDown") {
+        event.preventDefault();
+        if (hasNext && !turningRef.current) handleNext();
+      } else if (event.key === "ArrowLeft" || event.key === "PageUp") {
+        event.preventDefault();
+        if (hasPrev && !turningRef.current) handlePrev();
+      }
+    };
+    window.addEventListener("keydown", onKeyDown);
+    return () => window.removeEventListener("keydown", onKeyDown);
+  }, [handleNext, handlePrev, hasNext, hasPrev]);
   const onFlip = useCallback(
     (e: FlipEvent) => {
       const reportedIndex =
