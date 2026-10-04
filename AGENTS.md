@@ -32,6 +32,25 @@ Anything under `docs/archive/` is historical reference only and must not overrid
 - Current verified code/runtime behavior and newer explicit owner decisions override stale statements in the file. Flag the stale statement and propose the correction rather than silently following it.
 - Keep the file as a concise current snapshot, not a changelog, task tracker, or history log.
 
+## AVAILABLE DEVELOPMENT TOOLS — USE THEM AUTOMATICALLY
+
+EJN should not have to choose or manually invoke engineering tools. When the current agent environment exposes specialist skills, MCPs, connectors, browser tools, or coding workers that materially improve the task, use the narrowest relevant capability automatically.
+
+- Use direct GitHub/repository tooling for current repository facts instead of guessing from old prompts or reports.
+- When framework/library/API behavior matters, verify it against current authoritative documentation using the available documentation-retrieval capability.
+- Use upstream developer search only when maintainer issues/PRs or external evidence could materially change the conclusion.
+- For bugs, use root-cause debugging before changing code.
+- For security-sensitive work, use the available security/hardening specialist.
+- For measurable performance problems, use the available performance specialist.
+- For visible UI work, verify the real rendered application with the available browser/runtime tools; code inspection alone is not sufficient.
+- Use independent review for meaningful changes as required elsewhere in this file.
+- Parallelize at most 3 genuinely independent jobs when they do not share mutable state or sequential dependencies. The controller remains responsible for integration and verification.
+- Reuse still-valid evidence instead of repeating unchanged audits, tests, reviews, or browser checks.
+- If a preferred specialist is unavailable, use the strongest safe equivalent. Do not block work merely because one optional tool is missing.
+- Do not add a new account, paid service, plugin, framework, or workflow unless the existing stack materially cannot meet a real current need and EJN approves any consequential cost or lock-in.
+
+These tools support the repository rules; they do not override `AGENTS.md`, `PROJECT_SOURCE_OF_TRUTH.md`, owner decisions, or current verified repository/runtime evidence.
+
 ### EXTERNAL CODING AGENT ORCHESTRATION — JULES-FIRST FOR PARALLEL IMPLEMENTATION
 
 Jules is an approved primary implementation worker for Cartilla because the owner has available Jules capacity. Use that capacity aggressively for **parallel, isolated coding work** instead of leaving it idle.
