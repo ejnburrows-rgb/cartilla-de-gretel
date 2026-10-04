@@ -37,6 +37,19 @@ Jules must stay inside the issue scope. Do not opportunistically change adjacent
 
 For application code/assets, Jules must provide task-specific proof and complete direct-cloud `pnpm verify:release`. GitHub Actions/check badges are not proof. Jules never self-merges.
 
+### JULES MATERIAL-PROGRESS CONTRACT
+
+A new commit SHA is **not** progress by itself. After any review, correction, retry, or recovery instruction:
+
+- Compare the candidate tree/diff with the previously reviewed tree before committing or reporting completion.
+- If implementation changes were requested and the resulting tree is unchanged, **do not create an empty commit and do not rerun checks as if remediation occurred**. Report the blocker plainly instead.
+- Never use an empty commit, timestamp-only change, metadata churn, or check rerun to trigger Sonar/review or represent a fix.
+- If a stale task branch conflicts with CURRENT `main`, rebuild the scoped change from CURRENT `main`; do not “remove old scope” by deleting files that CURRENT `main` owns.
+- Verification-only/no-op lanes attach evidence to the issue/PR and stop. They do not manufacture a code diff.
+- Controller-owned repair branches are read-only to Jules unless the controller explicitly hands that exact branch/head back for implementation.
+- When Jules is assigned verification of a controller PR, verify the **exact supplied PR head SHA**. Do not substitute the issue branch, task-start snapshot, or another head.
+- If the requested change cannot be made safely, report the exact blocker without committing. A blocker is preferable to false progress.
+
 ### MANDATORY DUAL REVIEW — meaningful code/behavior PRs
 
 Before any meaningful code, behavior, security, data, or application-asset PR is merged, the exact current PR head must pass two independent review layers:
