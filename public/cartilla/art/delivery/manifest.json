@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-10-03T13:46:47.514Z",
+  "generatedAt": "2026-10-04T02:20:25.615Z",
   "sourceManifest": "/cartilla/art/faithful/manifest.json",
   "canonicalPolicy": "Canonical faithful WebP files remain untouched. Delivery derivatives are disposable build output.",
   "counts": {
@@ -8934,9 +8934,9 @@
         "page": 24,
         "word": "Lala",
         "src": "/cartilla/art/optimized/flipchart-native/p024-lala.png",
-        "width": 320,
-        "height": 320,
-        "bytes": 30674,
+        "width": 550,
+        "height": 495,
+        "bytes": 281675,
         "approvedInput": true
       },
       {
