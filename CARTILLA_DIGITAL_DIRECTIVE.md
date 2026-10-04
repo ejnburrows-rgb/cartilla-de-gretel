@@ -107,7 +107,7 @@ New scenic backgrounds may be created for Workbook and Flip Chart pages only whe
 
 ### Image acceptance rule
 
-Newly generated or creatively altered artwork still requires owner/ChatGPT visual approval before production use. Technical source-faithful operations — verified crop correction, transparency cleanup, lossless optimization, and the authorized source-preserving color-transfer workflow — may be executed by Jules or another implementation agent when the exact source is identified and the required before/after/provenance proof is supplied. No agent may invent replacement art.
+Newly generated or creatively altered artwork still requires owner/ChatGPT visual approval before production use. Technical source-faithful operations — verified crop correction, transparency cleanup, lossless optimization, and the authorized source-preserving color-transfer workflow — may be executed by an implementation agent when the exact source is identified and the required before/after/provenance proof is supplied. No agent may invent replacement art.
 
 ---
 
