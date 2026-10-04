@@ -35,6 +35,28 @@ Jules must stay inside the issue scope. Do not opportunistically change adjacent
 
 For application code/assets, Jules must provide task-specific proof and complete direct-cloud `pnpm verify:release`. GitHub Actions/check badges are not proof. Jules never self-merges.
 
+### MANDATORY DUAL REVIEW — meaningful code/behavior PRs
+
+Before any meaningful code, behavior, security, data, or application-asset PR is merged, the exact current PR head must pass two independent review layers:
+
+1. **Controller/assistant review:** independently inspect the actual PR diff against the issue requirements and CURRENT canonical Cartilla files. Jules self-review does not count.
+2. **SonarQube Cloud PR analysis:** use the connected SonarQube Cloud project for `ejnburrows-rgb/cartilla-de-gretel` on the free plan. CodeRabbit is not required.
+
+Reconcile SonarQube findings rather than accepting them mechanically. Confirm real issues, identify false positives/noise, and require fixes for every real blocker or major regression. Existing baseline findings on `main` do not automatically block a scoped PR; the merge gate is new/worsened PR-introduced risk plus any substantive regression independently confirmed by the controller.
+
+After any substantive fix or any head-SHA change, repeat BOTH the controller review and SonarQube PR analysis against the new head. Then rerun task-specific verification and complete direct-cloud `pnpm verify:release` for application code/assets.
+
+Before merge, add a concise PR proof comment containing:
+- reviewed head SHA;
+- controller-independent review result;
+- SonarQube Quality Gate/result and relevant issue counts/severities for that PR/head;
+- confirmed, false-positive, and deferred Sonar findings;
+- exact task-specific verification evidence;
+- exact `pnpm verify:release` result when required;
+- the exact statement: `DUAL REVIEW VERIFIED FOR THIS HEAD`.
+
+Merge only when the PR head SHA exactly matches the dual-reviewed SHA. Documentation-only or trivial metadata-only PRs may skip SonarQube when they contain no executable behavior/code/security/data change, but still require the controller's independent review.
+
 ---
 
 ## CARTILLA DIGITAL DIRECTIVE — HIGHEST PRIORITY, NO EXCEPTIONS
