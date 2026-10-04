@@ -20,6 +20,18 @@ There are eight active repo-wide instruction files:
 
 Anything under `docs/archive/` is historical reference only and must not override any file above.
 
+### PROJECT SOURCE OF TRUTH MAINTENANCE — OWNER APPROVAL REQUIRED
+
+`PROJECT_SOURCE_OF_TRUTH.md` is the canonical current-state snapshot for this project.
+
+- Read it before meaningful project work.
+- After a **significant verified milestone**, check whether it has become materially stale.
+- Significant milestones include a major feature or phase becoming verified complete, an owner-approved scope or product decision changing, a major blocker appearing or being resolved, architecture/deployment direction materially changing, or the project moving to a new major phase.
+- Routine commits, formatting, minor fixes, ordinary PR progress, small refactors, test maintenance, and temporary experiments do **not** justify updating it.
+- If an update is warranted, prepare the smallest factual correction and show it to EJN for approval. Do not change or merge the source-of-truth update without EJN's explicit approval unless the currently approved owner task specifically includes that source-of-truth update.
+- Current verified code/runtime behavior and newer explicit owner decisions override stale statements in the file. Flag the stale statement and propose the correction rather than silently following it.
+- Keep the file as a concise current snapshot, not a changelog, task tracker, or history log.
+
 ### EXTERNAL CODING AGENT ORCHESTRATION — JULES-FIRST FOR PARALLEL IMPLEMENTATION
 
 Jules is an approved primary implementation worker for Cartilla because the owner has available Jules capacity. Use that capacity aggressively for **parallel, isolated coding work** instead of leaving it idle.
