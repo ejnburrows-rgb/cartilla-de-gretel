@@ -79,3 +79,13 @@ For a new scenic background made under `repo.md`:
 2. Show the page side by side without and with the new background, with the original foreground composited unchanged.
 3. Confirm: the background follows `repo.md`, and the foreground illustrations, characters, objects, text, lesson content, educational meaning, composition, and page structure are unchanged.
 4. If any answer is "no" or "not sure", do not commit it — ask EJN.
+
+
+## Page-turn motion and asset fidelity
+
+The owner-approved Workbook/Flip Chart page-turn effect is a UI/runtime transform of the complete rendered page surface, not an artwork edit.
+
+- Do not pre-warp, curl, redraw, regenerate, or permanently distort source images to create the effect.
+- Workbook page turning may temporarily transform the rendered page plane and show a paper-colored underside/shadow.
+- Flip Chart turning may temporarily transform the rendered sheet plane upward over the top binding/rings.
+- Source illustration pixels, crop, geometry, colors, composition, text, and background assets remain unchanged before and after the transition.
