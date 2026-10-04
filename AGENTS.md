@@ -63,6 +63,7 @@ Jules is a worker, not the project controller. The controller owns scope selecti
 - Run multiple Jules sessions in parallel when their file ownership and dependencies are genuinely isolated.
 - One session = one bounded deliverable. Do not combine unrelated lanes or a long dependency chain into one session.
 - **Persist progress early:** after the first material implementation change passes its narrow targeted check, commit/push that material checkpoint and open or update the task PR immediately. Do not wait until the end of the session to create the PR. Continue subsequent work on that same branch/PR so a later session failure cannot erase useful progress.
+- **Supervisor export checkpoint:** Jules supports exporting work to GitHub before a task finishes. When a substantial Jules session has produced its first material, targeted-checked change and no remote branch/PR exists yet, the controller/supervisor must use Jules' **Export at any time** GitHub control to publish that checkpoint immediately. Do not depend on end-of-session export for substantial work.
 - Reuse the existing issue/branch/PR when one already exists. Do not create duplicate competing work.
 - Give each session explicit owned files/behavior and explicit forbidden scope.
 - Start from CURRENT `main` and current repo instructions. Older task snapshots, prior bot comments, and archived docs never override current truth.
