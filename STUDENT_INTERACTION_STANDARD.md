@@ -159,3 +159,53 @@ They do not authorize:
 - inventing artwork;
 - changing Workbook drawing geometry;
 - bypassing completion/persistence rules.
+
+
+## Shared interaction kernel — canonical implementation architecture
+
+The interaction standard above must be implemented as one shared Workbook system, not as separate mini-app behavior on each activity page.
+
+The shared kernel owns:
+- the classic wooden pencil and matching eraser visual family;
+- pencil draw/mark/erase choreography and shared motion tokens;
+- retry, neutral-hold, success, and completion feedback states;
+- Gretel feedback events;
+- reduced-motion equivalents;
+- persistence/completion integration hooks.
+
+Activity families are adapters over this kernel:
+- picture/vowel selection → Real Workbook Mark;
+- line matching → Pencil Line;
+- tracing/handwriting → Progressive Fade;
+- drawing → Premium Simple Pencil Box;
+- syllables → Real Pencil Circle;
+- complete-word → Pencil Writing;
+- sentence writing → Direct Handwriting.
+
+An activity issue must not invent a second pencil, eraser, success color, retry animation, timing system, Gretel feedback path, or persistence model. Fix shared behavior at the kernel owner, then let adapters consume it.
+
+### Reference implementation and freeze rule
+
+The p1/p2 work is the reference implementation for the shared kernel. Once its shared API/behavior is verified, later activity-family work should treat that contract as stable and add only the gesture/layout adapter needed for that source activity unless a proven kernel defect requires a central fix.
+
+## Workbook page advancement — physical page turn
+
+When the learner activates **Siguiente** after the page's completion gate is satisfied:
+
+1. Commit/save the current learner state first.
+2. Lock repeated page navigation for the duration of the transition.
+3. Keep the destination page rendered/ready underneath.
+4. Turn the current right-hand page from the outer edge across the spine, right-to-left, with a restrained paper curl, visible paper underside, and moving shadow.
+5. Settle cleanly on the destination page and restore normal interaction.
+
+Previous-page navigation uses the natural reverse direction.
+
+Target duration: approximately **0.75–0.85 seconds**. The turn should read as real paper with mass, not a card flip, cube rotation, elastic wave, or theatrical 3D effect.
+
+The page turn is presentation only:
+- it never bypasses completion gating;
+- it never changes saved learner work;
+- it never changes Workbook source layout/content/artwork;
+- it never triggers duplicate Gretel feedback;
+- it stays silent unless the owner later approves a page sound;
+- reduced-motion mode uses an immediate or very short non-3D transition.
