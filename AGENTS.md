@@ -7,14 +7,16 @@ project manager — work out what needs doing and do it.
 
 ## CANONICAL INSTRUCTION HIERARCHY
 
-There are six active repo-wide instruction files:
+There are eight active repo-wide instruction files:
 
 1. `AGENTS.md` — execution, safety, Git, and deployment rules.
 2. `PROJECT_SOURCE_OF_TRUTH.md` — current product state, priorities, and owner-decided scope.
 3. `CARTILLA_DIGITAL_DIRECTIVE.md` — authoritative Cartilla structure, content, fidelity, and presentation rules.
 4. `ASSET_FIDELITY_POLICY.md` — active artwork, image, color-transfer, and motion rules.
 5. `STUDENT_INTERACTION_STANDARD.md` — canonical owner-approved student Workbook interaction and motion language.
-6. `repo.md` — authoritative, locked method for Workbook and Flip Chart background-only generation.
+6. `DESIGN.md` — durable visual system and taste contract for Workbook, Flip Chart, shared school-tool UI, and page-turn presentation.
+7. `UX-CONTRACT.md` — observable interaction/state contract, including the shared student interaction kernel and physical page-turn behavior.
+8. `repo.md` — authoritative, locked method for Workbook and Flip Chart background-only generation.
 
 Anything under `docs/archive/` is historical reference only and must not override any file above.
 
@@ -24,7 +26,7 @@ Jules must treat CURRENT `main` as the instruction baseline, not the task's star
 
 Before reviewing, coding, or resuming any Cartilla task, Jules must:
 1. sync/read CURRENT `main`;
-2. read the six canonical files above, with special attention to the files relevant to that task;
+2. read the eight canonical files above, with special attention to the files relevant to that task;
 3. inspect the issue's latest owner/queue-controller directives;
 4. compare any existing task branch/PR against CURRENT `main` before continuing;
 5. stop and correct course if older task context conflicts with CURRENT `main` or a newer owner directive.
@@ -65,11 +67,13 @@ Before doing any work on the Cartilla Workbook or teacher Flip Chart, read
 `CARTILLA_DIGITAL_DIRECTIVE.md`. It is the canonical directive and overrides
 all prior layout/fidelity instructions.
 
-Before changing student Workbook interactions, also read and follow `STUDENT_INTERACTION_STANDARD.md`.
+Before changing student Workbook interactions, also read and follow `STUDENT_INTERACTION_STANDARD.md`, `DESIGN.md`, and `UX-CONTRACT.md`.
 
 Before generating or designing any Workbook or Flip Chart background, also
 read and follow `repo.md`. It is the authoritative method for background-only
 generation.
+
+Before changing Workbook or Flip Chart navigation/page transitions, read and follow `DESIGN.md` and `UX-CONTRACT.md`. The physical page-turn behavior is presentation only; it must never bypass completion, save/restore, source fidelity, or teacher navigation rules.
 
 **In brief:** Every page must have the same layout STRUCTURE as the physical
 book (same elements, same arrangement, same order, same content) — but as a
@@ -215,3 +219,18 @@ If something goes wrong after "Push it", diagnose the cause, repair it if clearl
 Normal ad-hoc workflow: EJN asks → agent builds safely → agent tests → agent shows proof → EJN says "Push it" → agent puts finished work in `main` → agent confirms it.
 
 Authorized Cartilla queue exception: for issues explicitly placed in the owner-authorized completion queue, the queue controller may merge after independent verification and advance the next dependency automatically. This is not permission for Jules to self-merge.
+
+
+## UI IMPLEMENTATION COHERENCE — mandatory
+
+For student-facing Workbook work, do not create activity-local copies of shared feedback behavior. The shared interaction kernel owns:
+- the classic wooden pencil and matching school eraser treatment;
+- common mark/draw/erase motion and timing;
+- retry/success state transitions;
+- Gretel feedback events;
+- reduced-motion behavior;
+- persistence/completion integration hooks.
+
+Activity families implement only their source-faithful Workbook gesture/layout adapter unless the owning issue explicitly authorizes a kernel change.
+
+For visible UI work, publish milestone browser screenshots before final completion. Show the real implemented state, not mockups, including representative normal, success, retry/error, distinctive tool/motion states, and relevant responsive views. These are early direction proof and do not replace final browser QA or release verification.
