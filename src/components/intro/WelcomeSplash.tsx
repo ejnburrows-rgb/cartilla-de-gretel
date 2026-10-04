@@ -1,14 +1,25 @@
 import { Link } from "@tanstack/react-router";
+import { GretelSceneMedia } from "@/components/gretel/GretelSceneMedia";
+import { getCinematicById } from "@/content/gretel-cinematics";
 import { GRETEL_APPROVED_MASTER_SRC } from "@/lib/gretel-master";
 import "@/styles/welcome-splash.css";
 
 export function WelcomeSplash() {
+  const cinematic = getCinematicById("master-welcome");
+
   return (
     <main className="lc-welcome" data-testid="welcome-splash">
       <div className="lc-welcome__wave" aria-hidden />
       <div className="lc-welcome__inner">
         <div className="lc-welcome__gretel">
-          <img src={GRETEL_APPROVED_MASTER_SRC} alt="Gretel" draggable={false} />
+          <GretelSceneMedia
+            video={cinematic?.video}
+            fallback={GRETEL_APPROVED_MASTER_SRC}
+            durationSeconds={cinematic?.durationSeconds ?? 6}
+            loop
+            alt="Gretel"
+            imageClassName="lc-welcome__img"
+          />
         </div>
         <section className="lc-welcome__copy" aria-labelledby="lc-welcome-title">
           <h1 id="lc-welcome-title">La Cartilla de <span>Gretel</span></h1>
