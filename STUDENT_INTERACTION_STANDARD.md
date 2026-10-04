@@ -126,6 +126,8 @@ Required qualities:
 
 The pencil/eraser motion may be implemented with vector/CSS/canvas animation as appropriate, but it must look like one premium physical tool interacting with the Workbook, not unrelated UI effects.
 
+Outside drawing mode, treat the pencil as an action actor rather than permanent chrome: appear near the learner's mark, perform the one purposeful action, then settle/disappear from the active work area. Do not leave it floating or moving while the learner is thinking. In drawing mode it may remain available as the selected physical tool.
+
 ## Gretel relationship
 
 Only the approved Gretel system may provide spoken/visual feedback.
