@@ -1,0 +1,71 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Cartilla Page Turn Prototype</title>
+<style>
+:root{--desk:#d5c7b1;--paper:#fbf3dc;--paper-back:#efe2c5;--ink:#4b3926;--edge:#ccb78f;--shadow:rgba(58,42,25,.22);--blue:#355f88;--ease:cubic-bezier(.22,.74,.18,1)}
+*{box-sizing:border-box}body{margin:0;min-height:100vh;color:var(--ink);font-family:"Trebuchet MS","Segoe UI",sans-serif;background:linear-gradient(135deg,#ddd1be,#cbb99f)}
+.wrap{max-width:1180px;margin:auto;padding:24px}h1{font-family:Georgia,serif;margin:0 0 6px;font-size:34px}p{margin:0 0 20px;color:#695641}
+.tabs{display:flex;gap:8px;margin-bottom:16px}.tabs button,.controls button{border:1px solid #a99069;background:#fff8e8;color:#4b3926;border-radius:10px;padding:10px 14px;font-weight:800;cursor:pointer}.tabs button.active{background:#4b3926;color:#fff8e8}
+.stage{min-height:620px;display:grid;place-items:center;position:relative;overflow:hidden;border:1px solid rgba(82,59,32,.16);border-radius:20px;background:radial-gradient(circle at 50% 30%,rgba(255,255,255,.28),transparent 42%),linear-gradient(#d7c8b1,#c6b398)}
+.viewer{display:none;width:min(860px,92vw);height:min(520px,68vw);max-height:520px;position:relative}.viewer.active{display:block}
+.book{width:100%;height:100%;perspective:1800px;position:relative;filter:drop-shadow(0 18px 24px rgba(62,44,25,.16))}
+.book-spread{width:100%;height:100%;display:grid;grid-template-columns:1fr 1fr;background:var(--paper);border:1px solid var(--edge);border-radius:16px;overflow:hidden}
+.page{position:relative;padding:34px;background:linear-gradient(90deg,rgba(95,67,34,.035),transparent 7%,transparent 93%,rgba(95,67,34,.035)),var(--paper)}.page.left{border-right:1px solid rgba(83,59,34,.12)}.page.right{transform-origin:left center;transform-style:preserve-3d}
+.page h2{font:700 34px Georgia,serif;margin:0 0 16px}.page .line{height:12px;background:#d5c4a1;border-radius:99px;margin:13px 0}.page .line.short{width:63%}.page .art{width:150px;height:120px;border-radius:50% 45% 48% 52%;background:radial-gradient(circle at 45% 42%,#e8b24e 0 30%,#6f9a65 31% 48%,#4d7899 49%);margin:28px auto 10px;opacity:.9}
+.turning{position:absolute;right:0;top:0;width:50%;height:100%;transform-origin:left center;transform-style:preserve-3d;transition:transform .82s var(--ease);z-index:4}.turning.forward{transform:rotateY(-178deg)}
+.face,.backface{position:absolute;inset:0;backface-visibility:hidden;background:var(--paper);border-left:1px solid rgba(86,61,34,.12)}.face{padding:34px}.backface{transform:rotateY(180deg);background:linear-gradient(90deg,rgba(77,54,30,.13),transparent 16%),var(--paper-back)}
+.curl{position:absolute;inset:0;pointer-events:none;background:linear-gradient(90deg,transparent 0 74%,rgba(85,59,31,.08) 86%,rgba(255,255,255,.5) 100%);opacity:.9;mix-blend-mode:multiply}.turning.forward .curl{background:linear-gradient(90deg,rgba(255,255,255,.55),rgba(87,59,28,.18) 20%,transparent 60%)}
+.spine{position:absolute;left:50%;top:2%;bottom:2%;width:16px;transform:translateX(-50%);background:linear-gradient(90deg,transparent,rgba(74,49,26,.13),rgba(255,255,255,.25),transparent);pointer-events:none;z-index:6}
+.flipchart{width:72%;height:100%;margin:auto;perspective:1800px;position:relative;filter:drop-shadow(0 20px 26px rgba(57,41,24,.18))}
+.chart-board{position:absolute;inset:28px 0 0;background:var(--paper);border:1px solid var(--edge);border-radius:10px;padding:38px 38px 30px}.chart-board h2{font:700 36px Georgia,serif;margin:0 0 18px}.chart-board .art{width:210px;height:150px;margin:38px auto;background:linear-gradient(160deg,#6f9a65,#e1b04d);border-radius:20px}
+.rings{position:absolute;left:12%;right:12%;top:9px;height:28px;z-index:8;display:flex;justify-content:space-around}.ring{width:18px;height:35px;border:4px solid #77624a;border-radius:50%}
+.chart-turn{position:absolute;left:0;right:0;top:28px;height:calc(100% - 28px);transform-origin:top center;transform-style:preserve-3d;transition:transform 1.02s var(--ease);z-index:5}.chart-turn.forward{transform:rotateX(178deg)}
+.chart-face,.chart-back{position:absolute;inset:0;backface-visibility:hidden;border:1px solid var(--edge);border-radius:10px;background:var(--paper);padding:38px}.chart-back{transform:rotateX(180deg);background:linear-gradient(180deg,rgba(71,49,27,.18),transparent 18%),var(--paper-back)}
+.chart-curl{position:absolute;inset:0;pointer-events:none;background:linear-gradient(180deg,transparent 0 72%,rgba(87,59,30,.09) 87%,rgba(255,255,255,.55) 100%)}.chart-turn.forward .chart-curl{background:linear-gradient(180deg,rgba(255,255,255,.5),rgba(74,49,25,.16) 20%,transparent 58%)}
+.controls{display:flex;justify-content:center;gap:10px;margin-top:16px}.note{margin-top:12px;text-align:center;font-size:13px;color:#695641}
+@media(prefers-reduced-motion:reduce){.turning,.chart-turn{transition-duration:.01ms!important}}
+@media(max-width:720px){.wrap{padding:12px}h1{font-size:27px}.stage{min-height:500px}.viewer{height:440px}.page{padding:20px}.face{padding:20px}.page h2{font-size:24px}.flipchart{width:88%}.chart-board,.chart-face{padding:28px 22px}}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <h1>Cartilla physical page-turn study</h1>
+  <p>Workbook = side-bound page curl. Flip Chart = top-bound classroom sheet flip.</p>
+  <div class="tabs">
+    <button id="bookTab" class="active">Student Workbook</button>
+    <button id="chartTab">Teacher Flip Chart</button>
+  </div>
+  <div class="stage">
+    <div id="bookViewer" class="viewer active">
+      <div class="book">
+        <div class="book-spread">
+          <section class="page left"><h2>Página anterior</h2><div class="line"></div><div class="line short"></div><div class="art"></div></section>
+          <section class="page right"><h2>Página siguiente</h2><div class="line"></div><div class="line short"></div><div class="art"></div></section>
+        </div>
+        <div class="spine"></div>
+        <div id="bookTurn" class="turning"><div class="face"><h2>Actividad terminada</h2><div class="line"></div><div class="line short"></div><div class="art"></div><div class="curl"></div></div><div class="backface"></div></div>
+      </div>
+    </div>
+    <div id="chartViewer" class="viewer">
+      <div class="flipchart">
+        <div class="rings"><span class="ring"></span><span class="ring"></span><span class="ring"></span><span class="ring"></span></div>
+        <div class="chart-board"><h2>Siguiente lámina</h2><div class="line"></div><div class="line short"></div><div class="art"></div></div>
+        <div id="chartTurn" class="chart-turn"><div class="chart-face"><h2>Lámina actual</h2><div class="line"></div><div class="line short"></div><div class="art"></div><div class="chart-curl"></div></div><div class="chart-back"></div></div>
+      </div>
+    </div>
+  </div>
+  <div class="controls"><button id="reset">Reset</button><button id="flip">Turn page</button></div>
+  <div class="note">Workbook turn: ~0.82s. Flip Chart turn: ~1.02s. Reduced motion changes pages immediately.</div>
+</div>
+<script>
+const bookTab=document.getElementById('bookTab'),chartTab=document.getElementById('chartTab'),bookViewer=document.getElementById('bookViewer'),chartViewer=document.getElementById('chartViewer'),bookTurn=document.getElementById('bookTurn'),chartTurn=document.getElementById('chartTurn');let mode='book';
+function reset(){bookTurn.classList.remove('forward');chartTurn.classList.remove('forward')}
+function setMode(next){mode=next;bookTab.classList.toggle('active',mode==='book');chartTab.classList.toggle('active',mode==='chart');bookViewer.classList.toggle('active',mode==='book');chartViewer.classList.toggle('active',mode==='chart');reset()}
+function flip(){if(mode==='book')bookTurn.classList.toggle('forward');else chartTurn.classList.toggle('forward')}
+bookTab.onclick=()=>setMode('book');chartTab.onclick=()=>setMode('chart');document.getElementById('reset').onclick=reset;document.getElementById('flip').onclick=flip;
+</script>
+</body>
+</html>
