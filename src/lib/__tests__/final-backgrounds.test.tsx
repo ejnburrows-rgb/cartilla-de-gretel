@@ -5,6 +5,8 @@ import { render, cleanup } from "@testing-library/react";
 import delivered from "@/data/final-backgrounds.json";
 import { workbookBackground, flipchartBackground } from "../final-backgrounds";
 import { PageFrame } from "@/components/cartilla/PageFrame";
+import { FaithfulPageRenderer } from "@/components/cartilla/FaithfulPageRenderer";
+import type { PageRegion } from "@/lib/book-faithful";
 import { FlipchartNativeBoard } from "@/components/cartilla/FlipchartNativeBoard";
 import flipchart from "@/data/teacher-flipchart.json";
 it("all 148 delivered registry assets exist with unchanged manifest bytes", () => {
@@ -30,6 +32,34 @@ it("Workbook excludes 86–87 without inheriting the preceding image", () => {
   expect(view.container.querySelector(".final-page-background")).toBeNull();
   cleanup();
 });
+
+it("native interactive Workbook uses the clean canvas while noninteractive pages retain scenery", () => {
+  const regions: PageRegion[] = [
+    {
+      id: "p1-instruction",
+      regionType: "instruction",
+      order: 0,
+      text: "Circula los dibujos.",
+    },
+  ];
+
+  const student = render(
+    <FaithfulPageRenderer pageNumber={1} regions={regions} interactive native />,
+  );
+  expect(student.container.querySelector(".faithful-page--clean-canvas")).toBeTruthy();
+  expect(student.container.querySelector(".final-page-background")).toBeNull();
+  cleanup();
+
+  const teacher = render(<FaithfulPageRenderer pageNumber={1} regions={regions} />);
+  expect(teacher.container.querySelector(".faithful-page--clean-canvas")).toBeNull();
+  expect(
+    teacher.container
+      .querySelector(".final-page-background")
+      ?.getAttribute("data-background-printed-page"),
+  ).toBe("1");
+  cleanup();
+});
+
 it("Flip Chart covers every printed page, uses PDF sheets and excludes front matter", () => {
   expect(flipchartBackground(1)).toBeUndefined();
   expect(flipchartBackground(2)).toBeUndefined();

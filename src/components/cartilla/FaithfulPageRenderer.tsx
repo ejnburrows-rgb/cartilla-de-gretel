@@ -564,6 +564,7 @@ export function FaithfulPageRenderer({
   native = false,
 }: FaithfulPageRendererProps) {
   const layout = regions ?? getPageLayout(pageNumber);
+  const showScenicBackground = !(interactive && native);
 
   if (!layout) {
     if (fallback !== undefined) return <>{fallback}</>;
@@ -572,6 +573,7 @@ export function FaithfulPageRenderer({
         pageNumber={pageNumber}
         lessonNumber={lessonNumber}
         className="faithful-page--pending"
+        showScenicBackground={showScenicBackground}
       >
         <p>Página en preparación</p>
       </PageFrame>
@@ -614,7 +616,7 @@ export function FaithfulPageRenderer({
     <PageFrame
       pageNumber={pageNumber}
       lessonNumber={lessonNumber}
-
+      showScenicBackground={showScenicBackground}
       className={letterReadingPage ? "fp-native-letter-page" : undefined}
     >
       {ordered.map((region) => {

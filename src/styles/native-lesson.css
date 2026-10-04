@@ -493,3 +493,73 @@
   border-color: #b9b4aa;
   color: #6c6a65;
 }
+
+
+/* ── Owner-approved clean Student Workbook canvas ───────────────────────
+   The source book still controls structure/content. Dense learner exercises
+   no longer render on full scenic wallpaper; the teacher Flip Chart keeps its
+   independent scenic treatment. */
+.native-lesson-viewer__content .faithful-page--clean-canvas {
+  background: var(--lc-paper, #fffdf9);
+  border: 1px solid rgba(37,49,58,.10);
+  border-radius: 18px;
+  box-shadow: 0 16px 42px rgba(37,49,58,.09);
+}
+.native-lesson-viewer__content .faithful-page--clean-canvas .faithful-page__sidebar,
+.native-lesson-viewer__content .faithful-page--clean-canvas .faithful-page__pagenum,
+.native-lesson-viewer__content .faithful-page--clean-canvas .faithful-page__lesson {
+  display: none;
+}
+.native-lesson-viewer__content .faithful-page--clean-canvas .faithful-page__body,
+.native-lesson-viewer__content .faithful-page--clean-canvas.faithful-page--edge-right .faithful-page__body {
+  padding: 6.5% 7% 7%;
+}
+.native-lesson-viewer__content .faithful-page--clean-canvas .fp-region--instruction {
+  margin: 0;
+  padding: 0 0 clamp(12px, 2cqw, 18px);
+  border-bottom: 1px solid rgba(37,49,58,.12);
+  border-radius: 0;
+  background: transparent;
+  box-shadow: none;
+  color: var(--lc-ink, #25313a);
+  font-family: "Andika", ui-rounded, system-ui, sans-serif;
+  font-weight: 650;
+  line-height: 1.35;
+}
+.native-lesson-viewer__content .faithful-page--clean-canvas .fp-region--instruction .fp-label {
+  font-family: "Fredoka", ui-rounded, system-ui, sans-serif;
+  font-weight: 750;
+}
+.native-lesson-viewer__content .faithful-page--clean-canvas .fp-ix-cell {
+  border-color: rgba(31,158,148,.16);
+  background: rgba(255,255,255,.56);
+  box-shadow: none;
+}
+.native-lesson-viewer__content .faithful-page--clean-canvas .fp-ix-cell:hover {
+  border-color: rgba(31,158,148,.55);
+  box-shadow: 0 0 0 3px rgba(31,158,148,.10);
+}
+.native-lesson-viewer__layout {
+  grid-template-columns: minmax(0, 1fr) 184px;
+}
+.native-lesson-viewer__companion {
+  min-height: 170px;
+}
+.native-lesson-viewer__companion .gretel-presence--book,
+.native-lesson-viewer__companion .gretel-presence--book .gretel-avatar-interactive {
+  width: 136px;
+  min-width: 136px;
+  height: 168px;
+}
+@media (max-width: 760px) {
+  .native-lesson-viewer__layout { grid-template-columns: 1fr; }
+  .native-lesson-viewer__content .faithful-page--clean-canvas {
+    border-radius: 0;
+    border-inline: 0;
+    box-shadow: none;
+  }
+  .native-lesson-viewer__content .faithful-page--clean-canvas .faithful-page__body,
+  .native-lesson-viewer__content .faithful-page--clean-canvas.faithful-page--edge-right .faithful-page__body {
+    padding: 18px 16px 26px;
+  }
+}
