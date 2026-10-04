@@ -15,7 +15,8 @@ Every new request, scheduled controller run, Jules result, failed verification, 
 
 1. **READ CURRENT STATE**
    - Read CURRENT `main` and record its exact SHA.
-   - Read this `AGENTS.md`.
+   - Read this `AGENTS.md` first.
+   - Read `EMILIO_QUALITY_ROUTER.md` for the cross-project Controller/Worker/termination/review standard.
    - Read the latest owner/controller directive on the relevant issue.
    - Inspect the current PR head, actual diff/files, Jules bot/task evidence, and verification evidence.
 
@@ -66,7 +67,7 @@ Jules and other coding agents are workers, not project controllers. They do not 
 
 ## CANONICAL INSTRUCTION HIERARCHY
 
-`AGENTS.md` is the only mandatory entrypoint. The files below are canonical scope references loaded through the Execution Gateway routing rules:
+`AGENTS.md` is the repository entrypoint. `EMILIO_QUALITY_ROUTER.md` supplies the cross-project execution standard; the files below are canonical scope references loaded through the Execution Gateway routing rules:
 
 1. `AGENTS.md` — execution, safety, Git, and deployment rules.
 2. `PROJECT_SOURCE_OF_TRUTH.md` — current product state, priorities, and owner-decided scope.
