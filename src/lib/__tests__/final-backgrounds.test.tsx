@@ -17,6 +17,15 @@ it("all 148 delivered registry assets exist with unchanged manifest bytes", () =
     expect(bytes.subarray(1, 4).toString()).toBe("PNG");
   }
 });
+it("Workbook Page 1 uses clean digital canvas without full scenic background, while preserving registry asset", () => {
+  // Scenic asset remains preserved in registry manifest
+  expect((delivered.workbook as Record<string, { src: string }> )["1"]?.src).toBeDefined();
+  // Active learner page returns undefined background image
+  expect(workbookBackground(1)).toBeUndefined();
+  const view = render(<PageFrame pageNumber={1}>Work</PageFrame>);
+  expect(view.container.querySelector(".final-page-background")).toBeNull();
+  cleanup();
+});
 it("Workbook excludes 86–87 without inheriting the preceding image", () => {
   expect(workbookBackground(86)).toBeUndefined();
   expect(workbookBackground(87)).toBeUndefined();

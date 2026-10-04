@@ -273,16 +273,16 @@
   display: flex;
   justify-content: center;
   align-items: flex-end;
-  min-height: 210px;
+  min-height: 170px;
   margin: 0;
 }
 .native-lesson-viewer__companion .gretel-presence--book {
-  width: 170px;
-  min-width: 170px;
+  width: 135px;
+  min-width: 135px;
 }
 .native-lesson-viewer__companion .gretel-presence--book .gretel-avatar-interactive {
-  width: 170px;
-  height: 210px;
+  width: 135px;
+  height: 165px;
 }
 .native-lesson-viewer__companion .gretel-presence--book .gretel-speech-bubble {
   left: auto !important;

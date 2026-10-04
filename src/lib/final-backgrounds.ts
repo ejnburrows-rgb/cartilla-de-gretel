@@ -8,6 +8,8 @@ export type FinalBackground = {
   sha256: string;
 };
 export function workbookBackground(printedPage: number): FinalBackground | undefined {
+  // Page 1 uses the clean digital canvas direction (no full scenic wallpaper behind dense learner exercises).
+  if (printedPage === 1) return undefined;
   return (delivered.workbook as Record<string, FinalBackground>)[String(printedPage)];
 }
 /** The presenter numbers PDF sheets, with cover and credits at sheets 1–2. */
