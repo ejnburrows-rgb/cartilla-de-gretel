@@ -3,9 +3,10 @@ import type { ReactNode } from "react";
 import { ChevronLeft, ChevronRight, List } from "lucide-react";
 import type { WorkbookPageEntry } from "./SimplePageViewer";
 import { gretelEvent } from "@/lib/gretel-bus";
+import { STUDENT_PAGE_TURN_MS } from "@/lib/living-motion";
 import "@/styles/digital-workbook.css";
 
-const TURN_MS = 740;
+const TURN_MS = STUDENT_PAGE_TURN_MS;
 
 export function DigitalPageViewer({
   pages,
@@ -17,15 +18,17 @@ export function DigitalPageViewer({
   const [index, setIndex] = useState(0);
   const [navigatorOpen, setNavigatorOpen] = useState(false);
   const [direction, setDirection] = useState<"next" | "prev">("next");
+  const [isTurning, setIsTurning] = useState(false);
   const touchStart = useRef<number | null>(null);
   const firstReveal = useRef(true);
 
   const goTo = useCallback((target: number) => {
-    if (target < 0 || target >= pages.length || target === index) return;
+    if (target < 0 || target >= pages.length || target === index || isTurning) return;
     gretelEvent("page-turn:start");
+    setIsTurning(true);
     setDirection(target > index ? "next" : "prev");
     setIndex(target);
-  }, [index, pages.length]);
+  }, [index, isTurning, pages.length]);
 
   useEffect(() => {
     const onKeyDown = (event: KeyboardEvent) => {
@@ -47,6 +50,7 @@ export function DigitalPageViewer({
         text: pages[index]?.gretelLine,
       });
       gretelEvent("page-flip");
+      setIsTurning(false);
     }, delay);
     return () => window.clearTimeout(timer);
   }, [index, pages]);
@@ -107,9 +111,9 @@ export function DigitalPageViewer({
       </div>
 
       <div className="digital-reader__controls">
-        <button type="button" onClick={() => goTo(index - 1)} disabled={index === 0} aria-label="Página anterior"><ChevronLeft size={20} /> Anterior</button>
+        <button type="button" onClick={() => goTo(index - 1)} disabled={index === 0 || isTurning} aria-label="Página anterior"><ChevronLeft size={20} /> Anterior</button>
         <span>{pageLabel}</span>
-        <button type="button" onClick={() => goTo(index + 1)} disabled={index === pages.length - 1} aria-label="Página siguiente">Siguiente <ChevronRight size={20} /></button>
+        <button type="button" onClick={() => goTo(index + 1)} disabled={index === pages.length - 1 || isTurning} aria-label="Página siguiente">Siguiente <ChevronRight size={20} /></button>
       </div>
     </div>
   );

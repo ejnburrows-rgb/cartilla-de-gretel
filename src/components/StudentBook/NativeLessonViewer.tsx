@@ -1,7 +1,8 @@
-import { useEffect, useRef, useState, type ReactNode } from "react";
+import { useCallback, useEffect, useRef, useState, type ReactNode } from "react";
 import { ChevronLeft, ChevronRight } from "lucide-react";
 import { gretelEvent } from "@/lib/gretel-bus";
 import { remainingHint, usePageCompletion } from "@/lib/page-completion";
+import { STUDENT_PAGE_TURN_MS, studentFlipTransforms, prefersReducedMotion } from "@/lib/living-motion";
 import type { WorkbookPageEntry } from "./SimplePageViewer";
 import "@/styles/native-lesson.css";
 
@@ -55,19 +56,64 @@ export function NativeLessonViewer({
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [remainingKey]);
 
-  const turn = (next: number) => {
-    if (next < 0 || next >= pages.length || next === index) return;
+  const [isFlipping, setIsFlipping] = useState(false);
+  const [flipDirection, setFlipDirection] = useState<"next" | "prev" | null>(null);
+  const [flipTransform, setFlipTransform] = useState("rotateY(0deg)");
+  const isTurningRef = useRef(false);
+
+  const turn = useCallback((next: number) => {
+    if (next < 0 || next >= pages.length || next === index || isTurningRef.current) return;
     setHint("");
+    isTurningRef.current = true;
+    const direction: "next" | "prev" = next > index ? "next" : "prev";
     gretelEvent("page-turn:start");
-    setIndex(next);
+
+    // Commit/save current learner state before visual navigation starts
     onPageChange?.(next);
-    window.scrollTo({ top: 0, behavior: "instant" });
-    window.clearTimeout(revealTimer.current);
-    revealTimer.current = window.setTimeout(() => gretelEvent("page:revealed", {
-      pageNumber: pages[next]?.pageNumber,
-      text: pages[next]?.gretelLine,
-    }), 150);
-  };
+
+    const reduceMotion = prefersReducedMotion();
+    if (reduceMotion) {
+      setIndex(next);
+      isTurningRef.current = false;
+      window.scrollTo({ top: 0, behavior: "instant" });
+      window.clearTimeout(revealTimer.current);
+      revealTimer.current = window.setTimeout(() => {
+        gretelEvent("page:revealed", {
+          pageNumber: pages[next]?.pageNumber,
+          text: pages[next]?.gretelLine,
+        });
+        gretelEvent("page-flip");
+      }, 100);
+      return;
+    }
+
+    const { start, end } = studentFlipTransforms(direction);
+    setFlipDirection(direction);
+    setIsFlipping(true);
+    setFlipTransform(start);
+
+    requestAnimationFrame(() => {
+      requestAnimationFrame(() => {
+        setFlipTransform(end);
+      });
+    });
+
+    window.setTimeout(() => {
+      setIndex(next);
+      setIsFlipping(false);
+      setFlipDirection(null);
+      isTurningRef.current = false;
+      window.scrollTo({ top: 0, behavior: "instant" });
+      window.clearTimeout(revealTimer.current);
+      revealTimer.current = window.setTimeout(() => {
+        gretelEvent("page:revealed", {
+          pageNumber: pages[next]?.pageNumber,
+          text: pages[next]?.gretelLine,
+        });
+        gretelEvent("page-flip");
+      }, 100);
+    }, STUDENT_PAGE_TURN_MS);
+  }, [index, onPageChange, pages]);
 
   const showRemaining = () => {
     const text = remainingHint(completion.remaining);
@@ -83,6 +129,7 @@ export function NativeLessonViewer({
   };
 
   const forward = () => {
+    if (isTurningRef.current) return;
     if (!completion.complete) {
       showRemaining();
       return;
@@ -105,7 +152,48 @@ export function NativeLessonViewer({
       </div>
 
       <div className="native-lesson-viewer__layout">
-        <div className="native-lesson-viewer__content">{page.content}</div>
+        <div className="native-lesson-viewer__content relative" style={{ perspective: "1800px" }}>
+          {isFlipping ? (
+            <>
+              {/* Destination page rendered underneath in static background */}
+              <div className="w-full h-full">
+                {pages[flipDirection === "next" ? index + 1 : index - 1]?.content}
+              </div>
+
+              {/* Turning physical leaf R->L across center spine */}
+              <div
+                className="absolute inset-0 z-30 pointer-events-none"
+                style={{ transformStyle: "preserve-3d" }}
+                data-testid="workbook-turn-leaf"
+              >
+                <div
+                  className="workbook-flip-wrapper"
+                  style={{
+                    transform: flipTransform,
+                    transformOrigin: flipDirection === "next" ? "left center" : "right center",
+                  }}
+                >
+                  <div className="workbook-page-front">
+                    {page.content}
+                    <div
+                      className="workbook-shadow-overlay"
+                      style={{ opacity: flipDirection === "next" ? 1 : 0 }}
+                    />
+                  </div>
+                  <div className="workbook-page-back">
+                    {pages[flipDirection === "next" ? index + 1 : index - 1]?.content}
+                    <div
+                      className="workbook-shadow-overlay"
+                      style={{ opacity: flipDirection === "prev" ? 1 : 0 }}
+                    />
+                  </div>
+                </div>
+              </div>
+            </>
+          ) : (
+            page.content
+          )}
+        </div>
 
         <aside className="native-lesson-viewer__side" aria-label="Gretel y navegación">
           {bookCompanion && <div className="native-lesson-viewer__companion">{bookCompanion}</div>}
@@ -115,13 +203,14 @@ export function NativeLessonViewer({
             </p>
           )}
           <nav className="native-lesson-viewer__navigation" aria-label="Navegación de páginas">
-            <button type="button" onClick={() => turn(index - 1)} disabled={index === 0}>
+            <button type="button" onClick={() => turn(index - 1)} disabled={index === 0 || isFlipping}>
               <ChevronLeft size={20} /> Anterior
             </button>
             <span>{index + 1} / {pages.length}</span>
             <button
               type="button"
               onClick={forward}
+              disabled={isFlipping}
               aria-disabled={completion.complete ? undefined : true}
               aria-describedby={hint ? "native-lesson-next-hint" : undefined}
               data-locked={completion.complete ? undefined : "true"}
