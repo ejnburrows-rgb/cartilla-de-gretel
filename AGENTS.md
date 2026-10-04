@@ -67,6 +67,7 @@ Jules is a worker, not the project controller. The controller owns scope selecti
 - Reuse the existing issue/branch/PR when one already exists. Do not create duplicate competing work.
 - Give each session explicit owned files/behavior and explicit forbidden scope.
 - Start from CURRENT `main` and current repo instructions. Older task snapshots, prior bot comments, and archived docs never override current truth.
+- For Student Workbook visual work, Jules must preserve the owner-approved clean digital-canvas distinction: dense learner exercises do not use full scenic wallpaper; existing scenic assets stay preserved for the teacher Flip Chart and other explicitly approved contexts. Do not delete/regenerate those assets or simplify the Flip Chart as part of a Workbook UI task.
 
 #### Early checkpoint and recovery contract
 
@@ -168,8 +169,8 @@ digitally.
 
 The three layers:
 - **STRUCTURE** (what goes where) → MUST match the book
-- **CONTENT** (text, images) → MUST match the book. Approved foreground art stays source-faithful; only the narrow source-preserving color-transfer exception in `ASSET_FIDELITY_POLICY.md` is allowed. Scenic backgrounds follow `repo.md`.
-- **PRESENTATION** (styling, interactions) → MODERN digital, your judgment
+- **CONTENT** (text, images) → MUST match the book. Approved foreground art stays source-faithful; only the narrow source-preserving color-transfer exception in `ASSET_FIDELITY_POLICY.md` is allowed. Scenic background generation, when explicitly approved, follows `repo.md`.
+- **PRESENTATION** (styling, interactions) → MODERN digital, your judgment. Dense Student Workbook exercises use the clean digital canvas rather than full scenic wallpaper; the teacher Flip Chart may retain richer source-appropriate scenery.
 
 **Recognition test:** Would the teacher recognize this as that page from the book? If yes on structure, you got it right — even if the visual style is modern.
 
@@ -201,6 +202,8 @@ modern, interactive digital experience.
 
 Match the same layout structure, text placement, exercise flow, illustration
 placement, and page sequence. Modern digital presentation is welcome.
+
+For dense learner exercises, the active Workbook surface is the owner-approved clean digital canvas: do not render a full scenic image as wallpaper behind the exercise and do not use opaque white contrast slabs that make the page read like a pasted print artifact. Preserve any existing scenic assets rather than deleting or regenerating them; they remain available for the teacher Flip Chart and any other explicitly approved context.
 
 ### Images are source-locked
 The approved/corrected/cropped book images are the artwork.

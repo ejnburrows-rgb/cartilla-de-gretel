@@ -17,7 +17,7 @@ It replaces `IMAGE_GENERATION_BAN.md` and `docs/GOOGLE_FLOW_PROMPTS.md`, which a
 - Apply verified source-preserving color transfer to an existing Workbook drawing when an exact mapped Flip Chart/canonical counterpart exists and geometry/linework/content remain unchanged.
 - Create motion from an approved static source image.
 - Use Google Flow to subtly animate approved art.
-- Create a new scenic background for a Workbook or Flip Chart page, background environment only, following `repo.md`.
+- Create a new scenic background for an explicitly approved Workbook or Flip Chart context, background environment only, following `repo.md`. Creation permission does not require rendering it behind dense Student Workbook exercises.
 
 ## Source-preserving color-transfer exception
 
@@ -27,7 +27,7 @@ For an existing Workbook illustration, verified colors may be transferred from a
 
 ## Background-only exception (`repo.md`)
 
-New scenic backgrounds may be created for Workbook and Flip Chart pages when they follow `repo.md`. This exception applies only to the background environment. Original foreground illustrations, characters, objects, text, lesson content, educational meaning, composition, and page structure remain unchanged.
+New scenic backgrounds may be created for explicitly approved Workbook or Flip Chart contexts when they follow `repo.md`. Dense Student Workbook exercises use the clean digital-canvas presentation and do not render full scenic wallpaper by default. Existing scenic assets remain preserved for the teacher Flip Chart and other approved contexts. This exception applies only to the background environment. Original foreground illustrations, characters, objects, text, lesson content, educational meaning, composition, and page structure remain unchanged.
 
 ## NOT ALLOWED
 
@@ -51,7 +51,7 @@ The master is confirmed and locked.
 
 ## Pages with no pictures
 
-If the printed book page has no picture, the digital page adds no picture: do not add illustrations, characters, objects, or decorative art to the page content. The only permitted addition is a scenic background environment that follows `repo.md` (see "Background-only exception").
+If the printed book page has no picture, the digital page adds no picture: do not add illustrations, characters, objects, or decorative art to the page content. A scenic background environment is permitted only when that surface/context is explicitly approved and it follows `repo.md`; dense Student Workbook pages otherwise keep the clean digital canvas.
 
 ## Motion
 

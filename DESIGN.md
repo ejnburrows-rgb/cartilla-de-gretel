@@ -1,7 +1,7 @@
 # DESIGN — La Cartilla de Gretel
 
 **Status:** CANONICAL DURABLE VISUAL SYSTEM  
-**Owner direction locked:** 2026-10-03
+**Owner direction locked:** 2026-10-04
 
 This file records reusable visual decisions for the digital Student Workbook and teacher Flip Chart. It does not override the source books on structure/content, `ASSET_FIDELITY_POLICY.md` on artwork, or `STUDENT_INTERACTION_STANDARD.md` on student behavior.
 
@@ -21,7 +21,8 @@ Use the book's established country/tole folk-art DNA and school-material vocabul
 - graphite marks;
 - classic wood pencil;
 - nostalgic muted-red school eraser;
-- source-faithful illustrations and scenic backgrounds.
+- source-faithful illustrations;
+- scenic environments only where the surface benefits from them: the Student Workbook uses a clean, quiet digital canvas for dense learner exercises, while the teacher Flip Chart may retain richer source-appropriate scenery.
 
 Digital chrome should recede. The book/page is the main object. Do not surround the learner page with dashboard-like cards, developer status panels, or ornamental app chrome; production controls should stay quiet and subordinate to the Workbook/Flip Chart surface.
 
@@ -64,6 +65,14 @@ Neither should resemble a card flip or cube rotation. The destination page is al
 ## Page composition
 
 Preserve the physical book's element identity, relative placement, sequence, and reading order. Modernization belongs in rendering quality, spacing, responsiveness, accessibility, interaction, and restrained motion—not structural redesign.
+
+### Surface distinction
+
+**Student Workbook:** use a clean digital canvas as the default page surface. Dense exercises must not sit on full scenic wallpaper. The source page still controls the exercise structure, wording, ordering, and foreground illustration identity. Instruction text should read as native digital hierarchy, not as an opaque white patch pasted over scenery. Existing scenic assets remain preserved; they are not automatically rendered behind Workbook activities.
+
+**Teacher Flip Chart:** may retain the richer scenic presentation where appropriate because it is presentation-first. The same source-fidelity and readability rules still apply.
+
+Do not solve the Workbook/Flip Chart distinction by creating unrelated app-card layouts. The page remains recognizable as the book page on both surfaces.
 
 ## Responsive behavior
 

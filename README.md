@@ -10,14 +10,15 @@ Digital classroom edition of *La Cartilla de Gretel* by Leonor Lopetegui.
 - `CARTILLA_DIGITAL_DIRECTIVE.md` is the canonical Cartilla fidelity and presentation directive.
 - `ASSET_FIDELITY_POLICY.md` is the active artwork, image, verified color-transfer, and motion rule.
 - `STUDENT_INTERACTION_STANDARD.md` is the canonical premium Workbook interaction/motion standard.
-- `repo.md` is the authoritative method for Workbook and Flip Chart background-only generation.
+- `repo.md` is the authoritative method when scenic background generation is explicitly approved; it is not a requirement to render scenic backgrounds on every page.
 - Authoritative book sources are the owner's originals in:
   `Google Drive > Cartilla Production Hub > 01 Source Documents`
   - `La Cartilla de Gretel Flip Chart.pdf`
   - `Libro del alumno - Rescan and Optimize (2).pdf`
 - Structure and content follow the matching source book page.
 - Presentation is modern digital and responsive, as defined by the digital directive.
-- Approved/cropped book images are source-locked: do not regenerate, redraw, replace, or change geometry/content. Verified source-preserving color transfer is allowed under `ASSET_FIDELITY_POLICY.md`; scenic backgrounds are the separate background-only exception under `repo.md`.
+- The Student Workbook uses a clean digital canvas for dense learner exercises; full scenic wallpaper is reserved from those surfaces. The teacher Flip Chart may retain richer source-appropriate scenery.
+- Approved/cropped book images are source-locked: do not regenerate, redraw, replace, or change geometry/content. Verified source-preserving color transfer is allowed under `ASSET_FIDELITY_POLICY.md`; scenic backgrounds are a separate, explicitly approved background-only exception under `repo.md`.
 - Vite + React + TypeScript + TanStack Router + Supabase.
 - Production host: Vercel.
 
