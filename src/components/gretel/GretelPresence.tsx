@@ -100,8 +100,9 @@ export function GretelPresence({ lesson, instruction, className = '', autoIntro 
       if (!result.reaction) return;
       setFocused(false); setReaction(result.reaction); lastActivity.current = Date.now();
       gretelEvent('guide:reaction', { ...detail, activityId: id, reaction: result.reaction });
-      // Completion immediately follows a correct answer; one sentence is enough.
-      if (input === 'complete') say('Terminaste la actividad.', 80);
+      if (input === 'wrong') say('Inténtalo otra vez.', 80);
+      else if (input === 'correct') say('Buen trabajo.', 80);
+      else if (input === 'complete') say('Terminaste la actividad.', 80);
     });
     const idleTimer = setInterval(() => {
       if (!ready.current || nudged.current || document.hidden || !active.current.activityId) return;

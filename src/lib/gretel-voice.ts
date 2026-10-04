@@ -173,11 +173,9 @@ export function buildLessonIntroLines(entry: IntroCatalogSlice): string[] {
 }
 
 export function buildSuccessLine(): string {
-  const options = ["¡Muy bien!", "¡Excelente!", "¡Lo lograste!", "¡Qué bien!"];
-  return options[Math.floor(Math.random() * options.length)]!;
+  return "Buen trabajo.";
 }
 
 export function buildMissLine(): string {
-  const options = ["Inténtalo otra vez.", "Casi. Prueba otra vez.", "Tú puedes."];
-  return options[Math.floor(Math.random() * options.length)]!;
+  return "Inténtalo otra vez.";
 }

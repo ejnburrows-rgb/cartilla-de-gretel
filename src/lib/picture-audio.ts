@@ -4,6 +4,7 @@ import { approvedPictureRecording, resolvePictureName, type VerifiedPictureName 
 import { audioEngine } from './audio-engine';
 import { getVoice } from './speak';
 import { claimSpeech, registerSpeechCleanup, releaseSpeech, speechIsCurrent, stopSpeech } from './speech-playback';
+import { gretelEvent } from './gretel-bus';
 
 export type PictureAudioStatus = 'recorded' | 'tts' | 'missing-recording' | 'muted' | 'unverified' | 'failed' | 'stopped';
 const STATUS_EVENT = 'cartilla:picture-audio-status';
@@ -15,7 +16,10 @@ function isMuted(): boolean {
   try { return audioEngine.isMuted() || audioEngine.getVolume() <= 0 || isGretelVoiceMuted(); }
   catch { return false; }
 }
-export function stopPicturePlayback(): void { stopSpeech('picture'); }
+export function stopPicturePlayback(): void {
+  stopSpeech('picture');
+  gretelEvent('listen:stop');
+}
 /** Vocabulary only: no answer, help, grading or progress events. */
 export function playPictureName(entry: VerifiedPictureName): PictureAudioStatus {
   if (typeof window === 'undefined') return 'stopped';
@@ -29,13 +33,14 @@ export function playPictureName(entry: VerifiedPictureName): PictureAudioStatus 
     try {
       const audio = new Audio(recording);
       audio.volume = audioEngine.getVolume();
-      const finish = () => { audio.onended = null; audio.onerror = null; audio.pause(); audio.removeAttribute('src'); audio.load(); };
+      gretelEvent('listen:start');
+      const finish = () => { audio.onended = null; audio.onerror = null; audio.pause(); audio.removeAttribute('src'); audio.load(); gretelEvent('listen:stop'); };
       registerSpeechCleanup(token, finish);
       audio.onended = () => { finish(); releaseSpeech(token); };
       audio.onerror = () => { if (!speechIsCurrent(token)) return; finish(); releaseSpeech(token); status('failed'); };
       void audio.play().catch(() => { if (!speechIsCurrent(token)) return; finish(); releaseSpeech(token); status('failed'); });
       return status('recorded');
-    } catch { releaseSpeech(token); return status('failed'); }
+    } catch { gretelEvent('listen:stop'); releaseSpeech(token); return status('failed'); }
   }
   // Explicitly obey the active policy. No recording is silently substituted.
   if (AUDIO_POLICY.allowTts && 'speechSynthesis' in window) {
@@ -44,11 +49,13 @@ export function playPictureName(entry: VerifiedPictureName): PictureAudioStatus 
       const voice = getVoice();
       if (voice) utterance.voice = voice;
       utterance.lang = voice?.lang ?? 'es-MX'; utterance.rate = .94; utterance.pitch = 1; utterance.volume = audioEngine.getVolume();
-      utterance.onend = utterance.onerror = () => releaseSpeech(token);
-      registerSpeechCleanup(token, () => { utterance.onend = null; utterance.onerror = null; });
+      gretelEvent('listen:start');
+      const finish = () => { utterance.onend = null; utterance.onerror = null; gretelEvent('listen:stop'); };
+      utterance.onend = utterance.onerror = () => { finish(); releaseSpeech(token); };
+      registerSpeechCleanup(token, finish);
       window.speechSynthesis.speak(utterance);
       return status('tts');
-    } catch { releaseSpeech(token); return status('failed'); }
+    } catch { gretelEvent('listen:stop'); releaseSpeech(token); return status('failed'); }
   }
   releaseSpeech(token);
   return status('missing-recording');

@@ -119,6 +119,8 @@ it('picture exploration emits no progress/help/completion callbacks or learning 
   render(<TapToHear objects={[{ id: 'picture', src: oso.images[0], alt: 'oso', box: { xPct: 0, yPct: 0, wPct: 10, hPct: 10 } }]} onComplete={complete} onAudioPlayed={audioPlayed} onResult={result} reducedMotion />);
   fireEvent.click(screen.getByRole('button'));
   expect(complete).not.toHaveBeenCalled(); expect(audioPlayed).not.toHaveBeenCalled(); expect(result).not.toHaveBeenCalled();
-  expect(bus).not.toHaveBeenCalled(); expect(JSON.stringify(localStorage)).toBe(before);
+  const learningCalls = bus.mock.calls.filter(([e]) => !['listen:start', 'listen:stop'].includes((e as CustomEvent).detail?.type));
+  expect(learningCalls).toHaveLength(0);
+  expect(JSON.stringify(localStorage)).toBe(before);
   window.removeEventListener('gretel:bus', bus);
 });

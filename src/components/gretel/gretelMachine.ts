@@ -40,7 +40,18 @@ export function canTransition(from: GretelState, event: GretelEvent): boolean {
     case "boot":
       return event.type === "INIT";
     case "settling":
-      return ["IDLE", "WAVE", "ASSET_ERROR"].includes(event.type);
+      return [
+        "IDLE",
+        "WAVE",
+        "POINT",
+        "LISTEN",
+        "TEACH",
+        "HELP",
+        "GENTLE_ERROR",
+        "CHEER",
+        "SPEAK_STOP",
+        "ASSET_ERROR",
+      ].includes(event.type);
     case "idle":
       return [
         "BLINK",
@@ -99,6 +110,13 @@ export function gretelReducer(state: GretelState, event: GretelEvent): GretelSta
     case "settling":
       if (event.type === "IDLE") nextState = "idle";
       if (event.type === "WAVE") nextState = "waving";
+      if (event.type === "POINT") nextState = "pointing";
+      if (event.type === "LISTEN") nextState = "listening";
+      if (event.type === "TEACH") nextState = "teaching";
+      if (event.type === "HELP") nextState = "help";
+      if (event.type === "GENTLE_ERROR") nextState = "gentle-error";
+      if (event.type === "CHEER") nextState = "cheering";
+      if (event.type === "SPEAK_STOP") nextState = "idle";
       if (event.type === "ASSET_ERROR") nextState = "error";
       break;
     case "idle":

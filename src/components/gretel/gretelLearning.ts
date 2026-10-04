@@ -28,6 +28,6 @@ export const REACTION_TEXT = {
   hint: 'Mira la pista marcada. Escucha y vuelve a intentar.',
   demonstration: 'Observa el ejemplo marcado. Después lo harás sin ayuda.',
   'independent-retry': 'Lo hicimos con ayuda. Ahora inténtalo tú, sin la pista.',
-  success: '¡Lo lograste por tu cuenta!',
-  mastery: '¡Actividad completada! Muy buen trabajo.',
+  success: 'Buen trabajo.',
+  mastery: '¡Actividad completada! Buen trabajo.',
 } as const;

@@ -21,33 +21,33 @@ function panelStyle(state: "ok" | "x"): CSSProperties {
         color: "#064e3b",
       }
     : {
-        background: "linear-gradient(135deg, rgba(255,241,242,0.98), rgba(254,226,226,0.94))",
-        borderColor: "#fb7185",
-        color: "#881337",
+        background: "linear-gradient(135deg, rgba(254,243,199,0.98), rgba(253,230,138,0.94))",
+        borderColor: "#f59e0b",
+        color: "#78350f",
       };
 }
 
 function titleStyle(state: "ok" | "x"): CSSProperties {
-  return { color: state === "ok" ? "#047857" : "#be123c" };
+  return { color: state === "ok" ? "#047857" : "#92400e" };
 }
 
 function bodyStyle(state: "ok" | "x"): CSSProperties {
-  return { color: state === "ok" ? "rgba(6,78,59,0.78)" : "rgba(136,19,55,0.78)" };
+  return { color: state === "ok" ? "rgba(6,78,59,0.78)" : "rgba(120,53,15,0.78)" };
 }
 
 function retryButtonStyle(state: "ok" | "x"): CSSProperties {
-  return { backgroundColor: state === "ok" ? "#059669" : "#e11d48" };
+  return { backgroundColor: state === "ok" ? "#059669" : "#d97706" };
 }
 
 function avatarStyle(mood: "ok" | "x"): CSSProperties {
   return {
-    backgroundColor: mood === "ok" ? "#a7f3d0" : "#fecdd3",
-    borderColor: mood === "ok" ? "#34d399" : "#fb7185",
+    backgroundColor: mood === "ok" ? "#a7f3d0" : "#fef3c7",
+    borderColor: mood === "ok" ? "#34d399" : "#f59e0b",
   };
 }
 
 function avatarIconStyle(mood: "ok" | "x"): CSSProperties {
-  return { color: mood === "ok" ? "#047857" : "#be123c" };
+  return { color: mood === "ok" ? "#047857" : "#92400e" };
 }
 
 export function GretelFeedback({
@@ -61,7 +61,7 @@ export function GretelFeedback({
     if (state === "ok") {
       window.dispatchEvent(
         new CustomEvent("gretel:celebrate", {
-          detail: { text: "¡Muy bien! ¡Excelente trabajo!" },
+          detail: { text: "Buen trabajo." },
         }),
       );
     }
@@ -99,7 +99,7 @@ export function GretelFeedback({
                 className="text-xl font-black leading-tight sm:text-2xl"
                 style={titleStyle(state)}
               >
-                {state === "ok" ? "¡Muy bien!" : "Intenta otra vez"}
+                {state === "ok" ? "Buen trabajo" : "Inténtalo otra vez"}
               </div>
               <div
                 className="mt-0.5 text-sm font-semibold leading-snug sm:text-base"
@@ -107,7 +107,7 @@ export function GretelFeedback({
               >
                 {state === "ok"
                   ? "Lo hiciste con cuidado. Sigue con la siguiente."
-                  : "No pasa nada. Limpia los espacios y prueba otra vez."}
+                  : "No pasa nada. Prueba de nuevo con calma."}
               </div>
             </div>
             <button
@@ -133,8 +133,8 @@ function GretelAvatar({ mood }: { mood: "ok" | "x" }) {
       aria-hidden
       initial={{ scale: 0.7, rotate: mood === "ok" ? -8 : 8 }}
       animate={{
-        scale: mood === "ok" ? [0.9, 1.12, 1] : [1, 0.94, 1],
-        rotate: mood === "ok" ? [0, -6, 4, 0] : [0, 7, -7, 0],
+        scale: mood === "ok" ? [0.9, 1.12, 1] : [1, 0.98, 1],
+        rotate: mood === "ok" ? [0, -6, 4, 0] : [0, 3, -3, 0],
       }}
       transition={{ duration: mood === "ok" ? 0.5 : 0.36, ease: "easeOut" }}
     >
@@ -149,7 +149,7 @@ function GretelAvatar({ mood }: { mood: "ok" | "x" }) {
       {mood === "ok" ? (
         <Check className="h-7 w-7 sm:h-8 sm:w-8" style={avatarIconStyle(mood)} strokeWidth={3} />
       ) : (
-        <X className="h-7 w-7 sm:h-8 sm:w-8" style={avatarIconStyle(mood)} strokeWidth={3} />
+        <RefreshCw className="h-7 w-7 sm:h-8 sm:w-8" style={avatarIconStyle(mood)} strokeWidth={3} />
       )}
     </motion.div>
   );
