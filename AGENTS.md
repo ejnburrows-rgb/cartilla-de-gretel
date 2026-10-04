@@ -42,7 +42,7 @@ EJN should not have to choose or manually invoke engineering tools. When the cur
 - For bugs, use root-cause debugging before changing code.
 - For security-sensitive work, use the available security/hardening specialist.
 - For measurable performance problems, use the available performance specialist.
-- For visible UI work, verify the real rendered application with the available browser/runtime tools; code inspection alone is not sufficient.
+- For visible UI work, always use the connected Composio Browser as the default browser/runtime verification tool when available. Attempt Composio Browser first for rendered UI, navigation, responsive behavior, screenshots, and browser QA. Use another browser/runtime tool only if Composio Browser is unavailable or materially fails the required check, and record that fallback in the proof; code inspection alone is not sufficient.
 - Use independent review for meaningful changes as required elsewhere in this file.
 - Parallelize at most 3 genuinely independent jobs when they do not share mutable state or sequential dependencies. The controller remains responsible for integration and verification.
 - Reuse still-valid evidence instead of repeating unchanged audits, tests, reviews, or browser checks.
