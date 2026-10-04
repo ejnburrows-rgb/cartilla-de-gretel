@@ -40,7 +40,7 @@ This is **flexible**. Make it excellent.
 - Typography: clean, readable digital fonts (does not need to match the book's print font)
 - Colors: modern palette inspired by the book (does not need to sample exact print colors)
 - Spacing: comfortable digital spacing (does not need to match physical measurements)
-- Interactions: animations, transitions, tap/click feedback, audio playback
+- Interactions: animations, transitions, tap/click feedback, audio playback; page advancement uses the canonical physical-paper turn behavior in `UX-CONTRACT.md`
 - Responsiveness: adapt gracefully to different screen sizes
 - Accessibility: sufficient contrast, touch targets, readable sizes
 
@@ -113,7 +113,7 @@ Newly generated or creatively altered artwork still requires owner/ChatGPT visua
 
 ## Student interaction standard
 
-`STUDENT_INTERACTION_STANDARD.md` is the owner-approved source of truth for student-facing Workbook behavior and motion. It defines Pencil Retry, real Workbook marks, pencil-drawn matching lines, progressive-fade tracing, premium pencil/eraser drawing tools, real pencil syllable circles, pencil-written word completion, and direct sentence handwriting. Older lasso/red-X/game-like treatments are superseded.
+`STUDENT_INTERACTION_STANDARD.md` is the owner-approved source of truth for student-facing Workbook behavior and motion. It defines Pencil Retry, real Workbook marks, pencil-drawn matching lines, progressive-fade tracing, premium pencil/eraser drawing tools, real pencil syllable circles, pencil-written word completion, and direct sentence handwriting. Older lasso/red-X/game-like treatments are superseded. `DESIGN.md` and `UX-CONTRACT.md` define the shared visual/system ownership and physical page-turn presentation for Workbook and Flip Chart.
 
 ## Reference materials
 
@@ -147,3 +147,16 @@ Newly generated or creatively altered artwork still requires owner/ChatGPT visua
 ### Directive protection
 
 `CARTILLA_DIGITAL_DIRECTIVE.md` is the standing owner directive. Do not modify, soften, reinterpret, or supersede it without the owner's explicit instruction in chat. If you find a file that contradicts it, the directive wins — update the contradicting file, not the directive. If you believe the directive is wrong, raise it with the owner in chat and wait for their decision. Do not unilaterally change it.
+
+
+## Canonical page-turn presentation
+
+Page transitions must reinforce the physical-book identity without changing page structure or content.
+
+- **Student Workbook:** advancing turns the current right-hand page from the outer edge across the center spine, right-to-left, with restrained paper curl, underside, and moving shadow. Previous reverses naturally.
+- **Teacher Flip Chart:** advancing lifts the current sheet from the lower edge and turns it upward over the top binding/rings like a classroom flip chart. Previous reverses naturally.
+- Keep the motion elegant and brief: approximately 0.75–0.85 s for Workbook and 0.9–1.05 s for Flip Chart.
+- The destination page must already be ready underneath so there is no blank flash.
+- Disable repeated navigation while the turn is active.
+- Respect reduced motion with an immediate or very short non-3D transition.
+- The page-turn effect is UI presentation only. Never bake curl/distortion into source artwork or modify source page assets.
