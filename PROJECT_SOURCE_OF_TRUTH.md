@@ -48,7 +48,7 @@ Active independent lanes include:
 - Gretel behavior/motion discipline;
 - welcome-media readiness/integration;
 - the current student-activity stage;
-- the shared physical page-turn transition system for Workbook + Flip Chart.
+- #470 shared physical page-turn transition system for Workbook + Flip Chart.
 
 The student activity chain remains dependency-ordered:
 `#445 → #446 → #447 → #448 → #449`.
