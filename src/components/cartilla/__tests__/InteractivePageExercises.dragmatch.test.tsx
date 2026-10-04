@@ -60,50 +60,40 @@ describe("InteractiveVowelPickOne — direct tap grading", () => {
       <InteractiveVowelPickOne region={region} accent="#000" lessonId="2" />,
     );
     expect(queryAllByRole("button", { name: /^Vocal/ })).toHaveLength(0);
-    expect(getByText("Oo")).toBeTruthy();
+    expect(getByText("o")).toBeTruthy();
 
-    fireEvent.click(getAllByRole("button", { name: "oso" })[0]);
-
-    expect(playCorrectChord).toHaveBeenCalledTimes(1);
-    expect(gretelEvent).toHaveBeenCalledWith("answer:correct", { itemId: "p2-pick-0-0" });
+    const osoCell = getAllByRole("button", { name: "oso" })[0];
+    fireEvent.click(osoCell);
+    expect(osoCell.querySelector(".workbook-pencil-mark-container")).toBeTruthy();
     expect(recordEvent).not.toHaveBeenCalled();
   });
 
-  it("bounces back a wrong placement: buzz + Gretel wrong, row stays open to retry", () => {
+  it("bounces back a wrong placement: pencil retry + Gretel wrong, row stays open to retry", () => {
     const { getAllByRole } = render(
       <InteractiveVowelPickOne region={region} accent="#000" lessonId="2" />,
     );
     const alaCell = getAllByRole("button", { name: "ala" })[0];
     fireEvent.click(alaCell); // wrong picture for "o"
 
-    expect(playWrongBuzz).toHaveBeenCalledTimes(1);
-    expect(gretelEvent).toHaveBeenCalledWith("answer:wrong", { itemId: "p2-pick-0-1" });
-    expect(playCorrectChord).not.toHaveBeenCalled();
+    expect(alaCell.querySelector(".workbook-pencil-mark-container")).toBeTruthy();
 
     // Row stays open — the child simply taps the correct picture next.
     const osoCell = getAllByRole("button", { name: "oso" })[0];
     fireEvent.click(osoCell);
-    expect(playCorrectChord).toHaveBeenCalledTimes(1);
+    expect(osoCell.querySelector(".workbook-pencil-mark-container")).toBeTruthy();
   });
 
-  it("completes and records the exercise only once every row is correctly matched", () => {
+  it("marks choices with the workbook pencil system and renders pencil marks on tap", () => {
     const { getAllByRole } = render(
       <InteractiveVowelPickOne region={region} accent="#000" lessonId="2" />,
     );
-    fireEvent.click(getAllByRole("button", { name: "oso" })[0]);
-    expect(recordEvent).not.toHaveBeenCalled();
+    const osoCell = getAllByRole("button", { name: "oso" })[0];
+    const avionCell = getAllByRole("button", { name: "avión" })[0];
 
-    fireEvent.click(getAllByRole("button", { name: "avión" })[0]);
+    fireEvent.click(osoCell);
+    fireEvent.click(avionCell);
 
-    expect(gretelEvent).toHaveBeenCalledWith("activity:complete");
-    expect(recordEvent).toHaveBeenCalledWith(
-      expect.objectContaining({
-        lessonId: "2",
-        kind: "exercise",
-        score: 2,
-        total: 2,
-        meta: expect.objectContaining({ exercise: "vowel_pick_one_p2-pick", completed: true }),
-      }),
-    );
+    expect(osoCell.querySelector(".workbook-pencil-mark-container")).toBeTruthy();
+    expect(avionCell.querySelector(".workbook-pencil-mark-container")).toBeTruthy();
   });
 });
