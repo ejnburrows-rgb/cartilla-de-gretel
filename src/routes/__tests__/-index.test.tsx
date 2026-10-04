@@ -84,4 +84,21 @@ describe('Approved single welcome ("/")', () => {
     await renderSplash();
     expect((await screen.findByTestId("welcome-splash")).textContent).not.toMatch(/\b(welcome|enter|start|login|sign in)\b/i);
   });
+
+  it("integrates GretelSceneMedia architecture with master-welcome cinematic", async () => {
+    await renderSplash();
+    const splash = await screen.findByTestId("welcome-splash");
+    const mediaContainer = splash.querySelector("[data-gretel-media]");
+    expect(mediaContainer).not.toBeNull();
+    expect(mediaContainer?.getAttribute("data-gretel-media")).toBe("still");
+  });
+
+  it("falls back to approved Gretel still under reduced motion", async () => {
+    stubMatchMedia(true);
+    await renderSplash();
+    const splash = await screen.findByTestId("welcome-splash");
+    expect(splash.querySelector("video")).toBeNull();
+    const img = splash.querySelector("img");
+    expect(img?.getAttribute("src")).toBe("/cartilla/images/gretel/gretel-approved-master.png");
+  });
 });

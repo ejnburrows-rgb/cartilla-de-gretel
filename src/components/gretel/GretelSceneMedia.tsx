@@ -9,12 +9,18 @@ export function GretelSceneMedia({
   durationSeconds,
   onSettled,
   loop = false,
+  alt = "Gretel, la niña de la cartilla",
+  className,
+  imgClassName = "gretel-cinematic-portrait",
 }: {
   video?: GretelCinematic["video"];
   fallback: string;
   durationSeconds: number;
   onSettled?: () => void;
   loop?: boolean;
+  alt?: string;
+  className?: string;
+  imgClassName?: string;
 }) {
   const reducedMotion = useReducedMotion();
   const saveData = Boolean(
@@ -61,11 +67,14 @@ export function GretelSceneMedia({
   };
 
   return (
-    <div className="relative flex w-full justify-center" data-gretel-media={eligible ? state : "still"}>
+    <div
+      className={`relative flex w-full justify-center ${className ?? ""}`.trim()}
+      data-gretel-media={eligible ? state : "still"}
+    >
       <img
         src={video?.poster ?? fallback}
-        alt="Gretel, la niña de la cartilla"
-        className="gretel-cinematic-portrait"
+        alt={alt}
+        className={imgClassName}
         style={{ visibility: eligible && state === "playing" ? "hidden" : "visible" }}
         draggable={false}
       />

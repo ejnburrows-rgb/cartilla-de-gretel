@@ -27,8 +27,9 @@
   gap: clamp(24px, 5vw, 72px);
   padding: clamp(24px, 5vw, 64px) 0;
 }
-.lc-welcome__gretel { display:flex; align-items:flex-end; justify-content:center; min-height: 0; }
-.lc-welcome__gretel img {
+.lc-welcome__gretel { display:flex; align-items:flex-end; justify-content:center; min-height: 0; width: 100%; }
+.lc-welcome__gretel img,
+.lc-welcome__gretel video {
   display:block;
   width:auto;
   height:min(76dvh, 720px);
@@ -78,7 +79,8 @@
 .lc-button:hover { transform:translateY(-2px); }
 @media (max-width:760px){
   .lc-welcome__inner { width:calc(100% - 72px); grid-template-columns:1fr; align-content:center; gap:8px; text-align:center; }
-  .lc-welcome__gretel img { height:min(42dvh,360px); }
+  .lc-welcome__gretel img,
+  .lc-welcome__gretel video { height:min(42dvh,360px); }
   .lc-welcome__copy { margin-inline:auto; }
   .lc-welcome__copy p { margin-inline:auto; }
   .lc-welcome__actions { justify-content:center; }
