@@ -56,6 +56,8 @@ Supabase/live-auth work is deferred from the current product-completion path.
 
 ## Proof rule
 
+For meaningful code/behavior PRs, merge proof also requires dual independent review of the exact current head: controller/assistant review plus SonarQube Cloud PR analysis. CodeRabbit is not required. Any head change invalidates prior dual-review proof and requires both reviews again. Documentation-only or trivial metadata-only changes may skip SonarQube but still require independent controller review.
+
 No task is "done" without visible or test evidence:
 - what changed;
 - what source it was checked against;
