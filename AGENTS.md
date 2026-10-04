@@ -20,35 +20,57 @@ There are eight active repo-wide instruction files:
 
 Anything under `docs/archive/` is historical reference only and must not override any file above.
 
-### JULES PREFLIGHT — mandatory on every Jules task
+### EXTERNAL CODING AGENT ORCHESTRATION — JULES-FIRST FOR PARALLEL IMPLEMENTATION
 
-Jules must treat CURRENT `main` as the instruction baseline, not the task's start-time snapshot, old issue comments, old PR descriptions, archived documents, or prior agent memory.
+Jules is an approved primary implementation worker for Cartilla because the owner has available Jules capacity. Use that capacity aggressively for **parallel, isolated coding work** instead of leaving it idle.
 
-Before reviewing, coding, or resuming any Cartilla task, Jules must:
-1. sync/read CURRENT `main`;
-2. read the eight canonical files above, with special attention to the files relevant to that task;
-3. inspect the issue's latest owner/queue-controller directives;
-4. compare any existing task branch/PR against CURRENT `main` before continuing;
-5. stop and correct course if older task context conflicts with CURRENT `main` or a newer owner directive.
+Jules is a worker, not the project controller. The controller owns scope selection, dependency ordering, review, release verification, merges, and recovery.
 
-Canonical repo files and newer owner directives override stale Jules plans, earlier bot comments, earlier recommendations, and task-start snapshots. Do not implement a remembered or previously proposed interaction when `STUDENT_INTERACTION_STANDARD.md` now specifies another one.
+#### How to assign Jules
 
-Jules must stay inside the issue scope. Do not opportunistically change adjacent activities, artwork, Gretel behavior, voice/TTS, auth/Supabase, deployment, or other active lanes unless the issue explicitly owns that scope. Supabase/live-auth remains deferred unless the owner explicitly re-authorizes it.
+- Prefer Jules for concrete implementation, bug fixes, focused refactors, targeted tests, and narrow UI work that can run independently in its own environment.
+- Run multiple Jules sessions in parallel when their file ownership and dependencies are genuinely isolated.
+- One session = one bounded deliverable. Do not combine unrelated lanes or a long dependency chain into one session.
+- Reuse the existing issue/branch/PR when one already exists. Do not create duplicate competing work.
+- Give each session explicit owned files/behavior and explicit forbidden scope.
+- Start from CURRENT `main` and current repo instructions. Older task snapshots, prior bot comments, and archived docs never override current truth.
 
-For application code/assets, Jules must provide task-specific proof and complete direct-cloud `pnpm verify:release`. GitHub Actions/check badges are not proof. Jules never self-merges.
+#### Early checkpoint and recovery contract
 
-### JULES MATERIAL-PROGRESS CONTRACT
+A Jules session must establish viability early before spending most of its run:
 
-A new commit SHA is **not** progress by itself. After any review, correction, retry, or recovery instruction:
+1. confirm the target branch/PR and CURRENT `main`;
+2. confirm the required files are accessible;
+3. identify the intended material code change;
+4. run the narrowest relevant pre-change check or reproduction;
+5. begin the actual implementation.
 
-- Compare the candidate tree/diff with the previously reviewed tree before committing or reporting completion.
-- If implementation changes were requested and the resulting tree is unchanged, **do not create an empty commit and do not rerun checks as if remediation occurred**. Report the blocker plainly instead.
-- Never use an empty commit, timestamp-only change, metadata churn, or check rerun to trigger Sonar/review or represent a fix.
-- If a stale task branch conflicts with CURRENT `main`, rebuild the scoped change from CURRENT `main`; do not “remove old scope” by deleting files that CURRENT `main` owns.
-- Verification-only/no-op lanes attach evidence to the issue/PR and stop. They do not manufacture a code diff.
-- Controller-owned repair branches are read-only to Jules unless the controller explicitly hands that exact branch/head back for implementation.
-- When Jules is assigned verification of a controller PR, verify the **exact supplied PR head SHA**. Do not substitute the issue branch, task-start snapshot, or another head.
-- If the requested change cannot be made safely, report the exact blocker without committing. A blocker is preferable to false progress.
+If Jules cannot access the required branch/files, hits a tool/quota/auth/environment failure, discovers a scope conflict, or cannot make the required material change, it must report that blocker immediately rather than spending the rest of the session on generic inspection or full-suite testing.
+
+A session that produces no material tree change when implementation was requested is not progress. Empty commits, timestamp changes, metadata churn, repeated test reruns, or review-trigger commits are prohibited.
+
+#### Verification boundary
+
+Jules should use its environment to prove its **own bounded change** with targeted tests/checks and, for visible work, representative browser evidence when practical.
+
+Jules is **not required to consume its session running the entire project release gate** before handing back a candidate implementation. The controller owns:
+- independent diff review;
+- SonarQube reconciliation;
+- full `pnpm verify:release`;
+- cross-lane regression verification;
+- final browser/device proof;
+- merge readiness and merge;
+- dependency activation and release.
+
+The controller may ask Jules to run broader verification when that is itself the assigned task, but full-release verification must not be mechanically appended to every coding session.
+
+#### Failure handling
+
+- Do not repeatedly relaunch the same failed Jules instruction unchanged.
+- On a worker failure, the controller diagnoses from the returned evidence and either narrows/corrects the next Jules task, assigns a different isolated lane, or takes over directly.
+- One failed Jules lane must never stall independent Jules lanes or controller-owned work.
+- Jules never self-merges and never deploys production.
+- Owner intervention is required only for a genuine owner-only decision, asset, authentication step, or irreversible action.
 
 ### MANDATORY DUAL REVIEW — meaningful code/behavior PRs
 
@@ -191,7 +213,7 @@ EJN does not review code or GitHub internals. Agents own the technical judgment 
 
 - Never put unfinished or unverified work into `main`.
 - One branch per active job. No backup, experiment, duplicate, or unrelated branches.
-- Multiple Jules/coding lanes may run in parallel when their scopes are genuinely isolated. Dependency chains that touch the same activity family remain sequential. Before merge, every parallel PR must be rechecked against current `main`; stale/conflicting work must be updated before merge.
+- Multiple coding-agent lanes may run in parallel when their scopes are genuinely isolated. Dependency chains that touch the same activity family remain sequential. Before merge, every parallel PR must be rechecked against current `main`; stale/conflicting work must be updated before merge.
 - Make normal technical choices yourself. Do not ask EJN to choose libraries, Git methods, file structure, or test methods unless it changes what he will actually see or use.
 - Before asking for approval, fix obvious issues, run relevant tests, confirm the project builds, check the actual feature/screen, and address known important review findings.
 - Preserve unrelated working parts of the project. Do not reorganize or modernize outside the task.
@@ -231,7 +253,7 @@ If something goes wrong after "Push it", diagnose the cause, repair it if clearl
 
 Normal ad-hoc workflow: EJN asks → agent builds safely → agent tests → agent shows proof → EJN says "Push it" → agent puts finished work in `main` → agent confirms it.
 
-Authorized Cartilla queue exception: for issues explicitly placed in the owner-authorized completion queue, the queue controller may merge after independent verification and advance the next dependency automatically. This is not permission for Jules to self-merge.
+Authorized Cartilla queue exception: for issues explicitly placed in the owner-authorized completion queue, the queue controller may merge after independent verification and advance the next dependency automatically. This is not permission for an implementation worker to self-merge.
 
 
 ## UI IMPLEMENTATION COHERENCE — mandatory
