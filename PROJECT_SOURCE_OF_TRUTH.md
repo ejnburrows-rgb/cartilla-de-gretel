@@ -24,7 +24,7 @@ For curriculum, wording, page order, exercise content, and source-page structure
 ## Active rules
 
 1. Read `CARTILLA_DIGITAL_DIRECTIVE.md` for page/content/presentation rules.
-2. Read `ASSET_FIDELITY_POLICY.md` before touching images, verified color transfer, or motion; read `STUDENT_INTERACTION_STANDARD.md` before changing student Workbook interactions; read `repo.md` before generating any Workbook or Flip Chart background.
+2. Read `ASSET_FIDELITY_POLICY.md` before touching images or source-preserving color transfer; read `STUDENT_INTERACTION_STANDARD.md`, `DESIGN.md`, and `UX-CONTRACT.md` before changing student Workbook interactions or page transitions; read `repo.md` before generating any Workbook or Flip Chart background.
 3. Lessons 8–24 must match the physical Workbook **word for word** and in the correct order.
 4. Digital interaction may change the physical gesture, not the lesson content or educational objective.
 5. A student cannot advance with **Next** until the required work on the current page is completed.
@@ -34,7 +34,9 @@ For curriculum, wording, page order, exercise content, and source-page structure
 7. Gretel uses the exact approved master identified by `src/data/gretel-approved-master.json` and the existing character system. Final voice/TTS direction is deferred until the owner explicitly approves it.
 8. Google Flow's current production scope is one owner-approved 5–6 second silent welcome loop from the exact approved final still. In-app lesson reactions use the existing Gretel state system; no 31-clip requirement remains.
 9. Automatic Vercel deployment stays off during active work. Do not use production deployment as a test runner.
-10. Do not reopen historical audits/branches unless current source or a failing test proves a current problem.
+10. Student activity families must reuse one shared interaction kernel rather than independently re-implementing pencil/eraser feedback, timing, Gretel feedback events, persistence, or reduced motion.
+11. Page advancement must use the owner-approved physical-paper transition system: Workbook pages turn side-bound across the spine; Flip Chart sheets flip upward over the top binding. The animation is presentation only and never bypasses completion/save/navigation logic.
+12. Do not reopen historical audits/branches unless current source or a failing test proves a current problem.
 
 ## Current work
 
@@ -45,12 +47,13 @@ Active independent lanes include:
 - production foreground art remediation with verified source-preserving color transfer;
 - Gretel behavior/motion discipline;
 - welcome-media readiness/integration;
-- the current student-activity stage.
+- the current student-activity stage;
+- the shared physical page-turn transition system for Workbook + Flip Chart.
 
 The student activity chain remains dependency-ordered:
 `#445 → #446 → #447 → #448 → #449`.
 
-Final gates follow with whole-Workbook regression, teacher/Flip Chart validation, performance, welcome-media integration, and final assembled-product release proof.
+Final gates follow with whole-Workbook regression, teacher/Flip Chart validation, performance, welcome-media integration, and final assembled-product release proof. The page-turn system is an independent presentation lane and must be integrated before the final Workbook/Flip Chart validation gates.
 
 Supabase/live-auth work is deferred from the current product-completion path.
 
@@ -62,7 +65,7 @@ No task is "done" without visible or test evidence:
 - what changed;
 - what source it was checked against;
 - relevant test/build result;
-- rendered/screenshotted proof for visual work;
+- rendered/screenshotted proof for visual work, including milestone screenshots before final completion;
 - remaining blockers, if any.
 
 ## Do not waste time on
