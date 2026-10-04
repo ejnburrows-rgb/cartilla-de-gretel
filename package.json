@@ -5,8 +5,8 @@
   "sideEffects": false,
   "type": "module",
   "scripts": {
-    "dev": "pnpm prepare:art && vite dev",
-    "build": "pnpm prepare:art && pnpm verify:assets && pnpm typecheck && pnpm test && vite build",
+    "dev": "pnpm audit:art && vite dev",
+    "build": "pnpm audit:art && pnpm verify:assets && pnpm typecheck && pnpm test && vite build",
     "build:app": "pnpm build",
     "verify:release": "pnpm build && pnpm exec playwright install chromium && pnpm test:e2e",
     "preview": "vite preview --host 127.0.0.1",
@@ -28,7 +28,8 @@
     "reconstruct:workbook": "node scripts/reconstruct-workbook.mjs",
     "import:canonical-art": "node scripts/import-canonical-artwork.mjs",
     "verify:platform": "node scripts/verify-platform-completeness.mjs",
-    "verify:assets": "node scripts/verify-production-assets.mjs"
+    "verify:assets": "node scripts/verify-production-assets.mjs",
+    "verify:worker": "pnpm audit:art && pnpm typecheck && vite build"
   },
   "dependencies": {
     "@dnd-kit/core": "^6.3.1",
