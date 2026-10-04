@@ -1,7 +1,7 @@
 # PROJECT SOURCE OF TRUTH — La Cartilla de Gretel
 
 **Status:** Active project entry point  
-**Last verified:** 2026-10-03
+**Last verified:** 2026-10-04
 
 ## Goal
 
@@ -40,22 +40,24 @@ For curriculum, wording, page order, exercise content, and source-page structure
 
 ## Current work
 
-Current product-completion execution is intentionally parallel where scopes are isolated.
+Current product-completion execution remains intentionally parallel where scopes are isolated.
 
-Active independent lanes include:
-- direct cloud release verification;
-- production foreground art remediation with verified source-preserving color transfer;
-- Gretel behavior/motion discipline;
-- welcome-media readiness/integration;
-- the current student-activity stage;
-- #470 shared physical page-turn transition system for Workbook + Flip Chart.
+As of 2026-10-04, current open controller PRs include:
+- #476 — shared student interaction kernel + Workbook p1/p2;
+- #477 — Gretel behavior and motion discipline;
+- #478 — welcome-media code integration; the owner-supplied 5–6 second silent MP4 remains an external dependency;
+- #479 — physical Workbook and Flip Chart page-turn transitions;
+- #480 — execution-gateway hardening around `AGENTS.md` and verification controls.
 
 The student activity chain remains dependency-ordered:
 `#445 → #446 → #447 → #448 → #449`.
+#445 is represented by the current #476 candidate and must be verified/merged before dependent activity-family work advances.
 
-Final gates follow with whole-Workbook regression, teacher/Flip Chart validation, performance, welcome-media integration, and final assembled-product release proof. The page-turn system is an independent presentation lane and must be integrated before the final Workbook/Flip Chart validation gates.
+Direct cloud release verification remains tracked in #389. Production foreground-art remediation with verified source-preserving color transfer also remains part of the product-completion path.
 
-Supabase/live-auth work is deferred from the current product-completion path.
+Final gates follow with whole-Workbook regression, teacher/Flip Chart validation, performance, welcome-media integration, and final assembled-product release proof. The page-turn system remains an independent presentation lane that must be integrated before the final Workbook/Flip Chart validation gates.
+
+Supabase/live-auth work remains deferred from the current product-completion path.
 
 ## Proof rule
 
