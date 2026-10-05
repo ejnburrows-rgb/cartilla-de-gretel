@@ -7,16 +7,29 @@ project manager — work out what needs doing and do it.
 
 ## CANONICAL INSTRUCTION HIERARCHY
 
-There are eight active repo-wide instruction files:
+There are nine active repo-wide instruction files:
 
-1. `AGENTS.md` — execution, safety, Git, and deployment rules.
-2. `PROJECT_SOURCE_OF_TRUTH.md` — current product state, priorities, and owner-decided scope.
-3. `CARTILLA_DIGITAL_DIRECTIVE.md` — authoritative Cartilla structure, content, fidelity, and presentation rules.
-4. `ASSET_FIDELITY_POLICY.md` — active artwork, image, color-transfer, and motion rules.
-5. `STUDENT_INTERACTION_STANDARD.md` — canonical owner-approved student Workbook interaction and motion language.
-6. `DESIGN.md` — durable visual system and taste contract for Workbook, Flip Chart, shared school-tool UI, and page-turn presentation.
-7. `UX-CONTRACT.md` — observable interaction/state contract, including the shared student interaction kernel and physical page-turn behavior.
-8. `repo.md` — authoritative, locked method for Workbook and Flip Chart background-only generation.
+1. AGENTS.md — execution, safety, Git, and deployment rules.
+2. PROJECT_FINISH_DEFINITION.md — canonical owner-locked definition of what must be true for the entire project to be finished.
+3. PROJECT_SOURCE_OF_TRUTH.md — current product state, priorities, and owner-decided scope.
+4. CARTILLA_DIGITAL_DIRECTIVE.md — authoritative Cartilla structure, content, fidelity, and presentation rules.
+5. ASSET_FIDELITY_POLICY.md — active artwork, image, color-transfer, and motion rules.
+6. STUDENT_INTERACTION_STANDARD.md — canonical owner-approved student Workbook interaction and motion language.
+7. DESIGN.md — durable visual system and taste contract for Workbook, Flip Chart, shared school-tool UI, and page-turn presentation.
+8. UX-CONTRACT.md — observable interaction/state contract, including the shared student interaction kernel and physical page-turn behavior.
+9. repo.md — authoritative, locked method for Workbook and Flip Chart background-only generation.
+
+### PROJECT FINISH DEFINITION — MANDATORY
+
+PROJECT_FINISH_DEFINITION.md is the canonical owner-locked finish contract.
+
+- Read it before planning meaningful Cartilla work.
+- Every run/session must reason from **FINISHED GOAL → CURRENT VERIFIED STATE → REAL GAPS → PROOF REQUIRED**.
+- Issues, PRs, Jules sessions, and task prompts are work units, not the product goal.
+- Advance existing canonical work that closes a real finish gap before creating another lane.
+- Never lower, reinterpret, or silently move the finish bar.
+- Never claim the **project** is finished until every required criterion in PROJECT_FINISH_DEFINITION.md has objective proof.
+- New explicit owner decisions may update the finish contract; ordinary implementation discoveries update the current gap plan instead.
 
 Anything under `docs/archive/` is historical reference only and must not override any file above.
 

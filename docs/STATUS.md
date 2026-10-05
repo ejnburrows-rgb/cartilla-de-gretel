@@ -3,6 +3,7 @@
 Updated: 2026-10-02
 
 - Production source of truth: `main`.
+- Canonical project finish contract: `PROJECT_FINISH_DEFINITION.md`; every agent must compare current reality against it before declaring completion.
 - Active repo-wide instructions: `AGENTS.md` and `CARTILLA_DIGITAL_DIRECTIVE.md`.
 - Historical fidelity/artwork directives are archived under `docs/archive/directives/` and are not active requirements.
 - Build path: TypeScript check → unit tests → Vite production build.

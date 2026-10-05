@@ -1,5 +1,8 @@
 # ASSET FIDELITY POLICY — La Cartilla de Gretel
 
+> **Finish contract:** Read PROJECT_FINISH_DEFINITION.md before planning or declaring Cartilla work complete. It is the canonical definition of what must be true for the entire project to be finished. Compare current verified reality against it and close only real remaining gaps.
+
+
 **Owner decisions (EJN), 30 Sep 2026 and 3 Oct 2026. This is the active rule for artwork, images, color transfer, and animation.**
 **Two narrow source-safe exceptions exist:** verified source-preserving color transfer for eligible Workbook foreground art, and background-only generation under `repo.md`.
 It replaces `IMAGE_GENERATION_BAN.md` and `docs/GOOGLE_FLOW_PROMPTS.md`, which are kept only as history and must not guide any agent.

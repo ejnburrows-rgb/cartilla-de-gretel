@@ -1,5 +1,8 @@
 # La Cartilla de Gretel — project completion plan
 
+> **Finish contract:** Read PROJECT_FINISH_DEFINITION.md before planning or declaring Cartilla work complete. It is the canonical definition of what must be true for the entire project to be finished. Compare current verified reality against it and close only real remaining gaps.
+
+
 **Updated:** 2026-10-05  
 **Planning baseline:** `main` at `ad0fb912d62beef0aa7d93cd9bcf45afa0fd0603`  
 **Task tracker:** existing GitHub issues/PRs. Do not create duplicate work items.
@@ -200,11 +203,6 @@ At most two genuinely independent worker lanes may be active, and only when they
 
 ## Definition of finished
 
-The project is finished only when:
-- the rendered Workbook matches the accepted visual direction, with browser proof rather than code-only assumptions;
-- every student activity family has been used successfully end to end; working deployed interactions are preserved unless a reproduced defect requires change;
-- source-blocked pages are honestly identified;
-- active foreground art has no known source/crop/color defect;
-- the direct release gate passes;
-- final Workbook and Flip Chart regression passes;
-- the intentionally deployed production build is inspected after release.
+The canonical, owner-locked definition of finished is PROJECT_FINISH_DEFINITION.md.
+
+This plan must close the real gaps against that file. It must not redefine or weaken the finish criteria.

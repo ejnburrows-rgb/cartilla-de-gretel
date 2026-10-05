@@ -1,5 +1,8 @@
 # CARTILLA DIGITAL DIRECTIVE — For All AI Agents
 
+> **Finish contract:** Read PROJECT_FINISH_DEFINITION.md before planning or declaring Cartilla work complete. It is the canonical definition of what must be true for the entire project to be finished. Compare current verified reality against it and close only real remaining gaps.
+
+
 **Status:** CANONICAL. This overrides all prior layout/fidelity instructions.
 **Last updated:** 2026-10-04 (owner locked clean Student Workbook canvas while preserving Flip Chart scenic presentation)
 
