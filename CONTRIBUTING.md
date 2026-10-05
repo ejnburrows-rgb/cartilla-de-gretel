@@ -5,6 +5,7 @@ This repository is the digital edition and classroom platform for *La Cartilla d
 Before changing any teacher Flip Chart / flipbook or Student Workbook surface, read:
 
 - `AGENTS.md`
+- `PROJECT_FINISH_DEFINITION.md`
 - `PROJECT_SOURCE_OF_TRUTH.md`
 - `CARTILLA_DIGITAL_DIRECTIVE.md`
 - `ASSET_FIDELITY_POLICY.md`
