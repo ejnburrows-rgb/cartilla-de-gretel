@@ -122,7 +122,6 @@
   max-width: none;
   max-height: none;
   object-fit: fill;
-  animation: none;
   filter: none;
 }
 .fp-ix-pick--precise .fp-ix-cell.graded-correct { background: #e7faf0; }
@@ -150,7 +149,7 @@
 .fp-ix-grid--precise .fp-ix-cell .living-illustration,
 .fp-ix-grid--precise .fp-ix-cell .living-illustration__art {
   width: 100%; height: 100%; max-width: none; max-height: none;
-  object-fit: fill; animation: none; filter: none;
+  object-fit: fill; filter: none;
 }
 .fp-ix-grid--precise .fp-ix-check-row { position: absolute; top: calc(100% + 7px); right: 0; margin: 0; }
 .fp-ix-grid--precise .fp-ix-check-btn { padding: 5px 13px; font-size: 12px; box-shadow: none; }

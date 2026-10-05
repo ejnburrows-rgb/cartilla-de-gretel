@@ -666,7 +666,7 @@
   box-shadow: none;
 }
 .fp-ix-cell:hover { box-shadow:none; }
-.fp-ix-cell img,
+.fp-ix-cell img:not(.living-illustration__art):not(.living-illustration__part),
 .game-pic-float { animation:none; filter:none; }
 .fp-ix-check-btn,
 .fp-ix-pick__letter,
