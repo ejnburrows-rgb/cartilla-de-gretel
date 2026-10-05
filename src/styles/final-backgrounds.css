@@ -30,3 +30,15 @@
   border-radius: 6px;
   box-shadow: 0 0 0 4px #fffdf9;
 }
+
+/* Golden Page 1 clean digital canvas overrides: remove scenic background and contrast slab. */
+.faithful-page[data-page-number="1"] .final-page-background {
+  display: none !important;
+}
+
+.faithful-page[data-page-number="1"] .fp-region--instruction,
+.faithful-page[data-page-number="1"] .faithful-page__lesson {
+  background: transparent !important;
+  border-radius: 0 !important;
+  box-shadow: none !important;
+}

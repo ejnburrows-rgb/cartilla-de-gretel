@@ -277,12 +277,12 @@
   margin: 0;
 }
 .native-lesson-viewer__companion .gretel-presence--book {
-  width: 170px;
-  min-width: 170px;
+  width: 140px;
+  min-width: 140px;
 }
 .native-lesson-viewer__companion .gretel-presence--book .gretel-avatar-interactive {
-  width: 170px;
-  height: 210px;
+  width: 140px;
+  height: 175px;
 }
 .native-lesson-viewer__companion .gretel-presence--book .gretel-speech-bubble {
   left: auto !important;

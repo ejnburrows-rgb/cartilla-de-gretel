@@ -741,3 +741,22 @@
 .gretel-presence__support { max-width: 16rem; background: white; color: #413325; border-radius: .7rem; padding: .6rem; font-size: .9rem; }
 .native-syllable__words .native-syllable__word .native-syllable__letter { min-height: 44px; border: 0; border-radius: 0; background: transparent; font: inherit; padding: .15em .05em; }
 .native-syllable__words .native-syllable__word .native-syllable__letter.is-circled { background: #d9f4dc; border-bottom: 3px solid #348044; }
+
+/* ── Golden Page 1 20-object exercise row rhythm and spacing ── */
+.faithful-page[data-page-number="1"] .fp-ix-grid {
+  gap: 1.2cqw;
+}
+.faithful-page[data-page-number="1"] .fp-ix-row {
+  gap: 1.2cqw;
+}
+.faithful-page[data-page-number="1"] .fp-ix-cell {
+  border-radius: 12px;
+  padding: 6%;
+  background: rgba(255, 255, 255, 0.9);
+  border: 1.5px solid rgba(31, 158, 148, 0.25);
+  box-shadow: 0 2px 8px -2px rgba(37, 49, 58, 0.08);
+}
+.faithful-page[data-page-number="1"] .fp-ix-cell:hover {
+  border-color: var(--lc-teal, #1f9e94);
+  box-shadow: 0 0 0 3px rgba(31, 158, 148, 0.2);
+}

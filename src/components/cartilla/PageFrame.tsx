@@ -33,7 +33,7 @@ export function PageFrame({ pageNumber, lessonNumber, children, className, garde
   const style = garden && gardenBg ? ({ "--garden-page-bg": `url('${gardenBg}')` } as React.CSSProperties) : undefined;
 
   return (
-    <div className={classes} style={style}>
+    <div className={classes} style={style} data-page-number={pageNumber}>
       <FinalPageBackground asset={typeof pageNumber === "number" ? workbookBackground(pageNumber) : undefined} />
       <div className="faithful-page__sidebar"><WavySidebar /></div>
       <div className="faithful-page__body">{children}</div>
