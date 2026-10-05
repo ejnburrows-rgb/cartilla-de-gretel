@@ -86,6 +86,19 @@ describe("LivingIllustration faithful recovered art", () => {
     }
   });
 
+  it("renders with actor motion classes inside workbook exercise cells", () => {
+    const src = "/cartilla/art/faithful/vocal-o/oso.webp";
+    const { container } = render(
+      <div className="fp-ix-cell">
+        <LivingIllustration src={src} alt="oso" />
+      </div>,
+    );
+    const wrapper = container.querySelector(".living-illustration");
+    expect(wrapper).not.toBeNull();
+    expect(wrapper?.className).toContain("living-illustration--breathe");
+    expect(wrapper?.className).toContain("living-illustration--creature-life");
+  });
+
   it("preserves the approved source but suppresses motion when reduced motion is requested", async () => {
     const original = window.matchMedia;
     window.matchMedia = vi.fn().mockImplementation((query: string) => ({
