@@ -1,5 +1,8 @@
 # Locked Background Generation Method
 
+> **Finish contract:** Read PROJECT_FINISH_DEFINITION.md before planning or declaring Cartilla work complete. It is the canonical definition of what must be true for the entire project to be finished. Compare current verified reality against it and close only real remaining gaps.
+
+
 Applies whenever a new scenic background is explicitly approved for the **Workbook** or **Flip Chart**. It defines how to generate a background asset; it does **not** require every page or surface to render one.
 
 ## Surface-use rule
