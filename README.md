@@ -6,6 +6,7 @@ Digital classroom edition of *La Cartilla de Gretel* by Leonor Lopetegui.
 
 - `main` is the production code source of truth.
 - `AGENTS.md` governs execution, safety, Git, and deployment.
+- `PROJECT_FINISH_DEFINITION.md` is the canonical owner-locked definition of what must be true before the entire project can be called finished.
 - `PROJECT_SOURCE_OF_TRUTH.md` is the canonical current product state, priorities, active scope, and major owner decisions.
 - `CARTILLA_DIGITAL_DIRECTIVE.md` is the canonical Cartilla fidelity and presentation directive.
 - `ASSET_FIDELITY_POLICY.md` is the active artwork, image, verified color-transfer, and motion rule.
