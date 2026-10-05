@@ -80,15 +80,13 @@ export default defineConfig({
     },
     {
       // Second, login-gated server for the chromium-login-gated project. It
-      // runs `vite dev` directly rather than `pnpm dev` so the delivery-asset
-      // build does not run twice in parallel against the same output folder;
-      // Playwright waits for both servers before starting any test, and the
-      // open-access server above owns that build step.
+      // uses the same non-generating worker mode as the open-access server so
+      // targeted browser verification cannot rewrite tracked route output.
       command:
         "VITE_CRM_REVIEW=false " +
         "VITE_SUPABASE_URL=http://127.0.0.1:54321 " +
         "VITE_SUPABASE_PUBLISHABLE_KEY=sb_publishable_e2e_not_a_real_key " +
-        "pnpm exec vite dev --port 5174 --host 127.0.0.1",
+        "pnpm dev:worker --port 5174 --host 127.0.0.1",
       url: "http://127.0.0.1:5174",
       reuseExistingServer: false,
       timeout: 300_000,
