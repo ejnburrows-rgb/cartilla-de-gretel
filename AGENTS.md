@@ -354,6 +354,24 @@ EJN does not review code or GitHub internals. Agents own the technical judgment 
 - Preserve unrelated working parts of the project. Do not reorganize or modernize outside the task.
 - Do not claim success without verification.
 
+### OWNER APPROVAL PROOF — CHAT FIRST, NO GITHUB HUNTING
+
+EJN must never be asked to inspect GitHub, a PR, branch, issue, commit, CI page, or repository file in order to approve work.
+
+Before asking EJN for any approval:
+
+- **Show the actual result in chat first.**
+- For visible/visual work, provide the real implemented screenshot/image inline in chat whenever technically possible.
+- When multiple views materially matter, show the representative views needed for the decision (for example phone/tablet/desktop or before/after).
+- Do not substitute code, a PR description, a worker status message, or a GitHub link for rendered proof.
+- If an inline image is technically impossible, provide a directly viewable rendered artifact or preview that opens the actual result; do not send EJN to GitHub to find it.
+- GitHub issue/PR/task numbers and links are supporting references only.
+- After the proof is visible, ask for a simple **Yes / No** decision unless the owner genuinely needs more than a binary choice.
+- If the required proof is unavailable, the work is **not ready for owner approval**. Recover or regenerate the proof first.
+- Never claim that EJN has seen or approved a visual result unless that exact rendered result was actually shown to him.
+
+This rule applies to controllers, reviewers, Jules workers, watchdogs, and future agents.
+
 ### Proof shown to EJN
 For visual work, show screenshots/images or before-and-after proof in chat. For functional work, explain in plain English what works and what was tested. EJN should not need to open GitHub.
 
