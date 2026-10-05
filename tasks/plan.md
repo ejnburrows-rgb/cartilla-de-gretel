@@ -4,7 +4,6 @@
 
 
 **Updated:** 2026-10-05  
-**Planning baseline:** `main` at `ad0fb912d62beef0aa7d93cd9bcf45afa0fd0603`  
 **Task tracker:** existing GitHub issues/PRs. Do not create duplicate work items.
 
 ## Goal
@@ -13,7 +12,7 @@ Finish the existing Cartilla product quickly and correctly. Preserve working stu
 
 ## Current verified reality
 
-- Public preview: `https://cartilla-de-gretel-psi.vercel.app/cartilla/`. It serves production commit `47b2961`, not current `main`.
+- Public preview/deployment state is runtime evidence, not durable policy. Live-verify the deployed Vercel state whenever it matters; do not assume it equals current `main` or any commit recorded in this plan.
 - The public Workbook still shows the older scenic presentation and tap/select + `Comprobar`/`Corregir respuestas` feedback. It already has a brief pencil-mark animation on some selections, but not the owner-required shared Pencil/Eraser choreography from PR #476 (draw/hold/success or rotate-to-eraser/erase/retry). PR #476 is not deployed and is not visually accepted.
 - Live browser testing on the deployed build confirms picture selection, line matching, freehand/tracing canvases, Borrador, Deshacer, Limpiar, reload persistence of partial canvas work, and completion gating are materially functional. A later `Marca con una x` activity also completed its select → `Comprobar` → `Siguiente` flow. Preserve these working foundations unless a confirmed defect requires change.
 - Workbook structured coverage exists for printed pages 1–90. Pages 1–85 and 88–90 are `NATIVE_COMPLETE`; pages 86–87 are `SOURCE_BLOCKED` because the supplied source scan is missing those pages.
@@ -30,7 +29,7 @@ Finish the existing Cartilla product quickly and correctly. Preserve working stu
 
 1. **Finish Pencil/Eraser directly in the existing project.** Do not build it first in Lovable, Google AI Studio, or another prototype. The state/persistence/accessibility architecture already exists in PR #476, so a separate prototype adds translation and integration work.
 2. **Use rendered proof in small slices.** Page 1 is the visual gate. Do not start #498 broad Workbook restyling until #501 is shown in a real browser at representative phone/tablet/desktop sizes and accepted.
-3. **Do not manually create extra agent lanes.** The existing scheduled Cartilla Jules Supervisor is the default worker-dispatch layer. It may use at most two genuinely independent worker lanes at once, only after confirming the work is not already active and will not conflict with controller-owned visual/Pencil work.
+3. **Do not manually create extra agent lanes.** The existing scheduled Cartilla Jules Supervisor is the default worker-dispatch layer. Global implementation-worker concurrency and lane accounting come only from the `AGENTS.md` Execution Control Contract; this plan records priorities/allocation only.
 4. **Do not delete art during implementation.** Refresh the current-reference inventory, classify cleanup candidates, then remove only assets proven unused and non-canonical.
 5. **Do not deploy production merely for testing.** Use an existing safe branch/runtime verification route; production deployment remains the final authorized release step.
 
@@ -188,11 +187,11 @@ The final owner-approved 5–6 second silent welcome MP4 remains an external ass
 
 Do not ask the owner to launch or supervise additional agents. The scheduled Cartilla Jules Supervisor is the default background dispatcher and the fallback watchdog handles stalled lanes.
 
-At most two genuinely independent worker lanes may be active, and only when they shorten the critical path without overlapping files or ownership.
+Implementation-worker concurrency and lane accounting come only from the `AGENTS.md` Execution Control Contract. This plan records the current preferred allocation and does not define a numeric limit.
 
 **Current preferred allocation:**
-- Worker lane 1: exact-head verification of canonical PR #502 only; do not reopen duplicate #507.
-- Worker lane 2: #389 release harness only if the supervisor confirms no existing worker is already active for it.
+- Candidate lane: exact-head verification of canonical PR #502 only; do not reopen duplicate #507.
+- Candidate lane: #389 release harness only if the supervisor confirms no existing worker is already active for it.
 - Controller: #501 rendered visual acceptance, #504 art proof, then #476 shared Pencil/Eraser visual repair/acceptance.
 
 **Must stay sequential:**
