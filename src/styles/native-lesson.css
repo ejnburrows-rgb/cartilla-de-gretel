@@ -493,3 +493,27 @@
   border-color: #b9b4aa;
   color: #6c6a65;
 }
+
+
+/* Golden Workbook Page 1: keep the learner surface quiet and Gretel subordinate. */
+.native-lesson-viewer[data-native-page="1"] .fp-region--instruction {
+  background: transparent;
+  border-radius: 0;
+  box-shadow: none;
+}
+.native-lesson-viewer[data-native-page="1"] .fp-region--instruction .fp-label {
+  color: var(--lc-teal, #1f9e94);
+  font-family: "Fredoka", ui-rounded, system-ui, sans-serif;
+  font-weight: 800;
+}
+.native-lesson-viewer[data-native-page="1"] .native-lesson-viewer__companion {
+  min-height: 150px;
+}
+.native-lesson-viewer[data-native-page="1"] .native-lesson-viewer__companion .gretel-presence--book {
+  width: 120px;
+  min-width: 120px;
+}
+.native-lesson-viewer[data-native-page="1"] .native-lesson-viewer__companion .gretel-presence--book .gretel-avatar-interactive {
+  width: 120px;
+  height: 150px;
+}
