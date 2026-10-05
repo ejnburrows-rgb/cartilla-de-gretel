@@ -1,7 +1,7 @@
 # PROJECT SOURCE OF TRUTH — La Cartilla de Gretel
 
 **Status:** Active project entry point  
-**Last verified:** 2026-10-04
+**Last verified:** 2026-10-05
 
 ## Goal
 
@@ -54,6 +54,8 @@ The owner-approved Workbook visual realignment is tracked in #495:
 - #497 — reproduce and fix the existing living-art motion path where approved motion is registered but not visibly running;
 - #498 — roll the accepted clean Workbook surface across representative page families only after #496 is accepted;
 - #499 — keep active documentation aligned with this distinction.
+
+The owner explicitly approved this factual documentation realignment on 2026-10-05.
 
 The student activity chain remains dependency-ordered:
 `#445 → #446 → #447 → #448 → #449`.
