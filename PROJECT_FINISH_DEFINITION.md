@@ -171,6 +171,17 @@ Before the project can be declared finished:
 - final assembled-product browser/device proof is complete;
 - no required finish criterion is represented only by a plan, prompt, issue, or unverified worker claim.
 
+## Owner approval proof — CHAT FIRST
+
+Before either required owner approval in this finish contract can count:
+
+- the actual result must be shown to EJN directly in chat;
+- visible/visual work must be shown as the real rendered screenshot/image whenever technically possible;
+- a GitHub PR, issue, branch, commit, or link is never sufficient owner-facing proof by itself;
+- if inline image display is technically impossible, use a directly viewable rendered artifact/preview rather than asking EJN to inspect GitHub;
+- approval should be requested as a simple **Yes / No** after the proof is visible;
+- if the proof is not visible to EJN, the approval gate is still open.
+
 ## 11. Owner approvals — REQUIRED
 
 Two owner-visible approvals are required:
