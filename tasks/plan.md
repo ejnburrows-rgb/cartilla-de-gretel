@@ -1,7 +1,7 @@
 # La Cartilla de Gretel — project completion plan
 
 **Updated:** 2026-10-05  
-**Planning baseline:** `main` at `252c9a2f72b70cd94eb756aa3179922bb4ded60a`  
+**Planning baseline:** `main` at `ad0fb912d62beef0aa7d93cd9bcf45afa0fd0603`  
 **Task tracker:** existing GitHub issues/PRs. Do not create duplicate work items.
 
 ## Goal
@@ -11,14 +11,15 @@ Finish the existing Cartilla product quickly and correctly. Preserve working stu
 ## Current verified reality
 
 - Public preview: `https://cartilla-de-gretel-psi.vercel.app/cartilla/`. It serves production commit `47b2961`, not current `main`.
-- The public Workbook still shows the older scenic presentation and tap/select + `Comprobar`/`Corregir respuestas` feedback. PR #476's Pencil/Eraser kernel is not deployed and is not visually accepted.
-- Live browser testing confirms existing picture selection, writing/drawing canvases, erase/undo/clear, page-state persistence and completion gating are materially functional on the deployed build. Preserve them unless a confirmed defect requires change.
+- The public Workbook still shows the older scenic presentation and tap/select + `Comprobar`/`Corregir respuestas` feedback. It already has a brief pencil-mark animation on some selections, but not the owner-required shared Pencil/Eraser choreography from PR #476 (draw/hold/success or rotate-to-eraser/erase/retry). PR #476 is not deployed and is not visually accepted.
+- Live browser testing on the deployed build confirms picture selection, line matching, freehand/tracing canvases, Borrador, Deshacer, Limpiar, reload persistence of partial canvas work, and completion gating are materially functional. A later `Marca con una x` activity also completed its select → `Comprobar` → `Siguiente` flow. Preserve these working foundations unless a confirmed defect requires change.
 - Workbook structured coverage exists for printed pages 1–90. Pages 1–85 and 88–90 are `NATIVE_COMPLETE`; pages 86–87 are `SOURCE_BLOCKED` because the supplied source scan is missing those pages.
 - Current `main` still registers scenic Workbook backgrounds for all available pages. The approved clean digital-canvas/cream direction is not rolled out yet.
 - PR #501 is the canonical Page 1 golden-reference candidate. Duplicate #506 is closed and must stay closed.
 - PR #502 is the canonical living-art motion fix. Duplicate #507 is closed and must stay closed.
 - PR #504 fixes the confirmed reversed/over-cropped `uno` asset by pointing production uses to the verified counterpart.
 - The current production-art inventory reports 108 referenced production foreground assets, 143 manifest entries, 35 manifest entries currently unreferenced, no duplicate hashes among the 108 active assets, and no tiny active assets. Refresh this inventory before deletion because some recorded reference locations are historical.
+- The delivery manifest contains 24 crop/edge/aspect warnings. These are review candidates, not automatically bad assets. `uno` is the one currently confirmed production-visible defect; PR #504 addresses it. `manzana` and `pera` are active inventory entries with `PROVENANCE-UNKNOWN` and require source verification before any replacement/recolor decision.
 - Foreground-art issue #454 remains open and controller-owned; Jules is disabled for that lane.
 - Release-verification issue #389 remains open and is high leverage because several otherwise-ready PRs depend on trustworthy full release proof.
 
@@ -26,7 +27,7 @@ Finish the existing Cartilla product quickly and correctly. Preserve working stu
 
 1. **Finish Pencil/Eraser directly in the existing project.** Do not build it first in Lovable, Google AI Studio, or another prototype. The state/persistence/accessibility architecture already exists in PR #476, so a separate prototype adds translation and integration work.
 2. **Use rendered proof in small slices.** Page 1 is the visual gate. Do not start #498 broad Workbook restyling until #501 is shown in a real browser at representative phone/tablet/desktop sizes and accepted.
-3. **Use at most two extra implementation lanes at once.** They must be isolated from controller-owned visual/Pencil work.
+3. **Do not manually create extra agent lanes.** The existing scheduled Cartilla Jules Supervisor is the default worker-dispatch layer. It may use at most two genuinely independent worker lanes at once, only after confirming the work is not already active and will not conflict with controller-owned visual/Pencil work.
 4. **Do not delete art during implementation.** Refresh the current-reference inventory, classify cleanup candidates, then remove only assets proven unused and non-canonical.
 5. **Do not deploy production merely for testing.** Use an existing safe branch/runtime verification route; production deployment remains the final authorized release step.
 
@@ -46,7 +47,7 @@ Finish the existing Cartilla product quickly and correctly. Preserve working stu
 
 ### B. Living-art runtime — #497 / PR #502
 
-**Agent lane 1.**
+**Existing worker lane / verification target.** Do not create a duplicate Jules task or PR.
 
 - Keep the narrow CSS root-cause fix already isolated in #502.
 - Prove eligible living art moves in normal mode inside the real Workbook.
@@ -57,7 +58,7 @@ Finish the existing Cartilla product quickly and correctly. Preserve working stu
 
 ### C. Direct release gate — #389
 
-**Agent lane 2.**
+**Supervisor-owned optional lane.** Before dispatch, verify no current Jules session/branch/PR is already doing #389.
 
 - Reproduce current `pnpm verify:release` failure/hang from a clean current-main checkout.
 - Repair only genuine harness/baseline defects.
@@ -182,12 +183,14 @@ The final owner-approved 5–6 second silent welcome MP4 remains an external ass
 
 ## Parallel work policy
 
-Use no more than two extra agents at once.
+Do not ask the owner to launch or supervise additional agents. The scheduled Cartilla Jules Supervisor is the default background dispatcher and the fallback watchdog handles stalled lanes.
 
-**Now:**
-- Agent 1: #502 living-art motion only.
-- Agent 2: #389 release harness only.
-- Controller: #501 visual acceptance, #504 art proof, then #476 shared Pencil/Eraser.
+At most two genuinely independent worker lanes may be active, and only when they shorten the critical path without overlapping files or ownership.
+
+**Current preferred allocation:**
+- Worker lane 1: exact-head verification of canonical PR #502 only; do not reopen duplicate #507.
+- Worker lane 2: #389 release harness only if the supervisor confirms no existing worker is already active for it.
+- Controller: #501 rendered visual acceptance, #504 art proof, then #476 shared Pencil/Eraser visual repair/acceptance.
 
 **Must stay sequential:**
 - #501 acceptance before #498.
@@ -198,8 +201,8 @@ Use no more than two extra agents at once.
 ## Definition of finished
 
 The project is finished only when:
-- the rendered Workbook matches the accepted visual direction;
-- every student activity family has been used successfully end to end;
+- the rendered Workbook matches the accepted visual direction, with browser proof rather than code-only assumptions;
+- every student activity family has been used successfully end to end; working deployed interactions are preserved unless a reproduced defect requires change;
 - source-blocked pages are honestly identified;
 - active foreground art has no known source/crop/color defect;
 - the direct release gate passes;
