@@ -427,23 +427,23 @@
 .living-illustration--part-rigged > .living-illustration__art {
   animation: none;
 }
-.living-illustration--part-rigged > .living-illustration__part--wings {
+.fp-ix-cell .living-illustration--part-rigged.living-illustration--part-rigged > .living-illustration__part--wings {
   animation: living-part-wings 720ms ease-in-out var(--living-delay) infinite;
 }
 
-.living-illustration--part-rigged > .living-illustration__part--tail {
+.fp-ix-cell .living-illustration--part-rigged.living-illustration--part-rigged > .living-illustration__part--tail {
   animation: living-part-tail 920ms ease-in-out var(--living-delay) infinite;
 }
 
-.living-illustration--part-rigged > .living-illustration__part--head {
+.fp-ix-cell .living-illustration--part-rigged.living-illustration--part-rigged > .living-illustration__part--head {
   animation: living-part-head 4.2s ease-in-out var(--living-delay) infinite;
 }
 
-.living-illustration--part-rigged > .living-illustration__part--ears {
+.fp-ix-cell .living-illustration--part-rigged.living-illustration--part-rigged > .living-illustration__part--ears {
   animation: living-part-ears 3.6s ease-in-out var(--living-delay) infinite;
 }
 
-.living-illustration--part-rigged > .living-illustration__part--trunk {
+.fp-ix-cell .living-illustration--part-rigged.living-illustration--part-rigged > .living-illustration__part--trunk {
   animation: living-part-trunk 4.4s ease-in-out var(--living-delay) infinite;
 }
 
