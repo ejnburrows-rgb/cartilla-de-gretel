@@ -9,8 +9,8 @@ const approved = recordings.approved as Array<{ key: string; src: string; approv
 const keys = new Set(vocabulary.map(entry => entry.key));
 
 describe("owner-approved picture-name recordings", () => {
-  it("registers the 154 approved recordings once each, with provenance and a real file", () => {
-    expect(approved).toHaveLength(154);
+  it("registers the 162 approved recordings once each, with provenance and a real file", () => {
+    expect(approved).toHaveLength(162);
     expect(new Set(approved.map(entry => entry.key)).size).toBe(approved.length);
     for (const entry of approved) {
       expect(keys.has(entry.key), entry.key).toBe(true);
@@ -24,10 +24,11 @@ describe("owner-approved picture-name recordings", () => {
     expect(approvedPictureRecording("ñuno")).toBe("/audio/voz/vocabulario/ñuno.mp3");
     expect(approvedPictureRecording("árbol")).toBe("/audio/voz/vocabulario/árbol.mp3");
     expect(approvedPictureRecording("mamá")).toBe("/audio/voz/vocabulario/mamá.mp3");
+    expect(approvedPictureRecording("niño")).toBe("/audio/voz/vocabulario/niño.mp3");
   });
 
   it("does not invent recordings for unrecorded names", () => {
-    expect(approvedPictureRecording("gato")).toBeUndefined();
+    expect(approvedPictureRecording("ternero n")).toBeUndefined();
     expect(approvedPictureRecording("a la fiesta scene")).toBeUndefined();
   });
 });
