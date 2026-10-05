@@ -4,6 +4,9 @@
 import { act, cleanup, fireEvent, render } from "@testing-library/react";
 import { afterEach, beforeEach, describe, expect, it, vi } from "vitest";
 import { InteractiveVowelPickOne } from "../InteractivePageExercises";
+import { WORKBOOK_MARK_TIMING } from "../WorkbookPencilMark";
+
+const RESULT_MS = WORKBOOK_MARK_TIMING.drawMs + WORKBOOK_MARK_TIMING.holdMs;
 import type { PageRegion } from "@/lib/book-faithful";
 import { playCorrectChord, playWrongBuzz } from "@/lib/piano-audio";
 import { gretelEvent } from "@/lib/gretel-bus";
@@ -55,16 +58,14 @@ describe("InteractiveVowelPickOne shared pencil adapter", () => {
   });
 
   it("waits through the neutral hold before accepting a correct picture", () => {
-    const view = render(
-      <InteractiveVowelPickOne region={region} accent="#000" lessonId="2" />,
-    );
+    const view = render(<InteractiveVowelPickOne region={region} accent="#000" lessonId="2" />);
     const oso = view.getByRole("button", { name: "oso" });
     fireEvent.click(oso);
 
     expect(oso.querySelector(".workbook-pencil-mark-container")).toBeTruthy();
     expect(playCorrectChord).not.toHaveBeenCalled();
 
-    act(() => vi.advanceTimersByTime(3199));
+    act(() => vi.advanceTimersByTime(RESULT_MS - 1));
     expect(playCorrectChord).not.toHaveBeenCalled();
 
     act(() => vi.advanceTimersByTime(1));
@@ -76,19 +77,17 @@ describe("InteractiveVowelPickOne shared pencil adapter", () => {
   });
 
   it("erases a wrong mark and leaves the row open to retry", () => {
-    const view = render(
-      <InteractiveVowelPickOne region={region} accent="#000" lessonId="2" />,
-    );
+    const view = render(<InteractiveVowelPickOne region={region} accent="#000" lessonId="2" />);
     const ala = view.getByRole("button", { name: "ala" });
     fireEvent.click(ala);
 
-    act(() => vi.advanceTimersByTime(3200));
+    act(() => vi.advanceTimersByTime(RESULT_MS));
     expect(gretelEvent).toHaveBeenCalledWith("answer:wrong", {
       itemId: "p2-pick-0-1",
     });
     expect(playWrongBuzz).not.toHaveBeenCalled();
 
-    act(() => vi.advanceTimersByTime(900));
+    act(() => vi.advanceTimersByTime(WORKBOOK_MARK_TIMING.eraseMs));
     expect(playWrongBuzz).toHaveBeenCalledTimes(1);
     expect(recordEvent).toHaveBeenLastCalledWith(
       expect.objectContaining({
@@ -103,15 +102,13 @@ describe("InteractiveVowelPickOne shared pencil adapter", () => {
   });
 
   it("records completion once and emits no separate final success event", () => {
-    const view = render(
-      <InteractiveVowelPickOne region={region} accent="#000" lessonId="2" />,
-    );
+    const view = render(<InteractiveVowelPickOne region={region} accent="#000" lessonId="2" />);
 
     fireEvent.click(view.getByRole("button", { name: "oso" }));
-    act(() => vi.advanceTimersByTime(3200));
+    act(() => vi.advanceTimersByTime(RESULT_MS));
 
     fireEvent.click(view.getByRole("button", { name: "avión" }));
-    act(() => vi.advanceTimersByTime(3200));
+    act(() => vi.advanceTimersByTime(RESULT_MS));
 
     expect(gretelEvent).toHaveBeenCalledWith("activity:complete", {
       itemId: "p2-pick-1-1",

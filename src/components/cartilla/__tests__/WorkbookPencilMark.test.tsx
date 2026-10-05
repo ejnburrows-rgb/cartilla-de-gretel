@@ -3,7 +3,9 @@
  */
 import { act, cleanup, render } from "@testing-library/react";
 import { afterEach, beforeEach, describe, expect, it, vi } from "vitest";
-import { WorkbookPencilMark } from "../WorkbookPencilMark";
+import { WORKBOOK_MARK_TIMING, WorkbookPencilMark } from "../WorkbookPencilMark";
+
+const { drawMs, holdMs, eraseMs } = WORKBOOK_MARK_TIMING;
 import { gretelEvent } from "@/lib/gretel-bus";
 import { useReducedMotion } from "@/hooks/useReducedMotion";
 
@@ -25,14 +27,13 @@ describe("WorkbookPencilMark shared feedback kernel", () => {
   });
 
   it("keeps the mark neutral for the full semantic hold before success", () => {
-    const { container } = render(
-      <WorkbookPencilMark isCorrect itemId="p1-0" />,
-    );
+    const { container } = render(<WorkbookPencilMark isCorrect itemId="p1-0" />);
 
-    act(() => vi.advanceTimersByTime(400));
+    expect(container.querySelector("[data-mark-status='drawing'] .workbook-pencil")).toBeTruthy();
+    act(() => vi.advanceTimersByTime(drawMs));
     expect(container.querySelector("[data-mark-status='holding']")).toBeTruthy();
 
-    act(() => vi.advanceTimersByTime(2799));
+    act(() => vi.advanceTimersByTime(holdMs - 1));
     expect(gretelEvent).not.toHaveBeenCalled();
 
     act(() => vi.advanceTimersByTime(1));
@@ -43,9 +44,11 @@ describe("WorkbookPencilMark shared feedback kernel", () => {
 
   it("preserves the neutral hold under reduced motion", () => {
     vi.mocked(useReducedMotion).mockReturnValue(true);
-    render(<WorkbookPencilMark isCorrect itemId="p1-0" />);
+    const { container } = render(<WorkbookPencilMark isCorrect itemId="p1-0" />);
+    expect(container.querySelector(".workbook-pencil")).toBeNull();
+    expect(container.querySelector("animate, animateMotion")).toBeNull();
 
-    act(() => vi.advanceTimersByTime(2799));
+    act(() => vi.advanceTimersByTime(holdMs - 1));
     expect(gretelEvent).not.toHaveBeenCalled();
 
     act(() => vi.advanceTimersByTime(1));
@@ -53,11 +56,9 @@ describe("WorkbookPencilMark shared feedback kernel", () => {
   });
 
   it("emits only completion for the final correct item", () => {
-    render(
-      <WorkbookPencilMark isCorrect completeOnSuccess itemId="p1-final" />,
-    );
+    render(<WorkbookPencilMark isCorrect completeOnSuccess itemId="p1-final" />);
 
-    act(() => vi.advanceTimersByTime(3200));
+    act(() => vi.advanceTimersByTime(drawMs + holdMs));
 
     expect(gretelEvent).toHaveBeenCalledTimes(1);
     expect(gretelEvent).toHaveBeenCalledWith("activity:complete", { itemId: "p1-final" });
@@ -70,13 +71,35 @@ describe("WorkbookPencilMark shared feedback kernel", () => {
       <WorkbookPencilMark isCorrect={false} itemId="p1-wrong" onRetry={onRetry} />,
     );
 
-    act(() => vi.advanceTimersByTime(3200));
+    act(() => vi.advanceTimersByTime(drawMs + holdMs));
     expect(gretelEvent).toHaveBeenCalledWith("answer:wrong", { itemId: "p1-wrong" });
     expect(container.querySelector("[data-mark-status='erasing']")).toBeTruthy();
+    expect(container.querySelector(".workbook-pencil--eraser")).toBeTruthy();
     expect(onRetry).not.toHaveBeenCalled();
 
-    act(() => vi.advanceTimersByTime(900));
+    act(() => vi.advanceTimersByTime(eraseMs));
     expect(onRetry).toHaveBeenCalledTimes(1);
     expect(container.querySelector(".workbook-pencil-mark-container")).toBeNull();
+  });
+
+  it("draws a visible mark that fills the picture cell", () => {
+    const { container } = render(<WorkbookPencilMark isCorrect itemId="p1-0" />);
+    const root = container.querySelector(".workbook-pencil-mark");
+    expect(
+      root
+        ?.querySelector("svg.workbook-pencil-mark__svg path.workbook-pencil-mark__stroke")
+        ?.getAttribute("d"),
+    ).toMatch(/^M [\d.-]+ [\d.-]+ C /);
+    expect(root?.querySelector("animate[attributeName='stroke-dashoffset']")).toBeTruthy();
+    expect(root?.querySelector("animateMotion")).toBeTruthy();
+  });
+
+  it("renders a validated mark statically without replaying the pencil", () => {
+    const { container } = render(<WorkbookPencilMark isCorrect status="correct" itemId="p1-0" />);
+    expect(
+      container.querySelector("[data-mark-status='correct'] path.workbook-pencil-mark__stroke"),
+    ).toBeTruthy();
+    expect(container.querySelector(".workbook-pencil")).toBeNull();
+    expect(container.querySelector("animate")).toBeNull();
   });
 });
