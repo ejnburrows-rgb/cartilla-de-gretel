@@ -6,6 +6,7 @@
   "type": "module",
   "scripts": {
     "dev": "pnpm prepare:art && vite dev",
+    "dev:worker": "vite dev",
     "build": "pnpm prepare:art && pnpm verify:assets && pnpm typecheck && pnpm test && vite build",
     "build:app": "pnpm build",
     "verify:release": "pnpm build && pnpm exec playwright install chromium && pnpm test:e2e",
