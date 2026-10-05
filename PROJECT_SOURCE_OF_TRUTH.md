@@ -10,6 +10,8 @@
 
 Finish La Cartilla de Gretel as a **school-pilot-ready e-learning platform** based directly on the physical Student Workbook and teacher Flip Chart.
 
+Under the currently deferred live-auth/Supabase scope, "school-pilot-ready" means demo/pilot use with **non-real student data** until real-data security/privacy blockers are resolved. A real-child/student-data pilot cannot pass final release merely by declaring backend work deferred.
+
 The digital product must:
 - preserve the books' instructional structure, sequence, wording, exercises, and approved artwork;
 - remove non-instructional filler such as blank/credits-only pages from the learner flow;
@@ -68,7 +70,7 @@ Direct cloud release verification remains tracked in #389. Production foreground
 
 Final gates follow with whole-Workbook regression (#450), teacher/Flip Chart validation, performance, welcome-media integration, and final assembled-product release proof. The clean Workbook surface, foreground-art remediation, living-art motion, Gretel behavior, and page-turn system must be integrated before the final Workbook validation gate. The Flip Chart keeps its independently verified richer presentation.
 
-Supabase/live-auth work remains deferred from the current product-completion path.
+Supabase/live-auth expansion remains deferred from the current product-completion path for demo/non-real-data pilot use. Current real-data security/privacy issues must be resolved before any production/school pilot uses real child/student data; deferral alone is not a real-data release clearance.
 
 ## Proof rule
 
