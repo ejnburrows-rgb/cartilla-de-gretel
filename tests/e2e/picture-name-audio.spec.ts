@@ -28,19 +28,20 @@ async function collectPlayback(page: any) {
   });
 }
 
-test('shipped picture audio honors recorded-only policy and does not change reading progress', async ({ page }) => {
+test('shipped picture audio plays approved recordings, stays silent for unrecorded names, and does not change reading progress', async ({ page }) => {
   await collectPlayback(page);
-  await page.goto('/cartilla/presentar/2');
-  const oso = page.locator('[data-picture-name="oso"]').first();
-  await expect(oso).toBeVisible();
+  await page.goto('/cartilla/presentar/13');
+  const nido = page.locator('[data-picture-name="nido"]').first();
+  const ternero = page.locator('[data-picture-name="ternero n"]').first();
+  await expect(nido).toBeVisible();
   const before = await page.evaluate(() => JSON.stringify(localStorage));
-  await oso.click();
-  await expect(oso).toHaveAttribute('data-picture-audio-status', 'missing-recording');
+  await nido.click();
+  await expect(nido).toHaveAttribute('data-picture-audio-status', 'recorded');
+  await ternero.click();
+  await expect(ternero).toHaveAttribute('data-picture-audio-status', 'missing-recording');
   await expect(page.locator('.picture-audio-status')).toContainText('aún no está disponible');
-  await page.locator('[data-picture-name="olla"]').first().click();
-  await oso.focus(); await page.keyboard.press('Enter');
   const proof = await page.evaluate(() => (window as any).pictureProof);
-  expect(proof.audio.filter((event: any) => event.action === 'play')).toHaveLength(0);
+  expect(proof.audio.filter((event: any) => event.action === 'play').map((event: any) => decodeURIComponent(event.src))).toEqual(['/audio/voz/vocabulario/nido.mp3']);
   expect(proof.speech).toHaveLength(0); expect(proof.learning).toHaveLength(0); expect(proof.progress).toHaveLength(0);
   expect(await page.evaluate(() => JSON.stringify(localStorage))).toBe(before);
   await page.screenshot({ path: 'docs/proofs/batch-3/recording-pending-reading-ungated.png', fullPage: true });
@@ -80,12 +81,13 @@ test('the same direct answer tap hears the name path and still grades, even whil
   const viewer = page.locator('.native-lesson-viewer');
   await viewer.getByRole('button', { name: 'Siguiente' }).click();
   await viewer.getByRole('button', { name: 'anillo', exact: true }).click();
-  await expect(viewer.locator('[data-picture-name="anillo"]')).toHaveAttribute('data-picture-audio-status', 'missing-recording');
+  await expect(viewer.locator('[data-picture-name="anillo"]')).toHaveAttribute('data-picture-audio-status', 'recorded');
   await expect(viewer.locator('.graded-correct')).toHaveCount(1);
   await page.evaluate(async () => { const voice = await import('/src/lib/gretel-voice.ts'); voice.setGretelVoiceMuted(true); });
   for (const name of ['estrella', 'indio', 'oso', 'uniforme']) await viewer.getByRole('button', { name, exact: true }).click();
   await expect(viewer.getByRole('button', { name: 'Siguiente' })).not.toHaveAttribute('aria-disabled', 'true');
   const proof = await page.evaluate(() => (window as any).pictureProof);
+  expect(proof.audio.filter((e: any) => e.action === 'play').map((e: any) => decodeURIComponent(e.src))).toEqual(['/audio/voz/vocabulario/anillo.mp3']);
   expect(proof.learning.filter((e: any) => e.type === 'answer:correct')).toHaveLength(5);
   expect(proof.learning.filter((e: any) => e.type === 'answer:wrong' || e.type === 'support:delivered' || e.type === 'hint:show')).toHaveLength(0);
   await page.screenshot({ path: 'docs/proofs/batch-3/direct-tap-still-grades.png', fullPage: true });
