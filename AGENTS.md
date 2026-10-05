@@ -68,6 +68,7 @@ Jules is a worker, not the project controller. The controller owns scope selecti
 - Give each session explicit owned files/behavior and explicit forbidden scope.
 - Start from CURRENT `main` and current repo instructions. Older task snapshots, prior bot comments, and archived docs never override current truth.
 - For Student Workbook visual work, Jules must preserve the owner-approved clean digital-canvas distinction: dense learner exercises do not use full scenic wallpaper; existing scenic assets stay preserved for the teacher Flip Chart and other explicitly approved contexts. Do not delete/regenerate those assets or simplify the Flip Chart as part of a Workbook UI task.
+- For the #495 Workbook visual realignment, Jules must follow the golden-page gate: implement and verify #496 (Workbook page 1) first. Do not begin #498 broad page-family rollout until the controller records #496 as visually accepted. A #496 worker must not absorb #497 living-motion debugging or #454 foreground-color remediation; those remain separate lanes.
 
 #### Early checkpoint and recovery contract
 
