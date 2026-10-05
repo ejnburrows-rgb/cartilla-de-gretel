@@ -106,7 +106,7 @@
             },
             {
               "caption": "uno",
-              "illustrationSrc": "/cartilla/art/faithful/vocal-u/uno.webp",
+              "illustrationSrc": "/cartilla/art/optimized/flipchart-native/p008-uno.png",
               "correct": false,
               "x": 0.239826,
               "y": 0.489326,
@@ -535,7 +535,7 @@
             {
               "letter": "u",
               "caption": "uno",
-              "illustrationSrc": "/cartilla/art/faithful/vocal-u/uno.webp",
+              "illustrationSrc": "/cartilla/art/optimized/flipchart-native/p008-uno.png",
               "correct": true
             }
           ]
@@ -616,7 +616,7 @@
             },
             {
               "caption": "uno",
-              "illustrationSrc": "/cartilla/art/faithful/vocal-u/uno.webp",
+              "illustrationSrc": "/cartilla/art/optimized/flipchart-native/p008-uno.png",
               "correct": false
             },
             {
@@ -814,7 +814,7 @@
             },
             {
               "caption": "uno",
-              "illustrationSrc": "/cartilla/art/faithful/vocal-u/uno.webp",
+              "illustrationSrc": "/cartilla/art/optimized/flipchart-native/p008-uno.png",
               "correct": false
             },
             {
@@ -1062,7 +1062,7 @@
             },
             {
               "caption": "uno",
-              "illustrationSrc": "/cartilla/art/faithful/vocal-u/uno.webp",
+              "illustrationSrc": "/cartilla/art/optimized/flipchart-native/p008-uno.png",
               "correct": false
             }
           ]
@@ -1250,7 +1250,7 @@
             },
             {
               "caption": "uno",
-              "illustrationSrc": "/cartilla/art/faithful/vocal-u/uno.webp",
+              "illustrationSrc": "/cartilla/art/optimized/flipchart-native/p008-uno.png",
               "correct": false
             },
             {
@@ -1458,7 +1458,7 @@
             },
             {
               "caption": "uno",
-              "illustrationSrc": "/cartilla/art/faithful/vocal-u/uno.webp",
+              "illustrationSrc": "/cartilla/art/optimized/flipchart-native/p008-uno.png",
               "correct": true
             },
             {
@@ -1488,7 +1488,7 @@
             },
             {
               "caption": "uno",
-              "illustrationSrc": "/cartilla/art/faithful/vocal-u/uno.webp",
+              "illustrationSrc": "/cartilla/art/optimized/flipchart-native/p008-uno.png",
               "correct": true
             }
           ]
@@ -1520,7 +1520,7 @@
             },
             {
               "caption": "uno",
-              "illustrationSrc": "/cartilla/art/faithful/vocal-u/uno.webp",
+              "illustrationSrc": "/cartilla/art/optimized/flipchart-native/p008-uno.png",
               "correct": true
             },
             {
