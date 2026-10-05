@@ -1,6 +1,7 @@
 import { useState, useRef, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { gretelEvent } from "@/lib/gretel-bus";
+import { LivingIllustration } from "@/components/living/LivingIllustration";
 
 export interface TracePictureItem {
   id: string;
@@ -222,11 +223,10 @@ export function TraceLetterToPicture({
             >
               <div className="flex-1 flex items-center justify-center w-full mb-1">
                 {item.imageUrl ? (
-                  <img
+                  <LivingIllustration
                     src={item.imageUrl}
                     alt={item.label}
-                    className="max-h-full max-w-full object-contain pointer-events-none select-none"
-                    draggable={false}
+                    loading="lazy"
                   />
                 ) : (
                   <div className="text-3xl sm:text-4xl pointer-events-none select-none">🖼️</div>

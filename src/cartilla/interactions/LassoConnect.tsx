@@ -13,6 +13,7 @@ import { useActivityEvents, useActivityState } from "@/lib/activity-events";
 import { playCorrectChord, playWrongBuzz } from "@/lib/piano-audio";
 import { loadLassoProgress, saveLassoProgress } from "@/lib/activity-canvas-store";
 import { useReducedMotion } from "@/hooks/useReducedMotion";
+import { LivingIllustration } from "@/components/living/LivingIllustration";
 import type { WorkbookObject } from "@/content/workbook/types";
 import type { InteractionProps } from "./shared";
 import "@/styles/activity-mechanics.css";
@@ -700,7 +701,7 @@ export function LassoConnect({
                 data-example={t.example ? "true" : undefined}
               >
                 {t.src ? (
-                  <img src={t.src} alt="" draggable={false} loading="lazy" />
+                  <LivingIllustration src={t.src} alt={t.label} loading="lazy" />
                 ) : (
                   <span className="am-lasso__target-text">{t.label}</span>
                 )}

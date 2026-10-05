@@ -4,6 +4,7 @@ import { useLayoutEffect, useRef, useState } from "react";
 import type { CSSProperties } from "react";
 import type { PageRegion } from "@/lib/book-faithful";
 import { InteractivePictureGrid, InteractiveVowelPickOne } from "./InteractivePageExercises";
+import { LivingIllustration } from "@/components/living/LivingIllustration";
 import "@/styles/digital-workbook.css";
 
 export const DIGITAL_PAGE_WIDTH = 612;
@@ -46,7 +47,9 @@ function FixedRegion({ region, interactive }: { region: PageRegion; interactive:
                 <div className="digital-static-grid__row" key={row.letter}>
                   <span className="digital-static-grid__letter">{row.letter}</span>
                   {row.cells.map((cell, index) => (
-                    <img key={index} src={cell.illustrationSrc} alt={cell.caption ?? ""} />
+                    cell.illustrationSrc ? (
+                      <LivingIllustration key={index} src={cell.illustrationSrc} alt={cell.caption ?? ""} loading="lazy" />
+                    ) : null
                   ))}
                 </div>
               ))}
@@ -61,7 +64,11 @@ function FixedRegion({ region, interactive }: { region: PageRegion; interactive:
             <InteractivePictureGrid region={region} accent="#008b82" precise lessonId="1" />
           ) : (
             <div className="digital-static-picture-grid" style={{ gridTemplateColumns: region.gridColumnFracs?.map((fraction) => `${fraction * 100}%`).join(" "), gridTemplateRows: region.gridRowFracs?.map((fraction) => `${fraction * 100}%`).join(" ") }}>
-              {(region.cells ?? []).map((cell, index) => <img key={index} src={cell.illustrationSrc} alt={cell.caption ?? ""} />)}
+              {(region.cells ?? []).map((cell, index) => (
+                cell.illustrationSrc ? (
+                  <LivingIllustration key={index} src={cell.illustrationSrc} alt={cell.caption ?? ""} loading="lazy" />
+                ) : null
+              ))}
             </div>
           )}
         </div>

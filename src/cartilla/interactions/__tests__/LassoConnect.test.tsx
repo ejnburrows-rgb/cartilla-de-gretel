@@ -180,4 +180,31 @@ describe("LassoConnect — cinematic rope", () => {
     expect(container.querySelector(".am-lasso__gretel-img")).toBeTruthy();
     expect(container.querySelector(".am-lasso__shadow")).toBeTruthy();
   });
+
+  it("mounts LivingIllustration on targets with registered actor motion", () => {
+    const livingTargets = [
+      { id: "oso", label: "oso", src: "/cartilla/art/faithful/vocal-o/oso.webp", correct: true },
+      { id: "abeja", label: "abeja", src: "/cartilla/art/faithful/vocal-a/abeja.webp", correct: false },
+    ];
+    const { container } = render(
+      <LassoConnect
+        pageKey="lasso-living"
+        targets={livingTargets}
+        mode="mark"
+        reducedMotion={false}
+      />,
+    );
+    const livingEls = container.querySelectorAll(".living-illustration");
+    expect(livingEls.length).toBe(2);
+
+    const oso = container.querySelector('[data-picture-name="oso"]');
+    expect(oso).toBeTruthy();
+    expect(oso?.getAttribute("data-ambient-motion")).toBe("breathe");
+    expect(oso?.getAttribute("data-blink-mode")).toBe("frame");
+
+    const abeja = container.querySelector('[data-picture-name="abeja"]');
+    expect(abeja).toBeTruthy();
+    expect(abeja?.getAttribute("data-ambient-motion")).toBe("hover");
+    expect(abeja?.getAttribute("data-part-based")).toBe("true");
+  });
 });
