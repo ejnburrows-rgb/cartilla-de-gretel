@@ -405,7 +405,10 @@
 
 /* Independently animated semantic parts. The source illustration remains the
    canonical art; these overlays reuse its pixels and move only the intended
-   anatomical/object region. */
+   anatomical/object region.
+   Part selectors are scoped to the rigged wrapper so they outrank the generic
+   "exercise pictures stay still" rule (`.fp-ix-cell img`); only registered
+   actor parts (rendered when ambient motion is active) can move. */
 .living-illustration__part {
   position: absolute;
   inset: 0;
@@ -419,23 +422,28 @@
   -webkit-user-drag: none;
 }
 
-.living-illustration__part--wings {
+/* A rigged actor moves only its registered parts; its base art must not pick
+   up a generic grid float, or the base and the part overlays drift apart. */
+.living-illustration--part-rigged > .living-illustration__art {
+  animation: none;
+}
+.living-illustration--part-rigged > .living-illustration__part--wings {
   animation: living-part-wings 720ms ease-in-out var(--living-delay) infinite;
 }
 
-.living-illustration__part--tail {
+.living-illustration--part-rigged > .living-illustration__part--tail {
   animation: living-part-tail 920ms ease-in-out var(--living-delay) infinite;
 }
 
-.living-illustration__part--head {
+.living-illustration--part-rigged > .living-illustration__part--head {
   animation: living-part-head 4.2s ease-in-out var(--living-delay) infinite;
 }
 
-.living-illustration__part--ears {
+.living-illustration--part-rigged > .living-illustration__part--ears {
   animation: living-part-ears 3.6s ease-in-out var(--living-delay) infinite;
 }
 
-.living-illustration__part--trunk {
+.living-illustration--part-rigged > .living-illustration__part--trunk {
   animation: living-part-trunk 4.4s ease-in-out var(--living-delay) infinite;
 }
 
