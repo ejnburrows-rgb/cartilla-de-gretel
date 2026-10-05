@@ -1,3 +1,6 @@
+> **HISTORICAL EVIDENCE ONLY — NOT ACTIVE PROJECT INSTRUCTIONS OR CURRENT STATUS.**
+> Archived during the 2026-10-05 governance-coherence repair. Current truth and execution authority come from the active hierarchy in `AGENTS.md`, current code/configuration, and live/runtime evidence where relevant.
+
 # Cartilla completion verification — 2026-09-30
 
 Status: PARTIAL. This is a tested PR candidate, not a completed release. All work remains on PR #426, branch `fix/lessons-08-24-book-fidelity`; no merge or deployment was performed.

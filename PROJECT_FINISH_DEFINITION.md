@@ -22,7 +22,7 @@ tasks/plan.md is the current gap-closing execution plan. This file is the durabl
 
 ## Finished product
 
-The finished product is a **school-pilot-ready digital classroom edition of La Cartilla de Gretel** containing BOTH:
+The finished product is a **school-pilot-ready digital classroom edition of La Cartilla de Gretel** containing BOTH. Under the current deferred live-auth/Supabase scope, that finish line permits demo/pilot use only with non-real student data until real-data security/privacy blockers are resolved:
 
 - the complete Student Workbook experience; and
 - the complete teacher / Flip Chart experience required to run the classroom product.
@@ -107,13 +107,15 @@ The product may be declared finished without the final welcome video if:
 
 If the approved asset later becomes available, it may be integrated without reopening the definition of finished.
 
-## 6. Live Supabase authentication / multi-user backend — NOT REQUIRED FOR CURRENT FINISH LINE
+## 6. Live Supabase authentication / multi-user backend — DEFERRED FOR DEMO/NON-REAL-DATA PILOT ONLY
 
-Full live Supabase authentication / multi-user backend expansion is currently deferred and does **not** block completion of the current pilot/demo classroom product.
+Full live Supabase authentication / multi-user backend expansion is currently deferred and does **not** block completion of the current demo/non-real-data classroom pilot product.
 
-Agents must not reopen that scope solely because this product is approaching completion.
+That deferral does **not** authorize a production or school pilot using real child/student data while known security/privacy blockers remain unresolved. Real-data pilot readiness requires those blockers to be resolved and verified; they cannot be waived merely by calling Supabase work deferred.
 
-A later owner decision may create a new phase, but it does not retroactively move this finish line.
+Agents must not invent retention periods, licensing rules, or security-policy choices during ordinary implementation. Those remain owner-policy decisions.
+
+A later owner decision may create a broader backend phase, but it does not retroactively change the demo/non-real-data finish line described here.
 
 ## 7. Accessibility, reliability, and performance — REQUIRED
 
@@ -125,7 +127,7 @@ Before completion:
 - no known serious accessibility regression remains;
 - no known reliability defect remains in the classroom-critical flows;
 - measured performance work required by the current completion plan is complete;
-- the product is stable enough for a real classroom pilot.
+- the product is stable enough for the currently authorized demo/non-real-data classroom pilot; real-data school use additionally requires resolution of the known real-data security/privacy blockers.
 
 ## 8. Defect standard — ZERO KNOWN PRODUCT DEFECTS AT DECLARATION
 

@@ -3,7 +3,7 @@
 > **Finish contract:** Read PROJECT_FINISH_DEFINITION.md before planning or declaring Cartilla work complete. It is the canonical definition of what must be true for the entire project to be finished. Compare current verified reality against it and close only real remaining gaps.
 
 
-**Status:** CANONICAL. This overrides all prior layout/fidelity instructions.
+**Status:** CANONICAL for Cartilla book structure, content, fidelity, and presentation. Within that domain it supersedes prior layout/fidelity instructions; it does not outrank newer explicit owner decisions or `AGENTS.md` execution/safety policy.
 **Last updated:** 2026-10-04 (owner locked clean Student Workbook canvas while preserving Flip Chart scenic presentation)
 
 ---
@@ -153,7 +153,7 @@ The Student Workbook and teacher Flip Chart share book-faithful structure/conten
 
 ### Directive protection
 
-`CARTILLA_DIGITAL_DIRECTIVE.md` is the standing owner directive. Do not modify, soften, reinterpret, or supersede it without the owner's explicit instruction in chat. If you find a file that contradicts it, the directive wins — update the contradicting file, not the directive. If you believe the directive is wrong, raise it with the owner in chat and wait for their decision. Do not unilaterally change it.
+`CARTILLA_DIGITAL_DIRECTIVE.md` is the standing owner directive for Cartilla book structure/content/presentation fidelity. Within that domain, do not modify, soften, reinterpret, or supersede it without the owner's explicit instruction. It does not override `AGENTS.md` execution/safety policy or a newer explicit owner decision. If an older domain instruction contradicts it, update the older instruction rather than silently changing this directive.
 
 
 ## Canonical page-turn presentation

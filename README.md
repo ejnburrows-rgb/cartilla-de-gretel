@@ -4,39 +4,26 @@ Digital classroom edition of *La Cartilla de Gretel* by Leonor Lopetegui.
 
 ## Source of truth
 
-- `main` is the production code source of truth.
-- `AGENTS.md` governs execution, safety, Git, and deployment.
-- `PROJECT_FINISH_DEFINITION.md` is the canonical owner-locked definition of what must be true before the entire project can be called finished.
-- `PROJECT_SOURCE_OF_TRUTH.md` is the canonical current product state, priorities, active scope, and major owner decisions.
-- `CARTILLA_DIGITAL_DIRECTIVE.md` is the canonical Cartilla fidelity and presentation directive.
-- `ASSET_FIDELITY_POLICY.md` is the active artwork, image, verified color-transfer, and motion rule.
-- `STUDENT_INTERACTION_STANDARD.md` is the canonical premium Workbook interaction/motion standard.
-- `repo.md` is the authoritative method when scenic background generation is explicitly approved; it is not a requirement to render scenic backgrounds on every page.
-- Authoritative book sources are the owner's originals in:
-  `Google Drive > Cartilla Production Hub > 01 Source Documents`
-  - `La Cartilla de Gretel Flip Chart.pdf`
-  - `Libro del alumno - Rescan and Optimize (2).pdf`
-- Structure and content follow the matching source book page.
-- Presentation is modern digital and responsive, as defined by the digital directive.
-- The Student Workbook uses a clean digital canvas for dense learner exercises; full scenic wallpaper is reserved from those surfaces. The teacher Flip Chart may retain richer source-appropriate scenery.
-- Approved/cropped book images are source-locked: do not regenerate, redraw, replace, or change geometry/content. Verified source-preserving color transfer is allowed under `ASSET_FIDELITY_POLICY.md`; scenic backgrounds are a separate, explicitly approved background-only exception under `repo.md`.
-- Vite + React + TypeScript + TanStack Router + Supabase.
-- Production host: Vercel.
+`AGENTS.md` defines the complete active instruction hierarchy; follow that hierarchy.
 
-## Run locally
+Repository/runtime state is interpreted as follows:
+- `main` = the current repository source tree.
+- live Vercel = deployed/runtime truth and must be checked directly when deployment state matters.
+- an open PR = candidate state, not current `main` and not deployed truth.
+- never assume current `main` equals what is currently deployed.
+
+The authoritative physical Student Workbook and teacher Flip Chart PDFs remain the source authority for curriculum, wording, page structure, and source fidelity.
+
+## Commands
+
+General/controller development may use `pnpm dev`; production/release verification may use `pnpm build` and `pnpm verify:release`. These commands can invoke production-art preparation and are **not ordinary implementation-worker commands**.
+
+Ordinary implementation workers use targeted tests/checks, `pnpm typecheck` when relevant, `pnpm verify:worker` when broader non-mutating verification is useful, and `pnpm dev:worker` for browser/runtime work. Follow the worker command boundary in `AGENTS.md`.
 
 ```bash
 pnpm install --frozen-lockfile
-pnpm dev
+pnpm dev:worker
 ```
-
-## Verify
-
-```bash
-pnpm build
-```
-
-The build runs TypeScript checks, unit tests, and the Vite production build.
 
 ## Environment
 
