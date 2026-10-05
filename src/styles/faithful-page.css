@@ -673,17 +673,14 @@
 .fp-native-title { font-family:"Fredoka",ui-rounded,system-ui,sans-serif; }
 .fp-region--instruction {
   font-family:"Andika",ui-rounded,system-ui,sans-serif;
-  font-size: clamp(28px, 4.2cqw, 38px);
+  font-size: clamp(24px, 3.8cqw, 34px);
   line-height:1.35;
   color:var(--lc-ink,#25313a);
-}
-.native-lesson-viewer[data-native-page="1"] .fp-region--instruction {
-  font-size: clamp(24px, 3.8cqw, 34px);
   background: transparent;
   box-shadow: none;
   border-radius: 0;
 }
-.native-lesson-viewer[data-native-page="1"] .fp-region--instruction .fp-label {
+.fp-region--instruction .fp-label {
   font-family:"Fredoka",ui-rounded,system-ui,sans-serif;
   font-weight:700;
   color:var(--lc-teal,#1f9e94);
