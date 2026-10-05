@@ -493,3 +493,35 @@
   border-color: #b9b4aa;
   color: #6c6a65;
 }
+
+/* Workbook Page 1 cells keep the printed grid's proportions (192 × 171 on
+ * page-001), so the five rows fit the letter-size page the way the book does. */
+.native-lesson-viewer[data-native-page="1"] .fp-ix-grid .fp-ix-cell {
+  aspect-ratio: 192 / 171;
+}
+.native-lesson-viewer[data-native-page="1"] .fp-ix-grid,
+.native-lesson-viewer[data-native-page="1"] .fp-ix-grid .fp-ix-row {
+  gap: 1cqw;
+}
+.native-lesson-viewer[data-native-page="1"] .faithful-page__body {
+  gap: 2.4cqw;
+  padding-top: 4.6%;
+}
+
+/* Laptop fit (owner decision 2026-10-05): the whole Workbook page is visible
+ * without scrolling. The page takes the height left under the lesson header
+ * but never more than its column allows, keeping the printed letter-size
+ * shape (so the page background never shows blank bands on tablets), and the
+ * instruction scales with the page (cqw) instead of the window (vw), so the
+ * page keeps the same composition at every screen size. */
+@media (min-width: 761px) {
+  .native-lesson-viewer__content .faithful-page {
+    width: min(100%, calc(min(900px, 100dvh - 196px) * 612 / 792));
+    height: auto;
+    aspect-ratio: 612 / 792;
+  }
+  .native-lesson-viewer__content .fp-region--instruction {
+    font-size: clamp(14px, 3.75cqw, 30px);
+    margin-top: 2.2cqw;
+  }
+}

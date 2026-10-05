@@ -30,8 +30,55 @@ export type LivingActor = {
 };
 
 const A = "/cartilla/art/faithful";
+/** Workbook Page 1 display art (owner decision 2026-10-05). */
+const W1 = "/cartilla/art/optimized/workbook/leccion-1";
+const P1 = "/cartilla/art/faithful/leccion-1/wb-p1";
 
 export const LIVING_ACTORS: Readonly<Record<string, LivingActor>> = Object.freeze({
+  // Workbook Page 1 (owner color art / printed drawings): same meaning as the
+  // faithful actors, whole-picture motion only (part rigs belong to other crops).
+  [`${W1}/oso.svg`]: {
+    src: `${W1}/oso.svg`,
+    action: "breathe",
+    creature: true,
+    reducedMotion: "static",
+    meaning: "respiración y mirada natural",
+  },
+  [`${W1}/oveja.svg`]: {
+    src: `${W1}/oveja.svg`,
+    action: "nod",
+    creature: true,
+    reducedMotion: "static",
+    meaning: "gesto suave de oveja",
+  },
+  [`${W1}/avion.svg`]: {
+    src: `${W1}/avion.svg`,
+    action: "glide",
+    creature: false,
+    reducedMotion: "static",
+    meaning: "desplazamiento de avión",
+  },
+  [`${W1}/abanico.svg`]: {
+    src: `${W1}/abanico.svg`,
+    action: "sway",
+    creature: false,
+    reducedMotion: "static",
+    meaning: "abanico que se mece",
+  },
+  [`${W1}/elefante.svg`]: {
+    src: `${W1}/elefante.svg`,
+    action: "nod",
+    creature: true,
+    reducedMotion: "static",
+    meaning: "elefante que asiente con suavidad",
+  },
+  [`${P1}/abeja.svg`]: {
+    src: `${P1}/abeja.svg`,
+    action: "hover",
+    creature: true,
+    reducedMotion: "static",
+    meaning: "vuelo suspendido de abeja",
+  },
   [`${A}/vocal-o/oso.webp`]: { src: `${A}/vocal-o/oso.webp`, action: "breathe", creature: true, blinkFrame: `${A}/vocal-o/oso-blink.webp`, reducedMotion: "static", meaning: "respiración y mirada natural" },
   [`${A}/vocal-o/oruga.webp`]: { src: `${A}/vocal-o/oruga.webp`, action: "crawl", creature: true, reducedMotion: "static", meaning: "avance corto de oruga" },
   [`${A}/vocal-o/oveja.webp`]: { src: `${A}/vocal-o/oveja.webp`, action: "nod", creature: true, reducedMotion: "static", meaning: "gesto suave de oveja" },
