@@ -1,5 +1,8 @@
 # STUDENT INTERACTION STANDARD — La Cartilla de Gretel
 
+> **Finish contract:** Read PROJECT_FINISH_DEFINITION.md before planning or declaring Cartilla work complete. It is the canonical definition of what must be true for the entire project to be finished. Compare current verified reality against it and close only real remaining gaps.
+
+
 **Status:** CANONICAL OWNER-APPROVED STUDENT INTERACTION DIRECTION  
 **Approved by:** Emilio  
 **Approved on:** 2026-10-03
