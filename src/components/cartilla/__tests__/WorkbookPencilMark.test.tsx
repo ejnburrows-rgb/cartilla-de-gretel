@@ -102,4 +102,14 @@ describe("WorkbookPencilMark shared feedback kernel", () => {
     expect(container.querySelector(".workbook-pencil")).toBeNull();
     expect(container.querySelector("animate")).toBeNull();
   });
+  it("moves slowly enough for a child to see the pencil and the eraser (owner 2026-10-05)", () => {
+    expect(WORKBOOK_MARK_TIMING.drawMs).toBeGreaterThanOrEqual(2400);
+    expect(WORKBOOK_MARK_TIMING.eraseMs).toBeGreaterThanOrEqual(3000);
+    const { container } = render(<WorkbookPencilMark isCorrect={false} itemId="p1-1" />);
+    const pencil = container.querySelector(".workbook-pencil .workbook-pencil__shape");
+    // A classic wooden pencil: lacquered body, cedar cone, graphite point, metal ferrule, eraser.
+    for (const part of ["lacq", "wood", "lead", "metal", "eraser"]) {
+      expect(pencil?.querySelector(`linearGradient[id$='-${part}']`)).toBeTruthy();
+    }
+  });
 });

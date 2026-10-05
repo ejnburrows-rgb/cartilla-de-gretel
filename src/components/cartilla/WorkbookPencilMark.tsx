@@ -18,54 +18,177 @@ export interface WorkbookPencilMarkProps {
 
 /**
  * Semantic timing of the Real Workbook Mark (STUDENT_INTERACTION_STANDARD §1–2).
- * The pencil draws the mark, the mark holds in neutral graphite for ~3 s, then
- * the result is revealed. Reduced motion removes only the decorative motion:
- * the mark appears at once and keeps the same neutral hold.
+ * The pencil comes to the page, draws the mark slowly enough for a child to see
+ * the pencil itself, then lifts away while the mark holds in neutral graphite
+ * for ~3 s before the result is revealed. Reduced motion removes only the
+ * decorative motion: the mark appears at once and keeps the same neutral hold.
  */
 export const WORKBOOK_MARK_TIMING = {
-  drawMs: 800,
+  /** Pencil fades in and settles on the starting point (part of drawMs). */
+  approachMs: 500,
+  /** Tap → mark finished (approach + the drawn stroke). */
+  drawMs: 2700,
+  /** Pencil lifts away at the start of the neutral hold. */
+  liftMs: 900,
   holdMs: 2800,
-  /** Rotate to the eraser end, erase along the mark, lift away. */
-  eraseMs: 1300,
+  /** Pencil appears, flips to its eraser end, rubs the mark out backwards, lifts away. */
+  eraseMs: 3100,
+  eraseFlipMs: 1000,
+  eraseLiftMs: 300,
   reducedEraseMs: 60,
 } as const;
 
 const EASE = "0.45 0.05 0.55 0.95";
-/** Pencil geometry: tip at (0,0), body along -y. Length 62 units. */
-const PENCIL_CENTER_Y = -31;
+/** Pencil geometry: tip at (0,0), body along -y. Length 72 units. */
+const PENCIL_LENGTH = 72;
+const PENCIL_CENTER_Y = -PENCIL_LENGTH / 2;
+/** Writing pose: leaning right like a right-handed child's pencil. */
+const PENCIL_POSE = "rotate(30) scale(1.2)";
 
-/** One classic wooden school pencil, drawn tip-at-origin for path following. */
-function PencilShape() {
+/**
+ * One classic yellow wooden school pencil (hexagonal lacquered body, sharpened
+ * cedar cone, graphite point, crimped metal ferrule, pink eraser), drawn
+ * tip-at-origin so it can follow the mark path. `uid` keeps gradient ids unique.
+ */
+function PencilShape({ uid }: { uid: string }) {
+  const g = (name: string) => `${uid}-${name}`;
+  const u = (name: string) => `url(#${g(name)})`;
   return (
     <g className="workbook-pencil__shape">
+      <defs>
+        <linearGradient id={g("lacq")} x1="-4" y1="0" x2="4" y2="0" gradientUnits="userSpaceOnUse">
+          <stop offset="0" stopColor="#f9cf3d" />
+          <stop offset="0.3" stopColor="#ffe27a" />
+          <stop offset="0.34" stopColor="#f7c21c" />
+          <stop offset="0.66" stopColor="#efb10f" />
+          <stop offset="0.7" stopColor="#d99706" />
+          <stop offset="1" stopColor="#b97a04" />
+        </linearGradient>
+        <linearGradient id={g("wood")} x1="-4" y1="0" x2="4" y2="0" gradientUnits="userSpaceOnUse">
+          <stop offset="0" stopColor="#f6dcb0" />
+          <stop offset="0.45" stopColor="#efcb93" />
+          <stop offset="1" stopColor="#c9975a" />
+        </linearGradient>
+        <linearGradient
+          id={g("lead")}
+          x1="-1.4"
+          y1="0"
+          x2="1.4"
+          y2="0"
+          gradientUnits="userSpaceOnUse"
+        >
+          <stop offset="0" stopColor="#6b6b73" />
+          <stop offset="0.45" stopColor="#3a3a40" />
+          <stop offset="1" stopColor="#1f1f23" />
+        </linearGradient>
+        <linearGradient
+          id={g("metal")}
+          x1="-4.3"
+          y1="0"
+          x2="4.3"
+          y2="0"
+          gradientUnits="userSpaceOnUse"
+        >
+          <stop offset="0" stopColor="#8e959e" />
+          <stop offset="0.25" stopColor="#f3f5f7" />
+          <stop offset="0.45" stopColor="#c3c8ce" />
+          <stop offset="0.75" stopColor="#9aa1a9" />
+          <stop offset="1" stopColor="#6c737b" />
+        </linearGradient>
+        <linearGradient
+          id={g("eraser")}
+          x1="-4"
+          y1="0"
+          x2="4"
+          y2="0"
+          gradientUnits="userSpaceOnUse"
+        >
+          <stop offset="0" stopColor="#f6a7b6" />
+          <stop offset="0.35" stopColor="#f9bcc8" />
+          <stop offset="1" stopColor="#d9768c" />
+        </linearGradient>
+      </defs>
+      {/* Pink eraser with a softly worn rounded top. */}
       <path
-        d="M -3.6 -56.2 L -3.6 -59.4 Q -3.6 -62 -1 -62 L 1 -62 Q 3.6 -62 3.6 -59.4 L 3.6 -56.2 Z"
-        fill="#ef8fa8"
-        stroke="#c7607d"
-        strokeWidth="0.4"
+        d="M -3.9 -65.6 L -3.9 -69.6 Q -3.9 -72 -1.6 -72 L 1.6 -72 Q 3.9 -72 3.9 -69.6 L 3.9 -65.6 Z"
+        fill={u("eraser")}
       />
-      <rect
-        x="-3.8"
-        y="-56.4"
-        width="7.6"
-        height="6.4"
-        rx="0.6"
-        fill="#c9ced6"
-        stroke="#8d949e"
-        strokeWidth="0.4"
-      />
-      <line x1="-3.8" y1="-54.3" x2="3.8" y2="-54.3" stroke="#8d949e" strokeWidth="0.45" />
-      <line x1="-3.8" y1="-52.2" x2="3.8" y2="-52.2" stroke="#8d949e" strokeWidth="0.45" />
-      <rect x="-3.6" y="-50" width="7.2" height="40" fill="#f4b41a" />
-      <rect x="-3.6" y="-50" width="2.3" height="40" fill="#fbd157" />
-      <rect x="1.3" y="-50" width="2.3" height="40" fill="#d8920c" />
       <path
-        d="M -3.6 -10 Q -2.4 -11.2 -1.2 -10 Q 0 -11.2 1.2 -10 Q 2.4 -11.2 3.6 -10 L 1.25 -3.3 L -1.25 -3.3 Z"
-        fill="#efd2a2"
-        stroke="#c99a5c"
-        strokeWidth="0.35"
+        d="M -3.9 -69.2 Q -3.9 -71.4 -1.8 -71.6 L -1.2 -71.6"
+        fill="none"
+        stroke="#fde0e6"
+        strokeWidth="0.5"
+        strokeLinecap="round"
       />
-      <path d="M -1.25 -3.3 L 1.25 -3.3 L 0 0 Z" fill="#3b3b40" />
+      {/* Crimped metal ferrule: two rolled rings around a ribbed band. */}
+      <rect x="-4.3" y="-66" width="8.6" height="9.4" rx="0.5" fill={u("metal")} />
+      <rect x="-4.3" y="-65.4" width="8.6" height="1.5" fill="#000" opacity="0.08" />
+      <rect x="-4.3" y="-58.6" width="8.6" height="1.5" fill="#000" opacity="0.08" />
+      {[-62.9, -61.9, -60.9].map((y) => (
+        <line key={y} x1="-4.3" y1={y} x2="4.3" y2={y} stroke="#737a83" strokeWidth="0.35" />
+      ))}
+      <line
+        x1="-4.3"
+        y1="-63.6"
+        x2="4.3"
+        y2="-63.6"
+        stroke="#ffffff"
+        strokeWidth="0.3"
+        opacity="0.7"
+      />
+      <line
+        x1="-4.3"
+        y1="-59.9"
+        x2="4.3"
+        y2="-59.9"
+        stroke="#ffffff"
+        strokeWidth="0.3"
+        opacity="0.7"
+      />
+      {/* Sharpened cedar cone (under the lacquer's scalloped edge). */}
+      <path d="M -4 -14.6 L 4 -14.6 L 1.35 -4.4 L -1.35 -4.4 Z" fill={u("wood")} />
+      <path
+        d="M -2.2 -12.8 L -0.9 -5.2 M 0.6 -13.4 L 0.35 -5 M 2.4 -12.2 L 1.05 -5.4"
+        stroke="#b9874d"
+        strokeWidth="0.22"
+        opacity="0.55"
+      />
+      {/* Graphite point. */}
+      <path d="M -1.35 -4.4 L 1.35 -4.4 L 0.12 -0.15 Q 0 0.15 -0.12 -0.15 Z" fill={u("lead")} />
+      <path
+        d="M -0.9 -4.1 L -0.2 -1.2"
+        stroke="#9a9aa3"
+        strokeWidth="0.25"
+        strokeLinecap="round"
+        opacity="0.8"
+      />
+      {/* Hexagonal lacquered body: three visible facets, scalloped where sharpened. */}
+      <path
+        d="M -4 -56.6 L 4 -56.6 L 4 -13.1 Q 3.35 -15.3 2.67 -14.4 Q 2 -13.4 1.33 -12.7 Q 0 -15.5 -1.33 -12.7 Q -2 -13.4 -2.67 -14.4 Q -3.35 -15.3 -4 -13.1 Z"
+        fill={u("lacq")}
+      />
+      <line
+        x1="-1.33"
+        y1="-56.6"
+        x2="-1.33"
+        y2="-12.9"
+        stroke="#c98d06"
+        strokeWidth="0.22"
+        opacity="0.7"
+      />
+      <line
+        x1="1.33"
+        y1="-56.6"
+        x2="1.33"
+        y2="-12.9"
+        stroke="#a87304"
+        strokeWidth="0.22"
+        opacity="0.7"
+      />
+      <rect x="-2.95" y="-55.8" width="0.7" height="40.5" rx="0.35" fill="#fff8d6" opacity="0.55" />
+      {/* Fine foil band below the ferrule, as on classic school pencils. */}
+      <rect x="-4" y="-55.2" width="8" height="0.6" fill="#1f5d3a" opacity="0.85" />
+      <rect x="-4" y="-56.6" width="8" height="1.4" fill="#000" opacity="0.06" />
     </g>
   );
 }
@@ -78,14 +201,15 @@ export function ClassicWoodenPencil({
   eraser?: boolean;
   className?: string;
 }) {
+  const uid = `wb-pencil-${useId().replace(/[^a-zA-Z0-9_-]/g, "")}`;
   return (
     <svg
-      viewBox="-12 -66 24 70"
+      viewBox={`-12 ${-PENCIL_LENGTH - 4} 24 ${PENCIL_LENGTH + 8}`}
       className={`workbook-pencil-svg ${eraser ? "eraser-end" : "pencil-end"} ${className}`}
       aria-hidden="true"
     >
       <g transform={eraser ? `rotate(180 0 ${PENCIL_CENTER_Y})` : undefined}>
-        <PencilShape />
+        <PencilShape uid={uid} />
       </g>
     </svg>
   );
@@ -174,50 +298,68 @@ function useCellAspect(ref: React.RefObject<HTMLDivElement | null>): number {
   return aspect;
 }
 
-/** Draw phase: stroke reveal and the pencil tip travelling on the same path. */
+/**
+ * Draw phase. The pencil fades in just above the starting point and settles
+ * onto it (`approach`), travels the mark exactly as the stroke is revealed
+ * (`dur`), then lifts away and fades (`lift`).
+ */
 function DrawingPencil({
   path,
-  begin = "0ms",
+  begin = 0,
+  approach,
   dur,
+  lift,
   shadow,
+  uid,
 }: {
   path: string;
-  begin?: string;
+  begin?: number;
+  approach: number;
   dur: number;
+  lift: number;
   shadow: string;
+  uid: string;
 }) {
+  const travel = approach + dur;
+  const total = travel + lift;
+  const a = (approach / travel).toFixed(4);
+  const kApproach = (approach / total).toFixed(4);
+  const kDone = (travel / total).toFixed(4);
+  const kFade = ((travel + lift * 0.35) / total).toFixed(4);
   return (
     <g className="workbook-pencil" opacity="0" filter={`url(#${shadow})`}>
       <animateMotion
-        begin={begin}
-        dur={`${dur}ms`}
+        begin={`${begin}ms`}
+        dur={`${travel}ms`}
         fill="freeze"
         calcMode="spline"
-        keyTimes="0;1"
-        keyPoints="0;1"
-        keySplines={EASE}
+        keyTimes={`0;${a};1`}
+        keyPoints="0;0;1"
+        keySplines={`0 0 1 1;${EASE}`}
         path={path}
       />
       <animate
         attributeName="opacity"
-        begin={begin}
-        dur={`${dur + 220}ms`}
+        begin={`${begin}ms`}
+        dur={`${total}ms`}
         fill="freeze"
-        values="0;1;1;0"
-        keyTimes="0;0.08;0.8;1"
+        values="0;1;1;1;0"
+        keyTimes={`0;${kApproach};${kDone};${kFade};1`}
       />
       <g>
         <animateTransform
           attributeName="transform"
           type="translate"
-          begin={begin}
-          dur={`${dur + 220}ms`}
+          begin={`${begin}ms`}
+          dur={`${total}ms`}
           fill="freeze"
-          values="0 0;0 0;5 -7"
-          keyTimes="0;0.78;1"
+          calcMode="spline"
+          values="7 -10;0 0;0 0;8 -11"
+          keyTimes={`0;${kApproach};${kDone};1`}
+          keySplines={`0.2 0.6 0.4 1;0 0 1 1;0.5 0 0.8 0.6`}
         />
-        <g transform="rotate(32) scale(0.86)">
-          <PencilShape />
+        <g transform={PENCIL_POSE}>
+          <PencilShape uid={uid} />
         </g>
       </g>
     </g>
@@ -231,12 +373,12 @@ function DrawingPencil({
 function MarkStroke({
   path,
   animate,
-  begin = "0ms",
+  begin = 0,
   dur,
 }: {
   path: string;
   animate: boolean;
-  begin?: string;
+  begin?: number;
   dur: number;
 }) {
   if (!animate) return <path className="workbook-pencil-mark__stroke" d={path} />;
@@ -251,7 +393,7 @@ function MarkStroke({
     >
       <animate
         attributeName="stroke-dashoffset"
-        begin={begin}
+        begin={`${begin}ms`}
         dur={`${dur}ms`}
         fill="freeze"
         calcMode="spline"
@@ -261,7 +403,7 @@ function MarkStroke({
       />
       <animate
         attributeName="opacity"
-        begin={begin}
+        begin={`${begin}ms`}
         dur={`${dur}ms`}
         fill="freeze"
         values="0;1;1"
@@ -352,8 +494,15 @@ export function WorkbookPencilMark({
   const erasing = currentStatus === "erasing";
   // Restored/validated marks (external status) and reduced motion render the finished mark statically.
   const animateDraw = !reducedMotion && !externalStatus;
-  const drawDur =
-    markType === "circle" ? WORKBOOK_MARK_TIMING.drawMs : WORKBOOK_MARK_TIMING.drawMs / 2;
+  const { approachMs, drawMs, liftMs } = WORKBOOK_MARK_TIMING;
+  // Circle: one slow loop. Cross: two strokes with a short hop between them.
+  const hopMs = 260;
+  const strokeDur = markType === "circle" ? drawMs - approachMs : (drawMs - approachMs - hopMs) / 2;
+  const schedule = strokes.map((_, i) => {
+    const strokeBegin = approachMs + i * (strokeDur + hopMs);
+    const approach = i === 0 ? approachMs : hopMs;
+    return { strokeBegin, pencilBegin: strokeBegin - approach, approach };
+  });
   const viewBox = `0 0 100 ${height}`;
   const shadowDefs = (
     <defs>
@@ -378,8 +527,8 @@ export function WorkbookPencilMark({
               key={i}
               path={d}
               animate={animateDraw}
-              dur={drawDur}
-              begin={`${i * drawDur}ms`}
+              dur={strokeDur}
+              begin={schedule[i].strokeBegin}
             />
           ))}
           {animateDraw &&
@@ -387,9 +536,12 @@ export function WorkbookPencilMark({
               <DrawingPencil
                 key={`p${i}`}
                 path={d}
-                dur={drawDur}
-                begin={`${i * drawDur}ms`}
+                begin={schedule[i].pencilBegin}
+                approach={schedule[i].approach}
+                dur={strokeDur}
+                lift={i === strokes.length - 1 ? liftMs : hopMs}
                 shadow={shadowId}
+                uid={`${shadowId}-d${i}`}
               />
             ))}
         </svg>
@@ -401,6 +553,12 @@ export function WorkbookPencilMark({
             ? null
             : (() => {
                 const all = strokes.join(" ");
+                const { eraseMs, eraseFlipMs, eraseLiftMs } = WORKBOOK_MARK_TIMING;
+                const kFlip = (eraseFlipMs / eraseMs).toFixed(4);
+                const kAppear = (Math.min(220, eraseFlipMs / 4) / eraseMs).toFixed(4);
+                const kRubbed = ((eraseMs - eraseLiftMs) / eraseMs).toFixed(4);
+                const rubMs = eraseMs - eraseFlipMs - eraseLiftMs;
+                const scrubPeriod = 190;
                 return (
                   <>
                     {strokes.map((d, i) => (
@@ -413,10 +571,10 @@ export function WorkbookPencilMark({
                       >
                         <animate
                           attributeName="stroke-dashoffset"
-                          dur={`${WORKBOOK_MARK_TIMING.eraseMs}ms`}
+                          dur={`${eraseMs}ms`}
                           fill="freeze"
                           values="0;0;100;100"
-                          keyTimes="0;0.23;0.85;1"
+                          keyTimes={`0;${kFlip};${kRubbed};1`}
                         />
                       </path>
                     ))}
@@ -426,33 +584,43 @@ export function WorkbookPencilMark({
                       filter={`url(#${shadowId})`}
                     >
                       <animateMotion
-                        dur={`${WORKBOOK_MARK_TIMING.eraseMs}ms`}
+                        dur={`${eraseMs}ms`}
                         fill="freeze"
-                        keyTimes="0;0.23;0.85;1"
+                        keyTimes={`0;${kFlip};${kRubbed};1`}
                         keyPoints="1;1;0;0"
                         calcMode="linear"
                         path={strokes[strokes.length - 1] ?? all}
                       />
                       <animate
                         attributeName="opacity"
-                        dur={`${WORKBOOK_MARK_TIMING.eraseMs}ms`}
+                        dur={`${eraseMs}ms`}
                         fill="freeze"
                         values="0;1;1;0"
-                        keyTimes="0;0.06;0.88;1"
+                        keyTimes={`0;${kAppear};${kRubbed};1`}
                       />
-                      <g transform="rotate(32) scale(0.86)">
-                        <g>
-                          <animateTransform
-                            attributeName="transform"
-                            type="rotate"
-                            dur={`${WORKBOOK_MARK_TIMING.eraseMs}ms`}
-                            fill="freeze"
-                            values={`0 0 ${PENCIL_CENTER_Y};180 0 ${PENCIL_CENTER_Y};180 0 ${PENCIL_CENTER_Y}`}
-                            keyTimes="0;0.23;1"
-                            calcMode="spline"
-                            keySplines={`${EASE};0 0 1 1`}
-                          />
-                          <PencilShape />
+                      <g>
+                        <animateTransform
+                          attributeName="transform"
+                          type="translate"
+                          begin={`${eraseFlipMs}ms`}
+                          dur={`${scrubPeriod}ms`}
+                          repeatCount={Math.floor(rubMs / scrubPeriod)}
+                          values="0 0;1.3 -0.7;0 0;-1.3 0.7;0 0"
+                        />
+                        <g transform={PENCIL_POSE}>
+                          <g>
+                            <animateTransform
+                              attributeName="transform"
+                              type="rotate"
+                              dur={`${eraseMs}ms`}
+                              fill="freeze"
+                              values={`0 0 ${PENCIL_CENTER_Y};0 0 ${PENCIL_CENTER_Y};180 0 ${PENCIL_CENTER_Y};180 0 ${PENCIL_CENTER_Y}`}
+                              keyTimes={`0;${kAppear};${kFlip};1`}
+                              calcMode="spline"
+                              keySplines={`0 0 1 1;${EASE};0 0 1 1`}
+                            />
+                            <PencilShape uid={`${shadowId}-e`} />
+                          </g>
                         </g>
                       </g>
                     </g>
