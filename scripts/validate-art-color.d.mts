@@ -1,6 +1,6 @@
 // Type declarations for validate-art-color.mjs so the vitest guard
 // (src/content/__tests__/art-color-completeness.test.ts) type-checks against
-// the single source of truth without a build step for the script itself.
+// the canonical art-color validator module without a build step for the script itself.
 
 export function collectSrcs(obj: unknown, into?: Set<string>): Set<string>;
 export function collectWiredSrcs(): string[];
