@@ -383,56 +383,76 @@
   gap: 12px 18px;
 }
 .native-syllable__word {
+  position: relative;
   min-height: 64px;
   display: inline-flex;
   align-items: center;
   justify-content: center;
+  overflow: visible;
+  border: 0 !important;
+  border-radius: 12px;
+  background: transparent !important;
   color: var(--lc-ink, #25313a);
   font-family: "Andika", ui-rounded, system-ui, sans-serif;
   font-size: clamp(20px, 2.4vw, 28px);
   font-weight: 700;
+  padding: .42rem .7rem;
+  cursor: pointer;
+  isolation: isolate;
 }
-.native-syllable__tap,
-.native-syllable__distractor {
-  min-width: 64px;
-  min-height: 64px;
+.native-syllable__word:hover:not(:disabled) {
+  background: rgba(223, 247, 239, .42) !important;
+}
+.native-syllable__word:focus-visible {
+  outline: 3px solid var(--lc-focus, #1668c7);
+  outline-offset: 3px;
+}
+.native-syllable__word:disabled {
+  cursor: default;
+  opacity: 1;
+}
+.native-syllable__letters {
+  position: relative;
+  z-index: 2;
   display: inline-flex;
-  align-items: center;
-  justify-content: center;
+  align-items: baseline;
+}
+.native-syllable__letter {
+  display: inline-block;
+  min-width: .55em;
+  text-align: center;
+  padding: 0;
   border: 0;
   background: transparent;
   color: inherit;
   font: inherit;
-  padding: 6px 8px;
-  cursor: pointer;
 }
-.native-syllable__tap.is-circled {
-  border: 4px solid var(--lc-teal, #1f9e94);
-  border-radius: 999px;
-  padding: 2px 8px;
+.native-syllable__mark {
+  position: absolute;
+  top: 50%;
+  height: 2.2em;
+  min-width: 1.1em;
+  transform: translateY(-50%);
+  pointer-events: none;
+  z-index: 3;
+  overflow: visible;
 }
-.native-syllable__tap:focus-visible,
-.native-syllable__distractor:focus-visible {
-  outline: 4px solid var(--lc-focus, #1668c7);
-  outline-offset: 2px;
-  border-radius: 999px;
+.native-syllable__mark .workbook-pencil-mark {
+  overflow: visible;
 }
-.native-syllable__word.is-wrong { animation: lc-gentle-shake .34s ease-in-out; }
+.native-syllable__word.is-retrying {
+  box-shadow: 0 0 0 3px rgba(31, 158, 148, .14);
+}
 .native-syllable > p {
   min-height: 1.5em;
   margin-top: 10px;
-  color: var(--lc-error, #b53a3a);
+  color: var(--lc-ink-soft, #53616b);
   font-size: 1rem;
   font-weight: 700;
 }
-@keyframes lc-gentle-shake {
-  0%,100% { transform: translateX(0); }
-  30% { transform: translateX(-5px); }
-  65% { transform: translateX(5px); }
+@media (max-width: 620px) {
+  .native-syllable__words { grid-template-columns: repeat(2, minmax(0,1fr)); }
 }
-@media (max-width: 620px) { .native-syllable__words { grid-template-columns: repeat(2, minmax(0,1fr)); } }
-@media (prefers-reduced-motion: reduce) { .native-syllable__word.is-wrong { animation:none; } }
-
 /* Tracing touch targets: 10 SVG units on a >=240px canvas = >=48px. */
 .native-lesson-viewer__content .fp-trace__svg {
   width: clamp(240px, 38vw, 320px);
