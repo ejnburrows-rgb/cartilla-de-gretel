@@ -4,7 +4,7 @@
 
 
 **Status:** CANONICAL for Cartilla book structure, content, fidelity, and presentation. Within that domain it supersedes prior layout/fidelity instructions; it does not outrank newer explicit owner decisions or `AGENTS.md` execution/safety policy.
-**Last updated:** 2026-10-04 (owner locked clean Student Workbook canvas while preserving Flip Chart scenic presentation)
+**Last updated:** 2026-10-06 (owner locked eight recurring Student Workbook archetype designs while preserving exact source-page identity)
 
 ---
 
@@ -37,8 +37,8 @@ This is **fixed**. Do not change it.
 
 **Example:** If the book says "Completa las palabras" with specific words and syllable options, you use those exact words and options. You do not rewrite, simplify, or add hints.
 
-### Layer 3: PRESENTATION — Modern digital, your judgment
-This is **flexible**. Make it excellent.
+### Layer 3: PRESENTATION — Modern digital within the owner-locked Workbook archetype system
+Presentation is flexible only where the owner has not already locked a recurring Student Workbook family. For recurring Student Workbook exercises, `WORKBOOK_ARCHETYPE_STANDARD.md` defines the canonical visual treatment and must be reused rather than reinvented.
 
 - Typography: clean, readable digital fonts (does not need to match the book's print font)
 - Colors: modern palette inspired by the book (does not need to sample exact print colors)
@@ -68,7 +68,7 @@ The test is about **structure and content**, not visual style. A modern-looking 
 - ✅ Arrange elements to match the book's page structure
 - ✅ Use all the book's text content verbatim
 - ✅ Place the approved images where the book places them
-- ✅ Make interactions smooth and premium. Student Workbook interaction behavior must follow `STUDENT_INTERACTION_STANDARD.md`.
+- ✅ Make interactions smooth and premium. Recurring Student Workbook visual families must follow `WORKBOOK_ARCHETYPE_STANDARD.md`; student interaction behavior must follow `STUDENT_INTERACTION_STANDARD.md`.
 - ✅ Use clean modern typography and spacing
 - ✅ Adapt layout responsively (stack on mobile, expand on desktop) while preserving element order
 - ✅ Add digital-native features that serve the book's pedagogy (audio read-aloud, answer checking, progress tracking)
@@ -79,7 +79,7 @@ The test is about **structure and content**, not visual style. A modern-looking 
 - ❌ Add new content not in the book (extra exercises, new characters, new text)
 - ❌ Remove content that's in the book (skip a verse, drop an image)
 - ❌ Modify source artwork except for the explicitly authorized source-preserving color-transfer or background-only workflows below
-- ❌ Produce a "scanned page" aesthetic (paper texture, scan artifacts, rigid print layout)
+- ❌ Produce a scanned-page artifact aesthetic (scan noise, skew, dirty paper, accidental print defects, or rigid unusable print constraints). A very subtle clean paper surface is explicitly allowed by the Workbook archetype standard.
 - ❌ Chase pixel-perfect measurements (matching the book's exact margins in millimeters)
 - ❌ Replicate print limitations digitally (if the book's layout was constrained by print, you're free to use the screen better — as long as the structure matches)
 
@@ -118,9 +118,9 @@ Newly generated or creatively altered artwork still requires owner/ChatGPT visua
 
 The Student Workbook and teacher Flip Chart share book-faithful structure/content but not the same background treatment. The Student Workbook uses a clean, quiet digital canvas for dense learner exercises and must not use a full scenic image as wallpaper behind them. The teacher Flip Chart may use the richer scenic presentation when appropriate. This is a presentation distinction only: source structure, wording, page order, foreground illustration identity, and educational meaning remain locked.
 
-## Student interaction standard
+## Student Workbook archetype + interaction standards
 
-`STUDENT_INTERACTION_STANDARD.md` is the owner-approved source of truth for student-facing Workbook behavior and motion. It defines Pencil Retry, real Workbook marks, pencil-drawn matching lines, progressive-fade tracing, premium pencil/eraser drawing tools, real pencil syllable circles, pencil-written word completion, and direct sentence handwriting. Older lasso/red-X/game-like treatments are superseded. `DESIGN.md` and `UX-CONTRACT.md` define the shared visual/system ownership and physical page-turn presentation for Workbook and Flip Chart.
+`WORKBOOK_ARCHETYPE_STANDARD.md` is the owner-approved source of truth for repeated Student Workbook visual/source-layout families. `STUDENT_INTERACTION_STANDARD.md` is the owner-approved source of truth for student-facing Workbook behavior and motion. It defines Pencil Retry, real Workbook marks, pencil-drawn matching lines, progressive-fade tracing, premium pencil/eraser drawing tools, real pencil syllable circles, pencil-written word completion, and direct sentence handwriting. Older lasso/red-X/game-like treatments are superseded. `DESIGN.md` and `UX-CONTRACT.md` define the shared visual/system ownership and physical page-turn presentation for Workbook and Flip Chart.
 
 ## Reference materials
 
@@ -139,7 +139,7 @@ The Student Workbook and teacher Flip Chart share book-faithful structure/conten
 | Foreground images | MUST remain source-faithful; verified source-preserving color transfer is allowed under `ASSET_FIDELITY_POLICY.md` |
 | Scenic backgrounds | MAY be created under `repo.md`; dense Student Workbook exercises default to the clean digital canvas, while Flip Chart/explicitly approved contexts may use richer scenery |
 | Page sequence | MUST match the book |
-| Visual style | MODERN digital (your judgment) |
+| Visual style | Recurring Student Workbook families MUST use `WORKBOOK_ARCHETYPE_STANDARD.md`; other presentation follows the durable design system |
 | Typography | MODERN readable (not print replica) |
 | Spacing/measurements | COMFORTABLE digital (not inch-for-inch) |
 | Interactions | SMOOTH, delightful, expected |
@@ -149,7 +149,7 @@ The Student Workbook and teacher Flip Chart share book-faithful structure/conten
 
 ---
 
-**If you're unsure:** Match the book's structure. Make the digital experience excellent. When in doubt about a visual detail, choose the modern user-friendly option — the owner explicitly said inch-for-inch identity is not required.
+**If you're unsure:** Match the exact physical page's structure/content first. For a recurring Student Workbook exercise, use the matching archetype in `WORKBOOK_ARCHETYPE_STANDARD.md` rather than inventing another visual treatment. For genuinely uncovered details, choose the modern user-friendly option without changing source identity.
 
 ### Directive protection
 

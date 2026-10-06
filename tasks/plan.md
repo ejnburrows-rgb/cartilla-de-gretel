@@ -3,7 +3,7 @@
 > **Finish contract:** Read PROJECT_FINISH_DEFINITION.md before planning or declaring Cartilla work complete. It is the canonical definition of what must be true for the entire project to be finished. Compare current verified reality against it and close only real remaining gaps.
 
 
-**Updated:** 2026-10-05  
+**Updated:** 2026-10-06  
 **Task tracker:** existing GitHub issues/PRs. Do not create duplicate work items.
 
 ## Goal
@@ -28,7 +28,7 @@ Finish the existing Cartilla product quickly and correctly. Preserve working stu
 ## Decisions
 
 1. **Finish Pencil/Eraser directly in the existing project.** Do not build it first in Lovable, Google AI Studio, or another prototype. The state/persistence/accessibility architecture already exists in PR #476, so a separate prototype adds translation and integration work.
-2. **Use rendered proof in small slices.** Page 1 is the visual gate. Do not start #498 broad Workbook restyling until #501 is shown in a real browser at representative phone/tablet/desktop sizes and accepted.
+2. **Use the owner-approved eight-archetype Workbook system.** `WORKBOOK_ARCHETYPE_STANDARD.md` supersedes the old Page-1-only visual gate. Page 1 is the archetype-1 representative, not a blocker for unrelated archetypes. Reuse one canonical implementation per archetype and verify rendered proof against the exact physical source page.
 3. **Do not manually create extra agent lanes.** The existing scheduled Cartilla Jules Supervisor is the default worker-dispatch layer. Global implementation-worker concurrency and lane accounting come only from the `AGENTS.md` Execution Control Contract; this plan records priorities/allocation only.
 4. **Do not delete art during implementation.** Refresh the current-reference inventory, classify cleanup candidates, then remove only assets proven unused and non-canonical.
 5. **Do not deploy production merely for testing.** Use an existing safe branch/runtime verification route; production deployment remains the final authorized release step.
@@ -45,7 +45,7 @@ Finish the existing Cartilla product quickly and correctly. Preserve working stu
 - Verify #504's `uno` correction alongside Page 1 before final visual acceptance.
 - Run exact-head controller review, Sonar and task-specific verification.
 
-**Exit:** Page 1 is visibly accepted. Only then may #498 start.
+**Exit:** Page 1 is verified as the archetype-1 representative. Other independent archetype work does not wait on Page 1 when file ownership and dependencies are isolated.
 
 ### B. Living-art runtime — #497 / PR #502
 
@@ -79,11 +79,11 @@ Finish the existing Cartilla product quickly and correctly. Preserve working stu
 
 ## Checkpoint 1
 
-Do not advance broad visual rollout until:
-- #501 is visually accepted;
-- #502 is proven in-browser;
-- #504 is visibly verified or its remaining defect is explicit;
-- #389 supplies a trustworthy release gate.
+Advance the owner-approved archetype rollout as isolated work becomes ready; do not reintroduce a Page-1-only global visual gate. Before broad merging, keep the relevant current gates explicit:
+- each archetype implementation must be checked against its exact physical source and canonical archetype treatment;
+- #502 living motion must remain correct where applicable;
+- #504 foreground-art proof remains independent;
+- #389 supplies the trustworthy release gate for final qualification.
 
 ## Phase 2 — shared student feedback foundation
 
@@ -101,47 +101,44 @@ The public app currently shows the old tap/select + whole-page check/correct beh
 
 **Exit:** #445/#476 is visually accepted, functionally tested and merged.
 
-## Phase 3 — remaining activity families, sequential
+## Phase 3 — recurring Workbook archetypes and adapters
 
-Dependency chain:
+The shared kernel in #445 remains the dependency for common Pencil/Eraser feedback. After that dependency is stable, do not impose blanket issue-number serialization on independent files. Use up to the global two-worker maximum when scopes do not overlap.
 
-`#445 → #446 → #447 → #448 → #449`
+Visual archetype mapping:
+1. **Archetype 1 — Picture grid / circle-X:** page 1 and equivalent picture-grid pages.
+2. **Archetype 2 — Vowel/letter + row choices:** page 2 and equivalents.
+3. **Archetype 3 — Multi-pair matching/connect:** page 3 and true multi-source/multi-target equivalents.
+4. **Archetype 4 — Single target + surrounding pictures:** pages 5, 8, 11, 14, 17; page 17 Uu is the canonical reference.
+5. **Archetype 5 — Handwriting/tracing + open drawing.**
+6. **Archetype 6 — Syllable recognition/circle.**
+7. **Archetype 7 — Phonics/reading practice.**
+8. **Archetype 8 — Complete-the-word + sentence writing.**
 
-Do not parallelize these because they adapt the same shared interaction language.
+Issue ownership may still group shared interaction behavior (for example #446 Pencil Line spans page 3 and the central-target vowel pages), but visual archetype classification follows `WORKBOOK_ARCHETYPE_STANDARD.md`.
 
-1. **#446 — Pencil Line:** pages 3, 5, 8, 11, 14, 17. Replace current tap/connect presentation with approved pencil-drawn line interaction.
-2. **#447 — tracing/handwriting/drawing:** preserve existing working canvas, save/restore, eraser/undo/clear and gating; change only what is needed to match Progressive Fade / Premium Simple Pencil Box.
-3. **#448 — syllable circles:** reuse shared pencil-mark language.
-4. **#449 — word completion and sentence handwriting:** reuse the same writing kernel and persistence.
-
-For every issue:
+For every archetype:
+- inspect each exact physical source page;
+- implement/reuse one canonical family treatment;
 - test the actual interaction, not just rendering;
 - show representative rendered proof;
-- preserve source wording and existing learner state;
-- do not start the next issue until the previous one is merged.
+- preserve source wording, artwork, source wave/outline, markers, spatial relationships, and learner state;
+- keep pages 86–87 source-blocked.
 
 ## Phase 4 — accepted Workbook surface rollout
 
-### #498 — clean digital-canvas rollout
+### #498 — eight-archetype Workbook rollout
 
-Start only after #501 acceptance.
+The eight archetype designs are owner-approved; no separate Page-1 visual approval is required to begin independent archetype work.
 
-Roll out by page family:
-- dense picture grids;
-- line matching;
-- handwriting/tracing;
-- drawing;
-- syllable circles;
-- complete-word/fill-in;
-- sentence writing;
-- reading/vocabulary pages.
+Roll out by the canonical families in `WORKBOOK_ARCHETYPE_STANDARD.md`.
 
 For each family:
-- preserve source structure/content/art;
+- preserve exact source structure/content/art and source-specific layout differences;
 - remove full scenic wallpaper where it competes with learner work;
-- reuse accepted cream/clean Page 1 surface and instruction hierarchy;
+- use the canonical warm off-white + teal archetype treatment rather than inventing another family style;
 - keep Gretel/chrome subordinate;
-- verify representative phone/tablet/desktop pages before moving to the next family.
+- verify representative desktop/tablet rendering and meaningful interaction states before broad reuse.
 
 Do not modify Flip Chart presentation from this issue.
 
@@ -194,11 +191,13 @@ Implementation-worker concurrency and lane accounting come only from the `AGENTS
 - Candidate lane: #389 release harness only if the supervisor confirms no existing worker is already active for it.
 - Controller: #501 rendered visual acceptance, #504 art proof, then #476 shared Pencil/Eraser visual repair/acceptance.
 
-**Must stay sequential:**
-- #501 acceptance before #498.
-- #445 → #446 → #447 → #448 → #449.
-- #450 after final Workbook interaction/art/visual state.
+**Must stay sequential only where dependency/file ownership requires it:**
+- shared kernel changes before adapters that consume those exact kernel changes;
+- overlapping files/activity-family ownership cannot run concurrently;
+- #450 after final Workbook interaction/art/visual state;
 - #458 after all final gates.
+
+Independent archetype/source-mapping/responsive-proof lanes may use the global maximum of two implementation workers.
 
 ## Definition of finished
 
