@@ -5,9 +5,9 @@
 
 **Status:** CANONICAL OWNER-APPROVED STUDENT INTERACTION DIRECTION  
 **Approved by:** Emilio  
-**Approved on:** 2026-10-03
+**Approved on:** 2026-10-03; archetype relationship clarified 2026-10-06
 
-This file is the source of truth for the premium student-facing Workbook interaction language. When an older issue, mockup, implementation note, or active non-archived document conflicts with this file on student interaction behavior, this file wins.
+This file is the source of truth for the premium student-facing Workbook interaction language. `WORKBOOK_ARCHETYPE_STANDARD.md` separately owns the recurring visual/source-layout family. When an older issue, mockup, implementation note, or active non-archived document conflicts with this file on student interaction behavior, this file wins.
 
 ## Product principle
 
@@ -54,7 +54,7 @@ The pencil, mark, and feedback must feel like a premium animated workbook action
 
 ### 3. Line matching — Pencil Line
 
-Replace the rope/lasso interaction.
+Replace the rope/lasso interaction. This behavior can serve more than one visual archetype: page 3 is the multi-pair matching visual archetype, while pages 5/8/11/14/17 are the single-central-target + surrounding-pictures visual archetype. Do not confuse visual archetype classification with interaction-adapter ownership.
 
 1. The child selects the two items using tap/click/keyboard-accessible selection.
 2. The classic pencil draws a slightly natural workbook-style line between the items.
