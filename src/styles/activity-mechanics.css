@@ -925,19 +925,60 @@
 }
 
 
-/* Page 17 / Uu â€” canonical Archetype 4 surface. The physical source stays
- * recognizable; scenic Workbook wallpaper is explicitly suppressed. */
+/* Canonical Archetype Surface Rules (WORKBOOK_ARCHETYPE_STANDARD.md) */
+
+/* Archetype 1: Picture grid / circle-X */
+.faithful-page--archetype-1 .fp-picture-grid__cell {
+  background: #ffffff;
+  border: 2px solid rgba(13, 148, 136, 0.35);
+  border-radius: 14px;
+  box-shadow: 0 0 0 4px rgba(167, 243, 208, 0.24), 0 5px 14px rgba(13, 148, 136, 0.12);
+  transition: transform 0.2s cubic-bezier(0.34, 1.4, 0.64, 1), border-color 0.2s ease, box-shadow 0.2s ease;
+}
+.faithful-page--archetype-1 .fp-picture-grid__cell:hover {
+  transform: scale(1.05);
+  border-color: #0d9488;
+  box-shadow: 0 0 0 5px rgba(20, 184, 166, 0.3), 0 6px 16px rgba(13, 148, 136, 0.2);
+}
+
+/* Archetype 2: Vowel/letter + row choices */
+.faithful-page--archetype-2 .fp-vowel-pick__cell {
+  background: #ffffff;
+  border: 2px solid rgba(13, 148, 136, 0.35);
+  border-radius: 12px;
+  box-shadow: 0 0 0 4px rgba(167, 243, 208, 0.24), 0 5px 14px rgba(13, 148, 136, 0.12);
+  transition: transform 0.2s cubic-bezier(0.34, 1.4, 0.64, 1), border-color 0.2s ease;
+}
+.faithful-page--archetype-2 .fp-vowel-pick__letter {
+  font-family: var(--font-book-title, "Fredoka", sans-serif);
+  font-weight: 800;
+  color: #0d9488;
+}
+
+/* Archetype 3: Multi-pair matching / connect */
+.faithful-page--archetype-3 .fp-vowel-match-all__cell {
+  background: #ffffff;
+  border: 2px solid rgba(13, 148, 136, 0.35);
+  border-radius: 12px;
+  box-shadow: 0 0 0 4px rgba(167, 243, 208, 0.24), 0 5px 14px rgba(13, 148, 136, 0.12);
+}
+
+/* Archetype 4: Single target + surrounding pictures (Page 17 Uu reference) */
+.faithful-page--archetype-4,
 .faithful-page--archetype4-p17 {
   background:
     radial-gradient(120% 90% at 16% 8%, rgba(167, 243, 208, 0.08), transparent 55%),
     #fbfaf5;
 }
+.faithful-page--archetype-4 .final-page-background,
 .faithful-page--archetype4-p17 .final-page-background {
   display: none;
 }
+.faithful-page--archetype-4 .faithful-page__body,
 .faithful-page--archetype4-p17 .faithful-page__body {
   gap: 0.65rem;
 }
+.faithful-page--archetype-4 .fp-region--instruction,
 .faithful-page--archetype4-p17 .fp-region--instruction {
   margin: 0;
   padding: 0;
@@ -947,15 +988,18 @@
   line-height: 1.25;
   letter-spacing: 0;
 }
+.faithful-page--archetype-4 .fp-region--instruction .fp-label,
 .faithful-page--archetype4-p17 .fp-region--instruction .fp-label {
   display: block;
   font-weight: 800;
   margin-bottom: 0.12em;
 }
+.faithful-page--archetype-4 .fp-target-emphasis,
 .faithful-page--archetype4-p17 .fp-target-emphasis {
   color: #0d9488;
   font-weight: 800;
 }
+.faithful-page--archetype-4 .faithful-page__lesson,
 .faithful-page--archetype4-p17 .faithful-page__lesson {
   display: inline-flex;
   align-items: center;
@@ -968,22 +1012,46 @@
   box-shadow: 0 2px 7px rgba(13, 148, 136, 0.12);
   font-weight: 700;
 }
-.faithful-page--archetype4-p17 .am-faithful-lasso {
-  min-height: 0;
+.faithful-page--archetype-4 .fp-vowel-match__cell {
+  background: #ffffff;
+  border: 2.5px solid #0d9488;
+  border-radius: 14px;
+  box-shadow: 0 0 0 4px rgba(167, 243, 208, 0.24), 0 5px 14px rgba(13, 148, 136, 0.12);
 }
-.faithful-page--archetype4-p17 .am-direct-pencil {
-  gap: 0.4rem;
+
+/* Archetype 5: Handwriting / tracing + open drawing */
+.faithful-page--archetype-5 .fp-draw-box {
+  background: #ffffff;
+  border: 2px solid rgba(13, 148, 136, 0.35);
+  border-radius: 12px;
+  box-shadow: 0 0 0 4px rgba(167, 243, 208, 0.18), 0 4px 12px rgba(13, 148, 136, 0.1);
 }
-.faithful-page--archetype4-p17 .am-direct-pencil__toolbar {
-  min-height: 34px;
+
+/* Archetype 6: Syllable recognition / circle */
+.faithful-page--archetype-6 .fp-syllable-match__syllable {
+  color: #0d9488;
+  font-family: var(--font-book-title, "Fredoka", sans-serif);
+  font-weight: 800;
 }
-.faithful-page--archetype4-p17 .am-direct-pencil__focus-btn {
-  min-height: 34px;
-  padding: 0.25rem 0.7rem;
-  font-size: 0.78rem;
+.faithful-page--archetype-6 .fp-syllable-match__word {
+  background: #ffffff;
+  border: 1.5px solid rgba(13, 148, 136, 0.3);
+  border-radius: 10px;
+  padding: 0.3em 0.8em;
+  box-shadow: 0 2px 6px rgba(13, 148, 136, 0.08);
 }
-.faithful-page--archetype4-p17 .am-direct-pencil__stage {
-  max-width: 330px;
-  padding: 0.8rem;
-  gap: 0.55rem;
+
+/* Archetype 7: Phonics / reading practice */
+.faithful-page--archetype-7 .fp-region--syllable-bubble {
+  color: #0d9488;
+  font-family: var(--font-book-title, "Fredoka", sans-serif);
+  font-weight: 800;
+}
+
+/* Archetype 8: Complete-the-word + sentence writing */
+.faithful-page--archetype-8 .fp-fill-in-blank__wordbox {
+  background: #ffffff;
+  border: 2px solid rgba(13, 148, 136, 0.35);
+  border-radius: 8px;
+  box-shadow: 0 0 0 3px rgba(167, 243, 208, 0.2);
 }

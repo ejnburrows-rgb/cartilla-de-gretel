@@ -3,6 +3,7 @@ import type { ReactNode } from "react";
 import { GretelActivity } from "@/components/gretel/GretelActivity";
 import { SOURCE_BLOCKED_WORKBOOK_PAGES } from "@/lib/workbook-pages";
 import { getPageLayout, type PageGridCell, type PageRegion } from "@/lib/book-faithful";
+import { archetypeMappingForPage } from "@/data/workbook-archetypes";
 // PageGridCell used by RegionView siblingCells for Dibuja pick options
 import { PageFrame } from "./PageFrame";
 import { CATALOG } from "@/lib/lesson-catalog";
@@ -613,6 +614,16 @@ export function FaithfulPageRenderer({
   const accent = lessonNumber ? CATALOG.find((e) => e.n === lessonNumber)?.color : undefined;
   const lessonId = lessonNumber ? String(lessonNumber) : undefined;
 
+  let archetypeClasses: string[] = [];
+  if (typeof pageNumber === "number" && pageNumber >= 1 && pageNumber <= 90) {
+    try {
+      const mapping = archetypeMappingForPage(pageNumber);
+      archetypeClasses = mapping.archetypes.map((a) => `faithful-page--archetype-${a}`);
+    } catch {
+      // Unmapped or mock test page numbers
+    }
+  }
+
   // Every letter's writing-line pair is [model line with modelText, blank
   // "trace it again" line with no modelText] â€” the blank one inherits the
   // model letter from its immediately preceding writing-line sibling so both
@@ -634,6 +645,7 @@ export function FaithfulPageRenderer({
       className={[
         letterReadingPage ? "fp-native-letter-page" : "",
         pageNumber === 17 ? "faithful-page--archetype4-p17" : "",
+        ...archetypeClasses,
       ].filter(Boolean).join(" ") || undefined}
     >
       {ordered.map((region) => {
