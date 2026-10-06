@@ -60,7 +60,7 @@ const output = {
   sourceOfPageNumbers: 'src/lib/lesson-catalog.ts + src/data/page-inventory.json',
   statusDefinitions: ['SOURCE_BLOCKED', 'SCAN_ONLY', 'STRUCTURED_PARTIAL', 'NATIVE_COMPLETE', 'ANIMATION_READY', 'CERTIFIED'],
   notes: [
-    'page-layouts.json is the single workbook content source; the old parallel workbook-manifest.json pipeline was removed.',
+    'page-layouts.json is the current canonical runtime structured Workbook data source; the authoritative physical PDFs remain the source authority for fidelity, curriculum, page structure, wording, and page content. The old parallel workbook-manifest.json pipeline was removed.',
     'Pages 1–90 use the native student route and FaithfulPageRenderer. Pages 86–87 are SOURCE_BLOCKED: they render, but cannot be verified against the printed book until the owner supplies a rescan.',
     'The authoritative source scan has a verified gap at printed pages 86–87. Native structured content remains the product surface there; no substitute scan is invented.',
   ],

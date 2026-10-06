@@ -13,7 +13,7 @@ describe("release integration — workbook + lessons", () => {
     }
   });
 
-  it("page-layouts (the single workbook content source) covers all 90 printed pages", () => {
+  it("page-layouts (canonical runtime structured Workbook representation) covers all 90 printed pages", () => {
     const pages = Object.keys(pageLayouts.pages).map(Number).sort((a, b) => a - b);
     expect(pages).toEqual(Array.from({ length: 90 }, (_, i) => i + 1));
     for (const n of pages) {

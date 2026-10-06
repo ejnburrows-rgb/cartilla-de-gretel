@@ -1,4 +1,5 @@
-// lesson-meta.ts — single source of truth for the 24 lessons.
+// lesson-meta.ts — canonical runtime lesson metadata for the 24 lessons; it is not curriculum authority.
+// Authoritative curriculum/content comes from the physical source PDFs under the canonical instruction hierarchy.
 // Used by: PageExercisePane, PolishedPage (color), Codex teacher CRM, Antigravity print.
 // Do not edit lesson order, page ranges, or colors without updating page-bindings.json in lockstep.
 
