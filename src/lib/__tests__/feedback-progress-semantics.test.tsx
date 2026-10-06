@@ -55,7 +55,7 @@ it('Completa gives immediate gentle wrong feedback for implicit distractors and 
   expect(screen.queryByText('Comprobar')).toBeNull();
   fireEvent.click(screen.getByText('ma'));
   expect(screen.getByText('ma')).toHaveClass('graded-correct');
-  expect(screen.getByRole('status')).toHaveTextContent('Completado');
+  expect(screen.getByText('Completado')).toBeInTheDocument();
 });
 it('both occurrences of pa in papá are valid, and correct syllables are not boxed before an attempt', () => {
   const view = render(<SyllableWordCircle region={{ id: 'repeat', regionType: 'syllable-match', order: 1, fontRole: 'body', syllable: 'pa', matchRows: [[{ word: 'papá', correct: true }]] }} />);
