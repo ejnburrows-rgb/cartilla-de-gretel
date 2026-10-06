@@ -1,4 +1,4 @@
-/* Real Workbook Mark — shared classic pencil / eraser (STUDENT_INTERACTION_STANDARD). */
+/* Real Workbook Mark — close-up classic pencil / eraser (STUDENT_INTERACTION_STANDARD). */
 .workbook-pencil-mark {
   position: relative;
   width: 100%;
@@ -15,16 +15,19 @@
 .workbook-pencil-mark__stroke {
   fill: none;
   stroke: #46464d;
-  stroke-width: 3.1;
+  stroke-width: 3.4;
   stroke-linecap: round;
   stroke-linejoin: round;
-  stroke-opacity: 0.92;
-  transition:
-    stroke 450ms ease,
-    stroke-opacity 450ms ease;
+  stroke-opacity: 0.95;
 }
+/* Owner 2026-10-06: green from the first line when right, red when wrong. */
+.workbook-pencil-mark[data-mark-result="correct"] .workbook-pencil-mark__stroke,
 .workbook-pencil-mark[data-mark-status="correct"] .workbook-pencil-mark__stroke {
-  stroke: #15803d;
+  stroke: #16a34a;
+  stroke-opacity: 1;
+}
+.workbook-pencil-mark[data-mark-result="wrong"] .workbook-pencil-mark__stroke {
+  stroke: #dc2626;
   stroke-opacity: 1;
 }
 .workbook-pencil-svg {
@@ -32,10 +35,12 @@
   height: 80px;
   overflow: visible;
 }
+/* The picture itself never moves when the child presses it: only the pencil acts. */
+.fp-ix-cell .living-illustration--reacting .living-illustration__art,
+.fp-ix-cell .living-runtime-art--reacting {
+  animation: none !important;
+}
 @media (prefers-reduced-motion: reduce) {
-  .workbook-pencil-mark__stroke {
-    transition: none;
-  }
   .workbook-pencil {
     display: none;
   }

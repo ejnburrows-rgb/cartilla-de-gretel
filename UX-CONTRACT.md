@@ -1,5 +1,8 @@
 # UX CONTRACT — La Cartilla de Gretel
 
+> **Finish contract:** Read PROJECT_FINISH_DEFINITION.md before planning or declaring Cartilla work complete. It is the canonical definition of what must be true for the entire project to be finished. Compare current verified reality against it and close only real remaining gaps.
+
+
 **Status:** CANONICAL OBSERVABLE INTERACTION CONTRACT  
 **Owner direction locked:** 2026-10-03
 
@@ -12,7 +15,7 @@ One shared interaction kernel owns cross-activity behavior.
 Canonical observable states:
 1. **idle** — learner can act; Gretel quiet.
 2. **marking** — pencil/handwriting action is being rendered.
-3. **neutral-hold** — where required, completed graphite mark remains neutral before judgment.
+3. **neutral-hold** — short internal pause after the mark is drawn, before the result event. Owner 2026-10-06: Real Workbook Mark circles are already green (right) or red (wrong) from the first line; no gray waiting period is shown.
 4. **success** — correct work persists; correct-selection mark may turn green; Gretel receives the approved positive event.
 5. **retry-erase** — wrong work is visibly erased with the physical eraser language; Gretel receives the approved retry event.
 6. **complete** — activity/page completion is recorded and navigation eligibility updates.
@@ -45,7 +48,7 @@ Activities do not own a second Gretel instance.
 
 - active work → Gretel quiet;
 - wrong answer → kernel emits retry; Gretel says “Inténtalo otra vez”;
-- correct selection after required neutral hold → kernel emits success; Gretel says “Buen trabajo”;
+- correct selection after the pencil finishes drawing → kernel emits success; Gretel says “Buen trabajo”;
 - page/activity completion → one restrained completion reaction, then settle.
 
 Final voice/TTS provider remains deferred.
