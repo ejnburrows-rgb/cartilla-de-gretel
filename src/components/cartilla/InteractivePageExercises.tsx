@@ -5,6 +5,18 @@ import { useActivityEvents, useActivityState } from "@/lib/activity-events";
 import { playCorrectChord, playWrongBuzz } from "@/lib/piano-audio";
 import { LivingIllustration } from "@/components/living/LivingIllustration";
 import { WorkbookPencilMark } from "./WorkbookPencilMark";
+import {
+  DndContext,
+  useDraggable,
+  useDroppable,
+  MouseSensor,
+  TouchSensor,
+  KeyboardSensor,
+  useSensor,
+  useSensors,
+  type DragEndEvent,
+} from "@dnd-kit/core";
+import { feelBus } from "@/lib/feel-bus";
 
 /** Pseudo-random per-cell animation offset so a grid never floats in lockstep. */
 function floatDelay(index: number): string {
@@ -738,7 +750,93 @@ export function InteractiveSyllableMatch({
   );
 }
 
-/** "Completa las palabras con la sílaba correcta" — tap one choice per item, grade on check. */
+function DraggableFillChoice({
+  itemIdx,
+  choiceIdx,
+  text,
+  isPicked,
+  grade,
+  flagged,
+  disabled,
+  onClick,
+}: {
+  itemIdx: number;
+  choiceIdx: number;
+  text: string;
+  isPicked: boolean;
+  grade: Grade;
+  flagged: boolean;
+  disabled: boolean;
+  onClick: () => void;
+}) {
+  const { attributes, listeners, setNodeRef, transform, isDragging } = useDraggable({
+    id: `fill-choice-${itemIdx}-${choiceIdx}`,
+    data: { itemIdx, choiceIdx },
+    disabled: disabled || flagged,
+  });
+
+  const style: React.CSSProperties = {
+    transform: transform
+      ? `translate3d(${Math.round(transform.x)}px, ${Math.round(transform.y)}px, 0)`
+      : undefined,
+    zIndex: isDragging ? 9999 : undefined,
+    opacity: isDragging ? 0.4 : 1,
+    touchAction: "none",
+  };
+
+  const classes = [
+    "fp-ix-fill__choice",
+    isPicked ? "picked" : "",
+    grade === "correct" ? "graded-correct" : "",
+    grade === "wrong" ? "graded-wrong" : "",
+    isDragging ? "dragging" : "",
+  ]
+    .filter(Boolean)
+    .join(" ");
+
+  return (
+    <button
+      ref={setNodeRef}
+      {...listeners}
+      {...attributes}
+      type="button"
+      className={classes}
+      style={style}
+      data-gretel-correct={flagged ? undefined : String(grade === "correct")}
+      disabled={disabled || flagged}
+      onClick={onClick}
+    >
+      {text}
+    </button>
+  );
+}
+
+function DroppableBlankSlot({
+  itemIdx,
+  displayText,
+  isCorrect,
+}: {
+  itemIdx: number;
+  displayText: string;
+  isCorrect: boolean;
+}) {
+  const { setNodeRef, isOver } = useDroppable({
+    id: `fill-blank-${itemIdx}`,
+    data: { itemIdx },
+  });
+
+  return (
+    <span
+      ref={setNodeRef}
+      className={`fp-ix-fill__blank${isOver ? " fp-ix-fill__blank--over" : ""}${isCorrect ? " fp-ix-fill__blank--correct" : ""}`}
+      data-over={isOver ? "true" : undefined}
+    >
+      {displayText}
+    </span>
+  );
+}
+
+/** "Completa las palabras con la sílaba correcta" — tap or drag choice onto item blank. */
 export function InteractiveFillInBlank({
   region,
   accent,
@@ -751,78 +849,163 @@ export function InteractiveFillInBlank({
   const [solved, setSolved] = useActivityState("solved", false);
   const [attempts, setAttempts] = useState(0);
 
+  const sensors = useSensors(
+    useSensor(MouseSensor, { activationConstraint: { distance: 5 } }),
+    useSensor(TouchSensor, { activationConstraint: { distance: 5 } }),
+    useSensor(KeyboardSensor),
+  );
+
   useEffect(() => { if (solved) gretelEvent("activity:complete", { restored: true }); }, [solved, gretelEvent]);
+
+  // Gentle reset timer for wrong choices
+  useEffect(() => {
+    const wrongEntries = Object.entries(picked).filter(([itemIdxStr, choiceIdx]) => {
+      const itemIdx = Number(itemIdxStr);
+      return items[itemIdx]?.choices[choiceIdx]?.correct !== true;
+    });
+    if (wrongEntries.length > 0) {
+      const timer = setTimeout(() => {
+        setPicked((prev) => {
+          const next = { ...prev };
+          wrongEntries.forEach(([itemIdxStr]) => {
+            delete next[Number(itemIdxStr)];
+          });
+          return next;
+        });
+      }, 900);
+      return () => clearTimeout(timer);
+    }
+  }, [picked, items, setPicked]);
 
   const pick = (itemIdx: number, choiceIdx: number) => {
     if (items[itemIdx]?.choices[picked[itemIdx]]?.correct) return;
     const next = { ...picked, [itemIdx]: choiceIdx };
-    setPicked(next); setGraded(true);
+    setPicked(next);
+    setGraded(true);
     const correct = items[itemIdx]?.choices[choiceIdx]?.correct === true;
-    const gradable = items.filter(item => item.choices.some(c => c.correct));
+    const gradable = items.filter((item) => item.choices.some((c) => c.correct));
     const score = items.filter((item, i) => item.choices[next[i]]?.correct).length;
     const complete = gradable.length > 0 && score === gradable.length;
-    setSolved(complete); setAttempts(n => n + 1);
-    gretelEvent(correct ? "answer:correct" : "answer:wrong");
-    if (correct) playCorrectChord(); else playWrongBuzz();
+    setSolved(complete);
+    setAttempts((n) => n + 1);
+
+    if (correct) {
+      feelBus.emit("success");
+      gretelEvent("answer:correct");
+      playCorrectChord();
+    } else {
+      feelBus.emit("error");
+      gretelEvent("answer:wrong");
+      playWrongBuzz();
+    }
+
     if (complete) gretelEvent("activity:complete");
-    if (lessonId) recordEvent({ lessonId, kind: "exercise", score, total: gradable.length,
-      meta: { exercise: `fill_in_blank_${region.id}`, completed: complete, attemptCorrect: correct, attempt: attempts + 1 } });
+    if (lessonId) {
+      recordEvent({
+        lessonId,
+        kind: "exercise",
+        score,
+        total: gradable.length,
+        meta: {
+          exercise: `fill_in_blank_${region.id}`,
+          completed: complete,
+          attemptCorrect: correct,
+          attempt: attempts + 1,
+        },
+      });
+    }
+  };
+
+  const onDragStart = () => {
+    feelBus.emit("drag-pick");
+  };
+
+  const onDragEnd = (event: DragEndEvent) => {
+    feelBus.emit("drag-drop");
+    const { active, over } = event;
+    if (over && active.data.current && over.data.current) {
+      const choiceItemIdx = active.data.current.itemIdx as number;
+      const choiceIdx = active.data.current.choiceIdx as number;
+      const dropItemIdx = over.data.current.itemIdx as number;
+      if (choiceItemIdx === dropItemIdx) {
+        pick(choiceItemIdx, choiceIdx);
+      } else {
+        feelBus.emit("error");
+        gretelEvent("answer:wrong");
+        playWrongBuzz();
+      }
+    }
   };
 
   return (
-    <div className={`fp-ix-fill${region.columns ? " fp-ix-fill--book-grid" : ""}`} style={{ ["--ix-accent" as string]: accent, ["--fill-columns" as string]: region.columns }}>
-      {items.map((item, i) => {
-        const flagged = !item.choices.some((c) => c.correct);
-        return (
-          <div
-            key={i}
-            className={`fp-ix-fill__item${flagged ? " fp-ix-fill__item--flagged" : ""}`}
-          >
-            {item.illustrationSrc && (
-              <LivingIllustration
-                src={item.illustrationSrc}
-                alt={item.wordBox}
-                className="fp-ix-fill__img"
-                loading="lazy"
+    <DndContext sensors={sensors} onDragStart={onDragStart} onDragEnd={onDragEnd}>
+      <div
+        className={`fp-ix-fill${region.columns ? " fp-ix-fill--book-grid" : ""}`}
+        style={{ ["--ix-accent" as string]: accent, ["--fill-columns" as string]: region.columns }}
+      >
+        {items.map((item, i) => {
+          const flagged = !item.choices.some((c) => c.correct);
+          const isItemCorrect = items[i]?.choices[picked[i]]?.correct === true;
+          const displayText =
+            picked[i] === undefined
+              ? item.blank
+              : item.blank.replace("___", item.choices[picked[i]]?.text ?? "___");
+
+          return (
+            <div
+              key={i}
+              className={`fp-ix-fill__item${flagged ? " fp-ix-fill__item--flagged" : ""}`}
+            >
+              {item.illustrationSrc && (
+                <LivingIllustration
+                  src={item.illustrationSrc}
+                  alt={item.wordBox}
+                  className="fp-ix-fill__img"
+                  loading="lazy"
+                />
+              )}
+              <span className="fp-ix-fill__wordbox">{item.wordBox}</span>
+              <DroppableBlankSlot
+                itemIdx={i}
+                displayText={displayText}
+                isCorrect={isItemCorrect}
               />
-            )}
-            <span className="fp-ix-fill__wordbox">{item.wordBox}</span>
-            <span className="fp-ix-fill__blank">
-              {picked[i] === undefined
-                ? item.blank
-                : item.blank.replace("___", item.choices[picked[i]]?.text ?? "___")}
-            </span>
-            <div className="fp-ix-fill__choices">
-              {item.choices.map((choice, c) => {
-                const isPicked = picked[i] === c;
-                const g = graded ? gradeOf(isPicked, choice.correct === true) : null;
-                const classes = [
-                  "fp-ix-fill__choice",
-                  isPicked ? "picked" : "",
-                  g === "correct" ? "graded-correct" : "",
-                  g === "wrong" ? "graded-wrong" : "",
-                ]
-                  .filter(Boolean)
-                  .join(" ");
-                return (
-                  <button
-                    key={c}
-                    type="button"
-                    className={classes}
-                    data-gretel-correct={flagged ? undefined : String(choice.correct === true)}
-                    disabled={flagged || items[i].choices[picked[i]]?.correct === true}
-                    onClick={() => pick(i, c)}
-                  >
-                    {choice.text}
-                  </button>
-                );
-              })}
+              <div className="fp-ix-fill__choices">
+                {item.choices.map((choice, c) => {
+                  const isPicked = picked[i] === c;
+                  const g = graded ? gradeOf(isPicked, choice.correct === true) : null;
+                  return (
+                    <DraggableFillChoice
+                      key={c}
+                      itemIdx={i}
+                      choiceIdx={c}
+                      text={choice.text}
+                      isPicked={isPicked}
+                      grade={g}
+                      flagged={flagged}
+                      disabled={flagged || isItemCorrect}
+                      onClick={() => pick(i, c)}
+                    />
+                  );
+                })}
+              </div>
             </div>
-          </div>
-        );
-      })}
-      {graded && <p role="status">{solved ? "Completado" : items.some((item, i) => picked[i] !== undefined && !item.choices[picked[i]]?.correct) ? "Revisa la opción marcada e inténtalo otra vez." : "Bien. Sigue con la siguiente palabra."}</p>}
-    </div>
+          );
+        })}
+        {graded && (
+          <p role="status">
+            {solved
+              ? "Completado"
+              : items.some(
+                    (item, i) =>
+                      picked[i] !== undefined && !item.choices[picked[i]]?.correct,
+                  )
+                ? "Revisa la opción marcada e inténtalo otra vez."
+                : "Bien. Sigue con la siguiente palabra."}
+          </p>
+        )}
+      </div>
+    </DndContext>
   );
 }
 
