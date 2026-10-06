@@ -181,3 +181,112 @@ describe("LassoConnect — cinematic rope", () => {
     expect(container.querySelector(".am-lasso__shadow")).toBeTruthy();
   });
 });
+
+describe("DirectPencilConnector (Page 17 Uu direct line-match prototype)", () => {
+  const p17Targets = [
+    { id: "0", label: "uniforme", correct: true, src: "/art/uniforme.webp" },
+    { id: "1", label: "uno", correct: true, src: "/art/uno.webp" },
+    { id: "2", label: "oso", correct: false, src: "/art/oso.webp" },
+    { id: "3", label: "uvas", correct: true, src: "/art/uvas.webp" },
+    { id: "4", label: "unicornio", correct: true, src: "/art/unicornio.webp" },
+    { id: "5", label: "uña", correct: true, src: "/art/una.webp" },
+    { id: "6", label: "estrella", correct: false, src: "/art/estrella.webp" },
+    { id: "7", label: "imán", correct: false, src: "/art/iman.webp" },
+  ];
+
+  beforeEach(() => {
+    vi.clearAllMocks();
+    cleanup();
+  });
+
+  it("renders Archetype 4 source composition without invented header, badge, or pre-connected line", () => {
+    const { container } = render(
+      <LassoConnect
+        pageKey="p17-proto"
+        targets={p17Targets}
+        mode="mark"
+        directPencil
+        centerLabel="Uu"
+        instruction="Traza una línea desde la vocal Uu hasta el dibujo de la palabra que comienza con Uu."
+        reducedMotion
+      />,
+    );
+
+    expect(screen.getByRole("button", { name: "Vocal central Uu" })).toBeTruthy();
+    expect(screen.getByRole("button", { name: "uniforme" })).toBeTruthy();
+    expect(screen.getByRole("button", { name: "uña" })).toBeTruthy();
+    expect(container.querySelectorAll(".am-direct-pencil__row--top .am-direct-pencil__target")).toHaveLength(3);
+    expect(container.querySelectorAll(".am-direct-pencil__row--mid .am-direct-pencil__target")).toHaveLength(2);
+    expect(container.querySelectorAll(".am-direct-pencil__row--bottom .am-direct-pencil__target")).toHaveLength(3);
+    expect(container.querySelector(".am-direct-pencil__instruction")).toBeNull();
+    expect(container.querySelector(".am-direct-pencil__example-badge")).toBeNull();
+    expect(container.querySelector(".am-direct-pencil__line-group")).toBeNull();
+  });
+
+  it("tapping correct target (uniforme) connects line and plays correct chord", async () => {
+    render(
+      <LassoConnect
+        pageKey="p17-proto-ok"
+        targets={p17Targets}
+        mode="mark"
+        directPencil
+        centerLabel="Uu"
+        lessonId="6"
+        reducedMotion
+      />,
+    );
+
+    fireEvent.click(screen.getByRole("button", { name: "uniforme" }));
+    await flushAnim(300);
+
+    expect(playCorrectChord).toHaveBeenCalled();
+    expect(gretelEvent).toHaveBeenCalledWith("answer:correct", { itemId: "0" });
+    expect(screen.getByRole("button", { name: "uniforme" }).classList.contains("is-connected")).toBe(true);
+  });
+
+  it("wrong target retracts neutrally and delegates retry voice without local buzz or TTS", async () => {
+    const { container } = render(
+      <LassoConnect
+        pageKey="p17-proto-bad"
+        targets={p17Targets}
+        mode="mark"
+        directPencil
+        centerLabel="Uu"
+        reducedMotion
+      />,
+    );
+
+    fireEvent.click(screen.getByRole("button", { name: "oso" }));
+
+    expect(playWrongBuzz).not.toHaveBeenCalled();
+    expect(speakGretelPhrase).not.toHaveBeenCalled();
+    expect(gretelEvent).toHaveBeenCalledWith("answer:wrong", { itemId: "2" });
+    expect(screen.getByRole("button", { name: "oso" }).classList.contains("is-connected")).toBe(false);
+    expect(screen.getByRole("button", { name: "oso" }).classList.contains("is-retry")).toBe(true);
+    expect(container.querySelector(".am-direct-pencil__retry-line")).toBeTruthy();
+
+    await flushAnim(150);
+    expect(screen.getByRole("button", { name: "oso" }).classList.contains("is-retry")).toBe(false);
+  });
+
+  it("toggling focus mode expands stage for precision drawing", () => {
+    const { container } = render(
+      <LassoConnect
+        pageKey="p17-proto-focus"
+        targets={p17Targets}
+        mode="mark"
+        directPencil
+        centerLabel="Uu"
+        reducedMotion
+      />,
+    );
+
+    const focusBtn = screen.getByRole("button", { name: "Ampliar área de trabajo" });
+    fireEvent.click(focusBtn);
+
+    expect(container.querySelector(".am-direct-pencil.is-expanded")).toBeTruthy();
+
+    fireEvent.click(screen.getByRole("button", { name: "Volver a la página" }));
+    expect(container.querySelector(".am-direct-pencil.is-expanded")).toBeFalsy();
+  });
+});

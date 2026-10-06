@@ -264,15 +264,17 @@ export function LassoVowelMatchAll({
   );
 }
 
-/** Vowel line match — mark correct pictures with lasso */
+/** Vowel line match — mark correct pictures with lasso or direct pencil connector */
 export function LassoVowelLineMatch({
   region,
   lessonId,
   instruction,
+  directPencil,
 }: {
   region: PageRegion;
   lessonId?: string;
   instruction?: string;
+  directPencil?: boolean;
 }) {
   const cells = region.cells ?? [];
   const targets: LassoTarget[] = cells.map((cell, i) => ({
@@ -280,13 +282,13 @@ export function LassoVowelLineMatch({
     label: cell.caption ?? `dibujo ${i + 1}`,
     src: cell.illustrationSrc,
     correct: cell.correct,
-    // Workbook p5 prints ola as the already-connected example.
-    example: Boolean(region.exampleCaption) && cell.caption === region.exampleCaption,
+    // Direct-pencil pages start clean; preserve source examples only in legacy presentation.
+    example: !directPencil && Boolean(region.exampleCaption) && cell.caption === region.exampleCaption,
     role: "solo",
   }));
   return (
     <div className="am-faithful-lasso">
-      {region.letterPair ? (
+      {region.letterPair && !directPencil ? (
         <span className="am-faithful-lasso__letter" aria-hidden>
           {region.letterPair}
         </span>
@@ -298,6 +300,8 @@ export function LassoVowelLineMatch({
         verbFamily={verbFromText(instruction ?? "Une")}
         instruction={instruction}
         lessonId={lessonId}
+        directPencil={directPencil}
+        centerLabel={region.letterPair ?? "Uu"}
       />
     </div>
   );
