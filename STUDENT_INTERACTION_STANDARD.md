@@ -56,19 +56,23 @@ The pencil, mark, and feedback must feel like a premium animated workbook action
 
 Replace the rope/lasso interaction. This behavior can serve more than one visual archetype: page 3 is the multi-pair matching visual archetype, while pages 5/8/11/14/17 are the single-central-target + surrounding-pictures visual archetype. Do not confuse visual archetype classification with interaction-adapter ownership.
 
-1. The child selects the two items using tap/click/keyboard-accessible selection.
-2. The classic pencil draws a slightly natural workbook-style line between the items.
-3. Correct lines remain.
-4. Wrong lines are removed through the same restrained pencil/eraser retry language.
+1. Mouse/touch default: press-and-hold the source letter/endpoint and drag a teal pencil line toward the target.
+2. Candidate targets highlight on approach.
+3. Correct release snaps the line into place and preserves it.
+4. Incorrect release gently retracts/erases and returns immediately to retry-ready state.
+5. Click/tap and keyboard-accessible selection remain as fallback paths over the same underlying state.
+6. Correct lines remain; wrong lines use the same restrained Pencil Retry language.
 
 No thrown rope, lasso, spinning coil, or rope physics.
 
-### 4. Handwriting / tracing — Progressive Fade
+### 4. Letter tracing — Checkpoint / stroke-order default
 
-Use progressive visual support:
-- begin with the source-verified tracing/model guidance;
-- as the learner succeeds, the guide fades progressively;
-- transition toward independent writing on the Workbook's writing line.
+On desktop/mouse, the default is large checkpoint/stroke-order interaction:
+- the child clicks points in order;
+- the letter progressively draws between checkpoints;
+- reuse existing tracing templates, persistence, scoring, and reset behavior.
+
+Keep optional freehand click-drag tracing for learners/devices that benefit from it.
 
 Never invent stroke geometry for letters/paths that are not source-verified.
 
@@ -93,23 +97,27 @@ The classic pencil draws a real workbook-style ellipse around that syllable.
 
 Correct circles remain. Incorrect circles use Pencil Retry and are erased.
 
-### 7. Complete-the-word — Pencil Writing
+### 7. Complete-the-word — Draggable syllable placement
 
-Do not use game-like moving answer tiles as the final presentation.
+Use the existing syllable choices as draggable pieces:
+- drag the selected syllable into the original printed blank;
+- snap the correct syllable into place;
+- keep click/tap-to-place as a full fallback;
+- preserve the source word layout and exact choices;
+- reuse existing persistence/completion state.
 
-The learner chooses the answer and the completion appears in the printed blank as a handwriting/pencil-style entry.
+Incorrect placement returns gently to retry without punitive feedback.
 
-Correct completion remains. Incorrect completion is handled with the same gentle retry language.
+### 8. Sentence writing — Typed handwriting-line default + optional freehand
 
-### 8. Sentence writing — Direct Handwriting
-
-Primary mode is direct handwriting on the Workbook's ruled lines.
+Desktop default is typing directly on large digital handwriting lines.
 
 - Preserve the source sentence/model.
 - Use the Workbook line structure.
 - Save and restore writing.
-- Use **Listo** to complete.
-- Keyboard entry is accessibility fallback only, not the primary interaction.
+- Keep optional freehand handwriting mode.
+- Use **Listo** to complete where the existing page flow requires it.
+- Do not discard previously typed or drawn learner work.
 
 ## Shared visual and motion language
 
@@ -180,12 +188,13 @@ The shared kernel owns:
 
 Activity families are adapters over this kernel:
 - picture/vowel selection → Real Workbook Mark;
-- line matching → Pencil Line;
-- tracing/handwriting → Progressive Fade;
+- line matching → Direct Pencil Connector with click/tap/keyboard fallback;
+- matching/placement → existing drag/drop with click/tap fallback;
+- letter tracing → Checkpoint / Stroke-Order default with optional freehand;
 - drawing → Premium Simple Pencil Box;
 - syllables → Real Pencil Circle;
-- complete-word → Pencil Writing;
-- sentence writing → Direct Handwriting.
+- complete-word → Draggable Syllable Placement with click/tap fallback;
+- sentence writing → Typed Handwriting-Line default with optional freehand.
 
 An activity issue must not invent a second pencil, eraser, success color, retry animation, timing system, Gretel feedback path, or persistence model. Fix shared behavior at the kernel owner, then let adapters consume it.
 
