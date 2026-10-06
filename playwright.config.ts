@@ -1,5 +1,12 @@
 import { defineConfig } from "@playwright/test";
 
+const envCommand = (env: Record<string, string>, command: string) => {
+  const assignments = Object.entries(env)
+    .map(([key, value]) => `$env:${key}='${value.replaceAll("'", "''")}'`)
+    .join("; ");
+  return `powershell -NoProfile -Command \"${assignments}; ${command}\"`;
+};
+
 // Managed execution environments can provide a system Chromium path. Standard
 // CI runners instead use Playwright's installed browser, so executablePath is
 // optional rather than hard-coded to one machine image.
@@ -67,11 +74,14 @@ export default defineConfig({
       // tests/e2e/support/fake-supabase.ts); this makes the app still count as
       // "configured", so the real code paths run, while nothing can leave the
       // machine. It also makes CI behave identically to a safe local run.
-      command:
-        "VITE_ALLOW_DEMO_MODE=true " +
-        "VITE_SUPABASE_URL=http://127.0.0.1:54321 " +
-        "VITE_SUPABASE_PUBLISHABLE_KEY=sb_publishable_e2e_not_a_real_key " +
+      command: envCommand(
+        {
+          VITE_ALLOW_DEMO_MODE: "true",
+          VITE_SUPABASE_URL: "http://127.0.0.1:54321",
+          VITE_SUPABASE_PUBLISHABLE_KEY: "sb_publishable_e2e_not_a_real_key",
+        },
         "pnpm dev:worker --port 5173 --host 127.0.0.1",
+      ),
       url: "http://127.0.0.1:5173",
       reuseExistingServer: false,
       // Worker/browser verification must not invoke prepare:art. Full release
@@ -82,11 +92,14 @@ export default defineConfig({
       // Second, login-gated server for the chromium-login-gated project. It
       // uses the same non-generating worker mode as the open-access server so
       // targeted browser verification cannot rewrite tracked route output.
-      command:
-        "VITE_CRM_REVIEW=false " +
-        "VITE_SUPABASE_URL=http://127.0.0.1:54321 " +
-        "VITE_SUPABASE_PUBLISHABLE_KEY=sb_publishable_e2e_not_a_real_key " +
+      command: envCommand(
+        {
+          VITE_CRM_REVIEW: "false",
+          VITE_SUPABASE_URL: "http://127.0.0.1:54321",
+          VITE_SUPABASE_PUBLISHABLE_KEY: "sb_publishable_e2e_not_a_real_key",
+        },
         "pnpm dev:worker --port 5174 --host 127.0.0.1",
+      ),
       url: "http://127.0.0.1:5174",
       reuseExistingServer: false,
       timeout: 300_000,
