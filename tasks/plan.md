@@ -35,12 +35,12 @@ Finish the existing Cartilla product quickly and correctly. Preserve working stu
 
 ## Phase 1 — highest-leverage blockers
 
-### A. Golden Workbook Page 1 — #496 / PR #501
+### A. Archetype 1 representative — Workbook Page 1 / #496 / PR #501
 
 **Owner:** controller for visual acceptance; bounded worker changes only if a rendered defect is found.
 
-- Render exact current #501 head in the actual app.
-- Show phone, tablet and desktop screenshots before further visual change.
+- Render exact current #501 head in the actual app as the Archetype 1 representative.
+- Show phone, tablet and desktop screenshots before further Archetype 1 rollout.
 - Verify Page 1 alone loses scenic wallpaper, instruction treatment is quiet/native, Gretel is subordinate, all 20 source illustrations and ordering remain intact, and later pages do not inherit Page 1-only rules.
 - Verify #504's `uno` correction alongside Page 1 before final visual acceptance.
 - Run exact-head controller review, Sonar and task-specific verification.
@@ -93,7 +93,7 @@ Advance the owner-approved archetype rollout as isolated work becomes ready; do 
 
 The public app currently shows the old tap/select + whole-page check/correct behavior. PR #476 is therefore a candidate, not a finished visual feature.
 
-- Reconcile #476 against accepted Page 1/current `main`.
+- Reconcile #476 against CURRENT `main` and the shared interaction contracts. Page 1 is an Archetype 1 representative, not a prerequisite for unrelated archetypes.
 - Complete the missing visible choreography in the shared kernel: real pencil draw, restrained hold, success mark, pencil-to-eraser transition, erase, retry.
 - Keep feedback shared; do not build page-local copies.
 - Test correct/incorrect p1/p2 interactions, keyboard access, reduced motion, persistence/restore, completion events and navigation gating.
@@ -187,9 +187,10 @@ Do not ask the owner to launch or supervise additional agents. The scheduled Car
 Implementation-worker concurrency and lane accounting come only from the `AGENTS.md` Execution Control Contract. This plan records the current preferred allocation and does not define a numeric limit.
 
 **Current preferred allocation:**
-- Candidate lane: exact-head verification of canonical PR #502 only; do not reopen duplicate #507.
-- Candidate lane: #389 release harness only if the supervisor confirms no existing worker is already active for it.
-- Controller: #501 rendered visual acceptance, #504 art proof, then #476 shared Pencil/Eraser visual repair/acceptance.
+- Keep up to two implementation lanes on genuinely independent current gaps.
+- Shared-kernel work and an archetype adapter that consumes that same changing kernel stay sequential when files/contracts overlap.
+- Source mapping, isolated archetype layout work, responsive proof, and unrelated release/art verification may run in parallel when ownership is disjoint.
+- Controller owns reconciliation, visible proof, review, and integration.
 
 **Must stay sequential only where dependency/file ownership requires it:**
 - shared kernel changes before adapters that consume those exact kernel changes;

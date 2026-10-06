@@ -43,6 +43,18 @@ Activity adapters own only the source-faithful gesture/layout needed by that act
 
 Adapters must not duplicate kernel behavior.
 
+## 2A. Workbook visual archetype boundary
+
+`WORKBOOK_ARCHETYPE_STANDARD.md` owns the recurring visual/source-layout family. This UX contract owns behavior/state. Do not collapse different visual archetypes merely because they reuse one interaction adapter.
+
+- Archetype 3 = genuine multi-source / multi-target matching/connect composition.
+- Archetype 4 = one central target with surrounding pictures.
+- Both may consume shared Pencil Line mechanics where the printed source requires drawn connections.
+- Printed page 17 / Lección 6 / Uu is Archetype 4, not Archetype 3.
+- Pages 5, 8, 11, 14, and 17 preserve their exact central-target surrounding-picture source composition.
+- The numbered teal title bars on the owner reference board are annotations only and are never production UI.
+- Pages 86–87 remain SOURCE_BLOCKED with no inferred layout, content, artwork, or interaction metadata.
+
 ## 3. Gretel event contract
 
 Activities do not own a second Gretel instance.
