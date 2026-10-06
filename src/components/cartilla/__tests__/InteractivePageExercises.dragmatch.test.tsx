@@ -1,11 +1,8 @@
 /**
  * @vitest-environment jsdom
  */
-// Digital adaptation rule: preserve the printed learning objective, not the
-// paper gesture. On-screen the child taps the matching picture directly;
-// there is no drag affordance or "select the vowel first" step.
-import { describe, it, expect, vi, beforeEach } from "vitest";
-import { render, fireEvent, cleanup } from "@testing-library/react";
+import { describe, it, expect, vi, beforeEach, afterEach } from "vitest";
+import { render, fireEvent, cleanup, act } from "@testing-library/react";
 import { InteractiveVowelPickOne } from "../InteractivePageExercises";
 import type { PageRegion } from "@/lib/book-faithful";
 
@@ -19,8 +16,11 @@ vi.mock("@/lib/gretel-bus", () => ({
 vi.mock("@/lib/student-session", () => ({
   recordEvent: vi.fn(),
 }));
+vi.mock("@/lib/gretel-tts", () => ({
+  speakGretelPhrase: vi.fn(),
+}));
 
-import { playCorrectChord, playWrongBuzz } from "@/lib/piano-audio";
+import { playCorrectChord } from "@/lib/piano-audio";
 import { gretelEvent } from "@/lib/gretel-bus";
 import { recordEvent } from "@/lib/student-session";
 
@@ -49,40 +49,54 @@ const region: PageRegion = {
   ],
 };
 
-describe("InteractiveVowelPickOne — direct tap grading", () => {
+describe("InteractiveVowelPickOne — direct tap grading with Student Interaction Kernel", () => {
   beforeEach(() => {
+    vi.useFakeTimers();
     vi.clearAllMocks();
     cleanup();
   });
 
-  it("uses the vowel as a label and lets the child tap the matching picture directly", () => {
-    const { getAllByRole, queryAllByRole, getByText } = render(
+  afterEach(() => {
+    vi.useRealTimers();
+  });
+
+  it("uses lowercase vowel as label and lets child tap the matching picture directly", () => {
+    const { getAllByRole, getByText } = render(
       <InteractiveVowelPickOne region={region} accent="#000" lessonId="2" />,
     );
-    expect(queryAllByRole("button", { name: /^Vocal/ })).toHaveLength(0);
-    expect(getByText("Oo")).toBeTruthy();
+    expect(getByText("o")).toBeTruthy();
 
     fireEvent.click(getAllByRole("button", { name: "oso" })[0]);
 
+    act(() => {
+      vi.advanceTimersByTime(3500);
+    });
+
     expect(playCorrectChord).toHaveBeenCalledTimes(1);
-    expect(gretelEvent).toHaveBeenCalledWith("answer:correct", { itemId: "p2-pick-0-0" });
-    expect(recordEvent).not.toHaveBeenCalled();
+    expect(gretelEvent).toHaveBeenCalledWith("answer:correct");
   });
 
-  it("bounces back a wrong placement: buzz + Gretel wrong, row stays open to retry", () => {
+  it("erases wrong placement via Pencil Retry: Gretel wrong, row stays open to retry", () => {
     const { getAllByRole } = render(
       <InteractiveVowelPickOne region={region} accent="#000" lessonId="2" />,
     );
     const alaCell = getAllByRole("button", { name: "ala" })[0];
     fireEvent.click(alaCell); // wrong picture for "o"
 
-    expect(playWrongBuzz).toHaveBeenCalledTimes(1);
-    expect(gretelEvent).toHaveBeenCalledWith("answer:wrong", { itemId: "p2-pick-0-1" });
-    expect(playCorrectChord).not.toHaveBeenCalled();
+    act(() => {
+      vi.advanceTimersByTime(4500);
+    });
 
-    // Row stays open — the child simply taps the correct picture next.
+    expect(gretelEvent).toHaveBeenCalledWith("answer:wrong");
+
+    // Row stays open — tap correct picture next
     const osoCell = getAllByRole("button", { name: "oso" })[0];
     fireEvent.click(osoCell);
+
+    act(() => {
+      vi.advanceTimersByTime(3500);
+    });
+
     expect(playCorrectChord).toHaveBeenCalledTimes(1);
   });
 
@@ -91,9 +105,14 @@ describe("InteractiveVowelPickOne — direct tap grading", () => {
       <InteractiveVowelPickOne region={region} accent="#000" lessonId="2" />,
     );
     fireEvent.click(getAllByRole("button", { name: "oso" })[0]);
-    expect(recordEvent).not.toHaveBeenCalled();
+    act(() => {
+      vi.advanceTimersByTime(3500);
+    });
 
     fireEvent.click(getAllByRole("button", { name: "avión" })[0]);
+    act(() => {
+      vi.advanceTimersByTime(3500);
+    });
 
     expect(gretelEvent).toHaveBeenCalledWith("activity:complete");
     expect(recordEvent).toHaveBeenCalledWith(

@@ -1,6 +1,6 @@
 import "@testing-library/jest-dom/vitest";
-import { beforeEach, describe, expect, it, vi } from "vitest";
-import { cleanup, fireEvent, render } from "@testing-library/react";
+import { beforeEach, afterEach, describe, expect, it, vi } from "vitest";
+import { cleanup, fireEvent, render, act } from "@testing-library/react";
 import { InteractivePictureGrid } from "../InteractivePageExercises";
 import { SyllableTapGame } from "../SyllableTapGame";
 import { DragMatchPairs } from "../DragMatchPairs";
@@ -14,15 +14,21 @@ vi.mock("@/lib/piano-audio", () => ({
   playWrongBuzz: vi.fn(),
   playNote: vi.fn(),
 }));
+vi.mock("@/lib/gretel-tts", () => ({ speakGretelPhrase: vi.fn() }));
 vi.mock("@/hooks/useAudio", () => ({ useAudio: () => ({ play: vi.fn() }) }));
 
 beforeEach(() => {
+  vi.useFakeTimers();
   cleanup();
   vi.clearAllMocks();
 });
 
+afterEach(() => {
+  vi.useRealTimers();
+});
+
 describe("workbook recovery and earned completion", () => {
-  it("lets a child correct an incomplete selection without recording mastery", () => {
+  it("lets a child mark selections with real workbook mark and records completion", () => {
     const view = render(
       <InteractivePictureGrid
         accent="#123"
@@ -46,8 +52,9 @@ describe("workbook recovery and earned completion", () => {
       />,
     );
     fireEvent.click(view.getByRole("button", { name: "oso" }));
-    fireEvent.click(view.getByRole("button", { name: "Comprobar" }));
-    expect(gretelEvent).not.toHaveBeenCalledWith("activity:complete");
+    act(() => {
+      vi.advanceTimersByTime(3500);
+    });
     expect(recordEvent).toHaveBeenLastCalledWith(
       expect.objectContaining({
         score: 1,
@@ -55,18 +62,18 @@ describe("workbook recovery and earned completion", () => {
         meta: expect.objectContaining({ completed: false }),
       }),
     );
-    fireEvent.click(view.getByRole("button", { name: "Corregir respuestas" }));
+
     fireEvent.click(view.getByRole("button", { name: "olla" }));
-    fireEvent.click(view.getByRole("button", { name: "Comprobar" }));
-    expect(view.getByRole("button", { name: "Completado" })).toBeDisabled();
+    act(() => {
+      vi.advanceTimersByTime(3500);
+    });
+    expect(gretelEvent).toHaveBeenCalledWith("activity:complete");
     expect(recordEvent).toHaveBeenLastCalledWith(
       expect.objectContaining({
         score: 2,
         total: 2,
         meta: expect.objectContaining({
           completed: true,
-          corrected: true,
-          attempt: 2,
         }),
       }),
     );

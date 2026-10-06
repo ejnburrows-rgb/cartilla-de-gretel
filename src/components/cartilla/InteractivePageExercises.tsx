@@ -4,6 +4,12 @@ import type { PageGridCell, PageRegion } from "@/lib/book-faithful";
 import { useActivityEvents, useActivityState } from "@/lib/activity-events";
 import { playCorrectChord, playWrongBuzz } from "@/lib/piano-audio";
 import { LivingIllustration } from "@/components/living/LivingIllustration";
+import {
+  ClassicPencilActor,
+  RealWorkbookMark,
+  runKernelMarkChoreography,
+  KernelMarkState,
+} from "@/cartilla/interactions/StudentInteractionKernel";
 
 /** Pseudo-random per-cell animation offset so a grid never floats in lockstep. */
 function floatDelay(index: number): string {
@@ -115,7 +121,11 @@ interface ExerciseProps {
   lessonId?: string;
 }
 
-/** "Presiona los dibujos..." — tap each guessed cell, grade on check. */
+/** Workbook Page 1 / Picture Grid exercise using the Shared Student Interaction Kernel.
+ * Individual row-pair educational behavior is preserved: each row contains target pictures.
+ * Tapping a picture triggers the real workbook mark through the classic pencil.
+ * Hold (~3s) -> Correct turns green & stays; Wrong triggers Pencil Retry & erases mark.
+ * No Comprobar button. */
 export function InteractivePictureGrid({
   region,
   accent,
@@ -126,58 +136,62 @@ export function InteractivePictureGrid({
   const { emit: gretelEvent, record: recordEvent } = useActivityEvents();
   const cells = region.cells ?? [];
   const columns = region.columns ?? 4;
-  const [picked, setPicked] = useActivityState<Set<number>>("picked", new Set());
-  const [graded, setGraded] = useActivityState("graded", false);
-  const [solved, setSolved] = useActivityState("solved", false);
-  const [validated, setValidated] = useActivityState<Set<number>>("validated", new Set());
-  const [attempts, setAttempts] = useState(0);
 
-  useEffect(() => { if (solved) gretelEvent("activity:complete", { restored: true }); }, [solved, gretelEvent]);
+  const [savedCorrect, setSavedCorrect] = useActivityState<Set<number>>("correctSelections", new Set());
+  const [activeCellState, setActiveCellState] = useState<{
+    index: number;
+    state: KernelMarkState;
+  } | null>(null);
 
-  const toggle = (i: number) => {
-    if (graded || validated.has(i)) return;
-    setPicked((prev) => {
-      const next = new Set(prev);
-      if (next.has(i)) next.delete(i);
-      else next.add(i);
-      return next;
-    });
-  };
+  const [completed, setCompleted] = useState(false);
+  const totalRequired = cells.filter((c) => c.correct === true).length;
+  const restoredComplete = useRef(totalRequired > 0 && savedCorrect.size >= totalRequired);
 
-  const targets = cells.map((entry, i) => ({ key: i, correct: entry.correct }));
-  const remaining = targets.filter(t => t.correct === true && !picked.has(t.key)).length;
-  const check = () => {
-    setValidated(new Set(targets.filter(t => t.correct === true && picked.has(t.key)).map(t => t.key)));
-    setGraded(true);
-    let allCorrect = true;
-    cells.forEach((cell, i) => {
-      if (cell.correct === undefined) return;
-      const g = gradeOf(picked.has(i), cell.correct);
-      if (g === "wrong" || g === "missed") allCorrect = false;
-    });
-    setSolved(allCorrect);
-    setAttempts((n) => n + 1);
-    gretelEvent(allCorrect ? "answer:correct" : "answer:wrong");
-    if (allCorrect) {
-      playCorrectChord();
-      gretelEvent("activity:complete");
-    } else playWrongBuzz();
-    if (lessonId) {
-      const gradable = cells.filter((c) => c.correct !== undefined).length;
-      recordEvent({
-        lessonId,
-        kind: "exercise",
-        score: targets.filter(t => t.correct === true && picked.has(t.key)).length,
-        total: targets.filter(t => t.correct === true || (t.correct === false && picked.has(t.key))).length,
-        meta: {
-          exercise: `picture_grid_${region.id}`,
-          completed: allCorrect,
-          itemCount: gradable,
-          attempt: attempts + 1,
-          corrected: attempts > 0,
-        },
-      });
+  useEffect(() => {
+    if (totalRequired > 0 && savedCorrect.size >= totalRequired && !completed) {
+      setCompleted(true);
+      if (restoredComplete.current) {
+        gretelEvent("activity:complete", { restored: true });
+      } else {
+        gretelEvent("activity:complete");
+      }
     }
+  }, [savedCorrect, totalRequired, completed, gretelEvent]);
+
+  const handleTap = (index: number) => {
+    if (savedCorrect.has(index)) return;
+    if (activeCellState !== null && activeCellState.state !== "idle") return;
+
+    const cell = cells[index];
+    if (!cell || cell.correct === undefined) return;
+
+    const reducedMotion =
+      typeof window !== "undefined" &&
+      typeof window.matchMedia === "function" &&
+      window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+
+    runKernelMarkChoreography({
+      isCorrect: Boolean(cell.correct),
+      reducedMotion,
+      onStateChange: (state) => {
+        setActiveCellState({ index, state });
+      },
+      onComplete: (isCorrect) => {
+        if (isCorrect) {
+          setSavedCorrect((prev) => new Set(prev).add(index));
+          if (lessonId) {
+            recordEvent({
+              lessonId,
+              kind: "exercise",
+              score: savedCorrect.size + 1,
+              total: totalRequired,
+              meta: { exercise: `picture_grid_${region.id}`, completed: savedCorrect.size + 1 >= totalRequired },
+            });
+          }
+        }
+        setActiveCellState(null);
+      },
+    });
   };
 
   const rows: PageGridCell[][] = [];
@@ -192,7 +206,10 @@ export function InteractivePictureGrid({
     : undefined;
 
   return (
-    <div className={`fp-ix-grid${precise ? " fp-ix-grid--precise" : ""}`} style={{ ["--ix-accent" as string]: accent, gridTemplateRows: exactRows }}>
+    <div
+      className={`fp-ix-grid${precise ? " fp-ix-grid--precise" : ""}`}
+      style={{ ["--ix-accent" as string]: accent, gridTemplateRows: exactRows }}
+    >
       {rows.map((row, r) => (
         <div
           key={r}
@@ -201,41 +218,45 @@ export function InteractivePictureGrid({
         >
           {row.map((cell, c) => {
             const i = r * columns + c;
+            const isCorrectSaved = savedCorrect.has(i);
+            const isActive = activeCellState?.index === i;
+            const currentState: KernelMarkState = isCorrectSaved
+              ? "success"
+              : isActive
+              ? activeCellState.state
+              : "idle";
+
+            const flagged = cell.correct === undefined;
+
             return (
-              <Cell
+              <button
                 key={i}
-                cell={cell}
-                index={i}
-                picked={picked.has(i)}
-                grade={graded || validated.has(i) ? gradeOf(picked.has(i), cell.correct) : null}
-                disabled={graded || validated.has(i)}
-                onToggle={() => toggle(i)}
-                mark={mark}
-              />
+                type="button"
+                className={`fp-ix-cell ${isCorrectSaved ? "graded-correct" : ""}`}
+                data-gretel-correct={flagged ? undefined : String(cell.correct)}
+                disabled={flagged || isCorrectSaved || (activeCellState !== null && !isActive)}
+                style={{ ["--ix-float-delay" as string]: floatDelay(i), position: "relative" }}
+                onClick={() => handleTap(i)}
+                aria-pressed={isCorrectSaved || isActive}
+                aria-label={cell.caption ?? `dibujo ${i + 1}`}
+              >
+                <ArtOrPending cell={cell} />
+
+                {/* Shared Student Kernel Mark */}
+                <RealWorkbookMark type={mark} state={currentState} />
+
+                {/* Classic Pencil Actor during active marking or erasing */}
+                {isActive && (currentState === "marking" || currentState === "neutral-hold" || currentState === "retry-erase") && (
+                  <ClassicPencilActor
+                    mode={currentState === "retry-erase" ? "eraser" : "pencil"}
+                    animating={currentState === "marking" || currentState === "retry-erase"}
+                  />
+                )}
+              </button>
             );
           })}
         </div>
       ))}
-      {graded && !solved && <p role="status">Revisa las selecciones marcadas. Faltan {remaining} respuestas.</p>}
-      <div className="fp-ix-check-row">
-        <button
-          type="button"
-          className="fp-ix-check-btn"
-          onClick={check}
-          disabled={graded || picked.size === 0}
-        >
-          {solved ? "Completado" : "Comprobar"}
-        </button>
-        {graded && !solved && (
-          <button
-            type="button"
-            className="fp-ix-check-btn"
-            onClick={() => { setPicked(new Set(targets.filter(t => t.correct === true && picked.has(t.key)).map(t => t.key))); setGraded(false); }}
-          >
-            Corregir respuestas
-          </button>
-        )}
-      </div>
     </div>
   );
 }
@@ -254,55 +275,14 @@ function VowelLetterLabel({
       className="fp-ix-pick__letter"
       aria-label={`Vocal ${letter}`}
     >
-      {precise ? letter : `${letter.toUpperCase()}${letter}`}
+      {precise ? letter.toLowerCase() : letter.toLowerCase()}
     </span>
-  );
-}
-
-/** Direct-tap picture target for one vowel row. */
-function VowelPictureCell({
-  cell,
-  index,
-  grade,
-  wrong,
-  disabled,
-  onTap,
-}: {
-  cell: PageGridCell;
-  index: number;
-  grade: Grade;
-  wrong: boolean;
-  disabled: boolean;
-  onTap: () => void;
-}) {
-  const flagged = cell.correct === undefined;
-  const classes = [
-    "fp-ix-cell",
-    grade === "correct" ? "graded-correct" : "",
-    wrong ? "graded-wrong-flash" : "",
-  ]
-    .filter(Boolean)
-    .join(" ");
-  return (
-    <button
-      type="button"
-      className={classes}
-      data-gretel-correct={cell.correct === undefined ? undefined : String(cell.correct)}
-      data-flagged={flagged ? "true" : undefined}
-      disabled={flagged || disabled}
-      style={{ ["--ix-float-delay" as string]: floatDelay(index) }}
-      onClick={onTap}
-      aria-label={cell.caption ?? "dibujo"}
-    >
-      <ArtOrPending cell={cell} />
-      <span className="fp-ix-cell__badge" aria-hidden="true" />
-    </button>
   );
 }
 
 /** The printed page asks the child to identify the picture for each vowel.
  * On screen, translate that objective into a direct tap: no drag or extra
- * vowel-selection step is required. */
+ * vowel-selection step is required. Page 2 adapter using the Shared Student Interaction Kernel. */
 export function InteractiveVowelPickOne({
   region,
   accent,
@@ -317,12 +297,14 @@ export function InteractiveVowelPickOne({
   const exactColumns = precise && region.gridColumnFracs?.length === 4
     ? region.gridColumnFracs
     : undefined;
+
   const [correctRows, setCorrectRows] = useActivityState<Set<number>>("correctRows", new Set());
-  const [wrongFlash, setWrongFlash] = useState<{
+  const [activeCellState, setActiveCellState] = useState<{
     row: number;
     cell: number;
+    state: KernelMarkState;
   } | null>(null);
-  const [incorrectAttempts, setIncorrectAttempts] = useActivityState("incorrectAttempts", 0);
+
   const [completed, setCompleted] = useState(false);
   const restoredComplete = useRef(rows.length > 0 && correctRows.size === rows.length);
 
@@ -336,28 +318,38 @@ export function InteractiveVowelPickOne({
           lessonId,
           kind: "exercise",
           score: rows.length,
-          total: rows.length + incorrectAttempts,
+          total: rows.length,
           meta: { exercise: `vowel_pick_one_${region.id}`, completed: true, attemptCorrect: true },
         });
       }
     }
-  }, [correctRows, rows.length, completed, lessonId, region.id]);
+  }, [correctRows, rows.length, completed, lessonId, region.id, gretelEvent, recordEvent]);
 
   const attempt = (rowIdx: number, cellIdx: number) => {
     if (correctRows.has(rowIdx)) return;
+    if (activeCellState !== null && activeCellState.state !== "idle") return;
+
     const cell = rows[rowIdx]?.cells[cellIdx];
-    if (cell?.correct) {
-      setCorrectRows((prev) => new Set(prev).add(rowIdx));
-      playCorrectChord();
-      gretelEvent("answer:correct", { itemId: `${region.id}-${rowIdx}-${cellIdx}` });
-    } else {
-      setIncorrectAttempts(n => n + 1);
-      if (lessonId) recordEvent({ lessonId, kind: "exercise", score: correctRows.size, total: rows.length + incorrectAttempts + 1, meta: { exercise: `vowel_pick_one_${region.id}`, completed: false, attemptCorrect: false } });
-      setWrongFlash({ row: rowIdx, cell: cellIdx });
-      playWrongBuzz();
-      gretelEvent("answer:wrong", { itemId: `${region.id}-${rowIdx}-${cellIdx}` });
-      setTimeout(() => setWrongFlash(null), 400);
-    }
+    if (!cell || cell.correct === undefined) return;
+
+    const reducedMotion =
+      typeof window !== "undefined" &&
+      typeof window.matchMedia === "function" &&
+      window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+
+    runKernelMarkChoreography({
+      isCorrect: Boolean(cell.correct),
+      reducedMotion,
+      onStateChange: (state) => {
+        setActiveCellState({ row: rowIdx, cell: cellIdx, state });
+      },
+      onComplete: (isCorrect) => {
+        if (isCorrect) {
+          setCorrectRows((prev) => new Set(prev).add(rowIdx));
+        }
+        setActiveCellState(null);
+      },
+    });
   };
 
   return (
@@ -380,17 +372,47 @@ export function InteractiveVowelPickOne({
                 .join(" "),
             } : undefined}
           >
-            {row.cells.map((cell, cellIdx) => (
-              <VowelPictureCell
-                key={cellIdx}
-                cell={cell}
-                index={r * 3 + cellIdx}
-                grade={correctRows.has(r) && cell.correct ? "correct" : null}
-                wrong={wrongFlash?.row === r && wrongFlash.cell === cellIdx}
-                disabled={correctRows.has(r)}
-                onTap={() => attempt(r, cellIdx)}
-              />
-            ))}
+            {row.cells.map((cell, cellIdx) => {
+              const isRowCorrectSaved = correctRows.has(r);
+              const isActive = activeCellState?.row === r && activeCellState?.cell === cellIdx;
+              const isTargetCorrect = Boolean(cell.correct);
+
+              const currentState: KernelMarkState = isRowCorrectSaved && isTargetCorrect
+                ? "success"
+                : isActive
+                ? activeCellState.state
+                : "idle";
+
+              const flagged = cell.correct === undefined;
+
+              return (
+                <button
+                  key={cellIdx}
+                  type="button"
+                  className={`fp-ix-cell ${isRowCorrectSaved && isTargetCorrect ? "graded-correct" : ""}`}
+                  data-gretel-correct={flagged ? undefined : String(cell.correct)}
+                  data-flagged={flagged ? "true" : undefined}
+                  disabled={flagged || isRowCorrectSaved || (activeCellState !== null && !isActive)}
+                  style={{ ["--ix-float-delay" as string]: floatDelay(r * 3 + cellIdx), position: "relative" }}
+                  onClick={() => attempt(r, cellIdx)}
+                  aria-label={cell.caption ?? "dibujo"}
+                  aria-pressed={isRowCorrectSaved && isTargetCorrect}
+                >
+                  <ArtOrPending cell={cell} />
+
+                  {/* Shared Student Kernel Mark */}
+                  <RealWorkbookMark type="circle" state={currentState} />
+
+                  {/* Classic Pencil Actor during active marking or erasing */}
+                  {isActive && (currentState === "marking" || currentState === "neutral-hold" || currentState === "retry-erase") && (
+                    <ClassicPencilActor
+                      mode={currentState === "retry-erase" ? "eraser" : "pencil"}
+                      animating={currentState === "marking" || currentState === "retry-erase"}
+                    />
+                  )}
+                </button>
+              );
+            })}
           </div>
         </div>
       ))}
