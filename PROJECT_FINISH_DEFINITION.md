@@ -1,6 +1,6 @@
 # PROJECT_FINISH_DEFINITION.md — canonical definition of finished
 
-**Owner-locked:** 2026-10-05  
+**Owner-locked:** 2026-10-06  
 **Scope:** entire La Cartilla de Gretel product  
 **Authority:** this file defines what "project finished" means. It is not a task list or changelog.
 
