@@ -4,12 +4,13 @@
  * `activity:complete` bus events (no parallel progress system).
  */
 import { afterEach, beforeEach, describe, expect, it, vi } from "vitest";
-import { act, cleanup, fireEvent, render, screen } from "@testing-library/react";
+import { act, cleanup, fireEvent, render, screen, waitFor } from "@testing-library/react";
 import { NativeLessonViewer } from "@/components/StudentBook/NativeLessonViewer";
 import { focusGretelActivity, gretelEvent, onGretelEvent } from "@/lib/gretel-bus";
 import { requiredActivitiesForPage, pageCompletionState } from "@/lib/page-completion";
 import { markLessonCompleted, resetProgress } from "@/lib/lesson-progress";
 import type { WorkbookPageEntry } from "@/components/StudentBook/SimplePageViewer";
+import { STUDENT_PAGE_TURN_MS } from "@/lib/living-motion";
 
 // Lesson 8 (P): p23 letter tracing + drawing, p24 syllable circles,
 // p25 reading-only, p26 fill-in + sentences.
@@ -94,6 +95,7 @@ describe("NativeLessonViewer completion gate", () => {
     complete(required[required.length - 1]!.id);
     expect(next().hasAttribute("aria-disabled")).toBe(false);
     fireEvent.click(next());
+    act(() => vi.advanceTimersByTime(STUDENT_PAGE_TURN_MS));
     expect(current()).toBe(24);
   });
 
@@ -101,10 +103,12 @@ describe("NativeLessonViewer completion gate", () => {
     render(<NativeLessonViewer pages={PAGES} chapterLabel="Lección 8" lessonNumber={8} />);
     completePage(23);
     fireEvent.click(next());
+    act(() => vi.advanceTimersByTime(STUDENT_PAGE_TURN_MS));
     expect(current()).toBe(24);
     expect(next().getAttribute("aria-disabled")).toBe("true");
     expect((back() as HTMLButtonElement).disabled).toBe(false);
     fireEvent.click(back());
+    act(() => vi.advanceTimersByTime(STUDENT_PAGE_TURN_MS));
     expect(current()).toBe(23);
     // completion persisted: coming back does not re-lock the finished page
     expect(next().hasAttribute("aria-disabled")).toBe(false);
@@ -161,7 +165,7 @@ describe("real workbook activities feed the gate through their own events", () =
     }
     expect(next().hasAttribute("aria-disabled")).toBe(false);
     fireEvent.click(next());
-    expect(current()).toBe(25);
+    await waitFor(() => expect(current()).toBe(25), { timeout: STUDENT_PAGE_TURN_MS + 500 });
   });
   it("Gretel's independent retry does not erase an already completed page activity", () => {
     render(<NativeLessonViewer pages={PAGES} chapterLabel="P" />);
