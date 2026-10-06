@@ -4,7 +4,7 @@
 
 
 **Status:** Active project entry point  
-**Last verified:** 2026-10-05
+**Last verified:** 2026-10-06
 
 ## Goal
 
@@ -28,7 +28,7 @@ For curriculum, wording, page order, exercise content, and source-page structure
 
 ## Active rules
 
-1. Read `CARTILLA_DIGITAL_DIRECTIVE.md` for page/content/presentation rules.
+1. Read `CARTILLA_DIGITAL_DIRECTIVE.md` for page/content/presentation rules and `WORKBOOK_ARCHETYPE_STANDARD.md` for the owner-locked recurring Student Workbook visual families.
 2. Read `ASSET_FIDELITY_POLICY.md` before touching images or source-preserving color transfer; read `STUDENT_INTERACTION_STANDARD.md`, `DESIGN.md`, and `UX-CONTRACT.md` before changing student Workbook interactions or page transitions; read `repo.md` before generating any Workbook or Flip Chart background.
 3. Lessons 8–24 must match the physical Workbook **word for word** and in the correct order.
 4. Digital interaction may change the physical gesture, not the lesson content or educational objective.
@@ -54,17 +54,13 @@ As of 2026-10-04, current open controller PRs include:
 - #478 — welcome-media code integration; the owner-supplied 5–6 second silent MP4 remains an external dependency;
 - #479 — physical Workbook and Flip Chart page-turn transitions.
 
-The owner-approved Workbook visual realignment is tracked in #495:
-- #496 — build and visually approve Workbook printed page 1 as the clean digital-canvas golden reference;
-- #497 — reproduce and fix the existing living-art motion path where approved motion is registered but not visibly running;
-- #498 — roll the accepted clean Workbook surface across representative page families only after #496 is accepted;
-- #499 — keep active documentation aligned with this distinction.
+The owner locked the recurring Student Workbook visual system on 2026-10-06 in `WORKBOOK_ARCHETYPE_STANDARD.md`. The eight canonical visual archetypes are: (1) picture grid / circle-X, (2) vowel/letter + row choices, (3) multi-pair matching/connect, (4) single central target + surrounding pictures, (5) handwriting/tracing + open drawing, (6) syllable recognition/circle, (7) phonics/reading practice, and (8) complete-the-word + sentence writing. The numbered teal title bars on the reference board are annotations only and never appear in production.
 
-The owner explicitly approved this factual documentation realignment on 2026-10-05.
+The old Page-1-only golden visual gate is superseded by this owner-approved eight-archetype system. Page 1 remains the representative source for archetype 1, while each other archetype has its own canonical repeated design. The exact physical Workbook page still controls wording, artwork, content order, source wave/outline, markers, and spatial relationships.
 
-The student activity chain remains dependency-ordered:
-`#445 → #446 → #447 → #448 → #449`.
-#445 is represented by the current #476 candidate and must be verified/merged before dependent activity-family work advances.
+Current mapping evidence identifies page 3 as archetype 3 and pages 5, 8, 11, 14, and 17 as archetype 4. Page 17 Uu is the canonical visual reference for archetype 4. Pages 86–87 remain source-blocked and must contain no inferred text, artwork, region types, or archetype.
+
+The shared student interaction kernel (#445 / PR #476) remains the dependency for common Pencil/Eraser feedback. Visual archetype work, source mapping, responsive styling, and isolated adapters may proceed in up to the global two-worker maximum when files and dependencies do not overlap; do not impose a blanket issue-number serialization when current ownership is independent.
 
 Direct cloud release verification remains tracked in #389. Production foreground-art remediation with verified source-preserving color transfer also remains part of the product-completion path.
 
