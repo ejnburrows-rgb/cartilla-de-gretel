@@ -1,8 +1,8 @@
-/* Professional activity mechanics — PaintCanvas, DibujaHost, LassoConnect.
- * Book palette, touch-first (≥44px targets), soft premium easing.
+﻿/* Professional activity mechanics â€” PaintCanvas, DibujaHost, LassoConnect.
+ * Book palette, touch-first (â‰¥44px targets), soft premium easing.
  * Student workbook interactive surfaces only. */
 
-/* ── Shared tokens ─────────────────────────────────────────────── */
+/* â”€â”€ Shared tokens â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */
 .am-paint,
 .am-dibuja,
 .am-lasso {
@@ -15,7 +15,7 @@
   color: var(--am-ink);
 }
 
-/* ── PaintCanvas (Colorea) ─────────────────────────────────────── */
+/* â”€â”€ PaintCanvas (Colorea) â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */
 .am-paint {
   display: flex;
   flex-direction: column;
@@ -223,7 +223,7 @@
   border-color: transparent !important;
 }
 
-/* ── DibujaHost ────────────────────────────────────────────────── */
+/* â”€â”€ DibujaHost â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */
 .am-dibuja {
   display: flex;
   flex-direction: column;
@@ -410,7 +410,7 @@
   }
 }
 
-/* ── LassoConnect ──────────────────────────────────────────────── */
+/* â”€â”€ LassoConnect â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */
 .am-lasso {
   display: flex;
   flex-direction: column;
@@ -689,5 +689,301 @@
   .am-lasso__target.is-wrong {
     animation: none !important;
   }
-  /* Interaction stays fully functional — only decorative thrash is reduced */
+  /* Interaction stays fully functional â€” only decorative thrash is reduced */
+}
+
+/* â”€â”€ Direct Pencil Connector (Page 17 Prototype Archetype 4) â”€â”€â”€â”€ */
+.am-direct-pencil {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+  width: 100%;
+}
+.am-direct-pencil__toolbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.5rem;
+}
+.am-direct-pencil__focus-btn {
+  min-height: 40px;
+  padding: 0.35rem 0.85rem;
+  border-radius: 999px;
+  border: 1.5px solid var(--book-teal, #0d9488);
+  background: color-mix(in srgb, var(--book-teal, #0d9488) 10%, white);
+  color: #0f766e;
+  font-weight: 700;
+  font-size: 0.85rem;
+  cursor: pointer;
+  white-space: nowrap;
+  transition: transform 0.15s ease, background 0.15s ease;
+}
+.am-direct-pencil__focus-btn:hover {
+  background: color-mix(in srgb, var(--book-teal, #0d9488) 20%, white);
+  transform: translateY(-1px);
+}
+
+.am-direct-pencil__stage {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 1 / 1;
+  max-width: 580px;
+  margin: 0 auto;
+  border-radius: 18px;
+  background: #fcfbf7;
+  border: 1.5px solid rgba(13, 148, 136, 0.22);
+  box-shadow:
+    0 1px 0 rgba(255, 255, 255, 0.7) inset,
+    0 8px 24px -8px rgba(37, 49, 58, 0.12);
+  padding: 1.25rem;
+  touch-action: none;
+  user-select: none;
+}
+
+.am-direct-pencil__svg-layer {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 2;
+  pointer-events: none;
+  overflow: visible;
+}
+
+.am-direct-pencil__grid {
+  position: relative;
+  z-index: 3;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 100%;
+  gap: 0.75rem;
+}
+
+.am-direct-pencil__row {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 0.75rem;
+  align-items: center;
+}
+
+.am-direct-pencil__center {
+  position: relative;
+  aspect-ratio: 1 / 1;
+  min-height: 64px;
+  border-radius: 16px;
+  border: 4px solid #0d9488;
+  background: #fff;
+  color: #0d9488;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: grab;
+  box-shadow:
+    0 4px 12px rgba(13, 148, 136, 0.35),
+    0 1px 2px rgba(0, 0, 0, 0.15);
+  transition: transform 0.2s cubic-bezier(0.34, 1.4, 0.64, 1), box-shadow 0.2s ease;
+  touch-action: none;
+}
+.am-direct-pencil__center-text {
+  font-family: var(--font-book-title, "Fredoka", sans-serif);
+  font-weight: 700;
+  font-size: clamp(1.8rem, 6cqw, 2.5rem);
+  line-height: 1;
+  color: #0d9488;
+}
+.am-direct-pencil__center-halo {
+  position: absolute;
+  inset: -6px;
+  border-radius: 20px;
+  border: 2.5px solid rgba(20, 184, 166, 0.5);
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.2s ease;
+}
+.am-direct-pencil__center:hover,
+.am-direct-pencil__center.is-active {
+  transform: scale(1.06);
+  box-shadow:
+    0 8px 20px rgba(13, 148, 136, 0.45),
+    0 0 0 4px rgba(20, 184, 166, 0.25);
+}
+.am-direct-pencil__center.is-active .am-direct-pencil__center-halo {
+  opacity: 1;
+}
+
+.am-direct-pencil__target {
+  position: relative;
+  aspect-ratio: 1 / 1;
+  min-height: 64px;
+  border: 2.5px solid #0d9488;
+  border-radius: 14px;
+  background: #fff;
+  padding: 0.35rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  box-shadow:
+    0 0 0 5px rgba(167, 243, 208, 0.24),
+    0 5px 14px rgba(13, 148, 136, 0.12),
+    0 1px 0 rgba(255, 255, 255, 0.9) inset;
+  transition: transform 0.2s cubic-bezier(0.34, 1.4, 0.64, 1), border-color 0.2s ease, box-shadow 0.2s ease;
+  touch-action: manipulation;
+}
+.am-direct-pencil__card {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.am-direct-pencil__card img {
+  max-width: 100%;
+  max-height: 100%;
+  object-fit: contain;
+}
+.am-direct-pencil__target-text {
+  font-weight: 700;
+  font-size: 0.9rem;
+  color: #25313a;
+}
+.am-direct-pencil__example-badge {
+  position: absolute;
+  top: -8px;
+  right: -6px;
+  background: #0d9488;
+  color: #fff;
+  font-size: 0.65rem;
+  font-weight: 700;
+  padding: 0.1rem 0.4rem;
+  border-radius: 999px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.15);
+}
+
+.am-direct-pencil__target:hover:not(:disabled),
+.am-direct-pencil__target.is-approaching {
+  transform: scale(1.05);
+  border-color: #0d9488;
+  box-shadow:
+    0 0 0 5px rgba(20, 184, 166, 0.3),
+    0 6px 16px rgba(13, 148, 136, 0.2);
+}
+.am-direct-pencil__target.is-connected {
+  border-color: #0d9488;
+  background: rgba(20, 184, 166, 0.06);
+  box-shadow: 0 0 0 2px #0d9488;
+  cursor: default;
+}
+.am-direct-pencil__target.is-retry {
+  border-color: #0d9488;
+  box-shadow:
+    0 0 0 4px rgba(20, 184, 166, 0.18),
+    0 4px 12px rgba(13, 148, 136, 0.12);
+}
+.am-direct-pencil__retry-line {
+  pointer-events: none;
+  stroke-dasharray: 1;
+  animation: amDirectPencilRetract 360ms ease-out forwards;
+}
+@keyframes amDirectPencilRetract {
+  from {
+    stroke-dashoffset: 0;
+    opacity: 0.7;
+  }
+  to {
+    stroke-dashoffset: 1;
+    opacity: 0;
+  }
+}
+
+.am-direct-pencil__done {
+  margin: 0.5rem 0 0 0;
+  font-weight: 700;
+  font-size: 1.05rem;
+  color: #0d9488;
+  text-align: center;
+}
+
+/* Expanded focus area */
+.am-direct-pencil.is-expanded {
+  position: fixed;
+  inset: 5%;
+  z-index: 9999;
+  background: #fcfbf7;
+  border-radius: 20px;
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.35);
+  padding: 1.5rem;
+  overflow: auto;
+}
+.am-direct-pencil.is-expanded .am-direct-pencil__stage {
+  max-width: 720px;
+  height: calc(100vh - 180px);
+  max-height: 720px;
+  aspect-ratio: auto;
+}
+
+
+/* Page 17 / Uu â€” canonical Archetype 4 surface. The physical source stays
+ * recognizable; scenic Workbook wallpaper is explicitly suppressed. */
+.faithful-page--archetype4-p17 {
+  background:
+    radial-gradient(120% 90% at 16% 8%, rgba(167, 243, 208, 0.08), transparent 55%),
+    #fbfaf5;
+}
+.faithful-page--archetype4-p17 .final-page-background {
+  display: none;
+}
+.faithful-page--archetype4-p17 .faithful-page__body {
+  gap: 0.65rem;
+}
+.faithful-page--archetype4-p17 .fp-region--instruction {
+  margin: 0;
+  padding: 0;
+  max-width: 100%;
+  background: transparent;
+  font-size: clamp(16px, 3cqw, 22px);
+  line-height: 1.25;
+  letter-spacing: 0;
+}
+.faithful-page--archetype4-p17 .fp-region--instruction .fp-label {
+  display: block;
+  font-weight: 800;
+  margin-bottom: 0.12em;
+}
+.faithful-page--archetype4-p17 .fp-target-emphasis {
+  color: #0d9488;
+  font-weight: 800;
+}
+.faithful-page--archetype4-p17 .faithful-page__lesson {
+  display: inline-flex;
+  align-items: center;
+  min-height: 28px;
+  padding: 0.18rem 0.72rem;
+  border: 1.5px solid rgba(13, 148, 136, 0.7);
+  border-radius: 999px;
+  background: linear-gradient(180deg, #f7fffc 0%, #dff7ef 100%);
+  color: #25313a;
+  box-shadow: 0 2px 7px rgba(13, 148, 136, 0.12);
+  font-weight: 700;
+}
+.faithful-page--archetype4-p17 .am-faithful-lasso {
+  min-height: 0;
+}
+.faithful-page--archetype4-p17 .am-direct-pencil {
+  gap: 0.4rem;
+}
+.faithful-page--archetype4-p17 .am-direct-pencil__toolbar {
+  min-height: 34px;
+}
+.faithful-page--archetype4-p17 .am-direct-pencil__focus-btn {
+  min-height: 34px;
+  padding: 0.25rem 0.7rem;
+  font-size: 0.78rem;
+}
+.faithful-page--archetype4-p17 .am-direct-pencil__stage {
+  max-width: 330px;
+  padding: 0.8rem;
+  gap: 0.55rem;
 }
