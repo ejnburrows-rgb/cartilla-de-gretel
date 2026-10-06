@@ -22,11 +22,8 @@
   background: transparent;
 }
 
-/* Scenic details must never reduce lesson-text contrast. These paint-only
-   backings do not move or resize any book element or interaction target. */
-.faithful-page:has(> .final-page-background) .fp-region--instruction,
-.faithful-page:has(> .final-page-background) .faithful-page__lesson {
-  background: #fffdf9;
-  border-radius: 6px;
-  box-shadow: 0 0 0 4px #fffdf9;
+/* Workbook clean digital surface rule: dense learner exercises do not use full scenic wallpaper.
+   Flip Chart (.fc-native-board) continues to display scenic backgrounds. */
+.faithful-page .final-page-background {
+  display: none !important;
 }
