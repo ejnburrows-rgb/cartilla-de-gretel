@@ -114,18 +114,29 @@ def abanico():
 
 # ---------- AVION: propeller spins at the nose ----------
 def avion():
-    base = load('avion'); svg = Svg(base)
-    svg.css.append('@keyframes prop{0%{transform:scaleY(1)}25%{transform:scaleY(.06)}50%{transform:scaleY(-1)}75%{transform:scaleY(.06)}100%{transform:scaleY(1)}}')
-    cx, cy = 205.2, 90
-    svg.over.append(f'''<g class="ov">
-<ellipse cx="{cx}" cy="{cy}" rx="2.4" ry="15" fill="#c3cad3" opacity=".45"/>
-<g style="transform-origin:{cx}px {cy}px;animation:prop .2s linear infinite"><path d="M {cx} {cy-14.5} q 1.8 7 0 14.5 q -1.8 7 0 14.5 q -1.3 -7 0 -14.5 q 1.3 -7 0 -14.5 z" fill="#2f343b"/></g>
-<path d="M 200.8 85.6 Q 207.6 90 200.8 94.4 Z" fill="#d4d9df" stroke="#1d2126" stroke-width=".8"/>
-</g>''')
+    # Owner 2026-10-07: the plane must visibly fly — a clear spinning propeller at the
+    # nose plus a gentle up-and-down glide of the whole plane.
+    base = load('avion'); svg = Svg(base, pad=(0, 6, 18, 6))
+    svg.css.append('@keyframes prop{0%{transform:scaleY(1)}25%{transform:scaleY(.08)}50%{transform:scaleY(-1)}75%{transform:scaleY(.08)}100%{transform:scaleY(1)}}')
+    svg.css.append('@keyframes glide{0%,100%{transform:translate(0px,0px) rotate(0deg)}30%{transform:translate(1px,-3.5px) rotate(-1.2deg)}65%{transform:translate(-1px,2.5px) rotate(0.8deg)}}')
+    svg.wrap = 'transform-origin:104px 96px;animation:glide 3.6s cubic-bezier(.45,0,.55,1) infinite'
+    cx, cy = 210.5, 89.5
+    svg.over.append(f"""<g class="ov">
+<ellipse cx="{cx}" cy="{cy}" rx="4.5" ry="22" fill="#8c99a8" opacity=".6"/>
+<g style="transform-origin:{cx}px {cy}px;animation:prop .16s linear infinite"><path d="M {cx} {cy-20.5} q 2.6 10 0 20.5 q -2.6 10 0 20.5 q -1.8 -10 0 -20.5 q 1.8 -10 0 -20.5 z" fill="#2b3036"/></g>
+<path d="M 201.5 84.2 Q 212.5 89.5 201.5 94.8 Z" fill="#e2e6eb" stroke="#1d2126" stroke-width="1.1"/>
+<circle cx="{cx-0.6}" cy="{cy}" r="1.5" fill="#1d2126"/>
+</g>""")
+    # Air streaks rush past behind the tail so the plane reads as flying forward.
+    svg.css.append('@keyframes streak{0%{transform:translateX(14px);opacity:0}25%{opacity:.9}100%{transform:translateX(-26px);opacity:0}}')
+    for k, (x, y, w) in enumerate([(10, 72, 22), (4, 100, 28), (14, 124, 18)]):
+        svg.over.append(f'<path class="ov" d="M {x} {y} h {w}" stroke="#5f7fa0" stroke-width="3" stroke-linecap="round" style="animation:streak 1.2s linear {k*0.4:.1f}s infinite;opacity:0"/>')
     return svg.render(f'{OUT}/avion-alive.svg')
 
 # ---------- IMAN: subtle spark flicker ----------
 def iman():
+    # Owner 2026-10-07: show it is magnetic — little paper clips are pulled in and stick
+    # to each pole, field lines flow between the poles, and the sparks flicker.
     base = load('iman'); size = base.size; svg = Svg(base)
     a = np.array(base).astype(int); r, g, b, al = a[..., 0], a[..., 1], a[..., 2], a[..., 3]
     dark = (r + g + b) < 230; pink = (r > 170) & (g < 120) & (b > 70)
@@ -135,24 +146,42 @@ def iman():
         m = reg & (al > 40) & (dark | pink)
         lay = a.copy(); lay[..., 3] = np.where(m, al, 0)
         glow = cv2.GaussianBlur(cv2.dilate(m.astype(np.uint8) * 255, np.ones((3, 3), np.uint8)).astype(np.float32), (0, 0), 2.2)
-        gl = np.zeros((size[1], size[0], 4), np.uint8); gl[..., 0] = 255; gl[..., 1] = 236; gl[..., 2] = 120; gl[..., 3] = np.clip(glow * 1.4, 0, 255).astype(np.uint8)
-        svg.css.append(f'@keyframes fl{nm}{{0%,100%{{opacity:0}}9%{{opacity:.85}}14%{{opacity:.25}}22%{{opacity:.9}}30%{{opacity:0}}55%{{opacity:0}}61%{{opacity:.7}}66%{{opacity:.15}}72%{{opacity:0}}}}')
-        svg.css.append(f'@keyframes jt{nm}{{0%,100%{{transform:scale(1)}}9%{{transform:scale(1.06)}}14%{{transform:scale(1.01)}}22%{{transform:scale(1.07)}}30%{{transform:scale(1)}}61%{{transform:scale(1.05)}}72%{{transform:scale(1)}}}}')
+        gl = np.zeros((size[1], size[0], 4), np.uint8); gl[..., 0] = 255; gl[..., 1] = 236; gl[..., 2] = 120; gl[..., 3] = np.clip(glow * 1.6, 0, 255).astype(np.uint8)
+        svg.css.append(f'@keyframes fl{nm}{{0%,100%{{opacity:0}}9%{{opacity:1}}14%{{opacity:.3}}22%{{opacity:1}}30%{{opacity:0}}55%{{opacity:0}}61%{{opacity:.85}}66%{{opacity:.2}}72%{{opacity:0}}}}')
+        svg.css.append(f'@keyframes jt{nm}{{0%,100%{{transform:scale(1)}}9%{{transform:scale(1.1)}}14%{{transform:scale(1.02)}}22%{{transform:scale(1.12)}}30%{{transform:scale(1)}}61%{{transform:scale(1.08)}}72%{{transform:scale(1)}}}}')
         svg.over.append(svg.image(Image.fromarray(gl, 'RGBA'), 0, 0, cls='ov', extra=f'style="animation:fl{nm} 2.6s linear {dl}s infinite;opacity:0"'))
         svg.over.append(svg.image(Image.fromarray(lay.astype(np.uint8), 'RGBA'), 0, 0, cls='ov', extra=f'style="transform-origin:{root[0]}px {root[1]}px;animation:jt{nm} 2.6s linear {dl}s infinite"'))
+    # Field lines: dashed arcs that flow from the red pole round to the blue pole.
+    svg.css.append('@keyframes flow{to{stroke-dashoffset:-24}}')
+    svg.css.append('@keyframes fieldpulse{0%,100%{opacity:.5}50%{opacity:1}}')
+    arcs = ['M 152 93 C 196 96 186 170 106 134', 'M 154 99 C 212 106 196 196 100 142', 'M 150 88 C 222 82 214 214 96 150']
+    for k, d in enumerate(arcs):
+        svg.over.append(f'<path class="ov" d="{d}" fill="none" stroke="#34506e" stroke-width="2.3" stroke-linecap="round" stroke-dasharray="6 7" style="animation:flow 1.1s linear infinite, fieldpulse 2.2s ease-in-out {k*0.35:.2f}s infinite"/>')
+    # Paper clips pulled in (accelerating, like a real magnet) and sticking to each pole.
+    clip = ('<g transform="scale(2.1)"><path d="M -7 -2.6 L 6 -2.6 A 2.6 2.6 0 0 1 6 2.6 L -5 2.6 A 1.8 1.8 0 0 1 -5 -1 L 4.2 -1" fill="none" stroke="#4f5964" stroke-width="1.6" stroke-linecap="round"/>'
+            '<path d="M -7 -2.6 L 6 -2.6 A 2.6 2.6 0 0 1 6 2.6" fill="none" stroke="#e8edf2" stroke-width=".55" stroke-linecap="round"/></g>')
+    pulls = [((206, 150), (158, 101), 32, 0.0), ((196, 120), (160, 92), -18, 1.7), ((140, 202), (109, 140), 64, 0.85)]
+    for k, ((x0, y0), (x1, y1), rot, dl) in enumerate(pulls):
+        svg.css.append(f'@keyframes pull{k}{{0%{{transform:translate({x0}px,{y0}px) rotate({rot+25}deg);opacity:0}}8%{{opacity:1}}34%{{transform:translate({x0+(x1-x0)*.25:.1f}px,{y0+(y1-y0)*.25:.1f}px) rotate({rot+15}deg)}}48%{{transform:translate({x1}px,{y1}px) rotate({rot}deg)}}51%{{transform:translate({x1-1.2:.1f}px,{y1-1.2:.1f}px) rotate({rot}deg)}}54%,86%{{transform:translate({x1}px,{y1}px) rotate({rot}deg);opacity:1}}100%{{transform:translate({x1}px,{y1}px) rotate({rot}deg);opacity:0}}}}')
+        svg.over.append(f'<g class="ov" style="opacity:0;animation:pull{k} 3.4s cubic-bezier(.55,0,.9,.6) {dl}s infinite">{clip}</g>')
     return svg.render(f'{OUT}/iman-alive.svg')
 
 # ---------- OLLA: light steam rises ----------
 def olla():
-    base = load('olla'); svg = Svg(base)
-    svg.css.append('@keyframes steam{0%{transform:translateY(8px) scaleX(.8);opacity:0}22%{opacity:.95}65%{opacity:.6}100%{transform:translateY(-16px) scaleX(1.25);opacity:0}}')
-    wisps = [((76, 44), 0.0), ((156, 44), 1.4), ((116, 40), 2.7), ((98, 46), 3.6)]
-    svg.over.append('<defs><filter id="sb" x="-50%" y="-50%" width="200%" height="200%"><feGaussianBlur stdDeviation="1.4"/></filter></defs>')
+    # Owner 2026-10-07: steam must clearly show — soft gray-blue curls rise from the
+    # lid edges and the knob, above the pot (extra room on top so it is not cut off).
+    base = load('olla'); svg = Svg(base, pad=(0, 48, 0, 0))
+    svg.css.append('@keyframes steam{0%{transform:translateY(10px) scale(.7,.8);opacity:0}18%{opacity:.95}60%{opacity:.75}100%{transform:translateY(-18px) scale(1.25,1.15);opacity:0}}')
+    svg.css.append('@keyframes curl{0%,100%{transform:translateX(-2px)}50%{transform:translateX(2.5px)}}')
+    wisps = [((70, 40), 0.0), ((112, 18), 1.1), ((150, 40), 2.2), ((94, 24), 3.0), ((132, 22), 0.55)]
+    svg.over.append('<defs><filter id="sb" filterUnits="userSpaceOnUse" x="-50" y="-80" width="400" height="400"><feGaussianBlur stdDeviation="2"/></filter></defs>')
     for (x, y), dl in wisps:
-        d = f'M {x} {y} c -5 -6 5 -9 0 -15 c -5 -6 5 -9 0 -15'
-        svg.over.append(f'<g class="ov" style="transform-origin:{x}px {y}px;animation:steam 4.6s ease-in-out {dl}s infinite;opacity:0"><path d="{d}" fill="none" stroke="#ffffff" stroke-width="6.5" stroke-linecap="round" filter="url(#sb)"/><path d="{d}" fill="none" stroke="#ffffff" stroke-width="2.4" stroke-linecap="round"/></g>')
+        d = f'M {x} {y} c -7 -7 7 -11 0 -18 c -7 -7 7 -11 0 -18'
+        svg.over.append(f'<g class="ov" style="transform-origin:{x}px {y}px;animation:steam 3.8s ease-out {dl}s infinite;opacity:0"><g style="animation:curl 1.9s ease-in-out {dl}s infinite">'
+                        f'<path d="{d}" fill="none" stroke="#7d93ab" stroke-width="10" stroke-linecap="round" opacity=".6" filter="url(#sb)"/>'
+                        f'<path d="{d}" fill="none" stroke="#a9bccf" stroke-width="5.5" stroke-linecap="round" opacity=".9"/>'
+                        f'<path d="{d}" fill="none" stroke="#ffffff" stroke-width="2" stroke-linecap="round"/></g></g>')
     return svg.render(f'{OUT}/olla-alive.svg')
-
 
 # ---------- ABEJA: wings flutter (current Page 1 drawing) ----------
 def abeja():

@@ -52,9 +52,14 @@ def encode(vx, vy):
     return Image.fromarray(rgba, 'RGBA'), M
 
 class Svg:
-    def __init__(self, base, out_size=None):
+    def __init__(self, base, out_size=None, pad=(0, 0, 0, 0)):
+        """pad = (left, top, right, bottom) extra room around the art for overlays
+        (steam above the pot, the propeller past the plane's nose)."""
         self.base = base; self.W, self.H = base.size
-        self.out = out_size or base.size
+        self.pad = pad
+        l, t, r, b = pad
+        self.out = out_size or (self.W + l + r, self.H + t + b)
+        self.wrap = ''
         self.fx = []      # (map_uri, scale_values, dur, keytimes, begin)
         self.over = []    # raw svg strings
         self.css = []
@@ -70,9 +75,10 @@ class Svg:
         return f'<image class="{cls}" x="{x}" y="{y}" width="{im.width}" height="{im.height}" href="{b64(im)}" {extra}/>'
     def render(self, path):
         W, H = self.W, self.H
-        out = [f'<svg xmlns="http://www.w3.org/2000/svg" width="{self.out[0]}" height="{self.out[1]}" viewBox="0 0 {W} {H}" preserveAspectRatio="xMidYMid meet">']
+        l, t, r, b = self.pad
+        out = [f'<svg xmlns="http://www.w3.org/2000/svg" width="{self.out[0]}" height="{self.out[1]}" viewBox="{-l} {-t} {W + l + r} {H + t + b}" preserveAspectRatio="xMidYMid meet">']
         css = '\n'.join(self.css)
-        out.append('<style>' + css + '\n.alive{filter:url(#alive)}\n@media (prefers-reduced-motion: reduce){.alive{filter:none}.ov{display:none}}</style>')
+        out.append('<style>' + css + '\n.alive{filter:url(#alive)}\n@media (prefers-reduced-motion: reduce){.alive{filter:none}.ov{display:none}.ov-wrap{animation:none!important}}</style>')
         if self.fx:
             out.append(f'<defs><filter id="alive" filterUnits="userSpaceOnUse" primitiveUnits="userSpaceOnUse" x="0" y="0" width="{W}" height="{H}" color-interpolation-filters="sRGB">')
             prev = 'SourceGraphic'
@@ -82,8 +88,11 @@ class Svg:
                 out.append(f'<feDisplacementMap in="{prev}" in2="m{i}" xChannelSelector="R" yChannelSelector="G" scale="0" result="d{i}"><animate attributeName="scale" values="{vals}" keyTimes="{kt}" dur="{dur}" begin="{begin}" repeatCount="indefinite"{spl}/></feDisplacementMap>')
                 prev = f'd{i}'
             out.append('</filter></defs>')
-        out.append(f'<g class="alive">{self.image(self.base, 0, 0)}</g>')
-        out.extend(self.over)
+        body = [f'<g class="alive">{self.image(self.base, 0, 0)}</g>'] + self.over
+        if self.wrap:
+            out.append(f'<g class="ov-wrap" style="{self.wrap}">'); out.extend(body); out.append('</g>')
+        else:
+            out.extend(body)
         out.append('</svg>')
         s = '\n'.join(out)
         open(path, 'w').write(s)
