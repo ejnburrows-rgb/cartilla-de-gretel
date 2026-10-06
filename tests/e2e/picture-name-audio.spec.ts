@@ -1,5 +1,5 @@
 import { test, expect } from '@playwright/test';
-import layouts from '../../src/data/page-layouts.json';
+import layouts from '../../src/data/page-layouts.json' with { type: "json" };
 
 async function collectPlayback(page: any) {
   await page.addInitScript(() => {
