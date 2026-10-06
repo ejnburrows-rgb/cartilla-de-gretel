@@ -7,17 +7,18 @@ project manager — work out what needs doing and do it.
 
 ## CANONICAL INSTRUCTION HIERARCHY
 
-There are nine active repo-wide instruction files:
+There are ten active repo-wide instruction files:
 
 1. AGENTS.md — execution, safety, Git, and deployment rules.
 2. PROJECT_FINISH_DEFINITION.md — canonical owner-locked definition of what must be true for the entire project to be finished.
 3. PROJECT_SOURCE_OF_TRUTH.md — current product state, priorities, and owner-decided scope.
 4. CARTILLA_DIGITAL_DIRECTIVE.md — authoritative Cartilla structure, content, fidelity, and presentation rules.
-5. ASSET_FIDELITY_POLICY.md — active artwork, image, color-transfer, and motion rules.
-6. STUDENT_INTERACTION_STANDARD.md — canonical owner-approved student Workbook interaction and motion language.
-7. DESIGN.md — durable visual system and taste contract for Workbook, Flip Chart, shared school-tool UI, and page-turn presentation.
-8. UX-CONTRACT.md — observable interaction/state contract, including the shared student interaction kernel and physical page-turn behavior.
-9. repo.md — authoritative, locked method for Workbook and Flip Chart background-only generation.
+5. WORKBOOK_ARCHETYPE_STANDARD.md — owner-locked visual system for recurring Student Workbook exercise families.
+6. ASSET_FIDELITY_POLICY.md — active artwork, image, color-transfer, and motion rules.
+7. STUDENT_INTERACTION_STANDARD.md — canonical owner-approved student Workbook interaction and motion language.
+8. DESIGN.md — durable visual system and taste contract for Workbook, Flip Chart, shared school-tool UI, and page-turn presentation.
+9. UX-CONTRACT.md — observable interaction/state contract, including the shared student interaction kernel and physical page-turn behavior.
+10. repo.md — authoritative, locked method for Workbook and Flip Chart background-only generation.
 
 ### PROJECT FINISH DEFINITION — MANDATORY
 
@@ -132,7 +133,7 @@ Jules is a worker, not the project controller. The controller owns scope selecti
 - Give each session explicit owned files/behavior and explicit forbidden scope.
 - Start from CURRENT `main` and current repo instructions. Older task snapshots, prior bot comments, and archived docs never override current truth.
 - For Student Workbook visual work, Jules must preserve the owner-approved clean digital-canvas distinction: dense learner exercises do not use full scenic wallpaper; existing scenic assets stay preserved for the teacher Flip Chart and other explicitly approved contexts. Do not delete/regenerate those assets or simplify the Flip Chart as part of a Workbook UI task.
-- For the #495 Workbook visual realignment, Jules must follow the golden-page gate: implement and verify #496 (Workbook page 1) first. Do not begin #498 broad page-family rollout until the controller records #496 as visually accepted. A #496 worker must not absorb #497 living-motion debugging or #454 foreground-color remediation; those remain separate lanes.
+- For Student Workbook visual realignment, Jules must read and obey `WORKBOOK_ARCHETYPE_STANDARD.md`. The owner has approved the eight recurring archetype designs as the visual system; the old Page-1-only golden gate is superseded. Page 1 remains the representative source for archetype 1, not a global blocker. Reuse one canonical implementation per archetype, preserve each exact physical source page, keep pages 86–87 source-blocked, and do not absorb #497 living-motion debugging or #454 foreground-color remediation into archetype work.
 
 #### Early checkpoint and recovery contract
 
@@ -231,7 +232,7 @@ Merge only when the PR head SHA exactly matches the dual-reviewed SHA. Documenta
 Before doing any work on the Cartilla Workbook or teacher Flip Chart, read
 `CARTILLA_DIGITAL_DIRECTIVE.md`. It is the canonical Cartilla structure/content/presentation directive within that domain. It does not outrank newer explicit owner decisions or `AGENTS.md` execution/safety policy, but it supersedes older layout/fidelity instructions.
 
-Before changing student Workbook interactions, also read and follow `STUDENT_INTERACTION_STANDARD.md`, `DESIGN.md`, and `UX-CONTRACT.md`.
+Before changing Student Workbook visual/layout treatment, read and follow `WORKBOOK_ARCHETYPE_STANDARD.md`. Before changing student Workbook interactions, also read and follow `STUDENT_INTERACTION_STANDARD.md`, `DESIGN.md`, and `UX-CONTRACT.md`.
 
 Before generating or designing any Workbook or Flip Chart background, also
 read and follow `repo.md`. It is the authoritative method for background-only
@@ -248,7 +249,7 @@ digitally.
 The three layers:
 - **STRUCTURE** (what goes where) → MUST match the book
 - **CONTENT** (text, images) → MUST match the book. Approved foreground art stays source-faithful; only the narrow source-preserving color-transfer exception in `ASSET_FIDELITY_POLICY.md` is allowed. Scenic background generation, when explicitly approved, follows `repo.md`.
-- **PRESENTATION** (styling, interactions) → MODERN digital, your judgment. Dense Student Workbook exercises use the clean digital canvas rather than full scenic wallpaper; the teacher Flip Chart may retain richer source-appropriate scenery.
+- **PRESENTATION** (styling, interactions) → MODERN digital. For recurring Student Workbook exercise families, the owner-locked presentation is defined by `WORKBOOK_ARCHETYPE_STANDARD.md`; agents do not invent a competing family style. Dense Student Workbook exercises use the clean digital canvas rather than full scenic wallpaper; the teacher Flip Chart may retain richer source-appropriate scenery.
 
 **Recognition test:** Would the teacher recognize this as that page from the book? If yes on structure, you got it right — even if the visual style is modern.
 
