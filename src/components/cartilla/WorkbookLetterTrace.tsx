@@ -57,10 +57,11 @@ export function WorkbookLetterTrace({
   const reportedRef = useRef(false);
   const wrongFiredRef = useRef(false);
 
-  // Which gesture this device gets. Touch keeps the drag trace exactly as it
-  // was; a mouse taps the checkpoints in order instead (see
-  // useLetterTraceInput.ts for why). Hooks stay above the early return below.
-  const inputMode = useTraceInputMode();
+  // Default gesture determined by primary pointer (mouse -> tap/checkpoint, touch -> drag/freehand)
+  const defaultMode = useTraceInputMode();
+  // State allows learner override via manual mode toggle
+  const [overrideMode, setOverrideMode] = useActivityState<"drag" | "tap" | null>("userModeOverride", null);
+  const inputMode = overrideMode ?? defaultMode;
 
   /**
    * Single grading + reporting path, shared by BOTH modes so the completion
@@ -410,16 +411,31 @@ export function WorkbookLetterTrace({
         {shownStatus === "done" && (
           <span className="fp-trace__hint fp-trace__hint--ok">¡Muy bien!</span>
         )}
-        {shownStatus !== "idle" && (
+        <div className="fp-trace__actions">
           <button
             type="button"
-            className="fp-trace__reset"
-            onClick={reset}
-            aria-label="Reiniciar el trazo"
+            className="fp-trace__mode-toggle"
+            onClick={() => {
+              const nextMode = inputMode === "tap" ? "drag" : "tap";
+              setOverrideMode(nextMode);
+              reset();
+            }}
+            aria-label={`Cambiar a modo ${inputMode === "tap" ? "trazo libre" : "puntos"}`}
+            title={`Modo actual: ${inputMode === "tap" ? "Puntos" : "Trazo libre"}. Toca para cambiar.`}
           >
-            ↺
+            {inputMode === "tap" ? "✍️ Libres" : "🔴 Puntos"}
           </button>
-        )}
+          {shownStatus !== "idle" && (
+            <button
+              type="button"
+              className="fp-trace__reset"
+              onClick={reset}
+              aria-label="Reiniciar el trazo"
+            >
+              ↺
+            </button>
+          )}
+        </div>
       </div>
     </div>
   );
