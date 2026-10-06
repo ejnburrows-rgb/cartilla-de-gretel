@@ -6,7 +6,7 @@
  */
 import { useCanvasContinuity } from "@/lib/use-canvas-continuity";
 import { useCallback, useEffect, useMemo, useRef, useState } from "react";
-import { Check, Eraser, Pencil, Images, RotateCcw } from "lucide-react";
+import { Check, Images, RotateCcw, Pencil } from "lucide-react";
 import {
   BOOK_DRAW_SWATCHES,
   clearCanvasSnapshot,
@@ -382,12 +382,17 @@ export function DibujaHost({
               </div>
               <button
                 type="button"
-                className={`am-dibuja__tool${erasing ? " is-active" : ""}`}
+                className={`am-dibuja__tool am-dibuja__tool--eraser${erasing ? " is-active" : ""}`}
                 onClick={() => setErasing((e) => !e)}
-                aria-label="Borrador"
+                aria-label="Borrador de goma"
                 aria-pressed={erasing}
+                title="Borrador de goma"
               >
-                <Eraser className="w-4 h-4" />
+                <svg viewBox="0 0 24 24" className="w-5 h-5 inline-block" aria-hidden="true">
+                  <path d="M4 15 L14 5 L20 11 L10 21 L4 21 Z" fill="#f498a9" stroke="#d9768c" strokeWidth="1.5" strokeLinejoin="round" />
+                  <path d="M10 9 L16 15" stroke="#ffffff" strokeWidth="1.2" strokeLinecap="round" opacity="0.8" />
+                  <path d="M7 18 L10 21 L21 21" fill="none" stroke="#6c737b" strokeWidth="1.5" strokeLinecap="round" />
+                </svg>
               </button>
               <button
                 type="button"
@@ -407,7 +412,7 @@ export function DibujaHost({
               </button>
               <button
                 type="button"
-                className="am-dibuja__done"
+                className={`am-dibuja__done${drawDone ? " am-dibuja__done--completed" : ""}`}
                 onClick={finishDraw}
                 disabled={!canFinishDraw}
               >
@@ -416,9 +421,16 @@ export function DibujaHost({
             </div>
           )}
           {drawDone && (
-            <p className="am-dibuja__success" role="status">
-              ¡Qué lindo dibujo!
-            </p>
+            <div className="am-dibuja__completed-banner">
+              <span className="am-dibuja__success" role="status">¡Qué lindo dibujo!</span>
+              <button
+                type="button"
+                className="am-dibuja__edit-btn"
+                onClick={() => setDrawDone(false)}
+              >
+                Seguir dibujando
+              </button>
+            </div>
           )}
         </div>
       ) : (
