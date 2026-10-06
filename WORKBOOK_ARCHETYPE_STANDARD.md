@@ -22,8 +22,7 @@ Every digital page must remain immediately recognizable as its exact physical so
 
 The repeated digital **presentation** is not open-ended agent judgment. For each recurring exercise family, use the matching canonical archetype below.
 
-The visual reference board is:
-- `docs/reference/workbook-archetype-reference-board.jpg`
+The owner-supplied eight-panel reference board from 2026-10-06 is the visual source for this standard (source image SHA-256: `66dadbc0bca8dab6548421a3eadac351bb93546b4a197a4597261c305fa6ef3d`). Its production interpretation is transcribed below so agents do not depend on chat history.
 
 **Important:** the numbered teal title bars at the very top of each panel in that reference board are annotation labels only. They are **not** part of the original Workbook and must never be added to production pages.
 
