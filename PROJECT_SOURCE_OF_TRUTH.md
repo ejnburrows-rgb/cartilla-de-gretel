@@ -1,11 +1,16 @@
 # PROJECT SOURCE OF TRUTH — La Cartilla de Gretel
 
+> **Finish contract:** Read PROJECT_FINISH_DEFINITION.md before planning or declaring Cartilla work complete. It is the canonical definition of what must be true for the entire project to be finished. Compare current verified reality against it and close only real remaining gaps.
+
+
 **Status:** Active project entry point  
-**Last verified:** 2026-10-04
+**Last verified:** 2026-10-05
 
 ## Goal
 
 Finish La Cartilla de Gretel as a **school-pilot-ready e-learning platform** based directly on the physical Student Workbook and teacher Flip Chart.
+
+Under the currently deferred live-auth/Supabase scope, "school-pilot-ready" means demo/pilot use with **non-real student data** until real-data security/privacy blockers are resolved. A real-child/student-data pilot cannot pass final release merely by declaring backend work deferred.
 
 The digital product must:
 - preserve the books' instructional structure, sequence, wording, exercises, and approved artwork;
@@ -29,8 +34,9 @@ For curriculum, wording, page order, exercise content, and source-page structure
 4. Digital interaction may change the physical gesture, not the lesson content or educational objective.
 5. A student cannot advance with **Next** until the required work on the current page is completed.
 6. Workbook and Flip Chart are separate experiences:
-   - Workbook = student interaction.
-   - Flip Chart/Presenter = teacher classroom presentation.
+   - Workbook = student interaction on a clean digital canvas. Dense learner exercises do not use full scenic wallpaper; source structure/content and foreground art remain book-faithful.
+   - Flip Chart/Presenter = teacher classroom presentation and may retain the richer scenic presentation when source-appropriate.
+   - Existing scenic background assets are preserved for the Flip Chart and other explicitly approved contexts; this presentation rule does not delete or regenerate them.
 7. Gretel uses the exact approved master identified by `src/data/gretel-approved-master.json` and the existing character system. Final voice/TTS direction is deferred until the owner explicitly approves it.
 8. Google Flow's current production scope is one owner-approved 5–6 second silent welcome loop from the exact approved final still. In-app lesson reactions use the existing Gretel state system; no 31-clip requirement remains.
 9. Automatic Vercel deployment stays off during active work. Do not use production deployment as a test runner.
@@ -46,8 +52,15 @@ As of 2026-10-04, current open controller PRs include:
 - #476 — shared student interaction kernel + Workbook p1/p2;
 - #477 — Gretel behavior and motion discipline;
 - #478 — welcome-media code integration; the owner-supplied 5–6 second silent MP4 remains an external dependency;
-- #479 — physical Workbook and Flip Chart page-turn transitions;
-- #480 — execution-gateway hardening around `AGENTS.md` and verification controls.
+- #479 — physical Workbook and Flip Chart page-turn transitions.
+
+The owner-approved Workbook visual realignment is tracked in #495:
+- #496 — build and visually approve Workbook printed page 1 as the clean digital-canvas golden reference;
+- #497 — reproduce and fix the existing living-art motion path where approved motion is registered but not visibly running;
+- #498 — roll the accepted clean Workbook surface across representative page families only after #496 is accepted;
+- #499 — keep active documentation aligned with this distinction.
+
+The owner explicitly approved this factual documentation realignment on 2026-10-05.
 
 The student activity chain remains dependency-ordered:
 `#445 → #446 → #447 → #448 → #449`.
@@ -55,9 +68,9 @@ The student activity chain remains dependency-ordered:
 
 Direct cloud release verification remains tracked in #389. Production foreground-art remediation with verified source-preserving color transfer also remains part of the product-completion path.
 
-Final gates follow with whole-Workbook regression, teacher/Flip Chart validation, performance, welcome-media integration, and final assembled-product release proof. The page-turn system remains an independent presentation lane that must be integrated before the final Workbook/Flip Chart validation gates.
+Final gates follow with whole-Workbook regression (#450), teacher/Flip Chart validation, performance, welcome-media integration, and final assembled-product release proof. The clean Workbook surface, foreground-art remediation, living-art motion, Gretel behavior, and page-turn system must be integrated before the final Workbook validation gate. The Flip Chart keeps its independently verified richer presentation.
 
-Supabase/live-auth work remains deferred from the current product-completion path.
+Supabase/live-auth expansion remains deferred from the current product-completion path for demo/non-real-data pilot use. Current real-data security/privacy issues must be resolved before any production/school pilot uses real child/student data; deferral alone is not a real-data release clearance.
 
 ## Proof rule
 

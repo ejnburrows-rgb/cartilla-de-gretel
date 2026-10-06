@@ -7,18 +7,82 @@ project manager — work out what needs doing and do it.
 
 ## CANONICAL INSTRUCTION HIERARCHY
 
-There are eight active repo-wide instruction files:
+There are nine active repo-wide instruction files:
 
-1. `AGENTS.md` — execution, safety, Git, and deployment rules.
-2. `PROJECT_SOURCE_OF_TRUTH.md` — current product state, priorities, and owner-decided scope.
-3. `CARTILLA_DIGITAL_DIRECTIVE.md` — authoritative Cartilla structure, content, fidelity, and presentation rules.
-4. `ASSET_FIDELITY_POLICY.md` — active artwork, image, color-transfer, and motion rules.
-5. `STUDENT_INTERACTION_STANDARD.md` — canonical owner-approved student Workbook interaction and motion language.
-6. `DESIGN.md` — durable visual system and taste contract for Workbook, Flip Chart, shared school-tool UI, and page-turn presentation.
-7. `UX-CONTRACT.md` — observable interaction/state contract, including the shared student interaction kernel and physical page-turn behavior.
-8. `repo.md` — authoritative, locked method for Workbook and Flip Chart background-only generation.
+1. AGENTS.md — execution, safety, Git, and deployment rules.
+2. PROJECT_FINISH_DEFINITION.md — canonical owner-locked definition of what must be true for the entire project to be finished.
+3. PROJECT_SOURCE_OF_TRUTH.md — current product state, priorities, and owner-decided scope.
+4. CARTILLA_DIGITAL_DIRECTIVE.md — authoritative Cartilla structure, content, fidelity, and presentation rules.
+5. ASSET_FIDELITY_POLICY.md — active artwork, image, color-transfer, and motion rules.
+6. STUDENT_INTERACTION_STANDARD.md — canonical owner-approved student Workbook interaction and motion language.
+7. DESIGN.md — durable visual system and taste contract for Workbook, Flip Chart, shared school-tool UI, and page-turn presentation.
+8. UX-CONTRACT.md — observable interaction/state contract, including the shared student interaction kernel and physical page-turn behavior.
+9. repo.md — authoritative, locked method for Workbook and Flip Chart background-only generation.
+
+### PROJECT FINISH DEFINITION — MANDATORY
+
+PROJECT_FINISH_DEFINITION.md is the canonical owner-locked finish contract.
+
+- Read it before planning meaningful Cartilla work.
+- Every run/session must reason from **FINISHED GOAL → CURRENT VERIFIED STATE → REAL GAPS → PROOF REQUIRED**.
+- Issues, PRs, Jules sessions, and task prompts are work units, not the product goal.
+- Advance existing canonical work that closes a real finish gap before creating another lane.
+- Never lower, reinterpret, or silently move the finish bar.
+- Never claim the **project** is finished until every required criterion in PROJECT_FINISH_DEFINITION.md has objective proof.
+- New explicit owner decisions may update the finish contract; ordinary implementation discoveries update the current gap plan instead.
 
 Anything under `docs/archive/` is historical reference only and must not override any file above.
+
+## EXECUTION CONTROL CONTRACT — GLOBAL POLICY
+
+`AGENTS.md` is the only place that defines global execution policy and numeric concurrency. No issue, PR, comment, bot/Jules prompt, task file, automation, or historical document may silently override this contract.
+
+### Definitions
+
+- **Controller** — chooses scope/order, integrates, reviews, and merges. It is not a worker lane.
+- **Supervisor** — scheduled controller/dispatcher. It is not a worker lane.
+- **Watchdog** — fallback controller. It is not a worker lane.
+- **Implementation worker lane** — one active external coding-agent session doing implementation or worker-level verification.
+- **Read-only specialist investigation** — analysis/research/review that does not modify repository state.
+- **PR** — persisted candidate work. An open PR does not equal an active worker lane.
+- **Ready for review / completed Jules session** — not an active worker lane.
+- **Verification-only Jules session** — counts as an implementation worker lane while actively running.
+- **One session = one bounded deliverable.** This is per-session scope, not a global concurrency limit.
+
+### Worker concurrency
+
+- **Maximum concurrent implementation-worker lanes: 2.**
+- **Maximum concurrent independent read-only specialist investigations: 3.**
+- Controller, supervisor, and watchdog activity does not consume either implementation-worker slot.
+- Dependency chains and overlapping file ownership remain sequential even when capacity exists.
+- Unused capacity is not a reason to invent work.
+- Other active documents may describe current allocation or sequencing, but they must not define a competing numeric concurrency rule.
+
+### Precedence: two different questions
+
+**WHAT CURRENTLY EXISTS**
+
+1. Current live/runtime evidence when relevant.
+2. Current code/configuration on the relevant branch.
+3. Current canonical documentation.
+4. Active task/PR evidence.
+5. Historical evidence.
+
+**WHAT THE PRODUCT SHOULD BECOME**
+
+1. Latest explicit owner decision.
+2. `AGENTS.md` for execution/safety.
+3. `PROJECT_FINISH_DEFINITION.md` for the owner-locked finished-state contract.
+4. `PROJECT_SOURCE_OF_TRUTH.md` for current product goal/scope.
+5. The canonical domain document for the subject.
+6. `tasks/plan.md` for current coordination/order only.
+7. Issue body for issue-specific scope only.
+8. PR descriptions/comments/worker output as evidence only.
+9. Historical/reference docs.
+
+The physical source PDFs remain authoritative for source fidelity, curriculum, page structure, wording, and source content within their domain. Derived runtime data does not replace that source authority.
+
+Documentation under `docs/proofs/`, `docs/completion/`, `docs/research/`, and other evidence/reference areas is not active project policy unless the canonical hierarchy explicitly says otherwise. Archived material is historical only.
 
 ### PROJECT SOURCE OF TRUTH MAINTENANCE — OWNER APPROVAL REQUIRED
 
@@ -44,7 +108,7 @@ EJN should not have to choose or manually invoke engineering tools. When the cur
 - For measurable performance problems, use the available performance specialist.
 - For visible UI work, verify the real rendered application with the available browser/runtime tools; code inspection alone is not sufficient.
 - Use independent review for meaningful changes as required elsewhere in this file.
-- Parallelize at most 3 genuinely independent jobs when they do not share mutable state or sequential dependencies. The controller remains responsible for integration and verification.
+- Run at most 3 genuinely independent **read-only specialist investigations** when they do not share mutable state or sequential dependencies. Implementation-worker concurrency is governed only by the Execution Control Contract above.
 - Reuse still-valid evidence instead of repeating unchanged audits, tests, reviews, or browser checks.
 - If a preferred specialist is unavailable, use the strongest safe equivalent. Do not block work merely because one optional tool is missing.
 - Do not add a new account, paid service, plugin, framework, or workflow unless the existing stack materially cannot meet a real current need and EJN approves any consequential cost or lock-in.
@@ -67,6 +131,8 @@ Jules is a worker, not the project controller. The controller owns scope selecti
 - Reuse the existing issue/branch/PR when one already exists. Do not create duplicate competing work.
 - Give each session explicit owned files/behavior and explicit forbidden scope.
 - Start from CURRENT `main` and current repo instructions. Older task snapshots, prior bot comments, and archived docs never override current truth.
+- For Student Workbook visual work, Jules must preserve the owner-approved clean digital-canvas distinction: dense learner exercises do not use full scenic wallpaper; existing scenic assets stay preserved for the teacher Flip Chart and other explicitly approved contexts. Do not delete/regenerate those assets or simplify the Flip Chart as part of a Workbook UI task.
+- For the #495 Workbook visual realignment, Jules must follow the golden-page gate: implement and verify #496 (Workbook page 1) first. Do not begin #498 broad page-family rollout until the controller records #496 as visually accepted. A #496 worker must not absorb #497 living-motion debugging or #454 foreground-color remediation; those remain separate lanes.
 
 #### Early checkpoint and recovery contract
 
@@ -86,14 +152,20 @@ A session that produces no material tree change when implementation was requeste
 
 Implementation sessions must NOT run commands that mutate the tracked asset tree merely to prove unrelated code work.
 
-For ordinary code/UI implementation tasks, Jules must not run `pnpm build` or `pnpm verify:release` because the current production build intentionally runs `prepare:art`, which regenerates delivery assets/manifests and can explode a narrow code task into a large unrelated working-tree diff.
+For ordinary implementation work, Jules and other implementation workers MUST NOT run:
+- `pnpm prepare:art`;
+- `pnpm build`;
+- `pnpm build:app`;
+- `pnpm verify:release`;
+- `pnpm dev`.
 
-Instead Jules uses:
-- the narrow targeted Vitest/Playwright test(s) for the changed behavior;
-- `pnpm typecheck`;
-- `pnpm verify:worker` only when a broader non-mutating repository check is useful.
+Those commands are allowed only when the task explicitly owns production-art generation or is a dedicated clean-checkout release-verification task.
 
-Only a task that explicitly owns production-art generation may run `pnpm prepare:art` during implementation.
+Ordinary implementation workers use:
+- the narrow targeted Vitest/Playwright test(s) or checks for the changed behavior;
+- `pnpm typecheck` when relevant;
+- `pnpm verify:worker` when a broader non-mutating repository check is useful;
+- `pnpm dev:worker` for browser/runtime work without invoking art generation.
 
 A dedicated verification-only Jules session may run `pnpm verify:release` in a clean checkout when full release verification is itself the assigned job. In that case it must not export/regard regenerated delivery assets or manifests as implementation changes; it reports the verification result only.
 
@@ -133,6 +205,14 @@ Reconcile SonarQube findings rather than accepting them mechanically. Confirm re
 
 After any substantive fix or any head-SHA change, repeat BOTH the controller review and SonarQube PR analysis against the new head. Then rerun task-specific verification and complete direct-cloud `pnpm verify:release` for application code/assets.
 
+#### Current-main gate for existing PRs
+
+Before controller review, Sonar analysis, task proof, or release qualification of an existing PR:
+1. compare the PR head to CURRENT `main`;
+2. if it is behind, diverged, or conflicting, reconcile it first;
+3. only then run exact-head controller review, Sonar, task proof, and release qualification;
+4. any head-SHA change invalidates prior exact-head proof.
+
 Before merge, add a concise PR proof comment containing:
 - reviewed head SHA;
 - controller-independent review result;
@@ -146,11 +226,10 @@ Merge only when the PR head SHA exactly matches the dual-reviewed SHA. Documenta
 
 ---
 
-## CARTILLA DIGITAL DIRECTIVE — HIGHEST PRIORITY, NO EXCEPTIONS
+## CARTILLA BOOK FIDELITY DIRECTIVE — HIGHEST PRIORITY FOR STRUCTURE / CONTENT / PRESENTATION FIDELITY
 
 Before doing any work on the Cartilla Workbook or teacher Flip Chart, read
-`CARTILLA_DIGITAL_DIRECTIVE.md`. It is the canonical directive and overrides
-all prior layout/fidelity instructions.
+`CARTILLA_DIGITAL_DIRECTIVE.md`. It is the canonical Cartilla structure/content/presentation directive within that domain. It does not outrank newer explicit owner decisions or `AGENTS.md` execution/safety policy, but it supersedes older layout/fidelity instructions.
 
 Before changing student Workbook interactions, also read and follow `STUDENT_INTERACTION_STANDARD.md`, `DESIGN.md`, and `UX-CONTRACT.md`.
 
@@ -168,8 +247,8 @@ digitally.
 
 The three layers:
 - **STRUCTURE** (what goes where) → MUST match the book
-- **CONTENT** (text, images) → MUST match the book. Approved foreground art stays source-faithful; only the narrow source-preserving color-transfer exception in `ASSET_FIDELITY_POLICY.md` is allowed. Scenic backgrounds follow `repo.md`.
-- **PRESENTATION** (styling, interactions) → MODERN digital, your judgment
+- **CONTENT** (text, images) → MUST match the book. Approved foreground art stays source-faithful; only the narrow source-preserving color-transfer exception in `ASSET_FIDELITY_POLICY.md` is allowed. Scenic background generation, when explicitly approved, follows `repo.md`.
+- **PRESENTATION** (styling, interactions) → MODERN digital, your judgment. Dense Student Workbook exercises use the clean digital canvas rather than full scenic wallpaper; the teacher Flip Chart may retain richer source-appropriate scenery.
 
 **Recognition test:** Would the teacher recognize this as that page from the book? If yes on structure, you got it right — even if the visual style is modern.
 
@@ -201,6 +280,8 @@ modern, interactive digital experience.
 
 Match the same layout structure, text placement, exercise flow, illustration
 placement, and page sequence. Modern digital presentation is welcome.
+
+For dense learner exercises, the active Workbook surface is the owner-approved clean digital canvas: do not render a full scenic image as wallpaper behind the exercise and do not use opaque white contrast slabs that make the page read like a pasted print artifact. Preserve any existing scenic assets rather than deleting or regenerating them; they remain available for the teacher Flip Chart and any other explicitly approved context.
 
 ### Images are source-locked
 The approved/corrected/cropped book images are the artwork.
@@ -248,6 +329,10 @@ work. Do not use Vercel as a test runner.
 - Deploy only at an intentional final checkpoint requested by EJN.
 - Verify the real production result only after that deliberate deployment.
 
+### School-pilot data safety
+
+Until real-data security/privacy blockers are resolved, Cartilla may be tested as a demo/pilot only with non-real student data. A production or school pilot using real child/student data cannot pass final release solely because Supabase/live-auth work is deferred. Do not invent retention periods, licensing rules, or new security-policy choices here; unresolved real-data risks remain owner-policy/release blockers for any real-data pilot.
+
 ## GITHUB ACCOUNT LIMITS
 
 - EJN uses a free GitHub account and does not have GitHub Actions available.
@@ -268,6 +353,24 @@ EJN does not review code or GitHub internals. Agents own the technical judgment 
 - Before asking for approval, fix obvious issues, run relevant tests, confirm the project builds, check the actual feature/screen, and address known important review findings.
 - Preserve unrelated working parts of the project. Do not reorganize or modernize outside the task.
 - Do not claim success without verification.
+
+### OWNER APPROVAL PROOF — CHAT FIRST, NO GITHUB HUNTING
+
+EJN must never be asked to inspect GitHub, a PR, branch, issue, commit, CI page, or repository file in order to approve work.
+
+Before asking EJN for any approval:
+
+- **Show the actual result in chat first.**
+- For visible/visual work, provide the real implemented screenshot/image inline in chat whenever technically possible.
+- When multiple views materially matter, show the representative views needed for the decision (for example phone/tablet/desktop or before/after).
+- Do not substitute code, a PR description, a worker status message, or a GitHub link for rendered proof.
+- If an inline image is technically impossible, provide a directly viewable rendered artifact or preview that opens the actual result; do not send EJN to GitHub to find it.
+- GitHub issue/PR/task numbers and links are supporting references only.
+- After the proof is visible, ask for a simple **Yes / No** decision unless the owner genuinely needs more than a binary choice.
+- If the required proof is unavailable, the work is **not ready for owner approval**. Recover or regenerate the proof first.
+- Never claim that EJN has seen or approved a visual result unless that exact rendered result was actually shown to him.
+
+This rule applies to controllers, reviewers, Jules workers, watchdogs, and future agents.
 
 ### Proof shown to EJN
 For visual work, show screenshots/images or before-and-after proof in chat. For functional work, explain in plain English what works and what was tested. EJN should not need to open GitHub.
@@ -303,7 +406,7 @@ If something goes wrong after "Push it", diagnose the cause, repair it if clearl
 
 Normal ad-hoc workflow: EJN asks → agent builds safely → agent tests → agent shows proof → EJN says "Push it" → agent puts finished work in `main` → agent confirms it.
 
-Authorized Cartilla queue exception: for issues explicitly placed in the owner-authorized completion queue, the queue controller may merge after independent verification and advance the next dependency automatically. This is not permission for an implementation worker to self-merge.
+Authorized Cartilla queue exception: the queue controller may merge only work that the owner has already explicitly authorized as part of the completion queue, and only after every required exact-head gate passes. Implementation workers never self-merge. The mere existence of an issue, `[QUEUE]` text, a `tasks/todo.md` entry, branch, PR, bot comment, or Jules prompt does not create or expand merge authorization. If owner authorization is not explicit enough for a task, do not broaden it during execution. Production deployment remains a separate intentional owner-controlled action and never follows automatically merely because a PR merged.
 
 
 ## UI IMPLEMENTATION COHERENCE — mandatory

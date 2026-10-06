@@ -1,6 +1,14 @@
 # Locked Background Generation Method
 
-Applies to all future background generation for both the **Workbook** and **Flip Chart**.
+> **Finish contract:** Read PROJECT_FINISH_DEFINITION.md before planning or declaring Cartilla work complete. It is the canonical definition of what must be true for the entire project to be finished. Compare current verified reality against it and close only real remaining gaps.
+
+
+Applies whenever a new scenic background is explicitly approved for the **Workbook** or **Flip Chart**. It defines how to generate a background asset; it does **not** require every page or surface to render one.
+
+## Surface-use rule
+- **Student Workbook:** dense learner exercises use the owner-approved clean digital canvas. Do not use a complete scenic image as full-page wallpaper behind dense exercises. Existing scenic assets are preserved and may be used only in explicitly approved Workbook contexts where they do not compete with lesson content.
+- **Teacher Flip Chart:** may retain the richer scenic presentation when source-appropriate.
+- This distinction changes background **usage**, not source structure, foreground art, or lesson content.
 
 ## Workflow
 - Generate **one page at a time**. Never batch pages.
@@ -55,7 +63,7 @@ Use a vivid educational palette:
 No watercolor or transparent washes, realism, photorealism, painterly blending, oil/impasto texture, visible paper or canvas grain, black outlines, muted/pastel palettes, anime, Pixar, CGI/3D, vector-flat app art, cinematic lighting, grunge, unrelated subjects, decorative border-only layouts, or plain gradient-only backgrounds.
 
 ## Locked Rule
-This is the approved default method for all Workbook and Flip Chart background-image generation unless the owner explicitly changes it in chat.
+This is the approved default method whenever Workbook or Flip Chart background-image generation is explicitly authorized. It is not a requirement to generate or render a background on every page. The Student Workbook surface-use rule above controls whether the generated asset belongs behind a learner exercise.
 
 
 ## Relationship to foreground color transfer

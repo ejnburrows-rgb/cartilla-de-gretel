@@ -1,7 +1,10 @@
 # CARTILLA DIGITAL DIRECTIVE — For All AI Agents
 
-**Status:** CANONICAL. This overrides all prior layout/fidelity instructions.
-**Last updated:** 2026-10-03 (owner locked premium student interactions + source-preserving color transfer)
+> **Finish contract:** Read PROJECT_FINISH_DEFINITION.md before planning or declaring Cartilla work complete. It is the canonical definition of what must be true for the entire project to be finished. Compare current verified reality against it and close only real remaining gaps.
+
+
+**Status:** CANONICAL for Cartilla book structure, content, fidelity, and presentation. Within that domain it supersedes prior layout/fidelity instructions; it does not outrank newer explicit owner decisions or `AGENTS.md` execution/safety policy.
+**Last updated:** 2026-10-04 (owner locked clean Student Workbook canvas while preserving Flip Chart scenic presentation)
 
 ---
 
@@ -69,7 +72,7 @@ The test is about **structure and content**, not visual style. A modern-looking 
 - ✅ Use clean modern typography and spacing
 - ✅ Adapt layout responsively (stack on mobile, expand on desktop) while preserving element order
 - ✅ Add digital-native features that serve the book's pedagogy (audio read-aloud, answer checking, progress tracking)
-- ✅ Create a new scenic background environment for a Workbook or Flip Chart page only when it follows `repo.md` (see Image Lock → Sole exception)
+- ✅ Create a new scenic background environment only when the target surface calls for it and it follows `repo.md`. For dense Student Workbook exercises, the default is the clean digital canvas rather than full scenic wallpaper; the teacher Flip Chart may retain richer scenery.
 
 ### DON'T
 - ❌ Rearrange the page structure (move the grid above the header, put exercises in a different order)
@@ -103,13 +106,17 @@ Owner-approved on 2026-10-03. For an existing Workbook drawing, verified colors 
 
 ### Authorized background exception: background-only generation (`repo.md`)
 
-New scenic backgrounds may be created for Workbook and Flip Chart pages only when they follow `repo.md`. This applies only to the environment behind the original content. Foreground illustrations, characters, objects, text, lesson content, educational meaning, composition, and page structure remain unchanged.
+New scenic backgrounds may be created only when they follow `repo.md`. This permission does not mean every surface must render them. Dense Student Workbook exercises use the owner-approved clean digital canvas rather than full scenic wallpaper; the teacher Flip Chart may retain richer source-appropriate scenery. Existing scenic assets remain preserved. Wherever a scenic background is used, it applies only to the environment behind the original content. Foreground illustrations, characters, objects, text, lesson content, educational meaning, composition, and page structure remain unchanged.
 
 ### Image acceptance rule
 
 Newly generated or creatively altered artwork still requires owner/ChatGPT visual approval before production use. Technical source-faithful operations — verified crop correction, transparency cleanup, lossless optimization, and the authorized source-preserving color-transfer workflow — may be executed by an implementation agent when the exact source is identified and the required before/after/provenance proof is supplied. No agent may invent replacement art.
 
 ---
+
+## Surface presentation rule
+
+The Student Workbook and teacher Flip Chart share book-faithful structure/content but not the same background treatment. The Student Workbook uses a clean, quiet digital canvas for dense learner exercises and must not use a full scenic image as wallpaper behind them. The teacher Flip Chart may use the richer scenic presentation when appropriate. This is a presentation distinction only: source structure, wording, page order, foreground illustration identity, and educational meaning remain locked.
 
 ## Student interaction standard
 
@@ -130,7 +137,7 @@ Newly generated or creatively altered artwork still requires owner/ChatGPT visua
 | Page structure (what goes where) | MUST match the book |
 | Text content | MUST match the book (verbatim) |
 | Foreground images | MUST remain source-faithful; verified source-preserving color transfer is allowed under `ASSET_FIDELITY_POLICY.md` |
-| Scenic backgrounds (Workbook + Flip Chart) | MAY be newly created — background environment only, following `repo.md` |
+| Scenic backgrounds | MAY be created under `repo.md`; dense Student Workbook exercises default to the clean digital canvas, while Flip Chart/explicitly approved contexts may use richer scenery |
 | Page sequence | MUST match the book |
 | Visual style | MODERN digital (your judgment) |
 | Typography | MODERN readable (not print replica) |
@@ -146,7 +153,7 @@ Newly generated or creatively altered artwork still requires owner/ChatGPT visua
 
 ### Directive protection
 
-`CARTILLA_DIGITAL_DIRECTIVE.md` is the standing owner directive. Do not modify, soften, reinterpret, or supersede it without the owner's explicit instruction in chat. If you find a file that contradicts it, the directive wins — update the contradicting file, not the directive. If you believe the directive is wrong, raise it with the owner in chat and wait for their decision. Do not unilaterally change it.
+`CARTILLA_DIGITAL_DIRECTIVE.md` is the standing owner directive for Cartilla book structure/content/presentation fidelity. Within that domain, do not modify, soften, reinterpret, or supersede it without the owner's explicit instruction. It does not override `AGENTS.md` execution/safety policy or a newer explicit owner decision. If an older domain instruction contradicts it, update the older instruction rather than silently changing this directive.
 
 
 ## Canonical page-turn presentation

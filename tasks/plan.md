@@ -1,87 +1,207 @@
-# Cartilla CRM demo plan — without Supabase setup
+# La Cartilla de Gretel — project completion plan
 
-Date: October 3, 2026. Status: implementation authorized by “Go ahead”; frontend complete and verified, publishing pending.
+> **Finish contract:** Read PROJECT_FINISH_DEFINITION.md before planning or declaring Cartilla work complete. It is the canonical definition of what must be true for the entire project to be finished. Compare current verified reality against it and close only real remaining gaps.
 
-## Outcome
-A teacher can demonstrate a complete classroom workflow using clearly labelled sample data: open the CRM, create a class, add a sample student, assign a lesson, review a student's activity, add notes, and print/export a report. No Supabase schema, migration, policy, backend function or live student data changes.
 
-## Current evidence
-The existing application already supports a local example-class mode. Its active CRM route renders TeacherDailyHome, which reads local classes, students, assignments and progress when the example teacher session is active. Creation of classes/students and local progress/report/presenter views exist. Previous verification passed nine browser scenarios, four viewport sizes, 1,489 unit tests, typecheck and build. These results establish the previous frontend baseline; they do not certify every proposed demo action below.
+**Updated:** 2026-10-05  
+**Task tracker:** existing GitHub issues/PRs. Do not create duplicate work items.
 
-The current anonymous student workbook does not feed new activity into the sample teacher roster. Existing authenticated join-by-code flow was verified with test fixtures, not a live classroom. Do not describe sample statistics as live student reporting.
+## Goal
+
+Finish the existing Cartilla product quickly and correctly. Preserve working student/teacher behavior, make visual decisions from rendered evidence, and avoid new prototypes/tools/agents unless they clearly shorten the path.
+
+## Current verified reality
+
+- Public preview/deployment state is runtime evidence, not durable policy. Live-verify the deployed Vercel state whenever it matters; do not assume it equals current `main` or any commit recorded in this plan.
+- The public Workbook still shows the older scenic presentation and tap/select + `Comprobar`/`Corregir respuestas` feedback. It already has a brief pencil-mark animation on some selections, but not the owner-required shared Pencil/Eraser choreography from PR #476 (draw/hold/success or rotate-to-eraser/erase/retry). PR #476 is not deployed and is not visually accepted.
+- Live browser testing on the deployed build confirms picture selection, line matching, freehand/tracing canvases, Borrador, Deshacer, Limpiar, reload persistence of partial canvas work, and completion gating are materially functional. A later `Marca con una x` activity also completed its select → `Comprobar` → `Siguiente` flow. Preserve these working foundations unless a confirmed defect requires change.
+- Workbook structured coverage exists for printed pages 1–90. Pages 1–85 and 88–90 are `NATIVE_COMPLETE`; pages 86–87 are `SOURCE_BLOCKED` because the supplied source scan is missing those pages.
+- Current `main` still registers scenic Workbook backgrounds for all available pages. The approved clean digital-canvas/cream direction is not rolled out yet.
+- PR #501 is the canonical Page 1 golden-reference candidate. Duplicate #506 is closed and must stay closed.
+- PR #502 is the canonical living-art motion fix. Duplicate #507 is closed and must stay closed.
+- PR #504 fixes the confirmed reversed/over-cropped `uno` asset by pointing production uses to the verified counterpart.
+- The current production-art inventory reports 108 referenced production foreground assets, 143 manifest entries, 35 manifest entries currently unreferenced, no duplicate hashes among the 108 active assets, and no tiny active assets. Refresh this inventory before deletion because some recorded reference locations are historical.
+- The delivery manifest contains 24 crop/edge/aspect warnings. These are review candidates, not automatically bad assets. `uno` is the one currently confirmed production-visible defect; PR #504 addresses it. `manzana` and `pera` are active inventory entries with `PROVENANCE-UNKNOWN` and require source verification before any replacement/recolor decision.
+- Foreground-art issue #454 remains open and controller-owned; Jules is disabled for that lane.
+- Release-verification issue #389 remains open and is high leverage because several otherwise-ready PRs depend on trustworthy full release proof.
 
 ## Decisions
-- Reuse the existing example-class store and UI; no database setup is required for a CRM demonstration.
-- Keep sample records, work and events isolated from real identities and existing anonymous student work. Never adopt a child's previous work into a demo identity.
-- Clearly label sample activity. If a student-to-teacher update is shown, use an explicitly selected synthetic demo student and the local demo store only. Never claim cross-device synchronization or real authorization.
-- A school/location name can be an optional demo label. There is no need for geolocation, maps, a location database or GPS permissions for the proposed classroom workflow. The phrase “location” is treated as optional school/location information; no broader location feature is assumed.
-- Preserve existing artwork, handwriting, backgrounds and working page layouts.
-- Reuse verification and fix only failures in the demo path. Do not restart a repository-wide audit.
 
-## Ordered tasks
+1. **Finish Pencil/Eraser directly in the existing project.** Do not build it first in Lovable, Google AI Studio, or another prototype. The state/persistence/accessibility architecture already exists in PR #476, so a separate prototype adds translation and integration work.
+2. **Use rendered proof in small slices.** Page 1 is the visual gate. Do not start #498 broad Workbook restyling until #501 is shown in a real browser at representative phone/tablet/desktop sizes and accepted.
+3. **Do not manually create extra agent lanes.** The existing scheduled Cartilla Jules Supervisor is the default worker-dispatch layer. Global implementation-worker concurrency and lane accounting come only from the `AGENTS.md` Execution Control Contract; this plan records priorities/allocation only.
+4. **Do not delete art during implementation.** Refresh the current-reference inventory, classify cleanup candidates, then remove only assets proven unused and non-canonical.
+5. **Do not deploy production merely for testing.** Use an existing safe branch/runtime verification route; production deployment remains the final authorized release step.
 
-### 1. Establish a repeatable sample classroom
-Description: Reuse the existing example mode with one clearly labelled class and a small set of sample students covering started, completed and needs-help states. Provide a safe demo reset if an existing equivalent is not reachable.
-Acceptance:
-- [x] Opening the demo displays the sample-data label and usable class/student records.
-- [x] Refresh preserves intentional demo edits; reset affects demo records only.
-- [x] No live Supabase requests are needed for the demonstrated actions.
-Verification: Open/refresh/reset in a separate browser profile; inspect requests with network blocked; confirm unrelated student storage is unchanged.
-Dependencies: none. Scope: small/medium.
-Likely files: src/lib/seed-data.ts, src/lib/demo-roster.ts, src/routes/cartilla/teacher/route.tsx, focused demo tests.
+## Phase 1 — highest-leverage blockers
 
-### 2. Finish the interactive teacher demo path
-Description: Verify existing class/student actions, teacher notes and lesson assignments through their current interface. Finish missing local actions only where the demo requires them.
-Acceptance:
-- [x] Create a sample class/student, save teacher notes and assign a lesson from visible controls.
-- [x] Changes appear immediately and persist after refresh.
-- [x] Invalid input has clear feedback and no duplicate records or silent lost edits.
-Verification: Run the existing teacher lifecycle test plus focused checks for notes/assignment persistence; inspect phone and tablet controls.
-Dependencies: task 1. Scope: medium; split notes and assignment UI if more than five files are needed.
-Likely files: src/features/teacher-crm/TeacherDailyHome.tsx, the active class/student detail component, src/lib/seed-data.ts, tests/e2e/teacher-class-lifecycle.spec.ts.
+### A. Golden Workbook Page 1 — #496 / PR #501
 
-### Checkpoint
-- [x] Class/student/notes/assignment actions work without network connectivity.
-- [x] The example-data label remains visible and no real identity is modified.
+**Owner:** controller for visual acceptance; bounded worker changes only if a rendered defect is found.
 
-### 3. Demonstrate activity reaching the CRM safely
-Description: Add or finish an explicitly labelled local demo student flow if a live-looking student-to-teacher demonstration is required. Reuse existing activity events and the sample store; do not modify Supabase. Show a sample student doing an activity and the teacher reviewing the resulting local event.
-Acceptance:
-- [x] The presenter explicitly selects a synthetic demo student; existing anonymous/real work stays separate.
-- [x] An actual activity completion updates only that sample student's teacher view in the same browser.
-- [x] Leaving/reloading preserves demo work and reports honest completion/assistance; switching sample students keeps work separate.
-Verification: Two synthetic students with different writing/drawings; reload/leave/return; check event ownership and prohibit live backend writes. Explain that this is a same-browser simulation, not multi-device synchronization.
-Dependencies: tasks 1–2. Scope: medium.
-Likely files: src/lib/seed-data.ts, src/lib/student-session.ts, src/lib/learner-storage.ts, the explicit demo entry component, focused demo browser test.
+- Render exact current #501 head in the actual app.
+- Show phone, tablet and desktop screenshots before further visual change.
+- Verify Page 1 alone loses scenic wallpaper, instruction treatment is quiet/native, Gretel is subordinate, all 20 source illustrations and ordering remain intact, and later pages do not inherit Page 1-only rules.
+- Verify #504's `uno` correction alongside Page 1 before final visual acceptance.
+- Run exact-head controller review, Sonar and task-specific verification.
 
-### 4. Verify reporting and presentation as a complete demo
-Description: Reuse existing progress, reports, CSV, workbook/guide printing and Flip Chart. Ensure the sample student's new event reaches the displayed/exported report without fabricated learning accuracy.
-Acceptance:
-- [x] Progress/report/CSV show the correct sample student and activity.
-- [x] PDFs contain all relevant content without blank sheets or hidden controls; Flip Chart can advance and exit.
-- [x] Laptop, tablet, phone and projector views have reachable controls and readable content.
-Verification: Focused end-to-end demo with saved screenshots, exported CSV and inspected PDF; check separation from student-only screens; run relevant tests/typecheck/build after changes.
-Dependencies: task 3. Scope: small/medium.
-Likely files: tests/e2e/classroom-readiness.spec.ts, src/components/teacher/ReportCard.tsx, src/styles/teacher-print.css, src/routes/cartilla/teacher/reportes.tsx, demo evidence.
+**Exit:** Page 1 is visibly accepted. Only then may #498 start.
 
-### 5. Publish and inspect the visible demo
-Description: Use the existing deployment destination after identifying its correct account/project. The connected Vercel deployment action previously returned unavailable, and the connected project did not list the canonical production alias. Resolve deployment access; do not enable automatic deployments or deploy to an unconfirmed project.
-Acceptance:
-- [ ] The correct demo URL serves the verified version.
-- [ ] The complete demonstration works on that URL with sample-data labels intact.
-- [ ] Final evidence distinguishes shipped demo functionality from remaining real-classroom capabilities.
-Verification: Inspect the deployed URL in fresh student and teacher browser sessions, complete the demo sequence, and capture visible proof.
-Dependencies: task 4 and usable deployment access. Scope: small; no backend work.
+### B. Living-art runtime — #497 / PR #502
 
-## Remaining work outside the demo
-- Genuine authenticated teacher/student sessions and live classroom reporting are not yet certified.
-- Writing/drawing is browser-local. Cross-device recovery and central backup require suitable authorized persistence capability; none will be invented in this demo.
-- Approved pronunciation recordings are absent; existing audio policy prohibits TTS. This does not block the CRM demo.
-- Complete original guide material is missing, especially lessons 17–24, with partial gaps in earlier lessons. Show available content and its honest pending labels; do not fabricate text.
-- Deployment is pending; merged source is not proof that the live site has changed.
+**Existing worker lane / verification target.** Do not create a duplicate Jules task or PR.
 
-## Demo sequence
-Open labelled CRM → create sample class/student → assign a lesson → select synthetic demo student → complete/save an activity → return to teacher progress/report → save a note → export CSV/print report → present Flip Chart.
+- Keep the narrow CSS root-cause fix already isolated in #502.
+- Prove eligible living art moves in normal mode inside the real Workbook.
+- Prove reduced-motion remains static and no layout/hit-target shift occurs.
+- Do not reopen #507 or touch unrelated renderer paths.
 
-## Completion bar
-The entire sequence works with Supabase network access blocked, demo edits survive refresh, real/anonymous work is untouched, and the correct deployed demo URL has been inspected. Until then, call it an available local frontend demo, not a completed live classroom system.
+**Exit:** rendered normal/reduced-motion proof + exact-head review and verification.
+
+### C. Direct release gate — #389
+
+**Supervisor-owned optional lane.** Before dispatch, verify no current Jules session/branch/PR is already doing #389.
+
+- Reproduce current `pnpm verify:release` failure/hang from a clean current-main checkout.
+- Repair only genuine harness/baseline defects.
+- Do not add GitHub Actions, paid runners or Vercel-as-test-runner.
+- Preserve fake/local Supabase test isolation.
+
+**Exit:** a clean checkout can run `pnpm verify:release` and get a trustworthy result.
+
+### D. Foreground art defect — #454 / PR #504
+
+**Owner:** controller, not Jules.
+
+- Render #504 and compare `uno` against the authoritative Workbook source.
+- Merge only after orientation/crop is visibly correct and no other uses regress.
+- Keep #454 open after this narrow repair until the active production asset set is classified.
+
+## Checkpoint 1
+
+Do not advance broad visual rollout until:
+- #501 is visually accepted;
+- #502 is proven in-browser;
+- #504 is visibly verified or its remaining defect is explicit;
+- #389 supplies a trustworthy release gate.
+
+## Phase 2 — shared student feedback foundation
+
+### Shared Pencil/Eraser — #445 / PR #476
+
+**Owner:** controller; a worker may implement one narrow visual repair on the existing PR only.
+
+The public app currently shows the old tap/select + whole-page check/correct behavior. PR #476 is therefore a candidate, not a finished visual feature.
+
+- Reconcile #476 against accepted Page 1/current `main`.
+- Complete the missing visible choreography in the shared kernel: real pencil draw, restrained hold, success mark, pencil-to-eraser transition, erase, retry.
+- Keep feedback shared; do not build page-local copies.
+- Test correct/incorrect p1/p2 interactions, keyboard access, reduced motion, persistence/restore, completion events and navigation gating.
+- Show rendered result before any later activity-family conversion.
+
+**Exit:** #445/#476 is visually accepted, functionally tested and merged.
+
+## Phase 3 — remaining activity families, sequential
+
+Dependency chain:
+
+`#445 → #446 → #447 → #448 → #449`
+
+Do not parallelize these because they adapt the same shared interaction language.
+
+1. **#446 — Pencil Line:** pages 3, 5, 8, 11, 14, 17. Replace current tap/connect presentation with approved pencil-drawn line interaction.
+2. **#447 — tracing/handwriting/drawing:** preserve existing working canvas, save/restore, eraser/undo/clear and gating; change only what is needed to match Progressive Fade / Premium Simple Pencil Box.
+3. **#448 — syllable circles:** reuse shared pencil-mark language.
+4. **#449 — word completion and sentence handwriting:** reuse the same writing kernel and persistence.
+
+For every issue:
+- test the actual interaction, not just rendering;
+- show representative rendered proof;
+- preserve source wording and existing learner state;
+- do not start the next issue until the previous one is merged.
+
+## Phase 4 — accepted Workbook surface rollout
+
+### #498 — clean digital-canvas rollout
+
+Start only after #501 acceptance.
+
+Roll out by page family:
+- dense picture grids;
+- line matching;
+- handwriting/tracing;
+- drawing;
+- syllable circles;
+- complete-word/fill-in;
+- sentence writing;
+- reading/vocabulary pages.
+
+For each family:
+- preserve source structure/content/art;
+- remove full scenic wallpaper where it competes with learner work;
+- reuse accepted cream/clean Page 1 surface and instruction hierarchy;
+- keep Gretel/chrome subordinate;
+- verify representative phone/tablet/desktop pages before moving to the next family.
+
+Do not modify Flip Chart presentation from this issue.
+
+## Phase 5 — foreground art verification and cleanup
+
+### #454 — production foreground art
+
+Controller classifies only production-required slots as:
+`PASS / CROP FIX / WRONG SOURCE / VERIFIED COLOR TRANSFER / OPTIMIZATION ONLY / PENDING NO VERIFIED SOURCE`.
+
+- Do not regenerate source-locked art.
+- Use source-preserving color transfer only with an exact verified counterpart.
+- Keep pages 86–87 explicitly source-blocked rather than inventing art/content.
+
+### Cleanup pass
+
+Before deleting anything:
+1. refresh the production-art inventory against current `main`;
+2. verify every candidate with repository-wide current references;
+3. distinguish canonical source/reference art from dead delivery copies;
+4. produce a removal list for owner approval.
+
+The 35 currently reported unreferenced manifest entries are cleanup candidates, not deletion-approved assets.
+
+## Phase 6 — independent existing PRs
+
+As the release gate becomes reliable, finish exact-head review/verification for:
+- #477 Gretel behavior/motion discipline;
+- #479 physical Workbook/Flip Chart page turns;
+- #505 picture-name recording wiring;
+- #478 welcome media code integration.
+
+The final owner-approved 5–6 second silent welcome MP4 remains an external asset dependency for #478; do not fabricate it.
+
+## Phase 7 — assembled-product gates
+
+1. **#450:** full Student Workbook regression across activity families, save/restore, page turns, Gretel, reduced motion, responsive fit and final art.
+2. **#457:** final teacher/Flip Chart validation.
+3. **#391:** measured first-paint performance repair after functional/art lanes stabilize.
+4. **#458:** final assembled-product proof, exact-head dual review, clean `pnpm verify:release`, representative browser/device proof, then intentional production deployment.
+
+## Parallel work policy
+
+Do not ask the owner to launch or supervise additional agents. The scheduled Cartilla Jules Supervisor is the default background dispatcher and the fallback watchdog handles stalled lanes.
+
+Implementation-worker concurrency and lane accounting come only from the `AGENTS.md` Execution Control Contract. This plan records the current preferred allocation and does not define a numeric limit.
+
+**Current preferred allocation:**
+- Candidate lane: exact-head verification of canonical PR #502 only; do not reopen duplicate #507.
+- Candidate lane: #389 release harness only if the supervisor confirms no existing worker is already active for it.
+- Controller: #501 rendered visual acceptance, #504 art proof, then #476 shared Pencil/Eraser visual repair/acceptance.
+
+**Must stay sequential:**
+- #501 acceptance before #498.
+- #445 → #446 → #447 → #448 → #449.
+- #450 after final Workbook interaction/art/visual state.
+- #458 after all final gates.
+
+## Definition of finished
+
+The canonical, owner-locked definition of finished is PROJECT_FINISH_DEFINITION.md.
+
+This plan must close the real gaps against that file. It must not redefine or weaken the finish criteria.
