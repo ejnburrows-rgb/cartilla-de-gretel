@@ -4,7 +4,7 @@
 
 
 **Status:** CANONICAL DURABLE VISUAL SYSTEM  
-**Owner direction locked:** 2026-10-04
+**Owner direction locked:** 2026-10-06
 
 This file records reusable visual decisions for the digital Student Workbook and teacher Flip Chart. It does not override the source books on structure/content, `ASSET_FIDELITY_POLICY.md` on artwork, or `STUDENT_INTERACTION_STANDARD.md` on student behavior.
 
@@ -19,7 +19,8 @@ The product should feel like a carefully preserved Latin American schoolbook tra
 Use the book's established country/tole folk-art DNA and school-material vocabulary:
 - warm cream paper;
 - sienna/brown structure and outlines;
-- deep Cartilla blue/cobalt accents;
+- deep Cartilla blue/cobalt accents in broader brand/teacher surfaces;
+- canonical teal accents on repeated Student Workbook activity archetypes;
 - restrained warm gold;
 - graphite marks;
 - classic wood pencil;
@@ -68,6 +69,16 @@ Neither should resemble a card flip or cube rotation. The destination page is al
 ## Page composition
 
 Preserve the physical book's element identity, relative placement, sequence, and reading order. Modernization belongs in rendering quality, spacing, responsiveness, accessibility, interaction, and restrained motion—not structural redesign.
+
+### Canonical Student Workbook archetypes
+
+`WORKBOOK_ARCHETYPE_STANDARD.md` is the owner-locked visual system for recurring Student Workbook exercise families. It defines eight reusable visual archetypes and their approved treatment.
+
+The shared Workbook treatment uses warm off-white clean paper, the source teal wave/outline, bold `Instrucciones:` hierarchy, teal target emphasis, white rounded teal-framed work/picture surfaces, restrained mint halo/elevation, a stronger raised treatment only for the active target, restrained lesson pill, and the original star/diamond page marker.
+
+The numbered teal title bars on the archetype reference board are annotations only and never belong in production pages.
+
+Do not create a new family-specific visual language when one of the eight archetypes applies. Reuse the archetype system while preserving the exact source page's wording, artwork, order, markers, and spatial relationships.
 
 ### Surface distinction
 
