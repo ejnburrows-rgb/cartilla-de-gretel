@@ -120,7 +120,7 @@ The Student Workbook and teacher Flip Chart share book-faithful structure/conten
 
 ## Student Workbook archetype + interaction standards
 
-`WORKBOOK_ARCHETYPE_STANDARD.md` is the owner-approved source of truth for repeated Student Workbook visual/source-layout families. `STUDENT_INTERACTION_STANDARD.md` is the owner-approved source of truth for student-facing Workbook behavior and motion. It defines Pencil Retry, real Workbook marks, pencil-drawn matching lines, progressive-fade tracing, premium pencil/eraser drawing tools, real pencil syllable circles, pencil-written word completion, and direct sentence handwriting. Older lasso/red-X/game-like treatments are superseded. `DESIGN.md` and `UX-CONTRACT.md` define the shared visual/system ownership and physical page-turn presentation for Workbook and Flip Chart.
+`WORKBOOK_ARCHETYPE_STANDARD.md` is the owner-approved source of truth for repeated Student Workbook visual/source-layout families. `STUDENT_INTERACTION_STANDARD.md` is the owner-approved source of truth for student-facing Workbook behavior and motion. It defines Pencil Retry, real Workbook marks, direct Pencil Line connectors with click/tap/keyboard fallback, checkpoint/stroke-order tracing with optional freehand, premium pencil/eraser drawing tools, real pencil syllable circles, draggable syllable placement with click/tap fallback, and typed handwriting-line sentence writing with optional freehand. Older lasso/red-X/game-like treatments are superseded. `DESIGN.md` and `UX-CONTRACT.md` define the shared visual/system ownership and physical page-turn presentation for Workbook and Flip Chart.
 
 ## Reference materials
 
