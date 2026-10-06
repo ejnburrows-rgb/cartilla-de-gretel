@@ -1,12 +1,29 @@
 import { learnerStorageKey } from "@/lib/learner-storage";
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useState } from "react";
+import type { PointerEvent as ReactPointerEvent } from "react";
 import type { PageRegion } from "@/lib/book-faithful";
 import { useActivityEvents, useActivityState } from "@/lib/activity-events";
+import { WorkbookPencilMark } from "@/components/cartilla/WorkbookPencilMark";
 
 export function validSyllableStarts(word: string, syllable: string): number[] {
-  const normalize = (value: string) => value.normalize("NFD").replace(/[\u0300-\u036f]/g, "").toLocaleLowerCase("es");
-  const text = normalize(word), target = normalize(syllable);
-  return target ? Array.from({ length: word.length }, (_, i) => i).filter(i => text.startsWith(target, i)) : [];
+  const normalize = (value: string) =>
+    value.normalize("NFD").replace(/[\u0300-\u036f]/g, "").toLocaleLowerCase("es");
+  const text = normalize(word);
+  const target = normalize(syllable);
+  return target
+    ? Array.from({ length: word.length }, (_, i) => i).filter((i) => text.startsWith(target, i))
+    : [];
+}
+
+type PendingMark = {
+  wordIndex: number;
+  start: number;
+  correct: boolean;
+};
+
+function clampMarkStart(word: string, syllable: string, start: number): number {
+  const span = Math.max(1, syllable.length);
+  return Math.max(0, Math.min(start, Math.max(0, word.length - span)));
 }
 
 export function SyllableWordCircle({ region, lessonId }: { region: PageRegion; lessonId?: string }) {
@@ -23,38 +40,36 @@ export function SyllableWordCircle({ region, lessonId }: { region: PageRegion; l
       return new Set();
     }
   });
-  const [selectedStarts, setSelectedStarts] = useActivityState<Record<number, number>>("syllableStarts", {});
-  const [wrongIndex, setWrongIndex] = useState<number | null>(null);
-  const wrongTimer = useRef<number | undefined>(undefined);
-  useEffect(() => () => window.clearTimeout(wrongTimer.current), []);
+  const [selectedStarts, setSelectedStarts] = useActivityState<Record<number, number>>(
+    "syllableStarts",
+    {},
+  );
+  const [pending, setPending] = useState<PendingMark | null>(null);
   const syllable = region.syllable ?? "";
 
   useEffect(() => {
-    if (correctCount > 0 && marked.size === correctCount) gretelEvent("activity:complete", { restored: true });
+    if (correctCount > 0 && marked.size === correctCount) {
+      gretelEvent("activity:complete", { restored: true });
+    }
   }, [correctCount, marked, gretelEvent]);
 
-  const toggle = (i: number, position: number) => {
-    if (!isTarget(i) || !validSyllableStarts(words[i].word, syllable).includes(position)) {
-      setWrongIndex(i);
-      window.clearTimeout(wrongTimer.current);
-      wrongTimer.current = window.setTimeout(() => setWrongIndex((current) => current === i ? null : current), 450);
-      gretelEvent("answer:wrong", { itemId: `${region.id}-${i}` });
-      return;
+  const persistMarked = (next: Set<number>) => {
+    try {
+      localStorage.setItem(key, JSON.stringify([...next]));
+    } catch {
+      /* storage can be disabled */
     }
+  };
 
-    window.clearTimeout(wrongTimer.current);
-    setWrongIndex(null);
+  const commitCorrect = (wordIndex: number, start: number) => {
     const next = new Set(marked);
-    const adding = !next.has(i) || (selectedStarts[i] ?? validSyllableStarts(words[i].word, syllable)[0]) !== position;
-    setSelectedStarts(prev => ({ ...prev, [i]: position }));
-    if (adding) next.add(i);
-    else next.delete(i);
+    next.add(wordIndex);
+    setSelectedStarts((prev) => ({ ...prev, [wordIndex]: start }));
     setMarked(next);
-    try { localStorage.setItem(key, JSON.stringify([...next])); } catch { /* storage can be disabled */ }
+    persistMarked(next);
+    setPending(null);
 
-    if (adding) gretelEvent("answer:correct", { itemId: `${region.id}-${i}` });
-    else gretelEvent("activity:retry", { reason: "work-cleared" });
-    if (adding && correctCount > 0 && next.size === correctCount) {
+    if (correctCount > 0 && next.size === correctCount) {
       gretelEvent("activity:complete");
       if (lessonId) {
         recordEvent({
@@ -68,30 +83,135 @@ export function SyllableWordCircle({ region, lessonId }: { region: PageRegion; l
     }
   };
 
+  const removeCorrect = (wordIndex: number) => {
+    const next = new Set(marked);
+    next.delete(wordIndex);
+    setMarked(next);
+    persistMarked(next);
+    setSelectedStarts((prev) => {
+      const copy = { ...prev };
+      delete copy[wordIndex];
+      return copy;
+    });
+    gretelEvent("activity:retry", { reason: "work-cleared" });
+  };
+
+  const attempt = (wordIndex: number, start: number, correct: boolean) => {
+    if (pending) return;
+    const normalizedStart = clampMarkStart(words[wordIndex]?.word ?? "", syllable, start);
+    if (
+      correct &&
+      marked.has(wordIndex) &&
+      (selectedStarts[wordIndex] ?? validSyllableStarts(words[wordIndex].word, syllable)[0]) ===
+        normalizedStart
+    ) {
+      removeCorrect(wordIndex);
+      return;
+    }
+    setPending({ wordIndex, start: normalizedStart, correct });
+  };
+
+  const handlePointerUp = (
+    event: ReactPointerEvent<HTMLButtonElement>,
+    wordIndex: number,
+  ) => {
+    if (pending) return;
+    const word = words[wordIndex]?.word ?? "";
+    if (!word) return;
+    const rect = event.currentTarget.getBoundingClientRect();
+    const width = Math.max(1, rect.width);
+    const ratio = Math.max(0, Math.min(0.9999, (event.clientX - rect.left) / width));
+    const charIndex = Math.min(word.length - 1, Math.floor(ratio * word.length));
+    const starts = validSyllableStarts(word, syllable);
+    const occurrence = starts.find(
+      (start) => charIndex >= start && charIndex < start + Math.max(1, syllable.length),
+    );
+    const correct = isTarget(wordIndex) && occurrence !== undefined;
+    attempt(wordIndex, occurrence ?? charIndex, correct);
+  };
+
+  const handleKeyboardActivate = (wordIndex: number) => {
+    if (pending) return;
+    const word = words[wordIndex]?.word ?? "";
+    const starts = validSyllableStarts(word, syllable);
+    const start = starts[0] ?? 0;
+    attempt(wordIndex, start, isTarget(wordIndex) && starts.length > 0);
+  };
+
+  const overlayFor = (wordIndex: number) => {
+    const word = words[wordIndex]?.word ?? "";
+    if (!word) return null;
+    const pendingHere = pending?.wordIndex === wordIndex ? pending : null;
+    const committedStart = marked.has(wordIndex)
+      ? selectedStarts[wordIndex] ?? validSyllableStarts(word, syllable)[0]
+      : undefined;
+    const start = pendingHere?.start ?? committedStart;
+    if (start === undefined) return null;
+    const normalizedStart = clampMarkStart(word, syllable, start);
+    const spanLength = Math.max(1, Math.min(Math.max(1, syllable.length), word.length - normalizedStart));
+    const style = {
+      left: `${(normalizedStart / word.length) * 100}%`,
+      width: `${(spanLength / word.length) * 100}%`,
+    };
+
+    return (
+      <span className="native-syllable__mark" style={style} aria-hidden="true">
+        {pendingHere ? (
+          <WorkbookPencilMark
+            key={`pending-${wordIndex}-${pendingHere.start}-${pendingHere.correct}`}
+            markType="circle"
+            isCorrect={pendingHere.correct}
+            itemId={`${region.id}-${wordIndex}`}
+            onSuccess={() => commitCorrect(wordIndex, pendingHere.start)}
+            onRetry={() => setPending((current) => (current?.wordIndex === wordIndex ? null : current))}
+          />
+        ) : (
+          <WorkbookPencilMark
+            markType="circle"
+            status="correct"
+            itemId={`${region.id}-${wordIndex}-restored`}
+          />
+        )}
+      </span>
+    );
+  };
+
   return (
     <section className="native-syllable" aria-label={`Busca ${syllable} en cada palabra`}>
       <h2>{syllable}</h2>
       <div className="native-syllable__words">
         {words.map((entry, i) => {
-          const wrong = wrongIndex === i;
+          const retrying = pending?.wordIndex === i && pending.correct === false;
           return (
-            <span
+            <button
               key={`${i}-${entry.word}`}
-              className={`native-syllable__word${wrong ? " is-wrong" : ""}`}
+              type="button"
+              className={`native-syllable__word${retrying ? " is-retrying" : ""}`}
+              aria-label={entry.word}
+              aria-pressed={marked.has(i)}
+              aria-disabled={pending !== null}
+              disabled={pending !== null}
+              onPointerUp={(event) => handlePointerUp(event, i)}
+              onClick={(event) => {
+                if (event.detail === 0) handleKeyboardActivate(i);
+              }}
             >
-              {Array.from(entry.word).map((letter, position) => (
-                <button key={position} type="button"
-                  className={`native-syllable__letter${marked.has(i) && position >= (selectedStarts[i] ?? validSyllableStarts(words[i].word, syllable)[0]) && position < (selectedStarts[i] ?? validSyllableStarts(words[i].word, syllable)[0]) + syllable.length ? " is-circled" : ""}`}
-                  aria-label={position === 0 ? entry.word : `${entry.word}, posición ${position + 1}: ${letter}`}
-                  aria-pressed={marked.has(i) && (selectedStarts[i] ?? validSyllableStarts(words[i].word, syllable)[0]) === position}
-                  onClick={() => toggle(i, position)}>{letter}</button>
-              ))}
-            </span>
+              <span className="native-syllable__letters" aria-hidden="true">
+                {Array.from(entry.word).map((letter, position) => (
+                  <span key={position} className="native-syllable__letter">
+                    {letter}
+                  </span>
+                ))}
+              </span>
+              {overlayFor(i)}
+            </button>
           );
         })}
       </div>
       <p role="status" aria-live="polite">
-        {wrongIndex !== null ? "Inténtalo otra vez" : `${marked.size} de ${correctCount} respuestas correctas`}
+        {pending?.correct === false
+          ? "Inténtalo otra vez"
+          : `${marked.size} de ${correctCount} respuestas correctas`}
       </p>
     </section>
   );

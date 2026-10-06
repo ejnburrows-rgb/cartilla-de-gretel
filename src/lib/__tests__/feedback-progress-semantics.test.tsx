@@ -1,5 +1,5 @@
 import '@testing-library/jest-dom/vitest';
-import { beforeEach, afterEach, expect, it } from 'vitest';
+import { beforeEach, afterEach, expect, it, vi } from 'vitest';
 import { act, cleanup, fireEvent, render, screen } from '@testing-library/react';
 import { recordEvent } from '../student-session';
 import { evidenceFor } from '../progress-semantics';
@@ -9,7 +9,7 @@ import { InteractivePictureGrid, InteractiveFillInBlank } from '@/components/car
 import { GretelActivity } from '@/components/gretel/GretelActivity';
 import { SyllableWordCircle } from '@/cartilla/interactions/SyllableWordCircle';
 beforeEach(() => { localStorage.clear(); resetStats(); });
-afterEach(cleanup);
+afterEach(() => { cleanup(); vi.useRealTimers(); });
 it('distinguishes independent completion, assisted completion and recovery after demonstration', () => {
   const input = { score: 1, total: 1, meta: { activityId: 'A', encounterId: 'run', completed: true } };
   expect(evidenceFor(input, { assisted: false, demonstration: false })).toMatchObject({ outcome: 'independent-success', completed: true, grading: 'practice' });
@@ -57,16 +57,26 @@ it('Completa gives immediate gentle wrong feedback for implicit distractors and 
   expect(screen.getByText('ma')).toHaveClass('graded-correct');
   expect(screen.getByText('Completado')).toBeInTheDocument();
 });
-it('both occurrences of pa in papá are valid, and correct syllables are not boxed before an attempt', () => {
+it('both occurrences of pa in papá are valid, and the word is one hit target', () => {
+  vi.useFakeTimers();
   const view = render(<SyllableWordCircle region={{ id: 'repeat', regionType: 'syllable-match', order: 1, fontRole: 'body', syllable: 'pa', matchRows: [[{ word: 'papá', correct: true }]] }} />);
-  expect(view.container.querySelector('.is-circled')).toBeNull();
-  expect(view.container.querySelectorAll('.native-syllable__letter')).toHaveLength(4);
-  fireEvent.click(screen.getByRole('button', { name: 'papá, posición 2: a' }));
-  expect(screen.getByRole('status')).toHaveTextContent('Inténtalo');
-  fireEvent.click(screen.getByRole('button', { name: 'papá, posición 3: p' }));
+  const word = screen.getByRole('button', { name: 'papá' });
+  vi.spyOn(word, 'getBoundingClientRect').mockReturnValue({ x: 0, y: 0, left: 0, top: 0, right: 400, bottom: 64, width: 400, height: 64, toJSON: () => ({}) } as DOMRect);
+  expect(view.container.querySelector('.native-syllable__mark')).toBeNull();
+  expect(screen.getAllByRole('button')).toHaveLength(1);
+
+  fireEvent.pointerUp(word, { clientX: 50, pointerId: 1 });
+  act(() => vi.advanceTimersByTime(6000));
   expect(screen.getByRole('status')).toHaveTextContent('1 de 1');
-  fireEvent.click(screen.getByRole('button', { name: /^papá$/ }));
+  expect(word).toHaveAttribute('aria-pressed', 'true');
+
+  fireEvent.pointerUp(word, { clientX: 50, pointerId: 2 });
+  expect(word).toHaveAttribute('aria-pressed', 'false');
+
+  fireEvent.pointerUp(word, { clientX: 260, pointerId: 3 });
+  act(() => vi.advanceTimersByTime(6000));
   expect(screen.getByRole('status')).toHaveTextContent('1 de 1');
+  expect(word).toHaveAttribute('aria-pressed', 'true');
 });
 it('before an attempt, Gretel gives a strategy without displaying a correct target; later demonstrates only one', () => {
   const view = render(<GretelActivity id="help" pageNumber={1} kind="picture-grid"><button data-gretel-correct="true">A</button><button data-gretel-correct="true">B</button><button data-gretel-correct="false">C</button></GretelActivity>);
