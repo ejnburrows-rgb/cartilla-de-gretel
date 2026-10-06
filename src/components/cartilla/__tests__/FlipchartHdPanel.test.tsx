@@ -61,7 +61,7 @@ describe("FlipchartHdPanel — CRM-grade presenter board", () => {
     }
   });
 
-  it("renders a wide clean digital presenter without simulated binding hardware", () => {
+  it("renders a wide clean digital presenter with the approved physical top binding", () => {
     const { container } = render(<FlipchartHdPanel lessonNumber={7} />);
     const panel = container.querySelector('[data-testid="flipchart-hd-panel"]');
     const stage = container.querySelector('[data-testid="flipchart-stage"]');
@@ -69,13 +69,13 @@ describe("FlipchartHdPanel — CRM-grade presenter board", () => {
     expect(stage).toBeTruthy();
     expect(panel?.getAttribute("data-hd-primary")).toBe("true");
     expect(panel?.getAttribute("data-presenter-mode")).toBe("native");
-    expect(panel?.hasAttribute("data-physical-flipchart")).toBe(false);
+    expect(panel?.getAttribute("data-physical-flipchart")).toBe("true");
     expect(panel?.getAttribute("data-page-turn-axis")).toBe("vertical");
     expect(panel?.getAttribute("data-page-turn-ms")).toBe(
       String(FLIPCHART_FLIP_MS),
     );
-    expect(container.querySelector(".fc-board__binding")).toBeNull();
-    expect(container.querySelectorAll(".fc-board__ring")).toHaveLength(0);
+    expect(container.querySelector(".fc-board__binding")).toBeTruthy();
+    expect(container.querySelectorAll(".fc-board__ring")).toHaveLength(6);
     // Legacy narrow constraints must not reappear on the board root.
     expect(panel?.className).not.toMatch(/max-w-5xl|max-w-4xl|max-w-3xl/);
     expect(stage?.className).not.toMatch(/max-w-5xl|max-w-4xl/);
