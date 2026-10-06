@@ -8,7 +8,7 @@
 // Reports through the same pipeline as the other interactive exercises
 // (recordEvent + gretelEvent); student workbook only.
 import { useRef, useState, useEffect } from "react";
-import { Eraser, Check } from "lucide-react";
+import { Check } from "lucide-react";
 import { useActivityEvents } from "@/lib/activity-events";
 
 
@@ -143,10 +143,15 @@ export function DrawBoxCanvas({ regionId, hint, lessonId }: DrawBoxCanvasProps) 
             <button
               type="button"
               onClick={clearCanvas}
-              className="fp-draw-box__btn"
+              className="fp-draw-box__btn fp-draw-box__btn--eraser"
               aria-label="Borrar"
+              title="Borrar con goma"
             >
-              <Eraser className="w-4 h-4" />
+              <svg viewBox="0 0 24 24" className="w-5 h-5 inline-block" aria-hidden="true">
+                <path d="M4 15 L14 5 L20 11 L10 21 L4 21 Z" fill="#f498a9" stroke="#d9768c" strokeWidth="1.5" strokeLinejoin="round" />
+                <path d="M10 9 L16 15" stroke="#ffffff" strokeWidth="1.2" strokeLinecap="round" opacity="0.8" />
+                <path d="M7 18 L10 21 L21 21" fill="none" stroke="#6c737b" strokeWidth="1.5" strokeLinecap="round" />
+              </svg>
             </button>
             <button
               type="button"
