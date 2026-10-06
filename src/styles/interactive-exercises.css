@@ -615,6 +615,14 @@
   color: var(--color-incorrect-fg, #fff);
   animation: fpIxShake 0.4s ease;
 }
+/* Archetype 8 uses a calm, non-punitive retry state before the syllable returns. */
+.fp-ix-fill__choice.is-retry {
+  background: color-mix(in srgb, var(--ix-accent) 10%, #fffdf9);
+  border-color: color-mix(in srgb, var(--ix-accent) 65%, #fff);
+  color: var(--ix-accent);
+  box-shadow: 0 0 0 3px color-mix(in srgb, var(--ix-accent) 12%, transparent);
+  animation: none;
+}
 .fp-ix-fill__choice:disabled {
   cursor: default;
 }
