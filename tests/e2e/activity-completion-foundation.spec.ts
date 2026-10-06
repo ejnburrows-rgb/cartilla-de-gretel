@@ -6,33 +6,48 @@ function finishedPage(page: number) {
   return data[String(page)]!.regions.map(region => `page-${page}-${region.id}`);
 }
 
-test('p2 is direct tap and keyboard accessible; completed answers survive reload', async ({ page }) => {
+test('p2 uses shared pencil feedback, stays keyboard accessible, and restores completed answers', async ({ page }) => {
+  await page.emulateMedia({ reducedMotion: 'reduce' });
   await page.addInitScript(done => localStorage.setItem('cartilla.page-completion.v1', JSON.stringify({ '1': done })), finishedPage(1));
   await page.goto('/cartilla/leccion/1');
   const viewer = page.locator('.native-lesson-viewer');
   await expect(viewer).toHaveAttribute('data-native-page', '1');
   await viewer.getByRole('button', { name: 'Siguiente' }).click();
   await expect(viewer).toHaveAttribute('data-native-page', '2');
+
   const next = viewer.getByRole('button', { name: 'Siguiente' });
   await expect(next).toHaveAttribute('aria-disabled', 'true');
-  await viewer.getByRole('button', { name: 'manzana', exact: true }).click();
-  await expect(viewer.locator('.fp-ix-cell.graded-wrong-flash')).toHaveCount(1);
   expect(await viewer.getByRole('button', { name: /^Vocal/ }).count()).toBe(0);
+
+  const wrong = viewer.getByRole('button', { name: 'manzana', exact: true });
+  await wrong.click();
+  await expect(wrong.locator('[data-mark-status="erasing"]')).toHaveCount(1, { timeout: 4000 });
+  await expect(wrong.locator('.workbook-pencil-mark-container')).toHaveCount(0, { timeout: 1500 });
+  await expect(wrong).toBeEnabled();
+
   for (const name of ['anillo', 'estrella', 'indio', 'oso', 'uniforme']) {
     const target = viewer.getByRole('button', { name, exact: true });
     if (name === 'anillo') await target.click();
-    else { await target.focus(); await page.keyboard.press('Enter'); }
+    else {
+      await target.focus();
+      await page.keyboard.press('Enter');
+    }
+    await expect(target.locator('[data-mark-status="correct"]')).toHaveCount(1, { timeout: 4000 });
   }
+
   await expect(next).not.toHaveAttribute('aria-disabled', 'true');
   const stats = await page.evaluate(() => JSON.parse(localStorage.getItem('cartilla.exercise-stats.v1') || '{}'));
   const result = Object.values(stats['1']).find((s: any) => s.meta?.exercise?.startsWith('vowel_pick_one')) as any;
-  expect(result.hits).toBe(5); expect(result.attempts).toBe(6);
+  expect(result.hits).toBe(5);
+  expect(result.attempts).toBe(6);
   expect(result.meta.completed).toBe(true);
-  await page.screenshot({ path: 'verification-screenshots/p0-p2-direct-tap.png', fullPage: true });
+  await page.screenshot({ path: 'verification-screenshots/p0-p2-pencil-feedback.png', fullPage: true });
+
   await page.reload();
   await expect(viewer).toHaveAttribute('data-native-page', '2');
   await expect(next).not.toHaveAttribute('aria-disabled', 'true');
   await expect(viewer.locator('.fp-ix-cell.graded-correct')).toHaveCount(5);
+  await expect(viewer.locator('[data-mark-status="correct"]')).toHaveCount(5);
 });
 
 test('p5 example + five answers; help, reload and return never strand completed work', async ({ page }) => {

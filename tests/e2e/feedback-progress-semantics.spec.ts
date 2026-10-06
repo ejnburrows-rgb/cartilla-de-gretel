@@ -1,27 +1,44 @@
 import { expect, test } from '@playwright/test';
 import layouts from '../../src/data/page-layouts.json' with { type: "json" };
 
-test('partial multi-answer feedback preserves correct work and never reveals missing targets', async ({ page }) => {
+test('page 1 pencil feedback preserves correct work, erases wrong marks, and restores completion', async ({ page }) => {
+  await page.emulateMedia({ reducedMotion: 'reduce' });
   await page.goto('/cartilla/leccion/1');
   const viewer = page.locator('.native-lesson-viewer');
   await expect(viewer).toHaveAttribute('data-native-page', '1');
+
   const grid = viewer.locator('.fp-ix-grid');
-  const targets = grid.locator('[data-gretel-correct="true"]');
-  await targets.first().click();
-  await grid.locator('[data-gretel-correct="false"]').first().click();
-  await grid.getByRole('button', { name: 'Comprobar' }).click();
-  await expect(grid.locator('.graded-correct')).toHaveCount(1);
-  await expect(grid.locator('.graded-wrong')).toHaveCount(1);
-  await expect(grid.locator('.graded-missed')).toHaveCount(0);
-  await expect(grid.getByRole('status')).toContainText('Faltan');
-  await page.screenshot({ path: 'docs/proofs/batch-2/partial-wrong-no-reveal.png', fullPage: true });
-  await grid.getByRole('button', { name: 'Corregir respuestas' }).click();
-  await expect(targets.first()).toBeDisabled();
-  for (const target of await grid.locator('[data-gretel-correct="true"]:enabled').all()) await target.click();
-  await grid.getByRole('button', { name: 'Comprobar' }).click();
-  await expect(viewer.getByRole('button', { name: 'Siguiente' })).not.toHaveAttribute('aria-disabled', 'true');
+  const correctTargets = grid.locator('[data-gretel-correct="true"]');
+  const wrong = grid.locator('[data-gretel-correct="false"]').first();
+  const correctCount = await correctTargets.count();
+  expect(correctCount).toBeGreaterThan(0);
+  await expect(grid.getByRole('button', { name: 'Comprobar' })).toHaveCount(0);
+
+  const firstCorrect = correctTargets.first();
+  await firstCorrect.click();
+  await expect(firstCorrect.locator('[data-mark-status="correct"]')).toHaveCount(1, { timeout: 4000 });
+  await expect(firstCorrect).toBeDisabled();
+
+  await wrong.click();
+  await expect(wrong.locator('[data-mark-status="erasing"]')).toHaveCount(1, { timeout: 4000 });
+  await expect(wrong.locator('.workbook-pencil-mark-container')).toHaveCount(0, { timeout: 1500 });
+  await expect(wrong).toBeEnabled();
+  await expect(grid.locator('.graded-wrong')).toHaveCount(0);
+
+  await page.screenshot({ path: 'docs/proofs/batch-2/p1-pencil-retry-no-reveal.png', fullPage: true });
+
+  for (let i = 1; i < correctCount; i++) {
+    const target = correctTargets.nth(i);
+    await target.click();
+    await expect(target.locator('[data-mark-status="correct"]')).toHaveCount(1, { timeout: 4000 });
+  }
+
+  const next = viewer.getByRole('button', { name: 'Siguiente' });
+  await expect(next).not.toHaveAttribute('aria-disabled', 'true');
   await page.reload();
-  await expect(viewer.getByRole('button', { name: 'Siguiente' })).not.toHaveAttribute('aria-disabled', 'true');
+  await expect(viewer).toHaveAttribute('data-native-page', '1');
+  await expect(next).not.toHaveAttribute('aria-disabled', 'true');
+  await expect(viewer.locator('[data-mark-status="correct"]')).toHaveCount(correctCount);
 });
 
 test('repeated syllables are accepted and Completa responds immediately without revealing the answer', async ({ page }) => {
