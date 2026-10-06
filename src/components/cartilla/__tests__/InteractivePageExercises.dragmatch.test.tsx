@@ -1,28 +1,23 @@
 /**
  * @vitest-environment jsdom
  */
-// Digital adaptation rule: preserve the printed learning objective, not the
-// paper gesture. On-screen the child taps the matching picture directly;
-// there is no drag affordance or "select the vowel first" step.
-import { describe, it, expect, vi, beforeEach } from "vitest";
-import { render, fireEvent, cleanup } from "@testing-library/react";
+import { act, cleanup, fireEvent, render } from "@testing-library/react";
+import { afterEach, beforeEach, describe, expect, it, vi } from "vitest";
 import { InteractiveVowelPickOne } from "../InteractivePageExercises";
+import { WORKBOOK_MARK_TIMING } from "../WorkbookPencilMark";
+
+const RESULT_MS = WORKBOOK_MARK_TIMING.drawMs + WORKBOOK_MARK_TIMING.holdMs;
 import type { PageRegion } from "@/lib/book-faithful";
+import { playCorrectChord, playWrongBuzz } from "@/lib/piano-audio";
+import { gretelEvent } from "@/lib/gretel-bus";
+import { recordEvent } from "@/lib/student-session";
 
 vi.mock("@/lib/piano-audio", () => ({
   playCorrectChord: vi.fn(),
   playWrongBuzz: vi.fn(),
 }));
-vi.mock("@/lib/gretel-bus", () => ({
-  gretelEvent: vi.fn(),
-}));
-vi.mock("@/lib/student-session", () => ({
-  recordEvent: vi.fn(),
-}));
-
-import { playCorrectChord, playWrongBuzz } from "@/lib/piano-audio";
-import { gretelEvent } from "@/lib/gretel-bus";
-import { recordEvent } from "@/lib/student-session";
+vi.mock("@/lib/gretel-bus", () => ({ gretelEvent: vi.fn() }));
+vi.mock("@/lib/student-session", () => ({ recordEvent: vi.fn() }));
 
 const region: PageRegion = {
   id: "p2-pick",
@@ -49,60 +44,89 @@ const region: PageRegion = {
   ],
 };
 
-describe("InteractiveVowelPickOne — direct tap grading", () => {
+describe("InteractiveVowelPickOne shared pencil adapter", () => {
   beforeEach(() => {
-    vi.clearAllMocks();
     cleanup();
+    vi.clearAllMocks();
+    vi.useFakeTimers();
   });
 
-  it("uses the vowel as a label and lets the child tap the matching picture directly", () => {
-    const { getAllByRole, queryAllByRole, getByText } = render(
-      <InteractiveVowelPickOne region={region} accent="#000" lessonId="2" />,
-    );
-    expect(queryAllByRole("button", { name: /^Vocal/ })).toHaveLength(0);
-    expect(getByText("Oo")).toBeTruthy();
-
-    fireEvent.click(getAllByRole("button", { name: "oso" })[0]);
-
-    expect(playCorrectChord).toHaveBeenCalledTimes(1);
-    expect(gretelEvent).toHaveBeenCalledWith("answer:correct", { itemId: "p2-pick-0-0" });
-    expect(recordEvent).not.toHaveBeenCalled();
+  afterEach(() => {
+    cleanup();
+    vi.runOnlyPendingTimers();
+    vi.useRealTimers();
   });
 
-  it("bounces back a wrong placement: buzz + Gretel wrong, row stays open to retry", () => {
-    const { getAllByRole } = render(
-      <InteractiveVowelPickOne region={region} accent="#000" lessonId="2" />,
-    );
-    const alaCell = getAllByRole("button", { name: "ala" })[0];
-    fireEvent.click(alaCell); // wrong picture for "o"
+  it("waits through the neutral hold before accepting a correct picture", () => {
+    const view = render(<InteractiveVowelPickOne region={region} accent="#000" lessonId="2" />);
+    const oso = view.getByRole("button", { name: "oso" });
+    fireEvent.click(oso);
 
-    expect(playWrongBuzz).toHaveBeenCalledTimes(1);
-    expect(gretelEvent).toHaveBeenCalledWith("answer:wrong", { itemId: "p2-pick-0-1" });
+    expect(oso.querySelector(".workbook-pencil-mark-container")).toBeTruthy();
     expect(playCorrectChord).not.toHaveBeenCalled();
 
-    // Row stays open — the child simply taps the correct picture next.
-    const osoCell = getAllByRole("button", { name: "oso" })[0];
-    fireEvent.click(osoCell);
+    act(() => vi.advanceTimersByTime(RESULT_MS - 1));
+    expect(playCorrectChord).not.toHaveBeenCalled();
+
+    act(() => vi.advanceTimersByTime(1));
     expect(playCorrectChord).toHaveBeenCalledTimes(1);
+    expect(gretelEvent).toHaveBeenCalledWith("answer:correct", {
+      itemId: "p2-pick-0-0",
+    });
+    expect(recordEvent).not.toHaveBeenCalled();
   });
 
-  it("completes and records the exercise only once every row is correctly matched", () => {
-    const { getAllByRole } = render(
-      <InteractiveVowelPickOne region={region} accent="#000" lessonId="2" />,
+  it("erases a wrong mark and leaves the row open to retry", () => {
+    const view = render(<InteractiveVowelPickOne region={region} accent="#000" lessonId="2" />);
+    const ala = view.getByRole("button", { name: "ala" });
+    fireEvent.click(ala);
+
+    act(() => vi.advanceTimersByTime(RESULT_MS));
+    expect(gretelEvent).toHaveBeenCalledWith("answer:wrong", {
+      itemId: "p2-pick-0-1",
+    });
+    expect(playWrongBuzz).not.toHaveBeenCalled();
+
+    act(() => vi.advanceTimersByTime(WORKBOOK_MARK_TIMING.eraseMs));
+    expect(playWrongBuzz).not.toHaveBeenCalled();
+    expect(recordEvent).toHaveBeenLastCalledWith(
+      expect.objectContaining({
+        lessonId: "2",
+        kind: "exercise",
+        meta: expect.objectContaining({ completed: false, attemptCorrect: false }),
+      }),
     );
-    fireEvent.click(getAllByRole("button", { name: "oso" })[0]);
-    expect(recordEvent).not.toHaveBeenCalled();
 
-    fireEvent.click(getAllByRole("button", { name: "avión" })[0]);
+    const oso = view.getByRole("button", { name: "oso" });
+    expect(oso).toHaveProperty("disabled", false);
+  });
 
-    expect(gretelEvent).toHaveBeenCalledWith("activity:complete");
+  it("records completion once and emits no separate final success event", () => {
+    const view = render(<InteractiveVowelPickOne region={region} accent="#000" lessonId="2" />);
+
+    fireEvent.click(view.getByRole("button", { name: "oso" }));
+    act(() => vi.advanceTimersByTime(RESULT_MS));
+
+    fireEvent.click(view.getByRole("button", { name: "avión" }));
+    act(() => vi.advanceTimersByTime(RESULT_MS));
+
+    expect(gretelEvent).toHaveBeenCalledWith("activity:complete", {
+      itemId: "p2-pick-1-1",
+    });
+    expect(gretelEvent).not.toHaveBeenCalledWith("answer:correct", {
+      itemId: "p2-pick-1-1",
+    });
+    expect(recordEvent).toHaveBeenCalledTimes(1);
     expect(recordEvent).toHaveBeenCalledWith(
       expect.objectContaining({
         lessonId: "2",
         kind: "exercise",
         score: 2,
         total: 2,
-        meta: expect.objectContaining({ exercise: "vowel_pick_one_p2-pick", completed: true }),
+        meta: expect.objectContaining({
+          exercise: "vowel_pick_one_p2-pick",
+          completed: true,
+        }),
       }),
     );
   });
