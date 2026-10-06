@@ -651,7 +651,7 @@
 
 /* ── Approved book-page presentation overrides ── */
 .faithful-page {
-  background: var(--lc-paper, #fffdf9);
+  background: radial-gradient(120% 90% at 16% 8%, rgba(167, 243, 208, 0.08), transparent 55%), #fbfaf5;
   color: var(--lc-ink, #25313a);
   font-family: "Andika", ui-rounded, system-ui, sans-serif;
   border: 1px solid rgba(37,49,58,.14);
@@ -668,7 +668,19 @@
 .faithful-page--edge-right .faithful-page__pagenum { left:auto; right:2.2%; }
 .faithful-page--edge-right .faithful-page__lesson { right:auto; left:5%; }
 .faithful-page__pagenum { background: var(--lc-teal, #1f9e94); box-shadow:none; }
-.faithful-page__lesson { color: var(--lc-ink-soft, #53616b); font-family:"Andika",ui-rounded,system-ui,sans-serif; }
+.faithful-page__lesson {
+  display: inline-flex;
+  align-items: center;
+  min-height: 28px;
+  padding: 0.18rem 0.72rem;
+  border: 1.5px solid rgba(13, 148, 136, 0.7);
+  border-radius: 999px;
+  background: linear-gradient(180deg, #f7fffc 0%, #dff7ef 100%);
+  color: #25313a;
+  box-shadow: 0 2px 7px rgba(13, 148, 136, 0.12);
+  font-weight: 700;
+  font-family: "Andika", ui-rounded, system-ui, sans-serif;
+}
 .fp-region--title,
 .fp-native-title { font-family:"Fredoka",ui-rounded,system-ui,sans-serif; }
 .fp-region--instruction {
@@ -676,6 +688,14 @@
   font-size: clamp(28px, 4.2cqw, 38px);
   line-height:1.35;
   color:var(--lc-ink,#25313a);
+}
+.fp-region--instruction .fp-label {
+  font-weight: 800;
+  color: #0d9488;
+}
+.fp-target-emphasis {
+  color: #0d9488;
+  font-weight: 800;
 }
 .fp-region--vocab-grid,
 .fp-region--sentence-line,
@@ -693,10 +713,10 @@
 .fp-vowel-match__cell,
 .fp-vowel-pick__cell,
 .fp-vowel-match-all__cell {
-  border:0;
-  background:transparent;
-  box-shadow:none;
-  border-radius:0;
+  border: 1.5px solid rgba(13, 148, 136, 0.3);
+  background: #ffffff;
+  border-radius: 12px;
+  box-shadow: 0 0 0 3px rgba(167, 243, 208, 0.18), 0 3px 10px rgba(13, 148, 136, 0.08);
 }
 .fp-art-pending {
   visibility:hidden;
