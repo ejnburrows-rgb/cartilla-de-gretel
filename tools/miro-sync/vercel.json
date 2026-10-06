@@ -1,0 +1,5 @@
+{
+  "$schema": "https://openapi.vercel.sh/vercel.json",
+  "functions": {"api/*.mjs": {"maxDuration": 300}},
+  "crons": [{"path": "/api/reconcile", "schedule": "*/15 * * * *"}]
+}
