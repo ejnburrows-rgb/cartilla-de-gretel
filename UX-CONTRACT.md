@@ -33,12 +33,13 @@ Activity adapters own only the source-faithful gesture/layout needed by that act
 ## 2. Student activity adapters
 
 - Selection → Real Workbook Mark.
-- Matching → Pencil Line.
-- Tracing/handwriting → Progressive Fade.
+- Line matching → Direct Pencil Connector with click/tap/keyboard fallback.
+- Matching/placement → existing drag/drop with click/tap fallback.
+- Letter tracing → Checkpoint / Stroke-Order default with optional freehand.
 - Drawing → Premium Simple Pencil Box.
 - Syllables → Real Pencil Circle.
-- Complete-word → Pencil Writing.
-- Sentence writing → Direct Handwriting.
+- Complete-word → Draggable Syllable Placement with click/tap fallback.
+- Sentence writing → Typed Handwriting-Line default with optional freehand.
 
 Adapters must not duplicate kernel behavior.
 
