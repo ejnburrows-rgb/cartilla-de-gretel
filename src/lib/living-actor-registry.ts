@@ -24,6 +24,12 @@ export type LivingActor = {
   action: LivingActorAction;
   creature: boolean;
   blinkFrame?: string;
+  /**
+   * Self-animated SVG with the owner-approved natural part motion (Page 1,
+   * owner 2026-10-06). When present it replaces whole-picture CSS motion and
+   * blink-frame swapping; reduced motion shows the still `src` drawing.
+   */
+  aliveSrc?: string;
   parts?: LivingActorPart[];
   reducedMotion: "static";
   meaning: string;
@@ -39,13 +45,16 @@ export const LIVING_ACTORS: Readonly<Record<string, LivingActor>> = Object.freez
   // faithful actors, whole-picture motion only (part rigs belong to other crops).
   [`${W1}/oso.svg`]: {
     src: `${W1}/oso.svg`,
+    aliveSrc: `${W1}/oso-alive.svg`,
     action: "breathe",
     creature: true,
+    blinkFrame: `${W1}/oso-blink.svg`,
     reducedMotion: "static",
     meaning: "respiración y mirada natural",
   },
   [`${W1}/oveja.svg`]: {
     src: `${W1}/oveja.svg`,
+    aliveSrc: `${W1}/oveja-alive.svg`,
     action: "nod",
     creature: true,
     reducedMotion: "static",
@@ -53,13 +62,15 @@ export const LIVING_ACTORS: Readonly<Record<string, LivingActor>> = Object.freez
   },
   [`${W1}/avion.svg`]: {
     src: `${W1}/avion.svg`,
+    aliveSrc: `${W1}/avion-alive.svg`,
     action: "glide",
     creature: false,
     reducedMotion: "static",
-    meaning: "desplazamiento de avión",
+    meaning: "hélice que gira en la nariz del avión",
   },
   [`${W1}/abanico.svg`]: {
     src: `${W1}/abanico.svg`,
+    aliveSrc: `${W1}/abanico-alive.svg`,
     action: "sway",
     creature: false,
     reducedMotion: "static",
@@ -67,13 +78,32 @@ export const LIVING_ACTORS: Readonly<Record<string, LivingActor>> = Object.freez
   },
   [`${W1}/elefante.svg`]: {
     src: `${W1}/elefante.svg`,
+    aliveSrc: `${W1}/elefante-alive.svg`,
     action: "nod",
     creature: true,
+    blinkFrame: `${W1}/elefante-blink.svg`,
     reducedMotion: "static",
-    meaning: "elefante que asiente con suavidad",
+    meaning: "trompa que se balancea, orejas que aletean y ojos que parpadean",
+  },
+  [`${W1}/iman.svg`]: {
+    src: `${W1}/iman.svg`,
+    aliveSrc: `${W1}/iman-alive.svg`,
+    action: "float",
+    creature: false,
+    reducedMotion: "static",
+    meaning: "chispas del imán que titilan",
+  },
+  [`${W1}/olla.svg`]: {
+    src: `${W1}/olla.svg`,
+    aliveSrc: `${W1}/olla-alive.svg`,
+    action: "float",
+    creature: false,
+    reducedMotion: "static",
+    meaning: "vapor que sube de la olla",
   },
   [`${P1}/abeja.svg`]: {
     src: `${P1}/abeja.svg`,
+    aliveSrc: `${P1}/abeja-alive.svg`,
     action: "hover",
     creature: true,
     reducedMotion: "static",

@@ -131,11 +131,14 @@ export function LivingIllustration({
     };
   }, [blinkReady, canBlink, reduced, src]);
 
-  const blinkActive = canBlink && blinkReady && !reduced && !approvedClip;
-  const ambientActive = Boolean(ambientProfile) && !reduced && !approvedClip;
+  // Owner-approved natural part motion lives inside a self-animated SVG; it
+  // replaces whole-picture CSS motion and blink swaps. Reduced motion → still art.
+  const selfAnimated = Boolean(actor?.aliveSrc) && !reduced && !approvedClip;
+  const blinkActive = canBlink && blinkReady && !reduced && !approvedClip && !selfAnimated;
+  const ambientActive = Boolean(ambientProfile) && !reduced && !approvedClip && !selfAnimated;
   const partBased = Boolean(actor?.parts?.length);
   const wholeActionActive = ambientActive && !partBased;
-  const displaySrc = blinkActive && blinking && trueBlink ? trueBlink : src;
+  const displaySrc = selfAnimated && actor?.aliveSrc ? actor.aliveSrc : blinkActive && blinking && trueBlink ? trueBlink : src;
   const deliverySrcSet = displaySrc === src && failedDeliveryFor !== src ? getFaithfulDeliverySrcSet(src) : undefined;
 
   const reactToPointer = () => {
@@ -167,6 +170,7 @@ export function LivingIllustration({
         .filter(Boolean)
         .join(" ")}
       data-ambient-motion={ambientActive ? ambientProfile ?? "none" : "none"}
+      data-natural-motion={selfAnimated ? "true" : "false"}
       data-part-based={partBased ? "true" : "false"}
       data-blink-mode={blinkMode}
       data-interactive={ambientActive ? "true" : "false"}
