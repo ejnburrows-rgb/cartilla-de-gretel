@@ -52,11 +52,13 @@ Anything under `docs/archive/` is historical reference only and must not overrid
 
 ### Worker concurrency
 
-- **Maximum concurrent implementation-worker lanes: 2.**
+- **No fixed numeric cap applies to concurrent Jules implementation-worker lanes.**
+- Run every genuinely independent, dependency-ready, non-owner-gated Jules implementation lane concurrently when Jules service capacity is available.
 - **Maximum concurrent independent read-only specialist investigations: 3.**
-- Controller, supervisor, and watchdog activity does not consume either implementation-worker slot.
-- Dependency chains and overlapping file ownership remain sequential even when capacity exists.
-- Unused capacity is not a reason to invent work.
+- Controller, supervisor, and watchdog activity does not consume implementation-worker capacity.
+- Dependency chains and overlapping file ownership remain sequential even when Jules capacity exists.
+- A blocked, completed, owner-gated, or dependency-waiting lane must not reserve Jules capacity; remove its runnable `jules` label/state and immediately activate the next eligible independent lane.
+- Unused Jules capacity is not a reason to invent work: concurrency must come from real finish gaps already supported by the canonical plan/issues.
 - Other active documents may describe current allocation or sequencing, but they must not define a competing numeric concurrency rule.
 
 ### Precedence: two different questions
