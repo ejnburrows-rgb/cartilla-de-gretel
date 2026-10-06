@@ -53,7 +53,7 @@ function compressPlugin() {
   };
 }
 
-export default defineConfig({
+export default defineConfig(({ mode }) => ({
   define: {
     // Open access (no login) is the shipped product decision, so this stays
     // "true" by default for every build, including production. It is only
@@ -65,11 +65,17 @@ export default defineConfig({
     ),
   },
   plugins: [
-    TanStackRouterVite({
-      target: "react",
-      autoCodeSplitting: true,
-      routeFileIgnorePattern: "__tests__",
-    }),
+    // The tracked route tree is already committed. Worker/browser verification
+    // uses --mode worker so dev startup cannot rewrite tracked generated files.
+    ...(mode === "worker"
+      ? []
+      : [
+          TanStackRouterVite({
+            target: "react",
+            autoCodeSplitting: true,
+            routeFileIgnorePattern: "__tests__",
+          }),
+        ]),
     viteReact(),
     tailwindcss(),
     tsConfigPaths(),
@@ -162,4 +168,4 @@ export default defineConfig({
       },
     },
   },
-});
+}));

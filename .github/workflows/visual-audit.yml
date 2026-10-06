@@ -1,20 +1,8 @@
 name: Visual Audit
 
+# Optional manual diagnostic only. This workflow is not an authoritative or required release gate.
+# Direct exact-head verification defined by AGENTS.md remains required.
 on:
-  push:
-    branches: [main]
-    paths:
-      - "tests/e2e/visual-audit.spec.ts"
-      - "tests/e2e/recovery-*.spec.ts"
-      - "tests/e2e/recovery-visual-regression.spec.ts-snapshots/**"
-      - "tests/e2e/recovery-visual-coverage.json"
-      - "scripts/verify-recovery-art-metadata.mjs"
-      - "scripts/run-visual-gate-3x.mjs"
-      - "docs/production-art-inventory.json"
-      - "package.json"
-      - ".github/workflows/visual-audit.yml"
-      - "src/**"
-      - "public/**"
   workflow_dispatch:
 
 permissions:

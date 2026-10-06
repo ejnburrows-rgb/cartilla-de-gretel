@@ -6,7 +6,8 @@ The approved original is **Folk Art Girl with Red Bow.png**, Google Drive file
 `1UDgi3wPfKhrp9P_fovYisN5E0G0Wnw6W`:
 https://drive.google.com/file/d/1UDgi3wPfKhrp9P_fovYisN5E0G0Wnw6W/view
 
-This exact image is the source for all Gretel stills, poses and 31 animation clips.
+This exact image is the identity source for Gretel stills and any approved motion.
+The current production motion scope is one owner-approved 5–6 second silent welcome loop.
 The right candidate is not the selected master. Preserve the approved face,
 hair, red bow, striped blouse, blue dress, floral trim and proportions; never
 create a third character style. The machine-readable source identity is recorded
@@ -29,7 +30,7 @@ The master must match the approved Gretel 2.0, including her striped blouse,
 blue dress, floral trim, blonde hair and red bow. Existing files do not become
 approved merely because they have real transparency.
 
-## Owner-corrected scope — 2026-09-30
+## Current motion scope — supersedes the historical 31-video plan (2026-09-30)
 
 Emilio clarified: one splash-screen welcome clip with a simple waving loop.
 The earlier 31-video production plan is superseded. Existing lesson scripts do

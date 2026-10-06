@@ -1,10 +1,8 @@
 name: Verify
 
+# Optional manual diagnostic only. This workflow is not an authoritative or required release gate.
+# Direct exact-head verification defined by AGENTS.md remains required.
 on:
-  push:
-    branches: [main]
-  pull_request:
-    branches: [main]
   workflow_dispatch:
 
 permissions:

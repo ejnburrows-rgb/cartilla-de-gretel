@@ -2,13 +2,13 @@
 
 This repository is the digital edition and classroom platform for *La Cartilla de Gretel* by Leonor Lopetegui. The source content — workbook text, illustrations, sight words, pedagogy order, and book-page presentation — is authored by the project owner and is not accepted via pull request.
 
-Before changing any teacher Flip Chart / flipbook or Student Workbook surface, read:
+Before changing any teacher Flip Chart / flipbook or Student Workbook surface, read `AGENTS.md`. It defines the complete active instruction hierarchy; follow that hierarchy rather than maintaining a second list here.
 
-- `AGENTS.md`
-- `PROJECT_SOURCE_OF_TRUTH.md`
-- `CARTILLA_DIGITAL_DIRECTIVE.md`
-- `ASSET_FIDELITY_POLICY.md`
-- `repo.md` (before creating any Workbook or Flip Chart background)
+Current-state terms:
+- `main` = current repository source tree.
+- live Vercel = deployed/runtime truth.
+- an open PR = candidate state.
+- never assume `main` is the currently deployed build.
 
 ## Accepted
 
@@ -28,22 +28,15 @@ Before changing any teacher Flip Chart / flipbook or Student Workbook surface, r
 
 The approved/fixed/cropped book images are finished assets for this phase.
 
-Use the authoritative source PDFs to verify page order, placement, scale, orientation, spacing, composition, and fidelity. Technical cleanup or motion must follow `ASSET_FIDELITY_POLICY.md`. New scenic backgrounds (background environment only) must follow `repo.md`.
+Use the authoritative source PDFs to verify page order, placement, scale, orientation, spacing, composition, and fidelity. Technical cleanup or motion must follow `ASSET_FIDELITY_POLICY.md`. Dense Student Workbook exercises use the clean digital canvas rather than full scenic wallpaper. When a scenic background is explicitly approved (including richer teacher Flip Chart presentation), background generation must follow `repo.md`.
 
 If a visual problem is caused by placement, fix the placement. Do not modify the image to compensate.
 
-## Local setup
+## Development commands
 
-```bash
-pnpm install --frozen-lockfile
-pnpm dev
-```
+For ordinary implementation workers, use `pnpm dev:worker` for browser/runtime work, targeted tests/checks, `pnpm typecheck` when relevant, and `pnpm verify:worker` when a broader non-mutating check is useful.
 
-Before opening a pull request, make sure the project builds:
-
-```bash
-pnpm build
-```
+`pnpm dev`, `pnpm build`, `pnpm build:app`, `pnpm prepare:art`, and `pnpm verify:release` can invoke production-art generation or release work and are not ordinary worker commands. Follow the exceptions and release ownership in `AGENTS.md`.
 
 ## Reporting issues
 
