@@ -1,5 +1,5 @@
 import { expect, test } from '@playwright/test';
-import layouts from '../../src/data/page-layouts.json';
+import layouts from '../../src/data/page-layouts.json' with { type: "json" };
 
 test('partial multi-answer feedback preserves correct work and never reveals missing targets', async ({ page }) => {
   await page.goto('/cartilla/leccion/1');
