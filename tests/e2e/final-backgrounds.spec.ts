@@ -1,5 +1,5 @@
 import { test, expect } from "@playwright/test";
-import layouts from "../../src/data/page-layouts.json";
+import layouts from "../../src/data/page-layouts.json" with { type: "json" };
 for (const [name, viewport] of Object.entries({
   phone: { width: 390, height: 844 },
   tablet: { width: 820, height: 1180 },

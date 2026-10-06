@@ -1,5 +1,5 @@
 import { expect, test } from '@playwright/test';
-import layouts from '../../src/data/page-layouts.json';
+import layouts from '../../src/data/page-layouts.json' with { type: "json" };
 
 function finishedPage(page: number) {
   const data = layouts.pages as Record<string, { regions: Array<{ id: string; regionType: string }> }>;
