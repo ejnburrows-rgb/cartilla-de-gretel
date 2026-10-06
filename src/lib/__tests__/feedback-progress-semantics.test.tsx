@@ -51,7 +51,7 @@ it('preserves validated selections, marks wrong choices and reports remaining co
 it('Completa gives immediate gentle wrong feedback for implicit distractors and permits correction', () => {
   render(<InteractiveFillInBlank accent="#123" region={{ id: 'fill', regionType: 'fill-in-blank', order: 1, fontRole: 'body', fillItems: [{ wordBox: 'mapa', blank: '___pa', choices: [{ text: 'sa' }, { text: 'ma', correct: true }] }] }} />);
   fireEvent.click(screen.getByText('sa'));
-  expect(screen.getByText('sa')).toHaveClass('graded-wrong');
+  expect(screen.getByText('sa')).toHaveClass('is-retry');
   expect(screen.queryByText('Comprobar')).toBeNull();
   fireEvent.click(screen.getByText('ma'));
   expect(screen.getByText('ma')).toHaveClass('graded-correct');

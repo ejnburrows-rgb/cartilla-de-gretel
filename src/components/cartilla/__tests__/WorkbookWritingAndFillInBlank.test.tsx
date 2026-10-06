@@ -65,7 +65,7 @@ describe("Workbook Archetype 8 — Complete-word + Sentence Handwriting", () => 
       const wrongChoice = screen.getByRole("button", { name: "mu" });
       fireEvent.click(wrongChoice);
 
-      expect(wrongChoice.className).toContain("graded-wrong");
+      expect(wrongChoice.className).toContain("is-retry");
     });
   });
 
@@ -84,8 +84,8 @@ describe("Workbook Archetype 8 — Complete-word + Sentence Handwriting", () => 
       render(<WorkbookWritingResponse pageNumber={22} interactive />);
       const textarea = screen.getByRole("textbox", { name: "Escribe tus oraciones" }) as HTMLTextAreaElement;
 
-      fireEvent.change(textarea, { target: { value: "Oración." } });
-      expect(textarea.value).toBe("Oración.");
+      fireEvent.change(textarea, { target: { value: "Mi oración." } });
+      expect(textarea.value).toBe("Mi oración.");
 
       const listoBtn = screen.getByRole("button", { name: /Listo/i });
       fireEvent.click(listoBtn);

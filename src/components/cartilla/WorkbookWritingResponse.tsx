@@ -1,7 +1,7 @@
 import { learnerStorageKey } from "@/lib/learner-storage";
 import { useEffect, useRef, useState, useCallback } from "react";
 import { useActivityEvents } from "@/lib/activity-events";
-import { Check, Keyboard, Pencil, Eraser, RotateCcw } from "lucide-react";
+import { Check, Keyboard, Pencil, RotateCcw } from "lucide-react";
 import {
   BOOK_DRAW_SWATCHES,
   loadCanvasSnapshot,
@@ -51,9 +51,9 @@ export function WorkbookWritingResponse({ pageNumber, interactive, prompt }: Wor
   // Completion state
   const [completed, setCompleted] = useState(() => {
     try {
-      return window.localStorage.getItem(keyDone) === "true" || isWritingResponseDone(value);
+      return window.localStorage.getItem(keyDone) === "true";
     } catch {
-      return isWritingResponseDone(value);
+      return false;
     }
   });
 
@@ -204,10 +204,23 @@ export function WorkbookWritingResponse({ pageNumber, interactive, prompt }: Wor
     ctx.clearRect(0, 0, rect.width, rect.height);
     clearCanvasSnapshot(canvasKey);
     setHasDrawn(false);
+    if (reported.current && !isWritingResponseDone(value)) {
+      reported.current = false;
+      setCompleted(false);
+      gretelEvent("activity:retry", { reason: "work-cleared" });
+      try {
+        window.localStorage.removeItem(keyDone);
+      } catch {
+        /* ignore */
+      }
+    }
   };
 
-  // Complete activity explicitly or automatically
+  const canComplete = isWritingResponseDone(value) || hasDrawn;
+
+  // Completion is explicit: learner confirms with "Listo".
   const markComplete = () => {
+    if (!canComplete || reported.current) return;
     if (!reported.current) {
       reported.current = true;
       setCompleted(true);
@@ -224,16 +237,7 @@ export function WorkbookWritingResponse({ pageNumber, interactive, prompt }: Wor
   const handleTextChange = (text: string) => {
     setValue(text);
     const isDone = isWritingResponseDone(text);
-    if (!reported.current && isDone) {
-      reported.current = true;
-      setCompleted(true);
-      gretelEvent("activity:complete");
-      try {
-        window.localStorage.setItem(keyDone, "true");
-      } catch {
-        /* ignore */
-      }
-    } else if (reported.current && !isDone && !hasDrawn) {
+    if (reported.current && !isDone && !hasDrawn) {
       reported.current = false;
       setCompleted(false);
       gretelEvent("activity:retry", { reason: "work-cleared" });
@@ -308,6 +312,8 @@ export function WorkbookWritingResponse({ pageNumber, interactive, prompt }: Wor
                 : "bg-teal-700 text-white border-teal-800 hover:bg-teal-800 active:scale-95"
             }`}
             onClick={markComplete}
+            disabled={!completed && !canComplete}
+            aria-disabled={!completed && !canComplete}
           >
             <Check className="w-4 h-4" /> {completed ? "Completado" : "Listo"}
           </button>
@@ -385,10 +391,15 @@ export function WorkbookWritingResponse({ pageNumber, interactive, prompt }: Wor
                     : "bg-white text-teal-800 border-teal-200 hover:bg-teal-100"
                 }`}
                 onClick={() => setErasing((e) => !e)}
-                aria-label="Borrador"
+                aria-label="Borrador de goma"
                 aria-pressed={erasing}
               >
-                <Eraser className="w-3.5 h-3.5" /> Borrador
+                <svg viewBox="0 0 24 24" className="w-4 h-4" aria-hidden="true">
+                  <path d="M4 15 L14 5 L20 11 L10 21 L4 21 Z" fill="#f498a9" stroke="#d9768c" strokeWidth="1.5" strokeLinejoin="round" />
+                  <path d="M10 9 L16 15" stroke="#ffffff" strokeWidth="1.2" strokeLinecap="round" opacity="0.8" />
+                  <path d="M7 18 L10 21 L21 21" fill="none" stroke="#6c737b" strokeWidth="1.5" strokeLinecap="round" />
+                </svg>
+                Borrador
               </button>
 
               <button

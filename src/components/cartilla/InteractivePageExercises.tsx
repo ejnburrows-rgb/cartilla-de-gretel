@@ -788,7 +788,7 @@ function DraggableFillChoice({
     "fp-ix-fill__choice",
     isPicked ? "picked" : "",
     grade === "correct" ? "graded-correct" : "",
-    grade === "wrong" ? "graded-wrong" : "",
+    grade === "wrong" ? "is-retry" : "",
     isDragging ? "dragging" : "",
   ]
     .filter(Boolean)
@@ -894,9 +894,8 @@ export function InteractiveFillInBlank({
       gretelEvent("answer:correct");
       playCorrectChord();
     } else {
-      feelBus.emit("error");
+      // Gentle retry only: no punitive buzzer/red-X path.
       gretelEvent("answer:wrong");
-      playWrongBuzz();
     }
 
     if (complete) gretelEvent("activity:complete");
@@ -930,9 +929,8 @@ export function InteractiveFillInBlank({
       if (choiceItemIdx === dropItemIdx) {
         pick(choiceItemIdx, choiceIdx);
       } else {
-        feelBus.emit("error");
+        // Wrong destination simply returns the piece for immediate retry.
         gretelEvent("answer:wrong");
-        playWrongBuzz();
       }
     }
   };
