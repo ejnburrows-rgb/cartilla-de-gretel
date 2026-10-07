@@ -158,7 +158,7 @@ export function FlipchartHdPanel({ lessonNumber, accentColor, chrome = "full" }:
   const handlePointerUp = (event: React.PointerEvent<HTMLDivElement>) => {
     const start = pointerStartRef.current;
     pointerStartRef.current = null;
-    if (!start || isFlipping) return;
+    if (!start || isFlipping || flipLockedRef.current) return;
     const dx = event.clientX - start.x;
     const dy = event.clientY - start.y;
     const dominant = Math.abs(dx) > Math.abs(dy) ? dx : dy;
@@ -291,6 +291,7 @@ export function FlipchartHdPanel({ lessonNumber, accentColor, chrome = "full" }:
               type="button"
               role="tab"
               aria-selected={index === safeIdx}
+              disabled={isFlipping || index === safeIdx}
               className={`fc-board__thumb${index === safeIdx ? " is-active" : ""}`}
               onClick={() => goTo(index, index > safeIdx ? "next" : "prev")}
               aria-label={`Ir a hoja ${index + 1}`}

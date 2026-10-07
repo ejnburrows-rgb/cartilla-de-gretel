@@ -215,6 +215,9 @@ export function CurlPageViewer({
     if (turningRef.current) return false;
     turningRef.current = true;
     transitionTokenRef.current += 1;
+    if (typeof window !== "undefined") {
+      window.dispatchEvent(new Event("cartilla:commit-learner-state"));
+    }
     if (revealTimerRef.current) {
       clearTimeout(revealTimerRef.current);
       revealTimerRef.current = null;
