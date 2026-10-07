@@ -3,12 +3,11 @@
 > **Finish contract:** `PROJECT_FINISH_DEFINITION.md` defines finished. This file is only the current gap-closing execution plan.
 
 **Updated:** 2026-10-07
-**Current main:** `17f4c4bb1722a33763fc87f05489486bd16cccf0`  
 **Concurrency authority:** `AGENTS.md` only. There is **no fixed numeric cap** on concurrent Jules implementation lanes.
 
 ## Current verified reality
 
-- CURRENT `main` is `17f4c4bb1722a33763fc87f05489486bd16cccf0`.
+- CURRENT `main` must be resolved live from GitHub at the start of every session; do not persist a main SHA here because merging this file would immediately make it stale.
 - Cross-session coordination is now governed by the mandatory live-coordination contract in `AGENTS.md`: every material worker/controller change must leave a structured handoff on the existing issue/PR, and controllers refresh this file when lane state/order materially changes.
 - The eight canonical Student Workbook archetypes remain encoded page-by-page in `src/data/workbook-archetypes.ts`.
 - Current independent open candidates and exact heads:
