@@ -99,6 +99,52 @@ Documentation under `docs/proofs/`, `docs/completion/`, `docs/research/`, and ot
 - Current verified code/runtime behavior and newer explicit owner decisions override stale statements in the file. Flag the stale statement and propose the correction rather than silently following it.
 - Keep the file as a concise current snapshot, not a changelog, task tracker, or history log.
 
+## MANDATORY LIVE COORDINATION CONTRACT — EVERY SESSION
+
+GitHub live state is the shared handoff between agents. Memory, chat summaries, Miro, scheduled-task prompts, and stale documentation are never sufficient by themselves.
+
+### Start-of-session read
+Before any meaningful Cartilla work, every controller, reviewer, supervisor, watchdog, and implementation worker must resolve and read:
+1. CURRENT `main` SHA;
+2. the current `AGENTS.md`, `PROJECT_FINISH_DEFINITION.md`, `PROJECT_SOURCE_OF_TRUTH.md`, and `tasks/plan.md`;
+3. the relevant existing issue and PR, including the latest comments, exact head SHA, changed-file set, checks, and material diff;
+4. other open PRs/issues only far enough to detect overlap, dependencies, supersession, or newly unblocked work.
+
+Do not begin from an old chat/session summary when current GitHub state is available.
+
+### Mandatory publish-after-change
+After any MATERIAL change, the agent that caused or verified the change must publish a compact handoff to the EXISTING relevant issue or PR before ending the session. Do not create a duplicate coordination issue merely to report status.
+
+A material change includes:
+- a real code/content diff;
+- a new blocker or blocker resolution;
+- a changed PR head that invalidates prior proof;
+- a review finding that changes merge readiness;
+- a merge, closure, supersession, or newly unblocked dependency;
+- a completed verification result that materially changes project status;
+- an owner decision that changes scope/order.
+
+The handoff must state, when applicable:
+- STATUS: DISPATCHED / ACKNOWLEDGED / ACTUALLY RUNNING / MATERIAL WORK PRODUCED / VERIFIED / BLOCKED / MERGED;
+- exact issue/PR and head SHA;
+- exact material files changed, or explicit `0 material files`;
+- checks/proof actually completed;
+- blocker, if any;
+- next action and owner of that next action.
+
+Empty commits, timestamp-only changes, metadata churn, repeated test reruns, bot acknowledgements, open PRs, and head-SHA changes with 0 material files are NOT progress and must be reported as such.
+
+### Canonical coordination snapshot
+`tasks/plan.md` is the concise current coordination snapshot, not a history log.
+- A controller/supervisor must refresh it whenever lane ownership/order, blockers, merge readiness, or current-main baseline materially changes.
+- Do not update it for trivial worker chatter or every commit.
+- Every refresh must use CURRENT GitHub state and remove stale lane claims rather than appending contradictory history.
+- New sessions must treat live GitHub issue/PR evidence as newer than a stale `tasks/plan.md` line and must reconcile the file when coordination materially changed.
+
+### No silent session exit
+A worker or coordinator may not finish a session after material work without leaving the GitHub handoff above.
+If no material work occurred, say so explicitly on the existing lane when a prior dispatch/acknowledgement could otherwise be mistaken for progress.
+
 ## AVAILABLE DEVELOPMENT TOOLS — USE THEM AUTOMATICALLY
 
 EJN should not have to choose or manually invoke engineering tools. When the current agent environment exposes specialist skills, MCPs, connectors, browser tools, or coding workers that materially improve the task, use the narrowest relevant capability automatically.
