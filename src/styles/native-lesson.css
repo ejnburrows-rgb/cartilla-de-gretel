@@ -64,22 +64,6 @@
 .gretel-activity[data-page-remaining="true"] { outline: 3px dashed #e0a100; outline-offset: 6px; border-radius: 12px; animation: native-remaining-pulse 1.2s ease-in-out 2; }
 @keyframes native-remaining-pulse { 50% { outline-color: #ffcd4a; outline-offset: 10px; } }
 @media (prefers-reduced-motion: reduce) { .gretel-activity[data-page-remaining="true"] { animation: none; } }
-.native-lesson-viewer__companion { position: relative; display: flex; justify-content: flex-end; min-height: 96px; margin-top: 16px; }
-.native-lesson-viewer__companion .gretel-presence--book { position: relative; inset: auto; right: auto; bottom: auto; width: 96px; min-width: 96px; }
-.native-lesson-viewer__companion .gretel-presence--book .gretel-speech-bubble { right: calc(100% + 8px); width: min(220px, 53vw); max-height: none; overflow: visible; }
-.native-lesson-viewer__companion .gretel-presence--book .gretel-speech-bubble { left: calc(-1 * min(220px, 53vw) - 8px) !important; right: auto !important; transform: none !important; translate: none !important; }
-@media (max-width: 600px) {
-  .native-lesson-viewer { border-radius: 18px; padding: 16px; }
-  .native-lesson-viewer__chapter { font-size: 18px; }
-  .native-lesson-viewer__content .faithful-page__body { gap: 16px; }
-  .native-lesson-viewer__navigation button { padding: 8px 10px; }
-  .native-lesson-viewer__content .fp-trace__svg, .native-lesson-viewer__content .fp-trace__footer { width: min(220px, 64vw); }
-  .native-syllable__words { grid-template-columns: repeat(2, minmax(0, 1fr)); }
-  .native-lesson-viewer__content .fp-ix-fill__item { grid-template-columns: 1fr 1fr; }
-  .native-lesson-viewer__content .fp-ix-fill__choices { grid-column: 1 / -1; justify-content: flex-end; }
-}
-
-
 /* Native literacy typography — converts the printed vocabulary blocks into
    intentional classroom UI while preserving the exact source words. */
 .fp-native-title {
@@ -200,172 +184,6 @@
 .fp-writing-line--freehand .fp-writing-line__model { font-size: 48px; }
 
 
-/* ── Approved book-page-is-the-screen layout ── */
-.native-lesson-viewer {
-  width: min(100%, 1180px);
-  margin: 0 auto;
-  padding: 0;
-  border: 0;
-  border-radius: 0;
-  background: transparent;
-  box-shadow: none;
-  color: var(--lc-ink, #25313a);
-  font-family: "Andika", ui-rounded, system-ui, sans-serif;
-}
-.native-lesson-viewer__topline {
-  max-width: 900px;
-  margin: 0 auto 10px;
-  padding: 0 4px;
-  font-family: "Andika", ui-rounded, system-ui, sans-serif;
-  color: var(--lc-ink-soft, #53616b);
-}
-.native-lesson-viewer__chapter {
-  color: var(--lc-ink, #25313a);
-  font-family: "Fredoka", ui-rounded, system-ui, sans-serif;
-}
-.native-lesson-viewer__layout {
-  display: grid;
-  grid-template-columns: minmax(0, 1fr) 220px;
-  gap: clamp(18px, 3vw, 34px);
-  align-items: center;
-}
-.native-lesson-viewer__content {
-  min-width: 0;
-  display: flex;
-  justify-content: center;
-  align-items: flex-start;
-}
-.native-lesson-viewer__content .faithful-page {
-  width: auto;
-  height: min(82dvh, 900px);
-  max-width: 100%;
-  aspect-ratio: 612 / 792;
-  overflow: hidden;
-  background: var(--lc-paper, #fffdf9);
-  border: 1px solid rgba(37,49,58,.14);
-  border-radius: 8px;
-  box-shadow: 0 12px 34px rgba(37,49,58,.12);
-}
-.native-lesson-viewer__content .faithful-page__sidebar { display: block; }
-.native-lesson-viewer__content .faithful-page__pagenum { display: flex; }
-.native-lesson-viewer__content .faithful-page__lesson { display: block; }
-.native-lesson-viewer__content .faithful-page__body {
-  position: absolute;
-  inset: 0;
-  padding: 6% 7% 9% 12%;
-  overflow: auto;
-  display: flex;
-  flex-direction: column;
-  align-items: stretch;
-  gap: 3cqw;
-}
-.native-lesson-viewer__content .faithful-page--edge-right .faithful-page__body {
-  padding: 6% 12% 9% 7%;
-}
-.native-lesson-viewer__side {
-  align-self: center;
-  display: flex;
-  flex-direction: column;
-  gap: 14px;
-  min-width: 0;
-}
-.native-lesson-viewer__companion {
-  display: flex;
-  justify-content: center;
-  align-items: flex-end;
-  min-height: 210px;
-  margin: 0;
-}
-.native-lesson-viewer__companion .gretel-presence--book {
-  width: 170px;
-  min-width: 170px;
-}
-.native-lesson-viewer__companion .gretel-presence--book .gretel-avatar-interactive {
-  width: 170px;
-  height: 210px;
-}
-.native-lesson-viewer__companion .gretel-presence--book .gretel-speech-bubble {
-  left: auto !important;
-  right: calc(100% + 8px) !important;
-  width: 240px;
-  max-width: min(240px, 42vw);
-  font-size: 1rem;
-  line-height: 1.3;
-  font-family: "Andika", ui-rounded, system-ui, sans-serif;
-  border-color: var(--lc-teal, #1f9e94);
-}
-.native-lesson-viewer__navigation {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 10px;
-  margin: 0;
-  padding: 14px 0 0;
-  border-top: 1px solid rgba(37,49,58,.14);
-  font-family: "Fredoka", ui-rounded, system-ui, sans-serif;
-}
-.native-lesson-viewer__navigation > span {
-  grid-column: 1 / -1;
-  grid-row: 1;
-  text-align: center;
-  color: var(--lc-ink-soft, #53616b);
-  font-family: "Andika", ui-rounded, system-ui, sans-serif;
-}
-.native-lesson-viewer__navigation button {
-  min-height: 64px;
-  border: 2px solid var(--lc-teal, #1f9e94);
-  border-radius: 14px;
-  background: var(--lc-paper, #fffdf9);
-  color: var(--lc-teal, #1f9e94);
-  font-size: 1rem;
-  font-family: "Fredoka", ui-rounded, system-ui, sans-serif;
-  font-weight: 700;
-}
-.native-lesson-viewer__navigation button:last-child {
-  background: var(--lc-red, #bf3040);
-  border-color: var(--lc-red, #bf3040);
-  color: #fff;
-}
-.native-lesson-viewer__navigation button[data-locked="true"] {
-  background: #e9e5dc;
-  border-color: #b9b4aa;
-  color: #6c6a65;
-  opacity: .78;
-}
-.native-lesson-viewer__hint {
-  margin: 0;
-  border: 1px solid rgba(191,48,64,.28);
-  background: var(--lc-paper, #fffdf9);
-  color: var(--lc-error, #b53a3a);
-  font-family: "Andika", ui-rounded, system-ui, sans-serif;
-}
-@media (max-width: 760px) {
-  .native-lesson-viewer__layout { grid-template-columns: 1fr; gap: 16px; }
-  .native-lesson-viewer__topline { padding-inline: 10px; }
-  .native-lesson-viewer__content { width: 100%; }
-  .native-lesson-viewer__content .faithful-page {
-    width: 100%;
-    height: auto;
-    min-height: calc((100vw - 28px) * 1.294);
-    aspect-ratio: 612 / 792;
-    border-radius: 0;
-    box-shadow: none;
-  }
-  .native-lesson-viewer__content .faithful-page__body { overflow-y: auto; }
-  .native-lesson-viewer__side { width: 100%; }
-  .native-lesson-viewer__companion { min-height: 160px; justify-content: flex-end; padding-right: 18px; }
-  .native-lesson-viewer__companion .gretel-presence--book,
-  .native-lesson-viewer__companion .gretel-presence--book .gretel-avatar-interactive {
-    width: 120px;
-    min-width: 120px;
-    height: 150px;
-  }
-  .native-lesson-viewer__companion .gretel-presence--book .gretel-speech-bubble {
-    max-width: calc(100vw - 170px);
-    font-size: .95rem;
-  }
-}
-
-
 /* ── In-word syllable circling ── */
 .native-syllable {
   border: 0;
@@ -469,47 +287,79 @@
   height: 48px;
 }
 
-/* ── Responsive fit fixes for the approved lesson layout ── */
-/* Keep scrolled page content clear of the "Lección N" footer and page diamond. */
+/* Owner direction, 2026-10-07: one workbook surface, no character side column.
+   Pages grow with content; the browser owns scrolling instead of nested panes. */
+.native-lesson-viewer { width: min(100%, 640px); padding: 0; border: 0; border-radius: 0; background: transparent; box-shadow: none; color: var(--lc-ink); font-family: "Andika", system-ui, sans-serif; }
+.native-lesson-viewer__topline { gap: 6px; margin-bottom: 12px; font: 600 13px/1.4 "Andika", system-ui, sans-serif; }
+.native-lesson-viewer__chapter { font: 700 17px/1.3 "Fredoka", system-ui, sans-serif; color: var(--lc-ink); }
+.native-lesson-viewer__layout { display: block; }
+.native-lesson-viewer__content { min-width: 0; }
+.native-lesson-viewer__content .faithful-page { width: 100%; height: auto; min-height: 720px; aspect-ratio: auto; overflow: hidden; background: var(--lc-paper, #fffdf9); border: 1px solid #d7e5e1; border-radius: 6px; box-shadow: 0 3px 14px #25313a0c; }
+.native-lesson-viewer__content .faithful-page__sidebar { display: block; width: 5%; min-width: 0; filter: none; }
+.native-lesson-viewer__content .faithful-page__pagenum { display: flex; bottom: 12px; }
+.native-lesson-viewer__content .faithful-page__lesson { display: block; bottom: 14px; }
 .native-lesson-viewer__content .faithful-page__body,
-.native-lesson-viewer__content .faithful-page--edge-right .faithful-page__body {
-  bottom: 9%;
-  padding-bottom: 2%;
+.native-lesson-viewer__content .faithful-page--edge-right .faithful-page__body { position: relative; inset: auto; overflow: visible; padding: 5% 9% 64px; gap: 18px; }
+.native-lesson-viewer__content .fp-region--instruction { margin: 0; font: 700 clamp(17px, 3.4cqw, 22px)/1.4 "Andika", system-ui, sans-serif; }
+.native-lesson-viewer__content .fp-ix-row { gap: 8px; }
+.native-lesson-viewer__content .fp-ix-cell { min-width: 0; min-height: 48px; border: 1px solid var(--lc-teal, #1f9e94); border-radius: 10px; background: #fff; padding: 8px; box-shadow: none; }
+.native-lesson-viewer__content .fp-ix-cell img { width: 100%; height: 100%; object-fit: contain; }
+.native-lesson-viewer__content .fp-ix-pick__letter { border: 1px solid var(--lc-teal); border-radius: 10px; background: #eefaf7; color: var(--lc-teal); }
+.native-lesson-viewer__content .fp-ix-fill--book-grid { gap: 10px; }
+.native-lesson-viewer__content .fp-ix-fill--book-grid .fp-ix-fill__item { border: 1px solid #91c9c1; border-radius: 10px; gap: 10px; padding: 12px 6px; }
+.native-lesson-viewer__content .fp-ix-fill__choice { min-width: 48px; min-height: 48px; }
+.native-lesson-viewer__content .fp-region--reading-sentences { padding: 14px; border-color: #91c9c1; border-radius: 10px; font: 500 clamp(18px, 3.6cqw, 24px)/1.4 "Andika", system-ui, sans-serif; }
+.fp-native-syllables, .fp-native-letter-page .fp-native-syllables { border-radius: 8px; background: #f4fbf9; }
+.fp-native-syllables span { border-width: 1px; border-radius: 6px; box-shadow: none; }
+.fp-native-vocab span { min-height: 40px; padding: 6px; border-color: #a6d1ca; border-radius: 6px; background: #fff; box-shadow: none; font-weight: 500; }
+.fp-native-letter-page .fp-native-title { background: #f4fbf9; border: 1px solid #91c9c1; }
+.native-syllable { display: grid; grid-template-columns: 60px minmax(0, 1fr); gap: 8px 12px; align-items: start; }
+.native-syllable h2 { display: grid; place-items: center; min-height: 80px; margin: 0; font-size: 28px; border: 1px solid #91c9c1; border-radius: 8px; background: #f4fbf9; }
+.native-syllable__words { gap: 6px; }
+.native-syllable__word { min-height: 48px; padding: 6px 3px; border: 1px solid #b7d9d2 !important; border-radius: 6px; background: #fff !important; font-size: clamp(14px, 3cqw, 19px); }
+.native-syllable > p { grid-column: 2; margin: 0; min-height: 0; font-size: 11px; }
+.native-lesson-viewer__footer { margin-top: 12px; }
+.native-lesson-viewer__navigation { display: flex; gap: 10px; margin: 0; padding: 0; border: 0; font: 600 14px "Andika", system-ui, sans-serif; }
+.native-lesson-viewer__navigation button { justify-content: center; min-height: 48px; border-radius: 8px; padding: 8px 12px; }
+.native-lesson-viewer__navigation button:last-child { background: var(--lc-red, #bf3040); border-color: var(--lc-red, #bf3040); color: #fff; }
+.native-lesson-viewer__navigation button:last-child:hover { background: #a32636; color: #fff; }
+.native-lesson-viewer__navigation button[data-locked="true"] { opacity: .7; }
+.native-lesson-viewer__hint { margin: 0 0 10px; }
+@media (max-width: 600px) {
+  .native-lesson-viewer__content .faithful-page { min-height: 0; }
+  .native-lesson-viewer__content .faithful-page__body { gap: 14px; }
+  .native-lesson-viewer__content .fp-ix-fill--book-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .native-syllable { grid-template-columns: 44px minmax(0, 1fr); gap: 6px; }
+  .native-syllable h2 { font-size: 22px; }
+  .native-syllable__words { grid-template-columns: repeat(3, minmax(0, 1fr)); }
 }
-.native-lesson-viewer__content .faithful-page__lesson,
-.native-lesson-viewer__content .faithful-page__pagenum { pointer-events: none; }
-/* The 220px side column cannot hold Anterior + Siguiente/Terminar lección
- * side by side; stack them so the gated button is never clipped. */
-@media (min-width: 761px) {
-  .native-lesson-viewer__navigation { grid-template-columns: minmax(0, 1fr); }
-  .native-lesson-viewer__navigation button { width: 100%; min-width: 0; justify-content: center; }
-}
-/* Phones: the page grows with its content instead of trapping the child in a
- * nested scroll box inside the scrolling screen. */
-@media (max-width: 760px) {
-  .native-lesson-viewer__content .faithful-page {
-    height: auto;
-    aspect-ratio: auto;
-  }
-  .native-lesson-viewer__content .faithful-page__body,
-  .native-lesson-viewer__content .faithful-page--edge-right .faithful-page__body {
-    position: relative;
-    inset: auto;
-    overflow: visible;
-    padding-bottom: calc(9% + 28px);
-  }
-  /* Percent offsets would drift upward as the page grows; pin the footer. */
-  .native-lesson-viewer__content .faithful-page__lesson { bottom: 14px; }
-  .native-lesson-viewer__content .faithful-page__pagenum { bottom: 12px; }
-}
-/* Hover/sticky-tap must not wash out the primary button's white label. */
-.native-lesson-viewer__navigation button:last-child:hover:not(:disabled) {
-  background: #a32636;
-  border-color: #a32636;
-  color: #fff;
-}
-.native-lesson-viewer__navigation button[data-locked="true"]:hover:not(:disabled) {
-  background: #e9e5dc;
-  border-color: #b9b4aa;
-  color: #6c6a65;
-}
+
+/* Repeated writing pages retain every source practice region in two columns. */
+.native-lesson-viewer__content .faithful-page--archetype-5 .faithful-page__body { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); align-items: start; }
+.faithful-page--archetype-5 .faithful-page__body > .gretel-activity { display: block; grid-column: 1 / -1; min-width: 0; }
+.faithful-page--archetype-5 .faithful-page__body > .gretel-activity:has(.fp-writing-line) { grid-column: auto; }
+.native-lesson-viewer__content .fp-writing-line .am-dibuja__paper { height: 150px; }
+.native-lesson-viewer__content .am-dibuja__paper { border: 1px solid #91c9c1; border-radius: 8px; box-shadow: none; }
+.native-lesson-viewer__content .am-lasso__instruction { display: none; }
+.native-lesson-viewer__content .am-lasso__stage { background: transparent; border: 0; box-shadow: none; }
+.native-lesson-viewer__content .am-lasso__gretel { visibility: hidden; }
+.native-lesson-viewer__content .am-lasso__target { border: 1px solid #91c9c1; border-radius: 10px; background: #fff; box-shadow: none; }
+/* The source multi-pair page has one central vowel spine, with two pictures
+   to the left and three to the right. Pair IDs and handlers stay untouched. */
+.native-lesson-viewer__content .faithful-page--archetype-3 .am-lasso__targets { margin-left: 0; left: 0; width: 100%; display: grid; grid-template-columns: 1fr 72px 1fr; grid-template-rows: repeat(5, 64px); gap: 12px 28px; padding: 10px 0; }
+.faithful-page--archetype-3 .am-lasso__target:nth-child(odd) { grid-column: 2; font-size: 30px; border-radius: 0; background: #f4fbf9; }
+.faithful-page--archetype-3 .am-lasso__target:nth-child(1) { grid-row: 1; }
+.faithful-page--archetype-3 .am-lasso__target:nth-child(3) { grid-row: 2; }
+.faithful-page--archetype-3 .am-lasso__target:nth-child(5) { grid-row: 3; }
+.faithful-page--archetype-3 .am-lasso__target:nth-child(7) { grid-row: 4; }
+.faithful-page--archetype-3 .am-lasso__target:nth-child(9) { grid-row: 5; }
+.faithful-page--archetype-3 .am-lasso__target:nth-child(2) { grid-column: 3; grid-row: 1; }
+.faithful-page--archetype-3 .am-lasso__target:nth-child(4) { grid-column: 3; grid-row: 3; }
+.faithful-page--archetype-3 .am-lasso__target:nth-child(6) { grid-column: 1; grid-row: 2; }
+.faithful-page--archetype-3 .am-lasso__target:nth-child(8) { grid-column: 3; grid-row: 5; }
+.faithful-page--archetype-3 .am-lasso__target:nth-child(10) { grid-column: 1; grid-row: 4; }
+@media (max-width: 600px) { .native-lesson-viewer__content .faithful-page--archetype-5 .faithful-page__body { grid-template-columns: 1fr; } }
+
+.native-lesson-viewer__content .faithful-page--archetype-3 .am-lasso__target { min-width: 0; min-height: 0; }
+.native-lesson-viewer__content .faithful-page--archetype-3 .am-lasso__target img { width: 100%; height: 100%; max-height: 100%; object-fit: contain; }
+.native-lesson-viewer__content .faithful-page--archetype-3 .am-lasso__target-text { font: 700 28px/1 "Andika", system-ui, sans-serif; }

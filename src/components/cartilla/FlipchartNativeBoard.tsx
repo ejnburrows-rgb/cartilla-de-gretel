@@ -1,5 +1,3 @@
-import { FinalPageBackground } from "./FinalPageBackground";
-import { flipchartBackground } from "@/lib/final-backgrounds";
 import { useEffect, type CSSProperties } from "react";
 import { FlipchartFrontmatter } from "@/components/cartilla/FlipchartFrontmatter";
 import { getNativeFlipchartPage, type FlipchartLayoutType, type NativeFlipchartPage, type FlipchartTextItem } from "@/lib/flipchart-native";
@@ -522,7 +520,6 @@ export function FlipchartNativeBoard({
       style={{ "--fc-accent": accentColor } as CSSProperties}
       aria-hidden={decorative || undefined}
     >
-      <FinalPageBackground asset={flipchartBackground(page.flipchartPage)} />
       {/* Exact replica: layout type drives the page composition (book §2) */}
       <div className="fc-native-board__page">
         {layoutType === "vowel-header" && <VowelHeaderLayout {...boardProps} />}
