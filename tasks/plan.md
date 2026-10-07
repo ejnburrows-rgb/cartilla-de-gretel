@@ -17,7 +17,7 @@
 - PRs #538 and #539 overlap in `LassoConnect.tsx`, `faithfulAdapters.tsx`, and `FaithfulPageRenderer.tsx`; the controller must reconcile them as one integration sequence, not merge them independently.
 - Independent open candidates currently include #531 (Gretel interaction/motion), #532 (Workbook + Flip Chart physical page turn), #533 (book.pdf precache/provenance), #534 (teacher-route first-paint performance), and #537 (foreground-art classification/audit). Their file sets do not overlap #538/#539 or each other based on the current PR file lists, but every merge still requires exact-head review and appropriate proof.
 - Issue #389 remains the direct-cloud release-verification lane and is runnable independently.
-- Issue #540 is the current blocking Workbook defect: printed page 24 syllable completion does not satisfy the navigation completion gate. PR #539 reproduced the same failure on untouched main, so it is a baseline defect, not a #539 regression.
+- Issue #540 was resolved as a test-timing diagnosis on PR #539 at `802d237aca9f439dde062402caac8a092eaf9f42`: 30 marks, completion lock, reload restoration, and Next to page 25 passed. Do not dispatch a runtime repair without a new reproducible failure. Full assembled release verification remains outstanding.
 - Final premium Gretel voice/TTS is still not owner-locked. It remains required by `PROJECT_FINISH_DEFINITION.md`; no worker may invent a paid provider or final voice choice.
 - Welcome video is not a completion blocker under the finish contract.
 - Live Supabase/multi-user expansion remains deferred for the current demo/non-real-data pilot finish line.
@@ -39,10 +39,9 @@ Do not confuse printed page numbers with PDF file indices. Historical mapping fi
 
 ### Run now in parallel
 
-1. **#540 — p24 syllable completion gate**
-   - Reproduce on current main.
-   - Fix the smallest root cause.
-   - Prove incomplete remains gated, true completion unlocks `Siguiente`, reload restores state, and neighboring syllable pages still pass.
+1. **#540 — retain verified p24 evidence**
+   - Preserve the existing timing-aware test correction when reconciling #538 with #539.
+   - Requalify only impacted behavior after integration; no duplicate runtime repair lane.
 
 2. **#389 — trustworthy direct-cloud release harness**
    - Run the existing `pnpm verify:release` path.
@@ -100,3 +99,7 @@ Do not confuse printed page numbers with PDF file indices. Historical mapping fi
 ## Definition of this plan being complete
 
 This plan is complete only when all real gaps against `PROJECT_FINISH_DEFINITION.md` are closed with objective evidence. Merged PRs, completed Jules sessions, a successful build, or a clean issue list alone do not equal product completion.
+
+## Owner orchestration update — 2026-10-07
+
+Jules implements; ChatGPT/Codex reviews and dispatches. Use EJNRCGPLm / ejnrcgplm@gmail.com exclusively. Follow the API-first, no browser orchestration, and explicit-request-only Desktop Commander policy in AGENTS.md. Direct Jules API connection is not yet authenticated in this environment; no API key is available. Existing GitHub dispatch comments are delivery evidence, not proof of an authenticated API session or active worker. Do not infer completion from an open PR or bot acknowledgement. Preserve all exact-head merge/release gates.

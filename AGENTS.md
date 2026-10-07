@@ -425,3 +425,12 @@ For student-facing Workbook work, do not create activity-local copies of shared 
 Activity families implement only their source-faithful Workbook gesture/layout adapter unless the owning issue explicitly authorizes a kernel change.
 
 For visible UI work, publish milestone browser screenshots before final completion. Show the real implemented state, not mockups, including representative normal, success, retry/error, distinctive tool/motion states, and relevant responsive views. These are early direction proof and do not replace final browser QA or release verification.
+
+## OWNER TOOL AND ACCOUNT DIRECTIVE — 2026-10-07
+
+- Use Jules account **EJNRCGPLm / ejnrcgplm@gmail.com** exclusively. Never use **EJnRCG / ejnrcg@gmail.com**. A browser tab index, GitHub login, Markdown file, or bot reaction does not establish the Jules account identity.
+- Prefer direct authenticated Jules API/MCP, native GitHub tools, repository commands, and authoritative API documentation. Do not use Playwright or browser automation to operate accounts or external services. Do not use Desktop Commander unless EJN explicitly requests it.
+- ChatGPT/Codex is the reviewer and dispatcher; Jules performs implementation and worker verification. Preserve existing required product tests and release gates; this tool preference does not waive evidence requirements.
+- A Markdown instruction does not start a Jules session. Dispatch through an authenticated API/MCP or existing authorized GitHub Jules workflow, and distinguish delivery, acknowledgement, running, and verified completion.
+- Do not claim a direct Jules connection until credentials are securely configured and a harmless authenticated request succeeds. Never commit API keys or request secrets in chat.
+- Reuse unchanged exact-head evidence. On unchanged state, exit without repeated tests, browser tours, new artifacts, or duplicate workers. Review changed heads and report precise remaining gaps.
