@@ -10,7 +10,7 @@ const qaResults = read("public/cartilla/art/faithful/qa-results.json");
 const quarantine = read("public/cartilla/art/faithful/quarantine.json");
 const flipchartNative = read("src/data/flipchart-native-assets.json");
 
-const manifestBySrc = new Map(manifest.filter((m) => m.src).map((m) => [m.src, m]));
+const manifestBySrc = new Map(manifest.filter((m) => m && m.src).map((m) => [m.src, m]));
 const qaBySrc = new Map((qaResults.results || []).map((q) => [q.file.replace("public/", "/"), q]));
 const quarantinedSrcs = new Set((quarantine.assets || []).map((q) => q.src));
 
@@ -36,20 +36,27 @@ while ((match = re.exec(galleryText)) !== null) {
 }
 
 const flipchartNativeSlots = [];
-for (const [pageKey, assets] of Object.entries(flipchartNative)) {
+const sortedNativeEntries = Object.entries(flipchartNative).sort(
+  ([a], [b]) => Number(a) - Number(b),
+);
+
+for (const [pageKey, assets] of sortedNativeEntries) {
   for (const a of assets) {
     flipchartNativeSlots.push({
       page: pageKey,
       word: a.word,
       src: a.src,
       crop: a.crop,
+      approvedInput: a.approvedInput === true || a.verified === true,
     });
   }
 }
 
 async function audit() {
+  const sortedWiredSrcs = Array.from(wiredFaithfulSrcs).sort((a, b) => a.localeCompare(b));
   const faithfulAudit = [];
-  for (const src of Array.from(wiredFaithfulSrcs).sort()) {
+
+  for (const src of sortedWiredSrcs) {
     const localPath = path.join(root, "public", src.slice(1));
     const exists = fs.existsSync(localPath);
     const m = manifestBySrc.get(src) || {};
@@ -65,19 +72,26 @@ async function audit() {
       bytes = fs.statSync(localPath).size;
     }
 
-    let category = "PASS";
+    let category = "PENDING NO VERIFIED SOURCE";
     if (!exists) {
       category = "PENDING NO VERIFIED SOURCE";
-    } else if (
-      prov.includes("RECOLORED") ||
-      prov.includes("BACKFILLED") ||
-      prov.includes("COLOR-TRANSFER")
-    ) {
+    } else if (quarantinedSrcs.has(src) || qaVerdict === "FAIL") {
+      category = "WRONG SOURCE";
+    } else if (prov.includes("RECOLORED") || prov.includes("COLOR-TRANSFER")) {
       category = "VERIFIED COLOR TRANSFER";
     } else if (prov.includes("FIXED") && prov.includes("CROP")) {
       category = "CROP FIX";
-    } else if (quarantinedSrcs.has(src) || qaVerdict === "FAIL") {
-      category = "WRONG SOURCE";
+    } else if (
+      qaVerdict === "PASS" &&
+      (prov.includes("VERIFIED") ||
+        prov.includes("BACKFILLED") ||
+        prov.includes("RECOVERED") ||
+        prov.includes("QA-PASS") ||
+        Boolean(m.sourceFlipchartPage))
+    ) {
+      category = "PASS";
+    } else {
+      category = "PENDING NO VERIFIED SOURCE";
     }
 
     faithfulAudit.push({
@@ -104,14 +118,22 @@ async function audit() {
       bytes = fs.statSync(localPath).size;
     }
 
+    let category = "PENDING NO VERIFIED SOURCE";
+    if (exists && slot.approvedInput) {
+      category = "PASS";
+    } else {
+      category = "PENDING NO VERIFIED SOURCE";
+    }
+
     nativeAudit.push({
       src: slot.src,
       word: slot.word,
       page: slot.page,
-      classification: exists ? "PASS" : "PENDING NO VERIFIED SOURCE",
+      classification: category,
       dimensions,
       bytes,
       exists,
+      approvedInput: slot.approvedInput,
     });
   }
 
