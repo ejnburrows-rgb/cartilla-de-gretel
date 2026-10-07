@@ -550,7 +550,7 @@ function RegionView({
     case "vocab-grid":
       return native ? (
         <div className="fp-native-vocab" style={{ gridTemplateColumns: `repeat(${region.columns ?? 3}, minmax(0, 1fr))` }}>
-          {(region.text ?? "").split("Â·").map((word) => word.trim()).filter(Boolean).map((word) => (
+          {(region.text ?? "").split(/\s*\u00c2?\u00b7\s*/).map((word) => word.trim()).filter(Boolean).map((word) => (
             <span key={word}>{word}</span>
           ))}
         </div>
