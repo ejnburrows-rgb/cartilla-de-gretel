@@ -7,7 +7,8 @@
   "scripts": {
     "dev": "pnpm prepare:art && vite dev",
     "dev:worker": "vite dev --mode worker",
-    "build": "pnpm prepare:art && pnpm verify:assets && pnpm typecheck && pnpm test && vite build",
+    "prebuild": "node scripts/prebuild-fetch-pdfs.mjs",
+    "build": "pnpm prebuild && pnpm prepare:art && pnpm verify:assets && pnpm typecheck && pnpm test && vite build",
     "build:app": "pnpm build",
     "verify:release": "pnpm build && pnpm exec playwright install chromium && pnpm test:e2e",
     "preview": "vite preview --host 127.0.0.1",

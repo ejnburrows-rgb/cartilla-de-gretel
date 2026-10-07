@@ -1,5 +1,5 @@
 {
-  "buildCommand": "pnpm prepare:art || exit 13; pnpm verify:assets || exit 17; pnpm typecheck || exit 14; pnpm test || exit 15; vite build || exit 16",
+  "buildCommand": "pnpm prebuild; pnpm prepare:art || exit 13; pnpm verify:assets || exit 17; pnpm typecheck || exit 14; pnpm test || exit 15; vite build || exit 16",
   "installCommand": "pnpm install --frozen-lockfile",
   "outputDirectory": "dist",
   "framework": "vite",
