@@ -402,7 +402,6 @@ function RegionView({
           region={region}
           lessonId={lessonId}
           instruction={precedingInstruction}
-          directPencil={pageNumber === 17}
         />
       ) : (
         <VowelLineMatch region={region} />
