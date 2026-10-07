@@ -51,6 +51,8 @@ export interface LassoConnectProps {
   className?: string;
   /** Opt-in true direct-pencil connector mode (replaces rope/lasso presentation for p17 prototype). */
   directPencil?: boolean;
+  /** Omit decorative character artwork on the clean workbook surface. */
+  showCompanion?: boolean;
   /** Central letter label for direct-pencil mode (e.g. "Uu"). */
   centerLabel?: string;
 }
@@ -596,6 +598,7 @@ export function LassoConnect({
   onComplete,
   absoluteLayout = false,
   className,
+  showCompanion = true,
   directPencil = false,
   centerLabel = "Uu",
 }: LassoConnectProps) {
@@ -1003,11 +1006,11 @@ export function LassoConnect({
         >
           <div className="am-lasso__shadow" aria-hidden />
           <div className="am-lasso__gretel-img relative" role="img" aria-label="Gretel">
-            <GretelLayerRig
+            {showCompanion && <GretelLayerRig
               state={pose === "cheer" ? "cheering" : pose === "talk" ? "teaching" : "idle"}
               speaking={pose === "talk"}
               paused={Boolean(reducedMotion)}
-            />
+            />}
           </div>
           {/* Rope coil prop in hand */}
           <svg className="am-lasso__coil" viewBox="0 0 40 40" aria-hidden>

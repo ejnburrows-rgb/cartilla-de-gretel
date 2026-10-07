@@ -363,3 +363,27 @@
 .native-lesson-viewer__content .faithful-page--archetype-3 .am-lasso__target { min-width: 0; min-height: 0; }
 .native-lesson-viewer__content .faithful-page--archetype-3 .am-lasso__target img { width: 100%; height: 100%; max-height: 100%; object-fit: contain; }
 .native-lesson-viewer__content .faithful-page--archetype-3 .am-lasso__target-text { font: 700 28px/1 "Andika", system-ui, sans-serif; }
+
+/* All source-equivalent central-letter pages share the existing pencil stage. */
+.native-lesson-viewer__content .fp-trace__svg,
+.native-lesson-viewer__content .fp-trace__footer { width: 240px; max-width: 100%; }
+.native-lesson-viewer__content .am-dibuja__paper { min-height: 140px; }
+
+/* Preserve saved answers and existing handlers on the other vowel plates.
+   Only their eight-option presentation changes to the same 3–2–3 pattern. */
+.native-lesson-viewer__content .faithful-page--archetype-4 .am-faithful-lasso { position: relative; display: block; }
+.native-lesson-viewer__content .faithful-page--archetype-4 .am-lasso__targets:not(.am-lasso__targets--abs) { margin: 0; display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); grid-template-rows: repeat(3, 120px); gap: 12px; padding: 0; }
+.faithful-page--archetype-4 .am-lasso__target:nth-child(5) { grid-column: 3; grid-row: 2; }
+.faithful-page--archetype-4 .am-lasso__target:nth-child(6) { grid-column: 1; grid-row: 3; }
+.faithful-page--archetype-4 .am-lasso__target:nth-child(7) { grid-column: 2; grid-row: 3; }
+.faithful-page--archetype-4 .am-lasso__target:nth-child(8) { grid-column: 3; grid-row: 3; }
+.native-lesson-viewer__content .faithful-page--archetype-4 .am-faithful-lasso__letter { position: absolute; z-index: 5; left: calc((100% - 24px) / 3 + 12px); top: 132px; width: calc((100% - 24px) / 3); height: 120px; margin: 0; font: 700 36px/1 "Fredoka", system-ui, sans-serif; border: 1px solid #91c9c1; border-radius: 10px; background: #f4fbf9; }
+@media (max-width: 600px) {
+ .native-lesson-viewer__content .faithful-page--archetype-4 .am-lasso__targets:not(.am-lasso__targets--abs) { grid-template-rows: repeat(3, 80px); gap: 8px; }
+ .native-lesson-viewer__content .faithful-page--archetype-4 .am-faithful-lasso__letter { left: calc((100% - 16px) / 3 + 8px); top: 88px; width: calc((100% - 16px) / 3); height: 80px; font-size: 28px; }
+}
+
+/* Keep the source-example count below the stage so the letter stays aligned. */
+.native-lesson-viewer__content .faithful-page--archetype-4 .am-faithful-lasso .am-lasso { position: relative; padding-bottom: 28px; }
+.native-lesson-viewer__content .faithful-page--archetype-4 .am-lasso__stage { padding: 0; }
+.native-lesson-viewer__content .faithful-page--archetype-4 .am-lasso > p[role="status"]:first-child { position: absolute; bottom: 0; margin: 0; font-size: 12px; }
