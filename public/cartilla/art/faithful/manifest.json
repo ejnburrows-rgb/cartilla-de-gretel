@@ -108,7 +108,8 @@
       2275,
       750,
       554
-    ]
+    ],
+    "provenanceStatus": "VERIFIED-CANONICAL-SOURCE-PAGE"
   },
   {
     "slug": "estrella",
@@ -157,7 +158,8 @@
       917,
       29,
       38
-    ]
+    ],
+    "provenanceStatus": "VERIFIED-CANONICAL-SOURCE-PAGE"
   },
   {
     "slug": "arana",
@@ -171,7 +173,8 @@
       2785,
       105,
       9
-    ]
+    ],
+    "provenanceStatus": "VERIFIED-CANONICAL-SOURCE-PAGE"
   },
   {
     "slug": "elefante",
@@ -185,7 +188,8 @@
       1387,
       1228,
       811
-    ]
+    ],
+    "provenanceStatus": "VERIFIED-CANONICAL-SOURCE-PAGE"
   },
   {
     "slug": "erizo",
@@ -199,7 +203,8 @@
       598,
       195,
       131
-    ]
+    ],
+    "provenanceStatus": "VERIFIED-CANONICAL-SOURCE-PAGE"
   },
   {
     "slug": "escalera",
@@ -213,7 +218,8 @@
       640,
       60,
       115
-    ]
+    ],
+    "provenanceStatus": "VERIFIED-CANONICAL-SOURCE-PAGE"
   },
   {
     "slug": "indio",
@@ -227,7 +233,8 @@
       1526,
       773,
       472
-    ]
+    ],
+    "provenanceStatus": "VERIFIED-CANONICAL-SOURCE-PAGE"
   },
   {
     "slug": "insecto",
@@ -277,7 +284,8 @@
       1524,
       4,
       8
-    ]
+    ],
+    "provenanceStatus": "VERIFIED-CANONICAL-SOURCE-PAGE"
   },
   {
     "slug": "oreja",
@@ -291,7 +299,8 @@
       2438,
       11,
       12
-    ]
+    ],
+    "provenanceStatus": "VERIFIED-CANONICAL-SOURCE-PAGE"
   },
   {
     "slug": "unicornio",
@@ -305,7 +314,8 @@
       739,
       320,
       229
-    ]
+    ],
+    "provenanceStatus": "VERIFIED-CANONICAL-SOURCE-PAGE"
   },
   {
     "slug": "espejo",
@@ -319,7 +329,8 @@
       2527,
       256,
       106
-    ]
+    ],
+    "provenanceStatus": "VERIFIED-CANONICAL-SOURCE-PAGE"
   },
   {
     "slug": "uno",
@@ -333,7 +344,8 @@
       1556,
       18,
       27
-    ]
+    ],
+    "provenanceStatus": "VERIFIED-CANONICAL-SOURCE-PAGE"
   },
   {
     "slug": "oveja",
@@ -347,7 +359,8 @@
       1553,
       807,
       511
-    ]
+    ],
+    "provenanceStatus": "VERIFIED-CANONICAL-SOURCE-PAGE"
   },
   {
     "slug": "avion",
@@ -361,7 +374,8 @@
       1572,
       3,
       5
-    ]
+    ],
+    "provenanceStatus": "VERIFIED-CANONICAL-SOURCE-PAGE"
   },
   {
     "slug": "aro",
@@ -392,7 +406,8 @@
       1311,
       781,
       557
-    ]
+    ],
+    "provenanceStatus": "VERIFIED-CANONICAL-SOURCE-PAGE"
   },
   {
     "slug": "olla",
@@ -406,7 +421,8 @@
       1338,
       798,
       517
-    ]
+    ],
+    "provenanceStatus": "VERIFIED-CANONICAL-SOURCE-PAGE"
   },
   {
     "slug": "uvas",
@@ -420,7 +436,8 @@
       1320,
       738,
       495
-    ]
+    ],
+    "provenanceStatus": "VERIFIED-CANONICAL-SOURCE-PAGE"
   },
   {
     "slug": "iglesia",
@@ -428,9 +445,9 @@
     "lessonNumber": null,
     "pageNumber": null,
     "src": "/cartilla/art/faithful/vocal-i/iglesia.webp",
-    "sourceFlipchartPage": null,
+    "sourceFlipchartPage": "p007-scene.png",
     "cropBox": null,
-    "provenanceStatus": "PROVENANCE-UNKNOWN"
+    "provenanceStatus": "VERIFIED-FLIPCHART-CANONICAL-2026"
   },
   {
     "slug": "ojos",
@@ -438,9 +455,9 @@
     "lessonNumber": null,
     "pageNumber": null,
     "src": "/cartilla/art/faithful/leccion-1/ojos.webp",
-    "sourceFlipchartPage": null,
+    "sourceFlipchartPage": "p003-scene.png",
     "cropBox": null,
-    "provenanceStatus": "RECOVERED-2026-FROM-GIT-HISTORY-BLOB-cf0d6c7d"
+    "provenanceStatus": "VERIFIED-FLIPCHART-CANONICAL-2026"
   },
   {
     "slug": "escoba",
@@ -472,7 +489,8 @@
       660,
       540
     ],
-    "sourceNote": "house with trees (verify existing)"
+    "sourceNote": "house with trees (verify existing)",
+    "provenanceStatus": "VERIFIED-CANONICAL-SOURCE-PAGE"
   },
   {
     "slug": "ola",
@@ -540,7 +558,8 @@
       2549,
       448,
       319
-    ]
+    ],
+    "provenanceStatus": "VERIFIED-CANONICAL-SOURCE-PAGE"
   },
   {
     "slug": "arbol",
@@ -554,7 +573,8 @@
       751,
       222,
       160
-    ]
+    ],
+    "provenanceStatus": "VERIFIED-CANONICAL-SOURCE-PAGE"
   },
   {
     "slug": "ardilla",
@@ -562,9 +582,9 @@
     "lessonNumber": null,
     "pageNumber": null,
     "src": "/cartilla/art/faithful/vocal-a/ardilla.webp",
-    "sourceFlipchartPage": null,
+    "sourceFlipchartPage": "p005-scene.png",
     "cropBox": null,
-    "provenanceStatus": "PROVENANCE-UNKNOWN"
+    "provenanceStatus": "VERIFIED-FLIPCHART-CANONICAL-2026"
   },
   {
     "slug": "escuela",
@@ -572,9 +592,9 @@
     "lessonNumber": null,
     "pageNumber": null,
     "src": "/cartilla/art/faithful/vocal-e/escuela.webp",
-    "sourceFlipchartPage": null,
+    "sourceFlipchartPage": "p006-scene.png",
     "cropBox": null,
-    "provenanceStatus": "PROVENANCE-UNKNOWN"
+    "provenanceStatus": "VERIFIED-FLIPCHART-CANONICAL-2026"
   },
   {
     "slug": "igual",
@@ -582,9 +602,9 @@
     "lessonNumber": null,
     "pageNumber": null,
     "src": "/cartilla/art/faithful/vocal-i/igual.webp",
-    "sourceFlipchartPage": null,
+    "sourceFlipchartPage": "p007-scene.png",
     "cropBox": null,
-    "provenanceStatus": "PROVENANCE-UNKNOWN"
+    "provenanceStatus": "VERIFIED-FLIPCHART-CANONICAL-2026"
   },
   {
     "slug": "iguana",
@@ -592,9 +612,9 @@
     "lessonNumber": null,
     "pageNumber": null,
     "src": "/cartilla/art/faithful/vocal-i/iguana.webp",
-    "sourceFlipchartPage": null,
+    "sourceFlipchartPage": "p007-scene.png",
     "cropBox": null,
-    "provenanceStatus": "PROVENANCE-UNKNOWN"
+    "provenanceStatus": "VERIFIED-FLIPCHART-CANONICAL-2026"
   },
   {
     "slug": "invierno",
@@ -608,7 +628,8 @@
       581,
       140,
       237
-    ]
+    ],
+    "provenanceStatus": "VERIFIED-CANONICAL-SOURCE-PAGE"
   },
   {
     "slug": "uña",
@@ -622,7 +643,8 @@
       1121,
       240,
       216
-    ]
+    ],
+    "provenanceStatus": "VERIFIED-CANONICAL-SOURCE-PAGE"
   },
   {
     "slug": "anillo",
@@ -630,9 +652,9 @@
     "lessonNumber": null,
     "pageNumber": null,
     "src": "/cartilla/art/faithful/vocal-a/anillo.webp",
-    "sourceFlipchartPage": null,
+    "sourceFlipchartPage": "p005-anillo.png",
     "cropBox": null,
-    "provenanceStatus": "PROVENANCE-UNKNOWN"
+    "provenanceStatus": "VERIFIED-FLIPCHART-CANONICAL-2026"
   },
   {
     "slug": "manzana",
@@ -640,9 +662,9 @@
     "lessonNumber": null,
     "pageNumber": null,
     "src": "/cartilla/art/faithful/leccion-1/manzana.webp",
-    "sourceFlipchartPage": null,
+    "sourceFlipchartPage": "p003-scene.png",
     "cropBox": null,
-    "provenanceStatus": "PROVENANCE-UNKNOWN"
+    "provenanceStatus": "VERIFIED-FLIPCHART-CANONICAL-2026"
   },
   {
     "slug": "pera",
@@ -650,9 +672,9 @@
     "lessonNumber": null,
     "pageNumber": null,
     "src": "/cartilla/art/faithful/leccion-1/pera.webp",
-    "sourceFlipchartPage": null,
+    "sourceFlipchartPage": "p003-scene.png",
     "cropBox": null,
-    "provenanceStatus": "PROVENANCE-UNKNOWN"
+    "provenanceStatus": "VERIFIED-FLIPCHART-CANONICAL-2026"
   },
   {
     "slug": "taza",
@@ -660,9 +682,9 @@
     "lessonNumber": null,
     "pageNumber": null,
     "src": "/cartilla/art/faithful/leccion-1/taza.webp",
-    "sourceFlipchartPage": null,
+    "sourceFlipchartPage": "p003-scene.png",
     "cropBox": null,
-    "provenanceStatus": "PROVENANCE-UNKNOWN"
+    "provenanceStatus": "VERIFIED-FLIPCHART-CANONICAL-2026"
   },
   {
     "slug": "uniforme",
@@ -676,7 +698,8 @@
       471,
       247,
       222
-    ]
+    ],
+    "provenanceStatus": "VERIFIED-CANONICAL-SOURCE-PAGE"
   },
   {
     "slug": "mama",
@@ -690,7 +713,8 @@
       1095,
       575,
       398
-    ]
+    ],
+    "provenanceStatus": "VERIFIED-CANONICAL-SOURCE-PAGE"
   },
   {
     "slug": "mono",
@@ -704,7 +728,8 @@
       1212,
       406,
       743
-    ]
+    ],
+    "provenanceStatus": "VERIFIED-CANONICAL-SOURCE-PAGE"
   },
   {
     "slug": "papa",
@@ -718,7 +743,8 @@
       1094,
       575,
       398
-    ]
+    ],
+    "provenanceStatus": "VERIFIED-CANONICAL-SOURCE-PAGE"
   },
   {
     "slug": "pez",
@@ -732,7 +758,8 @@
       350,
       254,
       235
-    ]
+    ],
+    "provenanceStatus": "VERIFIED-CANONICAL-SOURCE-PAGE"
   },
   {
     "slug": "sapo",
@@ -746,7 +773,8 @@
       1454,
       594,
       501
-    ]
+    ],
+    "provenanceStatus": "VERIFIED-CANONICAL-SOURCE-PAGE"
   },
   {
     "slug": "sopa",
@@ -760,7 +788,8 @@
       1470,
       516,
       453
-    ]
+    ],
+    "provenanceStatus": "VERIFIED-CANONICAL-SOURCE-PAGE"
   },
   {
     "slug": "dado",
@@ -774,7 +803,8 @@
       1240,
       630,
       630
-    ]
+    ],
+    "provenanceStatus": "VERIFIED-CANONICAL-SOURCE-PAGE"
   },
   {
     "slug": "nido",
@@ -788,7 +818,8 @@
       1470,
       556,
       399
-    ]
+    ],
+    "provenanceStatus": "VERIFIED-CANONICAL-SOURCE-PAGE"
   },
   {
     "slug": "nino",
@@ -818,7 +849,8 @@
       2158,
       657,
       438
-    ]
+    ],
+    "provenanceStatus": "VERIFIED-CANONICAL-SOURCE-PAGE"
   },
   {
     "slug": "bota",
@@ -832,7 +864,8 @@
       1493,
       574,
       398
-    ]
+    ],
+    "provenanceStatus": "VERIFIED-CANONICAL-SOURCE-PAGE"
   },
   {
     "slug": "vela",
@@ -846,7 +879,8 @@
       1095,
       574,
       398
-    ]
+    ],
+    "provenanceStatus": "VERIFIED-CANONICAL-SOURCE-PAGE"
   },
   {
     "slug": "rana",
@@ -860,7 +894,8 @@
       1325,
       630,
       500
-    ]
+    ],
+    "provenanceStatus": "VERIFIED-CANONICAL-SOURCE-PAGE"
   },
   {
     "slug": "rosa",
@@ -874,7 +909,8 @@
       2150,
       450,
       460
-    ]
+    ],
+    "provenanceStatus": "VERIFIED-CANONICAL-SOURCE-PAGE"
   },
   {
     "slug": "remo",
@@ -888,7 +924,8 @@
       1300,
       590,
       580
-    ]
+    ],
+    "provenanceStatus": "VERIFIED-CANONICAL-SOURCE-PAGE"
   },
   {
     "slug": "torre",
@@ -902,7 +939,8 @@
       1094,
       574,
       398
-    ]
+    ],
+    "provenanceStatus": "VERIFIED-CANONICAL-SOURCE-PAGE"
   },
   {
     "slug": "barril",
@@ -916,7 +954,8 @@
       1094,
       574,
       398
-    ]
+    ],
+    "provenanceStatus": "VERIFIED-CANONICAL-SOURCE-PAGE"
   },
   {
     "slug": "cuna",
@@ -931,7 +970,8 @@
       660,
       540
     ],
-    "sourceNote": "baby crib (re-crop correct subject)"
+    "sourceNote": "baby crib (re-crop correct subject)",
+    "provenanceStatus": "VERIFIED-CANONICAL-SOURCE-PAGE"
   },
   {
     "slug": "yoyo",
@@ -946,7 +986,8 @@
       700,
       600
     ],
-    "sourceNote": "yo-yo toy"
+    "sourceNote": "yo-yo toy",
+    "provenanceStatus": "VERIFIED-CANONICAL-SOURCE-PAGE"
   },
   {
     "slug": "yate",
@@ -961,7 +1002,8 @@
       660,
       520
     ],
-    "sourceNote": "yacht (re-verify)"
+    "sourceNote": "yacht (re-verify)",
+    "provenanceStatus": "VERIFIED-CANONICAL-SOURCE-PAGE"
   },
   {
     "slug": "yema",
@@ -976,7 +1018,8 @@
       560,
       420
     ],
-    "sourceNote": "fried egg yolk"
+    "sourceNote": "fried egg yolk",
+    "provenanceStatus": "VERIFIED-CANONICAL-SOURCE-PAGE"
   },
   {
     "slug": "zapato",
@@ -991,7 +1034,8 @@
       660,
       520
     ],
-    "sourceNote": "purple shoe (re-verify)"
+    "sourceNote": "purple shoe (re-verify)",
+    "provenanceStatus": "VERIFIED-CANONICAL-SOURCE-PAGE"
   },
   {
     "slug": "zorro",
@@ -1033,7 +1077,8 @@
       350,
       252,
       235
-    ]
+    ],
+    "provenanceStatus": "VERIFIED-CANONICAL-SOURCE-PAGE"
   },
   {
     "slug": "aguila",
@@ -1047,7 +1092,8 @@
       842,
       252,
       236
-    ]
+    ],
+    "provenanceStatus": "VERIFIED-CANONICAL-SOURCE-PAGE"
   },
   {
     "slug": "gaveta",
@@ -1062,7 +1108,8 @@
       700,
       620
     ],
-    "sourceNote": "open drawer with papers"
+    "sourceNote": "open drawer with papers",
+    "provenanceStatus": "VERIFIED-CANONICAL-SOURCE-PAGE"
   },
   {
     "slug": "gusano",
@@ -1077,7 +1124,8 @@
       640,
       360
     ],
-    "sourceNote": "green worm (re-crop tight, correct subject)"
+    "sourceNote": "green worm (re-crop tight, correct subject)",
+    "provenanceStatus": "VERIFIED-CANONICAL-SOURCE-PAGE"
   },
   {
     "slug": "goloso",
@@ -1092,7 +1140,8 @@
       680,
       560
     ],
-    "sourceNote": "cat Goloso with necktie"
+    "sourceNote": "cat Goloso with necktie",
+    "provenanceStatus": "VERIFIED-CANONICAL-SOURCE-PAGE"
   },
   {
     "slug": "gorra",
@@ -1107,7 +1156,8 @@
       680,
       560
     ],
-    "sourceNote": "striped baseball cap"
+    "sourceNote": "striped baseball cap",
+    "provenanceStatus": "VERIFIED-CANONICAL-SOURCE-PAGE"
   },
   {
     "slug": "mago",
@@ -1122,7 +1172,8 @@
       900,
       700
     ],
-    "sourceNote": "magician with rabbit and hat"
+    "sourceNote": "magician with rabbit and hat",
+    "provenanceStatus": "VERIFIED-CANONICAL-SOURCE-PAGE"
   },
   {
     "slug": "foto",
@@ -1137,7 +1188,8 @@
       640,
       540
     ],
-    "sourceNote": "framed portrait photo"
+    "sourceNote": "framed portrait photo",
+    "provenanceStatus": "VERIFIED-CANONICAL-SOURCE-PAGE"
   },
   {
     "slug": "fideos",
@@ -1152,7 +1204,8 @@
       620,
       560
     ],
-    "sourceNote": "man eating noodles/fideos"
+    "sourceNote": "man eating noodles/fideos",
+    "provenanceStatus": "VERIFIED-CANONICAL-SOURCE-PAGE"
   },
   {
     "slug": "familia",
@@ -1167,7 +1220,8 @@
       680,
       560
     ],
-    "sourceNote": "family of four"
+    "sourceNote": "family of four",
+    "provenanceStatus": "VERIFIED-CANONICAL-SOURCE-PAGE"
   },
   {
     "slug": "felo",
@@ -1182,7 +1236,8 @@
       820,
       640
     ],
-    "sourceNote": "man on red tractor Felo"
+    "sourceNote": "man on red tractor Felo",
+    "provenanceStatus": "VERIFIED-CANONICAL-SOURCE-PAGE"
   },
   {
     "slug": "funda",
@@ -1197,7 +1252,8 @@
       720,
       560
     ],
-    "sourceNote": "yellow pillowcase/funda"
+    "sourceNote": "yellow pillowcase/funda",
+    "provenanceStatus": "VERIFIED-CANONICAL-SOURCE-PAGE"
   },
   {
     "slug": "jirafa",
@@ -1212,7 +1268,8 @@
       1050,
       1100
     ],
-    "sourceNote": "giraffe with glasses (top scene)"
+    "sourceNote": "giraffe with glasses (top scene)",
+    "provenanceStatus": "VERIFIED-CANONICAL-SOURCE-PAGE"
   },
   {
     "slug": "jicotea",
@@ -1227,7 +1284,8 @@
       640,
       520
     ],
-    "sourceNote": "turtle jicotea"
+    "sourceNote": "turtle jicotea",
+    "provenanceStatus": "VERIFIED-CANONICAL-SOURCE-PAGE"
   },
   {
     "slug": "jugo",
@@ -1242,7 +1300,8 @@
       620,
       520
     ],
-    "sourceNote": "glass of juice with orange"
+    "sourceNote": "glass of juice with orange",
+    "provenanceStatus": "VERIFIED-CANONICAL-SOURCE-PAGE"
   },
   {
     "slug": "jesus",
@@ -1257,7 +1316,8 @@
       700,
       580
     ],
-    "sourceNote": "boy Jesús with oversized pencil"
+    "sourceNote": "boy Jesús with oversized pencil",
+    "provenanceStatus": "VERIFIED-CANONICAL-SOURCE-PAGE"
   },
   {
     "slug": "jarra",
@@ -1272,7 +1332,8 @@
       700,
       620
     ],
-    "sourceNote": "pink pitcher jarra"
+    "sourceNote": "pink pitcher jarra",
+    "provenanceStatus": "VERIFIED-CANONICAL-SOURCE-PAGE"
   },
   {
     "slug": "conejo",
@@ -1287,7 +1348,8 @@
       560,
       540
     ],
-    "sourceNote": "rabbit with bowtie"
+    "sourceNote": "rabbit with bowtie",
+    "provenanceStatus": "VERIFIED-CANONICAL-SOURCE-PAGE"
   },
   {
     "slug": "cubo",
@@ -1302,7 +1364,8 @@
       640,
       600
     ],
-    "sourceNote": "green bucket cubo"
+    "sourceNote": "green bucket cubo",
+    "provenanceStatus": "VERIFIED-CANONICAL-SOURCE-PAGE"
   },
   {
     "slug": "catalina",
@@ -1317,7 +1380,8 @@
       720,
       660
     ],
-    "sourceNote": "hen Catalina"
+    "sourceNote": "hen Catalina",
+    "provenanceStatus": "VERIFIED-CANONICAL-SOURCE-PAGE"
   },
   {
     "slug": "yayita",
@@ -1332,7 +1396,8 @@
       660,
       560
     ],
-    "sourceNote": "blue octopus-like Yayita character"
+    "sourceNote": "blue octopus-like Yayita character",
+    "provenanceStatus": "VERIFIED-CANONICAL-SOURCE-PAGE"
   },
   {
     "slug": "mayuscula",
@@ -1347,7 +1412,8 @@
       780,
       640
     ],
-    "sourceNote": "decorated capital Y with girl"
+    "sourceNote": "decorated capital Y with girl",
+    "provenanceStatus": "VERIFIED-CANONICAL-SOURCE-PAGE"
   },
   {
     "slug": "zigzag",
@@ -1362,7 +1428,8 @@
       560,
       440
     ],
-    "sourceNote": "zigzag chevron graphic"
+    "sourceNote": "zigzag chevron graphic",
+    "provenanceStatus": "VERIFIED-CANONICAL-SOURCE-PAGE"
   },
   {
     "slug": "zepelin",
@@ -1377,7 +1444,8 @@
       760,
       600
     ],
-    "sourceNote": "zeppelin airship"
+    "sourceNote": "zeppelin airship",
+    "provenanceStatus": "VERIFIED-CANONICAL-SOURCE-PAGE"
   },
   {
     "slug": "zulema",
@@ -1392,7 +1460,8 @@
       780,
       700
     ],
-    "sourceNote": "girl Zulema with pinwheel"
+    "sourceNote": "girl Zulema with pinwheel",
+    "provenanceStatus": "VERIFIED-CANONICAL-SOURCE-PAGE"
   },
   {
     "slug": "carro-leccion1",
@@ -1500,7 +1569,8 @@
       1402,
       688,
       727
-    ]
+    ],
+    "provenanceStatus": "VERIFIED-CANONICAL-SOURCE-PAGE"
   },
   {
     "slug": "p009-mama",
@@ -1514,7 +1584,8 @@
       1431,
       553,
       729
-    ]
+    ],
+    "provenanceStatus": "VERIFIED-CANONICAL-SOURCE-PAGE"
   },
   {
     "slug": "p009-meme",
@@ -1528,7 +1599,8 @@
       2443,
       382,
       788
-    ]
+    ],
+    "provenanceStatus": "VERIFIED-CANONICAL-SOURCE-PAGE"
   },
   {
     "slug": "p009-mima",
@@ -1542,7 +1614,8 @@
       1349,
       775,
       775
-    ]
+    ],
+    "provenanceStatus": "VERIFIED-CANONICAL-SOURCE-PAGE"
   },
   {
     "slug": "p009-mumi",
@@ -1556,7 +1629,8 @@
       2448,
       717,
       755
-    ]
+    ],
+    "provenanceStatus": "VERIFIED-CANONICAL-SOURCE-PAGE"
   },
   {
     "slug": "p012-papa",
@@ -1570,7 +1644,8 @@
       1380,
       464,
       709
-    ]
+    ],
+    "provenanceStatus": "VERIFIED-CANONICAL-SOURCE-PAGE"
   },
   {
     "slug": "p012-pepe",
@@ -1584,7 +1659,8 @@
       1313,
       778,
       780
-    ]
+    ],
+    "provenanceStatus": "VERIFIED-CANONICAL-SOURCE-PAGE"
   },
   {
     "slug": "p012-pie",
@@ -1598,7 +1674,8 @@
       1612,
       676,
       456
-    ]
+    ],
+    "provenanceStatus": "VERIFIED-CANONICAL-SOURCE-PAGE"
   },
   {
     "slug": "p012-pomo",
@@ -1612,7 +1689,8 @@
       2512,
       393,
       706
-    ]
+    ],
+    "provenanceStatus": "VERIFIED-CANONICAL-SOURCE-PAGE"
   },
   {
     "slug": "p012-puma",
@@ -1626,7 +1704,8 @@
       2468,
       694,
       752
-    ]
+    ],
+    "provenanceStatus": "VERIFIED-CANONICAL-SOURCE-PAGE"
   },
   {
     "slug": "p015-pisa",
@@ -1640,7 +1719,8 @@
       2606,
       813,
       561
-    ]
+    ],
+    "provenanceStatus": "VERIFIED-CANONICAL-SOURCE-PAGE"
   },
   {
     "slug": "p015-sapo",
@@ -1654,7 +1734,8 @@
       1584,
       691,
       538
-    ]
+    ],
+    "provenanceStatus": "VERIFIED-CANONICAL-SOURCE-PAGE"
   },
   {
     "slug": "p015-sesi",
@@ -1668,7 +1749,8 @@
       1443,
       615,
       750
-    ]
+    ],
+    "provenanceStatus": "VERIFIED-CANONICAL-SOURCE-PAGE"
   },
   {
     "slug": "p015-sopa",
@@ -1682,7 +1764,8 @@
       1701,
       615,
       380
-    ]
+    ],
+    "provenanceStatus": "VERIFIED-CANONICAL-SOURCE-PAGE"
   },
   {
     "slug": "p015-susi",
@@ -1696,7 +1779,8 @@
       2430,
       586,
       785
-    ]
+    ],
+    "provenanceStatus": "VERIFIED-CANONICAL-SOURCE-PAGE"
   },
   {
     "slug": "p018-tapa",
@@ -1710,7 +1794,8 @@
       1454,
       727,
       586
-    ]
+    ],
+    "provenanceStatus": "VERIFIED-CANONICAL-SOURCE-PAGE"
   },
   {
     "slug": "p018-tipi",
@@ -1724,7 +1809,8 @@
       2270,
       816,
       778
-    ]
+    ],
+    "provenanceStatus": "VERIFIED-CANONICAL-SOURCE-PAGE"
   },
   {
     "slug": "p018-tomate",
@@ -1738,7 +1824,8 @@
       1466,
       688,
       625
-    ]
+    ],
+    "provenanceStatus": "VERIFIED-CANONICAL-SOURCE-PAGE"
   },
   {
     "slug": "p018-topo",
@@ -1752,7 +1839,8 @@
       1390,
       663,
       688
-    ]
+    ],
+    "provenanceStatus": "VERIFIED-CANONICAL-SOURCE-PAGE"
   },
   {
     "slug": "p018-tuto",
@@ -1766,7 +1854,8 @@
       2323,
       803,
       775
-    ]
+    ],
+    "provenanceStatus": "VERIFIED-CANONICAL-SOURCE-PAGE"
   },
   {
     "slug": "p021-dados",
@@ -1780,7 +1869,8 @@
       1316,
       625,
       638
-    ]
+    ],
+    "provenanceStatus": "VERIFIED-CANONICAL-SOURCE-PAGE"
   },
   {
     "slug": "p021-dedo",
@@ -1794,7 +1884,8 @@
       1308,
       459,
       653
-    ]
+    ],
+    "provenanceStatus": "VERIFIED-CANONICAL-SOURCE-PAGE"
   },
   {
     "slug": "p021-didi",
@@ -1808,7 +1899,8 @@
       1390,
       528,
       589
-    ]
+    ],
+    "provenanceStatus": "VERIFIED-CANONICAL-SOURCE-PAGE"
   },
   {
     "slug": "p021-doce",
@@ -1822,7 +1914,8 @@
       2318,
       592,
       740
-    ]
+    ],
+    "provenanceStatus": "VERIFIED-CANONICAL-SOURCE-PAGE"
   },
   {
     "slug": "p021-dunia",
@@ -1836,7 +1929,8 @@
       2331,
       921,
       653
-    ]
+    ],
+    "provenanceStatus": "VERIFIED-CANONICAL-SOURCE-PAGE"
   },
   {
     "slug": "p024-lala",
@@ -1850,7 +1944,8 @@
       2474,
       714,
       625
-    ]
+    ],
+    "provenanceStatus": "VERIFIED-CANONICAL-SOURCE-PAGE"
   },
   {
     "slug": "p024-lata",
@@ -1864,7 +1959,8 @@
       1415,
       625,
       688
-    ]
+    ],
+    "provenanceStatus": "VERIFIED-CANONICAL-SOURCE-PAGE"
   },
   {
     "slug": "p024-loma",
@@ -1878,7 +1974,8 @@
       2422,
       918,
       740
-    ]
+    ],
+    "provenanceStatus": "VERIFIED-CANONICAL-SOURCE-PAGE"
   },
   {
     "slug": "p024-luli",
@@ -1892,7 +1989,8 @@
       1275,
       561,
       816
-    ]
+    ],
+    "provenanceStatus": "VERIFIED-CANONICAL-SOURCE-PAGE"
   },
   {
     "slug": "p024-maleta",
@@ -1906,7 +2004,8 @@
       1415,
       625,
       701
-    ]
+    ],
+    "provenanceStatus": "VERIFIED-CANONICAL-SOURCE-PAGE"
   },
   {
     "slug": "p027-mono",
@@ -1920,7 +2019,8 @@
       1336,
       462,
       765
-    ]
+    ],
+    "provenanceStatus": "VERIFIED-CANONICAL-SOURCE-PAGE"
   },
   {
     "slug": "p027-napi",
@@ -1934,7 +2034,8 @@
       2471,
       673,
       714
-    ]
+    ],
+    "provenanceStatus": "VERIFIED-CANONICAL-SOURCE-PAGE"
   },
   {
     "slug": "p027-nido",
@@ -1948,7 +2049,8 @@
       1619,
       625,
       428
-    ]
+    ],
+    "provenanceStatus": "VERIFIED-CANONICAL-SOURCE-PAGE"
   },
   {
     "slug": "p027-nudo",
@@ -1962,7 +2064,8 @@
       1573,
       663,
       520
-    ]
+    ],
+    "provenanceStatus": "VERIFIED-CANONICAL-SOURCE-PAGE"
   },
   {
     "slug": "p027-tenedor",
@@ -1976,7 +2079,8 @@
       2361,
       176,
       824
-    ]
+    ],
+    "provenanceStatus": "VERIFIED-CANONICAL-SOURCE-PAGE"
   },
   {
     "slug": "p030-mene",
@@ -1990,7 +2094,8 @@
       2310,
       500,
       803
-    ]
+    ],
+    "provenanceStatus": "VERIFIED-CANONICAL-SOURCE-PAGE"
   },
   {
     "slug": "p030-mono",
@@ -2004,7 +2109,8 @@
       2359,
       617,
       745
-    ]
+    ],
+    "provenanceStatus": "VERIFIED-CANONICAL-SOURCE-PAGE"
   },
   {
     "slug": "p030-ninito",
@@ -2018,7 +2124,8 @@
       1364,
       490,
       666
-    ]
+    ],
+    "provenanceStatus": "VERIFIED-CANONICAL-SOURCE-PAGE"
   },
   {
     "slug": "p030-nuno",
@@ -2032,7 +2139,8 @@
       1300,
       490,
       734
-    ]
+    ],
+    "provenanceStatus": "VERIFIED-CANONICAL-SOURCE-PAGE"
   },
   {
     "slug": "p030-pinata",
@@ -2046,7 +2154,8 @@
       1433,
       553,
       602
-    ]
+    ],
+    "provenanceStatus": "VERIFIED-CANONICAL-SOURCE-PAGE"
   },
   {
     "slug": "p033-bate",
@@ -2060,7 +2169,8 @@
       1344,
       548,
       673
-    ]
+    ],
+    "provenanceStatus": "VERIFIED-CANONICAL-SOURCE-PAGE"
   },
   {
     "slug": "p033-beba",
@@ -2074,7 +2184,8 @@
       1459,
       604,
       569
-    ]
+    ],
+    "provenanceStatus": "VERIFIED-CANONICAL-SOURCE-PAGE"
   },
   {
     "slug": "p033-bebita",
@@ -2088,7 +2199,8 @@
       2346,
       711,
       783
-    ]
+    ],
+    "provenanceStatus": "VERIFIED-CANONICAL-SOURCE-PAGE"
   },
   {
     "slug": "p033-bota",
@@ -2102,7 +2214,8 @@
       2456,
       607,
       663
-    ]
+    ],
+    "provenanceStatus": "VERIFIED-CANONICAL-SOURCE-PAGE"
   },
   {
     "slug": "p033-bubi",
@@ -2116,7 +2229,8 @@
       1433,
       640,
       586
-    ]
+    ],
+    "provenanceStatus": "VERIFIED-CANONICAL-SOURCE-PAGE"
   },
   {
     "slug": "p036-pavo",
@@ -2130,7 +2244,8 @@
       2486,
       589,
       663
-    ]
+    ],
+    "provenanceStatus": "VERIFIED-CANONICAL-SOURCE-PAGE"
   },
   {
     "slug": "p036-vaso",
@@ -2144,7 +2259,8 @@
       1533,
       258,
       495
-    ]
+    ],
+    "provenanceStatus": "VERIFIED-CANONICAL-SOURCE-PAGE"
   },
   {
     "slug": "p036-vela",
@@ -2158,7 +2274,8 @@
       1451,
       556,
       599
-    ]
+    ],
+    "provenanceStatus": "VERIFIED-CANONICAL-SOURCE-PAGE"
   },
   {
     "slug": "p036-vita",
@@ -2172,7 +2289,8 @@
       1413,
       561,
       643
-    ]
+    ],
+    "provenanceStatus": "VERIFIED-CANONICAL-SOURCE-PAGE"
   },
   {
     "slug": "p036-vuli",
@@ -2186,6 +2304,7 @@
       2639,
       783,
       533
-    ]
+    ],
+    "provenanceStatus": "VERIFIED-CANONICAL-SOURCE-PAGE"
   }
 ]

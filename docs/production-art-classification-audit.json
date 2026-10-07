@@ -1,0 +1,2482 @@
+{
+  "timestamp": "2026-10-07T09:56:16.585Z",
+  "counts": {
+    "faithfulWired": 96,
+    "flipchartNativeWired": 167,
+    "breakdownFaithful": {
+      "PASS": 91,
+      "VERIFIED COLOR TRANSFER": 4,
+      "CROP FIX": 1
+    },
+    "breakdownNative": {
+      "PASS": 167
+    }
+  },
+  "faithfulAudit": [
+    {
+      "src": "/cartilla/art/faithful/leccion-1/abrigo.webp",
+      "word": "abrigo",
+      "classification": "PASS",
+      "provenance": "VERIFIED-EXACT-WORKBOOK-CROP-2026-08-08",
+      "qaVerdict": "PASS",
+      "dimensions": "440x520",
+      "bytes": 190310,
+      "isQuarantined": false
+    },
+    {
+      "src": "/cartilla/art/faithful/leccion-1/aguila.webp",
+      "word": "águila",
+      "classification": "PASS",
+      "provenance": "VERIFIED-CANONICAL-SOURCE-PAGE",
+      "qaVerdict": "PASS",
+      "dimensions": "683x629",
+      "bytes": 48662,
+      "isQuarantined": false
+    },
+    {
+      "src": "/cartilla/art/faithful/leccion-1/arco.webp",
+      "word": "arco",
+      "classification": "PASS",
+      "provenance": "VERIFIED-CANONICAL-SOURCE-PAGE",
+      "qaVerdict": "PASS",
+      "dimensions": "530x578",
+      "bytes": 27648,
+      "isQuarantined": false
+    },
+    {
+      "src": "/cartilla/art/faithful/leccion-1/carro.webp",
+      "word": "carro",
+      "classification": "PASS",
+      "provenance": "PASS-VERIFIED-2026-QA",
+      "qaVerdict": "PASS",
+      "dimensions": "870x597",
+      "bytes": 193320,
+      "isQuarantined": false
+    },
+    {
+      "src": "/cartilla/art/faithful/leccion-1/dulce.webp",
+      "word": "dulce",
+      "classification": "VERIFIED COLOR TRANSFER",
+      "provenance": "BACKFILLED-2026-FROM-FLIPCHART-PAGE-003",
+      "qaVerdict": "PASS",
+      "dimensions": "870x718",
+      "bytes": 63742,
+      "isQuarantined": false
+    },
+    {
+      "src": "/cartilla/art/faithful/leccion-1/globo.webp",
+      "word": "globo",
+      "classification": "PASS",
+      "provenance": "VERIFIED-EXACT-WORKBOOK-CROP-2026-08-08",
+      "qaVerdict": "PASS",
+      "dimensions": "580x515",
+      "bytes": 116384,
+      "isQuarantined": false
+    },
+    {
+      "src": "/cartilla/art/faithful/leccion-1/libro.webp",
+      "word": "libro",
+      "classification": "VERIFIED COLOR TRANSFER",
+      "provenance": "BACKFILLED-2026-FROM-FLIPCHART-PAGE-003",
+      "qaVerdict": "PASS",
+      "dimensions": "870x579",
+      "bytes": 43478,
+      "isQuarantined": false
+    },
+    {
+      "src": "/cartilla/art/faithful/leccion-1/maiz.webp",
+      "word": "maíz",
+      "classification": "PASS",
+      "provenance": "VERIFIED-CANONICAL-SOURCE-PAGE",
+      "qaVerdict": "PASS",
+      "dimensions": "799x870",
+      "bytes": 114270,
+      "isQuarantined": false
+    },
+    {
+      "src": "/cartilla/art/faithful/leccion-1/manzana.webp",
+      "word": "manzana",
+      "classification": "PASS",
+      "provenance": "VERIFIED-FLIPCHART-CANONICAL-2026",
+      "qaVerdict": "PASS",
+      "dimensions": "870x852",
+      "bytes": 67248,
+      "isQuarantined": false
+    },
+    {
+      "src": "/cartilla/art/faithful/leccion-1/ojos.webp",
+      "word": "ojos",
+      "classification": "PASS",
+      "provenance": "VERIFIED-FLIPCHART-CANONICAL-2026",
+      "qaVerdict": "PASS",
+      "dimensions": "677x377",
+      "bytes": 22742,
+      "isQuarantined": false
+    },
+    {
+      "src": "/cartilla/art/faithful/leccion-1/pajaro.webp",
+      "word": "pájaro",
+      "classification": "VERIFIED COLOR TRANSFER",
+      "provenance": "BACKFILLED-2026-FROM-FLIPCHART-PAGE-003",
+      "qaVerdict": "PASS",
+      "dimensions": "870x557",
+      "bytes": 33916,
+      "isQuarantined": false
+    },
+    {
+      "src": "/cartilla/art/faithful/leccion-1/pera.webp",
+      "word": "pera",
+      "classification": "PASS",
+      "provenance": "VERIFIED-FLIPCHART-CANONICAL-2026",
+      "qaVerdict": "PASS",
+      "dimensions": "870x669",
+      "bytes": 36394,
+      "isQuarantined": false
+    },
+    {
+      "src": "/cartilla/art/faithful/leccion-1/pez.webp",
+      "word": "pez",
+      "classification": "PASS",
+      "provenance": "VERIFIED-CANONICAL-SOURCE-PAGE",
+      "qaVerdict": "PASS",
+      "dimensions": "764x650",
+      "bytes": 62022,
+      "isQuarantined": false
+    },
+    {
+      "src": "/cartilla/art/faithful/leccion-1/taza.webp",
+      "word": "taza",
+      "classification": "PASS",
+      "provenance": "VERIFIED-FLIPCHART-CANONICAL-2026",
+      "qaVerdict": "PASS",
+      "dimensions": "761x527",
+      "bytes": 38588,
+      "isQuarantined": false
+    },
+    {
+      "src": "/cartilla/art/faithful/leccion-1/traje.webp",
+      "word": "traje",
+      "classification": "VERIFIED COLOR TRANSFER",
+      "provenance": "RECOLORED-FROM-FLIPCHART-2026",
+      "qaVerdict": "PASS",
+      "dimensions": "735x870",
+      "bytes": 53142,
+      "isQuarantined": false
+    },
+    {
+      "src": "/cartilla/art/faithful/leccion-17-r/rana.webp",
+      "word": "rana",
+      "classification": "PASS",
+      "provenance": "VERIFIED-CANONICAL-SOURCE-PAGE",
+      "qaVerdict": "PASS",
+      "dimensions": "870x827",
+      "bytes": 184898,
+      "isQuarantined": false
+    },
+    {
+      "src": "/cartilla/art/faithful/leccion-17-r/remo.webp",
+      "word": "remo",
+      "classification": "PASS",
+      "provenance": "VERIFIED-CANONICAL-SOURCE-PAGE",
+      "qaVerdict": "PASS",
+      "dimensions": "870x815",
+      "bytes": 198140,
+      "isQuarantined": false
+    },
+    {
+      "src": "/cartilla/art/faithful/leccion-17-r/rita.webp",
+      "word": "Rita",
+      "classification": "PASS",
+      "provenance": "QA-PASS-SOURCE-PAGE-NOT-RECORDED",
+      "qaVerdict": "PASS",
+      "dimensions": "870x680",
+      "bytes": 98100,
+      "isQuarantined": false
+    },
+    {
+      "src": "/cartilla/art/faithful/leccion-17-r/rosa.webp",
+      "word": "rosa",
+      "classification": "PASS",
+      "provenance": "VERIFIED-CANONICAL-SOURCE-PAGE",
+      "qaVerdict": "PASS",
+      "dimensions": "870x735",
+      "bytes": 107882,
+      "isQuarantined": false
+    },
+    {
+      "src": "/cartilla/art/faithful/leccion-17-r/rueda.webp",
+      "word": "rueda",
+      "classification": "PASS",
+      "provenance": "QA-PASS-SOURCE-PAGE-NOT-RECORDED",
+      "qaVerdict": "PASS",
+      "dimensions": "870x804",
+      "bytes": 132482,
+      "isQuarantined": false
+    },
+    {
+      "src": "/cartilla/art/faithful/leccion-18-rr/barril.webp",
+      "word": "barril",
+      "classification": "PASS",
+      "provenance": "VERIFIED-CANONICAL-SOURCE-PAGE",
+      "qaVerdict": "PASS",
+      "dimensions": "595x870",
+      "bytes": 127042,
+      "isQuarantined": false
+    },
+    {
+      "src": "/cartilla/art/faithful/leccion-18-rr/burro.webp",
+      "word": "burro",
+      "classification": "PASS",
+      "provenance": "QA-PASS-SOURCE-PAGE-NOT-RECORDED",
+      "qaVerdict": "PASS",
+      "dimensions": "870x738",
+      "bytes": 143478,
+      "isQuarantined": false
+    },
+    {
+      "src": "/cartilla/art/faithful/leccion-18-rr/carrusel.webp",
+      "word": "carrusel",
+      "classification": "PASS",
+      "provenance": "QA-PASS-SOURCE-PAGE-NOT-RECORDED",
+      "qaVerdict": "PASS",
+      "dimensions": "870x865",
+      "bytes": 233372,
+      "isQuarantined": false
+    },
+    {
+      "src": "/cartilla/art/faithful/leccion-18-rr/perro.webp",
+      "word": "perro",
+      "classification": "PASS",
+      "provenance": "QA-PASS-SOURCE-PAGE-NOT-RECORDED",
+      "qaVerdict": "PASS",
+      "dimensions": "870x792",
+      "bytes": 348986,
+      "isQuarantined": false
+    },
+    {
+      "src": "/cartilla/art/faithful/leccion-18-rr/tierra.webp",
+      "word": "tierra",
+      "classification": "PASS",
+      "provenance": "QA-PASS-SOURCE-PAGE-NOT-RECORDED",
+      "qaVerdict": "PASS",
+      "dimensions": "869x870",
+      "bytes": 214154,
+      "isQuarantined": false
+    },
+    {
+      "src": "/cartilla/art/faithful/leccion-18-rr/torre.webp",
+      "word": "torre",
+      "classification": "PASS",
+      "provenance": "VERIFIED-CANONICAL-SOURCE-PAGE",
+      "qaVerdict": "PASS",
+      "dimensions": "356x870",
+      "bytes": 61506,
+      "isQuarantined": false
+    },
+    {
+      "src": "/cartilla/art/faithful/leccion-19-c/casa.webp",
+      "word": "casa",
+      "classification": "PASS",
+      "provenance": "VERIFIED-CANONICAL-SOURCE-PAGE",
+      "qaVerdict": "PASS",
+      "dimensions": "870x855",
+      "bytes": 153334,
+      "isQuarantined": false
+    },
+    {
+      "src": "/cartilla/art/faithful/leccion-19-c/catalina.webp",
+      "word": "Catalina",
+      "classification": "PASS",
+      "provenance": "VERIFIED-CANONICAL-SOURCE-PAGE",
+      "qaVerdict": "PASS",
+      "dimensions": "498x870",
+      "bytes": 96794,
+      "isQuarantined": false
+    },
+    {
+      "src": "/cartilla/art/faithful/leccion-19-c/conejo.webp",
+      "word": "conejo",
+      "classification": "PASS",
+      "provenance": "VERIFIED-CANONICAL-SOURCE-PAGE",
+      "qaVerdict": "PASS",
+      "dimensions": "635x870",
+      "bytes": 106142,
+      "isQuarantined": false
+    },
+    {
+      "src": "/cartilla/art/faithful/leccion-19-c/cubo.webp",
+      "word": "cubo",
+      "classification": "PASS",
+      "provenance": "VERIFIED-CANONICAL-SOURCE-PAGE",
+      "qaVerdict": "PASS",
+      "dimensions": "870x791",
+      "bytes": 140924,
+      "isQuarantined": false
+    },
+    {
+      "src": "/cartilla/art/faithful/leccion-19-c/cuna.webp",
+      "word": "cuna",
+      "classification": "PASS",
+      "provenance": "VERIFIED-CANONICAL-SOURCE-PAGE",
+      "qaVerdict": "PASS",
+      "dimensions": "870x646",
+      "bytes": 174556,
+      "isQuarantined": false
+    },
+    {
+      "src": "/cartilla/art/faithful/leccion-19-g/gaveta.webp",
+      "word": "gaveta",
+      "classification": "PASS",
+      "provenance": "VERIFIED-CANONICAL-SOURCE-PAGE",
+      "qaVerdict": "PASS",
+      "dimensions": "870x757",
+      "bytes": 202004,
+      "isQuarantined": false
+    },
+    {
+      "src": "/cartilla/art/faithful/leccion-19-g/goloso.webp",
+      "word": "Goloso",
+      "classification": "PASS",
+      "provenance": "VERIFIED-CANONICAL-SOURCE-PAGE",
+      "qaVerdict": "PASS",
+      "dimensions": "801x870",
+      "bytes": 161702,
+      "isQuarantined": false
+    },
+    {
+      "src": "/cartilla/art/faithful/leccion-19-g/gorra.webp",
+      "word": "gorra",
+      "classification": "PASS",
+      "provenance": "VERIFIED-CANONICAL-SOURCE-PAGE",
+      "qaVerdict": "PASS",
+      "dimensions": "870x566",
+      "bytes": 93450,
+      "isQuarantined": false
+    },
+    {
+      "src": "/cartilla/art/faithful/leccion-19-g/gusano.webp",
+      "word": "gusano",
+      "classification": "PASS",
+      "provenance": "VERIFIED-CANONICAL-SOURCE-PAGE",
+      "qaVerdict": "PASS",
+      "dimensions": "870x472",
+      "bytes": 61726,
+      "isQuarantined": false
+    },
+    {
+      "src": "/cartilla/art/faithful/leccion-19-g/mago.webp",
+      "word": "mago",
+      "classification": "PASS",
+      "provenance": "VERIFIED-CANONICAL-SOURCE-PAGE",
+      "qaVerdict": "PASS",
+      "dimensions": "824x870",
+      "bytes": 188054,
+      "isQuarantined": false
+    },
+    {
+      "src": "/cartilla/art/faithful/leccion-20-f/familia.webp",
+      "word": "familia",
+      "classification": "PASS",
+      "provenance": "VERIFIED-CANONICAL-SOURCE-PAGE",
+      "qaVerdict": "PASS",
+      "dimensions": "694x870",
+      "bytes": 156336,
+      "isQuarantined": false
+    },
+    {
+      "src": "/cartilla/art/faithful/leccion-20-f/felo.webp",
+      "word": "Felo",
+      "classification": "PASS",
+      "provenance": "VERIFIED-CANONICAL-SOURCE-PAGE",
+      "qaVerdict": "PASS",
+      "dimensions": "870x781",
+      "bytes": 108958,
+      "isQuarantined": false
+    },
+    {
+      "src": "/cartilla/art/faithful/leccion-20-f/fideos.webp",
+      "word": "fideos",
+      "classification": "PASS",
+      "provenance": "VERIFIED-CANONICAL-SOURCE-PAGE",
+      "qaVerdict": "PASS",
+      "dimensions": "732x870",
+      "bytes": 173878,
+      "isQuarantined": false
+    },
+    {
+      "src": "/cartilla/art/faithful/leccion-20-f/foto.webp",
+      "word": "foto",
+      "classification": "PASS",
+      "provenance": "VERIFIED-CANONICAL-SOURCE-PAGE",
+      "qaVerdict": "PASS",
+      "dimensions": "836x870",
+      "bytes": 187636,
+      "isQuarantined": false
+    },
+    {
+      "src": "/cartilla/art/faithful/leccion-20-f/funda.webp",
+      "word": "funda",
+      "classification": "PASS",
+      "provenance": "VERIFIED-CANONICAL-SOURCE-PAGE",
+      "qaVerdict": "PASS",
+      "dimensions": "870x631",
+      "bytes": 100896,
+      "isQuarantined": false
+    },
+    {
+      "src": "/cartilla/art/faithful/leccion-21-j/jarra.webp",
+      "word": "jarra",
+      "classification": "PASS",
+      "provenance": "VERIFIED-CANONICAL-SOURCE-PAGE",
+      "qaVerdict": "PASS",
+      "dimensions": "788x870",
+      "bytes": 102696,
+      "isQuarantined": false
+    },
+    {
+      "src": "/cartilla/art/faithful/leccion-21-j/jesus.webp",
+      "word": "Jesús",
+      "classification": "PASS",
+      "provenance": "VERIFIED-CANONICAL-SOURCE-PAGE",
+      "qaVerdict": "PASS",
+      "dimensions": "647x870",
+      "bytes": 119616,
+      "isQuarantined": false
+    },
+    {
+      "src": "/cartilla/art/faithful/leccion-21-j/jicotea.webp",
+      "word": "jicotea",
+      "classification": "PASS",
+      "provenance": "VERIFIED-CANONICAL-SOURCE-PAGE",
+      "qaVerdict": "PASS",
+      "dimensions": "870x701",
+      "bytes": 242034,
+      "isQuarantined": false
+    },
+    {
+      "src": "/cartilla/art/faithful/leccion-21-j/jirafa.webp",
+      "word": "jirafa",
+      "classification": "PASS",
+      "provenance": "VERIFIED-CANONICAL-SOURCE-PAGE",
+      "qaVerdict": "PASS",
+      "dimensions": "991x1166",
+      "bytes": 297284,
+      "isQuarantined": false
+    },
+    {
+      "src": "/cartilla/art/faithful/leccion-21-j/jugo.webp",
+      "word": "jugo",
+      "classification": "PASS",
+      "provenance": "VERIFIED-CANONICAL-SOURCE-PAGE",
+      "qaVerdict": "PASS",
+      "dimensions": "824x870",
+      "bytes": 106644,
+      "isQuarantined": false
+    },
+    {
+      "src": "/cartilla/art/faithful/leccion-22-y/mayuscula.webp",
+      "word": "mayúscula",
+      "classification": "PASS",
+      "provenance": "VERIFIED-CANONICAL-SOURCE-PAGE",
+      "qaVerdict": "PASS",
+      "dimensions": "870x796",
+      "bytes": 139984,
+      "isQuarantined": false
+    },
+    {
+      "src": "/cartilla/art/faithful/leccion-22-y/yate.webp",
+      "word": "yate",
+      "classification": "PASS",
+      "provenance": "VERIFIED-CANONICAL-SOURCE-PAGE",
+      "qaVerdict": "PASS",
+      "dimensions": "870x609",
+      "bytes": 160204,
+      "isQuarantined": false
+    },
+    {
+      "src": "/cartilla/art/faithful/leccion-22-y/yayita.webp",
+      "word": "Yayita",
+      "classification": "PASS",
+      "provenance": "VERIFIED-CANONICAL-SOURCE-PAGE",
+      "qaVerdict": "PASS",
+      "dimensions": "860x870",
+      "bytes": 212196,
+      "isQuarantined": false
+    },
+    {
+      "src": "/cartilla/art/faithful/leccion-22-y/yema.webp",
+      "word": "yema",
+      "classification": "PASS",
+      "provenance": "VERIFIED-CANONICAL-SOURCE-PAGE",
+      "qaVerdict": "PASS",
+      "dimensions": "870x349",
+      "bytes": 26466,
+      "isQuarantined": false
+    },
+    {
+      "src": "/cartilla/art/faithful/leccion-22-y/yoyo.webp",
+      "word": "yoyo",
+      "classification": "PASS",
+      "provenance": "VERIFIED-CANONICAL-SOURCE-PAGE",
+      "qaVerdict": "PASS",
+      "dimensions": "870x803",
+      "bytes": 147398,
+      "isQuarantined": false
+    },
+    {
+      "src": "/cartilla/art/faithful/leccion-23-z/zapato.webp",
+      "word": "zapato",
+      "classification": "PASS",
+      "provenance": "VERIFIED-CANONICAL-SOURCE-PAGE",
+      "qaVerdict": "PASS",
+      "dimensions": "870x790",
+      "bytes": 125460,
+      "isQuarantined": false
+    },
+    {
+      "src": "/cartilla/art/faithful/leccion-23-z/zepelin.webp",
+      "word": "zepelín",
+      "classification": "PASS",
+      "provenance": "VERIFIED-CANONICAL-SOURCE-PAGE",
+      "qaVerdict": "PASS",
+      "dimensions": "870x494",
+      "bytes": 130310,
+      "isQuarantined": false
+    },
+    {
+      "src": "/cartilla/art/faithful/leccion-23-z/zigzag.webp",
+      "word": "zig-zag",
+      "classification": "PASS",
+      "provenance": "VERIFIED-CANONICAL-SOURCE-PAGE",
+      "qaVerdict": "PASS",
+      "dimensions": "870x868",
+      "bytes": 96086,
+      "isQuarantined": false
+    },
+    {
+      "src": "/cartilla/art/faithful/leccion-23-z/zorro.webp",
+      "word": "zorro",
+      "classification": "PASS",
+      "provenance": "VERIFIED-AUTHENTIC-FLIPCHART-2026-09-25",
+      "qaVerdict": "PASS",
+      "dimensions": "487x540",
+      "bytes": 187030,
+      "isQuarantined": false
+    },
+    {
+      "src": "/cartilla/art/faithful/leccion-23-z/zulema.webp",
+      "word": "Zulema",
+      "classification": "PASS",
+      "provenance": "VERIFIED-CANONICAL-SOURCE-PAGE",
+      "qaVerdict": "PASS",
+      "dimensions": "657x870",
+      "bytes": 124422,
+      "isQuarantined": false
+    },
+    {
+      "src": "/cartilla/art/faithful/leccion-7-m/mono.webp",
+      "word": "mono",
+      "classification": "PASS",
+      "provenance": "VERIFIED-CANONICAL-SOURCE-PAGE",
+      "qaVerdict": "PASS",
+      "dimensions": "472x770",
+      "bytes": 41852,
+      "isQuarantined": false
+    },
+    {
+      "src": "/cartilla/art/faithful/leccion-9-s/sapo.webp",
+      "word": "sapo",
+      "classification": "PASS",
+      "provenance": "VERIFIED-CANONICAL-SOURCE-PAGE",
+      "qaVerdict": "PASS",
+      "dimensions": "870x742",
+      "bytes": 109956,
+      "isQuarantined": false
+    },
+    {
+      "src": "/cartilla/art/faithful/vocal-a/abanico.webp",
+      "word": "abanico",
+      "classification": "CROP FIX",
+      "provenance": "FIXED-2026-WRONG-CROP",
+      "qaVerdict": "PASS",
+      "dimensions": "870x842",
+      "bytes": 149674,
+      "isQuarantined": false
+    },
+    {
+      "src": "/cartilla/art/faithful/vocal-a/abeja.webp",
+      "word": "abeja",
+      "classification": "PASS",
+      "provenance": "VERIFIED-EXACT-WORKBOOK-CROP-2026-08-08",
+      "qaVerdict": "PASS",
+      "dimensions": "462x495",
+      "bytes": 40196,
+      "isQuarantined": false
+    },
+    {
+      "src": "/cartilla/art/faithful/vocal-a/aguja.webp",
+      "word": "aguja",
+      "classification": "PASS",
+      "provenance": "VERIFIED-EXACT-WORKBOOK-CROP-2026-08-08",
+      "qaVerdict": "PASS",
+      "dimensions": "413x495",
+      "bytes": 20268,
+      "isQuarantined": false
+    },
+    {
+      "src": "/cartilla/art/faithful/vocal-a/alas.webp",
+      "word": "alas",
+      "classification": "PASS",
+      "provenance": "VERIFIED-CANONICAL-SOURCE-PAGE",
+      "qaVerdict": "PASS",
+      "dimensions": "870x636",
+      "bytes": 57452,
+      "isQuarantined": false
+    },
+    {
+      "src": "/cartilla/art/faithful/vocal-a/anillo.webp",
+      "word": "anillo",
+      "classification": "PASS",
+      "provenance": "VERIFIED-FLIPCHART-CANONICAL-2026",
+      "qaVerdict": "PASS",
+      "dimensions": "870x718",
+      "bytes": 76054,
+      "isQuarantined": false
+    },
+    {
+      "src": "/cartilla/art/faithful/vocal-a/arana.webp",
+      "word": "araña",
+      "classification": "PASS",
+      "provenance": "VERIFIED-CANONICAL-SOURCE-PAGE",
+      "qaVerdict": "PASS",
+      "dimensions": "810x870",
+      "bytes": 88132,
+      "isQuarantined": false
+    },
+    {
+      "src": "/cartilla/art/faithful/vocal-a/arbol.webp",
+      "word": "árbol",
+      "classification": "PASS",
+      "provenance": "VERIFIED-CANONICAL-SOURCE-PAGE",
+      "qaVerdict": "PASS",
+      "dimensions": "870x744",
+      "bytes": 92816,
+      "isQuarantined": false
+    },
+    {
+      "src": "/cartilla/art/faithful/vocal-a/ardilla.webp",
+      "word": "ardilla",
+      "classification": "PASS",
+      "provenance": "VERIFIED-FLIPCHART-CANONICAL-2026",
+      "qaVerdict": "PASS",
+      "dimensions": "870x751",
+      "bytes": 92590,
+      "isQuarantined": false
+    },
+    {
+      "src": "/cartilla/art/faithful/vocal-a/aro.webp",
+      "word": "aro",
+      "classification": "PASS",
+      "provenance": "VERIFIED-AUTHENTIC-FLIPCHART-2026-08-08",
+      "qaVerdict": "PASS",
+      "dimensions": "780x660",
+      "bytes": 28648,
+      "isQuarantined": false
+    },
+    {
+      "src": "/cartilla/art/faithful/vocal-a/avion.webp",
+      "word": "avión",
+      "classification": "PASS",
+      "provenance": "VERIFIED-CANONICAL-SOURCE-PAGE",
+      "qaVerdict": "PASS",
+      "dimensions": "834x870",
+      "bytes": 77618,
+      "isQuarantined": false
+    },
+    {
+      "src": "/cartilla/art/faithful/vocal-e/elefante.webp",
+      "word": "elefante",
+      "classification": "PASS",
+      "provenance": "VERIFIED-CANONICAL-SOURCE-PAGE",
+      "qaVerdict": "PASS",
+      "dimensions": "870x809",
+      "bytes": 71864,
+      "isQuarantined": false
+    },
+    {
+      "src": "/cartilla/art/faithful/vocal-e/erizo.webp",
+      "word": "erizo",
+      "classification": "PASS",
+      "provenance": "VERIFIED-CANONICAL-SOURCE-PAGE",
+      "qaVerdict": "PASS",
+      "dimensions": "870x861",
+      "bytes": 87348,
+      "isQuarantined": false
+    },
+    {
+      "src": "/cartilla/art/faithful/vocal-e/escalera.webp",
+      "word": "escalera",
+      "classification": "PASS",
+      "provenance": "VERIFIED-CANONICAL-SOURCE-PAGE",
+      "qaVerdict": "PASS",
+      "dimensions": "870x829",
+      "bytes": 54610,
+      "isQuarantined": false
+    },
+    {
+      "src": "/cartilla/art/faithful/vocal-e/escoba.webp",
+      "word": "escoba",
+      "classification": "PASS",
+      "provenance": "FIXED-2026-WRONG-PAGE",
+      "qaVerdict": "PASS",
+      "dimensions": "556x700",
+      "bytes": 39104,
+      "isQuarantined": false
+    },
+    {
+      "src": "/cartilla/art/faithful/vocal-e/escuela.webp",
+      "word": "escuela",
+      "classification": "PASS",
+      "provenance": "VERIFIED-FLIPCHART-CANONICAL-2026",
+      "qaVerdict": "PASS",
+      "dimensions": "870x870",
+      "bytes": 45840,
+      "isQuarantined": false
+    },
+    {
+      "src": "/cartilla/art/faithful/vocal-e/espejo.webp",
+      "word": "espejo",
+      "classification": "PASS",
+      "provenance": "VERIFIED-CANONICAL-SOURCE-PAGE",
+      "qaVerdict": "PASS",
+      "dimensions": "870x823",
+      "bytes": 55626,
+      "isQuarantined": false
+    },
+    {
+      "src": "/cartilla/art/faithful/vocal-e/estrella.webp",
+      "word": "estrella",
+      "classification": "PASS",
+      "provenance": "VERIFIED-AUTHENTIC-FLIPCHART-2026-09-25",
+      "qaVerdict": "PASS",
+      "dimensions": "757x864",
+      "bytes": 235260,
+      "isQuarantined": false
+    },
+    {
+      "src": "/cartilla/art/faithful/vocal-i/iglesia.webp",
+      "word": "iglesia",
+      "classification": "PASS",
+      "provenance": "VERIFIED-FLIPCHART-CANONICAL-2026",
+      "qaVerdict": "PASS",
+      "dimensions": "473x407",
+      "bytes": 26076,
+      "isQuarantined": false
+    },
+    {
+      "src": "/cartilla/art/faithful/vocal-i/iglu.webp",
+      "word": "iglú",
+      "classification": "PASS",
+      "provenance": "VERIFIED-AUTHENTIC-FLIPCHART-2026-08-08",
+      "qaVerdict": "PASS",
+      "dimensions": "600x570",
+      "bytes": 22594,
+      "isQuarantined": false
+    },
+    {
+      "src": "/cartilla/art/faithful/vocal-i/igual.webp",
+      "word": "igual",
+      "classification": "PASS",
+      "provenance": "VERIFIED-FLIPCHART-CANONICAL-2026",
+      "qaVerdict": "PASS",
+      "dimensions": "870x687",
+      "bytes": 12420,
+      "isQuarantined": false
+    },
+    {
+      "src": "/cartilla/art/faithful/vocal-i/iguana.webp",
+      "word": "iguana",
+      "classification": "PASS",
+      "provenance": "VERIFIED-FLIPCHART-CANONICAL-2026",
+      "qaVerdict": "PASS",
+      "dimensions": "870x751",
+      "bytes": 80094,
+      "isQuarantined": false
+    },
+    {
+      "src": "/cartilla/art/faithful/vocal-i/iman.webp",
+      "word": "imán",
+      "classification": "PASS",
+      "provenance": "VERIFIED-CANONICAL-SOURCE-PAGE",
+      "qaVerdict": "PASS",
+      "dimensions": "870x716",
+      "bytes": 70850,
+      "isQuarantined": false
+    },
+    {
+      "src": "/cartilla/art/faithful/vocal-i/indio.webp",
+      "word": "indio",
+      "classification": "PASS",
+      "provenance": "VERIFIED-CANONICAL-SOURCE-PAGE",
+      "qaVerdict": "PASS",
+      "dimensions": "831x870",
+      "bytes": 72626,
+      "isQuarantined": false
+    },
+    {
+      "src": "/cartilla/art/faithful/vocal-i/insecto.webp",
+      "word": "insecto",
+      "classification": "PASS",
+      "provenance": "VERIFIED-AUTHENTIC-FLIPCHART-2026-09-25",
+      "qaVerdict": "PASS",
+      "dimensions": "868x756",
+      "bytes": 347678,
+      "isQuarantined": false
+    },
+    {
+      "src": "/cartilla/art/faithful/vocal-i/invierno.webp",
+      "word": "invierno",
+      "classification": "PASS",
+      "provenance": "VERIFIED-CANONICAL-SOURCE-PAGE",
+      "qaVerdict": "PASS",
+      "dimensions": "270x414",
+      "bytes": 24158,
+      "isQuarantined": false
+    },
+    {
+      "src": "/cartilla/art/faithful/vocal-i/isla.webp",
+      "word": "isla",
+      "classification": "PASS",
+      "provenance": "VERIFIED-AUTHENTIC-FLIPCHART-2026-09-25",
+      "qaVerdict": "PASS",
+      "dimensions": "950x857",
+      "bytes": 301084,
+      "isQuarantined": false
+    },
+    {
+      "src": "/cartilla/art/faithful/vocal-o/ocho.webp",
+      "word": "ocho",
+      "classification": "PASS",
+      "provenance": "VERIFIED-CANONICAL-SOURCE-PAGE",
+      "qaVerdict": "PASS",
+      "dimensions": "727x870",
+      "bytes": 75214,
+      "isQuarantined": false
+    },
+    {
+      "src": "/cartilla/art/faithful/vocal-o/ola.webp",
+      "word": "ola",
+      "classification": "PASS",
+      "provenance": "QA-PASS-SOURCE-PAGE-NOT-RECORDED",
+      "qaVerdict": "PASS",
+      "dimensions": "853x870",
+      "bytes": 84330,
+      "isQuarantined": false
+    },
+    {
+      "src": "/cartilla/art/faithful/vocal-o/olla.webp",
+      "word": "olla",
+      "classification": "PASS",
+      "provenance": "VERIFIED-CANONICAL-SOURCE-PAGE",
+      "qaVerdict": "PASS",
+      "dimensions": "870x618",
+      "bytes": 47618,
+      "isQuarantined": false
+    },
+    {
+      "src": "/cartilla/art/faithful/vocal-o/oreja.webp",
+      "word": "oreja",
+      "classification": "PASS",
+      "provenance": "VERIFIED-CANONICAL-SOURCE-PAGE",
+      "qaVerdict": "PASS",
+      "dimensions": "589x870",
+      "bytes": 94636,
+      "isQuarantined": false
+    },
+    {
+      "src": "/cartilla/art/faithful/vocal-o/oruga.webp",
+      "word": "oruga",
+      "classification": "PASS",
+      "provenance": "VERIFIED-EXACT-WORKBOOK-CROP-2026-08-08",
+      "qaVerdict": "PASS",
+      "dimensions": "580x570",
+      "bytes": 246636,
+      "isQuarantined": false
+    },
+    {
+      "src": "/cartilla/art/faithful/vocal-o/oso.webp",
+      "word": "oso",
+      "classification": "PASS",
+      "provenance": "VERIFIED-CANONICAL-SOURCE-PAGE",
+      "qaVerdict": "PASS",
+      "dimensions": "823x870",
+      "bytes": 118004,
+      "isQuarantined": false
+    },
+    {
+      "src": "/cartilla/art/faithful/vocal-o/oveja.webp",
+      "word": "oveja",
+      "classification": "PASS",
+      "provenance": "VERIFIED-CANONICAL-SOURCE-PAGE",
+      "qaVerdict": "PASS",
+      "dimensions": "870x824",
+      "bytes": 98014,
+      "isQuarantined": false
+    },
+    {
+      "src": "/cartilla/art/faithful/vocal-u/unicornio.webp",
+      "word": "unicornio",
+      "classification": "PASS",
+      "provenance": "VERIFIED-CANONICAL-SOURCE-PAGE",
+      "qaVerdict": "PASS",
+      "dimensions": "870x741",
+      "bytes": 70436,
+      "isQuarantined": false
+    },
+    {
+      "src": "/cartilla/art/faithful/vocal-u/uniforme.webp",
+      "word": "uniforme",
+      "classification": "PASS",
+      "provenance": "VERIFIED-CANONICAL-SOURCE-PAGE",
+      "qaVerdict": "PASS",
+      "dimensions": "685x870",
+      "bytes": 54992,
+      "isQuarantined": false
+    },
+    {
+      "src": "/cartilla/art/faithful/vocal-u/uno.webp",
+      "word": "uno",
+      "classification": "PASS",
+      "provenance": "VERIFIED-CANONICAL-SOURCE-PAGE",
+      "qaVerdict": "PASS",
+      "dimensions": "870x757",
+      "bytes": 80090,
+      "isQuarantined": false
+    },
+    {
+      "src": "/cartilla/art/faithful/vocal-u/uvas.webp",
+      "word": "uvas",
+      "classification": "PASS",
+      "provenance": "VERIFIED-CANONICAL-SOURCE-PAGE",
+      "qaVerdict": "PASS",
+      "dimensions": "870x605",
+      "bytes": 64014,
+      "isQuarantined": false
+    },
+    {
+      "src": "/cartilla/art/faithful/vocal-u/uña.webp",
+      "word": "uña",
+      "classification": "PASS",
+      "provenance": "VERIFIED-CANONICAL-SOURCE-PAGE",
+      "qaVerdict": "PASS",
+      "dimensions": "799x870",
+      "bytes": 37814,
+      "isQuarantined": false
+    }
+  ],
+  "nativeAudit": [
+    {
+      "src": "/cartilla/art/optimized/flipchart-native/p003-scene.png",
+      "word": "Ilustración de la página 3",
+      "page": "3",
+      "classification": "PASS",
+      "dimensions": "539x539",
+      "bytes": 177783,
+      "exists": true
+    },
+    {
+      "src": "/cartilla/art/optimized/flipchart-native/p003-avion.png",
+      "word": "avión",
+      "page": "3",
+      "classification": "PASS",
+      "dimensions": "320x320",
+      "bytes": 43248,
+      "exists": true
+    },
+    {
+      "src": "/cartilla/art/optimized/flipchart-native/p003-escoba.png",
+      "word": "escoba",
+      "page": "3",
+      "classification": "PASS",
+      "dimensions": "320x320",
+      "bytes": 55553,
+      "exists": true
+    },
+    {
+      "src": "/cartilla/art/optimized/flipchart-native/p003-iman.png",
+      "word": "imán",
+      "page": "3",
+      "classification": "PASS",
+      "dimensions": "320x320",
+      "bytes": 49205,
+      "exists": true
+    },
+    {
+      "src": "/cartilla/art/optimized/flipchart-native/p003-olla.png",
+      "word": "olla",
+      "page": "3",
+      "classification": "PASS",
+      "dimensions": "320x320",
+      "bytes": 55420,
+      "exists": true
+    },
+    {
+      "src": "/cartilla/art/optimized/flipchart-native/p003-una.png",
+      "word": "uña",
+      "page": "3",
+      "classification": "PASS",
+      "dimensions": "320x320",
+      "bytes": 49948,
+      "exists": true
+    },
+    {
+      "src": "/cartilla/art/optimized/flipchart-native/p004-scene.png",
+      "word": "Ilustración de la página 4",
+      "page": "4",
+      "classification": "PASS",
+      "dimensions": "560x560",
+      "bytes": 203733,
+      "exists": true
+    },
+    {
+      "src": "/cartilla/art/optimized/flipchart-native/p004-olla.png",
+      "word": "olla",
+      "page": "4",
+      "classification": "PASS",
+      "dimensions": "320x320",
+      "bytes": 46668,
+      "exists": true
+    },
+    {
+      "src": "/cartilla/art/optimized/flipchart-native/p004-oto.png",
+      "word": "Oto",
+      "page": "4",
+      "classification": "PASS",
+      "dimensions": "320x320",
+      "bytes": 48351,
+      "exists": true
+    },
+    {
+      "src": "/cartilla/art/optimized/flipchart-native/p004-oveja.png",
+      "word": "oveja",
+      "page": "4",
+      "classification": "PASS",
+      "dimensions": "320x320",
+      "bytes": 41334,
+      "exists": true
+    },
+    {
+      "src": "/cartilla/art/optimized/flipchart-native/p004-oso.png",
+      "word": "oso",
+      "page": "4",
+      "classification": "PASS",
+      "dimensions": "320x320",
+      "bytes": 79390,
+      "exists": true
+    },
+    {
+      "src": "/cartilla/art/optimized/flipchart-native/p004-oreja.png",
+      "word": "oreja",
+      "page": "4",
+      "classification": "PASS",
+      "dimensions": "320x320",
+      "bytes": 56308,
+      "exists": true
+    },
+    {
+      "src": "/cartilla/art/optimized/flipchart-native/p004-ocho.png",
+      "word": "ocho",
+      "page": "4",
+      "classification": "PASS",
+      "dimensions": "320x320",
+      "bytes": 62819,
+      "exists": true
+    },
+    {
+      "src": "/cartilla/art/optimized/flipchart-native/p005-scene.png",
+      "word": "Ilustración de la página 5",
+      "page": "5",
+      "classification": "PASS",
+      "dimensions": "556x556",
+      "bytes": 223023,
+      "exists": true
+    },
+    {
+      "src": "/cartilla/art/optimized/flipchart-native/p005-abanico.png",
+      "word": "abanico",
+      "page": "5",
+      "classification": "PASS",
+      "dimensions": "320x320",
+      "bytes": 66045,
+      "exists": true
+    },
+    {
+      "src": "/cartilla/art/optimized/flipchart-native/p005-anillo.png",
+      "word": "anillo",
+      "page": "5",
+      "classification": "PASS",
+      "dimensions": "320x320",
+      "bytes": 42308,
+      "exists": true
+    },
+    {
+      "src": "/cartilla/art/optimized/flipchart-native/p005-arana.png",
+      "word": "araña",
+      "page": "5",
+      "classification": "PASS",
+      "dimensions": "320x320",
+      "bytes": 35567,
+      "exists": true
+    },
+    {
+      "src": "/cartilla/art/optimized/flipchart-native/p005-ala.png",
+      "word": "ala",
+      "page": "5",
+      "classification": "PASS",
+      "dimensions": "320x320",
+      "bytes": 37012,
+      "exists": true
+    },
+    {
+      "src": "/cartilla/art/optimized/flipchart-native/p005-aro.png",
+      "word": "aro",
+      "page": "5",
+      "classification": "PASS",
+      "dimensions": "320x320",
+      "bytes": 66758,
+      "exists": true
+    },
+    {
+      "src": "/cartilla/art/optimized/flipchart-native/p005-ana.png",
+      "word": "Ana",
+      "page": "5",
+      "classification": "PASS",
+      "dimensions": "320x320",
+      "bytes": 57436,
+      "exists": true
+    },
+    {
+      "src": "/cartilla/art/optimized/flipchart-native/p006-scene.png",
+      "word": "Ilustración de la página 6",
+      "page": "6",
+      "classification": "PASS",
+      "dimensions": "560x560",
+      "bytes": 200364,
+      "exists": true
+    },
+    {
+      "src": "/cartilla/art/optimized/flipchart-native/p006-elefante.png",
+      "word": "elefante",
+      "page": "6",
+      "classification": "PASS",
+      "dimensions": "320x320",
+      "bytes": 55059,
+      "exists": true
+    },
+    {
+      "src": "/cartilla/art/optimized/flipchart-native/p006-espejo.png",
+      "word": "espejo",
+      "page": "6",
+      "classification": "PASS",
+      "dimensions": "320x320",
+      "bytes": 42808,
+      "exists": true
+    },
+    {
+      "src": "/cartilla/art/optimized/flipchart-native/p006-ema.png",
+      "word": "Ema",
+      "page": "6",
+      "classification": "PASS",
+      "dimensions": "320x320",
+      "bytes": 50267,
+      "exists": true
+    },
+    {
+      "src": "/cartilla/art/optimized/flipchart-native/p006-estrella.png",
+      "word": "estrella",
+      "page": "6",
+      "classification": "PASS",
+      "dimensions": "320x320",
+      "bytes": 53872,
+      "exists": true
+    },
+    {
+      "src": "/cartilla/art/optimized/flipchart-native/p006-erizo.png",
+      "word": "erizo",
+      "page": "6",
+      "classification": "PASS",
+      "dimensions": "320x320",
+      "bytes": 83658,
+      "exists": true
+    },
+    {
+      "src": "/cartilla/art/optimized/flipchart-native/p006-escalera.png",
+      "word": "escalera",
+      "page": "6",
+      "classification": "PASS",
+      "dimensions": "320x320",
+      "bytes": 51385,
+      "exists": true
+    },
+    {
+      "src": "/cartilla/art/optimized/flipchart-native/p007-scene.png",
+      "word": "Ilustración de la página 7",
+      "page": "7",
+      "classification": "PASS",
+      "dimensions": "560x560",
+      "bytes": 129226,
+      "exists": true
+    },
+    {
+      "src": "/cartilla/art/optimized/flipchart-native/p007-iman.png",
+      "word": "imán",
+      "page": "7",
+      "classification": "PASS",
+      "dimensions": "320x320",
+      "bytes": 39281,
+      "exists": true
+    },
+    {
+      "src": "/cartilla/art/optimized/flipchart-native/p007-iglu.png",
+      "word": "iglú",
+      "page": "7",
+      "classification": "PASS",
+      "dimensions": "320x320",
+      "bytes": 35084,
+      "exists": true
+    },
+    {
+      "src": "/cartilla/art/optimized/flipchart-native/p007-indio.png",
+      "word": "indio",
+      "page": "7",
+      "classification": "PASS",
+      "dimensions": "320x320",
+      "bytes": 33627,
+      "exists": true
+    },
+    {
+      "src": "/cartilla/art/optimized/flipchart-native/p007-insecto.png",
+      "word": "insecto",
+      "page": "7",
+      "classification": "PASS",
+      "dimensions": "320x320",
+      "bytes": 67825,
+      "exists": true
+    },
+    {
+      "src": "/cartilla/art/optimized/flipchart-native/p007-isla.png",
+      "word": "isla",
+      "page": "7",
+      "classification": "PASS",
+      "dimensions": "320x320",
+      "bytes": 49951,
+      "exists": true
+    },
+    {
+      "src": "/cartilla/art/optimized/flipchart-native/p007-irma.png",
+      "word": "Irma",
+      "page": "7",
+      "classification": "PASS",
+      "dimensions": "320x320",
+      "bytes": 56587,
+      "exists": true
+    },
+    {
+      "src": "/cartilla/art/optimized/flipchart-native/p008-scene.png",
+      "word": "Ilustración de la página 8",
+      "page": "8",
+      "classification": "PASS",
+      "dimensions": "480x480",
+      "bytes": 191446,
+      "exists": true
+    },
+    {
+      "src": "/cartilla/art/optimized/flipchart-native/p008-uno.png",
+      "word": "uno",
+      "page": "8",
+      "classification": "PASS",
+      "dimensions": "320x320",
+      "bytes": 80479,
+      "exists": true
+    },
+    {
+      "src": "/cartilla/art/optimized/flipchart-native/p008-uva.png",
+      "word": "uva",
+      "page": "8",
+      "classification": "PASS",
+      "dimensions": "320x320",
+      "bytes": 78680,
+      "exists": true
+    },
+    {
+      "src": "/cartilla/art/optimized/flipchart-native/p008-urraca.png",
+      "word": "urraca",
+      "page": "8",
+      "classification": "PASS",
+      "dimensions": "320x320",
+      "bytes": 33697,
+      "exists": true
+    },
+    {
+      "src": "/cartilla/art/optimized/flipchart-native/p008-unicornio.png",
+      "word": "unicornio",
+      "page": "8",
+      "classification": "PASS",
+      "dimensions": "320x320",
+      "bytes": 60538,
+      "exists": true
+    },
+    {
+      "src": "/cartilla/art/optimized/flipchart-native/p008-uniforme.png",
+      "word": "uniforme",
+      "page": "8",
+      "classification": "PASS",
+      "dimensions": "320x320",
+      "bytes": 42650,
+      "exists": true
+    },
+    {
+      "src": "/cartilla/art/optimized/flipchart-native/p008-ulises.png",
+      "word": "Ulises",
+      "page": "8",
+      "classification": "PASS",
+      "dimensions": "320x320",
+      "bytes": 69778,
+      "exists": true
+    },
+    {
+      "src": "/cartilla/art/optimized/flipchart-native/p009-scene.png",
+      "word": "Ilustración de la página 9",
+      "page": "9",
+      "classification": "PASS",
+      "dimensions": "530x530",
+      "bytes": 269934,
+      "exists": true
+    },
+    {
+      "src": "/cartilla/art/optimized/flipchart-native/p009-mama.png",
+      "word": "mamá",
+      "page": "9",
+      "classification": "PASS",
+      "dimensions": "344x344",
+      "bytes": 58231,
+      "exists": true
+    },
+    {
+      "src": "/cartilla/art/optimized/flipchart-native/p009-amo.png",
+      "word": "amo",
+      "page": "9",
+      "classification": "PASS",
+      "dimensions": "320x320",
+      "bytes": 64626,
+      "exists": true
+    },
+    {
+      "src": "/cartilla/art/optimized/flipchart-native/p009-mima.png",
+      "word": "mima",
+      "page": "9",
+      "classification": "PASS",
+      "dimensions": "328x328",
+      "bytes": 101089,
+      "exists": true
+    },
+    {
+      "src": "/cartilla/art/optimized/flipchart-native/p009-meme.png",
+      "word": "Meme",
+      "page": "9",
+      "classification": "PASS",
+      "dimensions": "320x320",
+      "bytes": 42639,
+      "exists": true
+    },
+    {
+      "src": "/cartilla/art/optimized/flipchart-native/p009-mumi.png",
+      "word": "Mumi",
+      "page": "9",
+      "classification": "PASS",
+      "dimensions": "320x320",
+      "bytes": 64622,
+      "exists": true
+    },
+    {
+      "src": "/cartilla/art/optimized/flipchart-native/p011-scene.png",
+      "word": "Ilustración de la página 11",
+      "page": "11",
+      "classification": "PASS",
+      "dimensions": "630x630",
+      "bytes": 199944,
+      "exists": true
+    },
+    {
+      "src": "/cartilla/art/optimized/flipchart-native/p012-scene.png",
+      "word": "Ilustración de la página 12",
+      "page": "12",
+      "classification": "PASS",
+      "dimensions": "560x560",
+      "bytes": 188737,
+      "exists": true
+    },
+    {
+      "src": "/cartilla/art/optimized/flipchart-native/p012-papa.png",
+      "word": "papá",
+      "page": "12",
+      "classification": "PASS",
+      "dimensions": "320x320",
+      "bytes": 52592,
+      "exists": true
+    },
+    {
+      "src": "/cartilla/art/optimized/flipchart-native/p012-pie.png",
+      "word": "pie",
+      "page": "12",
+      "classification": "PASS",
+      "dimensions": "320x320",
+      "bytes": 35828,
+      "exists": true
+    },
+    {
+      "src": "/cartilla/art/optimized/flipchart-native/p012-pepe.png",
+      "word": "Pepe",
+      "page": "12",
+      "classification": "PASS",
+      "dimensions": "320x320",
+      "bytes": 64078,
+      "exists": true
+    },
+    {
+      "src": "/cartilla/art/optimized/flipchart-native/p012-puma.png",
+      "word": "puma",
+      "page": "12",
+      "classification": "PASS",
+      "dimensions": "320x320",
+      "bytes": 62327,
+      "exists": true
+    },
+    {
+      "src": "/cartilla/art/optimized/flipchart-native/p012-pomo.png",
+      "word": "pomo",
+      "page": "12",
+      "classification": "PASS",
+      "dimensions": "320x320",
+      "bytes": 46993,
+      "exists": true
+    },
+    {
+      "src": "/cartilla/art/optimized/flipchart-native/p014-scene.png",
+      "word": "Ilustración de la página 14",
+      "page": "14",
+      "classification": "PASS",
+      "dimensions": "654x654",
+      "bytes": 272998,
+      "exists": true
+    },
+    {
+      "src": "/cartilla/art/optimized/flipchart-native/p015-scene.png",
+      "word": "Ilustración de la página 15",
+      "page": "15",
+      "classification": "PASS",
+      "dimensions": "560x560",
+      "bytes": 287347,
+      "exists": true
+    },
+    {
+      "src": "/cartilla/art/optimized/flipchart-native/p015-sesi.png",
+      "word": "Sesi",
+      "page": "15",
+      "classification": "PASS",
+      "dimensions": "342x342",
+      "bytes": 58380,
+      "exists": true
+    },
+    {
+      "src": "/cartilla/art/optimized/flipchart-native/p015-sopa.png",
+      "word": "sopa",
+      "page": "15",
+      "classification": "PASS",
+      "dimensions": "320x320",
+      "bytes": 61061,
+      "exists": true
+    },
+    {
+      "src": "/cartilla/art/optimized/flipchart-native/p015-sapo.png",
+      "word": "sapo",
+      "page": "15",
+      "classification": "PASS",
+      "dimensions": "320x320",
+      "bytes": 51491,
+      "exists": true
+    },
+    {
+      "src": "/cartilla/art/optimized/flipchart-native/p015-pisa.png",
+      "word": "pisa",
+      "page": "15",
+      "classification": "PASS",
+      "dimensions": "320x320",
+      "bytes": 23189,
+      "exists": true
+    },
+    {
+      "src": "/cartilla/art/optimized/flipchart-native/p015-susi.png",
+      "word": "Susi",
+      "page": "15",
+      "classification": "PASS",
+      "dimensions": "320x320",
+      "bytes": 68028,
+      "exists": true
+    },
+    {
+      "src": "/cartilla/art/optimized/flipchart-native/p017-scene.png",
+      "word": "Ilustración de la página 17",
+      "page": "17",
+      "classification": "PASS",
+      "dimensions": "645x645",
+      "bytes": 173867,
+      "exists": true
+    },
+    {
+      "src": "/cartilla/art/optimized/flipchart-native/p018-scene.png",
+      "word": "Ilustración de la página 18",
+      "page": "18",
+      "classification": "PASS",
+      "dimensions": "558x558",
+      "bytes": 217046,
+      "exists": true
+    },
+    {
+      "src": "/cartilla/art/optimized/flipchart-native/p018-tomate.webp",
+      "word": "tomate",
+      "page": "18",
+      "classification": "PASS",
+      "dimensions": "1536x1395",
+      "bytes": 96285,
+      "exists": true
+    },
+    {
+      "src": "/cartilla/art/optimized/flipchart-native/p018-tapa.webp",
+      "word": "tapa",
+      "page": "18",
+      "classification": "PASS",
+      "dimensions": "1536x1240",
+      "bytes": 127625,
+      "exists": true
+    },
+    {
+      "src": "/cartilla/art/optimized/flipchart-native/p018-topo.webp",
+      "word": "topo",
+      "page": "18",
+      "classification": "PASS",
+      "dimensions": "1478x1536",
+      "bytes": 169656,
+      "exists": true
+    },
+    {
+      "src": "/cartilla/art/optimized/flipchart-native/p018-tipi.webp",
+      "word": "tipi",
+      "page": "18",
+      "classification": "PASS",
+      "dimensions": "1536x1464",
+      "bytes": 146747,
+      "exists": true
+    },
+    {
+      "src": "/cartilla/art/optimized/flipchart-native/p018-tuto.webp",
+      "word": "Tuto",
+      "page": "18",
+      "classification": "PASS",
+      "dimensions": "1536x1482",
+      "bytes": 201825,
+      "exists": true
+    },
+    {
+      "src": "/cartilla/art/optimized/flipchart-native/p020-scene.png",
+      "word": "Ilustración de la página 20",
+      "page": "20",
+      "classification": "PASS",
+      "dimensions": "658x658",
+      "bytes": 356866,
+      "exists": true
+    },
+    {
+      "src": "/cartilla/art/optimized/flipchart-native/p021-scene.png",
+      "word": "Ilustración de la página 21",
+      "page": "21",
+      "classification": "PASS",
+      "dimensions": "559x559",
+      "bytes": 104462,
+      "exists": true
+    },
+    {
+      "src": "/cartilla/art/optimized/flipchart-native/p021-didi.webp",
+      "word": "Didi",
+      "page": "21",
+      "classification": "PASS",
+      "dimensions": "1536x1360",
+      "bytes": 125316,
+      "exists": true
+    },
+    {
+      "src": "/cartilla/art/optimized/flipchart-native/p021-dados.webp",
+      "word": "dados",
+      "page": "21",
+      "classification": "PASS",
+      "dimensions": "1536x1440",
+      "bytes": 136317,
+      "exists": true
+    },
+    {
+      "src": "/cartilla/art/optimized/flipchart-native/p021-dedo.webp",
+      "word": "dedo",
+      "page": "21",
+      "classification": "PASS",
+      "dimensions": "1281x1536",
+      "bytes": 127794,
+      "exists": true
+    },
+    {
+      "src": "/cartilla/art/optimized/flipchart-native/p021-doce.webp",
+      "word": "doce",
+      "page": "21",
+      "classification": "PASS",
+      "dimensions": "1355x1536",
+      "bytes": 195221,
+      "exists": true
+    },
+    {
+      "src": "/cartilla/art/optimized/flipchart-native/p021-dunia.webp",
+      "word": "Dunia",
+      "page": "21",
+      "classification": "PASS",
+      "dimensions": "1536x1324",
+      "bytes": 218652,
+      "exists": true
+    },
+    {
+      "src": "/cartilla/art/optimized/flipchart-native/p023-scene.png",
+      "word": "Ilustración de la página 23",
+      "page": "23",
+      "classification": "PASS",
+      "dimensions": "621x621",
+      "bytes": 307816,
+      "exists": true
+    },
+    {
+      "src": "/cartilla/art/optimized/flipchart-native/p024-scene.png",
+      "word": "Ilustración de la página 24",
+      "page": "24",
+      "classification": "PASS",
+      "dimensions": "549x549",
+      "bytes": 180981,
+      "exists": true
+    },
+    {
+      "src": "/cartilla/art/optimized/flipchart-native/p024-maleta.webp",
+      "word": "maleta",
+      "page": "24",
+      "classification": "PASS",
+      "dimensions": "1369x1536",
+      "bytes": 140465,
+      "exists": true
+    },
+    {
+      "src": "/cartilla/art/optimized/flipchart-native/p024-lata.webp",
+      "word": "lata",
+      "page": "24",
+      "classification": "PASS",
+      "dimensions": "1395x1536",
+      "bytes": 158721,
+      "exists": true
+    },
+    {
+      "src": "/cartilla/art/optimized/flipchart-native/p024-luli.webp",
+      "word": "Luli",
+      "page": "24",
+      "classification": "PASS",
+      "dimensions": "1058x1536",
+      "bytes": 132783,
+      "exists": true
+    },
+    {
+      "src": "/cartilla/art/optimized/flipchart-native/p024-loma.webp",
+      "word": "loma",
+      "page": "24",
+      "classification": "PASS",
+      "dimensions": "1536x1238",
+      "bytes": 91971,
+      "exists": true
+    },
+    {
+      "src": "/cartilla/art/optimized/flipchart-native/p024-lala.png",
+      "word": "Lala",
+      "page": "24",
+      "classification": "PASS",
+      "dimensions": "550x495",
+      "bytes": 281675,
+      "exists": true
+    },
+    {
+      "src": "/cartilla/art/optimized/flipchart-native/p026-scene.png",
+      "word": "Ilustración de la página 26",
+      "page": "26",
+      "classification": "PASS",
+      "dimensions": "638x638",
+      "bytes": 189595,
+      "exists": true
+    },
+    {
+      "src": "/cartilla/art/optimized/flipchart-native/p027-scene.png",
+      "word": "Ilustración de la página 27",
+      "page": "27",
+      "classification": "PASS",
+      "dimensions": "560x560",
+      "bytes": 279018,
+      "exists": true
+    },
+    {
+      "src": "/cartilla/art/optimized/flipchart-native/p027-nido.png",
+      "word": "nido",
+      "page": "27",
+      "classification": "PASS",
+      "dimensions": "320x320",
+      "bytes": 43656,
+      "exists": true
+    },
+    {
+      "src": "/cartilla/art/optimized/flipchart-native/p027-nudo.png",
+      "word": "nudo",
+      "page": "27",
+      "classification": "PASS",
+      "dimensions": "320x320",
+      "bytes": 44142,
+      "exists": true
+    },
+    {
+      "src": "/cartilla/art/optimized/flipchart-native/p027-mono.png",
+      "word": "mono",
+      "page": "27",
+      "classification": "PASS",
+      "dimensions": "320x320",
+      "bytes": 40787,
+      "exists": true
+    },
+    {
+      "src": "/cartilla/art/optimized/flipchart-native/p027-napi.png",
+      "word": "Napi",
+      "page": "27",
+      "classification": "PASS",
+      "dimensions": "320x320",
+      "bytes": 70916,
+      "exists": true
+    },
+    {
+      "src": "/cartilla/art/optimized/flipchart-native/p027-tenedor.png",
+      "word": "tenedor",
+      "page": "27",
+      "classification": "PASS",
+      "dimensions": "320x320",
+      "bytes": 12037,
+      "exists": true
+    },
+    {
+      "src": "/cartilla/art/optimized/flipchart-native/p029-scene.png",
+      "word": "Ilustración de la página 29",
+      "page": "29",
+      "classification": "PASS",
+      "dimensions": "665x665",
+      "bytes": 264645,
+      "exists": true
+    },
+    {
+      "src": "/cartilla/art/optimized/flipchart-native/p030-scene.png",
+      "word": "Ilustración de la página 30",
+      "page": "30",
+      "classification": "PASS",
+      "dimensions": "545x545",
+      "bytes": 260707,
+      "exists": true
+    },
+    {
+      "src": "/cartilla/art/optimized/flipchart-native/p030-pinata.png",
+      "word": "piñata",
+      "page": "30",
+      "classification": "PASS",
+      "dimensions": "320x320",
+      "bytes": 43865,
+      "exists": true
+    },
+    {
+      "src": "/cartilla/art/optimized/flipchart-native/p030-nuno.png",
+      "word": "Ñuno",
+      "page": "30",
+      "classification": "PASS",
+      "dimensions": "320x320",
+      "bytes": 36499,
+      "exists": true
+    },
+    {
+      "src": "/cartilla/art/optimized/flipchart-native/p030-ninito.png",
+      "word": "niñito",
+      "page": "30",
+      "classification": "PASS",
+      "dimensions": "320x320",
+      "bytes": 55302,
+      "exists": true
+    },
+    {
+      "src": "/cartilla/art/optimized/flipchart-native/p030-mono.png",
+      "word": "moño",
+      "page": "30",
+      "classification": "PASS",
+      "dimensions": "320x320",
+      "bytes": 84380,
+      "exists": true
+    },
+    {
+      "src": "/cartilla/art/optimized/flipchart-native/p030-mene.png",
+      "word": "Meñe",
+      "page": "30",
+      "classification": "PASS",
+      "dimensions": "320x320",
+      "bytes": 51822,
+      "exists": true
+    },
+    {
+      "src": "/cartilla/art/optimized/flipchart-native/p032-scene.png",
+      "word": "Ilustración de la página 32",
+      "page": "32",
+      "classification": "PASS",
+      "dimensions": "682x682",
+      "bytes": 231822,
+      "exists": true
+    },
+    {
+      "src": "/cartilla/art/optimized/flipchart-native/p033-scene.png",
+      "word": "Ilustración de la página 33",
+      "page": "33",
+      "classification": "PASS",
+      "dimensions": "549x549",
+      "bytes": 227395,
+      "exists": true
+    },
+    {
+      "src": "/cartilla/art/optimized/flipchart-native/p033-beba.png",
+      "word": "Beba",
+      "page": "33",
+      "classification": "PASS",
+      "dimensions": "320x320",
+      "bytes": 46539,
+      "exists": true
+    },
+    {
+      "src": "/cartilla/art/optimized/flipchart-native/p033-bubi.png",
+      "word": "Bubi",
+      "page": "33",
+      "classification": "PASS",
+      "dimensions": "320x320",
+      "bytes": 42247,
+      "exists": true
+    },
+    {
+      "src": "/cartilla/art/optimized/flipchart-native/p033-bate.png",
+      "word": "bate",
+      "page": "33",
+      "classification": "PASS",
+      "dimensions": "320x320",
+      "bytes": 25693,
+      "exists": true
+    },
+    {
+      "src": "/cartilla/art/optimized/flipchart-native/p033-bota.png",
+      "word": "bota",
+      "page": "33",
+      "classification": "PASS",
+      "dimensions": "320x320",
+      "bytes": 92719,
+      "exists": true
+    },
+    {
+      "src": "/cartilla/art/optimized/flipchart-native/p033-bebita.png",
+      "word": "bebita",
+      "page": "33",
+      "classification": "PASS",
+      "dimensions": "320x320",
+      "bytes": 75124,
+      "exists": true
+    },
+    {
+      "src": "/cartilla/art/optimized/flipchart-native/p035-scene.png",
+      "word": "Ilustración de la página 35",
+      "page": "35",
+      "classification": "PASS",
+      "dimensions": "666x666",
+      "bytes": 177075,
+      "exists": true
+    },
+    {
+      "src": "/cartilla/art/optimized/flipchart-native/p036-scene.png",
+      "word": "Ilustración de la página 36",
+      "page": "36",
+      "classification": "PASS",
+      "dimensions": "526x526",
+      "bytes": 191915,
+      "exists": true
+    },
+    {
+      "src": "/cartilla/art/optimized/flipchart-native/p036-vaso.png",
+      "word": "vaso",
+      "page": "36",
+      "classification": "PASS",
+      "dimensions": "320x320",
+      "bytes": 23211,
+      "exists": true
+    },
+    {
+      "src": "/cartilla/art/optimized/flipchart-native/p036-vela.png",
+      "word": "vela",
+      "page": "36",
+      "classification": "PASS",
+      "dimensions": "320x320",
+      "bytes": 30920,
+      "exists": true
+    },
+    {
+      "src": "/cartilla/art/optimized/flipchart-native/p036-vita.png",
+      "word": "Vita",
+      "page": "36",
+      "classification": "PASS",
+      "dimensions": "320x320",
+      "bytes": 63379,
+      "exists": true
+    },
+    {
+      "src": "/cartilla/art/optimized/flipchart-native/p036-pavo.png",
+      "word": "pavo",
+      "page": "36",
+      "classification": "PASS",
+      "dimensions": "320x320",
+      "bytes": 93181,
+      "exists": true
+    },
+    {
+      "src": "/cartilla/art/optimized/flipchart-native/p036-vuli.png",
+      "word": "Vuli",
+      "page": "36",
+      "classification": "PASS",
+      "dimensions": "330x330",
+      "bytes": 36595,
+      "exists": true
+    },
+    {
+      "src": "/cartilla/art/optimized/flipchart-native/p038-scene.png",
+      "word": "Ilustración de la página 38",
+      "page": "38",
+      "classification": "PASS",
+      "dimensions": "636x636",
+      "bytes": 209332,
+      "exists": true
+    },
+    {
+      "src": "/cartilla/art/optimized/flipchart-native/p039-scene.png",
+      "word": "Ilustración de la página 39",
+      "page": "39",
+      "classification": "PASS",
+      "dimensions": "519x519",
+      "bytes": 178166,
+      "exists": true
+    },
+    {
+      "src": "/cartilla/art/optimized/flipchart-native/p039-rana.png",
+      "word": "rana",
+      "page": "39",
+      "classification": "PASS",
+      "dimensions": "320x320",
+      "bytes": 62419,
+      "exists": true
+    },
+    {
+      "src": "/cartilla/art/optimized/flipchart-native/p039-remos.png",
+      "word": "remos",
+      "page": "39",
+      "classification": "PASS",
+      "dimensions": "320x320",
+      "bytes": 65623,
+      "exists": true
+    },
+    {
+      "src": "/cartilla/art/optimized/flipchart-native/p039-rita.png",
+      "word": "Rita",
+      "page": "39",
+      "classification": "PASS",
+      "dimensions": "324x324",
+      "bytes": 52168,
+      "exists": true
+    },
+    {
+      "src": "/cartilla/art/optimized/flipchart-native/p039-rosa.png",
+      "word": "rosa",
+      "page": "39",
+      "classification": "PASS",
+      "dimensions": "320x320",
+      "bytes": 54742,
+      "exists": true
+    },
+    {
+      "src": "/cartilla/art/optimized/flipchart-native/p039-rueda.png",
+      "word": "rueda",
+      "page": "39",
+      "classification": "PASS",
+      "dimensions": "320x320",
+      "bytes": 87137,
+      "exists": true
+    },
+    {
+      "src": "/cartilla/art/optimized/flipchart-native/p041-scene.png",
+      "word": "Ilustración de la página 41",
+      "page": "41",
+      "classification": "PASS",
+      "dimensions": "586x586",
+      "bytes": 254340,
+      "exists": true
+    },
+    {
+      "src": "/cartilla/art/optimized/flipchart-native/p042-scene.png",
+      "word": "Ilustración de la página 42",
+      "page": "42",
+      "classification": "PASS",
+      "dimensions": "529x529",
+      "bytes": 261932,
+      "exists": true
+    },
+    {
+      "src": "/cartilla/art/optimized/flipchart-native/p042-burro.png",
+      "word": "burro",
+      "page": "42",
+      "classification": "PASS",
+      "dimensions": "320x320",
+      "bytes": 46838,
+      "exists": true
+    },
+    {
+      "src": "/cartilla/art/optimized/flipchart-native/p042-carrusel.png",
+      "word": "carrusel",
+      "page": "42",
+      "classification": "PASS",
+      "dimensions": "320x320",
+      "bytes": 87851,
+      "exists": true
+    },
+    {
+      "src": "/cartilla/art/optimized/flipchart-native/p042-torre.png",
+      "word": "torre",
+      "page": "42",
+      "classification": "PASS",
+      "dimensions": "320x320",
+      "bytes": 24379,
+      "exists": true
+    },
+    {
+      "src": "/cartilla/art/optimized/flipchart-native/p042-barril.png",
+      "word": "barril",
+      "page": "42",
+      "classification": "PASS",
+      "dimensions": "320x320",
+      "bytes": 64861,
+      "exists": true
+    },
+    {
+      "src": "/cartilla/art/optimized/flipchart-native/p042-tierra.png",
+      "word": "Tierra",
+      "page": "42",
+      "classification": "PASS",
+      "dimensions": "320x320",
+      "bytes": 95440,
+      "exists": true
+    },
+    {
+      "src": "/cartilla/art/optimized/flipchart-native/p044-scene.png",
+      "word": "Ilustración de la página 44",
+      "page": "44",
+      "classification": "PASS",
+      "dimensions": "653x653",
+      "bytes": 552239,
+      "exists": true
+    },
+    {
+      "src": "/cartilla/art/optimized/flipchart-native/p045-scene.png",
+      "word": "Ilustración de la página 45",
+      "page": "45",
+      "classification": "PASS",
+      "dimensions": "557x557",
+      "bytes": 166965,
+      "exists": true
+    },
+    {
+      "src": "/cartilla/art/optimized/flipchart-native/p045-gaveta.png",
+      "word": "gaveta",
+      "page": "45",
+      "classification": "PASS",
+      "dimensions": "321x321",
+      "bytes": 80865,
+      "exists": true
+    },
+    {
+      "src": "/cartilla/art/optimized/flipchart-native/p045-gusano.png",
+      "word": "gusano",
+      "page": "45",
+      "classification": "PASS",
+      "dimensions": "333x333",
+      "bytes": 27873,
+      "exists": true
+    },
+    {
+      "src": "/cartilla/art/optimized/flipchart-native/p045-goloso.png",
+      "word": "Goloso",
+      "page": "45",
+      "classification": "PASS",
+      "dimensions": "320x320",
+      "bytes": 71135,
+      "exists": true
+    },
+    {
+      "src": "/cartilla/art/optimized/flipchart-native/p045-gorra.png",
+      "word": "gorra",
+      "page": "45",
+      "classification": "PASS",
+      "dimensions": "320x320",
+      "bytes": 55671,
+      "exists": true
+    },
+    {
+      "src": "/cartilla/art/optimized/flipchart-native/p045-mago.png",
+      "word": "mago",
+      "page": "45",
+      "classification": "PASS",
+      "dimensions": "320x320",
+      "bytes": 75805,
+      "exists": true
+    },
+    {
+      "src": "/cartilla/art/optimized/flipchart-native/p047-scene.png",
+      "word": "Ilustración de la página 47",
+      "page": "47",
+      "classification": "PASS",
+      "dimensions": "667x667",
+      "bytes": 238929,
+      "exists": true
+    },
+    {
+      "src": "/cartilla/art/optimized/flipchart-native/p048-scene.png",
+      "word": "Ilustración de la página 48",
+      "page": "48",
+      "classification": "PASS",
+      "dimensions": "552x552",
+      "bytes": 122839,
+      "exists": true
+    },
+    {
+      "src": "/cartilla/art/optimized/flipchart-native/p048-foto.png",
+      "word": "foto",
+      "page": "48",
+      "classification": "PASS",
+      "dimensions": "320x320",
+      "bytes": 65853,
+      "exists": true
+    },
+    {
+      "src": "/cartilla/art/optimized/flipchart-native/p048-fideos.png",
+      "word": "fideos",
+      "page": "48",
+      "classification": "PASS",
+      "dimensions": "325x325",
+      "bytes": 69470,
+      "exists": true
+    },
+    {
+      "src": "/cartilla/art/optimized/flipchart-native/p048-familia.png",
+      "word": "familia",
+      "page": "48",
+      "classification": "PASS",
+      "dimensions": "323x323",
+      "bytes": 69178,
+      "exists": true
+    },
+    {
+      "src": "/cartilla/art/optimized/flipchart-native/p048-felo.png",
+      "word": "Felo",
+      "page": "48",
+      "classification": "PASS",
+      "dimensions": "321x321",
+      "bytes": 80269,
+      "exists": true
+    },
+    {
+      "src": "/cartilla/art/optimized/flipchart-native/p048-funda.png",
+      "word": "funda",
+      "page": "48",
+      "classification": "PASS",
+      "dimensions": "320x320",
+      "bytes": 56851,
+      "exists": true
+    },
+    {
+      "src": "/cartilla/art/optimized/flipchart-native/p050-scene.png",
+      "word": "Ilustración de la página 50",
+      "page": "50",
+      "classification": "PASS",
+      "dimensions": "644x644",
+      "bytes": 330647,
+      "exists": true
+    },
+    {
+      "src": "/cartilla/art/optimized/flipchart-native/p051-scene.png",
+      "word": "Ilustración de la página 51",
+      "page": "51",
+      "classification": "PASS",
+      "dimensions": "537x537",
+      "bytes": 239137,
+      "exists": true
+    },
+    {
+      "src": "/cartilla/art/optimized/flipchart-native/p051-jicotea.png",
+      "word": "jicotea",
+      "page": "51",
+      "classification": "PASS",
+      "dimensions": "322x322",
+      "bytes": 82182,
+      "exists": true
+    },
+    {
+      "src": "/cartilla/art/optimized/flipchart-native/p051-jugo.png",
+      "word": "jugo",
+      "page": "51",
+      "classification": "PASS",
+      "dimensions": "320x320",
+      "bytes": 41769,
+      "exists": true
+    },
+    {
+      "src": "/cartilla/art/optimized/flipchart-native/p051-jesus.png",
+      "word": "Jesús",
+      "page": "51",
+      "classification": "PASS",
+      "dimensions": "320x320",
+      "bytes": 46181,
+      "exists": true
+    },
+    {
+      "src": "/cartilla/art/optimized/flipchart-native/p051-ajo.png",
+      "word": "ajo",
+      "page": "51",
+      "classification": "PASS",
+      "dimensions": "320x320",
+      "bytes": 51115,
+      "exists": true
+    },
+    {
+      "src": "/cartilla/art/optimized/flipchart-native/p051-jarra.png",
+      "word": "jarra",
+      "page": "51",
+      "classification": "PASS",
+      "dimensions": "320x320",
+      "bytes": 54311,
+      "exists": true
+    },
+    {
+      "src": "/cartilla/art/optimized/flipchart-native/p053-scene.png",
+      "word": "Ilustración de la página 53",
+      "page": "53",
+      "classification": "PASS",
+      "dimensions": "671x671",
+      "bytes": 335717,
+      "exists": true
+    },
+    {
+      "src": "/cartilla/art/optimized/flipchart-native/p054-scene.png",
+      "word": "Ilustración de la página 54",
+      "page": "54",
+      "classification": "PASS",
+      "dimensions": "561x561",
+      "bytes": 252038,
+      "exists": true
+    },
+    {
+      "src": "/cartilla/art/optimized/flipchart-native/p054-cuna.png",
+      "word": "cuna",
+      "page": "54",
+      "classification": "PASS",
+      "dimensions": "320x320",
+      "bytes": 66603,
+      "exists": true
+    },
+    {
+      "src": "/cartilla/art/optimized/flipchart-native/p054-conejo.png",
+      "word": "conejo",
+      "page": "54",
+      "classification": "PASS",
+      "dimensions": "320x320",
+      "bytes": 39496,
+      "exists": true
+    },
+    {
+      "src": "/cartilla/art/optimized/flipchart-native/p054-casa.png",
+      "word": "casa",
+      "page": "54",
+      "classification": "PASS",
+      "dimensions": "339x339",
+      "bytes": 70088,
+      "exists": true
+    },
+    {
+      "src": "/cartilla/art/optimized/flipchart-native/p054-cubo.png",
+      "word": "cubo",
+      "page": "54",
+      "classification": "PASS",
+      "dimensions": "320x320",
+      "bytes": 52382,
+      "exists": true
+    },
+    {
+      "src": "/cartilla/art/optimized/flipchart-native/p054-catalina.png",
+      "word": "Catalina",
+      "page": "54",
+      "classification": "PASS",
+      "dimensions": "320x320",
+      "bytes": 46615,
+      "exists": true
+    },
+    {
+      "src": "/cartilla/art/optimized/flipchart-native/p056-caramelos.webp",
+      "word": "Ilustración de la página 56",
+      "page": "56",
+      "classification": "PASS",
+      "dimensions": "1034x1536",
+      "bytes": 290425,
+      "exists": true
+    },
+    {
+      "src": "/cartilla/art/optimized/flipchart-native/p057-scene.png",
+      "word": "Ilustración de la página 57",
+      "page": "57",
+      "classification": "PASS",
+      "dimensions": "560x560",
+      "bytes": 213847,
+      "exists": true
+    },
+    {
+      "src": "/cartilla/art/optimized/flipchart-native/p057-yate.png",
+      "word": "yate",
+      "page": "57",
+      "classification": "PASS",
+      "dimensions": "338x338",
+      "bytes": 68646,
+      "exists": true
+    },
+    {
+      "src": "/cartilla/art/optimized/flipchart-native/p057-yema.png",
+      "word": "yema",
+      "page": "57",
+      "classification": "PASS",
+      "dimensions": "333x333",
+      "bytes": 14093,
+      "exists": true
+    },
+    {
+      "src": "/cartilla/art/optimized/flipchart-native/p057-yayita.png",
+      "word": "Yayita",
+      "page": "57",
+      "classification": "PASS",
+      "dimensions": "320x320",
+      "bytes": 80945,
+      "exists": true
+    },
+    {
+      "src": "/cartilla/art/optimized/flipchart-native/p057-mayuscula.png",
+      "word": "mayúscula",
+      "page": "57",
+      "classification": "PASS",
+      "dimensions": "320x320",
+      "bytes": 62566,
+      "exists": true
+    },
+    {
+      "src": "/cartilla/art/optimized/flipchart-native/p057-yoyo.png",
+      "word": "yoyo",
+      "page": "57",
+      "classification": "PASS",
+      "dimensions": "320x320",
+      "bytes": 51013,
+      "exists": true
+    },
+    {
+      "src": "/cartilla/art/optimized/flipchart-native/p059-scene.png",
+      "word": "Ilustración de la página 59",
+      "page": "59",
+      "classification": "PASS",
+      "dimensions": "567x567",
+      "bytes": 281079,
+      "exists": true
+    },
+    {
+      "src": "/cartilla/art/optimized/flipchart-native/p060-scene.png",
+      "word": "Ilustración de la página 60",
+      "page": "60",
+      "classification": "PASS",
+      "dimensions": "505x505",
+      "bytes": 187254,
+      "exists": true
+    },
+    {
+      "src": "/cartilla/art/optimized/flipchart-native/p060-zapato.png",
+      "word": "zapato",
+      "page": "60",
+      "classification": "PASS",
+      "dimensions": "320x320",
+      "bytes": 61591,
+      "exists": true
+    },
+    {
+      "src": "/cartilla/art/optimized/flipchart-native/p060-zigzag.png",
+      "word": "zig-zag",
+      "page": "60",
+      "classification": "PASS",
+      "dimensions": "344x344",
+      "bytes": 35412,
+      "exists": true
+    },
+    {
+      "src": "/cartilla/art/optimized/flipchart-native/p060-zorro.png",
+      "word": "zorro",
+      "page": "60",
+      "classification": "PASS",
+      "dimensions": "320x320",
+      "bytes": 49029,
+      "exists": true
+    },
+    {
+      "src": "/cartilla/art/optimized/flipchart-native/p060-zepelin.png",
+      "word": "zepelín",
+      "page": "60",
+      "classification": "PASS",
+      "dimensions": "362x362",
+      "bytes": 74842,
+      "exists": true
+    },
+    {
+      "src": "/cartilla/art/optimized/flipchart-native/p060-zulema.png",
+      "word": "Zulema",
+      "page": "60",
+      "classification": "PASS",
+      "dimensions": "320x320",
+      "bytes": 51690,
+      "exists": true
+    },
+    {
+      "src": "/cartilla/art/optimized/flipchart-native/p062-scene.png",
+      "word": "Ilustración de la página 62",
+      "page": "62",
+      "classification": "PASS",
+      "dimensions": "633x633",
+      "bytes": 350896,
+      "exists": true
+    }
+  ]
+}
