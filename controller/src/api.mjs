@@ -8,6 +8,7 @@ export function openapi(){
  for(const p of ['/api/status','/api/jobs','/api/jobs/{id}','/api/jobs/{id}/evidence','/api/jobs/{id}/validations','/api/workers','/api/openapi.json'])paths[p]={get:{security:[{readToken:[]}],responses:{200:{description:'Read-only controller state'},401:{description:'Unauthorized'},503:{description:'Dependency not configured'}}}};
  for(const p of ['/api/jobs','/api/jobs/{id}/retry','/api/jobs/{id}/cancel'])paths[p]={...paths[p],post:{security:[{adminToken:[]}],responses:{202:{description:'Durably stored admin request'},409:{description:'Unsafe state transition'}}}};
  paths['/api/github/webhook']={post:{description:'GitHub HMAC-SHA256 signed raw body; stored before acknowledgment',responses:{202:{description:'Event and canonical job stored'}}}};
+ for(const [p,item]of Object.entries(paths))if(p.includes('{id}'))item.parameters=[{name:'id',in:'path',required:true,schema:{type:'string',format:'uuid'}}];
  return {openapi:'3.1.0',info:{title:'Cartilla Controller',version:'1.0.0'},paths,components:{securitySchemes:{readToken:{type:'http',scheme:'bearer'},adminToken:{type:'http',scheme:'bearer'}}}};
 }
 export async function api(req,deps,env=process.env){
