@@ -208,18 +208,55 @@ export function DirectPencilConnector({
     [targets],
   );
 
+  // Helper to validate saved or live pair/mark keys against current targets, roles, pairId, and unique endpoints
+  const validateProgressKeys = useCallback(
+    (rawKeys: string[]): Set<string> => {
+      const validated = new Set<string>();
+      // Pre-drawn examples are always pre-connected
+      targets.filter((t) => t.example).forEach((t) => validated.add(t.id));
+
+      if (isPairMode) {
+        const usedLeft = new Set<string>();
+        const usedRight = new Set<string>();
+
+        targets.filter((t) => t.example).forEach((t) => {
+          if (t.role === "left") usedLeft.add(t.id);
+          if (t.role === "right") usedRight.add(t.id);
+        });
+
+        for (const key of rawKeys) {
+          const parts = key.split("|");
+          if (parts.length !== 2) continue;
+          const [leftId, rightId] = parts;
+          if (usedLeft.has(leftId) || usedRight.has(rightId)) continue;
+
+          const left = targets.find((t) => t.id === leftId && t.role === "left");
+          const right = targets.find((t) => t.id === rightId && t.role === "right");
+          if (!left || !right || !left.pairId || !right.pairId) continue;
+          if (left.pairId !== right.pairId) continue;
+
+          usedLeft.add(leftId);
+          usedRight.add(rightId);
+          validated.add(key);
+        }
+      } else {
+        for (const id of rawKeys) {
+          if (validMarkIds.has(id)) {
+            const target = targets.find((t) => t.id === id);
+            if (target && target.correct !== false) {
+              validated.add(id);
+            }
+          }
+        }
+      }
+      return validated;
+    },
+    [isPairMode, targets, validMarkIds],
+  );
+
   const [marked, setMarked] = useState<Set<string>>(() => {
     const saved = loadLassoProgress(pageKey)?.completedIds ?? [];
-    if (isPairMode) {
-      return new Set([
-        ...targets.filter((t) => t.example).map((t) => t.id),
-        ...saved,
-      ]);
-    }
-    return new Set([
-      ...targets.filter((t) => t.example).map((t) => t.id),
-      ...saved.filter((id) => validMarkIds.has(id)),
-    ]);
+    return validateProgressKeys(saved);
   });
 
   const [selectedStartId, setSelectedStartId] = useState<string | null>(null);
@@ -466,26 +503,34 @@ export function DirectPencilConnector({
     [marked, completed, isLeftConnected, isRightConnected, getTargetCenter, persist, finishIfDone, onResult, recordWrong, gretelEvent, reducedMotion],
   );
 
-  const handlePointerUpStage = (e: React.PointerEvent) => {
-    if (!isDragging) return;
+  const cancelDragState = useCallback(() => {
     setIsDragging(false);
     setDragPt(null);
+    setHoverTargetId(null);
+    setDragStartId(null);
+  }, []);
 
-    if (hoverTargetId) {
-      if (isPairMode && dragStartId) {
-        const left = targets.find((t) => t.id === dragStartId);
-        const right = targets.find((t) => t.id === hoverTargetId);
+  const handlePointerUpStage = (e: React.PointerEvent) => {
+    if (!isDragging) return;
+    const currentHoverId = hoverTargetId;
+    const currentDragStartId = dragStartId;
+
+    cancelDragState();
+
+    if (currentHoverId) {
+      if (isPairMode && currentDragStartId) {
+        const left = targets.find((t) => t.id === currentDragStartId);
+        const right = targets.find((t) => t.id === currentHoverId);
         if (left && right) {
           attemptPairConnect(left, right);
         }
       } else {
-        const target = targets.find((t) => t.id === hoverTargetId);
+        const target = targets.find((t) => t.id === currentHoverId);
         if (target) {
           attemptConnect(target);
         }
       }
     }
-    setHoverTargetId(null);
   };
 
   const handleTargetClick = (target: LassoTarget) => {
@@ -549,7 +594,7 @@ export function DirectPencilConnector({
         ref={stageRef}
         onPointerMove={handlePointerMoveStage}
         onPointerUp={handlePointerUpStage}
-        onPointerCancel={handlePointerUpStage}
+        onPointerCancel={cancelDragState}
       >
         {/* SVG Direct Pencil Lines Layer */}
         <svg className="am-direct-pencil__svg-layer" aria-hidden="true">
