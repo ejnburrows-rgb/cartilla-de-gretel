@@ -13,7 +13,7 @@ import { useActivityEvents, useActivityState } from "@/lib/activity-events";
 import { playCorrectChord, playWrongBuzz } from "@/lib/piano-audio";
 import { loadLassoProgress, saveLassoProgress } from "@/lib/activity-canvas-store";
 import { useReducedMotion } from "@/hooks/useReducedMotion";
-import { PencilShape } from "@/components/cartilla/WorkbookPencilMark";
+import { PencilShape, WORKBOOK_MARK_TIMING } from "@/components/cartilla/WorkbookPencilMark";
 import type { WorkbookObject } from "@/content/workbook/types";
 import type { InteractionProps } from "./shared";
 import "@/styles/activity-mechanics.css";
@@ -270,6 +270,10 @@ export function DirectPencilConnector({
   const [isExpanded, setIsExpanded] = useState(false);
   const finishedRef = useRef(false);
 
+  const justInitiatedCenterRef = useRef(false);
+  const justInitiatedLeftRef = useRef<string | null>(null);
+  const [measureTick, setMeasureTick] = useState(0);
+
   const learnerMarkedCount = useMemo(() => {
     return [...marked].filter((id) => !targets.find((t) => t.id === id)?.example).length;
   }, [marked, targets]);
@@ -362,11 +366,37 @@ export function DirectPencilConnector({
     }
   }, [getCenterPt]);
 
-  useEffect(() => {
+  const measureEndpoints = useCallback(() => {
     updateCenterPt();
-    window.addEventListener("resize", updateCenterPt);
-    return () => window.removeEventListener("resize", updateCenterPt);
-  }, [updateCenterPt, isExpanded, marked]);
+    setMeasureTick((v) => v + 1);
+  }, [updateCenterPt]);
+
+  // Remeasure target endpoints after initial mount, ref attachment, and state changes
+  useEffect(() => {
+    measureEndpoints();
+    const t1 = setTimeout(measureEndpoints, 50);
+    const t2 = setTimeout(measureEndpoints, 150);
+    return () => {
+      clearTimeout(t1);
+      clearTimeout(t2);
+    };
+  }, [measureEndpoints, targets, isExpanded, marked]);
+
+  // ResizeObserver on stageRef for layout/resize remeasurement
+  useEffect(() => {
+    const stage = stageRef.current;
+    if (!stage || typeof ResizeObserver === "undefined") return;
+    const ro = new ResizeObserver(() => {
+      measureEndpoints();
+    });
+    ro.observe(stage);
+    return () => ro.disconnect();
+  }, [measureEndpoints]);
+
+  useEffect(() => {
+    window.addEventListener("resize", measureEndpoints);
+    return () => window.removeEventListener("resize", measureEndpoints);
+  }, [measureEndpoints]);
 
   // Check if left/right pair is connected
   const isLeftConnected = useCallback(
@@ -383,7 +413,12 @@ export function DirectPencilConnector({
   const handlePointerDownCenter = (e: React.PointerEvent) => {
     if (completed) return;
     e.preventDefault();
-    setSelectedStart(true);
+    if (!selectedStart) {
+      setSelectedStart(true);
+      justInitiatedCenterRef.current = true;
+    } else {
+      justInitiatedCenterRef.current = false;
+    }
     setIsDragging(true);
     setDragStartId("center");
     const stage = stageRef.current;
@@ -396,7 +431,12 @@ export function DirectPencilConnector({
   const handlePointerDownLeft = (e: React.PointerEvent, leftTarget: LassoTarget) => {
     if (completed || isLeftConnected(leftTarget.id)) return;
     e.preventDefault();
-    setSelectedStartId(leftTarget.id);
+    if (selectedStartId !== leftTarget.id) {
+      setSelectedStartId(leftTarget.id);
+      justInitiatedLeftRef.current = leftTarget.id;
+    } else {
+      justInitiatedLeftRef.current = null;
+    }
     setIsDragging(true);
     setDragStartId(leftTarget.id);
     const stage = stageRef.current;
@@ -466,7 +506,10 @@ export function DirectPencilConnector({
         const from = centerPt;
         const to = getTargetCenter(target.id);
         setWrongLine({ from, to, targetId: target.id });
-        setTimeout(() => setWrongLine(null), reducedMotion ? 80 : 380);
+        const retryDuration = reducedMotion
+          ? WORKBOOK_MARK_TIMING.reducedEraseMs
+          : WORKBOOK_MARK_TIMING.eraseMs;
+        setTimeout(() => setWrongLine(null), retryDuration);
         onResult?.({ objectId: target.id, result: "wrong" });
       }
     },
@@ -496,7 +539,10 @@ export function DirectPencilConnector({
         const from = getTargetCenter(left.id);
         const to = getTargetCenter(right.id);
         setWrongLine({ from, to, targetId: right.id });
-        setTimeout(() => setWrongLine(null), reducedMotion ? 80 : 380);
+        const retryDuration = reducedMotion
+          ? WORKBOOK_MARK_TIMING.reducedEraseMs
+          : WORKBOOK_MARK_TIMING.eraseMs;
+        setTimeout(() => setWrongLine(null), retryDuration);
         onResult?.({ objectId: right.id, result: "wrong" });
       }
     },
@@ -533,6 +579,15 @@ export function DirectPencilConnector({
     }
   };
 
+  const handleCenterClick = () => {
+    if (completed) return;
+    if (justInitiatedCenterRef.current) {
+      justInitiatedCenterRef.current = false;
+      return;
+    }
+    setSelectedStart((prev) => !prev);
+  };
+
   const handleTargetClick = (target: LassoTarget) => {
     if (marked.has(target.id) || completed) return;
     attemptConnect(target);
@@ -541,6 +596,10 @@ export function DirectPencilConnector({
 
   const handleLeftClick = (leftTarget: LassoTarget) => {
     if (completed || isLeftConnected(leftTarget.id)) return;
+    if (justInitiatedLeftRef.current === leftTarget.id) {
+      justInitiatedLeftRef.current = null;
+      return;
+    }
     if (selectedStartId === leftTarget.id) {
       setSelectedStartId(null);
     } else {
@@ -612,6 +671,8 @@ export function DirectPencilConnector({
           {!isPairMode &&
             targets.map((t) => {
               if (!marked.has(t.id)) return null;
+              // measureTick forces recalculation once target refs mount
+              void measureTick;
               const targetPt = getTargetCenter(t.id);
               const isExample = t.example;
               return (
@@ -638,6 +699,8 @@ export function DirectPencilConnector({
             [...marked].map((pairKey) => {
               const [leftId, rightId] = pairKey.split("|");
               if (!leftId || !rightId) return null;
+              // measureTick forces recalculation once target refs mount
+              void measureTick;
               const ptA = getTargetCenter(leftId);
               const ptB = getTargetCenter(rightId);
               return (
@@ -689,35 +752,96 @@ export function DirectPencilConnector({
             </g>
           )}
 
-          {/* Wrong Retry Line with Pencil Rotating to Eraser */}
+          {/* Wrong Retry Line with Pencil Rotating to Eraser (Shared Kernel Animation) */}
           {wrongLine && (
             <g className="am-direct-pencil__retry-group">
-              <line
-                className="am-direct-pencil__retry-line"
-                x1={wrongLine.from.x}
-                y1={wrongLine.from.y}
-                x2={wrongLine.to.x}
-                y2={wrongLine.to.y}
-                stroke="#0d9488"
-                strokeWidth={4}
-                strokeLinecap="round"
-              />
-              {(() => {
-                const angle =
-                  Math.atan2(
-                    wrongLine.to.y - wrongLine.from.y,
-                    wrongLine.to.x - wrongLine.from.x,
-                  ) *
-                  (180 / Math.PI);
-                return (
-                  <g
-                    className="am-direct-pencil__eraser-pencil"
-                    transform={`translate(${wrongLine.to.x}, ${wrongLine.to.y}) rotate(${angle + 180 + 30}) scale(0.65)`}
-                  >
-                    <PencilShape uid={`${shadowUid}-retry-pencil`} />
-                  </g>
-                );
-              })()}
+              {reducedMotion ? (
+                <line
+                  className="am-direct-pencil__retry-line"
+                  x1={wrongLine.from.x}
+                  y1={wrongLine.from.y}
+                  x2={wrongLine.to.x}
+                  y2={wrongLine.to.y}
+                  stroke="#0d9488"
+                  strokeWidth={4}
+                  strokeLinecap="round"
+                  opacity="0.6"
+                />
+              ) : (
+                (() => {
+                  const { eraseMs, eraseFlipMs, eraseLiftMs } = WORKBOOK_MARK_TIMING;
+                  const kFlip = (eraseFlipMs / eraseMs).toFixed(4);
+                  const kAppear = (Math.min(220, eraseFlipMs / 4) / eraseMs).toFixed(4);
+                  const kRubbed = ((eraseMs - eraseLiftMs) / eraseMs).toFixed(4);
+                  const rubMs = eraseMs - eraseFlipMs - eraseLiftMs;
+                  const scrubPeriod = 190;
+                  const PENCIL_CENTER_Y = -36;
+                  const linePath = `M ${wrongLine.from.x} ${wrongLine.from.y} L ${wrongLine.to.x} ${wrongLine.to.y}`;
+
+                  return (
+                    <>
+                      <path
+                        d={linePath}
+                        stroke="#0d9488"
+                        strokeWidth={4}
+                        strokeLinecap="round"
+                        pathLength={100}
+                        strokeDasharray="100 100"
+                      >
+                        <animate
+                          attributeName="stroke-dashoffset"
+                          dur={`${eraseMs}ms`}
+                          fill="freeze"
+                          values="0;0;100;100"
+                          keyTimes={`0;${kFlip};${kRubbed};1`}
+                        />
+                      </path>
+                      <g opacity="0" filter={`url(#${shadowUid})`}>
+                        <animateMotion
+                          dur={`${eraseMs}ms`}
+                          fill="freeze"
+                          keyTimes={`0;${kFlip};${kRubbed};1`}
+                          keyPoints="1;1;0;0"
+                          calcMode="linear"
+                          path={linePath}
+                        />
+                        <animate
+                          attributeName="opacity"
+                          dur={`${eraseMs}ms`}
+                          fill="freeze"
+                          values="0;1;1;0"
+                          keyTimes={`0;${kAppear};${kRubbed};1`}
+                        />
+                        <g>
+                          <animateTransform
+                            attributeName="transform"
+                            type="translate"
+                            begin={`${eraseFlipMs}ms`}
+                            dur={`${scrubPeriod}ms`}
+                            repeatCount={Math.floor(rubMs / scrubPeriod)}
+                            values="0 0;1.3 -0.7;0 0;-1.3 0.7;0 0"
+                          />
+                          <g transform="rotate(30) scale(1.2)">
+                            <g>
+                              <animateTransform
+                                attributeName="transform"
+                                type="rotate"
+                                dur={`${eraseMs}ms`}
+                                fill="freeze"
+                                values={`0 0 ${PENCIL_CENTER_Y};0 0 ${PENCIL_CENTER_Y};180 0 ${PENCIL_CENTER_Y};180 0 ${PENCIL_CENTER_Y}`}
+                                keyTimes={`0;${kAppear};${kFlip};1`}
+                                calcMode="spline"
+                                keySplines="0 0 1 1;0.45 0.05 0.55 0.95;0 0 1 1"
+                              />
+                              <PencilShape uid={`${shadowUid}-retry-pencil`} />
+                            </g>
+                          </g>
+                        </g>
+                      </g>
+                    </>
+                  );
+                })()
+              )}
             </g>
           )}
         </svg>
@@ -739,7 +863,7 @@ export function DirectPencilConnector({
                 ref={centerElRef}
                 className={`am-direct-pencil__center${selectedStart || isDragging ? " is-active" : ""}`}
                 onPointerDown={handlePointerDownCenter}
-                onClick={() => setSelectedStart(!selectedStart)}
+                onClick={handleCenterClick}
                 aria-label={`Vocal central ${centerLabel}`}
                 aria-pressed={selectedStart || isDragging}
               >

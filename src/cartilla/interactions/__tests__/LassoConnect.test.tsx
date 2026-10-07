@@ -425,4 +425,23 @@ describe("DirectPencilConnector (Page 17 Uu direct line-match prototype)", () =>
     expect(gretelEvent).not.toHaveBeenCalledWith("answer:correct", expect.anything());
     expect(gretelEvent).not.toHaveBeenCalledWith("answer:wrong", expect.anything());
   });
+
+  it("pointer down followed by click keeps source selected without immediate toggle-off", () => {
+    render(
+      <LassoConnect
+        pageKey="p17-proto-tap"
+        targets={p17Targets}
+        mode="mark"
+        directPencil
+        centerLabel="Uu"
+        reducedMotion
+      />,
+    );
+
+    const centerBtn = screen.getByRole("button", { name: "Vocal central Uu" });
+    fireEvent.pointerDown(centerBtn, { clientX: 100, clientY: 100 });
+    fireEvent.click(centerBtn);
+
+    expect(centerBtn.classList.contains("is-active")).toBe(true);
+  });
 });
