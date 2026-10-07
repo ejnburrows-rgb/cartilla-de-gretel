@@ -60,6 +60,7 @@ export function FlipchartHdPanel({ lessonNumber, accentColor, chrome = "full" }:
   );
   const reducedMotion = useReducedMotion();
   const [selectedIdx, setSelectedIdx] = useState(0);
+  const [targetIdx, setTargetIdx] = useState<number | null>(null);
   const [isFlipping, setIsFlipping] = useState(false);
   const [pageReady, setPageReady] = useState(false);
   const [flipDirection, setFlipDirection] = useState<"next" | "prev" | null>(null);
@@ -74,6 +75,7 @@ export function FlipchartHdPanel({ lessonNumber, accentColor, chrome = "full" }:
     flipLockedRef.current = false;
     if (flipTimerRef.current) clearTimeout(flipTimerRef.current);
     setSelectedIdx(0);
+    setTargetIdx(null);
     setIsFlipping(false);
     setPageReady((pages[0]?.flipchartPage ?? 0) > 2);
     setFlipDirection(null);
@@ -90,6 +92,7 @@ export function FlipchartHdPanel({ lessonNumber, accentColor, chrome = "full" }:
     flipLockedRef.current = false;
     flipTimerRef.current = null;
     setSelectedIdx(newIndex);
+    setTargetIdx(null);
     setIsFlipping(false);
     setFlipDirection(null);
   }, []);
@@ -111,6 +114,7 @@ export function FlipchartHdPanel({ lessonNumber, accentColor, chrome = "full" }:
       flipLockedRef.current = true;
       const token = ++flipTokenRef.current;
       const { start, end } = flipchartFlipTransforms(direction);
+      setTargetIdx(index);
       setFlipDirection(direction);
       setIsFlipping(true);
       setFlipTransform(start);
@@ -178,9 +182,10 @@ export function FlipchartHdPanel({ lessonNumber, accentColor, chrome = "full" }:
     );
   }
 
-  const staticIdx = isFlipping ? (flipDirection === "prev" ? safeIdx - 1 : safeIdx + 1) : safeIdx;
-  const flipFrontIdx = isFlipping ? (flipDirection === "next" ? safeIdx : safeIdx - 1) : -1;
-  const flipBackIdx = isFlipping ? (flipDirection === "next" ? safeIdx + 1 : safeIdx) : -1;
+  const destIdx = targetIdx ?? safeIdx;
+  const staticIdx = isFlipping ? destIdx : safeIdx;
+  const flipFrontIdx = isFlipping ? (flipDirection === "next" ? safeIdx : destIdx) : -1;
+  const flipBackIdx = isFlipping ? (flipDirection === "next" ? destIdx : safeIdx) : -1;
 
   const boardStyle = {
     ...(accentColor ? { ["--fc-accent" as string]: accentColor } : {}),

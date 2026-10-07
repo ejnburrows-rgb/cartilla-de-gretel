@@ -51,14 +51,29 @@ export function visiblePageLabel(
   currentIndex: number,
   pageCount: number,
   spread: boolean,
+  pages?: { pageNumber?: number }[],
 ): string {
   const logicalIndex = logicalPageIndex(currentIndex, pageCount, spread);
-  if (!spread) return `Página ${logicalIndex + 1} de ${pageCount}`;
-  const first = logicalIndex + 1;
-  const last = Math.min(logicalIndex + 2, pageCount);
-  return first === last
-    ? `Página ${first} de ${pageCount}`
-    : `Páginas ${first}–${last} de ${pageCount}`;
+  if (!pages || pages.length === 0) {
+    if (!spread) return `Página ${logicalIndex + 1} de ${pageCount}`;
+    const first = logicalIndex + 1;
+    const last = Math.min(logicalIndex + 2, pageCount);
+    return first === last
+      ? `Página ${first} de ${pageCount}`
+      : `Páginas ${first}–${last} de ${pageCount}`;
+  }
+
+  const firstEntry = pages[logicalIndex];
+  const lastIdx = spread ? Math.min(logicalIndex + 1, pages.length - 1) : logicalIndex;
+  const lastEntry = pages[lastIdx];
+
+  const firstNum = firstEntry?.pageNumber ?? (logicalIndex + 1);
+  const lastNum = lastEntry?.pageNumber ?? (lastIdx + 1);
+
+  if (!spread || logicalIndex === lastIdx || firstNum === lastNum) {
+    return `Página ${firstNum} de ${pageCount}`;
+  }
+  return `Páginas ${firstNum}–${lastNum} de ${pageCount}`;
 }
 
 export function expectedTurnIndex(
@@ -489,7 +504,7 @@ export function CurlPageViewer({
             borderColor: `color-mix(in srgb, ${accent} 35%, transparent)`,
           }}
         >
-          {visiblePageLabel(logicalIndex, pages.length, spread)}
+          {visiblePageLabel(logicalIndex, pages.length, spread, pages)}
         </div>
         <KidButton
           variant="outline"

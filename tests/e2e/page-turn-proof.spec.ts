@@ -2,7 +2,7 @@ import { test, expect, type Page } from "@playwright/test";
 import * as fs from "fs";
 import * as path from "path";
 
-const PROOF_DIR = path.join(process.cwd(), "docs/proofs/page-turn-system");
+const PROOF_DIR = process.env.PROOF_DIR || path.join(process.cwd(), "test-results/page-turn-proof");
 
 test.beforeAll(() => {
   if (!fs.existsSync(PROOF_DIR)) {
