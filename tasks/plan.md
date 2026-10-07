@@ -11,8 +11,9 @@
 Continue PR #539 (`codex/workbook-clean-archetypes`), not a new rollout branch.
 Latest owner direction in DESIGN.md / WORKBOOK_ARCHETYPE_STANDARD.md removes the default side Gretel and Flipchart background images; preserve instructional foreground art and existing learner state.
 The p24 gate failure was an outdated immediate-click test: the shared pencil locks each group until its draw/hold finishes. The corrected integration test waits for that feedback, asserts every committed circle and keeps Siguiente locked until the final answer. All 12 gate tests and 3 syllable tests pass; connector/completion foundation adds 21 passing tests.
-Remaining candidate gates: real p24 completion/restore browser proof, exact-head review/Sonar reconciliation, clean release qualification, and repeated-page edge cases. PR #538 overlaps connector files and must be reviewed separately before integration. No merge/deploy authorized by this handoff.
-PROJECT_SOURCE_OF_TRUTH.md still contains older side/scenic and worker-cap statements; current AGENTS.md and latest explicit owner direction take precedence. Do not edit that protected snapshot without its required approval.
+Real Chrome p24 proof passed at normal feedback timing: all 30 circles committed, Siguiente stayed locked until the last answer, 30 circles restored after reload, and navigation reached p25 with zero page errors. Reading pages 21/25/89 retained all 15 vocabulary words in exact order.
+Cloud qualification passed asset verification (477 checked, no errors), TypeScript, all 122 Vitest files (1529 passed, 2 existing expected failures), and the production bundle. The full release command then failed installing Playwright Chrome: the environment received a truncated archive. Full E2E and final release qualification remain unproven; existing native lesson E2E fixtures also contain stale completion/order assumptions and require reconciliation under #389. PR #538 overlaps connector files and must be reviewed separately before integration. No merge/deploy authorized by this handoff.
+Current-main documentation refresh 7a75b4e was incorporated into this candidate. PROJECT_SOURCE_OF_TRUTH.md now records the latest background-free Flip Chart and uncapped independent-worker direction; this session did not independently edit that protected file.
 
 ## Current verified reality
 
@@ -25,7 +26,7 @@ PROJECT_SOURCE_OF_TRUTH.md still contains older side/scenic and worker-cap state
 - PRs #538 and #539 overlap in `LassoConnect.tsx`, `faithfulAdapters.tsx`, and `FaithfulPageRenderer.tsx`; the controller must reconcile them as one integration sequence, not merge them independently.
 - Independent open candidates currently include #531 (Gretel interaction/motion), #532 (Workbook + Flip Chart physical page turn), #533 (book.pdf precache/provenance), #534 (teacher-route first-paint performance), and #537 (foreground-art classification/audit). Their file sets do not overlap #538/#539 or each other based on the current PR file lists, but every merge still requires exact-head review and appropriate proof.
 - Issue #389 remains the direct-cloud release-verification lane and is runnable independently.
-- Issue #540 is the current blocking Workbook defect: printed page 24 syllable completion does not satisfy the navigation completion gate. PR #539 reproduced the same failure on untouched main, so it is a baseline defect, not a #539 regression.
+- Issue #540 was traced to an outdated immediate-click test, not a confirmed product completion defect. PR #539 corrects that proof and real-browser p24 completion/restore passed. Its runnable Jules label has been removed to prevent duplicate implementation; integrate the existing test correction before closing the issue.
 - Final premium Gretel voice/TTS is still not owner-locked. It remains required by `PROJECT_FINISH_DEFINITION.md`; no worker may invent a paid provider or final voice choice.
 - Welcome video is not a completion blocker under the finish contract.
 - Live Supabase/multi-user expansion remains deferred for the current demo/non-real-data pilot finish line.
@@ -47,10 +48,10 @@ Do not confuse printed page numbers with PDF file indices. Historical mapping fi
 
 ### Run now in parallel
 
-1. **#540 — p24 syllable completion gate**
-   - Reproduce on current main.
-   - Fix the smallest root cause.
-   - Prove incomplete remains gated, true completion unlocks `Siguiente`, reload restores state, and neighboring syllable pages still pass.
+1. **#540 — verified p24 test correction in #539**
+   - Reuse the committed correction and accepted real-browser completion/restore proof.
+   - Do not dispatch a duplicate product-fix worker for the old immediate-click test failure.
+   - Close only after the existing correction is integrated.
 
 2. **#389 — trustworthy direct-cloud release harness**
    - Run the existing `pnpm verify:release` path.
