@@ -25,7 +25,7 @@ export class Ledger {
   const allowed=['deadline','retry_at','lease_until','starting_sha','worker','external_id','next_action','owner_action'];
   const keys=Object.keys(extra);if(keys.some(k=>!allowed.includes(k)))throw new Error('INVALID_UPDATE');
   if(status==='verified')throw new Error('USE_VALIDATION_GATE');
-  return (await this.db.query(`UPDATE jobs SET status=$2,failure_reason=$3,updated_at=now()${keys.map((k,i)=>`,${k}=$${i+4}`).join('')} WHERE id=$1 RETURNING *`,[id,status,reason?safeText(reason):null,...keys.map(k=>extra[k])])).rows[0];
+  return (await this.db.query(`UPDATE jobs SET status=$2,failure_reason=$3,updated_at=now()${keys.map((k,i)=>`,${k}=$${i+4}`).join('')} WHERE id=$1 AND status NOT IN('verified','cancelled') RETURNING *`,[id,status,reason?safeText(reason):null,...keys.map(k=>extra[k])])).rows[0];
  }
  async receipt(job,kind,data,attempt=null,c=this.db){
   await c.query('INSERT INTO evidence_receipts(id,job_id,attempt_id,kind,data) VALUES($1,$2,$3,$4,$5)',[randomUUID(),job,attempt,kind,JSON.stringify(data)]);
@@ -69,7 +69,10 @@ export class Ledger {
   const r=(await this.db.query(`UPDATE jobs SET status='queued',queue_generation=queue_generation+1,updated_at=now() WHERE id=$1 AND (status='received' OR (status='retrying' AND retry_at<=now()) OR (status='queued' AND updated_at<now()-interval '10 minutes')) RETURNING *`,[job.id])).rows[0];
   if(!r)return false;
   try{await send({id:`job:${r.id}:${r.queue_generation}`,name:r.kind==='reconcile'?'cartilla/github.received':'cartilla/manual.job',data:{jobId:r.id}});return true;}
-  catch{await this.db.query("UPDATE jobs SET status='received',failure_reason='INNGEST_SEND_FAILED',updated_at=now() WHERE id=$1 AND status='queued' AND queue_generation=$2",[r.id,r.queue_generation]);return false;}
+  catch{await transaction(this.db,async c=>{
+   const failed=(await c.query("UPDATE jobs SET queue_failures=queue_failures+1,status=CASE WHEN queue_failures+1>=max_attempts THEN 'dead_letter' ELSE 'received' END,failure_reason='INNGEST_SEND_FAILED',next_action='Recover durable queue delivery',updated_at=now() WHERE id=$1 AND status='queued' AND queue_generation=$2 RETURNING *",[r.id,r.queue_generation])).rows[0];
+   if(failed?.status==='dead_letter')await c.query('INSERT INTO dead_letters(id,job_id,reason) VALUES($1,$2,$3)',[randomUUID(),r.id,'INNGEST_SEND_RETRIES_EXHAUSTED']);
+  });return false;}
  }
  async retry(id){
   return transaction(this.db,async c=>{
@@ -77,13 +80,13 @@ export class Ledger {
    if(!j)throw new Error('JOB_NOT_FOUND');
    const active=(await c.query("SELECT id FROM job_attempts WHERE job_id=$1 AND state IN('reserved','running','ambiguous','cancel_requested')",[id])).rows;
    if(active.length||!['blocked','dead_letter','failed','cancelled'].includes(j.status))throw new Error('RETRY_UNSAFE');
-   await c.query("UPDATE jobs SET status='received',max_attempts=attempt_count+3,retry_at=NULL,failure_reason=NULL,owner_action='Nothing',updated_at=now() WHERE id=$1",[id]);
+   await c.query("UPDATE jobs SET status='received',max_attempts=attempt_count+3,queue_failures=0,retry_at=NULL,failure_reason=NULL,owner_action='Nothing',updated_at=now() WHERE id=$1",[id]);
    await c.query('UPDATE dead_letters SET resolved_at=now() WHERE job_id=$1 AND resolved_at IS NULL',[id]);
   });
  }
  async cancel(id){
   return transaction(this.db,async c=>{
-   const j=(await c.query('SELECT * FROM jobs WHERE id=$1 FOR UPDATE',[id])).rows[0];if(!j)throw new Error('JOB_NOT_FOUND');
+   const j=(await c.query('SELECT * FROM jobs WHERE id=$1 FOR UPDATE',[id])).rows[0];if(!j)throw new Error('JOB_NOT_FOUND');if(j.status==='verified')throw new Error('CANCEL_UNSAFE');
    const r=await c.query("UPDATE job_attempts SET state='cancel_requested',updated_at=now() WHERE job_id=$1 AND state IN('reserved','running','ambiguous') RETURNING id",[id]);
    await c.query("UPDATE jobs SET status='cancelled',next_action=$2,owner_action=$3,updated_at=now() WHERE id=$1",[id,r.rows.length?'Monitor existing external run; retain capacity until terminal':'Rescan available work',r.rows.length?'Stop external run in OpenHands if needed':'Nothing']);
   });

@@ -14,6 +14,7 @@ CREATE TABLE IF NOT EXISTS jobs(
  starting_sha text,worker text,external_id text,queue_generation integer NOT NULL DEFAULT 0,
  created_at timestamptz NOT NULL DEFAULT now(),updated_at timestamptz NOT NULL DEFAULT now()
 );
+ALTER TABLE jobs ADD COLUMN IF NOT EXISTS queue_failures integer NOT NULL DEFAULT 0;
 CREATE TABLE IF NOT EXISTS job_transitions(id bigserial PRIMARY KEY,job_id uuid NOT NULL REFERENCES jobs(id),from_status text,to_status text NOT NULL,reason text,recorded_at timestamptz NOT NULL DEFAULT now());
 CREATE TABLE IF NOT EXISTS job_attempts(
  id uuid PRIMARY KEY,job_id uuid NOT NULL REFERENCES jobs(id),attempt_number integer NOT NULL,

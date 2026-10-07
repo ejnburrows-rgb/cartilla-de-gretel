@@ -1,5 +1,6 @@
 import {createHmac,timingSafeEqual,createHash} from 'node:crypto';
-export const digest=value=>createHash('sha256').update(typeof value==='string'?value:JSON.stringify(value)).digest('hex');
+function canonical(value){return Array.isArray(value)?value.map(canonical):value&&typeof value==='object'?Object.fromEntries(Object.keys(value).sort().map(k=>[k,canonical(value[k])])):value;}
+export const digest=value=>createHash('sha256').update(typeof value==='string'?value:JSON.stringify(canonical(value))).digest('hex');
 export function signatureOK(raw,signature,secret){
  if(!secret||!/^sha256=[a-f0-9]{64}$/.test(signature??''))return false;
  return timingSafeEqual(Buffer.from(signature.slice(7),'hex'),createHmac('sha256',secret).update(raw).digest());
@@ -18,5 +19,5 @@ export async function rawBody(req,limit=2*1024*1024){
  if(Buffer.isBuffer(req.body)){if(req.body.length>limit)throw new Error('BODY_TOO_LARGE');return req.body;}
  if(typeof req.body==='string'){const b=Buffer.from(req.body);if(b.length>limit)throw new Error('BODY_TOO_LARGE');return b;}
  if(req.body!==undefined)throw new Error('RAW_BODY_UNAVAILABLE');
- const chunks=[];let size=0;for await(const chunk of req){const b=Buffer.from(chunk);size+=b.length;if(size>limit)throw new Error('BODY_TOO_LARGE');chunks.push(b);}return Buffer.concat(chunks);
+ return new Promise((resolve,reject)=>{const chunks=[];let size=0;req.on('data',chunk=>{const b=Buffer.from(chunk);size+=b.length;if(size>limit){reject(new Error('BODY_TOO_LARGE'));return;}chunks.push(b);});req.on('end',()=>resolve(Buffer.concat(chunks)));req.on('error',reject);});
 }

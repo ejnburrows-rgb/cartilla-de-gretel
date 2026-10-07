@@ -5,13 +5,7 @@ import {createHmac} from 'node:crypto';
 import {PGlite} from '@electric-sql/pglite';
 import {Ledger} from '../src/ledger.mjs';
 import {webhook} from '../src/webhook.mjs';
-export async function fixture(path){
- const p=new PGlite(path);await p.exec(await readFile(new URL('../migrations/001-ledger.sql',import.meta.url),'utf8'));await p.exec('SET search_path TO cartilla_controller,public');
- // Tests exercise real PostgreSQL SQL; transactions are serialized like a checked-out pg connection.
- let chain=Promise.resolve();
- const db={query:(sql,args)=>p.query(sql,args),connect:async()=>{let release;const prior=chain;chain=new Promise(r=>release=r);await prior;return {query:db.query,release};}};
- return {p,db,ledger:new Ledger(db)};
-}
+import {fixture} from './helpers.mjs';
 const env={GITHUB_REPO:'owner/repo',GITHUB_WEBHOOK_SECRET:'test-only-signing-secret'};
 const raw=Buffer.from(JSON.stringify({repository:{full_name:'owner/repo'},action:'opened'}));
 const headers={'x-hub-signature-256':`sha256=${createHmac('sha256',env.GITHUB_WEBHOOK_SECRET).update(raw).digest('hex')}`,'x-github-delivery':'delivery-real-hmac-fixture','x-github-event':'issues'};
@@ -50,4 +44,9 @@ test('invalid signature, missing secret and wrong repository fail closed',async(
  assert.equal((await webhook(raw,{...headers,'x-hub-signature-256':'sha256=bad'},options)).status,401);
  assert.equal((await webhook(raw,headers,{...options,env:{}})).status,503);
  assert.equal((await webhook(raw,headers,{...options,env:{...env,GITHUB_REPO:'other/repo'}})).status,403);assert.equal((await ledger.jobs()).length,0);await p.close();
+});
+test('repeated queue failures are bounded and dead-letter remains retryable',async()=>{
+ const {p,ledger}=await fixture();const j=await ledger.create({key:'queue-dead',kind:'reconcile',source:{admin:true}});
+ for(let n=0;n<3;n++)await ledger.queue(await ledger.get(j.id),async()=>{throw Error('offline');});
+ assert.equal((await ledger.get(j.id)).status,'dead_letter');assert.equal((await ledger.get(j.id)).queue_failures,3);await ledger.retry(j.id);assert.equal((await ledger.get(j.id)).queue_failures,0);await p.close();
 });
