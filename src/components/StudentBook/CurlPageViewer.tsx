@@ -176,6 +176,7 @@ export function CurlPageViewer({
   const [mounted, setMounted] = useState(false);
   const [reducedMotion, setReducedMotion] = useState(false);
   const [currentIndex, setCurrentIndex] = useState(safeInitialPage);
+  const [pendingDestination, setPendingDestination] = useState<number | null>(null);
   const [turning, setTurning] = useState(false);
   const revealTimerRef = useRef<ReturnType<typeof setTimeout> | null>(null);
   const turnFallbackTimerRef = useRef<ReturnType<typeof setTimeout> | null>(null);
@@ -261,6 +262,7 @@ export function CurlPageViewer({
       initialRevealDoneRef.current = true;
       turningRef.current = false;
       pendingDestinationRef.current = null;
+      setPendingDestination(null);
       turnStartedAtRef.current = 0;
       setTurning(false);
       const page = pages[pageIndex];
@@ -311,6 +313,7 @@ export function CurlPageViewer({
     );
     if (!startTurn()) return;
     pendingDestinationRef.current = expectedIndex;
+    setPendingDestination(expectedIndex);
     const api = getApi();
     if (api?.flip) api.flip(expectedIndex); else api?.flipPrev?.();
     armTurnFallback(expectedIndex);
@@ -325,6 +328,7 @@ export function CurlPageViewer({
     );
     if (!startTurn()) return;
     pendingDestinationRef.current = expectedIndex;
+    setPendingDestination(expectedIndex);
     const api = getApi();
     if (api?.flip) api.flip(expectedIndex); else api?.flipNext?.();
     armTurnFallback(expectedIndex);
@@ -436,6 +440,53 @@ export function CurlPageViewer({
             background: "#fffaf0",
           }}
         >
+          {mounted && size && (
+            <div
+              className="book-underneath-layer absolute inset-0 z-0 flex h-full w-full pointer-events-none overflow-hidden rounded-b-xl"
+              aria-hidden="true"
+            >
+              {(() => {
+                const destIndex = pendingDestination ?? currentIndex;
+                const destLogical = logicalPageIndex(destIndex, pages.length, spread);
+                const destLeftPage = pages[destLogical];
+                const destRightPage = spread ? pages[destLogical + 1] : undefined;
+                const currentLeftPage = pages[logicalIndex];
+                const currentRightPage = spread ? pages[logicalIndex + 1] : undefined;
+
+                if (spread) {
+                  return (
+                    <>
+                      <div
+                        className="premium-book-page book-paper-surface flex h-full w-1/2 flex-col overflow-hidden"
+                        data-leaf-side="left"
+                      >
+                        <div className="h-full w-full flex-1 p-0">
+                          {(destLeftPage ?? currentLeftPage)?.content}
+                        </div>
+                      </div>
+                      <div
+                        className="premium-book-page book-paper-surface flex h-full w-1/2 flex-col overflow-hidden"
+                        data-leaf-side="right"
+                      >
+                        <div className="h-full w-full flex-1 p-0">
+                          {(destRightPage ?? currentRightPage)?.content}
+                        </div>
+                      </div>
+                    </>
+                  );
+                }
+
+                return (
+                  <div className="premium-book-page book-paper-surface flex h-full w-full flex-col overflow-hidden">
+                    <div className="h-full w-full flex-1 p-0">
+                      {(destLeftPage ?? currentLeftPage)?.content}
+                    </div>
+                  </div>
+                );
+              })()}
+            </div>
+          )}
+
           {mounted && size ? (
             <FlipBook
               key={`${pages.map((p) => p.id).join("|")}-${size.spread ? "spread" : "single"}-${size.pageW}x${size.pageH}`}
