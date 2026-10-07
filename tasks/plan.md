@@ -10,6 +10,14 @@
 
 Finish the existing Cartilla product quickly and correctly. Preserve working student/teacher behavior, make visual decisions from rendered evidence, and avoid new prototypes/tools/agents unless they clearly shorten the path.
 
+## Workbook candidate qualification — 2026-10-07
+
+Continue PR #539 (`codex/workbook-clean-archetypes`), not a new rollout branch.
+Latest owner direction in DESIGN.md / WORKBOOK_ARCHETYPE_STANDARD.md removes the default side Gretel and Flipchart background images; preserve instructional foreground art and existing learner state.
+The p24 gate failure was an outdated immediate-click test: the shared pencil locks each group until its draw/hold finishes. The corrected integration test waits for that feedback, asserts every committed circle and keeps Siguiente locked until the final answer. All 12 gate tests and 3 syllable tests pass; connector/completion foundation adds 21 passing tests.
+Remaining candidate gates: real p24 completion/restore browser proof, exact-head review/Sonar reconciliation, clean release qualification, and repeated-page edge cases. PR #538 overlaps connector files and must be reviewed separately before integration. No merge/deploy authorized by this handoff.
+PROJECT_SOURCE_OF_TRUTH.md still contains older side/scenic and worker-cap statements; current AGENTS.md and latest explicit owner direction take precedence. Do not edit that protected snapshot without its required approval.
+
 ## Current verified reality
 
 - Public preview/deployment state is runtime evidence, not durable policy. Live-verify the deployed Vercel state whenever it matters; do not assume it equals current `main` or any commit recorded in this plan.
