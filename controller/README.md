@@ -47,7 +47,7 @@ Dependencies must be independently confirmed closed as completed. Owner-gated, s
 
 Read bearer token: GET `/api/status`, `/api/jobs`, `/api/jobs/:id`, `/api/jobs/:id/evidence`, `/api/jobs/:id/validations`, `/api/workers`, `/api/openapi.json`.
 
-Admin bearer token: POST `/api/jobs`, `/api/jobs/:id/retry`, `/api/jobs/:id/cancel`. Creation accepts only a `repo_inspection` or an existing scoped `issue_implementation`, plus a permanent idempotency key. There is no arbitrary command endpoint. An unresolved external attempt makes retry unsafe.
+Admin bearer token: POST `/api/jobs`, `/api/jobs/:id/retry`, `/api/jobs/:id/cancel`. Creation accepts only a `repo_inspection` or an existing scoped `issue_implementation`, plus a permanent idempotency key. There is no arbitrary command endpoint. An unresolved external attempt makes automatic retry unsafe. For an ambiguous POST with no known start-task or conversation ID, an admin may submit `{"dispatch_resolution":"confirmed_not_created"}` only after checking the external account. This explicit attestation is durably stored before a replacement is permitted. Known external runs must reach a confirmed terminal state; an attestation cannot override them.
 
 The one operational page lists running/waiting/retrying/blocked/failed/dead-letter/verified jobs, run IDs, source SHA, attempts, deadlines, real GitHub evidence, validation and next actions. Its read token remains in page memory only. Raw webhook payloads and task prompts have no read endpoint. Secrets are never sent to browser code or stored in evidence receipts. Missing service configuration produces 503, not false green status.
 

@@ -14,7 +14,7 @@ export async function api(req,deps,env=process.env){
  const url=new URL(req.url,'https://controller.local');const path=url.pathname,method=req.method;
  if(path==='/api/github/webhook'){
   if(method!=='POST')return {status:405,body:{error:'METHOD_NOT_ALLOWED'}};
-  return webhook(await rawBody(req),req.headers,{...deps,env});
+  return webhook(await rawBody(req),req.headers,{get ledger(){return deps.ledger;},send:deps.send,env});
  }
  const admin=method==='POST';
  if(!['GET','POST'].includes(method))return {status:405,body:{error:'METHOD_NOT_ALLOWED'}};
@@ -43,7 +43,7 @@ export async function api(req,deps,env=process.env){
   if(method==='GET'&&['evidence','validations'].includes(suffix)){
    const table=suffix==='evidence'?'evidence_receipts':'validations';return {status:200,body:{[suffix]:(await deps.ledger.db.query(`SELECT * FROM ${table} WHERE job_id=$1 ORDER BY recorded_at DESC LIMIT 200`,[id])).rows}};
   }
-  if(method==='POST'&&suffix==='retry'){await deps.ledger.retry(id);await deps.ledger.queue(await deps.ledger.get(id),deps.send);return {status:202,body:{jobId:id,stored:true}};}
+  if(method==='POST'&&suffix==='retry'){let request;try{const raw=await rawBody(req,1024);request=raw.length?JSON.parse(raw):{};}catch{return {status:400,body:{error:'INVALID_JSON'}};}if(Object.keys(request).some(k=>k!=='dispatch_resolution')||(request.dispatch_resolution&&request.dispatch_resolution!=='confirmed_not_created'))return {status:400,body:{error:'INVALID_RETRY_REQUEST'}};await deps.ledger.retry(id,request.dispatch_resolution);await deps.ledger.queue(await deps.ledger.get(id),deps.send);return {status:202,body:{jobId:id,stored:true}};}
   if(method==='POST'&&suffix==='cancel'){await deps.ledger.cancel(id);try{await deps.send({name:'cartilla/manual.job',data:{jobId:id}});}catch{}return {status:202,body:{jobId:id,stored:true}};}
  }
  if(path==='/api/jobs'&&method==='POST'){

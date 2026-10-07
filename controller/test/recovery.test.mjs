@@ -49,3 +49,13 @@ test('GitHub read errors do not manufacture a SHA or use a local fallback',async
 test('stable task hashes survive JSONB key reordering; configured secrets are redacted',()=>{
  assert.equal(digest({z:1,a:{y:2,x:3}}),digest({a:{x:3,y:2},z:1}));assert.equal(safeText('credential-is-private',{OPENHANDS_API_KEY:'credential-is-private'}),'[REDACTED]');
 });
+test('unknown POST outcome is recoverable only by explicit durable admin attestation, never automatic retry',async()=>{
+ const f=await fixture();const github={repo:'owner/repo',main:async()=>s.main};const worker={start:async()=>{throw Error('network failure after POST');}};
+ const runner=new Runner({ledger:f.ledger,github,worker,send:async()=>{},env});const j=await f.ledger.create({key:'admin-resolve',kind:'repo_inspection',source:{admin:true}});await runner.dispatch(j,s);
+ await assert.rejects(f.ledger.retry(j.id),/RETRY_UNSAFE/);await f.ledger.retry(j.id,'confirmed_not_created');assert.equal((await f.ledger.get(j.id)).status,'received');
+ const receipts=(await f.db.query("SELECT data FROM evidence_receipts WHERE kind='admin_dispatch_resolution' AND job_id=$1",[j.id])).rows;assert.equal(receipts[0].data.authority,'explicit_admin_attestation');await f.p.close();
+});
+test('unauthenticated webhook does not initialize unavailable database dependencies',async()=>{
+ const {api}=await import('../src/api.mjs');const deps={get ledger(){throw Error('DATABASE_URL_REQUIRED');},send:async()=>{}};
+ const req={url:'/api/github/webhook',method:'POST',headers:{},body:'{}'};const r=await api(req,deps,{GITHUB_WEBHOOK_SECRET:'known-secret'});assert.equal(r.status,401);
+});

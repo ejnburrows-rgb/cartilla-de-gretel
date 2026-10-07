@@ -74,12 +74,18 @@ export class Ledger {
    if(failed?.status==='dead_letter')await c.query('INSERT INTO dead_letters(id,job_id,reason) VALUES($1,$2,$3)',[randomUUID(),r.id,'INNGEST_SEND_RETRIES_EXHAUSTED']);
   });return false;}
  }
- async retry(id){
+ async retry(id,resolution=null){
   return transaction(this.db,async c=>{
    const j=(await c.query('SELECT * FROM jobs WHERE id=$1 FOR UPDATE',[id])).rows[0];
    if(!j)throw new Error('JOB_NOT_FOUND');
    const active=(await c.query("SELECT id FROM job_attempts WHERE job_id=$1 AND state IN('reserved','running','ambiguous','cancel_requested')",[id])).rows;
-   if(active.length||!['blocked','dead_letter','failed','cancelled'].includes(j.status))throw new Error('RETRY_UNSAFE');
+   if(!['blocked','dead_letter','failed','cancelled'].includes(j.status))throw new Error('RETRY_UNSAFE');
+   if(active.length){
+    const attempts=(await c.query("SELECT * FROM job_attempts WHERE job_id=$1 AND state IN('reserved','running','ambiguous','cancel_requested')",[id])).rows;
+    if(resolution!=='confirmed_not_created'||attempts.some(a=>a.state!=='ambiguous'||a.external_id||a.start_task_id))throw new Error('RETRY_UNSAFE');
+    await this.receipt(id,'admin_dispatch_resolution',{resolution:'confirmed_not_created',authority:'explicit_admin_attestation'},attempts[0].id,c);
+    await c.query("UPDATE job_attempts SET state='failed',updated_at=now() WHERE job_id=$1 AND state='ambiguous'",[id]);
+   }
    await c.query("UPDATE jobs SET status='received',max_attempts=attempt_count+3,queue_failures=0,retry_at=NULL,failure_reason=NULL,owner_action='Nothing',updated_at=now() WHERE id=$1",[id]);
    await c.query('UPDATE dead_letters SET resolved_at=now() WHERE job_id=$1 AND resolved_at IS NULL',[id]);
   });
