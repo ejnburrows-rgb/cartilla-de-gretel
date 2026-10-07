@@ -1,10 +1,10 @@
 {
-  "timestamp": "2026-10-07T22:47:44.825Z",
+  "timestamp": "2026-10-07T23:34:33.950Z",
   "counts": {
-    "faithfulWired": 96,
+    "faithfulWired": 108,
     "flipchartNativeWired": 167,
     "breakdownFaithful": {
-      "PASS": 85,
+      "PASS": 97,
       "PENDING NO VERIFIED SOURCE": 9,
       "VERIFIED COLOR TRANSFER": 1,
       "CROP FIX": 1
@@ -162,6 +162,66 @@
       "qaVerdict": "PASS",
       "dimensions": "735x870",
       "bytes": 53142,
+      "isQuarantined": false
+    },
+    {
+      "src": "/cartilla/art/faithful/leccion-11-d/dado.webp",
+      "word": "dado",
+      "classification": "PASS",
+      "provenance": "",
+      "qaVerdict": "PASS",
+      "dimensions": "781x870",
+      "bytes": 95552,
+      "isQuarantined": false
+    },
+    {
+      "src": "/cartilla/art/faithful/leccion-13-n/nido.webp",
+      "word": "nido",
+      "classification": "PASS",
+      "provenance": "",
+      "qaVerdict": "PASS",
+      "dimensions": "870x556",
+      "bytes": 118576,
+      "isQuarantined": false
+    },
+    {
+      "src": "/cartilla/art/faithful/leccion-14-n/nino.webp",
+      "word": "niño",
+      "classification": "PASS",
+      "provenance": "VERIFIED-AUTHENTIC-FLIPCHART-2026-09-25",
+      "qaVerdict": "PASS",
+      "dimensions": "436x564",
+      "bytes": 206208,
+      "isQuarantined": false
+    },
+    {
+      "src": "/cartilla/art/faithful/leccion-15-b/bebe.webp",
+      "word": "bebé",
+      "classification": "PASS",
+      "provenance": "",
+      "qaVerdict": "PASS",
+      "dimensions": "870x596",
+      "bytes": 104374,
+      "isQuarantined": false
+    },
+    {
+      "src": "/cartilla/art/faithful/leccion-15-b/bota.webp",
+      "word": "bota",
+      "classification": "PASS",
+      "provenance": "",
+      "qaVerdict": "PASS",
+      "dimensions": "826x870",
+      "bytes": 234862,
+      "isQuarantined": false
+    },
+    {
+      "src": "/cartilla/art/faithful/leccion-16-v/vela.webp",
+      "word": "vela",
+      "classification": "PASS",
+      "provenance": "",
+      "qaVerdict": "PASS",
+      "dimensions": "789x870",
+      "bytes": 80650,
       "isQuarantined": false
     },
     {
@@ -325,6 +385,16 @@
       "isQuarantined": false
     },
     {
+      "src": "/cartilla/art/faithful/leccion-19-g/gato.webp",
+      "word": "gato",
+      "classification": "PASS",
+      "provenance": "QA-PASS-SOURCE-PAGE-NOT-RECORDED",
+      "qaVerdict": "PASS",
+      "dimensions": "902x802",
+      "bytes": 196842,
+      "isQuarantined": false
+    },
+    {
       "src": "/cartilla/art/faithful/leccion-19-g/gaveta.webp",
       "word": "gaveta",
       "classification": "PASS",
@@ -402,6 +472,16 @@
       "qaVerdict": "PASS",
       "dimensions": "732x870",
       "bytes": 173878,
+      "isQuarantined": false
+    },
+    {
+      "src": "/cartilla/art/faithful/leccion-20-f/fiesta.webp",
+      "word": "fiesta",
+      "classification": "PASS",
+      "provenance": "QA-PASS-SOURCE-PAGE-NOT-RECORDED",
+      "qaVerdict": "PASS",
+      "dimensions": "1114x1114",
+      "bytes": 391272,
       "isQuarantined": false
     },
     {
@@ -575,6 +655,16 @@
       "isQuarantined": false
     },
     {
+      "src": "/cartilla/art/faithful/leccion-7-m/mama.webp",
+      "word": "mamá",
+      "classification": "PASS",
+      "provenance": "",
+      "qaVerdict": "PASS",
+      "dimensions": "680x870",
+      "bytes": 131128,
+      "isQuarantined": false
+    },
+    {
       "src": "/cartilla/art/faithful/leccion-7-m/mono.webp",
       "word": "mono",
       "classification": "PASS",
@@ -585,6 +675,16 @@
       "isQuarantined": false
     },
     {
+      "src": "/cartilla/art/faithful/leccion-8-p/papa.webp",
+      "word": "papá",
+      "classification": "PASS",
+      "provenance": "",
+      "qaVerdict": "PASS",
+      "dimensions": "480x660",
+      "bytes": 39046,
+      "isQuarantined": false
+    },
+    {
       "src": "/cartilla/art/faithful/leccion-9-s/sapo.webp",
       "word": "sapo",
       "classification": "PASS",
@@ -592,6 +692,16 @@
       "qaVerdict": "PASS",
       "dimensions": "870x742",
       "bytes": 109956,
+      "isQuarantined": false
+    },
+    {
+      "src": "/cartilla/art/faithful/leccion-9-s/sopa.webp",
+      "word": "sopa",
+      "classification": "PASS",
+      "provenance": "",
+      "qaVerdict": "PASS",
+      "dimensions": "870x676",
+      "bytes": 158268,
       "isQuarantined": false
     },
     {
@@ -902,6 +1012,16 @@
       "qaVerdict": "PASS",
       "dimensions": "580x570",
       "bytes": 246636,
+      "isQuarantined": false
+    },
+    {
+      "src": "/cartilla/art/faithful/vocal-o/oso-blink.webp",
+      "word": "oso (parpadeo)",
+      "classification": "PASS",
+      "provenance": "QA-PASS-AUTHORED-BLINK-2026-09-25",
+      "qaVerdict": "PASS",
+      "dimensions": "823x870",
+      "bytes": 104958,
       "isQuarantined": false
     },
     {

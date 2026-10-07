@@ -27,13 +27,24 @@ searchObj(read("src/data/page-layouts.json"));
 searchObj(read("src/content/lessons.json"));
 searchObj(read("src/content/consonants.json"));
 searchObj(read("src/data/flipchart-production-art.json"));
-
-const galleryText = fs.readFileSync(path.join(root, "src/content/animal-gallery.ts"), "utf8");
-const re = /["'](\/cartilla\/art\/faithful\/[^"']+\.webp)["']/g;
-let match;
-while ((match = re.exec(galleryText)) !== null) {
-  wiredFaithfulSrcs.add(match[1]);
+if (fs.existsSync(path.join(root, "src/content/picture-vocabulary.json"))) {
+  searchObj(read("src/content/picture-vocabulary.json"));
 }
+
+function scanTs(rel) {
+  const fullPath = path.join(root, rel);
+  if (!fs.existsSync(fullPath)) return;
+  const text = fs.readFileSync(fullPath, "utf8");
+  const matches = text.match(/\/cartilla\/art\/faithful\/[^\x22\x27\x60]+\.webp/g) || [];
+  for (const m of matches) {
+    wiredFaithfulSrcs.add(m);
+  }
+}
+
+scanTs("src/content/animal-gallery.ts");
+scanTs("src/lib/living-actor-registry.ts");
+scanTs("src/lib/living-blink-map.ts");
+scanTs("src/lib/living-art-runtime.ts");
 
 const flipchartNativeSlots = [];
 const sortedNativeEntries = Object.entries(flipchartNative).sort(
