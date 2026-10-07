@@ -24,6 +24,7 @@
 
 /* Workbook clean digital surface rule: dense learner exercises do not use full scenic wallpaper.
    Flip Chart (.fc-native-board) continues to display scenic backgrounds. */
-.faithful-page .final-page-background {
+.faithful-page .final-page-background,
+.digital-page-canvas .final-page-background {
   display: none !important;
 }
