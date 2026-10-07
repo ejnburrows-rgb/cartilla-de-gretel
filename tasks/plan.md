@@ -2,24 +2,28 @@
 
 > **Finish contract:** `PROJECT_FINISH_DEFINITION.md` defines finished. This file is only the current gap-closing execution plan.
 
-**Updated:** 2026-10-07  
-**Baseline main before this documentation refresh:** `54443d8e91ea16443bd7252d652cc9a1a2e25f28`  
+**Updated:** 2026-10-07
+**Current main:** `17f4c4bb1722a33763fc87f05489486bd16cccf0`  
 **Concurrency authority:** `AGENTS.md` only. There is **no fixed numeric cap** on concurrent Jules implementation lanes.
 
 ## Current verified reality
 
-- The eight canonical Student Workbook archetypes are already encoded page-by-page in `src/data/workbook-archetypes.ts` for printed pages 1–90.
-- `FaithfulPageRenderer` resolves each printed page through `archetypeMappingForPage(pageNumber)` and applies the matching archetype class(es). Shared family styling therefore follows an explicit page map; workers must not guess which family a page belongs to.
-- Exact page content/regions still come from the verified page layout/source data. Shared archetype treatment must not overwrite page-specific wording, artwork, ordering, activity logic, saved work, or completion semantics.
-- Current main already contains the clean digital Workbook archetype rollout foundations and the approved shared Pencil/Eraser / syllable-circle work.
-- Draft PR #539 is the current clean-layout candidate for: centered Workbook page, navigation below, no default side Gretel, page growth instead of nested clipping, and a background-image-free Flip Chart while retaining source instructional foreground art and useful motion.
-- PR #538 is the current Pencil Line candidate for printed pages 3, 5, 8, 11, 14 and 17.
-- PRs #538 and #539 overlap in `LassoConnect.tsx`, `faithfulAdapters.tsx`, and `FaithfulPageRenderer.tsx`; the controller must reconcile them as one integration sequence, not merge them independently.
-- Independent open candidates currently include #531 (Gretel interaction/motion), #532 (Workbook + Flip Chart physical page turn), #533 (book.pdf precache/provenance), #534 (teacher-route first-paint performance), and #537 (foreground-art classification/audit). Their file sets do not overlap #538/#539 or each other based on the current PR file lists, but every merge still requires exact-head review and appropriate proof.
-- Issue #389 remains the direct-cloud release-verification lane and is runnable independently.
-- Issue #540 was resolved as a test-timing diagnosis on PR #539 at `802d237aca9f439dde062402caac8a092eaf9f42`: 30 marks, completion lock, reload restoration, and Next to page 25 passed. Do not dispatch a runtime repair without a new reproducible failure. Full assembled release verification remains outstanding.
-- Final premium Gretel voice/TTS is still not owner-locked. It remains required by `PROJECT_FINISH_DEFINITION.md`; no worker may invent a paid provider or final voice choice.
-- Welcome video is not a completion blocker under the finish contract.
+- CURRENT `main` is `17f4c4bb1722a33763fc87f05489486bd16cccf0`.
+- Cross-session coordination is now governed by the mandatory live-coordination contract in `AGENTS.md`: every material worker/controller change must leave a structured handoff on the existing issue/PR, and controllers refresh this file when lane state/order materially changes.
+- The eight canonical Student Workbook archetypes remain encoded page-by-page in `src/data/workbook-archetypes.ts`.
+- Current independent open candidates and exact heads:
+  - #531 Gretel interaction/motion — `49f55f389588d4283a13f5fbd2ff0f87f3fd37f3`.
+  - #532 physical page-turn system — `a297f72e669605d5b727419b344157cd6204b072`.
+  - #533 PDF precache/provenance — `50fedb3d5b3fa4d30846bf2e8f2739f8526885b4`.
+  - #534 teacher-route first-paint performance — `9914f850a4e4941023702a3a09d0fb171c2bafb7`.
+  - #537 foreground-art classification/audit — `704ff1244a3573aa618dcd3665e0869f3033f28d`.
+  - #538 Pencil Line mechanics — `44fc3ef228d233685bb1a2081253d8d5cabcf429`.
+  - #539 clean repeating Workbook archetypes/background-free Flip Chart — frozen reference `802d237aca9f439dde062402caac8a092eaf9f42`.
+- #538 and #539 still overlap in shared interaction/rendering files and must be reconciled deliberately rather than merged independently.
+- #389 remains the dedicated direct-cloud release-verification lane.
+- #540 remains a test-timing diagnosis, not a runtime repair lane absent a new reproducible defect.
+- Final premium Gretel voice/TTS is still an owner-required unresolved finish item.
+- Welcome video remains non-blocking.
 - Live Supabase/multi-user expansion remains deferred for the current demo/non-real-data pilot finish line.
 
 ## Printed pages 86–87 — resolved source status
