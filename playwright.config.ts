@@ -1,16 +1,10 @@
 import { defineConfig } from "@playwright/test";
 
 const envCommand = (env: Record<string, string>, command: string) => {
-  if (process.platform === "win32") {
-    const assignments = Object.entries(env)
-      .map(([key, value]) => `$env:${key}='${value.replaceAll("'", "''")}'`)
-      .join("; ");
-    return `powershell -NoProfile -Command "${assignments}; ${command}"`;
-  }
   const assignments = Object.entries(env)
-    .map(([key, value]) => `${key}='${value.replaceAll("'", "'\\''")}'`)
-    .join(" ");
-  return `${assignments} ${command}`;
+    .map(([key, value]) => `$env:${key}='${value.replaceAll("'", "''")}'`)
+    .join("; ");
+  return `powershell -NoProfile -Command \"${assignments}; ${command}\"`;
 };
 
 // Managed execution environments can provide a system Chromium path. Standard
