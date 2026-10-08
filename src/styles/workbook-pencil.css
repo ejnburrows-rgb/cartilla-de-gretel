@@ -35,11 +35,14 @@
   height: 80px;
   overflow: visible;
 }
-/* Owner 2026-10-08: the pencil and eraser glide in from the right side across the
-   neighbouring pictures; while a tool is in flight its cell paints above them. */
-.workbook-pencil-mark[data-mark-status="drawing"],
-.workbook-pencil-mark[data-mark-status="erasing"] {
-  z-index: 30;
+/* Owner 2026-10-08: the pencil and the eraser come in from off the right edge of the
+   screen, pass over everything on the way and leave the same way. They fly in this
+   fixed layer, placed exactly over the mark box, so the page sheet never cuts them off. */
+.workbook-pencil-flight {
+  position: fixed;
+  overflow: visible;
+  pointer-events: none;
+  z-index: 60;
 }
 /* The picture itself never moves when the child presses it: only the pencil acts. */
 .fp-ix-cell .living-illustration--reacting .living-illustration__art,

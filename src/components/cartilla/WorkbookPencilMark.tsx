@@ -1,4 +1,5 @@
 import { useEffect, useId, useLayoutEffect, useMemo, useRef, useState } from "react";
+import { createPortal } from "react-dom";
 import { useReducedMotion } from "@/hooks/useReducedMotion";
 import { useActivityEvents } from "@/lib/activity-events";
 import "@/styles/workbook-pencil.css";
@@ -17,29 +18,31 @@ export interface WorkbookPencilMarkProps {
 }
 
 /**
- * Semantic timing of the Real Workbook Mark — close-up pencil (owner 2026-10-06).
- * A big pencil tip slides in from the top-right corner of the picture box, draws
- * the mark in about two seconds (green when right, red when wrong), and slides
- * back out. A wrong mark is then rubbed out by a big eraser that slides in from
- * the right, scrubs back and forth with crumbs falling, and slides out.
+ * Semantic timing of the Real Workbook Mark — close-up pencil (owner 2026-10-06,
+ * motion amended 2026-10-08). The big pencil starts completely off the right edge
+ * of the screen, travels in over everything in its way, draws the mark in about
+ * two seconds (green when right, red when wrong), and travels back out off the
+ * right edge of the screen. A wrong mark is then rubbed out by the big eraser,
+ * which comes in from the right edge of the screen the same way, scrubs back and
+ * forth with crumbs falling, and leaves off the right edge again.
  * Reduced motion removes only the decorative motion: the coloured mark appears
  * at once and the result keeps the same timing.
  */
 export const WORKBOOK_MARK_TIMING = {
-  /** Pencil tip slides in from the top-right corner and touches down (part of drawMs). */
-  approachMs: 500,
+  /** Pencil travels in from off the right edge of the screen and touches down (part of drawMs). */
+  approachMs: 800,
   /** Tap → mark finished (approach + the ~2 s drawn stroke). */
-  drawMs: 2500,
-  /** Pencil slides back out of the box after the mark is drawn. */
-  liftMs: 600,
-  /** Mark finished → result (the pencil has left the box). */
-  holdMs: 600,
-  /** Eraser slides in, rubs the mark out with crumbs, slides out. */
-  eraseMs: 3400,
-  /** Eraser slide-in (part of eraseMs). */
-  eraseFlipMs: 600,
-  /** Eraser slide-out (part of eraseMs). */
-  eraseLiftMs: 500,
+  drawMs: 2800,
+  /** Pencil travels back out past the right edge of the screen after the mark is drawn. */
+  liftMs: 800,
+  /** Mark finished → result (the pencil has left the screen). */
+  holdMs: 800,
+  /** Eraser comes in, rubs the mark out with crumbs, leaves. */
+  eraseMs: 4000,
+  /** Eraser travel in from off the right edge of the screen (part of eraseMs). */
+  eraseFlipMs: 800,
+  /** Eraser travel back out past the right edge of the screen (part of eraseMs). */
+  eraseLiftMs: 800,
   reducedEraseMs: 60,
 } as const;
 
@@ -58,19 +61,13 @@ const PENCIL_POSE = `rotate(${PENCIL_TILT}) scale(${PENCIL_SCALE})`;
 /** The eraser lies a little flatter, its body running off to the right. */
 const ERASER_TILT = 66;
 const ERASER_POSE = `rotate(${ERASER_TILT}) scale(${PENCIL_SCALE})`;
-/** Where the eraser waits, outside the box on the right, before it slides in. */
-const ERASER_OFF = "140 -14";
 /** Unit vector along the pencil body (tip → eraser) in mark coordinates. */
 const AXIS: [number, number] = [
   Math.sin((PENCIL_TILT * Math.PI) / 180),
   -Math.cos((PENCIL_TILT * Math.PI) / 180),
 ];
-/**
- * Owner 2026-10-08: the pencil rests off to the right of the page, roughly level
- * with the mark, and glides in from the right side across the neighbouring
- * pictures — and back out the same way.
- */
-const OFFSTAGE = 78;
+/** Extra distance (mark units) past the screen's right edge, so no part of the tool shows before it enters. */
+const OFFSCREEN_MARGIN = 24;
 
 /**
  * A polished yellow school pencil: three lit hexagonal facets with a scalloped
@@ -343,16 +340,81 @@ function useCellBox(ref: React.RefObject<HTMLDivElement | null>): { aspect: numb
   return { aspect };
 }
 
-/** The pencil waits outside the picture on the right, level with the mark. */
-const OFF: Pt = [OFFSTAGE, -8];
-const offPt = `${f2(OFF[0])} ${f2(OFF[1])}`;
+interface FlightBox {
+  left: number;
+  top: number;
+  width: number;
+  height: number;
+  /** Viewport width in CSS px. */
+  vw: number;
+}
 
 /**
- * Draw phase. The big pencil glides in from the right side, passing over the
- * neighbouring pictures on the way, and touches down on the starting point
+ * Where the mark box sits on the screen while a tool is in flight. The tools fly
+ * in a fixed layer above the whole page (the page sheet clips its contents), so
+ * this layer is kept exactly over the mark box, following scrolls and resizes.
+ */
+function useFlightBox(ref: React.RefObject<HTMLDivElement | null>, active: boolean): FlightBox | null {
+  const [box, setBox] = useState<FlightBox | null>(null);
+  useLayoutEffect(() => {
+    if (!active) {
+      setBox(null);
+      return;
+    }
+    const el = ref.current;
+    if (!el) return;
+    let frame = 0;
+    const measure = () => {
+      const r = el.getBoundingClientRect();
+      const vw = window.innerWidth || document.documentElement.clientWidth || 0;
+      setBox((prev) =>
+        prev &&
+        prev.left === r.left &&
+        prev.top === r.top &&
+        prev.width === r.width &&
+        prev.height === r.height &&
+        prev.vw === vw
+          ? prev
+          : { left: r.left, top: r.top, width: r.width, height: r.height, vw },
+      );
+    };
+    const schedule = () => {
+      if (frame) return;
+      frame = window.requestAnimationFrame(() => {
+        frame = 0;
+        measure();
+      });
+    };
+    measure();
+    window.addEventListener("scroll", schedule, true);
+    window.addEventListener("resize", schedule);
+    return () => {
+      if (frame) window.cancelAnimationFrame(frame);
+      window.removeEventListener("scroll", schedule, true);
+      window.removeEventListener("resize", schedule);
+    };
+  }, [ref, active]);
+  return box;
+}
+
+/**
+ * Translation (mark units) that puts a tool resting at `from` completely past the
+ * right edge of the screen, a little higher than where it touches down.
+ */
+function offscreenFrom(box: FlightBox, height: number, from: Pt): string {
+  const unit = box.width > 0 && box.height > 0 ? Math.min(box.width / 100, box.height / height) : 0;
+  // Mark box is centred in its element (SVG "meet"); find the screen's right edge in mark units.
+  const edge = unit > 0 ? (box.vw - box.left - (box.width - 100 * unit) / 2) / unit : 140;
+  const dx = Math.max(edge, 100) + OFFSCREEN_MARGIN - from[0];
+  return `${f2(dx)} ${f2(-10)}`;
+}
+
+/**
+ * Draw phase. The big pencil starts completely off the right edge of the screen,
+ * travels in over everything on the way and touches down on the starting point
  * (`approach`), travels the mark exactly as the stroke is revealed (`dur`) with
- * the small wrist turns of a real hand, then glides back out to the right over
- * the same pictures (`lift`). The tools are not clipped to the cell.
+ * the small wrist turns of a real hand, then travels back out past the right
+ * edge of the screen (`lift`). Nothing clips it: it flies in its own layer.
  */
 function DrawingPencil({
   path,
@@ -364,6 +426,7 @@ function DrawingPencil({
   uid,
   first,
   last,
+  offscreen,
 }: {
   path: string;
   begin?: number;
@@ -374,6 +437,8 @@ function DrawingPencil({
   uid: string;
   first: boolean;
   last: boolean;
+  /** Translation that puts the pencil past the right edge of the screen. */
+  offscreen: string;
 }) {
   const travel = approach + dur;
   const total = travel + lift;
@@ -382,8 +447,8 @@ function DrawingPencil({
   const kDone = (travel / total).toFixed(4);
   // Between the two strokes of an X the pencil only hops a little off the paper.
   const hop: Pt = [AXIS[0] * 6, AXIS[1] * 6];
-  const enter = first ? offPt : `${f2(hop[0])} ${f2(hop[1])}`;
-  const leave = last ? offPt : `${f2(hop[0])} ${f2(hop[1])}`;
+  const enter = first ? offscreen : `${f2(hop[0])} ${f2(hop[1])}`;
+  const leave = last ? offscreen : `${f2(hop[0])} ${f2(hop[1])}`;
   return (
     <g className="workbook-pencil" opacity="0" filter={`url(#${shadow})`}>
       <animateMotion
@@ -407,7 +472,7 @@ function DrawingPencil({
           calcMode="spline"
           values={`${enter};0 0;0 0;${leave}`}
           keyTimes={`0;${kApproach};${kDone};1`}
-          keySplines={`0.22 0.61 0.36 1;0 0 1 1;0.55 0 0.85 0.45`}
+          keySplines={`0.3 0 0.25 1;0 0 1 1;0.55 0 0.7 1`}
         />
         <g>
           {/* The wrist turns a few degrees as the hand goes round. */}
@@ -592,6 +657,11 @@ export function WorkbookPencilMark({
   const baseId = `wb-pencil-${useId().replace(/[^a-zA-Z0-9_-]/g, "")}`;
   const shadowId = `${baseId}-shadow`;
   const { aspect } = useCellBox(boxRef);
+  const flying =
+    !reducedMotion &&
+    !externalStatus &&
+    (currentStatus === "drawing" || currentStatus === "holding" || currentStatus === "erasing");
+  const flightBox = useFlightBox(boxRef, flying);
   const height = Math.round(100 * aspect * 10) / 10;
   const seed = useMemo(() => hashSeed(itemId ?? "mark"), [itemId]);
   const strokePoints = useMemo(
@@ -671,30 +741,41 @@ export function WorkbookPencilMark({
       </filter>
     </defs>
   );
+  const { eraseMs, eraseFlipMs, eraseLiftMs } = WORKBOOK_MARK_TIMING;
+  const enterMs = eraseFlipMs;
+  const rubMs = eraseMs - enterMs - eraseLiftMs;
+  const kTouch = (enterMs / eraseMs).toFixed(4);
+  const kRubbed = ((eraseMs - eraseLiftMs) / eraseMs).toFixed(4);
+  const scrubPeriod = 220;
+  const lastPath = strokes[strokes.length - 1];
+  const lastPoints = strokePoints[strokePoints.length - 1];
 
-  return (
-    <div
-      ref={boxRef}
-      className={`workbook-pencil-mark workbook-pencil-mark-container ${className}`}
-      data-mark-status={currentStatus}
-      data-mark-result={result}
-      data-mark-type={markType}
-    >
-      {!erasing && (
-        <svg key="mark" className="workbook-pencil-mark__svg" viewBox={viewBox} aria-hidden="true">
-          {animateDraw && toolDefs}
-          {strokes.map((d, i) => (
-            <MarkStroke
-              key={i}
-              path={d}
-              animate={animateDraw}
-              dur={strokeDur}
-              begin={schedule[i].strokeBegin}
-            />
-          ))}
-          {animateDraw && (
-            <>
-              {strokes.map((d, i) => (
+  /**
+   * Owner 2026-10-08: the pencil and the eraser come from off the right edge of the
+   * screen, pass over everything on the way, do their job and leave the same way.
+   * They fly in a fixed layer above the whole page, kept exactly over this mark box,
+   * so the page sheet (which clips its contents) never cuts them off.
+   */
+  const flightLayer =
+    flying && flightBox && typeof document !== "undefined"
+      ? createPortal(
+          <svg
+            key={erasing ? "erase-flight" : "draw-flight"}
+            className="workbook-pencil-flight"
+            data-mark-status={currentStatus}
+            data-mark-result={result}
+            viewBox={viewBox}
+            aria-hidden="true"
+            style={{
+              left: `${flightBox.left}px`,
+              top: `${flightBox.top}px`,
+              width: `${flightBox.width}px`,
+              height: `${flightBox.height}px`,
+            }}
+          >
+            {toolDefs}
+            {!erasing &&
+              strokes.map((d, i) => (
                 <DrawingPencil
                   key={`p${i}`}
                   path={d}
@@ -706,116 +787,119 @@ export function WorkbookPencilMark({
                   uid={`${baseId}-d${i}`}
                   first={i === 0}
                   last={i === strokes.length - 1}
+                  offscreen={offscreenFrom(flightBox, height, strokePoints[i][0])}
                 />
               ))}
-            </>
-          )}
+            {erasing &&
+              (() => {
+                const off = offscreenFrom(flightBox, height, lastPoints[lastPoints.length - 1]);
+                return (
+                  <g className="workbook-pencil workbook-pencil--eraser" filter={`url(#${shadowId})`}>
+                    <animateMotion
+                      dur={`${eraseMs}ms`}
+                      fill="freeze"
+                      keyTimes={`0;${kTouch};${kRubbed};1`}
+                      keyPoints="1;1;0;0"
+                      calcMode="linear"
+                      path={lastPath}
+                    />
+                    <g>
+                      {/* Comes in from off the right edge of the screen, eraser first;
+                          leaves the same way once the mark is gone. */}
+                      <animateTransform
+                        attributeName="transform"
+                        type="translate"
+                        dur={`${eraseMs}ms`}
+                        fill="freeze"
+                        calcMode="spline"
+                        values={`${off};0 0;0 0;${off}`}
+                        keyTimes={`0;${kTouch};${kRubbed};1`}
+                        keySplines={`0.3 0 0.25 1;0 0 1 1;0.55 0 0.7 1`}
+                      />
+                      <g>
+                        {/* Firm back-and-forth rubbing, the way a child scrubs. */}
+                        <animateTransform
+                          attributeName="transform"
+                          type="translate"
+                          begin={`${enterMs}ms`}
+                          dur={`${scrubPeriod}ms`}
+                          repeatCount={Math.floor(rubMs / scrubPeriod)}
+                          values="0 0;5 -1.4;0 0;-4.5 1.2;0 0"
+                        />
+                        <g transform={ERASER_POSE}>
+                          <g transform={`rotate(180 0 ${PENCIL_CENTER_Y})`}>
+                            <PencilShape uid={`${baseId}-e`} />
+                          </g>
+                        </g>
+                      </g>
+                    </g>
+                  </g>
+                );
+              })()}
+          </svg>,
+          document.body,
+        )
+      : null;
+
+  return (
+    <div
+      ref={boxRef}
+      className={`workbook-pencil-mark workbook-pencil-mark-container ${className}`}
+      data-mark-status={currentStatus}
+      data-mark-result={result}
+      data-mark-type={markType}
+    >
+      {!erasing && (
+        <svg key="mark" className="workbook-pencil-mark__svg" viewBox={viewBox} aria-hidden="true">
+          {strokes.map((d, i) => (
+            <MarkStroke
+              key={i}
+              path={d}
+              animate={animateDraw}
+              dur={strokeDur}
+              begin={schedule[i].strokeBegin}
+            />
+          ))}
         </svg>
       )}
       {erasing && (
         <svg key="erase" className="workbook-pencil-mark__svg" viewBox={viewBox} aria-hidden="true">
-          {!reducedMotion && toolDefs}
-          {reducedMotion
-            ? null
-            : (() => {
-                const { eraseMs, eraseFlipMs, eraseLiftMs } = WORKBOOK_MARK_TIMING;
-                const enterMs = eraseFlipMs;
-                const rubMs = eraseMs - enterMs - eraseLiftMs;
-                const kTouch = (enterMs / eraseMs).toFixed(4);
-                const kRubbed = ((eraseMs - eraseLiftMs) / eraseMs).toFixed(4);
-                const scrubPeriod = 220;
-                const lastPath = strokes[strokes.length - 1];
-                const lastPoints = strokePoints[strokePoints.length - 1];
-                return (
-                  <>
-                    {/* A faint smudge where the rubber passed, gone by the time the eraser leaves. */}
-                    {strokes.map((d, i) => (
-                      <path
-                        key={`ghost${i}`}
-                        className="workbook-pencil-mark__stroke workbook-pencil-mark__ghost"
-                        d={d}
-                        opacity="0"
-                      >
-                        <animate
-                          attributeName="opacity"
-                          dur={`${eraseMs}ms`}
-                          fill="freeze"
-                          values="0;0.1;0.06;0"
-                          keyTimes={`0;${kTouch};${kRubbed};1`}
-                        />
-                      </path>
-                    ))}
-                    {strokes.map((d, i) => (
-                      <path
-                        key={i}
-                        className="workbook-pencil-mark__stroke"
-                        d={d}
-                        pathLength={100}
-                        strokeDasharray="100 100"
-                      >
-                        <animate
-                          attributeName="stroke-dashoffset"
-                          dur={`${eraseMs}ms`}
-                          fill="freeze"
-                          values="0;0;100;100"
-                          keyTimes={`0;${kTouch};${kRubbed};1`}
-                        />
-                      </path>
-                    ))}
-                    <>
-                      <EraserCrumbs
-                        points={lastPoints}
-                        seed={seed}
-                        enterMs={enterMs}
-                        rubMs={rubMs}
-                        totalMs={eraseMs}
-                      />
-                      <g className="workbook-pencil workbook-pencil--eraser" filter={`url(#${shadowId})`}>
-                        <animateMotion
-                          dur={`${eraseMs}ms`}
-                          fill="freeze"
-                          keyTimes={`0;${kTouch};${kRubbed};1`}
-                          keyPoints="1;1;0;0"
-                          calcMode="linear"
-                          path={lastPath}
-                        />
-                        <g>
-                          {/* Slides in from the right across the neighbouring pictures,
-                              eraser first; slides back out the same way. */}
-                          <animateTransform
-                            attributeName="transform"
-                            type="translate"
-                            dur={`${eraseMs}ms`}
-                            fill="freeze"
-                            calcMode="spline"
-                            values={`${ERASER_OFF};0 0;0 0;${ERASER_OFF}`}
-                            keyTimes={`0;${kTouch};${kRubbed};1`}
-                            keySplines={`0.22 0.61 0.36 1;0 0 1 1;0.55 0 0.85 0.45`}
-                          />
-                          <g>
-                            {/* Firm back-and-forth rubbing, the way a child scrubs. */}
-                            <animateTransform
-                              attributeName="transform"
-                              type="translate"
-                              begin={`${enterMs}ms`}
-                              dur={`${scrubPeriod}ms`}
-                              repeatCount={Math.floor(rubMs / scrubPeriod)}
-                              values="0 0;5 -1.4;0 0;-4.5 1.2;0 0"
-                            />
-                            <g transform={ERASER_POSE}>
-                              <g transform={`rotate(180 0 ${PENCIL_CENTER_Y})`}>
-                                <PencilShape uid={`${baseId}-e`} />
-                              </g>
-                            </g>
-                          </g>
-                        </g>
-                      </g>
-                    </>
-                  </>
-                );
-              })()}
+          {!reducedMotion && (
+            <>
+              {/* A faint smudge where the rubber passed, gone by the time the eraser leaves. */}
+              {strokes.map((d, i) => (
+                <path
+                  key={`ghost${i}`}
+                  className="workbook-pencil-mark__stroke workbook-pencil-mark__ghost"
+                  d={d}
+                  opacity="0"
+                >
+                  <animate
+                    attributeName="opacity"
+                    dur={`${eraseMs}ms`}
+                    fill="freeze"
+                    values="0;0.1;0.06;0"
+                    keyTimes={`0;${kTouch};${kRubbed};1`}
+                  />
+                </path>
+              ))}
+              {strokes.map((d, i) => (
+                <path key={i} className="workbook-pencil-mark__stroke" d={d} pathLength={100} strokeDasharray="100 100">
+                  <animate
+                    attributeName="stroke-dashoffset"
+                    dur={`${eraseMs}ms`}
+                    fill="freeze"
+                    values="0;0;100;100"
+                    keyTimes={`0;${kTouch};${kRubbed};1`}
+                  />
+                </path>
+              ))}
+              <EraserCrumbs points={lastPoints} seed={seed} enterMs={enterMs} rubMs={rubMs} totalMs={eraseMs} />
+            </>
+          )}
         </svg>
       )}
+      {flightLayer}
     </div>
   );
 }
