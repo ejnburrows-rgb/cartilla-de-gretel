@@ -68,8 +68,20 @@ export function canTransition(from: GretelState, event: GretelEvent): boolean {
     case "gentle-error":
     case "cheering":
     case "exiting":
-      if (from === "waving" && event.type === "WAVE") return true;
-      return ["IDLE", "SETTLE", "ASSET_ERROR", "SPEAK_START", "SPEAK_STOP"].includes(event.type);
+      return [
+        "IDLE",
+        "SETTLE",
+        "ASSET_ERROR",
+        "SPEAK_START",
+        "SPEAK_STOP",
+        "WAVE",
+        "POINT",
+        "LISTEN",
+        "TEACH",
+        "HELP",
+        "GENTLE_ERROR",
+        "CHEER",
+      ].includes(event.type);
     case "error":
       return ["RESET", "ASSET_ERROR"].includes(event.type);
     default:
@@ -128,7 +140,13 @@ export function gretelReducer(state: GretelState, event: GretelEvent): GretelSta
     case "gentle-error":
     case "cheering":
     case "exiting":
-      if (state === "waving" && event.type === "WAVE") nextState = "waving";
+      if (event.type === "WAVE") nextState = "waving";
+      else if (event.type === "POINT") nextState = "pointing";
+      else if (event.type === "LISTEN") nextState = "listening";
+      else if (event.type === "TEACH") nextState = "teaching";
+      else if (event.type === "HELP") nextState = "help";
+      else if (event.type === "GENTLE_ERROR") nextState = "gentle-error";
+      else if (event.type === "CHEER") nextState = "cheering";
       else if (event.type === "SETTLE") nextState = "settling";
       else if (event.type === "SPEAK_START") nextState = "talking";
       else if (event.type === "SPEAK_STOP" || event.type === "IDLE") nextState = "idle";
