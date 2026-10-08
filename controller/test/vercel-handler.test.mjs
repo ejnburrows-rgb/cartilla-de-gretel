@@ -3,6 +3,14 @@ import assert from 'node:assert/strict';
 import {createHmac} from 'node:crypto';
 import handler from '../api/handler.mjs';
 import {rawBody,signatureOK} from '../src/security.mjs';
+import {api} from '../src/api.mjs';
+test('public board exposes aggregate counts only; details and writes remain authenticated',async()=>{
+ const deps={ledger:{db:{query:async sql=>({rows:sql.includes('GROUP BY')?[{status:'running',count:1},{status:'verified',count:9}]:[{latest:'2026-10-08T01:00:00Z'}]})}}};
+ const r=await api({url:'/api/overview',method:'GET',headers:{}},deps,{OPENHANDS_ENABLED:'true'});
+ assert.equal(r.status,200);assert.deepEqual(Object.keys(r.body).sort(),['last_activity','statuses','worker_enabled']);
+ assert.equal(r.body.statuses.running,1);assert.equal(r.body.statuses.verified,9);
+ for(const [url,method]of [['/api/jobs','GET'],['/api/status','GET'],['/api/overview','POST']])assert.equal((await api({url,method,headers:{}},deps,{})).status,401);
+});
 test('Web Standard request preserves exact signed JSON bytes',async()=>{
  const body='{\n "repository": {"full_name":"owner/repo"}, "zen": "hello"\n}';
  const request=new Request('https://controller.test/api/github/webhook',{method:'POST',body,headers:{'Content-Type':'application/json'}});

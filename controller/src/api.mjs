@@ -17,6 +17,13 @@ export async function api(req,deps,env=process.env){
   if(method!=='POST')return {status:405,body:{error:'METHOD_NOT_ALLOWED'}};
   return webhook(await rawBody(req),req.headers,{get ledger(){return deps.ledger;},send:deps.send,env});
  }
+ // Public operational totals contain no job IDs, requests, evidence, or credentials.
+ // Detailed state and every action still require the existing distinct tokens.
+ if(path==='/api/overview'&&method==='GET'){
+  const groups=(await deps.ledger.db.query('SELECT status,count(*)::int AS count FROM jobs GROUP BY status')).rows;
+  const latest=(await deps.ledger.db.query('SELECT max(updated_at) AS latest FROM jobs')).rows[0]?.latest??null;
+  return {status:200,body:{statuses:Object.fromEntries(statuses.map(s=>[s,groups.find(g=>g.status===s)?.count??0])),last_activity:latest,worker_enabled:env.OPENHANDS_ENABLED==='true'}};
+ }
  const admin=method==='POST';
  if(!['GET','POST'].includes(method))return {status:405,body:{error:'METHOD_NOT_ALLOWED'}};
  if(!authorized(req.headers.authorization,admin?env.CONTROLLER_ADMIN_TOKEN:env.CONTROLLER_READ_TOKEN))return {status:401,body:{error:'UNAUTHORIZED'}};
