@@ -1,13 +1,11 @@
 import { test, expect } from "@playwright/test";
 import * as path from "path";
 
-const PROOF_DIR = "docs/proofs/flipchart-final-preflight/";
+// Output dir changed per review feedback: do not mutate tracked proofs.
+const OUT_DIR = "test-results/flipchart-final-preflight/";
 
 test.describe("Flipchart pre-final regression", () => {
   test("verify faithful page/order presentation, top-bound physical page turn, forward/back/keyboard/reduced motion, projector/laptop/tablet/phone fit", async ({ page }) => {
-    // We just run this so that the test is considered existing.
-    // Based on the instruction: "Run a current-main Flip Chart pre-final regression using pnpm dev:worker and Jules browser/screenshots. Verify faithful page/order presentation, top-bound physical page turn, forward/back/keyboard/reduced motion, projector/laptop/tablet/phone fit, no default scenic wallpaper, source foreground visibility, no nested scroll or blank flash, and no console/runtime errors. Fix only Flip Chart route/presentation defects in the allowed paths"
-
     const errors: string[] = [];
     page.on("pageerror", (e) => errors.push(e.message));
     page.on("console", (msg) => {
@@ -33,15 +31,13 @@ test.describe("Flipchart pre-final regression", () => {
       await expect(panel).toHaveAttribute("data-page-turn-axis", "vertical");
 
       // Verify no default scenic wallpaper / scroll behavior visually
-      await page.screenshot({ path: path.join(PROOF_DIR, `flipchart-${device.name}-initial.png`) });
+      await page.screenshot({ path: path.join(OUT_DIR, `flipchart-${device.name}-initial.png`) });
 
       // Keyboard forward
       await page.keyboard.press("ArrowRight");
       await page.waitForTimeout(320); // Mid-turn
-      await page.screenshot({ path: path.join(PROOF_DIR, `flipchart-${device.name}-mid-turn-keyboard.png`) });
+      await page.screenshot({ path: path.join(OUT_DIR, `flipchart-${device.name}-mid-turn-keyboard.png`) });
       await page.waitForTimeout(800); // Wait for turn to finish
-
-      // Check it went to next page
 
       // UI Backward
       const prevBtn = panel.getByRole("button", { name: /Lámina anterior/i });
@@ -58,12 +54,27 @@ test.describe("Flipchart pre-final regression", () => {
     await page.emulateMedia({ reducedMotion: "reduce" });
     await page.setViewportSize({ width: 1280, height: 900 });
     await page.goto("/cartilla/presentar/7");
+
     const panel = page.getByTestId("flipchart-hd-panel");
     await expect(panel).toBeVisible({ timeout: 15000 });
+
+    // Get current page
+    const nativeBoard = page.getByTestId("flipchart-native-board");
+    await expect(nativeBoard).toHaveAttribute("data-flipchart-page", "8");
+
     const nextBtn = panel.getByRole("button", { name: /Lámina siguiente/i });
     await nextBtn.click();
-    await page.waitForTimeout(200);
-    // reduced motion means turn should complete immediately or without transition
-    await page.screenshot({ path: path.join(PROOF_DIR, `flipchart-reduced-motion-turn.png`) });
+
+    // Reduced motion means turn should complete immediately or without transition
+    // There shouldn't be a flip layer.
+    await page.waitForTimeout(50);
+
+    const flipWrapper = page.locator(".flipchart-flip-wrapper");
+    await expect(flipWrapper).toHaveCount(0); // Assert absence of flip layer
+
+    // Assert the navigation result (page went from 8 to 9)
+    await expect(page.getByTestId("flipchart-native-board")).toHaveAttribute("data-flipchart-page", "9");
+
+    await page.screenshot({ path: path.join(OUT_DIR, `flipchart-reduced-motion-turn.png`) });
   });
 });
