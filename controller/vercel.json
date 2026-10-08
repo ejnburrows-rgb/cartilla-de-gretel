@@ -1,1 +1,1 @@
-{"version":2,"buildCommand":"env -i PATH=\"$PATH\" npm test && npm run build","outputDirectory":"public","functions":{"api/**/*.mjs":{"maxDuration":60}},"rewrites":[{"source":"/api/:path*","destination":"/api/handler"}],"git":{"deploymentEnabled":false}}
+{"version":2,"buildCommand":"env -i PATH=\"$PATH\" npm test && npm run build","outputDirectory":"public","functions":{"api/**/*.mjs":{"maxDuration":60}},"rewrites":[{"source":"/api/:path*","destination":"/api/handler"}],"git":{"deploymentEnabled":false},"ignoreCommand":"exit 1"}
