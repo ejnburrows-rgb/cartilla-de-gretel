@@ -213,6 +213,7 @@ export function LassoSyllableMatch({
         </span>
       ) : null}
       <LassoConnect
+        showCompanion={false}
         pageKey={pageKey(lessonId, region.id)}
         targets={targets}
         mode="mark"
@@ -254,6 +255,7 @@ export function LassoVowelMatchAll({
   });
   return (
     <LassoConnect
+        showCompanion={false}
       pageKey={pageKey(lessonId, region.id)}
       targets={targets}
       mode="pair"
@@ -288,6 +290,7 @@ export function LassoVowelLineMatch({
   return (
     <div className="am-faithful-lasso">
       <LassoConnect
+        showCompanion={false}
         pageKey={pageKey(lessonId, region.id)}
         targets={targets}
         mode="mark"
@@ -321,6 +324,7 @@ export function LassoPictureGrid({
   }));
   return (
     <LassoConnect
+        showCompanion={false}
       pageKey={pageKey(lessonId, region.id)}
       targets={targets}
       mode="mark"

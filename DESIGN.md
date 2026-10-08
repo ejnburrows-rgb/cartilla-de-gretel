@@ -1,5 +1,17 @@
 # DESIGN — La Cartilla de Gretel
 
+## Latest owner direction — 2026-10-07
+
+The uploaded second eight-panel image is the repeating main-page archetype.
+Main lesson pages center the clean workbook itself, with navigation below;
+Gretel must not occupy a default side column. Reuse existing content, approved
+artwork, activity state and completion gates. Pages grow instead of clipping
+content in nested scroll areas. Flipchart uses a clean paper surface with no
+background images; source instructional foreground scenes and useful motion
+remain. This explicit direction supersedes older side-companion and scenic
+Flipchart presentation statements below. Reference title bars are annotations.
+
+
 > **Finish contract:** Read PROJECT_FINISH_DEFINITION.md before planning or declaring Cartilla work complete. It is the canonical definition of what must be true for the entire project to be finished. Compare current verified reality against it and close only real remaining gaps.
 
 
