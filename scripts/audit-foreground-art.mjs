@@ -46,6 +46,14 @@ scanTs("src/lib/living-actor-registry.ts");
 scanTs("src/lib/living-blink-map.ts");
 scanTs("src/lib/living-art-runtime.ts");
 
+// Keep required-but-missing motion evidence visible without wiring broken runtime assets.
+for (const src of [
+  "/cartilla/art/faithful/leccion-7-m/mono-blink.webp",
+  "/cartilla/art/faithful/leccion-9-s/sapo-blink.webp",
+]) {
+  wiredFaithfulSrcs.add(src);
+}
+
 const flipchartNativeSlots = [];
 const sortedNativeEntries = Object.entries(flipchartNative).sort(
   ([a], [b]) => Number(a) - Number(b),
@@ -57,8 +65,9 @@ for (const [pageKey, assets] of sortedNativeEntries) {
       page: pageKey,
       word: a.word,
       src: a.src,
+      sourcePage: a.sourcePage,
       crop: a.crop,
-      approvedInput: a.approvedInput === true || a.verified === true,
+      verified: a.verified === true,
     });
   }
 }
@@ -83,8 +92,11 @@ async function audit() {
       bytes = fs.statSync(localPath).size;
     }
 
+    const sourceNote = String(m.note || m.sourceNote || "");
+    const explicitlyNeedsVerification = /(?:re-?verify|verify existing|needs? verification)/i.test(sourceNote);
+
     let category = "PENDING NO VERIFIED SOURCE";
-    if (!exists) {
+    if (!exists || explicitlyNeedsVerification) {
       category = "PENDING NO VERIFIED SOURCE";
     } else if (quarantinedSrcs.has(src) || qaVerdict === "FAIL") {
       category = "WRONG SOURCE";
@@ -129,22 +141,33 @@ async function audit() {
       bytes = fs.statSync(localPath).size;
     }
 
+    const sourcePageMatches = Number(slot.sourcePage) === Number(slot.page);
+    const hasCropEvidence =
+      Array.isArray(slot.crop) &&
+      slot.crop.length === 4 &&
+      slot.crop.map(Number).every(Number.isFinite) &&
+      Number(slot.crop[2]) > 0 &&
+      Number(slot.crop[3]) > 0;
+    const hasVerifiedSourceEvidence = slot.verified && sourcePageMatches && hasCropEvidence;
+
     let category = "PENDING NO VERIFIED SOURCE";
-    if (exists && slot.approvedInput) {
+    if (exists && hasVerifiedSourceEvidence) {
       category = "PASS";
-    } else {
-      category = "PENDING NO VERIFIED SOURCE";
     }
 
     nativeAudit.push({
       src: slot.src,
       word: slot.word,
       page: slot.page,
+      sourcePage: slot.sourcePage,
+      crop: slot.crop,
       classification: category,
       dimensions,
       bytes,
       exists,
-      approvedInput: slot.approvedInput,
+      verified: slot.verified,
+      sourcePageMatches,
+      hasCropEvidence,
     });
   }
 
