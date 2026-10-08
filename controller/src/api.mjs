@@ -3,10 +3,11 @@ import {verificationRequirements} from './verification.mjs';
 import {webhook} from './webhook.mjs';
 import {parseSpec} from './policy.mjs';
 export const statuses=['running','waiting','retrying','blocked','failed','dead_letter','verified'];
-const viewJob=j=>({id:j.id,kind:j.kind,lane:j.source?.lane??j.kind,pr:j.source?.pr??null,issue:j.issue_number,status:j.status,requested_action:j.spec.action??j.kind,worker:j.worker,external_id:j.external_id,starting_sha:j.starting_sha,attempt_number:j.attempt_count,deadline:j.deadline,last_activity:j.updated_at,next_retry:j.retry_at,failure_reason:j.failure_reason,next_action:j.next_action,what_emilio_needs_to_do:j.owner_action});
+const ownerNeedsAttention=value=>!!value&&!['nothing','nothing right now','none','no action'].includes(String(value).trim().toLowerCase().replace(/\.$/,''));
+const viewJob=(j,repo)=>({id:j.id,kind:j.kind,lane:j.source?.lane??j.kind,repository:j.source?.repository??j.source?.repo??repo??null,source_url:j.source?.url??null,pr:j.source?.pr??null,issue:j.issue_number,status:j.status,requested_action:j.spec.action??j.kind,worker:j.worker,external_id:j.external_id,starting_sha:j.starting_sha,attempt_number:j.attempt_count,deadline:j.deadline,created_at:j.created_at,last_activity:j.updated_at,next_retry:j.retry_at,failure_reason:j.failure_reason,next_action:j.next_action,what_emilio_needs_to_do:j.owner_action,needs_owner_attention:ownerNeedsAttention(j.owner_action)});
 export function openapi(){
  const paths={};
- for(const p of ['/api/status','/api/jobs','/api/jobs/{id}','/api/jobs/{id}/evidence','/api/jobs/{id}/validations','/api/workers','/api/openapi.json'])paths[p]={get:{security:[{readToken:[]}],responses:{200:{description:'Read-only controller state'},401:{description:'Unauthorized'},503:{description:'Dependency not configured'}}}};
+ for(const p of ['/api/status','/api/jobs','/api/jobs/{id}','/api/jobs/{id}/history','/api/jobs/{id}/evidence','/api/jobs/{id}/validations','/api/workers','/api/openapi.json'])paths[p]={get:{security:[{readToken:[]}],responses:{200:{description:'Read-only controller state'},401:{description:'Unauthorized'},503:{description:'Dependency not configured'}}}};
  for(const p of ['/api/jobs','/api/jobs/{id}/retry','/api/jobs/{id}/cancel','/api/jobs/{id}/review'])paths[p]={...paths[p],post:{security:[{adminToken:[]}],responses:{202:{description:'Durably stored admin request'},409:{description:'Unsafe state transition'}}}};
  paths['/api/github/webhook']={post:{description:'GitHub HMAC-SHA256 signed raw body; stored before acknowledgment',responses:{202:{description:'Event and canonical job stored'}}}};
  for(const [p,item]of Object.entries(paths))if(p.includes('{id}'))item.parameters=[{name:'id',in:'path',required:true,schema:{type:'string',format:'uuid'}}];
@@ -36,7 +37,7 @@ export async function api(req,deps,env=process.env){
   const groups=(await deps.ledger.db.query('SELECT status,count(*)::int AS count FROM jobs GROUP BY status')).rows;
   return {status:200,body:{configured:true,statuses:Object.fromEntries(statuses.map(s=>[s,groups.find(g=>g.status===s)?.count??0])),worker_enabled:env.OPENHANDS_ENABLED==='true',jules_required:false}};
  }
- if(path==='/api/jobs'&&method==='GET')return {status:200,body:{jobs:(await deps.ledger.jobs()).map(viewJob)}};
+ if(path==='/api/jobs'&&method==='GET')return {status:200,body:{jobs:(await deps.ledger.jobs()).map(j=>viewJob(j,env.GITHUB_REPO))}};
  if(path==='/api/workers'&&method==='GET'){
   const rows=(await deps.ledger.db.query("SELECT job_id,attempt_number,worker,external_id,start_task_id,state,deadline,dispatched_at,updated_at FROM job_attempts WHERE worker IN('openhands','openhands-release') ORDER BY dispatched_at DESC LIMIT 100")).rows;
   const count=(await deps.ledger.db.query("SELECT count(*)::int AS n FROM job_attempts a WHERE worker='openhands' AND dispatched_at>=date_trunc('day',now() AT TIME ZONE 'UTC') AT TIME ZONE 'UTC' AND NOT EXISTS(SELECT 1 FROM evidence_receipts e WHERE e.attempt_id=a.id AND e.kind='worker_continuation_reserved')")).rows[0].n;
@@ -45,12 +46,21 @@ export async function api(req,deps,env=process.env){
   const reuse=check==='reuse'?await Promise.all([...new Set(rows.map(r=>r.external_id).filter(Boolean))].slice(0,3).map(async id=>{try{return {external_id:id,reusable:!!await deps.worker.reusable(id,deps.github.repo)};}catch{return {external_id:id,reusable:false,reason:'SESSION_NOT_IDLE_OR_PROVIDER_UNAVAILABLE'};}})):undefined;
   return {status:200,body:{openhands:{enabled:env.OPENHANDS_ENABLED==='true',daily_limit:limit===0?null:limit,daily_reserved:count,capacity:Number(env.OPENHANDS_CAPACITY??1),runs:rows.filter(r=>r.worker==='openhands'),release_verifier_runs:rows.filter(r=>r.worker==='openhands-release'),...(check==='authentication'?{authentication:await deps.worker.authStatus()}:{}),...(reuse?{session_reuse:reuse}:{})},jules:{enabled:false,required:false,next_action:'Optional adapter not configured'}}};
  }
- const match=path.match(/^\/api\/jobs\/([a-f0-9-]{36})(?:\/(evidence|validations|retry|cancel|review))?$/);
+ const match=path.match(/^\/api\/jobs\/([a-f0-9-]{36})(?:\/(history|evidence|validations|retry|cancel|review))?$/);
  if(match){
   const id=match[1],suffix=match[2];const j=await deps.ledger.get(id);if(!j)return {status:404,body:{error:'JOB_NOT_FOUND'}};
   if(method==='GET'&&!suffix){
    const [e,v]=await Promise.all([deps.ledger.db.query('SELECT kind,data,recorded_at FROM evidence_receipts WHERE job_id=$1 ORDER BY recorded_at DESC LIMIT 1',[id]),deps.ledger.db.query('SELECT name,passed,details,recorded_at FROM validations WHERE job_id=$1 ORDER BY recorded_at DESC LIMIT 1',[id])]);
-   return {status:200,body:{...viewJob(j),latest_evidence:e.rows[0]??null,validation:v.rows[0]??null}};
+   return {status:200,body:{...viewJob(j,env.GITHUB_REPO),latest_evidence:e.rows[0]??null,validation:v.rows[0]??null}};
+  }
+  if(method==='GET'&&suffix==='history'){
+   const [transitions,attempts,evidence,validations]=await Promise.all([
+    deps.ledger.db.query('SELECT from_status,to_status,reason,recorded_at FROM job_transitions WHERE job_id=$1 ORDER BY recorded_at DESC LIMIT 100',[id]),
+    deps.ledger.db.query('SELECT attempt_number,worker,external_id,state,deadline,dispatched_at,updated_at FROM job_attempts WHERE job_id=$1 ORDER BY attempt_number DESC LIMIT 50',[id]),
+    deps.ledger.db.query('SELECT kind,data,recorded_at FROM evidence_receipts WHERE job_id=$1 ORDER BY recorded_at DESC LIMIT 100',[id]),
+    deps.ledger.db.query('SELECT name,passed,details,recorded_at FROM validations WHERE job_id=$1 ORDER BY recorded_at DESC LIMIT 100',[id])
+   ]);
+   return {status:200,body:{job:viewJob(j,env.GITHUB_REPO),transitions:transitions.rows,attempts:attempts.rows,evidence:evidence.rows,validations:validations.rows}};
   }
   if(method==='GET'&&['evidence','validations'].includes(suffix)){
    const table=suffix==='evidence'?'evidence_receipts':'validations';return {status:200,body:{[suffix]:(await deps.ledger.db.query(`SELECT * FROM ${table} WHERE job_id=$1 ORDER BY recorded_at DESC LIMIT 200`,[id])).rows}};
