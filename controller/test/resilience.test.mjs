@@ -3,8 +3,15 @@ import assert from 'node:assert/strict';
 import {EventEmitter} from 'node:events';
 import {GitHub} from '../src/github.mjs';
 import {protectPool} from '../src/db.mjs';
-import {CONTROLLER_RECONCILE_CRON} from '../src/functions.mjs';
+import {CONTROLLER_RECONCILE_CRON,quotaAwarePoll} from '../src/functions.mjs';
 
+test('GitHub quota pauses worker polling until the shared reset instead of failing each step',async()=>{
+ const future=new Date(Date.now()+90000).toISOString();
+ const result=await quotaAwarePoll(async()=>{const e=new Error('GITHUB_RATE_LIMITED');e.retryAt=future;throw e;});
+ assert.deepEqual(result,{done:false,github_resume_at:future});
+ await assert.rejects(quotaAwarePoll(async()=>{throw Error('REAL_WORKER_FAILURE');}),/REAL_WORKER_FAILURE/);
+ assert.deepEqual(await quotaAwarePoll(async()=>({done:true,verified:true})),{done:true,verified:true});
+});
 test('idle PostgreSQL pool errors are handled instead of crashing the process',()=>{
   const pool=new EventEmitter();
   protectPool(pool,{error(){}});
