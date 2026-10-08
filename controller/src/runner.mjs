@@ -249,7 +249,7 @@ export class Runner {
    return false;
   }
   await this.ledger.validate(job.id,'material_change_and_trusted_checks',false,result,attempt.id);
-  if(result.reason.startsWith('REQUIRED_CHECK_NOT_PASSED')&&new Date(job.deadline)>new Date()){
+  if((result.reason==='SONAR_QUALITY_GATE_REQUIRED'||result.reason.startsWith('REQUIRED_CHECK_NOT_PASSED'))&&new Date(job.deadline)>new Date()){
    await this.ledger.set(job.id,'waiting',result.reason,{lease_until:null,next_action:'Await independent GitHub checks on exact head'});
   }else if(result.reason==='NO_EXPECTED_PR'){await this.ledger.fail(job.id,result.reason);await this.scheduleRetry(job.id);
   }else{await this.ledger.set(job.id,'failed',result.reason,{lease_until:null,next_action:'Review GitHub evidence before explicit retry',owner_action:result.reason==='TRUSTED_CHECK_APPS_NOT_CONFIGURED'?'Configure trusted independent check app IDs':'Nothing'});}

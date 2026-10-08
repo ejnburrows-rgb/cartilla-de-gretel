@@ -232,3 +232,17 @@ test('Jules is the implementation worker when enabled while OpenHands remains un
  assert.equal((await db.query("SELECT count(*)::int AS n FROM job_attempts WHERE worker='jules'")).rows[0].n,1);
  await p.close();
 });
+
+test('material PR waits for Sonar publication instead of failing when exact-head checks are not published yet',async()=>{
+ const {p,ledger,runner,github}=await setup();
+ const e=evidence();e.checks=[];
+ github.changes=async()=>e;
+ runner.rescan=async()=>({});
+ const j=await ledger.create({key:'sonar-publication-race',kind:'issue_implementation',issue:7,source:{issue:7},spec});
+ await runner.dispatch(j,snapshot());
+ await runner.poll(j.id);
+ const current=await ledger.get(j.id);
+ assert.equal(current.status,'waiting');
+ assert.equal(current.failure_reason,'SONAR_QUALITY_GATE_REQUIRED');
+ await p.close();
+});
