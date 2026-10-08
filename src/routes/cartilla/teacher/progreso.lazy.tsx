@@ -72,13 +72,14 @@ function TeacherProgressPage() {
 
       <div className="flex gap-4 p-5 bg-stone-50 border border-stone-200 rounded-3xl no-print shadow-sm">
         <div className="flex-1 max-w-sm">
-          <label className="block text-[10px] font-bold text-stone-500 uppercase tracking-widest mb-1.5 ml-1">
+          <label htmlFor="teacher-progress-class" className="block text-[10px] font-bold text-stone-500 uppercase tracking-widest mb-1.5 ml-1">
             Clase
           </label>
           {loadingClasses ? (
             <div className="text-sm font-bold text-stone-400 py-2">Cargando clases...</div>
           ) : (
             <select
+              id="teacher-progress-class"
               value={selectedClassId}
               onChange={(e) => setSelectedClassId(e.target.value)}
               className="w-full px-4 py-2.5 rounded-xl border border-stone-200 bg-white text-stone-800 font-bold shadow-sm focus:outline-none focus:ring-2 focus:ring-orange-400 focus:border-orange-400 cursor-pointer text-sm"
