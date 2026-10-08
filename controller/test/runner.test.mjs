@@ -186,13 +186,34 @@ test('mandatory Sonar cannot be bypassed by issue checks, forged apps, old commi
  assert.equal(validateChange(job,{...e,checks:[...e.checks,{...e.checks[1],status:'in_progress',started_at:'2099-10-08T01:00:00Z'}]},[123,12526]).passed,false);
 });
 
-test('Jules dispatch failure preserves a safe provider error code without leaking arbitrary error text',async()=>{
+test('non-403 Jules dispatch failure preserves a safe provider error code and remains blocked',async()=>{
  const {p,ledger,runner,github}=await setup(undefined,{JULES_ENABLED:'true'});
- github.startJules=async()=>{throw Error('GITHUB_LABEL_HTTP_403');};
+ github.startJules=async()=>{throw Error('GITHUB_RATE_LIMITED');};
  const j=await ledger.create({key:'jules-provider-error',kind:'issue_implementation',issue:7,source:{issue:7},spec});
  assert.equal(await runner.dispatch(j,snapshot()),false);
- const failed=await ledger.get(j.id);assert.equal(failed.status,'blocked');assert.equal(failed.failure_reason,'JULES_DISPATCH_GITHUB_LABEL_HTTP_403');
+ const failed=await ledger.get(j.id);assert.equal(failed.status,'blocked');assert.equal(failed.failure_reason,'JULES_DISPATCH_GITHUB_RATE_LIMITED');
  const a=await ledger.attempt(j.id);assert.equal(a.state,'ambiguous');
+ await p.close();
+});
+
+test('known Jules GitHub label 403 falls back to OpenHands instead of stalling the implementation queue',async()=>{
+ let starts=0;
+ const worker={
+  start:async()=>{starts++;return {start_task_id:'oh-fallback-start',external_id:'oh-fallback-session',status:'READY'};},
+  reusable:async()=>null,
+  poll:async()=>({external_id:'oh-fallback-session',status:'running',terminal:false})
+ };
+ const {p,ledger,runner,github,db}=await setup(worker,{JULES_ENABLED:'true'});
+ github.startJules=async()=>{throw Error('GITHUB_LABEL_HTTP_403');};
+ const j=await ledger.create({key:'jules-403-fallback',kind:'issue_implementation',issue:7,source:{issue:7},spec});
+ assert.equal(await runner.dispatch(j,snapshot()),true);
+ assert.equal(starts,1);
+ const attempts=(await db.query('SELECT worker,state FROM job_attempts WHERE job_id=$1 ORDER BY attempt_number',[j.id])).rows;
+ assert.deepEqual(attempts,[{worker:'jules',state:'failed'},{worker:'openhands',state:'running'}]);
+ const current=await ledger.get(j.id);
+ assert.equal(current.status,'running');
+ assert.equal(current.worker,'openhands');
+ assert.equal(current.failure_reason,null);
  await p.close();
 });
 

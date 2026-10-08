@@ -130,6 +130,11 @@ export class Runner {
    });
   }catch(error){
    const providerCode=/^(?:GITHUB_(?:LABEL_)?HTTP_\d{3}|GITHUB_RATE_LIMITED|JULES_LABEL_ALREADY_PRESENT)$/.test(String(error?.message??''))?String(error.message):null;
+   if(providerCode==='GITHUB_LABEL_HTTP_403'){
+    await this.ledger.db.query("UPDATE job_attempts SET state='failed',updated_at=now() WHERE id=$1",[attempt.id]);
+    await this.ledger.set(job.id,'queued','JULES_DISPATCH_GITHUB_LABEL_HTTP_403',{external_id:null,next_action:'Jules GitHub write unavailable; fail over to OpenHands',owner_action:'Nothing'});
+    return this.dispatch(await this.ledger.get(job.id),s,{allowJules:false});
+   }
    await this.ledger.db.query("UPDATE job_attempts SET state='ambiguous',updated_at=now() WHERE id=$1",[attempt.id]);
    await this.ledger.set(job.id,'blocked',providerCode?'JULES_DISPATCH_'+providerCode:'JULES_DISPATCH_OUTCOME_UNKNOWN',{next_action:'Inspect trusted Jules bot issue activity; do not relabel or duplicate dispatch',owner_action:'Nothing'});return false;
   }
@@ -150,8 +155,8 @@ export class Runner {
    await this.ledger.set(job.id,'running',null,{lease_until:null,next_action:'Monitor Jules task and resulting PR',owner_action:'Nothing'});return {done:false};
   }finally{await this.ledger.db.query('UPDATE jobs SET lease_until=NULL WHERE id=$1',[job.id]);}
  }
- async dispatch(job,s){
-  if(job.kind==='issue_implementation'&&this.julesEnabled())return this.dispatchJules(job,s);
+ async dispatch(job,s,{allowJules=true}={}){
+  if(allowJules&&job.kind==='issue_implementation'&&this.julesEnabled())return this.dispatchJules(job,s);
   if(!this.enabled()){await this.ledger.set(job.id,'blocked','OPENHANDS_DISABLED',{next_action:'Configure authorized worker credentials then rescan',owner_action:'Authorize OpenHands connection without paid usage'});return false;}
   if(job.kind==='issue_implementation'){
    const current=await this.github.request(`/issues/${job.issue_number}`);const p=parseSpec(current,this.github.repo);
