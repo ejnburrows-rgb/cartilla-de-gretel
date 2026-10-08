@@ -24,14 +24,91 @@ export type LivingActor = {
   action: LivingActorAction;
   creature: boolean;
   blinkFrame?: string;
+  /**
+   * Self-animated SVG with the owner-approved natural part motion (Page 1,
+   * owner 2026-10-06). When present it replaces whole-picture CSS motion and
+   * blink-frame swapping; reduced motion shows the still `src` drawing.
+   */
+  aliveSrc?: string;
   parts?: LivingActorPart[];
   reducedMotion: "static";
   meaning: string;
 };
 
 const A = "/cartilla/art/faithful";
+/** Workbook Page 1 display art (owner decision 2026-10-05). */
+const W1 = "/cartilla/art/optimized/workbook/leccion-1";
+const P1 = "/cartilla/art/faithful/leccion-1/wb-p1";
 
 export const LIVING_ACTORS: Readonly<Record<string, LivingActor>> = Object.freeze({
+  // Workbook Page 1 (owner color art / printed drawings): same meaning as the
+  // faithful actors, whole-picture motion only (part rigs belong to other crops).
+  [`${W1}/oso.svg`]: {
+    src: `${W1}/oso.svg`,
+    aliveSrc: `${W1}/oso-alive.svg`,
+    action: "breathe",
+    creature: true,
+    blinkFrame: `${W1}/oso-blink.svg`,
+    reducedMotion: "static",
+    meaning: "respiración y mirada natural",
+  },
+  [`${W1}/oveja.svg`]: {
+    src: `${W1}/oveja.svg`,
+    aliveSrc: `${W1}/oveja-alive.svg`,
+    action: "nod",
+    creature: true,
+    reducedMotion: "static",
+    meaning: "gesto suave de oveja",
+  },
+  [`${W1}/avion.svg`]: {
+    src: `${W1}/avion.svg`,
+    aliveSrc: `${W1}/avion-alive.svg`,
+    action: "glide",
+    creature: false,
+    reducedMotion: "static",
+    meaning: "hélice que gira en la nariz del avión",
+  },
+  [`${W1}/abanico.svg`]: {
+    src: `${W1}/abanico.svg`,
+    aliveSrc: `${W1}/abanico-alive.svg`,
+    action: "sway",
+    creature: false,
+    reducedMotion: "static",
+    meaning: "abanico que se mece",
+  },
+  [`${W1}/elefante.svg`]: {
+    src: `${W1}/elefante.svg`,
+    aliveSrc: `${W1}/elefante-alive.svg`,
+    action: "nod",
+    creature: true,
+    blinkFrame: `${W1}/elefante-blink.svg`,
+    reducedMotion: "static",
+    meaning: "trompa que se balancea, orejas que aletean y ojos que parpadean",
+  },
+  [`${W1}/iman.svg`]: {
+    src: `${W1}/iman.svg`,
+    aliveSrc: `${W1}/iman-alive.svg`,
+    action: "float",
+    creature: false,
+    reducedMotion: "static",
+    meaning: "chispas del imán que titilan",
+  },
+  [`${W1}/olla.svg`]: {
+    src: `${W1}/olla.svg`,
+    aliveSrc: `${W1}/olla-alive.svg`,
+    action: "float",
+    creature: false,
+    reducedMotion: "static",
+    meaning: "vapor que sube de la olla",
+  },
+  [`${P1}/abeja.svg`]: {
+    src: `${P1}/abeja.svg`,
+    aliveSrc: `${P1}/abeja-alive.svg`,
+    action: "hover",
+    creature: true,
+    reducedMotion: "static",
+    meaning: "vuelo suspendido de abeja",
+  },
   [`${A}/vocal-o/oso.webp`]: { src: `${A}/vocal-o/oso.webp`, action: "breathe", creature: true, blinkFrame: `${A}/vocal-o/oso-blink.webp`, reducedMotion: "static", meaning: "respiración y mirada natural" },
   [`${A}/vocal-o/oruga.webp`]: { src: `${A}/vocal-o/oruga.webp`, action: "crawl", creature: true, reducedMotion: "static", meaning: "avance corto de oruga" },
   [`${A}/vocal-o/oveja.webp`]: { src: `${A}/vocal-o/oveja.webp`, action: "nod", creature: true, reducedMotion: "static", meaning: "gesto suave de oveja" },
