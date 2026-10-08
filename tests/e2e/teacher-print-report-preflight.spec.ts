@@ -3,7 +3,7 @@ import { test, expect } from "@playwright/test";
 test.describe("Teacher Print/Report Readiness", () => {
   test.use({ viewport: { width: 1280, height: 900 } });
 
-  test("renders progression and reports empty and seeded states", async ({ page }) => {
+  test("renders progression and reports seeded state", async ({ page }) => {
     // Navigate to teacher progress
     await page.goto("/cartilla/teacher/progreso");
     await expect(page.locator("text=Progreso de la Clase")).toBeVisible();
