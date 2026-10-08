@@ -44,6 +44,17 @@ export class Runner {
   return {runnable,blocked};
  }
  async intakeReleasePrs(s){
+  // Exact-head verification is meaningful only for the current PR head and
+  // current main. Retain superseded rows as inspectable history, but do not let
+  // them remain owner-facing blockers forever.
+  const currentPr=new Map(s.prs.map(p=>[p.number,p]));
+  const releaseJobs=await this.ledger.jobs({scope:'project',limit:200,statuses:['received','queued','running','waiting','retrying','blocked','failed','dead_letter']});
+  for(const job of releaseJobs.filter(j=>j.source?.lane==='release_verifier')){
+   const pr=currentPr.get(job.source.pr);
+   if(!pr||pr.head?.sha!==job.source.head||job.source.main!==s.main.sha){
+    await this.ledger.set(job.id,'cancelled','SUPERSEDED_RELEASE_CONTEXT',{lease_until:null,next_action:'Historical exact-head verification retained; current GitHub state is reconciled separately',owner_action:'Nothing'});
+   }
+  }
   for(const p of s.prs){
    if(p.draft||p.base?.ref!=='main'||p.head?.repo?.full_name!==this.github.repo||!(p.labels??[]).some(l=>['controller:release-ready','ready-for-review'].includes(l.name)))continue;
    const compare=await this.github.request('/compare/'+s.main.sha+'...'+p.head.sha);if(compare.status!=='ahead')continue;

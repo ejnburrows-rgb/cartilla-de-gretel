@@ -9,7 +9,7 @@ test('public board counts real work separately from technical history; details a
  const real=await f.ledger.create({key:'real-work',kind:'issue_implementation',issue:7,source:{issue:7},spec:{action:'Fix lesson'}});await f.db.query("UPDATE jobs SET status='running',worker='openhands' WHERE id=$1",[real.id]);
  const system=await f.ledger.create({key:'system-work',kind:'reconcile',source:{event:true}});await f.ledger.set(system.id,'dead_letter','INNGEST_SEND_RETRIES_EXHAUSTED',{owner_action:'Nothing'});
  const deps={ledger:f.ledger};const r=await api({url:'/api/overview',method:'GET',headers:{}},deps,{OPENHANDS_ENABLED:'true'});
- assert.equal(r.status,200);assert.equal(r.body.categories.working_now,1);assert.equal(r.body.categories.controller_system_problem,1);assert.equal(r.body.statuses.dead_letter,0);assert.equal(r.body.system_history.dead_letter,1);assert.equal(r.body.workers.jules.enabled,false);
+ assert.equal(r.status,200);assert.equal(r.body.categories.working_now,1);assert.equal(r.body.categories.controller_system_problem,0);assert.equal(r.body.statuses.dead_letter,0);assert.equal(r.body.system_history.dead_letter,1);assert.equal(r.body.system_history.historical_failures,1);assert.equal(r.body.workers.jules.enabled,false);
  for(const [url,method]of [['/api/jobs','GET'],['/api/status','GET'],['/api/overview','POST']])assert.equal((await api({url,method,headers:{}},deps,{})).status,401);await f.p.close();
 });
 test('Web Standard request preserves exact signed JSON bytes',async()=>{

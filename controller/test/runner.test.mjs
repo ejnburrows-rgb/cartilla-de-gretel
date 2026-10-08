@@ -144,6 +144,15 @@ test('dependency-gated scoped task and admin request share one durable canonical
  const jobs=(await ledger.jobs()).filter(j=>j.issue_number===7);assert.equal(jobs.length,1);assert.equal(jobs[0].status,'blocked');assert.equal(jobs[0].spec.action,spec.action);assert.equal(jobs[0].source.scope_hash!==undefined,true);assert.match(jobs[0].idempotency_key,/^issue:7:/);await p.close();
 });
 
+test('reconciliation retains superseded exact-head verification as cancelled history, not a current blocker',async()=>{
+ const {p,ledger,runner}=await setup();
+ const old=await ledger.create({key:'release-old',kind:'reconcile',source:{lane:'release_verifier',pr:7,head:'c'.repeat(40),main:sha},spec:{action:'old verification'}});
+ const current=await ledger.create({key:'release-current',kind:'reconcile',source:{lane:'release_verifier',pr:7,head,main:sha},spec:{action:'current verification'}});
+ await ledger.set(old.id,'blocked','REQUIRED_CHECK_NOT_PASSED',{owner_action:'Review failure'});await ledger.set(current.id,'blocked','REQUIRED_CHECK_NOT_PASSED',{owner_action:'Nothing'});
+ const s=snapshot();s.prs=[{number:7,head:{sha:head},labels:[]}];await runner.intakeReleasePrs(s);
+ assert.equal((await ledger.get(old.id)).status,'cancelled');assert.equal((await ledger.get(old.id)).owner_action,'Nothing');assert.equal((await ledger.get(current.id)).status,'blocked');await p.close();
+});
+
 test('repeated no-change snapshots keep one bounded current record and unchanged state writes are no-ops',async()=>{
  const {p,ledger,runner,db}=await setup();
  for(let i=0;i<8;i++)await runner.snapshot();

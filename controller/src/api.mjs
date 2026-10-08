@@ -13,12 +13,14 @@ async function summary(ledger){
   ledger.db.query(`SELECT status,count(*)::int AS count FROM jobs WHERE NOT ${projectWorkSql} GROUP BY status`),
   ledger.db.query(`SELECT max(updated_at) AS latest FROM jobs WHERE ${projectWorkSql}`),
   ledger.db.query(`SELECT count(*)::int AS n FROM jobs WHERE ${projectWorkSql} AND ${ownerAttentionSql} AND status NOT IN('verified','cancelled')`),
-  ledger.db.query(`SELECT count(*)::int AS n FROM jobs WHERE ${projectWorkSql} AND status IN('waiting','blocked') AND failure_reason IN('DEPENDENCY_NOT_VERIFIED_CLOSED','OPEN_PR_FILE_OVERLAP')`),
+  ledger.db.query(`SELECT count(*)::int AS n FROM jobs WHERE ${projectWorkSql} AND status IN('waiting','blocked') AND failure_reason IN('DEPENDENCY_OPEN','DEPENDENCY_NOT_VERIFIED_CLOSED','OPEN_PR_FILE_OVERLAP')`),
   ledger.db.query('SELECT pg_database_size(current_database())::bigint AS bytes')
  ]);
  const counts=rows=>Object.fromEntries(statuses.map(s=>[s,rows.find(r=>r.status===s)?.count??0]));
- const real=counts(project.rows),technical=counts(system.rows),systemProblems=technical.retrying+technical.blocked+technical.failed+technical.dead_letter;
- return {statuses:real,categories:{working_now:real.running,ready_to_start:real.received+real.queued+real.retrying,waiting_on_dependency:dependency.rows[0].n,controller_system_problem:systemProblems,needs_emilio:owner.rows[0].n,verified_real_work:real.verified},system_history:{...technical,total:Object.values(technical).reduce((a,b)=>a+b,0)},database:{bytes:Number(storage.rows[0].bytes),limit_bytes:1073741824,limit_reached:Number(storage.rows[0].bytes)>=1073741824},last_activity:latest.rows[0]?.latest??null};
+ const real=counts(project.rows),technical=counts(system.rows),databaseBytes=Number(storage.rows[0].bytes),databaseLimit=1073741824;
+ const dependencies=dependency.rows[0].n,currentTechnicalProblems=technical.running+technical.retrying+technical.blocked+technical.failed;
+ const storageProblem=databaseBytes>=databaseLimit*.95?1:0;
+ return {statuses:real,categories:{working_now:real.running,ready_to_start:real.received+real.queued+real.retrying,waiting_on_dependency:dependencies,controller_system_problem:Math.max(0,real.blocked-dependencies)+currentTechnicalProblems+storageProblem,needs_emilio:owner.rows[0].n,verified_real_work:real.verified},system_history:{...technical,total:Object.values(technical).reduce((a,b)=>a+b,0),historical_failures:technical.dead_letter},database:{bytes:databaseBytes,limit_bytes:databaseLimit,limit_reached:databaseBytes>=databaseLimit,near_limit:storageProblem===1},last_activity:latest.rows[0]?.latest??null};
 }
 export function openapi(){
  const paths={};

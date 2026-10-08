@@ -21,6 +21,11 @@ export class Ledger {
   return (await this.db.query(`SELECT count(*)::int AS n FROM jobs${clauses.length?' WHERE '+clauses.join(' AND '):''}`,args)).rows[0].n;
  }
  async create({key,kind,source,spec={},issue=null,delivery=null},c=this.db){
+  // Reconciliation repeatedly encounters the same canonical work. Avoid even an
+  // INSERT ... ON CONFLICT attempt on the steady-state path; the unique key
+  // below remains the race-safe authority when two wakeups arrive together.
+  const existing=(await c.query('SELECT * FROM jobs WHERE idempotency_key=$1',[key])).rows[0];
+  if(existing)return existing;
   const r=await c.query(`INSERT INTO jobs(id,idempotency_key,kind,source,spec,issue_number,delivery_id) VALUES($1,$2,$3,$4,$5,$6,$7) ON CONFLICT(idempotency_key) DO NOTHING RETURNING *`,[randomUUID(),key,kind,JSON.stringify(source),JSON.stringify(spec),issue,delivery]);
   return r.rows[0]??(await c.query('SELECT * FROM jobs WHERE idempotency_key=$1',[key])).rows[0];
  }
