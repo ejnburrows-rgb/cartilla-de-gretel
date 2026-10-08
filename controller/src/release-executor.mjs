@@ -29,8 +29,9 @@ export function releaseCommand({repo,head,jobId,files=[],ui=false}){
   'printf "%s\\n" CARTILLA_RELEASE_PHASE:targeted',
   ...(vitestTests.length?['pnpm exec vitest run '+vitestTests.map(quote).join(' ')]:[]),
   ...(nodeTests.length?['(cd controller && npm ci --ignore-scripts && node --test '+nodeTests.map(p=>quote(p.slice('controller/'.length))).join(' ')+' && npm run build)']:[]),
-  'printf "%s\\n" CARTILLA_RELEASE_PHASE:worker', 'pnpm verify:worker',
-  'printf "%s\\n" CARTILLA_RELEASE_PHASE:release', 'pnpm verify:release', ...(ui?['printf "%s\\n" CARTILLA_RELEASE_PHASE:visual','pnpm test:visual']:[]),
+  // Full release prepares ignored delivery assets inside this clean sandbox.
+  'printf "%s\\n" CARTILLA_RELEASE_PHASE:release', 'pnpm verify:release',
+  'printf "%s\\n" CARTILLA_RELEASE_PHASE:worker', 'pnpm verify:worker', ...(ui?['printf "%s\\n" CARTILLA_RELEASE_PHASE:visual','pnpm test:visual']:[]),
   '[ "$(git rev-parse HEAD)" = '+quote(head)+' ]',
   // Build/art outputs are isolated and never exported as implementation changes.
   'printf "%s\\n" '+quote(marker),
