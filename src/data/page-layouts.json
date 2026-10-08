@@ -34,7 +34,7 @@
             },
             {
               "caption": "imán",
-              "illustrationSrc": "/cartilla/art/faithful/vocal-i/iman.webp",
+              "illustrationSrc": "/cartilla/art/optimized/workbook/leccion-1/iman.svg",
               "correct": false,
               "x": 0.239826,
               "y": 0.205056,
@@ -43,7 +43,7 @@
             },
             {
               "caption": "abanico",
-              "illustrationSrc": "/cartilla/art/faithful/vocal-a/abanico.webp",
+              "illustrationSrc": "/cartilla/art/optimized/workbook/leccion-1/abanico.svg",
               "correct": true,
               "x": 0.448401,
               "y": 0.205056,
@@ -52,7 +52,7 @@
             },
             {
               "caption": "oso",
-              "illustrationSrc": "/cartilla/art/faithful/vocal-o/oso.webp",
+              "illustrationSrc": "/cartilla/art/optimized/workbook/leccion-1/oso.svg",
               "correct": false,
               "x": 0.652616,
               "y": 0.205056,
@@ -61,7 +61,7 @@
             },
             {
               "caption": "isla",
-              "illustrationSrc": "/cartilla/art/faithful/vocal-i/isla.webp",
+              "illustrationSrc": "/cartilla/art/optimized/workbook/leccion-1/isla.svg",
               "correct": true,
               "x": 0.036337,
               "y": 0.347191,
@@ -70,7 +70,7 @@
             },
             {
               "caption": "avión",
-              "illustrationSrc": "/cartilla/art/faithful/vocal-a/avion.webp",
+              "illustrationSrc": "/cartilla/art/optimized/workbook/leccion-1/avion.svg",
               "correct": false,
               "x": 0.239826,
               "y": 0.347191,
@@ -79,7 +79,7 @@
             },
             {
               "caption": "imán",
-              "illustrationSrc": "/cartilla/art/faithful/vocal-i/iman.webp",
+              "illustrationSrc": "/cartilla/art/optimized/workbook/leccion-1/iman.svg",
               "correct": true,
               "x": 0.448401,
               "y": 0.347191,
@@ -89,7 +89,7 @@
             {
               "caption": "aro",
               "correct": false,
-              "illustrationSrc": "/cartilla/art/faithful/vocal-a/aro.webp",
+              "illustrationSrc": "/cartilla/art/optimized/workbook/leccion-1/aro.svg",
               "x": 0.652616,
               "y": 0.347191,
               "width": 0.200581,
@@ -97,7 +97,7 @@
             },
             {
               "caption": "escalera",
-              "illustrationSrc": "/cartilla/art/faithful/vocal-e/escalera.webp",
+              "illustrationSrc": "/cartilla/art/optimized/workbook/leccion-1/escalera.svg",
               "correct": true,
               "x": 0.036337,
               "y": 0.489326,
@@ -106,7 +106,7 @@
             },
             {
               "caption": "uno",
-              "illustrationSrc": "/cartilla/art/faithful/vocal-u/uno.webp",
+              "illustrationSrc": "/cartilla/art/optimized/workbook/leccion-1/uno.svg",
               "correct": false,
               "x": 0.239826,
               "y": 0.489326,
@@ -115,7 +115,7 @@
             },
             {
               "caption": "escuela",
-              "illustrationSrc": "/cartilla/art/faithful/vocal-e/escuela.webp",
+              "illustrationSrc": "/cartilla/art/faithful/leccion-1/wb-p1/escuela.svg",
               "correct": true,
               "x": 0.448401,
               "y": 0.489326,
@@ -124,7 +124,7 @@
             },
             {
               "caption": "oreja",
-              "illustrationSrc": "/cartilla/art/faithful/vocal-o/oreja.webp",
+              "illustrationSrc": "/cartilla/art/optimized/workbook/leccion-1/oreja.svg",
               "correct": false,
               "x": 0.652616,
               "y": 0.489326,
@@ -133,7 +133,7 @@
             },
             {
               "caption": "uniforme",
-              "illustrationSrc": "/cartilla/art/faithful/vocal-u/uniforme.webp",
+              "illustrationSrc": "/cartilla/art/optimized/workbook/leccion-1/uniforme.svg",
               "x": 0.036337,
               "y": 0.630337,
               "width": 0.196221,
@@ -142,7 +142,7 @@
             },
             {
               "caption": "uña",
-              "illustrationSrc": "/cartilla/art/faithful/vocal-u/uña.webp",
+              "illustrationSrc": "/cartilla/art/optimized/workbook/leccion-1/una.svg",
               "x": 0.239826,
               "y": 0.630337,
               "width": 0.201308,
@@ -151,7 +151,7 @@
             },
             {
               "caption": "oveja",
-              "illustrationSrc": "/cartilla/art/faithful/vocal-o/oveja.webp",
+              "illustrationSrc": "/cartilla/art/optimized/workbook/leccion-1/oveja.svg",
               "x": 0.448401,
               "y": 0.630337,
               "width": 0.196948,
@@ -160,7 +160,7 @@
             },
             {
               "caption": "elefante",
-              "illustrationSrc": "/cartilla/art/faithful/vocal-e/elefante.webp",
+              "illustrationSrc": "/cartilla/art/optimized/workbook/leccion-1/elefante.svg",
               "x": 0.652616,
               "y": 0.630337,
               "width": 0.200581,
@@ -169,7 +169,7 @@
             },
             {
               "caption": "ojos",
-              "illustrationSrc": "/cartilla/art/faithful/leccion-1/ojos.webp",
+              "illustrationSrc": "/cartilla/art/faithful/leccion-1/wb-p1/ojos.svg",
               "correct": true,
               "x": 0.036337,
               "y": 0.771348,
@@ -178,7 +178,7 @@
             },
             {
               "caption": "maíz",
-              "illustrationSrc": "/cartilla/art/faithful/leccion-1/maiz.webp",
+              "illustrationSrc": "/cartilla/art/faithful/leccion-1/wb-p1/maiz.svg",
               "correct": false,
               "x": 0.239826,
               "y": 0.771348,
@@ -188,7 +188,7 @@
             {
               "caption": "abeja",
               "correct": false,
-              "illustrationSrc": "/cartilla/art/faithful/vocal-a/abeja.webp",
+              "illustrationSrc": "/cartilla/art/faithful/leccion-1/wb-p1/abeja.svg",
               "x": 0.448401,
               "y": 0.771348,
               "width": 0.196948,
@@ -196,7 +196,7 @@
             },
             {
               "caption": "olla",
-              "illustrationSrc": "/cartilla/art/faithful/vocal-o/olla.webp",
+              "illustrationSrc": "/cartilla/art/optimized/workbook/leccion-1/olla.svg",
               "correct": true,
               "x": 0.652616,
               "y": 0.771348,
