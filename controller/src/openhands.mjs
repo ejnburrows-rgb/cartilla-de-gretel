@@ -1,7 +1,7 @@
 // Official Cloud API, not the local Agent Server API.
 // https://github.com/openhands/docs/blob/main/openhands/usage/cloud/cloud-api.mdx
 export class OpenHands {
- constructor({key,fetcher=fetch}){this.key=key;this.fetcher=fetcher;}
+ constructor({key,fetcher=fetch,sleeper=ms=>new Promise(resolve=>setTimeout(resolve,ms))}){this.key=key;this.fetcher=fetcher;this.sleeper=sleeper;}
  async authStatus(){
   if(!this.key)return {configured:false,authenticated:false};
   try{
@@ -19,18 +19,29 @@ export class OpenHands {
   const rows=await this.request(`?ids=${encodeURIComponent(id)}`);const r=Array.isArray(rows)?rows[0]:null;
   if(!r||['MISSING','ERROR'].includes(r.sandbox_status))return null;
   if(r.selected_repository!==repo)return null;
-  if(r.sandbox_status==='PAUSED')return {external_id:id,sandbox_id:r.sandbox_id,sandbox_status:r.sandbox_status};
+  if(['PAUSED','STARTING'].includes(r.sandbox_status))return {external_id:id,sandbox_id:r.sandbox_id,sandbox_status:r.sandbox_status};
   if(r.sandbox_status==='RUNNING'&&r.execution_status==='finished')return {external_id:id,sandbox_id:r.sandbox_id,sandbox_status:r.sandbox_status};
   // An existing session in transition must not cause a replacement start.
   throw Error('OPENHANDS_SESSION_NOT_IDLE');
  }
  async continueSession(session,prompt){
-  if(session.sandbox_status==='PAUSED'){
+  if(['PAUSED','STARTING'].includes(session.sandbox_status)){
    try{
-    const response=await this.fetcher(`https://app.all-hands.dev/api/v1/sandboxes/${encodeURIComponent(session.sandbox_id)}/resume`,{method:'POST',headers:{'X-Access-Token':this.key},signal:AbortSignal.timeout(20000)});
-    if(!response.ok)throw Error('OPENHANDS_RESUME_UNAVAILABLE');
-    const rows=await this.request(`?ids=${encodeURIComponent(session.external_id)}`);
-    if(rows[0]?.sandbox_status!=='RUNNING'||rows[0]?.execution_status!=='finished')throw Error('OPENHANDS_RESUME_PENDING');
+    if(session.sandbox_status==='PAUSED'){
+     const response=await this.fetcher(`https://app.all-hands.dev/api/v1/sandboxes/${encodeURIComponent(session.sandbox_id)}/resume`,{method:'POST',headers:{'X-Access-Token':this.key},signal:AbortSignal.timeout(20000)});
+     if(!response.ok)throw Error('OPENHANDS_RESUME_UNAVAILABLE');
+    }
+    // Resume acknowledgment precedes sandbox readiness. Recheck the SAME
+    // conversation; never start or message a second session while resuming.
+    let ready=false;
+    for(let attempt=0;attempt<8;attempt++){
+     if(attempt)await this.sleeper(1200);
+     const rows=await this.request(`?ids=${encodeURIComponent(session.external_id)}`);
+     const state=Array.isArray(rows)?rows[0]:null;
+     if(['ERROR','MISSING'].includes(state?.sandbox_status))throw Error('OPENHANDS_RESUME_UNAVAILABLE');
+     if(state?.sandbox_status==='RUNNING'&&state.execution_status==='finished'){ready=true;break;}
+    }
+    if(!ready)throw Error('OPENHANDS_RESUME_PENDING');
    }catch(error){error.not_sent=true;throw error;}
   }
   const r=await this.request(`/${encodeURIComponent(session.external_id)}/send-message`,{role:'user',content:[{type:'text',text:prompt}],run:true});
