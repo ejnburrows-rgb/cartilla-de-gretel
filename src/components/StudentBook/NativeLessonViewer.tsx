@@ -1,4 +1,4 @@
-import { useEffect, useRef, useState, type ReactNode } from "react";
+import { useEffect, useRef, useState } from "react";
 import { ChevronLeft, ChevronRight } from "lucide-react";
 import { gretelEvent } from "@/lib/gretel-bus";
 import { remainingHint, usePageCompletion } from "@/lib/page-completion";
@@ -11,13 +11,12 @@ import "@/styles/native-lesson.css";
  * Owner rule: Anterior is always available; Siguiente / Terminar lección only
  * work once the page's required activity is complete (page-completion.ts). */
 export function NativeLessonViewer({
-  pages, chapterLabel, initialPage = 0, onPageChange, bookCompanion, onFinish, lessonNumber,
+  pages, chapterLabel, initialPage = 0, onPageChange, onFinish, lessonNumber,
 }: {
   pages: WorkbookPageEntry[];
   chapterLabel: string;
   initialPage?: number;
   onPageChange?: (index: number) => void;
-  bookCompanion?: ReactNode;
   onFinish?: () => void;
   /** Lesson being studied; an already-completed lesson is never re-gated. */
   lessonNumber?: number;
@@ -107,8 +106,8 @@ export function NativeLessonViewer({
       <div className="native-lesson-viewer__layout">
         <div className="native-lesson-viewer__content">{page.content}</div>
 
-        <aside className="native-lesson-viewer__side" aria-label="Gretel y navegación">
-          {bookCompanion && <div className="native-lesson-viewer__companion">{bookCompanion}</div>}
+      </div>
+      <div className="native-lesson-viewer__footer">
           {hint && (
             <p className="native-lesson-viewer__hint" role="status" aria-live="polite" id="native-lesson-next-hint">
               {hint}
@@ -130,7 +129,7 @@ export function NativeLessonViewer({
               {isLast ? "Terminar lección" : "Siguiente"} <ChevronRight size={20} />
             </button>
           </nav>
-        </aside>
+
       </div>
     </section>
   );
