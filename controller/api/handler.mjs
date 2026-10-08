@@ -16,6 +16,7 @@ export default {async fetch(request){
   const path=new URL(request.url).pathname;
   const ownerRead= request.method==='GET' && (
     path==='/api/status' ||
+    path==='/api/project-lanes' ||
     path==='/api/jobs' ||
     /^\/api\/jobs\/[a-f0-9-]{36}\/history$/.test(path)
   );
@@ -23,7 +24,7 @@ export default {async fetch(request){
     requestHeaders.authorization='Bearer '+process.env.CONTROLLER_READ_TOKEN;
   }
   const req={url:request.url,method:request.method,headers:requestHeaders,body:request.method==='POST'?await rawBody(request):undefined};
-  const deps={get ledger(){return runtime().ledger;},get github(){return runtime().github;},get worker(){return runtime().worker;},send:event=>runtime().send(event)};
+  const deps={get ledger(){return runtime().ledger;},get github(){return runtime().github;},get readonlyGithub(){return runtime().readonlyGithub;},get worker(){return runtime().worker;},send:event=>runtime().send(event)};
   const r=await api(req,deps);return Response.json(r.body,{status:r.status,headers});
  }catch(e){
   const bad=['BODY_TOO_LARGE','RAW_BODY_UNAVAILABLE'].includes(e.message),conflict=['RETRY_UNSAFE','CANCEL_UNSAFE','JOB_NOT_FOUND'].includes(e.message);
