@@ -35,3 +35,19 @@ test('failed releases retry within bounds and become visible dead letter',async(
 test('release completion immediately refills queued verifier capacity',async()=>{
  const f=await setup();const next=await f.ledger.create({key:'next-release',kind:'reconcile',source:{lane:'release_verifier',pr:8,head,main},spec:{files:['src/another.test.ts']}});f.finish();await f.loop.advance(f.job.id);assert.ok(f.sent.some(e=>e.name==='cartilla/release.poll'&&e.data.jobId===next.id));await f.p.close();
 });
+
+test('terminal output survives pause uncertainty and restart without polling a paused runtime',async()=>{
+ const f=await setup();f.finish();let pauses=0;f.executor.pause=async()=>{if(++pauses===1)throw Error('pause pending');return {success:true};};
+ assert.equal((await f.loop.advance(f.job.id)).pause_pending,true);
+ f.executor.poll=async()=>{throw Error('paused runtime must never be repolled');};
+ assert.equal((await f.loop.advance(f.job.id)).passed,true);assert.equal(f.counts().creates,1);await f.p.close();
+});
+test('blocked deadline cannot be reopened by duplicate poll events',async()=>{
+ const f=await setup();await f.loop.advance(f.job.id);await f.db.query("UPDATE job_attempts SET deadline=now()-interval '1 minute' WHERE job_id=$1",[f.job.id]);
+ await f.loop.advance(f.job.id);assert.equal((await f.ledger.get(f.job.id)).failure_reason,'RELEASE_DEADLINE_EXCEEDED');await f.loop.advance(f.job.id);assert.equal(f.counts().creates,1);await f.p.close();
+});
+
+test('cancelled release retains capacity until the existing sandbox is confirmed paused',async()=>{
+ const f=await setup();await f.loop.advance(f.job.id);await f.ledger.cancel(f.job.id);let pauses=0;f.executor.pause=async()=>{pauses++;return {success:true};};
+ assert.equal((await f.loop.advance(f.job.id)).cancelled,true);assert.equal(pauses,1);assert.equal((await f.ledger.attempt(f.job.id)).state,'failed');assert.equal(f.counts().creates,1);await f.p.close();
+});

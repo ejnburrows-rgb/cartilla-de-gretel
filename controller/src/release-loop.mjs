@@ -6,25 +6,26 @@ import {releaseCommand} from './release-executor.mjs';
 export class ReleaseLoop{
  constructor({ledger,github,executor,send,env=process.env}){Object.assign(this,{ledger,github,executor,send,env});}
  async advance(id){
-  let job=await this.ledger.get(id);if(!job||['verified','cancelled','dead_letter'].includes(job.status))return {done:true};
+  let job=await this.ledger.get(id);if(!job||['verified','dead_letter'].includes(job.status))return {done:true};
+  if(job.status==='cancelled'){const prior=await this.ledger.attempt(id);if(prior&&['reserved','running','ambiguous','cancel_requested'].includes(prior.state)){if(!prior.external_id)return {done:false,blocked:true};try{await this.executor.pause(prior.external_id);}catch{return {done:false,pause_pending:true};}await this.ledger.db.query("UPDATE job_attempts SET state='failed',updated_at=now() WHERE id=$1",[prior.id]);await this.ledger.receipt(id,'release_cancelled',{sandbox_id:prior.external_id,pause_confirmed:true},prior.id);await this.refill(job,'cancelled');}return {done:true,cancelled:true};}
   if(job.source?.lane!=='release_verifier')throw Error('RELEASE_JOB_REQUIRED');
   if(this.env.OPENHANDS_ENABLED!=='true'){await this.ledger.set(id,'blocked','OPENHANDS_RELEASE_DISABLED',{next_action:'Await authorized OpenHands enablement',owner_action:'Nothing'});return {done:true,blocked:true};}
   let plan;try{plan=releaseCommand({repo:this.github.repo,head:job.source.head,jobId:job.id,files:job.spec.files??[],ui:job.spec.ui});}catch(error){await this.ledger.set(id,'blocked',error.message,{next_action:'Worker must persist a bounded targeted test before release verification',owner_action:'Nothing'});return {done:true,blocked:true};}
   let a=await this.ledger.attempt(id),fresh=false;
   if(!a&&typeof this.github.file==='function')for(const path of (job.spec.files??[]).filter(p=>/\.(test|spec)\.[cm]?[jt]sx?$/.test(p))){try{await this.github.file(path,job.source.head);}catch{await this.ledger.set(id,'blocked','TARGETED_TEST_PATH_MISSING',{next_action:'Persist the targeted test in the candidate commit',owner_action:'Nothing'});return {done:true,blocked:true};}}
   const currentPr=await this.github.request('/pulls/'+job.source.pr),currentMain=await this.github.main();
-  if(currentPr.head.sha!==job.source.head||currentMain.sha!==job.source.main){if(a?.external_id&&a.state!=='ambiguous'){await this.executor.pause(a.external_id);await this.ledger.db.query("UPDATE job_attempts SET state='failed',updated_at=now() WHERE id=$1",[a.id]);}await this.ledger.set(id,'blocked','RELEASE_STATE_CHANGED',{next_action:'Request a new verification for current PR head and main',owner_action:'Nothing'});return {done:true,blocked:true};}
+  if(currentPr.head.sha!==job.source.head||currentMain.sha!==job.source.main){if(a?.external_id&&a.state!=='ambiguous'){await this.executor.pause(a.external_id);await this.ledger.db.query("UPDATE job_attempts SET state='failed',updated_at=now() WHERE id=$1",[a.id]);}await this.ledger.set(id,'blocked','RELEASE_STATE_CHANGED',{next_action:'Request a new verification for current PR head and main',owner_action:'Nothing'});await this.refill(job,'state-changed');return {done:true,blocked:true};}
   if(!a||a.state==='failed'){
    if(job.status==='retrying'&&new Date(job.retry_at)>new Date())return {done:true};
    a=await transaction(this.ledger.db,async c=>{
     await c.query('SELECT id FROM controller_guard WHERE id=1 FOR UPDATE');
     const j=(await c.query('SELECT * FROM jobs WHERE id=$1 FOR UPDATE',[id])).rows[0];
-    if(!j||['running','waiting','verified','cancelled','dead_letter'].includes(j.status))return null;
-    const busy=await c.query("SELECT id FROM job_attempts WHERE worker='openhands-release' AND state IN('reserved','running','ambiguous')");
+    if(!j||!['received','queued','retrying'].includes(j.status))return null;
+    const busy=await c.query("SELECT id FROM job_attempts WHERE worker='openhands-release' AND state IN('reserved','running','ambiguous','cancel_requested')");
     if(busy.rows.length)return null;
     const attempt={id:randomUUID(),attempt_number:j.attempt_count+1,state:'reserved',deadline:new Date(Date.now()+90*60000).toISOString()};
     await c.query("INSERT INTO job_attempts(id,job_id,attempt_number,worker,payload_hash,starting_sha,state,deadline) VALUES($1,$2,$3,'openhands-release',$4,$5,'reserved',$6)",[attempt.id,id,attempt.attempt_number,plan.hash,plan.head,attempt.deadline]);
-    await c.query("UPDATE jobs SET status='running',attempt_count=$2,worker='openhands-release',starting_sha=$3,deadline=$4,lease_until=NULL,updated_at=now() WHERE id=$1",[id,attempt.attempt_number,plan.head,attempt.deadline]);
+    await c.query("UPDATE jobs SET status='running',attempt_count=$2,worker='openhands-release',starting_sha=$3,deadline=$4,lease_until=NULL,failure_reason=NULL,next_action='Poll the same release sandbox and command; no deployment',updated_at=now() WHERE id=$1",[id,attempt.attempt_number,plan.head,attempt.deadline]);
     return attempt;
    });
    if(!a)return {done:true,capacity_wait:true};fresh=true;
@@ -48,7 +49,7 @@ export class ReleaseLoop{
     if(a.start_task_id)await this.ledger.receipt(id,'release_timeout_status',await this.executor.poll(a.external_id,a.start_task_id,plan),a.id);
     await this.executor.pause(a.external_id);
     await this.ledger.db.query("UPDATE job_attempts SET state='failed',updated_at=now() WHERE id=$1",[a.id]);
-    await this.block(job,a,'RELEASE_DEADLINE_EXCEEDED',false);return {done:true,blocked:true};
+    await this.block(job,a,'RELEASE_DEADLINE_EXCEEDED',false);await this.refill(job,'deadline');return {done:true,blocked:true};
    }
    if(!a.start_task_id){
     const reserved=await this.ledger.db.query("SELECT id FROM evidence_receipts WHERE attempt_id=$1 AND kind='release_command_reserved'",[a.id]);
@@ -79,6 +80,11 @@ export class ReleaseLoop{
    return {done:true,passed};
   }catch(error){await this.ledger.db.query("UPDATE jobs SET failure_reason='RELEASE_CONTROLLER_READ_FAILED' WHERE id=$1 AND status IN('running','waiting')",[id]);throw error;
   }finally{await this.ledger.db.query('UPDATE jobs SET lease_until=NULL,updated_at=now() WHERE id=$1',[id]);}
+ }
+ async refill(job,cause){
+  const rescan=await this.ledger.create({key:'release-rescan:'+job.id+':'+cause,kind:'reconcile',source:{release_terminal:job.id,cause},spec:{}});await this.ledger.queue(rescan,this.send);
+  const ready=(await this.ledger.db.query("SELECT id FROM jobs WHERE source->>'lane'='release_verifier' AND status IN('received','queued','retrying') AND (retry_at IS NULL OR retry_at<=now()) LIMIT 100")).rows;
+  for(const j of ready)try{await this.send({id:'release-refill:'+cause+':'+job.id+':'+j.id,name:'cartilla/release.poll',data:{jobId:j.id}});}catch{}
  }
  async block(job,a,reason,ambiguous=true){
   if(ambiguous)await this.ledger.db.query("UPDATE job_attempts SET state='ambiguous',updated_at=now() WHERE id=$1",[a.id]);

@@ -12,13 +12,25 @@ export function releaseCommand({repo,head,jobId,files=[],ui=false}){
  const nodeTests=tests.filter(p=>p.startsWith('controller/test/'));const vitestTests=tests.filter(p=>!p.startsWith('controller/test/'));
  const command=[
   'set -eu', 'umask 077', 'root=$(mktemp -d /tmp/cartilla-release.XXXXXX)',
+  'printf "%s\\n" CARTILLA_RELEASE_PHASE:environment',
+  'case "$(uname -m)" in x86_64) arch=x64; node_sha=fd8e59d5a511510f6a298afb548f18c7d2b1be404d8b4a27d94fbe49f56cb2d6;; aarch64) arch=arm64; node_sha=6ad1325edbdb5649c379b75a237147a666c95d4f9ae8d340fef2d1575d289ad2;; *) exit 78;; esac',
+  'curl -fsSL --retry 2 "https://nodejs.org/dist/v24.21.0/node-v24.21.0-linux-$arch.tar.xz" -o "$root/node.tar.xz"',
+  'printf "%s  %s\\n" "$node_sha" "$root/node.tar.xz" | sha256sum -c -',
+  'tar -xJf "$root/node.tar.xz" -C "$root"',
+  'export PATH="$root/node-v24.21.0-linux-$arch/bin:$PATH"',
+  'node --version && npm --version',
+
+  'npm install --prefix "$root/tools" --no-audit --no-fund --ignore-scripts pnpm@10.33.0',
+  'export PATH="$root/tools/node_modules/.bin:$PATH"',
+  'printf "%s\\n" CARTILLA_RELEASE_PHASE:checkout',
   'git clone --no-checkout '+quote('https://github.com/'+repo+'.git')+' "$root/repo"',
   'cd "$root/repo"', 'git fetch origin '+quote(head), 'git checkout --detach '+quote(head),
-  '[ "$(git rev-parse HEAD)" = '+quote(head)+' ]', 'pnpm install --frozen-lockfile',
+  '[ "$(git rev-parse HEAD)" = '+quote(head)+' ]', 'printf "%s\\n" CARTILLA_RELEASE_PHASE:dependencies', 'pnpm install --frozen-lockfile',
+  'printf "%s\\n" CARTILLA_RELEASE_PHASE:targeted',
   ...(vitestTests.length?['pnpm exec vitest run '+vitestTests.map(quote).join(' ')]:[]),
   ...(nodeTests.length?['(cd controller && npm ci --ignore-scripts && node --test '+nodeTests.map(p=>quote(p.slice('controller/'.length))).join(' ')+' && npm run build)']:[]),
-  'pnpm verify:worker',
-  'pnpm verify:release', ...(ui?['pnpm test:visual']:[]),
+  'printf "%s\\n" CARTILLA_RELEASE_PHASE:worker', 'pnpm verify:worker',
+  'printf "%s\\n" CARTILLA_RELEASE_PHASE:release', 'pnpm verify:release', ...(ui?['printf "%s\\n" CARTILLA_RELEASE_PHASE:visual','pnpm test:visual']:[]),
   '[ "$(git rev-parse HEAD)" = '+quote(head)+' ]',
   // Build/art outputs are isolated and never exported as implementation changes.
   'printf "%s\\n" '+quote(marker),
@@ -61,8 +73,9 @@ export class OpenHandsReleaseExecutor{
   if(items.some(e=>e.kind!=='BashOutput'||e.command_id!==commandId))throw Error('VERIFIER_OUTPUT_ID_MISMATCH');
   const e=items.find(e=>e.exit_code!=null);if(!e)return {terminal:false};
   const passed=e.exit_code===0&&items.some(e=>String(e.stdout??'').split('\n').includes(plan.marker));
+  const phases=items.slice().sort((a,b)=>(a.order??0)-(b.order??0)).flatMap(e=>String(e.stdout??'').split('\n')).map(l=>l.match(/^CARTILLA_RELEASE_PHASE:(environment|checkout|dependencies|targeted|worker|release|visual)$/)?.[1]).filter(Boolean);
   // Neither runtime credentials nor arbitrary command stdout enter the ledger.
-  return {terminal:true,passed,exit_code:e.exit_code,command_id:commandId,payload_hash:plan.hash,head:plan.head,ui:plan.ui,event_id:e.id??null,reason:passed?null:'RELEASE_COMMAND_OR_PROOF_FAILED'};
+  return {terminal:true,passed,exit_code:e.exit_code,command_id:commandId,payload_hash:plan.hash,head:plan.head,ui:plan.ui,event_id:e.id??null,phase:phases.at(-1)??null,reason:passed?null:'RELEASE_COMMAND_OR_PROOF_FAILED'};
  }
  async pause(id){
   if((await this.sandbox(id)).status==='PAUSED')return {success:true,status:'PAUSED'};
