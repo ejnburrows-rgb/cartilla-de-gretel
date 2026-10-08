@@ -5,11 +5,7 @@ import sharp from "sharp";
 
 const root = path.resolve(import.meta.dirname, "..");
 const read = (name) => {
-  try {
-    return JSON.parse(fs.readFileSync(path.join(root, name), "utf8"));
-  } catch (err) {
-    return {};
-  }
+  return JSON.parse(fs.readFileSync(path.join(root, name), "utf8"));
 };
 const strings = (value) =>
   typeof value === "string"
@@ -23,11 +19,16 @@ const refs = (name) =>
 const workbook = [...new Set(refs("src/data/page-layouts.json"))];
 const flipchart = [...new Set(refs("src/data/flipchart-production-art.json"))];
 const registry = read("src/data/final-backgrounds.json");
-const gretel = [...new Set([...refs("src/data/gretel-approved-master.json"), ...refs("src/data/gretel-approved-clips.json")])];
+const gretel = [
+  ...new Set([
+    ...refs("src/data/gretel-approved-master.json"),
+    ...refs("src/data/gretel-approved-clips.json"),
+  ]),
+];
 
 const backgrounds = [
   ...Object.values(registry.workbook || {}),
-  ...Object.values(registry.flipchart || {})
+  ...Object.values(registry.flipchart || {}),
 ];
 
 const delivery = workbook
@@ -36,8 +37,20 @@ const delivery = workbook
     [384, 768].map((width) => s.replace("/art/faithful/", `/art/delivery/faithful/${width}/`)),
   );
 
+// Add the required 1-90 source scans, excluding 86 and 87
+const sourceScans = Array.from({ length: 90 }, (_, i) => i + 1)
+  .filter((i) => i !== 86 && i !== 87)
+  .map((i) => `/cartilla/art/source/workbook/page-${String(i).padStart(3, "0")}.jpg`);
+
 const required = [
-  ...new Set([...workbook, ...flipchart, ...gretel, ...delivery, ...backgrounds.map((a) => a.src)]),
+  ...new Set([
+    ...workbook,
+    ...flipchart,
+    ...gretel,
+    ...delivery,
+    ...backgrounds.map((a) => a.src),
+    ...sourceScans,
+  ]),
 ];
 
 const base = process.argv.find((arg) => arg.startsWith("--base-url="))?.slice(11);
@@ -86,6 +99,7 @@ console.log(
       gretel: gretel.length,
       backgrounds: backgrounds.length,
       delivery: delivery.length,
+      sourceScans: sourceScans.length,
       checked: required.length,
       location: base || "local",
       errors,

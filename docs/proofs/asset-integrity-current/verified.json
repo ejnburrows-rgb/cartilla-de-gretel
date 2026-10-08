@@ -4,7 +4,8 @@
   "gretel": 1,
   "backgrounds": 148,
   "delivery": 106,
-  "checked": 494,
+  "sourceScans": 88,
+  "checked": 582,
   "location": "local",
   "errors": []
 }
