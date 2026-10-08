@@ -5,7 +5,7 @@ export function parseSpec(issue,repo){
  if(!labels.has('controller:ready'))return {runnable:false,reason:'NOT_OPTED_IN'};
  if(['blocked','owner-gated','SOURCE_BLOCKED','controller:blocked'].some(l=>labels.has(l)))return {runnable:false,reason:'ISSUE_GATED'};
  if(issue.user?.login!==repo.split('/')[0])return {runnable:false,reason:'OWNER_AUTHORED_SCOPE_REQUIRED'};
- const matches=[...(issue.body??'').matchAll(/```cartilla-controller\s*\n([\s\S]*?)```/g)];
+ const matches=[...(issue.body??'').matchAll(/```cartilla-controller[ \t]*\r?\n([\s\S]*?)```/g)];
  if(matches.length!==1)return {runnable:false,reason:'BOUNDED_SCOPE_REQUIRED'};
  let spec;try{spec=JSON.parse(matches[0][1]);}catch{return {runnable:false,reason:'INVALID_SCOPE_JSON'};}
  if(Object.keys(spec).some(k=>!['action','paths','dependencies','required_checks','deadline_minutes'].includes(k)))return {runnable:false,reason:'UNKNOWN_SCOPE_FIELD'};

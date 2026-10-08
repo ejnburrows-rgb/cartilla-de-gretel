@@ -1,5 +1,5 @@
 import {createHmac,timingSafeEqual,createHash} from 'node:crypto';
-function canonical(value){return Array.isArray(value)?value.map(canonical):value&&typeof value==='object'?Object.fromEntries(Object.keys(value).sort().map(k=>[k,canonical(value[k])])):value;}
+function canonical(value){return Array.isArray(value)?value.map(canonical):value&&typeof value==='object'?Object.fromEntries(Object.keys(value).sort((a,b)=>a<b?-1:a>b?1:0).map(k=>[k,canonical(value[k])])):value;}
 export const digest=value=>createHash('sha256').update(typeof value==='string'?value:JSON.stringify(canonical(value))).digest('hex');
 export function signatureOK(raw,signature,secret){
  if(!secret||!/^sha256=[a-f0-9]{64}$/.test(signature??''))return false;
