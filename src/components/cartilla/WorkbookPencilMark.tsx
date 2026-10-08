@@ -75,7 +75,13 @@ const OFFSCREEN_MARGIN = 24;
  * ferrule and a soft pink eraser. Drawn tip-at-origin so it can follow the mark
  * path. `uid` keeps gradient ids unique.
  */
-export function PencilShape({ uid }: { uid: string }) {
+/**
+ * Owner reference 2026-10-08 ("pencil-new-closeups"): a big close-up pencil cut off
+ * so only its front shows — the back fades away softly. `cut="tip"` shows the
+ * graphite point, cedar cone and the front of the body; `cut="eraser"` shows the
+ * eraser, the silver band and the end of the body. Omit `cut` for the whole pencil.
+ */
+export function PencilShape({ uid, cut }: { uid: string; cut?: "tip" | "eraser" }) {
   const g = (name: string) => `${uid}-${name}`;
   const u = (name: string) => `url(#${g(name)})`;
   const lin = (id: string, stops: [number, string][], x1: number, x2: number) => (
@@ -86,7 +92,7 @@ export function PencilShape({ uid }: { uid: string }) {
     </linearGradient>
   );
   return (
-    <g className="workbook-pencil__shape">
+    <g className="workbook-pencil__shape" mask={cut ? u(`cut-${cut}`) : undefined}>
       <defs>
         {lin(
           "lacq",
@@ -152,6 +158,32 @@ export function PencilShape({ uid }: { uid: string }) {
           <stop offset="0" stopColor="#7a4a14" stopOpacity="0.35" />
           <stop offset="1" stopColor="#7a4a14" stopOpacity="0" />
         </linearGradient>
+        {cut === "tip" && (
+          <>
+            {/* Solid from the point to the middle of the body, then fading out before the band. */}
+            <linearGradient id={g("cutg-tip")} x1="0" y1="0" x2="0" y2="-79.5" gradientUnits="userSpaceOnUse">
+              <stop offset="0" stopColor="#fff" />
+              <stop offset="0.5" stopColor="#fff" />
+              <stop offset="0.74" stopColor="#000" />
+            </linearGradient>
+            <mask id={g("cut-tip")} maskUnits="userSpaceOnUse" x="-20" y="-90" width="40" height="100">
+              <rect x="-20" y="-90" width="40" height="100" fill={u("cutg-tip")} />
+            </mask>
+          </>
+        )}
+        {cut === "eraser" && (
+          <>
+            {/* Solid over the eraser, the band and the end of the body, then fading out. */}
+            <linearGradient id={g("cutg-eraser")} x1="0" y1="0" x2="0" y2="-79.5" gradientUnits="userSpaceOnUse">
+              <stop offset="0.3" stopColor="#000" />
+              <stop offset="0.52" stopColor="#fff" />
+              <stop offset="1" stopColor="#fff" />
+            </linearGradient>
+            <mask id={g("cut-eraser")} maskUnits="userSpaceOnUse" x="-20" y="-90" width="40" height="100">
+              <rect x="-20" y="-90" width="40" height="100" fill={u("cutg-eraser")} />
+            </mask>
+          </>
+        )}
       </defs>
       {/* Soft pink eraser, slightly worn and rounded. */}
       <path
@@ -488,7 +520,7 @@ function DrawingPencil({
             keySplines={`0.3 0 0.4 1;${EASE};${EASE};${EASE};0 0 1 1`}
           />
           <g transform={PENCIL_POSE}>
-            <PencilShape uid={uid} />
+            <PencilShape uid={uid} cut="tip" />
           </g>
         </g>
       </g>
@@ -828,7 +860,7 @@ export function WorkbookPencilMark({
                         />
                         <g transform={ERASER_POSE}>
                           <g transform={`rotate(180 0 ${PENCIL_CENTER_Y})`}>
-                            <PencilShape uid={`${baseId}-e`} />
+                            <PencilShape uid={`${baseId}-e`} cut="eraser" />
                           </g>
                         </g>
                       </g>
