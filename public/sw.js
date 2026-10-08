@@ -11,6 +11,7 @@ const PRECACHE_URLS = [
   "/",
   "/offline.html",
   "/cartilla/lecciones",
+  "/book/book.pdf",
   "/icons/app-192.png",
   "/icons/app-512.png",
   "/gretel/thinking.webp",
