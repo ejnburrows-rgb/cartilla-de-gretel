@@ -106,14 +106,3 @@ This plan is complete only when all real gaps against `PROJECT_FINISH_DEFINITION
 ## Owner orchestration update — 2026-10-07
 
 Jules implements; ChatGPT/Codex reviews and dispatches. Use EJNRCGPLm / ejnrcgplm@gmail.com exclusively. Follow the API-first, no browser orchestration, and explicit-request-only Desktop Commander policy in AGENTS.md. Direct Jules API connection is not yet authenticated in this environment; no API key is available. Existing GitHub dispatch comments are delivery evidence, not proof of an authenticated API session or active worker. Do not infer completion from an open PR or bot acknowledgement. Preserve all exact-head merge/release gates.
-
-## Controller verification orchestration — current staged work
-
-Existing issue #545 / PR #546 owns the four-step worker-proof, independent release,
-exact-head merge-gate and explicit milestone-deployment workflow.
-The controller branch now contains durable exact-head release jobs and fail-closed
-proof consumption; it is not deployed. A real clean verification executor and
-the guarded merge operation remain unfinished. Existing live controller operation
-must not be described as having those gates until end-to-end proof exists.
-Vercel auto-deployment remains off; preview deployments are disabled.
-No production release was requested or performed.
