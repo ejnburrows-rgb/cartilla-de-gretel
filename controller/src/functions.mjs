@@ -17,4 +17,9 @@ export const manualJob=inngest.createFunction({id:'manual-job',triggers:[{event:
  if(job.kind==='repo_inspection'&&!['verified','cancelled','failed','dead_letter','waiting','running'].includes(job.status))return {dispatched:await runner.dispatch(job,await runner.snapshot())};
  return runner.rescan();
 });});
-export const functions=[processGithubEvent,controllerReconcile,dailyRepositoryReconciliation,pollExternalWorker,manualJob];
+export const releaseVerifier=inngest.createFunction({id:'release-verifier',triggers:[{event:'cartilla/release.poll'}],retries:3,concurrency:{limit:1,key:'event.data.jobId'}},async({event,step})=>{
+ if(event.data.retryAt)await step.sleepUntil('release-retry-deadline',new Date(event.data.retryAt));
+ for(let i=0;i<180;i++){const result=await step.run('poll-independent-release-'+i,()=>runtime().releaseLoop.advance(event.data.jobId));if(result.done)return result;await step.sleep('release-durable-wait-'+i,'30s');}
+ return {continued_by:'controller-reconcile'};
+});
+export const functions=[processGithubEvent,controllerReconcile,dailyRepositoryReconciliation,pollExternalWorker,manualJob,releaseVerifier];

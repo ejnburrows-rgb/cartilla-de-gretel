@@ -16,7 +16,7 @@ test('owner gate is preserved',()=>assert.equal(verificationGate({...base,ownerG
 test('unconnected verifier fails closed',()=>assert.equal(verificationGate({...base,appIds:[]}).reason,'RELEASE_VERIFIER_NOT_CONNECTED'));
 test('worker contract keeps full build and release outside ordinary worker tasks',()=>{const c=workerVerificationContract({ui:true}).join(' ');assert.match(c,/pnpm dev:worker/);assert.match(c,/Do not run pnpm build/);assert.match(c,/No commit/);});
 test('durable release request is keyed to parent, exact head and current main',async()=>{
- const created=[];let queued=0;const pipeline=new VerificationPipeline({ledger:{create:async x=>{created.push(x);return {...x,id:'release'};},queue:async()=>queued++},github:{main:async()=>({sha:main})},send:async()=>{}});
+ const created=[];let queued=0;const pipeline=new VerificationPipeline({ledger:{create:async x=>{created.push(x);return {...x,id:'release'};},queue:async()=>queued++},github:{main:async()=>({sha:main}),request:async()=>({status:'ahead'})},send:async()=>{}});
  await pipeline.request({id:'implementation',issue_number:7},{pr:{number:8,head},files:base.files});
  assert.equal(created[0].key,'release:implementation:'+head+':'+main);assert.equal(created[0].source.lane,'release_verifier');assert.equal(queued,1);
 });

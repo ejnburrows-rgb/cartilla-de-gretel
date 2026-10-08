@@ -11,9 +11,9 @@ GitHub HMAC event → transactional event + canonical job → Inngest event → 
 
 Database absence is an error, never a memory fallback. Test storage uses actual embedded PostgreSQL (PGlite), including on-disk restart tests. The separate `cartilla_controller` schema does not overwrite a legacy prototype schema.
 
-Five Inngest functions: `process-github-event`, `controller-reconcile` (every minute), `daily-repository-reconciliation` (09:00 UTC), `poll-external-worker`, and `manual-job`. Worker waits and retry deadlines use durable Inngest steps. Reconciliation reconstructs orphan events, recovers missing queue/poll delivery, expires local leases, preserves uncertain external dispatches and refills safe capacity. Inngest event-ID deduplication supplements permanent database uniqueness; the database is authoritative.
+Five Inngest functions: `process-github-event`, `controller-reconcile` (every ten minutes), `daily-repository-reconciliation` (09:00 UTC), `poll-external-worker`, and `manual-job`. Worker waits and retry deadlines use durable Inngest steps. Reconciliation reconstructs orphan events, recovers missing queue/poll delivery, expires local leases, preserves uncertain external dispatches and refills safe capacity. Inngest event-ID deduplication supplements permanent database uniqueness; the database is authoritative.
 
-Verified idle conversations are reused for subsequent bounded jobs through the official `/{conversation_id}/send-message` endpoint with `run:true`; paused sandboxes resume through the official idempotent sandbox-resume endpoint. Each new job gets its own durable attempt, fresh main baseline, deadline and independent validation even when it shares a conversation. Active or ambiguous conversations are never concurrently assigned a second job. Missing/archived sandboxes permit a replacement; unavailable or uncertain status does not. A stale finished status from the previous job cannot certify the new job before fresh agent activity. External POST uncertainty is never automatically retried. Reservations consume capacity/quota until resolved, preventing duplicate dispatch after a controller crash. Known worker failure is retried at a bounded durable deadline. Cancellation is local; it keeps the external run's capacity reserved until its terminal state is confirmed. Status polling never starts another conversation. Failed independent validation is visible; absent PRs may retry only after the prior run is known terminal. Existing PRs and overlapping file ownership reserve their lane until reviewed. When `CONTROLLER_AUTO_MERGE=true`, only controller-owned PRs that already passed exact-head independent validation are promoted from draft if necessary and squash-merged; transient merge failures remain verified and are retried by reconciliation. File/branch deletion, production deployment and secret rotation remain out of scope.
+Verified idle conversations are reused for subsequent bounded jobs through the official `/{conversation_id}/send-message` endpoint with `run:true`; paused sandboxes resume through the official idempotent sandbox-resume endpoint. Each new job gets its own durable attempt, fresh main baseline, deadline and independent validation even when it shares a conversation. Active or ambiguous conversations are never concurrently assigned a second job. Missing/archived sandboxes permit a replacement; unavailable or uncertain status does not. A stale finished status from the previous job cannot certify the new job before fresh agent activity. External POST uncertainty is never automatically retried. Reservations consume capacity/quota until resolved, preventing duplicate dispatch after a controller crash. Known worker failure is retried at a bounded durable deadline. Cancellation is local; it keeps the external run's capacity reserved until its terminal state is confirmed. Status polling never starts another conversation. Failed independent validation is visible; absent PRs may retry only after the prior run is known terminal. Existing PRs and overlapping file ownership reserve their lane until reviewed. No autonomous merge, file/branch deletion, production deployment or secret rotation is implemented.
 
 ## Provisioning boundary
 
@@ -45,7 +45,7 @@ The initial `repo_inspection` conversation is read-only and must pass independen
 
 Dependencies must be independently confirmed closed as completed. Owner-gated, source-blocked, overlapping or unbounded tasks do not dispatch. No heuristic pretends that free-text prose proves independence. Current existing issues are not silently relabelled or rewritten by this implementation. Controller integration and metadata policy files are excluded from worker scope.
 
-`TRUSTED_CHECK_APP_IDS` must list GitHub App IDs of independent trusted check providers. Worker-authored test summaries are not proof. Required check names must succeed on the exact resulting PR head. The validation fetch rechecks PR head stability; it rejects empty commits, missing/unlinked PRs, deletions, out-of-scope changes, missing checks and self-certification. Non-controller PRs are never auto-merged by this controller. A controller-owned verified implementation PR may be auto-merged only when `CONTROLLER_AUTO_MERGE=true` and the same exact-head trusted checks still pass. A verified implementation job still means its bounded candidate was independently validated; it does not certify the entire Cartilla product or production release.
+`TRUSTED_CHECK_APP_IDS` must list GitHub App IDs of independent trusted check providers. Worker-authored test summaries are not proof. Required check names must succeed on the exact resulting PR head. The validation fetch rechecks PR head stability; it rejects empty commits, missing/unlinked PRs, deletions, out-of-scope changes, missing checks and self-certification. Existing PRs are never merged by this controller. A verified implementation job means its bounded candidate was independently validated, not that the PR was merged or Cartilla was released.
 
 ## APIs and operational page
 
@@ -67,4 +67,40 @@ Continuation and unlimited-mode regression suite: 43/43 controller tests passed,
 
 Every future session must resolve CURRENT main and read the current four project instructions listed in AGENTS.md, the controller branch instructions, existing #545 / PR #546, the relevant task issue/PR, and live ledger state. Engram is a retrieval aid; it never overrides fresh GitHub/runtime evidence. Persist material checkpoints to existing GitHub issues and branches. If one lane needs Emilio, record the exact action and advance other independent authorized lanes. Dispatch safe bounded work whenever authorized capacity and budget exist; never manufacture issues merely to fill capacity. Preserve external IDs after uncertainty and never blindly duplicate a start.
 
-Server-only production aliases `Myne` (OpenHands key) and `Ejn` (GitHub token) are supported without exposing their values. Prefer canonical variable names for future provisioning. Never copy any credential into this document or memory. Read tokens cannot mutate jobs. The owner-authorized `CONTROLLER_AUTO_MERGE=true` flag grants only the narrow verified-controller-PR merge path described above; deletion and production-deployment authority remain excluded.
+Server-only production aliases `Myne` (OpenHands key) and `Ejn` (GitHub token) are supported without exposing their values. Prefer canonical variable names for future provisioning. Never copy any credential into this document or memory. Read tokens cannot mutate jobs; admin tokens cannot confer merge/deletion/production-deployment authority.
+
+## Four-step verification pipeline — staged checkpoint (2026-10-08)
+
+Ordinary coding workers run targeted tests, relevant typecheck and verify:worker.
+Visible changes use dev:worker plus browser/screenshot proof. Full release/art
+generation stays in a separate clean checkout. No worker self-certifies.
+
+Material implementation now requests a durable release-verifier job, keyed to
+implementation UUID + exact PR head + current main. It reuses existing Neon jobs,
+attempts, receipts, validations and Inngest delivery/reconciliation. The original
+implementation remains WAITING until independent proof passes. Changed head or
+main invalidates old proof. Finished implementation conversations may be reused
+while independent release verification is pending.
+
+The independent executor uses the documented OpenHands Cloud sandbox and bash APIs,
+not an AI conversation. One clean sandbox runs fixed commands at the exact SHA.
+Neon records the sandbox ID, command ID, payload hash, deadline, exit status and
+controller-produced receipts. Inngest polls the same IDs. Unknown dispatch results
+are blocked rather than duplicated. Sandboxes are confirmed paused after completion.
+Targeted tests, verify:worker and verify:release must all pass; UI changes also
+run visual tests. No Vercel testing deployments are created.
+
+Independent controller review is recorded via the admin-only
+POST /api/jobs/:id/review endpoint against fresh exact head and main. The read-only
+token cannot approve, dispatch, retry or merge. A negative latest review revokes
+an older approval. Workers never receive the admin token. Material GitHub changes,
+trusted Sonar proof, current main, independent review and clean release execution
+are mandatory before implementation completion and guarded merge.
+CONTROLLER_MERGE_ISSUES authorizes only explicit canonical issues. The legacy
+CONTROLLER_AUTO_MERGE switch must remain false. No GitHub auto-merge mode is enabled.
+Draft promotion occurs only after all independent gates pass.
+
+Vercel Git deployment remains disabled; preview deployments are disabled through
+the project API. Commit, PR and merge do not deploy. Explicit finished milestone
+approval is the only product deployment boundary. Controller code updates require
+an intentional controller deployment; durable wakeups do not redeploy it.

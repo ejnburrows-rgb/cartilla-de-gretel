@@ -26,6 +26,7 @@ export class GitHub {
   if(!r.ok)throw new Error(`GITHUB_READY_HTTP_${r.status}`);const body=await r.json();
   if(body.errors?.length||body.data?.markPullRequestReadyForReview?.pullRequest?.isDraft!==false)throw new Error('GITHUB_READY_REJECTED');return true;
  }
+ async mergePullRequest(number,expectedHead){if(!Number.isSafeInteger(number)||! /^[a-f0-9]{40}$/.test(expectedHead))throw Error('INVALID_AUTHORIZED_MERGE');return this.merge(number,expectedHead);}
  async merge(number,expectedHead){
   const r=await this.fetcher(`https://api.github.com/repos/${this.repo}/pulls/${number}/merge`,{method:'PUT',headers:{...this.headers(),'Content-Type':'application/json'},body:JSON.stringify({sha:expectedHead,merge_method:'squash'}),signal:AbortSignal.timeout(20000)});
   if(!r.ok)throw new Error(`GITHUB_MERGE_HTTP_${r.status}`);
