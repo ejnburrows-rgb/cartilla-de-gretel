@@ -57,13 +57,13 @@ export function useGretelEvents() {
 
         case "answer:correct":
           send({ type: "CHEER" });
-          say("Buen trabajo.");
+          say("¡Muy bien!");
           scheduleSpeechClear(2200);
           break;
 
         case "answer:wrong":
           send({ type: "POINT" });
-          say("Inténtalo otra vez.");
+          say("¡Inténtalo de nuevo!");
           scheduleSpeechClear(2200);
           break;
 

@@ -50,7 +50,7 @@ const PENCIL_POSE = "rotate(30) scale(1.2)";
  * cedar cone, graphite point, crimped metal ferrule, pink eraser), drawn
  * tip-at-origin so it can follow the mark path. `uid` keeps gradient ids unique.
  */
-export function PencilShape({ uid }: { uid: string }) {
+function PencilShape({ uid }: { uid: string }) {
   const g = (name: string) => `${uid}-${name}`;
   const u = (name: string) => `url(#${g(name)})`;
   return (

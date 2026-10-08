@@ -1,4 +1,4 @@
-import { useEffect, useRef, useState } from "react";
+import { useState } from "react";
 import { PenLine, CheckCircle2 } from "lucide-react";
 import { cn } from "@/lib/utils";
 
@@ -8,47 +8,18 @@ export interface TeacherNoteFieldProps {
   className?: string;
 }
 
-const SAVED_INDICATOR_MS = 2000;
-const noteContextKey = (lessonId: string, studentId: string) => `${lessonId}\u0000${studentId}`;
-
 export function TeacherNoteField({
   lessonId,
   studentId = "general",
   className,
 }: TeacherNoteFieldProps) {
-  // Use state only since no localStorage/sessionStorage is allowed per conventions.
-  // Draft text and the saved indicator are keyed by lesson+student, so switching
-  // either one in a still-mounted field starts a fresh, empty context.
-  const draftKey = noteContextKey(lessonId, studentId);
-  const [drafts, setDrafts] = useState<Record<string, string>>({});
-  const note = drafts[draftKey] ?? "";
-  // The indicator records which context it belongs to, so a stale hide timer can
-  // never clear a newer context's save.
-  const [saved, setSaved] = useState<{ key: string; shown: boolean } | null>(null);
-  const isSaved = saved?.key === draftKey && saved.shown;
-  const hideTimer = useRef<ReturnType<typeof setTimeout> | null>(null);
-  const clearHideTimer = () => {
-    if (hideTimer.current !== null) {
-      clearTimeout(hideTimer.current);
-      hideTimer.current = null;
-    }
-  };
-
-  // Cancel any pending hide timer when the context changes or the field unmounts,
-  // so a late callback cannot mark the next lesson/student as saved.
-  useEffect(() => clearHideTimer, [draftKey]);
-
-  const updateNote = (value: string) => {
-    setDrafts((prev) => ({ ...prev, [draftKey]: value }));
-  };
+  // Use state only since no localStorage/sessionStorage is allowed per conventions
+  const [note, setNote] = useState("");
+  const [isSaved, setIsSaved] = useState(false);
 
   const handleSave = () => {
-    clearHideTimer();
-    setSaved({ key: draftKey, shown: true });
-    hideTimer.current = setTimeout(() => {
-      hideTimer.current = null;
-      setSaved((current) => (current?.key === draftKey ? { key: draftKey, shown: false } : current));
-    }, SAVED_INDICATOR_MS);
+    setIsSaved(true);
+    setTimeout(() => setIsSaved(false), 2000);
   };
 
   return (
@@ -63,7 +34,7 @@ export function TeacherNoteField({
         <textarea
           id={`teacher-note-${lessonId}`}
           value={note}
-          onChange={(e) => updateNote(e.target.value)}
+          onChange={(e) => setNote(e.target.value)}
           onBlur={handleSave}
           placeholder="Anota observaciones sobre el desempeño en esta lección..."
           className="w-full min-h-[120px] p-4 text-sm bg-white border border-stone-200 rounded-xl focus:outline-none focus:border-stone-400 transition resize-y shadow-sm"

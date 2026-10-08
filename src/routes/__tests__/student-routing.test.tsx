@@ -85,7 +85,7 @@ import {
   createRoute,
   Outlet,
 } from "@tanstack/react-router";
-import { Route as LoginRoute } from "../login.lazy";
+import { Route as LoginRoute } from "../login";
 import { Route as UnirseRoute } from "../cartilla/unirse";
 import { Route as PresentarRoute } from "../cartilla/presentar.$n";
 
@@ -218,11 +218,10 @@ describe("Student-Teacher Routing Isolation", () => {
     });
   });
 
-  it("skips both credential pages in open mode", async () => {
+  it("skips both credential pages in open mode", () => {
     vi.stubEnv("VITE_CRM_REVIEW", "true");
-    const { Route: LoginNonLazy } = await import("../login");
     for (const [route, target] of [
-      [LoginNonLazy, "/cartilla/teacher/crm"],
+      [LoginRoute, "/cartilla/teacher/crm"],
       [UnirseRoute, "/cartilla/lecciones"],
     ] as const) {
       let caught: { options?: { to?: string } } | undefined;
