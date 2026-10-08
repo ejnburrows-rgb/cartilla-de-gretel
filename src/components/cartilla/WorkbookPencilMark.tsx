@@ -56,7 +56,7 @@ const PENCIL_TILT = 60;
  * Big close-up tool (owner reference 2026-10-06): the pencil is about a third of
  * the box high, so it is always much longer than the box and only its front shows.
  */
-const PENCIL_SCALE = 7;
+const PENCIL_SCALE = 9.5;
 const PENCIL_POSE = `rotate(${PENCIL_TILT}) scale(${PENCIL_SCALE})`;
 /** The eraser lies a little flatter, its body running off to the right. */
 const ERASER_TILT = 66;
@@ -176,6 +176,12 @@ export function PencilShape({ uid, stretch = 0 }: { uid: string; stretch?: numbe
         opacity="0.75"
       />
       <path d="M 3.6 -78.6 Q 5.6 -77.6 5.8 -74.6" fill="none" stroke="#b9566f" strokeWidth="0.5" opacity="0.4" />
+      {/* HD detail: soft dome sheen, rubber speckle, and the shadow where it enters the band. */}
+      <ellipse cx="-1.6" cy="-77.7" rx="2.6" ry="0.75" fill="#ffffff" opacity="0.45" />
+      {[[-3.2, -73.4], [1.4, -75.8], [3.9, -72.2], [-0.6, -71.6], [2.6, -77.4], [-4.6, -76.2]].map(([x, y]) => (
+        <circle key={`${x}${y}`} cx={x} cy={y} r="0.18" fill="#b0566d" opacity="0.18" />
+      ))}
+      <rect x="-6.3" y="-71" width="12.6" height="1.1" fill="#7a2a40" opacity="0.18" />
       {/* Ribbed silver ferrule. */}
       <rect x="-6.8" y="-70.4" width="13.6" height="10.2" rx="0.9" fill={u("metal")} />
       {[-68.6, -67, -65.4, -63.8].map((y) => (
@@ -186,6 +192,13 @@ export function PencilShape({ uid, stretch = 0 }: { uid: string; stretch?: numbe
       ))}
       <rect x="-6.8" y="-62.2" width="13.6" height="2" fill="#000" opacity="0.1" />
       <rect x="-6.8" y="-70.4" width="13.6" height="0.9" fill="#000" opacity="0.12" />
+      {/* HD detail: crimped band with a sharp specular streak and pressed dimples. */}
+      <rect x="-4.7" y="-70.4" width="1" height="10.2" fill="#ffffff" opacity="0.55" />
+      <rect x="3.6" y="-70.4" width="1.6" height="10.2" fill="#3e444b" opacity="0.18" />
+      {[-5, -2.5, 0, 2.5, 5].map((x) => (
+        <ellipse key={x} cx={x} cy="-61.5" rx="0.55" ry="0.35" fill="#4b5158" opacity="0.45" />
+      ))}
+      <line x1="-6.8" y1="-60.3" x2="6.8" y2="-60.3" stroke="#3b4148" strokeWidth="0.3" opacity="0.6" />
       </g>
       {/* Sharpened cedar cone with grain. */}
       <path d="M -6.5 -23.4 L 6.5 -23.4 L 2.4 -6.4 L -2.4 -6.4 Z" fill={u("wood")} />
@@ -196,9 +209,23 @@ export function PencilShape({ uid, stretch = 0 }: { uid: string; stretch?: numbe
         opacity="0.5"
         fill="none"
       />
+      {/* HD detail: lit and shaded sides of the cone and finer grain. */}
+      <path d="M -6.5 -23.4 L -4.3 -23.4 L -1.7 -6.4 L -2.4 -6.4 Z" fill="#fff6e6" opacity="0.35" />
+      <path d="M 3.4 -23.4 L 6.5 -23.4 L 2.4 -6.4 L 1.5 -6.4 Z" fill="#7a4a1c" opacity="0.22" />
+      <path
+        d="M -5.4 -21.4 L -2.6 -8.4 M -2.8 -21.8 L -1.2 -8 M 0.2 -22 L 0.1 -7.8 M 2.9 -21.8 L 1.3 -8 M 5.3 -21.2 L 2.5 -8.6"
+        stroke="#a87437"
+        strokeWidth="0.16"
+        opacity="0.4"
+        fill="none"
+      />
+      <path d="M -6.5 -23.4 L 6.5 -23.4 L 5.5 -19.4 L -5.5 -19.4 Z" fill={u("shade")} />
       {/* Graphite point with a soft sheen. */}
       <path d="M -2.45 -6.7 L 2.45 -6.7 L 0.5 -0.55 Q 0 0.4 -0.5 -0.55 Z" fill={u("lead")} />
       <path d="M -1.35 -6.1 L -0.3 -1.5" stroke="#9696a0" strokeWidth="0.5" strokeLinecap="round" opacity="0.8" />
+      <path d="M 0.7 -6.7 L 2.45 -6.7 L 0.5 -0.55 Z" fill="#000" opacity="0.32" />
+      <line x1="-2.45" y1="-6.7" x2="2.45" y2="-6.7" stroke="#5a3c1c" strokeWidth="0.3" opacity="0.45" />
+      <circle cx="-0.25" cy="-1.3" r="0.28" fill="#d6d6de" opacity="0.85" />
       {/* Hexagonal lacquered body: three lit facets, scalloped where sharpened. */}
       <path
         d={`M -6.5 ${top} L 6.5 ${top} L 6.5 -21.6 Q 4.35 -17.2 2.17 -21.6 Q 0 -16.4 -2.17 -21.6 Q -4.35 -17.2 -6.5 -21.6 Z`}
@@ -216,6 +243,26 @@ export function PencilShape({ uid, stretch = 0 }: { uid: string; stretch?: numbe
       <rect x="-5.4" y={f2(-59.6 - stretch)} width="1.5" height={f2(37 + stretch)} rx="0.75" fill="#fff8de" opacity="0.65" />
       <rect x="-0.8" y={f2(-59.6 - stretch)} width="0.7" height={f2(38 + stretch)} rx="0.35" fill="#fff3c4" opacity="0.4" />
       <rect x="-6.5" y={top} width="13" height="1.4" fill="#000" opacity="0.08" />
+      {/* HD detail: crisp lacquer edges, a sharp specular streak, warm reflected light and the "HB" stamp. */}
+      <line x1="-6.45" y1={top} x2="-6.45" y2="-21.6" stroke="#b56d07" strokeWidth="0.28" opacity="0.7" />
+      <line x1="6.45" y1={top} x2="6.45" y2="-21.6" stroke="#8a4f05" strokeWidth="0.32" opacity="0.8" />
+      <rect x="-4.75" y={f2(-59.4 - stretch)} width="0.32" height={f2(36.6 + stretch)} fill="#ffffff" opacity="0.85" />
+      <rect x="4.3" y={f2(-59.6 - stretch)} width="1.3" height={f2(37.4 + stretch)} rx="0.6" fill="#ffd27a" opacity="0.3" />
+      <text
+        x="0"
+        y="0"
+        transform="translate(0.15 -37) rotate(-90)"
+        textAnchor="middle"
+        dominantBaseline="middle"
+        fontFamily="Georgia, 'Times New Roman', serif"
+        fontWeight="700"
+        fontSize="2.4"
+        letterSpacing="0.35"
+        fill="#5a3505"
+        opacity="0.55"
+      >
+        HB · Nº 2
+      </text>
     </g>
   );
 }
