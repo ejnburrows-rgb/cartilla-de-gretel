@@ -10,6 +10,20 @@ export const verificationChecks = Object.freeze({
  visual: 'Cartilla visual proof',
 });
 const shaPattern = /^[a-f0-9]{40}$/;
+export async function officialSonarHead(repo,number,head,fetcher=fetch){
+ if(!/^[\w.-]+\/[\w.-]+$/.test(repo??'')||!Number.isSafeInteger(number)||number<1||!shaPattern.test(head??''))return false;
+ const url='https://sonarcloud.io/api/project_pull_requests/list?project='+encodeURIComponent(repo.replace('/','_'));
+ try{
+  const response=await fetcher(url,{redirect:'error',signal:AbortSignal.timeout(15000)});
+  if(!response.ok)return false;
+  const body=await response.json();
+  const rows=body?.pullRequests;
+  if(!Array.isArray(rows))return false;
+  const pr=rows.find(item=>item.key===String(number));
+  return pr?.commit?.sha===head&&pr?.status?.qualityGateStatus==='OK'&&pr.status.bugs===0&&pr.status.vulnerabilities===0&&pr.status.codeSmells===0;
+ }catch{return false;}
+}
+
 export function exactHeadSonarAudit(comments,check){
  const since=Date.parse(check?.started_at??'');
  if(!Number.isFinite(since))return null;
@@ -48,7 +62,7 @@ export function workerVerificationContract({ui=false}={}) {
  'No commit, PR, verification pass or merge requests a Vercel deployment.'];
 }
 export class VerificationPipeline {
- constructor({ledger,github,send,env=process.env}) { Object.assign(this,{ledger,github,send,env}); }
+ constructor({ledger,github,send,env=process.env,sonarFetch=fetch}) { Object.assign(this,{ledger,github,send,env,sonarFetch}); }
  async request(parent,evidence) {
   const head=evidence.pr.head;const main=await this.github.main();
   if(!shaPattern.test(head))throw Error('INVALID_VERIFICATION_SHA');
@@ -109,6 +123,7 @@ export class VerificationPipeline {
   const checks=await this.github.pages('/commits/'+gate.head+'/check-runs','check_runs');
   const sonar=checks.filter(c=>c.name==='SonarCloud Code Analysis'&&c.app?.id===12526&&c.head_sha===gate.head).sort((a,b)=>String(b.started_at??'').localeCompare(String(a.started_at??'')))[0];
   if(sonar?.status!=='completed'||sonar.conclusion!=='success')return {merged:false,reason:'CURRENT_SONAR_QUALITY_GATE_REQUIRED'};
+  if(!await officialSonarHead(this.github.repo,pr.number,gate.head,this.sonarFetch))return {merged:false,reason:'SONAR_ANALYZED_HEAD_NOT_CONFIRMED'};
   const allComments=await this.github.pages('/issues/'+pr.number+'/comments');
   const sonarAudit=exactHeadSonarAudit(allComments,sonar);
   if(!sonarAudit)return {merged:false,reason:'SONAR_FINDINGS_RECONCILIATION_REQUIRED'};

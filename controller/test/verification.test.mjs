@@ -1,6 +1,6 @@
 import {test} from 'node:test';
 import assert from 'node:assert/strict';
-import {verificationGate,verificationChecks,VerificationPipeline,workerVerificationContract,exactHeadSonarAudit} from '../src/verification.mjs';
+import {verificationGate,verificationChecks,VerificationPipeline,workerVerificationContract,exactHeadSonarAudit,officialSonarHead} from '../src/verification.mjs';
 const head='b'.repeat(40),main='a'.repeat(40);
 const checks=Object.values(verificationChecks).map((name,id)=>({name,id,head_sha:head,app_id:9,status:'completed',conclusion:'success',started_at:'2026-10-08T01:00:00Z'}));
 const base={head,main,verifiedMain:main,files:['src/components/Example.tsx'],checks,appIds:[9],implementationPassed:true};
@@ -30,4 +30,15 @@ test('Sonar reconciliation rejects old, untrusted and unresolved reports',()=>{
  assert.equal(exactHeadSonarAudit([{...good,body:'Quality Gate passed; 2 New issues'}],check),null);
  for(const count of [10,20,100])assert.equal(exactHeadSonarAudit([{...good,body:'Quality Gate passed; '+count+' New issues'}],check),null);
  assert.equal(exactHeadSonarAudit([good],{}),null);
+});
+
+test('Sonar Cloud PR head corroboration rejects mismatched SHA, vulnerabilities and unavailable API',async()=>{
+ const response=({sha=head,qualityGateStatus='OK',bugs=0,vulnerabilities=0,codeSmells=0}={})=>({ok:true,json:async()=>({pullRequests:[{key:'552',commit:{sha},status:{qualityGateStatus,bugs,vulnerabilities,codeSmells}}]})});
+ const fetcher=async(url,init)=>{assert.equal(new URL(url).hostname,'sonarcloud.io');assert.equal(init.redirect,'error');return response();};
+ assert.equal(await officialSonarHead('owner/repo',552,head,fetcher),true);
+ for(const values of [{sha:main},{qualityGateStatus:'ERROR'},{bugs:1},{vulnerabilities:1},{codeSmells:2}]){
+  assert.equal(await officialSonarHead('owner/repo',552,head,async()=>response(values)),false);
+ }
+ assert.equal(await officialSonarHead('owner/repo',552,head,async()=>({ok:true,json:async()=>({pullRequests:[]})})),false);
+ assert.equal(await officialSonarHead('owner/repo',552,head,async()=>{throw Error('offline');}),false);
 });
