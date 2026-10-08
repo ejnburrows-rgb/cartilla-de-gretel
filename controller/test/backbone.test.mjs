@@ -9,24 +9,23 @@ import {fixture} from './helpers.mjs';
 const env={GITHUB_REPO:'owner/repo',GITHUB_WEBHOOK_SECRET:'test-only-signing-secret'};
 const raw=Buffer.from(JSON.stringify({repository:{full_name:'owner/repo'},action:'opened'}));
 const headers={'x-hub-signature-256':`sha256=${createHmac('sha256',env.GITHUB_WEBHOOK_SECRET).update(raw).digest('hex')}`,'x-github-delivery':'delivery-real-hmac-fixture','x-github-event':'issues'};
-test('signed webhook commits event AND canonical job before acknowledging; duplicates create one job',async()=>{
+test('signed webhook commits one durable event before acknowledging; duplicates create no project jobs',async()=>{
  const {p,ledger,db}=await fixture();let sends=0;
- const send=async()=>{sends++;assert.equal((await db.query('SELECT count(*)::int AS n FROM webhook_events')).rows[0].n,1);assert.equal((await ledger.jobs()).length,1);};
+ const send=async event=>{sends++;assert.equal(event.data.deliveryId,'delivery-real-hmac-fixture');assert.equal((await db.query('SELECT count(*)::int AS n FROM webhook_events')).rows[0].n,1);assert.equal((await ledger.jobs()).length,0);};
  for(let i=0;i<8;i++){const r=await webhook(raw,headers,{ledger,send,env});assert.equal(r.status,202);assert.equal(r.body.duplicate,i>0);}
- assert.equal(sends,1);assert.equal((await ledger.jobs()).length,1);await p.close();
+ assert.equal(sends,1);assert.equal((await ledger.jobs()).length,0);await p.close();
 });
-test('Inngest send failure leaves persisted job recoverable and a fresh queue generation',async()=>{
+test('Inngest send failure leaves the webhook durable for minute reconciliation without a fake project job',async()=>{
  const {p,ledger}=await fixture();const r=await webhook(raw,headers,{ledger,send:async()=>{throw Error('offline');},env});
- assert.equal(r.body.stored,true);assert.equal(r.body.queued,false);const j=await ledger.get(r.body.jobId);assert.equal(j.status,'received');
- let sent;await ledger.queue(j,async e=>sent=e);assert.match(sent.id,/:2$/);assert.equal((await ledger.get(j.id)).status,'queued');await p.close();
+ assert.equal(r.body.stored,true);assert.equal(r.body.queued,false);assert.equal(r.body.recovery,'minute_reconciliation');assert.equal((await ledger.jobs()).length,0);await p.close();
 });
-test('orphan stored event is reconstructable after process crash',async()=>{
+test('stored webhook survives a process crash without manufacturing reconciliation history',async()=>{
  const {p,db,ledger}=await fixture();await db.query('INSERT INTO webhook_events(delivery_id,event_type,raw_body,payload) VALUES($1,$2,$3,$4)',['orphan','push','{}','{}']);
- assert.equal(await ledger.recoverOrphans(),1);assert.equal(await ledger.recoverOrphans(),0);assert.equal((await ledger.jobs()).length,1);await p.close();
+ assert.equal(await ledger.recoverOrphans(),0);assert.equal((await db.query('SELECT count(*)::int AS n FROM webhook_events')).rows[0].n,1);assert.equal((await ledger.jobs()).length,0);await p.close();
 });
 test('concurrent deliveries are transactionally idempotent',async()=>{
  const {p,ledger}=await fixture();const r=await Promise.all(Array.from({length:10},()=>ledger.receive('concurrent','issues',raw,JSON.parse(raw))));
- assert.equal(new Set(r.map(x=>x.job.id)).size,1);assert.equal(r.filter(x=>!x.duplicate).length,1);await p.close();
+ assert.equal(new Set(r.map(x=>x.delivery)).size,1);assert.equal(r.filter(x=>!x.duplicate).length,1);assert.equal((await ledger.jobs()).length,0);await p.close();
 });
 test('worker failure has bounded retries then visible recoverable dead-letter',async()=>{
  const {p,ledger,db}=await fixture();const j=await ledger.create({key:'forced-fail',kind:'reconcile',source:{admin:true}});

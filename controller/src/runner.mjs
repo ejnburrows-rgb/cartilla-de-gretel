@@ -12,9 +12,19 @@ export class Runner {
  async snapshot(){
   const s=await this.github.snapshot();
   // Existing PRs reserve their actual changed files even when they do not link an issue.
-  const prior=(await this.ledger.db.query("SELECT data FROM project_snapshots WHERE main_sha=$1 AND data ? 'pr_file_facts' ORDER BY recorded_at DESC LIMIT 1",[s.main.sha])).rows[0]?.data;
+  const priorRow=(await this.ledger.db.query("SELECT id,data FROM project_snapshots WHERE main_sha=$1 AND data ? 'pr_file_facts' ORDER BY recorded_at DESC LIMIT 1",[s.main.sha])).rows[0];
+  const prior=priorRow?.data;
   s.prs=await Promise.all(s.prs.map(async p=>({...p,files:prior?.pr_file_facts?.find(f=>f.number===p.number&&f.head===p.head.sha&&f.base===p.base?.ref)?.files??await this.github.pages(`/pulls/${p.number}/files`)})));
-  const data={...publicSnapshot(s),instruction_texts:s.instructions,pr_file_facts:s.prs.map(p=>({number:p.number,head:p.head.sha,base:p.base?.ref,files:p.files}))};await this.ledger.db.query('INSERT INTO project_snapshots(id,main_sha,data) VALUES($1,$2,$3)',[randomUUID(),s.main.sha,JSON.stringify(data)]);return s;
+  const facts={...publicSnapshot(s),instruction_texts:s.instructions,pr_file_facts:s.prs.map(p=>({number:p.number,head:p.head.sha,base:p.base?.ref,files:p.files}))};
+  const material={main:facts.main,instructionHashes:facts.instructionHashes,issues:facts.issues,prs:facts.prs.map(p=>({number:p.number,head:p.head,branch:p.branch})),pr_file_facts:facts.pr_file_facts};
+  const fingerprint=digest(material),data={...facts,fingerprint};
+  const priorMaterial=prior&&{main:prior.main,instructionHashes:prior.instructionHashes,issues:prior.issues,prs:(prior.prs??[]).map(p=>({number:p.number,head:p.head,branch:p.branch})),pr_file_facts:prior.pr_file_facts};
+  if(priorMaterial&&digest(priorMaterial)===fingerprint)return s;
+  try{
+   if(priorRow)await this.ledger.db.query('UPDATE project_snapshots SET main_sha=$2,data=$3,recorded_at=now() WHERE id=$1',[priorRow.id,s.main.sha,JSON.stringify(data)]);
+   else await this.ledger.db.query("INSERT INTO project_snapshots(id,main_sha,data) VALUES('00000000-0000-4000-8000-000000000001',$1,$2) ON CONFLICT(id) DO UPDATE SET main_sha=EXCLUDED.main_sha,data=EXCLUDED.data,recorded_at=now()",[s.main.sha,JSON.stringify(data)]);
+  }catch(error){if(error?.code!=='53100')throw error;}
+  return s;
  }
  async scan(s){
   const jobs=await this.ledger.jobs();const {selected,blocked}=candidates(s,jobs,this.github.repo);

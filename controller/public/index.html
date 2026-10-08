@@ -20,7 +20,7 @@
   <h2 id="headline">Checking the controller…</h2>
   <p id="explanation">Loading the current job totals.</p>
   <div class="priority" id="priority"></div>
-  <p class="scope"><strong>Important:</strong> these are controller jobs and checks. They are not a count of finished Cartilla features or pages.</p>
+  <p class="scope"><strong>Counts above are real Cartilla work only.</strong> Webhooks, scans, retries, and snapshots are kept separately under System history.</p>
 </section>
 
 <div id="notice" class="notice success" role="status">Private owner dashboard. Access is handled by Vercel Authentication; no controller key is required.</div>
@@ -48,10 +48,11 @@
 
 <div class="filters" id="filters" hidden>
   <button class="secondary" data-filter="owner" aria-pressed="true">Your action needed</button>
-  <button class="secondary" data-filter="problems" aria-pressed="false">System problems</button>
+  <button class="secondary" data-filter="problems" aria-pressed="false">Blocked real work</button>
   <button class="secondary" data-filter="active" aria-pressed="false">Working / waiting</button>
   <button class="secondary" data-filter="verified" aria-pressed="false">Verified</button>
   <button class="secondary" data-filter="all" aria-pressed="false">Full history</button>
+  <button class="secondary" data-filter="system" aria-pressed="false">System history</button>
 </div>
 
 <section id="jobs" aria-label="Controller job history"></section>
@@ -81,7 +82,7 @@ const reasonMap={
  RETRY_UNSAFE:'The controller cannot safely retry yet because an earlier external run may still exist.',
  GITHUB_QUOTA:'GitHub temporarily limited requests. The controller must wait for the reset time before checking again.'
 };
-let allJobs=[],filter='owner',repoFilter='all',sortOrder='newest';
+let allJobs=[],filter='owner',jobScope='project',repoFilter='all',sortOrder='newest';
 const historyCache=new Map();
 const node=(tag,text,className)=>{const e=document.createElement(tag);if(text!==undefined)e.textContent=text;if(className)e.className=className;return e};
 const plural=(n,one,many)=>n+' '+(n===1?one:many);
@@ -123,30 +124,25 @@ function priorityCard(count,title,body,kind){
  return e;
 }
 function renderOverview(state){
- const s=state.statuses||{},running=s.running||0,waiting=s.waiting||0,retrying=s.retrying||0,blocked=s.blocked||0,failed=s.failed||0,dead=s.dead_letter||0,verified=s.verified||0;
- const unhealthy=blocked+failed+dead;
+ const c=state.categories||{},running=c.working_now||0,ready=c.ready_to_start||0,waiting=c.waiting_on_dependency||0,problems=c.controller_system_problem||0,owner=c.needs_emilio||0,verified=c.verified_real_work||0;
  const health=document.querySelector('#health'),headline=document.querySelector('#headline'),explanation=document.querySelector('#explanation');
- health.className='health '+(unhealthy?'attention':running||retrying?'working':'clear');
- if(unhealthy){health.textContent='Needs review';headline.textContent=plural(unhealthy,'controller job has','controller jobs have')+' a problem state';}
- else if(running||retrying){health.textContent='Work in progress';headline.textContent=running?plural(running,'job is','jobs are')+' actively working':'The controller is retrying work automatically';}
- else{health.textContent='No active problem shown';headline.textContent='Nothing is actively running right now';}
- const parts=[];
- parts.push(running?plural(running,'job is','jobs are')+' running now.':'No job is actively running right now.');
- if(retrying)parts.push(plural(retrying,'job is','jobs are')+' retrying automatically.');
- if(blocked)parts.push(plural(blocked,'job is','jobs are')+' blocked.');
- if(dead)parts.push(plural(dead,'job has','jobs have')+' exhausted automatic retries.');
- if(failed)parts.push(plural(failed,'job has','jobs have')+' a failed latest attempt.');
- if(waiting)parts.push(plural(waiting,'job is','jobs are')+' waiting.');
- parts.push(plural(verified,'controller job has','controller jobs have')+' verified history.');
- explanation.textContent=parts.join(' ');
+ health.className='health '+(owner||problems?'attention':running||ready?'working':'clear');
+ if(owner){health.textContent='Your attention is needed';headline.textContent=plural(owner,'real work item needs','real work items need')+' Emilio';}
+ else if(running){health.textContent='Work in progress';headline.textContent=plural(running,'real Cartilla task is','real Cartilla tasks are')+' working now';}
+ else{health.textContent=problems?'Controller problem':'No active work';headline.textContent=problems?'The controller has a system problem; no Emilio action is currently recorded':'Nothing is actively working right now';}
+ const jules=state.workers?.jules?.enabled?'Jules is available.':'Jules is not connected to a working API.';
+ const openhands=state.workers?.openhands?.enabled?'OpenHands fallback is enabled.':'OpenHands fallback is disabled.';
+ explanation.textContent=`${ready} real item(s) ready or retrying. ${waiting} waiting on a dependency. ${jules} ${openhands}`;
  const host=document.querySelector('#priority');host.replaceChildren();
  host.append(
-  priorityCard(running,'Working now','Active worker jobs right now.','active'),
-  priorityCard(retrying,'Retrying','Automatic retry is already scheduled.','retry'),
-  priorityCard(blocked,'Blocked','Cannot continue until a condition is cleared.','problem'),
-  priorityCard(dead,'Stopped','Automatic retries are exhausted.','problem'),
-  priorityCard(verified,'Verified history','Verified controller jobs, not finished Cartilla pages.','good')
+  priorityCard(running,'Working now','Real Cartilla tasks with an active worker.','active'),
+  priorityCard(ready,'Ready to start','Real work stored and eligible or retrying.','retry'),
+  priorityCard(waiting,'Waiting on dependency','Real work waiting for a named dependency.','problem'),
+  priorityCard(problems,'Controller / system problem','Technical failures, separate from project work.','problem'),
+  priorityCard(owner,'Needs Emilio','Items whose next action belongs to Emilio.','problem'),
+  priorityCard(verified,'Verified real work','Actual implementation or PR verification only.','good')
  );
+ if(state.database?.limit_reached){document.querySelector('#notice').textContent='The controller database is at its storage limit. New write amplification is stopped; existing history has not been deleted.';document.querySelector('#notice').className='notice problem';}
  document.querySelector('#updated').textContent='Live · '+new Date().toLocaleTimeString();
 
 }
@@ -175,6 +171,7 @@ function renderOwnerSummary(){
  const problem=relevant.filter(j=>['blocked','failed','dead_letter','retrying'].includes(j.status));
  const box=document.querySelector('#owner-status');box.hidden=false;
  box.replaceChildren();
+ if(jobScope==='system'){box.className='owner-decision good';box.append(node('strong','System history is separate from your project work'),node('span','These technical records do not count as completed, blocked, or active Cartilla tasks.'));return;}
  if(owner.length){
   box.className='owner-decision action';
   box.append(node('strong',plural(owner.length,'job needs','jobs need')+' something from you'),node('span','The list below is filtered to those jobs. Each one says exactly what you need to do.'));
@@ -262,16 +259,16 @@ function renderHistory(holder,data,j){
  tech.append(tdl);holder.append(tech);
 }
 async function loadHistory(j,holder){
- if(historyCache.has(j.id)){renderHistory(holder,historyCache.get(j.id),j);return}
+ const cached=historyCache.get(j.id);if(cached?.last_activity===j.last_activity){renderHistory(holder,cached.data,j);return}
  holder.replaceChildren(node('div','Loading recorded history…','loading'));
- try{const data=await get('/api/jobs/'+j.id+'/history');historyCache.set(j.id,data);renderHistory(holder,data,j)}
+ try{const data=await get('/api/jobs/'+j.id+'/history');historyCache.set(j.id,{last_activity:j.last_activity,data});renderHistory(holder,data,j)}
  catch(e){holder.replaceChildren(node('div','Could not load this job history: '+e.message,'loading'))}
 }
 function renderJobs(){
- const host=document.querySelector('#jobs');host.replaceChildren();
+ const host=document.querySelector('#jobs');const expanded=new Set([...host.querySelectorAll('details[open][data-job-id]')].map(row=>row.dataset.jobId));host.replaceChildren();
  const jobs=filteredJobs();
  for(const j of jobs){
-  const details=node('details',undefined,'history-card');
+  const details=node('details',undefined,'history-card');details.dataset.jobId=j.id;
   const summary=node('summary');
   const top=node('div',undefined,'summary-top');
   const left=node('div');left.append(node('div',jobTitle(j),'summary-title'));
@@ -282,27 +279,33 @@ function renderJobs(){
   top.append(left,badges);summary.append(top);details.append(summary);
   const body=node('div',undefined,'history-body');body.append(node('div','Open this row to load its recorded timeline and proof.','loading'));details.append(body);
   let loaded=false;details.addEventListener('toggle',()=>{if(details.open&&!loaded){loaded=true;loadHistory(j,body)}});
-  host.append(details);
+  host.append(details);if(expanded.has(j.id)){details.open=true;loaded=true;loadHistory(j,body);}
  }
  document.querySelector('#empty').textContent=jobs.length?'':filter==='owner'?'No jobs currently require an action from you.':'No jobs match this view.';
  const descriptions={
   owner:'Showing only jobs that explicitly record an action required from Emilio.',
-  problems:'Showing blocked, failed, retrying, and stopped jobs — even when Emilio does not need to act.',
+  problems:'Showing blocked, failed, retrying, and stopped real Cartilla work.',
   active:'Showing received, queued, running, waiting, and retrying work.',
-  verified:'Showing controller jobs whose required proof passed.',
-  all:'Showing the complete recorded job history.'
+  verified:'Showing real implementation or PR verification whose required proof passed.',
+  all:'Showing the complete real-work history.',
+  system:'Showing technical controller history. These records never inflate real-work totals.'
  };
  document.querySelector('#jobs-help').textContent=descriptions[filter];
 }
+async function loadAllJobs(scope){
+ const jobs=[];let page=1;
+ while(page<=100){const data=await get('/api/jobs?scope='+scope+'&limit=100&page='+page);jobs.push(...(data.jobs||[]));if(!data.pagination?.has_more)break;page++;}
+ return jobs;
+}
 async function refresh(){
  try{
-  const [state,list]=await Promise.all([get('/api/status'),get('/api/jobs')]);
-  renderOverview(state);allJobs=list.jobs||[];
+  const [state,jobs]=await Promise.all([get('/api/status'),loadAllJobs(jobScope)]);
+  renderOverview(state);allJobs=jobs;
   populateRepos();renderOwnerSummary();
   document.querySelector('#filters').hidden=false;document.querySelector('#controls').hidden=false;
   renderJobs();
-  document.querySelector('#notice').textContent='Private owner dashboard loaded. No controller key is required. This page is read-only and cannot change, retry, merge, or deploy anything.';
-  document.querySelector('#notice').className='notice success';
+  if(state.database?.limit_reached){document.querySelector('#notice').textContent='The controller database is at its storage limit. New write amplification is stopped; existing history has not been deleted.';document.querySelector('#notice').className='notice problem';}
+  else{document.querySelector('#notice').textContent='Private owner dashboard loaded. No controller key is required. This page is read-only and cannot change, retry, merge, or deploy anything.';document.querySelector('#notice').className='notice success';}
  }catch(e){
   document.querySelector('#notice').textContent=e.body?.missing?'Controller configuration is incomplete: '+e.body.missing.join(', '):'Could not load detailed history: '+e.message;
   document.querySelector('#notice').className='notice problem';
@@ -310,10 +313,12 @@ async function refresh(){
 }
 document.querySelector('#filters').addEventListener('click',e=>{
  const b=e.target.closest('button[data-filter]');if(!b)return;filter=b.dataset.filter;
- document.querySelectorAll('#filters button').forEach(x=>x.setAttribute('aria-pressed',String(x===b)));renderJobs();
+ document.querySelectorAll('#filters button').forEach(x=>x.setAttribute('aria-pressed',String(x===b)));
+ const nextScope=filter==='system'?'system':'project';
+ if(nextScope!==jobScope){jobScope=nextScope;loadAllJobs(jobScope).then(jobs=>{allJobs=jobs;populateRepos();renderOwnerSummary();renderJobs()}).catch(e=>{document.querySelector('#notice').textContent='Could not load '+jobScope+' history: '+e.message;document.querySelector('#notice').className='notice problem';});}else renderJobs();
 });
 document.querySelector('#repo-filter').addEventListener('change',e=>{repoFilter=e.target.value;renderOwnerSummary();renderJobs()});
 document.querySelector('#sort-filter').addEventListener('change',e=>{sortOrder=e.target.value;renderJobs()});
-refresh();setInterval(refresh,15000);
+refresh();setInterval(()=>jobScope==='project'?refresh():overview(),15000);
 </script>
 </html>

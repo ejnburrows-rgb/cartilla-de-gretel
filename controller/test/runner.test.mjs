@@ -144,6 +144,20 @@ test('dependency-gated scoped task and admin request share one durable canonical
  const jobs=(await ledger.jobs()).filter(j=>j.issue_number===7);assert.equal(jobs.length,1);assert.equal(jobs[0].status,'blocked');assert.equal(jobs[0].spec.action,spec.action);assert.equal(jobs[0].source.scope_hash!==undefined,true);assert.match(jobs[0].idempotency_key,/^issue:7:/);await p.close();
 });
 
+test('repeated no-change snapshots keep one bounded current record and unchanged state writes are no-ops',async()=>{
+ const {p,ledger,runner,db}=await setup();
+ for(let i=0;i<8;i++)await runner.snapshot();
+ const before=(await db.query("SELECT count(*)::int AS n,coalesce(sum(octet_length(data::text)),0)::int AS bytes FROM project_snapshots")).rows[0];
+ for(let i=0;i<8;i++)await runner.snapshot();
+ const after=(await db.query("SELECT count(*)::int AS n,coalesce(sum(octet_length(data::text)),0)::int AS bytes FROM project_snapshots")).rows[0];
+ assert.deepEqual(after,before);assert.equal(after.n,1);
+ const j=await ledger.create({key:'stable-block',kind:'issue_implementation',issue:12,source:{issue:12},spec:{action:'Blocked test'}});
+ await ledger.set(j.id,'blocked','DEPENDENCY_NOT_VERIFIED_CLOSED',{next_action:'Wait for dependency',owner_action:'Nothing'});
+ const first=(await ledger.get(j.id)).updated_at;await new Promise(resolve=>setTimeout(resolve,5));
+ const changed=await ledger.set(j.id,'blocked','DEPENDENCY_NOT_VERIFIED_CLOSED',{next_action:'Wait for dependency',owner_action:'Nothing'});
+ assert.equal(changed,undefined);assert.equal(String((await ledger.get(j.id)).updated_at),String(first));await p.close();
+});
+
 test('Cloud continuation and sandbox resume use documented X-Access-Token header',async()=>{const seen=[];const client=new OpenHands({key:'mock-cloud-key',fetcher:async(url,init)=>{seen.push({url,headers:init.headers});assert.equal(init.headers['X-Access-Token'],'mock-cloud-key');return {ok:true,json:async()=>url.endsWith('/resume')?{success:true}:url.endsWith('/send-message')?{success:true,sandbox_status:'RUNNING'}:[{sandbox_status:'RUNNING',execution_status:'finished'}]};}});await client.continueSession({external_id:'existing',sandbox_id:'paused',sandbox_status:'PAUSED'},'bounded');assert.equal(seen.length,3);});
 
 test('material implementation stays waiting when release verification has not passed',async()=>{

@@ -4,12 +4,13 @@ import {createHmac} from 'node:crypto';
 import handler from '../api/handler.mjs';
 import {rawBody,signatureOK} from '../src/security.mjs';
 import {api} from '../src/api.mjs';
-test('public board exposes aggregate counts only; details and writes remain authenticated',async()=>{
- const deps={ledger:{db:{query:async sql=>({rows:sql.includes('GROUP BY')?[{status:'running',count:1},{status:'verified',count:9}]:[{latest:'2026-10-08T01:00:00Z'}]})}}};
- const r=await api({url:'/api/overview',method:'GET',headers:{}},deps,{OPENHANDS_ENABLED:'true'});
- assert.equal(r.status,200);assert.deepEqual(Object.keys(r.body).sort(),['last_activity','statuses','worker_enabled']);
- assert.equal(r.body.statuses.running,1);assert.equal(r.body.statuses.verified,9);
- for(const [url,method]of [['/api/jobs','GET'],['/api/status','GET'],['/api/overview','POST']])assert.equal((await api({url,method,headers:{}},deps,{})).status,401);
+test('public board counts real work separately from technical history; details and writes remain authenticated',async()=>{
+ const {fixture}=await import('./helpers.mjs');const f=await fixture();
+ const real=await f.ledger.create({key:'real-work',kind:'issue_implementation',issue:7,source:{issue:7},spec:{action:'Fix lesson'}});await f.db.query("UPDATE jobs SET status='running',worker='openhands' WHERE id=$1",[real.id]);
+ const system=await f.ledger.create({key:'system-work',kind:'reconcile',source:{event:true}});await f.ledger.set(system.id,'dead_letter','INNGEST_SEND_RETRIES_EXHAUSTED',{owner_action:'Nothing'});
+ const deps={ledger:f.ledger};const r=await api({url:'/api/overview',method:'GET',headers:{}},deps,{OPENHANDS_ENABLED:'true'});
+ assert.equal(r.status,200);assert.equal(r.body.categories.working_now,1);assert.equal(r.body.categories.controller_system_problem,1);assert.equal(r.body.statuses.dead_letter,0);assert.equal(r.body.system_history.dead_letter,1);assert.equal(r.body.workers.jules.enabled,false);
+ for(const [url,method]of [['/api/jobs','GET'],['/api/status','GET'],['/api/overview','POST']])assert.equal((await api({url,method,headers:{}},deps,{})).status,401);await f.p.close();
 });
 test('Web Standard request preserves exact signed JSON bytes',async()=>{
  const body='{\n "repository": {"full_name":"owner/repo"}, "zen": "hello"\n}';
@@ -61,4 +62,13 @@ test('read-only history explains repository, owner attention, transitions, evide
  assert.equal(history.status,200);assert.equal(history.body.job.repository,'owner/repo');assert.equal(history.body.job.needs_owner_attention,true);
  assert.ok(history.body.transitions.length>=2);assert.equal(history.body.evidence[0].kind,'github_validation');assert.equal(history.body.validations[0].name,'controller_independent_review');
  await f.p.close();
+});
+
+test('job API paginates complete project/system history and can find unresolved records older than 200 rows',async()=>{
+ const {fixture}=await import('./helpers.mjs');const f=await fixture();
+ const old=await f.ledger.create({key:'old-unresolved',kind:'reconcile',source:{event:true}});await f.ledger.set(old.id,'blocked','OLD_SYSTEM_FAILURE',{owner_action:'Nothing'});
+ for(let i=0;i<205;i++){const j=await f.ledger.create({key:'new-system-'+i,kind:'reconcile',source:{event:true}});await f.db.query("UPDATE jobs SET status='verified',created_at=now()+($2 * interval '1 second') WHERE id=$1",[j.id,i+1]);}
+ const env={CONTROLLER_READ_TOKEN:'r'.repeat(40),CONTROLLER_ADMIN_TOKEN:'a'.repeat(40),GITHUB_REPO:'owner/repo'},headers={authorization:'Bearer '+env.CONTROLLER_READ_TOKEN};
+ const first=await api({url:'/api/jobs?scope=system&limit=100&page=1',method:'GET',headers},{ledger:f.ledger},env);assert.equal(first.body.jobs.length,100);assert.equal(first.body.pagination.total,206);assert.equal(first.body.pagination.has_more,true);
+ const unresolved=await api({url:'/api/jobs?scope=system&unresolved=true&limit=100&page=1',method:'GET',headers},{ledger:f.ledger},env);assert.equal(unresolved.body.pagination.total,1);assert.equal(unresolved.body.jobs[0].id,old.id);await f.p.close();
 });

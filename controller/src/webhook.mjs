@@ -8,7 +8,8 @@ export async function webhook(raw,headers,options){
  let payload;try{payload=JSON.parse(raw.toString('utf8'));}catch{return {status:400,body:{error:'INVALID_JSON'}};}
  if(payload.repository?.full_name?.toLowerCase()!==env.GITHUB_REPO?.toLowerCase())return {status:403,body:{error:'WRONG_REPOSITORY'}};
  const {ledger,send}=options;
- const {job,duplicate}=await ledger.receive(delivery,type,raw,payload);
- const queued=await ledger.queue(job,send);
- return {status:202,body:{stored:true,duplicate,jobId:job.id,queued}};
+ const {duplicate}=await ledger.receive(delivery,type,raw,payload);
+ let queued=duplicate;
+ if(!duplicate)try{await send({id:`github:${delivery}`,name:'cartilla/github.received',data:{deliveryId:delivery}});queued=true;}catch{queued=false;}
+ return {status:202,body:{stored:true,duplicate,deliveryId:delivery,queued,recovery:queued?'durable_event':'minute_reconciliation'}};
 }

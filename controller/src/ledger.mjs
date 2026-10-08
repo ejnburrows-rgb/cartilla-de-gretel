@@ -4,7 +4,22 @@ import {safeText} from './security.mjs';
 export class Ledger {
  constructor(db){this.db=db;}
  async get(id){return (await this.db.query('SELECT * FROM jobs WHERE id=$1',[id])).rows[0];}
- async jobs(){return (await this.db.query('SELECT * FROM jobs ORDER BY created_at DESC LIMIT 200')).rows;}
+ async jobs({scope='all',limit=200,offset=0,statuses=[]}={}){
+  const bounded=Math.min(200,Math.max(1,Number(limit)||200)),skip=Math.max(0,Number(offset)||0);
+  const project="(kind='issue_implementation' OR coalesce(source->>'lane','') IN('release_verifier','release_request'))";
+  const clauses=[];const args=[];
+  if(scope==='project')clauses.push(project);else if(scope==='system')clauses.push(`NOT ${project}`);else if(scope!=='all')throw Error('INVALID_JOB_SCOPE');
+  if(statuses.length){args.push(statuses);clauses.push(`status=ANY($${args.length}::text[])`);}
+  args.push(bounded,skip);
+  return (await this.db.query(`SELECT * FROM jobs${clauses.length?' WHERE '+clauses.join(' AND '):''} ORDER BY created_at DESC LIMIT $${args.length-1} OFFSET $${args.length}`,args)).rows;
+ }
+ async countJobs({scope='all',statuses=[]}={}){
+  const project="(kind='issue_implementation' OR coalesce(source->>'lane','') IN('release_verifier','release_request'))";
+  const clauses=[];const args=[];
+  if(scope==='project')clauses.push(project);else if(scope==='system')clauses.push(`NOT ${project}`);else if(scope!=='all')throw Error('INVALID_JOB_SCOPE');
+  if(statuses.length){args.push(statuses);clauses.push(`status=ANY($${args.length}::text[])`);}
+  return (await this.db.query(`SELECT count(*)::int AS n FROM jobs${clauses.length?' WHERE '+clauses.join(' AND '):''}`,args)).rows[0].n;
+ }
  async create({key,kind,source,spec={},issue=null,delivery=null},c=this.db){
   const r=await c.query(`INSERT INTO jobs(id,idempotency_key,kind,source,spec,issue_number,delivery_id) VALUES($1,$2,$3,$4,$5,$6,$7) ON CONFLICT(idempotency_key) DO NOTHING RETURNING *`,[randomUUID(),key,kind,JSON.stringify(source),JSON.stringify(spec),issue,delivery]);
   return r.rows[0]??(await c.query('SELECT * FROM jobs WHERE idempotency_key=$1',[key])).rows[0];
@@ -12,20 +27,21 @@ export class Ledger {
  async receive(delivery,type,raw,payload){
   return transaction(this.db,async c=>{
    const r=await c.query('INSERT INTO webhook_events(delivery_id,event_type,raw_body,payload) VALUES($1,$2,$3,$4) ON CONFLICT DO NOTHING RETURNING delivery_id',[delivery,type,raw.toString('utf8'),JSON.stringify(payload)]);
-   const job=await this.create({key:`github:${delivery}`,kind:'reconcile',source:{delivery,event:type},delivery},c);
-   return {job,duplicate:r.rows.length===0};
+   return {delivery,duplicate:r.rows.length===0};
   });
  }
  async recoverOrphans(){
-  const rows=(await this.db.query('SELECT e.delivery_id,e.event_type FROM webhook_events e LEFT JOIN jobs j ON j.delivery_id=e.delivery_id WHERE j.id IS NULL LIMIT 100')).rows;
-  for(const e of rows)await this.create({key:`github:${e.delivery_id}`,kind:'reconcile',source:{delivery:e.delivery_id,event:e.event_type},delivery:e.delivery_id});
-  return rows.length;
+  // Webhook events are durable facts. The minute reconcile reads current GitHub
+  // state, so a failed queue wakeup needs no second owner-facing job row.
+  return 0;
  }
  async set(id,status,reason=null,extra={}){
   const allowed=['deadline','retry_at','lease_until','starting_sha','worker','external_id','next_action','owner_action'];
   const keys=Object.keys(extra);if(keys.some(k=>!allowed.includes(k)))throw new Error('INVALID_UPDATE');
   if(status==='verified')throw new Error('USE_VALIDATION_GATE');
-  return (await this.db.query(`UPDATE jobs SET status=$2,failure_reason=$3,updated_at=now()${keys.map((k,i)=>`,${k}=$${i+4}`).join('')} WHERE id=$1 AND status NOT IN('verified','cancelled') RETURNING *`,[id,status,reason?safeText(reason):null,...keys.map(k=>extra[k])])).rows[0];
+  const values=[id,status,reason?safeText(reason):null,...keys.map(k=>extra[k])];
+  const changed=['status IS DISTINCT FROM $2','failure_reason IS DISTINCT FROM $3',...keys.map((k,i)=>`${k} IS DISTINCT FROM $${i+4}`)].join(' OR ');
+  return (await this.db.query(`UPDATE jobs SET status=$2,failure_reason=$3,updated_at=now()${keys.map((k,i)=>`,${k}=$${i+4}`).join('')} WHERE id=$1 AND status NOT IN('verified','cancelled') AND (${changed}) RETURNING *`,values)).rows[0];
  }
  async receipt(job,kind,data,attempt=null,c=this.db){
   await c.query('INSERT INTO evidence_receipts(id,job_id,attempt_id,kind,data) VALUES($1,$2,$3,$4,$5)',[randomUUID(),job,attempt,kind,JSON.stringify(data)]);

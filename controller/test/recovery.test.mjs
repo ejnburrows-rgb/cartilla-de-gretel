@@ -20,7 +20,7 @@ test('process restart reconstructs persisted webhook, running attempt, conversat
  const received=await f.ledger.receive('restart-delivery','push',Buffer.from('{}'),{});
  const job=await f.ledger.create({key:'initial-repo-inspection:v1',kind:'repo_inspection',source:{admin:true},spec:{deadline_minutes:15}});
  await new Runner({ledger:f.ledger,github,worker,send:async()=>{},env}).dispatch(job,s);await f.p.close();
- f=await fixture(path);const persisted=await f.ledger.attempt(job.id);assert.equal(persisted.external_id,'conversation-persistent');assert.equal(persisted.starting_sha,sha);assert.equal((await f.ledger.get(received.job.id)).source.delivery,'restart-delivery');
+ f=await fixture(path);const persisted=await f.ledger.attempt(job.id);assert.equal(persisted.external_id,'conversation-persistent');assert.equal(persisted.starting_sha,sha);assert.equal(received.delivery,'restart-delivery');assert.equal((await f.db.query('SELECT delivery_id FROM webhook_events WHERE delivery_id=$1',['restart-delivery'])).rows[0].delivery_id,'restart-delivery');
  await new Runner({ledger:f.ledger,github,worker,send:async()=>{},env}).poll(job.id);assert.equal((await f.ledger.get(job.id)).status,'verified');assert.equal(starts,1);await f.p.close();await rm(path,{recursive:true,force:true});
 });
 test('real local HTTP raw-body HMAC receiver proves persisted receipt before HTTP 202, no worker in request',async()=>{
@@ -29,7 +29,7 @@ test('real local HTTP raw-body HMAC receiver proves persisted receipt before HTT
  await new Promise(r=>server.listen(0,'127.0.0.1',r));const raw=JSON.stringify({repository:{full_name:'owner/repo'},action:'opened',issue:{number:545},text:'Español ñ'});
  const signature='sha256='+createHmac('sha256',secret).update(raw).digest('hex');
  const r=await fetch(`http://127.0.0.1:${server.address().port}/api/github/webhook`,{method:'POST',headers:{'X-Hub-Signature-256':signature,'X-GitHub-Delivery':'local-http-delivery','X-GitHub-Event':'issues'},body:raw});assert.equal(r.status,202);
- const data=await r.json();assert.equal((await f.ledger.get(data.jobId)).status,'queued');assert.equal((await f.db.query('SELECT raw_body FROM webhook_events')).rows[0].raw_body,raw);assert.equal(workers,0);assert.equal(sends,1);await new Promise(r=>server.close(r));await f.p.close();
+ const data=await r.json();assert.equal(data.deliveryId,'local-http-delivery');assert.equal(data.queued,true);assert.equal((await f.ledger.jobs()).length,0);assert.equal((await f.db.query('SELECT raw_body FROM webhook_events')).rows[0].raw_body,raw);assert.equal(workers,0);assert.equal(sends,1);await new Promise(r=>server.close(r));await f.p.close();
 });
 test('quota and capacity reservations serialize concurrent dispatches',async()=>{
  const f=await fixture();let starts=0;const github={repo:'owner/repo',main:async()=>s.main};const worker={start:async()=>{starts++;return {start_task_id:'one',external_id:'same',status:'READY'};}};
