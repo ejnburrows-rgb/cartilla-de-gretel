@@ -1,7 +1,7 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { useMemo } from "react";
 import { ArrowLeft } from "lucide-react";
-import { DigitalPageViewer } from "@/components/StudentBook/DigitalPageViewer";
+import { CurlPageViewer } from "@/components/StudentBook/CurlPageViewer";
 import type { WorkbookPageEntry } from "@/components/StudentBook/SimplePageViewer";
 import { ReconstructedWorkbookPage } from "@/components/cartilla/ReconstructedWorkbookPage";
 import { FaithfulPageRenderer } from "@/components/cartilla/FaithfulPageRenderer";
@@ -61,7 +61,7 @@ function ReconstructedWorkbook() {
       </div>
 
       <div className="mx-auto w-full max-w-5xl">
-        <DigitalPageViewer
+        <CurlPageViewer
           pages={pages}
           bookCompanion={<GretelPresence autoIntro={false} bookMode hideChrome />}
         />

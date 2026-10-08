@@ -6,13 +6,14 @@
  * on a curved bezier arc with wrap-on-hit and reel-back-on-miss. Never a
  * dashed line, single <line>, or rubber-band string.
  */
-import { useCallback, useEffect, useMemo, useRef, useState } from "react";
+import { useCallback, useEffect, useMemo, useRef, useState, useId } from "react";
 import { GretelLayerRig } from "@/components/gretel/GretelLayerRig";
 import { speakGretelPhrase } from "@/lib/gretel-tts";
 import { useActivityEvents, useActivityState } from "@/lib/activity-events";
 import { playCorrectChord, playWrongBuzz } from "@/lib/piano-audio";
 import { loadLassoProgress, saveLassoProgress } from "@/lib/activity-canvas-store";
 import { useReducedMotion } from "@/hooks/useReducedMotion";
+import { PencilShape, WORKBOOK_MARK_TIMING } from "@/components/cartilla/WorkbookPencilMark";
 import type { WorkbookObject } from "@/content/workbook/types";
 import type { InteractionProps } from "./shared";
 import "@/styles/activity-mechanics.css";
@@ -51,6 +52,8 @@ export interface LassoConnectProps {
   className?: string;
   /** Opt-in true direct-pencil connector mode (replaces rope/lasso presentation for p17 prototype). */
   directPencil?: boolean;
+  /** Omit decorative character artwork on the clean workbook surface. */
+  showCompanion?: boolean;
   /** Central letter label for direct-pencil mode (e.g. "Uu"). */
   centerLabel?: string;
 }
@@ -151,7 +154,6 @@ export function DirectPencilConnector({
   pageKey,
   targets,
   mode,
-  verbFamily,
   instruction,
   lessonId,
   reducedMotion: reducedMotionProp,
@@ -160,6 +162,7 @@ export function DirectPencilConnector({
   centerLabel = "Uu",
   className,
 }: LassoConnectProps) {
+  const shadowUid = `pencil-shadow-${useId().replace(/[^a-zA-Z0-9_-]/g, "")}`;
   const { emit: gretelEvent, record: recordEvent } = useActivityEvents();
   const [incorrectAttempts, setIncorrectAttempts] = useActivityState("incorrectAttempts", 0);
   const incorrectRef = useRef(incorrectAttempts);
@@ -171,6 +174,26 @@ export function DirectPencilConnector({
   const stageRef = useRef<HTMLDivElement>(null);
   const centerElRef = useRef<HTMLButtonElement>(null);
   const targetEls = useRef<Map<string, HTMLButtonElement>>(new Map());
+
+  const isPairMode = mode === "pair";
+
+  const leftTargets = useMemo(
+    () => (isPairMode ? targets.filter((t) => t.role === "left") : []),
+    [isPairMode, targets],
+  );
+  const rightTargets = useMemo(
+    () => (isPairMode ? targets.filter((t) => t.role === "right") : targets),
+    [isPairMode, targets],
+  );
+
+  const totalNeeded = useMemo(() => {
+    if (isPairMode) {
+      return leftTargets.length;
+    }
+    const nonExample = targets.filter((t) => !t.example);
+    const correctNonExample = nonExample.filter((t) => t.correct === true);
+    return correctNonExample.length > 0 ? correctNonExample.length : nonExample.length;
+  }, [isPairMode, leftTargets.length, targets]);
 
   const validMarkIds = useMemo(
     () =>
@@ -187,28 +210,71 @@ export function DirectPencilConnector({
     [targets],
   );
 
+  // Helper to validate saved or live pair/mark keys against current targets, roles, pairId, and unique endpoints
+  const validateProgressKeys = useCallback(
+    (rawKeys: string[]): Set<string> => {
+      const validated = new Set<string>();
+      // Pre-drawn examples are always pre-connected
+      targets.filter((t) => t.example).forEach((t) => validated.add(t.id));
+
+      if (isPairMode) {
+        const usedLeft = new Set<string>();
+        const usedRight = new Set<string>();
+
+        targets.filter((t) => t.example).forEach((t) => {
+          if (t.role === "left") usedLeft.add(t.id);
+          if (t.role === "right") usedRight.add(t.id);
+        });
+
+        for (const key of rawKeys) {
+          const parts = key.split("|");
+          if (parts.length !== 2) continue;
+          const [leftId, rightId] = parts;
+          if (usedLeft.has(leftId) || usedRight.has(rightId)) continue;
+
+          const left = targets.find((t) => t.id === leftId && t.role === "left");
+          const right = targets.find((t) => t.id === rightId && t.role === "right");
+          if (!left || !right || !left.pairId || !right.pairId) continue;
+          if (left.pairId !== right.pairId) continue;
+
+          usedLeft.add(leftId);
+          usedRight.add(rightId);
+          validated.add(key);
+        }
+      } else {
+        for (const id of rawKeys) {
+          if (validMarkIds.has(id)) {
+            const target = targets.find((t) => t.id === id);
+            if (target && target.correct !== false) {
+              validated.add(id);
+            }
+          }
+        }
+      }
+      return validated;
+    },
+    [isPairMode, targets, validMarkIds],
+  );
+
   const [marked, setMarked] = useState<Set<string>>(() => {
     const saved = loadLassoProgress(pageKey)?.completedIds ?? [];
-    return new Set([
-      ...targets.filter((t) => t.example).map((t) => t.id),
-      ...saved.filter((id) => validMarkIds.has(id)),
-    ]);
+    return validateProgressKeys(saved);
   });
 
+  const [selectedStartId, setSelectedStartId] = useState<string | null>(null);
   const [selectedStart, setSelectedStart] = useState(false);
   const [isDragging, setIsDragging] = useState(false);
+  const [dragStartId, setDragStartId] = useState<string | null>(null);
   const [dragPt, setDragPt] = useState<Pt | null>(null);
   const [hoverTargetId, setHoverTargetId] = useState<string | null>(null);
-  const [wrongId, setWrongId] = useState<string | null>(null);
+  const [wrongLine, setWrongLine] = useState<{ from: Pt; to: Pt; targetId: string } | null>(null);
   const [completed, setCompleted] = useState(false);
   const [isExpanded, setIsExpanded] = useState(false);
   const finishedRef = useRef(false);
 
-  const totalNeeded = useMemo(() => {
-    const nonExample = targets.filter((t) => !t.example);
-    const correctNonExample = nonExample.filter((t) => t.correct === true);
-    return correctNonExample.length > 0 ? correctNonExample.length : nonExample.length;
-  }, [targets]);
+  const justInitiatedCenterRef = useRef(false);
+  const justInitiatedLeftRef = useRef<string | null>(null);
+  const [measureTick, setMeasureTick] = useState(0);
 
   const learnerMarkedCount = useMemo(() => {
     return [...marked].filter((id) => !targets.find((t) => t.id === id)?.example).length;
@@ -274,7 +340,7 @@ export function DirectPencilConnector({
     }
   }, [learnerMarkedCount, totalNeeded, gretelEvent]);
 
-  // Center point helper
+  // Center / Element Point Helper
   const getCenterPt = useCallback((el: HTMLElement | null): Pt => {
     const stage = stageRef.current;
     if (!stage || !el) return { x: 200, y: 200 };
@@ -302,23 +368,83 @@ export function DirectPencilConnector({
     }
   }, [getCenterPt]);
 
-  useEffect(() => {
+  const measureEndpoints = useCallback(() => {
     updateCenterPt();
-    window.addEventListener("resize", updateCenterPt);
-    return () => window.removeEventListener("resize", updateCenterPt);
-  }, [updateCenterPt, isExpanded, marked]);
+    setMeasureTick((v) => v + 1);
+  }, [updateCenterPt]);
+
+  // Remeasure target endpoints after initial mount, ref attachment, and state changes
+  useEffect(() => {
+    measureEndpoints();
+    const t1 = setTimeout(measureEndpoints, 50);
+    const t2 = setTimeout(measureEndpoints, 150);
+    return () => {
+      clearTimeout(t1);
+      clearTimeout(t2);
+    };
+  }, [measureEndpoints, targets, isExpanded, marked]);
+
+  // ResizeObserver on stageRef for layout/resize remeasurement
+  useEffect(() => {
+    const stage = stageRef.current;
+    if (!stage || typeof ResizeObserver === "undefined") return;
+    const ro = new ResizeObserver(() => {
+      measureEndpoints();
+    });
+    ro.observe(stage);
+    return () => ro.disconnect();
+  }, [measureEndpoints]);
+
+  useEffect(() => {
+    window.addEventListener("resize", measureEndpoints);
+    return () => window.removeEventListener("resize", measureEndpoints);
+  }, [measureEndpoints]);
+
+  // Check if left/right pair is connected
+  const isLeftConnected = useCallback(
+    (id: string) => [...marked].some((m) => m.startsWith(`${id}|`) || m === id),
+    [marked],
+  );
+
+  const isRightConnected = useCallback(
+    (id: string) => [...marked].some((m) => m.endsWith(`|${id}`) || m === id),
+    [marked],
+  );
 
   // Pointer drag handlers
   const handlePointerDownCenter = (e: React.PointerEvent) => {
     if (completed) return;
     e.preventDefault();
-    setSelectedStart(true);
+    if (!selectedStart) {
+      setSelectedStart(true);
+      justInitiatedCenterRef.current = true;
+    } else {
+      justInitiatedCenterRef.current = false;
+    }
     setIsDragging(true);
+    setDragStartId("center");
     const stage = stageRef.current;
     if (stage) {
       const sr = stage.getBoundingClientRect();
-      const pt = { x: e.clientX - sr.left, y: e.clientY - sr.top };
-      setDragPt(pt);
+      setDragPt({ x: e.clientX - sr.left, y: e.clientY - sr.top });
+    }
+  };
+
+  const handlePointerDownLeft = (e: React.PointerEvent, leftTarget: LassoTarget) => {
+    if (completed || isLeftConnected(leftTarget.id)) return;
+    e.preventDefault();
+    if (selectedStartId !== leftTarget.id) {
+      setSelectedStartId(leftTarget.id);
+      justInitiatedLeftRef.current = leftTarget.id;
+    } else {
+      justInitiatedLeftRef.current = null;
+    }
+    setIsDragging(true);
+    setDragStartId(leftTarget.id);
+    const stage = stageRef.current;
+    if (stage) {
+      const sr = stage.getBoundingClientRect();
+      setDragPt({ x: e.clientX - sr.left, y: e.clientY - sr.top });
     }
   };
 
@@ -328,16 +454,17 @@ export function DirectPencilConnector({
     const pt = { x: e.clientX - sr.left, y: e.clientY - sr.top };
     setDragPt(pt);
 
-    // Find nearest target under or near drag point
+    // Find candidate targets
     let nearestId: string | null = null;
-    let minDistance = 70; // proximity threshold in px
+    let minDistance = 70;
 
-    for (const t of targets) {
-      if (marked.has(t.id)) continue;
+    const candidateTargets = isPairMode ? rightTargets : targets;
+
+    for (const t of candidateTargets) {
+      if (isPairMode ? isRightConnected(t.id) : marked.has(t.id)) continue;
       const el = targetEls.current.get(t.id);
       if (!el) continue;
       const er = el.getBoundingClientRect();
-      // Box collision test
       if (
         e.clientX >= er.left - 10 &&
         e.clientX <= er.right + 10 &&
@@ -347,7 +474,6 @@ export function DirectPencilConnector({
         nearestId = t.id;
         break;
       }
-      // Distance test
       const tc = {
         x: er.left + er.width / 2 - sr.left,
         y: er.top + er.height / 2 - sr.top,
@@ -379,26 +505,89 @@ export function DirectPencilConnector({
       } else {
         gretelEvent("answer:wrong", { itemId: target.id });
         recordWrong();
-        setWrongId(target.id);
-        setTimeout(() => setWrongId(null), reducedMotion ? 80 : 360);
+        const from = centerPt;
+        const to = getTargetCenter(target.id);
+        setWrongLine({ from, to, targetId: target.id });
+        const retryDuration = reducedMotion
+          ? WORKBOOK_MARK_TIMING.reducedEraseMs
+          : WORKBOOK_MARK_TIMING.eraseMs;
+        setTimeout(() => setWrongLine(null), retryDuration);
         onResult?.({ objectId: target.id, result: "wrong" });
       }
     },
-    [marked, completed, targets, persist, finishIfDone, onResult, recordWrong, gretelEvent, reducedMotion],
+    [marked, completed, targets, centerPt, getTargetCenter, persist, finishIfDone, onResult, recordWrong, gretelEvent, reducedMotion],
   );
+
+  const attemptPairConnect = useCallback(
+    (left: LassoTarget, right: LassoTarget) => {
+      if (isLeftConnected(left.id) || isRightConnected(right.id) || completed) return;
+
+      const isCorrect = left.pairId && right.pairId ? left.pairId === right.pairId : false;
+      const pairKey = `${left.id}|${right.id}`;
+
+      if (isCorrect) {
+        playCorrectChord();
+        gretelEvent("answer:correct", { itemId: pairKey });
+        const next = new Set(marked).add(pairKey);
+        setMarked(next);
+        persist([...next]);
+        const count = [...next].filter((id) => !id.includes("example")).length;
+        finishIfDone(count);
+        setSelectedStartId(null);
+        onResult?.({ objectId: pairKey, result: "correct" });
+      } else {
+        gretelEvent("answer:wrong", { itemId: right.id });
+        recordWrong();
+        const from = getTargetCenter(left.id);
+        const to = getTargetCenter(right.id);
+        setWrongLine({ from, to, targetId: right.id });
+        const retryDuration = reducedMotion
+          ? WORKBOOK_MARK_TIMING.reducedEraseMs
+          : WORKBOOK_MARK_TIMING.eraseMs;
+        setTimeout(() => setWrongLine(null), retryDuration);
+        onResult?.({ objectId: right.id, result: "wrong" });
+      }
+    },
+    [marked, completed, isLeftConnected, isRightConnected, getTargetCenter, persist, finishIfDone, onResult, recordWrong, gretelEvent, reducedMotion],
+  );
+
+  const cancelDragState = useCallback(() => {
+    setIsDragging(false);
+    setDragPt(null);
+    setHoverTargetId(null);
+    setDragStartId(null);
+  }, []);
 
   const handlePointerUpStage = (e: React.PointerEvent) => {
     if (!isDragging) return;
-    setIsDragging(false);
-    setDragPt(null);
+    const currentHoverId = hoverTargetId;
+    const currentDragStartId = dragStartId;
 
-    if (hoverTargetId) {
-      const target = targets.find((t) => t.id === hoverTargetId);
-      if (target) {
-        attemptConnect(target);
+    cancelDragState();
+
+    if (currentHoverId) {
+      if (isPairMode && currentDragStartId) {
+        const left = targets.find((t) => t.id === currentDragStartId);
+        const right = targets.find((t) => t.id === currentHoverId);
+        if (left && right) {
+          attemptPairConnect(left, right);
+        }
+      } else {
+        const target = targets.find((t) => t.id === currentHoverId);
+        if (target) {
+          attemptConnect(target);
+        }
       }
     }
-    setHoverTargetId(null);
+  };
+
+  const handleCenterClick = () => {
+    if (completed) return;
+    if (justInitiatedCenterRef.current) {
+      justInitiatedCenterRef.current = false;
+      return;
+    }
+    setSelectedStart((prev) => !prev);
   };
 
   const handleTargetClick = (target: LassoTarget) => {
@@ -407,14 +596,43 @@ export function DirectPencilConnector({
     setSelectedStart(false);
   };
 
-  // 3x3 layout cell placement helper
-  // cell 0: top-left (uniforme), cell 1: top-middle (uno), cell 2: top-right (oso)
-  // cell 3: mid-left (uvas), CENTER: Uu, cell 4: mid-right (unicornio)
-  // cell 5: bottom-left (uña - example), cell 6: bottom-middle (estrella), cell 7: bottom-right (imán)
+  const handleLeftClick = (leftTarget: LassoTarget) => {
+    if (completed || isLeftConnected(leftTarget.id)) return;
+    if (justInitiatedLeftRef.current === leftTarget.id) {
+      justInitiatedLeftRef.current = null;
+      return;
+    }
+    if (selectedStartId === leftTarget.id) {
+      setSelectedStartId(null);
+    } else {
+      setSelectedStartId(leftTarget.id);
+    }
+  };
+
+  const handleRightClick = (rightTarget: LassoTarget) => {
+    if (completed || isRightConnected(rightTarget.id)) return;
+    if (selectedStartId) {
+      const left = targets.find((t) => t.id === selectedStartId);
+      if (left) {
+        attemptPairConnect(left, rightTarget);
+      }
+    }
+  };
+
+  // 3x3 layout cell placement for Central Mode
   const topCells = targets.slice(0, 3);
   const midLeft = targets[3];
   const midRight = targets[4];
   const bottomCells = targets.slice(5, 8);
+
+  // Derive start pt for active drag line
+  const activeStartPt = useMemo(() => {
+    if (!isDragging) return null;
+    if (isPairMode && dragStartId) {
+      return getTargetCenter(dragStartId);
+    }
+    return centerPt;
+  }, [isDragging, isPairMode, dragStartId, getTargetCenter, centerPt]);
 
   return (
     <div
@@ -437,117 +655,315 @@ export function DirectPencilConnector({
         ref={stageRef}
         onPointerMove={handlePointerMoveStage}
         onPointerUp={handlePointerUpStage}
-        onPointerCancel={handlePointerUpStage}
+        onPointerCancel={cancelDragState}
       >
         {/* SVG Direct Pencil Lines Layer */}
         <svg className="am-direct-pencil__svg-layer" aria-hidden="true">
           <defs>
-            <filter id="pencilShadow" x="-20%" y="-20%" width="140%" height="140%">
+            <filter id={shadowUid} x="-20%" y="-20%" width="140%" height="140%">
               <feDropShadow dx="1" dy="2" stdDeviation="1.5" floodColor="#0f766e" floodOpacity="0.25" />
             </filter>
-            <linearGradient id="pencilStrokeGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+            <linearGradient id={`${shadowUid}-grad`} x1="0%" y1="0%" x2="100%" y2="100%">
               <stop offset="0%" stopColor="#0d9488" />
               <stop offset="100%" stopColor="#0f766e" />
             </linearGradient>
           </defs>
 
-          {/* Settled / Connected Lines */}
-          {targets.map((t) => {
-            if (!marked.has(t.id)) return null;
-            const targetPt = getTargetCenter(t.id);
-            const isExample = t.example;
-            return (
-              <g key={`line-${t.id}`} className="am-direct-pencil__line-group">
-                <line
-                  x1={centerPt.x}
-                  y1={centerPt.y}
-                  x2={targetPt.x}
-                  y2={targetPt.y}
-                  stroke="#0d9488"
-                  strokeWidth={isExample ? 3 : 4.5}
-                  strokeDasharray={isExample ? "6 4" : undefined}
-                  strokeLinecap="round"
-                  filter="url(#pencilShadow)"
-                />
-                <circle cx={targetPt.x} cy={targetPt.y} r={isExample ? 4 : 5.5} fill="#0d9488" />
-                <circle cx={centerPt.x} cy={centerPt.y} r={4} fill="#0d9488" />
-              </g>
-            );
-          })}
+          {/* Settled / Connected Lines (Central Mode) */}
+          {!isPairMode &&
+            targets.map((t) => {
+              if (!marked.has(t.id)) return null;
+              // measureTick forces recalculation once target refs mount
+              void measureTick;
+              const targetPt = getTargetCenter(t.id);
+              const isExample = t.example;
+              return (
+                <g key={`line-${t.id}`} className="am-direct-pencil__line-group">
+                  <line
+                    x1={centerPt.x}
+                    y1={centerPt.y}
+                    x2={targetPt.x}
+                    y2={targetPt.y}
+                    stroke="#0d9488"
+                    strokeWidth={isExample ? 3 : 4.5}
+                    strokeDasharray={isExample ? "6 4" : undefined}
+                    strokeLinecap="round"
+                    filter={`url(#${shadowUid})`}
+                  />
+                  <circle cx={targetPt.x} cy={targetPt.y} r={isExample ? 4 : 5.5} fill="#0d9488" />
+                  <circle cx={centerPt.x} cy={centerPt.y} r={4} fill="#0d9488" />
+                </g>
+              );
+            })}
 
-          {/* Active Drag Line */}
-          {isDragging && dragPt && (
+          {/* Settled / Connected Lines (Pair Mode) */}
+          {isPairMode &&
+            [...marked].map((pairKey) => {
+              const [leftId, rightId] = pairKey.split("|");
+              if (!leftId || !rightId) return null;
+              // measureTick forces recalculation once target refs mount
+              void measureTick;
+              const ptA = getTargetCenter(leftId);
+              const ptB = getTargetCenter(rightId);
+              return (
+                <g key={`pair-line-${pairKey}`} className="am-direct-pencil__line-group">
+                  <line
+                    x1={ptA.x}
+                    y1={ptA.y}
+                    x2={ptB.x}
+                    y2={ptB.y}
+                    stroke="#0d9488"
+                    strokeWidth={4.5}
+                    strokeLinecap="round"
+                    filter={`url(#${shadowUid})`}
+                  />
+                  <circle cx={ptA.x} cy={ptA.y} r={5} fill="#0d9488" />
+                  <circle cx={ptB.x} cy={ptB.y} r={5} fill="#0d9488" />
+                </g>
+              );
+            })}
+
+          {/* Active Drag Line with Wooden Pencil */}
+          {isDragging && dragPt && activeStartPt && (
             <g className="am-direct-pencil__active-line">
               <line
-                x1={centerPt.x}
-                y1={centerPt.y}
+                x1={activeStartPt.x}
+                y1={activeStartPt.y}
                 x2={dragPt.x}
                 y2={dragPt.y}
                 stroke="#0d9488"
                 strokeWidth={5}
                 strokeLinecap="round"
-                filter="url(#pencilShadow)"
+                filter={`url(#${shadowUid})`}
               />
               <circle cx={dragPt.x} cy={dragPt.y} r={6} fill="#0f766e" />
+              {/* Wooden Pencil at Tip */}
+              {(() => {
+                const angle =
+                  Math.atan2(dragPt.y - activeStartPt.y, dragPt.x - activeStartPt.x) *
+                  (180 / Math.PI);
+                return (
+                  <g
+                    transform={`translate(${dragPt.x}, ${dragPt.y}) rotate(${angle + 30}) scale(0.65)`}
+                    style={{ pointerEvents: "none" }}
+                  >
+                    <PencilShape uid={`${shadowUid}-drag-pencil`} />
+                  </g>
+                );
+              })()}
             </g>
           )}
-          {/* Wrong release retracts neutrally; shared Gretel owns the retry message. */}
-          {wrongId ? (
-            <line
-              className="am-direct-pencil__retry-line"
-              x1={centerPt.x}
-              y1={centerPt.y}
-              x2={getTargetCenter(wrongId).x}
-              y2={getTargetCenter(wrongId).y}
-              pathLength="1"
-              stroke="#0d9488"
-              strokeWidth={4}
-              strokeLinecap="round"
-            />
-          ) : null}
+
+          {/* Wrong Retry Line with Pencil Rotating to Eraser (Shared Kernel Animation) */}
+          {wrongLine && (
+            <g className="am-direct-pencil__retry-group">
+              {reducedMotion ? (
+                <line
+                  className="am-direct-pencil__retry-line"
+                  x1={wrongLine.from.x}
+                  y1={wrongLine.from.y}
+                  x2={wrongLine.to.x}
+                  y2={wrongLine.to.y}
+                  stroke="#0d9488"
+                  strokeWidth={4}
+                  strokeLinecap="round"
+                  opacity="0.6"
+                />
+              ) : (
+                (() => {
+                  const { eraseMs, eraseFlipMs, eraseLiftMs } = WORKBOOK_MARK_TIMING;
+                  const kFlip = (eraseFlipMs / eraseMs).toFixed(4);
+                  const kAppear = (Math.min(220, eraseFlipMs / 4) / eraseMs).toFixed(4);
+                  const kRubbed = ((eraseMs - eraseLiftMs) / eraseMs).toFixed(4);
+                  const rubMs = eraseMs - eraseFlipMs - eraseLiftMs;
+                  const scrubPeriod = 190;
+                  const PENCIL_CENTER_Y = -36;
+                  const linePath = `M ${wrongLine.from.x} ${wrongLine.from.y} L ${wrongLine.to.x} ${wrongLine.to.y}`;
+
+                  return (
+                    <>
+                      <path
+                        d={linePath}
+                        stroke="#0d9488"
+                        strokeWidth={4}
+                        strokeLinecap="round"
+                        pathLength={100}
+                        strokeDasharray="100 100"
+                      >
+                        <animate
+                          attributeName="stroke-dashoffset"
+                          dur={`${eraseMs}ms`}
+                          fill="freeze"
+                          values="0;0;100;100"
+                          keyTimes={`0;${kFlip};${kRubbed};1`}
+                        />
+                      </path>
+                      <g opacity="0" filter={`url(#${shadowUid})`}>
+                        <animateMotion
+                          dur={`${eraseMs}ms`}
+                          fill="freeze"
+                          keyTimes={`0;${kFlip};${kRubbed};1`}
+                          keyPoints="1;1;0;0"
+                          calcMode="linear"
+                          path={linePath}
+                        />
+                        <animate
+                          attributeName="opacity"
+                          dur={`${eraseMs}ms`}
+                          fill="freeze"
+                          values="0;1;1;0"
+                          keyTimes={`0;${kAppear};${kRubbed};1`}
+                        />
+                        <g>
+                          <animateTransform
+                            attributeName="transform"
+                            type="translate"
+                            begin={`${eraseFlipMs}ms`}
+                            dur={`${scrubPeriod}ms`}
+                            repeatCount={Math.floor(rubMs / scrubPeriod)}
+                            values="0 0;1.3 -0.7;0 0;-1.3 0.7;0 0"
+                          />
+                          <g transform="rotate(30) scale(1.2)">
+                            <g>
+                              <animateTransform
+                                attributeName="transform"
+                                type="rotate"
+                                dur={`${eraseMs}ms`}
+                                fill="freeze"
+                                values={`0 0 ${PENCIL_CENTER_Y};0 0 ${PENCIL_CENTER_Y};180 0 ${PENCIL_CENTER_Y};180 0 ${PENCIL_CENTER_Y}`}
+                                keyTimes={`0;${kAppear};${kFlip};1`}
+                                calcMode="spline"
+                                keySplines="0 0 1 1;0.45 0.05 0.55 0.95;0 0 1 1"
+                              />
+                              <PencilShape uid={`${shadowUid}-retry-pencil`} />
+                            </g>
+                          </g>
+                        </g>
+                      </g>
+                    </>
+                  );
+                })()
+              )}
+            </g>
+          )}
         </svg>
 
-        {/* 3x3 Grid Matrix */}
-        <div className="am-direct-pencil__grid">
-          {/* Top Row */}
-          <div className="am-direct-pencil__row am-direct-pencil__row--top">
-            {topCells.map((t) => renderTargetCell(t))}
+        {/* Central Mode: 3x3 Grid Matrix */}
+        {!isPairMode && (
+          <div className="am-direct-pencil__grid">
+            {/* Top Row */}
+            <div className="am-direct-pencil__row am-direct-pencil__row--top">
+              {topCells.map((t) => renderTargetCell(t))}
+            </div>
+
+            {/* Middle Row: Left Picture | CENTER Uu | Right Picture */}
+            <div className="am-direct-pencil__row am-direct-pencil__row--mid">
+              {midLeft && renderTargetCell(midLeft)}
+
+              <button
+                type="button"
+                ref={centerElRef}
+                className={`am-direct-pencil__center${selectedStart || isDragging ? " is-active" : ""}`}
+                onPointerDown={handlePointerDownCenter}
+                onClick={handleCenterClick}
+                aria-label={`Vocal central ${centerLabel}`}
+                aria-pressed={selectedStart || isDragging}
+              >
+                <span className="am-direct-pencil__center-text">{centerLabel}</span>
+                <span className="am-direct-pencil__center-halo" aria-hidden="true" />
+              </button>
+
+              {midRight && renderTargetCell(midRight)}
+            </div>
+
+            {/* Bottom Row */}
+            <div className="am-direct-pencil__row am-direct-pencil__row--bottom">
+              {bottomCells.map((t) => renderTargetCell(t))}
+            </div>
           </div>
+        )}
 
-          {/* Middle Row: Left Picture | CENTER Uu | Right Picture */}
-          <div className="am-direct-pencil__row am-direct-pencil__row--mid">
-            {midLeft && renderTargetCell(midLeft)}
+        {/* Multi-Pair Mode: Left Column (Vowels) & Right Column (Pictures) */}
+        {isPairMode && (
+          <div className="am-direct-pencil__multi-grid">
+            <div className="am-direct-pencil__column am-direct-pencil__column--left">
+              {leftTargets.map((t) => {
+                const connected = isLeftConnected(t.id);
+                const selected = selectedStartId === t.id || (isDragging && dragStartId === t.id);
+                return (
+                  <button
+                    key={t.id}
+                    type="button"
+                    ref={(el) => {
+                      if (el) targetEls.current.set(t.id, el);
+                      else targetEls.current.delete(t.id);
+                    }}
+                    className={[
+                      "am-direct-pencil__left-card",
+                      connected ? "is-connected" : "",
+                      selected ? "is-active" : "",
+                    ]
+                      .filter(Boolean)
+                      .join(" ")}
+                    disabled={connected}
+                    onPointerDown={(e) => handlePointerDownLeft(e, t)}
+                    onClick={() => handleLeftClick(t)}
+                    aria-label={`Vocal ${t.label}`}
+                    aria-pressed={selected || connected}
+                  >
+                    <span className="am-direct-pencil__left-text">{t.label}</span>
+                  </button>
+                );
+              })}
+            </div>
 
-            <button
-              type="button"
-              ref={centerElRef}
-              className={`am-direct-pencil__center${selectedStart || isDragging ? " is-active" : ""}`}
-              onPointerDown={handlePointerDownCenter}
-              onClick={() => setSelectedStart(!selectedStart)}
-              aria-label={`Vocal central ${centerLabel}`}
-              aria-pressed={selectedStart || isDragging}
-            >
-              <span className="am-direct-pencil__center-text">{centerLabel}</span>
-              <span className="am-direct-pencil__center-halo" aria-hidden="true" />
-            </button>
-
-            {midRight && renderTargetCell(midRight)}
+            <div className="am-direct-pencil__column am-direct-pencil__column--right">
+              {rightTargets.map((t) => {
+                const connected = isRightConnected(t.id);
+                const approaching = hoverTargetId === t.id;
+                const wrong = wrongLine?.targetId === t.id;
+                return (
+                  <button
+                    key={t.id}
+                    type="button"
+                    ref={(el) => {
+                      if (el) targetEls.current.set(t.id, el);
+                      else targetEls.current.delete(t.id);
+                    }}
+                    className={[
+                      "am-direct-pencil__target",
+                      connected ? "is-connected" : "",
+                      approaching ? "is-approaching" : "",
+                      wrong ? "is-retry" : "",
+                    ]
+                      .filter(Boolean)
+                      .join(" ")}
+                    disabled={connected}
+                    onClick={() => handleRightClick(t)}
+                    aria-label={t.label}
+                    aria-pressed={connected}
+                  >
+                    <div className="am-direct-pencil__card">
+                      {t.src ? (
+                        <img src={t.src} alt="" draggable={false} loading="lazy" />
+                      ) : (
+                        <span className="am-direct-pencil__target-text">{t.label}</span>
+                      )}
+                    </div>
+                  </button>
+                );
+              })}
+            </div>
           </div>
-
-          {/* Bottom Row */}
-          <div className="am-direct-pencil__row am-direct-pencil__row--bottom">
-            {bottomCells.map((t) => renderTargetCell(t))}
-          </div>
-        </div>
+        )}
       </div>
-
     </div>
   );
 
   function renderTargetCell(t: LassoTarget) {
     const isMarked = marked.has(t.id);
     const isApproaching = hoverTargetId === t.id;
-    const isWrong = wrongId === t.id;
+    const isWrong = wrongLine?.targetId === t.id;
 
     return (
       <button
@@ -596,6 +1012,7 @@ export function LassoConnect({
   onComplete,
   absoluteLayout = false,
   className,
+  showCompanion = true,
   directPencil = false,
   centerLabel = "Uu",
 }: LassoConnectProps) {
@@ -1003,11 +1420,11 @@ export function LassoConnect({
         >
           <div className="am-lasso__shadow" aria-hidden />
           <div className="am-lasso__gretel-img relative" role="img" aria-label="Gretel">
-            <GretelLayerRig
+            {showCompanion && <GretelLayerRig
               state={pose === "cheer" ? "cheering" : pose === "talk" ? "teaching" : "idle"}
               speaking={pose === "talk"}
               paused={Boolean(reducedMotion)}
-            />
+            />}
           </div>
           {/* Rope coil prop in hand */}
           <svg className="am-lasso__coil" viewBox="0 0 40 40" aria-hidden>

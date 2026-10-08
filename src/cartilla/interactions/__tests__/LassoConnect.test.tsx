@@ -25,6 +25,7 @@ vi.mock("@/hooks/useReducedMotion", () => ({
 import { playCorrectChord, playWrongBuzz } from "@/lib/piano-audio";
 import { gretelEvent } from "@/lib/gretel-bus";
 import { speakGretelPhrase } from "@/lib/gretel-tts";
+import { saveLassoProgress } from "@/lib/activity-canvas-store";
 
 const markTargets = [
   { id: "a", label: "mamá", correct: true },
@@ -288,5 +289,159 @@ describe("DirectPencilConnector (Page 17 Uu direct line-match prototype)", () =>
 
     fireEvent.click(screen.getByRole("button", { name: "Volver a la página" }));
     expect(container.querySelector(".am-direct-pencil.is-expanded")).toBeFalsy();
+  });
+
+  it("supports press-and-hold pointer drag from center vowel to target with active pencil rendering", () => {
+    const { container } = render(
+      <LassoConnect
+        pageKey="p17-proto-drag"
+        targets={p17Targets}
+        mode="mark"
+        directPencil
+        centerLabel="Uu"
+        reducedMotion
+      />,
+    );
+
+    const centerBtn = screen.getByRole("button", { name: "Vocal central Uu" });
+    fireEvent.pointerDown(centerBtn, { clientX: 100, clientY: 100 });
+
+    const stage = container.querySelector(".am-direct-pencil__stage")!;
+    fireEvent.pointerMove(stage, { clientX: 150, clientY: 150 });
+
+    expect(container.querySelector(".am-direct-pencil__active-line")).toBeTruthy();
+
+    fireEvent.pointerUp(stage, { clientX: 150, clientY: 150 });
+    expect(container.querySelector(".am-direct-pencil__active-line")).toBeNull();
+  });
+
+  it("renders pre-drawn example line and excludes it from learner count", () => {
+    const targetsWithExample = p17Targets.map((t) =>
+      t.label === "uña" ? { ...t, example: true } : t,
+    );
+
+    const { container } = render(
+      <LassoConnect
+        pageKey="p17-proto-example"
+        targets={targetsWithExample}
+        mode="mark"
+        directPencil
+        centerLabel="Uu"
+        reducedMotion
+      />,
+    );
+
+    const exampleBtn = screen.getByRole("button", { name: "uña" });
+    expect(exampleBtn.classList.contains("is-connected")).toBe(true);
+    expect(container.querySelector(".am-direct-pencil__line-group line[stroke-dasharray]")).toBeTruthy();
+  });
+
+  it("p3 Archetype 3 multi-pair Pencil Line connector connects left letter to right picture via click and drag", async () => {
+    const p3Targets = [
+      { id: "p3-L-0", label: "o", role: "left" as const, pairId: "pair-0" },
+      { id: "p3-R-0", label: "ocho", role: "right" as const, pairId: "pair-0", src: "/art/ocho.webp" },
+      { id: "p3-L-1", label: "a", role: "left" as const, pairId: "pair-1" },
+      { id: "p3-R-1", label: "araña", role: "right" as const, pairId: "pair-1", src: "/art/arana.webp" },
+    ];
+
+    const { container } = render(
+      <LassoConnect
+        pageKey="p3-multi-pair"
+        targets={p3Targets}
+        mode="pair"
+        directPencil
+        reducedMotion
+      />,
+    );
+
+    expect(screen.getByRole("button", { name: "Vocal o" })).toBeTruthy();
+    expect(screen.getByRole("button", { name: "ocho" })).toBeTruthy();
+
+    fireEvent.click(screen.getByRole("button", { name: "Vocal o" }));
+    expect(screen.getByRole("button", { name: "Vocal o" }).classList.contains("is-active")).toBe(true);
+
+    fireEvent.click(screen.getByRole("button", { name: "ocho" }));
+    await flushAnim(200);
+
+    expect(playCorrectChord).toHaveBeenCalled();
+    expect(gretelEvent).toHaveBeenCalledWith("answer:correct", { itemId: "p3-L-0|p3-R-0" });
+    expect(container.querySelector(".am-direct-pencil__line-group")).toBeTruthy();
+  });
+
+  it("filters out stale/mismatched saved keys and restores valid ones silently", () => {
+    const p3Targets = [
+      { id: "p3-L-0", label: "o", role: "left" as const, pairId: "pair-0" },
+      { id: "p3-R-0", label: "ocho", role: "right" as const, pairId: "pair-0", src: "/art/ocho.webp" },
+      { id: "p3-L-1", label: "a", role: "left" as const, pairId: "pair-1" },
+      { id: "p3-R-1", label: "araña", role: "right" as const, pairId: "pair-1", src: "/art/arana.webp" },
+    ];
+
+    // Seed localStorage via saveLassoProgress with one valid pair key and several stale/mismatched keys
+    saveLassoProgress("p3-stale-test", [
+      "p3-L-0|p3-R-0",
+      "p3-L-0|p3-R-1",
+      "invalid-key",
+      "p3-L-99|p3-R-99",
+    ]);
+
+    const { container } = render(
+      <LassoConnect
+        pageKey="p3-stale-test"
+        targets={p3Targets}
+        mode="pair"
+        directPencil
+        reducedMotion
+      />,
+    );
+
+    // Only the valid line ("p3-L-0|p3-R-0") should be rendered
+    const lineGroups = container.querySelectorAll(".am-direct-pencil__line-group");
+    expect(lineGroups).toHaveLength(1);
+    expect(screen.getByRole("button", { name: "Vocal o" }).classList.contains("is-connected")).toBe(true);
+    expect(screen.getByRole("button", { name: "Vocal a" }).classList.contains("is-connected")).toBe(false);
+  });
+
+  it("clears transient drag state cleanly onPointerCancel without committing", () => {
+    const { container } = render(
+      <LassoConnect
+        pageKey="p17-proto-cancel"
+        targets={p17Targets}
+        mode="mark"
+        directPencil
+        centerLabel="Uu"
+        reducedMotion
+      />,
+    );
+
+    const centerBtn = screen.getByRole("button", { name: "Vocal central Uu" });
+    fireEvent.pointerDown(centerBtn, { clientX: 100, clientY: 100 });
+
+    const stage = container.querySelector(".am-direct-pencil__stage")!;
+    fireEvent.pointerMove(stage, { clientX: 150, clientY: 150 });
+    expect(container.querySelector(".am-direct-pencil__active-line")).toBeTruthy();
+
+    fireEvent.pointerCancel(stage);
+    expect(container.querySelector(".am-direct-pencil__active-line")).toBeNull();
+    expect(gretelEvent).not.toHaveBeenCalledWith("answer:correct", expect.anything());
+    expect(gretelEvent).not.toHaveBeenCalledWith("answer:wrong", expect.anything());
+  });
+
+  it("pointer down followed by click keeps source selected without immediate toggle-off", () => {
+    render(
+      <LassoConnect
+        pageKey="p17-proto-tap"
+        targets={p17Targets}
+        mode="mark"
+        directPencil
+        centerLabel="Uu"
+        reducedMotion
+      />,
+    );
+
+    const centerBtn = screen.getByRole("button", { name: "Vocal central Uu" });
+    fireEvent.pointerDown(centerBtn, { clientX: 100, clientY: 100 });
+    fireEvent.click(centerBtn);
+
+    expect(centerBtn.classList.contains("is-active")).toBe(true);
   });
 });
