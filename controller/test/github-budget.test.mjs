@@ -10,6 +10,21 @@ test('GitHub quota denial persists reset and restarted clients avoid further net
  await assert.rejects(new GitHub({repo:'owner/repo',ledger:f.ledger,fetcher,sleeper:async()=>{}}).main(),/GITHUB_RATE_LIMITED/);
  assert.equal(calls,1);assert.equal((await f.ledger.jobs())[0].owner_action,'Nothing');await f.p.close();
 });
+test('successive GitHub quota windows reuse a single durable budget gate',async()=>{
+ const f=await fixture();let calls=0;
+ const client=new GitHub({repo:'owner/repo',ledger:f.ledger,fetcher:async()=>{
+  calls++;return {ok:false,status:429,headers:new Headers({'x-ratelimit-remaining':'0','x-ratelimit-reset':String(Math.floor(Date.now()/1000)+calls*600)}),json:async()=>({message:'API rate limit exceeded'})};
+ },sleeper:async()=>{}});
+ await assert.rejects(client.main(),/GITHUB_RATE_LIMITED/);
+ await f.db.query("UPDATE jobs SET retry_at=now()-interval '1 second' WHERE source->>'lane'='github_read_budget'");
+ await assert.rejects(client.main(),/GITHUB_RATE_LIMITED/);
+ const rows=(await f.db.query("SELECT idempotency_key,status FROM jobs WHERE source->>'lane'='github_read_budget'")).rows;
+ assert.equal(rows.length,1);
+ assert.equal(rows[0].idempotency_key,'github-read-budget');
+ assert.equal(rows[0].status,'retrying');
+ assert.equal(calls,2);
+ await f.p.close();
+});
 test('secondary quota observes retry-after without blind HTTP retries',async()=>{
  let calls=0;const client=new GitHub({repo:'owner/repo',fetcher:async()=>{calls++;return {ok:false,status:429,headers:new Headers({'retry-after':'120'}),json:async()=>({})};},sleeper:async()=>{}});
  await assert.rejects(client.main(),e=>e.message==='GITHUB_RATE_LIMITED'&&new Date(e.retryAt)>new Date(Date.now()+110000));assert.equal(calls,1);
