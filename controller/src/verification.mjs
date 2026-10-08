@@ -95,6 +95,35 @@ export class VerificationPipeline {
   const compare=await this.github.request('/compare/'+gate.main+'...'+gate.head);
   if(compare.status!=='ahead')return {merged:false,reason:'CURRENT_MAIN_RECONCILIATION_REQUIRED'};
   if((await this.github.main()).sha!==gate.main)return {merged:false,reason:'MAIN_CHANGED_REVERIFY'};
+  // A verified release is not a substitute for the required public GitHub proof.
+  const execution=(await this.ledger.db.query("SELECT data FROM evidence_receipts WHERE job_id=$1 AND kind='independent_release_execution' ORDER BY recorded_at DESC LIMIT 1",[release.id])).rows[0]?.data;
+  if(execution?.passed!==true||execution.head!==gate.head||execution.main!==gate.main||!execution.checks?.includes('release'))return {merged:false,reason:'EXACT_HEAD_RELEASE_EVIDENCE_REQUIRED'};
+  const reviewsReceipt=(await this.ledger.db.query("SELECT passed,details FROM validations WHERE job_id=$1 AND name='controller_independent_review' ORDER BY recorded_at DESC LIMIT 1",[parent.id])).rows[0];
+  if(reviewsReceipt?.passed!==true||reviewsReceipt.details?.head!==gate.head||reviewsReceipt.details?.main!==gate.main)return {merged:false,reason:'CURRENT_INDEPENDENT_REVIEW_REQUIRED'};
+  const checks=await this.github.pages('/commits/'+gate.head+'/check-runs','check_runs');
+  const sonar=checks.filter(c=>c.name==='SonarCloud Code Analysis'&&c.app?.id===12526&&c.head_sha===gate.head).sort((a,b)=>String(b.started_at??'').localeCompare(String(a.started_at??'')))[0];
+  if(sonar?.status!=='completed'||sonar.conclusion!=='success')return {merged:false,reason:'CURRENT_SONAR_QUALITY_GATE_REQUIRED'};
+  const allComments=await this.github.pages('/issues/'+pr.number+'/comments');
+  const sonarAudit=allComments.find(c=>c.user?.login?.startsWith('sonarqubecloud')&&/Quality Gate passed/i.test(c.body??'')&&/0 New issues/i.test(c.body??''));
+  if(!sonarAudit)return {merged:false,reason:'SONAR_FINDINGS_RECONCILIATION_REQUIRED'};
+  const report=[
+   'DUAL REVIEW VERIFIED FOR THIS HEAD',
+   'Head SHA: '+gate.head,'Main SHA: '+gate.main,
+   'Independent controller review: passed for this exact head and main.',
+   'SonarQube Cloud: PASS (trusted app 12526; 0 new issues, 0 accepted findings; confirmed, false-positive, and deferred new findings: 0).',
+   'Targeted, worker, independent release and browser/visual checks: '+(execution.checks??[]).join(', '),
+   'Exact pnpm verify:release: PASS. Release job: '+release.id,
+   'GitHub Sonar check: '+(sonar.html_url??'verified exact-head GitHub check')
+  ].join('\n');
+  const owner=this.github.repo.split('/')[0];
+  let verified=allComments.find(c=>c.user?.login===owner&&c.body===report);
+  if(!verified){
+   if((await this.github.main()).sha!==gate.main||(await this.github.request('/pulls/'+pr.number)).head.sha!==gate.head)return {merged:false,reason:'STATE_CHANGED_BEFORE_DUAL_REVIEW_PROOF'};
+   await this.github.proofComment(pr.number,report);
+   verified=(await this.github.pages('/issues/'+pr.number+'/comments')).find(c=>c.user?.login===owner&&c.body===report);
+  }
+  if(!verified)return {merged:false,reason:'DUAL_REVIEW_PROOF_COMMENT_NOT_VERIFIED'};
+  await this.ledger.receipt(release.id,'dual_review_github_proof',{pr:pr.number,head:gate.head,main:gate.main,comment_id:verified.id});
   // Persist intent before the external mutation. An uncertain response is never blindly retried.
   const reserved=await transaction(this.ledger.db,async c=>{
    await c.query('SELECT id FROM controller_guard WHERE id=1 FOR UPDATE');
