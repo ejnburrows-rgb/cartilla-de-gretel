@@ -617,3 +617,41 @@
     display: none !important;
   }
 }
+
+/* Physical-book reading pattern (letter + two syllable rows + word columns).
+   Scope the blush treatment to this source-equivalent family only; other
+   workbook archetypes keep their own layouts and source relationships. */
+.native-lesson-viewer__content .fp-native-letter-page .fp-native-title {
+  color: #b51f3b;
+  border: 3px solid #f0c2cb;
+  border-radius: 50%;
+  background: radial-gradient(circle, #fffaf5 55%, #f9dce2 100%);
+  box-shadow: 0 3px 12px rgba(142, 51, 68, 0.08);
+}
+.native-lesson-viewer__content .fp-native-letter-page .fp-native-syllables {
+  border: 1px solid #edc5ce;
+  background: #fae5e9;
+  gap: 6px;
+}
+.native-lesson-viewer__content .fp-native-letter-page .fp-native-syllables span {
+  border: 1px solid #efc4ce;
+  border-radius: 8px;
+  background: #fff6f7;
+  color: #a5223b;
+  box-shadow: none;
+}
+.native-lesson-viewer__content .fp-native-letter-page .fp-native-vocab span {
+  border: 0;
+  border-radius: 8px;
+  background: #f9e6e8;
+  box-shadow: none;
+  color: #35282c;
+  font-weight: 600;
+}
+.native-lesson-viewer__content .fp-native-letter-page .fp-region--reading-sentences {
+  border: 1px solid #f1dbd4;
+  border-radius: 12px;
+  background: #fff3ec;
+  color: #70263b;
+  box-shadow: none;
+}

@@ -76,7 +76,7 @@ export function buildPageArray(lessonId: number): WorkbookPageEntry[] {
         content: isAnimated ? (
           <video src={src} autoPlay loop muted playsInline className="w-full h-full object-cover" />
         ) : (
-          <img src={src} alt={`Lección ${lessonId} — Página ${pageNum}`} loading="lazy" decoding="async" className="w-full h-full object-cover" onError={(e) => {
+          <img src={src} alt={`Lección ${lessonId} — Página ${pageNum}`} loading="lazy" decoding="async" className="w-full h-full object-contain" onError={(e) => {
             const t = e.currentTarget;
             t.style.display = "none";
             const fb = document.createElement("div");
