@@ -31,7 +31,14 @@ export class Runner {
   }
   return {runnable,blocked};
  }
- async reserve(job,s,prompt){
+ async reusableSession(){
+  if(typeof this.worker.reusable!=='function')return null;
+  const rows=(await this.ledger.db.query("SELECT DISTINCT ON(a.external_id) a.external_id,j.kind,a.dispatched_at FROM job_attempts a JOIN jobs j ON j.id=a.job_id WHERE a.worker='openhands' AND a.external_id IS NOT NULL AND a.state='finished' AND j.status='verified' AND NOT EXISTS(SELECT 1 FROM job_attempts busy WHERE busy.external_id=a.external_id AND busy.state IN('reserved','running','ambiguous','cancel_requested')) ORDER BY a.external_id,a.dispatched_at DESC LIMIT 20")).rows;
+  rows.sort((a,b)=>Number(b.kind==='issue_implementation')-Number(a.kind==='issue_implementation')||new Date(b.dispatched_at)-new Date(a.dispatched_at));
+  for(const a of rows){const session=await this.worker.reusable(a.external_id,this.github.repo);if(session)return session;}
+  return null;
+ }
+ async reserve(job,s,prompt,session=null){
   return transaction(this.ledger.db,async c=>{
    await c.query('SELECT id FROM controller_guard WHERE id=1 FOR UPDATE');
    const j=(await c.query('SELECT * FROM jobs WHERE id=$1 FOR UPDATE',[job.id])).rows[0];
@@ -41,13 +48,15 @@ export class Runner {
    const active=(await c.query("SELECT a.*,j.spec FROM job_attempts a JOIN jobs j ON j.id=a.job_id WHERE a.worker='openhands' AND a.state IN('reserved','running','ambiguous','cancel_requested')")).rows;
    if(active.some(a=>a.job_id===job.id))return {reason:'EXISTING_EXTERNAL_ATTEMPT'};
    const capacity=Number(this.env.OPENHANDS_CAPACITY??1),limit=Number(this.env.OPENHANDS_DAILY_START_LIMIT??10);
-   if(!Number.isInteger(capacity)||capacity<1||!Number.isInteger(limit)||limit<1)return {reason:'INVALID_WORKER_LIMIT'};
+   if(!Number.isInteger(capacity)||capacity<1||!Number.isInteger(limit)||limit<0)return {reason:'INVALID_WORKER_LIMIT'};
    if(active.length>=capacity)return {reason:'WORKER_CAPACITY_FULL'};
    if(active.some(a=>a.job_id===job.id||overlaps(job.spec.paths??[],a.spec.paths??[])))return {reason:'ACTIVE_FILE_OVERLAP'};
-   const count=(await c.query("SELECT count(*)::int AS n FROM job_attempts WHERE worker='openhands' AND dispatched_at>=date_trunc('day',now() AT TIME ZONE 'UTC') AT TIME ZONE 'UTC'")).rows[0].n;
-   if(count>=limit)return {reason:'DAILY_START_LIMIT'};
+   if(session&&active.some(a=>a.external_id===session.external_id))return {reason:'WORKER_CAPACITY_FULL'};
+   const count=(await c.query("SELECT count(*)::int AS n FROM job_attempts a WHERE worker='openhands' AND dispatched_at>=date_trunc('day',now() AT TIME ZONE 'UTC') AT TIME ZONE 'UTC' AND NOT EXISTS(SELECT 1 FROM evidence_receipts e WHERE e.attempt_id=a.id AND e.kind='worker_continuation_reserved')")).rows[0].n;
+   if(!session&&limit>0&&count>=limit)return {reason:'DAILY_START_LIMIT'};
    const attempt={id:randomUUID(),job_id:j.id,attempt_number:j.attempt_count+1,worker:'openhands',starting_sha:s.main.sha,payload_hash:digest(prompt),deadline:new Date(Date.now()+(j.spec.deadline_minutes??30)*60000).toISOString(),state:'reserved'};
    await c.query("INSERT INTO job_attempts(id,job_id,attempt_number,worker,payload_hash,starting_sha,state,deadline) VALUES($1,$2,$3,'openhands',$4,$5,'reserved',$6)",[attempt.id,j.id,attempt.attempt_number,attempt.payload_hash,attempt.starting_sha,attempt.deadline]);
+   if(session){attempt.external_id=session.external_id;await c.query('UPDATE job_attempts SET external_id=$2 WHERE id=$1',[attempt.id,session.external_id]);await this.ledger.receipt(j.id,'worker_continuation_reserved',{external_id:session.external_id,dispatch_mode:'continue'},attempt.id,c);}
    await c.query("UPDATE jobs SET status='running',attempt_count=$2,starting_sha=$3,deadline=$4,worker='openhands',failure_reason=NULL,next_action='Monitor existing external run',owner_action='Nothing',updated_at=now() WHERE id=$1",[j.id,attempt.attempt_number,s.main.sha,attempt.deadline]);
    await this.ledger.receipt(j.id,'dispatch_baseline',{main:s.main,instructionHashes:s.instructionHashes,payload_hash:attempt.payload_hash},attempt.id,c);
    return {attempt};
@@ -63,17 +72,19 @@ export class Runner {
    if(current.state!=='open'||!p.runnable||digest(p.spec)!==digest(job.spec)){await this.ledger.set(job.id,'blocked','SCOPE_CHANGED',{next_action:'Re-read canonical scope on next scan'});return false;}
   }
   const fresh=await this.github.main();if(fresh.sha!==s.main.sha)throw new Error('MAIN_CHANGED_RESCAN_REQUIRED');
-  const prompt=this.prompt(job,s);const {attempt,reason}=await this.reserve(job,s,prompt);
+  const session=await this.reusableSession();
+  const prompt=(session?'The previous bounded job is finished. This is a NEW controller-authorized bounded job in the SAME session. The previous job scope is replaced ONLY by the following scope. Preserve its PR and all prior work. Work on the fresh job branch from current main, never modify the previous job branch.\n\n':'')+this.prompt(job,s);const {attempt,reason}=await this.reserve(job,s,prompt,session);
   if(!attempt){if(['DAILY_START_LIMIT','WORKER_CAPACITY_FULL','ACTIVE_FILE_OVERLAP'].includes(reason))await this.ledger.set(job.id,'queued',reason,{next_action:'Wait for quota/capacity; rescan when freed'});return false;}
   // Reservation commits BEFORE external POST. Any uncertain POST is blocked, never automatically repeated.
   try{
-   const r=await this.worker.start(this.github.repo,prompt);
+   const r=session?await this.worker.continueSession(session,prompt):await this.worker.start(this.github.repo,prompt);
    await transaction(this.ledger.db,async c=>{
     await c.query("UPDATE job_attempts SET start_task_id=$2,external_id=$3,state='running',updated_at=now() WHERE id=$1",[attempt.id,r.start_task_id,r.external_id]);
     await c.query("UPDATE jobs SET external_id=$2,updated_at=now() WHERE id=$1",[job.id,r.external_id??r.start_task_id]);
-    await this.ledger.receipt(job.id,'worker_dispatch',{start_task_id:r.start_task_id,external_id:r.external_id,status:r.status},attempt.id,c);
+    await this.ledger.receipt(job.id,'worker_dispatch',{start_task_id:r.start_task_id,external_id:r.external_id,status:r.status,dispatch_mode:session?'continue':'start'},attempt.id,c);
    });
-  }catch{
+  }catch(error){
+   if(session&&error.not_sent===true){await this.ledger.db.query("UPDATE job_attempts SET state='failed',updated_at=now() WHERE id=$1",[attempt.id]);await this.ledger.fail(job.id,'OPENHANDS_RESUME_PENDING');await this.scheduleRetry(job.id);return false;}
    await this.ledger.db.query("UPDATE job_attempts SET state='ambiguous',updated_at=now() WHERE id=$1",[attempt.id]);
    await this.ledger.set(job.id,'blocked','DISPATCH_OUTCOME_UNKNOWN',{next_action:'Inspect OpenHands and GitHub; do not duplicate dispatch',owner_action:'Resolve unknown dispatch in OpenHands'});return false;
   }
@@ -121,7 +132,7 @@ export class Runner {
  }
  async poll(id){
   const job=await this.ledger.get(id);const a=await this.ledger.attempt(id);if(!job||!a||a.worker!=='openhands'||job.status==='verified')return {done:true};
-  if(a.state==='ambiguous'&&!a.start_task_id)return {done:true,blocked:true};
+  if((a.state==='ambiguous'||a.state==='reserved')&&!a.start_task_id)return {done:true,blocked:true};
   const claimed=(await this.ledger.db.query("UPDATE jobs SET lease_until=now()+interval '2 minutes' WHERE id=$1 AND (lease_until IS NULL OR lease_until<now()) RETURNING id",[id])).rows.length;
   if(!claimed)return {done:false,leased:true};
   try{
@@ -131,6 +142,10 @@ export class Runner {
    else r=await this.worker.poll(a);
    if(r.external_id&&r.external_id!==a.external_id){a.external_id=r.external_id;await this.ledger.db.query('UPDATE job_attempts SET external_id=$2,updated_at=now() WHERE id=$1',[a.id,a.external_id]);await this.ledger.db.query('UPDATE jobs SET external_id=$2 WHERE id=$1',[id,a.external_id]);}
    await this.ledger.receipt(id,'worker_status',{status:r.status??'unknown',external_id:a.external_id,start_task_id:a.start_task_id,sandbox_status:r.sandbox_status??null,progress:r.progress??null},a.id);
+   const continuation=(await this.ledger.db.query("SELECT id FROM evidence_receipts WHERE attempt_id=$1 AND kind='worker_continuation_reserved'",[a.id])).rows.length>0;
+   if(continuation&&r.terminal&&!r.failed&&a.state!=='finished'&&!r.progress?.latest_events?.some(e=>e.source==='agent'&&new Date(e.timestamp)>=new Date(a.dispatched_at))){
+    await this.ledger.set(id,new Date(a.deadline)<new Date()?'blocked':'running',new Date(a.deadline)<new Date()?'CONTINUATION_ACTIVITY_DEADLINE_EXCEEDED':null,{lease_until:null,next_action:'Await fresh agent activity in same conversation; never duplicate'});return {done:false};
+   }
    if(r.terminal){
     await this.ledger.db.query('UPDATE job_attempts SET state=$2,updated_at=now() WHERE id=$1',[a.id,r.failed?'failed':'finished']);
     if(job.status==='cancelled'){await this.ledger.db.query('UPDATE jobs SET lease_until=NULL WHERE id=$1',[id]);}

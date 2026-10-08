@@ -15,6 +15,28 @@ export class OpenHands {
   if(!r.ok)throw new Error(`OPENHANDS_HTTP_${r.status}`);return r.json();
  }
  async start(repo,prompt){const r=await this.request('',{selected_repository:repo,initial_message:{content:[{type:'text',text:prompt}]}});if(typeof r.id!=='string')throw new Error('OPENHANDS_START_RESPONSE_INVALID');return {start_task_id:r.id,external_id:r.app_conversation_id??null,status:r.status};}
+ async reusable(id,repo){
+  const rows=await this.request(`?ids=${encodeURIComponent(id)}`);const r=Array.isArray(rows)?rows[0]:null;
+  if(!r||['MISSING','ERROR'].includes(r.sandbox_status))return null;
+  if(r.selected_repository!==repo)return null;
+  if(r.sandbox_status==='PAUSED')return {external_id:id,sandbox_id:r.sandbox_id,sandbox_status:r.sandbox_status};
+  if(r.sandbox_status==='RUNNING'&&r.execution_status==='finished')return {external_id:id,sandbox_id:r.sandbox_id,sandbox_status:r.sandbox_status};
+  // An existing session in transition must not cause a replacement start.
+  throw Error('OPENHANDS_SESSION_NOT_IDLE');
+ }
+ async continueSession(session,prompt){
+  if(session.sandbox_status==='PAUSED'){
+   try{
+    const response=await this.fetcher(`https://app.all-hands.dev/api/v1/sandboxes/${encodeURIComponent(session.sandbox_id)}/resume`,{method:'POST',headers:{Authorization:`Bearer ${this.key}`},signal:AbortSignal.timeout(20000)});
+    if(!response.ok)throw Error('OPENHANDS_RESUME_UNAVAILABLE');
+    const rows=await this.request(`?ids=${encodeURIComponent(session.external_id)}`);
+    if(rows[0]?.sandbox_status!=='RUNNING'||rows[0]?.execution_status!=='finished')throw Error('OPENHANDS_RESUME_PENDING');
+   }catch(error){error.not_sent=true;throw error;}
+  }
+  const r=await this.request(`/${encodeURIComponent(session.external_id)}/send-message`,{role:'user',content:[{type:'text',text:prompt}],run:true});
+  if(r.success!==true)throw Error('OPENHANDS_CONTINUATION_OUTCOME_UNKNOWN');
+  return {start_task_id:null,external_id:session.external_id,status:'CONTINUED'};
+ }
  async poll(attempt){
   if(!attempt.external_id){
    if(!attempt.start_task_id)throw new Error('DISPATCH_AMBIGUOUS');
@@ -31,7 +53,7 @@ export class OpenHands {
     const [count,page]=await Promise.all([read('/count'),read('/search?sort_order=TIMESTAMP_DESC&limit=3')]);
     if(Number.isInteger(count)&&count>=0)progress.event_count=count;
     // No messages, commands, observations, prompts, or session keys leave this client.
-    progress.latest_events=(page.items??[]).map(e=>({kind:e.kind,timestamp:e.timestamp}));
+    progress.latest_events=(page.items??[]).map(e=>({kind:e.kind,timestamp:e.timestamp,...(['agent','user','environment','hook'].includes(e.source)?{source:e.source}:{})}));
    }catch{progress.available=false;}
   }
   return {external_id:attempt.external_id,status:r.execution_status,sandbox_status:r.sandbox_status,progress,terminal:['finished','error','stuck'].includes(r.execution_status),failed:['error','stuck'].includes(r.execution_status),blocked:r.execution_status==='waiting_for_confirmation'};

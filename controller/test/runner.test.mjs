@@ -95,3 +95,45 @@ test('read token cannot retry/cancel/dispatch; missing tokens and command fields
  assert.equal((await api({url:'/api/jobs',method:'GET',headers:{}},deps,{})).status,401);
  assert.equal((await api({url:'/api/jobs',method:'POST',headers:{authorization:'Bearer '+tokens.CONTROLLER_ADMIN_TOKEN},body:JSON.stringify({kind:'repo_inspection',idempotency_key:'valid-idempotency',command:'rm -rf'})},deps,tokens)).status,400);await p.close();
 });
+
+test('zero daily limit permits more jobs while capacity remains protected',async()=>{
+ const {p,ledger,runner,db}=await setup(undefined,{OPENHANDS_DAILY_START_LIMIT:'0',OPENHANDS_CAPACITY:'1'});runner.rescan=async()=>({});
+ for(let n=0;n<3;n++){const j=await ledger.create({key:`uncapped-${n}`,kind:'repo_inspection',source:{admin:true}});assert.equal(await runner.dispatch(j,snapshot()),true);await runner.poll(j.id);assert.equal((await ledger.get(j.id)).status,'verified');}
+ assert.equal((await db.query("SELECT count(*)::int AS n FROM job_attempts WHERE worker='openhands'")).rows[0].n,3);await p.close();
+});
+test('next bounded job reuses verified idle conversation despite exhausted new-start quota',async()=>{
+ let starts=0,continued=0;const worker={start:async()=>{starts++;return {start_task_id:'start-one',external_id:'same-session',status:'READY'};},reusable:async id=>({external_id:id,sandbox_status:'RUNNING'}),continueSession:async(session,prompt)=>{continued++;assert.equal(session.external_id,'same-session');assert.match(prompt,/previous job scope is replaced/);return {start_task_id:null,external_id:session.external_id,status:'CONTINUED'};},poll:async a=>({external_id:a.external_id,status:'finished',terminal:true,progress:{latest_events:[{source:'agent',kind:'MessageEvent',timestamp:new Date(Date.now()+1000).toISOString()}]}})};
+ const {p,ledger,runner,db}=await setup(worker,{OPENHANDS_DAILY_START_LIMIT:'1',OPENHANDS_CAPACITY:'1'});runner.rescan=async()=>({});
+ const first=await ledger.create({key:'session-first',kind:'repo_inspection',source:{admin:true}});await runner.dispatch(first,snapshot());await runner.poll(first.id);
+ const second=await ledger.create({key:'session-second',kind:'repo_inspection',source:{admin:true}});assert.equal(await runner.dispatch(second,snapshot()),true);assert.equal((await ledger.attempt(second.id)).external_id,'same-session');await runner.poll(second.id);
+ assert.equal((await ledger.get(second.id)).status,'verified');assert.equal(starts,1);assert.equal(continued,1);assert.equal((await db.query("SELECT count(*)::int AS n FROM evidence_receipts WHERE kind='worker_continuation_reserved'")).rows[0].n,1);await p.close();
+});
+test('ambiguous follow-up is never resent or replaced by a new conversation',async()=>{
+ let sends=0;const {p,ledger,runner}=await setup({start:async()=>({start_task_id:'initial',external_id:'persistent',status:'READY'}),reusable:async id=>({external_id:id,sandbox_status:'RUNNING'}),continueSession:async()=>{sends++;throw Error('timeout after accepted message');},poll:async()=>({status:'finished',terminal:true})});runner.rescan=async()=>({});
+ const first=await ledger.create({key:'reuse-previous',kind:'repo_inspection',source:{admin:true}});await runner.dispatch(first,snapshot());await runner.poll(first.id);
+ const next=await ledger.create({key:'reuse-uncertain',kind:'repo_inspection',source:{admin:true}});await runner.dispatch(next,snapshot());assert.equal((await ledger.get(next.id)).status,'blocked');assert.equal((await ledger.attempt(next.id)).external_id,'persistent');assert.equal((await runner.poll(next.id)).blocked,true);await assert.rejects(ledger.retry(next.id,'confirmed_not_created'),/RETRY_UNSAFE/);await runner.dispatch(await ledger.get(next.id),snapshot());assert.equal(sends,1);await p.close();
+});
+test('previous finished status cannot verify newly continued job before fresh agent activity',async()=>{
+ const {p,ledger,runner}=await setup({start:async()=>({start_task_id:'t',external_id:'idle',status:'READY'}),reusable:async id=>({external_id:id,sandbox_status:'RUNNING'}),continueSession:async()=>({start_task_id:null,external_id:'idle',status:'CONTINUED'}),poll:async()=>({status:'finished',terminal:true,progress:{latest_events:[{source:'agent',timestamp:'2020-01-01T00:00:00Z'}]}})});runner.rescan=async()=>({});
+ const first=await ledger.create({key:'stale-first',kind:'repo_inspection',source:{admin:true}});await runner.dispatch(first,snapshot());await runner.poll(first.id);
+ const next=await ledger.create({key:'stale-next',kind:'repo_inspection',source:{admin:true}});await runner.dispatch(next,snapshot());assert.equal((await runner.poll(next.id)).done,false);assert.equal((await ledger.get(next.id)).status,'running');assert.equal((await ledger.attempt(next.id)).state,'running');await p.close();
+});
+test('official follow-up resumes paused sandbox then sends run:true in same session',async()=>{
+ const calls=[];const client=new OpenHands({key:'mock',fetcher:async(url,init)=>{calls.push({url,method:init.method,body:init.body?JSON.parse(init.body):null});return {ok:true,json:async()=>url.endsWith('/send-message')?{success:true,sandbox_status:'RUNNING'}:url.endsWith('/resume')?{success:true}:[{id:'existing',selected_repository:'owner/repo',sandbox_id:'sandbox',sandbox_status:calls.length===1?'PAUSED':'RUNNING',execution_status:'finished'}]};}});
+ const session=await client.reusable('existing','owner/repo');const r=await client.continueSession(session,'next authorized bounded job');assert.equal(r.external_id,'existing');assert.equal(calls.filter(c=>c.method==='POST').length,2);assert.ok(calls.some(c=>c.url.endsWith('/sandbox/resume')));const message=calls.find(c=>c.url.endsWith('/existing/send-message'));assert.equal(message.body.run,true);assert.equal(message.body.role,'user');assert.ok(!calls.some(c=>c.method==='POST'&&c.url.endsWith('/app-conversations')));
+});
+test('pending sandbox resume cannot send follow-up and is known unsent',async()=>{
+ const calls=[];const client=new OpenHands({key:'mock',fetcher:async(url,init)=>{calls.push({url,method:init.method});return {ok:true,json:async()=>url.endsWith('/resume')?{success:true}:[{sandbox_status:'STARTING'}]};}});
+ await assert.rejects(client.continueSession({external_id:'existing',sandbox_id:'paused',sandbox_status:'PAUSED'},'bounded'),e=>e.not_sent===true&&e.message==='OPENHANDS_RESUME_PENDING');assert.equal(calls.some(c=>c.url.endsWith('/send-message')),false);
+});
+test('concurrent jobs cannot both claim the same idle conversation even with spare capacity',async()=>{
+ let continuations=0;const {p,ledger,runner}=await setup({start:async()=>({start_task_id:'start',external_id:'shared',status:'READY'}),reusable:async id=>({external_id:id,sandbox_status:'RUNNING'}),continueSession:async()=>{continuations++;return {start_task_id:null,external_id:'shared',status:'CONTINUED'};},poll:async()=>({status:'finished',terminal:true})},{OPENHANDS_CAPACITY:'2',OPENHANDS_DAILY_START_LIMIT:'0'});runner.rescan=async()=>({});
+ const prior=await ledger.create({key:'concurrent-prior',kind:'repo_inspection',source:{admin:true}});await runner.dispatch(prior,snapshot());await runner.poll(prior.id);
+ const one=await ledger.create({key:'concurrent-one',kind:'repo_inspection',source:{admin:true}});const two=await ledger.create({key:'concurrent-two',kind:'repo_inspection',source:{admin:true}});await Promise.all([runner.dispatch(one,snapshot()),runner.dispatch(two,snapshot())]);assert.equal(continuations,1);assert.equal([await ledger.get(one.id),await ledger.get(two.id)].filter(j=>j.status==='running').length,1);await p.close();
+});
+test('read-only live reuse probe returns no sandbox credentials and no new dispatch',async()=>{
+ const {p,ledger,runner}=await setup();runner.rescan=async()=>({});const j=await ledger.create({key:'probe-prior',kind:'repo_inspection',source:{admin:true}});await runner.dispatch(j,snapshot());await runner.poll(j.id);
+ const tokens={CONTROLLER_READ_TOKEN:'r'.repeat(40),CONTROLLER_ADMIN_TOKEN:'a'.repeat(40),OPENHANDS_DAILY_START_LIMIT:'0'};let probes=0;
+ const r=await api({url:'/api/workers?check=reuse',method:'GET',headers:{authorization:'Bearer '+tokens.CONTROLLER_READ_TOKEN}},{ledger,github:{repo:'owner/repo'},worker:{reusable:async()=>{probes++;return {external_id:'safe',sandbox_id:'private',session_api_key:'private'};}}},tokens);
+ assert.equal(r.status,200);assert.equal(r.body.openhands.daily_limit,null);assert.equal(r.body.openhands.session_reuse[0].reusable,true);assert.equal(JSON.stringify(r).includes('private'),false);assert.equal(probes,1);await p.close();
+});

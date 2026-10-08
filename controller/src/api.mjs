@@ -38,8 +38,11 @@ export async function api(req,deps,env=process.env){
  if(path==='/api/jobs'&&method==='GET')return {status:200,body:{jobs:(await deps.ledger.jobs()).map(viewJob)}};
  if(path==='/api/workers'&&method==='GET'){
   const rows=(await deps.ledger.db.query("SELECT job_id,attempt_number,worker,external_id,start_task_id,state,deadline,dispatched_at,updated_at FROM job_attempts WHERE worker='openhands' ORDER BY dispatched_at DESC LIMIT 100")).rows;
-  const count=(await deps.ledger.db.query("SELECT count(*)::int AS n FROM job_attempts WHERE worker='openhands' AND dispatched_at>=date_trunc('day',now() AT TIME ZONE 'UTC') AT TIME ZONE 'UTC'")).rows[0].n;
-  return {status:200,body:{openhands:{enabled:env.OPENHANDS_ENABLED==='true',daily_limit:Number(env.OPENHANDS_DAILY_START_LIMIT??10),daily_reserved:count,capacity:Number(env.OPENHANDS_CAPACITY??1),runs:rows,...(new URL(req.url,'https://controller.local').searchParams.get('check')==='authentication'?{authentication:await deps.worker.authStatus()}:{})},jules:{enabled:false,required:false,next_action:'Optional adapter not configured'}}};
+  const count=(await deps.ledger.db.query("SELECT count(*)::int AS n FROM job_attempts a WHERE worker='openhands' AND dispatched_at>=date_trunc('day',now() AT TIME ZONE 'UTC') AT TIME ZONE 'UTC' AND NOT EXISTS(SELECT 1 FROM evidence_receipts e WHERE e.attempt_id=a.id AND e.kind='worker_continuation_reserved')")).rows[0].n;
+  const limit=Number(env.OPENHANDS_DAILY_START_LIMIT??10);
+  const check=url.searchParams.get('check');
+  const reuse=check==='reuse'?await Promise.all([...new Set(rows.map(r=>r.external_id).filter(Boolean))].slice(0,3).map(async id=>{try{return {external_id:id,reusable:!!await deps.worker.reusable(id,deps.github.repo)};}catch{return {external_id:id,reusable:false,reason:'SESSION_NOT_IDLE_OR_PROVIDER_UNAVAILABLE'};}})):undefined;
+  return {status:200,body:{openhands:{enabled:env.OPENHANDS_ENABLED==='true',daily_limit:limit===0?null:limit,daily_reserved:count,capacity:Number(env.OPENHANDS_CAPACITY??1),runs:rows,...(check==='authentication'?{authentication:await deps.worker.authStatus()}:{}),...(reuse?{session_reuse:reuse}:{})},jules:{enabled:false,required:false,next_action:'Optional adapter not configured'}}};
  }
  const match=path.match(/^\/api\/jobs\/([a-f0-9-]{36})(?:\/(evidence|validations|retry|cancel))?$/);
  if(match){
