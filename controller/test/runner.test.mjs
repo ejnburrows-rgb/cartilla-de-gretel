@@ -16,7 +16,7 @@ async function setup(worker={start:async()=>({start_task_id:randomUUID(),externa
  const f=await fixture();const sent=[];const github=gh();const runner=new Runner({ledger:f.ledger,github,worker,send:async e=>sent.push(e),env:{...env,...extra}});return {...f,runner,github,sent};
 }
 test('OpenHands Cloud start task followed by polling the same conversation; status checks never POST',async()=>{
- const calls=[];let poll=0;const client=new OpenHands({key:'mock',fetcher:async(url,init)=>{calls.push({url,method:init.method});return {ok:true,json:async()=>init.method==='POST'?{id:'start1',status:'WORKING'}:url.includes('start-tasks')?[{status:'READY',app_conversation_id:'conversation1'}]:[{id:'conversation1',execution_status:++poll===3?'finished':'running',sandbox_status:'RUNNING'}]};}});
+ const calls=[];let poll=0;const client=new OpenHands({key:'mock',fetcher:async(url,init)=>{calls.push({url,method:init.method});return {ok:true,json:async()=>init.method==='POST'?{id:'start1',status:'WORKING'}:url.includes('start-tasks')?[{status:'READY',app_conversation_id:'conversation1'}]:url.includes('/events/count')?0:url.includes('/events/search')?{items:[]}:[{id:'conversation1',execution_status:++poll===3?'finished':'running',sandbox_status:'RUNNING'}]};}});
  const start=await client.start('owner/repo','bounded');const a={start_task_id:start.start_task_id};a.external_id=(await client.poll(a)).external_id;
  await client.poll(a);await client.poll(a);const r=await client.poll(a);assert.equal(r.terminal,true);assert.equal(calls.filter(c=>c.method==='POST').length,1);assert.equal(calls.filter(c=>c.url.includes('?ids=conversation1')).length,3);
 });

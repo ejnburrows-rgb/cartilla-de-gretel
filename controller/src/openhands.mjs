@@ -24,10 +24,10 @@ export class OpenHands {
   const rows=await this.request(`?ids=${encodeURIComponent(attempt.external_id)}`);const r=Array.isArray(rows)?rows[0]:null;
   if(!r)throw new Error('OPENHANDS_CONVERSATION_MISSING');
   const progress={updated_at:r.updated_at??null,model:r.llm_model??null,cost:r.metrics?.accumulated_cost??null};
-  if(r.session_api_key){
+  if(this.key){
    try{
     const base=`https://app.all-hands.dev/api/v1/conversation/${encodeURIComponent(attempt.external_id)}/events`;
-    const read=async path=>{const response=await this.fetcher(base+path,{method:'GET',headers:{'X-Access-Token':r.session_api_key},signal:AbortSignal.timeout(10000)});if(!response.ok)throw Error('PROGRESS_UNAVAILABLE');return response.json();};
+    const read=async path=>{const response=await this.fetcher(base+path,{method:'GET',headers:{'X-Access-Token':this.key},signal:AbortSignal.timeout(10000)});if(!response.ok)throw Error('PROGRESS_UNAVAILABLE');return response.json();};
     const [count,page]=await Promise.all([read('/count'),read('/search?sort_order=TIMESTAMP_DESC&limit=3')]);
     if(Number.isInteger(count)&&count>=0)progress.event_count=count;
     // No messages, commands, observations, prompts, or session keys leave this client.
