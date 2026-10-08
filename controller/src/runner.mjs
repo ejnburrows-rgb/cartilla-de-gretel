@@ -130,7 +130,7 @@ export class Runner {
    else if(a.state==='failed'){return {done:true};}
    else r=await this.worker.poll(a);
    if(r.external_id&&r.external_id!==a.external_id){a.external_id=r.external_id;await this.ledger.db.query('UPDATE job_attempts SET external_id=$2,updated_at=now() WHERE id=$1',[a.id,a.external_id]);await this.ledger.db.query('UPDATE jobs SET external_id=$2 WHERE id=$1',[id,a.external_id]);}
-   await this.ledger.receipt(id,'worker_status',{status:r.status??'unknown',external_id:a.external_id,start_task_id:a.start_task_id,sandbox_status:r.sandbox_status??null},a.id);
+   await this.ledger.receipt(id,'worker_status',{status:r.status??'unknown',external_id:a.external_id,start_task_id:a.start_task_id,sandbox_status:r.sandbox_status??null,progress:r.progress??null},a.id);
    if(r.terminal){
     await this.ledger.db.query('UPDATE job_attempts SET state=$2,updated_at=now() WHERE id=$1',[a.id,r.failed?'failed':'finished']);
     if(job.status==='cancelled'){await this.ledger.db.query('UPDATE jobs SET lease_until=NULL WHERE id=$1',[id]);}

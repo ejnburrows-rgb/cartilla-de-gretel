@@ -20,6 +20,12 @@ test('OpenHands Cloud start task followed by polling the same conversation; stat
  const start=await client.start('owner/repo','bounded');const a={start_task_id:start.start_task_id};a.external_id=(await client.poll(a)).external_id;
  await client.poll(a);await client.poll(a);const r=await client.poll(a);assert.equal(r.terminal,true);assert.equal(calls.filter(c=>c.method==='POST').length,1);assert.equal(calls.filter(c=>c.url.includes('?ids=conversation1')).length,3);
 });
+test('worker progress reads same conversation and excludes session keys and event content',async()=>{
+ const calls=[];const client=new OpenHands({key:'mock',fetcher:async(url,init)=>{calls.push({url,method:init.method});return {ok:true,json:async()=>url.endsWith('/count')?27:url.includes('/events/search')?{items:[{kind:'ActionEvent',timestamp:'2026-10-08T01:00:00Z',command:'private command',session_api_key:'private session key'}]}:[{execution_status:'running',session_api_key:'private session key',metrics:{accumulated_cost:0.1},updated_at:'2026-10-08T01:00:00Z'}]};}});
+ const r=await client.poll({external_id:'existing-conversation'});
+ assert.equal(r.progress.event_count,27);assert.equal(r.progress.cost,0.1);
+ assert.equal(JSON.stringify(r).includes('private'),false);assert.ok(calls.every(c=>c.method==='GET'&&c.url.includes('existing-conversation')));
+});
 test('quota is durable, reservations include uncertain dispatches and new status polls do not consume it',async()=>{
  const {p,ledger,runner,db}=await setup(undefined,{OPENHANDS_DAILY_START_LIMIT:'1'});const s=snapshot();
  const a=await ledger.create({key:'inspect-a',kind:'repo_inspection',source:{admin:true},spec:{deadline_minutes:15}});const b=await ledger.create({key:'inspect-b',kind:'repo_inspection',source:{admin:true},spec:{deadline_minutes:15}});

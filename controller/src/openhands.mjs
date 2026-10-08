@@ -23,6 +23,17 @@ export class OpenHands {
   }
   const rows=await this.request(`?ids=${encodeURIComponent(attempt.external_id)}`);const r=Array.isArray(rows)?rows[0]:null;
   if(!r)throw new Error('OPENHANDS_CONVERSATION_MISSING');
-  return {external_id:attempt.external_id,status:r.execution_status,sandbox_status:r.sandbox_status,terminal:['finished','error','stuck'].includes(r.execution_status),failed:['error','stuck'].includes(r.execution_status),blocked:r.execution_status==='waiting_for_confirmation'};
+  const progress={updated_at:r.updated_at??null,model:r.llm_model??null,cost:r.metrics?.accumulated_cost??null};
+  if(r.session_api_key){
+   try{
+    const base=`https://app.all-hands.dev/api/v1/conversation/${encodeURIComponent(attempt.external_id)}/events`;
+    const read=async path=>{const response=await this.fetcher(base+path,{method:'GET',headers:{'X-Access-Token':r.session_api_key},signal:AbortSignal.timeout(10000)});if(!response.ok)throw Error('PROGRESS_UNAVAILABLE');return response.json();};
+    const [count,page]=await Promise.all([read('/count'),read('/search?sort_order=TIMESTAMP_DESC&limit=3')]);
+    if(Number.isInteger(count)&&count>=0)progress.event_count=count;
+    // No messages, commands, observations, prompts, or session keys leave this client.
+    progress.latest_events=(page.items??[]).map(e=>({kind:e.kind,timestamp:e.timestamp}));
+   }catch{progress.available=false;}
+  }
+  return {external_id:attempt.external_id,status:r.execution_status,sandbox_status:r.sandbox_status,progress,terminal:['finished','error','stuck'].includes(r.execution_status),failed:['error','stuck'].includes(r.execution_status),blocked:r.execution_status==='waiting_for_confirmation'};
  }
 }
