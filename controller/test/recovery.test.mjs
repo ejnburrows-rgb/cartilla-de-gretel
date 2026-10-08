@@ -31,6 +31,22 @@ test('real local HTTP raw-body HMAC receiver proves persisted receipt before HTT
  const r=await fetch(`http://127.0.0.1:${server.address().port}/api/github/webhook`,{method:'POST',headers:{'X-Hub-Signature-256':signature,'X-GitHub-Delivery':'local-http-delivery','X-GitHub-Event':'issues'},body:raw});assert.equal(r.status,202);
  const data=await r.json();assert.equal(data.deliveryId,'local-http-delivery');assert.equal(data.queued,true);assert.equal((await f.ledger.jobs()).length,0);assert.equal((await f.db.query('SELECT raw_body FROM webhook_events')).rows[0].raw_body,raw);assert.equal(workers,0);assert.equal(sends,1);await new Promise(r=>server.close(r));await f.p.close();
 });
+test('active GitHub cooldown quiets reconciliation; expiry resumes without enqueueing a budget job',async()=>{
+ const f=await fixture(),gate=await f.ledger.create({key:'github-read-budget',kind:'reconcile',source:{lane:'github_read_budget',provider:'github'}});
+ await f.ledger.set(gate.id,'retrying','GITHUB_RATE_LIMITED',{retry_at:new Date(Date.now()+120000).toISOString()});
+ let sends=0;const runner=new Runner({ledger:f.ledger,github:{repo:'owner/repo'},worker:null,send:async()=>{sends++;},env:{}});
+ runner.mergeVerifiedJobs=async()=>{};runner.rescan=async()=>({dispatched:[]});
+ const waiting=await runner.reconcile();
+ assert.equal(waiting.github_rate_limited,true);
+ assert.equal(waiting.poll_scheduled,0);
+ assert.equal(sends,0);
+ await f.db.query("UPDATE jobs SET retry_at=now()-interval '1 second' WHERE id=$1",[gate.id]);
+ const resumed=await runner.reconcile();
+ assert.equal(resumed.github_rate_limited,undefined);
+ assert.equal(sends,0);
+ assert.equal((await f.ledger.get(gate.id)).status,'waiting');
+ await f.p.close();
+});
 test('quota and capacity reservations serialize concurrent dispatches',async()=>{
  const f=await fixture();let starts=0;const github={repo:'owner/repo',main:async()=>s.main};const worker={start:async()=>{starts++;return {start_task_id:'one',external_id:'same',status:'READY'};}};
  const runner=new Runner({ledger:f.ledger,github,worker,send:async()=>{},env});const a=await f.ledger.create({key:'one',kind:'repo_inspection',source:{admin:true}}),b=await f.ledger.create({key:'two',kind:'repo_inspection',source:{admin:true}});
