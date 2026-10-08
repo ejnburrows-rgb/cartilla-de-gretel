@@ -137,3 +137,5 @@ test('read-only live reuse probe returns no sandbox credentials and no new dispa
  const r=await api({url:'/api/workers?check=reuse',method:'GET',headers:{authorization:'Bearer '+tokens.CONTROLLER_READ_TOKEN}},{ledger,github:{repo:'owner/repo'},worker:{reusable:async()=>{probes++;return {external_id:'safe',sandbox_id:'private',session_api_key:'private'};}}},tokens);
  assert.equal(r.status,200);assert.equal(r.body.openhands.daily_limit,null);assert.equal(r.body.openhands.session_reuse[0].reusable,true);assert.equal(JSON.stringify(r).includes('private'),false);assert.equal(probes,1);await p.close();
 });
+
+test('bounded subtask references canonical issue without closing its larger release gate',()=>{const e=evidence();e.pr.body='References #7. Bounded fix only; full canonical issue remains open.';assert.equal(validateChange({issue_number:7,spec},e,[123]).passed,true);e.pr.body='References #8';assert.equal(validateChange({issue_number:7,spec},e,[123]).reason,'CANONICAL_ISSUE_NOT_LINKED');});

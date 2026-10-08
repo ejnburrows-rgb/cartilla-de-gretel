@@ -35,7 +35,7 @@ export function validateChange(job,evidence,apps){
  const material=evidence.files.filter(f=>f.status!=='removed'&&f.additions+f.deletions>0);
  if(!material.length)return {passed:false,reason:'NO_MATERIAL_CHANGE'};
  if(evidence.files.some(f=>f.status==='removed'||forbidden.test(f.filename)||!job.spec.paths.some(p=>f.filename===p||f.filename.startsWith(p.endsWith('/')?p:p+'/'))))return {passed:false,reason:'SCOPE_VIOLATION'};
- if(!new RegExp(`(?:close[sd]?|fix(?:e[sd])?|resolve[sd]?)\\s+#${job.issue_number}\\b`,'i').test(evidence.pr.body??''))return {passed:false,reason:'CANONICAL_ISSUE_NOT_LINKED'};
+ if(!new RegExp(`(?:close[sd]?|fix(?:e[sd])?|resolve[sd]?|references)\\s+#${job.issue_number}\\b`,'i').test(evidence.pr.body??''))return {passed:false,reason:'CANONICAL_ISSUE_NOT_LINKED'};
  if(!apps.length)return {passed:false,reason:'TRUSTED_CHECK_APPS_NOT_CONFIGURED'};
  for(const name of job.spec.required_checks){
   const matches=evidence.checks.filter(c=>c.name===name&&apps.includes(c.app_id)&&c.head_sha===evidence.pr.head);

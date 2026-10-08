@@ -10,13 +10,13 @@
 - CURRENT `main` must be resolved live from GitHub at the start of every session; do not persist a main SHA here because merging this file would immediately make it stale.
 - Cross-session coordination is now governed by the mandatory live-coordination contract in `AGENTS.md`: every material worker/controller change must leave a structured handoff on the existing issue/PR, and controllers refresh this file when lane state/order materially changes.
 - The eight canonical Student Workbook archetypes remain encoded page-by-page in `src/data/workbook-archetypes.ts`.
-- Current independent open candidates and exact heads:
-  - #531 Gretel interaction/motion — `49f55f389588d4283a13f5fbd2ff0f87f3fd37f3`.
-  - #532 physical page-turn system — `a297f72e669605d5b727419b344157cd6204b072`.
-  - #533 PDF precache/provenance — `50fedb3d5b3fa4d30846bf2e8f2739f8526885b4`.
-  - #534 teacher-route first-paint performance — `9914f850a4e4941023702a3a09d0fb171c2bafb7`.
-  - #537 foreground-art classification/audit — `704ff1244a3573aa618dcd3665e0869f3033f28d`.
-  - #538 Pencil Line mechanics — `44fc3ef228d233685bb1a2081253d8d5cabcf429`.
+- Gretel interaction/motion PR #531 is merged; it is no longer an open lane.
+- Current open candidates and exact heads (read live before review):
+  - #532 physical page-turn system — `9d986b0adaee6f1cc4529ae1f197d09e1376a5ab`.
+  - #533 PDF precache/provenance — `56e094bf046d4fb8388b4762d87ad7ec64b2f9f5`.
+  - #534 teacher-route first-paint performance — `d1291bf54fbfa9e7b0fdf9e5d80385ed8c75389e`.
+  - #537 foreground-art classification/audit — `ec14c219018281f12f92ef15dfafa3edf41da429`.
+  - #538 Pencil Line mechanics — `2e13cd984d2366083b3a50fbecd65b4f43bdd55b`.
   - #539 clean repeating Workbook archetypes/background-free Flip Chart — frozen reference `802d237aca9f439dde062402caac8a092eaf9f42`.
 - #538 and #539 still overlap in shared interaction/rendering files and must be reconciled deliberately rather than merged independently.
 - #389 remains the dedicated direct-cloud release-verification lane.
@@ -27,6 +27,14 @@
 - Final premium Gretel voice/TTS is still an owner-required unresolved finish item.
 - Welcome video remains non-blocking.
 - Live Supabase/multi-user expansion remains deferred for the current demo/non-real-data pilot finish line.
+
+## Durable coding backlog — owner-authorized 2026-10-08 UTC
+
+- **#457: teacher-note context isolation — ready.** Current code retains a lesson's draft when lessonId changes; a fresh regression probe fails. Fix only TeacherNoteField and its dedicated tests, including student identity and stale saved timers. This isolated defect can proceed before final assembled teacher validation and does not certify the full issue.
+- **#456: failed poster falls back to approved still — ready.** Fresh probe shows a broken registered poster remains the img source after its error event. Fix only GretelSceneMedia and existing tests; preserve PR #478, original assets and final owner-media requirements. No new media generation.
+- **#450: assembled Workbook regression — dependency waiting.** Durable bounded scope requires independently completed #446, #454 and #470 before dispatch. Final regression test only; do not bypass dependencies.
+- Bounded scope blocks live on the existing canonical issues; no duplicate issues. The controller creates idempotent durable jobs and continues an available OpenHands conversation across safe tasks. Every subtask PR references its canonical issue without automatically closing the larger issue.
+- Open candidate branches retain their ownership; overlap, source-blocked, final-asset and owner-decision lanes do not become artificial coding work. Uncapped automatic starts remain authorized, with permanent attempt/evidence/validation records and no autonomous merge or production deployment.
 
 ## Printed pages 86–87 — resolved source status
 
