@@ -1,11 +1,11 @@
 {
   "timestamp": "2026-10-07T23:34:33.950Z",
   "counts": {
-    "faithfulWired": 108,
+    "faithfulWired": 110,
     "flipchartNativeWired": 167,
     "breakdownFaithful": {
       "PASS": 97,
-      "PENDING NO VERIFIED SOURCE": 9,
+      "PENDING NO VERIFIED SOURCE": 11,
       "VERIFIED COLOR TRANSFER": 1,
       "CROP FIX": 1
     },
@@ -665,6 +665,16 @@
       "isQuarantined": false
     },
     {
+      "src": "/cartilla/art/faithful/leccion-7-m/mono-blink.webp",
+      "word": "mono-blink",
+      "classification": "PENDING NO VERIFIED SOURCE",
+      "provenance": "",
+      "qaVerdict": "",
+      "dimensions": "0x0",
+      "bytes": 0,
+      "isQuarantined": false
+    },
+    {
       "src": "/cartilla/art/faithful/leccion-7-m/mono.webp",
       "word": "mono",
       "classification": "PASS",
@@ -682,6 +692,16 @@
       "qaVerdict": "PASS",
       "dimensions": "480x660",
       "bytes": 39046,
+      "isQuarantined": false
+    },
+    {
+      "src": "/cartilla/art/faithful/leccion-9-s/sapo-blink.webp",
+      "word": "sapo-blink",
+      "classification": "PENDING NO VERIFIED SOURCE",
+      "provenance": "",
+      "qaVerdict": "",
+      "dimensions": "0x0",
+      "bytes": 0,
       "isQuarantined": false
     },
     {
