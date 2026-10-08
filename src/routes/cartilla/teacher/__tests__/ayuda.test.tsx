@@ -11,7 +11,7 @@ import {
   createRoute,
   Outlet,
 } from "@tanstack/react-router";
-import { Route as AyudaRoute } from "../ayuda";
+import { Route as AyudaRoute } from "../ayuda.lazy";
 
 function renderAyuda() {
   const history = createMemoryHistory({ initialEntries: ["/cartilla/teacher/ayuda"] });
