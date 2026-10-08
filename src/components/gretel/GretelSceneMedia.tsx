@@ -22,6 +22,12 @@ export function GretelSceneMedia({
   );
   const eligible = Boolean(video) && !reducedMotion && !saveData;
   const [state, setState] = useState<"loading" | "playing" | "still">("loading");
+  // A registered poster can be broken. Remember that and use `fallback` instead;
+  // the flag is keyed to the current sources so a new clip/poster resets it and a
+  // broken poster is never retried in a loop.
+  const posterKey = formatPosterKey(video?.poster, fallback);
+  const [posterFallback, setPosterFallback] = useState<{ key: string; failed: boolean }>({ key: posterKey, failed: false });
+  const posterFailed = posterFallback.key === posterKey && posterFallback.failed;
   const player = useRef<HTMLVideoElement>(null);
   const live = useRef(true);
   const started = useRef(false);
@@ -60,14 +66,17 @@ export function GretelSceneMedia({
     }
   };
 
+  const posterSrc = video?.poster && !posterFailed ? video.poster : fallback;
+
   return (
     <div className="relative flex w-full justify-center" data-gretel-media={eligible ? state : "still"}>
       <img
-        src={video?.poster ?? fallback}
+        src={posterSrc}
         alt="Gretel, la niña de la cartilla"
         className="gretel-cinematic-portrait"
         style={{ visibility: eligible && state === "playing" ? "hidden" : "visible" }}
         draggable={false}
+        onError={() => { if (video?.poster && !posterFailed) setPosterFallback({ key: posterKey, failed: true }); }}
       />
       {eligible && state !== "still" && video && (
         <video
@@ -92,4 +101,8 @@ export function GretelSceneMedia({
       )}
     </div>
   );
+}
+
+function formatPosterKey(poster: string | undefined, fallback: string): string {
+  return `${poster ?? ""}\u0000${fallback}`;
 }
