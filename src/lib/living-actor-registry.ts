@@ -67,8 +67,8 @@ export const LIVING_ACTORS: Readonly<Record<string, LivingActor>> = Object.freez
   [`${A}/leccion-23-z/zepelin.webp`]: { src: `${A}/leccion-23-z/zepelin.webp`, action: "glide", creature: false, reducedMotion: "static", meaning: "desplazamiento de zepelín" },
   [`${A}/leccion-23-z/zorro.webp`]: { src: `${A}/leccion-23-z/zorro.webp`, action: "wag", creature: true, parts: [{ name: "tail", clipPath: "inset(26% 0 16% 58%)", transformOrigin: "62% 66%" }], reducedMotion: "static", meaning: "reacción atenta del zorro con cola" },
 
-  [`${A}/leccion-7-m/mono.webp`]: { src: `${A}/leccion-7-m/mono.webp`, action: "nod", creature: true, blinkFrame: `${A}/leccion-7-m/mono-blink.webp`, parts: [{ name: "head", clipPath: "inset(0 22% 52% 22%)", transformOrigin: "50% 46%" }], reducedMotion: "static", meaning: "gesto atento de cabeza" },
-  [`${A}/leccion-9-s/sapo.webp`]: { src: `${A}/leccion-9-s/sapo.webp`, action: "hop", creature: true, blinkFrame: `${A}/leccion-9-s/sapo-blink.webp`, reducedMotion: "static", meaning: "salto de sapo" },
+  [`${A}/leccion-7-m/mono.webp`]: { src: `${A}/leccion-7-m/mono.webp`, action: "nod", creature: true, parts: [{ name: "head", clipPath: "inset(0 22% 52% 22%)", transformOrigin: "50% 46%" }], reducedMotion: "static", meaning: "gesto atento de cabeza" },
+  [`${A}/leccion-9-s/sapo.webp`]: { src: `${A}/leccion-9-s/sapo.webp`, action: "hop", creature: true, reducedMotion: "static", meaning: "salto de sapo" },
 });
 
 export function getLivingActor(src: string): LivingActor | null {
