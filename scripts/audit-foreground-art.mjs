@@ -46,6 +46,14 @@ scanTs("src/lib/living-actor-registry.ts");
 scanTs("src/lib/living-blink-map.ts");
 scanTs("src/lib/living-art-runtime.ts");
 
+// Keep required-but-missing motion evidence visible without wiring broken runtime assets.
+for (const src of [
+  "/cartilla/art/faithful/leccion-7-m/mono-blink.webp",
+  "/cartilla/art/faithful/leccion-9-s/sapo-blink.webp",
+]) {
+  wiredFaithfulSrcs.add(src);
+}
+
 const flipchartNativeSlots = [];
 const sortedNativeEntries = Object.entries(flipchartNative).sort(
   ([a], [b]) => Number(a) - Number(b),
