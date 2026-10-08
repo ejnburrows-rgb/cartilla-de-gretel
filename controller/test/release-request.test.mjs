@@ -32,7 +32,7 @@ test('quota denial defers a stored release request instead of consuming worker c
  await assert.rejects(runner.process(job.id),/GITHUB_RATE_LIMITED/);assert.equal((await f.ledger.get(job.id)).status,'retrying');assert.equal((await f.ledger.attempt(job.id)).worker,'controller');await f.p.close();
 });
 test('legacy open implementation verification becomes WAITING until mandatory new proofs pass',async()=>{
- const f=await fixture();const j=await f.ledger.create({key:'legacy-verified',kind:'issue_implementation',issue:7,spec:{}});
+ const f=await fixture();const j=await f.ledger.create({key:'legacy-verified',kind:'issue_implementation',issue:7,source:{issue:7},spec:{}});
  await f.db.query("UPDATE jobs SET status='verified' WHERE id=$1",[j.id]);assert.equal(await f.ledger.supersedeVerification(j.id,{head:'a'.repeat(40),pr:7,main:'b'.repeat(40)}),true);
  assert.equal((await f.ledger.get(j.id)).status,'waiting');assert.equal((await f.ledger.get(j.id)).owner_action,'Nothing');await assert.rejects(f.ledger.supersedeVerification(j.id,{head:'HEAD',pr:7}),/FRESH_VERIFICATION_CONTEXT_REQUIRED/);await f.p.close();
 });
