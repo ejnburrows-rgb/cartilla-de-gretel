@@ -35,6 +35,12 @@
   height: 80px;
   overflow: visible;
 }
+/* Owner 2026-10-08: the pencil and eraser glide in from the right side across the
+   neighbouring pictures; while a tool is in flight its cell paints above them. */
+.workbook-pencil-mark[data-mark-status="drawing"],
+.workbook-pencil-mark[data-mark-status="erasing"] {
+  z-index: 30;
+}
 /* The picture itself never moves when the child presses it: only the pencil acts. */
 .fp-ix-cell .living-illustration--reacting .living-illustration__art,
 .fp-ix-cell .living-runtime-art--reacting {

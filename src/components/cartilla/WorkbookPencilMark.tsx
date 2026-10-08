@@ -65,10 +65,12 @@ const AXIS: [number, number] = [
   Math.sin((PENCIL_TILT * Math.PI) / 180),
   -Math.cos((PENCIL_TILT * Math.PI) / 180),
 ];
-/** How far up its own axis the tool rests when it is outside the box. */
+/**
+ * Owner 2026-10-08: the pencil rests off to the right of the page, roughly level
+ * with the mark, and glides in from the right side across the neighbouring
+ * pictures — and back out the same way.
+ */
 const OFFSTAGE = 78;
-/** The overlay sits inside the cell's 4 px padding; the tools are cut at the cell edge. */
-const CELL_PADDING_PX = 4;
 
 /**
  * A polished yellow school pencil: three lit hexagonal facets with a scalloped
@@ -322,16 +324,15 @@ function pointAlong(points: Pt[], t: number): Pt {
   return points[points.length - 1];
 }
 
-/** Box size in CSS px (aspect drives the mark shape; width sets the clip margin). */
-function useCellBox(ref: React.RefObject<HTMLDivElement | null>): { aspect: number; width: number } {
-  const [box, setBox] = useState({ aspect: 1, width: 100 });
+/** Box aspect in CSS px (aspect drives the mark shape). */
+function useCellBox(ref: React.RefObject<HTMLDivElement | null>): { aspect: number } {
+  const [aspect, setAspect] = useState(1);
   useLayoutEffect(() => {
     const el = ref.current;
     if (!el) return;
     const measure = () => {
       const { width, height } = el.getBoundingClientRect();
-      if (width > 0 && height > 0)
-        setBox({ aspect: Math.min(2.5, Math.max(0.4, height / width)), width });
+      if (width > 0 && height > 0) setAspect(Math.min(2.5, Math.max(0.4, height / width)));
     };
     measure();
     if (typeof ResizeObserver === "undefined") return;
@@ -339,17 +340,19 @@ function useCellBox(ref: React.RefObject<HTMLDivElement | null>): { aspect: numb
     observer.observe(el);
     return () => observer.disconnect();
   }, [ref]);
-  return box;
+  return { aspect };
 }
 
-const OFF: Pt = [AXIS[0] * OFFSTAGE, AXIS[1] * OFFSTAGE];
+/** The pencil waits outside the picture on the right, level with the mark. */
+const OFF: Pt = [OFFSTAGE, -8];
 const offPt = `${f2(OFF[0])} ${f2(OFF[1])}`;
 
 /**
- * Draw phase. The big pencil tip slides in along its own axis from the top-right
- * corner and touches down on the starting point (`approach`), travels the mark
- * exactly as the stroke is revealed (`dur`) with the small wrist turns of a real
- * hand, then slides back out the way it came (`lift`). The box edge cuts it off.
+ * Draw phase. The big pencil glides in from the right side, passing over the
+ * neighbouring pictures on the way, and touches down on the starting point
+ * (`approach`), travels the mark exactly as the stroke is revealed (`dur`) with
+ * the small wrist turns of a real hand, then glides back out to the right over
+ * the same pictures (`lift`). The tools are not clipped to the cell.
  */
 function DrawingPencil({
   path,
@@ -588,8 +591,7 @@ export function WorkbookPencilMark({
   const boxRef = useRef<HTMLDivElement>(null);
   const baseId = `wb-pencil-${useId().replace(/[^a-zA-Z0-9_-]/g, "")}`;
   const shadowId = `${baseId}-shadow`;
-  const clipId = `${baseId}-clip`;
-  const { aspect, width } = useCellBox(boxRef);
+  const { aspect } = useCellBox(boxRef);
   const height = Math.round(100 * aspect * 10) / 10;
   const seed = useMemo(() => hashSeed(itemId ?? "mark"), [itemId]);
   const strokePoints = useMemo(
@@ -662,35 +664,11 @@ export function WorkbookPencilMark({
     return { strokeBegin, pencilBegin: strokeBegin - approach, approach };
   });
   const viewBox = `0 0 100 ${height}`;
-  // The tools are cut off exactly at the edge of the picture's box.
-  const pad = (CELL_PADDING_PX * 100) / Math.max(width, 1);
   const toolDefs = (
     <defs>
       <filter id={shadowId} x="-50%" y="-50%" width="200%" height="200%">
         <feDropShadow dx="1.6" dy="2.4" stdDeviation="1.6" floodColor="#3b2a14" floodOpacity="0.24" />
       </filter>
-      {/* The page has no drawn border around each picture, so the cut is softened
-          over about a millimetre instead of a razor-hard invisible line. */}
-      <filter id={`${clipId}-soft`} x="-10%" y="-10%" width="120%" height="120%">
-        <feGaussianBlur stdDeviation="1.6" />
-      </filter>
-      <mask
-        id={clipId}
-        maskUnits="userSpaceOnUse"
-        x={f2(-pad - 10)}
-        y={f2(-pad - 10)}
-        width={f2(100 + 2 * pad + 20)}
-        height={f2(height + 2 * pad + 20)}
-      >
-        <rect
-          x={f2(-pad + 2.4)}
-          y={f2(-pad + 2.4)}
-          width={f2(100 + 2 * pad - 4.8)}
-          height={f2(height + 2 * pad - 4.8)}
-          fill="#fff"
-          filter={`url(#${clipId}-soft)`}
-        />
-      </mask>
     </defs>
   );
 
@@ -715,7 +693,7 @@ export function WorkbookPencilMark({
             />
           ))}
           {animateDraw && (
-            <g mask={`url(#${clipId})`}>
+            <>
               {strokes.map((d, i) => (
                 <DrawingPencil
                   key={`p${i}`}
@@ -730,7 +708,7 @@ export function WorkbookPencilMark({
                   last={i === strokes.length - 1}
                 />
               ))}
-            </g>
+            </>
           )}
         </svg>
       )}
@@ -784,7 +762,7 @@ export function WorkbookPencilMark({
                         />
                       </path>
                     ))}
-                    <g mask={`url(#${clipId})`}>
+                    <>
                       <EraserCrumbs
                         points={lastPoints}
                         seed={seed}
@@ -802,7 +780,8 @@ export function WorkbookPencilMark({
                           path={lastPath}
                         />
                         <g>
-                          {/* Slides in from the right, eraser first; slides back out. */}
+                          {/* Slides in from the right across the neighbouring pictures,
+                              eraser first; slides back out the same way. */}
                           <animateTransform
                             attributeName="transform"
                             type="translate"
@@ -831,7 +810,7 @@ export function WorkbookPencilMark({
                           </g>
                         </g>
                       </g>
-                    </g>
+                    </>
                   </>
                 );
               })()}

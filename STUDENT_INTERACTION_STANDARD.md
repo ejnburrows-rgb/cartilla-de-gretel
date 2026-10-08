@@ -32,8 +32,8 @@ Motion must be polished and seamless: one purposeful action, then settle. Avoid 
 
 When a learner makes an incorrect mark/selection:
 1. The learner's mark is visible.
-2. The pencil draws the mark in **red** from the first line, then slides back out of the box (owner decision 2026-10-06).
-3. The big pink eraser with its silver band slides in from the right, rubs back and forth along the mark while pink crumbs fall, and slides out once the mark is gone.
+2. The pencil draws the mark in **red** from the first line, then glides back out to the right, over the neighbouring pictures (owner decisions 2026-10-06 and 2026-10-08).
+3. The big pink eraser with its silver band slides in from the right, passing over the neighbouring pictures, rubs back and forth along the mark while pink crumbs fall, and slides out once the mark is gone.
 4. The eraser visibly removes the incorrect mark completely.
 5. Gretel says: **“Inténtalo otra vez.”**
 6. The activity returns to a calm retry-ready state.
@@ -44,12 +44,12 @@ No red X. No punitive buzzer. No arcade failure animation.
 
 Use the same classic wooden pencil.
 
-Owner decision 2026-10-06 (replaces the earlier ~3 second neutral hold):
+Owner decision 2026-10-06 (replaces the earlier ~3 second neutral hold), amended 2026-10-08:
 
 1. The learner taps the picture/answer.
-2. A big close-up pencil — only its front shows — comes in from the top-right corner, cut off at the edge of the picture's box (it never goes over a neighbouring picture), and draws the circle in about **2 seconds**. The line is about as thick as before; the page itself stays still (no zoom, no special shadow).
+2. A big close-up pencil comes in **from the right side of the page, gliding over the neighbouring pictures like a real hand crossing the page** (it is not cut off at the picture's edge), and draws the circle in about **2 seconds**. The line is about as thick as before; the page itself stays still (no zoom, no special shadow).
 3. The circle is **green from the first line** when the answer is right and **red from the first line** when it is wrong. There is no gray waiting period.
-4. After drawing, the pencil slides back out and disappears.
+4. After drawing, the pencil glides back out to the right, over the same neighbouring pictures, and disappears.
 5. If correct, the green circle stays and Gretel says: **“Buen trabajo.”**
 6. If incorrect, use the Pencil Retry behavior above: the eraser erases the red circle and Gretel says “Inténtalo otra vez.”
 
