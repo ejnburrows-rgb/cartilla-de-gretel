@@ -185,3 +185,19 @@ test('mandatory Sonar cannot be bypassed by issue checks, forged apps, old commi
  assert.equal(validateChange(job,{...e,checks:e.checks.map(c=>c.app_id===12526?{...c,head_sha:sha}:c)},[123,12526]).passed,false);
  assert.equal(validateChange(job,{...e,checks:[...e.checks,{...e.checks[1],status:'in_progress',started_at:'2099-10-08T01:00:00Z'}]},[123,12526]).passed,false);
 });
+
+test('Jules is the implementation worker when enabled while OpenHands remains unused for that coding job',async()=>{
+ let openHandsStarts=0;
+ const {p,ledger,runner,github,db}=await setup({start:async()=>{openHandsStarts++;throw Error('OpenHands should not implement while Jules is enabled');},poll:async()=>({status:'finished',terminal:true})},{JULES_ENABLED:'true'});
+ github.startJules=async()=>({task_id:'jules-task-7',status:'running',terminal:false});
+ github.julesStatus=async()=>({task_id:'jules-task-7',pr_number:99,status:'finished',terminal:true});
+ github.changes=async job=>{assert.equal(job.worker,'jules');return evidence();};
+ const j=await ledger.create({key:'jules-implementation',kind:'issue_implementation',issue:7,source:{issue:7},spec});
+ assert.equal(await runner.dispatch(j,snapshot()),true);
+ const a=await ledger.attempt(j.id);assert.equal(a.worker,'jules');assert.equal(a.external_id,'jules-task-7');assert.equal(openHandsStarts,0);
+ runner.rescan=async()=>({});
+ await runner.poll(j.id);
+ assert.equal((await ledger.get(j.id)).status,'verified');
+ assert.equal((await db.query("SELECT count(*)::int AS n FROM job_attempts WHERE worker='jules'")).rows[0].n,1);
+ await p.close();
+});
