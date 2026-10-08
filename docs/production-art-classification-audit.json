@@ -1,11 +1,11 @@
 {
   "timestamp": "2026-10-07T23:34:33.950Z",
   "counts": {
-    "faithfulWired": 110,
+    "faithfulWired": 108,
     "flipchartNativeWired": 167,
     "breakdownFaithful": {
-      "PASS": 94,
-      "PENDING NO VERIFIED SOURCE": 14,
+      "PASS": 97,
+      "PENDING NO VERIFIED SOURCE": 9,
       "VERIFIED COLOR TRANSFER": 1,
       "CROP FIX": 1
     },
@@ -337,7 +337,7 @@
     {
       "src": "/cartilla/art/faithful/leccion-19-c/casa.webp",
       "word": "casa",
-      "classification": "PENDING NO VERIFIED SOURCE",
+      "classification": "PASS",
       "provenance": "",
       "qaVerdict": "PASS",
       "dimensions": "870x855",
@@ -567,7 +567,7 @@
     {
       "src": "/cartilla/art/faithful/leccion-22-y/yate.webp",
       "word": "yate",
-      "classification": "PENDING NO VERIFIED SOURCE",
+      "classification": "PASS",
       "provenance": "",
       "qaVerdict": "PASS",
       "dimensions": "870x609",
@@ -607,7 +607,7 @@
     {
       "src": "/cartilla/art/faithful/leccion-23-z/zapato.webp",
       "word": "zapato",
-      "classification": "PENDING NO VERIFIED SOURCE",
+      "classification": "PASS",
       "provenance": "",
       "qaVerdict": "PASS",
       "dimensions": "870x790",
@@ -665,16 +665,6 @@
       "isQuarantined": false
     },
     {
-      "src": "/cartilla/art/faithful/leccion-7-m/mono-blink.webp",
-      "word": "mono-blink",
-      "classification": "PENDING NO VERIFIED SOURCE",
-      "provenance": "",
-      "qaVerdict": "",
-      "dimensions": "0x0",
-      "bytes": 0,
-      "isQuarantined": false
-    },
-    {
       "src": "/cartilla/art/faithful/leccion-7-m/mono.webp",
       "word": "mono",
       "classification": "PASS",
@@ -692,16 +682,6 @@
       "qaVerdict": "PASS",
       "dimensions": "480x660",
       "bytes": 39046,
-      "isQuarantined": false
-    },
-    {
-      "src": "/cartilla/art/faithful/leccion-9-s/sapo-blink.webp",
-      "word": "sapo-blink",
-      "classification": "PENDING NO VERIFIED SOURCE",
-      "provenance": "",
-      "qaVerdict": "",
-      "dimensions": "0x0",
-      "bytes": 0,
       "isQuarantined": false
     },
     {

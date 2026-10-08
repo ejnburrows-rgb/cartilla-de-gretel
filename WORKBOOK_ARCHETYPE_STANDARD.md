@@ -1,17 +1,5 @@
 # WORKBOOK ARCHETYPE STANDARD — La Cartilla de Gretel
 
-## Latest owner direction — 2026-10-07
-
-The uploaded second eight-panel image is the repeating main-page archetype.
-Main lesson pages center the clean workbook itself, with navigation below;
-Gretel must not occupy a default side column. Reuse existing content, approved
-artwork, activity state and completion gates. Pages grow instead of clipping
-content in nested scroll areas. Flipchart uses a clean paper surface with no
-background images; source instructional foreground scenes and useful motion
-remain. This explicit direction supersedes older side-companion and scenic
-Flipchart presentation statements below. Reference title bars are annotations.
-
-
 > **Status:** CANONICAL OWNER-LOCKED STUDENT WORKBOOK VISUAL SYSTEM  
 > **Owner direction:** 2026-10-06  
 > **Scope:** recurring Student Workbook exercise families only
