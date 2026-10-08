@@ -56,7 +56,7 @@ const PENCIL_TILT = 60;
  * Big close-up tool (owner reference 2026-10-06): the pencil is about a third of
  * the box high, so it is always much longer than the box and only its front shows.
  */
-const PENCIL_SCALE = 3.6;
+const PENCIL_SCALE = 4.8;
 const PENCIL_POSE = `rotate(${PENCIL_TILT}) scale(${PENCIL_SCALE})`;
 /** The eraser lies a little flatter, its body running off to the right. */
 const ERASER_TILT = 66;
@@ -595,17 +595,18 @@ function EraserCrumbs({
       return ((s ^= s >>> 16) >>> 0) / 4294967296;
     };
     const out: { x: number; y: number; dx: number; dy: number; rx: number; ry: number; rot: number; spin: number; c: string; t: number }[] = [];
-    const n = 22;
+    const n = 28;
     for (let i = 0; i < n; i++) {
       // The eraser runs backwards along the mark, so crumbs break off from t=1 to 0.
       const t = 1 - (i + rnd() * 0.7) / n;
       const [px, py] = pointAlong(points, t);
-      const r = 1.7 + rnd() * 2;
+      // Big, clearly visible rubber crumbs (owner close-up reference 2026-10-08).
+      const r = 2.8 + rnd() * 2.6;
       out.push({
-        x: px + (rnd() - 0.5) * 7,
-        y: py + (rnd() - 0.5) * 4,
-        dx: -2 + rnd() * 7,
-        dy: 6 + rnd() * 12,
+        x: px + (rnd() - 0.5) * 12,
+        y: py + (rnd() - 0.5) * 9,
+        dx: -4 + rnd() * 10,
+        dy: 8 + rnd() * 14,
         rx: r * (1 + rnd() * 0.5),
         ry: r * (0.6 + rnd() * 0.3),
         rot: rnd() * 180,
@@ -908,7 +909,7 @@ export function WorkbookPencilMark({
                     attributeName="opacity"
                     dur={`${eraseMs}ms`}
                     fill="freeze"
-                    values="0;0.1;0.06;0"
+                    values="0;0.16;0.1;0"
                     keyTimes={`0;${kTouch};${kRubbed};1`}
                   />
                 </path>

@@ -15,10 +15,12 @@
 .workbook-pencil-mark__stroke {
   fill: none;
   stroke: #46464d;
-  stroke-width: 3.4;
+  stroke-width: 3.2;
   stroke-linecap: round;
   stroke-linejoin: round;
-  stroke-opacity: 0.95;
+  stroke-opacity: 1;
+  /* Owner 2026-10-08: a crisp, solid line like the close-up reference. */
+  shape-rendering: geometricPrecision;
 }
 /* Owner 2026-10-06: green from the first line when right, red when wrong. */
 .workbook-pencil-mark[data-mark-result="correct"] .workbook-pencil-mark__stroke,

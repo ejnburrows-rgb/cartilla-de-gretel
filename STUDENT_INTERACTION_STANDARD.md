@@ -33,7 +33,7 @@ Motion must be polished and seamless: one purposeful action, then settle. Avoid 
 When a learner makes an incorrect mark/selection:
 1. The learner's mark is visible.
 2. The pencil draws the mark in **red** from the first line, then travels back out past the right edge of the screen, over everything on the way (owner decisions 2026-10-06 and 2026-10-08).
-3. The same big, solid pencil turned around — its pink eraser and silver band at the picture, its body running off the edge of the screen — comes in from off the right edge of the screen, passing over everything on the way, rubs back and forth along the mark while pink crumbs fall, and leaves past the right edge of the screen once the mark is gone. It never pops up inside the picture's box.
+3. The same big, solid pencil turned around — its pink eraser and silver band at the picture, its body running off the edge of the screen — comes in from off the right edge of the screen, passing over everything on the way, rubs back and forth along the mark while big, clearly visible pink crumbs break off and fall, and leaves past the right edge of the screen once the mark is gone. It never pops up inside the picture's box.
 4. The eraser visibly removes the incorrect mark completely.
 5. Gretel says: **“Inténtalo otra vez.”**
 6. The activity returns to a calm retry-ready state.
@@ -47,7 +47,7 @@ Use the same classic wooden pencil.
 Owner decision 2026-10-06 (replaces the earlier ~3 second neutral hold), amended 2026-10-08:
 
 1. The learner taps the picture/answer.
-2. A big, solid, full pencil (never faded, never cut off) whose body is long enough to run right off the edge of the screen, so near the picture only its tip is seen, like a real pencil held from off-screen (owner 2026-10-08). It starts **completely off the right edge of the screen** and travels in like a real hand, passing over the page and the neighbouring pictures. It is never cut off at the picture's or the page's edge and never pops up inside a box. It draws the circle in about **2 seconds**. The line is about as thick as before; the page itself stays still (no zoom, no special shadow).
+2. A big, solid, full pencil (never faded, never cut off) whose body is long enough to run right off the edge of the screen, so near the picture only its tip is seen, like a real pencil held from off-screen (owner 2026-10-08). It is drawn big, as in the owner's close-up reference: the cedar cone is about as long as the picture is wide, and the line is crisp and solid. It starts **completely off the right edge of the screen** and travels in like a real hand, passing over the page and the neighbouring pictures. It is never cut off at the picture's or the page's edge and never pops up inside a box. It draws the circle in about **2 seconds**. The line is about as thick as before; the page itself stays still (no zoom, no special shadow).
 3. The circle is **green from the first line** when the answer is right and **red from the first line** when it is wrong. There is no gray waiting period.
 4. After drawing, the pencil travels back out the same way, past the right edge of the screen.
 5. If correct, the green circle stays and Gretel says: **“Buen trabajo.”**
