@@ -22,7 +22,7 @@
 - #389 remains the dedicated direct-cloud release-verification lane.
 - #545 / PR #546: separate durable controller live; mandatory continuation workflow is in `controller/README.md` on `watchdog/event-coordinator`. Continue webhook processing, ten-minute reconciliation, polling, validation and safe recovery while owner-gated lanes wait.
 - #389 bounded harness collision fix: PR #547 at `2580991ea9d121326ef4b0fc5acc59df91cc1651` independently verified (4/4 regression tests, negative control, exact-head trusted SonarCloud). Full release verification remains outstanding; no merge or product deployment performed.
-- Two approved OpenHands conversations finished. Emilio authorized continued paid work, but its maximum total spending budget remains unspecified. Establish the cap before removing the single-job guard or enabling ongoing starts.
+- Initial two OpenHands conversations finished. Emilio authorized ongoing automatic starts: hard ceiling two new conversations per UTC day, capacity one; single-job restriction cleared. Safe scoped work dispatches automatically when quota, capacity and dependencies allow. No increase without owner authorization.
 - #540 remains a test-timing diagnosis, not a runtime repair lane absent a new reproducible defect.
 - Final premium Gretel voice/TTS is still an owner-required unresolved finish item.
 - Welcome video remains non-blocking.
