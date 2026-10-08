@@ -11,7 +11,7 @@ const spec={action:'Repair narrow test behavior',paths:['src/example.ts'],depend
 const issue=n=>({number:n,body:'```cartilla-controller\n'+JSON.stringify(spec)+'\n```',state:'open',labels:[{name:'controller:ready'}],user:{login:'owner'},html_url:`https://github.com/owner/repo/issues/${n}`});
 const snapshot=()=>({main:{sha,url:'https://github.com/owner/repo/commit/'+sha},instructions:{'AGENTS.md':'bounded instructions'},instructionHashes:{'AGENTS.md':'hash'},issues:[],prs:[],fetched_at:new Date().toISOString()});
 const gh=()=>({repo:'owner/repo',snapshot:async()=>snapshot(),main:async()=>snapshot().main,pages:async()=>[],request:async p=>issue(Number(p.split('/').at(-1)))});
-const env={OPENHANDS_ENABLED:'true',OPENHANDS_API_KEY:'mock-only',OPENHANDS_DAILY_START_LIMIT:'10',OPENHANDS_CAPACITY:'2',TRUSTED_CHECK_APP_IDS:'123'};
+const env={OPENHANDS_ENABLED:'true',OPENHANDS_API_KEY:'mock-only',OPENHANDS_DAILY_START_LIMIT:'10',OPENHANDS_CAPACITY:'2',TRUSTED_CHECK_APP_IDS:'123,12526'};
 async function setup(worker={start:async()=>({start_task_id:randomUUID(),external_id:randomUUID(),status:'READY'}),poll:async a=>({external_id:a.external_id,status:'finished',terminal:true})},extra={}){
  const f=await fixture();const sent=[];const github=gh();const runner=new Runner({ledger:f.ledger,github,worker,send:async e=>sent.push(e),env:{...env,...extra},verification:{request:async()=>({status:'verified'}),inspect:async()=>({passed:true,head,main:sha,deployment_required:false})}});return {...f,runner,github,sent};
 }
