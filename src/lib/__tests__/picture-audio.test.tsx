@@ -51,7 +51,7 @@ it('uses the approved recording path and cancels/releases previous recordings on
   const first = FakeAudio.instances[0]!;
   expect(first.src).toBe('/test-approved/oso.mp3'); expect(first.play).toHaveBeenCalledOnce();
   expect(playPictureName(olla)).toBe('recorded');
-  expect(first.pause).toHaveBeenCalled(); expect(first.src).toBe('');
+  expect(first.pause).toHaveBeenCalled(); expect(first.removeAttribute).toHaveBeenCalledWith('src');
   const second = FakeAudio.instances[1]!;
   expect(second.src).toBe('/test-approved/olla.mp3');
   stopPicturePlayback(); expect(second.pause).toHaveBeenCalled(); expect(second.src).toBe('');
