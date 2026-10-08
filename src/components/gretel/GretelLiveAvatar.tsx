@@ -49,8 +49,8 @@ interface GretelLiveAvatarProps {
   showBubble?: boolean;
 }
 
-const CONGRATULATIONS = ["Buen trabajo.", "¡Muy bien!", "¡Excelente!", "¡Lo lograste!"];
-const ENCOURAGEMENTS = ["Inténtalo otra vez."];
+const CONGRATULATIONS = ["¡Muy bien!", "¡Excelente!", "¡Lo lograste!", "¡Qué bien!"];
+const ENCOURAGEMENTS = ["Inténtalo otra vez.", "Casi. Prueba otra vez.", "Tú puedes."];
 const SIZES = {
   sm: "h-24 w-24 sm:h-28 sm:w-28",
   md: "h-32 w-32 sm:h-40 sm:w-40",
@@ -64,9 +64,9 @@ function bodyAnimation(state: string) {
   if (state === "waving") return { rotate: [0, -3, 3, 0], scale: [1, 1.015, 1] };
   if (state === "talking") return { rotate: [0, -1.2, 1.2, 0], scale: [1, 1.01, 1] };
   if (state === "pointing" || state === "teaching" || state === "help") return { rotate: [0, 1.4, 0], scale: [1, 1.015, 1] };
-  if (state === "listening") return { rotate: -1.5, scale: 1 };
+  if (state === "listening") return { rotate: [-2.2, -1.2, -2.2], scale: [1, 1.006, 1] };
   if (state === "gentle-error") return { y: [0, 1.5, 0], rotate: [1.2, -1.2, 1.2], scale: [1, 0.995, 1] };
-  return { y: 0, rotate: 0, scale: 1 };
+  return { y: 0, rotate: [-0.25, 0.25, -0.25], scale: [1, 1.008, 1] };
 }
 
 function bodyTransition(state: string) {
@@ -74,8 +74,8 @@ function bodyTransition(state: string) {
   if (state === "waving") return { duration: 1.2, repeat: 1, ease: "easeInOut" as const };
   if (state === "talking") return { duration: 0.7, repeat: Infinity, ease: "easeInOut" as const };
   if (["pointing", "teaching", "help", "gentle-error"].includes(state)) return { duration: 0.55, ease: "easeOut" as const };
-  if (state === "listening") return { duration: 0.4, ease: "easeOut" as const };
-  return { duration: 0.4, ease: "easeOut" as const };
+  if (state === "listening") return { duration: 2.1, repeat: Infinity, ease: "easeInOut" as const };
+  return { duration: 5.5, repeat: Infinity, ease: "easeInOut" as const };
 }
 
 export const GretelLiveAvatar = forwardRef<GretelLiveAvatarRef, GretelLiveAvatarProps>(
