@@ -3,7 +3,8 @@ import path from "node:path";
 import { createHash } from "node:crypto";
 import sharp from "sharp";
 
-const root = path.resolve(import.meta.dirname, "..");
+const argRoot = process.argv.find((arg) => arg.startsWith("--root="))?.slice(7);
+const root = argRoot ? path.resolve(argRoot) : path.resolve(import.meta.dirname, "..");
 const read = (name) => {
   return JSON.parse(fs.readFileSync(path.join(root, name), "utf8"));
 };

@@ -1,35 +1,18 @@
 import { execSync } from "node:child_process";
-import { describe, it, expect, afterEach } from "vitest";
+import { describe, it, expect } from "vitest";
 import fs from "node:fs";
 import path from "node:path";
+import os from "node:os";
 
-const root = path.resolve(__dirname, "../..");
-const scriptPath = path.join(root, "scripts/verify-production-assets.mjs");
+const scriptPath = path.resolve(__dirname, "../verify-production-assets.mjs");
 
 describe("verify-production-assets.mjs", () => {
-  const backupPath = path.join(root, "src/data/page-layouts.json.bak");
-  const targetPath = path.join(root, "src/data/page-layouts.json");
-
-  const scanBackupPath = path.join(root, "public/cartilla/art/source/workbook/page-001.jpg.bak");
-  const scanTargetPath = path.join(root, "public/cartilla/art/source/workbook/page-001.jpg");
-
-  afterEach(() => {
-    // Restore files if test failed and left them renamed
-    if (fs.existsSync(backupPath)) {
-      fs.renameSync(backupPath, targetPath);
-    }
-    if (fs.existsSync(scanBackupPath)) {
-      fs.renameSync(scanBackupPath, scanTargetPath);
-    }
-  });
-
   it("fails fatally when a manifest is missing or unparseable", () => {
-    // Rename manifest to simulate missing
-    fs.renameSync(targetPath, backupPath);
-
+    // create empty temp dir
+    const mockRoot = fs.mkdtempSync(path.join(os.tmpdir(), "verify-test-"));
     let error: any = null;
     try {
-      execSync(`node ${scriptPath}`, { stdio: "pipe" });
+      execSync(`node ${scriptPath} --root=${mockRoot}`, { stdio: "pipe" });
     } catch (e) {
       error = e;
     }
@@ -38,10 +21,11 @@ describe("verify-production-assets.mjs", () => {
     expect(error.stderr.toString()).toContain("ENOENT");
 
     // Create unparseable manifest
-    fs.writeFileSync(targetPath, "{ invalid json }");
+    fs.mkdirSync(path.join(mockRoot, "src/data"), { recursive: true });
+    fs.writeFileSync(path.join(mockRoot, "src/data/page-layouts.json"), "{ invalid }");
     let parseError: any = null;
     try {
-      execSync(`node ${scriptPath}`, { stdio: "pipe" });
+      execSync(`node ${scriptPath} --root=${mockRoot}`, { stdio: "pipe" });
     } catch (e) {
       parseError = e;
     }
@@ -49,28 +33,29 @@ describe("verify-production-assets.mjs", () => {
     expect(parseError.status).toBe(1);
     expect(parseError.stderr.toString()).toMatch(/SyntaxError|Unexpected token/);
 
-    // Restore
-    fs.rmSync(targetPath);
-    fs.renameSync(backupPath, targetPath);
+    fs.rmSync(mockRoot, { recursive: true, force: true });
   });
 
   it("fails if a valid runtime Workbook source scan is missing", () => {
-    // Rename page-001.jpg to simulate a missing source scan
-    fs.renameSync(scanTargetPath, scanBackupPath);
+    const mockRoot = fs.mkdtempSync(path.join(os.tmpdir(), "verify-test2-"));
+    fs.mkdirSync(path.join(mockRoot, "src/data"), { recursive: true });
+    fs.writeFileSync(path.join(mockRoot, "src/data/page-layouts.json"), "[]");
+    fs.writeFileSync(path.join(mockRoot, "src/data/flipchart-production-art.json"), "[]");
+    fs.writeFileSync(path.join(mockRoot, "src/data/final-backgrounds.json"), "{}");
+    fs.writeFileSync(path.join(mockRoot, "src/data/gretel-approved-master.json"), "{}");
+    fs.writeFileSync(path.join(mockRoot, "src/data/gretel-approved-clips.json"), "{}");
 
     let error: any = null;
     try {
-      execSync(`node ${scriptPath}`, { stdio: "pipe" });
+      execSync(`node ${scriptPath} --root=${mockRoot}`, { stdio: "pipe" });
     } catch (e) {
       error = e;
     }
-
-    // Restore
-    fs.renameSync(scanBackupPath, scanTargetPath);
-
     expect(error).not.toBeNull();
     expect(error.status).toBe(1);
     expect(error.stdout.toString()).toContain("page-001.jpg");
     expect(error.stdout.toString()).toContain("ENOENT");
-  }, 30000); // give it more time to read all files
+
+    fs.rmSync(mockRoot, { recursive: true, force: true });
+  });
 });
