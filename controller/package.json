@@ -1,0 +1,1 @@
+{"name":"cartilla-controller","private":true,"type":"module","engines":{"node":"24.x"},"scripts":{"test":"node --test test/*.test.mjs","build":"node scripts/build.mjs","migrate":"node scripts/migrate.mjs","dev":"node scripts/dev.mjs"},"dependencies":{"inngest":"4.22.0","pg":"8.16.3"},"devDependencies":{"@electric-sql/pglite":"0.3.14"}}

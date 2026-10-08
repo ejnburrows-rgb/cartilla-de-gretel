@@ -40,7 +40,7 @@ test.describe("native lesson and presenter motion", () => {
     await expect(panel).toHaveAttribute("data-hd-primary", "true");
     await expect(panel).toHaveAttribute("data-presenter-mode", "native");
     await expect(panel).toHaveAttribute("data-page-turn-axis", "vertical");
-    await expect(panel).toHaveAttribute("data-page-turn-ms", "1120");
+    await expect(panel).toHaveAttribute("data-page-turn-ms", "980");
     await expect(panel).not.toHaveAttribute("data-physical-flipchart", /.*/);
     await expect(panel.locator(".fc-board__ring")).toHaveCount(0);
     await expect(panel.locator(".fc-board__binding")).toHaveCount(0);

@@ -37,12 +37,12 @@ it("Flip Chart covers every printed page, uses PDF sheets and excludes front mat
     expect(flipchartBackground(printed + 2)?.printedPage).toBe(printed);
   expect(Object.values(delivered.flipchart)).toHaveLength(60);
 });
-it("active Flip Chart board gets its own background without replacing foreground", () => {
+it("active Flip Chart board omits wallpaper and preserves instructional foreground", () => {
   const page = flipchart.pages.find((p) => p.flipchartPage === 3)!;
   const view = render(<FlipchartNativeBoard page={page} />);
   const bg = view.container.querySelector(".final-page-background");
-  expect(bg?.getAttribute("data-background-printed-page")).toBe("1");
-  expect(bg?.getAttribute("data-background-pdf-sheet")).toBe("3");
+  expect(bg).toBeNull();
+  expect(view.container.querySelectorAll(".fc-native-board__page img").length).toBeGreaterThan(0);
   expect(view.container.querySelector(".fc-native-board__page")).toBeTruthy();
   cleanup();
 });
