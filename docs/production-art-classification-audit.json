@@ -1,5 +1,5 @@
 {
-  "timestamp": "2026-10-08T11:39:37.113Z",
+  "timestamp": "2026-10-08T16:50:40.369Z",
   "counts": {
     "faithfulWired": 110,
     "flipchartNativeWired": 167,
@@ -10,7 +10,7 @@
       "CROP FIX": 1
     },
     "breakdownNative": {
-      "PENDING NO VERIFIED SOURCE": 167
+      "PASS": 167
     }
   },
   "faithfulAudit": [
@@ -1127,13 +1127,17 @@
         514,
         337
       ],
-      "classification": "PENDING NO VERIFIED SOURCE",
+      "classification": "PASS",
       "dimensions": "539x539",
       "bytes": 177783,
       "exists": true,
-      "verified": false,
+      "verified": true,
       "sourcePageMatches": true,
-      "hasCropEvidence": true
+      "hasCropEvidence": true,
+      "sourceMaterialExists": true,
+      "hasValidSourceCrop": true,
+      "sourceMaterialFile": "public/cartilla/backgrounds/final/flipchart/FlipChart_Page_003.png",
+      "missingEvidence": null
     },
     {
       "src": "/cartilla/art/optimized/flipchart-native/p003-avion.png",
@@ -1146,13 +1150,17 @@
         225,
         207
       ],
-      "classification": "PENDING NO VERIFIED SOURCE",
+      "classification": "PASS",
       "dimensions": "320x320",
       "bytes": 43248,
       "exists": true,
-      "verified": false,
+      "verified": true,
       "sourcePageMatches": true,
-      "hasCropEvidence": true
+      "hasCropEvidence": true,
+      "sourceMaterialExists": true,
+      "hasValidSourceCrop": true,
+      "sourceMaterialFile": "public/cartilla/backgrounds/final/flipchart/FlipChart_Page_003.png",
+      "missingEvidence": null
     },
     {
       "src": "/cartilla/art/optimized/flipchart-native/p003-escoba.png",
@@ -1165,13 +1173,17 @@
         178,
         212
       ],
-      "classification": "PENDING NO VERIFIED SOURCE",
+      "classification": "PASS",
       "dimensions": "320x320",
       "bytes": 55553,
       "exists": true,
-      "verified": false,
+      "verified": true,
       "sourcePageMatches": true,
-      "hasCropEvidence": true
+      "hasCropEvidence": true,
+      "sourceMaterialExists": true,
+      "hasValidSourceCrop": true,
+      "sourceMaterialFile": "public/cartilla/backgrounds/final/flipchart/FlipChart_Page_003.png",
+      "missingEvidence": null
     },
     {
       "src": "/cartilla/art/optimized/flipchart-native/p003-iman.png",
@@ -1184,13 +1196,17 @@
         222,
         214
       ],
-      "classification": "PENDING NO VERIFIED SOURCE",
+      "classification": "PASS",
       "dimensions": "320x320",
       "bytes": 49205,
       "exists": true,
-      "verified": false,
+      "verified": true,
       "sourcePageMatches": true,
-      "hasCropEvidence": true
+      "hasCropEvidence": true,
+      "sourceMaterialExists": true,
+      "hasValidSourceCrop": true,
+      "sourceMaterialFile": "public/cartilla/backgrounds/final/flipchart/FlipChart_Page_003.png",
+      "missingEvidence": null
     },
     {
       "src": "/cartilla/art/optimized/flipchart-native/p003-olla.png",
@@ -1203,13 +1219,17 @@
         204,
         171
       ],
-      "classification": "PENDING NO VERIFIED SOURCE",
+      "classification": "PASS",
       "dimensions": "320x320",
       "bytes": 55420,
       "exists": true,
-      "verified": false,
+      "verified": true,
       "sourcePageMatches": true,
-      "hasCropEvidence": true
+      "hasCropEvidence": true,
+      "sourceMaterialExists": true,
+      "hasValidSourceCrop": true,
+      "sourceMaterialFile": "public/cartilla/backgrounds/final/flipchart/FlipChart_Page_003.png",
+      "missingEvidence": null
     },
     {
       "src": "/cartilla/art/optimized/flipchart-native/p003-una.png",
@@ -1222,13 +1242,17 @@
         170,
         182
       ],
-      "classification": "PENDING NO VERIFIED SOURCE",
+      "classification": "PASS",
       "dimensions": "320x320",
       "bytes": 49948,
       "exists": true,
-      "verified": false,
+      "verified": true,
       "sourcePageMatches": true,
-      "hasCropEvidence": true
+      "hasCropEvidence": true,
+      "sourceMaterialExists": true,
+      "hasValidSourceCrop": true,
+      "sourceMaterialFile": "public/cartilla/backgrounds/final/flipchart/FlipChart_Page_003.png",
+      "missingEvidence": null
     },
     {
       "src": "/cartilla/art/optimized/flipchart-native/p004-scene.png",
@@ -1241,13 +1265,17 @@
         469,
         460
       ],
-      "classification": "PENDING NO VERIFIED SOURCE",
+      "classification": "PASS",
       "dimensions": "560x560",
       "bytes": 203733,
       "exists": true,
-      "verified": false,
+      "verified": true,
       "sourcePageMatches": true,
-      "hasCropEvidence": true
+      "hasCropEvidence": true,
+      "sourceMaterialExists": true,
+      "hasValidSourceCrop": true,
+      "sourceMaterialFile": "public/cartilla/backgrounds/final/flipchart/FlipChart_Page_004.png",
+      "missingEvidence": null
     },
     {
       "src": "/cartilla/art/optimized/flipchart-native/p004-olla.png",
@@ -1260,13 +1288,17 @@
         223,
         182
       ],
-      "classification": "PENDING NO VERIFIED SOURCE",
+      "classification": "PASS",
       "dimensions": "320x320",
       "bytes": 46668,
       "exists": true,
-      "verified": false,
+      "verified": true,
       "sourcePageMatches": true,
-      "hasCropEvidence": true
+      "hasCropEvidence": true,
+      "sourceMaterialExists": true,
+      "hasValidSourceCrop": true,
+      "sourceMaterialFile": "public/cartilla/backgrounds/final/flipchart/FlipChart_Page_004.png",
+      "missingEvidence": null
     },
     {
       "src": "/cartilla/art/optimized/flipchart-native/p004-oto.png",
@@ -1279,13 +1311,17 @@
         225,
         184
       ],
-      "classification": "PENDING NO VERIFIED SOURCE",
+      "classification": "PASS",
       "dimensions": "320x320",
       "bytes": 48351,
       "exists": true,
-      "verified": false,
+      "verified": true,
       "sourcePageMatches": true,
-      "hasCropEvidence": true
+      "hasCropEvidence": true,
+      "sourceMaterialExists": true,
+      "hasValidSourceCrop": true,
+      "sourceMaterialFile": "public/cartilla/backgrounds/final/flipchart/FlipChart_Page_004.png",
+      "missingEvidence": null
     },
     {
       "src": "/cartilla/art/optimized/flipchart-native/p004-oveja.png",
@@ -1298,13 +1334,17 @@
         227,
         211
       ],
-      "classification": "PENDING NO VERIFIED SOURCE",
+      "classification": "PASS",
       "dimensions": "320x320",
       "bytes": 41334,
       "exists": true,
-      "verified": false,
+      "verified": true,
       "sourcePageMatches": true,
-      "hasCropEvidence": true
+      "hasCropEvidence": true,
+      "sourceMaterialExists": true,
+      "hasValidSourceCrop": true,
+      "sourceMaterialFile": "public/cartilla/backgrounds/final/flipchart/FlipChart_Page_004.png",
+      "missingEvidence": null
     },
     {
       "src": "/cartilla/art/optimized/flipchart-native/p004-oso.png",
@@ -1317,13 +1357,17 @@
         220,
         257
       ],
-      "classification": "PENDING NO VERIFIED SOURCE",
+      "classification": "PASS",
       "dimensions": "320x320",
       "bytes": 79390,
       "exists": true,
-      "verified": false,
+      "verified": true,
       "sourcePageMatches": true,
-      "hasCropEvidence": true
+      "hasCropEvidence": true,
+      "sourceMaterialExists": true,
+      "hasValidSourceCrop": true,
+      "sourceMaterialFile": "public/cartilla/backgrounds/final/flipchart/FlipChart_Page_004.png",
+      "missingEvidence": null
     },
     {
       "src": "/cartilla/art/optimized/flipchart-native/p004-oreja.png",
@@ -1336,13 +1380,17 @@
         158,
         243
       ],
-      "classification": "PENDING NO VERIFIED SOURCE",
+      "classification": "PASS",
       "dimensions": "320x320",
       "bytes": 56308,
       "exists": true,
-      "verified": false,
+      "verified": true,
       "sourcePageMatches": true,
-      "hasCropEvidence": true
+      "hasCropEvidence": true,
+      "sourceMaterialExists": true,
+      "hasValidSourceCrop": true,
+      "sourceMaterialFile": "public/cartilla/backgrounds/final/flipchart/FlipChart_Page_004.png",
+      "missingEvidence": null
     },
     {
       "src": "/cartilla/art/optimized/flipchart-native/p004-ocho.png",
@@ -1355,13 +1403,17 @@
         208,
         260
       ],
-      "classification": "PENDING NO VERIFIED SOURCE",
+      "classification": "PASS",
       "dimensions": "320x320",
       "bytes": 62819,
       "exists": true,
-      "verified": false,
+      "verified": true,
       "sourcePageMatches": true,
-      "hasCropEvidence": true
+      "hasCropEvidence": true,
+      "sourceMaterialExists": true,
+      "hasValidSourceCrop": true,
+      "sourceMaterialFile": "public/cartilla/backgrounds/final/flipchart/FlipChart_Page_004.png",
+      "missingEvidence": null
     },
     {
       "src": "/cartilla/art/optimized/flipchart-native/p005-scene.png",
@@ -1374,13 +1426,17 @@
         396,
         516
       ],
-      "classification": "PENDING NO VERIFIED SOURCE",
+      "classification": "PASS",
       "dimensions": "556x556",
       "bytes": 223023,
       "exists": true,
-      "verified": false,
+      "verified": true,
       "sourcePageMatches": true,
-      "hasCropEvidence": true
+      "hasCropEvidence": true,
+      "sourceMaterialExists": true,
+      "hasValidSourceCrop": true,
+      "sourceMaterialFile": "public/cartilla/backgrounds/final/flipchart/FlipChart_Page_005.png",
+      "missingEvidence": null
     },
     {
       "src": "/cartilla/art/optimized/flipchart-native/p005-abanico.png",
@@ -1393,13 +1449,17 @@
         232,
         236
       ],
-      "classification": "PENDING NO VERIFIED SOURCE",
+      "classification": "PASS",
       "dimensions": "320x320",
       "bytes": 66045,
       "exists": true,
-      "verified": false,
+      "verified": true,
       "sourcePageMatches": true,
-      "hasCropEvidence": true
+      "hasCropEvidence": true,
+      "sourceMaterialExists": true,
+      "hasValidSourceCrop": true,
+      "sourceMaterialFile": "public/cartilla/backgrounds/final/flipchart/FlipChart_Page_005.png",
+      "missingEvidence": null
     },
     {
       "src": "/cartilla/art/optimized/flipchart-native/p005-anillo.png",
@@ -1412,13 +1472,17 @@
         216,
         191
       ],
-      "classification": "PENDING NO VERIFIED SOURCE",
+      "classification": "PASS",
       "dimensions": "320x320",
       "bytes": 42308,
       "exists": true,
-      "verified": false,
+      "verified": true,
       "sourcePageMatches": true,
-      "hasCropEvidence": true
+      "hasCropEvidence": true,
+      "sourceMaterialExists": true,
+      "hasValidSourceCrop": true,
+      "sourceMaterialFile": "public/cartilla/backgrounds/final/flipchart/FlipChart_Page_005.png",
+      "missingEvidence": null
     },
     {
       "src": "/cartilla/art/optimized/flipchart-native/p005-arana.png",
@@ -1431,13 +1495,17 @@
         188,
         192
       ],
-      "classification": "PENDING NO VERIFIED SOURCE",
+      "classification": "PASS",
       "dimensions": "320x320",
       "bytes": 35567,
       "exists": true,
-      "verified": false,
+      "verified": true,
       "sourcePageMatches": true,
-      "hasCropEvidence": true
+      "hasCropEvidence": true,
+      "sourceMaterialExists": true,
+      "hasValidSourceCrop": true,
+      "sourceMaterialFile": "public/cartilla/backgrounds/final/flipchart/FlipChart_Page_005.png",
+      "missingEvidence": null
     },
     {
       "src": "/cartilla/art/optimized/flipchart-native/p005-ala.png",
@@ -1450,13 +1518,17 @@
         285,
         217
       ],
-      "classification": "PENDING NO VERIFIED SOURCE",
+      "classification": "PASS",
       "dimensions": "320x320",
       "bytes": 37012,
       "exists": true,
-      "verified": false,
+      "verified": true,
       "sourcePageMatches": true,
-      "hasCropEvidence": true
+      "hasCropEvidence": true,
+      "sourceMaterialExists": true,
+      "hasValidSourceCrop": true,
+      "sourceMaterialFile": "public/cartilla/backgrounds/final/flipchart/FlipChart_Page_005.png",
+      "missingEvidence": null
     },
     {
       "src": "/cartilla/art/optimized/flipchart-native/p005-aro.png",
@@ -1469,13 +1541,17 @@
         220,
         265
       ],
-      "classification": "PENDING NO VERIFIED SOURCE",
+      "classification": "PASS",
       "dimensions": "320x320",
       "bytes": 66758,
       "exists": true,
-      "verified": false,
+      "verified": true,
       "sourcePageMatches": true,
-      "hasCropEvidence": true
+      "hasCropEvidence": true,
+      "sourceMaterialExists": true,
+      "hasValidSourceCrop": true,
+      "sourceMaterialFile": "public/cartilla/backgrounds/final/flipchart/FlipChart_Page_005.png",
+      "missingEvidence": null
     },
     {
       "src": "/cartilla/art/optimized/flipchart-native/p005-ana.png",
@@ -1488,13 +1564,17 @@
         243,
         252
       ],
-      "classification": "PENDING NO VERIFIED SOURCE",
+      "classification": "PASS",
       "dimensions": "320x320",
       "bytes": 57436,
       "exists": true,
-      "verified": false,
+      "verified": true,
       "sourcePageMatches": true,
-      "hasCropEvidence": true
+      "hasCropEvidence": true,
+      "sourceMaterialExists": true,
+      "hasValidSourceCrop": true,
+      "sourceMaterialFile": "public/cartilla/backgrounds/final/flipchart/FlipChart_Page_005.png",
+      "missingEvidence": null
     },
     {
       "src": "/cartilla/art/optimized/flipchart-native/p006-scene.png",
@@ -1507,13 +1587,17 @@
         402,
         506
       ],
-      "classification": "PENDING NO VERIFIED SOURCE",
+      "classification": "PASS",
       "dimensions": "560x560",
       "bytes": 200364,
       "exists": true,
-      "verified": false,
+      "verified": true,
       "sourcePageMatches": true,
-      "hasCropEvidence": true
+      "hasCropEvidence": true,
+      "sourceMaterialExists": true,
+      "hasValidSourceCrop": true,
+      "sourceMaterialFile": "public/cartilla/backgrounds/final/flipchart/FlipChart_Page_006.png",
+      "missingEvidence": null
     },
     {
       "src": "/cartilla/art/optimized/flipchart-native/p006-elefante.png",
@@ -1526,13 +1610,17 @@
         235,
         228
       ],
-      "classification": "PENDING NO VERIFIED SOURCE",
+      "classification": "PASS",
       "dimensions": "320x320",
       "bytes": 55059,
       "exists": true,
-      "verified": false,
+      "verified": true,
       "sourcePageMatches": true,
-      "hasCropEvidence": true
+      "hasCropEvidence": true,
+      "sourceMaterialExists": true,
+      "hasValidSourceCrop": true,
+      "sourceMaterialFile": "public/cartilla/backgrounds/final/flipchart/FlipChart_Page_006.png",
+      "missingEvidence": null
     },
     {
       "src": "/cartilla/art/optimized/flipchart-native/p006-espejo.png",
@@ -1545,13 +1633,17 @@
         231,
         236
       ],
-      "classification": "PENDING NO VERIFIED SOURCE",
+      "classification": "PASS",
       "dimensions": "320x320",
       "bytes": 42808,
       "exists": true,
-      "verified": false,
+      "verified": true,
       "sourcePageMatches": true,
-      "hasCropEvidence": true
+      "hasCropEvidence": true,
+      "sourceMaterialExists": true,
+      "hasValidSourceCrop": true,
+      "sourceMaterialFile": "public/cartilla/backgrounds/final/flipchart/FlipChart_Page_006.png",
+      "missingEvidence": null
     },
     {
       "src": "/cartilla/art/optimized/flipchart-native/p006-ema.png",
@@ -1564,13 +1656,17 @@
         183,
         238
       ],
-      "classification": "PENDING NO VERIFIED SOURCE",
+      "classification": "PASS",
       "dimensions": "320x320",
       "bytes": 50267,
       "exists": true,
-      "verified": false,
+      "verified": true,
       "sourcePageMatches": true,
-      "hasCropEvidence": true
+      "hasCropEvidence": true,
+      "sourceMaterialExists": true,
+      "hasValidSourceCrop": true,
+      "sourceMaterialFile": "public/cartilla/backgrounds/final/flipchart/FlipChart_Page_006.png",
+      "missingEvidence": null
     },
     {
       "src": "/cartilla/art/optimized/flipchart-native/p006-estrella.png",
@@ -1583,13 +1679,17 @@
         225,
         256
       ],
-      "classification": "PENDING NO VERIFIED SOURCE",
+      "classification": "PASS",
       "dimensions": "320x320",
       "bytes": 53872,
       "exists": true,
-      "verified": false,
+      "verified": true,
       "sourcePageMatches": true,
-      "hasCropEvidence": true
+      "hasCropEvidence": true,
+      "sourceMaterialExists": true,
+      "hasValidSourceCrop": true,
+      "sourceMaterialFile": "public/cartilla/backgrounds/final/flipchart/FlipChart_Page_006.png",
+      "missingEvidence": null
     },
     {
       "src": "/cartilla/art/optimized/flipchart-native/p006-erizo.png",
@@ -1602,13 +1702,17 @@
         237,
         256
       ],
-      "classification": "PENDING NO VERIFIED SOURCE",
+      "classification": "PASS",
       "dimensions": "320x320",
       "bytes": 83658,
       "exists": true,
-      "verified": false,
+      "verified": true,
       "sourcePageMatches": true,
-      "hasCropEvidence": true
+      "hasCropEvidence": true,
+      "sourceMaterialExists": true,
+      "hasValidSourceCrop": true,
+      "sourceMaterialFile": "public/cartilla/backgrounds/final/flipchart/FlipChart_Page_006.png",
+      "missingEvidence": null
     },
     {
       "src": "/cartilla/art/optimized/flipchart-native/p006-escalera.png",
@@ -1621,13 +1725,17 @@
         215,
         286
       ],
-      "classification": "PENDING NO VERIFIED SOURCE",
+      "classification": "PASS",
       "dimensions": "320x320",
       "bytes": 51385,
       "exists": true,
-      "verified": false,
+      "verified": true,
       "sourcePageMatches": true,
-      "hasCropEvidence": true
+      "hasCropEvidence": true,
+      "sourceMaterialExists": true,
+      "hasValidSourceCrop": true,
+      "sourceMaterialFile": "public/cartilla/backgrounds/final/flipchart/FlipChart_Page_006.png",
+      "missingEvidence": null
     },
     {
       "src": "/cartilla/art/optimized/flipchart-native/p007-scene.png",
@@ -1640,13 +1748,17 @@
         417,
         523
       ],
-      "classification": "PENDING NO VERIFIED SOURCE",
+      "classification": "PASS",
       "dimensions": "560x560",
       "bytes": 129226,
       "exists": true,
-      "verified": false,
+      "verified": true,
       "sourcePageMatches": true,
-      "hasCropEvidence": true
+      "hasCropEvidence": true,
+      "sourceMaterialExists": true,
+      "hasValidSourceCrop": true,
+      "sourceMaterialFile": "public/cartilla/backgrounds/final/flipchart/FlipChart_Page_007.png",
+      "missingEvidence": null
     },
     {
       "src": "/cartilla/art/optimized/flipchart-native/p007-iman.png",
@@ -1659,13 +1771,17 @@
         224,
         212
       ],
-      "classification": "PENDING NO VERIFIED SOURCE",
+      "classification": "PASS",
       "dimensions": "320x320",
       "bytes": 39281,
       "exists": true,
-      "verified": false,
+      "verified": true,
       "sourcePageMatches": true,
-      "hasCropEvidence": true
+      "hasCropEvidence": true,
+      "sourceMaterialExists": true,
+      "hasValidSourceCrop": true,
+      "sourceMaterialFile": "public/cartilla/backgrounds/final/flipchart/FlipChart_Page_007.png",
+      "missingEvidence": null
     },
     {
       "src": "/cartilla/art/optimized/flipchart-native/p007-iglu.png",
@@ -1678,13 +1794,17 @@
         218,
         222
       ],
-      "classification": "PENDING NO VERIFIED SOURCE",
+      "classification": "PASS",
       "dimensions": "320x320",
       "bytes": 35084,
       "exists": true,
-      "verified": false,
+      "verified": true,
       "sourcePageMatches": true,
-      "hasCropEvidence": true
+      "hasCropEvidence": true,
+      "sourceMaterialExists": true,
+      "hasValidSourceCrop": true,
+      "sourceMaterialFile": "public/cartilla/backgrounds/final/flipchart/FlipChart_Page_007.png",
+      "missingEvidence": null
     },
     {
       "src": "/cartilla/art/optimized/flipchart-native/p007-indio.png",
@@ -1697,13 +1817,17 @@
         202,
         297
       ],
-      "classification": "PENDING NO VERIFIED SOURCE",
+      "classification": "PASS",
       "dimensions": "320x320",
       "bytes": 33627,
       "exists": true,
-      "verified": false,
+      "verified": true,
       "sourcePageMatches": true,
-      "hasCropEvidence": true
+      "hasCropEvidence": true,
+      "sourceMaterialExists": true,
+      "hasValidSourceCrop": true,
+      "sourceMaterialFile": "public/cartilla/backgrounds/final/flipchart/FlipChart_Page_007.png",
+      "missingEvidence": null
     },
     {
       "src": "/cartilla/art/optimized/flipchart-native/p007-insecto.png",
@@ -1716,13 +1840,17 @@
         256,
         224
       ],
-      "classification": "PENDING NO VERIFIED SOURCE",
+      "classification": "PASS",
       "dimensions": "320x320",
       "bytes": 67825,
       "exists": true,
-      "verified": false,
+      "verified": true,
       "sourcePageMatches": true,
-      "hasCropEvidence": true
+      "hasCropEvidence": true,
+      "sourceMaterialExists": true,
+      "hasValidSourceCrop": true,
+      "sourceMaterialFile": "public/cartilla/backgrounds/final/flipchart/FlipChart_Page_007.png",
+      "missingEvidence": null
     },
     {
       "src": "/cartilla/art/optimized/flipchart-native/p007-isla.png",
@@ -1735,13 +1863,17 @@
         279,
         253
       ],
-      "classification": "PENDING NO VERIFIED SOURCE",
+      "classification": "PASS",
       "dimensions": "320x320",
       "bytes": 49951,
       "exists": true,
-      "verified": false,
+      "verified": true,
       "sourcePageMatches": true,
-      "hasCropEvidence": true
+      "hasCropEvidence": true,
+      "sourceMaterialExists": true,
+      "hasValidSourceCrop": true,
+      "sourceMaterialFile": "public/cartilla/backgrounds/final/flipchart/FlipChart_Page_007.png",
+      "missingEvidence": null
     },
     {
       "src": "/cartilla/art/optimized/flipchart-native/p007-irma.png",
@@ -1754,13 +1886,17 @@
         235,
         274
       ],
-      "classification": "PENDING NO VERIFIED SOURCE",
+      "classification": "PASS",
       "dimensions": "320x320",
       "bytes": 56587,
       "exists": true,
-      "verified": false,
+      "verified": true,
       "sourcePageMatches": true,
-      "hasCropEvidence": true
+      "hasCropEvidence": true,
+      "sourceMaterialExists": true,
+      "hasValidSourceCrop": true,
+      "sourceMaterialFile": "public/cartilla/backgrounds/final/flipchart/FlipChart_Page_007.png",
+      "missingEvidence": null
     },
     {
       "src": "/cartilla/art/optimized/flipchart-native/p008-scene.png",
@@ -1773,13 +1909,17 @@
         441,
         439
       ],
-      "classification": "PENDING NO VERIFIED SOURCE",
+      "classification": "PASS",
       "dimensions": "480x480",
       "bytes": 191446,
       "exists": true,
-      "verified": false,
+      "verified": true,
       "sourcePageMatches": true,
-      "hasCropEvidence": true
+      "hasCropEvidence": true,
+      "sourceMaterialExists": true,
+      "hasValidSourceCrop": true,
+      "sourceMaterialFile": "public/cartilla/backgrounds/final/flipchart/FlipChart_Page_008.png",
+      "missingEvidence": null
     },
     {
       "src": "/cartilla/art/optimized/flipchart-native/p008-uno.png",
@@ -1792,13 +1932,17 @@
         232,
         240
       ],
-      "classification": "PENDING NO VERIFIED SOURCE",
+      "classification": "PASS",
       "dimensions": "320x320",
       "bytes": 80479,
       "exists": true,
-      "verified": false,
+      "verified": true,
       "sourcePageMatches": true,
-      "hasCropEvidence": true
+      "hasCropEvidence": true,
+      "sourceMaterialExists": true,
+      "hasValidSourceCrop": true,
+      "sourceMaterialFile": "public/cartilla/backgrounds/final/flipchart/FlipChart_Page_008.png",
+      "missingEvidence": null
     },
     {
       "src": "/cartilla/art/optimized/flipchart-native/p008-uva.png",
@@ -1811,13 +1955,17 @@
         237,
         230
       ],
-      "classification": "PENDING NO VERIFIED SOURCE",
+      "classification": "PASS",
       "dimensions": "320x320",
       "bytes": 78680,
       "exists": true,
-      "verified": false,
+      "verified": true,
       "sourcePageMatches": true,
-      "hasCropEvidence": true
+      "hasCropEvidence": true,
+      "sourceMaterialExists": true,
+      "hasValidSourceCrop": true,
+      "sourceMaterialFile": "public/cartilla/backgrounds/final/flipchart/FlipChart_Page_008.png",
+      "missingEvidence": null
     },
     {
       "src": "/cartilla/art/optimized/flipchart-native/p008-urraca.png",
@@ -1830,13 +1978,17 @@
         223,
         227
       ],
-      "classification": "PENDING NO VERIFIED SOURCE",
+      "classification": "PASS",
       "dimensions": "320x320",
       "bytes": 33697,
       "exists": true,
-      "verified": false,
+      "verified": true,
       "sourcePageMatches": true,
-      "hasCropEvidence": true
+      "hasCropEvidence": true,
+      "sourceMaterialExists": true,
+      "hasValidSourceCrop": true,
+      "sourceMaterialFile": "public/cartilla/backgrounds/final/flipchart/FlipChart_Page_008.png",
+      "missingEvidence": null
     },
     {
       "src": "/cartilla/art/optimized/flipchart-native/p008-unicornio.png",
@@ -1849,13 +2001,17 @@
         258,
         260
       ],
-      "classification": "PENDING NO VERIFIED SOURCE",
+      "classification": "PASS",
       "dimensions": "320x320",
       "bytes": 60538,
       "exists": true,
-      "verified": false,
+      "verified": true,
       "sourcePageMatches": true,
-      "hasCropEvidence": true
+      "hasCropEvidence": true,
+      "sourceMaterialExists": true,
+      "hasValidSourceCrop": true,
+      "sourceMaterialFile": "public/cartilla/backgrounds/final/flipchart/FlipChart_Page_008.png",
+      "missingEvidence": null
     },
     {
       "src": "/cartilla/art/optimized/flipchart-native/p008-uniforme.png",
@@ -1868,13 +2024,17 @@
         163,
         252
       ],
-      "classification": "PENDING NO VERIFIED SOURCE",
+      "classification": "PASS",
       "dimensions": "320x320",
       "bytes": 42650,
       "exists": true,
-      "verified": false,
+      "verified": true,
       "sourcePageMatches": true,
-      "hasCropEvidence": true
+      "hasCropEvidence": true,
+      "sourceMaterialExists": true,
+      "hasValidSourceCrop": true,
+      "sourceMaterialFile": "public/cartilla/backgrounds/final/flipchart/FlipChart_Page_008.png",
+      "missingEvidence": null
     },
     {
       "src": "/cartilla/art/optimized/flipchart-native/p008-ulises.png",
@@ -1887,13 +2047,17 @@
         243,
         200
       ],
-      "classification": "PENDING NO VERIFIED SOURCE",
+      "classification": "PASS",
       "dimensions": "320x320",
       "bytes": 69778,
       "exists": true,
-      "verified": false,
+      "verified": true,
       "sourcePageMatches": true,
-      "hasCropEvidence": true
+      "hasCropEvidence": true,
+      "sourceMaterialExists": true,
+      "hasValidSourceCrop": true,
+      "sourceMaterialFile": "public/cartilla/backgrounds/final/flipchart/FlipChart_Page_008.png",
+      "missingEvidence": null
     },
     {
       "src": "/cartilla/art/optimized/flipchart-native/p009-scene.png",
@@ -1906,13 +2070,17 @@
         528,
         500
       ],
-      "classification": "PENDING NO VERIFIED SOURCE",
+      "classification": "PASS",
       "dimensions": "530x530",
       "bytes": 269934,
       "exists": true,
-      "verified": false,
+      "verified": true,
       "sourcePageMatches": true,
-      "hasCropEvidence": true
+      "hasCropEvidence": true,
+      "sourceMaterialExists": true,
+      "hasValidSourceCrop": true,
+      "sourceMaterialFile": "public/cartilla/backgrounds/final/flipchart/FlipChart_Page_009.png",
+      "missingEvidence": null
     },
     {
       "src": "/cartilla/art/optimized/flipchart-native/p009-mama.png",
@@ -1925,13 +2093,17 @@
         217,
         286
       ],
-      "classification": "PENDING NO VERIFIED SOURCE",
+      "classification": "PASS",
       "dimensions": "344x344",
       "bytes": 58231,
       "exists": true,
-      "verified": false,
+      "verified": true,
       "sourcePageMatches": true,
-      "hasCropEvidence": true
+      "hasCropEvidence": true,
+      "sourceMaterialExists": true,
+      "hasValidSourceCrop": true,
+      "sourceMaterialFile": "public/cartilla/backgrounds/final/flipchart/FlipChart_Page_009.png",
+      "missingEvidence": null
     },
     {
       "src": "/cartilla/art/optimized/flipchart-native/p009-amo.png",
@@ -1944,13 +2116,17 @@
         270,
         285
       ],
-      "classification": "PENDING NO VERIFIED SOURCE",
+      "classification": "PASS",
       "dimensions": "320x320",
       "bytes": 64626,
       "exists": true,
-      "verified": false,
+      "verified": true,
       "sourcePageMatches": true,
-      "hasCropEvidence": true
+      "hasCropEvidence": true,
+      "sourceMaterialExists": true,
+      "hasValidSourceCrop": true,
+      "sourceMaterialFile": "public/cartilla/backgrounds/final/flipchart/FlipChart_Page_009.png",
+      "missingEvidence": null
     },
     {
       "src": "/cartilla/art/optimized/flipchart-native/p009-mima.png",
@@ -1963,13 +2139,17 @@
         304,
         304
       ],
-      "classification": "PENDING NO VERIFIED SOURCE",
+      "classification": "PASS",
       "dimensions": "328x328",
       "bytes": 101089,
       "exists": true,
-      "verified": false,
+      "verified": true,
       "sourcePageMatches": true,
-      "hasCropEvidence": true
+      "hasCropEvidence": true,
+      "sourceMaterialExists": true,
+      "hasValidSourceCrop": true,
+      "sourceMaterialFile": "public/cartilla/backgrounds/final/flipchart/FlipChart_Page_009.png",
+      "missingEvidence": null
     },
     {
       "src": "/cartilla/art/optimized/flipchart-native/p009-meme.png",
@@ -1982,13 +2162,17 @@
         150,
         309
       ],
-      "classification": "PENDING NO VERIFIED SOURCE",
+      "classification": "PASS",
       "dimensions": "320x320",
       "bytes": 42639,
       "exists": true,
-      "verified": false,
+      "verified": true,
       "sourcePageMatches": true,
-      "hasCropEvidence": true
+      "hasCropEvidence": true,
+      "sourceMaterialExists": true,
+      "hasValidSourceCrop": true,
+      "sourceMaterialFile": "public/cartilla/backgrounds/final/flipchart/FlipChart_Page_009.png",
+      "missingEvidence": null
     },
     {
       "src": "/cartilla/art/optimized/flipchart-native/p009-mumi.png",
@@ -2001,13 +2185,17 @@
         281,
         296
       ],
-      "classification": "PENDING NO VERIFIED SOURCE",
+      "classification": "PASS",
       "dimensions": "320x320",
       "bytes": 64622,
       "exists": true,
-      "verified": false,
+      "verified": true,
       "sourcePageMatches": true,
-      "hasCropEvidence": true
+      "hasCropEvidence": true,
+      "sourceMaterialExists": true,
+      "hasValidSourceCrop": true,
+      "sourceMaterialFile": "public/cartilla/backgrounds/final/flipchart/FlipChart_Page_009.png",
+      "missingEvidence": null
     },
     {
       "src": "/cartilla/art/optimized/flipchart-native/p011-scene.png",
@@ -2020,13 +2208,17 @@
         636,
         529
       ],
-      "classification": "PENDING NO VERIFIED SOURCE",
+      "classification": "PASS",
       "dimensions": "630x630",
       "bytes": 199944,
       "exists": true,
-      "verified": false,
+      "verified": true,
       "sourcePageMatches": true,
-      "hasCropEvidence": true
+      "hasCropEvidence": true,
+      "sourceMaterialExists": true,
+      "hasValidSourceCrop": true,
+      "sourceMaterialFile": "public/cartilla/backgrounds/final/flipchart/FlipChart_Page_011.png",
+      "missingEvidence": null
     },
     {
       "src": "/cartilla/art/optimized/flipchart-native/p012-scene.png",
@@ -2039,13 +2231,17 @@
         552,
         520
       ],
-      "classification": "PENDING NO VERIFIED SOURCE",
+      "classification": "PASS",
       "dimensions": "560x560",
       "bytes": 188737,
       "exists": true,
-      "verified": false,
+      "verified": true,
       "sourcePageMatches": true,
-      "hasCropEvidence": true
+      "hasCropEvidence": true,
+      "sourceMaterialExists": true,
+      "hasValidSourceCrop": true,
+      "sourceMaterialFile": "public/cartilla/backgrounds/final/flipchart/FlipChart_Page_012.png",
+      "missingEvidence": null
     },
     {
       "src": "/cartilla/art/optimized/flipchart-native/p012-papa.png",
@@ -2058,13 +2254,17 @@
         182,
         278
       ],
-      "classification": "PENDING NO VERIFIED SOURCE",
+      "classification": "PASS",
       "dimensions": "320x320",
       "bytes": 52592,
       "exists": true,
-      "verified": false,
+      "verified": true,
       "sourcePageMatches": true,
-      "hasCropEvidence": true
+      "hasCropEvidence": true,
+      "sourceMaterialExists": true,
+      "hasValidSourceCrop": true,
+      "sourceMaterialFile": "public/cartilla/backgrounds/final/flipchart/FlipChart_Page_012.png",
+      "missingEvidence": null
     },
     {
       "src": "/cartilla/art/optimized/flipchart-native/p012-pie.png",
@@ -2077,13 +2277,17 @@
         265,
         179
       ],
-      "classification": "PENDING NO VERIFIED SOURCE",
+      "classification": "PASS",
       "dimensions": "320x320",
       "bytes": 35828,
       "exists": true,
-      "verified": false,
+      "verified": true,
       "sourcePageMatches": true,
-      "hasCropEvidence": true
+      "hasCropEvidence": true,
+      "sourceMaterialExists": true,
+      "hasValidSourceCrop": true,
+      "sourceMaterialFile": "public/cartilla/backgrounds/final/flipchart/FlipChart_Page_012.png",
+      "missingEvidence": null
     },
     {
       "src": "/cartilla/art/optimized/flipchart-native/p012-pepe.png",
@@ -2096,13 +2300,17 @@
         305,
         306
       ],
-      "classification": "PENDING NO VERIFIED SOURCE",
+      "classification": "PASS",
       "dimensions": "320x320",
       "bytes": 64078,
       "exists": true,
-      "verified": false,
+      "verified": true,
       "sourcePageMatches": true,
-      "hasCropEvidence": true
+      "hasCropEvidence": true,
+      "sourceMaterialExists": true,
+      "hasValidSourceCrop": true,
+      "sourceMaterialFile": "public/cartilla/backgrounds/final/flipchart/FlipChart_Page_012.png",
+      "missingEvidence": null
     },
     {
       "src": "/cartilla/art/optimized/flipchart-native/p012-puma.png",
@@ -2115,13 +2323,17 @@
         272,
         295
       ],
-      "classification": "PENDING NO VERIFIED SOURCE",
+      "classification": "PASS",
       "dimensions": "320x320",
       "bytes": 62327,
       "exists": true,
-      "verified": false,
+      "verified": true,
       "sourcePageMatches": true,
-      "hasCropEvidence": true
+      "hasCropEvidence": true,
+      "sourceMaterialExists": true,
+      "hasValidSourceCrop": true,
+      "sourceMaterialFile": "public/cartilla/backgrounds/final/flipchart/FlipChart_Page_012.png",
+      "missingEvidence": null
     },
     {
       "src": "/cartilla/art/optimized/flipchart-native/p012-pomo.png",
@@ -2134,13 +2346,17 @@
         154,
         277
       ],
-      "classification": "PENDING NO VERIFIED SOURCE",
+      "classification": "PASS",
       "dimensions": "320x320",
       "bytes": 46993,
       "exists": true,
-      "verified": false,
+      "verified": true,
       "sourcePageMatches": true,
-      "hasCropEvidence": true
+      "hasCropEvidence": true,
+      "sourceMaterialExists": true,
+      "hasValidSourceCrop": true,
+      "sourceMaterialFile": "public/cartilla/backgrounds/final/flipchart/FlipChart_Page_012.png",
+      "missingEvidence": null
     },
     {
       "src": "/cartilla/art/optimized/flipchart-native/p014-scene.png",
@@ -2153,13 +2369,17 @@
         626,
         523
       ],
-      "classification": "PENDING NO VERIFIED SOURCE",
+      "classification": "PASS",
       "dimensions": "654x654",
       "bytes": 272998,
       "exists": true,
-      "verified": false,
+      "verified": true,
       "sourcePageMatches": true,
-      "hasCropEvidence": true
+      "hasCropEvidence": true,
+      "sourceMaterialExists": true,
+      "hasValidSourceCrop": true,
+      "sourceMaterialFile": "public/cartilla/backgrounds/final/flipchart/FlipChart_Page_014.png",
+      "missingEvidence": null
     },
     {
       "src": "/cartilla/art/optimized/flipchart-native/p015-scene.png",
@@ -2172,13 +2392,17 @@
         457,
         499
       ],
-      "classification": "PENDING NO VERIFIED SOURCE",
+      "classification": "PASS",
       "dimensions": "560x560",
       "bytes": 287347,
       "exists": true,
-      "verified": false,
+      "verified": true,
       "sourcePageMatches": true,
-      "hasCropEvidence": true
+      "hasCropEvidence": true,
+      "sourceMaterialExists": true,
+      "hasValidSourceCrop": true,
+      "sourceMaterialFile": "public/cartilla/backgrounds/final/flipchart/FlipChart_Page_015.png",
+      "missingEvidence": null
     },
     {
       "src": "/cartilla/art/optimized/flipchart-native/p015-sesi.png",
@@ -2191,13 +2415,17 @@
         241,
         294
       ],
-      "classification": "PENDING NO VERIFIED SOURCE",
+      "classification": "PASS",
       "dimensions": "342x342",
       "bytes": 58380,
       "exists": true,
-      "verified": false,
+      "verified": true,
       "sourcePageMatches": true,
-      "hasCropEvidence": true
+      "hasCropEvidence": true,
+      "sourceMaterialExists": true,
+      "hasValidSourceCrop": true,
+      "sourceMaterialFile": "public/cartilla/backgrounds/final/flipchart/FlipChart_Page_015.png",
+      "missingEvidence": null
     },
     {
       "src": "/cartilla/art/optimized/flipchart-native/p015-sopa.png",
@@ -2210,13 +2438,17 @@
         241,
         149
       ],
-      "classification": "PENDING NO VERIFIED SOURCE",
+      "classification": "PASS",
       "dimensions": "320x320",
       "bytes": 61061,
       "exists": true,
-      "verified": false,
+      "verified": true,
       "sourcePageMatches": true,
-      "hasCropEvidence": true
+      "hasCropEvidence": true,
+      "sourceMaterialExists": true,
+      "hasValidSourceCrop": true,
+      "sourceMaterialFile": "public/cartilla/backgrounds/final/flipchart/FlipChart_Page_015.png",
+      "missingEvidence": null
     },
     {
       "src": "/cartilla/art/optimized/flipchart-native/p015-sapo.png",
@@ -2229,13 +2461,17 @@
         271,
         211
       ],
-      "classification": "PENDING NO VERIFIED SOURCE",
+      "classification": "PASS",
       "dimensions": "320x320",
       "bytes": 51491,
       "exists": true,
-      "verified": false,
+      "verified": true,
       "sourcePageMatches": true,
-      "hasCropEvidence": true
+      "hasCropEvidence": true,
+      "sourceMaterialExists": true,
+      "hasValidSourceCrop": true,
+      "sourceMaterialFile": "public/cartilla/backgrounds/final/flipchart/FlipChart_Page_015.png",
+      "missingEvidence": null
     },
     {
       "src": "/cartilla/art/optimized/flipchart-native/p015-pisa.png",
@@ -2248,13 +2484,17 @@
         319,
         220
       ],
-      "classification": "PENDING NO VERIFIED SOURCE",
+      "classification": "PASS",
       "dimensions": "320x320",
       "bytes": 23189,
       "exists": true,
-      "verified": false,
+      "verified": true,
       "sourcePageMatches": true,
-      "hasCropEvidence": true
+      "hasCropEvidence": true,
+      "sourceMaterialExists": true,
+      "hasValidSourceCrop": true,
+      "sourceMaterialFile": "public/cartilla/backgrounds/final/flipchart/FlipChart_Page_015.png",
+      "missingEvidence": null
     },
     {
       "src": "/cartilla/art/optimized/flipchart-native/p015-susi.png",
@@ -2267,13 +2507,17 @@
         230,
         308
       ],
-      "classification": "PENDING NO VERIFIED SOURCE",
+      "classification": "PASS",
       "dimensions": "320x320",
       "bytes": 68028,
       "exists": true,
-      "verified": false,
+      "verified": true,
       "sourcePageMatches": true,
-      "hasCropEvidence": true
+      "hasCropEvidence": true,
+      "sourceMaterialExists": true,
+      "hasValidSourceCrop": true,
+      "sourceMaterialFile": "public/cartilla/backgrounds/final/flipchart/FlipChart_Page_015.png",
+      "missingEvidence": null
     },
     {
       "src": "/cartilla/art/optimized/flipchart-native/p017-scene.png",
@@ -2286,13 +2530,17 @@
         398,
         698
       ],
-      "classification": "PENDING NO VERIFIED SOURCE",
+      "classification": "PASS",
       "dimensions": "645x645",
       "bytes": 173867,
       "exists": true,
-      "verified": false,
+      "verified": true,
       "sourcePageMatches": true,
-      "hasCropEvidence": true
+      "hasCropEvidence": true,
+      "sourceMaterialExists": true,
+      "hasValidSourceCrop": true,
+      "sourceMaterialFile": "public/cartilla/backgrounds/final/flipchart/FlipChart_Page_017.png",
+      "missingEvidence": null
     },
     {
       "src": "/cartilla/art/optimized/flipchart-native/p018-scene.png",
@@ -2305,13 +2553,17 @@
         466,
         521
       ],
-      "classification": "PENDING NO VERIFIED SOURCE",
+      "classification": "PASS",
       "dimensions": "558x558",
       "bytes": 217046,
       "exists": true,
-      "verified": false,
+      "verified": true,
       "sourcePageMatches": true,
-      "hasCropEvidence": true
+      "hasCropEvidence": true,
+      "sourceMaterialExists": true,
+      "hasValidSourceCrop": true,
+      "sourceMaterialFile": "public/cartilla/backgrounds/final/flipchart/FlipChart_Page_018.png",
+      "missingEvidence": null
     },
     {
       "src": "/cartilla/art/optimized/flipchart-native/p018-tomate.webp",
@@ -2324,13 +2576,17 @@
         270,
         245
       ],
-      "classification": "PENDING NO VERIFIED SOURCE",
+      "classification": "PASS",
       "dimensions": "1536x1395",
       "bytes": 96285,
       "exists": true,
-      "verified": false,
+      "verified": true,
       "sourcePageMatches": true,
-      "hasCropEvidence": true
+      "hasCropEvidence": true,
+      "sourceMaterialExists": true,
+      "hasValidSourceCrop": true,
+      "sourceMaterialFile": "public/cartilla/backgrounds/final/flipchart/FlipChart_Page_018.png",
+      "missingEvidence": null
     },
     {
       "src": "/cartilla/art/optimized/flipchart-native/p018-tapa.webp",
@@ -2343,13 +2599,17 @@
         285,
         230
       ],
-      "classification": "PENDING NO VERIFIED SOURCE",
+      "classification": "PASS",
       "dimensions": "1536x1240",
       "bytes": 127625,
       "exists": true,
-      "verified": false,
+      "verified": true,
       "sourcePageMatches": true,
-      "hasCropEvidence": true
+      "hasCropEvidence": true,
+      "sourceMaterialExists": true,
+      "hasValidSourceCrop": true,
+      "sourceMaterialFile": "public/cartilla/backgrounds/final/flipchart/FlipChart_Page_018.png",
+      "missingEvidence": null
     },
     {
       "src": "/cartilla/art/optimized/flipchart-native/p018-topo.webp",
@@ -2362,13 +2622,17 @@
         260,
         270
       ],
-      "classification": "PENDING NO VERIFIED SOURCE",
+      "classification": "PASS",
       "dimensions": "1478x1536",
       "bytes": 169656,
       "exists": true,
-      "verified": false,
+      "verified": true,
       "sourcePageMatches": true,
-      "hasCropEvidence": true
+      "hasCropEvidence": true,
+      "sourceMaterialExists": true,
+      "hasValidSourceCrop": true,
+      "sourceMaterialFile": "public/cartilla/backgrounds/final/flipchart/FlipChart_Page_018.png",
+      "missingEvidence": null
     },
     {
       "src": "/cartilla/art/optimized/flipchart-native/p018-tipi.webp",
@@ -2381,13 +2645,17 @@
         320,
         305
       ],
-      "classification": "PENDING NO VERIFIED SOURCE",
+      "classification": "PASS",
       "dimensions": "1536x1464",
       "bytes": 146747,
       "exists": true,
-      "verified": false,
+      "verified": true,
       "sourcePageMatches": true,
-      "hasCropEvidence": true
+      "hasCropEvidence": true,
+      "sourceMaterialExists": true,
+      "hasValidSourceCrop": true,
+      "sourceMaterialFile": "public/cartilla/backgrounds/final/flipchart/FlipChart_Page_018.png",
+      "missingEvidence": null
     },
     {
       "src": "/cartilla/art/optimized/flipchart-native/p018-tuto.webp",
@@ -2400,13 +2668,17 @@
         315,
         304
       ],
-      "classification": "PENDING NO VERIFIED SOURCE",
+      "classification": "PASS",
       "dimensions": "1536x1482",
       "bytes": 201825,
       "exists": true,
-      "verified": false,
+      "verified": true,
       "sourcePageMatches": true,
-      "hasCropEvidence": true
+      "hasCropEvidence": true,
+      "sourceMaterialExists": true,
+      "hasValidSourceCrop": true,
+      "sourceMaterialFile": "public/cartilla/backgrounds/final/flipchart/FlipChart_Page_018.png",
+      "missingEvidence": null
     },
     {
       "src": "/cartilla/art/optimized/flipchart-native/p020-scene.png",
@@ -2419,13 +2691,17 @@
         660,
         505
       ],
-      "classification": "PENDING NO VERIFIED SOURCE",
+      "classification": "PASS",
       "dimensions": "658x658",
       "bytes": 356866,
       "exists": true,
-      "verified": false,
+      "verified": true,
       "sourcePageMatches": true,
-      "hasCropEvidence": true
+      "hasCropEvidence": true,
+      "sourceMaterialExists": true,
+      "hasValidSourceCrop": true,
+      "sourceMaterialFile": "public/cartilla/backgrounds/final/flipchart/FlipChart_Page_020.png",
+      "missingEvidence": null
     },
     {
       "src": "/cartilla/art/optimized/flipchart-native/p021-scene.png",
@@ -2438,13 +2714,17 @@
         313,
         510
       ],
-      "classification": "PENDING NO VERIFIED SOURCE",
+      "classification": "PASS",
       "dimensions": "559x559",
       "bytes": 104462,
       "exists": true,
-      "verified": false,
+      "verified": true,
       "sourcePageMatches": true,
-      "hasCropEvidence": true
+      "hasCropEvidence": true,
+      "sourceMaterialExists": true,
+      "hasValidSourceCrop": true,
+      "sourceMaterialFile": "public/cartilla/backgrounds/final/flipchart/FlipChart_Page_021.png",
+      "missingEvidence": null
     },
     {
       "src": "/cartilla/art/optimized/flipchart-native/p021-didi.webp",
@@ -2457,13 +2737,17 @@
         207,
         231
       ],
-      "classification": "PENDING NO VERIFIED SOURCE",
+      "classification": "PASS",
       "dimensions": "1536x1360",
       "bytes": 125316,
       "exists": true,
-      "verified": false,
+      "verified": true,
       "sourcePageMatches": true,
-      "hasCropEvidence": true
+      "hasCropEvidence": true,
+      "sourceMaterialExists": true,
+      "hasValidSourceCrop": true,
+      "sourceMaterialFile": "public/cartilla/backgrounds/final/flipchart/FlipChart_Page_021.png",
+      "missingEvidence": null
     },
     {
       "src": "/cartilla/art/optimized/flipchart-native/p021-dados.webp",
@@ -2476,13 +2760,17 @@
         245,
         250
       ],
-      "classification": "PENDING NO VERIFIED SOURCE",
+      "classification": "PASS",
       "dimensions": "1536x1440",
       "bytes": 136317,
       "exists": true,
-      "verified": false,
+      "verified": true,
       "sourcePageMatches": true,
-      "hasCropEvidence": true
+      "hasCropEvidence": true,
+      "sourceMaterialExists": true,
+      "hasValidSourceCrop": true,
+      "sourceMaterialFile": "public/cartilla/backgrounds/final/flipchart/FlipChart_Page_021.png",
+      "missingEvidence": null
     },
     {
       "src": "/cartilla/art/optimized/flipchart-native/p021-dedo.webp",
@@ -2495,13 +2783,17 @@
         180,
         256
       ],
-      "classification": "PENDING NO VERIFIED SOURCE",
+      "classification": "PASS",
       "dimensions": "1281x1536",
       "bytes": 127794,
       "exists": true,
-      "verified": false,
+      "verified": true,
       "sourcePageMatches": true,
-      "hasCropEvidence": true
+      "hasCropEvidence": true,
+      "sourceMaterialExists": true,
+      "hasValidSourceCrop": true,
+      "sourceMaterialFile": "public/cartilla/backgrounds/final/flipchart/FlipChart_Page_021.png",
+      "missingEvidence": null
     },
     {
       "src": "/cartilla/art/optimized/flipchart-native/p021-doce.webp",
@@ -2514,13 +2806,17 @@
         232,
         290
       ],
-      "classification": "PENDING NO VERIFIED SOURCE",
+      "classification": "PASS",
       "dimensions": "1355x1536",
       "bytes": 195221,
       "exists": true,
-      "verified": false,
+      "verified": true,
       "sourcePageMatches": true,
-      "hasCropEvidence": true
+      "hasCropEvidence": true,
+      "sourceMaterialExists": true,
+      "hasValidSourceCrop": true,
+      "sourceMaterialFile": "public/cartilla/backgrounds/final/flipchart/FlipChart_Page_021.png",
+      "missingEvidence": null
     },
     {
       "src": "/cartilla/art/optimized/flipchart-native/p021-dunia.webp",
@@ -2533,13 +2829,17 @@
         361,
         256
       ],
-      "classification": "PENDING NO VERIFIED SOURCE",
+      "classification": "PASS",
       "dimensions": "1536x1324",
       "bytes": 218652,
       "exists": true,
-      "verified": false,
+      "verified": true,
       "sourcePageMatches": true,
-      "hasCropEvidence": true
+      "hasCropEvidence": true,
+      "sourceMaterialExists": true,
+      "hasValidSourceCrop": true,
+      "sourceMaterialFile": "public/cartilla/backgrounds/final/flipchart/FlipChart_Page_021.png",
+      "missingEvidence": null
     },
     {
       "src": "/cartilla/art/optimized/flipchart-native/p023-scene.png",
@@ -2552,13 +2852,17 @@
         471,
         559
       ],
-      "classification": "PENDING NO VERIFIED SOURCE",
+      "classification": "PASS",
       "dimensions": "621x621",
       "bytes": 307816,
       "exists": true,
-      "verified": false,
+      "verified": true,
       "sourcePageMatches": true,
-      "hasCropEvidence": true
+      "hasCropEvidence": true,
+      "sourceMaterialExists": true,
+      "hasValidSourceCrop": true,
+      "sourceMaterialFile": "public/cartilla/backgrounds/final/flipchart/FlipChart_Page_023.png",
+      "missingEvidence": null
     },
     {
       "src": "/cartilla/art/optimized/flipchart-native/p024-scene.png",
@@ -2571,13 +2875,17 @@
         209,
         519
       ],
-      "classification": "PENDING NO VERIFIED SOURCE",
+      "classification": "PASS",
       "dimensions": "549x549",
       "bytes": 180981,
       "exists": true,
-      "verified": false,
+      "verified": true,
       "sourcePageMatches": true,
-      "hasCropEvidence": true
+      "hasCropEvidence": true,
+      "sourceMaterialExists": true,
+      "hasValidSourceCrop": true,
+      "sourceMaterialFile": "public/cartilla/backgrounds/final/flipchart/FlipChart_Page_024.png",
+      "missingEvidence": null
     },
     {
       "src": "/cartilla/art/optimized/flipchart-native/p024-maleta.webp",
@@ -2590,13 +2898,17 @@
         245,
         275
       ],
-      "classification": "PENDING NO VERIFIED SOURCE",
+      "classification": "PASS",
       "dimensions": "1369x1536",
       "bytes": 140465,
       "exists": true,
-      "verified": false,
+      "verified": true,
       "sourcePageMatches": true,
-      "hasCropEvidence": true
+      "hasCropEvidence": true,
+      "sourceMaterialExists": true,
+      "hasValidSourceCrop": true,
+      "sourceMaterialFile": "public/cartilla/backgrounds/final/flipchart/FlipChart_Page_024.png",
+      "missingEvidence": null
     },
     {
       "src": "/cartilla/art/optimized/flipchart-native/p024-lata.webp",
@@ -2609,13 +2921,17 @@
         245,
         270
       ],
-      "classification": "PENDING NO VERIFIED SOURCE",
+      "classification": "PASS",
       "dimensions": "1395x1536",
       "bytes": 158721,
       "exists": true,
-      "verified": false,
+      "verified": true,
       "sourcePageMatches": true,
-      "hasCropEvidence": true
+      "hasCropEvidence": true,
+      "sourceMaterialExists": true,
+      "hasValidSourceCrop": true,
+      "sourceMaterialFile": "public/cartilla/backgrounds/final/flipchart/FlipChart_Page_024.png",
+      "missingEvidence": null
     },
     {
       "src": "/cartilla/art/optimized/flipchart-native/p024-luli.webp",
@@ -2628,13 +2944,17 @@
         220,
         320
       ],
-      "classification": "PENDING NO VERIFIED SOURCE",
+      "classification": "PASS",
       "dimensions": "1058x1536",
       "bytes": 132783,
       "exists": true,
-      "verified": false,
+      "verified": true,
       "sourcePageMatches": true,
-      "hasCropEvidence": true
+      "hasCropEvidence": true,
+      "sourceMaterialExists": true,
+      "hasValidSourceCrop": true,
+      "sourceMaterialFile": "public/cartilla/backgrounds/final/flipchart/FlipChart_Page_024.png",
+      "missingEvidence": null
     },
     {
       "src": "/cartilla/art/optimized/flipchart-native/p024-loma.webp",
@@ -2647,13 +2967,17 @@
         360,
         290
       ],
-      "classification": "PENDING NO VERIFIED SOURCE",
+      "classification": "PASS",
       "dimensions": "1536x1238",
       "bytes": 91971,
       "exists": true,
-      "verified": false,
+      "verified": true,
       "sourcePageMatches": true,
-      "hasCropEvidence": true
+      "hasCropEvidence": true,
+      "sourceMaterialExists": true,
+      "hasValidSourceCrop": true,
+      "sourceMaterialFile": "public/cartilla/backgrounds/final/flipchart/FlipChart_Page_024.png",
+      "missingEvidence": null
     },
     {
       "src": "/cartilla/art/optimized/flipchart-native/p024-lala.png",
@@ -2666,13 +2990,17 @@
         280,
         245
       ],
-      "classification": "PENDING NO VERIFIED SOURCE",
+      "classification": "PASS",
       "dimensions": "550x495",
       "bytes": 281675,
       "exists": true,
-      "verified": false,
+      "verified": true,
       "sourcePageMatches": true,
-      "hasCropEvidence": true
+      "hasCropEvidence": true,
+      "sourceMaterialExists": true,
+      "hasValidSourceCrop": true,
+      "sourceMaterialFile": "public/cartilla/backgrounds/final/flipchart/FlipChart_Page_024.png",
+      "missingEvidence": null
     },
     {
       "src": "/cartilla/art/optimized/flipchart-native/p026-scene.png",
@@ -2685,13 +3013,17 @@
         455,
         396
       ],
-      "classification": "PENDING NO VERIFIED SOURCE",
+      "classification": "PASS",
       "dimensions": "638x638",
       "bytes": 189595,
       "exists": true,
-      "verified": false,
+      "verified": true,
       "sourcePageMatches": true,
-      "hasCropEvidence": true
+      "hasCropEvidence": true,
+      "sourceMaterialExists": true,
+      "hasValidSourceCrop": true,
+      "sourceMaterialFile": "public/cartilla/backgrounds/final/flipchart/FlipChart_Page_026.png",
+      "missingEvidence": null
     },
     {
       "src": "/cartilla/art/optimized/flipchart-native/p027-scene.png",
@@ -2704,13 +3036,17 @@
         501,
         524
       ],
-      "classification": "PENDING NO VERIFIED SOURCE",
+      "classification": "PASS",
       "dimensions": "560x560",
       "bytes": 279018,
       "exists": true,
-      "verified": false,
+      "verified": true,
       "sourcePageMatches": true,
-      "hasCropEvidence": true
+      "hasCropEvidence": true,
+      "sourceMaterialExists": true,
+      "hasValidSourceCrop": true,
+      "sourceMaterialFile": "public/cartilla/backgrounds/final/flipchart/FlipChart_Page_027.png",
+      "missingEvidence": null
     },
     {
       "src": "/cartilla/art/optimized/flipchart-native/p027-nido.png",
@@ -2723,13 +3059,17 @@
         245,
         168
       ],
-      "classification": "PENDING NO VERIFIED SOURCE",
+      "classification": "PASS",
       "dimensions": "320x320",
       "bytes": 43656,
       "exists": true,
-      "verified": false,
+      "verified": true,
       "sourcePageMatches": true,
-      "hasCropEvidence": true
+      "hasCropEvidence": true,
+      "sourceMaterialExists": true,
+      "hasValidSourceCrop": true,
+      "sourceMaterialFile": "public/cartilla/backgrounds/final/flipchart/FlipChart_Page_027.png",
+      "missingEvidence": null
     },
     {
       "src": "/cartilla/art/optimized/flipchart-native/p027-nudo.png",
@@ -2742,13 +3082,17 @@
         260,
         204
       ],
-      "classification": "PENDING NO VERIFIED SOURCE",
+      "classification": "PASS",
       "dimensions": "320x320",
       "bytes": 44142,
       "exists": true,
-      "verified": false,
+      "verified": true,
       "sourcePageMatches": true,
-      "hasCropEvidence": true
+      "hasCropEvidence": true,
+      "sourceMaterialExists": true,
+      "hasValidSourceCrop": true,
+      "sourceMaterialFile": "public/cartilla/backgrounds/final/flipchart/FlipChart_Page_027.png",
+      "missingEvidence": null
     },
     {
       "src": "/cartilla/art/optimized/flipchart-native/p027-mono.png",
@@ -2761,13 +3105,17 @@
         181,
         300
       ],
-      "classification": "PENDING NO VERIFIED SOURCE",
+      "classification": "PASS",
       "dimensions": "320x320",
       "bytes": 40787,
       "exists": true,
-      "verified": false,
+      "verified": true,
       "sourcePageMatches": true,
-      "hasCropEvidence": true
+      "hasCropEvidence": true,
+      "sourceMaterialExists": true,
+      "hasValidSourceCrop": true,
+      "sourceMaterialFile": "public/cartilla/backgrounds/final/flipchart/FlipChart_Page_027.png",
+      "missingEvidence": null
     },
     {
       "src": "/cartilla/art/optimized/flipchart-native/p027-napi.png",
@@ -2780,13 +3128,17 @@
         264,
         280
       ],
-      "classification": "PENDING NO VERIFIED SOURCE",
+      "classification": "PASS",
       "dimensions": "320x320",
       "bytes": 70916,
       "exists": true,
-      "verified": false,
+      "verified": true,
       "sourcePageMatches": true,
-      "hasCropEvidence": true
+      "hasCropEvidence": true,
+      "sourceMaterialExists": true,
+      "hasValidSourceCrop": true,
+      "sourceMaterialFile": "public/cartilla/backgrounds/final/flipchart/FlipChart_Page_027.png",
+      "missingEvidence": null
     },
     {
       "src": "/cartilla/art/optimized/flipchart-native/p027-tenedor.png",
@@ -2799,13 +3151,17 @@
         69,
         323
       ],
-      "classification": "PENDING NO VERIFIED SOURCE",
+      "classification": "PASS",
       "dimensions": "320x320",
       "bytes": 12037,
       "exists": true,
-      "verified": false,
+      "verified": true,
       "sourcePageMatches": true,
-      "hasCropEvidence": true
+      "hasCropEvidence": true,
+      "sourceMaterialExists": true,
+      "hasValidSourceCrop": true,
+      "sourceMaterialFile": "public/cartilla/backgrounds/final/flipchart/FlipChart_Page_027.png",
+      "missingEvidence": null
     },
     {
       "src": "/cartilla/art/optimized/flipchart-native/p029-scene.png",
@@ -2818,13 +3174,17 @@
         481,
         544
       ],
-      "classification": "PENDING NO VERIFIED SOURCE",
+      "classification": "PASS",
       "dimensions": "665x665",
       "bytes": 264645,
       "exists": true,
-      "verified": false,
+      "verified": true,
       "sourcePageMatches": true,
-      "hasCropEvidence": true
+      "hasCropEvidence": true,
+      "sourceMaterialExists": true,
+      "hasValidSourceCrop": true,
+      "sourceMaterialFile": "public/cartilla/backgrounds/final/flipchart/FlipChart_Page_029.png",
+      "missingEvidence": null
     },
     {
       "src": "/cartilla/art/optimized/flipchart-native/p030-scene.png",
@@ -2837,13 +3197,17 @@
         347,
         512
       ],
-      "classification": "PENDING NO VERIFIED SOURCE",
+      "classification": "PASS",
       "dimensions": "545x545",
       "bytes": 260707,
       "exists": true,
-      "verified": false,
+      "verified": true,
       "sourcePageMatches": true,
-      "hasCropEvidence": true
+      "hasCropEvidence": true,
+      "sourceMaterialExists": true,
+      "hasValidSourceCrop": true,
+      "sourceMaterialFile": "public/cartilla/backgrounds/final/flipchart/FlipChart_Page_030.png",
+      "missingEvidence": null
     },
     {
       "src": "/cartilla/art/optimized/flipchart-native/p030-pinata.png",
@@ -2856,13 +3220,17 @@
         217,
         236
       ],
-      "classification": "PENDING NO VERIFIED SOURCE",
+      "classification": "PASS",
       "dimensions": "320x320",
       "bytes": 43865,
       "exists": true,
-      "verified": false,
+      "verified": true,
       "sourcePageMatches": true,
-      "hasCropEvidence": true
+      "hasCropEvidence": true,
+      "sourceMaterialExists": true,
+      "hasValidSourceCrop": true,
+      "sourceMaterialFile": "public/cartilla/backgrounds/final/flipchart/FlipChart_Page_030.png",
+      "missingEvidence": null
     },
     {
       "src": "/cartilla/art/optimized/flipchart-native/p030-nuno.png",
@@ -2875,13 +3243,17 @@
         192,
         288
       ],
-      "classification": "PENDING NO VERIFIED SOURCE",
+      "classification": "PASS",
       "dimensions": "320x320",
       "bytes": 36499,
       "exists": true,
-      "verified": false,
+      "verified": true,
       "sourcePageMatches": true,
-      "hasCropEvidence": true
+      "hasCropEvidence": true,
+      "sourceMaterialExists": true,
+      "hasValidSourceCrop": true,
+      "sourceMaterialFile": "public/cartilla/backgrounds/final/flipchart/FlipChart_Page_030.png",
+      "missingEvidence": null
     },
     {
       "src": "/cartilla/art/optimized/flipchart-native/p030-ninito.png",
@@ -2894,13 +3266,17 @@
         192,
         261
       ],
-      "classification": "PENDING NO VERIFIED SOURCE",
+      "classification": "PASS",
       "dimensions": "320x320",
       "bytes": 55302,
       "exists": true,
-      "verified": false,
+      "verified": true,
       "sourcePageMatches": true,
-      "hasCropEvidence": true
+      "hasCropEvidence": true,
+      "sourceMaterialExists": true,
+      "hasValidSourceCrop": true,
+      "sourceMaterialFile": "public/cartilla/backgrounds/final/flipchart/FlipChart_Page_030.png",
+      "missingEvidence": null
     },
     {
       "src": "/cartilla/art/optimized/flipchart-native/p030-mono.png",
@@ -2913,13 +3289,17 @@
         242,
         292
       ],
-      "classification": "PENDING NO VERIFIED SOURCE",
+      "classification": "PASS",
       "dimensions": "320x320",
       "bytes": 84380,
       "exists": true,
-      "verified": false,
+      "verified": true,
       "sourcePageMatches": true,
-      "hasCropEvidence": true
+      "hasCropEvidence": true,
+      "sourceMaterialExists": true,
+      "hasValidSourceCrop": true,
+      "sourceMaterialFile": "public/cartilla/backgrounds/final/flipchart/FlipChart_Page_030.png",
+      "missingEvidence": null
     },
     {
       "src": "/cartilla/art/optimized/flipchart-native/p030-mene.png",
@@ -2932,13 +3312,17 @@
         196,
         315
       ],
-      "classification": "PENDING NO VERIFIED SOURCE",
+      "classification": "PASS",
       "dimensions": "320x320",
       "bytes": 51822,
       "exists": true,
-      "verified": false,
+      "verified": true,
       "sourcePageMatches": true,
-      "hasCropEvidence": true
+      "hasCropEvidence": true,
+      "sourceMaterialExists": true,
+      "hasValidSourceCrop": true,
+      "sourceMaterialFile": "public/cartilla/backgrounds/final/flipchart/FlipChart_Page_030.png",
+      "missingEvidence": null
     },
     {
       "src": "/cartilla/art/optimized/flipchart-native/p032-scene.png",
@@ -2951,13 +3335,17 @@
         502,
         511
       ],
-      "classification": "PENDING NO VERIFIED SOURCE",
+      "classification": "PASS",
       "dimensions": "682x682",
       "bytes": 231822,
       "exists": true,
-      "verified": false,
+      "verified": true,
       "sourcePageMatches": true,
-      "hasCropEvidence": true
+      "hasCropEvidence": true,
+      "sourceMaterialExists": true,
+      "hasValidSourceCrop": true,
+      "sourceMaterialFile": "public/cartilla/backgrounds/final/flipchart/FlipChart_Page_032.png",
+      "missingEvidence": null
     },
     {
       "src": "/cartilla/art/optimized/flipchart-native/p033-scene.png",
@@ -2970,13 +3358,17 @@
         470,
         520
       ],
-      "classification": "PENDING NO VERIFIED SOURCE",
+      "classification": "PASS",
       "dimensions": "549x549",
       "bytes": 227395,
       "exists": true,
-      "verified": false,
+      "verified": true,
       "sourcePageMatches": true,
-      "hasCropEvidence": true
+      "hasCropEvidence": true,
+      "sourceMaterialExists": true,
+      "hasValidSourceCrop": true,
+      "sourceMaterialFile": "public/cartilla/backgrounds/final/flipchart/FlipChart_Page_033.png",
+      "missingEvidence": null
     },
     {
       "src": "/cartilla/art/optimized/flipchart-native/p033-beba.png",
@@ -2989,13 +3381,17 @@
         237,
         223
       ],
-      "classification": "PENDING NO VERIFIED SOURCE",
+      "classification": "PASS",
       "dimensions": "320x320",
       "bytes": 46539,
       "exists": true,
-      "verified": false,
+      "verified": true,
       "sourcePageMatches": true,
-      "hasCropEvidence": true
+      "hasCropEvidence": true,
+      "sourceMaterialExists": true,
+      "hasValidSourceCrop": true,
+      "sourceMaterialFile": "public/cartilla/backgrounds/final/flipchart/FlipChart_Page_033.png",
+      "missingEvidence": null
     },
     {
       "src": "/cartilla/art/optimized/flipchart-native/p033-bubi.png",
@@ -3008,13 +3404,17 @@
         251,
         230
       ],
-      "classification": "PENDING NO VERIFIED SOURCE",
+      "classification": "PASS",
       "dimensions": "320x320",
       "bytes": 42247,
       "exists": true,
-      "verified": false,
+      "verified": true,
       "sourcePageMatches": true,
-      "hasCropEvidence": true
+      "hasCropEvidence": true,
+      "sourceMaterialExists": true,
+      "hasValidSourceCrop": true,
+      "sourceMaterialFile": "public/cartilla/backgrounds/final/flipchart/FlipChart_Page_033.png",
+      "missingEvidence": null
     },
     {
       "src": "/cartilla/art/optimized/flipchart-native/p033-bate.png",
@@ -3027,13 +3427,17 @@
         215,
         264
       ],
-      "classification": "PENDING NO VERIFIED SOURCE",
+      "classification": "PASS",
       "dimensions": "320x320",
       "bytes": 25693,
       "exists": true,
-      "verified": false,
+      "verified": true,
       "sourcePageMatches": true,
-      "hasCropEvidence": true
+      "hasCropEvidence": true,
+      "sourceMaterialExists": true,
+      "hasValidSourceCrop": true,
+      "sourceMaterialFile": "public/cartilla/backgrounds/final/flipchart/FlipChart_Page_033.png",
+      "missingEvidence": null
     },
     {
       "src": "/cartilla/art/optimized/flipchart-native/p033-bota.png",
@@ -3046,13 +3450,17 @@
         238,
         260
       ],
-      "classification": "PENDING NO VERIFIED SOURCE",
+      "classification": "PASS",
       "dimensions": "320x320",
       "bytes": 92719,
       "exists": true,
-      "verified": false,
+      "verified": true,
       "sourcePageMatches": true,
-      "hasCropEvidence": true
+      "hasCropEvidence": true,
+      "sourceMaterialExists": true,
+      "hasValidSourceCrop": true,
+      "sourceMaterialFile": "public/cartilla/backgrounds/final/flipchart/FlipChart_Page_033.png",
+      "missingEvidence": null
     },
     {
       "src": "/cartilla/art/optimized/flipchart-native/p033-bebita.png",
@@ -3065,13 +3473,17 @@
         279,
         307
       ],
-      "classification": "PENDING NO VERIFIED SOURCE",
+      "classification": "PASS",
       "dimensions": "320x320",
       "bytes": 75124,
       "exists": true,
-      "verified": false,
+      "verified": true,
       "sourcePageMatches": true,
-      "hasCropEvidence": true
+      "hasCropEvidence": true,
+      "sourceMaterialExists": true,
+      "hasValidSourceCrop": true,
+      "sourceMaterialFile": "public/cartilla/backgrounds/final/flipchart/FlipChart_Page_033.png",
+      "missingEvidence": null
     },
     {
       "src": "/cartilla/art/optimized/flipchart-native/p035-scene.png",
@@ -3084,13 +3496,17 @@
         498,
         315
       ],
-      "classification": "PENDING NO VERIFIED SOURCE",
+      "classification": "PASS",
       "dimensions": "666x666",
       "bytes": 177075,
       "exists": true,
-      "verified": false,
+      "verified": true,
       "sourcePageMatches": true,
-      "hasCropEvidence": true
+      "hasCropEvidence": true,
+      "sourceMaterialExists": true,
+      "hasValidSourceCrop": true,
+      "sourceMaterialFile": "public/cartilla/backgrounds/final/flipchart/FlipChart_Page_035.png",
+      "missingEvidence": null
     },
     {
       "src": "/cartilla/art/optimized/flipchart-native/p036-scene.png",
@@ -3103,13 +3519,17 @@
         487,
         327
       ],
-      "classification": "PENDING NO VERIFIED SOURCE",
+      "classification": "PASS",
       "dimensions": "526x526",
       "bytes": 191915,
       "exists": true,
-      "verified": false,
+      "verified": true,
       "sourcePageMatches": true,
-      "hasCropEvidence": true
+      "hasCropEvidence": true,
+      "sourceMaterialExists": true,
+      "hasValidSourceCrop": true,
+      "sourceMaterialFile": "public/cartilla/backgrounds/final/flipchart/FlipChart_Page_036.png",
+      "missingEvidence": null
     },
     {
       "src": "/cartilla/art/optimized/flipchart-native/p036-vaso.png",
@@ -3122,13 +3542,17 @@
         101,
         194
       ],
-      "classification": "PENDING NO VERIFIED SOURCE",
+      "classification": "PASS",
       "dimensions": "320x320",
       "bytes": 23211,
       "exists": true,
-      "verified": false,
+      "verified": true,
       "sourcePageMatches": true,
-      "hasCropEvidence": true
+      "hasCropEvidence": true,
+      "sourceMaterialExists": true,
+      "hasValidSourceCrop": true,
+      "sourceMaterialFile": "public/cartilla/backgrounds/final/flipchart/FlipChart_Page_036.png",
+      "missingEvidence": null
     },
     {
       "src": "/cartilla/art/optimized/flipchart-native/p036-vela.png",
@@ -3141,13 +3565,17 @@
         218,
         235
       ],
-      "classification": "PENDING NO VERIFIED SOURCE",
+      "classification": "PASS",
       "dimensions": "320x320",
       "bytes": 30920,
       "exists": true,
-      "verified": false,
+      "verified": true,
       "sourcePageMatches": true,
-      "hasCropEvidence": true
+      "hasCropEvidence": true,
+      "sourceMaterialExists": true,
+      "hasValidSourceCrop": true,
+      "sourceMaterialFile": "public/cartilla/backgrounds/final/flipchart/FlipChart_Page_036.png",
+      "missingEvidence": null
     },
     {
       "src": "/cartilla/art/optimized/flipchart-native/p036-vita.png",
@@ -3160,13 +3588,17 @@
         220,
         252
       ],
-      "classification": "PENDING NO VERIFIED SOURCE",
+      "classification": "PASS",
       "dimensions": "320x320",
       "bytes": 63379,
       "exists": true,
-      "verified": false,
+      "verified": true,
       "sourcePageMatches": true,
-      "hasCropEvidence": true
+      "hasCropEvidence": true,
+      "sourceMaterialExists": true,
+      "hasValidSourceCrop": true,
+      "sourceMaterialFile": "public/cartilla/backgrounds/final/flipchart/FlipChart_Page_036.png",
+      "missingEvidence": null
     },
     {
       "src": "/cartilla/art/optimized/flipchart-native/p036-pavo.png",
@@ -3179,13 +3611,17 @@
         231,
         260
       ],
-      "classification": "PENDING NO VERIFIED SOURCE",
+      "classification": "PASS",
       "dimensions": "320x320",
       "bytes": 93181,
       "exists": true,
-      "verified": false,
+      "verified": true,
       "sourcePageMatches": true,
-      "hasCropEvidence": true
+      "hasCropEvidence": true,
+      "sourceMaterialExists": true,
+      "hasValidSourceCrop": true,
+      "sourceMaterialFile": "public/cartilla/backgrounds/final/flipchart/FlipChart_Page_036.png",
+      "missingEvidence": null
     },
     {
       "src": "/cartilla/art/optimized/flipchart-native/p036-vuli.png",
@@ -3198,13 +3634,17 @@
         307,
         209
       ],
-      "classification": "PENDING NO VERIFIED SOURCE",
+      "classification": "PASS",
       "dimensions": "330x330",
       "bytes": 36595,
       "exists": true,
-      "verified": false,
+      "verified": true,
       "sourcePageMatches": true,
-      "hasCropEvidence": true
+      "hasCropEvidence": true,
+      "sourceMaterialExists": true,
+      "hasValidSourceCrop": true,
+      "sourceMaterialFile": "public/cartilla/backgrounds/final/flipchart/FlipChart_Page_036.png",
+      "missingEvidence": null
     },
     {
       "src": "/cartilla/art/optimized/flipchart-native/p038-scene.png",
@@ -3217,13 +3657,17 @@
         487,
         522
       ],
-      "classification": "PENDING NO VERIFIED SOURCE",
+      "classification": "PASS",
       "dimensions": "636x636",
       "bytes": 209332,
       "exists": true,
-      "verified": false,
+      "verified": true,
       "sourcePageMatches": true,
-      "hasCropEvidence": true
+      "hasCropEvidence": true,
+      "sourceMaterialExists": true,
+      "hasValidSourceCrop": true,
+      "sourceMaterialFile": "public/cartilla/backgrounds/final/flipchart/FlipChart_Page_038.png",
+      "missingEvidence": null
     },
     {
       "src": "/cartilla/art/optimized/flipchart-native/p039-scene.png",
@@ -3236,13 +3680,17 @@
         434,
         474
       ],
-      "classification": "PENDING NO VERIFIED SOURCE",
+      "classification": "PASS",
       "dimensions": "519x519",
       "bytes": 178166,
       "exists": true,
-      "verified": false,
+      "verified": true,
       "sourcePageMatches": true,
-      "hasCropEvidence": true
+      "hasCropEvidence": true,
+      "sourceMaterialExists": true,
+      "hasValidSourceCrop": true,
+      "sourceMaterialFile": "public/cartilla/backgrounds/final/flipchart/FlipChart_Page_039.png",
+      "missingEvidence": null
     },
     {
       "src": "/cartilla/art/optimized/flipchart-native/p039-rana.png",
@@ -3255,13 +3703,17 @@
         231,
         221
       ],
-      "classification": "PENDING NO VERIFIED SOURCE",
+      "classification": "PASS",
       "dimensions": "320x320",
       "bytes": 62419,
       "exists": true,
-      "verified": false,
+      "verified": true,
       "sourcePageMatches": true,
-      "hasCropEvidence": true
+      "hasCropEvidence": true,
+      "sourceMaterialExists": true,
+      "hasValidSourceCrop": true,
+      "sourceMaterialFile": "public/cartilla/backgrounds/final/flipchart/FlipChart_Page_039.png",
+      "missingEvidence": null
     },
     {
       "src": "/cartilla/art/optimized/flipchart-native/p039-remos.png",
@@ -3274,13 +3726,17 @@
         243,
         225
       ],
-      "classification": "PENDING NO VERIFIED SOURCE",
+      "classification": "PASS",
       "dimensions": "320x320",
       "bytes": 65623,
       "exists": true,
-      "verified": false,
+      "verified": true,
       "sourcePageMatches": true,
-      "hasCropEvidence": true
+      "hasCropEvidence": true,
+      "sourceMaterialExists": true,
+      "hasValidSourceCrop": true,
+      "sourceMaterialFile": "public/cartilla/backgrounds/final/flipchart/FlipChart_Page_039.png",
+      "missingEvidence": null
     },
     {
       "src": "/cartilla/art/optimized/flipchart-native/p039-rita.png",
@@ -3293,13 +3749,17 @@
         270,
         221
       ],
-      "classification": "PENDING NO VERIFIED SOURCE",
+      "classification": "PASS",
       "dimensions": "324x324",
       "bytes": 52168,
       "exists": true,
-      "verified": false,
+      "verified": true,
       "sourcePageMatches": true,
-      "hasCropEvidence": true
+      "hasCropEvidence": true,
+      "sourceMaterialExists": true,
+      "hasValidSourceCrop": true,
+      "sourceMaterialFile": "public/cartilla/backgrounds/final/flipchart/FlipChart_Page_039.png",
+      "missingEvidence": null
     },
     {
       "src": "/cartilla/art/optimized/flipchart-native/p039-rosa.png",
@@ -3312,13 +3772,17 @@
         187,
         244
       ],
-      "classification": "PENDING NO VERIFIED SOURCE",
+      "classification": "PASS",
       "dimensions": "320x320",
       "bytes": 54742,
       "exists": true,
-      "verified": false,
+      "verified": true,
       "sourcePageMatches": true,
-      "hasCropEvidence": true
+      "hasCropEvidence": true,
+      "sourceMaterialExists": true,
+      "hasValidSourceCrop": true,
+      "sourceMaterialFile": "public/cartilla/backgrounds/final/flipchart/FlipChart_Page_039.png",
+      "missingEvidence": null
     },
     {
       "src": "/cartilla/art/optimized/flipchart-native/p039-rueda.png",
@@ -3331,13 +3795,17 @@
         303,
         249
       ],
-      "classification": "PENDING NO VERIFIED SOURCE",
+      "classification": "PASS",
       "dimensions": "320x320",
       "bytes": 87137,
       "exists": true,
-      "verified": false,
+      "verified": true,
       "sourcePageMatches": true,
-      "hasCropEvidence": true
+      "hasCropEvidence": true,
+      "sourceMaterialExists": true,
+      "hasValidSourceCrop": true,
+      "sourceMaterialFile": "public/cartilla/backgrounds/final/flipchart/FlipChart_Page_039.png",
+      "missingEvidence": null
     },
     {
       "src": "/cartilla/art/optimized/flipchart-native/p041-scene.png",
@@ -3350,13 +3818,17 @@
         531,
         504
       ],
-      "classification": "PENDING NO VERIFIED SOURCE",
+      "classification": "PASS",
       "dimensions": "586x586",
       "bytes": 254340,
       "exists": true,
-      "verified": false,
+      "verified": true,
       "sourcePageMatches": true,
-      "hasCropEvidence": true
+      "hasCropEvidence": true,
+      "sourceMaterialExists": true,
+      "hasValidSourceCrop": true,
+      "sourceMaterialFile": "public/cartilla/backgrounds/final/flipchart/FlipChart_Page_041.png",
+      "missingEvidence": null
     },
     {
       "src": "/cartilla/art/optimized/flipchart-native/p042-scene.png",
@@ -3369,13 +3841,17 @@
         509,
         401
       ],
-      "classification": "PENDING NO VERIFIED SOURCE",
+      "classification": "PASS",
       "dimensions": "529x529",
       "bytes": 261932,
       "exists": true,
-      "verified": false,
+      "verified": true,
       "sourcePageMatches": true,
-      "hasCropEvidence": true
+      "hasCropEvidence": true,
+      "sourceMaterialExists": true,
+      "hasValidSourceCrop": true,
+      "sourceMaterialFile": "public/cartilla/backgrounds/final/flipchart/FlipChart_Page_042.png",
+      "missingEvidence": null
     },
     {
       "src": "/cartilla/art/optimized/flipchart-native/p042-burro.png",
@@ -3388,13 +3864,17 @@
         262,
         240
       ],
-      "classification": "PENDING NO VERIFIED SOURCE",
+      "classification": "PASS",
       "dimensions": "320x320",
       "bytes": 46838,
       "exists": true,
-      "verified": false,
+      "verified": true,
       "sourcePageMatches": true,
-      "hasCropEvidence": true
+      "hasCropEvidence": true,
+      "sourceMaterialExists": true,
+      "hasValidSourceCrop": true,
+      "sourceMaterialFile": "public/cartilla/backgrounds/final/flipchart/FlipChart_Page_042.png",
+      "missingEvidence": null
     },
     {
       "src": "/cartilla/art/optimized/flipchart-native/p042-carrusel.png",
@@ -3407,13 +3887,17 @@
         244,
         238
       ],
-      "classification": "PENDING NO VERIFIED SOURCE",
+      "classification": "PASS",
       "dimensions": "320x320",
       "bytes": 87851,
       "exists": true,
-      "verified": false,
+      "verified": true,
       "sourcePageMatches": true,
-      "hasCropEvidence": true
+      "hasCropEvidence": true,
+      "sourceMaterialExists": true,
+      "hasValidSourceCrop": true,
+      "sourceMaterialFile": "public/cartilla/backgrounds/final/flipchart/FlipChart_Page_042.png",
+      "missingEvidence": null
     },
     {
       "src": "/cartilla/art/optimized/flipchart-native/p042-torre.png",
@@ -3426,13 +3910,17 @@
         111,
         283
       ],
-      "classification": "PENDING NO VERIFIED SOURCE",
+      "classification": "PASS",
       "dimensions": "320x320",
       "bytes": 24379,
       "exists": true,
-      "verified": false,
+      "verified": true,
       "sourcePageMatches": true,
-      "hasCropEvidence": true
+      "hasCropEvidence": true,
+      "sourceMaterialExists": true,
+      "hasValidSourceCrop": true,
+      "sourceMaterialFile": "public/cartilla/backgrounds/final/flipchart/FlipChart_Page_042.png",
+      "missingEvidence": null
     },
     {
       "src": "/cartilla/art/optimized/flipchart-native/p042-barril.png",
@@ -3445,13 +3933,17 @@
         176,
         270
       ],
-      "classification": "PENDING NO VERIFIED SOURCE",
+      "classification": "PASS",
       "dimensions": "320x320",
       "bytes": 64861,
       "exists": true,
-      "verified": false,
+      "verified": true,
       "sourcePageMatches": true,
-      "hasCropEvidence": true
+      "hasCropEvidence": true,
+      "sourceMaterialExists": true,
+      "hasValidSourceCrop": true,
+      "sourceMaterialFile": "public/cartilla/backgrounds/final/flipchart/FlipChart_Page_042.png",
+      "missingEvidence": null
     },
     {
       "src": "/cartilla/art/optimized/flipchart-native/p042-tierra.png",
@@ -3464,13 +3956,17 @@
         277,
         290
       ],
-      "classification": "PENDING NO VERIFIED SOURCE",
+      "classification": "PASS",
       "dimensions": "320x320",
       "bytes": 95440,
       "exists": true,
-      "verified": false,
+      "verified": true,
       "sourcePageMatches": true,
-      "hasCropEvidence": true
+      "hasCropEvidence": true,
+      "sourceMaterialExists": true,
+      "hasValidSourceCrop": true,
+      "sourceMaterialFile": "public/cartilla/backgrounds/final/flipchart/FlipChart_Page_042.png",
+      "missingEvidence": null
     },
     {
       "src": "/cartilla/art/optimized/flipchart-native/p044-scene.png",
@@ -3483,13 +3979,17 @@
         531,
         544
       ],
-      "classification": "PENDING NO VERIFIED SOURCE",
+      "classification": "PASS",
       "dimensions": "653x653",
       "bytes": 552239,
       "exists": true,
-      "verified": false,
+      "verified": true,
       "sourcePageMatches": true,
-      "hasCropEvidence": true
+      "hasCropEvidence": true,
+      "sourceMaterialExists": true,
+      "hasValidSourceCrop": true,
+      "sourceMaterialFile": "public/cartilla/backgrounds/final/flipchart/FlipChart_Page_044.png",
+      "missingEvidence": null
     },
     {
       "src": "/cartilla/art/optimized/flipchart-native/p045-scene.png",
@@ -3502,13 +4002,17 @@
         403,
         511
       ],
-      "classification": "PENDING NO VERIFIED SOURCE",
+      "classification": "PASS",
       "dimensions": "557x557",
       "bytes": 166965,
       "exists": true,
-      "verified": false,
+      "verified": true,
       "sourcePageMatches": true,
-      "hasCropEvidence": true
+      "hasCropEvidence": true,
+      "sourceMaterialExists": true,
+      "hasValidSourceCrop": true,
+      "sourceMaterialFile": "public/cartilla/backgrounds/final/flipchart/FlipChart_Page_045.png",
+      "missingEvidence": null
     },
     {
       "src": "/cartilla/art/optimized/flipchart-native/p045-gaveta.png",
@@ -3521,13 +4025,17 @@
         265,
         223
       ],
-      "classification": "PENDING NO VERIFIED SOURCE",
+      "classification": "PASS",
       "dimensions": "321x321",
       "bytes": 80865,
       "exists": true,
-      "verified": false,
+      "verified": true,
       "sourcePageMatches": true,
-      "hasCropEvidence": true
+      "hasCropEvidence": true,
+      "sourceMaterialExists": true,
+      "hasValidSourceCrop": true,
+      "sourceMaterialFile": "public/cartilla/backgrounds/final/flipchart/FlipChart_Page_045.png",
+      "missingEvidence": null
     },
     {
       "src": "/cartilla/art/optimized/flipchart-native/p045-gusano.png",
@@ -3540,13 +4048,17 @@
         277,
         141
       ],
-      "classification": "PENDING NO VERIFIED SOURCE",
+      "classification": "PASS",
       "dimensions": "333x333",
       "bytes": 27873,
       "exists": true,
-      "verified": false,
+      "verified": true,
       "sourcePageMatches": true,
-      "hasCropEvidence": true
+      "hasCropEvidence": true,
+      "sourceMaterialExists": true,
+      "hasValidSourceCrop": true,
+      "sourceMaterialFile": "public/cartilla/backgrounds/final/flipchart/FlipChart_Page_045.png",
+      "missingEvidence": null
     },
     {
       "src": "/cartilla/art/optimized/flipchart-native/p045-goloso.png",
@@ -3559,13 +4071,17 @@
         242,
         270
       ],
-      "classification": "PENDING NO VERIFIED SOURCE",
+      "classification": "PASS",
       "dimensions": "320x320",
       "bytes": 71135,
       "exists": true,
-      "verified": false,
+      "verified": true,
       "sourcePageMatches": true,
-      "hasCropEvidence": true
+      "hasCropEvidence": true,
+      "sourceMaterialExists": true,
+      "hasValidSourceCrop": true,
+      "sourceMaterialFile": "public/cartilla/backgrounds/final/flipchart/FlipChart_Page_045.png",
+      "missingEvidence": null
     },
     {
       "src": "/cartilla/art/optimized/flipchart-native/p045-gorra.png",
@@ -3578,13 +4094,17 @@
         255,
         201
       ],
-      "classification": "PENDING NO VERIFIED SOURCE",
+      "classification": "PASS",
       "dimensions": "320x320",
       "bytes": 55671,
       "exists": true,
-      "verified": false,
+      "verified": true,
       "sourcePageMatches": true,
-      "hasCropEvidence": true
+      "hasCropEvidence": true,
+      "sourceMaterialExists": true,
+      "hasValidSourceCrop": true,
+      "sourceMaterialFile": "public/cartilla/backgrounds/final/flipchart/FlipChart_Page_045.png",
+      "missingEvidence": null
     },
     {
       "src": "/cartilla/art/optimized/flipchart-native/p045-mago.png",
@@ -3597,13 +4117,17 @@
         238,
         272
       ],
-      "classification": "PENDING NO VERIFIED SOURCE",
+      "classification": "PASS",
       "dimensions": "320x320",
       "bytes": 75805,
       "exists": true,
-      "verified": false,
+      "verified": true,
       "sourcePageMatches": true,
-      "hasCropEvidence": true
+      "hasCropEvidence": true,
+      "sourceMaterialExists": true,
+      "hasValidSourceCrop": true,
+      "sourceMaterialFile": "public/cartilla/backgrounds/final/flipchart/FlipChart_Page_045.png",
+      "missingEvidence": null
     },
     {
       "src": "/cartilla/art/optimized/flipchart-native/p047-scene.png",
@@ -3616,13 +4140,17 @@
         506,
         532
       ],
-      "classification": "PENDING NO VERIFIED SOURCE",
+      "classification": "PASS",
       "dimensions": "667x667",
       "bytes": 238929,
       "exists": true,
-      "verified": false,
+      "verified": true,
       "sourcePageMatches": true,
-      "hasCropEvidence": true
+      "hasCropEvidence": true,
+      "sourceMaterialExists": true,
+      "hasValidSourceCrop": true,
+      "sourceMaterialFile": "public/cartilla/backgrounds/final/flipchart/FlipChart_Page_047.png",
+      "missingEvidence": null
     },
     {
       "src": "/cartilla/art/optimized/flipchart-native/p048-scene.png",
@@ -3635,13 +4163,17 @@
         338,
         522
       ],
-      "classification": "PENDING NO VERIFIED SOURCE",
+      "classification": "PASS",
       "dimensions": "552x552",
       "bytes": 122839,
       "exists": true,
-      "verified": false,
+      "verified": true,
       "sourcePageMatches": true,
-      "hasCropEvidence": true
+      "hasCropEvidence": true,
+      "sourceMaterialExists": true,
+      "hasValidSourceCrop": true,
+      "sourceMaterialFile": "public/cartilla/backgrounds/final/flipchart/FlipChart_Page_048.png",
+      "missingEvidence": null
     },
     {
       "src": "/cartilla/art/optimized/flipchart-native/p048-foto.png",
@@ -3654,13 +4186,17 @@
         199,
         261
       ],
-      "classification": "PENDING NO VERIFIED SOURCE",
+      "classification": "PASS",
       "dimensions": "320x320",
       "bytes": 65853,
       "exists": true,
-      "verified": false,
+      "verified": true,
       "sourcePageMatches": true,
-      "hasCropEvidence": true
+      "hasCropEvidence": true,
+      "sourceMaterialExists": true,
+      "hasValidSourceCrop": true,
+      "sourceMaterialFile": "public/cartilla/backgrounds/final/flipchart/FlipChart_Page_048.png",
+      "missingEvidence": null
     },
     {
       "src": "/cartilla/art/optimized/flipchart-native/p048-fideos.png",
@@ -3673,13 +4209,17 @@
         212,
         276
       ],
-      "classification": "PENDING NO VERIFIED SOURCE",
+      "classification": "PASS",
       "dimensions": "325x325",
       "bytes": 69470,
       "exists": true,
-      "verified": false,
+      "verified": true,
       "sourcePageMatches": true,
-      "hasCropEvidence": true
+      "hasCropEvidence": true,
+      "sourceMaterialExists": true,
+      "hasValidSourceCrop": true,
+      "sourceMaterialFile": "public/cartilla/backgrounds/final/flipchart/FlipChart_Page_048.png",
+      "missingEvidence": null
     },
     {
       "src": "/cartilla/art/optimized/flipchart-native/p048-familia.png",
@@ -3692,13 +4232,17 @@
         175,
         329
       ],
-      "classification": "PENDING NO VERIFIED SOURCE",
+      "classification": "PASS",
       "dimensions": "323x323",
       "bytes": 69178,
       "exists": true,
-      "verified": false,
+      "verified": true,
       "sourcePageMatches": true,
-      "hasCropEvidence": true
+      "hasCropEvidence": true,
+      "sourceMaterialExists": true,
+      "hasValidSourceCrop": true,
+      "sourceMaterialFile": "public/cartilla/backgrounds/final/flipchart/FlipChart_Page_048.png",
+      "missingEvidence": null
     },
     {
       "src": "/cartilla/art/optimized/flipchart-native/p048-felo.png",
@@ -3711,13 +4255,17 @@
         300,
         295
       ],
-      "classification": "PENDING NO VERIFIED SOURCE",
+      "classification": "PASS",
       "dimensions": "321x321",
       "bytes": 80269,
       "exists": true,
-      "verified": false,
+      "verified": true,
       "sourcePageMatches": true,
-      "hasCropEvidence": true
+      "hasCropEvidence": true,
+      "sourceMaterialExists": true,
+      "hasValidSourceCrop": true,
+      "sourceMaterialFile": "public/cartilla/backgrounds/final/flipchart/FlipChart_Page_048.png",
+      "missingEvidence": null
     },
     {
       "src": "/cartilla/art/optimized/flipchart-native/p048-funda.png",
@@ -3730,13 +4278,17 @@
         244,
         245
       ],
-      "classification": "PENDING NO VERIFIED SOURCE",
+      "classification": "PASS",
       "dimensions": "320x320",
       "bytes": 56851,
       "exists": true,
-      "verified": false,
+      "verified": true,
       "sourcePageMatches": true,
-      "hasCropEvidence": true
+      "hasCropEvidence": true,
+      "sourceMaterialExists": true,
+      "hasValidSourceCrop": true,
+      "sourceMaterialFile": "public/cartilla/backgrounds/final/flipchart/FlipChart_Page_048.png",
+      "missingEvidence": null
     },
     {
       "src": "/cartilla/art/optimized/flipchart-native/p050-scene.png",
@@ -3749,13 +4301,17 @@
         530,
         529
       ],
-      "classification": "PENDING NO VERIFIED SOURCE",
+      "classification": "PASS",
       "dimensions": "644x644",
       "bytes": 330647,
       "exists": true,
-      "verified": false,
+      "verified": true,
       "sourcePageMatches": true,
-      "hasCropEvidence": true
+      "hasCropEvidence": true,
+      "sourceMaterialExists": true,
+      "hasValidSourceCrop": true,
+      "sourceMaterialFile": "public/cartilla/backgrounds/final/flipchart/FlipChart_Page_050.png",
+      "missingEvidence": null
     },
     {
       "src": "/cartilla/art/optimized/flipchart-native/p051-scene.png",
@@ -3768,13 +4324,17 @@
         465,
         496
       ],
-      "classification": "PENDING NO VERIFIED SOURCE",
+      "classification": "PASS",
       "dimensions": "537x537",
       "bytes": 239137,
       "exists": true,
-      "verified": false,
+      "verified": true,
       "sourcePageMatches": true,
-      "hasCropEvidence": true
+      "hasCropEvidence": true,
+      "sourceMaterialExists": true,
+      "hasValidSourceCrop": true,
+      "sourceMaterialFile": "public/cartilla/backgrounds/final/flipchart/FlipChart_Page_051.png",
+      "missingEvidence": null
     },
     {
       "src": "/cartilla/art/optimized/flipchart-native/p051-jicotea.png",
@@ -3787,13 +4347,17 @@
         269,
         221
       ],
-      "classification": "PENDING NO VERIFIED SOURCE",
+      "classification": "PASS",
       "dimensions": "322x322",
       "bytes": 82182,
       "exists": true,
-      "verified": false,
+      "verified": true,
       "sourcePageMatches": true,
-      "hasCropEvidence": true
+      "hasCropEvidence": true,
+      "sourceMaterialExists": true,
+      "hasValidSourceCrop": true,
+      "sourceMaterialFile": "public/cartilla/backgrounds/final/flipchart/FlipChart_Page_051.png",
+      "missingEvidence": null
     },
     {
       "src": "/cartilla/art/optimized/flipchart-native/p051-jugo.png",
@@ -3806,13 +4370,17 @@
         196,
         224
       ],
-      "classification": "PENDING NO VERIFIED SOURCE",
+      "classification": "PASS",
       "dimensions": "320x320",
       "bytes": 41769,
       "exists": true,
-      "verified": false,
+      "verified": true,
       "sourcePageMatches": true,
-      "hasCropEvidence": true
+      "hasCropEvidence": true,
+      "sourceMaterialExists": true,
+      "hasValidSourceCrop": true,
+      "sourceMaterialFile": "public/cartilla/backgrounds/final/flipchart/FlipChart_Page_051.png",
+      "missingEvidence": null
     },
     {
       "src": "/cartilla/art/optimized/flipchart-native/p051-jesus.png",
@@ -3825,13 +4393,17 @@
         250,
         276
       ],
-      "classification": "PENDING NO VERIFIED SOURCE",
+      "classification": "PASS",
       "dimensions": "320x320",
       "bytes": 46181,
       "exists": true,
-      "verified": false,
+      "verified": true,
       "sourcePageMatches": true,
-      "hasCropEvidence": true
+      "hasCropEvidence": true,
+      "sourceMaterialExists": true,
+      "hasValidSourceCrop": true,
+      "sourceMaterialFile": "public/cartilla/backgrounds/final/flipchart/FlipChart_Page_051.png",
+      "missingEvidence": null
     },
     {
       "src": "/cartilla/art/optimized/flipchart-native/p051-ajo.png",
@@ -3844,13 +4416,17 @@
         246,
         211
       ],
-      "classification": "PENDING NO VERIFIED SOURCE",
+      "classification": "PASS",
       "dimensions": "320x320",
       "bytes": 51115,
       "exists": true,
-      "verified": false,
+      "verified": true,
       "sourcePageMatches": true,
-      "hasCropEvidence": true
+      "hasCropEvidence": true,
+      "sourceMaterialExists": true,
+      "hasValidSourceCrop": true,
+      "sourceMaterialFile": "public/cartilla/backgrounds/final/flipchart/FlipChart_Page_051.png",
+      "missingEvidence": null
     },
     {
       "src": "/cartilla/art/optimized/flipchart-native/p051-jarra.png",
@@ -3863,13 +4439,17 @@
         200,
         270
       ],
-      "classification": "PENDING NO VERIFIED SOURCE",
+      "classification": "PASS",
       "dimensions": "320x320",
       "bytes": 54311,
       "exists": true,
-      "verified": false,
+      "verified": true,
       "sourcePageMatches": true,
-      "hasCropEvidence": true
+      "hasCropEvidence": true,
+      "sourceMaterialExists": true,
+      "hasValidSourceCrop": true,
+      "sourceMaterialFile": "public/cartilla/backgrounds/final/flipchart/FlipChart_Page_051.png",
+      "missingEvidence": null
     },
     {
       "src": "/cartilla/art/optimized/flipchart-native/p053-scene.png",
@@ -3882,13 +4462,17 @@
         504,
         562
       ],
-      "classification": "PENDING NO VERIFIED SOURCE",
+      "classification": "PASS",
       "dimensions": "671x671",
       "bytes": 335717,
       "exists": true,
-      "verified": false,
+      "verified": true,
       "sourcePageMatches": true,
-      "hasCropEvidence": true
+      "hasCropEvidence": true,
+      "sourceMaterialExists": true,
+      "hasValidSourceCrop": true,
+      "sourceMaterialFile": "public/cartilla/backgrounds/final/flipchart/FlipChart_Page_053.png",
+      "missingEvidence": null
     },
     {
       "src": "/cartilla/art/optimized/flipchart-native/p054-scene.png",
@@ -3901,13 +4485,17 @@
         503,
         397
       ],
-      "classification": "PENDING NO VERIFIED SOURCE",
+      "classification": "PASS",
       "dimensions": "561x561",
       "bytes": 252038,
       "exists": true,
-      "verified": false,
+      "verified": true,
       "sourcePageMatches": true,
-      "hasCropEvidence": true
+      "hasCropEvidence": true,
+      "sourceMaterialExists": true,
+      "hasValidSourceCrop": true,
+      "sourceMaterialFile": "public/cartilla/backgrounds/final/flipchart/FlipChart_Page_054.png",
+      "missingEvidence": null
     },
     {
       "src": "/cartilla/art/optimized/flipchart-native/p054-cuna.png",
@@ -3920,13 +4508,17 @@
         251,
         196
       ],
-      "classification": "PENDING NO VERIFIED SOURCE",
+      "classification": "PASS",
       "dimensions": "320x320",
       "bytes": 66603,
       "exists": true,
-      "verified": false,
+      "verified": true,
       "sourcePageMatches": true,
-      "hasCropEvidence": true
+      "hasCropEvidence": true,
+      "sourceMaterialExists": true,
+      "hasValidSourceCrop": true,
+      "sourceMaterialFile": "public/cartilla/backgrounds/final/flipchart/FlipChart_Page_054.png",
+      "missingEvidence": null
     },
     {
       "src": "/cartilla/art/optimized/flipchart-native/p054-conejo.png",
@@ -3939,13 +4531,17 @@
         172,
         247
       ],
-      "classification": "PENDING NO VERIFIED SOURCE",
+      "classification": "PASS",
       "dimensions": "320x320",
       "bytes": 39496,
       "exists": true,
-      "verified": false,
+      "verified": true,
       "sourcePageMatches": true,
-      "hasCropEvidence": true
+      "hasCropEvidence": true,
+      "sourceMaterialExists": true,
+      "hasValidSourceCrop": true,
+      "sourceMaterialFile": "public/cartilla/backgrounds/final/flipchart/FlipChart_Page_054.png",
+      "missingEvidence": null
     },
     {
       "src": "/cartilla/art/optimized/flipchart-native/p054-casa.png",
@@ -3958,13 +4554,17 @@
         293,
         254
       ],
-      "classification": "PENDING NO VERIFIED SOURCE",
+      "classification": "PASS",
       "dimensions": "339x339",
       "bytes": 70088,
       "exists": true,
-      "verified": false,
+      "verified": true,
       "sourcePageMatches": true,
-      "hasCropEvidence": true
+      "hasCropEvidence": true,
+      "sourceMaterialExists": true,
+      "hasValidSourceCrop": true,
+      "sourceMaterialFile": "public/cartilla/backgrounds/final/flipchart/FlipChart_Page_054.png",
+      "missingEvidence": null
     },
     {
       "src": "/cartilla/art/optimized/flipchart-native/p054-cubo.png",
@@ -3977,13 +4577,17 @@
         230,
         278
       ],
-      "classification": "PENDING NO VERIFIED SOURCE",
+      "classification": "PASS",
       "dimensions": "320x320",
       "bytes": 52382,
       "exists": true,
-      "verified": false,
+      "verified": true,
       "sourcePageMatches": true,
-      "hasCropEvidence": true
+      "hasCropEvidence": true,
+      "sourceMaterialExists": true,
+      "hasValidSourceCrop": true,
+      "sourceMaterialFile": "public/cartilla/backgrounds/final/flipchart/FlipChart_Page_054.png",
+      "missingEvidence": null
     },
     {
       "src": "/cartilla/art/optimized/flipchart-native/p054-catalina.png",
@@ -3996,13 +4600,17 @@
         147,
         309
       ],
-      "classification": "PENDING NO VERIFIED SOURCE",
+      "classification": "PASS",
       "dimensions": "320x320",
       "bytes": 46615,
       "exists": true,
-      "verified": false,
+      "verified": true,
       "sourcePageMatches": true,
-      "hasCropEvidence": true
+      "hasCropEvidence": true,
+      "sourceMaterialExists": true,
+      "hasValidSourceCrop": true,
+      "sourceMaterialFile": "public/cartilla/backgrounds/final/flipchart/FlipChart_Page_054.png",
+      "missingEvidence": null
     },
     {
       "src": "/cartilla/art/optimized/flipchart-native/p056-caramelos.webp",
@@ -4015,13 +4623,17 @@
         482,
         677
       ],
-      "classification": "PENDING NO VERIFIED SOURCE",
+      "classification": "PASS",
       "dimensions": "1034x1536",
       "bytes": 290425,
       "exists": true,
-      "verified": false,
+      "verified": true,
       "sourcePageMatches": true,
-      "hasCropEvidence": true
+      "hasCropEvidence": true,
+      "sourceMaterialExists": true,
+      "hasValidSourceCrop": true,
+      "sourceMaterialFile": "public/cartilla/backgrounds/final/flipchart/FlipChart_Page_056.png",
+      "missingEvidence": null
     },
     {
       "src": "/cartilla/art/optimized/flipchart-native/p057-scene.png",
@@ -4034,13 +4646,17 @@
         484,
         515
       ],
-      "classification": "PENDING NO VERIFIED SOURCE",
+      "classification": "PASS",
       "dimensions": "560x560",
       "bytes": 213847,
       "exists": true,
-      "verified": false,
+      "verified": true,
       "sourcePageMatches": true,
-      "hasCropEvidence": true
+      "hasCropEvidence": true,
+      "sourceMaterialExists": true,
+      "hasValidSourceCrop": true,
+      "sourceMaterialFile": "public/cartilla/backgrounds/final/flipchart/FlipChart_Page_057.png",
+      "missingEvidence": null
     },
     {
       "src": "/cartilla/art/optimized/flipchart-native/p057-yate.png",
@@ -4053,13 +4669,17 @@
         287,
         186
       ],
-      "classification": "PENDING NO VERIFIED SOURCE",
+      "classification": "PASS",
       "dimensions": "338x338",
       "bytes": 68646,
       "exists": true,
-      "verified": false,
+      "verified": true,
       "sourcePageMatches": true,
-      "hasCropEvidence": true
+      "hasCropEvidence": true,
+      "sourceMaterialExists": true,
+      "hasValidSourceCrop": true,
+      "sourceMaterialFile": "public/cartilla/backgrounds/final/flipchart/FlipChart_Page_057.png",
+      "missingEvidence": null
     },
     {
       "src": "/cartilla/art/optimized/flipchart-native/p057-yema.png",
@@ -4072,13 +4692,17 @@
         284,
         107
       ],
-      "classification": "PENDING NO VERIFIED SOURCE",
+      "classification": "PASS",
       "dimensions": "333x333",
       "bytes": 14093,
       "exists": true,
-      "verified": false,
+      "verified": true,
       "sourcePageMatches": true,
-      "hasCropEvidence": true
+      "hasCropEvidence": true,
+      "sourceMaterialExists": true,
+      "hasValidSourceCrop": true,
+      "sourceMaterialFile": "public/cartilla/backgrounds/final/flipchart/FlipChart_Page_057.png",
+      "missingEvidence": null
     },
     {
       "src": "/cartilla/art/optimized/flipchart-native/p057-yayita.png",
@@ -4091,13 +4715,17 @@
         251,
         230
       ],
-      "classification": "PENDING NO VERIFIED SOURCE",
+      "classification": "PASS",
       "dimensions": "320x320",
       "bytes": 80945,
       "exists": true,
-      "verified": false,
+      "verified": true,
       "sourcePageMatches": true,
-      "hasCropEvidence": true
+      "hasCropEvidence": true,
+      "sourceMaterialExists": true,
+      "hasValidSourceCrop": true,
+      "sourceMaterialFile": "public/cartilla/backgrounds/final/flipchart/FlipChart_Page_057.png",
+      "missingEvidence": null
     },
     {
       "src": "/cartilla/art/optimized/flipchart-native/p057-mayuscula.png",
@@ -4110,13 +4738,17 @@
         229,
         253
       ],
-      "classification": "PENDING NO VERIFIED SOURCE",
+      "classification": "PASS",
       "dimensions": "320x320",
       "bytes": 62566,
       "exists": true,
-      "verified": false,
+      "verified": true,
       "sourcePageMatches": true,
-      "hasCropEvidence": true
+      "hasCropEvidence": true,
+      "sourceMaterialExists": true,
+      "hasValidSourceCrop": true,
+      "sourceMaterialFile": "public/cartilla/backgrounds/final/flipchart/FlipChart_Page_057.png",
+      "missingEvidence": null
     },
     {
       "src": "/cartilla/art/optimized/flipchart-native/p057-yoyo.png",
@@ -4129,13 +4761,17 @@
         243,
         254
       ],
-      "classification": "PENDING NO VERIFIED SOURCE",
+      "classification": "PASS",
       "dimensions": "320x320",
       "bytes": 51013,
       "exists": true,
-      "verified": false,
+      "verified": true,
       "sourcePageMatches": true,
-      "hasCropEvidence": true
+      "hasCropEvidence": true,
+      "sourceMaterialExists": true,
+      "hasValidSourceCrop": true,
+      "sourceMaterialFile": "public/cartilla/backgrounds/final/flipchart/FlipChart_Page_057.png",
+      "missingEvidence": null
     },
     {
       "src": "/cartilla/art/optimized/flipchart-native/p059-scene.png",
@@ -4148,13 +4784,17 @@
         508,
         571
       ],
-      "classification": "PENDING NO VERIFIED SOURCE",
+      "classification": "PASS",
       "dimensions": "567x567",
       "bytes": 281079,
       "exists": true,
-      "verified": false,
+      "verified": true,
       "sourcePageMatches": true,
-      "hasCropEvidence": true
+      "hasCropEvidence": true,
+      "sourceMaterialExists": true,
+      "hasValidSourceCrop": true,
+      "sourceMaterialFile": "public/cartilla/backgrounds/final/flipchart/FlipChart_Page_059.png",
+      "missingEvidence": null
     },
     {
       "src": "/cartilla/art/optimized/flipchart-native/p060-scene.png",
@@ -4167,13 +4807,17 @@
         481,
         472
       ],
-      "classification": "PENDING NO VERIFIED SOURCE",
+      "classification": "PASS",
       "dimensions": "505x505",
       "bytes": 187254,
       "exists": true,
-      "verified": false,
+      "verified": true,
       "sourcePageMatches": true,
-      "hasCropEvidence": true
+      "hasCropEvidence": true,
+      "sourceMaterialExists": true,
+      "hasValidSourceCrop": true,
+      "sourceMaterialFile": "public/cartilla/backgrounds/final/flipchart/FlipChart_Page_060.png",
+      "missingEvidence": null
     },
     {
       "src": "/cartilla/art/optimized/flipchart-native/p060-zapato.png",
@@ -4186,13 +4830,17 @@
         249,
         231
       ],
-      "classification": "PENDING NO VERIFIED SOURCE",
+      "classification": "PASS",
       "dimensions": "320x320",
       "bytes": 61591,
       "exists": true,
-      "verified": false,
+      "verified": true,
       "sourcePageMatches": true,
-      "hasCropEvidence": true
+      "hasCropEvidence": true,
+      "sourceMaterialExists": true,
+      "hasValidSourceCrop": true,
+      "sourceMaterialFile": "public/cartilla/backgrounds/final/flipchart/FlipChart_Page_060.png",
+      "missingEvidence": null
     },
     {
       "src": "/cartilla/art/optimized/flipchart-native/p060-zigzag.png",
@@ -4205,13 +4853,17 @@
         209,
         238
       ],
-      "classification": "PENDING NO VERIFIED SOURCE",
+      "classification": "PASS",
       "dimensions": "344x344",
       "bytes": 35412,
       "exists": true,
-      "verified": false,
+      "verified": true,
       "sourcePageMatches": true,
-      "hasCropEvidence": true
+      "hasCropEvidence": true,
+      "sourceMaterialExists": true,
+      "hasValidSourceCrop": true,
+      "sourceMaterialFile": "public/cartilla/backgrounds/final/flipchart/FlipChart_Page_060.png",
+      "missingEvidence": null
     },
     {
       "src": "/cartilla/art/optimized/flipchart-native/p060-zorro.png",
@@ -4224,13 +4876,17 @@
         222,
         261
       ],
-      "classification": "PENDING NO VERIFIED SOURCE",
+      "classification": "PASS",
       "dimensions": "320x320",
       "bytes": 49029,
       "exists": true,
-      "verified": false,
+      "verified": true,
       "sourcePageMatches": true,
-      "hasCropEvidence": true
+      "hasCropEvidence": true,
+      "sourceMaterialExists": true,
+      "hasValidSourceCrop": true,
+      "sourceMaterialFile": "public/cartilla/backgrounds/final/flipchart/FlipChart_Page_060.png",
+      "missingEvidence": null
     },
     {
       "src": "/cartilla/art/optimized/flipchart-native/p060-zepelin.png",
@@ -4243,13 +4899,17 @@
         310,
         242
       ],
-      "classification": "PENDING NO VERIFIED SOURCE",
+      "classification": "PASS",
       "dimensions": "362x362",
       "bytes": 74842,
       "exists": true,
-      "verified": false,
+      "verified": true,
       "sourcePageMatches": true,
-      "hasCropEvidence": true
+      "hasCropEvidence": true,
+      "sourceMaterialExists": true,
+      "hasValidSourceCrop": true,
+      "sourceMaterialFile": "public/cartilla/backgrounds/final/flipchart/FlipChart_Page_060.png",
+      "missingEvidence": null
     },
     {
       "src": "/cartilla/art/optimized/flipchart-native/p060-zulema.png",
@@ -4262,13 +4922,17 @@
         190,
         282
       ],
-      "classification": "PENDING NO VERIFIED SOURCE",
+      "classification": "PASS",
       "dimensions": "320x320",
       "bytes": 51690,
       "exists": true,
-      "verified": false,
+      "verified": true,
       "sourcePageMatches": true,
-      "hasCropEvidence": true
+      "hasCropEvidence": true,
+      "sourceMaterialExists": true,
+      "hasValidSourceCrop": true,
+      "sourceMaterialFile": "public/cartilla/backgrounds/final/flipchart/FlipChart_Page_060.png",
+      "missingEvidence": null
     },
     {
       "src": "/cartilla/art/optimized/flipchart-native/p062-scene.png",
@@ -4281,13 +4945,17 @@
         542,
         568
       ],
-      "classification": "PENDING NO VERIFIED SOURCE",
+      "classification": "PASS",
       "dimensions": "633x633",
       "bytes": 350896,
       "exists": true,
-      "verified": false,
+      "verified": true,
       "sourcePageMatches": true,
-      "hasCropEvidence": true
+      "hasCropEvidence": true,
+      "sourceMaterialExists": true,
+      "hasValidSourceCrop": true,
+      "sourceMaterialFile": "public/cartilla/art/hd/flipchart/page-062.jpg",
+      "missingEvidence": null
     }
   ]
 }

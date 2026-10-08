@@ -148,12 +148,62 @@ async function audit() {
       slot.crop.map(Number).every(Number.isFinite) &&
       Number(slot.crop[2]) > 0 &&
       Number(slot.crop[3]) > 0;
-    const hasVerifiedSourceEvidence = slot.verified && sourcePageMatches && hasCropEvidence;
 
-    let category = "PENDING NO VERIFIED SOURCE";
-    if (exists && hasVerifiedSourceEvidence) {
-      category = "PASS";
+    const pad = String(slot.sourcePage).padStart(3, "0");
+    const bgRel = `public/cartilla/backgrounds/final/flipchart/FlipChart_Page_${pad}.png`;
+    const hdRel = `public/cartilla/art/hd/flipchart/page-${pad}.jpg`;
+    const heroRel = `public/cartilla/art/faithful/flipchart/flipchart-p${pad}-hero.webp`;
+
+    const bgPath = path.join(root, bgRel);
+    const hdPath = path.join(root, hdRel);
+    const heroPath = path.join(root, heroRel);
+
+    const bgExists = fs.existsSync(bgPath);
+    const hdExists = fs.existsSync(hdPath);
+    const heroExists = fs.existsSync(heroPath);
+
+    const sourceMaterialExists = bgExists || hdExists || heroExists;
+
+    let hasValidSourceCrop = false;
+    let sourceMaterialFile = null;
+
+    if (hasCropEvidence && sourceMaterialExists) {
+      const [left, top, width, height] = slot.crop.map(Number);
+
+      if (bgExists) {
+        const meta = await sharp(bgPath).metadata();
+        if (left >= 0 && top >= 0 && left + width <= meta.width && top + height <= meta.height) {
+          hasValidSourceCrop = true;
+          sourceMaterialFile = bgRel;
+        }
+      }
+      if (!hasValidSourceCrop && hdExists) {
+        const meta = await sharp(hdPath).metadata();
+        if (left >= 0 && top >= 0 && left + width <= meta.width && top + height <= meta.height) {
+          hasValidSourceCrop = true;
+          sourceMaterialFile = hdRel;
+        }
+      }
+      if (!hasValidSourceCrop && heroExists) {
+        const meta = await sharp(heroPath).metadata();
+        if (left >= 0 && top >= 0 && left + width <= meta.width && top + height <= meta.height) {
+          hasValidSourceCrop = true;
+          sourceMaterialFile = heroRel;
+        }
+      }
     }
+
+    const isVerified = exists && sourcePageMatches && hasCropEvidence && sourceMaterialExists && hasValidSourceCrop;
+    const category = isVerified ? "PASS" : "PENDING NO VERIFIED SOURCE";
+
+    const missingEvidenceParts = [];
+    if (!exists) missingEvidenceParts.push("missing output file");
+    if (!sourcePageMatches) missingEvidenceParts.push("sourcePage does not match page");
+    if (!hasCropEvidence) missingEvidenceParts.push("invalid or missing crop coordinates");
+    if (!sourceMaterialExists) missingEvidenceParts.push("missing repository source material file");
+    if (hasCropEvidence && sourceMaterialExists && !hasValidSourceCrop) missingEvidenceParts.push("crop bounds exceed source material dimensions");
+
+    const missingEvidence = missingEvidenceParts.length > 0 ? missingEvidenceParts.join("; ") : null;
 
     nativeAudit.push({
       src: slot.src,
@@ -165,9 +215,13 @@ async function audit() {
       dimensions,
       bytes,
       exists,
-      verified: slot.verified,
+      verified: isVerified,
       sourcePageMatches,
       hasCropEvidence,
+      sourceMaterialExists,
+      hasValidSourceCrop,
+      sourceMaterialFile,
+      missingEvidence,
     });
   }
 

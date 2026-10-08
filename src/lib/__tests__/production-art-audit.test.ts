@@ -37,9 +37,22 @@ describe("production foreground art audit truthfulness", () => {
     }
   });
 
-  it("does not certify native Flip Chart artwork from file existence alone", () => {
-    expect(audit.nativeAudit.length).toBeGreaterThan(0);
-    expect(audit.nativeAudit.every((item: any) => item.classification === "PENDING NO VERIFIED SOURCE")).toBe(true);
+  it("verifies native Flip Chart artwork only with affirmative deterministic source evidence", () => {
+    expect(audit.nativeAudit.length).toBe(167);
+    expect(
+      audit.nativeAudit.every(
+        (item: any) =>
+          item.classification === "PASS" &&
+          item.exists === true &&
+          item.verified === true &&
+          item.sourcePageMatches === true &&
+          item.hasCropEvidence === true &&
+          item.sourceMaterialExists === true &&
+          item.hasValidSourceCrop === true &&
+          typeof item.sourceMaterialFile === "string" &&
+          item.missingEvidence === null,
+      ),
+    ).toBe(true);
   });
 
   it("reproduces the committed audit and locks the native evidence schema", () => {
@@ -64,7 +77,9 @@ describe("production foreground art audit truthfulness", () => {
             Array.isArray(item.crop) &&
             typeof item.verified === "boolean" &&
             typeof item.sourcePageMatches === "boolean" &&
-            typeof item.hasCropEvidence === "boolean",
+            typeof item.hasCropEvidence === "boolean" &&
+            typeof item.sourceMaterialExists === "boolean" &&
+            typeof item.hasValidSourceCrop === "boolean",
         ),
       ).toBe(true);
     } finally {
