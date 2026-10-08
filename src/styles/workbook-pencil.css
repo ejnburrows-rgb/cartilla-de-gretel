@@ -1,4 +1,4 @@
-/* Real Workbook Mark — shared classic pencil / eraser (STUDENT_INTERACTION_STANDARD). */
+/* Real Workbook Mark — close-up classic pencil / eraser (STUDENT_INTERACTION_STANDARD). */
 .workbook-pencil-mark {
   position: relative;
   width: 100%;
@@ -15,16 +15,21 @@
 .workbook-pencil-mark__stroke {
   fill: none;
   stroke: #46464d;
-  stroke-width: 3.1;
+  stroke-width: 3.2;
   stroke-linecap: round;
   stroke-linejoin: round;
-  stroke-opacity: 0.92;
-  transition:
-    stroke 450ms ease,
-    stroke-opacity 450ms ease;
+  stroke-opacity: 1;
+  /* Owner 2026-10-08: a crisp, solid line like the close-up reference. */
+  shape-rendering: geometricPrecision;
 }
+/* Owner 2026-10-06: green from the first line when right, red when wrong. */
+.workbook-pencil-mark[data-mark-result="correct"] .workbook-pencil-mark__stroke,
 .workbook-pencil-mark[data-mark-status="correct"] .workbook-pencil-mark__stroke {
-  stroke: #15803d;
+  stroke: #16a34a;
+  stroke-opacity: 1;
+}
+.workbook-pencil-mark[data-mark-result="wrong"] .workbook-pencil-mark__stroke {
+  stroke: #dc2626;
   stroke-opacity: 1;
 }
 .workbook-pencil-svg {
@@ -32,11 +37,28 @@
   height: 80px;
   overflow: visible;
 }
+/* Owner 2026-10-08: the pencil and the eraser come in from off the right edge of the
+   screen, pass over everything on the way and leave the same way. They fly in this
+   fixed layer, placed exactly over the mark box, so the page sheet never cuts them off. */
+.workbook-pencil-flight {
+  position: fixed;
+  overflow: visible;
+  pointer-events: none;
+  z-index: 60;
+}
+/* The picture itself never moves when the child presses it: only the pencil acts. */
+.fp-ix-cell .living-illustration--reacting .living-illustration__art,
+.fp-ix-cell .living-runtime-art--reacting {
+  animation: none !important;
+}
 @media (prefers-reduced-motion: reduce) {
-  .workbook-pencil-mark__stroke {
-    transition: none;
-  }
   .workbook-pencil {
     display: none;
   }
+}
+/* Owner 2026-10-08: while the page zooms in on the tapped picture, the enlarged
+   page must not add scrollbars. */
+html.workbook-close-up-zooming,
+html.workbook-close-up-zooming body {
+  overflow: hidden;
 }

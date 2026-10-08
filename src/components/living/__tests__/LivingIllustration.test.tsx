@@ -116,4 +116,34 @@ describe("LivingIllustration faithful recovered art", () => {
       window.matchMedia = original;
     }
   });
+  it("plays the owner-approved natural motion SVG for Page 1 pictures, with no extra CSS motion (owner 2026-10-06)", () => {
+    const W1 = "/cartilla/art/optimized/workbook/leccion-1";
+    for (const name of ["oso", "elefante", "oveja", "abanico", "avion", "iman", "olla"]) {
+      const { unmount } = render(<LivingIllustration src={`${W1}/${name}.svg`} alt={name} />);
+      const image = screen.getByRole("img", { name });
+      expect(image.getAttribute("src"), name).toBe(`${W1}/${name}-alive.svg`);
+      expect(image.parentElement?.getAttribute("data-natural-motion"), name).toBe("true");
+      expect(image.parentElement?.getAttribute("data-ambient-motion"), name).toBe("none");
+      unmount();
+    }
+  });
+
+  it("shows the still Page 1 drawing when reduced motion is requested", async () => {
+    const original = window.matchMedia;
+    window.matchMedia = vi.fn().mockImplementation((query: string) => ({
+      matches: query.includes("prefers-reduced-motion"),
+      media: query,
+      addEventListener: vi.fn(),
+      removeEventListener: vi.fn(),
+    })) as unknown as typeof window.matchMedia;
+    try {
+      const src = "/cartilla/art/optimized/workbook/leccion-1/elefante.svg";
+      render(<LivingIllustration src={src} alt="elefante quieto" />);
+      const image = screen.getByRole("img", { name: "elefante quieto" });
+      await waitFor(() => expect(image.getAttribute("src")).toBe(src));
+      expect(image.parentElement?.getAttribute("data-natural-motion")).toBe("false");
+    } finally {
+      window.matchMedia = original;
+    }
+  });
 });
