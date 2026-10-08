@@ -32,9 +32,9 @@ Motion must be polished and seamless: one purposeful action, then settle. Avoid 
 
 When a learner makes an incorrect mark/selection:
 1. The learner's mark is visible.
-2. The same classic wooden pencil appears.
-3. The pencil smoothly rotates to its eraser end.
-4. The eraser visibly removes the incorrect mark.
+2. The pencil draws the mark in **red** from the first line, then slides back out of the box (owner decision 2026-10-06).
+3. The big pink eraser with its silver band slides in from the right, rubs back and forth along the mark while pink crumbs fall, and slides out once the mark is gone.
+4. The eraser visibly removes the incorrect mark completely.
 5. Gretel says: **“Inténtalo otra vez.”**
 6. The activity returns to a calm retry-ready state.
 
@@ -44,11 +44,14 @@ No red X. No punitive buzzer. No arcade failure animation.
 
 Use the same classic wooden pencil.
 
+Owner decision 2026-10-06 (replaces the earlier ~3 second neutral hold):
+
 1. The learner taps the picture/answer.
-2. The pencil visibly draws the required workbook mark/circle around the selection.
-3. Hold the completed mark in its neutral pencil color for approximately **3 seconds**.
-4. If correct, the mark changes to green and Gretel says: **“Buen trabajo.”**
-5. If incorrect, use the Pencil Retry behavior above: pencil rotates to eraser, erases the mark, and Gretel says “Inténtalo otra vez.”
+2. A big close-up pencil — only its front shows — comes in from the top-right corner, cut off at the edge of the picture's box (it never goes over a neighbouring picture), and draws the circle in about **2 seconds**. The line is about as thick as before; the page itself stays still (no zoom, no special shadow).
+3. The circle is **green from the first line** when the answer is right and **red from the first line** when it is wrong. There is no gray waiting period.
+4. After drawing, the pencil slides back out and disappears.
+5. If correct, the green circle stays and Gretel says: **“Buen trabajo.”**
+6. If incorrect, use the Pencil Retry behavior above: the eraser erases the red circle and Gretel says “Inténtalo otra vez.”
 
 The pencil, mark, and feedback must feel like a premium animated workbook action, not a button-state change.
 
@@ -132,7 +135,7 @@ Required qualities:
 - no excessive bounce;
 - no repeated looping;
 - no dramatic spin;
-- no long blocking animation except the owner-approved ~3 second correct-selection hold;
+- no long blocking animation beyond the owner-approved ~2 second pencil draw and ~3.5 second erase;
 - reduced-motion mode must replace decorative motion with immediate/static state changes while preserving clarity.
 
 The pencil/eraser motion may be implemented with vector/CSS/canvas animation as appropriate, but it must look like one premium physical tool interacting with the Workbook, not unrelated UI effects.
