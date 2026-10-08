@@ -59,7 +59,7 @@ function readDataUrl(file: File) {
   return new Promise<string>((resolve, reject) => {
     const reader = new FileReader();
     reader.onload = () => resolve(String(reader.result ?? ""));
-    reader.onerror = () => reject(reader.error);
+    reader.onerror = () => reject(reader.error ?? new Error("No se pudo leer el archivo seleccionado."));
     reader.readAsDataURL(file);
   });
 }
@@ -452,7 +452,7 @@ function CartillaArtFactoryPage() {
                   </button>
                 </div>
                 <div className="mt-4">
-                  <label className="text-xs font-black uppercase tracking-wide text-stone-500">Referencias de estilo globales</label>
+                  <p className="text-xs font-black uppercase tracking-wide text-stone-500">Referencias de estilo globales</p>
                   <label className="mt-2 flex cursor-pointer items-center justify-center rounded-xl border border-dashed border-[#d8c8aa] p-4 text-sm font-black text-[#a45d22]">
                     <ImagePlus className="mr-2 h-4 w-4" /> Añadir imágenes Gretel 2.0
                     <input type="file" accept="image/*" multiple className="hidden" onChange={(event) => void addStyleReferences(event.target.files)} />
