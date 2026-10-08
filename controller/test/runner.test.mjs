@@ -175,3 +175,15 @@ test('reconciliation retries a transient merge failure for an already verified c
  assert.equal(attempts,2);
  await p.close();
 });
+
+
+test('auto-merge promotes a verified draft before merging exact head',async()=>{
+ const calls=[];
+ const {p,runner}=await setup(undefined,{CONTROLLER_AUTO_MERGE:'true'});
+ runner.github.ready=async pr=>{calls.push(['ready',pr]);return true;};
+ runner.github.merge=async(pr,expectedHead)=>{calls.push(['merge',pr,expectedHead]);return {merged:true};};
+ const job={id:'job-ready',kind:'issue_implementation'};
+ await runner.tryAutoMerge(job,evidence());
+ assert.deepEqual(calls,[['ready',1],['merge',1,head]]);
+ await p.close();
+});

@@ -20,6 +20,12 @@ export class GitHub {
   }
   throw last;
  }
+ async ready(number){
+  const detail=await this.request(`/pulls/${number}`);if(!detail.draft)return false;
+  const r=await this.fetcher('https://api.github.com/graphql',{method:'POST',headers:{...this.headers(),'Content-Type':'application/json'},body:JSON.stringify({query:'mutation($id:ID!){markPullRequestReadyForReview(input:{pullRequestId:$id}){pullRequest{isDraft}}}',variables:{id:detail.node_id}}),signal:AbortSignal.timeout(20000)});
+  if(!r.ok)throw new Error(`GITHUB_READY_HTTP_${r.status}`);const body=await r.json();
+  if(body.errors?.length||body.data?.markPullRequestReadyForReview?.pullRequest?.isDraft!==false)throw new Error('GITHUB_READY_REJECTED');return true;
+ }
  async merge(number,expectedHead){
   const r=await this.fetcher(`https://api.github.com/repos/${this.repo}/pulls/${number}/merge`,{method:'PUT',headers:{...this.headers(),'Content-Type':'application/json'},body:JSON.stringify({sha:expectedHead,merge_method:'squash'}),signal:AbortSignal.timeout(20000)});
   if(!r.ok)throw new Error(`GITHUB_MERGE_HTTP_${r.status}`);

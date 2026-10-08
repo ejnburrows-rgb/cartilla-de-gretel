@@ -31,3 +31,17 @@ test('transient GitHub socket failure retries the same idempotent read',async()=
 test('controller reconciliation runs every minute so a lost retry wakeup cannot strand work for ten minutes',()=>{
   assert.equal(CONTROLLER_RECONCILE_CRON,'* * * * *');
 });
+
+
+test('draft controller PR is promoted to ready through GitHub GraphQL before merge',async()=>{
+  const calls=[];
+  const github=new GitHub({repo:'owner/repo',token:'mock',sleeper:async()=>{},fetcher:async(url,init={})=>{
+    calls.push({url,method:init.method??'GET',body:init.body});
+    if(url.endsWith('/pulls/7'))return {ok:true,json:async()=>({draft:true,node_id:'PR_node'})};
+    if(url==='https://api.github.com/graphql')return {ok:true,json:async()=>({data:{markPullRequestReadyForReview:{pullRequest:{isDraft:false}}}})};
+    throw new Error('unexpected request');
+  }});
+  assert.equal(await github.ready(7),true);
+  assert.deepEqual(calls.map(c=>c.method),['GET','POST']);
+  assert.match(calls[1].body,/markPullRequestReadyForReview/);
+});
