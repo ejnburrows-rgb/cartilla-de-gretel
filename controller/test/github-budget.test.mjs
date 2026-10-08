@@ -24,3 +24,12 @@ test('exact-main immutable instructions are cached while issues and PRs remain f
  const calls=[];const client=new GitHub({repo:'owner/repo',ledger:f.ledger,fetcher:async url=>{calls.push(url);return {ok:true,json:async()=>url.endsWith('/commits/main')?{sha,commit:{}}:[]};}});
  const snapshot=await client.snapshot();assert.deepEqual(snapshot.instructions,texts);assert.equal(calls.some(u=>u.includes('/contents/')),false);assert.equal(calls.some(u=>u.includes('/issues?')),true);assert.equal(calls.some(u=>u.includes('/pulls?')),true);await f.p.close();
 });
+
+test('outbound GitHub reads restrict host, path and redirects',async()=>{
+ const seen=[];const client=new GitHub({repo:'owner/repo',fetcher:async(url,options)=>{seen.push({url,options});return {ok:true,json:async()=>({ok:true})};}});
+ for(const path of ['//example.com','/issues/../admin','/issues/%2e%2e/admin','/issues\\admin','/unknown/7'])await assert.rejects(client.request(path),/INVALID_GITHUB_ENDPOINT/);
+ assert.equal(seen.length,0);
+ await client.request('/pulls?state=open&per_page=100');assert.equal(seen.length,1);
+ assert.equal(seen[0].url,'https://api.github.com/repos/owner/repo/pulls?state=open&per_page=100');
+ assert.equal(seen[0].options.redirect,'error');
+});
