@@ -78,16 +78,52 @@ export class GitHub {
   const [issues,prs]=await Promise.all([this.pages('/issues?state=open'),this.pages('/pulls?state=open')]);
   return {main,instructions:Object.fromEntries(instructionPaths.map((p,i)=>[p,texts[i]])),instructionHashes:Object.fromEntries(instructionPaths.map((p,i)=>[p,digest(texts[i])])),issues:issues.filter(i=>!i.pull_request),prs,fetched_at:new Date().toISOString()};
  }
+ async addIssueLabel(number,label){
+  if(!Number.isSafeInteger(number)||number<=0||label!=='jules')throw Error('INVALID_ISSUE_LABEL');
+  const url='https://api.github.com/repos/'+this.repo+'/issues/'+number+'/labels';
+  const r=await this.fetcher(url,{method:'POST',headers:{...this.headers(),'Content-Type':'application/json'},body:JSON.stringify({labels:[label]}),redirect:'error',signal:AbortSignal.timeout(20000)});
+  if(!r.ok)throw Error('GITHUB_LABEL_HTTP_'+r.status);
+  return r.json();
+ }
+ async julesStatus(number,since){
+  if(!Number.isSafeInteger(number)||number<=0)throw Error('INVALID_JULES_ISSUE');
+  const after=since?new Date(since):null;if(after&&Number.isNaN(after.getTime()))throw Error('INVALID_JULES_DISPATCH_TIME');
+  const comments=(await this.pages('/issues/'+number+'/comments')).filter(c=>c.user?.login==='google-labs-jules[bot]'&&(!after||new Date(c.created_at)>=after));
+  let taskId=null,prNumber=null;
+  for(const c of comments){
+   const body=String(c.body??'');
+   const task=body.match(/jules\.google\.com\/task\/(\d+)/);if(task)taskId=task[1];
+   const pr=body.match(/Ready for a review![\s\S]*?\/pull\/(\d+)/i);if(pr)prNumber=Number(pr[1]);
+  }
+  if(prNumber)return {status:'finished',terminal:true,task_id:taskId,pr_number:prNumber,external_id:taskId};
+  if(taskId)return {status:'running',terminal:false,task_id:taskId,external_id:taskId};
+  return {status:'queued',terminal:false,task_id:null,external_id:null};
+ }
+ async startJules(number,since){
+  const issue=await this.request('/issues/'+number);const labels=new Set((issue.labels??[]).map(l=>typeof l==='string'?l:l.name));
+  if(labels.has('jules')){const existing=await this.julesStatus(number,since);if(existing.task_id||existing.pr_number)return existing;throw Error('JULES_LABEL_ALREADY_PRESENT');}
+  try{await this.addIssueLabel(number,'jules');}catch(error){const fresh=await this.request('/issues/'+number);if(!(fresh.labels??[]).some(l=>(typeof l==='string'?l:l.name)==='jules'))throw error;}
+  return this.julesStatus(number,since);
+ }
  async changes(job){
-  const branch=`controller/jobs/${job.id}`;
-  const prs=await this.pages(`/pulls?state=all&head=${encodeURIComponent(this.repo.split('/')[0]+':'+branch)}`);
-  const pr=prs.find(p=>p.head?.repo?.full_name===this.repo&&p.head?.ref===branch&&p.state==='open');
-  if(!pr)return {passed:false,reason:'NO_EXPECTED_PR'};
-  const detail=await this.request(`/pulls/${pr.number}`);
-  const compare=await this.request(`/compare/${job.starting_sha}...${detail.head.sha}`);
-  const files=await this.pages(`/pulls/${pr.number}/files`);
-  const checks=await this.pages(`/commits/${detail.head.sha}/check-runs`,'check_runs');
-  const fresh=await this.request(`/pulls/${pr.number}`);if(fresh.head.sha!==detail.head.sha)return {passed:false,reason:'PR_HEAD_CHANGED_DURING_VALIDATION'};
+  let pr,detail,branch;
+  if(job.worker==='jules'){
+   const state=await this.julesStatus(job.issue_number,job.created_at);
+   if(!state.pr_number)return {passed:false,reason:'NO_EXPECTED_PR'};
+   detail=await this.request('/pulls/'+state.pr_number);
+   if(detail.state!=='open'||detail.head?.repo?.full_name!==this.repo)return {passed:false,reason:'NO_EXPECTED_PR'};
+   pr=detail;branch=detail.head.ref;
+  }else{
+   branch='controller/jobs/'+job.id;
+   const prs=await this.pages('/pulls?state=all&head='+encodeURIComponent(this.repo.split('/')[0]+':'+branch));
+   pr=prs.find(p=>p.head?.repo?.full_name===this.repo&&p.head?.ref===branch&&p.state==='open');
+   if(!pr)return {passed:false,reason:'NO_EXPECTED_PR'};
+   detail=await this.request('/pulls/'+pr.number);
+  }
+  const compare=await this.request('/compare/'+job.starting_sha+'...'+detail.head.sha);
+  const files=await this.pages('/pulls/'+pr.number+'/files');
+  const checks=await this.pages('/commits/'+detail.head.sha+'/check-runs','check_runs');
+  const fresh=await this.request('/pulls/'+pr.number);if(fresh.head.sha!==detail.head.sha)return {passed:false,reason:'PR_HEAD_CHANGED_DURING_VALIDATION'};
   return {pr:{number:pr.number,url:pr.html_url,head:detail.head.sha,branch,updated_at:detail.updated_at,body:safeText(detail.body)},compare:{status:compare.status,ahead_by:compare.ahead_by,total_commits:compare.total_commits},files:files.map(f=>({filename:f.filename,status:f.status,additions:f.additions,deletions:f.deletions})),checks:checks.map(c=>({name:c.name,status:c.status,conclusion:c.conclusion,app_id:c.app?.id,head_sha:c.head_sha,completed_at:c.completed_at,started_at:c.started_at,url:c.html_url})),fetched_at:new Date().toISOString()};
  }
 }
