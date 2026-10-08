@@ -29,11 +29,11 @@ export function playPictureName(entry: VerifiedPictureName): PictureAudioStatus 
     try {
       const audio = new Audio(recording);
       audio.volume = audioEngine.getVolume();
-      const finish = () => { audio.onended = null; audio.onerror = null; audio.pause(); audio.removeAttribute('src'); audio.load(); };
+      const finish = () => { audio.onended = null; audio.onerror = null; audio.pause(); audio.src = ''; };
       registerSpeechCleanup(token, finish);
       audio.onended = () => { finish(); releaseSpeech(token); };
       audio.onerror = () => { if (!speechIsCurrent(token)) return; finish(); releaseSpeech(token); status('failed'); };
-      void audio.play().catch(() => { if (!speechIsCurrent(token)) return; finish(); releaseSpeech(token); status('failed'); });
+      void audio.play().catch((err: any) => { if (!speechIsCurrent(token)) return; if (err?.name === 'AbortError') return; finish(); releaseSpeech(token); status('failed'); });
       return status('recorded');
     } catch { releaseSpeech(token); return status('failed'); }
   }
