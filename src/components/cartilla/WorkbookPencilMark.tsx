@@ -56,7 +56,7 @@ const PENCIL_TILT = 60;
  * Big close-up tool (owner reference 2026-10-06): the pencil is about a third of
  * the box high, so it is always much longer than the box and only its front shows.
  */
-const PENCIL_SCALE = 4.8;
+const PENCIL_SCALE = 7;
 const PENCIL_POSE = `rotate(${PENCIL_TILT}) scale(${PENCIL_SCALE})`;
 /** The eraser lies a little flatter, its body running off to the right. */
 const ERASER_TILT = 66;
