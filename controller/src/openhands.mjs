@@ -50,7 +50,8 @@ export class OpenHands {
    try{
     const base=`https://app.all-hands.dev/api/v1/conversation/${encodeURIComponent(attempt.external_id)}/events`;
     const read=async path=>{const response=await this.fetcher(base+path,{method:'GET',headers:{'X-Access-Token':this.key},signal:AbortSignal.timeout(10000)});if(!response.ok)throw Error('PROGRESS_UNAVAILABLE');return response.json();};
-    const [count,page]=await Promise.all([read('/count'),read('/search?sort_order=TIMESTAMP_DESC&limit=3')]);
+    const since=attempt.dispatched_at?`&timestamp__gte=${encodeURIComponent(new Date(attempt.dispatched_at).toISOString())}`:'';
+    const [count,page]=await Promise.all([read('/count'),read(`/search?sort_order=TIMESTAMP_DESC&limit=100${since}`)]);
     if(Number.isInteger(count)&&count>=0)progress.event_count=count;
     // No messages, commands, observations, prompts, or session keys leave this client.
     progress.latest_events=(page.items??[]).map(e=>({kind:e.kind,timestamp:e.timestamp,...(['agent','user','environment','hook'].includes(e.source)?{source:e.source}:{})}));
