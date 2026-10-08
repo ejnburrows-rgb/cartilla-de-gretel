@@ -112,18 +112,6 @@ Before any meaningful Cartilla work, every controller, reviewer, supervisor, wat
 
 Do not begin from an old chat/session summary when current GitHub state is available.
 
-### Durable Cartilla Controller — mandatory continuation workflow
-
-For work on the unattended controller, read `controller/README.md` on the CURRENT `watchdog/event-coordinator` branch and the latest comments on #545 / PR #546, even while those changes remain unmerged. Its separate live operational page is https://cartilla-controller.vercel.app/. Read the live controller state before treating remembered job status as current.
-
-GitHub is repository truth; Neon is the permanent job/evidence ledger; Inngest owns durable execution and reconciliation; the separate Vercel controller hosts endpoints; OpenHands is the bounded coding worker; Jules is optional. ChatGPT need not remain open. Reuse this existing implementation, issue and branch; do not rebuild its architecture.
-
-When dependency-ready, independent, explicitly authorized work and authorized worker capacity/budget exist, dispatch it. Persist the attempt before external dispatch, poll the same conversation, independently verify material GitHub changes and exact-head required checks, then immediately rescan after completion/failure/blocking. A worker claim or PR alone never certifies completion.
-
-If an approval, credential or product decision blocks one lane, record the precise owner action and continue other independent authorized work. Do not wait for Emilio for deterministic authorized steps. Do not spend money without explicit approval; a general request to keep work flowing is not a spending budget. New paid starts may remain paused while signed webhook processing, scheduled reconciliation, existing-run polling, evidence validation and safe retries continue.
-
-The durable controller must never autonomously merge, delete, deploy production Cartilla, rotate secrets, or introduce GitHub Actions, Miro, custom queue/scheduler infrastructure or agent swarms. These controller-specific restrictions take precedence over general human/controller merge permissions elsewhere in this file. Keep credentials out of memory, prompts, logs, evidence and browser code.
-
 ### Mandatory publish-after-change
 After any MATERIAL change, the agent that caused or verified the change must publish a compact handoff to the EXISTING relevant issue or PR before ending the session. Do not create a duplicate coordination issue merely to report status.
 

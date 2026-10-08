@@ -68,3 +68,41 @@ Continuation and unlimited-mode regression suite: 43/43 controller tests passed,
 Every future session must resolve CURRENT main and read the current four project instructions listed in AGENTS.md, the controller branch instructions, existing #545 / PR #546, the relevant task issue/PR, and live ledger state. Engram is a retrieval aid; it never overrides fresh GitHub/runtime evidence. Persist material checkpoints to existing GitHub issues and branches. If one lane needs Emilio, record the exact action and advance other independent authorized lanes. Dispatch safe bounded work whenever authorized capacity and budget exist; never manufacture issues merely to fill capacity. Preserve external IDs after uncertainty and never blindly duplicate a start.
 
 Server-only production aliases `Myne` (OpenHands key) and `Ejn` (GitHub token) are supported without exposing their values. Prefer canonical variable names for future provisioning. Never copy any credential into this document or memory. Read tokens cannot mutate jobs; admin tokens cannot confer merge/deletion/production-deployment authority.
+
+## Four-step verification pipeline — staged checkpoint (2026-10-08)
+
+Ordinary coding workers run targeted tests, relevant typecheck and verify:worker.
+Visible changes use dev:worker plus browser/screenshot proof. Full release/art
+generation stays in a separate clean checkout. No worker self-certifies.
+
+Material implementation now requests a durable release-verifier job, keyed to
+implementation UUID + exact PR head + current main. It reuses existing Neon jobs,
+attempts, receipts, validations and Inngest delivery/reconciliation. The original
+implementation remains WAITING until independent proof passes. Changed head or
+main invalidates old proof. Finished implementation conversations may be reused
+while independent release verification is pending.
+
+The trusted external verifier must publish exact-head GitHub checks:
+Cartilla targeted tests; Cartilla worker checks; Cartilla independent review;
+Cartilla release verifier; and, for visible changes, Cartilla browser proof and
+Cartilla visual proof. Configure RELEASE_VERIFIER_APP_IDS only with independently
+controlled check publishers. Sonar alone is not release proof. An agent report,
+comment, screenshot URL, PR existence or success from an untrusted publisher is
+never sufficient. A newer pending/failed rerun invalidates an older success.
+
+The release publisher's contract is: new clean checkout at the specified SHA and
+main baseline, frozen dependency install, pnpm verify:release, relevant existing
+visual tests without updating baselines, retained command exit results and
+browser artifacts. Generated assets are verification output, not implementation.
+The controller rereads both PR head and main after collecting proof.
+
+IMPORTANT: this checkpoint is NOT live. The trusted clean verification executor
+is not connected, and this check consumer does not launch one. Full Node suite
+and real release execution remain unproved because execution services failed
+in this session. No automatic merge path is implemented by this checkpoint.
+Do not deploy/enable it as a completed workflow until executor dispatch and
+independent receipts have been connected and end-to-end tested.
+
+Vercel Git deployment remains disabled; preview deployments were disabled through
+the project API. No testing commit/PR/merge triggers a deployment. An explicitly
+requested finished milestone is the only product deployment boundary.

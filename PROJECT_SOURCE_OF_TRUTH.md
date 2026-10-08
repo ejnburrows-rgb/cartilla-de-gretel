@@ -68,12 +68,6 @@ Final gates follow with whole-Workbook regression (#450), teacher/Flip Chart val
 
 Supabase/live-auth expansion remains deferred from the current product-completion path for demo/non-real-data pilot use. Current real-data security/privacy issues must be resolved before any production/school pilot uses real child/student data; deferral alone is not a real-data release clearance.
 
-## Durable controller operating state
-
-The owner-approved separate Cartilla Controller is live at https://cartilla-controller.vercel.app/, under existing issue #545 and branch `watchdog/event-coordinator` / PR #546. Read that branch's `controller/README.md` for its verified execution workflow until merged. GitHub remains code truth; Neon stores jobs/evidence; Inngest continues signed-event processing, ten-minute reconciliation, retries and worker monitoring without ChatGPT being open.
-
-Real bounded issue #389 work produced independently verified PR #547; this does not certify the entire release lane or product. Emilio explicitly authorized ongoing automatic paid coding work; new starts are enabled with no daily conversation cap after he explicitly rejected that ceiling. Reuse verified idle OpenHands sessions for subsequent bounded jobs when available; continue independent authorized work around owner-gated lanes. Controller-specific prohibitions on autonomous merge, deletion and Cartilla production deployment remain in force. Always check live state rather than treating this snapshot as a current job count.
-
 ## Proof rule
 
 For meaningful code/behavior PRs, merge proof also requires dual independent review of the exact current head: controller/assistant review plus SonarQube Cloud PR analysis. CodeRabbit is not required. Any head change invalidates prior dual-review proof and requires both reviews again. Documentation-only or trivial metadata-only changes may skip SonarQube but still require independent controller review.
