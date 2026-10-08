@@ -8,8 +8,8 @@ test('public board counts real work separately from technical history; details a
  const {fixture}=await import('./helpers.mjs');const f=await fixture();
  const real=await f.ledger.create({key:'real-work',kind:'issue_implementation',issue:7,source:{issue:7},spec:{action:'Fix lesson'}});await f.db.query("UPDATE jobs SET status='running',worker='openhands' WHERE id=$1",[real.id]);
  const system=await f.ledger.create({key:'system-work',kind:'reconcile',source:{event:true}});await f.ledger.set(system.id,'dead_letter','INNGEST_SEND_RETRIES_EXHAUSTED',{owner_action:'Nothing'});
- const deps={ledger:f.ledger};const r=await api({url:'/api/overview',method:'GET',headers:{}},deps,{OPENHANDS_ENABLED:'true'});
- assert.equal(r.status,200);assert.equal(r.body.categories.working_now,1);assert.equal(r.body.categories.controller_system_problem,0);assert.equal(r.body.statuses.dead_letter,0);assert.equal(r.body.system_history.dead_letter,1);assert.equal(r.body.system_history.historical_failures,1);assert.equal(r.body.workers.jules.enabled,false);
+ const deps={ledger:f.ledger};const r=await api({url:'/api/overview',method:'GET',headers:{}},deps,{OPENHANDS_ENABLED:'true',JULES_ENABLED:'true',GITHUB_TOKEN:'server-github'});
+ assert.equal(r.status,200);assert.equal(r.body.categories.working_now,1);assert.equal(r.body.categories.controller_system_problem,0);assert.equal(r.body.statuses.dead_letter,0);assert.equal(r.body.system_history.dead_letter,1);assert.equal(r.body.system_history.historical_failures,1);assert.equal(r.body.workers.jules.enabled,true);assert.equal(r.body.workers.jules.mode,'github-issue-label');
  for(const [url,method]of [['/api/jobs','GET'],['/api/status','GET'],['/api/overview','POST']])assert.equal((await api({url,method,headers:{}},deps,{})).status,401);await f.p.close();
 });
 test('Web Standard request preserves exact signed JSON bytes',async()=>{
@@ -78,4 +78,15 @@ test('job API paginates complete project/system history and can find unresolved 
  const env={CONTROLLER_READ_TOKEN:'r'.repeat(40),CONTROLLER_ADMIN_TOKEN:'a'.repeat(40),GITHUB_REPO:'owner/repo'},headers={authorization:'Bearer '+env.CONTROLLER_READ_TOKEN};
  const first=await api({url:'/api/jobs?scope=system&limit=100&page=1',method:'GET',headers},{ledger:f.ledger},env);assert.equal(first.body.jobs.length,100);assert.equal(first.body.pagination.total,206);assert.equal(first.body.pagination.has_more,true);
  const unresolved=await api({url:'/api/jobs?scope=system&unresolved=true&limit=100&page=1',method:'GET',headers},{ledger:f.ledger},env);assert.equal(unresolved.body.pagination.total,1);assert.equal(unresolved.body.jobs[0].id,old.id);await f.p.close();
+});
+
+test('workers endpoint reports Jules GitHub-label runs when configured',async()=>{
+ const {fixture}=await import('./helpers.mjs');const f=await fixture();
+ const j=await f.ledger.create({key:'jules-live-view',kind:'issue_implementation',issue:88,source:{issue:88},spec:{action:'Bounded proof'}});
+ await f.db.query("UPDATE jobs SET status='running',worker='jules',attempt_count=1 WHERE id=$1",[j.id]);
+ await f.db.query("INSERT INTO job_attempts(id,job_id,attempt_number,worker,payload_hash,starting_sha,state,deadline,external_id) VALUES('00000000-0000-4000-8000-000000000088',$1,1,'jules','hash',$2,'running',now()+interval '15 minutes','6585483160974599585')",[j.id,'a'.repeat(40)]);
+ const env={CONTROLLER_READ_TOKEN:'r'.repeat(40),CONTROLLER_ADMIN_TOKEN:'a'.repeat(40),JULES_ENABLED:'true',GITHUB_TOKEN:'server-github',OPENHANDS_DAILY_START_LIMIT:'0'};
+ const r=await api({url:'/api/workers',method:'GET',headers:{authorization:'Bearer '+env.CONTROLLER_READ_TOKEN}},{ledger:f.ledger,worker:{},github:{repo:'owner/repo'}},env);
+ assert.equal(r.status,200);assert.equal(r.body.jules.enabled,true);assert.equal(r.body.jules.runs.length,1);assert.equal(r.body.jules.runs[0].external_id,'6585483160974599585');
+ await f.p.close();
 });

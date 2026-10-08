@@ -6,6 +6,10 @@ export const statuses=['received','queued','running','waiting','retrying','block
 const projectWorkSql="(kind='issue_implementation' OR coalesce(source->>'lane','') IN('release_verifier','release_request'))";
 const ownerAttentionSql="owner_action IS NOT NULL AND lower(trim(trailing '.' from owner_action)) NOT IN('nothing','nothing right now','none','no action')";
 const ownerNeedsAttention=value=>!!value&&!['nothing','nothing right now','none','no action'].includes(String(value).trim().toLowerCase().replace(/\.$/,''));
+const julesWorkerState=env=>{
+ const configured=env.JULES_ENABLED==='true',available=configured&&!!(env.GITHUB_TOKEN||env.Ejn);
+ return {enabled:available,configured,available,mode:'github-issue-label',required:false,...(!available&&configured?{reason:'GitHub mutation credential unavailable'}:{})};
+};
 const viewJob=(j,repo)=>({id:j.id,kind:j.kind,lane:j.source?.lane??j.kind,repository:j.source?.repository??j.source?.repo??repo??null,source_url:j.source?.url??null,pr:j.source?.pr??null,issue:j.issue_number,status:j.status,requested_action:j.spec.action??j.kind,worker:j.worker,external_id:j.external_id,starting_sha:j.starting_sha,attempt_number:j.attempt_count,deadline:j.deadline,created_at:j.created_at,last_activity:j.updated_at,next_retry:j.retry_at,failure_reason:j.failure_reason,next_action:j.next_action,what_emilio_needs_to_do:j.owner_action,needs_owner_attention:ownerNeedsAttention(j.owner_action)});
 async function summary(ledger){
  const [project,system,latest,owner,dependency,storage]=await Promise.all([
@@ -40,7 +44,7 @@ export async function api(req,deps,env=process.env){
  // Detailed state and every action still require the existing distinct tokens.
  if(path==='/api/overview'&&method==='GET'){
   const state=await summary(deps.ledger);
-  return {status:200,body:{...state,workers:{openhands:{enabled:env.OPENHANDS_ENABLED==='true'},jules:{enabled:false,reason:'No authenticated Jules API adapter is configured'}}}};
+  return {status:200,body:{...state,workers:{openhands:{enabled:env.OPENHANDS_ENABLED==='true'},jules:julesWorkerState(env)}}};
  }
  const admin=method==='POST';
  if(!['GET','POST'].includes(method))return {status:405,body:{error:'METHOD_NOT_ALLOWED'}};
@@ -49,8 +53,8 @@ export async function api(req,deps,env=process.env){
  if(path==='/api/openapi.json'&&method==='GET')return {status:200,body:openapi()};
  if(path==='/api/status'&&method==='GET'){
   const missing=['DATABASE_URL','GITHUB_REPO','GITHUB_WEBHOOK_SECRET','INNGEST_EVENT_KEY','INNGEST_SIGNING_KEY'].filter(k=>!env[k]);
-  if(missing.length)return {status:503,body:{configured:false,missing,statuses:Object.fromEntries(statuses.map(s=>[s,null])),workers:{openhands:{enabled:false},jules:{enabled:false}}}};
-  return {status:200,body:{configured:true,...await summary(deps.ledger),workers:{openhands:{enabled:env.OPENHANDS_ENABLED==='true'},jules:{enabled:false,reason:'No authenticated Jules API adapter is configured'}}}};
+  if(missing.length)return {status:503,body:{configured:false,missing,statuses:Object.fromEntries(statuses.map(s=>[s,null])),workers:{openhands:{enabled:false},jules:julesWorkerState(env)}}};
+  return {status:200,body:{configured:true,...await summary(deps.ledger),workers:{openhands:{enabled:env.OPENHANDS_ENABLED==='true'},jules:julesWorkerState(env)}}};
  }
  if(path==='/api/jobs'&&method==='GET'){
   const scope=url.searchParams.get('scope')??'project',page=Math.max(1,Number(url.searchParams.get('page')??1)),limit=Math.min(100,Math.max(1,Number(url.searchParams.get('limit')??100)));
@@ -60,12 +64,12 @@ export async function api(req,deps,env=process.env){
   return {status:200,body:{jobs:rows.map(j=>viewJob(j,env.GITHUB_REPO)),pagination:{scope,page,limit,total,pages:Math.ceil(total/limit),has_more:page*limit<total}}};
  }
  if(path==='/api/workers'&&method==='GET'){
-  const rows=(await deps.ledger.db.query("SELECT job_id,attempt_number,worker,external_id,start_task_id,state,deadline,dispatched_at,updated_at FROM job_attempts WHERE worker IN('openhands','openhands-release') ORDER BY dispatched_at DESC LIMIT 100")).rows;
+  const rows=(await deps.ledger.db.query("SELECT job_id,attempt_number,worker,external_id,start_task_id,state,deadline,dispatched_at,updated_at FROM job_attempts WHERE worker IN('openhands','openhands-release','jules') ORDER BY dispatched_at DESC LIMIT 100")).rows;
   const count=(await deps.ledger.db.query("SELECT count(*)::int AS n FROM job_attempts a WHERE worker='openhands' AND dispatched_at>=date_trunc('day',now() AT TIME ZONE 'UTC') AT TIME ZONE 'UTC' AND NOT EXISTS(SELECT 1 FROM evidence_receipts e WHERE e.attempt_id=a.id AND e.kind='worker_continuation_reserved')")).rows[0].n;
   const limit=Number(env.OPENHANDS_DAILY_START_LIMIT??10);
   const check=url.searchParams.get('check');
   const reuse=check==='reuse'?await Promise.all([...new Set(rows.map(r=>r.external_id).filter(Boolean))].slice(0,3).map(async id=>{try{return {external_id:id,reusable:!!await deps.worker.reusable(id,deps.github.repo)};}catch{return {external_id:id,reusable:false,reason:'SESSION_NOT_IDLE_OR_PROVIDER_UNAVAILABLE'};}})):undefined;
-  return {status:200,body:{openhands:{enabled:env.OPENHANDS_ENABLED==='true'&&!!env.OPENHANDS_API_KEY,daily_limit:limit===0?null:limit,daily_reserved:count,capacity:Number(env.OPENHANDS_CAPACITY??1),runs:rows.filter(r=>r.worker==='openhands'),release_verifier_runs:rows.filter(r=>r.worker==='openhands-release'),...(check==='authentication'?{authentication:await deps.worker.authStatus()}:{}),...(reuse?{session_reuse:reuse}:{})},jules:{enabled:false,configured:env.JULES_ENABLED==='true',available:false,required:false,reason:'No authenticated Jules API adapter is configured',next_action:'Use OpenHands fallback for deterministic bounded work'}}};
+  return {status:200,body:{openhands:{enabled:env.OPENHANDS_ENABLED==='true'&&!!env.OPENHANDS_API_KEY,daily_limit:limit===0?null:limit,daily_reserved:count,capacity:Number(env.OPENHANDS_CAPACITY??1),runs:rows.filter(r=>r.worker==='openhands'),release_verifier_runs:rows.filter(r=>r.worker==='openhands-release'),...(check==='authentication'?{authentication:await deps.worker.authStatus()}:{}),...(reuse?{session_reuse:reuse}:{})},jules:{...julesWorkerState(env),runs:rows.filter(r=>r.worker==='jules')}}};
  }
  const match=path.match(/^\/api\/jobs\/([a-f0-9-]{36})(?:\/(history|evidence|validations|retry|cancel|review))?$/);
  if(match){
