@@ -1,0 +1,123 @@
+{
+  "timestamp": "2026-10-08T23:26:52.794Z",
+  "entryJs": {
+    "file": "index.DhpPGAQk.js",
+    "sizes": {
+      "raw": 450834,
+      "gzip": 111515,
+      "brotli": 92775
+    },
+    "budget": {
+      "rawMax": 512000,
+      "gzipMax": 128000
+    }
+  },
+  "entryCss": {
+    "file": "index.KRdBhXB6.css",
+    "sizes": {
+      "raw": 256186,
+      "gzip": 41880,
+      "brotli": 33226
+    },
+    "budget": {
+      "rawMax": 307200,
+      "gzipMax": 51200
+    }
+  },
+  "preloadedVendors": {
+    "react-vendor.DDSrvLQP.js": {
+      "raw": 237904,
+      "gzip": 71292,
+      "brotli": 61680
+    },
+    "tanstack-router.99r4x8Sw.js": {
+      "raw": 85261,
+      "gzip": 27877,
+      "brotli": 25165
+    }
+  },
+  "totalFirstPaintJs": {
+    "raw": 773999,
+    "gzip": 210684,
+    "budget": {
+      "rawMax": 870400,
+      "gzipMax": 235520
+    }
+  },
+  "teacherChunks": {
+    "flipchart.lazy": {
+      "fileName": "flipchart.lazy.AucfxxZI.js",
+      "sizes": {
+        "raw": 390,
+        "gzip": 290,
+        "brotli": 234
+      }
+    },
+    "admin.lazy": {
+      "fileName": "admin.lazy.CXRMDuuV.js",
+      "sizes": {
+        "raw": 9388,
+        "gzip": 3030,
+        "brotli": 2715
+      }
+    },
+    "reportes.lazy": {
+      "fileName": "reportes.lazy.Dqe-eny7.js",
+      "sizes": {
+        "raw": 14628,
+        "gzip": 4159,
+        "brotli": 3701
+      }
+    },
+    "roster.lazy": {
+      "fileName": "roster.lazy.RaqPepKT.js",
+      "sizes": {
+        "raw": 15484,
+        "gzip": 4615,
+        "brotli": 4048
+      }
+    },
+    "crm.artwork.lazy": {
+      "fileName": "crm.artwork.lazy.BLoKCorz.js",
+      "sizes": {
+        "raw": 439768,
+        "gzip": 130877,
+        "brotli": 109106
+      }
+    },
+    "crm.index.lazy": {
+      "fileName": "crm.index.lazy.Sgfa0zon.js",
+      "sizes": {
+        "raw": 19049,
+        "gzip": 6035,
+        "brotli": 5380
+      }
+    },
+    "route.lazy": {
+      "fileName": "route.lazy.BzadLOIi.js",
+      "sizes": {
+        "raw": 4466,
+        "gzip": 1592,
+        "brotli": 1401
+      }
+    },
+    "guia._n.lazy": {
+      "fileName": "guia._n.lazy.DGu3uxV5.js",
+      "sizes": {
+        "raw": 100625,
+        "gzip": 10650,
+        "brotli": 8552
+      }
+    }
+  },
+  "isolation": {
+    "forbiddenIndexPreloadsChecked": [
+      "crm.artwork.lazy",
+      "flipchart-native",
+      "pdf.worker"
+    ],
+    "violations": []
+  },
+  "passed": true,
+  "violations": []
+}
