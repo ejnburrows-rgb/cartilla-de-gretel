@@ -1,7 +1,7 @@
 import {test} from 'node:test';
 import assert from 'node:assert/strict';
 import {fixture} from './helpers.mjs';
-import {ReleaseLoop} from '../src/release-loop.mjs';
+import {ReleaseLoop,independentExecutionChecks} from '../src/release-loop.mjs';
 const head='a'.repeat(40),main='b'.repeat(40);
 async function setup(){
  const f=await fixture(),sent=[];let creates=0,starts=0,polls=0,finished=false,passed=true;
@@ -60,4 +60,10 @@ test('GitHub quota wait pauses finished compute and cannot certify without fresh
 test('controller plan upgrade pauses the known sandbox and never duplicates dispatch',async()=>{
  const f=await setup();await f.loop.advance(f.job.id);let pauses=0;f.executor.pause=async()=>{pauses++;return {success:true};};await f.db.query("UPDATE job_attempts SET payload_hash='old-contract' WHERE job_id=$1",[f.job.id]);
  await f.loop.advance(f.job.id);assert.equal(pauses,1);assert.equal((await f.ledger.get(f.job.id)).failure_reason,'RELEASE_PLAN_CHANGED');assert.equal((await f.ledger.attempt(f.job.id)).state,'failed');assert.equal(f.counts().creates,1);await f.p.close();
+});
+
+test('generic release success never certifies UI browser or visual proof',()=>{
+ assert.deepEqual(independentExecutionChecks,['targeted','worker','release']);
+ assert.equal(independentExecutionChecks.includes('browser'),false);
+ assert.equal(independentExecutionChecks.includes('visual'),false);
 });

@@ -1,6 +1,8 @@
 import {randomUUID} from 'node:crypto';
 import {transaction} from './db.mjs';
 import {releaseCommand} from './release-executor.mjs';
+// Browser and visual proof must be independently persisted for the changed files.
+export const independentExecutionChecks=Object.freeze(['targeted','worker','release']);
 
 // Durable execution uses the existing Neon ledger and Inngest, not a new queue.
 export class ReleaseLoop{
@@ -86,7 +88,7 @@ export class ReleaseLoop{
    const passed=result.passed&&pr.head.sha===plan.head&&main.sha===job.source.main;
    await this.ledger.receipt(id,'github_validation',{head:pr.head.sha,main:main.sha,pr:pr.number,execution:result},a.id);
    await this.ledger.db.query('UPDATE job_attempts SET state=$2,updated_at=now() WHERE id=$1',[a.id,passed?'finished':'failed']);
-   if(passed){await this.ledger.receipt(id,'independent_release_execution',{...result,main:main.sha,checks:['targeted','worker','release',...(plan.ui?['browser','visual']:[])]},a.id);await this.ledger.verify(id,a,'independent_clean_release_execution',{...result,passed:true,main:main.sha});}
+   if(passed){await this.ledger.receipt(id,'independent_release_execution',{...result,main:main.sha,checks:independentExecutionChecks},a.id);await this.ledger.verify(id,a,'independent_clean_release_execution',{...result,passed:true,main:main.sha});}
    else{await this.ledger.fail(id,result.passed?'RELEASE_STATE_CHANGED':'RELEASE_COMMAND_FAILED');const current=await this.ledger.get(id);if(current.status==='retrying')try{await this.send({id:'release-retry:'+id+':'+a.attempt_number,name:'cartilla/release.poll',data:{jobId:id,retryAt:new Date(current.retry_at).toISOString()}});}catch{}}
    try{await this.send({id:'release-terminal:'+a.id,name:'cartilla/manual.job',data:{jobId:job.source.parent_job??id}});}catch{}
    const next=(await this.ledger.db.query("SELECT id FROM jobs WHERE source->>'lane'='release_verifier' AND status IN('received','queued','retrying') AND (retry_at IS NULL OR retry_at<=now()) ORDER BY created_at LIMIT 100")).rows;
