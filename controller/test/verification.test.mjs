@@ -28,5 +28,6 @@ test('Sonar reconciliation rejects old, untrusted and unresolved reports',()=>{
  assert.equal(exactHeadSonarAudit([{...good,updated_at:'2026-10-08T09:41:00Z'}],check),null);
  assert.equal(exactHeadSonarAudit([{...good,user:{login:'intruder'}}],check),null);
  assert.equal(exactHeadSonarAudit([{...good,body:'Quality Gate passed; 2 New issues'}],check),null);
+ for(const count of [10,20,100])assert.equal(exactHeadSonarAudit([{...good,body:'Quality Gate passed; '+count+' New issues'}],check),null);
  assert.equal(exactHeadSonarAudit([good],{}),null);
 });

@@ -13,7 +13,7 @@ const shaPattern = /^[a-f0-9]{40}$/;
 export function exactHeadSonarAudit(comments,check){
  const since=Date.parse(check?.started_at??'');
  if(!Number.isFinite(since))return null;
- return comments.find(c=>c.user?.login==='sonarqubecloud[bot]'&&Date.parse(c.updated_at??c.created_at??'')>=since&&/Quality Gate passed/i.test(c.body??'')&&/0 New issues/i.test(c.body??''))??null;
+ return comments.find(c=>c.user?.login==='sonarqubecloud[bot]'&&Date.parse(c.updated_at??c.created_at??'')>=since&&/Quality Gate passed/i.test(c.body??'')&&/\b0 New issues\b/i.test(c.body??''))??null;
 }
 
 export function verificationRequirements(files) {
