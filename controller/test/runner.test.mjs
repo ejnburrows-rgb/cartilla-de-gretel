@@ -187,3 +187,22 @@ test('auto-merge promotes a verified draft before merging exact head',async()=>{
  assert.deepEqual(calls,[['ready',1],['merge',1,head]]);
  await p.close();
 });
+
+
+test('GitHub reconciliation sweeps already-verified controller PRs even without cron',async()=>{
+ const {p,ledger,runner,github,db}=await setup(undefined,{CONTROLLER_AUTO_MERGE:'true'});
+ const prior=await ledger.create({key:'verified-before-webhook',kind:'issue_implementation',issue:7,source:{issue:7},spec});
+ await db.query("UPDATE jobs SET status='verified' WHERE id=$1",[prior.id]);
+ github.changes=async()=>evidence();
+ let merges=0;
+ github.ready=async()=>false;
+ github.merge=async()=>{merges++;return {merged:true,sha:'c'.repeat(40)};};
+ runner.snapshot=async()=>snapshot();
+ runner.rescan=async()=>({});
+ const reconcile=await ledger.create({key:'webhook-merge-sweep',kind:'reconcile',source:{event:true}});
+ const result=await runner.process(reconcile.id);
+ assert.equal(merges,1);
+ assert.equal(result.merged,1);
+ assert.equal((await ledger.get(reconcile.id)).status,'verified');
+ await p.close();
+});
