@@ -1,6 +1,6 @@
 import {test} from 'node:test';
 import assert from 'node:assert/strict';
-import {verificationGate,verificationChecks,VerificationPipeline,workerVerificationContract} from '../src/verification.mjs';
+import {verificationGate,verificationChecks,VerificationPipeline,workerVerificationContract,exactHeadSonarAudit} from '../src/verification.mjs';
 const head='b'.repeat(40),main='a'.repeat(40);
 const checks=Object.values(verificationChecks).map((name,id)=>({name,id,head_sha:head,app_id:9,status:'completed',conclusion:'success',started_at:'2026-10-08T01:00:00Z'}));
 const base={head,main,verifiedMain:main,files:['src/components/Example.tsx'],checks,appIds:[9],implementationPassed:true};
@@ -19,4 +19,14 @@ test('durable release request is keyed to parent, exact head and current main',a
  const created=[];let queued=0;const pipeline=new VerificationPipeline({ledger:{create:async x=>{created.push(x);return {...x,id:'release'};},queue:async()=>queued++},github:{main:async()=>({sha:main}),request:async()=>({status:'ahead'})},send:async()=>{}});
  await pipeline.request({id:'implementation',issue_number:7},{pr:{number:8,head},files:base.files});
  assert.equal(created[0].key,'release:implementation:'+head+':'+main);assert.equal(created[0].source.lane,'release_verifier');assert.equal(queued,1);
+});
+
+test('Sonar reconciliation rejects old, untrusted and unresolved reports',()=>{
+ const check={started_at:'2026-10-08T09:41:10Z',head_sha:head};
+ const good={user:{login:'sonarqubecloud[bot]'},updated_at:'2026-10-08T09:41:15Z',body:'Quality Gate passed; 0 New issues'};
+ assert.ok(exactHeadSonarAudit([good],check));
+ assert.equal(exactHeadSonarAudit([{...good,updated_at:'2026-10-08T09:41:00Z'}],check),null);
+ assert.equal(exactHeadSonarAudit([{...good,user:{login:'intruder'}}],check),null);
+ assert.equal(exactHeadSonarAudit([{...good,body:'Quality Gate passed; 2 New issues'}],check),null);
+ assert.equal(exactHeadSonarAudit([good],{}),null);
 });

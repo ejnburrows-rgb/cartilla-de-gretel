@@ -6,7 +6,7 @@ export class GitHub {
  safeURL(path){
   if(typeof path!=='string'||!/^\/(?:commits|contents|issues|pulls|compare)(?:[/?]|$)/.test(path))throw Error('INVALID_GITHUB_ENDPOINT');
   const q=path.indexOf('?');const pathname=q<0?path:path.slice(0,q);
-  if(pathname.includes('..')||pathname.includes('//')||pathname.includes('\\')||/%(?:2e|2f|5c|00)/i.test(pathname)||/[\u0000-\u001f]/.test(pathname))throw Error('INVALID_GITHUB_ENDPOINT');
+  if(pathname.split('/').some(segment=>segment==='.'||segment==='..')||pathname.includes('//')||pathname.includes('\\')||/%(?:2e|2f|5c|00)/i.test(pathname)||/[\u0000-\u001f]/.test(pathname))throw Error('INVALID_GITHUB_ENDPOINT');
   const u=new URL('https://api.github.com');u.pathname='/repos/'+this.repo+pathname;
   if(q>=0)u.search=path.slice(q+1);
   if(u.hostname!=='api.github.com'||!u.pathname.startsWith('/repos/'+this.repo+'/'))throw Error('INVALID_GITHUB_ENDPOINT');

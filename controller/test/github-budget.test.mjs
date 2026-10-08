@@ -33,3 +33,11 @@ test('outbound GitHub reads restrict host, path and redirects',async()=>{
  assert.equal(seen[0].url,'https://api.github.com/repos/owner/repo/pulls?state=open&per_page=100');
  assert.equal(seen[0].options.redirect,'error');
 });
+
+test('legitimate GitHub three-dot comparison is not rejected as traversal',async()=>{
+ const calls=[];const client=new GitHub({repo:'owner/repo',fetcher:async url=>{calls.push(url);return {ok:true,json:async()=>({status:'ahead'})};}});
+ const path='/compare/'+('a'.repeat(40))+'...'+('b'.repeat(40));
+ await client.request(path);
+ assert.equal(calls.length,1);
+ assert.equal(calls[0],'https://api.github.com/repos/owner/repo'+path);
+});

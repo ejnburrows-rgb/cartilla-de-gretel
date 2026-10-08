@@ -10,6 +10,12 @@ export const verificationChecks = Object.freeze({
  visual: 'Cartilla visual proof',
 });
 const shaPattern = /^[a-f0-9]{40}$/;
+export function exactHeadSonarAudit(comments,check){
+ const since=Date.parse(check?.started_at??'');
+ if(!Number.isFinite(since))return null;
+ return comments.find(c=>c.user?.login==='sonarqubecloud[bot]'&&Date.parse(c.updated_at??c.created_at??'')>=since&&/Quality Gate passed/i.test(c.body??'')&&/0 New issues/i.test(c.body??''))??null;
+}
+
 export function verificationRequirements(files) {
  const paths = files.map(f => typeof f === 'string' ? f : f.filename);
  const ui = paths.filter(p=>!/(^|\/)(__tests__|tests)\/|\.(test|spec)\./.test(p)).some(p => /^(src\/components\/|src\/pages\/|src\/styles\/|public\/)/.test(p) || /\.(tsx|jsx|css|scss|svg)$/.test(p));
@@ -104,7 +110,7 @@ export class VerificationPipeline {
   const sonar=checks.filter(c=>c.name==='SonarCloud Code Analysis'&&c.app?.id===12526&&c.head_sha===gate.head).sort((a,b)=>String(b.started_at??'').localeCompare(String(a.started_at??'')))[0];
   if(sonar?.status!=='completed'||sonar.conclusion!=='success')return {merged:false,reason:'CURRENT_SONAR_QUALITY_GATE_REQUIRED'};
   const allComments=await this.github.pages('/issues/'+pr.number+'/comments');
-  const sonarAudit=allComments.find(c=>c.user?.login?.startsWith('sonarqubecloud')&&/Quality Gate passed/i.test(c.body??'')&&/0 New issues/i.test(c.body??''));
+  const sonarAudit=exactHeadSonarAudit(allComments,sonar);
   if(!sonarAudit)return {merged:false,reason:'SONAR_FINDINGS_RECONCILIATION_REQUIRED'};
   const report=[
    'DUAL REVIEW VERIFIED FOR THIS HEAD',
