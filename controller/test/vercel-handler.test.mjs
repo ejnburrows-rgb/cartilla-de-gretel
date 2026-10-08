@@ -18,7 +18,7 @@ test('Vercel Web Standard handler retains read-only auth and Inngest configurati
  try{const r=await handler.fetch(new Request('https://controller.test/api/inngest'));assert.equal(r.status,503);assert.equal((await r.json()).error,'INNGEST_NOT_CONFIGURED');}finally{if(old!==undefined)process.env.INNGEST_SIGNING_KEY=old;}
 });
 
-import {configureWorkerKey} from '../src/runtime.mjs';
+import {configureWorkerKey,configureGitHubKey} from '../src/runtime.mjs';
 import {OpenHands} from '../src/openhands.mjs';
 import {safeText} from '../src/security.mjs';
 test('saved sensitive credential alias preserves canonical key and stays redacted',()=>{
@@ -30,4 +30,10 @@ test('OpenHands authentication preflight is GET only and never exposes response 
  const calls=[];const worker=new OpenHands({key:'private',fetcher:async(url,options)=>{calls.push({url,method:options.method});return {ok:true,status:200,json:()=>{throw new Error('must not read secret response');}};}});
  assert.deepEqual(await worker.authStatus(),{configured:true,authenticated:true,http_status:200});
  assert.deepEqual(calls,[{url:'https://app.all-hands.dev/api/keys/current',method:'GET'}]);
+});
+test('saved GitHub credential alias remains server-side, redacted and preserves canonical token',()=>{
+ const env={Ejn:'private-github-credential'};assert.equal(configureGitHubKey(env),true);
+ assert.equal(env.GITHUB_TOKEN,env.Ejn);assert.equal(safeText(env.Ejn,env),'[REDACTED]');
+ const canonical={GITHUB_TOKEN:'canonical-token',Ejn:'alias'};configureGitHubKey(canonical);
+ assert.equal(canonical.GITHUB_TOKEN,'canonical-token');assert.equal(configureGitHubKey({}),false);
 });
