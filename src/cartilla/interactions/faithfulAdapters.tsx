@@ -213,6 +213,7 @@ export function LassoSyllableMatch({
         </span>
       ) : null}
       <LassoConnect
+        showCompanion={false}
         pageKey={pageKey(lessonId, region.id)}
         targets={targets}
         mode="mark"
@@ -224,7 +225,7 @@ export function LassoSyllableMatch({
   );
 }
 
-/** Traza una línea vowel-match-all → pair lasso (letter ↔ picture) */
+/** Traza una línea vowel-match-all → pair direct pencil connector (letter ↔ picture) */
 export function LassoVowelMatchAll({
   region,
   lessonId,
@@ -254,22 +255,23 @@ export function LassoVowelMatchAll({
   });
   return (
     <LassoConnect
+        showCompanion={false}
       pageKey={pageKey(lessonId, region.id)}
       targets={targets}
       mode="pair"
       verbFamily={verbFromText(instruction ?? "Une")}
       instruction={instruction}
       lessonId={lessonId}
+      directPencil={true}
     />
   );
 }
 
-/** Vowel line match — mark correct pictures with lasso or direct pencil connector */
+/** Vowel line match — mark correct pictures with direct pencil connector */
 export function LassoVowelLineMatch({
   region,
   lessonId,
   instruction,
-  directPencil,
 }: {
   region: PageRegion;
   lessonId?: string;
@@ -282,25 +284,20 @@ export function LassoVowelLineMatch({
     label: cell.caption ?? `dibujo ${i + 1}`,
     src: cell.illustrationSrc,
     correct: cell.correct,
-    // Direct-pencil pages start clean; preserve source examples only in legacy presentation.
-    example: !directPencil && Boolean(region.exampleCaption) && cell.caption === region.exampleCaption,
+    example: Boolean(region.exampleCaption) && cell.caption === region.exampleCaption,
     role: "solo",
   }));
   return (
     <div className="am-faithful-lasso">
-      {region.letterPair && !directPencil ? (
-        <span className="am-faithful-lasso__letter" aria-hidden>
-          {region.letterPair}
-        </span>
-      ) : null}
       <LassoConnect
+        showCompanion={false}
         pageKey={pageKey(lessonId, region.id)}
         targets={targets}
         mode="mark"
         verbFamily={verbFromText(instruction ?? "Une")}
         instruction={instruction}
         lessonId={lessonId}
-        directPencil={directPencil}
+        directPencil={true}
         centerLabel={region.letterPair ?? "Uu"}
       />
     </div>
@@ -327,6 +324,7 @@ export function LassoPictureGrid({
   }));
   return (
     <LassoConnect
+        showCompanion={false}
       pageKey={pageKey(lessonId, region.id)}
       targets={targets}
       mode="mark"
