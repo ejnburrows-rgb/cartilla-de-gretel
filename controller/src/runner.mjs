@@ -265,4 +265,49 @@ export class Runner {
    await this.ledger.receipt(id,'worker_status',{status:r.status??'unknown',external_id:a.external_id,start_task_id:a.start_task_id,sandbox_status:r.sandbox_status??null,progress:r.progress??null},a.id);
    const continuation=(await this.ledger.db.query("SELECT id FROM evidence_receipts WHERE attempt_id=$1 AND kind='worker_continuation_reserved'",[a.id])).rows.length>0;
    if(continuation&&r.terminal&&!r.failed&&a.state!=='finished'&&!r.progress?.latest_events?.some(e=>e.source==='agent'&&new Date(e.timestamp)>=new Date(a.dispatched_at))){
-    await this.ledger.set(id,new Date(a.deadline)<new Date()?'blocked':'running',new Date(a.deadline)<new Date()?'CONTINUATION_ACTIVITY_DEADLINE_EXCEEDED':null,{lease_until:null,next_action:'Await fresh agent activity in same conversation; never duplicate'});return {done:¢ëiºÛkºwµç_ºYhºÚn¶Æ¯yÛhþiíýø¥zÏÜ¢jh²*?¢ëiºßÛjÈ[y«lµÚ.¶ÜmFéÜjßæžßßŠW¬ýÊ&¦‹"£ú.¶›­ý¶¬…·š¶Ë]¢ëmÆÛh¾'°¶ŸºYhºÚn¶Šî±è^iÙõÓOæžßßŠW¬ýÊ&¦‹"£ú.¶›­ý¶¬…·š¶Ë]¢ëmÆßíj)g×M?š{~)^³÷(šš,ŠèºÚn·öÚ²ÞjÛ-v‹­·m¢øžÂ–«¶ÊŠ
+    await this.ledger.set(id,new Date(a.deadline)<new Date()?'blocked':'running',new Date(a.deadline)<new Date()?'CONTINUATION_ACTIVITY_DEADLINE_EXCEEDED':null,{lease_until:null,next_action:'Await fresh agent activity in same conversation; never duplicate'});return {done:false};
+   }
+   if(r.terminal){
+    await this.ledger.db.query('UPDATE job_attempts SET state=$2,updated_at=now() WHERE id=$1',[a.id,r.failed?'failed':'finished']);
+    if(job.status==='cancelled'){await this.ledger.db.query('UPDATE jobs SET lease_until=NULL WHERE id=$1',[id]);}
+    else if(r.failed){await this.ledger.fail(id,`WORKER_${r.status}`);await this.scheduleRetry(id);}
+    else{await this.validateWorker(job,a);}
+    await this.rescan();const current=await this.ledger.get(id);return {done:current.status!=='waiting'};
+   }
+   const overdue=new Date(a.deadline)<new Date();
+   if(job.status==='cancelled'){await this.ledger.db.query('UPDATE jobs SET lease_until=NULL WHERE id=$1',[id]);}
+   else await this.ledger.set(id,overdue||r.blocked?'blocked':'running',overdue?'WORKER_DEADLINE_EXCEEDED':r.blocked?'WORKER_CONFIRMATION_REQUIRED':null,{lease_until:null,next_action:'Poll same conversation and inspect GitHub; never duplicate',owner_action:r.blocked?'Respond to OpenHands confirmation':overdue?'Review existing OpenHands run':'Nothing'});
+   if(r.blocked&&!overdue)await this.rescan();
+   if(overdue){const evidence=job.kind==='issue_implementation'?await this.github.changes(job):{main:await this.github.main()};await this.ledger.receipt(id,'timeout_github_inspection',{main:evidence.main??null,pr:evidence.pr?{number:evidence.pr.number,head:evidence.pr.head}:null,files:evidence.files??[]},a.id);await this.rescan();}
+   return {done:false};
+  }catch(e){
+   // GET uncertainty cannot free worker capacity or start a replacement.
+   await this.ledger.db.query("UPDATE jobs SET lease_until=NULL,failure_reason='WORKER_POLL_OR_VALIDATION_FAILED',updated_at=now() WHERE id=$1 AND status NOT IN('verified','cancelled')",[id]);throw e;
+  }
+ }
+ async mergeVerifiedJobs(){
+  const authorized=String(this.env.CONTROLLER_MERGE_ISSUES??'').split(',').map(Number).filter(Number.isSafeInteger);
+  if(!authorized.length)return;
+  const jobs=(await this.ledger.db.query("SELECT * FROM jobs WHERE kind='issue_implementation' AND status='verified' AND issue_number=ANY($1::int[]) LIMIT 100",[authorized])).rows;
+  for(const job of jobs){const evidence=await this.github.changes(job);if(!evidence.pr)continue;const release=await this.verification.request(job,evidence);if(release.status==='verified'&&(await this.verification.inspect(release)).passed)await this.verification.merge(job,release);else await this.ledger.supersedeVerification(job.id,{head:evidence.pr.head,pr:evidence.pr.number,release_job:release.id,main:release.source.main});}
+ }
+ async reconcile(){
+  const recovered=await this.ledger.recoverOrphans();
+  // Reconstruct crashes from durable attempt records, never assume the external POST failed.
+  const stale=(await this.ledger.db.query("SELECT j.*,a.id AS attempt_id,a.worker AS attempt_worker,a.state AS attempt_state,a.start_task_id FROM jobs j JOIN job_attempts a ON a.job_id=j.id AND a.attempt_number=j.attempt_count WHERE j.status='running' AND j.deadline<now() AND (j.lease_until IS NULL OR j.lease_until<now())")).rows;
+  for(const j of stale){
+   if(j.attempt_worker==='controller'){await this.ledger.db.query("UPDATE job_attempts SET state='failed' WHERE id=$1",[j.attempt_id]);await this.ledger.fail(j.id,'CONTROLLER_LEASE_EXPIRED');await this.scheduleRetry(j.id);}
+   else if(j.attempt_state==='reserved'&&!j.start_task_id){await this.ledger.db.query("UPDATE job_attempts SET state='ambiguous' WHERE id=$1",[j.attempt_id]);await this.ledger.set(j.id,'blocked','DISPATCH_CRASH_OUTCOME_UNKNOWN',{next_action:'Resolve external run before any replacement',owner_action:'Inspect OpenHands dispatch'});}
+  }
+  const due=(await this.ledger.db.query("SELECT * FROM jobs WHERE status='received' OR (status='queued' AND kind='reconcile' AND updated_at<now()-interval '10 minutes') OR (status='retrying' AND retry_at<=now()) LIMIT 100")).rows;
+  for(const j of due){if(j.kind==='reconcile')await this.ledger.queue(j,this.send);}
+  const polls=(await this.ledger.db.query("SELECT DISTINCT j.id FROM jobs j JOIN job_attempts a ON a.job_id=j.id AND a.attempt_number=j.attempt_count WHERE a.worker IN('openhands','jules') AND a.state IN('reserved','running','cancel_requested','finished') AND j.status IN('running','waiting','blocked','cancelled')")).rows;
+  for(const j of polls)await this.send({id:`poll:${j.id}:${Math.floor(Date.now()/600000)}`,name:'cartilla/worker.poll',data:{jobId:j.id}});
+  // Release checks use existing durable reconciliation; no custom scheduler or deployment.
+  if(this.releaseLoop){const activeReleases=(await this.ledger.db.query("SELECT id FROM jobs WHERE source->>'lane'='release_verifier' AND status IN('received','queued','running','waiting','retrying','cancelled') AND (status!='cancelled' OR EXISTS(SELECT 1 FROM job_attempts a WHERE a.job_id=jobs.id AND a.state='cancel_requested')) AND (retry_at IS NULL OR retry_at<=now()) LIMIT 100")).rows;for(const j of activeReleases)await this.send({id:'release-reconcile:'+j.id+':'+Math.floor(Date.now()/600000),name:'cartilla/release.poll',data:{jobId:j.id}});}
+  const releases=(await this.ledger.db.query("SELECT * FROM jobs WHERE source->>'lane'='release_verifier' AND status='blocked' AND updated_at<now()-interval '10 minutes' AND failure_reason NOT IN('PR_HEAD_CHANGED_REVERIFY','MAIN_CHANGED_REVERIFY','STATE_CHANGED_DURING_VERIFICATION') LIMIT 100")).rows;
+  if(this.env.RELEASE_VERIFIER_APP_IDS)for(const j of releases){await this.ledger.set(j.id,'received',null,{next_action:'Recheck trusted exact-head verification receipts'});await this.ledger.queue(await this.ledger.get(j.id),this.send);}
+  await this.mergeVerifiedJobs();
+  const result=await this.rescan();return {recovered,queued:due.length,poll_scheduled:polls.length,...result};
+ }
+}
