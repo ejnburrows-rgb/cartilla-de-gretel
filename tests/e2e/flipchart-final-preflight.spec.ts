@@ -27,6 +27,10 @@ test.describe("Flipchart pre-final regression", () => {
       const panel = page.getByTestId("flipchart-hd-panel");
       await expect(panel).toBeVisible({ timeout: 15000 });
 
+      // Check initial page state (lesson 7 starts on page 8 usually based on the test)
+      const nativeBoard = page.getByTestId("flipchart-native-board");
+      await expect(nativeBoard).toHaveAttribute("data-flipchart-page", "8");
+
       // Top-bound physical page turn check
       await expect(panel).toHaveAttribute("data-page-turn-axis", "vertical");
 
@@ -39,11 +43,17 @@ test.describe("Flipchart pre-final regression", () => {
       await page.screenshot({ path: path.join(OUT_DIR, `flipchart-${device.name}-mid-turn-keyboard.png`) });
       await page.waitForTimeout(800); // Wait for turn to finish
 
+      // Assert it went to the next page
+      await expect(nativeBoard).toHaveAttribute("data-flipchart-page", "9");
+
       // UI Backward
       const prevBtn = panel.getByRole("button", { name: /Lámina anterior/i });
       await expect(prevBtn).toBeEnabled();
       await prevBtn.click();
       await page.waitForTimeout(1000); // Wait for turn
+
+      // Assert it went back to the previous page
+      await expect(nativeBoard).toHaveAttribute("data-flipchart-page", "8");
     }
 
     // Check errors
@@ -73,7 +83,7 @@ test.describe("Flipchart pre-final regression", () => {
     await expect(flipWrapper).toHaveCount(0); // Assert absence of flip layer
 
     // Assert the navigation result (page went from 8 to 9)
-    await expect(page.getByTestId("flipchart-native-board")).toHaveAttribute("data-flipchart-page", "9");
+    await expect(nativeBoard).toHaveAttribute("data-flipchart-page", "9");
 
     await page.screenshot({ path: path.join(OUT_DIR, `flipchart-reduced-motion-turn.png`) });
   });
