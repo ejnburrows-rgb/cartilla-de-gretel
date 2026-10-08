@@ -2,7 +2,10 @@ import {authorized,rawBody,digest,safeText} from './security.mjs';
 import {verificationRequirements} from './verification.mjs';
 import {webhook} from './webhook.mjs';
 import {parseSpec} from './policy.mjs';
+import {buildProjectLanes,projectIssueNumbers,unknownProjectLanes} from './project-lanes.mjs';
 export const statuses=['received','queued','running','waiting','retrying','blocked','failed','dead_letter','verified','cancelled'];
+let projectLanesCache={at:0,body:null};
+const PROJECT_LANES_TTL_MS=120000;
 const projectWorkSql="(kind='issue_implementation' OR coalesce(source->>'lane','') IN('release_verifier','release_request'))";
 const ownerAttentionSql="owner_action IS NOT NULL AND lower(trim(trailing '.' from owner_action)) NOT IN('nothing','nothing right now','none','no action')";
 const ownerNeedsAttention=value=>!!value&&!['nothing','nothing right now','none','no action'].includes(String(value).trim().toLowerCase().replace(/\.$/,''));
@@ -24,7 +27,7 @@ async function summary(ledger){
 }
 export function openapi(){
  const paths={};
- for(const p of ['/api/status','/api/jobs','/api/jobs/{id}','/api/jobs/{id}/history','/api/jobs/{id}/evidence','/api/jobs/{id}/validations','/api/workers','/api/openapi.json'])paths[p]={get:{security:[{readToken:[]}],responses:{200:{description:'Read-only controller state'},401:{description:'Unauthorized'},503:{description:'Dependency not configured'}}}};
+ for(const p of ['/api/status','/api/project-lanes','/api/jobs','/api/jobs/{id}','/api/jobs/{id}/history','/api/jobs/{id}/evidence','/api/jobs/{id}/validations','/api/workers','/api/openapi.json'])paths[p]={get:{security:[{readToken:[]}],responses:{200:{description:'Read-only controller state'},401:{description:'Unauthorized'},503:{description:'Dependency not configured'}}}};
  for(const p of ['/api/jobs','/api/jobs/{id}/retry','/api/jobs/{id}/cancel','/api/jobs/{id}/review'])paths[p]={...paths[p],post:{security:[{adminToken:[]}],responses:{202:{description:'Durably stored admin request'},409:{description:'Unsafe state transition'}}}};
  paths['/api/github/webhook']={post:{description:'GitHub HMAC-SHA256 signed raw body; stored before acknowledgment',responses:{202:{description:'Event and canonical job stored'}}}};
  for(const [p,item]of Object.entries(paths))if(p.includes('{id}'))item.parameters=[{name:'id',in:'path',required:true,schema:{type:'string',format:'uuid'}}];
@@ -47,6 +50,30 @@ export async function api(req,deps,env=process.env){
  if(!authorized(req.headers.authorization,admin?env.CONTROLLER_ADMIN_TOKEN:env.CONTROLLER_READ_TOKEN))return {status:401,body:{error:'UNAUTHORIZED'}};
  if(env.CONTROLLER_ADMIN_TOKEN&&env.CONTROLLER_ADMIN_TOKEN===env.CONTROLLER_READ_TOKEN)return {status:503,body:{error:'DISTINCT_TOKENS_REQUIRED'}};
  if(path==='/api/openapi.json'&&method==='GET')return {status:200,body:openapi()};
+ if(path==='/api/project-lanes'&&method==='GET'){
+  if(projectLanesCache.body&&Date.now()-projectLanesCache.at<PROJECT_LANES_TTL_MS)return {status:200,body:projectLanesCache.body};
+  const [snapshotResult,controllerResult,workersResult]=await Promise.allSettled([
+   deps.readonlyGithub.snapshot(),
+   summary(deps.ledger),
+   deps.ledger.db.query("SELECT worker,state,count(*)::int AS count FROM job_attempts WHERE state IN('reserved','running','ambiguous','cancel_requested') GROUP BY worker,state ORDER BY worker,state")
+  ]);
+  const snapshot=snapshotResult.status==='fulfilled'?snapshotResult.value:null;
+  const controller=controllerResult.status==='fulfilled'?controllerResult.value:null;
+  const workers=workersResult.status==='fulfilled'?workersResult.value.rows:[];
+  if(!snapshot){
+   const body={...unknownProjectLanes({controller,workers}),stale_reason:'GitHub project snapshot is unavailable. No state was changed.'};
+   projectLanesCache={at:Date.now(),body};return {status:200,body};
+  }
+  const issueResults=await Promise.allSettled(projectIssueNumbers.map(n=>deps.readonlyGithub.request('/issues/'+n)));
+  const issueStates={};let missingIssueReads=0;
+  issueResults.forEach((r,i)=>{if(r.status==='fulfilled')issueStates[projectIssueNumbers[i]]=r.value;else missingIssueReads++;});
+  const body=buildProjectLanes({snapshot,issueStates,controller,workers});
+  if(missingIssueReads||controllerResult.status!=='fulfilled'||workersResult.status!=='fulfilled'){
+   body.stale=true;
+   body.stale_reason=[missingIssueReads?missingIssueReads+' canonical issue read(s) unavailable':null,controllerResult.status!=='fulfilled'?'controller summary unavailable':null,workersResult.status!=='fulfilled'?'worker summary unavailable':null].filter(Boolean).join('; ');
+  }
+  projectLanesCache={at:Date.now(),body};return {status:200,body};
+ }
  if(path==='/api/status'&&method==='GET'){
   const missing=['DATABASE_URL','GITHUB_REPO','GITHUB_WEBHOOK_SECRET','INNGEST_EVENT_KEY','INNGEST_SIGNING_KEY'].filter(k=>!env[k]);
   if(missing.length)return {status:503,body:{configured:false,missing,statuses:Object.fromEntries(statuses.map(s=>[s,null])),workers:{openhands:{enabled:false},jules:{enabled:false}}}};
