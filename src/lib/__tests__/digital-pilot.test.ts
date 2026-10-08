@@ -45,7 +45,8 @@ describe("faithful digital workbook pages", () => {
     const grid = (next.regions as PageRegion[]).find((region) => region.id === "p1-grid");
     expect(grid?.cells).toHaveLength(20);
     const ownerColor = new Map(page1Art.ownerColor.map((entry) => [entry.src, entry]));
-    const printed = new Map(page1Art.printedUntilColor.map((entry) => [entry.src, entry]));
+    const printedUntilColor = page1Art.printedUntilColor as (typeof page1Art.ownerColor)[number][];
+    const printed = new Map(printedUntilColor.map((entry) => [entry.src, entry]));
     for (const cell of grid?.cells ?? []) {
       const src = cell.illustrationSrc!;
       expect(existsSync(join(root, "public", src.slice(1)))).toBe(true);
@@ -63,7 +64,7 @@ describe("faithful digital workbook pages", () => {
       }
       expect(src).toMatch(/^\/cartilla\/art\/faithful\//);
     }
-    for (const entry of [...page1Art.ownerColor, ...page1Art.printedUntilColor]) {
+    for (const entry of [...page1Art.ownerColor, ...printedUntilColor]) {
       const displayPath = join(root, "public", entry.src.slice(1));
       if (entry.src.endsWith(".svg")) {
         // Legacy display wrappers embed exactly the recorded PNG pixels.
