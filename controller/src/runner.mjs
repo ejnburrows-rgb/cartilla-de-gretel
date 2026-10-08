@@ -146,7 +146,7 @@ export class Runner {
    return {done:false};
   }catch(e){
    // GET uncertainty cannot free worker capacity or start a replacement.
-   await this.ledger.db.query("UPDATE jobs SET lease_until=NULL,failure_reason='WORKER_POLL_OR_VALIDATION_FAILED',updated_at=now() WHERE id=$1",[id]);throw e;
+   await this.ledger.db.query("UPDATE jobs SET lease_until=NULL,failure_reason='WORKER_POLL_OR_VALIDATION_FAILED',updated_at=now() WHERE id=$1 AND status NOT IN('verified','cancelled')",[id]);throw e;
   }
  }
  async reconcile(){

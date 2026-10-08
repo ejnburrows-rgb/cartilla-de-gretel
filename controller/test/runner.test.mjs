@@ -47,6 +47,14 @@ test('single paid authorization excludes other jobs and cannot restart after UTC
  await p.close();
 });
 const evidence=()=>({pr:{number:1,head,body:'Fixes #7'},compare:{status:'ahead',ahead_by:1},files:[{filename:'src/example.ts',status:'modified',additions:4,deletions:2}],checks:[{name:'Independent tests',head_sha:head,app_id:123,status:'completed',conclusion:'success',started_at:new Date().toISOString()}]});
+test('rescan failure after independent validation cannot taint a verified worker job',async()=>{
+ const {p,ledger,runner}=await setup();
+ const j=await ledger.create({key:'verified-before-rescan',kind:'repo_inspection',source:{admin:true},spec:{}});
+ await runner.dispatch(j,snapshot());runner.rescan=async()=>{throw Error('GITHUB_HTTP_403');};
+ await assert.rejects(runner.poll(j.id),/GITHUB_HTTP_403/);
+ const done=await ledger.get(j.id);assert.equal(done.status,'verified');assert.equal(done.failure_reason,null);
+ await p.close();
+});
 test('worker success without material GitHub change is rejected; exact-head trusted checks and material change pass',()=>{
  const job={issue_number:7,spec};const e=evidence();assert.equal(validateChange(job,{...e,files:[]},[123]).passed,false);assert.equal(validateChange(job,{...e,checks:[]},[123]).passed,false);assert.equal(validateChange(job,e,[]).passed,false);assert.equal(validateChange(job,e,[123]).passed,true);
  assert.equal(validateChange(job,{...e,files:[{filename:'AGENTS.md',status:'modified',additions:1,deletions:0}]},[123]).reason,'SCOPE_VIOLATION');
