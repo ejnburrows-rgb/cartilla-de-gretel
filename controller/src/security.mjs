@@ -16,6 +16,12 @@ export function safeText(value,env=process.env){
  return s.replace(/(?:gh[pousr]_[A-Za-z0-9_]+|github_pat_[A-Za-z0-9_]+|sk-[A-Za-z0-9_-]{16,}|postgres(?:ql)?:\/\/[^\s]+)/g,'[REDACTED]').slice(0,100000);
 }
 export async function rawBody(req,limit=2*1024*1024){
+ if(req instanceof Request){
+  if(!req.body)return Buffer.alloc(0);
+  const reader=req.body.getReader(),chunks=[];let size=0;
+  try{while(true){const {done,value}=await reader.read();if(done)break;size+=value.byteLength;if(size>limit){await reader.cancel();throw new Error('BODY_TOO_LARGE');}chunks.push(Buffer.from(value));}return Buffer.concat(chunks);}
+  finally{reader.releaseLock();}
+ }
  if(Buffer.isBuffer(req.body)){if(req.body.length>limit)throw new Error('BODY_TOO_LARGE');return req.body;}
  if(typeof req.body==='string'){const b=Buffer.from(req.body);if(b.length>limit)throw new Error('BODY_TOO_LARGE');return b;}
  if(req.body!==undefined)throw new Error('RAW_BODY_UNAVAILABLE');
