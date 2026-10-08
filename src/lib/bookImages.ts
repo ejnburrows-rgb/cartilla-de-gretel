@@ -48,15 +48,17 @@ export function getWorkbookPageFallbackChain(
   pageNumber: number,
   sourceScanPath?: string | null,
 ): string[] {
-  const safePage = Math.max(1, Math.min(pageNumber, WORKBOOK_PAGE_COUNT));
+  if (pageNumber < 1 || pageNumber > WORKBOOK_PAGE_COUNT) return [];
+  if (MISSING_CANONICAL_SOURCE_PAGES.has(pageNumber)) return [];
+
   const chain: string[] = [];
 
-  const repositorySource = getBookPageImage(safePage);
+  const repositorySource = getBookPageImage(pageNumber);
   if (repositorySource) chain.push(repositorySource);
 
   let resolvedSource = sourceScanPath;
-  if (!resolvedSource && !MISSING_CANONICAL_SOURCE_PAGES.has(safePage)) {
-    const found = getFullWorkbookPages().find((page) => page.page === safePage);
+  if (!resolvedSource) {
+    const found = getFullWorkbookPages().find((page) => page.page === pageNumber);
     resolvedSource = found?.imageScanReference ?? null;
   }
 
