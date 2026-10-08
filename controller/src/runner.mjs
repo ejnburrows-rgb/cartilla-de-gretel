@@ -132,6 +132,7 @@ export class Runner {
    const providerCode=/^(?:GITHUB_(?:LABEL_)?HTTP_\d{3}|GITHUB_RATE_LIMITED|JULES_LABEL_ALREADY_PRESENT)$/.test(String(error?.message??''))?String(error.message):null;
    if(providerCode==='GITHUB_LABEL_HTTP_403'){
     await this.ledger.db.query("UPDATE job_attempts SET state='failed',updated_at=now() WHERE id=$1",[attempt.id]);
+    await this.ledger.db.query("UPDATE jobs SET max_attempts=max_attempts+1 WHERE id=$1",[job.id]);
     await this.ledger.set(job.id,'queued','JULES_DISPATCH_GITHUB_LABEL_HTTP_403',{external_id:null,next_action:'Jules GitHub write unavailable; fail over to OpenHands',owner_action:'Nothing'});
     return this.dispatch(await this.ledger.get(job.id),s,{allowJules:false});
    }

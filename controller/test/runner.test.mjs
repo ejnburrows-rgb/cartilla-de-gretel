@@ -246,3 +246,22 @@ test('material PR waits for Sonar publication instead of failing when exact-head
  assert.equal(current.failure_reason,'SONAR_QUALITY_GATE_REQUIRED');
  await p.close();
 });
+
+test('Jules label 403 does not consume the bounded OpenHands implementation retry budget',async()=>{
+ let starts=0;
+ const worker={
+  start:async()=>{starts++;return {start_task_id:'budget-fallback-start',external_id:'budget-fallback-session',status:'READY'};},
+  reusable:async()=>null,
+  poll:async()=>({external_id:'budget-fallback-session',status:'running',terminal:false})
+ };
+ const {p,ledger,runner,github,db}=await setup(worker,{JULES_ENABLED:'true'});
+ github.startJules=async()=>{throw Error('GITHUB_LABEL_HTTP_403');};
+ const j=await ledger.create({key:'jules-403-budget',kind:'issue_implementation',issue:7,source:{issue:7},spec});
+ await db.query('UPDATE jobs SET max_attempts=1 WHERE id=$1',[j.id]);
+ assert.equal(await runner.dispatch(await ledger.get(j.id),snapshot()),true);
+ assert.equal(starts,1);
+ const attempts=(await db.query('SELECT attempt_number,worker,state FROM job_attempts WHERE job_id=$1 ORDER BY attempt_number',[j.id])).rows;
+ assert.deepEqual(attempts,[{attempt_number:1,worker:'jules',state:'failed'},{attempt_number:2,worker:'openhands',state:'running'}]);
+ assert.equal((await ledger.get(j.id)).max_attempts,2);
+ await p.close();
+});
