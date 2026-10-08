@@ -20,7 +20,6 @@ import { gretelEvent } from "@/lib/gretel-bus";
 
 import { NativeLessonViewer } from "@/components/StudentBook/NativeLessonViewer";
 import { buildPageArray } from "@/utils/buildPageArray";
-import { GretelPresence } from "@/components/gretel/GretelPresence";
 import { GretelCinematic } from "@/components/gretel/GretelCinematic";
 import { getCompletionCinematic, getLessonCinematic, type GretelCinematic as GretelCinematicSpec } from "@/content/gretel-cinematics";
 import { GardenScene } from "@/components/cartilla/GardenScene";
@@ -168,18 +167,6 @@ export function Leccion() {
     advanceAfterCompletion();
   };
 
-  const bookCompanion = (
-    <GretelPresence
-      key={`gretel-${n}`}
-      lesson={{
-        n: entry.n, kind: entry.kind, title: entry.title, subtitle: entry.subtitle,
-        letter: entry.kind === "consonant" ? entry.letter : undefined,
-        vowel: entry.kind === "vowel" ? entry.vowel : undefined,
-      }}
-      autoIntro bookMode hideChrome
-    />
-  );
-
   return (
     <div className="lc-lesson-shell min-h-screen flex flex-col">
       <DemoStudentBanner />
@@ -194,7 +181,6 @@ export function Leccion() {
       {saveFailed && <p role="alert" className="mx-3 rounded-xl bg-amber-100 p-3 text-amber-950">No se pudo guardar tu trabajo. Mantén esta página abierta y libera espacio en este navegador antes de salir.</p>}
       <main className="flex-1 px-3 pb-6 max-w-7xl w-full mx-auto flex flex-col items-center">
         <div className="w-full max-w-3xl text-left mb-4">
-          <p className="mb-2 text-sm text-stone-600">Las grabaciones de voz están pendientes. Puedes completar las actividades con tu maestro.</p>
           <div className="text-xs font-bold uppercase tracking-wide text-foreground/50">
             {t.leccion[lang]} {n} · {t.paginas[lang].toLowerCase()} {entry.pages}
           </div>
@@ -224,7 +210,6 @@ export function Leccion() {
                 onPageChange={handlePageChange}
                 onFinish={goNext}
                 lessonNumber={n}
-                bookCompanion={bookCompanion}
               />
             )}
           </GardenScene>
