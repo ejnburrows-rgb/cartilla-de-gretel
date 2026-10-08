@@ -17,7 +17,7 @@ export class Runner {
  async scan(s){
   const jobs=await this.ledger.jobs();const {selected,blocked}=candidates(s,jobs,this.github.repo);
   for(const b of blocked){
-   const i=s.issues.find(i=>i.number===b.issue);const j=await this.ledger.create({key:`issue-gate:${i.number}:${digest(i.body??'')}`,kind:'issue_implementation',issue:i.number,source:{issue:i.number,url:i.html_url},spec:{}});
+   const i=s.issues.find(i=>i.number===b.issue);const p=parseSpec(i,this.github.repo);const j=await this.ledger.create({key:p.runnable?`issue:${i.number}:${p.hash}`:`issue-gate:${i.number}:${digest(i.body??'')}`,kind:'issue_implementation',issue:i.number,source:{issue:i.number,url:i.html_url,...(p.runnable?{scope_hash:p.hash}:{})},spec:p.runnable?p.spec:{}});
    if(j.status!=='verified')await this.ledger.set(j.id,'blocked',b.reason,{next_action:'Resolve canonical issue scope/dependency gate; rescan automatically',owner_action:b.reason.includes('SCOPE')?'Provide bounded scope on existing issue':'Nothing'});
   }
   const runnable=[];

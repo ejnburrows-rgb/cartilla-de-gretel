@@ -139,3 +139,7 @@ test('read-only live reuse probe returns no sandbox credentials and no new dispa
 });
 
 test('bounded subtask references canonical issue without closing its larger release gate',()=>{const e=evidence();e.pr.body='References #7. Bounded fix only; full canonical issue remains open.';assert.equal(validateChange({issue_number:7,spec},e,[123]).passed,true);e.pr.body='References #8';assert.equal(validateChange({issue_number:7,spec},e,[123]).reason,'CANONICAL_ISSUE_NOT_LINKED');});
+test('dependency-gated scoped task and admin request share one durable canonical job',async()=>{
+ const {p,ledger,runner}=await setup();const s=snapshot();const dependent=issue(7);const scoped={...spec,dependencies:[8]};dependent.body='```cartilla-controller\n'+JSON.stringify(scoped)+'\n```';s.issues=[dependent,{...issue(8),labels:[]}];await runner.scan(s);await runner.scan(s);
+ const jobs=(await ledger.jobs()).filter(j=>j.issue_number===7);assert.equal(jobs.length,1);assert.equal(jobs[0].status,'blocked');assert.equal(jobs[0].spec.action,spec.action);assert.equal(jobs[0].source.scope_hash!==undefined,true);assert.match(jobs[0].idempotency_key,/^issue:7:/);await p.close();
+});
