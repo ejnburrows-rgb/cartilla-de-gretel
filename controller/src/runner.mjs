@@ -306,7 +306,12 @@ export class Runner {
    if(j.attempt_worker==='controller'){await this.ledger.db.query("UPDATE job_attempts SET state='failed' WHERE id=$1",[j.attempt_id]);await this.ledger.fail(j.id,'CONTROLLER_LEASE_EXPIRED');await this.scheduleRetry(j.id);}
    else if(j.attempt_state==='reserved'&&!j.start_task_id){await this.ledger.db.query("UPDATE job_attempts SET state='ambiguous' WHERE id=$1",[j.attempt_id]);await this.ledger.set(j.id,'blocked','DISPATCH_CRASH_OUTCOME_UNKNOWN',{next_action:'Resolve external run before any replacement',owner_action:'Inspect OpenHands dispatch'});}
   }
-  const due=(await this.ledger.db.query("SELECT * FROM jobs WHERE status='received' OR (status='queued' AND kind='reconcile' AND updated_at<now()-interval '10 minutes') OR (status='retrying' AND retry_at<=now()) LIMIT 100")).rows;
+  // A GitHub quota denial is a shared provider cooldown, not runnable work.
+  // Scheduled reconciliation will resume on its next normal wakeup.
+  const budget=(await this.ledger.db.query("SELECT retry_at FROM jobs WHERE source->>'lane'='github_read_budget' AND retry_at>now() ORDER BY retry_at DESC LIMIT 1")).rows[0];
+  if(budget)return {recovered,queued:0,poll_scheduled:0,github_rate_limited:true,retry_at:new Date(budget.retry_at).toISOString()};
+  await this.ledger.db.query("UPDATE jobs SET status='waiting',retry_at=NULL,failure_reason=NULL,next_action='GitHub cooldown expired; ordinary reconciliation resumed',owner_action='Nothing',updated_at=now() WHERE source->>'lane'='github_read_budget' AND status='retrying' AND retry_at<=now()");
+  const due=(await this.ledger.db.query("SELECT * FROM jobs WHERE (status='received' OR (status='queued' AND kind='reconcile' AND updated_at<now()-interval '10 minutes') OR (status='retrying' AND retry_at<=now())) AND coalesce(source->>'lane','')<>'github_read_budget' LIMIT 100")).rows;
   for(const j of due){if(j.kind==='reconcile')await this.ledger.queue(j,this.send);}
   const polls=(await this.ledger.db.query("SELECT DISTINCT j.id FROM jobs j JOIN job_attempts a ON a.job_id=j.id AND a.attempt_number=j.attempt_count WHERE a.worker IN('openhands','jules') AND a.state IN('reserved','running','cancel_requested','finished') AND j.status IN('running','waiting','blocked','cancelled')")).rows;
   for(const j of polls)await this.send({id:`poll:${j.id}:${Math.floor(Date.now()/600000)}`,name:'cartilla/worker.poll',data:{jobId:j.id}});
