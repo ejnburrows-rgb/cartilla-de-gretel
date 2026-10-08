@@ -1,10 +1,29 @@
 import {digest,safeText} from './security.mjs';
 export const instructionPaths=['AGENTS.md','PROJECT_FINISH_DEFINITION.md','PROJECT_SOURCE_OF_TRUTH.md','tasks/plan.md'];
 export class GitHub {
- constructor({repo,token,fetcher=fetch}){if(!/^[\w.-]+\/[\w.-]+$/.test(repo??''))throw new Error('GITHUB_REPO_REQUIRED');this.repo=repo;this.token=token;this.fetcher=fetcher;}
+ constructor({repo,token,fetcher=fetch,sleeper=ms=>new Promise(resolve=>setTimeout(resolve,ms))}){if(!/^[\w.-]+\/[\w.-]+$/.test(repo??''))throw new Error('GITHUB_REPO_REQUIRED');this.repo=repo;this.token=token;this.fetcher=fetcher;this.sleeper=sleeper;}
+ headers(){return {Accept:'application/vnd.github+json','X-GitHub-Api-Version':'2022-11-28','User-Agent':'cartilla-controller',...(this.token?{Authorization:`Bearer ${this.token}`}:{})};}
  async request(path){
-  const r=await this.fetcher(`https://api.github.com/repos/${this.repo}${path}`,{headers:{Accept:'application/vnd.github+json','X-GitHub-Api-Version':'2022-11-28','User-Agent':'cartilla-controller',...(this.token?{Authorization:`Bearer ${this.token}`}:{})},signal:AbortSignal.timeout(15000)});
-  if(!r.ok)throw new Error(`GITHUB_HTTP_${r.status}`);return r.json();
+  let last;
+  for(let attempt=0;attempt<3;attempt++){
+   try{
+    const r=await this.fetcher(`https://api.github.com/repos/${this.repo}${path}`,{headers:this.headers(),signal:AbortSignal.timeout(15000)});
+    if(r.ok)return r.json();
+    last=new Error(`GITHUB_HTTP_${r.status}`);
+    if(![408,425,429,500,502,503,504].includes(r.status)||attempt===2)throw last;
+   }catch(error){
+    last=error;
+    const status=String(error?.message??'').match(/^GITHUB_HTTP_(\d+)$/)?.[1];
+    if(attempt===2||(status&&!['408','425','429','500','502','503','504'].includes(status)))throw error;
+   }
+   await this.sleeper(250*(attempt+1));
+  }
+  throw last;
+ }
+ async merge(number,expectedHead){
+  const r=await this.fetcher(`https://api.github.com/repos/${this.repo}/pulls/${number}/merge`,{method:'PUT',headers:{...this.headers(),'Content-Type':'application/json'},body:JSON.stringify({sha:expectedHead,merge_method:'squash'}),signal:AbortSignal.timeout(20000)});
+  if(!r.ok)throw new Error(`GITHUB_MERGE_HTTP_${r.status}`);
+  const body=await r.json();if(body.merged!==true)throw new Error('GITHUB_MERGE_REJECTED');return {merged:true,sha:body.sha??null};
  }
  async pages(path,field){
   const all=[];for(let page=1;page<=10;page++){

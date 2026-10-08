@@ -1,6 +1,7 @@
 import {inngest,runtime} from './runtime.mjs';
 export const processGithubEvent=inngest.createFunction({id:'process-github-event',triggers:[{event:'cartilla/github.received'}],retries:3,concurrency:{limit:1,key:'event.data.jobId'}},async({event,step})=>step.run('reconcile-stored-event',()=>runtime().runner.process(event.data.jobId)));
-export const controllerReconcile=inngest.createFunction({id:'controller-reconcile',triggers:[{cron:'*/10 * * * *'}],retries:3,concurrency:1},async({step})=>step.run('recover-rescan-refill',()=>runtime().runner.reconcile()));
+export const CONTROLLER_RECONCILE_CRON='* * * * *';
+export const controllerReconcile=inngest.createFunction({id:'controller-reconcile',triggers:[{cron:CONTROLLER_RECONCILE_CRON}],retries:3,concurrency:1},async({step})=>step.run('recover-rescan-refill',()=>runtime().runner.reconcile()));
 export const dailyRepositoryReconciliation=inngest.createFunction({id:'daily-repository-reconciliation',triggers:[{cron:'0 9 * * *'}],retries:3,concurrency:1},async({step})=>step.run('daily-current-repository-state',()=>runtime().runner.reconcile()));
 export const pollExternalWorker=inngest.createFunction({id:'poll-external-worker',triggers:[{event:'cartilla/worker.poll'}],retries:3,concurrency:{limit:1,key:'event.data.jobId'}},async({event,step})=>{
  for(let i=0;i<240;i++){

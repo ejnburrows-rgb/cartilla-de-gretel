@@ -13,7 +13,7 @@ const snapshot=()=>({main:{sha,url:'https://github.com/owner/repo/commit/'+sha},
 const gh=()=>({repo:'owner/repo',snapshot:async()=>snapshot(),main:async()=>snapshot().main,pages:async()=>[],request:async p=>issue(Number(p.split('/').at(-1)))});
 const env={OPENHANDS_ENABLED:'true',OPENHANDS_API_KEY:'mock-only',OPENHANDS_DAILY_START_LIMIT:'10',OPENHANDS_CAPACITY:'2',TRUSTED_CHECK_APP_IDS:'123'};
 async function setup(worker={start:async()=>({start_task_id:randomUUID(),external_id:randomUUID(),status:'READY'}),poll:async a=>({external_id:a.external_id,status:'finished',terminal:true})},extra={}){
- const f=await fixture();const sent=[];const github=gh();const runner=new Runner({ledger:f.ledger,github,worker,send:async e=>sent.push(e),env:{...env,...extra},verification:{request:async()=>({status:'verified'}),inspect:async()=>({passed:true,head,main:sha,deployment_required:false})}});return {...f,runner,github,sent};
+ const f=await fixture();const sent=[];const github=gh();const runner=new Runner({ledger:f.ledger,github,worker,send:async e=>sent.push(e),env:{...env,...extra}});return {...f,runner,github,sent};
 }
 test('OpenHands Cloud start task followed by polling the same conversation; status checks never POST',async()=>{
  const calls=[];let poll=0;const client=new OpenHands({key:'mock',fetcher:async(url,init)=>{calls.push({url,method:init.method});return {ok:true,json:async()=>init.method==='POST'?{id:'start1',status:'WORKING'}:url.includes('start-tasks')?[{status:'READY',app_conversation_id:'conversation1'}]:url.includes('/events/count')?0:url.includes('/events/search')?{items:[]}:[{id:'conversation1',execution_status:++poll===3?'finished':'running',sandbox_status:'RUNNING'}]};}});
@@ -78,7 +78,7 @@ test('independent GitHub validation of a material PR verifies job and refills ne
  await runner.poll(inspect.id);let jobs=await ledger.jobs();const first=jobs.find(j=>j.issue_number===7);assert.equal(first.status,'running');const second=jobs.find(j=>j.issue_number===8);assert.equal(second.status,'queued');
  await runner.poll(first.id);assert.equal((await ledger.get(first.id)).status,'verified');assert.equal((await ledger.get(second.id)).status,'running');assert.equal((await db.query('SELECT * FROM job_attempts')).rows.length,3);await p.close();
 });
-test('10-minute reconciliation discovers stranded received, queued, expired local and overdue retry jobs',async()=>{
+test('periodic reconciliation discovers stranded received, queued, expired local and overdue retry jobs',async()=>{
  const {p,ledger,runner,db,sent}=await setup(undefined,{OPENHANDS_ENABLED:'false'});
  const received=await ledger.create({key:'stranded',kind:'reconcile',source:{event:true}});const queued=await ledger.create({key:'queued',kind:'reconcile',source:{event:true}});await db.query("UPDATE jobs SET status='queued',updated_at=now()-interval '11 minutes' WHERE id=$1",[queued.id]);
  const running=await ledger.create({key:'crashed',kind:'reconcile',source:{event:true}});const a=await ledger.claimLocal(running.id);await db.query("UPDATE jobs SET deadline=now()-interval '1 minute',lease_until=now()-interval '1 minute' WHERE id=$1",[running.id]);
@@ -146,9 +146,32 @@ test('dependency-gated scoped task and admin request share one durable canonical
 
 test('Cloud continuation and sandbox resume use documented X-Access-Token header',async()=>{const seen=[];const client=new OpenHands({key:'mock-cloud-key',fetcher:async(url,init)=>{seen.push({url,headers:init.headers});assert.equal(init.headers['X-Access-Token'],'mock-cloud-key');return {ok:true,json:async()=>url.endsWith('/resume')?{success:true}:url.endsWith('/send-message')?{success:true,sandbox_status:'RUNNING'}:[{sandbox_status:'RUNNING',execution_status:'finished'}]};}});await client.continueSession({external_id:'existing',sandbox_id:'paused',sandbox_status:'PAUSED'},'bounded');assert.equal(seen.length,3);});
 
-test('material implementation stays waiting when release verification has not passed',async()=>{
- const {p,ledger,runner,github}=await setup();github.changes=async()=>evidence();
- runner.verification={request:async()=>({id:'release-job',status:'queued'}),inspect:async()=>{throw Error('must not certify unverified release');}};
- const j=await ledger.create({key:'release-required',kind:'issue_implementation',issue:7,source:{issue:7},spec});await runner.dispatch(j,snapshot());runner.rescan=async()=>({});
- await runner.poll(j.id);assert.equal((await ledger.get(j.id)).status,'waiting');assert.equal((await ledger.get(j.id)).failure_reason,'INDEPENDENT_RELEASE_VERIFICATION_REQUIRED');await p.close();
+test('verified controller-owned PR auto-merges only after independent exact-head validation',async()=>{
+ const merges=[];
+ const {p,ledger,runner,github}=await setup(undefined,{CONTROLLER_AUTO_MERGE:'true'});
+ github.changes=async()=>evidence();
+ github.merge=async(pr,expectedHead)=>{merges.push({pr,expectedHead});return {merged:true};};
+ runner.rescan=async()=>({});
+ const j=await ledger.create({key:'auto-merge',kind:'issue_implementation',issue:7,source:{issue:7},spec});
+ await runner.dispatch(j,snapshot());
+ await runner.poll(j.id);
+ assert.equal((await ledger.get(j.id)).status,'verified');
+ assert.deepEqual(merges,[{pr:1,expectedHead:head}]);
+ await p.close();
+});
+
+test('reconciliation retries a transient merge failure for an already verified controller PR',async()=>{
+ let attempts=0;
+ const {p,ledger,runner,github}=await setup(undefined,{CONTROLLER_AUTO_MERGE:'true'});
+ github.changes=async()=>evidence();
+ github.merge=async()=>{attempts++;if(attempts===1)throw new Error('temporary merge transport failure');return {merged:true};};
+ runner.rescan=async()=>({});
+ const j=await ledger.create({key:'auto-merge-retry',kind:'issue_implementation',issue:7,source:{issue:7},spec});
+ await runner.dispatch(j,snapshot());
+ await runner.poll(j.id);
+ assert.equal((await ledger.get(j.id)).status,'verified');
+ assert.equal(attempts,1);
+ await runner.reconcile();
+ assert.equal(attempts,2);
+ await p.close();
 });
