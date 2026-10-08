@@ -45,3 +45,20 @@ test('saved GitHub credential alias remains server-side, redacted and preserves 
  const canonical={GITHUB_TOKEN:'canonical-token',Ejn:'alias'};configureGitHubKey(canonical);
  assert.equal(canonical.GITHUB_TOKEN,'canonical-token');assert.equal(configureGitHubKey({}),false);
 });
+
+
+test('read-only history explains repository, owner attention, transitions, evidence and validations',async()=>{
+ const {fixture}=await import('./helpers.mjs');const f=await fixture();
+ const j=await f.ledger.create({key:'history-view',kind:'issue_implementation',issue:77,source:{issue:77,url:'https://github.com/owner/repo/issues/77'},spec:{action:'Fix the existing lesson defect'}});
+ await f.ledger.set(j.id,'blocked','INDEPENDENT_RELEASE_VERIFICATION_REQUIRED',{next_action:'Run exact-head independent verification',owner_action:'Review failure'});
+ await f.ledger.receipt(j.id,'github_validation',{passed:false,head:'a'.repeat(40)});
+ await f.ledger.validate(j.id,'controller_independent_review',false,{summary:'Current exact-head review has not passed.'});
+ const env={CONTROLLER_READ_TOKEN:'r'.repeat(40),CONTROLLER_ADMIN_TOKEN:'a'.repeat(40),GITHUB_REPO:'owner/repo'};
+ const deps={ledger:f.ledger};
+ const list=await api({url:'/api/jobs',method:'GET',headers:{authorization:'Bearer '+env.CONTROLLER_READ_TOKEN}},deps,env);
+ assert.equal(list.status,200);assert.equal(list.body.jobs[0].repository,'owner/repo');assert.equal(list.body.jobs[0].needs_owner_attention,true);
+ const history=await api({url:'/api/jobs/'+j.id+'/history',method:'GET',headers:{authorization:'Bearer '+env.CONTROLLER_READ_TOKEN}},deps,env);
+ assert.equal(history.status,200);assert.equal(history.body.job.repository,'owner/repo');assert.equal(history.body.job.needs_owner_attention,true);
+ assert.ok(history.body.transitions.length>=2);assert.equal(history.body.evidence[0].kind,'github_validation');assert.equal(history.body.validations[0].name,'controller_independent_review');
+ await f.p.close();
+});
