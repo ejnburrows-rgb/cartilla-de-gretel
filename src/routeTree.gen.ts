@@ -64,7 +64,7 @@ const LoginRoute = LoginRouteImport.update({
   id: '/login',
   path: '/login',
   getParentRoute: () => rootRouteImport,
-} as any).lazy(() => import('./routes/login.lazy').then((d) => d.Route))
+} as any)
 const IntroRoute = IntroRouteImport.update({
   id: '/intro',
   path: '/intro',
@@ -79,9 +79,7 @@ const DevLivingWorkbookRoute = DevLivingWorkbookRouteImport.update({
   id: '/dev-living-workbook',
   path: '/dev-living-workbook',
   getParentRoute: () => rootRouteImport,
-} as any).lazy(() =>
-  import('./routes/dev-living-workbook.lazy').then((d) => d.Route),
-)
+} as any)
 const DevGretelRoute = DevGretelRouteImport.update({
   id: '/dev-gretel',
   path: '/dev-gretel',
@@ -171,60 +169,44 @@ const CartillaTeacherRouteRoute = CartillaTeacherRouteRouteImport.update({
   id: '/cartilla/teacher',
   path: '/cartilla/teacher',
   getParentRoute: () => rootRouteImport,
-} as any).lazy(() =>
-  import('./routes/cartilla/teacher/route.lazy').then((d) => d.Route),
-)
+} as any)
 const CartillaTeacherIndexRoute = CartillaTeacherIndexRouteImport.update({
   id: '/',
   path: '/',
   getParentRoute: () => CartillaTeacherRouteRoute,
-} as any).lazy(() =>
-  import('./routes/cartilla/teacher/index.lazy').then((d) => d.Route),
-)
+} as any)
 const CartillaTeacherRosterRoute = CartillaTeacherRosterRouteImport.update({
   id: '/roster',
   path: '/roster',
   getParentRoute: () => CartillaTeacherRouteRoute,
-} as any).lazy(() =>
-  import('./routes/cartilla/teacher/roster.lazy').then((d) => d.Route),
-)
+} as any)
 const CartillaTeacherReportesRoute = CartillaTeacherReportesRouteImport.update({
   id: '/reportes',
   path: '/reportes',
   getParentRoute: () => CartillaTeacherRouteRoute,
-} as any).lazy(() =>
-  import('./routes/cartilla/teacher/reportes.lazy').then((d) => d.Route),
-)
+} as any)
 const CartillaTeacherProgresoRoute = CartillaTeacherProgresoRouteImport.update({
   id: '/progreso',
   path: '/progreso',
   getParentRoute: () => CartillaTeacherRouteRoute,
-} as any).lazy(() =>
-  import('./routes/cartilla/teacher/progreso.lazy').then((d) => d.Route),
-)
+} as any)
 const CartillaTeacherLeccionesRoute =
   CartillaTeacherLeccionesRouteImport.update({
     id: '/lecciones',
     path: '/lecciones',
     getParentRoute: () => CartillaTeacherRouteRoute,
-  } as any).lazy(() =>
-    import('./routes/cartilla/teacher/lecciones.lazy').then((d) => d.Route),
-  )
+  } as any)
 const CartillaTeacherGuideRoute = CartillaTeacherGuideRouteImport.update({
   id: '/guide',
   path: '/guide',
   getParentRoute: () => CartillaTeacherRouteRoute,
-} as any).lazy(() =>
-  import('./routes/cartilla/teacher/guide.lazy').then((d) => d.Route),
-)
+} as any)
 const CartillaTeacherFlipchartRoute =
   CartillaTeacherFlipchartRouteImport.update({
     id: '/flipchart',
     path: '/flipchart',
     getParentRoute: () => CartillaTeacherRouteRoute,
-  } as any).lazy(() =>
-    import('./routes/cartilla/teacher/flipchart.lazy').then((d) => d.Route),
-  )
+  } as any)
 const CartillaTeacherCrmRoute = CartillaTeacherCrmRouteImport.update({
   id: '/crm',
   path: '/crm',
@@ -234,16 +216,12 @@ const CartillaTeacherAyudaRoute = CartillaTeacherAyudaRouteImport.update({
   id: '/ayuda',
   path: '/ayuda',
   getParentRoute: () => CartillaTeacherRouteRoute,
-} as any).lazy(() =>
-  import('./routes/cartilla/teacher/ayuda.lazy').then((d) => d.Route),
-)
+} as any)
 const CartillaTeacherAdminRoute = CartillaTeacherAdminRouteImport.update({
   id: '/admin',
   path: '/admin',
   getParentRoute: () => CartillaTeacherRouteRoute,
-} as any).lazy(() =>
-  import('./routes/cartilla/teacher/admin.lazy').then((d) => d.Route),
-)
+} as any)
 const CartillaPresentarNRoute = CartillaPresentarNRouteImport.update({
   id: '/cartilla/presentar/$n',
   path: '/cartilla/presentar/$n',
@@ -281,48 +259,34 @@ const CartillaTeacherGuiaIndexRoute =
     id: '/guia/',
     path: '/guia/',
     getParentRoute: () => CartillaTeacherRouteRoute,
-  } as any).lazy(() =>
-    import('./routes/cartilla/teacher/guia.index.lazy').then((d) => d.Route),
-  )
+  } as any)
 const CartillaTeacherCrmIndexRoute = CartillaTeacherCrmIndexRouteImport.update({
   id: '/',
   path: '/',
   getParentRoute: () => CartillaTeacherCrmRoute,
-} as any).lazy(() =>
-  import('./routes/cartilla/teacher/crm.index.lazy').then((d) => d.Route),
-)
+} as any)
 const CartillaTeacherRecursosRecursoIdRoute =
   CartillaTeacherRecursosRecursoIdRouteImport.update({
     id: '/recursos/$recursoId',
     path: '/recursos/$recursoId',
     getParentRoute: () => CartillaTeacherRouteRoute,
-  } as any).lazy(() =>
-    import('./routes/cartilla/teacher/recursos/$recursoId.lazy').then(
-      (d) => d.Route,
-    ),
-  )
+  } as any)
 const CartillaTeacherPaginasNRoute = CartillaTeacherPaginasNRouteImport.update({
   id: '/paginas/$n',
   path: '/paginas/$n',
   getParentRoute: () => CartillaTeacherRouteRoute,
-} as any).lazy(() =>
-  import('./routes/cartilla/teacher/paginas.$n.lazy').then((d) => d.Route),
-)
+} as any)
 const CartillaTeacherGuiaNRoute = CartillaTeacherGuiaNRouteImport.update({
   id: '/guia/$n',
   path: '/guia/$n',
   getParentRoute: () => CartillaTeacherRouteRoute,
-} as any).lazy(() =>
-  import('./routes/cartilla/teacher/guia.$n.lazy').then((d) => d.Route),
-)
+} as any)
 const CartillaTeacherCrmArtworkRoute =
   CartillaTeacherCrmArtworkRouteImport.update({
     id: '/artwork',
     path: '/artwork',
     getParentRoute: () => CartillaTeacherCrmRoute,
-  } as any).lazy(() =>
-    import('./routes/cartilla/teacher/crm.artwork.lazy').then((d) => d.Route),
-  )
+  } as any)
 const CartillaTeacherCrmClassIdRoute =
   CartillaTeacherCrmClassIdRouteImport.update({
     id: '/$classId',
@@ -334,11 +298,7 @@ const CartillaTeacherCrmClassIdIndexRoute =
     id: '/',
     path: '/',
     getParentRoute: () => CartillaTeacherCrmClassIdRoute,
-  } as any).lazy(() =>
-    import('./routes/cartilla/teacher/crm.$classId.index.lazy').then(
-      (d) => d.Route,
-    ),
-  )
+  } as any)
 const CartillaTeacherCrmClassIdStudentIdRoute =
   CartillaTeacherCrmClassIdStudentIdRouteImport.update({
     id: '/$studentId',
@@ -350,31 +310,19 @@ const CartillaTeacherCrmClassIdStudentIdIndexRoute =
     id: '/',
     path: '/',
     getParentRoute: () => CartillaTeacherCrmClassIdStudentIdRoute,
-  } as any).lazy(() =>
-    import('./routes/cartilla/teacher/crm.$classId.$studentId.index.lazy').then(
-      (d) => d.Route,
-    ),
-  )
+  } as any)
 const CartillaTeacherCrmClassIdStudentIdReporteRoute =
   CartillaTeacherCrmClassIdStudentIdReporteRouteImport.update({
     id: '/reporte',
     path: '/reporte',
     getParentRoute: () => CartillaTeacherCrmClassIdStudentIdRoute,
-  } as any).lazy(() =>
-    import('./routes/cartilla/teacher/crm.$classId.$studentId.reporte.lazy').then(
-      (d) => d.Route,
-    ),
-  )
+  } as any)
 const CartillaTeacherCrmClassIdStudentIdLessonIdRoute =
   CartillaTeacherCrmClassIdStudentIdLessonIdRouteImport.update({
     id: '/$lessonId',
     path: '/$lessonId',
     getParentRoute: () => CartillaTeacherCrmClassIdStudentIdRoute,
-  } as any).lazy(() =>
-    import('./routes/cartilla/teacher/crm.$classId.$studentId.$lessonId.lazy').then(
-      (d) => d.Route,
-    ),
-  )
+  } as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute

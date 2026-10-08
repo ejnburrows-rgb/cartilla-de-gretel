@@ -1,11 +1,11 @@
 {
-  "timestamp": "2026-10-08T11:39:37.113Z",
+  "timestamp": "2026-10-07T23:34:33.950Z",
   "counts": {
-    "faithfulWired": 110,
+    "faithfulWired": 108,
     "flipchartNativeWired": 167,
     "breakdownFaithful": {
-      "PASS": 94,
-      "PENDING NO VERIFIED SOURCE": 14,
+      "PASS": 97,
+      "PENDING NO VERIFIED SOURCE": 9,
       "VERIFIED COLOR TRANSFER": 1,
       "CROP FIX": 1
     },
@@ -337,7 +337,7 @@
     {
       "src": "/cartilla/art/faithful/leccion-19-c/casa.webp",
       "word": "casa",
-      "classification": "PENDING NO VERIFIED SOURCE",
+      "classification": "PASS",
       "provenance": "",
       "qaVerdict": "PASS",
       "dimensions": "870x855",
@@ -567,7 +567,7 @@
     {
       "src": "/cartilla/art/faithful/leccion-22-y/yate.webp",
       "word": "yate",
-      "classification": "PENDING NO VERIFIED SOURCE",
+      "classification": "PASS",
       "provenance": "",
       "qaVerdict": "PASS",
       "dimensions": "870x609",
@@ -607,7 +607,7 @@
     {
       "src": "/cartilla/art/faithful/leccion-23-z/zapato.webp",
       "word": "zapato",
-      "classification": "PENDING NO VERIFIED SOURCE",
+      "classification": "PASS",
       "provenance": "",
       "qaVerdict": "PASS",
       "dimensions": "870x790",
@@ -665,16 +665,6 @@
       "isQuarantined": false
     },
     {
-      "src": "/cartilla/art/faithful/leccion-7-m/mono-blink.webp",
-      "word": "mono-blink",
-      "classification": "PENDING NO VERIFIED SOURCE",
-      "provenance": "",
-      "qaVerdict": "FAIL",
-      "dimensions": "0x0",
-      "bytes": 0,
-      "isQuarantined": false
-    },
-    {
       "src": "/cartilla/art/faithful/leccion-7-m/mono.webp",
       "word": "mono",
       "classification": "PASS",
@@ -692,16 +682,6 @@
       "qaVerdict": "PASS",
       "dimensions": "480x660",
       "bytes": 39046,
-      "isQuarantined": false
-    },
-    {
-      "src": "/cartilla/art/faithful/leccion-9-s/sapo-blink.webp",
-      "word": "sapo-blink",
-      "classification": "PENDING NO VERIFIED SOURCE",
-      "provenance": "",
-      "qaVerdict": "FAIL",
-      "dimensions": "0x0",
-      "bytes": 0,
       "isQuarantined": false
     },
     {
@@ -1120,3174 +1100,1671 @@
       "src": "/cartilla/art/optimized/flipchart-native/p003-scene.png",
       "word": "Ilustración de la página 3",
       "page": "3",
-      "sourcePage": 3,
-      "crop": [
-        13,
-        56,
-        514,
-        337
-      ],
       "classification": "PENDING NO VERIFIED SOURCE",
       "dimensions": "539x539",
       "bytes": 177783,
       "exists": true,
-      "verified": false,
-      "sourcePageMatches": true,
-      "hasCropEvidence": true
+      "approvedInput": false
     },
     {
       "src": "/cartilla/art/optimized/flipchart-native/p003-avion.png",
       "word": "avión",
       "page": "3",
-      "sourcePage": 3,
-      "crop": [
-        66,
-        644,
-        225,
-        207
-      ],
       "classification": "PENDING NO VERIFIED SOURCE",
       "dimensions": "320x320",
       "bytes": 43248,
       "exists": true,
-      "verified": false,
-      "sourcePageMatches": true,
-      "hasCropEvidence": true
+      "approvedInput": false
     },
     {
       "src": "/cartilla/art/optimized/flipchart-native/p003-escoba.png",
       "word": "escoba",
       "page": "3",
-      "sourcePage": 3,
-      "crop": [
-        408,
-        644,
-        178,
-        212
-      ],
       "classification": "PENDING NO VERIFIED SOURCE",
       "dimensions": "320x320",
       "bytes": 55553,
       "exists": true,
-      "verified": false,
-      "sourcePageMatches": true,
-      "hasCropEvidence": true
+      "approvedInput": false
     },
     {
       "src": "/cartilla/art/optimized/flipchart-native/p003-iman.png",
       "word": "imán",
       "page": "3",
-      "sourcePage": 3,
-      "crop": [
-        706,
-        638,
-        222,
-        214
-      ],
       "classification": "PENDING NO VERIFIED SOURCE",
       "dimensions": "320x320",
       "bytes": 49205,
       "exists": true,
-      "verified": false,
-      "sourcePageMatches": true,
-      "hasCropEvidence": true
+      "approvedInput": false
     },
     {
       "src": "/cartilla/art/optimized/flipchart-native/p003-olla.png",
       "word": "olla",
       "page": "3",
-      "sourcePage": 3,
-      "crop": [
-        235,
-        1140,
-        204,
-        171
-      ],
       "classification": "PENDING NO VERIFIED SOURCE",
       "dimensions": "320x320",
       "bytes": 55420,
       "exists": true,
-      "verified": false,
-      "sourcePageMatches": true,
-      "hasCropEvidence": true
+      "approvedInput": false
     },
     {
       "src": "/cartilla/art/optimized/flipchart-native/p003-una.png",
       "word": "uña",
       "page": "3",
-      "sourcePage": 3,
-      "crop": [
-        568,
-        1130,
-        170,
-        182
-      ],
       "classification": "PENDING NO VERIFIED SOURCE",
       "dimensions": "320x320",
       "bytes": 49948,
       "exists": true,
-      "verified": false,
-      "sourcePageMatches": true,
-      "hasCropEvidence": true
+      "approvedInput": false
     },
     {
       "src": "/cartilla/art/optimized/flipchart-native/p004-scene.png",
       "word": "Ilustración de la página 4",
       "page": "4",
-      "sourcePage": 4,
-      "crop": [
-        18,
-        50,
-        469,
-        460
-      ],
       "classification": "PENDING NO VERIFIED SOURCE",
       "dimensions": "560x560",
       "bytes": 203733,
       "exists": true,
-      "verified": false,
-      "sourcePageMatches": true,
-      "hasCropEvidence": true
+      "approvedInput": false
     },
     {
       "src": "/cartilla/art/optimized/flipchart-native/p004-olla.png",
       "word": "olla",
       "page": "4",
-      "sourcePage": 4,
-      "crop": [
-        64,
-        647,
-        223,
-        182
-      ],
       "classification": "PENDING NO VERIFIED SOURCE",
       "dimensions": "320x320",
       "bytes": 46668,
       "exists": true,
-      "verified": false,
-      "sourcePageMatches": true,
-      "hasCropEvidence": true
+      "approvedInput": false
     },
     {
       "src": "/cartilla/art/optimized/flipchart-native/p004-oto.png",
       "word": "Oto",
       "page": "4",
-      "sourcePage": 4,
-      "crop": [
-        377,
-        640,
-        225,
-        184
-      ],
       "classification": "PENDING NO VERIFIED SOURCE",
       "dimensions": "320x320",
       "bytes": 48351,
       "exists": true,
-      "verified": false,
-      "sourcePageMatches": true,
-      "hasCropEvidence": true
+      "approvedInput": false
     },
     {
       "src": "/cartilla/art/optimized/flipchart-native/p004-oveja.png",
       "word": "oveja",
       "page": "4",
-      "sourcePage": 4,
-      "crop": [
-        706,
-        628,
-        227,
-        211
-      ],
       "classification": "PENDING NO VERIFIED SOURCE",
       "dimensions": "320x320",
       "bytes": 41334,
       "exists": true,
-      "verified": false,
-      "sourcePageMatches": true,
-      "hasCropEvidence": true
+      "approvedInput": false
     },
     {
       "src": "/cartilla/art/optimized/flipchart-native/p004-oso.png",
       "word": "oso",
       "page": "4",
-      "sourcePage": 4,
-      "crop": [
-        58,
-        979,
-        220,
-        257
-      ],
       "classification": "PENDING NO VERIFIED SOURCE",
       "dimensions": "320x320",
       "bytes": 79390,
       "exists": true,
-      "verified": false,
-      "sourcePageMatches": true,
-      "hasCropEvidence": true
+      "approvedInput": false
     },
     {
       "src": "/cartilla/art/optimized/flipchart-native/p004-oreja.png",
       "word": "oreja",
       "page": "4",
-      "sourcePage": 4,
-      "crop": [
-        418,
-        987,
-        158,
-        243
-      ],
       "classification": "PENDING NO VERIFIED SOURCE",
       "dimensions": "320x320",
       "bytes": 56308,
       "exists": true,
-      "verified": false,
-      "sourcePageMatches": true,
-      "hasCropEvidence": true
+      "approvedInput": false
     },
     {
       "src": "/cartilla/art/optimized/flipchart-native/p004-ocho.png",
       "word": "ocho",
       "page": "4",
-      "sourcePage": 4,
-      "crop": [
-        714,
-        973,
-        208,
-        260
-      ],
       "classification": "PENDING NO VERIFIED SOURCE",
       "dimensions": "320x320",
       "bytes": 62819,
       "exists": true,
-      "verified": false,
-      "sourcePageMatches": true,
-      "hasCropEvidence": true
+      "approvedInput": false
     },
     {
       "src": "/cartilla/art/optimized/flipchart-native/p005-scene.png",
       "word": "Ilustración de la página 5",
       "page": "5",
-      "sourcePage": 5,
-      "crop": [
-        66,
-        36,
-        396,
-        516
-      ],
       "classification": "PENDING NO VERIFIED SOURCE",
       "dimensions": "556x556",
       "bytes": 223023,
       "exists": true,
-      "verified": false,
-      "sourcePageMatches": true,
-      "hasCropEvidence": true
+      "approvedInput": false
     },
     {
       "src": "/cartilla/art/optimized/flipchart-native/p005-abanico.png",
       "word": "abanico",
       "page": "5",
-      "sourcePage": 5,
-      "crop": [
-        65,
-        642,
-        232,
-        236
-      ],
       "classification": "PENDING NO VERIFIED SOURCE",
       "dimensions": "320x320",
       "bytes": 66045,
       "exists": true,
-      "verified": false,
-      "sourcePageMatches": true,
-      "hasCropEvidence": true
+      "approvedInput": false
     },
     {
       "src": "/cartilla/art/optimized/flipchart-native/p005-anillo.png",
       "word": "anillo",
       "page": "5",
-      "sourcePage": 5,
-      "crop": [
-        394,
-        658,
-        216,
-        191
-      ],
       "classification": "PENDING NO VERIFIED SOURCE",
       "dimensions": "320x320",
       "bytes": 42308,
       "exists": true,
-      "verified": false,
-      "sourcePageMatches": true,
-      "hasCropEvidence": true
+      "approvedInput": false
     },
     {
       "src": "/cartilla/art/optimized/flipchart-native/p005-arana.png",
       "word": "araña",
       "page": "5",
-      "sourcePage": 5,
-      "crop": [
-        718,
-        675,
-        188,
-        192
-      ],
       "classification": "PENDING NO VERIFIED SOURCE",
       "dimensions": "320x320",
       "bytes": 35567,
       "exists": true,
-      "verified": false,
-      "sourcePageMatches": true,
-      "hasCropEvidence": true
+      "approvedInput": false
     },
     {
       "src": "/cartilla/art/optimized/flipchart-native/p005-ala.png",
       "word": "ala",
       "page": "5",
-      "sourcePage": 5,
-      "crop": [
-        39,
-        1029,
-        285,
-        217
-      ],
       "classification": "PENDING NO VERIFIED SOURCE",
       "dimensions": "320x320",
       "bytes": 37012,
       "exists": true,
-      "verified": false,
-      "sourcePageMatches": true,
-      "hasCropEvidence": true
+      "approvedInput": false
     },
     {
       "src": "/cartilla/art/optimized/flipchart-native/p005-aro.png",
       "word": "aro",
       "page": "5",
-      "sourcePage": 5,
-      "crop": [
-        390,
-        1010,
-        220,
-        265
-      ],
       "classification": "PENDING NO VERIFIED SOURCE",
       "dimensions": "320x320",
       "bytes": 66758,
       "exists": true,
-      "verified": false,
-      "sourcePageMatches": true,
-      "hasCropEvidence": true
+      "approvedInput": false
     },
     {
       "src": "/cartilla/art/optimized/flipchart-native/p005-ana.png",
       "word": "Ana",
       "page": "5",
-      "sourcePage": 5,
-      "crop": [
-        706,
-        1025,
-        243,
-        252
-      ],
       "classification": "PENDING NO VERIFIED SOURCE",
       "dimensions": "320x320",
       "bytes": 57436,
       "exists": true,
-      "verified": false,
-      "sourcePageMatches": true,
-      "hasCropEvidence": true
+      "approvedInput": false
     },
     {
       "src": "/cartilla/art/optimized/flipchart-native/p006-scene.png",
       "word": "Ilustración de la página 6",
       "page": "6",
-      "sourcePage": 6,
-      "crop": [
-        48,
-        46,
-        402,
-        506
-      ],
       "classification": "PENDING NO VERIFIED SOURCE",
       "dimensions": "560x560",
       "bytes": 200364,
       "exists": true,
-      "verified": false,
-      "sourcePageMatches": true,
-      "hasCropEvidence": true
+      "approvedInput": false
     },
     {
       "src": "/cartilla/art/optimized/flipchart-native/p006-elefante.png",
       "word": "elefante",
       "page": "6",
-      "sourcePage": 6,
-      "crop": [
-        50,
-        645,
-        235,
-        228
-      ],
       "classification": "PENDING NO VERIFIED SOURCE",
       "dimensions": "320x320",
       "bytes": 55059,
       "exists": true,
-      "verified": false,
-      "sourcePageMatches": true,
-      "hasCropEvidence": true
+      "approvedInput": false
     },
     {
       "src": "/cartilla/art/optimized/flipchart-native/p006-espejo.png",
       "word": "espejo",
       "page": "6",
-      "sourcePage": 6,
-      "crop": [
-        368,
-        630,
-        231,
-        236
-      ],
       "classification": "PENDING NO VERIFIED SOURCE",
       "dimensions": "320x320",
       "bytes": 42808,
       "exists": true,
-      "verified": false,
-      "sourcePageMatches": true,
-      "hasCropEvidence": true
+      "approvedInput": false
     },
     {
       "src": "/cartilla/art/optimized/flipchart-native/p006-ema.png",
       "word": "Ema",
       "page": "6",
-      "sourcePage": 6,
-      "crop": [
-        733,
-        624,
-        183,
-        238
-      ],
       "classification": "PENDING NO VERIFIED SOURCE",
       "dimensions": "320x320",
       "bytes": 50267,
       "exists": true,
-      "verified": false,
-      "sourcePageMatches": true,
-      "hasCropEvidence": true
+      "approvedInput": false
     },
     {
       "src": "/cartilla/art/optimized/flipchart-native/p006-estrella.png",
       "word": "estrella",
       "page": "6",
-      "sourcePage": 6,
-      "crop": [
-        55,
-        996,
-        225,
-        256
-      ],
       "classification": "PENDING NO VERIFIED SOURCE",
       "dimensions": "320x320",
       "bytes": 53872,
       "exists": true,
-      "verified": false,
-      "sourcePageMatches": true,
-      "hasCropEvidence": true
+      "approvedInput": false
     },
     {
       "src": "/cartilla/art/optimized/flipchart-native/p006-erizo.png",
       "word": "erizo",
       "page": "6",
-      "sourcePage": 6,
-      "crop": [
-        369,
-        988,
-        237,
-        256
-      ],
       "classification": "PENDING NO VERIFIED SOURCE",
       "dimensions": "320x320",
       "bytes": 83658,
       "exists": true,
-      "verified": false,
-      "sourcePageMatches": true,
-      "hasCropEvidence": true
+      "approvedInput": false
     },
     {
       "src": "/cartilla/art/optimized/flipchart-native/p006-escalera.png",
       "word": "escalera",
       "page": "6",
-      "sourcePage": 6,
-      "crop": [
-        711,
-        977,
-        215,
-        286
-      ],
       "classification": "PENDING NO VERIFIED SOURCE",
       "dimensions": "320x320",
       "bytes": 51385,
       "exists": true,
-      "verified": false,
-      "sourcePageMatches": true,
-      "hasCropEvidence": true
+      "approvedInput": false
     },
     {
       "src": "/cartilla/art/optimized/flipchart-native/p007-scene.png",
       "word": "Ilustración de la página 7",
       "page": "7",
-      "sourcePage": 7,
-      "crop": [
-        41,
-        29,
-        417,
-        523
-      ],
       "classification": "PENDING NO VERIFIED SOURCE",
       "dimensions": "560x560",
       "bytes": 129226,
       "exists": true,
-      "verified": false,
-      "sourcePageMatches": true,
-      "hasCropEvidence": true
+      "approvedInput": false
     },
     {
       "src": "/cartilla/art/optimized/flipchart-native/p007-iman.png",
       "word": "imán",
       "page": "7",
-      "sourcePage": 7,
-      "crop": [
-        71,
-        642,
-        224,
-        212
-      ],
       "classification": "PENDING NO VERIFIED SOURCE",
       "dimensions": "320x320",
       "bytes": 39281,
       "exists": true,
-      "verified": false,
-      "sourcePageMatches": true,
-      "hasCropEvidence": true
+      "approvedInput": false
     },
     {
       "src": "/cartilla/art/optimized/flipchart-native/p007-iglu.png",
       "word": "iglú",
       "page": "7",
-      "sourcePage": 7,
-      "crop": [
-        380,
-        645,
-        218,
-        222
-      ],
       "classification": "PENDING NO VERIFIED SOURCE",
       "dimensions": "320x320",
       "bytes": 35084,
       "exists": true,
-      "verified": false,
-      "sourcePageMatches": true,
-      "hasCropEvidence": true
+      "approvedInput": false
     },
     {
       "src": "/cartilla/art/optimized/flipchart-native/p007-indio.png",
       "word": "indio",
       "page": "7",
-      "sourcePage": 7,
-      "crop": [
-        712,
-        575,
-        202,
-        297
-      ],
       "classification": "PENDING NO VERIFIED SOURCE",
       "dimensions": "320x320",
       "bytes": 33627,
       "exists": true,
-      "verified": false,
-      "sourcePageMatches": true,
-      "hasCropEvidence": true
+      "approvedInput": false
     },
     {
       "src": "/cartilla/art/optimized/flipchart-native/p007-insecto.png",
       "word": "insecto",
       "page": "7",
-      "sourcePage": 7,
-      "crop": [
-        56,
-        1001,
-        256,
-        224
-      ],
       "classification": "PENDING NO VERIFIED SOURCE",
       "dimensions": "320x320",
       "bytes": 67825,
       "exists": true,
-      "verified": false,
-      "sourcePageMatches": true,
-      "hasCropEvidence": true
+      "approvedInput": false
     },
     {
       "src": "/cartilla/art/optimized/flipchart-native/p007-isla.png",
       "word": "isla",
       "page": "7",
-      "sourcePage": 7,
-      "crop": [
-        355,
-        997,
-        279,
-        253
-      ],
       "classification": "PENDING NO VERIFIED SOURCE",
       "dimensions": "320x320",
       "bytes": 49951,
       "exists": true,
-      "verified": false,
-      "sourcePageMatches": true,
-      "hasCropEvidence": true
+      "approvedInput": false
     },
     {
       "src": "/cartilla/art/optimized/flipchart-native/p007-irma.png",
       "word": "Irma",
       "page": "7",
-      "sourcePage": 7,
-      "crop": [
-        696,
-        994,
-        235,
-        274
-      ],
       "classification": "PENDING NO VERIFIED SOURCE",
       "dimensions": "320x320",
       "bytes": 56587,
       "exists": true,
-      "verified": false,
-      "sourcePageMatches": true,
-      "hasCropEvidence": true
+      "approvedInput": false
     },
     {
       "src": "/cartilla/art/optimized/flipchart-native/p008-scene.png",
       "word": "Ilustración de la página 8",
       "page": "8",
-      "sourcePage": 8,
-      "crop": [
-        14,
-        28,
-        441,
-        439
-      ],
       "classification": "PENDING NO VERIFIED SOURCE",
       "dimensions": "480x480",
       "bytes": 191446,
       "exists": true,
-      "verified": false,
-      "sourcePageMatches": true,
-      "hasCropEvidence": true
+      "approvedInput": false
     },
     {
       "src": "/cartilla/art/optimized/flipchart-native/p008-uno.png",
       "word": "uno",
       "page": "8",
-      "sourcePage": 8,
-      "crop": [
-        72,
-        570,
-        232,
-        240
-      ],
       "classification": "PENDING NO VERIFIED SOURCE",
       "dimensions": "320x320",
       "bytes": 80479,
       "exists": true,
-      "verified": false,
-      "sourcePageMatches": true,
-      "hasCropEvidence": true
+      "approvedInput": false
     },
     {
       "src": "/cartilla/art/optimized/flipchart-native/p008-uva.png",
       "word": "uva",
       "page": "8",
-      "sourcePage": 8,
-      "crop": [
-        391,
-        568,
-        237,
-        230
-      ],
       "classification": "PENDING NO VERIFIED SOURCE",
       "dimensions": "320x320",
       "bytes": 78680,
       "exists": true,
-      "verified": false,
-      "sourcePageMatches": true,
-      "hasCropEvidence": true
+      "approvedInput": false
     },
     {
       "src": "/cartilla/art/optimized/flipchart-native/p008-urraca.png",
       "word": "urraca",
       "page": "8",
-      "sourcePage": 8,
-      "crop": [
-        719,
-        557,
-        223,
-        227
-      ],
       "classification": "PENDING NO VERIFIED SOURCE",
       "dimensions": "320x320",
       "bytes": 33697,
       "exists": true,
-      "verified": false,
-      "sourcePageMatches": true,
-      "hasCropEvidence": true
+      "approvedInput": false
     },
     {
       "src": "/cartilla/art/optimized/flipchart-native/p008-unicornio.png",
       "word": "unicornio",
       "page": "8",
-      "sourcePage": 8,
-      "crop": [
-        56,
-        904,
-        258,
-        260
-      ],
       "classification": "PENDING NO VERIFIED SOURCE",
       "dimensions": "320x320",
       "bytes": 60538,
       "exists": true,
-      "verified": false,
-      "sourcePageMatches": true,
-      "hasCropEvidence": true
+      "approvedInput": false
     },
     {
       "src": "/cartilla/art/optimized/flipchart-native/p008-uniforme.png",
       "word": "uniforme",
       "page": "8",
-      "sourcePage": 8,
-      "crop": [
-        429,
-        906,
-        163,
-        252
-      ],
       "classification": "PENDING NO VERIFIED SOURCE",
       "dimensions": "320x320",
       "bytes": 42650,
       "exists": true,
-      "verified": false,
-      "sourcePageMatches": true,
-      "hasCropEvidence": true
+      "approvedInput": false
     },
     {
       "src": "/cartilla/art/optimized/flipchart-native/p008-ulises.png",
       "word": "Ulises",
       "page": "8",
-      "sourcePage": 8,
-      "crop": [
-        711,
-        927,
-        243,
-        200
-      ],
       "classification": "PENDING NO VERIFIED SOURCE",
       "dimensions": "320x320",
       "bytes": 69778,
       "exists": true,
-      "verified": false,
-      "sourcePageMatches": true,
-      "hasCropEvidence": true
+      "approvedInput": false
     },
     {
       "src": "/cartilla/art/optimized/flipchart-native/p009-scene.png",
       "word": "Ilustración de la página 9",
       "page": "9",
-      "sourcePage": 9,
-      "crop": [
-        20,
-        30,
-        528,
-        500
-      ],
       "classification": "PENDING NO VERIFIED SOURCE",
       "dimensions": "530x530",
       "bytes": 269934,
       "exists": true,
-      "verified": false,
-      "sourcePageMatches": true,
-      "hasCropEvidence": true
+      "approvedInput": false
     },
     {
       "src": "/cartilla/art/optimized/flipchart-native/p009-mama.png",
       "word": "mamá",
       "page": "9",
-      "sourcePage": 9,
-      "crop": [
-        46,
-        561,
-        217,
-        286
-      ],
       "classification": "PENDING NO VERIFIED SOURCE",
       "dimensions": "344x344",
       "bytes": 58231,
       "exists": true,
-      "verified": false,
-      "sourcePageMatches": true,
-      "hasCropEvidence": true
+      "approvedInput": false
     },
     {
       "src": "/cartilla/art/optimized/flipchart-native/p009-amo.png",
       "word": "amo",
       "page": "9",
-      "sourcePage": 9,
-      "crop": [
-        351,
-        550,
-        270,
-        285
-      ],
       "classification": "PENDING NO VERIFIED SOURCE",
       "dimensions": "320x320",
       "bytes": 64626,
       "exists": true,
-      "verified": false,
-      "sourcePageMatches": true,
-      "hasCropEvidence": true
+      "approvedInput": false
     },
     {
       "src": "/cartilla/art/optimized/flipchart-native/p009-mima.png",
       "word": "mima",
       "page": "9",
-      "sourcePage": 9,
-      "crop": [
-        661,
-        529,
-        304,
-        304
-      ],
       "classification": "PENDING NO VERIFIED SOURCE",
       "dimensions": "328x328",
       "bytes": 101089,
       "exists": true,
-      "verified": false,
-      "sourcePageMatches": true,
-      "hasCropEvidence": true
+      "approvedInput": false
     },
     {
       "src": "/cartilla/art/optimized/flipchart-native/p009-meme.png",
       "word": "Meme",
       "page": "9",
-      "sourcePage": 9,
-      "crop": [
-        230,
-        958,
-        150,
-        309
-      ],
       "classification": "PENDING NO VERIFIED SOURCE",
       "dimensions": "320x320",
       "bytes": 42639,
       "exists": true,
-      "verified": false,
-      "sourcePageMatches": true,
-      "hasCropEvidence": true
+      "approvedInput": false
     },
     {
       "src": "/cartilla/art/optimized/flipchart-native/p009-mumi.png",
       "word": "Mumi",
       "page": "9",
-      "sourcePage": 9,
-      "crop": [
-        533,
-        960,
-        281,
-        296
-      ],
       "classification": "PENDING NO VERIFIED SOURCE",
       "dimensions": "320x320",
       "bytes": 64622,
       "exists": true,
-      "verified": false,
-      "sourcePageMatches": true,
-      "hasCropEvidence": true
+      "approvedInput": false
     },
     {
       "src": "/cartilla/art/optimized/flipchart-native/p011-scene.png",
       "word": "Ilustración de la página 11",
       "page": "11",
-      "sourcePage": 11,
-      "crop": [
-        295,
-        186,
-        636,
-        529
-      ],
       "classification": "PENDING NO VERIFIED SOURCE",
       "dimensions": "630x630",
       "bytes": 199944,
       "exists": true,
-      "verified": false,
-      "sourcePageMatches": true,
-      "hasCropEvidence": true
+      "approvedInput": false
     },
     {
       "src": "/cartilla/art/optimized/flipchart-native/p012-scene.png",
       "word": "Ilustración de la página 12",
       "page": "12",
-      "sourcePage": 12,
-      "crop": [
-        6,
-        28,
-        552,
-        520
-      ],
       "classification": "PENDING NO VERIFIED SOURCE",
       "dimensions": "560x560",
       "bytes": 188737,
       "exists": true,
-      "verified": false,
-      "sourcePageMatches": true,
-      "hasCropEvidence": true
+      "approvedInput": false
     },
     {
       "src": "/cartilla/art/optimized/flipchart-native/p012-papa.png",
       "word": "papá",
       "page": "12",
-      "sourcePage": 12,
-      "crop": [
-        56,
-        541,
-        182,
-        278
-      ],
       "classification": "PENDING NO VERIFIED SOURCE",
       "dimensions": "320x320",
       "bytes": 52592,
       "exists": true,
-      "verified": false,
-      "sourcePageMatches": true,
-      "hasCropEvidence": true
+      "approvedInput": false
     },
     {
       "src": "/cartilla/art/optimized/flipchart-native/p012-pie.png",
       "word": "pie",
       "page": "12",
-      "sourcePage": 12,
-      "crop": [
-        347,
-        632,
-        265,
-        179
-      ],
       "classification": "PENDING NO VERIFIED SOURCE",
       "dimensions": "320x320",
       "bytes": 35828,
       "exists": true,
-      "verified": false,
-      "sourcePageMatches": true,
-      "hasCropEvidence": true
+      "approvedInput": false
     },
     {
       "src": "/cartilla/art/optimized/flipchart-native/p012-pepe.png",
       "word": "Pepe",
       "page": "12",
-      "sourcePage": 12,
-      "crop": [
-        681,
-        515,
-        305,
-        306
-      ],
       "classification": "PENDING NO VERIFIED SOURCE",
       "dimensions": "320x320",
       "bytes": 64078,
       "exists": true,
-      "verified": false,
-      "sourcePageMatches": true,
-      "hasCropEvidence": true
+      "approvedInput": false
     },
     {
       "src": "/cartilla/art/optimized/flipchart-native/p012-puma.png",
       "word": "puma",
       "page": "12",
-      "sourcePage": 12,
-      "crop": [
-        69,
-        968,
-        272,
-        295
-      ],
       "classification": "PENDING NO VERIFIED SOURCE",
       "dimensions": "320x320",
       "bytes": 62327,
       "exists": true,
-      "verified": false,
-      "sourcePageMatches": true,
-      "hasCropEvidence": true
+      "approvedInput": false
     },
     {
       "src": "/cartilla/art/optimized/flipchart-native/p012-pomo.png",
       "word": "pomo",
       "page": "12",
-      "sourcePage": 12,
-      "crop": [
-        626,
-        985,
-        154,
-        277
-      ],
       "classification": "PENDING NO VERIFIED SOURCE",
       "dimensions": "320x320",
       "bytes": 46993,
       "exists": true,
-      "verified": false,
-      "sourcePageMatches": true,
-      "hasCropEvidence": true
+      "approvedInput": false
     },
     {
       "src": "/cartilla/art/optimized/flipchart-native/p014-scene.png",
       "word": "Ilustración de la página 14",
       "page": "14",
-      "sourcePage": 14,
-      "crop": [
-        355,
-        63,
-        626,
-        523
-      ],
       "classification": "PENDING NO VERIFIED SOURCE",
       "dimensions": "654x654",
       "bytes": 272998,
       "exists": true,
-      "verified": false,
-      "sourcePageMatches": true,
-      "hasCropEvidence": true
+      "approvedInput": false
     },
     {
       "src": "/cartilla/art/optimized/flipchart-native/p015-scene.png",
       "word": "Ilustración de la página 15",
       "page": "15",
-      "sourcePage": 15,
-      "crop": [
-        63,
-        53,
-        457,
-        499
-      ],
       "classification": "PENDING NO VERIFIED SOURCE",
       "dimensions": "560x560",
       "bytes": 287347,
       "exists": true,
-      "verified": false,
-      "sourcePageMatches": true,
-      "hasCropEvidence": true
+      "approvedInput": false
     },
     {
       "src": "/cartilla/art/optimized/flipchart-native/p015-sesi.png",
       "word": "Sesi",
       "page": "15",
-      "sourcePage": 15,
-      "crop": [
-        99,
-        566,
-        241,
-        294
-      ],
       "classification": "PENDING NO VERIFIED SOURCE",
       "dimensions": "342x342",
       "bytes": 58380,
       "exists": true,
-      "verified": false,
-      "sourcePageMatches": true,
-      "hasCropEvidence": true
+      "approvedInput": false
     },
     {
       "src": "/cartilla/art/optimized/flipchart-native/p015-sopa.png",
       "word": "sopa",
       "page": "15",
-      "sourcePage": 15,
-      "crop": [
-        374,
-        667,
-        241,
-        149
-      ],
       "classification": "PENDING NO VERIFIED SOURCE",
       "dimensions": "320x320",
       "bytes": 61061,
       "exists": true,
-      "verified": false,
-      "sourcePageMatches": true,
-      "hasCropEvidence": true
+      "approvedInput": false
     },
     {
       "src": "/cartilla/art/optimized/flipchart-native/p015-sapo.png",
       "word": "sapo",
       "page": "15",
-      "sourcePage": 15,
-      "crop": [
-        680,
-        621,
-        271,
-        211
-      ],
       "classification": "PENDING NO VERIFIED SOURCE",
       "dimensions": "320x320",
       "bytes": 51491,
       "exists": true,
-      "verified": false,
-      "sourcePageMatches": true,
-      "hasCropEvidence": true
+      "approvedInput": false
     },
     {
       "src": "/cartilla/art/optimized/flipchart-native/p015-pisa.png",
       "word": "pisa",
       "page": "15",
-      "sourcePage": 15,
-      "crop": [
-        134,
-        1022,
-        319,
-        220
-      ],
       "classification": "PENDING NO VERIFIED SOURCE",
       "dimensions": "320x320",
       "bytes": 23189,
       "exists": true,
-      "verified": false,
-      "sourcePageMatches": true,
-      "hasCropEvidence": true
+      "approvedInput": false
     },
     {
       "src": "/cartilla/art/optimized/flipchart-native/p015-susi.png",
       "word": "Susi",
       "page": "15",
-      "sourcePage": 15,
-      "crop": [
-        555,
-        953,
-        230,
-        308
-      ],
       "classification": "PENDING NO VERIFIED SOURCE",
       "dimensions": "320x320",
       "bytes": 68028,
       "exists": true,
-      "verified": false,
-      "sourcePageMatches": true,
-      "hasCropEvidence": true
+      "approvedInput": false
     },
     {
       "src": "/cartilla/art/optimized/flipchart-native/p017-scene.png",
       "word": "Ilustración de la página 17",
       "page": "17",
-      "sourcePage": 17,
-      "crop": [
-        590,
-        28,
-        398,
-        698
-      ],
       "classification": "PENDING NO VERIFIED SOURCE",
       "dimensions": "645x645",
       "bytes": 173867,
       "exists": true,
-      "verified": false,
-      "sourcePageMatches": true,
-      "hasCropEvidence": true
+      "approvedInput": false
     },
     {
       "src": "/cartilla/art/optimized/flipchart-native/p018-scene.png",
       "word": "Ilustración de la página 18",
       "page": "18",
-      "sourcePage": 18,
-      "crop": [
-        72,
-        28,
-        466,
-        521
-      ],
       "classification": "PENDING NO VERIFIED SOURCE",
       "dimensions": "558x558",
       "bytes": 217046,
       "exists": true,
-      "verified": false,
-      "sourcePageMatches": true,
-      "hasCropEvidence": true
+      "approvedInput": false
     },
     {
       "src": "/cartilla/art/optimized/flipchart-native/p018-tomate.webp",
       "word": "tomate",
       "page": "18",
-      "sourcePage": 18,
-      "crop": [
-        35,
-        575,
-        270,
-        245
-      ],
       "classification": "PENDING NO VERIFIED SOURCE",
       "dimensions": "1536x1395",
       "bytes": 96285,
       "exists": true,
-      "verified": false,
-      "sourcePageMatches": true,
-      "hasCropEvidence": true
+      "approvedInput": false
     },
     {
       "src": "/cartilla/art/optimized/flipchart-native/p018-tapa.webp",
       "word": "tapa",
       "page": "18",
-      "sourcePage": 18,
-      "crop": [
-        350,
-        570,
-        285,
-        230
-      ],
       "classification": "PENDING NO VERIFIED SOURCE",
       "dimensions": "1536x1240",
       "bytes": 127625,
       "exists": true,
-      "verified": false,
-      "sourcePageMatches": true,
-      "hasCropEvidence": true
+      "approvedInput": false
     },
     {
       "src": "/cartilla/art/optimized/flipchart-native/p018-topo.webp",
       "word": "topo",
       "page": "18",
-      "sourcePage": 18,
-      "crop": [
-        690,
-        545,
-        260,
-        270
-      ],
       "classification": "PENDING NO VERIFIED SOURCE",
       "dimensions": "1478x1536",
       "bytes": 169656,
       "exists": true,
-      "verified": false,
-      "sourcePageMatches": true,
-      "hasCropEvidence": true
+      "approvedInput": false
     },
     {
       "src": "/cartilla/art/optimized/flipchart-native/p018-tipi.webp",
       "word": "tipi",
       "page": "18",
-      "sourcePage": 18,
-      "crop": [
-        95,
-        890,
-        320,
-        305
-      ],
       "classification": "PENDING NO VERIFIED SOURCE",
       "dimensions": "1536x1464",
       "bytes": 146747,
       "exists": true,
-      "verified": false,
-      "sourcePageMatches": true,
-      "hasCropEvidence": true
+      "approvedInput": false
     },
     {
       "src": "/cartilla/art/optimized/flipchart-native/p018-tuto.webp",
       "word": "Tuto",
       "page": "18",
-      "sourcePage": 18,
-      "crop": [
-        540,
-        911,
-        315,
-        304
-      ],
       "classification": "PENDING NO VERIFIED SOURCE",
       "dimensions": "1536x1482",
       "bytes": 201825,
       "exists": true,
-      "verified": false,
-      "sourcePageMatches": true,
-      "hasCropEvidence": true
+      "approvedInput": false
     },
     {
       "src": "/cartilla/art/optimized/flipchart-native/p020-scene.png",
       "word": "Ilustración de la página 20",
       "page": "20",
-      "sourcePage": 20,
-      "crop": [
-        340,
-        92,
-        660,
-        505
-      ],
       "classification": "PENDING NO VERIFIED SOURCE",
       "dimensions": "658x658",
       "bytes": 356866,
       "exists": true,
-      "verified": false,
-      "sourcePageMatches": true,
-      "hasCropEvidence": true
+      "approvedInput": false
     },
     {
       "src": "/cartilla/art/optimized/flipchart-native/p021-scene.png",
       "word": "Ilustración de la página 21",
       "page": "21",
-      "sourcePage": 21,
-      "crop": [
-        165,
-        28,
-        313,
-        510
-      ],
       "classification": "PENDING NO VERIFIED SOURCE",
       "dimensions": "559x559",
       "bytes": 104462,
       "exists": true,
-      "verified": false,
-      "sourcePageMatches": true,
-      "hasCropEvidence": true
+      "approvedInput": false
     },
     {
       "src": "/cartilla/art/optimized/flipchart-native/p021-didi.webp",
       "word": "Didi",
       "page": "21",
-      "sourcePage": 21,
-      "crop": [
-        42,
-        545,
-        207,
-        231
-      ],
       "classification": "PENDING NO VERIFIED SOURCE",
       "dimensions": "1536x1360",
       "bytes": 125316,
       "exists": true,
-      "verified": false,
-      "sourcePageMatches": true,
-      "hasCropEvidence": true
+      "approvedInput": false
     },
     {
       "src": "/cartilla/art/optimized/flipchart-native/p021-dados.webp",
       "word": "dados",
       "page": "21",
-      "sourcePage": 21,
-      "crop": [
-        376,
-        516,
-        245,
-        250
-      ],
       "classification": "PENDING NO VERIFIED SOURCE",
       "dimensions": "1536x1440",
       "bytes": 136317,
       "exists": true,
-      "verified": false,
-      "sourcePageMatches": true,
-      "hasCropEvidence": true
+      "approvedInput": false
     },
     {
       "src": "/cartilla/art/optimized/flipchart-native/p021-dedo.webp",
       "word": "dedo",
       "page": "21",
-      "sourcePage": 21,
-      "crop": [
-        740,
-        513,
-        180,
-        256
-      ],
       "classification": "PENDING NO VERIFIED SOURCE",
       "dimensions": "1281x1536",
       "bytes": 127794,
       "exists": true,
-      "verified": false,
-      "sourcePageMatches": true,
-      "hasCropEvidence": true
+      "approvedInput": false
     },
     {
       "src": "/cartilla/art/optimized/flipchart-native/p021-doce.webp",
       "word": "doce",
       "page": "21",
-      "sourcePage": 21,
-      "crop": [
-        122,
-        909,
-        232,
-        290
-      ],
       "classification": "PENDING NO VERIFIED SOURCE",
       "dimensions": "1355x1536",
       "bytes": 195221,
       "exists": true,
-      "verified": false,
-      "sourcePageMatches": true,
-      "hasCropEvidence": true
+      "approvedInput": false
     },
     {
       "src": "/cartilla/art/optimized/flipchart-native/p021-dunia.webp",
       "word": "Dunia",
       "page": "21",
-      "sourcePage": 21,
-      "crop": [
-        508,
-        914,
-        361,
-        256
-      ],
       "classification": "PENDING NO VERIFIED SOURCE",
       "dimensions": "1536x1324",
       "bytes": 218652,
       "exists": true,
-      "verified": false,
-      "sourcePageMatches": true,
-      "hasCropEvidence": true
+      "approvedInput": false
     },
     {
       "src": "/cartilla/art/optimized/flipchart-native/p023-scene.png",
       "word": "Ilustración de la página 23",
       "page": "23",
-      "sourcePage": 23,
-      "crop": [
-        452,
-        28,
-        471,
-        559
-      ],
       "classification": "PENDING NO VERIFIED SOURCE",
       "dimensions": "621x621",
       "bytes": 307816,
       "exists": true,
-      "verified": false,
-      "sourcePageMatches": true,
-      "hasCropEvidence": true
+      "approvedInput": false
     },
     {
       "src": "/cartilla/art/optimized/flipchart-native/p024-scene.png",
       "word": "Ilustración de la página 24",
       "page": "24",
-      "sourcePage": 24,
-      "crop": [
-        71,
-        28,
-        209,
-        519
-      ],
       "classification": "PENDING NO VERIFIED SOURCE",
       "dimensions": "549x549",
       "bytes": 180981,
       "exists": true,
-      "verified": false,
-      "sourcePageMatches": true,
-      "hasCropEvidence": true
+      "approvedInput": false
     },
     {
       "src": "/cartilla/art/optimized/flipchart-native/p024-maleta.webp",
       "word": "maleta",
       "page": "24",
-      "sourcePage": 24,
-      "crop": [
-        45,
-        555,
-        245,
-        275
-      ],
       "classification": "PENDING NO VERIFIED SOURCE",
       "dimensions": "1369x1536",
       "bytes": 140465,
       "exists": true,
-      "verified": false,
-      "sourcePageMatches": true,
-      "hasCropEvidence": true
+      "approvedInput": false
     },
     {
       "src": "/cartilla/art/optimized/flipchart-native/p024-lata.webp",
       "word": "lata",
       "page": "24",
-      "sourcePage": 24,
-      "crop": [
-        385,
-        555,
-        245,
-        270
-      ],
       "classification": "PENDING NO VERIFIED SOURCE",
       "dimensions": "1395x1536",
       "bytes": 158721,
       "exists": true,
-      "verified": false,
-      "sourcePageMatches": true,
-      "hasCropEvidence": true
+      "approvedInput": false
     },
     {
       "src": "/cartilla/art/optimized/flipchart-native/p024-luli.webp",
       "word": "Luli",
       "page": "24",
-      "sourcePage": 24,
-      "crop": [
-        720,
-        500,
-        220,
-        320
-      ],
       "classification": "PENDING NO VERIFIED SOURCE",
       "dimensions": "1058x1536",
       "bytes": 132783,
       "exists": true,
-      "verified": false,
-      "sourcePageMatches": true,
-      "hasCropEvidence": true
+      "approvedInput": false
     },
     {
       "src": "/cartilla/art/optimized/flipchart-native/p024-loma.webp",
       "word": "loma",
       "page": "24",
-      "sourcePage": 24,
-      "crop": [
-        90,
-        950,
-        360,
-        290
-      ],
       "classification": "PENDING NO VERIFIED SOURCE",
       "dimensions": "1536x1238",
       "bytes": 91971,
       "exists": true,
-      "verified": false,
-      "sourcePageMatches": true,
-      "hasCropEvidence": true
+      "approvedInput": false
     },
     {
       "src": "/cartilla/art/optimized/flipchart-native/p024-lala.png",
       "word": "Lala",
       "page": "24",
-      "sourcePage": 24,
-      "crop": [
-        565,
-        970,
-        280,
-        245
-      ],
       "classification": "PENDING NO VERIFIED SOURCE",
       "dimensions": "550x495",
       "bytes": 281675,
       "exists": true,
-      "verified": false,
-      "sourcePageMatches": true,
-      "hasCropEvidence": true
+      "approvedInput": false
     },
     {
       "src": "/cartilla/art/optimized/flipchart-native/p026-scene.png",
       "word": "Ilustración de la página 26",
       "page": "26",
-      "sourcePage": 26,
-      "crop": [
-        512,
-        220,
-        455,
-        396
-      ],
       "classification": "PENDING NO VERIFIED SOURCE",
       "dimensions": "638x638",
       "bytes": 189595,
       "exists": true,
-      "verified": false,
-      "sourcePageMatches": true,
-      "hasCropEvidence": true
+      "approvedInput": false
     },
     {
       "src": "/cartilla/art/optimized/flipchart-native/p027-scene.png",
       "word": "Ilustración de la página 27",
       "page": "27",
-      "sourcePage": 27,
-      "crop": [
-        15,
-        28,
-        501,
-        524
-      ],
       "classification": "PENDING NO VERIFIED SOURCE",
       "dimensions": "560x560",
       "bytes": 279018,
       "exists": true,
-      "verified": false,
-      "sourcePageMatches": true,
-      "hasCropEvidence": true
+      "approvedInput": false
     },
     {
       "src": "/cartilla/art/optimized/flipchart-native/p027-nido.png",
       "word": "nido",
       "page": "27",
-      "sourcePage": 27,
-      "crop": [
-        57,
-        635,
-        245,
-        168
-      ],
       "classification": "PENDING NO VERIFIED SOURCE",
       "dimensions": "320x320",
       "bytes": 43656,
       "exists": true,
-      "verified": false,
-      "sourcePageMatches": true,
-      "hasCropEvidence": true
+      "approvedInput": false
     },
     {
       "src": "/cartilla/art/optimized/flipchart-native/p027-nudo.png",
       "word": "nudo",
       "page": "27",
-      "sourcePage": 27,
-      "crop": [
-        353,
-        617,
-        260,
-        204
-      ],
       "classification": "PENDING NO VERIFIED SOURCE",
       "dimensions": "320x320",
       "bytes": 44142,
       "exists": true,
-      "verified": false,
-      "sourcePageMatches": true,
-      "hasCropEvidence": true
+      "approvedInput": false
     },
     {
       "src": "/cartilla/art/optimized/flipchart-native/p027-mono.png",
       "word": "mono",
       "page": "27",
-      "sourcePage": 27,
-      "crop": [
-        714,
-        524,
-        181,
-        300
-      ],
       "classification": "PENDING NO VERIFIED SOURCE",
       "dimensions": "320x320",
       "bytes": 40787,
       "exists": true,
-      "verified": false,
-      "sourcePageMatches": true,
-      "hasCropEvidence": true
+      "approvedInput": false
     },
     {
       "src": "/cartilla/art/optimized/flipchart-native/p027-napi.png",
       "word": "Napi",
       "page": "27",
-      "sourcePage": 27,
-      "crop": [
-        122,
-        969,
-        264,
-        280
-      ],
       "classification": "PENDING NO VERIFIED SOURCE",
       "dimensions": "320x320",
       "bytes": 70916,
       "exists": true,
-      "verified": false,
-      "sourcePageMatches": true,
-      "hasCropEvidence": true
+      "approvedInput": false
     },
     {
       "src": "/cartilla/art/optimized/flipchart-native/p027-tenedor.png",
       "word": "tenedor",
       "page": "27",
-      "sourcePage": 27,
-      "crop": [
-        642,
-        926,
-        69,
-        323
-      ],
       "classification": "PENDING NO VERIFIED SOURCE",
       "dimensions": "320x320",
       "bytes": 12037,
       "exists": true,
-      "verified": false,
-      "sourcePageMatches": true,
-      "hasCropEvidence": true
+      "approvedInput": false
     },
     {
       "src": "/cartilla/art/optimized/flipchart-native/p029-scene.png",
       "word": "Ilustración de la página 29",
       "page": "29",
-      "sourcePage": 29,
-      "crop": [
-        495,
-        28,
-        481,
-        544
-      ],
       "classification": "PENDING NO VERIFIED SOURCE",
       "dimensions": "665x665",
       "bytes": 264645,
       "exists": true,
-      "verified": false,
-      "sourcePageMatches": true,
-      "hasCropEvidence": true
+      "approvedInput": false
     },
     {
       "src": "/cartilla/art/optimized/flipchart-native/p030-scene.png",
       "word": "Ilustración de la página 30",
       "page": "30",
-      "sourcePage": 30,
-      "crop": [
-        100,
-        28,
-        347,
-        512
-      ],
       "classification": "PENDING NO VERIFIED SOURCE",
       "dimensions": "545x545",
       "bytes": 260707,
       "exists": true,
-      "verified": false,
-      "sourcePageMatches": true,
-      "hasCropEvidence": true
+      "approvedInput": false
     },
     {
       "src": "/cartilla/art/optimized/flipchart-native/p030-pinata.png",
       "word": "piñata",
       "page": "30",
-      "sourcePage": 30,
-      "crop": [
-        46,
-        562,
-        217,
-        236
-      ],
       "classification": "PENDING NO VERIFIED SOURCE",
       "dimensions": "320x320",
       "bytes": 43865,
       "exists": true,
-      "verified": false,
-      "sourcePageMatches": true,
-      "hasCropEvidence": true
+      "approvedInput": false
     },
     {
       "src": "/cartilla/art/optimized/flipchart-native/p030-nuno.png",
       "word": "Ñuno",
       "page": "30",
-      "sourcePage": 30,
-      "crop": [
-        405,
-        510,
-        192,
-        288
-      ],
       "classification": "PENDING NO VERIFIED SOURCE",
       "dimensions": "320x320",
       "bytes": 36499,
       "exists": true,
-      "verified": false,
-      "sourcePageMatches": true,
-      "hasCropEvidence": true
+      "approvedInput": false
     },
     {
       "src": "/cartilla/art/optimized/flipchart-native/p030-ninito.png",
       "word": "niñito",
       "page": "30",
-      "sourcePage": 30,
-      "crop": [
-        719,
-        535,
-        192,
-        261
-      ],
       "classification": "PENDING NO VERIFIED SOURCE",
       "dimensions": "320x320",
       "bytes": 55302,
       "exists": true,
-      "verified": false,
-      "sourcePageMatches": true,
-      "hasCropEvidence": true
+      "approvedInput": false
     },
     {
       "src": "/cartilla/art/optimized/flipchart-native/p030-mono.png",
       "word": "moño",
       "page": "30",
-      "sourcePage": 30,
-      "crop": [
-        125,
-        925,
-        242,
-        292
-      ],
       "classification": "PENDING NO VERIFIED SOURCE",
       "dimensions": "320x320",
       "bytes": 84380,
       "exists": true,
-      "verified": false,
-      "sourcePageMatches": true,
-      "hasCropEvidence": true
+      "approvedInput": false
     },
     {
       "src": "/cartilla/art/optimized/flipchart-native/p030-mene.png",
       "word": "Meñe",
       "page": "30",
-      "sourcePage": 30,
-      "crop": [
-        567,
-        906,
-        196,
-        315
-      ],
       "classification": "PENDING NO VERIFIED SOURCE",
       "dimensions": "320x320",
       "bytes": 51822,
       "exists": true,
-      "verified": false,
-      "sourcePageMatches": true,
-      "hasCropEvidence": true
+      "approvedInput": false
     },
     {
       "src": "/cartilla/art/optimized/flipchart-native/p032-scene.png",
       "word": "Ilustración de la página 32",
       "page": "32",
-      "sourcePage": 32,
-      "crop": [
-        491,
-        28,
-        502,
-        511
-      ],
       "classification": "PENDING NO VERIFIED SOURCE",
       "dimensions": "682x682",
       "bytes": 231822,
       "exists": true,
-      "verified": false,
-      "sourcePageMatches": true,
-      "hasCropEvidence": true
+      "approvedInput": false
     },
     {
       "src": "/cartilla/art/optimized/flipchart-native/p033-scene.png",
       "word": "Ilustración de la página 33",
       "page": "33",
-      "sourcePage": 33,
-      "crop": [
-        102,
-        29,
-        470,
-        520
-      ],
       "classification": "PENDING NO VERIFIED SOURCE",
       "dimensions": "549x549",
       "bytes": 227395,
       "exists": true,
-      "verified": false,
-      "sourcePageMatches": true,
-      "hasCropEvidence": true
+      "approvedInput": false
     },
     {
       "src": "/cartilla/art/optimized/flipchart-native/p033-beba.png",
       "word": "Beba",
       "page": "33",
-      "sourcePage": 33,
-      "crop": [
-        57,
-        572,
-        237,
-        223
-      ],
       "classification": "PENDING NO VERIFIED SOURCE",
       "dimensions": "320x320",
       "bytes": 46539,
       "exists": true,
-      "verified": false,
-      "sourcePageMatches": true,
-      "hasCropEvidence": true
+      "approvedInput": false
     },
     {
       "src": "/cartilla/art/optimized/flipchart-native/p033-bubi.png",
       "word": "Bubi",
       "page": "33",
-      "sourcePage": 33,
-      "crop": [
-        365,
-        562,
-        251,
-        230
-      ],
       "classification": "PENDING NO VERIFIED SOURCE",
       "dimensions": "320x320",
       "bytes": 42247,
       "exists": true,
-      "verified": false,
-      "sourcePageMatches": true,
-      "hasCropEvidence": true
+      "approvedInput": false
     },
     {
       "src": "/cartilla/art/optimized/flipchart-native/p033-bate.png",
       "word": "bate",
       "page": "33",
-      "sourcePage": 33,
-      "crop": [
-        700,
-        527,
-        215,
-        264
-      ],
       "classification": "PENDING NO VERIFIED SOURCE",
       "dimensions": "320x320",
       "bytes": 25693,
       "exists": true,
-      "verified": false,
-      "sourcePageMatches": true,
-      "hasCropEvidence": true
+      "approvedInput": false
     },
     {
       "src": "/cartilla/art/optimized/flipchart-native/p033-bota.png",
       "word": "bota",
       "page": "33",
-      "sourcePage": 33,
-      "crop": [
-        134,
-        963,
-        238,
-        260
-      ],
       "classification": "PENDING NO VERIFIED SOURCE",
       "dimensions": "320x320",
       "bytes": 92719,
       "exists": true,
-      "verified": false,
-      "sourcePageMatches": true,
-      "hasCropEvidence": true
+      "approvedInput": false
     },
     {
       "src": "/cartilla/art/optimized/flipchart-native/p033-bebita.png",
       "word": "bebita",
       "page": "33",
-      "sourcePage": 33,
-      "crop": [
-        535,
-        920,
-        279,
-        307
-      ],
       "classification": "PENDING NO VERIFIED SOURCE",
       "dimensions": "320x320",
       "bytes": 75124,
       "exists": true,
-      "verified": false,
-      "sourcePageMatches": true,
-      "hasCropEvidence": true
+      "approvedInput": false
     },
     {
       "src": "/cartilla/art/optimized/flipchart-native/p035-scene.png",
       "word": "Ilustración de la página 35",
       "page": "35",
-      "sourcePage": 35,
-      "crop": [
-        474,
-        193,
-        498,
-        315
-      ],
       "classification": "PENDING NO VERIFIED SOURCE",
       "dimensions": "666x666",
       "bytes": 177075,
       "exists": true,
-      "verified": false,
-      "sourcePageMatches": true,
-      "hasCropEvidence": true
+      "approvedInput": false
     },
     {
       "src": "/cartilla/art/optimized/flipchart-native/p036-scene.png",
       "word": "Ilustración de la página 36",
       "page": "36",
-      "sourcePage": 36,
-      "crop": [
-        30,
-        64,
-        487,
-        327
-      ],
       "classification": "PENDING NO VERIFIED SOURCE",
       "dimensions": "526x526",
       "bytes": 191915,
       "exists": true,
-      "verified": false,
-      "sourcePageMatches": true,
-      "hasCropEvidence": true
+      "approvedInput": false
     },
     {
       "src": "/cartilla/art/optimized/flipchart-native/p036-vaso.png",
       "word": "vaso",
       "page": "36",
-      "sourcePage": 36,
-      "crop": [
-        113,
-        601,
-        101,
-        194
-      ],
       "classification": "PENDING NO VERIFIED SOURCE",
       "dimensions": "320x320",
       "bytes": 23211,
       "exists": true,
-      "verified": false,
-      "sourcePageMatches": true,
-      "hasCropEvidence": true
+      "approvedInput": false
     },
     {
       "src": "/cartilla/art/optimized/flipchart-native/p036-vela.png",
       "word": "vela",
       "page": "36",
-      "sourcePage": 36,
-      "crop": [
-        397,
-        569,
-        218,
-        235
-      ],
       "classification": "PENDING NO VERIFIED SOURCE",
       "dimensions": "320x320",
       "bytes": 30920,
       "exists": true,
-      "verified": false,
-      "sourcePageMatches": true,
-      "hasCropEvidence": true
+      "approvedInput": false
     },
     {
       "src": "/cartilla/art/optimized/flipchart-native/p036-vita.png",
       "word": "Vita",
       "page": "36",
-      "sourcePage": 36,
-      "crop": [
-        707,
-        554,
-        220,
-        252
-      ],
       "classification": "PENDING NO VERIFIED SOURCE",
       "dimensions": "320x320",
       "bytes": 63379,
       "exists": true,
-      "verified": false,
-      "sourcePageMatches": true,
-      "hasCropEvidence": true
+      "approvedInput": false
     },
     {
       "src": "/cartilla/art/optimized/flipchart-native/p036-pavo.png",
       "word": "pavo",
       "page": "36",
-      "sourcePage": 36,
-      "crop": [
-        149,
-        975,
-        231,
-        260
-      ],
       "classification": "PENDING NO VERIFIED SOURCE",
       "dimensions": "320x320",
       "bytes": 93181,
       "exists": true,
-      "verified": false,
-      "sourcePageMatches": true,
-      "hasCropEvidence": true
+      "approvedInput": false
     },
     {
       "src": "/cartilla/art/optimized/flipchart-native/p036-vuli.png",
       "word": "Vuli",
       "page": "36",
-      "sourcePage": 36,
-      "crop": [
-        536,
-        1035,
-        307,
-        209
-      ],
       "classification": "PENDING NO VERIFIED SOURCE",
       "dimensions": "330x330",
       "bytes": 36595,
       "exists": true,
-      "verified": false,
-      "sourcePageMatches": true,
-      "hasCropEvidence": true
+      "approvedInput": false
     },
     {
       "src": "/cartilla/art/optimized/flipchart-native/p038-scene.png",
       "word": "Ilustración de la página 38",
       "page": "38",
-      "sourcePage": 38,
-      "crop": [
-        486,
-        28,
-        487,
-        522
-      ],
       "classification": "PENDING NO VERIFIED SOURCE",
       "dimensions": "636x636",
       "bytes": 209332,
       "exists": true,
-      "verified": false,
-      "sourcePageMatches": true,
-      "hasCropEvidence": true
+      "approvedInput": false
     },
     {
       "src": "/cartilla/art/optimized/flipchart-native/p039-scene.png",
       "word": "Ilustración de la página 39",
       "page": "39",
-      "sourcePage": 39,
-      "crop": [
-        87,
-        28,
-        434,
-        474
-      ],
       "classification": "PENDING NO VERIFIED SOURCE",
       "dimensions": "519x519",
       "bytes": 178166,
       "exists": true,
-      "verified": false,
-      "sourcePageMatches": true,
-      "hasCropEvidence": true
+      "approvedInput": false
     },
     {
       "src": "/cartilla/art/optimized/flipchart-native/p039-rana.png",
       "word": "rana",
       "page": "39",
-      "sourcePage": 39,
-      "crop": [
-        47,
-        553,
-        231,
-        221
-      ],
       "classification": "PENDING NO VERIFIED SOURCE",
       "dimensions": "320x320",
       "bytes": 62419,
       "exists": true,
-      "verified": false,
-      "sourcePageMatches": true,
-      "hasCropEvidence": true
+      "approvedInput": false
     },
     {
       "src": "/cartilla/art/optimized/flipchart-native/p039-remos.png",
       "word": "remos",
       "page": "39",
-      "sourcePage": 39,
-      "crop": [
-        364,
-        550,
-        243,
-        225
-      ],
       "classification": "PENDING NO VERIFIED SOURCE",
       "dimensions": "320x320",
       "bytes": 65623,
       "exists": true,
-      "verified": false,
-      "sourcePageMatches": true,
-      "hasCropEvidence": true
+      "approvedInput": false
     },
     {
       "src": "/cartilla/art/optimized/flipchart-native/p039-rita.png",
       "word": "Rita",
       "page": "39",
-      "sourcePage": 39,
-      "crop": [
-        675,
-        550,
-        270,
-        221
-      ],
       "classification": "PENDING NO VERIFIED SOURCE",
       "dimensions": "324x324",
       "bytes": 52168,
       "exists": true,
-      "verified": false,
-      "sourcePageMatches": true,
-      "hasCropEvidence": true
+      "approvedInput": false
     },
     {
       "src": "/cartilla/art/optimized/flipchart-native/p039-rosa.png",
       "word": "rosa",
       "page": "39",
-      "sourcePage": 39,
-      "crop": [
-        152,
-        932,
-        187,
-        244
-      ],
       "classification": "PENDING NO VERIFIED SOURCE",
       "dimensions": "320x320",
       "bytes": 54742,
       "exists": true,
-      "verified": false,
-      "sourcePageMatches": true,
-      "hasCropEvidence": true
+      "approvedInput": false
     },
     {
       "src": "/cartilla/art/optimized/flipchart-native/p039-rueda.png",
       "word": "rueda",
       "page": "39",
-      "sourcePage": 39,
-      "crop": [
-        515,
-        932,
-        303,
-        249
-      ],
       "classification": "PENDING NO VERIFIED SOURCE",
       "dimensions": "320x320",
       "bytes": 87137,
       "exists": true,
-      "verified": false,
-      "sourcePageMatches": true,
-      "hasCropEvidence": true
+      "approvedInput": false
     },
     {
       "src": "/cartilla/art/optimized/flipchart-native/p041-scene.png",
       "word": "Ilustración de la página 41",
       "page": "41",
-      "sourcePage": 41,
-      "crop": [
-        444,
-        28,
-        531,
-        504
-      ],
       "classification": "PENDING NO VERIFIED SOURCE",
       "dimensions": "586x586",
       "bytes": 254340,
       "exists": true,
-      "verified": false,
-      "sourcePageMatches": true,
-      "hasCropEvidence": true
+      "approvedInput": false
     },
     {
       "src": "/cartilla/art/optimized/flipchart-native/p042-scene.png",
       "word": "Ilustración de la página 42",
       "page": "42",
-      "sourcePage": 42,
-      "crop": [
-        12,
-        97,
-        509,
-        401
-      ],
       "classification": "PENDING NO VERIFIED SOURCE",
       "dimensions": "529x529",
       "bytes": 261932,
       "exists": true,
-      "verified": false,
-      "sourcePageMatches": true,
-      "hasCropEvidence": true
+      "approvedInput": false
     },
     {
       "src": "/cartilla/art/optimized/flipchart-native/p042-burro.png",
       "word": "burro",
       "page": "42",
-      "sourcePage": 42,
-      "crop": [
-        37,
-        566,
-        262,
-        240
-      ],
       "classification": "PENDING NO VERIFIED SOURCE",
       "dimensions": "320x320",
       "bytes": 46838,
       "exists": true,
-      "verified": false,
-      "sourcePageMatches": true,
-      "hasCropEvidence": true
+      "approvedInput": false
     },
     {
       "src": "/cartilla/art/optimized/flipchart-native/p042-carrusel.png",
       "word": "carrusel",
       "page": "42",
-      "sourcePage": 42,
-      "crop": [
-        363,
-        570,
-        244,
-        238
-      ],
       "classification": "PENDING NO VERIFIED SOURCE",
       "dimensions": "320x320",
       "bytes": 87851,
       "exists": true,
-      "verified": false,
-      "sourcePageMatches": true,
-      "hasCropEvidence": true
+      "approvedInput": false
     },
     {
       "src": "/cartilla/art/optimized/flipchart-native/p042-torre.png",
       "word": "torre",
       "page": "42",
-      "sourcePage": 42,
-      "crop": [
-        759,
-        526,
-        111,
-        283
-      ],
       "classification": "PENDING NO VERIFIED SOURCE",
       "dimensions": "320x320",
       "bytes": 24379,
       "exists": true,
-      "verified": false,
-      "sourcePageMatches": true,
-      "hasCropEvidence": true
+      "approvedInput": false
     },
     {
       "src": "/cartilla/art/optimized/flipchart-native/p042-barril.png",
       "word": "barril",
       "page": "42",
-      "sourcePage": 42,
-      "crop": [
-        163,
-        975,
-        176,
-        270
-      ],
       "classification": "PENDING NO VERIFIED SOURCE",
       "dimensions": "320x320",
       "bytes": 64861,
       "exists": true,
-      "verified": false,
-      "sourcePageMatches": true,
-      "hasCropEvidence": true
+      "approvedInput": false
     },
     {
       "src": "/cartilla/art/optimized/flipchart-native/p042-tierra.png",
       "word": "Tierra",
       "page": "42",
-      "sourcePage": 42,
-      "crop": [
-        535,
-        963,
-        277,
-        290
-      ],
       "classification": "PENDING NO VERIFIED SOURCE",
       "dimensions": "320x320",
       "bytes": 95440,
       "exists": true,
-      "verified": false,
-      "sourcePageMatches": true,
-      "hasCropEvidence": true
+      "approvedInput": false
     },
     {
       "src": "/cartilla/art/optimized/flipchart-native/p044-scene.png",
       "word": "Ilustración de la página 44",
       "page": "44",
-      "sourcePage": 44,
-      "crop": [
-        452,
-        28,
-        531,
-        544
-      ],
       "classification": "PENDING NO VERIFIED SOURCE",
       "dimensions": "653x653",
       "bytes": 552239,
       "exists": true,
-      "verified": false,
-      "sourcePageMatches": true,
-      "hasCropEvidence": true
+      "approvedInput": false
     },
     {
       "src": "/cartilla/art/optimized/flipchart-native/p045-scene.png",
       "word": "Ilustración de la página 45",
       "page": "45",
-      "sourcePage": 45,
-      "crop": [
-        131,
-        31,
-        403,
-        511
-      ],
       "classification": "PENDING NO VERIFIED SOURCE",
       "dimensions": "557x557",
       "bytes": 166965,
       "exists": true,
-      "verified": false,
-      "sourcePageMatches": true,
-      "hasCropEvidence": true
+      "approvedInput": false
     },
     {
       "src": "/cartilla/art/optimized/flipchart-native/p045-gaveta.png",
       "word": "gaveta",
       "page": "45",
-      "sourcePage": 45,
-      "crop": [
-        37,
-        572,
-        265,
-        223
-      ],
       "classification": "PENDING NO VERIFIED SOURCE",
       "dimensions": "321x321",
       "bytes": 80865,
       "exists": true,
-      "verified": false,
-      "sourcePageMatches": true,
-      "hasCropEvidence": true
+      "approvedInput": false
     },
     {
       "src": "/cartilla/art/optimized/flipchart-native/p045-gusano.png",
       "word": "gusano",
       "page": "45",
-      "sourcePage": 45,
-      "crop": [
-        356,
-        639,
-        277,
-        141
-      ],
       "classification": "PENDING NO VERIFIED SOURCE",
       "dimensions": "333x333",
       "bytes": 27873,
       "exists": true,
-      "verified": false,
-      "sourcePageMatches": true,
-      "hasCropEvidence": true
+      "approvedInput": false
     },
     {
       "src": "/cartilla/art/optimized/flipchart-native/p045-goloso.png",
       "word": "Goloso",
       "page": "45",
-      "sourcePage": 45,
-      "crop": [
-        701,
-        524,
-        242,
-        270
-      ],
       "classification": "PENDING NO VERIFIED SOURCE",
       "dimensions": "320x320",
       "bytes": 71135,
       "exists": true,
-      "verified": false,
-      "sourcePageMatches": true,
-      "hasCropEvidence": true
+      "approvedInput": false
     },
     {
       "src": "/cartilla/art/optimized/flipchart-native/p045-gorra.png",
       "word": "gorra",
       "page": "45",
-      "sourcePage": 45,
-      "crop": [
-        127,
-        969,
-        255,
-        201
-      ],
       "classification": "PENDING NO VERIFIED SOURCE",
       "dimensions": "320x320",
       "bytes": 55671,
       "exists": true,
-      "verified": false,
-      "sourcePageMatches": true,
-      "hasCropEvidence": true
+      "approvedInput": false
     },
     {
       "src": "/cartilla/art/optimized/flipchart-native/p045-mago.png",
       "word": "mago",
       "page": "45",
-      "sourcePage": 45,
-      "crop": [
-        560,
-        919,
-        238,
-        272
-      ],
       "classification": "PENDING NO VERIFIED SOURCE",
       "dimensions": "320x320",
       "bytes": 75805,
       "exists": true,
-      "verified": false,
-      "sourcePageMatches": true,
-      "hasCropEvidence": true
+      "approvedInput": false
     },
     {
       "src": "/cartilla/art/optimized/flipchart-native/p047-scene.png",
       "word": "Ilustración de la página 47",
       "page": "47",
-      "sourcePage": 47,
-      "crop": [
-        473,
-        29,
-        506,
-        532
-      ],
       "classification": "PENDING NO VERIFIED SOURCE",
       "dimensions": "667x667",
       "bytes": 238929,
       "exists": true,
-      "verified": false,
-      "sourcePageMatches": true,
-      "hasCropEvidence": true
+      "approvedInput": false
     },
     {
       "src": "/cartilla/art/optimized/flipchart-native/p048-scene.png",
       "word": "Ilustración de la página 48",
       "page": "48",
-      "sourcePage": 48,
-      "crop": [
-        137,
-        28,
-        338,
-        522
-      ],
       "classification": "PENDING NO VERIFIED SOURCE",
       "dimensions": "552x552",
       "bytes": 122839,
       "exists": true,
-      "verified": false,
-      "sourcePageMatches": true,
-      "hasCropEvidence": true
+      "approvedInput": false
     },
     {
       "src": "/cartilla/art/optimized/flipchart-native/p048-foto.png",
       "word": "foto",
       "page": "48",
-      "sourcePage": 48,
-      "crop": [
-        66,
-        584,
-        199,
-        261
-      ],
       "classification": "PENDING NO VERIFIED SOURCE",
       "dimensions": "320x320",
       "bytes": 65853,
       "exists": true,
-      "verified": false,
-      "sourcePageMatches": true,
-      "hasCropEvidence": true
+      "approvedInput": false
     },
     {
       "src": "/cartilla/art/optimized/flipchart-native/p048-fideos.png",
       "word": "fideos",
       "page": "48",
-      "sourcePage": 48,
-      "crop": [
-        428,
-        566,
-        212,
-        276
-      ],
       "classification": "PENDING NO VERIFIED SOURCE",
       "dimensions": "325x325",
       "bytes": 69470,
       "exists": true,
-      "verified": false,
-      "sourcePageMatches": true,
-      "hasCropEvidence": true
+      "approvedInput": false
     },
     {
       "src": "/cartilla/art/optimized/flipchart-native/p048-familia.png",
       "word": "familia",
       "page": "48",
-      "sourcePage": 48,
-      "crop": [
-        726,
-        510,
-        175,
-        329
-      ],
       "classification": "PENDING NO VERIFIED SOURCE",
       "dimensions": "323x323",
       "bytes": 69178,
       "exists": true,
-      "verified": false,
-      "sourcePageMatches": true,
-      "hasCropEvidence": true
+      "approvedInput": false
     },
     {
       "src": "/cartilla/art/optimized/flipchart-native/p048-felo.png",
       "word": "Felo",
       "page": "48",
-      "sourcePage": 48,
-      "crop": [
-        158,
-        960,
-        300,
-        295
-      ],
       "classification": "PENDING NO VERIFIED SOURCE",
       "dimensions": "321x321",
       "bytes": 80269,
       "exists": true,
-      "verified": false,
-      "sourcePageMatches": true,
-      "hasCropEvidence": true
+      "approvedInput": false
     },
     {
       "src": "/cartilla/art/optimized/flipchart-native/p048-funda.png",
       "word": "funda",
       "page": "48",
-      "sourcePage": 48,
-      "crop": [
-        588,
-        990,
-        244,
-        245
-      ],
       "classification": "PENDING NO VERIFIED SOURCE",
       "dimensions": "320x320",
       "bytes": 56851,
       "exists": true,
-      "verified": false,
-      "sourcePageMatches": true,
-      "hasCropEvidence": true
+      "approvedInput": false
     },
     {
       "src": "/cartilla/art/optimized/flipchart-native/p050-scene.png",
       "word": "Ilustración de la página 50",
       "page": "50",
-      "sourcePage": 50,
-      "crop": [
-        441,
-        28,
-        530,
-        529
-      ],
       "classification": "PENDING NO VERIFIED SOURCE",
       "dimensions": "644x644",
       "bytes": 330647,
       "exists": true,
-      "verified": false,
-      "sourcePageMatches": true,
-      "hasCropEvidence": true
+      "approvedInput": false
     },
     {
       "src": "/cartilla/art/optimized/flipchart-native/p051-scene.png",
       "word": "Ilustración de la página 51",
       "page": "51",
-      "sourcePage": 51,
-      "crop": [
-        63,
-        31,
-        465,
-        496
-      ],
       "classification": "PENDING NO VERIFIED SOURCE",
       "dimensions": "537x537",
       "bytes": 239137,
       "exists": true,
-      "verified": false,
-      "sourcePageMatches": true,
-      "hasCropEvidence": true
+      "approvedInput": false
     },
     {
       "src": "/cartilla/art/optimized/flipchart-native/p051-jicotea.png",
       "word": "jicotea",
       "page": "51",
-      "sourcePage": 51,
-      "crop": [
-        37,
-        562,
-        269,
-        221
-      ],
       "classification": "PENDING NO VERIFIED SOURCE",
       "dimensions": "322x322",
       "bytes": 82182,
       "exists": true,
-      "verified": false,
-      "sourcePageMatches": true,
-      "hasCropEvidence": true
+      "approvedInput": false
     },
     {
       "src": "/cartilla/art/optimized/flipchart-native/p051-jugo.png",
       "word": "jugo",
       "page": "51",
-      "sourcePage": 51,
-      "crop": [
-        399,
-        561,
-        196,
-        224
-      ],
       "classification": "PENDING NO VERIFIED SOURCE",
       "dimensions": "320x320",
       "bytes": 41769,
       "exists": true,
-      "verified": false,
-      "sourcePageMatches": true,
-      "hasCropEvidence": true
+      "approvedInput": false
     },
     {
       "src": "/cartilla/art/optimized/flipchart-native/p051-jesus.png",
       "word": "Jesús",
       "page": "51",
-      "sourcePage": 51,
-      "crop": [
-        728,
-        510,
-        250,
-        276
-      ],
       "classification": "PENDING NO VERIFIED SOURCE",
       "dimensions": "320x320",
       "bytes": 46181,
       "exists": true,
-      "verified": false,
-      "sourcePageMatches": true,
-      "hasCropEvidence": true
+      "approvedInput": false
     },
     {
       "src": "/cartilla/art/optimized/flipchart-native/p051-ajo.png",
       "word": "ajo",
       "page": "51",
-      "sourcePage": 51,
-      "crop": [
-        141,
-        974,
-        246,
-        211
-      ],
       "classification": "PENDING NO VERIFIED SOURCE",
       "dimensions": "320x320",
       "bytes": 51115,
       "exists": true,
-      "verified": false,
-      "sourcePageMatches": true,
-      "hasCropEvidence": true
+      "approvedInput": false
     },
     {
       "src": "/cartilla/art/optimized/flipchart-native/p051-jarra.png",
       "word": "jarra",
       "page": "51",
-      "sourcePage": 51,
-      "crop": [
-        584,
-        937,
-        200,
-        270
-      ],
       "classification": "PENDING NO VERIFIED SOURCE",
       "dimensions": "320x320",
       "bytes": 54311,
       "exists": true,
-      "verified": false,
-      "sourcePageMatches": true,
-      "hasCropEvidence": true
+      "approvedInput": false
     },
     {
       "src": "/cartilla/art/optimized/flipchart-native/p053-scene.png",
       "word": "Ilustración de la página 53",
       "page": "53",
-      "sourcePage": 53,
-      "crop": [
-        481,
-        28,
-        504,
-        562
-      ],
       "classification": "PENDING NO VERIFIED SOURCE",
       "dimensions": "671x671",
       "bytes": 335717,
       "exists": true,
-      "verified": false,
-      "sourcePageMatches": true,
-      "hasCropEvidence": true
+      "approvedInput": false
     },
     {
       "src": "/cartilla/art/optimized/flipchart-native/p054-scene.png",
       "word": "Ilustración de la página 54",
       "page": "54",
-      "sourcePage": 54,
-      "crop": [
-        36,
-        42,
-        503,
-        397
-      ],
       "classification": "PENDING NO VERIFIED SOURCE",
       "dimensions": "561x561",
       "bytes": 252038,
       "exists": true,
-      "verified": false,
-      "sourcePageMatches": true,
-      "hasCropEvidence": true
+      "approvedInput": false
     },
     {
       "src": "/cartilla/art/optimized/flipchart-native/p054-cuna.png",
       "word": "cuna",
       "page": "54",
-      "sourcePage": 54,
-      "crop": [
-        48,
-        552,
-        251,
-        196
-      ],
       "classification": "PENDING NO VERIFIED SOURCE",
       "dimensions": "320x320",
       "bytes": 66603,
       "exists": true,
-      "verified": false,
-      "sourcePageMatches": true,
-      "hasCropEvidence": true
+      "approvedInput": false
     },
     {
       "src": "/cartilla/art/optimized/flipchart-native/p054-conejo.png",
       "word": "conejo",
       "page": "54",
-      "sourcePage": 54,
-      "crop": [
-        415,
-        512,
-        172,
-        247
-      ],
       "classification": "PENDING NO VERIFIED SOURCE",
       "dimensions": "320x320",
       "bytes": 39496,
       "exists": true,
-      "verified": false,
-      "sourcePageMatches": true,
-      "hasCropEvidence": true
+      "approvedInput": false
     },
     {
       "src": "/cartilla/art/optimized/flipchart-native/p054-casa.png",
       "word": "casa",
       "page": "54",
-      "sourcePage": 54,
-      "crop": [
-        667,
-        510,
-        293,
-        254
-      ],
       "classification": "PENDING NO VERIFIED SOURCE",
       "dimensions": "339x339",
       "bytes": 70088,
       "exists": true,
-      "verified": false,
-      "sourcePageMatches": true,
-      "hasCropEvidence": true
+      "approvedInput": false
     },
     {
       "src": "/cartilla/art/optimized/flipchart-native/p054-cubo.png",
       "word": "cubo",
       "page": "54",
-      "sourcePage": 54,
-      "crop": [
-        141,
-        919,
-        230,
-        278
-      ],
       "classification": "PENDING NO VERIFIED SOURCE",
       "dimensions": "320x320",
       "bytes": 52382,
       "exists": true,
-      "verified": false,
-      "sourcePageMatches": true,
-      "hasCropEvidence": true
+      "approvedInput": false
     },
     {
       "src": "/cartilla/art/optimized/flipchart-native/p054-catalina.png",
       "word": "Catalina",
       "page": "54",
-      "sourcePage": 54,
-      "crop": [
-        599,
-        886,
-        147,
-        309
-      ],
       "classification": "PENDING NO VERIFIED SOURCE",
       "dimensions": "320x320",
       "bytes": 46615,
       "exists": true,
-      "verified": false,
-      "sourcePageMatches": true,
-      "hasCropEvidence": true
+      "approvedInput": false
     },
     {
       "src": "/cartilla/art/optimized/flipchart-native/p056-caramelos.webp",
       "word": "Ilustración de la página 56",
       "page": "56",
-      "sourcePage": 56,
-      "crop": [
-        502,
-        28,
-        482,
-        677
-      ],
       "classification": "PENDING NO VERIFIED SOURCE",
       "dimensions": "1034x1536",
       "bytes": 290425,
       "exists": true,
-      "verified": false,
-      "sourcePageMatches": true,
-      "hasCropEvidence": true
+      "approvedInput": false
     },
     {
       "src": "/cartilla/art/optimized/flipchart-native/p057-scene.png",
       "word": "Ilustración de la página 57",
       "page": "57",
-      "sourcePage": 57,
-      "crop": [
-        48,
-        28,
-        484,
-        515
-      ],
       "classification": "PENDING NO VERIFIED SOURCE",
       "dimensions": "560x560",
       "bytes": 213847,
       "exists": true,
-      "verified": false,
-      "sourcePageMatches": true,
-      "hasCropEvidence": true
+      "approvedInput": false
     },
     {
       "src": "/cartilla/art/optimized/flipchart-native/p057-yate.png",
       "word": "yate",
       "page": "57",
-      "sourcePage": 57,
-      "crop": [
-        37,
-        579,
-        287,
-        186
-      ],
       "classification": "PENDING NO VERIFIED SOURCE",
       "dimensions": "338x338",
       "bytes": 68646,
       "exists": true,
-      "verified": false,
-      "sourcePageMatches": true,
-      "hasCropEvidence": true
+      "approvedInput": false
     },
     {
       "src": "/cartilla/art/optimized/flipchart-native/p057-yema.png",
       "word": "yema",
       "page": "57",
-      "sourcePage": 57,
-      "crop": [
-        352,
-        661,
-        284,
-        107
-      ],
       "classification": "PENDING NO VERIFIED SOURCE",
       "dimensions": "333x333",
       "bytes": 14093,
       "exists": true,
-      "verified": false,
-      "sourcePageMatches": true,
-      "hasCropEvidence": true
+      "approvedInput": false
     },
     {
       "src": "/cartilla/art/optimized/flipchart-native/p057-yayita.png",
       "word": "Yayita",
       "page": "57",
-      "sourcePage": 57,
-      "crop": [
-        702,
-        538,
-        251,
-        230
-      ],
       "classification": "PENDING NO VERIFIED SOURCE",
       "dimensions": "320x320",
       "bytes": 80945,
       "exists": true,
-      "verified": false,
-      "sourcePageMatches": true,
-      "hasCropEvidence": true
+      "approvedInput": false
     },
     {
       "src": "/cartilla/art/optimized/flipchart-native/p057-mayuscula.png",
       "word": "mayúscula",
       "page": "57",
-      "sourcePage": 57,
-      "crop": [
-        131,
-        936,
-        229,
-        253
-      ],
       "classification": "PENDING NO VERIFIED SOURCE",
       "dimensions": "320x320",
       "bytes": 62566,
       "exists": true,
-      "verified": false,
-      "sourcePageMatches": true,
-      "hasCropEvidence": true
+      "approvedInput": false
     },
     {
       "src": "/cartilla/art/optimized/flipchart-native/p057-yoyo.png",
       "word": "yoyo",
       "page": "57",
-      "sourcePage": 57,
-      "crop": [
-        556,
-        925,
-        243,
-        254
-      ],
       "classification": "PENDING NO VERIFIED SOURCE",
       "dimensions": "320x320",
       "bytes": 51013,
       "exists": true,
-      "verified": false,
-      "sourcePageMatches": true,
-      "hasCropEvidence": true
+      "approvedInput": false
     },
     {
       "src": "/cartilla/art/optimized/flipchart-native/p059-scene.png",
       "word": "Ilustración de la página 59",
       "page": "59",
-      "sourcePage": 59,
-      "crop": [
-        441,
-        28,
-        508,
-        571
-      ],
       "classification": "PENDING NO VERIFIED SOURCE",
       "dimensions": "567x567",
       "bytes": 281079,
       "exists": true,
-      "verified": false,
-      "sourcePageMatches": true,
-      "hasCropEvidence": true
+      "approvedInput": false
     },
     {
       "src": "/cartilla/art/optimized/flipchart-native/p060-scene.png",
       "word": "Ilustración de la página 60",
       "page": "60",
-      "sourcePage": 60,
-      "crop": [
-        81,
-        28,
-        481,
-        472
-      ],
       "classification": "PENDING NO VERIFIED SOURCE",
       "dimensions": "505x505",
       "bytes": 187254,
       "exists": true,
-      "verified": false,
-      "sourcePageMatches": true,
-      "hasCropEvidence": true
+      "approvedInput": false
     },
     {
       "src": "/cartilla/art/optimized/flipchart-native/p060-zapato.png",
       "word": "zapato",
       "page": "60",
-      "sourcePage": 60,
-      "crop": [
-        40,
-        552,
-        249,
-        231
-      ],
       "classification": "PENDING NO VERIFIED SOURCE",
       "dimensions": "320x320",
       "bytes": 61591,
       "exists": true,
-      "verified": false,
-      "sourcePageMatches": true,
-      "hasCropEvidence": true
+      "approvedInput": false
     },
     {
       "src": "/cartilla/art/optimized/flipchart-native/p060-zigzag.png",
       "word": "zig-zag",
       "page": "60",
-      "sourcePage": 60,
-      "crop": [
-        395,
-        545,
-        209,
-        238
-      ],
       "classification": "PENDING NO VERIFIED SOURCE",
       "dimensions": "344x344",
       "bytes": 35412,
       "exists": true,
-      "verified": false,
-      "sourcePageMatches": true,
-      "hasCropEvidence": true
+      "approvedInput": false
     },
     {
       "src": "/cartilla/art/optimized/flipchart-native/p060-zorro.png",
       "word": "zorro",
       "page": "60",
-      "sourcePage": 60,
-      "crop": [
-        717,
-        520,
-        222,
-        261
-      ],
       "classification": "PENDING NO VERIFIED SOURCE",
       "dimensions": "320x320",
       "bytes": 49029,
       "exists": true,
-      "verified": false,
-      "sourcePageMatches": true,
-      "hasCropEvidence": true
+      "approvedInput": false
     },
     {
       "src": "/cartilla/art/optimized/flipchart-native/p060-zepelin.png",
       "word": "zepelín",
       "page": "60",
-      "sourcePage": 60,
-      "crop": [
-        105,
-        965,
-        310,
-        242
-      ],
       "classification": "PENDING NO VERIFIED SOURCE",
       "dimensions": "362x362",
       "bytes": 74842,
       "exists": true,
-      "verified": false,
-      "sourcePageMatches": true,
-      "hasCropEvidence": true
+      "approvedInput": false
     },
     {
       "src": "/cartilla/art/optimized/flipchart-native/p060-zulema.png",
       "word": "Zulema",
       "page": "60",
-      "sourcePage": 60,
-      "crop": [
-        573,
-        932,
-        190,
-        282
-      ],
       "classification": "PENDING NO VERIFIED SOURCE",
       "dimensions": "320x320",
       "bytes": 51690,
       "exists": true,
-      "verified": false,
-      "sourcePageMatches": true,
-      "hasCropEvidence": true
+      "approvedInput": false
     },
     {
       "src": "/cartilla/art/optimized/flipchart-native/p062-scene.png",
       "word": "Ilustración de la página 62",
       "page": "62",
-      "sourcePage": 62,
-      "crop": [
-        437,
-        28,
-        542,
-        568
-      ],
       "classification": "PENDING NO VERIFIED SOURCE",
       "dimensions": "633x633",
       "bytes": 350896,
       "exists": true,
-      "verified": false,
-      "sourcePageMatches": true,
-      "hasCropEvidence": true
+      "approvedInput": false
     }
   ]
 }
