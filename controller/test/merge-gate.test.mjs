@@ -20,3 +20,13 @@ test('GitHub merge requires exact reviewed SHA and never deploys or deletes',asy
  assert.equal((await github.mergePullRequest(7,sha)).merged,true);assert.equal(calls.length,1);assert.equal(calls[0].method,'PUT');assert.equal(calls[0].body.sha,sha);assert.equal(calls[0].url,'https://api.github.com/repos/owner/repo/pulls/7/merge');
  await assert.rejects(github.mergePullRequest(7,'HEAD'),/INVALID_AUTHORIZED_MERGE/);assert.equal(calls.length,1);
 });
+
+test('proof record posts exact mandatory dual-review statement before merge',async()=>{
+ const calls=[];const client=new GitHub({repo:'owner/repo',fetcher:async(url,options)=>{calls.push({url,options});return {ok:true,json:async()=>({id:73})};}});
+ assert.equal(await client.proofComment(7,'DUAL REVIEW VERIFIED FOR THIS HEAD'),73);
+ assert.equal(calls.length,1);assert.match(calls[0].url,/issues\/7\/comments$/);
+ assert.equal(calls[0].options.method,'POST');
+ assert.equal(JSON.parse(calls[0].options.body).body,'DUAL REVIEW VERIFIED FOR THIS HEAD');
+ await assert.rejects(client.proofComment(7,'not a verified proof'),/INVALID_DUAL_REVIEW_PROOF/);
+ assert.equal(calls.length,1);
+});

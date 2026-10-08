@@ -48,6 +48,15 @@ export class GitHub {
   if(!r.ok)throw new Error(`GITHUB_READY_HTTP_${r.status}`);const body=await r.json();
   if(body.errors?.length||body.data?.markPullRequestReadyForReview?.pullRequest?.isDraft!==false)throw new Error('GITHUB_READY_REJECTED');return true;
  }
+ async proofComment(number,body){
+  if(!Number.isSafeInteger(number)||number<=0||typeof body!=='string'||!body.includes('DUAL REVIEW VERIFIED FOR THIS HEAD'))throw Error('INVALID_DUAL_REVIEW_PROOF');
+  const url='https://api.github.com/repos/'+this.repo+'/issues/'+number+'/comments';
+  const r=await this.fetcher(url,{method:'POST',headers:{...this.headers(),'Content-Type':'application/json'},body:JSON.stringify({body}),redirect:'error',signal:AbortSignal.timeout(20000)});
+  if(!r.ok)throw Error('GITHUB_PROOF_COMMENT_HTTP_'+r.status);
+  const value=await r.json();
+  if(!Number.isSafeInteger(value.id))throw Error('GITHUB_PROOF_COMMENT_UNCONFIRMED');
+  return value.id;
+ }
  async mergePullRequest(number,expectedHead){if(!Number.isSafeInteger(number)||! /^[a-f0-9]{40}$/.test(expectedHead))throw Error('INVALID_AUTHORIZED_MERGE');return this.merge(number,expectedHead);}
  async merge(number,expectedHead){
   const r=await this.fetcher(`https://api.github.com/repos/${this.repo}/pulls/${number}/merge`,{method:'PUT',headers:{...this.headers(),'Content-Type':'application/json'},body:JSON.stringify({sha:expectedHead,merge_method:'squash'}),signal:AbortSignal.timeout(20000)});
