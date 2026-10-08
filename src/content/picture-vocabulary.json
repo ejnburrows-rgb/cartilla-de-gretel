@@ -19,8 +19,8 @@
     "key": "abeja",
     "name": "abeja",
     "images": [
-      "/cartilla/art/faithful/vocal-a/abeja.webp",
-      "/cartilla/art/faithful/leccion-1/wb-p1/abeja.svg"
+      "/cartilla/art/optimized/workbook/leccion-1/abeja.png",
+      "/cartilla/art/faithful/vocal-a/abeja.webp"
     ]
   },
   {
@@ -34,7 +34,7 @@
     "key": "abrigo",
     "name": "abrigo",
     "images": [
-      "/cartilla/art/faithful/leccion-1/abrigo.webp"
+      "/cartilla/art/optimized/workbook/leccion-1/abrigo.png"
     ]
   },
   {
@@ -371,8 +371,8 @@
     "key": "escuela",
     "name": "escuela",
     "images": [
-      "/cartilla/art/faithful/vocal-e/escuela.webp",
-      "/cartilla/art/faithful/leccion-1/wb-p1/escuela.svg"
+      "/cartilla/art/optimized/workbook/leccion-1/escuela.png",
+      "/cartilla/art/faithful/vocal-e/escuela.webp"
     ]
   },
   {
@@ -741,8 +741,8 @@
     "key": "maíz",
     "name": "maíz",
     "images": [
-      "/cartilla/art/faithful/leccion-1/maiz.webp",
-      "/cartilla/art/faithful/leccion-1/wb-p1/maiz.svg"
+      "/cartilla/art/optimized/workbook/leccion-1/maiz.png",
+      "/cartilla/art/faithful/leccion-1/maiz.webp"
     ]
   },
   {
@@ -920,8 +920,8 @@
     "key": "ojos",
     "name": "ojos",
     "images": [
-      "/cartilla/art/faithful/leccion-1/ojos.webp",
-      "/cartilla/art/faithful/leccion-1/wb-p1/ojos.svg"
+      "/cartilla/art/optimized/workbook/leccion-1/ojos.png",
+      "/cartilla/art/faithful/leccion-1/ojos.webp"
     ]
   },
   {
