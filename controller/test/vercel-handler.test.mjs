@@ -29,6 +29,8 @@ test('Vercel Web Standard handler retains read-only auth and Inngest configurati
 test('protected controller can idempotently register its existing Inngest functions in-process',async()=>{
  const calls=[];const ok=await syncInngest(async request=>{calls.push({url:request.url,method:request.method,host:request.headers.get('host')});return new Response('{}',{status:200});},'https://controller.example/private/path');
  assert.equal(ok,true);assert.deepEqual(calls,[{url:'https://controller.example/api/inngest',method:'PUT',host:'controller.example'}]);
+ const protectedCalls=[];await syncInngest(async request=>{protectedCalls.push(request.url);return new Response('{}',{status:200});},'https://controller.example','server-only-bypass');
+ assert.deepEqual(protectedCalls,['https://controller.example/api/inngest?x-vercel-protection-bypass=server-only-bypass']);
  await assert.rejects(syncInngest(async()=>new Response('{}',{status:503}),'https://controller.example'),/INNGEST_SYNC_FAILED_503/);
 });
 

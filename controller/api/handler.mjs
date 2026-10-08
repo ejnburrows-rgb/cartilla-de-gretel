@@ -6,8 +6,9 @@ import {rawBody} from '../src/security.mjs';
 const inngestHandler=serve({client:inngest,functions});
 const headers={'Cache-Control':'no-store','X-Content-Type-Options':'nosniff'};
 let deploymentSync;
-export async function syncInngest(handler,origin){
+export async function syncInngest(handler,origin,bypassSecret){
  const url=new URL('/api/inngest',origin);
+ if(bypassSecret)url.searchParams.set('x-vercel-protection-bypass',bypassSecret);
  // The SDK's Web Request adapter always constructs a URL using Host as its
  // base, even when request.url is absolute. Preserve the production host in
  // the synthetic in-process sync request.
@@ -17,7 +18,7 @@ export async function syncInngest(handler,origin){
 }
 async function ensureDeploymentSynced(request){
  if(!process.env.INNGEST_SIGNING_KEY)return false;
- deploymentSync??=syncInngest(inngestHandler,process.env.INNGEST_SERVE_ORIGIN??request.url).catch(error=>{deploymentSync=undefined;throw error;});
+ deploymentSync??=syncInngest(inngestHandler,process.env.INNGEST_SERVE_ORIGIN??request.url,process.env.VERCEL_AUTOMATION_BYPASS_SECRET).catch(error=>{deploymentSync=undefined;throw error;});
  return deploymentSync;
 }
 // Vercel's Web Standard handler preserves signed bytes without Node body helpers.
