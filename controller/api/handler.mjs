@@ -5,6 +5,18 @@ import {api} from '../src/api.mjs';
 import {rawBody} from '../src/security.mjs';
 const inngestHandler=serve({client:inngest,functions});
 const headers={'Cache-Control':'no-store','X-Content-Type-Options':'nosniff'};
+let deploymentSync;
+export async function syncInngest(handler,origin){
+ const url=new URL('/api/inngest',origin).href;
+ const response=await handler(new Request(url,{method:'PUT'}));
+ if(!response.ok)throw Error(`INNGEST_SYNC_FAILED_${response.status}`);
+ return true;
+}
+async function ensureDeploymentSynced(request){
+ if(!process.env.INNGEST_SIGNING_KEY)return false;
+ deploymentSync??=syncInngest(inngestHandler,process.env.INNGEST_SERVE_ORIGIN??request.url).catch(error=>{deploymentSync=undefined;throw error;});
+ return deploymentSync;
+}
 // Vercel's Web Standard handler preserves signed bytes without Node body helpers.
 export default {async fetch(request){
  if(new URL(request.url).pathname==='/api/inngest'){
@@ -14,6 +26,11 @@ export default {async fetch(request){
  try{
   const requestHeaders=Object.fromEntries(request.headers);
   const path=new URL(request.url).pathname;
+  // Vercel Authentication intentionally protects the serve endpoint. Sync the
+  // existing Inngest app in-process on the first protected owner status read,
+  // so a controller-only deployment cannot leave cron pointing at an obsolete
+  // deployment URL. Registration is idempotent and creates no project job.
+  if(path==='/api/status'&&request.method==='GET')try{await ensureDeploymentSynced(request);}catch(error){console.error('Controller Inngest sync failed',error);}
   const ownerRead= request.method==='GET' && (
     path==='/api/status' ||
     path==='/api/jobs' ||
