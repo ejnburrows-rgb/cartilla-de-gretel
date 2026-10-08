@@ -95,13 +95,13 @@ describe("Workbook Clean Surface & Archetype Wiring", () => {
     expect(c86.querySelector("[data-source-blocked='true']")).toBeTruthy();
   });
 
-  it("Flip Chart and Workbook use clean surfaces while retaining instructional foreground", () => {
+  it("Flip Chart presentation retains background asset while Workbook uses clean digital surface", () => {
     // Flip Chart board page 3
     const fcPage = flipchart.pages.find((p) => p.flipchartPage === 3)!;
     const { container: fcContainer } = render(<FlipchartNativeBoard page={fcPage} />);
     const fcBg = fcContainer.querySelector(".final-page-background");
-    expect(fcBg).toBeNull();
-    expect(fcContainer.querySelectorAll(".fc-native-board__page img").length).toBeGreaterThan(0);
+    expect(fcBg).toBeTruthy();
+    expect(fcBg?.getAttribute("data-background-printed-page")).toBe("1");
 
     // Workbook page 1 uses clean digital paper frame
     cleanup();

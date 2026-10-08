@@ -60,7 +60,7 @@ export function getWorkbookPdfStatus(): WorkbookPdfStatus {
     pdfPath: WORKBOOK_PDF_PATH,
     isConfigured: true,
     isPresentInRepo: false,
-    status: "configured-runtime-fetch",
+    status: "missing-source",
   };
 }
 

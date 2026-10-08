@@ -1559,12 +1559,3 @@
     transition-duration: .01ms !important;
   }
 }
-
-/* Background-free presentation: foreground artwork keeps its source geometry.
-   Make image tracks explicit so verse/labels cannot squeeze them to tiny icons. */
-.fc-native-board__art-card { display: grid; grid-template-rows: minmax(0, 1fr) auto; }
-.fc-native-board[data-flipchart-page="3"] .fc-native-board__art-card { grid-template-rows: auto minmax(0, 1fr) auto; }
-.fc-native-board__art-card .fc-native-board__living-art { min-height: 0; width: 100%; height: 100%; overflow: hidden; }
-.fc-native-board__living-art .living-illustration__art { mix-blend-mode: normal; }
-.fc-vocab-vowel { width: 6cqh; height: 6cqh; font-size: 4.5cqh; }
-.fc-reading-panel, .fc-story-panel { background-image: none; box-shadow: none; }
