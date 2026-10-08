@@ -41,16 +41,21 @@ test.describe("Teacher Print/Report Readiness", () => {
 
   test("renders print views and verifies print CSS", async ({ page }) => {
     await page.goto("/cartilla/imprimir/all");
+
+    // First verify normal view elements
     await expect(page.locator("text=Cuaderno completo")).toBeVisible();
     await expect(page.getByRole('button', { name: 'Imprimir' })).toBeVisible();
+
+    const header = page.locator('header.no-print');
+
+    // Require the header to exist and be visible under normal media
+    await expect(header).toBeAttached();
+    await expect(header).toBeVisible();
 
     // Emulate print media type to check if specific print-only styles apply
     await page.emulateMedia({ media: 'print' });
 
-    // Under print CSS, `.no-print` elements should be hidden. We can check their computed style
-    const header = page.locator('header.no-print');
-    if (await header.count() > 0) {
-      await expect(header).toBeHidden();
-    }
+    // Under print CSS, `.no-print` elements should be hidden, rather than conditionally skipping
+    await expect(header).toBeHidden();
   });
 });
