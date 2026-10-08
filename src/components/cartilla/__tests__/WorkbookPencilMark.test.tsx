@@ -29,7 +29,11 @@ describe("WorkbookPencilMark shared feedback kernel", () => {
   it("keeps the mark neutral for the full semantic hold before success", () => {
     const { container } = render(<WorkbookPencilMark isCorrect itemId="p1-0" />);
 
-    expect(document.querySelector(".workbook-pencil-flight[data-mark-status='drawing'] .workbook-pencil")).toBeTruthy();
+    expect(
+      document.querySelector(
+        ".workbook-pencil-flight[data-mark-status='drawing'] .workbook-pencil",
+      ),
+    ).toBeTruthy();
     act(() => vi.advanceTimersByTime(drawMs));
     expect(container.querySelector("[data-mark-status='holding']")).toBeTruthy();
 
@@ -107,7 +111,9 @@ describe("WorkbookPencilMark shared feedback kernel", () => {
     expect(WORKBOOK_MARK_TIMING.drawMs).toBeGreaterThanOrEqual(2400);
     expect(WORKBOOK_MARK_TIMING.eraseMs).toBeGreaterThanOrEqual(3000);
     render(<WorkbookPencilMark isCorrect={false} itemId="p1-1" />);
-    const pencil = document.querySelector(".workbook-pencil-flight .workbook-pencil .workbook-pencil__shape");
+    const pencil = document.querySelector(
+      ".workbook-pencil-flight .workbook-pencil .workbook-pencil__shape",
+    );
     // A classic wooden pencil: lacquered body, cedar cone, graphite point, metal ferrule, eraser.
     for (const part of ["lacq", "wood", "lead", "metal", "eraser"]) {
       expect(pencil?.querySelector(`linearGradient[id$='-${part}']`)).toBeTruthy();

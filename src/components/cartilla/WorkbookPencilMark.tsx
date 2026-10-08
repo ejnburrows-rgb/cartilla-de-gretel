@@ -56,7 +56,7 @@ const PENCIL_TILT = 60;
  * Big close-up tool (owner reference 2026-10-06): the pencil is about a third of
  * the box high, so it is always much longer than the box and only its front shows.
  */
-const PENCIL_SCALE = 9.5;
+const PENCIL_SCALE = 3.2;
 const PENCIL_POSE = `rotate(${PENCIL_TILT}) scale(${PENCIL_SCALE})`;
 /** The eraser lies a little flatter, its body running off to the right. */
 const ERASER_TILT = 66;
@@ -156,49 +156,93 @@ export function PencilShape({ uid, stretch = 0 }: { uid: string; stretch?: numbe
           -6.3,
           6.3,
         )}
-        <linearGradient id={g("shade")} x1="0" y1="-23" x2="0" y2="-19" gradientUnits="userSpaceOnUse">
+        <linearGradient
+          id={g("shade")}
+          x1="0"
+          y1="-23"
+          x2="0"
+          y2="-19"
+          gradientUnits="userSpaceOnUse"
+        >
           <stop offset="0" stopColor="#7a4a14" stopOpacity="0.35" />
           <stop offset="1" stopColor="#7a4a14" stopOpacity="0" />
         </linearGradient>
       </defs>
       <g transform={stretch ? `translate(0 ${f2(back)})` : undefined}>
-      {/* Soft pink eraser, slightly worn and rounded. */}
-      <path
-        d="M -6.3 -69.5 L -6.3 -75.2 Q -6.3 -79.5 -2.4 -79.5 L 2.4 -79.5 Q 6.3 -79.5 6.3 -75.2 L 6.3 -69.5 Z"
-        fill={u("eraser")}
-      />
-      <path
-        d="M -4.4 -70.6 L -4.4 -75.4 Q -4.2 -77.9 -2 -78.1"
-        fill="none"
-        stroke="#fff3f6"
-        strokeWidth="1"
-        strokeLinecap="round"
-        opacity="0.75"
-      />
-      <path d="M 3.6 -78.6 Q 5.6 -77.6 5.8 -74.6" fill="none" stroke="#b9566f" strokeWidth="0.5" opacity="0.4" />
-      {/* HD detail: soft dome sheen, rubber speckle, and the shadow where it enters the band. */}
-      <ellipse cx="-1.6" cy="-77.7" rx="2.6" ry="0.75" fill="#ffffff" opacity="0.45" />
-      {[[-3.2, -73.4], [1.4, -75.8], [3.9, -72.2], [-0.6, -71.6], [2.6, -77.4], [-4.6, -76.2]].map(([x, y]) => (
-        <circle key={`${x}${y}`} cx={x} cy={y} r="0.18" fill="#b0566d" opacity="0.18" />
-      ))}
-      <rect x="-6.3" y="-71" width="12.6" height="1.1" fill="#7a2a40" opacity="0.18" />
-      {/* Ribbed silver ferrule. */}
-      <rect x="-6.8" y="-70.4" width="13.6" height="10.2" rx="0.9" fill={u("metal")} />
-      {[-68.6, -67, -65.4, -63.8].map((y) => (
-        <g key={y}>
-          <line x1="-6.8" y1={y} x2="6.8" y2={y} stroke="#535a62" strokeWidth="0.42" opacity="0.8" />
-          <line x1="-6.8" y1={y + 0.5} x2="6.8" y2={y + 0.5} stroke="#ffffff" strokeWidth="0.32" opacity="0.75" />
-        </g>
-      ))}
-      <rect x="-6.8" y="-62.2" width="13.6" height="2" fill="#000" opacity="0.1" />
-      <rect x="-6.8" y="-70.4" width="13.6" height="0.9" fill="#000" opacity="0.12" />
-      {/* HD detail: crimped band with a sharp specular streak and pressed dimples. */}
-      <rect x="-4.7" y="-70.4" width="1" height="10.2" fill="#ffffff" opacity="0.55" />
-      <rect x="3.6" y="-70.4" width="1.6" height="10.2" fill="#3e444b" opacity="0.18" />
-      {[-5, -2.5, 0, 2.5, 5].map((x) => (
-        <ellipse key={x} cx={x} cy="-61.5" rx="0.55" ry="0.35" fill="#4b5158" opacity="0.45" />
-      ))}
-      <line x1="-6.8" y1="-60.3" x2="6.8" y2="-60.3" stroke="#3b4148" strokeWidth="0.3" opacity="0.6" />
+        {/* Soft pink eraser, slightly worn and rounded. */}
+        <path
+          d="M -6.3 -69.5 L -6.3 -75.2 Q -6.3 -79.5 -2.4 -79.5 L 2.4 -79.5 Q 6.3 -79.5 6.3 -75.2 L 6.3 -69.5 Z"
+          fill={u("eraser")}
+        />
+        <path
+          d="M -4.4 -70.6 L -4.4 -75.4 Q -4.2 -77.9 -2 -78.1"
+          fill="none"
+          stroke="#fff3f6"
+          strokeWidth="1"
+          strokeLinecap="round"
+          opacity="0.75"
+        />
+        <path
+          d="M 3.6 -78.6 Q 5.6 -77.6 5.8 -74.6"
+          fill="none"
+          stroke="#b9566f"
+          strokeWidth="0.5"
+          opacity="0.4"
+        />
+        {/* HD detail: soft dome sheen, rubber speckle, and the shadow where it enters the band. */}
+        <ellipse cx="-1.6" cy="-77.7" rx="2.6" ry="0.75" fill="#ffffff" opacity="0.45" />
+        {[
+          [-3.2, -73.4],
+          [1.4, -75.8],
+          [3.9, -72.2],
+          [-0.6, -71.6],
+          [2.6, -77.4],
+          [-4.6, -76.2],
+        ].map(([x, y]) => (
+          <circle key={`${x}${y}`} cx={x} cy={y} r="0.18" fill="#b0566d" opacity="0.18" />
+        ))}
+        <rect x="-6.3" y="-71" width="12.6" height="1.1" fill="#7a2a40" opacity="0.18" />
+        {/* Ribbed silver ferrule. */}
+        <rect x="-6.8" y="-70.4" width="13.6" height="10.2" rx="0.9" fill={u("metal")} />
+        {[-68.6, -67, -65.4, -63.8].map((y) => (
+          <g key={y}>
+            <line
+              x1="-6.8"
+              y1={y}
+              x2="6.8"
+              y2={y}
+              stroke="#535a62"
+              strokeWidth="0.42"
+              opacity="0.8"
+            />
+            <line
+              x1="-6.8"
+              y1={y + 0.5}
+              x2="6.8"
+              y2={y + 0.5}
+              stroke="#ffffff"
+              strokeWidth="0.32"
+              opacity="0.75"
+            />
+          </g>
+        ))}
+        <rect x="-6.8" y="-62.2" width="13.6" height="2" fill="#000" opacity="0.1" />
+        <rect x="-6.8" y="-70.4" width="13.6" height="0.9" fill="#000" opacity="0.12" />
+        {/* HD detail: crimped band with a sharp specular streak and pressed dimples. */}
+        <rect x="-4.7" y="-70.4" width="1" height="10.2" fill="#ffffff" opacity="0.55" />
+        <rect x="3.6" y="-70.4" width="1.6" height="10.2" fill="#3e444b" opacity="0.18" />
+        {[-5, -2.5, 0, 2.5, 5].map((x) => (
+          <ellipse key={x} cx={x} cy="-61.5" rx="0.55" ry="0.35" fill="#4b5158" opacity="0.45" />
+        ))}
+        <line
+          x1="-6.8"
+          y1="-60.3"
+          x2="6.8"
+          y2="-60.3"
+          stroke="#3b4148"
+          strokeWidth="0.3"
+          opacity="0.6"
+        />
       </g>
       {/* Sharpened cedar cone with grain. */}
       <path d="M -6.5 -23.4 L 6.5 -23.4 L 2.4 -6.4 L -2.4 -6.4 Z" fill={u("wood")} />
@@ -222,9 +266,23 @@ export function PencilShape({ uid, stretch = 0 }: { uid: string; stretch?: numbe
       <path d="M -6.5 -23.4 L 6.5 -23.4 L 5.5 -19.4 L -5.5 -19.4 Z" fill={u("shade")} />
       {/* Graphite point with a soft sheen. */}
       <path d="M -2.45 -6.7 L 2.45 -6.7 L 0.5 -0.55 Q 0 0.4 -0.5 -0.55 Z" fill={u("lead")} />
-      <path d="M -1.35 -6.1 L -0.3 -1.5" stroke="#9696a0" strokeWidth="0.5" strokeLinecap="round" opacity="0.8" />
+      <path
+        d="M -1.35 -6.1 L -0.3 -1.5"
+        stroke="#9696a0"
+        strokeWidth="0.5"
+        strokeLinecap="round"
+        opacity="0.8"
+      />
       <path d="M 0.7 -6.7 L 2.45 -6.7 L 0.5 -0.55 Z" fill="#000" opacity="0.32" />
-      <line x1="-2.45" y1="-6.7" x2="2.45" y2="-6.7" stroke="#5a3c1c" strokeWidth="0.3" opacity="0.45" />
+      <line
+        x1="-2.45"
+        y1="-6.7"
+        x2="2.45"
+        y2="-6.7"
+        stroke="#5a3c1c"
+        strokeWidth="0.3"
+        opacity="0.45"
+      />
       <circle cx="-0.25" cy="-1.3" r="0.28" fill="#d6d6de" opacity="0.85" />
       {/* Hexagonal lacquered body: three lit facets, scalloped where sharpened. */}
       <path
@@ -238,16 +296,79 @@ export function PencilShape({ uid, stretch = 0 }: { uid: string; stretch?: numbe
         strokeWidth="0.35"
         opacity="0.55"
       />
-      <line x1="-2.17" y1={top} x2="-2.17" y2="-21.6" stroke="#e39a12" strokeWidth="0.32" opacity="0.85" />
-      <line x1="2.17" y1={top} x2="2.17" y2="-21.6" stroke="#a9620a" strokeWidth="0.32" opacity="0.85" />
-      <rect x="-5.4" y={f2(-59.6 - stretch)} width="1.5" height={f2(37 + stretch)} rx="0.75" fill="#fff8de" opacity="0.65" />
-      <rect x="-0.8" y={f2(-59.6 - stretch)} width="0.7" height={f2(38 + stretch)} rx="0.35" fill="#fff3c4" opacity="0.4" />
+      <line
+        x1="-2.17"
+        y1={top}
+        x2="-2.17"
+        y2="-21.6"
+        stroke="#e39a12"
+        strokeWidth="0.32"
+        opacity="0.85"
+      />
+      <line
+        x1="2.17"
+        y1={top}
+        x2="2.17"
+        y2="-21.6"
+        stroke="#a9620a"
+        strokeWidth="0.32"
+        opacity="0.85"
+      />
+      <rect
+        x="-5.4"
+        y={f2(-59.6 - stretch)}
+        width="1.5"
+        height={f2(37 + stretch)}
+        rx="0.75"
+        fill="#fff8de"
+        opacity="0.65"
+      />
+      <rect
+        x="-0.8"
+        y={f2(-59.6 - stretch)}
+        width="0.7"
+        height={f2(38 + stretch)}
+        rx="0.35"
+        fill="#fff3c4"
+        opacity="0.4"
+      />
       <rect x="-6.5" y={top} width="13" height="1.4" fill="#000" opacity="0.08" />
       {/* HD detail: crisp lacquer edges, a sharp specular streak, warm reflected light and the "HB" stamp. */}
-      <line x1="-6.45" y1={top} x2="-6.45" y2="-21.6" stroke="#b56d07" strokeWidth="0.28" opacity="0.7" />
-      <line x1="6.45" y1={top} x2="6.45" y2="-21.6" stroke="#8a4f05" strokeWidth="0.32" opacity="0.8" />
-      <rect x="-4.75" y={f2(-59.4 - stretch)} width="0.32" height={f2(36.6 + stretch)} fill="#ffffff" opacity="0.85" />
-      <rect x="4.3" y={f2(-59.6 - stretch)} width="1.3" height={f2(37.4 + stretch)} rx="0.6" fill="#ffd27a" opacity="0.3" />
+      <line
+        x1="-6.45"
+        y1={top}
+        x2="-6.45"
+        y2="-21.6"
+        stroke="#b56d07"
+        strokeWidth="0.28"
+        opacity="0.7"
+      />
+      <line
+        x1="6.45"
+        y1={top}
+        x2="6.45"
+        y2="-21.6"
+        stroke="#8a4f05"
+        strokeWidth="0.32"
+        opacity="0.8"
+      />
+      <rect
+        x="-4.75"
+        y={f2(-59.4 - stretch)}
+        width="0.32"
+        height={f2(36.6 + stretch)}
+        fill="#ffffff"
+        opacity="0.85"
+      />
+      <rect
+        x="4.3"
+        y={f2(-59.6 - stretch)}
+        width="1.3"
+        height={f2(37.4 + stretch)}
+        rx="0.6"
+        fill="#ffd27a"
+        opacity="0.3"
+      />
       <text
         x="0"
         y="0"
@@ -413,7 +534,10 @@ interface FlightBox {
  * in a fixed layer above the whole page (the page sheet clips its contents), so
  * this layer is kept exactly over the mark box, following scrolls and resizes.
  */
-function useFlightBox(ref: React.RefObject<HTMLDivElement | null>, active: boolean): FlightBox | null {
+function useFlightBox(
+  ref: React.RefObject<HTMLDivElement | null>,
+  active: boolean,
+): FlightBox | null {
   const [box, setBox] = useState<FlightBox | null>(null);
   useLayoutEffect(() => {
     if (!active) {
@@ -439,23 +563,80 @@ function useFlightBox(ref: React.RefObject<HTMLDivElement | null>, active: boole
           : { left: r.left, top: r.top, width: r.width, height: r.height, vw, vh },
       );
     };
-    const schedule = () => {
-      if (frame) return;
-      frame = window.requestAnimationFrame(() => {
-        frame = 0;
-        measure();
-      });
+    // Follow the box every frame while a tool is in flight: the page zooms in and
+    // out (close-up), and may scroll or resize, while the pencil works.
+    const tick = () => {
+      measure();
+      frame = window.requestAnimationFrame(tick);
     };
     measure();
-    window.addEventListener("scroll", schedule, true);
-    window.addEventListener("resize", schedule);
+    frame = window.requestAnimationFrame(tick);
     return () => {
       if (frame) window.cancelAnimationFrame(frame);
-      window.removeEventListener("scroll", schedule, true);
-      window.removeEventListener("resize", schedule);
     };
   }, [ref, active]);
   return box;
+}
+
+/** How long the page takes to zoom in to the picture, and back out. */
+export const CLOSE_UP_ZOOM_MS = 520;
+/** After a right answer, the close-up stays a moment on the green circle before zooming out. */
+const CLOSE_UP_LINGER_MS = 1100;
+/** Close-up zoom (owner 2026-10-08): the tapped picture grows to about this many CSS px wide. */
+const CLOSE_UP_TARGET_PX = 220;
+const CLOSE_UP_MAX = 2.4;
+const CLOSE_UP_CLASS = "workbook-close-up-zooming";
+let closeUpOwner: symbol | null = null;
+let closeUpReset = 0;
+
+/**
+ * Owner 2026-10-08: while the pencil draws (and the eraser rubs out a wrong mark),
+ * the whole page zooms in gently on the tapped picture so the line, the rubbing and
+ * the crumbs are clearly visible; then it zooms back out. The newest mark owns the
+ * close-up. Reduced motion never zooms (the caller only activates it with motion).
+ */
+function usePageCloseUp(ref: React.RefObject<HTMLDivElement | null>, active: boolean) {
+  useLayoutEffect(() => {
+    if (!active || typeof document === "undefined") return;
+    const el = ref.current;
+    const root = document.getElementById("root");
+    if (!el || !root) return;
+    const me = Symbol("close-up");
+    closeUpOwner = me;
+    window.clearTimeout(closeUpReset);
+    // Measure the picture with the page at rest.
+    root.style.transition = "none";
+    root.style.transform = "";
+    const rootBox = root.getBoundingClientRect();
+    const cell = el.getBoundingClientRect();
+    const vw = window.innerWidth || document.documentElement.clientWidth || 0;
+    const vh = window.innerHeight || document.documentElement.clientHeight || 0;
+    if (cell.width <= 0 || vw <= 0 || vh <= 0) return;
+    const zoom = Math.min(CLOSE_UP_MAX, Math.max(1, CLOSE_UP_TARGET_PX / cell.width));
+    if (zoom <= 1.02) return;
+    const cx = cell.left + cell.width / 2 - rootBox.left;
+    const cy = cell.top + cell.height / 2 - rootBox.top;
+    const tx = vw / 2 - rootBox.left - zoom * cx;
+    const ty = vh / 2 - rootBox.top - zoom * cy;
+    document.documentElement.classList.add(CLOSE_UP_CLASS);
+    root.style.transformOrigin = "0 0";
+    root.style.willChange = "transform";
+    void root.offsetWidth;
+    root.style.transition = `transform ${CLOSE_UP_ZOOM_MS}ms cubic-bezier(0.33, 0, 0.2, 1)`;
+    root.style.transform = `translate(${tx.toFixed(1)}px, ${ty.toFixed(1)}px) scale(${zoom.toFixed(3)})`;
+    return () => {
+      if (closeUpOwner !== me) return;
+      closeUpOwner = null;
+      root.style.transform = "";
+      closeUpReset = window.setTimeout(() => {
+        if (closeUpOwner) return;
+        root.style.transition = "";
+        root.style.transformOrigin = "";
+        root.style.willChange = "";
+        document.documentElement.classList.remove(CLOSE_UP_CLASS);
+      }, CLOSE_UP_ZOOM_MS + 40);
+    };
+  }, [ref, active]);
 }
 
 /**
@@ -641,7 +822,18 @@ function EraserCrumbs({
       s = Math.imul(s ^ (s >>> 13), 3266489909) >>> 0;
       return ((s ^= s >>> 16) >>> 0) / 4294967296;
     };
-    const out: { x: number; y: number; dx: number; dy: number; rx: number; ry: number; rot: number; spin: number; c: string; t: number }[] = [];
+    const out: {
+      x: number;
+      y: number;
+      dx: number;
+      dy: number;
+      rx: number;
+      ry: number;
+      rot: number;
+      spin: number;
+      c: string;
+      t: number;
+    }[] = [];
     const n = 28;
     for (let i = 0; i < n; i++) {
       // The eraser runs backwards along the mark, so crumbs break off from t=1 to 0.
@@ -737,6 +929,16 @@ export function WorkbookPencilMark({
     !reducedMotion &&
     !externalStatus &&
     (currentStatus === "drawing" || currentStatus === "holding" || currentStatus === "erasing");
+  // Keep the close-up a moment on a right answer's green circle before zooming out.
+  const [lingerDone, setLingerDone] = useState(false);
+  useEffect(() => {
+    if (reducedMotion || externalStatus || currentStatus !== "correct") return;
+    const timer = window.setTimeout(() => setLingerDone(true), CLOSE_UP_LINGER_MS);
+    return () => window.clearTimeout(timer);
+  }, [currentStatus, externalStatus, reducedMotion]);
+  const closeUp =
+    flying || (!reducedMotion && !externalStatus && currentStatus === "correct" && !lingerDone);
+  usePageCloseUp(boxRef, closeUp);
   const flightBox = useFlightBox(boxRef, flying);
   const height = Math.round(100 * aspect * 10) / 10;
   const seed = useMemo(() => hashSeed(itemId ?? "mark"), [itemId]);
@@ -747,7 +949,13 @@ export function WorkbookPencilMark({
   const strokes = useMemo(() => strokePoints.map(smoothPath), [strokePoints]);
   // Green when right, red when wrong — from the first line the pencil draws.
   const result =
-    externalStatus === "correct" ? "correct" : isCorrect == null ? undefined : isCorrect ? "correct" : "wrong";
+    externalStatus === "correct"
+      ? "correct"
+      : isCorrect == null
+        ? undefined
+        : isCorrect
+          ? "correct"
+          : "wrong";
 
   useEffect(() => {
     onSuccessRef.current = onSuccess;
@@ -813,7 +1021,13 @@ export function WorkbookPencilMark({
   const toolDefs = (
     <defs>
       <filter id={shadowId} x="-50%" y="-50%" width="200%" height="200%">
-        <feDropShadow dx="1.6" dy="2.4" stdDeviation="1.6" floodColor="#3b2a14" floodOpacity="0.24" />
+        <feDropShadow
+          dx="1.6"
+          dy="2.4"
+          stdDeviation="1.6"
+          floodColor="#3b2a14"
+          floodOpacity="0.24"
+        />
       </filter>
     </defs>
   );
@@ -872,7 +1086,10 @@ export function WorkbookPencilMark({
               (() => {
                 const off = offscreenFrom(flightBox, height, lastPoints[lastPoints.length - 1]);
                 return (
-                  <g className="workbook-pencil workbook-pencil--eraser" filter={`url(#${shadowId})`}>
+                  <g
+                    className="workbook-pencil workbook-pencil--eraser"
+                    filter={`url(#${shadowId})`}
+                  >
                     <animateMotion
                       dur={`${eraseMs}ms`}
                       fill="freeze"
@@ -962,7 +1179,13 @@ export function WorkbookPencilMark({
                 </path>
               ))}
               {strokes.map((d, i) => (
-                <path key={i} className="workbook-pencil-mark__stroke" d={d} pathLength={100} strokeDasharray="100 100">
+                <path
+                  key={i}
+                  className="workbook-pencil-mark__stroke"
+                  d={d}
+                  pathLength={100}
+                  strokeDasharray="100 100"
+                >
                   <animate
                     attributeName="stroke-dashoffset"
                     dur={`${eraseMs}ms`}
@@ -972,7 +1195,13 @@ export function WorkbookPencilMark({
                   />
                 </path>
               ))}
-              <EraserCrumbs points={lastPoints} seed={seed} enterMs={enterMs} rubMs={rubMs} totalMs={eraseMs} />
+              <EraserCrumbs
+                points={lastPoints}
+                seed={seed}
+                enterMs={enterMs}
+                rubMs={rubMs}
+                totalMs={eraseMs}
+              />
             </>
           )}
         </svg>

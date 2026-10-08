@@ -56,3 +56,9 @@
     display: none;
   }
 }
+/* Owner 2026-10-08: while the page zooms in on the tapped picture, the enlarged
+   page must not add scrollbars. */
+html.workbook-close-up-zooming,
+html.workbook-close-up-zooming body {
+  overflow: hidden;
+}
