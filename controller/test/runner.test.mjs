@@ -33,6 +33,19 @@ test('uncertain start outcome blocks redelivery and reserves capacity',async()=>
  await runner.dispatch(a,snapshot());await runner.dispatch(await ledger.get(a.id),snapshot());
  assert.equal(starts,1);assert.equal((await ledger.get(a.id)).status,'blocked');assert.equal((await db.query('SELECT state FROM job_attempts')).rows[0].state,'ambiguous');await p.close();
 });
+test('single paid authorization excludes other jobs and cannot restart after UTC rollover',async()=>{
+ const {p,ledger,runner,db}=await setup();
+ const a=await ledger.create({key:'one-paid-run',kind:'repo_inspection',source:{admin:true},spec:{}});
+ const b=await ledger.create({key:'unapproved-run',kind:'repo_inspection',source:{admin:true},spec:{}});
+ runner.env.OPENHANDS_SINGLE_JOB_ID=a.id;
+ assert.equal(await runner.dispatch(b,snapshot()),false);
+ assert.equal(await runner.dispatch(a,snapshot()),true);
+ await db.query("UPDATE job_attempts SET state='failed',dispatched_at=now()-interval '2 days' WHERE job_id=$1",[a.id]);
+ await ledger.set(a.id,'retrying','simulated failure',{retry_at:new Date(0).toISOString()});
+ assert.equal(await runner.dispatch(await ledger.get(a.id),snapshot()),false);
+ assert.equal((await db.query("SELECT count(*)::int AS n FROM job_attempts WHERE worker='openhands'")).rows[0].n,1);
+ await p.close();
+});
 const evidence=()=>({pr:{number:1,head,body:'Fixes #7'},compare:{status:'ahead',ahead_by:1},files:[{filename:'src/example.ts',status:'modified',additions:4,deletions:2}],checks:[{name:'Independent tests',head_sha:head,app_id:123,status:'completed',conclusion:'success',started_at:new Date().toISOString()}]});
 test('worker success without material GitHub change is rejected; exact-head trusted checks and material change pass',()=>{
  const job={issue_number:7,spec};const e=evidence();assert.equal(validateChange(job,{...e,files:[]},[123]).passed,false);assert.equal(validateChange(job,{...e,checks:[]},[123]).passed,false);assert.equal(validateChange(job,e,[]).passed,false);assert.equal(validateChange(job,e,[123]).passed,true);

@@ -35,6 +35,8 @@ export class Runner {
   return transaction(this.ledger.db,async c=>{
    await c.query('SELECT id FROM controller_guard WHERE id=1 FOR UPDATE');
    const j=(await c.query('SELECT * FROM jobs WHERE id=$1 FOR UPDATE',[job.id])).rows[0];
+   // A bounded paid authorization survives retries and UTC quota rollover.
+   if(this.env.OPENHANDS_SINGLE_JOB_ID&&(job.id!==this.env.OPENHANDS_SINGLE_JOB_ID||j?.attempt_count>0))return {reason:'SINGLE_RUN_AUTHORIZATION_EXHAUSTED'};
    if(!j||['verified','cancelled','dead_letter','failed','running','waiting'].includes(j.status)||j.attempt_count>=j.max_attempts||(j.status==='retrying'&&new Date(j.retry_at)>new Date()))return {reason:'JOB_NOT_READY'};
    const active=(await c.query("SELECT a.*,j.spec FROM job_attempts a JOIN jobs j ON j.id=a.job_id WHERE a.worker='openhands' AND a.state IN('reserved','running','ambiguous','cancel_requested')")).rows;
    if(active.some(a=>a.job_id===job.id))return {reason:'EXISTING_EXTERNAL_ATTEMPT'};
