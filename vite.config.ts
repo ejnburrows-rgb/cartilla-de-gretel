@@ -132,38 +132,6 @@ export default defineConfig(({ mode }) => ({
           ) {
             return "tanstack-router";
           }
-          if (
-            id.includes("routes/cartilla/maestro") ||
-            id.includes("components/maestro")
-          ) {
-            if (id.includes("analitica")) return "route-analitica";
-            if (id.includes("autoria")) return "route-autoria";
-            return "route-maestro";
-          }
-          if (
-            id.includes("routes/cartilla/alumno") ||
-            id.includes("components/alumno")
-          ) {
-            return "route-alumno";
-          }
-          if (
-            id.includes("routes/cartilla/familia") ||
-            id.includes("components/familia")
-          ) {
-            return "route-familia";
-          }
-          if (
-            id.includes("routes/cartilla/binder") ||
-            id.includes("components/print")
-          ) {
-            return "route-binder";
-          }
-          // NOTE: lesson content is deliberately NOT forced into one chunk.
-          // Grouping every `content/` module together meant that importing a
-          // single lesson's data pulled the whole catalogue, so the welcome
-          // splash — which needs no lesson content at all — still downloaded
-          // it on first load. Letting Rollup split content by actual usage
-          // keeps the first screen small on a slow school network.
         },
       },
     },
