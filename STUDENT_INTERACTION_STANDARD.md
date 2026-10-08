@@ -32,9 +32,9 @@ Motion must be polished and seamless: one purposeful action, then settle. Avoid 
 
 When a learner makes an incorrect mark/selection:
 1. The learner's mark is visible.
-2. The same classic wooden pencil appears.
-3. The pencil smoothly rotates to its eraser end.
-4. The eraser visibly removes the incorrect mark.
+2. The pencil draws the mark in **red** from the first line, then travels back out past the right edge of the screen, over everything on the way (owner decisions 2026-10-06 and 2026-10-08).
+3. The same big, solid pencil turned around — its pink eraser and silver band at the picture, its body running off the edge of the screen — comes in from off the right edge of the screen, passing over everything on the way, rubs back and forth along the mark while big, clearly visible pink crumbs break off and fall, and leaves past the right edge of the screen once the mark is gone. It never pops up inside the picture's box.
+4. The eraser visibly removes the incorrect mark completely.
 5. Gretel says: **“Inténtalo otra vez.”**
 6. The activity returns to a calm retry-ready state.
 
@@ -44,11 +44,15 @@ No red X. No punitive buzzer. No arcade failure animation.
 
 Use the same classic wooden pencil.
 
+Owner decision 2026-10-06 (replaces the earlier ~3 second neutral hold), amended 2026-10-08:
+
 1. The learner taps the picture/answer.
-2. The pencil visibly draws the required workbook mark/circle around the selection.
-3. Hold the completed mark in its neutral pencil color for approximately **3 seconds**.
-4. If correct, the mark changes to green and Gretel says: **“Buen trabajo.”**
-5. If incorrect, use the Pencil Retry behavior above: pencil rotates to eraser, erases the mark, and Gretel says “Inténtalo otra vez.”
+2. A big, solid, full pencil (never faded, never cut off) whose body is long enough to run right off the edge of the screen, so near the picture only its tip is seen, like a real pencil held from off-screen (owner 2026-10-08). It is drawn in HD detail (fine wood grain, lacquer highlights, a crimped band and an "HB · Nº 2" stamp) and sized so it never hides the picture, the line, the rubbing or the crumbs. The line is crisp and solid. It starts **completely off the right edge of the screen** and travels in like a real hand, passing over the page and the neighbouring pictures. It is never cut off at the picture's or the page's edge and never pops up inside a box. It draws the circle in about **2 seconds**. The line is about as thick as before.
+   **Close-up zoom (owner decision 2026-10-08, replaces the earlier "page stays still, no zoom" rule):** when the learner taps, the whole page zooms in gently (about half a second) on the tapped picture, so it shows at roughly 220 px wide (at most 2.4×), and the pencil, the line, the eraser's rubbing and the crumbs are all clearly visible. The page zooms back out after a right answer's green circle has been seen for about a second, or once the eraser has left after a wrong answer. Reduced motion never zooms.
+3. The circle is **green from the first line** when the answer is right and **red from the first line** when it is wrong. There is no gray waiting period.
+4. After drawing, the pencil travels back out the same way, past the right edge of the screen.
+5. If correct, the green circle stays and Gretel says: **“Buen trabajo.”**
+6. If incorrect, use the Pencil Retry behavior above: the eraser erases the red circle and Gretel says “Inténtalo otra vez.”
 
 The pencil, mark, and feedback must feel like a premium animated workbook action, not a button-state change.
 
@@ -132,7 +136,7 @@ Required qualities:
 - no excessive bounce;
 - no repeated looping;
 - no dramatic spin;
-- no long blocking animation except the owner-approved ~3 second correct-selection hold;
+- no long blocking animation beyond the owner-approved ~2 second pencil draw and ~3.5 second erase;
 - reduced-motion mode must replace decorative motion with immediate/static state changes while preserving clarity.
 
 The pencil/eraser motion may be implemented with vector/CSS/canvas animation as appropriate, but it must look like one premium physical tool interacting with the Workbook, not unrelated UI effects.

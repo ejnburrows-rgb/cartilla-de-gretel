@@ -1,0 +1,42 @@
+{
+  "abanico": {
+    "still": "public/cartilla/art/optimized/workbook/leccion-1/abanico.svg",
+    "alive": "public/cartilla/art/optimized/workbook/leccion-1/abanico-alive.svg",
+    "stillSha256": "39e248975a1f4a7516893741c7e8becc2465fbdbd19a41ff3f23948896af4603"
+  },
+  "abeja": {
+    "still": "public/cartilla/art/faithful/leccion-1/wb-p1/abeja.svg",
+    "alive": "public/cartilla/art/faithful/leccion-1/wb-p1/abeja-alive.svg",
+    "stillSha256": "6f759e1b8dce95df661c1c943a83e34ca66831676ff7405e277ca25f97f6dca8"
+  },
+  "avion": {
+    "still": "public/cartilla/art/optimized/workbook/leccion-1/avion.svg",
+    "alive": "public/cartilla/art/optimized/workbook/leccion-1/avion-alive.svg",
+    "stillSha256": "9ac9429316f4e5cac4ee54a3fb4c314c528f836d8f8e7e476ac86898ea484c06"
+  },
+  "elefante": {
+    "still": "public/cartilla/art/optimized/workbook/leccion-1/elefante.svg",
+    "alive": "public/cartilla/art/optimized/workbook/leccion-1/elefante-alive.svg",
+    "stillSha256": "9609ded8255e090884ba3a10f514d81363b0721b97694390c7fd44c2d0fcbd94"
+  },
+  "iman": {
+    "still": "public/cartilla/art/optimized/workbook/leccion-1/iman.svg",
+    "alive": "public/cartilla/art/optimized/workbook/leccion-1/iman-alive.svg",
+    "stillSha256": "c8a80b42542979dd37809a40a334c0266c4241cb1639cb58a67d6aee6cfeee52"
+  },
+  "olla": {
+    "still": "public/cartilla/art/optimized/workbook/leccion-1/olla.svg",
+    "alive": "public/cartilla/art/optimized/workbook/leccion-1/olla-alive.svg",
+    "stillSha256": "f137b2bcf792cef39b9009930457554d93932837c88f02e89a7425346a16834c"
+  },
+  "oso": {
+    "still": "public/cartilla/art/optimized/workbook/leccion-1/oso.svg",
+    "alive": "public/cartilla/art/optimized/workbook/leccion-1/oso-alive.svg",
+    "stillSha256": "f920f41e957eead0bb5df3ea9f79ec84ff84562d0ccdcdf01d3cf953b3857fc2"
+  },
+  "oveja": {
+    "still": "public/cartilla/art/optimized/workbook/leccion-1/oveja.svg",
+    "alive": "public/cartilla/art/optimized/workbook/leccion-1/oveja-alive.svg",
+    "stillSha256": "956e2ad1290b9303213789c1066c4fb8272365fd0a956e5868ab0126a98868ff"
+  }
+}

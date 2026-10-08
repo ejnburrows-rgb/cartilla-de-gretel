@@ -29,7 +29,11 @@ describe("WorkbookPencilMark shared feedback kernel", () => {
   it("keeps the mark neutral for the full semantic hold before success", () => {
     const { container } = render(<WorkbookPencilMark isCorrect itemId="p1-0" />);
 
-    expect(container.querySelector("[data-mark-status='drawing'] .workbook-pencil")).toBeTruthy();
+    expect(
+      document.querySelector(
+        ".workbook-pencil-flight[data-mark-status='drawing'] .workbook-pencil",
+      ),
+    ).toBeTruthy();
     act(() => vi.advanceTimersByTime(drawMs));
     expect(container.querySelector("[data-mark-status='holding']")).toBeTruthy();
 
@@ -45,7 +49,7 @@ describe("WorkbookPencilMark shared feedback kernel", () => {
   it("preserves the neutral hold under reduced motion", () => {
     vi.mocked(useReducedMotion).mockReturnValue(true);
     const { container } = render(<WorkbookPencilMark isCorrect itemId="p1-0" />);
-    expect(container.querySelector(".workbook-pencil")).toBeNull();
+    expect(document.querySelector(".workbook-pencil")).toBeNull();
     expect(container.querySelector("animate, animateMotion")).toBeNull();
 
     act(() => vi.advanceTimersByTime(holdMs - 1));
@@ -74,7 +78,7 @@ describe("WorkbookPencilMark shared feedback kernel", () => {
     act(() => vi.advanceTimersByTime(drawMs + holdMs));
     expect(gretelEvent).toHaveBeenCalledWith("answer:wrong", { itemId: "p1-wrong" });
     expect(container.querySelector("[data-mark-status='erasing']")).toBeTruthy();
-    expect(container.querySelector(".workbook-pencil--eraser")).toBeTruthy();
+    expect(document.querySelector(".workbook-pencil--eraser")).toBeTruthy();
     expect(onRetry).not.toHaveBeenCalled();
 
     act(() => vi.advanceTimersByTime(eraseMs));
@@ -91,7 +95,8 @@ describe("WorkbookPencilMark shared feedback kernel", () => {
         ?.getAttribute("d"),
     ).toMatch(/^M [\d.-]+ [\d.-]+ C /);
     expect(root?.querySelector("animate[attributeName='stroke-dashoffset']")).toBeTruthy();
-    expect(root?.querySelector("animateMotion")).toBeTruthy();
+    // The pencil flies in its own screen-wide layer (owner 2026-10-08), not inside the page.
+    expect(document.querySelector(".workbook-pencil-flight animateMotion")).toBeTruthy();
   });
 
   it("renders a validated mark statically without replaying the pencil", () => {
@@ -105,8 +110,10 @@ describe("WorkbookPencilMark shared feedback kernel", () => {
   it("moves slowly enough for a child to see the pencil and the eraser (owner 2026-10-05)", () => {
     expect(WORKBOOK_MARK_TIMING.drawMs).toBeGreaterThanOrEqual(2400);
     expect(WORKBOOK_MARK_TIMING.eraseMs).toBeGreaterThanOrEqual(3000);
-    const { container } = render(<WorkbookPencilMark isCorrect={false} itemId="p1-1" />);
-    const pencil = container.querySelector(".workbook-pencil .workbook-pencil__shape");
+    render(<WorkbookPencilMark isCorrect={false} itemId="p1-1" />);
+    const pencil = document.querySelector(
+      ".workbook-pencil-flight .workbook-pencil .workbook-pencil__shape",
+    );
     // A classic wooden pencil: lacquered body, cedar cone, graphite point, metal ferrule, eraser.
     for (const part of ["lacq", "wood", "lead", "metal", "eraser"]) {
       expect(pencil?.querySelector(`linearGradient[id$='-${part}']`)).toBeTruthy();
