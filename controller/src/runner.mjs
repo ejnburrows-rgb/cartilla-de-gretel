@@ -122,7 +122,7 @@ export class Runner {
   const prompt=this.prompt(job,s);const {attempt,reason}=await this.reserveJules(job,s,prompt);
   if(!attempt){if(reason==='ACTIVE_FILE_OVERLAP')await this.ledger.set(job.id,'queued',reason,{next_action:'Wait for non-overlapping worker capacity; rescan when freed'});return false;}
   try{
-   const r=await this.github.startJules(job.issue_number,attempt.dispatched_at);
+   const r=await this.github.startJules(job.issue_number,attempt.dispatched_at,prompt,'main');
    await transaction(this.ledger.db,async c=>{
     await c.query("UPDATE job_attempts SET external_id=$2,state='running',updated_at=now() WHERE id=$1",[attempt.id,r.task_id??null]);
     await c.query("UPDATE jobs SET external_id=$2,updated_at=now() WHERE id=$1",[job.id,r.task_id??null]);
@@ -148,7 +148,7 @@ export class Runner {
   try{
    if(a.state==='finished'){await this.validateWorker(job,a);await this.rescan();const current=await this.ledger.get(job.id);return {done:current.status!=='waiting'};}
    if(a.state==='ambiguous')return {done:true,blocked:true};
-   const r=await this.github.julesStatus(job.issue_number,a.dispatched_at);
+   const r=await this.github.julesStatus(job.issue_number,a.dispatched_at,a.external_id);
    if(r.task_id&&r.task_id!==a.external_id){a.external_id=r.task_id;await this.ledger.db.query('UPDATE job_attempts SET external_id=$2,updated_at=now() WHERE id=$1',[a.id,r.task_id]);await this.ledger.db.query('UPDATE jobs SET external_id=$2 WHERE id=$1',[job.id,r.task_id]);}
    await this.ledger.receipt(job.id,'worker_status',{status:r.status,external_id:r.task_id??a.external_id,pr:r.pr_number??null,worker:'jules'},a.id);
    if(r.terminal&&r.pr_number){await this.ledger.db.query("UPDATE job_attempts SET state='finished',updated_at=now() WHERE id=$1",[a.id]);await this.validateWorker(await this.ledger.get(job.id),await this.ledger.attempt(job.id));await this.rescan();const current=await this.ledger.get(job.id);return {done:current.status!=='waiting'};}

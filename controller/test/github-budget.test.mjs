@@ -60,3 +60,45 @@ test('Jules GitHub dispatch adds the jules label and tracks trusted bot task/PR 
  assert.equal(done.task_id,'123456');assert.equal(done.pr_number,99);assert.equal(done.terminal,true);
  assert.ok(seen.some(c=>c.url.endsWith('/issues/7/labels')&&c.method==='POST'));
 });
+
+test('Jules API dispatch uses the configured key and AUTO_CREATE_PR instead of the GitHub label path',async()=>{
+ const seen=[];
+ const client=new GitHub({repo:'owner/repo',token:'github-token',julesKey:'jules-key',fetcher:async(url,init={})=>{
+  seen.push({url,method:init.method??'GET',headers:init.headers??{},body:init.body});
+  if(url==='https://jules.googleapis.com/v1alpha/sources')return {ok:true,json:async()=>({sources:[{name:'sources/github/owner/repo',githubRepo:{owner:'owner',repo:'repo'}}]})};
+  if(url==='https://jules.googleapis.com/v1alpha/sessions'&&init.method==='POST')return {ok:true,json:async()=>({id:'314159',state:'QUEUED'})};
+  throw Error('unexpected '+url);
+ }});
+ const started=await client.startJules(7,'2026-10-08T15:00:00Z','Fix issue #7','main');
+ assert.equal(started.task_id,'314159');
+ const create=seen.find(c=>c.url.endsWith('/sessions'));
+ assert.equal(create.headers['X-Goog-Api-Key'],'jules-key');
+ const body=JSON.parse(create.body);
+ assert.equal(body.automationMode,'AUTO_CREATE_PR');
+ assert.equal(body.sourceContext.source,'sources/github/owner/repo');
+ assert.equal(body.sourceContext.githubRepoContext.startingBranch,'main');
+ assert.equal(seen.some(c=>c.url.includes('/issues/7/labels')),false);
+});
+
+test('Jules API status returns the PR from the same durable session',async()=>{
+ const client=new GitHub({repo:'owner/repo',julesKey:'jules-key',fetcher:async(url)=>{
+  if(url==='https://jules.googleapis.com/v1alpha/sessions/314159')return {ok:true,json:async()=>({id:'314159',state:'COMPLETED',outputs:[{pullRequest:{url:'https://github.com/owner/repo/pull/99'}}]})};
+  throw Error('unexpected '+url);
+ }});
+ const done=await client.julesStatus(7,'2026-10-08T15:00:00Z','314159');
+ assert.equal(done.task_id,'314159');
+ assert.equal(done.pr_number,99);
+ assert.equal(done.terminal,true);
+});
+
+test('Jules API follow-up reuses the same session instead of creating a duplicate task',async()=>{
+ const seen=[];
+ const client=new GitHub({repo:'owner/repo',julesKey:'jules-key',fetcher:async(url,init={})=>{
+  seen.push({url,method:init.method??'GET',body:init.body});
+  if(url==='https://jules.googleapis.com/v1alpha/sessions/314159:sendMessage'&&init.method==='POST')return {ok:true,status:200,json:async()=>({})};
+  throw Error('unexpected '+url);
+ }});
+ assert.equal(await client.continueJules('314159','Fix the exact failed review finding; update the existing PR.'),true);
+ assert.equal(seen.length,1);
+ assert.deepEqual(JSON.parse(seen[0].body),{prompt:'Fix the exact failed review finding; update the existing PR.'});
+});

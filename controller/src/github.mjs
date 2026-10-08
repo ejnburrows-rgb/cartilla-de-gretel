@@ -1,7 +1,7 @@
 import {digest,safeText} from './security.mjs';
 export const instructionPaths=['AGENTS.md','PROJECT_FINISH_DEFINITION.md','PROJECT_SOURCE_OF_TRUTH.md','tasks/plan.md'];
 export class GitHub {
- constructor({repo,token,fetcher=fetch,ledger,sleeper=ms=>new Promise(resolve=>setTimeout(resolve,ms))}){if(!/^[\w.-]+\/[\w.-]+$/.test(repo??''))throw new Error('GITHUB_REPO_REQUIRED');this.repo=repo;this.token=token;this.ledger=ledger;this.fetcher=fetcher;this.sleeper=sleeper;}
+ constructor({repo,token,julesKey,fetcher=fetch,ledger,sleeper=ms=>new Promise(resolve=>setTimeout(resolve,ms))}){if(!/^[\w.-]+\/[\w.-]+$/.test(repo??''))throw new Error('GITHUB_REPO_REQUIRED');this.repo=repo;this.token=token;this.julesKey=julesKey;this.ledger=ledger;this.fetcher=fetcher;this.sleeper=sleeper;this._julesSource=null;}
  headers(){return {Accept:'application/vnd.github+json','X-GitHub-Api-Version':'2022-11-28','User-Agent':'cartilla-controller',...(this.token?{Authorization:`Bearer ${this.token}`}:{})};}
  safeURL(path){
   if(typeof path!=='string'||!/^\/(?:commits|contents|issues|pulls|compare)(?:[/?]|$)/.test(path))throw Error('INVALID_GITHUB_ENDPOINT');
@@ -78,6 +78,33 @@ export class GitHub {
   const [issues,prs]=await Promise.all([this.pages('/issues?state=open'),this.pages('/pulls?state=open')]);
   return {main,instructions:Object.fromEntries(instructionPaths.map((p,i)=>[p,texts[i]])),instructionHashes:Object.fromEntries(instructionPaths.map((p,i)=>[p,digest(texts[i])])),issues:issues.filter(i=>!i.pull_request),prs,fetched_at:new Date().toISOString()};
  }
+ async julesRequest(path,{method='GET',body}={}){
+  if(!this.julesKey)throw Error('JULES_API_KEY_REQUIRED');
+  if(typeof path!=='string'||!/^\/(?:sources(?:\?.*)?|sessions(?:\/\d+)?(?::sendMessage)?)$/.test(path))throw Error('INVALID_JULES_ENDPOINT');
+  const url=new URL('https://jules.googleapis.com/v1alpha'+path);
+  const r=await this.fetcher(url.href,{method,headers:{'Content-Type':'application/json','X-Goog-Api-Key':this.julesKey,'User-Agent':'cartilla-controller'},...(body!==undefined?{body:JSON.stringify(body)}:{}),redirect:'error',signal:AbortSignal.timeout(20000)});
+  if(!r.ok)throw Error('JULES_HTTP_'+r.status);
+  if(r.status===204)return {};
+  try{return await r.json();}catch{return {};}
+ }
+ async julesSource(){
+  if(this._julesSource)return this._julesSource;
+  const [owner,repo]=this.repo.split('/');
+  let pageToken=null;
+  for(let page=0;page<10;page++){
+   const q=pageToken?'?pageToken='+encodeURIComponent(pageToken):'';
+   const result=await this.julesRequest('/sources'+q);
+   const found=(result.sources??[]).find(s=>s.githubRepo?.owner===owner&&s.githubRepo?.repo===repo);
+   if(found?.name){this._julesSource=found.name;return found.name;}
+   pageToken=result.nextPageToken;if(!pageToken)break;
+  }
+  throw Error('JULES_SOURCE_NOT_FOUND');
+ }
+ async continueJules(taskId,prompt){
+  if(!/^\d+$/.test(String(taskId??''))||typeof prompt!=='string'||!prompt.trim())throw Error('INVALID_JULES_FOLLOWUP');
+  await this.julesRequest('/sessions/'+taskId+':sendMessage',{method:'POST',body:{prompt:prompt.trim()}});
+  return true;
+ }
  async addIssueLabel(number,label){
   if(!Number.isSafeInteger(number)||number<=0||label!=='jules')throw Error('INVALID_ISSUE_LABEL');
   const url='https://api.github.com/repos/'+this.repo+'/issues/'+number+'/labels';
@@ -85,21 +112,37 @@ export class GitHub {
   if(!r.ok)throw Error('GITHUB_LABEL_HTTP_'+r.status);
   return r.json();
  }
- async julesStatus(number,since){
+ async julesStatus(number,since,taskId){
   if(!Number.isSafeInteger(number)||number<=0)throw Error('INVALID_JULES_ISSUE');
   const after=since?new Date(since):null;if(after&&Number.isNaN(after.getTime()))throw Error('INVALID_JULES_DISPATCH_TIME');
+  if(this.julesKey&&taskId){
+   if(!/^\d+$/.test(String(taskId)))throw Error('INVALID_JULES_SESSION');
+   const session=await this.julesRequest('/sessions/'+taskId);
+   const prUrl=(session.outputs??[]).map(o=>o?.pullRequest?.url).find(Boolean);
+   const m=typeof prUrl==='string'?prUrl.match(new RegExp('^https://github\\.com/'+this.repo.replace(/[.*+?^$()|[\]\\]/g,'\\$&')+'/pull/(\\d+)$')):null;
+   const prNumber=m?Number(m[1]):null;
+   const terminal=['COMPLETED','FAILED'].includes(session.state);
+   return {status:String(session.state??'QUEUED').toLowerCase(),terminal,task_id:String(session.id??taskId),pr_number:prNumber,external_id:String(session.id??taskId)};
+  }
   const comments=(await this.pages('/issues/'+number+'/comments')).filter(c=>c.user?.login==='google-labs-jules[bot]'&&(!after||new Date(c.created_at)>=after));
-  let taskId=null,prNumber=null;
+  let id=null,prNumber=null;
   for(const c of comments){
    const body=String(c.body??'');
-   const task=body.match(/jules\.google\.com\/task\/(\d+)/);if(task)taskId=task[1];
+   const task=body.match(/jules\.google\.com\/task\/(\d+)/);if(task)id=task[1];
    const pr=body.match(/Ready for a review![\s\S]*?\/pull\/(\d+)/i);if(pr)prNumber=Number(pr[1]);
   }
-  if(prNumber)return {status:'finished',terminal:true,task_id:taskId,pr_number:prNumber,external_id:taskId};
-  if(taskId)return {status:'running',terminal:false,task_id:taskId,external_id:taskId};
+  if(prNumber)return {status:'finished',terminal:true,task_id:id,pr_number:prNumber,external_id:id};
+  if(id)return {status:'running',terminal:false,task_id:id,external_id:id};
   return {status:'queued',terminal:false,task_id:null,external_id:null};
  }
- async startJules(number,since){
+ async startJules(number,since,prompt,startingBranch='main'){
+  if(this.julesKey){
+   if(typeof prompt!=='string'||!prompt.trim())throw Error('JULES_PROMPT_REQUIRED');
+   const source=await this.julesSource();
+   const session=await this.julesRequest('/sessions',{method:'POST',body:{prompt:prompt.trim(),sourceContext:{source,githubRepoContext:{startingBranch}},automationMode:'AUTO_CREATE_PR',title:'Cartilla issue #'+number,requirePlanApproval:false}});
+   if(!/^\d+$/.test(String(session.id??'')))throw Error('JULES_SESSION_ID_MISSING');
+   return {status:String(session.state??'QUEUED').toLowerCase(),terminal:false,task_id:String(session.id),external_id:String(session.id)};
+  }
   const issue=await this.request('/issues/'+number);const labels=new Set((issue.labels??[]).map(l=>typeof l==='string'?l:l.name));
   if(labels.has('jules')){const existing=await this.julesStatus(number,since);if(existing.task_id||existing.pr_number)return existing;throw Error('JULES_LABEL_ALREADY_PRESENT');}
   try{await this.addIssueLabel(number,'jules');}catch(error){const fresh=await this.request('/issues/'+number);if(!(fresh.labels??[]).some(l=>(typeof l==='string'?l:l.name)==='jules'))throw error;}
@@ -108,7 +151,7 @@ export class GitHub {
  async changes(job){
   let pr,detail,branch;
   if(job.worker==='jules'){
-   const state=await this.julesStatus(job.issue_number,job.created_at);
+   const state=await this.julesStatus(job.issue_number,job.created_at,job.external_id);
    if(!state.pr_number)return {passed:false,reason:'NO_EXPECTED_PR'};
    detail=await this.request('/pulls/'+state.pr_number);
    if(detail.state!=='open'||detail.head?.repo?.full_name!==this.repo)return {passed:false,reason:'NO_EXPECTED_PR'};
