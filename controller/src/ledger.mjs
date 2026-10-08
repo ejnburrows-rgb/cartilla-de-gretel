@@ -83,7 +83,7 @@ export class Ledger {
    if(failed?.status==='dead_letter')await c.query('INSERT INTO dead_letters(id,job_id,reason) VALUES($1,$2,$3)',[randomUUID(),r.id,'INNGEST_SEND_RETRIES_EXHAUSTED']);
   });return false;}
  }
- async retry(id,resolution=null){
+ async retry(id,resolution){
   return transaction(this.db,async c=>{
    const j=(await c.query('SELECT * FROM jobs WHERE id=$1 FOR UPDATE',[id])).rows[0];
    if(!j)throw new Error('JOB_NOT_FOUND');
