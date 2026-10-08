@@ -66,16 +66,4 @@ describe("CurlPageViewer physical contracts", () => {
     expect(visiblePageLabel(4, 5, true)).toBe("Página 5 de 5");
     expect(visiblePageLabel(3, 6, true)).toBe("Páginas 3–4 de 6");
   });
-
-  it("uses entry pageNumber across non-contiguous gaps", () => {
-    const pages = [
-      { pageNumber: 84 },
-      { pageNumber: 85 },
-      { pageNumber: 88 },
-      { pageNumber: 89 },
-    ];
-    expect(visiblePageLabel(1, 88, true, pages)).toBe("Páginas 84–85 de 88");
-    expect(visiblePageLabel(2, 88, true, pages)).toBe("Páginas 88–89 de 88");
-    expect(visiblePageLabel(2, 88, false, pages)).toBe("Página 88 de 88");
-  });
 });

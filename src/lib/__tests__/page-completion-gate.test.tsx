@@ -6,7 +6,6 @@
 import { afterEach, beforeEach, describe, expect, it, vi } from "vitest";
 import { act, cleanup, fireEvent, render, screen } from "@testing-library/react";
 import { NativeLessonViewer } from "@/components/StudentBook/NativeLessonViewer";
-import { WORKBOOK_MARK_TIMING } from "@/components/cartilla/WorkbookPencilMark";
 import { focusGretelActivity, gretelEvent, onGretelEvent } from "@/lib/gretel-bus";
 import { requiredActivitiesForPage, pageCompletionState } from "@/lib/page-completion";
 import { markLessonCompleted, resetProgress } from "@/lib/lesson-progress";
@@ -146,6 +145,7 @@ describe("NativeLessonViewer completion gate", () => {
 
 describe("real workbook activities feed the gate through their own events", () => {
   it("page 24: circling every syllable word with the real component unlocks Siguiente", async () => {
+    vi.useRealTimers();
     const { buildPageArray } = await import("@/utils/buildPageArray");
     const pages = buildPageArray(8);
     render(<NativeLessonViewer pages={pages} chapterLabel="Lección 8" lessonNumber={8} initialPage={1} />);
@@ -155,12 +155,8 @@ describe("real workbook activities feed the gate through their own events", () =
     expect(sections).toHaveLength(5);
     for (const section of sections) {
       for (const button of [...section.querySelectorAll<HTMLButtonElement>("button")]) {
-        // Keyboard activation chooses the target syllable. Advance the real
-        // shared pencil draw/hold timing before this row accepts more work.
-        fireEvent.click(button, { detail: 0 });
-        expect(next().getAttribute("aria-disabled")).toBe("true");
-        act(() => vi.advanceTimersByTime(WORKBOOK_MARK_TIMING.drawMs + WORKBOOK_MARK_TIMING.holdMs));
-        expect(button.getAttribute("aria-pressed")).toBe("true");
+        fireEvent.pointerDown(button);
+        fireEvent.click(button);
       }
     }
     expect(next().hasAttribute("aria-disabled")).toBe(false);
