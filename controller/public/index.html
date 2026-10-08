@@ -1,18 +1,208 @@
-<!doctype html><html lang="en"><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Cartilla Controller</title><style>
-:root{font-family:system-ui,sans-serif;color:#18324c;background:#f4f6f8}*{box-sizing:border-box}body{margin:0}main{max-width:1180px;margin:auto;padding:28px 20px}header{display:flex;justify-content:space-between;gap:20px;align-items:center}h1{margin:0;font-size:28px}header p{margin:6px 0;color:#596b7b}.connection{padding:20px;background:white;border:1px solid #d9e1e8;border-radius:8px;margin:24px 0}label{display:block;font-size:14px;margin-bottom:8px}input,button{font:inherit;padding:10px 14px;border:1px solid #a9b8c6;border-radius:5px}input{width:min(500px,70%)}button{background:#183f61;color:white;cursor:pointer}#notice{margin:16px 0;white-space:pre-wrap}#counts{display:grid;grid-template-columns:repeat(auto-fit,minmax(125px,1fr));gap:10px}.count{background:white;border:1px solid #d9e1e8;border-top:4px solid #677a8b;padding:14px;border-radius:6px}.count span{font-size:11px;font-weight:700;letter-spacing:.6px}.count strong{display:block;font-size:27px;margin-top:6px}.running{border-top-color:#287bb4}.verified{border-top-color:#288255}.blocked,.failed,.dead_letter{border-top-color:#bb593b}.retrying{border-top-color:#b38a32}article{background:white;border:1px solid #d9e1e8;border-radius:8px;margin:18px 0;padding:20px}article h2{font-size:17px;margin:0 0 15px}dl{display:grid;grid-template-columns:160px 1fr;gap:8px;font-size:14px}dt{color:#596b7b}dd{margin:0;overflow-wrap:anywhere}#empty{padding:24px 0;color:#596b7b}.owner{background:#f3f6f9;padding:12px;margin-top:15px}small{color:#596b7b}a{color:#17659a}@media(max-width:600px){header{display:block}dl{grid-template-columns:1fr;gap:4px}dd{margin-bottom:9px}input{width:100%;margin-bottom:10px}main{padding:22px 14px}}
-</style><main><header><div><h1>Cartilla Controller</h1><p>Durable jobs. Independent GitHub verification.</p></div><small id="updated">Loading live totals</small></header><section class="connection" id="connection"><label for="token">Read-only access token</label><input id="token" type="password" autocomplete="off" placeholder="Enter configured read token"><button id="connect">Connect</button><p><small>The token stays in this page’s memory. Closing the page clears it.</small></p></section><div id="notice" role="status">Loading live operational totals. Connect below to view protected job details.</div><section id="counts" aria-label="Job status counts"></section><section id="jobs" aria-label="Controller jobs"></section><div id="empty"></div></main><script>
-const names=['running','waiting','retrying','blocked','failed','dead_letter','verified'];let token='';
-const node=(tag,text)=>{const e=document.createElement(tag);e.textContent=text;return e};
-for(const name of names){const e=node('div','');e.className='count '+name;e.append(node('span',name.replace('_',' ').toUpperCase()),node('strong','—'));e.dataset.status=name;document.querySelector('#counts').append(e)}
-async function get(path){const r=await fetch(path,{headers:{Authorization:'Bearer '+token},cache:'no-store'});const body=await r.json();if(!r.ok){const e=new Error(body.error||'Connection needs configuration');e.body=body;throw e}return body}
-async function overview(){try{const r=await fetch('/api/overview',{cache:'no-store'});if(!r.ok)throw Error('Live totals temporarily unavailable');const state=await r.json();document.querySelectorAll('.count').forEach(e=>e.querySelector('strong').textContent=state.statuses[e.dataset.status]??0);document.querySelector('#updated').textContent='Live totals · '+new Date().toLocaleTimeString();if(!token)document.querySelector('#notice').textContent='Live controller totals · New OpenHands starts '+(state.worker_enabled?'enabled':'paused')+'. Existing jobs continue. Detailed jobs require read-only access.';}catch(e){document.querySelector('#notice').textContent=e.message;}}
-async function refresh(){try{
- const state=await get('/api/status');document.querySelectorAll('.count').forEach(e=>e.querySelector('strong').textContent=state.statuses[e.dataset.status]??0);
- const {jobs}=await get('/api/jobs');const host=document.querySelector('#jobs');host.replaceChildren();
- for(const j of jobs){const detail=await get('/api/jobs/'+j.id);const card=node('article','');card.append(node('h2',j.status.replace('_',' ').toUpperCase()+' · '+(j.issue?'Issue #'+j.issue:j.kind.replace('_',' '))));const dl=node('dl','');
- const fields={'Job ID':j.id,'Requested action':j.requested_action,'Worker':j.worker||'Controller / not dispatched','External run ID':j.external_id||'—','Starting SHA':j.starting_sha||'—','Attempt':j.attempt_number,'Deadline':j.deadline||'—','Last activity':j.last_activity,'Next retry':j.next_retry||'—','Failure reason':j.failure_reason||'None','Latest GitHub evidence':detail.latest_evidence?JSON.stringify(detail.latest_evidence.data):'Awaiting evidence','Validation':detail.validation?(detail.validation.passed?'Passed':'Rejected')+' · '+detail.validation.name:'Not yet validated','Next action':j.next_action};
- for(const [label,value]of Object.entries(fields)){dl.append(node('dt',label),node('dd',String(value)))}card.append(dl);const owner=node('div','What Emilio needs to do: '+j.what_emilio_needs_to_do);owner.className='owner';card.append(owner);host.append(card)}
- document.querySelector('#empty').textContent=jobs.length?'':'No jobs have been received yet.';document.querySelector('#notice').textContent='Connected · OpenHands '+(state.worker_enabled?'enabled':'disabled')+' · Jules is optional';document.querySelector('#updated').textContent='Updated '+new Date().toLocaleTimeString();
- }catch(e){document.querySelector('#notice').textContent=e.body?.missing?'Configuration needed: '+e.body.missing.join(', '):e.message;}}
-document.querySelector('#connect').onclick=()=>{token=document.querySelector('#token').value.trim();document.querySelector('#token').value='';refresh()};overview();setInterval(()=>{if(token)refresh();else overview()},15000);
-</script></html>
+<!doctype html>
+<html lang="en">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Cartilla Controller</title>
+<style>
+:root{font-family:system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;color:#17324b;background:#f4f6f8;line-height:1.45}*{box-sizing:border-box}body{margin:0}main{max-width:1120px;margin:auto;padding:24px 18px 48px}header{display:flex;justify-content:space-between;gap:18px;align-items:flex-start}h1{margin:0;font-size:30px;line-height:1.1}header p{margin:7px 0 0;color:#526575;font-size:16px}.updated{white-space:nowrap;color:#657786;font-size:13px}.panel,article{background:#fff;border:1px solid #d7e0e7;border-radius:12px}.hero{margin:22px 0;padding:22px}.hero h2{margin:0 0 7px;font-size:22px}.hero p{margin:7px 0}.hero .plain{font-size:16px;color:#304b62}.hero .scope{color:#657786;font-size:13px;margin-top:12px}.health{display:inline-block;font-weight:800;font-size:12px;letter-spacing:.04em;text-transform:uppercase;padding:5px 9px;border-radius:999px;background:#e9eef2;color:#3f5668;margin-bottom:10px}.health.attention{background:#fff1e7;color:#8b3f20}.health.working{background:#e8f4fb;color:#1b618b}.health.clear{background:#e8f5ee;color:#236c49}.priority{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:10px;margin:14px 0 0}.priority-card{border:1px solid #e0e6eb;border-radius:9px;padding:14px;background:#fbfcfd}.priority-card strong{display:block;font-size:25px;line-height:1.1}.priority-card b{display:block;margin:4px 0 3px}.priority-card small{display:block;color:#617383;line-height:1.4}.priority-card.problem{border-left:5px solid #b65334}.priority-card.retry{border-left:5px solid #b58826}.priority-card.active{border-left:5px solid #2b7db2}.priority-card.good{border-left:5px solid #2b8258}.connection{padding:18px;margin:18px 0}.connection h2{font-size:18px;margin:0 0 6px}.connection p{margin:4px 0 12px;color:#5d6f7e}.token-row{display:flex;gap:8px}.token-row input{flex:1;min-width:0}input,button{font:inherit;padding:11px 13px;border:1px solid #a9b8c6;border-radius:7px}button{background:#173f61;color:#fff;cursor:pointer;font-weight:650}button.secondary{background:#fff;color:#173f61}button:focus,input:focus{outline:3px solid #b8def6;outline-offset:1px}.notice{margin:14px 0;padding:12px 14px;border-radius:8px;background:#eef4f7;color:#29485f}.notice.problem{background:#fff0e9;color:#7e3d24}.notice.success{background:#eaf5ee;color:#245f44}.section-title{display:flex;justify-content:space-between;gap:12px;align-items:end;margin:24px 0 10px}.section-title h2{margin:0;font-size:20px}.section-title p{margin:4px 0 0;color:#617383;font-size:13px}.filters{display:flex;gap:7px;flex-wrap:wrap}.filters button{padding:8px 10px;font-size:13px}.filters button[aria-pressed="true"]{background:#173f61;color:#fff}.filters button[aria-pressed="false"]{background:#fff;color:#173f61}.job{margin:10px 0;padding:18px}.job-head{display:flex;justify-content:space-between;gap:12px;align-items:flex-start}.job h3{font-size:17px;margin:0}.badge{font-size:11px;font-weight:800;letter-spacing:.04em;text-transform:uppercase;border-radius:999px;padding:5px 8px;background:#edf1f4;color:#4d6272;white-space:nowrap}.badge.blocked,.badge.failed,.badge.dead_letter{background:#fff0e9;color:#8c4227}.badge.retrying{background:#fff7df;color:#7b5a0b}.badge.running{background:#e8f4fb;color:#1d648f}.badge.verified{background:#e9f5ee;color:#28684a}.job-grid{display:grid;grid-template-columns:170px 1fr;gap:8px 12px;margin-top:14px}.job-grid dt{color:#657786}.job-grid dd{margin:0;overflow-wrap:anywhere}.emilio{margin-top:14px;padding:12px 14px;border-radius:8px;background:#f5f7f9}.emilio strong{display:block;margin-bottom:3px}.emilio.action{background:#fff1e7;border-left:4px solid #b65334}.tech{margin-top:13px;border-top:1px solid #e5eaee;padding-top:10px}.tech summary{cursor:pointer;color:#365b74;font-weight:650}.tech dl{display:grid;grid-template-columns:150px 1fr;gap:6px 10px;font-size:13px}.empty{padding:28px;text-align:center;color:#617383}.muted{color:#657786}.link{color:#17659a;text-decoration:none}.link:hover{text-decoration:underline}@media(max-width:650px){main{padding:20px 12px 40px}header{display:block}.updated{display:block;margin-top:8px}.hero{padding:17px}.priority{grid-template-columns:1fr 1fr}.token-row{display:block}.token-row input,.token-row button{width:100%}.token-row button{margin-top:8px}.section-title{display:block}.filters{margin-top:10px}.job-grid{grid-template-columns:1fr;gap:3px}.job-grid dd{margin-bottom:8px}.job-head{display:block}.badge{display:inline-block;margin-top:8px}}@media(max-width:420px){.priority{grid-template-columns:1fr}}
+</style>
+<main>
+<header>
+  <div>
+    <h1>Cartilla Controller</h1>
+    <p>What is working, what is stuck, and whether you need to do anything.</p>
+  </div>
+  <span class="updated" id="updated">Loading live status…</span>
+</header>
+
+<section class="panel hero" aria-live="polite">
+  <span class="health" id="health">Checking</span>
+  <h2 id="headline">Checking the controller…</h2>
+  <p class="plain" id="explanation">Loading the current job totals.</p>
+  <div class="priority" id="priority"></div>
+  <p class="scope"><strong>Important:</strong> these numbers are controller jobs and internal checks. They are not a count of finished Cartilla features or pages.</p>
+</section>
+
+<section class="panel connection" id="connection">
+  <h2>See exactly what is stuck</h2>
+  <p>Enter the controller’s read-only token to see the specific jobs, why each one is stopped, what happens next, and whether Emilio needs to do anything. This token can only read status; it cannot retry, cancel, merge, deploy, or change the project.</p>
+  <div class="token-row">
+    <input id="token" type="password" autocomplete="off" placeholder="Read-only token">
+    <button id="connect">Show job details</button>
+  </div>
+</section>
+
+<div id="notice" class="notice" role="status">Live summary is available without a token. Detailed job reasons require read-only access.</div>
+
+<section class="section-title">
+  <div>
+    <h2>Job details</h2>
+    <p id="jobs-help">Connect above to see the jobs that need attention.</p>
+  </div>
+  <div class="filters" id="filters" hidden>
+    <button class="secondary" data-filter="attention" aria-pressed="true">Needs attention</button>
+    <button class="secondary" data-filter="active" aria-pressed="false">Working now</button>
+    <button class="secondary" data-filter="verified" aria-pressed="false">Verified history</button>
+    <button class="secondary" data-filter="all" aria-pressed="false">All</button>
+  </div>
+</section>
+<section id="jobs" aria-label="Controller jobs"></section>
+<div id="empty" class="empty"></div>
+</main>
+<script>
+const names=['running','waiting','retrying','blocked','failed','dead_letter','verified'];
+const statusCopy={
+ running:{label:'Working now',meaning:'A worker is actively handling this job.'},
+ waiting:{label:'Waiting',meaning:'The job is saved but is waiting for its next safe step.'},
+ retrying:{label:'Retrying automatically',meaning:'The controller hit a problem and is trying again by itself.'},
+ blocked:{label:'Blocked',meaning:'The job cannot safely continue until a dependency, check, or required condition is resolved.'},
+ failed:{label:'Failed',meaning:'The latest attempt failed. Read the reason and next action below.'},
+ dead_letter:{label:'Stopped after repeated failures',meaning:'Automatic recovery is finished for this job. It needs review before it can move again.'},
+ verified:{label:'Verified',meaning:'The controller recorded this job as successfully verified. This does not mean the entire Cartilla project is finished.'}
+};
+let token='',allJobs=[],filter='attention';
+const node=(tag,text,className)=>{const e=document.createElement(tag);if(text!==undefined)e.textContent=text;if(className)e.className=className;return e};
+const plural=(n,one,many)=>n+' '+(n===1?one:many);
+function priorityCard(count,title,body,kind){
+ const e=node('div',undefined,'priority-card '+kind);
+ e.append(node('strong',String(count)),node('b',title),node('small',body));
+ return e;
+}
+function renderOverview(state){
+ const s=state.statuses||{},running=s.running||0,waiting=s.waiting||0,retrying=s.retrying||0,blocked=s.blocked||0,failed=s.failed||0,dead=s.dead_letter||0,verified=s.verified||0;
+ const unhealthy=blocked+failed+dead;
+ const health=document.querySelector('#health'),headline=document.querySelector('#headline'),explanation=document.querySelector('#explanation');
+ health.className='health '+(unhealthy?'attention':running||retrying?'working':'clear');
+ if(unhealthy){
+   health.textContent='Needs attention';
+   headline.textContent=plural(unhealthy,'controller job needs','controller jobs need')+' review';
+ }else if(running||retrying){
+   health.textContent='Work in progress';
+   headline.textContent=running?plural(running,'job is','jobs are')+' actively working':'The controller is retrying work automatically';
+ }else{
+   health.textContent='No active problem shown';
+   headline.textContent='Nothing is actively running right now';
+ }
+ const parts=[];
+ parts.push(running?plural(running,'job is','jobs are')+' running now.':'No job is actively running right now.');
+ if(retrying)parts.push(plural(retrying,'job is','jobs are')+' retrying automatically.');
+ if(blocked)parts.push(plural(blocked,'job is','jobs are')+' blocked and cannot continue yet.');
+ if(dead)parts.push(plural(dead,'job has','jobs have')+' stopped after repeated failures.');
+ if(failed)parts.push(plural(failed,'job has','jobs have')+' a failed latest attempt.');
+ if(waiting)parts.push(plural(waiting,'job is','jobs are')+' waiting for the next safe step.');
+ parts.push(plural(verified,'internal job has','internal jobs have')+' been verified over the controller’s recorded history.');
+ explanation.textContent=parts.join(' ');
+ const host=document.querySelector('#priority');host.replaceChildren();
+ host.append(
+   priorityCard(running,'Working now','Active worker jobs right now.','active'),
+   priorityCard(retrying,'Retrying','Automatic retry is in progress; normally no owner action yet.','retry'),
+   priorityCard(blocked,'Blocked','Cannot continue until its blocking condition is cleared.','problem'),
+   priorityCard(dead,'Stopped','Automatic recovery is over; these need review.','problem'),
+   priorityCard(verified,'Verified history','Completed controller checks/jobs, not finished Cartilla features.','good')
+ );
+ document.querySelector('#updated').textContent='Live · '+new Date().toLocaleTimeString();
+ document.querySelector('#notice').className='notice'+(unhealthy?' problem':'');
+ if(!token){
+   document.querySelector('#notice').textContent=unhealthy
+    ? 'There are controller jobs that need review. Use the read-only token above to see which jobs they are, why they are stuck, and the exact next action.'
+    : 'No blocked, failed, or stopped controller jobs are shown in the public totals. Connect for job-level details.';
+ }
+}
+async function get(path){
+ const r=await fetch(path,{headers:{Authorization:'Bearer '+token},cache:'no-store'});
+ const body=await r.json();
+ if(!r.ok){const e=new Error(body.error||'Connection needs configuration');e.body=body;throw e}
+ return body;
+}
+async function overview(){
+ try{
+  const r=await fetch('/api/overview',{cache:'no-store'});
+  if(!r.ok)throw Error('Live controller summary is temporarily unavailable.');
+  renderOverview(await r.json());
+ }catch(e){
+  document.querySelector('#headline').textContent='Live controller status is unavailable';
+  document.querySelector('#explanation').textContent=e.message;
+  document.querySelector('#notice').textContent=e.message;
+  document.querySelector('#notice').className='notice problem';
+ }
+}
+function jobTitle(j){
+ const prefix=j.issue?'Issue #'+j.issue:j.pr?'PR #'+j.pr:(j.kind||'controller job').replaceAll('_',' ');
+ return prefix+(j.requested_action?' · '+j.requested_action:'');
+}
+function safeAction(value,fallback){return value&&String(value).trim()?String(value):fallback}
+function renderJobs(){
+ const host=document.querySelector('#jobs');host.replaceChildren();
+ const problemStates=new Set(['blocked','failed','dead_letter','retrying']);
+ const activeStates=new Set(['running','waiting','retrying']);
+ let jobs=allJobs;
+ if(filter==='attention')jobs=jobs.filter(j=>problemStates.has(j.status));
+ if(filter==='active')jobs=jobs.filter(j=>activeStates.has(j.status));
+ if(filter==='verified')jobs=jobs.filter(j=>j.status==='verified');
+ const order={running:0,retrying:1,blocked:2,failed:3,dead_letter:4,waiting:5,verified:6};
+ jobs=[...jobs].sort((a,b)=>(order[a.status]??9)-(order[b.status]??9)||new Date(b.last_activity||0)-new Date(a.last_activity||0));
+ for(const j of jobs){
+  const card=node('article',undefined,'panel job');
+  const head=node('div',undefined,'job-head');
+  head.append(node('h3',jobTitle(j)),node('span',statusCopy[j.status]?.label||j.status,'badge '+j.status));
+  card.append(head);
+  const dl=node('dl',undefined,'job-grid');
+  const fields=[
+   ['What this means',statusCopy[j.status]?.meaning||'Controller status recorded.'],
+   ['Why it is stuck / failed',problemStates.has(j.status)?safeAction(j.failure_reason,'No specific failure reason was recorded.'):j.status==='waiting'?'Waiting for its next safe step.':'No current failure recorded.'],
+   ['What happens next',safeAction(j.next_action,'No next action is recorded yet.')],
+   ['Worker',safeAction(j.worker,'Controller only / not dispatched')],
+   ['Last updated',j.last_activity?new Date(j.last_activity).toLocaleString():'Unknown']
+  ];
+  for(const [label,value] of fields)dl.append(node('dt',label),node('dd',value));
+  card.append(dl);
+  const ownerText=safeAction(j.what_emilio_needs_to_do,'Nothing right now.');
+  const owner=node('div',undefined,'emilio'+(ownerText!=='Nothing right now.'?' action':''));
+  owner.append(node('strong','What Emilio needs to do'),node('span',ownerText));
+  card.append(owner);
+  if(j.issue||j.pr){
+   const links=node('div',undefined,'emilio');
+   if(j.issue){const a=node('a','Open Issue #'+j.issue,'link');a.href='https://github.com/ejnburrows-rgb/cartilla-de-gretel/issues/'+j.issue;a.target='_blank';a.rel='noreferrer';links.append(a)}
+   if(j.pr){if(j.issue)links.append(node('span',' · '));const a=node('a','Open PR #'+j.pr,'link');a.href='https://github.com/ejnburrows-rgb/cartilla-de-gretel/pull/'+j.pr;a.target='_blank';a.rel='noreferrer';links.append(a)}
+   card.append(links);
+  }
+  const tech=document.createElement('details');tech.className='tech';
+  tech.append(node('summary','Technical details'));
+  const tdl=document.createElement('dl');
+  const technical={'Job ID':j.id,'External run':j.external_id||'—','Starting SHA':j.starting_sha||'—','Attempt':j.attempt_number??'—','Deadline':j.deadline?new Date(j.deadline).toLocaleString():'—','Next retry':j.next_retry?new Date(j.next_retry).toLocaleString():'—'};
+  for(const [label,value] of Object.entries(technical))tdl.append(node('dt',label),node('dd',String(value)));
+  tech.append(tdl);card.append(tech);host.append(card);
+ }
+ document.querySelector('#empty').textContent=jobs.length?'':filter==='attention'?'No blocked, failed, retrying, or stopped jobs are shown.':'No jobs match this view.';
+ document.querySelector('#jobs-help').textContent=filter==='attention'?'Showing jobs that are blocked, failed, retrying, or stopped.':filter==='active'?'Showing running, waiting, and retrying work.':filter==='verified'?'Showing verified controller history.':'Showing every recorded controller job.';
+}
+async function refresh(){
+ try{
+  const [state,list]=await Promise.all([get('/api/status'),get('/api/jobs')]);
+  renderOverview(state);allJobs=list.jobs||[];
+  document.querySelector('#filters').hidden=false;
+  renderJobs();
+  document.querySelector('#notice').textContent='Connected with read-only access. Nothing on this page can change the project.';
+  document.querySelector('#notice').className='notice success';
+ }catch(e){
+  document.querySelector('#notice').textContent=e.body?.missing?'Controller configuration is incomplete: '+e.body.missing.join(', '):e.message==='UNAUTHORIZED'?'That read-only token was not accepted.':'Could not load detailed jobs: '+e.message;
+  document.querySelector('#notice').className='notice problem';
+ }
+}
+document.querySelector('#connect').onclick=()=>{
+ token=document.querySelector('#token').value.trim();
+ document.querySelector('#token').value='';
+ if(!token){document.querySelector('#notice').textContent='Enter the read-only token to show job details.';document.querySelector('#notice').className='notice problem';return}
+ refresh();
+};
+document.querySelector('#token').addEventListener('keydown',e=>{if(e.key==='Enter')document.querySelector('#connect').click()});
+document.querySelector('#filters').addEventListener('click',e=>{
+ const b=e.target.closest('button[data-filter]');if(!b)return;
+ filter=b.dataset.filter;
+ document.querySelectorAll('#filters button').forEach(x=>x.setAttribute('aria-pressed',String(x===b)));
+ renderJobs();
+});
+overview();
+setInterval(()=>token?refresh():overview(),15000);
+</script>
+</html>
