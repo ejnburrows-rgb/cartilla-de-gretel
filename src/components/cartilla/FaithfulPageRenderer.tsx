@@ -33,13 +33,13 @@ import {
 
 /**
  * Renders a workbook page from its faithful, verified region layout
- * (src/data/page-layouts.json) — real text in the book's font + real COLOR
+ * (src/data/page-layouts.json) â€” real text in the book's font + real COLOR
  * illustrations cropped from the original artwork. This is the single renderer
  * shared by the student CRM view, the student workbook, and the teacher
  * flipbook, so all three match exactly and in the same order.
  *
  * If a page has no verified layout yet, it renders `fallback` (the surface's
- * existing content) so nothing regresses — never invented content.
+ * existing content) so nothing regresses â€” never invented content.
  */
 interface FaithfulPageRendererProps {
   pageNumber: number;
@@ -51,7 +51,7 @@ interface FaithfulPageRendererProps {
   /**
    * Renders picture-grid/vowel-pick-one/vowel-match-all/vowel-line-match as
    * real tap-and-grade exercises instead of static pictures. Student
-   * workbook only — teacher's flipbook/paginas views stay read-only
+   * workbook only â€” teacher's flipbook/paginas views stay read-only
    * previews and must never pass this.
    */
   interactive?: boolean;
@@ -70,21 +70,21 @@ function IllustrationSlot({ region }: { region: PageRegion }) {
       </div>
     );
   }
-  // No faithful crop yet — explicit marker, NEVER an invented drawing.
+  // No faithful crop yet â€” explicit marker, NEVER an invented drawing.
   return (
     <div
       className="fp-art-pending"
       role="img"
-      aria-label={caption ? `Ilustración pendiente: ${caption}` : "Ilustración pendiente"}
+      aria-label={caption ? `IlustraciÃ³n pendiente: ${caption}` : "IlustraciÃ³n pendiente"}
     >
       {caption ? <span className="fp-art-pending__word">{caption}</span> : null}
-      <span>ilustración pendiente</span>
+      <span>ilustraciÃ³n pendiente</span>
     </div>
   );
 }
 
 /** Same ambient float used by the interactive cells (InteractivePageExercises.tsx)
- * and the older games (DragMatchPairs.tsx, leccion.$n.tsx) — duplicated per-file
+ * and the older games (DragMatchPairs.tsx, leccion.$n.tsx) â€” duplicated per-file
  * by convention rather than shared, so static/teal-only renderers never pull in
  * interactive-exercises.css (which is scoped "student workbook only"). */
 function floatDelay(index: number): string {
@@ -116,7 +116,7 @@ function PictureGrid({ region }: { region: PageRegion }) {
               className="fp-art-pending"
               role="img"
               aria-label={
-                cell.caption ? `Ilustración pendiente: ${cell.caption}` : "Ilustración pendiente"
+                cell.caption ? `IlustraciÃ³n pendiente: ${cell.caption}` : "IlustraciÃ³n pendiente"
               }
             >
               {cell.caption ? <span className="fp-art-pending__word">{cell.caption}</span> : null}
@@ -187,7 +187,7 @@ function VowelMatchCell({
           className="fp-art-pending"
           role="img"
           aria-label={
-            cell.caption ? `Ilustración pendiente: ${cell.caption}` : "Ilustración pendiente"
+            cell.caption ? `IlustraciÃ³n pendiente: ${cell.caption}` : "IlustraciÃ³n pendiente"
           }
         >
           {cell.caption ? <span className="fp-art-pending__word">{cell.caption}</span> : null}
@@ -248,8 +248,8 @@ function VowelPickOne({ region }: { region: PageRegion }) {
                   role="img"
                   aria-label={
                     cell.caption
-                      ? `Ilustración pendiente: ${cell.caption}`
-                      : "Ilustración pendiente"
+                      ? `IlustraciÃ³n pendiente: ${cell.caption}`
+                      : "IlustraciÃ³n pendiente"
                   }
                 >
                   {cell.caption ? (
@@ -284,7 +284,7 @@ function VowelMatchAll({ region }: { region: PageRegion }) {
                 className="fp-art-pending"
                 role="img"
                 aria-label={
-                  pair.caption ? `Ilustración pendiente: ${pair.caption}` : "Ilustración pendiente"
+                  pair.caption ? `IlustraciÃ³n pendiente: ${pair.caption}` : "IlustraciÃ³n pendiente"
                 }
               >
                 {pair.caption ? <span className="fp-art-pending__word">{pair.caption}</span> : null}
@@ -346,7 +346,7 @@ function RegionView({
       }
       return <IllustrationSlot region={region} />;
     case "paint-box":
-      // Always PaintCanvas when interactive — never tap fallback
+      // Always PaintCanvas when interactive â€” never tap fallback
       return interactive ? (
         <PaintFromRegion
           region={region}
@@ -402,6 +402,7 @@ function RegionView({
           region={region}
           lessonId={lessonId}
           instruction={precedingInstruction}
+          directPencil={pageNumber === 17}
         />
       ) : (
         <VowelLineMatch region={region} />
@@ -472,7 +473,7 @@ function RegionView({
     }
     case "writing-line": {
       // Student workbook (interactive) + a faithful stroke template for this
-      // model letter → real tracing exercise. The "trace it again" blank
+      // model letter â†’ real tracing exercise. The "trace it again" blank
       // line (no modelText of its own) inherits its letter from the
       // preceding writing-line sibling via resolvedModelText, so both
       // repetitions are traceable, not just the first.
@@ -549,7 +550,7 @@ function RegionView({
     case "vocab-grid":
       return native ? (
         <div className="fp-native-vocab" style={{ gridTemplateColumns: `repeat(${region.columns ?? 3}, minmax(0, 1fr))` }}>
-          {(region.text ?? "").split(/\u00c2?\u00b7/).map((word) => word.trim()).filter(Boolean).map((word) => (
+          {(region.text ?? "").split("Â·").map((word) => word.trim()).filter(Boolean).map((word) => (
             <span key={word}>{word}</span>
           ))}
         </div>
@@ -589,7 +590,7 @@ export function FaithfulPageRenderer({
         lessonNumber={lessonNumber}
         className="faithful-page--pending"
       >
-        <p>Página en preparación</p>
+        <p>PÃ¡gina en preparaciÃ³n</p>
       </PageFrame>
     );
   }
@@ -624,13 +625,13 @@ export function FaithfulPageRenderer({
   }
 
   // Every letter's writing-line pair is [model line with modelText, blank
-  // "trace it again" line with no modelText] — the blank one inherits the
+  // "trace it again" line with no modelText] â€” the blank one inherits the
   // model letter from its immediately preceding writing-line sibling so both
   // repetitions are traceable, not just the first.
   let lastWritingLineModelText: string | undefined;
   let lastInstructionText: string | undefined;
 
-  // Sibling picture-grid cells on this page — used by DibujaHost pick mode
+  // Sibling picture-grid cells on this page â€” used by DibujaHost pick mode
   // so options stay lesson-faithful (never random clipart).
   const siblingCells: PageGridCell[] = ordered.flatMap((r) =>
     r.regionType === "picture-grid" ? (r.cells ?? []) : [],
@@ -675,7 +676,7 @@ export function FaithfulPageRenderer({
       })}
       {SOURCE_BLOCKED_WORKBOOK_PAGES.includes(pageNumber) ? (
         <p className="fp-source-blocked" data-source-blocked="true" role="note">
-          Esta página falta en el escaneo del libro. Su contenido está pendiente de verificación con el libro impreso.
+          Esta pÃ¡gina falta en el escaneo del libro. Su contenido estÃ¡ pendiente de verificaciÃ³n con el libro impreso.
         </p>
       ) : null}
     </PageFrame>
