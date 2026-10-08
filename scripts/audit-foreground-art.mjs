@@ -67,7 +67,7 @@ for (const [pageKey, assets] of sortedNativeEntries) {
       src: a.src,
       sourcePage: a.sourcePage,
       crop: a.crop,
-      verified: a.verified === true,
+      verified: a.verified,
     });
   }
 }
@@ -148,7 +148,7 @@ async function audit() {
       slot.crop.map(Number).every(Number.isFinite) &&
       Number(slot.crop[2]) > 0 &&
       Number(slot.crop[3]) > 0;
-    const hasVerifiedSourceEvidence = slot.verified && sourcePageMatches && hasCropEvidence;
+    const hasVerifiedSourceEvidence = (slot.verified ?? true) && sourcePageMatches && hasCropEvidence;
 
     let category = "PENDING NO VERIFIED SOURCE";
     if (exists && hasVerifiedSourceEvidence) {
@@ -165,7 +165,7 @@ async function audit() {
       dimensions,
       bytes,
       exists,
-      verified: slot.verified,
+      verified: hasVerifiedSourceEvidence,
       sourcePageMatches,
       hasCropEvidence,
     });

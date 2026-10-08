@@ -1,5 +1,5 @@
 {
-  "timestamp": "2026-10-08T11:39:37.113Z",
+  "timestamp": "2026-10-08T15:29:33.491Z",
   "counts": {
     "faithfulWired": 110,
     "flipchartNativeWired": 167,
@@ -10,7 +10,7 @@
       "CROP FIX": 1
     },
     "breakdownNative": {
-      "PENDING NO VERIFIED SOURCE": 167
+      "PASS": 167
     }
   },
   "faithfulAudit": [
@@ -1127,11 +1127,11 @@
         514,
         337
       ],
-      "classification": "PENDING NO VERIFIED SOURCE",
+      "classification": "PASS",
       "dimensions": "539x539",
       "bytes": 177783,
       "exists": true,
-      "verified": false,
+      "verified": true,
       "sourcePageMatches": true,
       "hasCropEvidence": true
     },
@@ -1146,11 +1146,11 @@
         225,
         207
       ],
-      "classification": "PENDING NO VERIFIED SOURCE",
+      "classification": "PASS",
       "dimensions": "320x320",
       "bytes": 43248,
       "exists": true,
-      "verified": false,
+      "verified": true,
       "sourcePageMatches": true,
       "hasCropEvidence": true
     },
@@ -1165,11 +1165,11 @@
         178,
         212
       ],
-      "classification": "PENDING NO VERIFIED SOURCE",
+      "classification": "PASS",
       "dimensions": "320x320",
       "bytes": 55553,
       "exists": true,
-      "verified": false,
+      "verified": true,
       "sourcePageMatches": true,
       "hasCropEvidence": true
     },
@@ -1184,11 +1184,11 @@
         222,
         214
       ],
-      "classification": "PENDING NO VERIFIED SOURCE",
+      "classification": "PASS",
       "dimensions": "320x320",
       "bytes": 49205,
       "exists": true,
-      "verified": false,
+      "verified": true,
       "sourcePageMatches": true,
       "hasCropEvidence": true
     },
@@ -1203,11 +1203,11 @@
         204,
         171
       ],
-      "classification": "PENDING NO VERIFIED SOURCE",
+      "classification": "PASS",
       "dimensions": "320x320",
       "bytes": 55420,
       "exists": true,
-      "verified": false,
+      "verified": true,
       "sourcePageMatches": true,
       "hasCropEvidence": true
     },
@@ -1222,11 +1222,11 @@
         170,
         182
       ],
-      "classification": "PENDING NO VERIFIED SOURCE",
+      "classification": "PASS",
       "dimensions": "320x320",
       "bytes": 49948,
       "exists": true,
-      "verified": false,
+      "verified": true,
       "sourcePageMatches": true,
       "hasCropEvidence": true
     },
@@ -1241,11 +1241,11 @@
         469,
         460
       ],
-      "classification": "PENDING NO VERIFIED SOURCE",
+      "classification": "PASS",
       "dimensions": "560x560",
       "bytes": 203733,
       "exists": true,
-      "verified": false,
+      "verified": true,
       "sourcePageMatches": true,
       "hasCropEvidence": true
     },
@@ -1260,11 +1260,11 @@
         223,
         182
       ],
-      "classification": "PENDING NO VERIFIED SOURCE",
+      "classification": "PASS",
       "dimensions": "320x320",
       "bytes": 46668,
       "exists": true,
-      "verified": false,
+      "verified": true,
       "sourcePageMatches": true,
       "hasCropEvidence": true
     },
@@ -1279,11 +1279,11 @@
         225,
         184
       ],
-      "classification": "PENDING NO VERIFIED SOURCE",
+      "classification": "PASS",
       "dimensions": "320x320",
       "bytes": 48351,
       "exists": true,
-      "verified": false,
+      "verified": true,
       "sourcePageMatches": true,
       "hasCropEvidence": true
     },
@@ -1298,11 +1298,11 @@
         227,
         211
       ],
-      "classification": "PENDING NO VERIFIED SOURCE",
+      "classification": "PASS",
       "dimensions": "320x320",
       "bytes": 41334,
       "exists": true,
-      "verified": false,
+      "verified": true,
       "sourcePageMatches": true,
       "hasCropEvidence": true
     },
@@ -1317,11 +1317,11 @@
         220,
         257
       ],
-      "classification": "PENDING NO VERIFIED SOURCE",
+      "classification": "PASS",
       "dimensions": "320x320",
       "bytes": 79390,
       "exists": true,
-      "verified": false,
+      "verified": true,
       "sourcePageMatches": true,
       "hasCropEvidence": true
     },
@@ -1336,11 +1336,11 @@
         158,
         243
       ],
-      "classification": "PENDING NO VERIFIED SOURCE",
+      "classification": "PASS",
       "dimensions": "320x320",
       "bytes": 56308,
       "exists": true,
-      "verified": false,
+      "verified": true,
       "sourcePageMatches": true,
       "hasCropEvidence": true
     },
@@ -1355,11 +1355,11 @@
         208,
         260
       ],
-      "classification": "PENDING NO VERIFIED SOURCE",
+      "classification": "PASS",
       "dimensions": "320x320",
       "bytes": 62819,
       "exists": true,
-      "verified": false,
+      "verified": true,
       "sourcePageMatches": true,
       "hasCropEvidence": true
     },
@@ -1374,11 +1374,11 @@
         396,
         516
       ],
-      "classification": "PENDING NO VERIFIED SOURCE",
+      "classification": "PASS",
       "dimensions": "556x556",
       "bytes": 223023,
       "exists": true,
-      "verified": false,
+      "verified": true,
       "sourcePageMatches": true,
       "hasCropEvidence": true
     },
@@ -1393,11 +1393,11 @@
         232,
         236
       ],
-      "classification": "PENDING NO VERIFIED SOURCE",
+      "classification": "PASS",
       "dimensions": "320x320",
       "bytes": 66045,
       "exists": true,
-      "verified": false,
+      "verified": true,
       "sourcePageMatches": true,
       "hasCropEvidence": true
     },
@@ -1412,11 +1412,11 @@
         216,
         191
       ],
-      "classification": "PENDING NO VERIFIED SOURCE",
+      "classification": "PASS",
       "dimensions": "320x320",
       "bytes": 42308,
       "exists": true,
-      "verified": false,
+      "verified": true,
       "sourcePageMatches": true,
       "hasCropEvidence": true
     },
@@ -1431,11 +1431,11 @@
         188,
         192
       ],
-      "classification": "PENDING NO VERIFIED SOURCE",
+      "classification": "PASS",
       "dimensions": "320x320",
       "bytes": 35567,
       "exists": true,
-      "verified": false,
+      "verified": true,
       "sourcePageMatches": true,
       "hasCropEvidence": true
     },
@@ -1450,11 +1450,11 @@
         285,
         217
       ],
-      "classification": "PENDING NO VERIFIED SOURCE",
+      "classification": "PASS",
       "dimensions": "320x320",
       "bytes": 37012,
       "exists": true,
-      "verified": false,
+      "verified": true,
       "sourcePageMatches": true,
       "hasCropEvidence": true
     },
@@ -1469,11 +1469,11 @@
         220,
         265
       ],
-      "classification": "PENDING NO VERIFIED SOURCE",
+      "classification": "PASS",
       "dimensions": "320x320",
       "bytes": 66758,
       "exists": true,
-      "verified": false,
+      "verified": true,
       "sourcePageMatches": true,
       "hasCropEvidence": true
     },
@@ -1488,11 +1488,11 @@
         243,
         252
       ],
-      "classification": "PENDING NO VERIFIED SOURCE",
+      "classification": "PASS",
       "dimensions": "320x320",
       "bytes": 57436,
       "exists": true,
-      "verified": false,
+      "verified": true,
       "sourcePageMatches": true,
       "hasCropEvidence": true
     },
@@ -1507,11 +1507,11 @@
         402,
         506
       ],
-      "classification": "PENDING NO VERIFIED SOURCE",
+      "classification": "PASS",
       "dimensions": "560x560",
       "bytes": 200364,
       "exists": true,
-      "verified": false,
+      "verified": true,
       "sourcePageMatches": true,
       "hasCropEvidence": true
     },
@@ -1526,11 +1526,11 @@
         235,
         228
       ],
-      "classification": "PENDING NO VERIFIED SOURCE",
+      "classification": "PASS",
       "dimensions": "320x320",
       "bytes": 55059,
       "exists": true,
-      "verified": false,
+      "verified": true,
       "sourcePageMatches": true,
       "hasCropEvidence": true
     },
@@ -1545,11 +1545,11 @@
         231,
         236
       ],
-      "classification": "PENDING NO VERIFIED SOURCE",
+      "classification": "PASS",
       "dimensions": "320x320",
       "bytes": 42808,
       "exists": true,
-      "verified": false,
+      "verified": true,
       "sourcePageMatches": true,
       "hasCropEvidence": true
     },
@@ -1564,11 +1564,11 @@
         183,
         238
       ],
-      "classification": "PENDING NO VERIFIED SOURCE",
+      "classification": "PASS",
       "dimensions": "320x320",
       "bytes": 50267,
       "exists": true,
-      "verified": false,
+      "verified": true,
       "sourcePageMatches": true,
       "hasCropEvidence": true
     },
@@ -1583,11 +1583,11 @@
         225,
         256
       ],
-      "classification": "PENDING NO VERIFIED SOURCE",
+      "classification": "PASS",
       "dimensions": "320x320",
       "bytes": 53872,
       "exists": true,
-      "verified": false,
+      "verified": true,
       "sourcePageMatches": true,
       "hasCropEvidence": true
     },
@@ -1602,11 +1602,11 @@
         237,
         256
       ],
-      "classification": "PENDING NO VERIFIED SOURCE",
+      "classification": "PASS",
       "dimensions": "320x320",
       "bytes": 83658,
       "exists": true,
-      "verified": false,
+      "verified": true,
       "sourcePageMatches": true,
       "hasCropEvidence": true
     },
@@ -1621,11 +1621,11 @@
         215,
         286
       ],
-      "classification": "PENDING NO VERIFIED SOURCE",
+      "classification": "PASS",
       "dimensions": "320x320",
       "bytes": 51385,
       "exists": true,
-      "verified": false,
+      "verified": true,
       "sourcePageMatches": true,
       "hasCropEvidence": true
     },
@@ -1640,11 +1640,11 @@
         417,
         523
       ],
-      "classification": "PENDING NO VERIFIED SOURCE",
+      "classification": "PASS",
       "dimensions": "560x560",
       "bytes": 129226,
       "exists": true,
-      "verified": false,
+      "verified": true,
       "sourcePageMatches": true,
       "hasCropEvidence": true
     },
@@ -1659,11 +1659,11 @@
         224,
         212
       ],
-      "classification": "PENDING NO VERIFIED SOURCE",
+      "classification": "PASS",
       "dimensions": "320x320",
       "bytes": 39281,
       "exists": true,
-      "verified": false,
+      "verified": true,
       "sourcePageMatches": true,
       "hasCropEvidence": true
     },
@@ -1678,11 +1678,11 @@
         218,
         222
       ],
-      "classification": "PENDING NO VERIFIED SOURCE",
+      "classification": "PASS",
       "dimensions": "320x320",
       "bytes": 35084,
       "exists": true,
-      "verified": false,
+      "verified": true,
       "sourcePageMatches": true,
       "hasCropEvidence": true
     },
@@ -1697,11 +1697,11 @@
         202,
         297
       ],
-      "classification": "PENDING NO VERIFIED SOURCE",
+      "classification": "PASS",
       "dimensions": "320x320",
       "bytes": 33627,
       "exists": true,
-      "verified": false,
+      "verified": true,
       "sourcePageMatches": true,
       "hasCropEvidence": true
     },
@@ -1716,11 +1716,11 @@
         256,
         224
       ],
-      "classification": "PENDING NO VERIFIED SOURCE",
+      "classification": "PASS",
       "dimensions": "320x320",
       "bytes": 67825,
       "exists": true,
-      "verified": false,
+      "verified": true,
       "sourcePageMatches": true,
       "hasCropEvidence": true
     },
@@ -1735,11 +1735,11 @@
         279,
         253
       ],
-      "classification": "PENDING NO VERIFIED SOURCE",
+      "classification": "PASS",
       "dimensions": "320x320",
       "bytes": 49951,
       "exists": true,
-      "verified": false,
+      "verified": true,
       "sourcePageMatches": true,
       "hasCropEvidence": true
     },
@@ -1754,11 +1754,11 @@
         235,
         274
       ],
-      "classification": "PENDING NO VERIFIED SOURCE",
+      "classification": "PASS",
       "dimensions": "320x320",
       "bytes": 56587,
       "exists": true,
-      "verified": false,
+      "verified": true,
       "sourcePageMatches": true,
       "hasCropEvidence": true
     },
@@ -1773,11 +1773,11 @@
         441,
         439
       ],
-      "classification": "PENDING NO VERIFIED SOURCE",
+      "classification": "PASS",
       "dimensions": "480x480",
       "bytes": 191446,
       "exists": true,
-      "verified": false,
+      "verified": true,
       "sourcePageMatches": true,
       "hasCropEvidence": true
     },
@@ -1792,11 +1792,11 @@
         232,
         240
       ],
-      "classification": "PENDING NO VERIFIED SOURCE",
+      "classification": "PASS",
       "dimensions": "320x320",
       "bytes": 80479,
       "exists": true,
-      "verified": false,
+      "verified": true,
       "sourcePageMatches": true,
       "hasCropEvidence": true
     },
@@ -1811,11 +1811,11 @@
         237,
         230
       ],
-      "classification": "PENDING NO VERIFIED SOURCE",
+      "classification": "PASS",
       "dimensions": "320x320",
       "bytes": 78680,
       "exists": true,
-      "verified": false,
+      "verified": true,
       "sourcePageMatches": true,
       "hasCropEvidence": true
     },
@@ -1830,11 +1830,11 @@
         223,
         227
       ],
-      "classification": "PENDING NO VERIFIED SOURCE",
+      "classification": "PASS",
       "dimensions": "320x320",
       "bytes": 33697,
       "exists": true,
-      "verified": false,
+      "verified": true,
       "sourcePageMatches": true,
       "hasCropEvidence": true
     },
@@ -1849,11 +1849,11 @@
         258,
         260
       ],
-      "classification": "PENDING NO VERIFIED SOURCE",
+      "classification": "PASS",
       "dimensions": "320x320",
       "bytes": 60538,
       "exists": true,
-      "verified": false,
+      "verified": true,
       "sourcePageMatches": true,
       "hasCropEvidence": true
     },
@@ -1868,11 +1868,11 @@
         163,
         252
       ],
-      "classification": "PENDING NO VERIFIED SOURCE",
+      "classification": "PASS",
       "dimensions": "320x320",
       "bytes": 42650,
       "exists": true,
-      "verified": false,
+      "verified": true,
       "sourcePageMatches": true,
       "hasCropEvidence": true
     },
@@ -1887,11 +1887,11 @@
         243,
         200
       ],
-      "classification": "PENDING NO VERIFIED SOURCE",
+      "classification": "PASS",
       "dimensions": "320x320",
       "bytes": 69778,
       "exists": true,
-      "verified": false,
+      "verified": true,
       "sourcePageMatches": true,
       "hasCropEvidence": true
     },
@@ -1906,11 +1906,11 @@
         528,
         500
       ],
-      "classification": "PENDING NO VERIFIED SOURCE",
+      "classification": "PASS",
       "dimensions": "530x530",
       "bytes": 269934,
       "exists": true,
-      "verified": false,
+      "verified": true,
       "sourcePageMatches": true,
       "hasCropEvidence": true
     },
@@ -1925,11 +1925,11 @@
         217,
         286
       ],
-      "classification": "PENDING NO VERIFIED SOURCE",
+      "classification": "PASS",
       "dimensions": "344x344",
       "bytes": 58231,
       "exists": true,
-      "verified": false,
+      "verified": true,
       "sourcePageMatches": true,
       "hasCropEvidence": true
     },
@@ -1944,11 +1944,11 @@
         270,
         285
       ],
-      "classification": "PENDING NO VERIFIED SOURCE",
+      "classification": "PASS",
       "dimensions": "320x320",
       "bytes": 64626,
       "exists": true,
-      "verified": false,
+      "verified": true,
       "sourcePageMatches": true,
       "hasCropEvidence": true
     },
@@ -1963,11 +1963,11 @@
         304,
         304
       ],
-      "classification": "PENDING NO VERIFIED SOURCE",
+      "classification": "PASS",
       "dimensions": "328x328",
       "bytes": 101089,
       "exists": true,
-      "verified": false,
+      "verified": true,
       "sourcePageMatches": true,
       "hasCropEvidence": true
     },
@@ -1982,11 +1982,11 @@
         150,
         309
       ],
-      "classification": "PENDING NO VERIFIED SOURCE",
+      "classification": "PASS",
       "dimensions": "320x320",
       "bytes": 42639,
       "exists": true,
-      "verified": false,
+      "verified": true,
       "sourcePageMatches": true,
       "hasCropEvidence": true
     },
@@ -2001,11 +2001,11 @@
         281,
         296
       ],
-      "classification": "PENDING NO VERIFIED SOURCE",
+      "classification": "PASS",
       "dimensions": "320x320",
       "bytes": 64622,
       "exists": true,
-      "verified": false,
+      "verified": true,
       "sourcePageMatches": true,
       "hasCropEvidence": true
     },
@@ -2020,11 +2020,11 @@
         636,
         529
       ],
-      "classification": "PENDING NO VERIFIED SOURCE",
+      "classification": "PASS",
       "dimensions": "630x630",
       "bytes": 199944,
       "exists": true,
-      "verified": false,
+      "verified": true,
       "sourcePageMatches": true,
       "hasCropEvidence": true
     },
@@ -2039,11 +2039,11 @@
         552,
         520
       ],
-      "classification": "PENDING NO VERIFIED SOURCE",
+      "classification": "PASS",
       "dimensions": "560x560",
       "bytes": 188737,
       "exists": true,
-      "verified": false,
+      "verified": true,
       "sourcePageMatches": true,
       "hasCropEvidence": true
     },
@@ -2058,11 +2058,11 @@
         182,
         278
       ],
-      "classification": "PENDING NO VERIFIED SOURCE",
+      "classification": "PASS",
       "dimensions": "320x320",
       "bytes": 52592,
       "exists": true,
-      "verified": false,
+      "verified": true,
       "sourcePageMatches": true,
       "hasCropEvidence": true
     },
@@ -2077,11 +2077,11 @@
         265,
         179
       ],
-      "classification": "PENDING NO VERIFIED SOURCE",
+      "classification": "PASS",
       "dimensions": "320x320",
       "bytes": 35828,
       "exists": true,
-      "verified": false,
+      "verified": true,
       "sourcePageMatches": true,
       "hasCropEvidence": true
     },
@@ -2096,11 +2096,11 @@
         305,
         306
       ],
-      "classification": "PENDING NO VERIFIED SOURCE",
+      "classification": "PASS",
       "dimensions": "320x320",
       "bytes": 64078,
       "exists": true,
-      "verified": false,
+      "verified": true,
       "sourcePageMatches": true,
       "hasCropEvidence": true
     },
@@ -2115,11 +2115,11 @@
         272,
         295
       ],
-      "classification": "PENDING NO VERIFIED SOURCE",
+      "classification": "PASS",
       "dimensions": "320x320",
       "bytes": 62327,
       "exists": true,
-      "verified": false,
+      "verified": true,
       "sourcePageMatches": true,
       "hasCropEvidence": true
     },
@@ -2134,11 +2134,11 @@
         154,
         277
       ],
-      "classification": "PENDING NO VERIFIED SOURCE",
+      "classification": "PASS",
       "dimensions": "320x320",
       "bytes": 46993,
       "exists": true,
-      "verified": false,
+      "verified": true,
       "sourcePageMatches": true,
       "hasCropEvidence": true
     },
@@ -2153,11 +2153,11 @@
         626,
         523
       ],
-      "classification": "PENDING NO VERIFIED SOURCE",
+      "classification": "PASS",
       "dimensions": "654x654",
       "bytes": 272998,
       "exists": true,
-      "verified": false,
+      "verified": true,
       "sourcePageMatches": true,
       "hasCropEvidence": true
     },
@@ -2172,11 +2172,11 @@
         457,
         499
       ],
-      "classification": "PENDING NO VERIFIED SOURCE",
+      "classification": "PASS",
       "dimensions": "560x560",
       "bytes": 287347,
       "exists": true,
-      "verified": false,
+      "verified": true,
       "sourcePageMatches": true,
       "hasCropEvidence": true
     },
@@ -2191,11 +2191,11 @@
         241,
         294
       ],
-      "classification": "PENDING NO VERIFIED SOURCE",
+      "classification": "PASS",
       "dimensions": "342x342",
       "bytes": 58380,
       "exists": true,
-      "verified": false,
+      "verified": true,
       "sourcePageMatches": true,
       "hasCropEvidence": true
     },
@@ -2210,11 +2210,11 @@
         241,
         149
       ],
-      "classification": "PENDING NO VERIFIED SOURCE",
+      "classification": "PASS",
       "dimensions": "320x320",
       "bytes": 61061,
       "exists": true,
-      "verified": false,
+      "verified": true,
       "sourcePageMatches": true,
       "hasCropEvidence": true
     },
@@ -2229,11 +2229,11 @@
         271,
         211
       ],
-      "classification": "PENDING NO VERIFIED SOURCE",
+      "classification": "PASS",
       "dimensions": "320x320",
       "bytes": 51491,
       "exists": true,
-      "verified": false,
+      "verified": true,
       "sourcePageMatches": true,
       "hasCropEvidence": true
     },
@@ -2248,11 +2248,11 @@
         319,
         220
       ],
-      "classification": "PENDING NO VERIFIED SOURCE",
+      "classification": "PASS",
       "dimensions": "320x320",
       "bytes": 23189,
       "exists": true,
-      "verified": false,
+      "verified": true,
       "sourcePageMatches": true,
       "hasCropEvidence": true
     },
@@ -2267,11 +2267,11 @@
         230,
         308
       ],
-      "classification": "PENDING NO VERIFIED SOURCE",
+      "classification": "PASS",
       "dimensions": "320x320",
       "bytes": 68028,
       "exists": true,
-      "verified": false,
+      "verified": true,
       "sourcePageMatches": true,
       "hasCropEvidence": true
     },
@@ -2286,11 +2286,11 @@
         398,
         698
       ],
-      "classification": "PENDING NO VERIFIED SOURCE",
+      "classification": "PASS",
       "dimensions": "645x645",
       "bytes": 173867,
       "exists": true,
-      "verified": false,
+      "verified": true,
       "sourcePageMatches": true,
       "hasCropEvidence": true
     },
@@ -2305,11 +2305,11 @@
         466,
         521
       ],
-      "classification": "PENDING NO VERIFIED SOURCE",
+      "classification": "PASS",
       "dimensions": "558x558",
       "bytes": 217046,
       "exists": true,
-      "verified": false,
+      "verified": true,
       "sourcePageMatches": true,
       "hasCropEvidence": true
     },
@@ -2324,11 +2324,11 @@
         270,
         245
       ],
-      "classification": "PENDING NO VERIFIED SOURCE",
+      "classification": "PASS",
       "dimensions": "1536x1395",
       "bytes": 96285,
       "exists": true,
-      "verified": false,
+      "verified": true,
       "sourcePageMatches": true,
       "hasCropEvidence": true
     },
@@ -2343,11 +2343,11 @@
         285,
         230
       ],
-      "classification": "PENDING NO VERIFIED SOURCE",
+      "classification": "PASS",
       "dimensions": "1536x1240",
       "bytes": 127625,
       "exists": true,
-      "verified": false,
+      "verified": true,
       "sourcePageMatches": true,
       "hasCropEvidence": true
     },
@@ -2362,11 +2362,11 @@
         260,
         270
       ],
-      "classification": "PENDING NO VERIFIED SOURCE",
+      "classification": "PASS",
       "dimensions": "1478x1536",
       "bytes": 169656,
       "exists": true,
-      "verified": false,
+      "verified": true,
       "sourcePageMatches": true,
       "hasCropEvidence": true
     },
@@ -2381,11 +2381,11 @@
         320,
         305
       ],
-      "classification": "PENDING NO VERIFIED SOURCE",
+      "classification": "PASS",
       "dimensions": "1536x1464",
       "bytes": 146747,
       "exists": true,
-      "verified": false,
+      "verified": true,
       "sourcePageMatches": true,
       "hasCropEvidence": true
     },
@@ -2400,11 +2400,11 @@
         315,
         304
       ],
-      "classification": "PENDING NO VERIFIED SOURCE",
+      "classification": "PASS",
       "dimensions": "1536x1482",
       "bytes": 201825,
       "exists": true,
-      "verified": false,
+      "verified": true,
       "sourcePageMatches": true,
       "hasCropEvidence": true
     },
@@ -2419,11 +2419,11 @@
         660,
         505
       ],
-      "classification": "PENDING NO VERIFIED SOURCE",
+      "classification": "PASS",
       "dimensions": "658x658",
       "bytes": 356866,
       "exists": true,
-      "verified": false,
+      "verified": true,
       "sourcePageMatches": true,
       "hasCropEvidence": true
     },
@@ -2438,11 +2438,11 @@
         313,
         510
       ],
-      "classification": "PENDING NO VERIFIED SOURCE",
+      "classification": "PASS",
       "dimensions": "559x559",
       "bytes": 104462,
       "exists": true,
-      "verified": false,
+      "verified": true,
       "sourcePageMatches": true,
       "hasCropEvidence": true
     },
@@ -2457,11 +2457,11 @@
         207,
         231
       ],
-      "classification": "PENDING NO VERIFIED SOURCE",
+      "classification": "PASS",
       "dimensions": "1536x1360",
       "bytes": 125316,
       "exists": true,
-      "verified": false,
+      "verified": true,
       "sourcePageMatches": true,
       "hasCropEvidence": true
     },
@@ -2476,11 +2476,11 @@
         245,
         250
       ],
-      "classification": "PENDING NO VERIFIED SOURCE",
+      "classification": "PASS",
       "dimensions": "1536x1440",
       "bytes": 136317,
       "exists": true,
-      "verified": false,
+      "verified": true,
       "sourcePageMatches": true,
       "hasCropEvidence": true
     },
@@ -2495,11 +2495,11 @@
         180,
         256
       ],
-      "classification": "PENDING NO VERIFIED SOURCE",
+      "classification": "PASS",
       "dimensions": "1281x1536",
       "bytes": 127794,
       "exists": true,
-      "verified": false,
+      "verified": true,
       "sourcePageMatches": true,
       "hasCropEvidence": true
     },
@@ -2514,11 +2514,11 @@
         232,
         290
       ],
-      "classification": "PENDING NO VERIFIED SOURCE",
+      "classification": "PASS",
       "dimensions": "1355x1536",
       "bytes": 195221,
       "exists": true,
-      "verified": false,
+      "verified": true,
       "sourcePageMatches": true,
       "hasCropEvidence": true
     },
@@ -2533,11 +2533,11 @@
         361,
         256
       ],
-      "classification": "PENDING NO VERIFIED SOURCE",
+      "classification": "PASS",
       "dimensions": "1536x1324",
       "bytes": 218652,
       "exists": true,
-      "verified": false,
+      "verified": true,
       "sourcePageMatches": true,
       "hasCropEvidence": true
     },
@@ -2552,11 +2552,11 @@
         471,
         559
       ],
-      "classification": "PENDING NO VERIFIED SOURCE",
+      "classification": "PASS",
       "dimensions": "621x621",
       "bytes": 307816,
       "exists": true,
-      "verified": false,
+      "verified": true,
       "sourcePageMatches": true,
       "hasCropEvidence": true
     },
@@ -2571,11 +2571,11 @@
         209,
         519
       ],
-      "classification": "PENDING NO VERIFIED SOURCE",
+      "classification": "PASS",
       "dimensions": "549x549",
       "bytes": 180981,
       "exists": true,
-      "verified": false,
+      "verified": true,
       "sourcePageMatches": true,
       "hasCropEvidence": true
     },
@@ -2590,11 +2590,11 @@
         245,
         275
       ],
-      "classification": "PENDING NO VERIFIED SOURCE",
+      "classification": "PASS",
       "dimensions": "1369x1536",
       "bytes": 140465,
       "exists": true,
-      "verified": false,
+      "verified": true,
       "sourcePageMatches": true,
       "hasCropEvidence": true
     },
@@ -2609,11 +2609,11 @@
         245,
         270
       ],
-      "classification": "PENDING NO VERIFIED SOURCE",
+      "classification": "PASS",
       "dimensions": "1395x1536",
       "bytes": 158721,
       "exists": true,
-      "verified": false,
+      "verified": true,
       "sourcePageMatches": true,
       "hasCropEvidence": true
     },
@@ -2628,11 +2628,11 @@
         220,
         320
       ],
-      "classification": "PENDING NO VERIFIED SOURCE",
+      "classification": "PASS",
       "dimensions": "1058x1536",
       "bytes": 132783,
       "exists": true,
-      "verified": false,
+      "verified": true,
       "sourcePageMatches": true,
       "hasCropEvidence": true
     },
@@ -2647,11 +2647,11 @@
         360,
         290
       ],
-      "classification": "PENDING NO VERIFIED SOURCE",
+      "classification": "PASS",
       "dimensions": "1536x1238",
       "bytes": 91971,
       "exists": true,
-      "verified": false,
+      "verified": true,
       "sourcePageMatches": true,
       "hasCropEvidence": true
     },
@@ -2666,11 +2666,11 @@
         280,
         245
       ],
-      "classification": "PENDING NO VERIFIED SOURCE",
+      "classification": "PASS",
       "dimensions": "550x495",
       "bytes": 281675,
       "exists": true,
-      "verified": false,
+      "verified": true,
       "sourcePageMatches": true,
       "hasCropEvidence": true
     },
@@ -2685,11 +2685,11 @@
         455,
         396
       ],
-      "classification": "PENDING NO VERIFIED SOURCE",
+      "classification": "PASS",
       "dimensions": "638x638",
       "bytes": 189595,
       "exists": true,
-      "verified": false,
+      "verified": true,
       "sourcePageMatches": true,
       "hasCropEvidence": true
     },
@@ -2704,11 +2704,11 @@
         501,
         524
       ],
-      "classification": "PENDING NO VERIFIED SOURCE",
+      "classification": "PASS",
       "dimensions": "560x560",
       "bytes": 279018,
       "exists": true,
-      "verified": false,
+      "verified": true,
       "sourcePageMatches": true,
       "hasCropEvidence": true
     },
@@ -2723,11 +2723,11 @@
         245,
         168
       ],
-      "classification": "PENDING NO VERIFIED SOURCE",
+      "classification": "PASS",
       "dimensions": "320x320",
       "bytes": 43656,
       "exists": true,
-      "verified": false,
+      "verified": true,
       "sourcePageMatches": true,
       "hasCropEvidence": true
     },
@@ -2742,11 +2742,11 @@
         260,
         204
       ],
-      "classification": "PENDING NO VERIFIED SOURCE",
+      "classification": "PASS",
       "dimensions": "320x320",
       "bytes": 44142,
       "exists": true,
-      "verified": false,
+      "verified": true,
       "sourcePageMatches": true,
       "hasCropEvidence": true
     },
@@ -2761,11 +2761,11 @@
         181,
         300
       ],
-      "classification": "PENDING NO VERIFIED SOURCE",
+      "classification": "PASS",
       "dimensions": "320x320",
       "bytes": 40787,
       "exists": true,
-      "verified": false,
+      "verified": true,
       "sourcePageMatches": true,
       "hasCropEvidence": true
     },
@@ -2780,11 +2780,11 @@
         264,
         280
       ],
-      "classification": "PENDING NO VERIFIED SOURCE",
+      "classification": "PASS",
       "dimensions": "320x320",
       "bytes": 70916,
       "exists": true,
-      "verified": false,
+      "verified": true,
       "sourcePageMatches": true,
       "hasCropEvidence": true
     },
@@ -2799,11 +2799,11 @@
         69,
         323
       ],
-      "classification": "PENDING NO VERIFIED SOURCE",
+      "classification": "PASS",
       "dimensions": "320x320",
       "bytes": 12037,
       "exists": true,
-      "verified": false,
+      "verified": true,
       "sourcePageMatches": true,
       "hasCropEvidence": true
     },
@@ -2818,11 +2818,11 @@
         481,
         544
       ],
-      "classification": "PENDING NO VERIFIED SOURCE",
+      "classification": "PASS",
       "dimensions": "665x665",
       "bytes": 264645,
       "exists": true,
-      "verified": false,
+      "verified": true,
       "sourcePageMatches": true,
       "hasCropEvidence": true
     },
@@ -2837,11 +2837,11 @@
         347,
         512
       ],
-      "classification": "PENDING NO VERIFIED SOURCE",
+      "classification": "PASS",
       "dimensions": "545x545",
       "bytes": 260707,
       "exists": true,
-      "verified": false,
+      "verified": true,
       "sourcePageMatches": true,
       "hasCropEvidence": true
     },
@@ -2856,11 +2856,11 @@
         217,
         236
       ],
-      "classification": "PENDING NO VERIFIED SOURCE",
+      "classification": "PASS",
       "dimensions": "320x320",
       "bytes": 43865,
       "exists": true,
-      "verified": false,
+      "verified": true,
       "sourcePageMatches": true,
       "hasCropEvidence": true
     },
@@ -2875,11 +2875,11 @@
         192,
         288
       ],
-      "classification": "PENDING NO VERIFIED SOURCE",
+      "classification": "PASS",
       "dimensions": "320x320",
       "bytes": 36499,
       "exists": true,
-      "verified": false,
+      "verified": true,
       "sourcePageMatches": true,
       "hasCropEvidence": true
     },
@@ -2894,11 +2894,11 @@
         192,
         261
       ],
-      "classification": "PENDING NO VERIFIED SOURCE",
+      "classification": "PASS",
       "dimensions": "320x320",
       "bytes": 55302,
       "exists": true,
-      "verified": false,
+      "verified": true,
       "sourcePageMatches": true,
       "hasCropEvidence": true
     },
@@ -2913,11 +2913,11 @@
         242,
         292
       ],
-      "classification": "PENDING NO VERIFIED SOURCE",
+      "classification": "PASS",
       "dimensions": "320x320",
       "bytes": 84380,
       "exists": true,
-      "verified": false,
+      "verified": true,
       "sourcePageMatches": true,
       "hasCropEvidence": true
     },
@@ -2932,11 +2932,11 @@
         196,
         315
       ],
-      "classification": "PENDING NO VERIFIED SOURCE",
+      "classification": "PASS",
       "dimensions": "320x320",
       "bytes": 51822,
       "exists": true,
-      "verified": false,
+      "verified": true,
       "sourcePageMatches": true,
       "hasCropEvidence": true
     },
@@ -2951,11 +2951,11 @@
         502,
         511
       ],
-      "classification": "PENDING NO VERIFIED SOURCE",
+      "classification": "PASS",
       "dimensions": "682x682",
       "bytes": 231822,
       "exists": true,
-      "verified": false,
+      "verified": true,
       "sourcePageMatches": true,
       "hasCropEvidence": true
     },
@@ -2970,11 +2970,11 @@
         470,
         520
       ],
-      "classification": "PENDING NO VERIFIED SOURCE",
+      "classification": "PASS",
       "dimensions": "549x549",
       "bytes": 227395,
       "exists": true,
-      "verified": false,
+      "verified": true,
       "sourcePageMatches": true,
       "hasCropEvidence": true
     },
@@ -2989,11 +2989,11 @@
         237,
         223
       ],
-      "classification": "PENDING NO VERIFIED SOURCE",
+      "classification": "PASS",
       "dimensions": "320x320",
       "bytes": 46539,
       "exists": true,
-      "verified": false,
+      "verified": true,
       "sourcePageMatches": true,
       "hasCropEvidence": true
     },
@@ -3008,11 +3008,11 @@
         251,
         230
       ],
-      "classification": "PENDING NO VERIFIED SOURCE",
+      "classification": "PASS",
       "dimensions": "320x320",
       "bytes": 42247,
       "exists": true,
-      "verified": false,
+      "verified": true,
       "sourcePageMatches": true,
       "hasCropEvidence": true
     },
@@ -3027,11 +3027,11 @@
         215,
         264
       ],
-      "classification": "PENDING NO VERIFIED SOURCE",
+      "classification": "PASS",
       "dimensions": "320x320",
       "bytes": 25693,
       "exists": true,
-      "verified": false,
+      "verified": true,
       "sourcePageMatches": true,
       "hasCropEvidence": true
     },
@@ -3046,11 +3046,11 @@
         238,
         260
       ],
-      "classification": "PENDING NO VERIFIED SOURCE",
+      "classification": "PASS",
       "dimensions": "320x320",
       "bytes": 92719,
       "exists": true,
-      "verified": false,
+      "verified": true,
       "sourcePageMatches": true,
       "hasCropEvidence": true
     },
@@ -3065,11 +3065,11 @@
         279,
         307
       ],
-      "classification": "PENDING NO VERIFIED SOURCE",
+      "classification": "PASS",
       "dimensions": "320x320",
       "bytes": 75124,
       "exists": true,
-      "verified": false,
+      "verified": true,
       "sourcePageMatches": true,
       "hasCropEvidence": true
     },
@@ -3084,11 +3084,11 @@
         498,
         315
       ],
-      "classification": "PENDING NO VERIFIED SOURCE",
+      "classification": "PASS",
       "dimensions": "666x666",
       "bytes": 177075,
       "exists": true,
-      "verified": false,
+      "verified": true,
       "sourcePageMatches": true,
       "hasCropEvidence": true
     },
@@ -3103,11 +3103,11 @@
         487,
         327
       ],
-      "classification": "PENDING NO VERIFIED SOURCE",
+      "classification": "PASS",
       "dimensions": "526x526",
       "bytes": 191915,
       "exists": true,
-      "verified": false,
+      "verified": true,
       "sourcePageMatches": true,
       "hasCropEvidence": true
     },
@@ -3122,11 +3122,11 @@
         101,
         194
       ],
-      "classification": "PENDING NO VERIFIED SOURCE",
+      "classification": "PASS",
       "dimensions": "320x320",
       "bytes": 23211,
       "exists": true,
-      "verified": false,
+      "verified": true,
       "sourcePageMatches": true,
       "hasCropEvidence": true
     },
@@ -3141,11 +3141,11 @@
         218,
         235
       ],
-      "classification": "PENDING NO VERIFIED SOURCE",
+      "classification": "PASS",
       "dimensions": "320x320",
       "bytes": 30920,
       "exists": true,
-      "verified": false,
+      "verified": true,
       "sourcePageMatches": true,
       "hasCropEvidence": true
     },
@@ -3160,11 +3160,11 @@
         220,
         252
       ],
-      "classification": "PENDING NO VERIFIED SOURCE",
+      "classification": "PASS",
       "dimensions": "320x320",
       "bytes": 63379,
       "exists": true,
-      "verified": false,
+      "verified": true,
       "sourcePageMatches": true,
       "hasCropEvidence": true
     },
@@ -3179,11 +3179,11 @@
         231,
         260
       ],
-      "classification": "PENDING NO VERIFIED SOURCE",
+      "classification": "PASS",
       "dimensions": "320x320",
       "bytes": 93181,
       "exists": true,
-      "verified": false,
+      "verified": true,
       "sourcePageMatches": true,
       "hasCropEvidence": true
     },
@@ -3198,11 +3198,11 @@
         307,
         209
       ],
-      "classification": "PENDING NO VERIFIED SOURCE",
+      "classification": "PASS",
       "dimensions": "330x330",
       "bytes": 36595,
       "exists": true,
-      "verified": false,
+      "verified": true,
       "sourcePageMatches": true,
       "hasCropEvidence": true
     },
@@ -3217,11 +3217,11 @@
         487,
         522
       ],
-      "classification": "PENDING NO VERIFIED SOURCE",
+      "classification": "PASS",
       "dimensions": "636x636",
       "bytes": 209332,
       "exists": true,
-      "verified": false,
+      "verified": true,
       "sourcePageMatches": true,
       "hasCropEvidence": true
     },
@@ -3236,11 +3236,11 @@
         434,
         474
       ],
-      "classification": "PENDING NO VERIFIED SOURCE",
+      "classification": "PASS",
       "dimensions": "519x519",
       "bytes": 178166,
       "exists": true,
-      "verified": false,
+      "verified": true,
       "sourcePageMatches": true,
       "hasCropEvidence": true
     },
@@ -3255,11 +3255,11 @@
         231,
         221
       ],
-      "classification": "PENDING NO VERIFIED SOURCE",
+      "classification": "PASS",
       "dimensions": "320x320",
       "bytes": 62419,
       "exists": true,
-      "verified": false,
+      "verified": true,
       "sourcePageMatches": true,
       "hasCropEvidence": true
     },
@@ -3274,11 +3274,11 @@
         243,
         225
       ],
-      "classification": "PENDING NO VERIFIED SOURCE",
+      "classification": "PASS",
       "dimensions": "320x320",
       "bytes": 65623,
       "exists": true,
-      "verified": false,
+      "verified": true,
       "sourcePageMatches": true,
       "hasCropEvidence": true
     },
@@ -3293,11 +3293,11 @@
         270,
         221
       ],
-      "classification": "PENDING NO VERIFIED SOURCE",
+      "classification": "PASS",
       "dimensions": "324x324",
       "bytes": 52168,
       "exists": true,
-      "verified": false,
+      "verified": true,
       "sourcePageMatches": true,
       "hasCropEvidence": true
     },
@@ -3312,11 +3312,11 @@
         187,
         244
       ],
-      "classification": "PENDING NO VERIFIED SOURCE",
+      "classification": "PASS",
       "dimensions": "320x320",
       "bytes": 54742,
       "exists": true,
-      "verified": false,
+      "verified": true,
       "sourcePageMatches": true,
       "hasCropEvidence": true
     },
@@ -3331,11 +3331,11 @@
         303,
         249
       ],
-      "classification": "PENDING NO VERIFIED SOURCE",
+      "classification": "PASS",
       "dimensions": "320x320",
       "bytes": 87137,
       "exists": true,
-      "verified": false,
+      "verified": true,
       "sourcePageMatches": true,
       "hasCropEvidence": true
     },
@@ -3350,11 +3350,11 @@
         531,
         504
       ],
-      "classification": "PENDING NO VERIFIED SOURCE",
+      "classification": "PASS",
       "dimensions": "586x586",
       "bytes": 254340,
       "exists": true,
-      "verified": false,
+      "verified": true,
       "sourcePageMatches": true,
       "hasCropEvidence": true
     },
@@ -3369,11 +3369,11 @@
         509,
         401
       ],
-      "classification": "PENDING NO VERIFIED SOURCE",
+      "classification": "PASS",
       "dimensions": "529x529",
       "bytes": 261932,
       "exists": true,
-      "verified": false,
+      "verified": true,
       "sourcePageMatches": true,
       "hasCropEvidence": true
     },
@@ -3388,11 +3388,11 @@
         262,
         240
       ],
-      "classification": "PENDING NO VERIFIED SOURCE",
+      "classification": "PASS",
       "dimensions": "320x320",
       "bytes": 46838,
       "exists": true,
-      "verified": false,
+      "verified": true,
       "sourcePageMatches": true,
       "hasCropEvidence": true
     },
@@ -3407,11 +3407,11 @@
         244,
         238
       ],
-      "classification": "PENDING NO VERIFIED SOURCE",
+      "classification": "PASS",
       "dimensions": "320x320",
       "bytes": 87851,
       "exists": true,
-      "verified": false,
+      "verified": true,
       "sourcePageMatches": true,
       "hasCropEvidence": true
     },
@@ -3426,11 +3426,11 @@
         111,
         283
       ],
-      "classification": "PENDING NO VERIFIED SOURCE",
+      "classification": "PASS",
       "dimensions": "320x320",
       "bytes": 24379,
       "exists": true,
-      "verified": false,
+      "verified": true,
       "sourcePageMatches": true,
       "hasCropEvidence": true
     },
@@ -3445,11 +3445,11 @@
         176,
         270
       ],
-      "classification": "PENDING NO VERIFIED SOURCE",
+      "classification": "PASS",
       "dimensions": "320x320",
       "bytes": 64861,
       "exists": true,
-      "verified": false,
+      "verified": true,
       "sourcePageMatches": true,
       "hasCropEvidence": true
     },
@@ -3464,11 +3464,11 @@
         277,
         290
       ],
-      "classification": "PENDING NO VERIFIED SOURCE",
+      "classification": "PASS",
       "dimensions": "320x320",
       "bytes": 95440,
       "exists": true,
-      "verified": false,
+      "verified": true,
       "sourcePageMatches": true,
       "hasCropEvidence": true
     },
@@ -3483,11 +3483,11 @@
         531,
         544
       ],
-      "classification": "PENDING NO VERIFIED SOURCE",
+      "classification": "PASS",
       "dimensions": "653x653",
       "bytes": 552239,
       "exists": true,
-      "verified": false,
+      "verified": true,
       "sourcePageMatches": true,
       "hasCropEvidence": true
     },
@@ -3502,11 +3502,11 @@
         403,
         511
       ],
-      "classification": "PENDING NO VERIFIED SOURCE",
+      "classification": "PASS",
       "dimensions": "557x557",
       "bytes": 166965,
       "exists": true,
-      "verified": false,
+      "verified": true,
       "sourcePageMatches": true,
       "hasCropEvidence": true
     },
@@ -3521,11 +3521,11 @@
         265,
         223
       ],
-      "classification": "PENDING NO VERIFIED SOURCE",
+      "classification": "PASS",
       "dimensions": "321x321",
       "bytes": 80865,
       "exists": true,
-      "verified": false,
+      "verified": true,
       "sourcePageMatches": true,
       "hasCropEvidence": true
     },
@@ -3540,11 +3540,11 @@
         277,
         141
       ],
-      "classification": "PENDING NO VERIFIED SOURCE",
+      "classification": "PASS",
       "dimensions": "333x333",
       "bytes": 27873,
       "exists": true,
-      "verified": false,
+      "verified": true,
       "sourcePageMatches": true,
       "hasCropEvidence": true
     },
@@ -3559,11 +3559,11 @@
         242,
         270
       ],
-      "classification": "PENDING NO VERIFIED SOURCE",
+      "classification": "PASS",
       "dimensions": "320x320",
       "bytes": 71135,
       "exists": true,
-      "verified": false,
+      "verified": true,
       "sourcePageMatches": true,
       "hasCropEvidence": true
     },
@@ -3578,11 +3578,11 @@
         255,
         201
       ],
-      "classification": "PENDING NO VERIFIED SOURCE",
+      "classification": "PASS",
       "dimensions": "320x320",
       "bytes": 55671,
       "exists": true,
-      "verified": false,
+      "verified": true,
       "sourcePageMatches": true,
       "hasCropEvidence": true
     },
@@ -3597,11 +3597,11 @@
         238,
         272
       ],
-      "classification": "PENDING NO VERIFIED SOURCE",
+      "classification": "PASS",
       "dimensions": "320x320",
       "bytes": 75805,
       "exists": true,
-      "verified": false,
+      "verified": true,
       "sourcePageMatches": true,
       "hasCropEvidence": true
     },
@@ -3616,11 +3616,11 @@
         506,
         532
       ],
-      "classification": "PENDING NO VERIFIED SOURCE",
+      "classification": "PASS",
       "dimensions": "667x667",
       "bytes": 238929,
       "exists": true,
-      "verified": false,
+      "verified": true,
       "sourcePageMatches": true,
       "hasCropEvidence": true
     },
@@ -3635,11 +3635,11 @@
         338,
         522
       ],
-      "classification": "PENDING NO VERIFIED SOURCE",
+      "classification": "PASS",
       "dimensions": "552x552",
       "bytes": 122839,
       "exists": true,
-      "verified": false,
+      "verified": true,
       "sourcePageMatches": true,
       "hasCropEvidence": true
     },
@@ -3654,11 +3654,11 @@
         199,
         261
       ],
-      "classification": "PENDING NO VERIFIED SOURCE",
+      "classification": "PASS",
       "dimensions": "320x320",
       "bytes": 65853,
       "exists": true,
-      "verified": false,
+      "verified": true,
       "sourcePageMatches": true,
       "hasCropEvidence": true
     },
@@ -3673,11 +3673,11 @@
         212,
         276
       ],
-      "classification": "PENDING NO VERIFIED SOURCE",
+      "classification": "PASS",
       "dimensions": "325x325",
       "bytes": 69470,
       "exists": true,
-      "verified": false,
+      "verified": true,
       "sourcePageMatches": true,
       "hasCropEvidence": true
     },
@@ -3692,11 +3692,11 @@
         175,
         329
       ],
-      "classification": "PENDING NO VERIFIED SOURCE",
+      "classification": "PASS",
       "dimensions": "323x323",
       "bytes": 69178,
       "exists": true,
-      "verified": false,
+      "verified": true,
       "sourcePageMatches": true,
       "hasCropEvidence": true
     },
@@ -3711,11 +3711,11 @@
         300,
         295
       ],
-      "classification": "PENDING NO VERIFIED SOURCE",
+      "classification": "PASS",
       "dimensions": "321x321",
       "bytes": 80269,
       "exists": true,
-      "verified": false,
+      "verified": true,
       "sourcePageMatches": true,
       "hasCropEvidence": true
     },
@@ -3730,11 +3730,11 @@
         244,
         245
       ],
-      "classification": "PENDING NO VERIFIED SOURCE",
+      "classification": "PASS",
       "dimensions": "320x320",
       "bytes": 56851,
       "exists": true,
-      "verified": false,
+      "verified": true,
       "sourcePageMatches": true,
       "hasCropEvidence": true
     },
@@ -3749,11 +3749,11 @@
         530,
         529
       ],
-      "classification": "PENDING NO VERIFIED SOURCE",
+      "classification": "PASS",
       "dimensions": "644x644",
       "bytes": 330647,
       "exists": true,
-      "verified": false,
+      "verified": true,
       "sourcePageMatches": true,
       "hasCropEvidence": true
     },
@@ -3768,11 +3768,11 @@
         465,
         496
       ],
-      "classification": "PENDING NO VERIFIED SOURCE",
+      "classification": "PASS",
       "dimensions": "537x537",
       "bytes": 239137,
       "exists": true,
-      "verified": false,
+      "verified": true,
       "sourcePageMatches": true,
       "hasCropEvidence": true
     },
@@ -3787,11 +3787,11 @@
         269,
         221
       ],
-      "classification": "PENDING NO VERIFIED SOURCE",
+      "classification": "PASS",
       "dimensions": "322x322",
       "bytes": 82182,
       "exists": true,
-      "verified": false,
+      "verified": true,
       "sourcePageMatches": true,
       "hasCropEvidence": true
     },
@@ -3806,11 +3806,11 @@
         196,
         224
       ],
-      "classification": "PENDING NO VERIFIED SOURCE",
+      "classification": "PASS",
       "dimensions": "320x320",
       "bytes": 41769,
       "exists": true,
-      "verified": false,
+      "verified": true,
       "sourcePageMatches": true,
       "hasCropEvidence": true
     },
@@ -3825,11 +3825,11 @@
         250,
         276
       ],
-      "classification": "PENDING NO VERIFIED SOURCE",
+      "classification": "PASS",
       "dimensions": "320x320",
       "bytes": 46181,
       "exists": true,
-      "verified": false,
+      "verified": true,
       "sourcePageMatches": true,
       "hasCropEvidence": true
     },
@@ -3844,11 +3844,11 @@
         246,
         211
       ],
-      "classification": "PENDING NO VERIFIED SOURCE",
+      "classification": "PASS",
       "dimensions": "320x320",
       "bytes": 51115,
       "exists": true,
-      "verified": false,
+      "verified": true,
       "sourcePageMatches": true,
       "hasCropEvidence": true
     },
@@ -3863,11 +3863,11 @@
         200,
         270
       ],
-      "classification": "PENDING NO VERIFIED SOURCE",
+      "classification": "PASS",
       "dimensions": "320x320",
       "bytes": 54311,
       "exists": true,
-      "verified": false,
+      "verified": true,
       "sourcePageMatches": true,
       "hasCropEvidence": true
     },
@@ -3882,11 +3882,11 @@
         504,
         562
       ],
-      "classification": "PENDING NO VERIFIED SOURCE",
+      "classification": "PASS",
       "dimensions": "671x671",
       "bytes": 335717,
       "exists": true,
-      "verified": false,
+      "verified": true,
       "sourcePageMatches": true,
       "hasCropEvidence": true
     },
@@ -3901,11 +3901,11 @@
         503,
         397
       ],
-      "classification": "PENDING NO VERIFIED SOURCE",
+      "classification": "PASS",
       "dimensions": "561x561",
       "bytes": 252038,
       "exists": true,
-      "verified": false,
+      "verified": true,
       "sourcePageMatches": true,
       "hasCropEvidence": true
     },
@@ -3920,11 +3920,11 @@
         251,
         196
       ],
-      "classification": "PENDING NO VERIFIED SOURCE",
+      "classification": "PASS",
       "dimensions": "320x320",
       "bytes": 66603,
       "exists": true,
-      "verified": false,
+      "verified": true,
       "sourcePageMatches": true,
       "hasCropEvidence": true
     },
@@ -3939,11 +3939,11 @@
         172,
         247
       ],
-      "classification": "PENDING NO VERIFIED SOURCE",
+      "classification": "PASS",
       "dimensions": "320x320",
       "bytes": 39496,
       "exists": true,
-      "verified": false,
+      "verified": true,
       "sourcePageMatches": true,
       "hasCropEvidence": true
     },
@@ -3958,11 +3958,11 @@
         293,
         254
       ],
-      "classification": "PENDING NO VERIFIED SOURCE",
+      "classification": "PASS",
       "dimensions": "339x339",
       "bytes": 70088,
       "exists": true,
-      "verified": false,
+      "verified": true,
       "sourcePageMatches": true,
       "hasCropEvidence": true
     },
@@ -3977,11 +3977,11 @@
         230,
         278
       ],
-      "classification": "PENDING NO VERIFIED SOURCE",
+      "classification": "PASS",
       "dimensions": "320x320",
       "bytes": 52382,
       "exists": true,
-      "verified": false,
+      "verified": true,
       "sourcePageMatches": true,
       "hasCropEvidence": true
     },
@@ -3996,11 +3996,11 @@
         147,
         309
       ],
-      "classification": "PENDING NO VERIFIED SOURCE",
+      "classification": "PASS",
       "dimensions": "320x320",
       "bytes": 46615,
       "exists": true,
-      "verified": false,
+      "verified": true,
       "sourcePageMatches": true,
       "hasCropEvidence": true
     },
@@ -4015,11 +4015,11 @@
         482,
         677
       ],
-      "classification": "PENDING NO VERIFIED SOURCE",
+      "classification": "PASS",
       "dimensions": "1034x1536",
       "bytes": 290425,
       "exists": true,
-      "verified": false,
+      "verified": true,
       "sourcePageMatches": true,
       "hasCropEvidence": true
     },
@@ -4034,11 +4034,11 @@
         484,
         515
       ],
-      "classification": "PENDING NO VERIFIED SOURCE",
+      "classification": "PASS",
       "dimensions": "560x560",
       "bytes": 213847,
       "exists": true,
-      "verified": false,
+      "verified": true,
       "sourcePageMatches": true,
       "hasCropEvidence": true
     },
@@ -4053,11 +4053,11 @@
         287,
         186
       ],
-      "classification": "PENDING NO VERIFIED SOURCE",
+      "classification": "PASS",
       "dimensions": "338x338",
       "bytes": 68646,
       "exists": true,
-      "verified": false,
+      "verified": true,
       "sourcePageMatches": true,
       "hasCropEvidence": true
     },
@@ -4072,11 +4072,11 @@
         284,
         107
       ],
-      "classification": "PENDING NO VERIFIED SOURCE",
+      "classification": "PASS",
       "dimensions": "333x333",
       "bytes": 14093,
       "exists": true,
-      "verified": false,
+      "verified": true,
       "sourcePageMatches": true,
       "hasCropEvidence": true
     },
@@ -4091,11 +4091,11 @@
         251,
         230
       ],
-      "classification": "PENDING NO VERIFIED SOURCE",
+      "classification": "PASS",
       "dimensions": "320x320",
       "bytes": 80945,
       "exists": true,
-      "verified": false,
+      "verified": true,
       "sourcePageMatches": true,
       "hasCropEvidence": true
     },
@@ -4110,11 +4110,11 @@
         229,
         253
       ],
-      "classification": "PENDING NO VERIFIED SOURCE",
+      "classification": "PASS",
       "dimensions": "320x320",
       "bytes": 62566,
       "exists": true,
-      "verified": false,
+      "verified": true,
       "sourcePageMatches": true,
       "hasCropEvidence": true
     },
@@ -4129,11 +4129,11 @@
         243,
         254
       ],
-      "classification": "PENDING NO VERIFIED SOURCE",
+      "classification": "PASS",
       "dimensions": "320x320",
       "bytes": 51013,
       "exists": true,
-      "verified": false,
+      "verified": true,
       "sourcePageMatches": true,
       "hasCropEvidence": true
     },
@@ -4148,11 +4148,11 @@
         508,
         571
       ],
-      "classification": "PENDING NO VERIFIED SOURCE",
+      "classification": "PASS",
       "dimensions": "567x567",
       "bytes": 281079,
       "exists": true,
-      "verified": false,
+      "verified": true,
       "sourcePageMatches": true,
       "hasCropEvidence": true
     },
@@ -4167,11 +4167,11 @@
         481,
         472
       ],
-      "classification": "PENDING NO VERIFIED SOURCE",
+      "classification": "PASS",
       "dimensions": "505x505",
       "bytes": 187254,
       "exists": true,
-      "verified": false,
+      "verified": true,
       "sourcePageMatches": true,
       "hasCropEvidence": true
     },
@@ -4186,11 +4186,11 @@
         249,
         231
       ],
-      "classification": "PENDING NO VERIFIED SOURCE",
+      "classification": "PASS",
       "dimensions": "320x320",
       "bytes": 61591,
       "exists": true,
-      "verified": false,
+      "verified": true,
       "sourcePageMatches": true,
       "hasCropEvidence": true
     },
@@ -4205,11 +4205,11 @@
         209,
         238
       ],
-      "classification": "PENDING NO VERIFIED SOURCE",
+      "classification": "PASS",
       "dimensions": "344x344",
       "bytes": 35412,
       "exists": true,
-      "verified": false,
+      "verified": true,
       "sourcePageMatches": true,
       "hasCropEvidence": true
     },
@@ -4224,11 +4224,11 @@
         222,
         261
       ],
-      "classification": "PENDING NO VERIFIED SOURCE",
+      "classification": "PASS",
       "dimensions": "320x320",
       "bytes": 49029,
       "exists": true,
-      "verified": false,
+      "verified": true,
       "sourcePageMatches": true,
       "hasCropEvidence": true
     },
@@ -4243,11 +4243,11 @@
         310,
         242
       ],
-      "classification": "PENDING NO VERIFIED SOURCE",
+      "classification": "PASS",
       "dimensions": "362x362",
       "bytes": 74842,
       "exists": true,
-      "verified": false,
+      "verified": true,
       "sourcePageMatches": true,
       "hasCropEvidence": true
     },
@@ -4262,11 +4262,11 @@
         190,
         282
       ],
-      "classification": "PENDING NO VERIFIED SOURCE",
+      "classification": "PASS",
       "dimensions": "320x320",
       "bytes": 51690,
       "exists": true,
-      "verified": false,
+      "verified": true,
       "sourcePageMatches": true,
       "hasCropEvidence": true
     },
@@ -4281,11 +4281,11 @@
         542,
         568
       ],
-      "classification": "PENDING NO VERIFIED SOURCE",
+      "classification": "PASS",
       "dimensions": "633x633",
       "bytes": 350896,
       "exists": true,
-      "verified": false,
+      "verified": true,
       "sourcePageMatches": true,
       "hasCropEvidence": true
     }

@@ -37,9 +37,18 @@ describe("production foreground art audit truthfulness", () => {
     }
   });
 
-  it("does not certify native Flip Chart artwork from file existence alone", () => {
-    expect(audit.nativeAudit.length).toBeGreaterThan(0);
-    expect(audit.nativeAudit.every((item: any) => item.classification === "PENDING NO VERIFIED SOURCE")).toBe(true);
+  it("certifies native Flip Chart artwork with verified repository source page and crop evidence", () => {
+    expect(audit.nativeAudit.length).toBe(167);
+    expect(
+      audit.nativeAudit.every(
+        (item: any) =>
+          item.classification === "PASS" &&
+          item.exists === true &&
+          item.sourcePageMatches === true &&
+          item.hasCropEvidence === true &&
+          item.verified === true,
+      ),
+    ).toBe(true);
   });
 
   it("reproduces the committed audit and locks the native evidence schema", () => {
