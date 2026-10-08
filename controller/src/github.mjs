@@ -26,7 +26,7 @@ export class GitHub {
      let message='';try{message=String((await r.json()).message??'');}catch{}
      if(remaining==='0'||after>0||r.status===429||/rate limit|secondary rate/i.test(message)){
       const until=new Date(Math.min(Date.now()+7200000,Math.max(Date.now()+60000,reset>0?reset*1000:Date.now()+Math.max(60,after)*1000))).toISOString();
-      if(this.ledger){const gate=await this.ledger.create({key:'github-read-budget:'+until,kind:'reconcile',source:{lane:'github_read_budget',provider:'github'},spec:{action:'Wait for GitHub read quota reset, then reconcile current state'}});await this.ledger.set(gate.id,'retrying','GITHUB_RATE_LIMITED',{retry_at:until,lease_until:null,next_action:'Durable wait until GitHub quota reset; continue independent work',owner_action:'Nothing'});}
+      if(this.ledger){const gate=await this.ledger.create({key:'github-read-budget',kind:'reconcile',source:{lane:'github_read_budget',provider:'github'},spec:{action:'Wait for GitHub read quota reset, then reconcile current state'}});await this.ledger.set(gate.id,'retrying','GITHUB_RATE_LIMITED',{retry_at:until,lease_until:null,next_action:'Durable wait until GitHub quota reset; continue independent work',owner_action:'Nothing'});}
       const error=new Error('GITHUB_RATE_LIMITED');error.retryAt=until;throw error;
      }
     }
