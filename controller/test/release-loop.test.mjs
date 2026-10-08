@@ -51,3 +51,13 @@ test('cancelled release retains capacity until the existing sandbox is confirmed
  const f=await setup();await f.loop.advance(f.job.id);await f.ledger.cancel(f.job.id);let pauses=0;f.executor.pause=async()=>{pauses++;return {success:true};};
  assert.equal((await f.loop.advance(f.job.id)).cancelled,true);assert.equal(pauses,1);assert.equal((await f.ledger.attempt(f.job.id)).state,'failed');assert.equal(f.counts().creates,1);await f.p.close();
 });
+
+test('GitHub quota wait pauses finished compute and cannot certify without fresh evidence',async()=>{
+ const f=await setup();await f.loop.advance(f.job.id);f.finish();const request=f.github.request;let pauses=0;f.executor.pause=async()=>{pauses++;return {success:true};};f.github.request=async()=>{const e=Error('GITHUB_RATE_LIMITED');e.retryAt=new Date(Date.now()+60000).toISOString();throw e;};
+ assert.ok((await f.loop.advance(f.job.id)).github_resume_at);assert.equal(pauses,1);assert.notEqual((await f.ledger.get(f.job.id)).status,'verified');
+ f.github.request=request;f.executor.poll=async()=>{throw Error('paused runtime must not be polled');};assert.equal((await f.loop.advance(f.job.id)).passed,true);await f.p.close();
+});
+test('controller plan upgrade pauses the known sandbox and never duplicates dispatch',async()=>{
+ const f=await setup();await f.loop.advance(f.job.id);let pauses=0;f.executor.pause=async()=>{pauses++;return {success:true};};await f.db.query("UPDATE job_attempts SET payload_hash='old-contract' WHERE job_id=$1",[f.job.id]);
+ await f.loop.advance(f.job.id);assert.equal(pauses,1);assert.equal((await f.ledger.get(f.job.id)).failure_reason,'RELEASE_PLAN_CHANGED');assert.equal((await f.ledger.attempt(f.job.id)).state,'failed');assert.equal(f.counts().creates,1);await f.p.close();
+});

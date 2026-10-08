@@ -12,8 +12,9 @@ export class Runner {
  async snapshot(){
   const s=await this.github.snapshot();
   // Existing PRs reserve their actual changed files even when they do not link an issue.
-  s.prs=await Promise.all(s.prs.map(async p=>({...p,files:await this.github.pages(`/pulls/${p.number}/files`)})));
-  const data=publicSnapshot(s);await this.ledger.db.query('INSERT INTO project_snapshots(id,main_sha,data) VALUES($1,$2,$3)',[randomUUID(),s.main.sha,JSON.stringify(data)]);return s;
+  const prior=(await this.ledger.db.query("SELECT data FROM project_snapshots WHERE main_sha=$1 AND data ? 'pr_file_facts' ORDER BY recorded_at DESC LIMIT 1",[s.main.sha])).rows[0]?.data;
+  s.prs=await Promise.all(s.prs.map(async p=>({...p,files:prior?.pr_file_facts?.find(f=>f.number===p.number&&f.head===p.head.sha&&f.base===p.base?.ref)?.files??await this.github.pages(`/pulls/${p.number}/files`)})));
+  const data={...publicSnapshot(s),instruction_texts:s.instructions,pr_file_facts:s.prs.map(p=>({number:p.number,head:p.head.sha,base:p.base?.ref,files:p.files}))};await this.ledger.db.query('INSERT INTO project_snapshots(id,main_sha,data) VALUES($1,$2,$3)',[randomUUID(),s.main.sha,JSON.stringify(data)]);return s;
  }
  async scan(s){
   const jobs=await this.ledger.jobs();const {selected,blocked}=candidates(s,jobs,this.github.repo);
@@ -121,6 +122,19 @@ export class Runner {
   if(existing?.source?.lane==='release_verifier'&&this.releaseLoop){const result=await this.releaseLoop.advance(id);if(!result.done)try{await this.send({id:'release-poll:'+id+':'+Math.floor(Date.now()/60000),name:'cartilla/release.poll',data:{jobId:id}});}catch{}return result;}
   const attempt=await this.ledger.claimLocal(id);if(!attempt)return {skipped:true};
   try{
+   if(attempt.job.source?.lane==='release_request'){
+    const request=attempt.job,pr=await this.github.request('/pulls/'+request.source.pr);
+    if(pr.state!=='open'||pr.head.repo?.full_name!==this.github.repo||pr.base.ref!=='main'||!/^[a-f0-9]{40}$/.test(pr.head.sha))throw Error('CURRENT_REPOSITORY_PR_REQUIRED');
+    if((pr.labels??[]).some(l=>['owner-gated','controller:blocked','SOURCE_BLOCKED'].includes(l.name)))throw Error('OWNER_APPROVAL_REQUIRED');
+    const main=await this.github.main(),compare=await this.github.request('/compare/'+main.sha+'...'+pr.head.sha);
+    if(compare.status!=='ahead')throw Error('CURRENT_MAIN_RECONCILIATION_REQUIRED');
+    const files=await this.github.pages('/pulls/'+pr.number+'/files');
+    const release=await this.ledger.create({key:'release-admin:'+pr.number+':'+pr.head.sha+':'+main.sha,kind:'reconcile',source:{lane:'release_verifier',pr:pr.number,head:pr.head.sha,main:main.sha,parent_request:request.id},spec:{action:'Independent clean-checkout release verification',files:[...new Set([...files.map(f=>f.filename),...(request.spec.test_paths??[])])],...verificationRequirements(files)}});
+    await this.ledger.queue(release,this.send);
+    await this.ledger.db.query("UPDATE job_attempts SET state='finished',starting_sha=$2,updated_at=now() WHERE id=$1",[attempt.id,main.sha]);
+    const proof={passed:true,pr:pr.number,head:pr.head.sha,main:main.sha,release_job:release.id,intake_only:true};
+    await this.ledger.receipt(id,'github_validation',proof,attempt.id);await this.ledger.verify(id,attempt,'durable_release_request_intake',proof);return proof;
+   }
    if(attempt.job.source?.lane==='release_verifier'){
     const result=await this.verification.inspect(attempt.job);
     await this.ledger.receipt(id,'github_validation',result,attempt.id);
@@ -134,7 +148,7 @@ export class Runner {
    await this.ledger.db.query("UPDATE job_attempts SET state='finished',starting_sha=$2,updated_at=now() WHERE id=$1",[attempt.id,s.main.sha]);
    await this.ledger.receipt(id,'github_validation',{...publicSnapshot(s),scan:result},attempt.id);
    await this.ledger.verify(id,attempt,'repository_reconciliation',{passed:true,main_sha:s.main.sha,scan:result});return result;
-  }catch(e){await this.ledger.db.query("UPDATE job_attempts SET state='failed',updated_at=now() WHERE id=$1",[attempt.id]);await this.ledger.fail(id,e.message);await this.scheduleRetry(id);throw e;}
+  }catch(e){await this.ledger.db.query("UPDATE job_attempts SET state='failed',updated_at=now() WHERE id=$1",[attempt.id]);if(['CURRENT_REPOSITORY_PR_REQUIRED','CURRENT_MAIN_RECONCILIATION_REQUIRED','OWNER_APPROVAL_REQUIRED'].includes(e.message))await this.ledger.set(id,'blocked',e.message,{lease_until:null,next_action:'Resolve the canonical GitHub state before release dispatch',owner_action:e.message==='OWNER_APPROVAL_REQUIRED'?'Approve the owner-gated scope':'Nothing'});else if(e.message==='GITHUB_RATE_LIMITED'&&e.retryAt)await this.ledger.set(id,'retrying',e.message,{retry_at:e.retryAt,lease_until:null,next_action:'Wait for GitHub read quota reset',owner_action:'Nothing'});else await this.ledger.fail(id,e.message);await this.scheduleRetry(id);throw e;}
  }
  async validateWorker(job,attempt){
   if(job.kind==='repo_inspection'){
@@ -201,7 +215,7 @@ export class Runner {
   const authorized=String(this.env.CONTROLLER_MERGE_ISSUES??'').split(',').map(Number).filter(Number.isSafeInteger);
   if(!authorized.length)return;
   const jobs=(await this.ledger.db.query("SELECT * FROM jobs WHERE kind='issue_implementation' AND status='verified' AND issue_number=ANY($1::int[]) LIMIT 100",[authorized])).rows;
-  for(const job of jobs){const evidence=await this.github.changes(job);if(!evidence.pr)continue;const release=await this.verification.request(job,evidence);if(release.status==='verified')await this.verification.merge(job,release);}
+  for(const job of jobs){const evidence=await this.github.changes(job);if(!evidence.pr)continue;const release=await this.verification.request(job,evidence);if(release.status==='verified'&&(await this.verification.inspect(release)).passed)await this.verification.merge(job,release);else await this.ledger.supersedeVerification(job.id,{head:evidence.pr.head,pr:evidence.pr.number,release_job:release.id,main:release.source.main});}
  }
  async reconcile(){
   const recovered=await this.ledger.recoverOrphans();

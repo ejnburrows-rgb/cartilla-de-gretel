@@ -1,18 +1,29 @@
 import {digest,safeText} from './security.mjs';
 export const instructionPaths=['AGENTS.md','PROJECT_FINISH_DEFINITION.md','PROJECT_SOURCE_OF_TRUTH.md','tasks/plan.md'];
 export class GitHub {
- constructor({repo,token,fetcher=fetch,sleeper=ms=>new Promise(resolve=>setTimeout(resolve,ms))}){if(!/^[\w.-]+\/[\w.-]+$/.test(repo??''))throw new Error('GITHUB_REPO_REQUIRED');this.repo=repo;this.token=token;this.fetcher=fetcher;this.sleeper=sleeper;}
+ constructor({repo,token,fetcher=fetch,ledger,sleeper=ms=>new Promise(resolve=>setTimeout(resolve,ms))}){if(!/^[\w.-]+\/[\w.-]+$/.test(repo??''))throw new Error('GITHUB_REPO_REQUIRED');this.repo=repo;this.token=token;this.ledger=ledger;this.fetcher=fetcher;this.sleeper=sleeper;}
  headers(){return {Accept:'application/vnd.github+json','X-GitHub-Api-Version':'2022-11-28','User-Agent':'cartilla-controller',...(this.token?{Authorization:`Bearer ${this.token}`}:{})};}
  async request(path){
+  if(this.ledger){const gate=(await this.ledger.db.query("SELECT retry_at FROM jobs WHERE source->>'lane'='github_read_budget' AND retry_at>now() ORDER BY retry_at DESC LIMIT 1")).rows[0];if(gate){const error=new Error('GITHUB_RATE_LIMITED');error.retryAt=new Date(gate.retry_at).toISOString();throw error;}}
   let last;
   for(let attempt=0;attempt<3;attempt++){
    try{
     const r=await this.fetcher(`https://api.github.com/repos/${this.repo}${path}`,{headers:this.headers(),signal:AbortSignal.timeout(15000)});
     if(r.ok)return r.json();
+    if(r.status===403||r.status===429){
+     const remaining=r.headers?.get?.('x-ratelimit-remaining'),reset=Number(r.headers?.get?.('x-ratelimit-reset')),after=Number(r.headers?.get?.('retry-after'));
+     let message='';try{message=String((await r.json()).message??'');}catch{}
+     if(remaining==='0'||after>0||r.status===429||/rate limit|secondary rate/i.test(message)){
+      const until=new Date(Math.min(Date.now()+7200000,Math.max(Date.now()+60000,reset>0?reset*1000:Date.now()+Math.max(60,after)*1000))).toISOString();
+      if(this.ledger){const gate=await this.ledger.create({key:'github-read-budget:'+until,kind:'reconcile',source:{lane:'github_read_budget',provider:'github'},spec:{action:'Wait for GitHub read quota reset, then reconcile current state'}});await this.ledger.set(gate.id,'retrying','GITHUB_RATE_LIMITED',{retry_at:until,lease_until:null,next_action:'Durable wait until GitHub quota reset; continue independent work',owner_action:'Nothing'});}
+      const error=new Error('GITHUB_RATE_LIMITED');error.retryAt=until;throw error;
+     }
+    }
     last=new Error(`GITHUB_HTTP_${r.status}`);
     if(![408,425,429,500,502,503,504].includes(r.status)||attempt===2)throw last;
    }catch(error){
     last=error;
+    if(error.message==='GITHUB_RATE_LIMITED')throw error;
     const status=String(error?.message??'').match(/^GITHUB_HTTP_(\d+)$/)?.[1];
     if(attempt===2||(status&&!['408','425','429','500','502','503','504'].includes(status)))throw error;
    }
@@ -41,7 +52,9 @@ export class GitHub {
  async main(){const c=await this.request('/commits/main');if(!/^[a-f0-9]{40}$/.test(c.sha))throw new Error('GITHUB_INVALID_SHA');return {sha:c.sha,url:c.html_url,timestamp:c.commit?.committer?.date};}
  async file(path,sha){const r=await this.request(`/contents/${path}?ref=${sha}`);if(r.encoding!=='base64'||!r.content)throw new Error('GITHUB_FILE_UNREADABLE');return safeText(Buffer.from(r.content,'base64').toString('utf8'));}
  async snapshot(){
-  const main=await this.main();const texts=await Promise.all(instructionPaths.map(p=>this.file(p,main.sha)));
+  const main=await this.main();
+  const cached=this.ledger?(await this.ledger.db.query("SELECT data FROM project_snapshots WHERE main_sha=$1 AND data ? 'instruction_texts' ORDER BY recorded_at DESC LIMIT 1",[main.sha])).rows[0]?.data:null;
+  const texts=cached&&instructionPaths.every(p=>typeof cached.instruction_texts?.[p]==='string')?instructionPaths.map(p=>cached.instruction_texts[p]):await Promise.all(instructionPaths.map(p=>this.file(p,main.sha)));
   const [issues,prs]=await Promise.all([this.pages('/issues?state=open'),this.pages('/pulls?state=open')]);
   return {main,instructions:Object.fromEntries(instructionPaths.map((p,i)=>[p,texts[i]])),instructionHashes:Object.fromEntries(instructionPaths.map((p,i)=>[p,digest(texts[i])])),issues:issues.filter(i=>!i.pull_request),prs,fetched_at:new Date().toISOString()};
  }

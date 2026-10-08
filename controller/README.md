@@ -104,3 +104,16 @@ Vercel Git deployment remains disabled; preview deployments are disabled through
 the project API. Commit, PR and merge do not deploy. Explicit finished milestone
 approval is the only product deployment boundary. Controller code updates require
 an intentional controller deployment; durable wakeups do not redeploy it.
+
+GitHub quota failures persist their reset deadline in Neon and recover through
+Inngest. They do not request another worker conversation. Immutable instructions
+and PR file sets are reused only for the same main/head/base SHA context; issue,
+PR and check state stays fresh. Finished sandbox compute is paused even while
+GitHub evidence is unavailable. Verification still requires fresh GitHub evidence.
+
+Admin release requests are stored before GitHub reads. A duplicate request has
+one canonical job; reusing its key for another payload is rejected. The durable
+request resolves current PR/main asynchronously and queues its separate verifier.
+A VERIFIED intake request means intake validated, never release tests passed.
+Previously material-only verified, unmerged coding jobs return to WAITING for
+mandatory current independent review and exact-head release proof.

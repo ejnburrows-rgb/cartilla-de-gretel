@@ -13,7 +13,17 @@ export class ReleaseLoop{
   let plan;try{plan=releaseCommand({repo:this.github.repo,head:job.source.head,jobId:job.id,files:job.spec.files??[],ui:job.spec.ui});}catch(error){await this.ledger.set(id,'blocked',error.message,{next_action:'Worker must persist a bounded targeted test before release verification',owner_action:'Nothing'});return {done:true,blocked:true};}
   let a=await this.ledger.attempt(id),fresh=false;
   if(!a&&typeof this.github.file==='function')for(const path of (job.spec.files??[]).filter(p=>/\.(test|spec)\.[cm]?[jt]sx?$/.test(p))){try{await this.github.file(path,job.source.head);}catch{await this.ledger.set(id,'blocked','TARGETED_TEST_PATH_MISSING',{next_action:'Persist the targeted test in the candidate commit',owner_action:'Nothing'});return {done:true,blocked:true};}}
-  const currentPr=await this.github.request('/pulls/'+job.source.pr),currentMain=await this.github.main();
+  let currentPr,currentMain;
+  try{currentPr=await this.github.request('/pulls/'+job.source.pr);currentMain=await this.github.main();}catch(error){
+   if(a?.external_id&&a.start_task_id&&a.state!=='ambiguous'){
+    const saved=(await this.ledger.db.query("SELECT data FROM evidence_receipts WHERE attempt_id=$1 AND kind='release_execution_status' AND data->>'terminal'='true' ORDER BY recorded_at DESC LIMIT 1",[a.id])).rows[0]?.data;
+    const result=saved??await this.executor.poll(a.external_id,a.start_task_id,{...plan,hash:a.payload_hash});
+    if(!saved)await this.ledger.receipt(id,'release_execution_status',result,a.id);
+    if(result.terminal)try{await this.executor.pause(a.external_id);}catch{}
+   }
+   await this.ledger.db.query("UPDATE jobs SET failure_reason=$2,updated_at=now() WHERE id=$1 AND status IN('running','waiting')",[id,error.message==='GITHUB_RATE_LIMITED'?'GITHUB_RATE_LIMITED':'GITHUB_EVIDENCE_READ_UNAVAILABLE']);
+   if(error.message==='GITHUB_RATE_LIMITED')return {done:false,github_resume_at:error.retryAt};throw error;
+  }
   if(currentPr.head.sha!==job.source.head||currentMain.sha!==job.source.main){if(a?.external_id&&a.state!=='ambiguous'){await this.executor.pause(a.external_id);await this.ledger.db.query("UPDATE job_attempts SET state='failed',updated_at=now() WHERE id=$1",[a.id]);}await this.ledger.set(id,'blocked','RELEASE_STATE_CHANGED',{next_action:'Request a new verification for current PR head and main',owner_action:'Nothing'});await this.refill(job,'state-changed');return {done:true,blocked:true};}
   if(!a||a.state==='failed'){
    if(job.status==='retrying'&&new Date(job.retry_at)>new Date())return {done:true};
@@ -31,7 +41,11 @@ export class ReleaseLoop{
    if(!a)return {done:true,capacity_wait:true};fresh=true;
   }
   if(a.state==='ambiguous')return {done:true,blocked:true};
-  if(!fresh&&a.payload_hash!==plan.hash){await this.block(job,a,'RELEASE_PLAN_CHANGED');return {done:true,blocked:true};}
+  if(!fresh&&a.payload_hash!==plan.hash){
+   if(a.external_id){try{await this.executor.pause(a.external_id);}catch{return {done:false,pause_pending:true};}await this.ledger.db.query("UPDATE job_attempts SET state='failed',updated_at=now() WHERE id=$1",[a.id]);await this.block(job,a,'RELEASE_PLAN_CHANGED',false);await this.refill(job,'plan-changed');}
+   else await this.block(job,a,'RELEASE_PLAN_CHANGED');
+   return {done:true,blocked:true};
+  }
   const lease=(await this.ledger.db.query("UPDATE jobs SET lease_until=now()+interval '1 minute' WHERE id=$1 AND status IN('running','waiting','blocked') AND (lease_until IS NULL OR lease_until<now()) RETURNING id",[id])).rows.length;
   if(!lease)return {done:false};
   a=await this.ledger.attempt(id);

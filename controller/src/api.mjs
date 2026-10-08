@@ -77,11 +77,10 @@ export async function api(req,deps,env=process.env){
    const issue=await deps.github.request(`/issues/${body.issue_number}`);const p=parseSpec(issue,env.GITHUB_REPO);if(!p.runnable||issue.state!=='open')return {status:409,body:{error:p.reason??'ISSUE_NOT_OPEN'}};
    job=await deps.ledger.create({key:`issue:${issue.number}:${p.hash}`,kind:body.kind,issue:issue.number,source:{issue:issue.number,url:issue.html_url,scope_hash:p.hash,admin_request:digest(body.idempotency_key)},spec:p.spec});
   }else if(body.kind==='release_verification'&&Number.isSafeInteger(body.pr_number)&&body.pr_number>0){
-   const pr=await deps.github.request('/pulls/'+body.pr_number);if(pr.state!=='open'||pr.head.repo?.full_name!==env.GITHUB_REPO||pr.base.ref!=='main')return {status:409,body:{error:'CURRENT_REPOSITORY_PR_REQUIRED'}};
-   const main=await deps.github.main();const compare=await deps.github.request('/compare/'+main.sha+'...'+pr.head.sha);if(compare.status!=='ahead')return {status:409,body:{error:'CURRENT_MAIN_RECONCILIATION_REQUIRED'}};
-   const files=await deps.github.pages('/pulls/'+body.pr_number+'/files');
    const tests=body.test_paths??[];if(!Array.isArray(tests)||tests.length>30||tests.some(p=>typeof p!=='string'||!/^[-\w./]+\.(test|spec)\.[cm]?[jt]sx?$/.test(p)||p.startsWith('/')||p.split('/').includes('..')))return {status:400,body:{error:'BOUNDED_TEST_PATHS_REQUIRED'}};
-   job=await deps.ledger.create({key:'release-admin:'+body.pr_number+':'+pr.head.sha+':'+main.sha,kind:'reconcile',source:{lane:'release_verifier',pr:pr.number,head:pr.head.sha,main:main.sha,admin_request:digest(body.idempotency_key)},spec:{action:'Independent clean-checkout release verification',files:[...new Set([...files.map(f=>f.filename),...tests])],...verificationRequirements(files)}});
+   const hash=digest({pr_number:body.pr_number,test_paths:tests});
+   job=await deps.ledger.create({key:'release-admin-request:'+digest(body.idempotency_key),kind:'reconcile',source:{lane:'release_request',pr:body.pr_number,admin_request:digest(body.idempotency_key),request_hash:hash},spec:{action:'Resolve current PR and queue independent exact-head release verification',test_paths:tests}});
+   if(job.source.request_hash!==hash)return {status:409,body:{error:'IDEMPOTENCY_PAYLOAD_CONFLICT'}};
   }else return {status:400,body:{error:'UNSUPPORTED_JOB_KIND'}};
   const queued=await deps.ledger.queue(job,deps.send);return {status:202,body:{stored:true,queued,jobId:job.id}};
  }

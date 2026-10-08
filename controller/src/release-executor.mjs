@@ -3,6 +3,7 @@ import {createHash} from 'node:crypto';
 // Official Cloud Sandbox + RemoteWorkspace APIs. No LLM or deployment is used.
 // https://github.com/OpenHands/software-agent-sdk/blob/main/openhands-sdk/openhands/sdk/workspace/remote/remote_workspace_mixin.py
 const quote=s=>"'"+s.replaceAll("'","'\\''")+"'";
+export const isolateReleaseCommand=script=>'env -i PATH=/usr/local/bin:/usr/bin:/bin CI=1 NPM_CONFIG_USERCONFIG=/dev/null NPM_CONFIG_GLOBALCONFIG=/dev/null bash -c '+quote(script);
 export function releaseCommand({repo,head,jobId,files=[],ui=false}){
  if(!/^[\w.-]+\/[\w.-]+$/.test(repo??'')||!/^[a-f0-9]{40}$/.test(head??'')||!/^[-a-f0-9]{36}$/.test(jobId??''))throw Error('INVALID_RELEASE_SCOPE');
  const tests=files.filter(p=>/\.(test|spec)\.[cm]?[jt]sx?$/.test(p)&&!p.startsWith('tests/e2e/'));
@@ -10,7 +11,7 @@ export function releaseCommand({repo,head,jobId,files=[],ui=false}){
  if(tests.some(p=>!/^[-\w./]+$/.test(p)||p.startsWith('/')||p.split('/').includes('..')))throw Error('INVALID_TEST_PATH');
  const marker='CARTILLA_RELEASE_PASS:'+jobId+':'+head;
  const nodeTests=tests.filter(p=>p.startsWith('controller/test/'));const vitestTests=tests.filter(p=>!p.startsWith('controller/test/'));
- const command=[
+ const script=[
   'set -eu', 'umask 077', 'root=$(mktemp -d /tmp/cartilla-release.XXXXXX)',
   'printf "%s\\n" CARTILLA_RELEASE_PHASE:environment',
   'case "$(uname -m)" in x86_64) arch=x64; node_sha=fd8e59d5a511510f6a298afb548f18c7d2b1be404d8b4a27d94fbe49f56cb2d6;; aarch64) arch=arm64; node_sha=6ad1325edbdb5649c379b75a237147a666c95d4f9ae8d340fef2d1575d289ad2;; *) exit 78;; esac',
@@ -36,6 +37,7 @@ export function releaseCommand({repo,head,jobId,files=[],ui=false}){
   // Build/art outputs are isolated and never exported as implementation changes.
   'printf "%s\\n" '+quote(marker),
  ].join('\n');
+ const command=isolateReleaseCommand(script);
  return {command,hash:createHash('sha256').update(command).digest('hex'),marker,head,ui};
 }
 export class OpenHandsReleaseExecutor{

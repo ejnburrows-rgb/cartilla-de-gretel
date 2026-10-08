@@ -44,6 +44,15 @@ export class Ledger {
    await c.query("UPDATE jobs SET status='verified',failure_reason=NULL,next_action='Rescan and refill available capacity',owner_action='Nothing',lease_until=NULL,updated_at=now() WHERE id=$1",[job]);
   });
  }
+ // Reopen only unmerged implementation evidence whose new mandatory gates are pending.
+ async supersedeVerification(id,context){
+  if(!/^[a-f0-9]{40}$/.test(context.head??'')||!Number.isSafeInteger(context.pr))throw Error('FRESH_VERIFICATION_CONTEXT_REQUIRED');
+  return transaction(this.db,async c=>{
+   const j=(await c.query("SELECT * FROM jobs WHERE id=$1 AND kind='issue_implementation' AND status='verified' FOR UPDATE",[id])).rows[0];if(!j)return false;
+   await this.validate(id,'verification_superseded',false,context,null,c);
+   await c.query("UPDATE jobs SET status='waiting',failure_reason='INDEPENDENT_RELEASE_VERIFICATION_REQUIRED',lease_until=NULL,next_action='Await current independent review and exact-head release proof',owner_action='Nothing',updated_at=now() WHERE id=$1",[id]);return true;
+  });
+ }
  async fail(id,reason){
   return transaction(this.db,async c=>{
    const j=(await c.query('SELECT * FROM jobs WHERE id=$1 FOR UPDATE',[id])).rows[0];
