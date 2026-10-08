@@ -17,7 +17,6 @@ test.describe("Teacher Print/Report Readiness", () => {
     await page.goto("/cartilla/teacher/reportes");
     await expect(page.locator("text=Panel de Reportes")).toBeVisible();
     await expect(page.locator("text=Exportar CSV")).toBeVisible();
-    await expect(page.getByRole('button', { name: 'Imprimir' })).toBeVisible();
 
     // Seed mode will likely preselect a class if available, wait for some report card text instead
     await expect(page.locator("text=Análisis y Progreso Grupal").or(page.locator("text=Reporte de Logros"))).toBeVisible();
@@ -44,7 +43,11 @@ test.describe("Teacher Print/Report Readiness", () => {
 
     // First verify normal view elements
     await expect(page.locator("text=Cuaderno completo")).toBeVisible();
-    await expect(page.getByRole('button', { name: 'Imprimir' })).toBeVisible();
+
+    // Wait for the printable sheets to load and assert their count
+    await expect(page.locator('section.workbook-print-sheet')).toHaveCount(90);
+    // Wait for the button to become enabled, verifying readiness
+    await expect(page.getByRole('button', { name: /Imprimir/i })).toBeEnabled({ timeout: 15000 });
 
     const header = page.locator('header.no-print');
 
