@@ -155,8 +155,8 @@ describe("real workbook activities feed the gate through their own events", () =
     expect(sections).toHaveLength(5);
     for (const section of sections) {
       for (const button of [...section.querySelectorAll<HTMLButtonElement>("button")]) {
-        // Keyboard activation chooses the target syllable, then the shared
-        // pencil must finish drawing/holding before this row accepts more work.
+        // Keyboard activation chooses the target syllable. Advance the real
+        // shared pencil draw/hold timing before this row accepts more work.
         fireEvent.click(button, { detail: 0 });
         expect(next().getAttribute("aria-disabled")).toBe("true");
         act(() => vi.advanceTimersByTime(WORKBOOK_MARK_TIMING.drawMs + WORKBOOK_MARK_TIMING.holdMs));
