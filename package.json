@@ -7,7 +7,8 @@
   "scripts": {
     "dev": "pnpm prepare:art && vite dev",
     "dev:worker": "vite dev --mode worker",
-    "build": "pnpm prepare:art && pnpm verify:assets && pnpm typecheck && pnpm test && vite build",
+    "prebuild": "node scripts/prebuild-fetch-pdfs.mjs",
+    "build": "pnpm prebuild && pnpm prepare:art && pnpm verify:assets && pnpm typecheck && pnpm test && vite build",
     "build:app": "pnpm build",
     "verify:release": "pnpm build && pnpm exec playwright install chromium && pnpm test:e2e",
     "preview": "vite preview --host 127.0.0.1",
@@ -37,7 +38,6 @@
     "@dnd-kit/sortable": "^10.0.0",
     "@dnd-kit/utilities": "^3.2.2",
     "@hookform/resolvers": "^5.2.2",
-    "@neondatabase/serverless": "^1.2.0",
     "@radix-ui/react-accordion": "^1.2.12",
     "@radix-ui/react-alert-dialog": "^1.1.15",
     "@radix-ui/react-aspect-ratio": "^1.1.8",
@@ -75,7 +75,6 @@
     "date-fns": "^4.1.0",
     "embla-carousel-react": "^8.6.0",
     "framer-motion": "^12.38.0",
-    "inngest": "^4.22.0",
     "input-otp": "^1.4.2",
     "lucide-react": "^0.575.0",
     "pdfjs-dist": "^5.7.284",
@@ -123,6 +122,7 @@
     "typescript": "^5.8.3",
     "typescript-eslint": "^8.56.1",
     "vite": "^7.3.1",
-    "vitest": "^4.1.8"
+    "vitest": "^4.1.8",
+    "esbuild": "0.27.7"
   }
 }

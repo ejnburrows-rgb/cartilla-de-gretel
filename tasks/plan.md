@@ -5,6 +5,12 @@
 **Updated:** 2026-10-07
 **Concurrency authority:** `AGENTS.md` only. There is **no fixed numeric cap** on concurrent Jules implementation lanes.
 
+## Controller verification and deployment workflow
+
+Issue #545 / PR #546 owns the separate controller under controller/. Read controller/README.md before changing orchestration. Ordinary Jules/OpenHands coding work uses targeted tests, relevant typecheck, verify:worker and dev:worker/browser proof for UI. Full release runs in an independent clean exact-head sandbox using verify:release and required visual tests. Neon receipts plus independent controller review and trusted Sonar are mandatory gates. Changed PR head or main invalidates verification. No worker certifies itself.
+
+Commit, PR and merge do not deploy Vercel. Product Git deployments and previews are disabled. Explicit finished-milestone approval is required for product deployment. Inngest wakeups/polling do not redeploy the controller. Preserve CONTROLLER_AUTO_MERGE=false; only the guarded issue-specific CONTROLLER_MERGE_ISSUES path may integrate owner-authorized work after every gate. Do not restore material/Sonar-only merging. Unknown worker/sandbox dispatch outcomes retain their IDs and block duplicate starts.
+
 ## Current verified reality
 
 - CURRENT `main` must be resolved live from GitHub at the start of every session; do not persist a main SHA here because merging this file would immediately make it stale.
