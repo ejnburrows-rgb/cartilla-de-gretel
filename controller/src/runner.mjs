@@ -129,8 +129,9 @@ export class Runner {
     await this.ledger.receipt(job.id,'worker_dispatch',{external_id:r.task_id??null,status:r.status,dispatch_mode:'github-jules-label',issue:job.issue_number},attempt.id,c);
    });
   }catch(error){
+   const providerCode=/^(?:GITHUB_(?:LABEL_)?HTTP_\d{3}|GITHUB_RATE_LIMITED|JULES_LABEL_ALREADY_PRESENT)$/.test(String(error?.message??''))?String(error.message):null;
    await this.ledger.db.query("UPDATE job_attempts SET state='ambiguous',updated_at=now() WHERE id=$1",[attempt.id]);
-   await this.ledger.set(job.id,'blocked','JULES_DISPATCH_OUTCOME_UNKNOWN',{next_action:'Inspect trusted Jules bot issue activity; do not relabel or duplicate dispatch',owner_action:'Nothing'});return false;
+   await this.ledger.set(job.id,'blocked',providerCode?'JULES_DISPATCH_'+providerCode:'JULES_DISPATCH_OUTCOME_UNKNOWN',{next_action:'Inspect trusted Jules bot issue activity; do not relabel or duplicate dispatch',owner_action:'Nothing'});return false;
   }
   try{await this.send({id:'poll:'+attempt.id+':initial',name:'cartilla/worker.poll',data:{jobId:job.id}});}catch{}
   return true;
