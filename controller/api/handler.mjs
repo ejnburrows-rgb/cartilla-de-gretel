@@ -12,7 +12,17 @@ export default {async fetch(request){
   return inngestHandler(request);
  }
  try{
-  const req={url:request.url,method:request.method,headers:Object.fromEntries(request.headers),body:request.method==='POST'?await rawBody(request):undefined};
+  const requestHeaders=Object.fromEntries(request.headers);
+  const path=new URL(request.url).pathname;
+  const ownerRead= request.method==='GET' && (
+    path==='/api/status' ||
+    path==='/api/jobs' ||
+    /^\/api\/jobs\/[a-f0-9-]{36}\/history$/.test(path)
+  );
+  if(ownerRead&&process.env.CONTROLLER_READ_TOKEN){
+    requestHeaders.authorization='Bearer '+process.env.CONTROLLER_READ_TOKEN;
+  }
+  const req={url:request.url,method:request.method,headers:requestHeaders,body:request.method==='POST'?await rawBody(request):undefined};
   const deps={get ledger(){return runtime().ledger;},get github(){return runtime().github;},get worker(){return runtime().worker;},send:event=>runtime().send(event)};
   const r=await api(req,deps);return Response.json(r.body,{status:r.status,headers});
  }catch(e){
