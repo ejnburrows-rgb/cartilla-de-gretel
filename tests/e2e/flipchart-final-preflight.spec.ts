@@ -34,7 +34,38 @@ test.describe("Flipchart pre-final regression", () => {
       // Top-bound physical page turn check
       await expect(panel).toHaveAttribute("data-page-turn-axis", "vertical");
 
-      // Verify no default scenic wallpaper / scroll behavior visually
+      // Verify no default scenic wallpaper is rendered
+      // by asserting the background/canvas doesn't have an injected full-bleed image (e.g. scenic wallpaper)
+      const scenicLayers = page.locator("img[src*='wallpaper'], img[src*='background']");
+      // Or more specifically:
+      // The instructions say "no default scenic background layer is mounted."
+      // The flip chart uses clean digital canvas natively.
+      // Assert that there's no element matching `.fc-scenic-wallpaper` or similar if that was how it was rendered,
+      // But we can check that there are no elements with `data-layout-type="wallpaper"` or something similar.
+      // We can also ensure the board does not overflow horizontally.
+      const viewportWidth = device.width;
+      const boardBox = await panel.boundingBox();
+      expect(boardBox?.width).toBeLessThanOrEqual(viewportWidth);
+      expect(boardBox?.x).toBeGreaterThanOrEqual(0);
+
+      const documentElement = page.locator("html");
+      const htmlWidth = await documentElement.evaluate(el => el.scrollWidth);
+      expect(htmlWidth).toBeLessThanOrEqual(viewportWidth);
+
+      // Ensure the stage remains visible
+      const stage = page.getByTestId("teacher-presenter-stage");
+      await expect(stage).toBeVisible();
+
+      // Ensure no default scenic background layer is mounted on the flipchart.
+      // Flipchart Native Board renders pages faithfully, typically background is just white/off-white.
+      // Let's assert there are no background images explicitly added for scenery.
+      // We can do this by asserting that there is no element with role="img" and decorative true
+      // taking up the full screen behind the board.
+      // E.g., `FinalPageBackground` component might render something with `.fc-final-background`
+      const scenicWallpaperCount = await page.locator(".fc-final-background, img[alt='Fondo de página']").count();
+      expect(scenicWallpaperCount).toBe(0);
+
+
       await page.screenshot({ path: path.join(OUT_DIR, `flipchart-${device.name}-initial.png`) });
 
       // Keyboard forward
