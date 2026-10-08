@@ -52,7 +52,7 @@ test('single paid authorization excludes other jobs and cannot restart after UTC
  assert.equal((await db.query("SELECT count(*)::int AS n FROM job_attempts WHERE worker='openhands'")).rows[0].n,1);
  await p.close();
 });
-const evidence=()=>({pr:{number:1,head,body:'Fixes #7'},compare:{status:'ahead',ahead_by:1},files:[{filename:'src/example.ts',status:'modified',additions:4,deletions:2}],checks:[{name:'Independent tests',head_sha:head,app_id:123,status:'completed',conclusion:'success',started_at:new Date().toISOString()}]});
+const evidence=()=>({pr:{number:1,head,body:'Fixes #7'},compare:{status:'ahead',ahead_by:1},files:[{filename:'src/example.ts',status:'modified',additions:4,deletions:2}],checks:[{name:'Independent tests',head_sha:head,app_id:123,status:'completed',conclusion:'success',started_at:new Date().toISOString()},{name:'SonarCloud Code Analysis',head_sha:head,app_id:12526,status:'completed',conclusion:'success',started_at:new Date().toISOString()}]});
 test('rescan failure after independent validation cannot taint a verified worker job',async()=>{
  const {p,ledger,runner}=await setup();
  const j=await ledger.create({key:'verified-before-rescan',kind:'repo_inspection',source:{admin:true},spec:{}});
@@ -62,7 +62,7 @@ test('rescan failure after independent validation cannot taint a verified worker
  await p.close();
 });
 test('worker success without material GitHub change is rejected; exact-head trusted checks and material change pass',()=>{
- const job={issue_number:7,spec};const e=evidence();assert.equal(validateChange(job,{...e,files:[]},[123]).passed,false);assert.equal(validateChange(job,{...e,checks:[]},[123]).passed,false);assert.equal(validateChange(job,e,[]).passed,false);assert.equal(validateChange(job,e,[123]).passed,true);
+ const job={issue_number:7,spec};const e=evidence();assert.equal(validateChange(job,{...e,files:[]},[123]).passed,false);assert.equal(validateChange(job,{...e,checks:[]},[123]).passed,false);assert.equal(validateChange(job,e,[]).passed,false);assert.equal(validateChange(job,e,[123,12526]).passed,true);
  assert.equal(validateChange(job,{...e,files:[{filename:'AGENTS.md',status:'modified',additions:1,deletions:0}]},[123]).reason,'SCOPE_VIOLATION');
  assert.equal(validateChange(job,{...e,checks:[{...e.checks[0],head_sha:sha}]},[123]).passed,false);
 });
@@ -138,7 +138,7 @@ test('read-only live reuse probe returns no sandbox credentials and no new dispa
  assert.equal(r.status,200);assert.equal(r.body.openhands.daily_limit,null);assert.equal(r.body.openhands.session_reuse[0].reusable,true);assert.equal(JSON.stringify(r).includes('private'),false);assert.equal(probes,1);await p.close();
 });
 
-test('bounded subtask references canonical issue without closing its larger release gate',()=>{const e=evidence();e.pr.body='References #7. Bounded fix only; full canonical issue remains open.';assert.equal(validateChange({issue_number:7,spec},e,[123]).passed,true);e.pr.body='References #8';assert.equal(validateChange({issue_number:7,spec},e,[123]).reason,'CANONICAL_ISSUE_NOT_LINKED');});
+test('bounded subtask references canonical issue without closing its larger release gate',()=>{const e=evidence();e.pr.body='References #7. Bounded fix only; full canonical issue remains open.';assert.equal(validateChange({issue_number:7,spec},e,[123,12526]).passed,true);e.pr.body='References #8';assert.equal(validateChange({issue_number:7,spec},e,[123]).reason,'CANONICAL_ISSUE_NOT_LINKED');});
 test('dependency-gated scoped task and admin request share one durable canonical job',async()=>{
  const {p,ledger,runner}=await setup();const s=snapshot();const dependent=issue(7);const scoped={...spec,dependencies:[8]};dependent.body='```cartilla-controller\n'+JSON.stringify(scoped)+'\n```';s.issues=[dependent,{...issue(8),labels:[]}];await runner.scan(s);await runner.scan(s);
  const jobs=(await ledger.jobs()).filter(j=>j.issue_number===7);assert.equal(jobs.length,1);assert.equal(jobs[0].status,'blocked');assert.equal(jobs[0].spec.action,spec.action);assert.equal(jobs[0].source.scope_hash!==undefined,true);assert.match(jobs[0].idempotency_key,/^issue:7:/);await p.close();
@@ -151,4 +151,14 @@ test('material implementation stays waiting when release verification has not pa
  runner.verification={request:async()=>({id:'release-job',status:'queued'}),inspect:async()=>{throw Error('must not certify unverified release');}};
  const j=await ledger.create({key:'release-required',kind:'issue_implementation',issue:7,source:{issue:7},spec});await runner.dispatch(j,snapshot());runner.rescan=async()=>({});
  await runner.poll(j.id);assert.equal((await ledger.get(j.id)).status,'waiting');assert.equal((await ledger.get(j.id)).failure_reason,'INDEPENDENT_RELEASE_VERIFICATION_REQUIRED');await p.close();
+});
+
+test('mandatory Sonar cannot be bypassed by issue checks, forged apps, old commits or pending reruns',()=>{
+ const job={issue_number:7,spec};const e=evidence();
+ assert.equal(validateChange(job,e,[123]).passed,false);
+ assert.equal(validateChange(job,e,[123,12526]).passed,true);
+ assert.equal(validateChange(job,{...e,checks:e.checks.filter(c=>c.name!=='SonarCloud Code Analysis')},[123,12526]).passed,false);
+ assert.equal(validateChange(job,{...e,checks:e.checks.map(c=>c.app_id===12526?{...c,app_id:123}:c)},[123,12526]).passed,false);
+ assert.equal(validateChange(job,{...e,checks:e.checks.map(c=>c.app_id===12526?{...c,head_sha:sha}:c)},[123,12526]).passed,false);
+ assert.equal(validateChange(job,{...e,checks:[...e.checks,{...e.checks[1],status:'in_progress',started_at:'2099-10-08T01:00:00Z'}]},[123,12526]).passed,false);
 });

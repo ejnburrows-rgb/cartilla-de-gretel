@@ -29,6 +29,13 @@ export function candidates(snapshot,active,repo){
  }
  return {selected,blocked};
 }
+export const SONAR_APP_ID=12526;
+export const SONAR_CHECK='SonarCloud Code Analysis';
+export function sonarPassed(checks,head,apps){
+ if(!apps.includes(SONAR_APP_ID))return false;
+ const sorted=checks.filter(c=>c.name===SONAR_CHECK&&c.app_id===SONAR_APP_ID&&c.head_sha===head).sort((a,b)=>String(b.started_at??'').localeCompare(String(a.started_at??'')));
+ return sorted[0]?.status==='completed'&&sorted[0]?.conclusion==='success';
+}
 export function validateChange(job,evidence,apps){
  if(evidence.passed===false)return {passed:false,reason:evidence.reason};
  if(evidence.compare?.status!=='ahead'||!evidence.compare.ahead_by)return {passed:false,reason:'NO_NEW_ANCESTOR_BASED_COMMITS'};
@@ -37,10 +44,11 @@ export function validateChange(job,evidence,apps){
  if(evidence.files.some(f=>f.status==='removed'||forbidden.test(f.filename)||!job.spec.paths.some(p=>f.filename===p||f.filename.startsWith(p.endsWith('/')?p:p+'/'))))return {passed:false,reason:'SCOPE_VIOLATION'};
  if(!new RegExp(`(?:close[sd]?|fix(?:e[sd])?|resolve[sd]?|references)\\s+#${job.issue_number}\\b`,'i').test(evidence.pr.body??''))return {passed:false,reason:'CANONICAL_ISSUE_NOT_LINKED'};
  if(!apps.length)return {passed:false,reason:'TRUSTED_CHECK_APPS_NOT_CONFIGURED'};
+ if(!sonarPassed(evidence.checks,evidence.pr.head,apps))return {passed:false,reason:'SONAR_QUALITY_GATE_REQUIRED'};
  for(const name of job.spec.required_checks){
   const matches=evidence.checks.filter(c=>c.name===name&&apps.includes(c.app_id)&&c.head_sha===evidence.pr.head);
   const latest=matches.sort((a,b)=>String(b.started_at).localeCompare(String(a.started_at)))[0];
   if(!latest||latest.status!=='completed'||latest.conclusion!=='success')return {passed:false,reason:`REQUIRED_CHECK_NOT_PASSED:${name}`};
  }
- return {passed:true,sha:evidence.pr.head,pr:evidence.pr.number,material_files:material.map(f=>f.filename),checks:job.spec.required_checks};
+ return {passed:true,sha:evidence.pr.head,pr:evidence.pr.number,material_files:material.map(f=>f.filename),checks:[...new Set([...job.spec.required_checks,SONAR_CHECK])]};
 }
