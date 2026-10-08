@@ -7,8 +7,11 @@ const inngestHandler=serve({client:inngest,functions});
 const headers={'Cache-Control':'no-store','X-Content-Type-Options':'nosniff'};
 let deploymentSync;
 export async function syncInngest(handler,origin){
- const url=new URL('/api/inngest',origin).href;
- const response=await handler(new Request(url,{method:'PUT'}));
+ const url=new URL('/api/inngest',origin);
+ // The SDK's Web Request adapter always constructs a URL using Host as its
+ // base, even when request.url is absolute. Preserve the production host in
+ // the synthetic in-process sync request.
+ const response=await handler(new Request(url,{method:'PUT',headers:{host:url.host}}));
  if(!response.ok)throw Error(`INNGEST_SYNC_FAILED_${response.status}`);
  return true;
 }
