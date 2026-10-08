@@ -129,6 +129,7 @@ export class Runner {
     else{await this.ledger.validate(id,'exact_head_release_verification',false,result,attempt.id);await this.ledger.set(id,'blocked',result.reason,{lease_until:null,next_action:'Await independent clean-checkout verifier proof; no merge or deployment',owner_action:'Nothing'});}
     await this.rescan();return result;
    }
+   await this.mergeVerifiedJobs();
    const s=await this.snapshot();const result=await this.rescan(s);
    await this.ledger.db.query("UPDATE job_attempts SET state='finished',starting_sha=$2,updated_at=now() WHERE id=$1",[attempt.id,s.main.sha]);
    await this.ledger.receipt(id,'github_validation',{...publicSnapshot(s),scan:result},attempt.id);
