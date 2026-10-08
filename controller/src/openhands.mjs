@@ -11,7 +11,7 @@ export class OpenHands {
  }
  async request(path,body){
   if(!this.key)throw new Error('OPENHANDS_API_KEY_REQUIRED');
-  const r=await this.fetcher(`https://app.all-hands.dev/api/v1/app-conversations${path}`,{method:body?'POST':'GET',headers:{Authorization:`Bearer ${this.key}`,'Content-Type':'application/json'},...(body?{body:JSON.stringify(body)}:{}),signal:AbortSignal.timeout(20000)});
+  const r=await this.fetcher(`https://app.all-hands.dev/api/v1/app-conversations${path}`,{method:body?'POST':'GET',headers:{Authorization:`Bearer ${this.key}`,'X-Access-Token':this.key,'Content-Type':'application/json'},...(body?{body:JSON.stringify(body)}:{}),signal:AbortSignal.timeout(20000)});
   if(!r.ok)throw new Error(`OPENHANDS_HTTP_${r.status}`);return r.json();
  }
  async start(repo,prompt){const r=await this.request('',{selected_repository:repo,initial_message:{content:[{type:'text',text:prompt}]}});if(typeof r.id!=='string')throw new Error('OPENHANDS_START_RESPONSE_INVALID');return {start_task_id:r.id,external_id:r.app_conversation_id??null,status:r.status};}
@@ -27,7 +27,7 @@ export class OpenHands {
  async continueSession(session,prompt){
   if(session.sandbox_status==='PAUSED'){
    try{
-    const response=await this.fetcher(`https://app.all-hands.dev/api/v1/sandboxes/${encodeURIComponent(session.sandbox_id)}/resume`,{method:'POST',headers:{Authorization:`Bearer ${this.key}`},signal:AbortSignal.timeout(20000)});
+    const response=await this.fetcher(`https://app.all-hands.dev/api/v1/sandboxes/${encodeURIComponent(session.sandbox_id)}/resume`,{method:'POST',headers:{'X-Access-Token':this.key},signal:AbortSignal.timeout(20000)});
     if(!response.ok)throw Error('OPENHANDS_RESUME_UNAVAILABLE');
     const rows=await this.request(`?ids=${encodeURIComponent(session.external_id)}`);
     if(rows[0]?.sandbox_status!=='RUNNING'||rows[0]?.execution_status!=='finished')throw Error('OPENHANDS_RESUME_PENDING');
