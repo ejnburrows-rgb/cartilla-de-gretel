@@ -1,5 +1,4 @@
 import { test, expect } from '@playwright/test';
-import * as fs from 'fs';
 import * as path from 'path';
 
 function setupErrorTracking(page: any) {
@@ -20,15 +19,8 @@ test.describe('Student Route Smoke Test', () => {
     { name: 'Desktop', viewport: { width: 1280, height: 720 } }
   ];
 
-  test.beforeAll(() => {
-    const dir = 'docs/proofs/student-route-smoke';
-    if (!fs.existsSync(dir)){
-      fs.mkdirSync(dir, { recursive: true });
-    }
-  });
-
   for (const { name, viewport } of testScenarios) {
-    test(`Smoke test student routes on ${name}`, async ({ page }) => {
+    test(`Smoke test student routes on ${name}`, async ({ page }, testInfo) => {
       await page.setViewportSize(viewport);
       const errors = setupErrorTracking(page);
 
@@ -39,7 +31,9 @@ test.describe('Student Route Smoke Test', () => {
       // 2. Lesson list
       await page.goto('/cartilla/lecciones');
       await expect(page.locator('text=Mis lecciones')).toBeVisible();
-      await page.screenshot({ path: `docs/proofs/student-route-smoke/${name.toLowerCase()}-lecciones.png` });
+
+      const screenshotPath = testInfo.outputPath(`${name.toLowerCase()}-lecciones.png`);
+      await page.screenshot({ path: screenshotPath });
 
       // 3. Progress page
       await page.goto('/cartilla/mi-progreso');
