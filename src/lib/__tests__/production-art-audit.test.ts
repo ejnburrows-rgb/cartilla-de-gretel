@@ -36,8 +36,8 @@ describe("production foreground art audit truthfulness", () => {
   });
 
   it("does not certify native Flip Chart artwork from file existence alone", () => {
-    expect(audit.flipchartNativeAudit.length).toBeGreaterThan(0);
-    expect(audit.flipchartNativeAudit.every((item: any) => item.classification === "PENDING NO VERIFIED SOURCE")).toBe(true);
+    expect(audit.nativeAudit.length).toBeGreaterThan(0);
+    expect(audit.nativeAudit.every((item: any) => item.classification === "PENDING NO VERIFIED SOURCE")).toBe(true);
   });
 
   it("does not misclassify backfilled source crops as verified color transfers", () => {
