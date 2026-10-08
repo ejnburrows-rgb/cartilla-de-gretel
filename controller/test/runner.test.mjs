@@ -186,6 +186,16 @@ test('mandatory Sonar cannot be bypassed by issue checks, forged apps, old commi
  assert.equal(validateChange(job,{...e,checks:[...e.checks,{...e.checks[1],status:'in_progress',started_at:'2099-10-08T01:00:00Z'}]},[123,12526]).passed,false);
 });
 
+test('Jules dispatch failure preserves a safe provider error code without leaking arbitrary error text',async()=>{
+ const {p,ledger,runner,github}=await setup(undefined,{JULES_ENABLED:'true'});
+ github.startJules=async()=>{throw Error('GITHUB_LABEL_HTTP_403');};
+ const j=await ledger.create({key:'jules-provider-error',kind:'issue_implementation',issue:7,source:{issue:7},spec});
+ assert.equal(await runner.dispatch(j,snapshot()),false);
+ const failed=await ledger.get(j.id);assert.equal(failed.status,'blocked');assert.equal(failed.failure_reason,'JULES_DISPATCH_GITHUB_LABEL_HTTP_403');
+ const a=await ledger.attempt(j.id);assert.equal(a.state,'ambiguous');
+ await p.close();
+});
+
 test('Jules is the implementation worker when enabled while OpenHands remains unused for that coding job',async()=>{
  let openHandsStarts=0;
  const {p,ledger,runner,github,db}=await setup({start:async()=>{openHandsStarts++;throw Error('OpenHands should not implement while Jules is enabled');},poll:async()=>({status:'finished',terminal:true})},{JULES_ENABLED:'true'});
