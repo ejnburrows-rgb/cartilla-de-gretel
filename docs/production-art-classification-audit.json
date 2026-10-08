@@ -4,8 +4,8 @@
     "faithfulWired": 110,
     "flipchartNativeWired": 167,
     "breakdownFaithful": {
-      "PASS": 97,
-      "PENDING NO VERIFIED SOURCE": 11,
+      "PASS": 94,
+      "PENDING NO VERIFIED SOURCE": 14,
       "VERIFIED COLOR TRANSFER": 1,
       "CROP FIX": 1
     },
@@ -337,7 +337,7 @@
     {
       "src": "/cartilla/art/faithful/leccion-19-c/casa.webp",
       "word": "casa",
-      "classification": "PASS",
+      "classification": "PENDING NO VERIFIED SOURCE",
       "provenance": "",
       "qaVerdict": "PASS",
       "dimensions": "870x855",
@@ -567,7 +567,7 @@
     {
       "src": "/cartilla/art/faithful/leccion-22-y/yate.webp",
       "word": "yate",
-      "classification": "PASS",
+      "classification": "PENDING NO VERIFIED SOURCE",
       "provenance": "",
       "qaVerdict": "PASS",
       "dimensions": "870x609",
@@ -607,7 +607,7 @@
     {
       "src": "/cartilla/art/faithful/leccion-23-z/zapato.webp",
       "word": "zapato",
-      "classification": "PASS",
+      "classification": "PENDING NO VERIFIED SOURCE",
       "provenance": "",
       "qaVerdict": "PASS",
       "dimensions": "870x790",
