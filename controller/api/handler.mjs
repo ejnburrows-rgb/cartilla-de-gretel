@@ -13,7 +13,7 @@ export default {async fetch(request){
  }
  try{
   const req={url:request.url,method:request.method,headers:Object.fromEntries(request.headers),body:request.method==='POST'?await rawBody(request):undefined};
-  const deps={get ledger(){return runtime().ledger;},get github(){return runtime().github;},send:event=>runtime().send(event)};
+  const deps={get ledger(){return runtime().ledger;},get github(){return runtime().github;},get worker(){return runtime().worker;},send:event=>runtime().send(event)};
   const r=await api(req,deps);return Response.json(r.body,{status:r.status,headers});
  }catch(e){
   const bad=['BODY_TOO_LARGE','RAW_BODY_UNAVAILABLE'].includes(e.message),conflict=['RETRY_UNSAFE','CANCEL_UNSAFE','JOB_NOT_FOUND'].includes(e.message);

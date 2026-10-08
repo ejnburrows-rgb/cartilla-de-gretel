@@ -17,3 +17,17 @@ test('Vercel Web Standard handler retains read-only auth and Inngest configurati
  const old=process.env.INNGEST_SIGNING_KEY;delete process.env.INNGEST_SIGNING_KEY;
  try{const r=await handler.fetch(new Request('https://controller.test/api/inngest'));assert.equal(r.status,503);assert.equal((await r.json()).error,'INNGEST_NOT_CONFIGURED');}finally{if(old!==undefined)process.env.INNGEST_SIGNING_KEY=old;}
 });
+
+import {configureWorkerKey} from '../src/runtime.mjs';
+import {OpenHands} from '../src/openhands.mjs';
+import {safeText} from '../src/security.mjs';
+test('saved sensitive credential alias preserves canonical key and stays redacted',()=>{
+ const env={Myne:'private-existing-credential'};assert.equal(configureWorkerKey(env),true);
+ assert.equal(env.OPENHANDS_API_KEY,env.Myne);assert.equal(safeText(env.Myne,env),'[REDACTED]');
+ const canonical={OPENHANDS_API_KEY:'canonical',Myne:'alias'};configureWorkerKey(canonical);assert.equal(canonical.OPENHANDS_API_KEY,'canonical');
+});
+test('OpenHands authentication preflight is GET only and never exposes response secrets',async()=>{
+ const calls=[];const worker=new OpenHands({key:'private',fetcher:async(url,options)=>{calls.push({url,method:options.method});return {ok:true,status:200,json:()=>{throw new Error('must not read secret response');}};}});
+ assert.deepEqual(await worker.authStatus(),{configured:true,authenticated:true,http_status:200});
+ assert.deepEqual(calls,[{url:'https://app.all-hands.dev/api/keys/current',method:'GET'}]);
+});

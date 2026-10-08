@@ -2,6 +2,13 @@
 // https://github.com/openhands/docs/blob/main/openhands/usage/cloud/cloud-api.mdx
 export class OpenHands {
  constructor({key,fetcher=fetch}){this.key=key;this.fetcher=fetcher;}
+ async authStatus(){
+  if(!this.key)return {configured:false,authenticated:false};
+  try{
+   const r=await this.fetcher('https://app.all-hands.dev/api/keys/current',{method:'GET',headers:{Authorization:`Bearer ${this.key}`},signal:AbortSignal.timeout(15000)});
+   return {configured:true,authenticated:r.ok,http_status:r.status};
+  }catch{return {configured:true,authenticated:false,error:'OPENHANDS_UNREACHABLE'};}
+ }
  async request(path,body){
   if(!this.key)throw new Error('OPENHANDS_API_KEY_REQUIRED');
   const r=await this.fetcher(`https://app.all-hands.dev/api/v1/app-conversations${path}`,{method:body?'POST':'GET',headers:{Authorization:`Bearer ${this.key}`,'Content-Type':'application/json'},...(body?{body:JSON.stringify(body)}:{}),signal:AbortSignal.timeout(20000)});
