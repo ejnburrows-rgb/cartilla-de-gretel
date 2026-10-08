@@ -91,7 +91,7 @@ export class Ledger {
    if(!['blocked','dead_letter','failed','cancelled'].includes(j.status))throw new Error('RETRY_UNSAFE');
    if(active.length){
     const attempts=(await c.query("SELECT * FROM job_attempts WHERE job_id=$1 AND state IN('reserved','running','ambiguous','cancel_requested')",[id])).rows;
-    if(resolution!=='confirmed_not_created'||attempts.some(a=>a.state!=='ambiguous'||a.external_id||a.start_task_id))throw new Error('RETRY_UNSAFE');
+    if(resolution!=='confirmed_not_created'||!attempts.every(a=>a.state==='ambiguous'&&!a.external_id&&!a.start_task_id))throw new Error('RETRY_UNSAFE');
     await this.receipt(id,'admin_dispatch_resolution',{resolution:'confirmed_not_created',authority:'explicit_admin_attestation'},attempts[0].id,c);
     await c.query("UPDATE job_attempts SET state='failed',updated_at=now() WHERE job_id=$1 AND state='ambiguous'",[id]);
    }
