@@ -56,7 +56,7 @@ const PENCIL_TILT = 60;
  * Big close-up tool (owner reference 2026-10-06): the pencil is about a third of
  * the box high, so it is always much longer than the box and only its front shows.
  */
-const PENCIL_SCALE = 2.3;
+const PENCIL_SCALE = 3.6;
 const PENCIL_POSE = `rotate(${PENCIL_TILT}) scale(${PENCIL_SCALE})`;
 /** The eraser lies a little flatter, its body running off to the right. */
 const ERASER_TILT = 66;
@@ -76,12 +76,14 @@ const OFFSCREEN_MARGIN = 24;
  * path. `uid` keeps gradient ids unique.
  */
 /**
- * Owner reference 2026-10-08 ("pencil-new-closeups"): a big close-up pencil cut off
- * so only its front shows — the back fades away softly. `cut="tip"` shows the
- * graphite point, cedar cone and the front of the body; `cut="eraser"` shows the
- * eraser, the silver band and the end of the body. Omit `cut` for the whole pencil.
+ * `stretch` (owner 2026-10-08) lengthens the yellow body by that many units so a
+ * big, solid, real pencil can run from the picture right off the edge of the
+ * screen — near the picture only its tip (or its eraser end) is seen, nothing is
+ * faded or cut off. The eraser and band move back with the end of the body.
  */
-export function PencilShape({ uid, cut }: { uid: string; cut?: "tip" | "eraser" }) {
+export function PencilShape({ uid, stretch = 0 }: { uid: string; stretch?: number }) {
+  const back = -stretch;
+  const top = f2(-60.2 - stretch);
   const g = (name: string) => `${uid}-${name}`;
   const u = (name: string) => `url(#${g(name)})`;
   const lin = (id: string, stops: [number, string][], x1: number, x2: number) => (
@@ -92,7 +94,7 @@ export function PencilShape({ uid, cut }: { uid: string; cut?: "tip" | "eraser" 
     </linearGradient>
   );
   return (
-    <g className="workbook-pencil__shape" mask={cut ? u(`cut-${cut}`) : undefined}>
+    <g className="workbook-pencil__shape">
       <defs>
         {lin(
           "lacq",
@@ -158,33 +160,8 @@ export function PencilShape({ uid, cut }: { uid: string; cut?: "tip" | "eraser" 
           <stop offset="0" stopColor="#7a4a14" stopOpacity="0.35" />
           <stop offset="1" stopColor="#7a4a14" stopOpacity="0" />
         </linearGradient>
-        {cut === "tip" && (
-          <>
-            {/* Solid from the point to the middle of the body, then fading out before the band. */}
-            <linearGradient id={g("cutg-tip")} x1="0" y1="0" x2="0" y2="-79.5" gradientUnits="userSpaceOnUse">
-              <stop offset="0" stopColor="#fff" />
-              <stop offset="0.5" stopColor="#fff" />
-              <stop offset="0.74" stopColor="#000" />
-            </linearGradient>
-            <mask id={g("cut-tip")} maskUnits="userSpaceOnUse" x="-20" y="-90" width="40" height="100">
-              <rect x="-20" y="-90" width="40" height="100" fill={u("cutg-tip")} />
-            </mask>
-          </>
-        )}
-        {cut === "eraser" && (
-          <>
-            {/* Solid over the eraser, the band and the end of the body, then fading out. */}
-            <linearGradient id={g("cutg-eraser")} x1="0" y1="0" x2="0" y2="-79.5" gradientUnits="userSpaceOnUse">
-              <stop offset="0.3" stopColor="#000" />
-              <stop offset="0.52" stopColor="#fff" />
-              <stop offset="1" stopColor="#fff" />
-            </linearGradient>
-            <mask id={g("cut-eraser")} maskUnits="userSpaceOnUse" x="-20" y="-90" width="40" height="100">
-              <rect x="-20" y="-90" width="40" height="100" fill={u("cutg-eraser")} />
-            </mask>
-          </>
-        )}
       </defs>
+      <g transform={stretch ? `translate(0 ${f2(back)})` : undefined}>
       {/* Soft pink eraser, slightly worn and rounded. */}
       <path
         d="M -6.3 -69.5 L -6.3 -75.2 Q -6.3 -79.5 -2.4 -79.5 L 2.4 -79.5 Q 6.3 -79.5 6.3 -75.2 L 6.3 -69.5 Z"
@@ -209,6 +186,7 @@ export function PencilShape({ uid, cut }: { uid: string; cut?: "tip" | "eraser" 
       ))}
       <rect x="-6.8" y="-62.2" width="13.6" height="2" fill="#000" opacity="0.1" />
       <rect x="-6.8" y="-70.4" width="13.6" height="0.9" fill="#000" opacity="0.12" />
+      </g>
       {/* Sharpened cedar cone with grain. */}
       <path d="M -6.5 -23.4 L 6.5 -23.4 L 2.4 -6.4 L -2.4 -6.4 Z" fill={u("wood")} />
       <path
@@ -223,7 +201,7 @@ export function PencilShape({ uid, cut }: { uid: string; cut?: "tip" | "eraser" 
       <path d="M -1.35 -6.1 L -0.3 -1.5" stroke="#9696a0" strokeWidth="0.5" strokeLinecap="round" opacity="0.8" />
       {/* Hexagonal lacquered body: three lit facets, scalloped where sharpened. */}
       <path
-        d="M -6.5 -60.2 L 6.5 -60.2 L 6.5 -21.6 Q 4.35 -17.2 2.17 -21.6 Q 0 -16.4 -2.17 -21.6 Q -4.35 -17.2 -6.5 -21.6 Z"
+        d={`M -6.5 ${top} L 6.5 ${top} L 6.5 -21.6 Q 4.35 -17.2 2.17 -21.6 Q 0 -16.4 -2.17 -21.6 Q -4.35 -17.2 -6.5 -21.6 Z`}
         fill={u("lacq")}
       />
       <path
@@ -233,11 +211,11 @@ export function PencilShape({ uid, cut }: { uid: string; cut?: "tip" | "eraser" 
         strokeWidth="0.35"
         opacity="0.55"
       />
-      <line x1="-2.17" y1="-60.2" x2="-2.17" y2="-21.6" stroke="#e39a12" strokeWidth="0.32" opacity="0.85" />
-      <line x1="2.17" y1="-60.2" x2="2.17" y2="-21.6" stroke="#a9620a" strokeWidth="0.32" opacity="0.85" />
-      <rect x="-5.4" y="-59.6" width="1.5" height="37" rx="0.75" fill="#fff8de" opacity="0.65" />
-      <rect x="-0.8" y="-59.6" width="0.7" height="38" rx="0.35" fill="#fff3c4" opacity="0.4" />
-      <rect x="-6.5" y="-60.2" width="13" height="1.4" fill="#000" opacity="0.08" />
+      <line x1="-2.17" y1={top} x2="-2.17" y2="-21.6" stroke="#e39a12" strokeWidth="0.32" opacity="0.85" />
+      <line x1="2.17" y1={top} x2="2.17" y2="-21.6" stroke="#a9620a" strokeWidth="0.32" opacity="0.85" />
+      <rect x="-5.4" y={f2(-59.6 - stretch)} width="1.5" height={f2(37 + stretch)} rx="0.75" fill="#fff8de" opacity="0.65" />
+      <rect x="-0.8" y={f2(-59.6 - stretch)} width="0.7" height={f2(38 + stretch)} rx="0.35" fill="#fff3c4" opacity="0.4" />
+      <rect x="-6.5" y={top} width="13" height="1.4" fill="#000" opacity="0.08" />
     </g>
   );
 }
@@ -379,6 +357,8 @@ interface FlightBox {
   height: number;
   /** Viewport width in CSS px. */
   vw: number;
+  /** Viewport height in CSS px. */
+  vh: number;
 }
 
 /**
@@ -399,15 +379,17 @@ function useFlightBox(ref: React.RefObject<HTMLDivElement | null>, active: boole
     const measure = () => {
       const r = el.getBoundingClientRect();
       const vw = window.innerWidth || document.documentElement.clientWidth || 0;
+      const vh = window.innerHeight || document.documentElement.clientHeight || 0;
       setBox((prev) =>
         prev &&
         prev.left === r.left &&
         prev.top === r.top &&
         prev.width === r.width &&
         prev.height === r.height &&
-        prev.vw === vw
+        prev.vw === vw &&
+        prev.vh === vh
           ? prev
-          : { left: r.left, top: r.top, width: r.width, height: r.height, vw },
+          : { left: r.left, top: r.top, width: r.width, height: r.height, vw, vh },
       );
     };
     const schedule = () => {
@@ -427,6 +409,17 @@ function useFlightBox(ref: React.RefObject<HTMLDivElement | null>, active: boole
     };
   }, [ref, active]);
   return box;
+}
+
+/**
+ * How much longer than a stock pencil the tool must be (shape units) so that, from
+ * the picture, its body always runs right off the edge of the screen.
+ */
+function stretchToScreenEdge(box: FlightBox, height: number): number {
+  const unit = box.width > 0 && box.height > 0 ? Math.min(box.width / 100, box.height / height) : 0;
+  if (unit <= 0) return 0;
+  const needed = Math.hypot(box.vw, box.vh) / unit / PENCIL_SCALE;
+  return Math.max(0, Math.ceil(needed - PENCIL_LENGTH));
 }
 
 /**
@@ -459,6 +452,7 @@ function DrawingPencil({
   first,
   last,
   offscreen,
+  stretch,
 }: {
   path: string;
   begin?: number;
@@ -471,6 +465,8 @@ function DrawingPencil({
   last: boolean;
   /** Translation that puts the pencil past the right edge of the screen. */
   offscreen: string;
+  /** Extra body length so the pencil runs off the edge of the screen. */
+  stretch: number;
 }) {
   const travel = approach + dur;
   const total = travel + lift;
@@ -520,7 +516,7 @@ function DrawingPencil({
             keySplines={`0.3 0 0.4 1;${EASE};${EASE};${EASE};0 0 1 1`}
           />
           <g transform={PENCIL_POSE}>
-            <PencilShape uid={uid} cut="tip" />
+            <PencilShape uid={uid} stretch={stretch} />
           </g>
         </g>
       </g>
@@ -788,6 +784,7 @@ export function WorkbookPencilMark({
    * They fly in a fixed layer above the whole page, kept exactly over this mark box,
    * so the page sheet (which clips its contents) never cuts them off.
    */
+  const stretch = flightBox ? stretchToScreenEdge(flightBox, height) : 0;
   const flightLayer =
     flying && flightBox && typeof document !== "undefined"
       ? createPortal(
@@ -820,6 +817,7 @@ export function WorkbookPencilMark({
                   first={i === 0}
                   last={i === strokes.length - 1}
                   offscreen={offscreenFrom(flightBox, height, strokePoints[i][0])}
+                  stretch={stretch}
                 />
               ))}
             {erasing &&
@@ -859,8 +857,8 @@ export function WorkbookPencilMark({
                           values="0 0;5 -1.4;0 0;-4.5 1.2;0 0"
                         />
                         <g transform={ERASER_POSE}>
-                          <g transform={`rotate(180 0 ${PENCIL_CENTER_Y})`}>
-                            <PencilShape uid={`${baseId}-e`} cut="eraser" />
+                          <g transform={`rotate(180 0 ${f2(PENCIL_CENTER_Y - stretch / 2)})`}>
+                            <PencilShape uid={`${baseId}-e`} stretch={stretch} />
                           </g>
                         </g>
                       </g>
