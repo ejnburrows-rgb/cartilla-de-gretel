@@ -23,22 +23,13 @@
   <p class="scope"><strong>Important:</strong> these are controller jobs and checks. They are not a count of finished Cartilla features or pages.</p>
 </section>
 
-<section class="panel connection">
-  <h2>Open the real history</h2>
-  <p>Use the read-only token to see every recorded job, its repository, what it was trying to do, what happened, what proof exists, what is still missing, why it is missing, and whether Emilio needs to act.</p>
-  <div class="token-row">
-    <input id="token" type="password" autocomplete="off" placeholder="Read-only token">
-    <button id="connect">Show full history</button>
-  </div>
-</section>
-
-<div id="notice" class="notice" role="status">Live summary is available without a token. Detailed history requires read-only access.</div>
+<div id="notice" class="notice success" role="status">Private owner dashboard. Access is handled by Vercel Authentication; no controller key is required.</div>
 <div id="owner-status" class="owner-decision" hidden></div>
 
 <section class="toolbar">
   <div>
     <h2>Controller history</h2>
-    <p id="jobs-help">Connect above to see the actual recorded history.</p>
+    <p id="jobs-help">History loads automatically after your Vercel sign-in.</p>
   </div>
   <div class="controls" id="controls" hidden>
     <div class="control">
@@ -90,7 +81,7 @@ const reasonMap={
  RETRY_UNSAFE:'The controller cannot safely retry yet because an earlier external run may still exist.',
  GITHUB_QUOTA:'GitHub temporarily limited requests. The controller must wait for the reset time before checking again.'
 };
-let token='',allJobs=[],filter='owner',repoFilter='all',sortOrder='newest';
+let allJobs=[],filter='owner',repoFilter='all',sortOrder='newest';
 const historyCache=new Map();
 const node=(tag,text,className)=>{const e=document.createElement(tag);if(text!==undefined)e.textContent=text;if(className)e.className=className;return e};
 const plural=(n,one,many)=>n+' '+(n===1?one:many);
@@ -157,13 +148,10 @@ function renderOverview(state){
   priorityCard(verified,'Verified history','Verified controller jobs, not finished Cartilla pages.','good')
  );
  document.querySelector('#updated').textContent='Live · '+new Date().toLocaleTimeString();
- if(!token){
-  document.querySelector('#notice').className='notice'+(unhealthy?' problem':'');
-  document.querySelector('#notice').textContent=unhealthy?'There are jobs with problem states. Connect to see whether any of them actually require you, or whether the controller can handle them itself.':'No blocked, failed, or stopped jobs appear in the public totals. Connect for the full recorded history.';
- }
+
 }
 async function get(path){
- const r=await fetch(path,{headers:{Authorization:'Bearer '+token},cache:'no-store'});
+ const r=await fetch(path,{cache:'no-store'});
  const body=await r.json();
  if(!r.ok){const e=new Error(body.error||'Connection needs configuration');e.body=body;throw e}
  return body;
@@ -313,25 +301,19 @@ async function refresh(){
   populateRepos();renderOwnerSummary();
   document.querySelector('#filters').hidden=false;document.querySelector('#controls').hidden=false;
   renderJobs();
-  document.querySelector('#notice').textContent='Connected with read-only access. This page can inspect history but cannot change, retry, merge, or deploy anything.';
+  document.querySelector('#notice').textContent='Private owner dashboard loaded. No controller key is required. This page is read-only and cannot change, retry, merge, or deploy anything.';
   document.querySelector('#notice').className='notice success';
  }catch(e){
-  document.querySelector('#notice').textContent=e.body?.missing?'Controller configuration is incomplete: '+e.body.missing.join(', '):e.message==='UNAUTHORIZED'?'That read-only token was not accepted.':'Could not load detailed history: '+e.message;
+  document.querySelector('#notice').textContent=e.body?.missing?'Controller configuration is incomplete: '+e.body.missing.join(', '):'Could not load detailed history: '+e.message;
   document.querySelector('#notice').className='notice problem';
  }
 }
-document.querySelector('#connect').onclick=()=>{
- token=document.querySelector('#token').value.trim();document.querySelector('#token').value='';
- if(!token){document.querySelector('#notice').textContent='Enter the read-only token to show the full history.';document.querySelector('#notice').className='notice problem';return}
- refresh();
-};
-document.querySelector('#token').addEventListener('keydown',e=>{if(e.key==='Enter')document.querySelector('#connect').click()});
 document.querySelector('#filters').addEventListener('click',e=>{
  const b=e.target.closest('button[data-filter]');if(!b)return;filter=b.dataset.filter;
  document.querySelectorAll('#filters button').forEach(x=>x.setAttribute('aria-pressed',String(x===b)));renderJobs();
 });
 document.querySelector('#repo-filter').addEventListener('change',e=>{repoFilter=e.target.value;renderOwnerSummary();renderJobs()});
 document.querySelector('#sort-filter').addEventListener('change',e=>{sortOrder=e.target.value;renderJobs()});
-overview();setInterval(()=>token?refresh():overview(),15000);
+refresh();setInterval(refresh,15000);
 </script>
 </html>
