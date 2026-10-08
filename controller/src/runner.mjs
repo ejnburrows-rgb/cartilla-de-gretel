@@ -106,10 +106,14 @@ export class Runner {
  async process(id){
   const attempt=await this.ledger.claimLocal(id);if(!attempt)return {skipped:true};
   try{
+   // Every durable GitHub reconciliation also sweeps already-verified controller PRs.
+   // This keeps integration moving even if a cron wakeup is delayed or lost.
+   const merged=await this.mergeVerifiedJobs();
    const s=await this.snapshot();const result=await this.rescan(s);
+   const scan={...result,merged};
    await this.ledger.db.query("UPDATE job_attempts SET state='finished',starting_sha=$2,updated_at=now() WHERE id=$1",[attempt.id,s.main.sha]);
-   await this.ledger.receipt(id,'github_validation',{...publicSnapshot(s),scan:result},attempt.id);
-   await this.ledger.verify(id,attempt,'repository_reconciliation',{passed:true,main_sha:s.main.sha,scan:result});return result;
+   await this.ledger.receipt(id,'github_validation',{...publicSnapshot(s),scan},attempt.id);
+   await this.ledger.verify(id,attempt,'repository_reconciliation',{passed:true,main_sha:s.main.sha,scan});return scan;
   }catch(e){await this.ledger.db.query("UPDATE job_attempts SET state='failed',updated_at=now() WHERE id=$1",[attempt.id]);await this.ledger.fail(id,e.message);await this.scheduleRetry(id);throw e;}
  }
  async tryAutoMerge(job,evidence,attempt=null){
