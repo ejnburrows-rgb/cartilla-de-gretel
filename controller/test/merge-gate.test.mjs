@@ -30,3 +30,21 @@ test('proof record posts exact mandatory dual-review statement before merge',asy
  await assert.rejects(client.proofComment(7,'not a verified proof'),/INVALID_DUAL_REVIEW_PROOF/);
  assert.equal(calls.length,1);
 });
+
+test('authorized verified release cannot merge without independent exact-head execution receipt',async()=>{
+ const main='a'.repeat(40),head='b'.repeat(40);
+ let merged=0;
+ const checks=[{name:'Independent tests',app_id:123,head_sha:head,status:'completed',conclusion:'success',started_at:'2026-10-08T01:00:00Z'},{name:'SonarCloud Code Analysis',app_id:12526,head_sha:head,status:'completed',conclusion:'success',started_at:'2026-10-08T01:00:00Z'}];
+ const parent={id:'parent',status:'verified',issue_number:7,spec:{paths:['src/example.ts'],required_checks:['Independent tests']}};
+ const release={id:'release',status:'verified',source:{parent_job:'parent',pr:9}};
+ const github={
+  repo:'owner/repo',main:async()=>({sha:main}),
+  changes:async()=>({compare:{status:'ahead',ahead_by:1},pr:{number:9,head,body:'Fixes #7'},files:[{filename:'src/example.ts',status:'modified',additions:1,deletions:1}],checks}),
+  request:async(path)=>path==='/issues/7'?{user:{login:'owner'},state:'open',labels:[]}:path==='/pulls/9'?{number:9,state:'open',draft:false,merged:false,head:{sha:head,repo:{full_name:'owner/repo'}},base:{ref:'main'},mergeable:true}:{status:'ahead'},
+  pages:async()=>[],mergePullRequest:async()=>{merged++;return {merged:true};}
+ };
+ const pipeline=new VerificationPipeline({ledger:{db:{query:async()=>({rows:[]})}},github,send:async()=>{},env:{CONTROLLER_MERGE_ISSUES:'7',TRUSTED_CHECK_APP_IDS:'123,12526'}});
+ pipeline.inspect=async()=>({passed:true,head,main,requirements:{checks:['targeted','worker','review','release']}});
+ assert.equal((await pipeline.merge(parent,release)).reason,'EXACT_HEAD_RELEASE_EVIDENCE_REQUIRED');
+ assert.equal(merged,0);
+});
