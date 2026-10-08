@@ -10,6 +10,7 @@ test('public board counts real work separately from technical history; details a
  const system=await f.ledger.create({key:'system-work',kind:'reconcile',source:{event:true}});await f.ledger.set(system.id,'dead_letter','INNGEST_SEND_RETRIES_EXHAUSTED',{owner_action:'Nothing'});
  const deps={ledger:f.ledger};const r=await api({url:'/api/overview',method:'GET',headers:{}},deps,{OPENHANDS_ENABLED:'true',JULES_ENABLED:'true',GITHUB_TOKEN:'server-github'});
  assert.equal(r.status,200);assert.equal(r.body.categories.working_now,1);assert.equal(r.body.categories.controller_system_problem,0);assert.equal(r.body.statuses.dead_letter,0);assert.equal(r.body.system_history.dead_letter,1);assert.equal(r.body.system_history.historical_failures,1);assert.equal(r.body.workers.jules.enabled,true);assert.equal(r.body.workers.jules.mode,'github-issue-label');
+ const direct=await api({url:'/api/overview',method:'GET',headers:{}},deps,{OPENHANDS_ENABLED:'true',JULES_ENABLED:'true',JULES_API_KEY:'secret',GITHUB_TOKEN:'server-github'});assert.equal(direct.body.workers.jules.enabled,true);assert.equal(direct.body.workers.jules.mode,'direct-api');
  for(const [url,method]of [['/api/jobs','GET'],['/api/status','GET'],['/api/overview','POST']])assert.equal((await api({url,method,headers:{}},deps,{})).status,401);await f.p.close();
 });
 test('Web Standard request preserves exact signed JSON bytes',async()=>{

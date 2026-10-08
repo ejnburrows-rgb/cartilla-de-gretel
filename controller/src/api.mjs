@@ -7,8 +7,8 @@ const projectWorkSql="(kind='issue_implementation' OR coalesce(source->>'lane','
 const ownerAttentionSql="owner_action IS NOT NULL AND lower(trim(trailing '.' from owner_action)) NOT IN('nothing','nothing right now','none','no action')";
 const ownerNeedsAttention=value=>!!value&&!['nothing','nothing right now','none','no action'].includes(String(value).trim().toLowerCase().replace(/\.$/,''));
 const julesWorkerState=env=>{
- const configured=env.JULES_ENABLED==='true',available=configured&&!!(env.GITHUB_TOKEN||env.Ejn);
- return {enabled:available,configured,available,mode:'github-issue-label',required:false,...(!available&&configured?{reason:'GitHub mutation credential unavailable'}:{})};
+ const configured=env.JULES_ENABLED==='true',direct=configured&&!!env.JULES_API_KEY,fallback=configured&&!!(env.GITHUB_TOKEN||env.Ejn),available=direct||fallback;
+ return {enabled:available,configured,available,mode:direct?'direct-api':fallback?'github-issue-label':'unavailable',required:false,...(!available&&configured?{reason:'Jules API key and GitHub mutation credential unavailable'}:{})};
 };
 const viewJob=(j,repo)=>({id:j.id,kind:j.kind,lane:j.source?.lane??j.kind,repository:j.source?.repository??j.source?.repo??repo??null,source_url:j.source?.url??null,pr:j.source?.pr??null,issue:j.issue_number,status:j.status,requested_action:j.spec.action??j.kind,worker:j.worker,external_id:j.external_id,starting_sha:j.starting_sha,attempt_number:j.attempt_count,deadline:j.deadline,created_at:j.created_at,last_activity:j.updated_at,next_retry:j.retry_at,failure_reason:j.failure_reason,next_action:j.next_action,what_emilio_needs_to_do:j.owner_action,needs_owner_attention:ownerNeedsAttention(j.owner_action)});
 async function summary(ledger){
