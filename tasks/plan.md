@@ -50,7 +50,7 @@ Do not confuse printed page numbers with PDF file indices. Historical mapping fi
 2. **#616 + #617 — current page-turn integration**
    - Existing workers supply exact-head task/rendered proof; repair #617's reproduced cancellation, reduced-motion, and keyboard defects in its current branch.
    - Controller deliberately reconciles the four shared files; preserve both Workbook completion/save behavior and teacher hand-mode/laser-pointer behavior.
-   - Re-review the integrated exact head, reconcile Sonar, and complete required release qualification. No independent overlapping merges.
+   - Verify the integrated exact head with focused behavior tests and required release qualification. Sonar is optional and cannot block dispatch or merging; real defects still require repair. No overlapping independent merges.
 
 3. **#618 and independent existing proof/performance/teacher candidates**
    - Review only fresh, current-main-reconciled heads against source/owner requirements.
