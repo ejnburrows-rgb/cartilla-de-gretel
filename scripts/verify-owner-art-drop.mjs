@@ -161,5 +161,5 @@ async function run() {
 
 // Only run if executed directly
 if (import.meta.url === `file://${process.argv[1]}`) {
-  run();
+  await run();
 }
