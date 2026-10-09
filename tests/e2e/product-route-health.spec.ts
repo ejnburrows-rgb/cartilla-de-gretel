@@ -16,21 +16,18 @@ async function dismissCinematic(page: Page) {
 }
 
 async function expectNoBrokenImages(scope: Page | import("@playwright/test").Locator, label: string) {
-  const visibleImages = scope.locator("img:visible");
-  const imageCount = await visibleImages.count();
-  for (let i = 0; i < imageCount; i += 1) {
-    const img = visibleImages.nth(i);
-    const natural = await img.evaluate((node: HTMLImageElement) => ({
-      src: node.currentSrc || node.src,
-      complete: node.complete,
-      naturalWidth: node.naturalWidth,
-      naturalHeight: node.naturalHeight,
-    }));
-    expect(
-      natural.complete && natural.naturalWidth > 0 && natural.naturalHeight > 0,
-      `Broken visible image in ${label}: ${natural.src}`,
-    ).toBeTruthy();
-  }
+  const brokenSources = await scope.locator("img:visible").evaluateAll((elements) =>
+    elements
+      .filter((element) => {
+        const image = element as HTMLImageElement;
+        return !image.complete || image.naturalWidth <= 0 || image.naturalHeight <= 0;
+      })
+      .map((element) => {
+        const image = element as HTMLImageElement;
+        return image.currentSrc || image.src;
+      }),
+  );
+  expect(brokenSources, `Broken visible images in ${label}`).toEqual([]);
 }
 
 async function assertNoHorizontalOverflow(page: Page, label: string) {
@@ -79,14 +76,25 @@ function attachRouteErrorMonitors(page: Page, routeLabel: string) {
   return {
     assertClean: () => {
       expect(pageErrors, `Unhandled page errors on ${routeLabel}`).toEqual([]);
-      // Filter out non-fatal React key duplication warnings on main (which are logged as reported defects for repair)
-      const fatalConsoleErrors = consoleErrors.filter(
-        (err) => !err.includes("Encountered two children with the same key"),
-      );
-      expect(fatalConsoleErrors, `Fatal console errors on ${routeLabel}`).toEqual([]);
+      // Never hide a real React duplicate-key console error from the release gate.
+      expect(consoleErrors, `Console errors on ${routeLabel}`).toEqual([]);
       expect(failedRequests, `Failed network requests on ${routeLabel}`).toEqual([]);
     },
   };
+}
+
+async function checkBasicRoute(page: Page, route: string, label: string, proofName?: string) {
+  const monitor = attachRouteErrorMonitors(page, label);
+  await page.goto(route, { waitUntil: "domcontentloaded" });
+  await page.waitForLoadState("networkidle").catch(() => {});
+  await dismissCinematic(page);
+  await expect(page.locator("body")).not.toBeEmpty();
+  await assertNoHorizontalOverflow(page, label);
+  await expectNoBrokenImages(page, label);
+  if (proofName) {
+    await page.screenshot({ path: path.join(PROOF_DIR, proofName), fullPage: true });
+  }
+  monitor.assertClean();
 }
 
 test.describe("Whole-Product Route Health + Console/Network Error Sweep", () => {
@@ -118,22 +126,12 @@ test.describe("Whole-Product Route Health + Console/Network Error Sweep", () => 
     const welcomeRoutes = ["/", "/cartilla/", "/entrar", "/cartilla/student-login"];
 
     for (const route of welcomeRoutes) {
-      const monitor = attachRouteErrorMonitors(page, `welcome ${route}`);
-      await page.goto(route, { waitUntil: "domcontentloaded" });
-      await page.waitForLoadState("networkidle").catch(() => {});
-      await dismissCinematic(page);
-
-      await expect(page.locator("body")).not.toBeEmpty();
-      await assertNoHorizontalOverflow(page, `welcome ${route}`);
-      await expectNoBrokenImages(page, `welcome ${route}`);
-
-      if (route === "/entrar") {
-        await page.screenshot({
-          path: path.join(PROOF_DIR, "welcome-desktop.png"),
-          fullPage: true,
-        });
-      }
-      monitor.assertClean();
+      await checkBasicRoute(
+        page,
+        route,
+        `welcome ${route}`,
+        route === "/entrar" ? "welcome-desktop.png" : undefined,
+      );
     }
   });
 
@@ -141,22 +139,12 @@ test.describe("Whole-Product Route Health + Console/Network Error Sweep", () => 
     const catalogRoutes = ["/cartilla/lecciones", "/cartilla/teacher/lecciones"];
 
     for (const route of catalogRoutes) {
-      const monitor = attachRouteErrorMonitors(page, `catalog ${route}`);
-      await page.goto(route, { waitUntil: "domcontentloaded" });
-      await page.waitForLoadState("networkidle").catch(() => {});
-      await dismissCinematic(page);
-
-      await expect(page.locator("body")).not.toBeEmpty();
-      await assertNoHorizontalOverflow(page, `catalog ${route}`);
-      await expectNoBrokenImages(page, `catalog ${route}`);
-
-      if (route === "/cartilla/lecciones") {
-        await page.screenshot({
-          path: path.join(PROOF_DIR, "lesson-catalog.png"),
-          fullPage: true,
-        });
-      }
-      monitor.assertClean();
+      await checkBasicRoute(
+        page,
+        route,
+        `catalog ${route}`,
+        route === "/cartilla/lecciones" ? "lesson-catalog.png" : undefined,
+      );
     }
   });
 
