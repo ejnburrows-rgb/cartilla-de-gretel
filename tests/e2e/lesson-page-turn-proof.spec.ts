@@ -136,3 +136,69 @@ test.describe("Lesson Page Real-Paper Turn - Proof & Verification", () => {
     await context.close();
   });
 });
+
+async function openCompletedLesson(page: import("@playwright/test").Page) {
+  await page.goto("/cartilla/leccion/1", { waitUntil: "domcontentloaded" });
+  await page.evaluate(() => {
+    localStorage.setItem("cartilla.lesson-progress.v1", JSON.stringify([1]));
+    localStorage.setItem("cartilla:completed-lessons", JSON.stringify([1]));
+    window.dispatchEvent(new Event("cartilla:lesson-progress"));
+  });
+  await page.reload({ waitUntil: "domcontentloaded" });
+  const viewer = page.locator(".native-lesson-viewer");
+  await expect(viewer).toBeVisible();
+  await expect(viewer).toHaveAttribute("data-page-complete", "true");
+  return viewer;
+}
+
+test.describe("Workbook corner safety regressions", () => {
+  test("pointercancel after a long drag never commits navigation", async ({ page }) => {
+    const viewer = await openCompletedLesson(page);
+    const originalPage = await viewer.getAttribute("data-native-page");
+    const next = page.getByTestId("corner-next");
+    await next.scrollIntoViewIfNeeded();
+    const box = (await next.boundingBox())!;
+    const startX = box.x + box.width / 2;
+    const startY = box.y + box.height / 2;
+
+    await page.mouse.move(startX, startY);
+    await page.mouse.down();
+    await page.mouse.move(startX - 400, startY, { steps: 10 });
+    await next.dispatchEvent("pointercancel", {
+      pointerId: 1, pointerType: "mouse", bubbles: true,
+    });
+    await page.mouse.up();
+    await page.waitForTimeout(2500);
+    await expect(viewer).toHaveAttribute("data-native-page", originalPage!);
+    await expect(viewer).toHaveAttribute("data-turn-phase", "idle");
+    await expect(page.locator(".native-page-underside")).toHaveCount(0);
+
+    // A new intentional tap still works after cancellation.
+    await next.click();
+    await expect(viewer).not.toHaveAttribute("data-native-page", originalPage!, {
+      timeout: 3000,
+    });
+  });
+
+  test("reduced-motion drag never mounts a 3D layer and turns instantly", async ({ page }) => {
+    await page.emulateMedia({ reducedMotion: "reduce" });
+    const viewer = await openCompletedLesson(page);
+    const originalPage = await viewer.getAttribute("data-native-page");
+    const next = page.getByTestId("corner-next");
+    await next.scrollIntoViewIfNeeded();
+    const box = (await next.boundingBox())!;
+    const x = box.x + box.width / 2;
+    const y = box.y + box.height / 2;
+
+    await page.mouse.move(x, y);
+    await page.mouse.down();
+    await page.mouse.move(x - 400, y, { steps: 10 });
+    await expect(viewer).toHaveAttribute("data-turn-phase", "idle");
+    await expect(page.locator(".native-page-underside, .native-page-shadow")).toHaveCount(0);
+    await page.mouse.up();
+    await expect(viewer).not.toHaveAttribute("data-native-page", originalPage!, {
+      timeout: 500,
+    });
+    await expect(page.locator(".native-page-underside")).toHaveCount(0);
+  });
+});
