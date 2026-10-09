@@ -14,7 +14,6 @@ import {
   useRef,
   useState,
   type CSSProperties,
-  type KeyboardEvent as ReactKeyboardEvent,
   type PointerEvent as ReactPointerEvent,
 } from "react";
 import { ChevronDown, ChevronUp } from "lucide-react";
@@ -43,7 +42,13 @@ interface FlipchartHdPanelProps {
   chrome?: "full" | "bare";
 }
 
-function FlipchartFace({ page, onReady }: { page?: FlipchartPage; onReady?: () => void }) {
+function FlipchartFace({
+  page,
+  onReady,
+}: {
+  page?: FlipchartPage;
+  onReady?: () => void;
+}) {
   if (!page) return <div className="fc-board__face" aria-hidden />;
   const canonicalSrc = getFlipchartPageSrc(page);
   return (
@@ -58,11 +63,7 @@ function FlipchartFace({ page, onReady }: { page?: FlipchartPage; onReady?: () =
   );
 }
 
-export function FlipchartHdPanel({
-  lessonNumber,
-  accentColor,
-  chrome = "full",
-}: FlipchartHdPanelProps) {
+export function FlipchartHdPanel({ lessonNumber, accentColor, chrome = "full" }: FlipchartHdPanelProps) {
   const pages: FlipchartPage[] = useMemo(
     () => getFlipchartPagesForLesson(lessonNumber),
     [lessonNumber],
@@ -181,7 +182,10 @@ export function FlipchartHdPanel({
         });
       });
 
-      flipTimerRef.current = window.setTimeout(() => afterFlip(index, token), FLIPCHART_FLIP_MS);
+      flipTimerRef.current = window.setTimeout(
+        () => afterFlip(index, token),
+        FLIPCHART_FLIP_MS,
+      );
     },
     [afterFlip, isFlipping, pages.length, reducedMotion, safeIdx, triggerCinematicZoom],
   );
@@ -208,63 +212,21 @@ export function FlipchartHdPanel({
     return () => window.removeEventListener("keydown", onKey);
   }, [handleNext, handlePrev]);
 
-  const cornerDirection = (corner: "left" | "right"): "next" | "prev" =>
-    (handMode === "left") === (corner === "left") ? "next" : "prev";
-
-  /** Enter/Space on a focused corner turns in that corner's hand-mode direction. */
-  const handleCornerKeyDown = (
-    event: ReactKeyboardEvent<HTMLDivElement>,
-    corner: "left" | "right",
-  ) => {
-    if (event.key !== "Enter" && event.key !== " ") return;
-    event.preventDefault();
-    event.stopPropagation();
-    if (laserPointerActive) return;
-    const direction = cornerDirection(corner);
-    goTo(direction === "next" ? safeIdx + 1 : safeIdx - 1, direction);
-  };
-
-  const springBack = (direction: "next" | "prev") => {
-    setIsDragging(false);
-    flipLockedRef.current = true;
-    const token = ++flipTokenRef.current;
-    setFlipTransitionMs(350);
-    setFlipTransform(direction === "next" ? "rotateX(0deg)" : "rotateX(-180deg)");
-    flipTimerRef.current = window.setTimeout(() => {
-      if (token === flipTokenRef.current) {
-        flipLockedRef.current = false;
-        setIsFlipping(false);
-        setTargetIdx(null);
-        setFlipDirection(null);
-      }
-    }, 350);
-  };
-
-  const releaseCorner = (event: ReactPointerEvent<HTMLDivElement>) => {
-    const state = dragStateRef.current;
-    if (!state.active || state.pointerId !== event.pointerId) return null;
-    try {
-      event.currentTarget.releasePointerCapture(event.pointerId);
-    } catch {
-      /* ignore */
-    }
-    state.active = false;
-    return state;
-  };
-
-  /** An interrupted gesture never commits navigation: a live drag springs back. */
-  const handleCornerPointerCancel = (event: ReactPointerEvent<HTMLDivElement>) => {
-    const state = releaseCorner(event);
-    if (state?.soundPlayed && !reducedMotion) springBack(state.direction);
-  };
-
   const handleCornerPointerDown = (
     event: ReactPointerEvent<HTMLDivElement>,
     corner: "left" | "right",
   ) => {
     if (laserPointerActive || isFlipping || flipLockedRef.current || pages.length === 0) return;
 
-    const direction = cornerDirection(corner);
+    const direction: "next" | "prev" =
+      handMode === "left"
+        ? corner === "left"
+          ? "next"
+          : "prev"
+        : corner === "right"
+          ? "next"
+          : "prev";
+
     const targetIndex = direction === "next" ? safeIdx + 1 : safeIdx - 1;
     if (targetIndex < 0 || targetIndex >= pages.length) return;
 
@@ -304,8 +266,6 @@ export function FlipchartHdPanel({
     }
 
     state.progress = progress;
-    // Reduced motion: track the gesture only; never mount the 3D flip layer.
-    if (reducedMotion) return;
 
     if (progress > 0.04 && !state.soundPlayed) {
       state.soundPlayed = true;
@@ -323,26 +283,47 @@ export function FlipchartHdPanel({
   };
 
   const handleCornerPointerUp = (event: ReactPointerEvent<HTMLDivElement>) => {
-    const state = releaseCorner(event);
-    if (!state) return;
+    const state = dragStateRef.current;
+    if (!state.active || state.pointerId !== event.pointerId) return;
+
+    try {
+      event.currentTarget.releasePointerCapture(event.pointerId);
+    } catch {
+      /* ignore */
+    }
+
+    state.active = false;
     const { progress, targetIdx: targetIndex, direction } = state;
 
-    if (!state.soundPlayed) {
-      // Tap (or reduced-motion drag released past halfway): ordinary turn.
-      if (progress < 0.04 || (reducedMotion && progress >= 0.5)) goTo(targetIndex, direction);
+    if (!isFlipping || progress < 0.04) {
+      setIsFlipping(false);
+      setIsDragging(false);
+      goTo(targetIndex, direction);
       return;
     }
 
-    if (progress < 0.5) {
-      springBack(direction);
-      return;
-    }
     setIsDragging(false);
     flipLockedRef.current = true;
     const token = ++flipTokenRef.current;
-    setFlipTransitionMs(400);
-    setFlipTransform(direction === "next" ? "rotateX(-180deg)" : "rotateX(0deg)");
-    flipTimerRef.current = window.setTimeout(() => afterFlip(targetIndex, token), 400);
+
+    if (progress >= 0.5) {
+      setFlipTransitionMs(400);
+      const finalAngle = direction === "next" ? "rotateX(-180deg)" : "rotateX(0deg)";
+      setFlipTransform(finalAngle);
+      flipTimerRef.current = window.setTimeout(() => afterFlip(targetIndex, token), 400);
+    } else {
+      setFlipTransitionMs(350);
+      const springAngle = direction === "next" ? "rotateX(0deg)" : "rotateX(-180deg)";
+      setFlipTransform(springAngle);
+      flipTimerRef.current = window.setTimeout(() => {
+        if (token === flipTokenRef.current) {
+          flipLockedRef.current = false;
+          setIsFlipping(false);
+          setTargetIdx(null);
+          setFlipDirection(null);
+        }
+      }, 350);
+    }
   };
 
   if (pages.length === 0) {
@@ -397,24 +378,18 @@ export function FlipchartHdPanel({
         <div className="fc-board__page">
           <div className="fc-board__page-inner">
             <div className="absolute inset-0 h-full w-full">
-              <FlipchartFace
-                page={pages[staticIdx] ?? currentPage}
-                onReady={() => setPageReady(true)}
-              />
+              <FlipchartFace page={pages[staticIdx] ?? currentPage} onReady={() => setPageReady(true)} />
             </div>
 
             {!pageReady && !isFlipping && (
-              <div
-                className="pointer-events-none absolute inset-x-0 bottom-4 z-40 flex justify-center"
-                aria-live="polite"
-              >
+              <div className="pointer-events-none absolute inset-x-0 bottom-4 z-40 flex justify-center" aria-live="polite">
                 <span className="rounded-full border border-stone-200 bg-white/90 px-3 py-1.5 text-xs font-extrabold text-stone-600 shadow-sm backdrop-blur">
                   Cargando lámina…
                 </span>
               </div>
             )}
 
-            {isFlipping && !reducedMotion && (
+            {isFlipping && (
               <div
                 className="pointer-events-none absolute inset-0 z-30"
                 data-testid="vertical-flip-layer"
@@ -433,19 +408,13 @@ export function FlipchartHdPanel({
                 >
                   <div className="flipchart-page-front">
                     <FlipchartFace page={pages[flipFrontIdx]} />
-                    <div
-                      className="flipchart-shadow-overlay"
-                      style={{ opacity: flipDirection === "next" ? 0.6 : 0 }}
-                    />
+                    <div className="flipchart-shadow-overlay" style={{ opacity: flipDirection === "next" ? 0.6 : 0 }} />
                   </div>
                   <div className="flipchart-page-back">
                     <div className="fc-board__paper-back">
                       <div className="fc-board__paper-back-pattern" />
                     </div>
-                    <div
-                      className="flipchart-shadow-overlay"
-                      style={{ opacity: flipDirection === "prev" ? 0.6 : 0 }}
-                    />
+                    <div className="flipchart-shadow-overlay" style={{ opacity: flipDirection === "prev" ? 0.6 : 0 }} />
                   </div>
                 </div>
               </div>
@@ -461,10 +430,9 @@ export function FlipchartHdPanel({
                   aria-label={leftCornerLabel}
                   data-testid="flipchart-corner-left"
                   onPointerDown={(e) => handleCornerPointerDown(e, "left")}
-                  onKeyDown={(e) => handleCornerKeyDown(e, "left")}
                   onPointerMove={handleCornerPointerMove}
                   onPointerUp={handleCornerPointerUp}
-                  onPointerCancel={handleCornerPointerCancel}
+                  onPointerCancel={handleCornerPointerUp}
                 >
                   <div className="fc-corner__dogear" aria-hidden />
                 </div>
@@ -476,10 +444,9 @@ export function FlipchartHdPanel({
                   aria-label={rightCornerLabel}
                   data-testid="flipchart-corner-right"
                   onPointerDown={(e) => handleCornerPointerDown(e, "right")}
-                  onKeyDown={(e) => handleCornerKeyDown(e, "right")}
                   onPointerMove={handleCornerPointerMove}
                   onPointerUp={handleCornerPointerUp}
-                  onPointerCancel={handleCornerPointerCancel}
+                  onPointerCancel={handleCornerPointerUp}
                 >
                   <div className="fc-corner__dogear" aria-hidden />
                 </div>
@@ -502,9 +469,7 @@ export function FlipchartHdPanel({
         </button>
 
         <div className="fc-board__counter" data-testid="flipchart-counter">
-          <span>
-            Hoja {safeIdx + 1} de {pages.length}
-          </span>
+          <span>Hoja {safeIdx + 1} de {pages.length}</span>
           <span className="fc-board__counter-sub">
             Lámina {currentPage?.flipchartPage ?? "—"} · Lección {lessonNumber}
           </span>
