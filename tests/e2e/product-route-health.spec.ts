@@ -73,6 +73,17 @@ function attachRouteErrorMonitors(page: Page, routeLabel: string) {
     }
   });
 
+  // HTTP error responses complete normally and never emit requestfailed, so
+  // monitor them explicitly: a 404/500 asset must fail the sweep.
+  page.on("response", (response) => {
+    const url = response.url();
+    if ((url.includes("127.0.0.1") || url.startsWith("/")) && response.status() >= 400) {
+      if (!url.includes("favicon.ico")) {
+        failedRequests.push(`${url} (HTTP ${response.status()})`);
+      }
+    }
+  });
+
   return {
     assertClean: () => {
       expect(pageErrors, `Unhandled page errors on ${routeLabel}`).toEqual([]);
@@ -299,6 +310,11 @@ test.describe("Whole-Product Route Health + Console/Network Error Sweep", () => 
     // Verify source-blocked exception indicator is rendered
     const blockedNotice = page.locator(".fp-source-blocked, [data-source-blocked='true']");
     await expect(blockedNotice).toBeVisible();
+
+    // The blocked page must not render inferred exercise content, artwork, or
+    // interactions: pages 86-87 stay source-blocked with no guessed material.
+    await expect(reader.locator("canvas, textarea, input, [data-picture-name], .fp-ix-shell, .fp-activity")).toHaveCount(0);
+    await expect(reader.getByRole("button", { name: /Escribe|Une|Marca|Traza|Completa/i })).toHaveCount(0);
 
     await page.screenshot({
       path: path.join(PROOF_DIR, "source-blocked-p86.png"),
