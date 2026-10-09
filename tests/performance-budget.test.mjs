@@ -16,7 +16,10 @@ describe("Local Performance Budget & Teacher Route Chunking", () => {
 
   beforeAll(() => {
     // Run the performance budget check against dist/ (auto-builds if needed)
-    result = runPerformanceBudgetCheck({ autoBuild: true, writeReports: true });
+    result = runPerformanceBudgetCheck({
+      autoBuild: true,
+      writeReports: process.env.WRITE_PERF_REPORTS === "true",
+    });
   });
 
   it("passes all budget checks without violations", () => {
