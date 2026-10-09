@@ -124,7 +124,7 @@ describe("Gretel Voice Readiness Architecture", () => {
 
   it("ends interrupted custom speech exactly once", async () => {
     let finishProvider = () => {};
-    const providerDone = new Promise<void>((resolve) => { finishProvider = resolve; });
+    const providerDone = new Promise<void>((resolve) => { finishProvider = () => resolve(); });
     setGretelVoiceProviderConfig({
       type: "custom",
       name: "Interruptible provider",
