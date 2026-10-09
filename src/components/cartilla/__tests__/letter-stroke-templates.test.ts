@@ -68,12 +68,12 @@ describe("getLetterTemplate — no silent wrong-shape fallback", () => {
 
     // Explicit source-audited sets, not a copy of the implementation's filter.
     // Any new guided path or curriculum model must be reviewed deliberately.
+    // Z/z traced models existed only on page 87, which is SOURCE_BLOCKED
+    // (documented 86-87 scan gap); they return here when a verified scan does.
     const expectedMissing = [
       "Ñ",
       "ñ",
       "rr",
-      "Z",
-      "z",
       "a",
       "e",
       "i",
@@ -120,7 +120,7 @@ describe("getLetterTemplate — no silent wrong-shape fallback", () => {
     expect(new Set(modelTexts)).toEqual(new Set([...expectedMissing, ...expectedGuided]));
     const missing = modelTexts.filter((t) => getLetterTemplate(t) === null);
     expect(new Set(missing)).toEqual(new Set(expectedMissing));
-    expect(missing).toEqual(expect.arrayContaining(["Ñ", "ñ", "rr", "Z", "z", "o", "u", "v"]));
+    expect(missing).toEqual(expect.arrayContaining(["Ñ", "ñ", "rr", "o", "u", "v"]));
     expect(missing).not.toEqual(expect.arrayContaining(["RR"]));
   });
 
@@ -234,6 +234,7 @@ const AUDITED_P0_PATHS: Record<string, Array<Array<[number, number]>>> = {
     ],
     [
       [30, 20],
+      [50, 20],
       [70, 20],
     ],
   ],
@@ -564,6 +565,7 @@ describe("printed Workbook source-verified stroke regressions", () => {
       ],
       [
         [30, 20],
+        [50, 20],
         [70, 20],
       ],
     ]);
