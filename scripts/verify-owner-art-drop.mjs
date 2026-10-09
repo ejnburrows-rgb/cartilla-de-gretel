@@ -38,12 +38,12 @@ export async function verifyArtDrop(dropDir) {
     expectedPendingCount: pendingSlots.length,
     dropFileCount: dropFiles.length,
     matches: [],
+    ambiguousFiles: [],
     unknownFiles: [],
     missingSlots: [],
     invalidFiles: [],
   };
 
-  const processedDropFiles = new Set();
   const matchedExpectedSlots = new Set();
 
   for (const filename of dropFiles) {
@@ -56,6 +56,9 @@ export async function verifyArtDrop(dropDir) {
 
     try {
       const metadata = await sharp(filePath).metadata();
+      if (!metadata.format || !metadata.width || !metadata.height) {
+        throw new Error("Missing image dimensions or format");
+      }
       const fileInfo = {
         filename,
         format: metadata.format,
@@ -67,14 +70,13 @@ export async function verifyArtDrop(dropDir) {
       if (expectedByFilename.has(filename)) {
         const slots = expectedByFilename.get(filename);
         if (slots.length > 1) {
-          // Multiple slots expect this filename.
-          // Map to all of them, but note it.
-          report.matches.push({
+          // A filename alone cannot establish which source slot it belongs to.
+          // Keep ambiguous slots pending for owner verification.
+          report.ambiguousFiles.push({
             file: fileInfo,
             slots: slots.map((s) => s.src),
-            note: "Ambiguous: matches multiple slots",
+            note: "Ambiguous source: manual identity verification required",
           });
-          slots.forEach((s) => matchedExpectedSlots.add(s.src));
         } else {
           report.matches.push({
             file: fileInfo,
@@ -85,7 +87,7 @@ export async function verifyArtDrop(dropDir) {
       } else {
         report.unknownFiles.push(fileInfo);
       }
-    } catch (e) {
+    } catch {
       report.invalidFiles.push({
         filename,
         error: "Not a valid/readable image",
@@ -119,9 +121,17 @@ async function run() {
     console.log(`Expected slots : ${report.expectedPendingCount}`);
     console.log(`Files in drop  : ${report.dropFileCount}`);
     console.log(`Matched slots  : ${report.matches.length}`);
+    console.log(`Ambiguous files: ${report.ambiguousFiles.length}`);
     console.log(`Unknown files  : ${report.unknownFiles.length}`);
     console.log(`Missing slots  : ${report.missingSlots.length}`);
     console.log(`Invalid files  : ${report.invalidFiles.length}`);
+
+    if (report.ambiguousFiles.length > 0) {
+      console.log("\nAmbiguous filename matches (not accepted):");
+      report.ambiguousFiles.forEach((entry) =>
+        console.log(`  - ${entry.file.filename}: ${entry.slots.join(", ")}`),
+      );
+    }
 
     if (report.unknownFiles.length > 0) {
       console.log("\nUnknown files (not matching any pending slot):");
