@@ -16,7 +16,7 @@ The validator is designed to check a newly uploaded directory of images against 
    - **Unknown files**: Images in the drop that do not match any pending slot.
    - **Invalid files**: Files in the drop that are not readable images.
 4. **Machine-Readable Manifest**:
-   The script automatically generates a detailed JSON report at `docs/owner-art-drop-manifest.json` for further automation or review.
+   The script generates a local JSON report at `test-results/owner-art-drop-manifest.json` for review. This generated report is ignored by Git so outdated local scan results are not accidentally treated as verified source data.
 
 ## Exact Commands
 
