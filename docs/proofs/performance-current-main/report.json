@@ -1,6 +1,13 @@
 {
-  "lcpMs": 1956,
-  "totalLoadTimeMs": 2569,
-  "imageCount": 0,
-  "imageStats": []
+  "route": "/cartilla/leccion/1",
+  "lcpMs": 2416,
+  "totalLoadTimeMs": 3543,
+  "imageCount": 1,
+  "imageStats": [
+    {
+      "name": "http://127.0.0.1:5173/src/assets/autora-portrait.png?import",
+      "duration": 307.69999999995343,
+      "size": 707
+    }
+  ]
 }

@@ -3,6 +3,7 @@ import { localMonitor } from "../../lib/local-monitor";
 
 interface Props {
   children: ReactNode;
+  fallback?: ReactNode | ((error: Error, reset: () => void) => ReactNode);
 }
 
 interface State {
@@ -29,12 +30,22 @@ export class ErrorBoundary extends Component<Props, State> {
     window.location.reload();
   };
 
+  private handleResetState = () => {
+    this.setState({ hasError: false, error: null });
+  };
+
   private handleGoHome = () => {
     window.location.href = "/";
   };
 
   public render() {
     if (this.state.hasError) {
+      if (this.props.fallback) {
+        if (typeof this.props.fallback === "function") {
+          return this.props.fallback(this.state.error || new Error("Unknown error"), this.handleResetState);
+        }
+        return this.props.fallback;
+      }
       return (
         <div className="perf-error-boundary-container">
           <div className="perf-error-boundary-card">

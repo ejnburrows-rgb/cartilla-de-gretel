@@ -16,6 +16,7 @@ export function ImageOptimized({
   className = "",
   containerClassName = "",
   priority = false,
+  onLoad,
   ...props
 }: ImageOptimizedProps) {
   const containerRef = useRef<HTMLDivElement>(null);
@@ -26,8 +27,8 @@ export function ImageOptimized({
 
   const [isLoaded, setIsLoaded] = useState(false);
 
-  const avifSrc = src.replace(/\.(png|jpg|jpeg)$/i, ".avif");
-  const webpSrc = src.replace(/\.(png|jpg|jpeg)$/i, ".webp");
+  const isRaster = /\.(png|jpe?g)$/i.test(src);
+  const webpSrc = isRaster ? src.replace(/\.(png|jpe?g)$/i, ".webp") : null;
 
   return (
     <div ref={containerRef} className={`image-optimized-container ${containerClassName}`}>
@@ -38,15 +39,20 @@ export function ImageOptimized({
 
       {(isIntersecting || priority) && (
         <picture>
-          <source srcSet={avifSrc} type="image/avif" />
-          <source srcSet={webpSrc} type="image/webp" />
+          {webpSrc && webpSrc !== src && (
+            <source srcSet={webpSrc} type="image/webp" />
+          )}
           <img
             src={src}
             alt={alt}
             loading={priority ? "eager" : "lazy"}
             decoding={priority ? "auto" : "async"}
+            {...(priority ? ({ fetchPriority: "high" } as React.ImgHTMLAttributes<HTMLImageElement>) : {})}
             className={`${className} ${isLoaded ? "image-optimized-loaded" : "image-optimized-loading"}`}
-            onLoad={() => setIsLoaded(true)}
+            onLoad={(e) => {
+              setIsLoaded(true);
+              onLoad?.(e);
+            }}
             {...props}
           />
         </picture>
