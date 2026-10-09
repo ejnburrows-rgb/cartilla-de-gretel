@@ -1,6 +1,6 @@
 # Local Performance Budget & Route-Chunk Baseline Report
 
-**Generated:** 2026-10-08T23:26:52.794Z
+**Generated:** 2026-10-09T01:09:07.659Z
 **Status:** PASSED
 
 ## Entry Assets (First Paint)
