@@ -80,12 +80,12 @@ Per project scope (*Verification-only product scope. Report defects; do not edit
 2. **Page 14 (Central target Ii):**
    - **Cell Caption:** `uña`
    - **Configured Image Path:** `/cartilla/art/faithful/leccion-1/arco.webp`
-   - **Observed Asset:** The card displays a rainbow (`arco`) artwork instead of fingernail (`uña`).
+   - **Observed Asset:** The card displays the horseshoe-magnet (`imán`) artwork stored at the `arco.webp` path instead of fingernail (`uña`).
 
 3. **Page 17 (Central target Uu):**
    - **Cell Caption:** `uña`
    - **Configured Image Path:** `/cartilla/art/faithful/leccion-1/arco.webp`
-   - **Observed Asset:** The card displays a rainbow (`arco`) artwork instead of fingernail (`uña`).
+   - **Observed Asset:** The card displays the horseshoe-magnet (`imán`) artwork stored at the `arco.webp` path instead of fingernail (`uña`).
 
 *Note: These data discrepancies exist in `src/data/page-layouts.json` on `main` and are reported here without modifying application source files.*
 
