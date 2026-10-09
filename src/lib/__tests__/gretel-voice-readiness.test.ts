@@ -9,6 +9,7 @@ import {
   resetGretelVoiceProviderConfig,
   getSelectedGretelVoiceName,
   getAvailableGretelVoices,
+  scoreVoice,
 } from "../gretel-voice";
 import { speakGretelPhrase } from "../gretel-tts";
 import { claimSpeech, speechIsCurrent } from "../speech-playback";
@@ -46,6 +47,18 @@ describe("Gretel Voice Readiness Architecture", () => {
 
     resetGretelVoiceProviderConfig();
     expect(getGretelVoiceProviderConfig().type).toBe("browser-tts");
+  });
+
+  it("treats punctuation in browser voice labels as literal text", () => {
+    setGretelVoiceProviderConfig({
+      type: "browser-tts",
+      name: "Literal OS voice label test",
+      primaryVoiceName: "Español (México)",
+      fallbackVoiceName: "Voz [1]",
+    });
+    const voice = (name: string) => ({ name, lang: "es-MX", localService: true } as SpeechSynthesisVoice);
+    expect(scoreVoice(voice("Español (México)"))).toBeGreaterThan(scoreVoice(voice("Voz [1]")));
+    expect(scoreVoice(voice("Voz [1]"))).toBeGreaterThan(scoreVoice(voice("Voz 1")));
   });
 
   it("proves single-owner speech claiming cancels prior playback token", () => {
