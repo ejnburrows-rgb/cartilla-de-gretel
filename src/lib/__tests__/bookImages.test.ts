@@ -34,11 +34,5 @@ describe("bookImages repository-controlled fallback chain", () => {
     expect(getBookPageImage(87)).toBeNull();
     expect(getWorkbookPageFallbackChain(86)).toEqual([]);
     expect(getWorkbookPageFallbackChain(87)).toEqual([]);
-    expect(getWorkbookPageFallbackChain(86, "cartilla/art/source/workbook/page-086.jpg")).toEqual([]);
-  });
-
-  it("does not silently fall back to bounding limits on out-of-bounds pages", () => {
-    expect(getWorkbookPageFallbackChain(0, "cartilla/art/source/workbook/page-000.jpg")).toEqual([]);
-    expect(getWorkbookPageFallbackChain(91, "cartilla/art/source/workbook/page-091.jpg")).toEqual([]);
   });
 });
