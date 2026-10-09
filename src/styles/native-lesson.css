@@ -14,7 +14,7 @@
 .native-lesson-viewer__chapter { color: #146d67; font-size: 20px; font-weight: 850; }
 .native-lesson-viewer__page { color: #746856; }
 .native-lesson-viewer__progress { display: flex; gap: 6px; margin: 18px 0 24px; }
-.native-lesson-viewer__progress span { height: 6px; flex: 1; background: #e9ddc7; border-radius: 9px; }
+.native-lesson-viewer__progress span { height: 6px; flex: 1; background: #e9ddc7; border-radius: 99px; }
 .native-lesson-viewer__progress .is-done { background: #179286; }
 .native-lesson-viewer__content .faithful-page { width: 100%; aspect-ratio: auto; min-height: 0; overflow: visible; background: transparent; border: 0; box-shadow: none; border-radius: 0; }
 .native-lesson-viewer__content .faithful-page__sidebar, .native-lesson-viewer__content .faithful-page__pagenum, .native-lesson-viewer__content .faithful-page__lesson { display: none; }
@@ -419,3 +419,201 @@
 .native-lesson-viewer__content .faithful-page--archetype-4 .am-faithful-lasso .am-lasso { position: relative; padding-bottom: 28px; }
 .native-lesson-viewer__content .faithful-page--archetype-4 .am-lasso__stage { padding: 0; }
 .native-lesson-viewer__content .faithful-page--archetype-4 .am-lasso > p[role="status"]:first-child { position: absolute; bottom: 0; margin: 0; font-size: 12px; }
+
+/* ── 3D Real-Paper Page Turn Animation (Owner Decision 2026-10-09) ── */
+.native-lesson-viewer__stage {
+  position: relative;
+  width: 100%;
+  perspective: 2000px;
+  transform-style: preserve-3d;
+}
+
+.native-lesson-viewer__underneath {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  pointer-events: none;
+  overflow: hidden;
+}
+
+.native-lesson-viewer__leaf {
+  position: relative;
+  z-index: 2;
+  width: 100%;
+  transform-style: preserve-3d;
+  transform-origin: left center;
+  backface-visibility: hidden;
+  will-change: transform;
+}
+
+.native-lesson-viewer[data-turn-direction="prev"] .native-lesson-viewer__leaf {
+  transform-origin: right center;
+}
+
+/* Corner Hotspots */
+.native-corner-hotspot {
+  position: absolute;
+  bottom: 0;
+  width: 72px;
+  height: 72px;
+  z-index: 20;
+  background: transparent;
+  border: 0;
+  padding: 0;
+  margin: 0;
+  cursor: pointer;
+  touch-action: none;
+}
+
+.native-corner-hotspot--next {
+  right: 0;
+}
+
+.native-corner-hotspot--prev {
+  left: 0;
+}
+
+.native-corner-hotspot[data-locked="true"] {
+  cursor: help;
+}
+
+.native-corner-hotspot--next .native-corner-peel {
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  width: 0;
+  height: 0;
+  border-style: solid;
+  border-width: 0 0 28px 28px;
+  border-color: transparent transparent #e6ddcb transparent;
+  filter: drop-shadow(-2px -2px 3px rgba(0, 0, 0, 0.18));
+  transition: transform 0.25s cubic-bezier(0.2, 0.8, 0.4, 1);
+  pointer-events: none;
+}
+
+.native-corner-hotspot--next:hover:not([data-locked="true"]) .native-corner-peel {
+  transform: scale(1.35) translate(-3px, -3px);
+  border-bottom-color: #dfd2bb;
+}
+
+.native-corner-hotspot--prev .native-corner-peel {
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 0;
+  height: 0;
+  border-style: solid;
+  border-width: 0 28px 28px 0;
+  border-color: transparent #e6ddcb transparent transparent;
+  filter: drop-shadow(2px -2px 3px rgba(0, 0, 0, 0.18));
+  transition: transform 0.25s cubic-bezier(0.2, 0.8, 0.4, 1);
+  pointer-events: none;
+}
+
+.native-corner-hotspot--prev:hover .native-corner-peel {
+  transform: scale(1.35) translate(3px, -3px);
+  border-right-color: #dfd2bb;
+}
+
+/* Real paper underside & shadow */
+.native-page-underside {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(135deg, #f7efe2 0%, #fffbf2 50%, #e8dec8 100%);
+  backface-visibility: hidden;
+  transform: rotateY(180deg);
+  z-index: 3;
+  pointer-events: none;
+  opacity: 0.98;
+  border-radius: 6px;
+  box-shadow: inset 0 0 20px rgba(0,0,0,0.06);
+}
+
+.native-page-shadow {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to left, rgba(0,0,0,0.22) 0%, rgba(0,0,0,0.08) 25%, transparent 100%);
+  pointer-events: none;
+  z-index: 4;
+  animation: native-shadow-fade 2.0s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+}
+
+/* Animations */
+.turn-next-zoom {
+  animation: native-page-zoom-next 0.3s cubic-bezier(0.25, 1, 0.5, 1) forwards;
+}
+
+.turn-next-curling {
+  animation: native-page-curl-next 2.0s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+}
+
+.turn-prev-zoom {
+  animation: native-page-zoom-prev 0.3s cubic-bezier(0.25, 1, 0.5, 1) forwards;
+}
+
+.turn-prev-curling {
+  animation: native-page-curl-prev 2.0s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+}
+
+.turn-phase-dragging .native-lesson-viewer__leaf {
+  transform: rotateY(calc(-180deg * var(--drag-prog, 0)));
+  box-shadow: calc(-20px * var(--drag-prog, 0)) 15px 35px rgba(0, 0, 0, 0.2);
+}
+
+@keyframes native-page-zoom-next {
+  0% { transform: scale(1) translate(0, 0); }
+  100% { transform: scale(1.02) translate(-10px, -5px); }
+}
+
+@keyframes native-page-curl-next {
+  0% {
+    transform: scale(1.02) rotateY(0deg) translate(-10px, -5px);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+  }
+  25% {
+    box-shadow: -20px 20px 40px rgba(0, 0, 0, 0.28);
+  }
+  100% {
+    transform: scale(1) rotateY(-180deg) translate(0, 0);
+    box-shadow: 0 0 0 rgba(0, 0, 0, 0);
+  }
+}
+
+@keyframes native-page-zoom-prev {
+  0% { transform: scale(1) translate(0, 0); }
+  100% { transform: scale(1.02) translate(10px, -5px); }
+}
+
+@keyframes native-page-curl-prev {
+  0% {
+    transform: scale(1.02) rotateY(0deg) translate(10px, -5px);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+  }
+  25% {
+    box-shadow: 20px 20px 40px rgba(0, 0, 0, 0.28);
+  }
+  100% {
+    transform: scale(1) rotateY(180deg) translate(0, 0);
+    box-shadow: 0 0 0 rgba(0, 0, 0, 0);
+  }
+}
+
+@keyframes native-shadow-fade {
+  0% { opacity: 0; }
+  20% { opacity: 1; }
+  80% { opacity: 0.8; }
+  100% { opacity: 0; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .native-lesson-viewer__leaf.turn-next-zoom,
+  .native-lesson-viewer__leaf.turn-next-curling,
+  .native-lesson-viewer__leaf.turn-prev-zoom,
+  .native-lesson-viewer__leaf.turn-prev-curling {
+    animation: none !important;
+    transform: none !important;
+  }
+  .native-corner-peel {
+    display: none !important;
+  }
+}

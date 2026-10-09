@@ -68,18 +68,19 @@ Final voice/TTS provider remains deferred.
 
 ## 4. Workbook navigation/page turn
 
-**Precondition:** `Siguiente` may activate only when the existing page completion rule allows it.
+**Precondition:** Forward page turns (via Siguiente button, bottom-right corner tap/drag, or ArrowRight key) may activate only when the existing page completion rule allows it. Bottom-right corner gives the "Termina la actividad de esta página para seguir" hint when incomplete. Back navigation (via Anterior button, bottom-left corner tap/drag, or ArrowLeft key) is always allowed.
 
-Advance sequence:
+Lesson screen (`/cartilla/leccion/$n`) sequence (owner decision 2026-10-09):
 1. save/commit current learner state;
 2. disable duplicate navigation;
-3. render/prepare destination page underneath;
-4. animate current right-hand page from its outer edge across the spine, right-to-left;
-5. show restrained paper curl/underside/moving shadow;
-6. settle destination page;
-7. restore focus/interaction and unlock navigation.
+3. play soft paper sound (`audioEngine.playPageTurn(true)`, respecting mute);
+4. render/prepare destination page underneath;
+5. perform small cinematic zoom toward the turning corner (~0.3 s);
+6. perform elegant slow HD 3D page curl (2.0 s duration, `LESSON_PAGE_TURN_MS = 2000`) with real moving shadow and paper underside;
+7. settle destination page;
+8. restore focus/interaction and unlock navigation.
 
-Target duration: 0.75–0.85 s.
+Two-page reader (`/cartilla/cuaderno`) retains 0.75–0.85 s target (`STUDENT_PAGE_TURN_MS = 800`).
 
 Back navigation reverses the physical direction.
 

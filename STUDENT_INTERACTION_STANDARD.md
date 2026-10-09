@@ -208,22 +208,24 @@ The p1/p2 work is the reference implementation for the shared kernel. Once its s
 
 ## Workbook page advancement — physical page turn
 
-When the learner activates **Siguiente** after the page's completion gate is satisfied:
+When the learner advances to the next page or returns to a previous page:
 
 1. Commit/save the current learner state first.
 2. Lock repeated page navigation for the duration of the transition.
-3. Keep the destination page rendered/ready underneath.
-4. Turn the current right-hand page from the outer edge across the spine, right-to-left, with a restrained paper curl, visible paper underside, and moving shadow.
-5. Settle cleanly on the destination page and restore normal interaction.
+3. Play soft paper sound (`audioEngine.playPageTurn(true)`, respecting mute) on every turn (owner decision 2026-10-09).
+4. Keep the destination page rendered/ready underneath.
+5. On the Student Workbook lesson screen (`/cartilla/leccion/$n`), perform a 0.3 s cinematic zoom toward the turning corner, followed by an elegant 2.0 s HD 3D page curl (`LESSON_PAGE_TURN_MS = 2000`) showing the paper underside and moving shadow as the destination page reveals underneath.
+6. Corner interaction: bottom-right corner tap/drag turns to next page (blocked when incomplete with the "Termina la actividad de esta página para seguir" hint); bottom-left corner tap/drag turns to previous page (always allowed). Dragging follows the finger/cursor and completes if released past 50%; otherwise springs back. Keyboard shortcuts `ArrowRight` and `ArrowLeft` and navigation buttons (`Siguiente` / `Anterior`) trigger the same page turn.
+7. Settle cleanly on the destination page and restore normal interaction.
 
 Previous-page navigation uses the natural reverse direction.
 
-Target duration: approximately **0.75–0.85 seconds**. The turn should read as real paper with mass, not a card flip, cube rotation, elastic wave, or theatrical 3D effect.
+Target duration: **2.0 seconds** page curl (plus ~0.3 s corner zoom) on the lesson screen (owner decision 2026-10-09); the two-page reader (`/cartilla/cuaderno`) retains 0.75–0.85 s (`STUDENT_PAGE_TURN_MS = 800`).
 
 The page turn is presentation only:
 - it never bypasses completion gating;
 - it never changes saved learner work;
 - it never changes Workbook source layout/content/artwork;
 - it never triggers duplicate Gretel feedback;
-- it stays silent unless the owner later approves a page sound;
+- plays soft paper sound on every turn respecting mute;
 - reduced-motion mode uses an immediate or very short non-3D transition.

@@ -72,7 +72,7 @@ Motion represents real physical actions with restrained mass.
 
 ### Signature page transitions
 
-**Workbook:** side-bound right-hand page curl across the spine, right-to-left on advance; reverse on back. Use a subtle paper underside and moving shadow. Target 0.75–0.85 s.
+**Workbook lesson screen (`/cartilla/leccion/$n`):** real-paper page turn on every page transition (owner decision 2026-10-09). Triggers: bottom-right corner tap/drag (next), bottom-left corner tap/drag (prev), Siguiente/Anterior buttons, and ArrowRight/ArrowLeft keyboard keys. Sequence: 0.3 s cinematic zoom toward the turning corner, then an elegant 2.0 s HD page curl revealing the destination page underneath, with a moving shadow and paper underside. Forward turns remain gated until page completion; back is always allowed. Soft paper sound plays on every turn (respecting mute). Reduced motion provides an immediate non-3D transition. Two-page reader (`/cartilla/cuaderno`) retains 0.75–0.85 s target.
 
 **Flip Chart:** top-bound sheet lifts from the lower edge and flips upward over the binding/rings on advance; reverse on back. Target 0.9–1.05 s.
 
