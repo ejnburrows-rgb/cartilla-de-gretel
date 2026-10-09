@@ -1,9 +1,14 @@
 import { test, expect } from '@playwright/test';
-import * as path from 'path';
 
 function setupErrorTracking(page: any) {
   const errors: string[] = [];
   page.on('pageerror', (err: any) => errors.push(err.message));
+  page.on('response', (response: any) => {
+    // Fail on same-origin >=400 responses, ignore external analytics/fonts etc if any
+    if (response.status() >= 400 && response.url().startsWith('http://127.0.0.1')) {
+      errors.push(`HTTP ${response.status()} on ${response.url()}`);
+    }
+  });
   page.on('console', (msg: any) => {
     if (msg.type() === 'error') {
       errors.push(msg.text());
@@ -27,6 +32,9 @@ test.describe('Student Route Smoke Test', () => {
       // 1. Student entry
       await page.goto('/cartilla');
       await expect(page.locator('text=La Cartilla de Gretel').first()).toBeVisible();
+
+      // Ensure images load properly - cover image
+      await expect(page.locator('img[alt="Gretel"]').first()).toBeVisible();
 
       // 2. Lesson list
       await page.goto('/cartilla/lecciones');
