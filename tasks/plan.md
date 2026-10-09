@@ -2,7 +2,7 @@
 
 > **Finish contract:** `PROJECT_FINISH_DEFINITION.md` defines finished. This file is only the current gap-closing execution plan.
 
-**Updated:** 2026-10-07
+**Updated:** 2026-10-09
 **Concurrency authority:** `AGENTS.md` only. There is **no fixed numeric cap** on concurrent Jules implementation lanes.
 
 ## Current verified reality
@@ -10,17 +10,17 @@
 - CURRENT `main` must be resolved live from GitHub at the start of every session; do not persist a main SHA here because merging this file would immediately make it stale.
 - Cross-session coordination is now governed by the mandatory live-coordination contract in `AGENTS.md`: every material worker/controller change must leave a structured handoff on the existing issue/PR, and controllers refresh this file when lane state/order materially changes.
 - The eight canonical Student Workbook archetypes remain encoded page-by-page in `src/data/workbook-archetypes.ts`.
-- Current independent open candidates and exact heads:
-  - #531 Gretel interaction/motion — `49f55f389588d4283a13f5fbd2ff0f87f3fd37f3`.
-  - #532 physical page-turn system — `a297f72e669605d5b727419b344157cd6204b072`.
-  - #533 PDF precache/provenance — `50fedb3d5b3fa4d30846bf2e8f2739f8526885b4`.
-  - #534 teacher-route first-paint performance — `9914f850a4e4941023702a3a09d0fb171c2bafb7`.
-  - #537 foreground-art classification/audit — `704ff1244a3573aa618dcd3665e0869f3033f28d`.
-  - #538 Pencil Line mechanics — `44fc3ef228d233685bb1a2081253d8d5cabcf429`.
-  - #539 clean repeating Workbook archetypes/background-free Flip Chart — frozen reference `802d237aca9f439dde062402caac8a092eaf9f42`.
-- #538 and #539 still overlap in shared interaction/rendering files and must be reconciled deliberately rather than merged independently.
-- #389 remains the dedicated direct-cloud release-verification lane.
-- #540 remains a test-timing diagnosis, not a runtime repair lane absent a new reproducible defect.
+- Live GitHub confirms #531 (Gretel), #532 (page turns), #533 (PDF precache/provenance), #534 (teacher-route performance), #537 (art classification), and #538 (Pencil Line + clean Workbook integration) are merged. Do not dispatch or merge those lanes again.
+- #539 is closed as superseded: its frozen head `802d237aca9f439dde062402caac8a092eaf9f42` was deliberately preserved in #538. The former #538/#539 reconciliation is no longer an outstanding task.
+- #553 is the owner-locked large close-up pencil/eraser baseline. #516 is closed unmerged and superseded; do not restore it. The small StudentCursor is a separate approved pointer, not an obsolete marking actor.
+- #389 remains the dedicated direct-cloud release-verification lane. Current-main Playwright webServer commands still unconditionally invoke PowerShell, blocking Linux startup. Existing #616/#617 candidates contain a POSIX branch; reconcile this shared config deliberately with the existing #389 recovery rather than creating another harness lane.
+- #454 remains open: merging the #537 classification audit does not certify that every production artwork slot is correct or that pending owner artwork is supplied.
+- #450 remains dependency-gated by the existing integrated-art/source/interaction requirements. Preserve its 2026-10-09 owner-locked acceptance baseline and negative regression proof; do not start a duplicate final-regression worker.
+- #457 is open again: #548 fixed only teacher-note context isolation and did not prove the full teacher/Flip Chart validation contract.
+- Current open finish candidates include #616 Workbook page turn, #617 Flip Chart corner/hand-mode turn, and #618 Page-1 picture motion. #616/#617 overlap in DESIGN.md, UX-CONTRACT.md, playwright.config.ts, and living-motion.ts; reconcile them as one deliberate integration chain.
+- Controller safety probes on #617 head `30533c21e6152a289e446a6b4b83b3f55e25fd4c` reproduced three blockers: pointer cancellation commits a turn; reduced-motion dragging creates a 3D layer; focused corner Enter does not activate. Scoped repair was requested on the existing PR. Any new head requires fresh exact-head proof.
+- Existing proof/support candidates: #599 source-order/86–87 guards; #602/#603/#604/#606 eight-archetype proof; #593 student smoke; #595 Flip Chart regression; #600 accessibility; #607 route health; #609/#610/#611 teacher smoke/guides/printing; #591/#605 performance; #597 owner-proof capture; #608 voice preparation. They are candidates, not verified finish closures. Resolve current heads/checks/comments before review; do not duplicate them.
+- #540 remains a timing diagnosis, not a runtime repair lane. Fresh current-main focused verification passed all 62 tests across 7 suites, including the p24 completion gate; this is not whole-product browser/release proof.
 - Final premium Gretel voice/TTS is still an owner-required unresolved finish item.
 - Welcome video remains non-blocking.
 - Live Supabase/multi-user expansion remains deferred for the current demo/non-real-data pilot finish line.
@@ -40,51 +40,42 @@ Do not confuse printed page numbers with PDF file indices. Historical mapping fi
 
 ## Fastest safe execution order
 
-### Run now in parallel
+### Advance existing candidates; do not restart merged lanes
 
-1. **#540 — retain verified p24 evidence**
-   - Preserve the existing timing-aware test correction when reconciling #538 with #539.
-   - Requalify only impacted behavior after integration; no duplicate runtime repair lane.
+1. **#389 — trustworthy direct-cloud release harness**
+   - Resolve the verified Linux PowerShell startup blocker in the existing recovery chain; coordinate the shared config changes already in #616/#617.
+   - Prove both safe local web servers start, then run the existing `pnpm verify:release` path in a clean verification checkout.
+   - No GitHub Actions, paid runners, weakened/skipped tests, or asset-output implementation commits.
 
-2. **#389 — trustworthy direct-cloud release harness**
-   - Run the existing `pnpm verify:release` path.
-   - Repair only real harness/baseline failures.
-   - No GitHub Actions, paid runners, or weakened/skipped tests.
+2. **#616 + #617 — current page-turn integration**
+   - Existing workers supply exact-head task/rendered proof; repair #617's reproduced cancellation, reduced-motion, and keyboard defects in its current branch.
+   - Controller deliberately reconciles the four shared files; preserve both Workbook completion/save behavior and teacher hand-mode/laser-pointer behavior.
+   - Verify the integrated exact head with focused behavior tests and required release qualification. Sonar is optional and cannot block dispatch or merging; real defects still require repair. No overlapping independent merges.
 
-3. **Controller exact-head review of independent ready PRs**
-   - #531 Gretel interaction/motion.
-   - #532 physical page-turn system.
-   - #533 PDF precache/provenance.
-   - #534 teacher-route performance split.
-   - #537 foreground-art evidence.
-   - Merge only when current proof supports the claimed gap closure. A worker PR body alone is not proof.
+3. **#618 and independent existing proof/performance/teacher candidates**
+   - Review only fresh, current-main-reconciled heads against source/owner requirements.
+   - Preserve the #553 pencil/eraser baseline, approved art, and all other active lanes. Obtain real rendered motion/device evidence and required owner visual approval.
+   - Final foreground-art correctness stays in #454. Classification or a green Sonar badge alone cannot close it.
 
-4. **Controller reconciliation of #538 + #539**
-   - Preserve #538 Pencil Line behavior and persistence/accessibility.
-   - Preserve #539 clean Workbook family presentation and background-free Flip Chart direction.
-   - Resolve their three-file overlap deliberately.
-   - Do not duplicate either lane.
+### Final gates after dependencies are verified and integrated
 
-### Immediately after the integrated candidate is stable
+4. **#450 — final Student Workbook regression**
+   - Verify all recurring families, save/restore, completion, keyboard, reduced motion, source fidelity, responsive fit, page turns, Gretel, and large pencil/eraser acceptance including negative regression proof.
+   - Reuse existing coverage first; add only missing meaningful checks. Do not weaken expected behavior to fit a candidate.
 
-5. **#450 — final Student Workbook regression**
-   - Run all activity families, save/restore, completion gates, keyboard, reduced motion, responsive fit, source fidelity, page turns, Gretel behavior, and known-defect checks.
+5. **#457 — final teacher / Flip Chart validation**
+   - Run alongside #450 only when runtime/file ownership permits.
+   - Verify teacher navigation/guides, printing/reports, source art/text/page order, projector fit, hand modes, interruption/cancellation, keyboard/reduced motion, and assembled turns.
+   - A bounded teacher-note fix or preflight PR does not satisfy this whole gate.
 
-6. **#457 — final teacher / Flip Chart validation**
-   - Run in parallel with #450 when file ownership/runtime work permits.
-   - Verify teacher navigation/guides, presentation, printing/reports in current scope, projector fit, source text/art/page order, and #532 page-turn behavior.
+6. **Resolve final premium Gretel voice/TTS**
+   - #608 prepares the existing architecture only; it does not select the final voice.
+   - Present evidence-backed quality/cost/privacy choices for the owner's explicit decision. Do not buy or silently choose a service.
 
-7. **Resolve final premium Gretel voice/TTS**
-   - Owner decision is required before declaring the project finished.
-   - Present an evidence-backed choice with cost/privacy/quality tradeoff; do not add paid services without explicit authorization.
-
-8. **#458 — assembled-product proof and release**
-   - Exact integrated head.
-   - Full release gate.
-   - Final Student + teacher regressions.
-   - Final phone/tablet/laptop/projector proof.
-   - Required owner-visible approval.
-   - Production deployment only after explicit authorization, followed by live smoke verification.
+7. **#458 — assembled-product proof and release**
+   - Exact integrated head; full release gate; final Student and teacher regressions; phone/tablet/laptop/projector proof.
+   - Required owner-visible archetype and assembled-product approvals remain open until actual rendered evidence is shown and accepted.
+   - Preserve the production alias during ordinary work. Deploy only after intentional final owner authorization and approval, then verify the actual deployed product.
 
 ## Controller / Jules operating rules
 
@@ -105,4 +96,4 @@ This plan is complete only when all real gaps against `PROJECT_FINISH_DEFINITION
 
 ## Owner orchestration update — 2026-10-07
 
-Jules implements; ChatGPT/Codex reviews and dispatches. Use EJNRCGPLm / ejnrcgplm@gmail.com exclusively. Follow the API-first, no browser orchestration, and explicit-request-only Desktop Commander policy in AGENTS.md. Direct Jules API connection is not yet authenticated in this environment; no API key is available. Existing GitHub dispatch comments are delivery evidence, not proof of an authenticated API session or active worker. Do not infer completion from an open PR or bot acknowledgement. Preserve all exact-head merge/release gates.
+Jules implements; ChatGPT/Codex reviews and dispatches. Use EJNRCGPLm / ejnrcgplm@gmail.com exclusively. Follow the API-first, no browser orchestration, and explicit-request-only Desktop Commander policy in AGENTS.md. No authenticated direct Jules API connection was established in this controller session. Existing GitHub dispatch comments are delivery evidence, not proof of an authenticated API session or active worker. Do not infer completion from an open PR or bot acknowledgement. Preserve all exact-head merge/release gates.
