@@ -1,26 +1,69 @@
 import { claimSpeech, registerSpeechCleanup, releaseSpeech, speechIsCurrent, stopSpeech } from "./speech-playback";
+
 /**
- * Gretel voice — neutral, child-friendly Spanish browser TTS.
- * Web Speech API only: free/offline when the device exposes a local voice.
+ * Gretel voice — neutral, child-friendly Spanish browser TTS with pluggable provider architecture.
+ * Web Speech API only by default: free/offline when the device exposes a local voice.
  */
 export type GretelVoiceHandlers = { onStart?: () => void; onEnd?: () => void };
+
+export type GretelVoiceProviderType = "browser-tts" | "recorded-audio" | "cloud-tts" | "custom";
+
+export interface GretelVoiceProviderConfig {
+  type: GretelVoiceProviderType;
+  name: string;
+  primaryVoiceName?: string;
+  fallbackVoiceName?: string;
+  pitch?: number;
+  rate?: number;
+  speakFn?: (text: string, handlers: GretelVoiceHandlers) => Promise<void>;
+}
 
 const MUTE_KEY = "cartilla.gretel.voice.muted";
 const FRIENDLY_HINTS = /child|niña|nina|girl|kids|junior|zira|samantha|karen|tessa|fiona|paulina|sabina|dalia|elvira|ximena|helena|monica|mónica|lucia|laura|sara|maria|soledad|esperanza|paloma|carmen/i;
 const LATAM = new Set(["es-mx", "es-us", "es-419", "es-la"]);
+
 export const GRETEL_PRIMARY_VOICE = "Leda";
 export const GRETEL_FALLBACK_VOICE = "Sulafat";
-let cached: SpeechSynthesisVoice | null = null;
+
+const DEFAULT_PROVIDER_CONFIG: GretelVoiceProviderConfig = {
+  type: "browser-tts",
+  name: "Browser Native TTS (Neutral LatAm Spanish)",
+  primaryVoiceName: GRETEL_PRIMARY_VOICE,
+  fallbackVoiceName: GRETEL_FALLBACK_VOICE,
+  pitch: 1.1,
+  rate: 0.94,
+};
+
+let activeProviderConfig: GretelVoiceProviderConfig = { ...DEFAULT_PROVIDER_CONFIG };
+let cachedVoice: SpeechSynthesisVoice | null = null;
 let voicesReady: Promise<void> | null = null;
 let lastSpokenVoiceName = "none";
 let mutedMemory = false;
 
-function scoreVoice(voice: SpeechSynthesisVoice): number {
+export function getGretelVoiceProviderConfig(): GretelVoiceProviderConfig {
+  return { ...activeProviderConfig };
+}
+
+export function setGretelVoiceProviderConfig(config: GretelVoiceProviderConfig): void {
+  activeProviderConfig = { ...config };
+  cachedVoice = null;
+}
+
+export function resetGretelVoiceProviderConfig(): void {
+  activeProviderConfig = { ...DEFAULT_PROVIDER_CONFIG };
+  cachedVoice = null;
+}
+
+export function scoreVoice(voice: SpeechSynthesisVoice): number {
   const lang = (voice.lang || "").toLowerCase();
   if (!lang.startsWith("es")) return -1;
   let score = LATAM.has(lang) ? 100000 : 5000;
-  if (/leda/i.test(voice.name)) score += 1000000;
-  else if (/sulafat/i.test(voice.name)) score += 900000;
+  const primary = activeProviderConfig.primaryVoiceName || GRETEL_PRIMARY_VOICE;
+  const fallback = activeProviderConfig.fallbackVoiceName || GRETEL_FALLBACK_VOICE;
+
+  if (new RegExp(primary, "i").test(voice.name)) score += 1000000;
+  else if (new RegExp(fallback, "i").test(voice.name)) score += 900000;
+
   if (FRIENDLY_HINTS.test(voice.name)) score += 2500;
   if (/natural|neural|online|premium|enhanced/i.test(voice.name)) score += 300;
   if (/google/i.test(voice.name)) score += 200;
@@ -29,7 +72,7 @@ function scoreVoice(voice: SpeechSynthesisVoice): number {
   return score;
 }
 
-function pickVoice(): SpeechSynthesisVoice | null {
+export function pickVoice(): SpeechSynthesisVoice | null {
   if (typeof window === "undefined" || !("speechSynthesis" in window)) return null;
   const ranked = window.speechSynthesis.getVoices()
     .map((voice) => ({ voice, score: scoreVoice(voice) }))
@@ -38,16 +81,25 @@ function pickVoice(): SpeechSynthesisVoice | null {
   return ranked[0]?.voice ?? null;
 }
 
+export function getAvailableGretelVoices(): SpeechSynthesisVoice[] {
+  if (typeof window === "undefined" || !("speechSynthesis" in window)) return [];
+  return window.speechSynthesis.getVoices()
+    .map((voice) => ({ voice, score: scoreVoice(voice) }))
+    .filter((item) => item.score >= 0)
+    .sort((a, b) => b.score - a.score)
+    .map((item) => item.voice);
+}
+
 function ensureVoices(): Promise<void> {
   if (typeof window === "undefined" || !("speechSynthesis" in window)) return Promise.resolve();
   if (voicesReady) return voicesReady;
   voicesReady = new Promise((resolve) => {
     const tryPick = () => {
-      cached = pickVoice();
-      if (cached) resolve();
+      cachedVoice = pickVoice();
+      if (cachedVoice) resolve();
     };
     tryPick();
-    if (cached) return;
+    if (cachedVoice) return;
     const synth = window.speechSynthesis;
     const once = () => {
       tryPick();
@@ -98,19 +150,41 @@ export async function speakAsGretel(text: string, handlers: GretelVoiceHandlers 
     handlers.onEnd?.();
     return;
   }
+
+  if (activeProviderConfig.type === "custom" && activeProviderConfig.speakFn) {
+    const token = claimSpeech("gretel");
+    window.dispatchEvent(new CustomEvent("gretel:speak_start"));
+    handlers.onStart?.();
+    try {
+      await activeProviderConfig.speakFn(text, handlers);
+    } finally {
+      if (speechIsCurrent(token)) {
+        releaseSpeech(token);
+      }
+      window.dispatchEvent(new CustomEvent("gretel:speak_stop"));
+      handlers.onEnd?.();
+    }
+    return;
+  }
+
   if (typeof window === "undefined" || !("speechSynthesis" in window)) {
     handlers.onEnd?.();
     return;
   }
+
   const token = claimSpeech("gretel");
   await ensureVoices();
-  if (!speechIsCurrent(token) || isGretelVoiceMuted()) { handlers.onEnd?.(); return; }
+  if (!speechIsCurrent(token) || isGretelVoiceMuted()) {
+    handlers.onEnd?.();
+    return;
+  }
+
   return new Promise((resolve) => {
     try {
       const synth = window.speechSynthesis;
       const utterance = new SpeechSynthesisUtterance(text.trim());
-      const voice = cached ?? pickVoice();
-      cached = voice;
+      const voice = cachedVoice ?? pickVoice();
+      cachedVoice = voice;
       if (voice) {
         utterance.voice = voice;
         utterance.lang = voice.lang || "es-MX";
@@ -119,28 +193,34 @@ export async function speakAsGretel(text: string, handlers: GretelVoiceHandlers 
         utterance.lang = "es-MX";
         lastSpokenVoiceName = "es-MX lang-hint (no voice object)";
       }
-      // Warm and clear rather than artificially high/shrill.
-      utterance.pitch = 1.1;
-      utterance.rate = 0.94;
+
+      utterance.pitch = activeProviderConfig.pitch ?? 1.1;
+      utterance.rate = activeProviderConfig.rate ?? 0.94;
       utterance.volume = 1;
+
       utterance.onstart = () => {
+        if (!speechIsCurrent(token)) return;
         window.dispatchEvent(new CustomEvent("gretel:speak_start"));
         handlers.onStart?.();
       };
+
       let finished = false;
       const finish = () => {
-        if (finished) return; finished = true;
+        if (finished) return;
+        finished = true;
         releaseSpeech(token);
         window.dispatchEvent(new CustomEvent("gretel:speak_stop"));
         handlers.onEnd?.();
         resolve();
       };
+
       utterance.onend = finish;
       utterance.onerror = finish;
       registerSpeechCleanup(token, finish);
       synth.speak(utterance);
     } catch {
       releaseSpeech(token);
+      window.dispatchEvent(new CustomEvent("gretel:speak_stop"));
       handlers.onEnd?.();
       resolve();
     }
