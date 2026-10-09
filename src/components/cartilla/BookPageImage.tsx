@@ -14,17 +14,19 @@ export function BookPageImage({
   wrapperClassName = "",
   ...props
 }: BookPageImageProps) {
-  const [currentSrc, setCurrentSrc] = useState(src);
+  const [prevSrc, setPrevSrc] = useState(src);
   const [fallbackIndex, setFallbackIndex] = useState(-1);
   const [isLoaded, setIsLoaded] = useState(false);
   const [hasError, setHasError] = useState(false);
 
-  useEffect(() => {
-    setCurrentSrc(src);
+  if (src !== prevSrc) {
+    setPrevSrc(src);
     setFallbackIndex(-1);
     setHasError(false);
     setIsLoaded(false);
-  }, [src]);
+  }
+
+  const currentSrc = fallbackIndex === -1 ? src : fallbackSrcs[fallbackIndex];
 
   return (
     <div
@@ -56,7 +58,6 @@ export function BookPageImage({
           onError={(e) => {
             if (fallbackIndex + 1 < fallbackSrcs.length) {
               const nextIdx = fallbackIndex + 1;
-              setCurrentSrc(fallbackSrcs[nextIdx]);
               setFallbackIndex(nextIdx);
             } else {
               setHasError(true);
