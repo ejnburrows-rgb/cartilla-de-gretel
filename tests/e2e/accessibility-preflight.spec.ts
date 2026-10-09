@@ -49,7 +49,15 @@ async function verifyElementAccessibility(
  * Helper to check visible focus ring on a focused element.
  */
 async function verifyVisibleFocus(page: Page, locator: ReturnType<Page["locator"]>) {
-  await locator.focus();
+  // Drive focus with real Tab presses: programmatic focus() would bypass tab
+  // order and could reach tabindex="-1" controls a keyboard user cannot.
+  await page.evaluate(() => (document.activeElement as HTMLElement | null)?.blur());
+  let reached = false;
+  for (let i = 0; i < 80 && !reached; i++) {
+    await page.keyboard.press("Tab");
+    reached = await locator.evaluate((el) => document.activeElement === el).catch(() => false);
+  }
+  expect(reached, "control must be reachable by sequential Tab navigation").toBe(true);
   await expect(locator).toBeFocused();
 
   const focusStyle = await locator.evaluate((el) => {
@@ -187,12 +195,11 @@ test.describe("Non-Workbook Accessibility & Keyboard Preflight (#561 Excluded)",
     await expect(page).toHaveURL(/\/cartilla\/teacher\/guia\/1$/);
 
     // Check desktop tab buttons
-    const tabs = ["Objetivos", "Procedimiento", "Recursos", "Estructura"];
+    const tabs = ["Objetivos", "Procedimiento", "Vocabulario y Poema", "Evaluación"];
     for (const tabName of tabs) {
       const tabBtn = page.locator(`button:has-text("${tabName}")`).first();
-      if (await tabBtn.isVisible()) {
-        await verifyVisibleFocus(page, tabBtn);
-      }
+      await expect(tabBtn, `guide tab "${tabName}" must be rendered`).toBeVisible();
+      await verifyVisibleFocus(page, tabBtn);
     }
 
     // Test tab activation via keyboard
@@ -360,13 +367,17 @@ test.describe("Non-Workbook Accessibility & Keyboard Preflight (#561 Excluded)",
       return window.getComputedStyle(el).transitionDuration;
     });
 
-    const parsedSec = parseFloat(transitionDuration);
-    const isInstant =
-      isNaN(parsedSec) ||
-      parsedSec <= 0.01 ||
-      transitionDuration.includes("ms");
-
-    expect(isInstant).toBe(true);
+    const toSeconds = (v: string) => {
+      const t = v.trim();
+      const n = parseFloat(t);
+      if (isNaN(n)) return 0;
+      return t.endsWith("ms") ? n / 1000 : n;
+    };
+    const durations = transitionDuration.split(",").map(toSeconds);
+    expect(
+      durations.every((d) => d <= 0.01),
+      `reduced-motion transition durations must be near-zero, got ${transitionDuration}`,
+    ).toBe(true);
 
     await page.screenshot({
       path: path.join(PROOF_DIR, "06-reduced-motion-chrome.png"),
