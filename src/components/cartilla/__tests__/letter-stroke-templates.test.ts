@@ -234,6 +234,7 @@ const AUDITED_P0_PATHS: Record<string, Array<Array<[number, number]>>> = {
     ],
     [
       [30, 20],
+      [50, 20],
       [70, 20],
     ],
   ],
@@ -564,6 +565,7 @@ describe("printed Workbook source-verified stroke regressions", () => {
       ],
       [
         [30, 20],
+        [50, 20],
         [70, 20],
       ],
     ]);
