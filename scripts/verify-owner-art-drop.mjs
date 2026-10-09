@@ -2,11 +2,7 @@ import fs from "node:fs";
 import path from "node:path";
 import sharp from "sharp";
 
-const auditPath = path.join(
-  process.cwd(),
-  "docs",
-  "production-art-classification-audit.json"
-);
+const auditPath = path.join(process.cwd(), "docs", "production-art-classification-audit.json");
 
 export async function verifyArtDrop(dropDir) {
   if (!fs.existsSync(auditPath)) {
@@ -15,7 +11,7 @@ export async function verifyArtDrop(dropDir) {
 
   const audit = JSON.parse(fs.readFileSync(auditPath, "utf-8"));
   const pendingSlots = audit.faithfulAudit.filter(
-    (item) => item.classification === "PENDING NO VERIFIED SOURCE"
+    (item) => item.classification === "PENDING NO VERIFIED SOURCE",
   );
 
   const expectedByFilename = new Map();
@@ -130,15 +126,13 @@ async function run() {
     if (report.unknownFiles.length > 0) {
       console.log("\nUnknown files (not matching any pending slot):");
       report.unknownFiles.forEach((f) =>
-        console.log(`  - ${f.filename} (${f.width}x${f.height}, ${f.bytes}b)`)
+        console.log(`  - ${f.filename} (${f.width}x${f.height}, ${f.bytes}b)`),
       );
     }
 
     if (report.invalidFiles.length > 0) {
       console.log("\nInvalid or unreadable files:");
-      report.invalidFiles.forEach((f) =>
-        console.log(`  - ${f.filename} (${f.error})`)
-      );
+      report.invalidFiles.forEach((f) => console.log(`  - ${f.filename} (${f.error})`));
     }
 
     if (report.missingSlots.length > 0) {

@@ -25,11 +25,7 @@ vi.mock("sharp", () => {
 });
 
 describe("verifyArtDrop", () => {
-  const auditPath = path.join(
-    process.cwd(),
-    "docs",
-    "production-art-classification-audit.json"
-  );
+  const auditPath = path.join(process.cwd(), "docs", "production-art-classification-audit.json");
 
   const originalCwd = process.cwd;
 
