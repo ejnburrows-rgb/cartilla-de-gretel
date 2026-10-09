@@ -88,21 +88,24 @@ function pageItems(regions: Region[]): LessonExerciseItem[] {
 }
 
 function buildPage(lessonNumber: number, pageNumber: number): LessonExercise {
-  const regions = [...(PAGES[String(pageNumber)]?.regions ?? [])].sort((a, b) => a.order - b.order);
+  const blocked = SOURCE_BLOCKED_WORKBOOK_PAGES.includes(pageNumber);
+  // SOURCE_BLOCKED pages expose no inferred regions, prompt, or items.
+  const regions = blocked
+    ? []
+    : [...(PAGES[String(pageNumber)]?.regions ?? [])].sort((a, b) => a.order - b.order);
   const kind =
     KIND_PRIORITY.find((k) => regions.some((r) => r.regionType === k)) ??
     regions.find((r) => r.regionType !== "instruction")?.regionType ??
     "reading";
   const instructions = regions.filter((r) => r.regionType === "instruction" && r.text).map((r) => r.text!.trim());
   const title = regions.find((r) => r.regionType === "title")?.text?.trim() ?? instructions[0] ?? `Página ${pageNumber}`;
-  const blocked = SOURCE_BLOCKED_WORKBOOK_PAGES.includes(pageNumber);
   return {
     id: `l${lessonNumber}-p${pageNumber}-${kind}`,
     lessonNumber,
     pageNumber,
     kind,
     title,
-    prompt: instructions.join(" ") || "Lectura del libro.",
+    prompt: blocked ? "Página sin escaneo fuente." : instructions.join(" ") || "Lectura del libro.",
     items: pageItems(regions),
     targets: [],
     sourceStatus: "page-layouts",
