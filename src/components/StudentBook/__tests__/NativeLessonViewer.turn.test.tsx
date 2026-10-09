@@ -27,6 +27,9 @@ function completePage(pageNumber: number) {
 const current = () =>
   Number(document.querySelector("[data-native-page]")?.getAttribute("data-native-page"));
 
+/** A normal paper turn takes 300ms zoom + 2000ms curl + 100ms settle. */
+const finishTurn = () => act(() => vi.advanceTimersByTime(2500));
+
 function beginLongForwardDrag(onPageChange: (index: number) => void) {
     render(
       <NativeLessonViewer
@@ -80,6 +83,7 @@ describe("NativeLessonViewer real-paper page turn contracts", () => {
 
     // Click corner-next when complete
     fireEvent.click(cornerNext);
+    finishTurn();
     expect(current()).toBe(24);
   });
 
@@ -89,6 +93,7 @@ describe("NativeLessonViewer real-paper page turn contracts", () => {
 
     // Go to page 24
     fireEvent.click(screen.getByTestId("corner-next"));
+    finishTurn();
     expect(current()).toBe(24);
 
     // Page 24 is incomplete
@@ -97,6 +102,7 @@ describe("NativeLessonViewer real-paper page turn contracts", () => {
 
     // Corner back works immediately
     fireEvent.click(cornerPrev);
+    finishTurn();
     expect(current()).toBe(23);
   });
 
@@ -114,10 +120,12 @@ describe("NativeLessonViewer real-paper page turn contracts", () => {
 
     // ArrowRight on complete page
     fireEvent.keyDown(window, { key: "ArrowRight" });
+    finishTurn();
     expect(current()).toBe(24);
 
     // ArrowLeft goes back
     fireEvent.keyDown(window, { key: "ArrowLeft" });
+    finishTurn();
     expect(current()).toBe(23);
   });
 
