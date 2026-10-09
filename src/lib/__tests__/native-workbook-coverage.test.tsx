@@ -12,11 +12,16 @@ import {
   SOURCE_BLOCKED_WORKBOOK_PAGES,
 } from "@/lib/workbook-pages";
 import { getWorkbookPageSourcesForLesson } from "@/lib/workbook-source";
-import { allLessonExercises } from "@/data/lesson-exercises";
+import { allLessonExercises, lessonExercisesFor } from "@/data/lesson-exercises";
+import transcription from "@/data/book-transcription/lessons-08-24.json";
+import { getPageLayout } from "@/lib/book-faithful";
+import { pageCompletionState, requiredActivitiesForPage } from "@/lib/page-completion";
 
 describe("native workbook coverage", () => {
   it("has structured native coverage for all 90 instructional pages", () => {
-    const layoutPages = Object.keys(pageLayouts.pages).map(Number).sort((a, b) => a - b);
+    const layoutPages = Object.keys(pageLayouts.pages)
+      .map(Number)
+      .sort((a, b) => a - b);
     expect(layoutPages).toEqual(Array.from({ length: 90 }, (_, index) => index + 1));
     expect(conversionStatus.pages).toHaveLength(90);
     for (const page of conversionStatus.pages) {
@@ -80,26 +85,44 @@ describe("native workbook coverage", () => {
     expect(page87Source?.hasVerifiedText).toBe(false);
   });
 
-  it("verifies lessons 8–24 source wording and order mappings encoded in data", () => {
-    expect(allLessonExercises).toHaveLength(90);
-    for (let lesson = 8; lesson <= 24; lesson++) {
-      const catalogEntry = CATALOG.find((c) => c.n === lesson);
-      expect(catalogEntry).toBeDefined();
-
-      const { start, end } = workbookPagesForLesson(lesson);
-      expect(catalogEntry?.pages).toBe(`${start}-${end}`);
-
-      const exercises = allLessonExercises.filter((e) => e.lessonNumber === lesson);
-      expect(exercises).toHaveLength(end - start + 1);
-
-      exercises.forEach((ex) => {
-        if ([86, 87].includes(ex.pageNumber)) {
-          expect(ex.transcriptionStatus).toBe("source-blocked");
-          expect(ex.teacherNotes).toContain("86–87");
-        } else {
-          expect(ex.transcriptionStatus).toBe("verified-against-scan");
-        }
+  it("SOURCE_BLOCKED pages 86–87 render no inferred regions and require no completion", () => {
+    for (const page of SOURCE_BLOCKED_WORKBOOK_PAGES) {
+      expect(getPageLayout(page)).toEqual([]);
+      expect(requiredActivitiesForPage(page)).toEqual([]);
+      expect(pageCompletionState(page, undefined, []).complete).toBe(true);
+      const exercise = allLessonExercises.find((e) => e.pageNumber === page);
+      expect(exercise).toMatchObject({
+        transcriptionStatus: "source-blocked",
+        items: [],
+        kind: "reading",
       });
+    }
+  });
+
+  it("lessons 8–24 run in authoritative book order with book-verified page content", () => {
+    const fixtureLessons = (
+      transcription as unknown as {
+        lessons: Record<
+          string,
+          { pages: Record<"write" | "circle" | "letter" | "complete", number> }
+        >;
+      }
+    ).lessons;
+    const rawPages = (pageLayouts as unknown as { pages: Record<string, { regions: unknown[] }> })
+      .pages;
+    for (let lesson = 8; lesson <= 24; lesson++) {
+      const { write, circle, letter, complete } = fixtureLessons[String(lesson)]!.pages;
+      const bookOrder = [write, circle, letter, complete];
+      expect(lessonExercisesFor(lesson).map((e) => e.pageNumber)).toEqual(bookOrder);
+      expect(buildPageArray(lesson).map((e) => e.pageNumber)).toEqual(bookOrder);
+      for (const page of bookOrder) {
+        if (isWorkbookPageSourceBlocked(page)) continue;
+        // Runtime content is exactly the data the book-fidelity gate verifies.
+        expect(getPageLayout(page)).toEqual(rawPages[String(page)]!.regions);
+        expect(allLessonExercises.find((e) => e.pageNumber === page)?.transcriptionStatus).toBe(
+          "verified-against-scan",
+        );
+      }
     }
   });
 });

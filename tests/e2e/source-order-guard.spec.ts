@@ -1,79 +1,81 @@
-import { expect, test } from "@playwright/test";
+import { expect, test, type Page } from "@playwright/test";
 import layouts from "../../src/data/page-layouts.json" with { type: "json" };
 
-function allFinishedPages() {
-  const data = layouts.pages as Record<string, { regions: Array<{ id: string }> }>;
-  const completionMap: Record<string, string[]> = {};
-  for (let page = 1; page <= 90; page++) {
-    const pageObj = data[String(page)];
-    if (pageObj?.regions) {
-      completionMap[String(page)] = pageObj.regions.map((r) => `page-${page}-${r.id}`);
-    } else {
-      completionMap[String(page)] = [`page-${page}-done`];
-    }
-  }
-  return completionMap;
+const PAGES = layouts.pages as Record<string, { regions: Array<{ id: string }> }>;
+const PAGE_KEY = "cartilla.page-completion.v1";
+
+/** Marks only the named real (non-blocked) pages as already completed. */
+function completionFor(pages: number[]): Record<string, string[]> {
+  return Object.fromEntries(
+    pages.map((page) => [
+      String(page),
+      PAGES[String(page)]!.regions.map((r) => `page-${page}-${r.id}`),
+    ]),
+  );
 }
 
-test.describe("Workbook Source Order & 86–87 Guard Spec", () => {
-  test.beforeEach(async ({ page }) => {
-    const finishedMap = allFinishedPages();
-    await page.addInitScript((map) => {
-      localStorage.setItem("cartilla.page-completion.v1", JSON.stringify(map));
-    }, finishedMap);
+async function openLesson(page: Page, lesson: number, completed: number[] = []) {
+  await page.addInitScript(
+    ([key, map]) => localStorage.setItem(key as string, JSON.stringify(map)),
+    [PAGE_KEY, completionFor(completed)] as const,
+  );
+  await page.setViewportSize({ width: 1280, height: 900 });
+  await page.goto(`/cartilla/leccion/${lesson}`, { waitUntil: "domcontentloaded" });
+  return page.locator(".native-lesson-viewer");
+}
+
+/** A SOURCE_BLOCKED page shows only the notice: no invented work, nothing to complete. */
+async function expectSourceBlocked(viewer: ReturnType<Page["locator"]>, pageNumber: number) {
+  await expect(viewer).toHaveAttribute("data-native-page", String(pageNumber));
+  await expect(viewer.locator("[data-source-blocked='true']")).toContainText(
+    "Esta página falta en el escaneo del libro",
+  );
+  await expect(viewer.locator("[data-gretel-activity]")).toHaveCount(0);
+  await expect(viewer.locator("[class*='fp-region']")).toHaveCount(0);
+  await expect(viewer.locator("input, textarea, canvas")).toHaveCount(0);
+  await expect(viewer).toHaveAttribute("data-page-complete", "true");
+}
+
+test.describe("Workbook source order & 86–87 SOURCE_BLOCKED guard", () => {
+  test("lessons 1 and 8 open on their authoritative first printed page", async ({ page }) => {
+    for (const [lesson, first] of [
+      [1, 1],
+      [8, 23],
+    ] as const) {
+      const viewer = await openLesson(page, lesson);
+      await expect(viewer).toHaveAttribute("data-native-page", String(first));
+    }
   });
 
-  test("verifies lesson and page resolution for Lesson 1", async ({ page }) => {
-    await page.setViewportSize({ width: 1280, height: 900 });
-    await page.goto("/cartilla/leccion/1", { waitUntil: "domcontentloaded" });
-    const lesson = page.locator(".native-lesson-viewer");
-    await expect(lesson).toHaveAttribute("data-native-page", "1");
-  });
-
-  test("verifies lesson and page resolution for Lesson 8", async ({ page }) => {
-    await page.setViewportSize({ width: 1280, height: 900 });
-    await page.goto("/cartilla/leccion/8", { waitUntil: "domcontentloaded" });
-    const lesson = page.locator(".native-lesson-viewer");
-    await expect(lesson).toHaveAttribute("data-native-page", "23");
-  });
-
-  test("verifies explicit SOURCE_BLOCKED handling on page 86 (Lesson 23)", async ({ page }) => {
-    await page.setViewportSize({ width: 1280, height: 900 });
-    await page.goto("/cartilla/leccion/23", { waitUntil: "domcontentloaded" });
-    const lesson = page.locator(".native-lesson-viewer");
-    await expect(lesson).toHaveAttribute("data-native-page", "83");
-
-    const next = lesson.getByRole("button", { name: "Siguiente" });
-    await next.click(); // page 84
-    await expect(lesson).toHaveAttribute("data-native-page", "84");
-    await next.click(); // page 85
-    await expect(lesson).toHaveAttribute("data-native-page", "85");
-    await next.click(); // page 86
-    await expect(lesson).toHaveAttribute("data-native-page", "86");
-
-    const blockedNotice = page.locator("[data-source-blocked='true']");
-    await expect(blockedNotice).toBeVisible();
-    await expect(blockedNotice).toContainText("Esta página falta en el escaneo del libro");
-
+  test("page 86 has no invented exercise and never blocks finishing lesson 23", async ({
+    page,
+  }, testInfo) => {
+    const viewer = await openLesson(page, 23, [83, 84, 85]);
+    const next = viewer.getByRole("button", { name: /Siguiente|Terminar lección/ });
+    for (const expected of [83, 84, 85]) {
+      await expect(viewer).toHaveAttribute("data-native-page", String(expected));
+      await next.click();
+    }
+    await expectSourceBlocked(viewer, 86);
+    await expect(next).toHaveText(/Terminar lección/);
+    await expect(next).not.toHaveAttribute("data-locked", "true");
     await page.screenshot({
-      path: "docs/proofs/source-order-guard/page-86-blocked.png",
+      path: testInfo.outputPath("page-86-source-blocked.png"),
       fullPage: true,
     });
   });
 
-  test("verifies explicit SOURCE_BLOCKED handling on page 87 (Lesson 24)", async ({ page }) => {
-    await page.setViewportSize({ width: 1280, height: 900 });
-    await page.goto("/cartilla/leccion/24", { waitUntil: "domcontentloaded" });
-    const lesson = page.locator(".native-lesson-viewer");
-    await expect(lesson).toHaveAttribute("data-native-page", "87");
-
-    const blockedNotice = page.locator("[data-source-blocked='true']");
-    await expect(blockedNotice).toBeVisible();
-    await expect(blockedNotice).toContainText("Esta página falta en el escaneo del libro");
-
+  test("a fresh learner advances from page 87 to page 88 without completing anything", async ({
+    page,
+  }, testInfo) => {
+    const viewer = await openLesson(page, 24);
+    await expectSourceBlocked(viewer, 87);
     await page.screenshot({
-      path: "docs/proofs/source-order-guard/page-87-blocked.png",
+      path: testInfo.outputPath("page-87-source-blocked.png"),
       fullPage: true,
     });
+    await viewer.getByRole("button", { name: "Siguiente" }).click();
+    await expect(viewer).toHaveAttribute("data-native-page", "88");
+    await expect(viewer.locator("[data-gretel-activity]").first()).toBeVisible();
   });
 });
