@@ -27,7 +27,6 @@ vi.mock("sharp", () => {
 describe("verifyArtDrop", () => {
   const auditPath = path.join(process.cwd(), "docs", "production-art-classification-audit.json");
 
-  const originalCwd = process.cwd;
 
   beforeEach(() => {
     vi.clearAllMocks();
@@ -88,7 +87,7 @@ describe("verifyArtDrop", () => {
     expect(report.invalidFiles[0].filename).toBe("invalid.jpg");
   });
 
-  it("should handle ambiguous matches when a filename applies to multiple missing slots", async () => {
+  it("must leave both missing slots pending when a filename is ambiguous", async () => {
     vi.spyOn(fs, "readFileSync").mockImplementation((p) => {
       if (p === auditPath) {
         return JSON.stringify({
@@ -110,12 +109,16 @@ describe("verifyArtDrop", () => {
     expect(report.expectedPendingCount).toBe(2);
     expect(report.dropFileCount).toBe(1);
 
-    expect(report.matches.length).toBe(1);
-    expect(report.matches[0].slots.length).toBe(2);
-    expect(report.matches[0].slots).toContain("/path/to/slot1.webp");
-    expect(report.matches[0].slots).toContain("/another/path/to/slot1.webp");
-    expect(report.matches[0].note).toBeDefined();
-
-    expect(report.missingSlots.length).toBe(0);
+    // Two identical basenames cannot verify source identity: neither is accepted.
+    expect(report.matches).toHaveLength(0);
+    expect(report.ambiguousFiles).toHaveLength(1);
+    expect(report.ambiguousFiles[0].slots).toEqual([
+      "/path/to/slot1.webp",
+      "/another/path/to/slot1.webp",
+    ]);
+    expect(report.missingSlots).toEqual([
+      "/path/to/slot1.webp",
+      "/another/path/to/slot1.webp",
+    ]);
   });
 });
