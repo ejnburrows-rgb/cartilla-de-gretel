@@ -27,9 +27,9 @@ test.describe("Flipchart pre-final regression", () => {
       const panel = page.getByTestId("flipchart-hd-panel");
       await expect(panel).toBeVisible({ timeout: 15000 });
 
-      // Check initial page state (lesson 7 starts on page 8 usually based on the test)
-      const nativeBoard = page.getByTestId("flipchart-native-board");
-      await expect(nativeBoard).toHaveAttribute("data-flipchart-page", "8");
+      // Lesson 7 sheets are flipchart pages 9-11 per src/data/teacher-flipchart.json
+      const nativeBoard = page.getByTestId("flipchart-stage").getByTestId("flipchart-native-board");
+      await expect(nativeBoard).toHaveAttribute("data-flipchart-page", "9");
 
       // Top-bound physical page turn check
       await expect(panel).toHaveAttribute("data-page-turn-axis", "vertical");
@@ -75,7 +75,7 @@ test.describe("Flipchart pre-final regression", () => {
       await page.waitForTimeout(800); // Wait for turn to finish
 
       // Assert it went to the next page
-      await expect(nativeBoard).toHaveAttribute("data-flipchart-page", "9");
+      await expect(nativeBoard).toHaveAttribute("data-flipchart-page", "10");
 
       // UI Backward
       const prevBtn = panel.getByRole("button", { name: /Lámina anterior/i });
@@ -84,7 +84,7 @@ test.describe("Flipchart pre-final regression", () => {
       await page.waitForTimeout(1000); // Wait for turn
 
       // Assert it went back to the previous page
-      await expect(nativeBoard).toHaveAttribute("data-flipchart-page", "8");
+      await expect(nativeBoard).toHaveAttribute("data-flipchart-page", "9");
     }
 
     // Check errors
@@ -100,8 +100,8 @@ test.describe("Flipchart pre-final regression", () => {
     await expect(panel).toBeVisible({ timeout: 15000 });
 
     // Get current page
-    const nativeBoard = page.getByTestId("flipchart-native-board");
-    await expect(nativeBoard).toHaveAttribute("data-flipchart-page", "8");
+    const nativeBoard = page.getByTestId("flipchart-stage").getByTestId("flipchart-native-board");
+    await expect(nativeBoard).toHaveAttribute("data-flipchart-page", "9");
 
     const nextBtn = panel.getByRole("button", { name: /Lámina siguiente/i });
     await nextBtn.click();
@@ -113,8 +113,8 @@ test.describe("Flipchart pre-final regression", () => {
     const flipWrapper = page.locator(".flipchart-flip-wrapper");
     await expect(flipWrapper).toHaveCount(0); // Assert absence of flip layer
 
-    // Assert the navigation result (page went from 8 to 9)
-    await expect(nativeBoard).toHaveAttribute("data-flipchart-page", "9");
+    // Assert the navigation result (page went from 9 to 10)
+    await expect(nativeBoard).toHaveAttribute("data-flipchart-page", "10");
 
     await page.screenshot({ path: path.join(OUT_DIR, `flipchart-reduced-motion-turn.png`) });
   });
