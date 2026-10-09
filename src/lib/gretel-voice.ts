@@ -155,16 +155,27 @@ export async function speakAsGretel(text: string, handlers: GretelVoiceHandlers 
 
   if (activeProviderConfig.type === "custom" && activeProviderConfig.speakFn) {
     const token = claimSpeech("gretel");
-    window.dispatchEvent(new CustomEvent("gretel:speak_start"));
-    handlers.onStart?.();
-    try {
-      await activeProviderConfig.speakFn(text, handlers);
-    } finally {
-      if (speechIsCurrent(token)) {
-        releaseSpeech(token);
-      }
-      window.dispatchEvent(new CustomEvent("gretel:speak_stop"));
+    let started = false;
+    let ended = false;
+    const start = () => {
+      if (started || ended || !speechIsCurrent(token)) return;
+      started = true;
+      window.dispatchEvent(new CustomEvent("gretel:speak_start"));
+      handlers.onStart?.();
+    };
+    const finish = () => {
+      if (ended) return;
+      ended = true;
+      if (speechIsCurrent(token)) releaseSpeech(token);
+      if (started) window.dispatchEvent(new CustomEvent("gretel:speak_stop"));
       handlers.onEnd?.();
+    };
+    registerSpeechCleanup(token, finish);
+    start();
+    try {
+      await activeProviderConfig.speakFn(text, { onStart: start, onEnd: finish });
+    } finally {
+      finish();
     }
     return;
   }
