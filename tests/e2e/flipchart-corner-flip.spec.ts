@@ -13,7 +13,9 @@ test.beforeAll(() => {
 test.use({ video: "on" });
 
 test.describe("Flip Chart Corner Flip & Teacher Hand Mode E2E Proof", () => {
-  test("Projector 1920x1080 forward and back in both hand modes without console errors", async ({ page }) => {
+  test("Projector 1920x1080 forward and back in both hand modes without console errors", async ({
+    page,
+  }) => {
     const consoleErrors: string[] = [];
     page.on("console", (msg) => {
       if (msg.type() === "error") {
@@ -41,7 +43,9 @@ test.describe("Flip Chart Corner Flip & Teacher Hand Mode E2E Proof", () => {
 
     // 3. Mid-flip screenshot (~800ms into 2000ms flip): verify no duplicate text or ghost page numbers
     await page.waitForTimeout(800);
-    await page.screenshot({ path: path.join(PROOF_DIR, "projector-02-mid-flip-no-duplicate-text.png") });
+    await page.screenshot({
+      path: path.join(PROOF_DIR, "projector-02-mid-flip-no-duplicate-text.png"),
+    });
 
     // 4. Settled on sheet 2
     await page.waitForTimeout(1400);
@@ -108,7 +112,9 @@ test.describe("Flip Chart Corner Flip & Teacher Hand Mode E2E Proof", () => {
       // Drag upward slightly (only 60px)
       await page.mouse.move(startX, startY - 60, { steps: 5 });
       await page.waitForTimeout(150);
-      await page.screenshot({ path: path.join(PROOF_DIR, "tablet-01-drag-spring-back-active.png") });
+      await page.screenshot({
+        path: path.join(PROOF_DIR, "tablet-01-drag-spring-back-active.png"),
+      });
       await page.mouse.up();
 
       // Wait for spring back
@@ -139,5 +145,82 @@ test.describe("Flip Chart Corner Flip & Teacher Hand Mode E2E Proof", () => {
     }
 
     expect(consoleErrors).toHaveLength(0);
+  });
+});
+
+test.describe("Flip Chart corner safety: cancellation, reduced motion, keyboard", () => {
+  async function openPresenter(page: Page) {
+    await page.setViewportSize({ width: 768, height: 1024 });
+    await page.goto("/cartilla/presentar/7", { waitUntil: "domcontentloaded" });
+    await expect(page.getByTestId("flipchart-hd-panel")).toBeVisible({ timeout: 15000 });
+    return page.getByTestId("flipchart-counter");
+  }
+
+  async function dragCorner(page: Page, testId: string, dy: number, end: "up" | "cancel") {
+    const corner = page.getByTestId(testId);
+    const box = (await corner.boundingBox())!;
+    const x = box.x + box.width / 2;
+    const y = box.y + box.height / 2;
+    await page.mouse.move(x, y);
+    await page.mouse.down();
+    if (dy) await page.mouse.move(x, y + dy, { steps: 10 });
+    if (end === "cancel") {
+      await corner.dispatchEvent("pointercancel", {
+        pointerId: 1,
+        pointerType: "mouse",
+        bubbles: true,
+      });
+    }
+    await page.mouse.up();
+  }
+
+  test("an interrupted drag or tap never commits a turn", async ({ page }) => {
+    const counter = await openPresenter(page);
+    for (const dy of [0, -60, -380]) {
+      await dragCorner(page, "flipchart-corner-left", dy, "cancel");
+      await page.waitForTimeout(2300);
+      await expect(counter).toContainText("Hoja 1 de");
+      await expect(page.getByTestId("vertical-flip-layer")).toHaveCount(0);
+    }
+    // The corner still works normally after cancellations.
+    await dragCorner(page, "flipchart-corner-left", -380, "up");
+    await expect(counter).toContainText("Hoja 2 de", { timeout: 3000 });
+  });
+
+  test("reduced motion drag uses no 3D layer and turns instantly", async ({ page }, testInfo) => {
+    await page.emulateMedia({ reducedMotion: "reduce" });
+    const counter = await openPresenter(page);
+    const corner = page.getByTestId("flipchart-corner-left");
+    const box = (await corner.boundingBox())!;
+    await page.mouse.move(box.x + box.width / 2, box.y + box.height / 2);
+    await page.mouse.down();
+    await page.mouse.move(box.x + box.width / 2, box.y + box.height / 2 - 380, { steps: 10 });
+    await expect(page.getByTestId("vertical-flip-layer")).toHaveCount(0);
+    await page.screenshot({ path: testInfo.outputPath("reduced-motion-mid-drag.png") });
+    await page.mouse.up();
+    await expect(counter).toContainText("Hoja 2 de", { timeout: 500 });
+    await dragCorner(page, "flipchart-corner-left", -60, "up");
+    await expect(counter).toContainText("Hoja 2 de");
+    await expect(page.getByTestId("vertical-flip-layer")).toHaveCount(0);
+  });
+
+  test("Enter and Space on a focused corner follow the teacher hand mode", async ({ page }) => {
+    await page.emulateMedia({ reducedMotion: "reduce" });
+    const counter = await openPresenter(page);
+    const left = page.getByTestId("flipchart-corner-left");
+    const right = page.getByTestId("flipchart-corner-right");
+    await left.focus();
+    await page.keyboard.press("Enter");
+    await expect(counter).toContainText("Hoja 2 de");
+    await right.focus();
+    await page.keyboard.press(" ");
+    await expect(counter).toContainText("Hoja 1 de");
+    await page.getByTestId("hand-mode-toggle").click();
+    await right.focus();
+    await page.keyboard.press(" ");
+    await expect(counter).toContainText("Hoja 2 de");
+    await left.focus();
+    await page.keyboard.press("Enter");
+    await expect(counter).toContainText("Hoja 1 de");
   });
 });
