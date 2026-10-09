@@ -9,6 +9,9 @@ export const ELEGANT_EASE = "cubic-bezier(0.22, 1, 0.36, 1)";
 /** Physical student-workbook curl: intentionally slow enough to read as a real paper leaf. Target 0.75–0.85s. */
 export const STUDENT_PAGE_TURN_MS = 800;
 
+/** Lesson screen real-paper turn duration (owner decision 2026-10-09). */
+export const LESSON_PAGE_TURN_MS = 2000;
+
 /** Teacher flipchart: top-hinged turn so the sheet travels over the binding. Target 0.9–1.05s. */
 export const FLIPCHART_FLIP_MS = 980;
 

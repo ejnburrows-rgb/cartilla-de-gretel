@@ -49,9 +49,9 @@ describe('actual Workbook p5 completion', () => {
     await act(async () => { await vi.advanceTimersByTimeAsync(10000); });
     expect(next().hasAttribute('aria-disabled')).toBe(false);
     fireEvent.click(next());
-    await act(async () => { await vi.advanceTimersByTimeAsync(2000); });
+    await act(async () => { await vi.advanceTimersByTimeAsync(2600); });
     fireEvent.click(screen.getByRole('button', { name: /Anterior/ }));
-    await act(async () => { await vi.advanceTimersByTimeAsync(2000); });
+    await act(async () => { await vi.advanceTimersByTimeAsync(2600); });
     expect(next().hasAttribute('aria-disabled')).toBe(false);
     cleanup(); mountP5();
     expect(next().hasAttribute('aria-disabled')).toBe(false);
