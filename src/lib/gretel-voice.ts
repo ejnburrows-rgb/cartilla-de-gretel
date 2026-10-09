@@ -61,8 +61,10 @@ export function scoreVoice(voice: SpeechSynthesisVoice): number {
   const primary = activeProviderConfig.primaryVoiceName || GRETEL_PRIMARY_VOICE;
   const fallback = activeProviderConfig.fallbackVoiceName || GRETEL_FALLBACK_VOICE;
 
-  if (new RegExp(primary, "i").test(voice.name)) score += 1000000;
-  else if (new RegExp(fallback, "i").test(voice.name)) score += 900000;
+  // Voice labels are literal OS/browser strings, not regular expressions.
+  const voiceName = voice.name.toLowerCase();
+  if (voiceName.includes(primary.toLowerCase())) score += 1000000;
+  else if (voiceName.includes(fallback.toLowerCase())) score += 900000;
 
   if (FRIENDLY_HINTS.test(voice.name)) score += 2500;
   if (/natural|neural|online|premium|enhanced/i.test(voice.name)) score += 300;
