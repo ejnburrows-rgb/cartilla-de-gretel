@@ -27,6 +27,27 @@ function completePage(pageNumber: number) {
 const current = () =>
   Number(document.querySelector("[data-native-page]")?.getAttribute("data-native-page"));
 
+function beginLongForwardDrag(onPageChange: (index: number) => void) {
+    render(
+      <NativeLessonViewer
+        pages={PAGES}
+        chapterLabel="Lección 8"
+        lessonNumber={8}
+        onPageChange={onPageChange}
+      />,
+    );
+    completePage(23);
+    const viewer = document.querySelector(".native-lesson-viewer")!;
+    vi.spyOn(viewer, "getBoundingClientRect").mockReturnValue({
+      width: 600, height: 800, left: 0, top: 0, right: 600, bottom: 800,
+      x: 0, y: 0, toJSON: () => {},
+    });
+    const next = screen.getByTestId("corner-next");
+    fireEvent.pointerDown(next, { pointerId: 1, clientX: 500, clientY: 700 });
+    fireEvent.pointerMove(next, { pointerId: 1, clientX: 100, clientY: 700 });
+  return { viewer, next };
+}
+
 beforeEach(() => {
   vi.useFakeTimers();
   window.scrollTo = vi.fn() as never;
@@ -136,23 +157,7 @@ describe("NativeLessonViewer real-paper page turn contracts", () => {
 
   it("cancelling a long corner drag never turns the page, even if a click follows", () => {
     const onPageChange = vi.fn();
-    render(
-      <NativeLessonViewer
-        pages={PAGES}
-        chapterLabel="Lección 8"
-        lessonNumber={8}
-        onPageChange={onPageChange}
-      />,
-    );
-    completePage(23);
-    const viewer = document.querySelector(".native-lesson-viewer")!;
-    vi.spyOn(viewer, "getBoundingClientRect").mockReturnValue({
-      width: 600, height: 800, left: 0, top: 0, right: 600, bottom: 800,
-      x: 0, y: 0, toJSON: () => {},
-    });
-    const next = screen.getByTestId("corner-next");
-    fireEvent.pointerDown(next, { pointerId: 1, clientX: 500, clientY: 700 });
-    fireEvent.pointerMove(next, { pointerId: 1, clientX: 100, clientY: 700 });
+    const { viewer, next } = beginLongForwardDrag(onPageChange);
     fireEvent.pointerCancel(next, { pointerId: 1, clientX: 100, clientY: 700 });
     fireEvent.click(next);
     act(() => vi.advanceTimersByTime(3000));
@@ -180,23 +185,7 @@ describe("NativeLessonViewer real-paper page turn contracts", () => {
 
   it("lost pointer capture cancels a half-completed turn instead of navigating", () => {
     const onPageChange = vi.fn();
-    render(
-      <NativeLessonViewer
-        pages={PAGES}
-        chapterLabel="Lección 8"
-        lessonNumber={8}
-        onPageChange={onPageChange}
-      />,
-    );
-    completePage(23);
-    const viewer = document.querySelector(".native-lesson-viewer")!;
-    vi.spyOn(viewer, "getBoundingClientRect").mockReturnValue({
-      width: 600, height: 800, left: 0, top: 0, right: 600, bottom: 800,
-      x: 0, y: 0, toJSON: () => {},
-    });
-    const next = screen.getByTestId("corner-next");
-    fireEvent.pointerDown(next, { pointerId: 1, clientX: 500, clientY: 700 });
-    fireEvent.pointerMove(next, { pointerId: 1, clientX: 100, clientY: 700 });
+    const { viewer, next } = beginLongForwardDrag(onPageChange);
     fireEvent.lostPointerCapture(next, { pointerId: 1 });
     fireEvent.pointerUp(next, { pointerId: 1, clientX: 100, clientY: 700 });
     fireEvent.click(next);
