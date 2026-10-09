@@ -8,7 +8,7 @@ const envCommand = (env: Record<string, string>, command: string) => {
     return `powershell -NoProfile -Command \"${assignments}; ${command}\"`;
   }
   const assignments = Object.entries(env)
-    .map(([key, value]) => `${key}='${value.replaceAll("'", "''")}'`)
+    .map(([key, value]) => `${key}='${value.replaceAll("'", "'\\''")}'`)
     .join(" ");
   return `${assignments} ${command}`;
 };
