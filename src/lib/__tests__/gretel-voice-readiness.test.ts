@@ -113,12 +113,33 @@ describe("Gretel Voice Readiness Architecture", () => {
     await speakAsGretel("Hola niños", { onStart, onEnd });
 
     expect(customSpeakFn).toHaveBeenCalledWith("Hola niños", expect.any(Object));
-    expect(onStart).toHaveBeenCalled();
-    expect(onEnd).toHaveBeenCalled();
-    expect(startListener).toHaveBeenCalled();
-    expect(stopListener).toHaveBeenCalled();
+    expect(onStart).toHaveBeenCalledTimes(1);
+    expect(onEnd).toHaveBeenCalledTimes(1);
+    expect(startListener).toHaveBeenCalledTimes(1);
+    expect(stopListener).toHaveBeenCalledTimes(1);
 
     window.removeEventListener("gretel:speak_start", startListener);
+    window.removeEventListener("gretel:speak_stop", stopListener);
+  });
+
+  it("ends interrupted custom speech exactly once", async () => {
+    let finishProvider = () => {};
+    const providerDone = new Promise<void>((resolve) => { finishProvider = resolve; });
+    setGretelVoiceProviderConfig({
+      type: "custom",
+      name: "Interruptible provider",
+      speakFn: async () => providerDone,
+    });
+    const onEnd = vi.fn();
+    const stopListener = vi.fn();
+    window.addEventListener("gretel:speak_stop", stopListener);
+    const pending = speakAsGretel("Interrumpir", { onEnd });
+    claimSpeech("picture");
+    expect(onEnd).toHaveBeenCalledTimes(1);
+    finishProvider();
+    await pending;
+    expect(onEnd).toHaveBeenCalledTimes(1);
+    expect(stopListener).toHaveBeenCalledTimes(1);
     window.removeEventListener("gretel:speak_stop", stopListener);
   });
 
