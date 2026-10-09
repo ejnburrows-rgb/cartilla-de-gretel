@@ -94,20 +94,28 @@ Reduced motion: immediate or very short non-3D page replacement, preserving focu
 
 ## 5. Teacher Flip Chart navigation/page turn
 
-The Flip Chart behaves like a real top-bound classroom flip chart.
+The Flip Chart behaves like a real top-bound classroom flip chart with teacher hand mode support (owner direction 2026-10-09).
+
+Hand mode and corner interaction:
+- Hand mode setting: Left-hand (default) / Right-hand, saved on the device (`cartilla:teacher:hand-mode`).
+- Left-hand mode: bottom-left corner tap/drag = next sheet; bottom-right corner = previous sheet.
+- Right-hand mode: bottom-right corner tap/drag = next sheet; bottom-left corner = previous sheet.
+- Touch/tablet drag: corner drag interactively moves the sheet upward (next) or downward (prev). Releasing past halfway (progress >= 0.5) completes the turn; releasing before halfway springs back.
+- Pointer protection: corner hotspots are non-interactive while Laser Pointer mode is active.
 
 Advance sequence:
-1. prepare the destination sheet behind the current sheet;
+1. prepare destination sheet behind current sheet;
 2. disable duplicate navigation;
-3. lift the current sheet from the lower edge;
-4. turn it upward over the top binding/rings;
-5. reveal the paper underside and restrained moving shadow;
-6. settle on the destination sheet;
-7. restore teacher controls/focus.
+3. play soft paper sound (respecting mute);
+4. trigger a small cinematic zoom (~0.3 s) on easel stage for tap/button/keyboard triggers;
+5. lift the current sheet from lower edge and turn it upward over top binding;
+6. reveal clean paper underside (no duplicate text or ghost page numbers) and realistic shadow;
+7. settle on destination sheet;
+8. restore teacher controls and focus.
 
-Target duration: 0.9–1.05 s.
+Target duration: 2.0 s (`FLIPCHART_FLIP_MS = 2000`).
 
-Previous reverses naturally.
+Previous reverses naturally (prior sheet comes back down over the top).
 
 The effect is presentation-only and may not change lesson mapping, page order, art placement, text, teacher progress, or printing/report behavior.
 

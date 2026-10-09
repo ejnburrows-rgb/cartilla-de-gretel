@@ -74,7 +74,7 @@ Motion represents real physical actions with restrained mass.
 
 **Workbook:** side-bound right-hand page curl across the spine, right-to-left on advance; reverse on back. Use a subtle paper underside and moving shadow. Target 0.75–0.85 s.
 
-**Flip Chart:** top-bound sheet lifts from the lower edge and flips upward over the binding/rings on advance; reverse on back. Target 0.9–1.05 s.
+**Flip Chart:** top-bound corner flip with teacher Left-hand / Right-hand mode (owner direction 2026-10-09). In Left-hand mode (default), tapping or dragging the bottom-left corner flips to the next sheet; bottom-right flips to previous. In Right-hand mode, bottom-right = next and bottom-left = previous. On touch/tablet, the sheet interactively tracks finger movement during upward/downward drags; release past halfway (>= 0.5) completes the turn; otherwise it springs back. Non-drag triggers (taps, buttons, Arrow/PageUp/PageDown keys) initiate a small cinematic zoom (~0.3 s) followed by a crisp 2.0 s HD flip (`FLIPCHART_FLIP_MS = 2000`) with soft paper sound and clean paper underside shading (no text duplication or ghost page numbers). Corner flips do not trigger while Laser Pointer mode is active.
 
 Neither should resemble a card flip or cube rotation. The destination page is already present beneath the moving sheet.
 
