@@ -66,7 +66,7 @@ If the printed book page has no picture, the digital page adds no picture: do no
 
 ### In-app Gretel
 - Lesson interaction uses the existing approved Gretel master/state system rather than generating a separate video/pose set.
-- Motion must be purposeful and restrained; no constant distracting loops while the learner is answering/writing.
+- Motion must be purposeful and restrained. Per owner decision of 2026-10-09, living pictures move continuously, gently, and smoothly while the student works.
 - Follow `STUDENT_INTERACTION_STANDARD.md` for student feedback motion.
 
 ## Before any image, source-preserving color transfer, or clip goes into the repo
