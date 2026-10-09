@@ -12,8 +12,8 @@ export const STUDENT_PAGE_TURN_MS = 800;
 /** Lesson screen real-paper turn duration (owner decision 2026-10-09). */
 export const LESSON_PAGE_TURN_MS = 2000;
 
-/** Teacher flipchart: top-hinged turn so the sheet travels over the binding. Target 0.9–1.05s. */
-export const FLIPCHART_FLIP_MS = 980;
+/** Teacher flipchart: top-hinged turn so the sheet travels over the binding. Target 2.0s. */
+export const FLIPCHART_FLIP_MS = 2000;
 
 /** Blink hold while lids are closed (ms). */
 export const BLINK_HOLD_MS = 110;

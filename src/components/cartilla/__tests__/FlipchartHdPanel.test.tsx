@@ -101,8 +101,8 @@ describe("FlipchartHdPanel — CRM-grade presenter board", () => {
     expect(screen.getByTestId("flipchart-counter").textContent).toMatch(
       /Hoja/i,
     );
-    expect(screen.getByLabelText(/Lámina anterior/i)).toBeTruthy();
-    expect(screen.getByLabelText(/Lámina siguiente/i)).toBeTruthy();
+    expect(screen.getByRole("button", { name: "Lámina anterior" })).toBeTruthy();
+    expect(screen.getByRole("button", { name: "Lámina siguiente" })).toBeTruthy();
   });
 
   it("supports vertical arrow keys as the primary presenter navigation", () => {
@@ -127,7 +127,7 @@ describe("FlipchartHdPanel — CRM-grade presenter board", () => {
     if (container.querySelector('[data-testid="flipchart-empty"]')) return;
     const counter = screen.getByTestId("flipchart-counter");
     expect(counter.textContent).toMatch(/Hoja 1 de/);
-    fireEvent.click(screen.getByLabelText(/Lámina siguiente/i));
+    fireEvent.click(screen.getByRole("button", { name: "Lámina siguiente" }));
     expect(screen.getByTestId("flipchart-counter").textContent).toMatch(
       /Hoja 2 de/,
     );
@@ -148,8 +148,8 @@ describe("FlipchartHdPanel bare chrome mode", () => {
     expect(container.querySelector('[data-testid="flipchart-stage"] .fc-board__controls')).toBeNull();
     expect(container.querySelector(".fc-board__strip")).toBeNull();
     expect(screen.queryByTestId("flipchart-counter")).toBeTruthy();
-    expect(screen.queryByLabelText(/L\u00e1mina anterior/i)).toBeTruthy();
-    expect(screen.queryByLabelText(/L\u00e1mina siguiente/i)).toBeTruthy();
+    expect(screen.queryByRole("button", { name: "Lámina anterior" })).toBeTruthy();
+    expect(screen.queryByRole("button", { name: "Lámina siguiente" })).toBeTruthy();
   });
 
   it("keeps full chrome by default", () => {
@@ -210,5 +210,52 @@ describe("TeacherPresentationShell — book-warm presenter chrome", () => {
     expect(shell?.className).not.toMatch(/bg-stone-950|bg-slate-950/);
     expect(screen.getByText("Vocal O o")).toBeTruthy();
     expect(screen.getByLabelText(/Volver al panel del docente/i)).toBeTruthy();
+  });
+});
+
+describe("FlipchartHdPanel — teacher hand mode and corner flip mechanics", () => {
+  it("renders bottom-left and bottom-right corner hotspots in left-hand mode by default", () => {
+    const { container } = render(<FlipchartHdPanel lessonNumber={7} />);
+    const leftCorner = container.querySelector('[data-testid="flipchart-corner-left"]');
+    const rightCorner = container.querySelector('[data-testid="flipchart-corner-right"]');
+
+    expect(leftCorner).toBeTruthy();
+    expect(rightCorner).toBeTruthy();
+    expect(leftCorner?.getAttribute("aria-label")).toContain("Lámina siguiente");
+    expect(rightCorner?.getAttribute("aria-label")).toContain("Lámina anterior");
+  });
+
+  it("toggles hand mode and flips corner mappings in right-hand mode", () => {
+    const { container } = render(
+      <TeacherPresentationShell title="Lección 7">
+        <FlipchartHdPanel lessonNumber={7} />
+      </TeacherPresentationShell>,
+    );
+
+    const leftCornerBefore = container.querySelector('[data-testid="flipchart-corner-left"]');
+    const rightCornerBefore = container.querySelector('[data-testid="flipchart-corner-right"]');
+    expect(leftCornerBefore?.getAttribute("aria-label")).toContain("Lámina siguiente");
+    expect(rightCornerBefore?.getAttribute("aria-label")).toContain("Lámina anterior");
+
+    // Toggle hand mode
+    const toggleBtn = screen.getByTestId("hand-mode-toggle");
+    fireEvent.click(toggleBtn);
+
+    const leftCornerAfter = container.querySelector('[data-testid="flipchart-corner-left"]');
+    const rightCornerAfter = container.querySelector('[data-testid="flipchart-corner-right"]');
+    expect(leftCornerAfter?.getAttribute("aria-label")).toContain("Lámina anterior");
+    expect(rightCornerAfter?.getAttribute("aria-label")).toContain("Lámina siguiente");
+  });
+
+  it("advances sheet when tapping bottom-left corner in default left-hand mode", () => {
+    const { container } = render(<FlipchartHdPanel lessonNumber={7} />);
+    const counter = screen.getByTestId("flipchart-counter");
+    expect(counter.textContent).toMatch(/Hoja 1 de/);
+
+    const leftCorner = container.querySelector('[data-testid="flipchart-corner-left"]')!;
+    fireEvent.pointerDown(leftCorner, { clientX: 100, clientY: 800, pointerId: 1 });
+    fireEvent.pointerUp(leftCorner, { clientX: 100, clientY: 800, pointerId: 1 });
+
+    expect(screen.getByTestId("flipchart-counter").textContent).toMatch(/Hoja 2 de/);
   });
 });
