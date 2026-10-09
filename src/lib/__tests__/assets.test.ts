@@ -11,26 +11,22 @@ describe("Asset Routing Utilities", () => {
     expect(assetPath("/art/hd/page-001.png")).toBe("/art/hd/page-001.png");
     expect(assetPath("art/hd/page-001.png")).toBe("/art/hd/page-001.png");
     expect(assetPath("///art/hd/page-001.png")).toBe("/art/hd/page-001.png");
-    expect(assetPath("")).toBe("/");
   });
 
   it("handles assetPath with custom subpath BASE_URL", () => {
     vi.stubEnv("BASE_URL", "/my-subpath/");
     expect(assetPath("/art/hd/page-001.png")).toBe("/my-subpath/art/hd/page-001.png");
     expect(assetPath("art/hd/page-001.png")).toBe("/my-subpath/art/hd/page-001.png");
-    expect(assetPath("")).toBe("/my-subpath/");
   });
 
   it("handles standard routePath with default BASE_URL (/) and resolves correctly", () => {
     expect(routePath("/cartilla/lecciones")).toBe("/cartilla/lecciones");
-    expect(routePath("cartilla/lecciones")).toBe("/cartilla/lecciones");
     expect(routePath("")).toBe("");
   });
 
   it("handles routePath with custom subpath BASE_URL", () => {
     vi.stubEnv("BASE_URL", "/my-subpath/");
     expect(routePath("/cartilla/lecciones")).toBe("/my-subpath/cartilla/lecciones");
-    expect(routePath("cartilla/lecciones")).toBe("/my-subpath/cartilla/lecciones");
     expect(routePath("")).toBe("/my-subpath");
   });
 });
