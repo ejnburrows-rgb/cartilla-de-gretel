@@ -607,6 +607,23 @@ export function FaithfulPageRenderer({
     if (fallback !== undefined) return <>{fallback}</>;
   }
 
+  // Source-blocked pages (the documented 86–87 scan gap) render ONLY the
+  // blocked notice. No inferred regions, artwork, or interactions may leak
+  // through even if stale layout data still lists them.
+  if (typeof pageNumber === "number" && SOURCE_BLOCKED_WORKBOOK_PAGES.includes(pageNumber)) {
+    return (
+      <PageFrame
+        pageNumber={pageNumber}
+        lessonNumber={lessonNumber}
+        className="fp-native-blocked-page"
+      >
+        <p className="fp-source-blocked" data-source-blocked="true" role="note">
+          Esta página falta en el escaneo del libro. Su contenido está pendiente de verificación con el libro impreso.
+        </p>
+      </PageFrame>
+    );
+  }
+
   const ordered = [...layout].sort((a, b) => a.order - b.order);
   const letterReadingPage = native && ordered.some((region) => region.regionType === "vocab-grid")
     && ordered.filter((region) => region.regionType === "syllable-bubble").length === 2;
