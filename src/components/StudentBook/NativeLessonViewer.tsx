@@ -7,8 +7,6 @@ import { remainingHint, usePageCompletion } from "@/lib/page-completion";
 import type { WorkbookPageEntry } from "./SimplePageViewer";
 import "@/styles/native-lesson.css";
 
-const isTestEnv = typeof process !== "undefined" && process.env?.NODE_ENV === "test";
-
 /**
  * NativeLessonViewer — One readable, scrollable learning page at a time.
  * Real-paper page turn animation (owner direction 2026-10-09).
@@ -120,7 +118,7 @@ export function NativeLessonViewer({
       gretelEvent("page-turn:start");
       audioEngine.playPageTurn(true);
 
-      const reduce = prefersReducedMotion() || isTestEnv;
+      const reduce = prefersReducedMotion();
       if (reduce) {
         setIndex(targetIndex);
         onPageChange?.(targetIndex);
@@ -245,7 +243,7 @@ export function NativeLessonViewer({
       }
       dragStartRef.current.isDragging = true;
       // Drag distance still counts with reduced motion, but no 3D layer mounts.
-      if (!prefersReducedMotion() && !isTestEnv) {
+      if (!prefersReducedMotion()) {
         const targetIdx = direction === "next" ? index + 1 : index - 1;
         setTurning(true);
         setTurnDirection(direction);
@@ -258,7 +256,7 @@ export function NativeLessonViewer({
     const width = rect?.width || 600;
     const prog = Math.min(1, Math.max(0, deltaX / (width * 0.75)));
     dragProgressRef.current = prog;
-    if (!prefersReducedMotion() && !isTestEnv) setDragProgress(prog);
+    if (!prefersReducedMotion()) setDragProgress(prog);
   };
 
   const handlePointerCancel = (e: React.PointerEvent) => {
@@ -299,7 +297,7 @@ export function NativeLessonViewer({
       const progress = dragProgressRef.current;
       dragProgressRef.current = 0;
       if (progress >= 0.5) {
-        if (prefersReducedMotion() || isTestEnv) {
+        if (prefersReducedMotion()) {
           executeTurn(targetIdx, direction);
           return;
         }
