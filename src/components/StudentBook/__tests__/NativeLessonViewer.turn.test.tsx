@@ -178,6 +178,34 @@ describe("NativeLessonViewer real-paper page turn contracts", () => {
     expect(onPageChange).toHaveBeenCalledTimes(1);
   });
 
+  it("lost pointer capture cancels a half-completed turn instead of navigating", () => {
+    const onPageChange = vi.fn();
+    render(
+      <NativeLessonViewer
+        pages={PAGES}
+        chapterLabel="Lección 8"
+        lessonNumber={8}
+        onPageChange={onPageChange}
+      />,
+    );
+    completePage(23);
+    const viewer = document.querySelector(".native-lesson-viewer")!;
+    vi.spyOn(viewer, "getBoundingClientRect").mockReturnValue({
+      width: 600, height: 800, left: 0, top: 0, right: 600, bottom: 800,
+      x: 0, y: 0, toJSON: () => {},
+    });
+    const next = screen.getByTestId("corner-next");
+    fireEvent.pointerDown(next, { pointerId: 1, clientX: 500, clientY: 700 });
+    fireEvent.pointerMove(next, { pointerId: 1, clientX: 100, clientY: 700 });
+    fireEvent.lostPointerCapture(next, { pointerId: 1 });
+    fireEvent.pointerUp(next, { pointerId: 1, clientX: 100, clientY: 700 });
+    fireEvent.click(next);
+    act(() => vi.advanceTimersByTime(3000));
+    expect(current()).toBe(23);
+    expect(onPageChange).not.toHaveBeenCalled();
+    expect(viewer.getAttribute("data-turn-phase")).toBe("idle");
+  });
+
   it("reduced-motion corner dragging has no 3D layer and commits without a timed animation", () => {
     vi.stubGlobal("matchMedia", vi.fn().mockImplementation((query: string) => ({
       matches: query.includes("prefers-reduced-motion"),
