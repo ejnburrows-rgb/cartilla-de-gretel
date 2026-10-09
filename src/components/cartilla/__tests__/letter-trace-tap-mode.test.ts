@@ -23,8 +23,9 @@ function tapThrough(strokes: Point[][]) {
   let pos = START;
   const visited: Array<{ strokeIdx: number; pointIdx: number }> = [];
   let completed = false;
-  // generous bound so a logic bug loops out instead of hanging the suite
-  for (let guard = 0; guard < 500 && !completed; guard++) {
+  // exact bound so a logic bug loops out instead of hanging the suite
+  const expectedSteps = strokes.reduce((n, s) => n + s.length, 0);
+  for (let guard = 0; guard < expectedSteps && !completed; guard++) {
     const result = advanceTap(strokes, pos, pos);
     visited.push({ strokeIdx: pos.strokeIdx, pointIdx: pos.pointIdx });
     if (result.kind === "complete") {
