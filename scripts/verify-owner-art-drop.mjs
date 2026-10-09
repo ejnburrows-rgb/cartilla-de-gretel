@@ -151,9 +151,11 @@ async function run() {
       report.missingSlots.forEach((s) => console.log(`  - ${s}`));
     }
 
-    const outPath = path.join(process.cwd(), "docs", "owner-art-drop-manifest.json");
+    const outputDir = path.join(process.cwd(), "test-results");
+    fs.mkdirSync(outputDir, { recursive: true });
+    const outPath = path.join(outputDir, "owner-art-drop-manifest.json");
     fs.writeFileSync(outPath, JSON.stringify(report, null, 2), "utf-8");
-    console.log(`\nMachine-readable report written to: docs/owner-art-drop-manifest.json`);
+    console.log(`\nMachine-readable report written to: test-results/owner-art-drop-manifest.json`);
   } catch (e) {
     console.error(`Error: ${e.message}`);
     process.exit(1);
