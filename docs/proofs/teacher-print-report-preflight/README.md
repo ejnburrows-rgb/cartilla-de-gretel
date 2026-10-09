@@ -10,23 +10,24 @@ This directory contains visual and PDF evidence verifying teacher progress track
 
 1. **Teacher Progress (`/cartilla/teacher/progreso`)**
    - Verified 24-lesson completion matrix table with horizontal overflow scroll container (`overflow-x-auto`).
-   - Verified print CSS (`teacher-print.css`) hides non-printable headers (`header.no-print`).
+   - The progress route now imports `teacher-print.css` itself (previously it relied on other stylesheets, so the teacher print table styling never applied there). The e2e spec asserts that the print table styling applies on this route and fails without the import.
+   - Verified the non-printable header (`header.no-print`) is hidden under print media.
    - Screens: `progress-laptop.png` (1280×900), `progress-tablet.png` (768×1024), `progress-phone.png` (375×667), `progress-projector.png` (1920×1080).
 
 2. **Class & Student Report Cards (`/cartilla/teacher/reportes`)**
    - Verified Class-wide analytics (accuracy, exercise breakdown by type, completion matrix).
    - Verified Individual Student Report (Sofía Ramírez: IEP adaptations tag, lesson counts, accuracy %, time on task, recent progress events).
    - Screens: `report-class-{viewport}.png` & `report-student-{viewport}.png`.
-   - Printable Report PDF: `report.pdf`.
 
 3. **Printable Workbook (`/cartilla/imprimir/1` & `/cartilla/imprimir/all`)**
    - Verified faithful page rendering and PDF page rendering without fabricated exercises.
    - Verified page count assertions and print CSS media emulation (`@media print`).
    - Screens: `printable-workbook-l1-{viewport}.png`.
-   - Printable Workbook PDF: `printable-workbook-l1.pdf`.
 
 ## Verification Commands
 
-- `pnpm test` (129 test files, 1579 passing tests)
-- `pnpm exec playwright test tests/e2e/teacher-print-report-preflight.spec.ts` (3/3 passed)
-- `pnpm typecheck` (0 errors)
+- `pnpm exec playwright test tests/e2e/teacher-print-report-preflight.spec.ts`
+- `pnpm typecheck`
+- `pnpm verify:release` (controller release verification)
+
+No PDF files are stored in this directory; the screenshots above are the committed visual evidence. Exact-head results are recorded in the PR proof comment.

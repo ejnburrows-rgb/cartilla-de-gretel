@@ -23,6 +23,9 @@ test.describe("Teacher Print/Report Readiness", () => {
     // Emulate print media to ensure teacher-print.css hides no-print on progress
     await page.emulateMedia({ media: "print" });
     await expect(progressHeader).toBeHidden();
+    // teacher-print.css must be loaded by the progress route itself: its print
+    // table styling (#f5f5f5 header cells) only applies when the route imports it.
+    await expect(page.locator("table th").nth(1)).toHaveCSS("background-color", "rgb(245, 245, 245)");
     await page.emulateMedia({ media: "screen" });
 
     // Ensure table can scroll
