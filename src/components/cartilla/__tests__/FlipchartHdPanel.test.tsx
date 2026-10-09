@@ -258,4 +258,49 @@ describe("FlipchartHdPanel — teacher hand mode and corner flip mechanics", () 
 
     expect(screen.getByTestId("flipchart-counter").textContent).toMatch(/Hoja 2 de/);
   });
+  it("cancels a mostly dragged corner without advancing the Flip Chart", () => {
+    const { container } = render(<FlipchartHdPanel lessonNumber={7} />);
+    const left = screen.getByTestId("flipchart-corner-left");
+    fireEvent.pointerDown(left, { pointerId: 1, clientX: 30, clientY: 500 });
+    fireEvent.pointerMove(left, { pointerId: 1, clientX: 30, clientY: 200 });
+    expect(container.querySelector('[data-testid="vertical-flip-layer"]')).toBeNull();
+    fireEvent.pointerCancel(left, { pointerId: 1, clientX: 30, clientY: 200 });
+    fireEvent.pointerUp(left, { pointerId: 1, clientX: 30, clientY: 200 });
+    expect(screen.getByTestId("flipchart-counter").textContent).toMatch(/Hoja 1 de/);
+  });
+
+  it("under reduced motion, turns only after a halfway drag without any 3D layer", () => {
+    const { container } = render(<FlipchartHdPanel lessonNumber={7} />);
+    const left = screen.getByTestId("flipchart-corner-left");
+    fireEvent.pointerDown(left, { pointerId: 1, clientX: 30, clientY: 500 });
+    fireEvent.pointerMove(left, { pointerId: 1, clientX: 30, clientY: 400 });
+    fireEvent.pointerUp(left, { pointerId: 1, clientX: 30, clientY: 400 });
+    expect(screen.getByTestId("flipchart-counter").textContent).toMatch(/Hoja 1 de/);
+    fireEvent.pointerDown(left, { pointerId: 2, clientX: 30, clientY: 500 });
+    fireEvent.pointerMove(left, { pointerId: 2, clientX: 30, clientY: 200 });
+    expect(container.querySelector('[data-testid="vertical-flip-layer"]')).toBeNull();
+    fireEvent.pointerUp(left, { pointerId: 2, clientX: 30, clientY: 200 });
+    expect(screen.getByTestId("flipchart-counter").textContent).toMatch(/Hoja 2 de/);
+    expect(container.querySelector('[data-testid="vertical-flip-layer"]')).toBeNull();
+  });
+
+  it("operates both corners with Enter and Space in either hand mode", () => {
+    render(
+      <TeacherPresentationShell title="Lección 7">
+        <FlipchartHdPanel lessonNumber={7} />
+      </TeacherPresentationShell>,
+    );
+    const left = screen.getByTestId("flipchart-corner-left");
+    const right = screen.getByTestId("flipchart-corner-right");
+    fireEvent.keyDown(left, { key: "Enter" });
+    expect(screen.getByTestId("flipchart-counter").textContent).toMatch(/Hoja 2 de/);
+    fireEvent.keyDown(right, { key: " " });
+    expect(screen.getByTestId("flipchart-counter").textContent).toMatch(/Hoja 1 de/);
+    fireEvent.click(screen.getByTestId("hand-mode-toggle"));
+    fireEvent.keyDown(right, { key: "Enter" });
+    expect(screen.getByTestId("flipchart-counter").textContent).toMatch(/Hoja 2 de/);
+    fireEvent.keyDown(left, { key: " " });
+    expect(screen.getByTestId("flipchart-counter").textContent).toMatch(/Hoja 1 de/);
+  });
+
 });
