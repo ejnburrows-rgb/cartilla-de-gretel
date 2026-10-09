@@ -48,6 +48,9 @@ export function NativeLessonViewer({
   const [turnPhase, setTurnPhase] = useState<"idle" | "zoom" | "curling" | "settling" | "dragging">("idle");
   const [destinationIndex, setDestinationIndex] = useState<number | null>(null);
   const [dragProgress, setDragProgress] = useState(0);
+  const dragProgressRef = useRef(0);
+  // A cancelled/dragged gesture must not generate a second navigation via click.
+  const suppressCornerClickRef = useRef(false);
 
   const containerRef = useRef<HTMLDivElement>(null);
   const dragStartRef = useRef<{ x: number; y: number; active: boolean; isDragging: boolean }>({
@@ -216,6 +219,8 @@ export function NativeLessonViewer({
     if (targetIdx < 0 || targetIdx >= pages.length) return;
 
     dragStartRef.current = { x: e.clientX, y: e.clientY, active: true, isDragging: false };
+    dragProgressRef.current = 0;
+    suppressCornerClickRef.current = false;
     try {
       e.currentTarget.setPointerCapture?.(e.pointerId);
     } catch {
@@ -235,20 +240,45 @@ export function NativeLessonViewer({
       if (direction === "next" && !completion.complete) {
         showRemaining();
         dragStartRef.current.active = false;
+        suppressCornerClickRef.current = true;
         return;
       }
       dragStartRef.current.isDragging = true;
-      const targetIdx = direction === "next" ? index + 1 : index - 1;
-      setTurning(true);
-      setTurnDirection(direction);
-      setDestinationIndex(targetIdx);
-      setTurnPhase("dragging");
+      // Drag distance still counts with reduced motion, but no 3D layer mounts.
+      if (!prefersReducedMotion() && !isTestEnv) {
+        const targetIdx = direction === "next" ? index + 1 : index - 1;
+        setTurning(true);
+        setTurnDirection(direction);
+        setDestinationIndex(targetIdx);
+        setTurnPhase("dragging");
+      }
     }
 
     const rect = containerRef.current?.getBoundingClientRect();
     const width = rect?.width || 600;
     const prog = Math.min(1, Math.max(0, deltaX / (width * 0.75)));
-    setDragProgress(prog);
+    dragProgressRef.current = prog;
+    if (!prefersReducedMotion() && !isTestEnv) setDragProgress(prog);
+  };
+
+  const handlePointerCancel = (e: React.PointerEvent) => {
+    if (!dragStartRef.current.active) return;
+    dragStartRef.current.active = false;
+    dragStartRef.current.isDragging = false;
+    dragProgressRef.current = 0;
+    suppressCornerClickRef.current = true;
+    try {
+      e.currentTarget.releasePointerCapture?.(e.pointerId);
+    } catch {
+      /* ignore */
+    }
+    // Cancellation only discards the presentation gesture; no navigation,
+    // audio, progress or completion callback can be emitted.
+    setTurning(false);
+    setTurnDirection(null);
+    setTurnPhase("idle");
+    setDestinationIndex(null);
+    setDragProgress(0);
   };
 
   const handlePointerUp = (direction: "next" | "prev", e: React.PointerEvent) => {
@@ -264,8 +294,15 @@ export function NativeLessonViewer({
     }
 
     if (wasDragging) {
+      suppressCornerClickRef.current = true;
       const targetIdx = direction === "next" ? index + 1 : index - 1;
-      if (dragProgress >= 0.5) {
+      const progress = dragProgressRef.current;
+      dragProgressRef.current = 0;
+      if (progress >= 0.5) {
+        if (prefersReducedMotion() || isTestEnv) {
+          executeTurn(targetIdx, direction);
+          return;
+        }
         // Complete the turn
         audioEngine.playPageTurn(true);
         gretelEvent("page-turn:start");
@@ -293,7 +330,7 @@ export function NativeLessonViewer({
               });
             }, 150);
           }, 100);
-        }, Math.round(LESSON_PAGE_TURN_MS * (1 - dragProgress)));
+        }, Math.round(LESSON_PAGE_TURN_MS * (1 - progress)));
       } else {
         // Spring back
         setTurnPhase("idle");
@@ -303,6 +340,16 @@ export function NativeLessonViewer({
         setDragProgress(0);
       }
     }
+  };
+
+  const handleCornerClick = (direction: "next" | "prev") => {
+    if (suppressCornerClickRef.current) {
+      suppressCornerClickRef.current = false;
+      return;
+    }
+    if (turning || turnPhase !== "idle") return;
+    if (direction === "next") forward();
+    else turnPrev();
   };
 
   if (!page) return null;
@@ -369,13 +416,11 @@ export function NativeLessonViewer({
                   : "Termina la actividad de esta página para seguir"
               }
               data-locked={completion.complete ? undefined : "true"}
-              onClick={() => {
-                if (turnPhase === "idle") forward();
-              }}
+              onClick={() => handleCornerClick("next")}
               onPointerDown={(e) => handlePointerDown("next", e)}
               onPointerMove={(e) => handlePointerMove("next", e)}
               onPointerUp={(e) => handlePointerUp("next", e)}
-              onPointerCancel={(e) => handlePointerUp("next", e)}
+              onPointerCancel={handlePointerCancel}
             >
               <span className="native-corner-peel" aria-hidden="true" />
             </button>
@@ -389,13 +434,11 @@ export function NativeLessonViewer({
               data-testid="corner-prev"
               aria-label="Página anterior (doblar esquina)"
               title="Página anterior"
-              onClick={() => {
-                if (turnPhase === "idle") turnPrev();
-              }}
+              onClick={() => handleCornerClick("prev")}
               onPointerDown={(e) => handlePointerDown("prev", e)}
               onPointerMove={(e) => handlePointerMove("prev", e)}
               onPointerUp={(e) => handlePointerUp("prev", e)}
-              onPointerCancel={(e) => handlePointerUp("prev", e)}
+              onPointerCancel={handlePointerCancel}
             >
               <span className="native-corner-peel" aria-hidden="true" />
             </button>
