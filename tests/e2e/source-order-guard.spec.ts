@@ -27,7 +27,7 @@ async function openLesson(page: Page, lesson: number, completed: number[] = []) 
 /** A SOURCE_BLOCKED page shows only the notice: no invented work, nothing to complete. */
 async function expectSourceBlocked(viewer: ReturnType<Page["locator"]>, pageNumber: number) {
   await expect(viewer).toHaveAttribute("data-native-page", String(pageNumber));
-  await expect(viewer.locator("[data-source-blocked='true']")).toContainText(
+  await expect(viewer.locator("[data-source-blocked='true']").first()).toContainText(
     "Esta página falta en el escaneo del libro",
   );
   await expect(viewer.locator("[data-gretel-activity]")).toHaveCount(0);
@@ -51,7 +51,7 @@ test.describe("Workbook source order & 86–87 SOURCE_BLOCKED guard", () => {
     page,
   }, testInfo) => {
     const viewer = await openLesson(page, 23, [83, 84, 85]);
-    const next = viewer.getByRole("button", { name: /Siguiente|Terminar lección/ });
+    const next = viewer.getByTestId("button-next");
     for (const expected of [83, 84, 85]) {
       await expect(viewer).toHaveAttribute("data-native-page", String(expected));
       await next.click();
@@ -74,7 +74,7 @@ test.describe("Workbook source order & 86–87 SOURCE_BLOCKED guard", () => {
       path: testInfo.outputPath("page-87-source-blocked.png"),
       fullPage: true,
     });
-    await viewer.getByRole("button", { name: "Siguiente" }).click();
+    await viewer.getByTestId("button-next").click();
     await expect(viewer).toHaveAttribute("data-native-page", "88");
     await expect(viewer.locator("[data-gretel-activity]").first()).toBeVisible();
   });
