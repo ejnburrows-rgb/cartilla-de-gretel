@@ -421,6 +421,7 @@ export function NativeLessonViewer({
               onPointerMove={(e) => handlePointerMove("next", e)}
               onPointerUp={(e) => handlePointerUp("next", e)}
               onPointerCancel={handlePointerCancel}
+              onLostPointerCapture={handlePointerCancel}
             >
               <span className="native-corner-peel" aria-hidden="true" />
             </button>
@@ -439,6 +440,7 @@ export function NativeLessonViewer({
               onPointerMove={(e) => handlePointerMove("prev", e)}
               onPointerUp={(e) => handlePointerUp("prev", e)}
               onPointerCancel={handlePointerCancel}
+              onLostPointerCapture={handlePointerCancel}
             >
               <span className="native-corner-peel" aria-hidden="true" />
             </button>
