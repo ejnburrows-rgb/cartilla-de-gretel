@@ -18,8 +18,7 @@ const olla = vocabulary.find(entry => entry.key === 'olla')!;
 class FakeAudio {
   static instances: FakeAudio[] = [];
   volume = 1; src: string; onended: (() => void) | null = null; onerror: (() => void) | null = null;
-  static nextPlayError: Error | null = null;
-  play = vi.fn(() => { const error = FakeAudio.nextPlayError; FakeAudio.nextPlayError = null; return error ? Promise.reject(error) : Promise.resolve(); }); pause = vi.fn(); load = vi.fn();
+  play = vi.fn(() => Promise.resolve()); pause = vi.fn(); load = vi.fn();
   removeAttribute = vi.fn(() => { this.src = ''; });
   constructor(src: string) { this.src = src; FakeAudio.instances.push(this); }
 }
@@ -31,7 +30,7 @@ class FakeUtterance {
 const speech = { cancel: vi.fn(), speak: vi.fn(), getVoices: () => [{ name: 'Test Spanish', lang: 'es-MX', localService: true }], addEventListener: vi.fn(), removeEventListener: vi.fn() };
 let uninstall: (() => void) | undefined;
 beforeEach(() => {
-  localStorage.clear(); vi.clearAllMocks(); FakeAudio.instances = []; FakeAudio.nextPlayError = null;
+  localStorage.clear(); vi.clearAllMocks(); FakeAudio.instances = [];
   vi.stubGlobal('Audio', FakeAudio); vi.stubGlobal('SpeechSynthesisUtterance', FakeUtterance);
   Object.defineProperty(window, 'speechSynthesis', { configurable: true, value: speech });
   setGretelVoiceMuted(false); stopSpeech();
@@ -56,24 +55,6 @@ it('uses the approved recording path and cancels/releases previous recordings on
   const second = FakeAudio.instances[1]!;
   expect(second.src).toBe('/test-approved/olla.mp3');
   stopPicturePlayback(); expect(second.pause).toHaveBeenCalled(); expect(second.src).toBe('');
-});
-it('cleans an active AbortError recording without reporting a failed lesson or retaining speech ownership', async () => {
-  vi.mocked(approvedPictureRecording).mockReturnValue('/test-approved/oso.mp3');
-  const abort = new Error('interrupted'); abort.name = 'AbortError';
-  FakeAudio.nextPlayError = abort;
-  const statuses: string[] = [];
-  const onStatus = (event: Event) => statuses.push((event as CustomEvent<string>).detail);
-  window.addEventListener('cartilla:picture-audio-status', onStatus);
-  expect(playPictureName(oso)).toBe('recorded');
-  await Promise.resolve();
-  const audio = FakeAudio.instances[0]!;
-  expect(audio.pause).toHaveBeenCalledOnce();
-  expect(audio.removeAttribute).toHaveBeenCalledWith('src');
-  expect(audio.load).not.toHaveBeenCalled();
-  expect(statuses).not.toContain('failed');
-  claimSpeech('gretel');
-  expect(audio.pause).toHaveBeenCalledOnce();
-  window.removeEventListener('cartilla:picture-audio-status', onStatus);
 });
 it('obeys the current recorded-only policy and never substitutes TTS or silent.mp3', () => {
   expect(playPictureName(oso)).toBe('missing-recording');

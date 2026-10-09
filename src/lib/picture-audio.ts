@@ -33,7 +33,7 @@ export function playPictureName(entry: VerifiedPictureName): PictureAudioStatus 
       registerSpeechCleanup(token, finish);
       audio.onended = () => { finish(); releaseSpeech(token); };
       audio.onerror = () => { if (!speechIsCurrent(token)) return; finish(); releaseSpeech(token); status('failed'); };
-      void audio.play().catch((err: any) => { if (!speechIsCurrent(token)) return; if (err?.name === 'AbortError') { finish(); releaseSpeech(token); return; } finish(); releaseSpeech(token); status('failed'); });
+      void audio.play().catch((err: any) => { if (!speechIsCurrent(token)) return; if (err?.name === 'AbortError') { releaseSpeech(token); return; } finish(); releaseSpeech(token); status('failed'); });
       return status('recorded');
     } catch { releaseSpeech(token); return status('failed'); }
   }
