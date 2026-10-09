@@ -133,6 +133,14 @@ describe("coincident checkpoints — the closed-letterform trap", () => {
     expect(coincidentPairs(LETTER_TEMPLATES.M).length).toBeGreaterThan(0);
   });
 
+  it("N chains strokes through shared endpoints", () => {
+    expect(coincidentPairs(LETTER_TEMPLATES.N).length).toBeGreaterThan(0);
+  });
+
+  it("T chains strokes through shared endpoints", () => {
+    expect(coincidentPairs(LETTER_TEMPLATES.T).length).toBeGreaterThan(0);
+  });
+
   it("a coincident later checkpoint is still graded wrong when tapped early", () => {
     // O: first and last checkpoint share coordinates. At the very start, the
     // LAST one must not be accepted just because it sits on the same spot.

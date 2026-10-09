@@ -215,6 +215,7 @@ export const LETTER_TEMPLATES: Record<string, Point[][]> = {
     ],
     [
       { x: 30, y: 20 },
+      { x: 50, y: 20 },
       { x: 70, y: 20 },
     ],
   ],
