@@ -34,7 +34,7 @@ test.describe('Student Route Smoke Test', () => {
       await expect(page.locator('text=La Cartilla de Gretel').first()).toBeVisible();
 
       // Ensure images load properly - cover image
-      await expect(page.locator('img[alt="Gretel"]').first()).toBeVisible();
+      await expect(page.locator('img[alt*="Gretel"]').first()).toBeVisible();
 
       // 2. Lesson list
       await page.goto('/cartilla/lecciones');
