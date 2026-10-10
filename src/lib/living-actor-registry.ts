@@ -111,6 +111,13 @@ export const LIVING_ACTORS: Readonly<Record<string, LivingActor>> = Object.freez
     reducedMotion: "static",
     meaning: "vapor que sube de la olla",
   },
+  [`${W1}/abeja.png`]: {
+    src: `${W1}/abeja.png`,
+    action: "hover",
+    creature: true,
+    reducedMotion: "static",
+    meaning: "vuelo suspendido de abeja",
+  },
   [`${P1}/abeja.svg`]: {
     src: `${P1}/abeja.svg`,
     aliveSrc: `${P1}/abeja-alive.svg`,
