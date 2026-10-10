@@ -4,6 +4,7 @@ import { GretelActivity } from "@/components/gretel/GretelActivity";
 import { SOURCE_BLOCKED_WORKBOOK_PAGES } from "@/lib/workbook-pages";
 import { getPageLayout, type PageGridCell, type PageRegion } from "@/lib/book-faithful";
 import { archetypeMappingForPage } from "@/data/workbook-archetypes";
+import { approvedWorkbookRegions } from "@/lib/workbook-approved-art";
 // PageGridCell used by RegionView siblingCells for Dibuja pick options
 import { PageFrame } from "./PageFrame";
 import { CATALOG } from "@/lib/lesson-catalog";
@@ -594,15 +595,19 @@ export function FaithfulPageRenderer({
     );
   }
 
+  // Student-only approval firewall. Never rewrite source data or change the
+  // noninteractive teacher / Flip Chart rendering.
+  const displayLayout = interactive ? approvedWorkbookRegions(pageNumber, layout) : layout;
+
   if (fixedLayout) {
-    if (layout.length > 0 && layout.every((region) => {
+    if (displayLayout.length > 0 && displayLayout.every((region) => {
       const { x, y, width, height } = region;
       return [x, y, width, height].every((value) =>
         typeof value === "number" && Number.isFinite(value))
         && x! >= 0 && y! >= 0 && width! > 0 && height! > 0
         && x! + width! <= 1.000001 && y! + height! <= 1.000001;
     })) {
-      return <FixedLayoutPage pageNumber={pageNumber} regions={layout} interactive={interactive} />;
+      return <FixedLayoutPage pageNumber={pageNumber} regions={displayLayout} interactive={interactive} />;
     }
     if (fallback !== undefined) return <>{fallback}</>;
   }
@@ -624,7 +629,7 @@ export function FaithfulPageRenderer({
     );
   }
 
-  const ordered = [...layout].sort((a, b) => a.order - b.order);
+  const ordered = [...displayLayout].sort((a, b) => a.order - b.order);
   const letterReadingPage = native && ordered.some((region) => region.regionType === "vocab-grid")
     && ordered.filter((region) => region.regionType === "syllable-bubble").length === 2;
   const accent = lessonNumber ? CATALOG.find((e) => e.n === lessonNumber)?.color : undefined;
