@@ -38,5 +38,10 @@
     "still": "public/cartilla/art/optimized/workbook/leccion-1/oveja.svg",
     "alive": "public/cartilla/art/optimized/workbook/leccion-1/oveja-alive.svg",
     "stillSha256": "956e2ad1290b9303213789c1066c4fb8272365fd0a956e5868ab0126a98868ff"
+  },
+  "p009-scene": {
+    "still": "public/cartilla/art/optimized/flipchart-native/p009-scene.png",
+    "alive": "public/cartilla/art/optimized/flipchart-native/p009-scene-alive.svg",
+    "stillSha256": "f30fde7e57e37cc16d461eac0a0794c75a5362568b63b1978a7ed10af34c12ff"
   }
 }

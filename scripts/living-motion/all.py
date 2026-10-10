@@ -202,7 +202,19 @@ def abeja():
     svg.warp(vxr - vxl, vyr - vyl, [0, 0.07, 0, -0.03, 0], '0.26s', splines=False)
     return svg.render(f'{OUT}/abeja-alive.svg')
 
+# ---------- P009-SCENE (Lesson 7 mono scene): gentle head nod & breathing ----------
+def p009_scene():
+    base = load('p009-scene'); size = base.size; svg = Svg(base)
+    head = soft_mask(size, [('ellipse', (120, 40, 420, 320))], 8)
+    vx, vy = field_rotate(size, head, (265, 280))
+    svg.warp(vx, vy, [0, 0.025, 0, -0.025, 0], '4.8s')
+    body = soft_mask(size, [('ellipse', (80, 200, 450, 480))], 12)
+    bx, by = field_scale(size, body, (265, 480), 1, 0.8)
+    svg.warp(bx, by, [0, 0.015, 0], '4.2s')
+    return svg.render(f'{OUT}/p009-scene-alive.svg')
+
 if __name__ == '__main__':
     import os; os.makedirs(OUT, exist_ok=True)
-    for f in ARGS or ['elefante', 'oso', 'oveja', 'abanico', 'avion', 'iman', 'olla', 'abeja']:
-        print(f, globals()[f]())
+    for f in ARGS or ['elefante', 'oso', 'oveja', 'abanico', 'avion', 'iman', 'olla', 'abeja', 'p009_scene']:
+        fn = 'p009_scene' if f in ('p009-scene', 'p009_scene') else f
+        print(f, globals()[fn]())
