@@ -21,6 +21,7 @@
 - #579 is verified and closed via #646 and #648: deterministic owner foreground-image intake tooling, sanity validation, dry-run report, and Windows test resilience.
 - Active independent Jules implementation lanes in flight:
   - #587: Current-main clean release verification baseline (active with Jules task 658944131750853263)
+  - #495: Student Workbook clean digital canvas design realignment reconciliation (active with Jules on PR #650)
 - #540 remains a timing diagnosis, not a runtime repair lane. Fresh current-main focused verification passed all 62 tests across 7 suites, including the p24 completion gate; this is not whole-product browser/release proof.
 - Final premium Gretel voice/TTS technical abstraction is verified and merged (#636); owner choice among candidates (#589) remains open.
 - Welcome video remains non-blocking.
@@ -55,6 +56,7 @@ Do not confuse printed page numbers with PDF file indices. Historical mapping fi
    - Pre-final regressions verified and merged: #571 (#628), #567 (#630), #561 (#631), #562 (#632), #570 (#636), #585 (#638), #450 (#641), #457 (#642), #560 (#643), #579 (#646).
    - In flight with Jules:
      - #587: Current-main clean release verification baseline.
+     - #495: Student Workbook clean digital canvas design realignment reconciliation (PR #650).
    - Final foreground-art correctness stays in #454. Classification or a green Sonar badge alone cannot close it.
 
 ### Final gates after dependencies are verified and integrated
