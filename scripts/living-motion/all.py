@@ -151,12 +151,21 @@ def iman():
         svg.css.append(f'@keyframes jt{nm}{{0%,100%{{transform:scale(1)}}9%{{transform:scale(1.1)}}14%{{transform:scale(1.02)}}22%{{transform:scale(1.12)}}30%{{transform:scale(1)}}61%{{transform:scale(1.08)}}72%{{transform:scale(1)}}}}')
         svg.over.append(svg.image(Image.fromarray(gl, 'RGBA'), 0, 0, cls='ov', extra=f'style="animation:fl{nm} 2.6s linear {dl}s infinite;opacity:0"'))
         svg.over.append(svg.image(Image.fromarray(lay.astype(np.uint8), 'RGBA'), 0, 0, cls='ov', extra=f'style="transform-origin:{root[0]}px {root[1]}px;animation:jt{nm} 2.6s linear {dl}s infinite"'))
-    # Field lines: dashed arcs that flow from the red pole round to the blue pole.
-    svg.css.append('@keyframes flow{to{stroke-dashoffset:-24}}')
-    svg.css.append('@keyframes fieldpulse{0%,100%{opacity:.5}50%{opacity:1}}')
-    arcs = ['M 152 93 C 196 96 186 170 106 134', 'M 154 99 C 212 106 196 196 100 142', 'M 150 88 C 222 82 214 214 96 150']
+    # Field lines: small, thin, soft arcs around the poles and outer field path.
+    # Seamless dash animation (dasharray 3 4 => period 7, dashoffset -14).
+    svg.css.append('@keyframes flow{to{stroke-dashoffset:-14}}')
+    svg.css.append('@keyframes fieldpulse{0%,100%{opacity:.45}50%{opacity:.85}}')
+    # Small, soft field lines sitting naturally around poles, completely outside magnet face
+    arcs = [
+        # Red pole small outer loop
+        'M 172 104 C 198 108 210 132 186 150',
+        # Blue pole small outer loop
+        'M 102 158 C 108 186 132 198 148 174',
+        # Soft outer arc connecting around the outside corner
+        'M 180 114 C 214 136 188 202 126 182',
+    ]
     for k, d in enumerate(arcs):
-        svg.over.append(f'<path class="ov" d="{d}" fill="none" stroke="#34506e" stroke-width="2.3" stroke-linecap="round" stroke-dasharray="6 7" style="animation:flow 1.1s linear infinite, fieldpulse 2.2s ease-in-out {k*0.35:.2f}s infinite"/>')
+        svg.over.append(f'<path class="ov" d="{d}" fill="none" stroke="#4a6e95" stroke-width="1.3" stroke-linecap="round" stroke-dasharray="3 4" style="animation:flow 1.4s linear infinite, fieldpulse 2.8s ease-in-out {k*0.45:.2f}s infinite"/>')
     # Paper clips pulled in (accelerating, like a real magnet) and sticking to each pole.
     clip = ('<g transform="scale(2.1)"><path d="M -7 -2.6 L 6 -2.6 A 2.6 2.6 0 0 1 6 2.6 L -5 2.6 A 1.8 1.8 0 0 1 -5 -1 L 4.2 -1" fill="none" stroke="#4f5964" stroke-width="1.6" stroke-linecap="round"/>'
             '<path d="M -7 -2.6 L 6 -2.6 A 2.6 2.6 0 0 1 6 2.6" fill="none" stroke="#e8edf2" stroke-width=".55" stroke-linecap="round"/></g>')

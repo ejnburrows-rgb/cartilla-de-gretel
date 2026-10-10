@@ -24,7 +24,7 @@ Use one coherent nostalgic school-tool language:
 - no cheap bounce/spin/sticker animation;
 - no generic flat undo/eraser icons when a physical pencil/eraser treatment is appropriate.
 
-Motion must be polished and seamless: one purposeful action, then settle. Avoid constant decorative motion while the child is thinking, answering, tracing, writing, or drawing.
+Motion must be polished and seamless: one purposeful action, then settle. Per owner decision of 2026-10-09, living pictures move continuously, gently, and smoothly with no stutter, jumps, pops, or visible loop restart seams while the learner works.
 
 ## Canonical interaction decisions
 
