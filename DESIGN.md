@@ -38,7 +38,7 @@ Use the book's established country/tole folk-art DNA and school-material vocabul
 - classic wood pencil;
 - nostalgic muted-red school eraser;
 - source-faithful illustrations;
-- scenic environments only where the surface benefits from them: the Student Workbook uses a clean, quiet digital canvas for dense learner exercises, while the teacher Flip Chart may retain richer source-appropriate scenery.
+- scenic environments only where specifically owner-approved: the Student Workbook uses a clean, quiet digital canvas for dense learner exercises, while the teacher Flip Chart uses a clean paper surface without a default background-image layer (preserving historic scenic assets on disk and retaining source instructional foreground scenes).
 
 Digital chrome should recede. The book/page is the main object. Do not surround the learner page with dashboard-like cards, developer status panels, or ornamental app chrome; production controls should stay quiet and subordinate to the Workbook/Flip Chart surface.
 
@@ -96,7 +96,7 @@ Do not create a new family-specific visual language when one of the eight archet
 
 **Student Workbook:** use a clean digital canvas as the default page surface. Dense exercises must not sit on full scenic wallpaper. The source page still controls the exercise structure, wording, ordering, and foreground illustration identity. Instruction text should read as native digital hierarchy, not as an opaque white patch pasted over scenery. Existing scenic assets remain preserved; they are not automatically rendered behind Workbook activities.
 
-**Teacher Flip Chart:** may retain the richer scenic presentation where appropriate because it is presentation-first. The same source-fidelity and readability rules still apply.
+**Teacher Flip Chart:** uses a clean paper surface without a default background-image layer. Source instructional foreground scenes and approved motion remain. Historic scenic assets are preserved on disk and not deleted or mounted as default wallpaper. The same source-fidelity and readability rules still apply.
 
 Do not solve the Workbook/Flip Chart distinction by creating unrelated app-card layouts. The page remains recognizable as the book page on both surfaces.
 
