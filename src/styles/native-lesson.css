@@ -683,3 +683,24 @@
     min-height: 0;
   }
 }
+
+/* Gretel's existing approved character and speech bubble stay visible outside
+ * the printable workbook. This is a floating paper-edge guide, not a sidebar. */
+.student-workbook-gretel-guide {
+  position: fixed;
+  right: max(1rem, calc((100vw - 1160px) / 2));
+  bottom: 1rem;
+  z-index: 20;
+  pointer-events: none;
+}
+@media (max-width: 1100px) {
+  .student-workbook-gretel-guide {
+    position: relative;
+    right: auto;
+    bottom: auto;
+    display: flex;
+    justify-content: flex-end;
+    max-width: 640px;
+    margin: 1rem auto 0;
+  }
+}
