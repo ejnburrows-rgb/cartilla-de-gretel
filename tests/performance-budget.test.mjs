@@ -20,7 +20,7 @@ describe("Local Performance Budget & Teacher Route Chunking", () => {
       autoBuild: true,
       writeReports: process.env.WRITE_PERF_REPORTS === "true",
     });
-  });
+  }, 180_000);
 
   it("passes all budget checks without violations", () => {
     expect(result.violations).toEqual([]);

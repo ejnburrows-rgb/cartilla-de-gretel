@@ -1,11 +1,11 @@
 {
-  "timestamp": "2026-10-08T23:26:52.794Z",
+  "timestamp": "2026-10-09T21:33:07.160Z",
   "entryJs": {
-    "file": "index.DhpPGAQk.js",
+    "file": "index.DMOEbMFe.js",
     "sizes": {
-      "raw": 450834,
-      "gzip": 111515,
-      "brotli": 92775
+      "raw": 451762,
+      "gzip": 111853,
+      "brotli": 93097
     },
     "budget": {
       "rawMax": 512000,
@@ -13,7 +13,7 @@
     }
   },
   "entryCss": {
-    "file": "index.KRdBhXB6.css",
+    "file": "index.D48ktqn0.css",
     "sizes": {
       "raw": 256186,
       "gzip": 41880,
@@ -37,8 +37,8 @@
     }
   },
   "totalFirstPaintJs": {
-    "raw": 773999,
-    "gzip": 210684,
+    "raw": 774927,
+    "gzip": 211022,
     "budget": {
       "rawMax": 870400,
       "gzipMax": 235520
@@ -46,67 +46,67 @@
   },
   "teacherChunks": {
     "flipchart.lazy": {
-      "fileName": "flipchart.lazy.AucfxxZI.js",
+      "fileName": "flipchart.lazy.Cu5GEL8v.js",
       "sizes": {
         "raw": 390,
-        "gzip": 290,
-        "brotli": 234
+        "gzip": 287,
+        "brotli": 231
       }
     },
     "admin.lazy": {
-      "fileName": "admin.lazy.CXRMDuuV.js",
+      "fileName": "admin.lazy.vdF17t-a.js",
       "sizes": {
         "raw": 9388,
         "gzip": 3030,
-        "brotli": 2715
+        "brotli": 2705
       }
     },
     "reportes.lazy": {
-      "fileName": "reportes.lazy.Dqe-eny7.js",
+      "fileName": "reportes.lazy.BWkppvt2.js",
       "sizes": {
-        "raw": 14628,
-        "gzip": 4159,
-        "brotli": 3701
+        "raw": 14622,
+        "gzip": 4156,
+        "brotli": 3688
       }
     },
     "roster.lazy": {
-      "fileName": "roster.lazy.RaqPepKT.js",
+      "fileName": "roster.lazy.Gj6Um2aO.js",
       "sizes": {
         "raw": 15484,
-        "gzip": 4615,
-        "brotli": 4048
+        "gzip": 4613,
+        "brotli": 4055
       }
     },
     "crm.artwork.lazy": {
-      "fileName": "crm.artwork.lazy.BLoKCorz.js",
+      "fileName": "crm.artwork.lazy.Bt6OJnwx.js",
       "sizes": {
         "raw": 439768,
         "gzip": 130877,
-        "brotli": 109106
+        "brotli": 109074
       }
     },
     "crm.index.lazy": {
-      "fileName": "crm.index.lazy.Sgfa0zon.js",
+      "fileName": "crm.index.lazy.C4u7mEV8.js",
       "sizes": {
         "raw": 19049,
-        "gzip": 6035,
-        "brotli": 5380
+        "gzip": 6034,
+        "brotli": 5394
       }
     },
     "route.lazy": {
-      "fileName": "route.lazy.BzadLOIi.js",
+      "fileName": "route.lazy.DAWOkxW5.js",
       "sizes": {
         "raw": 4466,
         "gzip": 1592,
-        "brotli": 1401
+        "brotli": 1394
       }
     },
     "guia._n.lazy": {
-      "fileName": "guia._n.lazy.DGu3uxV5.js",
+      "fileName": "guia._n.lazy.Dm-FXX4Y.js",
       "sizes": {
         "raw": 100625,
-        "gzip": 10650,
-        "brotli": 8552
+        "gzip": 10647,
+        "brotli": 8558
       }
     }
   },
