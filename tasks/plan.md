@@ -3,7 +3,7 @@
 > **Finish contract:** `PROJECT_FINISH_DEFINITION.md` defines finished. This file is only the current gap-closing execution plan.
 
 **Updated:** 2026-10-10
-**Concurrency authority:** `AGENTS.md` only. There is **no fixed numeric cap** on concurrent Jules implementation lanes.
+**Concurrency authority:** `AGENTS.md` only. Current owner target: **up to 15 provider-confirmed active Jules sessions** when the authenticated account's actual capacity and disjoint eligible work permit. The target is not proof of entitlement, active sessions or automatically available slots.
 
 > **Owner clarification 2026-10-10 (latest):** The old PC polling script and Neon/Vercel/OpenHands system stay disabled and historical. The distinct, pre-existing **hourly ChatGPT cloud Cartilla Jules Continuity** coordinator was explicitly **re-enabled** by the owner and may inspect GitHub and coordinate Jules tasks without PC access. This is permission for that scheduled task, **not proof of a working end-to-end dispatch or currently occupied Jules lanes**. Check current owner instructions and live Jules receipts; never silently revive the retired infrastructure.
 
@@ -88,8 +88,8 @@ Do not confuse printed page numbers with PDF file indices. Historical mapping fi
 
 - **SonarCloud/SonarQube is advisory and non-blocking**, including duplication/quality-gate failures: a confirmed real defect is blocking, not an unconfirmed scan warning. Jules' relevant existing focused and UI proof plus exact-head controller review determine readiness; zero material file changes are not implementation completion. Use `node scripts/check-merge-policy.mjs --docs` for active-policy consistency and `--evidence <receipt.json>` for a bounded pre-merge decision. These checks do not launch/repeat Jules tests, change branch protection, or auto-merge.
 
-- Re-read current `AGENTS.md` every run. Never restore the obsolete two-worker cap.
-- Dispatch every genuinely independent, dependency-ready, non-owner-gated implementation lane that current Jules capacity permits.
+- Re-read current `AGENTS.md` every run. Run its mandatory live Jules session census, reconcile queued/running/completed/review states, and refill toward **15 genuinely active nonduplicate sessions** when provider capacity permits. Never restore the obsolete two-worker cap or count GitHub labels as running workers.
+- Dispatch every genuinely independent, dependency-ready, non-owner-gated implementation, targeted QA, rendered-proof or evidenced cleanup lane that current Jules capacity permits, up to the 15-session owner target. Reuse completed proof and assign no filler tasks.
 - Keep overlapping files/dependency chains sequential only where necessary.
 - A completed, blocked, owner-gated or dependency-waiting lane must not reserve Jules capacity.
 - Reuse existing canonical issues/PRs before creating anything new.
