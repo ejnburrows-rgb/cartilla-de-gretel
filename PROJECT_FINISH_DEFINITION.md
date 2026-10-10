@@ -166,7 +166,7 @@ Before the project can be declared finished:
 
 - every required finish criterion above has objective evidence;
 - exact-head independent controller review is complete where required;
-- SonarCloud/SonarQube review remains **advisory and non-blocking**: a failed/missing quality gate alone is not a finish or merge blocker. Independently confirmed serious defects must be resolved, and relevant Jules product tests plus required UI proof must pass. A passing Sonar result alone does not establish completion;
+- required SonarQube review/reconciliation is complete for meaningful code/behavior changes;
 - the final clean direct-cloud release verification passes;
 - final Student Workbook regression passes;
 - final teacher / Flip Chart regression passes;
