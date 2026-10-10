@@ -1,5 +1,5 @@
 import { useState, useEffect, useMemo, useRef } from "react";
-import { motion, AnimatePresence } from "framer-motion";
+import { motion } from "framer-motion";
 import { Mic, MicOff, Volume2, CheckCircle } from "lucide-react";
 import { useSpeechRecognition } from "@/hooks/useSpeechRecognition";
 import { playNote, playCorrectChord, playWrongBuzz, NOTE_FREQS } from "@/lib/piano-audio";
@@ -46,7 +46,7 @@ export function PianoPronunciation({
   onComplete,
   locale = "es-MX",
 }: PianoPronunciationProps) {
-  const { isListening, transcript, startListening, stopListening, isSupported, error } =
+  const { isListening, transcript, startListening, stopListening, isSupported } =
     useSpeechRecognition({ lang: locale });
 
   const [activeKeyIdx, setActiveKeyIdx] = useState<number | null>(null);
@@ -65,6 +65,17 @@ export function PianoPronunciation({
       })),
     [syllables],
   );
+
+  const syllablesKey = useMemo(() => syllables.slice(0, 8).join(","), [syllables]);
+
+  // Reset internal state when syllables change or exercise restarts
+  useEffect(() => {
+    setCompletedSet(new Set());
+    setKeyStates({});
+    setActiveKeyIdx(null);
+    setHelperText("Toca 'Escuchar' y luego el micrófono para repetir.");
+    lastProcessedTranscript.current = null;
+  }, [syllablesKey]);
 
   // Match mic transcript to syllables. Guarded by lastProcessedTranscript so
   // the full dependency list can't re-process a transcript when completedSet
@@ -136,16 +147,40 @@ export function PianoPronunciation({
     }
   }, [transcript, completedSet, lessonId, pianoKeys]);
 
+  const onCompleteRef = useRef(onComplete);
+  useEffect(() => {
+    onCompleteRef.current = onComplete;
+  }, [onComplete]);
+
+  const hasTriggeredCompleteRef = useRef(false);
+  useEffect(() => {
+    hasTriggeredCompleteRef.current = false;
+  }, [syllablesKey]);
+
   // Check if all syllables are done
   useEffect(() => {
-    if (completedSet.size > 0 && completedSet.size === pianoKeys.length) {
-      playCorrectChord();
-      setHelperText("¡Felicidades! Completaste todo el piano.");
-      if (onComplete) {
-        setTimeout(onComplete, 2000);
+    let timer: ReturnType<typeof setTimeout> | null = null;
+
+    if (pianoKeys.length > 0 && completedSet.size === pianoKeys.length) {
+      if (!hasTriggeredCompleteRef.current) {
+        hasTriggeredCompleteRef.current = true;
+        playCorrectChord();
+        setHelperText("¡Felicidades! Completaste todo el piano.");
+
+        if (onCompleteRef.current) {
+          timer = setTimeout(() => {
+            onCompleteRef.current?.();
+          }, 2000);
+        }
       }
     }
-  }, [completedSet, pianoKeys.length, onComplete]);
+
+    return () => {
+      if (timer) {
+        clearTimeout(timer);
+      }
+    };
+  }, [completedSet, pianoKeys.length]);
 
   const listenToSyllable = async (syllable: string, index: number) => {
     setActiveKeyIdx(index);
@@ -205,6 +240,9 @@ export function PianoPronunciation({
             return (
               <motion.div
                 key={index}
+                role="button"
+                tabIndex={0}
+                aria-label={`Tecla ${key.syllable}`}
                 animate={
                   state === "incorrect"
                     ? { x: [-3, 3, -3, 3, 0] }
@@ -215,11 +253,18 @@ export function PianoPronunciation({
                 transition={{ duration: state === "correct" ? 0.3 : 0.4 }}
                 style={{ flex: "1 1 0%", transformOrigin: "top" }}
                 className={cn(
-                  "mx-[2px] first:ml-0 last:mr-0 h-72 rounded-b-xl relative select-none cursor-pointer group",
+                  "mx-[2px] first:ml-0 last:mr-0 h-72 rounded-b-xl relative select-none cursor-pointer group focus:outline-none focus:ring-2 focus:ring-amber-400 focus:z-10",
                   state === "correct" && "key-bounce",
                   state === "incorrect" && "key-shake",
                 )}
                 onClick={() => listenToSyllable(key.syllable, index)}
+                onKeyDown={(e) => {
+                  if (e.target !== e.currentTarget) return;
+                  if (e.key === "Enter" || e.key === " ") {
+                    e.preventDefault();
+                    listenToSyllable(key.syllable, index);
+                  }
+                }}
               >
                 {/* Colorful Key Core — a real toy piano isn't all-white */}
                 <div
@@ -265,7 +310,7 @@ export function PianoPronunciation({
                   {/* Escuchar micro button */}
                   <button
                     type="button"
-                    className="mt-3 p-1.5 bg-white/70 hover:bg-white text-stone-600 rounded-full border border-white/80 transition-colors shadow-sm cursor-pointer"
+                    className="mt-3 p-1.5 bg-white/70 hover:bg-white text-stone-600 rounded-full border border-white/80 transition-colors shadow-sm cursor-pointer focus:outline-none focus:ring-2 focus:ring-amber-400"
                     aria-label={`Escuchar ${key.syllable}`}
                     onClick={(e) => {
                       e.stopPropagation();
