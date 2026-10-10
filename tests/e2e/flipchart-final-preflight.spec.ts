@@ -1,8 +1,14 @@
 import { test, expect } from "@playwright/test";
+import * as fs from "fs";
 import * as path from "path";
 
-// Output dir changed per review feedback: do not mutate tracked proofs.
-const OUT_DIR = "test-results/flipchart-final-preflight/";
+const OUT_DIR = process.env.PROOF_DIR || path.join(process.cwd(), "docs/proofs/flipchart-final-preflight/");
+
+test.beforeAll(() => {
+  if (!fs.existsSync(OUT_DIR)) {
+    fs.mkdirSync(OUT_DIR, { recursive: true });
+  }
+});
 
 test.describe("Flipchart pre-final regression", () => {
   test("verify faithful page/order presentation, top-bound physical page turn, forward/back/keyboard/reduced motion, projector/laptop/tablet/phone fit", async ({ page }) => {
@@ -34,22 +40,13 @@ test.describe("Flipchart pre-final regression", () => {
       // Top-bound physical page turn check
       await expect(panel).toHaveAttribute("data-page-turn-axis", "vertical");
 
-      // Verify no default scenic wallpaper is rendered
-      // by asserting the background/canvas doesn't have an injected full-bleed image (e.g. scenic wallpaper)
-      const scenicLayers = page.locator("img[src*='wallpaper'], img[src*='background']");
-      // Or more specifically:
-      // The instructions say "no default scenic background layer is mounted."
-      // The flip chart uses clean digital canvas natively.
-      // Assert that there's no element matching `.fc-scenic-wallpaper` or similar if that was how it was rendered,
-      // But we can check that there are no elements with `data-layout-type="wallpaper"` or something similar.
-      // We can also ensure the board does not overflow horizontally.
       const viewportWidth = device.width;
       const boardBox = await panel.boundingBox();
       expect(boardBox?.width).toBeLessThanOrEqual(viewportWidth);
       expect(boardBox?.x).toBeGreaterThanOrEqual(0);
 
       const documentElement = page.locator("html");
-      const htmlWidth = await documentElement.evaluate(el => el.scrollWidth);
+      const htmlWidth = await documentElement.evaluate((el) => el.scrollWidth);
       expect(htmlWidth).toBeLessThanOrEqual(viewportWidth);
 
       // Ensure the stage remains visible
@@ -57,14 +54,8 @@ test.describe("Flipchart pre-final regression", () => {
       await expect(stage).toBeVisible();
 
       // Ensure no default scenic background layer is mounted on the flipchart.
-      // Flipchart Native Board renders pages faithfully, typically background is just white/off-white.
-      // Let's assert there are no background images explicitly added for scenery.
-      // We can do this by asserting that there is no element with role="img" and decorative true
-      // taking up the full screen behind the board.
-      // E.g., `FinalPageBackground` component might render something with `.fc-final-background`
       const scenicWallpaperCount = await page.locator(".fc-final-background, img[alt='Fondo de página']").count();
       expect(scenicWallpaperCount).toBe(0);
-
 
       await page.screenshot({ path: path.join(OUT_DIR, `flipchart-${device.name}-initial.png`) });
 
@@ -72,16 +63,18 @@ test.describe("Flipchart pre-final regression", () => {
       await page.keyboard.press("ArrowRight");
       await page.waitForTimeout(320); // Mid-turn
       await page.screenshot({ path: path.join(OUT_DIR, `flipchart-${device.name}-mid-turn-keyboard.png`) });
-      await page.waitForTimeout(800); // Wait for turn to finish
+
+      // Wait for flip layer animation to finish and unmount
+      await page.locator("[data-testid='vertical-flip-layer']").waitFor({ state: "detached", timeout: 5000 });
 
       // Assert it went to the next page
       await expect(nativeBoard).toHaveAttribute("data-flipchart-page", "10");
 
       // UI Backward
-      const prevBtn = panel.getByRole("button", { name: /Lámina anterior/i });
+      const prevBtn = panel.getByRole("button", { name: "Lámina anterior", exact: true });
       await expect(prevBtn).toBeEnabled();
       await prevBtn.click();
-      await page.waitForTimeout(1000); // Wait for turn
+      await page.locator("[data-testid='vertical-flip-layer']").waitFor({ state: "detached", timeout: 5000 });
 
       // Assert it went back to the previous page
       await expect(nativeBoard).toHaveAttribute("data-flipchart-page", "9");
@@ -103,7 +96,7 @@ test.describe("Flipchart pre-final regression", () => {
     const nativeBoard = page.getByTestId("flipchart-stage").getByTestId("flipchart-native-board");
     await expect(nativeBoard).toHaveAttribute("data-flipchart-page", "9");
 
-    const nextBtn = panel.getByRole("button", { name: /Lámina siguiente/i });
+    const nextBtn = panel.getByRole("button", { name: "Lámina siguiente", exact: true });
     await nextBtn.click();
 
     // Reduced motion means turn should complete immediately or without transition
