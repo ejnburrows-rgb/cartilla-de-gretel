@@ -67,7 +67,7 @@ export function ClassRoster() {
   const [seedVersion, setSeedVersion] = useState(0);
   useEffect(() => {
     if (!isSeed) return;
-    const refresh = () => setSeedVersion(v => v + 1);
+    const refresh = () => setSeedVersion((v) => v + 1);
     window.addEventListener("cartilla:seed-data", refresh);
     return () => window.removeEventListener("cartilla:seed-data", refresh);
   }, [isSeed]);
@@ -587,6 +587,7 @@ export function ClassRoster() {
                             disabled={busy}
                             className="p-2 text-stone-400 hover:text-vowel-a hover:bg-[hsl(48,100%,97%)] rounded-xl transition duration-200 cursor-pointer disabled:opacity-50"
                             title="Renombrar Alumno"
+                            aria-label="Renombrar Alumno"
                           >
                             <Pencil className="w-4 h-4" />
                           </button>
@@ -595,6 +596,7 @@ export function ClassRoster() {
                             disabled={busy || isSeed}
                             className="p-2 text-stone-400 hover:text-vowel-o hover:bg-[hsl(198,78%,97%)] rounded-xl transition duration-200 cursor-pointer disabled:opacity-50"
                             title={s.archived_at ? "Restaurar Alumno" : "Archivar Alumno"}
+                            aria-label={s.archived_at ? "Restaurar Alumno" : "Archivar Alumno"}
                           >
                             {s.archived_at ? (
                               <ArchiveRestore className="w-4 h-4" />
@@ -607,6 +609,7 @@ export function ClassRoster() {
                             disabled={busy}
                             className="p-2 text-stone-400 hover:text-[hsl(354,78%,56%)] hover:bg-[hsl(354,78%,98%)] rounded-xl transition duration-200 cursor-pointer disabled:opacity-50"
                             title="Eliminar Alumno"
+                            aria-label="Eliminar Alumno"
                           >
                             <Trash2 className="w-4 h-4" />
                           </button>
@@ -623,4 +626,3 @@ export function ClassRoster() {
     </div>
   );
 }
-
