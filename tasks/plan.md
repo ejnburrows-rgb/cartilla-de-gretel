@@ -21,9 +21,10 @@
 - #457 is verified and closed via #642: pointer cancel resets without turning, reduced-motion drag omits 3D transform, and Enter/Space keyboard navigation operates cleanly.
 - #560 is verified and closed via #643: Page 1 and Flip Chart Lesson 7 living motion verified with natural `-alive.svg` SVGs and static fallback under reduced motion.
 - #579 is verified and closed via #646 and #648: deterministic owner foreground-image intake tooling, sanity validation, dry-run report, and Windows test resilience.
-- Active independent Jules implementation lanes in flight:
-  - #587: Current-main clean release verification baseline (active with Jules task 658944131750853263)
-  - #495: Student Workbook clean digital canvas design realignment reconciliation (active with Jules on PR #650)
+- **Existing Jules task receipts — ACTIVE PROVIDER EXECUTION NOT YET PROVEN:**
+  - #587: Current-main clean release baseline; Jules bot acknowledged task 658944131750853263, but its current provider running state and passing current-main release report were not established in this audit. Reuse the existing task.
+  - #495: Workbook realignment; Jules previously returned PR #650 with **0 changed files** and was given an in-place corrective handoff. This is neither verified implementation nor evidence of a currently running worker. Reconcile the existing owner/work branch and original issue/PR, without duplicate tasks.
+  - `jules` labels and bot acknowledgements prove routing, not actual concurrent productivity. Demand fresh provider-session state and actual material code/test evidence before claiming worker lanes are occupied.
 - #540 remains a timing diagnosis, not a runtime repair lane. Fresh current-main focused verification passed all 62 tests across 7 suites, including the p24 completion gate; this is not whole-product browser/release proof.
 - Final premium Gretel voice/TTS technical abstraction is verified and merged (#636); owner choice among candidates (#589) remains open.
 - Welcome video remains non-blocking.
@@ -56,9 +57,9 @@ Do not confuse printed page numbers with PDF file indices. Historical mapping fi
 
 3. **Current Pre-Final Regressions & Active Implementation batch (in flight)**
    - Pre-final regressions verified and merged: #571 (#628), #567 (#630), #561 (#631), #562 (#632), #570 (#636), #585 (#638), #450 (#641), #457 (#642), #560 (#643), #579 (#646).
-   - In flight with Jules:
-     - #587: Current-main clean release verification baseline.
-     - #495: Student Workbook clean digital canvas design realignment reconciliation (PR #650).
+   - Jules assignments with existing receipts, not confirmed active execution:
+     - #587: Clean-main verification (reuse the already acknowledged session; require actual output).
+     - #495: Workbook realignment (existing PR #650 has 0 changed files; in-place correction requested and awaiting proof).
    - Final foreground-art integration is owner-gated in #588; #454 is already closed. Classification or a green Sonar badge alone cannot certify the pending owner assets.
 
 ### Final gates after dependencies are verified and integrated
