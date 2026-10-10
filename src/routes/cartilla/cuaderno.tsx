@@ -1,14 +1,13 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { useMemo } from "react";
 import { ArrowLeft } from "lucide-react";
-import { CurlPageViewer } from "@/components/StudentBook/CurlPageViewer";
+import { NativeLessonViewer } from "@/components/StudentBook/NativeLessonViewer";
 import type { WorkbookPageEntry } from "@/components/StudentBook/SimplePageViewer";
-import { ReconstructedWorkbookPage } from "@/components/cartilla/ReconstructedWorkbookPage";
 import { FaithfulPageRenderer } from "@/components/cartilla/FaithfulPageRenderer";
 import { GretelPresence } from "@/components/gretel/GretelPresence";
 import { buildGretelPageLine } from "@/lib/gretel-page-guide";
 import { getPageLayout } from "@/lib/book-faithful";
-import pageLayouts from "@/data/page-layouts.json";
+import { archetypeMappingForPage } from "@/data/workbook-archetypes";
 
 export const Route = createFileRoute("/cartilla/cuaderno")({
   component: ReconstructedWorkbook,
@@ -29,7 +28,6 @@ const AVAILABLE_PRINTED_PAGES = [
   89,
   90,
 ];
-const digitalPages = pageLayouts.pages as Record<string, { digitalStatus?: string }>;
 
 function ReconstructedWorkbook() {
   const pages = useMemo<WorkbookPageEntry[]>(
@@ -38,9 +36,7 @@ function ReconstructedWorkbook() {
         id: `workbook-page-${pageNumber}`,
         pageNumber,
         gretelLine: buildGretelPageLine(getPageLayout(pageNumber), pageNumber),
-        content: digitalPages[String(pageNumber)]?.digitalStatus === "verified"
-          ? <FaithfulPageRenderer pageNumber={pageNumber} interactive fixedLayout fallback={<ReconstructedWorkbookPage pageNumber={pageNumber} />} />
-          : <ReconstructedWorkbookPage pageNumber={pageNumber} />,
+        content: <FaithfulPageRenderer pageNumber={pageNumber} lessonNumber={archetypeMappingForPage(pageNumber).lessonNumber} interactive native />,
       })),
     [],
   );
@@ -61,10 +57,13 @@ function ReconstructedWorkbook() {
       </div>
 
       <div className="mx-auto w-full max-w-5xl">
-        <CurlPageViewer
+        <NativeLessonViewer
           pages={pages}
-          bookCompanion={<GretelPresence autoIntro={false} bookMode hideChrome />}
+          chapterLabel="Cuaderno completo"
         />
+        <div className="mx-auto flex w-full max-w-[640px] justify-end pt-4">
+          <GretelPresence autoIntro={false} bookMode hideChrome />
+        </div>
       </div>
     </main>
   );
