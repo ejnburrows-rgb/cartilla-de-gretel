@@ -3,7 +3,6 @@ import sourceArtInventory from "@/data/source-art-inventory.json";
 import pageLayouts from "@/data/page-layouts.json";
 import { getBookSectionForLesson, getLessonPageNumbers } from "@/lib/cartilla-crm-theme";
 import { CATALOG } from "@/lib/lesson-catalog";
-import { isWorkbookPageSourceBlocked } from "@/lib/workbook-pages";
 
 // ---------------------------------------------------------------------------
 // Types
@@ -439,16 +438,9 @@ const canonicalLayouts = pageLayouts as unknown as PageLayouts;
  * order everywhere). Returns null for any page not yet transcribed/verified,
  * so callers can fall back to their existing rendering.
  */
-/**
- * Regions the app renders for one printed page. SOURCE_BLOCKED pages (86–87,
- * absent from the authoritative scan) always resolve to an empty layout so no
- * inferred instruction, exercise, art, or completion requirement can reach a
- * learner, whatever placeholder data the JSON still carries.
- */
 export function getPageLayout(pageNumber: number): PageRegion[] | null {
   const entry = canonicalLayouts.pages[String(pageNumber)];
-  if (!entry) return null;
-  return isWorkbookPageSourceBlocked(pageNumber) ? [] : entry.regions;
+  return entry ? entry.regions : null;
 }
 
 /** True if a faithful, verified layout exists for this page. */

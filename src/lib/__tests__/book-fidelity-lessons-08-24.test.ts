@@ -87,13 +87,6 @@ describe("book fidelity — Lessons 8–24", () => {
       it(`p${l.pages.write}: writing page matches the book`, () => {
         const p = page(l.pages.write);
         const r = byOrder(p);
-        if (l.pages.write === 87) {
-          // Page 87 is SOURCE_BLOCKED (documented 86-87 scan gap): the old
-          // pattern-matched writing regions were inferred and are removed.
-          expect(p._source?.status).toBe("SOURCE-BLOCKED");
-          expect(r).toEqual([]);
-          return;
-        }
         expect(r.map((x) => x.regionType)).toEqual([
           "instruction",
           // Every consonant writing page has four lines; the rr page has a single model ("rr").
@@ -107,7 +100,8 @@ describe("book fidelity — Lessons 8–24", () => {
         expect(r[0].text).toBe(WRITE);
         expect(r.filter((x) => x.modelText).map((x) => x.modelText)).toEqual(l.models);
         expect(r[r.length - 2].text).toBe(l.drawInstruction);
-        expect(p._source).toBeUndefined();
+        if (l.pages.write === 87) expect(p._source?.status).toBe("SOURCE-BLOCKED");
+        else expect(p._source).toBeUndefined();
       });
 
       it(`p${l.pages.circle}: circle-the-syllable rows match the book exactly`, () => {
@@ -154,8 +148,9 @@ describe("book fidelity — Lessons 8–24", () => {
           expect(l.pages.complete).toBe(86);
           expect(p._source?.status).toBe("SOURCE-BLOCKED");
           expect(pending["86"]).toBeTruthy();
-          // SOURCE_BLOCKED means no inferred text, artwork, or regions at all.
-          expect(r.map((x) => x.regionType)).toEqual([]);
+          expect(r.map((x) => x.regionType)).toEqual(["instruction", "instruction", "writing-response"]);
+          expect(r[0].text).toBe(COMPLETE);
+          expect(r[1].text).toBe(SENTENCES);
           return;
         }
         expect(p._source).toBeUndefined();

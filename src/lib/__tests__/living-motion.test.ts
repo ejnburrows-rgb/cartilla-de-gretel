@@ -40,9 +40,9 @@ describe("living-motion core policy", () => {
     expect(STUDENT_PAGE_TURN_MS).toBe(800);
     expect(STUDENT_PAGE_TURN_MS).toBeGreaterThanOrEqual(750);
     expect(STUDENT_PAGE_TURN_MS).toBeLessThanOrEqual(850);
-    expect(FLIPCHART_FLIP_MS).toBe(2000);
-    expect(FLIPCHART_FLIP_MS).toBeGreaterThanOrEqual(1800);
-    expect(FLIPCHART_FLIP_MS).toBeLessThanOrEqual(2200);
+    expect(FLIPCHART_FLIP_MS).toBe(980);
+    expect(FLIPCHART_FLIP_MS).toBeGreaterThanOrEqual(900);
+    expect(FLIPCHART_FLIP_MS).toBeLessThanOrEqual(1050);
     expect(BLINK_HOLD_MS).toBeLessThan(200);
     expect(BREATH_AMPLITUDE_PX).toBeGreaterThanOrEqual(1);
     expect(BREATH_AMPLITUDE_PX).toBeLessThanOrEqual(3);

@@ -18,11 +18,6 @@ describe("release integration — workbook + lessons", () => {
     expect(pages).toEqual(Array.from({ length: 90 }, (_, i) => i + 1));
     for (const n of pages) {
       const layout = (pageLayouts.pages as Record<string, { regions?: unknown[] }>)[String(n)];
-      if (n === 86 || n === 87) {
-        // Documented scan gap: blocked pages intentionally carry no regions.
-        expect(layout.regions ?? [], `page ${n} stays SOURCE_BLOCKED`).toEqual([]);
-        continue;
-      }
       expect(layout.regions?.length, `page ${n} regions`).toBeGreaterThan(0);
     }
   });

@@ -15,10 +15,6 @@ export const WORKBOOK_PAGE_COUNT = 90;
  * (the owner's Rescan PDF has the documented 86–87 gap). Never invent them. */
 export const SOURCE_BLOCKED_WORKBOOK_PAGES: readonly number[] = [86, 87];
 
-export function isWorkbookPageSourceBlocked(page: number): boolean {
-  return SOURCE_BLOCKED_WORKBOOK_PAGES.includes(page);
-}
-
 export function workbookPagesForLesson(lesson: number): { start: number; end: number } {
   if (!Number.isInteger(lesson) || lesson < 1 || lesson > 24) throw new RangeError(`lesson ${lesson}`);
   if (lesson === 1) return { start: 1, end: 3 };

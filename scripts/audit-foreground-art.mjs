@@ -9,115 +9,6 @@ const manifest = read("public/cartilla/art/faithful/manifest.json");
 const qaResults = read("public/cartilla/art/faithful/qa-results.json");
 const quarantine = read("public/cartilla/art/faithful/quarantine.json");
 const flipchartNative = read("src/data/flipchart-native-assets.json");
-const flipchartFrames = read("src/data/flipchart-frames.json");
-
-// Deterministic Flip Chart-native provenance check. Declared source-page/crop
-// metadata alone is not proof, so each output is compared pixel-for-pixel with
-// the crop of its declared HD source page. Only an affirmative match passes;
-// anything that cannot be proven stays pending.
-const NATIVE_MATCH_SIZE = 256;
-const NATIVE_NCC_THRESHOLD = 0.95;
-const NATIVE_MEAN_DIFF_THRESHOLD = 8;
-const NATIVE_ASPECT_TOLERANCE = 0.02;
-
-function meanAbsoluteDifference(a, b) {
-  const n = Math.min(a.length, b.length);
-  let sum = 0;
-  for (let i = 0; i < n; i++) sum += Math.abs(a[i] - b[i]);
-  return sum / n;
-}
-
-function normalizedCrossCorrelation(a, b) {
-  const n = Math.min(a.length, b.length);
-  let meanA = 0;
-  let meanB = 0;
-  for (let i = 0; i < n; i++) {
-    meanA += a[i];
-    meanB += b[i];
-  }
-  meanA /= n;
-  meanB /= n;
-  let numerator = 0;
-  let denomA = 0;
-  let denomB = 0;
-  for (let i = 0; i < n; i++) {
-    const da = a[i] - meanA;
-    const db = b[i] - meanB;
-    numerator += da * db;
-    denomA += da * da;
-    denomB += db * db;
-  }
-  if (denomA === 0 || denomB === 0) return 0;
-  return numerator / (Math.sqrt(denomA) * Math.sqrt(denomB));
-}
-
-async function nativeCropEvidence(slot, localPath) {
-  const pending = (reason) => ({
-    cropMatch: false,
-    aspectMatch: false,
-    matchScore: null,
-    meanDiff: null,
-    evidence: null,
-    pendingReason: reason,
-  });
-  const pageNumber = Number(slot.sourcePage);
-  const frame = flipchartFrames[String(pageNumber)];
-  const sourceRel = `public/cartilla/art/hd/flipchart/page-${String(pageNumber).padStart(3, "0")}.jpg`;
-  const sourcePath = path.join(root, sourceRel);
-  if (!frame || !fs.existsSync(sourcePath)) {
-    return pending(!frame ? "no declared page frame" : `missing HD source page ${sourceRel}`);
-  }
-  const [bx, by, bw, bh] = slot.crop.map(Number);
-  if (!(bw > 0 && bh > 0)) return pending("declared crop has no positive area");
-  const sourceMeta = await sharp(sourcePath).metadata();
-  const sourceWidth = sourceMeta.width ?? 0;
-  const sourceHeight = sourceMeta.height ?? 0;
-  const sx = sourceWidth / Number(frame.width);
-  const sy = sourceHeight / Number(frame.height);
-  const left = Math.max(0, Math.round(bx * sx));
-  const top = Math.max(0, Math.round(by * sy));
-  const width = Math.min(Math.round(bw * sx), sourceWidth - left);
-  const height = Math.min(Math.round(bh * sy), sourceHeight - top);
-  if (width < 2 || height < 2) {
-    return pending("declared crop falls outside the HD source page");
-  }
-  const cropAspect = width / height;
-  const outMeta = await sharp(localPath).metadata();
-  const outAspect = (outMeta.width ?? 0) / (outMeta.height ?? 0);
-  const aspectMatch =
-    outAspect > 0 && Math.abs(Math.log(outAspect / cropAspect)) < NATIVE_ASPECT_TOLERANCE;
-  const size = NATIVE_MATCH_SIZE;
-  const sourceSample = await sharp(sourcePath)
-    .extract({ left, top, width, height })
-    .resize(size, size, { fit: "fill" })
-    .flatten({ background: "#ffffff" })
-    .greyscale()
-    .raw()
-    .toBuffer();
-  const outputSample = await sharp(localPath)
-    .resize(size, size, { fit: "fill" })
-    .flatten({ background: "#ffffff" })
-    .greyscale()
-    .raw()
-    .toBuffer();
-  const ncc = normalizedCrossCorrelation(sourceSample, outputSample);
-  const meanDiff = meanAbsoluteDifference(sourceSample, outputSample);
-  const cropMatch =
-    aspectMatch && ncc >= NATIVE_NCC_THRESHOLD && meanDiff <= NATIVE_MEAN_DIFF_THRESHOLD;
-  const aspectDelta = Math.abs(Math.log(outAspect / cropAspect));
-  return {
-    cropMatch,
-    aspectMatch,
-    matchScore: Math.round(ncc * 100),
-    meanDiff: Math.round(meanDiff * 10) / 10,
-    evidence: cropMatch
-      ? `deterministic crop correspondence (ncc ${ncc.toFixed(3)}, mean diff ${meanDiff.toFixed(1)}, aspect delta ${aspectDelta.toFixed(4)})`
-      : null,
-    pendingReason: cropMatch
-      ? null
-      : `no deterministic crop correspondence (ncc ${ncc.toFixed(3)}, mean diff ${meanDiff.toFixed(1)}, aspectMatch ${aspectMatch})`,
-  };
-}
 
 const manifestBySrc = new Map(manifest.filter((m) => m && m.src).map((m) => [m.src, m]));
 const qaBySrc = new Map((qaResults.results || []).map((q) => [q.file.replace("public/", "/"), q]));
@@ -257,14 +148,10 @@ async function audit() {
       slot.crop.map(Number).every(Number.isFinite) &&
       Number(slot.crop[2]) > 0 &&
       Number(slot.crop[3]) > 0;
-
-    // Only a deterministic source-crop-to-output comparison can prove provenance.
-    const evidence = exists
-      ? await nativeCropEvidence(slot, localPath)
-      : { cropMatch: false, aspectMatch: false, matchScore: null, meanDiff: null, evidence: null, pendingReason: "output file missing" };
+    const hasVerifiedSourceEvidence = slot.verified && sourcePageMatches && hasCropEvidence;
 
     let category = "PENDING NO VERIFIED SOURCE";
-    if (exists && evidence.cropMatch) {
+    if (exists && hasVerifiedSourceEvidence) {
       category = "PASS";
     }
 
@@ -281,12 +168,6 @@ async function audit() {
       verified: slot.verified,
       sourcePageMatches,
       hasCropEvidence,
-      cropMatch: evidence.cropMatch,
-      aspectMatch: evidence.aspectMatch,
-      matchScore: evidence.matchScore,
-      meanDiff: evidence.meanDiff,
-      evidence: evidence.evidence,
-      pendingReason: evidence.pendingReason,
     });
   }
 

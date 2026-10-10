@@ -1,6 +1,6 @@
 {
   "_comment": "CANONICAL runtime structured representation for the student CRM view, student workbook, and teacher flipbook. The physical source PDFs remain authoritative for source fidelity, curriculum, page structure, wording, and page content. Each page is an ordered list of regions; text regions hold VERIFIED transcriptions checked against the official workbook. Picture cells use source-faithful crops: the identical teacher-color drawing when the flip chart contains it, otherwise the exact original student-workbook drawing. Never generate, redraw, or guess colors. A page absent here uses its existing fallback.",
-  "_status": "Pages 1-22 (introduction, vowels, Lesson 7) and pages 23-90 (Lessons 8-24) have structured native layouts. Pages 1-22 were re-checked verbatim against the book scans on 2026-09-30 (printed instruction wording, picture identity, answer keys); src/data/book-transcription/lessons-01-07.json is the reference and src/lib/__tests__/book-fidelity-lessons-01-07.test.ts guards it. Lessons 8-24 were re-transcribed verbatim from the book scans on 2026-09-30 (write -> circle -> letter -> complete order, book instruction wording, no added pictures); src/data/book-transcription/lessons-08-24.json is the reference and src/lib/__tests__/book-fidelity-lessons-08-24.test.ts guards it. Exceptions: printed pages 86-87 are conclusively absent from the authoritative Rescan PDF (scan jumps 85 to 88); they remain SOURCE_BLOCKED with no inferred text, artwork, or regions.",
+  "_status": "Pages 1-22 (introduction, vowels, Lesson 7) and pages 23-90 (Lessons 8-24) have structured native layouts. Pages 1-22 were re-checked verbatim against the book scans on 2026-09-30 (printed instruction wording, picture identity, answer keys); src/data/book-transcription/lessons-01-07.json is the reference and src/lib/__tests__/book-fidelity-lessons-01-07.test.ts guards it. Lessons 8-24 were re-transcribed verbatim from the book scans on 2026-09-30 (write -> circle -> letter -> complete order, book instruction wording, no added pictures); src/data/book-transcription/lessons-08-24.json is the reference and src/lib/__tests__/book-fidelity-lessons-08-24.test.ts guards it. Exceptions: page 86 fill-in items are pending the Rescan PDF; page 87 follows the fixed writing-page pattern but is not yet scan-verified.",
   "pages": {
     "1": {
       "regions": [
@@ -8351,14 +8351,82 @@
       ]
     },
     "86": {
-      "regions": [],
+      "regions": [
+        {
+          "id": "p86-instr",
+          "regionType": "instruction",
+          "order": 0,
+          "fontRole": "body",
+          "text": "Completa las palabras con la sílaba correcta."
+        },
+        {
+          "id": "p86-instr2",
+          "regionType": "instruction",
+          "order": 1,
+          "fontRole": "body",
+          "text": "Escribe oraciones. Usa las sílabas que aprendiste."
+        },
+        {
+          "id": "p86-write",
+          "regionType": "writing-response",
+          "order": 2,
+          "fontRole": "body"
+        }
+      ],
       "_source": {
         "status": "SOURCE-BLOCKED",
         "note": "Printed page 86 (Lección 23 · Completa) is absent from the owner's authoritative Rescan PDF itself (documented 86–87 gap), from every repository source archive, and from the Teacher Guide transcription. The public Double R PDF is a 7-page brochure, not the student book. Fill-in items are withheld — never inferred — until a matching-edition scan exists."
       }
     },
     "87": {
-      "regions": [],
+      "regions": [
+        {
+          "id": "p87-instr1",
+          "regionType": "instruction",
+          "order": 0,
+          "fontRole": "body",
+          "text": "Escribe con tu mejor letra."
+        },
+        {
+          "id": "p87-write-U",
+          "regionType": "writing-line",
+          "order": 1,
+          "fontRole": "tracing",
+          "modelText": "Z"
+        },
+        {
+          "id": "p87-write-U2",
+          "regionType": "writing-line",
+          "order": 2,
+          "fontRole": "tracing"
+        },
+        {
+          "id": "p87-write-l",
+          "regionType": "writing-line",
+          "order": 3,
+          "fontRole": "tracing",
+          "modelText": "z"
+        },
+        {
+          "id": "p87-write-l2",
+          "regionType": "writing-line",
+          "order": 4,
+          "fontRole": "tracing"
+        },
+        {
+          "id": "p87-instr2",
+          "regionType": "instruction",
+          "order": 5,
+          "fontRole": "body",
+          "text": "Haz un dibujo que represente una palabra que comienza con z."
+        },
+        {
+          "id": "p87-draw",
+          "regionType": "draw-box",
+          "order": 6,
+          "fontRole": "body"
+        }
+      ],
       "_source": {
         "status": "SOURCE-BLOCKED",
         "note": "Printed page 87 (Lección 24 · writing page) is absent from the Rescan PDF (documented 86–87 gap) and every other available source. The regions shown follow the fixed pattern of the other 17 consonant writing pages; they are NOT verified book content and must be re-checked when a matching-edition scan exists."

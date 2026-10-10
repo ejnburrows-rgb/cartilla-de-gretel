@@ -84,13 +84,11 @@ test('the same direct answer tap hears the name path and still grades, even whil
   await expect(viewer.locator('[data-picture-name="anillo"]')).toHaveAttribute('data-picture-audio-status', 'recorded');
   await expect(viewer.locator('.graded-correct')).toHaveCount(1);
   await page.evaluate(async () => { const voice = await import('/src/lib/gretel-voice.ts'); voice.setGretelVoiceMuted(true); });
-  for (const name of ['estrella', 'indio', 'oso']) await viewer.getByRole('button', { name, exact: true }).first().click();
-  const uniforme = viewer.locator('[data-picture-name="uniforme"]').first();
-  await uniforme.click();
+  for (const name of ['estrella', 'indio', 'oso', 'uniforme']) await viewer.getByRole('button', { name, exact: true }).click();
   await expect(viewer.getByRole('button', { name: 'Siguiente' })).not.toHaveAttribute('aria-disabled', 'true');
   const proof = await page.evaluate(() => (window as any).pictureProof);
   expect(proof.audio.filter((e: any) => e.action === 'play').map((e: any) => decodeURIComponent(e.src))).toEqual(['/audio/voz/vocabulario/anillo.mp3']);
-  expect(proof.learning.filter((e: any) => e.type === 'answer:correct')).toHaveLength(4);
+  expect(proof.learning.filter((e: any) => e.type === 'answer:correct')).toHaveLength(5);
   expect(proof.learning.filter((e: any) => e.type === 'answer:wrong' || e.type === 'support:delivered' || e.type === 'hint:show')).toHaveLength(0);
   await page.screenshot({ path: 'docs/proofs/batch-3/direct-tap-still-grades.png', fullPage: true });
 });

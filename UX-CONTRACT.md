@@ -68,19 +68,18 @@ Final voice/TTS provider remains deferred.
 
 ## 4. Workbook navigation/page turn
 
-**Precondition:** Forward page turns (via Siguiente button, bottom-right corner tap/drag, or ArrowRight key) may activate only when the existing page completion rule allows it. Bottom-right corner gives the "Termina la actividad de esta página para seguir" hint when incomplete. Back navigation (via Anterior button, bottom-left corner tap/drag, or ArrowLeft key) is always allowed.
+**Precondition:** `Siguiente` may activate only when the existing page completion rule allows it.
 
-Lesson screen (`/cartilla/leccion/$n`) sequence (owner decision 2026-10-09):
+Advance sequence:
 1. save/commit current learner state;
 2. disable duplicate navigation;
-3. play soft paper sound (`audioEngine.playPageTurn(true)`, respecting mute);
-4. render/prepare destination page underneath;
-5. perform small cinematic zoom toward the turning corner (~0.3 s);
-6. perform elegant slow HD 3D page curl (2.0 s duration, `LESSON_PAGE_TURN_MS = 2000`) with real moving shadow and paper underside;
-7. settle destination page;
-8. restore focus/interaction and unlock navigation.
+3. render/prepare destination page underneath;
+4. animate current right-hand page from its outer edge across the spine, right-to-left;
+5. show restrained paper curl/underside/moving shadow;
+6. settle destination page;
+7. restore focus/interaction and unlock navigation.
 
-Two-page reader (`/cartilla/cuaderno`) retains 0.75–0.85 s target (`STUDENT_PAGE_TURN_MS = 800`).
+Target duration: 0.75–0.85 s.
 
 Back navigation reverses the physical direction.
 
@@ -95,28 +94,20 @@ Reduced motion: immediate or very short non-3D page replacement, preserving focu
 
 ## 5. Teacher Flip Chart navigation/page turn
 
-The Flip Chart behaves like a real top-bound classroom flip chart with teacher hand mode support (owner direction 2026-10-09).
-
-Hand mode and corner interaction:
-- Hand mode setting: Left-hand (default) / Right-hand, saved on the device (`cartilla:teacher:hand-mode`).
-- Left-hand mode: bottom-left corner tap/drag = next sheet; bottom-right corner = previous sheet.
-- Right-hand mode: bottom-right corner tap/drag = next sheet; bottom-left corner = previous sheet.
-- Touch/tablet drag: corner drag interactively moves the sheet upward (next) or downward (prev). Releasing past halfway (progress >= 0.5) completes the turn; releasing before halfway springs back.
-- Pointer protection: corner hotspots are non-interactive while Laser Pointer mode is active.
+The Flip Chart behaves like a real top-bound classroom flip chart.
 
 Advance sequence:
-1. prepare destination sheet behind current sheet;
+1. prepare the destination sheet behind the current sheet;
 2. disable duplicate navigation;
-3. play soft paper sound (respecting mute);
-4. trigger a small cinematic zoom (~0.3 s) on easel stage for tap/button/keyboard triggers;
-5. lift the current sheet from lower edge and turn it upward over top binding;
-6. reveal clean paper underside (no duplicate text or ghost page numbers) and realistic shadow;
-7. settle on destination sheet;
-8. restore teacher controls and focus.
+3. lift the current sheet from the lower edge;
+4. turn it upward over the top binding/rings;
+5. reveal the paper underside and restrained moving shadow;
+6. settle on the destination sheet;
+7. restore teacher controls/focus.
 
-Target duration: 2.0 s (`FLIPCHART_FLIP_MS = 2000`).
+Target duration: 0.9–1.05 s.
 
-Previous reverses naturally (prior sheet comes back down over the top).
+Previous reverses naturally.
 
 The effect is presentation-only and may not change lesson mapping, page order, art placement, text, teacher progress, or printing/report behavior.
 

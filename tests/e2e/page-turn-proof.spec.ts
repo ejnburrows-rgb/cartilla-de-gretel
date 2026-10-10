@@ -56,17 +56,17 @@ test.describe("Page Turn System - Visual Proof Milestone", () => {
     await page.screenshot({ path: path.join(PROOF_DIR, "flipchart-01-before.png") });
 
     // 2. Click Siguiente and capture mid-turn flip over top binding
-    const nextBtn = panel.getByRole("button", { name: "Lámina siguiente", exact: true });
+    const nextBtn = panel.getByRole("button", { name: /Lámina siguiente/i });
     await nextBtn.click();
-    await page.waitForTimeout(600); // Mid-turn (~600ms into 2000ms)
+    await page.waitForTimeout(320); // Mid-turn (~320ms into 980ms)
     await page.screenshot({ path: path.join(PROOF_DIR, "flipchart-02-mid-turn.png") });
 
     // 3. Wait for turn to settle
-    await page.waitForTimeout(1600);
+    await page.waitForTimeout(800);
     await page.screenshot({ path: path.join(PROOF_DIR, "flipchart-03-settled-next.png") });
 
     // 4. Click Anterior and capture reverse turn
-    const prevBtn = panel.getByRole("button", { name: "Lámina anterior", exact: true });
+    const prevBtn = panel.getByRole("button", { name: /Lámina anterior/i });
     await prevBtn.click();
     await page.waitForTimeout(320); // Mid-turn reverse
     await page.screenshot({ path: path.join(PROOF_DIR, "flipchart-04-reverse-turn.png") });

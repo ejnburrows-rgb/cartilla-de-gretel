@@ -1,6 +1,5 @@
 import { getWorkbookPagesForLesson } from "@/lib/book-faithful";
 import { getLessonPageNumbers } from "@/lib/cartilla-crm-theme";
-import { SOURCE_BLOCKED_WORKBOOK_PAGES } from "@/lib/workbook-pages";
 import { assetPath } from "@/lib/assets";
 import {
   getBestDisplayPath,
@@ -16,8 +15,7 @@ export type WorkbookSourceStatus =
   | "pdf-available"
   | "image-available"
   | "missing-source"
-  | "pending-transcription"
-  | "source-blocked";
+  | "pending-transcription";
 
 export type WorkbookPdfStatus = {
   pdfPath: string;
@@ -91,20 +89,15 @@ export function getWorkbookPageSourcesForLesson(
     const remasteredPathV2 = remasterAsset?.remasteredPathV2
       ? assetPath(remasterAsset.remasteredPathV2)
       : undefined;
-    const isBlocked = SOURCE_BLOCKED_WORKBOOK_PAGES.includes(pageNumber);
-    const hasVerifiedImage = isBlocked ? false : Boolean(imageRef);
-    const hasVerifiedText = isBlocked ? false : Boolean(verifiedPage?.verifiedTextBlocks.length);
-    const baseStatus: WorkbookSourceStatus = isBlocked
-      ? "source-blocked"
-      : hasVerifiedImage
-        ? "image-available"
-        : pdfStatus.isPresentInRepo
-          ? "pdf-available"
-          : "missing-source";
+    const hasVerifiedImage = Boolean(imageRef);
+    const hasVerifiedText = Boolean(verifiedPage?.verifiedTextBlocks.length);
+    const baseStatus: WorkbookSourceStatus = hasVerifiedImage
+      ? "image-available"
+      : pdfStatus.isPresentInRepo
+        ? "pdf-available"
+        : "missing-source";
     const status: WorkbookSourceStatus =
-      baseStatus !== "missing-source" && baseStatus !== "source-blocked" && !hasVerifiedText
-        ? "pending-transcription"
-        : baseStatus;
+      baseStatus !== "missing-source" && !hasVerifiedText ? "pending-transcription" : baseStatus;
 
     return {
       pageNumber,

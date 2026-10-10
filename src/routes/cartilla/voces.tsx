@@ -1,12 +1,5 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { useEffect, useMemo, useState } from "react";
-import {
-  speakAsGretel,
-  cancelGretelSpeech,
-  setGretelVoiceProviderConfig,
-  resetGretelVoiceProviderConfig,
-  getAvailableGretelVoices,
-} from "@/lib/gretel-voice";
 
 export const Route = createFileRoute("/cartilla/voces")({
   component: VoiceAudition,
@@ -25,6 +18,9 @@ function isNeutralLatAm(lang: string): boolean {
   return NEUTRAL_LATAM_LANGS.has(lang.toLowerCase());
 }
 
+// Names browser/OS Spanish voice packs commonly ship as female (used only
+// to rank candidates for this audition — a name is not proof of anything,
+// just the same kind of heuristic every device voice-picker uses).
 const FEMALE_NAME_HINTS =
   /(sabina|dalia|elvira|ximena|helena|paulina|mónica|monica|lucia|lucía|laura|sara|camila|valentina|isabela|marisol|conchita|penélope|penelope|lupe|karen|carla|renata|victoria|antonia|yolanda|miriam|marina|candela|female|mujer|niña)/i;
 const MALE_NAME_HINTS = /(diego|jorge|carlos|enrique|miguel|pablo|javier|juan(?!ita)|male|hombre)/i;
@@ -52,9 +48,12 @@ function buildCandidates(voices: SpeechSynthesisVoice[]): Candidate[] {
     })
     .sort((a, b) => b.score - a.score);
 
+  // Prefer clearly-not-male voices, but never end up with zero candidates
+  // just because every voice on this device happens to score low.
   const preferred = scored.filter((s) => s.score >= -100);
   const pool = (preferred.length ? preferred : scored).map((s) => s.v);
 
+  // De-dupe by voiceURI/name so the same underlying voice isn't listed twice.
   const seen = new Set<string>();
   const baseVoices: SpeechSynthesisVoice[] = [];
   for (const v of pool) {
@@ -71,8 +70,9 @@ function buildCandidates(voices: SpeechSynthesisVoice[]): Candidate[] {
     isNeutralLatAm(v.lang) ? v.lang : `${v.lang} (no es neutro LatAm)`;
 
   baseVoices.forEach((v, i) => {
+    // Natural (production-matching) version of every base voice.
     candidates.push({
-      key: `${v.voiceURI || v.name}-natural`,
+      key: `${v.voiceURI}-natural`,
       label: `Voz ${n}`,
       description: `${v.name} · ${localeLabel(v)} · tono natural`,
       voice: v,
@@ -80,9 +80,10 @@ function buildCandidates(voices: SpeechSynthesisVoice[]): Candidate[] {
       rate: 0.92,
     });
     n++;
+    // Tuned-younger version of the top 2 base voices only, to stay within 5 total.
     if (i < 2 && candidates.length < 5) {
       candidates.push({
-        key: `${v.voiceURI || v.name}-young`,
+        key: `${v.voiceURI}-young`,
         label: `Voz ${n}`,
         description: `${v.name} · ${localeLabel(v)} · más aguda y ligera (afinada para sonar más joven)`,
         voice: v,
@@ -107,55 +108,43 @@ function VoiceAudition() {
       setReady(true);
       return;
     }
+    const synth = window.speechSynthesis;
     const load = () => {
-      const list = getAvailableGretelVoices();
+      const list = synth.getVoices();
       if (list.length) {
         setVoices(list);
         setReady(true);
       }
     };
     load();
-    window.speechSynthesis.addEventListener("voiceschanged", load);
-    const timeout = setTimeout(() => {
-      load();
-      setReady(true);
-    }, 1500);
+    synth.addEventListener("voiceschanged", load);
+    const timeout = setTimeout(() => setReady(true), 1500);
     return () => {
-      window.speechSynthesis.removeEventListener("voiceschanged", load);
+      synth.removeEventListener("voiceschanged", load);
       clearTimeout(timeout);
-      cancelGretelSpeech();
-      resetGretelVoiceProviderConfig();
     };
   }, []);
 
   const candidates = useMemo(() => buildCandidates(voices), [voices]);
 
-  const play = async (c: Candidate) => {
+  const play = (c: Candidate) => {
+    if (typeof window === "undefined" || !("speechSynthesis" in window)) return;
     setError(null);
-    cancelGretelSpeech();
+    const synth = window.speechSynthesis;
+    synth.cancel();
+    const u = new SpeechSynthesisUtterance(AUDITION_LINE);
+    u.voice = c.voice;
+    u.lang = c.voice.lang;
+    u.pitch = c.pitch;
+    u.rate = c.rate;
+    u.volume = 1;
     setPlayingKey(c.key);
-
-    setGretelVoiceProviderConfig({
-      type: "browser-tts",
-      name: `Audition (${c.label} - ${c.voice.name})`,
-      primaryVoiceName: c.voice.name,
-      pitch: c.pitch,
-      rate: c.rate,
-    });
-
-    try {
-      await speakAsGretel(AUDITION_LINE, {
-        onStart: () => {
-          setPlayingKey(c.key);
-        },
-        onEnd: () => {
-          setPlayingKey(null);
-        },
-      });
-    } catch {
+    u.onend = () => setPlayingKey(null);
+    u.onerror = () => {
       setPlayingKey(null);
       setError("Esta voz no pudo reproducirse en este navegador.");
-    }
+    };
+    synth.speak(u);
   };
 
   return (
@@ -192,7 +181,7 @@ function VoiceAudition() {
             {candidates.map((c) => (
               <button
                 key={c.key}
-                onClick={() => void play(c)}
+                onClick={() => play(c)}
                 className="w-full flex items-center justify-between gap-4 px-6 py-4 rounded-2xl border-2 border-stone-200 bg-white hover:border-primary hover:bg-primary/5 transition-all text-left"
               >
                 <div>

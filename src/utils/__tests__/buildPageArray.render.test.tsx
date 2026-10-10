@@ -12,7 +12,7 @@ describe("all 24 lessons render without error (approval-walkthrough sweep)", () 
   for (const entry of CATALOG) {
     it(
       `Lección ${entry.n} (${entry.title}) — every real page renders cleanly`,
-      { timeout: 45_000 },
+      { timeout: 15_000 },
       () => {
         const pages = buildPageArray(entry.n);
         expect(pages.length).toBeGreaterThan(0);

@@ -70,7 +70,7 @@ describe('Approved single welcome ("/")', () => {
     const imgs = Array.from(splash.querySelectorAll("img"));
     expect(imgs).toHaveLength(1);
     expect(imgs[0]?.getAttribute("src")).toBe("/cartilla/images/gretel/gretel-approved-master.png");
-    expect(imgs[0]?.getAttribute("alt")).toBe("Gretel, la niña de la cartilla");
+    expect(imgs[0]?.getAttribute("alt")).toBe("Gretel");
   });
 
   it("contains no generated or garden art reference", async () => {

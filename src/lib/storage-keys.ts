@@ -40,9 +40,6 @@ export const KEYS = {
   teacherReports: "cartilla.maestro.reports.v1",
   teacherSettings: "cartilla.maestro.settings.v1",
 
-  // Teacher hand mode
-  teacherHandMode: "cartilla:teacher:hand-mode",
-
   // Director / principal
   directorSchools: "cartilla.director.schools.v1",
   directorSettings: "cartilla.director.settings.v1",

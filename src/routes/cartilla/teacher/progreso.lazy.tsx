@@ -5,7 +5,6 @@ import { Check } from "lucide-react";
 import { listClasses, getClassProgress } from "@/lib/teacher.functions";
 import { isSeedSessionActive, listSeedClasses, getSeedClassProgress } from "@/lib/seed-data";
 import { TOTAL_LESSONS } from "@/lib/lesson-catalog";
-import "@/styles/teacher-print.css";
 
 export const Route = createLazyFileRoute("/cartilla/teacher/progreso")({
   component: TeacherProgressPage,
