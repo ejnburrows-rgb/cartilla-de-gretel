@@ -1,11 +1,11 @@
 {
-  "timestamp": "2026-10-09T21:33:07.160Z",
+  "timestamp": "2026-10-10T11:30:07.031Z",
   "entryJs": {
-    "file": "index.DMOEbMFe.js",
+    "file": "index.BFEmcNss.js",
     "sizes": {
-      "raw": 451762,
-      "gzip": 111853,
-      "brotli": 93097
+      "raw": 456124,
+      "gzip": 112861,
+      "brotli": 93695
     },
     "budget": {
       "rawMax": 512000,
@@ -13,11 +13,11 @@
     }
   },
   "entryCss": {
-    "file": "index.D48ktqn0.css",
+    "file": "index.CC7XQfQp.css",
     "sizes": {
-      "raw": 256186,
-      "gzip": 41880,
-      "brotli": 33226
+      "raw": 256614,
+      "gzip": 41952,
+      "brotli": 33265
     },
     "budget": {
       "rawMax": 307200,
@@ -25,88 +25,88 @@
     }
   },
   "preloadedVendors": {
-    "react-vendor.DDSrvLQP.js": {
-      "raw": 237904,
-      "gzip": 71292,
-      "brotli": 61680
+    "react-vendor.Bce8vEeY.js": {
+      "raw": 395001,
+      "gzip": 118441,
+      "brotli": 96270
     },
-    "tanstack-router.99r4x8Sw.js": {
-      "raw": 85261,
-      "gzip": 27877,
-      "brotli": 25165
+    "tanstack-router.DmZhNllp.js": {
+      "raw": 96573,
+      "gzip": 31058,
+      "brotli": 27723
     }
   },
   "totalFirstPaintJs": {
-    "raw": 774927,
-    "gzip": 211022,
+    "raw": 947698,
+    "gzip": 262360,
     "budget": {
-      "rawMax": 870400,
-      "gzipMax": 235520
+      "rawMax": 1003520,
+      "gzipMax": 276480
     }
   },
   "teacherChunks": {
     "flipchart.lazy": {
-      "fileName": "flipchart.lazy.Cu5GEL8v.js",
+      "fileName": "flipchart.lazy.BQOXCnu6.js",
       "sizes": {
-        "raw": 390,
-        "gzip": 287,
-        "brotli": 231
+        "raw": 665,
+        "gzip": 369,
+        "brotli": 309
       }
     },
     "admin.lazy": {
-      "fileName": "admin.lazy.vdF17t-a.js",
+      "fileName": "admin.lazy.Bc8iy4uk.js",
       "sizes": {
-        "raw": 9388,
-        "gzip": 3030,
-        "brotli": 2705
+        "raw": 19904,
+        "gzip": 3623,
+        "brotli": 3195
       }
     },
     "reportes.lazy": {
-      "fileName": "reportes.lazy.BWkppvt2.js",
+      "fileName": "reportes.lazy.Db_HXCYc.js",
       "sizes": {
-        "raw": 14622,
-        "gzip": 4156,
-        "brotli": 3688
+        "raw": 31767,
+        "gzip": 5058,
+        "brotli": 4357
       }
     },
     "roster.lazy": {
-      "fileName": "roster.lazy.Gj6Um2aO.js",
+      "fileName": "roster.lazy.D0Kst_Er.js",
       "sizes": {
-        "raw": 15484,
-        "gzip": 4613,
-        "brotli": 4055
+        "raw": 28798,
+        "gzip": 5390,
+        "brotli": 4638
       }
     },
     "crm.artwork.lazy": {
-      "fileName": "crm.artwork.lazy.Bt6OJnwx.js",
+      "fileName": "crm.artwork.lazy.ZfB2dqUf.js",
       "sizes": {
-        "raw": 439768,
-        "gzip": 130877,
-        "brotli": 109074
+        "raw": 455593,
+        "gzip": 131708,
+        "brotli": 109751
       }
     },
     "crm.index.lazy": {
-      "fileName": "crm.index.lazy.C4u7mEV8.js",
+      "fileName": "crm.index.lazy.CYXeqzZx.js",
       "sizes": {
-        "raw": 19049,
-        "gzip": 6034,
-        "brotli": 5394
+        "raw": 33934,
+        "gzip": 6961,
+        "brotli": 6067
       }
     },
     "route.lazy": {
-      "fileName": "route.lazy.DAWOkxW5.js",
+      "fileName": "route.lazy.ix-3U9kb.js",
       "sizes": {
-        "raw": 4466,
-        "gzip": 1592,
-        "brotli": 1394
+        "raw": 9030,
+        "gzip": 1883,
+        "brotli": 1646
       }
     },
     "guia._n.lazy": {
-      "fileName": "guia._n.lazy.Dm-FXX4Y.js",
+      "fileName": "guia._n.lazy.8U97EuXd.js",
       "sizes": {
-        "raw": 100625,
-        "gzip": 10647,
-        "brotli": 8558
+        "raw": 212019,
+        "gzip": 16636,
+        "brotli": 11755
       }
     }
   },
