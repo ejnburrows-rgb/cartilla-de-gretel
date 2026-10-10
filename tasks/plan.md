@@ -1,87 +1,108 @@
-# Cartilla CRM demo plan — without Supabase setup
+# La Cartilla de Gretel — current completion plan
 
-Date: October 3, 2026. Status: implementation authorized by “Go ahead”; frontend complete and verified, publishing pending.
+> **Finish contract:** `PROJECT_FINISH_DEFINITION.md` defines finished. This file is only the current gap-closing execution plan.
 
-## Outcome
-A teacher can demonstrate a complete classroom workflow using clearly labelled sample data: open the CRM, create a class, add a sample student, assign a lesson, review a student's activity, add notes, and print/export a report. No Supabase schema, migration, policy, backend function or live student data changes.
+**Updated:** 2026-10-10
+**Concurrency authority:** `AGENTS.md` only. There is **no fixed numeric cap** on concurrent Jules implementation lanes.
 
-## Current evidence
-The existing application already supports a local example-class mode. Its active CRM route renders TeacherDailyHome, which reads local classes, students, assignments and progress when the example teacher session is active. Creation of classes/students and local progress/report/presenter views exist. Previous verification passed nine browser scenarios, four viewport sizes, 1,489 unit tests, typecheck and build. These results establish the previous frontend baseline; they do not certify every proposed demo action below.
+> **Owner clarification 2026-10-10 (latest):** The old PC polling script and Neon/Vercel/OpenHands system stay disabled and historical. The distinct, pre-existing **hourly ChatGPT cloud Cartilla Jules Continuity** coordinator was explicitly **re-enabled** by the owner and may inspect GitHub and coordinate Jules tasks without PC access. This is permission for that scheduled task, **not proof of a working end-to-end dispatch or currently occupied Jules lanes**. Check current owner instructions and live Jules receipts; never silently revive the retired infrastructure.
 
-The current anonymous student workbook does not feed new activity into the sample teacher roster. Existing authenticated join-by-code flow was verified with test fixtures, not a live classroom. Do not describe sample statistics as live student reporting.
+## Current verified reality
 
-## Decisions
-- Reuse the existing example-class store and UI; no database setup is required for a CRM demonstration.
-- Keep sample records, work and events isolated from real identities and existing anonymous student work. Never adopt a child's previous work into a demo identity.
-- Clearly label sample activity. If a student-to-teacher update is shown, use an explicitly selected synthetic demo student and the local demo store only. Never claim cross-device synchronization or real authorization.
-- A school/location name can be an optional demo label. There is no need for geolocation, maps, a location database or GPS permissions for the proposed classroom workflow. The phrase “location” is treated as optional school/location information; no broader location feature is assumed.
-- Preserve existing artwork, handwriting, backgrounds and working page layouts.
-- Reuse verification and fix only failures in the demo path. Do not restart a repository-wide audit.
+- CURRENT `main` must be resolved live from GitHub at the start of every session; do not persist a main SHA here because merging this file would immediately make it stale.
+- Cross-session coordination is now governed by the mandatory live-coordination contract in `AGENTS.md`: every material worker/controller change must leave a structured handoff on the existing issue/PR, and controllers refresh this file when lane state/order materially changes.
+- The eight canonical Student Workbook archetypes remain encoded page-by-page in `src/data/workbook-archetypes.ts`.
+- Live GitHub confirms merged lanes: #531 (Gretel), #532 (page turns), #533 (PDF precache/provenance), #534 (teacher-route performance), #537 (art classification), #538 (Pencil Line + clean Workbook integration), #551 (Workbook fidelity candidate reconciliation), #618 (Page 1 picture motion polish), #624 (perf image loading regressions), #625 (student route smoke), #626 (#616 Workbook page turns + #617 Flip Chart corner flips), #627 (art audit timeout), #628 (Flip Chart pre-final regression, closing #571), #630 (Student audio/mute behavior, closing #567), #631 (Workbook device readiness preflight, closing #561), #632 (Teacher + Flip Chart classroom regression, closing #562), #633 (Flip Chart picture motion pilot, closing #615), #634 (Class Roster accessibility), #636 (Gretel voice abstraction seam, closing #570), #637 (perf budget React 19 recalibration), #638 (owner-proof capture harness, closing #585; #597 closed as superseded), #641 (Workbook assembled regression suite, closing #450), #642 (Flip Chart corner cancel, reduced motion and keyboard navigation, closing #457), #643 (Living-art motion regression proof, closing #560), #646 (owner foreground-image intake tooling, closing #579), and #648 (owner art intake tooling resilience). Do not dispatch or merge those lanes again.
+- #539 is closed as superseded: its frozen head `802d237aca9f439dde062402caac8a092eaf9f42` was deliberately preserved in #538.
+- #553 is the owner-locked large close-up pencil/eraser baseline. #516 is closed unmerged and superseded; do not restore it. The small StudentCursor is a separate approved pointer, not an obsolete marking actor.
+- #587 is the CURRENT dedicated Jules clean-main release-verification lane; #389 is historical harness groundwork and must not be redispatched as a second verifier. The `playwright.config.ts` cross-platform launcher is verified resolved on `main` (process.platform === "win32" conditional).
+- #454 was CLOSED on 2026-10-10; its historical artwork work must not be redispatched. Outstanding owner-approved final foreground art remains owner-gated in #588. Neither the #537 classification audit nor closing #454 certifies missing owner materials.
+- #450 is verified and closed via #641: full assembled Workbook regression suite passing across all 8 archetypes, save/restore, completion gating, device matrix, and source-blocked pages 86–87.
+- #457 is verified and closed via #642: pointer cancel resets without turning, reduced-motion drag omits 3D transform, and Enter/Space keyboard navigation operates cleanly.
+- #560 is verified and closed via #643: Page 1 and Flip Chart Lesson 7 living motion verified with natural `-alive.svg` SVGs and static fallback under reduced motion.
+- #579 is verified and closed via #646 and #648: deterministic owner foreground-image intake tooling, sanity validation, dry-run report, and Windows test resilience.
+- **Existing Jules task receipts — ACTIVE PROVIDER EXECUTION NOT YET PROVEN:**
+  - #587: Current-main clean release baseline; Jules bot acknowledged task 658944131750853263, but its current provider running state and passing current-main release report were not established in this audit. Reuse the existing task.
+  - #495: Workbook realignment; Jules previously returned PR #650 with **0 changed files** and was given an in-place corrective handoff. This is neither verified implementation nor evidence of a currently running worker. Reconcile the existing owner/work branch and original issue/PR, without duplicate tasks.
+  - `jules` labels and bot acknowledgements prove routing, not actual concurrent productivity. Demand fresh provider-session state and actual material code/test evidence before claiming worker lanes are occupied.
+- #540 remains a timing diagnosis, not a runtime repair lane. Fresh current-main focused verification passed all 62 tests across 7 suites, including the p24 completion gate; this is not whole-product browser/release proof.
+- Final premium Gretel voice/TTS technical abstraction is verified and merged (#636); owner choice among candidates (#589) remains open.
+- Welcome video remains non-blocking.
+- Live Supabase/multi-user expansion remains deferred for the current demo/non-real-data pilot finish line.
 
-## Ordered tasks
+## Printed pages 86–87 — resolved source status
 
-### 1. Establish a repeatable sample classroom
-Description: Reuse the existing example mode with one clearly labelled class and a small set of sample students covering started, completed and needs-help states. Provide a safe demo reset if an existing equivalent is not reachable.
-Acceptance:
-- [x] Opening the demo displays the sample-data label and usable class/student records.
-- [x] Refresh preserves intentional demo edits; reset affects demo records only.
-- [x] No live Supabase requests are needed for the demonstrated actions.
-Verification: Open/refresh/reset in a separate browser profile; inspect requests with network blocked; confirm unrelated student storage is unchanged.
-Dependencies: none. Scope: small/medium.
-Likely files: src/lib/seed-data.ts, src/lib/demo-roster.ts, src/routes/cartilla/teacher/route.tsx, focused demo tests.
+Printed Workbook pages **86 and 87 are not blank pages that still need conversion**. They are absent from the authoritative supplied Student Workbook scan:
 
-### 2. Finish the interactive teacher demo path
-Description: Verify existing class/student actions, teacher notes and lesson assignments through their current interface. Finish missing local actions only where the demo requires them.
-Acceptance:
-- [x] Create a sample class/student, save teacher notes and assign a lesson from visible controls.
-- [x] Changes appear immediately and persist after refresh.
-- [x] Invalid input has clear feedback and no duplicate records or silent lost edits.
-Verification: Run the existing teacher lifecycle test plus focused checks for notes/assignment persistence; inspect phone and tablet controls.
-Dependencies: task 1. Scope: medium; split notes and assignment UI if more than five files are needed.
-Likely files: src/features/teacher-crm/TeacherDailyHome.tsx, the active class/student detail component, src/lib/seed-data.ts, tests/e2e/teacher-class-lifecycle.spec.ts.
+- the supplied PDF visibly jumps from printed page **85** to printed page **88**;
+- repo source image `page-085.jpg` exists;
+- `page-086.jpg` and `page-087.jpg` do not exist;
+- `page-088.jpg` exists.
 
-### Checkpoint
-- [x] Class/student/notes/assignment actions work without network connectivity.
-- [x] The example-data label remains visible and no real identity is modified.
+Therefore keep printed pages 86–87 as `SOURCE_BLOCKED` with no inferred text, artwork, regions, or archetype. Do **not** reconstruct them from surrounding patterns. Under `PROJECT_FINISH_DEFINITION.md`, this documented source absence is an allowed finish exception and does not block final completion. If a genuine physical/source scan of those printed pages is later supplied, import and map it then.
 
-### 3. Demonstrate activity reaching the CRM safely
-Description: Add or finish an explicitly labelled local demo student flow if a live-looking student-to-teacher demonstration is required. Reuse existing activity events and the sample store; do not modify Supabase. Show a sample student doing an activity and the teacher reviewing the resulting local event.
-Acceptance:
-- [x] The presenter explicitly selects a synthetic demo student; existing anonymous/real work stays separate.
-- [x] An actual activity completion updates only that sample student's teacher view in the same browser.
-- [x] Leaving/reloading preserves demo work and reports honest completion/assistance; switching sample students keeps work separate.
-Verification: Two synthetic students with different writing/drawings; reload/leave/return; check event ownership and prohibit live backend writes. Explain that this is a same-browser simulation, not multi-device synchronization.
-Dependencies: tasks 1–2. Scope: medium.
-Likely files: src/lib/seed-data.ts, src/lib/student-session.ts, src/lib/learner-storage.ts, the explicit demo entry component, focused demo browser test.
+Do not confuse printed page numbers with PDF file indices. Historical mapping files that use fields such as `student_pdf_page` refer to PDF indices, not the printed number shown on the book page.
 
-### 4. Verify reporting and presentation as a complete demo
-Description: Reuse existing progress, reports, CSV, workbook/guide printing and Flip Chart. Ensure the sample student's new event reaches the displayed/exported report without fabricated learning accuracy.
-Acceptance:
-- [x] Progress/report/CSV show the correct sample student and activity.
-- [x] PDFs contain all relevant content without blank sheets or hidden controls; Flip Chart can advance and exit.
-- [x] Laptop, tablet, phone and projector views have reachable controls and readable content.
-Verification: Focused end-to-end demo with saved screenshots, exported CSV and inspected PDF; check separation from student-only screens; run relevant tests/typecheck/build after changes.
-Dependencies: task 3. Scope: small/medium.
-Likely files: tests/e2e/classroom-readiness.spec.ts, src/components/teacher/ReportCard.tsx, src/styles/teacher-print.css, src/routes/cartilla/teacher/reportes.tsx, demo evidence.
+## Fastest safe execution order
 
-### 5. Publish and inspect the visible demo
-Description: Use the existing deployment destination after identifying its correct account/project. The connected Vercel deployment action previously returned unavailable, and the connected project did not list the canonical production alias. Resolve deployment access; do not enable automatic deployments or deploy to an unconfirmed project.
-Acceptance:
-- [ ] The correct demo URL serves the verified version.
-- [ ] The complete demonstration works on that URL with sample-data labels intact.
-- [ ] Final evidence distinguishes shipped demo functionality from remaining real-classroom capabilities.
-Verification: Inspect the deployed URL in fresh student and teacher browser sessions, complete the demo sequence, and capture visible proof.
-Dependencies: task 4 and usable deployment access. Scope: small; no backend work.
+### Advance existing candidates; do not restart merged lanes
 
-## Remaining work outside the demo
-- Genuine authenticated teacher/student sessions and live classroom reporting are not yet certified.
-- Writing/drawing is browser-local. Cross-device recovery and central backup require suitable authorized persistence capability; none will be invented in this demo.
-- Approved pronunciation recordings are absent; existing audio policy prohibits TTS. This does not block the CRM demo.
-- Complete original guide material is missing, especially lessons 17–24, with partial gaps in earlier lessons. Show available content and its honest pending labels; do not fabricate text.
-- Deployment is pending; merged source is not proof that the live site has changed.
+1. **#587 — current clean-main release baseline (reuse historical #389 harness)**
+   - Cross-platform launcher verified on `main`. Clean verification checkout can run `pnpm verify:release`.
+   - Record exact typecheck, Vitest, production build, and Playwright results on current main.
+   - No GitHub Actions, paid runners, weakened/skipped tests, or asset-output implementation commits.
 
-## Demo sequence
-Open labelled CRM → create sample class/student → assign a lesson → select synthetic demo student → complete/save an activity → return to teacher progress/report → save a note → export CSV/print report → present Flip Chart.
+2. **#616 + #617 + #618 + #615 — page turns & living motion integrated**
+   - Merged into `main` via #626, #618, and #633. Teacher hand mode, corner flips, Workbook real-paper page turns, Page 1 continuous motion, and Lesson 7 Flip Chart picture motion pilot are verified on `main`.
 
-## Completion bar
-The entire sequence works with Supabase network access blocked, demo edits survive refresh, real/anonymous work is untouched, and the correct deployed demo URL has been inspected. Until then, call it an available local frontend demo, not a completed live classroom system.
+3. **Current Pre-Final Regressions & Active Implementation batch (in flight)**
+   - Pre-final regressions verified and merged: #571 (#628), #567 (#630), #561 (#631), #562 (#632), #570 (#636), #585 (#638), #450 (#641), #457 (#642), #560 (#643), #579 (#646).
+   - Jules assignments with existing receipts, not confirmed active execution:
+     - #587: Clean-main verification (reuse the already acknowledged session; require actual output).
+     - #495: Workbook realignment (existing PR #650 has 0 changed files; in-place correction requested and awaiting proof).
+   - Final foreground-art integration is owner-gated in #588; #454 is already closed. Classification or a green Sonar badge alone cannot certify the pending owner assets.
+
+### Final gates after dependencies are verified and integrated
+
+4. **#450 & #457 — final Student Workbook & Teacher/Flip Chart regression (VERIFIED & CLOSED)**
+   - Merged into `main` via #641 (#450) and #642 (#457). Full 8-archetype coverage, save/restore, completion gating, device fit, source-blocked pages 86–87, pointer cancel, reduced motion, and keyboard navigation verified.
+
+5. **#579 & #588 — foreground artwork intake tooling & final owner art drop**
+   - #579 verified and merged via #646: deterministic intake validation tooling and dry-run report (`scripts/validate-owner-art-package.mjs`, `tests/owner-art-intake.test.mjs`, `docs/OWNER_ART_INTAKE.md`).
+   - #588 (owner-gated): integrate final supplied owner foreground art drop using the verified intake tool.
+
+6. **#570 & #589 — resolve final premium Gretel voice/TTS**
+   - #636 (closing #570) verified and merged: technical abstraction seam, single speech ownership, volume/mute enforcement, `/cartilla/voces` preview.
+   - #589 (owner-gated): owner decision on candidate voice (Cartilla local neural voice vs. cloud edge TTS).
+
+7. **#587 — current clean-main Jules release baseline (reuse #389 proof)**
+   - Cross-platform launcher verified on `main`. Clean cloud verification checkout runs `pnpm verify:release`.
+   - Records exact typecheck, Vitest, build, and Playwright execution counts without mutating release assets.
+
+8. **#458 — assembled-product proof and release**
+   - Exact integrated head; full release gate; final Student and teacher regressions; phone/tablet/laptop/projector proof.
+   - Required owner-visible archetype and assembled-product approvals remain open until actual rendered evidence is shown and accepted.
+   - Preserve the production alias during ordinary work. Deploy only after intentional final owner authorization and approval, then verify the actual deployed product.
+
+## Controller / Jules operating rules
+
+- **SonarCloud/SonarQube is advisory and non-blocking**, including duplication/quality-gate failures: a confirmed real defect is blocking, not an unconfirmed scan warning. Jules' relevant existing focused and UI proof plus exact-head controller review determine readiness; zero material file changes are not implementation completion. Use `node scripts/check-merge-policy.mjs --docs` for active-policy consistency and `--evidence <receipt.json>` for a bounded pre-merge decision. These checks do not launch/repeat Jules tests, change branch protection, or auto-merge.
+
+- Re-read current `AGENTS.md` every run. Never restore the obsolete two-worker cap.
+- Dispatch every genuinely independent, dependency-ready, non-owner-gated implementation lane that current Jules capacity permits.
+- Keep overlapping files/dependency chains sequential only where necessary.
+- A completed, blocked, owner-gated or dependency-waiting lane must not reserve Jules capacity.
+- Reuse existing canonical issues/PRs before creating anything new.
+- Do not create work just to fill capacity.
+- After each merge/completion/blocker change, rescan in the same controller run and immediately dispatch newly unblocked real work.
+- Preserve source fidelity and existing working behavior.
+- No production deployment during ordinary verification/integration.
+- For visual/behavior owner approval, show the actual rendered result or directly testable preview in chat, not a GitHub page.
+
+## Definition of this plan being complete
+
+This plan is complete only when all real gaps against `PROJECT_FINISH_DEFINITION.md` are closed with objective evidence. Merged PRs, completed Jules sessions, a successful build, or a clean issue list alone do not equal product completion.
+
+## Owner orchestration update — 2026-10-07
+
+Jules implements; ChatGPT/Codex reviews and dispatches. Use EJNRCGPLm / ejnrcgplm@gmail.com exclusively. Follow the API-first, no browser orchestration, and explicit-request-only Desktop Commander policy in AGENTS.md. No authenticated direct Jules API connection was established in this controller session. Existing GitHub dispatch comments are delivery evidence, not proof of an authenticated API session or active worker. Do not infer completion from an open PR or bot acknowledgement. Preserve all exact-head merge/release gates.
