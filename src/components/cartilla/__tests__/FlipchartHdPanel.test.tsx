@@ -258,4 +258,58 @@ describe("FlipchartHdPanel — teacher hand mode and corner flip mechanics", () 
 
     expect(screen.getByTestId("flipchart-counter").textContent).toMatch(/Hoja 2 de/);
   });
+
+  it("resets state without advancing or leaving stuck layer when pointer cancel occurs during drag", () => {
+    const { container } = render(<FlipchartHdPanel lessonNumber={7} />);
+    const leftCorner = container.querySelector('[data-testid="flipchart-corner-left"]')!;
+
+    // Start pointer down and drag >50% progress
+    fireEvent.pointerDown(leftCorner, { clientX: 100, clientY: 800, pointerId: 1 });
+    fireEvent.pointerMove(leftCorner, { clientX: 100, clientY: 200, pointerId: 1 });
+
+    // Cancel pointer interaction
+    fireEvent.pointerCancel(leftCorner, { pointerId: 1 });
+
+    // Page must NOT advance
+    expect(screen.getByTestId("flipchart-counter").textContent).toMatch(/Hoja 1 de/);
+    // 3D flip layer must NOT be present
+    expect(container.querySelector('[data-testid="vertical-flip-layer"]')).toBeNull();
+  });
+
+  it("does not render 3D flip layer during reduced motion drag and respects 50% threshold on pointer up", () => {
+    const { container } = render(<FlipchartHdPanel lessonNumber={7} />);
+    const leftCorner = container.querySelector('[data-testid="flipchart-corner-left"]')!;
+
+    // 1. Drag < 50% under reduced motion
+    fireEvent.pointerDown(leftCorner, { clientX: 100, clientY: 800, pointerId: 1 });
+    fireEvent.pointerMove(leftCorner, { clientX: 100, clientY: 750, pointerId: 1 });
+    expect(container.querySelector('[data-testid="vertical-flip-layer"]')).toBeNull();
+    fireEvent.pointerUp(leftCorner, { clientX: 100, clientY: 750, pointerId: 1 });
+    expect(screen.getByTestId("flipchart-counter").textContent).toMatch(/Hoja 1 de/);
+
+    // 2. Drag >= 50% under reduced motion
+    fireEvent.pointerDown(leftCorner, { clientX: 100, clientY: 800, pointerId: 2 });
+    fireEvent.pointerMove(leftCorner, { clientX: 100, clientY: 200, pointerId: 2 });
+    expect(container.querySelector('[data-testid="vertical-flip-layer"]')).toBeNull();
+    fireEvent.pointerUp(leftCorner, { clientX: 100, clientY: 200, pointerId: 2 });
+    expect(screen.getByTestId("flipchart-counter").textContent).toMatch(/Hoja 2 de/);
+  });
+
+  it("activates focused corners with Enter and Space keys in both hand modes while respecting boundary limits", () => {
+    const { container } = render(<FlipchartHdPanel lessonNumber={7} />);
+    const leftCorner = container.querySelector('[data-testid="flipchart-corner-left"]')!;
+    const rightCorner = container.querySelector('[data-testid="flipchart-corner-right"]')!;
+
+    // Boundary check at start: going prev from page 1 using right corner in left-hand mode
+    fireEvent.keyDown(rightCorner, { key: "Enter" });
+    expect(screen.getByTestId("flipchart-counter").textContent).toMatch(/Hoja 1 de/);
+
+    // Enter on left corner (next in left-hand mode) -> Hoja 2
+    fireEvent.keyDown(leftCorner, { key: "Enter" });
+    expect(screen.getByTestId("flipchart-counter").textContent).toMatch(/Hoja 2 de/);
+
+    // Space on right corner (prev in left-hand mode) -> Hoja 1
+    fireEvent.keyDown(rightCorner, { key: " " });
+    expect(screen.getByTestId("flipchart-counter").textContent).toMatch(/Hoja 1 de/);
+  });
 });

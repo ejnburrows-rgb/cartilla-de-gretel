@@ -272,11 +272,13 @@ export function FlipchartHdPanel({ lessonNumber, accentColor, chrome = "full" }:
       audioEngine.playPageTurn(true);
       setTargetIdx(state.targetIdx);
       setFlipDirection(state.direction);
-      setIsFlipping(true);
-      setIsDragging(true);
+      if (!reducedMotion) {
+        setIsFlipping(true);
+        setIsDragging(true);
+      }
     }
 
-    if (state.soundPlayed) {
+    if (!reducedMotion && state.soundPlayed) {
       const angle = state.direction === "next" ? -180 * progress : -180 + 180 * progress;
       setFlipTransform(`rotateX(${angle}deg)`);
     }
@@ -294,6 +296,19 @@ export function FlipchartHdPanel({ lessonNumber, accentColor, chrome = "full" }:
 
     state.active = false;
     const { progress, targetIdx: targetIndex, direction } = state;
+
+    if (reducedMotion) {
+      if (progress >= 0.5 || progress < 0.04) {
+        if (targetIndex >= 0 && targetIndex < pages.length) {
+          setSelectedIdx(targetIndex);
+        }
+      }
+      setIsFlipping(false);
+      setIsDragging(false);
+      setTargetIdx(null);
+      setFlipDirection(null);
+      return;
+    }
 
     if (!isFlipping || progress < 0.04) {
       setIsFlipping(false);
@@ -324,6 +339,55 @@ export function FlipchartHdPanel({ lessonNumber, accentColor, chrome = "full" }:
         }
       }, 350);
     }
+  };
+
+  const handleCornerPointerCancel = (event: ReactPointerEvent<HTMLDivElement>) => {
+    const state = dragStateRef.current;
+    if (!state.active || state.pointerId !== event.pointerId) return;
+
+    try {
+      event.currentTarget.releasePointerCapture(event.pointerId);
+    } catch {
+      /* ignore */
+    }
+
+    state.active = false;
+    flipLockedRef.current = false;
+    if (flipTimerRef.current) {
+      clearTimeout(flipTimerRef.current);
+      flipTimerRef.current = null;
+    }
+    setIsFlipping(false);
+    setIsDragging(false);
+    setTargetIdx(null);
+    setFlipDirection(null);
+    setFlipTransform("rotateX(0deg)");
+  };
+
+  const handleCornerKeyDown = (
+    event: React.KeyboardEvent<HTMLDivElement>,
+    corner: "left" | "right",
+  ) => {
+    if (event.key !== "Enter" && event.key !== " ") return;
+
+    event.preventDefault();
+    event.stopPropagation();
+
+    if (laserPointerActive || isFlipping || flipLockedRef.current || pages.length === 0) return;
+
+    const direction: "next" | "prev" =
+      handMode === "left"
+        ? corner === "left"
+          ? "next"
+          : "prev"
+        : corner === "right"
+          ? "next"
+          : "prev";
+
+    const targetIndex = direction === "next" ? safeIdx + 1 : safeIdx - 1;
+    if (targetIndex < 0 || targetIndex >= pages.length) return;
+
+    goTo(targetIndex, direction);
   };
 
   if (pages.length === 0) {
@@ -426,13 +490,14 @@ export function FlipchartHdPanel({ lessonNumber, accentColor, chrome = "full" }:
                 <div
                   className={`fc-corner fc-corner--left${laserPointerActive ? " pointer-events-none" : ""}`}
                   role="button"
-                  tabIndex={0}
+                  tabIndex={laserPointerActive ? -1 : 0}
                   aria-label={leftCornerLabel}
                   data-testid="flipchart-corner-left"
                   onPointerDown={(e) => handleCornerPointerDown(e, "left")}
                   onPointerMove={handleCornerPointerMove}
                   onPointerUp={handleCornerPointerUp}
-                  onPointerCancel={handleCornerPointerUp}
+                  onPointerCancel={handleCornerPointerCancel}
+                  onKeyDown={(e) => handleCornerKeyDown(e, "left")}
                 >
                   <div className="fc-corner__dogear" aria-hidden />
                 </div>
@@ -440,13 +505,14 @@ export function FlipchartHdPanel({ lessonNumber, accentColor, chrome = "full" }:
                 <div
                   className={`fc-corner fc-corner--right${laserPointerActive ? " pointer-events-none" : ""}`}
                   role="button"
-                  tabIndex={0}
+                  tabIndex={laserPointerActive ? -1 : 0}
                   aria-label={rightCornerLabel}
                   data-testid="flipchart-corner-right"
                   onPointerDown={(e) => handleCornerPointerDown(e, "right")}
                   onPointerMove={handleCornerPointerMove}
                   onPointerUp={handleCornerPointerUp}
-                  onPointerCancel={handleCornerPointerUp}
+                  onPointerCancel={handleCornerPointerCancel}
+                  onKeyDown={(e) => handleCornerKeyDown(e, "right")}
                 >
                   <div className="fc-corner__dogear" aria-hidden />
                 </div>
