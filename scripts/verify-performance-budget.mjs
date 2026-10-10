@@ -11,20 +11,23 @@ const ASSETS_DIR = path.join(DIST_DIR, "assets");
 const PROOFS_DIR = path.join(ROOT_DIR, "docs", "proofs", "performance-budget");
 
 /**
- * Repeatable performance budget thresholds based on current known-good baseline on main.
- * All sizes are in bytes.
+ * Repeatable performance budget thresholds. Sizes in bytes.
  */
 export const BUDGET_LIMITS = {
-  entryJsRawMax: 500 * 1024,      // ~450.8 KB baseline
-  entryJsGzipMax: 125 * 1024,     // ~111.5 KB baseline
-  entryCssRawMax: 300 * 1024,     // ~256.2 KB baseline
-  entryCssGzipMax: 50 * 1024,     // ~41.9 KB baseline
-  reactVendorRawMax: 270 * 1024,  // ~237.9 KB baseline
-  reactVendorGzipMax: 80 * 1024,  // ~71.3 KB baseline
-  tanstackRouterRawMax: 100 * 1024, // ~85.3 KB baseline
-  tanstackRouterGzipMax: 35 * 1024, // ~27.9 KB baseline
-  totalFirstPaintJsRawMax: 850 * 1024, // ~774.0 KB baseline combined (index + vendors)
-  totalFirstPaintJsGzipMax: 230 * 1024, // ~210.7 KB baseline combined
+  // Fresh-build baseline of current main, verified 2026-10-10. The previous
+  // baseline was measured against a stale pre-existing dist/ and underreported
+  // react-vendor by ~40%; React 19.2.6 bundles ~395 KB raw / ~118 KB gzip.
+  // Budgets are fresh measured values plus ~6-8% headroom.
+  entryJsRawMax: 500 * 1024,      // ~445.7 KB fresh baseline
+  entryJsGzipMax: 125 * 1024,     // ~109.6 KB fresh baseline
+  entryCssRawMax: 300 * 1024,     // ~256 KB fresh baseline
+  entryCssGzipMax: 50 * 1024,     // ~42 KB fresh baseline
+  reactVendorRawMax: 430 * 1024,  // ~385.7 KB fresh baseline (react+react-dom-client+scheduler, React 19.2.6)
+  reactVendorGzipMax: 130 * 1024, // ~115.2 KB fresh baseline
+  tanstackRouterRawMax: 110 * 1024, // ~94.3 KB fresh baseline
+  tanstackRouterGzipMax: 40 * 1024, // ~30.2 KB fresh baseline
+  totalFirstPaintJsRawMax: 980 * 1024, // ~925.5 KB fresh baseline combined (index + vendors)
+  totalFirstPaintJsGzipMax: 270 * 1024, // ~255.1 KB fresh baseline combined
 };
 
 function getAssetSizes(fileName) {
@@ -41,14 +44,15 @@ function getAssetSizes(fileName) {
 export function runPerformanceBudgetCheck(options = {}) {
   const { autoBuild = true, writeReports = true } = options;
 
-  // 1. Ensure dist exists or build it
-  if (!fs.existsSync(DIST_DIR) || !fs.existsSync(path.join(DIST_DIR, "index.html"))) {
-    if (autoBuild) {
-      console.log("Building production assets for performance budget measurement...");
-      execSync("pnpm exec vite build", { cwd: ROOT_DIR, stdio: "inherit" });
-    } else {
-      throw new Error("dist/index.html not found. Run vite build first.");
-    }
+  // 1. Always measure a FRESH production build of current source. Reusing a
+  // pre-existing dist/ produced the original phantom baseline (a stale build
+  // reported react-vendor at ~40% under its real size), so an existing dist is
+  // never trusted here.
+  if (autoBuild) {
+    console.log("Building production assets for performance budget measurement...");
+    execSync("pnpm exec vite build", { cwd: ROOT_DIR, stdio: "inherit" });
+  } else if (!fs.existsSync(DIST_DIR) || !fs.existsSync(path.join(DIST_DIR, "index.html"))) {
+    throw new Error("dist/index.html not found. Run vite build first.");
   }
 
   const htmlContent = fs.readFileSync(path.join(DIST_DIR, "index.html"), "utf8");
