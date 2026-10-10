@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import type { WorkbookObject } from "@/content/workbook/types";
 import { fireCorrectFeedback, fireWrongFeedback, type InteractionProps } from "./shared";
 import { LivingIllustration } from "@/components/living/LivingIllustration";
@@ -12,13 +12,27 @@ import { LivingIllustration } from "@/components/living/LivingIllustration";
 export function TapSelect({ objects, onResult, onComplete }: InteractionProps) {
   const [solved, setSolved] = useState(false);
   const [wrongId, setWrongId] = useState<string | null>(null);
+  const wrongTimerRef = useRef<ReturnType<typeof setTimeout> | null>(null);
+
+  useEffect(() => {
+    return () => {
+      if (wrongTimerRef.current) {
+        clearTimeout(wrongTimerRef.current);
+      }
+    };
+  }, []);
 
   const handleTap = (object: WorkbookObject) => {
     if (solved) return;
+    if (wrongTimerRef.current) {
+      clearTimeout(wrongTimerRef.current);
+      wrongTimerRef.current = null;
+    }
     const correct = Boolean(
       (object.interaction?.data as { correct?: boolean } | undefined)?.correct,
     );
     if (correct) {
+      setWrongId(null);
       setSolved(true);
       fireCorrectFeedback();
       onResult?.({ objectId: object.id, result: "correct" });
@@ -27,7 +41,10 @@ export function TapSelect({ objects, onResult, onComplete }: InteractionProps) {
       setWrongId(object.id);
       fireWrongFeedback();
       onResult?.({ objectId: object.id, result: "wrong" });
-      setTimeout(() => setWrongId(null), 400);
+      wrongTimerRef.current = setTimeout(() => {
+        setWrongId(null);
+        wrongTimerRef.current = null;
+      }, 400);
     }
   };
 
