@@ -61,6 +61,24 @@ Anything under `docs/archive/` is historical reference only and must not overrid
 - Unused Jules capacity is not a reason to invent work: concurrency must come from real finish gaps already supported by the canonical plan/issues.
 - Other active documents may describe current allocation or sequencing, but they must not define a competing numeric concurrency rule.
 
+
+### Continuous development, testing and visual polishing — NON-BLOCKING RULE
+
+Every controller, supervisor, watchdog, dispatcher, reviewer and implementation worker must **check and account for three streams** when planning, assigning, recovering, reviewing or handing off material work:
+
+1. **Build / repair:** the next small, dependency-ready implementation slice.
+2. **Focused testing:** verify completed slices early, including interaction/regression tests for affected behavior.
+3. **Visual polishing / proof (only for visible UI):** review actual rendered results and fix confirmed layout, usability, motion or responsive defects as soon as a slice is available.
+
+**Act, do not just list:** when a genuine independent test or polish slice is ready, give it a bounded owner, existing issue/PR, relevant files and concrete proof target; activate it alongside implementation if worker capacity and file ownership allow. Otherwise perform its narrow check in the owning worker session or state the real dependency and next trigger. Repeat this assessment when material work completes or another lane unblocks; never let one stuck task idle unrelated ready work.
+
+**Every material task assignment and handoff** must briefly state what is being built, what is being tested now/next, and what visual proof/polish is running/next (or **not applicable**, with a short reason). State owner, already-verified proof and the next eligible action. This is a concise coordination note, not a new document, dashboard, approval request or reporting ceremony.
+
+**Avoid obstruction:** Do NOT require three agents or three simultaneous tasks, invent work, create duplicate/overlapping Jules sessions, exceed actual provider capacity, add a fixed concurrency limit, or wait for optional tooling/reviews. Follow existing issue ownership/dependencies; serialize overlapping files. Do not rerun unchanged checks or attach the full release suite to every worker. A focused test and representative UI screenshot should follow the earliest working slice when useful; final integrated release verification remains a separate finish gate.
+
+**Failure recovery:** If a local runner demonstrably cannot complete work (e.g. repeated out-of-memory, hung browser or quota/tool failure), stop futile repeated retries and promptly hand the bounded remainder to an available authorized Jules worker or the next proven safe option. Preserve existing material work and provide an evidence-backed handoff, not an unsupported claim of delegation. Do not stop other independent work while recovering a failed lane.
+
+
 ### Precedence: two different questions
 
 **WHAT CURRENTLY EXISTS**
@@ -131,6 +149,7 @@ The handoff must state, when applicable:
 - checks/proof actually completed;
 - blocker, if any;
 - next action and owner of that next action.
+- continuous build / focused test / visual polish status for the affected slice (or `not applicable`), including an assigned/ready next action; this is a lightweight note and never delays independent work.
 
 Empty commits, timestamp-only changes, metadata churn, repeated test reruns, bot acknowledgements, open PRs, and head-SHA changes with 0 material files are NOT progress and must be reported as such.
 
