@@ -35,6 +35,7 @@ function completePage(pageNumber: number) {
 const next = () => screen.getByRole("button", { name: /Siguiente|Terminar lección/ });
 const back = () => screen.getByRole("button", { name: /Anterior/ });
 const current = () => Number(document.querySelector("[data-native-page]")?.getAttribute("data-native-page"));
+const finishTurn = () => act(() => vi.advanceTimersByTime(2500));
 
 beforeEach(() => {
   vi.useFakeTimers();
@@ -95,6 +96,7 @@ describe("NativeLessonViewer completion gate", () => {
     complete(required[required.length - 1]!.id);
     expect(next().hasAttribute("aria-disabled")).toBe(false);
     fireEvent.click(next());
+    finishTurn();
     expect(current()).toBe(24);
   });
 
@@ -102,10 +104,12 @@ describe("NativeLessonViewer completion gate", () => {
     render(<NativeLessonViewer pages={PAGES} chapterLabel="Lección 8" lessonNumber={8} />);
     completePage(23);
     fireEvent.click(next());
+    finishTurn();
     expect(current()).toBe(24);
     expect(next().getAttribute("aria-disabled")).toBe("true");
     expect((back() as HTMLButtonElement).disabled).toBe(false);
     fireEvent.click(back());
+    finishTurn();
     expect(current()).toBe(23);
     // completion persisted: coming back does not re-lock the finished page
     expect(next().hasAttribute("aria-disabled")).toBe(false);
@@ -165,6 +169,7 @@ describe("real workbook activities feed the gate through their own events", () =
     }
     expect(next().hasAttribute("aria-disabled")).toBe(false);
     fireEvent.click(next());
+    finishTurn();
     expect(current()).toBe(25);
   });
   it("Gretel's independent retry does not erase an already completed page activity", () => {

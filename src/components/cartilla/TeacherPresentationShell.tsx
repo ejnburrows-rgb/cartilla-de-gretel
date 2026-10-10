@@ -4,7 +4,9 @@
  * light and finger-friendly. Used by /cartilla/presentar/$n only.
  */
 import { useState, useEffect, useRef, type CSSProperties, type MouseEvent, type ReactNode } from "react";
-import { Maximize2, Minimize2, MousePointerClick, X, Focus } from "lucide-react";
+import { Maximize2, Minimize2, MousePointerClick, X, Focus, Hand } from "lucide-react";
+import { getTeacherHandMode, setTeacherHandMode, type TeacherHandMode } from "@/lib/teacher-hand-mode";
+import { TeacherPresentationContext } from "@/lib/teacher-presentation-context";
 import "@/styles/flipchart-presenter.css";
 
 interface TeacherPresentationShellProps {
@@ -37,8 +39,14 @@ export function TeacherPresentationShell({
   const [laserPointer, setLaserPointer] = useState(false);
   const [laserPos, setLaserPos] = useState({ x: -100, y: -100 });
   const [focusMode, setFocusMode] = useState(false);
+  const [handMode, setHandModeState] = useState<TeacherHandMode>(() => getTeacherHandMode());
   const [isIdle, setIsIdle] = useState(false);
   const idleTimerRef = useRef<ReturnType<typeof setTimeout> | null>(null);
+
+  const handleSetHandMode = (mode: TeacherHandMode) => {
+    setTeacherHandMode(mode);
+    setHandModeState(mode);
+  };
 
   const toggleFullscreen = () => {
     if (!document.fullscreenElement) {
@@ -112,6 +120,13 @@ export function TeacherPresentationShell({
   const focusClass = focusMode && isIdle ? " is-focus" : "";
 
   return (
+    <TeacherPresentationContext.Provider
+      value={{
+        laserPointerActive: laserPointer,
+        handMode,
+        setHandMode: handleSetHandMode,
+      }}
+    >
     <div
       className={`fc-presenter${focusClass}${bare ? " is-bare" : ""}`}
       style={shellStyle}
@@ -153,6 +168,19 @@ export function TeacherPresentationShell({
           </button>
           <button
             type="button"
+            onClick={() => handleSetHandMode(handMode === "left" ? "right" : "left")}
+            className="fc-presenter__btn"
+            aria-label={`Modo docente: ${handMode === "left" ? "Mano izquierda" : "Mano derecha"}`}
+            title={`Modo docente: ${handMode === "left" ? "Mano izquierda" : "Mano derecha"}`}
+            data-testid="hand-mode-toggle"
+          >
+            <Hand className="w-4 h-4" aria-hidden />
+            <span className="hidden sm:inline">
+              {handMode === "left" ? "Mano Izq" : "Mano Der"}
+            </span>
+          </button>
+          <button
+            type="button"
             onClick={() => setFocusMode((v) => !v)}
             className={`fc-presenter__btn${focusMode ? " is-active" : ""}`}
             aria-pressed={focusMode}
@@ -183,5 +211,6 @@ export function TeacherPresentationShell({
         <div className="fc-presenter__stage">{children}</div>
       </main>
     </div>
+    </TeacherPresentationContext.Provider>
   );
 }
