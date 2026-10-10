@@ -153,7 +153,7 @@ export async function speakAsGretel(text: string, handlers: GretelVoiceHandlers 
     return;
   }
 
-  if (activeProviderConfig.type === "custom" && activeProviderConfig.speakFn) {
+  if (activeProviderConfig.type !== "browser-tts" && activeProviderConfig.speakFn) {
     const token = claimSpeech("gretel");
     let started = false;
     let ended = false;
@@ -173,7 +173,10 @@ export async function speakAsGretel(text: string, handlers: GretelVoiceHandlers 
     registerSpeechCleanup(token, finish);
     start();
     try {
+      lastSpokenVoiceName = `${activeProviderConfig.name} (${activeProviderConfig.type})`;
       await activeProviderConfig.speakFn(text, { onStart: start, onEnd: finish });
+    } catch {
+      /* handled gracefully */
     } finally {
       finish();
     }

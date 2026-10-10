@@ -213,6 +213,18 @@ function VoiceAudition() {
           </div>
         )}
 
+        <div className="bg-stone-50 border border-stone-200 rounded-2xl p-6 text-sm text-stone-600 space-y-3 mb-8">
+          <div className="flex items-center justify-between">
+            <p className="font-black text-stone-800">Estado de preparación técnica</p>
+            <span className="px-3 py-1 rounded-full text-xs font-bold bg-emerald-100 text-emerald-800">
+              ✓ Abstracción lista (One-Config Seam)
+            </span>
+          </div>
+          <p className="text-xs text-stone-500">
+            Toda la app utiliza la abstracción unificada <code className="bg-stone-200 px-1 py-0.5 rounded text-stone-800">speakAsGretel</code>. Cambiar a una voz premium aprobada por el propietario no requiere modificar la lógica de las lecciones.
+          </p>
+        </div>
+
         <div className="bg-stone-50 border border-stone-200 rounded-2xl p-6 text-sm text-stone-600 space-y-2">
           <p className="font-black text-stone-800">Honestidad, no promesas:</p>
           <p>
