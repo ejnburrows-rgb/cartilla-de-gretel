@@ -48,7 +48,7 @@ For curriculum, wording, page order, exercise content, and source-page structure
 
 Current product-completion execution remains intentionally parallel where scopes are isolated.
 
-As of 2026-10-04, current open controller PRs include:
+Historical October 4 work snapshot (NOT a live open-PR list; check GitHub for today's open candidates):
 - #476 — shared student interaction kernel + Workbook p1/p2;
 - #477 — Gretel behavior and motion discipline;
 - #478 — welcome-media code integration; the owner-supplied 5–6 second silent MP4 remains an external dependency;
