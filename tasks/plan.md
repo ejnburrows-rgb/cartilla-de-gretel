@@ -58,20 +58,22 @@ Do not confuse printed page numbers with PDF file indices. Historical mapping fi
 
 ### Final gates after dependencies are verified and integrated
 
-4. **#450 — final Student Workbook regression**
-   - Verify all recurring families, save/restore, completion, keyboard, reduced motion, source fidelity, responsive fit, page turns, Gretel, and large pencil/eraser acceptance including negative regression proof.
-   - Reuse existing coverage first; add only missing meaningful checks. Do not weaken expected behavior to fit a candidate.
+4. **#450 & #457 — final Student Workbook & Teacher/Flip Chart regression (VERIFIED & CLOSED)**
+   - Merged into `main` via #641 (#450) and #642 (#457). Full 8-archetype coverage, save/restore, completion gating, device fit, source-blocked pages 86–87, pointer cancel, reduced motion, and keyboard navigation verified.
 
-5. **#457 — final teacher / Flip Chart validation**
-   - Run alongside #450 only when runtime/file ownership permits.
-   - Verify teacher navigation/guides, printing/reports, source art/text/page order, projector fit, hand modes, interruption/cancellation, keyboard/reduced motion, and assembled turns.
-   - A bounded teacher-note fix or preflight PR does not satisfy this whole gate.
+5. **#579 & #588 — foreground artwork intake tooling & final owner art drop**
+   - #579 in flight with Jules: deterministic intake validation tooling and dry-run report (`scripts/validate-owner-art-package.mjs`, `tests/owner-art-intake.test.mjs`, `docs/OWNER_ART_INTAKE.md`).
+   - #588 (owner-gated): integrate final supplied owner foreground art drop using the verified intake tool.
 
-6. **Resolve final premium Gretel voice/TTS**
-   - #608 prepares the existing architecture only; it does not select the final voice.
-   - Present evidence-backed quality/cost/privacy choices for the owner's explicit decision. Do not buy or silently choose a service.
+6. **#570 & #589 — resolve final premium Gretel voice/TTS**
+   - #636 (closing #570) verified and merged: technical abstraction seam, single speech ownership, volume/mute enforcement, `/cartilla/voces` preview.
+   - #589 (owner-gated): owner decision on candidate voice (Cartilla local neural voice vs. cloud edge TTS).
 
-7. **#458 — assembled-product proof and release**
+7. **#389 / #587 — trustworthy direct-cloud release harness & clean release baseline**
+   - Cross-platform launcher verified on `main`. Clean cloud verification checkout runs `pnpm verify:release`.
+   - Records exact typecheck, Vitest, build, and Playwright execution counts without mutating release assets.
+
+8. **#458 — assembled-product proof and release**
    - Exact integrated head; full release gate; final Student and teacher regressions; phone/tablet/laptop/projector proof.
    - Required owner-visible archetype and assembled-product approvals remain open until actual rendered evidence is shown and accepted.
    - Preserve the production alias during ordinary work. Deploy only after intentional final owner authorization and approval, then verify the actual deployed product.
