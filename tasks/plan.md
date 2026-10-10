@@ -10,7 +10,7 @@
 - CURRENT `main` must be resolved live from GitHub at the start of every session; do not persist a main SHA here because merging this file would immediately make it stale.
 - Cross-session coordination is now governed by the mandatory live-coordination contract in `AGENTS.md`: every material worker/controller change must leave a structured handoff on the existing issue/PR, and controllers refresh this file when lane state/order materially changes.
 - The eight canonical Student Workbook archetypes remain encoded page-by-page in `src/data/workbook-archetypes.ts`.
-- Live GitHub confirms merged lanes: #531 (Gretel), #532 (page turns), #533 (PDF precache/provenance), #534 (teacher-route performance), #537 (art classification), #538 (Pencil Line + clean Workbook integration), #551 (Workbook fidelity candidate reconciliation), #618 (Page 1 picture motion polish), #624 (perf image loading regressions), #625 (student route smoke), #626 (#616 Workbook page turns + #617 Flip Chart corner flips), #627 (art audit timeout), #628 (Flip Chart pre-final regression, closing #571), #630 (Student audio/mute behavior, closing #567), #631 (Workbook device readiness preflight, closing #561), #632 (Teacher + Flip Chart classroom regression, closing #562), #633 (Flip Chart picture motion pilot, closing #615), #634 (Class Roster accessibility), #636 (Gretel voice abstraction seam, closing #570), #637 (perf budget React 19 recalibration), #638 (owner-proof capture harness, closing #585; #597 closed as superseded), #641 (Workbook assembled regression suite, closing #450), #642 (Flip Chart corner cancel, reduced motion and keyboard navigation, closing #457), and #643 (Living-art motion regression proof, closing #560). Do not dispatch or merge those lanes again.
+- Live GitHub confirms merged lanes: #531 (Gretel), #532 (page turns), #533 (PDF precache/provenance), #534 (teacher-route performance), #537 (art classification), #538 (Pencil Line + clean Workbook integration), #551 (Workbook fidelity candidate reconciliation), #618 (Page 1 picture motion polish), #624 (perf image loading regressions), #625 (student route smoke), #626 (#616 Workbook page turns + #617 Flip Chart corner flips), #627 (art audit timeout), #628 (Flip Chart pre-final regression, closing #571), #630 (Student audio/mute behavior, closing #567), #631 (Workbook device readiness preflight, closing #561), #632 (Teacher + Flip Chart classroom regression, closing #562), #633 (Flip Chart picture motion pilot, closing #615), #634 (Class Roster accessibility), #636 (Gretel voice abstraction seam, closing #570), #637 (perf budget React 19 recalibration), #638 (owner-proof capture harness, closing #585; #597 closed as superseded), #641 (Workbook assembled regression suite, closing #450), #642 (Flip Chart corner cancel, reduced motion and keyboard navigation, closing #457), #643 (Living-art motion regression proof, closing #560), and #646 (owner foreground-image intake tooling, closing #579). Do not dispatch or merge those lanes again.
 - #539 is closed as superseded: its frozen head `802d237aca9f439dde062402caac8a092eaf9f42` was deliberately preserved in #538.
 - #553 is the owner-locked large close-up pencil/eraser baseline. #516 is closed unmerged and superseded; do not restore it. The small StudentCursor is a separate approved pointer, not an obsolete marking actor.
 - #389 remains the dedicated direct-cloud release-verification lane. The `playwright.config.ts` cross-platform launcher is verified resolved on `main` (process.platform === "win32" conditional).
@@ -18,8 +18,9 @@
 - #450 is verified and closed via #641: full assembled Workbook regression suite passing across all 8 archetypes, save/restore, completion gating, device matrix, and source-blocked pages 86–87.
 - #457 is verified and closed via #642: pointer cancel resets without turning, reduced-motion drag omits 3D transform, and Enter/Space keyboard navigation operates cleanly.
 - #560 is verified and closed via #643: Page 1 and Flip Chart Lesson 7 living motion verified with natural `-alive.svg` SVGs and static fallback under reduced motion.
+- #579 is verified and closed via #646: deterministic owner foreground-image intake tooling, sanity validation, and dry-run report.
 - Active independent Jules implementation lanes in flight:
-  - #579: Owner foreground-image intake tooling and dry-run validation (dispatched)
+  - #587: Current-main clean release verification baseline (dispatched)
 - #540 remains a timing diagnosis, not a runtime repair lane. Fresh current-main focused verification passed all 62 tests across 7 suites, including the p24 completion gate; this is not whole-product browser/release proof.
 - Final premium Gretel voice/TTS technical abstraction is verified and merged (#636); owner choice among candidates (#589) remains open.
 - Welcome video remains non-blocking.
@@ -51,9 +52,9 @@ Do not confuse printed page numbers with PDF file indices. Historical mapping fi
    - Merged into `main` via #626, #618, and #633. Teacher hand mode, corner flips, Workbook real-paper page turns, Page 1 continuous motion, and Lesson 7 Flip Chart picture motion pilot are verified on `main`.
 
 3. **Current Pre-Final Regressions & Active Implementation batch (in flight)**
-   - Pre-final regressions verified and merged: #571 (#628), #567 (#630), #561 (#631), #562 (#632), #570 (#636), #585 (#638), #450 (#641), #457 (#642), #560 (#643).
+   - Pre-final regressions verified and merged: #571 (#628), #567 (#630), #561 (#631), #562 (#632), #570 (#636), #585 (#638), #450 (#641), #457 (#642), #560 (#643), #579 (#646).
    - In flight with Jules:
-     - #579: Owner foreground-image intake ready for final uploads.
+     - #587: Current-main clean release verification baseline.
    - Final foreground-art correctness stays in #454. Classification or a green Sonar badge alone cannot close it.
 
 ### Final gates after dependencies are verified and integrated
@@ -62,7 +63,7 @@ Do not confuse printed page numbers with PDF file indices. Historical mapping fi
    - Merged into `main` via #641 (#450) and #642 (#457). Full 8-archetype coverage, save/restore, completion gating, device fit, source-blocked pages 86–87, pointer cancel, reduced motion, and keyboard navigation verified.
 
 5. **#579 & #588 — foreground artwork intake tooling & final owner art drop**
-   - #579 in flight with Jules: deterministic intake validation tooling and dry-run report (`scripts/validate-owner-art-package.mjs`, `tests/owner-art-intake.test.mjs`, `docs/OWNER_ART_INTAKE.md`).
+   - #579 verified and merged via #646: deterministic intake validation tooling and dry-run report (`scripts/validate-owner-art-package.mjs`, `tests/owner-art-intake.test.mjs`, `docs/OWNER_ART_INTAKE.md`).
    - #588 (owner-gated): integrate final supplied owner foreground art drop using the verified intake tool.
 
 6. **#570 & #589 — resolve final premium Gretel voice/TTS**
