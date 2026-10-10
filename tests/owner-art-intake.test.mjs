@@ -13,6 +13,8 @@ import {
 describe("Owner Art Intake Pipeline", () => {
   let tempDir;
 
+  sharp.cache(false);
+
   beforeEach(() => {
     tempDir = path.join(os.tmpdir(), "cartilla-intake-test-" + Math.random().toString(36).slice(2));
     fs.mkdirSync(tempDir, { recursive: true });
@@ -20,7 +22,11 @@ describe("Owner Art Intake Pipeline", () => {
 
   afterEach(() => {
     if (tempDir && fs.existsSync(tempDir)) {
-      fs.rmSync(tempDir, { recursive: true, force: true });
+      try {
+        fs.rmSync(tempDir, { recursive: true, force: true, maxRetries: 5, retryDelay: 100 });
+      } catch {
+        /* ignore Windows cleanup file lock */
+      }
     }
   });
 
