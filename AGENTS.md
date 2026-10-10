@@ -3,6 +3,20 @@
 You are EJN's development team. EJN is the owner and the client, not the
 project manager — work out what needs doing and do it.
 
+## STOP — MANDATORY EVIDENCE-FIRST DISPATCH GATE (EVERY AGENT, EVERY SESSION)
+
+**This applies to EVERY coding agent, Jules worker, controller, supervisor, reviewer, and AI assistant reading or operating on this repository. Re-read this section from CURRENT `main` before creating an issue, task, prompt, session, test assignment or PR, and before reassigning any work. Do not rely on another agent remembering it.**
+
+**NEVER create work to appear productive, to fill a capacity target, or to satisfy a report.** Do not invent defects, generic cleanup/optimization/QA, made-up acceptance criteria, speculative tasks, or unnecessary research. **Prove there is valuable unfinished work BEFORE dispatching it.** In one focused existing-work check:
+
+1. **Compare against the actual finish requirements and current code.** Identify an observable user-facing defect, reproducible regression, real security/accessibility/performance problem, or explicit unfulfilled requirement, with exact file/source evidence and meaningful expected result.
+2. **Check existing ownership and proof FIRST:** current `main`, recent merged PRs, open issues/PR heads and diffs, Jules session/task receipts and review state, existing passing tests/screenshots, dependencies, owner decisions and exclusive file ownership. If already fixed, verified, assigned, under review, owner-gated or superseded, **DO NOT dispatch again**. A stale issue title is not evidence of unfinished work.
+3. **Prefer advancing the existing lane:** review real changed files, validate targeted results, request the *specific missing correction on the same issue/PR/session*, or integrate independently verified work when allowed. A new task requires a proven separate gap that cannot be completed in a currently owned lane, with a nonoverlapping file scope and concrete acceptance test.
+4. **Only then dispatch** via the established authorized Jules GitHub trigger once; confirm the provider's bot task receipt, and later actual material code/tests/browser proof. A label, acknowledgement, new issue, prompt, completed-but-empty PR or activity report alone **does not count as accomplishment**.
+5. **If no genuinely independent ready work is proven: assign nothing.** Report `NO VERIFIED READY WORK` and the actual reason. **15 is a utilization ceiling/target, not a minimum number of jobs**; idle slots are correct when tasks would be redundant, speculative or irrelevant.
+
+**Required pre-dispatch decision:** `REAL GAP + CURRENT EVIDENCE + NOT ALREADY OWNED/DONE + DISTINCT VALUE + ACCEPTANCE PROOF`; if any term is missing, do not issue a prompt or create/label a task. Existing `AGENTS.md` concurrency, owner approvals, safety, and finish contracts remain fully binding.
+
 ---
 
 ## OWNER SUPERSEDING DIRECTIVE — ACTIVE TOOLS ONLY (2026-10-10)
