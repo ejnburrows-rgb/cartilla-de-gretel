@@ -177,7 +177,7 @@ Jules should use its environment to prove its **own bounded change** with target
 
 Jules is **not required to consume its session running the entire project release gate** before handing back a candidate implementation. The controller owns:
 - independent diff review;
-- SonarQube reconciliation;
+- advisory SonarCloud findings review (non-blocking);
 - full `pnpm verify:release`;
 - cross-lane regression verification;
 - final browser/device proof;
@@ -194,35 +194,9 @@ The controller may ask Jules to run broader verification when that is itself the
 - Jules never self-merges and never deploys production.
 - Owner intervention is required only for a genuine owner-only decision, asset, authentication step, or irreversible action.
 
-### MANDATORY DUAL REVIEW — meaningful code/behavior PRs
+### CURRENT OWNER MERGE POLICY (2026-10-10) — SONAR ADVISORY
 
-Before any meaningful code, behavior, security, data, or application-asset PR is merged, the exact current PR head must pass two independent review layers:
-
-1. **Controller/assistant review:** independently inspect the actual PR diff against the issue requirements and CURRENT canonical Cartilla files. Jules self-review does not count.
-2. **SonarQube Cloud PR analysis:** use the connected SonarQube Cloud project for `ejnburrows-rgb/cartilla-de-gretel` on the free plan. CodeRabbit is not required.
-
-Reconcile SonarQube findings rather than accepting them mechanically. Confirm real issues, identify false positives/noise, and require fixes for every real blocker or major regression. Existing baseline findings on `main` do not automatically block a scoped PR; the merge gate is new/worsened PR-introduced risk plus any substantive regression independently confirmed by the controller.
-
-After any substantive fix or any head-SHA change, repeat BOTH the controller review and SonarQube PR analysis against the new head. Then rerun task-specific verification and complete direct-cloud `pnpm verify:release` for application code/assets.
-
-#### Current-main gate for existing PRs
-
-Before controller review, Sonar analysis, task proof, or release qualification of an existing PR:
-1. compare the PR head to CURRENT `main`;
-2. if it is behind, diverged, or conflicting, reconcile it first;
-3. only then run exact-head controller review, Sonar, task proof, and release qualification;
-4. any head-SHA change invalidates prior exact-head proof.
-
-Before merge, add a concise PR proof comment containing:
-- reviewed head SHA;
-- controller-independent review result;
-- SonarQube Quality Gate/result and relevant issue counts/severities for that PR/head;
-- confirmed, false-positive, and deferred Sonar findings;
-- exact task-specific verification evidence;
-- exact `pnpm verify:release` result when required;
-- the exact statement: `DUAL REVIEW VERIFIED FOR THIS HEAD`.
-
-Merge only when the PR head SHA exactly matches the dual-reviewed SHA. Documentation-only or trivial metadata-only PRs may skip SonarQube when they contain no executable behavior/code/security/data change, but still require the controller's independent review.
+For meaningful code changes independently review the diff, current `main` instructions, valid Jules tests/UI proof, scope and owner approval. SonarCloud is available but advisory/non-blocking, including failed quality gate or duplication warnings. Fix only independently confirmed serious defects. Current `main` governs any stale branch-specific policy. Do not repeat already-valid Jules work.
 
 ---
 
