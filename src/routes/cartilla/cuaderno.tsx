@@ -61,7 +61,7 @@ function ReconstructedWorkbook() {
           pages={pages}
           chapterLabel="Cuaderno completo"
         />
-        <div className="mx-auto flex w-full max-w-[640px] justify-end pt-4">
+        <div className="student-workbook-gretel-guide">
           <GretelPresence autoIntro={false} bookMode hideChrome />
         </div>
       </div>
