@@ -25,16 +25,16 @@ This directory documents the current-main rendered verification proof for Workbo
 
 ## Screenshot Evidence
 
-- `archetype-5-laptop.png` — Archetype 5 on Laptop (1280x800)
+- `archetype-5-laptop.png` — Archetype 5 on Laptop (1280x800). Regenerate by running the spec: the original committed capture was taken before the page rendered (blank canvas) and was removed; the spec now waits for the Workbook surface first.
 - `archetype-5-tracing-drawn.png` — Archetype 5 with tracing and drawn canvas strokes
 - `archetype-5-tablet.png` — Archetype 5 on Tablet (820x1180)
 - `archetype-5-phone.png` — Archetype 5 on Phone (390x844)
-- `archetype-5-reduced-motion.png` — Archetype 5 with reduced-motion media query
+- `archetype-5-reduced-motion.png` — Archetype 5 with reduced-motion media query. Regenerate by running the spec: the original capture was byte-identical to the phone shot (taken pre-resize) and was removed.
 - `archetype-6-laptop.png` — Archetype 6 on Laptop (1280x800)
 - `archetype-6-syllable-selected.png` — Archetype 6 with selected syllable circle overlay
 - `archetype-6-tablet.png` — Archetype 6 on Tablet (820x1180)
 - `archetype-6-phone.png` — Archetype 6 on Phone (390x844)
-- `archetype-6-reduced-motion.png` — Archetype 6 with reduced-motion media query
+- `archetype-6-reduced-motion.png` — Archetype 6 with reduced-motion media query. Regenerate by running the spec: the original capture was byte-identical to the phone shot (taken pre-resize) and was removed.
 
 ## Exact Defects / Observations Report
 
