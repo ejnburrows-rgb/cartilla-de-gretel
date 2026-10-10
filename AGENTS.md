@@ -104,7 +104,7 @@ Every controller, supervisor, watchdog, dispatcher, reviewer and worker must **c
 
 **Act without delay, never repeat:** compare existing proof to its relevant code/fixtures/test/config/browser inputs, not blindly to the global main SHA. Unrelated docs-only commits or unrelated changes do NOT invalidate still-applicable focused evidence. If an affected behavior changed, a real failure emerged, or a distinct final release check is required, give only that missing test or UI-proof slice to Jules on its EXISTING lane with exact source commit, missing coverage, and a clear expected result. If existing valid focused test/screenshots cover it, record `DONE — REUSE PROOF` and move on; no duplicate session. A PR with zero material file changes or only a Jules 'done' claim is NOT implementation completion: reconcile the already-existing owner/work branch and demand actual diff or an explicit verified no-change finding.
 
-**Compact handoff for every material assignment:** state what is being built; what **already passed** with exact source/revision; what additional Jules test or UI polish (if any) remains; Jules task/owner and next action. Write `DONE — REUSE PROOF` or `NOT APPLICABLE` instead of scheduling redundant work. No three-agent mandate, no new gate, no fixed worker limit, no duplicated Jira/GitHub tasks, no mandatory full-suite run on every worker, no waiting for optional reviewers or tools.
+**Compact handoff for every material assignment:** state what is being built; what **already passed** with exact source/revision; what additional Jules test or UI polish (if any) remains; Jules task/owner and next action. Write `DONE — REUSE PROOF` or `NOT APPLICABLE` instead of scheduling redundant work. No three-agent mandate, no additional reviewer/test gate beyond the required evidence-first dispatch decision, no obsolete two-worker cap, no duplicated Jira/GitHub tasks, no mandatory full-suite run on every worker, no waiting for optional reviewers or tools.
 
 **Fail fast without blocking:** if a non-Jules executor encounters repeated memory/time/browser failures, stop futile retries and give Jules the surviving work and concise reproduction/evidence. If Jules is unavailable, rate-limited or has a failed run, leave exactly one pending check on its existing lane, keep unrelated implementation/coordination moving, and do not present unverified work as tested or merge/release work whose required evidence is missing. Diagnose once and correct the existing task; do not create an endless redispatch loop. Only exceptionally long, specifically justified agentic tests may use another authorized test worker.
 
@@ -226,7 +226,7 @@ These tools support the repository rules; they do not override `AGENTS.md`, `PRO
 
 ### EXTERNAL CODING AGENT ORCHESTRATION — JULES-FIRST FOR PARALLEL IMPLEMENTATION
 
-Jules is an approved primary implementation worker for Cartilla because the owner has available Jules capacity. Use that capacity aggressively for **parallel, isolated coding work** instead of leaving it idle.
+Jules is an approved primary implementation worker for Cartilla because the owner has available Jules capacity. Use verified capacity for **parallel, isolated coding work that passes the evidence-first dispatch gate**; do not invent tasks or treat idle slots as evidence of missing assignments.
 
 Jules is a worker, not the project controller. The controller owns scope selection, dependency ordering, review, release verification, merges, and recovery.
 
@@ -240,7 +240,7 @@ Jules is a worker, not the project controller. The controller owns scope selecti
 - Reuse the existing issue/branch/PR when one already exists. Do not create duplicate competing work.
 - Give each session explicit owned files/behavior and explicit forbidden scope.
 - Start from CURRENT `main` and current repo instructions. Older task snapshots, prior bot comments, and archived docs never override current truth.
-- For Student Workbook visual work, Jules must preserve the owner-approved clean digital-canvas distinction: dense learner exercises do not use full scenic wallpaper; existing scenic assets stay preserved for the teacher Flip Chart and other explicitly approved contexts. Do not delete/regenerate those assets or simplify the Flip Chart as part of a Workbook UI task.
+- For Student Workbook visual work, Jules must preserve the owner-approved clean digital-canvas distinction: dense learner exercises do not use full scenic wallpaper; existing scenic assets remain preserved on disk but are **not** default teacher Flip Chart backgrounds; the Flip Chart uses clean paper while retaining source instructional foreground scenes. Do not delete/regenerate assets or alter the Flip Chart as part of a Workbook UI task.
 - For Student Workbook visual realignment, Jules must read and obey `WORKBOOK_ARCHETYPE_STANDARD.md`. The owner has approved the eight recurring archetype designs as the visual system; the old Page-1-only golden gate is superseded. Page 1 remains the representative source for archetype 1, not a global blocker. Reuse one canonical implementation per archetype, preserve each exact physical source page, keep pages 86–87 source-blocked, and do not absorb #497 living-motion debugging or the closed historical #454 color-remediation work or the owner-gated final-art #588 lane into archetype work.
 
 #### Early checkpoint and recovery contract
@@ -341,7 +341,7 @@ digitally.
 The three layers:
 - **STRUCTURE** (what goes where) → MUST match the book
 - **CONTENT** (text, images) → MUST match the book. Approved foreground art stays source-faithful; only the narrow source-preserving color-transfer exception in `ASSET_FIDELITY_POLICY.md` is allowed. Scenic background generation, when explicitly approved, follows `repo.md`.
-- **PRESENTATION** (styling, interactions) → MODERN digital. For recurring Student Workbook exercise families, the owner-locked presentation is defined by `WORKBOOK_ARCHETYPE_STANDARD.md`; agents do not invent a competing family style. Dense Student Workbook exercises use the clean digital canvas rather than full scenic wallpaper; the teacher Flip Chart may retain richer source-appropriate scenery.
+- **PRESENTATION** (styling, interactions) → MODERN digital. For recurring Student Workbook exercise families, the owner-locked presentation is defined by `WORKBOOK_ARCHETYPE_STANDARD.md`; agents do not invent a competing family style. Dense Student Workbook exercises use the clean digital canvas rather than full scenic wallpaper; the teacher Flip Chart uses clean paper without default background-image scenery while preserving original foreground scenes.
 
 **Recognition test:** Would the teacher recognize this as that page from the book? If yes on structure, you got it right — even if the visual style is modern.
 
@@ -374,7 +374,7 @@ modern, interactive digital experience.
 Match the same layout structure, text placement, exercise flow, illustration
 placement, and page sequence. Modern digital presentation is welcome.
 
-For dense learner exercises, the active Workbook surface is the owner-approved clean digital canvas: do not render a full scenic image as wallpaper behind the exercise and do not use opaque white contrast slabs that make the page read like a pasted print artifact. Preserve any existing scenic assets rather than deleting or regenerating them; they remain available for the teacher Flip Chart and any other explicitly approved context.
+For dense learner exercises, the active Workbook surface is the owner-approved clean digital canvas: do not render a full scenic image as wallpaper behind the exercise and do not use opaque white contrast slabs that make the page read like a pasted print artifact. Preserve existing scenic assets on disk instead of deleting or regenerating them; they may be used only in an explicitly owner-approved context, not as the teacher Flip Chart's default background.
 
 ### Images are source-locked
 The approved/corrected/cropped book images are the artwork.
