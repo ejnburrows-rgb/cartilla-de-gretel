@@ -19,6 +19,7 @@ import { readLearnerResume, saveLearnerResume } from "@/lib/learner-resume";
 import { gretelEvent } from "@/lib/gretel-bus";
 
 import { NativeLessonViewer } from "@/components/StudentBook/NativeLessonViewer";
+import { GretelPresence } from "@/components/gretel/GretelPresence";
 import { buildPageArray } from "@/utils/buildPageArray";
 import { GretelCinematic } from "@/components/gretel/GretelCinematic";
 import { getCompletionCinematic, getLessonCinematic, type GretelCinematic as GretelCinematicSpec } from "@/content/gretel-cinematics";
@@ -202,6 +203,7 @@ export function Leccion() {
           )}
           <GardenScene ref={gardenRef}>
             {progressReady && (
+              <>
               <NativeLessonViewer
                 key={`${n}:${scope}`}
                 pages={pages}
@@ -211,6 +213,10 @@ export function Leccion() {
                 onFinish={goNext}
                 lessonNumber={n}
               />
+              <div className="mx-auto mt-2 flex w-full max-w-[640px] justify-end">
+                <GretelPresence autoIntro={false} bookMode hideChrome />
+              </div>
+              </>
             )}
           </GardenScene>
 
