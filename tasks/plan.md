@@ -5,7 +5,7 @@
 **Updated:** 2026-10-10
 **Concurrency authority:** `AGENTS.md` only. There is **no fixed numeric cap** on concurrent Jules implementation lanes.
 
-> **Owner override 2026-10-10:** Retired orchestration/background scheduling is disabled and must not be revived. The user wants direct current GitHub + verified Jules work only; this file's historical references to coordinators do not prove a working service or authorize restarting anything. Preserve valid evidence and task ownership, avoid outdated branches and repeat work. See the superseding directive at the top of current `AGENTS.md`.
+> **Owner clarification 2026-10-10 (latest):** The old PC polling script and Neon/Vercel/OpenHands system stay disabled and historical. The distinct, pre-existing **hourly ChatGPT cloud Cartilla Jules Continuity** coordinator was explicitly **re-enabled** by the owner and may inspect GitHub and coordinate Jules tasks without PC access. This is permission for that scheduled task, **not proof of a working end-to-end dispatch or currently occupied Jules lanes**. Check current owner instructions and live Jules receipts; never silently revive the retired infrastructure.
 
 ## Current verified reality
 
@@ -15,8 +15,8 @@
 - Live GitHub confirms merged lanes: #531 (Gretel), #532 (page turns), #533 (PDF precache/provenance), #534 (teacher-route performance), #537 (art classification), #538 (Pencil Line + clean Workbook integration), #551 (Workbook fidelity candidate reconciliation), #618 (Page 1 picture motion polish), #624 (perf image loading regressions), #625 (student route smoke), #626 (#616 Workbook page turns + #617 Flip Chart corner flips), #627 (art audit timeout), #628 (Flip Chart pre-final regression, closing #571), #630 (Student audio/mute behavior, closing #567), #631 (Workbook device readiness preflight, closing #561), #632 (Teacher + Flip Chart classroom regression, closing #562), #633 (Flip Chart picture motion pilot, closing #615), #634 (Class Roster accessibility), #636 (Gretel voice abstraction seam, closing #570), #637 (perf budget React 19 recalibration), #638 (owner-proof capture harness, closing #585; #597 closed as superseded), #641 (Workbook assembled regression suite, closing #450), #642 (Flip Chart corner cancel, reduced motion and keyboard navigation, closing #457), #643 (Living-art motion regression proof, closing #560), #646 (owner foreground-image intake tooling, closing #579), and #648 (owner art intake tooling resilience). Do not dispatch or merge those lanes again.
 - #539 is closed as superseded: its frozen head `802d237aca9f439dde062402caac8a092eaf9f42` was deliberately preserved in #538.
 - #553 is the owner-locked large close-up pencil/eraser baseline. #516 is closed unmerged and superseded; do not restore it. The small StudentCursor is a separate approved pointer, not an obsolete marking actor.
-- #389 remains the dedicated direct-cloud release-verification lane. The `playwright.config.ts` cross-platform launcher is verified resolved on `main` (process.platform === "win32" conditional).
-- #454 remains open: merging the #537 classification audit does not certify that every production artwork slot is correct or that pending owner artwork is supplied.
+- #587 is the CURRENT dedicated Jules clean-main release-verification lane; #389 is historical harness groundwork and must not be redispatched as a second verifier. The `playwright.config.ts` cross-platform launcher is verified resolved on `main` (process.platform === "win32" conditional).
+- #454 was CLOSED on 2026-10-10; its historical artwork work must not be redispatched. Outstanding owner-approved final foreground art remains owner-gated in #588. Neither the #537 classification audit nor closing #454 certifies missing owner materials.
 - #450 is verified and closed via #641: full assembled Workbook regression suite passing across all 8 archetypes, save/restore, completion gating, device matrix, and source-blocked pages 86–87.
 - #457 is verified and closed via #642: pointer cancel resets without turning, reduced-motion drag omits 3D transform, and Enter/Space keyboard navigation operates cleanly.
 - #560 is verified and closed via #643: Page 1 and Flip Chart Lesson 7 living motion verified with natural `-alive.svg` SVGs and static fallback under reduced motion.
@@ -46,7 +46,7 @@ Do not confuse printed page numbers with PDF file indices. Historical mapping fi
 
 ### Advance existing candidates; do not restart merged lanes
 
-1. **#389 / #587 — trustworthy direct-cloud release harness and clean release baseline**
+1. **#587 — current clean-main release baseline (reuse historical #389 harness)**
    - Cross-platform launcher verified on `main`. Clean verification checkout can run `pnpm verify:release`.
    - Record exact typecheck, Vitest, production build, and Playwright results on current main.
    - No GitHub Actions, paid runners, weakened/skipped tests, or asset-output implementation commits.
@@ -59,7 +59,7 @@ Do not confuse printed page numbers with PDF file indices. Historical mapping fi
    - In flight with Jules:
      - #587: Current-main clean release verification baseline.
      - #495: Student Workbook clean digital canvas design realignment reconciliation (PR #650).
-   - Final foreground-art correctness stays in #454. Classification or a green Sonar badge alone cannot close it.
+   - Final foreground-art integration is owner-gated in #588; #454 is already closed. Classification or a green Sonar badge alone cannot certify the pending owner assets.
 
 ### Final gates after dependencies are verified and integrated
 
@@ -74,7 +74,7 @@ Do not confuse printed page numbers with PDF file indices. Historical mapping fi
    - #636 (closing #570) verified and merged: technical abstraction seam, single speech ownership, volume/mute enforcement, `/cartilla/voces` preview.
    - #589 (owner-gated): owner decision on candidate voice (Cartilla local neural voice vs. cloud edge TTS).
 
-7. **#389 / #587 — trustworthy direct-cloud release harness & clean release baseline**
+7. **#587 — current clean-main Jules release baseline (reuse #389 proof)**
    - Cross-platform launcher verified on `main`. Clean cloud verification checkout runs `pnpm verify:release`.
    - Records exact typecheck, Vitest, build, and Playwright execution counts without mutating release assets.
 
