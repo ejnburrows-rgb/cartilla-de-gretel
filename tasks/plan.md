@@ -1,207 +1,108 @@
-# La Cartilla de Gretel — project completion plan
+# La Cartilla de Gretel — current completion plan
 
-> **Finish contract:** Read PROJECT_FINISH_DEFINITION.md before planning or declaring Cartilla work complete. It is the canonical definition of what must be true for the entire project to be finished. Compare current verified reality against it and close only real remaining gaps.
+> **Finish contract:** `PROJECT_FINISH_DEFINITION.md` defines finished. This file is only the current gap-closing execution plan.
 
+**Updated:** 2026-10-10
+**Concurrency authority:** `AGENTS.md` only. There is **no fixed numeric cap** on concurrent Jules implementation lanes.
 
-**Updated:** 2026-10-05  
-**Task tracker:** existing GitHub issues/PRs. Do not create duplicate work items.
-
-## Goal
-
-Finish the existing Cartilla product quickly and correctly. Preserve working student/teacher behavior, make visual decisions from rendered evidence, and avoid new prototypes/tools/agents unless they clearly shorten the path.
+> **Owner clarification 2026-10-10 (latest):** The old PC polling script and Neon/Vercel/OpenHands system stay disabled and historical. The distinct, pre-existing **hourly ChatGPT cloud Cartilla Jules Continuity** coordinator was explicitly **re-enabled** by the owner and may inspect GitHub and coordinate Jules tasks without PC access. This is permission for that scheduled task, **not proof of a working end-to-end dispatch or currently occupied Jules lanes**. Check current owner instructions and live Jules receipts; never silently revive the retired infrastructure.
 
 ## Current verified reality
 
-- Public preview/deployment state is runtime evidence, not durable policy. Live-verify the deployed Vercel state whenever it matters; do not assume it equals current `main` or any commit recorded in this plan.
-- The public Workbook still shows the older scenic presentation and tap/select + `Comprobar`/`Corregir respuestas` feedback. It already has a brief pencil-mark animation on some selections, but not the owner-required shared Pencil/Eraser choreography from PR #476 (draw/hold/success or rotate-to-eraser/erase/retry). PR #476 is not deployed and is not visually accepted.
-- Live browser testing on the deployed build confirms picture selection, line matching, freehand/tracing canvases, Borrador, Deshacer, Limpiar, reload persistence of partial canvas work, and completion gating are materially functional. A later `Marca con una x` activity also completed its select → `Comprobar` → `Siguiente` flow. Preserve these working foundations unless a confirmed defect requires change.
-- Workbook structured coverage exists for printed pages 1–90. Pages 1–85 and 88–90 are `NATIVE_COMPLETE`; pages 86–87 are `SOURCE_BLOCKED` because the supplied source scan is missing those pages.
-- Current `main` still registers scenic Workbook backgrounds for all available pages. The approved clean digital-canvas/cream direction is not rolled out yet.
-- PR #501 is the canonical Page 1 golden-reference candidate. Duplicate #506 is closed and must stay closed.
-- PR #502 is the canonical living-art motion fix. Duplicate #507 is closed and must stay closed.
-- PR #504 fixes the confirmed reversed/over-cropped `uno` asset by pointing production uses to the verified counterpart.
-- The current production-art inventory reports 108 referenced production foreground assets, 143 manifest entries, 35 manifest entries currently unreferenced, no duplicate hashes among the 108 active assets, and no tiny active assets. Refresh this inventory before deletion because some recorded reference locations are historical.
-- The delivery manifest contains 24 crop/edge/aspect warnings. These are review candidates, not automatically bad assets. `uno` is the one currently confirmed production-visible defect; PR #504 addresses it. `manzana` and `pera` are active inventory entries with `PROVENANCE-UNKNOWN` and require source verification before any replacement/recolor decision.
-- Foreground-art issue #454 remains open and controller-owned; Jules is disabled for that lane.
-- Release-verification issue #389 remains open and is high leverage because several otherwise-ready PRs depend on trustworthy full release proof.
+- CURRENT `main` must be resolved live from GitHub at the start of every session; do not persist a main SHA here because merging this file would immediately make it stale.
+- Cross-session coordination is now governed by the mandatory live-coordination contract in `AGENTS.md`: every material worker/controller change must leave a structured handoff on the existing issue/PR, and controllers refresh this file when lane state/order materially changes.
+- The eight canonical Student Workbook archetypes remain encoded page-by-page in `src/data/workbook-archetypes.ts`.
+- Live GitHub confirms merged lanes: #531 (Gretel), #532 (page turns), #533 (PDF precache/provenance), #534 (teacher-route performance), #537 (art classification), #538 (Pencil Line + clean Workbook integration), #551 (Workbook fidelity candidate reconciliation), #618 (Page 1 picture motion polish), #624 (perf image loading regressions), #625 (student route smoke), #626 (#616 Workbook page turns + #617 Flip Chart corner flips), #627 (art audit timeout), #628 (Flip Chart pre-final regression, closing #571), #630 (Student audio/mute behavior, closing #567), #631 (Workbook device readiness preflight, closing #561), #632 (Teacher + Flip Chart classroom regression, closing #562), #633 (Flip Chart picture motion pilot, closing #615), #634 (Class Roster accessibility), #636 (Gretel voice abstraction seam, closing #570), #637 (perf budget React 19 recalibration), #638 (owner-proof capture harness, closing #585; #597 closed as superseded), #641 (Workbook assembled regression suite, closing #450), #642 (Flip Chart corner cancel, reduced motion and keyboard navigation, closing #457), #643 (Living-art motion regression proof, closing #560), #646 (owner foreground-image intake tooling, closing #579), and #648 (owner art intake tooling resilience). Do not dispatch or merge those lanes again.
+- #539 is closed as superseded: its frozen head `802d237aca9f439dde062402caac8a092eaf9f42` was deliberately preserved in #538.
+- #553 is the owner-locked large close-up pencil/eraser baseline. #516 is closed unmerged and superseded; do not restore it. The small StudentCursor is a separate approved pointer, not an obsolete marking actor.
+- #587 is the CURRENT dedicated Jules clean-main release-verification lane; #389 is historical harness groundwork and must not be redispatched as a second verifier. The `playwright.config.ts` cross-platform launcher is verified resolved on `main` (process.platform === "win32" conditional).
+- #454 was CLOSED on 2026-10-10; its historical artwork work must not be redispatched. Outstanding owner-approved final foreground art remains owner-gated in #588. Neither the #537 classification audit nor closing #454 certifies missing owner materials.
+- #450 is verified and closed via #641: full assembled Workbook regression suite passing across all 8 archetypes, save/restore, completion gating, device matrix, and source-blocked pages 86–87.
+- #457 is verified and closed via #642: pointer cancel resets without turning, reduced-motion drag omits 3D transform, and Enter/Space keyboard navigation operates cleanly.
+- #560 is verified and closed via #643: Page 1 and Flip Chart Lesson 7 living motion verified with natural `-alive.svg` SVGs and static fallback under reduced motion.
+- #579 is verified and closed via #646 and #648: deterministic owner foreground-image intake tooling, sanity validation, dry-run report, and Windows test resilience.
+- **Existing Jules task receipts — ACTIVE PROVIDER EXECUTION NOT YET PROVEN:**
+  - #587: Current-main clean release baseline; Jules bot acknowledged task 658944131750853263, but its current provider running state and passing current-main release report were not established in this audit. Reuse the existing task.
+  - #495: Workbook realignment; Jules previously returned PR #650 with **0 changed files** and was given an in-place corrective handoff. This is neither verified implementation nor evidence of a currently running worker. Reconcile the existing owner/work branch and original issue/PR, without duplicate tasks.
+  - `jules` labels and bot acknowledgements prove routing, not actual concurrent productivity. Demand fresh provider-session state and actual material code/test evidence before claiming worker lanes are occupied.
+- #540 remains a timing diagnosis, not a runtime repair lane. Fresh current-main focused verification passed all 62 tests across 7 suites, including the p24 completion gate; this is not whole-product browser/release proof.
+- Final premium Gretel voice/TTS technical abstraction is verified and merged (#636); owner choice among candidates (#589) remains open.
+- Welcome video remains non-blocking.
+- Live Supabase/multi-user expansion remains deferred for the current demo/non-real-data pilot finish line.
 
-## Decisions
+## Printed pages 86–87 — resolved source status
 
-1. **Finish Pencil/Eraser directly in the existing project.** Do not build it first in Lovable, Google AI Studio, or another prototype. The state/persistence/accessibility architecture already exists in PR #476, so a separate prototype adds translation and integration work.
-2. **Use rendered proof in small slices.** Page 1 is the visual gate. Do not start #498 broad Workbook restyling until #501 is shown in a real browser at representative phone/tablet/desktop sizes and accepted.
-3. **Do not manually create extra agent lanes.** The existing scheduled Cartilla Jules Supervisor is the default worker-dispatch layer. Global implementation-worker concurrency and lane accounting come only from the `AGENTS.md` Execution Control Contract; this plan records priorities/allocation only.
-4. **Do not delete art during implementation.** Refresh the current-reference inventory, classify cleanup candidates, then remove only assets proven unused and non-canonical.
-5. **Do not deploy production merely for testing.** Use an existing safe branch/runtime verification route; production deployment remains the final authorized release step.
+Printed Workbook pages **86 and 87 are not blank pages that still need conversion**. They are absent from the authoritative supplied Student Workbook scan:
 
-## Phase 1 — highest-leverage blockers
+- the supplied PDF visibly jumps from printed page **85** to printed page **88**;
+- repo source image `page-085.jpg` exists;
+- `page-086.jpg` and `page-087.jpg` do not exist;
+- `page-088.jpg` exists.
 
-### A. Golden Workbook Page 1 — #496 / PR #501
+Therefore keep printed pages 86–87 as `SOURCE_BLOCKED` with no inferred text, artwork, regions, or archetype. Do **not** reconstruct them from surrounding patterns. Under `PROJECT_FINISH_DEFINITION.md`, this documented source absence is an allowed finish exception and does not block final completion. If a genuine physical/source scan of those printed pages is later supplied, import and map it then.
 
-**Owner:** controller for visual acceptance; bounded worker changes only if a rendered defect is found.
+Do not confuse printed page numbers with PDF file indices. Historical mapping files that use fields such as `student_pdf_page` refer to PDF indices, not the printed number shown on the book page.
 
-- Render exact current #501 head in the actual app.
-- Show phone, tablet and desktop screenshots before further visual change.
-- Verify Page 1 alone loses scenic wallpaper, instruction treatment is quiet/native, Gretel is subordinate, all 20 source illustrations and ordering remain intact, and later pages do not inherit Page 1-only rules.
-- Verify #504's `uno` correction alongside Page 1 before final visual acceptance.
-- Run exact-head controller review, Sonar and task-specific verification.
+## Fastest safe execution order
 
-**Exit:** Page 1 is visibly accepted. Only then may #498 start.
+### Advance existing candidates; do not restart merged lanes
 
-### B. Living-art runtime — #497 / PR #502
+1. **#587 — current clean-main release baseline (reuse historical #389 harness)**
+   - Cross-platform launcher verified on `main`. Clean verification checkout can run `pnpm verify:release`.
+   - Record exact typecheck, Vitest, production build, and Playwright results on current main.
+   - No GitHub Actions, paid runners, weakened/skipped tests, or asset-output implementation commits.
 
-**Existing worker lane / verification target.** Do not create a duplicate Jules task or PR.
+2. **#616 + #617 + #618 + #615 — page turns & living motion integrated**
+   - Merged into `main` via #626, #618, and #633. Teacher hand mode, corner flips, Workbook real-paper page turns, Page 1 continuous motion, and Lesson 7 Flip Chart picture motion pilot are verified on `main`.
 
-- Keep the narrow CSS root-cause fix already isolated in #502.
-- Prove eligible living art moves in normal mode inside the real Workbook.
-- Prove reduced-motion remains static and no layout/hit-target shift occurs.
-- Do not reopen #507 or touch unrelated renderer paths.
+3. **Current Pre-Final Regressions & Active Implementation batch (in flight)**
+   - Pre-final regressions verified and merged: #571 (#628), #567 (#630), #561 (#631), #562 (#632), #570 (#636), #585 (#638), #450 (#641), #457 (#642), #560 (#643), #579 (#646).
+   - Jules assignments with existing receipts, not confirmed active execution:
+     - #587: Clean-main verification (reuse the already acknowledged session; require actual output).
+     - #495: Workbook realignment (existing PR #650 has 0 changed files; in-place correction requested and awaiting proof).
+   - Final foreground-art integration is owner-gated in #588; #454 is already closed. Classification or a green Sonar badge alone cannot certify the pending owner assets.
 
-**Exit:** rendered normal/reduced-motion proof + exact-head review and verification.
+### Final gates after dependencies are verified and integrated
 
-### C. Direct release gate — #389
+4. **#450 & #457 — final Student Workbook & Teacher/Flip Chart regression (VERIFIED & CLOSED)**
+   - Merged into `main` via #641 (#450) and #642 (#457). Full 8-archetype coverage, save/restore, completion gating, device fit, source-blocked pages 86–87, pointer cancel, reduced motion, and keyboard navigation verified.
 
-**Supervisor-owned optional lane.** Before dispatch, verify no current Jules session/branch/PR is already doing #389.
+5. **#579 & #588 — foreground artwork intake tooling & final owner art drop**
+   - #579 verified and merged via #646: deterministic intake validation tooling and dry-run report (`scripts/validate-owner-art-package.mjs`, `tests/owner-art-intake.test.mjs`, `docs/OWNER_ART_INTAKE.md`).
+   - #588 (owner-gated): integrate final supplied owner foreground art drop using the verified intake tool.
 
-- Reproduce current `pnpm verify:release` failure/hang from a clean current-main checkout.
-- Repair only genuine harness/baseline defects.
-- Do not add GitHub Actions, paid runners or Vercel-as-test-runner.
-- Preserve fake/local Supabase test isolation.
+6. **#570 & #589 — resolve final premium Gretel voice/TTS**
+   - #636 (closing #570) verified and merged: technical abstraction seam, single speech ownership, volume/mute enforcement, `/cartilla/voces` preview.
+   - #589 (owner-gated): owner decision on candidate voice (Cartilla local neural voice vs. cloud edge TTS).
 
-**Exit:** a clean checkout can run `pnpm verify:release` and get a trustworthy result.
+7. **#587 — current clean-main Jules release baseline (reuse #389 proof)**
+   - Cross-platform launcher verified on `main`. Clean cloud verification checkout runs `pnpm verify:release`.
+   - Records exact typecheck, Vitest, build, and Playwright execution counts without mutating release assets.
 
-### D. Foreground art defect — #454 / PR #504
+8. **#458 — assembled-product proof and release**
+   - Exact integrated head; full release gate; final Student and teacher regressions; phone/tablet/laptop/projector proof.
+   - Required owner-visible archetype and assembled-product approvals remain open until actual rendered evidence is shown and accepted.
+   - Preserve the production alias during ordinary work. Deploy only after intentional final owner authorization and approval, then verify the actual deployed product.
 
-**Owner:** controller, not Jules.
+## Controller / Jules operating rules
 
-- Render #504 and compare `uno` against the authoritative Workbook source.
-- Merge only after orientation/crop is visibly correct and no other uses regress.
-- Keep #454 open after this narrow repair until the active production asset set is classified.
+- **SonarCloud/SonarQube is advisory and non-blocking**, including duplication/quality-gate failures: a confirmed real defect is blocking, not an unconfirmed scan warning. Jules' relevant existing focused and UI proof plus exact-head controller review determine readiness; zero material file changes are not implementation completion. Use `node scripts/check-merge-policy.mjs --docs` for active-policy consistency and `--evidence <receipt.json>` for a bounded pre-merge decision. These checks do not launch/repeat Jules tests, change branch protection, or auto-merge.
 
-## Checkpoint 1
+- Re-read current `AGENTS.md` every run. Never restore the obsolete two-worker cap.
+- Dispatch every genuinely independent, dependency-ready, non-owner-gated implementation lane that current Jules capacity permits.
+- Keep overlapping files/dependency chains sequential only where necessary.
+- A completed, blocked, owner-gated or dependency-waiting lane must not reserve Jules capacity.
+- Reuse existing canonical issues/PRs before creating anything new.
+- Do not create work just to fill capacity.
+- After each merge/completion/blocker change, rescan in the same controller run and immediately dispatch newly unblocked real work.
+- Preserve source fidelity and existing working behavior.
+- No production deployment during ordinary verification/integration.
+- For visual/behavior owner approval, show the actual rendered result or directly testable preview in chat, not a GitHub page.
 
-Do not advance broad visual rollout until:
-- #501 is visually accepted;
-- #502 is proven in-browser;
-- #504 is visibly verified or its remaining defect is explicit;
-- #389 supplies a trustworthy release gate.
+## Definition of this plan being complete
 
-## Phase 2 — shared student feedback foundation
+This plan is complete only when all real gaps against `PROJECT_FINISH_DEFINITION.md` are closed with objective evidence. Merged PRs, completed Jules sessions, a successful build, or a clean issue list alone do not equal product completion.
 
-### Shared Pencil/Eraser — #445 / PR #476
+## Owner orchestration update — 2026-10-07
 
-**Owner:** controller; a worker may implement one narrow visual repair on the existing PR only.
-
-The public app currently shows the old tap/select + whole-page check/correct behavior. PR #476 is therefore a candidate, not a finished visual feature.
-
-- Reconcile #476 against accepted Page 1/current `main`.
-- Complete the missing visible choreography in the shared kernel: real pencil draw, restrained hold, success mark, pencil-to-eraser transition, erase, retry.
-- Keep feedback shared; do not build page-local copies.
-- Test correct/incorrect p1/p2 interactions, keyboard access, reduced motion, persistence/restore, completion events and navigation gating.
-- Show rendered result before any later activity-family conversion.
-
-**Exit:** #445/#476 is visually accepted, functionally tested and merged.
-
-## Phase 3 — remaining activity families, sequential
-
-Dependency chain:
-
-`#445 → #446 → #447 → #448 → #449`
-
-Do not parallelize these because they adapt the same shared interaction language.
-
-1. **#446 — Pencil Line:** pages 3, 5, 8, 11, 14, 17. Replace current tap/connect presentation with approved pencil-drawn line interaction.
-2. **#447 — tracing/handwriting/drawing:** preserve existing working canvas, save/restore, eraser/undo/clear and gating; change only what is needed to match Progressive Fade / Premium Simple Pencil Box.
-3. **#448 — syllable circles:** reuse shared pencil-mark language.
-4. **#449 — word completion and sentence handwriting:** reuse the same writing kernel and persistence.
-
-For every issue:
-- test the actual interaction, not just rendering;
-- show representative rendered proof;
-- preserve source wording and existing learner state;
-- do not start the next issue until the previous one is merged.
-
-## Phase 4 — accepted Workbook surface rollout
-
-### #498 — clean digital-canvas rollout
-
-Start only after #501 acceptance.
-
-Roll out by page family:
-- dense picture grids;
-- line matching;
-- handwriting/tracing;
-- drawing;
-- syllable circles;
-- complete-word/fill-in;
-- sentence writing;
-- reading/vocabulary pages.
-
-For each family:
-- preserve source structure/content/art;
-- remove full scenic wallpaper where it competes with learner work;
-- reuse accepted cream/clean Page 1 surface and instruction hierarchy;
-- keep Gretel/chrome subordinate;
-- verify representative phone/tablet/desktop pages before moving to the next family.
-
-Do not modify Flip Chart presentation from this issue.
-
-## Phase 5 — foreground art verification and cleanup
-
-### #454 — production foreground art
-
-Controller classifies only production-required slots as:
-`PASS / CROP FIX / WRONG SOURCE / VERIFIED COLOR TRANSFER / OPTIMIZATION ONLY / PENDING NO VERIFIED SOURCE`.
-
-- Do not regenerate source-locked art.
-- Use source-preserving color transfer only with an exact verified counterpart.
-- Keep pages 86–87 explicitly source-blocked rather than inventing art/content.
-
-### Cleanup pass
-
-Before deleting anything:
-1. refresh the production-art inventory against current `main`;
-2. verify every candidate with repository-wide current references;
-3. distinguish canonical source/reference art from dead delivery copies;
-4. produce a removal list for owner approval.
-
-The 35 currently reported unreferenced manifest entries are cleanup candidates, not deletion-approved assets.
-
-## Phase 6 — independent existing PRs
-
-As the release gate becomes reliable, finish exact-head review/verification for:
-- #477 Gretel behavior/motion discipline;
-- #479 physical Workbook/Flip Chart page turns;
-- #505 picture-name recording wiring;
-- #478 welcome media code integration.
-
-The final owner-approved 5–6 second silent welcome MP4 remains an external asset dependency for #478; do not fabricate it.
-
-## Phase 7 — assembled-product gates
-
-1. **#450:** full Student Workbook regression across activity families, save/restore, page turns, Gretel, reduced motion, responsive fit and final art.
-2. **#457:** final teacher/Flip Chart validation.
-3. **#391:** measured first-paint performance repair after functional/art lanes stabilize.
-4. **#458:** final assembled-product proof, exact-head dual review, clean `pnpm verify:release`, representative browser/device proof, then intentional production deployment.
-
-## Parallel work policy
-
-Do not ask the owner to launch or supervise additional agents. The scheduled Cartilla Jules Supervisor is the default background dispatcher and the fallback watchdog handles stalled lanes.
-
-Implementation-worker concurrency and lane accounting come only from the `AGENTS.md` Execution Control Contract. This plan records the current preferred allocation and does not define a numeric limit.
-
-**Current preferred allocation:**
-- Candidate lane: exact-head verification of canonical PR #502 only; do not reopen duplicate #507.
-- Candidate lane: #389 release harness only if the supervisor confirms no existing worker is already active for it.
-- Controller: #501 rendered visual acceptance, #504 art proof, then #476 shared Pencil/Eraser visual repair/acceptance.
-
-**Must stay sequential:**
-- #501 acceptance before #498.
-- #445 → #446 → #447 → #448 → #449.
-- #450 after final Workbook interaction/art/visual state.
-- #458 after all final gates.
-
-## Definition of finished
-
-The canonical, owner-locked definition of finished is PROJECT_FINISH_DEFINITION.md.
-
-This plan must close the real gaps against that file. It must not redefine or weaken the finish criteria.
+Jules implements; ChatGPT/Codex reviews and dispatches. Use EJNRCGPLm / ejnrcgplm@gmail.com exclusively. Follow the API-first, no browser orchestration, and explicit-request-only Desktop Commander policy in AGENTS.md. No authenticated direct Jules API connection was established in this controller session. Existing GitHub dispatch comments are delivery evidence, not proof of an authenticated API session or active worker. Do not infer completion from an open PR or bot acknowledgement. Preserve all exact-head merge/release gates.

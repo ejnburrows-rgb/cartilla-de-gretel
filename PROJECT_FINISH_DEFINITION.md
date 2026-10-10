@@ -35,7 +35,7 @@ The Student Workbook is finished only when:
 
 - the physical Workbook's lesson order, wording, educational intent, exercise structure, page sequence, and recognizable page composition are preserved;
 - the owner-approved clean digital-canvas presentation is consistently applied where appropriate;
-- the Golden Workbook Page 1 archetype has received owner visual approval before broad rollout;
+- the owner-locked eight-family Workbook visual system in `WORKBOOK_ARCHETYPE_STANDARD.md` is applied consistently to every matching recurring exercise while each page remains faithful to its own physical source;
 - all required student activity families work end to end in the real rendered application;
 - approved Pencil/Eraser behavior is used consistently rather than activity-local substitutes;
 - approved handwriting/tracing, drawing, syllable-marking, word-completion, and sentence-writing treatments are implemented where the source requires them;
@@ -166,7 +166,7 @@ Before the project can be declared finished:
 
 - every required finish criterion above has objective evidence;
 - exact-head independent controller review is complete where required;
-- required SonarQube review/reconciliation is complete for meaningful code/behavior changes;
+- SonarCloud/SonarQube review remains **advisory and non-blocking**: a failed/missing quality gate alone is not a finish or merge blocker. Independently confirmed serious defects must be resolved, and relevant Jules product tests plus required UI proof must pass. A passing Sonar result alone does not establish completion;
 - the final clean direct-cloud release verification passes;
 - final Student Workbook regression passes;
 - final teacher / Flip Chart regression passes;
@@ -188,7 +188,7 @@ Before either required owner approval in this finish contract can count:
 
 Two owner-visible approvals are required:
 
-1. **Golden Workbook Page 1 approval** before broad Workbook visual rollout.
+1. **Workbook archetype implementation proof:** the eight recurring visual directions are already owner-locked in `WORKBOOK_ARCHETYPE_STANDARD.md`; each implemented family must visibly match that standard and its exact physical source before whole-family rollout. The numbered teal title bars on the owner's reference board are annotation labels only and must not appear in production.
 2. **Final assembled-product approval** before the intentional final production release.
 
 The owner is not required to approve ordinary technical merges individually when the authorized controller can verify them safely.
