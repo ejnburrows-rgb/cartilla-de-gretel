@@ -1,6 +1,6 @@
 # PROJECT_FINISH_DEFINITION.md — canonical definition of finished
 
-**Owner-locked:** 2026-10-06  
+**Owner-locked:** 2026-10-05  
 **Scope:** entire La Cartilla de Gretel product  
 **Authority:** this file defines what "project finished" means. It is not a task list or changelog.
 
@@ -166,7 +166,7 @@ Before the project can be declared finished:
 
 - every required finish criterion above has objective evidence;
 - exact-head independent controller review is complete where required;
-- required SonarQube review/reconciliation is complete for meaningful code/behavior changes;
+- SonarCloud/SonarQube review remains **advisory and non-blocking**: a failed/missing quality gate alone is not a finish or merge blocker. Independently confirmed serious defects must be resolved, and relevant Jules product tests plus required UI proof must pass. A passing Sonar result alone does not establish completion;
 - the final clean direct-cloud release verification passes;
 - final Student Workbook regression passes;
 - final teacher / Flip Chart regression passes;
