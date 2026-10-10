@@ -65,8 +65,33 @@ describe("exportClassProgressCsv", () => {
     const text = await blobText(capture.getBlob()!);
     const lines = text.trim().split("\n");
     expect(lines[0]).toBe("Nombre Alumno,Lecciones Completas,Precision Promedio,Tiempo Total (m)");
-    expect(lines[1]).toBe('"Ana",5,80%,10');
-    expect(lines[2]).toBe('"Beto",0,N/A,0');
+    expect(lines[1]).toBe("Ana,5,80%,10");
+    expect(lines[2]).toBe("Beto,0,N/A,0");
+  });
+
+  it("correctly escapes embedded quotes, commas, newlines, and accented names in class export", async () => {
+    exportClassProgressCsv("Clase Especial", [], {
+      perStudent: [
+        {
+          id: "1",
+          name: 'María "Mimi" López, Jr.\nSección A',
+          lessonsCount: 3,
+          accuracy: 0.95,
+          timeSeconds: 300,
+        },
+        {
+          id: "2",
+          name: "José Raúl",
+          lessonsCount: 1,
+          accuracy: 0.5,
+          timeSeconds: 120,
+        },
+      ],
+    });
+
+    const text = await blobText(capture.getBlob()!);
+    expect(text).toContain('"María ""Mimi"" López, Jr.\nSección A",3,95%,5');
+    expect(text).toContain("José Raúl,1,50%,2");
   });
 
   it("sanitizes the class name into a safe filename", () => {
@@ -117,6 +142,23 @@ describe("exportStudentProgressCsv", () => {
     expect(lines).toHaveLength(3);
     expect(lines[1]).toContain("exercise,3,9,10,0");
     expect(lines[2]).toContain("lesson_completed,3,0,0,0");
+  });
+
+  it("correctly escapes event fields containing quotes, commas, CR/LF, and accented characters", async () => {
+    exportStudentProgressCsv("Sofía Ramírez", [
+      {
+        created_at: "2026-01-15T00:00:00Z",
+        event_kind: 'ejercicio, "tipo A"\r\nlección especial',
+        lesson_id: "Lección 1, Parte 2",
+        score: 10,
+        total: 10,
+        time_seconds: 45,
+      },
+    ]);
+
+    const text = await blobText(capture.getBlob()!);
+    expect(text).toContain('"ejercicio, ""tipo A""\r\nlección especial"');
+    expect(text).toContain('"Lección 1, Parte 2"');
   });
 
   it("sanitizes the student name into a safe filename", () => {
