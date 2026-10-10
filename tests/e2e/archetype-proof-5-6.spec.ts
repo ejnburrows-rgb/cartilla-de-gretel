@@ -79,7 +79,8 @@ test.describe("Workbook Archetype 5 & 6 Proof", () => {
     // Verify mode toggle / progressive fade / stroke interaction on trace
     const modeToggle = trace.locator(".fp-trace__mode-toggle");
     if (await modeToggle.isVisible().catch(() => false)) {
-      await modeToggle.click({ force: true });
+      // Click without force: true to verify pointer events are not intercepted by .fp-trace__hint
+      await modeToggle.click();
       await page.waitForTimeout(200);
     }
 
