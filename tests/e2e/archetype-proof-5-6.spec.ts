@@ -57,6 +57,10 @@ test.describe("Workbook Archetype 5 & 6 Proof", () => {
     await page.setViewportSize({ width: 1280, height: 800 });
     await page.goto("/cartilla/leccion/7", { waitUntil: "domcontentloaded" });
     await dismissCinematic(page);
+    // Wait for the real Workbook surface: domcontentloaded alone can capture a
+    // blank page and still pass the generic helpers (the old laptop proof PNG
+    // was an empty canvas).
+    await expect(page.locator(".fp-trace:visible").first()).toBeVisible({ timeout: 15000 });
 
     await expectNoBrokenImages(page, "Archetype 5 laptop");
     await checkNoClippingOrOverflow(page, "Archetype 5 laptop");
@@ -102,6 +106,7 @@ test.describe("Workbook Archetype 5 & 6 Proof", () => {
     // Verify persistence (reload page)
     await page.reload({ waitUntil: "domcontentloaded" });
     await dismissCinematic(page);
+    await expect(page.locator(".fp-trace:visible").first()).toBeVisible({ timeout: 15000 });
 
     // Verify responsive viewports for Archetype 5
     // Tablet (820x1180)
@@ -125,6 +130,9 @@ test.describe("Workbook Archetype 5 & 6 Proof", () => {
     // 1. Laptop fit (1280x800) on Pilot faithful route for Printed page 20 (Archetype 6)
     await page.setViewportSize({ width: 1280, height: 800 });
     await page.goto("/cartilla/pilot-faithful/20", { waitUntil: "domcontentloaded" });
+    await expect(
+      page.locator(".native-syllable:visible, .fp-syllable-match:visible, .am-lasso:visible").first(),
+    ).toBeVisible({ timeout: 15000 });
 
     await expectNoBrokenImages(page, "Archetype 6 laptop");
     await checkNoClippingOrOverflow(page, "Archetype 6 laptop");
@@ -147,6 +155,9 @@ test.describe("Workbook Archetype 5 & 6 Proof", () => {
 
     // Verify save/reload persistence where supported
     await page.reload({ waitUntil: "domcontentloaded" });
+    await expect(
+      page.locator(".native-syllable:visible, .fp-syllable-match:visible, .am-lasso:visible").first(),
+    ).toBeVisible({ timeout: 15000 });
 
     // Verify responsive viewports for Archetype 6
     // Tablet (820x1180)
