@@ -83,6 +83,8 @@ Do not confuse printed page numbers with PDF file indices. Historical mapping fi
 
 ## Controller / Jules operating rules
 
+- **SonarCloud/SonarQube is advisory and non-blocking**, including duplication/quality-gate failures: a confirmed real defect is blocking, not an unconfirmed scan warning. Jules' relevant existing focused and UI proof plus exact-head controller review determine readiness; zero material file changes are not implementation completion. Use `node scripts/check-merge-policy.mjs --docs` for active-policy consistency and `--evidence <receipt.json>` for a bounded pre-merge decision. These checks do not launch/repeat Jules tests, change branch protection, or auto-merge.
+
 - Re-read current `AGENTS.md` every run. Never restore the obsolete two-worker cap.
 - Dispatch every genuinely independent, dependency-ready, non-owner-gated implementation lane that current Jules capacity permits.
 - Keep overlapping files/dependency chains sequential only where necessary.
