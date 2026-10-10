@@ -68,11 +68,11 @@ Every controller, supervisor, watchdog, dispatcher, reviewer and worker must **c
 
 **Jules is the default and sole hands-on test/verification and UI-browser-check executor.** Jules tests its own changes, and the controller assigns any missing or invalidated targeted checks or visual polishing to Jules through the existing authorized lane. Other agents may inspect current GitHub evidence, triage, coordinate, review the diff, decide merge readiness and share Jules-produced proof, but must **not** duplicate test runs, long browser investigations, or screenshots already available. Do not start a separate test agent, repeat an unchanged full audit, or send Jules a task already active/completed. The sole optional exception is a **genuinely unusually long agentic test** that exceeds Jules' practical capacity: the controller may assign that isolated test to a suitable authorized long-running worker, only after verifying it is needed, not already done and will not block independent work.
 
-**Act without delay:** if a meaningful new test or visible polish check is ready and lacks valid proof, hand that bounded scope to Jules with its exact branch/commit, existing issue/PR, relevant files, prior proof and expected results. Jules performs checks incrementally on ready slices while independent development proceeds where file ownership/capacity allow. If the implementation session already supplied sufficient valid focused tests or screenshots, count them as done and move on. Re-run only the checks actually invalidated by changed code, a real failure or a required distinct final release condition.
+**Act without delay, never repeat:** compare existing proof to its relevant code/fixtures/test/config/browser inputs, not blindly to the global main SHA. Unrelated docs-only commits or unrelated changes do NOT invalidate still-applicable focused evidence. If an affected behavior changed, a real failure emerged, or a distinct final release check is required, give only that missing test or UI-proof slice to Jules on its EXISTING lane with exact source commit, missing coverage, and a clear expected result. If existing valid focused test/screenshots cover it, record `DONE — REUSE PROOF` and move on; no duplicate session. A PR with zero material file changes or only a Jules 'done' claim is NOT implementation completion: reconcile the already-existing owner/work branch and demand actual diff or an explicit verified no-change finding.
 
 **Compact handoff for every material assignment:** state what is being built; what **already passed** with exact source/revision; what additional Jules test or UI polish (if any) remains; Jules task/owner and next action. Write `DONE — REUSE PROOF` or `NOT APPLICABLE` instead of scheduling redundant work. No three-agent mandate, no new gate, no fixed worker limit, no duplicated Jira/GitHub tasks, no mandatory full-suite run on every worker, no waiting for optional reviewers or tools.
 
-**Fail fast, hand off:** if the current non-Jules executor encounters repeated memory/time/browser failures, stop retrying and give Jules the surviving work and concise reproduction/evidence. Do not consume hours retrying a failing environment or block independent ready jobs.
+**Fail fast without blocking:** if a non-Jules executor encounters repeated memory/time/browser failures, stop futile retries and give Jules the surviving work and concise reproduction/evidence. If Jules is unavailable, rate-limited or has a failed run, leave exactly one pending check on its existing lane, keep unrelated implementation/coordination moving, and do not present unverified work as tested or merge/release work whose required evidence is missing. Diagnose once and correct the existing task; do not create an endless redispatch loop. Only exceptionally long, specifically justified agentic tests may use another authorized test worker.
 
 ### Precedence: two different questions
 
@@ -215,7 +215,7 @@ A session that produces no material tree change when implementation was requeste
 
 Implementation sessions must NOT run commands that mutate the tracked asset tree merely to prove unrelated code work.
 
-For ordinary implementation work, Jules and other implementation workers MUST NOT run:
+For ordinary implementation work, Jules workers MUST NOT run:
 - `pnpm prepare:art`;
 - `pnpm build`;
 - `pnpm build:app`;
@@ -224,7 +224,7 @@ For ordinary implementation work, Jules and other implementation workers MUST NO
 
 Those commands are allowed only when the task explicitly owns production-art generation or is a dedicated clean-checkout release-verification task.
 
-Ordinary implementation workers use:
+Jules implementation workers use:
 - the narrow targeted Vitest/Playwright test(s) or checks for the changed behavior;
 - `pnpm typecheck` when relevant;
 - `pnpm verify:worker` when a broader non-mutating repository check is useful;
@@ -232,7 +232,7 @@ Ordinary implementation workers use:
 
 A dedicated verification-only Jules session may run `pnpm verify:release` in a clean checkout when full release verification is itself the assigned job. In that case it must not export/regard regenerated delivery assets or manifests as implementation changes; it reports the verification result only.
 
-For ordinary implementation lanes, the controller/release verifier runs the mutating/full production pipeline in a clean verification checkout after the implementation PR has been persisted. Generated release artifacts from that verification checkout are verification output, not worker-scope changes unless the owning issue explicitly requires them.
+For ordinary implementation lanes, the **dedicated Jules release-verification worker** (not the controller) runs the mutating/full production pipeline **only when a necessary assembled-release gate is actually due**, in a clean verification checkout after the implementation PR is persisted. The controller reads that worker's raw results and reviews merge readiness; it does not run another copy of the tests/browser checks. Generated release artifacts from that verification checkout are verification output, not worker-scope changes unless the owning issue explicitly requires them. The exceptional long-test alternative in the non-blocking rule above is the only alternate test executor.
 
 #### Verification boundary
 
@@ -252,7 +252,7 @@ The controller assigns missing final or cross-lane verification to Jules as a de
 #### Failure handling
 
 - Do not repeatedly relaunch the same failed Jules instruction unchanged.
-- On a worker failure, the controller diagnoses from the returned evidence and either narrows/corrects the next Jules task, assigns a different isolated lane, or takes over directly.
+- On a worker failure, the controller diagnoses once from existing results and corrects the SAME Jules task or assigns unrelated available implementation work. A controller may fix coordination/code within its authority, but must not take over Jules-owned testing/browser runs or launch duplicate test lanes.
 - One failed Jules lane must never stall independent Jules lanes or controller-owned work.
 - Jules never self-merges and never deploys production.
 - Owner intervention is required only for a genuine owner-only decision, asset, authentication step, or irreversible action.
@@ -263,7 +263,7 @@ The controller assigns missing final or cross-lane verification to Jules as a de
 
 - **SonarQube is OPTIONAL and NON-BLOCKING.** No Sonar quality gate, scan status, missing Sonar integration, bot comment, duplicate percentage, or Sonar reviewer is required to dispatch tasks, continue work, accept material PR changes or merge appropriately verified changes. Sonar reports can be consulted as hints only. An independently reproduced real defect or regression still needs to be fixed.
 - Jules must commit **material file changes** and provide the exact PR head SHA and focused raw test results; do not count an empty commit, bot acknowledgement or Jules Completed state as verified work.
-- The watchdog/controller must check current `main`, the actual PR diff, file/branch overlap, declared scope and dependencies, and applicable focused regression tests. Browser/device evidence remains required where visible interaction changed. Reuse still-valid evidence; never gate a disjoint implementation lane on an unrelated test or failed service.
+- The watchdog/controller must inspect current `main`, the material PR diff, overlap, scope and dependencies, and Jules' existing raw focused-test outcomes without repeating the tests. Require existing or newly assigned Jules browser/device evidence where visible interaction actually changed. Reuse valid evidence across unrelated/doc-only commits; never gate a disjoint implementation lane on unrelated tests or a failed service.
 - A failing, inaccessible, unauthenticated, rate-limited, or unresponsive Antigravity CLI/watchdog fallback must **never block the primary GitHub→Jules workflow**. Record the failure for later recovery and continue with independent eligible tasks. Antigravity must not independently redispatch an existing task or overwrite a worker-owned branch.
 - Before merging an existing PR, reconcile current `main`, verify the exact head and the relevant behavioral proof; after a material head change rerun only the evidence it invalidates. Fix actual serious bugs, regressions and conflicts, not tool status artifacts.
 - Before merge, record exact head SHA, material changed-file list, applicable test command/results, observable UI proof if relevant, concrete unresolved problems and the merge decision. No Sonar-specific or second-reviewer signoff language is required.
@@ -383,7 +383,7 @@ Until real-data security/privacy blockers are resolved, Cartilla may be tested a
 
 - EJN uses a free GitHub account and does not have GitHub Actions available.
 - Do not depend on GitHub Actions, required CI checks, or hosted Actions runners to complete or verify work.
-- Use direct verification, local/sandbox testing, or other available tools instead.
+- Use existing Jules worker/sandbox verification and its raw reports, or a specifically justified exceptionally long-test runner, rather than duplicating those runs through coordinator tools.
 - Do not recommend upgrading GitHub solely to enable Actions unless EJN explicitly asks about paid options.
 
 ---
@@ -467,7 +467,7 @@ For student-facing Workbook work, do not create activity-local copies of shared 
 
 Activity families implement only their source-faithful Workbook gesture/layout adapter unless the owning issue explicitly authorizes a kernel change.
 
-For visible UI work, publish milestone browser screenshots before final completion. Show the real implemented state, not mockups, including representative normal, success, retry/error, distinctive tool/motion states, and relevant responsive views. These are early direction proof and do not replace final browser QA or release verification.
+For visible UI work, the owning Jules worker publishes needed milestone browser screenshots before final completion. Show the real implemented state, not mockups, including representative normal, success, retry/error, distinctive tool/motion states, and relevant responsive views. Reuse existing still-valid visual proof; do not recapture it for unrelated commits. These are early direction proof and do not replace distinct final browser QA or release verification when actually needed.
 
 ## OWNER TOOL AND ACCOUNT DIRECTIVE — 2026-10-07
 
