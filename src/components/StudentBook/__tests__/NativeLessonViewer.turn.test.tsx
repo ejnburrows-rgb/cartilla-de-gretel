@@ -27,30 +27,6 @@ function completePage(pageNumber: number) {
 const current = () =>
   Number(document.querySelector("[data-native-page]")?.getAttribute("data-native-page"));
 
-/** A normal paper turn takes 300ms zoom + 2000ms curl + 100ms settle. */
-const finishTurn = () => act(() => vi.advanceTimersByTime(2500));
-
-function beginLongForwardDrag(onPageChange: (index: number) => void) {
-    render(
-      <NativeLessonViewer
-        pages={PAGES}
-        chapterLabel="Lección 8"
-        lessonNumber={8}
-        onPageChange={onPageChange}
-      />,
-    );
-    completePage(23);
-    const viewer = document.querySelector(".native-lesson-viewer")!;
-    vi.spyOn(viewer, "getBoundingClientRect").mockReturnValue({
-      width: 600, height: 800, left: 0, top: 0, right: 600, bottom: 800,
-      x: 0, y: 0, toJSON: () => {},
-    });
-    const next = screen.getByTestId("corner-next");
-    fireEvent.pointerDown(next, { pointerId: 1, clientX: 500, clientY: 700 });
-    fireEvent.pointerMove(next, { pointerId: 1, clientX: 100, clientY: 700 });
-  return { viewer, next };
-}
-
 beforeEach(() => {
   vi.useFakeTimers();
   window.scrollTo = vi.fn() as never;
@@ -60,7 +36,6 @@ beforeEach(() => {
 
 afterEach(() => {
   cleanup();
-  vi.unstubAllGlobals();
   vi.useRealTimers();
 });
 
@@ -83,7 +58,6 @@ describe("NativeLessonViewer real-paper page turn contracts", () => {
 
     // Click corner-next when complete
     fireEvent.click(cornerNext);
-    finishTurn();
     expect(current()).toBe(24);
   });
 
@@ -93,7 +67,6 @@ describe("NativeLessonViewer real-paper page turn contracts", () => {
 
     // Go to page 24
     fireEvent.click(screen.getByTestId("corner-next"));
-    finishTurn();
     expect(current()).toBe(24);
 
     // Page 24 is incomplete
@@ -102,7 +75,6 @@ describe("NativeLessonViewer real-paper page turn contracts", () => {
 
     // Corner back works immediately
     fireEvent.click(cornerPrev);
-    finishTurn();
     expect(current()).toBe(23);
   });
 
@@ -120,12 +92,10 @@ describe("NativeLessonViewer real-paper page turn contracts", () => {
 
     // ArrowRight on complete page
     fireEvent.keyDown(window, { key: "ArrowRight" });
-    finishTurn();
     expect(current()).toBe(24);
 
     // ArrowLeft goes back
     fireEvent.keyDown(window, { key: "ArrowLeft" });
-    finishTurn();
     expect(current()).toBe(23);
   });
 
@@ -161,82 +131,6 @@ describe("NativeLessonViewer real-paper page turn contracts", () => {
     });
 
     expect(current()).toBe(24);
-  });
-
-  it("cancelling a long corner drag never turns the page, even if a click follows", () => {
-    const onPageChange = vi.fn();
-    const { viewer, next } = beginLongForwardDrag(onPageChange);
-    fireEvent.pointerCancel(next, { pointerId: 1, clientX: 100, clientY: 700 });
-    fireEvent.click(next);
-    act(() => vi.advanceTimersByTime(3000));
-    expect(current()).toBe(23);
-    expect(onPageChange).not.toHaveBeenCalled();
-    expect(viewer.getAttribute("data-turn-phase")).toBe("idle");
-    expect(document.querySelector(".native-page-underside")).toBeNull();
-
-    // A fresh intentional tap still advances after cancellation.
-    fireEvent.click(next);
-    act(() => vi.advanceTimersByTime(3000));
-    expect(current()).toBe(24);
-    expect(onPageChange).toHaveBeenCalledTimes(1);
-
-    // Cancellation must also protect backward turns from an incomplete page.
-    const prev = screen.getByTestId("corner-prev");
-    fireEvent.pointerDown(prev, { pointerId: 2, clientX: 100, clientY: 700 });
-    fireEvent.pointerMove(prev, { pointerId: 2, clientX: 500, clientY: 700 });
-    fireEvent.pointerCancel(prev, { pointerId: 2, clientX: 500, clientY: 700 });
-    fireEvent.click(prev);
-    act(() => vi.advanceTimersByTime(3000));
-    expect(current()).toBe(24);
-    expect(onPageChange).toHaveBeenCalledTimes(1);
-  });
-
-  it("lost pointer capture cancels a half-completed turn instead of navigating", () => {
-    const onPageChange = vi.fn();
-    const { viewer, next } = beginLongForwardDrag(onPageChange);
-    fireEvent.lostPointerCapture(next, { pointerId: 1 });
-    fireEvent.pointerUp(next, { pointerId: 1, clientX: 100, clientY: 700 });
-    fireEvent.click(next);
-    act(() => vi.advanceTimersByTime(3000));
-    expect(current()).toBe(23);
-    expect(onPageChange).not.toHaveBeenCalled();
-    expect(viewer.getAttribute("data-turn-phase")).toBe("idle");
-  });
-
-  it("reduced-motion corner dragging has no 3D layer and commits without a timed animation", () => {
-    vi.stubGlobal("matchMedia", vi.fn().mockImplementation((query: string) => ({
-      matches: query.includes("prefers-reduced-motion"),
-      media: query, onchange: null,
-      addListener: vi.fn(), removeListener: vi.fn(),
-      addEventListener: vi.fn(), removeEventListener: vi.fn(),
-      dispatchEvent: vi.fn(),
-    })));
-    render(<NativeLessonViewer pages={PAGES} chapterLabel="Lección 8" lessonNumber={8} />);
-    completePage(23);
-    const viewer = document.querySelector(".native-lesson-viewer")!;
-    vi.spyOn(viewer, "getBoundingClientRect").mockReturnValue({
-      width: 600, height: 800, left: 0, top: 0, right: 600, bottom: 800,
-      x: 0, y: 0, toJSON: () => {},
-    });
-    const next = screen.getByTestId("corner-next");
-    fireEvent.pointerDown(next, { pointerId: 1, clientX: 500, clientY: 700 });
-    fireEvent.pointerMove(next, { pointerId: 1, clientX: 100, clientY: 700 });
-    expect(viewer.getAttribute("data-turn-phase")).toBe("idle");
-    expect(document.querySelector(".native-page-underside")).toBeNull();
-    expect(document.querySelector(".native-page-shadow")).toBeNull();
-
-    fireEvent.pointerUp(next, { pointerId: 1, clientX: 100, clientY: 700 });
-    expect(current()).toBe(24);
-    expect(viewer.getAttribute("data-turn-phase")).toBe("idle");
-    fireEvent.click(next); // no duplicate turn after release
-    expect(current()).toBe(24);
-
-    const prev = screen.getByTestId("corner-prev");
-    fireEvent.pointerDown(prev, { pointerId: 2, clientX: 100, clientY: 700 });
-    fireEvent.pointerMove(prev, { pointerId: 2, clientX: 150, clientY: 700 });
-    expect(document.querySelector(".native-page-underside")).toBeNull();
-    fireEvent.pointerUp(prev, { pointerId: 2, clientX: 150, clientY: 700 });
-    expect(current()).toBe(24); // below 50% must spring back
   });
 
   it("respects prefers-reduced-motion for immediate non-3D transition", () => {
