@@ -213,7 +213,7 @@ export function Leccion() {
                 onFinish={goNext}
                 lessonNumber={n}
               />
-              <div className="mx-auto mt-2 flex w-full max-w-[640px] justify-end">
+              <div className="student-workbook-gretel-guide">
                 <GretelPresence autoIntro={false} bookMode hideChrome />
               </div>
               </>
