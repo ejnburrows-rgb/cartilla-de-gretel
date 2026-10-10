@@ -5,6 +5,14 @@ project manager — work out what needs doing and do it.
 
 ---
 
+## OWNER SUPERSEDING DIRECTIVE — ACTIVE TOOLS ONLY (2026-10-10)
+
+- **Do not run or revive discontinued Cartilla automation.** The prior background orchestration/service stack, including its paused Vercel/Neon/OpenHands paths, the local `CartillaJulesAutoRunner` scheduled task, and the ChatGPT `Cartilla Jules Continuity` hourly task are retired as active execution systems. Both scheduled tasks were disabled on 2026-10-10. No worker may automatically restart, replace, or recommend these systems without a new explicit owner instruction. Retain old code, branches and records solely as history.
+- **No invented continuity.** A saved prompt, plugin skill, watcher label, enabled check, completed task, or successful exit code is not proof that autonomous work is happening. Only actual current GitHub changes, authorized official Jules provider receipts, relevant test evidence and real PR outcomes count. Do not claim background dispatch, a working webhook, or occupied agent capacity without live independent evidence.
+- **Current means current.** Before acting, read today's owner directives and the current `main` versions of this file and its canonical instructions. Superseded issue text, stale branch `AGENTS.md`, old Engram entries and historic assumptions do not regain authority. Do not use outdated tools or workflow instructions.
+- **Use Jules directly for work actually ready.** In ordinary authorized conversations, check current independent work, existing task/PR ownership, actual Jules session state and relevant proof; dispatch genuine nonoverlapping implementation, targeted QA and visual proof through the existing official Jules GitHub integration where permitted. Never create filler tasks, rerun valid tests, or represent a label as a running worker. No recurring scheduling or deployment is authorized by this document.
+- Historical uses of **controller, supervisor and watchdog** below describe review/coordination responsibilities only; they **do not authorize** resurrection or invocation of the retired infrastructure. This owner directive takes precedence over any older execution language while preserving the existing product acceptance and security rules.
+
 ## CANONICAL INSTRUCTION HIERARCHY
 
 There are ten active repo-wide instruction files:

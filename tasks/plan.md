@@ -5,6 +5,8 @@
 **Updated:** 2026-10-10
 **Concurrency authority:** `AGENTS.md` only. There is **no fixed numeric cap** on concurrent Jules implementation lanes.
 
+> **Owner override 2026-10-10:** Retired orchestration/background scheduling is disabled and must not be revived. The user wants direct current GitHub + verified Jules work only; this file's historical references to coordinators do not prove a working service or authorize restarting anything. Preserve valid evidence and task ownership, avoid outdated branches and repeat work. See the superseding directive at the top of current `AGENTS.md`.
+
 ## Current verified reality
 
 - CURRENT `main` must be resolved live from GitHub at the start of every session; do not persist a main SHA here because merging this file would immediately make it stale.
