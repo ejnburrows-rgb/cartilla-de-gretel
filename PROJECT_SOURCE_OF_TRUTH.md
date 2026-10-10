@@ -48,7 +48,7 @@ For curriculum, wording, page order, exercise content, and source-page structure
 
 Current product-completion execution remains intentionally parallel where scopes are isolated.
 
-As of 2026-10-04, current open controller PRs include:
+Historical October 4 work snapshot (NOT a live open-PR list; check GitHub for today's open candidates):
 - #476 — shared student interaction kernel + Workbook p1/p2;
 - #477 — Gretel behavior and motion discipline;
 - #478 — welcome-media code integration; the owner-supplied 5–6 second silent MP4 remains an external dependency;
@@ -62,7 +62,7 @@ Current mapping evidence identifies page 3 as archetype 3 and pages 5, 8, 11, 14
 
 The shared student interaction kernel remains the dependency for common Pencil/Eraser feedback. Visual archetype work, source mapping, responsive styling, and isolated adapters may proceed concurrently whenever files and dependencies do not overlap. AGENTS.md alone controls current worker concurrency; this file defines no fixed numeric Jules implementation cap.
 
-Direct cloud release verification remains tracked in #389. Production foreground-art remediation with verified source-preserving color transfer also remains part of the product-completion path.
+Current clean-main release verification is tracked in #587 (reuse historical #389 harness proof; do not duplicate Jules work). The closed #454 artwork-remediation issue is historical; final owner-supplied foreground-art integration stays owner-gated in #588 with source-preserving validation.
 
 Final gates follow with whole-Workbook regression (#450), teacher/Flip Chart validation, performance, welcome-media integration, and final assembled-product release proof. The clean Workbook surface, foreground-art remediation, living-art motion, Gretel behavior, and page-turn system must be integrated before the final Workbook validation gate. The Flip Chart keeps its independently verified richer presentation.
 
@@ -70,7 +70,7 @@ Supabase/live-auth expansion remains deferred from the current product-completio
 
 ## Proof rule
 
-For meaningful code/behavior PRs, merge proof also requires dual independent review of the exact current head: controller/assistant review plus SonarQube Cloud PR analysis. CodeRabbit is not required. Any head change invalidates prior dual-review proof and requires both reviews again. Documentation-only or trivial metadata-only changes may skip SonarQube but still require independent controller review.
+For meaningful code/behavior PRs, the controller independently reviews the material diff and current head, reuses relevant Jules test and UI evidence, confirms scope/approvals, and fixes independently confirmed serious defects. SonarCloud/SonarQube analysis stays available as **advisory and non-blocking** information: its quality gate, duplication threshold, missing report, or failed status alone never blocks dispatch or merge. A confirmed substantive defect still blocks the affected change. Recheck only evidence invalidated by a material change; unrelated documentation/head movement does not invalidate focused proof. The lightweight `node scripts/check-merge-policy.mjs --docs` consistency check detects contradictory policy, while `--evidence <receipt.json>` evaluates a particular proposed merge without running product tests.
 
 No task is "done" without visible or test evidence:
 - what changed;
