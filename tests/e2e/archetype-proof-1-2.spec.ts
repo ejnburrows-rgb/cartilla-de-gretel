@@ -70,6 +70,7 @@ test.describe("Workbook Archetypes 1 and 2 Proof", () => {
           // Verify images inside grid cells: no broken images
           const images = cells.locator("img");
           const imgCount = await images.count();
+          expect(imgCount, `printed page ${printedPage} must render its source images`).toBeGreaterThan(0);
           for (let i = 0; i < imgCount; i++) {
             const img = images.nth(i);
             await expect(img).toBeVisible();
@@ -151,6 +152,7 @@ test.describe("Workbook Archetypes 1 and 2 Proof", () => {
           // Verify images inside row choices: no broken images
           const images = cells.locator("img");
           const imgCount = await images.count();
+          expect(imgCount, `printed page ${printedPage} must render its source images`).toBeGreaterThan(0);
           for (let i = 0; i < imgCount; i++) {
             const img = images.nth(i);
             await expect(img).toBeVisible();
