@@ -10,7 +10,7 @@
 - CURRENT `main` must be resolved live from GitHub at the start of every session; do not persist a main SHA here because merging this file would immediately make it stale.
 - Cross-session coordination is now governed by the mandatory live-coordination contract in `AGENTS.md`: every material worker/controller change must leave a structured handoff on the existing issue/PR, and controllers refresh this file when lane state/order materially changes.
 - The eight canonical Student Workbook archetypes remain encoded page-by-page in `src/data/workbook-archetypes.ts`.
-- Live GitHub confirms merged lanes: #531 (Gretel), #532 (page turns), #533 (PDF precache/provenance), #534 (teacher-route performance), #537 (art classification), #538 (Pencil Line + clean Workbook integration), #551 (Workbook fidelity candidate reconciliation), #618 (Page 1 picture motion polish), #624 (perf image loading regressions), #625 (student route smoke), #626 (#616 Workbook page turns + #617 Flip Chart corner flips), #627 (art audit timeout), and #628 (Flip Chart pre-final regression verification and proofs, closing #571). Do not dispatch or merge those lanes again.
+- Live GitHub confirms merged lanes: #531 (Gretel), #532 (page turns), #533 (PDF precache/provenance), #534 (teacher-route performance), #537 (art classification), #538 (Pencil Line + clean Workbook integration), #551 (Workbook fidelity candidate reconciliation), #618 (Page 1 picture motion polish), #624 (perf image loading regressions), #625 (student route smoke), #626 (#616 Workbook page turns + #617 Flip Chart corner flips), #627 (art audit timeout), #628 (Flip Chart pre-final regression, closing #571), #630 (Student audio/mute behavior, closing #567), #631 (Workbook device readiness preflight, closing #561), #632 (Teacher + Flip Chart classroom regression, closing #562), #633 (Flip Chart picture motion pilot, closing #615), and #634 (Class Roster accessibility). Do not dispatch or merge those lanes again.
 - #539 is closed as superseded: its frozen head `802d237aca9f439dde062402caac8a092eaf9f42` was deliberately preserved in #538.
 - #553 is the owner-locked large close-up pencil/eraser baseline. #516 is closed unmerged and superseded; do not restore it. The small StudentCursor is a separate approved pointer, not an obsolete marking actor.
 - #389 remains the dedicated direct-cloud release-verification lane. Current-main Playwright webServer commands still unconditionally invoke PowerShell, blocking Linux startup.
@@ -18,10 +18,9 @@
 - #450 remains dependency-gated by the existing integrated-art/source/interaction requirements. Preserve its 2026-10-09 owner-locked acceptance baseline and negative regression proof; do not start a duplicate final-regression worker.
 - #457 is open again: #548 fixed only teacher-note context isolation and did not prove the full teacher/Flip Chart validation contract.
 - Active independent Jules implementation lanes in flight:
-  - #615: Flip Chart picture motion pilot (task 8759049588549769864)
-  - #567: Student audio, mute, and picture-name behavior regression (task 15636265076268335132)
-  - #561: Workbook local browser/device readiness before final art (task 17561733766645750980)
-  - #562: Teacher + Flip Chart classroom regression (dispatched)
+  - #560: Living-art motion regression across current Workbook/Flip Chart (dispatched)
+  - #570: Premium Gretel voice technical readiness before owner selection (dispatched)
+  - #585: Final owner-proof capture harness and device matrix (dispatched)
 - #540 remains a timing diagnosis, not a runtime repair lane. Fresh current-main focused verification passed all 62 tests across 7 suites, including the p24 completion gate; this is not whole-product browser/release proof.
 - Final premium Gretel voice/TTS is still an owner-required unresolved finish item.
 - Welcome video remains non-blocking.
@@ -49,15 +48,15 @@ Do not confuse printed page numbers with PDF file indices. Historical mapping fi
    - Prove both safe local web servers start, then run the existing `pnpm verify:release` path in a clean verification checkout.
    - No GitHub Actions, paid runners, weakened/skipped tests, or asset-output implementation commits.
 
-2. **#616 + #617 + #618 — page turns & living motion integrated**
-   - Merged into `main` via #626 and #618. Teacher hand mode, corner flips, Workbook real-paper page turns, and Page 1 picture motion loops are verified on `main`.
+2. **#616 + #617 + #618 + #615 — page turns & living motion integrated**
+   - Merged into `main` via #626, #618, and #633. Teacher hand mode, corner flips, Workbook real-paper page turns, Page 1 continuous motion, and Lesson 7 Flip Chart picture motion pilot are verified on `main`.
 
-3. **Current Pre-Final Regressions & Picture Motion batch (in flight)**
-   - #571 Flip Chart pre-final regression: verified and merged via PR #628.
-   - #615: Pilot Flip Chart picture motion (Lesson 7) in flight with Jules (task 8759049588549769864).
-   - #567: Student audio, mute, and picture-name regression in flight with Jules (task 15636265076268335132).
-   - #561: Workbook local browser/device readiness in flight with Jules (task 17561733766645750980).
-   - #562: Teacher + Flip Chart classroom regression dispatched to Jules.
+3. **Current Pre-Final Regressions & Harness batch (in flight)**
+   - Pre-final regressions verified and merged: #571 (Flip Chart preflight, #628), #567 (audio/mute behavior, #630), #561 (Workbook device readiness, #631), #562 (Teacher/Flip Chart classroom regression, #632).
+   - In flight with Jules:
+     - #560: Living-art motion regression across current Workbook and Flip Chart.
+     - #570: Premium Gretel voice technical readiness before owner selection.
+     - #585: Final owner-proof capture harness and deterministic multi-device matrix.
    - Final foreground-art correctness stays in #454. Classification or a green Sonar badge alone cannot close it.
 
 ### Final gates after dependencies are verified and integrated
