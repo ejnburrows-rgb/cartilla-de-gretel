@@ -159,6 +159,10 @@ describe("Workbook handwriting source gating reaches the existing renderer", () 
       expect(container.querySelector('path[stroke-dasharray="1,11"]')?.getAttribute("d")).toBe(
         "M 72 27 L 50 20 L 25 25 L 20 60 L 25 95 L 50 100 L 75 95 L 80 60 L 72 27",
       );
+      const hintEl = container.querySelector(".fp-trace__hint");
+      if (mode === "tap") {
+        expect(hintEl).not.toBeNull();
+      }
       unmount();
     }
   });
