@@ -39,8 +39,18 @@ const A = "/cartilla/art/faithful";
 /** Workbook Page 1 display art (owner decision 2026-10-05). */
 const W1 = "/cartilla/art/optimized/workbook/leccion-1";
 const P1 = "/cartilla/art/faithful/leccion-1/wb-p1";
+const FC_NATIVE = "/cartilla/art/optimized/flipchart-native";
 
 export const LIVING_ACTORS: Readonly<Record<string, LivingActor>> = Object.freeze({
+  // Flip Chart pilot picture (Lesson 7, page 9 scene)
+  [`${FC_NATIVE}/p009-scene.png`]: {
+    src: `${FC_NATIVE}/p009-scene.png`,
+    aliveSrc: `${FC_NATIVE}/p009-scene-alive.svg`,
+    action: "nod",
+    creature: true,
+    reducedMotion: "static",
+    meaning: "gesto atento de cabeza y respiración natural",
+  },
   // Workbook Page 1 (owner color art / printed drawings): same meaning as the
   // faithful actors, whole-picture motion only (part rigs belong to other crops).
   [`${W1}/oso.svg`]: {
