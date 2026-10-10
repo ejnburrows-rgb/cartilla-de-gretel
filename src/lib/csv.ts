@@ -1,6 +1,9 @@
 function escape(v: unknown): string {
   if (v == null) return "";
-  const s = String(v);
+  let s = String(v);
+  if (/^\s*[=+\-@]/.test(s) && isNaN(Number(s))) {
+    s = `'${s}`;
+  }
   if (/[",\n\r]/.test(s)) return `"${s.replace(/"/g, '""')}"`;
   return s;
 }

@@ -29,4 +29,34 @@ describe("toCSV", () => {
     expect(toCSV([{ v: 'he said "hi"' }])).toBe('v\n"he said ""hi"""');
     expect(toCSV([{ v: "line1\nline2" }])).toBe('v\n"line1\nline2"');
   });
+
+  it("escapes spreadsheet formula injection characters in string values", () => {
+    expect(toCSV([{ v: "=1+1" }])).toBe("v\n'=1+1");
+    expect(toCSV([{ v: "@SUM(A1)" }])).toBe("v\n'@SUM(A1)");
+    expect(toCSV([{ v: "-2+3" }])).toBe("v\n'-2+3");
+    expect(toCSV([{ v: "+123-abc" }])).toBe("v\n'+123-abc");
+    expect(toCSV([{ v: "\t=1+1" }])).toBe("v\n'\t=1+1");
+    expect(toCSV([{ v: "  =cmd|' /C calc'!A0" }])).toBe("v\n'  =cmd|' /C calc'!A0");
+  });
+
+  it("preserves legitimate numeric negative and positive values without formula escaping", () => {
+    expect(toCSV([{ score: -5, delta: +5 }])).toBe("score,delta\n-5,5");
+    expect(toCSV([{ score: "-5", delta: "+5.5" }])).toBe("score,delta\n-5,+5.5");
+    expect(toCSV([{ pct: "-12.34" }])).toBe("pct\n-12.34");
+    expect(toCSV([{ val: 0 }, { val: -0 }])).toBe("val\n0\n0");
+  });
+
+  it("handles combining quote escaping and formula escaping for strings with commas or quotes", () => {
+    expect(toCSV([{ v: '=1,"2"' }])).toBe('v\n"\'=1,""2"""');
+  });
+
+  it("preserves headers, Spanish characters, nulls, and ordinary text", () => {
+    const csv = toCSV([
+      { leccion: 1, titulo: "Lección 1", completada: "sí", nota: -10 },
+      { leccion: 2, titulo: "Matemáticas - Nivel 2", completada: "no", nota: null },
+    ]);
+    expect(csv).toBe(
+      "leccion,titulo,completada,nota\n1,Lección 1,sí,-10\n2,Matemáticas - Nivel 2,no,",
+    );
+  });
 });
