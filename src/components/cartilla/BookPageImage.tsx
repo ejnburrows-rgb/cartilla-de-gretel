@@ -4,6 +4,7 @@ import { Shimmer } from "@/components/feel/Shimmer";
 interface BookPageImageProps extends React.ImgHTMLAttributes<HTMLImageElement> {
   wrapperClassName?: string;
   fallbackSrcs?: string[];
+  priority?: boolean;
 }
 
 export function BookPageImage({
@@ -12,19 +13,19 @@ export function BookPageImage({
   alt,
   className = "",
   wrapperClassName = "",
+  priority = false,
+  loading,
   ...props
 }: BookPageImageProps) {
-  const [prevSrc, setPrevSrc] = useState(src);
   const [fallbackIndex, setFallbackIndex] = useState(-1);
   const [isLoaded, setIsLoaded] = useState(false);
   const [hasError, setHasError] = useState(false);
 
-  if (src !== prevSrc) {
-    setPrevSrc(src);
+  useEffect(() => {
     setFallbackIndex(-1);
     setHasError(false);
     setIsLoaded(false);
-  }
+  }, [src]);
 
   const currentSrc = fallbackIndex === -1 ? src : fallbackSrcs[fallbackIndex];
 
@@ -50,15 +51,16 @@ export function BookPageImage({
             isLoaded ? "opacity-100" : "opacity-0"
           } ${className}`}
           draggable={false}
-          loading="lazy"
+          loading={priority ? "eager" : loading || "lazy"}
+          decoding={priority ? "auto" : "async"}
+          {...(priority ? ({ fetchPriority: "high" } as React.ImgHTMLAttributes<HTMLImageElement>) : {})}
           onLoad={(e) => {
             setIsLoaded(true);
             props.onLoad?.(e);
           }}
           onError={(e) => {
             if (fallbackIndex + 1 < fallbackSrcs.length) {
-              const nextIdx = fallbackIndex + 1;
-              setFallbackIndex(nextIdx);
+              setFallbackIndex((idx) => idx + 1);
             } else {
               setHasError(true);
               props.onError?.(e);
