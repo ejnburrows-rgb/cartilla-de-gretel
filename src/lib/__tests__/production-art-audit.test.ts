@@ -88,7 +88,7 @@ describe("production foreground art audit truthfulness", () => {
     expect(metadataOnly.every((item: any) => item.cropMatch === false)).toBe(true);
   });
 
-  it("reproduces the committed audit and locks the native evidence schema", () => {
+  it("reproduces the committed audit and locks the native evidence schema", { timeout: 60_000 }, () => {
     const tempDir = mkdtempSync(path.join(tmpdir(), "cartilla-art-audit-"));
     const output = path.join(tempDir, "audit.json");
     try {

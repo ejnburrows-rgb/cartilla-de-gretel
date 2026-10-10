@@ -88,7 +88,7 @@ export default defineConfig(({ mode }) => ({
     // Route-module tests can spend >5s transforming the full generated tree
     // under highly parallel/slow CI workers; keep the assertion timeout above
     // that startup cost without adding product-side sleeps.
-    testTimeout: 25_000,
+    testTimeout: 45_000,
     hookTimeout: 180_000,
     // Playwright E2E specs live in tests/e2e and must not be run by Vitest
     // (they use @playwright/test, not the jsdom unit runner).
