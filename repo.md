@@ -7,7 +7,7 @@ Applies whenever a new scenic background is explicitly approved for the **Workbo
 
 ## Surface-use rule
 - **Student Workbook:** dense learner exercises use the owner-approved clean digital canvas. Do not use a complete scenic image as full-page wallpaper behind dense exercises. Existing scenic assets are preserved and may be used only in explicitly approved Workbook contexts where they do not compete with lesson content.
-- **Teacher Flip Chart:** may retain the richer scenic presentation when source-appropriate.
+- **Teacher Flip Chart:** defaults to a clean paper surface **without** a scenic background-image layer; preserve source instructional foreground scenes and any historical scenic assets on disk. Generating a scenery file under this method never grants permission to mount it by default.
 - This distinction changes background **usage**, not source structure, foreground art, or lesson content.
 
 ## Workflow
@@ -63,7 +63,7 @@ Use a vivid educational palette:
 No watercolor or transparent washes, realism, photorealism, painterly blending, oil/impasto texture, visible paper or canvas grain, black outlines, muted/pastel palettes, anime, Pixar, CGI/3D, vector-flat app art, cinematic lighting, grunge, unrelated subjects, decorative border-only layouts, or plain gradient-only backgrounds.
 
 ## Locked Rule
-This is the approved default method whenever Workbook or Flip Chart background-image generation is explicitly authorized. It is not a requirement to generate or render a background on every page. The Student Workbook surface-use rule above controls whether the generated asset belongs behind a learner exercise.
+This is the approved default method whenever Workbook or Flip Chart background-image generation is explicitly authorized. It is not a requirement to generate or render a background on every page. The surface-use rules above govern both Student Workbook and teacher Flip Chart: a generated background may be displayed only in the exact context explicitly approved by the owner, never as default Flip Chart wallpaper.
 
 
 ## Relationship to foreground color transfer

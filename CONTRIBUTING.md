@@ -28,7 +28,7 @@ Current-state terms:
 
 The approved/fixed/cropped book images are finished assets for this phase.
 
-Use the authoritative source PDFs to verify page order, placement, scale, orientation, spacing, composition, and fidelity. Technical cleanup or motion must follow `ASSET_FIDELITY_POLICY.md`. Dense Student Workbook exercises use the clean digital canvas rather than full scenic wallpaper. When a scenic background is explicitly approved (including richer teacher Flip Chart presentation), background generation must follow `repo.md`.
+Use the authoritative source PDFs to verify page order, placement, scale, orientation, spacing, composition, and fidelity. Technical cleanup or motion must follow `ASSET_FIDELITY_POLICY.md`. Dense Student Workbook exercises use the clean digital canvas rather than full scenic wallpaper. The teacher Flip Chart defaults to clean paper without a scenic background-image layer, retaining its source instructional foreground scenes. Only explicitly owner-approved scenic contexts may use `repo.md` to generate background assets; preservation of older scenery does not authorize displaying it by default.
 
 If a visual problem is caused by placement, fix the placement. Do not modify the image to compensate.
 
@@ -40,4 +40,4 @@ For ordinary implementation workers, use `pnpm dev:worker` for browser/runtime w
 
 ## Reporting issues
 
-Open a GitHub issue with steps to reproduce, the affected commit, and your browser and operating system. Add a screenshot for visual issues.
+**First satisfy the evidence-first dispatch gate at the top of `AGENTS.md`: check current code, existing issues/PRs, Jules work and still-valid proof to ensure the problem is real, unassigned and not already resolved.** If the finding is genuinely distinct, open an issue with steps to reproduce, the affected commit, and your browser and operating system. Add a screenshot for visual issues. Do not create issues merely to fill worker capacity.
