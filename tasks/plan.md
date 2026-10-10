@@ -5,6 +5,8 @@
 **Updated:** 2026-10-10
 **Concurrency authority:** `AGENTS.md` only. There is **no fixed numeric cap** on concurrent Jules implementation lanes.
 
+> **Owner clarification 2026-10-10 (latest):** The old PC polling script and Neon/Vercel/OpenHands system stay disabled and historical. The distinct, pre-existing **hourly ChatGPT cloud Cartilla Jules Continuity** coordinator was explicitly **re-enabled** by the owner and may inspect GitHub and coordinate Jules tasks without PC access. This is permission for that scheduled task, **not proof of a working end-to-end dispatch or currently occupied Jules lanes**. Check current owner instructions and live Jules receipts; never silently revive the retired infrastructure.
+
 ## Current verified reality
 
 - CURRENT `main` must be resolved live from GitHub at the start of every session; do not persist a main SHA here because merging this file would immediately make it stale.
@@ -13,14 +15,16 @@
 - Live GitHub confirms merged lanes: #531 (Gretel), #532 (page turns), #533 (PDF precache/provenance), #534 (teacher-route performance), #537 (art classification), #538 (Pencil Line + clean Workbook integration), #551 (Workbook fidelity candidate reconciliation), #618 (Page 1 picture motion polish), #624 (perf image loading regressions), #625 (student route smoke), #626 (#616 Workbook page turns + #617 Flip Chart corner flips), #627 (art audit timeout), #628 (Flip Chart pre-final regression, closing #571), #630 (Student audio/mute behavior, closing #567), #631 (Workbook device readiness preflight, closing #561), #632 (Teacher + Flip Chart classroom regression, closing #562), #633 (Flip Chart picture motion pilot, closing #615), #634 (Class Roster accessibility), #636 (Gretel voice abstraction seam, closing #570), #637 (perf budget React 19 recalibration), #638 (owner-proof capture harness, closing #585; #597 closed as superseded), #641 (Workbook assembled regression suite, closing #450), #642 (Flip Chart corner cancel, reduced motion and keyboard navigation, closing #457), #643 (Living-art motion regression proof, closing #560), #646 (owner foreground-image intake tooling, closing #579), and #648 (owner art intake tooling resilience). Do not dispatch or merge those lanes again.
 - #539 is closed as superseded: its frozen head `802d237aca9f439dde062402caac8a092eaf9f42` was deliberately preserved in #538.
 - #553 is the owner-locked large close-up pencil/eraser baseline. #516 is closed unmerged and superseded; do not restore it. The small StudentCursor is a separate approved pointer, not an obsolete marking actor.
-- #389 remains the dedicated direct-cloud release-verification lane. The `playwright.config.ts` cross-platform launcher is verified resolved on `main` (process.platform === "win32" conditional).
-- #454 remains open: merging the #537 classification audit does not certify that every production artwork slot is correct or that pending owner artwork is supplied.
+- #587 is the CURRENT dedicated Jules clean-main release-verification lane; #389 is historical harness groundwork and must not be redispatched as a second verifier. The `playwright.config.ts` cross-platform launcher is verified resolved on `main` (process.platform === "win32" conditional).
+- #454 was CLOSED on 2026-10-10; its historical artwork work must not be redispatched. Outstanding owner-approved final foreground art remains owner-gated in #588. Neither the #537 classification audit nor closing #454 certifies missing owner materials.
 - #450 is verified and closed via #641: full assembled Workbook regression suite passing across all 8 archetypes, save/restore, completion gating, device matrix, and source-blocked pages 86–87.
 - #457 is verified and closed via #642: pointer cancel resets without turning, reduced-motion drag omits 3D transform, and Enter/Space keyboard navigation operates cleanly.
 - #560 is verified and closed via #643: Page 1 and Flip Chart Lesson 7 living motion verified with natural `-alive.svg` SVGs and static fallback under reduced motion.
 - #579 is verified and closed via #646 and #648: deterministic owner foreground-image intake tooling, sanity validation, dry-run report, and Windows test resilience.
-- Active independent Jules implementation lanes in flight:
-  - #587: Current-main clean release verification baseline (active with Jules task 658944131750853263)
+- **Existing Jules task receipts — ACTIVE PROVIDER EXECUTION NOT YET PROVEN:**
+  - #587: Current-main clean release baseline; Jules bot acknowledged task 658944131750853263, but its current provider running state and passing current-main release report were not established in this audit. Reuse the existing task.
+  - #495: Workbook realignment; Jules previously returned PR #650 with **0 changed files** and was given an in-place corrective handoff. This is neither verified implementation nor evidence of a currently running worker. Reconcile the existing owner/work branch and original issue/PR, without duplicate tasks.
+  - `jules` labels and bot acknowledgements prove routing, not actual concurrent productivity. Demand fresh provider-session state and actual material code/test evidence before claiming worker lanes are occupied.
 - #540 remains a timing diagnosis, not a runtime repair lane. Fresh current-main focused verification passed all 62 tests across 7 suites, including the p24 completion gate; this is not whole-product browser/release proof.
 - Final premium Gretel voice/TTS technical abstraction is verified and merged (#636); owner choice among candidates (#589) remains open.
 - Welcome video remains non-blocking.
@@ -43,7 +47,7 @@ Do not confuse printed page numbers with PDF file indices. Historical mapping fi
 
 ### Advance existing candidates; do not restart merged lanes
 
-1. **#389 / #587 — trustworthy direct-cloud release harness and clean release baseline**
+1. **#587 — current clean-main release baseline (reuse historical #389 harness)**
    - Cross-platform launcher verified on `main`. Clean verification checkout can run `pnpm verify:release`.
    - Record exact typecheck, Vitest, production build, and Playwright results on current main.
    - No GitHub Actions, paid runners, weakened/skipped tests, or asset-output implementation commits.
@@ -53,9 +57,10 @@ Do not confuse printed page numbers with PDF file indices. Historical mapping fi
 
 3. **Current Pre-Final Regressions & Active Implementation batch (in flight)**
    - Pre-final regressions verified and merged: #571 (#628), #567 (#630), #561 (#631), #562 (#632), #570 (#636), #585 (#638), #450 (#641), #457 (#642), #560 (#643), #579 (#646).
-   - In flight with Jules:
-     - #587: Current-main clean release verification baseline.
-   - Final foreground-art correctness stays in #454. Classification or a green Sonar badge alone cannot close it.
+   - Jules assignments with existing receipts, not confirmed active execution:
+     - #587: Clean-main verification (reuse the already acknowledged session; require actual output).
+     - #495: Workbook realignment (existing PR #650 has 0 changed files; in-place correction requested and awaiting proof).
+   - Final foreground-art integration is owner-gated in #588; #454 is already closed. Classification or a green Sonar badge alone cannot certify the pending owner assets.
 
 ### Final gates after dependencies are verified and integrated
 
@@ -70,7 +75,7 @@ Do not confuse printed page numbers with PDF file indices. Historical mapping fi
    - #636 (closing #570) verified and merged: technical abstraction seam, single speech ownership, volume/mute enforcement, `/cartilla/voces` preview.
    - #589 (owner-gated): owner decision on candidate voice (Cartilla local neural voice vs. cloud edge TTS).
 
-7. **#389 / #587 — trustworthy direct-cloud release harness & clean release baseline**
+7. **#587 — current clean-main Jules release baseline (reuse #389 proof)**
    - Cross-platform launcher verified on `main`. Clean cloud verification checkout runs `pnpm verify:release`.
    - Records exact typecheck, Vitest, build, and Playwright execution counts without mutating release assets.
 
@@ -80,6 +85,8 @@ Do not confuse printed page numbers with PDF file indices. Historical mapping fi
    - Preserve the production alias during ordinary work. Deploy only after intentional final owner authorization and approval, then verify the actual deployed product.
 
 ## Controller / Jules operating rules
+
+- **SonarCloud/SonarQube is advisory and non-blocking**, including duplication/quality-gate failures: a confirmed real defect is blocking, not an unconfirmed scan warning. Jules' relevant existing focused and UI proof plus exact-head controller review determine readiness; zero material file changes are not implementation completion. Use `node scripts/check-merge-policy.mjs --docs` for active-policy consistency and `--evidence <receipt.json>` for a bounded pre-merge decision. These checks do not launch/repeat Jules tests, change branch protection, or auto-merge.
 
 - Re-read current `AGENTS.md` every run. Never restore the obsolete two-worker cap.
 - Dispatch every genuinely independent, dependency-ready, non-owner-gated implementation lane that current Jules capacity permits.
