@@ -1,0 +1,1458 @@
+{
+  "schemaVersion": 1,
+  "source": "src/data/page-layouts.json (printed pages 1–90)",
+  "approvalRecord": "src/data/workbook-page1-art.json",
+  "interpretation": "Source artwork and technically verified artwork are not substitutes for a page-and-slot owner-final approval. Until a slot is verified, Student Workbook rendering leaves that image blank. Existing source records are preserved.",
+  "totals": {
+    "printedPages": 90,
+    "artSlots": 160,
+    "repositoryRecordedOwnerApprovals": 20,
+    "notYetVerified": 140
+  },
+  "sourceBlockedPrintedPages": [
+    86,
+    87
+  ],
+  "slots": [
+    {
+      "printedPage": 1,
+      "regionId": "p1-grid",
+      "slot": "cells[0]",
+      "subject": "abrigo",
+      "existingFile": "/cartilla/art/optimized/workbook/leccion-1/abrigo.png",
+      "status": "REPO_RECORDED_OWNER_APPROVAL",
+      "approvalRecord": "src/data/workbook-page1-art.json:ownerColor"
+    },
+    {
+      "printedPage": 1,
+      "regionId": "p1-grid",
+      "slot": "cells[1]",
+      "subject": "imán",
+      "existingFile": "/cartilla/art/optimized/workbook/leccion-1/iman.svg",
+      "status": "REPO_RECORDED_OWNER_APPROVAL",
+      "approvalRecord": "src/data/workbook-page1-art.json:ownerColor"
+    },
+    {
+      "printedPage": 1,
+      "regionId": "p1-grid",
+      "slot": "cells[2]",
+      "subject": "abanico",
+      "existingFile": "/cartilla/art/optimized/workbook/leccion-1/abanico.svg",
+      "status": "REPO_RECORDED_OWNER_APPROVAL",
+      "approvalRecord": "src/data/workbook-page1-art.json:ownerColor"
+    },
+    {
+      "printedPage": 1,
+      "regionId": "p1-grid",
+      "slot": "cells[3]",
+      "subject": "oso",
+      "existingFile": "/cartilla/art/optimized/workbook/leccion-1/oso.svg",
+      "status": "REPO_RECORDED_OWNER_APPROVAL",
+      "approvalRecord": "src/data/workbook-page1-art.json:ownerColor"
+    },
+    {
+      "printedPage": 1,
+      "regionId": "p1-grid",
+      "slot": "cells[4]",
+      "subject": "isla",
+      "existingFile": "/cartilla/art/optimized/workbook/leccion-1/isla.svg",
+      "status": "REPO_RECORDED_OWNER_APPROVAL",
+      "approvalRecord": "src/data/workbook-page1-art.json:ownerColor"
+    },
+    {
+      "printedPage": 1,
+      "regionId": "p1-grid",
+      "slot": "cells[5]",
+      "subject": "avión",
+      "existingFile": "/cartilla/art/optimized/workbook/leccion-1/avion.svg",
+      "status": "REPO_RECORDED_OWNER_APPROVAL",
+      "approvalRecord": "src/data/workbook-page1-art.json:ownerColor"
+    },
+    {
+      "printedPage": 1,
+      "regionId": "p1-grid",
+      "slot": "cells[6]",
+      "subject": "imán",
+      "existingFile": "/cartilla/art/optimized/workbook/leccion-1/iman.svg",
+      "status": "REPO_RECORDED_OWNER_APPROVAL",
+      "approvalRecord": "src/data/workbook-page1-art.json:ownerColor"
+    },
+    {
+      "printedPage": 1,
+      "regionId": "p1-grid",
+      "slot": "cells[7]",
+      "subject": "aro",
+      "existingFile": "/cartilla/art/optimized/workbook/leccion-1/aro.svg",
+      "status": "REPO_RECORDED_OWNER_APPROVAL",
+      "approvalRecord": "src/data/workbook-page1-art.json:ownerColor"
+    },
+    {
+      "printedPage": 1,
+      "regionId": "p1-grid",
+      "slot": "cells[8]",
+      "subject": "escalera",
+      "existingFile": "/cartilla/art/optimized/workbook/leccion-1/escalera.svg",
+      "status": "REPO_RECORDED_OWNER_APPROVAL",
+      "approvalRecord": "src/data/workbook-page1-art.json:ownerColor"
+    },
+    {
+      "printedPage": 1,
+      "regionId": "p1-grid",
+      "slot": "cells[9]",
+      "subject": "uno",
+      "existingFile": "/cartilla/art/optimized/workbook/leccion-1/uno.svg",
+      "status": "REPO_RECORDED_OWNER_APPROVAL",
+      "approvalRecord": "src/data/workbook-page1-art.json:ownerColor"
+    },
+    {
+      "printedPage": 1,
+      "regionId": "p1-grid",
+      "slot": "cells[10]",
+      "subject": "escuela",
+      "existingFile": "/cartilla/art/optimized/workbook/leccion-1/escuela.png",
+      "status": "REPO_RECORDED_OWNER_APPROVAL",
+      "approvalRecord": "src/data/workbook-page1-art.json:ownerColor"
+    },
+    {
+      "printedPage": 1,
+      "regionId": "p1-grid",
+      "slot": "cells[11]",
+      "subject": "oreja",
+      "existingFile": "/cartilla/art/optimized/workbook/leccion-1/oreja.svg",
+      "status": "REPO_RECORDED_OWNER_APPROVAL",
+      "approvalRecord": "src/data/workbook-page1-art.json:ownerColor"
+    },
+    {
+      "printedPage": 1,
+      "regionId": "p1-grid",
+      "slot": "cells[12]",
+      "subject": "uniforme",
+      "existingFile": "/cartilla/art/optimized/workbook/leccion-1/uniforme.svg",
+      "status": "REPO_RECORDED_OWNER_APPROVAL",
+      "approvalRecord": "src/data/workbook-page1-art.json:ownerColor"
+    },
+    {
+      "printedPage": 1,
+      "regionId": "p1-grid",
+      "slot": "cells[13]",
+      "subject": "uña",
+      "existingFile": "/cartilla/art/optimized/workbook/leccion-1/una.svg",
+      "status": "REPO_RECORDED_OWNER_APPROVAL",
+      "approvalRecord": "src/data/workbook-page1-art.json:ownerColor"
+    },
+    {
+      "printedPage": 1,
+      "regionId": "p1-grid",
+      "slot": "cells[14]",
+      "subject": "oveja",
+      "existingFile": "/cartilla/art/optimized/workbook/leccion-1/oveja.svg",
+      "status": "REPO_RECORDED_OWNER_APPROVAL",
+      "approvalRecord": "src/data/workbook-page1-art.json:ownerColor"
+    },
+    {
+      "printedPage": 1,
+      "regionId": "p1-grid",
+      "slot": "cells[15]",
+      "subject": "elefante",
+      "existingFile": "/cartilla/art/optimized/workbook/leccion-1/elefante.svg",
+      "status": "REPO_RECORDED_OWNER_APPROVAL",
+      "approvalRecord": "src/data/workbook-page1-art.json:ownerColor"
+    },
+    {
+      "printedPage": 1,
+      "regionId": "p1-grid",
+      "slot": "cells[16]",
+      "subject": "ojos",
+      "existingFile": "/cartilla/art/optimized/workbook/leccion-1/ojos.png",
+      "status": "REPO_RECORDED_OWNER_APPROVAL",
+      "approvalRecord": "src/data/workbook-page1-art.json:ownerColor"
+    },
+    {
+      "printedPage": 1,
+      "regionId": "p1-grid",
+      "slot": "cells[17]",
+      "subject": "maíz",
+      "existingFile": "/cartilla/art/optimized/workbook/leccion-1/maiz.png",
+      "status": "REPO_RECORDED_OWNER_APPROVAL",
+      "approvalRecord": "src/data/workbook-page1-art.json:ownerColor"
+    },
+    {
+      "printedPage": 1,
+      "regionId": "p1-grid",
+      "slot": "cells[18]",
+      "subject": "abeja",
+      "existingFile": "/cartilla/art/optimized/workbook/leccion-1/abeja.png",
+      "status": "REPO_RECORDED_OWNER_APPROVAL",
+      "approvalRecord": "src/data/workbook-page1-art.json:ownerColor"
+    },
+    {
+      "printedPage": 1,
+      "regionId": "p1-grid",
+      "slot": "cells[19]",
+      "subject": "olla",
+      "existingFile": "/cartilla/art/optimized/workbook/leccion-1/olla.svg",
+      "status": "REPO_RECORDED_OWNER_APPROVAL",
+      "approvalRecord": "src/data/workbook-page1-art.json:ownerColor"
+    },
+    {
+      "printedPage": 2,
+      "regionId": "p2-rows",
+      "slot": "vowelRows[0].cells[0]",
+      "subject": "anillo",
+      "existingFile": "/cartilla/art/faithful/vocal-a/anillo.webp",
+      "status": "OWNER_APPROVAL_NOT_VERIFIED",
+      "approvalRecord": null
+    },
+    {
+      "printedPage": 2,
+      "regionId": "p2-rows",
+      "slot": "vowelRows[0].cells[1]",
+      "subject": "manzana",
+      "existingFile": "/cartilla/art/faithful/leccion-1/manzana.webp",
+      "status": "OWNER_APPROVAL_NOT_VERIFIED",
+      "approvalRecord": null
+    },
+    {
+      "printedPage": 2,
+      "regionId": "p2-rows",
+      "slot": "vowelRows[0].cells[2]",
+      "subject": "libro",
+      "existingFile": "/cartilla/art/faithful/leccion-1/libro.webp",
+      "status": "OWNER_APPROVAL_NOT_VERIFIED",
+      "approvalRecord": null
+    },
+    {
+      "printedPage": 2,
+      "regionId": "p2-rows",
+      "slot": "vowelRows[1].cells[0]",
+      "subject": "casa",
+      "existingFile": "/cartilla/art/faithful/leccion-19-c/casa.webp",
+      "status": "OWNER_APPROVAL_NOT_VERIFIED",
+      "approvalRecord": null
+    },
+    {
+      "printedPage": 2,
+      "regionId": "p2-rows",
+      "slot": "vowelRows[1].cells[1]",
+      "subject": "árbol",
+      "existingFile": "/cartilla/art/faithful/vocal-a/arbol.webp",
+      "status": "OWNER_APPROVAL_NOT_VERIFIED",
+      "approvalRecord": null
+    },
+    {
+      "printedPage": 2,
+      "regionId": "p2-rows",
+      "slot": "vowelRows[1].cells[2]",
+      "subject": "estrella",
+      "existingFile": "/cartilla/art/faithful/vocal-e/estrella.webp",
+      "status": "OWNER_APPROVAL_NOT_VERIFIED",
+      "approvalRecord": null
+    },
+    {
+      "printedPage": 2,
+      "regionId": "p2-rows",
+      "slot": "vowelRows[2].cells[0]",
+      "subject": "taza",
+      "existingFile": "/cartilla/art/faithful/leccion-1/taza.webp",
+      "status": "OWNER_APPROVAL_NOT_VERIFIED",
+      "approvalRecord": null
+    },
+    {
+      "printedPage": 2,
+      "regionId": "p2-rows",
+      "slot": "vowelRows[2].cells[1]",
+      "subject": "indio",
+      "existingFile": "/cartilla/art/faithful/vocal-i/indio.webp",
+      "status": "OWNER_APPROVAL_NOT_VERIFIED",
+      "approvalRecord": null
+    },
+    {
+      "printedPage": 2,
+      "regionId": "p2-rows",
+      "slot": "vowelRows[2].cells[2]",
+      "subject": "pera",
+      "existingFile": "/cartilla/art/faithful/leccion-1/pera.webp",
+      "status": "OWNER_APPROVAL_NOT_VERIFIED",
+      "approvalRecord": null
+    },
+    {
+      "printedPage": 2,
+      "regionId": "p2-rows",
+      "slot": "vowelRows[3].cells[0]",
+      "subject": "pájaro",
+      "existingFile": "/cartilla/art/faithful/leccion-1/pajaro.webp",
+      "status": "OWNER_APPROVAL_NOT_VERIFIED",
+      "approvalRecord": null
+    },
+    {
+      "printedPage": 2,
+      "regionId": "p2-rows",
+      "slot": "vowelRows[3].cells[1]",
+      "subject": "oso",
+      "existingFile": "/cartilla/art/faithful/vocal-o/oso.webp",
+      "status": "OWNER_APPROVAL_NOT_VERIFIED",
+      "approvalRecord": null
+    },
+    {
+      "printedPage": 2,
+      "regionId": "p2-rows",
+      "slot": "vowelRows[3].cells[2]",
+      "subject": "carro",
+      "existingFile": "/cartilla/art/faithful/leccion-1/carro.webp",
+      "status": "OWNER_APPROVAL_NOT_VERIFIED",
+      "approvalRecord": null
+    },
+    {
+      "printedPage": 2,
+      "regionId": "p2-rows",
+      "slot": "vowelRows[4].cells[0]",
+      "subject": "uniforme",
+      "existingFile": "/cartilla/art/faithful/vocal-u/uniforme.webp",
+      "status": "OWNER_APPROVAL_NOT_VERIFIED",
+      "approvalRecord": null
+    },
+    {
+      "printedPage": 2,
+      "regionId": "p2-rows",
+      "slot": "vowelRows[4].cells[1]",
+      "subject": "globo",
+      "existingFile": "/cartilla/art/faithful/leccion-1/globo.webp",
+      "status": "OWNER_APPROVAL_NOT_VERIFIED",
+      "approvalRecord": null
+    },
+    {
+      "printedPage": 2,
+      "regionId": "p2-rows",
+      "slot": "vowelRows[4].cells[2]",
+      "subject": "dulce",
+      "existingFile": "/cartilla/art/faithful/leccion-1/dulce.webp",
+      "status": "OWNER_APPROVAL_NOT_VERIFIED",
+      "approvalRecord": null
+    },
+    {
+      "printedPage": 3,
+      "regionId": "p3-pairs",
+      "slot": "vowelPairs[0]",
+      "subject": "ocho",
+      "existingFile": "/cartilla/art/faithful/vocal-o/ocho.webp",
+      "status": "OWNER_APPROVAL_NOT_VERIFIED",
+      "approvalRecord": null
+    },
+    {
+      "printedPage": 3,
+      "regionId": "p3-pairs",
+      "slot": "vowelPairs[1]",
+      "subject": "araña",
+      "existingFile": "/cartilla/art/faithful/vocal-a/arana.webp",
+      "status": "OWNER_APPROVAL_NOT_VERIFIED",
+      "approvalRecord": null
+    },
+    {
+      "printedPage": 3,
+      "regionId": "p3-pairs",
+      "slot": "vowelPairs[2]",
+      "subject": "iglesia",
+      "existingFile": "/cartilla/art/faithful/vocal-i/iglesia.webp",
+      "status": "OWNER_APPROVAL_NOT_VERIFIED",
+      "approvalRecord": null
+    },
+    {
+      "printedPage": 3,
+      "regionId": "p3-pairs",
+      "slot": "vowelPairs[3]",
+      "subject": "escoba",
+      "existingFile": "/cartilla/art/faithful/vocal-e/escoba.webp",
+      "status": "OWNER_APPROVAL_NOT_VERIFIED",
+      "approvalRecord": null
+    },
+    {
+      "printedPage": 3,
+      "regionId": "p3-pairs",
+      "slot": "vowelPairs[4]",
+      "subject": "uno",
+      "existingFile": "/cartilla/art/faithful/vocal-u/uno.webp",
+      "status": "OWNER_APPROVAL_NOT_VERIFIED",
+      "approvalRecord": null
+    },
+    {
+      "printedPage": 4,
+      "regionId": "p4-grid",
+      "slot": "cells[0]",
+      "subject": "ola",
+      "existingFile": "/cartilla/art/faithful/vocal-o/ola.webp",
+      "status": "OWNER_APPROVAL_NOT_VERIFIED",
+      "approvalRecord": null
+    },
+    {
+      "printedPage": 4,
+      "regionId": "p4-grid",
+      "slot": "cells[1]",
+      "subject": "iglú",
+      "existingFile": "/cartilla/art/faithful/vocal-i/iglu.webp",
+      "status": "OWNER_APPROVAL_NOT_VERIFIED",
+      "approvalRecord": null
+    },
+    {
+      "printedPage": 4,
+      "regionId": "p4-grid",
+      "slot": "cells[2]",
+      "subject": "oso",
+      "existingFile": "/cartilla/art/faithful/vocal-o/oso.webp",
+      "status": "OWNER_APPROVAL_NOT_VERIFIED",
+      "approvalRecord": null
+    },
+    {
+      "printedPage": 4,
+      "regionId": "p4-grid",
+      "slot": "cells[3]",
+      "subject": "maíz",
+      "existingFile": "/cartilla/art/faithful/leccion-1/maiz.webp",
+      "status": "OWNER_APPROVAL_NOT_VERIFIED",
+      "approvalRecord": null
+    },
+    {
+      "printedPage": 4,
+      "regionId": "p4-grid",
+      "slot": "cells[4]",
+      "subject": "uña",
+      "existingFile": "/cartilla/art/faithful/leccion-1/arco.webp",
+      "status": "OWNER_APPROVAL_NOT_VERIFIED",
+      "approvalRecord": null
+    },
+    {
+      "printedPage": 4,
+      "regionId": "p4-grid",
+      "slot": "cells[5]",
+      "subject": "oveja",
+      "existingFile": "/cartilla/art/faithful/vocal-o/oveja.webp",
+      "status": "OWNER_APPROVAL_NOT_VERIFIED",
+      "approvalRecord": null
+    },
+    {
+      "printedPage": 4,
+      "regionId": "p4-grid",
+      "slot": "cells[6]",
+      "subject": "alas",
+      "existingFile": "/cartilla/art/faithful/vocal-a/alas.webp",
+      "status": "OWNER_APPROVAL_NOT_VERIFIED",
+      "approvalRecord": null
+    },
+    {
+      "printedPage": 4,
+      "regionId": "p4-grid",
+      "slot": "cells[7]",
+      "subject": "oreja",
+      "existingFile": "/cartilla/art/faithful/vocal-o/oreja.webp",
+      "status": "OWNER_APPROVAL_NOT_VERIFIED",
+      "approvalRecord": null
+    },
+    {
+      "printedPage": 4,
+      "regionId": "p4-grid",
+      "slot": "cells[8]",
+      "subject": "olla",
+      "existingFile": "/cartilla/art/faithful/vocal-o/olla.webp",
+      "status": "OWNER_APPROVAL_NOT_VERIFIED",
+      "approvalRecord": null
+    },
+    {
+      "printedPage": 4,
+      "regionId": "p4-grid",
+      "slot": "cells[9]",
+      "subject": "uvas",
+      "existingFile": "/cartilla/art/faithful/vocal-u/uvas.webp",
+      "status": "OWNER_APPROVAL_NOT_VERIFIED",
+      "approvalRecord": null
+    },
+    {
+      "printedPage": 4,
+      "regionId": "p4-grid",
+      "slot": "cells[10]",
+      "subject": "ocho",
+      "existingFile": "/cartilla/art/faithful/vocal-o/ocho.webp",
+      "status": "OWNER_APPROVAL_NOT_VERIFIED",
+      "approvalRecord": null
+    },
+    {
+      "printedPage": 4,
+      "regionId": "p4-grid",
+      "slot": "cells[11]",
+      "subject": "uno",
+      "existingFile": "/cartilla/art/faithful/vocal-u/uno.webp",
+      "status": "OWNER_APPROVAL_NOT_VERIFIED",
+      "approvalRecord": null
+    },
+    {
+      "printedPage": 4,
+      "regionId": "p4-grid",
+      "slot": "cells[12]",
+      "subject": "araña",
+      "existingFile": "/cartilla/art/faithful/vocal-a/arana.webp",
+      "status": "OWNER_APPROVAL_NOT_VERIFIED",
+      "approvalRecord": null
+    },
+    {
+      "printedPage": 4,
+      "regionId": "p4-grid",
+      "slot": "cells[13]",
+      "subject": "oso",
+      "existingFile": "/cartilla/art/faithful/vocal-o/oso.webp",
+      "status": "OWNER_APPROVAL_NOT_VERIFIED",
+      "approvalRecord": null
+    },
+    {
+      "printedPage": 4,
+      "regionId": "p4-grid",
+      "slot": "cells[14]",
+      "subject": "uniforme",
+      "existingFile": "/cartilla/art/faithful/leccion-1/traje.webp",
+      "status": "OWNER_APPROVAL_NOT_VERIFIED",
+      "approvalRecord": null
+    },
+    {
+      "printedPage": 4,
+      "regionId": "p4-grid",
+      "slot": "cells[15]",
+      "subject": "ojos",
+      "existingFile": "/cartilla/art/faithful/leccion-1/ojos.webp",
+      "status": "OWNER_APPROVAL_NOT_VERIFIED",
+      "approvalRecord": null
+    },
+    {
+      "printedPage": 5,
+      "regionId": "p5-match",
+      "slot": "cells[0]",
+      "subject": "iglú",
+      "existingFile": "/cartilla/art/faithful/vocal-i/iglu.webp",
+      "status": "OWNER_APPROVAL_NOT_VERIFIED",
+      "approvalRecord": null
+    },
+    {
+      "printedPage": 5,
+      "regionId": "p5-match",
+      "slot": "cells[1]",
+      "subject": "oveja",
+      "existingFile": "/cartilla/art/faithful/vocal-o/oveja.webp",
+      "status": "OWNER_APPROVAL_NOT_VERIFIED",
+      "approvalRecord": null
+    },
+    {
+      "printedPage": 5,
+      "regionId": "p5-match",
+      "slot": "cells[2]",
+      "subject": "ojos",
+      "existingFile": "/cartilla/art/faithful/leccion-1/ojos.webp",
+      "status": "OWNER_APPROVAL_NOT_VERIFIED",
+      "approvalRecord": null
+    },
+    {
+      "printedPage": 5,
+      "regionId": "p5-match",
+      "slot": "cells[3]",
+      "subject": "oreja",
+      "existingFile": "/cartilla/art/faithful/vocal-o/oreja.webp",
+      "status": "OWNER_APPROVAL_NOT_VERIFIED",
+      "approvalRecord": null
+    },
+    {
+      "printedPage": 5,
+      "regionId": "p5-match",
+      "slot": "cells[4]",
+      "subject": "olla",
+      "existingFile": "/cartilla/art/faithful/vocal-o/olla.webp",
+      "status": "OWNER_APPROVAL_NOT_VERIFIED",
+      "approvalRecord": null
+    },
+    {
+      "printedPage": 5,
+      "regionId": "p5-match",
+      "slot": "cells[5]",
+      "subject": "ola",
+      "existingFile": "/cartilla/art/faithful/vocal-o/ola.webp",
+      "status": "OWNER_APPROVAL_NOT_VERIFIED",
+      "approvalRecord": null
+    },
+    {
+      "printedPage": 5,
+      "regionId": "p5-match",
+      "slot": "cells[6]",
+      "subject": "oso",
+      "existingFile": "/cartilla/art/faithful/vocal-o/oso.webp",
+      "status": "OWNER_APPROVAL_NOT_VERIFIED",
+      "approvalRecord": null
+    },
+    {
+      "printedPage": 5,
+      "regionId": "p5-match",
+      "slot": "cells[7]",
+      "subject": "alas",
+      "existingFile": "/cartilla/art/faithful/vocal-a/alas.webp",
+      "status": "OWNER_APPROVAL_NOT_VERIFIED",
+      "approvalRecord": null
+    },
+    {
+      "printedPage": 7,
+      "regionId": "p7-grid",
+      "slot": "cells[0]",
+      "subject": "abanico",
+      "existingFile": "/cartilla/art/faithful/vocal-a/abanico.webp",
+      "status": "OWNER_APPROVAL_NOT_VERIFIED",
+      "approvalRecord": null
+    },
+    {
+      "printedPage": 7,
+      "regionId": "p7-grid",
+      "slot": "cells[1]",
+      "subject": "oruga",
+      "existingFile": "/cartilla/art/faithful/vocal-o/oruga.webp",
+      "status": "OWNER_APPROVAL_NOT_VERIFIED",
+      "approvalRecord": null
+    },
+    {
+      "printedPage": 7,
+      "regionId": "p7-grid",
+      "slot": "cells[2]",
+      "subject": "aro",
+      "existingFile": "/cartilla/art/faithful/vocal-a/aro.webp",
+      "status": "OWNER_APPROVAL_NOT_VERIFIED",
+      "approvalRecord": null
+    },
+    {
+      "printedPage": 7,
+      "regionId": "p7-grid",
+      "slot": "cells[3]",
+      "subject": "imán",
+      "existingFile": "/cartilla/art/faithful/vocal-i/iman.webp",
+      "status": "OWNER_APPROVAL_NOT_VERIFIED",
+      "approvalRecord": null
+    },
+    {
+      "printedPage": 7,
+      "regionId": "p7-grid",
+      "slot": "cells[4]",
+      "subject": "oveja",
+      "existingFile": "/cartilla/art/faithful/vocal-o/oveja.webp",
+      "status": "OWNER_APPROVAL_NOT_VERIFIED",
+      "approvalRecord": null
+    },
+    {
+      "printedPage": 7,
+      "regionId": "p7-grid",
+      "slot": "cells[5]",
+      "subject": "abeja",
+      "existingFile": "/cartilla/art/faithful/vocal-a/abeja.webp",
+      "status": "OWNER_APPROVAL_NOT_VERIFIED",
+      "approvalRecord": null
+    },
+    {
+      "printedPage": 7,
+      "regionId": "p7-grid",
+      "slot": "cells[6]",
+      "subject": "árbol",
+      "existingFile": "/cartilla/art/faithful/vocal-a/arbol.webp",
+      "status": "OWNER_APPROVAL_NOT_VERIFIED",
+      "approvalRecord": null
+    },
+    {
+      "printedPage": 7,
+      "regionId": "p7-grid",
+      "slot": "cells[7]",
+      "subject": "elefante",
+      "existingFile": "/cartilla/art/faithful/vocal-e/elefante.webp",
+      "status": "OWNER_APPROVAL_NOT_VERIFIED",
+      "approvalRecord": null
+    },
+    {
+      "printedPage": 7,
+      "regionId": "p7-grid",
+      "slot": "cells[8]",
+      "subject": "uno",
+      "existingFile": "/cartilla/art/faithful/vocal-u/uno.webp",
+      "status": "OWNER_APPROVAL_NOT_VERIFIED",
+      "approvalRecord": null
+    },
+    {
+      "printedPage": 7,
+      "regionId": "p7-grid",
+      "slot": "cells[9]",
+      "subject": "alas",
+      "existingFile": "/cartilla/art/faithful/vocal-a/alas.webp",
+      "status": "OWNER_APPROVAL_NOT_VERIFIED",
+      "approvalRecord": null
+    },
+    {
+      "printedPage": 7,
+      "regionId": "p7-grid",
+      "slot": "cells[10]",
+      "subject": "estrella",
+      "existingFile": "/cartilla/art/faithful/vocal-e/estrella.webp",
+      "status": "OWNER_APPROVAL_NOT_VERIFIED",
+      "approvalRecord": null
+    },
+    {
+      "printedPage": 7,
+      "regionId": "p7-grid",
+      "slot": "cells[11]",
+      "subject": "ardilla",
+      "existingFile": "/cartilla/art/faithful/vocal-a/ardilla.webp",
+      "status": "OWNER_APPROVAL_NOT_VERIFIED",
+      "approvalRecord": null
+    },
+    {
+      "printedPage": 7,
+      "regionId": "p7-grid",
+      "slot": "cells[12]",
+      "subject": "ojos",
+      "existingFile": "/cartilla/art/faithful/leccion-1/ojos.webp",
+      "status": "OWNER_APPROVAL_NOT_VERIFIED",
+      "approvalRecord": null
+    },
+    {
+      "printedPage": 7,
+      "regionId": "p7-grid",
+      "slot": "cells[13]",
+      "subject": "avión",
+      "existingFile": "/cartilla/art/faithful/vocal-a/avion.webp",
+      "status": "OWNER_APPROVAL_NOT_VERIFIED",
+      "approvalRecord": null
+    },
+    {
+      "printedPage": 7,
+      "regionId": "p7-grid",
+      "slot": "cells[14]",
+      "subject": "aguja",
+      "existingFile": "/cartilla/art/faithful/vocal-a/aguja.webp",
+      "status": "OWNER_APPROVAL_NOT_VERIFIED",
+      "approvalRecord": null
+    },
+    {
+      "printedPage": 7,
+      "regionId": "p7-grid",
+      "slot": "cells[15]",
+      "subject": "oso",
+      "existingFile": "/cartilla/art/faithful/vocal-o/oso.webp",
+      "status": "OWNER_APPROVAL_NOT_VERIFIED",
+      "approvalRecord": null
+    },
+    {
+      "printedPage": 8,
+      "regionId": "p8-match",
+      "slot": "cells[0]",
+      "subject": "oso",
+      "existingFile": "/cartilla/art/faithful/vocal-o/oso.webp",
+      "status": "OWNER_APPROVAL_NOT_VERIFIED",
+      "approvalRecord": null
+    },
+    {
+      "printedPage": 8,
+      "regionId": "p8-match",
+      "slot": "cells[1]",
+      "subject": "iglú",
+      "existingFile": "/cartilla/art/faithful/vocal-i/iglu.webp",
+      "status": "OWNER_APPROVAL_NOT_VERIFIED",
+      "approvalRecord": null
+    },
+    {
+      "printedPage": 8,
+      "regionId": "p8-match",
+      "slot": "cells[2]",
+      "subject": "alas",
+      "existingFile": "/cartilla/art/faithful/vocal-a/alas.webp",
+      "status": "OWNER_APPROVAL_NOT_VERIFIED",
+      "approvalRecord": null
+    },
+    {
+      "printedPage": 8,
+      "regionId": "p8-match",
+      "slot": "cells[3]",
+      "subject": "abeja",
+      "existingFile": "/cartilla/art/faithful/vocal-a/abeja.webp",
+      "status": "OWNER_APPROVAL_NOT_VERIFIED",
+      "approvalRecord": null
+    },
+    {
+      "printedPage": 8,
+      "regionId": "p8-match",
+      "slot": "cells[4]",
+      "subject": "aguja",
+      "existingFile": "/cartilla/art/faithful/vocal-a/aguja.webp",
+      "status": "OWNER_APPROVAL_NOT_VERIFIED",
+      "approvalRecord": null
+    },
+    {
+      "printedPage": 8,
+      "regionId": "p8-match",
+      "slot": "cells[5]",
+      "subject": "maíz",
+      "existingFile": "/cartilla/art/faithful/leccion-1/maiz.webp",
+      "status": "OWNER_APPROVAL_NOT_VERIFIED",
+      "approvalRecord": null
+    },
+    {
+      "printedPage": 8,
+      "regionId": "p8-match",
+      "slot": "cells[6]",
+      "subject": "avión",
+      "existingFile": "/cartilla/art/faithful/leccion-1/pez.webp",
+      "status": "OWNER_APPROVAL_NOT_VERIFIED",
+      "approvalRecord": null
+    },
+    {
+      "printedPage": 8,
+      "regionId": "p8-match",
+      "slot": "cells[7]",
+      "subject": "aro",
+      "existingFile": "/cartilla/art/faithful/vocal-a/aro.webp",
+      "status": "OWNER_APPROVAL_NOT_VERIFIED",
+      "approvalRecord": null
+    },
+    {
+      "printedPage": 10,
+      "regionId": "p10-grid",
+      "slot": "cells[0]",
+      "subject": "elefante",
+      "existingFile": "/cartilla/art/faithful/vocal-e/elefante.webp",
+      "status": "OWNER_APPROVAL_NOT_VERIFIED",
+      "approvalRecord": null
+    },
+    {
+      "printedPage": 10,
+      "regionId": "p10-grid",
+      "slot": "cells[1]",
+      "subject": "iglú",
+      "existingFile": "/cartilla/art/faithful/vocal-i/iglu.webp",
+      "status": "OWNER_APPROVAL_NOT_VERIFIED",
+      "approvalRecord": null
+    },
+    {
+      "printedPage": 10,
+      "regionId": "p10-grid",
+      "slot": "cells[2]",
+      "subject": "maíz",
+      "existingFile": "/cartilla/art/faithful/leccion-1/maiz.webp",
+      "status": "OWNER_APPROVAL_NOT_VERIFIED",
+      "approvalRecord": null
+    },
+    {
+      "printedPage": 10,
+      "regionId": "p10-grid",
+      "slot": "cells[3]",
+      "subject": "indio",
+      "existingFile": "/cartilla/art/faithful/vocal-i/indio.webp",
+      "status": "OWNER_APPROVAL_NOT_VERIFIED",
+      "approvalRecord": null
+    },
+    {
+      "printedPage": 10,
+      "regionId": "p10-grid",
+      "slot": "cells[4]",
+      "subject": "escalera",
+      "existingFile": "/cartilla/art/faithful/vocal-e/escalera.webp",
+      "status": "OWNER_APPROVAL_NOT_VERIFIED",
+      "approvalRecord": null
+    },
+    {
+      "printedPage": 10,
+      "regionId": "p10-grid",
+      "slot": "cells[5]",
+      "subject": "erizo",
+      "existingFile": "/cartilla/art/faithful/vocal-e/erizo.webp",
+      "status": "OWNER_APPROVAL_NOT_VERIFIED",
+      "approvalRecord": null
+    },
+    {
+      "printedPage": 10,
+      "regionId": "p10-grid",
+      "slot": "cells[6]",
+      "subject": "abeja",
+      "existingFile": "/cartilla/art/faithful/vocal-a/abeja.webp",
+      "status": "OWNER_APPROVAL_NOT_VERIFIED",
+      "approvalRecord": null
+    },
+    {
+      "printedPage": 10,
+      "regionId": "p10-grid",
+      "slot": "cells[7]",
+      "subject": "aguja",
+      "existingFile": "/cartilla/art/faithful/vocal-a/aguja.webp",
+      "status": "OWNER_APPROVAL_NOT_VERIFIED",
+      "approvalRecord": null
+    },
+    {
+      "printedPage": 10,
+      "regionId": "p10-grid",
+      "slot": "cells[8]",
+      "subject": "escoba",
+      "existingFile": "/cartilla/art/faithful/vocal-e/escoba.webp",
+      "status": "OWNER_APPROVAL_NOT_VERIFIED",
+      "approvalRecord": null
+    },
+    {
+      "printedPage": 10,
+      "regionId": "p10-grid",
+      "slot": "cells[9]",
+      "subject": "unicornio",
+      "existingFile": "/cartilla/art/faithful/vocal-u/unicornio.webp",
+      "status": "OWNER_APPROVAL_NOT_VERIFIED",
+      "approvalRecord": null
+    },
+    {
+      "printedPage": 10,
+      "regionId": "p10-grid",
+      "slot": "cells[10]",
+      "subject": "estrella",
+      "existingFile": "/cartilla/art/faithful/vocal-e/estrella.webp",
+      "status": "OWNER_APPROVAL_NOT_VERIFIED",
+      "approvalRecord": null
+    },
+    {
+      "printedPage": 10,
+      "regionId": "p10-grid",
+      "slot": "cells[11]",
+      "subject": "águila",
+      "existingFile": "/cartilla/art/faithful/leccion-1/aguila.webp",
+      "status": "OWNER_APPROVAL_NOT_VERIFIED",
+      "approvalRecord": null
+    },
+    {
+      "printedPage": 10,
+      "regionId": "p10-grid",
+      "slot": "cells[12]",
+      "subject": "escuela",
+      "existingFile": "/cartilla/art/faithful/vocal-e/escuela.webp",
+      "status": "OWNER_APPROVAL_NOT_VERIFIED",
+      "approvalRecord": null
+    },
+    {
+      "printedPage": 10,
+      "regionId": "p10-grid",
+      "slot": "cells[13]",
+      "subject": "uniforme",
+      "existingFile": "/cartilla/art/faithful/leccion-1/traje.webp",
+      "status": "OWNER_APPROVAL_NOT_VERIFIED",
+      "approvalRecord": null
+    },
+    {
+      "printedPage": 10,
+      "regionId": "p10-grid",
+      "slot": "cells[14]",
+      "subject": "espejo",
+      "existingFile": "/cartilla/art/faithful/vocal-e/espejo.webp",
+      "status": "OWNER_APPROVAL_NOT_VERIFIED",
+      "approvalRecord": null
+    },
+    {
+      "printedPage": 10,
+      "regionId": "p10-grid",
+      "slot": "cells[15]",
+      "subject": "uno",
+      "existingFile": "/cartilla/art/faithful/vocal-u/uno.webp",
+      "status": "OWNER_APPROVAL_NOT_VERIFIED",
+      "approvalRecord": null
+    },
+    {
+      "printedPage": 11,
+      "regionId": "p11-match",
+      "slot": "cells[0]",
+      "subject": "oso",
+      "existingFile": "/cartilla/art/faithful/vocal-o/oso.webp",
+      "status": "OWNER_APPROVAL_NOT_VERIFIED",
+      "approvalRecord": null
+    },
+    {
+      "printedPage": 11,
+      "regionId": "p11-match",
+      "slot": "cells[1]",
+      "subject": "elefante",
+      "existingFile": "/cartilla/art/faithful/vocal-e/elefante.webp",
+      "status": "OWNER_APPROVAL_NOT_VERIFIED",
+      "approvalRecord": null
+    },
+    {
+      "printedPage": 11,
+      "regionId": "p11-match",
+      "slot": "cells[2]",
+      "subject": "abeja",
+      "existingFile": "/cartilla/art/faithful/vocal-a/abeja.webp",
+      "status": "OWNER_APPROVAL_NOT_VERIFIED",
+      "approvalRecord": null
+    },
+    {
+      "printedPage": 11,
+      "regionId": "p11-match",
+      "slot": "cells[3]",
+      "subject": "erizo",
+      "existingFile": "/cartilla/art/faithful/vocal-e/erizo.webp",
+      "status": "OWNER_APPROVAL_NOT_VERIFIED",
+      "approvalRecord": null
+    },
+    {
+      "printedPage": 11,
+      "regionId": "p11-match",
+      "slot": "cells[4]",
+      "subject": "maíz",
+      "existingFile": "/cartilla/art/faithful/leccion-1/maiz.webp",
+      "status": "OWNER_APPROVAL_NOT_VERIFIED",
+      "approvalRecord": null
+    },
+    {
+      "printedPage": 11,
+      "regionId": "p11-match",
+      "slot": "cells[5]",
+      "subject": "escalera",
+      "existingFile": "/cartilla/art/faithful/vocal-e/escalera.webp",
+      "status": "OWNER_APPROVAL_NOT_VERIFIED",
+      "approvalRecord": null
+    },
+    {
+      "printedPage": 11,
+      "regionId": "p11-match",
+      "slot": "cells[6]",
+      "subject": "estrella",
+      "existingFile": "/cartilla/art/faithful/vocal-e/estrella.webp",
+      "status": "OWNER_APPROVAL_NOT_VERIFIED",
+      "approvalRecord": null
+    },
+    {
+      "printedPage": 11,
+      "regionId": "p11-match",
+      "slot": "cells[7]",
+      "subject": "abrigo",
+      "existingFile": "/cartilla/art/faithful/leccion-1/abrigo.webp",
+      "status": "OWNER_APPROVAL_NOT_VERIFIED",
+      "approvalRecord": null
+    },
+    {
+      "printedPage": 13,
+      "regionId": "p13-grid",
+      "slot": "cells[0]",
+      "subject": "iglú",
+      "existingFile": "/cartilla/art/faithful/vocal-i/iglu.webp",
+      "status": "OWNER_APPROVAL_NOT_VERIFIED",
+      "approvalRecord": null
+    },
+    {
+      "printedPage": 13,
+      "regionId": "p13-grid",
+      "slot": "cells[1]",
+      "subject": "avión",
+      "existingFile": "/cartilla/art/faithful/leccion-1/pez.webp",
+      "status": "OWNER_APPROVAL_NOT_VERIFIED",
+      "approvalRecord": null
+    },
+    {
+      "printedPage": 13,
+      "regionId": "p13-grid",
+      "slot": "cells[2]",
+      "subject": "iguana",
+      "existingFile": "/cartilla/art/faithful/vocal-i/iguana.webp",
+      "status": "OWNER_APPROVAL_NOT_VERIFIED",
+      "approvalRecord": null
+    },
+    {
+      "printedPage": 13,
+      "regionId": "p13-grid",
+      "slot": "cells[3]",
+      "subject": "abanico",
+      "existingFile": "/cartilla/art/faithful/vocal-a/abanico.webp",
+      "status": "OWNER_APPROVAL_NOT_VERIFIED",
+      "approvalRecord": null
+    },
+    {
+      "printedPage": 13,
+      "regionId": "p13-grid",
+      "slot": "cells[4]",
+      "subject": "oso",
+      "existingFile": "/cartilla/art/faithful/vocal-o/oso.webp",
+      "status": "OWNER_APPROVAL_NOT_VERIFIED",
+      "approvalRecord": null
+    },
+    {
+      "printedPage": 13,
+      "regionId": "p13-grid",
+      "slot": "cells[5]",
+      "subject": "indio",
+      "existingFile": "/cartilla/art/faithful/vocal-i/indio.webp",
+      "status": "OWNER_APPROVAL_NOT_VERIFIED",
+      "approvalRecord": null
+    },
+    {
+      "printedPage": 13,
+      "regionId": "p13-grid",
+      "slot": "cells[6]",
+      "subject": "alas",
+      "existingFile": "/cartilla/art/faithful/vocal-a/alas.webp",
+      "status": "OWNER_APPROVAL_NOT_VERIFIED",
+      "approvalRecord": null
+    },
+    {
+      "printedPage": 13,
+      "regionId": "p13-grid",
+      "slot": "cells[7]",
+      "subject": "invierno",
+      "existingFile": "/cartilla/art/faithful/vocal-i/invierno.webp",
+      "status": "OWNER_APPROVAL_NOT_VERIFIED",
+      "approvalRecord": null
+    },
+    {
+      "printedPage": 13,
+      "regionId": "p13-grid",
+      "slot": "cells[8]",
+      "subject": "ola",
+      "existingFile": "/cartilla/art/faithful/vocal-o/ola.webp",
+      "status": "OWNER_APPROVAL_NOT_VERIFIED",
+      "approvalRecord": null
+    },
+    {
+      "printedPage": 13,
+      "regionId": "p13-grid",
+      "slot": "cells[9]",
+      "subject": "imán",
+      "existingFile": "/cartilla/art/faithful/vocal-i/iman.webp",
+      "status": "OWNER_APPROVAL_NOT_VERIFIED",
+      "approvalRecord": null
+    },
+    {
+      "printedPage": 13,
+      "regionId": "p13-grid",
+      "slot": "cells[10]",
+      "subject": "uno",
+      "existingFile": "/cartilla/art/faithful/vocal-u/uno.webp",
+      "status": "OWNER_APPROVAL_NOT_VERIFIED",
+      "approvalRecord": null
+    },
+    {
+      "printedPage": 13,
+      "regionId": "p13-grid",
+      "slot": "cells[11]",
+      "subject": "isla",
+      "existingFile": "/cartilla/art/faithful/vocal-i/isla.webp",
+      "status": "OWNER_APPROVAL_NOT_VERIFIED",
+      "approvalRecord": null
+    },
+    {
+      "printedPage": 13,
+      "regionId": "p13-grid",
+      "slot": "cells[12]",
+      "subject": "uña",
+      "existingFile": "/cartilla/art/faithful/leccion-1/arco.webp",
+      "status": "OWNER_APPROVAL_NOT_VERIFIED",
+      "approvalRecord": null
+    },
+    {
+      "printedPage": 13,
+      "regionId": "p13-grid",
+      "slot": "cells[13]",
+      "subject": "igual",
+      "existingFile": "/cartilla/art/faithful/vocal-i/igual.webp",
+      "status": "OWNER_APPROVAL_NOT_VERIFIED",
+      "approvalRecord": null
+    },
+    {
+      "printedPage": 13,
+      "regionId": "p13-grid",
+      "slot": "cells[14]",
+      "subject": "insecto",
+      "existingFile": "/cartilla/art/faithful/vocal-i/insecto.webp",
+      "status": "OWNER_APPROVAL_NOT_VERIFIED",
+      "approvalRecord": null
+    },
+    {
+      "printedPage": 13,
+      "regionId": "p13-grid",
+      "slot": "cells[15]",
+      "subject": "olla",
+      "existingFile": "/cartilla/art/faithful/vocal-o/olla.webp",
+      "status": "OWNER_APPROVAL_NOT_VERIFIED",
+      "approvalRecord": null
+    },
+    {
+      "printedPage": 14,
+      "regionId": "p14-match",
+      "slot": "cells[0]",
+      "subject": "imán",
+      "existingFile": "/cartilla/art/faithful/vocal-i/iman.webp",
+      "status": "OWNER_APPROVAL_NOT_VERIFIED",
+      "approvalRecord": null
+    },
+    {
+      "printedPage": 14,
+      "regionId": "p14-match",
+      "slot": "cells[1]",
+      "subject": "oso",
+      "existingFile": "/cartilla/art/faithful/vocal-o/oso.webp",
+      "status": "OWNER_APPROVAL_NOT_VERIFIED",
+      "approvalRecord": null
+    },
+    {
+      "printedPage": 14,
+      "regionId": "p14-match",
+      "slot": "cells[2]",
+      "subject": "iglú",
+      "existingFile": "/cartilla/art/faithful/vocal-i/iglu.webp",
+      "status": "OWNER_APPROVAL_NOT_VERIFIED",
+      "approvalRecord": null
+    },
+    {
+      "printedPage": 14,
+      "regionId": "p14-match",
+      "slot": "cells[3]",
+      "subject": "igual",
+      "existingFile": "/cartilla/art/faithful/vocal-i/igual.webp",
+      "status": "OWNER_APPROVAL_NOT_VERIFIED",
+      "approvalRecord": null
+    },
+    {
+      "printedPage": 14,
+      "regionId": "p14-match",
+      "slot": "cells[4]",
+      "subject": "indio",
+      "existingFile": "/cartilla/art/faithful/vocal-i/indio.webp",
+      "status": "OWNER_APPROVAL_NOT_VERIFIED",
+      "approvalRecord": null
+    },
+    {
+      "printedPage": 14,
+      "regionId": "p14-match",
+      "slot": "cells[5]",
+      "subject": "uña",
+      "existingFile": "/cartilla/art/faithful/leccion-1/arco.webp",
+      "status": "OWNER_APPROVAL_NOT_VERIFIED",
+      "approvalRecord": null
+    },
+    {
+      "printedPage": 14,
+      "regionId": "p14-match",
+      "slot": "cells[6]",
+      "subject": "iguana",
+      "existingFile": "/cartilla/art/faithful/vocal-i/iguana.webp",
+      "status": "OWNER_APPROVAL_NOT_VERIFIED",
+      "approvalRecord": null
+    },
+    {
+      "printedPage": 14,
+      "regionId": "p14-match",
+      "slot": "cells[7]",
+      "subject": "abeja",
+      "existingFile": "/cartilla/art/faithful/vocal-a/abeja.webp",
+      "status": "OWNER_APPROVAL_NOT_VERIFIED",
+      "approvalRecord": null
+    },
+    {
+      "printedPage": 16,
+      "regionId": "p16-grid",
+      "slot": "cells[0]",
+      "subject": "unicornio",
+      "existingFile": "/cartilla/art/faithful/vocal-u/unicornio.webp",
+      "status": "OWNER_APPROVAL_NOT_VERIFIED",
+      "approvalRecord": null
+    },
+    {
+      "printedPage": 16,
+      "regionId": "p16-grid",
+      "slot": "cells[1]",
+      "subject": "oveja",
+      "existingFile": "/cartilla/art/faithful/vocal-o/oveja.webp",
+      "status": "OWNER_APPROVAL_NOT_VERIFIED",
+      "approvalRecord": null
+    },
+    {
+      "printedPage": 16,
+      "regionId": "p16-grid",
+      "slot": "cells[2]",
+      "subject": "avión",
+      "existingFile": "/cartilla/art/faithful/leccion-1/pez.webp",
+      "status": "OWNER_APPROVAL_NOT_VERIFIED",
+      "approvalRecord": null
+    },
+    {
+      "printedPage": 16,
+      "regionId": "p16-grid",
+      "slot": "cells[3]",
+      "subject": "uña",
+      "existingFile": "/cartilla/art/faithful/leccion-1/arco.webp",
+      "status": "OWNER_APPROVAL_NOT_VERIFIED",
+      "approvalRecord": null
+    },
+    {
+      "printedPage": 16,
+      "regionId": "p16-grid",
+      "slot": "cells[4]",
+      "subject": "uvas",
+      "existingFile": "/cartilla/art/faithful/vocal-u/uvas.webp",
+      "status": "OWNER_APPROVAL_NOT_VERIFIED",
+      "approvalRecord": null
+    },
+    {
+      "printedPage": 16,
+      "regionId": "p16-grid",
+      "slot": "cells[5]",
+      "subject": "estrella",
+      "existingFile": "/cartilla/art/faithful/vocal-e/estrella.webp",
+      "status": "OWNER_APPROVAL_NOT_VERIFIED",
+      "approvalRecord": null
+    },
+    {
+      "printedPage": 16,
+      "regionId": "p16-grid",
+      "slot": "cells[6]",
+      "subject": "uniforme",
+      "existingFile": "/cartilla/art/faithful/leccion-1/traje.webp",
+      "status": "OWNER_APPROVAL_NOT_VERIFIED",
+      "approvalRecord": null
+    },
+    {
+      "printedPage": 16,
+      "regionId": "p16-grid",
+      "slot": "cells[7]",
+      "subject": "elefante",
+      "existingFile": "/cartilla/art/faithful/vocal-e/elefante.webp",
+      "status": "OWNER_APPROVAL_NOT_VERIFIED",
+      "approvalRecord": null
+    },
+    {
+      "printedPage": 16,
+      "regionId": "p16-grid",
+      "slot": "cells[8]",
+      "subject": "árbol",
+      "existingFile": "/cartilla/art/faithful/vocal-a/arbol.webp",
+      "status": "OWNER_APPROVAL_NOT_VERIFIED",
+      "approvalRecord": null
+    },
+    {
+      "printedPage": 16,
+      "regionId": "p16-grid",
+      "slot": "cells[9]",
+      "subject": "uno",
+      "existingFile": "/cartilla/art/faithful/vocal-u/uno.webp",
+      "status": "OWNER_APPROVAL_NOT_VERIFIED",
+      "approvalRecord": null
+    },
+    {
+      "printedPage": 16,
+      "regionId": "p16-grid",
+      "slot": "cells[10]",
+      "subject": "oso",
+      "existingFile": "/cartilla/art/faithful/vocal-o/oso.webp",
+      "status": "OWNER_APPROVAL_NOT_VERIFIED",
+      "approvalRecord": null
+    },
+    {
+      "printedPage": 16,
+      "regionId": "p16-grid",
+      "slot": "cells[11]",
+      "subject": "águila",
+      "existingFile": "/cartilla/art/faithful/leccion-1/aguila.webp",
+      "status": "OWNER_APPROVAL_NOT_VERIFIED",
+      "approvalRecord": null
+    },
+    {
+      "printedPage": 16,
+      "regionId": "p16-grid",
+      "slot": "cells[12]",
+      "subject": "abeja",
+      "existingFile": "/cartilla/art/faithful/vocal-a/abeja.webp",
+      "status": "OWNER_APPROVAL_NOT_VERIFIED",
+      "approvalRecord": null
+    },
+    {
+      "printedPage": 16,
+      "regionId": "p16-grid",
+      "slot": "cells[13]",
+      "subject": "uniforme",
+      "existingFile": "/cartilla/art/faithful/leccion-1/traje.webp",
+      "status": "OWNER_APPROVAL_NOT_VERIFIED",
+      "approvalRecord": null
+    },
+    {
+      "printedPage": 16,
+      "regionId": "p16-grid",
+      "slot": "cells[14]",
+      "subject": "insecto",
+      "existingFile": "/cartilla/art/faithful/vocal-i/insecto.webp",
+      "status": "OWNER_APPROVAL_NOT_VERIFIED",
+      "approvalRecord": null
+    },
+    {
+      "printedPage": 16,
+      "regionId": "p16-grid",
+      "slot": "cells[15]",
+      "subject": "uno",
+      "existingFile": "/cartilla/art/faithful/vocal-u/uno.webp",
+      "status": "OWNER_APPROVAL_NOT_VERIFIED",
+      "approvalRecord": null
+    },
+    {
+      "printedPage": 17,
+      "regionId": "p17-match",
+      "slot": "cells[0]",
+      "subject": "uniforme",
+      "existingFile": "/cartilla/art/faithful/leccion-1/traje.webp",
+      "status": "OWNER_APPROVAL_NOT_VERIFIED",
+      "approvalRecord": null
+    },
+    {
+      "printedPage": 17,
+      "regionId": "p17-match",
+      "slot": "cells[1]",
+      "subject": "uno",
+      "existingFile": "/cartilla/art/faithful/vocal-u/uno.webp",
+      "status": "OWNER_APPROVAL_NOT_VERIFIED",
+      "approvalRecord": null
+    },
+    {
+      "printedPage": 17,
+      "regionId": "p17-match",
+      "slot": "cells[2]",
+      "subject": "oso",
+      "existingFile": "/cartilla/art/faithful/vocal-o/oso.webp",
+      "status": "OWNER_APPROVAL_NOT_VERIFIED",
+      "approvalRecord": null
+    },
+    {
+      "printedPage": 17,
+      "regionId": "p17-match",
+      "slot": "cells[3]",
+      "subject": "uvas",
+      "existingFile": "/cartilla/art/faithful/vocal-u/uvas.webp",
+      "status": "OWNER_APPROVAL_NOT_VERIFIED",
+      "approvalRecord": null
+    },
+    {
+      "printedPage": 17,
+      "regionId": "p17-match",
+      "slot": "cells[4]",
+      "subject": "unicornio",
+      "existingFile": "/cartilla/art/faithful/vocal-u/unicornio.webp",
+      "status": "OWNER_APPROVAL_NOT_VERIFIED",
+      "approvalRecord": null
+    },
+    {
+      "printedPage": 17,
+      "regionId": "p17-match",
+      "slot": "cells[5]",
+      "subject": "uña",
+      "existingFile": "/cartilla/art/faithful/leccion-1/arco.webp",
+      "status": "OWNER_APPROVAL_NOT_VERIFIED",
+      "approvalRecord": null
+    },
+    {
+      "printedPage": 17,
+      "regionId": "p17-match",
+      "slot": "cells[6]",
+      "subject": "estrella",
+      "existingFile": "/cartilla/art/faithful/vocal-e/estrella.webp",
+      "status": "OWNER_APPROVAL_NOT_VERIFIED",
+      "approvalRecord": null
+    },
+    {
+      "printedPage": 17,
+      "regionId": "p17-match",
+      "slot": "cells[7]",
+      "subject": "imán",
+      "existingFile": "/cartilla/art/faithful/vocal-i/iman.webp",
+      "status": "OWNER_APPROVAL_NOT_VERIFIED",
+      "approvalRecord": null
+    }
+  ]
+}
