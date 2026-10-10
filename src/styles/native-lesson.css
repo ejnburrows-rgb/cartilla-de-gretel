@@ -36,7 +36,7 @@
 .native-lesson-viewer__content .fp-trace { gap: 10px; }
 .native-lesson-viewer__content .fp-trace__svg { width: clamp(180px, 35vw, 240px); max-width: 100%; }
 .native-lesson-viewer__content .fp-trace__footer { width: clamp(180px, 35vw, 240px); max-width: 100%; gap: 8px; }
-.native-lesson-viewer__content .fp-trace__hint { font-size: 16px; }
+.native-lesson-viewer__content .fp-trace__hint { font-size: 16px; white-space: normal; min-width: 0; flex: 1 1 auto; line-height: 1.15; }
 .native-lesson-viewer__content .fp-writing-line--trace { margin: 8px 0; }
 .native-lesson-viewer__content .fp-writing-response { display: flex; flex-direction: column; gap: 10px; font: 700 16px system-ui, sans-serif; color: #136e65; }
 .native-lesson-viewer__content .fp-writing-response textarea { display: block; width: 100%; min-height: 170px; resize: vertical; border: 1px solid #a5cec6; border-radius: 16px; padding: 14px 16px; color: #302a20; background: repeating-linear-gradient(#fff, #fff 36px, #d1ded9 37px); font: 500 21px/37px system-ui, sans-serif; }

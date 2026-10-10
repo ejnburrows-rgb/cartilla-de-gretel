@@ -6,6 +6,7 @@ interface ImageOptimizedProps extends React.ImgHTMLAttributes<HTMLImageElement> 
   alt: string;
   blurDataUrl?: string;
   containerClassName?: string;
+  priority?: boolean;
 }
 
 export function ImageOptimized({
@@ -14,6 +15,7 @@ export function ImageOptimized({
   blurDataUrl,
   className = "",
   containerClassName = "",
+  priority = false,
   ...props
 }: ImageOptimizedProps) {
   const containerRef = useRef<HTMLDivElement>(null);
@@ -34,15 +36,15 @@ export function ImageOptimized({
         <img src={blurDataUrl} alt="" aria-hidden="true" className="image-optimized-blur" />
       )}
 
-      {isIntersecting && (
+      {(isIntersecting || priority) && (
         <picture>
           <source srcSet={avifSrc} type="image/avif" />
           <source srcSet={webpSrc} type="image/webp" />
           <img
             src={src}
             alt={alt}
-            loading="lazy"
-            decoding="async"
+            loading={priority ? "eager" : "lazy"}
+            decoding={priority ? "auto" : "async"}
             className={`${className} ${isLoaded ? "image-optimized-loaded" : "image-optimized-loading"}`}
             onLoad={() => setIsLoaded(true)}
             {...props}

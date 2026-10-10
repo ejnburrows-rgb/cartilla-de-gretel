@@ -11,6 +11,20 @@ const audit = JSON.parse(
 
 const bySrc = new Map(audit.faithfulAudit.map((item: any) => [item.src, item]));
 
+// Rows whose optimized output is a deterministic pixel match to its declared
+// HD source-page crop. Every other row must stay PENDING.
+const deterministicallyVerifiedNative = [
+  "/cartilla/art/optimized/flipchart-native/p018-tapa.webp",
+  "/cartilla/art/optimized/flipchart-native/p018-tipi.webp",
+  "/cartilla/art/optimized/flipchart-native/p018-tomate.webp",
+  "/cartilla/art/optimized/flipchart-native/p018-topo.webp",
+  "/cartilla/art/optimized/flipchart-native/p018-tuto.webp",
+  "/cartilla/art/optimized/flipchart-native/p024-lata.webp",
+  "/cartilla/art/optimized/flipchart-native/p024-loma.webp",
+  "/cartilla/art/optimized/flipchart-native/p024-luli.webp",
+  "/cartilla/art/optimized/flipchart-native/p024-maleta.webp",
+];
+
 describe("production foreground art audit truthfulness", () => {
   it("keeps the five owner-approved Page-1 assets present on disk", () => {
     const required = [
@@ -37,9 +51,41 @@ describe("production foreground art audit truthfulness", () => {
     }
   });
 
-  it("does not certify native Flip Chart artwork from file existence alone", () => {
-    expect(audit.nativeAudit.length).toBeGreaterThan(0);
-    expect(audit.nativeAudit.every((item: any) => item.classification === "PENDING NO VERIFIED SOURCE")).toBe(true);
+  it("certifies native Flip Chart artwork only from a deterministic crop match", () => {
+    expect(audit.nativeAudit.length).toBe(167);
+
+    const passed = audit.nativeAudit
+      .filter((item: any) => item.classification === "PASS")
+      .map((item: any) => item.src)
+      .sort();
+    expect(passed).toEqual([...deterministicallyVerifiedNative].sort());
+
+    for (const item of audit.nativeAudit) {
+      if (item.classification === "PASS") {
+        expect(item.exists).toBe(true);
+        expect(item.cropMatch).toBe(true);
+        expect(item.aspectMatch).toBe(true);
+        expect(item.evidence).toMatch(/deterministic crop correspondence/);
+        expect(item.pendingReason).toBeNull();
+      } else {
+        expect(item.classification).toBe("PENDING NO VERIFIED SOURCE");
+        expect(item.cropMatch).toBe(false);
+        expect(item.evidence).toBeNull();
+        expect(typeof item.pendingReason).toBe("string");
+        expect(item.pendingReason.length).toBeGreaterThan(0);
+      }
+    }
+  });
+
+  it("never approves a native row merely because its declared metadata is present", () => {
+    // Rows carrying declared source-page/crop metadata but no pixel match must
+    // stay pending: presence of metadata is not proof of provenance.
+    const metadataOnly = audit.nativeAudit.filter(
+      (item: any) =>
+        item.exists && item.sourcePageMatches && item.hasCropEvidence && item.classification !== "PASS",
+    );
+    expect(metadataOnly.length).toBeGreaterThan(0);
+    expect(metadataOnly.every((item: any) => item.cropMatch === false)).toBe(true);
   });
 
   it("reproduces the committed audit and locks the native evidence schema", () => {
@@ -64,7 +110,15 @@ describe("production foreground art audit truthfulness", () => {
             Array.isArray(item.crop) &&
             typeof item.verified === "boolean" &&
             typeof item.sourcePageMatches === "boolean" &&
-            typeof item.hasCropEvidence === "boolean",
+            typeof item.hasCropEvidence === "boolean" &&
+            typeof item.cropMatch === "boolean" &&
+            typeof item.aspectMatch === "boolean" &&
+            (item.matchScore === null || typeof item.matchScore === "number") &&
+            (item.meanDiff === null || typeof item.meanDiff === "number") &&
+            (item.evidence === null || typeof item.evidence === "string") &&
+            (item.classification === "PASS"
+              ? item.pendingReason === null
+              : typeof item.pendingReason === "string"),
         ),
       ).toBe(true);
     } finally {

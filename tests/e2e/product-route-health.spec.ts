@@ -1,4 +1,12 @@
 import { test, expect, type Page, type Request } from "@playwright/test";
+import fs from "node:fs/promises";
+import path from "node:path";
+
+const PROOF_DIR = path.resolve("docs/proofs/product-route-health");
+
+async function ensureProofDir() {
+  await fs.mkdir(PROOF_DIR, { recursive: true });
+}
 
 async function dismissCinematic(page: Page) {
   const start = page.getByRole("button", { name: "Comenzar" });
@@ -8,31 +16,17 @@ async function dismissCinematic(page: Page) {
 }
 
 async function expectNoBrokenImages(scope: Page | import("@playwright/test").Locator, label: string) {
-  // Give visible images time to decode if recently mounted
-  const brokenSources = await scope.locator("img:visible").evaluateAll(async (elements) => {
-    // Wait for pending images to finish loading/failing
-    await Promise.all(
-      elements.map(
-        (el) =>
-          new Promise<void>((resolve) => {
-            const img = el as HTMLImageElement;
-            if (img.complete) return resolve();
-            img.onload = () => resolve();
-            img.onerror = () => resolve();
-            setTimeout(resolve, 2000);
-          }),
-      ),
-    );
-    return elements
+  const brokenSources = await scope.locator("img:visible").evaluateAll((elements) =>
+    elements
       .filter((element) => {
         const image = element as HTMLImageElement;
-        return image.complete && (image.naturalWidth === 0 || image.naturalHeight === 0);
+        return !image.complete || image.naturalWidth <= 0 || image.naturalHeight <= 0;
       })
       .map((element) => {
         const image = element as HTMLImageElement;
         return image.currentSrc || image.src;
-      });
-  });
+      }),
+  );
   expect(brokenSources, `Broken visible images in ${label}`).toEqual([]);
 }
 
@@ -47,6 +41,9 @@ async function assertNoHorizontalOverflow(page: Page, label: string) {
   ).toBeLessThanOrEqual(geometry.viewportWidth + 2);
 }
 
+// Track reported console defects for README documentation without altering product code
+const REPORTED_DEFECTS: Array<{ route: string; error: string }> = [];
+
 function attachRouteErrorMonitors(page: Page, routeLabel: string) {
   const pageErrors: string[] = [];
   const consoleErrors: string[] = [];
@@ -60,11 +57,8 @@ function attachRouteErrorMonitors(page: Page, routeLabel: string) {
     if (msg.type() === "error") {
       const text = msg.text();
       if (!text.includes("favicon.ico")) {
-        // Only allow duplicate key warning on teacher guide route where known
-        if (text.includes("Encountered two children with the same key") && routeLabel.includes("teacher/guide")) {
-          return;
-        }
         consoleErrors.push(text);
+        REPORTED_DEFECTS.push({ route: routeLabel, error: text });
       }
     }
   });
@@ -79,6 +73,8 @@ function attachRouteErrorMonitors(page: Page, routeLabel: string) {
     }
   });
 
+  // HTTP error responses complete normally and never emit requestfailed, so
+  // monitor them explicitly: a 404/500 asset must fail the sweep.
   page.on("response", (response) => {
     const url = response.url();
     if ((url.includes("127.0.0.1") || url.startsWith("/")) && response.status() >= 400) {
@@ -91,13 +87,14 @@ function attachRouteErrorMonitors(page: Page, routeLabel: string) {
   return {
     assertClean: () => {
       expect(pageErrors, `Unhandled page errors on ${routeLabel}`).toEqual([]);
+      // Never hide a real React duplicate-key console error from the release gate.
       expect(consoleErrors, `Console errors on ${routeLabel}`).toEqual([]);
       expect(failedRequests, `Failed network requests on ${routeLabel}`).toEqual([]);
     },
   };
 }
 
-async function checkBasicRoute(page: Page, route: string, label: string) {
+async function checkBasicRoute(page: Page, route: string, label: string, proofName?: string) {
   const monitor = attachRouteErrorMonitors(page, label);
   await page.goto(route, { waitUntil: "domcontentloaded" });
   await page.waitForLoadState("networkidle").catch(() => {});
@@ -105,11 +102,19 @@ async function checkBasicRoute(page: Page, route: string, label: string) {
   await expect(page.locator("body")).not.toBeEmpty();
   await assertNoHorizontalOverflow(page, label);
   await expectNoBrokenImages(page, label);
+  if (proofName) {
+    await page.screenshot({ path: path.join(PROOF_DIR, proofName), fullPage: true });
+  }
   monitor.assertClean();
 }
 
 test.describe("Whole-Product Route Health + Console/Network Error Sweep", () => {
-  test("1. Welcome / Home routes health", async ({ page }) => {
+  test.beforeAll(async () => {
+    await ensureProofDir();
+  });
+
+  test("1. Welcome / Home routes health and phone splash capture (#356 proof)", async ({ page }) => {
+    // 1a. Phone viewport capture on welcome splash for owner issue #356
     await page.setViewportSize({ width: 390, height: 844 });
     const monitorPhone = attachRouteErrorMonitors(page, "welcome-phone /entrar");
 
@@ -120,13 +125,24 @@ test.describe("Whole-Product Route Health + Console/Network Error Sweep", () => 
     await expect(page.locator("body")).not.toBeEmpty();
     await assertNoHorizontalOverflow(page, "welcome-phone /entrar");
     await expectNoBrokenImages(page, "welcome-phone");
+
+    await page.screenshot({
+      path: path.join(PROOF_DIR, "welcome-phone.png"),
+      fullPage: true,
+    });
     monitorPhone.assertClean();
 
+    // 1b. Desktop viewport health check across welcome routes
     await page.setViewportSize({ width: 1280, height: 900 });
     const welcomeRoutes = ["/", "/cartilla/", "/entrar", "/cartilla/student-login"];
 
     for (const route of welcomeRoutes) {
-      await checkBasicRoute(page, route, `welcome ${route}`);
+      await checkBasicRoute(
+        page,
+        route,
+        `welcome ${route}`,
+        route === "/entrar" ? "welcome-desktop.png" : undefined,
+      );
     }
   });
 
@@ -134,14 +150,26 @@ test.describe("Whole-Product Route Health + Console/Network Error Sweep", () => 
     const catalogRoutes = ["/cartilla/lecciones", "/cartilla/teacher/lecciones"];
 
     for (const route of catalogRoutes) {
-      await checkBasicRoute(page, route, `catalog ${route}`);
+      await checkBasicRoute(
+        page,
+        route,
+        `catalog ${route}`,
+        route === "/cartilla/lecciones" ? "lesson-catalog.png" : undefined,
+      );
     }
   });
 
   test("3. Representative Workbook lessons health across early/middle/late pages", async ({ page }) => {
-    const lessonSamples = [1, 2, 12, 14, 23, 24];
+    const lessonSamples = [
+      { lesson: 1, proofName: "workbook-early-l1.png" },
+      { lesson: 2 },
+      { lesson: 12, proofName: "workbook-middle-l12.png" },
+      { lesson: 14 },
+      { lesson: 23 },
+      { lesson: 24, proofName: "workbook-late-l24.png" },
+    ];
 
-    for (const lesson of lessonSamples) {
+    for (const { lesson, proofName } of lessonSamples) {
       const monitor = attachRouteErrorMonitors(page, `workbook lesson ${lesson}`);
       await page.goto(`/cartilla/leccion/${lesson}`, { waitUntil: "domcontentloaded" });
       await page.waitForLoadState("networkidle").catch(() => {});
@@ -151,36 +179,54 @@ test.describe("Whole-Product Route Health + Console/Network Error Sweep", () => 
       await expect(reader).toBeVisible({ timeout: 15_000 });
       await assertNoHorizontalOverflow(page, `workbook lesson ${lesson}`);
       await expectNoBrokenImages(reader, `workbook lesson ${lesson}`);
+
+      if (proofName) {
+        await page.screenshot({
+          path: path.join(PROOF_DIR, proofName),
+          fullPage: true,
+        });
+      }
       monitor.assertClean();
     }
   });
 
   test("4. Print route health", async ({ page }) => {
-    const printRoutes = ["/cartilla/imprimir/1", "/cartilla/imprimir/2", "/cartilla/imprimir/all"];
+    const printRoutes = [
+      { route: "/cartilla/imprimir/1", proofName: "print-route.png" },
+      { route: "/cartilla/imprimir/2" },
+      { route: "/cartilla/imprimir/all" },
+    ];
 
-    for (const route of printRoutes) {
+    for (const { route, proofName } of printRoutes) {
       const monitor = attachRouteErrorMonitors(page, `print ${route}`);
       await page.goto(route, { waitUntil: "domcontentloaded" });
       await page.waitForLoadState("networkidle").catch(() => {});
 
       await expect(page.locator("body")).not.toBeEmpty();
       await assertNoHorizontalOverflow(page, `print ${route}`);
+
+      if (proofName) {
+        await page.screenshot({
+          path: path.join(PROOF_DIR, proofName),
+          fullPage: true,
+        });
+      }
       monitor.assertClean();
     }
   });
 
   test("5. Teacher home/guide/progress/reports routes health", async ({ page }) => {
     const teacherRoutes = [
-      "/cartilla/teacher",
-      "/cartilla/teacher/guide",
-      "/cartilla/teacher/guia/1",
-      "/cartilla/teacher/progreso",
-      "/cartilla/teacher/reportes",
-      "/cartilla/teacher/crm",
-      "/cartilla/teacher/roster",
+      { route: "/cartilla/teacher", proofName: "teacher-home.png" },
+      { route: "/cartilla/teacher/guide", proofName: "teacher-guide.png" },
+      { route: "/cartilla/teacher/guia/1" },
+      { route: "/cartilla/teacher/progreso", proofName: "teacher-progress.png" },
+      { route: "/cartilla/teacher/reportes", proofName: "teacher-reports.png" },
+      { route: "/cartilla/teacher/crm" },
+      { route: "/cartilla/teacher/roster" },
     ];
 
-    for (const route of teacherRoutes) {
+    for (const { route, proofName } of teacherRoutes) {
       const monitor = attachRouteErrorMonitors(page, `teacher ${route}`);
       await page.goto(route, { waitUntil: "domcontentloaded" });
       await page.waitForLoadState("networkidle").catch(() => {});
@@ -188,18 +234,25 @@ test.describe("Whole-Product Route Health + Console/Network Error Sweep", () => 
       await expect(page.locator("body")).not.toBeEmpty();
       await assertNoHorizontalOverflow(page, `teacher ${route}`);
       await expectNoBrokenImages(page, `teacher ${route}`);
+
+      if (proofName) {
+        await page.screenshot({
+          path: path.join(PROOF_DIR, proofName),
+          fullPage: true,
+        });
+      }
       monitor.assertClean();
     }
   });
 
   test("6. Flip Chart catalog & presenter routes health", async ({ page }) => {
     const flipchartRoutes = [
-      "/cartilla/teacher/flipchart",
-      "/cartilla/presentar/1",
-      "/cartilla/presentar/7",
+      { route: "/cartilla/teacher/flipchart", proofName: "flipchart-catalog.png" },
+      { route: "/cartilla/presentar/1", proofName: "flipchart-presenter.png" },
+      { route: "/cartilla/presentar/7" },
     ];
 
-    for (const route of flipchartRoutes) {
+    for (const { route, proofName } of flipchartRoutes) {
       const monitor = attachRouteErrorMonitors(page, `flipchart ${route}`);
       await page.goto(route, { waitUntil: "domcontentloaded" });
       await page.waitForLoadState("networkidle").catch(() => {});
@@ -208,6 +261,13 @@ test.describe("Whole-Product Route Health + Console/Network Error Sweep", () => 
       await expect(page.locator("body")).not.toBeEmpty();
       await assertNoHorizontalOverflow(page, `flipchart ${route}`);
       await expectNoBrokenImages(page, `flipchart ${route}`);
+
+      if (proofName) {
+        await page.screenshot({
+          path: path.join(PROOF_DIR, proofName),
+          fullPage: true,
+        });
+      }
       monitor.assertClean();
     }
   });
@@ -220,12 +280,18 @@ test.describe("Whole-Product Route Health + Console/Network Error Sweep", () => 
     await expect(page.locator("body")).not.toBeEmpty();
     await assertNoHorizontalOverflow(page, "voice audition");
     await expectNoBrokenImages(page, "voice audition");
+
+    await page.screenshot({
+      path: path.join(PROOF_DIR, "voice-audition.png"),
+      fullPage: true,
+    });
     monitor.assertClean();
   });
 
   test("8. Source-blocked pages 86–87 remain documented exceptions without console errors or crash", async ({ page }) => {
     const monitor = attachRouteErrorMonitors(page, "source-blocked page 86");
 
+    // Bookmark directly to Lección 23 page index 3 (physical page 86)
     await page.goto("/cartilla/lecciones");
     await page.evaluate(() => {
       localStorage.setItem("cartilla.learner-resume.v1:23", JSON.stringify({ lesson: 23, page: 3 }));
@@ -241,12 +307,19 @@ test.describe("Whole-Product Route Health + Console/Network Error Sweep", () => 
     const pageNum = await reader.getAttribute("data-native-page");
     expect(pageNum, "Must reach physical page 86 in Lección 23").toBe("86");
 
-    const blockedNotice = page.locator(".fp-source-blocked, [data-source-blocked='true']").first();
+    // Verify source-blocked exception indicator is rendered
+    const blockedNotice = page.locator(".fp-source-blocked, [data-source-blocked='true']");
     await expect(blockedNotice).toBeVisible();
 
-    // Verify no invented exercise activities or form inputs are rendered
-    await expect(reader.locator("[data-gretel-activity]")).toHaveCount(0);
-    await expect(reader.locator("input, textarea, canvas")).toHaveCount(0);
+    // The blocked page must not render inferred exercise content, artwork, or
+    // interactions: pages 86-87 stay source-blocked with no guessed material.
+    await expect(reader.locator("canvas, textarea, input, [data-picture-name], .fp-ix-shell, .fp-activity")).toHaveCount(0);
+    await expect(reader.getByRole("button", { name: /Escribe|Une|Marca|Traza|Completa/i })).toHaveCount(0);
+
+    await page.screenshot({
+      path: path.join(PROOF_DIR, "source-blocked-p86.png"),
+      fullPage: true,
+    });
 
     monitor.assertClean();
   });
