@@ -41,8 +41,6 @@ if (fs.statSync(sourcePath).isFile() && sourcePath.toLowerCase().endsWith(".zip"
   fs.rmSync(checkWork, { recursive: true, force: true });
   fs.mkdirSync(checkWork, { recursive: true });
   try {
-    execFileSync("tar", ["-tf", sourcePath], { encoding: "utf8" }).includes("global_index.json") &&
-      !mappingPath;
     const files = execFileSync("tar", ["-tf", sourcePath], { encoding: "utf8" });
     if (files.includes("global_index.json") && !mappingPath) {
       isLegacyPackage = true;
