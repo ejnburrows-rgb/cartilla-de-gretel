@@ -655,3 +655,31 @@
   color: #70263b;
   box-shadow: none;
 }
+
+/* Student Workbook only — owner-approved white paper, clean empty art slots.
+ * Do not alter the Flip Chart / teacher shared page renderer.
+ * The physical paper already owns the teal outer wave, diamond page number,
+ * and inner Lección footer. */
+.native-lesson-viewer__content .faithful-page {
+  background: #fff;
+  overflow: visible;
+}
+.native-lesson-viewer__content .faithful-page__body { overflow: visible; }
+.native-lesson-viewer__content .fp-art-pending { visibility: hidden; }
+.native-lesson-viewer__content .am-direct-pencil__target:not(:has(img)) .am-direct-pencil__target-text,
+.native-lesson-viewer__content .am-lasso__target:not(:has(img)) .am-lasso__target-text {
+  visibility: hidden;
+}
+/* No decorative chip around the printed picture-grid cells. */
+.native-lesson-viewer__content .fp-ix-cell {
+  border: 1px solid #0d9488;
+  border-radius: 2px;
+  box-shadow: none;
+}
+/* Page 1's whole five-row leaf fits a 1366×768 laptop. Other long pages
+ * retain natural height and document scrolling rather than clipping. */
+@media (min-width: 761px) {
+  .native-lesson-viewer[data-native-page="1"] .faithful-page {
+    min-height: 0;
+  }
+}
