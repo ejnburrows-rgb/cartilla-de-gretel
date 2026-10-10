@@ -35,8 +35,8 @@ For curriculum, wording, page order, exercise content, and source-page structure
 5. A student cannot advance with **Next** until the required work on the current page is completed.
 6. Workbook and Flip Chart are separate experiences:
    - Workbook = student interaction on a clean digital canvas. Dense learner exercises do not use full scenic wallpaper; source structure/content and foreground art remain book-faithful.
-   - Flip Chart/Presenter = teacher classroom presentation and may retain the richer scenic presentation when source-appropriate.
-   - Existing scenic background assets are preserved for the Flip Chart and other explicitly approved contexts; this presentation rule does not delete or regenerate them.
+   - Flip Chart/Presenter = teacher classroom presentation on a clean paper surface with no default scenic/background-image layer. Source instructional foreground scenes/art and useful approved motion remain when source-appropriate.
+   - Existing scenic background assets may remain preserved in the repository/history but are not mounted as default Flip Chart backgrounds under the latest owner direction; do not delete them merely for this presentation change.
 7. Gretel uses the exact approved master identified by `src/data/gretel-approved-master.json` and the existing character system. Final voice/TTS direction is deferred until the owner explicitly approves it.
 8. Google Flow's current production scope is one owner-approved 5–6 second silent welcome loop from the exact approved final still. In-app lesson reactions use the existing Gretel state system; no 31-clip requirement remains.
 9. Automatic Vercel deployment stays off during active work. Do not use production deployment as a test runner.
@@ -48,7 +48,7 @@ For curriculum, wording, page order, exercise content, and source-page structure
 
 Current product-completion execution remains intentionally parallel where scopes are isolated.
 
-As of 2026-10-04, current open controller PRs include:
+Historical October 4 work snapshot (NOT a live open-PR list; check GitHub for today's open candidates):
 - #476 — shared student interaction kernel + Workbook p1/p2;
 - #477 — Gretel behavior and motion discipline;
 - #478 — welcome-media code integration; the owner-supplied 5–6 second silent MP4 remains an external dependency;
@@ -58,11 +58,11 @@ The owner locked the recurring Student Workbook visual system on 2026-10-06 in `
 
 The old Page-1-only golden visual gate is superseded by this owner-approved eight-archetype system. Page 1 remains the representative source for archetype 1, while each other archetype has its own canonical repeated design. The exact physical Workbook page still controls wording, artwork, content order, source wave/outline, markers, and spatial relationships.
 
-Current mapping evidence identifies page 3 as archetype 3 and pages 5, 8, 11, 14, and 17 as archetype 4. Page 17 Uu is the canonical visual reference for archetype 4. Pages 86–87 remain source-blocked and must contain no inferred text, artwork, region types, or archetype.
+Current mapping evidence identifies page 3 as archetype 3 and pages 5, 8, 11, 14, and 17 as archetype 4. Page 17 Uu is the canonical visual reference for archetype 4. Printed pages 86–87 are conclusively absent from the supplied authoritative Student Workbook scan: the scan jumps from printed 85 to 88, source images 086/087 are absent, and 085/088 exist. Keep 86–87 SOURCE_BLOCKED with no inferred text, artwork, region types, or archetype; this documented absence is an allowed finish exception under PROJECT_FINISH_DEFINITION.md.
 
-The shared student interaction kernel (#445 / PR #476) remains the dependency for common Pencil/Eraser feedback. Visual archetype work, source mapping, responsive styling, and isolated adapters may proceed in up to the global two-worker maximum when files and dependencies do not overlap; do not impose a blanket issue-number serialization when current ownership is independent.
+The shared student interaction kernel remains the dependency for common Pencil/Eraser feedback. Visual archetype work, source mapping, responsive styling, and isolated adapters may proceed concurrently whenever files and dependencies do not overlap. AGENTS.md alone controls current worker concurrency; this file defines no fixed numeric Jules implementation cap.
 
-Direct cloud release verification remains tracked in #389. Production foreground-art remediation with verified source-preserving color transfer also remains part of the product-completion path.
+Current clean-main release verification is tracked in #587 (reuse historical #389 harness proof; do not duplicate Jules work). The closed #454 artwork-remediation issue is historical; final owner-supplied foreground-art integration stays owner-gated in #588 with source-preserving validation.
 
 Final gates follow with whole-Workbook regression (#450), teacher/Flip Chart validation, performance, welcome-media integration, and final assembled-product release proof. The clean Workbook surface, foreground-art remediation, living-art motion, Gretel behavior, and page-turn system must be integrated before the final Workbook validation gate. The Flip Chart keeps its independently verified richer presentation.
 
@@ -70,7 +70,7 @@ Supabase/live-auth expansion remains deferred from the current product-completio
 
 ## Proof rule
 
-For meaningful code/behavior PRs, merge proof also requires dual independent review of the exact current head: controller/assistant review plus SonarQube Cloud PR analysis. CodeRabbit is not required. Any head change invalidates prior dual-review proof and requires both reviews again. Documentation-only or trivial metadata-only changes may skip SonarQube but still require independent controller review.
+For meaningful code/behavior PRs, the controller independently reviews the material diff and current head, reuses relevant Jules test and UI evidence, confirms scope/approvals, and fixes independently confirmed serious defects. SonarCloud/SonarQube analysis stays available as **advisory and non-blocking** information: its quality gate, duplication threshold, missing report, or failed status alone never blocks dispatch or merge. A confirmed substantive defect still blocks the affected change. Recheck only evidence invalidated by a material change; unrelated documentation/head movement does not invalidate focused proof. The lightweight `node scripts/check-merge-policy.mjs --docs` consistency check detects contradictory policy, while `--evidence <receipt.json>` evaluates a particular proposed merge without running product tests.
 
 No task is "done" without visible or test evidence:
 - what changed;
