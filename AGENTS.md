@@ -84,7 +84,7 @@ At each refresh consider **all three parallel work streams**, without waiting fo
 
 **Empty slots are not permission to invent tasks.** If the fresh canonical finish-gap scan finds no independent eligible slice, report `NO READY INDEPENDENT JULES TASK — <specific reason>`; do not claim a lane was dispatched or is running unless the provider/GitHub handoff proves it. Recheck when any real dependency changes. Local scheduler capacity flags are targets, **not** a global Jules concurrency rule and not proof that all slots are running.
 
-**Historical-branch safety:** every worker resuming a non-`main` branch must fetch **CURRENT `main` versions** of `AGENTS.md`, `PROJECT_FINISH_DEFINITION.md`, `PROJECT_SOURCE_OF_TRUTH.md`, and `tasks/plan.md` before work or merge. Old snapshots, issue bodies, controller branches, and saved memory never reinstate mandatory SonarCloud, retired Neon/OpenHands dispatch architecture, fixed worker caps, duplicate testing, or owner-blocked work. Preserve old branches as history; do not mass-merge/rebase them merely to modernize prompts.
+**Historical-branch safety:** every worker resuming a non-`main` branch must fetch **CURRENT `main` versions** of `AGENTS.md`, `PROJECT_FINISH_DEFINITION.md`, `PROJECT_SOURCE_OF_TRUTH.md`, and `tasks/plan.md` before work or merge. Old snapshots, issue bodies, controller branches, and saved memory never reinstate a SonarCloud-required merge gate, retired Neon/OpenHands dispatch architecture, fixed worker caps, duplicate testing, or owner-blocked work. Preserve old branches as history; do not mass-merge/rebase them merely to modernize prompts.
 
 ### Precedence: two different questions
 
