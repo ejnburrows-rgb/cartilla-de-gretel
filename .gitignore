@@ -78,3 +78,6 @@ public/cartilla/art/test-overlays/
 .cartilla-art-backup/
 verification-screenshots/
 verification-screenshots-fresh/
+
+# Per-run owner-proof browser captures: never track unapproved screenshots.
+/docs/proofs/final-assembly/runs/
