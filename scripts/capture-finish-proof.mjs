@@ -1,7 +1,25 @@
 import { execFileSync } from "node:child_process";
 import fs from "node:fs";
+import os from "node:os";
 import path from "node:path";
 import { fileURLToPath } from "node:url";
+
+// Never inherit PATH/NODE_OPTIONS/NODE_PATH or arbitrary environment from the shell.
+// Playwright's webServer.command invokes pnpm through a shell; a hostile PATH
+// could run a lookalike binary that forges all 60 screenshots and metadata.
+const executableDirs = process.platform === "win32"
+  ? [path.dirname(process.execPath), "C:\\Program Files\\Git\\cmd", "C:\\Program Files (x86)\\Git\\cmd", "C:\\Windows\\System32"]
+  : [path.dirname(process.execPath), "/usr/local/bin", "/usr/bin", "/bin"];
+const trustedPath = [...new Set(executableDirs.filter((directory) => fs.existsSync(directory)))].join(path.delimiter);
+const trustedChildEnv = {
+  PATH: trustedPath,
+  ...(process.platform === "win32"
+    ? { SystemRoot: "C:\\Windows", USERPROFILE: os.homedir(),
+        LOCALAPPDATA: path.join(os.homedir(), "AppData", "Local"),
+        APPDATA: path.join(os.homedir(), "AppData", "Roaming"),
+        TEMP: os.tmpdir(), TMP: os.tmpdir() }
+    : { HOME: os.homedir(), TMPDIR: os.tmpdir() }),
+};
 
 // Each run uses a fresh directory: never include older screenshots in a new proof manifest.
 const PROOF_DIR = path.resolve(
@@ -16,7 +34,7 @@ async function main() {
   // Record commit SHA
   let commitSha = "unknown";
   try {
-    commitSha = execFileSync("git", ["rev-parse", "HEAD"], { encoding: "utf8" }).trim();
+    commitSha = execFileSync("git", ["rev-parse", "HEAD"], { encoding: "utf8", env: trustedChildEnv }).trim();
   } catch (err) {
     console.error("Warning: Could not retrieve git commit SHA:", err.message);
   }
@@ -31,6 +49,7 @@ async function main() {
   try {
     worktreeStatus = execFileSync("git", ["status", "--porcelain", "--untracked-files=normal"], {
       encoding: "utf8",
+      env: trustedChildEnv,
     }).trim();
   } catch (err) {
     console.error("Cannot verify clean checkout; refusing owner-proof capture:", err.message);
@@ -53,10 +72,7 @@ async function main() {
     const playwrightCli = fileURLToPath(import.meta.resolve("@playwright/test/cli"));
     execFileSync(process.execPath, [playwrightCli, "test", "tests/e2e/finish-proof-capture.spec.ts", "--project=chromium", "--workers=1"], {
       stdio: "inherit",
-      env: {
-        ...process.env,
-        PROOF_DIR,
-      },
+      env: { ...trustedChildEnv, PROOF_DIR },
     });
   } catch (err) {
     console.error("Error executing Playwright capture harness:", err.message);
@@ -67,6 +83,7 @@ async function main() {
   // Refuse to attribute those changed files to the original commit.
   const statusAfter = execFileSync("git", ["status", "--porcelain", "--untracked-files=normal"], {
     encoding: "utf8",
+    env: trustedChildEnv,
   }).trim();
   if (statusAfter) {
     console.error("Source changed during capture; refusing invalid exact-commit evidence.");
