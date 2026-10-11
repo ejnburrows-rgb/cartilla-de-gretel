@@ -28,7 +28,7 @@ if (!process.argv.includes("--config=scripts/owner-proof-playwright.config.ts"))
 const configText = fs.readFileSync(path.join(process.cwd(), "scripts", "owner-proof-playwright.config.ts"), "utf8");
 const activeConfig = configText.slice(configText.indexOf("export default defineConfig"));
 if (!activeConfig.includes("quote(process.execPath)") || !activeConfig.includes("quote(viteCli)") ||
-    /\\b(?:pnpm|powershell)\\s+(?:dev|[-\\w])/i.test(activeConfig)) {
+    /\b(?:pnpm|powershell)\s+(?:dev|[-\w])/i.test(activeConfig)) {
   console.error("unsafe or PATH-dependent owner-proof web server"); process.exit(6);
 }
 if (mode === "source-changed") fs.appendFileSync(path.join(process.cwd(), "tracked.txt"), "changed during capture\n");
