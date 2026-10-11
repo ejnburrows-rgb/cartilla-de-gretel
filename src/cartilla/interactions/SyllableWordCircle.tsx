@@ -1,4 +1,5 @@
 import { learnerStorageKey } from "@/lib/learner-storage";
+import { loadLassoProgress } from "@/lib/activity-canvas-store";
 import { useEffect, useState } from "react";
 import type { PointerEvent as ReactPointerEvent } from "react";
 import type { PageRegion } from "@/lib/book-faithful";
@@ -32,14 +33,51 @@ export function SyllableWordCircle({ region, lessonId }: { region: PageRegion; l
   const isTarget = (i: number) => words[i]?.correct !== false;
   const correctCount = words.filter((entry) => entry.correct !== false).length;
   const key = learnerStorageKey(`cartilla-circle-${region.id}`);
+  const legacyKey = `${lessonId ?? "x"}:${region.id}`;
   const [marked, setMarked] = useState<Set<number>>(() => {
     try {
-      const stored = JSON.parse(localStorage.getItem(key) ?? "[]") as number[];
-      return new Set(stored.filter((i) => isTarget(i)));
+      // A newer pencil-circle save (even an intentionally cleared []) wins.
+      const current = localStorage.getItem(key);
+      if (current !== null) {
+        const stored: unknown = JSON.parse(current);
+        return new Set(Array.isArray(stored)
+          ? stored.filter((i): i is number =>
+              Number.isInteger(i) && i >= 0 && i < words.length && isTarget(i))
+          : []);
+      }
+
+      // Legacy source IDs: <region-id>-<row>-<column>.
+      // Read their progress, never reinstate the retired rope presentation.
+      const legacy = new Set(loadLassoProgress(legacyKey)?.completedIds ?? []);
+      const restored = new Set<number>();
+      let flatIndex = 0;
+      for (const [rowIndex, row] of (region.matchRows ?? []).entries()) {
+        for (const [columnIndex, entry] of row.entries()) {
+          if (
+            legacy.has(`${region.id}-${rowIndex}-${columnIndex}`) &&
+            entry.correct !== false &&
+            validSyllableStarts(entry.word, region.syllable ?? "").length > 0
+          ) restored.add(flatIndex);
+          flatIndex++;
+        }
+      }
+      return restored;
     } catch {
       return new Set();
     }
   });
+
+  useEffect(() => {
+    // Persist migrated answers once, on their original learner scope.
+    // Never resurrect erased answers: [] is an explicit newer save.
+    try {
+      if (localStorage.getItem(key) === null && marked.size > 0) {
+        localStorage.setItem(key, JSON.stringify([...marked]));
+      }
+    } catch {
+      // Storage can be disabled; in-memory exercise remains usable.
+    }
+  }, [key, marked]);
   const [selectedStarts, setSelectedStarts] = useActivityState<Record<number, number>>(
     "syllableStarts",
     {},

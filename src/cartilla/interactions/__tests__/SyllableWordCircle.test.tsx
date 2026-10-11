@@ -4,6 +4,8 @@
 import { afterEach, beforeEach, describe, expect, it, vi } from "vitest";
 import { act, cleanup, fireEvent, render, screen } from "@testing-library/react";
 import { SyllableWordCircle } from "../SyllableWordCircle";
+import { saveLassoProgress } from "@/lib/activity-canvas-store";
+import { learnerStorageKey } from "@/lib/learner-storage";
 import type { PageRegion } from "@/lib/book-faithful";
 
 vi.mock("@/hooks/useReducedMotion", () => ({ useReducedMotion: () => true }));
@@ -53,6 +55,35 @@ describe("SyllableWordCircle", () => {
   afterEach(() => {
     cleanup();
     vi.useRealTimers();
+  });
+
+  it("preserves valid older source-page syllable circles when switching to the approved pencil", () => {
+    saveLassoProgress("9:test-sa", [
+      "test-sa-0-1", // sala
+      "test-sa-1-0", // sano
+      "test-sa-0-0", // incorrect word: semana must not be adopted
+      "test-sa-90-0", // invalid old location
+    ]);
+    render(<SyllableWordCircle region={region} lessonId="9" />);
+
+    expect(screen.getByRole("status").textContent).toContain("2 de 3");
+    expect(screen.getByRole("button", { name: "sala" }).getAttribute("aria-pressed")).toBe("true");
+    expect(screen.getByRole("button", { name: "sano" }).getAttribute("aria-pressed")).toBe("true");
+    expect(screen.getByRole("button", { name: "semana" }).getAttribute("aria-pressed")).toBe("false");
+
+    expect(JSON.parse(localStorage.getItem(learnerStorageKey("cartilla-circle-test-sa")) ?? "[]"))
+      .toEqual([1, 3]);
+    fireEvent.click(screen.getByRole("button", { name: "sapo" }), { detail: 0 });
+    act(() => vi.advanceTimersByTime(3000));
+    expect(screen.getByRole("status").textContent).toContain("3 de 3");
+  });
+
+  it("respects a newer cleared pencil-circle save over stale legacy selections", () => {
+    saveLassoProgress("9:test-sa", ["test-sa-0-1", "test-sa-1-0"]);
+    localStorage.setItem(learnerStorageKey("cartilla-circle-test-sa"), "[]");
+    render(<SyllableWordCircle region={region} lessonId="9" />);
+    expect(screen.getByRole("status").textContent).toContain("0 de 3");
+    expect(screen.getByRole("button", { name: "sala" }).getAttribute("aria-pressed")).toBe("false");
   });
 
   it("uses one word hit target and gently erases an incorrect attempt", () => {
