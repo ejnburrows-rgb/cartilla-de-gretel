@@ -49,6 +49,8 @@ function ArtOrPending({ cell }: { cell: PageGridCell }) {
 
 /** How a picked picture is marked — follows the printed verb of the page. */
 export type PictureMark = "circle" | "x";
+/** Preserved contract for vowel-row response styling (not the removed lasso). */
+type Grade = "correct" | "wrong" | "missed" | null;
 export function pictureMarkFor(instruction?: string): PictureMark {
   return instruction && /marca con una x/i.test(instruction) ? "x" : "circle";
 }
