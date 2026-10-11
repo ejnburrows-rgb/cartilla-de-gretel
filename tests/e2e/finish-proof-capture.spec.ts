@@ -57,6 +57,8 @@ test.describe("Owner-Proof Final Capture Harness & Device Matrix", () => {
           await page.goto(`/cartilla/leccion/${arch.lesson}`);
           const viewer = page.locator(".native-lesson-viewer, [data-testid='native-lesson-viewer']");
           await expect(viewer.first()).toBeVisible({ timeout: 15000 });
+          // Never capture the wrong printed page even when the route itself is valid.
+          await expect(viewer.first()).toHaveAttribute("data-native-page", String(arch.printedPage), { timeout: 15000 });
 
           // Clean digital canvas check: no scenic wallpaper on workbook pages
           const bgWallpaper = page.locator(".final-page-background");
@@ -168,6 +170,7 @@ test.describe("Owner-Proof Final Capture Harness & Device Matrix", () => {
         await page.setViewportSize(viewport);
         await page.goto("/cartilla/leccion/1");
         await expect(page.locator(".native-lesson-viewer").first()).toBeVisible({ timeout: 15000 });
+        await expect(page.locator(".native-lesson-viewer").first()).toHaveAttribute("data-native-page", "1");
         await page.screenshot({
           path: path.join(PROOF_DIR, `student-lesson1-${device}.png`),
         });
