@@ -1,5 +1,19 @@
 # AGENTS.md — mandatory, every session, no exceptions
 
+## STOP — BRANCH HYGIENE / NO DUPLICATE BRANCHES (OWNER DIRECTIVE 2026-10-11)
+
+Mandatory for **all agents, Jules, dispatchers, reviewers and continuations**. Prevent branch proliferation; prefer fixing the original existing branch and PR.
+
+1. **Reuse before creation:** Always list relevant open PR heads, active/held Jules tasks, existing branches and merged fixes. One approved, bounded implementation task = one authoritative feature branch. Never create a new branch for a status report, handoff, duplicate worker, speculative recommendation, ordinary test, audit, or cosmetic policy update.
+2. **New branch exception:** Only if distinct, current owner-approved executable work has no viable existing branch/PR, no duplicate owner/task and genuinely disjoint file ownership. Record acceptance criteria, source base and issue/owner approval before any new branch. Reuse the Jules-produced branch from its real acknowledged task; no parallel copies or backup branches.
+3. **Cleanup after completion:** Once an eligible PR merges, delete its otherwise unused remote source branch **after** checking the exact current HEAD, main ancestry, all open PRs, provider tasks and owner locks. For closed-unmerged, superseded or abandoned work, inspect main ahead/behind and any unique commits before deleting. Never delete `main`, protected/release branches, active open-PR heads, a still-running Jules task, held/unapproved owner work, or unclassified unmerged commits.
+4. **One cleanup controller:** The existing supervisor/dispatcher owns hygiene; no separate cleanup agent, scheduler, CI job, webhook or duplicate tracking system. Do not create a replacement branch to delete another branch. Remove Git refs only through GitHub's real delete-reference action, not forced resets.
+5. **Proof:** Record each deleted branch's exact previous SHA, closed/merged PR or ancestry evidence, deletion response and verified absence; if uncertain, **retain it** with a concrete reason. Deletion removes the branch pointer, not historical commits or PR records. Reconcile branch inventory after each cleanup.
+
+This rule does not bypass branch protection, latest-owner approval, source fidelity, tests or release requirements below.
+
+---
+
 ## STOP — OWNER-APPROVAL-ONLY JULES + LATEST-APPROVAL-ONLY VISUAL GATE (2026-10-11)
 
 **HIGHEST PRIORITY FOR ALL AGENTS, JULES, DISPATCHERS, WATCHERS, REVIEWERS, SUPERVISORS, AUTOMATIONS AND REPORTS. Overrides older instructions anywhere in the repository, issues, PRs, historical screenshots, memories or prompts.**
