@@ -1,6 +1,7 @@
 import { execFileSync } from "node:child_process";
 import fs from "node:fs";
 import path from "node:path";
+import { fileURLToPath } from "node:url";
 
 // Each run uses a fresh directory: never include older screenshots in a new proof manifest.
 const PROOF_DIR = path.resolve(
@@ -47,7 +48,10 @@ async function main() {
 
   // Run Playwright capture test
   try {
-    execFileSync(process.platform === "win32" ? "pnpm.cmd" : "pnpm", ["exec", "playwright", "test", "tests/e2e/finish-proof-capture.spec.ts", "--project=chromium", "--workers=1"], {
+    // The installed Playwright CLI is launched through Node directly on all OSes.
+    // execFileSync cannot run pnpm.cmd on Windows; avoid shell/PATH resolution.
+    const playwrightCli = fileURLToPath(import.meta.resolve("@playwright/test/cli"));
+    execFileSync(process.execPath, [playwrightCli, "test", "tests/e2e/finish-proof-capture.spec.ts", "--project=chromium", "--workers=1"], {
       stdio: "inherit",
       env: {
         ...process.env,
