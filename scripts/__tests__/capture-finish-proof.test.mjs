@@ -11,7 +11,7 @@ const HARNESS = fileURLToPath(new URL("../capture-finish-proof.mjs", import.meta
 // Run a real copy of the proof launcher in a disposable local Git checkout.
 // The fake pnpm executable only supplies synthetic output files: this tests the
 // integrity guards and never claims to verify actual Workbook rendering.
-const FAKE_PNPM = String.raw`const fs = require("node:fs");
+const FAKE_PLAYWRIGHT_CLI = String.raw`const fs = require("node:fs");
 const path = require("node:path");
 const dir = process.env.PROOF_DIR;
 const mode = process.env.FAKE_CAPTURE_MODE;
@@ -43,13 +43,15 @@ function setup(t) {
   const cwd = fs.mkdtempSync(path.join(os.tmpdir(), "cartilla-proof-guard-"));
   t.after(() => fs.rmSync(cwd, { recursive: true, force: true }));
   fs.mkdirSync(path.join(cwd, "scripts"), { recursive: true });
-  fs.mkdirSync(path.join(cwd, "bin"), { recursive: true });
+  const playwrightPkg = path.join(cwd, "node_modules", "@playwright", "test");
+  fs.mkdirSync(playwrightPkg, { recursive: true });
   fs.writeFileSync(path.join(cwd, "scripts", "capture-finish-proof.mjs"), fs.readFileSync(HARNESS));
   fs.writeFileSync(path.join(cwd, ".gitignore"), "/docs/proofs/final-assembly/runs/\n");
   fs.writeFileSync(path.join(cwd, "tracked.txt"), "committed\n");
-  fs.writeFileSync(path.join(cwd, "bin", "pnpm-stub.cjs"), FAKE_PNPM);
-  fs.writeFileSync(path.join(cwd, "bin", "pnpm"), "#!/usr/bin/env node\nrequire('./pnpm-stub.cjs');\n", { mode: 0o755 });
-  fs.writeFileSync(path.join(cwd, "bin", "pnpm.cmd"), "@echo off\r\nnode \"%~dp0pnpm-stub.cjs\" %*\r\n");
+  fs.writeFileSync(path.join(playwrightPkg, "package.json"), JSON.stringify({
+    name: "@playwright/test", type: "commonjs", exports: { "./cli": "./cli.cjs" },
+  }));
+  fs.writeFileSync(path.join(playwrightPkg, "cli.cjs"), FAKE_PLAYWRIGHT_CLI);
   runGit(cwd, "init", "-q");
   runGit(cwd, "config", "user.email", "test@invalid.example");
   runGit(cwd, "config", "user.name", "Local Proof Test");
@@ -62,7 +64,7 @@ function runProof(cwd, mode = "success") {
   return spawnSync(process.execPath, ["scripts/capture-finish-proof.mjs"], {
     cwd,
     encoding: "utf8",
-    env: { ...process.env, PATH: path.join(cwd, "bin") + path.delimiter + process.env.PATH, FAKE_CAPTURE_MODE: mode },
+    env: { ...process.env, FAKE_CAPTURE_MODE: mode },
   });
 }
 
