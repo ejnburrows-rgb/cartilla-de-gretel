@@ -43,7 +43,9 @@ it('picture grids use source-faithful pencil/eraser, retain correct marks and do
   }} /></GretelActivity>);
   const select = (label: string) => {
     fireEvent.click(screen.getByRole('button', { name: label }));
-    act(() => vi.advanceTimersByTime(9000));
+    act(() => vi.advanceTimersByTime(3600));
+      // The eraser's timer starts after React commits the wrong-answer transition.
+      act(() => vi.advanceTimersByTime(4400));
   };
   expect(view.container.querySelector('.fp-ix-cell__lasso')).toBeNull();
   expect(screen.queryByText('Comprobar')).toBeNull();
