@@ -31,10 +31,12 @@ const ARCHETYPE_PAGES = [
 async function captureOwnerProof(
   page: Page,
   filename: string,
-  meta: { device: string; surface: "workbook" | "student" | "teacher" | "flipchart"; lesson?: number; printedPage?: number; archetype?: number },
+  meta: { device: string; surface: "workbook" | "student" | "teacher" | "flipchart"; expectedRoute: string; lesson?: number; printedPage?: number; archetype?: number },
 ) {
   const route = new URL(page.url()).pathname;
   expect(route.startsWith("/cartilla/")).toBe(true);
+  // Every screenshot must come from the exact stated lesson or teacher route.
+  expect(route).toBe(meta.expectedRoute);
   if (meta.lesson !== undefined && (meta.surface === "student" || meta.surface === "workbook")) {
     expect(route).toBe(`/cartilla/leccion/${meta.lesson}`);
   }
@@ -104,7 +106,7 @@ test.describe("Owner-Proof Final Capture Harness & Device Matrix", () => {
           const overflow = await page.evaluate(() => document.documentElement.scrollWidth - document.documentElement.clientWidth);
           expect(overflow).toBeLessThanOrEqual(2);
 
-          await captureOwnerProof(page, `workbook-${arch.name}-${device}.png`, { device, surface: "workbook", lesson: arch.lesson, printedPage: arch.printedPage, archetype: arch.archetype });
+          await captureOwnerProof(page, `workbook-${arch.name}-${device}.png`, { device, surface: "workbook", expectedRoute: `/cartilla/leccion/${arch.lesson}`, lesson: arch.lesson, printedPage: arch.printedPage, archetype: arch.archetype });
         });
       }
 
@@ -118,7 +120,7 @@ test.describe("Owner-Proof Final Capture Harness & Device Matrix", () => {
         const overflow = await page.evaluate(() => document.documentElement.scrollWidth - document.documentElement.clientWidth);
         expect(overflow).toBeLessThanOrEqual(2);
 
-        await captureOwnerProof(page, `teacher-home-${device}.png`, { device, surface: "teacher" });
+        await captureOwnerProof(page, `teacher-home-${device}.png`, { device, surface: "teacher", expectedRoute: "/cartilla/teacher" });
       });
 
       // 3. Teacher Guide & Gretel Presence & Section Navigation
@@ -139,7 +141,7 @@ test.describe("Owner-Proof Final Capture Harness & Device Matrix", () => {
         const overflow = await page.evaluate(() => document.documentElement.scrollWidth - document.documentElement.clientWidth);
         expect(overflow).toBeLessThanOrEqual(2);
 
-        await captureOwnerProof(page, `teacher-guide-${device}.png`, { device, surface: "teacher" });
+        await captureOwnerProof(page, `teacher-guide-${device}.png`, { device, surface: "teacher", expectedRoute: "/cartilla/teacher/guia/1" });
       });
 
       // 4. Flip Chart & Top-Bound Page Turn Navigation
@@ -153,14 +155,14 @@ test.describe("Owner-Proof Final Capture Harness & Device Matrix", () => {
         const nativeBoard = page.getByTestId("flipchart-stage").getByTestId("flipchart-native-board");
         await expect(nativeBoard).toHaveAttribute("data-flipchart-page", "9");
 
-        await captureOwnerProof(page, `teacher-flipchart-p9-${device}.png`, { device, surface: "flipchart", lesson: 7, printedPage: 9 });
+        await captureOwnerProof(page, `teacher-flipchart-p9-${device}.png`, { device, surface: "flipchart", expectedRoute: "/cartilla/presentar/7", lesson: 7, printedPage: 9 });
 
         // Trigger page turn key navigation
         await page.keyboard.press("ArrowRight");
         await page.locator("[data-testid='vertical-flip-layer']").waitFor({ state: "detached", timeout: 5000 }).catch(() => {});
         await expect(nativeBoard).toHaveAttribute("data-flipchart-page", "10");
 
-        await captureOwnerProof(page, `teacher-flipchart-turn-p10-${device}.png`, { device, surface: "flipchart", lesson: 7, printedPage: 10 });
+        await captureOwnerProof(page, `teacher-flipchart-turn-p10-${device}.png`, { device, surface: "flipchart", expectedRoute: "/cartilla/presentar/7", lesson: 7, printedPage: 10 });
       });
 
       // 5. Teacher Reports & Progress
@@ -176,12 +178,12 @@ test.describe("Owner-Proof Final Capture Harness & Device Matrix", () => {
         // Progreso View
         await page.goto("/cartilla/teacher/progreso");
         await expect(page.locator("text=Progreso de la Clase").first()).toBeVisible({ timeout: 10000 });
-        await captureOwnerProof(page, `teacher-progreso-${device}.png`, { device, surface: "teacher" });
+        await captureOwnerProof(page, `teacher-progreso-${device}.png`, { device, surface: "teacher", expectedRoute: "/cartilla/teacher/progreso" });
 
         // Reportes View
         await page.goto("/cartilla/teacher/reportes");
         await expect(page.locator("text=Panel de Reportes").first()).toBeVisible({ timeout: 10000 });
-        await captureOwnerProof(page, `teacher-reportes-${device}.png`, { device, surface: "teacher" });
+        await captureOwnerProof(page, `teacher-reportes-${device}.png`, { device, surface: "teacher", expectedRoute: "/cartilla/teacher/reportes" });
       });
 
       // 6. Actual student lesson baseline (never pass a /dev-* page as owner proof).
@@ -190,7 +192,7 @@ test.describe("Owner-Proof Final Capture Harness & Device Matrix", () => {
         await page.goto("/cartilla/leccion/1");
         await expect(page.locator(".native-lesson-viewer").first()).toBeVisible({ timeout: 15000 });
         await expect(page.locator(".native-lesson-viewer").first()).toHaveAttribute("data-native-page", "1");
-        await captureOwnerProof(page, `student-lesson1-${device}.png`, { device, surface: "student", lesson: 1, printedPage: 1 });
+        await captureOwnerProof(page, `student-lesson1-${device}.png`, { device, surface: "student", expectedRoute: "/cartilla/leccion/1", lesson: 1, printedPage: 1 });
       });
     });
   }
