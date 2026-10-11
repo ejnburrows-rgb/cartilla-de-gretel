@@ -11,14 +11,19 @@ const executableDirs = process.platform === "win32"
   ? [path.dirname(process.execPath), "C:\\Program Files\\Git\\cmd", "C:\\Program Files (x86)\\Git\\cmd", "C:\\Windows\\System32"]
   : [path.dirname(process.execPath), "/usr/local/bin", "/usr/bin", "/bin"];
 const trustedPath = [...new Set(executableDirs.filter((directory) => fs.existsSync(directory)))].join(path.delimiter);
+const trustedHome = os.userInfo().homedir; // OS account database, NOT ambient HOME/USERPROFILE
 const trustedChildEnv = {
   PATH: trustedPath,
+  // Neither global nor system Git config nor fsmonitor hooks may execute.
+  GIT_CONFIG_NOSYSTEM: "1",
+  GIT_CONFIG_GLOBAL: os.devNull,
+  GIT_CONFIG_SYSTEM: os.devNull,
   ...(process.platform === "win32"
-    ? { SystemRoot: "C:\\Windows", USERPROFILE: os.homedir(),
-        LOCALAPPDATA: path.join(os.homedir(), "AppData", "Local"),
-        APPDATA: path.join(os.homedir(), "AppData", "Roaming"),
-        TEMP: os.tmpdir(), TMP: os.tmpdir() }
-    : { HOME: os.homedir(), TMPDIR: os.tmpdir() }),
+    ? { SystemRoot: "C:\\Windows", USERPROFILE: trustedHome,
+        LOCALAPPDATA: path.join(trustedHome, "AppData", "Local"),
+        APPDATA: path.join(trustedHome, "AppData", "Roaming"),
+        TEMP: path.join(trustedHome, "AppData", "Local", "Temp"), TMP: path.join(trustedHome, "AppData", "Local", "Temp") }
+    : { HOME: trustedHome, TMPDIR: "/tmp" }),
 };
 
 // Each run uses a fresh directory: never include older screenshots in a new proof manifest.
@@ -47,7 +52,7 @@ async function main() {
   // Refuse screenshots from tracked, staged or untracked worktree changes.
   let worktreeStatus;
   try {
-    worktreeStatus = execFileSync("git", ["status", "--porcelain", "--untracked-files=normal"], {
+    worktreeStatus = execFileSync("git", ["-c", "core.fsmonitor=false", "status", "--porcelain", "--untracked-files=normal"], {
       encoding: "utf8",
       env: trustedChildEnv,
     }).trim();
@@ -81,7 +86,7 @@ async function main() {
 
   // Playwright/dev tooling may alter source after the initial check.
   // Refuse to attribute those changed files to the original commit.
-  const statusAfter = execFileSync("git", ["status", "--porcelain", "--untracked-files=normal"], {
+  const statusAfter = execFileSync("git", ["-c", "core.fsmonitor=false", "status", "--porcelain", "--untracked-files=normal"], {
     encoding: "utf8",
     env: trustedChildEnv,
   }).trim();
