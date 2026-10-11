@@ -33,17 +33,18 @@ export function NativeLessonViewer({
   /** Lesson being studied; an already-completed lesson is never re-gated. */
   lessonNumber?: number;
 }) {
-  const [index, setIndex] = useState(() =>
-    Math.min(Math.max(0, initialPage), pages.length - 1),
-  );
+  const [index, setIndex] = useState(() => Math.min(Math.max(0, initialPage), pages.length - 1));
   const revealTimer = useRef<number | undefined>(undefined);
   const turnTimeoutRef = useRef<number | undefined>(undefined);
+  const rafRef = useRef<number | undefined>(undefined);
   const [hint, setHint] = useState("");
 
   // Turn state
   const [turning, setTurning] = useState(false);
   const [turnDirection, setTurnDirection] = useState<"next" | "prev" | null>(null);
-  const [turnPhase, setTurnPhase] = useState<"idle" | "zoom" | "curling" | "settling" | "dragging">("idle");
+  const [turnPhase, setTurnPhase] = useState<"idle" | "zoom" | "curling" | "settling" | "dragging">(
+    "idle",
+  );
   const [destinationIndex, setDestinationIndex] = useState<number | null>(null);
   const [dragProgress, setDragProgress] = useState(0);
   const dragProgressRef = useRef(0);
@@ -73,6 +74,7 @@ export function NativeLessonViewer({
     return () => {
       if (revealTimer.current) window.clearTimeout(revealTimer.current);
       if (turnTimeoutRef.current) window.clearTimeout(turnTimeoutRef.current);
+      if (rafRef.current) cancelAnimationFrame(rafRef.current);
     };
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
@@ -81,7 +83,9 @@ export function NativeLessonViewer({
   useEffect(() => {
     if (!completion.complete) return;
     setHint("");
-    document.querySelectorAll("[data-page-remaining]").forEach((el) => el.removeAttribute("data-page-remaining"));
+    document
+      .querySelectorAll("[data-page-remaining]")
+      .forEach((el) => el.removeAttribute("data-page-remaining"));
   }, [completion.complete]);
 
   // Update hint if activity changes
@@ -95,19 +99,26 @@ export function NativeLessonViewer({
   const showRemaining = useCallback(() => {
     const text = remainingHint(completion.remaining);
     setHint(text);
-    document.querySelectorAll("[data-page-remaining]").forEach((el) => el.removeAttribute("data-page-remaining"));
+    document
+      .querySelectorAll("[data-page-remaining]")
+      .forEach((el) => el.removeAttribute("data-page-remaining"));
     completion.remaining.forEach((activity) => {
-      document.querySelector(`[data-gretel-activity="${activity.id}"]`)?.setAttribute("data-page-remaining", "true");
+      document
+        .querySelector(`[data-gretel-activity="${activity.id}"]`)
+        ?.setAttribute("data-page-remaining", "true");
     });
     const first = completion.remaining[0];
-    const target = first ? document.querySelector<HTMLElement>(`[data-gretel-activity="${first.id}"]`) : null;
+    const target = first
+      ? document.querySelector<HTMLElement>(`[data-gretel-activity="${first.id}"]`)
+      : null;
     const reduce = prefersReducedMotion();
     target?.scrollIntoView?.({ behavior: reduce ? "auto" : "smooth", block: "center" });
   }, [completion.remaining]);
 
   const executeTurn = useCallback(
     (targetIndex: number, direction: "next" | "prev") => {
-      if (turning || targetIndex < 0 || targetIndex >= pages.length || targetIndex === index) return;
+      if (turning || targetIndex < 0 || targetIndex >= pages.length || targetIndex === index)
+        return;
 
       if (direction === "next" && !completion.complete) {
         showRemaining();
@@ -192,9 +203,7 @@ export function NativeLessonViewer({
       const target = e.target as HTMLElement | null;
       if (
         target &&
-        (target.tagName === "INPUT" ||
-          target.tagName === "TEXTAREA" ||
-          target.isContentEditable)
+        (target.tagName === "INPUT" || target.tagName === "TEXTAREA" || target.isContentEditable)
       ) {
         return;
       }
@@ -229,9 +238,10 @@ export function NativeLessonViewer({
   const handlePointerMove = (direction: "next" | "prev", e: React.PointerEvent) => {
     if (!dragStartRef.current.active) return;
 
-    const deltaX = direction === "next"
-      ? dragStartRef.current.x - e.clientX
-      : e.clientX - dragStartRef.current.x;
+    const deltaX =
+      direction === "next"
+        ? dragStartRef.current.x - e.clientX
+        : e.clientX - dragStartRef.current.x;
 
     if (!dragStartRef.current.isDragging) {
       if (Math.abs(deltaX) < 6) return; // threshold for drag vs tap
@@ -256,7 +266,12 @@ export function NativeLessonViewer({
     const width = rect?.width || 600;
     const prog = Math.min(1, Math.max(0, deltaX / (width * 0.75)));
     dragProgressRef.current = prog;
-    if (!prefersReducedMotion()) setDragProgress(prog);
+    if (!prefersReducedMotion()) {
+      if (rafRef.current) cancelAnimationFrame(rafRef.current);
+      rafRef.current = requestAnimationFrame(() => {
+        setDragProgress(prog);
+      });
+    }
   };
 
   const handlePointerCancel = (e: React.PointerEvent) => {
@@ -307,28 +322,31 @@ export function NativeLessonViewer({
         setTurnPhase("curling");
 
         if (turnTimeoutRef.current) window.clearTimeout(turnTimeoutRef.current);
-        turnTimeoutRef.current = window.setTimeout(() => {
-          setTurnPhase("settling");
-          setIndex(targetIdx);
-          onPageChange?.(targetIdx);
-          window.scrollTo({ top: 0, behavior: "instant" });
+        turnTimeoutRef.current = window.setTimeout(
+          () => {
+            setTurnPhase("settling");
+            setIndex(targetIdx);
+            onPageChange?.(targetIdx);
+            window.scrollTo({ top: 0, behavior: "instant" });
 
-          turnTimeoutRef.current = window.setTimeout(() => {
-            setTurning(false);
-            setTurnDirection(null);
-            setTurnPhase("idle");
-            setDestinationIndex(null);
-            setDragProgress(0);
+            turnTimeoutRef.current = window.setTimeout(() => {
+              setTurning(false);
+              setTurnDirection(null);
+              setTurnPhase("idle");
+              setDestinationIndex(null);
+              setDragProgress(0);
 
-            if (revealTimer.current) window.clearTimeout(revealTimer.current);
-            revealTimer.current = window.setTimeout(() => {
-              gretelEvent("page:revealed", {
-                pageNumber: pages[targetIdx]?.pageNumber,
-                text: pages[targetIdx]?.gretelLine,
-              });
-            }, 150);
-          }, 100);
-        }, Math.round(LESSON_PAGE_TURN_MS * (1 - progress)));
+              if (revealTimer.current) window.clearTimeout(revealTimer.current);
+              revealTimer.current = window.setTimeout(() => {
+                gretelEvent("page:revealed", {
+                  pageNumber: pages[targetIdx]?.pageNumber,
+                  text: pages[targetIdx]?.gretelLine,
+                });
+              }, 150);
+            }, 100);
+          },
+          Math.round(LESSON_PAGE_TURN_MS * (1 - progress)),
+        );
       } else {
         // Spring back
         setTurnPhase("idle");
@@ -457,10 +475,7 @@ export function NativeLessonViewer({
             {hint}
           </p>
         )}
-        <nav
-          className="native-lesson-viewer__navigation"
-          aria-label="Navegación de páginas"
-        >
+        <nav className="native-lesson-viewer__navigation" aria-label="Navegación de páginas">
           <button
             type="button"
             onClick={turnPrev}
@@ -481,9 +496,7 @@ export function NativeLessonViewer({
             data-locked={completion.complete ? undefined : "true"}
             data-testid="button-next"
             title={
-              completion.complete
-                ? undefined
-                : "Termina la actividad de esta página para seguir"
+              completion.complete ? undefined : "Termina la actividad de esta página para seguir"
             }
           >
             {isLast ? "Terminar lección" : "Siguiente"} <ChevronRight size={20} />
