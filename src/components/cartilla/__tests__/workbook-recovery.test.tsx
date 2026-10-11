@@ -41,7 +41,7 @@ describe("workbook recovery and earned completion", () => {
     );
     const select = (name: string) => {
       fireEvent.click(view.getByRole("button", { name }));
-      act(() => vi.advanceTimersByTime(4000));
+      act(() => vi.advanceTimersByTime(9000));
     };
 
     expect(view.container.querySelector(".fp-ix-cell__lasso")).toBeNull();
