@@ -110,6 +110,43 @@ test.describe("Owner-Proof Final Capture Harness & Device Matrix", () => {
         });
       }
 
+      // A real interaction check, NOT a fake design screenshot or an extra owner-proof image.
+      // Source printed page 4 is lesson 2, index 0: "Marca con una x" (not a circle).
+      test("Real Workbook page 4 approved wooden pencil and pink eraser", async ({ page }) => {
+        await page.setViewportSize(viewport);
+        await page.addInitScript(() => {
+          const payload = JSON.stringify({ lesson: 2, page: 0 });
+          localStorage.setItem("cartilla.learner-resume.v1:2", payload);
+          localStorage.setItem("cartilla.learner-resume.v1", payload);
+        });
+        await page.goto("/cartilla/leccion/2");
+        const viewer = page.locator(".native-lesson-viewer").first();
+        await expect(viewer).toHaveAttribute("data-native-page", "4", { timeout: 15000 });
+        const grid = viewer.locator(".fp-ix-grid").first();
+        await expect(grid).toBeVisible();
+        await expect(grid.locator(".fp-ix-cell__lasso")).toHaveCount(0);
+        await expect(page.getByRole("button", { name: "Comprobar" })).toHaveCount(0);
+
+        const wrong = grid.getByRole("button", { name: "iglú" });
+        await wrong.click();
+        const wrongMark = wrong.locator(".workbook-pencil-mark");
+        await expect(wrongMark).toHaveAttribute("data-mark-type", "x");
+        await expect(wrongMark).toHaveAttribute("data-mark-result", "wrong");
+        // Preserve the genuine drawn red X and full pink-eraser cycle; no shortcuts.
+        await expect(wrongMark).toHaveCount(0, { timeout: 15000 });
+        await expect(wrong).toBeEnabled();
+        await expect(wrong).toHaveAttribute("aria-pressed", "false");
+
+        const correct = grid.getByRole("button", { name: "ola" });
+        await correct.click();
+        const correctMark = correct.locator(".workbook-pencil-mark");
+        await expect(correctMark).toHaveAttribute("data-mark-type", "x");
+        await expect(correctMark).toHaveAttribute("data-mark-result", "correct");
+        await expect(correct).toBeDisabled({ timeout: 10000 });
+        await expect(correct).toHaveAttribute("aria-pressed", "true");
+        await expect(grid.locator(".fp-ix-cell__lasso")).toHaveCount(0);
+      });
+
       // 2. Teacher Home
       test("Teacher Home Surface", async ({ page }) => {
         await page.setViewportSize(viewport);
