@@ -1,4 +1,5 @@
 import { test, expect } from "@playwright/test";
+import { archetypeMappingForPage } from "../../src/data/workbook-archetypes";
 import * as fs from "fs";
 import * as path from "path";
 
@@ -15,12 +16,12 @@ const VIEWPORTS = {
 const ARCHETYPE_PAGES = [
   { archetype: 1, lesson: 1, pageIndex: 0, printedPage: 1, name: "archetype-1-picture-grid" },
   { archetype: 2, lesson: 1, pageIndex: 1, printedPage: 2, name: "archetype-2-vowel-row-choices" },
-  { archetype: 3, lesson: 2, pageIndex: 0, printedPage: 4, name: "archetype-3-syllable-wheel" },
-  { archetype: 4, lesson: 3, pageIndex: 0, printedPage: 7, name: "archetype-4-word-builder" },
-  { archetype: 5, lesson: 4, pageIndex: 0, printedPage: 10, name: "archetype-5-sentence-read" },
-  { archetype: 6, lesson: 5, pageIndex: 0, printedPage: 13, name: "archetype-6-writing-tracing" },
-  { archetype: 7, lesson: 6, pageIndex: 0, printedPage: 16, name: "archetype-7-reading-comp" },
-  { archetype: 8, lesson: 7, pageIndex: 0, printedPage: 19, name: "archetype-8-review-game" },
+  { archetype: 3, lesson: 1, pageIndex: 2, printedPage: 3, name: "archetype-3-multi-pair-connect" },
+  { archetype: 4, lesson: 6, pageIndex: 1, printedPage: 17, name: "archetype-4-central-target-connect" },
+  { archetype: 5, lesson: 7, pageIndex: 0, printedPage: 19, name: "archetype-5-trace-and-draw" },
+  { archetype: 6, lesson: 7, pageIndex: 1, printedPage: 20, name: "archetype-6-syllable-circle" },
+  { archetype: 7, lesson: 7, pageIndex: 2, printedPage: 21, name: "archetype-7-phonics-reading" },
+  { archetype: 8, lesson: 7, pageIndex: 3, printedPage: 22, name: "archetype-8-word-and-sentence" },
 ];
 
 test.beforeAll(() => {
@@ -36,6 +37,12 @@ test.describe("Owner-Proof Final Capture Harness & Device Matrix", () => {
       for (const arch of ARCHETYPE_PAGES) {
         test(`Workbook Archetype ${arch.archetype} (${arch.name})`, async ({ page }) => {
           await page.setViewportSize(viewport);
+
+          // Source-of-truth proof gate: a screenshot must represent the actual claimed archetype.
+          const mapping = archetypeMappingForPage(arch.printedPage);
+          expect(mapping.sourceStatus).toBe("AVAILABLE");
+          expect(mapping.lessonNumber).toBe(arch.lesson);
+          expect(mapping.archetypes).toContain(arch.archetype);
 
           // Seed resume state to directly open specified page
           await page.addInitScript(
@@ -156,14 +163,13 @@ test.describe("Owner-Proof Final Capture Harness & Device Matrix", () => {
         });
       });
 
-      // 6. Gretel Dedicated Guidance State
-      test("Gretel Guidance State", async ({ page }) => {
+      // 6. Actual student lesson baseline (never pass a /dev-* page as owner proof).
+      test("Real Student Lesson Visual Baseline", async ({ page }) => {
         await page.setViewportSize(viewport);
-        await page.goto("/dev-gretel");
-
-        await expect(page.locator("body")).toBeVisible({ timeout: 10000 });
+        await page.goto("/cartilla/leccion/1");
+        await expect(page.locator(".native-lesson-viewer").first()).toBeVisible({ timeout: 15000 });
         await page.screenshot({
-          path: path.join(PROOF_DIR, `gretel-presence-${device}.png`),
+          path: path.join(PROOF_DIR, `student-lesson1-${device}.png`),
         });
       });
     });
