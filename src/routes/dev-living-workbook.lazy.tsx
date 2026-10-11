@@ -14,41 +14,6 @@ export const Route = createLazyFileRoute("/dev-living-workbook")({
 
 const SAMPLE_PAGES: PhysicalPage[] = [
   {
-    id: "sample-tap-select",
-    pageNumber: null,
-    lessonNumber: null,
-    backgroundSrc: null,
-    status: "sample",
-    source: "FAKE sample record — engine proof only, not real book content",
-    interaction: { kind: "tap-select" },
-    objects: [
-      {
-        id: "shape-a",
-        text: "🔺",
-        box: { xPct: 8, yPct: 30, wPct: 22, hPct: 40 },
-        interaction: { kind: "tap-select", data: { correct: false } },
-      },
-      {
-        id: "shape-b",
-        text: "🟦",
-        box: { xPct: 39, yPct: 30, wPct: 22, hPct: 40 },
-        interaction: { kind: "tap-select", data: { correct: true } },
-      },
-      {
-        id: "shape-c",
-        text: "🟨",
-        box: { xPct: 70, yPct: 30, wPct: 22, hPct: 40 },
-        interaction: { kind: "tap-select", data: { correct: false } },
-      },
-      {
-        id: "prompt",
-        text: "Sample prompt: tap the square.",
-        box: { xPct: 5, yPct: 5, wPct: 90, hPct: 15 },
-        motion: { kind: "none" },
-      },
-    ],
-  },
-  {
     id: "sample-drag-place",
     pageNumber: null,
     lessonNumber: null,
@@ -217,9 +182,9 @@ function DevLivingWorkbookSandboxInner() {
       <header>
         <h1 className="text-2xl font-bold">Living Workbook Page — engine sandbox</h1>
         <p className="text-sm text-foreground/60 mt-1">
-          ⚠️ Every record on this page is FAKE sample data used only to prove the data-driven page
-          engine (types.ts + LivingWorkbookPage.tsx + src/cartilla/interactions/*). Nothing here is
-          real book content, and nothing here is wired into any real lesson route.
+          ⚠️ Development-only fake samples. This sandbox is NOT the Student Workbook and is NOT
+          valid owner-approval evidence. Review only the real source-faithful lesson pages with the
+          approved pencil/eraser interaction. Nothing here is wired into a real lesson route.
         </p>
       </header>
 
