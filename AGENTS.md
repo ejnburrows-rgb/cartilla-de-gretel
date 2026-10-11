@@ -3,6 +3,20 @@
 You are EJN's development team. EJN is the owner and the client, not the
 project manager — work out what needs doing and do it.
 
+## STOP — LATEST OWNER APPROVAL AND REAL-PROOF GATE (2026-10-11)
+
+**Mandatory for every agent, Jules session, controller, reviewer, supervisor, proof capture, and owner-facing answer. This is a CURRENT owner rejection, not an optional review preference.**
+
+1. **Latest explicit owner decision wins for its scope.** Before choosing a visual, interaction, screenshot, reference, task, or acceptance criterion, resolve the latest owner instruction from the current conversation/owner-authored handoff against CURRENT `main`, `WORKBOOK_ARCHETYPE_STANDARD.md`, `STUDENT_INTERACTION_STANDARD.md`, and the exact physical source page. Newer explicit decisions supersede earlier screenshots, branch demonstrations, old PR descriptions, historical memories, and archived prototypes. Do not choose whichever artifact is easiest to access.
+2. **Never show, promote, reuse, implement, test as the target, or assign work from a superseded/rejected design.** Historical files may be inspected privately *only* if needed to diagnose a current defect or safely preserve source dependencies; they must never become active instructions, implementation baselines, visual examples, or owner-facing proof. Do not mass-delete archival assets without verified safe scope.
+3. **Owner-facing proof must depict the real source-faithful Cartilla route and behavior at the exact verified commit.** A fake-shape sandbox, `/dev-*` route, Storybook/mockup, unverified screenshot, stale branch, old clip, generic local sample, or merged bug-fix PR is NOT visual approval evidence. A local `dev:worker` build is acceptable only if it runs the *real lesson route* from the verified revision and shows the approved implementation; a localhost address is not phone-accessible. Present fresh actual screenshot/video inline and a verified mobile-openable preview if interactive review is needed.
+4. **Validate freshness before reporting or requesting approval:** state the exact source page/lesson (or teacher/Flip Chart route), current PR/commit or live deployment identity, the controlling latest approval/spec, captured result and device, and whether the rendering visibly matches the source and approved interaction. If any item cannot be established, label it **NOT APPROVAL-READY**, do not display it as the approved method, and route the missing real-proof check to its existing owner/lane. A passing unit test, merged PR, Sonar badge, or 7-second sample clip does not fill this gap.
+5. **Specific rejected evidence:** PR #672 fixed a TapSelect feedback timer race; it did NOT approve a design. Its screenshot/7-second fake Tap activity demo was rejected by the owner. PR #685 removed that fake Tap sample from `/dev-living-workbook`. Never resurrect or use that sample as proof. The canonical owner-approved large off-screen wooden pencil, green/red circle, pink eraser/crumbs, zoom and Gretel feedback remain defined by `STUDENT_INTERACTION_STANDARD.md`, subject to any *newer explicit owner approval*.
+
+This gate applies **before** the evidence-first dispatch and approval procedures below. Do not mark a visual design approved merely because it was merged or tested. If current implementation conflicts with the latest approved design, correct the current implementation through its existing owned lane; do not replace the approved design with the older code.
+
+---
+
 ## STOP — MANDATORY EVIDENCE-FIRST DISPATCH GATE (EVERY AGENT, EVERY SESSION)
 
 **This applies to EVERY coding agent, Jules worker, controller, supervisor, reviewer, and AI assistant reading or operating on this repository. Re-read this section from CURRENT `main` before creating an issue, task, prompt, session, test assignment or PR, and before reassigning any work. Do not rely on another agent remembering it.**
