@@ -907,7 +907,7 @@
             {
               "caption": "avión",
               "correct": true,
-              "illustrationSrc": "/cartilla/art/faithful/leccion-1/pez.webp"
+              "illustrationSrc": "/cartilla/art/optimized/workbook/leccion-1/avion.svg"
             },
             {
               "caption": "aro",
@@ -1428,7 +1428,7 @@
             },
             {
               "caption": "uña",
-              "illustrationSrc": "/cartilla/art/faithful/leccion-1/arco.webp",
+              "illustrationSrc": "/cartilla/art/optimized/workbook/leccion-1/una.svg",
               "correct": true
             },
             {
@@ -1541,7 +1541,7 @@
             {
               "caption": "uña",
               "correct": true,
-              "illustrationSrc": "/cartilla/art/faithful/leccion-1/arco.webp"
+              "illustrationSrc": "/cartilla/art/optimized/workbook/leccion-1/una.svg"
             },
             {
               "caption": "estrella",
