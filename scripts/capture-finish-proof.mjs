@@ -1,4 +1,4 @@
-import { execSync, execFileSync } from "node:child_process";
+import { execFileSync } from "node:child_process";
 import fs from "node:fs";
 import path from "node:path";
 
@@ -15,7 +15,7 @@ async function main() {
   // Record commit SHA
   let commitSha = "unknown";
   try {
-    commitSha = execSync("git rev-parse HEAD", { encoding: "utf8" }).trim();
+    commitSha = execFileSync("git", ["rev-parse", "HEAD"], { encoding: "utf8" }).trim();
   } catch (err) {
     console.error("Warning: Could not retrieve git commit SHA:", err.message);
   }
@@ -47,7 +47,7 @@ async function main() {
 
   // Run Playwright capture test
   try {
-    execSync("pnpm exec playwright test tests/e2e/finish-proof-capture.spec.ts --project=chromium --workers=1", {
+    execFileSync(process.platform === "win32" ? "pnpm.cmd" : "pnpm", ["exec", "playwright", "test", "tests/e2e/finish-proof-capture.spec.ts", "--project=chromium", "--workers=1"], {
       stdio: "inherit",
       env: {
         ...process.env,
