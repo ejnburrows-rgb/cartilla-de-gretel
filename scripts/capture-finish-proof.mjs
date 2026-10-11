@@ -118,7 +118,7 @@ async function main() {
     harnessVersion: "1.2.0",
     evidenceRoute: "real-cartilla-lesson-and-teacher-routes-only",
     ownerApprovalStatus: "NOT_APPROVED_UNTIL_OWNER_REVIEWS_CURRENT_RENDER",
-    approvalStandards: ["WORKBOOK_ARCHETYPE_STANDARD.md", "STUDENT_INTERACTION_STANDARD.md"],
+    approvalStandards: ["WORKBOOK_ARCHETYPE_STANDARD.md", "STUDENT_INTERACTION_STANDARD.md", "PROJECT_SOURCE_OF_TRUTH.md", "DESIGN.md"],
     devServerMode: "dev:worker",
     deviceMatrix: {
       phone: "390x844",
