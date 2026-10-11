@@ -1,5 +1,17 @@
 # PROJECT SOURCE OF TRUTH — La Cartilla de Gretel
 
+## STOP — OWNER CREDIT / ANTIGRAVITY DENY-BY-DEFAULT GATE (2026-10-11)
+
+**Applies to every agent, dispatcher, Jules worker, reviewer, scheduled observer, connector and desktop/CLI operator. Overrides ALL older instructions suggesting Antigravity as a fallback or authorizing its launcher.**
+
+- **Google Antigravity / Google Gravity is FORBIDDEN by default**: never start, connect, invoke, route tasks through, or consume its weekly quota via the GUI, CLI, PowerShell launcher, models, plugins, or indirect agent/workflow calls.
+- Access to the user's PC/CLI, DeepSeek harness, GitHub, Jules, Desktop Commander, or older Antigravity integration does **NOT** grant Antigravity authorization. Do not invoke Antigravity even to check remaining quota, troubleshoot usage, or test this prohibition.
+- **Before** using Antigravity, require a **new, explicit, task-specific advance owner approval** naming Antigravity and the intended scope. Silence, historical permission, a tool being connected, fallback logic and broad "continue working" instructions are NOT approvals. Where permission is unknown, DENY, do not try the tool, and continue only with independently approved non-Antigravity paths.
+- For any other new paid, credit-consuming or quota-limited service outside previously authorized scope, stop and obtain explicit owner approval before an operation that could spend credits. No automatic provider escalation.
+- If a task cannot proceed without prohibited access, report the precise dependency rather than silently using the connected launcher. Any pre-existing local Antigravity launcher/agent must stay unused until the owner grants new explicit permission.
+- This repository rule **does not itself technically disable the laptop launcher**; verify the laptop execution path separately before claiming a technical block.
+
+
 ## STOP — OWNER-APPROVAL-ONLY JULES + LATEST-APPROVAL-ONLY VISUAL GATE (2026-10-11)
 
 **HIGHEST PRIORITY FOR ALL AGENTS, JULES, DISPATCHERS, WATCHERS, REVIEWERS, SUPERVISORS, AUTOMATIONS AND REPORTS. Overrides older instructions anywhere in the repository, issues, PRs, historical screenshots, memories or prompts.**
