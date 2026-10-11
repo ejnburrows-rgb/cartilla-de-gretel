@@ -6,7 +6,7 @@ import type { PhysicalPage, WorkbookObject } from "@/content/workbook/types";
 import { TapSelect } from "@/cartilla/interactions/TapSelect";
 import { TapToHear } from "@/cartilla/interactions/TapToHear";
 import { DragPlace } from "@/cartilla/interactions/DragPlace";
-import { LassoConnectFromWorkbook } from "@/cartilla/interactions/LassoConnect";
+import { PencilConnectorFromWorkbook, PencilMarkFromWorkbook } from "@/cartilla/interactions/PencilConnector";
 import { PaintCanvas } from "@/cartilla/interactions/PaintCanvas";
 import { DibujaHost } from "@/cartilla/interactions/DibujaHost";
 import { emitProgressEvent } from "@/lib/progress-events";
@@ -274,9 +274,9 @@ export function LivingWorkbookPage({
         interactionSlot = <DragPlace {...shared} />;
         break;
       case "pair-match":
-        // Production default: cinematic Gretel lasso (PairMatch kept in repo as fallback)
+        // Approved direct pencil matching, with stored learner progress preserved.
         interactionSlot = (
-          <LassoConnectFromWorkbook
+          <PencilConnectorFromWorkbook
             {...shared}
             pageKey={pageKey}
             mode="pair"
@@ -286,15 +286,7 @@ export function LivingWorkbookPage({
         );
         break;
       case "mark-circle":
-        interactionSlot = (
-          <LassoConnectFromWorkbook
-            {...shared}
-            pageKey={pageKey}
-            mode="mark"
-            instruction={page.instruction}
-            lessonId={lessonId}
-          />
-        );
+        interactionSlot = <PencilMarkFromWorkbook {...shared} pageKey={pageKey} />;
         break;
     }
   }

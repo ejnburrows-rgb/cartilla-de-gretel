@@ -115,8 +115,8 @@ describe("focus-visible outlines — keyboard navigation coverage", () => {
   it("am-dibuja__card has focus-visible", () => {
     expect(amCss).toMatch(/\.am-dibuja__card:focus-visible/);
   });
-  it("am-lasso__target has focus-visible", () => {
-    expect(amCss).toMatch(/\.am-lasso__target:focus-visible/);
+  it("am-direct-pencil__target has focus-visible", () => {
+    expect(amCss).toMatch(/\.am-direct-pencil__target:focus-visible/);
   });
 });
 

@@ -86,11 +86,11 @@ it('an independent follow-up never remounts or erases child work', async () => {
 });
 
 it('delayed activity A completes A even after B receives focus, and B still locks the page', async () => {
-  const { LassoConnect } = await import('@/cartilla/interactions/LassoConnect');
+  const { DirectPencilConnector } = await import('@/cartilla/interactions/PencilConnector');
   const { requiredActivitiesForPage } = await import('@/lib/page-completion');
   const [a, b] = requiredActivitiesForPage(26);
   const content = <><GretelActivity id={a!.id} pageNumber={26} kind={a!.kind}>
-    <LassoConnect pageKey="identity-A" mode="mark" targets={[{ id: 'one', label: 'Answer A', correct: true }]} reducedMotion />
+    <DirectPencilConnector pageKey="identity-A" mode="mark" targets={[{ id: 'one', label: 'Answer A', correct: true }]} reducedMotion />
   </GretelActivity><GretelActivity id={b!.id} pageNumber={26} kind={b!.kind}><input aria-label="Work B" /></GretelActivity></>;
   render(<NativeLessonViewer pages={[{ id: '26', pageNumber: 26, content }, { id: '27', pageNumber: 27, content: null }]} chapterLabel="Proof" />);
   fireEvent.click(screen.getByRole('button', { name: 'Answer A' }));
@@ -101,10 +101,12 @@ it('delayed activity A completes A even after B receives focus, and B still lock
 });
 
 it('a delayed answer from an unmounted encounter cannot complete its replacement', async () => {
-  const { LassoConnect } = await import('@/cartilla/interactions/LassoConnect');
+  const { DirectPencilConnector } = await import('@/cartilla/interactions/PencilConnector');
   const events: string[] = []; const off = onGretelEvent(type => { if (type === 'activity:complete') events.push(type); });
-  const view = render(<GretelActivity id="page-5-p5-match" pageNumber={5} kind="vowel-line-match"><LassoConnect pageKey="stale" mode="mark" targets={[{ id: 'one', label: 'Old answer', correct: true }]} reducedMotion /></GretelActivity>);
+  const view = render(<GretelActivity id="page-5-p5-match" pageNumber={5} kind="vowel-line-match"><DirectPencilConnector pageKey="stale" mode="mark" targets={[{ id: 'one', label: 'Old answer', correct: true }]} reducedMotion /></GretelActivity>);
   fireEvent.click(screen.getByRole('button', { name: 'Old answer' }));
+  // The pencil's synchronous correct result is not a delayed stale completion.
+  events.length = 0;
   view.unmount();
   render(<GretelActivity id="page-5-p5-match" pageNumber={5} kind="vowel-line-match"><div>New encounter</div></GretelActivity>);
   await act(async () => { await vi.advanceTimersByTimeAsync(1000); });
