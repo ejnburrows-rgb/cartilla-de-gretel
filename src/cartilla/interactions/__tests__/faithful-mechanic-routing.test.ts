@@ -95,7 +95,7 @@ describe("faithful mechanic routing (Colorea / Dibuja / Pencil)", () => {
     expect(resolveFaithfulHost("illustration-slot", "Colorea el dibujo de la rosa.")).toBe("paint");
     expect(resolveFaithfulHost("picture-grid", "Colorea los dibujos correctos.")).toBe("paint");
     expect(resolveFaithfulHost("picture-grid", "Pinta el dibujo de la casa.")).toBe("paint");
-    // Without Colorea verb, picture-grid stays tap (Marca / Presiona)
+    // Without Colorea verb, the picture-grid stays a pencil-marked tap (Marca / Presiona)
     expect(resolveFaithfulHost("picture-grid", "Marca con una x los dibujos.")).toBe("tap-grid");
     expect(resolveFaithfulHost("illustration-slot", undefined)).toBe("static");
   });
@@ -115,7 +115,7 @@ describe("faithful mechanic routing (Colorea / Dibuja / Pencil)", () => {
     expect(drawBoxIds.length).toBe(22);
   });
 
-  it("Encierra / Une / Traza una línea → lasso hosts", () => {
+  it("Encierra / Une / Traza una línea → approved pencil hosts", () => {
     expect(
       resolveFaithfulHost("syllable-match", "Encierra en un círculo la sílaba correspondiente."),
     ).toBe("pencil-mark");

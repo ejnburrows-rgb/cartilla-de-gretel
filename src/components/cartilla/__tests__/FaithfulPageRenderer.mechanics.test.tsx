@@ -5,9 +5,9 @@
  * @vitest-environment jsdom
  */
 import { describe, it, expect, vi, beforeEach, afterEach } from "vitest";
-import { render, screen, cleanup } from "@testing-library/react";
+import { render, screen, cleanup, fireEvent } from "@testing-library/react";
 import { FaithfulPageRenderer } from "../FaithfulPageRenderer";
-import type { PageRegion } from "@/lib/book-faithful";
+import { getPageLayout, type PageRegion } from "@/lib/book-faithful";
 
 vi.mock("@/lib/gretel-bus", async (importOriginal) => ({
   ...await importOriginal<typeof import("@/lib/gretel-bus")>(),
@@ -157,6 +157,23 @@ function encierraRegions(): PageRegion[] {
 }
 
 describe("FaithfulPageRenderer mechanic hosts", () => {
+  it("real source page 4 Marca con una x uses only wooden pencil X, never rope or old Comprobar", () => {
+    const regions = getPageLayout(4);
+    expect(regions).not.toBeNull();
+    const { container } = render(
+      <FaithfulPageRenderer pageNumber={4} lessonNumber={2} regions={regions ?? []} interactive />,
+    );
+    const target = container.querySelector<HTMLButtonElement>(".fp-ix-grid .fp-ix-cell");
+    expect(target).not.toBeNull();
+    fireEvent.click(target!);
+    const mark = container.querySelector(".workbook-pencil-mark[data-mark-type='x']");
+    expect(mark).not.toBeNull();
+    expect(mark?.querySelectorAll(".workbook-pencil-mark__stroke")).toHaveLength(2);
+    expect(container.querySelector(".fp-ix-cell__lasso")).toBeNull();
+    expect(screen.queryByRole("button", { name: "Comprobar" })).toBeNull();
+  });
+
+
   it("paint-box → PaintCanvas with Colorea verb (not tap)", () => {
     render(
       <FaithfulPageRenderer

@@ -47,13 +47,10 @@ function ArtOrPending({ cell }: { cell: PageGridCell }) {
   );
 }
 
-type Grade = "correct" | "wrong" | "missed" | null;
-
 /** How a picked picture is marked — follows the printed verb of the page. */
 export type PictureMark = "circle" | "x";
-export function pictureMarkFor(instruction?: string): PictureMark {
-  return instruction && /marca con una x/i.test(instruction) ? "x" : "circle";
-}
+/** Preserved contract for vowel-row response styling (not the removed lasso). */
+type Grade = "correct" | "wrong" | "missed" | null;
 
 function gradeOf(picked: boolean, correct: boolean | undefined): Grade {
   if (correct === undefined) return null;
@@ -62,64 +59,8 @@ function gradeOf(picked: boolean, correct: boolean | undefined): Grade {
   if (!picked && correct) return "missed";
   return null;
 }
-
-function Cell({
-  cell,
-  index,
-  picked,
-  grade,
-  disabled,
-  onToggle,
-  mark = "circle",
-}: {
-  cell: PageGridCell;
-  index: number;
-  picked: boolean;
-  grade: Grade;
-  disabled: boolean;
-  onToggle: () => void;
-  /** Printed gesture: "Circula…" draws a ring, "Marca con una x…" draws an X. */
-  mark?: PictureMark;
-}) {
-  const flagged = cell.correct === undefined;
-  const classes = [
-    "fp-ix-cell",
-    mark === "x" ? "fp-ix-cell--mark-x" : "",
-    picked ? "picked" : "",
-    grade === "correct" ? "graded-correct" : "",
-    grade === "wrong" ? "graded-wrong" : "",
-  ]
-    .filter(Boolean)
-    .join(" ");
-  return (
-    <button
-      type="button"
-      className={classes}
-      data-gretel-correct={cell.correct === undefined ? undefined : String(cell.correct)}
-      data-flagged={flagged ? "true" : undefined}
-      disabled={flagged || disabled}
-      style={{ ["--ix-float-delay" as string]: floatDelay(index) }}
-      onClick={onToggle}
-      aria-pressed={picked}
-    >
-      <svg
-        className="fp-ix-cell__lasso"
-        viewBox="0 0 100 100"
-        aria-hidden="true"
-      >
-        {mark === "x" ? (
-          <>
-            <path d="M18 18 L82 82" />
-            <path d="M82 18 L18 82" />
-          </>
-        ) : (
-          <ellipse cx="50" cy="48" rx="42" ry="38" />
-        )}
-      </svg>
-      <ArtOrPending cell={cell} />
-      <span className="fp-ix-cell__badge" aria-hidden="true" />
-    </button>
-  );
+export function pictureMarkFor(instruction?: string): PictureMark {
+  return instruction && /marca con una x/i.test(instruction) ? "x" : "circle";
 }
 
 interface ExerciseProps {
@@ -128,20 +69,17 @@ interface ExerciseProps {
   lessonId?: string;
 }
 
-/** "Presiona los dibujos..." — tap each guessed cell, grade on check. */
+/** Every source-faithful picture grid is marked by the approved wooden pencil and eraser. */
 export function InteractivePictureGrid({
   region,
   accent,
   lessonId,
   precise = false,
   mark = "circle",
-  pencilMode = false,
-}: ExerciseProps & { precise?: boolean; mark?: PictureMark; pencilMode?: boolean }) {
+}: ExerciseProps & { precise?: boolean; mark?: PictureMark }) {
   const { emit: gretelEvent, record: recordEvent } = useActivityEvents();
   const cells = region.cells ?? [];
   const columns = region.columns ?? 4;
-  const [picked, setPicked] = useActivityState<Set<number>>("picked", new Set());
-  const [graded, setGraded] = useActivityState("graded", false);
   const [solved, setSolved] = useActivityState("solved", false);
   const [validated, setValidated] = useActivityState<Set<number>>("validated", new Set());
   const [attempts, setAttempts] = useState(0);
@@ -151,19 +89,6 @@ export function InteractivePictureGrid({
     if (solved && restoredSolved.current) gretelEvent("activity:complete", { restored: true });
   }, [solved, gretelEvent]);
 
-  const toggle = (i: number) => {
-    if (graded || validated.has(i)) return;
-    setPicked((prev) => {
-      const next = new Set(prev);
-      if (next.has(i)) next.delete(i);
-      else next.add(i);
-      return next;
-    });
-  };
-
-  const targets = cells.map((entry, i) => ({ key: i, correct: entry.correct }));
-  const remaining = targets.filter(t => t.correct === true && !picked.has(t.key)).length;
-  const isDirectPencilMode = pencilMode || region.id === "p1-grid" || region.id?.startsWith("p1-");
   const [markingCells, setMarkingCells] = useState<Map<number, boolean>>(new Map());
 
   const hasAnswerKey = cells.some((cell) => cell.correct !== undefined);
@@ -171,7 +96,7 @@ export function InteractivePictureGrid({
     ? cells.filter((cell) => cell.correct === true).length : cells.length;
 
   const handlePencilTap = (i: number) => {
-    if (validated.has(i) || markingCells.size > 0) return;
+    if (solved || validated.has(i) || markingCells.size > 0) return;
     const cell = cells[i];
     if (!cell || (hasAnswerKey && cell.correct === undefined)) return;
     setMarkingCells(new Map([[i, !hasAnswerKey || cell.correct === true]]));
@@ -192,6 +117,7 @@ export function InteractivePictureGrid({
         meta: {
           exercise: `picture_grid_${region.id}`,
           completed: true,
+          attemptCorrect: true,
           itemCount: cells.filter((cell) => cell.correct !== undefined).length,
           attempt: attempts + 1,
           corrected: attempts > 0,
@@ -213,6 +139,7 @@ export function InteractivePictureGrid({
         meta: {
           exercise: `picture_grid_${region.id}`,
           completed: false,
+          attemptCorrect: false,
           itemCount: cells.filter((cell) => cell.correct !== undefined).length,
           attempt: nextAttempt,
           corrected: nextAttempt > 1,
@@ -220,40 +147,6 @@ export function InteractivePictureGrid({
       });
     }
     setMarkingCells(new Map());
-  };
-
-  const check = () => {
-    setValidated(new Set(targets.filter(t => t.correct === true && picked.has(t.key)).map(t => t.key)));
-    setGraded(true);
-    let allCorrect = true;
-    cells.forEach((cell, i) => {
-      if (cell.correct === undefined) return;
-      const g = gradeOf(picked.has(i), cell.correct);
-      if (g === "wrong" || g === "missed") allCorrect = false;
-    });
-    setSolved(allCorrect);
-    setAttempts((n) => n + 1);
-    gretelEvent(allCorrect ? "answer:correct" : "answer:wrong");
-    if (allCorrect) {
-      playCorrectChord();
-      gretelEvent("activity:complete");
-    } else playWrongBuzz();
-    if (lessonId) {
-      const gradable = cells.filter((c) => c.correct !== undefined).length;
-      recordEvent({
-        lessonId,
-        kind: "exercise",
-        score: targets.filter(t => t.correct === true && picked.has(t.key)).length,
-        total: targets.filter(t => t.correct === true || (t.correct === false && picked.has(t.key))).length,
-        meta: {
-          exercise: `picture_grid_${region.id}`,
-          completed: allCorrect,
-          itemCount: gradable,
-          attempt: attempts + 1,
-          corrected: attempts > 0,
-        },
-      });
-    }
   };
 
   const rows: PageGridCell[][] = [];
@@ -281,7 +174,6 @@ export function InteractivePictureGrid({
             const isVal = validated.has(i);
             const isCorrect = isMarking ? markingCells.get(i) : isVal;
 
-            if (isDirectPencilMode) {
               return (
                 <button
                   key={i}
@@ -289,7 +181,7 @@ export function InteractivePictureGrid({
                   className={`fp-ix-cell relative ${isVal ? "graded-correct" : ""}`}
                   style={{ ["--ix-float-delay" as string]: floatDelay(i) }}
                   onClick={() => handlePencilTap(i)}
-                  disabled={(hasAnswerKey && cell.correct === undefined) || isVal || (markingCells.size > 0 && !isMarking)}
+                  disabled={solved || (hasAnswerKey && cell.correct === undefined) || isVal || (markingCells.size > 0 && !isMarking)}
                   aria-label={cell.caption ?? "dibujo"}
                   data-gretel-correct={cell.correct === undefined ? undefined : String(cell.correct)}
                   aria-pressed={isVal || isMarking}
@@ -310,45 +202,10 @@ export function InteractivePictureGrid({
                   )}
                 </button>
               );
-            }
-
-            return (
-              <Cell
-                key={i}
-                cell={cell}
-                index={i}
-                picked={picked.has(i)}
-                grade={graded || validated.has(i) ? gradeOf(picked.has(i), cell.correct) : null}
-                disabled={graded || validated.has(i)}
-                onToggle={() => toggle(i)}
-                mark={mark}
-              />
-            );
           })}
         </div>
       ))}
-      {!isDirectPencilMode && graded && !solved && <p role="status">Revisa las selecciones marcadas. Faltan {remaining} respuestas.</p>}
-      {!isDirectPencilMode && (
-        <div className="fp-ix-check-row">
-          <button
-            type="button"
-            className="fp-ix-check-btn"
-            onClick={check}
-            disabled={graded || picked.size === 0}
-          >
-            {solved ? "Completado" : "Comprobar"}
-          </button>
-          {graded && !solved && (
-            <button
-              type="button"
-              className="fp-ix-check-btn"
-              onClick={() => { setPicked(new Set(targets.filter(t => t.correct === true && picked.has(t.key)).map(t => t.key))); setGraded(false); }}
-            >
-              Corregir respuestas
-            </button>
-          )}
-        </div>
-      )}
+
     </div>
   );
 }
@@ -1007,110 +864,5 @@ export function InteractiveFillInBlank({
         )}
       </div>
     </DndContext>
-  );
-}
-
-/** "Traza una línea desde la vocal Xx hasta el dibujo..." — tap the cells that start with Xx, grade on check. */
-export function InteractiveVowelLineMatch({
-  region,
-  accent,
-  lessonId,
-}: ExerciseProps) {
-  const { emit: gretelEvent, record: recordEvent } = useActivityEvents();
-  const cells = region.cells ?? [];
-  const [picked, setPicked] = useActivityState<Set<number>>("picked", new Set());
-  const [graded, setGraded] = useActivityState("graded", false);
-  const [solved, setSolved] = useActivityState("solved", false);
-  const [validated, setValidated] = useActivityState<Set<number>>("validated", new Set());
-  const [attempts, setAttempts] = useState(0);
-
-  useEffect(() => { if (solved) gretelEvent("activity:complete", { restored: true }); }, [solved, gretelEvent]);
-
-  const toggle = (i: number) => {
-    if (graded || validated.has(i)) return;
-    setPicked((prev) => {
-      const next = new Set(prev);
-      if (next.has(i)) next.delete(i);
-      else next.add(i);
-      return next;
-    });
-  };
-
-  const targets = cells.map((entry, i) => ({ key: i, correct: entry.correct }));
-  const remaining = targets.filter(t => t.correct === true && !picked.has(t.key)).length;
-  const check = () => {
-    setValidated(new Set(targets.filter(t => t.correct === true && picked.has(t.key)).map(t => t.key)));
-    setGraded(true);
-    let allCorrect = true;
-    cells.forEach((cell, i) => {
-      const g = gradeOf(picked.has(i), cell.correct);
-      if (g === "wrong" || g === "missed") allCorrect = false;
-    });
-    setSolved(allCorrect);
-    setAttempts((n) => n + 1);
-    gretelEvent(allCorrect ? "answer:correct" : "answer:wrong");
-    if (allCorrect) {
-      playCorrectChord();
-      gretelEvent("activity:complete");
-    } else playWrongBuzz();
-    if (lessonId) {
-      recordEvent({
-        lessonId,
-        kind: "exercise",
-        score: targets.filter(t => t.correct === true && picked.has(t.key)).length,
-        total: targets.filter(t => t.correct === true || (t.correct === false && picked.has(t.key))).length,
-        meta: {
-          exercise: `vowel_line_match_${region.id}`,
-          completed: allCorrect,
-          itemCount: cells.length,
-          attempt: attempts + 1,
-          corrected: attempts > 0,
-        },
-      });
-    }
-  };
-
-  return (
-    <div
-      className="fp-ix-line-match"
-      style={{ ["--ix-accent" as string]: accent }}
-    >
-      <div
-        className="fp-ix-row"
-        style={{ gridTemplateColumns: "repeat(4, minmax(0, 1fr))" }}
-      >
-        {cells.map((cell, i) => (
-          <Cell
-            key={i}
-            cell={cell}
-            index={i}
-            picked={picked.has(i)}
-            grade={graded || validated.has(i) ? gradeOf(picked.has(i), cell.correct) : null}
-            disabled={graded || validated.has(i)}
-            onToggle={() => toggle(i)}
-          />
-        ))}
-      </div>
-      {graded && !solved && <p role="status">Revisa las selecciones marcadas. Faltan {remaining} respuestas.</p>}
-      <div className="fp-ix-check-row">
-        <button
-          type="button"
-          className="fp-ix-check-btn"
-          onClick={check}
-          disabled={graded || picked.size === 0}
-        >
-          {solved ? "Completado" : "Comprobar"}
-        </button>
-        {graded && !solved && (
-          <button
-            type="button"
-            className="fp-ix-check-btn"
-            onClick={() => { setPicked(new Set(targets.filter(t => t.correct === true && picked.has(t.key)).map(t => t.key))); setGraded(false); }}
-          >
-            Corregir respuestas
-          </button>
-        )}
-      </div>
-    </div>
   );
 }
