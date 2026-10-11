@@ -1,6 +1,6 @@
 /**
  * FaithfulPageRenderer wires Colorea → PaintCanvas, Dibuja → DibujaHost,
- * Encierra/Une → LassoConnect (not tap fallback / cheap string).
+ * Encierra uses the approved pencil circle; Une uses direct pencil lines.
  *
  * @vitest-environment jsdom
  */
@@ -198,19 +198,13 @@ describe("FaithfulPageRenderer mechanic hosts", () => {
     expect(screen.getByRole("group", { name: /Modo de dibujo/i })).toBeTruthy();
   });
 
-  it("Encierra syllable-match → LassoConnect rope (not cheap string)", () => {
+  it("Encierra syllable-match renders the source-syllable pencil circle, never rope", () => {
     const { container } = render(
-      <FaithfulPageRenderer
-        pageNumber={9994}
-        lessonNumber={7}
-        regions={encierraRegions()}
-        interactive
-      />,
+      <FaithfulPageRenderer pageNumber={9994} lessonNumber={7} regions={encierraRegions()} interactive />
     );
-    const lassoRoot = container.querySelector(".am-lasso");
-    expect(lassoRoot).toBeTruthy();
-    expect(lassoRoot?.getAttribute("data-verb")).toBe("encierra");
-    // Rope is SVG-based (not a bare HTML line connector)
-    expect(container.querySelector(".am-lasso svg")).toBeTruthy();
+    expect(container.querySelector(".native-syllable")).toBeTruthy();
+    expect(screen.getByRole("button", { name: "mamá" })).toBeTruthy();
+    expect(container.querySelector(".am-lasso__rope-layer")).toBeNull();
   });
+
 });
