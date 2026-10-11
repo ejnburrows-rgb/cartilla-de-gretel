@@ -135,7 +135,8 @@ export function InteractivePictureGrid({
   lessonId,
   precise = false,
   mark = "circle",
-}: ExerciseProps & { precise?: boolean; mark?: PictureMark }) {
+  pencilMode = false,
+}: ExerciseProps & { precise?: boolean; mark?: PictureMark; pencilMode?: boolean }) {
   const { emit: gretelEvent, record: recordEvent } = useActivityEvents();
   const cells = region.cells ?? [];
   const columns = region.columns ?? 4;
@@ -162,7 +163,7 @@ export function InteractivePictureGrid({
 
   const targets = cells.map((entry, i) => ({ key: i, correct: entry.correct }));
   const remaining = targets.filter(t => t.correct === true && !picked.has(t.key)).length;
-  const isDirectPencilMode = region.id === "p1-grid" || region.id?.startsWith("p1-");
+  const isDirectPencilMode = pencilMode || region.id === "p1-grid" || region.id?.startsWith("p1-");
   const [markingCells, setMarkingCells] = useState<Map<number, boolean>>(new Map());
 
   const totalCorrectRequired = cells.filter((cell) => cell.correct === true).length;
