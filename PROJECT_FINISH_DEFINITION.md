@@ -1,5 +1,16 @@
 # PROJECT_FINISH_DEFINITION.md — canonical definition of finished
 
+## STOP — OWNER-APPROVAL-ONLY JULES + LATEST-APPROVAL-ONLY VISUAL GATE (2026-10-11)
+
+**HIGHEST PRIORITY FOR ALL AGENTS, JULES, DISPATCHERS, WATCHERS, REVIEWERS, SUPERVISORS, AUTOMATIONS AND REPORTS. Overrides older instructions anywhere in the repository, issues, PRs, historical screenshots, memories or prompts.**
+
+1. **Jules works ONLY on specific current owner-approved work.** A code smell, speculative optimization, capacity gap, old task, open issue, or blanket "fill 15 lanes" direction is NOT task approval. Discovery and oversight can remain read-only. Only the designated GitHub Dispatcher may issue a NEW Jules task/add a `jules` label, after confirming and LINKING the owner's explicit latest affirmative approval for that exact issue/scope. Do not automatically refill idle slots or resurrect old assignments. The 15-worker target is only a capacity ceiling. Existing scoped owner-approved work may continue; unknown/unapproved tasks must be held and reconciled, not launched. Removing a label does not confirm a running provider session is canceled.
+2. **Only the LATEST expressly approved visuals and mechanics may be worked on or shown.** Compare the newest owner's instructions with current `main`, the original physical book and the canonical `WORKBOOK_ARCHETYPE_STANDARD.md` and `STUDENT_INTERACTION_STANDARD.md`. Stale branches, mockups, dev-only shapes, prior screenshots, old PRs and previous memories cannot override current approval. Never implement, display as current, dispatch or revive superseded/rejected visuals. Read historical files privately only to diagnose a current fault.
+3. **NO ROPE/LASSO — final explicit owner rejection (2026-10-11).** Use the approved source-faithful wooden pencil/green-or-red marks/physical pink eraser and correct line-matching mechanics. PR #692 removed the obsolete `LassoConnect.tsx` and rope CSS; PR #694 preserves legacy completed syllable selections under the new pencil circle. These are merged; DO NOT restore a rope, lasso, reel, arcade, fake red-X or unapproved alternative. Current components: `PencilConnector.tsx`, `WorkbookPencilMark.tsx`, `SyllableWordCircle.tsx`; these still require real screen validation.
+4. **No stale or fake approval evidence.** A merge, code review, unit test, Jules receipt or local dev fake does NOT prove visual approval. Fresh proof must depict the REAL source-faithful Student Workbook or Teacher/Flip Chart page at the exact verified commit/deployment, with the latest approved pencil/eraser, on the stated viewport/device; screenshots from `/dev-*`, old Vercel previews or synthetic demos are prohibited as owner approval evidence. Missing actual proof means **NOT APPROVAL-READY**; no historical substitution or unapproved release.
+5. **Precedence:** latest explicit user decision > THIS gate > current canonical product specs > all older execution guidance/plans/issues. Prior instructions anywhere to proactively assign unapproved Jules work are superseded. Maintain the existing hourly read-only observer, not a new webhook, paid system, Windows runner, Neon/OpenHands, or rival dispatcher.
+
+
 **Owner-locked:** 2026-10-05  
 **Scope:** entire La Cartilla de Gretel product  
 **Authority:** this file defines what "project finished" means. It is not a task list or changelog.

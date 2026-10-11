@@ -1,5 +1,28 @@
 # PROJECT SOURCE OF TRUTH — La Cartilla de Gretel
 
+## STOP — OWNER CREDIT / ANTIGRAVITY DENY-BY-DEFAULT GATE (2026-10-11)
+
+**Applies to every agent, dispatcher, Jules worker, reviewer, scheduled observer, connector and desktop/CLI operator. Overrides ALL older instructions suggesting Antigravity as a fallback or authorizing its launcher.**
+
+- **Google Antigravity / Google Gravity is FORBIDDEN by default**: never start, connect, invoke, route tasks through, or consume its weekly quota via the GUI, CLI, PowerShell launcher, models, plugins, or indirect agent/workflow calls.
+- Access to the user's PC/CLI, DeepSeek harness, GitHub, Jules, Desktop Commander, or older Antigravity integration does **NOT** grant Antigravity authorization. Do not invoke Antigravity even to check remaining quota, troubleshoot usage, or test this prohibition.
+- **Before** using Antigravity, require a **new, explicit, task-specific advance owner approval** naming Antigravity and the intended scope. Silence, historical permission, a tool being connected, fallback logic and broad "continue working" instructions are NOT approvals. Where permission is unknown, DENY, do not try the tool, and continue only with independently approved non-Antigravity paths.
+- For any other new paid, credit-consuming or quota-limited service outside previously authorized scope, stop and obtain explicit owner approval before an operation that could spend credits. No automatic provider escalation.
+- If a task cannot proceed without prohibited access, report the precise dependency rather than silently using the connected launcher. Any pre-existing local Antigravity launcher/agent must stay unused until the owner grants new explicit permission.
+- This repository rule **does not itself technically disable the laptop launcher**; verify the laptop execution path separately before claiming a technical block.
+
+
+## STOP — OWNER-APPROVAL-ONLY JULES + LATEST-APPROVAL-ONLY VISUAL GATE (2026-10-11)
+
+**HIGHEST PRIORITY FOR ALL AGENTS, JULES, DISPATCHERS, WATCHERS, REVIEWERS, SUPERVISORS, AUTOMATIONS AND REPORTS. Overrides older instructions anywhere in the repository, issues, PRs, historical screenshots, memories or prompts.**
+
+1. **Jules works ONLY on specific current owner-approved work.** A code smell, speculative optimization, capacity gap, old task, open issue, or blanket "fill 15 lanes" direction is NOT task approval. Discovery and oversight can remain read-only. Only the designated GitHub Dispatcher may issue a NEW Jules task/add a `jules` label, after confirming and LINKING the owner's explicit latest affirmative approval for that exact issue/scope. Do not automatically refill idle slots or resurrect old assignments. The 15-worker target is only a capacity ceiling. Existing scoped owner-approved work may continue; unknown/unapproved tasks must be held and reconciled, not launched. Removing a label does not confirm a running provider session is canceled.
+2. **Only the LATEST expressly approved visuals and mechanics may be worked on or shown.** Compare the newest owner's instructions with current `main`, the original physical book and the canonical `WORKBOOK_ARCHETYPE_STANDARD.md` and `STUDENT_INTERACTION_STANDARD.md`. Stale branches, mockups, dev-only shapes, prior screenshots, old PRs and previous memories cannot override current approval. Never implement, display as current, dispatch or revive superseded/rejected visuals. Read historical files privately only to diagnose a current fault.
+3. **NO ROPE/LASSO — final explicit owner rejection (2026-10-11).** Use the approved source-faithful wooden pencil/green-or-red marks/physical pink eraser and correct line-matching mechanics. PR #692 removed the obsolete `LassoConnect.tsx` and rope CSS; PR #694 preserves legacy completed syllable selections under the new pencil circle. These are merged; DO NOT restore a rope, lasso, reel, arcade, fake red-X or unapproved alternative. Current components: `PencilConnector.tsx`, `WorkbookPencilMark.tsx`, `SyllableWordCircle.tsx`; these still require real screen validation.
+4. **No stale or fake approval evidence.** A merge, code review, unit test, Jules receipt or local dev fake does NOT prove visual approval. Fresh proof must depict the REAL source-faithful Student Workbook or Teacher/Flip Chart page at the exact verified commit/deployment, with the latest approved pencil/eraser, on the stated viewport/device; screenshots from `/dev-*`, old Vercel previews or synthetic demos are prohibited as owner approval evidence. Missing actual proof means **NOT APPROVAL-READY**; no historical substitution or unapproved release.
+5. **Precedence:** latest explicit user decision > THIS gate > current canonical product specs > all older execution guidance/plans/issues. Prior instructions anywhere to proactively assign unapproved Jules work are superseded. Maintain the existing hourly read-only observer, not a new webhook, paid system, Windows runner, Neon/OpenHands, or rival dispatcher.
+
+
 > **Finish contract:** Read PROJECT_FINISH_DEFINITION.md before planning or declaring Cartilla work complete. It is the canonical definition of what must be true for the entire project to be finished. Compare current verified reality against it and close only real remaining gaps.
 
 
