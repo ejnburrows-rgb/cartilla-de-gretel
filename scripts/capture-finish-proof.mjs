@@ -87,6 +87,7 @@ async function main() {
     const meta = JSON.parse(fs.readFileSync(sidecarPath, "utf8"));
     if (meta.filename !== filename || typeof meta.route !== "string" ||
         !meta.route.startsWith("/cartilla/") || typeof meta.device !== "string" ||
+        typeof meta.expectedRoute !== "string" || meta.route !== meta.expectedRoute ||
         meta.approvalStatus !== "NOT_OWNER_APPROVED") {
       throw new Error(`Invalid or unapproved capture metadata: ${filename}`);
     }
