@@ -66,6 +66,12 @@ describe("workbook recovery and earned completion", () => {
       }),
     );
     expect(view.getByRole("button", { name: "olla" })).toBeDisabled();
+    // An earned, completed exercise cannot be undone by tapping a distractor.
+    const finalCount = vi.mocked(recordEvent).mock.calls.length;
+    expect(view.getByRole("button", { name: "avión" })).toBeDisabled();
+    fireEvent.click(view.getByRole("button", { name: "avión" }));
+    act(() => vi.advanceTimersByTime(9000));
+    expect(vi.mocked(recordEvent).mock.calls.length).toBe(finalCount);
     expect(view.container.querySelector(".fp-ix-cell__lasso")).toBeNull();
   });
 
