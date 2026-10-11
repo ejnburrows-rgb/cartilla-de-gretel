@@ -7,9 +7,10 @@ import { spawnSync } from "node:child_process";
 import { fileURLToPath } from "node:url";
 
 const HARNESS = fileURLToPath(new URL("../capture-finish-proof.mjs", import.meta.url));
+const OWNER_PROOF_CONFIG = fileURLToPath(new URL("../owner-proof-playwright.config.ts", import.meta.url));
 
 // Run a real copy of the proof launcher in a disposable local Git checkout.
-// The fake pnpm executable only supplies synthetic output files: this tests the
+// The mock installed Playwright CLI only supplies synthetic output files: this tests the
 // integrity guards and never claims to verify actual Workbook rendering.
 const FAKE_PLAYWRIGHT_CLI = String.raw`const fs = require("node:fs");
 const path = require("node:path");
@@ -21,6 +22,15 @@ if (mode === "hostile-path") {
 }
 if (!dir) process.exit(3);
 if (!process.argv.includes("--workers=1")) { console.error("proof must use one Playwright worker"); process.exit(4); }
+if (!process.argv.includes("--config=scripts/owner-proof-playwright.config.ts")) {
+  console.error("must use pinned owner-proof server configuration"); process.exit(5);
+}
+const configText = fs.readFileSync(path.join(process.cwd(), "scripts", "owner-proof-playwright.config.ts"), "utf8");
+const activeConfig = configText.slice(configText.indexOf("export default defineConfig"));
+if (!activeConfig.includes("quote(process.execPath)") || !activeConfig.includes("quote(viteCli)") ||
+    /\\b(?:pnpm|powershell)\\s+(?:dev|[-\\w])/i.test(activeConfig)) {
+  console.error("unsafe or PATH-dependent owner-proof web server"); process.exit(6);
+}
 if (mode === "source-changed") fs.appendFileSync(path.join(process.cwd(), "tracked.txt"), "changed during capture\n");
 for (let i = 0; i < (mode === "incomplete" ? 59 : 60); i++) {
   const filename = "capture-" + String(i).padStart(2, "0") + ".png";
@@ -50,6 +60,7 @@ function setup(t) {
   const playwrightPkg = path.join(cwd, "node_modules", "@playwright", "test");
   fs.mkdirSync(playwrightPkg, { recursive: true });
   fs.writeFileSync(path.join(cwd, "scripts", "capture-finish-proof.mjs"), fs.readFileSync(HARNESS));
+  fs.writeFileSync(path.join(cwd, "scripts", "owner-proof-playwright.config.ts"), fs.readFileSync(OWNER_PROOF_CONFIG));
   fs.writeFileSync(path.join(cwd, ".gitignore"), "/node_modules/\n/docs/proofs/final-assembly/runs/\n");
   fs.writeFileSync(path.join(cwd, "tracked.txt"), "committed\n");
   fs.writeFileSync(path.join(playwrightPkg, "package.json"), JSON.stringify({
