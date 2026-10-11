@@ -91,6 +91,16 @@ async function main() {
         meta.approvalStatus !== "NOT_OWNER_APPROVED") {
       throw new Error(`Invalid or unapproved capture metadata: ${filename}`);
     }
+    // Reject misattribution of teacher captures to student interaction rules.
+    const expectedStandards = meta.surface === "workbook" || meta.surface === "student"
+      ? ["WORKBOOK_ARCHETYPE_STANDARD.md", "STUDENT_INTERACTION_STANDARD.md"]
+      : meta.surface === "teacher" || meta.surface === "flipchart"
+        ? ["PROJECT_SOURCE_OF_TRUTH.md", "DESIGN.md"] : null;
+    if (!expectedStandards || !Array.isArray(meta.sourceStandards) ||
+        meta.sourceStandards.length !== expectedStandards.length ||
+        meta.sourceStandards.some((item, i) => item !== expectedStandards[i])) {
+      throw new Error(`Incorrect source standards for screenshot: ${filename}`);
+    }
     if (meta.surface === "workbook" &&
         (!Number.isInteger(meta.printedPage) || !Number.isInteger(meta.lesson) ||
          !Number.isInteger(meta.archetype) || meta.route !== `/cartilla/leccion/${meta.lesson}`)) {
