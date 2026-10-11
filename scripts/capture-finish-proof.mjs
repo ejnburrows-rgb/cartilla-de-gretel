@@ -12,11 +12,6 @@ const PROOF_DIR = path.resolve(
 async function main() {
   console.log("=== Cartilla Owner-Proof Capture Harness ===");
 
-  // Ensure proof directory exists
-  if (!fs.existsSync(PROOF_DIR)) {
-    fs.mkdirSync(PROOF_DIR, { recursive: true });
-  }
-
   // Record commit SHA
   let commitSha = "unknown";
   try {
@@ -45,6 +40,8 @@ async function main() {
     console.error(worktreeStatus);
     process.exit(1);
   }
+  // Capture output must not create untracked files before checkout validation.
+  fs.mkdirSync(PROOF_DIR, { recursive: true });
   console.log(`Captured Commit SHA: ${commitSha}`);
   console.log("Running Playwright proof capture spec against local dev:worker instance...");
 
@@ -59,6 +56,17 @@ async function main() {
     });
   } catch (err) {
     console.error("Error executing Playwright capture harness:", err.message);
+    process.exit(1);
+  }
+
+  // Playwright/dev tooling may alter source after the initial check.
+  // Refuse to attribute those changed files to the original commit.
+  const statusAfter = execFileSync("git", ["status", "--porcelain", "--untracked-files=normal"], {
+    encoding: "utf8",
+  }).trim();
+  if (statusAfter) {
+    console.error("Source changed during capture; refusing invalid exact-commit evidence.");
+    console.error(statusAfter);
     process.exit(1);
   }
 
