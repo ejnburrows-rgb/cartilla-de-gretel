@@ -41,7 +41,9 @@ describe("workbook recovery and earned completion", () => {
     );
     const select = (name: string) => {
       fireEvent.click(view.getByRole("button", { name }));
-      act(() => vi.advanceTimersByTime(9000));
+      act(() => vi.advanceTimersByTime(3600));
+      // The eraser's timer starts after React commits the wrong-answer transition.
+      act(() => vi.advanceTimersByTime(4400));
     };
 
     expect(view.container.querySelector(".fp-ix-cell__lasso")).toBeNull();
