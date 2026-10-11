@@ -3,6 +3,7 @@ import fs from "node:fs";
 import os from "node:os";
 import path from "node:path";
 import { fileURLToPath } from "node:url";
+import { expectedOwnerProofCaptures } from "./owner-proof-matrix.mjs";
 
 // Never inherit PATH/NODE_OPTIONS/NODE_PATH or arbitrary environment from the shell.
 // Playwright's webServer.command invokes pnpm through a shell; a hostile PATH
@@ -105,7 +106,17 @@ async function main() {
     console.error(`Incomplete owner-proof capture: expected 60 PNGs, found ${files.length}`);
     process.exit(1);
   }
+  const expectedCaptures = expectedOwnerProofCaptures();
+  if (expectedCaptures.length !== 60) {
+    throw new Error("Owner-proof contract must declare exactly 60 distinct source captures.");
+  }
+  const expectedByFilename = new Map(expectedCaptures.map((capture) => [capture.filename, capture]));
+  if (expectedByFilename.size !== 60) {
+    throw new Error("Duplicate filenames in the owner-proof source matrix.");
+  }
   const captures = files.map((filename) => {
+    const expected = expectedByFilename.get(filename);
+    if (!expected) throw new Error(`Unexpected owner-proof screenshot: ${filename}`);
     const sidecarPath = path.join(PROOF_DIR, `${filename}.meta.json`);
     if (!fs.existsSync(sidecarPath)) {
       throw new Error(`Missing route/source metadata for screenshot: ${filename}`);
@@ -135,6 +146,14 @@ async function main() {
     if (meta.surface === "flipchart" &&
         (!Number.isInteger(meta.printedPage) || meta.route !== "/cartilla/presentar/7")) {
       throw new Error(`Unverifiable Flip Chart source provenance: ${filename}`);
+    }
+    // Cardinality alone does not prove device/source coverage. Each unique
+    // filename must match its exact route, physical page and viewport tuple.
+    const actualKeys = Object.keys(meta).sort();
+    const expectedKeys = Object.keys(expected).sort();
+    if (JSON.stringify(actualKeys) !== JSON.stringify(expectedKeys) ||
+        expectedKeys.some((key) => JSON.stringify(meta[key]) !== JSON.stringify(expected[key]))) {
+      throw new Error(`Incorrect owner-proof source/device matrix entry: ${filename}`);
     }
     return meta;
   });
