@@ -17,6 +17,19 @@ This gate applies **before** the evidence-first dispatch and approval procedures
 
 ---
 
+## CURRENT OWNER-HOLD / DISPATCH AUTHORIZATION (2026-10-11)
+
+**Latest explicit owner hold takes priority over the older 15-lane auto-refill procedure below.** The owner suspended blanket autonomous Jules work discovery/dispatch and changed the existing hourly Cartilla Jules Continuity coordinator to **read-only**. The historic 15-worker number remains a ceiling for explicitly authorized future scope, **not** present authorization to fill capacity or start new tasks. The enabled hourly task is a read-only evidence coordinator until a newer explicit owner instruction changes that particular authorization.
+
+- **Issue-specific hold:** Existing Jules issues [#687](https://github.com/ejnburrows-rgb/cartilla-de-gretel/issues/687) and [#688](https://github.com/ejnburrows-rgb/cartilla-de-gretel/issues/688) have explicit owner-authored STOP/PAUSE comments. Their produced PRs #690 and #691 are preserved as drafts. Do not relaunch, resume, modify or merge those issue scopes merely because a task is acknowledged, code exists, other capacity is available, or a general historical continuation instruction says to refill.
+- **New work requires current explicit authorization of its distinct task/scope.** The owner may authorize a specific independent bounded audit or fix in a newer conversation; perform only that scope, without interpreting it as revocation of unrelated issue-specific holds or permission to reactivate the background coordinator. Check the actual latest owner instruction immediately before any task mutation.
+- **Read-only investigations:** Up to three independent inspections may run concurrently only when genuinely distinct and approved; internal concurrent tool reads are not independent AI-agent sessions. Record exact GitHub source/commit evidence and avoid converting findings into automatic implementation assignments.
+- **Conflict resolution:** If an older section of this file, `tasks/plan.md`, a plugin, or a watcher still says to auto-dispatch/refill, this newer hold governs until expressly superseded. Do not assume GitHub issues/labels, PRs, previous approvals or bot comments establish owner authorization. Preserve already-produced code without merging or deleting historical source artifacts indiscriminately.
+
+This is a scope-specific owner safety hold, not a cancellation of other explicitly approved ongoing work. Preserve ordinary authorized direct fixes, protected-branch review/test gates, and the original physical-book source.
+
+---
+
 ## STOP — MANDATORY EVIDENCE-FIRST DISPATCH GATE (EVERY AGENT, EVERY SESSION)
 
 **This applies to EVERY coding agent, Jules worker, controller, supervisor, reviewer, and AI assistant reading or operating on this repository. Re-read this section from CURRENT `main` before creating an issue, task, prompt, session, test assignment or PR, and before reassigning any work. Do not rely on another agent remembering it.**
