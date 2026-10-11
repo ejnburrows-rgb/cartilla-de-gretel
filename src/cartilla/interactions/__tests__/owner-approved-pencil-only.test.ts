@@ -21,6 +21,8 @@ describe("owner-locked pencil-only Workbook runtime", () => {
     const routes = source("src/cartilla/interactions/faithfulAdapters.tsx");
     expect(pictureGrid).not.toContain("fp-ix-cell__lasso");
     expect(styles).not.toContain(".fp-ix-cell__lasso");
+    const pictureImageRule = styles.match(/\\.fp-ix-cell img\\s*\\{([^}]*)\\}/)?.[1] ?? "";
+    expect(pictureImageRule).not.toMatch(/\\banimation\\s*:/);
     expect(routes).not.toContain("LassoConnect");
     expect(pictureGrid).toContain("<WorkbookPencilMark");
     expect(pictureGrid).toContain("markType={mark}");
