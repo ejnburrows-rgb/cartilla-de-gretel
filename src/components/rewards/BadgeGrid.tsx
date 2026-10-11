@@ -41,8 +41,17 @@ export function BadgeGrid({ earnedIds }: BadgeGridProps) {
           return (
             <div
               key={badge.id}
+              role="button"
+              tabIndex={0}
+              aria-label={`${badge.name}: ${isEarned ? badge.description : badge.condition}`}
               onClick={() => handleBadgeClick(badge, isEarned)}
-              className={`relative flex flex-col items-center p-4 rounded-2xl border-2 transition-all duration-300 cursor-pointer ${
+              onKeyDown={(event) => {
+                if (event.key === "Enter" || event.key === " ") {
+                  event.preventDefault();
+                  handleBadgeClick(badge, isEarned);
+                }
+              }}
+              className={`relative flex flex-col items-center p-4 rounded-2xl border-2 transition-all duration-300 cursor-pointer focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary ${
                 isEarned
                   ? "bg-gradient-to-br from-white/90 to-white/50 dark:from-white/10 dark:to-white/5 shadow-md hover:shadow-lg hover:-translate-y-1 active:scale-95"
                   : "bg-secondary/30 border-dashed border-foreground/10 opacity-60"
