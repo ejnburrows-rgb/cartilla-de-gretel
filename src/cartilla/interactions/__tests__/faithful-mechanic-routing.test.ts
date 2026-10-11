@@ -7,7 +7,7 @@ import pageLayouts from "@/data/page-layouts.json";
 import {
   instructionSuggestsColorea,
   instructionSuggestsDibuja,
-  instructionSuggestsLasso,
+  instructionSuggestsPencilMark,
   printedPaintVerb,
   resolveFaithfulHost,
 } from "../faithfulAdapters";
@@ -46,7 +46,7 @@ function census() {
           encierraPages.push(Number(pn));
         }
         if (
-          instructionSuggestsLasso(r.text) &&
+          instructionSuggestsPencilMark(r.text) &&
           (/\bune\b/i.test(r.text) || /traza una l[ií]nea/i.test(r.text))
         ) {
           unePages.push(Number(pn));
@@ -62,13 +62,13 @@ function census() {
         expect(resolveFaithfulHost("paint-box", lastInstr)).toBe("paint");
       }
       if (r.regionType === "syllable-match") {
-        expect(resolveFaithfulHost("syllable-match", lastInstr)).toBe("lasso-mark");
+        expect(resolveFaithfulHost("syllable-match", lastInstr)).toBe("pencil-mark");
       }
       if (r.regionType === "vowel-match-all") {
-        expect(resolveFaithfulHost("vowel-match-all", lastInstr)).toBe("lasso-pair");
+        expect(resolveFaithfulHost("vowel-match-all", lastInstr)).toBe("pencil-pair");
       }
       if (r.regionType === "vowel-line-match") {
-        expect(resolveFaithfulHost("vowel-line-match", lastInstr)).toBe("lasso-mark");
+        expect(resolveFaithfulHost("vowel-line-match", lastInstr)).toBe("pencil-mark");
       }
     }
   }
@@ -84,7 +84,7 @@ function census() {
   };
 }
 
-describe("faithful mechanic routing (Colorea / Dibuja / Lasso)", () => {
+describe("faithful mechanic routing (Colorea / Dibuja / Pencil)", () => {
   it("paint-box always resolves to PaintCanvas host", () => {
     expect(resolveFaithfulHost("paint-box")).toBe("paint");
     expect(resolveFaithfulHost("paint-box", "Colorea el dibujo.")).toBe("paint");
@@ -118,16 +118,16 @@ describe("faithful mechanic routing (Colorea / Dibuja / Lasso)", () => {
   it("Encierra / Une / Traza una línea → lasso hosts", () => {
     expect(
       resolveFaithfulHost("syllable-match", "Encierra en un círculo la sílaba correspondiente."),
-    ).toBe("lasso-mark");
+    ).toBe("pencil-mark");
     expect(
       resolveFaithfulHost("vowel-line-match", "Traza una línea desde la vocal Oo hasta el dibujo."),
-    ).toBe("lasso-mark");
+    ).toBe("pencil-mark");
     expect(resolveFaithfulHost("vowel-match-all", "Une cada vocal con su dibujo.")).toBe(
-      "lasso-pair",
+      "pencil-pair",
     );
     expect(
       resolveFaithfulHost("picture-grid", "Encierra en un círculo los dibujos correctos."),
-    ).toBe("lasso-mark");
+    ).toBe("pencil-mark");
   });
 
   it("printed paint verb stays Colorea or Pinta (never Toca)", () => {
