@@ -5,6 +5,7 @@ import os from "node:os";
 import path from "node:path";
 import { spawnSync } from "node:child_process";
 import { fileURLToPath } from "node:url";
+import { expectedOwnerProofCaptures } from "../owner-proof-matrix.mjs";
 
 const HARNESS = fileURLToPath(new URL("../capture-finish-proof.mjs", import.meta.url));
 const OWNER_PROOF_CONFIG = fileURLToPath(new URL("../owner-proof-playwright.config.ts", import.meta.url));
@@ -32,17 +33,15 @@ if (!activeConfig.includes("quote(process.execPath)") || !activeConfig.includes(
   console.error("unsafe or PATH-dependent owner-proof web server"); process.exit(6);
 }
 if (mode === "source-changed") fs.appendFileSync(path.join(process.cwd(), "tracked.txt"), "changed during capture\n");
-for (let i = 0; i < (mode === "incomplete" ? 59 : 60); i++) {
-  const filename = "capture-" + String(i).padStart(2, "0") + ".png";
-  const data = {
-    filename, route: "/cartilla/leccion/1", expectedRoute: "/cartilla/leccion/1", device: "phone",
-    surface: "student", lesson: 1, printedPage: 1,
-    approvalStatus: "NOT_OWNER_APPROVED",
-    sourceStandards: ["WORKBOOK_ARCHETYPE_STANDARD.md", "STUDENT_INTERACTION_STANDARD.md"],
-  };
+const matrix = JSON.parse(fs.readFileSync(path.join(__dirname, "expected-matrix.json"), "utf8"));
+for (let i = 0; i < (mode === "incomplete" ? 59 : matrix.length); i++) {
+  const data = { ...matrix[i] };
+  const filename = data.filename;
   if (mode === "bad-metadata" && i === 0) data.route = "/dev-gretel";
   if (mode === "wrong-in-scope-route" && i === 0) data.route = "/cartilla/teacher";
   if (mode === "wrong-source-standard" && i === 0) data.sourceStandards = ["PROJECT_SOURCE_OF_TRUTH.md", "DESIGN.md"];
+  if (mode === "duplicate-device") data.device = "phone";
+  if (mode === "wrong-printed-page" && i === 0) data.printedPage = 2;
   fs.writeFileSync(path.join(dir, filename), "synthetic test fixture");
   fs.writeFileSync(path.join(dir, filename + ".meta.json"), JSON.stringify(data));
 }
@@ -67,6 +66,8 @@ function setup(t) {
     name: "@playwright/test", type: "commonjs", exports: { "./cli": "./cli.cjs" },
   }));
   fs.writeFileSync(path.join(playwrightPkg, "cli.cjs"), FAKE_PLAYWRIGHT_CLI);
+  fs.writeFileSync(path.join(playwrightPkg, "expected-matrix.json"), JSON.stringify(expectedOwnerProofCaptures()));
+  fs.writeFileSync(path.join(cwd, "scripts", "owner-proof-matrix.mjs"), fs.readFileSync(new URL("../owner-proof-matrix.mjs", import.meta.url)));
   runGit(cwd, "init", "-q");
   runGit(cwd, "config", "user.email", "test@invalid.example");
   runGit(cwd, "config", "user.name", "Local Proof Test");
@@ -95,6 +96,10 @@ test("clean checkout produces complete, unapproved, versioned proof metadata", t
   const meta = JSON.parse(fs.readFileSync(out[1].trim(), "utf8"));
   assert.equal(meta.capturedScreenshots.length, 60);
   assert.equal(meta.captures.length, 60);
+  assert.equal(new Set(meta.captures.map((capture) => capture.filename)).size, 60);
+  for (const device of ["phone", "tablet", "laptop", "projector"]) {
+    assert.equal(meta.captures.filter((capture) => capture.device === device).length, 15);
+  }
   assert.equal(meta.ownerApprovalStatus, "NOT_APPROVED_UNTIL_OWNER_REVIEWS_CURRENT_RENDER");
   runGit(cwd, "diff", "--exit-code");
   const status = spawnSync("git", ["status", "--porcelain"], { cwd, encoding: "utf8" });
@@ -182,4 +187,18 @@ test("hostile HOME Git fsmonitor cannot execute while capturing source proof", t
   assert.equal(p.status, 0, p.stdout + p.stderr);
   assert.equal(fs.existsSync(sentinel), false,
     "proof git status must not execute a HOME-supplied fsmonitor hook");
+});
+
+test("sixty duplicate phone captures cannot impersonate four device viewports", t => {
+  const cwd = setup(t);
+  const p = runProof(cwd, "duplicate-device");
+  assert.notEqual(p.status, 0);
+  assert.match(p.stdout + p.stderr, /Incorrect owner-proof source\/device matrix entry/);
+});
+
+test("correctly named images cannot impersonate another printed source page", t => {
+  const cwd = setup(t);
+  const p = runProof(cwd, "wrong-printed-page");
+  assert.notEqual(p.status, 0);
+  assert.match(p.stdout + p.stderr, /Incorrect owner-proof source\/device matrix entry/);
 });
