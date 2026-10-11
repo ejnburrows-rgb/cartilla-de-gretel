@@ -11,19 +11,64 @@ import { expectedOwnerProofCaptures } from "./owner-proof-matrix.mjs";
 const executableDirs = process.platform === "win32"
   ? [path.dirname(process.execPath), "C:\\Program Files\\Git\\cmd", "C:\\Program Files (x86)\\Git\\cmd", "C:\\Windows\\System32"]
   : [path.dirname(process.execPath), "/usr/local/bin", "/usr/bin", "/bin"];
+// Discover absolute Git before replacing PATH. Never execute an ambient PATH shim.
+function resolveVerifiedGit() {
+  const binary = process.platform === "win32" ? "git.exe" : "git";
+  const candidateDirs = [...executableDirs, ...String(process.env.PATH ?? "").split(path.delimiter)]
+    .filter((directory) => path.isAbsolute(directory));
+  const approvedWindowsRoots = ["C:\\Program Files\\Git\\cmd", "C:\\Program Files (x86)\\Git\\cmd",
+    "C:\\Windows\\System32", path.dirname(process.execPath)];
+  for (const directory of candidateDirs) {
+    try {
+      const candidate = fs.realpathSync(path.join(directory, binary));
+      const stat = fs.statSync(candidate);
+      if (!stat.isFile()) continue;
+      if (process.platform === "win32") {
+        if (!approvedWindowsRoots.some((root) => {
+          const relative = path.relative(root, candidate);
+          return relative !== ".." && !relative.startsWith(".." + path.sep) && !path.isAbsolute(relative);
+        })) continue;
+      } else {
+        let current = candidate, trusted = true;
+        // Root-owned, non-group/world-writable files AND ancestors cannot be
+        // replaced by merely prepending a malicious directory to PATH.
+        while (true) {
+          const part = fs.statSync(current);
+          if (part.uid !== 0 || (part.mode & 0o022) !== 0) { trusted = false; break; }
+          const parent = path.dirname(current);
+          if (parent === current) break;
+          current = parent;
+        }
+        if (!trusted) continue;
+      }
+      return candidate;
+    } catch { /* Continue past missing or unsafe executable. */ }
+  }
+  throw new Error("No verified trusted Git executable found; refusing proof capture.");
+}
+const trustedGit = resolveVerifiedGit();
 const trustedPath = [...new Set(executableDirs.filter((directory) => fs.existsSync(directory)))].join(path.delimiter);
-const trustedHome = os.userInfo().homedir; // OS account database, NOT ambient HOME/USERPROFILE
+const trustedHome = os.userInfo().homedir; // OS account database, NOT ambient HOME
+function existingWindowsDataFolder(name, fallback) {
+  // Only data directories, never executable search paths.
+  for (const dir of [process.env[name], fallback]) {
+    if (typeof dir !== "string" || !path.isAbsolute(dir)) continue;
+    try { if (fs.statSync(dir).isDirectory()) return fs.realpathSync(dir); }
+    catch { /* Try the next valid existing directory. */ }
+  }
+  return trustedHome;
+}
 const trustedChildEnv = {
   PATH: trustedPath,
-  // Neither global nor system Git config nor fsmonitor hooks may execute.
   GIT_CONFIG_NOSYSTEM: "1",
   GIT_CONFIG_GLOBAL: os.devNull,
   GIT_CONFIG_SYSTEM: os.devNull,
   ...(process.platform === "win32"
     ? { SystemRoot: "C:\\Windows", USERPROFILE: trustedHome,
-        LOCALAPPDATA: path.join(trustedHome, "AppData", "Local"),
-        APPDATA: path.join(trustedHome, "AppData", "Roaming"),
-        TEMP: path.join(trustedHome, "AppData", "Local", "Temp"), TMP: path.join(trustedHome, "AppData", "Local", "Temp") }
+        LOCALAPPDATA: existingWindowsDataFolder("LOCALAPPDATA", path.join(trustedHome, "AppData", "Local")),
+        APPDATA: existingWindowsDataFolder("APPDATA", path.join(trustedHome, "AppData", "Roaming")),
+        TEMP: existingWindowsDataFolder("TEMP", path.join(trustedHome, "AppData", "Local", "Temp")),
+        TMP: existingWindowsDataFolder("TMP", path.join(trustedHome, "AppData", "Local", "Temp")) }
     : { HOME: trustedHome, TMPDIR: "/tmp" }),
 };
 
@@ -40,7 +85,7 @@ async function main() {
   // Record commit SHA
   let commitSha = "unknown";
   try {
-    commitSha = execFileSync("git", ["rev-parse", "HEAD"], { encoding: "utf8", env: trustedChildEnv }).trim();
+    commitSha = execFileSync(trustedGit, ["rev-parse", "HEAD"], { encoding: "utf8", env: trustedChildEnv }).trim();
   } catch (err) {
     console.error("Warning: Could not retrieve git commit SHA:", err.message);
   }
@@ -53,7 +98,7 @@ async function main() {
   // Refuse screenshots from tracked, staged or untracked worktree changes.
   let worktreeStatus;
   try {
-    worktreeStatus = execFileSync("git", ["-c", "core.fsmonitor=false", "status", "--porcelain", "--untracked-files=normal"], {
+    worktreeStatus = execFileSync(trustedGit, ["-c", "core.fsmonitor=false", "status", "--porcelain", "--untracked-files=normal"], {
       encoding: "utf8",
       env: trustedChildEnv,
     }).trim();
@@ -87,7 +132,7 @@ async function main() {
 
   // Playwright/dev tooling may alter source after the initial check.
   // Refuse to attribute those changed files to the original commit.
-  const statusAfter = execFileSync("git", ["-c", "core.fsmonitor=false", "status", "--porcelain", "--untracked-files=normal"], {
+  const statusAfter = execFileSync(trustedGit, ["-c", "core.fsmonitor=false", "status", "--porcelain", "--untracked-files=normal"], {
     encoding: "utf8",
     env: trustedChildEnv,
   }).trim();
