@@ -60,9 +60,19 @@ export function PipelineBoard({
               return (
                 <div
                   key={s.id}
+                  role="button"
+                  tabIndex={0}
+                  aria-pressed={isSelected}
+                  aria-label={`Seleccionar alumno ${s.name}`}
                   onClick={() => onSelectStudent(s.id)}
+                  onKeyDown={(event) => {
+                    if (event.key === "Enter" || event.key === " ") {
+                      event.preventDefault();
+                      onSelectStudent(s.id);
+                    }
+                  }}
                   className={cn(
-                    "crm-pipeline-card border-l-4 border-l-[#902b2b] transition-all",
+                    "crm-pipeline-card border-l-4 cursor-pointer focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary border-l-[#902b2b] transition-all",
                     isSelected
                       ? "ring-2 ring-[#902b2b]/40 scale-[1.02] bg-[hsl(354,78%,99%)]"
                       : "hover:border-[#902b2b]/40",
@@ -101,9 +111,19 @@ export function PipelineBoard({
               return (
                 <div
                   key={s.id}
+                  role="button"
+                  tabIndex={0}
+                  aria-pressed={isSelected}
+                  aria-label={`Seleccionar alumno ${s.name}`}
                   onClick={() => onSelectStudent(s.id)}
+                  onKeyDown={(event) => {
+                    if (event.key === "Enter" || event.key === " ") {
+                      event.preventDefault();
+                      onSelectStudent(s.id);
+                    }
+                  }}
                   className={cn(
-                    "crm-pipeline-card border-l-4 border-l-[#d4a373] transition-all",
+                    "crm-pipeline-card border-l-4 cursor-pointer focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary border-l-[#d4a373] transition-all",
                     isSelected
                       ? "ring-2 ring-[#d4a373]/40 scale-[1.02] bg-[hsl(48,100%,99%)]"
                       : "hover:border-[#d4a373]/40",
@@ -139,9 +159,19 @@ export function PipelineBoard({
               return (
                 <div
                   key={s.id}
+                  role="button"
+                  tabIndex={0}
+                  aria-pressed={isSelected}
+                  aria-label={`Seleccionar alumno ${s.name}`}
                   onClick={() => onSelectStudent(s.id)}
+                  onKeyDown={(event) => {
+                    if (event.key === "Enter" || event.key === " ") {
+                      event.preventDefault();
+                      onSelectStudent(s.id);
+                    }
+                  }}
                   className={cn(
-                    "crm-pipeline-card border-l-4 border-l-[#8da47e] transition-all",
+                    "crm-pipeline-card border-l-4 cursor-pointer focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary border-l-[#8da47e] transition-all",
                     isSelected
                       ? "ring-2 ring-[#8da47e]/40 scale-[1.02] bg-[hsl(145,60%,99%)]"
                       : "hover:border-[#8da47e]/40",
