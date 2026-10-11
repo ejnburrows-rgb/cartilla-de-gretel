@@ -23,9 +23,11 @@ for (let i = 0; i < (mode === "incomplete" ? 59 : 60); i++) {
     filename, route: "/cartilla/leccion/1", expectedRoute: "/cartilla/leccion/1", device: "phone",
     surface: "student", lesson: 1, printedPage: 1,
     approvalStatus: "NOT_OWNER_APPROVED",
+    sourceStandards: ["WORKBOOK_ARCHETYPE_STANDARD.md", "STUDENT_INTERACTION_STANDARD.md"],
   };
   if (mode === "bad-metadata" && i === 0) data.route = "/dev-gretel";
   if (mode === "wrong-in-scope-route" && i === 0) data.route = "/cartilla/teacher";
+  if (mode === "wrong-source-standard" && i === 0) data.sourceStandards = ["PROJECT_SOURCE_OF_TRUTH.md", "DESIGN.md"];
   fs.writeFileSync(path.join(dir, filename), "synthetic test fixture");
   fs.writeFileSync(path.join(dir, filename + ".meta.json"), JSON.stringify(data));
 }
@@ -113,4 +115,11 @@ test("an otherwise valid but mismatched teacher route is rejected", t => {
   const p = runProof(cwd, "wrong-in-scope-route");
   assert.notEqual(p.status, 0);
   assert.match(p.stdout + p.stderr, /Invalid or unapproved capture metadata/);
+});
+
+test("teacher-only standards cannot be used for a student screenshot", t => {
+  const cwd = setup(t);
+  const p = runProof(cwd, "wrong-source-standard");
+  assert.notEqual(p.status, 0);
+  assert.match(p.stdout + p.stderr, /Incorrect source standards for screenshot/);
 });
