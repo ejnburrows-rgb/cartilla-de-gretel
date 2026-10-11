@@ -1,6 +1,6 @@
 import "@testing-library/jest-dom/vitest";
-import { beforeEach, describe, expect, it, vi } from "vitest";
-import { cleanup, fireEvent, render } from "@testing-library/react";
+import { afterEach, beforeEach, describe, expect, it, vi } from "vitest";
+import { act, cleanup, fireEvent, render } from "@testing-library/react";
 import { InteractivePictureGrid } from "../InteractivePageExercises";
 import { SyllableTapGame } from "../SyllableTapGame";
 import { DragMatchPairs } from "../DragMatchPairs";
@@ -20,56 +20,51 @@ beforeEach(() => {
   cleanup();
   vi.clearAllMocks();
 });
+afterEach(() => vi.useRealTimers());
 
 describe("workbook recovery and earned completion", () => {
-  it("lets a child correct an incomplete selection without recording mastery", () => {
+  it("uses the physical pencil and eraser for wrong then correct choices, without unapproved lasso/check UI", () => {
+    vi.useFakeTimers();
     const view = render(
       <InteractivePictureGrid
         accent="#123"
         lessonId="1"
         region={{
-          id: "grid",
-          regionType: "picture-grid",
-          order: 1,
-          fontRole: "body",
-          columns: 3,
+          id: "grid", regionType: "picture-grid", order: 1, fontRole: "body", columns: 3,
           cells: [
             { caption: "oso", illustrationSrc: "/oso.webp", correct: true },
             { caption: "olla", illustrationSrc: "/olla.webp", correct: true },
-            {
-              caption: "avión",
-              illustrationSrc: "/avion.webp",
-              correct: false,
-            },
+            { caption: "avión", illustrationSrc: "/avion.webp", correct: false },
           ],
         }}
       />,
     );
-    fireEvent.click(view.getByRole("button", { name: "oso" }));
-    fireEvent.click(view.getByRole("button", { name: "Comprobar" }));
-    expect(gretelEvent).not.toHaveBeenCalledWith("activity:complete");
+    const select = (name: string) => {
+      fireEvent.click(view.getByRole("button", { name }));
+      act(() => vi.advanceTimersByTime(4000));
+    };
+
+    expect(view.container.querySelector(".fp-ix-cell__lasso")).toBeNull();
+    expect(view.queryByRole("button", { name: "Comprobar" })).toBeNull();
+    select("avión");
     expect(recordEvent).toHaveBeenLastCalledWith(
       expect.objectContaining({
-        score: 1,
-        total: 2,
+        score: 0, total: 3,
         meta: expect.objectContaining({ completed: false }),
       }),
     );
-    fireEvent.click(view.getByRole("button", { name: "Corregir respuestas" }));
-    fireEvent.click(view.getByRole("button", { name: "olla" }));
-    fireEvent.click(view.getByRole("button", { name: "Comprobar" }));
-    expect(view.getByRole("button", { name: "Completado" })).toBeDisabled();
+    expect(view.getByRole("button", { name: "avión" })).not.toBeDisabled();
+    select("oso");
+    expect(view.getByRole("button", { name: "oso" })).toBeDisabled();
+    select("olla");
     expect(recordEvent).toHaveBeenLastCalledWith(
       expect.objectContaining({
-        score: 2,
-        total: 2,
-        meta: expect.objectContaining({
-          completed: true,
-          corrected: true,
-          attempt: 2,
-        }),
+        score: 2, total: 3,
+        meta: expect.objectContaining({ completed: true, corrected: true, attempt: 2 }),
       }),
     );
+    expect(view.getByRole("button", { name: "olla" })).toBeDisabled();
+    expect(view.container.querySelector(".fp-ix-cell__lasso")).toBeNull();
   });
 
   it("requires listening and a correct answer for each sound, with no double-click credit", () => {
