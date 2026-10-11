@@ -51,6 +51,14 @@ function ArtOrPending({ cell }: { cell: PageGridCell }) {
 export type PictureMark = "circle" | "x";
 /** Preserved contract for vowel-row response styling (not the removed lasso). */
 type Grade = "correct" | "wrong" | "missed" | null;
+
+function gradeOf(picked: boolean, correct: boolean | undefined): Grade {
+  if (correct === undefined) return null;
+  if (picked && correct) return "correct";
+  if (picked && !correct) return "wrong";
+  if (!picked && correct) return "missed";
+  return null;
+}
 export function pictureMarkFor(instruction?: string): PictureMark {
   return instruction && /marca con una x/i.test(instruction) ? "x" : "circle";
 }
@@ -854,110 +862,5 @@ export function InteractiveFillInBlank({
         )}
       </div>
     </DndContext>
-  );
-}
-
-/** "Traza una línea desde la vocal Xx hasta el dibujo..." — tap the cells that start with Xx, grade on check. */
-export function InteractiveVowelLineMatch({
-  region,
-  accent,
-  lessonId,
-}: ExerciseProps) {
-  const { emit: gretelEvent, record: recordEvent } = useActivityEvents();
-  const cells = region.cells ?? [];
-  const [picked, setPicked] = useActivityState<Set<number>>("picked", new Set());
-  const [graded, setGraded] = useActivityState("graded", false);
-  const [solved, setSolved] = useActivityState("solved", false);
-  const [validated, setValidated] = useActivityState<Set<number>>("validated", new Set());
-  const [attempts, setAttempts] = useState(0);
-
-  useEffect(() => { if (solved) gretelEvent("activity:complete", { restored: true }); }, [solved, gretelEvent]);
-
-  const toggle = (i: number) => {
-    if (graded || validated.has(i)) return;
-    setPicked((prev) => {
-      const next = new Set(prev);
-      if (next.has(i)) next.delete(i);
-      else next.add(i);
-      return next;
-    });
-  };
-
-  const targets = cells.map((entry, i) => ({ key: i, correct: entry.correct }));
-  const remaining = targets.filter(t => t.correct === true && !picked.has(t.key)).length;
-  const check = () => {
-    setValidated(new Set(targets.filter(t => t.correct === true && picked.has(t.key)).map(t => t.key)));
-    setGraded(true);
-    let allCorrect = true;
-    cells.forEach((cell, i) => {
-      const g = gradeOf(picked.has(i), cell.correct);
-      if (g === "wrong" || g === "missed") allCorrect = false;
-    });
-    setSolved(allCorrect);
-    setAttempts((n) => n + 1);
-    gretelEvent(allCorrect ? "answer:correct" : "answer:wrong");
-    if (allCorrect) {
-      playCorrectChord();
-      gretelEvent("activity:complete");
-    } else playWrongBuzz();
-    if (lessonId) {
-      recordEvent({
-        lessonId,
-        kind: "exercise",
-        score: targets.filter(t => t.correct === true && picked.has(t.key)).length,
-        total: targets.filter(t => t.correct === true || (t.correct === false && picked.has(t.key))).length,
-        meta: {
-          exercise: `vowel_line_match_${region.id}`,
-          completed: allCorrect,
-          itemCount: cells.length,
-          attempt: attempts + 1,
-          corrected: attempts > 0,
-        },
-      });
-    }
-  };
-
-  return (
-    <div
-      className="fp-ix-line-match"
-      style={{ ["--ix-accent" as string]: accent }}
-    >
-      <div
-        className="fp-ix-row"
-        style={{ gridTemplateColumns: "repeat(4, minmax(0, 1fr))" }}
-      >
-        {cells.map((cell, i) => (
-          <Cell
-            key={i}
-            cell={cell}
-            index={i}
-            picked={picked.has(i)}
-            grade={graded || validated.has(i) ? gradeOf(picked.has(i), cell.correct) : null}
-            disabled={graded || validated.has(i)}
-            onToggle={() => toggle(i)}
-          />
-        ))}
-      </div>
-      {graded && !solved && <p role="status">Revisa las selecciones marcadas. Faltan {remaining} respuestas.</p>}
-      <div className="fp-ix-check-row">
-        <button
-          type="button"
-          className="fp-ix-check-btn"
-          onClick={check}
-          disabled={graded || picked.size === 0}
-        >
-          {solved ? "Completado" : "Comprobar"}
-        </button>
-        {graded && !solved && (
-          <button
-            type="button"
-            className="fp-ix-check-btn"
-            onClick={() => { setPicked(new Set(targets.filter(t => t.correct === true && picked.has(t.key)).map(t => t.key))); setGraded(false); }}
-          >
-            Corregir respuestas
-          </button>
-        )}
-      </div>
-    </div>
   );
 }
