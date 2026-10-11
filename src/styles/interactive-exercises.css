@@ -78,12 +78,11 @@
   border-color: var(--ix-accent);
   box-shadow: 0 0 0 4px color-mix(in srgb, var(--ix-accent) 30%, transparent);
 }
+/* Source illustration stays still while a child decides; only the wooden pencil moves. */
 .fp-ix-cell img {
   max-width: 100%;
   max-height: 100%;
   object-fit: contain;
-  animation: fpIxFloat 5.5s ease-in-out infinite;
-  animation-delay: var(--ix-float-delay, 0s);
 }
 @keyframes fpIxFloat {
   0%,
