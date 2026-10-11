@@ -14,7 +14,11 @@ const HARNESS = fileURLToPath(new URL("../capture-finish-proof.mjs", import.meta
 const FAKE_PLAYWRIGHT_CLI = String.raw`const fs = require("node:fs");
 const path = require("node:path");
 const dir = process.env.PROOF_DIR;
-const mode = process.env.FAKE_CAPTURE_MODE;
+const mode = fs.readFileSync(path.join(__dirname, "mode.txt"), "utf8").trim();
+if (mode === "hostile-path") {
+  // Match Playwright webServer shell lookup without actually trusting the parent PATH.
+  require("node:child_process").spawnSync("pnpm", ["--version"], { shell: true, stdio: "ignore" });
+}
 if (!dir) process.exit(3);
 if (!process.argv.includes("--workers=1")) { console.error("proof must use one Playwright worker"); process.exit(4); }
 if (mode === "source-changed") fs.appendFileSync(path.join(process.cwd(), "tracked.txt"), "changed during capture\n");
@@ -46,7 +50,7 @@ function setup(t) {
   const playwrightPkg = path.join(cwd, "node_modules", "@playwright", "test");
   fs.mkdirSync(playwrightPkg, { recursive: true });
   fs.writeFileSync(path.join(cwd, "scripts", "capture-finish-proof.mjs"), fs.readFileSync(HARNESS));
-  fs.writeFileSync(path.join(cwd, ".gitignore"), "/docs/proofs/final-assembly/runs/\n");
+  fs.writeFileSync(path.join(cwd, ".gitignore"), "/node_modules/\n/docs/proofs/final-assembly/runs/\n");
   fs.writeFileSync(path.join(cwd, "tracked.txt"), "committed\n");
   fs.writeFileSync(path.join(playwrightPkg, "package.json"), JSON.stringify({
     name: "@playwright/test", type: "commonjs", exports: { "./cli": "./cli.cjs" },
@@ -60,11 +64,14 @@ function setup(t) {
   return cwd;
 }
 
-function runProof(cwd, mode = "success") {
+function runProof(cwd, mode = "success", extraEnv = {}) {
+  // Test controls live in the ignored local Playwright fixture, never in the
+  // environment forwarded to the proof runner's child process.
+  fs.writeFileSync(path.join(cwd, "node_modules", "@playwright", "test", "mode.txt"), mode);
   return spawnSync(process.execPath, ["scripts/capture-finish-proof.mjs"], {
     cwd,
     encoding: "utf8",
-    env: { ...process.env, FAKE_CAPTURE_MODE: mode },
+    env: { ...process.env, ...extraEnv },
   });
 }
 
@@ -125,4 +132,23 @@ test("teacher-only standards cannot be used for a student screenshot", t => {
   const p = runProof(cwd, "wrong-source-standard");
   assert.notEqual(p.status, 0);
   assert.match(p.stdout + p.stderr, /Incorrect source standards for screenshot/);
+});
+
+
+test("a hostile ambient PATH cannot launch shadow pnpm or forge source proof", t => {
+  const cwd = setup(t);
+  const shadowDir = path.join(cwd, "node_modules", "malicious-bin");
+  fs.mkdirSync(shadowDir, { recursive: true });
+  const sentinel = path.join(cwd, "node_modules", "shadow-was-executed");
+  fs.writeFileSync(path.join(shadowDir, "pnpm"),
+    `#!/bin/sh\nprintf exploited > "${sentinel}"\n`, { mode: 0o755 });
+  fs.writeFileSync(path.join(shadowDir, "pnpm.cmd"),
+    `@echo off\r\necho exploited>"${sentinel}"\r\n`);
+  const p = runProof(cwd, "hostile-path", {
+    PATH: shadowDir + path.delimiter + process.env.PATH,
+    NODE_PATH: shadowDir,
+  });
+  assert.equal(p.status, 0, p.stdout + p.stderr);
+  assert.equal(fs.existsSync(sentinel), false,
+    "the browser server must never resolve a shadow pnpm from an ambient PATH");
 });
