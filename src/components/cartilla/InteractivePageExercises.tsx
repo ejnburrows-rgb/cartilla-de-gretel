@@ -166,13 +166,15 @@ export function InteractivePictureGrid({
   const isDirectPencilMode = pencilMode || region.id === "p1-grid" || region.id?.startsWith("p1-");
   const [markingCells, setMarkingCells] = useState<Map<number, boolean>>(new Map());
 
-  const totalCorrectRequired = cells.filter((cell) => cell.correct === true).length;
+  const hasAnswerKey = cells.some((cell) => cell.correct !== undefined);
+  const totalCorrectRequired = hasAnswerKey
+    ? cells.filter((cell) => cell.correct === true).length : cells.length;
 
   const handlePencilTap = (i: number) => {
     if (validated.has(i) || markingCells.size > 0) return;
     const cell = cells[i];
-    if (!cell || cell.correct === undefined) return;
-    setMarkingCells(new Map([[i, cell.correct === true]]));
+    if (!cell || (hasAnswerKey && cell.correct === undefined)) return;
+    setMarkingCells(new Map([[i, !hasAnswerKey || cell.correct === true]]));
   };
 
   const handleCellCorrect = (i: number) => {
@@ -287,7 +289,7 @@ export function InteractivePictureGrid({
                   className={`fp-ix-cell relative ${isVal ? "graded-correct" : ""}`}
                   style={{ ["--ix-float-delay" as string]: floatDelay(i) }}
                   onClick={() => handlePencilTap(i)}
-                  disabled={cell.correct === undefined || isVal || (markingCells.size > 0 && !isMarking)}
+                  disabled={(hasAnswerKey && cell.correct === undefined) || isVal || (markingCells.size > 0 && !isMarking)}
                   aria-label={cell.caption ?? "dibujo"}
                   data-gretel-correct={cell.correct === undefined ? undefined : String(cell.correct)}
                   aria-pressed={isVal || isMarking}
