@@ -16,6 +16,7 @@ const path = require("node:path");
 const dir = process.env.PROOF_DIR;
 const mode = process.env.FAKE_CAPTURE_MODE;
 if (!dir) process.exit(3);
+if (!process.argv.includes("--workers=1")) { console.error("proof must use one Playwright worker"); process.exit(4); }
 if (mode === "source-changed") fs.appendFileSync(path.join(process.cwd(), "tracked.txt"), "changed during capture\n");
 for (let i = 0; i < (mode === "incomplete" ? 59 : 60); i++) {
   const filename = "capture-" + String(i).padStart(2, "0") + ".png";
