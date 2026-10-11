@@ -240,9 +240,6 @@ export function PianoPronunciation({
             return (
               <motion.div
                 key={index}
-                role="button"
-                tabIndex={0}
-                aria-label={`Tecla ${key.syllable}`}
                 animate={
                   state === "incorrect"
                     ? { x: [-3, 3, -3, 3, 0] }
@@ -253,24 +250,19 @@ export function PianoPronunciation({
                 transition={{ duration: state === "correct" ? 0.3 : 0.4 }}
                 style={{ flex: "1 1 0%", transformOrigin: "top" }}
                 className={cn(
-                  "mx-[2px] first:ml-0 last:mr-0 h-72 rounded-b-xl relative select-none cursor-pointer group focus:outline-none focus:ring-2 focus:ring-amber-400 focus:z-10",
+                  "mx-[2px] first:ml-0 last:mr-0 h-72 rounded-b-xl relative select-none group flex flex-col justify-end items-center",
                   state === "correct" && "key-bounce",
                   state === "incorrect" && "key-shake",
                 )}
-                onClick={() => listenToSyllable(key.syllable, index)}
-                onKeyDown={(e) => {
-                  if (e.target !== e.currentTarget) return;
-                  if (e.key === "Enter" || e.key === " ") {
-                    e.preventDefault();
-                    listenToSyllable(key.syllable, index);
-                  }
-                }}
               >
-                {/* Colorful Key Core — a real toy piano isn't all-white */}
-                <div
+                {/* Native Primary Piano Key Button */}
+                <button
+                  type="button"
+                  aria-label={`Tecla ${key.syllable}`}
+                  onClick={() => listenToSyllable(key.syllable, index)}
                   className={cn(
-                    "absolute inset-0 border-2 rounded-b-xl shadow-md transition-all duration-150 flex flex-col justify-end items-center pb-4",
-                    "group-active:pt-2 group-active:pb-2 group-active:shadow-sm",
+                    "absolute inset-0 w-full h-full border-2 rounded-b-xl shadow-md transition-all duration-150 flex flex-col justify-end items-center pb-12 cursor-pointer focus:outline-none focus:ring-2 focus:ring-amber-400 focus:z-10",
+                    "group-active:pt-2 group-active:pb-10 group-active:shadow-sm",
                     isActive && "scale-y-[0.98]",
                     state === "correct" && "shadow-[0_0_18px_rgba(16,185,129,0.7)]",
                     state === "incorrect" &&
@@ -307,26 +299,23 @@ export function PianoPronunciation({
                     {key.syllable}
                   </span>
 
-                  {/* Escuchar micro button */}
-                  <button
-                    type="button"
-                    className="mt-3 p-1.5 bg-white/70 hover:bg-white text-stone-600 rounded-full border border-white/80 transition-colors shadow-sm cursor-pointer focus:outline-none focus:ring-2 focus:ring-amber-400"
-                    aria-label={`Escuchar ${key.syllable}`}
-                    onClick={(e) => {
-                      e.stopPropagation();
-                      listenToSyllable(key.syllable, index);
-                    }}
-                  >
-                    <Volume2 className="w-3.5 h-3.5" />
-                  </button>
-
                   {/* Completed star indicator */}
                   {isCompleted && (
                     <div className="absolute top-2 right-2 text-white animate-fade-in">
                       <CheckCircle className="w-5 h-5 fill-emerald-600" />
                     </div>
                   )}
-                </div>
+                </button>
+
+                {/* Native Escuchar Micro Button - Sibling element, NOT nested inside key button */}
+                <button
+                  type="button"
+                  className="absolute bottom-3 z-20 p-1.5 bg-white/70 hover:bg-white text-stone-600 rounded-full border border-white/80 transition-colors shadow-sm cursor-pointer focus:outline-none focus:ring-2 focus:ring-amber-400"
+                  aria-label={`Escuchar ${key.syllable}`}
+                  onClick={() => listenToSyllable(key.syllable, index)}
+                >
+                  <Volume2 className="w-3.5 h-3.5" />
+                </button>
               </motion.div>
             );
           })}

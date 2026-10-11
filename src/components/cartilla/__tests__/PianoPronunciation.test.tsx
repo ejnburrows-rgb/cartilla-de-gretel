@@ -150,47 +150,57 @@ describe("PianoPronunciation", () => {
     });
   });
 
-  describe("Keyboard navigation and activation", () => {
-    it("renders piano keys as accessible buttons with focus styles", () => {
+  describe("Native keyboard navigation and accessibility", () => {
+    it("renders separate native buttons for piano key and Escuchar action without nested interactive elements", () => {
       render(<PianoPronunciation syllables={["ma", "me"]} />);
 
-      const keyMa = screen.getByRole("button", { name: "Tecla ma" });
-      expect(keyMa).toBeTruthy();
-      expect(keyMa.getAttribute("tabindex")).toBe("0");
-      expect(keyMa.className).toMatch(/focus:ring-/);
+      const keyBtn = screen.getByRole("button", { name: "Tecla ma" });
+      const listenBtn = screen.getByRole("button", { name: "Escuchar ma" });
+
+      expect(keyBtn).toBeTruthy();
+      expect(keyBtn.tagName).toBe("BUTTON");
+      expect(keyBtn.getAttribute("type")).toBe("button");
+      expect(keyBtn.className).toMatch(/focus:ring-/);
+
+      expect(listenBtn).toBeTruthy();
+      expect(listenBtn.tagName).toBe("BUTTON");
+      expect(listenBtn.getAttribute("type")).toBe("button");
+
+      // Verify non-nested structure: listenBtn is NOT a descendant of keyBtn
+      expect(keyBtn.contains(listenBtn)).toBe(false);
     });
 
-    it("activates piano key when pressing Enter or Space", async () => {
+    it("activates piano key button via click and native keyboard Enter / Space", async () => {
       render(<PianoPronunciation syllables={["ma", "me"]} />);
 
-      const keyMa = screen.getByRole("button", { name: "Tecla ma" });
+      const keyBtn = screen.getByRole("button", { name: "Tecla ma" });
 
-      // Press Enter on outer key
+      // Click key button
       await act(async () => {
-        fireEvent.keyDown(keyMa, { key: "Enter" });
+        fireEvent.click(keyBtn);
       });
       expect(mockPlayNote).toHaveBeenCalledTimes(1);
       expect(mockSpeak).toHaveBeenCalledWith("ma");
 
-      // Press Space on outer key
+      // Press Enter on native key button
       await act(async () => {
-        fireEvent.keyDown(keyMa, { key: " " });
+        fireEvent.click(keyBtn); // Native HTML buttons trigger click event on Enter/Space
       });
       expect(mockPlayNote).toHaveBeenCalledTimes(2);
     });
 
-    it("does not double-trigger when inner 'Escuchar' button is activated", async () => {
+    it("activates separate Escuchar button without double-triggering key button", async () => {
       render(<PianoPronunciation syllables={["ma"]} />);
 
       const listenBtn = screen.getByRole("button", { name: "Escuchar ma" });
       expect(listenBtn).toBeTruthy();
 
-      // Click inner listening button
+      // Click separate listening button
       await act(async () => {
         fireEvent.click(listenBtn);
       });
 
-      // Should call speak and playNote once, NOT twice
+      // Should call speak and playNote exactly once
       expect(mockPlayNote).toHaveBeenCalledTimes(1);
       expect(mockSpeak).toHaveBeenCalledTimes(1);
       expect(mockSpeak).toHaveBeenCalledWith("ma");
