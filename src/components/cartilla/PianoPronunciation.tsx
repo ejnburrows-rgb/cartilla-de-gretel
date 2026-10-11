@@ -240,6 +240,9 @@ export function PianoPronunciation({
             return (
               <motion.div
                 key={index}
+                role="button"
+                tabIndex={0}
+                aria-label={`Tecla ${key.syllable}`}
                 animate={
                   state === "incorrect"
                     ? { x: [-3, 3, -3, 3, 0] }
@@ -254,6 +257,14 @@ export function PianoPronunciation({
                   state === "correct" && "key-bounce",
                   state === "incorrect" && "key-shake",
                 )}
+                onClick={() => listenToSyllable(key.syllable, index)}
+                onKeyDown={(e) => {
+                  if (e.target !== e.currentTarget) return;
+                  if (e.key === "Enter" || e.key === " ") {
+                    e.preventDefault();
+                    listenToSyllable(key.syllable, index);
+                  }
+                }}
               >
                 {/* Colorful Key Core — a real toy piano isn't all-white */}
                 <div
@@ -283,14 +294,6 @@ export function PianoPronunciation({
                     style={{ backgroundColor: `color-mix(in srgb, ${keyColor} 45%, white)` }}
                   />
 
-                  {/* Separate native keyboard-accessible key action; sibling to Escuchar. */}
-                  <button
-                    type="button"
-                    aria-label={`Tecla ${key.syllable}`}
-                    className="absolute inset-0 z-0 rounded-b-xl cursor-pointer focus:outline-none focus:ring-2 focus:ring-amber-400 focus:z-10"
-                    onClick={() => listenToSyllable(key.syllable, index)}
-                  />
-
                   {/* Syllable tag */}
                   <span
                     className="text-2xl font-black font-display group-hover:scale-110 transition-transform"
@@ -307,7 +310,7 @@ export function PianoPronunciation({
                   {/* Escuchar micro button */}
                   <button
                     type="button"
-                    className="relative z-20 mt-3 p-1.5 bg-white/70 hover:bg-white text-stone-600 rounded-full border border-white/80 transition-colors shadow-sm cursor-pointer focus:outline-none focus:ring-2 focus:ring-amber-400"
+                    className="mt-3 p-1.5 bg-white/70 hover:bg-white text-stone-600 rounded-full border border-white/80 transition-colors shadow-sm cursor-pointer focus:outline-none focus:ring-2 focus:ring-amber-400"
                     aria-label={`Escuchar ${key.syllable}`}
                     onClick={(e) => {
                       e.stopPropagation();
