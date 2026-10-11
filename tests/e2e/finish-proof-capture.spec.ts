@@ -53,9 +53,9 @@ async function captureOwnerProof(
     filename,
     route,
     ...meta,
-    sourceStandard: meta.surface === "workbook" || meta.surface === "student"
-      ? "WORKBOOK_ARCHETYPE_STANDARD.md"
-      : "STUDENT_INTERACTION_STANDARD.md",
+    sourceStandards: meta.surface === "workbook" || meta.surface === "student"
+      ? ["WORKBOOK_ARCHETYPE_STANDARD.md", "STUDENT_INTERACTION_STANDARD.md"]
+      : ["PROJECT_SOURCE_OF_TRUTH.md", "DESIGN.md"],
     approvalStatus: "NOT_OWNER_APPROVED",
   }, null, 2), "utf8");
 }
