@@ -27,19 +27,6 @@ import { gretelEvent } from "@/lib/gretel-bus";
 import { speakGretelPhrase } from "@/lib/gretel-tts";
 import { saveLassoProgress } from "@/lib/activity-canvas-store";
 
-const markTargets = [
-  { id: "a", label: "mamá", correct: true },
-  { id: "b", label: "oso", correct: false },
-  { id: "c", label: "mimo", correct: true },
-];
-
-const pairTargets = [
-  { id: "L0", label: "O", role: "left" as const, pairId: "p0" },
-  { id: "R0", label: "oso", role: "right" as const, pairId: "p0", src: "/x/oso.webp" },
-  { id: "L1", label: "A", role: "left" as const, pairId: "p1" },
-  { id: "R1", label: "ala", role: "right" as const, pairId: "p1", src: "/x/ala.webp" },
-];
-
 async function flushAnim(ms = 600) {
   await act(async () => {
     await new Promise((r) => setTimeout(r, ms));
