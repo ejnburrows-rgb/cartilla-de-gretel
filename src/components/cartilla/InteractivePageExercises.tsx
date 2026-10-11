@@ -96,7 +96,7 @@ export function InteractivePictureGrid({
     ? cells.filter((cell) => cell.correct === true).length : cells.length;
 
   const handlePencilTap = (i: number) => {
-    if (validated.has(i) || markingCells.size > 0) return;
+    if (solved || validated.has(i) || markingCells.size > 0) return;
     const cell = cells[i];
     if (!cell || (hasAnswerKey && cell.correct === undefined)) return;
     setMarkingCells(new Map([[i, !hasAnswerKey || cell.correct === true]]));
@@ -179,7 +179,7 @@ export function InteractivePictureGrid({
                   className={`fp-ix-cell relative ${isVal ? "graded-correct" : ""}`}
                   style={{ ["--ix-float-delay" as string]: floatDelay(i) }}
                   onClick={() => handlePencilTap(i)}
-                  disabled={(hasAnswerKey && cell.correct === undefined) || isVal || (markingCells.size > 0 && !isMarking)}
+                  disabled={solved || (hasAnswerKey && cell.correct === undefined) || isVal || (markingCells.size > 0 && !isMarking)}
                   aria-label={cell.caption ?? "dibujo"}
                   data-gretel-correct={cell.correct === undefined ? undefined : String(cell.correct)}
                   aria-pressed={isVal || isMarking}
