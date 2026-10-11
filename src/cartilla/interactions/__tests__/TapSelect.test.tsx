@@ -107,7 +107,7 @@ describe("TapSelect", () => {
     }).not.toThrow();
   });
 
-  it("completes ONCE on correct choice and handles keyboard/click activation", () => {
+  it("completes ONCE on correct choice click activation", () => {
     const onResult = vi.fn();
     const onComplete = vi.fn();
 
