@@ -364,7 +364,7 @@ function RegionView({
     case "picture-grid":
       if (host === "pencil-mark") {
         return <InteractivePictureGrid region={region} accent={accent ?? "hsl(230 75% 58%)"}
-          lessonId={lessonId} pencilMode mark="circle" />;
+          lessonId={lessonId} mark="circle" />;
       }
       if (host === "paint") {
         // Colorea on a grid: paint the first colorable illustration cell as stage
