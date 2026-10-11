@@ -202,3 +202,19 @@ test("correctly named images cannot impersonate another printed source page", t 
   assert.notEqual(p.status, 0);
   assert.match(p.stdout + p.stderr, /Incorrect owner-proof source\/device matrix entry/);
 });
+
+test("a PATH-injected Git executable is never used for source provenance", t => {
+  const cwd = setup(t);
+  const shadowDir = path.join(cwd, "node_modules", "shadow-git");
+  fs.mkdirSync(shadowDir, { recursive: true });
+  const sentinel = path.join(cwd, "node_modules", "git-shadow-executed");
+  fs.writeFileSync(path.join(shadowDir, "git"),
+    `#!/bin/sh\nprintf tampered > "${sentinel}"\n`, { mode: 0o755 });
+  fs.writeFileSync(path.join(shadowDir, "git.exe"), "not a trusted Git executable");
+  const p = runProof(cwd, "success", {
+    PATH: shadowDir + path.delimiter + process.env.PATH,
+  });
+  assert.equal(p.status, 0, p.stdout + p.stderr);
+  assert.equal(fs.existsSync(sentinel), false,
+    "untrusted Git must never be used for exact-commit provenance");
+});
