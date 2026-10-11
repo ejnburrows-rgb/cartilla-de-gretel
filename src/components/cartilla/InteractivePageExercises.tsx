@@ -117,6 +117,7 @@ export function InteractivePictureGrid({
         meta: {
           exercise: `picture_grid_${region.id}`,
           completed: true,
+          attemptCorrect: true,
           itemCount: cells.filter((cell) => cell.correct !== undefined).length,
           attempt: attempts + 1,
           corrected: attempts > 0,
@@ -138,6 +139,7 @@ export function InteractivePictureGrid({
         meta: {
           exercise: `picture_grid_${region.id}`,
           completed: false,
+          attemptCorrect: false,
           itemCount: cells.filter((cell) => cell.correct !== undefined).length,
           attempt: nextAttempt,
           corrected: nextAttempt > 1,
