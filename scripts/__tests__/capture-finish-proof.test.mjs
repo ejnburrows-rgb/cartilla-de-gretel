@@ -20,11 +20,12 @@ if (mode === "source-changed") fs.appendFileSync(path.join(process.cwd(), "track
 for (let i = 0; i < (mode === "incomplete" ? 59 : 60); i++) {
   const filename = "capture-" + String(i).padStart(2, "0") + ".png";
   const data = {
-    filename, route: "/cartilla/leccion/1", device: "phone",
+    filename, route: "/cartilla/leccion/1", expectedRoute: "/cartilla/leccion/1", device: "phone",
     surface: "student", lesson: 1, printedPage: 1,
     approvalStatus: "NOT_OWNER_APPROVED",
   };
   if (mode === "bad-metadata" && i === 0) data.route = "/dev-gretel";
+  if (mode === "wrong-in-scope-route" && i === 0) data.route = "/cartilla/teacher";
   fs.writeFileSync(path.join(dir, filename), "synthetic test fixture");
   fs.writeFileSync(path.join(dir, filename + ".meta.json"), JSON.stringify(data));
 }
@@ -103,6 +104,13 @@ test("missing screenshots cannot yield a complete manifest", t => {
 test("a screenshot from a development route cannot be accepted", t => {
   const cwd = setup(t);
   const p = runProof(cwd, "bad-metadata");
+  assert.notEqual(p.status, 0);
+  assert.match(p.stdout + p.stderr, /Invalid or unapproved capture metadata/);
+});
+
+test("an otherwise valid but mismatched teacher route is rejected", t => {
+  const cwd = setup(t);
+  const p = runProof(cwd, "wrong-in-scope-route");
   assert.notEqual(p.status, 0);
   assert.match(p.stdout + p.stderr, /Invalid or unapproved capture metadata/);
 });
