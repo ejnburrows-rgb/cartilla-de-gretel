@@ -47,7 +47,7 @@ async function main() {
 
   // Run Playwright capture test
   try {
-    execSync("pnpm exec playwright test tests/e2e/finish-proof-capture.spec.ts --project=chromium", {
+    execSync("pnpm exec playwright test tests/e2e/finish-proof-capture.spec.ts --project=chromium --workers=1", {
       stdio: "inherit",
       env: {
         ...process.env,
