@@ -163,3 +163,23 @@ test("a hostile ambient PATH cannot launch shadow pnpm or forge source proof", t
   assert.equal(fs.existsSync(sentinel), false,
     "the browser server must never resolve a shadow pnpm from an ambient PATH");
 });
+
+test("hostile HOME Git fsmonitor cannot execute while capturing source proof", t => {
+  const cwd = setup(t);
+  const hostileHome = path.join(cwd, "node_modules", "malicious-home");
+  fs.mkdirSync(hostileHome, { recursive: true });
+  const sentinel = path.join(cwd, "node_modules", "fsmonitor-was-executed");
+  const monitor = path.join(hostileHome, process.platform === "win32" ? "fsmonitor.cmd" : "fsmonitor");
+  fs.writeFileSync(monitor, process.platform === "win32"
+    ? `@echo off\r\necho compromised>"${sentinel}"\r\n`
+    : `#!/bin/sh\nprintf compromised > "${sentinel}"\n`, { mode: 0o755 });
+  const config = path.join(hostileHome, ".gitconfig");
+  fs.writeFileSync(config, `[core]\n  fsmonitor = "${monitor}"\n`);
+  // The parent was given hostile configuration; the child must not inherit it.
+  const p = runProof(cwd, "success", {
+    HOME: hostileHome, GIT_CONFIG_GLOBAL: config,
+  });
+  assert.equal(p.status, 0, p.stdout + p.stderr);
+  assert.equal(fs.existsSync(sentinel), false,
+    "proof git status must not execute a HOME-supplied fsmonitor hook");
+});
