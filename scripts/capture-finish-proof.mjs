@@ -68,9 +68,9 @@ async function main() {
   // Run Playwright capture test
   try {
     // The installed Playwright CLI is launched through Node directly on all OSes.
-    // execFileSync cannot run pnpm.cmd on Windows; avoid shell/PATH resolution.
+    // A dedicated config starts Vite using absolute Node/Vite paths, not pnpm or PowerShell.
     const playwrightCli = fileURLToPath(import.meta.resolve("@playwright/test/cli"));
-    execFileSync(process.execPath, [playwrightCli, "test", "tests/e2e/finish-proof-capture.spec.ts", "--project=chromium", "--workers=1"], {
+    execFileSync(process.execPath, [playwrightCli, "test", "tests/e2e/finish-proof-capture.spec.ts", "--config=scripts/owner-proof-playwright.config.ts", "--project=chromium", "--workers=1"], {
       stdio: "inherit",
       env: { ...trustedChildEnv, PROOF_DIR },
     });
