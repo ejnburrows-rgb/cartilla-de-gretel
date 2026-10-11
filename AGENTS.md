@@ -1,5 +1,17 @@
 # AGENTS.md — mandatory, every session, no exceptions
 
+## STOP — OWNER CREDIT / ANTIGRAVITY DENY-BY-DEFAULT GATE (2026-10-11)
+
+**Applies to every agent, dispatcher, Jules worker, reviewer, scheduled observer, connector and desktop/CLI operator. Overrides ALL older instructions suggesting Antigravity as a fallback or authorizing its launcher.**
+
+- **Google Antigravity / Google Gravity is FORBIDDEN by default**: never start, connect, invoke, route tasks through, or consume its weekly quota via the GUI, CLI, PowerShell launcher, models, plugins, or indirect agent/workflow calls.
+- Access to the user's PC/CLI, DeepSeek harness, GitHub, Jules, Desktop Commander, or older Antigravity integration does **NOT** grant Antigravity authorization. Do not invoke Antigravity even to check remaining quota, troubleshoot usage, or test this prohibition.
+- **Before** using Antigravity, require a **new, explicit, task-specific advance owner approval** naming Antigravity and the intended scope. Silence, historical permission, a tool being connected, fallback logic and broad "continue working" instructions are NOT approvals. Where permission is unknown, DENY, do not try the tool, and continue only with independently approved non-Antigravity paths.
+- For any other new paid, credit-consuming or quota-limited service outside previously authorized scope, stop and obtain explicit owner approval before an operation that could spend credits. No automatic provider escalation.
+- If a task cannot proceed without prohibited access, report the precise dependency rather than silently using the connected launcher. Any pre-existing local Antigravity launcher/agent must stay unused until the owner grants new explicit permission.
+- This repository rule **does not itself technically disable the laptop launcher**; verify the laptop execution path separately before claiming a technical block.
+
+
 ## STOP — OWNER-APPROVAL-ONLY JULES + LATEST-APPROVAL-ONLY VISUAL GATE (2026-10-11)
 
 **HIGHEST PRIORITY FOR ALL AGENTS, JULES, DISPATCHERS, WATCHERS, REVIEWERS, SUPERVISORS, AUTOMATIONS AND REPORTS. Overrides older instructions anywhere in the repository, issues, PRs, historical screenshots, memories or prompts.**
@@ -316,13 +328,13 @@ The controller assigns missing final or cross-lane verification to Jules as a de
 
 ### WORKER PROOF + WATCHDOG SAFETY — code/behavior PRs (owner decision 2026-10-09)
 
-**Jules is the implementation and focused-test worker.** The GitHub dispatcher routes tasks; the watchdog/controller reconciles scope, dependencies, actual code changes, necessary tests and merges. Antigravity is an **optional second-layer fallback**, never a prerequisite for Jules, GitHub dispatch, testing, merging or the watchdog.
+**Jules is the implementation and focused-test worker.** The GitHub dispatcher routes tasks; the watchdog/controller reconciles scope, dependencies, actual code changes, necessary tests and merges. Antigravity is **prohibited by default under the owner credit gate above**, never a fallback or prerequisite for Jules, GitHub dispatch, testing, merging or the watchdog.
 
 - **SonarCloud/SonarQube is ADVISORY and NON-BLOCKING.** Keep the existing analysis visible; no quality gate, scan status, unavailable integration, bot comment, duplication percentage, or Sonar signoff is required for dispatch, continuation, or merge. A substantive defect independently confirmed by review or Jules proof still blocks the affected change. This owner-approved policy supersedes older mandatory-Sonar wording in historical comments or Engram. Do NOT restore Sonar as a required GitHub check.
 - **Small executable pre-merge evidence check:** The designated controller uses `node scripts/check-merge-policy.mjs --evidence <receipt.json>` to assess the current PR's material file list, current-head and test validity, existing independent review, owner authorization, UI proof applicability, and confirmed serious defects; Sonar result is recorded only as advice. Document-only PRs require controller review but no Jules product-test rerun. Reuse the existing Jules proof; no duplicate tests, new worker, GitHub Actions, or new infrastructure. This CLI is a local/controller decision check, NOT a GitHub server-enforced restriction; do not claim it prevents an unrelated actor from bypassing the script. Before a final release check, `pnpm verify:policy` verifies the four active policy documents.
 - Jules must commit **material file changes** and provide the exact PR head SHA and focused raw test results; do not count an empty commit, bot acknowledgement or Jules Completed state as verified work.
 - The watchdog/controller must inspect current `main`, the material PR diff, overlap, scope and dependencies, and Jules' existing raw focused-test outcomes without repeating the tests. Require existing or newly assigned Jules browser/device evidence where visible interaction actually changed. Reuse valid evidence across unrelated/doc-only commits; never gate a disjoint implementation lane on unrelated tests or a failed service.
-- A failing, inaccessible, unauthenticated, rate-limited, or unresponsive Antigravity CLI/watchdog fallback must **never block the primary GitHub→Jules workflow**. Record the failure for later recovery and continue with independent eligible tasks. Antigravity must not independently redispatch an existing task or overwrite a worker-owned branch.
+- Antigravity is **not a permitted fallback**. Do not launch its CLI/watchdog even to test availability or usage; continue with independently authorized GitHub/Jules work and preserve owner-only authorization boundaries.
 - Before merging an existing PR, reconcile current `main`, verify the exact head and the relevant behavioral proof; after a material head change rerun only the evidence it invalidates. Fix actual serious bugs, regressions and conflicts, not tool status artifacts.
 - Before merge, record exact head SHA, material changed-file list, applicable test command/results, observable UI proof if relevant, concrete unresolved problems and the merge decision. No Sonar-specific or second-reviewer signoff language is required.
 - Full assembled-product `pnpm verify:release`, final browser/device validation and owner-gated approvals still apply to the eventual product release, **not** to every implementation task or unrelated PR. Preserve all applicable safety, source fidelity, security and owner approval rules.
@@ -531,7 +543,7 @@ For visible UI work, the owning Jules worker publishes needed milestone browser 
 
 - Use Jules account **EJNRCGPLm / ejnrcgplm@gmail.com** exclusively. Never use **EJnRCG / ejnrcg@gmail.com**. A browser tab index, GitHub login, Markdown file, or bot reaction does not establish the Jules account identity.
 - Prefer direct authenticated Jules API/MCP, native GitHub tools, repository commands, and authoritative API documentation. Do not use Playwright or browser automation to operate accounts or external services. Do not use Desktop Commander unless EJN explicitly requests it.
-- Jules implements and runs focused tests; GitHub is the primary dispatch surface; the watchdog/controller performs essential integration and real-evidence checks. Antigravity is a non-blocking second-layer fallback. Sonar is advisory; no additional external reviewer is required beyond the existing independent controller diff review. Preserve important product tests and final release proof.
+- Jules implements and runs focused tests; GitHub is the primary dispatch surface; the watchdog/controller performs essential integration and real-evidence checks. Antigravity is prohibited without new, task-specific owner authorization; it is not an available fallback. Sonar is advisory; no additional external reviewer is required beyond the existing independent controller diff review. Preserve important product tests and final release proof.
 - A Markdown instruction does not start a Jules session. Dispatch through an authenticated API/MCP or existing authorized GitHub Jules workflow, and distinguish delivery, acknowledgement, running, and verified completion.
 - Do not claim a direct Jules connection until credentials are securely configured and a harmless authenticated request succeeds. Never commit API keys or request secrets in chat.
 - Reuse unchanged exact-head evidence. On unchanged state, exit without repeated tests, browser tours, new artifacts, or duplicate workers. Review changed heads and report precise remaining gaps.
