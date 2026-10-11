@@ -1,0 +1,108 @@
+import test from "node:test";
+import assert from "node:assert/strict";
+import fs from "node:fs";
+import os from "node:os";
+import path from "node:path";
+import { spawnSync } from "node:child_process";
+import { fileURLToPath } from "node:url";
+
+const HARNESS = fileURLToPath(new URL("../capture-finish-proof.mjs", import.meta.url));
+
+// Run a real copy of the proof launcher in a disposable local Git checkout.
+// The fake pnpm executable only supplies synthetic output files: this tests the
+// integrity guards and never claims to verify actual Workbook rendering.
+const FAKE_PNPM = String.raw`const fs = require("node:fs");
+const path = require("node:path");
+const dir = process.env.PROOF_DIR;
+const mode = process.env.FAKE_CAPTURE_MODE;
+if (!dir) process.exit(3);
+if (mode === "source-changed") fs.appendFileSync(path.join(process.cwd(), "tracked.txt"), "changed during capture\n");
+for (let i = 0; i < (mode === "incomplete" ? 59 : 60); i++) {
+  const filename = "capture-" + String(i).padStart(2, "0") + ".png";
+  const data = {
+    filename, route: "/cartilla/leccion/1", device: "phone",
+    surface: "student", lesson: 1, printedPage: 1,
+    approvalStatus: "NOT_OWNER_APPROVED",
+  };
+  if (mode === "bad-metadata" && i === 0) data.route = "/dev-gretel";
+  fs.writeFileSync(path.join(dir, filename), "synthetic test fixture");
+  fs.writeFileSync(path.join(dir, filename + ".meta.json"), JSON.stringify(data));
+}
+`;
+
+function runGit(cwd, ...args) {
+  const p = spawnSync("git", args, { cwd, encoding: "utf8" });
+  assert.equal(p.status, 0, p.stderr);
+}
+
+function setup(t) {
+  const cwd = fs.mkdtempSync(path.join(os.tmpdir(), "cartilla-proof-guard-"));
+  t.after(() => fs.rmSync(cwd, { recursive: true, force: true }));
+  fs.mkdirSync(path.join(cwd, "scripts"), { recursive: true });
+  fs.mkdirSync(path.join(cwd, "bin"), { recursive: true });
+  fs.writeFileSync(path.join(cwd, "scripts", "capture-finish-proof.mjs"), fs.readFileSync(HARNESS));
+  fs.writeFileSync(path.join(cwd, ".gitignore"), "/docs/proofs/final-assembly/runs/\n");
+  fs.writeFileSync(path.join(cwd, "tracked.txt"), "committed\n");
+  fs.writeFileSync(path.join(cwd, "bin", "pnpm-stub.cjs"), FAKE_PNPM);
+  fs.writeFileSync(path.join(cwd, "bin", "pnpm"), "#!/usr/bin/env node\nrequire('./pnpm-stub.cjs');\n", { mode: 0o755 });
+  fs.writeFileSync(path.join(cwd, "bin", "pnpm.cmd"), "@echo off\r\nnode \"%~dp0pnpm-stub.cjs\" %*\r\n");
+  runGit(cwd, "init", "-q");
+  runGit(cwd, "config", "user.email", "test@invalid.example");
+  runGit(cwd, "config", "user.name", "Local Proof Test");
+  runGit(cwd, "add", ".");
+  runGit(cwd, "commit", "-qm", "baseline");
+  return cwd;
+}
+
+function runProof(cwd, mode = "success") {
+  return spawnSync(process.execPath, ["scripts/capture-finish-proof.mjs"], {
+    cwd,
+    encoding: "utf8",
+    env: { ...process.env, PATH: path.join(cwd, "bin") + path.delimiter + process.env.PATH, FAKE_CAPTURE_MODE: mode },
+  });
+}
+
+test("clean checkout produces complete, unapproved, versioned proof metadata", t => {
+  const cwd = setup(t);
+  const p = runProof(cwd);
+  assert.equal(p.status, 0, p.stdout + p.stderr);
+  const out = p.stdout.match(/Manifest written to: (.*MANIFEST\.json)/);
+  assert.ok(out, p.stdout);
+  const meta = JSON.parse(fs.readFileSync(out[1].trim(), "utf8"));
+  assert.equal(meta.capturedScreenshots.length, 60);
+  assert.equal(meta.captures.length, 60);
+  assert.equal(meta.ownerApprovalStatus, "NOT_APPROVED_UNTIL_OWNER_REVIEWS_CURRENT_RENDER");
+  runGit(cwd, "diff", "--exit-code");
+  const status = spawnSync("git", ["status", "--porcelain"], { cwd, encoding: "utf8" });
+  assert.equal(status.stdout.trim(), "", "generated proof must remain ignored");
+});
+
+test("dirty checkout is rejected before synthetic capture begins", t => {
+  const cwd = setup(t);
+  fs.appendFileSync(path.join(cwd, "tracked.txt"), "uncommitted\n");
+  const p = runProof(cwd);
+  assert.notEqual(p.status, 0);
+  assert.match(p.stdout + p.stderr, /uncommitted\/dirty checkout/);
+  assert.equal(fs.existsSync(path.join(cwd, "docs", "proofs")), false);
+});
+
+test("source changed during capture is rejected", t => {
+  const cwd = setup(t);
+  const p = runProof(cwd, "source-changed");
+  assert.notEqual(p.status, 0);
+  assert.match(p.stdout + p.stderr, /Source changed during capture/);
+});
+
+test("missing screenshots cannot yield a complete manifest", t => {
+  const cwd = setup(t);
+  const p = runProof(cwd, "incomplete");
+  assert.notEqual(p.status, 0);
+  assert.match(p.stdout + p.stderr, /expected 60 PNGs, found 59/);
+});
+
+test("a screenshot from a development route cannot be accepted", t => {
+  const cwd = setup(t);
+  const p = runProof(cwd, "bad-metadata");
+  assert.notEqual(p.status, 0);
+  assert.match(p.stdout + p.stderr, /Invalid or unapproved capture metadata/);
+});
