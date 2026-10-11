@@ -35,18 +35,32 @@ it('ungraded production completes while old and new production never affect lite
   expect(lessonAccuracy('1')).toBe(.5);
   expect(getStats()['1'].draw_box_old.completedRounds).toBe(1);
 });
-it('preserves validated selections, marks wrong choices and reports remaining count without reveal-all', () => {
-  const view = render(<GretelActivity id="multi" pageNumber={1} kind="picture-grid"><InteractivePictureGrid lessonId="1" accent="#123" region={{ id: 'multi', regionType: 'picture-grid', order: 1, fontRole: 'body', cells: [{ caption: 'oso', correct: true }, { caption: 'olla', correct: true }, { caption: 'avión', correct: false }] }} /></GretelActivity>);
-  fireEvent.click(screen.getByRole('button', { name: /oso/ })); fireEvent.click(screen.getByRole('button', { name: /avión/ })); fireEvent.click(screen.getByText('Comprobar'));
-  expect(view.container.querySelectorAll('.graded-correct')).toHaveLength(1);
-  expect(view.container.querySelectorAll('.graded-wrong')).toHaveLength(1);
-  expect(view.container.querySelectorAll('.graded-missed')).toHaveLength(0);
-  expect(screen.getByRole('status')).toHaveTextContent('Faltan 1');
-  expect(getStats()['1'].picture_grid_multi).toMatchObject({ hits: 1, attempts: 3, meta: { completed: false } });
-  fireEvent.click(screen.getByText('Corregir respuestas'));
-  expect(screen.getByRole('button', { name: /oso/ })).toBeDisabled();
-  fireEvent.click(screen.getByRole('button', { name: /olla/ })); fireEvent.click(screen.getByText('Comprobar'));
-  expect(getStats()['1'].picture_grid_multi.meta).toMatchObject({ completed: true, outcome: 'independent-success' });
+it('picture grids use source-faithful pencil/eraser, retain correct marks and do not reveal missing targets', () => {
+  vi.useFakeTimers();
+  const view = render(<GretelActivity id="multi" pageNumber={1} kind="picture-grid"><InteractivePictureGrid lessonId="1" accent="#123" region={{
+    id: 'multi', regionType: 'picture-grid', order: 1, fontRole: 'body',
+    cells: [{ caption: 'oso', correct: true }, { caption: 'olla', correct: true }, { caption: 'avión', correct: false }],
+  }} /></GretelActivity>);
+  const select = (label: string) => {
+    fireEvent.click(screen.getByRole('button', { name: label }));
+    act(() => vi.advanceTimersByTime(4000));
+  };
+  expect(view.container.querySelector('.fp-ix-cell__lasso')).toBeNull();
+  expect(screen.queryByText('Comprobar')).toBeNull();
+
+  select('avión');
+  expect(screen.getByRole('button', { name: 'avión' })).toHaveAttribute('aria-pressed', 'false');
+  expect(getStats()['1'].picture_grid_multi.meta).toMatchObject({ completed: false });
+  // A wrong answer does not reveal all correct choices or give mastery credit.
+  expect(screen.getByRole('button', { name: 'olla' })).toHaveAttribute('aria-pressed', 'false');
+
+  select('oso');
+  expect(screen.getByRole('button', { name: 'oso' })).toBeDisabled();
+  select('olla');
+  expect(getStats()['1'].picture_grid_multi.meta).toMatchObject({
+    completed: true, outcome: 'independent-success',
+  });
+  expect(view.container.querySelector('.fp-ix-cell__lasso')).toBeNull();
 });
 it('Completa gives immediate gentle wrong feedback for implicit distractors and permits correction', () => {
   render(<InteractiveFillInBlank accent="#123" region={{ id: 'fill', regionType: 'fill-in-blank', order: 1, fontRole: 'body', fillItems: [{ wordBox: 'mapa', blank: '___pa', choices: [{ text: 'sa' }, { text: 'ma', correct: true }] }] }} />);
