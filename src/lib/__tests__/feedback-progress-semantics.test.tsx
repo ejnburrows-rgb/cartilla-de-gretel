@@ -60,7 +60,8 @@ it('picture grids use source-faithful pencil/eraser, retain correct marks and do
   expect(screen.getByRole('button', { name: 'oso' })).toBeDisabled();
   select('olla');
   expect(getStats()['1'].picture_grid_multi.meta).toMatchObject({
-    completed: true, outcome: 'independent-success',
+    completed: true, attemptCorrect: true, corrected: true,
+    outcome: 'independent-success',
   });
   expect(view.container.querySelector('.fp-ix-cell__lasso')).toBeNull();
 });
