@@ -2,7 +2,12 @@ import { execSync } from "node:child_process";
 import fs from "node:fs";
 import path from "node:path";
 
-const PROOF_DIR = path.resolve(process.cwd(), "docs/proofs/final-assembly");
+// Each run uses a fresh directory: never include older screenshots in a new proof manifest.
+const PROOF_DIR = path.resolve(
+  process.cwd(),
+  "docs/proofs/final-assembly/runs",
+  `${new Date().toISOString().replace(/[:.]/g, "-")}-${process.pid}`,
+);
 
 async function main() {
   console.log("=== Cartilla Owner-Proof Capture Harness ===");
@@ -20,6 +25,10 @@ async function main() {
     console.error("Warning: Could not retrieve git commit SHA:", err.message);
   }
 
+  if (!/^[0-9a-f]{40}$/i.test(commitSha)) {
+    console.error("No verified Git commit SHA: refusing to capture untraceable owner proof.");
+    process.exit(1);
+  }
   console.log(`Captured Commit SHA: ${commitSha}`);
   console.log("Running Playwright proof capture spec against local dev:worker instance...");
 
@@ -43,7 +52,10 @@ async function main() {
   const manifest = {
     capturedAt: new Date().toISOString(),
     commitSha,
-    harnessVersion: "1.0.0",
+    harnessVersion: "1.1.0",
+    evidenceRoute: "real-cartilla-lesson-and-teacher-routes-only",
+    ownerApprovalStatus: "NOT_APPROVED_UNTIL_OWNER_REVIEWS_CURRENT_RENDER",
+    approvalStandards: ["WORKBOOK_ARCHETYPE_STANDARD.md", "STUDENT_INTERACTION_STANDARD.md"],
     devServerMode: "dev:worker",
     deviceMatrix: {
       phone: "390x844",
