@@ -197,6 +197,14 @@ test.describe("Owner-Proof Final Capture Harness & Device Matrix", () => {
 
         const nativeBoard = page.getByTestId("flipchart-stage").getByTestId("flipchart-native-board");
         await expect(nativeBoard).toHaveAttribute("data-flipchart-page", "9");
+        // A matching page number alone is not proof: wait for real source art.
+        const art = nativeBoard.locator("img");
+        await expect.poll(() => art.count(), { timeout: 15000 }).toBeGreaterThan(0);
+        await expect.poll(
+          () => art.evaluateAll((images) => images.every((image) => image.complete && image.naturalWidth > 0)),
+          { timeout: 15000 },
+        ).toBe(true);
+        await expect(page.getByText("Cargando lámina…")).toHaveCount(0);
 
         await captureOwnerProof(page, `teacher-flipchart-p9-${device}.png`, { device, surface: "flipchart", expectedRoute: "/cartilla/presentar/7", lesson: 7, printedPage: 9 });
 
