@@ -1,4 +1,4 @@
-import { useMemo } from "react";
+import { useMemo, memo } from "react";
 import { CATALOG, type CatalogEntry } from "@/lib/lesson-catalog";
 import { MonochromeDrawing } from "./MonochromeDrawings";
 
@@ -27,7 +27,12 @@ interface SVGWorkbookLineProps {
   dotted?: boolean;
 }
 
-export function SVGWorkbookLine({ text, dotted = false }: SVGWorkbookLineProps) {
+// ⚡ Bolt Optimization: Memoized static SVG component to prevent dozens of unnecessary
+// re-renders per workbook page when parent state changes.
+export const SVGWorkbookLine = memo(function SVGWorkbookLine({
+  text,
+  dotted = false,
+}: SVGWorkbookLineProps) {
   return (
     <svg
       viewBox="0 0 400 45"
@@ -63,14 +68,15 @@ export function SVGWorkbookLine({ text, dotted = false }: SVGWorkbookLineProps) 
       </text>
     </svg>
   );
-}
+});
 
 // Letter Tracing with Directional Arrows
 interface SVGTracingLetterProps {
   letter: string;
 }
 
-export function SVGTracingLetter({ letter }: SVGTracingLetterProps) {
+// ⚡ Bolt Optimization: Memoized static SVG component to prevent unnecessary re-renders.
+export const SVGTracingLetter = memo(function SVGTracingLetter({ letter }: SVGTracingLetterProps) {
   const isVowel = ["a", "e", "i", "o", "u"].includes(letter.toLowerCase());
 
   return (
@@ -132,7 +138,7 @@ export function SVGTracingLetter({ letter }: SVGTracingLetterProps) {
       )}
     </svg>
   );
-}
+});
 
 interface WorkbookPageRendererProps {
   pageNumber: number;
