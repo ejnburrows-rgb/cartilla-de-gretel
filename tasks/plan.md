@@ -14,7 +14,7 @@
 > **Finish contract:** `PROJECT_FINISH_DEFINITION.md` defines finished. This file is only the current gap-closing execution plan.
 
 **Updated:** 2026-10-10
-**Concurrency authority:** `AGENTS.md` only. Current owner target: **up to 15 provider-confirmed active Jules sessions** when the authenticated account's actual capacity and disjoint eligible work permit. The target is not proof of entitlement, active sessions or automatically available slots.
+**Concurrency authority:** `AGENTS.md` only. Capacity ceiling only: **no more than 15 provider-confirmed active Jules sessions**, and only when the authenticated account's actual capacity permits. It is NOT a target or goal, and not proof of entitlement, active sessions or available slots; new Jules work still requires the owner's explicit latest approval.
 
 > **Owner clarification 2026-10-10 (latest):** The old PC polling script and Neon/Vercel/OpenHands system stay disabled and historical. The distinct, pre-existing **hourly ChatGPT cloud Cartilla Jules Continuity** coordinator was explicitly **re-enabled** by the owner and may inspect GitHub and coordinate Jules tasks without PC access. This is permission for that scheduled task, **not proof of a working end-to-end dispatch or currently occupied Jules lanes**. Check current owner instructions and live Jules receipts; never silently revive the retired infrastructure.
 
@@ -64,7 +64,7 @@ Do not confuse printed page numbers with PDF file indices. Historical mapping fi
    - No GitHub Actions, paid runners, weakened/skipped tests, or asset-output implementation commits.
 
 2. **#616 + #617 + #618 + #615 — page turns & living motion integrated**
-   - Merged into `main` via #626, #618, and #633. Teacher hand mode, corner flips, Workbook real-paper page turns, Page 1 continuous motion, and Lesson 7 Flip Chart picture motion pilot are verified on `main`.
+   - Merged into `main` via #626, #618, and #633. Teacher hand mode, corner flips, Workbook real-paper page turns, Page 1 continuous motion, and Lesson 7 Flip Chart picture motion pilot were technically checked on `main`. **This is NOT approval of the motion.** The owner's 2026-10-11 realistic-motion decision (see `STUDENT_INTERACTION_STANDARD.md` / `DESIGN.md`) supersedes it, and the earlier cow/picture motion still needs correction and fresh owner approval.
 
 3. **Current Pre-Final Regressions & Active Implementation batch (in flight)**
    - Pre-final regressions verified and merged: #571 (#628), #567 (#630), #561 (#631), #562 (#632), #570 (#636), #585 (#638), #450 (#641), #457 (#642), #560 (#643), #579 (#646).
@@ -99,13 +99,13 @@ Do not confuse printed page numbers with PDF file indices. Historical mapping fi
 
 - **SonarCloud/SonarQube is advisory and non-blocking**, including duplication/quality-gate failures: a confirmed real defect is blocking, not an unconfirmed scan warning. Jules' relevant existing focused and UI proof plus exact-head controller review determine readiness; zero material file changes are not implementation completion. Use `node scripts/check-merge-policy.mjs --docs` for active-policy consistency and `--evidence <receipt.json>` for a bounded pre-merge decision. These checks do not launch/repeat Jules tests, change branch protection, or auto-merge.
 
-- Re-read current `AGENTS.md` every run. Run its mandatory live Jules session census, reconcile queued/running/completed/review states, and refill toward **15 genuinely active nonduplicate sessions** when provider capacity permits. Never restore the obsolete two-worker cap or count GitHub labels as running workers.
-- Dispatch every genuinely independent, dependency-ready, non-owner-gated implementation, targeted QA, rendered-proof or evidenced cleanup lane that current Jules capacity permits, up to the 15-session owner target. Reuse completed proof and assign no filler tasks.
+- Re-read current `AGENTS.md` every run. A read-only census of live Jules session states is allowed; **do NOT refill toward 15** or any other number. 15 is a capacity ceiling only. Never restore the obsolete two-worker cap or count GitHub labels as running workers.
+- Start a NEW Jules task ONLY with the owner's explicit latest affirmative approval for that exact issue/scope (linked by the designated GitHub Dispatcher). Reuse completed proof; assign no filler tasks.
 - Keep overlapping files/dependency chains sequential only where necessary.
 - A completed, blocked, owner-gated or dependency-waiting lane must not reserve Jules capacity.
 - Reuse existing canonical issues/PRs before creating anything new.
 - Do not create work just to fill capacity.
-- After each merge/completion/blocker change, rescan in the same controller run and immediately dispatch newly unblocked real work.
+- After each merge/completion/blocker change, rescan read-only in the same controller run and report newly unblocked work to the owner; do not dispatch it without the owner's explicit approval.
 - Preserve source fidelity and existing working behavior.
 - No production deployment during ordinary verification/integration.
 - For visual/behavior owner approval, show the actual rendered result or directly testable preview in chat, not a GitHub page.
