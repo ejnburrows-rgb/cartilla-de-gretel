@@ -212,6 +212,15 @@ test.describe("Owner-Proof Final Capture Harness & Device Matrix", () => {
         await page.keyboard.press("ArrowRight");
         await page.locator("[data-testid='vertical-flip-layer']").waitFor({ state: "detached", timeout: 5000 }).catch(() => {});
         await expect(nativeBoard).toHaveAttribute("data-flipchart-page", "10");
+        // The second printed page needs the same real-image readiness gate as page 9.
+        // A successful page turn or matching data attribute does not prove that
+        // the physical Flip Chart artwork loaded before the proof screenshot.
+        await expect.poll(() => art.count(), { timeout: 15000 }).toBeGreaterThan(0);
+        await expect.poll(
+          () => art.evaluateAll((images) => images.every((image) => image.complete && image.naturalWidth > 0)),
+          { timeout: 15000 },
+        ).toBe(true);
+        await expect(page.getByText("Cargando lámina…")).toHaveCount(0);
 
         await captureOwnerProof(page, `teacher-flipchart-turn-p10-${device}.png`, { device, surface: "flipchart", expectedRoute: "/cartilla/presentar/7", lesson: 7, printedPage: 10 });
       });
