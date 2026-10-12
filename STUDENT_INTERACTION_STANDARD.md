@@ -16,7 +16,7 @@
 
 **Status:** CANONICAL OWNER-APPROVED STUDENT INTERACTION DIRECTION  
 **Approved by:** Emilio  
-**Approved on:** 2026-10-03; archetype relationship clarified 2026-10-06
+**Approved on:** 2026-10-03; archetype relationship clarified 2026-10-06; pencil look, close-up zoom, eraser crumbs and realistic living-picture motion updated by owner decision 2026-10-11
 
 This file is the source of truth for the premium student-facing Workbook interaction language. `WORKBOOK_ARCHETYPE_STANDARD.md` separately owns the recurring visual/source-layout family. When an older issue, mockup, implementation note, or active non-archived document conflicts with this file on student interaction behavior, this file wins.
 
