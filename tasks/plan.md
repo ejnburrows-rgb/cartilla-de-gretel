@@ -14,7 +14,7 @@
 > **Finish contract:** `PROJECT_FINISH_DEFINITION.md` defines finished. This file is only the current gap-closing execution plan.
 
 **Updated:** 2026-10-10
-**Concurrency authority:** `AGENTS.md` only. Current owner target: **up to 15 provider-confirmed active Jules sessions** when the authenticated account's actual capacity and disjoint eligible work permit. The target is not proof of entitlement, active sessions or automatically available slots.
+**Concurrency authority:** `AGENTS.md` only. Capacity ceiling only: **no more than 15 provider-confirmed active Jules sessions**, and only when the authenticated account's actual capacity permits. It is NOT a target or goal, and not proof of entitlement, active sessions or available slots; new Jules work still requires the owner's explicit latest approval.
 
 > **Owner clarification 2026-10-10 (latest):** The old PC polling script and Neon/Vercel/OpenHands system stay disabled and historical. The distinct, pre-existing **hourly ChatGPT cloud Cartilla Jules Continuity** coordinator was explicitly **re-enabled** by the owner and may inspect GitHub and coordinate Jules tasks without PC access. This is permission for that scheduled task, **not proof of a working end-to-end dispatch or currently occupied Jules lanes**. Check current owner instructions and live Jules receipts; never silently revive the retired infrastructure.
 
