@@ -148,6 +148,9 @@ test.describe("Owner-Proof Final Capture Harness & Device Matrix", () => {
         await expect(correct).toBeDisabled({ timeout: 10000 });
         await expect(correct).toHaveAttribute("aria-pressed", "true");
         await expect(grid.locator(".fp-ix-cell__lasso")).toHaveCount(0);
+        await captureOwnerProof(page, `student-pencil-correction-${device}.png`, {
+          device, surface: "student", expectedRoute: "/cartilla/leccion/2", lesson: 2, printedPage: 4,
+        });
       });
 
       // 2. Teacher Home
@@ -226,14 +229,6 @@ test.describe("Owner-Proof Final Capture Harness & Device Matrix", () => {
         await captureOwnerProof(page, `teacher-reportes-${device}.png`, { device, surface: "teacher", expectedRoute: "/cartilla/teacher/reportes" });
       });
 
-      // 6. Actual student lesson baseline (never pass a /dev-* page as owner proof).
-      test("Real Student Lesson Visual Baseline", async ({ page }) => {
-        await page.setViewportSize(viewport);
-        await page.goto("/cartilla/leccion/1");
-        await expect(page.locator(".native-lesson-viewer").first()).toBeVisible({ timeout: 15000 });
-        await expect(page.locator(".native-lesson-viewer").first()).toHaveAttribute("data-native-page", "1");
-        await captureOwnerProof(page, `student-lesson1-${device}.png`, { device, surface: "student", expectedRoute: "/cartilla/leccion/1", lesson: 1, printedPage: 1 });
-      });
     });
   }
 });
