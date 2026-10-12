@@ -20,7 +20,7 @@ const OTHER_SURFACES = [
   { filename: "teacher-flipchart-turn-p10", route: "/cartilla/presentar/7", surface: "flipchart", lesson: 7, printedPage: 10 },
   { filename: "teacher-progreso", route: "/cartilla/teacher/progreso", surface: "teacher" },
   { filename: "teacher-reportes", route: "/cartilla/teacher/reportes", surface: "teacher" },
-  { filename: "student-lesson1", route: "/cartilla/leccion/1", surface: "student", lesson: 1, printedPage: 1 },
+  { filename: "student-pencil-correction", route: "/cartilla/leccion/2", surface: "student", lesson: 2, printedPage: 4 },
 ];
 export function expectedOwnerProofCaptures() {
   const captures = [];
