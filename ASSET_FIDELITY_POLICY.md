@@ -66,7 +66,7 @@ If the printed book page has no picture, the digital page adds no picture: do no
 
 ### In-app Gretel
 - Lesson interaction uses the existing approved Gretel master/state system rather than generating a separate video/pose set.
-- Motion must be purposeful and restrained. Per owner decision of 2026-10-09, living pictures move continuously, gently, and smoothly while the student works.
+- Motion must be purposeful and restrained. Per owner decision of 2026-10-09, living pictures move continuously, gently, and smoothly while the student works. Motion must be realistic for what each thing is (owner decision 2026-10-11). Animals move like the real animal — for example, the cow blinks, breathes, and flicks its ears or tail — and only the parts that really move do so. Whole pictures must never wave, ripple, bob or float like a flag; only something that really travels as a whole, such as a flying airplane, may move gently as a whole (owner decision 2026-10-11). Motion is built using the original workbook art as the template; owner-approved image snippets follow the same rule.
 - Follow `STUDENT_INTERACTION_STANDARD.md` for student feedback motion.
 
 ## Before any image, source-preserving color transfer, or clip goes into the repo
