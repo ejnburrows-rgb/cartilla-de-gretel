@@ -80,9 +80,12 @@ test.describe("Workbook Archetype 5 & 6 Proof", () => {
     const modeToggle = trace.locator(".fp-trace__mode-toggle");
     await expect(modeToggle, "Tracing mode toggle must be visible and interactive").toBeVisible();
     await expect(modeToggle, "Tracing mode toggle must be enabled").toBeEnabled();
+    const previousModeLabel = await modeToggle.getAttribute("aria-label");
+    expect(previousModeLabel, "Tracing mode must advertise its next action").toBeTruthy();
     // Click without force to prove the tracing hint does not intercept pointer events.
     await modeToggle.click();
-    await page.waitForTimeout(200);
+    await expect(modeToggle, "Tracing mode must actually change after the unforced click")
+      .not.toHaveAttribute("aria-label", previousModeLabel!);
 
     // Perform freehand stroke on drawing canvas
     const drawBox = await drawCanvas.boundingBox();
