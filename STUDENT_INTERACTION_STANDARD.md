@@ -35,7 +35,7 @@ Use one coherent nostalgic school-tool language:
 - no cheap bounce/spin/sticker animation;
 - no generic flat undo/eraser icons when a physical pencil/eraser treatment is appropriate.
 
-Motion must be polished and seamless: one purposeful action, then settle. Per owner decision of 2026-10-09, living pictures move continuously, gently, and smoothly with no stutter, jumps, pops, or visible loop restart seams while the learner works. Motion must be realistic for what each thing is (owner decision 2026-10-11). Animals move like the real animal — for example, the cow blinks, breathes, and flicks its ears or tail — and only the parts that really move do so. Whole pictures must never wave, ripple, bob or float like a flag. Motion is built using the original workbook art as the template; owner-approved image snippets follow the same rule.
+Pencil, eraser and feedback motion must be polished and seamless: one purposeful action, then settle. Per owner decision of 2026-10-09, living pictures move continuously, gently, and smoothly with no stutter, jumps, pops, or visible loop restart seams while the learner works. Motion must be realistic for what each thing is (owner decision 2026-10-11). Animals move like the real animal — for example, the cow blinks, breathes, and flicks its ears or tail — and only the parts that really move do so. Whole pictures must never wave, ripple, bob or float like a flag. Motion is built using the original workbook art as the template; owner-approved image snippets follow the same rule.
 
 ## Canonical interaction decisions
 
@@ -142,6 +142,7 @@ Required qualities:
 - classic wooden school pencil;
 - nostalgic but polished;
 - no cartoon face or mascot on the pencil;
+- no printed stamp, grade mark, serial number or brand name on the pencil (owner decision 2026-10-11);
 - clean, natural movement;
 - restrained easing;
 - no excessive bounce;

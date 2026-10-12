@@ -64,7 +64,7 @@ Outside the drawing-tool activity, the pencil behaves like a physical **actor**,
 
 Motion represents real physical actions with restrained mass.
 
-- one purposeful action, then settle;
+- pencil, eraser and feedback: one purposeful action, then settle;
 - no decorative motion while the learner works; living pictures follow the realistic continuous-motion rule in `ASSET_FIDELITY_POLICY.md` and `STUDENT_INTERACTION_STANDARD.md`;
 - no cheap bounce, spin, sticker pop, rope/lasso physics, or arcade feedback;
 - use coherent timing/easing tokens rather than activity-local magic numbers;
