@@ -49,14 +49,20 @@ function resolveVerifiedGit() {
 const trustedGit = resolveVerifiedGit();
 const trustedPath = [...new Set(executableDirs.filter((directory) => fs.existsSync(directory)))].join(path.delimiter);
 const trustedHome = os.userInfo().homedir; // OS account database, NOT ambient HOME
-function existingWindowsDataFolder(name, fallback) {
-  // Only data directories, never executable search paths.
-  for (const dir of [process.env[name], fallback]) {
-    if (typeof dir !== "string" || !path.isAbsolute(dir)) continue;
-    try { if (fs.statSync(dir).isDirectory()) return fs.realpathSync(dir); }
-    catch { /* Try the next valid existing directory. */ }
-  }
-  return trustedHome;
+function verifiedWindowsProfileFolder(...parts) {
+  // Playwright caches executable browsers in LOCALAPPDATA. A caller-provided
+  // absolute path can redirect it to a malicious binary. Ignore inherited
+  // LOCALAPPDATA, APPDATA, TEMP and TMP entirely.
+  const candidate = path.join(trustedHome, ...parts);
+  try {
+    const home = fs.realpathSync(trustedHome);
+    const folder = fs.realpathSync(candidate);
+    const relative = path.relative(home, folder);
+    if (relative && relative !== ".." &&
+        !relative.startsWith(".." + path.sep) && !path.isAbsolute(relative) &&
+        fs.statSync(folder).isDirectory()) return folder;
+  } catch { /* Unavailable or redirected directory: fail closed. */ }
+  throw new Error("Cannot verify a safe Windows proof directory under the OS account profile.");
 }
 const trustedChildEnv = {
   PATH: trustedPath,
@@ -65,10 +71,10 @@ const trustedChildEnv = {
   GIT_CONFIG_SYSTEM: os.devNull,
   ...(process.platform === "win32"
     ? { SystemRoot: "C:\\Windows", USERPROFILE: trustedHome,
-        LOCALAPPDATA: existingWindowsDataFolder("LOCALAPPDATA", path.join(trustedHome, "AppData", "Local")),
-        APPDATA: existingWindowsDataFolder("APPDATA", path.join(trustedHome, "AppData", "Roaming")),
-        TEMP: existingWindowsDataFolder("TEMP", path.join(trustedHome, "AppData", "Local", "Temp")),
-        TMP: existingWindowsDataFolder("TMP", path.join(trustedHome, "AppData", "Local", "Temp")) }
+        LOCALAPPDATA: verifiedWindowsProfileFolder("AppData", "Local"),
+        APPDATA: verifiedWindowsProfileFolder("AppData", "Roaming"),
+        TEMP: verifiedWindowsProfileFolder("AppData", "Local", "Temp"),
+        TMP: verifiedWindowsProfileFolder("AppData", "Local", "Temp") }
     : { HOME: trustedHome, TMPDIR: "/tmp" }),
 };
 
