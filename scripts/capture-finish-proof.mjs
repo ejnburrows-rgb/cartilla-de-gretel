@@ -49,13 +49,12 @@ function resolveVerifiedGit() {
 const trustedGit = resolveVerifiedGit();
 const trustedPath = [...new Set(executableDirs.filter((directory) => fs.existsSync(directory)))].join(path.delimiter);
 const trustedHome = os.userInfo().homedir; // OS account database, NOT ambient HOME
-function existingWindowsDataFolder(name, fallback) {
-  // Only data directories, never executable search paths.
-  for (const dir of [process.env[name], fallback]) {
-    if (typeof dir !== "string" || !path.isAbsolute(dir)) continue;
-    try { if (fs.statSync(dir).isDirectory()) return fs.realpathSync(dir); }
-    catch { /* Try the next valid existing directory. */ }
-  }
+function existingWindowsDataFolder(fallback) {
+  // Derive Windows data paths only from the OS account home. Ambient
+  // LOCALAPPDATA/APPDATA/TEMP/TMP can be redirected to attacker-controlled folders.
+  if (typeof fallback !== "string" || !path.isAbsolute(fallback)) return trustedHome;
+  try { if (fs.statSync(fallback).isDirectory()) return fs.realpathSync(fallback); }
+  catch { /* Fall back to the OS account home below. */ }
   return trustedHome;
 }
 const trustedChildEnv = {
@@ -65,10 +64,10 @@ const trustedChildEnv = {
   GIT_CONFIG_SYSTEM: os.devNull,
   ...(process.platform === "win32"
     ? { SystemRoot: "C:\\Windows", USERPROFILE: trustedHome,
-        LOCALAPPDATA: existingWindowsDataFolder("LOCALAPPDATA", path.join(trustedHome, "AppData", "Local")),
-        APPDATA: existingWindowsDataFolder("APPDATA", path.join(trustedHome, "AppData", "Roaming")),
-        TEMP: existingWindowsDataFolder("TEMP", path.join(trustedHome, "AppData", "Local", "Temp")),
-        TMP: existingWindowsDataFolder("TMP", path.join(trustedHome, "AppData", "Local", "Temp")) }
+        LOCALAPPDATA: existingWindowsDataFolder(path.join(trustedHome, "AppData", "Local")),
+        APPDATA: existingWindowsDataFolder(path.join(trustedHome, "AppData", "Roaming")),
+        TEMP: existingWindowsDataFolder(path.join(trustedHome, "AppData", "Local", "Temp")),
+        TMP: existingWindowsDataFolder(path.join(trustedHome, "AppData", "Local", "Temp")) }
     : { HOME: trustedHome, TMPDIR: "/tmp" }),
 };
 

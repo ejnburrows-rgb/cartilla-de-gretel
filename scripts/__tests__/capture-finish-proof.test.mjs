@@ -9,6 +9,7 @@ import { expectedOwnerProofCaptures } from "../owner-proof-matrix.mjs";
 
 const HARNESS = fileURLToPath(new URL("../capture-finish-proof.mjs", import.meta.url));
 const OWNER_PROOF_CONFIG = fileURLToPath(new URL("../owner-proof-playwright.config.ts", import.meta.url));
+const E2E_CAPTURE = fileURLToPath(new URL("../../tests/e2e/finish-proof-capture.spec.ts", import.meta.url));
 
 // Run a real copy of the proof launcher in a disposable local Git checkout.
 // The mock installed Playwright CLI only supplies synthetic output files: this tests the
@@ -227,4 +228,24 @@ test("every captured route and printed page is unique per device", () => {
     JSON.stringify([route, printedPage ?? null, device]));
   assert.equal(new Set(keys).size, keys.length,
     "repeated route/page/device screenshots are not independent owner proof");
+});
+
+
+test("Windows child data directories ignore ambient redirect variables", () => {
+  const source = fs.readFileSync(HARNESS, "utf8");
+  assert.doesNotMatch(source, /process\.env\[(?:name|["'](?:LOCALAPPDATA|APPDATA|TEMP|TMP)["'])\]/);
+  for (const variable of ["LOCALAPPDATA", "APPDATA", "TEMP", "TMP"]) {
+    assert.match(source, new RegExp(variable + ": existingWindowsDataFolder\\(path\\.join\\(trustedHome,"));
+  }
+});
+
+test("Flip Chart page 10 waits for loaded source art before capture", () => {
+  const source = fs.readFileSync(E2E_CAPTURE, "utf8");
+  const pageTen = source.indexOf('toHaveAttribute("data-flipchart-page", "10")');
+  const capture = source.indexOf("teacher-flipchart-turn-p10-", pageTen);
+  assert.ok(pageTen >= 0 && capture > pageTen, "page 10 capture sequence must exist");
+  const readiness = source.slice(pageTen, capture);
+  assert.match(readiness, /pageTenArt\.count\(\)/);
+  assert.match(readiness, /image\.complete && image\.naturalWidth > 0/);
+  assert.match(readiness, /Cargando lámina…/);
 });
