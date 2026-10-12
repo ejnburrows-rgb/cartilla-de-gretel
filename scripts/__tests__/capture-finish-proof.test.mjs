@@ -218,3 +218,13 @@ test("a PATH-injected Git executable is never used for source provenance", t => 
   assert.equal(fs.existsSync(sentinel), false,
     "untrusted Git must never be used for exact-commit provenance");
 });
+
+
+test("every captured route and printed page is unique per device", () => {
+  const captures = expectedOwnerProofCaptures();
+  assert.equal(captures.length, 60);
+  const keys = captures.map(({ route, printedPage, device }) =>
+    JSON.stringify([route, printedPage ?? null, device]));
+  assert.equal(new Set(keys).size, keys.length,
+    "repeated route/page/device screenshots are not independent owner proof");
+});
