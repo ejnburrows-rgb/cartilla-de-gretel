@@ -16,7 +16,7 @@
 
 **Status:** CANONICAL OWNER-APPROVED STUDENT INTERACTION DIRECTION  
 **Approved by:** Emilio  
-**Approved on:** 2026-10-03; archetype relationship clarified 2026-10-06
+**Approved on:** 2026-10-03; archetype relationship clarified 2026-10-06; pencil look, close-up zoom, eraser crumbs and realistic living-picture motion updated by owner decision 2026-10-11
 
 This file is the source of truth for the premium student-facing Workbook interaction language. `WORKBOOK_ARCHETYPE_STANDARD.md` separately owns the recurring visual/source-layout family. When an older issue, mockup, implementation note, or active non-archived document conflicts with this file on student interaction behavior, this file wins.
 
@@ -35,7 +35,7 @@ Use one coherent nostalgic school-tool language:
 - no cheap bounce/spin/sticker animation;
 - no generic flat undo/eraser icons when a physical pencil/eraser treatment is appropriate.
 
-Motion must be polished and seamless: one purposeful action, then settle. Per owner decision of 2026-10-09, living pictures move continuously, gently, and smoothly with no stutter, jumps, pops, or visible loop restart seams while the learner works.
+Pencil, eraser and feedback motion must be polished and seamless: one purposeful action, then settle. Per owner decision of 2026-10-09, living pictures move continuously, gently, and smoothly with no stutter, jumps, pops, or visible loop restart seams while the learner works. Motion must be realistic for what each thing is (owner decision 2026-10-11). Animals move like the real animal — for example, the cow blinks, breathes, and flicks its ears or tail — and only the parts that really move do so. Whole pictures must never wave, ripple, bob or float like a flag; only something that really travels as a whole, such as a flying airplane, may move gently as a whole (owner decision 2026-10-11). Motion is built using the original workbook art as the template; owner-approved image snippets follow the same rule.
 
 ## Canonical interaction decisions
 
@@ -44,7 +44,7 @@ Motion must be polished and seamless: one purposeful action, then settle. Per ow
 When a learner makes an incorrect mark/selection:
 1. The learner's mark is visible.
 2. The pencil draws the mark in **red** from the first line, then travels back out past the right edge of the screen, over everything on the way (owner decisions 2026-10-06 and 2026-10-08).
-3. The same big, solid pencil turned around — its pink eraser and silver band at the picture, its body running off the edge of the screen — comes in from off the right edge of the screen, passing over everything on the way, rubs back and forth along the mark while big, clearly visible pink crumbs break off and fall, and leaves past the right edge of the screen once the mark is gone. It never pops up inside the picture's box.
+3. The same big, solid pencil turned around — its pink eraser and silver band at the picture, its body running off the edge of the screen — comes in from off the right edge of the screen, passing over everything on the way, rubs back and forth along the mark while a few small, realistic eraser crumbs, the size and color a real pink eraser leaves, fall and fade — never large, bright or cartoon-like (owner decision 2026-10-11) — and leaves past the right edge of the screen once the mark is gone. It never pops up inside the picture's box.
 4. The eraser visibly removes the incorrect mark completely.
 5. Gretel says: **“Inténtalo otra vez.”**
 6. The activity returns to a calm retry-ready state.
@@ -58,8 +58,8 @@ Use the same classic wooden pencil.
 Owner decision 2026-10-06 (replaces the earlier ~3 second neutral hold), amended 2026-10-08:
 
 1. The learner taps the picture/answer.
-2. A big, solid, full pencil (never faded, never cut off) whose body is long enough to run right off the edge of the screen, so near the picture only its tip is seen, like a real pencil held from off-screen (owner 2026-10-08). It is drawn in HD detail (fine wood grain, lacquer highlights, a crimped band and an "HB · Nº 2" stamp) and sized so it never hides the picture, the line, the rubbing or the crumbs. The line is crisp and solid. It starts **completely off the right edge of the screen** and travels in like a real hand, passing over the page and the neighbouring pictures. It is never cut off at the picture's or the page's edge and never pops up inside a box. It draws the circle in about **2 seconds**. The line is about as thick as before.
-   **Close-up zoom (owner decision 2026-10-08, replaces the earlier "page stays still, no zoom" rule):** when the learner taps, the whole page zooms in gently (about half a second) on the tapped picture, so it shows at roughly 220 px wide (at most 2.4×), and the pencil, the line, the eraser's rubbing and the crumbs are all clearly visible. The page zooms back out after a right answer's green circle has been seen for about a second, or once the eraser has left after a wrong answer. Reduced motion never zooms.
+2. A big, solid, full pencil (never faded, never cut off) whose body is long enough to run right off the edge of the screen, so near the picture only its tip is seen, like a real pencil held from off-screen (owner 2026-10-08). It is drawn in realistic HD detail (fine wood grain, lacquer highlights and a crimped band), with no printed stamp, grade mark, serial number or brand name (owner decision 2026-10-11). Its movement is subtle and lifelike, like a real hand: never bouncy, exaggerated or rushed. It is sized so it never hides the picture, the line, the rubbing or the crumbs. The line is crisp and solid. It starts **completely off the right edge of the screen** and travels in like a real hand, passing over the page and the neighbouring pictures. It is never cut off at the picture's or the page's edge and never pops up inside a box. It draws the circle in about **2 seconds**. The line is about as thick as before.
+   **Close-up zoom (owner decision 2026-10-08, softened by owner decision 2026-10-11):** when the learner taps, the page eases in slowly and subtly (about 1 second) toward the tapped picture, at most about 1.5×, just enough that the pencil, the line and the eraser are clearly visible. The page zooms back out after a right answer's green circle has been seen for about a second, or once the eraser has left after a wrong answer. Reduced motion never zooms.
 3. The circle is **green from the first line** when the answer is right and **red from the first line** when it is wrong. There is no gray waiting period.
 4. After drawing, the pencil travels back out the same way, past the right edge of the screen.
 5. If correct, the green circle stays and Gretel says: **“Buen trabajo.”**
@@ -142,6 +142,7 @@ Required qualities:
 - classic wooden school pencil;
 - nostalgic but polished;
 - no cartoon face or mascot on the pencil;
+- no printed stamp, grade mark, serial number or brand name on the pencil (owner decision 2026-10-11);
 - clean, natural movement;
 - restrained easing;
 - no excessive bounce;
