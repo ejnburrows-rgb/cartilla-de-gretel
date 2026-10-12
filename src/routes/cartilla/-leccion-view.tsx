@@ -19,6 +19,8 @@ import { readLearnerResume, saveLearnerResume } from "@/lib/learner-resume";
 import { gretelEvent } from "@/lib/gretel-bus";
 
 import { NativeLessonViewer } from "@/components/StudentBook/NativeLessonViewer";
+import "@/styles/lesson-fit.css";
+import { exitLessonFullscreen, requestLessonFullscreen } from "@/lib/lesson-fullscreen";
 import { buildPageArray } from "@/utils/buildPageArray";
 import { GretelCinematic } from "@/components/gretel/GretelCinematic";
 import { getCompletionCinematic, getLessonCinematic, type GretelCinematic as GretelCinematicSpec } from "@/content/gretel-cinematics";
@@ -99,6 +101,23 @@ export function Leccion() {
   }, [session, progressData, n, pages.length]);
 
   useEffect(() => { if (progressReady) saveLearnerResume(n, initialPage); }, [n, progressReady, initialPage]);
+  // Laptop full screen (owner decision 2026-10-12). Opening a lesson from the
+  // lesson list already asks for it; if the lesson was opened another way,
+  // the first tap on the page paper (not on an activity) asks once. Leaving
+  // the lesson returns the browser to normal.
+  useEffect(() => {
+    const onFirstPaperTap = (event: PointerEvent) => {
+      const target = event.target as Element | null;
+      if (target?.closest?.("button, a, input, textarea, select, canvas, svg, [role='button']")) return;
+      document.removeEventListener("pointerdown", onFirstPaperTap);
+      requestLessonFullscreen();
+    };
+    document.addEventListener("pointerdown", onFirstPaperTap);
+    return () => {
+      document.removeEventListener("pointerdown", onFirstPaperTap);
+      exitLessonFullscreen();
+    };
+  }, []);
   const [saveFailed, setSaveFailed] = useState(false);
   useEffect(() => {
     const fail = () => setSaveFailed(true);
@@ -168,7 +187,7 @@ export function Leccion() {
   };
 
   return (
-    <div className="lc-lesson-shell min-h-screen flex flex-col">
+    <div className="lc-lesson-shell lc-lesson-shell--fit min-h-screen flex flex-col">
       <DemoStudentBanner />
       <header className="lc-lesson-header">
         <Link
@@ -179,8 +198,8 @@ export function Leccion() {
         </Link>
       </header>
       {saveFailed && <p role="alert" className="mx-3 rounded-xl bg-amber-100 p-3 text-amber-950">No se pudo guardar tu trabajo. Mantén esta página abierta y libera espacio en este navegador antes de salir.</p>}
-      <main className="flex-1 px-3 pb-6 max-w-7xl w-full mx-auto flex flex-col items-center">
-        <div className="w-full max-w-3xl text-left mb-4">
+      <main className="lc-lesson-main flex-1 px-3 pb-6 max-w-7xl w-full mx-auto flex flex-col items-center">
+        <div className="lc-lesson-main__intro w-full max-w-3xl text-left mb-4">
           <div className="text-xs font-bold uppercase tracking-wide text-foreground/50">
             {t.leccion[lang]} {n} · {t.paginas[lang].toLowerCase()} {entry.pages}
           </div>
@@ -210,6 +229,8 @@ export function Leccion() {
                 onPageChange={handlePageChange}
                 onFinish={goNext}
                 lessonNumber={n}
+                autoTurn
+                swipe
               />
             )}
           </GardenScene>

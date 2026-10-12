@@ -7,6 +7,7 @@ import { CATALOG, TOTAL_LESSONS, type CatalogEntry } from "@/lib/lesson-catalog"
 import { useLessonProgress } from "@/lib/lesson-progress";
 import { readLearnerResume } from "@/lib/learner-resume";
 import { playUiTick } from "@/lib/piano-audio";
+import { requestLessonFullscreen } from "@/lib/lesson-fullscreen";
 
 export const Route = createFileRoute("/cartilla/lecciones")({
   component: Lecciones,
@@ -51,7 +52,7 @@ function Lecciones() {
         </div>
       </header>
 
-      {resume && <Link to="/cartilla/leccion/$n" params={{ n: String(resume.lesson) }} className="inline-flex items-center rounded-xl bg-white px-5 py-3 mb-5 font-bold border border-stone-200">Continuar lección {resume.lesson}</Link>}
+      {resume && <Link to="/cartilla/leccion/$n" params={{ n: String(resume.lesson) }} onClick={requestLessonFullscreen} className="inline-flex items-center rounded-xl bg-white px-5 py-3 mb-5 font-bold border border-stone-200">Continuar lección {resume.lesson}</Link>}
       <p className="mb-4 text-sm text-stone-600">Tu escritura y tus dibujos se conservan en este navegador. Vuelve desde el mismo dispositivo y navegador.</p>
       <section className="lc-lesson-grid" aria-label="24 lecciones">
         {CATALOG.map((entry) => {
@@ -63,7 +64,7 @@ function Lecciones() {
               key={entry.n}
               to="/cartilla/leccion/$n"
               params={{ n: String(entry.n) }}
-              onClick={() => playUiTick()}
+              onClick={() => { playUiTick(); requestLessonFullscreen(); }}
               className={`lc-lesson-tile${current ? " is-current" : ""}${done ? " is-done" : ""}`}
               style={{ "--lesson-color": entry.color } as CSSProperties}
               aria-label={`Lección ${entry.n}: ${entry.title}`}

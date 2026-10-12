@@ -1,0 +1,259 @@
+/* Lesson fit-to-screen (owner direction 2026-10-12).
+ * The same clean book page (same wording, artwork, order and markers) fills
+ * the screen with no scrolling on laptop, tablet, phone and projector. The
+ * page is a little wider than the printed book on landscape screens so the
+ * activities get more room; pictures are as large as the page allows.
+ * Scoped to the student lesson route (.lc-lesson-shell--fit). */
+
+.lc-lesson-shell--fit {
+  height: 100dvh;
+  min-height: 0 !important;
+  overflow: hidden;
+}
+.lc-lesson-shell--fit .lc-lesson-main {
+  /* The page measures itself against the space left for it, so a demo
+   * banner or save warning above never pushes the page off screen. */
+  container-type: size;
+  flex: 1 1 0;
+  min-height: 0;
+  width: 100%;
+  max-width: none;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  --lc-top: 12px;
+  --lc-bottom: 12px;
+  --ph: calc(100cqh - var(--lc-top) - var(--lc-bottom));
+  --pw: min(100cqw - 280px, var(--ph) * 1.45);
+}
+@media (orientation: portrait) {
+  .lc-lesson-shell--fit .lc-lesson-main {
+    --lc-top: 44px;
+    --lc-bottom: 76px;
+    --pw: calc(100cqw - 20px);
+  }
+}
+/* Short landscape phones: narrower side margins. */
+@media (orientation: landscape) and (max-height: 500px) {
+  .lc-lesson-shell--fit .lc-lesson-main { --lc-top: 6px; --lc-bottom: 6px; --pw: min(100cqw - 190px, var(--ph) * 1.5); }
+}
+
+.lc-lesson-shell--fit .lc-lesson-main > .lc-lesson-main__intro { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; }
+.lc-lesson-shell--fit .lc-lesson-main > .w-full { padding-top: var(--lc-top); }
+
+/* "Mis lecciones" stays as a small corner link. */
+.lc-lesson-shell--fit .lc-lesson-header { position: fixed; top: 4px; left: 8px; z-index: 60; width: auto; margin: 0; padding: 0; }
+.lc-lesson-shell--fit .lc-lesson-header__back { font-size: 14px; gap: 6px; }
+.lc-lesson-shell--fit .lc-lesson-header__back svg { width: 18px; height: 18px; }
+
+/* Page frame sized to the screen. */
+.lc-lesson-shell--fit .native-lesson-viewer { width: var(--pw); max-width: none; margin: 0 auto; }
+.lc-lesson-shell--fit .native-lesson-viewer__topline { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; margin: 0; }
+.lc-lesson-shell--fit .native-lesson-viewer__content .faithful-page {
+  width: 100%;
+  height: var(--ph);
+  min-height: 0;
+  aspect-ratio: auto;
+  overflow: hidden;
+}
+.lc-lesson-shell--fit .native-lesson-viewer__content .faithful-page__body,
+.lc-lesson-shell--fit .native-lesson-viewer__content .faithful-page--edge-right .faithful-page__body {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  flex-direction: column;
+  gap: calc(var(--ph) * .022);
+  padding: calc(var(--ph) * .045) 8% calc(var(--ph) * .06 + 34px) 8%;
+  overflow: hidden;
+}
+.lc-lesson-shell--fit .native-lesson-viewer__content .faithful-page--edge-right .faithful-page__body { padding-right: 9.5%; }
+.lc-lesson-shell--fit .faithful-page__body > .gretel-activity { display: flex; flex: 0 0 auto; min-height: 0; }
+.lc-lesson-shell--fit .faithful-page__body > .gretel-activity:empty,
+.lc-lesson-shell--fit .faithful-page__body > .gretel-activity:has(> .gretel-activity__content:empty) { display: none; }
+.lc-lesson-shell--fit .faithful-page__body > .gretel-activity > .gretel-activity__content { display: flex; flex: 1; flex-direction: column; min-height: 0; min-width: 0; }
+/* Activities that can grow take the space left after the instruction. */
+.lc-lesson-shell--fit .faithful-page__body > .gretel-activity:has(.fp-ix-grid),
+.lc-lesson-shell--fit .faithful-page__body > .gretel-activity:has(.native-syllable),
+.lc-lesson-shell--fit .faithful-page__body > .gretel-activity:has(textarea) { flex: 1 1 0; }
+.lc-lesson-shell--fit .native-lesson-viewer__content .fp-region--instruction { margin: 0; font-size: clamp(17px, 2.6cqw, 32px); line-height: 1.3; }
+
+/* Picture grids: rows share the height; pictures fill their tiles. */
+.lc-lesson-shell--fit .native-lesson-viewer__content .fp-ix-grid { display: flex; flex: 1 1 0; flex-direction: column; min-height: 0; gap: calc(var(--ph) * .018); }
+.lc-lesson-shell--fit .native-lesson-viewer__content .fp-ix-grid .fp-ix-row { flex: 1 1 0; min-height: 0; gap: 3.2cqw; }
+.lc-lesson-shell--fit .native-lesson-viewer__content .fp-ix-grid .fp-ix-cell {
+  height: 100%;
+  min-height: 0;
+  aspect-ratio: auto;
+  padding: 3px;
+  border: 2px solid var(--lc-teal, #1f9e94);
+  border-radius: 14px;
+}
+.lc-lesson-shell--fit .native-lesson-viewer__content .fp-ix-cell .living-illustration { display: block; flex: 1 1 auto; width: 100%; height: 100%; min-width: 0; }
+.lc-lesson-shell--fit .native-lesson-viewer__content .fp-ix-cell .living-illustration > * { width: 100%; height: 100%; max-width: none; max-height: none; }
+.lc-lesson-shell--fit .native-lesson-viewer__content .fp-ix-cell img { width: 100%; height: 100%; object-fit: contain; }
+
+/* Syllable groups share the height. */
+.lc-lesson-shell--fit .native-lesson-viewer__content .native-syllable { flex: 1 1 0; min-height: min-content; grid-template-columns: clamp(48px, 9cqw, 96px) minmax(0, 1fr); grid-template-rows: minmax(0, 1fr) auto; gap: 6px 2.8cqw; }
+.lc-lesson-shell--fit .native-lesson-viewer__content .native-syllable h2 { height: 100%; min-height: 0; font-size: clamp(22px, 4.6cqw, 48px); border-width: 2px; border-color: var(--lc-teal, #1f9e94); box-shadow: 0 3px 0 #b5ddd5; }
+.lc-lesson-shell--fit .native-lesson-viewer__content .native-syllable__words { height: 100%; min-height: 0; grid-auto-rows: minmax(48px, 1fr); gap: clamp(6px, 1.1cqw, 12px) clamp(8px, 1.8cqw, 18px); }
+.lc-lesson-shell--fit .native-lesson-viewer__content .native-syllable__word { display: grid; place-items: center; height: 100%; min-height: 0; padding: 0 4px; border: 2px solid #9fd3ca !important; border-radius: 12px; font-size: clamp(15px, 2.9cqw, 30px); line-height: 1; letter-spacing: .02em; }
+.lc-lesson-shell--fit .native-lesson-viewer__content .native-syllable > p { font-size: clamp(10px, 1.3cqw, 13px); line-height: 1.1; }
+
+/* Tiles lift and glow under the pointer and press in when tapped. */
+.lc-lesson-shell--fit .native-lesson-viewer__content .fp-ix-cell,
+.lc-lesson-shell--fit .native-lesson-viewer__content .native-syllable__word {
+  background: #fff !important;
+  cursor: pointer;
+  box-shadow: 0 2px 0 #cfe7e1, 0 6px 14px -8px #176e6566;
+  transition: transform .16s ease, box-shadow .16s ease, border-color .16s ease;
+}
+@media (hover: hover) {
+  .lc-lesson-shell--fit .native-lesson-viewer__content .fp-ix-cell:hover,
+  .lc-lesson-shell--fit .native-lesson-viewer__content .native-syllable__word:hover {
+    transform: translateY(-3px);
+    border-color: var(--lc-teal, #1f9e94) !important;
+    box-shadow: 0 0 0 4px #1f9e9422, 0 3px 0 #b5ddd5, 0 14px 22px -10px #176e6580;
+  }
+}
+.lc-lesson-shell--fit .native-lesson-viewer__content .fp-ix-cell:active,
+.lc-lesson-shell--fit .native-lesson-viewer__content .native-syllable__word:active { transform: scale(.97); }
+@media (prefers-reduced-motion: reduce) {
+  .lc-lesson-shell--fit .native-lesson-viewer__content .fp-ix-cell,
+  .lc-lesson-shell--fit .native-lesson-viewer__content .native-syllable__word { transition: none; transform: none !important; }
+}
+
+/* Writing pages keep the two-column book layout, sized to the screen.
+ * Nothing is clipped: if the rows need more than the page, the page
+ * content is scaled to fit. */
+.lc-lesson-shell--fit .native-lesson-viewer__content .faithful-page--archetype-5 .faithful-page__body { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); grid-auto-rows: auto; align-content: space-evenly; align-items: start; column-gap: 5%; }
+.lc-lesson-shell--fit .faithful-page--archetype-5 .faithful-page__body > .gretel-activity { flex: none; min-height: auto; }
+.lc-lesson-shell--fit .faithful-page--archetype-5 .faithful-page__body > .gretel-activity:not(:has(.fp-writing-line)) { grid-column: 1 / -1; }
+.lc-lesson-shell--fit .faithful-page--archetype-5 .faithful-page__body > .gretel-activity > .gretel-activity__content { align-items: center; }
+.lc-lesson-shell--fit .native-lesson-viewer__content .faithful-page--archetype-5 .fp-writing-line { width: 100%; }
+.lc-lesson-shell--fit .native-lesson-viewer__content .faithful-page--archetype-5 .fp-trace__svg { width: auto; height: calc(var(--ph) * .22); max-width: 100%; }
+.lc-lesson-shell--fit .native-lesson-viewer__content .faithful-page--archetype-5 .fp-trace__footer { width: 100%; }
+.lc-lesson-shell--fit .native-lesson-viewer__content .faithful-page--archetype-5 .fp-writing-line .am-dibuja__paper { width: 100%; height: calc(var(--ph) * .11); min-height: 72px; }
+.lc-lesson-shell--fit .native-lesson-viewer__content .faithful-page--archetype-5 .am-dibuja__paper { width: 100%; height: calc(var(--ph) * .14); min-height: 90px; }
+.lc-lesson-shell--fit .native-lesson-viewer__content .faithful-page--archetype-5 .am-dibuja { width: 100%; }
+/* Compact drawing tools so they stay on one line beside each other. */
+.lc-lesson-shell--fit .native-lesson-viewer__content .am-dibuja__toolbar { gap: 6px; }
+.lc-lesson-shell--fit .native-lesson-viewer__content .am-dibuja__swatches { gap: 4px; }
+.lc-lesson-shell--fit .native-lesson-viewer__content .am-dibuja__swatch { width: 30px; height: 30px; }
+/* Sentence writing: the lined box takes the room left on the page. */
+.lc-lesson-shell--fit .native-lesson-viewer__content .fp-writing-response { flex: 1 1 0; min-height: 0; }
+.lc-lesson-shell--fit .native-lesson-viewer__content .fp-writing-response > :has(> textarea),
+.lc-lesson-shell--fit .native-lesson-viewer__content .fp-writing-response > :has(> canvas) { display: flex; flex: 1 1 0; flex-direction: column; min-height: 0; }
+.lc-lesson-shell--fit .native-lesson-viewer__content .fp-writing-response textarea { flex: 1 1 0; height: auto; min-height: 84px; resize: none; }
+
+/* Small round Anterior / Siguiente at the bottom right; Siguiente is gray
+ * until the page is finished. Labels stay for screen readers. */
+.lc-lesson-shell--fit .native-lesson-viewer__footer { position: fixed; right: 14px; bottom: 10px; z-index: 50; margin: 0; display: flex; flex-direction: column; align-items: flex-end; gap: 6px; max-width: min(360px, calc(100vw - 28px)); }
+.lc-lesson-shell--fit .native-lesson-viewer__hint { margin: 0; padding: 8px 12px; border-radius: 12px; background: #fffdf9; box-shadow: 0 4px 14px -6px #0004; font-size: 14px; }
+.lc-lesson-shell--fit .native-lesson-viewer__navigation { gap: 8px; }
+.lc-lesson-shell--fit .native-lesson-viewer__navigation > span { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); }
+.lc-lesson-shell--fit .native-lesson-viewer__navigation button { width: 52px; height: 52px; min-height: 0; padding: 0; border-radius: 50%; justify-content: center; box-shadow: 0 4px 12px -4px #0003; }
+.lc-lesson-shell--fit .native-lesson-viewer__navigation button svg { width: 24px; height: 24px; flex: none; }
+.lc-lesson-shell--fit .native-lesson-viewer__nav-label { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; }
+.lc-lesson-shell--fit .native-lesson-viewer__navigation button[disabled],
+.lc-lesson-shell--fit .native-lesson-viewer__navigation button[data-locked="true"] { background: #d9d9d9; border-color: #cfcfcf; color: #8a8a8a; opacity: 1; }
+
+/* Pick-the-picture rows (letter + pictures) share the height. */
+.lc-lesson-shell--fit .faithful-page__body > .gretel-activity:has(.fp-ix-pick),
+.lc-lesson-shell--fit .faithful-page__body > .gretel-activity:has(.am-direct-pencil) { flex: 1 1 0; }
+.lc-lesson-shell--fit .native-lesson-viewer__content .fp-ix-pick { display: flex; flex: 1 1 0; flex-direction: column; min-height: 0; gap: calc(var(--ph) * .018); }
+.lc-lesson-shell--fit .native-lesson-viewer__content .fp-ix-pick__row { flex: 1 1 0; min-height: 0; grid-template-rows: minmax(0, 1fr); align-items: stretch; }
+.lc-lesson-shell--fit .native-lesson-viewer__content .fp-ix-pick__letter { align-self: center; }
+.lc-lesson-shell--fit .native-lesson-viewer__content .fp-ix-pick__cells { height: 100%; min-height: 0; grid-template-rows: minmax(0, 1fr); gap: 2.4cqw; }
+.lc-lesson-shell--fit .native-lesson-viewer__content .fp-ix-pick__cells .fp-ix-cell { height: 100%; min-height: 0; aspect-ratio: auto; padding: 3px; border: 2px solid var(--lc-teal, #1f9e94); border-radius: 14px; }
+
+/* Line-matching pages: the drawing board takes the room under the instruction. */
+.lc-lesson-shell--fit .native-lesson-viewer__content .am-direct-pencil { flex: 1 1 0; min-height: 0; gap: 8px; }
+.lc-lesson-shell--fit .native-lesson-viewer__content .am-direct-pencil:not(.is-expanded) .am-direct-pencil__stage { flex: 1 1 0; width: 100%; max-width: none; height: auto; min-height: 0; aspect-ratio: auto; }
+
+/* Syllable word letters sit on one compact line. */
+.lc-lesson-shell--fit .native-syllable__letters,
+.lc-lesson-shell--fit .native-syllable__letter { line-height: 1; }
+
+/* Last resort for text-heavy pages: scale the page content down just
+ * enough to fit (set by the viewer), never cut it off. */
+.lc-lesson-shell--fit .faithful-page__body > .gretel-activity { zoom: var(--lc-fit, 1); }
+
+/* Letter pages keep the book's arrangement: the letter beside its two
+ * syllable strips, then the word grid, the sight word and the sentences. */
+.lc-lesson-shell--fit .native-lesson-viewer__content .fp-native-letter-page .faithful-page__body {
+  display: grid;
+  grid-template-columns: auto minmax(0, 1fr);
+  grid-auto-rows: auto;
+  align-content: center;
+  align-items: center;
+  column-gap: 3cqw;
+}
+.lc-lesson-shell--fit .fp-native-letter-page .faithful-page__body > .gretel-activity { display: block; grid-column: 1 / -1; }
+.lc-lesson-shell--fit .fp-native-letter-page .faithful-page__body > .gretel-activity:has(.fp-native-title) { grid-column: 1; grid-row: span 2; }
+.lc-lesson-shell--fit .fp-native-letter-page .faithful-page__body > .gretel-activity:has(.fp-native-syllables) { grid-column: 2; }
+.lc-lesson-shell--fit .fp-native-letter-page .fp-native-title { width: calc(var(--ph) * .17); min-width: 72px; font-size: calc(var(--ph) * .085); }
+/* On wide screens the sight word and sentences sit beside the word grid,
+ * in the same reading order, so every word stays large. */
+@media (orientation: landscape) {
+  .lc-lesson-shell--fit .native-lesson-viewer__content .fp-native-letter-page .faithful-page__body {
+    grid-template-columns: auto minmax(0, 1fr) minmax(0, 1.15fr);
+    grid-template-rows: auto auto minmax(0, 1fr);
+    grid-template-areas: "title s1 y" "title s2 read" "vocab vocab read";
+    align-content: stretch;
+  }
+  .lc-lesson-shell--fit .fp-native-letter-page .faithful-page__body > .gretel-activity:has(.fp-native-title) { grid-area: title; }
+  .lc-lesson-shell--fit .fp-native-letter-page .faithful-page__body > .gretel-activity:has(.fp-native-syllables) { grid-column: 2; }
+  .lc-lesson-shell--fit .fp-native-letter-page .faithful-page__body > .gretel-activity:has(.fp-native-syllables) + .gretel-activity:has(.fp-native-syllables) { grid-row: 2; }
+  .lc-lesson-shell--fit .fp-native-letter-page .faithful-page__body > .gretel-activity:has(.fp-native-vocab) { grid-area: vocab; align-self: start; }
+  .lc-lesson-shell--fit .fp-native-letter-page .faithful-page__body > .gretel-activity:has(.fp-native-sight-word) { grid-area: y; }
+  .lc-lesson-shell--fit .fp-native-letter-page .faithful-page__body > .gretel-activity:has(.fp-region--reading-sentences) { grid-area: read; align-self: start; }
+}
+
+/* Line-matching 3 x 3 boards: the picture rows share the board height. */
+.lc-lesson-shell--fit .native-lesson-viewer__content .am-faithful-pencil { display: flex; flex: 1 1 0; flex-direction: column; min-height: 0; }
+.lc-lesson-shell--fit .native-lesson-viewer__content .am-direct-pencil__grid { height: 100%; }
+.lc-lesson-shell--fit .native-lesson-viewer__content .am-direct-pencil__row { flex: 1 1 0; min-height: 0; grid-template-rows: minmax(0, 1fr); align-items: stretch; }
+.lc-lesson-shell--fit .native-lesson-viewer__content .am-direct-pencil__row > * { height: 100%; min-height: 0; aspect-ratio: auto; }
+.lc-lesson-shell--fit .native-lesson-viewer__content .am-direct-pencil__target img { width: 100%; height: 100%; object-fit: contain; }
+
+/* Letter pages: larger words, centered on the page. */
+.lc-lesson-shell--fit .native-lesson-viewer__content .fp-native-letter-page .fp-native-vocab span { min-height: calc(var(--ph) * .068); font-size: clamp(16px, calc(var(--ph) * .032), 30px); }
+.lc-lesson-shell--fit .native-lesson-viewer__content .fp-native-letter-page .fp-region--reading-sentences { font-size: clamp(16px, calc(var(--ph) * .034), 32px); }
+@media (orientation: landscape) {
+  .lc-lesson-shell--fit .native-lesson-viewer__content .fp-native-letter-page .faithful-page__body { align-content: center; grid-template-rows: auto auto auto; }
+}
+/* Syllable groups never overlap: if five groups need more than the page
+ * height, the page content is scaled to fit instead. */
+.lc-lesson-shell--fit .faithful-page__body > .gretel-activity:has(.native-syllable) { min-height: auto; }
+
+/* Completa: larger words and syllable choices. */
+.lc-lesson-shell--fit .native-lesson-viewer__content .fp-ix-fill__wordbox,
+.lc-lesson-shell--fit .native-lesson-viewer__content .fp-ix-fill__blank { font-size: clamp(18px, calc(var(--ph) * .032), 30px); }
+.lc-lesson-shell--fit .native-lesson-viewer__content .fp-ix-fill__choice { min-width: 52px; min-height: 52px; font-size: clamp(18px, calc(var(--ph) * .028), 26px); }
+.lc-lesson-shell--fit .native-lesson-viewer__stage { touch-action: pan-y pinch-zoom; }
+.lc-lesson-shell--fit .native-lesson-viewer__content .fp-ix-fill--book-grid .fp-ix-fill__item { gap: 6px; padding: 8px 6px; }
+.lc-lesson-shell--fit .native-lesson-viewer__content .fp-native-letter-page .fp-native-syllables span { font-size: clamp(15px, calc(var(--ph) * .032), 28px); padding: .3em .05em; }
+.lc-lesson-shell--fit .fp-native-letter-page .faithful-page__body > .gretel-activity { min-height: auto; }
+/* Narrow pages: keep content clear of the wavy page edge and let words
+ * shrink with the page width. */
+.lc-lesson-shell--fit .native-lesson-viewer__content .faithful-page:not(.faithful-page--edge-right) .faithful-page__body { padding-left: max(8%, 48px); }
+.lc-lesson-shell--fit .native-lesson-viewer__content .faithful-page--edge-right .faithful-page__body { padding-right: max(9.5%, 48px); }
+.lc-lesson-shell--fit .native-lesson-viewer__content .fp-native-letter-page .fp-native-vocab span { font-size: clamp(14px, min(calc(var(--ph) * .032), 4.4cqw), 30px); padding-inline: .2em; }
+.lc-lesson-shell--fit .native-lesson-viewer__content .fp-native-letter-page .fp-native-syllables span { font-size: clamp(13px, min(calc(var(--ph) * .032), 3.6cqw), 28px); }
+/* Letter tile beside each picture row keeps its own column on any width. */
+.lc-lesson-shell--fit .native-lesson-viewer__content .fp-ix-pick__row { grid-template-columns: auto minmax(0, 1fr); column-gap: 2.4cqw; }
+.lc-lesson-shell--fit .native-lesson-viewer__content .fp-ix-pick__letter { width: clamp(40px, 11cqw, 118px); height: auto; aspect-ratio: 1; min-width: 0; font-size: clamp(18px, 5.5cqw, 59px); }
+/* Sentence writing never hides its box: on small screens the page scales. */
+.lc-lesson-shell--fit .faithful-page__body > .gretel-activity:has(.fp-writing-response) { min-height: auto; }
+.lc-lesson-shell--fit .native-lesson-viewer__content .fp-writing-response > :first-child { flex-wrap: wrap; row-gap: 4px; }
+/* Phone-width letter pages: smaller letter circle, readable words. */
+.lc-lesson-shell--fit .native-lesson-viewer__content .fp-native-letter-page .fp-native-title { width: min(calc(var(--ph) * .17), 22cqw); font-size: min(calc(var(--ph) * .085), 11cqw); }
+.lc-lesson-shell--fit .native-lesson-viewer__content .fp-native-letter-page .fp-native-vocab span { font-size: clamp(14px, min(calc(var(--ph) * .032), 5.6cqw), 30px); }
+.lc-lesson-shell--fit .native-lesson-viewer__content .fp-native-letter-page .fp-native-syllables span { font-size: clamp(13px, min(calc(var(--ph) * .032), 4.6cqw), 28px); }
+/* Very short screens (a phone held sideways): if a page still cannot fit
+ * at a readable size, it may scroll inside the page instead of hiding work. */
+.lc-lesson-shell--fit .native-lesson-viewer__content .faithful-page__body[data-lc-fit-overflow="true"] { overflow-y: auto; }
+.lc-lesson-shell--fit .faithful-page__body > .gretel-activity:has(.fp-writing-response) > .gretel-activity__content,
+.lc-lesson-shell--fit .native-lesson-viewer__content .fp-writing-response,
+.lc-lesson-shell--fit .native-lesson-viewer__content .fp-writing-response > :has(> textarea) { min-height: auto; }
+.lc-lesson-shell--fit .native-lesson-viewer__content .fp-writing-response > :has(> textarea) { min-height: 88px; }
