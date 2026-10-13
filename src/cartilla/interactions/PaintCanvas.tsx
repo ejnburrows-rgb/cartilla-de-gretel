@@ -345,6 +345,42 @@ export function PaintCanvas({
     }
   };
 
+  const handleSwatchesKeyDown = (e: React.KeyboardEvent<HTMLDivElement>) => {
+    const keys = ["ArrowRight", "ArrowDown", "ArrowLeft", "ArrowUp", "Home", "End"];
+    if (!keys.includes(e.key)) return;
+
+    const listbox = e.currentTarget;
+    const swatches = Array.from(
+      listbox.querySelectorAll<HTMLButtonElement>('button[role="option"]:not([disabled])'),
+    );
+    if (swatches.length === 0) return;
+
+    const currentIndex = swatches.findIndex((opt) => opt === document.activeElement);
+    let nextIndex = 0;
+
+    if (e.key === "ArrowRight" || e.key === "ArrowDown") {
+      nextIndex = currentIndex < 0 ? 0 : (currentIndex + 1) % swatches.length;
+    } else if (e.key === "ArrowLeft" || e.key === "ArrowUp") {
+      nextIndex = currentIndex < 0 ? swatches.length - 1 : (currentIndex - 1 + swatches.length) % swatches.length;
+    } else if (e.key === "Home") {
+      nextIndex = 0;
+    } else if (e.key === "End") {
+      nextIndex = swatches.length - 1;
+    }
+
+    e.preventDefault();
+    e.stopPropagation();
+    const targetSwatch = swatches[nextIndex];
+    if (targetSwatch) {
+      targetSwatch.focus();
+      const swatchColor = BOOK_PAINT_SWATCHES[nextIndex];
+      if (swatchColor) {
+        setColor(swatchColor);
+        setTool("brush");
+      }
+    }
+  };
+
   const undo = () => {
     const canvas = paintRef.current;
     const ctx = canvas?.getContext("2d");
@@ -524,7 +560,12 @@ export function PaintCanvas({
 
       {!done && (
         <div className="am-paint__toolbar">
-          <div className="am-paint__swatches" role="listbox" aria-label="Colores">
+          <div
+            className="am-paint__swatches"
+            role="listbox"
+            aria-label="Colores"
+            onKeyDown={handleSwatchesKeyDown}
+          >
             {BOOK_PAINT_SWATCHES.map((c) => (
               <button
                 key={c}
