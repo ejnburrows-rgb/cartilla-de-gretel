@@ -21,7 +21,10 @@ const LESSONS: Array<[number, string[]]> = [
   [5, ["oso", "olla", "abanico", "imán"]],
   [6, ["oso", "oveja", "elefante", "abeja"]],
 ];
-const STILL = ["uno", "iglú", "ojos", "estrella", "uvas"];
+// Held still: their old whole-picture motion moved the drawn ground/background
+// too (owner rule 2026-10-11: only the parts that really move may move).
+const HELD = ["oruga", "araña", "ardilla", "erizo", "iguana", "insecto", "unicornio"];
+const STILL = ["uno", "iglú", "ojos", "estrella", "uvas", ...HELD];
 
 async function pictures(page: Page) {
   return page.evaluate(() =>
@@ -32,6 +35,7 @@ async function pictures(page: Page) {
         name: w.dataset.pictureName ?? "",
         src: img?.getAttribute("src") ?? "",
         natural: w.dataset.naturalMotion,
+        ambient: w.dataset.ambientMotion,
         width: img?.naturalWidth ?? 0,
         wholeMotion: [w, img, ...w.querySelectorAll(".living-illustration__part")].some(
           (el) => anim(el) !== "none",
@@ -82,6 +86,14 @@ for (const [viewport, size] of [
       for (const p of all.filter((x) => STILL.includes(x.name))) {
         expect(p.wholeMotion, `${p.name} stays still`).toBe(false);
         expect(p.natural, `${p.name} stays still`).toBe("false");
+      }
+      if (lesson === 5 || lesson === 6) {
+        // leccion-1/pez.webp is the book's airplane (pages 13, 16): it glides as a
+        // whole like a flying airplane and never wags a fish tail.
+        const plane = all.find((p) => p.src.endsWith("/leccion-1/pez.webp"));
+        expect(plane?.name).toBe("avión");
+        expect(plane?.ambient).toBe("glide");
+        expect(plane?.parts).toBe(0);
       }
       expect(failed).toEqual([]);
       const first = page.locator(`.living-illustration[data-picture-name="${names[0]}"]`).first();

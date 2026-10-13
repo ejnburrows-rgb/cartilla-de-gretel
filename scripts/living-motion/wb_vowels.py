@@ -75,7 +75,11 @@ def _crop(rgba):
     x0, y0, x1, y1 = int(xs.min()), int(ys.min()), int(xs.max()) + 1, int(ys.max()) + 1
     return Image.fromarray(np.ascontiguousarray(rgba[y0:y1, x0:x1]), 'RGBA'), x0, y0
 
-def _out(name): return f'{os.environ.get("LIVING_OUT", "/tmp")}/{name}-alive.svg'
+def _out(name):
+    # all.py sets LIVING_OUT to the builder's private temporary folder.
+    out = os.environ.get('LIVING_OUT')
+    if not out: raise SystemExit('LIVING_OUT is not set; run scripts/living-motion/build.py')
+    return f'{out}/{name}-alive.svg'
 
 # ---------- ELEFANTE (vowel e): trunk swing, ears flap, both eyes blink ----------
 def vocal_e_elefante():
