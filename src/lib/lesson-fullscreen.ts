@@ -17,18 +17,11 @@ export function canUseLessonFullscreen(): boolean {
 /** Call from a user tap/click (browsers only allow it during a gesture). */
 export function requestLessonFullscreen(): void {
   if (!canUseLessonFullscreen()) return;
-  try {
-    void document.documentElement.requestFullscreen?.({ navigationUI: "hide" })?.catch(() => undefined);
-  } catch {
-    /* Full screen is a convenience; the lesson works without it. */
-  }
+  // Full screen is a convenience; the lesson works without it.
+  document.documentElement.requestFullscreen?.({ navigationUI: "hide" })?.catch(() => undefined);
 }
 
 export function exitLessonFullscreen(): void {
   if (typeof document === "undefined" || !document.fullscreenElement) return;
-  try {
-    void document.exitFullscreen?.()?.catch(() => undefined);
-  } catch {
-    /* ignore */
-  }
+  document.exitFullscreen?.()?.catch(() => undefined);
 }
