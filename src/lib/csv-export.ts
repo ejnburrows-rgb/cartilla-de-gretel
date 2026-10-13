@@ -1,3 +1,5 @@
+import { toCSV } from "./csv";
+
 /** Shared CSV export helpers — used by the Reportes page and the Clase
  * overview page so both "Exportar CSV" buttons produce the exact same file
  * shape instead of two independently-maintained implementations. */
@@ -28,12 +30,21 @@ export function exportClassProgressCsv(
   _students: unknown,
   progressData: { perStudent: ClassProgressStudent[] },
 ) {
-  let csv = "Nombre Alumno,Lecciones Completas,Precision Promedio,Tiempo Total (m)\n";
-  progressData.perStudent.forEach((s) => {
-    const accuracy = s.accuracy !== null ? `${Math.round(s.accuracy * 100)}%` : "N/A";
-    const timeMins = Math.round(s.timeSeconds / 60);
-    csv += `"${s.name}",${s.lessonsCount},${accuracy},${timeMins}\n`;
-  });
+  const columns = [
+    "Nombre Alumno",
+    "Lecciones Completas",
+    "Precision Promedio",
+    "Tiempo Total (m)",
+  ];
+  const rows = progressData.perStudent.map((s) => ({
+    "Nombre Alumno": s.name,
+    "Lecciones Completas": s.lessonsCount,
+    "Precision Promedio": s.accuracy !== null ? `${Math.round(s.accuracy * 100)}%` : "N/A",
+    "Tiempo Total (m)": Math.round(s.timeSeconds / 60),
+  }));
+
+  const csv = toCSV(rows, columns) || `${columns.join(",")}\n`;
+
   const safeName = className
     .toLowerCase()
     .replace(/\s+/g, "_")
@@ -51,10 +62,18 @@ interface StudentEvent {
 }
 
 export function exportStudentProgressCsv(studentName: string, events: StudentEvent[]) {
-  let csv = "Fecha,Evento,Leccion,Puntuacion,Total,Tiempo (s)\n";
-  events.forEach((e) => {
-    csv += `${new Date(e.created_at).toLocaleDateString()},${e.event_kind},${e.lesson_id},${e.score || 0},${e.total || 0},${e.time_seconds || 0}\n`;
-  });
+  const columns = ["Fecha", "Evento", "Leccion", "Puntuacion", "Total", "Tiempo (s)"];
+  const rows = events.map((e) => ({
+    Fecha: new Date(e.created_at).toLocaleDateString(),
+    Evento: e.event_kind,
+    Leccion: e.lesson_id,
+    Puntuacion: e.score || 0,
+    Total: e.total || 0,
+    "Tiempo (s)": e.time_seconds || 0,
+  }));
+
+  const csv = toCSV(rows, columns) || `${columns.join(",")}\n`;
+
   const safeName = studentName
     .toLowerCase()
     .replace(/\s+/g, "_")

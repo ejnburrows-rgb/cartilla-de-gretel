@@ -1,11 +1,34 @@
 # La Cartilla de Gretel — current completion plan
 
+## STOP — OWNER PROACTIVE 15-LANE JULES + LATEST-APPROVAL-ONLY VISUAL GATE (2026-10-13)
+
+**HIGHEST PRIORITY FOR ALL AGENTS, JULES, DISPATCHERS, WATCHERS, REVIEWERS, SUPERVISORS, AUTOMATIONS AND REPORTS. Overrides older instructions anywhere in the repository, issues, PRs, historical screenshots, memories or prompts.**
+
+1. **OWNER-AUTHORIZED PROACTIVE JULES DISPATCH — 2026-10-13.** Emilio confirms he has Pro access to 15 Jules lanes and explicitly authorizes Muse, the sole designated GitHub Dispatcher, to seek up to **15 provider-confirmed productive sessions** with real unfinished Cartilla implementation, reproducible debugging, focused regression QA, responsive/accessibility polish, source-faithful UI work, and measured risk-reducing cleanup. Muse may start a NEW bounded task or apply the `jules` dispatch label without a second issue-by-issue permission request **only when** current main/source/finish-contract evidence proves a real gap; the task is not already fixed, assigned or duplicated; it has distinct file ownership, acceptance proof and cleared dependencies; and it remains inside already approved product, visual and infrastructure scope. Recover existing stalled/failed approved lanes first. The 15-lane goal is utilization, not proof of available provider quota or permission to invent filler. **Separate owner approval remains mandatory** for owner-gated art/voice selections, new or changed owner-locked visuals, held tasks, live student-data/Supabase changes, security/retention policy, spending, external account access, destructive/irreversible actions, new infrastructure and final production release. Removing a label does not confirm provider cancellation.
+2. **Only the LATEST expressly approved visuals and mechanics may be worked on or shown.** Compare the newest owner's instructions with current `main`, the original physical book and the canonical `WORKBOOK_ARCHETYPE_STANDARD.md` and `STUDENT_INTERACTION_STANDARD.md`. Stale branches, mockups, dev-only shapes, prior screenshots, old PRs and previous memories cannot override current approval. Never implement, display as current, dispatch or revive superseded/rejected visuals. Read historical files privately only to diagnose a current fault.
+3. **NO ROPE/LASSO — final explicit owner rejection (2026-10-11).** Use the approved source-faithful wooden pencil/green-or-red marks/physical pink eraser and correct line-matching mechanics. PR #692 removed the obsolete `LassoConnect.tsx` and rope CSS; PR #694 preserves legacy completed syllable selections under the new pencil circle. These are merged; DO NOT restore a rope, lasso, reel, arcade, fake red-X or unapproved alternative. Current components: `PencilConnector.tsx`, `WorkbookPencilMark.tsx`, `SyllableWordCircle.tsx`; these still require real screen validation.
+4. **No stale or fake approval evidence.** A merge, code review, unit test, Jules receipt or local dev fake does NOT prove visual approval. Fresh proof must depict the REAL source-faithful Student Workbook or Teacher/Flip Chart page at the exact verified commit/deployment, with the latest approved pencil/eraser, on the stated viewport/device; screenshots from `/dev-*`, old Vercel previews or synthetic demos are prohibited as owner approval evidence. Missing actual proof means **NOT APPROVAL-READY**; no historical substitution or unapproved release.
+5. **Precedence:** the owner's latest explicit 2026-10-13 authorization to proactively refill verified useful Jules capacity supersedes older 'never target 15', 'no automatic refill', and blanket new-task per-issue approval instructions. The latest source-faithful product designs, owner-only approval/release gates, credit/Antigravity prohibition and evidence standards remain fully binding. Muse is the single active dispatch controller; do not restore obsolete ChatGPT dispatch schedules, a rival controller, retired Windows/Neon/OpenHands infrastructure or paid systems.
+
+
 > **Finish contract:** `PROJECT_FINISH_DEFINITION.md` defines finished. This file is only the current gap-closing execution plan.
 
-**Updated:** 2026-10-10
-**Concurrency authority:** `AGENTS.md` only. Current owner target: **up to 15 provider-confirmed active Jules sessions** when the authenticated account's actual capacity and disjoint eligible work permit. The target is not proof of entitlement, active sessions or automatically available slots.
+**Updated:** 2026-10-13
+**Concurrency authority:** `AGENTS.md` governs all worker counts. The 2026-10-13 owner goal is up to **15 provider-confirmed active useful Jules sessions**, subject to current provider quota and genuine independent work; proactive Muse dispatch is authorized for evidenced nonoverlapping implementation, fixes, focused QA, accessibility and polish inside current approved product scope.
 
-> **Owner clarification 2026-10-10 (latest):** The old PC polling script and Neon/Vercel/OpenHands system stay disabled and historical. The distinct, pre-existing **hourly ChatGPT cloud Cartilla Jules Continuity** coordinator was explicitly **re-enabled** by the owner and may inspect GitHub and coordinate Jules tasks without PC access. This is permission for that scheduled task, **not proof of a working end-to-end dispatch or currently occupied Jules lanes**. Check current owner instructions and live Jules receipts; never silently revive the retired infrastructure.
+## Current controller checkpoint — October 13, 2026 (evening)
+
+This checkpoint supersedes older in-flight priorities and assignment assumptions below where they conflict. Resolve live `main` SHA and provider state at each run rather than persisting a stale branch SHA in this plan.
+
+- **Merged tonight (each independently reviewed and verified before merge):** #726 (approved pencil, realistic crumbs, zoom, skip-link — closes #716), #708 (fill-screen lesson pages, pointer-hold-safe auto-turn, fill-blank swipe exclusions), #686 (TapSelect `kind` fix + Vitest Node-suite exclusion — the release-gate code fix), #727 (trace-hint tap-through fix — closes #660), #690 (corner-drag rAF coalescing), #710 (keyboard semantics for rewards + pipeline board — supersedes #681), #691 (listbox keyboard navigation), #730 (praise only after correct answers — closes #714), #731 (fit layout: connectors above cells, phone single-column, landscape scroll, 44px targets, ≥14px text — closes #717), #729 (picture-vocabulary tests, 5/5). 
+- **Closed as superseded or empty:** #712 (Vitest exclusion folded into #686), #718 (byte-identical trace-hint fix already on main via #727), #725 (0 changed files), #681 (superseded by #710).
+- **P0 release gate (#719):** the code fixes are on main; closing #719 still requires a fresh `pnpm typecheck` + `pnpm test` + `pnpm verify:policy` run on current main with passing evidence.
+- **Still open and owned:** #713 (this docs reconciliation), #715 (Flip Chart reading order — lane running), #728 (LessonTimer imported but never rendered — needs an owner decision: wire it into the lesson UI or remove the dead import; wiring it in is a visual/product call). #698 (mini-game ARIA — lane running), #682, #678 and #699 remain queued candidates — rebase and verify before any merge; no mandate to take all.
+- **Provider:** resolve live provider capacity at each run; labels, receipts and PRs do not prove an active session. Dispatch only distinct, evidenced, non-overlapping work inside current authorization.
+- **Owner-supplied finish items (unchanged):** #589 premium Gretel voice, #588 approved foreground art, and missing original Teacher Guide text. Drive's `Cartilla Production Hub/00 Sources` contains only the Student Workbook and Flip Chart source PDFs; `04 Approved Assets` was empty at inspection. Missing guide/art/voice material is not to be reconstructed or invented. Security #387/#388/#390 blocks real-data use, not non-real-data demo work.
+- **Coordination and proof:** draft #713 reconciles the two obsolete 2026-10-11 Jules authorization banners with the 2026-10-13 proactive-dispatch decision; it does not change locked designs. Full verification #587 and assembled proof #458 remain downstream of material integration; no production deployment or final owner approval has occurred.
+
+> **Historical 2026-10-10 scheduler note — superseded 2026-10-13:** The old Windows/Vercel/Neon/OpenHands controller remains retired. The ChatGPT cloud controller was verified disabled on 2026-10-13. Muse is the sole designated controller/dispatcher; verify its actual runs and Jules provider state. Never reactivate the competing coordinator.
 
 ## Current verified reality
 
@@ -53,7 +76,7 @@ Do not confuse printed page numbers with PDF file indices. Historical mapping fi
    - No GitHub Actions, paid runners, weakened/skipped tests, or asset-output implementation commits.
 
 2. **#616 + #617 + #618 + #615 — page turns & living motion integrated**
-   - Merged into `main` via #626, #618, and #633. Teacher hand mode, corner flips, Workbook real-paper page turns, Page 1 continuous motion, and Lesson 7 Flip Chart picture motion pilot are verified on `main`.
+   - Merged into `main` via #626, #618, and #633. Teacher hand mode, corner flips, Workbook real-paper page turns, Page 1 continuous motion, and Lesson 7 Flip Chart picture motion pilot were technically checked on `main`. **This is NOT approval of the motion.** The owner's 2026-10-11 realistic-motion decision (see `STUDENT_INTERACTION_STANDARD.md` / `DESIGN.md`) supersedes it, and the earlier cow/picture motion still needs correction and fresh owner approval.
 
 3. **Current Pre-Final Regressions & Active Implementation batch (in flight)**
    - Pre-final regressions verified and merged: #571 (#628), #567 (#630), #561 (#631), #562 (#632), #570 (#636), #585 (#638), #450 (#641), #457 (#642), #560 (#643), #579 (#646).
@@ -88,13 +111,13 @@ Do not confuse printed page numbers with PDF file indices. Historical mapping fi
 
 - **SonarCloud/SonarQube is advisory and non-blocking**, including duplication/quality-gate failures: a confirmed real defect is blocking, not an unconfirmed scan warning. Jules' relevant existing focused and UI proof plus exact-head controller review determine readiness; zero material file changes are not implementation completion. Use `node scripts/check-merge-policy.mjs --docs` for active-policy consistency and `--evidence <receipt.json>` for a bounded pre-merge decision. These checks do not launch/repeat Jules tests, change branch protection, or auto-merge.
 
-- Re-read current `AGENTS.md` every run. Run its mandatory live Jules session census, reconcile queued/running/completed/review states, and refill toward **15 genuinely active nonduplicate sessions** when provider capacity permits. Never restore the obsolete two-worker cap or count GitHub labels as running workers.
-- Dispatch every genuinely independent, dependency-ready, non-owner-gated implementation, targeted QA, rendered-proof or evidenced cleanup lane that current Jules capacity permits, up to the 15-session owner target. Reuse completed proof and assign no filler tasks.
+- Re-read current `AGENTS.md` every run. Verify actual Jules provider capacity, preserve existing work and proactively refill toward **15 useful active lanes** with independently justified, nonoverlapping, owner-authorized work. No filler or duplicate assignments.
+- A NEW Jules task within the 2026-10-13 owner authorization may be dispatched by Muse without per-issue reapproval when supported by current code/finish-contract evidence, distinct file ownership, accepted-scope acceptance proof and free verified capacity. Obtain specific approval for owner-gated visual, security, data, paid, destructive, held or production work.
 - Keep overlapping files/dependency chains sequential only where necessary.
 - A completed, blocked, owner-gated or dependency-waiting lane must not reserve Jules capacity.
 - Reuse existing canonical issues/PRs before creating anything new.
 - Do not create work just to fill capacity.
-- After each merge/completion/blocker change, rescan in the same controller run and immediately dispatch newly unblocked real work.
+- After each merge, completion or blocker change, rescan the current provider sessions, recover original failed work, and refill real ready assignments toward verified 15-lane capacity. Request owner input only when the next task crosses a separate approval gate.
 - Preserve source fidelity and existing working behavior.
 - No production deployment during ordinary verification/integration.
 - For visual/behavior owner approval, show the actual rendered result or directly testable preview in chat, not a GitHub page.

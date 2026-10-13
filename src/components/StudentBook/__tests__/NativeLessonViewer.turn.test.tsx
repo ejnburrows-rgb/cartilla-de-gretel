@@ -258,4 +258,45 @@ describe("NativeLessonViewer real-paper page turn contracts", () => {
     // Immediate transition
     expect(current()).toBe(24);
   });
+
+  it("coalesces drag progress to requestAnimationFrame and cleans up rAF on cancel/unmount", () => {
+    delete (window as unknown as Record<string, unknown>).matchMedia;
+    render(<NativeLessonViewer pages={PAGES} chapterLabel="Lección 8" lessonNumber={8} />);
+    completePage(23);
+
+    // Turn to page 24 so we can test corner-prev drag
+    fireEvent.click(screen.getByTestId("corner-next"));
+    act(() => vi.advanceTimersByTime(3000));
+    expect(current()).toBe(24);
+
+    const viewer = document.querySelector(".native-lesson-viewer")!;
+    vi.spyOn(viewer, "getBoundingClientRect").mockReturnValue({
+      width: 600, height: 800, left: 0, top: 0, right: 600, bottom: 800,
+      x: 0, y: 0, toJSON: () => {},
+    });
+
+    const prev = screen.getByTestId("corner-prev");
+
+    act(() => {
+      fireEvent.pointerDown(prev, { pointerId: 1, clientX: 100, clientY: 700 });
+      fireEvent.pointerMove(prev, { pointerId: 1, clientX: 300, clientY: 700 });
+    });
+
+    expect(viewer.getAttribute("data-turn-phase")).toBe("dragging");
+
+    // Subsequent drag move updates drag progress in rAF without forcing React state updates
+    act(() => {
+      fireEvent.pointerMove(prev, { pointerId: 1, clientX: 400, clientY: 700 });
+      vi.advanceTimersByTime(16);
+    });
+
+    expect(viewer.getAttribute("data-turn-phase")).toBe("dragging");
+
+    // Fire pointerCancel to verify cancel cleanup restores idle phase
+    act(() => {
+      fireEvent.pointerCancel(prev, { pointerId: 1 });
+    });
+
+    expect(viewer.getAttribute("data-turn-phase")).toBe("idle");
+  });
 });

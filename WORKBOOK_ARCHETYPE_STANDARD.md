@@ -1,5 +1,16 @@
 # WORKBOOK ARCHETYPE STANDARD — La Cartilla de Gretel
 
+## STOP — CURRENT JULES DISPATCH POLICY + LATEST-APPROVAL-ONLY VISUAL GATE (2026-10-13)
+
+**HIGHEST PRIORITY FOR ALL AGENTS, JULES, DISPATCHERS, WATCHERS, REVIEWERS, SUPERVISORS, AUTOMATIONS AND REPORTS. Overrides older instructions anywhere in the repository, issues, PRs, historical screenshots, memories or prompts.**
+
+1. **Jules dispatch follows current `AGENTS.md` (owner directive 2026-10-13).** Muse alone may recover approved work or dispatch specific new, proven, nonoverlapping Cartilla implementation, focused QA, accessibility and polish tasks toward up to 15 provider-confirmed useful sessions without repeating issue-by-issue permission requests. Verify current main, exact task ownership, dependencies, real provider capacity, and acceptance evidence first. Owner-only visual/design/creative/security/spending/release gates and holds remain binding. A label is not a running session.
+2. **Only the LATEST expressly approved visuals and mechanics may be worked on or shown.** Compare the newest owner's instructions with current `main`, the original physical book and the canonical `WORKBOOK_ARCHETYPE_STANDARD.md` and `STUDENT_INTERACTION_STANDARD.md`. Stale branches, mockups, dev-only shapes, prior screenshots, old PRs and previous memories cannot override current approval. Never implement, display as current, dispatch or revive superseded/rejected visuals. Read historical files privately only to diagnose a current fault.
+3. **NO ROPE/LASSO — final explicit owner rejection (2026-10-11).** Use the approved source-faithful wooden pencil/green-or-red marks/physical pink eraser and correct line-matching mechanics. PR #692 removed the obsolete `LassoConnect.tsx` and rope CSS; PR #694 preserves legacy completed syllable selections under the new pencil circle. These are merged; DO NOT restore a rope, lasso, reel, arcade, fake red-X or unapproved alternative. Current components: `PencilConnector.tsx`, `WorkbookPencilMark.tsx`, `SyllableWordCircle.tsx`; these still require real screen validation.
+4. **No stale or fake approval evidence.** A merge, code review, unit test, Jules receipt or local dev fake does NOT prove visual approval. Fresh proof must depict the REAL source-faithful Student Workbook or Teacher/Flip Chart page at the exact verified commit/deployment, with the latest approved pencil/eraser, on the stated viewport/device; screenshots from `/dev-*`, old Vercel previews or synthetic demos are prohibited as owner approval evidence. Missing actual proof means **NOT APPROVAL-READY**; no historical substitution or unapproved release.
+5. **Precedence:** latest explicit owner decision > current `AGENTS.md` execution/safety policy > this document's owner-locked domain specifications > older tasks, PRs, memories and evidence. Do not create a rival dispatcher, restart disabled observers/controllers, invoke Antigravity, or use unauthorized paid services.
+
+
 ## Latest owner direction — 2026-10-07
 
 The uploaded second eight-panel image is the repeating main-page archetype.

@@ -369,21 +369,6 @@ export function PencilShape({ uid, stretch = 0 }: { uid: string; stretch?: numbe
         fill="#ffd27a"
         opacity="0.3"
       />
-      <text
-        x="0"
-        y="0"
-        transform="translate(0.15 -37) rotate(-90)"
-        textAnchor="middle"
-        dominantBaseline="middle"
-        fontFamily="Georgia, 'Times New Roman', serif"
-        fontWeight="700"
-        fontSize="2.4"
-        letterSpacing="0.35"
-        fill="#5a3505"
-        opacity="0.55"
-      >
-        HB · Nº 2
-      </text>
     </g>
   );
 }
@@ -579,12 +564,13 @@ function useFlightBox(
 }
 
 /** How long the page takes to zoom in to the picture, and back out. */
-export const CLOSE_UP_ZOOM_MS = 520;
+export const CLOSE_UP_ZOOM_MS = 1000;
 /** After a right answer, the close-up stays a moment on the green circle before zooming out. */
 const CLOSE_UP_LINGER_MS = 1100;
 /** Close-up zoom (owner 2026-10-08): the tapped picture grows to about this many CSS px wide. */
 const CLOSE_UP_TARGET_PX = 220;
-const CLOSE_UP_MAX = 2.4;
+/** Close-up zoom cap (#720 F04 conformance). Exported for the conformance test. */
+export const CLOSE_UP_MAX = 1.5;
 const CLOSE_UP_CLASS = "workbook-close-up-zooming";
 let closeUpOwner: symbol | null = null;
 let closeUpReset = 0;
@@ -834,13 +820,15 @@ function EraserCrumbs({
       c: string;
       t: number;
     }[] = [];
-    const n = 28;
+    // Few, small, realistic crumbs — a pink eraser leaves only a handful of
+    // tiny flakes behind, not a shower of confetti (F05 conformance).
+    const n = 7;
     for (let i = 0; i < n; i++) {
       // The eraser runs backwards along the mark, so crumbs break off from t=1 to 0.
       const t = 1 - (i + rnd() * 0.7) / n;
       const [px, py] = pointAlong(points, t);
-      // Big, clearly visible rubber crumbs (owner close-up reference 2026-10-08).
-      const r = 2.8 + rnd() * 2.6;
+      // Small realistic rubber flakes.
+      const r = 1 + rnd() * 1;
       out.push({
         x: px + (rnd() - 0.5) * 12,
         y: py + (rnd() - 0.5) * 9,

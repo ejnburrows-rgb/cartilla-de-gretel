@@ -1,7 +1,8 @@
 name: Visual Audit
 
-# Optional manual diagnostic only. This workflow is not an authoritative or required release gate.
-# Direct exact-head verification defined by AGENTS.md remains required.
+# HISTORICAL manual-only workflow: retained for reference, NOT authorized to run under current owner instructions.
+# Do not invoke GitHub Actions or hosted runners unless the owner explicitly authorizes them in a future directive.
+# Reuse Jules' existing targeted screenshots/tests; no blanket repeated visual audit.
 on:
   workflow_dispatch:
 

@@ -5,22 +5,11 @@
 import type { PageRegion, PageGridCell, PageRegionType } from "@/lib/book-faithful";
 import { PaintCanvas } from "./PaintCanvas";
 import { DibujaHost, type DibujaPickOption } from "./DibujaHost";
-import { LassoConnect, type LassoTarget, type LassoVerbFamily } from "./LassoConnect";
+import { DirectPencilConnector, type PencilTarget } from "./PencilConnector";
 import { CATALOG } from "@/lib/lesson-catalog";
 
 function pageKey(lessonId: string | undefined, regionId: string) {
   return `${lessonId ?? "x"}:${regionId}`;
-}
-
-function verbFromText(text?: string): LassoVerbFamily {
-  const t = (text ?? "").toLowerCase();
-  if (t.includes("encierra")) return "encierra";
-  if (t.includes("enlaza")) return "enlaza";
-  if (t.includes("conecta")) return "conecta";
-  if (t.includes("empareja")) return "empareja";
-  if (t.includes("une") || t.includes("traza una línea") || t.includes("traza una linea"))
-    return "une";
-  return "encierra";
 }
 
 /**
@@ -30,8 +19,8 @@ function verbFromText(text?: string): LassoVerbFamily {
 export type FaithfulHost =
   | "paint"
   | "dibuja"
-  | "lasso-mark"
-  | "lasso-pair"
+  | "pencil-mark"
+  | "pencil-pair"
   | "tap-grid"
   | "tap-pick"
   | "fill-blank"
@@ -40,7 +29,7 @@ export type FaithfulHost =
 
 /**
  * Pure mechanic routing: region type + printed instruction → host component.
- * paint-box always paints; draw-box always Dibuja; Encierra/Une/match → lasso.
+ * paint-box always paints; draw-box always Dibuja; Encierra uses circles; Une/match uses the direct wooden pencil.
  */
 export function resolveFaithfulHost(
   regionType: PageRegionType,
@@ -55,14 +44,14 @@ export function resolveFaithfulHost(
     case "illustration-slot":
       return instructionSuggestsColorea(precedingInstruction) ? "paint" : "static";
     case "picture-grid":
-      if (instructionSuggestsLasso(precedingInstruction)) return "lasso-mark";
+      if (instructionSuggestsPencilMark(precedingInstruction)) return "pencil-mark";
       if (instructionSuggestsColorea(precedingInstruction)) return "paint";
       return "tap-grid";
     case "syllable-match":
     case "vowel-line-match":
-      return "lasso-mark";
+      return "pencil-mark";
     case "vowel-match-all":
-      return "lasso-pair";
+      return "pencil-pair";
     case "vowel-pick-one":
       return "tap-pick";
     case "fill-in-blank":
@@ -181,52 +170,8 @@ export function DibujaFromRegion({
   );
 }
 
-/** Encierra / syllable-match → mark lasso */
-export function LassoSyllableMatch({
-  region,
-  lessonId,
-  instruction,
-}: {
-  region: PageRegion;
-  lessonId?: string;
-  instruction?: string;
-}) {
-  const rows = region.matchRows ?? [];
-  const targets: LassoTarget[] = [];
-  rows.forEach((row, r) => {
-    row.forEach((entry, w) => {
-      targets.push({
-        id: `${region.id}-${r}-${w}`,
-        label: entry.word,
-        src: entry.illustrationSrc,
-        correct: entry.correct !== false,
-        role: "solo",
-      });
-    });
-  });
-  // Syllable chip as non-target header handled by instruction
-  return (
-    <div className="am-faithful-lasso">
-      {region.syllable ? (
-        <span className="am-faithful-lasso__syllable" aria-hidden>
-          {region.syllable}
-        </span>
-      ) : null}
-      <LassoConnect
-        showCompanion={false}
-        pageKey={pageKey(lessonId, region.id)}
-        targets={targets}
-        mode="mark"
-        verbFamily={verbFromText(instruction)}
-        instruction={instruction}
-        lessonId={lessonId}
-      />
-    </div>
-  );
-}
-
 /** Traza una línea vowel-match-all → pair direct pencil connector (letter ↔ picture) */
-export function LassoVowelMatchAll({
+export function PencilVowelMatchAll({
   region,
   lessonId,
   instruction,
@@ -236,7 +181,7 @@ export function LassoVowelMatchAll({
   instruction?: string;
 }) {
   const pairs = region.vowelPairs ?? [];
-  const targets: LassoTarget[] = [];
+  const targets: PencilTarget[] = [];
   pairs.forEach((pair, i) => {
     const pairId = `pair-${i}`;
     targets.push({
@@ -254,21 +199,18 @@ export function LassoVowelMatchAll({
     });
   });
   return (
-    <LassoConnect
-        showCompanion={false}
+    <DirectPencilConnector
       pageKey={pageKey(lessonId, region.id)}
       targets={targets}
       mode="pair"
-      verbFamily={verbFromText(instruction ?? "Une")}
       instruction={instruction}
       lessonId={lessonId}
-      directPencil={true}
     />
   );
 }
 
 /** Vowel line match — mark correct pictures with direct pencil connector */
-export function LassoVowelLineMatch({
+export function PencilVowelLineMatch({
   region,
   lessonId,
   instruction,
@@ -276,10 +218,9 @@ export function LassoVowelLineMatch({
   region: PageRegion;
   lessonId?: string;
   instruction?: string;
-  directPencil?: boolean;
 }) {
   const cells = region.cells ?? [];
-  const targets: LassoTarget[] = cells.map((cell, i) => ({
+  const targets: PencilTarget[] = cells.map((cell, i) => ({
     id: `${region.id}-${i}`,
     label: cell.caption ?? `dibujo ${i + 1}`,
     src: cell.illustrationSrc,
@@ -288,54 +229,20 @@ export function LassoVowelLineMatch({
     role: "solo",
   }));
   return (
-    <div className="am-faithful-lasso">
-      <LassoConnect
-        showCompanion={false}
+    <div className="am-faithful-pencil">
+      <DirectPencilConnector
         pageKey={pageKey(lessonId, region.id)}
         targets={targets}
         mode="mark"
-        verbFamily={verbFromText(instruction ?? "Une")}
         instruction={instruction}
         lessonId={lessonId}
-        directPencil={true}
         centerLabel={region.letterPair ?? "Uu"}
       />
     </div>
   );
 }
 
-/** Picture-grid with "Encierra" semantics → mark lasso; otherwise unchanged callers handle Marca. */
-export function LassoPictureGrid({
-  region,
-  lessonId,
-  instruction,
-}: {
-  region: PageRegion;
-  lessonId?: string;
-  instruction?: string;
-}) {
-  const cells = region.cells ?? [];
-  const targets: LassoTarget[] = cells.map((cell, i) => ({
-    id: `${region.id}-${i}`,
-    label: cell.caption ?? `dibujo ${i + 1}`,
-    src: cell.illustrationSrc,
-    correct: cell.correct,
-    role: "solo",
-  }));
-  return (
-    <LassoConnect
-        showCompanion={false}
-      pageKey={pageKey(lessonId, region.id)}
-      targets={targets}
-      mode="mark"
-      verbFamily={verbFromText(instruction)}
-      instruction={instruction}
-      lessonId={lessonId}
-    />
-  );
-}
-
-export function instructionSuggestsLasso(text?: string): boolean {
+export function instructionSuggestsPencilMark(text?: string): boolean {
   if (!text) return false;
   const t = text.toLowerCase();
   return (

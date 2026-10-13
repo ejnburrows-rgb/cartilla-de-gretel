@@ -269,6 +269,70 @@ export function DibujaHost({
     onComplete?.();
   };
 
+  const handlePickKeyDown = (e: React.KeyboardEvent<HTMLDivElement>) => {
+    const keys = ["ArrowRight", "ArrowDown", "ArrowLeft", "ArrowUp", "Home", "End"];
+    if (!keys.includes(e.key)) return;
+
+    const listbox = e.currentTarget;
+    const options = Array.from(
+      listbox.querySelectorAll<HTMLButtonElement>('button[role="option"]:not([disabled])'),
+    );
+    if (options.length === 0) return;
+
+    const currentIndex = options.findIndex((opt) => opt === document.activeElement);
+    let nextIndex = 0;
+
+    if (e.key === "ArrowRight" || e.key === "ArrowDown") {
+      nextIndex = currentIndex < 0 ? 0 : (currentIndex + 1) % options.length;
+    } else if (e.key === "ArrowLeft" || e.key === "ArrowUp") {
+      nextIndex = currentIndex < 0 ? options.length - 1 : (currentIndex - 1 + options.length) % options.length;
+    } else if (e.key === "Home") {
+      nextIndex = 0;
+    } else if (e.key === "End") {
+      nextIndex = options.length - 1;
+    }
+
+    e.preventDefault();
+    e.stopPropagation();
+    options[nextIndex]?.focus();
+  };
+
+  const handleDrawSwatchesKeyDown = (e: React.KeyboardEvent<HTMLDivElement>) => {
+    const keys = ["ArrowRight", "ArrowDown", "ArrowLeft", "ArrowUp", "Home", "End"];
+    if (!keys.includes(e.key)) return;
+
+    const listbox = e.currentTarget;
+    const swatches = Array.from(
+      listbox.querySelectorAll<HTMLButtonElement>('button[role="option"]:not([disabled])'),
+    );
+    if (swatches.length === 0) return;
+
+    const currentIndex = swatches.findIndex((opt) => opt === document.activeElement);
+    let nextIndex = 0;
+
+    if (e.key === "ArrowRight" || e.key === "ArrowDown") {
+      nextIndex = currentIndex < 0 ? 0 : (currentIndex + 1) % swatches.length;
+    } else if (e.key === "ArrowLeft" || e.key === "ArrowUp") {
+      nextIndex = currentIndex < 0 ? swatches.length - 1 : (currentIndex - 1 + swatches.length) % swatches.length;
+    } else if (e.key === "Home") {
+      nextIndex = 0;
+    } else if (e.key === "End") {
+      nextIndex = swatches.length - 1;
+    }
+
+    e.preventDefault();
+    e.stopPropagation();
+    const target = swatches[nextIndex];
+    if (target) {
+      target.focus();
+      const swatchColor = BOOK_DRAW_SWATCHES[nextIndex];
+      if (swatchColor) {
+        setColor(swatchColor);
+        setErasing(false);
+      }
+    }
+  };
+
   const onPick = (opt: DibujaPickOption) => {
     if (pickDone) return;
     window.clearTimeout(wrongTimer.current);
@@ -365,11 +429,18 @@ export function DibujaHost({
           </div>
           {!drawDone && (
             <div className="am-dibuja__toolbar">
-              <div className="am-dibuja__swatches">
+              <div
+                className="am-dibuja__swatches"
+                role="listbox"
+                aria-label="Colores"
+                onKeyDown={handleDrawSwatchesKeyDown}
+              >
                 {BOOK_DRAW_SWATCHES.map((c) => (
                   <button
                     key={c}
                     type="button"
+                    role="option"
+                    aria-selected={color === c && !erasing}
                     className={`am-dibuja__swatch${color === c && !erasing ? " is-active" : ""}`}
                     style={{ background: c }}
                     onClick={() => {
@@ -434,7 +505,12 @@ export function DibujaHost({
           )}
         </div>
       ) : (
-        <div className="am-dibuja__pick" role="listbox" aria-label="Elige el dibujo correcto">
+        <div
+          className="am-dibuja__pick"
+          role="listbox"
+          aria-label="Elige el dibujo correcto"
+          onKeyDown={handlePickKeyDown}
+        >
           {usablePicks.length < 2 ? (
             <p className="am-dibuja__pick-empty">Usa el modo Dibujar para esta página.</p>
           ) : (

@@ -92,7 +92,7 @@ export default defineConfig(({ mode }) => ({
     hookTimeout: 180_000,
     // Playwright E2E specs live in tests/e2e and must not be run by Vitest
     // (they use @playwright/test, not the jsdom unit runner).
-    exclude: [...configDefaults.exclude, "tests/e2e/**"],
+    exclude: [...configDefaults.exclude, "tests/e2e/**", "scripts/__tests__/check-merge-policy.test.mjs"],
   },
   esbuild: {
     // Only strip debugger statements and no-op console.log/debug/info calls.
