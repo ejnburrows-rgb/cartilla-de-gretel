@@ -20,8 +20,10 @@ test.describe("Page Turn System - Visual Proof Milestone", () => {
     await page.setViewportSize({ width: 1280, height: 900 });
     await page.goto("/cartilla/cuaderno", { waitUntil: "domcontentloaded" });
 
-    const reader = page.getByTestId("physical-book-reader");
+    const reader = page.locator(".native-lesson-viewer");
     await expect(reader).toBeVisible({ timeout: 15000 });
+    await expect(page.locator("[data-native-page]")).toHaveCount(1);
+    await expect(page.getByTestId("physical-book-reader")).toHaveCount(0);
 
     // 1. Before turn
     await page.screenshot({ path: path.join(PROOF_DIR, "workbook-01-before.png") });
@@ -29,19 +31,40 @@ test.describe("Page Turn System - Visual Proof Milestone", () => {
     // 2. Click Siguiente and capture mid-turn curl
     const nextBtn = page.getByRole("button", { name: "Siguiente" });
     await nextBtn.click();
-    await page.waitForTimeout(250); // Mid-turn (~250ms into 800ms)
+    await page.waitForTimeout(600); // Mid-turn during the 2-second native curl
     await page.screenshot({ path: path.join(PROOF_DIR, "workbook-02-mid-turn.png") });
 
     // 3. Wait for turn to settle completely
-    await page.waitForTimeout(1100);
+    await expect(reader).toHaveAttribute("data-native-page", "2", { timeout: 5000 });
     await page.screenshot({ path: path.join(PROOF_DIR, "workbook-03-settled-next.png") });
 
     // 4. Click Anterior and capture reverse turn
     const prevBtn = page.getByRole("button", { name: "Anterior" });
     await expect(prevBtn).toBeEnabled({ timeout: 5000 });
     await prevBtn.click();
-    await page.waitForTimeout(250); // Mid-turn reverse
+    await page.waitForTimeout(600); // Mid-turn reverse
     await page.screenshot({ path: path.join(PROOF_DIR, "workbook-04-reverse-turn.png") });
+    await expect(reader).toHaveAttribute("data-native-page", "1", { timeout: 5000 });
+  });
+
+  test("Current native book renders page 45 on desktop and final page 90 on phone", async ({ page }) => {
+    await page.setViewportSize({ width: 1366, height: 768 });
+    await page.goto("/cartilla/lecciones");
+    await page.evaluate(() => localStorage.setItem("cartilla.workbook-reader-page.v1", "45"));
+    await page.goto("/cartilla/cuaderno");
+    const reader = page.locator(".native-lesson-viewer");
+    await expect(reader).toHaveAttribute("data-native-page", "45");
+    await expect(page.locator("[data-native-page]")).toHaveCount(1);
+    await expect(page.getByTestId("physical-book-reader")).toHaveCount(0);
+    await expect(page.getByTestId("book-companion-anchor")).toHaveCount(0);
+    await page.screenshot({ path: path.join(PROOF_DIR, "workbook-page45-desktop.png"), fullPage: true });
+
+    await page.setViewportSize({ width: 390, height: 844 });
+    await page.evaluate(() => localStorage.setItem("cartilla.workbook-reader-page.v1", "90"));
+    await page.reload();
+    await expect(reader).toHaveAttribute("data-native-page", "90");
+    await expect(page.getByRole("button", { name: "Fin del cuaderno" })).toBeDisabled();
+    await page.screenshot({ path: path.join(PROOF_DIR, "workbook-page90-phone.png"), fullPage: true });
   });
 
   test("Flip Chart forward & reverse physical page turn frames", async ({ page }) => {
@@ -76,13 +99,15 @@ test.describe("Page Turn System - Visual Proof Milestone", () => {
     // Tablet view (Workbook)
     await page.setViewportSize({ width: 768, height: 1024 });
     await page.goto("/cartilla/cuaderno", { waitUntil: "domcontentloaded" });
-    await expect(page.getByTestId("physical-book-reader")).toBeVisible({ timeout: 15000 });
+    await expect(page.locator("[data-native-page]")).toHaveCount(1);
+    await expect(page.getByTestId("physical-book-reader")).toHaveCount(0);
     await page.screenshot({ path: path.join(PROOF_DIR, "representative-tablet.png") });
 
     // Phone view (Workbook)
     await page.setViewportSize({ width: 375, height: 667 });
     await page.goto("/cartilla/cuaderno", { waitUntil: "domcontentloaded" });
-    await expect(page.getByTestId("physical-book-reader")).toBeVisible({ timeout: 15000 });
+    await expect(page.locator("[data-native-page]")).toHaveCount(1);
+    await expect(page.getByTestId("physical-book-reader")).toHaveCount(0);
     await page.screenshot({ path: path.join(PROOF_DIR, "representative-mobile.png") });
 
     // Projector view (Teacher Flipchart)
