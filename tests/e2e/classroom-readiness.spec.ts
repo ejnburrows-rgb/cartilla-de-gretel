@@ -116,7 +116,7 @@ for(const [name,width,height] of [['laptop',1366,768],['tablet',768,1024],['phon
     await expect(teacher.getByTestId('flipchart-hd-panel')).toBeVisible();
     await noHorizontalLoss(teacher);
     await expect(teacher.getByRole('button',{name:'Volver al panel del docente'})).toBeVisible();
-    await teacher.getByRole('button',{name:'Lámina siguiente'}).click();
+    await teacher.getByRole('button',{name:'Lámina siguiente',exact:true}).click();
     await expect(teacher.getByTestId('flipchart-counter')).toContainText('Hoja 2');
     await teacher.screenshot({path:`${PROOF}/presenter-${name}.png`,fullPage:true});
     await teacher.getByRole('button',{name:'Volver al panel del docente'}).click();

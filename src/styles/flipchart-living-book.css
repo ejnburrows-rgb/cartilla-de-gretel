@@ -1,0 +1,261 @@
+/*
+ * Flip Chart living-book finish — owner reference guides (2026-10-13).
+ *
+ * Presentation-only layer that brings the native Flip Chart sheets in line
+ * with the owner-approved visual manifestation guides: warm clean paper
+ * sheet, spiral top binding, embossed rose letter medallions, soft rose
+ * syllable/word chips and rounded verse/title cards.
+ *
+ * No structure, text, artwork, reading order or interaction is changed here.
+ * No background image/scenery is mounted (DESIGN.md clean-paper rule); the
+ * paper is pure CSS. Imported after flipchart-presenter.css.
+ */
+
+/* ── Sheet: warm clean paper + spiral binding ─────────────────────────── */
+.fc-presenter .fc-board__easel {
+  --fc-sheet-paper: #fbf7ee;
+  --fc-spiral-band: clamp(22px, 3.2vh, 40px);
+  background: var(--fc-sheet-paper);
+  border: 1px solid #e8dfcf;
+  box-shadow:
+    inset 0 0 6vh rgba(160, 130, 90, 0.07),
+    0 1px 0 #fff inset,
+    0 18px 40px -18px rgba(70, 52, 30, 0.28),
+    0 3px 10px rgba(70, 52, 30, 0.08);
+  /* Rings straddle the top edge instead of reserving a band, so the
+     sheet keeps its full reading area (projector geometry gate). */
+  overflow: visible;
+}
+
+.fc-presenter .fc-board__easel::before {
+  content: "";
+  position: absolute;
+  z-index: 40;
+  left: 1.5%;
+  right: 1.5%;
+  top: calc(var(--fc-spiral-band) * -0.8);
+  height: calc(var(--fc-spiral-band) * 1.25);
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='34' height='44' viewBox='0 0 34 44'%3E%3Cdefs%3E%3ClinearGradient id='m' x1='0' x2='1'%3E%3Cstop offset='0' stop-color='%234a4d52'/%3E%3Cstop offset='.35' stop-color='%23d9dbde'/%3E%3Cstop offset='.6' stop-color='%238b8f95'/%3E%3Cstop offset='1' stop-color='%233b3e42'/%3E%3C/linearGradient%3E%3C/defs%3E%3Cellipse cx='17' cy='35' rx='4.2' ry='3.4' fill='%232a2522' opacity='.55'/%3E%3Crect x='12.5' y='2' width='9' height='35' rx='4.5' fill='none' stroke='url(%23m)' stroke-width='3.2'/%3E%3C/svg%3E");
+  background-repeat: repeat-x;
+  background-size: auto 100%;
+  background-position: center top;
+  pointer-events: none;
+}
+
+.fc-presenter .fc-board__page,
+.fc-presenter .fc-board__page-inner,
+.fc-presenter .fc-board__face,
+.fc-presenter .fc-native-board__page {
+  background: transparent;
+}
+
+/* The board isolates its blending group, so it carries the paper colour
+   itself; picture multiply below then reads against real paper. */
+.fc-presenter .fc-native-board {
+  background: var(--fc-sheet-paper, #fbf7ee);
+}
+
+/* Pictures sit directly on the paper, never in white boxes. */
+.fc-native-board .fc-native-board__art-card,
+.fc-native-board .fc-vowel-header__scene,
+.fc-native-board .fc-consonant-vocab__scene,
+.fc-native-board .fc-reading-panel__scene,
+.fc-native-board .fc-story-letter__scene {
+  background: transparent;
+  box-shadow: none;
+}
+
+/* Source pictures are opaque on white; multiply lets the warm paper show
+   through their white ground without touching the image files. */
+.fc-native-board .fc-native-board__living-art .living-illustration__art {
+  mix-blend-mode: multiply;
+}
+
+/* Lámina 3 vowel discs: embossed, centred above each picture. */
+.fc-native-board[data-flipchart-page="3"] .fc-vocab-vowel {
+  justify-self: center;
+  display: grid;
+  place-items: center;
+  width: 8cqh;
+  height: 8cqh;
+  font-size: 5.6cqh;
+  font-weight: 800;
+  border-radius: 50%;
+  background-image: radial-gradient(circle at 50% 40%, rgba(255, 255, 255, 0.8) 0 44%, rgba(255, 255, 255, 0.2) 62%, transparent 72%);
+  box-shadow:
+    0 0.6cqh 1.4cqh rgba(150, 40, 60, 0.16),
+    inset 0 -0.4cqh 0.8cqh rgba(150, 40, 60, 0.1);
+}
+
+/* ── Embossed rose letter medallion ───────────────────────────────────── */
+.fc-native-board .fc-letter-oval,
+.fc-native-board .fc-drill-letter,
+.fc-native-board .fc-reading-letter,
+.fc-native-board .fc-story-letter__letter {
+  display: grid;
+  place-items: center;
+  aspect-ratio: 1;
+  border-radius: 50%;
+  border: 0;
+  background:
+    radial-gradient(circle at 50% 42%, #ffffff 0 50%, #fdf3f5 56%, #f6d6dd 64%, #f1c6d0 69%, #fbe9ed 74%, #ffffff 79%);
+  box-shadow:
+    0 0.8cqh 2.2cqh rgba(187, 7, 51, 0.12),
+    0 0.2cqh 0.5cqh rgba(80, 30, 40, 0.08),
+    inset 0 -0.4cqh 0.9cqh rgba(187, 7, 51, 0.06);
+  justify-self: center;
+  align-self: center;
+}
+
+.fc-native-board .fc-letter-oval {
+  width: min(100%, 22cqh);
+  max-width: 22cqh;
+}
+
+.fc-native-board .fc-drill-letter {
+  width: clamp(64px, 19cqh, 220px);
+  flex: 0 0 auto;
+}
+
+.fc-native-board .fc-reading-letter,
+.fc-native-board .fc-story-letter__letter {
+  width: clamp(64px, 21cqh, 240px);
+  flex: 0 0 auto;
+}
+
+.fc-native-board .fc-letter-oval span,
+.fc-native-board .fc-drill-letter span,
+.fc-native-board .fc-reading-letter span,
+.fc-native-board .fc-story-letter__letter span {
+  font-family: "Nunito", system-ui, sans-serif;
+  font-weight: 800;
+  color: #bb0733;
+  letter-spacing: -0.01em;
+  line-height: 1;
+  text-shadow: 0 1px 0 #fff, 0 0.25cqh 0.6cqh rgba(187, 7, 51, 0.16);
+}
+
+.fc-native-board .fc-drill-letter span,
+.fc-native-board .fc-reading-letter span,
+.fc-native-board .fc-story-letter__letter span {
+  font-size: clamp(28px, 8cqh, 92px);
+}
+
+/* ── Syllable crescent keeps its source lune, gains depth ─────────────── */
+.fc-native-board .fc-crescent__shape {
+  filter: drop-shadow(0 0.5cqh 0.9cqh rgba(110, 40, 80, 0.14));
+}
+
+/* ── Syllable rows: rose band with raised chips ───────────────────────── */
+.fc-native-board .fc-syllable-row {
+  background: rgba(244, 196, 208, 0.55);
+  border-radius: 1.2cqh;
+  padding: 0.6cqh 0.8cqh;
+  gap: 0.8cqh;
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.6);
+}
+
+.fc-native-board .fc-syllable-row--highlight {
+  background: rgba(240, 182, 198, 0.7);
+}
+
+.fc-native-board .fc-syllable-row__item {
+  background: linear-gradient(180deg, #fff3f5, #fbe2e8);
+  border-radius: 0.9cqh;
+  padding: 0.2cqh 1.1cqh;
+  box-shadow: 0 0.2cqh 0.5cqh rgba(150, 30, 60, 0.12), inset 0 1px 0 #fff;
+}
+
+/* ── Word lists: soft rose chips, left-aligned like the book columns ──── */
+.fc-native-board .fc-word-columns__list li,
+.fc-native-board[data-layout-type="syllable-drill"] .fc-native-board__word {
+  justify-self: start;
+  width: fit-content;
+  background: #f9e5e9;
+  border-radius: 0.6cqh;
+  padding: 0.1cqh 0.9cqh;
+  box-shadow: inset 0 -1px 0 rgba(187, 7, 51, 0.06);
+}
+
+/* ── Verse / title / reading cards ────────────────────────────────────── */
+.fc-native-board .fc-vowel-header__panel,
+.fc-native-board .fc-reading-panel,
+.fc-native-board .fc-story-panel,
+.fc-native-board .fc-reading-bar,
+.fc-native-board .fc-native-board__rhyme {
+  border-radius: 2cqh;
+  border: 1px solid rgba(187, 7, 51, 0.1);
+  box-shadow:
+    0 0.6cqh 1.8cqh rgba(80, 40, 30, 0.08),
+    inset 0 1px 0 rgba(255, 255, 255, 0.7);
+}
+
+.fc-native-board .fc-vowel-header__title,
+.fc-native-board .fc-reading-panel__title,
+.fc-native-board .fc-story-panel__title,
+.fc-native-board .fc-story-fullwidth__title {
+  font-family: "Nunito", system-ui, sans-serif;
+  font-weight: 800;
+  color: #bb0733;
+}
+
+/* ── Vowel circles: embossed discs in their source colour ─────────────── */
+.fc-native-board .fc-vowel-circle {
+  background-image: radial-gradient(circle at 50% 40%, rgba(255, 255, 255, 0.85) 0 46%, rgba(255, 255, 255, 0.25) 62%, transparent 72%);
+  box-shadow:
+    0 0.6cqh 1.4cqh rgba(150, 40, 60, 0.16),
+    inset 0 -0.4cqh 0.8cqh rgba(150, 40, 60, 0.1);
+}
+
+/* Thumbnails stay flat and light. */
+.fc-board__thumb .fc-native-board .fc-letter-oval,
+.fc-board__thumb .fc-native-board .fc-drill-letter,
+.fc-board__thumb .fc-native-board .fc-syllable-row__item {
+  box-shadow: none;
+}
+
+/* Phones: the sheet is tall and narrow, so height-based spacing would
+   crowd the syllable drill. Keep chips tight and size medallions by width
+   so the phone layout is never more crowded than the plain sheet. */
+@media (max-width: 560px) {
+  .fc-presenter .fc-board__easel {
+    --fc-spiral-band: 18px;
+  }
+
+  .fc-native-board .fc-syllable-row {
+    padding: 2px 3px;
+    gap: 2px;
+  }
+
+  .fc-native-board .fc-syllable-row__item {
+    padding: 0 2px;
+  }
+
+  .fc-native-board .fc-word-columns__list li,
+  .fc-native-board[data-layout-type="syllable-drill"] .fc-native-board__word {
+    padding: 0 3px;
+  }
+
+  .fc-native-board .fc-drill-letter,
+  .fc-native-board .fc-reading-letter,
+  .fc-native-board .fc-story-letter__letter {
+    width: clamp(56px, 22cqw, 104px);
+  }
+
+  .fc-native-board .fc-letter-oval {
+    width: min(100%, 22cqw);
+    max-width: 22cqw;
+  }
+
+  .fc-native-board .fc-drill-letter span,
+  .fc-native-board .fc-reading-letter span,
+  .fc-native-board .fc-story-letter__letter span {
+    font-size: clamp(22px, 9cqw, 44px);
+  }
+}
+
+@media print {
+  .fc-presenter .fc-board__easel::before {
+    display: none;
+  }
+}

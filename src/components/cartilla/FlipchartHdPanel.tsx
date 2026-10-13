@@ -29,6 +29,7 @@ import { audioEngine } from "@/lib/audio-engine";
 import { useTeacherPresentation } from "@/lib/teacher-presentation-context";
 import { FlipchartNativeBoard } from "./FlipchartNativeBoard";
 import "@/styles/flipchart-presenter.css";
+import "@/styles/flipchart-living-book.css";
 
 interface FlipchartHdPanelProps {
   lessonNumber: number;
