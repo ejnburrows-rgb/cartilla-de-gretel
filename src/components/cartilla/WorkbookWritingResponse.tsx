@@ -1,4 +1,4 @@
-import { learnerStorageKey } from "@/lib/learner-storage";
+import { learnerStorageKey, useLearnerScope } from "@/lib/learner-storage";
 import { useEffect, useRef, useState, useCallback } from "react";
 import { useActivityEvents } from "@/lib/activity-events";
 import { Check, Keyboard, Pencil, RotateCcw } from "lucide-react";
@@ -7,12 +7,22 @@ import {
   loadCanvasSnapshot,
   saveCanvasSnapshot,
   clearCanvasSnapshot,
+  canvasStorageKey,
 } from "@/lib/activity-canvas-store";
+import { useCanvasContinuity } from "@/lib/use-canvas-continuity";
 import { playCorrectChord } from "@/lib/piano-audio";
 
 /** Enough writing to count the page's open-ended task as done (no grading). */
 export function isWritingResponseDone(value: string): boolean {
   return value.trim().split(/\s+/).filter((w) => /\p{L}/u.test(w)).length >= 2;
+}
+
+function canvasHasInk(canvas: HTMLCanvasElement): boolean {
+  const ctx = canvas.getContext("2d");
+  if (!ctx) return false;
+  const pixels = ctx.getImageData(0, 0, canvas.width, canvas.height).data;
+  for (let i = 3; i < pixels.length; i += 4) if (pixels[i] > 0) return true;
+  return false;
 }
 
 export interface WorkbookWritingResponseProps {
@@ -22,7 +32,12 @@ export interface WorkbookWritingResponseProps {
 }
 
 /** Open-ended writing stays open-ended; no guessed grading or answer key. */
-export function WorkbookWritingResponse({ pageNumber, interactive, prompt }: WorkbookWritingResponseProps) {
+export function WorkbookWritingResponse(props: WorkbookWritingResponseProps) {
+  const scope = useLearnerScope();
+  return <LearnerWritingResponse key={`${scope}:${props.pageNumber}`} {...props} />;
+}
+
+function LearnerWritingResponse({ pageNumber, interactive, prompt }: WorkbookWritingResponseProps) {
   const { emit: gretelEvent } = useActivityEvents();
   const storagePrefix = `cartilla-writing-page-${pageNumber}`;
   const keyTyped = learnerStorageKey(`${storagePrefix}-typed`);
@@ -60,15 +75,27 @@ export function WorkbookWritingResponse({ pageNumber, interactive, prompt }: Wor
   // Freehand Canvas Ref & tools
   const canvasRef = useRef<HTMLCanvasElement>(null);
   const drawingRef = useRef(false);
+  const dirtyRef = useRef(false);
   const lastRef = useRef<{ x: number; y: number } | null>(null);
   const [color, setColor] = useState<string>(BOOK_DRAW_SWATCHES[0]);
   const [erasing, setErasing] = useState(false);
-  const [hasDrawn, setHasDrawn] = useState(false);
+  const [hasInk, setHasInk] = useState(false);
+  const savedSnapshot = useRef(loadCanvasSnapshot(canvasKey));
+  const capturedCanvasKey = useRef(canvasStorageKey(canvasKey));
+  const revision = useRef(0);
+  const [restoring, setRestoring] = useState(Boolean(savedSnapshot.current?.dataUrl));
+
+  // Layout cleanup runs while the old learner's canvas is still mounted.
+  useCanvasContinuity(canvasRef, dirtyRef, canvasKey);
 
   const reported = useRef(completed);
+  const restoreReported = useRef(false);
 
   // Sync mode changes to storage
   const handleSetMode = (nextMode: "typed" | "freehand") => {
+    if (dirtyRef.current) persistCanvas();
+    drawingRef.current = false;
+    lastRef.current = null;
     setMode(nextMode);
     try {
       window.localStorage.setItem(keyMode, nextMode);
@@ -77,32 +104,51 @@ export function WorkbookWritingResponse({ pageNumber, interactive, prompt }: Wor
     }
   };
 
-  // Report completion on restore if already done
+  const revokeCompletion = useCallback(() => {
+    if (!reported.current) return;
+    reported.current = false;
+    setCompleted(false);
+    gretelEvent("activity:retry", { reason: "work-cleared" });
+    try { window.localStorage.removeItem(keyDone); }
+    catch { window.dispatchEvent(new Event("cartilla:work-save-failed")); }
+  }, [gretelEvent, keyDone]);
+
+  // A saved done flag is valid only if qualifying work actually remains.
   useEffect(() => {
-    if (interactive && completed) {
-      reported.current = true;
+    if (!interactive || restoring || !completed) return;
+    if (!hasInk && !isWritingResponseDone(value)) { revokeCompletion(); return; }
+    if (!restoreReported.current) {
+      restoreReported.current = true;
       gretelEvent("activity:complete", { restored: true });
     }
-  }, [interactive, completed, gretelEvent]);
+  }, [interactive, restoring, completed, hasInk, value, revokeCompletion, gretelEvent]);
 
-  // Load freehand snapshot on mount or mode switch
+  // Decode even in typed mode: hidden handwriting may still qualify as work.
+  // A late image must never clear a newer stroke, erase, clear, or learner.
   useEffect(() => {
-    if (!interactive || mode !== "freehand") return;
-    const snap = loadCanvasSnapshot(canvasKey);
-    const canvas = canvasRef.current;
-    if (!canvas) return;
-    const ctx = canvas.getContext("2d");
-    if (!ctx) return;
-    if (snap?.dataUrl) {
-      const img = new Image();
-      img.onload = () => {
-        const dpr = Math.min(window.devicePixelRatio || 1, 2);
-        ctx.clearRect(0, 0, canvas.width / dpr, canvas.height / dpr);
-        ctx.drawImage(img, 0, 0, canvas.width / dpr, canvas.height / dpr);
-        setHasDrawn(true);
-      };
-      img.src = snap.dataUrl;
-    }
+    if (!interactive) return;
+    const snap = savedSnapshot.current;
+    if (!snap?.dataUrl) { setRestoring(false); return; }
+    let cancelled = false;
+    const startedRevision = revision.current;
+    const img = new Image();
+    img.onload = () => {
+      if (cancelled || revision.current !== startedRevision) return;
+      const canvas = mode === "freehand" ? canvasRef.current : document.createElement("canvas");
+      if (!canvas) return;
+      if (mode !== "freehand") { canvas.width = img.width; canvas.height = img.height; }
+      const ctx = canvas.getContext("2d");
+      if (!ctx) { setRestoring(false); return; }
+      const dpr = mode === "freehand" ? Math.min(window.devicePixelRatio || 1, 2) : 1;
+      ctx.globalCompositeOperation = "source-over";
+      ctx.clearRect(0, 0, canvas.width / dpr, canvas.height / dpr);
+      ctx.drawImage(img, 0, 0, canvas.width / dpr, canvas.height / dpr);
+      setHasInk(canvasHasInk(canvas));
+      setRestoring(false);
+    };
+    img.onerror = () => { if (!cancelled && revision.current === startedRevision) { setHasInk(false); setRestoring(false); } };
+    img.src = snap.dataUrl;
+    return () => { cancelled = true; };
   }, [interactive, mode, canvasKey]);
 
   // Resize canvas responsively
@@ -154,9 +200,12 @@ export function WorkbookWritingResponse({ pageNumber, interactive, prompt }: Wor
     const canvas = canvasRef.current;
     if (!canvas) return;
     try {
-      saveCanvasSnapshot(canvasKey, canvas.toDataURL("image/png"));
+      const dataUrl = canvas.toDataURL("image/png");
+      saveCanvasSnapshot(canvasKey, dataUrl, capturedCanvasKey.current);
+      savedSnapshot.current = { dataUrl, updatedAt: Date.now() };
+      dirtyRef.current = false;
     } catch {
-      /* ignore */
+      window.dispatchEvent(new Event("cartilla:work-save-failed"));
     }
   };
 
@@ -178,6 +227,9 @@ export function WorkbookWritingResponse({ pageNumber, interactive, prompt }: Wor
     const next = getPoint(e);
     if (!ctx || !last) return;
 
+    revision.current += 1;
+    dirtyRef.current = true;
+    setRestoring(false);
     ctx.globalCompositeOperation = erasing ? "destination-out" : "source-over";
     ctx.strokeStyle = erasing ? "rgba(0,0,0,1)" : color;
     ctx.lineWidth = erasing ? 16 : 4;
@@ -187,11 +239,13 @@ export function WorkbookWritingResponse({ pageNumber, interactive, prompt }: Wor
     ctx.stroke();
 
     lastRef.current = next;
-    if (!hasDrawn) setHasDrawn(true);
+    const remainingInk = canvasHasInk(canvas!);
+    setHasInk(remainingInk);
+    if (!remainingInk && !isWritingResponseDone(value)) revokeCompletion();
   };
 
   const onPointerUp = () => {
-    if (drawingRef.current) persistCanvas();
+    if (dirtyRef.current) persistCanvas();
     drawingRef.current = false;
     lastRef.current = null;
   };
@@ -200,23 +254,20 @@ export function WorkbookWritingResponse({ pageNumber, interactive, prompt }: Wor
     const canvas = canvasRef.current;
     const ctx = canvas?.getContext("2d");
     if (!canvas || !ctx) return;
-    const rect = canvas.getBoundingClientRect();
-    ctx.clearRect(0, 0, rect.width, rect.height);
+    revision.current += 1;
+    dirtyRef.current = false;
+    drawingRef.current = false;
+    lastRef.current = null;
+    const dpr = Math.min(window.devicePixelRatio || 1, 2);
+    ctx.clearRect(0, 0, canvas.width / dpr, canvas.height / dpr);
     clearCanvasSnapshot(canvasKey);
-    setHasDrawn(false);
-    if (reported.current && !isWritingResponseDone(value)) {
-      reported.current = false;
-      setCompleted(false);
-      gretelEvent("activity:retry", { reason: "work-cleared" });
-      try {
-        window.localStorage.removeItem(keyDone);
-      } catch {
-        /* ignore */
-      }
-    }
+    savedSnapshot.current = null;
+    setRestoring(false);
+    setHasInk(false);
+    if (!isWritingResponseDone(value)) revokeCompletion();
   };
 
-  const canComplete = isWritingResponseDone(value) || hasDrawn;
+  const canComplete = isWritingResponseDone(value) || (!restoring && hasInk);
 
   // Completion is explicit: learner confirms with "Listo".
   const markComplete = () => {
@@ -224,6 +275,7 @@ export function WorkbookWritingResponse({ pageNumber, interactive, prompt }: Wor
     if (!reported.current) {
       reported.current = true;
       setCompleted(true);
+      restoreReported.current = true;
       playCorrectChord();
       gretelEvent("activity:complete");
       try {
@@ -237,7 +289,7 @@ export function WorkbookWritingResponse({ pageNumber, interactive, prompt }: Wor
   const handleTextChange = (text: string) => {
     setValue(text);
     const isDone = isWritingResponseDone(text);
-    if (reported.current && !isDone && !hasDrawn) {
+    if (reported.current && !isDone && !hasInk) {
       reported.current = false;
       setCompleted(false);
       gretelEvent("activity:retry", { reason: "work-cleared" });

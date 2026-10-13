@@ -98,9 +98,11 @@ export function Leccion() {
       )?.lessonProgress ?? [];
     const row = lessonProgress.find((p) => p.lesson_id === String(n));
     return row?.last_page ?? 0;
-  }, [session, progressData, n, pages.length]);
+  // The local bookmark depends on learner scope, not just backend session.
+  // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [scope, session, progressData, n, pages.length]);
 
-  useEffect(() => { if (progressReady) saveLearnerResume(n, initialPage); }, [n, progressReady, initialPage]);
+  useEffect(() => { if (progressReady) saveLearnerResume(n, initialPage); }, [scope, n, progressReady, initialPage]);
   // Laptop full screen (owner decision 2026-10-12). Opening a lesson from the
   // lesson list already asks for it; if the lesson was opened another way,
   // the first tap on the page paper (not on an activity) asks once. Leaving

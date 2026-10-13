@@ -1,5 +1,7 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
-import { useMemo } from "react";
+import { useCallback, useMemo } from "react";
+import { learnerStorageKey, useLearnerScope } from "@/lib/learner-storage";
+import { KEYS } from "@/lib/storage-keys";
 import { ArrowLeft } from "lucide-react";
 import { CurlPageViewer } from "@/components/StudentBook/CurlPageViewer";
 import type { WorkbookPageEntry } from "@/components/StudentBook/SimplePageViewer";
@@ -32,6 +34,21 @@ const AVAILABLE_PRINTED_PAGES = [
 const digitalPages = pageLayouts.pages as Record<string, { digitalStatus?: string }>;
 
 function ReconstructedWorkbook() {
+  const scope = useLearnerScope();
+  const bookmarkKey = learnerStorageKey(KEYS.workbookReaderPage);
+  const initialPage = useMemo(() => {
+    try {
+      const printedPage = Number(localStorage.getItem(bookmarkKey));
+      const index = AVAILABLE_PRINTED_PAGES.indexOf(printedPage);
+      return index < 0 ? 0 : index;
+    } catch { return 0; }
+  }, [bookmarkKey]);
+  const handlePageChange = useCallback((index: number) => {
+    const printedPage = AVAILABLE_PRINTED_PAGES[index];
+    if (printedPage === undefined) return;
+    try { localStorage.setItem(bookmarkKey, String(printedPage)); }
+    catch { window.dispatchEvent(new Event("cartilla:work-save-failed")); }
+  }, [bookmarkKey]);
   const pages = useMemo<WorkbookPageEntry[]>(
     () =>
       AVAILABLE_PRINTED_PAGES.map((pageNumber) => ({
@@ -62,6 +79,9 @@ function ReconstructedWorkbook() {
 
       <div className="mx-auto w-full max-w-5xl">
         <CurlPageViewer
+          key={scope}
+          initialPage={initialPage}
+          onPageChange={handlePageChange}
           pages={pages}
           bookCompanion={<GretelPresence autoIntro={false} bookMode hideChrome />}
         />
