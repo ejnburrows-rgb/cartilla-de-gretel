@@ -137,14 +137,10 @@ export function usePianoListening({
     }
     setProcessing("checking");
     let cancelled = false;
-    let answer: Promise<string>;
-    try {
-      answer = Promise.resolve(Ctor.available({ langs: [lang], processLocally: true }));
-    } catch {
-      unavailable();
-      return;
-    }
-    answer
+    const available = Ctor.available;
+    // async wrapper: a synchronous throw becomes a rejection (handled below).
+    const askOnDevice = async () => available.call(Ctor, { langs: [lang], processLocally: true });
+    askOnDevice()
       .then((availability) => {
         if (cancelled) return;
         if (availability !== "available") {
