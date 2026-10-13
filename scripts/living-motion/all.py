@@ -2,6 +2,8 @@ import os, sys; sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 from lib import *
 OUT = sys.argv[1] if len(sys.argv) > 1 and sys.argv[1].startswith('/') else '/data/proto/alive/out'
 ARGS = [a for a in sys.argv[1:] if not a.startswith('/')]
+os.environ['LIVING_OUT'] = OUT
+from fc_natives import fc_p004_oso, fc_p004_oveja, fc_p004_olla, fc_p006_elefante, fc_p007_iman  # Flip Chart sheets
 
 # ---------- ELEFANTE: trunk swing, ears flap, both eyes blink ----------
 def elefante():

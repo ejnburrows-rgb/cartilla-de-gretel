@@ -29,6 +29,12 @@ STILLS = {
     'olla': f'{W1}/olla.svg', 'abeja': f'{P1}/abeja.svg',
     'p009-scene': f'{FC_NATIVE}/p009-scene.png',
 }
+# Teacher Flip Chart sheet pictures (recipes in fc_natives.py).
+STILLS.update({
+    'fc_p004_oso': f'{FC_NATIVE}/p004-oso.png', 'fc_p004_oveja': f'{FC_NATIVE}/p004-oveja.png',
+    'fc_p004_olla': f'{FC_NATIVE}/p004-olla.png', 'fc_p006_elefante': f'{FC_NATIVE}/p006-elefante.png',
+    'fc_p007_iman': f'{FC_NATIVE}/p007-iman.png',
+})
 
 def still_png(path):
     data = open(path, 'rb').read()
