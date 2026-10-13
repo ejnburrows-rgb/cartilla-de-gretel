@@ -4,8 +4,15 @@ import { gretelEvent } from "@/lib/gretel-bus";
 import { audioEngine } from "@/lib/audio-engine";
 import { LESSON_PAGE_TURN_MS, prefersReducedMotion } from "@/lib/living-motion";
 import { remainingHint, usePageCompletion } from "@/lib/page-completion";
+import { useFitToPage } from "@/lib/use-fit-to-page";
 import type { WorkbookPageEntry } from "./SimplePageViewer";
 import "@/styles/native-lesson.css";
+
+/** Quiet time after a page is finished before it turns by itself. */
+export const AUTO_TURN_IDLE_MS = 1600;
+const SWIPE_MIN_PX = 60;
+const SWIPE_EXCLUDED =
+  "canvas, textarea, input, select, .am-direct-pencil, .am-dibuja__paper, .fp-trace, .native-corner-hotspot, [data-no-swipe]";
 
 /**
  * NativeLessonViewer — One readable, scrollable learning page at a time.
@@ -16,6 +23,8 @@ import "@/styles/native-lesson.css";
  * - Tap / drag bottom-left corner = previous page (always allowed).
  * - Siguiente / Anterior buttons.
  * - ArrowRight / ArrowLeft keyboard keys.
+ * - Swipe left / right on touch screens.
+ * - Automatically, shortly after the page's activities are finished.
  */
 export function NativeLessonViewer({
   pages,
@@ -24,6 +33,8 @@ export function NativeLessonViewer({
   onPageChange,
   onFinish,
   lessonNumber,
+  autoTurn = false,
+  swipe = false,
 }: {
   pages: WorkbookPageEntry[];
   chapterLabel: string;
@@ -32,6 +43,10 @@ export function NativeLessonViewer({
   onFinish?: () => void;
   /** Lesson being studied; an already-completed lesson is never re-gated. */
   lessonNumber?: number;
+  /** Turn the page by itself shortly after its activities are finished. */
+  autoTurn?: boolean;
+  /** Swipe left / right on touch screens to turn pages. */
+  swipe?: boolean;
 }) {
   const [index, setIndex] = useState(() =>
     Math.min(Math.max(0, initialPage), pages.length - 1),
@@ -61,6 +76,7 @@ export function NativeLessonViewer({
   const page = pages[index];
   const completion = usePageCompletion(page?.pageNumber, lessonNumber);
   const isLast = index === pages.length - 1;
+  useFitToPage(containerRef, index);
 
   useEffect(() => {
     gretelEvent("mount");
@@ -184,6 +200,79 @@ export function NativeLessonViewer({
   const turnPrev = useCallback(() => {
     executeTurn(index - 1, "prev");
   }, [executeTurn, index]);
+
+  // Latest navigation callbacks for the native listeners below.
+  const forwardRef = useRef(forward);
+  const turnPrevRef = useRef(turnPrev);
+  forwardRef.current = forward;
+  turnPrevRef.current = turnPrev;
+
+  // Auto page turn (owner decision 2026-10-12): when the child finishes the
+  // last activity on a page, the page turns by itself once the child has
+  // stopped touching it for a moment. Pages that were already finished on
+  // arrival, and the lesson's last page, wait for the child instead.
+  const autoTurnBaseline = useRef({ index, complete: completion.complete });
+  useEffect(() => {
+    const previous = autoTurnBaseline.current;
+    autoTurnBaseline.current = { index, complete: completion.complete };
+    if (!autoTurn || previous.index !== index || previous.complete || !completion.complete || isLast) return;
+    const root = containerRef.current;
+    let timer = window.setTimeout(() => forwardRef.current(), AUTO_TURN_IDLE_MS);
+    const stillWorking = () => {
+      window.clearTimeout(timer);
+      timer = window.setTimeout(() => forwardRef.current(), AUTO_TURN_IDLE_MS);
+    };
+    root?.addEventListener("pointerdown", stillWorking);
+    root?.addEventListener("keydown", stillWorking);
+    return () => {
+      window.clearTimeout(timer);
+      root?.removeEventListener("pointerdown", stillWorking);
+      root?.removeEventListener("keydown", stillWorking);
+    };
+  }, [autoTurn, completion.complete, index, isLast]);
+
+  // Swipe left / right on touch screens turns the page (Siguiente still
+  // waits until the page is finished). Writing, drawing and line-tracing
+  // areas keep their own finger movement.
+  useEffect(() => {
+    const root = containerRef.current;
+    if (!swipe || !root) return;
+    let start: { x: number; y: number; t: number; id: number } | null = null;
+    const onDown = (event: PointerEvent) => {
+      if (event.pointerType === "mouse" || !event.isPrimary) return;
+      const target = event.target as Element | null;
+      if (target?.closest?.(SWIPE_EXCLUDED)) return;
+      start = { x: event.clientX, y: event.clientY, t: event.timeStamp, id: event.pointerId };
+    };
+    const onUp = (event: PointerEvent) => {
+      const begin = start;
+      start = null;
+      if (!begin || begin.id !== event.pointerId) return;
+      const dx = event.clientX - begin.x;
+      const dy = event.clientY - begin.y;
+      if (Math.abs(dx) < SWIPE_MIN_PX || Math.abs(dy) > Math.abs(dx) * 0.6 || event.timeStamp - begin.t > 900) return;
+      // A swipe that starts on a picture must not also choose that picture.
+      const swallowClick = (click: MouseEvent) => {
+        click.preventDefault();
+        click.stopPropagation();
+      };
+      window.addEventListener("click", swallowClick, { capture: true, once: true });
+      window.setTimeout(() => window.removeEventListener("click", swallowClick, { capture: true }), 400);
+      if (dx < 0) forwardRef.current();
+      else turnPrevRef.current();
+    };
+    const onCancel = () => {
+      start = null;
+    };
+    root.addEventListener("pointerdown", onDown);
+    root.addEventListener("pointerup", onUp);
+    root.addEventListener("pointercancel", onCancel);
+    return () => {
+      root.removeEventListener("pointerdown", onDown);
+      root.removeEventListener("pointerup", onUp);
+      root.removeEventListener("pointercancel", onCancel);
+    };
+  }, [swipe]);
 
   // Keyboard navigation
   useEffect(() => {
@@ -467,7 +556,7 @@ export function NativeLessonViewer({
             disabled={index === 0 || turning}
             data-testid="button-prev"
           >
-            <ChevronLeft size={20} /> Anterior
+            <ChevronLeft size={20} aria-hidden="true" /> <span className="native-lesson-viewer__nav-label">Anterior</span>
           </button>
           <span>
             {index + 1} / {pages.length}
@@ -486,7 +575,7 @@ export function NativeLessonViewer({
                 : "Termina la actividad de esta página para seguir"
             }
           >
-            {isLast ? "Terminar lección" : "Siguiente"} <ChevronRight size={20} />
+            <span className="native-lesson-viewer__nav-label">{isLast ? "Terminar lección" : "Siguiente"}</span> <ChevronRight size={20} aria-hidden="true" />
           </button>
         </nav>
       </div>

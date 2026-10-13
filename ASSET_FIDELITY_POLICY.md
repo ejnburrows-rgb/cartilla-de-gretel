@@ -20,7 +20,7 @@ It replaces `IMAGE_GENERATION_BAN.md` and `docs/GOOGLE_FLOW_PROMPTS.md`, which a
 - Apply verified source-preserving color transfer to an existing Workbook drawing when an exact mapped Flip Chart/canonical counterpart exists and geometry/linework/content remain unchanged.
 - Create motion from an approved static source image.
 - Use Google Flow to subtly animate approved art.
-- Create a new scenic background for an explicitly approved Workbook or Flip Chart context, background environment only, following `repo.md`. Creation permission does not require rendering it behind dense Student Workbook exercises.
+- Create a new scenic background for an explicitly owner-approved context, background environment only, following `repo.md`. Creation permission does not imply Flip Chart or Student Workbook scenery is rendered by default.
 
 ## Source-preserving color-transfer exception
 
@@ -30,7 +30,7 @@ For an existing Workbook illustration, verified colors may be transferred from a
 
 ## Background-only exception (`repo.md`)
 
-New scenic backgrounds may be created for explicitly approved Workbook or Flip Chart contexts when they follow `repo.md`. Dense Student Workbook exercises use the clean digital-canvas presentation and do not render full scenic wallpaper by default. Existing scenic assets remain preserved for the teacher Flip Chart and other approved contexts. This exception applies only to the background environment. Original foreground illustrations, characters, objects, text, lesson content, educational meaning, composition, and page structure remain unchanged.
+New scenic backgrounds may be created for explicitly owner-approved contexts when they follow `repo.md`. Dense Student Workbook exercises use the clean digital-canvas presentation, and the teacher Flip Chart uses a clean paper surface without a default background-image layer. Existing scenic assets remain preserved on disk; do not delete/regenerate them or mount them as default Flip Chart wallpaper. This exception applies only to the background environment. Original foreground illustrations, characters, objects, text, lesson content, educational meaning, composition, and page structure remain unchanged.
 
 ## NOT ALLOWED
 
@@ -66,7 +66,7 @@ If the printed book page has no picture, the digital page adds no picture: do no
 
 ### In-app Gretel
 - Lesson interaction uses the existing approved Gretel master/state system rather than generating a separate video/pose set.
-- Motion must be purposeful and restrained. Per owner decision of 2026-10-09, living pictures move continuously, gently, and smoothly while the student works.
+- Motion must be purposeful and restrained. Per owner decision of 2026-10-09, living pictures move continuously, gently, and smoothly while the student works. Motion must be realistic for what each thing is (owner decision 2026-10-11). Animals move like the real animal — for example, the cow blinks, breathes, and flicks its ears or tail — and only the parts that really move do so. Whole pictures must never wave, ripple, bob or float like a flag; only something that really travels as a whole, such as a flying airplane, may move gently as a whole (owner decision 2026-10-11). Motion is built using the original workbook art as the template; owner-approved image snippets follow the same rule.
 - Follow `STUDENT_INTERACTION_STANDARD.md` for student feedback motion.
 
 ## Before any image, source-preserving color transfer, or clip goes into the repo

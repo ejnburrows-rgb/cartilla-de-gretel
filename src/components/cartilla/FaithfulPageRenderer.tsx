@@ -23,10 +23,8 @@ import { EscucharInstruccionButton } from "./EscucharInstruccionButton";
 import { FixedLayoutPage } from "./FixedLayoutPage";
 import {
   DibujaFromRegion,
-  LassoPictureGrid,
-  LassoSyllableMatch,
-  LassoVowelLineMatch,
-  LassoVowelMatchAll,
+  PencilVowelLineMatch,
+  PencilVowelMatchAll,
   PaintFromRegion,
   resolveFaithfulHost,
 } from "@/cartilla/interactions/faithfulAdapters";
@@ -326,7 +324,7 @@ function RegionView({
   pageNumber?: number;
 }) {
   // Host chosen once so Colorea never silently becomes tap-select, and
-  // Encierra / Une always stay on LassoConnect when interactive.
+  // Encierra uses the approved pencil circle and Une uses pencil lines.
   const host = interactive
     ? resolveFaithfulHost(region.regionType, precedingInstruction)
     : "static";
@@ -364,14 +362,9 @@ function RegionView({
         </div>
       );
     case "picture-grid":
-      if (host === "lasso-mark") {
-        return (
-          <LassoPictureGrid
-            region={region}
-            lessonId={lessonId}
-            instruction={precedingInstruction}
-          />
-        );
+      if (host === "pencil-mark") {
+        return <InteractivePictureGrid region={region} accent={accent ?? "hsl(230 75% 58%)"}
+          lessonId={lessonId} mark="circle" />;
       }
       if (host === "paint") {
         // Colorea on a grid: paint the first colorable illustration cell as stage
@@ -398,7 +391,7 @@ function RegionView({
       );
     case "vowel-line-match":
       return interactive ? (
-        <LassoVowelLineMatch
+        <PencilVowelLineMatch
           region={region}
           lessonId={lessonId}
           instruction={precedingInstruction}
@@ -418,7 +411,7 @@ function RegionView({
       );
     case "vowel-match-all":
       return interactive ? (
-        <LassoVowelMatchAll
+        <PencilVowelMatchAll
           region={region}
           lessonId={lessonId}
           instruction={precedingInstruction}
@@ -427,16 +420,8 @@ function RegionView({
         <VowelMatchAll region={region} />
       );
     case "syllable-match":
-      if (interactive && native) return <SyllableWordCircle region={region} lessonId={lessonId} />;
-      return interactive ? (
-        <LassoSyllableMatch
-          region={region}
-          lessonId={lessonId}
-          instruction={precedingInstruction}
-        />
-      ) : (
-        <SyllableMatch region={region} />
-      );
+      return interactive ? <SyllableWordCircle region={region} lessonId={lessonId} />
+        : <SyllableMatch region={region} />;
     case "fill-in-blank":
       return interactive ? (
         <InteractiveFillInBlank
