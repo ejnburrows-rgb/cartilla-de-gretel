@@ -46,8 +46,22 @@ export function StickerReel({ earnedIds }: StickerReelProps) {
           return (
             <div
               key={sticker.id}
+              role="button"
+              tabIndex={0}
+              // DELIBERATE: locked stickers stay focusable (tabIndex 0) so
+              // keyboard/screen-reader learners can hear the unlock condition
+              // in the aria-label; aria-disabled announces the locked state
+              // instead of presenting a misleading enabled button.
+              aria-disabled={!isEarned}
+              aria-label={`${isEarned ? sticker.name : `Lección ${sticker.lessonId}`}: ${isEarned ? sticker.description : "Pegatina bloqueada"}`}
               onClick={() => handleStickerClick(sticker, isEarned)}
-              className="flex-shrink-0 w-24 flex flex-col items-center snap-center cursor-pointer group"
+              onKeyDown={(event) => {
+                if (event.key === "Enter" || event.key === " ") {
+                  event.preventDefault();
+                  handleStickerClick(sticker, isEarned);
+                }
+              }}
+              className="flex-shrink-0 w-24 flex flex-col items-center snap-center cursor-pointer group focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-amber-800"
             >
               <div
                 className={`relative w-20 h-20 rounded-2xl flex items-center justify-center border-4 transition-all duration-300 ${
