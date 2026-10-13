@@ -1,5 +1,17 @@
 # AGENTS.md — mandatory, every session, no exceptions
 
+## OWNER DIRECTIVE — MUSE CENTRAL CONTROLLER AUTHORIZED (2026-10-12)
+
+Owner authorized Muse (personal AI agent) as the central controller for this repository on 2026-10-12: hourly scheduled checks of Jules sessions, PRs, issues, and main; inspect-and-decide loop (verify-ok → advance within repo rules; needs-owner → alert owner; incomplete/errors → corrective prompt back to Jules on the existing lane); batched ready-work proposals for owner approval; compact dashboard.
+
+This supersedes the 2026-10-10 "only the ChatGPT cloud Jules coordination is authorized as scheduler" exclusivity. Muse acts as designated GitHub Dispatcher under the unchanged OWNER-APPROVAL-ONLY gate: a NEW Jules task still requires the owner's explicit latest affirmative approval for that exact issue/scope, linked by the dispatcher. Capacity headroom alone never authorizes dispatch.
+
+Disposition of the existing hourly ChatGPT cloud task: PENDING owner decision (keep as secondary observer or disable for a single dispatcher).
+
+The controller does not write production code; complicated implementation goes to the owner's other agents via the owner.
+
+---
+
 ## STOP — OWNER CREDIT / ANTIGRAVITY DENY-BY-DEFAULT GATE (2026-10-11)
 
 **Applies to every agent, dispatcher, Jules worker, reviewer, scheduled observer, connector and desktop/CLI operator. Overrides ALL older instructions suggesting Antigravity as a fallback or authorizing its launcher.**
