@@ -12,7 +12,7 @@ import "@/styles/native-lesson.css";
 export const AUTO_TURN_IDLE_MS = 1600;
 const SWIPE_MIN_PX = 60;
 const SWIPE_EXCLUDED =
-  "canvas, textarea, input, select, .am-direct-pencil, .am-dibuja__paper, .fp-trace, .native-corner-hotspot, [data-no-swipe]";
+  "canvas, textarea, input, select, .am-direct-pencil, .am-dibuja__paper, .fp-trace, .native-corner-hotspot, .fp-ix-fill__choice, .fp-ix-fill__blank, .native-syllable, [data-no-swipe]";
 
 /**
  * NativeLessonViewer — One readable, scrollable learning page at a time.
@@ -211,23 +211,44 @@ export function NativeLessonViewer({
   // last activity on a page, the page turns by itself once the child has
   // stopped touching it for a moment. Pages that were already finished on
   // arrival, and the lesson's last page, wait for the child instead.
+  // A hold over the quiet time must never turn the page mid-stroke: while
+  // ANY pointer is down the idle timer stays cancelled, and a fresh quiet
+  // period begins only after the last pointer lifts.
   const autoTurnBaseline = useRef({ index, complete: completion.complete });
   useEffect(() => {
     const previous = autoTurnBaseline.current;
     autoTurnBaseline.current = { index, complete: completion.complete };
     if (!autoTurn || previous.index !== index || previous.complete || !completion.complete || isLast) return;
     const root = containerRef.current;
-    let timer = window.setTimeout(() => forwardRef.current(), AUTO_TURN_IDLE_MS);
-    const stillWorking = () => {
+    let timer: number | undefined;
+    let activePointers = 0;
+    const startIdleTimer = () => {
       window.clearTimeout(timer);
       timer = window.setTimeout(() => forwardRef.current(), AUTO_TURN_IDLE_MS);
     };
-    root?.addEventListener("pointerdown", stillWorking);
-    root?.addEventListener("keydown", stillWorking);
+    const onPointerDown = () => {
+      activePointers += 1;
+      window.clearTimeout(timer);
+      timer = undefined;
+    };
+    const onPointerRelease = () => {
+      activePointers = Math.max(0, activePointers - 1);
+      if (activePointers === 0) startIdleTimer();
+    };
+    const onKeyDown = () => {
+      if (activePointers === 0) startIdleTimer();
+    };
+    startIdleTimer();
+    root?.addEventListener("pointerdown", onPointerDown);
+    window.addEventListener("pointerup", onPointerRelease);
+    window.addEventListener("pointercancel", onPointerRelease);
+    root?.addEventListener("keydown", onKeyDown);
     return () => {
       window.clearTimeout(timer);
-      root?.removeEventListener("pointerdown", stillWorking);
-      root?.removeEventListener("keydown", stillWorking);
+      root?.removeEventListener("pointerdown", onPointerDown);
+      window.removeEventListener("pointerup", onPointerRelease);
+      window.removeEventListener("pointercancel", onPointerRelease);
+      root?.removeEventListener("keydown", onKeyDown);
     };
   }, [autoTurn, completion.complete, index, isLast]);
 
@@ -496,10 +517,10 @@ export function NativeLessonViewer({
               type="button"
               className="native-corner-hotspot native-corner-hotspot--next"
               data-testid="corner-next"
-              aria-label="Página siguiente (doblar esquina)"
+              aria-label="Avanzar de página (doblar esquina)"
               title={
                 completion.complete
-                  ? "Siguiente página"
+                  ? "Doblar esquina para avanzar"
                   : "Termina la actividad de esta página para seguir"
               }
               data-locked={completion.complete ? undefined : "true"}
