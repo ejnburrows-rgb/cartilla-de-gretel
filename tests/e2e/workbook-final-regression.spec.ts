@@ -149,28 +149,30 @@ test.describe("Workbook Final Student Activity Regression & Fit Suite (#450)", (
       await page.setViewportSize({ width: 1280, height: 900 });
       await page.goto("/cartilla/cuaderno", { waitUntil: "domcontentloaded" });
 
-      const reader = page.getByTestId("physical-book-reader");
+      const reader = page.locator(".native-lesson-viewer");
       await expect(reader).toBeVisible({ timeout: 15000 });
+      await expect(page.getByTestId("physical-book-reader")).toHaveCount(0);
+      await expect(page.locator("[data-native-page]")).toHaveCount(1);
 
       // Keyboard navigation ArrowRight
       await page.keyboard.press("ArrowRight");
       await page.waitForTimeout(300); // Mid-turn
       await page.screenshot({ path: path.join(PROOF_DIR, "04-keyboard-page-turn-mid.png") });
 
-      await page.waitForTimeout(800); // Settle
+      await expect(reader).toHaveAttribute("data-native-page", "2", { timeout: 5000 });
 
       // Reverse navigation ArrowLeft
       await page.keyboard.press("ArrowLeft");
       await page.waitForTimeout(300);
       await page.screenshot({ path: path.join(PROOF_DIR, "04-keyboard-page-turn-reverse.png") });
-      await page.waitForTimeout(800);
+      await expect(reader).toHaveAttribute("data-native-page", "1", { timeout: 5000 });
 
       // Rapid key press safety test: no blank flash or corrupted page state
       await page.keyboard.press("ArrowRight");
       await page.keyboard.press("ArrowRight");
       await page.keyboard.press("ArrowRight");
-      await page.waitForTimeout(1000);
-      await expect(reader).toBeVisible();
+      await expect(reader).toHaveAttribute("data-native-page", "2", { timeout: 5000 });
+      await expect(page.locator("[data-native-page]")).toHaveCount(1);
     });
   });
 
@@ -210,14 +212,16 @@ test.describe("Workbook Final Student Activity Regression & Fit Suite (#450)", (
       await page.setViewportSize({ width: 1280, height: 900 });
       await page.goto("/cartilla/cuaderno", { waitUntil: "domcontentloaded" });
 
-      const reader = page.getByTestId("physical-book-reader");
+      const reader = page.locator(".native-lesson-viewer");
       await expect(reader).toBeVisible({ timeout: 15000 });
+      await expect(page.getByTestId("physical-book-reader")).toHaveCount(0);
+      await expect(page.locator("[data-native-page]")).toHaveCount(1);
 
       // Click next under reduced motion
       const nextBtn = page.getByRole("button", { name: "Siguiente" });
       await nextBtn.click();
       // Should settle almost immediately without long 3D curl
-      await page.waitForTimeout(100);
+      await expect(reader).toHaveAttribute("data-native-page", "2", { timeout: 5000 });
       await page.screenshot({ path: path.join(PROOF_DIR, "06-reduced-motion-turn.png") });
     });
 
