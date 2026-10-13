@@ -212,6 +212,17 @@ describe("interrupted handwriting and stale restores", () => {
     await freehand();
     expect(canvas().toDataURL()).toBe(drawn);
   });
+  it("a tap without drawing while restore is pending cannot overwrite saved ink", async () => {
+    seedInk();
+    const saved = loadCanvasSnapshot("writing:90")?.dataUrl;
+    localStorage.setItem(learnerStorageKey("cartilla-writing-page-90-mode"), "freehand");
+    mount();
+    fireEvent.pointerDown(canvas(), { clientX: 20, clientY: 20 });
+    fireEvent.pointerUp(canvas());
+    expect(loadCanvasSnapshot("writing:90")?.dataUrl).toBe(saved);
+    await loadImages();
+    expect(screen.getByRole("button", { name: "Listo" })).toBeEnabled();
+  });
   it.each(["draw", "clear"])("late image restoration cannot replace newer %s", async (action) => {
     seedInk();
     localStorage.setItem(learnerStorageKey("cartilla-writing-page-90-mode"), "freehand");

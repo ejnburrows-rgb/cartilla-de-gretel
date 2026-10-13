@@ -1,5 +1,4 @@
 import { test, expect, type Page } from "@playwright/test";
-import { mkdir } from "node:fs/promises";
 
 type Learner = { classId: string; id: string };
 async function roster(page: Page): Promise<Learner[]> {
@@ -33,8 +32,9 @@ async function keyboardTurn(page: Page, direction: "next" | "prev") {
 }
 const suffix = (s: Learner) => `:demo:${s.classId}:${s.id}`;
 async function proof(page: Page, name: string) {
-  await mkdir("/data/cartilla-proof", { recursive: true });
-  await page.screenshot({ path: `/data/cartilla-proof/${name}.png`, fullPage: true });
+  const path = test.info().outputPath(`${name}.png`);
+  await page.screenshot({ path, fullPage: true });
+  await test.info().attach(name, { path, contentType: "image/png" });
 }
 test.beforeEach(async ({ page }) => {
   await page.route("**/rest/v1/**", (route) => route.abort());
