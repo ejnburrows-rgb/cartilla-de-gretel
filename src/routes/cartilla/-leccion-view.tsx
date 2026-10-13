@@ -115,7 +115,11 @@ export function Leccion() {
     document.addEventListener("pointerdown", onFirstPaperTap);
     return () => {
       document.removeEventListener("pointerdown", onFirstPaperTap);
-      exitLessonFullscreen();
+      // Leave full screen only when the child really leaves the lessons (not
+      // when React re-mounts this view or opens the next lesson).
+      window.setTimeout(() => {
+        if (!window.location.pathname.startsWith("/cartilla/leccion/")) exitLessonFullscreen();
+      }, 0);
     };
   }, []);
   const [saveFailed, setSaveFailed] = useState(false);
