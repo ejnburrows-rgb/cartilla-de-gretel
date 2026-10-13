@@ -3,7 +3,13 @@
  */
 import { act, cleanup, render } from "@testing-library/react";
 import { afterEach, beforeEach, describe, expect, it, vi } from "vitest";
-import { WORKBOOK_MARK_TIMING, WorkbookPencilMark } from "../WorkbookPencilMark";
+import {
+  CLOSE_UP_MAX,
+  CLOSE_UP_ZOOM_MS,
+  ClassicWoodenPencil,
+  WORKBOOK_MARK_TIMING,
+  WorkbookPencilMark,
+} from "../WorkbookPencilMark";
 
 const { drawMs, holdMs, eraseMs } = WORKBOOK_MARK_TIMING;
 import { gretelEvent } from "@/lib/gretel-bus";
@@ -118,5 +124,34 @@ describe("WorkbookPencilMark shared feedback kernel", () => {
     for (const part of ["lacq", "wood", "lead", "metal", "eraser"]) {
       expect(pencil?.querySelector(`linearGradient[id$='-${part}']`)).toBeTruthy();
     }
+  });
+
+  it("has no HB stamp on the pencil (#720 F03)", () => {
+    const { container } = render(<ClassicWoodenPencil />);
+    expect(container.querySelector("svg text")).toBeNull();
+    expect(container.textContent).not.toContain("HB");
+  });
+
+  it("drops few small realistic eraser crumbs (#720 F05)", () => {
+    const { container } = render(
+      <WorkbookPencilMark isCorrect={false} itemId="p1-crumbs" />,
+    );
+    act(() => vi.advanceTimersByTime(drawMs + holdMs));
+    const crumbs = container.querySelectorAll(".workbook-pencil__crumbs > g");
+    expect(crumbs.length).toBeGreaterThanOrEqual(5);
+    expect(crumbs.length).toBeLessThanOrEqual(8);
+    const ellipses = container.querySelectorAll(".workbook-pencil__crumbs ellipse");
+    expect(ellipses.length).toBe(crumbs.length);
+    for (const el of ellipses) {
+      expect(Number(el.getAttribute("rx"))).toBeLessThanOrEqual(3.1);
+    }
+  });
+
+  it("uses the gentle close-up zoom (#720 F04)", () => {
+    expect(CLOSE_UP_MAX).toBe(1.5);
+    expect(CLOSE_UP_ZOOM_MS).toBe(1000);
+    // Draw (~2 s) and erase (~3.5 s) timings stay untouched.
+    expect(WORKBOOK_MARK_TIMING.drawMs).toBe(2800);
+    expect(WORKBOOK_MARK_TIMING.eraseMs).toBe(4000);
   });
 });
