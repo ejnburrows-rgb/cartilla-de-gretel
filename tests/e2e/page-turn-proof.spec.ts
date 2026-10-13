@@ -39,7 +39,7 @@ test.describe("Page Turn System - Visual Proof Milestone", () => {
     await page.screenshot({ path: path.join(PROOF_DIR, "workbook-03-settled-next.png") });
 
     // 4. Click Anterior and capture reverse turn
-    const prevBtn = page.getByRole("button", { name: "Anterior" });
+    const prevBtn = page.getByTestId("button-prev");
     await expect(prevBtn).toBeEnabled({ timeout: 5000 });
     await prevBtn.click();
     await page.waitForTimeout(600); // Mid-turn reverse
