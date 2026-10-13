@@ -16,6 +16,7 @@ import { DragMatchPairs } from "@/components/cartilla/DragMatchPairs";
 import { DragBuildWord } from "@/components/cartilla/DragBuildWord";
 import { DragLetterTrace } from "@/components/cartilla/DragLetterTrace";
 import { PianoPronunciation } from "@/components/cartilla/PianoPronunciation";
+import { getPianoWords } from "@/lib/piano-words";
 import { SoundSearch } from "@/components/cartilla/SoundSearch";
 import { GretelMirror } from "@/components/cartilla/GretelMirror";
 import { canBuildSoundSearch, type AuthenticActivityWord } from "@/lib/activity-mechanics";
@@ -158,6 +159,7 @@ export function ActivityCarousel({
           <div className="py-2">
             <PianoPronunciation
               syllables={syllables}
+              words={getPianoWords(lessonNumber)}
               lessonId={lessonId}
               color={color}
               onComplete={() => handleCompleteTab("piano")}
