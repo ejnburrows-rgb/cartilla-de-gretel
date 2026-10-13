@@ -20,7 +20,7 @@ async function Workbook() {
       <Book />
     </Suspense>,
   );
-  await screen.findByTestId("corner-next");
+  await screen.findByTestId("complete-workbook");
 }
 
 beforeEach(() => {
@@ -59,4 +59,13 @@ describe("complete book (/cartilla/cuaderno) — owner decision 2026-10-13", () 
     const next = screen.getByTestId("corner-next");
     expect(next.getAttribute("data-locked")).toBeNull();
   });
+  it("shows an inert end-of-book state on printed page 90, not a dead lesson-completion action", async () => {
+    localStorage.setItem("cartilla.workbook-reader-page.v1", "90");
+    await Workbook();
+    const end = screen.getByRole("button", { name: "Fin del cuaderno" });
+    expect(end.hasAttribute("disabled")).toBe(true);
+    expect(screen.queryByRole("button", { name: "Terminar lección" })).toBeNull();
+    expect(document.querySelector("[data-native-page]")?.getAttribute("data-native-page")).toBe("90");
+  });
+
 });
