@@ -98,13 +98,13 @@ class Svg:
         open(path, 'w').write(s)
         return len(s)
 
-def lid_patch(base, box, color, line=(20, 10, 25), lash_w=1.4, pad=0.6, outline=True):
+def lid_patch(base, box, color, line=(20, 10, 25), lash_w=1.4, pad=0.6, outline=True, outline_w=0.9):
     """closed eyelid patch covering an eye box; returns (image, x, y)"""
     x0, y0, x1, y1 = box
     S = 8
     w, h = int(math.ceil(x1 - x0 + 2*pad)), int(math.ceil(y1 - y0 + 2*pad))
     im = Image.new('RGBA', (w*S, h*S), (0, 0, 0, 0)); d = ImageDraw.Draw(im)
-    d.ellipse((0, 0, w*S - 1, h*S - 1), fill=tuple(color) + (255,), outline=(line + (255,)) if outline else None, width=int(0.9*S) if outline else 0)
+    d.ellipse((0, 0, w*S - 1, h*S - 1), fill=tuple(color) + (255,), outline=(line + (255,)) if outline else None, width=int(outline_w*S) if outline else 0)
     # closed-lid crease: a soft downward arc near the lower third
     d.arc((w*S*0.08, -h*S*0.25, w*S*0.92, h*S*0.86), start=25, end=155, fill=line + (255,), width=int(lash_w*S))
     im = im.resize((w, h), Image.LANCZOS)

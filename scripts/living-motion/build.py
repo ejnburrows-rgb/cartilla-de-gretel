@@ -23,11 +23,17 @@ W1 = 'public/cartilla/art/optimized/workbook/leccion-1'
 P1 = 'public/cartilla/art/faithful/leccion-1/wb-p1'
 # name -> still picture (relative to repo root). Keep in sync with aliveSrc in the registry.
 FC_NATIVE = 'public/cartilla/art/optimized/flipchart-native'
+FV = 'public/cartilla/art/faithful'
 STILLS = {
     'oso': f'{W1}/oso.svg', 'oveja': f'{W1}/oveja.svg', 'avion': f'{W1}/avion.svg',
     'abanico': f'{W1}/abanico.svg', 'elefante': f'{W1}/elefante.svg', 'iman': f'{W1}/iman.svg',
     'olla': f'{W1}/olla.svg', 'abeja': f'{P1}/abeja.svg',
     'p009-scene': f'{FC_NATIVE}/p009-scene.png',
+    # Workbook vowel-review pages (Lessons 2-6); recipes in wb_vowels.py
+    'vocal-o-oso': f'{FV}/vocal-o/oso.webp', 'vocal-o-oveja': f'{FV}/vocal-o/oveja.webp',
+    'vocal-e-elefante': f'{FV}/vocal-e/elefante.webp', 'vocal-o-olla': f'{FV}/vocal-o/olla.webp',
+    'vocal-a-avion': f'{FV}/vocal-a/avion.webp', 'vocal-a-abeja': f'{FV}/vocal-a/abeja.webp',
+    'vocal-a-abanico': f'{FV}/vocal-a/abanico.webp', 'vocal-i-iman': f'{FV}/vocal-i/iman.webp',
 }
 
 def still_png(path):

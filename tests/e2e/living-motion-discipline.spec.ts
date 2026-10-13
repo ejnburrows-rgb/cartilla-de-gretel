@@ -19,6 +19,9 @@ async function motionOf(page: Page, name: string) {
       wrapper: anim(wrapper),
       art: anim(wrapper.querySelector(".living-illustration__art")),
       partRigged: wrapper.classList.contains("living-illustration--part-rigged"),
+      // Owner-approved natural part motion plays inside the picture's own SVG.
+      natural: wrapper.dataset.naturalMotion === "true",
+      src: wrapper.querySelector(".living-illustration__art")?.getAttribute("src") ?? "",
       parts: [...wrapper.querySelectorAll(".living-illustration__part")].map(anim),
       anyRunning: [wrapper, ...wrapper.querySelectorAll("*")].some(
         (el) => getComputedStyle(el).animationName !== "none",
@@ -37,7 +40,11 @@ test("Workbook page 1: registered actors move, static art stays static", async (
   for (const name of ACTORS) {
     const m = await motionOf(page, name);
     expect(m, `${name} cell exists`).not.toBeNull();
-    if (m!.partRigged) {
+    if (m!.natural) {
+      expect(m!.src, `${name} plays its natural-motion SVG`).toContain("-alive.svg");
+      expect(m!.wrapper, `${name} has no whole-picture motion`).toBe("none");
+      expect(m!.art, `${name} has no whole-picture motion`).toBe("none");
+    } else if (m!.partRigged) {
       expect(m!.parts.length, `${name} renders its registered parts`).toBeGreaterThan(0);
       expect(
         m!.parts.every((a) => a !== "none"),

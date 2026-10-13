@@ -31,10 +31,17 @@ describe("LivingIllustration faithful recovered art", () => {
       );
       const wrapper = screen.getByRole("img", { name: animal.word }).parentElement;
       const actor = getLivingActor(animal.illustrationSrc);
+      // Pictures with built natural part motion (aliveSrc) play it inside their
+      // own SVG; they never also get whole-picture CSS motion.
       expect(wrapper?.getAttribute("data-ambient-motion"), animal.word).toBe(
-        actor?.action ?? "none",
+        actor?.aliveSrc ? "none" : (actor?.action ?? "none"),
       );
-      expect(wrapper?.className.includes("living-illustration--creature-life"), animal.word).toBe(Boolean(actor?.creature));
+      expect(wrapper?.getAttribute("data-natural-motion"), animal.word).toBe(
+        actor?.aliveSrc ? "true" : "false",
+      );
+      expect(wrapper?.className.includes("living-illustration--creature-life"), animal.word).toBe(
+        Boolean(actor?.creature) && !actor?.aliveSrc,
+      );
       unmount();
     }
   });
@@ -69,9 +76,9 @@ describe("LivingIllustration faithful recovered art", () => {
 
   it("moves independent anatomy without applying the actor action to the whole source image", () => {
     for (const src of [
-      "/cartilla/art/faithful/vocal-a/abeja.webp",
+      "/cartilla/art/faithful/leccion-1/aguila.webp",
       "/cartilla/art/faithful/leccion-1/pez.webp",
-      "/cartilla/art/faithful/vocal-e/elefante.webp",
+      "/cartilla/art/faithful/leccion-23-z/zorro.webp",
       "/cartilla/art/faithful/leccion-19-c/conejo.webp",
       "/cartilla/art/faithful/leccion-18-rr/perro.webp",
     ]) {
@@ -87,16 +94,47 @@ describe("LivingIllustration faithful recovered art", () => {
   });
 
   it("renders with actor motion classes inside workbook exercise cells", () => {
-    const src = "/cartilla/art/faithful/vocal-o/oso.webp";
+    const src = "/cartilla/art/faithful/vocal-e/erizo.webp";
     const { container } = render(
       <div className="fp-ix-cell">
-        <LivingIllustration src={src} alt="oso" />
+        <LivingIllustration src={src} alt="erizo" />
       </div>,
     );
     const wrapper = container.querySelector(".living-illustration");
     expect(wrapper).not.toBeNull();
     expect(wrapper?.className).toContain("living-illustration--breathe");
     expect(wrapper?.className).toContain("living-illustration--creature-life");
+  });
+
+  it("plays natural part motion for the Workbook vowel-review pictures, with no whole-picture CSS motion", () => {
+    for (const [src, alive] of [
+      ["/cartilla/art/faithful/vocal-o/oso.webp", "oso-alive.svg"],
+      ["/cartilla/art/faithful/vocal-o/oveja.webp", "oveja-alive.svg"],
+      ["/cartilla/art/faithful/vocal-o/olla.webp", "olla-alive.svg"],
+      ["/cartilla/art/faithful/vocal-e/elefante.webp", "elefante-alive.svg"],
+      ["/cartilla/art/faithful/vocal-a/avion.webp", "avion-alive.svg"],
+      ["/cartilla/art/faithful/vocal-a/abeja.webp", "abeja-alive.svg"],
+      ["/cartilla/art/faithful/vocal-a/abanico.webp", "abanico-alive.svg"],
+      ["/cartilla/art/faithful/vocal-i/iman.webp", "iman-alive.svg"],
+    ]) {
+      const { container, unmount } = render(
+        <div className="fp-ix-cell">
+          <LivingIllustration src={src} alt={alive} />
+        </div>,
+      );
+      const wrapper = container.querySelector(".living-illustration");
+      expect(wrapper?.getAttribute("data-natural-motion"), src).toBe("true");
+      expect(wrapper?.getAttribute("data-ambient-motion"), src).toBe("none");
+      expect(wrapper?.querySelectorAll(".living-illustration__part").length, src).toBe(0);
+      expect(wrapper?.className, src).not.toMatch(
+        /living-illustration--(breathe|nod|hover|glide|float|sway|creature-life)/,
+      );
+      expect(
+        container.querySelector("img.living-illustration__art")?.getAttribute("src"),
+        src,
+      ).toContain(alive);
+      unmount();
+    }
   });
 
   it("preserves the approved source but suppresses motion when reduced motion is requested", async () => {
