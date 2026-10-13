@@ -20,19 +20,19 @@ const sampleObjects: WorkbookObject[] = [
     id: "obj-a",
     box: { xPct: 10, yPct: 10, wPct: 20, hPct: 20 },
     text: "Opción A",
-    interaction: { type: "tap-select", data: { correct: false } },
+    interaction: { kind: "tap-select", data: { correct: false } },
   },
   {
     id: "obj-b",
     box: { xPct: 40, yPct: 10, wPct: 20, hPct: 20 },
     text: "Opción B",
-    interaction: { type: "tap-select", data: { correct: false } },
+    interaction: { kind: "tap-select", data: { correct: false } },
   },
   {
     id: "obj-c",
     box: { xPct: 70, yPct: 10, wPct: 20, hPct: 20 },
     text: "Opción C",
-    interaction: { type: "tap-select", data: { correct: true } },
+    interaction: { kind: "tap-select", data: { correct: true } },
   },
 ];
 
