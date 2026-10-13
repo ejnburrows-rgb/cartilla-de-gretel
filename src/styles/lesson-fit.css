@@ -193,22 +193,7 @@
 .lc-lesson-shell--fit .fp-native-letter-page .faithful-page__body > .gretel-activity:has(.fp-native-title) { grid-column: 1; grid-row: span 2; }
 .lc-lesson-shell--fit .fp-native-letter-page .faithful-page__body > .gretel-activity:has(.fp-native-syllables) { grid-column: 2; }
 .lc-lesson-shell--fit .fp-native-letter-page .fp-native-title { width: calc(var(--ph) * .17); min-width: 72px; font-size: calc(var(--ph) * .085); }
-/* On wide screens the sight word and sentences sit beside the word grid,
- * in the same reading order, so every word stays large. */
-@media (orientation: landscape) {
-  .lc-lesson-shell--fit .native-lesson-viewer__content .fp-native-letter-page .faithful-page__body {
-    grid-template-columns: auto minmax(0, 1fr) minmax(0, 1.15fr);
-    grid-template-rows: auto auto minmax(0, 1fr);
-    grid-template-areas: "title s1 y" "title s2 read" "vocab vocab read";
-    align-content: stretch;
-  }
-  .lc-lesson-shell--fit .fp-native-letter-page .faithful-page__body > .gretel-activity:has(.fp-native-title) { grid-area: title; }
-  .lc-lesson-shell--fit .fp-native-letter-page .faithful-page__body > .gretel-activity:has(.fp-native-syllables) { grid-column: 2; }
-  .lc-lesson-shell--fit .fp-native-letter-page .faithful-page__body > .gretel-activity:has(.fp-native-syllables) + .gretel-activity:has(.fp-native-syllables) { grid-row: 2; }
-  .lc-lesson-shell--fit .fp-native-letter-page .faithful-page__body > .gretel-activity:has(.fp-native-vocab) { grid-area: vocab; align-self: start; }
-  .lc-lesson-shell--fit .fp-native-letter-page .faithful-page__body > .gretel-activity:has(.fp-native-sight-word) { grid-area: y; }
-  .lc-lesson-shell--fit .fp-native-letter-page .faithful-page__body > .gretel-activity:has(.fp-region--reading-sentences) { grid-area: read; align-self: start; }
-}
+/* Letter pages keep the source book's exact composition and reading flow. */
 
 /* Line-matching 3 x 3 boards: the picture rows share the board height. */
 .lc-lesson-shell--fit .native-lesson-viewer__content .am-faithful-pencil { display: flex; flex: 1 1 0; flex-direction: column; min-height: 0; }

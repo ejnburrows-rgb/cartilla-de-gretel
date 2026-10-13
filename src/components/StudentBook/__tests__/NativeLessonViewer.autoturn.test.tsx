@@ -1,5 +1,5 @@
 import { afterEach, beforeEach, describe, expect, it, vi } from "vitest";
-import { act, cleanup, fireEvent, render } from "@testing-library/react";
+import { act, cleanup, fireEvent, render, screen } from "@testing-library/react";
 import { AUTO_TURN_IDLE_MS, NativeLessonViewer } from "../NativeLessonViewer";
 import { focusGretelActivity, gretelEvent } from "@/lib/gretel-bus";
 import { requiredActivitiesForPage } from "@/lib/page-completion";
@@ -45,20 +45,35 @@ afterEach(() => {
 });
 
 describe("NativeLessonViewer auto page turn and swipe (owner decision 2026-10-12)", () => {
-  it("turns the page by itself after the page is finished and the child stops touching it", () => {
+  it("never turns while any pointer is down; turns after the last pointer lifts", () => {
     const onPageChange = vi.fn();
     render(<NativeLessonViewer pages={PAGES} chapterLabel="Lección 8" lessonNumber={8} onPageChange={onPageChange} autoTurn />);
     expect(current()).toBe(23);
     completePage(23);
-    act(() => vi.advanceTimersByTime(AUTO_TURN_IDLE_MS - 200));
-    // Still touching the page restarts the quiet time.
+    // 3-second press-and-hold: no page turn mid-stroke.
     fireEvent.pointerDown(viewer());
+    act(() => vi.advanceTimersByTime(3000));
+    expect(current()).toBe(23);
+    // A second finger joins; the first lifts — still held, still no turn.
+    fireEvent.pointerDown(viewer(), { pointerId: 8 });
+    fireEvent.pointerUp(viewer());
+    act(() => vi.advanceTimersByTime(AUTO_TURN_IDLE_MS));
+    expect(current()).toBe(23);
+    // Last pointer lifts: the quiet time starts now, then the page turns.
+    fireEvent.pointerUp(viewer(), { pointerId: 8 });
     act(() => vi.advanceTimersByTime(AUTO_TURN_IDLE_MS - 200));
     expect(current()).toBe(23);
     act(() => vi.advanceTimersByTime(400));
     finishTurn();
     expect(current()).toBe(24);
     expect(onPageChange).toHaveBeenCalledWith(1);
+  });
+
+  it("exposes exactly one Siguiente button even when the page corner is available", () => {
+    render(<NativeLessonViewer pages={PAGES} chapterLabel="Lección 8" lessonNumber={8} />);
+    const nextButtons = screen.getAllByRole("button", { name: /siguiente/i });
+    expect(nextButtons).toHaveLength(1);
+    expect(nextButtons[0].getAttribute("data-testid")).toBe("button-next");
   });
 
   it("never turns an unfinished page and is off unless asked for", () => {
