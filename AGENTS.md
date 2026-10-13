@@ -52,6 +52,20 @@ project manager — work out what needs doing and do it.
 
 **Required pre-dispatch decision:** `REAL GAP + CURRENT EVIDENCE + NOT ALREADY OWNED/DONE + DISTINCT VALUE + CLEAR SCOPE + ACCEPTANCE PROOF + WITHIN OWNER AUTHORIZATION`; if any term is missing, do not issue a prompt or create/label a task. Owner authorizes routine bounded Jules work by category under the 2026-10-13 top-of-file gate; owner-only product, security, cost and release approvals remain binding.
 
+### Ownership uncertainty is FILE-LOCAL, not a blanket execution stop — owner correction 2026-10-13
+
+**Applies to an ALREADY AUTHORIZED implementation session (Opus, Jules or other worker).** The pre-dispatch controller capacity/ownership check above determines whether Muse may start a **new Jules task**; it is **not** an additional requirement that every existing worker must personally authenticate to Jules before editing any disjoint file. A missing provider connector, unverified old session status, broad issue title, historic branch, or closed/zero-diff PR must not be treated as proof that every file in a multi-part task is locked.
+
+1. **Split the assigned deliverable by actual files and dependencies.** Compare current code, active PR changed-file lists, explicit live ownership/handoffs, and existing agent reservations. Mark each part `CLEAR` (no evidenced collision), `CONFLICT` (same files or state truly owned), or `UNCERTAIN` (specific possible overlap). Do not claim definitive provider status from GitHub alone.
+2. **Continue `CLEAR` implementation immediately in the EXISTING authorized session**: make a focused code change, add/run directly affected regression tests, and persist the material patch/PR where allowed. A potential conflict in another part does not cancel independent work. Do not create another agent, issue, session, or duplicate scope to get around the check.
+3. **Pause only `CONFLICT`/`UNCERTAIN` files or coupled changes that would overwrite another active lane.** Send Muse the exact paths, candidate owner/issue, evidence, and smallest ownership decision needed. Keep working on disjoint code/tests while Muse reconciles. Do not presume a historical owner has relinquished a file merely because their PR is closed; do not presume an active lock merely because an issue is open.
+4. **If no safe executable part remains**, show a concrete per-file conflict matrix and the specific unresolved owner dependency, along with any useful finished patch/test evidence. Only then report that the entire session is blocked. `No Jules connection` alone is never a sufficient all-work blocker.
+5. **After Muse resolves ownership**, resume the held portion on the SAME session/branch when authorized; reconcile the latest `main` before integration. Owner-only art/voice/security/release and payment gates remain intact. Never edit a known-conflicting file, falsify exclusive ownership, or bypass an explicit hold.
+
+**Concrete boundary example:** If Workbook issue #495 may own `src/routes/cartilla/-leccion-view.tsx` or `src/routes/cartilla/cuaderno.tsx`, hold changes to those route files pending Muse ownership reconciliation. That uncertainty **does not by itself block** independent `src/components/cartilla/WorkbookWritingResponse.tsx` corrections and focused tests when current evidence shows no conflicting owner. Confirm this exact example against current PR/file ownership before acting; it is a rule illustration, not proof of today's Jules sessions.
+
+**Required worker outcome:** `IMPLEMENTED + FOCUSED PROOF` for every safely actionable portion; `HELD + EXACT FILE/OWNER REASON` only for the overlapping portion. A full `FAILED/BLOCKED, ZERO CHANGES` outcome requires evidence that *every* material portion is actually unsafe or otherwise impossible within approved constraints.
+
 ---
 
 ## OWNER SUPERSEDING DIRECTIVE — ACTIVE TOOLS ONLY (2026-10-10)
