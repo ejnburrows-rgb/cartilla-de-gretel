@@ -11,6 +11,7 @@ type Listen = { onFinal: (t: string) => void; onInterim?: (t: string) => void };
 let lastListen: Listen | null = null;
 let mockStatus: "idle" | "starting" | "listening" | "hearing" = "idle";
 let mockProblem: string | null = null;
+let mockProcessing: "on-device" | "browser-service" | "unknown" = "unknown";
 const mockStart = vi.fn();
 const mockStop = vi.fn();
 const mockCancel = vi.fn();
@@ -22,7 +23,7 @@ vi.mock("@/hooks/usePianoListening", () => ({
       supported: true,
       status: mockStatus,
       problem: mockProblem,
-      processing: "unknown",
+      processing: mockProcessing,
       start: mockStart,
       stop: mockStop,
       cancel: mockCancel,
@@ -102,6 +103,7 @@ describe("PianoPronunciation", () => {
     vi.useFakeTimers();
     vi.clearAllMocks();
     lastListen = null;
+    mockProcessing = "unknown";
     mockStatus = "idle";
     mockProblem = null;
   });
@@ -265,6 +267,24 @@ describe("PianoPronunciation", () => {
       fireEvent.click(screen.getByTestId("piano-key-1"));
       expect(keyState(1)).toBe("confirmed");
       expect(mockPlayCorrectChord).toHaveBeenCalledTimes(1);
+    });
+  });
+
+  describe("Privacy note matches where the voice is processed", () => {
+    it("never claims on-device recognition unless the browser confirmed it", () => {
+      render(<PianoPronunciation syllables={["sa"]} words={SAPO} />);
+      const note = screen.getByTestId("piano-privacy").textContent ?? "";
+      expect(note).toContain("La Cartilla no graba ni guarda la voz.");
+      expect(note).toMatch(/puede enviarla por internet/);
+      expect(note).not.toMatch(/en este dispositivo/);
+    });
+
+    it("says the voice stays on the device only when on-device recognition is available", () => {
+      mockProcessing = "on-device";
+      render(<PianoPronunciation syllables={["sa"]} words={SAPO} />);
+      const note = screen.getByTestId("piano-privacy").textContent ?? "";
+      expect(note).toMatch(/en este dispositivo, sin enviarla/);
+      expect(note).not.toMatch(/internet/);
     });
   });
 

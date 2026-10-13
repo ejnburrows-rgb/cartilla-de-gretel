@@ -96,8 +96,9 @@ function playExample(text: string, recording: string | undefined): Promise<void>
       // Recording missing: fall back to the existing browser voice once.
       if (speechIsCurrent(token)) void speak(text);
     };
-    const playing = audio.play();
-    if (playing && typeof playing.catch === "function") {
+    // Older browsers return undefined instead of a promise.
+    const playing = audio.play() as Promise<void> | undefined;
+    if (playing !== undefined) {
       playing.catch(() => {
         releaseSpeech(token);
         finish();
@@ -613,10 +614,10 @@ export function PianoPronunciation({
           className="max-w-sm text-[11px] font-semibold leading-snug text-stone-500"
           data-testid="piano-privacy"
         >
-          La voz no se graba ni se guarda.{" "}
+          La Cartilla no graba ni guarda la voz.{" "}
           {processing === "on-device"
-            ? "El navegador la reconoce en este dispositivo."
-            : "El navegador la reconoce con su propio servicio de voz."}
+            ? "El navegador la reconoce en este dispositivo, sin enviarla."
+            : "Para reconocerla, el navegador puede enviarla por internet a su servicio de voz (por ejemplo, Google o Apple)."}
         </p>
       </div>
     </div>
