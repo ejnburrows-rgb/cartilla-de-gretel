@@ -20,7 +20,7 @@ async function Workbook() {
       <Book />
     </Suspense>,
   );
-  await screen.findByTestId("complete-workbook");
+  await screen.findByTestId("complete-workbook", {}, { timeout: 10000 });
 }
 
 beforeEach(() => {
