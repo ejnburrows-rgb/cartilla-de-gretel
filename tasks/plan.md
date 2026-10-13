@@ -16,6 +16,16 @@
 **Updated:** 2026-10-13
 **Concurrency authority:** `AGENTS.md` governs all worker counts. The 2026-10-13 owner goal is up to **15 provider-confirmed active useful Jules sessions**, subject to current provider quota and genuine independent work; proactive Muse dispatch is authorized for evidenced nonoverlapping implementation, fixes, focused QA, accessibility and polish inside current approved product scope.
 
+## External Opus ownership and artwork mapping — owner report, October 13, 2026
+
+**Owner-reported, not provider-verified:** The owner has given **three** previously supplied implementation prompts to Opus and reports that Opus is working on them. No provider session IDs, PRs or completed code have been independently verified. Muse must reconcile the exact three assignments against actual Opus work and never assume that there are four running agents.
+
+**Duplicate-work reservation:** Until those assignments are reconciled, treat **all** recently proposed Opus scopes as reserved against overlapping Jules/Opus dispatch: learner-scoped lesson resume; handwriting/erase completion and persistence; complete physical Workbook reader save/return; and canonical illustration mapping shared across the Student Workbook and Teacher Flip Chart. This is a list of **potentially overlapping scopes to check, not four confirmed jobs**. Continue other independent, validated implementation where file ownership allows.
+
+**Owner correction on artwork identity:** Existing original/older images are valid **source/identity references**. Their owner-approved optimized versions are intended to be the **same illustration** in improved color, resolution, quality or transparency, not a newly invented drawing. Match verified drawing identity and provenance across Workbook/Flip Chart placements, preserving linework, geometry, pose, composition, object count and educational meaning. A color change alone does not break artwork identity. Conversely, shared labels such as `oso` or `olla` do not prove that two distinct drawings are the same master. Do not reject old art merely because its color is old, nor silently replace, overwrite, publish or call a new asset final before the existing #588 owner-input/approval gate is satisfied.
+
+**Avoid unnecessary rework:** The owner-art intake tooling was already integrated via #579, notably `scripts/validate-owner-art-package.mjs` and `scripts/import-canonical-artwork.mjs`. Do not create another importer or restart the completed book-fidelity audits. Reserve expensive Opus effort for verified, delicate, cross-component **implementation with focused tests and real rendered proof**; Jules handles bounded checks/QA. Existing-file paths must be confirmed against the current repository tree before recommending further tasks. Muse remains the sole Jules controller/dispatcher; this note authorizes no additional dispatch, merge or release.
+
 ## Current controller checkpoint — October 13, 2026 (evening)
 
 This checkpoint supersedes older in-flight priorities and assignment assumptions below where they conflict. Resolve live `main` SHA and provider state at each run rather than persisting a stale branch SHA in this plan.
