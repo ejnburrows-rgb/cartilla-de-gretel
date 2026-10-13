@@ -60,8 +60,9 @@ export function NativeLessonViewer({
   const [turnDirection, setTurnDirection] = useState<"next" | "prev" | null>(null);
   const [turnPhase, setTurnPhase] = useState<"idle" | "zoom" | "curling" | "settling" | "dragging">("idle");
   const [destinationIndex, setDestinationIndex] = useState<number | null>(null);
-  const [dragProgress, setDragProgress] = useState(0);
   const dragProgressRef = useRef(0);
+  const dragRafRef = useRef<number | undefined>(undefined);
+  const leafRef = useRef<HTMLDivElement>(null);
   // A cancelled/dragged gesture must not generate a second navigation via click.
   const suppressCornerClickRef = useRef(false);
 
@@ -89,6 +90,7 @@ export function NativeLessonViewer({
     return () => {
       if (revealTimer.current) window.clearTimeout(revealTimer.current);
       if (turnTimeoutRef.current) window.clearTimeout(turnTimeoutRef.current);
+      if (dragRafRef.current) window.cancelAnimationFrame(dragRafRef.current);
     };
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
@@ -172,7 +174,6 @@ export function NativeLessonViewer({
             setTurnDirection(null);
             setTurnPhase("idle");
             setDestinationIndex(null);
-            setDragProgress(0);
 
             if (revealTimer.current) window.clearTimeout(revealTimer.current);
             revealTimer.current = window.setTimeout(() => {
@@ -366,10 +367,26 @@ export function NativeLessonViewer({
     const width = rect?.width || 600;
     const prog = Math.min(1, Math.max(0, deltaX / (width * 0.75)));
     dragProgressRef.current = prog;
-    if (!prefersReducedMotion()) setDragProgress(prog);
+    if (!prefersReducedMotion()) {
+      if (!dragRafRef.current) {
+        dragRafRef.current = window.requestAnimationFrame(() => {
+          dragRafRef.current = undefined;
+          if (leafRef.current) {
+            leafRef.current.style.setProperty("--drag-prog", String(dragProgressRef.current));
+          }
+        });
+      }
+    }
   };
 
   const handlePointerCancel = (e: React.PointerEvent) => {
+    if (dragRafRef.current) {
+      window.cancelAnimationFrame(dragRafRef.current);
+      dragRafRef.current = undefined;
+    }
+    if (leafRef.current) {
+      leafRef.current.style.removeProperty("--drag-prog");
+    }
     if (!dragStartRef.current.active) return;
     dragStartRef.current.active = false;
     dragStartRef.current.isDragging = false;
@@ -386,10 +403,13 @@ export function NativeLessonViewer({
     setTurnDirection(null);
     setTurnPhase("idle");
     setDestinationIndex(null);
-    setDragProgress(0);
   };
 
   const handlePointerUp = (direction: "next" | "prev", e: React.PointerEvent) => {
+    if (dragRafRef.current) {
+      window.cancelAnimationFrame(dragRafRef.current);
+      dragRafRef.current = undefined;
+    }
     if (!dragStartRef.current.active) return;
     const wasDragging = dragStartRef.current.isDragging;
     dragStartRef.current.active = false;
@@ -406,6 +426,9 @@ export function NativeLessonViewer({
       const targetIdx = direction === "next" ? index + 1 : index - 1;
       const progress = dragProgressRef.current;
       dragProgressRef.current = 0;
+      if (leafRef.current) {
+        leafRef.current.style.removeProperty("--drag-prog");
+      }
       if (progress >= 0.5) {
         if (prefersReducedMotion()) {
           executeTurn(targetIdx, direction);
@@ -428,7 +451,6 @@ export function NativeLessonViewer({
             setTurnDirection(null);
             setTurnPhase("idle");
             setDestinationIndex(null);
-            setDragProgress(0);
 
             if (revealTimer.current) window.clearTimeout(revealTimer.current);
             revealTimer.current = window.setTimeout(() => {
@@ -445,7 +467,6 @@ export function NativeLessonViewer({
         setTurning(false);
         setTurnDirection(null);
         setDestinationIndex(null);
-        setDragProgress(0);
       }
     }
   };
@@ -492,11 +513,12 @@ export function NativeLessonViewer({
 
         {/* Current turning page leaf */}
         <div
+          ref={leafRef}
           className={`native-lesson-viewer__leaf ${turnPhase !== "idle" ? `turn-${turnDirection}-${turnPhase}` : ""}`}
           style={
             turnPhase === "dragging"
               ? ({
-                  "--drag-prog": dragProgress,
+                  "--drag-prog": dragProgressRef.current,
                 } as React.CSSProperties)
               : undefined
           }
