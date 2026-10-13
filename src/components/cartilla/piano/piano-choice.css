@@ -1,0 +1,44 @@
+/* Piano Hablador — the small "Piano / Cancionero" switch above the activity. */
+.piano-choice-wrap {
+  width: 100%;
+  /* Both designs adapt to the space they get, not just the screen size. */
+  container-type: inline-size;
+}
+.piano-choice {
+  width: fit-content;
+  margin: 0.5rem auto 0;
+  padding: 0.25rem;
+  display: flex;
+  gap: 0.25rem;
+  border-radius: 999px;
+  background: #ece6da;
+  font-family: "Andika", ui-rounded, system-ui, sans-serif;
+}
+.piano-choice__option {
+  min-height: 2.75rem;
+  padding: 0 1rem;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  border: 0;
+  border-radius: 999px;
+  background: transparent;
+  color: #57534e;
+  font: inherit;
+  font-size: 0.9rem;
+  font-weight: 800;
+  cursor: pointer;
+}
+.piano-choice__option svg {
+  width: 1.1rem;
+  height: 1.1rem;
+}
+.piano-choice__option[aria-pressed="true"] {
+  background: #fff;
+  color: #292524;
+  box-shadow: 0 1px 3px rgb(0 0 0 / 0.15);
+}
+.piano-choice__option:focus-visible {
+  outline: 3px solid #2563eb;
+  outline-offset: 2px;
+}

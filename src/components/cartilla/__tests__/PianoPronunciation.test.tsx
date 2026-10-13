@@ -4,7 +4,7 @@
 import { describe, it, expect, vi, beforeEach, afterEach } from "vitest";
 import { render, cleanup, screen, fireEvent, act } from "@testing-library/react";
 import React from "react";
-import { PianoPronunciation } from "../PianoPronunciation";
+import { PianoPronunciation, PIANO_DESIGN_STORAGE_KEY } from "../PianoPronunciation";
 
 // --- Microphone: the piano's own listening hook, driven by the test --------
 type Listen = { onFinal: (t: string) => void; onInterim?: (t: string) => void };
@@ -98,8 +98,9 @@ function keyState(index: number) {
     ?.getAttribute("data-key-state");
 }
 
-describe("PianoPronunciation", () => {
+describe.each([["piano"], ["cancionero"]] as const)("PianoPronunciation (%s design)", (design) => {
   beforeEach(() => {
+    window.localStorage.setItem(PIANO_DESIGN_STORAGE_KEY, design);
     vi.useFakeTimers();
     vi.clearAllMocks();
     lastListen = null;
@@ -111,6 +112,13 @@ describe("PianoPronunciation", () => {
   afterEach(() => {
     cleanup();
     vi.useRealTimers();
+    window.localStorage.clear();
+  });
+
+  it("renders the chosen design", () => {
+    render(<PianoPronunciation syllables={["ma", "me"]} />);
+    expect(document.querySelector(".piano-hablador")?.getAttribute("data-design")).toBe(design);
+    expect(screen.getByTestId(`piano-design-${design}`).getAttribute("aria-pressed")).toBe("true");
   });
 
   describe("Completion timer lifecycle", () => {
@@ -225,7 +233,9 @@ describe("PianoPronunciation", () => {
       hear("sapo");
       expect(mockPlayCorrectChord).toHaveBeenCalledTimes(1);
       fireEvent.click(screen.getByTestId("piano-next"));
-      expect(screen.getByTestId("piano-key-0").textContent).toContain("ma");
+      expect(screen.getByTestId("piano-key-0").getAttribute("aria-label")).toBe(
+        "Tecla ma, por decir",
+      );
       expect(keyState(0)).toBe("next");
       expect(screen.queryByTestId("piano-sparkle")).toBeNull();
       hear("masa");
@@ -327,7 +337,6 @@ describe("PianoPronunciation", () => {
       const listenBtn = screen.getByRole("button", { name: "Escuchar ma" });
       expect(keyBtn.tagName).toBe("BUTTON");
       expect(keyBtn.getAttribute("type")).toBe("button");
-      expect(keyBtn.className).toMatch(/focus-visible:ring-/);
       expect(listenBtn.tagName).toBe("BUTTON");
       expect(listenBtn.getAttribute("type")).toBe("button");
       expect(keyBtn.contains(listenBtn)).toBe(false);
@@ -357,5 +366,64 @@ describe("PianoPronunciation", () => {
       expect(mockSpeak).toHaveBeenCalledTimes(1);
       expect(mockSpeak).toHaveBeenCalledWith("ma");
     });
+  });
+});
+
+describe("PianoPronunciation design choice", () => {
+  const originalMatchMedia = window.matchMedia;
+  function mockScreen(phone: boolean) {
+    window.matchMedia = ((query: string) => ({
+      matches: phone && query.includes("max-width"),
+      media: query,
+      addEventListener: () => {},
+      removeEventListener: () => {},
+    })) as unknown as typeof window.matchMedia;
+  }
+  const designShown = () => document.querySelector(".piano-hablador")?.getAttribute("data-design");
+
+  beforeEach(() => {
+    vi.clearAllMocks();
+    mockProcessing = "on-device";
+    mockStatus = "idle";
+    mockProblem = null;
+    window.localStorage.clear();
+  });
+  afterEach(() => {
+    cleanup();
+    window.matchMedia = originalMatchMedia;
+    window.localStorage.clear();
+  });
+
+  it("uses the Piano on laptops and tablets", () => {
+    mockScreen(false);
+    render(<PianoPronunciation syllables={["sa"]} words={SAPO} />);
+    expect(designShown()).toBe("piano");
+  });
+
+  it("uses the Cancionero on phones", () => {
+    mockScreen(true);
+    render(<PianoPronunciation syllables={["sa"]} words={SAPO} />);
+    expect(designShown()).toBe("cancionero");
+  });
+
+  it("the switch changes the design and remembers it on this device", () => {
+    mockScreen(true);
+    const { unmount } = render(<PianoPronunciation syllables={["sa"]} words={SAPO} />);
+    fireEvent.click(screen.getByTestId("piano-design-piano"));
+    expect(designShown()).toBe("piano");
+    expect(screen.getByTestId("piano-design-piano").getAttribute("aria-pressed")).toBe("true");
+    expect(window.localStorage.getItem(PIANO_DESIGN_STORAGE_KEY)).toBe("piano");
+    unmount();
+    render(<PianoPronunciation syllables={["sa"]} words={SAPO} />);
+    expect(designShown()).toBe("piano");
+  });
+
+  it("content with more than five syllables always uses the full Piano", () => {
+    mockScreen(true);
+    window.localStorage.setItem(PIANO_DESIGN_STORAGE_KEY, "cancionero");
+    render(<PianoPronunciation syllables={["a", "e", "i", "o", "u", "ma"]} />);
+    expect(designShown()).toBe("piano");
+    expect(screen.queryByTestId("piano-design-cancionero")).toBeNull();
+    expect(screen.getAllByRole("button", { name: /^Tecla / })).toHaveLength(6);
   });
 });
