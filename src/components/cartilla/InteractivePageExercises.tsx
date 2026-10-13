@@ -795,6 +795,23 @@ export function InteractiveFillInBlank({
     }
   };
 
+  // Praise only after a genuinely correct answer: a wrong pick must never
+  // trigger "Bien" (its 900ms gentle reset clears the pick, which used to
+  // fall through to the praise branch).
+  const hasWrongPick = items.some(
+    (item, i) => picked[i] !== undefined && !item.choices[picked[i]]?.correct,
+  );
+  const hasCorrectPick = items.some(
+    (item, i) => item.choices[picked[i]]?.correct === true,
+  );
+  const statusMessage = solved
+    ? "Completado"
+    : hasWrongPick
+      ? "Revisa la opción marcada e inténtalo otra vez."
+      : hasCorrectPick
+        ? "Bien. Sigue con la siguiente palabra."
+        : null;
+
   return (
     <DndContext sensors={sensors} onDragStart={onDragStart} onDragEnd={onDragEnd}>
       <div
@@ -850,17 +867,8 @@ export function InteractiveFillInBlank({
             </div>
           );
         })}
-        {graded && (
-          <p role="status">
-            {solved
-              ? "Completado"
-              : items.some(
-                    (item, i) =>
-                      picked[i] !== undefined && !item.choices[picked[i]]?.correct,
-                  )
-                ? "Revisa la opción marcada e inténtalo otra vez."
-                : "Bien. Sigue con la siguiente palabra."}
-          </p>
+        {graded && statusMessage && (
+          <p role="status">{statusMessage}</p>
         )}
       </div>
     </DndContext>
