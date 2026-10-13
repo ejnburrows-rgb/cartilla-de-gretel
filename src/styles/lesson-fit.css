@@ -98,7 +98,7 @@
 .lc-lesson-shell--fit .native-lesson-viewer__content .native-syllable__words { height: 100%; min-height: 0; grid-auto-rows: minmax(48px, 1fr); gap: clamp(6px, 1.1cqw, 12px) clamp(8px, 1.8cqw, 18px); }
 .lc-lesson-shell--fit .native-lesson-viewer__content .native-syllable__word { display: grid; place-items: center; height: 100%; min-height: 0; padding: 0 4px; border: 2px solid #9fd3ca !important; border-radius: 12px; font-size: clamp(15px, 2.9cqw, 30px); line-height: 1; letter-spacing: .02em; }
 .lc-lesson-shell--fit .native-lesson-viewer__content .native-syllable__words .native-syllable__word .native-syllable__letter { display: inline-flex; align-items: center; justify-content: center; }
-.lc-lesson-shell--fit .native-lesson-viewer__content .native-syllable > p { font-size: clamp(10px, 1.3cqw, 13px); line-height: 1.1; }
+.lc-lesson-shell--fit .native-lesson-viewer__content .native-syllable > p { font-size: clamp(14px, 1.8cqw, 17px); line-height: 1.25; }
 
 /* Tiles lift and glow under the pointer and press in when tapped. */
 .lc-lesson-shell--fit .native-lesson-viewer__content .fp-ix-cell,
@@ -125,8 +125,13 @@
 
 /* Writing pages keep the two-column book layout, sized to the screen.
  * Nothing is clipped: if the rows need more than the page, the page
- * content is scaled to fit. */
-.lc-lesson-shell--fit .native-lesson-viewer__content .faithful-page--archetype-5 .faithful-page__body { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); grid-auto-rows: auto; align-content: space-evenly; align-items: start; column-gap: 5%; }
+ * content is scaled to fit.
+ * #717 / carried-over review finding: on phones (<=600px) the base
+ * single-column rule must win — never cram tracing/writing regions into
+ * half the phone width with a higher-specificity two-column override. */
+@media (min-width: 601px) {
+  .lc-lesson-shell--fit .native-lesson-viewer__content .faithful-page--archetype-5 .faithful-page__body { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); grid-auto-rows: auto; align-content: space-evenly; align-items: start; column-gap: 5%; }
+}
 .lc-lesson-shell--fit .faithful-page--archetype-5 .faithful-page__body > .gretel-activity { flex: none; min-height: auto; }
 .lc-lesson-shell--fit .faithful-page--archetype-5 .faithful-page__body > .gretel-activity:not(:has(.fp-writing-line)) { grid-column: 1 / -1; }
 .lc-lesson-shell--fit .faithful-page--archetype-5 .faithful-page__body > .gretel-activity > .gretel-activity__content { align-items: center; }
@@ -136,10 +141,12 @@
 .lc-lesson-shell--fit .native-lesson-viewer__content .faithful-page--archetype-5 .fp-writing-line .am-dibuja__paper { width: 100%; height: calc(var(--ph) * .11); min-height: 72px; }
 .lc-lesson-shell--fit .native-lesson-viewer__content .faithful-page--archetype-5 .am-dibuja__paper { width: 100%; height: calc(var(--ph) * .14); min-height: 90px; }
 .lc-lesson-shell--fit .native-lesson-viewer__content .faithful-page--archetype-5 .am-dibuja { width: 100%; }
-/* Compact drawing tools so they stay on one line beside each other. */
-.lc-lesson-shell--fit .native-lesson-viewer__content .am-dibuja__toolbar { gap: 6px; }
-.lc-lesson-shell--fit .native-lesson-viewer__content .am-dibuja__swatches { gap: 4px; }
-.lc-lesson-shell--fit .native-lesson-viewer__content .am-dibuja__swatch { width: 30px; height: 30px; }
+/* Drawing tools stay usable: color swatches are real touch targets.
+ * #717: the toolbar is control chrome, not page content — counter the page
+ * zoom so tools render at true size even when the page is scaled to fit. */
+.lc-lesson-shell--fit .native-lesson-viewer__content .am-dibuja__toolbar { gap: 8px; zoom: calc(1 / var(--lc-fit, 1)); }
+.lc-lesson-shell--fit .native-lesson-viewer__content .am-dibuja__swatches { gap: 6px; }
+.lc-lesson-shell--fit .native-lesson-viewer__content .am-dibuja__swatch { width: 44px; height: 44px; min-width: 44px; min-height: 44px; }
 /* Sentence writing: the lined box takes the room left on the page. */
 .lc-lesson-shell--fit .native-lesson-viewer__content .fp-writing-response { flex: 1 1 0; min-height: 0; }
 .lc-lesson-shell--fit .native-lesson-viewer__content .fp-writing-response > :has(> textarea),
@@ -225,7 +232,7 @@
 .lc-lesson-shell--fit .native-lesson-viewer__content .faithful-page:not(.faithful-page--edge-right) .faithful-page__body { padding-left: max(8%, 48px); }
 .lc-lesson-shell--fit .native-lesson-viewer__content .faithful-page--edge-right .faithful-page__body { padding-right: max(9.5%, 48px); }
 .lc-lesson-shell--fit .native-lesson-viewer__content .fp-native-letter-page .fp-native-vocab span { font-size: clamp(14px, min(calc(var(--ph) * .032), 4.4cqw), 30px); padding-inline: .2em; }
-.lc-lesson-shell--fit .native-lesson-viewer__content .fp-native-letter-page .fp-native-syllables span { font-size: clamp(13px, min(calc(var(--ph) * .032), 3.6cqw), 28px); }
+.lc-lesson-shell--fit .native-lesson-viewer__content .fp-native-letter-page .fp-native-syllables span { font-size: clamp(14px, min(calc(var(--ph) * .032), 3.6cqw), 28px); }
 /* Letter tile beside each picture row keeps its own column on any width. */
 .lc-lesson-shell--fit .native-lesson-viewer__content .fp-ix-pick__row { grid-template-columns: auto minmax(0, 1fr); column-gap: 2.4cqw; }
 .lc-lesson-shell--fit .native-lesson-viewer__content .fp-ix-pick__letter { width: clamp(40px, 11cqw, 118px); height: auto; aspect-ratio: 1; min-width: 0; font-size: clamp(18px, 5.5cqw, 59px); }
@@ -235,10 +242,19 @@
 /* Phone-width letter pages: smaller letter circle, readable words. */
 .lc-lesson-shell--fit .native-lesson-viewer__content .fp-native-letter-page .fp-native-title { width: min(calc(var(--ph) * .17), 22cqw); font-size: min(calc(var(--ph) * .085), 11cqw); }
 .lc-lesson-shell--fit .native-lesson-viewer__content .fp-native-letter-page .fp-native-vocab span { font-size: clamp(14px, min(calc(var(--ph) * .032), 5.6cqw), 30px); }
-.lc-lesson-shell--fit .native-lesson-viewer__content .fp-native-letter-page .fp-native-syllables span { font-size: clamp(13px, min(calc(var(--ph) * .032), 4.6cqw), 28px); }
-/* Very short screens (a phone held sideways): if a page still cannot fit
- * at a readable size, it may scroll inside the page instead of hiding work. */
-.lc-lesson-shell--fit .native-lesson-viewer__content .faithful-page__body[data-lc-fit-overflow="true"] { overflow-y: auto; }
+.lc-lesson-shell--fit .native-lesson-viewer__content .fp-native-letter-page .fp-native-syllables span { font-size: clamp(14px, min(calc(var(--ph) * .032), 4.6cqw), 28px); }
+/* Very short screens (a phone held sideways, e.g. 844x390): #717 — the
+ * page is allowed to grow past the viewport and the shell scrolls, instead
+ * of trapping a nested scroll inside the page body that hides work rows. */
+@media (orientation: landscape) and (max-height: 500px) {
+  .lc-lesson-shell--fit { height: auto; min-height: 100dvh; overflow-y: auto; }
+  /* Size containment would collapse the main to zero height once the shell
+   * is content-sized — turn it off so the main grows with the page. */
+  .lc-lesson-shell--fit .lc-lesson-main { container-type: normal; flex: none; overflow: visible; }
+  .lc-lesson-shell--fit .native-lesson-viewer__content .faithful-page { height: auto; min-height: var(--ph); overflow: visible; }
+  .lc-lesson-shell--fit .native-lesson-viewer__content .faithful-page__body,
+  .lc-lesson-shell--fit .native-lesson-viewer__content .faithful-page--edge-right .faithful-page__body { position: static; overflow: visible; }
+}
 .lc-lesson-shell--fit .faithful-page__body > .gretel-activity:has(.fp-writing-response) > .gretel-activity__content,
 .lc-lesson-shell--fit .native-lesson-viewer__content .fp-writing-response,
 .lc-lesson-shell--fit .native-lesson-viewer__content .fp-writing-response > :has(> textarea) { min-height: auto; }
