@@ -278,6 +278,7 @@
   font-size: 3cqw;
   font-weight: 700;
   white-space: nowrap;
+  pointer-events: none;
 }
 .fp-trace__hint--off { color: #e11d48; }
 .fp-trace__hint--ok { color: #059669; }
