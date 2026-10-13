@@ -28,17 +28,24 @@ export function LessonTimer({ limitSeconds }: { limitSeconds?: number | null }) 
               ? "bg-vowel-o/10 border-vowel-o/30 text-vowel-o"
               : "bg-secondary border-foreground/10 text-foreground/70"
         }`}
-        aria-live="polite"
+        role="timer"
+        aria-live="off"
+        aria-label={over ? `Tiempo vencido hace ${fmt(elapsed - limitSeconds)}` : `Tiempo restante: ${fmt(remaining)}`}
       >
-        {over ? <AlertTriangle className="w-3.5 h-3.5" /> : <Timer className="w-3.5 h-3.5" />}
+        {over ? <AlertTriangle aria-hidden="true" className="w-3.5 h-3.5" /> : <Timer aria-hidden="true" className="w-3.5 h-3.5" />}
         {over ? `Tiempo vencido +${fmt(elapsed - limitSeconds)}` : `Quedan ${fmt(remaining)}`}
       </div>
     );
   }
 
   return (
-    <div className="inline-flex items-center gap-1.5 text-xs font-bold px-2 py-1 rounded-lg border-2 border-foreground/10 bg-secondary text-foreground/70">
-      <Timer className="w-3.5 h-3.5" /> {fmt(elapsed)}
+    <div
+      className="inline-flex items-center gap-1.5 text-xs font-bold px-2 py-1 rounded-lg border-2 border-foreground/10 bg-secondary text-foreground/70"
+      role="timer"
+      aria-live="off"
+      aria-label={`Tiempo transcurrido: ${fmt(elapsed)}`}
+    >
+      <Timer aria-hidden="true" className="w-3.5 h-3.5" /> {fmt(elapsed)}
     </div>
   );
 }
