@@ -20,16 +20,6 @@ async function select(page: Page, learner: Learner | null) {
     else api.endDemoStudentSession();
   }, learner);
 }
-async function keyboardTurn(page: Page, direction: "next" | "prev") {
-  const button =
-    direction === "next"
-      ? page.locator(".book-reader-controls button").last()
-      : page.locator(".book-reader-controls button").first();
-  await expect(button).toBeEnabled();
-  await button.focus();
-  await expect(button).toBeFocused();
-  await page.keyboard.press("Enter");
-}
 const suffix = (s: Learner) => `:demo:${s.classId}:${s.id}`;
 async function proof(page: Page, name: string) {
   const path = test.info().outputPath(`${name}.png`);
@@ -77,6 +67,22 @@ test("lesson 3 resumes A on page 2, B on page 1, refresh and anonymous stay sepa
   await expect(viewer).toHaveAttribute("data-native-page", "8");
   await proof(page, "lesson3-student-a-page2");
 });
+async function bookPage(page: Page, printed: number) {
+  await expect(page.locator("[data-native-page]")).toHaveAttribute(
+    "data-native-page",
+    String(printed),
+    { timeout: 15000 },
+  );
+}
+async function bookTurn(page: Page, direction: "next" | "prev") {
+  await page.keyboard.press(direction === "next" ? "ArrowRight" : "ArrowLeft");
+}
+async function expectSingleNativeBook(page: Page) {
+  await expect(page.locator("[data-native-page]")).toHaveCount(1);
+  await expect(page.getByTestId("physical-book-reader")).toHaveCount(0);
+  await expect(page.getByTestId("book-companion-anchor")).toHaveCount(0);
+  await expect(page.locator("[data-workbook-source], [data-reconstructed-master]")).toHaveCount(0);
+}
 test("phone book saves 85→88 and restores after reload, return, A→B→A and anonymous switching", async ({
   page,
 }) => {
@@ -89,11 +95,10 @@ test("phone book saves 85→88 and restores after reload, return, A→B→A and 
   );
   await select(page, a);
   await page.goto("/cartilla/cuaderno");
-  const counter = page.getByTestId("physical-book-counter");
-  await expect(page.locator(".book-shell")).toHaveAttribute("data-spread", "false");
-  await expect(counter).toHaveText("Página 85 de 88");
-  await keyboardTurn(page, "next");
-  await expect(counter).toHaveText("Página 88 de 88");
+  await expectSingleNativeBook(page);
+  await bookPage(page, 85);
+  await page.getByTestId("button-next").click();
+  await bookPage(page, 88);
   await expect
     .poll(() =>
       page.evaluate(
@@ -103,24 +108,24 @@ test("phone book saves 85→88 and restores after reload, return, A→B→A and 
     )
     .toBe("88");
   await page.reload();
-  await expect(counter).toHaveText("Página 88 de 88");
+  await bookPage(page, 88);
   await page.goto("/cartilla/lecciones");
   await page.goto("/cartilla/cuaderno");
-  await expect(counter).toHaveText("Página 88 de 88");
+  await bookPage(page, 88);
   await select(page, b);
-  await expect(counter).toHaveText("Página 1 de 88");
+  await bookPage(page, 1);
   await select(page, a);
-  await expect(counter).toHaveText("Página 88 de 88");
+  await bookPage(page, 88);
   await select(page, null);
-  await expect(counter).toHaveText("Página 1 de 88");
+  await bookPage(page, 1);
   await select(page, a);
-  await expect(counter).toHaveText("Página 88 de 88");
+  await bookPage(page, 88);
   await proof(page, "book-phone-resumed-printed88");
-  await keyboardTurn(page, "prev");
-  await expect(counter).toHaveText("Página 85 de 88");
+  await page.getByTestId("button-prev").click();
+  await bookPage(page, 85);
 });
 for (const reducedMotion of [false, true]) {
-  test(`desktop spreads preserve gap, keyboard, buttons and restore (reduced motion ${reducedMotion})`, async ({
+  test(`desktop book is one native page, keeps 85→88 gap, keyboard, buttons and restore (reduced motion ${reducedMotion})`, async ({
     page,
   }) => {
     test.setTimeout(180000);
@@ -129,19 +134,18 @@ for (const reducedMotion of [false, true]) {
     await page.goto("/cartilla/lecciones");
     await page.evaluate(() => localStorage.setItem("cartilla.workbook-reader-page.v1", "85"));
     await page.goto("/cartilla/cuaderno");
-    const counter = page.getByTestId("physical-book-counter");
-    await expect(page.locator(".book-shell")).toHaveAttribute("data-spread", "true");
-    await expect(page.getByTestId("physical-book-reader")).toHaveAttribute(
-      "data-reduced-motion",
-      String(reducedMotion),
-    );
-    await expect(counter).toHaveText("Páginas 85–88 de 88");
-    await page.getByRole("button", { name: "Siguiente", exact: true }).click();
-    await expect(counter).toHaveText("Páginas 89–90 de 88");
+    await expectSingleNativeBook(page);
+    await bookPage(page, 85);
+    await bookTurn(page, "next");
+    await bookPage(page, 88);
+    await page.getByTestId("button-next").click();
+    await bookPage(page, 89);
     await page.reload();
-    await expect(counter).toHaveText("Páginas 89–90 de 88");
-    await keyboardTurn(page, "prev");
-    await expect(counter).toHaveText("Páginas 85–88 de 88");
+    await bookPage(page, 89);
+    await bookTurn(page, "prev");
+    await bookPage(page, 88);
+    await page.getByTestId("button-prev").click();
+    await bookPage(page, 85);
     await proof(page, `book-desktop-${reducedMotion ? "reduced-motion" : "normal"}`);
   });
 }

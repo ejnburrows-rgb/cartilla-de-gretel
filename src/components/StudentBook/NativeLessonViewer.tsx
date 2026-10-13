@@ -35,6 +35,7 @@ export function NativeLessonViewer({
   lessonNumber,
   autoTurn = false,
   swipe = false,
+  gated = true,
 }: {
   pages: WorkbookPageEntry[];
   chapterLabel: string;
@@ -47,6 +48,8 @@ export function NativeLessonViewer({
   autoTurn?: boolean;
   /** Swipe left / right on touch screens to turn pages. */
   swipe?: boolean;
+  /** Require page completion before turning forward (lessons). The complete book browses freely. */
+  gated?: boolean;
 }) {
   const [index, setIndex] = useState(() =>
     Math.min(Math.max(0, initialPage), pages.length - 1),
@@ -75,7 +78,8 @@ export function NativeLessonViewer({
   });
 
   const page = pages[index];
-  const completion = usePageCompletion(page?.pageNumber, lessonNumber);
+  const pageCompletion = usePageCompletion(page?.pageNumber, lessonNumber);
+  const completion = gated ? pageCompletion : { ...pageCompletion, remaining: [], complete: true };
   const isLast = index === pages.length - 1;
   useFitToPage(containerRef, index);
 
