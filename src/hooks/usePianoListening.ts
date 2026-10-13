@@ -11,9 +11,12 @@ import { getSpeechRecognitionCtor } from "@/lib/speech-recognition-types";
  * - every FINAL result is delivered exactly once (by result index);
  * - interim text and the browser's speech-start/end events are exposed only as
  *   provisional listening feedback — never as a confirmed result;
- * - on-device recognition (`processLocally`) is used when the browser reports
- *   the language pack is already available; otherwise the browser's default
- *   recognizer is used and `processing` reports that honestly;
+ * - on-device only: a recognizer is created only after the browser confirms
+ *   (`available({ processLocally: true })` === "available") that it can
+ *   recognize this language on the device, and every session is started with
+ *   `processLocally = true`. If that is unsupported, unconfirmed, still
+ *   downloading or fails, the microphone stays off — there is never a silent
+ *   fallback to an online speech service (Google, Apple or any other);
  * - errors are mapped to child-friendly states (denied, no microphone,
  *   network, no speech) instead of a console warning.
  */
@@ -21,12 +24,18 @@ import { getSpeechRecognitionCtor } from "@/lib/speech-recognition-types";
 export type PianoListenStatus = "idle" | "starting" | "listening" | "hearing";
 export type PianoListenProblem =
   | "unsupported"
+  | "no-local"
   | "denied"
   | "no-microphone"
   | "network"
   | "no-speech"
   | "failed";
-export type PianoRecognitionProcessing = "on-device" | "browser-service" | "unknown";
+/**
+ * "checking": waiting for the browser's on-device answer (microphone off).
+ * "on-device": confirmed; the only state in which the microphone can start.
+ * "unavailable": no confirmed on-device recognizer; touch/keyboard only.
+ */
+export type PianoRecognitionProcessing = "checking" | "on-device" | "unavailable";
 
 type RecognitionResultList = ArrayLike<ArrayLike<{ transcript: string }> & { isFinal?: boolean }>;
 
@@ -62,6 +71,7 @@ export interface PianoListeningOptions {
 }
 
 export interface PianoListening {
+  /** True only when on-device recognition is confirmed for `lang`. */
   supported: boolean;
   status: PianoListenStatus;
   problem: PianoListenProblem | null;
@@ -74,11 +84,13 @@ export interface PianoListening {
 
 const ERROR_MAP: Record<string, PianoListenProblem> = {
   "not-allowed": "denied",
-  "service-not-allowed": "denied",
   "audio-capture": "no-microphone",
   network: "network",
   "no-speech": "no-speech",
-  "language-not-supported": "unsupported",
+  // With processLocally, the browser reports these when it cannot stay on the
+  // device; the microphone is then turned off rather than retried online.
+  "language-not-supported": "no-local",
+  "service-not-allowed": "no-local",
 };
 
 export function usePianoListening({
@@ -90,7 +102,7 @@ export function usePianoListening({
   const [supported, setSupported] = useState(false);
   const [status, setStatus] = useState<PianoListenStatus>("idle");
   const [problem, setProblem] = useState<PianoListenProblem | null>(null);
-  const [processing, setProcessing] = useState<PianoRecognitionProcessing>("unknown");
+  const [processing, setProcessing] = useState<PianoRecognitionProcessing>("checking");
   const recognitionRef = useRef<PianoRecognition | null>(null);
   const sessionRef = useRef(0);
   const deliveredRef = useRef<Set<number>>(new Set());
@@ -105,25 +117,47 @@ export function usePianoListening({
     const Ctor = getSpeechRecognitionCtor() as unknown as
       | RecognitionCtorWithAvailability
       | undefined;
-    setSupported(Boolean(Ctor));
+    localRef.current = false;
+    setSupported(false);
+    const unavailable = () => {
+      localRef.current = false;
+      setSupported(false);
+      setProcessing("unavailable");
+      setProblem("no-local");
+    };
     if (!Ctor) {
+      setProcessing("unavailable");
       setProblem("unsupported");
       return;
     }
-    let cancelled = false;
-    if (typeof Ctor.available === "function") {
-      Ctor.available({ langs: [lang], processLocally: true })
-        .then((availability) => {
-          if (cancelled) return;
-          localRef.current = availability === "available";
-          setProcessing(localRef.current ? "on-device" : "browser-service");
-        })
-        .catch(() => {
-          if (!cancelled) setProcessing("browser-service");
-        });
-    } else {
-      setProcessing("browser-service");
+    if (typeof Ctor.available !== "function") {
+      // The browser cannot promise on-device recognition: never start it.
+      unavailable();
+      return;
     }
+    setProcessing("checking");
+    let cancelled = false;
+    let answer: Promise<string>;
+    try {
+      answer = Promise.resolve(Ctor.available({ langs: [lang], processLocally: true }));
+    } catch {
+      unavailable();
+      return;
+    }
+    answer
+      .then((availability) => {
+        if (cancelled) return;
+        if (availability !== "available") {
+          unavailable();
+          return;
+        }
+        localRef.current = true;
+        setSupported(true);
+        setProcessing("on-device");
+      })
+      .catch(() => {
+        if (!cancelled) unavailable();
+      });
     return () => {
       cancelled = true;
     };
@@ -185,6 +219,11 @@ export function usePianoListening({
       setProblem("unsupported");
       return;
     }
+    // Only a confirmed on-device recognizer may ever be created.
+    if (!localRef.current) {
+      setProblem("no-local");
+      return;
+    }
     detach("abort");
     const session = sessionRef.current;
     const recognition = new Ctor();
@@ -192,7 +231,15 @@ export function usePianoListening({
     recognition.continuous = true;
     recognition.interimResults = true;
     recognition.maxAlternatives = 1;
-    if (localRef.current) recognition.processLocally = true;
+    recognition.processLocally = true;
+    if (recognition.processLocally !== true) {
+      // The property did not stick: this recognizer cannot stay on the device.
+      localRef.current = false;
+      setSupported(false);
+      setProcessing("unavailable");
+      setProblem("no-local");
+      return;
+    }
     deliveredRef.current = new Set();
     const current = () => sessionRef.current === session && recognitionRef.current === recognition;
 
@@ -227,6 +274,11 @@ export function usePianoListening({
       if (!current()) return;
       if (event.error === "aborted") return;
       const mapped = ERROR_MAP[event.error] ?? "failed";
+      if (mapped === "no-local") {
+        localRef.current = false;
+        setSupported(false);
+        setProcessing("unavailable");
+      }
       setProblem(mapped);
       if (mapped !== "no-speech") {
         // Permission, device or service problems: release the microphone now

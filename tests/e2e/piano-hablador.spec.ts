@@ -5,24 +5,43 @@ import { expect, test, type Page } from "@playwright/test";
  * scripted stand-in for the browser recognizer. The stand-in only replaces the
  * Web Speech recognizer so each scenario (partial, wrong, denied, interrupted,
  * success) is reproducible; it proves the app's behavior for those recognizer
- * outputs, not the accuracy of any real recognizer on child speech.
+ * outputs, not the accuracy of any real recognizer on child speech, and it is
+ * not a real-microphone test. `local` scripts the browser's on-device answer
+ * (`SpeechRecognition.available({ processLocally: true })`).
  */
 const PIANO_URL = "/cartilla/practica?family=1&lesson=9&activity=piano";
 
-async function installFakeRecognizer(page: Page, options: { supported?: boolean } = {}) {
+type LocalAnswer = "available" | "downloadable" | "unavailable" | "no-api";
+
+async function installFakeRecognizer(
+  page: Page,
+  options: { supported?: boolean; local?: LocalAnswer } = {},
+) {
   await page.addInitScript(
-    ({ supported }) => {
+    ({ supported, local }) => {
       type Handler = ((event?: unknown) => void) | null;
       const log: string[] = [];
       const state = {
         active: null as null | Record<string, Handler | unknown>,
         results: [] as Array<{ t: string; f: boolean }>,
         starts: 0,
+        constructed: 0,
         log,
       };
       (window as unknown as { __speech: unknown }).__speech = state;
       if (!supported) return;
       class FakeRecognition {
+        static available =
+          local === "no-api"
+            ? undefined
+            : async (options: { langs: string[]; processLocally: boolean }) => {
+                log.push(`available:${options.langs.join(",")}:${options.processLocally}`);
+                return local;
+              };
+        constructor() {
+          state.constructed += 1;
+        }
+        processLocally = false;
         lang = "";
         continuous = false;
         interimResults = false;
@@ -36,7 +55,9 @@ async function installFakeRecognizer(page: Page, options: { supported?: boolean 
           state.starts += 1;
           state.results = [];
           state.active = this as unknown as Record<string, Handler>;
-          log.push(`start:${this.lang}:${this.continuous}:${this.interimResults}`);
+          log.push(
+            `start:${this.lang}:${this.continuous}:${this.interimResults}:local=${this.processLocally}`,
+          );
           setTimeout(() => this.onstart?.(), 20);
         }
         stop() {
@@ -70,7 +91,7 @@ async function installFakeRecognizer(page: Page, options: { supported?: boolean 
         };
       }
     },
-    { supported: options.supported ?? true },
+    { supported: options.supported ?? true, local: options.local ?? "available" },
   );
 }
 
@@ -163,7 +184,11 @@ test.describe("Piano Hablador", () => {
         .filter((entry) => entry.startsWith("example-"))
         .every((entry) => entry.endsWith("mic-open=false")),
     ).toBe(true);
-    expect(log.find((entry) => entry.startsWith("start:"))).toBe("start:es-MX:true:true");
+    expect(log.find((entry) => entry.startsWith("start:"))).toBe(
+      "start:es-MX:true:true:local=true",
+    );
+    // Every session it opened was on-device.
+    expect(log.filter((e) => e.startsWith("start:") && !e.endsWith("local=true"))).toEqual([]);
   });
 
   test("whole word spoken naturally completes; wrong and uncertain speech never turn keys green", async ({
@@ -266,6 +291,40 @@ test.describe("Piano Hablador", () => {
     await page.keyboard.press("Space");
     await expect(piano).toHaveAttribute("data-done", "true");
   });
+
+  for (const local of ["downloadable", "unavailable", "no-api"] as const) {
+    test(`on-device recognition ${local}: no recognizer is ever created; touch and keyboard complete the word`, async ({
+      page,
+    }) => {
+      await installFakeRecognizer(page, { local });
+      await page.goto(PIANO_URL);
+      const piano = page.locator(".piano-hablador");
+      await expect(piano).toHaveAttribute("data-recognition-processing", "unavailable");
+      await expect(page.getByTestId("piano-message")).toContainText(
+        "no puede reconocer la voz dentro de este dispositivo",
+      );
+      await expect(page.getByTestId("piano-privacy")).toContainText(
+        "no se usa ningún servicio de voz por internet",
+      );
+      await expect(page.getByTestId("piano-mic")).toBeDisabled();
+      await expect(page.getByTestId("piano-touch-mode")).toHaveCount(0);
+      await page.getByTestId("piano-mic").click({ force: true });
+      await key(page, 0).focus();
+      await page.keyboard.press("Enter");
+      await expect(piano).toHaveAttribute("data-confirmed", "1");
+      await key(page, 1).click();
+      await expect(piano).toHaveAttribute("data-done", "true");
+      await expect(page.getByTestId("piano-sparkle")).toHaveCount(1);
+      const speech = await page.evaluate(
+        () => (window as unknown as { __speech: { constructed: number; starts: number } }).__speech,
+      );
+      expect(speech.constructed).toBe(0);
+      expect(speech.starts).toBe(0);
+      if (local === "unavailable") {
+        await page.screenshot({ path: "test-results/piano-proof/07-local-unavailable.png" });
+      }
+    });
+  }
 
   test("phone and laptop layouts, reduced motion", async ({ browser }) => {
     for (const [name, viewport, reducedMotion] of [

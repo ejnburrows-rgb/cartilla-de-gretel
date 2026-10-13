@@ -53,6 +53,8 @@ const KEY_STATE_LABEL: Record<KeyState, string> = {
 
 const PROBLEM_MESSAGE: Record<PianoListenProblem, string> = {
   unsupported: "Este navegador no puede escuchar la voz. Puedes tocar las teclas en orden.",
+  "no-local":
+    "Este navegador no puede reconocer la voz dentro de este dispositivo, así que el micrófono queda apagado. Puedes tocar las teclas en orden.",
   denied:
     "El micrófono no tiene permiso. Un adulto puede permitirlo en el navegador, o puedes tocar las teclas en orden.",
   "no-microphone": "No encuentro un micrófono. Puedes tocar las teclas en orden.",
@@ -595,29 +597,35 @@ export function PianoPronunciation({
       )}
 
       <div className="mt-4 flex flex-col items-center gap-2 text-center">
-        <button
-          type="button"
-          onClick={() => {
-            cancelListening();
-            setTouchMode((value) => !value);
-            setMessage(
-              !touchMode ? "Toca las teclas en orden." : "Toca el micrófono para decir la palabra.",
-            );
-          }}
-          aria-pressed={touchMode}
-          className="inline-flex min-h-11 items-center gap-2 rounded-xl px-3 text-xs font-black text-stone-600 hover:bg-white/70"
-          data-testid="piano-touch-mode"
-        >
-          <Hand className="h-4 w-4" /> {touchMode ? "Usar el micrófono" : "Tocar sin micrófono"}
-        </button>
+        {supported && (
+          <button
+            type="button"
+            onClick={() => {
+              cancelListening();
+              setTouchMode((value) => !value);
+              setMessage(
+                !touchMode
+                  ? "Toca las teclas en orden."
+                  : "Toca el micrófono para decir la palabra.",
+              );
+            }}
+            aria-pressed={touchMode}
+            className="inline-flex min-h-11 items-center gap-2 rounded-xl px-3 text-xs font-black text-stone-600 hover:bg-white/70"
+            data-testid="piano-touch-mode"
+          >
+            <Hand className="h-4 w-4" /> {touchMode ? "Usar el micrófono" : "Tocar sin micrófono"}
+          </button>
+        )}
         <p
           className="max-w-sm text-[11px] font-semibold leading-snug text-stone-500"
           data-testid="piano-privacy"
         >
           La Cartilla no graba ni guarda la voz.{" "}
           {processing === "on-device"
-            ? "El navegador la reconoce en este dispositivo, sin enviarla."
-            : "Para reconocerla, el navegador puede enviarla por internet a su servicio de voz (por ejemplo, Google o Apple)."}
+            ? "El micrófono solo funciona con el reconocimiento de voz de este dispositivo; La Cartilla nunca usa un servicio de voz por internet."
+            : processing === "unavailable"
+              ? "Aquí no hay reconocimiento de voz dentro del dispositivo, así que el micrófono está apagado y no se usa ningún servicio de voz por internet."
+              : "Comprobando si este dispositivo puede reconocer la voz por sí mismo…"}
         </p>
       </div>
     </div>

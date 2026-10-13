@@ -11,7 +11,7 @@ type Listen = { onFinal: (t: string) => void; onInterim?: (t: string) => void };
 let lastListen: Listen | null = null;
 let mockStatus: "idle" | "starting" | "listening" | "hearing" = "idle";
 let mockProblem: string | null = null;
-let mockProcessing: "on-device" | "browser-service" | "unknown" = "unknown";
+let mockProcessing: "checking" | "on-device" | "unavailable" = "on-device";
 const mockStart = vi.fn();
 const mockStop = vi.fn();
 const mockCancel = vi.fn();
@@ -20,7 +20,7 @@ vi.mock("@/hooks/usePianoListening", () => ({
   usePianoListening: (options: Listen) => {
     lastListen = options;
     return {
-      supported: true,
+      supported: mockProcessing === "on-device",
       status: mockStatus,
       problem: mockProblem,
       processing: mockProcessing,
@@ -103,7 +103,7 @@ describe("PianoPronunciation", () => {
     vi.useFakeTimers();
     vi.clearAllMocks();
     lastListen = null;
-    mockProcessing = "unknown";
+    mockProcessing = "on-device";
     mockStatus = "idle";
     mockProblem = null;
   });
@@ -270,21 +270,53 @@ describe("PianoPronunciation", () => {
     });
   });
 
-  describe("Privacy note matches where the voice is processed", () => {
-    it("never claims on-device recognition unless the browser confirmed it", () => {
+  describe("Microphone only with confirmed on-device recognition", () => {
+    it("on-device: the note never mentions an online service being used", () => {
       render(<PianoPronunciation syllables={["sa"]} words={SAPO} />);
       const note = screen.getByTestId("piano-privacy").textContent ?? "";
       expect(note).toContain("La Cartilla no graba ni guarda la voz.");
-      expect(note).toMatch(/puede enviarla por internet/);
-      expect(note).not.toMatch(/en este dispositivo/);
+      expect(note).toMatch(/reconocimiento de voz de este dispositivo/);
+      expect(note).toMatch(/nunca usa un servicio de voz por internet/);
+      expect((screen.getByTestId("piano-mic") as HTMLButtonElement).disabled).toBe(false);
     });
 
-    it("says the voice stays on the device only when on-device recognition is available", () => {
-      mockProcessing = "on-device";
+    it("while checking: microphone stays off and nothing claims on-device", () => {
+      mockProcessing = "checking";
       render(<PianoPronunciation syllables={["sa"]} words={SAPO} />);
-      const note = screen.getByTestId("piano-privacy").textContent ?? "";
-      expect(note).toMatch(/en este dispositivo, sin enviarla/);
-      expect(note).not.toMatch(/internet/);
+      expect((screen.getByTestId("piano-mic") as HTMLButtonElement).disabled).toBe(true);
+      fireEvent.click(screen.getByTestId("piano-mic"));
+      expect(mockStart).not.toHaveBeenCalled();
+      expect(screen.getByTestId("piano-privacy").textContent).toMatch(/Comprobando/);
+    });
+
+    it("unavailable: microphone off, brief explanation, full touch play and completion", async () => {
+      mockProcessing = "unavailable";
+      mockProblem = "no-local";
+      render(<PianoPronunciation syllables={["sa"]} words={SAPO} />);
+      expect(screen.getByTestId("piano-message").textContent).toMatch(
+        /no puede reconocer la voz dentro de este dispositivo/,
+      );
+      expect(screen.getByTestId("piano-privacy").textContent).toMatch(
+        /micrófono está apagado y no se usa ningún servicio de voz por internet/,
+      );
+      const mic = screen.getByTestId("piano-mic");
+      expect((mic as HTMLButtonElement).disabled).toBe(true);
+      fireEvent.click(mic);
+      expect(mockStart).not.toHaveBeenCalled();
+      // No way to switch the microphone back on.
+      expect(screen.queryByTestId("piano-touch-mode")).toBeNull();
+      await act(async () => {
+        fireEvent.click(screen.getByTestId("piano-key-0"));
+      });
+      await act(async () => {
+        fireEvent.click(screen.getByTestId("piano-key-1"));
+      });
+      expect(keyState(0)).toBe("confirmed");
+      expect(keyState(1)).toBe("confirmed");
+      expect(mockPlayCorrectChord).toHaveBeenCalledTimes(1);
+      expect(mockStart).not.toHaveBeenCalled();
+      // AI-voice examples still play.
+      expect(mockSpeak).toHaveBeenCalled();
     });
   });
 

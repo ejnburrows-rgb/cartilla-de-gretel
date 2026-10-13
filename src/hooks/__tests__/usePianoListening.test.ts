@@ -40,6 +40,7 @@ describe("usePianoListening", () => {
   beforeEach(() => {
     FakeRecognition.instances = [];
     FakeRecognition.availability = "available";
+    FakeRecognition.available.mockClear();
     win.SpeechRecognition = FakeRecognition;
   });
   afterEach(() => {
@@ -75,17 +76,130 @@ describe("usePianoListening", () => {
     expect(onFinal.mock.calls.map((c) => c[0])).toEqual(["sa", "po"]);
   });
 
-  it("reports browser-service processing when no on-device language pack exists", async () => {
-    FakeRecognition.availability = "downloadable";
-    const { result } = renderHook(() => usePianoListening({ onFinal: vi.fn() }));
-    await act(async () => {});
-    expect(result.current.processing).toBe("browser-service");
-    act(() => result.current.start());
-    expect(FakeRecognition.instances[0].processLocally).toBeUndefined();
+  describe("never falls back to an online recognizer", () => {
+    const expectMicOff = (current: ReturnType<typeof usePianoListening>) => {
+      expect(current.supported).toBe(false);
+      expect(current.processing).toBe("unavailable");
+      expect(current.problem).toBe("no-local");
+      expect(current.status).toBe("idle");
+      act(() => current.start());
+      // No recognizer object is ever created, so nothing can start online.
+      expect(FakeRecognition.instances).toHaveLength(0);
+    };
+
+    for (const availability of ["downloadable", "downloading", "unavailable", "", "weird"]) {
+      it(`does not create a recognizer when on-device availability is "${availability}"`, async () => {
+        FakeRecognition.availability = availability;
+        const { result } = renderHook(() => usePianoListening({ onFinal: vi.fn() }));
+        await act(async () => {});
+        expect(FakeRecognition.available).toHaveBeenLastCalledWith({
+          langs: ["es-MX"],
+          processLocally: true,
+        });
+        expectMicOff(result.current);
+      });
+    }
+
+    it("does not create a recognizer when the browser cannot report on-device availability", async () => {
+      class NoAvailability extends FakeRecognition {}
+      Object.defineProperty(NoAvailability, "available", { value: undefined });
+      win.SpeechRecognition = NoAvailability;
+      const { result } = renderHook(() => usePianoListening({ onFinal: vi.fn() }));
+      await act(async () => {});
+      expectMicOff(result.current);
+    });
+
+    it("does not use the prefixed webkit recognizer without on-device confirmation", async () => {
+      delete win.SpeechRecognition;
+      class WebkitOnly extends FakeRecognition {}
+      Object.defineProperty(WebkitOnly, "available", { value: undefined });
+      win.webkitSpeechRecognition = WebkitOnly;
+      const { result } = renderHook(() => usePianoListening({ onFinal: vi.fn() }));
+      await act(async () => {});
+      expectMicOff(result.current);
+    });
+
+    it("does not create a recognizer when the availability check rejects or throws", async () => {
+      FakeRecognition.available.mockRejectedValueOnce(new Error("no"));
+      const rejected = renderHook(() => usePianoListening({ onFinal: vi.fn() }));
+      await act(async () => {});
+      expectMicOff(rejected.result.current);
+      rejected.unmount();
+
+      FakeRecognition.available.mockImplementationOnce(() => {
+        throw new Error("boom");
+      });
+      const thrown = renderHook(() => usePianoListening({ onFinal: vi.fn() }));
+      await act(async () => {});
+      expectMicOff(thrown.result.current);
+    });
+
+    it("keeps the microphone off while the on-device answer is still pending", async () => {
+      let resolve: (value: string) => void = () => {};
+      FakeRecognition.available.mockImplementationOnce(
+        () => new Promise<string>((r) => (resolve = r)),
+      );
+      const { result } = renderHook(() => usePianoListening({ onFinal: vi.fn() }));
+      expect(result.current.processing).toBe("checking");
+      expect(result.current.supported).toBe(false);
+      act(() => result.current.start());
+      expect(FakeRecognition.instances).toHaveLength(0);
+      await act(async () => resolve("available"));
+      expect(result.current.processing).toBe("on-device");
+      act(() => result.current.start());
+      expect(FakeRecognition.instances).toHaveLength(1);
+      expect(FakeRecognition.instances[0].processLocally).toBe(true);
+    });
+
+    it("refuses to start if processLocally cannot be set on the recognizer", async () => {
+      class Ignores extends FakeRecognition {
+        constructor() {
+          super();
+          // A recognizer that silently ignores processLocally.
+          Object.defineProperty(this, "processLocally", { get: () => undefined, set: () => {} });
+        }
+      }
+      win.SpeechRecognition = Ignores;
+      const { result } = renderHook(() => usePianoListening({ onFinal: vi.fn() }));
+      await act(async () => {});
+      act(() => result.current.start());
+      expect(FakeRecognition.instances).toHaveLength(1);
+      expect(FakeRecognition.instances[0].start).not.toHaveBeenCalled();
+      expect(result.current.supported).toBe(false);
+      expect(result.current.problem).toBe("no-local");
+    });
+
+    for (const error of ["language-not-supported", "service-not-allowed"]) {
+      it(`turns the microphone off for good after "${error}" instead of retrying online`, async () => {
+        const { result } = renderHook(() => usePianoListening({ onFinal: vi.fn() }));
+        await act(async () => {});
+        act(() => result.current.start());
+        const rec = FakeRecognition.instances[0];
+        expect(rec.processLocally).toBe(true);
+        act(() => rec.onerror?.({ error }));
+        expect(rec.abort).toHaveBeenCalled();
+        expect(result.current.problem).toBe("no-local");
+        expect(result.current.supported).toBe(false);
+        act(() => result.current.start());
+        expect(FakeRecognition.instances).toHaveLength(1);
+      });
+    }
+
+    it("every recognizer it starts has processLocally = true", async () => {
+      const { result } = renderHook(() => usePianoListening({ onFinal: vi.fn() }));
+      await act(async () => {});
+      for (let i = 0; i < 3; i++) act(() => result.current.start());
+      expect(FakeRecognition.instances).toHaveLength(3);
+      for (const rec of FakeRecognition.instances) {
+        expect(rec.processLocally).toBe(true);
+        expect(rec.start).toHaveBeenCalledTimes(1);
+      }
+    });
   });
 
-  it("maps permission and device errors to friendly problems", () => {
+  it("maps permission and device errors to friendly problems", async () => {
     const { result } = renderHook(() => usePianoListening({ onFinal: vi.fn() }));
+    await act(async () => {});
     for (const [error, problem] of [
       ["not-allowed", "denied"],
       ["audio-capture", "no-microphone"],
@@ -107,10 +221,11 @@ describe("usePianoListening", () => {
     expect(result.current.problem).toBe("unsupported");
   });
 
-  it("cancel aborts, clears provisional text and ignores late results", () => {
+  it("cancel aborts, clears provisional text and ignores late results", async () => {
     const onFinal = vi.fn();
     const onInterim = vi.fn();
     const { result } = renderHook(() => usePianoListening({ onFinal, onInterim }));
+    await act(async () => {});
     act(() => result.current.start());
     const rec = FakeRecognition.instances[0];
     const late = rec.onresult;
@@ -127,11 +242,12 @@ describe("usePianoListening", () => {
     expect(onFinal).not.toHaveBeenCalled();
   });
 
-  it("releases the microphone when the page is hidden, on unmount and after the safety timeout", () => {
+  it("releases the microphone when the page is hidden, on unmount and after the safety timeout", async () => {
     vi.useFakeTimers();
     const { result, unmount } = renderHook(() =>
       usePianoListening({ onFinal: vi.fn(), maxSessionMs: 1000 }),
     );
+    await act(async () => {});
     act(() => result.current.start());
     Object.defineProperty(document, "visibilityState", { value: "hidden", configurable: true });
     act(() => {
