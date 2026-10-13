@@ -278,6 +278,9 @@
   font-size: 3cqw;
   font-weight: 700;
   white-space: nowrap;
+  /* #660: the hint is informational only; it must never intercept taps meant
+     for the tracing canvas or the mode toggle beneath it. */
+  pointer-events: none;
 }
 .fp-trace__hint--off { color: #e11d48; }
 .fp-trace__hint--ok { color: #059669; }

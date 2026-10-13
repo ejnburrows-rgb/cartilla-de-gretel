@@ -176,4 +176,62 @@ test.describe("Workbook Archetype 5 & 6 Proof", () => {
     await page.screenshot({ path: path.join(PROOF_DIR, "archetype-6-reduced-motion.png") });
     await page.emulateMedia({ reducedMotion: "no-preference" });
   });
+
+  test("Issue #660: trace hint never intercepts taps (tap-through proof)", async ({ page }) => {
+    // Narrow phone viewport where the nowrap hint can span the footer and
+    // overlap the mode toggle / tracing surface.
+    await page.setViewportSize({ width: 390, height: 844 });
+    await page.goto("/cartilla/leccion/7", { waitUntil: "domcontentloaded" });
+    await dismissCinematic(page);
+    const trace = page.locator(".fp-trace:visible").first();
+    await expect(trace).toBeVisible({ timeout: 15000 });
+
+    const hint = trace.locator(".fp-trace__hint:visible").first();
+    await expect(hint, "trace hint is rendered").toBeVisible({ timeout: 10000 });
+
+    // 1. The hint must be non-interactive by style.
+    const pointerEvents = await hint.evaluate((el) => getComputedStyle(el).pointerEvents);
+    expect(pointerEvents, "hint pointer-events").toBe("none");
+
+    // 2. Hit-testing at the hint's center must skip the hint element.
+    const hit = await hint.evaluate((el) => {
+      const r = el.getBoundingClientRect();
+      const top = document.elementFromPoint(r.left + r.width / 2, r.top + r.height / 2) as HTMLElement | null;
+      return {
+        topTag: top?.tagName ?? null,
+        topClass: String(top?.className ?? "").slice(0, 80),
+        isHint: top === el || !!top?.closest?.(".fp-trace__hint"),
+      };
+    });
+    expect(hit.isHint, `hit-test at hint center must not land on the hint (landed on ${hit.topTag}.${hit.topClass})`).toBe(false);
+
+    // 3. A real tap at the hint's center must reach the layer beneath, not the hint.
+    await page.evaluate(() => {
+      (window as unknown as { __tapTarget: unknown }).__tapTarget = null;
+      document.addEventListener(
+        "pointerdown",
+        (e) => {
+          const t = e.target as HTMLElement;
+          (window as unknown as { __tapTarget: unknown }).__tapTarget = {
+            tag: t.tagName,
+            cls: String(t.className ?? "").slice(0, 80),
+            isHint: !!t.closest(".fp-trace__hint"),
+          };
+        },
+        { capture: true, once: true },
+      );
+    });
+    const box = await hint.boundingBox();
+    expect(box, "hint has a bounding box").not.toBeNull();
+    await page.mouse.click(box!.x + box!.width / 2, box!.y + box!.height / 2);
+    const tapTarget = await page.evaluate(
+      () => (window as unknown as { __tapTarget: { tag: string; cls: string; isHint: boolean } | null }).__tapTarget,
+    );
+    expect(tapTarget, "tap was captured").not.toBeNull();
+    expect(tapTarget!.isHint, `tap at hint center must not target the hint (targeted ${tapTarget!.tag}.${tapTarget!.cls})`).toBe(false);
+
+    // 4. The hint is still visible (non-interactive, not removed).
+    await expect(hint).toBeVisible();
+    await page.screenshot({ path: path.join(PROOF_DIR, "trace-hint-tap-through-390x844.png") });
+  });
 });
