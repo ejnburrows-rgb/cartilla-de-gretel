@@ -13,8 +13,20 @@
 
 > **Finish contract:** `PROJECT_FINISH_DEFINITION.md` defines finished. This file is only the current gap-closing execution plan.
 
-**Updated:** 2026-10-10
+**Updated:** 2026-10-13
 **Concurrency authority:** `AGENTS.md` governs all worker counts. The 2026-10-13 owner goal is up to **15 provider-confirmed active useful Jules sessions**, subject to current provider quota and genuine independent work; proactive Muse dispatch is authorized for evidenced nonoverlapping implementation, fixes, focused QA, accessibility and polish inside current approved product scope.
+
+## Current controller checkpoint — October 13, 2026 (evening)
+
+This checkpoint supersedes older in-flight priorities and assignment assumptions below where they conflict. Resolve live `main` SHA and provider state at each run rather than persisting a stale branch SHA in this plan.
+
+- **Merged tonight (each independently reviewed and verified before merge):** #726 (approved pencil, realistic crumbs, zoom, skip-link — closes #716), #708 (fill-screen lesson pages, pointer-hold-safe auto-turn, fill-blank swipe exclusions), #686 (TapSelect `kind` fix + Vitest Node-suite exclusion — the release-gate code fix), #727 (trace-hint tap-through fix — closes #660), #690 (corner-drag rAF coalescing), #710 (keyboard semantics for rewards + pipeline board — supersedes #681), #691 (listbox keyboard navigation), #730 (praise only after correct answers — closes #714).
+- **Closed as superseded or empty:** #712 (Vitest exclusion folded into #686), #718 (byte-identical trace-hint fix already on main via #727), #725 (0 changed files), #681 (superseded by #710).
+- **P0 release gate (#719):** the code fixes are on main; closing #719 still requires a fresh `pnpm typecheck` + `pnpm test` + `pnpm verify:policy` run on current main with passing evidence.
+- **Still open and owned:** #713 (this docs reconciliation), #715 (Flip Chart reading order — lane dispatched), #717 (fit layout: connectors, phone landscape, text size — lane running), #728 (LessonTimer imported but never rendered — needs an owner decision: wire it into the lesson UI or remove the dead import; wiring it in is a visual/product call), #729 (vocabulary tests — needs review). #698 (one-file ARIA), #682, #678 and #699 remain queued candidates — rebase and verify before any merge; no mandate to take all.
+- **Provider:** resolve live provider capacity at each run; labels, receipts and PRs do not prove an active session. Dispatch only distinct, evidenced, non-overlapping work inside current authorization.
+- **Owner-supplied finish items (unchanged):** #589 premium Gretel voice, #588 approved foreground art, and missing original Teacher Guide text. Drive's `Cartilla Production Hub/00 Sources` contains only the Student Workbook and Flip Chart source PDFs; `04 Approved Assets` was empty at inspection. Missing guide/art/voice material is not to be reconstructed or invented. Security #387/#388/#390 blocks real-data use, not non-real-data demo work.
+- **Coordination and proof:** draft #713 reconciles the two obsolete 2026-10-11 Jules authorization banners with the 2026-10-13 proactive-dispatch decision; it does not change locked designs. Full verification #587 and assembled proof #458 remain downstream of material integration; no production deployment or final owner approval has occurred.
 
 > **Historical 2026-10-10 scheduler note — superseded 2026-10-13:** The old Windows/Vercel/Neon/OpenHands controller remains retired. The ChatGPT cloud controller was verified disabled on 2026-10-13. Muse is the sole designated controller/dispatcher; verify its actual runs and Jules provider state. Never reactivate the competing coordinator.
 
