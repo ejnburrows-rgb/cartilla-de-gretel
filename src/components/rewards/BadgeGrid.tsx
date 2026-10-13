@@ -43,6 +43,11 @@ export function BadgeGrid({ earnedIds }: BadgeGridProps) {
               key={badge.id}
               role="button"
               tabIndex={0}
+              // DELIBERATE: locked badges stay focusable (tabIndex 0) so
+              // keyboard/screen-reader learners can hear the unlock condition
+              // in the aria-label; aria-disabled announces the locked state
+              // instead of presenting a misleading enabled button.
+              aria-disabled={!isEarned}
               aria-label={`${badge.name}: ${isEarned ? badge.description : badge.condition}`}
               onClick={() => handleBadgeClick(badge, isEarned)}
               onKeyDown={(event) => {

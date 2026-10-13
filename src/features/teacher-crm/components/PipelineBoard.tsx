@@ -45,7 +45,7 @@ export function PipelineBoard({
   return (
     <div className="crm-card">
       <h3 className="text-lg font-bold mb-4 flex items-center gap-2">Estado de la clase</h3>
-      <div className="crm-pipeline">
+      <div className="crm-pipeline" role="radiogroup" aria-label="Seleccionar alumno">
         {/* Requieren atención */}
         <div className="crm-pipeline-column">
           <div className="font-bold text-sm text-[#902b2b] mb-2 flex justify-between items-center">
@@ -60,9 +60,9 @@ export function PipelineBoard({
               return (
                 <div
                   key={s.id}
-                  role="button"
+                  role="radio"
                   tabIndex={0}
-                  aria-pressed={isSelected}
+                  aria-checked={isSelected}
                   aria-label={`Seleccionar alumno ${s.name}`}
                   onClick={() => onSelectStudent(s.id)}
                   onKeyDown={(event) => {
@@ -111,9 +111,9 @@ export function PipelineBoard({
               return (
                 <div
                   key={s.id}
-                  role="button"
+                  role="radio"
                   tabIndex={0}
-                  aria-pressed={isSelected}
+                  aria-checked={isSelected}
                   aria-label={`Seleccionar alumno ${s.name}`}
                   onClick={() => onSelectStudent(s.id)}
                   onKeyDown={(event) => {
@@ -159,9 +159,9 @@ export function PipelineBoard({
               return (
                 <div
                   key={s.id}
-                  role="button"
+                  role="radio"
                   tabIndex={0}
-                  aria-pressed={isSelected}
+                  aria-checked={isSelected}
                   aria-label={`Seleccionar alumno ${s.name}`}
                   onClick={() => onSelectStudent(s.id)}
                   onKeyDown={(event) => {

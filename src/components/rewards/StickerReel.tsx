@@ -48,6 +48,11 @@ export function StickerReel({ earnedIds }: StickerReelProps) {
               key={sticker.id}
               role="button"
               tabIndex={0}
+              // DELIBERATE: locked stickers stay focusable (tabIndex 0) so
+              // keyboard/screen-reader learners can hear the unlock condition
+              // in the aria-label; aria-disabled announces the locked state
+              // instead of presenting a misleading enabled button.
+              aria-disabled={!isEarned}
               aria-label={`${isEarned ? sticker.name : `Lección ${sticker.lessonId}`}: ${isEarned ? sticker.description : "Pegatina bloqueada"}`}
               onClick={() => handleStickerClick(sticker, isEarned)}
               onKeyDown={(event) => {

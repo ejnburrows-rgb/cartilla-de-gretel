@@ -30,6 +30,17 @@ describe("Keyboard Rewards and Pipeline Board Interactions", () => {
       fireEvent.keyDown(badge, { key: "Escape" });
       expect(feelBus.emit).toHaveBeenCalledTimes(2);
     });
+
+    it("announces locked badges as disabled while keeping them focusable", () => {
+      const { rerender } = render(<BadgeGrid earnedIds={[]} />);
+      const locked = screen.getByRole("button", { name: new RegExp(BADGES[0].name) });
+      expect(locked.getAttribute("aria-disabled")).toBe("true");
+      expect(locked.getAttribute("tabindex")).toBe("0");
+
+      rerender(<BadgeGrid earnedIds={[BADGES[0].id]} />);
+      const earned = screen.getByRole("button", { name: new RegExp(BADGES[0].name) });
+      expect(earned.getAttribute("aria-disabled")).toBe("false");
+    });
   });
 
   describe("StickerReel keyboard semantics", () => {
@@ -54,14 +65,17 @@ describe("Keyboard Rewards and Pipeline Board Interactions", () => {
       { id: "c", name: "Carla", progress: 99, lastActive: "Hoy", alert: false },
     ];
 
-    it("exposes student cards across all columns as keyboard-focusable controls with aria-pressed", () => {
+    it("exposes student cards across all columns as radio options with aria-checked", () => {
       const onSelect = vi.fn();
       render(<PipelineBoard students={students} selectedStudentId="b" onSelectStudent={onSelect} />);
 
+      const group = screen.getByRole("radiogroup", { name: "Seleccionar alumno" });
+      expect(group).toBeTruthy();
+
       for (const student of students) {
-        const button = screen.getByRole("button", { name: `Seleccionar alumno ${student.name}` });
-        expect(button.getAttribute("tabindex")).toBe("0");
-        expect(button.getAttribute("aria-pressed")).toBe(String(student.id === "b"));
+        const radio = screen.getByRole("radio", { name: `Seleccionar alumno ${student.name}` });
+        expect(radio.getAttribute("tabindex")).toBe("0");
+        expect(radio.getAttribute("aria-checked")).toBe(String(student.id === "b"));
       }
     });
 
@@ -69,9 +83,9 @@ describe("Keyboard Rewards and Pipeline Board Interactions", () => {
       const onSelect = vi.fn();
       render(<PipelineBoard students={students} selectedStudentId={null} onSelectStudent={onSelect} />);
 
-      const ana = screen.getByRole("button", { name: "Seleccionar alumno Ana" });
-      const bruno = screen.getByRole("button", { name: "Seleccionar alumno Bruno" });
-      const carla = screen.getByRole("button", { name: "Seleccionar alumno Carla" });
+      const ana = screen.getByRole("radio", { name: "Seleccionar alumno Ana" });
+      const bruno = screen.getByRole("radio", { name: "Seleccionar alumno Bruno" });
+      const carla = screen.getByRole("radio", { name: "Seleccionar alumno Carla" });
 
       fireEvent.keyDown(ana, { key: "Enter" });
       fireEvent.keyDown(bruno, { key: " " });
