@@ -25,6 +25,19 @@
   outline: none;
 }
 
+/* 1b. Skip link during the workbook close-up zoom (#720 F06).
+   While the zoom is active #root is translated and scaled, which can pull the
+   off-screen skip link into view over the zoomed picture. Clip it away while
+   zoomed (clip keeps it keyboard-focusable, unlike visibility:hidden), and show
+   it again when it actually has keyboard focus. Reduced motion never zooms (the
+   caller only activates the close-up with motion), so this rule is inert there. */
+.workbook-close-up-zooming .skip-link {
+  clip-path: inset(50%);
+}
+.workbook-close-up-zooming .skip-link:focus {
+  clip-path: none;
+}
+
 /* 2. Global Keyboard Focus Rings */
 *:focus-visible {
   outline: 3.5px solid var(--primary-color, #c98c4f) !important;
