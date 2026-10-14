@@ -12,7 +12,7 @@ export function readLearnerResume(lesson?: number): LearnerResume | null {
 }
 export function saveLearnerResume(lesson: number, page: number, printedPage?: number) {
   try {
-    const value = JSON.stringify({ lesson, page, ...(Number.isInteger(printedPage) ? { printedPage } : {}) });
+    const value = JSON.stringify({ lesson, page, ...(typeof printedPage === "number" && Number.isInteger(printedPage) ? { printedPage } : {}) });
     localStorage.setItem(learnerStorageKey(`${KEYS.learnerResume}:${lesson}`), value);
     localStorage.setItem(learnerStorageKey(KEYS.learnerResume), value);
   } catch {
