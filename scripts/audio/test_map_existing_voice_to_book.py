@@ -49,6 +49,20 @@ class RecordedBookMapTests(unittest.TestCase):
         self.assertEqual(report["verified_audio_cues"], 1)
         self.assertGreater((self.root / "out" / "audio" / "gretel_gr0041.mp3").stat().st_size, 2000)
 
+    def test_verified_cue_without_exported_file_does_not_advertise_playback(self):
+        manifest = self.root / "verified-not-exported.json"
+        manifest.write_text(json.dumps([{
+            "clip_id": "GR0041", "source_id": "existing", "start_s": .6,
+            "end_s": 3.8, "verified_by": "manual_listening",
+            "verified_text": "Escucha la vocal ñ."
+        }]))
+        report = build_map(self.script, {"existing": self.audio}, manifest,
+                           self.root / "not-exported", export_verified=False)
+        self.assertEqual(report["verified_audio_cues"], 1)
+        entries = json.loads((self.root / "not-exported" /
+                             "gretel-recorded-manifest-approved-only.json").read_text())["entries"]
+        self.assertEqual(entries, [])
+
     def test_wrong_text_or_unknown_timecode_cannot_be_published(self):
         cue = self.root / "wrong.json"
         for item in [
