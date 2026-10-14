@@ -213,8 +213,12 @@ def p009_scene():
     svg.warp(bx, by, [0, 0.015, 0], '4.2s')
     return svg.render(f'{OUT}/p009-scene-alive.svg')
 
+# Workbook vowel-review pictures (Lessons 2-6): see wb_vowels.py
+os.environ.setdefault('LIVING_OUT', OUT)
+from wb_vowels import vocal_o_oso, vocal_o_oveja, vocal_e_elefante, vocal_o_olla, vocal_a_avion, vocal_a_abeja, vocal_a_abanico, vocal_i_iman  # noqa: E402
+
 if __name__ == '__main__':
     import os; os.makedirs(OUT, exist_ok=True)
     for f in ARGS or ['elefante', 'oso', 'oveja', 'abanico', 'avion', 'iman', 'olla', 'abeja', 'p009_scene']:
-        fn = 'p009_scene' if f in ('p009-scene', 'p009_scene') else f
+        fn = f.replace('-', '_')
         print(f, globals()[fn]())

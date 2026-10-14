@@ -38,3 +38,29 @@ New pictures (not in the list) need their own motion recipe in `all.py` and an
 entry in `STILLS` in `build.py` before they can move.
 
 Requires Python 3 with numpy, opencv-python-headless and Pillow.
+
+## Workbook vowel-review pages (Lessons 2–6)
+
+The first page of Lessons 2–6 shows the faithful vowel pictures
+(`public/cartilla/art/faithful/vocal-*/…webp`). Eight of them are the same drawings
+as the approved Page 1 pictures (oso, elefante and abeja are mirrored), so they get
+the same approved part motion, rebuilt for these scans in `wb_vowels.py`:
+
+| name | still | motion |
+| --- | --- | --- |
+| vocal-o-oso | vocal-o/oso.webp | breathes, blinks, the bee's wings buzz (the bee stays put) |
+| vocal-o-oveja | vocal-o/oveja.webp | blinks, ear flick |
+| vocal-o-olla | vocal-o/olla.webp | steam curls rise above the lid |
+| vocal-e-elefante | vocal-e/elefante.webp | trunk swings, ears flap, both eyes blink |
+| vocal-a-avion | vocal-a/avion.webp | propeller spins, air streaks (no whole-plane glide: this scan has its own sky and sun) |
+| vocal-a-abeja | vocal-a/abeja.webp | wings flutter |
+| vocal-a-abanico | vocal-a/abanico.webp | the fan opens and closes slightly |
+| vocal-i-iman | vocal-i/iman.webp | paper clips pulled to the poles, field lines flow, sparks |
+
+Each Page 1 coordinate is carried over with a measured similarity transform
+(`FITS` in `wb_vowels.py`: SIFT feature match + RANSAC, Page 1 still → vowel still).
+The vowel still is embedded byte-for-byte (original WebP), never re-encoded, and
+the motion maps are stored at 1/3 size (they are smooth, so this is lossless in
+practice and keeps each file ~60–240 KB).
+
+    python3 scripts/living-motion/build.py vocal-o-oso vocal-e-elefante   # etc.

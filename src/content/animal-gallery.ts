@@ -23,6 +23,10 @@
 // and is genuinely colored (not a grayscale/stub) so a future bad crop can't
 // silently slip in.
 //
+// `pez` was removed: leccion-1/pez.webp is the Workbook's airplane (avión),
+// not a fish (book pages 8, 13, 16; book-transcription "picture-identity").
+// No book-faithful fish drawing exists yet.
+//
 // `lessonNumber` links each card back to the lesson that teaches the animal's
 // key letter/sound (e.g. the fox "zorro" → the Z lesson), using the lesson
 // numbering in src/content/consonants.json + the vowel lessons. `accent` is
@@ -97,12 +101,6 @@ export const ANIMAL_GALLERY: AnimalGalleryEntry[] = [
     illustrationSrc: "/cartilla/art/faithful/leccion-7-m/mono.webp",
     lessonNumber: 7,
     accent: "#E63946",
-  },
-  {
-    word: "pez",
-    illustrationSrc: "/cartilla/art/faithful/leccion-1/pez.webp",
-    lessonNumber: 8,
-    accent: "#F4A261",
   },
   {
     word: "sapo",
