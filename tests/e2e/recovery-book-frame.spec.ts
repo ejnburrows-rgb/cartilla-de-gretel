@@ -42,7 +42,21 @@ for (const viewport of [
     const navBox = await navigation.boundingBox();
     expect(contentBox).not.toBeNull();
     expect(navBox).not.toBeNull();
-    expect(navBox!.y).toBeGreaterThanOrEqual(contentBox!.y + contentBox!.height - 2);
+    // The page arrows sit below or beside the page (laptop fit) or float over it
+    // on phones; once scrolled to the end they must not hide any page control.
+    await page.evaluate(() => window.scrollTo(0, document.documentElement.scrollHeight));
+    const hidden = await page.evaluate(() => {
+      const controls = [...document.querySelectorAll<HTMLElement>('.native-lesson-viewer__content button, .native-lesson-viewer__content canvas, .native-lesson-viewer__content textarea')];
+      return [...document.querySelectorAll<HTMLElement>('.native-lesson-viewer__navigation button')].flatMap((button) => {
+        const b = button.getBoundingClientRect();
+        if (!b.width) return [];
+        return controls.filter((el) => {
+          const q = el.getBoundingClientRect();
+          return q.width > 0 && q.x < b.right - 2 && q.right > b.x + 2 && q.y < b.bottom - 2 && q.bottom > b.y + 2;
+        }).map((el) => el.getAttribute('aria-label') || el.textContent?.trim() || el.tagName);
+      });
+    });
+    expect(hidden, 'page controls hidden under the page arrows').toEqual([]);
 
     const companion = reader.locator('.native-lesson-viewer__companion');
     if (await companion.count()) {
@@ -61,7 +75,7 @@ for (const viewport of [
     await reader.getByRole('button', { name: 'Siguiente' }).click();
     await expect(counter).not.toHaveText(before!, { timeout: 6000 });
 
-    await reader.getByRole('button', { name: /Anterior/i }).click();
+    await reader.getByTestId('button-prev').click();
     await expect(counter).toHaveText(before!, { timeout: 6000 });
   });
 }

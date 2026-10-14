@@ -41,7 +41,15 @@ async function complete(page: Page, number: number) {
       const words = region.matchRows.flat();
       for (let i = 0; i < words.length; i++) if (words[i].correct !== false) {
         const choice = circles.locator('button').nth(i);
-        if (await choice.getAttribute('aria-pressed') !== 'true') await choice.click();
+        // Circle the syllable from the keyboard (a pointer tap must land on the
+        // syllable's letters). Taps made while the previous circle is still
+        // being drawn are ignored, so give each one time and retry.
+        for (let attempt = 0; attempt < 5 && await choice.getAttribute('aria-pressed') !== 'true'; attempt++) {
+          await choice.focus();
+          await page.keyboard.press('Enter');
+          await page.waitForTimeout(700);
+        }
+        await expect(choice).toHaveAttribute('aria-pressed', 'true');
       }
     }
     // Pencil-line matching: tap the vowel card, then the picture it belongs to.
@@ -53,8 +61,10 @@ async function complete(page: Page, number: number) {
       for (const link of links) {
         const left = link.left
           ? pencil.locator(`.am-direct-pencil__left-card[aria-label="${link.left}"]`).first()
-          : pencil.locator('.am-direct-pencil__left-card').first();
+          : pencil.locator('.am-direct-pencil__center').first();
         const target = pencil.locator(`.am-direct-pencil__target[aria-label="${link.target}"]`).first();
+        // The printed example line (e.g. Oo→ola) is already drawn.
+        if (((await target.getAttribute('class')) ?? '').includes('is-connected')) continue;
         if (await left.isEnabled()) await left.click();
         await target.click();
         await page.waitForTimeout(150);
@@ -105,7 +115,12 @@ async function complete(page: Page, number: number) {
       }
     }
     const writing = area.locator('textarea');
-    if (await writing.count()) await writing.fill('Escribí una oración con las palabras de esta página.');
+    if (await writing.count()) {
+      await writing.fill('Escribí una oración con las palabras de esta página.');
+      // Writing is finished only when the learner confirms with Listo.
+      const done = area.getByRole('button', { name: 'Listo', exact: true });
+      if (await done.count()) await done.click();
+    }
   }
   const reading = reader.getByRole('button', { name: 'Ya leí esta página' });
   if (await reading.count()) await reading.click();
@@ -151,7 +166,7 @@ for (const viewport of [
 });
 
 test('all 24 workbook lessons, page activities and Next gate', async ({ page }) => {
-  test.setTimeout(1_200_000);
+  test.setTimeout(2_700_000); // walks and solves all 90 pages with real animations
   fs.mkdirSync(output, { recursive: true });
   await page.emulateMedia({ reducedMotion: 'reduce' });
   const checked: number[] = [];
