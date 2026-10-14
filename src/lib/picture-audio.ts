@@ -1,4 +1,4 @@
-import { isGretelVoiceMuted } from "./gretel-voice";
+import { getGretelVoiceProviderConfig, isGretelVoiceMuted, speakAsGretel } from "./gretel-voice";
 import { AUDIO_POLICY } from '@/content/audio-manifest';
 import { approvedPictureRecording, resolvePictureName, type VerifiedPictureName } from './picture-vocabulary';
 import { audioEngine } from './audio-engine';
@@ -22,6 +22,13 @@ export function playPictureName(entry: VerifiedPictureName): PictureAudioStatus 
   // Callers cannot turn arbitrary text or filenames into verified vocabulary.
   if (!entry.images.some(src => resolvePictureName(src, entry.name)?.key === entry.key)) return status('unverified');
   if (isMuted()) { stopPicturePlayback(); return status('muted'); }
+  // Preserve vocabulary validation and the TTS policy; when a custom Gretel
+  // engine is active, pictures must use the SAME voice as lesson instructions.
+  if (AUDIO_POLICY.allowTts && getGretelVoiceProviderConfig().type === 'custom') {
+    stopPicturePlayback();
+    void speakAsGretel(entry.name).catch(() => { status('failed'); });
+    return status('tts');
+  }
   const recording = approvedPictureRecording(entry.key);
   if (!recording && !AUDIO_POLICY.allowTts) { stopPicturePlayback(); return status('missing-recording'); }
   const token = claimSpeech('picture');
