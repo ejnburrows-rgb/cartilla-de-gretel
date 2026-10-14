@@ -79,11 +79,8 @@ describe("provider config seam & speech abstraction", () => {
   });
 
   it("executes custom speakFn provider and fires start/stop handlers & events", async () => {
-    const {
-      speakAsGretel,
-      setGretelVoiceProviderConfig,
-      getSelectedGretelVoiceName,
-    } = await import("../gretel-voice");
+    const { speakAsGretel, setGretelVoiceProviderConfig, getSelectedGretelVoiceName } =
+      await import("../gretel-voice");
 
     let speakFnCalledWith = "";
     const startListener = vi.fn();
@@ -92,11 +89,13 @@ describe("provider config seam & speech abstraction", () => {
     window.addEventListener("gretel:speak_start", startListener);
     window.addEventListener("gretel:speak_stop", stopListener);
 
-    const mockSpeakFn = vi.fn(async (text: string, handlers: { onStart?: () => void; onEnd?: () => void }) => {
-      speakFnCalledWith = text;
-      handlers.onStart?.();
-      handlers.onEnd?.();
-    });
+    const mockSpeakFn = vi.fn(
+      async (text: string, handlers: { onStart?: () => void; onEnd?: () => void }) => {
+        speakFnCalledWith = text;
+        handlers.onStart?.();
+        handlers.onEnd?.();
+      },
+    );
 
     setGretelVoiceProviderConfig({
       type: "custom",
@@ -122,9 +121,8 @@ describe("provider config seam & speech abstraction", () => {
   });
 
   it("respects mute state and skips speaking", async () => {
-    const { speakAsGretel, setGretelVoiceMuted, setGretelVoiceProviderConfig } = await import(
-      "../gretel-voice"
-    );
+    const { speakAsGretel, setGretelVoiceMuted, setGretelVoiceProviderConfig } =
+      await import("../gretel-voice");
 
     const mockSpeakFn = vi.fn();
     setGretelVoiceProviderConfig({
@@ -188,5 +186,73 @@ describe("reduced-motion policy (presence CSS companion)", () => {
   it("prefersReducedMotion helper remains available for presence", async () => {
     const { prefersReducedMotion } = await import("../living-motion");
     expect(typeof prefersReducedMotion()).toBe("boolean");
+  });
+});
+
+describe("fallback and error behavior", () => {
+  it("handles native speech API throw gracefully", async () => {
+    const { speakAsGretel, resetGretelVoiceProviderConfig, setGretelVoiceMuted } =
+      await import("../gretel-voice");
+    resetGretelVoiceProviderConfig();
+    setGretelVoiceMuted(false);
+
+    const originalSpeechSynthesis = window.speechSynthesis;
+    const originalUtterance = window.SpeechSynthesisUtterance;
+
+    Object.defineProperty(window, "speechSynthesis", {
+      writable: true,
+      configurable: true,
+      value: {
+        getVoices: () => [],
+        addEventListener: vi.fn(),
+        removeEventListener: vi.fn(),
+        speak: vi.fn(() => {
+          throw new Error("Native speech error");
+        }),
+      },
+    });
+
+    if (typeof window.SpeechSynthesisUtterance === "undefined") {
+      Object.defineProperty(window, "SpeechSynthesisUtterance", {
+        writable: true,
+        configurable: true,
+        value: class MockUtterance {
+          text: string;
+          constructor(text: string) {
+            this.text = text;
+          }
+        },
+      });
+    }
+
+    const onEnd = vi.fn();
+    const stopListener = vi.fn();
+    window.addEventListener("gretel:speak_stop", stopListener);
+
+    await expect(speakAsGretel("Native error", { onEnd })).resolves.toBeUndefined();
+
+    expect(window.speechSynthesis.speak).toHaveBeenCalled();
+    expect(onEnd).toHaveBeenCalled();
+    expect(stopListener).toHaveBeenCalled();
+
+    window.removeEventListener("gretel:speak_stop", stopListener);
+
+    Object.defineProperty(window, "speechSynthesis", {
+      writable: true,
+      configurable: true,
+      value: originalSpeechSynthesis,
+    });
+
+    if (originalUtterance === undefined) {
+      // Cleanup the global if we mocked it
+      // @ts-ignore
+      delete window.SpeechSynthesisUtterance;
+    } else {
+      Object.defineProperty(window, "SpeechSynthesisUtterance", {
+        writable: true,
+        configurable: true,
+        value: originalUtterance,
+      });
+    }
   });
 });
