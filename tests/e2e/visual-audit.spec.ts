@@ -1,6 +1,7 @@
 import { test, expect, type Page } from "@playwright/test";
 import fs from "node:fs/promises";
 import path from "node:path";
+import { seedCompletedPages } from "./support/completion";
 
 const VIEWPORTS = [
   { name: "desktop", width: 1280, height: 900 },
@@ -20,21 +21,13 @@ async function dismissCinematic(page: Page) {
 }
 
 async function expectNoBrokenImages(scope: import("@playwright/test").Locator, label: string) {
-  const visibleImages = scope.locator("img:visible");
-  const imageCount = await visibleImages.count();
-  for (let i = 0; i < imageCount; i += 1) {
-    const img = visibleImages.nth(i);
-    const natural = await img.evaluate((node: HTMLImageElement) => ({
-      src: node.currentSrc || node.src,
-      complete: node.complete,
-      naturalWidth: node.naturalWidth,
-      naturalHeight: node.naturalHeight,
-    }));
-    expect(
-      natural.complete && natural.naturalWidth > 0 && natural.naturalHeight > 0,
-      `Broken visible image in ${label}: ${natural.src}`,
-    ).toBeTruthy();
-  }
+  // Read every visible picture in one pass: living pictures swap their <img>
+  // for the moving drawing, so a per-index locator can wait on a node that is gone.
+  await expect.poll(() => scope.locator("img:visible").evaluateAll((nodes) =>
+    nodes
+      .map((node) => node as HTMLImageElement)
+      .filter((img) => !(img.complete && img.naturalWidth > 0 && img.naturalHeight > 0))
+      .map((img) => img.currentSrc || img.src)), { message: `Broken visible image in ${label}`, timeout: 10_000 }).toEqual([]);
 }
 
 test.describe("complete native platform visual audit", () => {
@@ -51,6 +44,8 @@ test.describe("complete native platform visual audit", () => {
         if (msg.type() === "error") errors.push(`console: ${msg.text()}`);
       });
 
+      // Every page is pre-finished so the sweep can turn past the completion gate.
+      await seedCompletedPages(page, Array.from({ length: 90 }, (_, i) => i + 1));
       let capturedPages = 0;
 
       for (let lesson = 1; lesson <= 24; lesson += 1) {
@@ -69,7 +64,9 @@ test.describe("complete native platform visual audit", () => {
         await dismissCinematic(page);
 
         const reader = page.locator(".native-lesson-viewer");
-        const stage = reader.locator(".native-lesson-viewer__content");
+        // While a page turns, the next page is also drawn underneath; audit the live page.
+        const stage = reader.locator(".native-lesson-viewer__leaf > .native-lesson-viewer__content");
+        const underneath = reader.locator(".native-lesson-viewer__underneath");
         const counter = reader.locator(".native-lesson-viewer__page");
 
         await expect(reader).toBeVisible({ timeout: 30_000 });
@@ -84,7 +81,6 @@ test.describe("complete native platform visual audit", () => {
           expect(pageNumber).toBeLessThanOrEqual(90);
 
           await expectNoBrokenImages(stage, `workbook page ${pageNumber}`);
-          await expect(page.locator('svg[data-gretel-rig="svg"]').first()).toBeVisible();
 
           const geometry = await page.evaluate(() => ({
             scrollWidth: document.documentElement.scrollWidth,
@@ -110,7 +106,8 @@ test.describe("complete native platform visual audit", () => {
           if ((await next.count()) === 0) break;
 
           await next.click();
-          await expect(counter).not.toContainText(`Página ${pageNumber} ·`, { timeout: 4000 });
+          await expect(counter).not.toContainText(`Página ${pageNumber} ·`, { timeout: 8000 });
+          await expect(underneath).toHaveCount(0, { timeout: 8000 });
           state += 1;
           if (state > 12) throw new Error(`Unexpected page loop in lesson ${lesson}`);
         }
@@ -154,7 +151,7 @@ test.describe("complete native platform visual audit", () => {
         if (await empty.isVisible().catch(() => false)) continue;
 
         for (let index = 0; index < 12; index += 1) {
-          const board = panel.locator('[data-native-flipchart="true"]').first();
+          const board = panel.getByTestId("flipchart-stage").locator('[data-native-flipchart="true"]').first();
           await expect(board).toBeVisible();
 
           const rawPage = await board.getAttribute("data-flipchart-page")
@@ -193,10 +190,10 @@ test.describe("complete native platform visual audit", () => {
             animations: "disabled",
           });
 
-          const next = panel.getByRole("button", { name: /Lámina siguiente/i });
+          const next = panel.getByRole("button", { name: "Lámina siguiente", exact: true });
           if ((await next.count()) === 0 || await next.isDisabled()) break;
           await next.click();
-          await page.waitForTimeout(1200);
+          await page.waitForTimeout(2600); // the sheet turn over the binding takes 2 s
         }
       }
 

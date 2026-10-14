@@ -19,8 +19,15 @@ test('page 1 pencil feedback preserves correct work, erases wrong marks, and res
   await expect(firstCorrect.locator('[data-mark-status="correct"]')).toHaveCount(1, { timeout: 4000 });
   await expect(firstCorrect).toBeDisabled();
 
+  // Under reduced motion the eraser step lasts only ~60 ms, so record every mark
+  // status the wrong answer passes through instead of polling for that instant.
+  await wrong.evaluate((el) => {
+    const seen: string[] = ((window as any).__wrongMarkStatuses = []);
+    const record = () => el.querySelectorAll('[data-mark-status]').forEach((m) => seen.push(m.getAttribute('data-mark-status') || ''));
+    new MutationObserver(record).observe(el, { subtree: true, childList: true, attributes: true, attributeFilter: ['data-mark-status'] });
+  });
   await wrong.click();
-  await expect(wrong.locator('[data-mark-status="erasing"]')).toHaveCount(1, { timeout: 4000 });
+  await expect.poll(() => page.evaluate(() => (window as any).__wrongMarkStatuses as string[]), { timeout: 8000 }).toContain('erasing');
   await expect(wrong.locator('.workbook-pencil-mark-container')).toHaveCount(0, { timeout: 1500 });
   await expect(wrong).toBeEnabled();
   await expect(grid.locator('.graded-wrong')).toHaveCount(0);
@@ -47,21 +54,33 @@ test('repeated syllables are accepted and Completa responds immediately without 
   await page.goto('/cartilla/leccion/8');
   const viewer = page.locator('.native-lesson-viewer');
   await viewer.getByRole('button', { name: 'Siguiente' }).click();
-  await expect(viewer).toHaveAttribute('data-native-page', '24');
-  await viewer.getByRole('button', { name: 'papá, posición 3: p', exact: true }).click();
-  await expect(viewer.locator('.native-syllable').first().getByRole('status')).toContainText('1 de');
-  await viewer.getByRole('button', { name: 'papá', exact: true }).click();
-  await expect(viewer.locator('.native-syllable').first().getByRole('status')).toContainText('1 de');
+  await expect(viewer).toHaveAttribute('data-native-page', '24', { timeout: 6000 });
+  const paRow = viewer.locator('.native-syllable').first();
+  // "papá" holds the syllable "pa" twice; it still counts as one right word.
+  await paRow.getByRole('button', { name: 'papá', exact: true }).click();
+  await expect(paRow.getByRole('status')).toContainText('1 de');
+  await paRow.getByRole('button', { name: 'papá', exact: true }).click();
+  await expect(paRow.getByRole('status')).not.toContainText('2 de');
   await page.screenshot({ path: 'docs/proofs/batch-2/repeated-syllable.png', fullPage: true });
+  // The probe above changed live work on page 24; reload so the seeded finished
+  // pages apply again and the walk continues to the fill-in page.
+  await page.goto('/cartilla/leccion/8');
+  if (await viewer.getAttribute('data-native-page') === '23') {
+    await viewer.getByRole('button', { name: 'Siguiente' }).click();
+    await expect(viewer).toHaveAttribute('data-native-page', '24', { timeout: 6000 });
+  }
   await viewer.getByRole('button', { name: 'Siguiente' }).click();
+  await expect(viewer).toHaveAttribute('data-native-page', '25', { timeout: 6000 });
   await viewer.getByRole('button', { name: 'Siguiente' }).click();
-  await expect(viewer).toHaveAttribute('data-native-page', '26');
+  await expect(viewer).toHaveAttribute('data-native-page', '26', { timeout: 8000 });
   const item = viewer.locator('.fp-ix-fill__item').first();
-  await item.locator('[data-gretel-correct="false"]').first().click();
-  await expect(item.locator('.graded-wrong')).toHaveCount(1);
+  // papá = pa + pá: "pa" is the wrong choice for the blank, "pá" the right one.
+  // A wrong choice is marked for retry right away and never reveals the answer.
+  await item.getByRole('button', { name: 'pa', exact: true }).click();
+  await expect(item.locator('.is-retry')).toHaveCount(1);
   await expect(item.locator('.graded-correct')).toHaveCount(0);
   await expect(viewer.getByRole('button', { name: 'Comprobar' })).toHaveCount(0);
-  await item.locator('[data-gretel-correct="true"]').click();
+  await item.getByRole('button', { name: 'pá', exact: true }).click();
   await expect(item.locator('.graded-correct')).toHaveCount(1);
   await page.screenshot({ path: 'docs/proofs/batch-2/completa-corrected.png', fullPage: true });
 });

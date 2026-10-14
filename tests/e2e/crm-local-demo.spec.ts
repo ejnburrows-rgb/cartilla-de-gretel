@@ -70,8 +70,8 @@ for (const [name,width,height] of [['laptop',1366,768],['tablet',768,1024],['pho
    const cells=viewer.getByRole('button',{name:caption,exact:true});
    for(let i=0;i<await cells.count();i++) await cells.nth(i).click();
   }
-  await viewer.getByRole('button',{name:'Comprobar',exact:true}).click();
-  await expect(viewer).toHaveAttribute('data-page-complete','true');
+  // Each tap is graded at once (no separate Comprobar step).
+  await expect(viewer).toHaveAttribute('data-page-complete','true',{timeout:15000});
   await page.reload();
   await expect(viewer).toHaveAttribute('data-page-complete','true');
   await page.screenshot({path:`docs/proofs/crm-demo/student-${name}.png`,fullPage:true});

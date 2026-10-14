@@ -28,11 +28,15 @@ async function collectPlayback(page: any) {
   });
 }
 
-test('shipped picture audio plays approved recordings, stays silent for unrecorded names, and does not change reading progress', async ({ page }) => {
+test('picture audio plays approved recordings, stays silent for unrecorded names, and does not change reading progress', async ({ page }) => {
+  // Every picture on the printed-sheet replica now has a shipped recording, so
+  // the browser test (only) approves "nido" alone and leaves "nudo" unrecorded.
+  await page.route('**/src/content/picture-name-recordings.json*', (route: any) => route.fulfill({ contentType: 'application/javascript', body: 'export const approved = [{key:"nido",src:"/audio/voz/vocabulario/nido.mp3",approval:"browser-test-fixture"}]; export default {approved};' }));
   await collectPlayback(page);
   await page.goto('/cartilla/presentar/13');
-  const nido = page.locator('[data-picture-name="nido"]').first();
-  const ternero = page.locator('[data-picture-name="ternero n"]').first();
+  const stage = page.getByTestId('flipchart-stage');
+  const nido = stage.locator('[data-picture-name="nido"]').first();
+  const ternero = stage.locator('[data-picture-name="nudo"]').first();
   await expect(nido).toBeVisible();
   const before = await page.evaluate(() => JSON.stringify(localStorage));
   await nido.click();
@@ -89,7 +93,8 @@ test('the same direct answer tap hears the name path and still grades, even whil
   await uniforme.click();
   await expect(viewer.getByRole('button', { name: 'Siguiente' })).not.toHaveAttribute('aria-disabled', 'true');
   const proof = await page.evaluate(() => (window as any).pictureProof);
-  expect(proof.audio.filter((e: any) => e.action === 'play').map((e: any) => decodeURIComponent(e.src))).toEqual(['/audio/voz/vocabulario/anillo.mp3']);
+  // The soft page-turn sound belongs to the book, not to a picture name.
+  expect(proof.audio.filter((e: any) => e.action === 'play' && !e.src.includes('/audio/page-turn')).map((e: any) => decodeURIComponent(e.src))).toEqual(['/audio/voz/vocabulario/anillo.mp3']);
   expect(proof.learning.filter((e: any) => e.type === 'answer:correct')).toHaveLength(4);
   expect(proof.learning.filter((e: any) => e.type === 'answer:wrong' || e.type === 'support:delivered' || e.type === 'hint:show')).toHaveLength(0);
   await page.screenshot({ path: 'docs/proofs/batch-3/direct-tap-still-grades.png', fullPage: true });

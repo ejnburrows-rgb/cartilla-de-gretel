@@ -26,6 +26,7 @@ async function expectNativeReaderGeometry(
   viewport: typeof SIZES[number],
   lesson: number,
 ) {
+  await page.evaluate(() => window.scrollTo(0, document.documentElement.scrollHeight));
   const geometry = await page.evaluate(() => {
     const rect = (selector: string) => {
       const node = document.querySelector<HTMLElement>(selector);
@@ -44,6 +45,20 @@ async function expectNativeReaderGeometry(
       reader: rect('.native-lesson-viewer'),
       content: rect('.native-lesson-viewer__content'),
       navigation: rect('.native-lesson-viewer__navigation'),
+      // Page controls hidden under the page arrows. The arrows may sit below,
+      // beside or (on phones) float over the page, but must not hide a control
+      // once the page is scrolled to its end.
+      arrowsOnPage: (() => {
+        const controls = [...document.querySelectorAll<HTMLElement>('.native-lesson-viewer__content button, .native-lesson-viewer__content canvas, .native-lesson-viewer__content textarea')];
+        return [...document.querySelectorAll<HTMLElement>('.native-lesson-viewer__navigation button')].flatMap((button) => {
+          const b = button.getBoundingClientRect();
+          if (!b.width) return [];
+          return controls.filter((el) => {
+            const q = el.getBoundingClientRect();
+            return q.width > 0 && q.x < b.right - 2 && q.right > b.x + 2 && q.y < b.bottom - 2 && q.bottom > b.y + 2;
+          }).map((el) => el.getAttribute('aria-label') || el.textContent?.trim() || el.tagName);
+        });
+      })(),
     };
   });
 
@@ -61,7 +76,8 @@ async function expectNativeReaderGeometry(
   expect(content.height, `content too short lesson ${lesson}`).toBeGreaterThan(220);
   expect(content.x, `content clipped left lesson ${lesson}`).toBeGreaterThanOrEqual(reader.x - 2);
   expect(content.right, `content clipped right lesson ${lesson}`).toBeLessThanOrEqual(reader.right + 2);
-  expect(navigation.y, `navigation overlaps content lesson ${lesson}`).toBeGreaterThanOrEqual(content.bottom - 2);
+  expect(navigation.height, `navigation missing lesson ${lesson}`).toBeGreaterThan(0);
+  expect(geometry.arrowsOnPage, `navigation overlaps content lesson ${lesson}`).toEqual([]);
 }
 
 for (const viewport of SIZES) {
@@ -86,8 +102,8 @@ for (const viewport of SIZES) {
       await expect(stage).toBeVisible();
       await expect(page.getByTestId('physical-book-reader')).toHaveCount(0);
 
-      const guide = page.getByTestId('gretel-presence');
-      await expect(guide).toHaveAttribute('data-page-ready', 'true');
+      // No Gretel side column or picture on lesson pages (owner direction 2026-10-07 / #739).
+      await expect(page.getByTestId('gretel-presence')).toHaveCount(0);
       await page.evaluate(() => document.fonts.ready);
       await expectNativeReaderGeometry(page, viewport, n);
 
@@ -114,9 +130,6 @@ for (const viewport of SIZES) {
       );
       expect(images.filter(image => !image.loaded), `missing art lesson ${n}`).toEqual([]);
 
-      const svgRig = page.locator('svg[data-gretel-rig="svg"]').first();
-      await expect(svgRig).toBeVisible();
-
       const shot = await stage.screenshot({
         type: 'jpeg',
         quality: 65,
@@ -139,7 +152,8 @@ for (const viewport of SIZES) {
       const panel = page.getByTestId('flipchart-hd-panel');
       await expect(panel).toBeVisible();
       await expect(panel).toHaveAttribute('data-presenter-mode', 'native');
-      await expect(panel.locator('[data-native-flipchart="true"]')).toBeVisible();
+      // The stage shows one sheet; turn layers hold hidden copies of neighbours.
+      await expect(panel.getByTestId('flipchart-stage').locator('[data-native-flipchart="true"]').first()).toBeVisible();
       await page.evaluate(() => document.fonts.ready);
 
       const pageImages = await panel.locator('img:visible').evaluateAll(nodes =>

@@ -41,8 +41,35 @@ async function complete(page: Page, number: number) {
       const words = region.matchRows.flat();
       for (let i = 0; i < words.length; i++) if (words[i].correct !== false) {
         const choice = circles.locator('button').nth(i);
-        if (await choice.getAttribute('aria-pressed') !== 'true') await choice.click();
+        // Circle the syllable from the keyboard (a pointer tap must land on the
+        // syllable's letters). Taps made while the previous circle is still
+        // being drawn are ignored, so give each one time and retry.
+        for (let attempt = 0; attempt < 5 && await choice.getAttribute('aria-pressed') !== 'true'; attempt++) {
+          await choice.focus();
+          await page.keyboard.press('Enter');
+          await page.waitForTimeout(700);
+        }
+        await expect(choice).toHaveAttribute('aria-pressed', 'true');
       }
+    }
+    // Pencil-line matching: tap the vowel card, then the picture it belongs to.
+    const pencil = area.locator('.am-direct-pencil');
+    if (await pencil.count()) {
+      const links: Array<{ left: string | null; target: string }> = region.vowelPairs
+        ? region.vowelPairs.filter((pair: any) => pair.correct !== false).map((pair: any) => ({ left: `Vocal ${pair.letter}`, target: pair.caption }))
+        : (region.cells ?? []).filter((cell: any) => cell.correct === true).map((cell: any) => ({ left: null, target: cell.caption }));
+      for (const link of links) {
+        const left = link.left
+          ? pencil.locator(`.am-direct-pencil__left-card[aria-label="${link.left}"]`).first()
+          : pencil.locator('.am-direct-pencil__center').first();
+        const target = pencil.locator(`.am-direct-pencil__target[aria-label="${link.target}"]`).first();
+        // The printed example line (e.g. Oo→ola) is already drawn.
+        if (((await target.getAttribute('class')) ?? '').includes('is-connected')) continue;
+        if (await left.isEnabled()) await left.click();
+        await target.click();
+        await page.waitForTimeout(150);
+      }
+      await expect(pencil).toHaveAttribute('data-complete', 'true', { timeout: 10000 });
     }
     const lasso = area.locator('.am-lasso');
     if (await lasso.count()) {
@@ -55,26 +82,45 @@ async function complete(page: Page, number: number) {
         await page.waitForTimeout(500);
       }
     }
+    // Circle the picture that starts with each row's vowel (graded on tap).
     const picks = area.locator('.fp-ix-pick__row');
     for (let i = 0; i < await picks.count(); i++) {
       const row = picks.nth(i);
-      await row.locator('.fp-ix-pick__letter').click();
-      await row.locator('.fp-ix-cell--droppable[data-gretel-correct="true"]').first().click();
+      const answer = region.vowelRows?.[i]?.cells?.find((cell: any) => cell.correct === true)?.caption;
+      if (!answer) continue;
+      const cell = row.getByRole('button', { name: answer, exact: true }).first();
+      if (!((await cell.getAttribute('class')) ?? '').includes('graded-correct')) await cell.click();
+      await expect(cell).toHaveClass(/graded-correct/, { timeout: 10000 });
     }
     const grid = area.locator('.fp-ix-grid');
     if (await grid.count()) {
+      // Every right picture is graded on tap; there is no Comprobar step.
       const choices = grid.locator('.fp-ix-cell[data-gretel-correct="true"]');
-      for (let i = 0; i < await choices.count(); i++) await choices.nth(i).click();
-      await grid.getByRole('button', { name: 'Comprobar', exact: true }).click();
+      for (let i = 0; i < await choices.count(); i++) {
+        const cell = choices.nth(i);
+        if (!((await cell.getAttribute('class')) ?? '').includes('graded-correct')) await cell.click();
+        await expect(cell).toHaveClass(/graded-correct/, { timeout: 10000 });
+      }
     }
     const fill = area.locator('.fp-ix-fill');
     if (await fill.count()) {
-      const choices = fill.locator('button[data-gretel-correct="true"]');
-      for (let i = 0; i < await choices.count(); i++) await choices.nth(i).click();
-      await fill.getByRole('button', { name: 'Comprobar', exact: true }).click();
+      // Pick each blank's right syllable from the printed answer key; graded on tap.
+      const items = fill.locator('.fp-ix-fill__item');
+      for (let i = 0; i < await items.count(); i++) {
+        const answer = region.fillItems?.[i]?.choices?.find((choice: any) => choice.correct === true)?.text;
+        if (!answer) continue;
+        const choice = items.nth(i).getByRole('button', { name: answer, exact: true }).first();
+        if (!((await choice.getAttribute('class')) ?? '').includes('graded-correct')) await choice.click();
+        await expect(choice).toHaveClass(/graded-correct/, { timeout: 10000 });
+      }
     }
     const writing = area.locator('textarea');
-    if (await writing.count()) await writing.fill('Escribí una oración con las palabras de esta página.');
+    if (await writing.count()) {
+      await writing.fill('Escribí una oración con las palabras de esta página.');
+      // Writing is finished only when the learner confirms with Listo.
+      const done = area.getByRole('button', { name: 'Listo', exact: true });
+      if (await done.count()) await done.click();
+    }
   }
   const reading = reader.getByRole('button', { name: 'Ya leí esta página' });
   if (await reading.count()) await reading.click();
@@ -120,7 +166,7 @@ for (const viewport of [
 });
 
 test('all 24 workbook lessons, page activities and Next gate', async ({ page }) => {
-  test.setTimeout(1_200_000);
+  test.setTimeout(2_700_000); // walks and solves all 90 pages with real animations
   fs.mkdirSync(output, { recursive: true });
   await page.emulateMedia({ reducedMotion: 'reduce' });
   const checked: number[] = [];
@@ -155,7 +201,10 @@ test('all 24 workbook lessons, page activities and Next gate', async ({ page }) 
       await expect(next).toBeEnabled();
       if ([3, 23, 47, 86, 90].includes(number)) await reader.screenshot({ path: path.join(output, `workbook-completed-${String(number).padStart(3, '0')}.png`) });
       checked.push(number);
-      if (i < count - 1) await next.click();
+      if (i < count - 1) {
+        await next.click();
+        await expect(reader).toHaveAttribute('data-native-page', String(number + 1), { timeout: 8000 });
+      }
     }
   }
   fs.writeFileSync(path.join(output, 'workbook-activities.json'), JSON.stringify({ pagesExercised: checked, sourceVerificationPending: [86, 87] }, null, 2));
