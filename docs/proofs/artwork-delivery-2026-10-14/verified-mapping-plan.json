@@ -1,0 +1,3667 @@
+{
+  "inventory_commit": "9525e06e09c15b2b02e8dc2b9f555e90a947d654",
+  "integrated_unique_files": 0,
+  "production_placements_updated": 0,
+  "certified_ready_unmapped_records": 0,
+  "placements": [
+    {
+      "artwork_id": "FC-003-01",
+      "drawing_group_id": "DRAW-FC-003-01",
+      "book": "FC",
+      "printed_page": 1,
+      "lesson": 1,
+      "current_runtime": {
+        "pointer": "src/data/flipchart-native-assets.json/3/0",
+        "asset_path": "/cartilla/art/optimized/flipchart-native/p003-scene.png",
+        "evidence_commit": "153c7eccbec5bc1090cd130a909f0cf73630415a",
+        "verified": false
+      },
+      "verified_candidate": {
+        "file_id": "FILE-b909e1e5dd9c7ad3b1ba",
+        "location": "public/cartilla/art/optimized/flipchart-native/p003-scene.png",
+        "source_group": "github-current-main",
+        "sha256": "b909e1e5dd9c7ad3b1ba6f3c8017721ed7e5b96a1f814db9b97da0503d6f193c",
+        "bytes": 177783,
+        "github_url": "https://github.com/ejnburrows-rgb/cartilla-de-gretel/blob/153c7eccbec5bc1090cd130a909f0cf73630415a/public/cartilla/art/optimized/flipchart-native/p003-scene.png",
+        "width": 539,
+        "height": 539,
+        "mode": "RGB",
+        "decode": "PASS",
+        "preview": "assets/b909e1e5dd9c7ad3b1ba6f3c8017721ed7e5b96a1f814db9b97da0503d6f193c.webp"
+      },
+      "approval": {
+        "verified": false,
+        "exact_candidate_owner_approval": null,
+        "reason": "No exact-candidate approval citation is linked in the existing source evidence. A path, merge or folder name is not substituted for approval."
+      },
+      "decision": "HOLD — supplied inventory has no exact-candidate approval; do not overwrite production"
+    },
+    {
+      "artwork_id": "FC-003-02",
+      "drawing_group_id": "DRAW-FC-003-02",
+      "book": "FC",
+      "printed_page": 1,
+      "lesson": 1,
+      "current_runtime": {
+        "pointer": "src/data/flipchart-native-assets.json/3/1",
+        "asset_path": "/cartilla/art/optimized/flipchart-native/p003-avion.png",
+        "evidence_commit": "153c7eccbec5bc1090cd130a909f0cf73630415a",
+        "verified": false
+      },
+      "verified_candidate": {
+        "file_id": "FILE-414e56e3f6bc6d43ae58",
+        "location": "public/cartilla/art/optimized/workbook/leccion-1/avion.svg",
+        "source_group": "github-current-main",
+        "sha256": "414e56e3f6bc6d43ae588454efcf0f05230fb092dedd4ca567fd8d656c953157",
+        "bytes": 55726,
+        "github_url": "https://github.com/ejnburrows-rgb/cartilla-de-gretel/blob/153c7eccbec5bc1090cd130a909f0cf73630415a/public/cartilla/art/optimized/workbook/leccion-1/avion.svg",
+        "decode": "PASS",
+        "width": 208,
+        "height": 192,
+        "preview": "assets/414e56e3f6bc6d43ae588454efcf0f05230fb092dedd4ca567fd8d656c953157.webp"
+      },
+      "approval": {
+        "verified": false,
+        "exact_candidate_owner_approval": null,
+        "reason": "No exact-candidate approval citation is linked in the existing source evidence. A path, merge or folder name is not substituted for approval."
+      },
+      "decision": "HOLD — supplied inventory has no exact-candidate approval; do not overwrite production"
+    },
+    {
+      "artwork_id": "FC-003-03",
+      "drawing_group_id": "DRAW-FC-003-03",
+      "book": "FC",
+      "printed_page": 1,
+      "lesson": 1,
+      "current_runtime": {
+        "pointer": "src/data/flipchart-native-assets.json/3/2",
+        "asset_path": "/cartilla/art/optimized/flipchart-native/p003-escoba.png",
+        "evidence_commit": "153c7eccbec5bc1090cd130a909f0cf73630415a",
+        "verified": false
+      },
+      "verified_candidate": {
+        "file_id": "FILE-6f4a542ddde9d03b03f0",
+        "location": "public/cartilla/art/faithful/vocal-e/escoba.webp",
+        "source_group": "github-current-main",
+        "sha256": "6f4a542ddde9d03b03f0987d9813bafded1d946632cb0f2c1c12acf4e9732091",
+        "bytes": 39104,
+        "github_url": "https://github.com/ejnburrows-rgb/cartilla-de-gretel/blob/153c7eccbec5bc1090cd130a909f0cf73630415a/public/cartilla/art/faithful/vocal-e/escoba.webp",
+        "width": 556,
+        "height": 700,
+        "mode": "RGBA",
+        "decode": "PASS",
+        "preview": "assets/6f4a542ddde9d03b03f0987d9813bafded1d946632cb0f2c1c12acf4e9732091.webp"
+      },
+      "approval": {
+        "verified": false,
+        "exact_candidate_owner_approval": null,
+        "reason": "No exact-candidate approval citation is linked in the existing source evidence. A path, merge or folder name is not substituted for approval."
+      },
+      "decision": "HOLD — supplied inventory has no exact-candidate approval; do not overwrite production"
+    },
+    {
+      "artwork_id": "FC-003-05",
+      "drawing_group_id": "DRAW-WB-38-1",
+      "book": "FC",
+      "printed_page": 1,
+      "lesson": 1,
+      "current_runtime": {
+        "pointer": "src/data/flipchart-native-assets.json/3/4",
+        "asset_path": "/cartilla/art/optimized/flipchart-native/p003-olla.png",
+        "evidence_commit": "153c7eccbec5bc1090cd130a909f0cf73630415a",
+        "verified": false
+      },
+      "verified_candidate": {
+        "file_id": "FILE-f090c7859ec54bb3a5bd",
+        "location": "public/cartilla/art/optimized/flipchart-native/p004-olla.png",
+        "source_group": "github-current-main",
+        "sha256": "f090c7859ec54bb3a5bd95acd20ce72e9f9120f34105398a594867ce6393ee7c",
+        "bytes": 46668,
+        "github_url": "https://github.com/ejnburrows-rgb/cartilla-de-gretel/blob/153c7eccbec5bc1090cd130a909f0cf73630415a/public/cartilla/art/optimized/flipchart-native/p004-olla.png",
+        "width": 320,
+        "height": 320,
+        "mode": "RGB",
+        "decode": "PASS",
+        "preview": "assets/f090c7859ec54bb3a5bd95acd20ce72e9f9120f34105398a594867ce6393ee7c.webp"
+      },
+      "approval": {
+        "verified": false,
+        "exact_candidate_owner_approval": null,
+        "reason": "No exact-candidate approval citation is linked in the existing source evidence. A path, merge or folder name is not substituted for approval."
+      },
+      "decision": "HOLD — supplied inventory has no exact-candidate approval; do not overwrite production"
+    },
+    {
+      "artwork_id": "FC-003-06",
+      "drawing_group_id": "DRAW-FC-003-06",
+      "book": "FC",
+      "printed_page": 1,
+      "lesson": 1,
+      "current_runtime": {
+        "pointer": "src/data/flipchart-native-assets.json/3/5",
+        "asset_path": "/cartilla/art/optimized/flipchart-native/p003-una.png",
+        "evidence_commit": "153c7eccbec5bc1090cd130a909f0cf73630415a",
+        "verified": false
+      },
+      "verified_candidate": {
+        "file_id": "FILE-69357d30ba419aabf91b",
+        "location": "public/cartilla/art/optimized/workbook/leccion-1/una.svg",
+        "source_group": "github-current-main",
+        "sha256": "69357d30ba419aabf91ba41ecdc100b3965146f055d04811accbe20fc5eab53c",
+        "bytes": 50878,
+        "github_url": "https://github.com/ejnburrows-rgb/cartilla-de-gretel/blob/153c7eccbec5bc1090cd130a909f0cf73630415a/public/cartilla/art/optimized/workbook/leccion-1/una.svg",
+        "decode": "PASS",
+        "width": 154,
+        "height": 164,
+        "preview": "assets/69357d30ba419aabf91ba41ecdc100b3965146f055d04811accbe20fc5eab53c.webp"
+      },
+      "approval": {
+        "verified": false,
+        "exact_candidate_owner_approval": null,
+        "reason": "No exact-candidate approval citation is linked in the existing source evidence. A path, merge or folder name is not substituted for approval."
+      },
+      "decision": "HOLD — supplied inventory has no exact-candidate approval; do not overwrite production"
+    },
+    {
+      "artwork_id": "FC-004-01",
+      "drawing_group_id": "DRAW-FC-004-01",
+      "book": "FC",
+      "printed_page": 2,
+      "lesson": 2,
+      "current_runtime": {
+        "pointer": "src/data/flipchart-native-assets.json/4/0",
+        "asset_path": "/cartilla/art/optimized/flipchart-native/p004-scene.png",
+        "evidence_commit": "153c7eccbec5bc1090cd130a909f0cf73630415a",
+        "verified": false
+      },
+      "verified_candidate": {
+        "file_id": "FILE-7faace99bd1edad11c47",
+        "location": "C:\\Users\\EJN\\Downloads\\cartilla-gretel-assets.zip!modernized/p4_scene.png",
+        "source_group": "local-additional-archive:cartilla-gretel-assets.zip",
+        "sha256": "7faace99bd1edad11c477a5f334e25d22360931c50bd612298822e49cc7491ef",
+        "bytes": 252471,
+        "width": 508,
+        "height": 478,
+        "mode": "RGBA",
+        "decode": "PASS",
+        "preview": "assets/7faace99bd1edad11c477a5f334e25d22360931c50bd612298822e49cc7491ef.webp"
+      },
+      "approval": {
+        "verified": false,
+        "exact_candidate_owner_approval": null,
+        "reason": "No exact-candidate approval citation is linked in the existing source evidence. A path, merge or folder name is not substituted for approval."
+      },
+      "decision": "HOLD — supplied inventory has no exact-candidate approval; do not overwrite production"
+    },
+    {
+      "artwork_id": "FC-004-02",
+      "drawing_group_id": "DRAW-WB-38-1",
+      "book": "FC",
+      "printed_page": 2,
+      "lesson": 2,
+      "current_runtime": {
+        "pointer": "src/data/flipchart-native-assets.json/4/1",
+        "asset_path": "/cartilla/art/optimized/flipchart-native/p004-olla.png",
+        "evidence_commit": "153c7eccbec5bc1090cd130a909f0cf73630415a",
+        "verified": false
+      },
+      "verified_candidate": {
+        "file_id": "FILE-f090c7859ec54bb3a5bd",
+        "location": "public/cartilla/art/optimized/flipchart-native/p004-olla.png",
+        "source_group": "github-current-main",
+        "sha256": "f090c7859ec54bb3a5bd95acd20ce72e9f9120f34105398a594867ce6393ee7c",
+        "bytes": 46668,
+        "github_url": "https://github.com/ejnburrows-rgb/cartilla-de-gretel/blob/153c7eccbec5bc1090cd130a909f0cf73630415a/public/cartilla/art/optimized/flipchart-native/p004-olla.png",
+        "width": 320,
+        "height": 320,
+        "mode": "RGB",
+        "decode": "PASS",
+        "preview": "assets/f090c7859ec54bb3a5bd95acd20ce72e9f9120f34105398a594867ce6393ee7c.webp"
+      },
+      "approval": {
+        "verified": false,
+        "exact_candidate_owner_approval": null,
+        "reason": "No exact-candidate approval citation is linked in the existing source evidence. A path, merge or folder name is not substituted for approval."
+      },
+      "decision": "HOLD — supplied inventory has no exact-candidate approval; do not overwrite production"
+    },
+    {
+      "artwork_id": "FC-004-04",
+      "drawing_group_id": "DRAW-WB-42-1",
+      "book": "FC",
+      "printed_page": 2,
+      "lesson": 2,
+      "current_runtime": {
+        "pointer": "src/data/flipchart-native-assets.json/4/3",
+        "asset_path": "/cartilla/art/optimized/flipchart-native/p004-oveja.png",
+        "evidence_commit": "153c7eccbec5bc1090cd130a909f0cf73630415a",
+        "verified": false
+      },
+      "verified_candidate": {
+        "file_id": "FILE-b21572a982e491df6f30",
+        "location": "public/cartilla/art/optimized/flipchart-native/p004-oveja.png",
+        "source_group": "github-current-main",
+        "sha256": "b21572a982e491df6f306201980b5dd840e7fd9a004d07bf07826d57c8e3d3f8",
+        "bytes": 41334,
+        "github_url": "https://github.com/ejnburrows-rgb/cartilla-de-gretel/blob/153c7eccbec5bc1090cd130a909f0cf73630415a/public/cartilla/art/optimized/flipchart-native/p004-oveja.png",
+        "width": 320,
+        "height": 320,
+        "mode": "RGB",
+        "decode": "PASS",
+        "preview": "assets/b21572a982e491df6f306201980b5dd840e7fd9a004d07bf07826d57c8e3d3f8.webp"
+      },
+      "approval": {
+        "verified": false,
+        "exact_candidate_owner_approval": null,
+        "reason": "No exact-candidate approval citation is linked in the existing source evidence. A path, merge or folder name is not substituted for approval."
+      },
+      "decision": "HOLD — supplied inventory has no exact-candidate approval; do not overwrite production"
+    },
+    {
+      "artwork_id": "FC-004-05",
+      "drawing_group_id": "DRAW-WB-41-1",
+      "book": "FC",
+      "printed_page": 2,
+      "lesson": 2,
+      "current_runtime": {
+        "pointer": "src/data/flipchart-native-assets.json/4/4",
+        "asset_path": "/cartilla/art/optimized/flipchart-native/p004-oso.png",
+        "evidence_commit": "153c7eccbec5bc1090cd130a909f0cf73630415a",
+        "verified": false
+      },
+      "verified_candidate": {
+        "file_id": "FILE-fb868b078b9664626574",
+        "location": "public/cartilla/art/optimized/flipchart-native/p004-oso.png",
+        "source_group": "github-current-main",
+        "sha256": "fb868b078b966462657437eae6d7b1d53e12fbae8d0182fe3a83cf394e07b8bd",
+        "bytes": 79390,
+        "github_url": "https://github.com/ejnburrows-rgb/cartilla-de-gretel/blob/153c7eccbec5bc1090cd130a909f0cf73630415a/public/cartilla/art/optimized/flipchart-native/p004-oso.png",
+        "width": 320,
+        "height": 320,
+        "mode": "RGB",
+        "decode": "PASS",
+        "preview": "assets/fb868b078b966462657437eae6d7b1d53e12fbae8d0182fe3a83cf394e07b8bd.webp"
+      },
+      "approval": {
+        "verified": false,
+        "exact_candidate_owner_approval": null,
+        "reason": "No exact-candidate approval citation is linked in the existing source evidence. A path, merge or folder name is not substituted for approval."
+      },
+      "decision": "HOLD — supplied inventory has no exact-candidate approval; do not overwrite production"
+    },
+    {
+      "artwork_id": "FC-004-06",
+      "drawing_group_id": "DRAW-WB-39-1",
+      "book": "FC",
+      "printed_page": 2,
+      "lesson": 2,
+      "current_runtime": {
+        "pointer": "src/data/flipchart-native-assets.json/4/5",
+        "asset_path": "/cartilla/art/optimized/flipchart-native/p004-oreja.png",
+        "evidence_commit": "153c7eccbec5bc1090cd130a909f0cf73630415a",
+        "verified": false
+      },
+      "verified_candidate": {
+        "file_id": "FILE-28d5edf93f3abfbb2ef9",
+        "location": "public/cartilla/art/optimized/flipchart-native/p004-oreja.png",
+        "source_group": "github-current-main",
+        "sha256": "28d5edf93f3abfbb2ef9597a47553489b8f68902fd46af6e1bb61fc0813449ac",
+        "bytes": 56308,
+        "github_url": "https://github.com/ejnburrows-rgb/cartilla-de-gretel/blob/153c7eccbec5bc1090cd130a909f0cf73630415a/public/cartilla/art/optimized/flipchart-native/p004-oreja.png",
+        "width": 320,
+        "height": 320,
+        "mode": "RGB",
+        "decode": "PASS",
+        "preview": "assets/28d5edf93f3abfbb2ef9597a47553489b8f68902fd46af6e1bb61fc0813449ac.webp"
+      },
+      "approval": {
+        "verified": false,
+        "exact_candidate_owner_approval": null,
+        "reason": "No exact-candidate approval citation is linked in the existing source evidence. A path, merge or folder name is not substituted for approval."
+      },
+      "decision": "HOLD — supplied inventory has no exact-candidate approval; do not overwrite production"
+    },
+    {
+      "artwork_id": "FC-004-07",
+      "drawing_group_id": "DRAW-WB-35-1",
+      "book": "FC",
+      "printed_page": 2,
+      "lesson": 2,
+      "current_runtime": {
+        "pointer": "src/data/flipchart-native-assets.json/4/6",
+        "asset_path": "/cartilla/art/optimized/flipchart-native/p004-ocho.png",
+        "evidence_commit": "153c7eccbec5bc1090cd130a909f0cf73630415a",
+        "verified": false
+      },
+      "verified_candidate": {
+        "file_id": "FILE-509b104b9e93796a49da",
+        "location": "public/cartilla/art/optimized/flipchart-native/p004-ocho.png",
+        "source_group": "github-current-main",
+        "sha256": "509b104b9e93796a49da2d3cccd6bc3cc5e1679f509f0123670963330517ded3",
+        "bytes": 62819,
+        "github_url": "https://github.com/ejnburrows-rgb/cartilla-de-gretel/blob/153c7eccbec5bc1090cd130a909f0cf73630415a/public/cartilla/art/optimized/flipchart-native/p004-ocho.png",
+        "width": 320,
+        "height": 320,
+        "mode": "RGB",
+        "decode": "PASS",
+        "preview": "assets/509b104b9e93796a49da2d3cccd6bc3cc5e1679f509f0123670963330517ded3.webp"
+      },
+      "approval": {
+        "verified": false,
+        "exact_candidate_owner_approval": null,
+        "reason": "No exact-candidate approval citation is linked in the existing source evidence. A path, merge or folder name is not substituted for approval."
+      },
+      "decision": "HOLD — supplied inventory has no exact-candidate approval; do not overwrite production"
+    },
+    {
+      "artwork_id": "FC-005-01",
+      "drawing_group_id": "DRAW-FC-005-01",
+      "book": "FC",
+      "printed_page": 3,
+      "lesson": 3,
+      "current_runtime": {
+        "pointer": "src/data/flipchart-native-assets.json/5/0",
+        "asset_path": "/cartilla/art/optimized/flipchart-native/p005-scene.png",
+        "evidence_commit": "153c7eccbec5bc1090cd130a909f0cf73630415a",
+        "verified": false
+      },
+      "verified_candidate": {
+        "file_id": "FILE-b3c0c21535f3f348ca13",
+        "location": "public/cartilla/art/optimized/flipchart-native/p005-scene.png",
+        "source_group": "github-current-main",
+        "sha256": "b3c0c21535f3f348ca13991dc6ab7b684c9b4655cff457690c0bcaf4efc10197",
+        "bytes": 223023,
+        "github_url": "https://github.com/ejnburrows-rgb/cartilla-de-gretel/blob/153c7eccbec5bc1090cd130a909f0cf73630415a/public/cartilla/art/optimized/flipchart-native/p005-scene.png",
+        "width": 556,
+        "height": 556,
+        "mode": "RGB",
+        "decode": "PASS",
+        "preview": "assets/b3c0c21535f3f348ca13991dc6ab7b684c9b4655cff457690c0bcaf4efc10197.webp"
+      },
+      "approval": {
+        "verified": false,
+        "exact_candidate_owner_approval": null,
+        "reason": "No exact-candidate approval citation is linked in the existing source evidence. A path, merge or folder name is not substituted for approval."
+      },
+      "decision": "HOLD — supplied inventory has no exact-candidate approval; do not overwrite production"
+    },
+    {
+      "artwork_id": "FC-005-02",
+      "drawing_group_id": "DRAW-WB-01-1",
+      "book": "FC",
+      "printed_page": 3,
+      "lesson": 3,
+      "current_runtime": {
+        "pointer": "src/data/flipchart-native-assets.json/5/1",
+        "asset_path": "/cartilla/art/optimized/flipchart-native/p005-abanico.png",
+        "evidence_commit": "153c7eccbec5bc1090cd130a909f0cf73630415a",
+        "verified": false
+      },
+      "verified_candidate": {
+        "file_id": "FILE-a4d2cf56cb1ee2262285",
+        "location": "public/cartilla/art/optimized/flipchart-native/p005-abanico.png",
+        "source_group": "github-current-main",
+        "sha256": "a4d2cf56cb1ee226228544c6ff48117fd0d3351915780e8942ac8974785b74f5",
+        "bytes": 66045,
+        "github_url": "https://github.com/ejnburrows-rgb/cartilla-de-gretel/blob/153c7eccbec5bc1090cd130a909f0cf73630415a/public/cartilla/art/optimized/flipchart-native/p005-abanico.png",
+        "width": 320,
+        "height": 320,
+        "mode": "RGB",
+        "decode": "PASS",
+        "preview": "assets/a4d2cf56cb1ee226228544c6ff48117fd0d3351915780e8942ac8974785b74f5.webp"
+      },
+      "approval": {
+        "verified": false,
+        "exact_candidate_owner_approval": null,
+        "reason": "No exact-candidate approval citation is linked in the existing source evidence. A path, merge or folder name is not substituted for approval."
+      },
+      "decision": "HOLD — supplied inventory has no exact-candidate approval; do not overwrite production"
+    },
+    {
+      "artwork_id": "FC-005-03",
+      "drawing_group_id": "DRAW-FC-005-03",
+      "book": "FC",
+      "printed_page": 3,
+      "lesson": 3,
+      "current_runtime": {
+        "pointer": "src/data/flipchart-native-assets.json/5/2",
+        "asset_path": "/cartilla/art/optimized/flipchart-native/p005-anillo.png",
+        "evidence_commit": "153c7eccbec5bc1090cd130a909f0cf73630415a",
+        "verified": false
+      },
+      "verified_candidate": {
+        "file_id": "FILE-ccb9e2969b6dc95ae917",
+        "location": "public/cartilla/art/optimized/flipchart-native/p005-anillo.png",
+        "source_group": "github-current-main",
+        "sha256": "ccb9e2969b6dc95ae917a25d5ab1a7d3bdbb2e57e6925f0cf8ab0bdc3e1ca88b",
+        "bytes": 42308,
+        "github_url": "https://github.com/ejnburrows-rgb/cartilla-de-gretel/blob/153c7eccbec5bc1090cd130a909f0cf73630415a/public/cartilla/art/optimized/flipchart-native/p005-anillo.png",
+        "width": 320,
+        "height": 320,
+        "mode": "RGB",
+        "decode": "PASS",
+        "preview": "assets/ccb9e2969b6dc95ae917a25d5ab1a7d3bdbb2e57e6925f0cf8ab0bdc3e1ca88b.webp"
+      },
+      "approval": {
+        "verified": false,
+        "exact_candidate_owner_approval": null,
+        "reason": "No exact-candidate approval citation is linked in the existing source evidence. A path, merge or folder name is not substituted for approval."
+      },
+      "decision": "HOLD — supplied inventory has no exact-candidate approval; do not overwrite production"
+    },
+    {
+      "artwork_id": "FC-005-04",
+      "drawing_group_id": "DRAW-WB-06-1",
+      "book": "FC",
+      "printed_page": 3,
+      "lesson": 3,
+      "current_runtime": {
+        "pointer": "src/data/flipchart-native-assets.json/5/3",
+        "asset_path": "/cartilla/art/optimized/flipchart-native/p005-arana.png",
+        "evidence_commit": "153c7eccbec5bc1090cd130a909f0cf73630415a",
+        "verified": false
+      },
+      "verified_candidate": {
+        "file_id": "FILE-92a83d2e72f74106fc0e",
+        "location": "public/cartilla/art/optimized/flipchart-native/p005-arana.png",
+        "source_group": "github-current-main",
+        "sha256": "92a83d2e72f74106fc0ea50cdf49734a962713628775dc33c74afb8cb3a85560",
+        "bytes": 35567,
+        "github_url": "https://github.com/ejnburrows-rgb/cartilla-de-gretel/blob/153c7eccbec5bc1090cd130a909f0cf73630415a/public/cartilla/art/optimized/flipchart-native/p005-arana.png",
+        "width": 320,
+        "height": 320,
+        "mode": "RGB",
+        "decode": "PASS",
+        "preview": "assets/92a83d2e72f74106fc0ea50cdf49734a962713628775dc33c74afb8cb3a85560.webp"
+      },
+      "approval": {
+        "verified": false,
+        "exact_candidate_owner_approval": null,
+        "reason": "No exact-candidate approval citation is linked in the existing source evidence. A path, merge or folder name is not substituted for approval."
+      },
+      "decision": "HOLD — supplied inventory has no exact-candidate approval; do not overwrite production"
+    },
+    {
+      "artwork_id": "FC-005-05",
+      "drawing_group_id": "DRAW-FC-005-05",
+      "book": "FC",
+      "printed_page": 3,
+      "lesson": 3,
+      "current_runtime": {
+        "pointer": "src/data/flipchart-native-assets.json/5/4",
+        "asset_path": "/cartilla/art/optimized/flipchart-native/p005-ala.png",
+        "evidence_commit": "153c7eccbec5bc1090cd130a909f0cf73630415a",
+        "verified": false
+      },
+      "verified_candidate": {
+        "file_id": "FILE-6c194036804593fd7f7c",
+        "location": "public/cartilla/art/optimized/flipchart-native/p005-ala.png",
+        "source_group": "github-current-main",
+        "sha256": "6c194036804593fd7f7c373c99eb0ea060c55966342849e83522bd8cf6ed4bb3",
+        "bytes": 37012,
+        "github_url": "https://github.com/ejnburrows-rgb/cartilla-de-gretel/blob/153c7eccbec5bc1090cd130a909f0cf73630415a/public/cartilla/art/optimized/flipchart-native/p005-ala.png",
+        "width": 320,
+        "height": 320,
+        "mode": "RGB",
+        "decode": "PASS",
+        "preview": "assets/6c194036804593fd7f7c373c99eb0ea060c55966342849e83522bd8cf6ed4bb3.webp"
+      },
+      "approval": {
+        "verified": false,
+        "exact_candidate_owner_approval": null,
+        "reason": "No exact-candidate approval citation is linked in the existing source evidence. A path, merge or folder name is not substituted for approval."
+      },
+      "decision": "HOLD — supplied inventory has no exact-candidate approval; do not overwrite production"
+    },
+    {
+      "artwork_id": "FC-005-06",
+      "drawing_group_id": "DRAW-FC-005-06",
+      "book": "FC",
+      "printed_page": 3,
+      "lesson": 3,
+      "current_runtime": {
+        "pointer": "src/data/flipchart-native-assets.json/5/5",
+        "asset_path": "/cartilla/art/optimized/flipchart-native/p005-aro.png",
+        "evidence_commit": "153c7eccbec5bc1090cd130a909f0cf73630415a",
+        "verified": false
+      },
+      "verified_candidate": {
+        "file_id": "FILE-c0ce78535ac9b93efcc4",
+        "location": "public/cartilla/art/faithful/vocal-a/aro.webp",
+        "source_group": "github-current-main",
+        "sha256": "c0ce78535ac9b93efcc4a5fafa77f427f975fe592685f751c38287c9ac5a2c4b",
+        "bytes": 28648,
+        "github_url": "https://github.com/ejnburrows-rgb/cartilla-de-gretel/blob/153c7eccbec5bc1090cd130a909f0cf73630415a/public/cartilla/art/faithful/vocal-a/aro.webp",
+        "width": 780,
+        "height": 660,
+        "mode": "RGB",
+        "decode": "PASS",
+        "preview": "assets/c0ce78535ac9b93efcc4a5fafa77f427f975fe592685f751c38287c9ac5a2c4b.webp"
+      },
+      "approval": {
+        "verified": false,
+        "exact_candidate_owner_approval": null,
+        "reason": "No exact-candidate approval citation is linked in the existing source evidence. A path, merge or folder name is not substituted for approval."
+      },
+      "decision": "HOLD — supplied inventory has no exact-candidate approval; do not overwrite production"
+    },
+    {
+      "artwork_id": "FC-006-01",
+      "drawing_group_id": "DRAW-FC-006-01",
+      "book": "FC",
+      "printed_page": 4,
+      "lesson": 4,
+      "current_runtime": {
+        "pointer": "src/data/flipchart-native-assets.json/6/0",
+        "asset_path": "/cartilla/art/optimized/flipchart-native/p006-scene.png",
+        "evidence_commit": "153c7eccbec5bc1090cd130a909f0cf73630415a",
+        "verified": false
+      },
+      "verified_candidate": {
+        "file_id": "FILE-57e2c14681d8a89bea63",
+        "location": "public/cartilla/art/optimized/flipchart-native/p006-scene.png",
+        "source_group": "github-current-main",
+        "sha256": "57e2c14681d8a89bea63daf9e4be6447a913c7f220be51bc74fc8421d5b6de0a",
+        "bytes": 200364,
+        "github_url": "https://github.com/ejnburrows-rgb/cartilla-de-gretel/blob/153c7eccbec5bc1090cd130a909f0cf73630415a/public/cartilla/art/optimized/flipchart-native/p006-scene.png",
+        "width": 560,
+        "height": 560,
+        "mode": "RGB",
+        "decode": "PASS",
+        "preview": "assets/57e2c14681d8a89bea63daf9e4be6447a913c7f220be51bc74fc8421d5b6de0a.webp"
+      },
+      "approval": {
+        "verified": false,
+        "exact_candidate_owner_approval": null,
+        "reason": "No exact-candidate approval citation is linked in the existing source evidence. A path, merge or folder name is not substituted for approval."
+      },
+      "decision": "HOLD — supplied inventory has no exact-candidate approval; do not overwrite production"
+    },
+    {
+      "artwork_id": "FC-006-02",
+      "drawing_group_id": "DRAW-FC-006-02",
+      "book": "FC",
+      "printed_page": 4,
+      "lesson": 4,
+      "current_runtime": {
+        "pointer": "src/data/flipchart-native-assets.json/6/1",
+        "asset_path": "/cartilla/art/optimized/flipchart-native/p006-elefante.png",
+        "evidence_commit": "153c7eccbec5bc1090cd130a909f0cf73630415a",
+        "verified": false
+      },
+      "verified_candidate": {
+        "file_id": "FILE-8b9e451845f510444243",
+        "location": "public/cartilla/art/optimized/flipchart-native/p006-elefante.png",
+        "source_group": "github-current-main",
+        "sha256": "8b9e451845f51044424339ea14dbacf4873b7954d5877e46d721c212a463a3c6",
+        "bytes": 55059,
+        "github_url": "https://github.com/ejnburrows-rgb/cartilla-de-gretel/blob/153c7eccbec5bc1090cd130a909f0cf73630415a/public/cartilla/art/optimized/flipchart-native/p006-elefante.png",
+        "width": 320,
+        "height": 320,
+        "mode": "RGB",
+        "decode": "PASS",
+        "preview": "assets/8b9e451845f51044424339ea14dbacf4873b7954d5877e46d721c212a463a3c6.webp"
+      },
+      "approval": {
+        "verified": false,
+        "exact_candidate_owner_approval": null,
+        "reason": "No exact-candidate approval citation is linked in the existing source evidence. A path, merge or folder name is not substituted for approval."
+      },
+      "decision": "HOLD — supplied inventory has no exact-candidate approval; do not overwrite production"
+    },
+    {
+      "artwork_id": "FC-006-03",
+      "drawing_group_id": "DRAW-FC-006-03",
+      "book": "FC",
+      "printed_page": 4,
+      "lesson": 4,
+      "current_runtime": {
+        "pointer": "src/data/flipchart-native-assets.json/6/2",
+        "asset_path": "/cartilla/art/optimized/flipchart-native/p006-espejo.png",
+        "evidence_commit": "153c7eccbec5bc1090cd130a909f0cf73630415a",
+        "verified": false
+      },
+      "verified_candidate": {
+        "file_id": "FILE-e26b4d4e52d7eae24800",
+        "location": "public/cartilla/art/optimized/flipchart-native/p006-espejo.png",
+        "source_group": "github-current-main",
+        "sha256": "e26b4d4e52d7eae24800908b164d53c6069d42529756c9cac60c805dbb790b61",
+        "bytes": 42808,
+        "github_url": "https://github.com/ejnburrows-rgb/cartilla-de-gretel/blob/153c7eccbec5bc1090cd130a909f0cf73630415a/public/cartilla/art/optimized/flipchart-native/p006-espejo.png",
+        "width": 320,
+        "height": 320,
+        "mode": "RGB",
+        "decode": "PASS",
+        "preview": "assets/e26b4d4e52d7eae24800908b164d53c6069d42529756c9cac60c805dbb790b61.webp"
+      },
+      "approval": {
+        "verified": false,
+        "exact_candidate_owner_approval": null,
+        "reason": "No exact-candidate approval citation is linked in the existing source evidence. A path, merge or folder name is not substituted for approval."
+      },
+      "decision": "HOLD — supplied inventory has no exact-candidate approval; do not overwrite production"
+    },
+    {
+      "artwork_id": "FC-006-05",
+      "drawing_group_id": "DRAW-WB-20-1",
+      "book": "FC",
+      "printed_page": 4,
+      "lesson": 4,
+      "current_runtime": {
+        "pointer": "src/data/flipchart-native-assets.json/6/4",
+        "asset_path": "/cartilla/art/optimized/flipchart-native/p006-estrella.png",
+        "evidence_commit": "153c7eccbec5bc1090cd130a909f0cf73630415a",
+        "verified": false
+      },
+      "verified_candidate": {
+        "file_id": "FILE-920a343685d46eca239e",
+        "location": "public/cartilla/art/optimized/flipchart-native/p006-estrella.png",
+        "source_group": "github-current-main",
+        "sha256": "920a343685d46eca239eda661ab5ce2b4e11aac2da5ce18035aa71f327ec43bf",
+        "bytes": 53872,
+        "github_url": "https://github.com/ejnburrows-rgb/cartilla-de-gretel/blob/153c7eccbec5bc1090cd130a909f0cf73630415a/public/cartilla/art/optimized/flipchart-native/p006-estrella.png",
+        "width": 320,
+        "height": 320,
+        "mode": "RGB",
+        "decode": "PASS",
+        "preview": "assets/920a343685d46eca239eda661ab5ce2b4e11aac2da5ce18035aa71f327ec43bf.webp"
+      },
+      "approval": {
+        "verified": false,
+        "exact_candidate_owner_approval": null,
+        "reason": "No exact-candidate approval citation is linked in the existing source evidence. A path, merge or folder name is not substituted for approval."
+      },
+      "decision": "HOLD — supplied inventory has no exact-candidate approval; do not overwrite production"
+    },
+    {
+      "artwork_id": "FC-006-06",
+      "drawing_group_id": "DRAW-WB-15-1",
+      "book": "FC",
+      "printed_page": 4,
+      "lesson": 4,
+      "current_runtime": {
+        "pointer": "src/data/flipchart-native-assets.json/6/5",
+        "asset_path": "/cartilla/art/optimized/flipchart-native/p006-erizo.png",
+        "evidence_commit": "153c7eccbec5bc1090cd130a909f0cf73630415a",
+        "verified": false
+      },
+      "verified_candidate": {
+        "file_id": "FILE-90855950c40950c988e6",
+        "location": "public/cartilla/art/optimized/flipchart-native/p006-erizo.png",
+        "source_group": "github-current-main",
+        "sha256": "90855950c40950c988e6b924830a8817d3a7db96ee960b0c4ffb7f4c9e9254b6",
+        "bytes": 83658,
+        "github_url": "https://github.com/ejnburrows-rgb/cartilla-de-gretel/blob/153c7eccbec5bc1090cd130a909f0cf73630415a/public/cartilla/art/optimized/flipchart-native/p006-erizo.png",
+        "width": 320,
+        "height": 320,
+        "mode": "RGB",
+        "decode": "PASS",
+        "preview": "assets/90855950c40950c988e6b924830a8817d3a7db96ee960b0c4ffb7f4c9e9254b6.webp"
+      },
+      "approval": {
+        "verified": false,
+        "exact_candidate_owner_approval": null,
+        "reason": "No exact-candidate approval citation is linked in the existing source evidence. A path, merge or folder name is not substituted for approval."
+      },
+      "decision": "HOLD — supplied inventory has no exact-candidate approval; do not overwrite production"
+    },
+    {
+      "artwork_id": "FC-006-07",
+      "drawing_group_id": "DRAW-WB-16-1",
+      "book": "FC",
+      "printed_page": 4,
+      "lesson": 4,
+      "current_runtime": {
+        "pointer": "src/data/flipchart-native-assets.json/6/6",
+        "asset_path": "/cartilla/art/optimized/flipchart-native/p006-escalera.png",
+        "evidence_commit": "153c7eccbec5bc1090cd130a909f0cf73630415a",
+        "verified": false
+      },
+      "verified_candidate": {
+        "file_id": "FILE-25371aa6729925613e81",
+        "location": "public/cartilla/art/optimized/flipchart-native/p006-escalera.png",
+        "source_group": "github-current-main",
+        "sha256": "25371aa6729925613e8124a1311eadbb5b464dde7090dec9788eee6d0733ed52",
+        "bytes": 51385,
+        "github_url": "https://github.com/ejnburrows-rgb/cartilla-de-gretel/blob/153c7eccbec5bc1090cd130a909f0cf73630415a/public/cartilla/art/optimized/flipchart-native/p006-escalera.png",
+        "width": 320,
+        "height": 320,
+        "mode": "RGB",
+        "decode": "PASS",
+        "preview": "assets/25371aa6729925613e8124a1311eadbb5b464dde7090dec9788eee6d0733ed52.webp"
+      },
+      "approval": {
+        "verified": false,
+        "exact_candidate_owner_approval": null,
+        "reason": "No exact-candidate approval citation is linked in the existing source evidence. A path, merge or folder name is not substituted for approval."
+      },
+      "decision": "HOLD — supplied inventory has no exact-candidate approval; do not overwrite production"
+    },
+    {
+      "artwork_id": "FC-007-01",
+      "drawing_group_id": "DRAW-FC-007-01",
+      "book": "FC",
+      "printed_page": 5,
+      "lesson": 5,
+      "current_runtime": {
+        "pointer": "src/data/flipchart-native-assets.json/7/0",
+        "asset_path": "/cartilla/art/optimized/flipchart-native/p007-scene.png",
+        "evidence_commit": "153c7eccbec5bc1090cd130a909f0cf73630415a",
+        "verified": false
+      },
+      "verified_candidate": {
+        "file_id": "FILE-8e1ba17b6e24c490d611",
+        "location": "public/cartilla/art/optimized/flipchart-native/p007-scene.png",
+        "source_group": "github-current-main",
+        "sha256": "8e1ba17b6e24c490d611742402912a9366acf0f75f3b62eb750d65dea2c8dab5",
+        "bytes": 129226,
+        "github_url": "https://github.com/ejnburrows-rgb/cartilla-de-gretel/blob/153c7eccbec5bc1090cd130a909f0cf73630415a/public/cartilla/art/optimized/flipchart-native/p007-scene.png",
+        "width": 560,
+        "height": 560,
+        "mode": "RGB",
+        "decode": "PASS",
+        "preview": "assets/8e1ba17b6e24c490d611742402912a9366acf0f75f3b62eb750d65dea2c8dab5.webp"
+      },
+      "approval": {
+        "verified": false,
+        "exact_candidate_owner_approval": null,
+        "reason": "No exact-candidate approval citation is linked in the existing source evidence. A path, merge or folder name is not substituted for approval."
+      },
+      "decision": "HOLD — supplied inventory has no exact-candidate approval; do not overwrite production"
+    },
+    {
+      "artwork_id": "FC-007-02",
+      "drawing_group_id": "DRAW-FC-003-04",
+      "book": "FC",
+      "printed_page": 5,
+      "lesson": 5,
+      "current_runtime": {
+        "pointer": "src/data/flipchart-native-assets.json/7/1",
+        "asset_path": "/cartilla/art/optimized/flipchart-native/p007-iman.png",
+        "evidence_commit": "153c7eccbec5bc1090cd130a909f0cf73630415a",
+        "verified": false
+      },
+      "verified_candidate": {
+        "file_id": "FILE-68f73587c2fad2bf33e3",
+        "location": "public/cartilla/art/optimized/flipchart-native/p007-iman.png",
+        "source_group": "github-current-main",
+        "sha256": "68f73587c2fad2bf33e3232838870184da3affa273e674db0324564d9223bd7f",
+        "bytes": 39281,
+        "github_url": "https://github.com/ejnburrows-rgb/cartilla-de-gretel/blob/153c7eccbec5bc1090cd130a909f0cf73630415a/public/cartilla/art/optimized/flipchart-native/p007-iman.png",
+        "width": 320,
+        "height": 320,
+        "mode": "RGB",
+        "decode": "PASS",
+        "preview": "assets/68f73587c2fad2bf33e3232838870184da3affa273e674db0324564d9223bd7f.webp"
+      },
+      "approval": {
+        "verified": false,
+        "exact_candidate_owner_approval": null,
+        "reason": "No exact-candidate approval citation is linked in the existing source evidence. A path, merge or folder name is not substituted for approval."
+      },
+      "decision": "HOLD — supplied inventory has no exact-candidate approval; do not overwrite production"
+    },
+    {
+      "artwork_id": "FC-007-03",
+      "drawing_group_id": "DRAW-WB-23-1",
+      "book": "FC",
+      "printed_page": 5,
+      "lesson": 5,
+      "current_runtime": {
+        "pointer": "src/data/flipchart-native-assets.json/7/2",
+        "asset_path": "/cartilla/art/optimized/flipchart-native/p007-iglu.png",
+        "evidence_commit": "153c7eccbec5bc1090cd130a909f0cf73630415a",
+        "verified": false
+      },
+      "verified_candidate": {
+        "file_id": "FILE-45b2395c7e19e1583ceb",
+        "location": "public/cartilla/art/optimized/flipchart-native/p007-iglu.png",
+        "source_group": "github-current-main",
+        "sha256": "45b2395c7e19e1583cebf8c450667227a69434995db048a3fc309f63aa4757c2",
+        "bytes": 35084,
+        "github_url": "https://github.com/ejnburrows-rgb/cartilla-de-gretel/blob/153c7eccbec5bc1090cd130a909f0cf73630415a/public/cartilla/art/optimized/flipchart-native/p007-iglu.png",
+        "width": 320,
+        "height": 320,
+        "mode": "RGB",
+        "decode": "PASS",
+        "preview": "assets/45b2395c7e19e1583cebf8c450667227a69434995db048a3fc309f63aa4757c2.webp"
+      },
+      "approval": {
+        "verified": false,
+        "exact_candidate_owner_approval": null,
+        "reason": "No exact-candidate approval citation is linked in the existing source evidence. A path, merge or folder name is not substituted for approval."
+      },
+      "decision": "HOLD — supplied inventory has no exact-candidate approval; do not overwrite production"
+    },
+    {
+      "artwork_id": "FC-007-05",
+      "drawing_group_id": "DRAW-WB-29-1",
+      "book": "FC",
+      "printed_page": 5,
+      "lesson": 5,
+      "current_runtime": {
+        "pointer": "src/data/flipchart-native-assets.json/7/4",
+        "asset_path": "/cartilla/art/optimized/flipchart-native/p007-insecto.png",
+        "evidence_commit": "153c7eccbec5bc1090cd130a909f0cf73630415a",
+        "verified": false
+      },
+      "verified_candidate": {
+        "file_id": "FILE-557e192939da036b96f6",
+        "location": "public/cartilla/art/optimized/flipchart-native/p007-insecto.png",
+        "source_group": "github-current-main",
+        "sha256": "557e192939da036b96f65662272de5b3aed026118d444b5ad64e10062eb2d080",
+        "bytes": 67825,
+        "github_url": "https://github.com/ejnburrows-rgb/cartilla-de-gretel/blob/153c7eccbec5bc1090cd130a909f0cf73630415a/public/cartilla/art/optimized/flipchart-native/p007-insecto.png",
+        "width": 320,
+        "height": 320,
+        "mode": "RGB",
+        "decode": "PASS",
+        "preview": "assets/557e192939da036b96f65662272de5b3aed026118d444b5ad64e10062eb2d080.webp"
+      },
+      "approval": {
+        "verified": false,
+        "exact_candidate_owner_approval": null,
+        "reason": "No exact-candidate approval citation is linked in the existing source evidence. A path, merge or folder name is not substituted for approval."
+      },
+      "decision": "HOLD — supplied inventory has no exact-candidate approval; do not overwrite production"
+    },
+    {
+      "artwork_id": "FC-007-06",
+      "drawing_group_id": "DRAW-WB-31-1",
+      "book": "FC",
+      "printed_page": 5,
+      "lesson": 5,
+      "current_runtime": {
+        "pointer": "src/data/flipchart-native-assets.json/7/5",
+        "asset_path": "/cartilla/art/optimized/flipchart-native/p007-isla.png",
+        "evidence_commit": "153c7eccbec5bc1090cd130a909f0cf73630415a",
+        "verified": false
+      },
+      "verified_candidate": {
+        "file_id": "FILE-b47db2fe60fa1f0e62f4",
+        "location": "public/cartilla/art/optimized/flipchart-native/p007-isla.png",
+        "source_group": "github-current-main",
+        "sha256": "b47db2fe60fa1f0e62f414e5a4085ab4efa8044b725ca713eb4c961ce4c2746d",
+        "bytes": 49951,
+        "github_url": "https://github.com/ejnburrows-rgb/cartilla-de-gretel/blob/153c7eccbec5bc1090cd130a909f0cf73630415a/public/cartilla/art/optimized/flipchart-native/p007-isla.png",
+        "width": 320,
+        "height": 320,
+        "mode": "RGB",
+        "decode": "PASS",
+        "preview": "assets/b47db2fe60fa1f0e62f414e5a4085ab4efa8044b725ca713eb4c961ce4c2746d.webp"
+      },
+      "approval": {
+        "verified": false,
+        "exact_candidate_owner_approval": null,
+        "reason": "No exact-candidate approval citation is linked in the existing source evidence. A path, merge or folder name is not substituted for approval."
+      },
+      "decision": "HOLD — supplied inventory has no exact-candidate approval; do not overwrite production"
+    },
+    {
+      "artwork_id": "FC-008-01",
+      "drawing_group_id": "DRAW-FC-008-01",
+      "book": "FC",
+      "printed_page": 6,
+      "lesson": 6,
+      "current_runtime": {
+        "pointer": "src/data/flipchart-native-assets.json/8/0",
+        "asset_path": "/cartilla/art/optimized/flipchart-native/p008-scene.png",
+        "evidence_commit": "153c7eccbec5bc1090cd130a909f0cf73630415a",
+        "verified": false
+      },
+      "verified_candidate": {
+        "file_id": "FILE-279a5061ef5f9d6aacfd",
+        "location": "C:\\Users\\EJN\\Downloads\\cartilla-gretel-assets.zip!cutouts/p8_scene.png",
+        "source_group": "local-additional-archive:cartilla-gretel-assets.zip",
+        "sha256": "279a5061ef5f9d6aacfdfdd2bf1da15e9c3d33dc7dd529e2ee1277cf313a2770",
+        "bytes": 93678,
+        "width": 254,
+        "height": 257,
+        "mode": "RGBA",
+        "decode": "PASS",
+        "preview": "assets/279a5061ef5f9d6aacfdfdd2bf1da15e9c3d33dc7dd529e2ee1277cf313a2770.webp"
+      },
+      "approval": {
+        "verified": false,
+        "exact_candidate_owner_approval": null,
+        "reason": "No exact-candidate approval citation is linked in the existing source evidence. A path, merge or folder name is not substituted for approval."
+      },
+      "decision": "HOLD — supplied inventory has no exact-candidate approval; do not overwrite production"
+    },
+    {
+      "artwork_id": "FC-008-02",
+      "drawing_group_id": "DRAW-WB-50-1",
+      "book": "FC",
+      "printed_page": 6,
+      "lesson": 6,
+      "current_runtime": {
+        "pointer": "src/data/flipchart-native-assets.json/8/1",
+        "asset_path": "/cartilla/art/optimized/flipchart-native/p008-uno.png",
+        "evidence_commit": "153c7eccbec5bc1090cd130a909f0cf73630415a",
+        "verified": false
+      },
+      "verified_candidate": {
+        "file_id": "FILE-c8320a31b75269e1d454",
+        "location": "public/cartilla/art/optimized/flipchart-native/p008-uno.png",
+        "source_group": "github-current-main",
+        "sha256": "c8320a31b75269e1d454f3ba057a99926f189145cd1fff5cb01fd7fea0d1dd80",
+        "bytes": 80479,
+        "github_url": "https://github.com/ejnburrows-rgb/cartilla-de-gretel/blob/153c7eccbec5bc1090cd130a909f0cf73630415a/public/cartilla/art/optimized/flipchart-native/p008-uno.png",
+        "width": 320,
+        "height": 320,
+        "mode": "RGB",
+        "decode": "PASS",
+        "preview": "assets/c8320a31b75269e1d454f3ba057a99926f189145cd1fff5cb01fd7fea0d1dd80.webp"
+      },
+      "approval": {
+        "verified": false,
+        "exact_candidate_owner_approval": null,
+        "reason": "No exact-candidate approval citation is linked in the existing source evidence. A path, merge or folder name is not substituted for approval."
+      },
+      "decision": "HOLD — supplied inventory has no exact-candidate approval; do not overwrite production"
+    },
+    {
+      "artwork_id": "FC-008-03",
+      "drawing_group_id": "DRAW-FC-008-03",
+      "book": "FC",
+      "printed_page": 6,
+      "lesson": 6,
+      "current_runtime": {
+        "pointer": "src/data/flipchart-native-assets.json/8/2",
+        "asset_path": "/cartilla/art/optimized/flipchart-native/p008-uva.png",
+        "evidence_commit": "153c7eccbec5bc1090cd130a909f0cf73630415a",
+        "verified": false
+      },
+      "verified_candidate": {
+        "file_id": "FILE-0bc6172bebdca66d2c3d",
+        "location": "C:\\Users\\EJN\\Downloads\\cartilla-gretel-assets.zip!cutouts/p8_asset02.png",
+        "source_group": "local-additional-archive:cartilla-gretel-assets.zip",
+        "sha256": "0bc6172bebdca66d2c3d85197ca5d889d7b98294599e63ec614d6b1ca5c073ff",
+        "bytes": 37379,
+        "width": 134,
+        "height": 131,
+        "mode": "RGBA",
+        "decode": "PASS",
+        "preview": "assets/0bc6172bebdca66d2c3d85197ca5d889d7b98294599e63ec614d6b1ca5c073ff.webp"
+      },
+      "approval": {
+        "verified": false,
+        "exact_candidate_owner_approval": null,
+        "reason": "No exact-candidate approval citation is linked in the existing source evidence. A path, merge or folder name is not substituted for approval."
+      },
+      "decision": "HOLD — supplied inventory has no exact-candidate approval; do not overwrite production"
+    },
+    {
+      "artwork_id": "FC-008-04",
+      "drawing_group_id": "DRAW-WB-51-1",
+      "book": "FC",
+      "printed_page": 6,
+      "lesson": 6,
+      "current_runtime": {
+        "pointer": "src/data/flipchart-native-assets.json/8/3",
+        "asset_path": "/cartilla/art/optimized/flipchart-native/p008-urraca.png",
+        "evidence_commit": "153c7eccbec5bc1090cd130a909f0cf73630415a",
+        "verified": false
+      },
+      "verified_candidate": {
+        "file_id": "FILE-d7392835ccaf9c2353f6",
+        "location": "C:\\Users\\EJN\\Downloads\\cartilla-gretel-assets.zip!cutouts/p8_asset03.png",
+        "source_group": "local-additional-archive:cartilla-gretel-assets.zip",
+        "sha256": "d7392835ccaf9c2353f68d03339231ae3279be7020d41bad9a733d2ef4c19b40",
+        "bytes": 23764,
+        "width": 126,
+        "height": 128,
+        "mode": "RGBA",
+        "decode": "PASS",
+        "preview": "assets/d7392835ccaf9c2353f68d03339231ae3279be7020d41bad9a733d2ef4c19b40.webp"
+      },
+      "approval": {
+        "verified": false,
+        "exact_candidate_owner_approval": null,
+        "reason": "No exact-candidate approval citation is linked in the existing source evidence. A path, merge or folder name is not substituted for approval."
+      },
+      "decision": "HOLD — supplied inventory has no exact-candidate approval; do not overwrite production"
+    },
+    {
+      "artwork_id": "FC-008-05",
+      "drawing_group_id": "DRAW-WB-48-1",
+      "book": "FC",
+      "printed_page": 6,
+      "lesson": 6,
+      "current_runtime": {
+        "pointer": "src/data/flipchart-native-assets.json/8/4",
+        "asset_path": "/cartilla/art/optimized/flipchart-native/p008-unicornio.png",
+        "evidence_commit": "153c7eccbec5bc1090cd130a909f0cf73630415a",
+        "verified": false
+      },
+      "verified_candidate": {
+        "file_id": "FILE-c579843cb62a2845b999",
+        "location": "C:\\Users\\EJN\\Downloads\\cartilla-gretel-assets.zip!cutouts/p8_asset04.png",
+        "source_group": "local-additional-archive:cartilla-gretel-assets.zip",
+        "sha256": "c579843cb62a2845b999e99d07cfbb21175b2119bca489b88dd884e486569314",
+        "bytes": 34787,
+        "width": 147,
+        "height": 148,
+        "mode": "RGBA",
+        "decode": "PASS",
+        "preview": "assets/c579843cb62a2845b999e99d07cfbb21175b2119bca489b88dd884e486569314.webp"
+      },
+      "approval": {
+        "verified": false,
+        "exact_candidate_owner_approval": null,
+        "reason": "No exact-candidate approval citation is linked in the existing source evidence. A path, merge or folder name is not substituted for approval."
+      },
+      "decision": "HOLD — supplied inventory has no exact-candidate approval; do not overwrite production"
+    },
+    {
+      "artwork_id": "FC-008-06",
+      "drawing_group_id": "DRAW-WB-49-1",
+      "book": "FC",
+      "printed_page": 6,
+      "lesson": 6,
+      "current_runtime": {
+        "pointer": "src/data/flipchart-native-assets.json/8/5",
+        "asset_path": "/cartilla/art/optimized/flipchart-native/p008-uniforme.png",
+        "evidence_commit": "153c7eccbec5bc1090cd130a909f0cf73630415a",
+        "verified": false
+      },
+      "verified_candidate": {
+        "file_id": "FILE-8ca784356b536d677936",
+        "location": "C:\\Users\\EJN\\Downloads\\cartilla-gretel-assets.zip!cutouts/p8_asset05.png",
+        "source_group": "local-additional-archive:cartilla-gretel-assets.zip",
+        "sha256": "8ca784356b536d677936cf8a19047bd17fb8714bcf7068eff7bf9c5251b92f90",
+        "bytes": 19562,
+        "width": 91,
+        "height": 143,
+        "mode": "RGBA",
+        "decode": "PASS",
+        "preview": "assets/8ca784356b536d677936cf8a19047bd17fb8714bcf7068eff7bf9c5251b92f90.webp"
+      },
+      "approval": {
+        "verified": false,
+        "exact_candidate_owner_approval": null,
+        "reason": "No exact-candidate approval citation is linked in the existing source evidence. A path, merge or folder name is not substituted for approval."
+      },
+      "decision": "HOLD — supplied inventory has no exact-candidate approval; do not overwrite production"
+    },
+    {
+      "artwork_id": "FC-008-07",
+      "drawing_group_id": "DRAW-FC-008-07",
+      "book": "FC",
+      "printed_page": 6,
+      "lesson": 6,
+      "current_runtime": {
+        "pointer": "src/data/flipchart-native-assets.json/8/6",
+        "asset_path": "/cartilla/art/optimized/flipchart-native/p008-ulises.png",
+        "evidence_commit": "153c7eccbec5bc1090cd130a909f0cf73630415a",
+        "verified": false
+      },
+      "verified_candidate": {
+        "file_id": "FILE-436f33a1bc59aee96f8e",
+        "location": "public/cartilla/art/optimized/flipchart-native/p008-ulises.png",
+        "source_group": "github-current-main",
+        "sha256": "436f33a1bc59aee96f8e8ac1bc31e3e1be9a7f87eb8c160bfbd86b8d8074370d",
+        "bytes": 69778,
+        "github_url": "https://github.com/ejnburrows-rgb/cartilla-de-gretel/blob/153c7eccbec5bc1090cd130a909f0cf73630415a/public/cartilla/art/optimized/flipchart-native/p008-ulises.png",
+        "width": 320,
+        "height": 320,
+        "mode": "RGB",
+        "decode": "PASS",
+        "preview": "assets/436f33a1bc59aee96f8e8ac1bc31e3e1be9a7f87eb8c160bfbd86b8d8074370d.webp"
+      },
+      "approval": {
+        "verified": false,
+        "exact_candidate_owner_approval": null,
+        "reason": "No exact-candidate approval citation is linked in the existing source evidence. A path, merge or folder name is not substituted for approval."
+      },
+      "decision": "HOLD — supplied inventory has no exact-candidate approval; do not overwrite production"
+    },
+    {
+      "artwork_id": "FC-009-01",
+      "drawing_group_id": "DRAW-FC-009-01",
+      "book": "FC",
+      "printed_page": 7,
+      "lesson": 7,
+      "current_runtime": {
+        "pointer": "src/data/flipchart-native-assets.json/9/0",
+        "asset_path": "/cartilla/art/optimized/flipchart-native/p009-scene.png",
+        "evidence_commit": "153c7eccbec5bc1090cd130a909f0cf73630415a",
+        "verified": false
+      },
+      "verified_candidate": {
+        "file_id": "FILE-f30fde7e57e37cc16d46",
+        "location": "public/cartilla/art/optimized/flipchart-native/p009-scene.png",
+        "source_group": "github-current-main",
+        "sha256": "f30fde7e57e37cc16d461eac0a0794c75a5362568b63b1978a7ed10af34c12ff",
+        "bytes": 269934,
+        "github_url": "https://github.com/ejnburrows-rgb/cartilla-de-gretel/blob/153c7eccbec5bc1090cd130a909f0cf73630415a/public/cartilla/art/optimized/flipchart-native/p009-scene.png",
+        "width": 530,
+        "height": 530,
+        "mode": "RGB",
+        "decode": "PASS",
+        "preview": "assets/f30fde7e57e37cc16d461eac0a0794c75a5362568b63b1978a7ed10af34c12ff.webp"
+      },
+      "approval": {
+        "verified": false,
+        "exact_candidate_owner_approval": null,
+        "reason": "No exact-candidate approval citation is linked in the existing source evidence. A path, merge or folder name is not substituted for approval."
+      },
+      "decision": "HOLD — supplied inventory has no exact-candidate approval; do not overwrite production"
+    },
+    {
+      "artwork_id": "FC-009-02",
+      "drawing_group_id": "DRAW-FC-009-02",
+      "book": "FC",
+      "printed_page": 7,
+      "lesson": 7,
+      "current_runtime": {
+        "pointer": "src/data/flipchart-native-assets.json/9/1",
+        "asset_path": "/cartilla/art/optimized/flipchart-native/p009-mama.png",
+        "evidence_commit": "153c7eccbec5bc1090cd130a909f0cf73630415a",
+        "verified": false
+      },
+      "verified_candidate": {
+        "file_id": "FILE-eb1bb2f8641653b474cf",
+        "location": "public/cartilla/art/faithful/leccion-7-m/mama.webp",
+        "source_group": "github-current-main",
+        "sha256": "eb1bb2f8641653b474cf3c119fbd027ed6a4bbbf02d497c60faa865f4df21f9b",
+        "bytes": 131128,
+        "github_url": "https://github.com/ejnburrows-rgb/cartilla-de-gretel/blob/153c7eccbec5bc1090cd130a909f0cf73630415a/public/cartilla/art/faithful/leccion-7-m/mama.webp",
+        "width": 680,
+        "height": 870,
+        "mode": "RGBA",
+        "decode": "PASS",
+        "preview": "assets/eb1bb2f8641653b474cf3c119fbd027ed6a4bbbf02d497c60faa865f4df21f9b.webp"
+      },
+      "approval": {
+        "verified": false,
+        "exact_candidate_owner_approval": null,
+        "reason": "No exact-candidate approval citation is linked in the existing source evidence. A path, merge or folder name is not substituted for approval."
+      },
+      "decision": "HOLD — supplied inventory has no exact-candidate approval; do not overwrite production"
+    },
+    {
+      "artwork_id": "FC-012-03",
+      "drawing_group_id": "DRAW-FC-012-03",
+      "book": "FC",
+      "printed_page": 10,
+      "lesson": 8,
+      "current_runtime": {
+        "pointer": "src/data/flipchart-native-assets.json/12/2",
+        "asset_path": "/cartilla/art/optimized/flipchart-native/p012-pie.png",
+        "evidence_commit": "153c7eccbec5bc1090cd130a909f0cf73630415a",
+        "verified": false
+      },
+      "verified_candidate": {
+        "file_id": "FILE-41de373f469604d3204a",
+        "location": "public/cartilla/art/optimized/flipchart-native/p012-pie.png",
+        "source_group": "github-current-main",
+        "sha256": "41de373f469604d3204ac0a47a3d0408ad702057728d15a7f093d789dfeac72c",
+        "bytes": 35828,
+        "github_url": "https://github.com/ejnburrows-rgb/cartilla-de-gretel/blob/153c7eccbec5bc1090cd130a909f0cf73630415a/public/cartilla/art/optimized/flipchart-native/p012-pie.png",
+        "width": 320,
+        "height": 320,
+        "mode": "RGB",
+        "decode": "PASS",
+        "preview": "assets/41de373f469604d3204ac0a47a3d0408ad702057728d15a7f093d789dfeac72c.webp"
+      },
+      "approval": {
+        "verified": false,
+        "exact_candidate_owner_approval": null,
+        "reason": "No exact-candidate approval citation is linked in the existing source evidence. A path, merge or folder name is not substituted for approval."
+      },
+      "decision": "HOLD — supplied inventory has no exact-candidate approval; do not overwrite production"
+    },
+    {
+      "artwork_id": "FC-012-06",
+      "drawing_group_id": "DRAW-FC-012-06",
+      "book": "FC",
+      "printed_page": 10,
+      "lesson": 8,
+      "current_runtime": {
+        "pointer": "src/data/flipchart-native-assets.json/12/5",
+        "asset_path": "/cartilla/art/optimized/flipchart-native/p012-pomo.png",
+        "evidence_commit": "153c7eccbec5bc1090cd130a909f0cf73630415a",
+        "verified": false
+      },
+      "verified_candidate": {
+        "file_id": "FILE-ea36a2f7b9eb98c12382",
+        "location": "public/cartilla/art/optimized/flipchart-native/p012-pomo.png",
+        "source_group": "github-current-main",
+        "sha256": "ea36a2f7b9eb98c12382a5cdb9a83c920d4a5c775e1780e4d2b87ce4bac5da69",
+        "bytes": 46993,
+        "github_url": "https://github.com/ejnburrows-rgb/cartilla-de-gretel/blob/153c7eccbec5bc1090cd130a909f0cf73630415a/public/cartilla/art/optimized/flipchart-native/p012-pomo.png",
+        "width": 320,
+        "height": 320,
+        "mode": "RGB",
+        "decode": "PASS",
+        "preview": "assets/ea36a2f7b9eb98c12382a5cdb9a83c920d4a5c775e1780e4d2b87ce4bac5da69.webp"
+      },
+      "approval": {
+        "verified": false,
+        "exact_candidate_owner_approval": null,
+        "reason": "No exact-candidate approval citation is linked in the existing source evidence. A path, merge or folder name is not substituted for approval."
+      },
+      "decision": "HOLD — supplied inventory has no exact-candidate approval; do not overwrite production"
+    },
+    {
+      "artwork_id": "FC-015-02",
+      "drawing_group_id": "DRAW-FC-015-02",
+      "book": "FC",
+      "printed_page": 13,
+      "lesson": 9,
+      "current_runtime": {
+        "pointer": "src/data/flipchart-native-assets.json/15/1",
+        "asset_path": "/cartilla/art/optimized/flipchart-native/p015-sesi.png",
+        "evidence_commit": "153c7eccbec5bc1090cd130a909f0cf73630415a",
+        "verified": false
+      },
+      "verified_candidate": {
+        "file_id": "FILE-d65bf08730873d02f7ac",
+        "location": "public/cartilla/art/optimized/flipchart-native/p015-sesi.png",
+        "source_group": "github-current-main",
+        "sha256": "d65bf08730873d02f7acb9e6d03e1ccc526cdc3fd019ff6d34f54ed4c4771eb4",
+        "bytes": 58380,
+        "github_url": "https://github.com/ejnburrows-rgb/cartilla-de-gretel/blob/153c7eccbec5bc1090cd130a909f0cf73630415a/public/cartilla/art/optimized/flipchart-native/p015-sesi.png",
+        "width": 342,
+        "height": 342,
+        "mode": "RGB",
+        "decode": "PASS",
+        "preview": "assets/d65bf08730873d02f7acb9e6d03e1ccc526cdc3fd019ff6d34f54ed4c4771eb4.webp"
+      },
+      "approval": {
+        "verified": false,
+        "exact_candidate_owner_approval": null,
+        "reason": "No exact-candidate approval citation is linked in the existing source evidence. A path, merge or folder name is not substituted for approval."
+      },
+      "decision": "HOLD — supplied inventory has no exact-candidate approval; do not overwrite production"
+    },
+    {
+      "artwork_id": "FC-015-03",
+      "drawing_group_id": "DRAW-FC-015-03",
+      "book": "FC",
+      "printed_page": 13,
+      "lesson": 9,
+      "current_runtime": {
+        "pointer": "src/data/flipchart-native-assets.json/15/2",
+        "asset_path": "/cartilla/art/optimized/flipchart-native/p015-sopa.png",
+        "evidence_commit": "153c7eccbec5bc1090cd130a909f0cf73630415a",
+        "verified": false
+      },
+      "verified_candidate": {
+        "file_id": "FILE-b75d4e00d644bf9f67a2",
+        "location": "public/cartilla/art/optimized/flipchart-native/p015-sopa.png",
+        "source_group": "github-current-main",
+        "sha256": "b75d4e00d644bf9f67a2eb6fe67d5e00d015a947807263f41479a7f56b626b63",
+        "bytes": 61061,
+        "github_url": "https://github.com/ejnburrows-rgb/cartilla-de-gretel/blob/153c7eccbec5bc1090cd130a909f0cf73630415a/public/cartilla/art/optimized/flipchart-native/p015-sopa.png",
+        "width": 320,
+        "height": 320,
+        "mode": "RGB",
+        "decode": "PASS",
+        "preview": "assets/b75d4e00d644bf9f67a2eb6fe67d5e00d015a947807263f41479a7f56b626b63.webp"
+      },
+      "approval": {
+        "verified": false,
+        "exact_candidate_owner_approval": null,
+        "reason": "No exact-candidate approval citation is linked in the existing source evidence. A path, merge or folder name is not substituted for approval."
+      },
+      "decision": "HOLD — supplied inventory has no exact-candidate approval; do not overwrite production"
+    },
+    {
+      "artwork_id": "FC-015-04",
+      "drawing_group_id": "DRAW-FC-015-04",
+      "book": "FC",
+      "printed_page": 13,
+      "lesson": 9,
+      "current_runtime": {
+        "pointer": "src/data/flipchart-native-assets.json/15/3",
+        "asset_path": "/cartilla/art/optimized/flipchart-native/p015-sapo.png",
+        "evidence_commit": "153c7eccbec5bc1090cd130a909f0cf73630415a",
+        "verified": false
+      },
+      "verified_candidate": {
+        "file_id": "FILE-d6adeff7ed2e4f3ab462",
+        "location": "public/cartilla/art/optimized/flipchart-native/p015-sapo.png",
+        "source_group": "github-current-main",
+        "sha256": "d6adeff7ed2e4f3ab462b05057f8954ef78d2a746de322c794925f1a8ae25d4e",
+        "bytes": 51491,
+        "github_url": "https://github.com/ejnburrows-rgb/cartilla-de-gretel/blob/153c7eccbec5bc1090cd130a909f0cf73630415a/public/cartilla/art/optimized/flipchart-native/p015-sapo.png",
+        "width": 320,
+        "height": 320,
+        "mode": "RGB",
+        "decode": "PASS",
+        "preview": "assets/d6adeff7ed2e4f3ab462b05057f8954ef78d2a746de322c794925f1a8ae25d4e.webp"
+      },
+      "approval": {
+        "verified": false,
+        "exact_candidate_owner_approval": null,
+        "reason": "No exact-candidate approval citation is linked in the existing source evidence. A path, merge or folder name is not substituted for approval."
+      },
+      "decision": "HOLD — supplied inventory has no exact-candidate approval; do not overwrite production"
+    },
+    {
+      "artwork_id": "FC-018-02",
+      "drawing_group_id": "DRAW-FC-018-02",
+      "book": "FC",
+      "printed_page": 16,
+      "lesson": 10,
+      "current_runtime": {
+        "pointer": "src/data/flipchart-native-assets.json/18/1",
+        "asset_path": "/cartilla/art/optimized/flipchart-native/p018-tomate.webp",
+        "evidence_commit": "153c7eccbec5bc1090cd130a909f0cf73630415a",
+        "verified": false
+      },
+      "verified_candidate": {
+        "file_id": "FILE-9a5e9fd2cad78fefaeb7",
+        "location": "public/cartilla/art/optimized/flipchart-native/p018-tomate.webp",
+        "source_group": "github-current-main",
+        "sha256": "9a5e9fd2cad78fefaeb7ea25c3e9ff208989af6c0a5b5c53aaab1b94bbcd0c02",
+        "bytes": 96285,
+        "github_url": "https://github.com/ejnburrows-rgb/cartilla-de-gretel/blob/153c7eccbec5bc1090cd130a909f0cf73630415a/public/cartilla/art/optimized/flipchart-native/p018-tomate.webp",
+        "width": 1536,
+        "height": 1395,
+        "mode": "RGB",
+        "decode": "PASS",
+        "preview": "assets/9a5e9fd2cad78fefaeb7ea25c3e9ff208989af6c0a5b5c53aaab1b94bbcd0c02.webp"
+      },
+      "approval": {
+        "verified": false,
+        "exact_candidate_owner_approval": null,
+        "reason": "No exact-candidate approval citation is linked in the existing source evidence. A path, merge or folder name is not substituted for approval."
+      },
+      "decision": "HOLD — supplied inventory has no exact-candidate approval; do not overwrite production"
+    },
+    {
+      "artwork_id": "FC-018-03",
+      "drawing_group_id": "DRAW-FC-018-03",
+      "book": "FC",
+      "printed_page": 16,
+      "lesson": 10,
+      "current_runtime": {
+        "pointer": "src/data/flipchart-native-assets.json/18/2",
+        "asset_path": "/cartilla/art/optimized/flipchart-native/p018-tapa.webp",
+        "evidence_commit": "153c7eccbec5bc1090cd130a909f0cf73630415a",
+        "verified": false
+      },
+      "verified_candidate": {
+        "file_id": "FILE-12d301a36bd70573e5d0",
+        "location": "public/cartilla/art/optimized/flipchart-native/p018-tapa.webp",
+        "source_group": "github-current-main",
+        "sha256": "12d301a36bd70573e5d074566f97710be238fe786afc77a349f4b13d23a30ab8",
+        "bytes": 127625,
+        "github_url": "https://github.com/ejnburrows-rgb/cartilla-de-gretel/blob/153c7eccbec5bc1090cd130a909f0cf73630415a/public/cartilla/art/optimized/flipchart-native/p018-tapa.webp",
+        "width": 1536,
+        "height": 1240,
+        "mode": "RGB",
+        "decode": "PASS",
+        "preview": "assets/12d301a36bd70573e5d074566f97710be238fe786afc77a349f4b13d23a30ab8.webp"
+      },
+      "approval": {
+        "verified": false,
+        "exact_candidate_owner_approval": null,
+        "reason": "No exact-candidate approval citation is linked in the existing source evidence. A path, merge or folder name is not substituted for approval."
+      },
+      "decision": "HOLD — supplied inventory has no exact-candidate approval; do not overwrite production"
+    },
+    {
+      "artwork_id": "FC-018-04",
+      "drawing_group_id": "DRAW-FC-018-04",
+      "book": "FC",
+      "printed_page": 16,
+      "lesson": 10,
+      "current_runtime": {
+        "pointer": "src/data/flipchart-native-assets.json/18/3",
+        "asset_path": "/cartilla/art/optimized/flipchart-native/p018-topo.webp",
+        "evidence_commit": "153c7eccbec5bc1090cd130a909f0cf73630415a",
+        "verified": false
+      },
+      "verified_candidate": {
+        "file_id": "FILE-4fb295743140b209d8dd",
+        "location": "public/cartilla/art/optimized/flipchart-native/p018-topo.webp",
+        "source_group": "github-current-main",
+        "sha256": "4fb295743140b209d8dd904ebf0c41dfc0f210733c05ae4e322f3baeef134a31",
+        "bytes": 169656,
+        "github_url": "https://github.com/ejnburrows-rgb/cartilla-de-gretel/blob/153c7eccbec5bc1090cd130a909f0cf73630415a/public/cartilla/art/optimized/flipchart-native/p018-topo.webp",
+        "width": 1478,
+        "height": 1536,
+        "mode": "RGB",
+        "decode": "PASS",
+        "preview": "assets/4fb295743140b209d8dd904ebf0c41dfc0f210733c05ae4e322f3baeef134a31.webp"
+      },
+      "approval": {
+        "verified": false,
+        "exact_candidate_owner_approval": null,
+        "reason": "No exact-candidate approval citation is linked in the existing source evidence. A path, merge or folder name is not substituted for approval."
+      },
+      "decision": "HOLD — supplied inventory has no exact-candidate approval; do not overwrite production"
+    },
+    {
+      "artwork_id": "FC-021-02",
+      "drawing_group_id": "DRAW-FC-021-02",
+      "book": "FC",
+      "printed_page": 19,
+      "lesson": 11,
+      "current_runtime": {
+        "pointer": "src/data/flipchart-native-assets.json/21/1",
+        "asset_path": "/cartilla/art/optimized/flipchart-native/p021-didi.webp",
+        "evidence_commit": "153c7eccbec5bc1090cd130a909f0cf73630415a",
+        "verified": false
+      },
+      "verified_candidate": {
+        "file_id": "FILE-bee90469d28b79ba0860",
+        "location": "public/cartilla/art/optimized/flipchart-native/p021-didi.webp",
+        "source_group": "github-current-main",
+        "sha256": "bee90469d28b79ba0860b5bb571a4dff230ce310b473c885a673dfb981e2fdf5",
+        "bytes": 125316,
+        "github_url": "https://github.com/ejnburrows-rgb/cartilla-de-gretel/blob/153c7eccbec5bc1090cd130a909f0cf73630415a/public/cartilla/art/optimized/flipchart-native/p021-didi.webp",
+        "width": 1536,
+        "height": 1360,
+        "mode": "RGB",
+        "decode": "PASS",
+        "preview": "assets/bee90469d28b79ba0860b5bb571a4dff230ce310b473c885a673dfb981e2fdf5.webp"
+      },
+      "approval": {
+        "verified": false,
+        "exact_candidate_owner_approval": null,
+        "reason": "No exact-candidate approval citation is linked in the existing source evidence. A path, merge or folder name is not substituted for approval."
+      },
+      "decision": "HOLD — supplied inventory has no exact-candidate approval; do not overwrite production"
+    },
+    {
+      "artwork_id": "FC-021-05",
+      "drawing_group_id": "DRAW-FC-021-05",
+      "book": "FC",
+      "printed_page": 19,
+      "lesson": 11,
+      "current_runtime": {
+        "pointer": "src/data/flipchart-native-assets.json/21/4",
+        "asset_path": "/cartilla/art/optimized/flipchart-native/p021-doce.webp",
+        "evidence_commit": "153c7eccbec5bc1090cd130a909f0cf73630415a",
+        "verified": false
+      },
+      "verified_candidate": {
+        "file_id": "FILE-c6f89e7ba7f11bd6c3f5",
+        "location": "public/cartilla/art/optimized/flipchart-native/p021-doce.webp",
+        "source_group": "github-current-main",
+        "sha256": "c6f89e7ba7f11bd6c3f5ba1ede8e949bd845c457324ceb31f376a79a9d2cb9b0",
+        "bytes": 195221,
+        "github_url": "https://github.com/ejnburrows-rgb/cartilla-de-gretel/blob/153c7eccbec5bc1090cd130a909f0cf73630415a/public/cartilla/art/optimized/flipchart-native/p021-doce.webp",
+        "width": 1355,
+        "height": 1536,
+        "mode": "RGB",
+        "decode": "PASS",
+        "preview": "assets/c6f89e7ba7f11bd6c3f5ba1ede8e949bd845c457324ceb31f376a79a9d2cb9b0.webp"
+      },
+      "approval": {
+        "verified": false,
+        "exact_candidate_owner_approval": null,
+        "reason": "No exact-candidate approval citation is linked in the existing source evidence. A path, merge or folder name is not substituted for approval."
+      },
+      "decision": "HOLD — supplied inventory has no exact-candidate approval; do not overwrite production"
+    },
+    {
+      "artwork_id": "FC-024-02",
+      "drawing_group_id": "DRAW-FC-024-02",
+      "book": "FC",
+      "printed_page": 22,
+      "lesson": 12,
+      "current_runtime": {
+        "pointer": "src/data/flipchart-native-assets.json/24/1",
+        "asset_path": "/cartilla/art/optimized/flipchart-native/p024-maleta.webp",
+        "evidence_commit": "153c7eccbec5bc1090cd130a909f0cf73630415a",
+        "verified": false
+      },
+      "verified_candidate": {
+        "file_id": "FILE-7f25455815b38ce70a17",
+        "location": "public/cartilla/art/optimized/flipchart-native/p024-maleta.webp",
+        "source_group": "github-current-main",
+        "sha256": "7f25455815b38ce70a173634e97b71583b075b45adbf0646ee0e51c855f41452",
+        "bytes": 140465,
+        "github_url": "https://github.com/ejnburrows-rgb/cartilla-de-gretel/blob/153c7eccbec5bc1090cd130a909f0cf73630415a/public/cartilla/art/optimized/flipchart-native/p024-maleta.webp",
+        "width": 1369,
+        "height": 1536,
+        "mode": "RGB",
+        "decode": "PASS",
+        "preview": "assets/7f25455815b38ce70a173634e97b71583b075b45adbf0646ee0e51c855f41452.webp"
+      },
+      "approval": {
+        "verified": false,
+        "exact_candidate_owner_approval": null,
+        "reason": "No exact-candidate approval citation is linked in the existing source evidence. A path, merge or folder name is not substituted for approval."
+      },
+      "decision": "HOLD — supplied inventory has no exact-candidate approval; do not overwrite production"
+    },
+    {
+      "artwork_id": "FC-024-03",
+      "drawing_group_id": "DRAW-FC-024-03",
+      "book": "FC",
+      "printed_page": 22,
+      "lesson": 12,
+      "current_runtime": {
+        "pointer": "src/data/flipchart-native-assets.json/24/2",
+        "asset_path": "/cartilla/art/optimized/flipchart-native/p024-lata.webp",
+        "evidence_commit": "153c7eccbec5bc1090cd130a909f0cf73630415a",
+        "verified": false
+      },
+      "verified_candidate": {
+        "file_id": "FILE-1cc2938e63b8674cf72a",
+        "location": "public/cartilla/art/optimized/flipchart-native/p024-lata.webp",
+        "source_group": "github-current-main",
+        "sha256": "1cc2938e63b8674cf72a1e4b07106b7eea50943013e8ef9c2e37bd82f465802e",
+        "bytes": 158721,
+        "github_url": "https://github.com/ejnburrows-rgb/cartilla-de-gretel/blob/153c7eccbec5bc1090cd130a909f0cf73630415a/public/cartilla/art/optimized/flipchart-native/p024-lata.webp",
+        "width": 1395,
+        "height": 1536,
+        "mode": "RGB",
+        "decode": "PASS",
+        "preview": "assets/1cc2938e63b8674cf72a1e4b07106b7eea50943013e8ef9c2e37bd82f465802e.webp"
+      },
+      "approval": {
+        "verified": false,
+        "exact_candidate_owner_approval": null,
+        "reason": "No exact-candidate approval citation is linked in the existing source evidence. A path, merge or folder name is not substituted for approval."
+      },
+      "decision": "HOLD — supplied inventory has no exact-candidate approval; do not overwrite production"
+    },
+    {
+      "artwork_id": "FC-024-04",
+      "drawing_group_id": "DRAW-FC-024-04",
+      "book": "FC",
+      "printed_page": 22,
+      "lesson": 12,
+      "current_runtime": {
+        "pointer": "src/data/flipchart-native-assets.json/24/3",
+        "asset_path": "/cartilla/art/optimized/flipchart-native/p024-luli.webp",
+        "evidence_commit": "153c7eccbec5bc1090cd130a909f0cf73630415a",
+        "verified": false
+      },
+      "verified_candidate": {
+        "file_id": "FILE-bec7d120b337decdc698",
+        "location": "public/cartilla/art/optimized/flipchart-native/p024-luli.webp",
+        "source_group": "github-current-main",
+        "sha256": "bec7d120b337decdc698370426b208bc73daa8aa07129d8fc0ea5c79f1b01cd7",
+        "bytes": 132783,
+        "github_url": "https://github.com/ejnburrows-rgb/cartilla-de-gretel/blob/153c7eccbec5bc1090cd130a909f0cf73630415a/public/cartilla/art/optimized/flipchart-native/p024-luli.webp",
+        "width": 1058,
+        "height": 1536,
+        "mode": "RGB",
+        "decode": "PASS",
+        "preview": "assets/bec7d120b337decdc698370426b208bc73daa8aa07129d8fc0ea5c79f1b01cd7.webp"
+      },
+      "approval": {
+        "verified": false,
+        "exact_candidate_owner_approval": null,
+        "reason": "No exact-candidate approval citation is linked in the existing source evidence. A path, merge or folder name is not substituted for approval."
+      },
+      "decision": "HOLD — supplied inventory has no exact-candidate approval; do not overwrite production"
+    },
+    {
+      "artwork_id": "FC-024-05",
+      "drawing_group_id": "DRAW-FC-024-05",
+      "book": "FC",
+      "printed_page": 22,
+      "lesson": 12,
+      "current_runtime": {
+        "pointer": "src/data/flipchart-native-assets.json/24/4",
+        "asset_path": "/cartilla/art/optimized/flipchart-native/p024-loma.webp",
+        "evidence_commit": "153c7eccbec5bc1090cd130a909f0cf73630415a",
+        "verified": false
+      },
+      "verified_candidate": {
+        "file_id": "FILE-806b74aa7173ad75d87b",
+        "location": "public/cartilla/art/optimized/flipchart-native/p024-loma.webp",
+        "source_group": "github-current-main",
+        "sha256": "806b74aa7173ad75d87bbecac154e92edc8ec63213e9cca01d0dc0180071abee",
+        "bytes": 91971,
+        "github_url": "https://github.com/ejnburrows-rgb/cartilla-de-gretel/blob/153c7eccbec5bc1090cd130a909f0cf73630415a/public/cartilla/art/optimized/flipchart-native/p024-loma.webp",
+        "width": 1536,
+        "height": 1238,
+        "mode": "RGB",
+        "decode": "PASS",
+        "preview": "assets/806b74aa7173ad75d87bbecac154e92edc8ec63213e9cca01d0dc0180071abee.webp"
+      },
+      "approval": {
+        "verified": false,
+        "exact_candidate_owner_approval": null,
+        "reason": "No exact-candidate approval citation is linked in the existing source evidence. A path, merge or folder name is not substituted for approval."
+      },
+      "decision": "HOLD — supplied inventory has no exact-candidate approval; do not overwrite production"
+    },
+    {
+      "artwork_id": "FC-024-06",
+      "drawing_group_id": "DRAW-FC-024-06",
+      "book": "FC",
+      "printed_page": 22,
+      "lesson": 12,
+      "current_runtime": {
+        "pointer": "src/data/flipchart-native-assets.json/24/5",
+        "asset_path": "/cartilla/art/optimized/flipchart-native/p024-lala.png",
+        "evidence_commit": "153c7eccbec5bc1090cd130a909f0cf73630415a",
+        "verified": false
+      },
+      "verified_candidate": {
+        "file_id": "FILE-838b80efd1c28aa4d651",
+        "location": "public/cartilla/art/optimized/flipchart-native/p024-lala.png",
+        "source_group": "github-current-main",
+        "sha256": "838b80efd1c28aa4d651dbc398d3ebf3f38d0cabc39664acc71d11fbf14a5480",
+        "bytes": 281675,
+        "github_url": "https://github.com/ejnburrows-rgb/cartilla-de-gretel/blob/153c7eccbec5bc1090cd130a909f0cf73630415a/public/cartilla/art/optimized/flipchart-native/p024-lala.png",
+        "width": 550,
+        "height": 495,
+        "mode": "RGB",
+        "decode": "PASS",
+        "preview": "assets/838b80efd1c28aa4d651dbc398d3ebf3f38d0cabc39664acc71d11fbf14a5480.webp"
+      },
+      "approval": {
+        "verified": false,
+        "exact_candidate_owner_approval": null,
+        "reason": "No exact-candidate approval citation is linked in the existing source evidence. A path, merge or folder name is not substituted for approval."
+      },
+      "decision": "HOLD — supplied inventory has no exact-candidate approval; do not overwrite production"
+    },
+    {
+      "artwork_id": "FC-027-02",
+      "drawing_group_id": "DRAW-FC-027-02",
+      "book": "FC",
+      "printed_page": 25,
+      "lesson": 13,
+      "current_runtime": {
+        "pointer": "src/data/flipchart-native-assets.json/27/1",
+        "asset_path": "/cartilla/art/optimized/flipchart-native/p027-nido.png",
+        "evidence_commit": "153c7eccbec5bc1090cd130a909f0cf73630415a",
+        "verified": false
+      },
+      "verified_candidate": {
+        "file_id": "FILE-5bdbd0cefd1e335e149a",
+        "location": "public/cartilla/art/optimized/flipchart-native/p027-nido.png",
+        "source_group": "github-current-main",
+        "sha256": "5bdbd0cefd1e335e149a11efeaa523c6f08bc05942383065e0c0370622fccd86",
+        "bytes": 43656,
+        "github_url": "https://github.com/ejnburrows-rgb/cartilla-de-gretel/blob/153c7eccbec5bc1090cd130a909f0cf73630415a/public/cartilla/art/optimized/flipchart-native/p027-nido.png",
+        "width": 320,
+        "height": 320,
+        "mode": "RGB",
+        "decode": "PASS",
+        "preview": "assets/5bdbd0cefd1e335e149a11efeaa523c6f08bc05942383065e0c0370622fccd86.webp"
+      },
+      "approval": {
+        "verified": false,
+        "exact_candidate_owner_approval": null,
+        "reason": "No exact-candidate approval citation is linked in the existing source evidence. A path, merge or folder name is not substituted for approval."
+      },
+      "decision": "HOLD — supplied inventory has no exact-candidate approval; do not overwrite production"
+    },
+    {
+      "artwork_id": "FC-027-03",
+      "drawing_group_id": "DRAW-FC-027-03",
+      "book": "FC",
+      "printed_page": 25,
+      "lesson": 13,
+      "current_runtime": {
+        "pointer": "src/data/flipchart-native-assets.json/27/2",
+        "asset_path": "/cartilla/art/optimized/flipchart-native/p027-nudo.png",
+        "evidence_commit": "153c7eccbec5bc1090cd130a909f0cf73630415a",
+        "verified": false
+      },
+      "verified_candidate": {
+        "file_id": "FILE-743617b3bfa87e8348d9",
+        "location": "public/cartilla/art/optimized/flipchart-native/p027-nudo.png",
+        "source_group": "github-current-main",
+        "sha256": "743617b3bfa87e8348d93142cf4b6c92fadb7209ccec649f053122590ed95c0e",
+        "bytes": 44142,
+        "github_url": "https://github.com/ejnburrows-rgb/cartilla-de-gretel/blob/153c7eccbec5bc1090cd130a909f0cf73630415a/public/cartilla/art/optimized/flipchart-native/p027-nudo.png",
+        "width": 320,
+        "height": 320,
+        "mode": "RGB",
+        "decode": "PASS",
+        "preview": "assets/743617b3bfa87e8348d93142cf4b6c92fadb7209ccec649f053122590ed95c0e.webp"
+      },
+      "approval": {
+        "verified": false,
+        "exact_candidate_owner_approval": null,
+        "reason": "No exact-candidate approval citation is linked in the existing source evidence. A path, merge or folder name is not substituted for approval."
+      },
+      "decision": "HOLD — supplied inventory has no exact-candidate approval; do not overwrite production"
+    },
+    {
+      "artwork_id": "FC-033-02",
+      "drawing_group_id": "DRAW-FC-033-02",
+      "book": "FC",
+      "printed_page": 31,
+      "lesson": 15,
+      "current_runtime": {
+        "pointer": "src/data/flipchart-native-assets.json/33/1",
+        "asset_path": "/cartilla/art/optimized/flipchart-native/p033-beba.png",
+        "evidence_commit": "153c7eccbec5bc1090cd130a909f0cf73630415a",
+        "verified": false
+      },
+      "verified_candidate": {
+        "file_id": "FILE-28a39262d479491ffb33",
+        "location": "public/cartilla/art/optimized/flipchart-native/p033-beba.png",
+        "source_group": "github-current-main",
+        "sha256": "28a39262d479491ffb33434ee98334d4c03c9296566166ac3d35a7727fd23935",
+        "bytes": 46539,
+        "github_url": "https://github.com/ejnburrows-rgb/cartilla-de-gretel/blob/153c7eccbec5bc1090cd130a909f0cf73630415a/public/cartilla/art/optimized/flipchart-native/p033-beba.png",
+        "width": 320,
+        "height": 320,
+        "mode": "RGB",
+        "decode": "PASS",
+        "preview": "assets/28a39262d479491ffb33434ee98334d4c03c9296566166ac3d35a7727fd23935.webp"
+      },
+      "approval": {
+        "verified": false,
+        "exact_candidate_owner_approval": null,
+        "reason": "No exact-candidate approval citation is linked in the existing source evidence. A path, merge or folder name is not substituted for approval."
+      },
+      "decision": "HOLD — supplied inventory has no exact-candidate approval; do not overwrite production"
+    },
+    {
+      "artwork_id": "FC-033-03",
+      "drawing_group_id": "DRAW-FC-033-03",
+      "book": "FC",
+      "printed_page": 31,
+      "lesson": 15,
+      "current_runtime": {
+        "pointer": "src/data/flipchart-native-assets.json/33/2",
+        "asset_path": "/cartilla/art/optimized/flipchart-native/p033-bubi.png",
+        "evidence_commit": "153c7eccbec5bc1090cd130a909f0cf73630415a",
+        "verified": false
+      },
+      "verified_candidate": {
+        "file_id": "FILE-0eeddfbadae14d775bba",
+        "location": "public/cartilla/art/optimized/flipchart-native/p033-bubi.png",
+        "source_group": "github-current-main",
+        "sha256": "0eeddfbadae14d775bbad608c569d465572923c359d9597d7d343597aab60714",
+        "bytes": 42247,
+        "github_url": "https://github.com/ejnburrows-rgb/cartilla-de-gretel/blob/153c7eccbec5bc1090cd130a909f0cf73630415a/public/cartilla/art/optimized/flipchart-native/p033-bubi.png",
+        "width": 320,
+        "height": 320,
+        "mode": "RGB",
+        "decode": "PASS",
+        "preview": "assets/0eeddfbadae14d775bbad608c569d465572923c359d9597d7d343597aab60714.webp"
+      },
+      "approval": {
+        "verified": false,
+        "exact_candidate_owner_approval": null,
+        "reason": "No exact-candidate approval citation is linked in the existing source evidence. A path, merge or folder name is not substituted for approval."
+      },
+      "decision": "HOLD — supplied inventory has no exact-candidate approval; do not overwrite production"
+    },
+    {
+      "artwork_id": "FC-033-05",
+      "drawing_group_id": "DRAW-FC-033-05",
+      "book": "FC",
+      "printed_page": 31,
+      "lesson": 15,
+      "current_runtime": {
+        "pointer": "src/data/flipchart-native-assets.json/33/4",
+        "asset_path": "/cartilla/art/optimized/flipchart-native/p033-bota.png",
+        "evidence_commit": "153c7eccbec5bc1090cd130a909f0cf73630415a",
+        "verified": false
+      },
+      "verified_candidate": {
+        "file_id": "FILE-efe241c7a667d809ad86",
+        "location": "public/cartilla/art/faithful/leccion-15-b/bota.webp",
+        "source_group": "github-current-main",
+        "sha256": "efe241c7a667d809ad867b0335091e7403b01b9da94e0f6cf522bc4568987cb8",
+        "bytes": 234862,
+        "github_url": "https://github.com/ejnburrows-rgb/cartilla-de-gretel/blob/153c7eccbec5bc1090cd130a909f0cf73630415a/public/cartilla/art/faithful/leccion-15-b/bota.webp",
+        "width": 826,
+        "height": 870,
+        "mode": "RGBA",
+        "decode": "PASS",
+        "preview": "assets/efe241c7a667d809ad867b0335091e7403b01b9da94e0f6cf522bc4568987cb8.webp"
+      },
+      "approval": {
+        "verified": false,
+        "exact_candidate_owner_approval": null,
+        "reason": "No exact-candidate approval citation is linked in the existing source evidence. A path, merge or folder name is not substituted for approval."
+      },
+      "decision": "HOLD — supplied inventory has no exact-candidate approval; do not overwrite production"
+    },
+    {
+      "artwork_id": "FC-036-01",
+      "drawing_group_id": "DRAW-FC-036-01",
+      "book": "FC",
+      "printed_page": 34,
+      "lesson": 16,
+      "current_runtime": {
+        "pointer": "src/data/flipchart-native-assets.json/36/0",
+        "asset_path": "/cartilla/art/optimized/flipchart-native/p036-scene.png",
+        "evidence_commit": "153c7eccbec5bc1090cd130a909f0cf73630415a",
+        "verified": false
+      },
+      "verified_candidate": {
+        "file_id": "FILE-bf7f19e1152d0fb4b585",
+        "location": "public/cartilla/art/optimized/flipchart-native/p036-scene.png",
+        "source_group": "github-current-main",
+        "sha256": "bf7f19e1152d0fb4b585bf79cb05ab62799d4715eb0062f2681a78c1bae8a31d",
+        "bytes": 191915,
+        "github_url": "https://github.com/ejnburrows-rgb/cartilla-de-gretel/blob/153c7eccbec5bc1090cd130a909f0cf73630415a/public/cartilla/art/optimized/flipchart-native/p036-scene.png",
+        "width": 526,
+        "height": 526,
+        "mode": "RGB",
+        "decode": "PASS",
+        "preview": "assets/bf7f19e1152d0fb4b585bf79cb05ab62799d4715eb0062f2681a78c1bae8a31d.webp"
+      },
+      "approval": {
+        "verified": false,
+        "exact_candidate_owner_approval": null,
+        "reason": "No exact-candidate approval citation is linked in the existing source evidence. A path, merge or folder name is not substituted for approval."
+      },
+      "decision": "HOLD — supplied inventory has no exact-candidate approval; do not overwrite production"
+    },
+    {
+      "artwork_id": "FC-036-02",
+      "drawing_group_id": "DRAW-FC-036-02",
+      "book": "FC",
+      "printed_page": 34,
+      "lesson": 16,
+      "current_runtime": {
+        "pointer": "src/data/flipchart-native-assets.json/36/1",
+        "asset_path": "/cartilla/art/optimized/flipchart-native/p036-vaso.png",
+        "evidence_commit": "153c7eccbec5bc1090cd130a909f0cf73630415a",
+        "verified": false
+      },
+      "verified_candidate": {
+        "file_id": "FILE-3c4df2d705effaf6f770",
+        "location": "public/cartilla/art/optimized/flipchart-native/p036-vaso.png",
+        "source_group": "github-current-main",
+        "sha256": "3c4df2d705effaf6f770371ecabc175ddc36bd8994c7ab7783ec045ef85f3b0b",
+        "bytes": 23211,
+        "github_url": "https://github.com/ejnburrows-rgb/cartilla-de-gretel/blob/153c7eccbec5bc1090cd130a909f0cf73630415a/public/cartilla/art/optimized/flipchart-native/p036-vaso.png",
+        "width": 320,
+        "height": 320,
+        "mode": "RGB",
+        "decode": "PASS",
+        "preview": "assets/3c4df2d705effaf6f770371ecabc175ddc36bd8994c7ab7783ec045ef85f3b0b.webp"
+      },
+      "approval": {
+        "verified": false,
+        "exact_candidate_owner_approval": null,
+        "reason": "No exact-candidate approval citation is linked in the existing source evidence. A path, merge or folder name is not substituted for approval."
+      },
+      "decision": "HOLD — supplied inventory has no exact-candidate approval; do not overwrite production"
+    },
+    {
+      "artwork_id": "FC-036-03",
+      "drawing_group_id": "DRAW-FC-036-03",
+      "book": "FC",
+      "printed_page": 34,
+      "lesson": 16,
+      "current_runtime": {
+        "pointer": "src/data/flipchart-native-assets.json/36/2",
+        "asset_path": "/cartilla/art/optimized/flipchart-native/p036-vela.png",
+        "evidence_commit": "153c7eccbec5bc1090cd130a909f0cf73630415a",
+        "verified": false
+      },
+      "verified_candidate": {
+        "file_id": "FILE-f81d18bc724f86c1db06",
+        "location": "public/cartilla/art/optimized/flipchart-native/p036-vela.png",
+        "source_group": "github-current-main",
+        "sha256": "f81d18bc724f86c1db064e8c1a04efb338e75919510311ec4edc382b77a331a3",
+        "bytes": 30920,
+        "github_url": "https://github.com/ejnburrows-rgb/cartilla-de-gretel/blob/153c7eccbec5bc1090cd130a909f0cf73630415a/public/cartilla/art/optimized/flipchart-native/p036-vela.png",
+        "width": 320,
+        "height": 320,
+        "mode": "RGB",
+        "decode": "PASS",
+        "preview": "assets/f81d18bc724f86c1db064e8c1a04efb338e75919510311ec4edc382b77a331a3.webp"
+      },
+      "approval": {
+        "verified": false,
+        "exact_candidate_owner_approval": null,
+        "reason": "No exact-candidate approval citation is linked in the existing source evidence. A path, merge or folder name is not substituted for approval."
+      },
+      "decision": "HOLD — supplied inventory has no exact-candidate approval; do not overwrite production"
+    },
+    {
+      "artwork_id": "FC-036-04",
+      "drawing_group_id": "DRAW-FC-036-04",
+      "book": "FC",
+      "printed_page": 34,
+      "lesson": 16,
+      "current_runtime": {
+        "pointer": "src/data/flipchart-native-assets.json/36/3",
+        "asset_path": "/cartilla/art/optimized/flipchart-native/p036-vita.png",
+        "evidence_commit": "153c7eccbec5bc1090cd130a909f0cf73630415a",
+        "verified": false
+      },
+      "verified_candidate": {
+        "file_id": "FILE-73d217479e1bdb49991d",
+        "location": "public/cartilla/art/optimized/flipchart-native/p036-vita.png",
+        "source_group": "github-current-main",
+        "sha256": "73d217479e1bdb49991d972f27728da1a2fe5631a6090f0bc22ee1a271d7cfa9",
+        "bytes": 63379,
+        "github_url": "https://github.com/ejnburrows-rgb/cartilla-de-gretel/blob/153c7eccbec5bc1090cd130a909f0cf73630415a/public/cartilla/art/optimized/flipchart-native/p036-vita.png",
+        "width": 320,
+        "height": 320,
+        "mode": "RGB",
+        "decode": "PASS",
+        "preview": "assets/73d217479e1bdb49991d972f27728da1a2fe5631a6090f0bc22ee1a271d7cfa9.webp"
+      },
+      "approval": {
+        "verified": false,
+        "exact_candidate_owner_approval": null,
+        "reason": "No exact-candidate approval citation is linked in the existing source evidence. A path, merge or folder name is not substituted for approval."
+      },
+      "decision": "HOLD — supplied inventory has no exact-candidate approval; do not overwrite production"
+    },
+    {
+      "artwork_id": "FC-039-02",
+      "drawing_group_id": "DRAW-FC-039-02",
+      "book": "FC",
+      "printed_page": 37,
+      "lesson": 17,
+      "current_runtime": {
+        "pointer": "src/data/flipchart-native-assets.json/39/1",
+        "asset_path": "/cartilla/art/optimized/flipchart-native/p039-rana.png",
+        "evidence_commit": "153c7eccbec5bc1090cd130a909f0cf73630415a",
+        "verified": false
+      },
+      "verified_candidate": {
+        "file_id": "FILE-d32601e5581417472d04",
+        "location": "public/cartilla/art/optimized/flipchart-native/p039-rana.png",
+        "source_group": "github-current-main",
+        "sha256": "d32601e5581417472d045e334165d2f304f76ffa7227a8ac5e6d832891ad609d",
+        "bytes": 62419,
+        "github_url": "https://github.com/ejnburrows-rgb/cartilla-de-gretel/blob/153c7eccbec5bc1090cd130a909f0cf73630415a/public/cartilla/art/optimized/flipchart-native/p039-rana.png",
+        "width": 320,
+        "height": 320,
+        "mode": "RGB",
+        "decode": "PASS",
+        "preview": "assets/d32601e5581417472d045e334165d2f304f76ffa7227a8ac5e6d832891ad609d.webp"
+      },
+      "approval": {
+        "verified": false,
+        "exact_candidate_owner_approval": null,
+        "reason": "No exact-candidate approval citation is linked in the existing source evidence. A path, merge or folder name is not substituted for approval."
+      },
+      "decision": "HOLD — supplied inventory has no exact-candidate approval; do not overwrite production"
+    },
+    {
+      "artwork_id": "FC-039-03",
+      "drawing_group_id": "DRAW-FC-039-03",
+      "book": "FC",
+      "printed_page": 37,
+      "lesson": 17,
+      "current_runtime": {
+        "pointer": "src/data/flipchart-native-assets.json/39/2",
+        "asset_path": "/cartilla/art/optimized/flipchart-native/p039-remos.png",
+        "evidence_commit": "153c7eccbec5bc1090cd130a909f0cf73630415a",
+        "verified": false
+      },
+      "verified_candidate": {
+        "file_id": "FILE-26721dd413bb7b1fc989",
+        "location": "public/cartilla/art/optimized/flipchart-native/p039-remos.png",
+        "source_group": "github-current-main",
+        "sha256": "26721dd413bb7b1fc989ea0701505c277a8cd51d0efc9b72a7b9baf0f5015c92",
+        "bytes": 65623,
+        "github_url": "https://github.com/ejnburrows-rgb/cartilla-de-gretel/blob/153c7eccbec5bc1090cd130a909f0cf73630415a/public/cartilla/art/optimized/flipchart-native/p039-remos.png",
+        "width": 320,
+        "height": 320,
+        "mode": "RGB",
+        "decode": "PASS",
+        "preview": "assets/26721dd413bb7b1fc989ea0701505c277a8cd51d0efc9b72a7b9baf0f5015c92.webp"
+      },
+      "approval": {
+        "verified": false,
+        "exact_candidate_owner_approval": null,
+        "reason": "No exact-candidate approval citation is linked in the existing source evidence. A path, merge or folder name is not substituted for approval."
+      },
+      "decision": "HOLD — supplied inventory has no exact-candidate approval; do not overwrite production"
+    },
+    {
+      "artwork_id": "FC-042-01",
+      "drawing_group_id": "DRAW-FC-042-01",
+      "book": "FC",
+      "printed_page": 40,
+      "lesson": 18,
+      "current_runtime": {
+        "pointer": "src/data/flipchart-native-assets.json/42/0",
+        "asset_path": "/cartilla/art/optimized/flipchart-native/p042-scene.png",
+        "evidence_commit": "153c7eccbec5bc1090cd130a909f0cf73630415a",
+        "verified": false
+      },
+      "verified_candidate": {
+        "file_id": "FILE-8136023f9cf62ba36dc7",
+        "location": "public/cartilla/art/optimized/flipchart-native/p042-scene.png",
+        "source_group": "github-current-main",
+        "sha256": "8136023f9cf62ba36dc7c6ded96092fba27b1c6c31929ae39cbe49d8acfc1ed0",
+        "bytes": 261932,
+        "github_url": "https://github.com/ejnburrows-rgb/cartilla-de-gretel/blob/153c7eccbec5bc1090cd130a909f0cf73630415a/public/cartilla/art/optimized/flipchart-native/p042-scene.png",
+        "width": 529,
+        "height": 529,
+        "mode": "RGB",
+        "decode": "PASS",
+        "preview": "assets/8136023f9cf62ba36dc7c6ded96092fba27b1c6c31929ae39cbe49d8acfc1ed0.webp"
+      },
+      "approval": {
+        "verified": false,
+        "exact_candidate_owner_approval": null,
+        "reason": "No exact-candidate approval citation is linked in the existing source evidence. A path, merge or folder name is not substituted for approval."
+      },
+      "decision": "HOLD — supplied inventory has no exact-candidate approval; do not overwrite production"
+    },
+    {
+      "artwork_id": "FC-042-02",
+      "drawing_group_id": "DRAW-FC-033-03",
+      "book": "FC",
+      "printed_page": 40,
+      "lesson": 18,
+      "current_runtime": {
+        "pointer": "src/data/flipchart-native-assets.json/42/1",
+        "asset_path": "/cartilla/art/optimized/flipchart-native/p042-burro.png",
+        "evidence_commit": "153c7eccbec5bc1090cd130a909f0cf73630415a",
+        "verified": false
+      },
+      "verified_candidate": {
+        "file_id": "FILE-ee6894a7e53dd3052b23",
+        "location": "public/cartilla/art/optimized/flipchart-native/p042-burro.png",
+        "source_group": "github-current-main",
+        "sha256": "ee6894a7e53dd3052b235b84998d1678af83bff2fa78274394e76558307280d1",
+        "bytes": 46838,
+        "github_url": "https://github.com/ejnburrows-rgb/cartilla-de-gretel/blob/153c7eccbec5bc1090cd130a909f0cf73630415a/public/cartilla/art/optimized/flipchart-native/p042-burro.png",
+        "width": 320,
+        "height": 320,
+        "mode": "RGB",
+        "decode": "PASS",
+        "preview": "assets/ee6894a7e53dd3052b235b84998d1678af83bff2fa78274394e76558307280d1.webp"
+      },
+      "approval": {
+        "verified": false,
+        "exact_candidate_owner_approval": null,
+        "reason": "No exact-candidate approval citation is linked in the existing source evidence. A path, merge or folder name is not substituted for approval."
+      },
+      "decision": "HOLD — supplied inventory has no exact-candidate approval; do not overwrite production"
+    },
+    {
+      "artwork_id": "FC-042-03",
+      "drawing_group_id": "DRAW-FC-042-03",
+      "book": "FC",
+      "printed_page": 40,
+      "lesson": 18,
+      "current_runtime": {
+        "pointer": "src/data/flipchart-native-assets.json/42/2",
+        "asset_path": "/cartilla/art/optimized/flipchart-native/p042-carrusel.png",
+        "evidence_commit": "153c7eccbec5bc1090cd130a909f0cf73630415a",
+        "verified": false
+      },
+      "verified_candidate": {
+        "file_id": "FILE-5db57c1b6efd17111509",
+        "location": "public/cartilla/art/optimized/flipchart-native/p042-carrusel.png",
+        "source_group": "github-current-main",
+        "sha256": "5db57c1b6efd1711150956cd93dc87e174ea67d3e8fa3a5cc60beaf9de17bc8e",
+        "bytes": 87851,
+        "github_url": "https://github.com/ejnburrows-rgb/cartilla-de-gretel/blob/153c7eccbec5bc1090cd130a909f0cf73630415a/public/cartilla/art/optimized/flipchart-native/p042-carrusel.png",
+        "width": 320,
+        "height": 320,
+        "mode": "RGB",
+        "decode": "PASS",
+        "preview": "assets/5db57c1b6efd1711150956cd93dc87e174ea67d3e8fa3a5cc60beaf9de17bc8e.webp"
+      },
+      "approval": {
+        "verified": false,
+        "exact_candidate_owner_approval": null,
+        "reason": "No exact-candidate approval citation is linked in the existing source evidence. A path, merge or folder name is not substituted for approval."
+      },
+      "decision": "HOLD — supplied inventory has no exact-candidate approval; do not overwrite production"
+    },
+    {
+      "artwork_id": "FC-042-04",
+      "drawing_group_id": "DRAW-FC-042-04",
+      "book": "FC",
+      "printed_page": 40,
+      "lesson": 18,
+      "current_runtime": {
+        "pointer": "src/data/flipchart-native-assets.json/42/3",
+        "asset_path": "/cartilla/art/optimized/flipchart-native/p042-torre.png",
+        "evidence_commit": "153c7eccbec5bc1090cd130a909f0cf73630415a",
+        "verified": false
+      },
+      "verified_candidate": {
+        "file_id": "FILE-4a12495a0531d7066f37",
+        "location": "public/cartilla/art/faithful/leccion-18-rr/torre.webp",
+        "source_group": "github-current-main",
+        "sha256": "4a12495a0531d7066f3732deb75142db39a5aed021666570a3dfc75281d53e83",
+        "bytes": 61506,
+        "github_url": "https://github.com/ejnburrows-rgb/cartilla-de-gretel/blob/153c7eccbec5bc1090cd130a909f0cf73630415a/public/cartilla/art/faithful/leccion-18-rr/torre.webp",
+        "width": 356,
+        "height": 870,
+        "mode": "RGBA",
+        "decode": "PASS",
+        "preview": "assets/4a12495a0531d7066f3732deb75142db39a5aed021666570a3dfc75281d53e83.webp"
+      },
+      "approval": {
+        "verified": false,
+        "exact_candidate_owner_approval": null,
+        "reason": "No exact-candidate approval citation is linked in the existing source evidence. A path, merge or folder name is not substituted for approval."
+      },
+      "decision": "HOLD — supplied inventory has no exact-candidate approval; do not overwrite production"
+    },
+    {
+      "artwork_id": "FC-042-05",
+      "drawing_group_id": "DRAW-FC-042-05",
+      "book": "FC",
+      "printed_page": 40,
+      "lesson": 18,
+      "current_runtime": {
+        "pointer": "src/data/flipchart-native-assets.json/42/4",
+        "asset_path": "/cartilla/art/optimized/flipchart-native/p042-barril.png",
+        "evidence_commit": "153c7eccbec5bc1090cd130a909f0cf73630415a",
+        "verified": false
+      },
+      "verified_candidate": {
+        "file_id": "FILE-c7c1b438a276e8b52b04",
+        "location": "public/cartilla/art/faithful/leccion-18-rr/barril.webp",
+        "source_group": "github-current-main",
+        "sha256": "c7c1b438a276e8b52b044bd02ffce44bd5bd57e291c33d27c5122285ce8a36db",
+        "bytes": 127042,
+        "github_url": "https://github.com/ejnburrows-rgb/cartilla-de-gretel/blob/153c7eccbec5bc1090cd130a909f0cf73630415a/public/cartilla/art/faithful/leccion-18-rr/barril.webp",
+        "width": 595,
+        "height": 870,
+        "mode": "RGBA",
+        "decode": "PASS",
+        "preview": "assets/c7c1b438a276e8b52b044bd02ffce44bd5bd57e291c33d27c5122285ce8a36db.webp"
+      },
+      "approval": {
+        "verified": false,
+        "exact_candidate_owner_approval": null,
+        "reason": "No exact-candidate approval citation is linked in the existing source evidence. A path, merge or folder name is not substituted for approval."
+      },
+      "decision": "HOLD — supplied inventory has no exact-candidate approval; do not overwrite production"
+    },
+    {
+      "artwork_id": "FC-042-06",
+      "drawing_group_id": "DRAW-FC-042-06",
+      "book": "FC",
+      "printed_page": 40,
+      "lesson": 18,
+      "current_runtime": {
+        "pointer": "src/data/flipchart-native-assets.json/42/5",
+        "asset_path": "/cartilla/art/optimized/flipchart-native/p042-tierra.png",
+        "evidence_commit": "153c7eccbec5bc1090cd130a909f0cf73630415a",
+        "verified": false
+      },
+      "verified_candidate": {
+        "file_id": "FILE-8c9be585ca8ae6241c3a",
+        "location": "public/cartilla/art/faithful/leccion-18-rr/tierra.webp",
+        "source_group": "github-current-main",
+        "sha256": "8c9be585ca8ae6241c3a45e89a684a8efb7f846e0545a268e4383105d91f3d0b",
+        "bytes": 214154,
+        "github_url": "https://github.com/ejnburrows-rgb/cartilla-de-gretel/blob/153c7eccbec5bc1090cd130a909f0cf73630415a/public/cartilla/art/faithful/leccion-18-rr/tierra.webp",
+        "width": 869,
+        "height": 870,
+        "mode": "RGBA",
+        "decode": "PASS",
+        "preview": "assets/8c9be585ca8ae6241c3a45e89a684a8efb7f846e0545a268e4383105d91f3d0b.webp"
+      },
+      "approval": {
+        "verified": false,
+        "exact_candidate_owner_approval": null,
+        "reason": "No exact-candidate approval citation is linked in the existing source evidence. A path, merge or folder name is not substituted for approval."
+      },
+      "decision": "HOLD — supplied inventory has no exact-candidate approval; do not overwrite production"
+    },
+    {
+      "artwork_id": "FC-045-02",
+      "drawing_group_id": "DRAW-FC-045-02",
+      "book": "FC",
+      "printed_page": 43,
+      "lesson": 19,
+      "current_runtime": {
+        "pointer": "src/data/flipchart-native-assets.json/45/1",
+        "asset_path": "/cartilla/art/optimized/flipchart-native/p045-gaveta.png",
+        "evidence_commit": "153c7eccbec5bc1090cd130a909f0cf73630415a",
+        "verified": false
+      },
+      "verified_candidate": {
+        "file_id": "FILE-7ce80523578311fe0473",
+        "location": "public/cartilla/art/optimized/flipchart-native/p045-gaveta.png",
+        "source_group": "github-current-main",
+        "sha256": "7ce80523578311fe047342fb0214f78af7da7c28e36831116265ce3cc61a79fb",
+        "bytes": 80865,
+        "github_url": "https://github.com/ejnburrows-rgb/cartilla-de-gretel/blob/153c7eccbec5bc1090cd130a909f0cf73630415a/public/cartilla/art/optimized/flipchart-native/p045-gaveta.png",
+        "width": 321,
+        "height": 321,
+        "mode": "RGB",
+        "decode": "PASS",
+        "preview": "assets/7ce80523578311fe047342fb0214f78af7da7c28e36831116265ce3cc61a79fb.webp"
+      },
+      "approval": {
+        "verified": false,
+        "exact_candidate_owner_approval": null,
+        "reason": "No exact-candidate approval citation is linked in the existing source evidence. A path, merge or folder name is not substituted for approval."
+      },
+      "decision": "HOLD — supplied inventory has no exact-candidate approval; do not overwrite production"
+    },
+    {
+      "artwork_id": "FC-045-03",
+      "drawing_group_id": "DRAW-FC-045-03",
+      "book": "FC",
+      "printed_page": 43,
+      "lesson": 19,
+      "current_runtime": {
+        "pointer": "src/data/flipchart-native-assets.json/45/2",
+        "asset_path": "/cartilla/art/optimized/flipchart-native/p045-gusano.png",
+        "evidence_commit": "153c7eccbec5bc1090cd130a909f0cf73630415a",
+        "verified": false
+      },
+      "verified_candidate": {
+        "file_id": "FILE-e206fc91fbc3067d55b8",
+        "location": "public/cartilla/art/optimized/flipchart-native/p045-gusano.png",
+        "source_group": "github-current-main",
+        "sha256": "e206fc91fbc3067d55b8dbfa9a2d53402a0b606618119061c87b12b3393a94e2",
+        "bytes": 27873,
+        "github_url": "https://github.com/ejnburrows-rgb/cartilla-de-gretel/blob/153c7eccbec5bc1090cd130a909f0cf73630415a/public/cartilla/art/optimized/flipchart-native/p045-gusano.png",
+        "width": 333,
+        "height": 333,
+        "mode": "RGB",
+        "decode": "PASS",
+        "preview": "assets/e206fc91fbc3067d55b8dbfa9a2d53402a0b606618119061c87b12b3393a94e2.webp"
+      },
+      "approval": {
+        "verified": false,
+        "exact_candidate_owner_approval": null,
+        "reason": "No exact-candidate approval citation is linked in the existing source evidence. A path, merge or folder name is not substituted for approval."
+      },
+      "decision": "HOLD — supplied inventory has no exact-candidate approval; do not overwrite production"
+    },
+    {
+      "artwork_id": "FC-045-05",
+      "drawing_group_id": "DRAW-FC-045-05",
+      "book": "FC",
+      "printed_page": 43,
+      "lesson": 19,
+      "current_runtime": {
+        "pointer": "src/data/flipchart-native-assets.json/45/4",
+        "asset_path": "/cartilla/art/optimized/flipchart-native/p045-gorra.png",
+        "evidence_commit": "153c7eccbec5bc1090cd130a909f0cf73630415a",
+        "verified": false
+      },
+      "verified_candidate": {
+        "file_id": "FILE-d5ab1198b6d411ca1ff4",
+        "location": "public/cartilla/art/optimized/flipchart-native/p045-gorra.png",
+        "source_group": "github-current-main",
+        "sha256": "d5ab1198b6d411ca1ff4174c167577c9157ef8e67ffc5965088fc20bab320844",
+        "bytes": 55671,
+        "github_url": "https://github.com/ejnburrows-rgb/cartilla-de-gretel/blob/153c7eccbec5bc1090cd130a909f0cf73630415a/public/cartilla/art/optimized/flipchart-native/p045-gorra.png",
+        "width": 320,
+        "height": 320,
+        "mode": "RGB",
+        "decode": "PASS",
+        "preview": "assets/d5ab1198b6d411ca1ff4174c167577c9157ef8e67ffc5965088fc20bab320844.webp"
+      },
+      "approval": {
+        "verified": false,
+        "exact_candidate_owner_approval": null,
+        "reason": "No exact-candidate approval citation is linked in the existing source evidence. A path, merge or folder name is not substituted for approval."
+      },
+      "decision": "HOLD — supplied inventory has no exact-candidate approval; do not overwrite production"
+    },
+    {
+      "artwork_id": "FC-048-02",
+      "drawing_group_id": "DRAW-FC-048-02",
+      "book": "FC",
+      "printed_page": 46,
+      "lesson": 20,
+      "current_runtime": {
+        "pointer": "src/data/flipchart-native-assets.json/48/1",
+        "asset_path": "/cartilla/art/optimized/flipchart-native/p048-foto.png",
+        "evidence_commit": "153c7eccbec5bc1090cd130a909f0cf73630415a",
+        "verified": false
+      },
+      "verified_candidate": {
+        "file_id": "FILE-0dff03ab499e72b2876d",
+        "location": "public/cartilla/art/optimized/flipchart-native/p048-foto.png",
+        "source_group": "github-current-main",
+        "sha256": "0dff03ab499e72b2876da2a473faaeb88acb7292ac14abffa1cb83e17abecc04",
+        "bytes": 65853,
+        "github_url": "https://github.com/ejnburrows-rgb/cartilla-de-gretel/blob/153c7eccbec5bc1090cd130a909f0cf73630415a/public/cartilla/art/optimized/flipchart-native/p048-foto.png",
+        "width": 320,
+        "height": 320,
+        "mode": "RGB",
+        "decode": "PASS",
+        "preview": "assets/0dff03ab499e72b2876da2a473faaeb88acb7292ac14abffa1cb83e17abecc04.webp"
+      },
+      "approval": {
+        "verified": false,
+        "exact_candidate_owner_approval": null,
+        "reason": "No exact-candidate approval citation is linked in the existing source evidence. A path, merge or folder name is not substituted for approval."
+      },
+      "decision": "HOLD — supplied inventory has no exact-candidate approval; do not overwrite production"
+    },
+    {
+      "artwork_id": "FC-048-03",
+      "drawing_group_id": "DRAW-FC-048-03",
+      "book": "FC",
+      "printed_page": 46,
+      "lesson": 20,
+      "current_runtime": {
+        "pointer": "src/data/flipchart-native-assets.json/48/2",
+        "asset_path": "/cartilla/art/optimized/flipchart-native/p048-fideos.png",
+        "evidence_commit": "153c7eccbec5bc1090cd130a909f0cf73630415a",
+        "verified": false
+      },
+      "verified_candidate": {
+        "file_id": "FILE-a2569ab214a7ca83b9c2",
+        "location": "public/cartilla/art/optimized/flipchart-native/p048-fideos.png",
+        "source_group": "github-current-main",
+        "sha256": "a2569ab214a7ca83b9c263a44266a7ba9e3c14062dfafad9aeb551be21da2e51",
+        "bytes": 69470,
+        "github_url": "https://github.com/ejnburrows-rgb/cartilla-de-gretel/blob/153c7eccbec5bc1090cd130a909f0cf73630415a/public/cartilla/art/optimized/flipchart-native/p048-fideos.png",
+        "width": 325,
+        "height": 325,
+        "mode": "RGB",
+        "decode": "PASS",
+        "preview": "assets/a2569ab214a7ca83b9c263a44266a7ba9e3c14062dfafad9aeb551be21da2e51.webp"
+      },
+      "approval": {
+        "verified": false,
+        "exact_candidate_owner_approval": null,
+        "reason": "No exact-candidate approval citation is linked in the existing source evidence. A path, merge or folder name is not substituted for approval."
+      },
+      "decision": "HOLD — supplied inventory has no exact-candidate approval; do not overwrite production"
+    },
+    {
+      "artwork_id": "FC-051-02",
+      "drawing_group_id": "DRAW-FC-051-02",
+      "book": "FC",
+      "printed_page": 49,
+      "lesson": 21,
+      "current_runtime": {
+        "pointer": "src/data/flipchart-native-assets.json/51/1",
+        "asset_path": "/cartilla/art/optimized/flipchart-native/p051-jicotea.png",
+        "evidence_commit": "153c7eccbec5bc1090cd130a909f0cf73630415a",
+        "verified": false
+      },
+      "verified_candidate": {
+        "file_id": "FILE-195abb5e60528f5056b9",
+        "location": "public/cartilla/art/optimized/flipchart-native/p051-jicotea.png",
+        "source_group": "github-current-main",
+        "sha256": "195abb5e60528f5056b9cf56e8c6b72df9e1626e17d0528d3da5027486763ba1",
+        "bytes": 82182,
+        "github_url": "https://github.com/ejnburrows-rgb/cartilla-de-gretel/blob/153c7eccbec5bc1090cd130a909f0cf73630415a/public/cartilla/art/optimized/flipchart-native/p051-jicotea.png",
+        "width": 322,
+        "height": 322,
+        "mode": "RGB",
+        "decode": "PASS",
+        "preview": "assets/195abb5e60528f5056b9cf56e8c6b72df9e1626e17d0528d3da5027486763ba1.webp"
+      },
+      "approval": {
+        "verified": false,
+        "exact_candidate_owner_approval": null,
+        "reason": "No exact-candidate approval citation is linked in the existing source evidence. A path, merge or folder name is not substituted for approval."
+      },
+      "decision": "HOLD — supplied inventory has no exact-candidate approval; do not overwrite production"
+    },
+    {
+      "artwork_id": "FC-051-03",
+      "drawing_group_id": "DRAW-FC-051-03",
+      "book": "FC",
+      "printed_page": 49,
+      "lesson": 21,
+      "current_runtime": {
+        "pointer": "src/data/flipchart-native-assets.json/51/2",
+        "asset_path": "/cartilla/art/optimized/flipchart-native/p051-jugo.png",
+        "evidence_commit": "153c7eccbec5bc1090cd130a909f0cf73630415a",
+        "verified": false
+      },
+      "verified_candidate": {
+        "file_id": "FILE-0a1a6787ce243787a742",
+        "location": "public/cartilla/art/optimized/flipchart-native/p051-jugo.png",
+        "source_group": "github-current-main",
+        "sha256": "0a1a6787ce243787a742addb233b1df2a0031480987180b29be21bdd6fba81c8",
+        "bytes": 41769,
+        "github_url": "https://github.com/ejnburrows-rgb/cartilla-de-gretel/blob/153c7eccbec5bc1090cd130a909f0cf73630415a/public/cartilla/art/optimized/flipchart-native/p051-jugo.png",
+        "width": 320,
+        "height": 320,
+        "mode": "RGB",
+        "decode": "PASS",
+        "preview": "assets/0a1a6787ce243787a742addb233b1df2a0031480987180b29be21bdd6fba81c8.webp"
+      },
+      "approval": {
+        "verified": false,
+        "exact_candidate_owner_approval": null,
+        "reason": "No exact-candidate approval citation is linked in the existing source evidence. A path, merge or folder name is not substituted for approval."
+      },
+      "decision": "HOLD — supplied inventory has no exact-candidate approval; do not overwrite production"
+    },
+    {
+      "artwork_id": "FC-051-05",
+      "drawing_group_id": "DRAW-FC-051-05",
+      "book": "FC",
+      "printed_page": 49,
+      "lesson": 21,
+      "current_runtime": {
+        "pointer": "src/data/flipchart-native-assets.json/51/4",
+        "asset_path": "/cartilla/art/optimized/flipchart-native/p051-ajo.png",
+        "evidence_commit": "153c7eccbec5bc1090cd130a909f0cf73630415a",
+        "verified": false
+      },
+      "verified_candidate": {
+        "file_id": "FILE-df10b9233d81b4d9fc3f",
+        "location": "public/cartilla/art/optimized/flipchart-native/p051-ajo.png",
+        "source_group": "github-current-main",
+        "sha256": "df10b9233d81b4d9fc3f5ede43bc327ec7b418d0c0b659d4ed627c6e4fb94905",
+        "bytes": 51115,
+        "github_url": "https://github.com/ejnburrows-rgb/cartilla-de-gretel/blob/153c7eccbec5bc1090cd130a909f0cf73630415a/public/cartilla/art/optimized/flipchart-native/p051-ajo.png",
+        "width": 320,
+        "height": 320,
+        "mode": "RGB",
+        "decode": "PASS",
+        "preview": "assets/df10b9233d81b4d9fc3f5ede43bc327ec7b418d0c0b659d4ed627c6e4fb94905.webp"
+      },
+      "approval": {
+        "verified": false,
+        "exact_candidate_owner_approval": null,
+        "reason": "No exact-candidate approval citation is linked in the existing source evidence. A path, merge or folder name is not substituted for approval."
+      },
+      "decision": "HOLD — supplied inventory has no exact-candidate approval; do not overwrite production"
+    },
+    {
+      "artwork_id": "FC-054-02",
+      "drawing_group_id": "DRAW-FC-054-02",
+      "book": "FC",
+      "printed_page": 52,
+      "lesson": 22,
+      "current_runtime": {
+        "pointer": "src/data/flipchart-native-assets.json/54/1",
+        "asset_path": "/cartilla/art/optimized/flipchart-native/p054-cuna.png",
+        "evidence_commit": "153c7eccbec5bc1090cd130a909f0cf73630415a",
+        "verified": false
+      },
+      "verified_candidate": {
+        "file_id": "FILE-b2a1761d51c93b870be1",
+        "location": "public/cartilla/art/optimized/flipchart-native/p054-cuna.png",
+        "source_group": "github-current-main",
+        "sha256": "b2a1761d51c93b870be18a47cf996435c4521c26a5d7c9f844e1ebbf0cd9fbfc",
+        "bytes": 66603,
+        "github_url": "https://github.com/ejnburrows-rgb/cartilla-de-gretel/blob/153c7eccbec5bc1090cd130a909f0cf73630415a/public/cartilla/art/optimized/flipchart-native/p054-cuna.png",
+        "width": 320,
+        "height": 320,
+        "mode": "RGB",
+        "decode": "PASS",
+        "preview": "assets/b2a1761d51c93b870be18a47cf996435c4521c26a5d7c9f844e1ebbf0cd9fbfc.webp"
+      },
+      "approval": {
+        "verified": false,
+        "exact_candidate_owner_approval": null,
+        "reason": "No exact-candidate approval citation is linked in the existing source evidence. A path, merge or folder name is not substituted for approval."
+      },
+      "decision": "HOLD — supplied inventory has no exact-candidate approval; do not overwrite production"
+    },
+    {
+      "artwork_id": "FC-056-01",
+      "drawing_group_id": "DRAW-FC-056-01",
+      "book": "FC",
+      "printed_page": 54,
+      "lesson": 22,
+      "current_runtime": {
+        "pointer": "src/data/flipchart-native-assets.json/56/0",
+        "asset_path": "/cartilla/art/optimized/flipchart-native/p056-caramelos.webp",
+        "evidence_commit": "153c7eccbec5bc1090cd130a909f0cf73630415a",
+        "verified": false
+      },
+      "verified_candidate": {
+        "file_id": "FILE-f861369a1d1b4535b393",
+        "location": "public/cartilla/art/optimized/flipchart-native/p056-caramelos.webp",
+        "source_group": "github-current-main",
+        "sha256": "f861369a1d1b4535b39331f7743187754caa8099c7eb8b257217c1e03a021a5d",
+        "bytes": 290425,
+        "github_url": "https://github.com/ejnburrows-rgb/cartilla-de-gretel/blob/153c7eccbec5bc1090cd130a909f0cf73630415a/public/cartilla/art/optimized/flipchart-native/p056-caramelos.webp",
+        "width": 1034,
+        "height": 1536,
+        "mode": "RGB",
+        "decode": "PASS",
+        "preview": "assets/f861369a1d1b4535b39331f7743187754caa8099c7eb8b257217c1e03a021a5d.webp"
+      },
+      "approval": {
+        "verified": false,
+        "exact_candidate_owner_approval": null,
+        "reason": "No exact-candidate approval citation is linked in the existing source evidence. A path, merge or folder name is not substituted for approval."
+      },
+      "decision": "HOLD — supplied inventory has no exact-candidate approval; do not overwrite production"
+    },
+    {
+      "artwork_id": "FC-057-02",
+      "drawing_group_id": "DRAW-FC-057-02",
+      "book": "FC",
+      "printed_page": 55,
+      "lesson": 23,
+      "current_runtime": {
+        "pointer": "src/data/flipchart-native-assets.json/57/1",
+        "asset_path": "/cartilla/art/optimized/flipchart-native/p057-yate.png",
+        "evidence_commit": "153c7eccbec5bc1090cd130a909f0cf73630415a",
+        "verified": false
+      },
+      "verified_candidate": {
+        "file_id": "FILE-a839c243b7d07664bf65",
+        "location": "public/cartilla/art/optimized/flipchart-native/p057-yate.png",
+        "source_group": "github-current-main",
+        "sha256": "a839c243b7d07664bf6572ba7e5de29f8d056e2fb03d50ec8240eb9f2d8a9be9",
+        "bytes": 68646,
+        "github_url": "https://github.com/ejnburrows-rgb/cartilla-de-gretel/blob/153c7eccbec5bc1090cd130a909f0cf73630415a/public/cartilla/art/optimized/flipchart-native/p057-yate.png",
+        "width": 338,
+        "height": 338,
+        "mode": "RGB",
+        "decode": "PASS",
+        "preview": "assets/a839c243b7d07664bf6572ba7e5de29f8d056e2fb03d50ec8240eb9f2d8a9be9.webp"
+      },
+      "approval": {
+        "verified": false,
+        "exact_candidate_owner_approval": null,
+        "reason": "No exact-candidate approval citation is linked in the existing source evidence. A path, merge or folder name is not substituted for approval."
+      },
+      "decision": "HOLD — supplied inventory has no exact-candidate approval; do not overwrite production"
+    },
+    {
+      "artwork_id": "FC-057-03",
+      "drawing_group_id": "DRAW-FC-057-03",
+      "book": "FC",
+      "printed_page": 55,
+      "lesson": 23,
+      "current_runtime": {
+        "pointer": "src/data/flipchart-native-assets.json/57/2",
+        "asset_path": "/cartilla/art/optimized/flipchart-native/p057-yema.png",
+        "evidence_commit": "153c7eccbec5bc1090cd130a909f0cf73630415a",
+        "verified": false
+      },
+      "verified_candidate": {
+        "file_id": "FILE-ef6c24dea183c2100071",
+        "location": "public/cartilla/art/optimized/flipchart-native/p057-yema.png",
+        "source_group": "github-current-main",
+        "sha256": "ef6c24dea183c21000714d20c22836073b0ce547bfa95bdb59dc78c6cb17edd5",
+        "bytes": 14093,
+        "github_url": "https://github.com/ejnburrows-rgb/cartilla-de-gretel/blob/153c7eccbec5bc1090cd130a909f0cf73630415a/public/cartilla/art/optimized/flipchart-native/p057-yema.png",
+        "width": 333,
+        "height": 333,
+        "mode": "RGB",
+        "decode": "PASS",
+        "preview": "assets/ef6c24dea183c21000714d20c22836073b0ce547bfa95bdb59dc78c6cb17edd5.webp"
+      },
+      "approval": {
+        "verified": false,
+        "exact_candidate_owner_approval": null,
+        "reason": "No exact-candidate approval citation is linked in the existing source evidence. A path, merge or folder name is not substituted for approval."
+      },
+      "decision": "HOLD — supplied inventory has no exact-candidate approval; do not overwrite production"
+    },
+    {
+      "artwork_id": "FC-057-04",
+      "drawing_group_id": "DRAW-FC-057-04",
+      "book": "FC",
+      "printed_page": 55,
+      "lesson": 23,
+      "current_runtime": {
+        "pointer": "src/data/flipchart-native-assets.json/57/3",
+        "asset_path": "/cartilla/art/optimized/flipchart-native/p057-yayita.png",
+        "evidence_commit": "153c7eccbec5bc1090cd130a909f0cf73630415a",
+        "verified": false
+      },
+      "verified_candidate": {
+        "file_id": "FILE-3628884317308b67f4ba",
+        "location": "public/cartilla/art/optimized/flipchart-native/p057-yayita.png",
+        "source_group": "github-current-main",
+        "sha256": "3628884317308b67f4ba4027c9f9f769afc43c39a5baea63913795c32cb1f808",
+        "bytes": 80945,
+        "github_url": "https://github.com/ejnburrows-rgb/cartilla-de-gretel/blob/153c7eccbec5bc1090cd130a909f0cf73630415a/public/cartilla/art/optimized/flipchart-native/p057-yayita.png",
+        "width": 320,
+        "height": 320,
+        "mode": "RGB",
+        "decode": "PASS",
+        "preview": "assets/3628884317308b67f4ba4027c9f9f769afc43c39a5baea63913795c32cb1f808.webp"
+      },
+      "approval": {
+        "verified": false,
+        "exact_candidate_owner_approval": null,
+        "reason": "No exact-candidate approval citation is linked in the existing source evidence. A path, merge or folder name is not substituted for approval."
+      },
+      "decision": "HOLD — supplied inventory has no exact-candidate approval; do not overwrite production"
+    },
+    {
+      "artwork_id": "FC-060-02",
+      "drawing_group_id": "DRAW-FC-060-02",
+      "book": "FC",
+      "printed_page": 58,
+      "lesson": 24,
+      "current_runtime": {
+        "pointer": "src/data/flipchart-native-assets.json/60/1",
+        "asset_path": "/cartilla/art/optimized/flipchart-native/p060-zapato.png",
+        "evidence_commit": "153c7eccbec5bc1090cd130a909f0cf73630415a",
+        "verified": false
+      },
+      "verified_candidate": {
+        "file_id": "FILE-bf280e8b350e3dab47a6",
+        "location": "public/cartilla/art/optimized/flipchart-native/p060-zapato.png",
+        "source_group": "github-current-main",
+        "sha256": "bf280e8b350e3dab47a648911851167fad9d8c872204e6e8c63ac408a90f622f",
+        "bytes": 61591,
+        "github_url": "https://github.com/ejnburrows-rgb/cartilla-de-gretel/blob/153c7eccbec5bc1090cd130a909f0cf73630415a/public/cartilla/art/optimized/flipchart-native/p060-zapato.png",
+        "width": 320,
+        "height": 320,
+        "mode": "RGB",
+        "decode": "PASS",
+        "preview": "assets/bf280e8b350e3dab47a648911851167fad9d8c872204e6e8c63ac408a90f622f.webp"
+      },
+      "approval": {
+        "verified": false,
+        "exact_candidate_owner_approval": null,
+        "reason": "No exact-candidate approval citation is linked in the existing source evidence. A path, merge or folder name is not substituted for approval."
+      },
+      "decision": "HOLD — supplied inventory has no exact-candidate approval; do not overwrite production"
+    },
+    {
+      "artwork_id": "FC-060-06",
+      "drawing_group_id": "DRAW-FC-060-06",
+      "book": "FC",
+      "printed_page": 58,
+      "lesson": 24,
+      "current_runtime": {
+        "pointer": "src/data/flipchart-native-assets.json/60/5",
+        "asset_path": "/cartilla/art/optimized/flipchart-native/p060-zulema.png",
+        "evidence_commit": "153c7eccbec5bc1090cd130a909f0cf73630415a",
+        "verified": false
+      },
+      "verified_candidate": {
+        "file_id": "FILE-fcce97f499d3565db150",
+        "location": "C:\\Users\\EJN\\Downloads\\cartilla-gretel-assets.zip!cutouts/p60_asset05.png",
+        "source_group": "local-additional-archive:cartilla-gretel-assets.zip",
+        "sha256": "fcce97f499d3565db15082b2e708efb81317779bdbadb1b56664aece4218306e",
+        "bytes": 18404,
+        "width": 73,
+        "height": 114,
+        "mode": "RGBA",
+        "decode": "PASS",
+        "preview": "assets/fcce97f499d3565db15082b2e708efb81317779bdbadb1b56664aece4218306e.webp"
+      },
+      "approval": {
+        "verified": false,
+        "exact_candidate_owner_approval": null,
+        "reason": "No exact-candidate approval citation is linked in the existing source evidence. A path, merge or folder name is not substituted for approval."
+      },
+      "decision": "HOLD — supplied inventory has no exact-candidate approval; do not overwrite production"
+    },
+    {
+      "artwork_id": "WB-S007-OBJ03-ABANICO",
+      "drawing_group_id": "DRAW-WB-01-1",
+      "book": "WB",
+      "printed_page": 1,
+      "lesson": 1,
+      "current_runtime": {
+        "pointer": "src/data/page-layouts.json/pages/1/picture-cell:abanico",
+        "asset_path": "/cartilla/art/optimized/workbook/leccion-1/abanico.svg",
+        "evidence_commit": "153c7eccbec5bc1090cd130a909f0cf73630415a",
+        "verified": false
+      },
+      "verified_candidate": {
+        "file_id": "FILE-b2c8564ab38f075d2598",
+        "location": "public/cartilla/art/optimized/workbook/leccion-1/abanico.svg",
+        "source_group": "github-current-main",
+        "sha256": "b2c8564ab38f075d259808356d214a8644b355df74fa34dba8943711441c62f6",
+        "bytes": 95114,
+        "github_url": "https://github.com/ejnburrows-rgb/cartilla-de-gretel/blob/153c7eccbec5bc1090cd130a909f0cf73630415a/public/cartilla/art/optimized/workbook/leccion-1/abanico.svg",
+        "decode": "PASS",
+        "width": 220,
+        "height": 221,
+        "preview": "assets/b2c8564ab38f075d259808356d214a8644b355df74fa34dba8943711441c62f6.webp"
+      },
+      "approval": {
+        "verified": false,
+        "exact_candidate_owner_approval": null,
+        "reason": "No exact-candidate approval citation is linked in the existing source evidence. A path, merge or folder name is not substituted for approval."
+      },
+      "decision": "HOLD — supplied inventory has no exact-candidate approval; do not overwrite production"
+    },
+    {
+      "artwork_id": "WB-S007-OBJ05-ISLA",
+      "drawing_group_id": "DRAW-WB-31-1",
+      "book": "WB",
+      "printed_page": 1,
+      "lesson": 1,
+      "current_runtime": {
+        "pointer": "src/data/page-layouts.json/pages/1/picture-cell:isla",
+        "asset_path": "/cartilla/art/optimized/workbook/leccion-1/isla.svg",
+        "evidence_commit": "153c7eccbec5bc1090cd130a909f0cf73630415a",
+        "verified": false
+      },
+      "verified_candidate": {
+        "file_id": "FILE-e822c30302dd1ab65c36",
+        "location": "public/cartilla/art/optimized/workbook/leccion-1/isla.svg",
+        "source_group": "github-current-main",
+        "sha256": "e822c30302dd1ab65c36d71e5de722f98984f4300a1a48f60f216d288e48e0d4",
+        "bytes": 71138,
+        "github_url": "https://github.com/ejnburrows-rgb/cartilla-de-gretel/blob/153c7eccbec5bc1090cd130a909f0cf73630415a/public/cartilla/art/optimized/workbook/leccion-1/isla.svg",
+        "decode": "PASS",
+        "width": 266,
+        "height": 232,
+        "preview": "assets/e822c30302dd1ab65c36d71e5de722f98984f4300a1a48f60f216d288e48e0d4.webp"
+      },
+      "approval": {
+        "verified": false,
+        "exact_candidate_owner_approval": null,
+        "reason": "No exact-candidate approval citation is linked in the existing source evidence. A path, merge or folder name is not substituted for approval."
+      },
+      "decision": "HOLD — supplied inventory has no exact-candidate approval; do not overwrite production"
+    },
+    {
+      "artwork_id": "WB-S007-OBJ11-ESCUELA",
+      "drawing_group_id": "DRAW-WB-18-1",
+      "book": "WB",
+      "printed_page": 1,
+      "lesson": 1,
+      "current_runtime": {
+        "pointer": "src/data/page-layouts.json/pages/1/picture-cell:escuela",
+        "asset_path": "/cartilla/art/optimized/workbook/leccion-1/escuela.png",
+        "evidence_commit": "153c7eccbec5bc1090cd130a909f0cf73630415a",
+        "verified": false
+      },
+      "verified_candidate": {
+        "file_id": "FILE-ad15da8a9c7ba2b64053",
+        "location": "public/cartilla/art/faithful/leccion-1/wb-p1/escuela.svg",
+        "source_group": "github-current-main",
+        "sha256": "ad15da8a9c7ba2b6405325d85cc6e6197944714e24e4380059d836466dd1fa38",
+        "bytes": 34334,
+        "github_url": "https://github.com/ejnburrows-rgb/cartilla-de-gretel/blob/153c7eccbec5bc1090cd130a909f0cf73630415a/public/cartilla/art/faithful/leccion-1/wb-p1/escuela.svg",
+        "decode": "PASS",
+        "width": 168,
+        "height": 151,
+        "preview": "assets/ad15da8a9c7ba2b6405325d85cc6e6197944714e24e4380059d836466dd1fa38.webp"
+      },
+      "approval": {
+        "verified": false,
+        "exact_candidate_owner_approval": null,
+        "reason": "No exact-candidate approval citation is linked in the existing source evidence. A path, merge or folder name is not substituted for approval."
+      },
+      "decision": "HOLD — supplied inventory has no exact-candidate approval; do not overwrite production"
+    },
+    {
+      "artwork_id": "WB-S007-OBJ12-OREJA",
+      "drawing_group_id": "DRAW-WB-39-1",
+      "book": "WB",
+      "printed_page": 1,
+      "lesson": 1,
+      "current_runtime": {
+        "pointer": "src/data/page-layouts.json/pages/1/picture-cell:oreja",
+        "asset_path": "/cartilla/art/optimized/workbook/leccion-1/oreja.svg",
+        "evidence_commit": "153c7eccbec5bc1090cd130a909f0cf73630415a",
+        "verified": false
+      },
+      "verified_candidate": {
+        "file_id": "FILE-879b48fe301abea81515",
+        "location": "public/cartilla/art/optimized/workbook/leccion-1/oreja.svg",
+        "source_group": "github-current-main",
+        "sha256": "879b48fe301abea8151538fd01997b75660899b66b2ae0500b7178f4dd276437",
+        "bytes": 80754,
+        "github_url": "https://github.com/ejnburrows-rgb/cartilla-de-gretel/blob/153c7eccbec5bc1090cd130a909f0cf73630415a/public/cartilla/art/optimized/workbook/leccion-1/oreja.svg",
+        "decode": "PASS",
+        "width": 147,
+        "height": 232,
+        "preview": "assets/879b48fe301abea8151538fd01997b75660899b66b2ae0500b7178f4dd276437.webp"
+      },
+      "approval": {
+        "verified": false,
+        "exact_candidate_owner_approval": null,
+        "reason": "No exact-candidate approval citation is linked in the existing source evidence. A path, merge or folder name is not substituted for approval."
+      },
+      "decision": "HOLD — supplied inventory has no exact-candidate approval; do not overwrite production"
+    },
+    {
+      "artwork_id": "WB-S007-OBJ14-UNA",
+      "drawing_group_id": "DRAW-WB-47-1",
+      "book": "WB",
+      "printed_page": 1,
+      "lesson": 1,
+      "current_runtime": {
+        "pointer": "src/data/page-layouts.json/pages/1/picture-cell:uña",
+        "asset_path": "/cartilla/art/optimized/workbook/leccion-1/una.svg",
+        "evidence_commit": "153c7eccbec5bc1090cd130a909f0cf73630415a",
+        "verified": false
+      },
+      "verified_candidate": {
+        "file_id": "FILE-14b2ffeb6bb6c4d70421",
+        "location": "C:\\Users\\EJN\\Downloads\\cartilla-de-gretel-archive-cartilla-owner-art-20261011.zip!cartilla-de-gretel-archive-cartilla-owner-art-20261011/public/cartilla/art/faithful/vocal-u/uña.webp",
+        "source_group": "local-additional-archive:cartilla-de-gretel-archive-cartilla-owner-art-20261011.zip",
+        "sha256": "14b2ffeb6bb6c4d70421e4adeed9a59b438bb859484c3123990b2806647c1e70",
+        "bytes": 37814,
+        "width": 799,
+        "height": 870,
+        "mode": "RGBA",
+        "decode": "PASS",
+        "preview": "assets/14b2ffeb6bb6c4d70421e4adeed9a59b438bb859484c3123990b2806647c1e70.webp"
+      },
+      "approval": {
+        "verified": false,
+        "exact_candidate_owner_approval": null,
+        "reason": "No exact-candidate approval citation is linked in the existing source evidence. A path, merge or folder name is not substituted for approval."
+      },
+      "decision": "HOLD — supplied inventory has no exact-candidate approval; do not overwrite production"
+    },
+    {
+      "artwork_id": "WB-S007-OBJ17-OJOS",
+      "drawing_group_id": "DRAW-WB-36-1",
+      "book": "WB",
+      "printed_page": 1,
+      "lesson": 1,
+      "current_runtime": {
+        "pointer": "src/data/page-layouts.json/pages/1/picture-cell:ojos",
+        "asset_path": "/cartilla/art/optimized/workbook/leccion-1/ojos.png",
+        "evidence_commit": "153c7eccbec5bc1090cd130a909f0cf73630415a",
+        "verified": false
+      },
+      "verified_candidate": {
+        "file_id": "FILE-15b2b5fda42e280e84a7",
+        "location": "public/cartilla/art/faithful/leccion-1/wb-p1/ojos.svg",
+        "source_group": "github-current-main",
+        "sha256": "15b2b5fda42e280e84a70a34ff52932a817541aaad2979ac8737a636930ac42f",
+        "bytes": 19835,
+        "github_url": "https://github.com/ejnburrows-rgb/cartilla-de-gretel/blob/153c7eccbec5bc1090cd130a909f0cf73630415a/public/cartilla/art/faithful/leccion-1/wb-p1/ojos.svg",
+        "decode": "PASS",
+        "width": 160,
+        "height": 77,
+        "preview": "assets/15b2b5fda42e280e84a70a34ff52932a817541aaad2979ac8737a636930ac42f.webp"
+      },
+      "approval": {
+        "verified": false,
+        "exact_candidate_owner_approval": null,
+        "reason": "No exact-candidate approval citation is linked in the existing source evidence. A path, merge or folder name is not substituted for approval."
+      },
+      "decision": "HOLD — supplied inventory has no exact-candidate approval; do not overwrite production"
+    },
+    {
+      "artwork_id": "WB-S007-OBJ18-MAIZ",
+      "drawing_group_id": "DRAW-WB-33-1",
+      "book": "WB",
+      "printed_page": 1,
+      "lesson": 1,
+      "current_runtime": {
+        "pointer": "src/data/page-layouts.json/pages/1/picture-cell:maíz",
+        "asset_path": "/cartilla/art/optimized/workbook/leccion-1/maiz.png",
+        "evidence_commit": "153c7eccbec5bc1090cd130a909f0cf73630415a",
+        "verified": false
+      },
+      "verified_candidate": {
+        "file_id": "FILE-1a8be7a9e53501f5a394",
+        "location": "public/cartilla/art/faithful/leccion-1/wb-p1/maiz.svg",
+        "source_group": "github-current-main",
+        "sha256": "1a8be7a9e53501f5a39460937da7e38a8ff952cb0e41f9e089c9205da381e79a",
+        "bytes": 40094,
+        "github_url": "https://github.com/ejnburrows-rgb/cartilla-de-gretel/blob/153c7eccbec5bc1090cd130a909f0cf73630415a/public/cartilla/art/faithful/leccion-1/wb-p1/maiz.svg",
+        "decode": "PASS",
+        "width": 163,
+        "height": 161,
+        "preview": "assets/1a8be7a9e53501f5a39460937da7e38a8ff952cb0e41f9e089c9205da381e79a.webp"
+      },
+      "approval": {
+        "verified": false,
+        "exact_candidate_owner_approval": null,
+        "reason": "No exact-candidate approval citation is linked in the existing source evidence. A path, merge or folder name is not substituted for approval."
+      },
+      "decision": "HOLD — supplied inventory has no exact-candidate approval; do not overwrite production"
+    },
+    {
+      "artwork_id": "WB-S007-OBJ19-ABEJA",
+      "drawing_group_id": "DRAW-WB-02-1",
+      "book": "WB",
+      "printed_page": 1,
+      "lesson": 1,
+      "current_runtime": {
+        "pointer": "src/data/page-layouts.json/pages/1/picture-cell:abeja",
+        "asset_path": "/cartilla/art/optimized/workbook/leccion-1/abeja.png",
+        "evidence_commit": "153c7eccbec5bc1090cd130a909f0cf73630415a",
+        "verified": false
+      },
+      "verified_candidate": {
+        "file_id": "FILE-560d175d73eaff134c7e",
+        "location": "public/cartilla/art/faithful/leccion-1/wb-p1/abeja.svg",
+        "source_group": "github-current-main",
+        "sha256": "560d175d73eaff134c7e6477eaa5b73c095b94af5443070874330c078f040185",
+        "bytes": 31994,
+        "github_url": "https://github.com/ejnburrows-rgb/cartilla-de-gretel/blob/153c7eccbec5bc1090cd130a909f0cf73630415a/public/cartilla/art/faithful/leccion-1/wb-p1/abeja.svg",
+        "decode": "PASS",
+        "width": 158,
+        "height": 161,
+        "preview": "assets/560d175d73eaff134c7e6477eaa5b73c095b94af5443070874330c078f040185.webp"
+      },
+      "approval": {
+        "verified": false,
+        "exact_candidate_owner_approval": null,
+        "reason": "No exact-candidate approval citation is linked in the existing source evidence. A path, merge or folder name is not substituted for approval."
+      },
+      "decision": "HOLD — supplied inventory has no exact-candidate approval; do not overwrite production"
+    },
+    {
+      "artwork_id": "WB-S007-OBJ20-OLLA",
+      "drawing_group_id": "DRAW-WB-38-1",
+      "book": "WB",
+      "printed_page": 1,
+      "lesson": 1,
+      "current_runtime": {
+        "pointer": "src/data/page-layouts.json/pages/1/picture-cell:olla",
+        "asset_path": "/cartilla/art/optimized/workbook/leccion-1/olla.svg",
+        "evidence_commit": "153c7eccbec5bc1090cd130a909f0cf73630415a",
+        "verified": false
+      },
+      "verified_candidate": {
+        "file_id": "FILE-571bad9dfaf956a11264",
+        "location": "public/cartilla/art/optimized/workbook/leccion-1/olla.svg",
+        "source_group": "github-current-main",
+        "sha256": "571bad9dfaf956a1126407dd5c260580ad6a81146c3c8ca4f99a34f4355aa844",
+        "bytes": 68294,
+        "github_url": "https://github.com/ejnburrows-rgb/cartilla-de-gretel/blob/153c7eccbec5bc1090cd130a909f0cf73630415a/public/cartilla/art/optimized/workbook/leccion-1/olla.svg",
+        "decode": "PASS",
+        "width": 213,
+        "height": 171,
+        "preview": "assets/571bad9dfaf956a1126407dd5c260580ad6a81146c3c8ca4f99a34f4355aa844.webp"
+      },
+      "approval": {
+        "verified": false,
+        "exact_candidate_owner_approval": null,
+        "reason": "No exact-candidate approval citation is linked in the existing source evidence. A path, merge or folder name is not substituted for approval."
+      },
+      "decision": "HOLD — supplied inventory has no exact-candidate approval; do not overwrite production"
+    },
+    {
+      "artwork_id": "WB-S008-OBJ03-LIBRO",
+      "drawing_group_id": "DRAW-WB-32-1",
+      "book": "WB",
+      "printed_page": 2,
+      "lesson": 1,
+      "current_runtime": {
+        "pointer": "src/data/page-layouts.json/pages/2/nested-picture:libro",
+        "asset_path": "/cartilla/art/faithful/leccion-1/libro.webp",
+        "evidence_commit": "153c7eccbec5bc1090cd130a909f0cf73630415a",
+        "verified": false
+      },
+      "verified_candidate": {
+        "file_id": "FILE-f0d52522950c4cfaef94",
+        "location": "public/cartilla/art/faithful/leccion-1/libro.webp",
+        "source_group": "github-current-main",
+        "sha256": "f0d52522950c4cfaef94adb57c6b076ebb34c48cba5438d9312063499a9c0208",
+        "bytes": 43478,
+        "github_url": "https://github.com/ejnburrows-rgb/cartilla-de-gretel/blob/153c7eccbec5bc1090cd130a909f0cf73630415a/public/cartilla/art/faithful/leccion-1/libro.webp",
+        "width": 870,
+        "height": 579,
+        "mode": "RGBA",
+        "decode": "PASS",
+        "preview": "assets/f0d52522950c4cfaef94adb57c6b076ebb34c48cba5438d9312063499a9c0208.webp"
+      },
+      "approval": {
+        "verified": false,
+        "exact_candidate_owner_approval": null,
+        "reason": "No exact-candidate approval citation is linked in the existing source evidence. A path, merge or folder name is not substituted for approval."
+      },
+      "decision": "HOLD — supplied inventory has no exact-candidate approval; do not overwrite production"
+    },
+    {
+      "artwork_id": "WB-S008-OBJ06-ESTRELLA",
+      "drawing_group_id": "DRAW-WB-20-1",
+      "book": "WB",
+      "printed_page": 2,
+      "lesson": 1,
+      "current_runtime": {
+        "pointer": "src/data/page-layouts.json/pages/2/nested-picture:estrella",
+        "asset_path": "/cartilla/art/faithful/vocal-e/estrella.webp",
+        "evidence_commit": "153c7eccbec5bc1090cd130a909f0cf73630415a",
+        "verified": false
+      },
+      "verified_candidate": {
+        "file_id": "FILE-f8b613f63a923668ec36",
+        "location": "public/cartilla/art/faithful/vocal-e/estrella.webp",
+        "source_group": "github-current-main",
+        "sha256": "f8b613f63a923668ec36a558bf35585aaca15f4d2f9d80c247432ed15c3e13ab",
+        "bytes": 235260,
+        "github_url": "https://github.com/ejnburrows-rgb/cartilla-de-gretel/blob/153c7eccbec5bc1090cd130a909f0cf73630415a/public/cartilla/art/faithful/vocal-e/estrella.webp",
+        "width": 757,
+        "height": 864,
+        "mode": "RGBA",
+        "decode": "PASS",
+        "preview": "assets/f8b613f63a923668ec36a558bf35585aaca15f4d2f9d80c247432ed15c3e13ab.webp"
+      },
+      "approval": {
+        "verified": false,
+        "exact_candidate_owner_approval": null,
+        "reason": "No exact-candidate approval citation is linked in the existing source evidence. A path, merge or folder name is not substituted for approval."
+      },
+      "decision": "HOLD — supplied inventory has no exact-candidate approval; do not overwrite production"
+    },
+    {
+      "artwork_id": "WB-S008-OBJ11-OSO",
+      "drawing_group_id": "DRAW-WB-41-1",
+      "book": "WB",
+      "printed_page": 2,
+      "lesson": 1,
+      "current_runtime": {
+        "pointer": "src/data/page-layouts.json/pages/2/nested-picture:oso",
+        "asset_path": "/cartilla/art/faithful/vocal-o/oso.webp",
+        "evidence_commit": "153c7eccbec5bc1090cd130a909f0cf73630415a",
+        "verified": false
+      },
+      "verified_candidate": {
+        "file_id": "FILE-fb868b078b9664626574",
+        "location": "public/cartilla/art/optimized/flipchart-native/p004-oso.png",
+        "source_group": "github-current-main",
+        "sha256": "fb868b078b966462657437eae6d7b1d53e12fbae8d0182fe3a83cf394e07b8bd",
+        "bytes": 79390,
+        "github_url": "https://github.com/ejnburrows-rgb/cartilla-de-gretel/blob/153c7eccbec5bc1090cd130a909f0cf73630415a/public/cartilla/art/optimized/flipchart-native/p004-oso.png",
+        "width": 320,
+        "height": 320,
+        "mode": "RGB",
+        "decode": "PASS",
+        "preview": "assets/fb868b078b966462657437eae6d7b1d53e12fbae8d0182fe3a83cf394e07b8bd.webp"
+      },
+      "approval": {
+        "verified": false,
+        "exact_candidate_owner_approval": null,
+        "reason": "No exact-candidate approval citation is linked in the existing source evidence. A path, merge or folder name is not substituted for approval."
+      },
+      "decision": "HOLD — supplied inventory has no exact-candidate approval; do not overwrite production"
+    },
+    {
+      "artwork_id": "WB-S008-OBJ14-GLOBO",
+      "drawing_group_id": "DRAW-WB-21-1",
+      "book": "WB",
+      "printed_page": 2,
+      "lesson": 1,
+      "current_runtime": {
+        "pointer": "src/data/page-layouts.json/pages/2/nested-picture:globo",
+        "asset_path": "/cartilla/art/faithful/leccion-1/globo.webp",
+        "evidence_commit": "153c7eccbec5bc1090cd130a909f0cf73630415a",
+        "verified": false
+      },
+      "verified_candidate": {
+        "file_id": "FILE-d2105fc2c8dfe42fcd3c",
+        "location": "public/cartilla/art/faithful/leccion-1/globo.webp",
+        "source_group": "github-current-main",
+        "sha256": "d2105fc2c8dfe42fcd3c5637371f355ccf821e104d396a2b62f8649b6d61d109",
+        "bytes": 116384,
+        "github_url": "https://github.com/ejnburrows-rgb/cartilla-de-gretel/blob/153c7eccbec5bc1090cd130a909f0cf73630415a/public/cartilla/art/faithful/leccion-1/globo.webp",
+        "width": 580,
+        "height": 515,
+        "mode": "RGB",
+        "decode": "PASS",
+        "preview": "assets/d2105fc2c8dfe42fcd3c5637371f355ccf821e104d396a2b62f8649b6d61d109.webp"
+      },
+      "approval": {
+        "verified": false,
+        "exact_candidate_owner_approval": null,
+        "reason": "No exact-candidate approval citation is linked in the existing source evidence. A path, merge or folder name is not substituted for approval."
+      },
+      "decision": "HOLD — supplied inventory has no exact-candidate approval; do not overwrite production"
+    },
+    {
+      "artwork_id": "WB-S009-OBJ02-OCHO",
+      "drawing_group_id": "DRAW-WB-35-1",
+      "book": "WB",
+      "printed_page": 3,
+      "lesson": 1,
+      "current_runtime": {
+        "pointer": "src/data/page-layouts.json/pages/3/nested-picture:ocho",
+        "asset_path": "/cartilla/art/faithful/vocal-o/ocho.webp",
+        "evidence_commit": "153c7eccbec5bc1090cd130a909f0cf73630415a",
+        "verified": false
+      },
+      "verified_candidate": {
+        "file_id": "FILE-57e774105813678e5df5",
+        "location": "public/cartilla/art/faithful/vocal-o/ocho.webp",
+        "source_group": "github-current-main",
+        "sha256": "57e774105813678e5df5ab957530f67d0b5948936ef884054c9f4b23b6725bfb",
+        "bytes": 75214,
+        "github_url": "https://github.com/ejnburrows-rgb/cartilla-de-gretel/blob/153c7eccbec5bc1090cd130a909f0cf73630415a/public/cartilla/art/faithful/vocal-o/ocho.webp",
+        "width": 727,
+        "height": 870,
+        "mode": "RGBA",
+        "decode": "PASS",
+        "preview": "assets/57e774105813678e5df5ab957530f67d0b5948936ef884054c9f4b23b6725bfb.webp"
+      },
+      "approval": {
+        "verified": false,
+        "exact_candidate_owner_approval": null,
+        "reason": "No exact-candidate approval citation is linked in the existing source evidence. A path, merge or folder name is not substituted for approval."
+      },
+      "decision": "HOLD — supplied inventory has no exact-candidate approval; do not overwrite production"
+    },
+    {
+      "artwork_id": "WB-S009-OBJ04-UNO",
+      "drawing_group_id": "DRAW-WB-50-1",
+      "book": "WB",
+      "printed_page": 3,
+      "lesson": 1,
+      "current_runtime": {
+        "pointer": "src/data/page-layouts.json/pages/3/nested-picture:uno",
+        "asset_path": "/cartilla/art/faithful/vocal-u/uno.webp",
+        "evidence_commit": "153c7eccbec5bc1090cd130a909f0cf73630415a",
+        "verified": false
+      },
+      "verified_candidate": {
+        "file_id": "FILE-a7db569a6e65fe88dc31",
+        "location": "public/cartilla/art/optimized/workbook/leccion-1/uno.svg",
+        "source_group": "github-current-main",
+        "sha256": "a7db569a6e65fe88dc31bb43585a843c59069e6bd0493318e3ec0ebd787d159c",
+        "bytes": 116998,
+        "github_url": "https://github.com/ejnburrows-rgb/cartilla-de-gretel/blob/153c7eccbec5bc1090cd130a909f0cf73630415a/public/cartilla/art/optimized/workbook/leccion-1/uno.svg",
+        "decode": "PASS",
+        "width": 234,
+        "height": 229,
+        "preview": "assets/a7db569a6e65fe88dc31bb43585a843c59069e6bd0493318e3ec0ebd787d159c.webp"
+      },
+      "approval": {
+        "verified": false,
+        "exact_candidate_owner_approval": null,
+        "reason": "No exact-candidate approval citation is linked in the existing source evidence. A path, merge or folder name is not substituted for approval."
+      },
+      "decision": "HOLD — supplied inventory has no exact-candidate approval; do not overwrite production"
+    },
+    {
+      "artwork_id": "WB-S010-OBJ05-UNA",
+      "drawing_group_id": "DRAW-WB-47-1",
+      "book": "WB",
+      "printed_page": 4,
+      "lesson": 2,
+      "current_runtime": {
+        "pointer": "src/data/page-layouts.json/pages/4/picture-cell:uña",
+        "asset_path": "/cartilla/art/faithful/leccion-1/arco.webp",
+        "evidence_commit": "153c7eccbec5bc1090cd130a909f0cf73630415a",
+        "verified": false
+      },
+      "verified_candidate": {
+        "file_id": "FILE-9a185cb57412c5d000dc",
+        "location": "public/cartilla/art/faithful/leccion-1/arco.webp",
+        "source_group": "github-current-main",
+        "sha256": "9a185cb57412c5d000dc763c84dcb75a840343bfa61da0c6895b3cf219aa032a",
+        "bytes": 27648,
+        "github_url": "https://github.com/ejnburrows-rgb/cartilla-de-gretel/blob/153c7eccbec5bc1090cd130a909f0cf73630415a/public/cartilla/art/faithful/leccion-1/arco.webp",
+        "width": 530,
+        "height": 578,
+        "mode": "RGBA",
+        "decode": "PASS",
+        "preview": "assets/9a185cb57412c5d000dc763c84dcb75a840343bfa61da0c6895b3cf219aa032a.webp"
+      },
+      "approval": {
+        "verified": false,
+        "exact_candidate_owner_approval": null,
+        "reason": "No exact-candidate approval citation is linked in the existing source evidence. A path, merge or folder name is not substituted for approval."
+      },
+      "decision": "HOLD — supplied inventory has no exact-candidate approval; do not overwrite production"
+    },
+    {
+      "artwork_id": "WB-S010-OBJ06-OVEJA",
+      "drawing_group_id": "DRAW-WB-42-1",
+      "book": "WB",
+      "printed_page": 4,
+      "lesson": 2,
+      "current_runtime": {
+        "pointer": "src/data/page-layouts.json/pages/4/picture-cell:oveja",
+        "asset_path": "/cartilla/art/faithful/vocal-o/oveja.webp",
+        "evidence_commit": "153c7eccbec5bc1090cd130a909f0cf73630415a",
+        "verified": false
+      },
+      "verified_candidate": {
+        "file_id": "FILE-855d39eb6b42e58a2585",
+        "location": "public/cartilla/art/optimized/workbook/leccion-1/oveja.svg",
+        "source_group": "github-current-main",
+        "sha256": "855d39eb6b42e58a2585717b0841db9438f6fc35bdb4fbee3ecdfa598b2af2b0",
+        "bytes": 57418,
+        "github_url": "https://github.com/ejnburrows-rgb/cartilla-de-gretel/blob/153c7eccbec5bc1090cd130a909f0cf73630415a/public/cartilla/art/optimized/workbook/leccion-1/oveja.svg",
+        "decode": "PASS",
+        "width": 216,
+        "height": 203,
+        "preview": "assets/855d39eb6b42e58a2585717b0841db9438f6fc35bdb4fbee3ecdfa598b2af2b0.webp"
+      },
+      "approval": {
+        "verified": false,
+        "exact_candidate_owner_approval": null,
+        "reason": "No exact-candidate approval citation is linked in the existing source evidence. A path, merge or folder name is not substituted for approval."
+      },
+      "decision": "HOLD — supplied inventory has no exact-candidate approval; do not overwrite production"
+    },
+    {
+      "artwork_id": "WB-S010-OBJ11-OCHO",
+      "drawing_group_id": "DRAW-WB-35-1",
+      "book": "WB",
+      "printed_page": 4,
+      "lesson": 2,
+      "current_runtime": {
+        "pointer": "src/data/page-layouts.json/pages/4/picture-cell:ocho",
+        "asset_path": "/cartilla/art/faithful/vocal-o/ocho.webp",
+        "evidence_commit": "153c7eccbec5bc1090cd130a909f0cf73630415a",
+        "verified": false
+      },
+      "verified_candidate": {
+        "file_id": "FILE-57e774105813678e5df5",
+        "location": "public/cartilla/art/faithful/vocal-o/ocho.webp",
+        "source_group": "github-current-main",
+        "sha256": "57e774105813678e5df5ab957530f67d0b5948936ef884054c9f4b23b6725bfb",
+        "bytes": 75214,
+        "github_url": "https://github.com/ejnburrows-rgb/cartilla-de-gretel/blob/153c7eccbec5bc1090cd130a909f0cf73630415a/public/cartilla/art/faithful/vocal-o/ocho.webp",
+        "width": 727,
+        "height": 870,
+        "mode": "RGBA",
+        "decode": "PASS",
+        "preview": "assets/57e774105813678e5df5ab957530f67d0b5948936ef884054c9f4b23b6725bfb.webp"
+      },
+      "approval": {
+        "verified": false,
+        "exact_candidate_owner_approval": null,
+        "reason": "No exact-candidate approval citation is linked in the existing source evidence. A path, merge or folder name is not substituted for approval."
+      },
+      "decision": "HOLD — supplied inventory has no exact-candidate approval; do not overwrite production"
+    },
+    {
+      "artwork_id": "WB-S013-OBJ11-ESTRELLA",
+      "drawing_group_id": "DRAW-WB-20-1",
+      "book": "WB",
+      "printed_page": 7,
+      "lesson": 3,
+      "current_runtime": {
+        "pointer": "src/data/page-layouts.json/pages/7/picture-cell:estrella",
+        "asset_path": "/cartilla/art/faithful/vocal-e/estrella.webp",
+        "evidence_commit": "153c7eccbec5bc1090cd130a909f0cf73630415a",
+        "verified": false
+      },
+      "verified_candidate": {
+        "file_id": "FILE-f8b613f63a923668ec36",
+        "location": "public/cartilla/art/faithful/vocal-e/estrella.webp",
+        "source_group": "github-current-main",
+        "sha256": "f8b613f63a923668ec36a558bf35585aaca15f4d2f9d80c247432ed15c3e13ab",
+        "bytes": 235260,
+        "github_url": "https://github.com/ejnburrows-rgb/cartilla-de-gretel/blob/153c7eccbec5bc1090cd130a909f0cf73630415a/public/cartilla/art/faithful/vocal-e/estrella.webp",
+        "width": 757,
+        "height": 864,
+        "mode": "RGBA",
+        "decode": "PASS",
+        "preview": "assets/f8b613f63a923668ec36a558bf35585aaca15f4d2f9d80c247432ed15c3e13ab.webp"
+      },
+      "approval": {
+        "verified": false,
+        "exact_candidate_owner_approval": null,
+        "reason": "No exact-candidate approval citation is linked in the existing source evidence. A path, merge or folder name is not substituted for approval."
+      },
+      "decision": "HOLD — supplied inventory has no exact-candidate approval; do not overwrite production"
+    },
+    {
+      "artwork_id": "WB-S016-OBJ05-ESCALERA",
+      "drawing_group_id": "DRAW-WB-16-1",
+      "book": "WB",
+      "printed_page": 10,
+      "lesson": 4,
+      "current_runtime": {
+        "pointer": "src/data/page-layouts.json/pages/10/picture-cell:escalera",
+        "asset_path": "/cartilla/art/faithful/vocal-e/escalera.webp",
+        "evidence_commit": "153c7eccbec5bc1090cd130a909f0cf73630415a",
+        "verified": false
+      },
+      "verified_candidate": {
+        "file_id": "FILE-c204a500b170655319bf",
+        "location": "public/cartilla/art/optimized/workbook/leccion-1/escalera.svg",
+        "source_group": "github-current-main",
+        "sha256": "c204a500b170655319bfaea76c0439f4b9dbec8c51f8f3cdbb67252739a53243",
+        "bytes": 74086,
+        "github_url": "https://github.com/ejnburrows-rgb/cartilla-de-gretel/blob/153c7eccbec5bc1090cd130a909f0cf73630415a/public/cartilla/art/optimized/workbook/leccion-1/escalera.svg",
+        "decode": "PASS",
+        "width": 200,
+        "height": 254,
+        "preview": "assets/c204a500b170655319bfaea76c0439f4b9dbec8c51f8f3cdbb67252739a53243.webp"
+      },
+      "approval": {
+        "verified": false,
+        "exact_candidate_owner_approval": null,
+        "reason": "No exact-candidate approval citation is linked in the existing source evidence. A path, merge or folder name is not substituted for approval."
+      },
+      "decision": "HOLD — supplied inventory has no exact-candidate approval; do not overwrite production"
+    },
+    {
+      "artwork_id": "WB-S016-OBJ11-ESTRELLA",
+      "drawing_group_id": "DRAW-WB-20-1",
+      "book": "WB",
+      "printed_page": 10,
+      "lesson": 4,
+      "current_runtime": {
+        "pointer": "src/data/page-layouts.json/pages/10/picture-cell:estrella",
+        "asset_path": "/cartilla/art/faithful/vocal-e/estrella.webp",
+        "evidence_commit": "153c7eccbec5bc1090cd130a909f0cf73630415a",
+        "verified": false
+      },
+      "verified_candidate": {
+        "file_id": "FILE-f8b613f63a923668ec36",
+        "location": "public/cartilla/art/faithful/vocal-e/estrella.webp",
+        "source_group": "github-current-main",
+        "sha256": "f8b613f63a923668ec36a558bf35585aaca15f4d2f9d80c247432ed15c3e13ab",
+        "bytes": 235260,
+        "github_url": "https://github.com/ejnburrows-rgb/cartilla-de-gretel/blob/153c7eccbec5bc1090cd130a909f0cf73630415a/public/cartilla/art/faithful/vocal-e/estrella.webp",
+        "width": 757,
+        "height": 864,
+        "mode": "RGBA",
+        "decode": "PASS",
+        "preview": "assets/f8b613f63a923668ec36a558bf35585aaca15f4d2f9d80c247432ed15c3e13ab.webp"
+      },
+      "approval": {
+        "verified": false,
+        "exact_candidate_owner_approval": null,
+        "reason": "No exact-candidate approval citation is linked in the existing source evidence. A path, merge or folder name is not substituted for approval."
+      },
+      "decision": "HOLD — supplied inventory has no exact-candidate approval; do not overwrite production"
+    },
+    {
+      "artwork_id": "WB-S019-OBJ02-PEZ",
+      "drawing_group_id": "DRAW-WB-10-1",
+      "book": "WB",
+      "printed_page": 13,
+      "lesson": 5,
+      "current_runtime": {
+        "pointer": "src/data/page-layouts.json/pages/13/picture-cell:avión",
+        "asset_path": "/cartilla/art/faithful/leccion-1/pez.webp",
+        "evidence_commit": "153c7eccbec5bc1090cd130a909f0cf73630415a",
+        "verified": false
+      },
+      "verified_candidate": {
+        "file_id": "FILE-9f5abb0b60661e476ed9",
+        "location": "public/cartilla/art/faithful/leccion-1/pez.webp",
+        "source_group": "github-current-main",
+        "sha256": "9f5abb0b60661e476ed9351d678e9a2fa876d4584e5cf0602da8b2da25e57243",
+        "bytes": 62022,
+        "github_url": "https://github.com/ejnburrows-rgb/cartilla-de-gretel/blob/153c7eccbec5bc1090cd130a909f0cf73630415a/public/cartilla/art/faithful/leccion-1/pez.webp",
+        "width": 764,
+        "height": 650,
+        "mode": "RGBA",
+        "decode": "PASS",
+        "preview": "assets/9f5abb0b60661e476ed9351d678e9a2fa876d4584e5cf0602da8b2da25e57243.webp"
+      },
+      "approval": {
+        "verified": false,
+        "exact_candidate_owner_approval": null,
+        "reason": "No exact-candidate approval citation is linked in the existing source evidence. A path, merge or folder name is not substituted for approval."
+      },
+      "decision": "HOLD — supplied inventory has no exact-candidate approval; do not overwrite production"
+    },
+    {
+      "artwork_id": "WB-S019-OBJ12-ISLA",
+      "drawing_group_id": "DRAW-WB-31-1",
+      "book": "WB",
+      "printed_page": 13,
+      "lesson": 5,
+      "current_runtime": {
+        "pointer": "src/data/page-layouts.json/pages/13/picture-cell:isla",
+        "asset_path": "/cartilla/art/faithful/vocal-i/isla.webp",
+        "evidence_commit": "153c7eccbec5bc1090cd130a909f0cf73630415a",
+        "verified": false
+      },
+      "verified_candidate": {
+        "file_id": "FILE-927a08c561bbe5b963fb",
+        "location": "public/cartilla/art/faithful/vocal-i/isla.webp",
+        "source_group": "github-current-main",
+        "sha256": "927a08c561bbe5b963fb3d3a78ecb0f697044fe8f369c2455e3dcd1ef03583bf",
+        "bytes": 301084,
+        "github_url": "https://github.com/ejnburrows-rgb/cartilla-de-gretel/blob/153c7eccbec5bc1090cd130a909f0cf73630415a/public/cartilla/art/faithful/vocal-i/isla.webp",
+        "width": 950,
+        "height": 857,
+        "mode": "RGBA",
+        "decode": "PASS",
+        "preview": "assets/927a08c561bbe5b963fb3d3a78ecb0f697044fe8f369c2455e3dcd1ef03583bf.webp"
+      },
+      "approval": {
+        "verified": false,
+        "exact_candidate_owner_approval": null,
+        "reason": "No exact-candidate approval citation is linked in the existing source evidence. A path, merge or folder name is not substituted for approval."
+      },
+      "decision": "HOLD — supplied inventory has no exact-candidate approval; do not overwrite production"
+    },
+    {
+      "artwork_id": "WB-S019-OBJ13-UNA",
+      "drawing_group_id": "DRAW-WB-47-1",
+      "book": "WB",
+      "printed_page": 13,
+      "lesson": 5,
+      "current_runtime": {
+        "pointer": "src/data/page-layouts.json/pages/13/picture-cell:uña",
+        "asset_path": "/cartilla/art/faithful/leccion-1/arco.webp",
+        "evidence_commit": "153c7eccbec5bc1090cd130a909f0cf73630415a",
+        "verified": false
+      },
+      "verified_candidate": {
+        "file_id": "FILE-9a185cb57412c5d000dc",
+        "location": "public/cartilla/art/faithful/leccion-1/arco.webp",
+        "source_group": "github-current-main",
+        "sha256": "9a185cb57412c5d000dc763c84dcb75a840343bfa61da0c6895b3cf219aa032a",
+        "bytes": 27648,
+        "github_url": "https://github.com/ejnburrows-rgb/cartilla-de-gretel/blob/153c7eccbec5bc1090cd130a909f0cf73630415a/public/cartilla/art/faithful/leccion-1/arco.webp",
+        "width": 530,
+        "height": 578,
+        "mode": "RGBA",
+        "decode": "PASS",
+        "preview": "assets/9a185cb57412c5d000dc763c84dcb75a840343bfa61da0c6895b3cf219aa032a.webp"
+      },
+      "approval": {
+        "verified": false,
+        "exact_candidate_owner_approval": null,
+        "reason": "No exact-candidate approval citation is linked in the existing source evidence. A path, merge or folder name is not substituted for approval."
+      },
+      "decision": "HOLD — supplied inventory has no exact-candidate approval; do not overwrite production"
+    },
+    {
+      "artwork_id": "WB-S019-OBJ15-INSECTO",
+      "drawing_group_id": "DRAW-WB-29-1",
+      "book": "WB",
+      "printed_page": 13,
+      "lesson": 5,
+      "current_runtime": {
+        "pointer": "src/data/page-layouts.json/pages/13/picture-cell:insecto",
+        "asset_path": "/cartilla/art/faithful/vocal-i/insecto.webp",
+        "evidence_commit": "153c7eccbec5bc1090cd130a909f0cf73630415a",
+        "verified": false
+      },
+      "verified_candidate": {
+        "file_id": "FILE-557e192939da036b96f6",
+        "location": "public/cartilla/art/optimized/flipchart-native/p007-insecto.png",
+        "source_group": "github-current-main",
+        "sha256": "557e192939da036b96f65662272de5b3aed026118d444b5ad64e10062eb2d080",
+        "bytes": 67825,
+        "github_url": "https://github.com/ejnburrows-rgb/cartilla-de-gretel/blob/153c7eccbec5bc1090cd130a909f0cf73630415a/public/cartilla/art/optimized/flipchart-native/p007-insecto.png",
+        "width": 320,
+        "height": 320,
+        "mode": "RGB",
+        "decode": "PASS",
+        "preview": "assets/557e192939da036b96f65662272de5b3aed026118d444b5ad64e10062eb2d080.webp"
+      },
+      "approval": {
+        "verified": false,
+        "exact_candidate_owner_approval": null,
+        "reason": "No exact-candidate approval citation is linked in the existing source evidence. A path, merge or folder name is not substituted for approval."
+      },
+      "decision": "HOLD — supplied inventory has no exact-candidate approval; do not overwrite production"
+    },
+    {
+      "artwork_id": "WB-S020-OBJ06-UNA",
+      "drawing_group_id": "DRAW-WB-47-1",
+      "book": "WB",
+      "printed_page": 14,
+      "lesson": 5,
+      "current_runtime": {
+        "pointer": "src/data/page-layouts.json/pages/14/picture-cell:uña",
+        "asset_path": "/cartilla/art/faithful/leccion-1/arco.webp",
+        "evidence_commit": "153c7eccbec5bc1090cd130a909f0cf73630415a",
+        "verified": false
+      },
+      "verified_candidate": {
+        "file_id": "FILE-9a185cb57412c5d000dc",
+        "location": "public/cartilla/art/faithful/leccion-1/arco.webp",
+        "source_group": "github-current-main",
+        "sha256": "9a185cb57412c5d000dc763c84dcb75a840343bfa61da0c6895b3cf219aa032a",
+        "bytes": 27648,
+        "github_url": "https://github.com/ejnburrows-rgb/cartilla-de-gretel/blob/153c7eccbec5bc1090cd130a909f0cf73630415a/public/cartilla/art/faithful/leccion-1/arco.webp",
+        "width": 530,
+        "height": 578,
+        "mode": "RGBA",
+        "decode": "PASS",
+        "preview": "assets/9a185cb57412c5d000dc763c84dcb75a840343bfa61da0c6895b3cf219aa032a.webp"
+      },
+      "approval": {
+        "verified": false,
+        "exact_candidate_owner_approval": null,
+        "reason": "No exact-candidate approval citation is linked in the existing source evidence. A path, merge or folder name is not substituted for approval."
+      },
+      "decision": "HOLD — supplied inventory has no exact-candidate approval; do not overwrite production"
+    },
+    {
+      "artwork_id": "WB-S022-OBJ03-PEZ",
+      "drawing_group_id": "DRAW-WB-10-1",
+      "book": "WB",
+      "printed_page": 16,
+      "lesson": 6,
+      "current_runtime": {
+        "pointer": "src/data/page-layouts.json/pages/16/picture-cell:avión",
+        "asset_path": "/cartilla/art/faithful/leccion-1/pez.webp",
+        "evidence_commit": "153c7eccbec5bc1090cd130a909f0cf73630415a",
+        "verified": false
+      },
+      "verified_candidate": {
+        "file_id": "FILE-9f5abb0b60661e476ed9",
+        "location": "public/cartilla/art/faithful/leccion-1/pez.webp",
+        "source_group": "github-current-main",
+        "sha256": "9f5abb0b60661e476ed9351d678e9a2fa876d4584e5cf0602da8b2da25e57243",
+        "bytes": 62022,
+        "github_url": "https://github.com/ejnburrows-rgb/cartilla-de-gretel/blob/153c7eccbec5bc1090cd130a909f0cf73630415a/public/cartilla/art/faithful/leccion-1/pez.webp",
+        "width": 764,
+        "height": 650,
+        "mode": "RGBA",
+        "decode": "PASS",
+        "preview": "assets/9f5abb0b60661e476ed9351d678e9a2fa876d4584e5cf0602da8b2da25e57243.webp"
+      },
+      "approval": {
+        "verified": false,
+        "exact_candidate_owner_approval": null,
+        "reason": "No exact-candidate approval citation is linked in the existing source evidence. A path, merge or folder name is not substituted for approval."
+      },
+      "decision": "HOLD — supplied inventory has no exact-candidate approval; do not overwrite production"
+    },
+    {
+      "artwork_id": "WB-S022-OBJ04-UNA",
+      "drawing_group_id": "DRAW-WB-47-1",
+      "book": "WB",
+      "printed_page": 16,
+      "lesson": 6,
+      "current_runtime": {
+        "pointer": "src/data/page-layouts.json/pages/16/picture-cell:uña",
+        "asset_path": "/cartilla/art/faithful/leccion-1/arco.webp",
+        "evidence_commit": "153c7eccbec5bc1090cd130a909f0cf73630415a",
+        "verified": false
+      },
+      "verified_candidate": {
+        "file_id": "FILE-9a185cb57412c5d000dc",
+        "location": "public/cartilla/art/faithful/leccion-1/arco.webp",
+        "source_group": "github-current-main",
+        "sha256": "9a185cb57412c5d000dc763c84dcb75a840343bfa61da0c6895b3cf219aa032a",
+        "bytes": 27648,
+        "github_url": "https://github.com/ejnburrows-rgb/cartilla-de-gretel/blob/153c7eccbec5bc1090cd130a909f0cf73630415a/public/cartilla/art/faithful/leccion-1/arco.webp",
+        "width": 530,
+        "height": 578,
+        "mode": "RGBA",
+        "decode": "PASS",
+        "preview": "assets/9a185cb57412c5d000dc763c84dcb75a840343bfa61da0c6895b3cf219aa032a.webp"
+      },
+      "approval": {
+        "verified": false,
+        "exact_candidate_owner_approval": null,
+        "reason": "No exact-candidate approval citation is linked in the existing source evidence. A path, merge or folder name is not substituted for approval."
+      },
+      "decision": "HOLD — supplied inventory has no exact-candidate approval; do not overwrite production"
+    },
+    {
+      "artwork_id": "WB-S022-OBJ06-ESTRELLA",
+      "drawing_group_id": "DRAW-WB-20-1",
+      "book": "WB",
+      "printed_page": 16,
+      "lesson": 6,
+      "current_runtime": {
+        "pointer": "src/data/page-layouts.json/pages/16/picture-cell:estrella",
+        "asset_path": "/cartilla/art/faithful/vocal-e/estrella.webp",
+        "evidence_commit": "153c7eccbec5bc1090cd130a909f0cf73630415a",
+        "verified": false
+      },
+      "verified_candidate": {
+        "file_id": "FILE-f8b613f63a923668ec36",
+        "location": "public/cartilla/art/faithful/vocal-e/estrella.webp",
+        "source_group": "github-current-main",
+        "sha256": "f8b613f63a923668ec36a558bf35585aaca15f4d2f9d80c247432ed15c3e13ab",
+        "bytes": 235260,
+        "github_url": "https://github.com/ejnburrows-rgb/cartilla-de-gretel/blob/153c7eccbec5bc1090cd130a909f0cf73630415a/public/cartilla/art/faithful/vocal-e/estrella.webp",
+        "width": 757,
+        "height": 864,
+        "mode": "RGBA",
+        "decode": "PASS",
+        "preview": "assets/f8b613f63a923668ec36a558bf35585aaca15f4d2f9d80c247432ed15c3e13ab.webp"
+      },
+      "approval": {
+        "verified": false,
+        "exact_candidate_owner_approval": null,
+        "reason": "No exact-candidate approval citation is linked in the existing source evidence. A path, merge or folder name is not substituted for approval."
+      },
+      "decision": "HOLD — supplied inventory has no exact-candidate approval; do not overwrite production"
+    },
+    {
+      "artwork_id": "WB-S023-OBJ06-UNA",
+      "drawing_group_id": "DRAW-WB-47-1",
+      "book": "WB",
+      "printed_page": 17,
+      "lesson": 6,
+      "current_runtime": {
+        "pointer": "src/data/page-layouts.json/pages/17/picture-cell:uña",
+        "asset_path": "/cartilla/art/faithful/leccion-1/arco.webp",
+        "evidence_commit": "153c7eccbec5bc1090cd130a909f0cf73630415a",
+        "verified": false
+      },
+      "verified_candidate": {
+        "file_id": "FILE-9a185cb57412c5d000dc",
+        "location": "public/cartilla/art/faithful/leccion-1/arco.webp",
+        "source_group": "github-current-main",
+        "sha256": "9a185cb57412c5d000dc763c84dcb75a840343bfa61da0c6895b3cf219aa032a",
+        "bytes": 27648,
+        "github_url": "https://github.com/ejnburrows-rgb/cartilla-de-gretel/blob/153c7eccbec5bc1090cd130a909f0cf73630415a/public/cartilla/art/faithful/leccion-1/arco.webp",
+        "width": 530,
+        "height": 578,
+        "mode": "RGBA",
+        "decode": "PASS",
+        "preview": "assets/9a185cb57412c5d000dc763c84dcb75a840343bfa61da0c6895b3cf219aa032a.webp"
+      },
+      "approval": {
+        "verified": false,
+        "exact_candidate_owner_approval": null,
+        "reason": "No exact-candidate approval citation is linked in the existing source evidence. A path, merge or folder name is not substituted for approval."
+      },
+      "decision": "HOLD — supplied inventory has no exact-candidate approval; do not overwrite production"
+    },
+    {
+      "artwork_id": "WB-S023-OBJ07-ESTRELLA",
+      "drawing_group_id": "DRAW-WB-20-1",
+      "book": "WB",
+      "printed_page": 17,
+      "lesson": 6,
+      "current_runtime": {
+        "pointer": "src/data/page-layouts.json/pages/17/picture-cell:estrella",
+        "asset_path": "/cartilla/art/faithful/vocal-e/estrella.webp",
+        "evidence_commit": "153c7eccbec5bc1090cd130a909f0cf73630415a",
+        "verified": false
+      },
+      "verified_candidate": {
+        "file_id": "FILE-f8b613f63a923668ec36",
+        "location": "public/cartilla/art/faithful/vocal-e/estrella.webp",
+        "source_group": "github-current-main",
+        "sha256": "f8b613f63a923668ec36a558bf35585aaca15f4d2f9d80c247432ed15c3e13ab",
+        "bytes": 235260,
+        "github_url": "https://github.com/ejnburrows-rgb/cartilla-de-gretel/blob/153c7eccbec5bc1090cd130a909f0cf73630415a/public/cartilla/art/faithful/vocal-e/estrella.webp",
+        "width": 757,
+        "height": 864,
+        "mode": "RGBA",
+        "decode": "PASS",
+        "preview": "assets/f8b613f63a923668ec36a558bf35585aaca15f4d2f9d80c247432ed15c3e13ab.webp"
+      },
+      "approval": {
+        "verified": false,
+        "exact_candidate_owner_approval": null,
+        "reason": "No exact-candidate approval citation is linked in the existing source evidence. A path, merge or folder name is not substituted for approval."
+      },
+      "decision": "HOLD — supplied inventory has no exact-candidate approval; do not overwrite production"
+    }
+  ]
+}
