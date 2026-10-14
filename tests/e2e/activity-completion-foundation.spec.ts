@@ -20,8 +20,19 @@ test('p2 uses shared pencil feedback, stays keyboard accessible, and restores co
   expect(await viewer.getByRole('button', { name: /^Vocal/ }).count()).toBe(0);
 
   const wrong = viewer.getByRole('button', { name: 'manzana', exact: true });
+  // Under reduced motion the eraser step lasts 60 ms, so record every mark state
+  // the wrong picture passes through instead of hoping to catch it on screen.
+  await wrong.evaluate(button => {
+    const seen: string[] = ((window as unknown as { markStatuses: string[] }).markStatuses = []);
+    new MutationObserver(() => {
+      button.querySelectorAll('[data-mark-status]').forEach(mark => {
+        const status = mark.getAttribute('data-mark-status');
+        if (status && seen[seen.length - 1] !== status) seen.push(status);
+      });
+    }).observe(button, { subtree: true, childList: true, attributes: true, attributeFilter: ['data-mark-status'] });
+  });
   await wrong.click();
-  await expect(wrong.locator('[data-mark-status="erasing"]')).toHaveCount(1, { timeout: 4000 });
+  await expect.poll(() => page.evaluate(() => (window as unknown as { markStatuses: string[] }).markStatuses), { timeout: 4000 }).toContain('erasing');
   await expect(wrong.locator('.workbook-pencil-mark-container')).toHaveCount(0, { timeout: 1500 });
   await expect(wrong).toBeEnabled();
 
@@ -50,7 +61,7 @@ test('p2 uses shared pencil feedback, stays keyboard accessible, and restores co
   await expect(viewer.locator('[data-mark-status="correct"]')).toHaveCount(5);
 });
 
-test('p5 example + five answers; help, reload and return never strand completed work', async ({ page }) => {
+test('p5 example + five answers; a wrong try, reload and return never strand completed work', async ({ page }) => {
   await page.emulateMedia({ reducedMotion: 'reduce' });
   await page.addInitScript(done => {
     if (!localStorage.getItem('cartilla.page-completion.v1')) localStorage.setItem('cartilla.page-completion.v1', JSON.stringify({ '4': done }));
@@ -69,10 +80,12 @@ test('p5 example + five answers; help, reload and return never strand completed 
   expect(await page.evaluate(() => (window as unknown as { proofEvents: Array<{ type: string }> }).proofEvents.filter(event => event.type === 'hint:show').length)).toBe(0);
   const wrong = viewer.getByRole('button', { name: 'iglú', exact: true });
   await wrong.click();
-  await expect(page.locator('[data-testid="gretel-presence"]')).toHaveAttribute('data-reaction', 'cue');
-  await page.getByRole('button', { name: 'Ayuda', exact: true }).click();
-  await expect(page.locator('[data-testid="gretel-presence"]')).toHaveAttribute('data-reaction', 'hint');
-  await expect(wrong).toBeEnabled();
+  // Owner decision 2026-10-14: lesson pages have no Gretel guide (no cue, hint or
+  // Ayuda button). A wrong picture is erased and can simply be tried again.
+  await expect(page.locator('[data-testid="gretel-presence"]')).toHaveCount(0);
+  await expect(page.getByRole('button', { name: 'Ayuda', exact: true })).toHaveCount(0);
+  await expect(wrong).toBeEnabled({ timeout: 10_000 });
+  await expect(wrong).toHaveAttribute('aria-pressed', 'false');
   for (const name of ['oveja', 'ojos']) {
     const target = viewer.getByRole('button', { name, exact: true }); await target.click();
     await expect(target).toHaveAttribute('aria-pressed', 'true');
@@ -90,8 +103,9 @@ test('p5 example + five answers; help, reload and return never strand completed 
   await expect(last).toHaveAttribute('aria-pressed', 'true');
   await expect(next).not.toHaveAttribute('aria-disabled', 'true');
   const stats = await page.evaluate(() => JSON.parse(localStorage.getItem('cartilla.exercise-stats.v1') || '{}'));
-  const result = Object.values(stats['2']).find((s: any) => s.meta?.exercise?.startsWith('lasso_')) as any;
-  expect(result.meta).toMatchObject({ outcome: 'assisted-success', completed: true, assisted: true });
+  const result = Object.values(stats['2']).find((s: any) => s.meta?.exercise?.startsWith('pencil_line_2:p5')) as any;
+  // No Gretel help exists on lesson pages, so finishing after one wrong try is the child's own success.
+  expect(result.meta).toMatchObject({ outcome: 'independent-success', completed: true, assisted: false });
   expect(result.hits).toBe(5); expect(result.attempts).toBe(6);
   // Advance the browser clock beyond the former delayed-reset window.
   await page.clock.install(); await page.clock.fastForward(10000);
