@@ -31,6 +31,20 @@ import { Sidebar } from "./components/Sidebar";
 import { Topbar } from "./components/Topbar";
 import "../../styles/teacher-crm.css";
 
+type StudentProgress = Awaited<ReturnType<typeof fetchCrmStudentProgress>>;
+
+/**
+ * useQueries returns a fresh array of observers on unrelated input changes.
+ * A stable, structurally-shared combined result keeps learning insights memoized
+ * until actual student progress or loading status changes.
+ */
+function combineStudentProgressResults(
+  results: Array<{ data: StudentProgress | undefined; isLoading: boolean }>,
+) {
+  return results.map((result) => ({ data: result.data, isLoading: result.isLoading }));
+}
+
+
 function lessonTitle(lessonId: string) {
   const entry = CATALOG.find((item) => String(item.n) === lessonId);
   return entry ? `L${entry.n} · ${entry.title}` : `Lección ${lessonId}`;
@@ -121,6 +135,7 @@ export function TeacherDailyHome() {
       queryFn: () => fetchCrmStudentProgress(student.id, isSeed),
       staleTime: 15_000,
     })),
+    combine: combineStudentProgressResults,
   });
 
   const studentLearning = useMemo(() => {
