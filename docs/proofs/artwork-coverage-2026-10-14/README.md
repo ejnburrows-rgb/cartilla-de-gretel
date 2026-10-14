@@ -1,4 +1,8 @@
-# Artwork evidence checkpoint — NOT definitive coverage
+# Artwork coverage — current classifications
+
+Start with [the current drawing inventory](classification-inventory.md), [machine-readable adjudications](drawing-inventory.json), and [resolved SVG hash domains](svg-hash-domains.json). They advance and supersede the classification/hash-domain portions of the historical intake below. The final unique drawing total and missing certifications are not complete.
+
+## Historical intake
 
 Baseline: `153c7eccbec5bc1090cd130a909f0cf73630415a` (current GitHub main fetched during this audit).
 
