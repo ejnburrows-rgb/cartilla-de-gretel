@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Gretel Spanish zero-shot voice cloning: resumable, no paid inference API.
+"""Legacy offline batch candidate generation using the approved Gretel model adapter.
 
 The user-supplied reference voice stays on the inference computer, and is not
 committed to the project's public repository. Test mode never loads model weights.
@@ -22,6 +22,7 @@ from typing import Callable, Iterable
 
 import numpy as np
 from gretel_quality import audio_verdict, check_pcm, split_at_phrases, transcript_verdict
+from gretel_voice_engine import load_gretel_voice_model
 
 SAFE_ID = re.compile(r"^[A-Za-z0-9_-]{1,64}$")
 
@@ -247,28 +248,6 @@ def generate_batch(
         ),
     }
 
-def load_chatterbox(reference: Path, device: str):
-    """Official Chatterbox multilingual cloning API; never a paid hosted API."""
-    try:
-        import torch
-        from chatterbox.mtl_tts import ChatterboxMultilingualTTS
-    except ImportError as exc:
-        raise RuntimeError("Install the open-source chatterbox-tts model before inference") from exc
-    if device == "cuda" and not torch.cuda.is_available():
-        raise RuntimeError("CUDA requested but no GPU is available; inference not started")
-    model = ChatterboxMultilingualTTS.from_pretrained(device=device)
-
-    def synthesize(text: str) -> tuple[int, np.ndarray]:
-        with torch.inference_mode():
-            waveform = model.generate(
-                text, language_id="es", audio_prompt_path=str(reference),
-                exaggeration=0.45, cfg_weight=0.35,
-            )
-        return model.sr, waveform.squeeze().detach().cpu().numpy()
-
-    return synthesize
-
-
 def local_whisper(model_path: Path, device: str):
     """faster-whisper with already-downloaded LOCAL weights; never a hosted ASR."""
     if not model_path.exists():
@@ -291,7 +270,8 @@ def main() -> None:
     p.add_argument("--reference", type=Path, help="Private approved voice sample .wav")
     p.add_argument("--output-root", type=Path, default=Path("artifacts/gretel/candidates"))
     p.add_argument("--manifest", type=Path, default=Path("artifacts/gretel/quality-manifest.json"))
-    p.add_argument("--device", choices=["cuda", "cpu"], default="cuda")
+    p.add_argument("--device", choices=["cuda", "cpu"], default="cpu")
+    p.add_argument("--model-path", help="Optional downloaded Gretel base-model directory")
     p.add_argument("--asr-model", type=Path, help="Existing local faster-whisper model weights")
     p.add_argument("--max-chars", type=int, default=160)
     p.add_argument("--limit", type=int)
@@ -309,12 +289,12 @@ def main() -> None:
         p.error("--reference must be a private local WAV file")
     if any(not SAFE_ID.fullmatch(x) for x in args.regenerate_ids):
         p.error("Unsafe regenerate ID")
-    synthesize = load_chatterbox(args.reference, args.device)
+    synthesize = load_gretel_voice_model(args.reference, args.device, model_path=args.model_path)
     asr = local_whisper(args.asr_model, args.device) if args.asr_model else None
     print(json.dumps(generate_batch(
         jobs, args.output_root, args.manifest, synthesize,
         limit=args.limit, max_chars=args.max_chars, max_attempts=args.max_attempts,
-        reference_fingerprint=_fingerprint(args.reference,"chatterbox-mtl-es-exag.45-cfg.35"),
+        reference_fingerprint=_fingerprint(args.reference,"gretel-spanish-base-v1"),
         transcribe=asr, force_ids=args.regenerate_ids,
     ), indent=2))
 
