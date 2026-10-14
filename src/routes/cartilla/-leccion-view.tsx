@@ -90,7 +90,7 @@ export function Leccion() {
     // Old lesson-24 bookmarks numbered the missing page 87 at index 0. New
     // bookmarks carry the printed page, so this fallback migration runs once.
     const resolveSavedIndex = (savedIndex: number, printedPage?: number) => {
-      if (Number.isInteger(printedPage)) {
+      if (typeof printedPage === "number" && Number.isInteger(printedPage)) {
         const matching = pages.findIndex((page) => page.pageNumber === printedPage);
         if (matching >= 0) return matching;
       }
