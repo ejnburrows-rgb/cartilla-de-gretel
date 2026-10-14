@@ -1,0 +1,23 @@
+
+[1m[30m[46m RUN [49m[39m[22m [36mv4.1.8 [39m[90m/vercel/sandbox/data/connector-space[39m
+
+ [32m✓[39m src/cartilla/interactions/__tests__/listbox-keyboard-navigation.test.tsx [2m([22m[2m7 tests[22m[2m)[22m[33m 388[2mms[22m[39m
+ [32m✓[39m src/cartilla/interactions/__tests__/PencilConnector.test.tsx [2m([22m[2m10 tests[22m[2m)[22m[33m 1458[2mms[22m[39m
+     [33m[2m✓[22m[39m tapping correct target (uniforme) connects line and plays correct chord [33m 365[2mms[22m[39m
+ [32m✓[39m src/components/living/__tests__/LivingIllustration.test.tsx [2m([22m[2m13 tests[22m[2m)[22m[33m 560[2mms[22m[39m
+ [32m✓[39m src/cartilla/interactions/__tests__/PencilConnectorProgress.test.tsx [2m([22m[2m9 tests[22m[2m)[22m[33m 363[2mms[22m[39m
+ [32m✓[39m src/cartilla/interactions/__tests__/faithful-mechanic-routing.test.ts [2m([22m[2m7 tests[22m[2m)[22m[32m 13[2mms[22m[39m
+ [32m✓[39m src/cartilla/interactions/__tests__/PaintCanvas.test.tsx [2m([22m[2m5 tests[22m[2m)[22m[33m 486[2mms[22m[39m
+ [32m✓[39m src/cartilla/interactions/__tests__/DibujaHost.test.tsx [2m([22m[2m7 tests[22m[2m)[22m[33m 470[2mms[22m[39m
+ [32m✓[39m src/cartilla/interactions/__tests__/SyllableWordCircle.test.tsx [2m([22m[2m5 tests[22m[2m)[22m[33m 511[2mms[22m[39m
+     [33m[2m✓[22m[39m preserves valid older source-page syllable circles when switching to the approved pencil [33m 339[2mms[22m[39m
+ [32m✓[39m src/cartilla/interactions/__tests__/colorization-pass.test.ts [2m([22m[2m25 tests[22m[2m)[22m[32m 14[2mms[22m[39m
+ [32m✓[39m src/cartilla/interactions/__tests__/TapSelect.test.tsx [2m([22m[2m4 tests[22m[2m)[22m[32m 300[2mms[22m[39m
+ [32m✓[39m src/cartilla/interactions/__tests__/owner-approved-pencil-only.test.ts [2m([22m[2m3 tests[22m[2m)[22m[32m 20[2mms[22m[39m
+ [32m✓[39m src/components/living/__tests__/LivingIllustration.clip.test.tsx [2m([22m[2m3 tests[22m[2m)[22m[32m 69[2mms[22m[39m
+
+[2m Test Files [22m [1m[32m12 passed[39m[22m[90m (12)[39m
+[2m      Tests [22m [1m[32m98 passed[39m[22m[90m (98)[39m
+[2m   Start at [22m 15:13:06
+[2m   Duration [22m 11.82s[2m (transform 1.46s, setup 1.54s, import 2.54s, tests 4.65s, environment 11.41s)[22m
+

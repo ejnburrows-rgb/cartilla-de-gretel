@@ -1,0 +1,152 @@
+
+Running 70 tests using 2 workers
+
+  ✓   1 tests/e2e/archetype-proof-3-4.spec.ts:56:5 › Workbook Archetypes 3 & 4 Proof Suite › Archetype 3: Multi-pair matching / connect (Printed Page 3) › Source order, labels, images, and Pencil Line presentation on Page 3 (6.0s)
+  ✓   2 tests/e2e/archetype-proof-3-4.spec.ts:159:7 › Workbook Archetypes 3 & 4 Proof Suite › Archetype 4: Single central target + surrounding pictures › Printed Page 11 (Central target Ee) rendered fidelity and fit (6.7s)
+  ✓   4 tests/e2e/archetype-proof-3-4.spec.ts:159:7 › Workbook Archetypes 3 & 4 Proof Suite › Archetype 4: Single central target + surrounding pictures › Printed Page 14 (Central target Ii) rendered fidelity and fit (2.6s)
+  ✓   3 tests/e2e/archetype-proof-3-4.spec.ts:90:5 › Workbook Archetypes 3 & 4 Proof Suite › Archetype 3: Multi-pair matching / connect (Printed Page 3) › Completion compatibility for Archetype 3 (Page 3) (4.8s)
+  ✓   5 tests/e2e/archetype-proof-3-4.spec.ts:159:7 › Workbook Archetypes 3 & 4 Proof Suite › Archetype 4: Single central target + surrounding pictures › Printed Page 17 (Central target Uu) rendered fidelity and fit (2.4s)
+  ✓   6 tests/e2e/archetype-proof-3-4.spec.ts:129:5 › Workbook Archetypes 3 & 4 Proof Suite › Archetype 3: Multi-pair matching / connect (Printed Page 3) › Device viewports fit and visual integrity for Archetype 3 (Page 3) (5.2s)
+  ✓   7 tests/e2e/archetype-proof-3-4.spec.ts:195:5 › Workbook Archetypes 3 & 4 Proof Suite › Archetype 4: Single central target + surrounding pictures › Completion flow for Archetype 4 (Page 5 - Vocal Oo) (4.8s)
+  ✓   8 tests/e2e/archetype-proof-3-4.spec.ts:159:7 › Workbook Archetypes 3 & 4 Proof Suite › Archetype 4: Single central target + surrounding pictures › Printed Page 5 (Central target Oo) rendered fidelity and fit (3.3s)
+  ✓  10 tests/e2e/archetype-proof-3-4.spec.ts:159:7 › Workbook Archetypes 3 & 4 Proof Suite › Archetype 4: Single central target + surrounding pictures › Printed Page 8 (Central target Aa) rendered fidelity and fit (2.8s)
+  ✓   9 tests/e2e/archetype-proof-3-4.spec.ts:224:5 › Workbook Archetypes 3 & 4 Proof Suite › Archetype 4: Single central target + surrounding pictures › Device viewports fit for Archetype 4 (Page 5) (5.6s)
+  ✘  11 tests/e2e/book-motion.spec.ts:9:3 › native lesson and presenter motion › student lesson uses native page navigation (7.3s)
+  ✘  12 tests/e2e/book-motion.spec.ts:34:3 › native lesson and presenter motion › teacher presenter keeps the vertical native Flip Chart transition (7.3s)
+  ✓  13 tests/e2e/living-motion-discipline.spec.ts:33:1 › Workbook page 1: registered actors move, static art stays static (2.7s)
+  ✓  14 tests/e2e/living-motion-discipline.spec.ts:66:1 › Workbook page 1: reduced motion stops every picture (2.4s)
+  ✓  15 tests/e2e/living-motion-regression.spec.ts:16:3 › Living Motion Regression Suite › Workbook Page 1: registered living actors render, move, and pass asset checks (3.3s)
+  ✓  16 tests/e2e/living-motion-regression.spec.ts:103:3 › Living Motion Regression Suite › Reduced motion: falls back to still assets and halts motion across Workbook Page 1 and Flip Chart Lesson 7 (5.0s)
+  ✘  17 tests/e2e/living-motion-regression.spec.ts:66:3 › Living Motion Regression Suite › Flip Chart Lesson 7: registered scene actor renders and uses aliveSrc (2.6s)
+  ✓  18 tests/e2e/pencil-connector-space.spec.ts:88:31 › laptop mouse › p3: drawing space, retry, completion and saved return (14.1s)
+  ✓  19 tests/e2e/pencil-connector-space.spec.ts:88:31 › laptop mouse › p5: drawing space, retry, completion and saved return (21.1s)
+  ✓  20 tests/e2e/pencil-connector-space.spec.ts:88:31 › laptop mouse › p8: drawing space, retry, completion and saved return (20.9s)
+  ✓  21 tests/e2e/pencil-connector-space.spec.ts:88:31 › laptop mouse › p11: drawing space, retry, completion and saved return (20.1s)
+  ✓  22 tests/e2e/pencil-connector-space.spec.ts:88:31 › laptop mouse › p14: drawing space, retry, completion and saved return (21.4s)
+  ✓  23 tests/e2e/pencil-connector-space.spec.ts:88:31 › laptop mouse › p17: drawing space, retry, completion and saved return (21.6s)
+  ✓  24 tests/e2e/pencil-connector-space.spec.ts:88:31 › laptop touch › p3: drawing space, retry, completion and saved return (10.1s)
+  ✓  25 tests/e2e/pencil-connector-space.spec.ts:88:31 › laptop touch › p5: drawing space, retry, completion and saved return (13.9s)
+  ✓  26 tests/e2e/pencil-connector-space.spec.ts:88:31 › laptop touch › p8: drawing space, retry, completion and saved return (13.8s)
+  ✓  27 tests/e2e/pencil-connector-space.spec.ts:88:31 › laptop touch › p11: drawing space, retry, completion and saved return (13.1s)
+  ✓  28 tests/e2e/pencil-connector-space.spec.ts:88:31 › laptop touch › p14: drawing space, retry, completion and saved return (13.7s)
+  ✓  29 tests/e2e/pencil-connector-space.spec.ts:88:31 › laptop touch › p17: drawing space, retry, completion and saved return (13.7s)
+  ✓  30 tests/e2e/pencil-connector-space.spec.ts:88:31 › tablet mouse › p3: drawing space, retry, completion and saved return (13.8s)
+  ✓  31 tests/e2e/pencil-connector-space.spec.ts:88:31 › tablet mouse › p5: drawing space, retry, completion and saved return (21.7s)
+  ✓  32 tests/e2e/pencil-connector-space.spec.ts:88:31 › tablet mouse › p8: drawing space, retry, completion and saved return (20.7s)
+  ✓  33 tests/e2e/pencil-connector-space.spec.ts:88:31 › tablet mouse › p11: drawing space, retry, completion and saved return (21.0s)
+  ✓  34 tests/e2e/pencil-connector-space.spec.ts:88:31 › tablet mouse › p14: drawing space, retry, completion and saved return (21.2s)
+  ✓  36 tests/e2e/pencil-connector-space.spec.ts:88:31 › tablet touch › p3: drawing space, retry, completion and saved return (8.9s)
+  ✓  35 tests/e2e/pencil-connector-space.spec.ts:88:31 › tablet mouse › p17: drawing space, retry, completion and saved return (20.5s)
+  ✓  37 tests/e2e/pencil-connector-space.spec.ts:88:31 › tablet touch › p5: drawing space, retry, completion and saved return (14.0s)
+  ✓  38 tests/e2e/pencil-connector-space.spec.ts:88:31 › tablet touch › p8: drawing space, retry, completion and saved return (13.2s)
+  ✓  39 tests/e2e/pencil-connector-space.spec.ts:88:31 › tablet touch › p11: drawing space, retry, completion and saved return (12.3s)
+  ✓  40 tests/e2e/pencil-connector-space.spec.ts:88:31 › tablet touch › p14: drawing space, retry, completion and saved return (12.8s)
+  ✓  41 tests/e2e/pencil-connector-space.spec.ts:88:31 › tablet touch › p17: drawing space, retry, completion and saved return (12.3s)
+  ✓  42 tests/e2e/pencil-connector-space.spec.ts:88:31 › phone mouse › p3: drawing space, retry, completion and saved return (17.6s)
+  ✓  43 tests/e2e/pencil-connector-space.spec.ts:88:31 › phone mouse › p5: drawing space, retry, completion and saved return (24.6s)
+  ✓  44 tests/e2e/pencil-connector-space.spec.ts:88:31 › phone mouse › p8: drawing space, retry, completion and saved return (24.6s)
+  ✓  45 tests/e2e/pencil-connector-space.spec.ts:88:31 › phone mouse › p11: drawing space, retry, completion and saved return (23.3s)
+  ✓  46 tests/e2e/pencil-connector-space.spec.ts:88:31 › phone mouse › p14: drawing space, retry, completion and saved return (24.1s)
+  ✓  47 tests/e2e/pencil-connector-space.spec.ts:88:31 › phone mouse › p17: drawing space, retry, completion and saved return (24.3s)
+  ✓  48 tests/e2e/pencil-connector-space.spec.ts:88:31 › phone touch › p3: drawing space, retry, completion and saved return (9.8s)
+  ✓  49 tests/e2e/pencil-connector-space.spec.ts:88:31 › phone touch › p5: drawing space, retry, completion and saved return (14.9s)
+  ✓  50 tests/e2e/pencil-connector-space.spec.ts:88:31 › phone touch › p8: drawing space, retry, completion and saved return (14.0s)
+  ✓  51 tests/e2e/pencil-connector-space.spec.ts:88:31 › phone touch › p11: drawing space, retry, completion and saved return (14.1s)
+  ✓  52 tests/e2e/pencil-connector-space.spec.ts:88:31 › phone touch › p14: drawing space, retry, completion and saved return (14.8s)
+  ✓  54 tests/e2e/workbook-card-motion.spec.ts:64:3 › Workbook page 5: approved card pictures move on the real page (1.8s)
+  ✓  55 tests/e2e/workbook-card-motion.spec.ts:64:3 › Workbook page 8: approved card pictures move on the real page (1.7s)
+  ✓  56 tests/e2e/workbook-card-motion.spec.ts:64:3 › Workbook page 11: approved card pictures move on the real page (1.6s)
+  ✓  57 tests/e2e/workbook-card-motion.spec.ts:64:3 › Workbook page 14: approved card pictures move on the real page (1.5s)
+  ✓  58 tests/e2e/workbook-card-motion.spec.ts:64:3 › Workbook page 17: approved card pictures move on the real page (1.5s)
+  ✓  59 tests/e2e/workbook-card-motion.spec.ts:90:1 › Workbook card pictures are all still under reduced motion (1.8s)
+  ✓  60 tests/e2e/workbook-vowel-motion.spec.ts:70:5 › laptop: Lesson 2 vowel pictures move only their parts (3.4s)
+  ✓  53 tests/e2e/pencil-connector-space.spec.ts:88:31 › phone touch › p17: drawing space, retry, completion and saved return (17.0s)
+  ✓  61 tests/e2e/workbook-vowel-motion.spec.ts:70:5 › laptop: Lesson 3 vowel pictures move only their parts (3.2s)
+  ✓  62 tests/e2e/workbook-vowel-motion.spec.ts:70:5 › laptop: Lesson 4 vowel pictures move only their parts (4.0s)
+  ✓  63 tests/e2e/workbook-vowel-motion.spec.ts:70:5 › laptop: Lesson 5 vowel pictures move only their parts (3.6s)
+  ✓  64 tests/e2e/workbook-vowel-motion.spec.ts:70:5 › laptop: Lesson 6 vowel pictures move only their parts (4.3s)
+  ✓  65 tests/e2e/workbook-vowel-motion.spec.ts:70:5 › phone: Lesson 2 vowel pictures move only their parts (3.9s)
+  ✓  66 tests/e2e/workbook-vowel-motion.spec.ts:70:5 › phone: Lesson 3 vowel pictures move only their parts (4.0s)
+  ✓  67 tests/e2e/workbook-vowel-motion.spec.ts:70:5 › phone: Lesson 4 vowel pictures move only their parts (4.0s)
+  ✓  68 tests/e2e/workbook-vowel-motion.spec.ts:70:5 › phone: Lesson 5 vowel pictures move only their parts (3.9s)
+  ✓  69 tests/e2e/workbook-vowel-motion.spec.ts:70:5 › phone: Lesson 6 vowel pictures move only their parts (4.0s)
+  ✓  70 tests/e2e/workbook-vowel-motion.spec.ts:113:1 › reduced motion: vowel pictures show the still drawing and nothing moves (1.5s)
+
+
+  1) tests/e2e/book-motion.spec.ts:9:3 › native lesson and presenter motion › student lesson uses native page navigation 
+
+    Error: expect(locator).toHaveAttribute(expected) failed
+
+    Locator: getByTestId('gretel-presence')
+    Expected: "book"
+    Timeout: 5000ms
+    Error: element(s) not found
+
+    Call log:
+      - Expect "toHaveAttribute" getByTestId('gretel-presence') with timeout 5000ms
+      - waiting for getByTestId('gretel-presence')
+
+
+      18 |
+      19 |     const gretel = page.getByTestId("gretel-presence");
+    > 20 |     await expect(gretel).toHaveAttribute("data-placement", "book");
+         |                          ^
+      21 |     await expect(gretel).toHaveAttribute("data-page-ready", "true", { timeout: 2500 });
+      22 |
+      23 |     const counter = reader.locator(".native-lesson-viewer__page");
+        at /vercel/sandbox/data/connector-compat/tests/e2e/book-motion.spec.ts:20:26
+
+    Error Context: test-results/book-motion-native-lesson--23dce-uses-native-page-navigation/error-context.md
+
+  2) tests/e2e/book-motion.spec.ts:34:3 › native lesson and presenter motion › teacher presenter keeps the vertical native Flip Chart transition 
+
+    Error: expect(locator).toHaveAttribute(expected) failed
+
+    Locator:  getByTestId('flipchart-hd-panel')
+    Expected: "980"
+    Received: "2000"
+    Timeout:  5000ms
+
+    Call log:
+      - Expect "toHaveAttribute" getByTestId('flipchart-hd-panel') with timeout 5000ms
+      - waiting for getByTestId('flipchart-hd-panel')
+        14 × locator resolved to <div class="fc-board" data-chrome="full" data-hand-mode="left" data-hd-primary="true" data-page-turn-ms="2000" data-reduced-motion="false" data-presenter-mode="native" data-page-turn-axis="vertical" data-testid="flipchart-hd-panel" data-delivery-tier="independent-faithful-assets">…</div>
+           - unexpected value "2000"
+
+
+      41 |     await expect(panel).toHaveAttribute("data-presenter-mode", "native");
+      42 |     await expect(panel).toHaveAttribute("data-page-turn-axis", "vertical");
+    > 43 |     await expect(panel).toHaveAttribute("data-page-turn-ms", "980");
+         |                         ^
+      44 |     await expect(panel).not.toHaveAttribute("data-physical-flipchart", /.*/);
+      45 |     await expect(panel.locator(".fc-board__ring")).toHaveCount(0);
+      46 |     await expect(panel.locator(".fc-board__binding")).toHaveCount(0);
+        at /vercel/sandbox/data/connector-compat/tests/e2e/book-motion.spec.ts:43:25
+
+    Error Context: test-results/book-motion-native-lesson--b74b8-ative-Flip-Chart-transition/error-context.md
+
+  3) tests/e2e/living-motion-regression.spec.ts:66:3 › Living Motion Regression Suite › Flip Chart Lesson 7: registered scene actor renders and uses aliveSrc 
+
+    Error: p009-scene uses self-animated natural motion
+
+    expect(received).toBe(expected) // Object.is equality
+
+    Expected: "true"
+    Received: "false"
+
+      82 |
+      83 |     const isNatural = await sceneWrapper.getAttribute("data-natural-motion");
+    > 84 |     expect(isNatural, "p009-scene uses self-animated natural motion").toBe("true");
+         |                                                                       ^
+      85 |
+      86 |     const img = sceneWrapper.locator("img.living-illustration__art");
+      87 |     await expect(img).toBeVisible();
+        at /vercel/sandbox/data/connector-compat/tests/e2e/living-motion-regression.spec.ts:84:71
+
+    Error Context: test-results/living-motion-regression-L-adb3e-r-renders-and-uses-aliveSrc/error-context.md
+
+  3 failed
+    tests/e2e/book-motion.spec.ts:9:3 › native lesson and presenter motion › student lesson uses native page navigation 
+    tests/e2e/book-motion.spec.ts:34:3 › native lesson and presenter motion › teacher presenter keeps the vertical native Flip Chart transition 
+    tests/e2e/living-motion-regression.spec.ts:66:3 › Living Motion Regression Suite › Flip Chart Lesson 7: registered scene actor renders and uses aliveSrc 
+  67 passed (6.2m)
