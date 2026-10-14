@@ -116,6 +116,7 @@ export function DirectPencilConnector({
         });
 
         for (const key of rawKeys) {
+          if (typeof key !== "string") continue;
           const parts = key.split("|");
           if (parts.length !== 2) continue;
           const [leftId, rightId] = parts;
@@ -132,6 +133,7 @@ export function DirectPencilConnector({
         }
       } else {
         for (const id of rawKeys) {
+          if (typeof id !== "string") continue;
           if (validMarkIds.has(id)) {
             const target = targets.find((t) => t.id === id);
             if (target && target.correct !== false) {
