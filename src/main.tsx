@@ -5,14 +5,16 @@ import { RouterProvider } from "@tanstack/react-router";
 import { getRouter } from "./router";
 import { initArtScanBlend } from "./lib/art-blend";
 import { initLivingArtRuntime } from "./lib/living-art-runtime";
-import { initializeGretelDynamicTts } from "./lib/gretel-dynamic-tts";
+import { initializeGretelDynamicTts, installDynamicGretelReactions } from "./lib/gretel-dynamic-tts";
 import "./styles.css";
 import "./styles/living-art.css";
 import "./styles/gretel-presence.css";
 import "./styles/art-blend.css";
 
 // Install the custom voice before any lesson starts; absent an engine, preserve existing behavior.
-initializeGretelDynamicTts(import.meta.env.VITE_GRETEL_TTS_ENDPOINT);
+if (initializeGretelDynamicTts(import.meta.env.VITE_GRETEL_TTS_ENDPOINT)) {
+  installDynamicGretelReactions();
+}
 
 const router = getRouter();
 
