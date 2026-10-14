@@ -1,5 +1,15 @@
 # PROJECT SOURCE OF TRUTH — La Cartilla de Gretel
 
+
+## OWNER-APPROVED — permanently close workbook page 86–87 scan gap (2026-10-14)
+
+The actual authoritative `Libro del alumno - Rescan and Optimize (2).pdf` contains original printed page 85 followed by 88. Printed pages **86 and 87 are absent** from the source, GitHub source-scan set, and available originals. **The owner has explicitly closed this question. Do not ask for these pages again, do not invent/reconstruct images, words, exercise content or page numbering, and do not block student progress or project completion on this gap.** Previously shown AI-generated mockups are fake and rejected.
+
+Student-facing lesson flow: **Lección 23 = pages 83 → 84 → 85, then normal lesson completion; Lección 24 = pages 88 → 89 → 90**. The complete Cuaderno already flows from 85 directly to 88. Keep the printed page numbers unaltered. Maintain internal `SOURCE_BLOCKED` metadata for 86–87 as a truthful historical/source record, but keep placeholder leaves and invented activities OUT of student sessions. Preserve existing student progress and teacher reporting.
+
+**Curriculum discussion order (owner, 2026-10-14):** first GrillMe/brainstorm HOW each already-built practice activity works for the learner/teacher within a session, including sequencing and completion. **Only afterward discuss Piano Hablador's specific lesson placement.** Piano inside lessons is approved in principle; its details have not yet been chosen.
+
+
 ## Current artwork reconciliation routing — 2026-10-14
 
 The **current source-evidenced artwork reconciliation** is in [PR #751](https://github.com/ejnburrows-rgb/cartilla-de-gretel/pull/751), [MASTER-MAPPING.md](https://github.com/ejnburrows-rgb/cartilla-de-gretel/blob/evidence/artwork-coverage-20261014/docs/proofs/artwork-coverage-2026-10-14/MASTER-MAPPING.md), and its 330-row CSV/201-group JSON. **The PR is a draft evidence branch, not installed on `main`, not deployed, and not a production-art approval.** Every agent, including Muse/Jules/controller/reviewer, must read the current PR head and its evidence **before** making artwork availability, candidate or owner-missing claims; do not restart the four completed artwork audits. No automatic Jules job is created by this pointer.
