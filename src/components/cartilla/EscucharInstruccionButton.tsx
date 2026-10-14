@@ -11,7 +11,7 @@ export function EscucharInstruccionButton({
   className?: string;
 }) {
   const { play, playingText } = useAudio();
-  if (!AUDIO_POLICY.allowTts) return null;
+  if (!AUDIO_POLICY.allowTts && !(AUDIO_POLICY.allowCustomGretelTts && getGretelVoiceProviderConfig().type === "custom")) return null;
   const isPlaying = playingText === text;
 
   return (
