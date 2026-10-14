@@ -82,6 +82,8 @@ def build_map(script: Path, sources: dict[str, Path], verified_cues: Path | None
         json.dumps(full, ensure_ascii=False, indent=2), encoding="utf-8")
     playable = []
     for ident, cue in approved.items():
+        if not export_verified:
+            continue  # A verified timestamp without an actual MP3 is NOT playable.
         entry = by_id[ident]
         filename = "gretel_" + ident.lower() + ".mp3"
         if export_verified:
