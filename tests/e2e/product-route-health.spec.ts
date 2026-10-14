@@ -307,4 +307,5 @@ test.describe("Whole-Product Route Health + Console/Network Error Sweep", () => 
     await expect(reader.locator("[data-source-blocked='true']")).toHaveCount(0);
     await expect(reader.getByTestId("button-next")).toHaveText(/Terminar lección/);
     monitor.assertClean();
-  });});
+  });
+});
