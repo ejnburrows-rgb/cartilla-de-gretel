@@ -37,7 +37,7 @@ export function GretelRecordedPageButton({ pageNumber, disabled = false }: { pag
     };
   }, [urls]);
 
-  if (!readyUrls.length) return null;
+  if (!readyUrls.length || readyUrls.join("|") !== urls.join("|")) return null;
   const onClick = () => {
     if (active.current) {
       playTicket.current++;
