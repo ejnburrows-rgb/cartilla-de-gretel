@@ -256,3 +256,30 @@ describe("fallback and error behavior", () => {
     }
   });
 });
+
+describe("custom Gretel synthesis failure", () => {
+  it("reports the failure without switching to a browser voice", async () => {
+    const {
+      setGretelVoiceProviderConfig, resetGretelVoiceProviderConfig,
+      setGretelVoiceMuted, speakAsGretel, getGretelVoiceProviderConfig,
+    } = await import("../gretel-voice");
+    setGretelVoiceMuted(false);
+    const errorListener = vi.fn();
+    window.addEventListener("gretel:speak_error", errorListener);
+    setGretelVoiceProviderConfig({
+      type: "custom",
+      name: "Gretel private custom engine",
+      speakFn: async () => { throw new Error("model unavailable"); },
+    });
+    try {
+      const onEnd = vi.fn();
+      await speakAsGretel("Mañana, pingüino.", { onEnd });
+      expect(errorListener).toHaveBeenCalledTimes(1);
+      expect(onEnd).toHaveBeenCalledTimes(1);
+      expect(getGretelVoiceProviderConfig().type).toBe("custom");
+    } finally {
+      window.removeEventListener("gretel:speak_error", errorListener);
+      resetGretelVoiceProviderConfig();
+    }
+  });
+});
