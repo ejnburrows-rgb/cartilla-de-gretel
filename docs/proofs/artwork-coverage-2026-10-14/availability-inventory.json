@@ -272,9 +272,10 @@
         "comparisons/WB-repeat-proposal-45.jpg"
       ],
       "identity_decision": "SAME ORIGINAL DRAWING WITHIN THIS GROUP",
-      "label": "avi\u00f3n",
+      "label": "avión",
       "decisions": [
-        "Same stylized source silhouette reused with rotation/reflection; semantic airplane/pez conflict retained, not resolved from filenames. Preserve the orientation at each placement."
+        "Same stylized source silhouette reused with rotation/reflection; semantic airplane/pez conflict retained, not resolved from filenames. Preserve the orientation at each placement.",
+        "Direct visual inspection of original source crops WB-S019-OBJ02-PEZ.png and WB-S007-OBJ06-PEZ.png verifies an AIRPLANE (avión), not a fish. The five PEZ-labelled placement IDs are inherited source filenames, not reliable semantic labels; do NOT rename originals or classify as fish."
       ],
       "availability": "OPTIMIZED VERSION EXISTS",
       "placement_counts": {
@@ -1235,7 +1236,7 @@
         "comparisons/FC-001.jpg"
       ],
       "identity_decision": "DISTINCT SOURCE DRAWING UNIT",
-      "label": "Ilustraci\u00f3n de la p\u00e1gina 3",
+      "label": "Ilustración de la página 3",
       "availability": "OPTIMIZED VERSION EXISTS",
       "placement_counts": {
         "OPTIMIZED VERSION EXISTS": 1
@@ -1253,7 +1254,7 @@
         "comparisons/FC-001.jpg"
       ],
       "identity_decision": "DISTINCT SOURCE DRAWING UNIT",
-      "label": "avi\u00f3n",
+      "label": "avión",
       "availability": "OPTIMIZED VERSION EXISTS",
       "placement_counts": {
         "OPTIMIZED VERSION EXISTS": 1
@@ -1293,7 +1294,7 @@
         "comparisons/FC-025.jpg"
       ],
       "identity_decision": "DISTINCT SOURCE DRAWING UNIT",
-      "label": "im\u00e1n",
+      "label": "imán",
       "decisions": [
         "Same magnet/oval/action-mark drawing, horizontally reflected; preserve source reflection."
       ],
@@ -1315,7 +1316,7 @@
         "comparisons/FC-001.jpg"
       ],
       "identity_decision": "DISTINCT SOURCE DRAWING UNIT",
-      "label": "u\u00f1a",
+      "label": "uña",
       "availability": "OPTIMIZED VERSION EXISTS",
       "placement_counts": {
         "OPTIMIZED VERSION EXISTS": 1
@@ -1333,7 +1334,7 @@
         "comparisons/FC-007.jpg"
       ],
       "identity_decision": "DISTINCT SOURCE DRAWING UNIT",
-      "label": "Ilustraci\u00f3n de la p\u00e1gina 4",
+      "label": "Ilustración de la página 4",
       "availability": "OPTIMIZED VERSION EXISTS",
       "placement_counts": {
         "OPTIMIZED VERSION EXISTS": 1
@@ -1369,7 +1370,7 @@
         "comparisons/FC-013.jpg"
       ],
       "identity_decision": "DISTINCT SOURCE DRAWING UNIT",
-      "label": "Ilustraci\u00f3n de la p\u00e1gina 5",
+      "label": "Ilustración de la página 5",
       "availability": "OPTIMIZED VERSION EXISTS",
       "placement_counts": {
         "OPTIMIZED VERSION EXISTS": 1
@@ -1459,7 +1460,7 @@
         "comparisons/FC-019.jpg"
       ],
       "identity_decision": "DISTINCT SOURCE DRAWING UNIT",
-      "label": "Ilustraci\u00f3n de la p\u00e1gina 6",
+      "label": "Ilustración de la página 6",
       "availability": "OPTIMIZED VERSION EXISTS",
       "placement_counts": {
         "OPTIMIZED VERSION EXISTS": 1
@@ -1531,7 +1532,7 @@
         "comparisons/FC-025.jpg"
       ],
       "identity_decision": "DISTINCT SOURCE DRAWING UNIT",
-      "label": "Ilustraci\u00f3n de la p\u00e1gina 7",
+      "label": "Ilustración de la página 7",
       "availability": "OPTIMIZED VERSION EXISTS",
       "placement_counts": {
         "OPTIMIZED VERSION EXISTS": 1
@@ -1567,7 +1568,7 @@
         "comparisons/FC-031.jpg"
       ],
       "identity_decision": "DISTINCT SOURCE DRAWING UNIT",
-      "label": "Ilustraci\u00f3n de la p\u00e1gina 8",
+      "label": "Ilustración de la página 8",
       "availability": "OPTIMIZED VERSION EXISTS",
       "placement_counts": {
         "OPTIMIZED VERSION EXISTS": 1
@@ -1621,7 +1622,7 @@
         "comparisons/FC-037.jpg"
       ],
       "identity_decision": "DISTINCT SOURCE DRAWING UNIT",
-      "label": "Ilustraci\u00f3n de la p\u00e1gina 9",
+      "label": "Ilustración de la página 9",
       "availability": "OPTIMIZED VERSION EXISTS",
       "placement_counts": {
         "OPTIMIZED VERSION EXISTS": 1
@@ -1639,7 +1640,7 @@
         "comparisons/FC-043.jpg"
       ],
       "identity_decision": "DISTINCT SOURCE DRAWING UNIT",
-      "label": "mam\u00e1",
+      "label": "mamá",
       "availability": "OPTIMIZED VERSION EXISTS",
       "placement_counts": {
         "OPTIMIZED VERSION EXISTS": 1
@@ -1735,7 +1736,7 @@
         "comparisons/FC-049.jpg"
       ],
       "identity_decision": "DISTINCT SOURCE DRAWING UNIT",
-      "label": "Ilustraci\u00f3n de la p\u00e1gina 12",
+      "label": "Ilustración de la página 12",
       "availability": "OPTIMIZATION NEEDED",
       "placement_counts": {
         "OPTIMIZATION NEEDED": 1
@@ -1753,7 +1754,7 @@
         "comparisons/FC-049.jpg"
       ],
       "identity_decision": "DISTINCT SOURCE DRAWING UNIT",
-      "label": "pap\u00e1",
+      "label": "papá",
       "availability": "OPTIMIZATION NEEDED",
       "placement_counts": {
         "OPTIMIZATION NEEDED": 1
@@ -1843,7 +1844,7 @@
         "comparisons/FC-055.jpg"
       ],
       "identity_decision": "DISTINCT SOURCE DRAWING UNIT",
-      "label": "Ilustraci\u00f3n de la p\u00e1gina 14",
+      "label": "Ilustración de la página 14",
       "availability": "OPTIMIZATION NEEDED",
       "placement_counts": {
         "OPTIMIZATION NEEDED": 1
@@ -1861,7 +1862,7 @@
         "comparisons/FC-055.jpg"
       ],
       "identity_decision": "DISTINCT SOURCE DRAWING UNIT",
-      "label": "Ilustraci\u00f3n de la p\u00e1gina 15",
+      "label": "Ilustración de la página 15",
       "availability": "OPTIMIZATION NEEDED",
       "placement_counts": {
         "OPTIMIZATION NEEDED": 1
@@ -1969,7 +1970,7 @@
         "comparisons/FC-061.jpg"
       ],
       "identity_decision": "DISTINCT SOURCE DRAWING UNIT",
-      "label": "Ilustraci\u00f3n de la p\u00e1gina 17",
+      "label": "Ilustración de la página 17",
       "availability": "OPTIMIZATION NEEDED",
       "placement_counts": {
         "OPTIMIZATION NEEDED": 1
@@ -1987,7 +1988,7 @@
         "comparisons/FC-061.jpg"
       ],
       "identity_decision": "DISTINCT SOURCE DRAWING UNIT",
-      "label": "Ilustraci\u00f3n de la p\u00e1gina 18",
+      "label": "Ilustración de la página 18",
       "availability": "OPTIMIZATION NEEDED",
       "placement_counts": {
         "OPTIMIZATION NEEDED": 1
@@ -2095,7 +2096,7 @@
         "comparisons/FC-067.jpg"
       ],
       "identity_decision": "DISTINCT SOURCE DRAWING UNIT",
-      "label": "Ilustraci\u00f3n de la p\u00e1gina 20",
+      "label": "Ilustración de la página 20",
       "availability": "OPTIMIZATION NEEDED",
       "placement_counts": {
         "OPTIMIZATION NEEDED": 1
@@ -2113,7 +2114,7 @@
         "comparisons/FC-067.jpg"
       ],
       "identity_decision": "DISTINCT SOURCE DRAWING UNIT",
-      "label": "Ilustraci\u00f3n de la p\u00e1gina 21",
+      "label": "Ilustración de la página 21",
       "availability": "OPTIMIZATION NEEDED",
       "placement_counts": {
         "OPTIMIZATION NEEDED": 1
@@ -2221,7 +2222,7 @@
         "comparisons/FC-073.jpg"
       ],
       "identity_decision": "DISTINCT SOURCE DRAWING UNIT",
-      "label": "Ilustraci\u00f3n de la p\u00e1gina 23",
+      "label": "Ilustración de la página 23",
       "availability": "OPTIMIZATION NEEDED",
       "placement_counts": {
         "OPTIMIZATION NEEDED": 1
@@ -2239,7 +2240,7 @@
         "comparisons/FC-073.jpg"
       ],
       "identity_decision": "DISTINCT SOURCE DRAWING UNIT",
-      "label": "Ilustraci\u00f3n de la p\u00e1gina 24",
+      "label": "Ilustración de la página 24",
       "availability": "OPTIMIZATION NEEDED",
       "placement_counts": {
         "OPTIMIZATION NEEDED": 1
@@ -2347,7 +2348,7 @@
         "comparisons/FC-079.jpg"
       ],
       "identity_decision": "DISTINCT SOURCE DRAWING UNIT",
-      "label": "Ilustraci\u00f3n de la p\u00e1gina 26",
+      "label": "Ilustración de la página 26",
       "availability": "OPTIMIZATION NEEDED",
       "placement_counts": {
         "OPTIMIZATION NEEDED": 1
@@ -2365,7 +2366,7 @@
         "comparisons/FC-079.jpg"
       ],
       "identity_decision": "DISTINCT SOURCE DRAWING UNIT",
-      "label": "Ilustraci\u00f3n de la p\u00e1gina 27",
+      "label": "Ilustración de la página 27",
       "availability": "OPTIMIZATION NEEDED",
       "placement_counts": {
         "OPTIMIZATION NEEDED": 1
@@ -2473,7 +2474,7 @@
         "comparisons/FC-085.jpg"
       ],
       "identity_decision": "DISTINCT SOURCE DRAWING UNIT",
-      "label": "Ilustraci\u00f3n de la p\u00e1gina 29",
+      "label": "Ilustración de la página 29",
       "availability": "OPTIMIZATION NEEDED",
       "placement_counts": {
         "OPTIMIZATION NEEDED": 1
@@ -2491,7 +2492,7 @@
         "comparisons/FC-091.jpg"
       ],
       "identity_decision": "DISTINCT SOURCE DRAWING UNIT",
-      "label": "Ilustraci\u00f3n de la p\u00e1gina 30",
+      "label": "Ilustración de la página 30",
       "availability": "OPTIMIZATION NEEDED",
       "placement_counts": {
         "OPTIMIZATION NEEDED": 1
@@ -2509,7 +2510,7 @@
         "comparisons/FC-091.jpg"
       ],
       "identity_decision": "DISTINCT SOURCE DRAWING UNIT",
-      "label": "pi\u00f1ata",
+      "label": "piñata",
       "availability": "OPTIMIZATION NEEDED",
       "placement_counts": {
         "OPTIMIZATION NEEDED": 1
@@ -2527,7 +2528,7 @@
         "comparisons/FC-091.jpg"
       ],
       "identity_decision": "DISTINCT SOURCE DRAWING UNIT",
-      "label": "\u00d1uno",
+      "label": "Ñuno",
       "availability": "OPTIMIZATION NEEDED",
       "placement_counts": {
         "OPTIMIZATION NEEDED": 1
@@ -2545,7 +2546,7 @@
         "comparisons/FC-091.jpg"
       ],
       "identity_decision": "DISTINCT SOURCE DRAWING UNIT",
-      "label": "ni\u00f1ito",
+      "label": "niñito",
       "availability": "OPTIMIZATION NEEDED",
       "placement_counts": {
         "OPTIMIZATION NEEDED": 1
@@ -2563,7 +2564,7 @@
         "comparisons/FC-091.jpg"
       ],
       "identity_decision": "DISTINCT SOURCE DRAWING UNIT",
-      "label": "mo\u00f1o",
+      "label": "moño",
       "availability": "OPTIMIZATION NEEDED",
       "placement_counts": {
         "OPTIMIZATION NEEDED": 1
@@ -2581,7 +2582,7 @@
         "comparisons/FC-091.jpg"
       ],
       "identity_decision": "DISTINCT SOURCE DRAWING UNIT",
-      "label": "Me\u00f1e",
+      "label": "Meñe",
       "availability": "OPTIMIZATION NEEDED",
       "placement_counts": {
         "OPTIMIZATION NEEDED": 1
@@ -2599,7 +2600,7 @@
         "comparisons/FC-097.jpg"
       ],
       "identity_decision": "DISTINCT SOURCE DRAWING UNIT",
-      "label": "Ilustraci\u00f3n de la p\u00e1gina 32",
+      "label": "Ilustración de la página 32",
       "availability": "OPTIMIZATION NEEDED",
       "placement_counts": {
         "OPTIMIZATION NEEDED": 1
@@ -2617,7 +2618,7 @@
         "comparisons/FC-097.jpg"
       ],
       "identity_decision": "DISTINCT SOURCE DRAWING UNIT",
-      "label": "Ilustraci\u00f3n de la p\u00e1gina 33",
+      "label": "Ilustración de la página 33",
       "availability": "OPTIMIZATION NEEDED",
       "placement_counts": {
         "OPTIMIZATION NEEDED": 1
@@ -2732,7 +2733,7 @@
         "comparisons/FC-103.jpg"
       ],
       "identity_decision": "DISTINCT SOURCE DRAWING UNIT",
-      "label": "Ilustraci\u00f3n de la p\u00e1gina 35",
+      "label": "Ilustración de la página 35",
       "availability": "OPTIMIZATION NEEDED",
       "placement_counts": {
         "OPTIMIZATION NEEDED": 1
@@ -2750,7 +2751,7 @@
         "comparisons/FC-103.jpg"
       ],
       "identity_decision": "DISTINCT SOURCE DRAWING UNIT",
-      "label": "Ilustraci\u00f3n de la p\u00e1gina 36",
+      "label": "Ilustración de la página 36",
       "availability": "OPTIMIZED VERSION EXISTS",
       "placement_counts": {
         "OPTIMIZED VERSION EXISTS": 1
@@ -2858,7 +2859,7 @@
         "comparisons/FC-109.jpg"
       ],
       "identity_decision": "DISTINCT SOURCE DRAWING UNIT",
-      "label": "Ilustraci\u00f3n de la p\u00e1gina 38",
+      "label": "Ilustración de la página 38",
       "availability": "OPTIMIZATION NEEDED",
       "placement_counts": {
         "OPTIMIZATION NEEDED": 1
@@ -2876,7 +2877,7 @@
         "comparisons/FC-109.jpg"
       ],
       "identity_decision": "DISTINCT SOURCE DRAWING UNIT",
-      "label": "Ilustraci\u00f3n de la p\u00e1gina 39",
+      "label": "Ilustración de la página 39",
       "availability": "OPTIMIZATION NEEDED",
       "placement_counts": {
         "OPTIMIZATION NEEDED": 1
@@ -2984,7 +2985,7 @@
         "comparisons/FC-115.jpg"
       ],
       "identity_decision": "DISTINCT SOURCE DRAWING UNIT",
-      "label": "Ilustraci\u00f3n de la p\u00e1gina 41",
+      "label": "Ilustración de la página 41",
       "availability": "OPTIMIZATION NEEDED",
       "placement_counts": {
         "OPTIMIZATION NEEDED": 1
@@ -3002,7 +3003,7 @@
         "comparisons/FC-115.jpg"
       ],
       "identity_decision": "DISTINCT SOURCE DRAWING UNIT",
-      "label": "Ilustraci\u00f3n de la p\u00e1gina 42",
+      "label": "Ilustración de la página 42",
       "availability": "OPTIMIZED VERSION EXISTS",
       "placement_counts": {
         "OPTIMIZED VERSION EXISTS": 1
@@ -3092,7 +3093,7 @@
         "comparisons/FC-121.jpg"
       ],
       "identity_decision": "DISTINCT SOURCE DRAWING UNIT",
-      "label": "Ilustraci\u00f3n de la p\u00e1gina 44",
+      "label": "Ilustración de la página 44",
       "availability": "OPTIMIZATION NEEDED",
       "placement_counts": {
         "OPTIMIZATION NEEDED": 1
@@ -3110,7 +3111,7 @@
         "comparisons/FC-121.jpg"
       ],
       "identity_decision": "DISTINCT SOURCE DRAWING UNIT",
-      "label": "Ilustraci\u00f3n de la p\u00e1gina 45",
+      "label": "Ilustración de la página 45",
       "availability": "OPTIMIZATION NEEDED",
       "placement_counts": {
         "OPTIMIZATION NEEDED": 1
@@ -3218,7 +3219,7 @@
         "comparisons/FC-127.jpg"
       ],
       "identity_decision": "DISTINCT SOURCE DRAWING UNIT",
-      "label": "Ilustraci\u00f3n de la p\u00e1gina 47",
+      "label": "Ilustración de la página 47",
       "availability": "OPTIMIZATION NEEDED",
       "placement_counts": {
         "OPTIMIZATION NEEDED": 1
@@ -3236,7 +3237,7 @@
         "comparisons/FC-133.jpg"
       ],
       "identity_decision": "DISTINCT SOURCE DRAWING UNIT",
-      "label": "Ilustraci\u00f3n de la p\u00e1gina 48",
+      "label": "Ilustración de la página 48",
       "availability": "OPTIMIZATION NEEDED",
       "placement_counts": {
         "OPTIMIZATION NEEDED": 1
@@ -3344,7 +3345,7 @@
         "comparisons/FC-139.jpg"
       ],
       "identity_decision": "DISTINCT SOURCE DRAWING UNIT",
-      "label": "Ilustraci\u00f3n de la p\u00e1gina 50",
+      "label": "Ilustración de la página 50",
       "availability": "OPTIMIZATION NEEDED",
       "placement_counts": {
         "OPTIMIZATION NEEDED": 1
@@ -3362,7 +3363,7 @@
         "comparisons/FC-139.jpg"
       ],
       "identity_decision": "DISTINCT SOURCE DRAWING UNIT",
-      "label": "Ilustraci\u00f3n de la p\u00e1gina 51",
+      "label": "Ilustración de la página 51",
       "availability": "OPTIMIZATION NEEDED",
       "placement_counts": {
         "OPTIMIZATION NEEDED": 1
@@ -3416,7 +3417,7 @@
         "comparisons/FC-139.jpg"
       ],
       "identity_decision": "DISTINCT SOURCE DRAWING UNIT",
-      "label": "Jes\u00fas",
+      "label": "Jesús",
       "availability": "OPTIMIZATION NEEDED",
       "placement_counts": {
         "OPTIMIZATION NEEDED": 1
@@ -3470,7 +3471,7 @@
         "comparisons/FC-145.jpg"
       ],
       "identity_decision": "DISTINCT SOURCE DRAWING UNIT",
-      "label": "Ilustraci\u00f3n de la p\u00e1gina 53",
+      "label": "Ilustración de la página 53",
       "availability": "OPTIMIZATION NEEDED",
       "placement_counts": {
         "OPTIMIZATION NEEDED": 1
@@ -3488,7 +3489,7 @@
         "comparisons/FC-145.jpg"
       ],
       "identity_decision": "DISTINCT SOURCE DRAWING UNIT",
-      "label": "Ilustraci\u00f3n de la p\u00e1gina 54",
+      "label": "Ilustración de la página 54",
       "availability": "OPTIMIZATION NEEDED",
       "placement_counts": {
         "OPTIMIZATION NEEDED": 1
@@ -3596,7 +3597,7 @@
         "comparisons/FC-151.jpg"
       ],
       "identity_decision": "DISTINCT SOURCE DRAWING UNIT",
-      "label": "Ilustraci\u00f3n de la p\u00e1gina 56",
+      "label": "Ilustración de la página 56",
       "availability": "OPTIMIZED VERSION EXISTS",
       "placement_counts": {
         "OPTIMIZED VERSION EXISTS": 1
@@ -3614,7 +3615,7 @@
         "comparisons/FC-151.jpg"
       ],
       "identity_decision": "DISTINCT SOURCE DRAWING UNIT",
-      "label": "Ilustraci\u00f3n de la p\u00e1gina 57",
+      "label": "Ilustración de la página 57",
       "availability": "OPTIMIZATION NEEDED",
       "placement_counts": {
         "OPTIMIZATION NEEDED": 1
@@ -3686,7 +3687,7 @@
         "comparisons/FC-157.jpg"
       ],
       "identity_decision": "DISTINCT SOURCE DRAWING UNIT",
-      "label": "may\u00fascula",
+      "label": "mayúscula",
       "availability": "OPTIMIZATION NEEDED",
       "placement_counts": {
         "OPTIMIZATION NEEDED": 1
@@ -3722,7 +3723,7 @@
         "comparisons/FC-157.jpg"
       ],
       "identity_decision": "DISTINCT SOURCE DRAWING UNIT",
-      "label": "Ilustraci\u00f3n de la p\u00e1gina 59",
+      "label": "Ilustración de la página 59",
       "availability": "OPTIMIZATION NEEDED",
       "placement_counts": {
         "OPTIMIZATION NEEDED": 1
@@ -3740,7 +3741,7 @@
         "comparisons/FC-157.jpg"
       ],
       "identity_decision": "DISTINCT SOURCE DRAWING UNIT",
-      "label": "Ilustraci\u00f3n de la p\u00e1gina 60",
+      "label": "Ilustración de la página 60",
       "availability": "OPTIMIZATION NEEDED",
       "placement_counts": {
         "OPTIMIZATION NEEDED": 1
@@ -3812,7 +3813,7 @@
         "comparisons/FC-163.jpg"
       ],
       "identity_decision": "DISTINCT SOURCE DRAWING UNIT",
-      "label": "zepel\u00edn",
+      "label": "zepelín",
       "availability": "OPTIMIZATION NEEDED",
       "placement_counts": {
         "OPTIMIZATION NEEDED": 1
@@ -3848,7 +3849,7 @@
         "comparisons/FC-163.jpg"
       ],
       "identity_decision": "DISTINCT SOURCE DRAWING UNIT",
-      "label": "Ilustraci\u00f3n de la p\u00e1gina 62",
+      "label": "Ilustración de la página 62",
       "availability": "OPTIMIZATION NEEDED",
       "placement_counts": {
         "OPTIMIZATION NEEDED": 1
@@ -4425,7 +4426,7 @@
         },
         {
           "file_id": "FILE-14b2ffeb6bb6c4d70421",
-          "location": "C:\\Users\\EJN\\Downloads\\cartilla-de-gretel-archive-cartilla-owner-art-20261011.zip!cartilla-de-gretel-archive-cartilla-owner-art-20261011/public/cartilla/art/faithful/vocal-u/u\u00f1a.webp",
+          "location": "C:\\Users\\EJN\\Downloads\\cartilla-de-gretel-archive-cartilla-owner-art-20261011.zip!cartilla-de-gretel-archive-cartilla-owner-art-20261011/public/cartilla/art/faithful/vocal-u/uña.webp",
           "source_group": "local-additional-archive:cartilla-de-gretel-archive-cartilla-owner-art-20261011.zip",
           "sha256": "14b2ffeb6bb6c4d70421e4adeed9a59b438bb859484c3123990b2806647c1e70",
           "bytes": 37814,
@@ -13005,7 +13006,7 @@
         "reason": "No exact-candidate approval citation is linked in the existing source evidence. A path, merge or folder name is not substituted for approval."
       },
       "runtime_integration": {
-        "pointer": "src/data/page-layouts.json/pages/1/picture-cell:im\u00e1n",
+        "pointer": "src/data/page-layouts.json/pages/1/picture-cell:imán",
         "asset_path": "/cartilla/art/optimized/workbook/leccion-1/iman.svg",
         "evidence_commit": "153c7eccbec5bc1090cd130a909f0cf73630415a",
         "verified": false
@@ -13234,7 +13235,7 @@
         "reason": "No exact-candidate approval citation is linked in the existing source evidence. A path, merge or folder name is not substituted for approval."
       },
       "runtime_integration": {
-        "pointer": "src/data/page-layouts.json/pages/1/picture-cell:avi\u00f3n",
+        "pointer": "src/data/page-layouts.json/pages/1/picture-cell:avión",
         "asset_path": "/cartilla/art/optimized/workbook/leccion-1/avion.svg",
         "evidence_commit": "153c7eccbec5bc1090cd130a909f0cf73630415a",
         "verified": false
@@ -13374,7 +13375,7 @@
         "reason": "No exact-candidate approval citation is linked in the existing source evidence. A path, merge or folder name is not substituted for approval."
       },
       "runtime_integration": {
-        "pointer": "src/data/page-layouts.json/pages/1/picture-cell:im\u00e1n",
+        "pointer": "src/data/page-layouts.json/pages/1/picture-cell:imán",
         "asset_path": "/cartilla/art/optimized/workbook/leccion-1/iman.svg",
         "evidence_commit": "153c7eccbec5bc1090cd130a909f0cf73630415a",
         "verified": false
@@ -13676,7 +13677,7 @@
       "comparison": "comparisons/WB-013.jpg",
       "selected_match": {
         "file_id": "FILE-14b2ffeb6bb6c4d70421",
-        "location": "C:\\Users\\EJN\\Downloads\\cartilla-de-gretel-archive-cartilla-owner-art-20261011.zip!cartilla-de-gretel-archive-cartilla-owner-art-20261011/public/cartilla/art/faithful/vocal-u/u\u00f1a.webp",
+        "location": "C:\\Users\\EJN\\Downloads\\cartilla-de-gretel-archive-cartilla-owner-art-20261011.zip!cartilla-de-gretel-archive-cartilla-owner-art-20261011/public/cartilla/art/faithful/vocal-u/uña.webp",
         "source_group": "local-additional-archive:cartilla-de-gretel-archive-cartilla-owner-art-20261011.zip",
         "sha256": "14b2ffeb6bb6c4d70421e4adeed9a59b438bb859484c3123990b2806647c1e70",
         "bytes": 37814,
@@ -13728,7 +13729,7 @@
         },
         {
           "file_id": "FILE-14b2ffeb6bb6c4d70421",
-          "location": "C:\\Users\\EJN\\Downloads\\cartilla-de-gretel-archive-cartilla-owner-art-20261011.zip!cartilla-de-gretel-archive-cartilla-owner-art-20261011/public/cartilla/art/faithful/vocal-u/u\u00f1a.webp",
+          "location": "C:\\Users\\EJN\\Downloads\\cartilla-de-gretel-archive-cartilla-owner-art-20261011.zip!cartilla-de-gretel-archive-cartilla-owner-art-20261011/public/cartilla/art/faithful/vocal-u/uña.webp",
           "source_group": "local-additional-archive:cartilla-de-gretel-archive-cartilla-owner-art-20261011.zip",
           "sha256": "14b2ffeb6bb6c4d70421e4adeed9a59b438bb859484c3123990b2806647c1e70",
           "bytes": 37814,
@@ -13756,7 +13757,7 @@
         "reason": "No exact-candidate approval citation is linked in the existing source evidence. A path, merge or folder name is not substituted for approval."
       },
       "runtime_integration": {
-        "pointer": "src/data/page-layouts.json/pages/1/picture-cell:u\u00f1a",
+        "pointer": "src/data/page-layouts.json/pages/1/picture-cell:uña",
         "asset_path": "/cartilla/art/optimized/workbook/leccion-1/una.svg",
         "evidence_commit": "153c7eccbec5bc1090cd130a909f0cf73630415a",
         "verified": false
@@ -14097,7 +14098,7 @@
         "reason": "No exact-candidate approval citation is linked in the existing source evidence. A path, merge or folder name is not substituted for approval."
       },
       "runtime_integration": {
-        "pointer": "src/data/page-layouts.json/pages/1/picture-cell:ma\u00edz",
+        "pointer": "src/data/page-layouts.json/pages/1/picture-cell:maíz",
         "asset_path": "/cartilla/art/optimized/workbook/leccion-1/maiz.png",
         "evidence_commit": "153c7eccbec5bc1090cd130a909f0cf73630415a",
         "verified": false
@@ -14573,7 +14574,7 @@
         "reason": "No exact-candidate approval citation is linked in the existing source evidence. A path, merge or folder name is not substituted for approval."
       },
       "runtime_integration": {
-        "pointer": "src/data/page-layouts.json/pages/2/nested-picture:\u00e1rbol",
+        "pointer": "src/data/page-layouts.json/pages/2/nested-picture:árbol",
         "asset_path": "/cartilla/art/faithful/vocal-a/arbol.webp",
         "evidence_commit": "153c7eccbec5bc1090cd130a909f0cf73630415a",
         "verified": false
@@ -14860,7 +14861,7 @@
         "reason": "No exact-candidate approval citation is linked in the existing source evidence. A path, merge or folder name is not substituted for approval."
       },
       "runtime_integration": {
-        "pointer": "src/data/page-layouts.json/pages/2/nested-picture:p\u00e1jaro",
+        "pointer": "src/data/page-layouts.json/pages/2/nested-picture:pájaro",
         "asset_path": "/cartilla/art/faithful/leccion-1/pajaro.webp",
         "evidence_commit": "153c7eccbec5bc1090cd130a909f0cf73630415a",
         "verified": false
@@ -15660,7 +15661,7 @@
         "reason": "No exact-candidate approval citation is linked in the existing source evidence. A path, merge or folder name is not substituted for approval."
       },
       "runtime_integration": {
-        "pointer": "src/data/page-layouts.json/pages/4/picture-cell:igl\u00fa",
+        "pointer": "src/data/page-layouts.json/pages/4/picture-cell:iglú",
         "asset_path": "/cartilla/art/faithful/vocal-i/iglu.webp",
         "evidence_commit": "153c7eccbec5bc1090cd130a909f0cf73630415a",
         "verified": false
@@ -15720,7 +15721,7 @@
         "reason": "No exact-candidate approval citation is linked in the existing source evidence. A path, merge or folder name is not substituted for approval."
       },
       "runtime_integration": {
-        "pointer": "src/data/page-layouts.json/pages/4/picture-cell:ma\u00edz",
+        "pointer": "src/data/page-layouts.json/pages/4/picture-cell:maíz",
         "asset_path": "/cartilla/art/faithful/leccion-1/maiz.webp",
         "evidence_commit": "153c7eccbec5bc1090cd130a909f0cf73630415a",
         "verified": false
@@ -15762,7 +15763,7 @@
         "reason": "No exact-candidate approval citation is linked in the existing source evidence. A path, merge or folder name is not substituted for approval."
       },
       "runtime_integration": {
-        "pointer": "src/data/page-layouts.json/pages/4/picture-cell:u\u00f1a",
+        "pointer": "src/data/page-layouts.json/pages/4/picture-cell:uña",
         "asset_path": "/cartilla/art/faithful/leccion-1/arco.webp",
         "evidence_commit": "153c7eccbec5bc1090cd130a909f0cf73630415a",
         "verified": false
@@ -16256,7 +16257,7 @@
         "reason": "No exact-candidate approval citation is linked in the existing source evidence. A path, merge or folder name is not substituted for approval."
       },
       "runtime_integration": {
-        "pointer": "src/data/page-layouts.json/pages/4/picture-cell:ara\u00f1a",
+        "pointer": "src/data/page-layouts.json/pages/4/picture-cell:araña",
         "asset_path": "/cartilla/art/faithful/vocal-a/arana.webp",
         "evidence_commit": "153c7eccbec5bc1090cd130a909f0cf73630415a",
         "verified": false
@@ -16467,7 +16468,7 @@
         "reason": "No exact-candidate approval citation is linked in the existing source evidence. A path, merge or folder name is not substituted for approval."
       },
       "runtime_integration": {
-        "pointer": "src/data/page-layouts.json/pages/5/picture-cell:igl\u00fa",
+        "pointer": "src/data/page-layouts.json/pages/5/picture-cell:iglú",
         "asset_path": "/cartilla/art/faithful/vocal-i/iglu.webp",
         "evidence_commit": "153c7eccbec5bc1090cd130a909f0cf73630415a",
         "verified": false
@@ -17182,7 +17183,7 @@
         "reason": "No exact-candidate approval citation is linked in the existing source evidence. A path, merge or folder name is not substituted for approval."
       },
       "runtime_integration": {
-        "pointer": "src/data/page-layouts.json/pages/7/picture-cell:im\u00e1n",
+        "pointer": "src/data/page-layouts.json/pages/7/picture-cell:imán",
         "asset_path": "/cartilla/art/faithful/vocal-i/iman.webp",
         "evidence_commit": "153c7eccbec5bc1090cd130a909f0cf73630415a",
         "verified": false
@@ -17300,7 +17301,7 @@
         "reason": "No exact-candidate approval citation is linked in the existing source evidence. A path, merge or folder name is not substituted for approval."
       },
       "runtime_integration": {
-        "pointer": "src/data/page-layouts.json/pages/7/picture-cell:\u00e1rbol",
+        "pointer": "src/data/page-layouts.json/pages/7/picture-cell:árbol",
         "asset_path": "/cartilla/art/faithful/vocal-a/arbol.webp",
         "evidence_commit": "153c7eccbec5bc1090cd130a909f0cf73630415a",
         "verified": false
@@ -17805,7 +17806,7 @@
         "reason": "No exact-candidate approval citation is linked in the existing source evidence. A path, merge or folder name is not substituted for approval."
       },
       "runtime_integration": {
-        "pointer": "src/data/page-layouts.json/pages/7/picture-cell:avi\u00f3n",
+        "pointer": "src/data/page-layouts.json/pages/7/picture-cell:avión",
         "asset_path": "/cartilla/art/faithful/vocal-a/avion.webp",
         "evidence_commit": "153c7eccbec5bc1090cd130a909f0cf73630415a",
         "verified": false
@@ -17980,7 +17981,7 @@
         "reason": "No exact-candidate approval citation is linked in the existing source evidence. A path, merge or folder name is not substituted for approval."
       },
       "runtime_integration": {
-        "pointer": "src/data/page-layouts.json/pages/8/picture-cell:igl\u00fa",
+        "pointer": "src/data/page-layouts.json/pages/8/picture-cell:iglú",
         "asset_path": "/cartilla/art/faithful/vocal-i/iglu.webp",
         "evidence_commit": "153c7eccbec5bc1090cd130a909f0cf73630415a",
         "verified": false
@@ -18157,7 +18158,7 @@
         "reason": "No exact-candidate approval citation is linked in the existing source evidence. A path, merge or folder name is not substituted for approval."
       },
       "runtime_integration": {
-        "pointer": "src/data/page-layouts.json/pages/8/picture-cell:ma\u00edz",
+        "pointer": "src/data/page-layouts.json/pages/8/picture-cell:maíz",
         "asset_path": "/cartilla/art/faithful/leccion-1/maiz.webp",
         "evidence_commit": "153c7eccbec5bc1090cd130a909f0cf73630415a",
         "verified": false
@@ -18272,7 +18273,7 @@
         "reason": "No exact-candidate approval citation is linked in the existing source evidence. A path, merge or folder name is not substituted for approval."
       },
       "runtime_integration": {
-        "pointer": "src/data/page-layouts.json/pages/8/picture-cell:avi\u00f3n",
+        "pointer": "src/data/page-layouts.json/pages/8/picture-cell:avión",
         "asset_path": "/cartilla/art/faithful/leccion-1/pez.webp",
         "evidence_commit": "153c7eccbec5bc1090cd130a909f0cf73630415a",
         "verified": false
@@ -18564,7 +18565,7 @@
         "reason": "No exact-candidate approval citation is linked in the existing source evidence. A path, merge or folder name is not substituted for approval."
       },
       "runtime_integration": {
-        "pointer": "src/data/page-layouts.json/pages/10/picture-cell:igl\u00fa",
+        "pointer": "src/data/page-layouts.json/pages/10/picture-cell:iglú",
         "asset_path": "/cartilla/art/faithful/vocal-i/iglu.webp",
         "evidence_commit": "153c7eccbec5bc1090cd130a909f0cf73630415a",
         "verified": false
@@ -18594,7 +18595,7 @@
         "reason": "No exact-candidate approval citation is linked in the existing source evidence. A path, merge or folder name is not substituted for approval."
       },
       "runtime_integration": {
-        "pointer": "src/data/page-layouts.json/pages/10/picture-cell:ma\u00edz",
+        "pointer": "src/data/page-layouts.json/pages/10/picture-cell:maíz",
         "asset_path": "/cartilla/art/faithful/leccion-1/maiz.webp",
         "evidence_commit": "153c7eccbec5bc1090cd130a909f0cf73630415a",
         "verified": false
@@ -19024,7 +19025,7 @@
         "reason": "No exact-candidate approval citation is linked in the existing source evidence. A path, merge or folder name is not substituted for approval."
       },
       "runtime_integration": {
-        "pointer": "src/data/page-layouts.json/pages/10/picture-cell:\u00e1guila",
+        "pointer": "src/data/page-layouts.json/pages/10/picture-cell:águila",
         "asset_path": "/cartilla/art/faithful/leccion-1/aguila.webp",
         "evidence_commit": "153c7eccbec5bc1090cd130a909f0cf73630415a",
         "verified": false
@@ -19410,7 +19411,7 @@
         "reason": "No exact-candidate approval citation is linked in the existing source evidence. A path, merge or folder name is not substituted for approval."
       },
       "runtime_integration": {
-        "pointer": "src/data/page-layouts.json/pages/11/picture-cell:ma\u00edz",
+        "pointer": "src/data/page-layouts.json/pages/11/picture-cell:maíz",
         "asset_path": "/cartilla/art/faithful/leccion-1/maiz.webp",
         "evidence_commit": "153c7eccbec5bc1090cd130a909f0cf73630415a",
         "verified": false
@@ -19598,7 +19599,7 @@
         "reason": "No exact-candidate approval citation is linked in the existing source evidence. A path, merge or folder name is not substituted for approval."
       },
       "runtime_integration": {
-        "pointer": "src/data/page-layouts.json/pages/13/picture-cell:igl\u00fa",
+        "pointer": "src/data/page-layouts.json/pages/13/picture-cell:iglú",
         "asset_path": "/cartilla/art/faithful/vocal-i/iglu.webp",
         "evidence_commit": "153c7eccbec5bc1090cd130a909f0cf73630415a",
         "verified": false
@@ -19640,7 +19641,7 @@
         "reason": "No exact-candidate approval citation is linked in the existing source evidence. A path, merge or folder name is not substituted for approval."
       },
       "runtime_integration": {
-        "pointer": "src/data/page-layouts.json/pages/13/picture-cell:avi\u00f3n",
+        "pointer": "src/data/page-layouts.json/pages/13/picture-cell:avión",
         "asset_path": "/cartilla/art/faithful/leccion-1/pez.webp",
         "evidence_commit": "153c7eccbec5bc1090cd130a909f0cf73630415a",
         "verified": false
@@ -20132,7 +20133,7 @@
         "reason": "No exact-candidate approval citation is linked in the existing source evidence. A path, merge or folder name is not substituted for approval."
       },
       "runtime_integration": {
-        "pointer": "src/data/page-layouts.json/pages/13/picture-cell:im\u00e1n",
+        "pointer": "src/data/page-layouts.json/pages/13/picture-cell:imán",
         "asset_path": "/cartilla/art/faithful/vocal-i/iman.webp",
         "evidence_commit": "153c7eccbec5bc1090cd130a909f0cf73630415a",
         "verified": false
@@ -20248,7 +20249,7 @@
         "reason": "No exact-candidate approval citation is linked in the existing source evidence. A path, merge or folder name is not substituted for approval."
       },
       "runtime_integration": {
-        "pointer": "src/data/page-layouts.json/pages/13/picture-cell:u\u00f1a",
+        "pointer": "src/data/page-layouts.json/pages/13/picture-cell:uña",
         "asset_path": "/cartilla/art/faithful/leccion-1/arco.webp",
         "evidence_commit": "153c7eccbec5bc1090cd130a909f0cf73630415a",
         "verified": false
@@ -20533,7 +20534,7 @@
         "reason": "No exact-candidate approval citation is linked in the existing source evidence. A path, merge or folder name is not substituted for approval."
       },
       "runtime_integration": {
-        "pointer": "src/data/page-layouts.json/pages/14/picture-cell:im\u00e1n",
+        "pointer": "src/data/page-layouts.json/pages/14/picture-cell:imán",
         "asset_path": "/cartilla/art/faithful/vocal-i/iman.webp",
         "evidence_commit": "153c7eccbec5bc1090cd130a909f0cf73630415a",
         "verified": false
@@ -20634,7 +20635,7 @@
         "reason": "No exact-candidate approval citation is linked in the existing source evidence. A path, merge or folder name is not substituted for approval."
       },
       "runtime_integration": {
-        "pointer": "src/data/page-layouts.json/pages/14/picture-cell:igl\u00fa",
+        "pointer": "src/data/page-layouts.json/pages/14/picture-cell:iglú",
         "asset_path": "/cartilla/art/faithful/vocal-i/iglu.webp",
         "evidence_commit": "153c7eccbec5bc1090cd130a909f0cf73630415a",
         "verified": false
@@ -20793,7 +20794,7 @@
         "reason": "No exact-candidate approval citation is linked in the existing source evidence. A path, merge or folder name is not substituted for approval."
       },
       "runtime_integration": {
-        "pointer": "src/data/page-layouts.json/pages/14/picture-cell:u\u00f1a",
+        "pointer": "src/data/page-layouts.json/pages/14/picture-cell:uña",
         "asset_path": "/cartilla/art/faithful/leccion-1/arco.webp",
         "evidence_commit": "153c7eccbec5bc1090cd130a909f0cf73630415a",
         "verified": false
@@ -21010,7 +21011,7 @@
         "reason": "No exact-candidate approval citation is linked in the existing source evidence. A path, merge or folder name is not substituted for approval."
       },
       "runtime_integration": {
-        "pointer": "src/data/page-layouts.json/pages/16/picture-cell:avi\u00f3n",
+        "pointer": "src/data/page-layouts.json/pages/16/picture-cell:avión",
         "asset_path": "/cartilla/art/faithful/leccion-1/pez.webp",
         "evidence_commit": "153c7eccbec5bc1090cd130a909f0cf73630415a",
         "verified": false
@@ -21052,7 +21053,7 @@
         "reason": "No exact-candidate approval citation is linked in the existing source evidence. A path, merge or folder name is not substituted for approval."
       },
       "runtime_integration": {
-        "pointer": "src/data/page-layouts.json/pages/16/picture-cell:u\u00f1a",
+        "pointer": "src/data/page-layouts.json/pages/16/picture-cell:uña",
         "asset_path": "/cartilla/art/faithful/leccion-1/arco.webp",
         "evidence_commit": "153c7eccbec5bc1090cd130a909f0cf73630415a",
         "verified": false
@@ -21343,7 +21344,7 @@
         "reason": "No exact-candidate approval citation is linked in the existing source evidence. A path, merge or folder name is not substituted for approval."
       },
       "runtime_integration": {
-        "pointer": "src/data/page-layouts.json/pages/16/picture-cell:\u00e1rbol",
+        "pointer": "src/data/page-layouts.json/pages/16/picture-cell:árbol",
         "asset_path": "/cartilla/art/faithful/vocal-a/arbol.webp",
         "evidence_commit": "153c7eccbec5bc1090cd130a909f0cf73630415a",
         "verified": false
@@ -21435,7 +21436,7 @@
         "reason": "No exact-candidate approval citation is linked in the existing source evidence. A path, merge or folder name is not substituted for approval."
       },
       "runtime_integration": {
-        "pointer": "src/data/page-layouts.json/pages/16/picture-cell:\u00e1guila",
+        "pointer": "src/data/page-layouts.json/pages/16/picture-cell:águila",
         "asset_path": "/cartilla/art/faithful/leccion-1/aguila.webp",
         "evidence_commit": "153c7eccbec5bc1090cd130a909f0cf73630415a",
         "verified": false
@@ -21802,7 +21803,7 @@
         "reason": "No exact-candidate approval citation is linked in the existing source evidence. A path, merge or folder name is not substituted for approval."
       },
       "runtime_integration": {
-        "pointer": "src/data/page-layouts.json/pages/17/picture-cell:u\u00f1a",
+        "pointer": "src/data/page-layouts.json/pages/17/picture-cell:uña",
         "asset_path": "/cartilla/art/faithful/leccion-1/arco.webp",
         "evidence_commit": "153c7eccbec5bc1090cd130a909f0cf73630415a",
         "verified": false
@@ -21984,7 +21985,7 @@
         "reason": "No exact-candidate approval citation is linked in the existing source evidence. A path, merge or folder name is not substituted for approval."
       },
       "runtime_integration": {
-        "pointer": "src/data/page-layouts.json/pages/17/picture-cell:im\u00e1n",
+        "pointer": "src/data/page-layouts.json/pages/17/picture-cell:imán",
         "asset_path": "/cartilla/art/faithful/vocal-i/iman.webp",
         "evidence_commit": "153c7eccbec5bc1090cd130a909f0cf73630415a",
         "verified": false

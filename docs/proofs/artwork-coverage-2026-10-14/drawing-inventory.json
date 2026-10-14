@@ -193,7 +193,8 @@
       "identity_decision": "SAME ORIGINAL DRAWING WITHIN THIS GROUP",
       "label": "avión",
       "decisions": [
-        "Same stylized source silhouette reused with rotation/reflection; semantic airplane/pez conflict retained, not resolved from filenames. Preserve the orientation at each placement."
+        "Same stylized source silhouette reused with rotation/reflection; semantic airplane/pez conflict retained, not resolved from filenames. Preserve the orientation at each placement.",
+        "Direct visual inspection of original source crops WB-S019-OBJ02-PEZ.png and WB-S007-OBJ06-PEZ.png verifies an AIRPLANE (avión), not a fish. The five PEZ-labelled placement IDs are inherited source filenames, not reliable semantic labels; do NOT rename originals or classify as fish."
       ]
     },
     {
