@@ -545,7 +545,7 @@ export function NativeLessonViewer({
         </span>
       </div>
 
-      <GretelRecordedPageButton key={page.pageNumber} pageNumber={page.pageNumber} disabled={turning} />
+      <GretelRecordedPageButton key={page.pageNumber} pageNumber={page.pageNumber} lessonNumber={lessonNumber} firstPageOfLesson={index === 0} disabled={turning} />
 
       <div className="native-lesson-viewer__stage">
         {/* Destination page rendered underneath during turn */}
