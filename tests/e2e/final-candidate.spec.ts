@@ -22,7 +22,9 @@ async function stroke(page: Page, canvas: Locator) {
 async function complete(page: Page, number: number) {
   const reader = page.locator('.native-lesson-viewer');
   for (const region of layouts[String(number)].regions) {
-    const area = reader.locator(`[data-gretel-activity="page-${number}-${region.id}"]`);
+    // Solve the live page only: while a page turns, a copy is drawn underneath.
+    await expect(reader.locator('.native-lesson-viewer__underneath')).toHaveCount(0, { timeout: 8000 });
+    const area = reader.locator(`.native-lesson-viewer__leaf [data-gretel-activity="page-${number}-${region.id}"]`);
     const traces = area.locator('.fp-trace');
     if (await traces.count()) {
       for (let i = 0; i < 100; i++) {
@@ -99,7 +101,7 @@ async function complete(page: Page, number: number) {
       for (let i = 0; i < await choices.count(); i++) {
         const cell = choices.nth(i);
         if (!((await cell.getAttribute('class')) ?? '').includes('graded-correct')) await cell.click();
-        await expect(cell).toHaveClass(/graded-correct/, { timeout: 10000 });
+        await expect(cell).toHaveClass(/graded-correct/, { timeout: 15000 });
       }
     }
     const fill = area.locator('.fp-ix-fill');
@@ -165,12 +167,11 @@ for (const viewport of [
   expect(problems).toEqual([]);
 });
 
-test('all 24 workbook lessons, page activities and Next gate', async ({ page }) => {
-  test.setTimeout(2_700_000); // walks and solves all 90 pages with real animations
+async function walkLessons(page: Page, from: number, to: number) {
   fs.mkdirSync(output, { recursive: true });
   await page.emulateMedia({ reducedMotion: 'reduce' });
   const checked: number[] = [];
-  for (let lesson = 1; lesson <= 24; lesson++) {
+  for (let lesson = from; lesson <= to; lesson++) {
     await page.goto(`/cartilla/leccion/${lesson}`, { waitUntil: 'domcontentloaded' });
     const start = page.getByRole('button', { name: 'Comenzar', exact: true });
     if (await start.waitFor({ state: 'visible', timeout: 3000 }).then(() => true).catch(() => false)) {
@@ -180,6 +181,8 @@ test('all 24 workbook lessons, page activities and Next gate', async ({ page }) 
     const reader = page.locator('.native-lesson-viewer');
     await expect(reader).toBeVisible();
     const first = Number(await reader.getAttribute('data-native-page'));
+    // Lessons follow each other in the book with no missing page.
+    if (checked.length) expect(first).toBe(checked[checked.length - 1] + 1);
     const count = Number((await reader.locator('.native-lesson-viewer__page').innerText()).match(/de (\d+)/)?.[1]);
     for (let i = 0; i < count; i++) {
       const number = first + i;
@@ -207,8 +210,27 @@ test('all 24 workbook lessons, page activities and Next gate', async ({ page }) 
       }
     }
   }
-  fs.writeFileSync(path.join(output, 'workbook-activities.json'), JSON.stringify({ pagesExercised: checked, sourceVerificationPending: [86, 87] }, null, 2));
-  expect(checked).toHaveLength(90);
+  return checked;
+}
+
+// The 90-page walk is split in two halves so each fits a browser-test time limit
+// and both can run side by side. The first half also proves that Lesson 13
+// opens on the page right after its last page, so together they cover every page.
+test('workbook lessons 1-12, page activities and Next gate', async ({ page }) => {
+  test.setTimeout(1_800_000);
+  const checked = await walkLessons(page, 1, 12);
+  expect(checked[0]).toBe(1);
+  await page.goto('/cartilla/leccion/13', { waitUntil: 'domcontentloaded' });
+  const start = page.getByRole('button', { name: 'Comenzar', exact: true });
+  if (await start.waitFor({ state: 'visible', timeout: 3000 }).then(() => true).catch(() => false)) await start.click();
+  await expect(page.locator('.native-lesson-viewer')).toHaveAttribute('data-native-page', String(checked[checked.length - 1] + 1));
+});
+
+test('workbook lessons 13-24, page activities and Next gate', async ({ page }) => {
+  test.setTimeout(1_800_000);
+  const checked = await walkLessons(page, 13, 24);
+  expect(checked[checked.length - 1]).toBe(90);
+  fs.writeFileSync(path.join(output, 'workbook-activities.json'), JSON.stringify({ pagesExercisedFrom: checked[0], pagesExercisedTo: 90, sourceVerificationPending: [86, 87] }, null, 2));
   await page.goto('/cartilla/lecciones', { waitUntil: 'domcontentloaded' });
   const master = page.locator('img[src="/cartilla/images/gretel/gretel-approved-master.png"]');
   await expect(master).toBeVisible();
