@@ -217,7 +217,7 @@ function VoiceAudition() {
           </section>
         )}
 
-        {!ready ? (
+        {customAvailable ? null : !ready ? (
           <p className="text-stone-400 font-medium">
             Cargando voces disponibles en este navegador…
           </p>
@@ -262,29 +262,25 @@ function VoiceAudition() {
           <div className="flex items-center justify-between">
             <p className="font-black text-stone-800">Estado de preparación técnica</p>
             <span className="px-3 py-1 rounded-full text-xs font-bold bg-emerald-100 text-emerald-800">
-              ✓ Abstracción lista (One-Config Seam)
+              {customAvailable ? "Motor Gretel configurado — audio real pendiente de verificación" : "Motor Gretel no configurado — sin prueba de voz personalizada"}
             </span>
           </div>
           <p className="text-xs text-stone-500">
-            Toda la app utiliza la abstracción unificada <code className="bg-stone-200 px-1 py-0.5 rounded text-stone-800">speakAsGretel</code>. Cambiar a una voz premium aprobada por el propietario no requiere modificar la lógica de las lecciones.
+            La lectura del cuaderno, las vocales, las instrucciones, las palabras y las reacciones tienen rutas hacia el motor personalizado. Esto no significa que exista un modelo entrenado ni que la voz ya haya sido aprobada. Una prueba con audio nuevo, en la voz de Gretel, sigue siendo obligatoria.
           </p>
         </div>
 
         <div className="bg-stone-50 border border-stone-200 rounded-2xl p-6 text-sm text-stone-600 space-y-2">
-          <p className="font-black text-stone-800">Honestidad, no promesas:</p>
+          <p className="font-black text-stone-800">Una sola voz de Gretel</p>
           <p>
-            Las voces gratuitas incorporadas del navegador (arriba) son voces de mujer adulta —
-            ninguna suena genuinamente como una niña pequeña, ni afinando el tono. Es un límite real
-            de lo que el navegador ofrece gratis, no algo que se pueda arreglar con más código.
+            El propietario ya entregó una grabación de más de 32 minutos.
+            Las voces genéricas de este navegador NO son la voz personalizada de Gretel.
+            No se aceptan grabaciones ensambladas como prueba de texto-a-voz.
           </p>
           <p>
-            Lo que SÍ sonaría como una niña de verdad: (1) un servicio de voz pagado con voces
-            infantiles reales — por ejemplo ElevenLabs (voces por suscripción, desde unos $5–22
-            USD/mes) o Google Cloud / Azure Neural TTS (se cobra por caracteres leídos, típicamente
-            unos $4–16 USD por cada millón de caracteres, que para esta app es un costo pequeño pero
-            real cada mes); o (2) grabar la voz real de una niña y usar esos audios grabados en vez
-            de texto-a-voz. Ninguna de las dos opciones se ha contratado ni pagado — es tu decisión,
-            no la mía.
+            Para completar esta función se debe generar y escuchar una frase nueva,
+            demostrar que conserva el timbre y la pronunciación de Gretel, y comprobar
+            las actividades del cuaderno con el servicio real.
           </p>
         </div>
       </div>
