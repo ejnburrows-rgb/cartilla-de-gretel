@@ -24,7 +24,7 @@ export function playPictureName(entry: VerifiedPictureName): PictureAudioStatus 
   if (isMuted()) { stopPicturePlayback(); return status('muted'); }
   // Preserve vocabulary validation and the TTS policy; when a custom Gretel
   // engine is active, pictures must use the SAME voice as lesson instructions.
-  if (AUDIO_POLICY.allowTts && getGretelVoiceProviderConfig().type === 'custom') {
+  if (AUDIO_POLICY.allowCustomGretelTts && getGretelVoiceProviderConfig().type === 'custom') {
     stopPicturePlayback();
     void speakAsGretel(entry.name).catch(() => { status('failed'); });
     return status('tts');
