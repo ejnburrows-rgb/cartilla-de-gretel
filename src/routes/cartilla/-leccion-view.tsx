@@ -87,8 +87,18 @@ export function Leccion() {
   // query settles (success OR error) so a dead backend can't blank the page.
   const progressReady = !session || isFetched || isError;
   const initialPage = useMemo(() => {
+    // Old lesson-24 bookmarks numbered the missing page 87 at index 0. New
+    // bookmarks carry the printed page, so this fallback migration runs once.
+    const resolveSavedIndex = (savedIndex: number, printedPage?: number) => {
+      if (typeof printedPage === "number" && Number.isInteger(printedPage)) {
+        const matching = pages.findIndex((page) => page.pageNumber === printedPage);
+        if (matching >= 0) return matching;
+      }
+      const migrated = n === 24 ? Math.max(0, savedIndex - 1) : savedIndex;
+      return Math.min(Math.max(0, migrated), Math.max(0, pages.length - 1));
+    };
     const local = readLearnerResume(n);
-    if (local) return Math.min(local.page, Math.max(0, pages.length - 1));
+    if (local) return resolveSavedIndex(local.page, local.printedPage);
     if (!session) return 0;
     const lessonProgress =
       (
@@ -97,12 +107,12 @@ export function Leccion() {
         } | null
       )?.lessonProgress ?? [];
     const row = lessonProgress.find((p) => p.lesson_id === String(n));
-    return row?.last_page ?? 0;
+    return resolveSavedIndex(row?.last_page ?? 0);
   // The local bookmark depends on learner scope, not just backend session.
   // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [scope, session, progressData, n, pages.length]);
 
-  useEffect(() => { if (progressReady) saveLearnerResume(n, initialPage); }, [scope, n, progressReady, initialPage]);
+  useEffect(() => { if (progressReady) saveLearnerResume(n, initialPage, pages[initialPage]?.pageNumber); }, [scope, n, progressReady, initialPage, pages]);
   // Laptop full screen (owner decision 2026-10-12). Opening a lesson from the
   // lesson list already asks for it; if the lesson was opened another way,
   // the first tap on the page paper (not on an activity) asks once. Leaving
@@ -138,14 +148,14 @@ export function Leccion() {
     // the workbook and its interactive flip never re-render. CSS caps + eases
     // it and disables it under prefers-reduced-motion (garden-scene.css).
     gardenRef.current?.style.setProperty("--garden-parallax", String(index));
-    saveLearnerResume(n, index);
+    saveLearnerResume(n, index, pages[index]?.pageNumber);
     if (!session) return;
     void saveLastPageFn({
       data: {
         studentId: session.studentId,
         studentCode: session.studentCode,
         lessonId: String(n),
-        page: index,
+        page: n === 24 ? index + 1 : index,
       },
     }).catch(() => {
       // Best-effort: last-page persistence is a resume convenience, never

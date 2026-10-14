@@ -99,6 +99,11 @@ describe("native workbook coverage", () => {
     }
   });
 
+  it("omits unavailable leaves from learner lessons without losing printed page identities", () => {
+    expect(buildPageArray(23).map((p) => p.pageNumber)).toEqual([83, 84, 85]);
+    expect(buildPageArray(24).map((p) => p.pageNumber)).toEqual([88, 89, 90]);
+  });
+
   it("lessons 8–24 run in authoritative book order with book-verified page content", () => {
     const fixtureLessons = (
       transcription as unknown as {
@@ -114,7 +119,9 @@ describe("native workbook coverage", () => {
       const { write, circle, letter, complete } = fixtureLessons[String(lesson)]!.pages;
       const bookOrder = [write, circle, letter, complete];
       expect(lessonExercisesFor(lesson).map((e) => e.pageNumber)).toEqual(bookOrder);
-      expect(buildPageArray(lesson).map((e) => e.pageNumber)).toEqual(bookOrder);
+      expect(buildPageArray(lesson).map((e) => e.pageNumber)).toEqual(
+        bookOrder.filter((page) => !isWorkbookPageSourceBlocked(page)),
+      );
       for (const page of bookOrder) {
         if (isWorkbookPageSourceBlocked(page)) continue;
         // Runtime content is exactly the data the book-fidelity gate verifies.

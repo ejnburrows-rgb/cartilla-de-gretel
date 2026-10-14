@@ -4,6 +4,7 @@ import pageInventory from "@/data/page-inventory.json";
 import { CATALOG } from "@/lib/lesson-catalog";
 import { getLessonPageNumbers } from "@/lib/cartilla-crm-theme";
 import { getPageLayout, hasPageLayout } from "@/lib/book-faithful";
+import { isWorkbookPageSourceBlocked } from "@/lib/workbook-pages";
 import { buildGretelPageLine } from "@/lib/gretel-page-guide";
 import { FaithfulPageRenderer } from "@/components/cartilla/FaithfulPageRenderer";
 import { PdfPage } from "@/components/cartilla/PdfPage";
@@ -94,5 +95,5 @@ export function buildPageArray(lessonId: number): WorkbookPageEntry[] {
       gretelLine,
       content: <PendingPageShell lessonId={lessonId} pageNum={pageNum} globalPage={globalPage} />,
     };
-  });
+  }).filter((page) => typeof page.pageNumber === "number" && !isWorkbookPageSourceBlocked(page.pageNumber));
 }

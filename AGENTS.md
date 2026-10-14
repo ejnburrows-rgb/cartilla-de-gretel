@@ -1,5 +1,13 @@
 # AGENTS.md — mandatory, every session, no exceptions
 
+
+## OVERRIDING OWNER DECISION — do not re-open workbook pages 86–87 (2026-10-14)
+
+Printed workbook pages **86–87 are missing from the owner's actual PDF** (85 jumps to 88). **Final owner instruction: STOP repeatedly asking for scans, do not generate fake pages, and do not block completion.** Student lessons must show only authentic existing printed pages: Lección 23 **83,84,85**; Lección 24 **88,89,90**. Whole Workbook already skips 86–87. Keep original printed numbering and internal `SOURCE_BLOCKED` documentation, not learner placeholders. Preserve existing work/save progress. **Never invent missing content or represent artificial reconstructions as book originals.** Canonical decision details: `PROJECT_SOURCE_OF_TRUTH.md`.
+
+**Current design task order:** owner wants interactive GrillMe about the existing practice activities and session mechanics **before** discussion/implementation of Piano placement. Do not pick Piano placement or add unrelated activity pathways without owner decision. No repetitive audits, extra agents, duplicate issues or design handoffs.
+
+
 ## REQUIRED: NO REPEAT AUDITS + GITHUB CHECKPOINT WRITEBACK (2026-10-14)
 
 **Owner's permanent execution rule — applies to Opus 5.5, Muse, Jules, watchdogs, supervisors and any agent accessing this repo.** Consult this rule before any new project-wide investigation or worker handoff. It supplements the existing coordination/QA contract, without overriding safety or approval gates.
