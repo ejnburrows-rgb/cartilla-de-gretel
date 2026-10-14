@@ -1,4 +1,4 @@
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useMemo, useRef, useState } from "react";
 import { Square, Volume2 } from "lucide-react";
 import { availablePageRecordingUrls } from "@/lib/gretel-recorded-clips";
 import { playGretelRecordingQueue } from "@/lib/gretel-recorded-playback";
@@ -11,8 +11,7 @@ export function GretelRecordedPageButton({ pageNumber, disabled = false }: { pag
   const [readyUrls, setReadyUrls] = useState<string[]>([]);
   const active = useRef(false);
   const playTicket = useRef(0);
-  const urls = availablePageRecordingUrls(pageNumber);
-  const urlsKey = urls.join("|");
+  const urls = useMemo(() => availablePageRecordingUrls(pageNumber), [pageNumber]);
 
   useEffect(() => {
     let disposed = false;
@@ -36,7 +35,7 @@ export function GretelRecordedPageButton({ pageNumber, disabled = false }: { pag
       if (active.current) stopSpeech("gretel");
       active.current = false;
     };
-  }, [urlsKey]);
+  }, [urls]);
 
   if (!readyUrls.length) return null;
   const onClick = () => {
