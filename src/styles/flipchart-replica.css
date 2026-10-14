@@ -1,0 +1,370 @@
+/*
+ * Flip Chart sheet replica — owner reference guides (2026-10-13).
+ *
+ * Portrait sheet with the printed sheet's own proportions. Every element is
+ * placed in 1000-unit sheet coordinates: 1 unit = var(--u) = 1/1000 of the
+ * sheet width, so the whole sheet scales as one piece on any screen.
+ * Clean paper only: no background scenery image is mounted.
+ */
+
+.fc-native-board__page:has(> .fc-replica) {
+  position: relative;
+  padding: 0;
+}
+
+.fc-replica {
+  position: absolute;
+  inset: 0;
+  display: grid;
+  place-items: center;
+  container-type: size;
+  pointer-events: none;
+}
+
+.fc-replica__sheet {
+  --u: calc(100cqw / 1000);
+  position: relative;
+  container-type: inline-size;
+  height: min(calc(100cqh - 18px), calc((100cqw - 8px) * var(--sheet-h) / 1000));
+  aspect-ratio: 1000 / var(--sheet-h);
+  margin-top: 12px;
+  border-radius: 6px 6px 10px 10px;
+  background:
+    radial-gradient(120% 90% at 50% 40%, rgba(255, 255, 255, 0.55), rgba(255, 255, 255, 0) 70%),
+    #faf6ee;
+  box-shadow:
+    0 1px 0 rgba(255, 255, 255, 0.9) inset,
+    0 0 0 1px rgba(120, 95, 60, 0.12),
+    0 14px 34px -12px rgba(70, 50, 25, 0.32),
+    0 3px 8px rgba(70, 50, 25, 0.1);
+  color: #1d1d24;
+  font-family: "Montserrat", Arial, "Helvetica Neue", Helvetica, "Liberation Sans", sans-serif;
+  --replica-verse-ink: #2b2326;
+  pointer-events: auto;
+}
+
+.fc-replica__canvas {
+  position: absolute;
+  inset: 0;
+  overflow: hidden;
+  border-radius: inherit;
+}
+
+/* Metal spiral rings across the top binding. */
+.fc-replica__spiral {
+  position: absolute;
+  z-index: 4;
+  left: calc(22 * var(--u));
+  right: calc(22 * var(--u));
+  top: calc(-4 * var(--u));
+  height: calc(70 * var(--u));
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='42' height='70' viewBox='0 0 42 70'%3E%3Cdefs%3E%3ClinearGradient id='m' x1='0' x2='1' y1='0' y2='.3'%3E%3Cstop offset='0' stop-color='%236b6f75'/%3E%3Cstop offset='.22' stop-color='%23f6f7f8'/%3E%3Cstop offset='.45' stop-color='%23c3c7cc'/%3E%3Cstop offset='.75' stop-color='%237c8087'/%3E%3Cstop offset='1' stop-color='%234a4d52'/%3E%3C/linearGradient%3E%3CradialGradient id='h' cx='.5' cy='.45' r='.6'%3E%3Cstop offset='0' stop-color='%231d1713'/%3E%3Cstop offset='1' stop-color='%235a4a3e' stop-opacity='.55'/%3E%3C/radialGradient%3E%3C/defs%3E%3Cellipse cx='22' cy='58' rx='8' ry='4.4' fill='url(%23h)'/%3E%3Cpath d='M24 57 C16 50 15 26 19.5 16 C24 7 33 7 36 15 C38.5 22 37 29 34 33' fill='none' stroke='%232a2420' stroke-opacity='.24' stroke-width='6' stroke-linecap='round' transform='translate(1.5 2.5)'/%3E%3Cpath d='M24 57 C16 50 15 26 19.5 16 C24 7 33 7 36 15 C38.5 22 37 29 34 33' fill='none' stroke='url(%23m)' stroke-width='4.6' stroke-linecap='round'/%3E%3Cpath d='M18 57 C10 50 9 24 14 14 C19 4 31 4 34 13 C37 21 35 29 31 34' fill='none' stroke='%232a2420' stroke-opacity='.28' stroke-width='6.6' stroke-linecap='round' transform='translate(1.5 2.5)'/%3E%3Cpath d='M18 57 C10 50 9 24 14 14 C19 4 31 4 34 13 C37 21 35 29 31 34' fill='none' stroke='url(%23m)' stroke-width='5.2' stroke-linecap='round'/%3E%3Cpath d='M12.8 46 C10.6 36 10.8 24 14.6 16' fill='none' stroke='%23fff' stroke-opacity='.8' stroke-width='1.2' stroke-linecap='round'/%3E%3C/svg%3E");
+  background-repeat: space no-repeat;
+  background-size: auto 100%;
+  pointer-events: none;
+}
+
+/* Shared positioning in sheet units. */
+.fc-replica__panel,
+.fc-replica__crescent,
+.fc-replica__medallion,
+.fc-replica__art {
+  position: absolute;
+  left: calc(var(--x) * var(--u));
+  top: calc(var(--y) * var(--u));
+  width: calc(var(--w) * var(--u));
+  height: calc(var(--h) * var(--u));
+  margin: 0;
+}
+
+/* Printed stacking: cards, then crescent and medallions, then art, then text. */
+.fc-replica__panel {
+  z-index: 0;
+}
+
+.fc-replica__art {
+  z-index: 1;
+}
+
+/* ── Cards, syllable bands, single-word chips ─────────────────────────── */
+.fc-replica__panel--card {
+  border-radius: calc(26 * var(--u));
+  background: linear-gradient(
+    180deg,
+    color-mix(in srgb, var(--panel) 28%, #fcecef),
+    color-mix(in srgb, var(--panel) 28%, #f8dfe5)
+  );
+  border: calc(2.5 * var(--u)) solid rgba(196, 70, 102, 0.24);
+  box-shadow:
+    0 calc(8 * var(--u)) calc(22 * var(--u)) rgba(120, 40, 60, 0.12),
+    inset 0 calc(2 * var(--u)) 0 rgba(255, 255, 255, 0.75);
+}
+
+.fc-replica__panel--band {
+  border-radius: calc(18 * var(--u));
+  background: linear-gradient(180deg, #f9dbe2, #f4c9d4);
+  box-shadow:
+    0 calc(4 * var(--u)) calc(10 * var(--u)) rgba(150, 30, 60, 0.12),
+    inset 0 calc(2 * var(--u)) 0 rgba(255, 255, 255, 0.6);
+}
+
+.fc-replica__panel--band[data-tone="1"] {
+  background: linear-gradient(180deg, #f3bfcd, #eaa9bb);
+}
+
+.fc-replica__panel--chip {
+  border-radius: calc(22 * var(--u));
+  background: linear-gradient(180deg, #f8cfd9, #f1b6c6);
+  box-shadow:
+    0 calc(4 * var(--u)) calc(10 * var(--u)) rgba(150, 30, 60, 0.16),
+    inset 0 calc(2 * var(--u)) 0 rgba(255, 255, 255, 0.6);
+}
+
+/* ── Syllable crescent ────────────────────────────────────────────────── */
+.fc-replica__crescent {
+  overflow: visible;
+  filter: drop-shadow(0 calc(6 * var(--u)) calc(10 * var(--u)) rgba(90, 50, 110, 0.18));
+}
+
+/* ── Embossed medallions ──────────────────────────────────────────────── */
+.fc-replica__medallion {
+  border-radius: 50%;
+}
+
+.fc-replica__medallion--letter,
+.fc-replica__medallion--vowel {
+  /* Outer rose ring, lit from above. */
+  background: linear-gradient(
+    170deg,
+    color-mix(in srgb, var(--ring-light, #f2b9c7) 35%, #fff) 0%,
+    var(--ring-light, #f2b9c7) 42%,
+    color-mix(in srgb, var(--ring-light, #f2b9c7) 45%, var(--ring-edge, #d77f97)) 78%,
+    var(--ring-edge, #d77f97) 100%
+  );
+  box-shadow:
+    0 0 calc(20 * var(--u)) calc(6 * var(--u)) rgba(241, 170, 190, 0.45),
+    0 calc(10 * var(--u)) calc(22 * var(--u)) rgba(140, 20, 50, 0.22),
+    inset 0 calc(3 * var(--u)) calc(4 * var(--u)) rgba(255, 255, 255, 0.85),
+    inset 0 calc(-5 * var(--u)) calc(8 * var(--u)) rgba(150, 30, 65, 0.25);
+}
+
+/* Raised inner button. */
+.fc-replica__medallion--letter::before,
+.fc-replica__medallion--vowel::before {
+  content: "";
+  position: absolute;
+  inset: 11%;
+  border-radius: 50%;
+  background: radial-gradient(circle at 50% 30%, #ffffff 0 38%, #fdf2f5 66%, #f7dfe6 100%);
+  box-shadow:
+    0 calc(6 * var(--u)) calc(10 * var(--u)) rgba(130, 20, 50, 0.3),
+    0 calc(1 * var(--u)) calc(2 * var(--u)) rgba(130, 20, 50, 0.25),
+    inset 0 calc(-4 * var(--u)) calc(8 * var(--u)) rgba(190, 70, 100, 0.16);
+}
+
+.fc-replica__medallion--vowel::before {
+  inset: 10%;
+  background: radial-gradient(circle at 50% 30%, #fff6f8 0 22%, #fbdde5 60%, #f4c4d1 100%);
+}
+
+/* ── Pictures sit directly on the paper ───────────────────────────────── */
+.fc-replica__art {
+  /* The figure blends with the paper (white picture grounds disappear). */
+  mix-blend-mode: multiply;
+  clip-path: inset(
+    calc(var(--clip-t, 0) * var(--u)) calc(var(--clip-r, 0) * var(--u))
+      calc(var(--clip-b, 0) * var(--u)) calc(var(--clip-l, 0) * var(--u))
+  );
+}
+
+.fc-replica__art .fc-replica__living {
+  display: block;
+  width: 100%;
+  height: 100%;
+  max-width: none;
+  max-height: none;
+}
+
+.fc-replica__art .fc-replica__living > img,
+.fc-replica__art .fc-replica__living > video {
+  display: block;
+  width: 100%;
+  height: 100%;
+  max-width: none;
+  max-height: none;
+  object-fit: contain;
+}
+
+/* ── Text ─────────────────────────────────────────────────────────────── */
+.fc-replica .fc-replica__text {
+  position: absolute;
+  z-index: 2;
+  margin: 0;
+  left: calc(var(--x) * var(--u));
+  top: calc(var(--base) * var(--u));
+  /* Sit the text on its printed baseline (ascent ≈ 0.92em in a 1.15 line). */
+  transform: translateY(-0.92em);
+  font-size: calc(var(--fs) * var(--fit, 1) * var(--u));
+  line-height: 1.15;
+  white-space: nowrap;
+  font-weight: 400;
+  letter-spacing: 0;
+}
+
+.fc-replica .fc-replica__text--center {
+  transform: translate(-50%, -0.92em);
+}
+
+.fc-replica .fc-replica__ink {
+  display: inline-block;
+}
+
+.fc-replica .fc-replica__text [data-bold] {
+  font-weight: 700;
+}
+
+.fc-replica .fc-replica__text--letter {
+  font-weight: 700;
+  letter-spacing: -0.01em;
+}
+
+.fc-replica .fc-replica__text--letter span {
+  text-shadow:
+    0 1px 0 #fff,
+    0 calc(3 * var(--u)) calc(6 * var(--u)) rgba(187, 7, 51, 0.22);
+}
+
+.fc-replica .fc-replica__text--vowel span {
+  text-shadow:
+    0 1px 0 #fff,
+    0 calc(2 * var(--u)) calc(4 * var(--u)) rgba(187, 7, 51, 0.18);
+}
+
+.fc-replica .fc-replica__text--title,
+.fc-replica .fc-replica__text--title [data-bold] {
+  font-weight: 700;
+}
+
+.fc-replica .fc-replica__text--title span {
+  color: #b5112f !important;
+}
+
+/* Reading lines are set in the regular weight, as in the reference guides. */
+.fc-replica .fc-replica__text--verse [data-bold] {
+  font-weight: 400;
+}
+
+.fc-replica .fc-replica__text--verse [data-emph] {
+  font-weight: 700;
+}
+
+/* Sizes are measured synchronously; a global reduced-motion rule
+ * (transition-duration: 0.01ms on everything) must not animate them. */
+.fc-replica .fc-replica__text,
+.fc-replica .fc-replica__text * {
+  transition: none !important;
+}
+
+/* Fit measurement: text width only. */
+.fc-replica .fc-replica__sheet--measuring .fc-replica__ink {
+  padding: 0 !important;
+  min-width: 0 !important;
+  width: auto !important;
+}
+
+/* Rose chips: syllables in their band, vocabulary words on the paper. */
+.fc-replica .fc-replica__text--syllable .fc-replica__ink,
+.fc-replica .fc-replica__text--word .fc-replica__ink {
+  border-radius: 0.22em;
+  padding: 0.02em 0.2em 0.04em;
+}
+
+.fc-replica .fc-replica__text--syllable .fc-replica__ink {
+  box-sizing: border-box;
+  width: calc(var(--chip-w, 0) * var(--u));
+  padding: 0.16em 0.22em 0.2em;
+  text-align: center;
+  border-radius: 0.26em;
+}
+
+/* Band syllables read as one bold rose word each, as in the reference. */
+.fc-replica .fc-replica__text--syllable span {
+  color: #b5112f !important;
+  font-weight: 700 !important;
+}
+
+/* Crescent syllables read as one rose word each, as in the reference. */
+.fc-replica .fc-replica__text--crescent span {
+  color: #c0204f !important;
+  font-weight: 700 !important;
+  text-shadow: 0 1px 0 rgba(255, 255, 255, 0.7);
+}
+
+.fc-replica .fc-replica__text--vowel,
+.fc-replica .fc-replica__text--vowel span {
+  font-weight: 700;
+}
+
+.fc-replica .fc-replica__text--syllable .fc-replica__ink {
+  background: linear-gradient(180deg, #fff6f8, #fbe1e8);
+  box-shadow:
+    0 calc(3 * var(--u)) calc(6 * var(--u)) rgba(150, 30, 60, 0.16),
+    inset 0 1px 0 #fff;
+}
+
+.fc-replica .fc-replica__text--word .fc-replica__ink {
+  background: #f9e1e6;
+  box-shadow: inset 0 calc(-2 * var(--u)) 0 rgba(187, 7, 51, 0.06);
+}
+
+/* Left-anchored chips keep the printed text edge where the book puts it. */
+.fc-replica .fc-replica__text--left.fc-replica__text--syllable .fc-replica__ink,
+.fc-replica .fc-replica__text--left.fc-replica__text--word .fc-replica__ink {
+  margin-left: -0.2em;
+}
+
+.fc-replica .fc-replica__text--chip {
+  font-weight: 700;
+}
+
+/* Printed page number, inside the sheet. */
+.fc-replica .fc-replica__pagenum {
+  position: absolute;
+  z-index: 3;
+  right: calc(26 * var(--u));
+  bottom: calc(14 * var(--u));
+  left: auto;
+  top: auto;
+  font-size: calc(22 * var(--u));
+  color: #6b625a;
+  background: none;
+  pointer-events: none;
+}
+
+/* The easel recedes so the sheet itself is the page. */
+.fc-presenter .fc-board .fc-board__easel:has(.fc-replica) {
+  background: transparent;
+  border-color: transparent;
+  box-shadow: none;
+}
+
+.fc-presenter .fc-board .fc-board__page:has(.fc-replica),
+.fc-presenter .fc-board .fc-board__page-inner:has(.fc-replica),
+.fc-presenter .fc-board .fc-board__face:has(.fc-replica),
+.fc-presenter .fc-board .fc-native-board:has(.fc-replica),
+.fc-presenter .fc-board .fc-native-board__page:has(> .fc-replica),
+.fc-native-board:has(.fc-replica),
+.fc-native-board__page:has(> .fc-replica) {
+  background: transparent;
+  box-shadow: none;
+}
+
+@media print {
+  .fc-replica__spiral {
+    display: none;
+  }
+
+  .fc-replica__sheet {
+    box-shadow: none;
+  }
+}
