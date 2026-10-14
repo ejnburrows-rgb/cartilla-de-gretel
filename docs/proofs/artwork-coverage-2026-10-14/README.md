@@ -1,4 +1,4 @@
-**Current availability (approval-independent): [illustrated inventory](availability-inventory.md) · [confirmed missing originals](missing-originals.md).** Historical approval-gated counts below are superseded for availability.
+**Current result: 90 OPTIMIZED VERSION EXISTS / 108 OPTIMIZATION NEEDED / 3 UNRESOLVED.** The 202 working groups consolidate to 201 after one verified repeat; all 330 placements retained. [Illustrated inventory](availability-inventory.md) · [108 missing originals](missing-originals.md) · [Validation](availability-validation.json).
 
 # Artwork coverage — current classifications
 

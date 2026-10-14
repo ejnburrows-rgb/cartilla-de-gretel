@@ -40,5 +40,103 @@
     ],
     "sha256": "6f3840236aa63a89ff43522a9677aa9958a9c00432b63a73b57eea538a3756e1",
     "operation": "PDF rendering and rectangular crop only; no repaint, recolor or linework edits"
+  },
+  {
+    "artwork_id": "FC-015-01",
+    "pdf_sha256": "d7fb3dff4e63caf3443226e57a9ef700f8974acd4ad8f08f44e2792e13cc4930",
+    "pdf_page": 15,
+    "render_scale": 2.5,
+    "crop_box_normalized": [
+      0.033,
+      0.008,
+      0.48,
+      0.414
+    ],
+    "sha256": "10bcafaef6a1cee60b971a213a503ef58e00272af2a201f60b9c70d73b45d43e",
+    "operation": "Authoritative PDF rendering and rectangular crop only; no linework/color/background edits. Original caption overlap retained where rectangular crop cannot avoid it."
+  },
+  {
+    "artwork_id": "FC-018-05",
+    "pdf_sha256": "d7fb3dff4e63caf3443226e57a9ef700f8974acd4ad8f08f44e2792e13cc4930",
+    "pdf_page": 18,
+    "render_scale": 2.5,
+    "crop_box_normalized": [
+      0.103,
+      0.72,
+      0.277,
+      0.217
+    ],
+    "sha256": "ae16c820b9080db6930e04980bb9aca8430f9228ae7c6fa6d91c8fb0041da00a",
+    "operation": "Authoritative PDF rendering and rectangular crop only; no linework/color/background edits. Original caption overlap retained where rectangular crop cannot avoid it."
+  },
+  {
+    "artwork_id": "FC-024-01",
+    "pdf_sha256": "d7fb3dff4e63caf3443226e57a9ef700f8974acd4ad8f08f44e2792e13cc4930",
+    "pdf_page": 24,
+    "render_scale": 2.5,
+    "crop_box_normalized": [
+      0.065,
+      0.017,
+      0.46,
+      0.39
+    ],
+    "sha256": "b33e8b4ca8b07598cc72a8b84362c4e926a0f3c8a14c8ebebfe6352094a3c0c1",
+    "operation": "Authoritative PDF rendering and rectangular crop only; no linework/color/background edits. Original caption overlap retained where rectangular crop cannot avoid it."
+  },
+  {
+    "artwork_id": "FC-027-01",
+    "pdf_sha256": "d7fb3dff4e63caf3443226e57a9ef700f8974acd4ad8f08f44e2792e13cc4930",
+    "pdf_page": 27,
+    "render_scale": 2.5,
+    "crop_box_normalized": [
+      0.018,
+      0.02,
+      0.49,
+      0.408
+    ],
+    "sha256": "1f45901de767e80286f0927f27f42eb3440df196a0ac739e07d374794713a940",
+    "operation": "Authoritative PDF rendering and rectangular crop only; no linework/color/background edits. Original caption overlap retained where rectangular crop cannot avoid it."
+  },
+  {
+    "artwork_id": "FC-030-05",
+    "pdf_sha256": "d7fb3dff4e63caf3443226e57a9ef700f8974acd4ad8f08f44e2792e13cc4930",
+    "pdf_page": 30,
+    "render_scale": 2.5,
+    "crop_box_normalized": [
+      0.125,
+      0.7,
+      0.24,
+      0.22
+    ],
+    "sha256": "085fe7554ec3109b634827aac23a49bad41c82f1361976923e94bc8c5c68cfa3",
+    "operation": "Authoritative PDF rendering and rectangular crop only; no linework/color/background edits. Original caption overlap retained where rectangular crop cannot avoid it."
+  },
+  {
+    "artwork_id": "FC-035-01",
+    "pdf_sha256": "d7fb3dff4e63caf3443226e57a9ef700f8974acd4ad8f08f44e2792e13cc4930",
+    "pdf_page": 35,
+    "render_scale": 2.5,
+    "crop_box_normalized": [
+      0.48,
+      0.015,
+      0.49,
+      0.49
+    ],
+    "sha256": "e8880fa56e18b9097329e5eb65454651250dab57c8bac0675fcfa0003b8add2d",
+    "operation": "Authoritative PDF rendering and rectangular crop only; no linework/color/background edits. Original caption overlap retained where rectangular crop cannot avoid it."
+  },
+  {
+    "artwork_id": "FC-062-01",
+    "pdf_sha256": "d7fb3dff4e63caf3443226e57a9ef700f8974acd4ad8f08f44e2792e13cc4930",
+    "pdf_page": 62,
+    "render_scale": 2.5,
+    "crop_box_normalized": [
+      0.435,
+      0.025,
+      0.545,
+      0.505
+    ],
+    "sha256": "80a0df06a759eb93f26185490f751cac4d463795b8f4c97f95c9ee66a1eb1162",
+    "operation": "Authoritative PDF rendering and rectangular crop only; no linework/color/background edits. Original caption overlap retained where rectangular crop cannot avoid it."
   }
 ]

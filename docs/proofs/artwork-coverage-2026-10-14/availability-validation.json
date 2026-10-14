@@ -1,0 +1,33 @@
+{
+  "counts": {
+    "drawing_groups": {
+      "OPTIMIZED VERSION EXISTS": 90,
+      "OPTIMIZATION NEEDED": 108,
+      "UNRESOLVED": 3
+    },
+    "placements_by_drawing_availability": {
+      "UNRESOLVED": 3,
+      "OPTIMIZED VERSION EXISTS": 186,
+      "OPTIMIZATION NEEDED": 141
+    },
+    "exact_oriented_placement_matches_verified": 115
+  },
+  "group_memberships_complete": 330,
+  "source_groups": 201,
+  "baseline_working_groups": 202,
+  "verified_repeat_merges": 1,
+  "markdown_local_links": "PASS",
+  "current_selected_non_SVG_bytes_verified": 94,
+  "SVG_domain_proof": "REUSED unchanged svg-hash-domains.json; no rework",
+  "source_pdf_hashes_verified_this_run": [
+    "d7fb3dff4e63caf3443226e57a9ef700f8974acd4ad8f08f44e2792e13cc4930",
+    "cbe050520bafefaea9c19c75eee6dd48ab3476a6377dc45009d176c18aab0a3b"
+  ],
+  "production_changes": [],
+  "withheld_files": 50,
+  "withheld_specific_artwork_associations": "UNRECOVERABLE FROM RETAINED METADATA; null associations, none invented",
+  "plausible_candidates_inspected": 158,
+  "rejected_candidate_groups_alternatives_checked": 92,
+  "generic_cutout_files_visually_checked": 146,
+  "enumeration_repeated": false
+}
