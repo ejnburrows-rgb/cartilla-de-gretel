@@ -97,6 +97,8 @@ This checkpoint supersedes older in-flight priorities and assignment assumptions
 
 ## Printed pages 86–87 — resolved source status
 
+**Latest owner instruction 2026-10-14 supersedes student placeholder display:** never ask again for scans or generate reconstructions. Preserve `SOURCE_BLOCKED` only as internal source history. **Lesson 23 uses 83/84/85 and ends; Lesson 24 opens on 88 and proceeds 89/90**, as the complete Cuaderno already does. Both absent leaves are omitted from learner activity/session progression. See `PROJECT_SOURCE_OF_TRUTH.md` for the permanent decision. The seven prebuilt practice activities are to be brainstormed with the owner through GrillMe **before** Piano placement is decided.
+
 Printed Workbook pages **86 and 87 are not blank pages that still need conversion**. They are absent from the authoritative supplied Student Workbook scan:
 
 - the supplied PDF visibly jumps from printed page **85** to printed page **88**;
