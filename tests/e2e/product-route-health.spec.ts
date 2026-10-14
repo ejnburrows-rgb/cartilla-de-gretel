@@ -288,39 +288,23 @@ test.describe("Whole-Product Route Health + Console/Network Error Sweep", () => 
     monitor.assertClean();
   });
 
-  test("8. Source-blocked pages 86–87 remain documented exceptions without console errors or crash", async ({ page }) => {
-    const monitor = attachRouteErrorMonitors(page, "source-blocked page 86");
+  test("8. Missing scan leaves are skipped in student lessons without console errors", async ({ page }) => {
+    const monitor = attachRouteErrorMonitors(page, "lesson 23 without page-86 placeholder");
 
-    // Bookmark directly to Lección 23 page index 3 (physical page 86)
+    // A pre-existing bookmark at old index 3 (page 86) must settle at the last
+    // available original leaf, page 85, without introducing synthetic content.
     await page.goto("/cartilla/lecciones");
     await page.evaluate(() => {
       localStorage.setItem("cartilla.learner-resume.v1:23", JSON.stringify({ lesson: 23, page: 3 }));
     });
-
     await page.goto("/cartilla/leccion/23", { waitUntil: "domcontentloaded" });
     await page.waitForLoadState("networkidle").catch(() => {});
     await dismissCinematic(page);
 
     const reader = page.locator(".native-lesson-viewer");
     await expect(reader).toBeVisible({ timeout: 15_000 });
-
-    const pageNum = await reader.getAttribute("data-native-page");
-    expect(pageNum, "Must reach physical page 86 in Lección 23").toBe("86");
-
-    // Verify source-blocked exception indicator is rendered
-    const blockedNotice = page.locator(".fp-source-blocked, [data-source-blocked='true']");
-    await expect(blockedNotice).toBeVisible();
-
-    // The blocked page must not render inferred exercise content, artwork, or
-    // interactions: pages 86-87 stay source-blocked with no guessed material.
-    await expect(reader.locator("canvas, textarea, input, [data-picture-name], .fp-ix-shell, .fp-activity")).toHaveCount(0);
-    await expect(reader.getByRole("button", { name: /Escribe|Une|Marca|Traza|Completa/i })).toHaveCount(0);
-
-    await page.screenshot({
-      path: path.join(PROOF_DIR, "source-blocked-p86.png"),
-      fullPage: true,
-    });
-
+    await expect(reader).toHaveAttribute("data-native-page", "85");
+    await expect(reader.locator("[data-source-blocked='true']")).toHaveCount(0);
+    await expect(reader.getByTestId("button-next")).toHaveText(/Terminar lección/);
     monitor.assertClean();
-  });
-});
+  });});
