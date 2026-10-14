@@ -39,7 +39,11 @@ export function StudentTable({
   handleDeleteStudent,
 }: StudentTableProps) {
   if (studentsList.length === 0) {
-    return null;
+    return (
+      <div role="status" className="p-8 text-center text-sm font-bold text-stone-400">
+        Ningún alumno coincide con &quot;{searchQuery}&quot;.
+      </div>
+    );
   }
 
   return (
