@@ -404,6 +404,7 @@ describe("PianoPronunciation design choice", () => {
     render(<PianoPronunciation syllables={["a", "e", "i", "o", "u", "ma"]} />);
     expect(designShown()).toBe("piano");
     expect(screen.queryByTestId("piano-design-cancionero")).toBeNull();
-    expect(screen.getAllByRole("button", { name: /^Tecla / })).toHaveLength(6);
+    expect(screen.getAllByTestId(/^piano-key-/)).toHaveLength(8);
+    expect(screen.queryByRole("button", { name: /^Tecla / })).toBeNull();
   });
 });
