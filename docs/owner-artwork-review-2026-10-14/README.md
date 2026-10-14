@@ -1,5 +1,11 @@
 # Owner visual review gallery — actual repo artwork
 
+> **CORRECTION — HISTORICAL SNAPSHOT, NOT AN ARTWORK TO-DO LIST (2026-10-14).** Codex PR #751 continued while this gallery was created: its newer report is **90 version-found / 108 possible upgrades / 3 unresolved across 201 working groups**, whereas this snapshot still reflects **67 / 2 / 133 across 202 provisional groups**. Do NOT use either report alone to decide an image is absent, uncolored, unapproved, replaceable or safe to delete. This is a visual listing of what actually existed at the pinned repository revision, not current certification.
+>
+> **Verified counterexamples:** `aguja` and `iglesia` are both already wired into the Student Workbook through `src/data/page-layouts.json`. Their actual `public/cartilla/art/faithful/` images exist on main and the asset QA record says PASS for both. The separate production-provenance audit marks `aguja` PASS and `iglesia` PENDING NO VERIFIED SOURCE. That provenance status does not mean the image is missing from the book. Source image borders and color/quality may still deserve an owner's visual decision, but are not an automatic authorization to redo them.
+>
+> For current classifications use [Codex's active PR #751](https://github.com/ejnburrows-rgb/cartilla-de-gretel/pull/751), and verify any proposed change against **current main**, the actual rendered lesson, the original drawing and approved optimized version. Keep Codex as the owner of the classification task. This separate gallery must not be merged or treated as an independent inventory authority.
+
 **Purpose:** Review every audited book placement and each of the 887 image files found under `public/cartilla` in the actual repository. Compare originals to current files; mark plain/uncolored, mismatched, clipped, obsolete/irrelevant, or keep. **Nothing is deleted or replaced by these galleries.**
 
 ## Interactive viewer
