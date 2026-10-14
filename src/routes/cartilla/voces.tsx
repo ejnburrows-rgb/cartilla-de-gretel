@@ -4,7 +4,7 @@ import {
   speakAsGretel,
   cancelGretelSpeech,
   setGretelVoiceProviderConfig,
-  resetGretelVoiceProviderConfig,
+  getGretelVoiceProviderConfig,
   getAvailableGretelVoices,
 } from "@/lib/gretel-voice";
 
@@ -101,6 +101,9 @@ function VoiceAudition() {
   const [ready, setReady] = useState(false);
   const [playingKey, setPlayingKey] = useState<string | null>(null);
   const [error, setError] = useState<string | null>(null);
+  const [newText, setNewText] = useState("Mañana el pingüino leerá una palabra nueva.");
+  const originalProvider = useMemo(() => getGretelVoiceProviderConfig(), []);
+  const customAvailable = originalProvider.type === "custom" && Boolean(originalProvider.speakFn);
 
   useEffect(() => {
     if (typeof window === "undefined" || !("speechSynthesis" in window)) {
@@ -124,11 +127,25 @@ function VoiceAudition() {
       window.speechSynthesis.removeEventListener("voiceschanged", load);
       clearTimeout(timeout);
       cancelGretelSpeech();
-      resetGretelVoiceProviderConfig();
+      // The audition page must not silently erase the workbook custom voice.
+      setGretelVoiceProviderConfig(originalProvider);
     };
-  }, []);
+  }, [originalProvider]);
 
   const candidates = useMemo(() => buildCandidates(voices), [voices]);
+
+  const playCustom = async () => {
+    setError(null);
+    cancelGretelSpeech();
+    setGretelVoiceProviderConfig(originalProvider);
+    setPlayingKey("gretel-custom");
+    try {
+      await speakAsGretel(newText, { onEnd: () => setPlayingKey(null) });
+    } catch {
+      setError("El motor de voz personalizado no respondió.");
+      setPlayingKey(null);
+    }
+  };
 
   const play = async (c: Candidate) => {
     setError(null);
@@ -163,14 +180,34 @@ function VoiceAudition() {
       <div className="max-w-2xl mx-auto">
         <h1 className="text-2xl font-black text-stone-800 mb-2">Audición de voces de Gretel</h1>
         <p className="text-stone-500 font-medium mb-8">
-          Cada botón lee la misma línea real del libro (Lección 1) con una voz distinta. Toca cada
-          una, escucha, y responde con el número que prefieras — esa será la voz de Gretel en toda
-          la app.
+          Escucha la voz personalizada de Gretel cuando esté disponible. Las voces del navegador
+          aparecen únicamente como alternativas de comparación, no como reemplazo automático.
         </p>
 
         <div className="bg-white rounded-2xl border border-stone-200 p-4 mb-8 text-stone-600 text-sm font-medium italic">
           "{AUDITION_LINE}"
         </div>
+
+        {customAvailable && (
+          <section className="rounded-2xl border-2 border-primary/40 bg-white p-5 mb-8 space-y-3">
+            <h2 className="font-black text-stone-800">Gretel — voz personalizada</h2>
+            <p className="text-sm text-stone-500">Escribe una oración nueva para comprobar la síntesis real.</p>
+            <input
+              aria-label="Oración nueva para Gretel"
+              className="w-full rounded-xl border border-stone-300 px-3 py-2 text-stone-800"
+              value={newText}
+              maxLength={320}
+              onChange={(event) => setNewText(event.target.value)}
+            />
+            <button
+              className="rounded-xl bg-primary px-5 py-3 font-bold text-white disabled:opacity-50"
+              disabled={!newText.trim() || playingKey === "gretel-custom"}
+              onClick={() => void playCustom()}
+            >
+              {playingKey === "gretel-custom" ? "Reproduciendo…" : "Escuchar con Gretel"}
+            </button>
+          </section>
+        )}
 
         {!ready ? (
           <p className="text-stone-400 font-medium">
