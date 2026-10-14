@@ -286,3 +286,39 @@ describe("Approved wooden pencil connector — line and pair matching", () => {
     expect(centerBtn.classList.contains("is-active")).toBe(true);
   });
 });
+
+describe("Pencil connector card pictures — owner-approved living motion", () => {
+  beforeEach(() => cleanup());
+
+  it("routes only registered actors through LivingIllustration and keeps other cards as plain stills", () => {
+    const targets = [
+      { id: "0", label: "oso", correct: false, src: "/cartilla/art/faithful/vocal-o/oso.webp" },
+      { id: "1", label: "iglú", correct: false, src: "/cartilla/art/faithful/vocal-i/iglu.webp" },
+      { id: "2", label: "alas", correct: true, src: "/cartilla/art/faithful/vocal-a/alas.webp" },
+      { id: "3", label: "avión", correct: true, src: "/cartilla/art/faithful/leccion-1/pez.webp" },
+    ];
+    const { container } = render(
+      <DirectPencilConnector pageKey="p8-motion" targets={targets} mode="mark" centerLabel="Aa" instruction="Traza una línea." />,
+    );
+    const cards = [...container.querySelectorAll(".am-direct-pencil__card")];
+    expect(cards).toHaveLength(4);
+    const card = (label: string) => {
+      const c = container.querySelector(`button[aria-label="${label}"] .am-direct-pencil__card`);
+      if (!c) throw new Error(`missing card ${label}`);
+      return c;
+    };
+    // oso is a registered actor: its card plays the approved natural-motion SVG.
+    const oso = card("oso").querySelector<HTMLElement>(".living-illustration");
+    expect(oso?.dataset.naturalMotion).toBe("true");
+    expect(oso?.querySelector("img")?.getAttribute("src")).toContain("oso-alive.svg");
+    // The book's airplane may glide as a whole.
+    expect(card("avión").querySelector<HTMLElement>(".living-illustration")?.dataset.ambientMotion).toBe("glide");
+    // Unregistered pictures stay exactly the previous plain still image.
+    for (const t of [targets[1], targets[2]]) {
+      expect(card(t.label).querySelector(".living-illustration")).toBeNull();
+      expect(card(t.label).querySelector("img")?.getAttribute("src")).toBe(t.src);
+    }
+    // Card pictures never expose their own listen button inside the pencil target.
+    expect(container.querySelector(".am-direct-pencil__card [role=button]")).toBeNull();
+  });
+});

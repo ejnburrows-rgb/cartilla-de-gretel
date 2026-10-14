@@ -39,9 +39,8 @@ describe("LivingIllustration faithful recovered art", () => {
       expect(wrapper?.getAttribute("data-natural-motion"), animal.word).toBe(
         actor?.aliveSrc ? "true" : "false",
       );
-      expect(wrapper?.className.includes("living-illustration--creature-life"), animal.word).toBe(
-        Boolean(actor?.creature) && !actor?.aliveSrc,
-      );
+      // Owner rule 2026-10-11: no whole-picture creature wobble on any animal.
+      expect(wrapper?.className.includes("living-illustration--creature-life"), animal.word).toBe(false);
       unmount();
     }
   });
@@ -87,17 +86,51 @@ describe("LivingIllustration faithful recovered art", () => {
     }
   });
 
-  it("renders with actor motion classes inside workbook exercise cells", () => {
-    const src = "/cartilla/art/faithful/leccion-9-s/sapo.webp";
+  it("renders part motion inside workbook exercise cells without whole-picture wobble", () => {
+    const src = "/cartilla/art/faithful/leccion-23-z/zorro.webp";
     const { container } = render(
       <div className="fp-ix-cell">
-        <LivingIllustration src={src} alt="sapo" />
+        <LivingIllustration src={src} alt="zorro" />
       </div>,
     );
     const wrapper = container.querySelector(".living-illustration");
     expect(wrapper).not.toBeNull();
-    expect(wrapper?.className).toContain("living-illustration--hop");
-    expect(wrapper?.className).toContain("living-illustration--creature-life");
+    expect(wrapper?.className).toContain("living-illustration--part-rigged");
+    expect(wrapper?.querySelectorAll(".living-illustration__part--tail")).toHaveLength(1);
+    expect(wrapper?.className).not.toMatch(/living-illustration--(wag|creature-life)/);
+  });
+
+  it("holds later-lesson pictures still whose old motion moved, hopped or spun the whole drawing", () => {
+    for (const name of [
+      "leccion-1/carro",
+      "leccion-17-r/rueda",
+      "leccion-17-r/rana",
+      "leccion-18-rr/burro",
+      "leccion-18-rr/carrusel",
+      "leccion-19-g/gato",
+      "leccion-19-g/gusano",
+      "leccion-21-j/jicotea",
+      "leccion-21-j/jirafa",
+      "leccion-22-y/yate",
+      "leccion-22-y/yoyo",
+      "leccion-23-z/zepelin",
+      "leccion-9-s/sapo",
+    ]) {
+      const src = `/cartilla/art/faithful/${name}.webp`;
+      expect(getLivingActor(src), name).toBeNull();
+      const { container, unmount } = render(
+        <div className="fp-ix-cell">
+          <LivingIllustration src={src} alt={name} />
+        </div>,
+      );
+      const wrapper = container.querySelector(".living-illustration");
+      expect(wrapper?.getAttribute("data-ambient-motion"), name).toBe("none");
+      expect(wrapper?.className, name).not.toMatch(
+        /living-illustration--(crawl|hop|nod|spin|glide|roll|creature-life)/,
+      );
+      expect(container.querySelector("img.living-illustration__art")?.getAttribute("src"), name).toBe(src);
+      unmount();
+    }
   });
 
   it("holds the vowel-page pictures whose old motion moved the whole drawing still", () => {

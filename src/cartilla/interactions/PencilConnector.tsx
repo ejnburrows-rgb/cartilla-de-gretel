@@ -10,6 +10,18 @@ import { loadLassoProgress, saveLassoProgress } from "@/lib/activity-canvas-stor
 import { useReducedMotion } from "@/hooks/useReducedMotion";
 import { PencilShape, WorkbookPencilMark, WORKBOOK_MARK_TIMING } from "@/components/cartilla/WorkbookPencilMark";
 import type { WorkbookObject } from "@/content/workbook/types";
+import { LivingIllustration } from "@/components/living/LivingIllustration";
+import { getLivingActor } from "@/lib/living-actor-registry";
+
+/** A registered living actor plays its owner-approved motion; every other card
+ *  picture keeps the plain still image exactly as before. */
+function CardPicture({ src }: { src: string }) {
+  return getLivingActor(src) ? (
+    <LivingIllustration src={src} alt="" loading="lazy" />
+  ) : (
+    <img src={src} alt="" draggable={false} loading="lazy" />
+  );
+}
 import type { InteractionProps } from "./shared";
 import "@/styles/activity-mechanics.css";
 
@@ -836,7 +848,7 @@ export function DirectPencilConnector({
                   >
                     <div className="am-direct-pencil__card">
                       {t.src ? (
-                        <img src={t.src} alt="" draggable={false} loading="lazy" />
+                        <CardPicture src={t.src} />
                       ) : (
                         <span className="am-direct-pencil__target-text">{t.label}</span>
                       )}
@@ -881,7 +893,7 @@ export function DirectPencilConnector({
       >
         <div className="am-direct-pencil__card">
           {t.src ? (
-            <img src={t.src} alt="" draggable={false} loading="lazy" />
+            <CardPicture src={t.src} />
           ) : (
             <span className="am-direct-pencil__target-text">{t.label}</span>
           )}
