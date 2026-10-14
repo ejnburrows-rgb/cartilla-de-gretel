@@ -84,6 +84,19 @@ describe("NativeLessonViewer auto page turn and swipe (owner decision 2026-10-12
     expect(current()).toBe(24);
   });
 
+  it("still turns after the window loses focus while a finger was down", () => {
+    render(<NativeLessonViewer pages={PAGES} chapterLabel="Lección 8" lessonNumber={8} autoTurn />);
+    fireEvent.pointerDown(viewer(), { pointerId: 11 });
+    completePage(23);
+    act(() => vi.advanceTimersByTime(AUTO_TURN_IDLE_MS * 2));
+    expect(current()).toBe(23);
+    // The lift is never seen (e.g. the child switched apps); only blur arrives.
+    fireEvent.blur(window);
+    act(() => vi.advanceTimersByTime(AUTO_TURN_IDLE_MS + 50));
+    finishTurn();
+    expect(current()).toBe(24);
+  });
+
   it("exposes exactly one Siguiente button even when the page corner is available", () => {
     render(<NativeLessonViewer pages={PAGES} chapterLabel="Lección 8" lessonNumber={8} />);
     const nextButtons = screen.getAllByRole("button", { name: /siguiente/i });

@@ -270,12 +270,16 @@ export function NativeLessonViewer({
     window.addEventListener("pointerdown", onPointerDown);
     window.addEventListener("pointerup", onPointerRelease);
     window.addEventListener("pointercancel", onPointerRelease);
+    // Leaving the window resets the finger count (above); count that as a
+    // release so a finished page never stays stuck waiting for a lift.
+    window.addEventListener("blur", onPointerRelease);
     root?.addEventListener("keydown", onKeyDown);
     return () => {
       window.clearTimeout(timer);
       window.removeEventListener("pointerdown", onPointerDown);
       window.removeEventListener("pointerup", onPointerRelease);
       window.removeEventListener("pointercancel", onPointerRelease);
+      window.removeEventListener("blur", onPointerRelease);
       root?.removeEventListener("keydown", onKeyDown);
     };
   }, [autoTurn, completion.complete, index, isLast]);
