@@ -13,6 +13,7 @@ export const KEYS = {
   tutorialDone: "cartilla.tutorial.done.v1",
 
   learnerResume: "cartilla.learner-resume.v1",
+  workbookReaderPage: "cartilla.workbook-reader-page.v1",
 
   // Page progress (student session)
   pageState: "cartilla.page.state.v1",

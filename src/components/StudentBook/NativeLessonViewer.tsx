@@ -36,6 +36,7 @@ export function NativeLessonViewer({
   lessonNumber,
   autoTurn = false,
   swipe = false,
+  gated = true,
 }: {
   pages: WorkbookPageEntry[];
   chapterLabel: string;
@@ -48,6 +49,8 @@ export function NativeLessonViewer({
   autoTurn?: boolean;
   /** Swipe left / right on touch screens to turn pages. */
   swipe?: boolean;
+  /** Require page completion before turning forward (lessons). The complete book browses freely. */
+  gated?: boolean;
 }) {
   const [index, setIndex] = useState(() =>
     Math.min(Math.max(0, initialPage), pages.length - 1),
@@ -76,8 +79,10 @@ export function NativeLessonViewer({
   });
 
   const page = pages[index];
-  const completion = usePageCompletion(page?.pageNumber, lessonNumber);
+  const pageCompletion = usePageCompletion(page?.pageNumber, lessonNumber);
+  const completion = gated ? pageCompletion : { ...pageCompletion, remaining: [], complete: true };
   const isLast = index === pages.length - 1;
+  const isBookEnd = isLast && !gated && !onFinish;
   useFitToPage(containerRef, index);
 
   useEffect(() => {
@@ -644,7 +649,7 @@ export function NativeLessonViewer({
           <button
             type="button"
             onClick={forward}
-            disabled={turning}
+            disabled={turning || isBookEnd}
             aria-disabled={completion.complete ? undefined : true}
             aria-describedby={hint ? "native-lesson-next-hint" : undefined}
             data-locked={completion.complete ? undefined : "true"}
@@ -655,7 +660,7 @@ export function NativeLessonViewer({
                 : "Termina la actividad de esta página para seguir"
             }
           >
-            <span className="native-lesson-viewer__nav-label">{isLast ? "Terminar lección" : "Siguiente"}</span> <ChevronRight size={20} aria-hidden="true" />
+            <span className="native-lesson-viewer__nav-label">{isBookEnd ? "Fin del cuaderno" : isLast ? "Terminar lección" : "Siguiente"}</span> <ChevronRight size={20} aria-hidden="true" />
           </button>
         </nav>
       </div>

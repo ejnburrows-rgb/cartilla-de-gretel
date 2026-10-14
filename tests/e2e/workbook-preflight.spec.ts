@@ -135,7 +135,9 @@ test.describe("Workbook Preflight - Local Browser/Device Readiness", () => {
     await expect(page.locator("text=Mis lecciones")).toBeVisible();
 
     await page.goto("/cartilla/cuaderno");
-    await expect(page.locator("[data-testid='physical-book-reader']")).toBeVisible();
+    await expect(page.locator("[data-native-page]")).toHaveCount(1);
+    await expect(page.getByTestId("physical-book-reader")).toHaveCount(0);
+    await expect(page.getByTestId("book-companion-anchor")).toHaveCount(0);
 
     await page.goBack();
     await page.waitForURL("**/cartilla/lecciones");

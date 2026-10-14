@@ -88,6 +88,16 @@ describe("NativeLessonViewer real-paper page turn contracts", () => {
     expect(current()).toBe(24);
   });
 
+  it("gated={false} (complete book) turns forward even while the page is incomplete", () => {
+    render(<NativeLessonViewer pages={PAGES} chapterLabel="Cuaderno completo" gated={false} />);
+    expect(current()).toBe(23);
+    const cornerNext = screen.getByTestId("corner-next");
+    expect(cornerNext.getAttribute("data-locked")).toBeNull();
+    fireEvent.click(cornerNext);
+    finishTurn();
+    expect(current()).toBe(24);
+  });
+
   it("back turn is always allowed via corner or button even when current page is incomplete", () => {
     render(<NativeLessonViewer pages={PAGES} chapterLabel="Lección 8" lessonNumber={8} />);
     completePage(23);
