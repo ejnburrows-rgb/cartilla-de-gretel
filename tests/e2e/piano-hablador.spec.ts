@@ -138,8 +138,8 @@ test.describe("Piano Hablador", () => {
     await page.goto(PIANO_URL);
     const piano = page.locator(".piano-hablador");
     await expect(piano).toHaveAttribute("data-piano-word", "sapo");
-    await expect(key(page, 0)).toHaveAccessibleName("Tecla sa, por decir");
-    await expect(key(page, 1)).toHaveAccessibleName("Tecla po, por decir");
+    await expect(key(page, 0)).toHaveAttribute("aria-hidden", "true");
+    await expect(key(page, 1)).toHaveAttribute("aria-hidden", "true");
 
     await page.getByTestId("piano-escuchar").click();
     await expect(page.getByTestId("piano-mic")).toBeDisabled();
@@ -153,7 +153,7 @@ test.describe("Piano Hablador", () => {
     await expect(piano).toHaveAttribute("data-confirmed", "0");
     await say(page, "final", "sa");
     await expect(slot(page, 0)).toHaveAttribute("data-key-state", "confirmed");
-    await expect(key(page, 0)).toHaveAccessibleName("Tecla sa, lista");
+    await expect(key(page, 0)).toHaveAttribute("data-key-state", "confirmed");
     await expect(slot(page, 1)).not.toHaveAttribute("data-key-state", "confirmed");
     await page.screenshot({ path: "test-results/piano-proof/02-sa-green.png" });
 
@@ -249,30 +249,23 @@ test.describe("Piano Hablador", () => {
     await expect(piano).toHaveAttribute("data-done", "true");
   });
 
-  test("microphone permission refused: clear message and touch alternative, no fake recognition", async ({
-    page,
-  }) => {
+  test("microphone permission refused: no fallback and no false progress", async ({ page }) => {
     await installFakeRecognizer(page);
     await page.goto(PIANO_URL);
     const piano = page.locator(".piano-hablador");
     await page.getByTestId("piano-mic").click();
     await say(page, "error", "not-allowed");
     await expect(page.getByTestId("piano-message")).toContainText("El micrófono no tiene permiso");
-    await expect(page.getByTestId("piano-touch-mode")).toHaveAttribute("aria-pressed", "true");
-    await expect(page.getByTestId("piano-mic")).toBeDisabled();
-    await page.screenshot({ path: "test-results/piano-proof/05-mic-denied.png" });
-    // Out-of-order taps only play the note; in-order taps complete the word.
-    await key(page, 1).click();
+    await expect(page.getByTestId("piano-touch-mode")).toHaveCount(0);
+    await expect(key(page, 0)).toHaveAttribute("aria-hidden", "true");
+    await key(page, 0).click({ force: true });
+    await page.keyboard.press("a");
     await expect(piano).toHaveAttribute("data-confirmed", "0");
-    await key(page, 0).click();
-    await key(page, 1).click();
-    await expect(piano).toHaveAttribute("data-done", "true");
-    await expect(page.getByTestId("piano-sparkle")).toHaveCount(1);
+    await expect(piano).toHaveAttribute("data-done", "false");
+    await page.screenshot({ path: "test-results/piano-proof/05-mic-denied.png" });
   });
 
-  test("speech recognition unavailable: piano still works by touch and keyboard", async ({
-    page,
-  }) => {
+  test("speech recognition unavailable: piano keys remain visual only", async ({ page }) => {
     await installFakeRecognizer(page, { supported: false });
     await page.addInitScript(() => {
       delete (window as unknown as { webkitSpeechRecognition?: unknown }).webkitSpeechRecognition;
@@ -281,40 +274,35 @@ test.describe("Piano Hablador", () => {
     await page.goto(PIANO_URL);
     const piano = page.locator(".piano-hablador");
     await expect(page.getByTestId("piano-message")).toContainText(
-      "Este navegador no puede escuchar la voz",
+      "Este navegador no permite usar el micrófono",
     );
     await expect(page.getByTestId("piano-mic")).toBeDisabled();
-    await key(page, 0).focus();
+    await expect(page.getByTestId("piano-touch-mode")).toHaveCount(0);
+    await key(page, 0).click({ force: true });
     await page.keyboard.press("Enter");
-    await expect(piano).toHaveAttribute("data-confirmed", "1");
-    await key(page, 1).focus();
     await page.keyboard.press("Space");
-    await expect(piano).toHaveAttribute("data-done", "true");
+    await expect(piano).toHaveAttribute("data-confirmed", "0");
+    await expect(piano).toHaveAttribute("data-done", "false");
   });
 
   for (const local of ["downloadable", "unavailable", "no-api"] as const) {
-    test(`on-device recognition ${local}: no recognizer is ever created; touch and keyboard complete the word`, async ({
-      page,
-    }) => {
+    test(`on-device recognition ${local}: microphone unavailable and no false key confirmation`, async ({ page }) => {
       await installFakeRecognizer(page, { local });
       await page.goto(PIANO_URL);
       const piano = page.locator(".piano-hablador");
       await expect(piano).toHaveAttribute("data-recognition-processing", "unavailable");
       await expect(page.getByTestId("piano-message")).toContainText(
-        "no puede reconocer la voz dentro de este dispositivo",
+        "Este navegador no tiene reconocimiento local compatible",
       );
       await expect(page.getByTestId("piano-privacy")).toContainText(
         "no se usa ningún servicio de voz por internet",
       );
       await expect(page.getByTestId("piano-mic")).toBeDisabled();
       await expect(page.getByTestId("piano-touch-mode")).toHaveCount(0);
-      await page.getByTestId("piano-mic").click({ force: true });
-      await key(page, 0).focus();
+      await key(page, 0).click({ force: true });
       await page.keyboard.press("Enter");
-      await expect(piano).toHaveAttribute("data-confirmed", "1");
-      await key(page, 1).click();
-      await expect(piano).toHaveAttribute("data-done", "true");
-      await expect(page.getByTestId("piano-sparkle")).toHaveCount(1);
+      await expect(piano).toHaveAttribute("data-confirmed", "0");
+      await expect(piano).toHaveAttribute("data-done", "false");
       const speech = await page.evaluate(
         () => (window as unknown as { __speech: { constructed: number; starts: number } }).__speech,
       );
