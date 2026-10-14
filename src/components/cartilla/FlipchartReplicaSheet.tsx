@@ -1,6 +1,6 @@
 import { useLayoutEffect, useMemo, useRef, type CSSProperties } from "react";
 import { LivingIllustration } from "@/components/living/LivingIllustration";
-import { getReplicaSheet, type ReplicaToken } from "@/lib/flipchart-replica";
+import { getReplicaSheet, replicaReadingOrder, type ReplicaToken } from "@/lib/flipchart-replica";
 import sourceColors from "@/data/flipchart-source-colors.json";
 import "@/styles/flipchart-replica-fonts.css";
 import "@/styles/flipchart-replica.css";
@@ -215,30 +215,33 @@ export function FlipchartReplicaSheet({ pageNumber, decorative = false }: { page
             />
           ))}
 
-          {sheet.art.map((asset) => (
-            <figure
-              key={asset.src}
-              className={`fc-replica__art${asset.scene ? " fc-replica__art--scene" : ""}`}
-              style={box(asset.x, asset.y, asset.w, asset.h, {
-                "--clip-t": asset.clip[0],
-                "--clip-r": asset.clip[1],
-                "--clip-b": asset.clip[2],
-                "--clip-l": asset.clip[3],
-              })}
-            >
-              <LivingIllustration
-                src={asset.src}
-                alt={decorative ? "" : asset.word}
-                static={decorative}
-                loading={decorative ? "lazy" : "eager"}
-                className="fc-replica__living"
-              />
-            </figure>
-          ))}
-
-          {sheet.tokens.map((token) => (
-            <Token key={token.id} token={token} />
-          ))}
+          {/* Pictures and texts share one DOM sequence in reading order, so a
+              screen reader meets each picture beside its word; CSS z-index
+              keeps the pictures under the text. */}
+          {replicaReadingOrder(sheet).map((item) =>
+            item.kind === "token" ? (
+              <Token key={item.token.id} token={item.token} />
+            ) : (
+              <figure
+                key={item.art.src}
+                className={`fc-replica__art${item.art.scene ? " fc-replica__art--scene" : ""}`}
+                style={box(item.art.x, item.art.y, item.art.w, item.art.h, {
+                  "--clip-t": item.art.clip[0],
+                  "--clip-r": item.art.clip[1],
+                  "--clip-b": item.art.clip[2],
+                  "--clip-l": item.art.clip[3],
+                })}
+              >
+                <LivingIllustration
+                  src={item.art.src}
+                  alt={decorative ? "" : item.art.word}
+                  static={decorative}
+                  loading={decorative ? "lazy" : "eager"}
+                  className="fc-replica__living"
+                />
+              </figure>
+            ),
+          )}
         </div>
         {!decorative && (
           <div className="fc-native-board__pagenum fc-replica__pagenum" aria-hidden="true">

@@ -810,9 +810,45 @@ export function getReplicaSheet(page: number): ReplicaSheet | null {
   }
 
   // Reading order: top-to-bottom, then left-to-right.
-  tokens.sort((a, b) => (Math.abs(a.y - b.y) < Math.min(a.h, b.h) * 0.5 ? a.x - b.x : a.y - b.y));
+  tokens.sort(byReadingOrder);
+  // The lesson letter (Mm) is read before the syllables that ring it, even
+  // when the crescent's first syllables sit higher than the letter's top.
+  for (const letter of tokens.filter((t) => t.kind === "letter")) {
+    const at = tokens.indexOf(letter);
+    const first = tokens.findIndex((t, i) => i < at && (t.kind === "crescent" || t.kind === "syllable") && t.y < letter.y + letter.h);
+    if (first >= 0) {
+      tokens.splice(at, 1);
+      tokens.splice(first, 0, letter);
+    }
+  }
 
   return { page, width: REPLICA_WIDTH, height, tokens, panels, medallions, crescent, art, dividers, cardTint: CARD_TINT[page] };
+}
+
+type Box = { x: number; y: number; w: number; h: number };
+
+/** Top-to-bottom rows, then left-to-right within a row. */
+function byReadingOrder(a: Box, b: Box) {
+  return Math.abs(a.y - b.y) < Math.min(a.h, b.h) * 0.5 ? a.x - b.x : a.y - b.y;
+}
+
+export type ReplicaItem = { kind: "art"; art: ReplicaArt } | { kind: "token"; token: ReplicaToken };
+
+/**
+ * Pictures and texts in one reading order, so assistive technology meets each
+ * picture next to its word. The visual stacking (pictures under text) is set
+ * by CSS z-index, not by this order. Texts keep their own order; each picture
+ * goes before the first item it precedes, judged by its visible (clipped) box.
+ */
+export function replicaReadingOrder(sheet: Pick<ReplicaSheet, "tokens" | "art">): ReplicaItem[] {
+  const items: (ReplicaItem & { box: Box })[] = sheet.tokens.map((token) => ({ kind: "token", token, box: token }));
+  for (const art of sheet.art) {
+    const [t, r, b, l] = art.clip;
+    const box = { x: art.x + l, y: art.y + t, w: Math.max(1, art.w - l - r), h: Math.max(1, art.h - t - b) };
+    const at = items.findIndex((item) => byReadingOrder(box, item.box) < 0);
+    items.splice(at < 0 ? items.length : at, 0, { kind: "art", art, box });
+  }
+  return items.map(({ box: _box, ...item }) => item as ReplicaItem);
 }
 
 /** True when the sheet has source geometry (text layer + frame) to replicate. */
