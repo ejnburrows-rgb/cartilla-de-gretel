@@ -60,10 +60,13 @@ export function voiceSrc(letter: string, wordSlug: string): string {
   return audioPathFor(letter, wordSlug);
 }
 
-// Locked policy reminder embedded in source so future agents do not forget.
+// Owner's October 2026 decision supersedes the former all-synthesis ban:
+// use ONLY the approved custom Gretel model, never arbitrary browser voices
+// as a substitution for missing recordings.
 export const AUDIO_POLICY = {
-  allowTts: false,
-  allowSynthesizedVoice: false,
-  allowAiVoiceClone: false,
-  note: "Per locked spec: real kid-voice recordings only. Engine returns silence when an asset is missing.",
+  allowTts: false, // Generic browser TTS remains disallowed for picture/instruction audio.
+  allowCustomGretelTts: true, // Enabled only when a real custom engine is configured.
+  allowSynthesizedVoice: true,
+  allowAiVoiceClone: true,
+  note: "Owner approved a single Gretel custom TTS voice. No generic browser voice substitution.",
 } as const;
