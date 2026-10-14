@@ -1,6 +1,8 @@
-# 2 groups — missing optimized versions
+# Historical: 2 groups flagged for possible improvement — NOT missing from Workbook
 
-These are actual book originals beside repo candidates from the GitHub evidence snapshot. **Optimized version exists** does *not* certify finished coloring, approval, or placement. Review the pictures yourself and mark decisions in the interactive viewer.
+**IMPORTANT CORRECTION:** Both aguja and iglesia ALREADY EXIST AND ARE WIRED IN THE WORKBOOK. Current source files `public/cartilla/art/faithful/vocal-a/aguja.webp` and `public/cartilla/art/faithful/vocal-i/iglesia.webp` are recorded PASS in the existing image QA. The production provenance audit has a separate unresolved source-provenance flag for iglesia. This old grouping means the agent wanted better standalone upgrade candidates, NOT that the pictures are absent from the book or unapproved by the owner. Treat all replacement decisions as UNDECIDED pending actual source/current/best alternative visual comparison. Codex PR #751 has newer classification and this static count is historical.
+
+These are actual book originals beside candidate images at the historical evidence snapshot.
 
 [Overview](README.md) · [All 330 placements](book-placements.md) · [All 887 repo files](repo-images.md)
 
