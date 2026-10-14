@@ -1,4 +1,5 @@
 import { claimSpeech, releaseSpeech, registerSpeechCleanup, speechIsCurrent } from "./speech-playback";
+import { getGretelVoiceProviderConfig, speakAsGretel } from "./gretel-voice";
 // Free Spanish TTS using the browser's SpeechSynthesis API.
 let cachedVoice: SpeechSynthesisVoice | null = null;
 let voicesReady: Promise<void> | null = null;
@@ -113,6 +114,8 @@ function ensureVoices(): Promise<void> {
 }
 
 export async function speak(text: string): Promise<void> {
+  // All Workbook word/lesson speech uses the owner-approved dynamic voice when active.
+  if (getGretelVoiceProviderConfig().type === "custom") return speakAsGretel(text);
   if (typeof window === "undefined" || !("speechSynthesis" in window)) return;
   const token = claimSpeech("reading");
   await ensureVoices();
@@ -162,6 +165,7 @@ export async function speak(text: string): Promise<void> {
 
 export async function speakVowel(v: string): Promise<void> {
   const lower = v.toLowerCase();
+  if (getGretelVoiceProviderConfig().type === "custom") return speakAsGretel(lower);
   if (typeof window === "undefined" || !("speechSynthesis" in window)) return;
   const token = claimSpeech("reading");
   await ensureVoices();
