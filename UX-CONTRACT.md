@@ -57,6 +57,8 @@ Adapters must not duplicate kernel behavior.
 
 ## 3. Gretel event contract
 
+> **Owner decision — 2026-10-14:** no Gretel guide on lesson pages or the Cuaderno. Activities still emit the retry/success/completion events below, but nothing on those pages shows or speaks a Gretel reaction. Feedback there is the pencil mark (green stays, wrong is erased) plus picture-name audio. See `STUDENT_INTERACTION_STANDARD.md` → Gretel relationship.
+
 Activities do not own a second Gretel instance.
 
 - active work → Gretel quiet;

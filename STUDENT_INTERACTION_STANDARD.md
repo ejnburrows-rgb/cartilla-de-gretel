@@ -157,6 +157,8 @@ Outside drawing mode, treat the pencil as an action actor rather than permanent 
 
 ## Gretel relationship
 
+> **Owner decision — 2026-10-14 (option C):** Lesson pages and the complete Cuaderno show **no Gretel guide** — no on-page hints, cues, demonstrations, “Ayuda” button, idle nudges or “Terminaste la actividad.” message. Students get feedback from the shared pencil marks (green circle stays; wrong mark is erased) and picture-name audio only. This keeps the owner's earlier direction that lesson pages have no Gretel column (#538, #739). The Gretel guide browser tests (`tests/e2e/gretel-behavior.spec.ts`) were retired for this reason. The “Gretel says …” lines in this standard apply only where the approved Gretel system is present; they are not a requirement for lesson pages. Gretel's voice remains a separate owner decision (#589).
+
 Only the approved Gretel system may provide spoken/visual feedback.
 
 Do not add duplicate Gretels inside individual activities.
