@@ -1,0 +1,34 @@
+[
+  {
+    "name": "desktop",
+    "viewport": [
+      1440,
+      900
+    ],
+    "decoded": 111,
+    "missingVisible": 108,
+    "horizontalOverflow": false,
+    "workbook": 28,
+    "flipchart": 80,
+    "review": 3,
+    "search": 1,
+    "reuseDetails": true,
+    "errors": []
+  },
+  {
+    "name": "mobile",
+    "viewport": [
+      390,
+      844
+    ],
+    "decoded": 111,
+    "missingVisible": 108,
+    "horizontalOverflow": false,
+    "workbook": 28,
+    "flipchart": 80,
+    "review": 3,
+    "search": 1,
+    "reuseDetails": true,
+    "errors": []
+  }
+]
