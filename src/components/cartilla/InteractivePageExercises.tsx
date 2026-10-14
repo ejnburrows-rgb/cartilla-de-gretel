@@ -190,6 +190,7 @@ export function InteractivePictureGrid({
                   {(isMarking || isVal) && (
                     <div className="absolute inset-0 pointer-events-none flex items-center justify-center p-1 z-10">
                       <WorkbookPencilMark
+                        round
                         markType={mark}
                         isCorrect={isCorrect}
                         itemId={`${region.id}-${i}`}
@@ -380,6 +381,7 @@ export function InteractiveVowelPickOne({
                   {(isMarking || isThisCorrect) && (
                     <div className="absolute inset-0 pointer-events-none flex items-center justify-center p-1 z-10">
                       <WorkbookPencilMark
+                        round
                         markType="circle"
                         isCorrect={isCorrectMark}
                         itemId={`${region.id}-${r}-${cellIdx}`}

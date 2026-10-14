@@ -33,9 +33,14 @@ export function useFitToPage(rootRef: RefObject<HTMLElement | null>, key: unknow
         else hi = mid;
       }
       body.style.setProperty("--lc-fit", String(Math.floor(lo * 100) / 100));
-      // Even the smallest readable size is too tall (a phone held sideways):
-      // let the page scroll rather than hide any of the child's work.
-      if (!fits(body)) body.setAttribute("data-lc-fit-overflow", "true");
+      // Even the smallest readable size is too tall (a phone with several
+      // drawing boxes): the page grows at full size and the screen scrolls,
+      // rather than hiding any of the child's work or shrinking the words
+      // and tracing letters too small for a child (lesson-fit.css).
+      if (!fits(body)) {
+        body.style.setProperty("--lc-fit", "1");
+        body.setAttribute("data-lc-fit-overflow", "true");
+      }
     };
 
     let frame = 0;

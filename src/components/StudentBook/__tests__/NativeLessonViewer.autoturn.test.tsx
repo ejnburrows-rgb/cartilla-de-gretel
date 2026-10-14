@@ -5,6 +5,7 @@ import { focusGretelActivity, gretelEvent } from "@/lib/gretel-bus";
 import { requiredActivitiesForPage } from "@/lib/page-completion";
 import { resetProgress } from "@/lib/lesson-progress";
 import type { WorkbookPageEntry } from "../SimplePageViewer";
+import { LESSON_PAGE_TURN_TOTAL_MS } from "@/lib/living-motion";
 
 const PAGES: WorkbookPageEntry[] = [23, 24, 25].map((pageNumber, i) => ({
   id: `lesson-8-page-${i + 1}`,
@@ -25,7 +26,7 @@ function completePage(pageNumber: number) {
 const current = () =>
   Number(document.querySelector("[data-native-page]")?.getAttribute("data-native-page"));
 const viewer = () => document.querySelector<HTMLElement>(".native-lesson-viewer")!;
-const finishTurn = () => act(() => vi.advanceTimersByTime(2500));
+const finishTurn = () => act(() => vi.advanceTimersByTime(LESSON_PAGE_TURN_TOTAL_MS + 200));
 
 function swipe(target: Element, dx: number, dy = 0) {
   fireEvent.pointerDown(target, { pointerId: 7, pointerType: "touch", isPrimary: true, clientX: 300, clientY: 400 });
@@ -67,6 +68,33 @@ describe("NativeLessonViewer auto page turn and swipe (owner decision 2026-10-12
     finishTurn();
     expect(current()).toBe(24);
     expect(onPageChange).toHaveBeenCalledWith(1);
+  });
+
+  it("holds the turn when the finger was already down as the page finished", () => {
+    render(<NativeLessonViewer pages={PAGES} chapterLabel="Lección 8" lessonNumber={8} autoTurn />);
+    fireEvent.pointerDown(viewer(), { pointerId: 9 });
+    completePage(23);
+    act(() => vi.advanceTimersByTime(AUTO_TURN_IDLE_MS * 3));
+    expect(current()).toBe(23);
+    fireEvent.pointerUp(viewer(), { pointerId: 9 });
+    act(() => vi.advanceTimersByTime(AUTO_TURN_IDLE_MS - 200));
+    expect(current()).toBe(23);
+    act(() => vi.advanceTimersByTime(400));
+    finishTurn();
+    expect(current()).toBe(24);
+  });
+
+  it("still turns after the window loses focus while a finger was down", () => {
+    render(<NativeLessonViewer pages={PAGES} chapterLabel="Lección 8" lessonNumber={8} autoTurn />);
+    fireEvent.pointerDown(viewer(), { pointerId: 11 });
+    completePage(23);
+    act(() => vi.advanceTimersByTime(AUTO_TURN_IDLE_MS * 2));
+    expect(current()).toBe(23);
+    // The lift is never seen (e.g. the child switched apps); only blur arrives.
+    fireEvent.blur(window);
+    act(() => vi.advanceTimersByTime(AUTO_TURN_IDLE_MS + 50));
+    finishTurn();
+    expect(current()).toBe(24);
   });
 
   it("exposes exactly one Siguiente button even when the page corner is available", () => {
