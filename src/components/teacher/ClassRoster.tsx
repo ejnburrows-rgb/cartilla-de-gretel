@@ -350,6 +350,7 @@ export function ClassRoster() {
           <button
             type="submit"
             disabled={busy || !newClassName.trim()}
+            aria-label="Crear clase"
             className="px-4 py-2.5 rounded-2xl bg-vowel-o text-white font-black text-sm hover:brightness-105 active:scale-95 shadow-sm transition disabled:opacity-50 flex items-center gap-1.5 cursor-pointer"
           >
             <PlusCircle className="w-4 h-4" /> Crear
@@ -431,6 +432,7 @@ export function ClassRoster() {
             <button
               type="submit"
               disabled={busy || !newStudentName.trim()}
+              aria-label="Añadir alumno"
               className="px-6 py-3 rounded-2xl bg-vowel-a text-white font-black text-sm hover:brightness-105 active:scale-95 shadow-sm transition disabled:opacity-50 cursor-pointer"
             >
               + Añadir Alumno
@@ -467,6 +469,7 @@ export function ClassRoster() {
               <button
                 type="submit"
                 disabled={busy || !newStudentName.trim()}
+                aria-label="Añadir alumno"
                 className="px-4 py-2 rounded-2xl bg-vowel-a text-white font-black text-xs hover:brightness-105 active:scale-95 shadow-sm transition disabled:opacity-50 cursor-pointer whitespace-nowrap"
               >
                 + Añadir
