@@ -1,0 +1,3057 @@
+{
+  "inventory_commit": "9525e06e09c15b2b02e8dc2b9f555e90a947d654",
+  "inherited_counts": {
+    "drawing_groups": {
+      "OPTIMIZED VERSION EXISTS": 90,
+      "OPTIMIZATION NEEDED": 108,
+      "UNRESOLVED": 3
+    },
+    "placements_by_drawing_availability": {
+      "UNRESOLVED": 3,
+      "OPTIMIZED VERSION EXISTS": 186,
+      "OPTIMIZATION NEEDED": 141
+    },
+    "exact_oriented_placement_matches_verified": 115
+  },
+  "items": [
+    {
+      "id": "DRAW-WB-03-1",
+      "subject": "abrigo",
+      "classification": "OPTIMIZATION NEEDED",
+      "book": "WB",
+      "printed_page": 1,
+      "pdf_page": 7,
+      "lesson": 1,
+      "reference_id": "WB-S007-OBJ01-UNIFORME-1",
+      "reference_path": "crops/WB-S007-OBJ01-UNIFORME-1.png",
+      "sha256": "40c584bd0e6a650bb8b2b98358df3a0c0b429ba8b9e55872913a8c72e01bb39e",
+      "pdf_sha256": "cbe050520bafefaea9c19c75eee6dd48ab3476a6377dc45009d176c18aab0a3b",
+      "width": 189,
+      "height": 202,
+      "locations": [
+        {
+          "id": "WB-S007-OBJ01-UNIFORME-1",
+          "book": "WB",
+          "printed_page": 1,
+          "pdf_page": 7,
+          "lesson": 1,
+          "slot": "src/data/page-layouts.json/pages/1/picture-cell:abrigo"
+        },
+        {
+          "id": "WB-S017-OBJ08-CHAQUETA",
+          "book": "WB",
+          "printed_page": 11,
+          "pdf_page": 17,
+          "lesson": 4,
+          "slot": "src/data/page-layouts.json/pages/11/picture-cell:abrigo"
+        }
+      ]
+    },
+    {
+      "id": "DRAW-WB-26-1",
+      "subject": "iman",
+      "classification": "OPTIMIZATION NEEDED",
+      "book": "WB",
+      "printed_page": 1,
+      "pdf_page": 7,
+      "lesson": 1,
+      "reference_id": "WB-S007-OBJ07-IMAN-2",
+      "reference_path": "crops/WB-S007-OBJ07-IMAN-2.png",
+      "sha256": "66f7ac3b041a2d68282c6aea89693c3c8784f9a723e2529813cb9527219a87b3",
+      "pdf_sha256": "cbe050520bafefaea9c19c75eee6dd48ab3476a6377dc45009d176c18aab0a3b",
+      "width": 212,
+      "height": 164,
+      "locations": [
+        {
+          "id": "WB-S007-OBJ07-IMAN-2",
+          "book": "WB",
+          "printed_page": 1,
+          "pdf_page": 7,
+          "lesson": 1,
+          "slot": "src/data/page-layouts.json/pages/1/picture-cell:imán"
+        },
+        {
+          "id": "WB-S013-OBJ04-IMAN",
+          "book": "WB",
+          "printed_page": 7,
+          "pdf_page": 13,
+          "lesson": 3,
+          "slot": "src/data/page-layouts.json/pages/7/picture-cell:imán"
+        },
+        {
+          "id": "WB-S019-OBJ10-IMAN",
+          "book": "WB",
+          "printed_page": 13,
+          "pdf_page": 19,
+          "lesson": 5,
+          "slot": "src/data/page-layouts.json/pages/13/picture-cell:imán"
+        },
+        {
+          "id": "WB-S020-OBJ01-IMAN",
+          "book": "WB",
+          "printed_page": 14,
+          "pdf_page": 20,
+          "lesson": 5,
+          "slot": "src/data/page-layouts.json/pages/14/picture-cell:imán"
+        },
+        {
+          "id": "WB-S023-OBJ08-IMAN",
+          "book": "WB",
+          "printed_page": 17,
+          "pdf_page": 23,
+          "lesson": 6,
+          "slot": "src/data/page-layouts.json/pages/17/picture-cell:imán"
+        },
+        {
+          "id": "WB-S007-OBJ02-IMAN-1",
+          "book": "WB",
+          "printed_page": 1,
+          "pdf_page": 7,
+          "lesson": 1,
+          "slot": "src/data/page-layouts.json/pages/1/picture-cell:imán"
+        }
+      ]
+    },
+    {
+      "id": "DRAW-WB-09-1",
+      "subject": "aro",
+      "classification": "OPTIMIZATION NEEDED",
+      "book": "WB",
+      "printed_page": 1,
+      "pdf_page": 7,
+      "lesson": 1,
+      "reference_id": "WB-S007-OBJ08-ARO",
+      "reference_path": "crops/WB-S007-OBJ08-ARO.png",
+      "sha256": "ba7181f64059db9861d86ca52a26081eb78b59c993385bd63ffcf54fdf5e00de",
+      "pdf_sha256": "cbe050520bafefaea9c19c75eee6dd48ab3476a6377dc45009d176c18aab0a3b",
+      "width": 153,
+      "height": 204,
+      "locations": [
+        {
+          "id": "WB-S007-OBJ08-ARO",
+          "book": "WB",
+          "printed_page": 1,
+          "pdf_page": 7,
+          "lesson": 1,
+          "slot": "src/data/page-layouts.json/pages/1/picture-cell:aro"
+        },
+        {
+          "id": "WB-S013-OBJ03-ARO",
+          "book": "WB",
+          "printed_page": 7,
+          "pdf_page": 13,
+          "lesson": 3,
+          "slot": "src/data/page-layouts.json/pages/7/picture-cell:aro"
+        },
+        {
+          "id": "WB-S014-OBJ08-ARO",
+          "book": "WB",
+          "printed_page": 8,
+          "pdf_page": 14,
+          "lesson": 3,
+          "slot": "src/data/page-layouts.json/pages/8/picture-cell:aro"
+        }
+      ]
+    },
+    {
+      "id": "DRAW-WB-14-1",
+      "subject": "elefante",
+      "classification": "OPTIMIZATION NEEDED",
+      "book": "WB",
+      "printed_page": 1,
+      "pdf_page": 7,
+      "lesson": 1,
+      "reference_id": "WB-S007-OBJ16-ELEFANTE",
+      "reference_path": "crops/WB-S007-OBJ16-ELEFANTE.png",
+      "sha256": "5b6c35ffb2f9b944e6529268abe9d9926607c2ef2e8ff51b4b88845dd806d7c7",
+      "pdf_sha256": "cbe050520bafefaea9c19c75eee6dd48ab3476a6377dc45009d176c18aab0a3b",
+      "width": 215,
+      "height": 203,
+      "locations": [
+        {
+          "id": "WB-S007-OBJ16-ELEFANTE",
+          "book": "WB",
+          "printed_page": 1,
+          "pdf_page": 7,
+          "lesson": 1,
+          "slot": "src/data/page-layouts.json/pages/1/picture-cell:elefante"
+        },
+        {
+          "id": "WB-S013-OBJ08-ELEFANTE",
+          "book": "WB",
+          "printed_page": 7,
+          "pdf_page": 13,
+          "lesson": 3,
+          "slot": "src/data/page-layouts.json/pages/7/picture-cell:elefante"
+        },
+        {
+          "id": "WB-S016-OBJ01-ELEFANTE",
+          "book": "WB",
+          "printed_page": 10,
+          "pdf_page": 16,
+          "lesson": 4,
+          "slot": "src/data/page-layouts.json/pages/10/picture-cell:elefante"
+        },
+        {
+          "id": "WB-S017-OBJ02-ELEFANTE",
+          "book": "WB",
+          "printed_page": 11,
+          "pdf_page": 17,
+          "lesson": 4,
+          "slot": "src/data/page-layouts.json/pages/11/picture-cell:elefante"
+        },
+        {
+          "id": "WB-S022-OBJ08-ELEFANTE",
+          "book": "WB",
+          "printed_page": 16,
+          "pdf_page": 22,
+          "lesson": 6,
+          "slot": "src/data/page-layouts.json/pages/16/picture-cell:elefante"
+        }
+      ]
+    },
+    {
+      "id": "DRAW-WB-09-2",
+      "subject": "aro",
+      "classification": "OPTIMIZATION NEEDED",
+      "book": "WB",
+      "printed_page": 2,
+      "pdf_page": 8,
+      "lesson": 1,
+      "reference_id": "WB-S008-OBJ01-ARO",
+      "reference_path": "crops/WB-S008-OBJ01-ARO.png",
+      "sha256": "f87c6f3aadadcec550e57605146f5775e57b3cfd1767d48ef6fe5b3c0729e3fd",
+      "pdf_sha256": "cbe050520bafefaea9c19c75eee6dd48ab3476a6377dc45009d176c18aab0a3b",
+      "width": 197,
+      "height": 172,
+      "locations": [
+        {
+          "id": "WB-S008-OBJ01-ARO",
+          "book": "WB",
+          "printed_page": 2,
+          "pdf_page": 8,
+          "lesson": 1,
+          "slot": "src/data/page-layouts.json/pages/2/nested-picture:anillo"
+        }
+      ]
+    },
+    {
+      "id": "DRAW-WB-34-1",
+      "subject": "manzana",
+      "classification": "OPTIMIZATION NEEDED",
+      "book": "WB",
+      "printed_page": 2,
+      "pdf_page": 8,
+      "lesson": 1,
+      "reference_id": "WB-S008-OBJ02-MANZANA",
+      "reference_path": "crops/WB-S008-OBJ02-MANZANA.png",
+      "sha256": "456f0783b349edb3e086dc896067c637fea9875d79af2f706bacaf435ffee949",
+      "pdf_sha256": "cbe050520bafefaea9c19c75eee6dd48ab3476a6377dc45009d176c18aab0a3b",
+      "width": 181,
+      "height": 204,
+      "locations": [
+        {
+          "id": "WB-S008-OBJ02-MANZANA",
+          "book": "WB",
+          "printed_page": 2,
+          "pdf_page": 8,
+          "lesson": 1,
+          "slot": "src/data/page-layouts.json/pages/2/nested-picture:manzana"
+        }
+      ]
+    },
+    {
+      "id": "DRAW-WB-18-2",
+      "subject": "escuela",
+      "classification": "OPTIMIZATION NEEDED",
+      "book": "WB",
+      "printed_page": 2,
+      "pdf_page": 8,
+      "lesson": 1,
+      "reference_id": "WB-S008-OBJ04-ESCUELA",
+      "reference_path": "crops/WB-S008-OBJ04-ESCUELA.png",
+      "sha256": "6e835df86b693892817bce9c67dc32cb784647a90669669af3656b92a3d6defa",
+      "pdf_sha256": "cbe050520bafefaea9c19c75eee6dd48ab3476a6377dc45009d176c18aab0a3b",
+      "width": 220,
+      "height": 201,
+      "locations": [
+        {
+          "id": "WB-S008-OBJ04-ESCUELA",
+          "book": "WB",
+          "printed_page": 2,
+          "pdf_page": 8,
+          "lesson": 1,
+          "slot": "src/data/page-layouts.json/pages/2/nested-picture:casa"
+        }
+      ]
+    },
+    {
+      "id": "DRAW-WB-07-1",
+      "subject": "arbol",
+      "classification": "OPTIMIZATION NEEDED",
+      "book": "WB",
+      "printed_page": 2,
+      "pdf_page": 8,
+      "lesson": 1,
+      "reference_id": "WB-S008-OBJ05-ARBOL",
+      "reference_path": "crops/WB-S008-OBJ05-ARBOL.png",
+      "sha256": "99daa6999a7e552fea65b8763a49842b7f64d1b14df8568c9956542ac63e6da6",
+      "pdf_sha256": "cbe050520bafefaea9c19c75eee6dd48ab3476a6377dc45009d176c18aab0a3b",
+      "width": 180,
+      "height": 201,
+      "locations": [
+        {
+          "id": "WB-S008-OBJ05-ARBOL",
+          "book": "WB",
+          "printed_page": 2,
+          "pdf_page": 8,
+          "lesson": 1,
+          "slot": "src/data/page-layouts.json/pages/2/nested-picture:árbol"
+        },
+        {
+          "id": "WB-S013-OBJ07-ARBOL",
+          "book": "WB",
+          "printed_page": 7,
+          "pdf_page": 13,
+          "lesson": 3,
+          "slot": "src/data/page-layouts.json/pages/7/picture-cell:árbol"
+        },
+        {
+          "id": "WB-S022-OBJ09-ARBOL",
+          "book": "WB",
+          "printed_page": 16,
+          "pdf_page": 22,
+          "lesson": 6,
+          "slot": "src/data/page-layouts.json/pages/16/picture-cell:árbol"
+        }
+      ]
+    },
+    {
+      "id": "DRAW-WB-46-1",
+      "subject": "taza",
+      "classification": "OPTIMIZATION NEEDED",
+      "book": "WB",
+      "printed_page": 2,
+      "pdf_page": 8,
+      "lesson": 1,
+      "reference_id": "WB-S008-OBJ07-TAZA",
+      "reference_path": "crops/WB-S008-OBJ07-TAZA.png",
+      "sha256": "9b25cb2389dc175854b804e7a077fad7d28d6811cf1dfd4dd6fcd9b10cf3c3a8",
+      "pdf_sha256": "cbe050520bafefaea9c19c75eee6dd48ab3476a6377dc45009d176c18aab0a3b",
+      "width": 124,
+      "height": 95,
+      "locations": [
+        {
+          "id": "WB-S008-OBJ07-TAZA",
+          "book": "WB",
+          "printed_page": 2,
+          "pdf_page": 8,
+          "lesson": 1,
+          "slot": "src/data/page-layouts.json/pages/2/nested-picture:taza"
+        }
+      ]
+    },
+    {
+      "id": "DRAW-WB-28-1",
+      "subject": "indio",
+      "classification": "OPTIMIZATION NEEDED",
+      "book": "WB",
+      "printed_page": 2,
+      "pdf_page": 8,
+      "lesson": 1,
+      "reference_id": "WB-S008-OBJ08-INDIO",
+      "reference_path": "crops/WB-S008-OBJ08-INDIO.png",
+      "sha256": "0429345e6dee2e8ade95076a103cfc5461a6475f5e73e24132e873dc157af811",
+      "pdf_sha256": "cbe050520bafefaea9c19c75eee6dd48ab3476a6377dc45009d176c18aab0a3b",
+      "width": 157,
+      "height": 202,
+      "locations": [
+        {
+          "id": "WB-S008-OBJ08-INDIO",
+          "book": "WB",
+          "printed_page": 2,
+          "pdf_page": 8,
+          "lesson": 1,
+          "slot": "src/data/page-layouts.json/pages/2/nested-picture:indio"
+        },
+        {
+          "id": "WB-S016-OBJ04-INDIO",
+          "book": "WB",
+          "printed_page": 10,
+          "pdf_page": 16,
+          "lesson": 4,
+          "slot": "src/data/page-layouts.json/pages/10/picture-cell:indio"
+        },
+        {
+          "id": "WB-S019-OBJ06-INDIO",
+          "book": "WB",
+          "printed_page": 13,
+          "pdf_page": 19,
+          "lesson": 5,
+          "slot": "src/data/page-layouts.json/pages/13/picture-cell:indio"
+        },
+        {
+          "id": "WB-S020-OBJ05-INDIO",
+          "book": "WB",
+          "printed_page": 14,
+          "pdf_page": 20,
+          "lesson": 5,
+          "slot": "src/data/page-layouts.json/pages/14/picture-cell:indio"
+        },
+        {
+          "id": "FC-007-04",
+          "book": "FC",
+          "printed_page": 5,
+          "pdf_page": 7,
+          "lesson": 5,
+          "slot": "src/data/flipchart-native-assets.json/7/3"
+        }
+      ]
+    },
+    {
+      "id": "DRAW-WB-44-1",
+      "subject": "pera",
+      "classification": "OPTIMIZATION NEEDED",
+      "book": "WB",
+      "printed_page": 2,
+      "pdf_page": 8,
+      "lesson": 1,
+      "reference_id": "WB-S008-OBJ09-PERA",
+      "reference_path": "crops/WB-S008-OBJ09-PERA.png",
+      "sha256": "3aae2c78384346b4bd2161ebf556f66fdf08b0e60b0239a37419c1013d0e754f",
+      "pdf_sha256": "cbe050520bafefaea9c19c75eee6dd48ab3476a6377dc45009d176c18aab0a3b",
+      "width": 209,
+      "height": 202,
+      "locations": [
+        {
+          "id": "WB-S008-OBJ09-PERA",
+          "book": "WB",
+          "printed_page": 2,
+          "pdf_page": 8,
+          "lesson": 1,
+          "slot": "src/data/page-layouts.json/pages/2/nested-picture:pera"
+        }
+      ]
+    },
+    {
+      "id": "DRAW-WB-43-1",
+      "subject": "pajaro",
+      "classification": "OPTIMIZATION NEEDED",
+      "book": "WB",
+      "printed_page": 2,
+      "pdf_page": 8,
+      "lesson": 1,
+      "reference_id": "WB-S008-OBJ10-PAJARO",
+      "reference_path": "crops/WB-S008-OBJ10-PAJARO.png",
+      "sha256": "e97de6fc7fda76c5365dafd079c0316457a09ffccd80659a6d000ed7b22e995a",
+      "pdf_sha256": "cbe050520bafefaea9c19c75eee6dd48ab3476a6377dc45009d176c18aab0a3b",
+      "width": 190,
+      "height": 200,
+      "locations": [
+        {
+          "id": "WB-S008-OBJ10-PAJARO",
+          "book": "WB",
+          "printed_page": 2,
+          "pdf_page": 8,
+          "lesson": 1,
+          "slot": "src/data/page-layouts.json/pages/2/nested-picture:pájaro"
+        }
+      ]
+    },
+    {
+      "id": "DRAW-WB-11-1",
+      "subject": "carro",
+      "classification": "OPTIMIZATION NEEDED",
+      "book": "WB",
+      "printed_page": 2,
+      "pdf_page": 8,
+      "lesson": 1,
+      "reference_id": "WB-S008-OBJ12-CARRO",
+      "reference_path": "crops/WB-S008-OBJ12-CARRO.png",
+      "sha256": "8d8a4fca78265ed3f07d2ed0ad987ba10a5d244a9ee196e3630fac7eaf73a6ad",
+      "pdf_sha256": "cbe050520bafefaea9c19c75eee6dd48ab3476a6377dc45009d176c18aab0a3b",
+      "width": 219,
+      "height": 142,
+      "locations": [
+        {
+          "id": "WB-S008-OBJ12-CARRO",
+          "book": "WB",
+          "printed_page": 2,
+          "pdf_page": 8,
+          "lesson": 1,
+          "slot": "src/data/page-layouts.json/pages/2/nested-picture:carro"
+        }
+      ]
+    },
+    {
+      "id": "DRAW-WB-13-1",
+      "subject": "dulce",
+      "classification": "OPTIMIZATION NEEDED",
+      "book": "WB",
+      "printed_page": 2,
+      "pdf_page": 8,
+      "lesson": 1,
+      "reference_id": "WB-S008-OBJ15-DULCE",
+      "reference_path": "crops/WB-S008-OBJ15-DULCE.png",
+      "sha256": "a9b61682633e508869dca56baacac5df744d6b504e06247c3abf9e365b167335",
+      "pdf_sha256": "cbe050520bafefaea9c19c75eee6dd48ab3476a6377dc45009d176c18aab0a3b",
+      "width": 236,
+      "height": 204,
+      "locations": [
+        {
+          "id": "WB-S008-OBJ15-DULCE",
+          "book": "WB",
+          "printed_page": 2,
+          "pdf_page": 8,
+          "lesson": 1,
+          "slot": "src/data/page-layouts.json/pages/2/nested-picture:dulce"
+        }
+      ]
+    },
+    {
+      "id": "DRAW-WB-22-1",
+      "subject": "iglesia",
+      "classification": "OPTIMIZATION NEEDED",
+      "book": "WB",
+      "printed_page": 3,
+      "pdf_page": 9,
+      "lesson": 1,
+      "reference_id": "WB-S009-OBJ01-IGLESIA",
+      "reference_path": "missing-originals/WB-S009-OBJ01-IGLESIA.png",
+      "sha256": "6f3840236aa63a89ff43522a9677aa9958a9c00432b63a73b57eea538a3756e1",
+      "pdf_sha256": "cbe050520bafefaea9c19c75eee6dd48ab3476a6377dc45009d176c18aab0a3b",
+      "width": 399,
+      "height": 413,
+      "locations": [
+        {
+          "id": "WB-S009-OBJ01-IGLESIA",
+          "book": "WB",
+          "printed_page": 3,
+          "pdf_page": 9,
+          "lesson": 1,
+          "slot": "src/data/page-layouts.json/pages/3/nested-picture:iglesia"
+        }
+      ]
+    },
+    {
+      "id": "DRAW-WB-17-1",
+      "subject": "escoba",
+      "classification": "OPTIMIZATION NEEDED",
+      "book": "WB",
+      "printed_page": 3,
+      "pdf_page": 9,
+      "lesson": 1,
+      "reference_id": "WB-S009-OBJ05-ESCOBA",
+      "reference_path": "crops/WB-S009-OBJ05-ESCOBA.png",
+      "sha256": "70f27ed952e378c16a432376d61d265d7c6ebb80cf9aac0dfe72de5343130a59",
+      "pdf_sha256": "cbe050520bafefaea9c19c75eee6dd48ab3476a6377dc45009d176c18aab0a3b",
+      "width": 176,
+      "height": 285,
+      "locations": [
+        {
+          "id": "WB-S009-OBJ05-ESCOBA",
+          "book": "WB",
+          "printed_page": 3,
+          "pdf_page": 9,
+          "lesson": 1,
+          "slot": "src/data/page-layouts.json/pages/3/nested-picture:escoba"
+        },
+        {
+          "id": "WB-S016-OBJ09-ESCOBA",
+          "book": "WB",
+          "printed_page": 10,
+          "pdf_page": 16,
+          "lesson": 4,
+          "slot": "src/data/page-layouts.json/pages/10/picture-cell:escoba"
+        }
+      ]
+    },
+    {
+      "id": "DRAW-WB-37-1",
+      "subject": "ola",
+      "classification": "OPTIMIZATION NEEDED",
+      "book": "WB",
+      "printed_page": 4,
+      "pdf_page": 10,
+      "lesson": 2,
+      "reference_id": "WB-S010-OBJ01-OLA",
+      "reference_path": "crops/WB-S010-OBJ01-OLA.png",
+      "sha256": "f35bed935ac60998710f93ff7d1b09633c42dfb1aa36ce0c7bf4db24487e3a9c",
+      "pdf_sha256": "cbe050520bafefaea9c19c75eee6dd48ab3476a6377dc45009d176c18aab0a3b",
+      "width": 208,
+      "height": 222,
+      "locations": [
+        {
+          "id": "WB-S010-OBJ01-OLA",
+          "book": "WB",
+          "printed_page": 4,
+          "pdf_page": 10,
+          "lesson": 2,
+          "slot": "src/data/page-layouts.json/pages/4/picture-cell:ola"
+        },
+        {
+          "id": "WB-S011-OBJ06-OLA",
+          "book": "WB",
+          "printed_page": 5,
+          "pdf_page": 11,
+          "lesson": 2,
+          "slot": "src/data/page-layouts.json/pages/5/picture-cell:ola"
+        },
+        {
+          "id": "WB-S019-OBJ09-OLA",
+          "book": "WB",
+          "printed_page": 13,
+          "pdf_page": 19,
+          "lesson": 5,
+          "slot": "src/data/page-layouts.json/pages/13/picture-cell:ola"
+        }
+      ]
+    },
+    {
+      "id": "DRAW-WB-05-1",
+      "subject": "ala",
+      "classification": "OPTIMIZATION NEEDED",
+      "book": "WB",
+      "printed_page": 4,
+      "pdf_page": 10,
+      "lesson": 2,
+      "reference_id": "WB-S010-OBJ07-ALA",
+      "reference_path": "crops/WB-S010-OBJ07-ALA.png",
+      "sha256": "006c16195d5cadcfff9cd9fae1f196947ac47fabb09d8d2c7eda83efe9e19f6d",
+      "pdf_sha256": "cbe050520bafefaea9c19c75eee6dd48ab3476a6377dc45009d176c18aab0a3b",
+      "width": 229,
+      "height": 212,
+      "locations": [
+        {
+          "id": "WB-S010-OBJ07-ALA",
+          "book": "WB",
+          "printed_page": 4,
+          "pdf_page": 10,
+          "lesson": 2,
+          "slot": "src/data/page-layouts.json/pages/4/picture-cell:alas"
+        },
+        {
+          "id": "WB-S013-OBJ10-ALA",
+          "book": "WB",
+          "printed_page": 7,
+          "pdf_page": 13,
+          "lesson": 3,
+          "slot": "src/data/page-layouts.json/pages/7/picture-cell:alas"
+        }
+      ]
+    },
+    {
+      "id": "DRAW-WB-52-1",
+      "subject": "uva",
+      "classification": "OPTIMIZATION NEEDED",
+      "book": "WB",
+      "printed_page": 4,
+      "pdf_page": 10,
+      "lesson": 2,
+      "reference_id": "WB-S010-OBJ10-UVA",
+      "reference_path": "crops/WB-S010-OBJ10-UVA.png",
+      "sha256": "46aed1bb7d87591335fdbfb3567bdecb375988afec6a80989b3f4edbb12c622e",
+      "pdf_sha256": "cbe050520bafefaea9c19c75eee6dd48ab3476a6377dc45009d176c18aab0a3b",
+      "width": 219,
+      "height": 216,
+      "locations": [
+        {
+          "id": "WB-S010-OBJ10-UVA",
+          "book": "WB",
+          "printed_page": 4,
+          "pdf_page": 10,
+          "lesson": 2,
+          "slot": "src/data/page-layouts.json/pages/4/picture-cell:uvas"
+        },
+        {
+          "id": "WB-S022-OBJ05-UVA",
+          "book": "WB",
+          "printed_page": 16,
+          "pdf_page": 22,
+          "lesson": 6,
+          "slot": "src/data/page-layouts.json/pages/16/picture-cell:uvas"
+        },
+        {
+          "id": "WB-S023-OBJ04-UVA",
+          "book": "WB",
+          "printed_page": 17,
+          "pdf_page": 23,
+          "lesson": 6,
+          "slot": "src/data/page-layouts.json/pages/17/picture-cell:uvas"
+        }
+      ]
+    },
+    {
+      "id": "DRAW-WB-36-2",
+      "subject": "ojos",
+      "classification": "OPTIMIZATION NEEDED",
+      "book": "WB",
+      "printed_page": 4,
+      "pdf_page": 10,
+      "lesson": 2,
+      "reference_id": "WB-S010-OBJ16-OJOS",
+      "reference_path": "crops/WB-S010-OBJ16-OJOS.png",
+      "sha256": "08c7d340e0ea77a26bd34b4c37b4d60732d516bcfd5bd4342aaa6bd56b103476",
+      "pdf_sha256": "cbe050520bafefaea9c19c75eee6dd48ab3476a6377dc45009d176c18aab0a3b",
+      "width": 236,
+      "height": 172,
+      "locations": [
+        {
+          "id": "WB-S010-OBJ16-OJOS",
+          "book": "WB",
+          "printed_page": 4,
+          "pdf_page": 10,
+          "lesson": 2,
+          "slot": "src/data/page-layouts.json/pages/4/picture-cell:ojos"
+        },
+        {
+          "id": "WB-S011-OBJ03-OJOS",
+          "book": "WB",
+          "printed_page": 5,
+          "pdf_page": 11,
+          "lesson": 2,
+          "slot": "src/data/page-layouts.json/pages/5/picture-cell:ojos"
+        },
+        {
+          "id": "WB-S013-OBJ13-OJOS",
+          "book": "WB",
+          "printed_page": 7,
+          "pdf_page": 13,
+          "lesson": 3,
+          "slot": "src/data/page-layouts.json/pages/7/picture-cell:ojos"
+        }
+      ]
+    },
+    {
+      "id": "DRAW-WB-05-2",
+      "subject": "ala",
+      "classification": "OPTIMIZATION NEEDED",
+      "book": "WB",
+      "printed_page": 5,
+      "pdf_page": 11,
+      "lesson": 2,
+      "reference_id": "WB-S011-OBJ08-ALA",
+      "reference_path": "crops/WB-S011-OBJ08-ALA.png",
+      "sha256": "b3ba5afa9058b292a029f38db337ad0ebbb3ad7c265e04fb6c0fa4708016029b",
+      "pdf_sha256": "cbe050520bafefaea9c19c75eee6dd48ab3476a6377dc45009d176c18aab0a3b",
+      "width": 208,
+      "height": 153,
+      "locations": [
+        {
+          "id": "WB-S011-OBJ08-ALA",
+          "book": "WB",
+          "printed_page": 5,
+          "pdf_page": 11,
+          "lesson": 2,
+          "slot": "src/data/page-layouts.json/pages/5/picture-cell:alas"
+        },
+        {
+          "id": "WB-S014-OBJ03-ALA",
+          "book": "WB",
+          "printed_page": 8,
+          "pdf_page": 14,
+          "lesson": 3,
+          "slot": "src/data/page-layouts.json/pages/8/picture-cell:alas"
+        },
+        {
+          "id": "WB-S019-OBJ07-ALA",
+          "book": "WB",
+          "printed_page": 13,
+          "pdf_page": 19,
+          "lesson": 5,
+          "slot": "src/data/page-layouts.json/pages/13/picture-cell:alas"
+        }
+      ]
+    },
+    {
+      "id": "DRAW-WB-40-1",
+      "subject": "oruga",
+      "classification": "OPTIMIZATION NEEDED",
+      "book": "WB",
+      "printed_page": 7,
+      "pdf_page": 13,
+      "lesson": 3,
+      "reference_id": "WB-S013-OBJ02-ORUGA",
+      "reference_path": "crops/WB-S013-OBJ02-ORUGA.png",
+      "sha256": "53fa53633804451c7c2fa3c62b9cc352259fab1236d41223c4301dd8eb50a4b5",
+      "pdf_sha256": "cbe050520bafefaea9c19c75eee6dd48ab3476a6377dc45009d176c18aab0a3b",
+      "width": 233,
+      "height": 212,
+      "locations": [
+        {
+          "id": "WB-S013-OBJ02-ORUGA",
+          "book": "WB",
+          "printed_page": 7,
+          "pdf_page": 13,
+          "lesson": 3,
+          "slot": "src/data/page-layouts.json/pages/7/picture-cell:oruga"
+        }
+      ]
+    },
+    {
+      "id": "DRAW-WB-08-1",
+      "subject": "ardilla",
+      "classification": "OPTIMIZATION NEEDED",
+      "book": "WB",
+      "printed_page": 7,
+      "pdf_page": 13,
+      "lesson": 3,
+      "reference_id": "WB-S013-OBJ12-ARDILLA",
+      "reference_path": "crops/WB-S013-OBJ12-ARDILLA.png",
+      "sha256": "90f21e5321cc36de70fe52c97c5db909eeb31f0920f0ce8d75c5f7ee1bdea612",
+      "pdf_sha256": "cbe050520bafefaea9c19c75eee6dd48ab3476a6377dc45009d176c18aab0a3b",
+      "width": 238,
+      "height": 210,
+      "locations": [
+        {
+          "id": "WB-S013-OBJ12-ARDILLA",
+          "book": "WB",
+          "printed_page": 7,
+          "pdf_page": 13,
+          "lesson": 3,
+          "slot": "src/data/page-layouts.json/pages/7/picture-cell:ardilla"
+        }
+      ]
+    },
+    {
+      "id": "DRAW-WB-04-1",
+      "subject": "aguja",
+      "classification": "OPTIMIZATION NEEDED",
+      "book": "WB",
+      "printed_page": 7,
+      "pdf_page": 13,
+      "lesson": 3,
+      "reference_id": "WB-S013-OBJ15-AGUJA",
+      "reference_path": "missing-originals/WB-S013-OBJ15-AGUJA.png",
+      "sha256": "ae35fd42132f679d61104fa7f793dd836c3725307c104eaf93aac669091a87ab",
+      "pdf_sha256": "cbe050520bafefaea9c19c75eee6dd48ab3476a6377dc45009d176c18aab0a3b",
+      "width": 340,
+      "height": 315,
+      "locations": [
+        {
+          "id": "WB-S013-OBJ15-AGUJA",
+          "book": "WB",
+          "printed_page": 7,
+          "pdf_page": 13,
+          "lesson": 3,
+          "slot": "src/data/page-layouts.json/pages/7/picture-cell:aguja"
+        },
+        {
+          "id": "WB-S014-OBJ05-AGUJA",
+          "book": "WB",
+          "printed_page": 8,
+          "pdf_page": 14,
+          "lesson": 3,
+          "slot": "src/data/page-layouts.json/pages/8/picture-cell:aguja"
+        },
+        {
+          "id": "WB-S016-OBJ08-AGUJA",
+          "book": "WB",
+          "printed_page": 10,
+          "pdf_page": 16,
+          "lesson": 4,
+          "slot": "src/data/page-layouts.json/pages/10/picture-cell:aguja"
+        }
+      ]
+    },
+    {
+      "id": "DRAW-WB-19-1",
+      "subject": "espejo",
+      "classification": "OPTIMIZATION NEEDED",
+      "book": "WB",
+      "printed_page": 10,
+      "pdf_page": 16,
+      "lesson": 4,
+      "reference_id": "WB-S016-OBJ15-ESPEJO",
+      "reference_path": "crops/WB-S016-OBJ15-ESPEJO.png",
+      "sha256": "4daa7f460fd81ab4fec3f77062190a6133e5d15bd222c5e21ce894adb50dd4cc",
+      "pdf_sha256": "cbe050520bafefaea9c19c75eee6dd48ab3476a6377dc45009d176c18aab0a3b",
+      "width": 224,
+      "height": 227,
+      "locations": [
+        {
+          "id": "WB-S016-OBJ15-ESPEJO",
+          "book": "WB",
+          "printed_page": 10,
+          "pdf_page": 16,
+          "lesson": 4,
+          "slot": "src/data/page-layouts.json/pages/10/picture-cell:espejo"
+        }
+      ]
+    },
+    {
+      "id": "DRAW-WB-25-1",
+      "subject": "iguana",
+      "classification": "OPTIMIZATION NEEDED",
+      "book": "WB",
+      "printed_page": 13,
+      "pdf_page": 19,
+      "lesson": 5,
+      "reference_id": "WB-S019-OBJ03-IGUANA",
+      "reference_path": "crops/WB-S019-OBJ03-IGUANA.png",
+      "sha256": "af63a83849ef006ba034e978e71245cc901ba914fbf4d07a5a2cad270c8a0be2",
+      "pdf_sha256": "cbe050520bafefaea9c19c75eee6dd48ab3476a6377dc45009d176c18aab0a3b",
+      "width": 228,
+      "height": 156,
+      "locations": [
+        {
+          "id": "WB-S019-OBJ03-IGUANA",
+          "book": "WB",
+          "printed_page": 13,
+          "pdf_page": 19,
+          "lesson": 5,
+          "slot": "src/data/page-layouts.json/pages/13/picture-cell:iguana"
+        },
+        {
+          "id": "WB-S020-OBJ07-IGUANA",
+          "book": "WB",
+          "printed_page": 14,
+          "pdf_page": 20,
+          "lesson": 5,
+          "slot": "src/data/page-layouts.json/pages/14/picture-cell:iguana"
+        }
+      ]
+    },
+    {
+      "id": "DRAW-WB-30-1",
+      "subject": "invierno",
+      "classification": "OPTIMIZATION NEEDED",
+      "book": "WB",
+      "printed_page": 13,
+      "pdf_page": 19,
+      "lesson": 5,
+      "reference_id": "WB-S019-OBJ08-INVIERNO",
+      "reference_path": "crops/WB-S019-OBJ08-INVIERNO.png",
+      "sha256": "c27c9df5612c04162df2c42c514da1832fab96b1d4f7d2e24fa27daa9d5f1048",
+      "pdf_sha256": "cbe050520bafefaea9c19c75eee6dd48ab3476a6377dc45009d176c18aab0a3b",
+      "width": 238,
+      "height": 226,
+      "locations": [
+        {
+          "id": "WB-S019-OBJ08-INVIERNO",
+          "book": "WB",
+          "printed_page": 13,
+          "pdf_page": 19,
+          "lesson": 5,
+          "slot": "src/data/page-layouts.json/pages/13/picture-cell:invierno"
+        }
+      ]
+    },
+    {
+      "id": "DRAW-WB-24-1",
+      "subject": "igual",
+      "classification": "OPTIMIZATION NEEDED",
+      "book": "WB",
+      "printed_page": 13,
+      "pdf_page": 19,
+      "lesson": 5,
+      "reference_id": "WB-S019-OBJ14-IGUAL",
+      "reference_path": "crops/WB-S019-OBJ14-IGUAL.png",
+      "sha256": "e38f3b2c1447b8ba0c67fbdb149160fd45c38a824d6591f05b38ac3e292f06fc",
+      "pdf_sha256": "cbe050520bafefaea9c19c75eee6dd48ab3476a6377dc45009d176c18aab0a3b",
+      "width": 106,
+      "height": 61,
+      "locations": [
+        {
+          "id": "WB-S019-OBJ14-IGUAL",
+          "book": "WB",
+          "printed_page": 13,
+          "pdf_page": 19,
+          "lesson": 5,
+          "slot": "src/data/page-layouts.json/pages/13/picture-cell:igual"
+        },
+        {
+          "id": "WB-S020-OBJ04-IGUAL",
+          "book": "WB",
+          "printed_page": 14,
+          "pdf_page": 20,
+          "lesson": 5,
+          "slot": "src/data/page-layouts.json/pages/14/picture-cell:igual"
+        }
+      ]
+    },
+    {
+      "id": "DRAW-FC-004-03",
+      "subject": "Oto",
+      "classification": "OPTIMIZATION NEEDED",
+      "book": "FC",
+      "printed_page": 2,
+      "pdf_page": 4,
+      "lesson": 2,
+      "reference_id": "FC-004-03",
+      "reference_path": "crops/FC-004-03.png",
+      "sha256": "0a3ae953959ef5ca0ca94f25f43615527ed55d6293c5ba82a03c9cfc12b01b29",
+      "pdf_sha256": "d7fb3dff4e63caf3443226e57a9ef700f8974acd4ad8f08f44e2792e13cc4930",
+      "width": 265,
+      "height": 217,
+      "locations": [
+        {
+          "id": "FC-004-03",
+          "book": "FC",
+          "printed_page": 2,
+          "pdf_page": 4,
+          "lesson": 2,
+          "slot": "src/data/flipchart-native-assets.json/4/2"
+        }
+      ]
+    },
+    {
+      "id": "DRAW-FC-005-07",
+      "subject": "Ana",
+      "classification": "OPTIMIZATION NEEDED",
+      "book": "FC",
+      "printed_page": 3,
+      "pdf_page": 5,
+      "lesson": 3,
+      "reference_id": "FC-005-07",
+      "reference_path": "crops/FC-005-07.png",
+      "sha256": "12d11b9bbdafee33d3fc3a98fb2d5b45e1086349b4ef5e55ab9c4222a43f1315",
+      "pdf_sha256": "d7fb3dff4e63caf3443226e57a9ef700f8974acd4ad8f08f44e2792e13cc4930",
+      "width": 285,
+      "height": 295,
+      "locations": [
+        {
+          "id": "FC-005-07",
+          "book": "FC",
+          "printed_page": 3,
+          "pdf_page": 5,
+          "lesson": 3,
+          "slot": "src/data/flipchart-native-assets.json/5/6"
+        }
+      ]
+    },
+    {
+      "id": "DRAW-FC-006-04",
+      "subject": "Ema",
+      "classification": "OPTIMIZATION NEEDED",
+      "book": "FC",
+      "printed_page": 4,
+      "pdf_page": 6,
+      "lesson": 4,
+      "reference_id": "FC-006-04",
+      "reference_path": "crops/FC-006-04.png",
+      "sha256": "0646e8d2617c9dceb3dd4a9f838e134f9528ca5ab7f14426c93d83a4b24e1d64",
+      "pdf_sha256": "d7fb3dff4e63caf3443226e57a9ef700f8974acd4ad8f08f44e2792e13cc4930",
+      "width": 213,
+      "height": 277,
+      "locations": [
+        {
+          "id": "FC-006-04",
+          "book": "FC",
+          "printed_page": 4,
+          "pdf_page": 6,
+          "lesson": 4,
+          "slot": "src/data/flipchart-native-assets.json/6/3"
+        }
+      ]
+    },
+    {
+      "id": "DRAW-FC-007-07",
+      "subject": "Irma",
+      "classification": "OPTIMIZATION NEEDED",
+      "book": "FC",
+      "printed_page": 5,
+      "pdf_page": 7,
+      "lesson": 5,
+      "reference_id": "FC-007-07",
+      "reference_path": "crops/FC-007-07.png",
+      "sha256": "191280e6b2aeb216808964517bc768befa3a3e14adb0f54fc07961a7e5e0c02d",
+      "pdf_sha256": "d7fb3dff4e63caf3443226e57a9ef700f8974acd4ad8f08f44e2792e13cc4930",
+      "width": 276,
+      "height": 321,
+      "locations": [
+        {
+          "id": "FC-007-07",
+          "book": "FC",
+          "printed_page": 5,
+          "pdf_page": 7,
+          "lesson": 5,
+          "slot": "src/data/flipchart-native-assets.json/7/6"
+        }
+      ]
+    },
+    {
+      "id": "DRAW-FC-009-03",
+      "subject": "amo",
+      "classification": "OPTIMIZATION NEEDED",
+      "book": "FC",
+      "printed_page": 7,
+      "pdf_page": 9,
+      "lesson": 7,
+      "reference_id": "FC-009-03",
+      "reference_path": "crops/FC-009-03.png",
+      "sha256": "6a3072ec58f87839f2c787852c26a7792ee9ea1b2e053cf3ea88f60be7eb3d13",
+      "pdf_sha256": "d7fb3dff4e63caf3443226e57a9ef700f8974acd4ad8f08f44e2792e13cc4930",
+      "width": 319,
+      "height": 337,
+      "locations": [
+        {
+          "id": "FC-009-03",
+          "book": "FC",
+          "printed_page": 7,
+          "pdf_page": 9,
+          "lesson": 7,
+          "slot": "src/data/flipchart-native-assets.json/9/2"
+        }
+      ]
+    },
+    {
+      "id": "DRAW-FC-009-04",
+      "subject": "mima",
+      "classification": "OPTIMIZATION NEEDED",
+      "book": "FC",
+      "printed_page": 7,
+      "pdf_page": 9,
+      "lesson": 7,
+      "reference_id": "FC-009-04",
+      "reference_path": "crops/FC-009-04.png",
+      "sha256": "eef8454b6d6d2bdd6ed6e829e0d503880f41627749d75f3ceff7e245b87c057a",
+      "pdf_sha256": "d7fb3dff4e63caf3443226e57a9ef700f8974acd4ad8f08f44e2792e13cc4930",
+      "width": 360,
+      "height": 359,
+      "locations": [
+        {
+          "id": "FC-009-04",
+          "book": "FC",
+          "printed_page": 7,
+          "pdf_page": 9,
+          "lesson": 7,
+          "slot": "src/data/flipchart-native-assets.json/9/3"
+        },
+        {
+          "id": "FC-011-01",
+          "book": "FC",
+          "printed_page": 9,
+          "pdf_page": 11,
+          "lesson": 7,
+          "slot": "src/data/flipchart-native-assets.json/11/0"
+        }
+      ]
+    },
+    {
+      "id": "DRAW-FC-009-05",
+      "subject": "Meme",
+      "classification": "OPTIMIZATION NEEDED",
+      "book": "FC",
+      "printed_page": 7,
+      "pdf_page": 9,
+      "lesson": 7,
+      "reference_id": "FC-009-05",
+      "reference_path": "crops/FC-009-05.png",
+      "sha256": "fb69e4e6b0ca05334bb9973613dec983a9bec78b3eb2e0521b94fd99aa207f17",
+      "pdf_sha256": "d7fb3dff4e63caf3443226e57a9ef700f8974acd4ad8f08f44e2792e13cc4930",
+      "width": 178,
+      "height": 366,
+      "locations": [
+        {
+          "id": "FC-009-05",
+          "book": "FC",
+          "printed_page": 7,
+          "pdf_page": 9,
+          "lesson": 7,
+          "slot": "src/data/flipchart-native-assets.json/9/4"
+        }
+      ]
+    },
+    {
+      "id": "DRAW-FC-009-06",
+      "subject": "Mumi",
+      "classification": "OPTIMIZATION NEEDED",
+      "book": "FC",
+      "printed_page": 7,
+      "pdf_page": 9,
+      "lesson": 7,
+      "reference_id": "FC-009-06",
+      "reference_path": "crops/FC-009-06.png",
+      "sha256": "fffc997b06e72c7064d70b8d1b2c085e985880047f9fcbd555db8709f67d0e5f",
+      "pdf_sha256": "d7fb3dff4e63caf3443226e57a9ef700f8974acd4ad8f08f44e2792e13cc4930",
+      "width": 333,
+      "height": 351,
+      "locations": [
+        {
+          "id": "FC-009-06",
+          "book": "FC",
+          "printed_page": 7,
+          "pdf_page": 9,
+          "lesson": 7,
+          "slot": "src/data/flipchart-native-assets.json/9/5"
+        }
+      ]
+    },
+    {
+      "id": "DRAW-FC-012-01",
+      "subject": "Ilustración de la página 12",
+      "classification": "OPTIMIZATION NEEDED",
+      "book": "FC",
+      "printed_page": 10,
+      "pdf_page": 12,
+      "lesson": 8,
+      "reference_id": "FC-012-01",
+      "reference_path": "crops/FC-012-01.png",
+      "sha256": "6119278e7af0a37644c98f39493569ba08d05513f0a2f922fb33cf2b63cde033",
+      "pdf_sha256": "d7fb3dff4e63caf3443226e57a9ef700f8974acd4ad8f08f44e2792e13cc4930",
+      "width": 633,
+      "height": 595,
+      "locations": [
+        {
+          "id": "FC-012-01",
+          "book": "FC",
+          "printed_page": 10,
+          "pdf_page": 12,
+          "lesson": 8,
+          "slot": "src/data/flipchart-native-assets.json/12/0"
+        }
+      ]
+    },
+    {
+      "id": "DRAW-FC-012-02",
+      "subject": "papá",
+      "classification": "OPTIMIZATION NEEDED",
+      "book": "FC",
+      "printed_page": 10,
+      "pdf_page": 12,
+      "lesson": 8,
+      "reference_id": "FC-012-02",
+      "reference_path": "crops/FC-012-02.png",
+      "sha256": "b792aabfea8429d72df24bde5b003a3a2a60aca24b42b2a07ec51a43318445bd",
+      "pdf_sha256": "d7fb3dff4e63caf3443226e57a9ef700f8974acd4ad8f08f44e2792e13cc4930",
+      "width": 209,
+      "height": 319,
+      "locations": [
+        {
+          "id": "FC-012-02",
+          "book": "FC",
+          "printed_page": 10,
+          "pdf_page": 12,
+          "lesson": 8,
+          "slot": "src/data/flipchart-native-assets.json/12/1"
+        }
+      ]
+    },
+    {
+      "id": "DRAW-FC-012-04",
+      "subject": "Pepe",
+      "classification": "OPTIMIZATION NEEDED",
+      "book": "FC",
+      "printed_page": 10,
+      "pdf_page": 12,
+      "lesson": 8,
+      "reference_id": "FC-012-04",
+      "reference_path": "crops/FC-012-04.png",
+      "sha256": "592a1bdd0bc8e557199b116e5ce86b68064cd5ca9ddf77ed802912b3a8ea52a6",
+      "pdf_sha256": "d7fb3dff4e63caf3443226e57a9ef700f8974acd4ad8f08f44e2792e13cc4930",
+      "width": 349,
+      "height": 351,
+      "locations": [
+        {
+          "id": "FC-012-04",
+          "book": "FC",
+          "printed_page": 10,
+          "pdf_page": 12,
+          "lesson": 8,
+          "slot": "src/data/flipchart-native-assets.json/12/3"
+        }
+      ]
+    },
+    {
+      "id": "DRAW-FC-012-05",
+      "subject": "puma",
+      "classification": "OPTIMIZATION NEEDED",
+      "book": "FC",
+      "printed_page": 10,
+      "pdf_page": 12,
+      "lesson": 8,
+      "reference_id": "FC-012-05",
+      "reference_path": "crops/FC-012-05.png",
+      "sha256": "20f020fa54364c684ae777ba617d6af75867cbf80e1317b4c0c9f692733b828b",
+      "pdf_sha256": "d7fb3dff4e63caf3443226e57a9ef700f8974acd4ad8f08f44e2792e13cc4930",
+      "width": 313,
+      "height": 338,
+      "locations": [
+        {
+          "id": "FC-012-05",
+          "book": "FC",
+          "printed_page": 10,
+          "pdf_page": 12,
+          "lesson": 8,
+          "slot": "src/data/flipchart-native-assets.json/12/4"
+        }
+      ]
+    },
+    {
+      "id": "DRAW-FC-014-01",
+      "subject": "Ilustración de la página 14",
+      "classification": "OPTIMIZATION NEEDED",
+      "book": "FC",
+      "printed_page": 12,
+      "pdf_page": 14,
+      "lesson": 8,
+      "reference_id": "FC-014-01",
+      "reference_path": "crops/FC-014-01.png",
+      "sha256": "b5f4545719e215818a00c2cb0b8fa9f4d63fcdd14387b4a60b471fa8512123de",
+      "pdf_sha256": "d7fb3dff4e63caf3443226e57a9ef700f8974acd4ad8f08f44e2792e13cc4930",
+      "width": 737,
+      "height": 615,
+      "locations": [
+        {
+          "id": "FC-014-01",
+          "book": "FC",
+          "printed_page": 12,
+          "pdf_page": 14,
+          "lesson": 8,
+          "slot": "src/data/flipchart-native-assets.json/14/0"
+        }
+      ]
+    },
+    {
+      "id": "DRAW-FC-015-01",
+      "subject": "Ilustración de la página 15",
+      "classification": "OPTIMIZATION NEEDED",
+      "book": "FC",
+      "printed_page": 13,
+      "pdf_page": 15,
+      "lesson": 9,
+      "reference_id": "FC-015-01",
+      "reference_path": "missing-originals/FC-015-01.png",
+      "sha256": "10bcafaef6a1cee60b971a213a503ef58e00272af2a201f60b9c70d73b45d43e",
+      "pdf_sha256": "d7fb3dff4e63caf3443226e57a9ef700f8974acd4ad8f08f44e2792e13cc4930",
+      "width": 709,
+      "height": 821,
+      "locations": [
+        {
+          "id": "FC-015-01",
+          "book": "FC",
+          "printed_page": 13,
+          "pdf_page": 15,
+          "lesson": 9,
+          "slot": "src/data/flipchart-native-assets.json/15/0"
+        }
+      ]
+    },
+    {
+      "id": "DRAW-FC-015-05",
+      "subject": "pisa",
+      "classification": "OPTIMIZATION NEEDED",
+      "book": "FC",
+      "printed_page": 13,
+      "pdf_page": 15,
+      "lesson": 9,
+      "reference_id": "FC-015-05",
+      "reference_path": "crops/FC-015-05.png",
+      "sha256": "ff7256461cdbaa3bacc083428272dfbf45b59fc88d4e4d0ee191fcae25527ea7",
+      "pdf_sha256": "d7fb3dff4e63caf3443226e57a9ef700f8974acd4ad8f08f44e2792e13cc4930",
+      "width": 377,
+      "height": 261,
+      "locations": [
+        {
+          "id": "FC-015-05",
+          "book": "FC",
+          "printed_page": 13,
+          "pdf_page": 15,
+          "lesson": 9,
+          "slot": "src/data/flipchart-native-assets.json/15/4"
+        }
+      ]
+    },
+    {
+      "id": "DRAW-FC-015-06",
+      "subject": "Susi",
+      "classification": "OPTIMIZATION NEEDED",
+      "book": "FC",
+      "printed_page": 13,
+      "pdf_page": 15,
+      "lesson": 9,
+      "reference_id": "FC-015-06",
+      "reference_path": "crops/FC-015-06.png",
+      "sha256": "53ccd9c0399a9da42c869c096dfbe9c27fedd16f93b4f62513c87db654f6d831",
+      "pdf_sha256": "d7fb3dff4e63caf3443226e57a9ef700f8974acd4ad8f08f44e2792e13cc4930",
+      "width": 273,
+      "height": 365,
+      "locations": [
+        {
+          "id": "FC-015-06",
+          "book": "FC",
+          "printed_page": 13,
+          "pdf_page": 15,
+          "lesson": 9,
+          "slot": "src/data/flipchart-native-assets.json/15/5"
+        }
+      ]
+    },
+    {
+      "id": "DRAW-FC-017-01",
+      "subject": "Ilustración de la página 17",
+      "classification": "OPTIMIZATION NEEDED",
+      "book": "FC",
+      "printed_page": 15,
+      "pdf_page": 17,
+      "lesson": 9,
+      "reference_id": "FC-017-01",
+      "reference_path": "crops/FC-017-01.png",
+      "sha256": "bef86324a594c94444955aef0bcf268e7b8a80a5888e0c0e4a80807d1629f5f9",
+      "pdf_sha256": "d7fb3dff4e63caf3443226e57a9ef700f8974acd4ad8f08f44e2792e13cc4930",
+      "width": 463,
+      "height": 810,
+      "locations": [
+        {
+          "id": "FC-017-01",
+          "book": "FC",
+          "printed_page": 15,
+          "pdf_page": 17,
+          "lesson": 9,
+          "slot": "src/data/flipchart-native-assets.json/17/0"
+        }
+      ]
+    },
+    {
+      "id": "DRAW-FC-018-01",
+      "subject": "Ilustración de la página 18",
+      "classification": "OPTIMIZATION NEEDED",
+      "book": "FC",
+      "printed_page": 16,
+      "pdf_page": 18,
+      "lesson": 10,
+      "reference_id": "FC-018-01",
+      "reference_path": "crops/FC-018-01.png",
+      "sha256": "502a83720b0aaa1feedd3e75c1f6aa73111501275e950fe980d134ef22c27008",
+      "pdf_sha256": "d7fb3dff4e63caf3443226e57a9ef700f8974acd4ad8f08f44e2792e13cc4930",
+      "width": 555,
+      "height": 620,
+      "locations": [
+        {
+          "id": "FC-018-01",
+          "book": "FC",
+          "printed_page": 16,
+          "pdf_page": 18,
+          "lesson": 10,
+          "slot": "src/data/flipchart-native-assets.json/18/0"
+        }
+      ]
+    },
+    {
+      "id": "DRAW-FC-018-05",
+      "subject": "tipi",
+      "classification": "OPTIMIZATION NEEDED",
+      "book": "FC",
+      "printed_page": 16,
+      "pdf_page": 18,
+      "lesson": 10,
+      "reference_id": "FC-018-05",
+      "reference_path": "missing-originals/FC-018-05.png",
+      "sha256": "ae16c820b9080db6930e04980bb9aca8430f9228ae7c6fa6d91c8fb0041da00a",
+      "pdf_sha256": "d7fb3dff4e63caf3443226e57a9ef700f8974acd4ad8f08f44e2792e13cc4930",
+      "width": 413,
+      "height": 431,
+      "locations": [
+        {
+          "id": "FC-018-05",
+          "book": "FC",
+          "printed_page": 16,
+          "pdf_page": 18,
+          "lesson": 10,
+          "slot": "src/data/flipchart-native-assets.json/18/4"
+        }
+      ]
+    },
+    {
+      "id": "DRAW-FC-018-06",
+      "subject": "Tuto",
+      "classification": "OPTIMIZATION NEEDED",
+      "book": "FC",
+      "printed_page": 16,
+      "pdf_page": 18,
+      "lesson": 10,
+      "reference_id": "FC-018-06",
+      "reference_path": "crops/FC-018-06.png",
+      "sha256": "01ac90d6eb2ce60af337e06eb512c3874a92a459b59a6988f0aba3aae5cf2ebf",
+      "pdf_sha256": "d7fb3dff4e63caf3443226e57a9ef700f8974acd4ad8f08f44e2792e13cc4930",
+      "width": 375,
+      "height": 362,
+      "locations": [
+        {
+          "id": "FC-018-06",
+          "book": "FC",
+          "printed_page": 16,
+          "pdf_page": 18,
+          "lesson": 10,
+          "slot": "src/data/flipchart-native-assets.json/18/5"
+        }
+      ]
+    },
+    {
+      "id": "DRAW-FC-020-01",
+      "subject": "Ilustración de la página 20",
+      "classification": "OPTIMIZATION NEEDED",
+      "book": "FC",
+      "printed_page": 18,
+      "pdf_page": 20,
+      "lesson": 10,
+      "reference_id": "FC-020-01",
+      "reference_path": "crops/FC-020-01.png",
+      "sha256": "f907cd51483d5cf526c5ca40e8edc6bff6d2603f99425778e955c112496d0ee7",
+      "pdf_sha256": "d7fb3dff4e63caf3443226e57a9ef700f8974acd4ad8f08f44e2792e13cc4930",
+      "width": 777,
+      "height": 594,
+      "locations": [
+        {
+          "id": "FC-020-01",
+          "book": "FC",
+          "printed_page": 18,
+          "pdf_page": 20,
+          "lesson": 10,
+          "slot": "src/data/flipchart-native-assets.json/20/0"
+        }
+      ]
+    },
+    {
+      "id": "DRAW-FC-021-01",
+      "subject": "Ilustración de la página 21",
+      "classification": "OPTIMIZATION NEEDED",
+      "book": "FC",
+      "printed_page": 19,
+      "pdf_page": 21,
+      "lesson": 11,
+      "reference_id": "FC-021-01",
+      "reference_path": "crops/FC-021-01.png",
+      "sha256": "4c6945eece5375932f727f3d2249df206c7e01e745734881b25bbddb6b295dc7",
+      "pdf_sha256": "d7fb3dff4e63caf3443226e57a9ef700f8974acd4ad8f08f44e2792e13cc4930",
+      "width": 385,
+      "height": 625,
+      "locations": [
+        {
+          "id": "FC-021-01",
+          "book": "FC",
+          "printed_page": 19,
+          "pdf_page": 21,
+          "lesson": 11,
+          "slot": "src/data/flipchart-native-assets.json/21/0"
+        }
+      ]
+    },
+    {
+      "id": "DRAW-FC-021-03",
+      "subject": "dados",
+      "classification": "OPTIMIZATION NEEDED",
+      "book": "FC",
+      "printed_page": 19,
+      "pdf_page": 21,
+      "lesson": 11,
+      "reference_id": "FC-021-03",
+      "reference_path": "crops/FC-021-03.png",
+      "sha256": "ee32b09c135ea9f25fdbc30b5875a99134494e004cd0c936dc7180ed8be7e483",
+      "pdf_sha256": "d7fb3dff4e63caf3443226e57a9ef700f8974acd4ad8f08f44e2792e13cc4930",
+      "width": 301,
+      "height": 307,
+      "locations": [
+        {
+          "id": "FC-021-03",
+          "book": "FC",
+          "printed_page": 19,
+          "pdf_page": 21,
+          "lesson": 11,
+          "slot": "src/data/flipchart-native-assets.json/21/2"
+        }
+      ]
+    },
+    {
+      "id": "DRAW-FC-021-04",
+      "subject": "dedo",
+      "classification": "OPTIMIZATION NEEDED",
+      "book": "FC",
+      "printed_page": 19,
+      "pdf_page": 21,
+      "lesson": 11,
+      "reference_id": "FC-021-04",
+      "reference_path": "crops/FC-021-04.png",
+      "sha256": "1312dffab9012c86b719ea0667644fd18f444f84b5158de0dabab5e5511be1b4",
+      "pdf_sha256": "d7fb3dff4e63caf3443226e57a9ef700f8974acd4ad8f08f44e2792e13cc4930",
+      "width": 222,
+      "height": 315,
+      "locations": [
+        {
+          "id": "FC-021-04",
+          "book": "FC",
+          "printed_page": 19,
+          "pdf_page": 21,
+          "lesson": 11,
+          "slot": "src/data/flipchart-native-assets.json/21/3"
+        }
+      ]
+    },
+    {
+      "id": "DRAW-FC-021-06",
+      "subject": "Dunia",
+      "classification": "OPTIMIZATION NEEDED",
+      "book": "FC",
+      "printed_page": 19,
+      "pdf_page": 21,
+      "lesson": 11,
+      "reference_id": "FC-021-06",
+      "reference_path": "crops/FC-021-06.png",
+      "sha256": "274b56078b97f7b151e61f263217a564f6a02825cd90c5cd61ad6c8ae82ae164",
+      "pdf_sha256": "d7fb3dff4e63caf3443226e57a9ef700f8974acd4ad8f08f44e2792e13cc4930",
+      "width": 443,
+      "height": 314,
+      "locations": [
+        {
+          "id": "FC-021-06",
+          "book": "FC",
+          "printed_page": 19,
+          "pdf_page": 21,
+          "lesson": 11,
+          "slot": "src/data/flipchart-native-assets.json/21/5"
+        }
+      ]
+    },
+    {
+      "id": "DRAW-FC-023-01",
+      "subject": "Ilustración de la página 23",
+      "classification": "OPTIMIZATION NEEDED",
+      "book": "FC",
+      "printed_page": 21,
+      "pdf_page": 23,
+      "lesson": 11,
+      "reference_id": "FC-023-01",
+      "reference_path": "crops/FC-023-01.png",
+      "sha256": "c8ba5933f11f7a8c2303269fe998439ba8095528baf9eae0ed1e760ed9645eca",
+      "pdf_sha256": "d7fb3dff4e63caf3443226e57a9ef700f8974acd4ad8f08f44e2792e13cc4930",
+      "width": 569,
+      "height": 677,
+      "locations": [
+        {
+          "id": "FC-023-01",
+          "book": "FC",
+          "printed_page": 21,
+          "pdf_page": 23,
+          "lesson": 11,
+          "slot": "src/data/flipchart-native-assets.json/23/0"
+        }
+      ]
+    },
+    {
+      "id": "DRAW-FC-024-01",
+      "subject": "Ilustración de la página 24",
+      "classification": "OPTIMIZATION NEEDED",
+      "book": "FC",
+      "printed_page": 22,
+      "pdf_page": 24,
+      "lesson": 12,
+      "reference_id": "FC-024-01",
+      "reference_path": "missing-originals/FC-024-01.png",
+      "sha256": "b33e8b4ca8b07598cc72a8b84362c4e926a0f3c8a14c8ebebfe6352094a3c0c1",
+      "pdf_sha256": "d7fb3dff4e63caf3443226e57a9ef700f8974acd4ad8f08f44e2792e13cc4930",
+      "width": 673,
+      "height": 773,
+      "locations": [
+        {
+          "id": "FC-024-01",
+          "book": "FC",
+          "printed_page": 22,
+          "pdf_page": 24,
+          "lesson": 12,
+          "slot": "src/data/flipchart-native-assets.json/24/0"
+        }
+      ]
+    },
+    {
+      "id": "DRAW-FC-026-01",
+      "subject": "Ilustración de la página 26",
+      "classification": "OPTIMIZATION NEEDED",
+      "book": "FC",
+      "printed_page": 24,
+      "pdf_page": 26,
+      "lesson": 12,
+      "reference_id": "FC-026-01",
+      "reference_path": "crops/FC-026-01.png",
+      "sha256": "c48aaa0aeb53ca1a3604c756d33740c59be0c60004559cd8cbb8b48f6c0875b0",
+      "pdf_sha256": "d7fb3dff4e63caf3443226e57a9ef700f8974acd4ad8f08f44e2792e13cc4930",
+      "width": 545,
+      "height": 474,
+      "locations": [
+        {
+          "id": "FC-026-01",
+          "book": "FC",
+          "printed_page": 24,
+          "pdf_page": 26,
+          "lesson": 12,
+          "slot": "src/data/flipchart-native-assets.json/26/0"
+        }
+      ]
+    },
+    {
+      "id": "DRAW-FC-027-01",
+      "subject": "Ilustración de la página 27",
+      "classification": "OPTIMIZATION NEEDED",
+      "book": "FC",
+      "printed_page": 25,
+      "pdf_page": 27,
+      "lesson": 13,
+      "reference_id": "FC-027-01",
+      "reference_path": "missing-originals/FC-027-01.png",
+      "sha256": "1f45901de767e80286f0927f27f42eb3440df196a0ac739e07d374794713a940",
+      "pdf_sha256": "d7fb3dff4e63caf3443226e57a9ef700f8974acd4ad8f08f44e2792e13cc4930",
+      "width": 709,
+      "height": 809,
+      "locations": [
+        {
+          "id": "FC-027-01",
+          "book": "FC",
+          "printed_page": 25,
+          "pdf_page": 27,
+          "lesson": 13,
+          "slot": "src/data/flipchart-native-assets.json/27/0"
+        }
+      ]
+    },
+    {
+      "id": "DRAW-FC-027-04",
+      "subject": "mono",
+      "classification": "OPTIMIZATION NEEDED",
+      "book": "FC",
+      "printed_page": 25,
+      "pdf_page": 27,
+      "lesson": 13,
+      "reference_id": "FC-027-04",
+      "reference_path": "crops/FC-027-04.png",
+      "sha256": "041f3b5e94db9189d1005b03b0d3a605ae515460148149988495cd3dc42471a4",
+      "pdf_sha256": "d7fb3dff4e63caf3443226e57a9ef700f8974acd4ad8f08f44e2792e13cc4930",
+      "width": 210,
+      "height": 348,
+      "locations": [
+        {
+          "id": "FC-027-04",
+          "book": "FC",
+          "printed_page": 25,
+          "pdf_page": 27,
+          "lesson": 13,
+          "slot": "src/data/flipchart-native-assets.json/27/3"
+        }
+      ]
+    },
+    {
+      "id": "DRAW-FC-027-05",
+      "subject": "Napi",
+      "classification": "OPTIMIZATION NEEDED",
+      "book": "FC",
+      "printed_page": 25,
+      "pdf_page": 27,
+      "lesson": 13,
+      "reference_id": "FC-027-05",
+      "reference_path": "crops/FC-027-05.png",
+      "sha256": "f25f90952f076e2554cfa6d0f822aeab67ad06f5bda089e43efd9d3f6436dd21",
+      "pdf_sha256": "d7fb3dff4e63caf3443226e57a9ef700f8974acd4ad8f08f44e2792e13cc4930",
+      "width": 306,
+      "height": 324,
+      "locations": [
+        {
+          "id": "FC-027-05",
+          "book": "FC",
+          "printed_page": 25,
+          "pdf_page": 27,
+          "lesson": 13,
+          "slot": "src/data/flipchart-native-assets.json/27/4"
+        }
+      ]
+    },
+    {
+      "id": "DRAW-FC-027-06",
+      "subject": "tenedor",
+      "classification": "OPTIMIZATION NEEDED",
+      "book": "FC",
+      "printed_page": 25,
+      "pdf_page": 27,
+      "lesson": 13,
+      "reference_id": "FC-027-06",
+      "reference_path": "crops/FC-027-06.png",
+      "sha256": "49c2a1ac1a31e0d849a53c80c6df5cc535ad242bacb2ebc3a64a5bd6d51dbc62",
+      "pdf_sha256": "d7fb3dff4e63caf3443226e57a9ef700f8974acd4ad8f08f44e2792e13cc4930",
+      "width": 80,
+      "height": 374,
+      "locations": [
+        {
+          "id": "FC-027-06",
+          "book": "FC",
+          "printed_page": 25,
+          "pdf_page": 27,
+          "lesson": 13,
+          "slot": "src/data/flipchart-native-assets.json/27/5"
+        }
+      ]
+    },
+    {
+      "id": "DRAW-FC-029-01",
+      "subject": "Ilustración de la página 29",
+      "classification": "OPTIMIZATION NEEDED",
+      "book": "FC",
+      "printed_page": 27,
+      "pdf_page": 29,
+      "lesson": 13,
+      "reference_id": "FC-029-01",
+      "reference_path": "crops/FC-029-01.png",
+      "sha256": "10ba635180c6995a0e3628cfbde49822236fe2d33ccf9781b8c6baa2a73910ef",
+      "pdf_sha256": "d7fb3dff4e63caf3443226e57a9ef700f8974acd4ad8f08f44e2792e13cc4930",
+      "width": 590,
+      "height": 666,
+      "locations": [
+        {
+          "id": "FC-029-01",
+          "book": "FC",
+          "printed_page": 27,
+          "pdf_page": 29,
+          "lesson": 13,
+          "slot": "src/data/flipchart-native-assets.json/29/0"
+        }
+      ]
+    },
+    {
+      "id": "DRAW-FC-030-01",
+      "subject": "Ilustración de la página 30",
+      "classification": "OPTIMIZATION NEEDED",
+      "book": "FC",
+      "printed_page": 28,
+      "pdf_page": 30,
+      "lesson": 14,
+      "reference_id": "FC-030-01",
+      "reference_path": "crops/FC-030-01.png",
+      "sha256": "957605bdf564c98169d4c35fc8b172746a971f87848db41b20eccb326cb9a441",
+      "pdf_sha256": "d7fb3dff4e63caf3443226e57a9ef700f8974acd4ad8f08f44e2792e13cc4930",
+      "width": 416,
+      "height": 613,
+      "locations": [
+        {
+          "id": "FC-030-01",
+          "book": "FC",
+          "printed_page": 28,
+          "pdf_page": 30,
+          "lesson": 14,
+          "slot": "src/data/flipchart-native-assets.json/30/0"
+        }
+      ]
+    },
+    {
+      "id": "DRAW-FC-030-02",
+      "subject": "piñata",
+      "classification": "OPTIMIZATION NEEDED",
+      "book": "FC",
+      "printed_page": 28,
+      "pdf_page": 30,
+      "lesson": 14,
+      "reference_id": "FC-030-02",
+      "reference_path": "crops/FC-030-02.png",
+      "sha256": "39490888f2b434be867dbee33db40e9735d9530a1ef6ba8014aa7527cfccb949",
+      "pdf_sha256": "d7fb3dff4e63caf3443226e57a9ef700f8974acd4ad8f08f44e2792e13cc4930",
+      "width": 260,
+      "height": 283,
+      "locations": [
+        {
+          "id": "FC-030-02",
+          "book": "FC",
+          "printed_page": 28,
+          "pdf_page": 30,
+          "lesson": 14,
+          "slot": "src/data/flipchart-native-assets.json/30/1"
+        }
+      ]
+    },
+    {
+      "id": "DRAW-FC-030-03",
+      "subject": "Ñuno",
+      "classification": "OPTIMIZATION NEEDED",
+      "book": "FC",
+      "printed_page": 28,
+      "pdf_page": 30,
+      "lesson": 14,
+      "reference_id": "FC-030-03",
+      "reference_path": "crops/FC-030-03.png",
+      "sha256": "4975317642f43558e83810db2422d5cf79adbe5291431273a84134d086350f96",
+      "pdf_sha256": "d7fb3dff4e63caf3443226e57a9ef700f8974acd4ad8f08f44e2792e13cc4930",
+      "width": 231,
+      "height": 346,
+      "locations": [
+        {
+          "id": "FC-030-03",
+          "book": "FC",
+          "printed_page": 28,
+          "pdf_page": 30,
+          "lesson": 14,
+          "slot": "src/data/flipchart-native-assets.json/30/2"
+        }
+      ]
+    },
+    {
+      "id": "DRAW-FC-030-04",
+      "subject": "niñito",
+      "classification": "OPTIMIZATION NEEDED",
+      "book": "FC",
+      "printed_page": 28,
+      "pdf_page": 30,
+      "lesson": 14,
+      "reference_id": "FC-030-04",
+      "reference_path": "crops/FC-030-04.png",
+      "sha256": "6bbc52e9181cde465487cb60374e45cee36b10558f31baf261fd8a81901675cf",
+      "pdf_sha256": "d7fb3dff4e63caf3443226e57a9ef700f8974acd4ad8f08f44e2792e13cc4930",
+      "width": 231,
+      "height": 313,
+      "locations": [
+        {
+          "id": "FC-030-04",
+          "book": "FC",
+          "printed_page": 28,
+          "pdf_page": 30,
+          "lesson": 14,
+          "slot": "src/data/flipchart-native-assets.json/30/3"
+        }
+      ]
+    },
+    {
+      "id": "DRAW-FC-030-05",
+      "subject": "moño",
+      "classification": "OPTIMIZATION NEEDED",
+      "book": "FC",
+      "printed_page": 28,
+      "pdf_page": 30,
+      "lesson": 14,
+      "reference_id": "FC-030-05",
+      "reference_path": "missing-originals/FC-030-05.png",
+      "sha256": "085fe7554ec3109b634827aac23a49bad41c82f1361976923e94bc8c5c68cfa3",
+      "pdf_sha256": "d7fb3dff4e63caf3443226e57a9ef700f8974acd4ad8f08f44e2792e13cc4930",
+      "width": 360,
+      "height": 436,
+      "locations": [
+        {
+          "id": "FC-030-05",
+          "book": "FC",
+          "printed_page": 28,
+          "pdf_page": 30,
+          "lesson": 14,
+          "slot": "src/data/flipchart-native-assets.json/30/4"
+        }
+      ]
+    },
+    {
+      "id": "DRAW-FC-030-06",
+      "subject": "Meñe",
+      "classification": "OPTIMIZATION NEEDED",
+      "book": "FC",
+      "printed_page": 28,
+      "pdf_page": 30,
+      "lesson": 14,
+      "reference_id": "FC-030-06",
+      "reference_path": "crops/FC-030-06.png",
+      "sha256": "099a68286f495dc07b49483a8f47e38a33151de4192e0ae2c3b2e9f7273b7eb1",
+      "pdf_sha256": "d7fb3dff4e63caf3443226e57a9ef700f8974acd4ad8f08f44e2792e13cc4930",
+      "width": 235,
+      "height": 377,
+      "locations": [
+        {
+          "id": "FC-030-06",
+          "book": "FC",
+          "printed_page": 28,
+          "pdf_page": 30,
+          "lesson": 14,
+          "slot": "src/data/flipchart-native-assets.json/30/5"
+        }
+      ]
+    },
+    {
+      "id": "DRAW-FC-032-01",
+      "subject": "Ilustración de la página 32",
+      "classification": "OPTIMIZATION NEEDED",
+      "book": "FC",
+      "printed_page": 30,
+      "pdf_page": 32,
+      "lesson": 14,
+      "reference_id": "FC-032-01",
+      "reference_path": "crops/FC-032-01.png",
+      "sha256": "544257a6adbaa1fb249679b7db6747c0e65d60755d6975fa1142723fed163ad9",
+      "pdf_sha256": "d7fb3dff4e63caf3443226e57a9ef700f8974acd4ad8f08f44e2792e13cc4930",
+      "width": 616,
+      "height": 626,
+      "locations": [
+        {
+          "id": "FC-032-01",
+          "book": "FC",
+          "printed_page": 30,
+          "pdf_page": 32,
+          "lesson": 14,
+          "slot": "src/data/flipchart-native-assets.json/32/0"
+        }
+      ]
+    },
+    {
+      "id": "DRAW-FC-033-01",
+      "subject": "Ilustración de la página 33",
+      "classification": "OPTIMIZATION NEEDED",
+      "book": "FC",
+      "printed_page": 31,
+      "pdf_page": 33,
+      "lesson": 15,
+      "reference_id": "FC-033-01",
+      "reference_path": "crops/FC-033-01.png",
+      "sha256": "07f570def2799b0779208c027fbae2044b401efeeeb9f0d1bd0547766f2f01cc",
+      "pdf_sha256": "d7fb3dff4e63caf3443226e57a9ef700f8974acd4ad8f08f44e2792e13cc4930",
+      "width": 554,
+      "height": 612,
+      "locations": [
+        {
+          "id": "FC-033-01",
+          "book": "FC",
+          "printed_page": 31,
+          "pdf_page": 33,
+          "lesson": 15,
+          "slot": "src/data/flipchart-native-assets.json/33/0"
+        }
+      ]
+    },
+    {
+      "id": "DRAW-FC-033-04",
+      "subject": "bate",
+      "classification": "OPTIMIZATION NEEDED",
+      "book": "FC",
+      "printed_page": 31,
+      "pdf_page": 33,
+      "lesson": 15,
+      "reference_id": "FC-033-04",
+      "reference_path": "crops/FC-033-04.png",
+      "sha256": "64178a80df6f2e1e90a1e60e09d71a861c4d5e07799c56e4b66495106fb0c058",
+      "pdf_sha256": "d7fb3dff4e63caf3443226e57a9ef700f8974acd4ad8f08f44e2792e13cc4930",
+      "width": 254,
+      "height": 311,
+      "locations": [
+        {
+          "id": "FC-033-04",
+          "book": "FC",
+          "printed_page": 31,
+          "pdf_page": 33,
+          "lesson": 15,
+          "slot": "src/data/flipchart-native-assets.json/33/3"
+        }
+      ]
+    },
+    {
+      "id": "DRAW-FC-033-06",
+      "subject": "bebita",
+      "classification": "OPTIMIZATION NEEDED",
+      "book": "FC",
+      "printed_page": 31,
+      "pdf_page": 33,
+      "lesson": 15,
+      "reference_id": "FC-033-06",
+      "reference_path": "crops/FC-033-06.png",
+      "sha256": "c3a45ffcde8c1519307950806d8939e0e693e313bd93d724d4cb566593e569a5",
+      "pdf_sha256": "d7fb3dff4e63caf3443226e57a9ef700f8974acd4ad8f08f44e2792e13cc4930",
+      "width": 329,
+      "height": 362,
+      "locations": [
+        {
+          "id": "FC-033-06",
+          "book": "FC",
+          "printed_page": 31,
+          "pdf_page": 33,
+          "lesson": 15,
+          "slot": "src/data/flipchart-native-assets.json/33/5"
+        }
+      ]
+    },
+    {
+      "id": "DRAW-FC-035-01",
+      "subject": "Ilustración de la página 35",
+      "classification": "OPTIMIZATION NEEDED",
+      "book": "FC",
+      "printed_page": 33,
+      "pdf_page": 35,
+      "lesson": 15,
+      "reference_id": "FC-035-01",
+      "reference_path": "missing-originals/FC-035-01.png",
+      "sha256": "e8880fa56e18b9097329e5eb65454651250dab57c8bac0675fcfa0003b8add2d",
+      "pdf_sha256": "d7fb3dff4e63caf3443226e57a9ef700f8974acd4ad8f08f44e2792e13cc4930",
+      "width": 751,
+      "height": 959,
+      "locations": [
+        {
+          "id": "FC-035-01",
+          "book": "FC",
+          "printed_page": 33,
+          "pdf_page": 35,
+          "lesson": 15,
+          "slot": "src/data/flipchart-native-assets.json/35/0"
+        }
+      ]
+    },
+    {
+      "id": "DRAW-FC-036-05",
+      "subject": "pavo",
+      "classification": "OPTIMIZATION NEEDED",
+      "book": "FC",
+      "printed_page": 34,
+      "pdf_page": 36,
+      "lesson": 16,
+      "reference_id": "FC-036-05",
+      "reference_path": "crops/FC-036-05.png",
+      "sha256": "572fa5695aac6b42f32b79cf5948292046eff8e1ad4c4f9d31528fb2d7087056",
+      "pdf_sha256": "d7fb3dff4e63caf3443226e57a9ef700f8974acd4ad8f08f44e2792e13cc4930",
+      "width": 272,
+      "height": 306,
+      "locations": [
+        {
+          "id": "FC-036-05",
+          "book": "FC",
+          "printed_page": 34,
+          "pdf_page": 36,
+          "lesson": 16,
+          "slot": "src/data/flipchart-native-assets.json/36/4"
+        }
+      ]
+    },
+    {
+      "id": "DRAW-FC-036-06",
+      "subject": "Vuli",
+      "classification": "OPTIMIZATION NEEDED",
+      "book": "FC",
+      "printed_page": 34,
+      "pdf_page": 36,
+      "lesson": 16,
+      "reference_id": "FC-036-06",
+      "reference_path": "crops/FC-036-06.png",
+      "sha256": "f30c56611d1e44d689c4bc2510a96bd4c36237374bc9f1bc87d2f1f8e4e0f162",
+      "pdf_sha256": "d7fb3dff4e63caf3443226e57a9ef700f8974acd4ad8f08f44e2792e13cc4930",
+      "width": 362,
+      "height": 247,
+      "locations": [
+        {
+          "id": "FC-036-06",
+          "book": "FC",
+          "printed_page": 34,
+          "pdf_page": 36,
+          "lesson": 16,
+          "slot": "src/data/flipchart-native-assets.json/36/5"
+        }
+      ]
+    },
+    {
+      "id": "DRAW-FC-038-01",
+      "subject": "Ilustración de la página 38",
+      "classification": "OPTIMIZATION NEEDED",
+      "book": "FC",
+      "printed_page": 36,
+      "pdf_page": 38,
+      "lesson": 16,
+      "reference_id": "FC-038-01",
+      "reference_path": "crops/FC-038-01.png",
+      "sha256": "5ac1bddb92991937cb11cd2b525fc6a4404a6315acc552ed63fb3a5294557c28",
+      "pdf_sha256": "d7fb3dff4e63caf3443226e57a9ef700f8974acd4ad8f08f44e2792e13cc4930",
+      "width": 579,
+      "height": 621,
+      "locations": [
+        {
+          "id": "FC-038-01",
+          "book": "FC",
+          "printed_page": 36,
+          "pdf_page": 38,
+          "lesson": 16,
+          "slot": "src/data/flipchart-native-assets.json/38/0"
+        }
+      ]
+    },
+    {
+      "id": "DRAW-FC-039-01",
+      "subject": "Ilustración de la página 39",
+      "classification": "OPTIMIZATION NEEDED",
+      "book": "FC",
+      "printed_page": 37,
+      "pdf_page": 39,
+      "lesson": 17,
+      "reference_id": "FC-039-01",
+      "reference_path": "crops/FC-039-01.png",
+      "sha256": "2bb076a32fad4970e8c4e126427511f7ae93f35744227c6bf8f77b214cd8eaf9",
+      "pdf_sha256": "d7fb3dff4e63caf3443226e57a9ef700f8974acd4ad8f08f44e2792e13cc4930",
+      "width": 532,
+      "height": 581,
+      "locations": [
+        {
+          "id": "FC-039-01",
+          "book": "FC",
+          "printed_page": 37,
+          "pdf_page": 39,
+          "lesson": 17,
+          "slot": "src/data/flipchart-native-assets.json/39/0"
+        }
+      ]
+    },
+    {
+      "id": "DRAW-FC-039-04",
+      "subject": "Rita",
+      "classification": "OPTIMIZATION NEEDED",
+      "book": "FC",
+      "printed_page": 37,
+      "pdf_page": 39,
+      "lesson": 17,
+      "reference_id": "FC-039-04",
+      "reference_path": "crops/FC-039-04.png",
+      "sha256": "1789f6e159c05ae67b0c098ab2ad70edc301aa83b8108f1d9dc594ebf98b8115",
+      "pdf_sha256": "d7fb3dff4e63caf3443226e57a9ef700f8974acd4ad8f08f44e2792e13cc4930",
+      "width": 331,
+      "height": 272,
+      "locations": [
+        {
+          "id": "FC-039-04",
+          "book": "FC",
+          "printed_page": 37,
+          "pdf_page": 39,
+          "lesson": 17,
+          "slot": "src/data/flipchart-native-assets.json/39/3"
+        }
+      ]
+    },
+    {
+      "id": "DRAW-FC-039-05",
+      "subject": "rosa",
+      "classification": "OPTIMIZATION NEEDED",
+      "book": "FC",
+      "printed_page": 37,
+      "pdf_page": 39,
+      "lesson": 17,
+      "reference_id": "FC-039-05",
+      "reference_path": "crops/FC-039-05.png",
+      "sha256": "1ab8ee72789295926f01213fb6d49920d7201609b7e63489a25d0c7accd7ebca",
+      "pdf_sha256": "d7fb3dff4e63caf3443226e57a9ef700f8974acd4ad8f08f44e2792e13cc4930",
+      "width": 229,
+      "height": 299,
+      "locations": [
+        {
+          "id": "FC-039-05",
+          "book": "FC",
+          "printed_page": 37,
+          "pdf_page": 39,
+          "lesson": 17,
+          "slot": "src/data/flipchart-native-assets.json/39/4"
+        }
+      ]
+    },
+    {
+      "id": "DRAW-FC-039-06",
+      "subject": "rueda",
+      "classification": "OPTIMIZATION NEEDED",
+      "book": "FC",
+      "printed_page": 37,
+      "pdf_page": 39,
+      "lesson": 17,
+      "reference_id": "FC-039-06",
+      "reference_path": "crops/FC-039-06.png",
+      "sha256": "3e676cea55a4a9a17025c6b3a6d65b2f90ae09662f0143132c0355d1fa9b390d",
+      "pdf_sha256": "d7fb3dff4e63caf3443226e57a9ef700f8974acd4ad8f08f44e2792e13cc4930",
+      "width": 372,
+      "height": 306,
+      "locations": [
+        {
+          "id": "FC-039-06",
+          "book": "FC",
+          "printed_page": 37,
+          "pdf_page": 39,
+          "lesson": 17,
+          "slot": "src/data/flipchart-native-assets.json/39/5"
+        }
+      ]
+    },
+    {
+      "id": "DRAW-FC-041-01",
+      "subject": "Ilustración de la página 41",
+      "classification": "OPTIMIZATION NEEDED",
+      "book": "FC",
+      "printed_page": 39,
+      "pdf_page": 41,
+      "lesson": 17,
+      "reference_id": "FC-041-01",
+      "reference_path": "crops/FC-041-01.png",
+      "sha256": "bfb9a10ffcae4ad8da2bc01a8c2eddc64ba90fa08d8bd4f285d82d90b2eabe6a",
+      "pdf_sha256": "d7fb3dff4e63caf3443226e57a9ef700f8974acd4ad8f08f44e2792e13cc4930",
+      "width": 651,
+      "height": 618,
+      "locations": [
+        {
+          "id": "FC-041-01",
+          "book": "FC",
+          "printed_page": 39,
+          "pdf_page": 41,
+          "lesson": 17,
+          "slot": "src/data/flipchart-native-assets.json/41/0"
+        }
+      ]
+    },
+    {
+      "id": "DRAW-FC-044-01",
+      "subject": "Ilustración de la página 44",
+      "classification": "OPTIMIZATION NEEDED",
+      "book": "FC",
+      "printed_page": 42,
+      "pdf_page": 44,
+      "lesson": 18,
+      "reference_id": "FC-044-01",
+      "reference_path": "crops/FC-044-01.png",
+      "sha256": "fa298ab895222b6b8bf9ec9122b578462fe755b472436c750dd8290604b96311",
+      "pdf_sha256": "d7fb3dff4e63caf3443226e57a9ef700f8974acd4ad8f08f44e2792e13cc4930",
+      "width": 629,
+      "height": 645,
+      "locations": [
+        {
+          "id": "FC-044-01",
+          "book": "FC",
+          "printed_page": 42,
+          "pdf_page": 44,
+          "lesson": 18,
+          "slot": "src/data/flipchart-native-assets.json/44/0"
+        }
+      ]
+    },
+    {
+      "id": "DRAW-FC-045-01",
+      "subject": "Ilustración de la página 45",
+      "classification": "OPTIMIZATION NEEDED",
+      "book": "FC",
+      "printed_page": 43,
+      "pdf_page": 45,
+      "lesson": 19,
+      "reference_id": "FC-045-01",
+      "reference_path": "crops/FC-045-01.png",
+      "sha256": "e62601166925085c587882701f0669b6f58e0ab0878b805b5711baef21edabdf",
+      "pdf_sha256": "d7fb3dff4e63caf3443226e57a9ef700f8974acd4ad8f08f44e2792e13cc4930",
+      "width": 494,
+      "height": 627,
+      "locations": [
+        {
+          "id": "FC-045-01",
+          "book": "FC",
+          "printed_page": 43,
+          "pdf_page": 45,
+          "lesson": 19,
+          "slot": "src/data/flipchart-native-assets.json/45/0"
+        }
+      ]
+    },
+    {
+      "id": "DRAW-FC-045-04",
+      "subject": "Goloso",
+      "classification": "OPTIMIZATION NEEDED",
+      "book": "FC",
+      "printed_page": 43,
+      "pdf_page": 45,
+      "lesson": 19,
+      "reference_id": "FC-045-04",
+      "reference_path": "crops/FC-045-04.png",
+      "sha256": "28f149bb56d8ae136ca73a9eb5ab9a26101aa16e011f9f58cf3fb752b1164902",
+      "pdf_sha256": "d7fb3dff4e63caf3443226e57a9ef700f8974acd4ad8f08f44e2792e13cc4930",
+      "width": 297,
+      "height": 331,
+      "locations": [
+        {
+          "id": "FC-045-04",
+          "book": "FC",
+          "printed_page": 43,
+          "pdf_page": 45,
+          "lesson": 19,
+          "slot": "src/data/flipchart-native-assets.json/45/3"
+        }
+      ]
+    },
+    {
+      "id": "DRAW-FC-045-06",
+      "subject": "mago",
+      "classification": "OPTIMIZATION NEEDED",
+      "book": "FC",
+      "printed_page": 43,
+      "pdf_page": 45,
+      "lesson": 19,
+      "reference_id": "FC-045-06",
+      "reference_path": "crops/FC-045-06.png",
+      "sha256": "72a02a1f49e214e5ae35d18522f3023c01c9efa44ea49c44e1c69b71e1425f48",
+      "pdf_sha256": "d7fb3dff4e63caf3443226e57a9ef700f8974acd4ad8f08f44e2792e13cc4930",
+      "width": 292,
+      "height": 334,
+      "locations": [
+        {
+          "id": "FC-045-06",
+          "book": "FC",
+          "printed_page": 43,
+          "pdf_page": 45,
+          "lesson": 19,
+          "slot": "src/data/flipchart-native-assets.json/45/5"
+        }
+      ]
+    },
+    {
+      "id": "DRAW-FC-047-01",
+      "subject": "Ilustración de la página 47",
+      "classification": "OPTIMIZATION NEEDED",
+      "book": "FC",
+      "printed_page": 45,
+      "pdf_page": 47,
+      "lesson": 19,
+      "reference_id": "FC-047-01",
+      "reference_path": "crops/FC-047-01.png",
+      "sha256": "f427d55222052db84b84d214a3b3ae5e9016802b71339d3ea5c29451cacaf63f",
+      "pdf_sha256": "d7fb3dff4e63caf3443226e57a9ef700f8974acd4ad8f08f44e2792e13cc4930",
+      "width": 621,
+      "height": 652,
+      "locations": [
+        {
+          "id": "FC-047-01",
+          "book": "FC",
+          "printed_page": 45,
+          "pdf_page": 47,
+          "lesson": 19,
+          "slot": "src/data/flipchart-native-assets.json/47/0"
+        }
+      ]
+    },
+    {
+      "id": "DRAW-FC-048-01",
+      "subject": "Ilustración de la página 48",
+      "classification": "OPTIMIZATION NEEDED",
+      "book": "FC",
+      "printed_page": 46,
+      "pdf_page": 48,
+      "lesson": 20,
+      "reference_id": "FC-048-01",
+      "reference_path": "crops/FC-048-01.png",
+      "sha256": "1e507cef29ad97986cbb47c9ffbe5d1e5c5b96da2c100fef63a86a64043b0ed7",
+      "pdf_sha256": "d7fb3dff4e63caf3443226e57a9ef700f8974acd4ad8f08f44e2792e13cc4930",
+      "width": 403,
+      "height": 621,
+      "locations": [
+        {
+          "id": "FC-048-01",
+          "book": "FC",
+          "printed_page": 46,
+          "pdf_page": 48,
+          "lesson": 20,
+          "slot": "src/data/flipchart-native-assets.json/48/0"
+        }
+      ]
+    },
+    {
+      "id": "DRAW-FC-048-04",
+      "subject": "familia",
+      "classification": "OPTIMIZATION NEEDED",
+      "book": "FC",
+      "printed_page": 46,
+      "pdf_page": 48,
+      "lesson": 20,
+      "reference_id": "FC-048-04",
+      "reference_path": "crops/FC-048-04.png",
+      "sha256": "286ba58c05509b2ad90c60ba969d8c8ff4a268120bef4bd9502c3ea97a38492d",
+      "pdf_sha256": "d7fb3dff4e63caf3443226e57a9ef700f8974acd4ad8f08f44e2792e13cc4930",
+      "width": 209,
+      "height": 392,
+      "locations": [
+        {
+          "id": "FC-048-04",
+          "book": "FC",
+          "printed_page": 46,
+          "pdf_page": 48,
+          "lesson": 20,
+          "slot": "src/data/flipchart-native-assets.json/48/3"
+        }
+      ]
+    },
+    {
+      "id": "DRAW-FC-048-05",
+      "subject": "Felo",
+      "classification": "OPTIMIZATION NEEDED",
+      "book": "FC",
+      "printed_page": 46,
+      "pdf_page": 48,
+      "lesson": 20,
+      "reference_id": "FC-048-05",
+      "reference_path": "crops/FC-048-05.png",
+      "sha256": "ee996e562b239bf1748aa3eb6809249a2d780a5c428142975297fa626705955e",
+      "pdf_sha256": "d7fb3dff4e63caf3443226e57a9ef700f8974acd4ad8f08f44e2792e13cc4930",
+      "width": 358,
+      "height": 351,
+      "locations": [
+        {
+          "id": "FC-048-05",
+          "book": "FC",
+          "printed_page": 46,
+          "pdf_page": 48,
+          "lesson": 20,
+          "slot": "src/data/flipchart-native-assets.json/48/4"
+        }
+      ]
+    },
+    {
+      "id": "DRAW-FC-048-06",
+      "subject": "funda",
+      "classification": "OPTIMIZATION NEEDED",
+      "book": "FC",
+      "printed_page": 46,
+      "pdf_page": 48,
+      "lesson": 20,
+      "reference_id": "FC-048-06",
+      "reference_path": "crops/FC-048-06.png",
+      "sha256": "c68751d795d29b9b8bdd4c1154f215164626270030ba9e8765b4f9eb5d0c2715",
+      "pdf_sha256": "d7fb3dff4e63caf3443226e57a9ef700f8974acd4ad8f08f44e2792e13cc4930",
+      "width": 291,
+      "height": 292,
+      "locations": [
+        {
+          "id": "FC-048-06",
+          "book": "FC",
+          "printed_page": 46,
+          "pdf_page": 48,
+          "lesson": 20,
+          "slot": "src/data/flipchart-native-assets.json/48/5"
+        }
+      ]
+    },
+    {
+      "id": "DRAW-FC-050-01",
+      "subject": "Ilustración de la página 50",
+      "classification": "OPTIMIZATION NEEDED",
+      "book": "FC",
+      "printed_page": 48,
+      "pdf_page": 50,
+      "lesson": 20,
+      "reference_id": "FC-050-01",
+      "reference_path": "crops/FC-050-01.png",
+      "sha256": "86ec00d05d9c4956b4a78e5da703c9fb9d3151b62255071e8675fdf7d5505257",
+      "pdf_sha256": "d7fb3dff4e63caf3443226e57a9ef700f8974acd4ad8f08f44e2792e13cc4930",
+      "width": 633,
+      "height": 631,
+      "locations": [
+        {
+          "id": "FC-050-01",
+          "book": "FC",
+          "printed_page": 48,
+          "pdf_page": 50,
+          "lesson": 20,
+          "slot": "src/data/flipchart-native-assets.json/50/0"
+        }
+      ]
+    },
+    {
+      "id": "DRAW-FC-051-01",
+      "subject": "Ilustración de la página 51",
+      "classification": "OPTIMIZATION NEEDED",
+      "book": "FC",
+      "printed_page": 49,
+      "pdf_page": 51,
+      "lesson": 21,
+      "reference_id": "FC-051-01",
+      "reference_path": "crops/FC-051-01.png",
+      "sha256": "95d0add8bbc4ec978ff5d47891d5c4c56c0a6323a287c262f6c004c71c16a79a",
+      "pdf_sha256": "d7fb3dff4e63caf3443226e57a9ef700f8974acd4ad8f08f44e2792e13cc4930",
+      "width": 561,
+      "height": 598,
+      "locations": [
+        {
+          "id": "FC-051-01",
+          "book": "FC",
+          "printed_page": 49,
+          "pdf_page": 51,
+          "lesson": 21,
+          "slot": "src/data/flipchart-native-assets.json/51/0"
+        }
+      ]
+    },
+    {
+      "id": "DRAW-FC-051-04",
+      "subject": "Jesús",
+      "classification": "OPTIMIZATION NEEDED",
+      "book": "FC",
+      "printed_page": 49,
+      "pdf_page": 51,
+      "lesson": 21,
+      "reference_id": "FC-051-04",
+      "reference_path": "crops/FC-051-04.png",
+      "sha256": "cbfd73652ead63e42cbb3b80bfa2285e2307e822d45f3c270152ef9daa250bee",
+      "pdf_sha256": "d7fb3dff4e63caf3443226e57a9ef700f8974acd4ad8f08f44e2792e13cc4930",
+      "width": 302,
+      "height": 333,
+      "locations": [
+        {
+          "id": "FC-051-04",
+          "book": "FC",
+          "printed_page": 49,
+          "pdf_page": 51,
+          "lesson": 21,
+          "slot": "src/data/flipchart-native-assets.json/51/3"
+        }
+      ]
+    },
+    {
+      "id": "DRAW-FC-051-06",
+      "subject": "jarra",
+      "classification": "OPTIMIZATION NEEDED",
+      "book": "FC",
+      "printed_page": 49,
+      "pdf_page": 51,
+      "lesson": 21,
+      "reference_id": "FC-051-06",
+      "reference_path": "crops/FC-051-06.png",
+      "sha256": "36512b6d7db098d7b19a7131a30ee017657fb72e0a138430b5f3db4e4f8893dc",
+      "pdf_sha256": "d7fb3dff4e63caf3443226e57a9ef700f8974acd4ad8f08f44e2792e13cc4930",
+      "width": 241,
+      "height": 326,
+      "locations": [
+        {
+          "id": "FC-051-06",
+          "book": "FC",
+          "printed_page": 49,
+          "pdf_page": 51,
+          "lesson": 21,
+          "slot": "src/data/flipchart-native-assets.json/51/5"
+        }
+      ]
+    },
+    {
+      "id": "DRAW-FC-053-01",
+      "subject": "Ilustración de la página 53",
+      "classification": "OPTIMIZATION NEEDED",
+      "book": "FC",
+      "printed_page": 51,
+      "pdf_page": 53,
+      "lesson": 21,
+      "reference_id": "FC-053-01",
+      "reference_path": "crops/FC-053-01.png",
+      "sha256": "edebe1143d788f1fba0478b34a579508d67db66bea3d846401339173aa45a34a",
+      "pdf_sha256": "d7fb3dff4e63caf3443226e57a9ef700f8974acd4ad8f08f44e2792e13cc4930",
+      "width": 607,
+      "height": 678,
+      "locations": [
+        {
+          "id": "FC-053-01",
+          "book": "FC",
+          "printed_page": 51,
+          "pdf_page": 53,
+          "lesson": 21,
+          "slot": "src/data/flipchart-native-assets.json/53/0"
+        }
+      ]
+    },
+    {
+      "id": "DRAW-FC-054-01",
+      "subject": "Ilustración de la página 54",
+      "classification": "OPTIMIZATION NEEDED",
+      "book": "FC",
+      "printed_page": 52,
+      "pdf_page": 54,
+      "lesson": 22,
+      "reference_id": "FC-054-01",
+      "reference_path": "crops/FC-054-01.png",
+      "sha256": "47037089a030beec1eb305021a7fa2db8ebc67c609c2461466f907f9c8e688b7",
+      "pdf_sha256": "d7fb3dff4e63caf3443226e57a9ef700f8974acd4ad8f08f44e2792e13cc4930",
+      "width": 616,
+      "height": 487,
+      "locations": [
+        {
+          "id": "FC-054-01",
+          "book": "FC",
+          "printed_page": 52,
+          "pdf_page": 54,
+          "lesson": 22,
+          "slot": "src/data/flipchart-native-assets.json/54/0"
+        }
+      ]
+    },
+    {
+      "id": "DRAW-FC-054-03",
+      "subject": "conejo",
+      "classification": "OPTIMIZATION NEEDED",
+      "book": "FC",
+      "printed_page": 52,
+      "pdf_page": 54,
+      "lesson": 22,
+      "reference_id": "FC-054-03",
+      "reference_path": "crops/FC-054-03.png",
+      "sha256": "6e54cc64564016c696f12430da44a673a68fabfadfa659e52f882869e87d56ed",
+      "pdf_sha256": "d7fb3dff4e63caf3443226e57a9ef700f8974acd4ad8f08f44e2792e13cc4930",
+      "width": 212,
+      "height": 303,
+      "locations": [
+        {
+          "id": "FC-054-03",
+          "book": "FC",
+          "printed_page": 52,
+          "pdf_page": 54,
+          "lesson": 22,
+          "slot": "src/data/flipchart-native-assets.json/54/2"
+        }
+      ]
+    },
+    {
+      "id": "DRAW-FC-054-04",
+      "subject": "casa",
+      "classification": "OPTIMIZATION NEEDED",
+      "book": "FC",
+      "printed_page": 52,
+      "pdf_page": 54,
+      "lesson": 22,
+      "reference_id": "FC-054-04",
+      "reference_path": "crops/FC-054-04.png",
+      "sha256": "cbc83488e5a71997c3e12cf912d01e8ff1c580bfa47f53b6623c43ec776e28d0",
+      "pdf_sha256": "d7fb3dff4e63caf3443226e57a9ef700f8974acd4ad8f08f44e2792e13cc4930",
+      "width": 360,
+      "height": 311,
+      "locations": [
+        {
+          "id": "FC-054-04",
+          "book": "FC",
+          "printed_page": 52,
+          "pdf_page": 54,
+          "lesson": 22,
+          "slot": "src/data/flipchart-native-assets.json/54/3"
+        }
+      ]
+    },
+    {
+      "id": "DRAW-FC-054-05",
+      "subject": "cubo",
+      "classification": "OPTIMIZATION NEEDED",
+      "book": "FC",
+      "printed_page": 52,
+      "pdf_page": 54,
+      "lesson": 22,
+      "reference_id": "FC-054-05",
+      "reference_path": "crops/FC-054-05.png",
+      "sha256": "c5376658a90f93ab757f33f0ffaf0994b4e46bca861548dec148c7634b7a9f7b",
+      "pdf_sha256": "d7fb3dff4e63caf3443226e57a9ef700f8974acd4ad8f08f44e2792e13cc4930",
+      "width": 283,
+      "height": 341,
+      "locations": [
+        {
+          "id": "FC-054-05",
+          "book": "FC",
+          "printed_page": 52,
+          "pdf_page": 54,
+          "lesson": 22,
+          "slot": "src/data/flipchart-native-assets.json/54/4"
+        }
+      ]
+    },
+    {
+      "id": "DRAW-FC-054-06",
+      "subject": "Catalina",
+      "classification": "OPTIMIZATION NEEDED",
+      "book": "FC",
+      "printed_page": 52,
+      "pdf_page": 54,
+      "lesson": 22,
+      "reference_id": "FC-054-06",
+      "reference_path": "crops/FC-054-06.png",
+      "sha256": "95e801ca6570af9cc93cdee3d165d12b919807c1097e0829f286d40113db22c9",
+      "pdf_sha256": "d7fb3dff4e63caf3443226e57a9ef700f8974acd4ad8f08f44e2792e13cc4930",
+      "width": 181,
+      "height": 379,
+      "locations": [
+        {
+          "id": "FC-054-06",
+          "book": "FC",
+          "printed_page": 52,
+          "pdf_page": 54,
+          "lesson": 22,
+          "slot": "src/data/flipchart-native-assets.json/54/5"
+        }
+      ]
+    },
+    {
+      "id": "DRAW-FC-057-01",
+      "subject": "Ilustración de la página 57",
+      "classification": "OPTIMIZATION NEEDED",
+      "book": "FC",
+      "printed_page": 55,
+      "pdf_page": 57,
+      "lesson": 23,
+      "reference_id": "FC-057-01",
+      "reference_path": "crops/FC-057-01.png",
+      "sha256": "50b509d8dd72ebaf9ce87fcb2c019387fc36f0bd8d567e0ef8b5df5a77db35a4",
+      "pdf_sha256": "d7fb3dff4e63caf3443226e57a9ef700f8974acd4ad8f08f44e2792e13cc4930",
+      "width": 592,
+      "height": 629,
+      "locations": [
+        {
+          "id": "FC-057-01",
+          "book": "FC",
+          "printed_page": 55,
+          "pdf_page": 57,
+          "lesson": 23,
+          "slot": "src/data/flipchart-native-assets.json/57/0"
+        }
+      ]
+    },
+    {
+      "id": "DRAW-FC-057-05",
+      "subject": "mayúscula",
+      "classification": "OPTIMIZATION NEEDED",
+      "book": "FC",
+      "printed_page": 55,
+      "pdf_page": 57,
+      "lesson": 23,
+      "reference_id": "FC-057-05",
+      "reference_path": "crops/FC-057-05.png",
+      "sha256": "486be0ce9e2229753e6353fcd9a79df10ea6bc5ac7414c720013a77bab1b373e",
+      "pdf_sha256": "d7fb3dff4e63caf3443226e57a9ef700f8974acd4ad8f08f44e2792e13cc4930",
+      "width": 281,
+      "height": 310,
+      "locations": [
+        {
+          "id": "FC-057-05",
+          "book": "FC",
+          "printed_page": 55,
+          "pdf_page": 57,
+          "lesson": 23,
+          "slot": "src/data/flipchart-native-assets.json/57/4"
+        }
+      ]
+    },
+    {
+      "id": "DRAW-FC-057-06",
+      "subject": "yoyo",
+      "classification": "OPTIMIZATION NEEDED",
+      "book": "FC",
+      "printed_page": 55,
+      "pdf_page": 57,
+      "lesson": 23,
+      "reference_id": "FC-057-06",
+      "reference_path": "crops/FC-057-06.png",
+      "sha256": "e56d29f7e609b6f2567665ee97fadb7ae942f883a1f178a38d51dc2592d97ac6",
+      "pdf_sha256": "d7fb3dff4e63caf3443226e57a9ef700f8974acd4ad8f08f44e2792e13cc4930",
+      "width": 297,
+      "height": 311,
+      "locations": [
+        {
+          "id": "FC-057-06",
+          "book": "FC",
+          "printed_page": 55,
+          "pdf_page": 57,
+          "lesson": 23,
+          "slot": "src/data/flipchart-native-assets.json/57/5"
+        }
+      ]
+    },
+    {
+      "id": "DRAW-FC-059-01",
+      "subject": "Ilustración de la página 59",
+      "classification": "OPTIMIZATION NEEDED",
+      "book": "FC",
+      "printed_page": 57,
+      "pdf_page": 59,
+      "lesson": 23,
+      "reference_id": "FC-059-01",
+      "reference_path": "crops/FC-059-01.png",
+      "sha256": "229a8e1f3e65224f3843c28314c0823daf9801f362b7f70498f3d3450d349da0",
+      "pdf_sha256": "d7fb3dff4e63caf3443226e57a9ef700f8974acd4ad8f08f44e2792e13cc4930",
+      "width": 620,
+      "height": 697,
+      "locations": [
+        {
+          "id": "FC-059-01",
+          "book": "FC",
+          "printed_page": 57,
+          "pdf_page": 59,
+          "lesson": 23,
+          "slot": "src/data/flipchart-native-assets.json/59/0"
+        }
+      ]
+    },
+    {
+      "id": "DRAW-FC-060-01",
+      "subject": "Ilustración de la página 60",
+      "classification": "OPTIMIZATION NEEDED",
+      "book": "FC",
+      "printed_page": 58,
+      "pdf_page": 60,
+      "lesson": 24,
+      "reference_id": "FC-060-01",
+      "reference_path": "crops/FC-060-01.png",
+      "sha256": "43841118e009610e0bb2505ee65c6011fdd583d351d48c7b34c0c027b114d866",
+      "pdf_sha256": "d7fb3dff4e63caf3443226e57a9ef700f8974acd4ad8f08f44e2792e13cc4930",
+      "width": 578,
+      "height": 567,
+      "locations": [
+        {
+          "id": "FC-060-01",
+          "book": "FC",
+          "printed_page": 58,
+          "pdf_page": 60,
+          "lesson": 24,
+          "slot": "src/data/flipchart-native-assets.json/60/0"
+        }
+      ]
+    },
+    {
+      "id": "DRAW-FC-060-03",
+      "subject": "zig-zag",
+      "classification": "OPTIMIZATION NEEDED",
+      "book": "FC",
+      "printed_page": 58,
+      "pdf_page": 60,
+      "lesson": 24,
+      "reference_id": "FC-060-03",
+      "reference_path": "crops/FC-060-03.png",
+      "sha256": "309fb5450716289f0b9a6bb395549b74c89881eef3fe7347246e46dcdb7c12df",
+      "pdf_sha256": "d7fb3dff4e63caf3443226e57a9ef700f8974acd4ad8f08f44e2792e13cc4930",
+      "width": 251,
+      "height": 287,
+      "locations": [
+        {
+          "id": "FC-060-03",
+          "book": "FC",
+          "printed_page": 58,
+          "pdf_page": 60,
+          "lesson": 24,
+          "slot": "src/data/flipchart-native-assets.json/60/2"
+        }
+      ]
+    },
+    {
+      "id": "DRAW-FC-060-04",
+      "subject": "zorro",
+      "classification": "OPTIMIZATION NEEDED",
+      "book": "FC",
+      "printed_page": 58,
+      "pdf_page": 60,
+      "lesson": 24,
+      "reference_id": "FC-060-04",
+      "reference_path": "crops/FC-060-04.png",
+      "sha256": "04ccb3a54d7670528d6fd02d24f96897d87de9487fe14e6c10350e6dec9c0379",
+      "pdf_sha256": "d7fb3dff4e63caf3443226e57a9ef700f8974acd4ad8f08f44e2792e13cc4930",
+      "width": 267,
+      "height": 314,
+      "locations": [
+        {
+          "id": "FC-060-04",
+          "book": "FC",
+          "printed_page": 58,
+          "pdf_page": 60,
+          "lesson": 24,
+          "slot": "src/data/flipchart-native-assets.json/60/3"
+        }
+      ]
+    },
+    {
+      "id": "DRAW-FC-060-05",
+      "subject": "zepelín",
+      "classification": "OPTIMIZATION NEEDED",
+      "book": "FC",
+      "printed_page": 58,
+      "pdf_page": 60,
+      "lesson": 24,
+      "reference_id": "FC-060-05",
+      "reference_path": "crops/FC-060-05.png",
+      "sha256": "1eeaca7b7af4f9dd52c543cf2038f2cfb20913b0d25c5f6093f85a71ac047d7e",
+      "pdf_sha256": "d7fb3dff4e63caf3443226e57a9ef700f8974acd4ad8f08f44e2792e13cc4930",
+      "width": 372,
+      "height": 291,
+      "locations": [
+        {
+          "id": "FC-060-05",
+          "book": "FC",
+          "printed_page": 58,
+          "pdf_page": 60,
+          "lesson": 24,
+          "slot": "src/data/flipchart-native-assets.json/60/4"
+        }
+      ]
+    },
+    {
+      "id": "DRAW-FC-062-01",
+      "subject": "Ilustración de la página 62",
+      "classification": "OPTIMIZATION NEEDED",
+      "book": "FC",
+      "printed_page": 60,
+      "pdf_page": 62,
+      "lesson": 24,
+      "reference_id": "FC-062-01",
+      "reference_path": "missing-originals/FC-062-01.png",
+      "sha256": "80a0df06a759eb93f26185490f751cac4d463795b8f4c97f95c9ee66a1eb1162",
+      "pdf_sha256": "d7fb3dff4e63caf3443226e57a9ef700f8974acd4ad8f08f44e2792e13cc4930",
+      "width": 824,
+      "height": 1002,
+      "locations": [
+        {
+          "id": "FC-062-01",
+          "book": "FC",
+          "printed_page": 60,
+          "pdf_page": 62,
+          "lesson": 24,
+          "slot": "src/data/flipchart-native-assets.json/62/0"
+        }
+      ]
+    },
+    {
+      "id": "COMPOSITE-WB-FRONT-001",
+      "subject": "Cover/title illustration composite",
+      "classification": "UNRESOLVED",
+      "book": "WB",
+      "printed_page": null,
+      "pdf_page": 1,
+      "lesson": 0,
+      "reference_id": "WB-FRONT-001",
+      "reference_path": "crops/WB-FRONT-001.png",
+      "sha256": "b2f9e6a5d59911d5d7eda96402b462b73122934b1f04f08af162c90b3c0ae5b2",
+      "pdf_sha256": "cbe050520bafefaea9c19c75eee6dd48ab3476a6377dc45009d176c18aab0a3b",
+      "width": 882,
+      "height": 1426,
+      "locations": [
+        {
+          "id": "WB-FRONT-001",
+          "book": "WB",
+          "printed_page": null,
+          "pdf_page": 1,
+          "lesson": 0,
+          "slot": null
+        }
+      ]
+    },
+    {
+      "id": "COMPOSITE-WB-FRONT-003",
+      "subject": "Cover/title illustration composite",
+      "classification": "UNRESOLVED",
+      "book": "WB",
+      "printed_page": null,
+      "pdf_page": 3,
+      "lesson": 0,
+      "reference_id": "WB-FRONT-003",
+      "reference_path": "crops/WB-FRONT-003.png",
+      "sha256": "65bc9800fac75ea18143d30a8aa865883baa93c8c4d77cd63f73a7aff916f7ce",
+      "pdf_sha256": "cbe050520bafefaea9c19c75eee6dd48ab3476a6377dc45009d176c18aab0a3b",
+      "width": 882,
+      "height": 1426,
+      "locations": [
+        {
+          "id": "WB-FRONT-003",
+          "book": "WB",
+          "printed_page": null,
+          "pdf_page": 3,
+          "lesson": 0,
+          "slot": null
+        }
+      ]
+    },
+    {
+      "id": "COMPOSITE-FC-FRONT-001",
+      "subject": "Cover/title illustration composite",
+      "classification": "UNRESOLVED",
+      "book": "FC",
+      "printed_page": null,
+      "pdf_page": 1,
+      "lesson": 0,
+      "reference_id": "FC-FRONT-001",
+      "reference_path": "crops/FC-FRONT-001.png",
+      "sha256": "e8ef51e45df9f130c193bde53f5071eb39bdc04ba1ca90542c8f7fe4c268cbc5",
+      "pdf_sha256": "d7fb3dff4e63caf3443226e57a9ef700f8974acd4ad8f08f44e2792e13cc4930",
+      "width": 870,
+      "height": 1426,
+      "locations": [
+        {
+          "id": "FC-FRONT-001",
+          "book": "FC",
+          "printed_page": null,
+          "pdf_page": 1,
+          "lesson": 0,
+          "slot": null
+        }
+      ]
+    }
+  ]
+}
