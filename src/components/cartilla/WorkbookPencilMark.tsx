@@ -952,7 +952,7 @@ export function WorkbookPencilMark({
   // Green when right, red when wrong — from the first line the pencil draws.
   const result =
     externalStatus === "correct"
-      ? "correct"
+      ? (isCorrect == null ? undefined : "correct")
       : isCorrect == null
         ? undefined
         : isCorrect

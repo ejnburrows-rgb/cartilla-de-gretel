@@ -906,6 +906,7 @@ export function PencilConnectorFromWorkbook({
 export function PencilMarkFromWorkbook({
   objects, onResult, onComplete, pageKey,
 }: InteractionProps & { pageKey: string }) {
+  const { emit: gretelEvent } = useActivityEvents();
   const graded = objects.filter((o) => (o.interaction?.data as {correct?: boolean} | undefined)?.correct !== undefined);
   const correct = objects.filter((o) =>
     graded.length === 0 || (o.interaction?.data as {correct?: boolean} | undefined)?.correct === true);
@@ -916,9 +917,10 @@ export function PencilMarkFromWorkbook({
   useEffect(() => {
     if (correct.length > 0 && marked.size === correct.length && !finished.current) {
       finished.current = true;
+      gretelEvent("activity:complete", { restored: true });
       onComplete?.();
     }
-  }, [correct.length, marked, onComplete]);
+  }, [correct.length, marked, onComplete, gretelEvent]);
   return <div className="am-pencil-mark-grid">
     {objects.map((object) => {
       const isCorrect = correct.some((o) => o.id === object.id);

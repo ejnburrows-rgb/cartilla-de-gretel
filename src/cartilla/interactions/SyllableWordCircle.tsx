@@ -207,6 +207,7 @@ export function SyllableWordCircle({ region, lessonId }: { region: PageRegion; l
           <WorkbookPencilMark
             markType="circle"
             status="correct"
+            isCorrect={true}
             itemId={`${region.id}-${wordIndex}-restored`}
           />
         )}
