@@ -32,10 +32,11 @@ function Token({ token }: { token: ReplicaToken }) {
     "--base": token.base,
     "--fs": token.fontSize,
     ...(token.chipW ? { "--chip-w": token.chipW } : {}),
+    ...(token.justifyW ? { "--jw": token.justifyW } : {}),
   } as CSSProperties;
   return (
     <p
-      className={`fc-replica__text fc-replica__text--${token.kind} fc-replica__text--${token.align}`}
+      className={`fc-replica__text fc-replica__text--${token.kind} fc-replica__text--${token.align}${token.justifyW ? " fc-replica__text--justify" : ""}`}
       data-token-kind={token.kind}
       data-fit-w={token.fitW}
       data-fit-cap={token.fitCap}
@@ -131,6 +132,8 @@ export function FlipchartReplicaSheet({ pageNumber, decorative = false }: { page
   const crescentLight = colors.crescentLight ?? "#e6dcef";
   const crescentEdge = colors.crescentEdge ?? colors.crescentLight ?? "#c9b8dc";
   const gradientId = `fc-replica-crescent-${pageNumber}${decorative ? "-thumb" : ""}`;
+  const fadeId = `${gradientId}-fade`;
+  const fade = sheet.crescent?.fade;
 
   return (
     <div className="fc-replica" data-replica-page={pageNumber}>
@@ -139,6 +142,7 @@ export function FlipchartReplicaSheet({ pageNumber, decorative = false }: { page
         className="fc-replica__sheet"
         data-testid="flipchart-replica-sheet"
         style={{ "--sheet-h": sheet.height } as CSSProperties}
+        data-card-tint={sheet.cardTint}
       >
         <div className="fc-replica__spiral" aria-hidden="true" />
         <div className="fc-replica__canvas">
@@ -149,6 +153,17 @@ export function FlipchartReplicaSheet({ pageNumber, decorative = false }: { page
               className={`fc-replica__panel fc-replica__panel--${panel.kind}`}
               data-tone={panel.tone}
               style={box(panel.x, panel.y, panel.w, panel.h, { "--panel": panel.color })}
+            />
+          ))}
+
+          {sheet.dividers.map((bar, index) => (
+            <div
+              key={`divider-${index}`}
+              aria-hidden="true"
+              className="fc-replica__divider"
+              style={box(bar.x, bar.y, bar.w, bar.h, {
+                "--bar": `linear-gradient(180deg, ${bar.stops.map((stop, i) => `${stop} ${[4, 15, 35, 50, 65, 85, 96][i] ?? 100}%`).join(", ")})`,
+              })}
             />
           ))}
 
@@ -165,8 +180,22 @@ export function FlipchartReplicaSheet({ pageNumber, decorative = false }: { page
                   <stop offset="0.2" stopColor={crescentLight} />
                   <stop offset="1" stopColor={crescentEdge} />
                 </linearGradient>
+                {fade && (
+                  <>
+                    {/* The printed moon's ends fade into the paper. */}
+                    <linearGradient id={`${fadeId}-ramp`} gradientUnits="userSpaceOnUse" x1="0" y1={fade[0]} x2="0" y2={fade[1]}>
+                      <stop offset="0" stopColor="#000" />
+                      <stop offset="0.09" stopColor="#fff" />
+                      <stop offset="0.91" stopColor="#fff" />
+                      <stop offset="1" stopColor="#000" />
+                    </linearGradient>
+                    <mask id={fadeId} maskUnits="userSpaceOnUse" x={sheet.crescent.x} y={fade[0]} width={sheet.crescent.w} height={fade[1] - fade[0]}>
+                      <rect x={sheet.crescent.x} y={fade[0]} width={sheet.crescent.w} height={fade[1] - fade[0]} fill={`url(#${fadeId}-ramp)`} />
+                    </mask>
+                  </>
+                )}
               </defs>
-              <path d={sheet.crescent.path} fill={`url(#${gradientId})`} />
+              <path d={sheet.crescent.path} fill={`url(#${gradientId})`} mask={fade ? `url(#${fadeId})` : undefined} />
             </svg>
           )}
 

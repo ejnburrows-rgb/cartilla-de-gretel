@@ -157,6 +157,8 @@ def main():
                 outer.append((right, y))
             if 30 <= right - x <= 230:  # a band, not the medallion's halo
                 inner.append((x + 1, y))
+        rows = [y for y in range(m.shape[0]) if m[y].sum() >= 4]
+        extent = [rows[0], rows[-1]] if rows else None
         if len(outer) < 40:
             print(page, "too few rows")
             continue
@@ -187,6 +189,8 @@ def main():
             "outer": [round(ocx, 1), round(ocy, 1), round(R, 1)],
             "inner": [round(icx, 1), round(icy, 1), round(r, 1)],
             "source": source,
+            # Printed tips: the moon's ends fade out before the circles meet.
+            "extent": extent,
         }
         print(page, out[page], "err", round(oerr, 1), round(ierr, 1), "thick", round(thick))
     (ROOT / "src/data/flipchart-crescents.json").write_text(json.dumps(out, indent=1, sort_keys=True) + "\n")

@@ -1646,3 +1646,45 @@
 .fc-native-board__living-art .living-illustration__art { mix-blend-mode: normal; }
 .fc-vocab-vowel { width: 6cqh; height: 6cqh; font-size: 4.5cqh; }
 .fc-reading-panel, .fc-story-panel { background-image: none; box-shadow: none; }
+
+/* Projector (wide, short screens): one control row — Anterior · thumbnails ·
+   Hoja · Siguiente — so the sheet gets the height a second row would take. */
+@media (min-width: 900px) and (min-aspect-ratio: 4/3) {
+  .fc-board[data-chrome="full"]:has(> .fc-board__strip) {
+    display: grid;
+    grid-template-columns: auto minmax(0, 1fr) auto minmax(0, 1fr) auto;
+    grid-template-rows: minmax(0, 1fr) auto;
+    column-gap: 0.65rem;
+    row-gap: 0.5rem;
+  }
+  .fc-board[data-chrome="full"]:has(> .fc-board__strip) > .fc-board__easel {
+    grid-column: 1 / -1;
+    grid-row: 1;
+  }
+  .fc-board[data-chrome="full"]:has(> .fc-board__strip) > .fc-board__controls {
+    display: contents;
+  }
+  .fc-board[data-chrome="full"]:has(> .fc-board__strip) .fc-board__nav:not(.fc-board__nav--next) {
+    grid-column: 1;
+    grid-row: 2;
+  }
+  .fc-board[data-chrome="full"]:has(> .fc-board__strip) > .fc-board__strip {
+    grid-column: 2;
+    grid-row: 2;
+    align-items: center;
+    padding: 0;
+  }
+  .fc-board[data-chrome="full"]:has(> .fc-board__strip) .fc-board__counter {
+    grid-column: 3;
+    grid-row: 2;
+    justify-self: center;
+  }
+  .fc-board[data-chrome="full"]:has(> .fc-board__strip) .fc-board__nav--next {
+    grid-column: 5;
+    grid-row: 2;
+  }
+  .fc-board[data-chrome="full"]:has(> .fc-board__strip) .fc-board__thumb {
+    width: 40px;
+    height: 52px;
+  }
+}

@@ -29,6 +29,18 @@ import { audioEngine } from "@/lib/audio-engine";
 import { useTeacherPresentation } from "@/lib/teacher-presentation-context";
 import { FlipchartNativeBoard } from "./FlipchartNativeBoard";
 import "@/styles/flipchart-presenter.css";
+import "@/styles/flipchart-turn.css";
+
+/**
+ * Easel page turn: the sheet lifts from the bottom, swings up toward the
+ * class and over the spiral at the top, and goes behind the easel. Slow lift,
+ * quicker swing through upright, gentle settle.
+ */
+const TURN_EASE = "cubic-bezier(0.6, 0.02, 0.28, 1)";
+/** The spiral's holes sit this far below the sheet's top edge (share of sheet width). */
+const HINGE_SHARE = 0.054;
+
+type LeafBox = { left: number; top: number; width: number; height: number; innerW: number; innerH: number };
 
 interface FlipchartHdPanelProps {
   lessonNumber: number;
@@ -82,6 +94,31 @@ export function FlipchartHdPanel({ lessonNumber, accentColor, chrome = "full" }:
   const [flipTransitionMs, setFlipTransitionMs] = useState(FLIPCHART_FLIP_MS);
 
   const easelRef = useRef<HTMLDivElement | null>(null);
+  const pageInnerRef = useRef<HTMLDivElement | null>(null);
+  const [leaf, setLeaf] = useState<LeafBox | null>(null);
+  /** "auto": a button/key turn plays the full easel motion; "drag": the hand leads. */
+  const [turnMode, setTurnMode] = useState<"auto" | "drag">("auto");
+
+  /** The turning leaf is the sheet itself (not the whole board), hinged at its spiral. */
+  const measureLeaf = useCallback(() => {
+    const inner = pageInnerRef.current;
+    if (!inner) return setLeaf(null);
+    const sheet =
+      inner.querySelector<HTMLElement>('[data-testid="flipchart-replica-sheet"]') ??
+      inner.querySelector<HTMLElement>(".fc-native-board__page");
+    const box = inner.getBoundingClientRect();
+    const scale = inner.offsetWidth ? box.width / inner.offsetWidth : 1;
+    if (!sheet || !scale) return setLeaf(null);
+    const rect = sheet.getBoundingClientRect();
+    setLeaf({
+      left: (rect.left - box.left) / scale,
+      top: (rect.top - box.top) / scale,
+      width: rect.width / scale,
+      height: rect.height / scale,
+      innerW: inner.offsetWidth,
+      innerH: inner.offsetHeight,
+    });
+  }, []);
   const flipLockedRef = useRef(false);
   const flipTokenRef = useRef(0);
   const flipTimerRef = useRef<number | null>(null);
@@ -163,6 +200,8 @@ export function FlipchartHdPanel({ lessonNumber, accentColor, chrome = "full" }:
       flipLockedRef.current = true;
       const token = ++flipTokenRef.current;
       const { start, end } = flipchartFlipTransforms(direction);
+      measureLeaf();
+      setTurnMode("auto");
       setTargetIdx(index);
       setFlipDirection(direction);
       setIsFlipping(true);
@@ -187,7 +226,7 @@ export function FlipchartHdPanel({ lessonNumber, accentColor, chrome = "full" }:
         FLIPCHART_FLIP_MS,
       );
     },
-    [afterFlip, isFlipping, pages.length, reducedMotion, safeIdx, triggerCinematicZoom],
+    [afterFlip, isFlipping, measureLeaf, pages.length, reducedMotion, safeIdx, triggerCinematicZoom],
   );
 
   const handlePrev = useCallback(() => {
@@ -273,6 +312,8 @@ export function FlipchartHdPanel({ lessonNumber, accentColor, chrome = "full" }:
       setTargetIdx(state.targetIdx);
       setFlipDirection(state.direction);
       if (!reducedMotion) {
+        measureLeaf();
+        setTurnMode("drag");
         setIsFlipping(true);
         setIsDragging(true);
       }
@@ -402,8 +443,14 @@ export function FlipchartHdPanel({ lessonNumber, accentColor, chrome = "full" }:
   }
 
   const destIdx = targetIdx ?? safeIdx;
-  const staticIdx = isFlipping ? destIdx : safeIdx;
+  // Turning forward, the next sheet is already underneath; turning back, the
+  // previous sheet comes down over the top onto the current one.
+  const staticIdx = isFlipping && flipDirection === "next" ? destIdx : safeIdx;
   const flipFrontIdx = isFlipping ? (flipDirection === "next" ? safeIdx : destIdx) : -1;
+  const leafBox: CSSProperties = leaf
+    ? { left: leaf.left, top: leaf.top, width: leaf.width, height: leaf.height }
+    : { inset: 0 };
+  const hinge = leaf ? Math.round(leaf.width * HINGE_SHARE) : 0;
 
   const leftCornerLabel =
     handMode === "left"
@@ -433,6 +480,7 @@ export function FlipchartHdPanel({ lessonNumber, accentColor, chrome = "full" }:
       data-reduced-motion={reducedMotion ? "true" : "false"}
       data-chrome={chrome}
       data-hand-mode={handMode}
+      data-turning={isFlipping ? "true" : undefined}
     >
       <div
         ref={easelRef}
@@ -440,7 +488,7 @@ export function FlipchartHdPanel({ lessonNumber, accentColor, chrome = "full" }:
         data-testid="flipchart-stage"
       >
         <div className="fc-board__page">
-          <div className="fc-board__page-inner">
+          <div className="fc-board__page-inner" ref={pageInnerRef}>
             <div className="absolute inset-0 h-full w-full">
               <FlipchartFace page={pages[staticIdx] ?? currentPage} onReady={() => setPageReady(true)} />
             </div>
@@ -455,30 +503,49 @@ export function FlipchartHdPanel({ lessonNumber, accentColor, chrome = "full" }:
 
             {isFlipping && (
               <div
-                className="pointer-events-none absolute inset-0 z-30"
+                className="fc-turn pointer-events-none absolute inset-0 z-30"
                 data-testid="vertical-flip-layer"
-                style={{ transformStyle: "preserve-3d", perspective: "2400px" }}
+                data-turn-direction={flipDirection ?? undefined}
+                data-dragging={isDragging ? "true" : undefined}
+                data-turn-mode={turnMode}
+                style={{ ["--fc-turn-ms" as string]: `${flipTransitionMs}ms` } as CSSProperties}
               >
+                {/* The lifting sheet's shadow on the sheet underneath. */}
+                <div className="fc-turn__under-shadow" style={leafBox} aria-hidden />
                 <div
-                  className="flipchart-flip-wrapper"
+                  className="fc-turn__stage"
                   style={{
-                    transform: flipTransform,
-                    transformOrigin: "top center",
-                    transition: isDragging
-                      ? "none"
-                      : `transform ${flipTransitionMs}ms cubic-bezier(0.22, 1, 0.36, 1)`,
-                    willChange: "transform",
+                    ...leafBox,
+                    perspective: leaf ? `${Math.round(leaf.height * 2.6)}px` : "2400px",
+                    perspectiveOrigin: `50% ${hinge}px`,
                   }}
                 >
-                  <div className="flipchart-page-front">
-                    <FlipchartFace page={pages[flipFrontIdx]} />
-                    <div className="flipchart-shadow-overlay" style={{ opacity: flipDirection === "next" ? 0.6 : 0 }} />
-                  </div>
-                  <div className="flipchart-page-back">
-                    <div className="fc-board__paper-back">
-                      <div className="fc-board__paper-back-pattern" />
+                  <div
+                    className="flipchart-flip-wrapper fc-turn__leaf"
+                    style={{
+                      transform: flipTransform,
+                      transformOrigin: `50% ${hinge}px`,
+                      transition: isDragging ? "none" : `transform ${flipTransitionMs}ms ${TURN_EASE}`,
+                      willChange: "transform",
+                    }}
+                  >
+                    <div className="flipchart-page-front fc-turn__front">
+                      <div
+                        className="fc-turn__face"
+                        style={
+                          leaf
+                            ? { left: -leaf.left, top: -leaf.top, width: leaf.innerW, height: leaf.innerH }
+                            : { inset: 0 }
+                        }
+                      >
+                        <FlipchartFace page={pages[flipFrontIdx]} />
+                      </div>
+                      <div className="flipchart-shadow-overlay fc-turn__shade" />
                     </div>
-                    <div className="flipchart-shadow-overlay" style={{ opacity: flipDirection === "prev" ? 0.6 : 0 }} />
+                    <div className="flipchart-page-back fc-turn__back">
+                      <div className="fc-turn__paper" />
+                      <div className="flipchart-shadow-overlay fc-turn__shade" />
+                    </div>
                   </div>
                 </div>
               </div>

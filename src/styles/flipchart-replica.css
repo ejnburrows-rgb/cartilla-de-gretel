@@ -66,6 +66,7 @@
 
 /* Shared positioning in sheet units. */
 .fc-replica__panel,
+.fc-replica__divider,
 .fc-replica__crescent,
 .fc-replica__medallion,
 .fc-replica__art {
@@ -86,6 +87,17 @@
   z-index: 1;
 }
 
+/* Printed divider bar between the word columns and the reading paragraph:
+ * a glossy colour tube, top-to-bottom colours sampled from the scan. */
+.fc-replica__divider {
+  z-index: 0;
+  border-radius: 999px;
+  background: var(--bar);
+  box-shadow:
+    inset 0 0 0 calc(1 * var(--u)) rgba(40, 70, 70, 0.06),
+    0 calc(1.5 * var(--u)) calc(3 * var(--u)) rgba(40, 60, 60, 0.1);
+}
+
 /* ── Cards, syllable bands, single-word chips ─────────────────────────── */
 .fc-replica__panel--card {
   border-radius: calc(26 * var(--u));
@@ -98,6 +110,15 @@
   box-shadow:
     0 calc(8 * var(--u)) calc(22 * var(--u)) rgba(120, 40, 60, 0.12),
     inset 0 calc(2 * var(--u)) 0 rgba(255, 255, 255, 0.75);
+}
+
+/* Sheet 3: the reference guide's cool grey-lavender poem card. */
+.fc-replica__sheet[data-card-tint="mist"] .fc-replica__panel--card {
+  background: linear-gradient(180deg, #eef0f3, #e7eaee);
+  border-color: rgba(176, 132, 142, 0.34);
+  box-shadow:
+    0 calc(8 * var(--u)) calc(22 * var(--u)) rgba(60, 60, 80, 0.1),
+    inset 0 calc(2 * var(--u)) 0 rgba(255, 255, 255, 0.8);
 }
 
 .fc-replica__panel--band {
@@ -217,6 +238,13 @@
 
 .fc-replica .fc-replica__ink {
   display: inline-block;
+}
+
+/* Justified paragraph lines, as printed: words spread to the right edge. */
+.fc-replica .fc-replica__text--justify .fc-replica__ink {
+  width: calc(var(--jw) * var(--u));
+  text-align: justify;
+  text-align-last: justify;
 }
 
 .fc-replica .fc-replica__text [data-bold] {
