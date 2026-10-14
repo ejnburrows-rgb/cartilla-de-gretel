@@ -100,3 +100,11 @@ def test_refuses_direct_public_generation(tmp_path, monkeypatch):
     monkeypatch.chdir(tmp_path)
     with pytest.raises(ValueError,match="private staging"):
         generate_batch([], "public/audio/gretel/clips",tmp_path/"m.json",speech_like)
+
+
+def test_cannot_write_private_candidates_anywhere_inside_public(tmp_path, monkeypatch):
+    monkeypatch.chdir(tmp_path)
+    with pytest.raises(ValueError, match="private staging"):
+        generate_batch([], "public/audio/gretel/other", tmp_path/"m.json", speech_like)
+    with pytest.raises(ValueError, match="public playback manifest"):
+        generate_batch([], tmp_path/"clips", "src/data/gretel-recorded-manifest.json", speech_like)
