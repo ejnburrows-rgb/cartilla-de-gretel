@@ -211,6 +211,16 @@
 .lc-lesson-shell--fit .native-lesson-viewer__content .am-direct-pencil__row > * { justify-self: center; width: min(100%, 140px, 100cqh); height: auto; min-width: 72px; min-height: 72px; aspect-ratio: 1; }
 .lc-lesson-shell--fit .native-lesson-viewer__content .am-direct-pencil__row > .am-direct-pencil__center { width: clamp(64px, 9cqw, 88px); min-width: 64px; min-height: 64px; }
 .lc-lesson-shell--fit .native-lesson-viewer__content .am-direct-pencil__target img { width: 100%; height: 100%; object-fit: contain; }
+/* Expanded work scrolls inside its existing overlay on short screens. Keep
+ * the stage tall enough for every endpoint, rather than overflowing its board. */
+.lc-lesson-shell--fit .native-lesson-viewer__content .am-direct-pencil.is-expanded .am-direct-pencil__stage { flex: 0 0 auto; min-height: var(--lc-pencil-board-min-height); }
+.lc-lesson-shell--fit .native-lesson-viewer__content .am-direct-pencil__stage:has(.am-direct-pencil__grid) { --lc-pencil-board-min-height: calc(216px + 2 * clamp(32px, 5cqw, 56px) + 2 * clamp(8px, 1.5cqw, 20px) + 3px); }
+.lc-lesson-shell--fit .native-lesson-viewer__content .am-direct-pencil__stage:has(.am-direct-pencil__multi-grid) { --lc-pencil-board-min-height: calc(360px + 3rem + 2 * clamp(8px, 1.5cqw, 20px) + 3px); }
+@media (orientation: landscape) and (max-height: 500px) {
+  /* The short-screen page already scrolls; give its board a definite row height. */
+  .lc-lesson-shell--fit .native-lesson-viewer__content .am-direct-pencil:not(.is-expanded) .am-direct-pencil__stage { flex: 0 0 auto; height: var(--lc-pencil-board-min-height); }
+}
+
 .lc-lesson-shell--fit .native-lesson-viewer__content .am-direct-pencil__multi-grid { padding: 0; gap: 32px; }
 .lc-lesson-shell--fit .native-lesson-viewer__content .am-direct-pencil__left-card,
 .lc-lesson-shell--fit .native-lesson-viewer__content .am-direct-pencil__column--right .am-direct-pencil__target { min-width: 72px; min-height: 72px; }

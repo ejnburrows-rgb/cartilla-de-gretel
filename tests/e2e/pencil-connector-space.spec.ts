@@ -72,13 +72,13 @@ async function measure(page: Page) {
     };
   });
 }
-function checkGeometry(m: Awaited<ReturnType<typeof measure>>, pair: boolean) {
+function checkGeometry(m: Awaited<ReturnType<typeof measure>>, pair: boolean, requireViewport = true) {
   for (const r of m.targets) { expect(r.width, r.label ?? '').toBeGreaterThanOrEqual(71.9); expect(r.height).toBeGreaterThanOrEqual(71.9); }
   for (const r of m.sources) { expect(r.width).toBeGreaterThanOrEqual(pair ? 71.9 : 63.9); expect(r.height).toBeGreaterThanOrEqual(pair ? 71.9 : 63.9); }
   expect(m.minGap, 'source-to-picture edge drawing space').toBeGreaterThanOrEqual(24);
   expect(m.minCardGap, 'cards do not overlap').toBeGreaterThan(0);
   expect(m.clipped, 'cards remain within stage').toBe(false);
-  expect(m.outsideViewport, 'cards remain visible within real viewport').toBe(false);
+  if (requireViewport) expect(m.outsideViewport, 'cards remain visible within real viewport').toBe(false);
   expect(m.hscroll).toBeLessThanOrEqual(0);
 }
 
@@ -116,7 +116,10 @@ for (const device of devices) for (const input of ['mouse', 'touch'] as const) {
       // Exercise every target approach, including middle left/right; never release on a disabled printed example.
       for (let i = 0; i < await page.locator(target).count(); i++) {
         const source = page.locator(pair ? left : center).first();
-        await press(page, source, cdp); await move(page, await point(page.locator(target).nth(i)), cdp);
+        await press(page, source, cdp); await expect(source).toHaveClass(/is-active/);
+        const destination = page.locator(target).nth(i);
+        await move(page, await point(destination), cdp);
+        if (!(await destination.isDisabled())) await expect(destination).toHaveClass(/is-approaching/);
         await page.waitForTimeout(300); // include the full source/target hover enlargement
         const m = await measure(page); checkGeometry(m, pair); active.push(m);
         await move(page, await point(source), cdp); await release(page, cdp);
@@ -164,6 +167,59 @@ for (const device of devices) for (const input of ['mouse', 'touch'] as const) {
       else await expect(viewer).not.toHaveAttribute('data-native-page', String(item.printed), { timeout: 8000 });
       expect(await saved(), 'completion persists after page navigation').toEqual(allSaved);
       await cdp?.detach();
+    });
+  });
+}
+
+// Expanded precision work uses the existing scrollable overlay. On short
+// landscape screens the board must contain every row, even below the fold.
+for (const viewport of [{ width: 844, height: 390 }, { width: 390, height: 844 }]) {
+  test.describe(`expanded ${viewport.width}x${viewport.height}`, () => {
+    test.use({ viewport, reducedMotion: 'reduce' });
+    for (const item of pages) test(`p${item.printed}: full stage capacity and return`, async ({ page }) => {
+      fs.mkdirSync(proof, { recursive: true });
+      await page.addInitScript(({ lesson, index }) => {
+        const v = JSON.stringify({ lesson, page: index });
+        localStorage.setItem('cartilla.learner-resume.v1', v);
+        localStorage.setItem(`cartilla.learner-resume.v1:${lesson}`, v);
+      }, item);
+      await page.goto(`/cartilla/leccion/${item.lesson}`);
+      const toggle = page.getByRole('button', { name: 'Ampliar área de trabajo', exact: true });
+      await expect(toggle).toBeVisible();
+      const embedded = await measure(page);
+      await toggle.click();
+      const overlay = page.locator('.am-direct-pencil.is-expanded');
+      await expect(overlay).toBeVisible();
+      await page.mouse.move(0, 0); await page.waitForTimeout(250);
+      const expanded = await measure(page);
+      checkGeometry(expanded, item.printed === 3, false);
+      const scroll = await overlay.evaluate(e => ({ widthOverflow: e.scrollWidth - e.clientWidth, heightOverflow: e.scrollHeight - e.clientHeight, overflow: getComputedStyle(e).overflowY }));
+      expect(scroll.widthOverflow).toBeLessThanOrEqual(0);
+      expect(scroll.overflow).toBe('auto');
+      const prefix = `p${item.printed}-expanded-${viewport.width}x${viewport.height}`;
+      // Two actual viewport captures cover the complete scrollable work area;
+      // do not pretend a fullPage screenshot exposes hidden overlay content.
+      await page.screenshot({ path: path.join(proof, `${prefix}-top.png`) });
+      await overlay.evaluate(e => { e.scrollTop = e.scrollHeight; });
+      await page.waitForTimeout(100);
+      await page.screenshot({ path: path.join(proof, `${prefix}-bottom.png`) });
+      // Every endpoint is independently reachable through the overlay scroll.
+      for (const endpoint of await page.locator(`${left},${center},${target}`).all()) {
+        await endpoint.scrollIntoViewIfNeeded();
+        const r = await endpoint.boundingBox(); const o = await overlay.boundingBox();
+        expect(r!.x).toBeGreaterThanOrEqual(o!.x);
+        expect(r!.x + r!.width).toBeLessThanOrEqual(Math.min(viewport.width, o!.x + o!.width));
+        expect(r!.y).toBeGreaterThanOrEqual(o!.y - 1);
+        expect(r!.y + r!.height).toBeLessThanOrEqual(Math.min(viewport.height, o!.y + o!.height) + 1);
+      }
+      await page.getByRole('button', { name: 'Volver a la página', exact: true }).click();
+      await expect(overlay).toHaveCount(0);
+      await page.mouse.move(0, 0); await page.waitForTimeout(250);
+      const returned = await measure(page);
+      checkGeometry(returned, item.printed === 3, viewport.height > 500);
+      expect(returned.stage.width).toBeCloseTo(embedded.stage.width, 0);
+      expect(returned.stage.height).toBeCloseTo(embedded.stage.height, 0);
+      fs.writeFileSync(path.join(proof, `${prefix}.json`), JSON.stringify({ embedded, expanded, returned, scroll }, null, 2));
     });
   });
 }

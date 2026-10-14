@@ -1,0 +1,7 @@
+# Durable recovery checkpoint — 2026-10-14
+
+Base main32c1d2c; material prior head71d579e. Prior persisted session tool results record tsc exit0,98/98 focused Vitest,36/36 native spacing E2E (5.0min),36 geometry files with minimum active gap26.3917px. The computer replacement at15:02UTC erased unexported raw logs,60PNGs and the ongoing70-case compatibility process. Their missing raw outputs are not fabricated here. Remote code survived and was recovered on the same existing branch. No deployment/merge/Notion write/new paid service.
+
+Independent review identified short-landscape expanded boards lacking minimum height. New local reproduction at844×390 confirmed both p3 and p5 overflowed210px stage. The scoped fix reserves minimum stage height for five72px pair rows plus4×12px gaps or three72px central rows plus2 responsive gaps, including padding/border, disables expanded-stage flex shrink, gives the existing scrolling short-landscape embedded page a definite board height on return, and retains existing overlay overflow:auto. Raw before/after reproduction follows in this folder. Embedded layout rules, source content/art, TSX, motion, fit logic and Flip Chart are unchanged.
+
+Expanded regression coverage and regenerated missing pixel evidence are in progress. This checkpoint is not a release or owner approval claim. Existing #764 remains separate a40a6f6; compatibility must be rerun because its previous final result was lost. No new branch or duplicate PR.
