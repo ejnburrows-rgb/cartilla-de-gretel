@@ -38,14 +38,12 @@ describe("release integration — workbook + lessons", () => {
     }
   });
 
-  it("L21–L24 include the closing catalog page (78/82/86/90) even when inventory is short", () => {
-    // Inventory historically listed only 3 of 4 printed pages for these
-    // lessons — buildPageArray must pad from the catalog so the closing
-    // page with a verified layout is not silently dropped.
+  it("L21–L24 include all available original leaves, skipping the missing scans", () => {
+    // Keep real closing pages 78, 82 and 90; exclude the missing 86 and 87.
     expect(buildPageArray(21)).toHaveLength(4);
     expect(buildPageArray(22)).toHaveLength(4);
-    expect(buildPageArray(23)).toHaveLength(4);
-    expect(buildPageArray(24)).toHaveLength(4);
+    expect(buildPageArray(23).map((p) => p.pageNumber)).toEqual([83, 84, 85]);
+    expect(buildPageArray(24).map((p) => p.pageNumber)).toEqual([88, 89, 90]);
   });
 
   it("keeps the fallback chain repository-controlled and does not invent restored artwork", () => {
