@@ -19,18 +19,15 @@ test("student opens Lesson 1, answers a picture activity, and sees it graded", a
   const cells = page.locator(".fp-ix-cell");
   await expect(cells.first()).toBeVisible({ timeout: 20_000 });
 
-  // 3. Answer: tap a picture cell, then press "Comprobar".
-  await cells.first().click();
-  const check = page.getByRole("button", { name: "Comprobar" }).first();
-  await expect(check).toBeEnabled();
-  await check.click();
+  // 3. Answer: tap a right picture. Each tap is graded at once (there is no
+  //    separate "Comprobar" step): the picture keeps its pencil circle.
+  const right = page.locator('.fp-ix-cell[data-gretel-correct="true"]').first();
+  await right.click();
 
-  // 4. A visible grading reaction (correct / incorrect state) appears, and the
-  //    check button becomes disabled now that the activity has been graded.
-  await expect(page.locator(".graded-correct, .graded-wrong, .graded-missed").first()).toBeVisible({
-    timeout: 10_000,
-  });
-  await expect(check).toBeDisabled();
+  // 4. A visible grading reaction appears and the graded picture is locked.
+  await expect(right).toHaveClass(/graded-correct/, { timeout: 10_000 });
+  await expect(right.locator('[data-mark-status="correct"]')).toHaveCount(1);
+  await expect(right).toBeDisabled();
 
   // 5. Proof.
   await page.screenshot({

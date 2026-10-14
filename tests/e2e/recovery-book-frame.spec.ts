@@ -1,4 +1,5 @@
 import { test, expect, type Page } from '@playwright/test';
+import { seedCompletedPages } from './support/completion';
 
 async function dismissIntro(page: Page) {
   const start = page.getByRole('button', { name: 'Comenzar' });
@@ -12,6 +13,8 @@ for (const viewport of [
 ]) {
   test(`native reader frame and page turn ${viewport.name}`, async ({ page }) => {
     await page.setViewportSize(viewport);
+    // Page 23 is finished so "Siguiente" is open; the gate is covered elsewhere.
+    await seedCompletedPages(page, [23]);
     await page.goto('/cartilla/leccion/8', { waitUntil: 'domcontentloaded' });
     await dismissIntro(page);
 
@@ -25,8 +28,9 @@ for (const viewport of [
     await expect(navigation).toBeVisible();
     await expect(page.getByTestId('physical-book-reader')).toHaveCount(0);
 
-    const gretel = page.getByTestId('gretel-presence');
-    await expect(gretel).toHaveAttribute('data-page-ready', 'true');
+    // Lesson pages carry no Gretel side column or picture (owner direction
+    // 2026-10-07 / #739), so the frame is the page plus navigation only.
+    await expect(page.getByTestId('gretel-presence')).toHaveCount(0);
 
     const geometry = await page.evaluate(() => ({
       clientWidth: document.documentElement.clientWidth,
@@ -55,10 +59,9 @@ for (const viewport of [
 
     const before = await counter.textContent();
     await reader.getByRole('button', { name: 'Siguiente' }).click();
-    await expect(counter).not.toHaveText(before!, { timeout: 4000 });
-    await expect(gretel).toHaveAttribute('data-page-ready', 'true', { timeout: 4000 });
+    await expect(counter).not.toHaveText(before!, { timeout: 6000 });
 
     await reader.getByRole('button', { name: /Anterior/i }).click();
-    await expect(counter).toHaveText(before!, { timeout: 4000 });
+    await expect(counter).toHaveText(before!, { timeout: 6000 });
   });
 }

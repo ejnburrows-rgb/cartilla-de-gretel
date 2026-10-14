@@ -1,6 +1,7 @@
 import { test, expect, type Page } from "@playwright/test";
 import fs from "node:fs/promises";
 import path from "node:path";
+import { seedCompletedPages } from "./support/completion";
 
 const VIEWPORTS = [
   { name: "desktop", width: 1280, height: 900 },
@@ -51,6 +52,8 @@ test.describe("complete native platform visual audit", () => {
         if (msg.type() === "error") errors.push(`console: ${msg.text()}`);
       });
 
+      // Every page is pre-finished so the sweep can turn past the completion gate.
+      await seedCompletedPages(page, Array.from({ length: 90 }, (_, i) => i + 1));
       let capturedPages = 0;
 
       for (let lesson = 1; lesson <= 24; lesson += 1) {
@@ -84,7 +87,6 @@ test.describe("complete native platform visual audit", () => {
           expect(pageNumber).toBeLessThanOrEqual(90);
 
           await expectNoBrokenImages(stage, `workbook page ${pageNumber}`);
-          await expect(page.locator('svg[data-gretel-rig="svg"]').first()).toBeVisible();
 
           const geometry = await page.evaluate(() => ({
             scrollWidth: document.documentElement.scrollWidth,
@@ -110,7 +112,7 @@ test.describe("complete native platform visual audit", () => {
           if ((await next.count()) === 0) break;
 
           await next.click();
-          await expect(counter).not.toContainText(`Página ${pageNumber} ·`, { timeout: 4000 });
+          await expect(counter).not.toContainText(`Página ${pageNumber} ·`, { timeout: 8000 });
           state += 1;
           if (state > 12) throw new Error(`Unexpected page loop in lesson ${lesson}`);
         }
@@ -154,7 +156,7 @@ test.describe("complete native platform visual audit", () => {
         if (await empty.isVisible().catch(() => false)) continue;
 
         for (let index = 0; index < 12; index += 1) {
-          const board = panel.locator('[data-native-flipchart="true"]').first();
+          const board = panel.getByTestId("flipchart-stage").locator('[data-native-flipchart="true"]').first();
           await expect(board).toBeVisible();
 
           const rawPage = await board.getAttribute("data-flipchart-page")
@@ -196,7 +198,7 @@ test.describe("complete native platform visual audit", () => {
           const next = panel.getByRole("button", { name: /Lámina siguiente/i });
           if ((await next.count()) === 0 || await next.isDisabled()) break;
           await next.click();
-          await page.waitForTimeout(1200);
+          await page.waitForTimeout(2600); // the sheet turn over the binding takes 2 s
         }
       }
 

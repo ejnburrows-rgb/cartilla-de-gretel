@@ -35,7 +35,8 @@ test("faculty demo remains usable without the nested desktop sidebar on mobile",
   await page.setViewportSize({ width: 390, height: 844 });
   await page.goto("/cartilla/teacher/crm");
 
-  await expect(page.getByRole("heading", { name: "Centro de Control" })).toBeVisible({
+  // The CRM route opens the teacher's daily home ("Hoy en tu clase").
+  await expect(page.getByRole("heading", { name: "Hoy en tu clase", level: 1 })).toBeVisible({
     timeout: 20_000,
   });
   await expect(page.locator(".crm-sidebar")).toBeHidden();

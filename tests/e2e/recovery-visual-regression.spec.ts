@@ -86,8 +86,8 @@ for (const viewport of SIZES) {
       await expect(stage).toBeVisible();
       await expect(page.getByTestId('physical-book-reader')).toHaveCount(0);
 
-      const guide = page.getByTestId('gretel-presence');
-      await expect(guide).toHaveAttribute('data-page-ready', 'true');
+      // No Gretel side column or picture on lesson pages (owner direction 2026-10-07 / #739).
+      await expect(page.getByTestId('gretel-presence')).toHaveCount(0);
       await page.evaluate(() => document.fonts.ready);
       await expectNativeReaderGeometry(page, viewport, n);
 
@@ -114,9 +114,6 @@ for (const viewport of SIZES) {
       );
       expect(images.filter(image => !image.loaded), `missing art lesson ${n}`).toEqual([]);
 
-      const svgRig = page.locator('svg[data-gretel-rig="svg"]').first();
-      await expect(svgRig).toBeVisible();
-
       const shot = await stage.screenshot({
         type: 'jpeg',
         quality: 65,
@@ -139,7 +136,8 @@ for (const viewport of SIZES) {
       const panel = page.getByTestId('flipchart-hd-panel');
       await expect(panel).toBeVisible();
       await expect(panel).toHaveAttribute('data-presenter-mode', 'native');
-      await expect(panel.locator('[data-native-flipchart="true"]')).toBeVisible();
+      // The stage shows one sheet; turn layers hold hidden copies of neighbours.
+      await expect(panel.getByTestId('flipchart-stage').locator('[data-native-flipchart="true"]').first()).toBeVisible();
       await page.evaluate(() => document.fonts.ready);
 
       const pageImages = await panel.locator('img:visible').evaluateAll(nodes =>

@@ -48,27 +48,26 @@ for (const [name, viewport] of Object.entries({
   landscape: { width: 1280, height: 800 },
 })) {
   test(`Flip Chart ${name}: sheet identity and whole-composition fit`, async ({ page }) => {
+    // Owner direction 2026-10-07: the Flip Chart is a clean paper surface with
+    // no background image; the sheet itself is the printed-layout replica.
     await page.setViewportSize(viewport);
     await page.goto("/cartilla/presentar/1");
-    await expect(page.getByTestId("flipchart-stage")).toBeVisible();
     const stage = page.getByTestId("flipchart-stage");
-    const bg = stage.locator(".final-page-background");
-    await expect(bg).toHaveAttribute("data-background-printed-page", "1");
-    await expect(bg).toHaveAttribute("data-background-pdf-sheet", "3");
-    await expect(bg).toHaveJSProperty("complete", true);
-    expect(await bg.evaluate((el) => (el as HTMLImageElement).naturalWidth)).toBeGreaterThan(0);
-    expect(await bg.evaluate((el) => getComputedStyle(el).objectFit)).toBe("contain");
-    expect(await bg.evaluate((el) => getComputedStyle(el).pointerEvents)).toBe("none");
-    const fg = stage.locator(".fc-native-board__page");
-    const before = await fg.boundingBox();
-    await bg.evaluate((el) => (el.style.display = "none"));
-    expect(await fg.boundingBox()).toEqual(before);
-    await stage.screenshot({ path: `docs/proofs/final-backgrounds/flipchart-${name}-before.png` });
-    await bg.evaluate((el) => (el.style.display = ""));
+    await expect(stage).toBeVisible();
+    await expect(stage.locator(".final-page-background")).toHaveCount(0);
+    const sheet = stage.locator('[data-native-flipchart="true"]').first();
+    await expect(sheet).toHaveAttribute("data-flipchart-page", "3");
+    const stageBox = (await stage.boundingBox())!;
+    const sheetBox = (await sheet.boundingBox())!;
+    expect(sheetBox.width).toBeGreaterThan(0);
+    expect(sheetBox.x).toBeGreaterThanOrEqual(stageBox.x - 2);
+    expect(sheetBox.x + sheetBox.width).toBeLessThanOrEqual(stageBox.x + stageBox.width + 2);
+    await expect.poll(() => stage.locator("img").evaluateAll((images) =>
+      images.every((i) => (i as HTMLImageElement).complete && (i as HTMLImageElement).naturalWidth > 0))).toBe(true);
     await stage.screenshot({ path: `docs/proofs/final-backgrounds/flipchart-${name}-after.png` });
     await page.goto("/cartilla/presentar/2");
-    await expect(
-      page.getByTestId("flipchart-stage").locator(".final-page-background"),
-    ).toHaveAttribute("data-background-pdf-sheet", "4");
+    const second = page.getByTestId("flipchart-stage");
+    await expect(second.locator(".final-page-background")).toHaveCount(0);
+    await expect(second.locator('[data-native-flipchart="true"]').first()).toHaveAttribute("data-flipchart-page", "4");
   });
 }

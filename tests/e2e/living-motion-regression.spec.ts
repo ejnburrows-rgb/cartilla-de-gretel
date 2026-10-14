@@ -77,7 +77,8 @@ test.describe("Living Motion Regression Suite", () => {
     const panel = page.getByTestId("flipchart-hd-panel");
     await expect(panel).toBeVisible({ timeout: 30_000 });
 
-    const sceneWrapper = page.locator('.living-illustration[data-picture-src*="p009-scene.png"]').first();
+    // Only the presented sheet counts; turn layers hold hidden copies of neighbours.
+    const sceneWrapper = page.getByTestId("flipchart-stage").locator(".living-illustration").filter({ has: page.locator('img[src*="p009-scene"]') }).first();
     await expect(sceneWrapper, "Flip chart Lesson 7 scene actor exists").toBeVisible({ timeout: 15_000 });
 
     const isNatural = await sceneWrapper.getAttribute("data-natural-motion");
@@ -139,7 +140,8 @@ test.describe("Living Motion Regression Suite", () => {
 
     // Test Flip Chart Lesson 7 under reduced motion
     await page.goto("/cartilla/presentar/7", { waitUntil: "networkidle" });
-    const sceneWrapper = page.locator('.living-illustration[data-picture-src*="p009-scene.png"]').first();
+    // Only the presented sheet counts; turn layers hold hidden copies of neighbours.
+    const sceneWrapper = page.getByTestId("flipchart-stage").locator(".living-illustration").filter({ has: page.locator('img[src*="p009-scene"]') }).first();
     await expect(sceneWrapper).toBeVisible({ timeout: 15_000 });
 
     expect(await sceneWrapper.getAttribute("data-natural-motion")).toBe("false");

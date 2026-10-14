@@ -99,10 +99,16 @@ test.describe('Audio Preflight Verification', () => {
   });
 
   test('picture-name buttons fail safely on missing recordings without false completion or broken playback', async ({ page }) => {
+    // Every picture on the printed-sheet replica has a shipped recording, so the
+    // test (only) approves "nido" alone and taps "nudo", which stays unrecorded.
+    await page.route('**/src/content/picture-name-recordings.json*', (route: any) => route.fulfill({
+      contentType: 'application/javascript',
+      body: 'export const approved = [{key:"nido",src:"/audio/voz/vocabulario/nido.mp3",approval:"browser-test-fixture"}]; export default {approved};'
+    }));
     await collectPlayback(page);
     await page.goto('/cartilla/presentar/13');
 
-    const ternero = page.locator('[data-picture-name="ternero n"]').first();
+    const ternero = page.getByTestId('flipchart-stage').locator('[data-picture-name="nudo"]').first();
     await expect(ternero).toBeVisible();
 
     const before = await page.evaluate(() => JSON.stringify(localStorage));

@@ -1,8 +1,11 @@
 import { expect, test } from "@playwright/test";
+import { seedCompletedPages } from "./support/completion";
 
 for (const width of [1280, 820, 390]) {
   test(`Lesson 7 native pages at ${width}px`, async ({ page }) => {
     await page.setViewportSize({ width, height: 900 });
+    // Pages 19–21 are finished; the completion gate itself is covered elsewhere.
+    await seedCompletedPages(page, [19, 20, 21]);
     await page.goto("/cartilla/leccion/7", { waitUntil: "domcontentloaded" });
     const lesson = page.locator(".native-lesson-viewer");
     await expect(lesson).toHaveAttribute("data-native-page", "19");
