@@ -134,8 +134,11 @@ def generate_batch(
     if max_attempts < 1 or max_attempts > 10:
         raise ValueError("max_attempts must be between 1 and 10")
     output_root, manifest_path = Path(output_root), Path(manifest_path)
-    if output_root.resolve() == Path("public/audio/gretel/clips").resolve():
+    working_public = Path("public").resolve()
+    if output_root.resolve() == working_public or working_public in output_root.resolve().parents:
         raise ValueError("Production audio must be generated in private staging, not directly under public/")
+    if manifest_path.resolve() == Path("src/data/gretel-recorded-manifest.json").resolve():
+        raise ValueError("Cannot write unapproved candidates to the public playback manifest")
     previous: dict[str, dict] = {}
     if manifest_path.exists():
         data = json.loads(manifest_path.read_text("utf-8"))
