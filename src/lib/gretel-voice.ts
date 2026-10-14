@@ -176,8 +176,12 @@ export async function speakAsGretel(text: string, handlers: GretelVoiceHandlers 
     try {
       lastSpokenVoiceName = `${provider.name} (${provider.type})`;
       await provider.speakFn(text, { onStart: start, onEnd: finish });
-    } catch {
-      /* handled gracefully */
+    } catch (error) {
+      // Custom speech failures must be visible. Never substitute browser TTS.
+      if (speechIsCurrent(token)) {
+        console.warn("[Gretel TTS] Custom voice could not speak.", error);
+        window.dispatchEvent(new CustomEvent("gretel:speak_error", { detail: { source: "custom" } }));
+      }
     } finally {
       finish();
     }
