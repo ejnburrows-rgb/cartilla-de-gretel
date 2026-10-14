@@ -30,13 +30,13 @@ import type { GretelLiveAvatarRef } from "@/components/gretel/GretelLiveAvatar";
 export type KeyState = "pending" | "next" | "hearing" | "provisional" | "confirmed";
 
 export const PROBLEM_MESSAGE: Record<PianoListenProblem, string> = {
-  unsupported: "Este navegador no puede escuchar la voz. Puedes tocar las teclas en orden.",
+  unsupported: "Este navegador no permite usar el micrófono para reconocer la voz.",
   "no-local":
-    "Este navegador no puede reconocer la voz dentro de este dispositivo, así que el micrófono queda apagado. Puedes tocar las teclas en orden.",
+    "Este navegador no tiene reconocimiento local compatible. Necesitas un dispositivo que pueda escuchar las vocales.",
   denied:
-    "El micrófono no tiene permiso. Un adulto puede permitirlo en el navegador, o puedes tocar las teclas en orden.",
-  "no-microphone": "No encuentro un micrófono. Puedes tocar las teclas en orden.",
-  network: "El reconocimiento de voz no está disponible ahora. Puedes tocar las teclas en orden.",
+    "El micrófono no tiene permiso. Un adulto puede permitirlo en el navegador.",
+  "no-microphone": "No encuentro un micrófono. Necesitas uno para jugar.",
+  network: "El reconocimiento de voz no está disponible ahora. Prueba otra vez.",
   "no-speech": "No te oí. Toca el micrófono y habla cerca.",
   failed: "No pude escuchar esta vez. Toca el micrófono para probar otra vez.",
 };
@@ -141,8 +141,6 @@ export function usePianoSession({
   const keys = useMemo(() => item?.syllables ?? [], [item]);
   const [confirmed, setConfirmed] = useState(0);
   const [provisional, setProvisional] = useState(0);
-  const [confirmedBy, setConfirmedBy] = useState<"voice" | "touch" | null>(null);
-  const [touchMode, setTouchMode] = useState(false);
   const [exampleActive, setExampleActive] = useState(false);
   const [message, setMessage] = useState("");
   const [celebrating, setCelebrating] = useState(false);
@@ -206,17 +204,16 @@ export function usePianoSession({
   );
 
   const applyProgress = useCallback(
-    (next: number, by: "voice" | "touch", heard?: string) => {
+    (next: number, heard?: string) => {
       const previous = confirmedRef.current;
       if (next <= previous) return false;
       confirmedRef.current = next;
       setConfirmed(next);
       setProvisional(next);
-      setConfirmedBy(by);
       playMelody(previous, next);
       if (next < keys.length) {
         setMessage(
-          `${by === "voice" && heard ? `¡Bien! Oí «${heard}». ` : "¡Bien! "}${promptFor(next)}`,
+          `${heard ? `¡Bien! Oí «${heard}». ` : "¡Bien! "}${promptFor(next)}`,
         );
       }
       return true;
@@ -228,7 +225,7 @@ export function usePianoSession({
     (transcript: string) => {
       if (!item || confirmedRef.current >= keys.length) return;
       const next = advanceSyllables(keys, confirmedRef.current, transcript);
-      if (!applyProgress(next, "voice", transcript.trim())) {
+      if (!applyProgress(next, transcript.trim())) {
         setProvisional(confirmedRef.current);
         const expected = keys[confirmedRef.current];
         setMessage(
@@ -272,7 +269,6 @@ export function usePianoSession({
     confirmedRef.current = 0;
     setConfirmed(0);
     setProvisional(0);
-    setConfirmedBy(null);
     setCelebrating(false);
     celebratedRef.current = null;
     melodyTimersRef.current.forEach(clearTimeout);
@@ -288,11 +284,7 @@ export function usePianoSession({
 
   useEffect(() => {
     resetWord();
-    setMessage(
-      touchMode
-        ? "Toca las teclas en orden."
-        : "Toca «Escuchar» y luego el micrófono para decir la palabra.",
-    );
+    setMessage("Toca «Escuchar» y luego el micrófono para decir la palabra.");
     return () => {
       stopSpeech();
     };
@@ -308,7 +300,6 @@ export function usePianoSession({
   );
 
   useEffect(() => {
-    if (problem && problem !== "no-speech" && problem !== "failed") setTouchMode(true);
     if (problem) setMessage(PROBLEM_MESSAGE[problem]);
   }, [problem]);
 
@@ -350,7 +341,7 @@ export function usePianoSession({
           exercise: "piano_pronunciation",
           word: item.word,
           completed: true,
-          by: confirmedBy ?? "voice",
+          by: "voice",
         },
       });
     }
@@ -393,11 +384,7 @@ export function usePianoSession({
     setMessage(wordMode ? `Escucha: «${item.word}».` : `Escucha: «${keys.join(", ")}».`);
     void runExample(wordMode ? item.word : keys.join(", "), recording).then(() => {
       if (confirmedRef.current < keys.length)
-        setMessage(
-          touchMode
-            ? "Toca las teclas en orden."
-            : `Ahora toca el micrófono. ${promptFor(confirmedRef.current)}`,
-        );
+        setMessage(`Ahora toca el micrófono. ${promptFor(confirmedRef.current)}`);
     });
   };
 
@@ -405,28 +392,7 @@ export function usePianoSession({
   const listenToSyllable = (index: number) => {
     const syllable = keys[index];
     if (!syllable) return;
-    playNote(noteForRef.current(index), 0.6);
-    flashKey(`s${index}`);
     void runExample(syllable);
-  };
-
-  /** A key that carries syllable `index` was pressed (touch, click, keyboard). */
-  const pressSyllableKey = (index: number) => {
-    const syllable = keys[index];
-    if (!syllable) return;
-    if (touchMode && index === confirmedRef.current && !done) {
-      cancelListening();
-      applyProgress(index + 1, "touch");
-      void runExample(syllable);
-      return;
-    }
-    listenToSyllable(index);
-  };
-
-  /** A key with no syllable: it is still a piano, so it just plays its note. */
-  const pressFreeKey = (keyId: string, frequency: number) => {
-    playNote(frequency, 0.6);
-    flashKey(keyId);
   };
 
   const toggleMic = () => {
@@ -437,14 +403,6 @@ export function usePianoSession({
     }
     stopSpeech();
     startListening();
-  };
-
-  const toggleTouchMode = () => {
-    cancelListening();
-    setTouchMode((value) => !value);
-    setMessage(
-      !touchMode ? "Toca las teclas en orden." : "Toca el micrófono para decir la palabra.",
-    );
   };
 
   const nextWord = () => {
@@ -461,7 +419,7 @@ export function usePianoSession({
 
   const restartWord = () => {
     resetWord();
-    setMessage(touchMode ? "Toca las teclas en orden." : "Empecemos otra vez. Toca el micrófono.");
+    setMessage("Empecemos otra vez. Toca el micrófono.");
   };
 
   const keyStateFor = (index: number): KeyState => {
@@ -471,7 +429,7 @@ export function usePianoSession({
     return "pending";
   };
 
-  const micDisabled = done || exampleActive || !supported || touchMode;
+  const micDisabled = done || exampleActive || !supported;
 
   return {
     items,
@@ -492,15 +450,11 @@ export function usePianoSession({
     supported,
     micOpen,
     micDisabled,
-    touchMode,
     exampleActive,
     gretelRef,
     listenToWord,
     listenToSyllable,
-    pressSyllableKey,
-    pressFreeKey,
     toggleMic,
-    toggleTouchMode,
     nextWord,
     restartWord,
     keyStateFor,
