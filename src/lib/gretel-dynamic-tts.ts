@@ -1,4 +1,5 @@
-import { setGretelVoiceProviderConfig, type GretelVoiceHandlers } from "./gretel-voice";
+import { setGretelVoiceProviderConfig, getGretelVoiceProviderConfig, cancelGretelSpeech, speakAsGretel, type GretelVoiceHandlers } from "./gretel-voice";
+import { onGretelEvent, type GretelBusEvent } from "./gretel-bus";
 
 /**
  * Sends new Spanish text to Gretel's private inference server. Neither the
@@ -75,6 +76,31 @@ export function createGretelDynamicTts(endpoint: string, dependencies: DynamicTt
     }
   }
   return { speak, cancel };
+}
+
+/** Turn actual learner outcomes into spoken Gretel reactions; silence while listening. */
+export function gretelReactionLine(type: GretelBusEvent): string | null {
+  switch (type) {
+    case "answer:correct": return "¡Muy bien! ¡Lo conseguiste!";
+    case "answer:wrong": return "Casi. Vamos a intentarlo otra vez.";
+    case "lesson:complete": return "¡Terminaste la lección! ¡Excelente trabajo!";
+    default: return null;
+  }
+}
+
+let uninstallReactions: (() => void) | null = null;
+export function installDynamicGretelReactions(): void {
+  uninstallReactions?.();
+  uninstallReactions = onGretelEvent((type, detail) => {
+    if (getGretelVoiceProviderConfig().type !== "custom") return;
+    if (type === "listen:start" || type === "page-turn:start") {
+      cancelGretelSpeech();
+      return;
+    }
+    if (detail.restored) return;
+    const line = gretelReactionLine(type);
+    if (line) void speakAsGretel(line);
+  });
 }
 
 /** Activate the private engine only if a real inference endpoint is configured. */
