@@ -193,9 +193,8 @@ describe.each([["piano"], ["cancionero"]] as const)("PianoPronunciation (%s desi
       hear("sa");
       expect(keyState(0)).toBe("confirmed");
       expect(keyState(1)).toBe("next");
-      expect(
-        screen.getByRole("button", { name: "Tecla sa, lista" }).getAttribute("aria-pressed"),
-      ).toBe("true");
+      expect(screen.getByTestId("piano-key-0").tagName).toBe("SPAN");
+      expect(screen.queryByRole("button", { name: /tecla sa/i })).toBeNull();
       expect(screen.queryByTestId("piano-sparkle")).toBeNull();
 
       hear("pa"); // wrong: ignored, SA stays green, no buzzer
@@ -233,8 +232,8 @@ describe.each([["piano"], ["cancionero"]] as const)("PianoPronunciation (%s desi
       hear("sapo");
       expect(mockPlayCorrectChord).toHaveBeenCalledTimes(1);
       fireEvent.click(screen.getByTestId("piano-next"));
-      expect(screen.getByTestId("piano-key-0").getAttribute("aria-label")).toBe(
-        "Tecla ma, por decir",
+      expect(screen.getByTestId("piano-key-0").getAttribute("data-key-state")).toBe(
+        "next",
       );
       expect(keyState(0)).toBe("next");
       expect(screen.queryByTestId("piano-sparkle")).toBeNull();
@@ -266,18 +265,18 @@ describe.each([["piano"], ["cancionero"]] as const)("PianoPronunciation (%s desi
       expect(mockStart).toHaveBeenCalledTimes(1);
     });
 
-    it("offers touch mode when the microphone is denied, confirming keys only in order", () => {
+    it("never confirms piano keys when the microphone is denied", () => {
       mockProblem = "denied";
       render(<PianoPronunciation syllables={["sa"]} words={SAPO} />);
       expect(screen.getByTestId("piano-message").textContent).toMatch(/permiso/);
-      fireEvent.click(screen.getByTestId("piano-key-1")); // out of order: plays only
-      expect(keyState(1)).toBe("pending");
+      expect(screen.queryByTestId("piano-touch-mode")).toBeNull();
       fireEvent.click(screen.getByTestId("piano-key-0"));
-      expect(keyState(0)).toBe("confirmed");
-      fireEvent.click(screen.getByTestId("piano-key-1"));
-      expect(keyState(1)).toBe("confirmed");
-      expect(mockPlayCorrectChord).toHaveBeenCalledTimes(1);
+      fireEvent.keyDown(window, { key: "a" });
+      expect(keyState(0)).toBe("next");
+      expect(keyState(1)).toBe("pending");
+      expect(mockPlayCorrectChord).not.toHaveBeenCalled();
     });
+
   });
 
   describe("Microphone only with confirmed on-device recognition", () => {
@@ -299,62 +298,43 @@ describe.each([["piano"], ["cancionero"]] as const)("PianoPronunciation (%s desi
       expect(screen.getByTestId("piano-privacy").textContent).toMatch(/Comprobando/);
     });
 
-    it("unavailable: microphone off, brief explanation, full touch play and completion", async () => {
+    it("unavailable: no false progress and no touch fallback", () => {
       mockProcessing = "unavailable";
       mockProblem = "no-local";
       render(<PianoPronunciation syllables={["sa"]} words={SAPO} />);
       expect(screen.getByTestId("piano-message").textContent).toMatch(
-        /no puede reconocer la voz dentro de este dispositivo/,
+        /no tiene reconocimiento local compatible/,
       );
       expect(screen.getByTestId("piano-privacy").textContent).toMatch(
         /micrófono está apagado y no se usa ningún servicio de voz por internet/,
       );
-      const mic = screen.getByTestId("piano-mic");
-      expect((mic as HTMLButtonElement).disabled).toBe(true);
-      fireEvent.click(mic);
-      expect(mockStart).not.toHaveBeenCalled();
-      // No way to switch the microphone back on.
+      const mic = screen.getByTestId("piano-mic") as HTMLButtonElement;
+      expect(mic.disabled).toBe(true);
       expect(screen.queryByTestId("piano-touch-mode")).toBeNull();
-      await act(async () => {
-        fireEvent.click(screen.getByTestId("piano-key-0"));
-      });
-      await act(async () => {
-        fireEvent.click(screen.getByTestId("piano-key-1"));
-      });
-      expect(keyState(0)).toBe("confirmed");
-      expect(keyState(1)).toBe("confirmed");
-      expect(mockPlayCorrectChord).toHaveBeenCalledTimes(1);
+      fireEvent.click(screen.getByTestId("piano-key-0"));
+      fireEvent.click(screen.getByTestId("piano-key-1"));
+      expect(keyState(0)).toBe("next");
+      expect(keyState(1)).toBe("pending");
+      expect(mockPlayCorrectChord).not.toHaveBeenCalled();
       expect(mockStart).not.toHaveBeenCalled();
-      // AI-voice examples still play.
-      expect(mockSpeak).toHaveBeenCalled();
     });
+
   });
 
   describe("Native keyboard navigation and accessibility", () => {
-    it("renders separate native buttons for piano key and Escuchar action without nested interactive elements", () => {
+    it("keeps piano keys noninteractive and the Escuchar control accessible", () => {
       render(<PianoPronunciation syllables={["ma", "me"]} />);
-      const keyBtn = screen.getByRole("button", { name: /^Tecla ma,/ });
+      const keyIndicator = screen.getByTestId("piano-key-0");
       const listenBtn = screen.getByRole("button", { name: "Escuchar ma" });
-      expect(keyBtn.tagName).toBe("BUTTON");
-      expect(keyBtn.getAttribute("type")).toBe("button");
+      expect(keyIndicator.tagName).toBe("SPAN");
+      expect(keyIndicator.getAttribute("aria-hidden")).toBe("true");
       expect(listenBtn.tagName).toBe("BUTTON");
       expect(listenBtn.getAttribute("type")).toBe("button");
-      expect(keyBtn.contains(listenBtn)).toBe(false);
-      expect(listenBtn.contains(keyBtn)).toBe(false);
-    });
-
-    it("activates piano key button via click (native Enter / Space)", async () => {
-      render(<PianoPronunciation syllables={["ma", "me"]} />);
-      const keyBtn = screen.getByRole("button", { name: /^Tecla ma,/ });
-      await act(async () => {
-        fireEvent.click(keyBtn);
-      });
-      expect(mockPlayNote).toHaveBeenCalledTimes(1);
-      expect(mockSpeak).toHaveBeenCalledWith("ma");
-      await act(async () => {
-        fireEvent.click(keyBtn);
-      });
-      expect(mockPlayNote).toHaveBeenCalledTimes(2);
+      expect(screen.queryByRole("button", { name: /tecla ma/i })).toBeNull();
+      fireEvent.click(keyIndicator);
+      fireEvent.keyDown(window, { key: "a" });
+      expect(mockPlayNote).not.toHaveBeenCalled();
+      expect(keyState(0)).toBe("next");
     });
 
     it("activates separate Escuchar button without double-triggering key button", async () => {
@@ -362,7 +342,7 @@ describe.each([["piano"], ["cancionero"]] as const)("PianoPronunciation (%s desi
       await act(async () => {
         fireEvent.click(screen.getByRole("button", { name: "Escuchar ma" }));
       });
-      expect(mockPlayNote).toHaveBeenCalledTimes(1);
+      expect(mockPlayNote).not.toHaveBeenCalled();
       expect(mockSpeak).toHaveBeenCalledTimes(1);
       expect(mockSpeak).toHaveBeenCalledWith("ma");
     });
