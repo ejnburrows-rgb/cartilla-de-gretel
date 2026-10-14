@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Private local dynamic Gretel speech engine, reusing the repo's Chatterbox loader.
+"""Private Gretel Spanish speech engine with standalone proof-generation mode.
 
 This is an inference endpoint, not a model trainer or voice-fidelity test.
 The owner's source audio stays outside the public repository and browser.
@@ -107,14 +107,36 @@ def main() -> None:
     parser = argparse.ArgumentParser(description="Private Gretel dynamic Spanish TTS test server")
     parser.add_argument("--reference", type=Path, required=True, help="Private WAV voice reference, never public")
     parser.add_argument("--device", choices=("cpu", "cuda"), default="cpu")
+    parser.add_argument("--model-path", type=Path, help="Downloaded base-model directory; uses open model ID if omitted")
+    parser.add_argument("--proof-output", type=Path, help="Private destination for a newly synthesized WAV")
+    parser.add_argument("--proof-only", action="store_true", help="Generate proof WAV and exit without hosting")
+    parser.add_argument("--proof-text", default="Mañana el pingüino soñará con una montaña pequeña.")
     parser.add_argument("--host", default="127.0.0.1")
     parser.add_argument("--port", type=int, default=8765)
     parser.add_argument("--allowed-origin", default="http://localhost:5173")
     args = parser.parse_args()
     if not args.reference.is_file():
         parser.error("Private voice reference not found")
-    from gretel_chatterbox_v3 import load_gretel_voice_model
-    synthesizer = load_gretel_voice_model(args.reference, args.device)
+    if args.proof_only and not args.proof_output:
+        parser.error("--proof-only requires --proof-output")
+    if args.host not in ("127.0.0.1", "localhost", "::1"):
+        parser.error("The development speech endpoint must remain on localhost")
+    from gretel_voice_engine import load_gretel_voice_model
+    synthesizer = load_gretel_voice_model(
+        args.reference, args.device,
+        model_path=str(args.model_path) if args.model_path else None,
+    )
+    if args.proof_output:
+        # Calls real model inference. Recording excerpts and fake audio are never proof.
+        sample_rate, samples = synthesizer(args.proof_text)
+        audio = to_wav_bytes(sample_rate, samples)
+        args.proof_output.parent.mkdir(parents=True, exist_ok=True)
+        args.proof_output.write_bytes(audio)
+        print(json.dumps({"proof_wav": str(args.proof_output),
+                          "bytes": len(audio), "new_text": args.proof_text},
+                         ensure_ascii=False), flush=True)
+        if args.proof_only:
+            return
     server = create_server(args.host, args.port, synthesizer, allowed_origin=args.allowed_origin)
     try:
         print("Gretel speech server listening on " + args.host + ":" + str(server.server_port), flush=True)
