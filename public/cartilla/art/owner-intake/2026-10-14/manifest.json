@@ -1,0 +1,1610 @@
+{
+  "sourceFileCount": 136,
+  "byteDistinctCount": 71,
+  "uploadedOriginalCount": 69,
+  "alreadyInRepositoryCount": 2,
+  "productionReferencesChanged": false,
+  "files": [
+    {
+      "sha256": "3783565d3f85f56ef556000e9824634a76ca85f84313f03312e31c35c95eb136",
+      "width": 1254,
+      "height": 1254,
+      "mode": "RGBA",
+      "hasAlpha": true,
+      "sources": [
+        {
+          "id": "1Szh0OtkOPhrrs91ieKxNcfHbaXR9LAuE",
+          "title": "file_000000009be081f5b92552d52c8f10c1.png",
+          "group": "primary",
+          "url": "https://drive.google.com/file/d/1Szh0OtkOPhrrs91ieKxNcfHbaXR9LAuE/view?usp=drivesdk"
+        }
+      ],
+      "path": "public/cartilla/art/owner-intake/2026-10-14/originals/primary/1Szh0OtkOPhrrs91ieKxNcfHbaXR9LAuE.png",
+      "integrationStatus": "pending-exact-page-mapping"
+    },
+    {
+      "sha256": "9eda85b9dad13242733251dba60d377cdede768cf6f0e64f0851a00e47a16975",
+      "width": 1122,
+      "height": 1402,
+      "mode": "RGB",
+      "hasAlpha": false,
+      "sources": [
+        {
+          "id": "1uVZw5uo8-BWOYA3hjzDuGSWi2twHqT4O",
+          "title": "file_000000001e3081f581ee51bd6648506b.png",
+          "group": "primary",
+          "url": "https://drive.google.com/file/d/1uVZw5uo8-BWOYA3hjzDuGSWi2twHqT4O/view?usp=drivesdk"
+        }
+      ],
+      "path": "public/cartilla/art/owner-intake/2026-10-14/originals/primary/1uVZw5uo8-BWOYA3hjzDuGSWi2twHqT4O.png",
+      "integrationStatus": "pending-exact-page-mapping"
+    },
+    {
+      "sha256": "a84fa587d8b1dd345bb637cb803e9f869a3661bf4649ad5caf0ece677957cc80",
+      "width": 1122,
+      "height": 1402,
+      "mode": "RGB",
+      "hasAlpha": false,
+      "sources": [
+        {
+          "id": "1v3VuaclxathZXd3_CNqE-4rfKsyEMUyL",
+          "title": "file_00000000635c81f5bf5d2248d6740e97.png",
+          "group": "primary",
+          "url": "https://drive.google.com/file/d/1v3VuaclxathZXd3_CNqE-4rfKsyEMUyL/view?usp=drivesdk"
+        }
+      ],
+      "path": "public/cartilla/art/owner-intake/2026-10-14/originals/primary/1v3VuaclxathZXd3_CNqE-4rfKsyEMUyL.png",
+      "integrationStatus": "pending-exact-page-mapping"
+    },
+    {
+      "sha256": "a106b268f2cd7d762e734025a5384009fa510f0152230756360a039b5f92c1a4",
+      "width": 1122,
+      "height": 1402,
+      "mode": "RGB",
+      "hasAlpha": false,
+      "sources": [
+        {
+          "id": "1LzJCPc2Gc1CUzbn6hrNUWDXnENVb_DyP",
+          "title": "file_00000000a78881f5970484c4fcf8ee54.png",
+          "group": "primary",
+          "url": "https://drive.google.com/file/d/1LzJCPc2Gc1CUzbn6hrNUWDXnENVb_DyP/view?usp=drivesdk"
+        }
+      ],
+      "path": "public/cartilla/art/owner-intake/2026-10-14/originals/primary/1LzJCPc2Gc1CUzbn6hrNUWDXnENVb_DyP.png",
+      "integrationStatus": "pending-exact-page-mapping"
+    },
+    {
+      "sha256": "1c4df104b21a3ae919a4e44c58a2907a6e363ca33a0f3f0ca2bd0e9dd5760d3f",
+      "width": 1122,
+      "height": 1402,
+      "mode": "RGB",
+      "hasAlpha": false,
+      "sources": [
+        {
+          "id": "1TAytA1uzBNytVLw3E8ZULKVUKzFeVb5j",
+          "title": "file_00000000dea481f5ba4405be5f306274.png",
+          "group": "primary",
+          "url": "https://drive.google.com/file/d/1TAytA1uzBNytVLw3E8ZULKVUKzFeVb5j/view?usp=drivesdk"
+        }
+      ],
+      "path": "public/cartilla/art/owner-intake/2026-10-14/originals/primary/1TAytA1uzBNytVLw3E8ZULKVUKzFeVb5j.png",
+      "integrationStatus": "pending-exact-page-mapping"
+    },
+    {
+      "sha256": "bcc10f9c76513d75617dfdaea3bac49d82cd99071912dddde0b73fdb6c18501e",
+      "width": 1122,
+      "height": 1402,
+      "mode": "RGBA",
+      "hasAlpha": true,
+      "sources": [
+        {
+          "id": "19KMI5ofWkTg5H-cmv4Lz71UpfnvCBbDr",
+          "title": "file_00000000ae1c81f582c9621366cb5182.png",
+          "group": "primary",
+          "url": "https://drive.google.com/file/d/19KMI5ofWkTg5H-cmv4Lz71UpfnvCBbDr/view?usp=drivesdk"
+        }
+      ],
+      "path": "public/cartilla/art/owner-intake/2026-10-14/originals/primary/19KMI5ofWkTg5H-cmv4Lz71UpfnvCBbDr.png",
+      "integrationStatus": "pending-exact-page-mapping"
+    },
+    {
+      "sha256": "c97dfdf7e2645ada4a6fca5b71dd770493d7c86bfd955eff8841b790466c1438",
+      "width": 1122,
+      "height": 1402,
+      "mode": "RGBA",
+      "hasAlpha": true,
+      "sources": [
+        {
+          "id": "1IeCI1MCopt1QwdMeNsjP4P4yCOjZaBRR",
+          "title": "file_000000008794820db3231c7e01f46624.png",
+          "group": "primary",
+          "url": "https://drive.google.com/file/d/1IeCI1MCopt1QwdMeNsjP4P4yCOjZaBRR/view?usp=drivesdk"
+        }
+      ],
+      "path": "public/cartilla/art/owner-intake/2026-10-14/originals/primary/1IeCI1MCopt1QwdMeNsjP4P4yCOjZaBRR.png",
+      "integrationStatus": "pending-exact-page-mapping"
+    },
+    {
+      "sha256": "f8f47ac1d91a44aa9f6b35956dd118b4938ce3c190df0109a01817f18e067354",
+      "width": 1122,
+      "height": 1402,
+      "mode": "RGB",
+      "hasAlpha": false,
+      "sources": [
+        {
+          "id": "1V6D4gEV1LBF2pmiR5JMp3NXk8GRJVZGa",
+          "title": "file_00000000805081f5ac5682a74328fc38.png",
+          "group": "primary",
+          "url": "https://drive.google.com/file/d/1V6D4gEV1LBF2pmiR5JMp3NXk8GRJVZGa/view?usp=drivesdk"
+        }
+      ],
+      "path": "public/cartilla/art/owner-intake/2026-10-14/originals/primary/1V6D4gEV1LBF2pmiR5JMp3NXk8GRJVZGa.png",
+      "integrationStatus": "pending-exact-page-mapping"
+    },
+    {
+      "sha256": "7fef32378f9c7aac5ad5847942cf056462d65275beaae4d4c1dcc609786493af",
+      "width": 1122,
+      "height": 1402,
+      "mode": "RGBA",
+      "hasAlpha": true,
+      "sources": [
+        {
+          "id": "10cE3AErnp3x2eH_2N1nUJar0vqeXZUF_",
+          "title": "file_000000001c0081f5a35ff48bb4bfdd81.png",
+          "group": "primary",
+          "url": "https://drive.google.com/file/d/10cE3AErnp3x2eH_2N1nUJar0vqeXZUF_/view?usp=drivesdk"
+        }
+      ],
+      "path": "public/cartilla/art/owner-intake/2026-10-14/originals/primary/10cE3AErnp3x2eH_2N1nUJar0vqeXZUF_.png",
+      "integrationStatus": "pending-exact-page-mapping"
+    },
+    {
+      "sha256": "ead237001f6a3f22242d4658d90330f40158bb0f37c0a2ce77029994b735e1e5",
+      "width": 1122,
+      "height": 1402,
+      "mode": "RGB",
+      "hasAlpha": false,
+      "sources": [
+        {
+          "id": "15tCAnwaMLB_PDin8StY_bYSaTWZZ520Z",
+          "title": "file_000000000a1c81f5948e853fb9b2c09d.png",
+          "group": "primary",
+          "url": "https://drive.google.com/file/d/15tCAnwaMLB_PDin8StY_bYSaTWZZ520Z/view?usp=drivesdk"
+        }
+      ],
+      "path": "public/cartilla/art/owner-intake/2026-10-14/originals/primary/15tCAnwaMLB_PDin8StY_bYSaTWZZ520Z.png",
+      "integrationStatus": "pending-exact-page-mapping"
+    },
+    {
+      "sha256": "4ba149ff3aafb06091ad14fd55d02cf525744ae27cb054da62ddd2943e935a31",
+      "width": 1448,
+      "height": 1086,
+      "mode": "RGBA",
+      "hasAlpha": true,
+      "sources": [
+        {
+          "id": "1fL90gBqcHNP1todBSQCr0WaHzT4B04ka",
+          "title": "file_00000000f8d482068bf55ab06d45347a.png",
+          "group": "primary",
+          "url": "https://drive.google.com/file/d/1fL90gBqcHNP1todBSQCr0WaHzT4B04ka/view?usp=drivesdk"
+        }
+      ],
+      "path": "public/cartilla/art/owner-intake/2026-10-14/originals/primary/1fL90gBqcHNP1todBSQCr0WaHzT4B04ka.png",
+      "integrationStatus": "pending-exact-page-mapping"
+    },
+    {
+      "sha256": "bf1b81e603906f57bfe420852db29da173ac2906be53ebcd8e566d0134e1cfef",
+      "width": 1254,
+      "height": 1254,
+      "mode": "RGBA",
+      "hasAlpha": true,
+      "sources": [
+        {
+          "id": "1YBX8iD6TmYGD0bv458zwOZ9hBHw-K2oc",
+          "title": "file_0000000070188209a9a2150b0c36f325.png",
+          "group": "primary",
+          "url": "https://drive.google.com/file/d/1YBX8iD6TmYGD0bv458zwOZ9hBHw-K2oc/view?usp=drivesdk"
+        },
+        {
+          "id": "1p2w3jA3jVSkIZvJJvOysEEfU_7v3YZiy",
+          "title": "557671.png",
+          "group": "transfer",
+          "url": "https://drive.google.com/file/d/1p2w3jA3jVSkIZvJJvOysEEfU_7v3YZiy/view?usp=drivesdk"
+        }
+      ],
+      "path": "public/cartilla/art/owner-intake/2026-10-14/originals/primary/1YBX8iD6TmYGD0bv458zwOZ9hBHw-K2oc.png",
+      "integrationStatus": "pending-exact-page-mapping"
+    },
+    {
+      "sha256": "765787f7aea17201993815216fd6169cbfae7eb9c4168cb1e3ea6a59a2e9ee41",
+      "width": 1122,
+      "height": 1402,
+      "mode": "RGB",
+      "hasAlpha": false,
+      "sources": [
+        {
+          "id": "1_JnyVXP7bnCgX8xqz2JXIsB1m4PL1ag6",
+          "title": "file_000000006ef081f596993f085a60d792.png",
+          "group": "primary",
+          "url": "https://drive.google.com/file/d/1_JnyVXP7bnCgX8xqz2JXIsB1m4PL1ag6/view?usp=drivesdk"
+        }
+      ],
+      "path": "public/cartilla/art/owner-intake/2026-10-14/originals/primary/1_JnyVXP7bnCgX8xqz2JXIsB1m4PL1ag6.png",
+      "integrationStatus": "pending-exact-page-mapping"
+    },
+    {
+      "sha256": "d6a5861a5cf1262f384e5fa82864e5f2dd8c8f3b8c8365af30e97e264d88e0c8",
+      "width": 1122,
+      "height": 1402,
+      "mode": "RGBA",
+      "hasAlpha": true,
+      "sources": [
+        {
+          "id": "1NFyKG8ITzzTh3f0QjWMjxPBNSjsgIp9V",
+          "title": "file_0000000044e0820c91dfe68f2c6457fc.png",
+          "group": "primary",
+          "url": "https://drive.google.com/file/d/1NFyKG8ITzzTh3f0QjWMjxPBNSjsgIp9V/view?usp=drivesdk"
+        }
+      ],
+      "path": "public/cartilla/art/owner-intake/2026-10-14/originals/primary/1NFyKG8ITzzTh3f0QjWMjxPBNSjsgIp9V.png",
+      "integrationStatus": "pending-exact-page-mapping"
+    },
+    {
+      "sha256": "a0a20dea370450c1318a7dbf21a299071ff339674f808b3cc1b892cbe2b64af3",
+      "width": 1122,
+      "height": 1402,
+      "mode": "RGBA",
+      "hasAlpha": true,
+      "sources": [
+        {
+          "id": "1Iz9Dlvt2GsYUcuHR618F40vxfN_9_6CD",
+          "title": "file_00000000cf5081f592055e97eb8490be.png",
+          "group": "primary",
+          "url": "https://drive.google.com/file/d/1Iz9Dlvt2GsYUcuHR618F40vxfN_9_6CD/view?usp=drivesdk"
+        }
+      ],
+      "path": "public/cartilla/art/owner-intake/2026-10-14/originals/primary/1Iz9Dlvt2GsYUcuHR618F40vxfN_9_6CD.png",
+      "integrationStatus": "pending-exact-page-mapping"
+    },
+    {
+      "sha256": "d13592aa198d6849f9f63746a2ab91c9e2b440d982f105bf914ee96f59c24cfa",
+      "width": 1122,
+      "height": 1402,
+      "mode": "RGBA",
+      "hasAlpha": true,
+      "sources": [
+        {
+          "id": "1Tp7_86BxxHbx1HPt32y2eprtJp8oTvm1",
+          "title": "file_0000000020f081f5905515a1ab7e0d60.png",
+          "group": "primary",
+          "url": "https://drive.google.com/file/d/1Tp7_86BxxHbx1HPt32y2eprtJp8oTvm1/view?usp=drivesdk"
+        }
+      ],
+      "path": "public/cartilla/art/owner-intake/2026-10-14/originals/primary/1Tp7_86BxxHbx1HPt32y2eprtJp8oTvm1.png",
+      "integrationStatus": "pending-exact-page-mapping"
+    },
+    {
+      "sha256": "2ec182c5dce4899b7f37dd08987a42e3918dc651c0a667e614fcf835be7b8694",
+      "width": 1122,
+      "height": 1402,
+      "mode": "RGBA",
+      "hasAlpha": true,
+      "sources": [
+        {
+          "id": "1kyNo3l1Q1GJ4t-ooSaYaqBJjch6RWqHp",
+          "title": "file_0000000095e481f5ab85d7babc3fd354.png",
+          "group": "primary",
+          "url": "https://drive.google.com/file/d/1kyNo3l1Q1GJ4t-ooSaYaqBJjch6RWqHp/view?usp=drivesdk"
+        }
+      ],
+      "path": "public/cartilla/art/owner-intake/2026-10-14/originals/primary/1kyNo3l1Q1GJ4t-ooSaYaqBJjch6RWqHp.png",
+      "integrationStatus": "pending-exact-page-mapping"
+    },
+    {
+      "sha256": "2b8314af73e7f1480d22c5bd6bd556810a371d75ab8196d8a25ba7e2d47ad341",
+      "width": 1122,
+      "height": 1402,
+      "mode": "RGBA",
+      "hasAlpha": true,
+      "sources": [
+        {
+          "id": "1YUCuOhzc4CXPOwbn16N_woO2HfpKYg6y",
+          "title": "file_00000000c25c81f58d3f0464655ba76f.png",
+          "group": "primary",
+          "url": "https://drive.google.com/file/d/1YUCuOhzc4CXPOwbn16N_woO2HfpKYg6y/view?usp=drivesdk"
+        }
+      ],
+      "path": "public/cartilla/art/owner-intake/2026-10-14/originals/primary/1YUCuOhzc4CXPOwbn16N_woO2HfpKYg6y.png",
+      "integrationStatus": "pending-exact-page-mapping"
+    },
+    {
+      "sha256": "3545ca98e983e16a2bc94602eb55386abcc66bf36a71eb1d8c9d24fb2f5ce7b8",
+      "width": 1254,
+      "height": 1254,
+      "mode": "RGBA",
+      "hasAlpha": true,
+      "sources": [
+        {
+          "id": "1UQ7mw64ZPL7C1ae9e6C0kqgrKOpYaa-S",
+          "title": "file_00000000dd74822fb29431713dc5ec1f.png",
+          "group": "primary",
+          "url": "https://drive.google.com/file/d/1UQ7mw64ZPL7C1ae9e6C0kqgrKOpYaa-S/view?usp=drivesdk"
+        },
+        {
+          "id": "1PudFxzi39Ey01lhnOmwU9lVtwtWfsGbO",
+          "title": "image-gen-10(2).png",
+          "group": "primary",
+          "url": "https://drive.google.com/file/d/1PudFxzi39Ey01lhnOmwU9lVtwtWfsGbO/view?usp=drivesdk"
+        }
+      ],
+      "path": "public/cartilla/art/owner-intake/2026-10-14/originals/primary/1UQ7mw64ZPL7C1ae9e6C0kqgrKOpYaa-S.png",
+      "integrationStatus": "pending-exact-page-mapping"
+    },
+    {
+      "sha256": "676ff47c7da60e080d11ab3a3aad431bf7234119752d7ad3826d77c32a599906",
+      "width": 1254,
+      "height": 1254,
+      "mode": "RGBA",
+      "hasAlpha": true,
+      "sources": [
+        {
+          "id": "1Im4YrgsVIO1J2baWJABqYda7Ik8OoYV5",
+          "title": "file_00000000cc5481f59b25d6a7421b699e.png",
+          "group": "primary",
+          "url": "https://drive.google.com/file/d/1Im4YrgsVIO1J2baWJABqYda7Ik8OoYV5/view?usp=drivesdk"
+        },
+        {
+          "id": "1vn8WbVL5cvyzaLK9DLtsXXfw-DRt0ZAu",
+          "title": "image-gen-5(3).png",
+          "group": "primary",
+          "url": "https://drive.google.com/file/d/1vn8WbVL5cvyzaLK9DLtsXXfw-DRt0ZAu/view?usp=drivesdk"
+        },
+        {
+          "id": "1PWg3pCoEfYeunrBGZCKU1whxxUBMwDCb",
+          "title": "557722.png",
+          "group": "transfer",
+          "url": "https://drive.google.com/file/d/1PWg3pCoEfYeunrBGZCKU1whxxUBMwDCb/view?usp=drivesdk"
+        }
+      ],
+      "path": "public/cartilla/art/owner-intake/2026-10-14/originals/primary/1Im4YrgsVIO1J2baWJABqYda7Ik8OoYV5.png",
+      "integrationStatus": "pending-exact-page-mapping"
+    },
+    {
+      "sha256": "9e303dbb89b4178596c58b1bda3f7b4f6491729f3af87f7070a74190c0112a2d",
+      "width": 1254,
+      "height": 1254,
+      "mode": "RGBA",
+      "hasAlpha": true,
+      "sources": [
+        {
+          "id": "1yJSnl2KAbStDkirKoHaxdompgRx6ZDGh",
+          "title": "file_00000000634481f5a03e81b536c990f5.png",
+          "group": "primary",
+          "url": "https://drive.google.com/file/d/1yJSnl2KAbStDkirKoHaxdompgRx6ZDGh/view?usp=drivesdk"
+        },
+        {
+          "id": "1YUgaOK-zkYr10yV27G9xl3MWWw54P8Ec",
+          "title": "image-gen-4(3).png",
+          "group": "primary",
+          "url": "https://drive.google.com/file/d/1YUgaOK-zkYr10yV27G9xl3MWWw54P8Ec/view?usp=drivesdk"
+        },
+        {
+          "id": "1MtsMqZfw8ZUYkTwJ92823PDE4eXWBTwu",
+          "title": "557684.png",
+          "group": "transfer",
+          "url": "https://drive.google.com/file/d/1MtsMqZfw8ZUYkTwJ92823PDE4eXWBTwu/view?usp=drivesdk"
+        }
+      ],
+      "path": "public/cartilla/art/owner-intake/2026-10-14/originals/primary/1yJSnl2KAbStDkirKoHaxdompgRx6ZDGh.png",
+      "integrationStatus": "pending-exact-page-mapping"
+    },
+    {
+      "sha256": "b2f39e1b61a2fccfa355469dee7bc41e1e53228bfcfaedff5ad1c1060f0c56ac",
+      "width": 1254,
+      "height": 1254,
+      "mode": "RGBA",
+      "hasAlpha": true,
+      "sources": [
+        {
+          "id": "14fZXTlZTk4zqhYJw2zPGZakiDSwbkqgi",
+          "title": "file_00000000402881f59393650d43d6a62a.png",
+          "group": "primary",
+          "url": "https://drive.google.com/file/d/14fZXTlZTk4zqhYJw2zPGZakiDSwbkqgi/view?usp=drivesdk"
+        },
+        {
+          "id": "1PMGXyJnEO-nj0LK3nm01Q42VgR4ERAF2",
+          "title": "image-gen-6(3).png",
+          "group": "primary",
+          "url": "https://drive.google.com/file/d/1PMGXyJnEO-nj0LK3nm01Q42VgR4ERAF2/view?usp=drivesdk"
+        },
+        {
+          "id": "1r1BjZWhsZA535CNGdPaNwDJuu3jOw4mn",
+          "title": "557678.png",
+          "group": "transfer",
+          "url": "https://drive.google.com/file/d/1r1BjZWhsZA535CNGdPaNwDJuu3jOw4mn/view?usp=drivesdk"
+        }
+      ],
+      "path": "public/cartilla/art/owner-intake/2026-10-14/originals/primary/14fZXTlZTk4zqhYJw2zPGZakiDSwbkqgi.png",
+      "integrationStatus": "pending-exact-page-mapping"
+    },
+    {
+      "sha256": "6c502da4360adcfe9117272c3c216f10024961ba0c5eb62ab5de52b95e39b084",
+      "width": 1254,
+      "height": 1254,
+      "mode": "RGBA",
+      "hasAlpha": true,
+      "sources": [
+        {
+          "id": "1w_Bq8ZFlToJ-a4K7wptSDY6N_tQMYpvH",
+          "title": "file_00000000708881f6a1b05e3240b016f0.png",
+          "group": "primary",
+          "url": "https://drive.google.com/file/d/1w_Bq8ZFlToJ-a4K7wptSDY6N_tQMYpvH/view?usp=drivesdk"
+        },
+        {
+          "id": "1zg0pumeX4msbx-OvaI5jW6u7B5i0rTWb",
+          "title": "image-gen-10(3).png",
+          "group": "primary",
+          "url": "https://drive.google.com/file/d/1zg0pumeX4msbx-OvaI5jW6u7B5i0rTWb/view?usp=drivesdk"
+        },
+        {
+          "id": "1onTN5aY5BIGAQd665bLJvE2SHIJxOMdv",
+          "title": "557680.png",
+          "group": "transfer",
+          "url": "https://drive.google.com/file/d/1onTN5aY5BIGAQd665bLJvE2SHIJxOMdv/view?usp=drivesdk"
+        }
+      ],
+      "path": "public/cartilla/art/owner-intake/2026-10-14/originals/primary/1w_Bq8ZFlToJ-a4K7wptSDY6N_tQMYpvH.png",
+      "integrationStatus": "pending-exact-page-mapping"
+    },
+    {
+      "sha256": "d686ea2b097b269e441a950b69a0590dba93d07252afabc32053af6cc3b975f3",
+      "width": 1122,
+      "height": 1402,
+      "mode": "RGBA",
+      "hasAlpha": true,
+      "sources": [
+        {
+          "id": "1FYXPhFWu4itfXBNBvyagUukQ-AZhn5TG",
+          "title": "file_00000000db2c81f5b174b00308eef4a2.png",
+          "group": "primary",
+          "url": "https://drive.google.com/file/d/1FYXPhFWu4itfXBNBvyagUukQ-AZhn5TG/view?usp=drivesdk"
+        }
+      ],
+      "path": "public/cartilla/art/owner-intake/2026-10-14/originals/primary/1FYXPhFWu4itfXBNBvyagUukQ-AZhn5TG.png",
+      "integrationStatus": "pending-exact-page-mapping"
+    },
+    {
+      "sha256": "5b993e1cca9cca7fbb3bfa98b55c67490b6a7d862238e380b260c944fa7c4aca",
+      "width": 1254,
+      "height": 1254,
+      "mode": "RGBA",
+      "hasAlpha": true,
+      "sources": [
+        {
+          "id": "1_9C2YrVc8awejkisxDOS9wIOEpMVM7p5",
+          "title": "file_00000000d56882309e1bca96bc73aa83.png",
+          "group": "primary",
+          "url": "https://drive.google.com/file/d/1_9C2YrVc8awejkisxDOS9wIOEpMVM7p5/view?usp=drivesdk"
+        },
+        {
+          "id": "1sjBOTG5ex1XghKtK-qduA36PYPzigT8t",
+          "title": "image-gen-9(3).png",
+          "group": "primary",
+          "url": "https://drive.google.com/file/d/1sjBOTG5ex1XghKtK-qduA36PYPzigT8t/view?usp=drivesdk"
+        },
+        {
+          "id": "1BtJjFymTJjz8ilKf1MUn7y0k8KInCETH",
+          "title": "557721.png",
+          "group": "transfer",
+          "url": "https://drive.google.com/file/d/1BtJjFymTJjz8ilKf1MUn7y0k8KInCETH/view?usp=drivesdk"
+        }
+      ],
+      "path": "public/cartilla/art/owner-intake/2026-10-14/originals/primary/1_9C2YrVc8awejkisxDOS9wIOEpMVM7p5.png",
+      "integrationStatus": "pending-exact-page-mapping"
+    },
+    {
+      "sha256": "4952bb590a6fe8a1b2b7b16a2e88e958489c6bec753675e3abd9a7fa9cd0958d",
+      "width": 1254,
+      "height": 1254,
+      "mode": "RGBA",
+      "hasAlpha": true,
+      "sources": [
+        {
+          "id": "119YGxk88ydJ5IJksWYDAx3fsdAnsi-6i",
+          "title": "file_0000000024d8822f9571da01873f514a.png",
+          "group": "primary",
+          "url": "https://drive.google.com/file/d/119YGxk88ydJ5IJksWYDAx3fsdAnsi-6i/view?usp=drivesdk"
+        },
+        {
+          "id": "1OFQjsRZHFkZcaq_eEGsPGyD452Pwaln2",
+          "title": "image-gen-7(3).png",
+          "group": "primary",
+          "url": "https://drive.google.com/file/d/1OFQjsRZHFkZcaq_eEGsPGyD452Pwaln2/view?usp=drivesdk"
+        },
+        {
+          "id": "1S5I4ZA6l9KpPXLgiXYQgRoOsar7XMWet",
+          "title": "557679.png",
+          "group": "transfer",
+          "url": "https://drive.google.com/file/d/1S5I4ZA6l9KpPXLgiXYQgRoOsar7XMWet/view?usp=drivesdk"
+        }
+      ],
+      "path": "public/cartilla/art/owner-intake/2026-10-14/originals/primary/119YGxk88ydJ5IJksWYDAx3fsdAnsi-6i.png",
+      "integrationStatus": "pending-exact-page-mapping"
+    },
+    {
+      "sha256": "001714b7276149c5f0c27d6144d3c64107aedd3f3894524ddc2697a34d19f0a2",
+      "width": 1254,
+      "height": 1254,
+      "mode": "RGBA",
+      "hasAlpha": true,
+      "sources": [
+        {
+          "id": "1KDKea3M7sTBkKVFTDUGVkVEQYvDrRNIX",
+          "title": "file_000000001d9081f58868310bfc14d6c6.png",
+          "group": "primary",
+          "url": "https://drive.google.com/file/d/1KDKea3M7sTBkKVFTDUGVkVEQYvDrRNIX/view?usp=drivesdk"
+        },
+        {
+          "id": "1ED3evdFNY_rlrzLaMWKyfBRPaiI9_4J9",
+          "title": "image-gen-8(3).png",
+          "group": "primary",
+          "url": "https://drive.google.com/file/d/1ED3evdFNY_rlrzLaMWKyfBRPaiI9_4J9/view?usp=drivesdk"
+        },
+        {
+          "id": "1uIBFkxTQ7Ydoevd5EqOMXAXwzAszFVe8",
+          "title": "557677.png",
+          "group": "transfer",
+          "url": "https://drive.google.com/file/d/1uIBFkxTQ7Ydoevd5EqOMXAXwzAszFVe8/view?usp=drivesdk"
+        }
+      ],
+      "path": "public/cartilla/art/owner-intake/2026-10-14/originals/primary/1KDKea3M7sTBkKVFTDUGVkVEQYvDrRNIX.png",
+      "integrationStatus": "pending-exact-page-mapping"
+    },
+    {
+      "sha256": "25b818e183e12393406fbfc27a28ed001b5bd01f93bc66cf7c76c1d9b1fcaa43",
+      "width": 1254,
+      "height": 1254,
+      "mode": "RGBA",
+      "hasAlpha": true,
+      "sources": [
+        {
+          "id": "1rso7HLrezBVSQyvLOrSeHqzlE0pYqrL2",
+          "title": "file_000000005fd8823091ec9226764736e9.png",
+          "group": "primary",
+          "url": "https://drive.google.com/file/d/1rso7HLrezBVSQyvLOrSeHqzlE0pYqrL2/view?usp=drivesdk"
+        },
+        {
+          "id": "1ERi8623rmSh93HXbKIsjc258yKvHSAkK",
+          "title": "image-gen-7(2).png",
+          "group": "primary",
+          "url": "https://drive.google.com/file/d/1ERi8623rmSh93HXbKIsjc258yKvHSAkK/view?usp=drivesdk"
+        }
+      ],
+      "path": "public/cartilla/art/owner-intake/2026-10-14/originals/primary/1rso7HLrezBVSQyvLOrSeHqzlE0pYqrL2.png",
+      "integrationStatus": "pending-exact-page-mapping"
+    },
+    {
+      "sha256": "7661b276ac6fb6881560204ed6ce72eb0cae462ff938689ef0857de4b820bbcc",
+      "width": 1254,
+      "height": 1254,
+      "mode": "RGBA",
+      "hasAlpha": true,
+      "sources": [
+        {
+          "id": "1oQzTf-GclnQwtLU3MgSX5Wycnryo3JZ9",
+          "title": "file_00000000084c81f5946c4584310759c4.png",
+          "group": "primary",
+          "url": "https://drive.google.com/file/d/1oQzTf-GclnQwtLU3MgSX5Wycnryo3JZ9/view?usp=drivesdk"
+        },
+        {
+          "id": "1AwqLp-Lhqd92mosSFshxmKc_-__GrY0O",
+          "title": "image-gen-6(2).png",
+          "group": "primary",
+          "url": "https://drive.google.com/file/d/1AwqLp-Lhqd92mosSFshxmKc_-__GrY0O/view?usp=drivesdk"
+        },
+        {
+          "id": "1BV9NYLcZ_AV5Q2oGA0dZXBYWuecCDbPd",
+          "title": "557733.png",
+          "group": "transfer",
+          "url": "https://drive.google.com/file/d/1BV9NYLcZ_AV5Q2oGA0dZXBYWuecCDbPd/view?usp=drivesdk"
+        }
+      ],
+      "path": "public/cartilla/art/owner-intake/2026-10-14/originals/primary/1oQzTf-GclnQwtLU3MgSX5Wycnryo3JZ9.png",
+      "integrationStatus": "pending-exact-page-mapping"
+    },
+    {
+      "sha256": "921da63acd6f9e3250bee65207f830982d8ec6fc09247a6af57f85a722cc6b0d",
+      "width": 1254,
+      "height": 1254,
+      "mode": "RGBA",
+      "hasAlpha": true,
+      "sources": [
+        {
+          "id": "1CwF738wz3C0LH6rYruFJzCBEVPps1IbA",
+          "title": "file_00000000577881f9bddf43b35180134d.png",
+          "group": "primary",
+          "url": "https://drive.google.com/file/d/1CwF738wz3C0LH6rYruFJzCBEVPps1IbA/view?usp=drivesdk"
+        },
+        {
+          "id": "1GyE4u7mblSmhV0Be8zbnMHNBXtFbu4h9",
+          "title": "image-gen-3(3).png",
+          "group": "primary",
+          "url": "https://drive.google.com/file/d/1GyE4u7mblSmhV0Be8zbnMHNBXtFbu4h9/view?usp=drivesdk"
+        },
+        {
+          "id": "1ejs1CmVW2DNTg9z9LMKYzKrfKDInxjwW",
+          "title": "557724.png",
+          "group": "transfer",
+          "url": "https://drive.google.com/file/d/1ejs1CmVW2DNTg9z9LMKYzKrfKDInxjwW/view?usp=drivesdk"
+        }
+      ],
+      "path": "public/cartilla/art/owner-intake/2026-10-14/originals/primary/1CwF738wz3C0LH6rYruFJzCBEVPps1IbA.png",
+      "integrationStatus": "pending-exact-page-mapping"
+    },
+    {
+      "sha256": "97955c8af571198cdb77b30a8fcc0febeaf44256dc32e11914ec6a174d1545c7",
+      "width": 1254,
+      "height": 1254,
+      "mode": "RGBA",
+      "hasAlpha": true,
+      "sources": [
+        {
+          "id": "1EW3yJoasVsWHixZlsymop1Tf8Ch_jUZC",
+          "title": "file_00000000f6288230b902eafdfc560458.png",
+          "group": "primary",
+          "url": "https://drive.google.com/file/d/1EW3yJoasVsWHixZlsymop1Tf8Ch_jUZC/view?usp=drivesdk"
+        },
+        {
+          "id": "1HX9RZJwZgx1hdjgwyj1HN-8VtQs6zX2d",
+          "title": "image-gen-2(20260928-131234).png",
+          "group": "primary",
+          "url": "https://drive.google.com/file/d/1HX9RZJwZgx1hdjgwyj1HN-8VtQs6zX2d/view?usp=drivesdk"
+        },
+        {
+          "id": "1k7jdMznYTaaU03sO2HPG7wa94e-jUX8c",
+          "title": "557683.png",
+          "group": "transfer",
+          "url": "https://drive.google.com/file/d/1k7jdMznYTaaU03sO2HPG7wa94e-jUX8c/view?usp=drivesdk"
+        }
+      ],
+      "path": "public/cartilla/art/owner-intake/2026-10-14/originals/primary/1EW3yJoasVsWHixZlsymop1Tf8Ch_jUZC.png",
+      "integrationStatus": "pending-exact-page-mapping"
+    },
+    {
+      "sha256": "5f060a1a2d096c2cd978e5648168d2365d8f447b5c9f5137b25a45e858c4a0de",
+      "width": 1254,
+      "height": 1254,
+      "mode": "RGBA",
+      "hasAlpha": true,
+      "sources": [
+        {
+          "id": "1SIWNvnoX87kz0Ltffn16wqQV5H6kLsC_",
+          "title": "file_000000007ac481f597ba93ff93dbbf6d.png",
+          "group": "primary",
+          "url": "https://drive.google.com/file/d/1SIWNvnoX87kz0Ltffn16wqQV5H6kLsC_/view?usp=drivesdk"
+        },
+        {
+          "id": "1e0u0ydd6wOf4cFiZP0sKAPWlYF6VCQMW",
+          "title": "image-gen-9(2).png",
+          "group": "primary",
+          "url": "https://drive.google.com/file/d/1e0u0ydd6wOf4cFiZP0sKAPWlYF6VCQMW/view?usp=drivesdk"
+        }
+      ],
+      "path": "public/cartilla/art/owner-intake/2026-10-14/originals/primary/1SIWNvnoX87kz0Ltffn16wqQV5H6kLsC_.png",
+      "integrationStatus": "pending-exact-page-mapping"
+    },
+    {
+      "sha256": "8b007d1b53e3d6f9ebc05fa6303fe2ffdc1e38bca6e850dc5a0f18800d58b79e",
+      "width": 1254,
+      "height": 1254,
+      "mode": "RGBA",
+      "hasAlpha": true,
+      "sources": [
+        {
+          "id": "1YLH3I2m9Z4osBapUebvgQ1Iej7jTnZWY",
+          "title": "file_000000009a8881f8bdd32d50ba809aad.png",
+          "group": "primary",
+          "url": "https://drive.google.com/file/d/1YLH3I2m9Z4osBapUebvgQ1Iej7jTnZWY/view?usp=drivesdk"
+        },
+        {
+          "id": "1lWPWfRG10_KjBv5UvhlfZbHaJpztCVvF",
+          "title": "image-gen-4(2).png",
+          "group": "primary",
+          "url": "https://drive.google.com/file/d/1lWPWfRG10_KjBv5UvhlfZbHaJpztCVvF/view?usp=drivesdk"
+        }
+      ],
+      "path": "public/cartilla/art/owner-intake/2026-10-14/originals/primary/1YLH3I2m9Z4osBapUebvgQ1Iej7jTnZWY.png",
+      "integrationStatus": "pending-exact-page-mapping"
+    },
+    {
+      "sha256": "45896bf7eb6ccc80d2dced7272e9256679b2be9f0748ccbdc197e36f6e152167",
+      "width": 1254,
+      "height": 1254,
+      "mode": "RGBA",
+      "hasAlpha": true,
+      "sources": [
+        {
+          "id": "1n7_mlo_q26yOhiMtMCqKRP-zT77Ngz7_",
+          "title": "file_00000000dbe4820d8af38c7c22ef94f8.png",
+          "group": "primary",
+          "url": "https://drive.google.com/file/d/1n7_mlo_q26yOhiMtMCqKRP-zT77Ngz7_/view?usp=drivesdk"
+        },
+        {
+          "id": "17nwjAyU-APmnjOngz3qGEFNQODHA_fSE",
+          "title": "image-gen-5(2).png",
+          "group": "primary",
+          "url": "https://drive.google.com/file/d/17nwjAyU-APmnjOngz3qGEFNQODHA_fSE/view?usp=drivesdk"
+        }
+      ],
+      "path": "public/cartilla/art/owner-intake/2026-10-14/originals/primary/1n7_mlo_q26yOhiMtMCqKRP-zT77Ngz7_.png",
+      "integrationStatus": "pending-exact-page-mapping"
+    },
+    {
+      "sha256": "dca4b6756ade372d6a998e52b5d6f61f0935c470ad6d0eb395273dbe29ad1801",
+      "width": 1254,
+      "height": 1254,
+      "mode": "RGBA",
+      "hasAlpha": true,
+      "sources": [
+        {
+          "id": "1nr6ZuN2NlSaVhLFllzSwMtfU4dK0RD7_",
+          "title": "file_00000000bf908230bfdb5890d7a68911.png",
+          "group": "primary",
+          "url": "https://drive.google.com/file/d/1nr6ZuN2NlSaVhLFllzSwMtfU4dK0RD7_/view?usp=drivesdk"
+        },
+        {
+          "id": "1uxaiviryYt37MQ2h8BnEKtbt-Hcu8dg8",
+          "title": "image-gen-1(20260928-124934).png",
+          "group": "primary",
+          "url": "https://drive.google.com/file/d/1uxaiviryYt37MQ2h8BnEKtbt-Hcu8dg8/view?usp=drivesdk"
+        },
+        {
+          "id": "1YIH-caqK4yBzra5jiTSzP14wiz_RmGJ0",
+          "title": "557735.png",
+          "group": "transfer",
+          "url": "https://drive.google.com/file/d/1YIH-caqK4yBzra5jiTSzP14wiz_RmGJ0/view?usp=drivesdk"
+        }
+      ],
+      "path": "public/cartilla/art/owner-intake/2026-10-14/originals/primary/1nr6ZuN2NlSaVhLFllzSwMtfU4dK0RD7_.png",
+      "integrationStatus": "pending-exact-page-mapping"
+    },
+    {
+      "sha256": "b186acca4f025d1de21cd43b8d59a576476f95669774f27fc3906e5560622a3b",
+      "width": 1254,
+      "height": 1254,
+      "mode": "RGBA",
+      "hasAlpha": true,
+      "sources": [
+        {
+          "id": "16JTCxL8ozBiayXG12027N4zSXa6hWV4j",
+          "title": "file_000000000170820e881e0cff757e4001.png",
+          "group": "primary",
+          "url": "https://drive.google.com/file/d/16JTCxL8ozBiayXG12027N4zSXa6hWV4j/view?usp=drivesdk"
+        },
+        {
+          "id": "1Aw2_0o0Wq3T18dit44Kv_FbQMN7W1WGF",
+          "title": "image-gen-1(20260928-131233).png",
+          "group": "primary",
+          "url": "https://drive.google.com/file/d/1Aw2_0o0Wq3T18dit44Kv_FbQMN7W1WGF/view?usp=drivesdk"
+        }
+      ],
+      "path": "public/cartilla/art/owner-intake/2026-10-14/originals/primary/16JTCxL8ozBiayXG12027N4zSXa6hWV4j.png",
+      "integrationStatus": "pending-exact-page-mapping"
+    },
+    {
+      "sha256": "cdb967f0cbe24248a1320f08e86eb2749e3657bec5ed8fd47c54150756287194",
+      "width": 1254,
+      "height": 1254,
+      "mode": "RGBA",
+      "hasAlpha": true,
+      "sources": [
+        {
+          "id": "1x1qZxU7xMPdYvpX3Z1xnP0GdMeYpSjYR",
+          "title": "file_000000002d6081f4b82c16356aefd91c.png",
+          "group": "primary",
+          "url": "https://drive.google.com/file/d/1x1qZxU7xMPdYvpX3Z1xnP0GdMeYpSjYR/view?usp=drivesdk"
+        },
+        {
+          "id": "19gB7SC4sBC6gQJ3Udo3HiNrQwIhZy2mO",
+          "title": "image-gen-2(10).png",
+          "group": "primary",
+          "url": "https://drive.google.com/file/d/19gB7SC4sBC6gQJ3Udo3HiNrQwIhZy2mO/view?usp=drivesdk"
+        },
+        {
+          "id": "1cQY1f7-U1fYeX7AgKINk7LaiG8ndWqBI",
+          "title": "557732.png",
+          "group": "transfer",
+          "url": "https://drive.google.com/file/d/1cQY1f7-U1fYeX7AgKINk7LaiG8ndWqBI/view?usp=drivesdk"
+        }
+      ],
+      "path": "public/cartilla/art/owner-intake/2026-10-14/originals/primary/1x1qZxU7xMPdYvpX3Z1xnP0GdMeYpSjYR.png",
+      "integrationStatus": "pending-exact-page-mapping"
+    },
+    {
+      "sha256": "7d5d06e6759f78f3e00227bec6e2282eb72b44aecde5674c089c428211604602",
+      "width": 1254,
+      "height": 1254,
+      "mode": "RGBA",
+      "hasAlpha": true,
+      "sources": [
+        {
+          "id": "1NURtvH6m4AYOV8FurytyJBOFXg5ISJMf",
+          "title": "file_00000000cdf881f6b16ac4ecdbed474c.png",
+          "group": "primary",
+          "url": "https://drive.google.com/file/d/1NURtvH6m4AYOV8FurytyJBOFXg5ISJMf/view?usp=drivesdk"
+        },
+        {
+          "id": "1UXyoy4dA5tv8vwv0osF-Fy0lQEu0yiBb",
+          "title": "image-gen-3(2).png",
+          "group": "primary",
+          "url": "https://drive.google.com/file/d/1UXyoy4dA5tv8vwv0osF-Fy0lQEu0yiBb/view?usp=drivesdk"
+        },
+        {
+          "id": "1e9tN9-lX9xt9l1SGObzZn1MIXZALKTcv",
+          "title": "557734.png",
+          "group": "transfer",
+          "url": "https://drive.google.com/file/d/1e9tN9-lX9xt9l1SGObzZn1MIXZALKTcv/view?usp=drivesdk"
+        }
+      ],
+      "path": "public/cartilla/art/owner-intake/2026-10-14/originals/primary/1NURtvH6m4AYOV8FurytyJBOFXg5ISJMf.png",
+      "integrationStatus": "pending-exact-page-mapping"
+    },
+    {
+      "sha256": "bee599e54d76500f1eef25a88035c12215519d42d77e40e2910ddb559fb26e1b",
+      "width": 1254,
+      "height": 1254,
+      "mode": "RGBA",
+      "hasAlpha": true,
+      "sources": [
+        {
+          "id": "1xMGh7655Iac23IsfOGovMiMmkXZbTH8t",
+          "title": "file_00000000baec81f6ac22690d7959ed66.png",
+          "group": "primary",
+          "url": "https://drive.google.com/file/d/1xMGh7655Iac23IsfOGovMiMmkXZbTH8t/view?usp=drivesdk"
+        },
+        {
+          "id": "1DKKFClD04ao92-MrzsHQfan974Bc6mTt",
+          "title": "image-gen-4(1).png",
+          "group": "primary",
+          "url": "https://drive.google.com/file/d/1DKKFClD04ao92-MrzsHQfan974Bc6mTt/view?usp=drivesdk"
+        },
+        {
+          "id": "1mOpIZ_0rqFJPWhEkJMmR6nMqV9l9auG9",
+          "title": "557740.png",
+          "group": "transfer",
+          "url": "https://drive.google.com/file/d/1mOpIZ_0rqFJPWhEkJMmR6nMqV9l9auG9/view?usp=drivesdk"
+        }
+      ],
+      "path": "public/cartilla/art/owner-intake/2026-10-14/originals/primary/1xMGh7655Iac23IsfOGovMiMmkXZbTH8t.png",
+      "integrationStatus": "pending-exact-page-mapping"
+    },
+    {
+      "sha256": "4660ebb1f9337ff52961c90bc2b76b5cbbc30f230370b00c0dd51a87612eeaa8",
+      "width": 1254,
+      "height": 1254,
+      "mode": "RGBA",
+      "hasAlpha": true,
+      "sources": [
+        {
+          "id": "1ghkXTWf3pV4BgY2C6d-8evOh26xQZu9M",
+          "title": "file_0000000014688230a6076c3eff35425e.png",
+          "group": "primary",
+          "url": "https://drive.google.com/file/d/1ghkXTWf3pV4BgY2C6d-8evOh26xQZu9M/view?usp=drivesdk"
+        },
+        {
+          "id": "1qMDIwA1aOTPoOQcwOeL9_3mUPhnJnTKj",
+          "title": "image-gen-6(1).png",
+          "group": "primary",
+          "url": "https://drive.google.com/file/d/1qMDIwA1aOTPoOQcwOeL9_3mUPhnJnTKj/view?usp=drivesdk"
+        },
+        {
+          "id": "1aEgI84irZ68yd6RBFXPw3fLafTAWBVfT",
+          "title": "557739.png",
+          "group": "transfer",
+          "url": "https://drive.google.com/file/d/1aEgI84irZ68yd6RBFXPw3fLafTAWBVfT/view?usp=drivesdk"
+        }
+      ],
+      "path": "public/cartilla/art/owner-intake/2026-10-14/originals/primary/1ghkXTWf3pV4BgY2C6d-8evOh26xQZu9M.png",
+      "integrationStatus": "pending-exact-page-mapping"
+    },
+    {
+      "sha256": "a7d4fc436f676d2253f1795216d0933a479394e69cc9194c41936eeb0c890c6b",
+      "width": 1402,
+      "height": 1122,
+      "mode": "RGBA",
+      "hasAlpha": true,
+      "sources": [
+        {
+          "id": "1BRpdzoAoVznlmYtqA_ObGeLZxdRqUxK0",
+          "title": "file_0000000096c8820e963c80dad03bca8b.png",
+          "group": "primary",
+          "url": "https://drive.google.com/file/d/1BRpdzoAoVznlmYtqA_ObGeLZxdRqUxK0/view?usp=drivesdk"
+        },
+        {
+          "id": "1zV7jwNLrTe3hcAJKumL5-vk5N1Dop1wj",
+          "title": "image-gen-9(1).png",
+          "group": "primary",
+          "url": "https://drive.google.com/file/d/1zV7jwNLrTe3hcAJKumL5-vk5N1Dop1wj/view?usp=drivesdk"
+        },
+        {
+          "id": "15hbYIt-JymwVt2sLCdcY6GSW3QtpR8NY",
+          "title": "557738.png",
+          "group": "transfer",
+          "url": "https://drive.google.com/file/d/15hbYIt-JymwVt2sLCdcY6GSW3QtpR8NY/view?usp=drivesdk"
+        }
+      ],
+      "path": "public/cartilla/art/owner-intake/2026-10-14/originals/primary/1BRpdzoAoVznlmYtqA_ObGeLZxdRqUxK0.png",
+      "integrationStatus": "pending-exact-page-mapping"
+    },
+    {
+      "sha256": "3f792052c44978579dcfbdf70b97f84a9eb5f71fd7bd274d27012bffccc82fb6",
+      "width": 1402,
+      "height": 1122,
+      "mode": "RGBA",
+      "hasAlpha": true,
+      "sources": [
+        {
+          "id": "1wChWdYDgKsR9nlXsXGxXWGZxZL8dibQN",
+          "title": "file_00000000b994820d88a087efa1ad03fa.png",
+          "group": "primary",
+          "url": "https://drive.google.com/file/d/1wChWdYDgKsR9nlXsXGxXWGZxZL8dibQN/view?usp=drivesdk"
+        },
+        {
+          "id": "10DEAhOqbCchGDMemX5b4TTH53GiEIiz-",
+          "title": "image-gen-7(1).png",
+          "group": "primary",
+          "url": "https://drive.google.com/file/d/10DEAhOqbCchGDMemX5b4TTH53GiEIiz-/view?usp=drivesdk"
+        },
+        {
+          "id": "1S4mM77y06fWnmFtGtzpsJ8oKdvvfmPvT",
+          "title": "557742.png",
+          "group": "transfer",
+          "url": "https://drive.google.com/file/d/1S4mM77y06fWnmFtGtzpsJ8oKdvvfmPvT/view?usp=drivesdk"
+        }
+      ],
+      "path": "public/cartilla/art/owner-intake/2026-10-14/originals/primary/1wChWdYDgKsR9nlXsXGxXWGZxZL8dibQN.png",
+      "integrationStatus": "pending-exact-page-mapping"
+    },
+    {
+      "sha256": "78ea495d22b7b7853ca93fb64df9f23fd44de390f6a9800e9cdde7df5ea66bd3",
+      "width": 1122,
+      "height": 1402,
+      "mode": "RGBA",
+      "hasAlpha": true,
+      "sources": [
+        {
+          "id": "1vndYxRJ2Vp3jxnjFc17jdxuCdZsrv_oZ",
+          "title": "file_00000000ab34822f939854f5464e71d4.png",
+          "group": "primary",
+          "url": "https://drive.google.com/file/d/1vndYxRJ2Vp3jxnjFc17jdxuCdZsrv_oZ/view?usp=drivesdk"
+        },
+        {
+          "id": "1StTHJwfhXUevcI45laM88OF_X3Fe0UzP",
+          "title": "image-gen-8(1).png",
+          "group": "primary",
+          "url": "https://drive.google.com/file/d/1StTHJwfhXUevcI45laM88OF_X3Fe0UzP/view?usp=drivesdk"
+        },
+        {
+          "id": "1SFA2ZNk_8HaCWE-SwTKJryNALAbEtmMA",
+          "title": "557737.png",
+          "group": "transfer",
+          "url": "https://drive.google.com/file/d/1SFA2ZNk_8HaCWE-SwTKJryNALAbEtmMA/view?usp=drivesdk"
+        }
+      ],
+      "path": "public/cartilla/art/owner-intake/2026-10-14/originals/primary/1vndYxRJ2Vp3jxnjFc17jdxuCdZsrv_oZ.png",
+      "integrationStatus": "pending-exact-page-mapping"
+    },
+    {
+      "sha256": "950fb2939ea0e025b07f24cc60d94a21dfcb5be831eee4143d96a0d485f2aa43",
+      "width": 1122,
+      "height": 1402,
+      "mode": "RGBA",
+      "hasAlpha": true,
+      "sources": [
+        {
+          "id": "1GvCQBvgIgO4gUyyWklTAp0glpi6CZn3i",
+          "title": "file_000000002f0c81f58c25c14c27388d1b.png",
+          "group": "primary",
+          "url": "https://drive.google.com/file/d/1GvCQBvgIgO4gUyyWklTAp0glpi6CZn3i/view?usp=drivesdk"
+        },
+        {
+          "id": "1bRDd0ZheD1klVcTN_LN37p5OsLLdDl4q",
+          "title": "image-gen-10(1).png",
+          "group": "primary",
+          "url": "https://drive.google.com/file/d/1bRDd0ZheD1klVcTN_LN37p5OsLLdDl4q/view?usp=drivesdk"
+        },
+        {
+          "id": "1gjTCOqvWgj-XhLi-aSS4gyKw6ywQeNnD",
+          "title": "557736.png",
+          "group": "transfer",
+          "url": "https://drive.google.com/file/d/1gjTCOqvWgj-XhLi-aSS4gyKw6ywQeNnD/view?usp=drivesdk"
+        }
+      ],
+      "path": "public/cartilla/art/owner-intake/2026-10-14/originals/primary/1GvCQBvgIgO4gUyyWklTAp0glpi6CZn3i.png",
+      "integrationStatus": "pending-exact-page-mapping"
+    },
+    {
+      "sha256": "eb49fd3c76e317684ad53b704d466c6742bd2777b3c5dd2d867900737047c54d",
+      "width": 1122,
+      "height": 1402,
+      "mode": "RGBA",
+      "hasAlpha": true,
+      "sources": [
+        {
+          "id": "1Cwsc_4NVqO_HFK5ZDwsVjrdQJsEzzJk8",
+          "title": "file_00000000a074820db65de2c2c0cc53a3.png",
+          "group": "primary",
+          "url": "https://drive.google.com/file/d/1Cwsc_4NVqO_HFK5ZDwsVjrdQJsEzzJk8/view?usp=drivesdk"
+        },
+        {
+          "id": "1NzNDLvUZ8rKWYDAqbrPpzxRlAPgR_gK9",
+          "title": "image-gen-2(8).png",
+          "group": "primary",
+          "url": "https://drive.google.com/file/d/1NzNDLvUZ8rKWYDAqbrPpzxRlAPgR_gK9/view?usp=drivesdk"
+        },
+        {
+          "id": "1-IxPFq_mUhvDq8NQ17R2DvnCRho-7mOb",
+          "title": "557716.png",
+          "group": "transfer",
+          "url": "https://drive.google.com/file/d/1-IxPFq_mUhvDq8NQ17R2DvnCRho-7mOb/view?usp=drivesdk"
+        }
+      ],
+      "path": "public/cartilla/art/owner-intake/2026-10-14/originals/primary/1Cwsc_4NVqO_HFK5ZDwsVjrdQJsEzzJk8.png",
+      "integrationStatus": "pending-exact-page-mapping"
+    },
+    {
+      "sha256": "d86062257a55eb583d9c08b4b2bf7629699b5fa4d3ba37945deb37bfa4455aab",
+      "width": 1122,
+      "height": 1402,
+      "mode": "RGBA",
+      "hasAlpha": true,
+      "sources": [
+        {
+          "id": "1859IADQrK54kaieOG_7x6UEm1F7bCHZv",
+          "title": "file_000000008090820c8e9f9f62cb46b01b.png",
+          "group": "primary",
+          "url": "https://drive.google.com/file/d/1859IADQrK54kaieOG_7x6UEm1F7bCHZv/view?usp=drivesdk"
+        },
+        {
+          "id": "1kDJwRvvXkgwfpOV_a2gzPRf5h4Al9n0O",
+          "title": "image-gen-7.png",
+          "group": "primary",
+          "url": "https://drive.google.com/file/d/1kDJwRvvXkgwfpOV_a2gzPRf5h4Al9n0O/view?usp=drivesdk"
+        },
+        {
+          "id": "1uuTo_h-jHtl6jjJqyUCTW6vgVZhOMR2p",
+          "title": "557748.png",
+          "group": "transfer",
+          "url": "https://drive.google.com/file/d/1uuTo_h-jHtl6jjJqyUCTW6vgVZhOMR2p/view?usp=drivesdk"
+        }
+      ],
+      "path": "public/cartilla/art/owner-intake/2026-10-14/originals/primary/1859IADQrK54kaieOG_7x6UEm1F7bCHZv.png",
+      "integrationStatus": "pending-exact-page-mapping"
+    },
+    {
+      "sha256": "bee41cbb4579c36a6072dbff5c925a39955f9cc349ee6ca20d0a914fc6e5d2c0",
+      "width": 1122,
+      "height": 1402,
+      "mode": "RGBA",
+      "hasAlpha": true,
+      "sources": [
+        {
+          "id": "1NcMLNDiNnu3x5ripL98mlQczy0Nt49ZW",
+          "title": "file_000000008944822fb7405790bc13d40c.png",
+          "group": "primary",
+          "url": "https://drive.google.com/file/d/1NcMLNDiNnu3x5ripL98mlQczy0Nt49ZW/view?usp=drivesdk"
+        },
+        {
+          "id": "1WS75naWv4Rblb_XzjJpl3WdUIBwTR-DK",
+          "title": "image-gen-6.png",
+          "group": "primary",
+          "url": "https://drive.google.com/file/d/1WS75naWv4Rblb_XzjJpl3WdUIBwTR-DK/view?usp=drivesdk"
+        },
+        {
+          "id": "1QGRj27sBh67rK8wD3-RTW2df1hEA1rcM",
+          "title": "557711.png",
+          "group": "transfer",
+          "url": "https://drive.google.com/file/d/1QGRj27sBh67rK8wD3-RTW2df1hEA1rcM/view?usp=drivesdk"
+        }
+      ],
+      "path": "public/cartilla/art/owner-intake/2026-10-14/originals/primary/1NcMLNDiNnu3x5ripL98mlQczy0Nt49ZW.png",
+      "integrationStatus": "pending-exact-page-mapping"
+    },
+    {
+      "sha256": "0b8e2dcb3880d2ad8ea44f5a68677313dbc875aeb06cafb8f460632c4ee3a1d1",
+      "width": 1122,
+      "height": 1402,
+      "mode": "RGBA",
+      "hasAlpha": true,
+      "sources": [
+        {
+          "id": "1-eMuMoan1C1dld2TsZDB42ATK2jr4RTV",
+          "title": "file_00000000095c81f694bb2d6b14c549a4.png",
+          "group": "primary",
+          "url": "https://drive.google.com/file/d/1-eMuMoan1C1dld2TsZDB42ATK2jr4RTV/view?usp=drivesdk"
+        },
+        {
+          "id": "1J6X-Lbo8O-n5Vx8caIMfWvcmadHUTJuV",
+          "title": "image-gen-8.png",
+          "group": "primary",
+          "url": "https://drive.google.com/file/d/1J6X-Lbo8O-n5Vx8caIMfWvcmadHUTJuV/view?usp=drivesdk"
+        },
+        {
+          "id": "1kONU4skp8DEY6nqWVHK3xEKGyKTgvzKd",
+          "title": "557747.png",
+          "group": "transfer",
+          "url": "https://drive.google.com/file/d/1kONU4skp8DEY6nqWVHK3xEKGyKTgvzKd/view?usp=drivesdk"
+        }
+      ],
+      "path": "public/cartilla/art/owner-intake/2026-10-14/originals/primary/1-eMuMoan1C1dld2TsZDB42ATK2jr4RTV.png",
+      "integrationStatus": "pending-exact-page-mapping"
+    },
+    {
+      "sha256": "97f883adf97d8189532a5b5dfa487fe1eeeb64e882836ed9d8244017e541c6c6",
+      "width": 1122,
+      "height": 1402,
+      "mode": "RGBA",
+      "hasAlpha": true,
+      "sources": [
+        {
+          "id": "1wr7My6cb-Z6Zyw34cO1F4mDlDTwyNx7q",
+          "title": "file_00000000a3f481f7a10bb954cbb9695f.png",
+          "group": "primary",
+          "url": "https://drive.google.com/file/d/1wr7My6cb-Z6Zyw34cO1F4mDlDTwyNx7q/view?usp=drivesdk"
+        },
+        {
+          "id": "1ipndCaObc0Pz4fElRbXIvFF-dbzKNyRK",
+          "title": "image-gen-9.png",
+          "group": "primary",
+          "url": "https://drive.google.com/file/d/1ipndCaObc0Pz4fElRbXIvFF-dbzKNyRK/view?usp=drivesdk"
+        },
+        {
+          "id": "1GfiEhifkAXM96jvSkDMBWegBskHAi9JB",
+          "title": "557744.png",
+          "group": "transfer",
+          "url": "https://drive.google.com/file/d/1GfiEhifkAXM96jvSkDMBWegBskHAi9JB/view?usp=drivesdk"
+        }
+      ],
+      "path": "public/cartilla/art/owner-intake/2026-10-14/originals/primary/1wr7My6cb-Z6Zyw34cO1F4mDlDTwyNx7q.png",
+      "integrationStatus": "pending-exact-page-mapping"
+    },
+    {
+      "sha256": "8d8e23cb0eb08a9e1bc048ae3c988ebdc492d436c29059b943512287c94a342e",
+      "width": 1122,
+      "height": 1402,
+      "mode": "RGBA",
+      "hasAlpha": true,
+      "sources": [
+        {
+          "id": "1s0RWeRkf-wou7cagH6XzpufqXWu2ewP4",
+          "title": "file_00000000c7e48230abf34393f7f8e185.png",
+          "group": "primary",
+          "url": "https://drive.google.com/file/d/1s0RWeRkf-wou7cagH6XzpufqXWu2ewP4/view?usp=drivesdk"
+        },
+        {
+          "id": "1xQUWrGQqJG6824heUXEcgxj9h323Xeam",
+          "title": "image-gen-2(9).png",
+          "group": "primary",
+          "url": "https://drive.google.com/file/d/1xQUWrGQqJG6824heUXEcgxj9h323Xeam/view?usp=drivesdk"
+        },
+        {
+          "id": "1SYiMqI6Upr-wi3Tl25DtwayaXMWrZNOl",
+          "title": "557745.png",
+          "group": "transfer",
+          "url": "https://drive.google.com/file/d/1SYiMqI6Upr-wi3Tl25DtwayaXMWrZNOl/view?usp=drivesdk"
+        }
+      ],
+      "path": "public/cartilla/art/owner-intake/2026-10-14/originals/primary/1s0RWeRkf-wou7cagH6XzpufqXWu2ewP4.png",
+      "integrationStatus": "pending-exact-page-mapping"
+    },
+    {
+      "sha256": "1ffed420507614c33cb67becd0c9cff4cadd940e7350f3b6ac1017fa117add28",
+      "width": 1122,
+      "height": 1402,
+      "mode": "RGBA",
+      "hasAlpha": true,
+      "sources": [
+        {
+          "id": "1pQxgrHJs_vDQ3yVC9NKw6P_Ag9kIaHF0",
+          "title": "file_00000000244881f8a336dff4274e913a.png",
+          "group": "primary",
+          "url": "https://drive.google.com/file/d/1pQxgrHJs_vDQ3yVC9NKw6P_Ag9kIaHF0/view?usp=drivesdk"
+        },
+        {
+          "id": "1EEDw4BartFrwx402kjOSQ_eAbpz2kN74",
+          "title": "image-gen-3(1).png",
+          "group": "primary",
+          "url": "https://drive.google.com/file/d/1EEDw4BartFrwx402kjOSQ_eAbpz2kN74/view?usp=drivesdk"
+        },
+        {
+          "id": "1WNXgycmCI3kVQ-Mnrcxal7INUpR_oTzE",
+          "title": "557741.png",
+          "group": "transfer",
+          "url": "https://drive.google.com/file/d/1WNXgycmCI3kVQ-Mnrcxal7INUpR_oTzE/view?usp=drivesdk"
+        }
+      ],
+      "path": "public/cartilla/art/owner-intake/2026-10-14/originals/primary/1pQxgrHJs_vDQ3yVC9NKw6P_Ag9kIaHF0.png",
+      "integrationStatus": "pending-exact-page-mapping"
+    },
+    {
+      "sha256": "9d663d60bcef31f50c72e14a7aa2d0b5c5bdd73c8f591e5d9f878cfea712d32f",
+      "width": 1122,
+      "height": 1402,
+      "mode": "RGBA",
+      "hasAlpha": true,
+      "sources": [
+        {
+          "id": "1f5fTZFZBGsd40OE4qrQ74hWo6rJY-g2l",
+          "title": "file_00000000c28481f5b55cf64efc00e1f0.png",
+          "group": "primary",
+          "url": "https://drive.google.com/file/d/1f5fTZFZBGsd40OE4qrQ74hWo6rJY-g2l/view?usp=drivesdk"
+        },
+        {
+          "id": "1QPWcJ1VU4yAnwIkQjf2SPHH2gSVThaxK",
+          "title": "image-gen-10.png",
+          "group": "primary",
+          "url": "https://drive.google.com/file/d/1QPWcJ1VU4yAnwIkQjf2SPHH2gSVThaxK/view?usp=drivesdk"
+        },
+        {
+          "id": "1JD_NzAmMwwuhuYfQs4i9CoPEMp_hfEki",
+          "title": "557746.png",
+          "group": "transfer",
+          "url": "https://drive.google.com/file/d/1JD_NzAmMwwuhuYfQs4i9CoPEMp_hfEki/view?usp=drivesdk"
+        }
+      ],
+      "path": "public/cartilla/art/owner-intake/2026-10-14/originals/primary/1f5fTZFZBGsd40OE4qrQ74hWo6rJY-g2l.png",
+      "integrationStatus": "pending-exact-page-mapping"
+    },
+    {
+      "sha256": "c746f7cfb50797f4c2d6d6bd310fb52f75c678538d5fb8ea54e60643e00f254a",
+      "width": 1254,
+      "height": 1254,
+      "mode": "RGBA",
+      "hasAlpha": true,
+      "sources": [
+        {
+          "id": "1rmrPKIle_UrO88UM9SAkRiyQIAsGkkgc",
+          "title": "file_0000000006b882308ddf59d4ad4e95db.png",
+          "group": "primary",
+          "url": "https://drive.google.com/file/d/1rmrPKIle_UrO88UM9SAkRiyQIAsGkkgc/view?usp=drivesdk"
+        },
+        {
+          "id": "1bPPZ0ftJlol-MzGK1FmwG4Hkw6uQI7wv",
+          "title": "image-gen-1(20260928-123235).png",
+          "group": "primary",
+          "url": "https://drive.google.com/file/d/1bPPZ0ftJlol-MzGK1FmwG4Hkw6uQI7wv/view?usp=drivesdk"
+        },
+        {
+          "id": "1t3i8Y9sLMYqZeqjd1I6B0MMSiuWjdVZ9",
+          "title": "557743.png",
+          "group": "transfer",
+          "url": "https://drive.google.com/file/d/1t3i8Y9sLMYqZeqjd1I6B0MMSiuWjdVZ9/view?usp=drivesdk"
+        }
+      ],
+      "path": "public/cartilla/art/owner-intake/2026-10-14/originals/primary/1rmrPKIle_UrO88UM9SAkRiyQIAsGkkgc.png",
+      "integrationStatus": "pending-exact-page-mapping"
+    },
+    {
+      "sha256": "3681be568f73490c90c998495b56fde32dec37c2a2505464a406a4e5bdd333e0",
+      "width": 1122,
+      "height": 1402,
+      "mode": "RGBA",
+      "hasAlpha": true,
+      "sources": [
+        {
+          "id": "1DUNi-Hcb79S4m-QpAwHO4r9QNes6jH59",
+          "title": "file_00000000c2f8820d8b5e873af64ed6d1.png",
+          "group": "primary",
+          "url": "https://drive.google.com/file/d/1DUNi-Hcb79S4m-QpAwHO4r9QNes6jH59/view?usp=drivesdk"
+        },
+        {
+          "id": "1LQGViDoQbwfKefj7cpmvOOPjx2gp7UKz",
+          "title": "image-gen-3.png",
+          "group": "primary",
+          "url": "https://drive.google.com/file/d/1LQGViDoQbwfKefj7cpmvOOPjx2gp7UKz/view?usp=drivesdk"
+        },
+        {
+          "id": "102LpYT_qP_g1Nl3lytDmvCGP76uWvRbB",
+          "title": "557750.png",
+          "group": "transfer",
+          "url": "https://drive.google.com/file/d/102LpYT_qP_g1Nl3lytDmvCGP76uWvRbB/view?usp=drivesdk"
+        }
+      ],
+      "path": "public/cartilla/art/owner-intake/2026-10-14/originals/primary/1DUNi-Hcb79S4m-QpAwHO4r9QNes6jH59.png",
+      "integrationStatus": "pending-exact-page-mapping"
+    },
+    {
+      "sha256": "d383a5c2c28d4b189e094c14ad22b5d94d0d23ea6eedb926df15ce5ca6b5d43c",
+      "width": 1086,
+      "height": 1448,
+      "mode": "RGBA",
+      "hasAlpha": true,
+      "sources": [
+        {
+          "id": "1k1v7RSCFvNMMfDLcZKWt1RV7Hpj4st-j",
+          "title": "Gretel in Folk Art Style.png",
+          "group": "primary",
+          "url": "https://drive.google.com/file/d/1k1v7RSCFvNMMfDLcZKWt1RV7Hpj4st-j/view?usp=drivesdk"
+        }
+      ],
+      "path": "public/cartilla/art/owner-intake/2026-10-14/originals/primary/1k1v7RSCFvNMMfDLcZKWt1RV7Hpj4st-j.png",
+      "integrationStatus": "pending-exact-page-mapping"
+    },
+    {
+      "sha256": "50e34c0d66f9fcd30e5ac6248a13d0828695a8999d49370be14bd036b2610e97",
+      "width": 1122,
+      "height": 1402,
+      "mode": "RGBA",
+      "hasAlpha": true,
+      "sources": [
+        {
+          "id": "1e1GeMG1NaBTYPQ8xRiNQRrW4NSBOGtgr",
+          "title": "image-gen-1(20260928-122201).png",
+          "group": "primary",
+          "url": "https://drive.google.com/file/d/1e1GeMG1NaBTYPQ8xRiNQRrW4NSBOGtgr/view?usp=drivesdk"
+        }
+      ],
+      "path": "public/cartilla/art/owner-intake/2026-10-14/originals/primary/1e1GeMG1NaBTYPQ8xRiNQRrW4NSBOGtgr.png",
+      "integrationStatus": "pending-exact-page-mapping"
+    },
+    {
+      "sha256": "9f2a7c77209b23b6fb06b16022a11b24934a17cccc06da02791c3e2be41b780e",
+      "width": 1122,
+      "height": 1402,
+      "mode": "RGBA",
+      "hasAlpha": true,
+      "sources": [
+        {
+          "id": "133NhmFvhuz3Bx3pDnNJa6ik88HgZic7B",
+          "title": "image-gen-4.png",
+          "group": "primary",
+          "url": "https://drive.google.com/file/d/133NhmFvhuz3Bx3pDnNJa6ik88HgZic7B/view?usp=drivesdk"
+        }
+      ],
+      "path": "public/cartilla/art/owner-intake/2026-10-14/originals/primary/133NhmFvhuz3Bx3pDnNJa6ik88HgZic7B.png",
+      "integrationStatus": "pending-exact-page-mapping"
+    },
+    {
+      "sha256": "8bfed9f381093639391e1a4338038650a3928814069cf001cd09b4def37b1deb",
+      "width": 1122,
+      "height": 1402,
+      "mode": "RGBA",
+      "hasAlpha": true,
+      "sources": [
+        {
+          "id": "1VxaPqkmpbZMvOi7GV-djXwZLL_eZzQTM",
+          "title": "image-gen-5.png",
+          "group": "primary",
+          "url": "https://drive.google.com/file/d/1VxaPqkmpbZMvOi7GV-djXwZLL_eZzQTM/view?usp=drivesdk"
+        }
+      ],
+      "path": "public/cartilla/art/owner-intake/2026-10-14/originals/primary/1VxaPqkmpbZMvOi7GV-djXwZLL_eZzQTM.png",
+      "integrationStatus": "pending-exact-page-mapping"
+    },
+    {
+      "sha256": "29e1a85aa939f6b07682118152aab08b2cd4ad60962de3863def1158d3c962f6",
+      "width": 1122,
+      "height": 1402,
+      "mode": "RGBA",
+      "hasAlpha": true,
+      "sources": [
+        {
+          "id": "1DA2ry015Bc08EJoPvOURahK874_tKaxZ",
+          "title": "image-gen-5(1).png",
+          "group": "primary",
+          "url": "https://drive.google.com/file/d/1DA2ry015Bc08EJoPvOURahK874_tKaxZ/view?usp=drivesdk"
+        }
+      ],
+      "path": "public/cartilla/art/owner-intake/2026-10-14/originals/primary/1DA2ry015Bc08EJoPvOURahK874_tKaxZ.png",
+      "integrationStatus": "pending-exact-page-mapping"
+    },
+    {
+      "sha256": "9559815b96b932111f82c6d46c5acc015ca832e57438c740b3c78e2dde9b78bf",
+      "width": 1254,
+      "height": 1254,
+      "mode": "RGBA",
+      "hasAlpha": true,
+      "sources": [
+        {
+          "id": "1fkOdPjx20OEvKKe9XWPVNklGe9hDn2_e",
+          "title": "image-gen-8(2).png",
+          "group": "primary",
+          "url": "https://drive.google.com/file/d/1fkOdPjx20OEvKKe9XWPVNklGe9hDn2_e/view?usp=drivesdk"
+        }
+      ],
+      "path": "public/cartilla/art/owner-intake/2026-10-14/originals/primary/1fkOdPjx20OEvKKe9XWPVNklGe9hDn2_e.png",
+      "integrationStatus": "pending-exact-page-mapping"
+    },
+    {
+      "sha256": "db94292ee0fe352543b4473bbb380ff0a39b667b32d32ad3536431ca00859a37",
+      "width": 1369,
+      "height": 1536,
+      "mode": "RGB",
+      "hasAlpha": false,
+      "sources": [
+        {
+          "id": "1hsAasqB3d3R00sBAFnkXiXYEEuftQELx",
+          "title": "557675.jpg",
+          "group": "transfer",
+          "url": "https://drive.google.com/file/d/1hsAasqB3d3R00sBAFnkXiXYEEuftQELx/view?usp=drivesdk"
+        }
+      ],
+      "path": "public/cartilla/art/owner-intake/2026-10-14/originals/transfer/1hsAasqB3d3R00sBAFnkXiXYEEuftQELx.jpg",
+      "integrationStatus": "pending-exact-page-mapping"
+    },
+    {
+      "sha256": "c13c2142e8b6ea886dad93f82f9e3145a82d58bab2a72c4e87088fe5d1bd4db6",
+      "width": 1355,
+      "height": 1536,
+      "mode": "RGB",
+      "hasAlpha": false,
+      "sources": [
+        {
+          "id": "15r7bXa6ztdeagR9mb_ZclPYxMxGq7sXl",
+          "title": "557674.jpg",
+          "group": "transfer",
+          "url": "https://drive.google.com/file/d/15r7bXa6ztdeagR9mb_ZclPYxMxGq7sXl/view?usp=drivesdk"
+        }
+      ],
+      "path": "public/cartilla/art/owner-intake/2026-10-14/originals/transfer/15r7bXa6ztdeagR9mb_ZclPYxMxGq7sXl.jpg",
+      "integrationStatus": "pending-exact-page-mapping"
+    },
+    {
+      "sha256": "b3c70e5f0f12a9c07498119bb9d0c924ff19c8bf2fa7eba09b1d4eac69bed320",
+      "width": 1058,
+      "height": 1536,
+      "mode": "RGB",
+      "hasAlpha": false,
+      "sources": [
+        {
+          "id": "1GEK0ULU7WAzUbfiGMSGxpc8No1O7FasV",
+          "title": "557673.jpg",
+          "group": "transfer",
+          "url": "https://drive.google.com/file/d/1GEK0ULU7WAzUbfiGMSGxpc8No1O7FasV/view?usp=drivesdk"
+        }
+      ],
+      "path": "public/cartilla/art/owner-intake/2026-10-14/originals/transfer/1GEK0ULU7WAzUbfiGMSGxpc8No1O7FasV.jpg",
+      "integrationStatus": "pending-exact-page-mapping"
+    },
+    {
+      "sha256": "7aef2b8910996adb74824f2aab87c833d3400829a5e76fbcf43353fd8bc7f33f",
+      "width": 1478,
+      "height": 1536,
+      "mode": "RGB",
+      "hasAlpha": false,
+      "sources": [
+        {
+          "id": "17vmIUAEw-Qnl-Ozb9Oo3zrY5TQ_VGInV",
+          "title": "557670.jpg",
+          "group": "transfer",
+          "url": "https://drive.google.com/file/d/17vmIUAEw-Qnl-Ozb9Oo3zrY5TQ_VGInV/view?usp=drivesdk"
+        }
+      ],
+      "path": "public/cartilla/art/owner-intake/2026-10-14/originals/transfer/17vmIUAEw-Qnl-Ozb9Oo3zrY5TQ_VGInV.jpg",
+      "integrationStatus": "pending-exact-page-mapping"
+    },
+    {
+      "sha256": "72e8206c8688dce514a82059d306f075065fe9d2052a03b62f1692c97fb917ee",
+      "width": 1536,
+      "height": 1482,
+      "mode": "RGB",
+      "hasAlpha": false,
+      "sources": [
+        {
+          "id": "1pKQUeA30sZ9KB0Apskeq6o40R6rLqTCO",
+          "title": "557669.jpg",
+          "group": "transfer",
+          "url": "https://drive.google.com/file/d/1pKQUeA30sZ9KB0Apskeq6o40R6rLqTCO/view?usp=drivesdk"
+        }
+      ],
+      "path": "public/cartilla/art/owner-intake/2026-10-14/originals/transfer/1pKQUeA30sZ9KB0Apskeq6o40R6rLqTCO.jpg",
+      "integrationStatus": "pending-exact-page-mapping"
+    },
+    {
+      "sha256": "86c20343b31fa13076d074214365b29033e61a521d7bc1acaffd8bd139ad3b42",
+      "width": 1395,
+      "height": 1536,
+      "mode": "RGB",
+      "hasAlpha": false,
+      "sources": [
+        {
+          "id": "1wcRLZkVz73KK1UybW-n5Yo1tTb2QvE7N",
+          "title": "557668.jpg",
+          "group": "transfer",
+          "url": "https://drive.google.com/file/d/1wcRLZkVz73KK1UybW-n5Yo1tTb2QvE7N/view?usp=drivesdk"
+        }
+      ],
+      "path": "public/cartilla/art/owner-intake/2026-10-14/originals/transfer/1wcRLZkVz73KK1UybW-n5Yo1tTb2QvE7N.jpg",
+      "integrationStatus": "pending-exact-page-mapping"
+    },
+    {
+      "sha256": "b7684a5bebca693d874ed8f4f051770edd3b25fdf1088968fc9aff1a6c0c9d1e",
+      "width": 1254,
+      "height": 1254,
+      "mode": "RGBA",
+      "hasAlpha": true,
+      "sources": [
+        {
+          "id": "19hi_osnP_3MGVwfVaNeTmwds2smmCGcN",
+          "title": "557667.png",
+          "group": "transfer",
+          "url": "https://drive.google.com/file/d/19hi_osnP_3MGVwfVaNeTmwds2smmCGcN/view?usp=drivesdk"
+        }
+      ],
+      "path": "public/cartilla/art/owner-intake/2026-10-14/originals/transfer/19hi_osnP_3MGVwfVaNeTmwds2smmCGcN.png",
+      "integrationStatus": "pending-exact-page-mapping"
+    },
+    {
+      "sha256": "429d2c1b7fc3376f4934cdf597b51f0dfb1b1e15bf84d8f6db5698f4e3d505d4",
+      "width": 1254,
+      "height": 1254,
+      "mode": "RGBA",
+      "hasAlpha": true,
+      "sources": [
+        {
+          "id": "1pVHiPGV8LEiSlWhA76Rw9OHwCTsMNJeW",
+          "title": "557664.png",
+          "group": "transfer",
+          "url": "https://drive.google.com/file/d/1pVHiPGV8LEiSlWhA76Rw9OHwCTsMNJeW/view?usp=drivesdk"
+        }
+      ],
+      "path": "public/cartilla/art/owner-intake/2026-10-14/originals/transfer/1pVHiPGV8LEiSlWhA76Rw9OHwCTsMNJeW.png",
+      "integrationStatus": "pending-exact-page-mapping"
+    },
+    {
+      "sha256": "60cf95b39df7bae8f1be6f3840100dba4f7c20dd4ffcc53742f46190918a36a9",
+      "width": 1536,
+      "height": 1238,
+      "mode": "RGB",
+      "hasAlpha": false,
+      "sources": [
+        {
+          "id": "1Jb2d3M8JkinyMqEh-45qOE5kk_uN92GH",
+          "title": "557672.jpg",
+          "group": "transfer",
+          "url": "https://drive.google.com/file/d/1Jb2d3M8JkinyMqEh-45qOE5kk_uN92GH/view?usp=drivesdk"
+        }
+      ],
+      "path": "public/cartilla/art/owner-intake/2026-10-14/originals/transfer/1Jb2d3M8JkinyMqEh-45qOE5kk_uN92GH.jpg",
+      "integrationStatus": "pending-exact-page-mapping"
+    }
+  ],
+  "alreadyInRepository": [
+    {
+      "sha256": "1cc2938e63b8674cf72a1e4b07106b7eea50943013e8ef9c2e37bd82f465802e",
+      "width": 1395,
+      "height": 1536,
+      "mode": "RGB",
+      "hasAlpha": false,
+      "sources": [
+        {
+          "id": "17EGTjY1OyEAJK0je5a6DFlNXuODCmM_l",
+          "title": "file_00000000163c81f5852668ef458559df.jpg",
+          "group": "primary",
+          "url": "https://drive.google.com/file/d/17EGTjY1OyEAJK0je5a6DFlNXuODCmM_l/view?usp=drivesdk"
+        }
+      ],
+      "existingRepositoryPaths": [
+        "public/cartilla/art/optimized/flipchart-native/p024-lata.webp"
+      ]
+    },
+    {
+      "sha256": "ff59ea11dd1ebe90d71c3a22489d03f42f063b30b44a51ca7f3d84b2b440dcdd",
+      "width": 1086,
+      "height": 1448,
+      "mode": "RGBA",
+      "hasAlpha": true,
+      "sources": [
+        {
+          "id": "1UDgi3wPfKhrp9P_fovYisN5E0G0Wnw6W",
+          "title": "Folk Art Girl with Red Bow.png",
+          "group": "primary",
+          "url": "https://drive.google.com/file/d/1UDgi3wPfKhrp9P_fovYisN5E0G0Wnw6W/view?usp=drivesdk"
+        }
+      ],
+      "existingRepositoryPaths": [
+        "public/cartilla/images/gretel/gretel-approved-master.png"
+      ]
+    }
+  ]
+}
