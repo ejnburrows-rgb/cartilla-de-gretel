@@ -51,6 +51,13 @@ export const LIVING_ACTORS: Readonly<Record<string, LivingActor>> = Object.freez
     reducedMotion: "static",
     meaning: "gesto atento de cabeza y respiración natural",
   },
+  // Flip Chart sheets (Láminas 4, 6, 7): same drawings as Workbook Page 1, same
+  // approved part motion (scripts/living-motion/fc_natives.py).
+  [`${FC_NATIVE}/p004-oso.png`]: { src: `${FC_NATIVE}/p004-oso.png`, aliveSrc: `${FC_NATIVE}/p004-oso-alive.svg`, action: "breathe", creature: true, reducedMotion: "static", meaning: "respiración, parpadeo y alas de la abeja" },
+  [`${FC_NATIVE}/p004-oveja.png`]: { src: `${FC_NATIVE}/p004-oveja.png`, aliveSrc: `${FC_NATIVE}/p004-oveja-alive.svg`, action: "nod", creature: true, reducedMotion: "static", meaning: "parpadeo y oreja que se mueve" },
+  [`${FC_NATIVE}/p004-olla.png`]: { src: `${FC_NATIVE}/p004-olla.png`, aliveSrc: `${FC_NATIVE}/p004-olla-alive.svg`, action: "float", creature: false, reducedMotion: "static", meaning: "vapor que sube de la olla" },
+  [`${FC_NATIVE}/p006-elefante.png`]: { src: `${FC_NATIVE}/p006-elefante.png`, aliveSrc: `${FC_NATIVE}/p006-elefante-alive.svg`, action: "nod", creature: true, reducedMotion: "static", meaning: "trompa, orejas y parpadeo" },
+  [`${FC_NATIVE}/p007-iman.png`]: { src: `${FC_NATIVE}/p007-iman.png`, aliveSrc: `${FC_NATIVE}/p007-iman-alive.svg`, action: "float", creature: false, reducedMotion: "static", meaning: "clips atraídos por el imán, líneas del campo y chispas" },
   // Workbook Page 1 (owner color art / printed drawings): same meaning as the
   // faithful actors, whole-picture motion only (part rigs belong to other crops).
   [`${W1}/oso.svg`]: {
