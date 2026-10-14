@@ -101,6 +101,7 @@ export function DirectPencilConnector({
   // Helper to validate saved or live pair/mark keys against current targets, roles, pairId, and unique endpoints
   const validateProgressKeys = useCallback(
     (rawKeys: string[]): Set<string> => {
+      if (!Array.isArray(rawKeys)) rawKeys = [];
       const validated = new Set<string>();
       // Pre-drawn examples are always pre-connected
       targets.filter((t) => t.example).forEach((t) => validated.add(t.id));
