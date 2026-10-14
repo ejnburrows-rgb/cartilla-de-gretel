@@ -1,0 +1,220 @@
+/*
+ * Flip Chart easel page turn (owner choice 2026-10-13: "like a real flip
+ * chart: the page lifts up and over the spiral at the top").
+ *
+ * The leaf is the printed sheet itself, hinged at its spiral holes. Turning
+ * forward it lifts from the bottom, swings toward the class, passes upright
+ * and goes over the top behind the easel; the next sheet is already
+ * underneath. Turning back runs the same path in reverse. Reduced motion
+ * never mounts this layer (the sheet changes at once).
+ */
+
+.fc-turn__stage {
+  position: absolute;
+}
+
+/* While a sheet turns it may rise above the board, as it does over an easel. */
+.fc-board[data-turning] .fc-board__easel,
+.fc-board[data-turning] .fc-board__page,
+.fc-board[data-turning] .fc-board__page-inner {
+  overflow: visible;
+}
+
+.fc-board[data-turning] .fc-board__easel {
+  z-index: 40;
+}
+
+.fc-turn .fc-turn__leaf {
+  position: absolute;
+  inset: 0;
+  transform-style: preserve-3d;
+  transition: transform var(--fc-turn-ms, 2000ms) cubic-bezier(0.6, 0.02, 0.28, 1) !important;
+}
+
+.fc-turn[data-dragging] .fc-turn__leaf {
+  transition: none !important;
+}
+
+/* A button or key turn plays the whole easel motion: a slow lift from the
+ * bottom, a quicker swing through upright, then over the top and away. */
+.fc-turn[data-turn-mode="auto"] .fc-turn__leaf {
+  animation: fc-turn-leaf var(--fc-turn-ms, 2000ms) linear both;
+}
+
+/* Turning back, the sheet comes from behind over the top at once and falls
+ * onto the front (no slow start: the slow part is the settle). */
+.fc-turn[data-turn-mode="auto"][data-turn-direction="prev"] .fc-turn__leaf {
+  animation-name: fc-turn-leaf-back;
+}
+
+.fc-turn .fc-turn__front,
+.fc-turn .fc-turn__back {
+  position: absolute;
+  inset: 0;
+  overflow: hidden;
+  background: transparent;
+  border-radius: 6px 6px 10px 10px;
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
+}
+
+.fc-turn__face {
+  position: absolute;
+}
+
+/* The face's own sheet keeps its drop shadow off the leaf edge. */
+.fc-turn__face .fc-replica__sheet {
+  box-shadow: 0 0 0 1px rgba(120, 95, 60, 0.12);
+}
+
+/* Back of the sheet: plain paper, punched holes along the spiral edge (the
+ * back face is mirrored top-to-bottom, so the holes sit at its bottom). */
+.fc-turn__paper {
+  position: absolute;
+  inset: 0;
+  container-type: inline-size;
+  background:
+    radial-gradient(ellipse 0.75cqw 0.45cqw at 50% 50%, rgba(60, 45, 30, 0.55) 60%, transparent 72%) 1.4cqw calc(100% - 4.1cqw) / 4.36cqw 1.6cqw repeat-x,
+    linear-gradient(0deg, rgba(110, 90, 60, 0.1), rgba(110, 90, 60, 0) 18%),
+    linear-gradient(180deg, #f3eee3 0%, #f7f3ea 55%, #efe8da 100%);
+  box-shadow: inset 0 0 0 1px rgba(120, 95, 60, 0.14);
+}
+
+/* Light falls from above the easel: the front darkens as it tips toward the
+ * class, the back brightens as it rises over the top. */
+.fc-turn .fc-turn__shade {
+  position: absolute;
+  inset: 0;
+  z-index: 10;
+  pointer-events: none;
+  background: linear-gradient(0deg, rgba(40, 28, 15, 0.3), rgba(40, 28, 15, 0.06) 70%) !important;
+  opacity: 0;
+  transition: none !important;
+  animation: fc-turn-front-shade var(--fc-turn-ms, 2000ms) cubic-bezier(0.6, 0.02, 0.28, 1) both;
+}
+
+.fc-turn .fc-turn__back .fc-turn__shade {
+  background: linear-gradient(180deg, rgba(40, 28, 15, 0.26), rgba(40, 28, 15, 0.04) 75%) !important;
+  animation-name: fc-turn-back-shade;
+}
+
+/* Over the top, the sheet goes behind the easel (and comes back from there). */
+.fc-turn .fc-turn__back {
+  animation: fc-turn-behind var(--fc-turn-ms, 2000ms) linear both;
+}
+
+.fc-turn[data-turn-direction="prev"] .fc-turn__back {
+  animation-name: fc-turn-behind-back;
+}
+
+.fc-turn[data-turn-direction="prev"] .fc-turn__shade {
+  animation-direction: reverse;
+}
+
+/* The lifted sheet shades the sheet underneath near the spiral. */
+.fc-turn__under-shadow {
+  position: absolute;
+  border-radius: 6px 6px 10px 10px;
+  pointer-events: none;
+  background: linear-gradient(180deg, rgba(40, 28, 15, 0.28), rgba(40, 28, 15, 0.1) 22%, rgba(40, 28, 15, 0) 55%);
+  opacity: 0;
+  animation: fc-turn-under var(--fc-turn-ms, 2000ms) linear both;
+}
+
+.fc-turn[data-turn-direction="prev"] .fc-turn__under-shadow {
+  animation-direction: reverse;
+}
+
+.fc-turn[data-turn-mode="drag"] .fc-turn__shade,
+.fc-turn[data-turn-mode="drag"] .fc-turn__back,
+.fc-turn[data-turn-mode="drag"] .fc-turn__under-shadow {
+  animation: none;
+}
+
+.fc-turn[data-turn-mode="drag"] .fc-turn__shade {
+  opacity: 0.5;
+}
+
+@keyframes fc-turn-leaf {
+  0% {
+    transform: rotateX(0deg);
+    animation-timing-function: cubic-bezier(0.42, 0, 0.62, 1);
+  }
+  24% {
+    transform: rotateX(-20deg);
+    animation-timing-function: cubic-bezier(0.32, 0, 0.3, 1);
+  }
+  62% {
+    transform: rotateX(-118deg);
+    animation-timing-function: cubic-bezier(0.3, 0, 0.45, 1);
+  }
+  84% {
+    transform: rotateX(-174deg);
+  }
+  100% {
+    transform: rotateX(-180deg);
+  }
+}
+
+@keyframes fc-turn-leaf-back {
+  0% {
+    transform: rotateX(-180deg);
+    animation-timing-function: cubic-bezier(0.3, 0, 0.6, 1);
+  }
+  12% {
+    transform: rotateX(-166deg);
+    animation-timing-function: cubic-bezier(0.35, 0, 0.6, 1);
+  }
+  44% {
+    transform: rotateX(-96deg);
+    animation-timing-function: cubic-bezier(0.4, 0, 0.5, 1);
+  }
+  74% {
+    transform: rotateX(-18deg);
+    animation-timing-function: cubic-bezier(0.25, 0, 0.35, 1);
+  }
+  100% {
+    transform: rotateX(0deg);
+  }
+}
+
+@keyframes fc-turn-behind-back {
+  0% { opacity: 0; }
+  12%, 100% { opacity: 1; }
+}
+
+@keyframes fc-turn-front-shade {
+  0% { opacity: 0; }
+  48% { opacity: 1; }
+  100% { opacity: 1; }
+}
+
+@keyframes fc-turn-back-shade {
+  0%, 50% { opacity: 1; }
+  84%, 100% { opacity: 0.25; }
+}
+
+@keyframes fc-turn-behind {
+  0%, 64% { opacity: 1; }
+  82%, 100% { opacity: 0; }
+}
+
+@keyframes fc-turn-under {
+  0% { opacity: 0; }
+  30% { opacity: 1; }
+  62% { opacity: 0.5; }
+  84%, 100% { opacity: 0; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .fc-turn .fc-turn__leaf {
+    transition: none !important;
+    animation: none !important;
+  }
+
+  .fc-turn .fc-turn__shade,
+  .fc-turn .fc-turn__back,
+  .fc-turn__under-shadow {
+    animation: none !important;
+  }
+}
