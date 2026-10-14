@@ -61,6 +61,10 @@ test('partial handwriting, freehand work and typed sentences survive leaving, re
     await page.locator('.fp-ix-fill__item').nth(index).getByRole('button',{name:answer,exact:true}).click();
   }
   await page.getByRole('textbox',{name:'Escribe tus oraciones'}).fill('Yo escribo mis propias oraciones.');
+  // Writing completes only when the learner confirms it with "Listo".
+  await expect(page.locator('.native-lesson-viewer')).toHaveAttribute('data-page-complete','false');
+  await page.locator('.native-lesson-viewer').getByRole('button',{name:'Listo',exact:true}).last().click();
+  await expect(page.locator('.native-lesson-viewer')).toHaveAttribute('data-page-complete','true');
   await page.reload();
   await expect(page.getByRole('textbox')).toHaveValue('Yo escribo mis propias oraciones.');
   await expect(page.locator('.native-lesson-viewer')).toHaveAttribute('data-page-complete','true');
@@ -116,7 +120,7 @@ for(const [name,width,height] of [['laptop',1366,768],['tablet',768,1024],['phon
     await expect(teacher.getByTestId('flipchart-hd-panel')).toBeVisible();
     await noHorizontalLoss(teacher);
     await expect(teacher.getByRole('button',{name:'Volver al panel del docente'})).toBeVisible();
-    await teacher.getByRole('button',{name:'Lámina siguiente'}).click();
+    await teacher.getByRole('button',{name:'Lámina siguiente',exact:true}).click();
     await expect(teacher.getByTestId('flipchart-counter')).toContainText('Hoja 2');
     await teacher.screenshot({path:`${PROOF}/presenter-${name}.png`,fullPage:true});
     await teacher.getByRole('button',{name:'Volver al panel del docente'}).click();

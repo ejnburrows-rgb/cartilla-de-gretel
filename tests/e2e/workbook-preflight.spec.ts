@@ -43,7 +43,7 @@ test.describe("Workbook Preflight - Local Browser/Device Readiness", () => {
     // Turn to page 2 (index 1)
     const buttonNext = page.getByTestId("button-next");
     await buttonNext.click();
-    await page.waitForTimeout(2500); // wait for turn
+    await page.waitForTimeout(3300); // wait for turn
 
     // Verify current page indicator
     await expect(page.locator(".native-lesson-viewer__page")).toContainText("2 de");
@@ -95,7 +95,7 @@ test.describe("Workbook Preflight - Local Browser/Device Readiness", () => {
 
     // Click Siguiente, should now advance page
     await buttonNext.click();
-    await page.waitForTimeout(2500);
+    await page.waitForTimeout(3300);
     await expect(page.locator(".native-lesson-viewer__page")).toContainText("2 de");
 
     expect(errors).toEqual([]);
@@ -135,7 +135,9 @@ test.describe("Workbook Preflight - Local Browser/Device Readiness", () => {
     await expect(page.locator("text=Mis lecciones")).toBeVisible();
 
     await page.goto("/cartilla/cuaderno");
-    await expect(page.locator("[data-testid='physical-book-reader']")).toBeVisible();
+    await expect(page.locator("[data-native-page]")).toHaveCount(1);
+    await expect(page.getByTestId("physical-book-reader")).toHaveCount(0);
+    await expect(page.getByTestId("book-companion-anchor")).toHaveCount(0);
 
     await page.goBack();
     await page.waitForURL("**/cartilla/lecciones");

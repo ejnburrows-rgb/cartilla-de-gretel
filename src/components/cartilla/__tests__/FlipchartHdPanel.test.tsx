@@ -162,9 +162,12 @@ describe("FlipchartHdPanel bare chrome mode", () => {
     // Page 21 (Dd): dados/dedo/didi/dunia have the word baked into the image.
     const page = FLIPCHART_PAGES.find((entry) => entry.flipchartPage === 21)!;
     const { container } = render(<FlipchartNativeBoard page={page} />);
-    const grid = container.querySelector('[data-testid="flipchart-art-grid"]');
-    expect(grid).toBeTruthy();
-    const captions = [...grid!.querySelectorAll(".fc-native-board__art-label")];
+    // The sheet renders as the printed-sheet replica: its words come from the
+    // print's text layer, once each, never as an extra caption.
+    const sheet = container.querySelector('[data-testid="flipchart-replica-sheet"]');
+    expect(sheet).toBeTruthy();
+    expect(container.querySelector(".fc-native-board__art-label")).toBeNull();
+    const captions = [...sheet!.querySelectorAll(".fc-replica__text")];
     const captionTexts = captions.map((c) => c.textContent?.trim().toLowerCase());
     // None of the baked-label words may have a duplicate figcaption.
     for (const word of ["dados", "dedo", "didi", "dunia"]) {

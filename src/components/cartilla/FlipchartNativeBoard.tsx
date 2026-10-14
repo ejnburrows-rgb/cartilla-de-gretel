@@ -2,6 +2,8 @@ import { useEffect, type CSSProperties } from "react";
 import { FlipchartFrontmatter } from "@/components/cartilla/FlipchartFrontmatter";
 import { getNativeFlipchartPage, type FlipchartLayoutType, type NativeFlipchartPage, type FlipchartTextItem } from "@/lib/flipchart-native";
 import { LivingIllustration } from "@/components/living/LivingIllustration";
+import { FlipchartReplicaSheet } from "@/components/cartilla/FlipchartReplicaSheet";
+import { hasReplicaSheet } from "@/lib/flipchart-replica";
 import type { FlipchartPage } from "@/lib/flipchart-hd";
 
 function BookLine({ line }: { line: FlipchartTextItem }) {
@@ -497,6 +499,7 @@ export function FlipchartNativeBoard({
   if (!native) return null;
 
   const layoutType: FlipchartLayoutType = native.layoutType;
+  const useReplica = hasReplicaSheet(page.flipchartPage);
   // Red-letter rule (book §1.5): red target vowel in word labels ONLY on vowel pages 3-6.
   const isVowelPage = page.flipchartPage >= 3 && page.flipchartPage <= 8;
   const boardProps: BoardProps = {
@@ -520,17 +523,24 @@ export function FlipchartNativeBoard({
       style={{ "--fc-accent": accentColor } as CSSProperties}
       aria-hidden={decorative || undefined}
     >
-      {/* Exact replica: layout type drives the page composition (book §2) */}
+      {/* Exact replica of the printed sheet: every word, panel and picture at
+          its source position (owner reference guides 2026-10-13). The older
+          flow layouts remain only as a fallback for sheets without geometry. */}
       <div className="fc-native-board__page">
-        {layoutType === "vowel-header" && <VowelHeaderLayout {...boardProps} />}
-        {layoutType === "consonant-vocab" && <ConsonantVocabLayout {...boardProps} />}
-        {layoutType === "syllable-drill" && <SyllableDrillLayout {...boardProps} />}
-        {layoutType === "reading-panel" && <ReadingPanelLayout {...boardProps} />}
-        {layoutType === "story-letter" && <StoryLetterLayout {...boardProps} />}
-        {layoutType === "frontmatter" && null}
+        {useReplica ? (
+          <FlipchartReplicaSheet pageNumber={page.flipchartPage} decorative={decorative} />
+        ) : (
+          <>
+            {layoutType === "vowel-header" && <VowelHeaderLayout {...boardProps} />}
+            {layoutType === "consonant-vocab" && <ConsonantVocabLayout {...boardProps} />}
+            {layoutType === "syllable-drill" && <SyllableDrillLayout {...boardProps} />}
+            {layoutType === "reading-panel" && <ReadingPanelLayout {...boardProps} />}
+            {layoutType === "story-letter" && <StoryLetterLayout {...boardProps} />}
+          </>
+        )}
       </div>
       {/* Printed page number, bottom-right (book style) */}
-      {!decorative && (
+      {!decorative && !useReplica && (
         <div className="fc-native-board__pagenum" aria-hidden="true">
           {page.flipchartPage}
         </div>

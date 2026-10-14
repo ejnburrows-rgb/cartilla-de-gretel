@@ -232,7 +232,7 @@ When the learner advances to the next page or returns to a previous page:
 
 Previous-page navigation uses the natural reverse direction.
 
-Target duration: **2.0 seconds** page curl (plus ~0.3 s corner zoom) on the lesson screen (owner decision 2026-10-09); the two-page reader (`/cartilla/cuaderno`) retains 0.75–0.85 s (`STUDENT_PAGE_TURN_MS = 800`).
+Target duration: **2.0 seconds** page curl (plus ~0.3 s corner zoom) on the lesson screen (owner decision 2026-10-09); the complete book (`/cartilla/cuaderno`) uses the same single-page lesson viewer and timing (owner decision 2026-10-13).
 
 The page turn is presentation only:
 - it never bypasses completion gating;

@@ -80,7 +80,7 @@ Lesson screen (`/cartilla/leccion/$n`) sequence (owner decision 2026-10-09):
 7. settle destination page;
 8. restore focus/interaction and unlock navigation.
 
-Two-page reader (`/cartilla/cuaderno`) retains 0.75–0.85 s target (`STUDENT_PAGE_TURN_MS = 800`).
+Complete book (`/cartilla/cuaderno`) uses this same lesson-screen viewer: one native digital page at a time, no two-page spread, no raw scans, no Gretel companion, and free forward browsing without completion gating (owner decision 2026-10-13).
 
 Back navigation reverses the physical direction.
 

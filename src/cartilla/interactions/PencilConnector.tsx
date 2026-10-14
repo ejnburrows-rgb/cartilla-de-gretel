@@ -930,7 +930,7 @@ export function PencilMarkFromWorkbook({
         onClick={() => setPending({id: object.id, correct: isCorrect})}>
         {object.src ? <img src={object.src} alt="" draggable={false} /> : <span>{object.text ?? object.alt ?? object.id}</span>}
         {(active || done) && <span className="am-pencil-mark-grid__overlay" aria-hidden="true">
-          <WorkbookPencilMark markType="circle" itemId={object.id}
+          <WorkbookPencilMark markType="circle" round itemId={object.id}
             isCorrect={active ? isCorrect : true} status={done ? "correct" : undefined}
             onSuccess={() => {
               const next = new Set(marked).add(object.id);

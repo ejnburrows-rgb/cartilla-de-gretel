@@ -2,9 +2,10 @@ import { useCallback, useEffect, useRef, useState } from "react";
 import { ChevronLeft, ChevronRight } from "lucide-react";
 import { gretelEvent } from "@/lib/gretel-bus";
 import { audioEngine } from "@/lib/audio-engine";
-import { LESSON_PAGE_TURN_MS, prefersReducedMotion } from "@/lib/living-motion";
+import { LESSON_PAGE_LIFT_MS, LESSON_PAGE_TURN_MS, prefersReducedMotion } from "@/lib/living-motion";
 import { remainingHint, usePageCompletion } from "@/lib/page-completion";
 import { useFitToPage } from "@/lib/use-fit-to-page";
+import { PageCurl } from "./PageCurl";
 import type { WorkbookPageEntry } from "./SimplePageViewer";
 import "@/styles/native-lesson.css";
 
@@ -35,6 +36,7 @@ export function NativeLessonViewer({
   lessonNumber,
   autoTurn = false,
   swipe = false,
+  gated = true,
 }: {
   pages: WorkbookPageEntry[];
   chapterLabel: string;
@@ -47,6 +49,8 @@ export function NativeLessonViewer({
   autoTurn?: boolean;
   /** Swipe left / right on touch screens to turn pages. */
   swipe?: boolean;
+  /** Require page completion before turning forward (lessons). The complete book browses freely. */
+  gated?: boolean;
 }) {
   const [index, setIndex] = useState(() =>
     Math.min(Math.max(0, initialPage), pages.length - 1),
@@ -75,8 +79,10 @@ export function NativeLessonViewer({
   });
 
   const page = pages[index];
-  const completion = usePageCompletion(page?.pageNumber, lessonNumber);
+  const pageCompletion = usePageCompletion(page?.pageNumber, lessonNumber);
+  const completion = gated ? pageCompletion : { ...pageCompletion, remaining: [], complete: true };
   const isLast = index === pages.length - 1;
+  const isBookEnd = isLast && !gated && !onFinish;
   useFitToPage(containerRef, index);
 
   useEffect(() => {
@@ -158,11 +164,11 @@ export function NativeLessonViewer({
 
       if (turnTimeoutRef.current) window.clearTimeout(turnTimeoutRef.current);
 
-      // Phase 1: 0.3s corner zoom
+      // Phase 1: the corner of the sheet lifts.
       turnTimeoutRef.current = window.setTimeout(() => {
         setTurnPhase("curling");
 
-        // Phase 2: 2.0s HD 3D page curl
+        // Phase 2: slow, realistic paper curl from right to left.
         turnTimeoutRef.current = window.setTimeout(() => {
           setTurnPhase("settling");
           setIndex(targetIndex);
@@ -184,7 +190,7 @@ export function NativeLessonViewer({
             }, 150);
           }, 100);
         }, LESSON_PAGE_TURN_MS);
-      }, 300);
+      }, LESSON_PAGE_LIFT_MS);
     },
     [turning, pages, index, completion.complete, showRemaining, onPageChange],
   );
@@ -215,6 +221,34 @@ export function NativeLessonViewer({
   // A hold over the quiet time must never turn the page mid-stroke: while
   // ANY pointer is down the idle timer stays cancelled, and a fresh quiet
   // period begins only after the last pointer lifts.
+  // Fingers/pens/mouse buttons currently down anywhere on the screen. Kept
+  // for the whole visit so a press that began BEFORE the page finished
+  // (e.g. the finger still resting on the last answer) also holds the turn.
+  const activePointersRef = useRef(0);
+  useEffect(() => {
+    if (!autoTurn) return;
+    const onDown = () => {
+      activePointersRef.current += 1;
+    };
+    const onRelease = () => {
+      activePointersRef.current = Math.max(0, activePointersRef.current - 1);
+    };
+    const onReset = () => {
+      activePointersRef.current = 0;
+    };
+    window.addEventListener("pointerdown", onDown, true);
+    window.addEventListener("pointerup", onRelease, true);
+    window.addEventListener("pointercancel", onRelease, true);
+    window.addEventListener("blur", onReset);
+    return () => {
+      window.removeEventListener("pointerdown", onDown, true);
+      window.removeEventListener("pointerup", onRelease, true);
+      window.removeEventListener("pointercancel", onRelease, true);
+      window.removeEventListener("blur", onReset);
+      activePointersRef.current = 0;
+    };
+  }, [autoTurn]);
+
   const autoTurnBaseline = useRef({ index, complete: completion.complete });
   useEffect(() => {
     const previous = autoTurnBaseline.current;
@@ -222,33 +256,35 @@ export function NativeLessonViewer({
     if (!autoTurn || previous.index !== index || previous.complete || !completion.complete || isLast) return;
     const root = containerRef.current;
     let timer: number | undefined;
-    let activePointers = 0;
     const startIdleTimer = () => {
       window.clearTimeout(timer);
       timer = window.setTimeout(() => forwardRef.current(), AUTO_TURN_IDLE_MS);
     };
     const onPointerDown = () => {
-      activePointers += 1;
       window.clearTimeout(timer);
       timer = undefined;
     };
+    // Runs after the capture-phase counter above has already been updated.
     const onPointerRelease = () => {
-      activePointers = Math.max(0, activePointers - 1);
-      if (activePointers === 0) startIdleTimer();
+      if (activePointersRef.current === 0) startIdleTimer();
     };
     const onKeyDown = () => {
-      if (activePointers === 0) startIdleTimer();
+      if (activePointersRef.current === 0) startIdleTimer();
     };
-    startIdleTimer();
-    root?.addEventListener("pointerdown", onPointerDown);
+    if (activePointersRef.current === 0) startIdleTimer();
+    window.addEventListener("pointerdown", onPointerDown);
     window.addEventListener("pointerup", onPointerRelease);
     window.addEventListener("pointercancel", onPointerRelease);
+    // Leaving the window resets the finger count (above); count that as a
+    // release so a finished page never stays stuck waiting for a lift.
+    window.addEventListener("blur", onPointerRelease);
     root?.addEventListener("keydown", onKeyDown);
     return () => {
       window.clearTimeout(timer);
-      root?.removeEventListener("pointerdown", onPointerDown);
+      window.removeEventListener("pointerdown", onPointerDown);
       window.removeEventListener("pointerup", onPointerRelease);
       window.removeEventListener("pointercancel", onPointerRelease);
+      window.removeEventListener("blur", onPointerRelease);
       root?.removeEventListener("keydown", onKeyDown);
     };
   }, [autoTurn, completion.complete, index, isLast]);
@@ -484,6 +520,11 @@ export function NativeLessonViewer({
   if (!page) return null;
 
   const destPage = destinationIndex !== null ? pages[destinationIndex] : null;
+  // Going back, the previous page is the sheet that rolls back in over the
+  // current one; going forward, the current sheet rolls away.
+  const rollingBack = turning && turnDirection === "prev" && turnPhase !== "settling" && destPage !== null;
+  const leafPage = rollingBack && destPage ? destPage : page;
+  const underPage = rollingBack ? page : destPage;
 
   return (
     <section
@@ -505,9 +546,9 @@ export function NativeLessonViewer({
 
       <div className="native-lesson-viewer__stage">
         {/* Destination page rendered underneath during turn */}
-        {turning && destPage && (
+        {turning && underPage && (
           <div className="native-lesson-viewer__underneath" aria-hidden="true">
-            <div className="native-lesson-viewer__content">{destPage.content}</div>
+            <div className="native-lesson-viewer__content">{underPage.content}</div>
           </div>
         )}
 
@@ -523,15 +564,7 @@ export function NativeLessonViewer({
               : undefined
           }
         >
-          <div className="native-lesson-viewer__content">{page.content}</div>
-
-          {/* Real paper underside & moving shadow during curl */}
-          {turning && (
-            <>
-              <div className="native-page-underside" aria-hidden="true" />
-              <div className="native-page-shadow" aria-hidden="true" />
-            </>
-          )}
+          <div className="native-lesson-viewer__content">{leafPage.content}</div>
 
           {/* Corner Hotspot - Bottom Right (Next) */}
           {index < pages.length - 1 && (
@@ -576,6 +609,15 @@ export function NativeLessonViewer({
             </button>
           )}
         </div>
+
+        <PageCurl
+          phase={turnPhase}
+          direction={turnDirection}
+          leafRef={leafRef}
+          dragProgressRef={dragProgressRef}
+          turnMs={LESSON_PAGE_TURN_MS}
+          liftMs={LESSON_PAGE_LIFT_MS}
+        />
       </div>
 
       <div className="native-lesson-viewer__footer">
@@ -607,7 +649,7 @@ export function NativeLessonViewer({
           <button
             type="button"
             onClick={forward}
-            disabled={turning}
+            disabled={turning || isBookEnd}
             aria-disabled={completion.complete ? undefined : true}
             aria-describedby={hint ? "native-lesson-next-hint" : undefined}
             data-locked={completion.complete ? undefined : "true"}
@@ -618,7 +660,7 @@ export function NativeLessonViewer({
                 : "Termina la actividad de esta página para seguir"
             }
           >
-            <span className="native-lesson-viewer__nav-label">{isLast ? "Terminar lección" : "Siguiente"}</span> <ChevronRight size={20} aria-hidden="true" />
+            <span className="native-lesson-viewer__nav-label">{isBookEnd ? "Fin del cuaderno" : isLast ? "Terminar lección" : "Siguiente"}</span> <ChevronRight size={20} aria-hidden="true" />
           </button>
         </nav>
       </div>

@@ -383,8 +383,6 @@
 .native-lesson-viewer__stage {
   position: relative;
   width: 100%;
-  perspective: 2000px;
-  transform-style: preserve-3d;
 }
 
 .native-lesson-viewer__underneath {
@@ -399,15 +397,8 @@
   position: relative;
   z-index: 2;
   width: 100%;
-  transform-style: preserve-3d;
-  transform-origin: left center;
-  backface-visibility: hidden;
-  will-change: transform;
 }
-
-.native-lesson-viewer[data-turn-direction="prev"] .native-lesson-viewer__leaf {
-  transform-origin: right center;
-}
+.native-lesson-viewer.is-turning .native-lesson-viewer__leaf { will-change: clip-path; }
 
 /* Corner Hotspots */
 .native-corner-hotspot {
@@ -474,95 +465,19 @@
   border-right-color: #dfd2bb;
 }
 
-/* Real paper underside & shadow */
-.native-page-underside {
+/* Realistic paper curl (owner 2026-10-14): the sheet rolls from right to
+ * left in slow motion. The leaf is clipped to the flat part of the sheet
+ * and the SVG layer paints the rolled paper, its back and the shadows
+ * (PageCurl.tsx). The old rigid 3D card flip is gone. */
+.native-page-curl {
   position: absolute;
-  inset: 0;
-  background: linear-gradient(135deg, #f7efe2 0%, #fffbf2 50%, #e8dec8 100%);
-  backface-visibility: hidden;
-  transform: rotateY(180deg);
-  z-index: 3;
+  top: 0;
+  left: 0;
+  z-index: 5;
+  overflow: visible;
   pointer-events: none;
-  opacity: 0.98;
-  border-radius: 6px;
-  box-shadow: inset 0 0 20px rgba(0,0,0,0.06);
 }
-
-.native-page-shadow {
-  position: absolute;
-  inset: 0;
-  background: linear-gradient(to left, rgba(0,0,0,0.22) 0%, rgba(0,0,0,0.08) 25%, transparent 100%);
-  pointer-events: none;
-  z-index: 4;
-  animation: native-shadow-fade 2.0s cubic-bezier(0.22, 1, 0.36, 1) forwards;
-}
-
-/* Animations */
-.turn-next-zoom {
-  animation: native-page-zoom-next 0.3s cubic-bezier(0.25, 1, 0.5, 1) forwards;
-}
-
-.turn-next-curling {
-  animation: native-page-curl-next 2.0s cubic-bezier(0.22, 1, 0.36, 1) forwards;
-}
-
-.turn-prev-zoom {
-  animation: native-page-zoom-prev 0.3s cubic-bezier(0.25, 1, 0.5, 1) forwards;
-}
-
-.turn-prev-curling {
-  animation: native-page-curl-prev 2.0s cubic-bezier(0.22, 1, 0.36, 1) forwards;
-}
-
-.turn-phase-dragging .native-lesson-viewer__leaf {
-  transform: rotateY(calc(-180deg * var(--drag-prog, 0)));
-  box-shadow: calc(-20px * var(--drag-prog, 0)) 15px 35px rgba(0, 0, 0, 0.2);
-}
-
-@keyframes native-page-zoom-next {
-  0% { transform: scale(1) translate(0, 0); }
-  100% { transform: scale(1.02) translate(-10px, -5px); }
-}
-
-@keyframes native-page-curl-next {
-  0% {
-    transform: scale(1.02) rotateY(0deg) translate(-10px, -5px);
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
-  }
-  25% {
-    box-shadow: -20px 20px 40px rgba(0, 0, 0, 0.28);
-  }
-  100% {
-    transform: scale(1) rotateY(-180deg) translate(0, 0);
-    box-shadow: 0 0 0 rgba(0, 0, 0, 0);
-  }
-}
-
-@keyframes native-page-zoom-prev {
-  0% { transform: scale(1) translate(0, 0); }
-  100% { transform: scale(1.02) translate(10px, -5px); }
-}
-
-@keyframes native-page-curl-prev {
-  0% {
-    transform: scale(1.02) rotateY(0deg) translate(10px, -5px);
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
-  }
-  25% {
-    box-shadow: 20px 20px 40px rgba(0, 0, 0, 0.28);
-  }
-  100% {
-    transform: scale(1) rotateY(180deg) translate(0, 0);
-    box-shadow: 0 0 0 rgba(0, 0, 0, 0);
-  }
-}
-
-@keyframes native-shadow-fade {
-  0% { opacity: 0; }
-  20% { opacity: 1; }
-  80% { opacity: 0.8; }
-  100% { opacity: 0; }
-}
+.native-lesson-viewer.is-turning:not(.turn-phase-dragging) .native-lesson-viewer__stage { pointer-events: none; }
 
 @media (prefers-reduced-motion: reduce) {
   .native-lesson-viewer__leaf.turn-next-zoom,
