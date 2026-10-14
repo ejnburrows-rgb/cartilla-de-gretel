@@ -254,18 +254,12 @@
     inset 0 -6px #ddd5c2,
     inset 0 1px #fff,
     0 2px #0c0a09;
-  cursor: pointer;
+  cursor: default;
   transition:
     background 0.3s ease,
     box-shadow 0.2s ease,
     transform 0.12s ease;
   transform-origin: top;
-}
-.pa__white:active {
-  transform: scaleY(0.985);
-  box-shadow:
-    inset 0 -2px #ddd5c2,
-    0 1px #0c0a09;
 }
 .pa__white--next {
   background: linear-gradient(
@@ -309,13 +303,11 @@
     0 1px #0c0a09;
   transform: scaleY(0.985);
 }
-.pa__white:focus-visible,
-.pa__black:focus-visible,
 .pa__note-listen:focus-visible,
 .pa__control:focus-visible,
 .pa__mic:focus-visible,
 .pa__next:focus-visible,
-.pa__touch:focus-visible {
+{
   outline: 3px solid #2563eb;
   outline-offset: 2px;
 }
@@ -346,13 +338,12 @@
     inset 0 -5px #1c1917,
     inset 1px 0 #57534e,
     0 3px 4px #00000080;
-  cursor: pointer;
+  cursor: default;
   transition:
     background 0.2s ease,
     transform 0.12s ease;
   transform-origin: top;
 }
-.pa__black:active,
 .pa__black--flash {
   transform: scaleY(0.98);
   background: linear-gradient(180deg, #0c0a09, #78350f 70%, #d97706);
