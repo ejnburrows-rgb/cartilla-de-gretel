@@ -4,19 +4,58 @@ import { availablePageRecordingUrls } from "@/lib/gretel-recorded-clips";
 import { playGretelRecordingQueue } from "@/lib/gretel-recorded-playback";
 import { isGretelVoiceMuted } from "@/lib/gretel-voice";
 import { stopSpeech } from "@/lib/speech-playback";
-/** Shown only after verified page recordings actually exist in the built app. */
+
+/** Never advertise a missing, unapproved, or non-audio playback resource. */
 export function GretelRecordedPageButton({ pageNumber, disabled = false }: { pageNumber: number; disabled?: boolean }) {
   const [playing, setPlaying] = useState(false);
+  const [readyUrls, setReadyUrls] = useState<string[]>([]);
   const active = useRef(false);
+  const playTicket = useRef(0);
   const urls = availablePageRecordingUrls(pageNumber);
-  useEffect(() => () => { if (active.current) stopSpeech("gretel"); }, [pageNumber]);
-  if (!urls.length) return null;
+  const urlsKey = urls.join("|");
+
+  useEffect(() => {
+    let disposed = false;
+    setReadyUrls([]);
+    if (urls.length) {
+      void Promise.all(urls.map(async (url) => {
+        try {
+          const response = await fetch(url, { method: "HEAD" });
+          const type = response.headers.get("content-type") ?? "";
+          return response.ok && /^(audio\/|application\/octet-stream)/i.test(type);
+        } catch {
+          return false;
+        }
+      })).then((checks) => {
+        if (!disposed && checks.every(Boolean)) setReadyUrls(urls);
+      });
+    }
+    return () => {
+      disposed = true;
+      playTicket.current++;
+      if (active.current) stopSpeech("gretel");
+      active.current = false;
+    };
+  }, [urlsKey]);
+
+  if (!readyUrls.length) return null;
   const onClick = () => {
-    if (active.current) { stopSpeech("gretel"); active.current = false; setPlaying(false); return; }
+    if (active.current) {
+      playTicket.current++;
+      stopSpeech("gretel");
+      active.current = false;
+      setPlaying(false);
+      return;
+    }
     if (disabled || isGretelVoiceMuted()) return;
+    const ticket = ++playTicket.current;
     active.current = true;
     setPlaying(true);
-    void playGretelRecordingQueue(urls).finally(() => { active.current = false; setPlaying(false); });
+    void playGretelRecordingQueue(readyUrls).finally(() => {
+      if (ticket !== playTicket.current) return;
+      active.current = false;
+      setPlaying(false);
+    });
   };
   return (
     <button type="button" disabled={disabled} onClick={onClick}
