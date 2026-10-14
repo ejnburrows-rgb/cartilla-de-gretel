@@ -1,4 +1,5 @@
 import { AUDIO_POLICY } from "@/content/audio-manifest";
+import { getGretelVoiceProviderConfig } from "@/lib/gretel-voice";
 import { approvedPictureRecording } from "@/lib/picture-vocabulary";
 import { resolvePictureName } from "@/lib/picture-vocabulary";
 /**
