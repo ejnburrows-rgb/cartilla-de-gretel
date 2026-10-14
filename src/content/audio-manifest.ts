@@ -1,11 +1,8 @@
-// audio-manifest.ts — manifest of expected kid-voice audio assets.
-// The audio engine (other lane) consults this manifest to know which files
-// exist on disk and to fall back gracefully when a file is missing.
-//
-// Files live under public/audio/voz/<letter>/<slug>.mp3 once recorded.
-// Until real recordings arrive, the engine returns silence (NOT TTS).
-//
-// Per locked spec: NO synthesized voices. Real kid recordings only.
+// audio-manifest.ts — metadata for existing recordings and approved audio policies.
+// Legacy recorded assets still live in public/audio/voz/<letter>/<slug>.mp3.
+// Owner's current requirement is a SINGLE custom Gretel TTS for new Spanish text.
+// A configured custom engine is allowed; an arbitrary browser voice is NOT
+// an acceptable substitute. No custom model has yet passed real voice proof.
 
 export type AudioAsset = {
   key: string; // canonical key, e.g. "m-mama"
