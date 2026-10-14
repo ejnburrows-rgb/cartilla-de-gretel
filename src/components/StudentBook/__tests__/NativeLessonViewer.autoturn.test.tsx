@@ -69,6 +69,20 @@ describe("NativeLessonViewer auto page turn and swipe (owner decision 2026-10-12
     expect(onPageChange).toHaveBeenCalledWith(1);
   });
 
+  it("holds the turn when the finger was already down as the page finished", () => {
+    render(<NativeLessonViewer pages={PAGES} chapterLabel="Lección 8" lessonNumber={8} autoTurn />);
+    fireEvent.pointerDown(viewer(), { pointerId: 9 });
+    completePage(23);
+    act(() => vi.advanceTimersByTime(AUTO_TURN_IDLE_MS * 3));
+    expect(current()).toBe(23);
+    fireEvent.pointerUp(viewer(), { pointerId: 9 });
+    act(() => vi.advanceTimersByTime(AUTO_TURN_IDLE_MS - 200));
+    expect(current()).toBe(23);
+    act(() => vi.advanceTimersByTime(400));
+    finishTurn();
+    expect(current()).toBe(24);
+  });
+
   it("exposes exactly one Siguiente button even when the page corner is available", () => {
     render(<NativeLessonViewer pages={PAGES} chapterLabel="Lección 8" lessonNumber={8} />);
     const nextButtons = screen.getAllByRole("button", { name: /siguiente/i });

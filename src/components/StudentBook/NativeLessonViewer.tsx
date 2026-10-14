@@ -215,6 +215,34 @@ export function NativeLessonViewer({
   // A hold over the quiet time must never turn the page mid-stroke: while
   // ANY pointer is down the idle timer stays cancelled, and a fresh quiet
   // period begins only after the last pointer lifts.
+  // Fingers/pens/mouse buttons currently down anywhere on the screen. Kept
+  // for the whole visit so a press that began BEFORE the page finished
+  // (e.g. the finger still resting on the last answer) also holds the turn.
+  const activePointersRef = useRef(0);
+  useEffect(() => {
+    if (!autoTurn) return;
+    const onDown = () => {
+      activePointersRef.current += 1;
+    };
+    const onRelease = () => {
+      activePointersRef.current = Math.max(0, activePointersRef.current - 1);
+    };
+    const onReset = () => {
+      activePointersRef.current = 0;
+    };
+    window.addEventListener("pointerdown", onDown, true);
+    window.addEventListener("pointerup", onRelease, true);
+    window.addEventListener("pointercancel", onRelease, true);
+    window.addEventListener("blur", onReset);
+    return () => {
+      window.removeEventListener("pointerdown", onDown, true);
+      window.removeEventListener("pointerup", onRelease, true);
+      window.removeEventListener("pointercancel", onRelease, true);
+      window.removeEventListener("blur", onReset);
+      activePointersRef.current = 0;
+    };
+  }, [autoTurn]);
+
   const autoTurnBaseline = useRef({ index, complete: completion.complete });
   useEffect(() => {
     const previous = autoTurnBaseline.current;
@@ -222,31 +250,29 @@ export function NativeLessonViewer({
     if (!autoTurn || previous.index !== index || previous.complete || !completion.complete || isLast) return;
     const root = containerRef.current;
     let timer: number | undefined;
-    let activePointers = 0;
     const startIdleTimer = () => {
       window.clearTimeout(timer);
       timer = window.setTimeout(() => forwardRef.current(), AUTO_TURN_IDLE_MS);
     };
     const onPointerDown = () => {
-      activePointers += 1;
       window.clearTimeout(timer);
       timer = undefined;
     };
+    // Runs after the capture-phase counter above has already been updated.
     const onPointerRelease = () => {
-      activePointers = Math.max(0, activePointers - 1);
-      if (activePointers === 0) startIdleTimer();
+      if (activePointersRef.current === 0) startIdleTimer();
     };
     const onKeyDown = () => {
-      if (activePointers === 0) startIdleTimer();
+      if (activePointersRef.current === 0) startIdleTimer();
     };
-    startIdleTimer();
-    root?.addEventListener("pointerdown", onPointerDown);
+    if (activePointersRef.current === 0) startIdleTimer();
+    window.addEventListener("pointerdown", onPointerDown);
     window.addEventListener("pointerup", onPointerRelease);
     window.addEventListener("pointercancel", onPointerRelease);
     root?.addEventListener("keydown", onKeyDown);
     return () => {
       window.clearTimeout(timer);
-      root?.removeEventListener("pointerdown", onPointerDown);
+      window.removeEventListener("pointerdown", onPointerDown);
       window.removeEventListener("pointerup", onPointerRelease);
       window.removeEventListener("pointercancel", onPointerRelease);
       root?.removeEventListener("keydown", onKeyDown);
