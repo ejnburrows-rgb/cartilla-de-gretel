@@ -41,4 +41,3 @@ print(json.dumps({'source_integrity':report['source_integrity']['pass'],'pdf_fil
 if not report['source_integrity']['pass']:
  print(json.dumps({'failed_pdfs':[x for x in checks if not x['unchanged']],'failed_crops':crop_failures,'failed_candidates':[x for x in candidates.values() if not x['unchanged']]}))
  raise SystemExit(1)
-
