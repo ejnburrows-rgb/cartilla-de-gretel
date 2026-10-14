@@ -133,23 +133,25 @@ export const LIVING_ACTORS: Readonly<Record<string, LivingActor>> = Object.freez
     reducedMotion: "static",
     meaning: "vuelo suspendido de abeja",
   },
-  [`${A}/vocal-o/oso.webp`]: { src: `${A}/vocal-o/oso.webp`, action: "breathe", creature: true, blinkFrame: `${A}/vocal-o/oso-blink.webp`, reducedMotion: "static", meaning: "respiración y mirada natural" },
-  [`${A}/vocal-o/oruga.webp`]: { src: `${A}/vocal-o/oruga.webp`, action: "crawl", creature: true, reducedMotion: "static", meaning: "avance corto de oruga" },
-  [`${A}/vocal-o/oveja.webp`]: { src: `${A}/vocal-o/oveja.webp`, action: "nod", creature: true, reducedMotion: "static", meaning: "gesto suave de oveja" },
-  [`${A}/vocal-a/abeja.webp`]: { src: `${A}/vocal-a/abeja.webp`, action: "hover", creature: true, parts: [{ name: "wings", clipPath: "inset(8% 8% 48% 8%)", transformOrigin: "50% 58%" }], reducedMotion: "static", meaning: "vuelo suspendido con aleteo" },
-  [`${A}/vocal-a/arana.webp`]: { src: `${A}/vocal-a/arana.webp`, action: "crawl", creature: true, reducedMotion: "static", meaning: "paso corto de araña" },
-  [`${A}/vocal-a/ardilla.webp`]: { src: `${A}/vocal-a/ardilla.webp`, action: "hop", creature: true, reducedMotion: "static", meaning: "salto corto de ardilla" },
-  [`${A}/vocal-a/avion.webp`]: { src: `${A}/vocal-a/avion.webp`, action: "glide", creature: false, reducedMotion: "static", meaning: "desplazamiento de avión" },
-  [`${A}/vocal-a/abanico.webp`]: { src: `${A}/vocal-a/abanico.webp`, action: "sway", creature: false, reducedMotion: "static", meaning: "abanico que se mece" },
-  [`${A}/vocal-e/elefante.webp`]: { src: `${A}/vocal-e/elefante.webp`, action: "nod", creature: true, parts: [{ name: "trunk", clipPath: "inset(20% 55% 18% 2%)", transformOrigin: "38% 45%" }], reducedMotion: "static", meaning: "trompa que se balancea con suavidad" },
-  [`${A}/vocal-e/erizo.webp`]: { src: `${A}/vocal-e/erizo.webp`, action: "breathe", creature: true, reducedMotion: "static", meaning: "respiración discreta" },
-  [`${A}/vocal-i/iguana.webp`]: { src: `${A}/vocal-i/iguana.webp`, action: "crawl", creature: true, reducedMotion: "static", meaning: "avance lento de iguana" },
-  [`${A}/vocal-i/insecto.webp`]: { src: `${A}/vocal-i/insecto.webp`, action: "crawl", creature: true, reducedMotion: "static", meaning: "movimiento breve de insecto" },
-  [`${A}/vocal-u/unicornio.webp`]: { src: `${A}/vocal-u/unicornio.webp`, action: "nod", creature: true, reducedMotion: "static", meaning: "gesto amable de unicornio" },
+  [`${A}/vocal-o/oso.webp`]: { src: `${A}/vocal-o/oso.webp`, aliveSrc: `${A}/vocal-o/oso-alive.svg`, action: "breathe", creature: true, blinkFrame: `${A}/vocal-o/oso-blink.webp`, reducedMotion: "static", meaning: "respiración y mirada natural" },
+  [`${A}/vocal-o/oveja.webp`]: { src: `${A}/vocal-o/oveja.webp`, aliveSrc: `${A}/vocal-o/oveja-alive.svg`, action: "nod", creature: true, reducedMotion: "static", meaning: "gesto suave de oveja" },
+  [`${A}/vocal-o/olla.webp`]: { src: `${A}/vocal-o/olla.webp`, aliveSrc: `${A}/vocal-o/olla-alive.svg`, action: "float", creature: false, reducedMotion: "static", meaning: "vapor que sube de la olla" },
+  [`${A}/vocal-a/abeja.webp`]: { src: `${A}/vocal-a/abeja.webp`, aliveSrc: `${A}/vocal-a/abeja-alive.svg`, action: "hover", creature: true, parts: [{ name: "wings", clipPath: "inset(8% 8% 48% 8%)", transformOrigin: "50% 58%" }], reducedMotion: "static", meaning: "vuelo suspendido con aleteo" },
+  [`${A}/vocal-a/avion.webp`]: { src: `${A}/vocal-a/avion.webp`, aliveSrc: `${A}/vocal-a/avion-alive.svg`, action: "glide", creature: false, reducedMotion: "static", meaning: "desplazamiento de avión" },
+  [`${A}/vocal-a/abanico.webp`]: { src: `${A}/vocal-a/abanico.webp`, aliveSrc: `${A}/vocal-a/abanico-alive.svg`, action: "sway", creature: false, reducedMotion: "static", meaning: "abanico que se mece" },
+  [`${A}/vocal-e/elefante.webp`]: { src: `${A}/vocal-e/elefante.webp`, aliveSrc: `${A}/vocal-e/elefante-alive.svg`, action: "nod", creature: true, parts: [{ name: "trunk", clipPath: "inset(20% 55% 18% 2%)", transformOrigin: "38% 45%" }], reducedMotion: "static", meaning: "trompa que se balancea con suavidad" },
+  [`${A}/vocal-i/iman.webp`]: { src: `${A}/vocal-i/iman.webp`, aliveSrc: `${A}/vocal-i/iman-alive.svg`, action: "float", creature: false, reducedMotion: "static", meaning: "clips atraídos por el imán, líneas del campo y chispas" },
+  // Held still (owner rule 2026-10-11: only the parts that really move may move;
+  // whole pictures never bob, tilt, breathe or slide). Their old whole-picture
+  // motion moved the drawn ground/background too: oruga, araña, ardilla, erizo,
+  // iguana, insecto, unicornio. Part motion for them needs owner approval.
 
   [`${A}/leccion-1/aguila.webp`]: { src: `${A}/leccion-1/aguila.webp`, action: "flutter", creature: true, parts: [{ name: "wings", clipPath: "inset(8% 4% 42% 4%)", transformOrigin: "50% 62%" }], reducedMotion: "static", meaning: "aleteo breve de águila" },
   [`${A}/leccion-1/pajaro.webp`]: { src: `${A}/leccion-1/pajaro.webp`, action: "flutter", creature: true, parts: [{ name: "wings", clipPath: "inset(10% 6% 44% 6%)", transformOrigin: "50% 60%" }], reducedMotion: "static", meaning: "aleteo breve de pájaro" },
-  [`${A}/leccion-1/pez.webp`]: { src: `${A}/leccion-1/pez.webp`, action: "swim", creature: true, parts: [{ name: "tail", clipPath: "inset(32% 66% 18% 0)", transformOrigin: "34% 58%" }], reducedMotion: "static", meaning: "cola que impulsa el nado" },
+  // leccion-1/pez.webp is the Workbook's AIRPLANE (book pages 8, 13, 16; see
+  // book-transcription notes "picture-identity"); the file name is historical.
+  // A flying airplane is the one thing that may travel gently as a whole.
+  [`${A}/leccion-1/pez.webp`]: { src: `${A}/leccion-1/pez.webp`, action: "glide", creature: false, reducedMotion: "static", meaning: "avión que vuela" },
   [`${A}/leccion-1/carro.webp`]: { src: `${A}/leccion-1/carro.webp`, action: "roll", creature: false, reducedMotion: "static", meaning: "rodar corto" },
   [`${A}/leccion-1/globo.webp`]: { src: `${A}/leccion-1/globo.webp`, action: "float", creature: false, reducedMotion: "static", meaning: "flotación de globo" },
 

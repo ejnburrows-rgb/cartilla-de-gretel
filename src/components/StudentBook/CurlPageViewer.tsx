@@ -245,6 +245,9 @@ export function CurlPageViewer({
   }, []);
 
   const scheduleReveal = useCallback((delayMs?: number, revealIndex?: number) => {
+    // An early "read" event must not cancel the requested-turn fallback.
+    const destination = pendingDestinationRef.current;
+    if (destination !== null && pendingRevealIndexRef.current !== destination) return;
     const transitionToken = transitionTokenRef.current;
     if (turnFallbackTimerRef.current) {
       clearTimeout(turnFallbackTimerRef.current);

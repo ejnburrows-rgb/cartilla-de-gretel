@@ -68,5 +68,45 @@
     "still": "public/cartilla/art/optimized/flipchart-native/p009-scene.png",
     "alive": "public/cartilla/art/optimized/flipchart-native/p009-scene-alive.svg",
     "stillSha256": "f30fde7e57e37cc16d461eac0a0794c75a5362568b63b1978a7ed10af34c12ff"
+  },
+  "vocal-a-abanico": {
+    "still": "public/cartilla/art/faithful/vocal-a/abanico.webp",
+    "alive": "public/cartilla/art/faithful/vocal-a/abanico-alive.svg",
+    "stillSha256": "6d3b360695225f2127ed98bc93af554a4b3c947f97d88c9b9ff846c436f89888"
+  },
+  "vocal-a-abeja": {
+    "still": "public/cartilla/art/faithful/vocal-a/abeja.webp",
+    "alive": "public/cartilla/art/faithful/vocal-a/abeja-alive.svg",
+    "stillSha256": "1f03f92afdf3005ffffccae6aff6cfdd37314ebe016012e8634a102078bca5ef"
+  },
+  "vocal-a-avion": {
+    "still": "public/cartilla/art/faithful/vocal-a/avion.webp",
+    "alive": "public/cartilla/art/faithful/vocal-a/avion-alive.svg",
+    "stillSha256": "db993f2a86aa40a3d9ac8d0d6819e4b98460ca5362de8bb2ba9337a647e82003"
+  },
+  "vocal-e-elefante": {
+    "still": "public/cartilla/art/faithful/vocal-e/elefante.webp",
+    "alive": "public/cartilla/art/faithful/vocal-e/elefante-alive.svg",
+    "stillSha256": "f54e533c6a33b901fcfc79da83b2f7a38977defc47662f6cf29ca948d1cfd28a"
+  },
+  "vocal-i-iman": {
+    "still": "public/cartilla/art/faithful/vocal-i/iman.webp",
+    "alive": "public/cartilla/art/faithful/vocal-i/iman-alive.svg",
+    "stillSha256": "881055e3411d1b78e68c751ff24472d465f33028aa3c173fb5b3ee830a4fe804"
+  },
+  "vocal-o-olla": {
+    "still": "public/cartilla/art/faithful/vocal-o/olla.webp",
+    "alive": "public/cartilla/art/faithful/vocal-o/olla-alive.svg",
+    "stillSha256": "7f38ec806dc9da0d44910c5084c96c35c4c920f5ae3f8750040b801b7518b79d"
+  },
+  "vocal-o-oso": {
+    "still": "public/cartilla/art/faithful/vocal-o/oso.webp",
+    "alive": "public/cartilla/art/faithful/vocal-o/oso-alive.svg",
+    "stillSha256": "cd49151f12332d1201e535eb18f0e0191867bd035af46f3d836492ab7680fbdf"
+  },
+  "vocal-o-oveja": {
+    "still": "public/cartilla/art/faithful/vocal-o/oveja.webp",
+    "alive": "public/cartilla/art/faithful/vocal-o/oveja-alive.svg",
+    "stillSha256": "6835094e54b0ea0e5082792e1ae8cdde452ab4bd8be265d170f99d74e7f22d59"
   }
 }

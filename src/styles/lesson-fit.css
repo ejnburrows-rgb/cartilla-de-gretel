@@ -259,3 +259,24 @@
 .lc-lesson-shell--fit .native-lesson-viewer__content .fp-writing-response,
 .lc-lesson-shell--fit .native-lesson-viewer__content .fp-writing-response > :has(> textarea) { min-height: auto; }
 .lc-lesson-shell--fit .native-lesson-viewer__content .fp-writing-response > :has(> textarea) { min-height: 88px; }
+/* Writing pages: tighter spacing between rows, so pages with several
+ * drawing boxes (true-size tools, #717) still fit on a laptop screen. */
+.lc-lesson-shell--fit .native-lesson-viewer__content .faithful-page--archetype-5 .faithful-page__body { row-gap: calc(var(--ph) * .012); }
+/* A page that is still taller than the screen at the smallest readable
+ * size (e.g. a phone with three drawing boxes and their full-size tools)
+ * grows and the whole screen scrolls — nothing is ever cut off or hidden
+ * behind a scroll box inside the page (#717). */
+.lc-lesson-shell--fit:has(.faithful-page__body[data-lc-fit-overflow="true"]) { height: auto; min-height: 100dvh; overflow-y: auto; }
+.lc-lesson-shell--fit:has(.faithful-page__body[data-lc-fit-overflow="true"]) .lc-lesson-main { container-type: normal; flex: none; overflow: visible; }
+.lc-lesson-shell--fit .native-lesson-viewer__content .faithful-page:has(> .faithful-page__body[data-lc-fit-overflow="true"]) { height: auto; min-height: var(--ph); overflow: visible; }
+.lc-lesson-shell--fit .native-lesson-viewer__content .faithful-page__body[data-lc-fit-overflow="true"] { position: static; overflow: visible; }
+/* Picture tiles keep the printed book's proportions (a little wider than
+ * tall) on every screen, instead of being squashed into long flat or tall
+ * thin boxes — the picture and its pencil circle stay round (owner
+ * 2026-10-14). Each row measures itself; tiles are centred in their column. */
+.lc-lesson-shell--fit .native-lesson-viewer__content .fp-ix-grid .fp-ix-row,
+.lc-lesson-shell--fit .native-lesson-viewer__content .fp-ix-pick__cells { container-type: size; }
+.lc-lesson-shell--fit .native-lesson-viewer__content .fp-ix-grid .fp-ix-row,
+.lc-lesson-shell--fit .native-lesson-viewer__content .fp-ix-pick__cells { display: flex; justify-content: center; align-items: center; column-gap: min(3.2cqw, 28px); }
+.lc-lesson-shell--fit .native-lesson-viewer__content .fp-ix-grid .fp-ix-cell,
+.lc-lesson-shell--fit .native-lesson-viewer__content .fp-ix-pick__cells .fp-ix-cell { flex: 0 1 114cqh; width: auto; min-width: 0; height: auto; max-height: 100%; aspect-ratio: 1; }

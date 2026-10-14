@@ -97,6 +97,7 @@ export function SpeechRecognitionExercise({
 
       <button
         onClick={toggleListen}
+        aria-label={isListening ? "Detener grabación" : "Iniciar grabación"}
         className={cn(
           "w-24 h-24 rounded-full flex items-center justify-center text-white transition-all shadow-xl mb-4",
           isListening
@@ -336,6 +337,7 @@ export function AudioMultipleChoice({
 
       <button
         onClick={() => play(targetWord, true)}
+        aria-label="Escuchar palabra"
         className={cn(
           "w-24 h-24 rounded-full flex items-center justify-center text-white transition-all shadow-xl mb-8 active:scale-95",
           playingText === targetWord ? "animate-pulse ring-8 ring-offset-4" : "hover:scale-105",
@@ -351,6 +353,7 @@ export function AudioMultipleChoice({
             key={opt.word}
             disabled={feedback === "ok"}
             onClick={() => handlePick(opt.word)}
+            aria-label={`Seleccionar ${opt.word}`}
             className={cn(
               "aspect-square rounded-2xl flex items-center justify-center text-6xl bg-white border-4 transition-all hover:scale-[1.02]",
               picked === opt.word && feedback === "no"

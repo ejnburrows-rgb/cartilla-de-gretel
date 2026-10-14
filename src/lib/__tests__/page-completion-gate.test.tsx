@@ -11,6 +11,7 @@ import { focusGretelActivity, gretelEvent, onGretelEvent } from "@/lib/gretel-bu
 import { requiredActivitiesForPage, pageCompletionState } from "@/lib/page-completion";
 import { markLessonCompleted, resetProgress } from "@/lib/lesson-progress";
 import type { WorkbookPageEntry } from "@/components/StudentBook/SimplePageViewer";
+import { LESSON_PAGE_TURN_TOTAL_MS } from "@/lib/living-motion";
 
 // Lesson 8 (P): p23 letter tracing + drawing, p24 syllable circles,
 // p25 reading-only, p26 fill-in + sentences.
@@ -35,7 +36,7 @@ function completePage(pageNumber: number) {
 const next = () => screen.getByRole("button", { name: /Siguiente|Terminar lección/ });
 const back = () => screen.getByRole("button", { name: /Anterior/ });
 const current = () => Number(document.querySelector("[data-native-page]")?.getAttribute("data-native-page"));
-const finishTurn = () => act(() => vi.advanceTimersByTime(2500));
+const finishTurn = () => act(() => vi.advanceTimersByTime(LESSON_PAGE_TURN_TOTAL_MS + 200));
 
 beforeEach(() => {
   vi.useFakeTimers();

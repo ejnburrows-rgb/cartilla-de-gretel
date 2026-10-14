@@ -105,7 +105,12 @@ describe("Workbook handwriting source gating reaches the existing renderer", () 
       expect(screen.getAllByLabelText("Área para escribir")).toHaveLength(2);
       expect(screen.getAllByText(letter, { selector: ".fp-writing-line__model" })).toHaveLength(2);
       expect(container.querySelector(".fp-trace")).toBeNull();
-      expect(screen.queryByRole("listbox")).toBeNull();
+      // Freehand writing must never fall back to the picture-pick chooser.
+      // The pen-color swatches gained listbox semantics in #691; they are
+      // part of the real freehand toolbar and are expected on both lines.
+      expect(screen.queryByRole("listbox", { name: "Elige el dibujo correcto" })).toBeNull();
+      expect(screen.getAllByRole("listbox", { name: "Colores" })).toHaveLength(2);
+      expect(screen.getAllByRole("listbox")).toHaveLength(2);
     },
   );
 

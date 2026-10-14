@@ -1,5 +1,13 @@
 # PROJECT SOURCE OF TRUTH — La Cartilla de Gretel
 
+## Current artwork reconciliation routing — 2026-10-14
+
+The **current source-evidenced artwork reconciliation** is in [PR #751](https://github.com/ejnburrows-rgb/cartilla-de-gretel/pull/751), [MASTER-MAPPING.md](https://github.com/ejnburrows-rgb/cartilla-de-gretel/blob/evidence/artwork-coverage-20261014/docs/proofs/artwork-coverage-2026-10-14/MASTER-MAPPING.md), and its 330-row CSV/201-group JSON. **The PR is a draft evidence branch, not installed on `main`, not deployed, and not a production-art approval.** Every agent, including Muse/Jules/controller/reviewer, must read the current PR head and its evidence **before** making artwork availability, candidate or owner-missing claims; do not restart the four completed artwork audits. No automatic Jules job is created by this pointer.
+
+90 faithful optimized drawing masters available by group (186 placements), 108 groups need actual optimization (141 placements), 3 unresolved frontmatter composite groups (3 placements). **115 exact placement matches** recorded; **71 READY group placements** have no individually selected exact master. **Eight** selected candidate files are documented only inside owner-local archives; they are not live GitHub assets. **50** withheld hashes cannot be associated with specific drawings. Ownership approval, runtime integration, book fidelity and release checks remain separate gates.
+
+**Visual identity override:** `DRAW-WB-10-1` depicts **avión (airplane)** despite five legacy `PEZ` IDs/filenames. Real source image and proposed match were directly inspected; never rename it *pez* based on filename, nor alter legacy placement IDs. Optimize/restore only source-faithful originals, preserve all approved assets, and remove no evidence or app dependency without a specific negative reference/dependency check. Older summaries or locally generated copies cannot supersede the cited live GitHub evidence.
+
 ## STOP — OWNER CREDIT / ANTIGRAVITY DENY-BY-DEFAULT GATE (2026-10-11)
 
 **Applies to every agent, dispatcher, Jules worker, reviewer, scheduled observer, connector and desktop/CLI operator. Overrides ALL older instructions suggesting Antigravity as a fallback or authorizing its launcher.**
