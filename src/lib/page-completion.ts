@@ -70,12 +70,22 @@ export function requiredActivitiesForPage(pageNumber: number): RequiredActivity[
       const letter = region.modelText || lastModel;
       lastModel = region.modelText || lastModel;
       if (letter) {
-        out.push({ id, regionId: region.id, kind: region.regionType, label: `el trazo de la letra ${letter}` });
+        out.push({
+          id,
+          regionId: region.id,
+          kind: region.regionType,
+          label: `el trazo de la letra ${letter}`,
+        });
       }
       continue;
     }
     if (LABELS[region.regionType] && hasContent(region)) {
-      out.push({ id, regionId: region.id, kind: region.regionType, label: LABELS[region.regionType]! });
+      out.push({
+        id,
+        regionId: region.id,
+        kind: region.regionType,
+        label: LABELS[region.regionType]!,
+      });
     }
   }
   return out;
@@ -102,11 +112,16 @@ export function pageCompletionState(
 }
 
 /** Live completion state for the page on screen. */
-export function usePageCompletion(pageNumber: number | undefined, lessonNumber?: number): PageCompletionState {
+export function usePageCompletion(
+  pageNumber: number | undefined,
+  lessonNumber?: number,
+): PageCompletionState {
   const [tick, setTick] = useState(0);
   useLayoutEffect(() => {
     if (typeof pageNumber !== "number") return;
-    const requiredIds = new Set(requiredActivitiesForPage(pageNumber).map(activity => activity.id));
+    const requiredIds = new Set(
+      requiredActivitiesForPage(pageNumber).map((activity) => activity.id),
+    );
     const off = onGretelEvent((type, detail) => {
       if (!detail.activityId || !requiredIds.has(detail.activityId)) return;
       if (detail.pageNumber !== undefined && detail.pageNumber !== pageNumber) return;
@@ -126,14 +141,13 @@ export function usePageCompletion(pageNumber: number | undefined, lessonNumber?:
       window.removeEventListener("cartilla:student-session", refresh);
     };
   }, [pageNumber]);
-  return useMemo(
-    () =>
-      typeof pageNumber === "number"
-        ? pageCompletionState(pageNumber, lessonNumber)
-        : { required: [], remaining: [], complete: true },
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-    [pageNumber, lessonNumber, tick],
-  );
+  return useMemo(() => {
+    // Reference tick so the hook re-evaluates when progress events occur
+    void tick;
+    return typeof pageNumber === "number"
+      ? pageCompletionState(pageNumber, lessonNumber)
+      : { required: [], remaining: [], complete: true };
+  }, [pageNumber, lessonNumber, tick]);
 }
 
 /** Friendly Spanish hint naming what is still missing on the page. */
@@ -141,6 +155,8 @@ export function remainingHint(remaining: RequiredActivity[]): string {
   if (remaining.length === 0) return "";
   const labels = [...new Set(remaining.map((r) => r.label))];
   const list =
-    labels.length === 1 ? labels[0] : `${labels.slice(0, -1).join(", ")} y ${labels[labels.length - 1]}`;
+    labels.length === 1
+      ? labels[0]
+      : `${labels.slice(0, -1).join(", ")} y ${labels[labels.length - 1]}`;
   return `¡Casi! Antes de seguir, termina ${list}.`;
 }
