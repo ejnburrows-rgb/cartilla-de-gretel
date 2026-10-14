@@ -5,10 +5,10 @@
  * title, helper text, wooden cabinet with the brass bar, mic + progress below.
  * The keyboard is a real octave (8 white + 5 black, do → do); the syllables sit
  * ABOVE the keys on a little staff, and a key lights up in its syllable's color
- * and plays its note when that syllable is said (or touched).
+ * and plays its note when that syllable is recognized through the microphone.
  */
 import type { CSSProperties } from "react";
-import { ArrowRight, Check, Hand, Mic, MicOff, RotateCcw, Volume2 } from "lucide-react";
+import { ArrowRight, Check, Mic, MicOff, RotateCcw, Volume2 } from "lucide-react";
 import { GretelLiveAvatar } from "@/components/gretel/GretelLiveAvatar";
 import { usePianoSession, PRIVACY_NOTE, type PianoDesignProps } from "./usePianoSession";
 import {
@@ -16,7 +16,6 @@ import {
   OCTAVE_WHITE,
   STATE_LABEL,
   SYLLABLE_COLORS,
-  useHotkeys,
 } from "./piano-keyboard";
 import "./piano-design-a.css";
 
@@ -32,22 +31,6 @@ export function PianoDesignA({ syllables, words, lessonId, onComplete, locale }:
     maxSyllables: DESIGN_A_MAX_SYLLABLES,
     noteFor: (index) => OCTAVE_WHITE[index % OCTAVE_WHITE.length].freq,
   });
-
-  const pressWhite = (index: number) => {
-    if (index < s.keys.length) s.pressSyllableKey(index);
-    else s.pressFreeKey(OCTAVE_WHITE[index].id, OCTAVE_WHITE[index].freq);
-  };
-  const pressBlack = (index: number) =>
-    s.pressFreeKey(OCTAVE_BLACK[index].id, OCTAVE_BLACK[index].freq);
-
-  const hotkeys: Record<string, () => void> = {};
-  OCTAVE_WHITE.forEach((key, index) =>
-    key.hotkeys.forEach((h) => (hotkeys[h] = () => pressWhite(index))),
-  );
-  OCTAVE_BLACK.forEach((key, index) =>
-    key.hotkeys.forEach((h) => (hotkeys[h] = () => pressBlack(index))),
-  );
-  useHotkeys(hotkeys);
 
   if (!s.item) return null;
   const total = s.keys.length;
@@ -135,51 +118,35 @@ export function PianoDesignA({ syllables, words, lessonId, onComplete, locale }:
         )}
         <div
           className={`pa__keys piano-hablador__bed ${total > 5 ? "pa__keys--full" : ""}`}
-          role="group"
-          aria-label="Teclado del piano"
+          role="img"
+          aria-label="Teclado visual: las teclas se iluminan al reconocer la voz"
         >
           {OCTAVE_WHITE.map((key, index) => {
             const carries = index < total;
             const state = carries ? s.keyStateFor(index) : "free";
             const color = carries ? SYLLABLE_COLORS[index % SYLLABLE_COLORS.length] : "#f5d38a";
-            const label = carries
-              ? `Tecla ${s.keys[index]}, ${STATE_LABEL[state as keyof typeof STATE_LABEL]}`
-              : `Nota ${key.name}`;
             return (
-              <button
+              <span
                 key={key.id}
-                type="button"
+                aria-hidden="true"
                 className={`pa__white pa__white--${state} ${carries ? "piano-hablador__slot" : ""} ${!carries && index >= 5 ? "pa__key--extra" : ""} ${isFlashing(carries ? `s${index}` : key.id) ? "pa__white--flash" : ""}`}
                 style={{ "--c": color } as CSSProperties}
-                aria-label={label}
-                aria-pressed={carries ? state === "confirmed" : undefined}
                 data-key-state={carries ? state : undefined}
-                onClick={() => pressWhite(index)}
                 data-testid={`piano-key-${index}`}
               >
                 {carries && state === "confirmed" && (
                   <Check className="pa__white-check" aria-hidden="true" />
                 )}
-                <span className="pa__hotkey" aria-hidden="true">
-                  {key.hotkeys[0].toUpperCase()}
-                </span>
-              </button>
+              </span>
             );
           })}
           {OCTAVE_BLACK.map((key, index) => (
-            <button
+            <span
               key={key.id}
-              type="button"
-              tabIndex={-1}
+              aria-hidden="true"
               className={`pa__black ${key.after >= 4 ? "pa__key--extra" : ""} ${isFlashing(key.id) ? "pa__black--flash" : ""}`}
               style={{ "--pos": key.after + 1 } as CSSProperties}
-              aria-label={`Nota ${key.name}`}
-              onClick={() => pressBlack(index)}
-            >
-              <span className="pa__hotkey pa__hotkey--black" aria-hidden="true">
-                {key.hotkeys[0].toUpperCase()}
-              </span>
-            </button>
+            />
           ))}
         </div>
       </div>
@@ -207,15 +174,13 @@ export function PianoDesignA({ syllables, words, lessonId, onComplete, locale }:
             {s.micOpen ? <Mic aria-hidden="true" /> : <MicOff aria-hidden="true" />}
           </button>
           <span className="pa__mic-label">
-            {s.touchMode
-              ? "Modo tocar"
-              : s.status === "hearing"
-                ? "Te oigo…"
-                : s.micOpen
-                  ? "Escuchando…"
-                  : s.exampleActive
-                    ? "Escucha el ejemplo"
-                    : "Toca para hablar"}
+            {s.status === "hearing"
+              ? "Te oigo…"
+              : s.micOpen
+                ? "Escuchando…"
+                : s.exampleActive
+                  ? "Escucha el ejemplo"
+                  : "Toca para hablar"}
           </span>
         </div>
         <button
@@ -255,17 +220,6 @@ export function PianoDesignA({ syllables, words, lessonId, onComplete, locale }:
       </div>
 
       <div className="pa__footer">
-        {s.supported && (
-          <button
-            type="button"
-            onClick={s.toggleTouchMode}
-            aria-pressed={s.touchMode}
-            className="pa__touch"
-            data-testid="piano-touch-mode"
-          >
-            <Hand aria-hidden="true" /> {s.touchMode ? "Usar el micrófono" : "Tocar sin micrófono"}
-          </button>
-        )}
         <p className="pa__privacy" data-testid="piano-privacy">
           {PRIVACY_NOTE[s.processing]}
         </p>
