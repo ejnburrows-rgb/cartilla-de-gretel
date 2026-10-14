@@ -16,6 +16,7 @@ export interface GretelVoiceProviderConfig {
   pitch?: number;
   rate?: number;
   speakFn?: (text: string, handlers: GretelVoiceHandlers) => Promise<void>;
+  cancelFn?: () => void;
 }
 
 const MUTE_KEY = "cartilla.gretel.voice.muted";
@@ -154,6 +155,7 @@ export async function speakAsGretel(text: string, handlers: GretelVoiceHandlers 
   }
 
   if (activeProviderConfig.type !== "browser-tts" && activeProviderConfig.speakFn) {
+    const provider = activeProviderConfig;
     const token = claimSpeech("gretel");
     let started = false;
     let ended = false;
@@ -170,11 +172,10 @@ export async function speakAsGretel(text: string, handlers: GretelVoiceHandlers 
       if (started) window.dispatchEvent(new CustomEvent("gretel:speak_stop"));
       handlers.onEnd?.();
     };
-    registerSpeechCleanup(token, finish);
-    start();
+    registerSpeechCleanup(token, () => { provider.cancelFn?.(); finish(); });
     try {
-      lastSpokenVoiceName = `${activeProviderConfig.name} (${activeProviderConfig.type})`;
-      await activeProviderConfig.speakFn(text, { onStart: start, onEnd: finish });
+      lastSpokenVoiceName = `${provider.name} (${provider.type})`;
+      await provider.speakFn(text, { onStart: start, onEnd: finish });
     } catch {
       /* handled gracefully */
     } finally {
