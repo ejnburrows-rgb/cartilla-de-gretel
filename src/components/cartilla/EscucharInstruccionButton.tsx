@@ -1,6 +1,7 @@
 import { AUDIO_POLICY } from "@/content/audio-manifest";
 import { Volume2 } from "lucide-react";
 import { useAudio } from "@/hooks/useAudio";
+import { getGretelVoiceProviderConfig } from "@/lib/gretel-voice";
 
 export function EscucharInstruccionButton({
   text,
