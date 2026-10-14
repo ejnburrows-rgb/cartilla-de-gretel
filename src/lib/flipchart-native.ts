@@ -207,7 +207,7 @@ function classify(items: FlipchartTextItem[], pageNumber: number) {
 
   const storyTitle = real
     .filter((item) => item.fontStyle === "italic" && item.y < 165)
-    .sort((a, b) => a.y - b.y || a.x - b.x);
+    .sort((a, b) => Math.round(a.y / 18) - Math.round(b.y / 18) || a.x - b.x);
 
   let title: FlipchartTextItem[] = [];
   if (storyTitle.length) {
@@ -215,7 +215,7 @@ function classify(items: FlipchartTextItem[], pageNumber: number) {
   } else {
     const pairCandidates = real
       .filter((item) => normalizedLetterPair(item.text) && item.y < 380)
-      .sort((a, b) => b.fontSize - a.fontSize || a.y - b.y || a.x - b.x);
+      .sort((a, b) => b.fontSize - a.fontSize || Math.round(a.y / 18) - Math.round(b.y / 18) || a.x - b.x);
     if (pairCandidates[0]) title = [pairCandidates[0]];
   }
 
@@ -231,7 +231,7 @@ function classify(items: FlipchartTextItem[], pageNumber: number) {
         item.text.trim().length <= 2 &&
         Number(item.fontWeight ?? 400) >= 600,
     )
-    .sort((a, b) => a.y - b.y || a.x - b.x);
+    .sort((a, b) => Math.round(a.y / 18) - Math.round(b.y / 18) || a.x - b.x);
 
   for (const start of accentStarts) {
     if (syllableParts.has(start)) continue;
@@ -273,7 +273,7 @@ function classify(items: FlipchartTextItem[], pageNumber: number) {
   const narrativeLines: FlipchartTextItem[] = [];
 
   const words: FlipchartWordGroup[] = [];
-  const sorted = [...lower].sort((a, b) => a.y - b.y || a.x - b.x);
+  const sorted = [...lower].sort((a, b) => Math.round(a.y / 18) - Math.round(b.y / 18) || a.x - b.x);
   const rowGroups: FlipchartTextItem[][] = [];
 
   for (const item of sorted) {
@@ -388,7 +388,7 @@ function classify(items: FlipchartTextItem[], pageNumber: number) {
     }
   }
 
-  let readingBody = [...body, ...narrativeLines].sort((a, b) => a.y - b.y || a.x - b.x);
+  let readingBody = [...body, ...narrativeLines].sort((a, b) => Math.round(a.y / 18) - Math.round(b.y / 18) || a.x - b.x);
   if (readingLayout) {
     const lines: FlipchartTextItem[][] = [];
     for (const item of readingBody) {
@@ -404,7 +404,7 @@ function classify(items: FlipchartTextItem[], pageNumber: number) {
   // The PDF extraction offsets glyphs within the same printed syllable row.
   // Group near-equal Y coordinates first, then read left-to-right within each row.
   const syllableRows: typeof syllables[] = [];
-  for (const item of [...syllables].sort((a, b) => a.y - b.y || a.x - b.x)) {
+  for (const item of [...syllables].sort((a, b) => Math.round(a.y / 18) - Math.round(b.y / 18) || a.x - b.x)) {
     const row = syllableRows.find((candidate) => Math.abs(candidate[0]!.y - item.y) < 18);
     if (row) row.push(item);
     else syllableRows.push([item]);
