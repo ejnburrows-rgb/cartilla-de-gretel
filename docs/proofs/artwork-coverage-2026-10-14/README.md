@@ -2,7 +2,7 @@
 
 Baseline: `153c7eccbec5bc1090cd130a909f0cf73630415a` (current GitHub main fetched during this audit).
 
-Open [the side-by-side gallery](gallery.html), [all original pages](source-pages.html), [the decoded file library](asset-library.html), or [the machine-readable coverage manifest](coverage-manifest.json).
+Open [the GitHub-rendered side-by-side gallery](gallery.md) or [the HTML gallery](gallery.html), [all original pages](source-pages.html), [the decoded file library](asset-library.html), or [the machine-readable coverage manifest](coverage-manifest.json).
 
 Verified files and controls:
 
