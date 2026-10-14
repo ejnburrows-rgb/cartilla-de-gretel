@@ -1,17 +1,17 @@
 import { useEffect, useMemo, useRef, useState } from "react";
 import { Square, Volume2 } from "lucide-react";
-import { availablePageRecordingUrls } from "@/lib/gretel-recorded-clips";
+import { availablePageRecordingUrls, availableLessonIntroRecordingUrls } from "@/lib/gretel-recorded-clips";
 import { playGretelRecordingQueue } from "@/lib/gretel-recorded-playback";
 import { isGretelVoiceMuted } from "@/lib/gretel-voice";
 import { stopSpeech } from "@/lib/speech-playback";
 
 /** Never advertise a missing, unapproved, or non-audio playback resource. */
-export function GretelRecordedPageButton({ pageNumber, disabled = false }: { pageNumber: number; disabled?: boolean }) {
+export function GretelRecordedPageButton({ pageNumber, lessonNumber, firstPageOfLesson = false, disabled = false }: { pageNumber: number; lessonNumber?: number; firstPageOfLesson?: boolean; disabled?: boolean }) {
   const [playing, setPlaying] = useState(false);
   const [readyUrls, setReadyUrls] = useState<string[]>([]);
   const active = useRef(false);
   const playTicket = useRef(0);
-  const urls = useMemo(() => availablePageRecordingUrls(pageNumber), [pageNumber]);
+  const urls = useMemo(() => [...(firstPageOfLesson && lessonNumber ? availableLessonIntroRecordingUrls(lessonNumber) : []), ...availablePageRecordingUrls(pageNumber)], [pageNumber, lessonNumber, firstPageOfLesson]);
 
   useEffect(() => {
     let disposed = false;
