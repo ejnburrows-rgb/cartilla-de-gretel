@@ -60,4 +60,18 @@ describe("Gretel dynamic custom voice", () => {
     });
     await expect(engine.speak("Hola")).rejects.toThrow(/audio/);
   });
+  it("maps real learner outcomes to spoken Gretel reactions only", async () => {
+    const { gretelReactionLine } = await import("../gretel-dynamic-tts");
+    expect(gretelReactionLine("answer:correct")).toContain("Muy bien");
+    expect(gretelReactionLine("answer:wrong")).toContain("intentarlo otra vez");
+    expect(gretelReactionLine("lesson:complete")).toContain("Terminaste");
+    expect(gretelReactionLine("listen:start")).toBeNull();
+    expect(gretelReactionLine("page-turn:start")).toBeNull();
+  });
+
+  it("rejects insecure remote model endpoints rather than submitting learner text", async () => {
+    const { initializeGretelDynamicTts } = await import("../gretel-dynamic-tts");
+    expect(initializeGretelDynamicTts("http://remote-model.example/api/gretel/tts")).toBe(false);
+  });
+
 });
