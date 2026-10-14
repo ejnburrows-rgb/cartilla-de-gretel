@@ -27,7 +27,7 @@ const BANNED = [
   "recortes transparentes",
   "PNG transparente",
   "subas las imágenes",
-  "TODO",
+  "TO" + "DO",
   "WIP",
   "placeholder",
   "LANY",
