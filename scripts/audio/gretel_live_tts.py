@@ -113,8 +113,8 @@ def main() -> None:
     args = parser.parse_args()
     if not args.reference.is_file():
         parser.error("Private voice reference not found")
-    from generate_gretel import load_chatterbox
-    synthesizer = load_chatterbox(args.reference, args.device)
+    from gretel_chatterbox_v3 import load_gretel_voice_model
+    synthesizer = load_gretel_voice_model(args.reference, args.device)
     server = create_server(args.host, args.port, synthesizer, allowed_origin=args.allowed_origin)
     try:
         print("Gretel speech server listening on " + args.host + ":" + str(server.server_port), flush=True)
