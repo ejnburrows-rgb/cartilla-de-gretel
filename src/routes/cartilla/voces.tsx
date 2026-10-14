@@ -104,6 +104,14 @@ function VoiceAudition() {
   const [newText, setNewText] = useState("Mañana el pingüino leerá una palabra nueva.");
   const originalProvider = useMemo(() => getGretelVoiceProviderConfig(), []);
   const customAvailable = originalProvider.type === "custom" && Boolean(originalProvider.speakFn);
+  useEffect(() => {
+    const onCustomVoiceError = () => {
+      setPlayingKey(null);
+      setError("El motor de voz de Gretel no está disponible. No se sustituyó por una voz del navegador.");
+    };
+    window.addEventListener("gretel:speak_error", onCustomVoiceError);
+    return () => window.removeEventListener("gretel:speak_error", onCustomVoiceError);
+  }, []);
 
   useEffect(() => {
     if (typeof window === "undefined" || !("speechSynthesis" in window)) {
