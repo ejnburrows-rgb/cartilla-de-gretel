@@ -1,4 +1,6 @@
-# Gretel premium Spanish voice — production candidate safety (PR #769)
+# LEGACY candidate only — prerecorded audio is not Gretel custom dynamic TTS (PR #769)
+
+**Superseded for the owner’s final voice requirement (October 14, 2026).** This document concerns earlier draft recorded-MP3 generation and 17-second reference prompts. It is NOT the implementation or acceptance path for the full 32:28 recording, owner-requested dynamic text-to-speech, or a trained reusable Gretel voice. Do not use a dry run, stitched/recorded word library, or three zero-shot sample clips as proof that the 32-minute custom voice has been trained. See `GRETEL_DYNAMIC_TTS.md` and the current PR description. Preserve existing work without deploying as Gretel’s approved speech synthesis.
 
 **Status: candidate pipeline implemented; premium voice NOT established.** Do not mark the Cartilla voice finished, merge this draft as finished, release new voices, or confuse a synthetic Python test with real speech.
 
