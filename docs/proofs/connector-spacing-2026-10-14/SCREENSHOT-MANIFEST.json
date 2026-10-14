@@ -1,422 +1,818 @@
 [
   {
+    "file": "compatibility/p11-laptop-after.png",
+    "width": 1366,
+    "height": 768,
+    "sha256": "0023ec5fd45fc9376ebecb9c2f849deaa32d6dacecc603c8f140ba18bc2140ce",
+    "bytes": 164438,
+    "composition": "#764a40a6f6+1d92698"
+  },
+  {
+    "file": "compatibility/p11-laptop-completed.png",
+    "width": 1366,
+    "height": 768,
+    "sha256": "0191408e7e03f85ecc2f2ba6d574a32c8e786acb4fda4c9df77bee05efc2ef4e",
+    "bytes": 171186,
+    "composition": "#764a40a6f6+1d92698"
+  },
+  {
+    "file": "compatibility/p11-phone-after.png",
+    "width": 390,
+    "height": 844,
+    "sha256": "77f4659321b145b28d3986a870fd143227cb403bffd3dbab2e8f03c441e70647",
+    "bytes": 102817,
+    "composition": "#764a40a6f6+1d92698"
+  },
+  {
+    "file": "compatibility/p11-phone-completed.png",
+    "width": 390,
+    "height": 844,
+    "sha256": "59f66f30d3c65e8bcff1780e4f0b7ee507bb92fb5a3461d8ed7b75ded55a70d5",
+    "bytes": 109033,
+    "composition": "#764a40a6f6+1d92698"
+  },
+  {
+    "file": "compatibility/p11-phone-retry.png",
+    "width": 390,
+    "height": 844,
+    "sha256": "8ca24dc67a32c65cfe26c1d3f1ac64e74ae7843374a08ad3c639739a8083e184",
+    "bytes": 110308,
+    "composition": "#764a40a6f6+1d92698"
+  },
+  {
+    "file": "compatibility/p11-tablet-after.png",
+    "width": 820,
+    "height": 1180,
+    "sha256": "337a46bac16ba819b61b5be38d8304e81bfc6146004f7df7a003d460e5cf389b",
+    "bytes": 226184,
+    "composition": "#764a40a6f6+1d92698"
+  },
+  {
+    "file": "compatibility/p11-tablet-completed.png",
+    "width": 820,
+    "height": 1180,
+    "sha256": "49ce7a24fe7bacdbda56bbb85096b36c3b39e31712f3b5e2f9107b166aad885c",
+    "bytes": 233818,
+    "composition": "#764a40a6f6+1d92698"
+  },
+  {
+    "file": "compatibility/p14-laptop-after.png",
+    "width": 1366,
+    "height": 768,
+    "sha256": "2c808ac4834f6a94ad2f9cc2014db7a869e289ebe4bcea3485bef067f297f068",
+    "bytes": 141775,
+    "composition": "#764a40a6f6+1d92698"
+  },
+  {
+    "file": "compatibility/p14-laptop-completed.png",
+    "width": 1366,
+    "height": 768,
+    "sha256": "0545cf6e6feb24029cb70dab6cd178358538d85594a4e6221dd5aea089ded24f",
+    "bytes": 158949,
+    "composition": "#764a40a6f6+1d92698"
+  },
+  {
+    "file": "compatibility/p14-phone-after.png",
+    "width": 390,
+    "height": 844,
+    "sha256": "203642dc756c311f6acc0e86119f6dab58f5de33a3c35e6b9c63ca5ee0a74155",
+    "bytes": 90052,
+    "composition": "#764a40a6f6+1d92698"
+  },
+  {
+    "file": "compatibility/p14-phone-completed.png",
+    "width": 390,
+    "height": 844,
+    "sha256": "ab2ad4277fef92d772394f30e3e6dbe5342693b61d969dccd7663d41ff3f947e",
+    "bytes": 101128,
+    "composition": "#764a40a6f6+1d92698"
+  },
+  {
+    "file": "compatibility/p14-phone-retry.png",
+    "width": 390,
+    "height": 844,
+    "sha256": "84c4471a6182b54d42287a98b925ca500659dee1f43b86c865859c64e45a30ff",
+    "bytes": 97568,
+    "composition": "#764a40a6f6+1d92698"
+  },
+  {
+    "file": "compatibility/p14-tablet-after.png",
+    "width": 820,
+    "height": 1180,
+    "sha256": "2ba9a2e57556cf87040253bd3b76ec2e2b66b37486c66e32b225b7c605636d76",
+    "bytes": 193606,
+    "composition": "#764a40a6f6+1d92698"
+  },
+  {
+    "file": "compatibility/p14-tablet-completed.png",
+    "width": 820,
+    "height": 1180,
+    "sha256": "8ced7d7e2f1cc2ef3d42c55df5a30b4f527fd91605455a448212c5c206eaa52c",
+    "bytes": 211014,
+    "composition": "#764a40a6f6+1d92698"
+  },
+  {
+    "file": "compatibility/p17-laptop-after.png",
+    "width": 1366,
+    "height": 768,
+    "sha256": "7dd0f94ad5a2febe64940661265a9e19331b13de831e94d126f41c969b63b361",
+    "bytes": 161176,
+    "composition": "#764a40a6f6+1d92698"
+  },
+  {
+    "file": "compatibility/p17-laptop-completed.png",
+    "width": 1366,
+    "height": 768,
+    "sha256": "5ab6a2153f9da9c7037df24c62e91f8856fc7dadfe29e0e15ecfc02baf5a7e35",
+    "bytes": 173102,
+    "composition": "#764a40a6f6+1d92698"
+  },
+  {
+    "file": "compatibility/p17-phone-after.png",
+    "width": 390,
+    "height": 844,
+    "sha256": "493f0dca07596efac62e6def9b2857756ee654bcf2f3912fe0e0f1659b7d3137",
+    "bytes": 99657,
+    "composition": "#764a40a6f6+1d92698"
+  },
+  {
+    "file": "compatibility/p17-phone-completed.png",
+    "width": 390,
+    "height": 844,
+    "sha256": "953b6252342c2eee4adf64b8d4567b6fcd404fbf63c8417545a18360f864bd64",
+    "bytes": 107771,
+    "composition": "#764a40a6f6+1d92698"
+  },
+  {
+    "file": "compatibility/p17-phone-retry.png",
+    "width": 390,
+    "height": 844,
+    "sha256": "7f3a64f6edcc71cabae3a734fe8dcb0a383975573e6ec5f882cde102b858e49a",
+    "bytes": 107689,
+    "composition": "#764a40a6f6+1d92698"
+  },
+  {
+    "file": "compatibility/p17-tablet-after.png",
+    "width": 820,
+    "height": 1180,
+    "sha256": "02aa7270fe40d01653d6d35c9a53c80a304705b185a972431d8c608a7eb52378",
+    "bytes": 221738,
+    "composition": "#764a40a6f6+1d92698"
+  },
+  {
+    "file": "compatibility/p17-tablet-completed.png",
+    "width": 820,
+    "height": 1180,
+    "sha256": "2bd8975d16bb4b383c58a2f295084585e1ba3cfc016eed3a276492c438319a11",
+    "bytes": 232432,
+    "composition": "#764a40a6f6+1d92698"
+  },
+  {
+    "file": "compatibility/p3-laptop-after.png",
+    "width": 1366,
+    "height": 768,
+    "sha256": "e264dab1b0ca471a754aa05232e26721986ab9f1a406bd0d649890e960509602",
+    "bytes": 115169,
+    "composition": "#764a40a6f6+1d92698"
+  },
+  {
+    "file": "compatibility/p3-laptop-completed.png",
+    "width": 1366,
+    "height": 768,
+    "sha256": "3a8dedd4d7a4ff80aeab80d85a7c1cd357b3278793a5ce7792b54a9a2a864ec1",
+    "bytes": 115529,
+    "composition": "#764a40a6f6+1d92698"
+  },
+  {
+    "file": "compatibility/p3-phone-after.png",
+    "width": 390,
+    "height": 844,
+    "sha256": "5e7f5e3761eb26c2c2ff2b675a6c952ab6570b19e1d975090093667a1b5e233d",
+    "bytes": 97638,
+    "composition": "#764a40a6f6+1d92698"
+  },
+  {
+    "file": "compatibility/p3-phone-completed.png",
+    "width": 390,
+    "height": 844,
+    "sha256": "c81a060eddc0dfffcb41094b6a5c1bd46b820eaf1934bdd4273974a0cee44275",
+    "bytes": 92196,
+    "composition": "#764a40a6f6+1d92698"
+  },
+  {
+    "file": "compatibility/p3-phone-retry.png",
+    "width": 390,
+    "height": 844,
+    "sha256": "717e2912b3cb673209795e3af63c4afd7338cd8c53b997952369c64160349842",
+    "bytes": 99669,
+    "composition": "#764a40a6f6+1d92698"
+  },
+  {
+    "file": "compatibility/p3-tablet-after.png",
+    "width": 820,
+    "height": 1180,
+    "sha256": "05d2480a22166e841c1c81966fa07c8eeaaa843a1df68fd1133b90bc42e19278",
+    "bytes": 181686,
+    "composition": "#764a40a6f6+1d92698"
+  },
+  {
+    "file": "compatibility/p3-tablet-completed.png",
+    "width": 820,
+    "height": 1180,
+    "sha256": "0f091696932c8be868e1d6b5acd2c92d59a023b26322f4da71a80b9e8e08fadc",
+    "bytes": 173747,
+    "composition": "#764a40a6f6+1d92698"
+  },
+  {
+    "file": "compatibility/p5-laptop-after.png",
+    "width": 1366,
+    "height": 768,
+    "sha256": "52dfe3ab429a1366b7d17be713ac6d9e78f21fed971fb392cbd1616d1d526caf",
+    "bytes": 152225,
+    "composition": "#764a40a6f6+1d92698"
+  },
+  {
+    "file": "compatibility/p5-laptop-completed.png",
+    "width": 1366,
+    "height": 768,
+    "sha256": "f49baaa1eb40d282424c0c90b277fe859173968f8849e0d3e515c82ef041eea5",
+    "bytes": 161693,
+    "composition": "#764a40a6f6+1d92698"
+  },
+  {
+    "file": "compatibility/p5-phone-after.png",
+    "width": 390,
+    "height": 844,
+    "sha256": "30945a947097c4915a304108e5576408c14c8d7d42275e0b3d87fd41230d8ab0",
+    "bytes": 96095,
+    "composition": "#764a40a6f6+1d92698"
+  },
+  {
+    "file": "compatibility/p5-phone-completed.png",
+    "width": 390,
+    "height": 844,
+    "sha256": "92c8053e99b11ca708b927e2906ad912777d7fd33f5eea246475215dd6b2e51e",
+    "bytes": 101386,
+    "composition": "#764a40a6f6+1d92698"
+  },
+  {
+    "file": "compatibility/p5-phone-retry.png",
+    "width": 390,
+    "height": 844,
+    "sha256": "619ac943f44befae6689ccf601c8851546851872a9df9b3807a298b4b39567b4",
+    "bytes": 102912,
+    "composition": "#764a40a6f6+1d92698"
+  },
+  {
+    "file": "compatibility/p5-tablet-after.png",
+    "width": 820,
+    "height": 1180,
+    "sha256": "58295b89c8317132089c05b7eaf68ff7dc5efe3306c48fc671f909320e2f3cfc",
+    "bytes": 205901,
+    "composition": "#764a40a6f6+1d92698"
+  },
+  {
+    "file": "compatibility/p5-tablet-completed.png",
+    "width": 820,
+    "height": 1180,
+    "sha256": "abe42bcbd7b075c4638c6c8dc78c5352beed49a733e23afb6b6b88560b3d5915",
+    "bytes": 215884,
+    "composition": "#764a40a6f6+1d92698"
+  },
+  {
+    "file": "compatibility/p8-laptop-after.png",
+    "width": 1366,
+    "height": 768,
+    "sha256": "3477d8ac107fe8538991b9f564d6906b2bfabed88e48331052cea69e1eed9779",
+    "bytes": 144148,
+    "composition": "#764a40a6f6+1d92698"
+  },
+  {
+    "file": "compatibility/p8-laptop-completed.png",
+    "width": 1366,
+    "height": 768,
+    "sha256": "113985aa1527a6f4534ae4166e8029ff98a163bc168e4ea8bc05328024bc884f",
+    "bytes": 162541,
+    "composition": "#764a40a6f6+1d92698"
+  },
+  {
+    "file": "compatibility/p8-phone-after.png",
+    "width": 390,
+    "height": 844,
+    "sha256": "5ce161af9a9c4441f650ea3efcc6bfe31a94e4dda78ac24c26ea3608b0afa63a",
+    "bytes": 91598,
+    "composition": "#764a40a6f6+1d92698"
+  },
+  {
+    "file": "compatibility/p8-phone-completed.png",
+    "width": 390,
+    "height": 844,
+    "sha256": "869cb234ecd8eacde3fbae88a31d0fdfa48819509a9b993763263adac30ed856",
+    "bytes": 103343,
+    "composition": "#764a40a6f6+1d92698"
+  },
+  {
+    "file": "compatibility/p8-phone-retry.png",
+    "width": 390,
+    "height": 844,
+    "sha256": "20e5b568aec1e7e30790c45be26929287bc39632db6e682271a0eefd3c97fa54",
+    "bytes": 99480,
+    "composition": "#764a40a6f6+1d92698"
+  },
+  {
+    "file": "compatibility/p8-tablet-after.png",
+    "width": 820,
+    "height": 1180,
+    "sha256": "dbccb5d87d136eb046bf74f8310ab56fe3ec1ba0ba953fbc3da51f51621633fa",
+    "bytes": 197769,
+    "composition": "#764a40a6f6+1d92698"
+  },
+  {
+    "file": "compatibility/p8-tablet-completed.png",
+    "width": 820,
+    "height": 1180,
+    "sha256": "b65b69403492cf00e522cf1eb6873dcdcef4fa4cfb7fa1359c42fa554ad60b8e",
+    "bytes": 215633,
+    "composition": "#764a40a6f6+1d92698"
+  },
+  {
     "file": "p11-expanded-390x844-bottom.png",
     "width": 390,
     "height": 844,
     "sha256": "b3a30d4f14be75745a37f79c9bddfead1fe17739caed0374c10f538491e152ae",
-    "bytes": 111230
+    "bytes": 111230,
+    "composition": "material1d92698"
   },
   {
     "file": "p11-expanded-390x844-top.png",
     "width": 390,
     "height": 844,
     "sha256": "b3a30d4f14be75745a37f79c9bddfead1fe17739caed0374c10f538491e152ae",
-    "bytes": 111230
+    "bytes": 111230,
+    "composition": "material1d92698"
   },
   {
     "file": "p11-expanded-844x390-bottom.png",
     "width": 844,
     "height": 390,
     "sha256": "9d29ec2a68a8e997c81542b53958d8597bf524503f97075e2163caeb96c7ea7c",
-    "bytes": 78069
+    "bytes": 78069,
+    "composition": "material1d92698"
   },
   {
     "file": "p11-expanded-844x390-top.png",
     "width": 844,
     "height": 390,
     "sha256": "d673cc24e0ddef8a98ffa614e8b2f4b5f48a62e253a26728d45e4a679bfb98cc",
-    "bytes": 74977
+    "bytes": 74977,
+    "composition": "material1d92698"
   },
   {
     "file": "p11-laptop-after.png",
     "width": 1366,
     "height": 768,
     "sha256": "65fe755891c8e6029c6dad5fa93d2c829b1c9a91006bb3521ca861e126aaf285",
-    "bytes": 164302
+    "bytes": 164302,
+    "composition": "material1d92698"
   },
   {
     "file": "p11-laptop-before.png",
     "width": 1366,
     "height": 768,
     "sha256": "b27fedfac23e6ac79b9547484d65bc896a2a7a5a5a243f2e4e2daab22e135a78",
-    "bytes": 212820
+    "bytes": 212820,
+    "composition": "main32c1d2c"
   },
   {
     "file": "p11-phone-after.png",
     "width": 390,
     "height": 844,
     "sha256": "96e77d99760bbb3e2c98babb7467b0c806cb2d26f2ef2a64d19fbf7c85795758",
-    "bytes": 101409
+    "bytes": 101409,
+    "composition": "material1d92698"
   },
   {
     "file": "p11-phone-before.png",
     "width": 390,
     "height": 844,
     "sha256": "6531ddba5a4e43036bf645c251008fe61cd2ad97ec8206c4560537124dcf2f49",
-    "bytes": 97966
+    "bytes": 97966,
+    "composition": "main32c1d2c"
   },
   {
     "file": "p11-tablet-after.png",
     "width": 820,
     "height": 1180,
     "sha256": "7936d8a351ec1a4727a30de783c46e1611340891611f1b60eb8fd8ed37ce9a51",
-    "bytes": 226503
+    "bytes": 226503,
+    "composition": "material1d92698"
   },
   {
     "file": "p11-tablet-before.png",
     "width": 820,
     "height": 1180,
     "sha256": "7d6fa3a060ca030c1c048967147b93f030dad82d23f02c81cf661b361c96fca2",
-    "bytes": 403222
+    "bytes": 403222,
+    "composition": "main32c1d2c"
   },
   {
     "file": "p14-expanded-390x844-bottom.png",
     "width": 390,
     "height": 844,
     "sha256": "086dbfa94be435088d9f0ab69e5d890d31630ce387f53a6704c087b1f776ed22",
-    "bytes": 93906
+    "bytes": 93906,
+    "composition": "material1d92698"
   },
   {
     "file": "p14-expanded-390x844-top.png",
     "width": 390,
     "height": 844,
     "sha256": "086dbfa94be435088d9f0ab69e5d890d31630ce387f53a6704c087b1f776ed22",
-    "bytes": 93906
+    "bytes": 93906,
+    "composition": "material1d92698"
   },
   {
     "file": "p14-expanded-844x390-bottom.png",
     "width": 844,
     "height": 390,
     "sha256": "b434bcc498f6665db167d3f5ea07029aa556f0a6549cee7aec51d92672c0dd57",
-    "bytes": 65692
+    "bytes": 65692,
+    "composition": "material1d92698"
   },
   {
     "file": "p14-expanded-844x390-top.png",
     "width": 844,
     "height": 390,
     "sha256": "c422708115a057bebe6f9a5f547471c473ab1ebe1b4bf6a0c05622aff50e2b5c",
-    "bytes": 62749
+    "bytes": 62749,
+    "composition": "material1d92698"
   },
   {
     "file": "p14-laptop-after.png",
     "width": 1366,
     "height": 768,
     "sha256": "067dfbe2e8bd7ab8588727f3d7dd9697b79731d28253419469860771cb711a64",
-    "bytes": 140608
+    "bytes": 140608,
+    "composition": "material1d92698"
   },
   {
     "file": "p14-laptop-before.png",
     "width": 1366,
     "height": 768,
     "sha256": "45395ed8cf95ad0e6ce7c57a87d773b5d64bf1a3dc2ada2339c214106f2196ae",
-    "bytes": 191070
+    "bytes": 191070,
+    "composition": "main32c1d2c"
   },
   {
     "file": "p14-phone-after.png",
     "width": 390,
     "height": 844,
     "sha256": "f538f1aa357b4138fb58382e01504c79ad64e7bebe5273e54c41c69f51fe6fb6",
-    "bytes": 88820
+    "bytes": 88820,
+    "composition": "material1d92698"
   },
   {
     "file": "p14-phone-before.png",
     "width": 390,
     "height": 844,
     "sha256": "7649a21d07498d11ef00bdb53679584cd0934822846b2ad9ea6afa82279bbb39",
-    "bytes": 83664
+    "bytes": 83664,
+    "composition": "main32c1d2c"
   },
   {
     "file": "p14-tablet-after.png",
     "width": 820,
     "height": 1180,
     "sha256": "2f2ecc85cbcc5ebd1559ab34ff7333e1804b0c645f395f72dd64c3669c16e537",
-    "bytes": 192559
+    "bytes": 192559,
+    "composition": "material1d92698"
   },
   {
     "file": "p14-tablet-before.png",
     "width": 820,
     "height": 1180,
     "sha256": "63bbf6604b55a9a062e5edbfafb083cdf1d82e76485443f6a3def046ebb55917",
-    "bytes": 335121
+    "bytes": 335121,
+    "composition": "main32c1d2c"
   },
   {
     "file": "p17-expanded-390x844-bottom.png",
     "width": 390,
     "height": 844,
     "sha256": "2feccc660a9011cad690c34542ef0a556cc83185813a75238bf044fdd4310640",
-    "bytes": 107341
+    "bytes": 107341,
+    "composition": "material1d92698"
   },
   {
     "file": "p17-expanded-390x844-top.png",
     "width": 390,
     "height": 844,
     "sha256": "2feccc660a9011cad690c34542ef0a556cc83185813a75238bf044fdd4310640",
-    "bytes": 107341
+    "bytes": 107341,
+    "composition": "material1d92698"
   },
   {
     "file": "p17-expanded-844x390-bottom.png",
     "width": 844,
     "height": 390,
     "sha256": "d09826f2657775fd68acf659cc76fcb70a7a3dd611476f49d69c27a07f68fbfb",
-    "bytes": 75865
+    "bytes": 75865,
+    "composition": "material1d92698"
   },
   {
     "file": "p17-expanded-844x390-top.png",
     "width": 844,
     "height": 390,
     "sha256": "3b5f0e84878707e56fcc302bb69d16ed2913a2f7e951fe5a0770f74cddf33d30",
-    "bytes": 73066
+    "bytes": 73066,
+    "composition": "material1d92698"
   },
   {
     "file": "p17-laptop-after.png",
     "width": 1366,
     "height": 768,
     "sha256": "3552571c2379656e3b3c2010c59f0986abfb250cc887b7e0c8dfd3234f31bb84",
-    "bytes": 159925
+    "bytes": 159925,
+    "composition": "material1d92698"
   },
   {
     "file": "p17-laptop-before.png",
     "width": 1366,
     "height": 768,
     "sha256": "bf64e452225770e82a1cb29e98f47cadbb3efd0d497d6061e50cd94951435f75",
-    "bytes": 233144
+    "bytes": 233144,
+    "composition": "main32c1d2c"
   },
   {
     "file": "p17-phone-after.png",
     "width": 390,
     "height": 844,
     "sha256": "f8f3c1e856a265fd5a145231b273a71902c70976e04d75abbc6143b6b59544d6",
-    "bytes": 99190
+    "bytes": 99190,
+    "composition": "material1d92698"
   },
   {
     "file": "p17-phone-before.png",
     "width": 390,
     "height": 844,
     "sha256": "f07eaecf3a143053aa841447fcc3623aba8f269d15afc19ea7be46eb6fb2fd24",
-    "bytes": 94775
+    "bytes": 94775,
+    "composition": "main32c1d2c"
   },
   {
     "file": "p17-tablet-after.png",
     "width": 820,
     "height": 1180,
     "sha256": "f9503ccf551078ba65a063f60126b3d946e99d57e93812bb981b0fcc4e67bd7e",
-    "bytes": 219292
+    "bytes": 219292,
+    "composition": "material1d92698"
   },
   {
     "file": "p17-tablet-before.png",
     "width": 820,
     "height": 1180,
     "sha256": "6ab3aca692f73fbd49fa1d2817735c8cfaaa83ebc6a1e68558c3467952969cd0",
-    "bytes": 377518
+    "bytes": 377518,
+    "composition": "main32c1d2c"
   },
   {
     "file": "p3-expanded-390x844-bottom.png",
     "width": 390,
     "height": 844,
     "sha256": "f259ae3ad2779a1af855a29c39c4c970229d8e06c9c22a6393caa9e0d2e4eb51",
-    "bytes": 119809
+    "bytes": 119809,
+    "composition": "material1d92698"
   },
   {
     "file": "p3-expanded-390x844-top.png",
     "width": 390,
     "height": 844,
     "sha256": "f259ae3ad2779a1af855a29c39c4c970229d8e06c9c22a6393caa9e0d2e4eb51",
-    "bytes": 119809
+    "bytes": 119809,
+    "composition": "material1d92698"
   },
   {
     "file": "p3-expanded-844x390-bottom.png",
     "width": 844,
     "height": 390,
     "sha256": "17717b884935924275e78ecd181d20b0da6932337ea244ba99a070cca35b508c",
-    "bytes": 54645
+    "bytes": 54645,
+    "composition": "material1d92698"
   },
   {
     "file": "p3-expanded-844x390-top.png",
     "width": 844,
     "height": 390,
     "sha256": "faeaac3a8dded70e45efac5fc53542a295dd9219239944d9eaefdcbaf71adfb1",
-    "bytes": 48130
+    "bytes": 48130,
+    "composition": "material1d92698"
   },
   {
     "file": "p3-laptop-after.png",
     "width": 1366,
     "height": 768,
     "sha256": "80e98635911133a61acfe64f378d73f7eb99a817e09e468ec21d7141c626f6dc",
-    "bytes": 112477
+    "bytes": 112477,
+    "composition": "material1d92698"
   },
   {
     "file": "p3-laptop-before.png",
     "width": 1366,
     "height": 768,
     "sha256": "472e93c791c66537afb89f5e4593128cde23ea405ec074d5241d3d74f47bc9bb",
-    "bytes": 107749
+    "bytes": 107749,
+    "composition": "main32c1d2c"
   },
   {
     "file": "p3-phone-after.png",
     "width": 390,
     "height": 844,
     "sha256": "a76a4b1cd46813af26370fe60fd9562ba16ec85d255e9ee0abc8051dd1f616d6",
-    "bytes": 95201
+    "bytes": 95201,
+    "composition": "material1d92698"
   },
   {
     "file": "p3-phone-before.png",
     "width": 390,
     "height": 844,
     "sha256": "325c78c4af48c1bdae6cefdb9a9ec63a1516190803e29f47cb8281f0ce4a710a",
-    "bytes": 84739
+    "bytes": 84739,
+    "composition": "main32c1d2c"
   },
   {
     "file": "p3-tablet-after.png",
     "width": 820,
     "height": 1180,
     "sha256": "a039cd3175b5a285a5b9f9268c99329dc9edba956fc1563b4732fcc4a1d6145a",
-    "bytes": 178710
+    "bytes": 178710,
+    "composition": "material1d92698"
   },
   {
     "file": "p3-tablet-before.png",
     "width": 820,
     "height": 1180,
     "sha256": "828805178cd4469841d1884d01eefb3954aa9cf617520c6e3ee4b501802547bc",
-    "bytes": 169498
+    "bytes": 169498,
+    "composition": "main32c1d2c"
   },
   {
     "file": "p5-expanded-390x844-bottom.png",
     "width": 390,
     "height": 844,
     "sha256": "ddf1bdfed15534b2805b2478a2c6a35c8e444a35f67a54de9dae5ab6fdcbba8c",
-    "bytes": 99595
+    "bytes": 99595,
+    "composition": "material1d92698"
   },
   {
     "file": "p5-expanded-390x844-top.png",
     "width": 390,
     "height": 844,
     "sha256": "ddf1bdfed15534b2805b2478a2c6a35c8e444a35f67a54de9dae5ab6fdcbba8c",
-    "bytes": 99595
+    "bytes": 99595,
+    "composition": "material1d92698"
   },
   {
     "file": "p5-expanded-844x390-bottom.png",
     "width": 844,
     "height": 390,
     "sha256": "5ebe685780142e7c139ed3012ba32b167815a544a710d346cadb7f7ac6b428d1",
-    "bytes": 71860
+    "bytes": 71860,
+    "composition": "material1d92698"
   },
   {
     "file": "p5-expanded-844x390-top.png",
     "width": 844,
     "height": 390,
     "sha256": "4c25b14b8be629b25c059a204657f8e43a8a8d8afa314365604caa51f4d349e0",
-    "bytes": 68636
+    "bytes": 68636,
+    "composition": "material1d92698"
   },
   {
     "file": "p5-laptop-after.png",
     "width": 1366,
     "height": 768,
     "sha256": "a48cce00ceab55225f2cb136ef27f651019b2e46fac91333a07766a4a2489f07",
-    "bytes": 150739
+    "bytes": 150739,
+    "composition": "material1d92698"
   },
   {
     "file": "p5-laptop-before.png",
     "width": 1366,
     "height": 768,
     "sha256": "d70bd15fb55a2d9bdf292d63a053d78a68940ceab1f11c0238052deca9e9828b",
-    "bytes": 219605
+    "bytes": 219605,
+    "composition": "main32c1d2c"
   },
   {
     "file": "p5-phone-after.png",
     "width": 390,
     "height": 844,
     "sha256": "d7466366682c4cd07261ea593962a49a40d77176eb353ef32e0800ec0d7c5454",
-    "bytes": 93623
+    "bytes": 93623,
+    "composition": "material1d92698"
   },
   {
     "file": "p5-phone-before.png",
     "width": 390,
     "height": 844,
     "sha256": "a953bbfbadc52f25dbf801f6ef11fddd1c200c7e5d89966d64bfc4e0d9ec9b6d",
-    "bytes": 91140
+    "bytes": 91140,
+    "composition": "main32c1d2c"
   },
   {
     "file": "p5-tablet-after.png",
     "width": 820,
     "height": 1180,
     "sha256": "20f6eb4dcfc30099ed83c427db201baebfd56d7a37264775d50303a94c0ecec1",
-    "bytes": 204362
+    "bytes": 204362,
+    "composition": "material1d92698"
   },
   {
     "file": "p5-tablet-before.png",
     "width": 820,
     "height": 1180,
     "sha256": "2a6079fbc75868bb4689955627084b4f357d3ea6628bf14d5bcb5337ac5e5c6b",
-    "bytes": 341568
+    "bytes": 341568,
+    "composition": "main32c1d2c"
   },
   {
     "file": "p8-expanded-390x844-bottom.png",
     "width": 390,
     "height": 844,
     "sha256": "c6fff779ee7524845feede8821608731a5ab7a85803a347987b6de2f0f50542f",
-    "bytes": 94790
+    "bytes": 94790,
+    "composition": "material1d92698"
   },
   {
     "file": "p8-expanded-390x844-top.png",
     "width": 390,
     "height": 844,
     "sha256": "c6fff779ee7524845feede8821608731a5ab7a85803a347987b6de2f0f50542f",
-    "bytes": 94790
+    "bytes": 94790,
+    "composition": "material1d92698"
   },
   {
     "file": "p8-expanded-844x390-bottom.png",
     "width": 844,
     "height": 390,
     "sha256": "da36963cd19fbcb2d4dc89186af3cc42aa1ad99e04398a3bc44334bdb868965a",
-    "bytes": 67562
+    "bytes": 67562,
+    "composition": "material1d92698"
   },
   {
     "file": "p8-expanded-844x390-top.png",
     "width": 844,
     "height": 390,
     "sha256": "4b5a8cc1eb1a475bcef7abb8504db5d605ca1f76f1eef59f7599011136c6448c",
-    "bytes": 65684
+    "bytes": 65684,
+    "composition": "material1d92698"
   },
   {
     "file": "p8-laptop-after.png",
     "width": 1366,
     "height": 768,
     "sha256": "22a6657915e2cde48caf60563b8f149248ee5f4112178f628ea281cde5e08fdf",
-    "bytes": 143182
+    "bytes": 143182,
+    "composition": "material1d92698"
   },
   {
     "file": "p8-laptop-before.png",
     "width": 1366,
     "height": 768,
     "sha256": "6a8fc9f9ee98073e392a356f378d9950ea44e18ffff48aeaf156d4be4c6d7ee7",
-    "bytes": 199357
+    "bytes": 199357,
+    "composition": "main32c1d2c"
   },
   {
     "file": "p8-phone-after.png",
     "width": 390,
     "height": 844,
     "sha256": "8a88400a44cad0ab937563d2e0b735fb3bb9717d4185df18a6fd631db94d639b",
-    "bytes": 90750
+    "bytes": 90750,
+    "composition": "material1d92698"
   },
   {
     "file": "p8-phone-before.png",
     "width": 390,
     "height": 844,
     "sha256": "922a4159f42bde5e31f6392b4ab930c85c96fe411af1203752dbc16936c77557",
-    "bytes": 86611
+    "bytes": 86611,
+    "composition": "main32c1d2c"
   },
   {
     "file": "p8-tablet-after.png",
     "width": 820,
     "height": 1180,
     "sha256": "ed064f820eb9228ef2bb7deedaf67a11b8a5a19c9a8ad6d5b926b559539f0dbc",
-    "bytes": 196765
+    "bytes": 196765,
+    "composition": "material1d92698"
   },
   {
     "file": "p8-tablet-before.png",
     "width": 820,
     "height": 1180,
     "sha256": "2034709505805ba79fed9f0edad28912cf08e8798b550d8ee46ef4cdcd0336cb",
-    "bytes": 343116
+    "bytes": 343116,
+    "composition": "main32c1d2c"
   }
 ]
