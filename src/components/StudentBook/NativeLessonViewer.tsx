@@ -1,5 +1,6 @@
 import { useCallback, useEffect, useRef, useState } from "react";
 import { ChevronLeft, ChevronRight } from "lucide-react";
+import { GretelRecordedPageButton } from "@/components/cartilla/GretelRecordedPageButton";
 import { gretelEvent } from "@/lib/gretel-bus";
 import { audioEngine } from "@/lib/audio-engine";
 import { LESSON_PAGE_LIFT_MS, LESSON_PAGE_TURN_MS, prefersReducedMotion } from "@/lib/living-motion";
@@ -543,6 +544,8 @@ export function NativeLessonViewer({
           Página {page.pageNumber} · {index + 1} de {pages.length}
         </span>
       </div>
+
+      <GretelRecordedPageButton key={page.pageNumber} pageNumber={page.pageNumber} disabled={turning} />
 
       <div className="native-lesson-viewer__stage">
         {/* Destination page rendered underneath during turn */}
