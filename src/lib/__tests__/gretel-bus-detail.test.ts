@@ -48,9 +48,14 @@ it("retry invitation is not assistance, delivered help belongs to its source, an
   expect(isGretelAssistedAttempt("A")).toBe(false);
 });
 
-it("hasGretelDemonstration handles invalid JSON in localStorage safely", async () => {
+it("hasGretelDemonstration returns false when localStorage contains corrupted JSON", async () => {
   const { hasGretelDemonstration } = await import("../gretel-bus");
-  localStorage.setItem("cartilla.gretel-demonstration.v1", "{ invalid json ");
+  const { learnerStorageKey } = await import("../learner-storage");
+
+  const DEMONSTRATION_KEY = "cartilla.gretel-demonstration.v1";
+  localStorage.setItem(learnerStorageKey(DEMONSTRATION_KEY), "invalid{json");
+
   expect(hasGretelDemonstration("some-id")).toBe(false);
+
   localStorage.clear();
 });
