@@ -261,7 +261,7 @@ function VoiceAudition() {
         <div className="bg-stone-50 border border-stone-200 rounded-2xl p-6 text-sm text-stone-600 space-y-3 mb-8">
           <div className="flex items-center justify-between">
             <p className="font-black text-stone-800">Estado de preparación técnica</p>
-            <span className="px-3 py-1 rounded-full text-xs font-bold bg-emerald-100 text-emerald-800">
+            <span className="px-3 py-1 rounded-full text-xs font-bold bg-stone-100 text-stone-700">
               {customAvailable ? "Motor Gretel configurado — audio real pendiente de verificación" : "Motor Gretel no configurado — sin prueba de voz personalizada"}
             </span>
           </div>
