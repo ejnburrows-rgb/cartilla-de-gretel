@@ -1,20 +1,29 @@
-# Gretel premium voice — self-hosted recordings, no per-play charges
+# Gretel premium Spanish voice — production candidate safety (PR #769)
 
-**Implementation evidence, not finished audio:** The owner supplied a cloned Gretel MP3 on October 14, 2026. The approved source audio remains private and is not committed in this public repo. This PR stages an offline, resumable generator and workbook playback integration. It does not claim real Chatterbox synthesis, owner audio approval, or deployment.
+**Status: candidate pipeline implemented; premium voice NOT established.** Do not mark the Cartilla voice finished, merge this draft as finished, release new voices, or confuse a synthetic Python test with real speech.
 
-Model: [Resemble AI's MIT-licensed Chatterbox multilingual TTS](https://github.com/resemble-ai/chatterbox). Official Python cloning API uses ChatterboxMultilingualTTS.from_pretrained() and generate(text, language_id="es", audio_prompt_path=...). No hosted Resemble membership or paid audio-generation API is used. Model weights and compute are separate dependencies; they require explicit authorization if a provider would charge or consume paid credits. The local script does not automatically contact a paid provider.
+## Current available source material
 
-The reference WAV was prepared from the uploaded KikiVoice-cloned Gretel recording and delivered separately to the owner (10.4 seconds, mono, 24 kHz). Check the originating service's commercial distribution and voice-cloning terms before distributing generated recordings. Do not commit the reference into the public repository.
+- Approved-context owner recordings and a local reference WAV, kept in a private file library; never commit or serve those references publicly.
+- `GUION_GRABACION.csv`: 1,639 entries across 24 lessons, with categories marking existing text versus proposed copy. The unverified workbook pages 86–87 are excluded.
+- Existing isolated Gretel recordings may be reviewed and reused with proven rights; they are not evidence of newly synthesized sentences.
 
-**Run only on an authorized machine with installed Python, ffmpeg, NumPy, PyTorch and chatterbox-tts.** Do not run cloud jobs, hosted CI/GitHub Actions, Antigravity or credit-based services without task-specific permission. The model's first run may need Internet to obtain open-source model weights.
+## How to run without paid APIs
 
-1. Prepare the existing owner-approved GUION_GRABACION.csv (1,639 text entries) and the private Gretel reference WAV.
-2. Validate without compute: python scripts/audio/generate_gretel.py --script /path/to/GUION_GRABACION.csv --dry-run
-3. When an authorized GPU is available, generate **three** real samples before the full run: python scripts/audio/generate_gretel.py --script /path/to/GUION_GRABACION.csv --reference /private/Gretel_Approved_Voice_Reference_10s.wav --device cuda --limit 3
-4. Check those actual MP3s for Gretel identity, vowels, letter sounds, prosody and Spanish accent. Only after owner approval, rerun without --limit to resume generation.
+Work ONLY on a machine explicitly authorized to use its own local compute, with Python, NumPy, ffmpeg, PyTorch and the open-source Chatterbox Multilingual model installed. The first install or model-weight download requires Internet; never use Google Antigravity, paid GPU credits, GitHub Actions, or hosted inference.
 
-Each script entry is split only between words into <=240-character segments and named with its clip ID and a hash of the text. Completed clips are checkpointed in src/data/gretel-recorded-manifest.json after each entry. Output MP3s go in public/audio/gretel/clips/. If the job stops, rerunning skips already complete recordings. Text changes invalidate the affected clip's hash. Pages 86 and 87 lack authoritative book scans and are intentionally skipped.
+1. Dry-run with the private source CSV:
+   `python scripts/audio/generate_gretel.py --script /private/GUION_GRABACION.csv --dry-run`
+2. Once the open-source model and approved reference are present on authorized hardware, run a SMALL batch in **private staging**:
+   `python scripts/audio/generate_gretel.py --script /private/GUION_GRABACION.csv --reference /private/Gretel_Reference_17s.wav --device cuda --limit 3`
+3. For **offline transcription checks**, install and supply existing local faster-whisper model weights through `--asr-model /private/models/whisper`. Without ASR, candidates remain `needs_transcript_review` rather than being approved. Chatterbox is the voice generator; faster-whisper is only an offline quality check.
+4. Review genuine generated audio side by side with Gretel's existing recordings: identity, neutral LatAm Spanish, letter NAMES versus phonemes, consonants and ñ, vowels/syllables, classroom pacing, complete last words, and lack of choppiness. ASR-pass is NOT a listener's approval.
+5. Rerun the same command to resume. The job checkpoints after each part, fully decodes MP3s, compares transcripts when local ASR is installed, retries up to `--max-attempts 3`, and regenerates only changed, missing or rejected parts. `--regenerate-ids GR0001 GR0004` explicitly requests rerecording particular entries.
 
-**Playback:** GretelRecordedPageButton appears by a workbook page number only when a matching prerecorded file is registered. It plays existing MP3 files sequentially with the existing one-owner speech cancellation state, respects mute, and shows no empty fake buttons. Proposed guide text is not treated as verbatim book material. Inference never occurs in a child's browser and there are no per-play AI requests.
+**Data safety:** MP3 candidates go to `artifacts/gretel/candidates/`; QC manifest goes to `artifacts/gretel/quality-manifest.json`. They are not public website assets. Input voice-reference identity (SHA-based fingerprint) participates in output naming, so a reference change cannot silently reuse an old clip. The published manifest `src/data/gretel-recorded-manifest.json` remains empty until a separate approved-publication step, with status `approved`, `audio_verified: true`, and actual files in `public/audio/gretel/clips/`. **No command in this document authorizes publication**; recording rights and specific owner voice approval in #589 must be verified first.
 
-**Tests:** pytest -q scripts/audio/test_generate_gretel.py checks batch/encoding/resume with a synthetic test waveform — NOT a cloned voice. Vitest tests source category filtering, safe local URLs and pages 86-87. Actual voice fidelity, browser playback and complete recorded-asset coverage remain unverified. See issue #589 for owner voice approval.
+**Playback:** The native Workbook uses previously approved MP3 assets, never in-browser inference. A page Listen button requires an approved verified manifest entry plus an HTTP HEAD check proving each served local MP3 exists and has a valid audio content type. A missing file or route fallback must hide the button; mute, cancellation and page unmount remain enforced.
+
+**Technical checks:** `pytest -q scripts/audio/test_gretel_quality.py scripts/audio/test_generate_gretel.py` for offline logic; `pnpm exec vitest run src/lib/__tests__/gretel-recorded-clips.test.ts` in an installed checkout. Separately test the actual browser for rendered playback. This suite may use synthetic waveforms to validate controls; it does NOT prove quality, voice fidelity, speaker consistency, or that real Chatterbox/Qwen3-TTS sentences have been produced.
+
+**Blocked:** No authorized model weights/GPU/ASR in the assistant's current execution environment; no 3-model real-sentence A/B test; no owner-approved new audio; no browser evidence on the draft PR. Keep these explicitly open until proved.
