@@ -1,3 +1,5 @@
+**Current availability (approval-independent): [illustrated inventory](availability-inventory.md) · [confirmed missing originals](missing-originals.md).** Historical approval-gated counts below are superseded for availability.
+
 # Artwork coverage — current classifications
 
 Start with [the current drawing inventory](classification-inventory.md), [machine-readable adjudications](drawing-inventory.json), and [resolved SVG hash domains](svg-hash-domains.json). They advance and supersede the classification/hash-domain portions of the historical intake below. The final unique drawing total and missing certifications are not complete.

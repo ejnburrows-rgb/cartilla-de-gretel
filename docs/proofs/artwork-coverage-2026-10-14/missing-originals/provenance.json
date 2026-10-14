@@ -1,0 +1,44 @@
+[
+  {
+    "artwork_id": "WB-S013-OBJ15-AGUJA",
+    "pdf_sha256": "cbe050520bafefaea9c19c75eee6dd48ab3476a6377dc45009d176c18aab0a3b",
+    "pdf_page": 13,
+    "render_scale": 3,
+    "original_box_normalized": [
+      0.446078,
+      0.679293,
+      0.176471,
+      0.130051
+    ],
+    "expansion_each_side_normalized": 0.012,
+    "final_pixel_crop_within_expanded_render": [
+      12,
+      23,
+      352,
+      338
+    ],
+    "sha256": "ae35fd42132f679d61104fa7f793dd836c3725307c104eaf93aac669091a87ab",
+    "operation": "PDF rendering and rectangular crop only; no repaint, recolor or linework edits"
+  },
+  {
+    "artwork_id": "WB-S009-OBJ01-IGLESIA",
+    "pdf_sha256": "cbe050520bafefaea9c19c75eee6dd48ab3476a6377dc45009d176c18aab0a3b",
+    "pdf_page": 9,
+    "render_scale": 3,
+    "original_box_normalized": [
+      0.049837,
+      0.242424,
+      0.214052,
+      0.161616
+    ],
+    "expansion_each_side_normalized": 0.012,
+    "final_pixel_crop_within_expanded_render": [
+      19,
+      0,
+      418,
+      413
+    ],
+    "sha256": "6f3840236aa63a89ff43522a9677aa9958a9c00432b63a73b57eea538a3756e1",
+    "operation": "PDF rendering and rectangular crop only; no repaint, recolor or linework edits"
+  }
+]
