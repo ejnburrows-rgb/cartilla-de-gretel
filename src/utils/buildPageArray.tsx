@@ -95,5 +95,5 @@ export function buildPageArray(lessonId: number): WorkbookPageEntry[] {
       gretelLine,
       content: <PendingPageShell lessonId={lessonId} pageNum={pageNum} globalPage={globalPage} />,
     };
-  }).filter((page) => !isWorkbookPageSourceBlocked(page.pageNumber));
+  }).filter((page) => typeof page.pageNumber === "number" && !isWorkbookPageSourceBlocked(page.pageNumber));
 }
