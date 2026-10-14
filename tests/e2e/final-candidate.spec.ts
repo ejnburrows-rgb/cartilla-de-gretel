@@ -111,7 +111,7 @@ for (const viewport of [
       });
       if (overflow.length) problems.push({ viewport: viewport.name, page: pages[i].flipchartPage, overflow });
       await stage.screenshot({ path: path.join(output, `${viewport.name}-flipchart-${String(pages[i].flipchartPage).padStart(3, '0')}.png`) });
-      if (i < pages.length - 1) await page.getByRole('button', { name: 'Lámina siguiente' }).click();
+      if (i < pages.length - 1) await page.getByRole('button', { name: 'Lámina siguiente', exact: true }).click();
     }
   }
   fs.writeFileSync(path.join(output, `${viewport.name}-geometry.json`), JSON.stringify(problems, null, 2));

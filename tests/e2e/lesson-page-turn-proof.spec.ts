@@ -47,7 +47,7 @@ test.describe("Lesson Page Real-Paper Turn - Proof & Verification", () => {
     await page.screenshot({ path: path.join(PROOF_DIR, "desktop-02-corner-next-midturn.png") });
 
     // Wait for turn to settle cleanly
-    await page.waitForTimeout(2200);
+    await page.waitForTimeout(2800);
     await page.screenshot({ path: path.join(PROOF_DIR, "desktop-03-corner-next-settled.png") });
 
     // 3. Corner tap back
@@ -58,25 +58,25 @@ test.describe("Lesson Page Real-Paper Turn - Proof & Verification", () => {
     await page.waitForTimeout(500);
     await page.screenshot({ path: path.join(PROOF_DIR, "desktop-04-corner-prev-midturn.png") });
 
-    await page.waitForTimeout(2200);
+    await page.waitForTimeout(2800);
 
     // 4. Button turn forward
     const buttonNext = page.getByTestId("button-next");
     await buttonNext.click();
-    await page.waitForTimeout(2500);
+    await page.waitForTimeout(3300);
 
     // 5. Button turn back
     const buttonPrev = page.getByTestId("button-prev");
     await buttonPrev.click();
-    await page.waitForTimeout(2500);
+    await page.waitForTimeout(3300);
 
     // 6. Keyboard turn forward (ArrowRight)
     await page.keyboard.press("ArrowRight");
-    await page.waitForTimeout(2500);
+    await page.waitForTimeout(3300);
 
     // 7. Keyboard turn back (ArrowLeft)
     await page.keyboard.press("ArrowLeft");
-    await page.waitForTimeout(2500);
+    await page.waitForTimeout(3300);
 
     await context.close();
 
@@ -129,7 +129,7 @@ test.describe("Lesson Page Real-Paper Turn - Proof & Verification", () => {
       await page.screenshot({ path: path.join(PROOF_DIR, "tablet-03-drag-complete-mid.png") });
       await page.mouse.up();
 
-      await page.waitForTimeout(2500);
+      await page.waitForTimeout(3300);
       await page.screenshot({ path: path.join(PROOF_DIR, "tablet-04-drag-complete-settled.png") });
     }
 
@@ -168,7 +168,7 @@ test.describe("Workbook corner safety regressions", () => {
       pointerId: 1, pointerType: "mouse", bubbles: true,
     });
     await page.mouse.up();
-    await page.waitForTimeout(2500);
+    await page.waitForTimeout(3300);
     await expect(viewer).toHaveAttribute("data-native-page", originalPage!);
     await expect(viewer).toHaveAttribute("data-turn-phase", "idle");
     await expect(page.locator(".native-page-underside")).toHaveCount(0);

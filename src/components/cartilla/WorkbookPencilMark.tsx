@@ -8,6 +8,12 @@ export type WorkbookMarkStatus = "drawing" | "holding" | "correct" | "erasing" |
 
 export interface WorkbookPencilMarkProps {
   markType?: "circle" | "x";
+  /**
+   * Picture marks: a true circle (and a square X) around the picture, never
+   * stretched into an oval by a wide or tall tile (owner 2026-10-14).
+   * Syllable marks keep following their word box.
+   */
+  round?: boolean;
   isCorrect?: boolean | null;
   completeOnSuccess?: boolean;
   itemId?: string;
@@ -422,11 +428,12 @@ function smoothPath(points: Pt[]): string {
  * A child's single pencil loop around the picture: slightly irregular, with a
  * small overlap where the pencil comes back past its starting point.
  */
-function handDrawnLoop(height: number, seed: number): Pt[] {
+function handDrawnLoop(height: number, seed: number, round = false): Pt[] {
   const cx = 50;
   const cy = height / 2;
-  const rx = 45;
-  const ry = Math.max(12, height / 2 - 5);
+  const r = Math.min(45, Math.max(12, height / 2 - 5));
+  const rx = round ? r : 45;
+  const ry = round ? r : Math.max(12, height / 2 - 5);
   const p1 = (seed % 628) / 100 || 0.6;
   const p2 = ((seed >>> 10) % 628) / 100 || 1.1;
   // Starts on the right of the picture, where the pencil first touches down.
@@ -444,19 +451,25 @@ function handDrawnLoop(height: number, seed: number): Pt[] {
 }
 
 /** Two pencil strokes for "Marca con una x". */
-function handDrawnCross(height: number): Pt[][] {
+function handDrawnCross(height: number, round = false): Pt[][] {
   const top = height * 0.18;
   const bottom = height * 0.82;
+  // Round marks: the X spans a square around the picture centre.
+  const half = round ? Math.min(30, (bottom - top) / 2) : 30;
+  const l = 50 - half;
+  const r = 50 + half;
+  const t = round ? height / 2 - half : top;
+  const b = round ? height / 2 + half : bottom;
   return [
     [
-      [20, top],
+      [l, t],
       [50, height / 2 + 1],
-      [81, bottom],
+      [r + 1, b],
     ],
     [
-      [80, top + 1],
+      [r, t + 1],
       [50, height / 2 - 1],
-      [19, bottom - 1],
+      [l - 1, b - 1],
     ],
   ];
 }
@@ -895,6 +908,7 @@ function EraserCrumbs({
  */
 export function WorkbookPencilMark({
   markType = "circle",
+  round = false,
   isCorrect,
   completeOnSuccess = false,
   itemId,
@@ -931,8 +945,8 @@ export function WorkbookPencilMark({
   const height = Math.round(100 * aspect * 10) / 10;
   const seed = useMemo(() => hashSeed(itemId ?? "mark"), [itemId]);
   const strokePoints = useMemo(
-    () => (markType === "circle" ? [handDrawnLoop(height, seed)] : handDrawnCross(height)),
-    [height, markType, seed],
+    () => (markType === "circle" ? [handDrawnLoop(height, seed, round)] : handDrawnCross(height, round)),
+    [height, markType, seed, round],
   );
   const strokes = useMemo(() => strokePoints.map(smoothPath), [strokePoints]);
   // Green when right, red when wrong — from the first line the pencil draws.

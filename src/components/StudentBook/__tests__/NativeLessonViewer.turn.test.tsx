@@ -5,6 +5,7 @@ import { focusGretelActivity, gretelEvent } from "@/lib/gretel-bus";
 import { requiredActivitiesForPage } from "@/lib/page-completion";
 import { resetProgress } from "@/lib/lesson-progress";
 import type { WorkbookPageEntry } from "../SimplePageViewer";
+import { LESSON_PAGE_TURN_TOTAL_MS } from "@/lib/living-motion";
 
 const PAGES: WorkbookPageEntry[] = [23, 24, 25].map((pageNumber, i) => ({
   id: `lesson-8-page-${i + 1}`,
@@ -28,7 +29,7 @@ const current = () =>
   Number(document.querySelector("[data-native-page]")?.getAttribute("data-native-page"));
 
 /** A normal paper turn takes 300ms zoom + 2000ms curl + 100ms settle. */
-const finishTurn = () => act(() => vi.advanceTimersByTime(2500));
+const finishTurn = () => act(() => vi.advanceTimersByTime(LESSON_PAGE_TURN_TOTAL_MS + 200));
 
 function beginLongForwardDrag(onPageChange: (index: number) => void) {
     render(

@@ -8,6 +8,7 @@ import { GretelActivity } from '@/components/gretel/GretelActivity';
 import { gretelEvent, onGretelEvent } from '@/lib/gretel-bus';
 import { pageCompletionState } from '@/lib/page-completion';
 import { saveLassoProgress } from '@/lib/activity-canvas-store';
+import { LESSON_PAGE_TURN_TOTAL_MS } from "@/lib/living-motion";
 
 vi.mock('@/hooks/useReducedMotion', () => ({ useReducedMotion: () => true }));
 vi.mock('@/lib/gretel-tts', () => ({ speakGretelPhrase: vi.fn() }));
@@ -49,9 +50,9 @@ describe('actual Workbook p5 completion', () => {
     await act(async () => { await vi.advanceTimersByTimeAsync(10000); });
     expect(next().hasAttribute('aria-disabled')).toBe(false);
     fireEvent.click(next());
-    await act(async () => { await vi.advanceTimersByTimeAsync(2600); });
+    await act(async () => { await vi.advanceTimersByTimeAsync(LESSON_PAGE_TURN_TOTAL_MS + 200); });
     fireEvent.click(screen.getByRole('button', { name: /Anterior/ }));
-    await act(async () => { await vi.advanceTimersByTimeAsync(2600); });
+    await act(async () => { await vi.advanceTimersByTimeAsync(LESSON_PAGE_TURN_TOTAL_MS + 200); });
     expect(next().hasAttribute('aria-disabled')).toBe(false);
     cleanup(); mountP5();
     expect(next().hasAttribute('aria-disabled')).toBe(false);

@@ -100,12 +100,14 @@ export function LessonTimer({
       )}
       <button
         onClick={() => setRunning((r) => !r)}
+        aria-label={running ? "Pausar timer" : "Reanudar timer"}
         className="text-xs px-2 py-1 rounded-md border border-border hover:bg-muted"
       >
         {running ? "Pausar" : "Reanudar"}
       </button>
       <button
         onClick={() => setSeconds(0)}
+        aria-label="Reiniciar timer"
         className="text-xs px-2 py-1 rounded-md border border-border hover:bg-muted"
       >
         Reiniciar

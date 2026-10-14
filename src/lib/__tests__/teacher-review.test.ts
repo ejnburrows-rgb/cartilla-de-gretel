@@ -144,14 +144,14 @@ it("updates local class and student lists immediately after creation", async () 
   fireEvent.change(view.getByRole("textbox", { name: "Nueva clase" }), {
     target: { value: "Prueba nueva" },
   });
-  fireEvent.click(view.getByRole("button", { name: "Crear" }));
+  fireEvent.click(view.getByRole("button", { name: "Crear clase" }));
   expect(
     view.getByRole("option", { name: "Prueba nueva (0 alumnos)" }),
   ).toBeTruthy();
   fireEvent.change(view.getByRole("textbox", { name: "Nombre del alumno" }), {
     target: { value: "Alumna nueva" },
   });
-  fireEvent.click(view.getByRole("button", { name: "+ Añadir Alumno" }));
+  fireEvent.click(view.getByRole("button", { name: "Añadir alumno" }));
   expect(
     view.getByRole("option", { name: "Prueba nueva (1 alumnos)" }),
   ).toBeTruthy();
