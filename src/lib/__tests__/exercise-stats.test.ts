@@ -15,6 +15,36 @@ beforeEach(() => {
 });
 
 describe("exercise-stats", () => {
+  describe("learner isolation", () => {
+    it("isolates stats between two learners A and B, falling back to bare key for anonymous", () => {
+      // 1) Setup Learner A
+      localStorage.setItem("cartilla.student-session.v1", JSON.stringify({ classId: "class-X", studentId: "learner-A" }));
+      recordExerciseStat({ lessonId: "test-lesson", exercise: "a-exercise", score: 2, total: 5 });
+
+      const statsA = getStats();
+      expect(statsA["test-lesson"]?.["a-exercise"].hits).toBe(2);
+
+      // 2) Switch to Learner B
+      localStorage.setItem("cartilla.student-session.v1", JSON.stringify({ classId: "class-X", studentId: "learner-B" }));
+      const statsB = getStats();
+      expect(statsB).toEqual({}); // None of A's results should be here
+
+      // 3) Switch back to Learner A
+      localStorage.setItem("cartilla.student-session.v1", JSON.stringify({ classId: "class-X", studentId: "learner-A" }));
+      const statsARecovered = getStats();
+      expect(statsARecovered["test-lesson"]?.["a-exercise"].hits).toBe(2); // A's results recovered
+
+      // 4) Check anonymous scope behavior
+      localStorage.removeItem("cartilla.student-session.v1");
+      recordExerciseStat({ lessonId: "anon-lesson", exercise: "anon-exercise", score: 1, total: 1 });
+      const statsAnon = getStats();
+      expect(statsAnon["anon-lesson"]?.["anon-exercise"].hits).toBe(1);
+      // The bare key should have been used
+      const rawBare = JSON.parse(localStorage.getItem("cartilla.exercise-stats.v1") || "{}");
+      expect(rawBare["anon-lesson"]?.["anon-exercise"].hits).toBe(1);
+    });
+  });
+
   describe("recordExerciseStat / getStats", () => {
     it("records an exercise stat and reads it back", () => {
       recordExerciseStat({ lessonId: "1", exercise: "picture_grid", score: 4, total: 5 });

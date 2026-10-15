@@ -1,5 +1,6 @@
 import { countsForLiteracy } from "./progress-semantics";
 import { useEffect, useState } from "react";
+import { learnerStorageKey } from "./learner-storage";
 
 export type ExerciseStat = {
   attempts: number;
@@ -18,7 +19,7 @@ const EVENT = "cartilla:exercise-stats";
 function read(): AllStats {
   if (typeof window === "undefined") return {};
   try {
-    const raw = localStorage.getItem(KEY);
+    const raw = localStorage.getItem(learnerStorageKey(KEY));
     return raw ? (JSON.parse(raw) as AllStats) : {};
   } catch {
     return {};
@@ -28,7 +29,7 @@ function read(): AllStats {
 function write(s: AllStats) {
   if (typeof window === "undefined") return;
   try {
-    localStorage.setItem(KEY, JSON.stringify(s));
+    localStorage.setItem(learnerStorageKey(KEY), JSON.stringify(s));
     window.dispatchEvent(new Event(EVENT));
   } catch {
     /* ignore */
