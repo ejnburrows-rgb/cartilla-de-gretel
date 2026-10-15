@@ -1,0 +1,124 @@
+{
+  "baseline_commit": "153c7eccbec5bc1090cd130a909f0cf73630415a",
+  "file_occurrences_enumerated": 4893,
+  "byte_distinct_files": 1690,
+  "byte_duplicates_excluded_from_repeat_decode": 3203,
+  "groups": {
+    "github-current-main": 887,
+    "drive-live": 136,
+    "archive:cartilla_modernized_crops_batch1.zip": 39,
+    "archive:flipchart_all_separate_images_remastered.zip": 342,
+    "archive:cartilla_thread_created_images.zip": 19,
+    "local-additional-archive:cartilla-gretel-assets.zip": 148,
+    "local-additional-archive:cartilla-de-gretel-archive-cartilla-owner-art-20261011.zip": 1167,
+    "local-additional-archive:cartilla-de-gretel-main (1).zip": 1170,
+    "local-additional-archive:cartilla-de-gretel-main.zip": 903,
+    "downloads-loose-images": 79,
+    "available-chat-upload:Create Workbook Images": 3
+  },
+  "decode_results": {
+    "PASS": 4889,
+    "FAIL": 4
+  },
+  "unreadable": [
+    {
+      "file_id": "FILE-5c1379821b14385fba10",
+      "location": "local-downloads/withheld-image-4818",
+      "source_group": "downloads-loose-images",
+      "sha256": "5c1379821b14385fba1028c1ed70c0ad18739efa7736ea44366019ca7cf97f8f",
+      "bytes": 6465,
+      "decode": "FAIL",
+      "error": "cannot identify image file <_io.BytesIO object at 0x0000023FA5007470>",
+      "publication_note": "Local loose-image content withheld from repository publication; SHA and decode result retained. Suitability unresolved."
+    },
+    {
+      "file_id": "FILE-5c1379821b14385fba10",
+      "location": "local-downloads/withheld-image-4819",
+      "source_group": "downloads-loose-images",
+      "sha256": "5c1379821b14385fba1028c1ed70c0ad18739efa7736ea44366019ca7cf97f8f",
+      "bytes": 6465,
+      "decode": "FAIL",
+      "width": null,
+      "height": null,
+      "publication_note": "Local loose-image content withheld from repository publication; SHA and decode result retained. Suitability unresolved."
+    },
+    {
+      "file_id": "FILE-5c1379821b14385fba10",
+      "location": "local-downloads/withheld-image-4871",
+      "source_group": "downloads-loose-images",
+      "sha256": "5c1379821b14385fba1028c1ed70c0ad18739efa7736ea44366019ca7cf97f8f",
+      "bytes": 6465,
+      "decode": "FAIL",
+      "width": null,
+      "height": null,
+      "publication_note": "Local loose-image content withheld from repository publication; SHA and decode result retained. Suitability unresolved."
+    },
+    {
+      "file_id": "FILE-5c1379821b14385fba10",
+      "location": "local-downloads/withheld-image-4875",
+      "source_group": "downloads-loose-images",
+      "sha256": "5c1379821b14385fba1028c1ed70c0ad18739efa7736ea44366019ca7cf97f8f",
+      "bytes": 6465,
+      "decode": "FAIL",
+      "width": null,
+      "height": null,
+      "publication_note": "Local loose-image content withheld from repository publication; SHA and decode result retained. Suitability unresolved."
+    }
+  ],
+  "pending_svg": 0,
+  "drive_files_fetched": 139,
+  "drive_fetch_failures": [],
+  "unexamined_sources": [
+    "Other chat-upload histories have not been exhaustively enumerated; Downloads loose images are examined, previous chat attachment universes remain unverified",
+    "Archive images decoded but individual suitability and approval reviews pending"
+  ],
+  "visual_review_complete": false,
+  "missing_classifications_allowed": false,
+  "successfully_decoded_byte_distinct": 1689,
+  "drive_folder_enumeration": [
+    {
+      "folder": "04 Approved Assets",
+      "image_files": 97,
+      "method": "list_folder top_k 1000 plus provider metadata image search; no next_page_token returned"
+    },
+    {
+      "folder": "Cartilla Art Transfer 2026-10-13",
+      "image_files": 39,
+      "method": "list_folder top_k 1000 plus provider metadata image search; no next_page_token returned"
+    },
+    {
+      "folder": "2026-09-30 Recent Chat Assets",
+      "entries": 4,
+      "artwork_archives": 3,
+      "method": "list_folder top_k 1000; all three archive bytes downloaded and contents enumerated"
+    }
+  ],
+  "inventory_reconciliation": {
+    "workbook_original_crop_proposals": 160,
+    "workbook_runtime_picture_references": 160,
+    "top_level_cells": 140,
+    "nested_page_2_cells": 15,
+    "page_3_vowel_pairs": 5,
+    "explanation": "The initial 20-reference difference was an extractor traversal omission, not evidence of missing artwork. Nested fields reconcile the reference totals; individual placement identity still needs reconciliation."
+  },
+  "review_progress": {
+    "flipchart_contact_comparisons": 167,
+    "workbook_contact_comparisons": 160,
+    "full_original_asset_second_passes": 7,
+    "ready_certifications": 0,
+    "missing_certifications": 0
+  },
+  "chat_upload_review": {
+    "thread": "Create Workbook Images",
+    "chat_id": "6ac00e56-df38-83e9-bd06-d071e86fd0e1",
+    "actual_attachments_examined": 3,
+    "limitation": "Other accessible chat histories remain incompletely inspected; missing classifications prohibited."
+  },
+  "unique_illustration_inventory_certified": false,
+  "unmatched_material_report": {
+    "file_register": "file-register.json",
+    "note": "Every file occurrence is registered. Decoded files without adjudicated drawing matches are unresolved material, not implicitly excluded.",
+    "matched_drawing_total": null
+  },
+  "publication_scope": "Original-book proof, repository/Drive/Cartilla-archive previews and hashes. Unrelated local loose-image pixels withheld; no missing classification is inferred."
+}
