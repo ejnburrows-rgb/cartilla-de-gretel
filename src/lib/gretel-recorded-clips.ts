@@ -9,7 +9,7 @@ export function exactRecordedPhraseUrls(text: string): string[] {
   const target = normalized(text);
   if (!target) return [];
   return existingCatalog.assets
-    .filter(asset => normalized(asset.phrase_es) === target)
+    .filter(asset => asset.playback_status === "approved_clean" && normalized(asset.phrase_es) === target)
     .map(asset => asset.path)
     .filter(url => /^\/audio\/gretel\/clips\/rec_[A-Za-z0-9_-]+\.mp3$/.test(url));
 }
