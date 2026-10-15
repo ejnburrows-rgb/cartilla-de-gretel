@@ -60,6 +60,18 @@ export async function createFolderAssignment(input: Call<z.infer<typeof createSc
   const user = await requireUser();
   await ensureTeacherOwnsClass(data.classId, user.id);
 
+  if (data.targetScope === "students" && data.studentIds) {
+    const { data: students, error: readErr } = await supabase
+      .from("students")
+      .select("id")
+      .eq("class_id", data.classId)
+      .in("id", data.studentIds);
+    if (readErr) throw new Error(readErr.message);
+    if (!students || students.length !== data.studentIds.length) {
+      throw new Error("Uno o más estudiantes no pertenecen a esta clase.");
+    }
+  }
+
   const { data: row, error } = await supabase
     .from("folder_assignments")
     .insert({
