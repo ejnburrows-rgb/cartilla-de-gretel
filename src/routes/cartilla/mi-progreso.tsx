@@ -1,4 +1,4 @@
-﻿import { createFileRoute, Link, redirect } from "@tanstack/react-router";
+import { createFileRoute, Link, redirect } from "@tanstack/react-router";
 import { useEffect, useMemo, useState } from "react";
 import { ArrowLeft, Award, BookOpen, Clock, Download, Sparkles, Target } from "lucide-react";
 import { getMyProgress } from "@/lib/student.functions";
@@ -137,7 +137,7 @@ function MyProgress() {
     const badges: string[] = [];
     let level: string | null = null;
     for (const e of data.events) {
-      if (e.event_kind === "lesson_completed") completed.add(e.lesson_id);
+      if (e.event_kind === "lesson_completed" && /^\d+$/.test(e.lesson_id)) completed.add(e.lesson_id);
       if (
         e.event_kind === "exercise" &&
         typeof e.score === "number" &&
@@ -162,7 +162,7 @@ function MyProgress() {
     for (const row of data.lessonProgress ?? []) {
       const status = computeLessonStatus(row);
       statusByLesson.set(row.lesson_id, status);
-      if (status === "completed") completed.add(row.lesson_id);
+      if (status === "completed" && /^\d+$/.test(row.lesson_id)) completed.add(row.lesson_id);
     }
     const weak = Object.entries(exByLesson)
       .filter(([, s]) => s.total >= 3 && s.score / s.total < 0.7)
