@@ -134,14 +134,23 @@ describe("exportStudentProgressCsv", () => {
         total: null,
         time_seconds: null,
       },
+      {
+        created_at: "2026-01-17T00:00:00Z",
+        event_kind: "lesson_failed",
+        lesson_id: "4",
+        score: 0,
+        total: 0,
+        time_seconds: 0,
+      }
     ]);
 
     const text = await blobText(capture.getBlob()!);
     const lines = text.trim().split("\n");
     expect(lines[0]).toBe("Fecha,Evento,Leccion,Puntuacion,Total,Tiempo (s)");
-    expect(lines).toHaveLength(3);
-    expect(lines[1]).toContain("exercise,3,9,10,0");
-    expect(lines[2]).toContain("lesson_completed,3,0,0,0");
+    expect(lines).toHaveLength(4);
+    expect(lines[1]).toContain("exercise,3,9,10,");
+    expect(lines[2]).toContain("lesson_completed,3,,,");
+    expect(lines[3]).toContain("lesson_failed,4,0,0,0");
   });
 
   it("correctly escapes event fields containing quotes, commas, CR/LF, and accented characters", async () => {
