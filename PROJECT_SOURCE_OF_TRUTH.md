@@ -1,5 +1,16 @@
 # PROJECT SOURCE OF TRUTH — La Cartilla de Gretel
 
+## LATEST OWNER AUDIO SOURCE CORRECTION — REJECT WRONG STUTTERING/MUSIC TRACKS (2026-10-15)
+
+**Supersedes the earlier 2026-10-15 statement that the 67 indexed recordings are automatically acceptable for playback.** Owner explicitly rejected the prior stitched demonstrations: "The stitching is wrong. It stutters. It has music in the background. That's not the one that you're supposed to use. So do it again."
+
+- The 67 short-clip ZIP / `rec_gretel_*.mp3` material and earlier concatenated examples are **REJECTED FOR LEARNER PLAYBACK** until the owner explicitly reapproves individually cleaned and listened-to files. Preserve all originals and associated metadata; **do not automatically play these clips or merge the existing 67-file mapping as a completed solution**.
+- The previously supplied **original full-length audio tracks** `Gretel_558674_Original.m4a` (32m 28s), `Gretel_558473_Original.m4a` (4m 36s), and `Gretel_558607_Original.m4a` (54s) are distinct existing source files. Source `558674` has known acoustic segment boundaries, but **not verified word-level transcripts or exact printed-page matches**. Never turn segment ID `gr_0001` into script ID `GR0001` without hearing/transcribing the actual words.
+- Repair must favor exact continuous spoken phrases from the original recordings, preserve original word order and natural pauses, trim on verified utterance boundaries, and use gentle fades to prevent clicks. Avoid joins that repeat fragments or stitch disjoint sentences to impersonate printed book text. **Background music must be removed/checked by listening; a filter or silence analysis alone does not certify a music-free result**.
+- Confirm source phrase transcript and printed page/event before enabling audio, and test on actual workbook. Do not claim clean sound, 100% coverage, or integrated playback based only on MP3 installation. No new recording, cloning, or alternative speech generator. Existing integration stays draft/held pending corrected sources and real verification.
+- Owner repeatedly said not to revisit generator selection or ask them to repeat already-supplied recordings. This correction is specific to rejecting the wrong audio mix, **not revoking the underlying real recordings**.
+
+
 ## OVERRIDING OWNER DIRECTIVE — USE THE EXISTING FINISHED AUDIO (2026-10-15)
 
 **Newest owner-approved source-of-truth correction, effective immediately. Applies to all agents, Muse, Jules, reviewers, schedulers, and every future session. Supersedes older proposals/options elsewhere in this repository.**
