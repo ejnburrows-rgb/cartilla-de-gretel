@@ -1,7 +1,7 @@
 import { useEffect, useMemo, useRef, useState } from "react";
 import { Square, Volume2 } from "lucide-react";
 import { availablePageRecordingUrls, availableLessonIntroRecordingUrls } from "@/lib/gretel-recorded-clips";
-import { recordedClipUrl, recordedIntroClipIds, recordedPracticeClipIds } from "@/lib/gretel-existing-recordings";
+import { recordedClipUrl, recordedIntroClipIds } from "@/lib/gretel-existing-recordings";
 import { playGretelRecordingQueue } from "@/lib/gretel-recorded-playback";
 import { isGretelVoiceMuted } from "@/lib/gretel-voice";
 import { stopSpeech } from "@/lib/speech-playback";
@@ -15,10 +15,11 @@ export function GretelRecordedPageButton({ pageNumber, lessonNumber, firstPageOf
   const urls = useMemo(() => {
     const approvedPage = availablePageRecordingUrls(pageNumber);
     const approvedIntro = firstPageOfLesson && lessonNumber ? availableLessonIntroRecordingUrls(lessonNumber) : [];
-    const prerecorded = lessonNumber ? [
-      ...(firstPageOfLesson ? recordedIntroClipIds(lessonNumber) : []),
-      ...(!approvedPage.length ? recordedPracticeClipIds(lessonNumber) : []),
-    ].map(recordedClipUrl).filter((url): url is string => !!url) : [];
+    // Generic guidance must not masquerade as the exact instructions of every page.
+    // Only play approved exact-page recordings, or the lesson introduction on its first page.
+    const prerecorded = firstPageOfLesson && lessonNumber
+      ? recordedIntroClipIds(lessonNumber).map(recordedClipUrl).filter((url): url is string => !!url)
+      : [];
     return [...new Set([...approvedIntro, ...approvedPage, ...prerecorded])];
   }, [pageNumber, lessonNumber, firstPageOfLesson]);
 
