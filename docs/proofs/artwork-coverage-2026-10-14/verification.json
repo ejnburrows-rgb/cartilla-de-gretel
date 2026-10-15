@@ -1,0 +1,20 @@
+{
+  "artifact_integrity": "PASS",
+  "completion_gate": "NOT PASSED",
+  "errors": [],
+  "verified_pdf_page_records": 160,
+  "verified_placement_evidence_records": 330,
+  "verified_byte_distinct_files": 1690,
+  "unsupported_ready": 0,
+  "unsupported_missing": 0,
+  "limitations": [
+    "330 placement records are provisional, not a reconciled unique-illustration inventory",
+    "Cover/title artwork components and complete crop bounds need individual inventory",
+    "Detailed Workbook identity/crop/quality adjudication incomplete",
+    "Alternative versions/intake files/archive contents are decoded but suitability has not been adjudicated individually",
+    "Owner approval has not been linked for proposed optimized files",
+    "Other available chat histories are not exhaustively examined",
+    "Second passes cover seven findings, not all disputed matches",
+    "No runtime/browser integration certification was performed"
+  ]
+}
