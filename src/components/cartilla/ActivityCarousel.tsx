@@ -136,6 +136,7 @@ export function ActivityCarousel({
         return (
           <div className="py-2">
             <DragBuildWord
+              key={lessonNumber}
               words={words.slice(0, 4).map((word) => word.word)}
               accent={color}
               lessonId={lessonId}
@@ -170,6 +171,7 @@ export function ActivityCarousel({
         return (
           <div className="py-2">
             <SoundSearch
+              key={lessonNumber}
               targetSound={targetSound}
               words={words}
               canonicalPool={canonicalArtPool}
