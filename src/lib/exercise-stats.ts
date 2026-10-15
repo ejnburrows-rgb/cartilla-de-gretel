@@ -102,9 +102,11 @@ export function useExerciseStats() {
     const h = () => setStats(read());
     window.addEventListener("storage", h);
     window.addEventListener(EVENT, h);
+    window.addEventListener("cartilla:student-session", h);
     return () => {
       window.removeEventListener("storage", h);
       window.removeEventListener(EVENT, h);
+      window.removeEventListener("cartilla:student-session", h);
     };
   }, []);
   return stats;
