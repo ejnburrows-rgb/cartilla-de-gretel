@@ -120,6 +120,26 @@ describe("provider config seam & speech abstraction", () => {
     window.removeEventListener("gretel:speak_stop", stopListener);
   });
 
+  it("never falls back to a browser voice for text that lacks an exact recording", async () => {
+    const { speakAsGretel, setGretelVoiceProviderConfig } = await import("../gretel-voice");
+    setGretelVoiceProviderConfig({type: "recorded-audio", name: "Existing Gretel recordings"});
+    const onEnd = vi.fn();
+    const missing = vi.fn();
+    const native = vi.fn();
+    window.addEventListener("gretel:speak_missing", missing);
+    const old = window.speechSynthesis;
+    Object.defineProperty(window, "speechSynthesis", {configurable:true, value:{speak:native}});
+    try {
+      await speakAsGretel("Esta frase no está grabada.", {onEnd});
+      expect(native).not.toHaveBeenCalled();
+      expect(missing).toHaveBeenCalledTimes(1);
+      expect(onEnd).toHaveBeenCalledTimes(1);
+    } finally {
+      window.removeEventListener("gretel:speak_missing", missing);
+      Object.defineProperty(window, "speechSynthesis", {configurable:true, value:old});
+    }
+  });
+
   it("respects mute state and skips speaking", async () => {
     const { speakAsGretel, setGretelVoiceMuted, setGretelVoiceProviderConfig } =
       await import("../gretel-voice");
