@@ -25,7 +25,9 @@ window.matchMedia = window.matchMedia || function() {
 
 const mockContent = {
   id: "test-content",
-  type: "payaso_chano" as const,
+  type: "payaso-chano" as const,
+  letter: "g",
+  instructions: ["Escucha y arma la palabra."],
   words: [
     { word: "gato", syllables: ["ga", "to"], audioUrl: "/audio/ga.mp3" },
     { word: "perro", syllables: ["pe", "rro"], audioUrl: "/audio/pe.mp3" },
