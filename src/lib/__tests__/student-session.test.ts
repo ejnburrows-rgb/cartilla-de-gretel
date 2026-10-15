@@ -1,9 +1,14 @@
 /**
  * @vitest-environment jsdom
  */
-import { describe, it, expect, beforeEach } from "vitest";
-import { getStudentSession, setStudentSession, recordEvent } from "../student-session";
+import { describe, it, expect, beforeEach, vi } from "vitest";
+import { getStudentSession, setStudentSession, recordEvent, flushStudentEvents } from "../student-session";
 import { getStats } from "../exercise-stats";
+import { logProgress } from "@/lib/student.functions";
+
+vi.mock("@/lib/student.functions", () => ({
+  logProgress: vi.fn(),
+}));
 
 const SAMPLE = {
   studentId: "s1",
@@ -15,9 +20,51 @@ const SAMPLE = {
 
 beforeEach(() => {
   localStorage.clear();
+  vi.clearAllMocks();
 });
 
 describe("student-session", () => {
+  it("catches errors when localStorage.getItem throws", () => {
+    const originalGetItem = window.localStorage.getItem;
+    window.localStorage.getItem = vi.fn(() => { throw new Error("Quota exceeded"); });
+    expect(getStudentSession()).toBeNull();
+    window.localStorage.getItem = originalGetItem;
+  });
+
+  describe("flushStudentEvents", () => {
+    it("keeps the event in memory when the storage write fails, then flushes it once storage works", async () => {
+      setStudentSession(SAMPLE);
+      const originalSetItem = window.localStorage.setItem;
+      window.localStorage.setItem = vi.fn((key: string, value: string) => {
+        if (key === "cartilla.student-events.v1") {
+          throw new Error("Quota exceeded");
+        }
+        return originalSetItem.call(window.localStorage, key, value);
+      });
+
+      // The write failure must not lose the event: it stays in the in-memory queue.
+      expect(() => recordEvent({
+        lessonId: "1",
+        kind: "lesson_completed",
+      })).not.toThrow();
+      expect(localStorage.getItem("cartilla.student-events.v1")).toBeNull();
+
+      // A flush served from memory still sends the retained event.
+      await flushStudentEvents();
+      expect(logProgress).toHaveBeenCalledTimes(1);
+      expect(vi.mocked(logProgress).mock.calls[0]?.[0]).toMatchObject({
+        data: expect.objectContaining({ lessonId: "1", kind: "lesson_completed" }),
+      });
+
+      // Once storage works again, the queue persists and clears normally.
+      window.localStorage.setItem = originalSetItem;
+      recordEvent({ lessonId: "2", kind: "lesson_completed" });
+      await flushStudentEvents();
+      expect(logProgress).toHaveBeenCalledTimes(2);
+      expect(JSON.parse(localStorage.getItem("cartilla.student-events.v1") || "[]")).toHaveLength(0);
+    });
+  });
+
   it("returns null when there is no session", () => {
     expect(getStudentSession()).toBeNull();
   });
