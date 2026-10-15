@@ -37,7 +37,7 @@ export function recordedIntroClipIds(lesson:number): string[] {
   if(!Number.isInteger(lesson)||lesson<1||lesson>24)return [];
   if(lesson===1)return ["gretel_01","gretel_08"];
   if(lesson>=2&&lesson<=6)return ["gretel_10"];
-  if(lesson===7)return ["gretel_11","gretel_12"];
+  if(lesson===7)return ["gretel_11","gretel_12","gretel_13"];
   if(lesson===8)return ["gretel_18"];
   return ["gretel_35"];
 }
