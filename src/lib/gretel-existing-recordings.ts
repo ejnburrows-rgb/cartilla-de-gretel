@@ -46,6 +46,25 @@ export function recordedPracticeClipIds(lesson:number): string[] {
   return lesson<=6?["gretel_10","gretel_36"]:["gretel_36","gretel_37","gretel_40"];
 }
 
+/** Whole-phrase stitching: each listed clip is already a complete, real recording.
+ * Do not splice syllable fragments or claim a sequence is verbatim workbook narration.
+ * Source phrases are documented in gretel-existing-audio-catalog.json.
+ */
+export const RECORDED_OUTCOME_SEQUENCE: Record<GretelSpeakDetail["outcome"], readonly string[]> = {
+  correct: ["gretel_23", "gretel_24"],
+  close: ["gretel_29", "gretel_34"],
+  "try-again": ["gretel_29", "gretel_34"],
+  streak: ["gretel_27", "gretel_28"],
+  "lesson-complete": ["gretel_41", "gretel_25"],
+  start: ["gretel_05"],
+};
+
+export function recordedOutcomeUrls(outcome:GretelSpeakDetail["outcome"]):string[] {
+  return RECORDED_OUTCOME_SEQUENCE[outcome]
+    .map(recordedClipUrl)
+    .filter((url):url is string => url !== null);
+}
+
 export function recordedOutcomeUrl(outcome:GretelSpeakDetail["outcome"]):string|null {
   return recordedClipUrl(RECORDED_OUTCOME_CLIP[outcome]);
 }
@@ -58,7 +77,7 @@ export function installExistingGretelRecordedFeedback():()=>void {
   if(installed)return ()=>{};
   installed=true;
   const ready=new Set<string>();
-  const urls=Object.values(RECORDED_OUTCOME_CLIP).map(recordedClipUrl).filter((x):x is string=>!!x);
+  const urls=[...new Set(Object.values(RECORDED_OUTCOME_SEQUENCE).flat().map(recordedClipUrl).filter((x):x is string=>!!x))];
   let disposed=false;
   void Promise.allSettled(urls.map(async url=>{
     try{
@@ -69,8 +88,9 @@ export function installExistingGretelRecordedFeedback():()=>void {
   }));
   const remove=onGretelSpeak(detail=>{
     if(isGretelVoiceMuted())return;
-    const url=recordedOutcomeUrl(detail.outcome);
-    if(url&&ready.has(url))void playGretelRecordingQueue([url]);
+    const sequence=recordedOutcomeUrls(detail.outcome);
+    // Never speak a partial stitched sentence if a required original MP3 is unavailable.
+    if(sequence.length && sequence.every(url=>ready.has(url)))void playGretelRecordingQueue(sequence);
   });
   return ()=>{disposed=true;ready.clear();remove();installed=false;};
 }
