@@ -1,5 +1,6 @@
 import { useEffect, useRef, useState } from "react";
 import { recordEvent } from "./student-session";
+import { learnerStorageKey } from "./learner-storage";
 
 /** Per-exercise local stat snapshot (see exercise-stats). */
 export type ExerciseStatLike = {
@@ -318,7 +319,7 @@ const BADGES_KEY = "cartilla.rewards.badges.v1";
 export function getEarnedStickers(): number[] {
   if (typeof window === "undefined") return [];
   try {
-    const raw = localStorage.getItem(STICKERS_KEY);
+    const raw = localStorage.getItem(learnerStorageKey(STICKERS_KEY));
     return raw ? JSON.parse(raw) : [];
   } catch {
     return [];
@@ -331,7 +332,7 @@ export function saveEarnedSticker(lessonId: number) {
     const current = getEarnedStickers();
     if (!current.includes(lessonId)) {
       const next = [...current, lessonId].sort((a, b) => a - b);
-      localStorage.setItem(STICKERS_KEY, JSON.stringify(next));
+      localStorage.setItem(learnerStorageKey(STICKERS_KEY), JSON.stringify(next));
       window.dispatchEvent(new Event("cartilla:rewards-changed"));
       recordEvent({
         lessonId: String(lessonId),
@@ -350,7 +351,7 @@ export function saveEarnedSticker(lessonId: number) {
 export function getEarnedBadges(): string[] {
   if (typeof window === "undefined") return [];
   try {
-    const raw = localStorage.getItem(BADGES_KEY);
+    const raw = localStorage.getItem(learnerStorageKey(BADGES_KEY));
     return raw ? JSON.parse(raw) : [];
   } catch {
     return [];
@@ -363,7 +364,7 @@ export function saveEarnedBadge(badgeId: string) {
     const current = getEarnedBadges();
     if (!current.includes(badgeId)) {
       const next = [...current, badgeId];
-      localStorage.setItem(BADGES_KEY, JSON.stringify(next));
+      localStorage.setItem(learnerStorageKey(BADGES_KEY), JSON.stringify(next));
       window.dispatchEvent(new Event("cartilla:rewards-changed"));
       recordEvent({
         kind: "badge",
@@ -426,10 +427,12 @@ export function useRewards(completedLessons: number[] = [], localStats: LocalSta
 
     window.addEventListener("storage", h);
     window.addEventListener("cartilla:rewards-changed", h);
+    window.addEventListener("cartilla:student-session", h);
 
     return () => {
       window.removeEventListener("storage", h);
       window.removeEventListener("cartilla:rewards-changed", h);
+      window.removeEventListener("cartilla:student-session", h);
     };
   }, [completedCount, statsSnapshot]);
 
