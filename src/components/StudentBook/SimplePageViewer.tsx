@@ -15,6 +15,8 @@ export interface WorkbookPageEntry {
   cover?: boolean;
   src?: string;
   pageNumber?: number;
+  /** Optional Gretel spoken line attached to this page (Piano wiring reads it; unset = silent). */
+  gretelLine?: string;
   content: ReactNode;
 }
 
