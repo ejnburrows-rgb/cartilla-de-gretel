@@ -7,6 +7,7 @@ import { initArtScanBlend } from "./lib/art-blend";
 import { initLivingArtRuntime } from "./lib/living-art-runtime";
 // Gretel page speech is sourced from approved existing recordings, not dynamic TTS.
 import { installExistingGretelRecordedFeedback } from "./lib/gretel-existing-recordings";
+import { setGretelVoiceProviderConfig } from "./lib/gretel-voice";
 import "./styles.css";
 import "./styles/living-art.css";
 import "./styles/gretel-presence.css";
@@ -19,7 +20,9 @@ const router = getRouter();
 initArtScanBlend();
 // Global living-art layer: faithful illustrations never silently remain static.
 initLivingArtRuntime();
-// Owner-recorded MP3s only; no TTS, no fake fallback.
+// Owner-recorded MP3s only: exact phrase lookup; missing audio stays silent.
+// This sets the production runtime without altering voice-provider seam tests or auditions.
+setGretelVoiceProviderConfig({ type: "recorded-audio", name: "Existing Gretel recordings" });
 installExistingGretelRecordedFeedback();
 
 declare module "@tanstack/react-router" {
