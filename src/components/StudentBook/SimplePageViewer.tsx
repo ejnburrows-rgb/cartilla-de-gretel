@@ -34,9 +34,9 @@ function PageContent({ cover, children }: { cover?: boolean; children?: ReactNod
   return (
     <div
       data-density={cover ? "hard" : "soft"}
-      className="relative flex h-full w-full flex-col overflow-hidden bg-surface"
+      className="absolute inset-0 flex flex-col overflow-hidden bg-surface"
     >
-      <div className="flex-1 w-full h-full p-0">{children}</div>
+      <div className="flex-1 w-full p-0">{children}</div>
     </div>
   );
 }
