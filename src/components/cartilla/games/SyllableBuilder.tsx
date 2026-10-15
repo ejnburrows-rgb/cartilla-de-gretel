@@ -197,8 +197,8 @@ export function SyllableBuilder({ content }: { content: GameContent }) {
       gretelEvent("activity:complete");
       recordEvent({
         lessonId: content.id,
-        kind: "lesson_completed",
-        meta: { exercise: "syllable-builder" },
+        kind: "exercise",
+        meta: { exercise: "syllable-builder", completed: true },
       });
       setWordIndex(0);
       resetForWord(0);
