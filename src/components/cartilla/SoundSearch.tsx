@@ -1,4 +1,4 @@
-import { useMemo, useRef, useState } from "react";
+import { useEffect, useMemo, useRef, useState } from "react";
 import { motion } from "framer-motion";
 import { Check, Volume2 } from "lucide-react";
 import {
@@ -44,6 +44,17 @@ export function SoundSearch({
   const [selected, setSelected] = useState<Set<string>>(new Set());
   const [missKey, setMissKey] = useState<string | null>(null);
   const completedRef = useRef(false);
+
+  const contentKey = useMemo(
+    () => `${targetSound}:${JSON.stringify(words.map((w) => w.word))}`,
+    [targetSound, words],
+  );
+
+  useEffect(() => {
+    setSelected(new Set());
+    setMissKey(null);
+    completedRef.current = false;
+  }, [contentKey]);
 
   const hearTarget = () => {
     void speakAsGretel(targetSound);
