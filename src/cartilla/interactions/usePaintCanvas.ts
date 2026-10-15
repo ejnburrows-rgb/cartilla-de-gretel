@@ -1,0 +1,522 @@
+import { useCallback, useEffect, useRef, useState } from "react";
+import {
+  BOOK_PAINT_SWATCHES,
+  clearCanvasSnapshot,
+  loadCanvasSnapshot,
+  saveCanvasSnapshot,
+} from "@/lib/activity-canvas-store";
+import { useActivityEvents, useActivityState } from "@/lib/activity-events";
+import { useCanvasContinuity } from "@/lib/use-canvas-continuity";
+
+export type BrushSize = "fine" | "normal" | "thick";
+export type Tool = "brush" | "eraser";
+
+export const BRUSH_PX: Record<BrushSize, number> = {
+  fine: 12,
+  normal: 22,
+  thick: 32,
+};
+
+export interface PaintCanvasProps {
+  pageKey: string;
+  illustrationSrc?: string;
+  illustrationAlt?: string;
+  verbLabel?: string;
+  lessonId?: string;
+  onComplete?: () => void;
+  className?: string;
+}
+
+export function stampBrush(
+  ctx: CanvasRenderingContext2D,
+  x: number,
+  y: number,
+  radius: number,
+  color: string,
+  erase: boolean,
+) {
+  ctx.save();
+  if (erase) {
+    ctx.globalCompositeOperation = "destination-out";
+    ctx.fillStyle = "rgba(0,0,0,1)";
+  } else {
+    ctx.globalCompositeOperation = "source-over";
+  }
+  // Soft round brush: layered radial falloff (not hard square stamps)
+  const g = ctx.createRadialGradient(x, y, 0, x, y, radius);
+  if (erase) {
+    g.addColorStop(0, "rgba(0,0,0,0.85)");
+    g.addColorStop(0.55, "rgba(0,0,0,0.35)");
+    g.addColorStop(1, "rgba(0,0,0,0)");
+    ctx.fillStyle = g;
+  } else {
+    // Parse hex → rgb for soft alpha edge
+    const hex = color.replace("#", "");
+    const r = parseInt(hex.slice(0, 2), 16);
+    const gC = parseInt(hex.slice(2, 4), 16);
+    const b = parseInt(hex.slice(4, 6), 16);
+    g.addColorStop(0, `rgba(${r},${gC},${b},0.92)`);
+    g.addColorStop(0.45, `rgba(${r},${gC},${b},0.55)`);
+    g.addColorStop(1, `rgba(${r},${gC},${b},0)`);
+    ctx.fillStyle = g;
+  }
+  ctx.beginPath();
+  ctx.arc(x, y, radius, 0, Math.PI * 2);
+  ctx.fill();
+  ctx.restore();
+}
+
+export function strokeBetween(
+  ctx: CanvasRenderingContext2D,
+  x0: number,
+  y0: number,
+  x1: number,
+  y1: number,
+  radius: number,
+  color: string,
+  erase: boolean,
+) {
+  const dx = x1 - x0;
+  const dy = y1 - y0;
+  const dist = Math.hypot(dx, dy);
+  const step = Math.max(1, radius * 0.28);
+  const n = Math.max(1, Math.ceil(dist / step));
+  for (let i = 0; i <= n; i++) {
+    const t = i / n;
+    stampBrush(ctx, x0 + dx * t, y0 + dy * t, radius, color, erase);
+  }
+}
+
+export function usePaintCanvas({
+  pageKey,
+  illustrationSrc,
+  verbLabel = "Colorea",
+  lessonId,
+  onComplete,
+}: PaintCanvasProps) {
+  const { emit: gretelEvent, record: recordEvent } = useActivityEvents();
+  const paintRef = useRef<HTMLCanvasElement>(null);
+  const maskRef = useRef<HTMLCanvasElement | null>(null);
+  const wrapRef = useRef<HTMLDivElement>(null);
+  const drawingRef = useRef(false);
+  const lastRef = useRef<{ x: number; y: number } | null>(null);
+  const undoStackRef = useRef<ImageData[]>([]);
+  const pendingMoveRef = useRef<{ x: number; y: number } | null>(null);
+  const rafRef = useRef<number | null>(null);
+  const paintPixelsRef = useRef(0);
+
+  const [color, setColor] = useActivityState<string>("paintColor", BOOK_PAINT_SWATCHES[0]);
+  const [tool, setTool] = useActivityState<Tool>("paintTool", "brush");
+  const [brushSize, setBrushSize] = useActivityState<BrushSize>("paintBrushSize", "normal");
+  const [hasPaint, setHasPaint] = useState(false);
+  const [done, setDone] = useActivityState("done", false);
+  const [confirmClear, setConfirmClear] = useState(false);
+  const [hover, setHover] = useState<{ x: number; y: number } | null>(null);
+
+  useEffect(() => {
+    if (done) gretelEvent("activity:complete", { restored: true });
+  }, [done, gretelEvent]);
+
+  const resizeCanvases = useCallback(() => {
+    const canvas = paintRef.current;
+    const wrap = wrapRef.current;
+    if (!canvas || !wrap) return;
+    const rect = { width: wrap.clientWidth, height: wrap.clientHeight };
+    const dpr = Math.min(window.devicePixelRatio || 1, 2);
+    const w = Math.max(1, Math.floor(rect.width));
+    const h = Math.max(1, Math.floor(rect.height));
+    if (canvas.width === w * dpr && canvas.height === h * dpr) return;
+    const prev = document.createElement("canvas");
+    prev.width = canvas.width;
+    prev.height = canvas.height;
+    prev.getContext("2d")?.drawImage(canvas, 0, 0);
+    canvas.width = w * dpr;
+    canvas.height = h * dpr;
+    canvas.style.width = `${w}px`;
+    canvas.style.height = `${h}px`;
+    const ctx = canvas.getContext("2d");
+    if (!ctx) return;
+    ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+    ctx.imageSmoothingEnabled = true;
+    ctx.imageSmoothingQuality = "high";
+
+    // Restore previous paint after resize
+    if (prev.width && prev.height) ctx.drawImage(prev, 0, 0, w, h);
+
+    // Build / rebuild mask from illustration alpha (drawable where opaque)
+    if (illustrationSrc) {
+      const mask = document.createElement("canvas");
+      mask.width = w;
+      mask.height = h;
+      const mctx = mask.getContext("2d");
+      if (mctx) {
+        const img = new Image();
+        img.crossOrigin = "anonymous";
+        img.onload = () => {
+          mctx.clearRect(0, 0, w, h);
+          // Fit contain
+          const scale = Math.min(w / img.naturalWidth, h / img.naturalHeight);
+          const dw = img.naturalWidth * scale;
+          const dh = img.naturalHeight * scale;
+          const ox = (w - dw) / 2;
+          const oy = (h - dh) / 2;
+          mctx.drawImage(img, ox, oy, dw, dh);
+          maskRef.current = mask;
+        };
+        img.onerror = () => {
+          // Safe drawable bounds: full illustration box (never past wrap)
+          mctx.fillStyle = "#000";
+          mctx.fillRect(0, 0, w, h);
+          maskRef.current = mask;
+        };
+        img.src = illustrationSrc;
+      }
+    } else {
+      const mask = document.createElement("canvas");
+      mask.width = w;
+      mask.height = h;
+      const mctx = mask.getContext("2d");
+      if (mctx) {
+        mctx.fillStyle = "#000";
+        mctx.fillRect(8, 8, w - 16, h - 16);
+        maskRef.current = mask;
+      }
+    }
+  }, [illustrationSrc]);
+
+  useEffect(() => {
+    resizeCanvases();
+    window.addEventListener("resize", resizeCanvases);
+    const observer =
+      typeof ResizeObserver === "undefined" ? null : new ResizeObserver(resizeCanvases);
+    if (wrapRef.current) observer?.observe(wrapRef.current);
+    return () => {
+      observer?.disconnect();
+      window.removeEventListener("resize", resizeCanvases);
+    };
+  }, [resizeCanvases]);
+
+  // Restore saved paint
+  useEffect(() => {
+    const snap = loadCanvasSnapshot(pageKey);
+    if (!snap?.dataUrl) return;
+    const canvas = paintRef.current;
+    const ctx = canvas?.getContext("2d");
+    if (!canvas || !ctx) return;
+    const img = new Image();
+    let disposed = false;
+    img.onload = () => {
+      if (disposed) return;
+      const dpr = Math.min(window.devicePixelRatio || 1, 2);
+      ctx.clearRect(0, 0, canvas.width / dpr, canvas.height / dpr);
+      ctx.drawImage(img, 0, 0, canvas.width / dpr, canvas.height / dpr);
+      setHasPaint(true);
+      paintPixelsRef.current = 1;
+    };
+    img.src = snap.dataUrl;
+    return () => {
+      disposed = true;
+      img.onload = null;
+    };
+  }, [pageKey]);
+
+  const getPoint = (e: React.PointerEvent) => {
+    const canvas = paintRef.current!;
+    const rect = canvas.getBoundingClientRect();
+    return { x: e.clientX - rect.left, y: e.clientY - rect.top };
+  };
+
+  const isMaskedOk = (x: number, y: number) => {
+    const mask = maskRef.current;
+    if (!mask) return true;
+    const mctx = mask.getContext("2d");
+    if (!mctx) return true;
+    const px = Math.max(0, Math.min(mask.width - 1, Math.floor(x)));
+    const py = Math.max(0, Math.min(mask.height - 1, Math.floor(y)));
+    const a = mctx.getImageData(px, py, 1, 1).data[3];
+    return a > 12;
+  };
+
+  const pushUndo = () => {
+    const canvas = paintRef.current;
+    const ctx = canvas?.getContext("2d");
+    if (!canvas || !ctx) return;
+    try {
+      const data = ctx.getImageData(0, 0, canvas.width, canvas.height);
+      undoStackRef.current.push(data);
+      if (undoStackRef.current.length > 12) undoStackRef.current.shift();
+    } catch {
+      /* tainted canvas */
+    }
+  };
+
+  const flushStroke = useCallback(() => {
+    rafRef.current = null;
+    const next = pendingMoveRef.current;
+    const last = lastRef.current;
+    const canvas = paintRef.current;
+    const ctx = canvas?.getContext("2d");
+    if (!next || !last || !ctx || !drawingRef.current) return;
+    pendingMoveRef.current = null;
+
+    const radius = BRUSH_PX[brushSize] / 2;
+    // Sample along path; only stamp where mask allows (stay inside lines)
+    const dx = next.x - last.x;
+    const dy = next.y - last.y;
+    const dist = Math.hypot(dx, dy);
+    const step = Math.max(1, radius * 0.28);
+    const n = Math.max(1, Math.ceil(dist / step));
+    for (let i = 0; i <= n; i++) {
+      const t = i / n;
+      const x = last.x + dx * t;
+      const y = last.y + dy * t;
+      if (tool === "eraser" || isMaskedOk(x, y)) {
+        stampBrush(ctx, x, y, radius, color, tool === "eraser");
+        paintPixelsRef.current += 1;
+      }
+    }
+    lastRef.current = next;
+    if (!hasPaint && paintPixelsRef.current > 0) setHasPaint(true);
+  }, [brushSize, color, tool, hasPaint]);
+
+  const handlePointerDown = (e: React.PointerEvent<HTMLCanvasElement>) => {
+    if (done) return;
+    try {
+      e.currentTarget.setPointerCapture?.(e.pointerId);
+    } catch {
+      /* jsdom */
+    }
+    drawingRef.current = true;
+    pushUndo();
+    const p = getPoint(e);
+    lastRef.current = p;
+    const canvas = paintRef.current;
+    const ctx = canvas?.getContext("2d");
+    if (!ctx) return;
+    const radius = BRUSH_PX[brushSize] / 2;
+    if (tool === "eraser" || isMaskedOk(p.x, p.y)) {
+      stampBrush(ctx, p.x, p.y, radius, color, tool === "eraser");
+      paintPixelsRef.current += 1;
+      setHasPaint(true);
+    }
+  };
+
+  const handlePointerMove = (e: React.PointerEvent<HTMLCanvasElement>) => {
+    const p = getPoint(e);
+    setHover(p);
+    if (!drawingRef.current || done) return;
+    pendingMoveRef.current = p;
+    if (rafRef.current == null) {
+      rafRef.current = requestAnimationFrame(flushStroke);
+    }
+  };
+
+  const persist = () => {
+    const canvas = paintRef.current;
+    if (!canvas) return;
+    try {
+      saveCanvasSnapshot(pageKey, canvas.toDataURL("image/png"));
+    } catch {
+      /* ignore */
+    }
+  };
+
+  useCanvasContinuity(paintRef, drawingRef, pageKey, () => {
+    if (pendingMoveRef.current) flushStroke();
+  });
+
+  const handlePointerUp = () => {
+    if (drawingRef.current) {
+      if (pendingMoveRef.current) flushStroke();
+      persist();
+    }
+    drawingRef.current = false;
+    lastRef.current = null;
+    pendingMoveRef.current = null;
+    if (rafRef.current != null) {
+      cancelAnimationFrame(rafRef.current);
+      rafRef.current = null;
+    }
+  };
+
+  const handleSwatchesKeyDown = (e: React.KeyboardEvent<HTMLDivElement>) => {
+    const keys = ["ArrowRight", "ArrowDown", "ArrowLeft", "ArrowUp", "Home", "End"];
+    if (!keys.includes(e.key)) return;
+
+    const listbox = e.currentTarget;
+    const swatches = Array.from(
+      listbox.querySelectorAll<HTMLButtonElement>('button[role="option"]:not([disabled])'),
+    );
+    if (swatches.length === 0) return;
+
+    const currentIndex = swatches.findIndex((opt) => opt === document.activeElement);
+    let nextIndex = 0;
+
+    if (e.key === "ArrowRight" || e.key === "ArrowDown") {
+      nextIndex = currentIndex < 0 ? 0 : (currentIndex + 1) % swatches.length;
+    } else if (e.key === "ArrowLeft" || e.key === "ArrowUp") {
+      nextIndex =
+        currentIndex < 0
+          ? swatches.length - 1
+          : (currentIndex - 1 + swatches.length) % swatches.length;
+    } else if (e.key === "Home") {
+      nextIndex = 0;
+    } else if (e.key === "End") {
+      nextIndex = swatches.length - 1;
+    }
+
+    e.preventDefault();
+    e.stopPropagation();
+    const targetSwatch = swatches[nextIndex];
+    if (targetSwatch) {
+      targetSwatch.focus();
+      const swatchColor = BOOK_PAINT_SWATCHES[nextIndex];
+      if (swatchColor) {
+        setColor(swatchColor);
+        setTool("brush");
+      }
+    }
+  };
+
+  const undo = () => {
+    const canvas = paintRef.current;
+    const ctx = canvas?.getContext("2d");
+    const snap = undoStackRef.current.pop();
+    if (!canvas || !ctx || !snap) return;
+    ctx.putImageData(snap, 0, 0);
+    persist();
+  };
+
+  const clearAll = () => {
+    const canvas = paintRef.current;
+    const ctx = canvas?.getContext("2d");
+    if (!canvas || !ctx) return;
+    pushUndo();
+    const rect = canvas.getBoundingClientRect();
+    ctx.clearRect(0, 0, rect.width, rect.height);
+    clearCanvasSnapshot(pageKey);
+    setDone(false);
+    gretelEvent("activity:retry", { reason: "work-cleared" });
+    paintPixelsRef.current = 0;
+    setHasPaint(false);
+    setConfirmClear(false);
+  };
+
+  const finish = () => {
+    if (!hasPaint || done) return;
+    setDone(true);
+    persist();
+    gretelEvent("activity:complete");
+    if (lessonId) {
+      recordEvent({
+        lessonId,
+        kind: "exercise",
+        score: 0,
+        total: 0,
+        meta: {
+          exercise: `paint_${pageKey}`,
+          completed: true,
+          grading: "ungraded",
+          verb: verbLabel,
+        },
+      });
+    }
+    onComplete?.();
+  };
+
+  // Long-press flood-fill assist (secondary, not a replacement for brush)
+  const longPressTimer = useRef<number | null>(null);
+  const handlePointerDownWithAssist = (e: React.PointerEvent<HTMLCanvasElement>) => {
+    handlePointerDown(e);
+    if (tool !== "brush" || done) return;
+    const start = getPoint(e);
+    longPressTimer.current = window.setTimeout(() => {
+      if (!drawingRef.current) return;
+      floodFillRegion(start.x, start.y, color);
+      setHasPaint(true);
+      persist();
+    }, 650);
+  };
+  const clearLongPress = () => {
+    if (longPressTimer.current != null) {
+      window.clearTimeout(longPressTimer.current);
+      longPressTimer.current = null;
+    }
+  };
+
+  const floodFillRegion = (sx: number, sy: number, fillColor: string) => {
+    const canvas = paintRef.current;
+    const mask = maskRef.current;
+    if (!canvas || !mask) return;
+    const ctx = canvas.getContext("2d");
+    const mctx = mask.getContext("2d");
+    if (!ctx || !mctx) return;
+    const w = mask.width;
+    const h = mask.height;
+    const maskData = mctx.getImageData(0, 0, w, h).data;
+    const paint = ctx.getImageData(0, 0, canvas.width, canvas.height);
+    // Work in CSS pixel space vs backing store
+    const dpr = canvas.width / w;
+    const hex = fillColor.replace("#", "");
+    const fr = parseInt(hex.slice(0, 2), 16);
+    const fg = parseInt(hex.slice(2, 4), 16);
+    const fb = parseInt(hex.slice(4, 6), 16);
+    const x0 = Math.floor(sx);
+    const y0 = Math.floor(sy);
+    if (x0 < 0 || y0 < 0 || x0 >= w || y0 >= h) return;
+    if (maskData[(y0 * w + x0) * 4 + 3] <= 12) return;
+    const seen = new Uint8Array(w * h);
+    const stack = [x0, y0];
+    pushUndo();
+    while (stack.length) {
+      const y = stack.pop()!;
+      const x = stack.pop()!;
+      const idx = y * w + x;
+      if (x < 0 || y < 0 || x >= w || y >= h || seen[idx]) continue;
+      if (maskData[idx * 4 + 3] <= 12) continue;
+      seen[idx] = 1;
+      // Write into paint backing store
+      const px = Math.floor(x * dpr);
+      const py = Math.floor(y * dpr);
+      for (let oy = 0; oy < dpr; oy++) {
+        for (let ox = 0; ox < dpr; ox++) {
+          const pi = ((py + oy) * canvas.width + (px + ox)) * 4;
+          paint.data[pi] = fr;
+          paint.data[pi + 1] = fg;
+          paint.data[pi + 2] = fb;
+          paint.data[pi + 3] = 180;
+        }
+      }
+      stack.push(x + 1, y, x - 1, y, x, y + 1, x, y - 1);
+    }
+    ctx.putImageData(paint, 0, 0);
+  };
+
+  const radiusPreview = BRUSH_PX[brushSize];
+
+  return {
+    paintRef,
+    wrapRef,
+    color,
+    setColor,
+    tool,
+    setTool,
+    brushSize,
+    setBrushSize,
+    hasPaint,
+    done,
+    confirmClear,
+    setConfirmClear,
+    hover,
+    setHover,
+    handlePointerDownWithAssist,
+    handlePointerMove,
+    handlePointerUp,
+    clearLongPress,
+    handleSwatchesKeyDown,
+    undo,
+    clearAll,
+    finish,
+    radiusPreview,
+  };
+}
