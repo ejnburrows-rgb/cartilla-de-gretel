@@ -270,13 +270,9 @@ describe.each([["piano"], ["cancionero"]] as const)("PianoPronunciation (%s desi
       mockProblem = "denied";
       render(<PianoPronunciation syllables={["sa"]} words={SAPO} />);
       expect(screen.getByTestId("piano-message").textContent).toMatch(/permiso/);
-      fireEvent.click(screen.getByTestId("piano-key-1")); // out of order: plays only
-      expect(keyState(1)).toBe("pending");
       fireEvent.click(screen.getByTestId("piano-key-0"));
-      expect(keyState(0)).toBe("confirmed");
-      fireEvent.click(screen.getByTestId("piano-key-1"));
-      expect(keyState(1)).toBe("confirmed");
-      expect(mockPlayCorrectChord).toHaveBeenCalledTimes(1);
+      // The keys only play notes now, they do not confirm progress via touch.
+      expect(keyState(0)).toBe("next");
     });
   });
 
@@ -299,7 +295,7 @@ describe.each([["piano"], ["cancionero"]] as const)("PianoPronunciation (%s desi
       expect(screen.getByTestId("piano-privacy").textContent).toMatch(/Comprobando/);
     });
 
-    it("unavailable: microphone off, brief explanation, full touch play and completion", async () => {
+    it("unavailable: microphone off, brief explanation, touch does not bypass voice requirement", async () => {
       mockProcessing = "unavailable";
       mockProblem = "no-local";
       render(<PianoPronunciation syllables={["sa"]} words={SAPO} />);
@@ -321,11 +317,11 @@ describe.each([["piano"], ["cancionero"]] as const)("PianoPronunciation (%s desi
       await act(async () => {
         fireEvent.click(screen.getByTestId("piano-key-1"));
       });
-      expect(keyState(0)).toBe("confirmed");
-      expect(keyState(1)).toBe("confirmed");
-      expect(mockPlayCorrectChord).toHaveBeenCalledTimes(1);
+      expect(keyState(0)).not.toBe("confirmed");
+      expect(keyState(1)).not.toBe("confirmed");
+      expect(mockPlayCorrectChord).not.toHaveBeenCalled();
       expect(mockStart).not.toHaveBeenCalled();
-      // AI-voice examples still play.
+      // AI-voice examples still play via click.
       expect(mockSpeak).toHaveBeenCalled();
     });
   });

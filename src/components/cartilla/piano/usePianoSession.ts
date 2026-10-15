@@ -414,12 +414,6 @@ export function usePianoSession({
   const pressSyllableKey = (index: number) => {
     const syllable = keys[index];
     if (!syllable) return;
-    if (touchMode && index === confirmedRef.current && !done) {
-      cancelListening();
-      applyProgress(index + 1, "touch");
-      void runExample(syllable);
-      return;
-    }
     listenToSyllable(index);
   };
 
