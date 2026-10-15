@@ -139,9 +139,14 @@ export function PayasoChano({ content, lessonId, onComplete }: PayasoChanoProps)
   }, [state.checkResult, reactions]);
 
   const hasCelebrated = useRef(false);
+  const completedWordsRef = useRef<Set<number>>(new Set());
+  const globalCelebratedRef = useRef(false);
+
   useEffect(() => {
     if (state.completed && !hasCelebrated.current) {
       hasCelebrated.current = true;
+      completedWordsRef.current.add(wordIdx);
+      
       recordEvent({
         lessonId: lessonId ?? content.id,
         kind: "exercise",
@@ -149,9 +154,13 @@ export function PayasoChano({ content, lessonId, onComplete }: PayasoChanoProps)
         total: state.attempts,
         meta: { exercise: "payaso_chano", word: word.word, completed: true },
       });
-      if (wordIdx === content.words.length - 1) {
-        reactions.complete();
-        onComplete?.();
+      
+      if (completedWordsRef.current.size === content.words.length) {
+        if (!globalCelebratedRef.current) {
+          globalCelebratedRef.current = true;
+          reactions.complete();
+          onComplete?.();
+        }
       } else {
         reactions.correct();
       }
