@@ -12,10 +12,10 @@ test('p2 uses shared pencil feedback, stays keyboard accessible, and restores co
   await page.goto('/cartilla/leccion/1');
   const viewer = page.locator('.native-lesson-viewer');
   await expect(viewer).toHaveAttribute('data-native-page', '1');
-  await viewer.getByRole('button', { name: 'Siguiente' }).click();
+  await viewer.getByTestId('button-next').click();
   await expect(viewer).toHaveAttribute('data-native-page', '2');
 
-  const next = viewer.getByRole('button', { name: 'Siguiente' });
+  const next = viewer.getByTestId('button-next');
   await expect(next).toHaveAttribute('aria-disabled', 'true');
   expect(await viewer.getByRole('button', { name: /^Vocal/ }).count()).toBe(0);
 
@@ -71,9 +71,9 @@ test('p5 example + five answers; a wrong try, reload and return never strand com
   await page.goto('/cartilla/leccion/2');
   const viewer = page.locator('.native-lesson-viewer');
   await expect(viewer).toHaveAttribute('data-native-page', '4');
-  await viewer.getByRole('button', { name: 'Siguiente' }).click();
+  await viewer.getByTestId('button-next').click();
   await expect(viewer).toHaveAttribute('data-native-page', '5');
-  const next = viewer.getByRole('button', { name: 'Siguiente' });
+  const next = viewer.getByTestId('button-next');
   await expect(viewer.getByRole('button', { name: 'ola', exact: true })).toHaveAttribute('data-example', 'true');
   await expect(viewer.getByRole('button', { name: 'ola', exact: true })).toHaveAttribute('aria-pressed', 'true');
   await next.click({ force: true }); await next.click({ force: true });
