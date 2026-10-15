@@ -18,6 +18,14 @@ export interface PianoWord {
 }
 
 export const PIANO_WORDS: Readonly<Record<number, readonly PianoWord[]>> = {
+  // Lesson 7 (Mm) — book p.22 Completa boxes.
+  7: [
+    { word: "amo", syllables: ["a", "mo"] },
+    { word: "mamá", syllables: ["ma", "má"] },
+    { word: "mima", syllables: ["mi", "ma"] },
+    { word: "Mumi", syllables: ["Mu", "mi"] },
+    { word: "mío", syllables: ["mí", "o"] },
+  ],
   8: [
     { word: "papá", syllables: ["pa", "pá"] },
     { word: "mapa", syllables: ["ma", "pa"] },
