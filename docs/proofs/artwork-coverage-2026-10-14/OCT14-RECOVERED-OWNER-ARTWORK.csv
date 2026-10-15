@@ -1,7 +1,3 @@
-# October 14 owner image recovery — file list and candidate relationships
-
-This is a source-file inventory only. 162 recovered items (some duplicates), **not production-installed artwork**. All image binary bytes remain outside GitHub pending transport; do not treat the filename as the image, an upload proof, a visual approval or a verified match. The 201-group / 330-placement mapping already in PR #751 remains the canonical source. Every candidate placement here must be visually cross-checked against the real printed source and aligned with the correct orientation before runtime use.
-
 "filename","library_created_at","file_kind","visible_subject_or_candidate","candidate_flip_chart_placement","evidence_status","github_binary_uploaded","production_installed"
 "image-gen-10(20261014-234040).png","2026-10-14T23:40:40.826030+00:00","generated_image","","","UNMAPPED_NEEDS_SOURCE_VERIFICATION","NO","NO"
 "image-gen-9(20261014-234039).png","2026-10-14T23:40:39.448226+00:00","generated_image","","","UNMAPPED_NEEDS_SOURCE_VERIFICATION","NO","NO"
