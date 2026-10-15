@@ -7,8 +7,6 @@ import { NativeLessonViewer } from "@/components/StudentBook/NativeLessonViewer"
 import "@/styles/lesson-fit.css";
 import type { WorkbookPageEntry } from "@/components/StudentBook/SimplePageViewer";
 import { FaithfulPageRenderer } from "@/components/cartilla/FaithfulPageRenderer";
-import { buildGretelPageLine } from "@/lib/gretel-page-guide";
-import { getPageLayout } from "@/lib/book-faithful";
 import { lessonForWorkbookPage } from "@/lib/workbook-pages";
 
 export const Route = createFileRoute("/cartilla/cuaderno")({
@@ -60,7 +58,6 @@ function ReconstructedWorkbook() {
       AVAILABLE_PRINTED_PAGES.map((pageNumber) => ({
         id: `workbook-page-${pageNumber}`,
         pageNumber,
-        gretelLine: buildGretelPageLine(getPageLayout(pageNumber), pageNumber),
         // Same native digital page the lessons use — never the raw scan.
         content: (
           <FaithfulPageRenderer

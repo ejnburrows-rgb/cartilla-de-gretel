@@ -15,7 +15,6 @@ export interface WorkbookPageEntry {
   cover?: boolean;
   src?: string;
   pageNumber?: number;
-  gretelLine?: string;
   content: ReactNode;
 }
 
