@@ -1,4 +1,6 @@
 import { claimSpeech, registerSpeechCleanup, releaseSpeech, speechIsCurrent, stopSpeech } from "./speech-playback";
+import { exactRecordedPhraseUrls } from "./gretel-recorded-clips";
+import { playGretelRecordingQueue } from "./gretel-recorded-playback";
 
 /**
  * Gretel voice — neutral, child-friendly Spanish browser TTS with pluggable provider architecture.
@@ -151,6 +153,26 @@ export function cancelGretelSpeech(): void {
 export async function speakAsGretel(text: string, handlers: GretelVoiceHandlers = {}): Promise<void> {
   if (!text?.trim() || isGretelVoiceMuted()) {
     handlers.onEnd?.();
+    return;
+  }
+
+  if (activeProviderConfig.type === "recorded-audio" && !activeProviderConfig.speakFn) {
+    const urls = exactRecordedPhraseUrls(text);
+    if (typeof window === "undefined" || urls.length === 0) {
+      // Missing exact owner recording is not permission to substitute a browser voice.
+      if (typeof window !== "undefined") {
+        window.dispatchEvent(new CustomEvent("gretel:speak_missing", { detail: { text } }));
+      }
+      handlers.onEnd?.();
+      return;
+    }
+    lastSpokenVoiceName = "Existing Gretel MP3 recording";
+    handlers.onStart?.();
+    try {
+      await playGretelRecordingQueue(urls);
+    } finally {
+      handlers.onEnd?.();
+    }
     return;
   }
 
