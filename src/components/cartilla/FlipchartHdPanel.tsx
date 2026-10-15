@@ -239,6 +239,29 @@ export function FlipchartHdPanel({ lessonNumber, accentColor, chrome = "full" }:
 
   useEffect(() => {
     const onKey = (e: KeyboardEvent) => {
+      // A single press must not be handled by both a focused control and the
+      // window-wide presenter shortcuts (or repeated while a key is held).
+      if (e.defaultPrevented || e.repeat || e.isComposing) return;
+
+      const focused = e.target instanceof Element ? e.target : document.activeElement;
+      if (focused instanceof Element) {
+        // Includes descendants and custom keyboard controls (such as corners
+        // and thumbnails). Native button Space/Enter activation stays intact.
+        if (
+          focused.closest(
+            'button, input, textarea, select, a[href], summary, [contenteditable]:not([contenteditable="false"]), [role="button"], [role="tab"], [role="link"], [role="textbox"], [role="combobox"], [role="listbox"], [role="option"], [role="menuitem"], [role="checkbox"], [role="radio"], [role="switch"], [role="slider"]',
+          )
+        ) return;
+
+        // Only the presenter surface (or the unfocused page itself, for the
+        // existing global presenter shortcuts) owns navigation.
+        if (
+          focused !== document.body &&
+          focused !== document.documentElement &&
+          !easelRef.current?.contains(focused)
+        ) return;
+      }
+
       if (["ArrowDown", "ArrowRight", "PageDown", " "].includes(e.key)) {
         e.preventDefault();
         handleNext();
@@ -410,6 +433,7 @@ export function FlipchartHdPanel({ lessonNumber, accentColor, chrome = "full" }:
     corner: "left" | "right",
   ) => {
     if (event.key !== "Enter" && event.key !== " ") return;
+    if (event.defaultPrevented || event.repeat) return;
 
     event.preventDefault();
     event.stopPropagation();
@@ -485,6 +509,8 @@ export function FlipchartHdPanel({ lessonNumber, accentColor, chrome = "full" }:
       <div
         ref={easelRef}
         className={`fc-board__easel${isCinematicZooming ? " is-cinematic-zoom" : ""}`}
+        tabIndex={0}
+        aria-label="Superficie de presentación del rotafolio"
         data-testid="flipchart-stage"
       >
         <div className="fc-board__page">
