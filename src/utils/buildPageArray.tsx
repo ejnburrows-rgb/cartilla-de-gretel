@@ -3,10 +3,11 @@ import type { WorkbookPageEntry } from "@/components/StudentBook/SimplePageViewe
 import pageInventory from "@/data/page-inventory.json";
 import { CATALOG } from "@/lib/lesson-catalog";
 import { getLessonPageNumbers } from "@/lib/cartilla-crm-theme";
-import { hasPageLayout } from "@/lib/book-faithful";
+import { getPageLayout, hasPageLayout } from "@/lib/book-faithful";
 import { isWorkbookPageSourceBlocked } from "@/lib/workbook-pages";
 import { FaithfulPageRenderer } from "@/components/cartilla/FaithfulPageRenderer";
 import { PdfPage } from "@/components/cartilla/PdfPage";
+import { PianoLessonSection, PIANO_LESSONS } from "@/components/cartilla/PianoLessonSection";
 
 const BASE = "/cartilla/images/source";
 
@@ -24,6 +25,37 @@ function PendingPageShell({ lessonId, pageNum, globalPage }: { lessonId: number;
 }
 
 /**
+ * True iff the printed page's verified layout contains a "Completa"
+ * (fill-in-blank) region — the exercise the Piano Hablador section follows.
+ * Uses the same canonical layout source (`getPageLayout`) as
+ * `FaithfulPageRenderer` and `page-completion`, so the detection always
+ * agrees with what the child actually sees on the page.
+ */
+function pageHasCompletaExercise(pageNumber: number): boolean {
+  const regions = getPageLayout(pageNumber);
+  return Boolean(regions?.some((region) => region.regionType === "fill-in-blank"));
+}
+
+/**
+ * WorkbookPageEntry for the Piano Hablador section that follows the Completa
+ * page. It deliberately carries NO `pageNumber`:
+ *   • `usePageCompletion(undefined, …)` returns `{ complete: true }`, so the
+ *     Piano never gates the Siguiente button — Piano never counts toward
+ *     lesson completion (owner rule).
+ *   • It cannot collide with any printed page's identity, and it is never
+ *     source-blocked, so the relaxed trailing filter always lets it through.
+ * `PianoLessonSection` itself returns null on devices without a confirmed
+ * on-device microphone and for lessons outside the owner-approved set, so
+ * the entry is inert when it should not show.
+ */
+function pianoSectionEntry(lessonId: number): WorkbookPageEntry {
+  return {
+    id: `piano-lesson-${lessonId}`,
+    content: <PianoLessonSection lessonNumber={lessonId} />,
+  };
+}
+
+/**
  * Builds the WorkbookPageEntry[] for a specific lesson. Lesson slices contain
  * interior worksheet leaves only; none is mislabeled as a hard book cover.
  */
@@ -35,7 +67,7 @@ export function buildPageArray(lessonId: number): WorkbookPageEntry[] {
   const count = globalPages.length > 0 ? globalPages.length : paths.length;
   if (count === 0) return [];
 
-  return Array.from({ length: count }, (_, i) => {
+  const pages: WorkbookPageEntry[] = Array.from({ length: count }, (_, i) => {
     const filename = paths[i];
     const src = filename ? `${BASE}/${filename}` : undefined;
     const pageNum = i + 1;
@@ -86,5 +118,28 @@ export function buildPageArray(lessonId: number): WorkbookPageEntry[] {
       pageNumber: pageNumberForGuide,
       content: <PendingPageShell lessonId={lessonId} pageNum={pageNum} globalPage={globalPage} />,
     };
-  }).filter((page) => typeof page.pageNumber === "number" && !isWorkbookPageSourceBlocked(page.pageNumber));
+  }).filter((page) =>
+    // The Piano section insert has no printed page number; it is the only
+    // such entry and never maps to a source-blocked scan, so it always
+    // stays in the flow. Every other entry must map to a real, unblocked
+    // printed page.
+    typeof page.pageNumber !== "number" ||
+    !isWorkbookPageSourceBlocked(page.pageNumber),
+  );
+
+  // Owner-approved Piano Hablador section after the Completa exercise page.
+  // PianoLessonSection itself returns null outside the approved lessons and
+  // on devices without a confirmed on-device microphone, so this insert is
+  // a no-op render in those cases.
+  if (PIANO_LESSONS.has(lessonId)) {
+    const completaIdx = pages.findIndex((page) =>
+      typeof page.pageNumber === "number" &&
+      pageHasCompletaExercise(page.pageNumber),
+    );
+    if (completaIdx >= 0) {
+      pages.splice(completaIdx + 1, 0, pianoSectionEntry(lessonId));
+    }
+  }
+
+  return pages;
 }

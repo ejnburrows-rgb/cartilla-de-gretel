@@ -540,7 +540,10 @@ export function NativeLessonViewer({
       <div className="native-lesson-viewer__topline">
         <span className="native-lesson-viewer__chapter">{chapterLabel}</span>
         <span className="native-lesson-viewer__page">
-          Página {page.pageNumber} · {index + 1} de {pages.length}
+          {typeof page.pageNumber === "number"
+            ? `Página ${page.pageNumber}`
+            : "Actividad"}{" · "}
+          {index + 1} de {pages.length}
         </span>
       </div>
 
