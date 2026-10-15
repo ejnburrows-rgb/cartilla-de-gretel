@@ -108,7 +108,10 @@ export function AssignActivityModal({
               <select
                 id="assign-class-select"
                 value={classId}
-                onChange={(e) => setClassId(e.target.value)}
+                onChange={(e) => {
+                  setClassId(e.target.value);
+                  setSelectedIds(new Set());
+                }}
                 className="w-full rounded-xl border-2 border-stone-200 px-3 py-2 font-medium"
               >
                 <option value="">Selecciona una clase…</option>
