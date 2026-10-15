@@ -8,7 +8,11 @@ import {
   hydrateLessonProgress,
   markLessonCompleted,
   resetProgress,
+  markPageActivityCompleted,
+  unmarkPageActivityCompleted,
+  getCompletedPageActivities,
 } from "../lesson-progress";
+import { learnerStorageKey } from "../learner-storage";
 
 beforeEach(() => {
   localStorage.clear();
@@ -57,5 +61,31 @@ describe("lesson-progress", () => {
     resetProgress();
     expect(isLessonCompleted(1)).toBe(false);
     expect(isLessonUnlocked(2)).toBe(false);
+  });
+
+  describe("page activity completion with malformed data", () => {
+    it("handles malformed objects gracefully during mark and unmark, while preserving valid data", () => {
+      // Seed malformed data for page 23 and valid data for page 24
+      localStorage.setItem(
+        learnerStorageKey("cartilla.page-completion.v1"),
+        JSON.stringify({ "23": {}, "24": ["b"] })
+      );
+
+      // markPageActivityCompleted should not throw
+      expect(() => markPageActivityCompleted(23, "a")).not.toThrow();
+      expect(getCompletedPageActivities(23)).toEqual(["a"]);
+      expect(getCompletedPageActivities(24)).toEqual(["b"]); // Preserves valid entries
+
+      // Seed malformed data again to test unmark
+      localStorage.setItem(
+        learnerStorageKey("cartilla.page-completion.v1"),
+        JSON.stringify({ "23": {}, "24": ["b"] })
+      );
+
+      // unmarkPageActivityCompleted should not throw
+      expect(() => unmarkPageActivityCompleted(23, "a")).not.toThrow();
+      expect(getCompletedPageActivities(23)).toEqual([]);
+      expect(getCompletedPageActivities(24)).toEqual(["b"]); // Preserves valid entries
+    });
   });
 });

@@ -87,7 +87,8 @@ export function getCompletedPageActivities(pageNumber: number): string[] {
 
 export function markPageActivityCompleted(pageNumber: number, activityId: string) {
   const all = readPages();
-  const list = new Set(all[String(pageNumber)] ?? []);
+  const rawList = all[String(pageNumber)];
+  const list = new Set(Array.isArray(rawList) ? rawList : []);
   if (list.has(activityId)) return;
   list.add(activityId);
   all[String(pageNumber)] = [...list];
@@ -96,7 +97,8 @@ export function markPageActivityCompleted(pageNumber: number, activityId: string
 
 export function unmarkPageActivityCompleted(pageNumber: number, activityId: string) {
   const all = readPages();
-  const list = all[String(pageNumber)] ?? [];
+  const rawList = all[String(pageNumber)];
+  const list = Array.isArray(rawList) ? rawList : [];
   if (!list.includes(activityId)) return;
   all[String(pageNumber)] = list.filter((id) => id !== activityId);
   writePages(all);
