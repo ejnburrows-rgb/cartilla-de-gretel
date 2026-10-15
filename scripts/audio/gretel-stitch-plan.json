@@ -1,0 +1,42 @@
+{
+  "version": 1,
+  "source": "Only existing owner-recorded audio with catalog SHA256 checks",
+  "sequences": [
+    {
+      "id": "leccion-01-vocales-introduccion",
+      "trigger": "lesson-intro-example",
+      "lesson": 1,
+      "clip_ids": [
+        "gretel_05",
+        "gretel_08",
+        "gretel_09"
+      ]
+    },
+    {
+      "id": "leccion-07-ma-me-mi-mo-mu",
+      "trigger": "lesson-practice-example",
+      "lesson": 7,
+      "clip_ids": [
+        "gretel_11",
+        "gretel_12",
+        "gretel_13"
+      ]
+    },
+    {
+      "id": "resultado-correcto",
+      "trigger": "correct",
+      "clip_ids": [
+        "gretel_23",
+        "gretel_25"
+      ]
+    },
+    {
+      "id": "resultado-intenta-otra-vez",
+      "trigger": "try-again",
+      "clip_ids": [
+        "gretel_29",
+        "gretel_31"
+      ]
+    }
+  ]
+}
