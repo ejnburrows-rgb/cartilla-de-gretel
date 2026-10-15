@@ -1,4 +1,4 @@
-import { useEffect, useMemo, useState } from "react";
+import { useEffect, useMemo, useState, useRef } from "react";
 import { Check, RotateCcw, Timer, X } from "lucide-react";
 import type { GameContent, WordItem } from "@/lib/games/gameContent";
 import { playWord } from "@/lib/games/wordAudio";
@@ -297,19 +297,31 @@ export function WordsPerMinuteGame({ content }: { content: GameContent }) {
   const [seconds, setSeconds] = useState(60);
   const [count, setCount] = useState(0);
   const finished = !running && seconds === 0;
+  
+  const countRef = useRef(count);
+  countRef.current = count;
+  const contentRef = useRef(content);
+  contentRef.current = content;
+  const hasFinishedRef = useRef(false);
 
   useEffect(() => {
     if (!running) return;
     if (seconds <= 0) {
       setRunning(false);
-      finishGame(content, count, content.words.length);
+      if (!hasFinishedRef.current) {
+        hasFinishedRef.current = true;
+        finishGame(contentRef.current, countRef.current, contentRef.current.words.length);
+      }
       return;
     }
-    const timer = window.setTimeout(() => setSeconds((s) => s - 1), 1000);
+    const timer = window.setTimeout(() => {
+      setSeconds((s) => s - 1);
+    }, 1000);
     return () => window.clearTimeout(timer);
-  }, [running, seconds, count, content]);
+  }, [running, seconds]); // Removed count and content from dependencies to prevent timer resets
 
   const start = () => {
+    hasFinishedRef.current = false;
     setCount(0);
     setSeconds(60);
     setRunning(true);
@@ -329,7 +341,14 @@ export function WordsPerMinuteGame({ content }: { content: GameContent }) {
           </button>
         ))}
       </div>
-      {running && count >= content.words.length && <button onClick={() => { setRunning(false); setSeconds(0); finishGame(content, count, content.words.length); }} className="w-full rounded-xl bg-emerald-600 py-3 font-black text-white">Terminé la lista</button>}
+      {running && count >= content.words.length && <button onClick={() => { 
+        setRunning(false); 
+        setSeconds(0); 
+        if (!hasFinishedRef.current) {
+          hasFinishedRef.current = true;
+          finishGame(content, count, content.words.length);
+        }
+      }} className="w-full rounded-xl bg-emerald-600 py-3 font-black text-white">Terminé la lista</button>}
       {finished && <Result ok text={`Leíste ${count} palabras.`} />}
       {finished && <button onClick={start} className="mx-auto flex items-center gap-2 rounded-xl bg-primary px-4 py-2 font-bold text-primary-foreground"><RotateCcw className="h-4 w-4" /> Otra vez</button>}
     </CompleteCard>
