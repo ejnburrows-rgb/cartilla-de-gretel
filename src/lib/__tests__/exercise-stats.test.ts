@@ -2,12 +2,14 @@
  * @vitest-environment jsdom
  */
 import { describe, it, expect, beforeEach } from "vitest";
+import { act, renderHook } from "@testing-library/react";
 import {
   recordExerciseStat,
   getStats,
   resetStats,
   isLessonWeak,
   lessonAccuracy,
+  useExerciseStats,
 } from "../exercise-stats";
 
 beforeEach(() => {
@@ -42,6 +44,34 @@ describe("exercise-stats", () => {
       // The bare key should have been used
       const rawBare = JSON.parse(localStorage.getItem("cartilla.exercise-stats.v1") || "{}");
       expect(rawBare["anon-lesson"]?.["anon-exercise"].hits).toBe(1);
+    });
+  });
+
+  describe("useExerciseStats session changes", () => {
+    it("refreshes the mounted Modo Repaso stats when the active learner changes", () => {
+      const sessionKey = "cartilla.student-session.v1";
+      const session = (studentId: string) =>
+        JSON.stringify({ classId: "class-X", studentId });
+
+      localStorage.setItem(sessionKey, session("learner-A"));
+      recordExerciseStat({ lessonId: "7", exercise: "picture_grid", score: 1, total: 5 });
+
+      const { result } = renderHook(() => useExerciseStats());
+      expect(result.current["7"]?.picture_grid.hits).toBe(1);
+
+      // Switching students in the same tab sends the session event, not a
+      // browser storage event. The mounted Repaso screen must clear A's data.
+      act(() => {
+        localStorage.setItem(sessionKey, session("learner-B"));
+        window.dispatchEvent(new Event("cartilla:student-session"));
+      });
+      expect(result.current).toEqual({});
+
+      act(() => {
+        localStorage.setItem(sessionKey, session("learner-A"));
+        window.dispatchEvent(new Event("cartilla:student-session"));
+      });
+      expect(result.current["7"]?.picture_grid.hits).toBe(1);
     });
   });
 
