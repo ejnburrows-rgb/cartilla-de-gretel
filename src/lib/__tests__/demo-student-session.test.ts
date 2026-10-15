@@ -23,7 +23,7 @@ it("keeps demo work apart from anonymous/real work and logs only to the local ro
 });
 it("rejects another teacher's sample student and disables demo selection in gated mode", () => {
  const {cls,student:child}=student();
- signInSeedTeacher("emilio","Novo2026!");
+ signInSeedTeacher("emilio","any-password");
  expect(() => startDemoStudentSession(cls.id,child.id)).toThrow();
  vi.stubEnv("VITE_CRM_REVIEW","false");
  expect(getDemoStudentSession()).toBeNull(); expect(() => startDemoStudentSession(cls.id,child.id)).toThrow();
