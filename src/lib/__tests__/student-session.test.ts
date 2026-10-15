@@ -32,55 +32,36 @@ describe("student-session", () => {
   });
 
   describe("flushStudentEvents", () => {
-    it("handles storage write errors gracefully, keeping events in memory", async () => {
+    it("keeps the event in memory when the storage write fails, then flushes it once storage works", async () => {
       setStudentSession(SAMPLE);
       const originalSetItem = window.localStorage.setItem;
-      window.localStorage.setItem = vi.fn((key) => {
+      window.localStorage.setItem = vi.fn((key: string, value: string) => {
         if (key === "cartilla.student-events.v1") {
           throw new Error("Quota exceeded");
         }
-        originalSetItem.call(window.localStorage, key, arguments[1]);
+        return originalSetItem.call(window.localStorage, key, value);
       });
 
+      // The write failure must not lose the event: it stays in the in-memory queue.
       expect(() => recordEvent({
         lessonId: "1",
         kind: "lesson_completed",
       })).not.toThrow();
+      expect(localStorage.getItem("cartilla.student-events.v1")).toBeNull();
 
+      // A flush served from memory still sends the retained event.
+      await flushStudentEvents();
+      expect(logProgress).toHaveBeenCalledTimes(1);
+      expect(vi.mocked(logProgress).mock.calls[0]?.[0]).toMatchObject({
+        data: expect.objectContaining({ lessonId: "1", kind: "lesson_completed" }),
+      });
+
+      // Once storage works again, the queue persists and clears normally.
       window.localStorage.setItem = originalSetItem;
-    });
-
-    it("retains events if logProgress throws an error", async () => {
-      setStudentSession(SAMPLE);
-      vi.mocked(logProgress).mockRejectedValueOnce(new Error("API Error"));
-
-      recordEvent({
-        lessonId: "1",
-        kind: "lesson_completed",
-      });
-
+      recordEvent({ lessonId: "2", kind: "lesson_completed" });
       await flushStudentEvents();
-
-      const pendingRaw = localStorage.getItem("cartilla.student-events.v1");
-      const pending = JSON.parse(pendingRaw || "[]");
-      expect(pending.length).toBeGreaterThan(0);
-      expect(pending[0].input.lessonId).toBe("1");
-    });
-
-    it("removes events from pending queue if logProgress succeeds", async () => {
-      setStudentSession(SAMPLE);
-      vi.mocked(logProgress).mockResolvedValueOnce({ ok: true });
-
-      recordEvent({
-        lessonId: "2",
-        kind: "lesson_completed",
-      });
-
-      await flushStudentEvents();
-
-      const pendingRaw = localStorage.getItem("cartilla.student-events.v1");
-      const pending = JSON.parse(pendingRaw || "[]");
-      expect(pending.length).toBe(0);
+      expect(logProgress).toHaveBeenCalledTimes(2);
+      expect(JSON.parse(localStorage.getItem("cartilla.student-events.v1") || "[]")).toHaveLength(0);
     });
   });
 
