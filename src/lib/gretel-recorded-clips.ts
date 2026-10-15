@@ -1,4 +1,19 @@
 import manifest from "@/data/gretel-recorded-manifest.json";
+import existingCatalog from "@/data/gretel-existing-audio-catalog.json";
+
+/** Full-phrase match only: NEVER use a similar word as proof that a recording says the requested text. */
+export function exactRecordedPhraseUrls(text: string): string[] {
+  const normalized = (value: string) => value
+    .normalize("NFC").toLocaleLowerCase("es")
+    .replace(/[^a-z0-9ñáéíóúü]+/g, " ").trim().replace(/\s+/g, " ");
+  const target = normalized(text);
+  if (!target) return [];
+  return existingCatalog.assets
+    .filter(asset => normalized(asset.phrase_es) === target)
+    .map(asset => asset.path)
+    .filter(url => /^\/audio\/gretel\/clips\/rec_[A-Za-z0-9_-]+\.mp3$/.test(url));
+}
+
 
 export type GretelRecording = {
   clip_id: string;
