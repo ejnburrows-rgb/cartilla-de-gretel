@@ -255,6 +255,29 @@ export function DragBuildWord({ words, accent, lessonId, onComplete }: DragBuild
   
   const [completedIndices, setCompletedIndices] = useState<Set<number>>(new Set());
   const activityCompleteFired = useRef(false);
+  const hasCalledComplete = useRef(false);
+
+  const contentKey = useMemo(() => JSON.stringify(safeWords), [safeWords]);
+
+  useEffect(() => {
+    // Reset state when words prop changes (identity is stable based on word content)
+    setWordIdx(0);
+
+    let parsedWords: string[];
+    try {
+      parsedWords = JSON.parse(contentKey);
+    } catch {
+      parsedWords = ["ola"];
+    }
+    const firstWord = parsedWords[0] ?? "ola";
+
+    dispatch({ type: "NEXT_WORD", word: firstWord });
+    setCompletedIndices(new Set());
+    activityCompleteFired.current = false;
+    hasCalledComplete.current = false;
+    setSelectedTray(null);
+    setFeedbackState(null);
+  }, [contentKey]);
 
   // Keyboard drag state
   const [selectedTray, setSelectedTray] = useState<number | null>(null);
@@ -277,7 +300,6 @@ export function DragBuildWord({ words, accent, lessonId, onComplete }: DragBuild
   }, [state.wrongSlot]);
 
   // On completion
-  const hasCalledComplete = useRef(false);
   useEffect(() => {
     if (state.completed && !hasCalledComplete.current) {
       hasCalledComplete.current = true;

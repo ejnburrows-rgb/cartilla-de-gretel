@@ -70,10 +70,11 @@ export function PageExercisePane({ pageNumber }: Props): ReactNode {
 
   if (exercise.kind === "drag-build") {
     const words = exercise.words || [];
+    const buildKey = `drag-build-${pageNumber}-${words.join("-")}`;
     return (
       <section className="mt-6 w-full space-y-4">
         <PaneHeader color={color} label={exercise.instructionEs} />
-        <DragBuildWord words={words} accent={color} lessonId={lessonId} />
+        <DragBuildWord key={buildKey} words={words} accent={color} lessonId={lessonId} />
       </section>
     );
   }
