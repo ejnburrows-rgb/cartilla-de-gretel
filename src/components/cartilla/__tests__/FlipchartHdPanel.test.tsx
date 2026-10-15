@@ -360,6 +360,16 @@ describe("FlipchartHdPanel — teacher hand mode and corner flip mechanics", () 
     expect(screen.getByTestId("flipchart-counter").textContent).toMatch(/Hoja 2 de/);
   });
 
+  it("ignores held-key repeats on focused page-turn corners", () => {
+    const { container } = render(<FlipchartHdPanel lessonNumber={7} />);
+    const corner = container.querySelector('[data-testid="flipchart-corner-left"]')!;
+    corner.focus();
+    fireEvent.keyDown(corner, { key: " ", repeat: true });
+    expect(screen.getByTestId("flipchart-counter").textContent).toMatch(/Hoja 1 de/);
+    fireEvent.keyDown(corner, { key: " " });
+    expect(screen.getByTestId("flipchart-counter").textContent).toMatch(/Hoja 2 de/);
+  });
+
   it("activates focused corners with Enter and Space keys in both hand modes while respecting boundary limits", () => {
     const { container } = render(<FlipchartHdPanel lessonNumber={7} />);
     const leftCorner = container.querySelector('[data-testid="flipchart-corner-left"]')!;
