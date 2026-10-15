@@ -1,5 +1,5 @@
 import { describe, expect, it } from "vitest";
-import { pageRecordingUrls, lessonIntroRecordingUrls, type GretelRecording } from "../gretel-recorded-clips";
+import { pageRecordingUrls, lessonIntroRecordingUrls, exactRecordedPhraseUrls, type GretelRecording } from "../gretel-recorded-clips";
 describe("Gretel local recording selection", () => {
   const clips: GretelRecording[] = [
     {clip_id:"GR0041",text:"Circula",page:"1",lesson:"1",category:"03_workbook_instrucciones_verbatim",status:"approved",audio_verified:true,urls:["/audio/gretel/clips/GR0041-0123456789ab-01.mp3"]},
@@ -7,6 +7,20 @@ describe("Gretel local recording selection", () => {
     {clip_id:"GR0043",text:"Different",page:"2",lesson:"1",category:"03_workbook_instrucciones_verbatim",urls:["/audio/gretel/clips/GR0043-0123456789ab-01.mp3"]},
     {clip_id:"GR0044",text:"Remote",page:"1",lesson:"1",category:"03_workbook_instrucciones_verbatim",urls:["https://example.org/track.mp3"]},
   ];
+  it("matches only the exact whole recorded phrase, never an invented word splice", () => {
+    expect(exactRecordedPhraseUrls("¡Sí! ¡Lo hiciste muy bien!")).toEqual([
+      "/audio/gretel/clips/rec_gretel_23.mp3",
+    ]);
+    expect(exactRecordedPhraseUrls("sí lo hiciste muy bien")).toEqual([
+      "/audio/gretel/clips/rec_gretel_23.mp3",
+    ]);
+    expect(exactRecordedPhraseUrls("¡Hola! ¡Qué alegría verte otra vez!")).toEqual([
+      "/audio/gretel/clips/rec_gretel_01.mp3",
+    ]);
+    expect(exactRecordedPhraseUrls("ma")).toEqual([]);
+    expect(exactRecordedPhraseUrls("¡Terminaste la lección!")).toEqual([]);
+  });
+
   it("uses only source-book local MP3 audio", () => {
     expect(pageRecordingUrls(1,clips)).toEqual(["/audio/gretel/clips/GR0041-0123456789ab-01.mp3"]);
   });
