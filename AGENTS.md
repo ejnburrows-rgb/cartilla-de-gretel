@@ -1,5 +1,17 @@
 # AGENTS.md — mandatory, every session, no exceptions
 
+## OVERRIDING OWNER DIRECTIVE — USE THE EXISTING FINISHED AUDIO (2026-10-15)
+
+**Newest owner-approved source-of-truth correction, effective immediately. Applies to all agents, Muse, Jules, reviewers, schedulers, and every future session. Supersedes older proposals/options elsewhere in this repository.**
+
+1. **Generator already solved.** The owner has a functioning generator that creates any Spanish sentence requested. **Do not research, clone, train, replace, deploy, self-host, or recommend another generator, TTS model, Colab voice setup, GPU, paid provider, or new recordings.** Do not reopen older "choose final Gretel voice" tasks.
+2. **Real finished source assets already supplied.** On **2026-10-14**, the owner generated and provided **more than one hour of actual recordings**, including recordings in video files. They are completed audio outputs; **not** voice-cloning reference material or merely recording prompts. Do not request re-recording or have the owner repeat explanations/uploads.
+3. **Exact authorized job:** find/recover the previously supplied assets through accessible authorized sources; extract audio from existing videos where necessary; use the real existing recordings to map to **every authentic workbook page instruction, applicable narration, alerts, correct-answer compliments, incorrect-answer and "try again" reactions, and all other recorded responses**. Map by actual spoken content and source pages (no invented alignment, words, or coverage). Install valid playable audio and connect it to appropriate events. Check real page-by-page browser playback, audio correctness, keyboard accessibility, mute/stop, and completeness. Preserve existing approved sound and unrelated behavior.
+4. **Evidence boundary:** PR #769 is an existing draft integration effort with **67 indexed MP3 cues and a 1,639-entry script** in its 2026-10-15 description, but it reported that its needed MP3 binaries were *not installed* on the running app, its exact-page active manifest was empty, and runtime playback was not proven. Recover this work; do not duplicate it. Recheck latest PR before making a new claim. **The recordings are usable source material; missing local tool access or uninstalled repo assets are an ACCESS/INTEGRATION blocker, never evidence that the recordings cannot be used.**
+5. **Never say "100% integrated" without proof** that the actual audio is accessible and installed and every claimed workbook page and response has correctly mapped, verified playback. Separate owner-supplied recording duration, extracted cue count, script entries, installed assets, mapped coverage, and live playback.
+6. **Stop unsolicited discussion of voice.** Only discuss the remaining integration/proof task if the owner explicitly asks. Preserve all standing permissions, no-paid-services rule, and owner-only production release gate. No unapproved merges/releases/assets deletion.
+
+
 
 ## OVERRIDING OWNER DECISION — do not re-open workbook pages 86–87 (2026-10-14)
 
