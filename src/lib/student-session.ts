@@ -34,7 +34,20 @@ export function getStudentSession(): StudentSession | null {
   try {
     const raw = localStorage.getItem(KEY);
     if (!raw) return null;
-    return JSON.parse(raw) as StudentSession;
+    const parsed = JSON.parse(raw);
+    if (
+      !parsed ||
+      typeof parsed !== "object" ||
+      Array.isArray(parsed) ||
+      typeof parsed.studentId !== "string" ||
+      typeof parsed.studentName !== "string" ||
+      typeof parsed.studentCode !== "string" ||
+      typeof parsed.classId !== "string" ||
+      typeof parsed.className !== "string"
+    ) {
+      return null;
+    }
+    return parsed as StudentSession;
   } catch {
     return null;
   }
