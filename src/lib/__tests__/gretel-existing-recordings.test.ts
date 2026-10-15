@@ -2,6 +2,8 @@ import { describe, expect, it } from "vitest";
 import {
   EXISTING_GRETEL_CLIP_IDS,
   RECORDED_OUTCOME_CLIP,
+  RECORDED_OUTCOME_SEQUENCE,
+  recordedOutcomeUrls,
   recordedClipUrl,
   recordedOutcomeUrl,
   recordedIntroClipIds,
@@ -35,6 +37,22 @@ describe("owner-recorded Gretel audio, no synthesis", () => {
     expect(recordedIntroClipIds(8)).toEqual(["gretel_18"]);
     expect(recordedIntroClipIds(9)).toEqual(["gretel_35"]);
     expect(recordedPracticeClipIds(2)).toContain("gretel_10");
+  });
+
+
+  it("stitches only complete existing phrases for correct/try-again feedback", () => {
+    expect(recordedOutcomeUrls("correct")).toEqual([
+      "/audio/gretel/clips/rec_gretel_23.mp3",
+      "/audio/gretel/clips/rec_gretel_24.mp3",
+    ]);
+    expect(recordedOutcomeUrls("try-again")).toEqual([
+      "/audio/gretel/clips/rec_gretel_29.mp3",
+      "/audio/gretel/clips/rec_gretel_34.mp3",
+    ]);
+    for (const clips of Object.values(RECORDED_OUTCOME_SEQUENCE)) {
+      expect(clips.length).toBeGreaterThan(0);
+      expect(clips.every(id=>EXISTING_GRETEL_CLIP_IDS.includes(id))).toBe(true);
+    }
   });
 
   it("never assigns audio to a nonexistent lesson", () => {
