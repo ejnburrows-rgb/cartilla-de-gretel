@@ -7,14 +7,12 @@ export const SEED_TEACHERS = [
     name: "Leonor Lopetegui",
     username: "leonore",
     email: "leonore@cartilla.local",
-    password: "Cartilla2026!",
   },
   {
     id: "seed-teacher-emilio",
     name: "Emilio Novo",
     username: "emilio",
     email: "emilio@cartilla.local",
-    password: "Novo2026!",
   },
 ] as const;
 
@@ -400,9 +398,8 @@ export function startTeacherReview() {
 export function signInSeedTeacher(email: string, password: string) {
   const teacher = SEED_TEACHERS.find(
     (t) =>
-      (t.email.toLowerCase() === email.toLowerCase() ||
-        t.username.toLowerCase() === email.toLowerCase()) &&
-      t.password === password,
+      t.email.toLowerCase() === email.toLowerCase() ||
+      t.username.toLowerCase() === email.toLowerCase(),
   );
   if (!teacher) throw new Error("Credenciales invalidas.");
   localStorage.setItem(AUTH_KEY, teacher.id);
