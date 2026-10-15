@@ -8,15 +8,10 @@ describe("Gretel local recording selection", () => {
     {clip_id:"GR0044",text:"Remote",page:"1",lesson:"1",category:"03_workbook_instrucciones_verbatim",urls:["https://example.org/track.mp3"]},
   ];
   it("matches only the exact whole recorded phrase, never an invented word splice", () => {
-    expect(exactRecordedPhraseUrls("¡Sí! ¡Lo hiciste muy bien!")).toEqual([
-      "/audio/gretel/clips/rec_gretel_23.mp3",
-    ]);
-    expect(exactRecordedPhraseUrls("sí lo hiciste muy bien")).toEqual([
-      "/audio/gretel/clips/rec_gretel_23.mp3",
-    ]);
-    expect(exactRecordedPhraseUrls("¡Hola! ¡Qué alegría verte otra vez!")).toEqual([
-      "/audio/gretel/clips/rec_gretel_01.mp3",
-    ]);
+    // Exact phrase matching alone does not authorize owner-rejected, music-backed recordings.
+    expect(exactRecordedPhraseUrls("¡Sí! ¡Lo hiciste muy bien!")).toEqual([]);
+    expect(exactRecordedPhraseUrls("sí lo hiciste muy bien")).toEqual([]);
+    expect(exactRecordedPhraseUrls("¡Hola! ¡Qué alegría verte otra vez!")).toEqual([]);
     expect(exactRecordedPhraseUrls("ma")).toEqual([]);
     expect(exactRecordedPhraseUrls("¡Terminaste la lección!")).toEqual([]);
   });
