@@ -62,6 +62,8 @@ export function DragMatchPairs({
     useSensor(TouchSensor, { activationConstraint: { distance: 5 } }),
   );
 
+  const pairsKey = pairs.map((p) => `${p.word}:${p.emoji}`).join("|");
+
   // Initialize and shuffle
   const resetGame = useCallback(() => {
     setShuffledWords(shuffle(pairs.map((p) => p.word)));
@@ -73,9 +75,14 @@ export function DragMatchPairs({
     reported.current = false;
   }, [pairs]);
 
+  const prevPairsKeyRef = useRef<string | null>(null);
+
   useEffect(() => {
-    resetGame();
-  }, [resetGame]);
+    if (prevPairsKeyRef.current !== pairsKey) {
+      resetGame();
+      prevPairsKeyRef.current = pairsKey;
+    }
+  }, [pairsKey, resetGame]);
 
   // Handle successful match completion
   useEffect(() => {
