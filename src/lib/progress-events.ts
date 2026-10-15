@@ -49,7 +49,9 @@ function readQueue(): ProgressEvent[] {
     if (typeof localStorage === "undefined") return [...memoryQueue];
     const raw = localStorage.getItem(QUEUE_KEY);
     if (raw == null) return [...memoryQueue];
-    return JSON.parse(raw) as ProgressEvent[];
+    const parsed: unknown = JSON.parse(raw);
+    if (!Array.isArray(parsed)) return [...memoryQueue];
+    return parsed as ProgressEvent[];
   } catch {
     return [...memoryQueue];
   }
