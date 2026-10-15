@@ -33,7 +33,7 @@ describe("owner-recorded Gretel audio, no synthesis", () => {
   });
 
   it("uses specific M and P recordings only at the corresponding lesson", () => {
-    expect(recordedIntroClipIds(7)).toEqual(["gretel_11", "gretel_12"]);
+    expect(recordedIntroClipIds(7)).toEqual(["gretel_11", "gretel_12", "gretel_13"]);
     expect(recordedIntroClipIds(8)).toEqual(["gretel_18"]);
     expect(recordedIntroClipIds(9)).toEqual(["gretel_35"]);
     expect(recordedPracticeClipIds(2)).toContain("gretel_10");
