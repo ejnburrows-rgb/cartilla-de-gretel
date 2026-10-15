@@ -36,9 +36,29 @@ export function DrawBoxCanvas({ regionId, hint, lessonId }: DrawBoxCanvasProps) 
     const resize = () => {
       const rect = canvas.getBoundingClientRect();
       const ratio = window.devicePixelRatio || 1;
+      
+      // Snapshot the existing canvas before resizing (resizing clears it)
+      const currentWidth = canvas.width;
+      const currentHeight = canvas.height;
+      let snapshot: HTMLCanvasElement | null = null;
+      
+      if (currentWidth > 0 && currentHeight > 0) {
+        snapshot = document.createElement("canvas");
+        snapshot.width = currentWidth;
+        snapshot.height = currentHeight;
+        const snapshotCtx = snapshot.getContext("2d");
+        snapshotCtx?.drawImage(canvas, 0, 0);
+      }
+
       canvas.width = rect.width * ratio;
       canvas.height = rect.height * ratio;
       const ctx = canvas.getContext("2d");
+      
+      // Restore the snapshot
+      if (snapshot && ctx) {
+        ctx.drawImage(snapshot, 0, 0, currentWidth, currentHeight, 0, 0, canvas.width, canvas.height);
+      }
+      
       ctx?.scale(ratio, ratio);
     };
     resize();
