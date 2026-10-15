@@ -5,6 +5,7 @@
 import { onGretelSpeak, type GretelSpeakDetail } from "./gretel-speak";
 import { playGretelRecordingQueue } from "./gretel-recorded-playback";
 import { isGretelVoiceMuted } from "./gretel-voice";
+import existingCatalog from "@/data/gretel-existing-audio-catalog.json";
 
 const EXTRA_CLIP_IDS = [
   "01_oh","02_viste","03_sorpresa","04_hmm","05_que_crees",
@@ -18,9 +19,11 @@ export const EXISTING_GRETEL_CLIP_IDS = [
   ...EXTRA_CLIP_IDS,
 ];
 const KNOWN = new Set(EXISTING_GRETEL_CLIP_IDS);
+/** The rejected music/stutter archive remains preserved, never selected for playback. */
+const PLAYABLE = new Set(existingCatalog.assets.filter(asset => asset.playback_status === "approved_clean").map(asset => asset.id));
 
 export function recordedClipUrl(id: string): string | null {
-  return KNOWN.has(id) ? "/audio/gretel/clips/rec_"+id+".mp3" : null;
+  return KNOWN.has(id) && PLAYABLE.has(id) ? "/audio/gretel/clips/rec_"+id+".mp3" : null;
 }
 
 export const RECORDED_OUTCOME_CLIP: Record<GretelSpeakDetail["outcome"],string> = {
