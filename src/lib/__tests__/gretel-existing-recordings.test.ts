@@ -11,11 +11,11 @@ import {
 } from "../gretel-existing-recordings";
 
 describe("owner-recorded Gretel audio, no synthesis", () => {
-  it("recognizes all 48 original and 19 added recordings", () => {
+  it("indexes all 67 real archived clips but blocks rejected versions from playback", () => {
     expect(EXISTING_GRETEL_CLIP_IDS).toHaveLength(67);
     expect(new Set(EXISTING_GRETEL_CLIP_IDS).size).toBe(67);
     for (const id of EXISTING_GRETEL_CLIP_IDS) {
-      expect(recordedClipUrl(id)).toMatch(/^\/audio\/gretel\/clips\/rec_[a-z0-9_-]+\.mp3$/);
+      expect(recordedClipUrl(id)).toBeNull(); // Archived only until individually approved clean
     }
   });
 
@@ -25,10 +25,10 @@ describe("owner-recorded Gretel audio, no synthesis", () => {
     expect(recordedClipUrl("gretel_49")).toBeNull();
   });
 
-  it("binds feedback outcomes to actual indexed recordings", () => {
-    expect(recordedOutcomeUrl("correct")).toBe("/audio/gretel/clips/rec_gretel_23.mp3");
-    expect(recordedOutcomeUrl("try-again")).toBe("/audio/gretel/clips/rec_gretel_30.mp3");
-    expect(recordedOutcomeUrl("lesson-complete")).toBe("/audio/gretel/clips/rec_gretel_41.mp3");
+  it("never plays rejected clips even when a feedback outcome points to an indexed ID", () => {
+    expect(recordedOutcomeUrl("correct")).toBeNull();
+    expect(recordedOutcomeUrl("try-again")).toBeNull();
+    expect(recordedOutcomeUrl("lesson-complete")).toBeNull();
     expect(Object.values(RECORDED_OUTCOME_CLIP).every(id => EXISTING_GRETEL_CLIP_IDS.includes(id))).toBe(true);
   });
 
@@ -40,15 +40,9 @@ describe("owner-recorded Gretel audio, no synthesis", () => {
   });
 
 
-  it("stitches only complete existing phrases for correct/try-again feedback", () => {
-    expect(recordedOutcomeUrls("correct")).toEqual([
-      "/audio/gretel/clips/rec_gretel_23.mp3",
-      "/audio/gretel/clips/rec_gretel_24.mp3",
-    ]);
-    expect(recordedOutcomeUrls("try-again")).toEqual([
-      "/audio/gretel/clips/rec_gretel_29.mp3",
-      "/audio/gretel/clips/rec_gretel_34.mp3",
-    ]);
+  it("does not stitch rejected clips for correct/try-again feedback", () => {
+    expect(recordedOutcomeUrls("correct")).toEqual([]);
+    expect(recordedOutcomeUrls("try-again")).toEqual([]);
     for (const clips of Object.values(RECORDED_OUTCOME_SEQUENCE)) {
       expect(clips.length).toBeGreaterThan(0);
       expect(clips.every(id=>EXISTING_GRETEL_CLIP_IDS.includes(id))).toBe(true);
