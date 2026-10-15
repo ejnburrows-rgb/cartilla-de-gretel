@@ -67,9 +67,9 @@ export function exportStudentProgressCsv(studentName: string, events: StudentEve
     Fecha: new Date(e.created_at).toLocaleDateString(),
     Evento: e.event_kind,
     Leccion: e.lesson_id,
-    Puntuacion: e.score || 0,
-    Total: e.total || 0,
-    "Tiempo (s)": e.time_seconds || 0,
+    Puntuacion: e.score ?? "",
+    Total: e.total ?? "",
+    "Tiempo (s)": e.time_seconds ?? "",
   }));
 
   const csv = toCSV(rows, columns) || `${columns.join(",")}\n`;
