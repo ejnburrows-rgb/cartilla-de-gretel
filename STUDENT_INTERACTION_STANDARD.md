@@ -37,6 +37,14 @@ Use one coherent nostalgic school-tool language:
 
 Pencil, eraser and feedback motion must be polished and seamless: one purposeful action, then settle. Per owner decision of 2026-10-09, living pictures move continuously, gently, and smoothly with no stutter, jumps, pops, or visible loop restart seams while the learner works. Motion must be realistic for what each thing is (owner decision 2026-10-11). Animals move like the real animal — for example, the cow blinks, breathes, and flicks its ears or tail — and only the parts that really move do so. Whole pictures must never wave, ripple, bob or float like a flag; only something that really travels as a whole, such as a flying airplane, may move gently as a whole (owner decision 2026-10-11). Motion is built using the original workbook art as the template; owner-approved image snippets follow the same rule.
 
+## Piano Hablador — latest microphone-only owner decision (2026-10-14)
+
+**The piano is a voice-responsive display, NOT an instrument played by the child's fingers or keyboard shortcuts.** The child speaks or sings a Spanish vowel/syllable into the microphone; the corresponding visual piano key illuminates automatically. No touch/click/keyboard piano playing, manual progress, or "Tocar sin micrófono" fallback is permitted. Microphone, replay, and interface controls remain keyboard-accessible.
+
+- **Acoustic truth:** Vocal pitch (fundamental frequency) corresponds to musical note, but does **not** identify vowel phonemes by itself; distinguish `a/e/i/o/u` with on-device vowel/speech recognition or adequate formant analysis. Accurate pitch-responsive key indication and correct vowel confirmation are **both** part of the intended finished behavior. Never falsely credit a random sound, wrong vowel, background noise, or a touched piano key.
+- Process voice on-device only; no recording or uploaded raw child audio. Handle mic permission, unsupported devices, silence/noise, session cancellation, navigation, privacy, keyboard-accessible mic controls, and reduced motion.
+- This supersedes original #733's touch/keyboard piano-playing fallback, even though #733's approved visual designs and voice-based syllable behavior remain useful. Closed PR #678 must not be revived. [PR #758](https://github.com/ejnburrows-rgb/cartilla-de-gretel/pull/758) removes old touch-play controls; an acoustic pitch/formant implementation and live microphone proof **remain necessary**. Reuse the existing issue #665 for targeted follow-up. Do not represent removal of buttons or transcript matching alone as complete pitch-to-vowel behavior.
+
 ## Canonical interaction decisions
 
 ### 1. Wrong answer — Pencil Retry

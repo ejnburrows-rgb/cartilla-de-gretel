@@ -1,5 +1,4 @@
-/** Keyboard geometry shared by the two Piano Hablador designs. */
-import { useEffect, useRef } from "react";
+/** Visual keyboard geometry shared by the two microphone-driven Piano Hablador designs. */
 
 export const NOTE = {
   C4: 261.63,
@@ -21,8 +20,6 @@ export interface WhiteKey {
   id: string;
   name: string;
   freq: number;
-  /** Physical keys that play it. */
-  hotkeys: string[];
 }
 export interface BlackKey {
   id: string;
@@ -30,26 +27,25 @@ export interface BlackKey {
   freq: number;
   /** Sits on the boundary after white key `after` (0-based). */
   after: number;
-  hotkeys: string[];
 }
 
 /** One octave, do → do: 8 white + 5 black. Design A ("Piano"). */
 export const OCTAVE_WHITE: WhiteKey[] = [
-  { id: "C4", name: "do", freq: NOTE.C4, hotkeys: ["a", "1"] },
-  { id: "D4", name: "re", freq: NOTE.D4, hotkeys: ["s", "2"] },
-  { id: "E4", name: "mi", freq: NOTE.E4, hotkeys: ["d", "3"] },
-  { id: "F4", name: "fa", freq: NOTE.F4, hotkeys: ["f", "4"] },
-  { id: "G4", name: "sol", freq: NOTE.G4, hotkeys: ["g", "5"] },
-  { id: "A4", name: "la", freq: NOTE.A4, hotkeys: ["h", "6"] },
-  { id: "B4", name: "si", freq: NOTE.B4, hotkeys: ["j", "7"] },
-  { id: "C5", name: "do alto", freq: NOTE.C5, hotkeys: ["k", "8"] },
+  { id: "C4", name: "do", freq: NOTE.C4 },
+  { id: "D4", name: "re", freq: NOTE.D4 },
+  { id: "E4", name: "mi", freq: NOTE.E4 },
+  { id: "F4", name: "fa", freq: NOTE.F4 },
+  { id: "G4", name: "sol", freq: NOTE.G4 },
+  { id: "A4", name: "la", freq: NOTE.A4 },
+  { id: "B4", name: "si", freq: NOTE.B4 },
+  { id: "C5", name: "do alto", freq: NOTE.C5 },
 ];
 export const OCTAVE_BLACK: BlackKey[] = [
-  { id: "Cs4", name: "do sostenido", freq: NOTE.Cs4, after: 0, hotkeys: ["w"] },
-  { id: "Ds4", name: "re sostenido", freq: NOTE.Ds4, after: 1, hotkeys: ["e"] },
-  { id: "Fs4", name: "fa sostenido", freq: NOTE.Fs4, after: 3, hotkeys: ["t"] },
-  { id: "Gs4", name: "sol sostenido", freq: NOTE.Gs4, after: 4, hotkeys: ["y"] },
-  { id: "As4", name: "la sostenido", freq: NOTE.As4, after: 5, hotkeys: ["u"] },
+  { id: "Cs4", name: "do sostenido", freq: NOTE.Cs4, after: 0 },
+  { id: "Ds4", name: "re sostenido", freq: NOTE.Ds4, after: 1 },
+  { id: "Fs4", name: "fa sostenido", freq: NOTE.Fs4, after: 3 },
+  { id: "Gs4", name: "sol sostenido", freq: NOTE.Gs4, after: 4 },
+  { id: "As4", name: "la sostenido", freq: NOTE.As4, after: 5 },
 ];
 
 /** Five big keys, do → sol: one per syllable slot. Design B ("Cancionero"). */
@@ -77,25 +73,3 @@ export const STATE_LABEL = {
   confirmed: "lista",
 } as const;
 
-/**
- * Physical keyboard: letters/digits play keys. Ignored while typing in a form
- * control or editable text, with a modifier, or on key repeat.
- */
-export function useHotkeys(map: Record<string, () => void>) {
-  const mapRef = useRef(map);
-  mapRef.current = map;
-  useEffect(() => {
-    const onKey = (event: KeyboardEvent) => {
-      if (event.repeat || event.ctrlKey || event.metaKey || event.altKey) return;
-      const target = event.target as HTMLElement | null;
-      if (target && (/^(INPUT|TEXTAREA|SELECT)$/.test(target.tagName) || target.isContentEditable))
-        return;
-      const action = mapRef.current[event.key.toLowerCase()];
-      if (!action) return;
-      event.preventDefault();
-      action();
-    };
-    window.addEventListener("keydown", onKey);
-    return () => window.removeEventListener("keydown", onKey);
-  }, []);
-}

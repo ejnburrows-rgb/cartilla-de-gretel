@@ -5,7 +5,7 @@
  *   • "Piano" (design A): the original wooden piano, refined — a full octave
  *     of white and black keys under a little staff of syllables.
  *   • "Cancionero" (design B): Gretel's songbook — the syllables as song
- *     lyrics, five big keys docked within thumb reach on phones.
+ *     lyrics, five large visual keys that light from microphone input.
  *
  * The app picks one by screen size (Cancionero on phones, Piano on tablets and
  * laptops) and a small switch lets the child or teacher change it; the choice

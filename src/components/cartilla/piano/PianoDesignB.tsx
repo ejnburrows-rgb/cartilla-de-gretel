@@ -7,13 +7,13 @@
  * syllable, so every key is thumb-sized. Each key has a lamp in the same color
  * as its note; when the syllable is said the note fills in, the lamp lights
  * and the key plays. On phones the piano, its buttons and the feedback are
- * docked at the bottom of the screen, within thumb reach.
+ * docked at the bottom of the screen. Keys are indicators, never inputs.
  */
 import type { CSSProperties } from "react";
-import { ArrowRight, Check, Hand, Mic, MicOff, RotateCcw, Volume2 } from "lucide-react";
+import { ArrowRight, Check, Mic, MicOff, RotateCcw, Volume2 } from "lucide-react";
 import { GretelLiveAvatar } from "@/components/gretel/GretelLiveAvatar";
 import { usePianoSession, PRIVACY_NOTE, type PianoDesignProps } from "./usePianoSession";
-import { FIVE_BLACK, FIVE_WHITE, STATE_LABEL, SYLLABLE_COLORS, useHotkeys } from "./piano-keyboard";
+import { FIVE_BLACK, FIVE_WHITE, STATE_LABEL, SYLLABLE_COLORS } from "./piano-keyboard";
 import "./piano-design-b.css";
 
 export const DESIGN_B_MAX_SYLLABLES = FIVE_WHITE.length;
@@ -31,21 +31,6 @@ export function PianoDesignB({ syllables, words, lessonId, onComplete, locale }:
     maxSyllables: DESIGN_B_MAX_SYLLABLES,
     noteFor: (index) => FIVE_WHITE[index % FIVE_WHITE.length].freq,
   });
-
-  const pressWhite = (index: number) => {
-    if (index < s.keys.length) s.pressSyllableKey(index);
-    else s.pressFreeKey(FIVE_WHITE[index].id, FIVE_WHITE[index].freq);
-  };
-  const pressBlack = (index: number) =>
-    s.pressFreeKey(FIVE_BLACK[index].id, FIVE_BLACK[index].freq);
-  const hotkeys: Record<string, () => void> = {};
-  FIVE_WHITE.forEach((key, index) =>
-    key.hotkeys.forEach((h) => (hotkeys[h] = () => pressWhite(index))),
-  );
-  FIVE_BLACK.forEach((key, index) =>
-    key.hotkeys.forEach((h) => (hotkeys[h] = () => pressBlack(index))),
-  );
-  useHotkeys(hotkeys);
 
   if (!s.item) return null;
   const total = s.keys.length;
@@ -181,13 +166,11 @@ export function PianoDesignB({ syllables, words, lessonId, onComplete, locale }:
           >
             {s.micOpen ? <Mic aria-hidden="true" /> : <MicOff aria-hidden="true" />}
             <span className="pb__mic-label">
-              {s.touchMode
-                ? "Tocar"
-                : s.status === "hearing"
-                  ? "Te oigo"
-                  : s.micOpen
-                    ? "Escucho"
-                    : "Hablar"}
+              {s.status === "hearing"
+                ? "Te oigo"
+                : s.micOpen
+                  ? "Escucho"
+                  : "Hablar"}
             </span>
           </button>
           <button
@@ -209,24 +192,18 @@ export function PianoDesignB({ syllables, words, lessonId, onComplete, locale }:
               data-testid="piano-sparkle"
             />
           )}
-          <div className="pb__keys piano-hablador__bed" role="group" aria-label="Teclado del piano">
+          <div className="pb__keys piano-hablador__bed" role="img" aria-label="Teclado visual: las teclas se iluminan al reconocer la voz">
             {FIVE_WHITE.map((key, index) => {
               const carries = index < total;
               const state = carries ? s.keyStateFor(index) : "free";
               const color = carries ? SYLLABLE_COLORS[index % SYLLABLE_COLORS.length] : "#d6d3d1";
-              const label = carries
-                ? `Tecla ${s.keys[index]}, ${STATE_LABEL[state as keyof typeof STATE_LABEL]}`
-                : `Nota ${key.name}`;
               return (
-                <button
+                <span
                   key={key.id}
-                  type="button"
+                  aria-hidden="true"
                   className={`pb__white pb__white--${state} ${carries ? "piano-hablador__slot" : ""} ${isFlashing(carries ? `s${index}` : key.id) ? "pb__white--flash" : ""}`}
                   style={{ "--c": color } as CSSProperties}
-                  aria-label={label}
-                  aria-pressed={carries ? state === "confirmed" : undefined}
                   data-key-state={carries ? state : undefined}
-                  onClick={() => pressWhite(index)}
                   data-testid={`piano-key-${index}`}
                 >
                   <span className="pb__lamp" aria-hidden="true">
@@ -235,43 +212,22 @@ export function PianoDesignB({ syllables, words, lessonId, onComplete, locale }:
                   {carries && state === "confirmed" && (
                     <Check className="pb__white-check" aria-hidden="true" />
                   )}
-                  <span className="pb__hotkey" aria-hidden="true">
-                    {key.hotkeys[0].toUpperCase()}
-                  </span>
-                </button>
+                </span>
               );
             })}
-            {FIVE_BLACK.map((key, index) => (
-              <button
+            {FIVE_BLACK.map((key) => (
+              <span
                 key={key.id}
-                type="button"
-                tabIndex={-1}
+                aria-hidden="true"
                 className={`pb__black ${isFlashing(key.id) ? "pb__black--flash" : ""}`}
                 style={{ "--pos": key.after + 1 } as CSSProperties}
-                aria-label={`Nota ${key.name}`}
-                onClick={() => pressBlack(index)}
-              >
-                <span className="pb__hotkey pb__hotkey--black" aria-hidden="true">
-                  {key.hotkeys[0].toUpperCase()}
-                </span>
-              </button>
+              />
             ))}
           </div>
         </div>
       </div>
 
       <div className="pb__footer">
-        {s.supported && (
-          <button
-            type="button"
-            onClick={s.toggleTouchMode}
-            aria-pressed={s.touchMode}
-            className="pb__touch"
-            data-testid="piano-touch-mode"
-          >
-            <Hand aria-hidden="true" /> {s.touchMode ? "Usar el micrófono" : "Tocar sin micrófono"}
-          </button>
-        )}
         <p className="pb__privacy" data-testid="piano-privacy">
           {PRIVACY_NOTE[s.processing]}
         </p>
