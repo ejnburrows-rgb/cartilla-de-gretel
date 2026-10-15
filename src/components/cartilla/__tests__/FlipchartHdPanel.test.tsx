@@ -120,6 +120,68 @@ describe("FlipchartHdPanel — CRM-grade presenter board", () => {
     );
   });
 
+  it.each([" ", "Enter"])(
+    "keeps focused previous-button %s activation separate from global shortcuts",
+    (key) => {
+      render(<FlipchartHdPanel lessonNumber={7} />);
+      fireEvent.click(screen.getByRole("button", { name: "Lámina siguiente" }));
+      const prev = screen.getByRole("button", { name: "Lámina anterior" });
+      prev.focus();
+      fireEvent.keyDown(prev, { key });
+      // Browser-generated keyboard click is simulated separately in jsdom.
+      expect(screen.getByTestId("flipchart-counter").textContent).toMatch(/Hoja 2 de/);
+      fireEvent.click(prev);
+      expect(screen.getByTestId("flipchart-counter").textContent).toMatch(/Hoja 1 de/);
+    },
+  );
+
+  it.each([" ", "ArrowDown", "PageDown"])(
+    "does not globally turn a page on focused thumbnail key %s",
+    (key) => {
+      render(<FlipchartHdPanel lessonNumber={7} />);
+      const thumb = screen.getByRole("tab", { name: "Ir a hoja 3" });
+      thumb.focus();
+      fireEvent.keyDown(thumb, { key });
+      expect(screen.getByTestId("flipchart-counter").textContent).toMatch(/Hoja 1 de/);
+      fireEvent.click(thumb);
+      expect(screen.getByTestId("flipchart-counter").textContent).toMatch(/Hoja 3 de/);
+    },
+  );
+
+  it("ignores shortcuts originating from focused external form fields", () => {
+    render(<><input aria-label="Nota del maestro" /><FlipchartHdPanel lessonNumber={7} /></>);
+    const input = screen.getByRole("textbox", { name: "Nota del maestro" });
+    input.focus();
+    fireEvent.keyDown(input, { key: "PageDown" });
+    expect(screen.getByTestId("flipchart-counter").textContent).toMatch(/Hoja 1 de/);
+  });
+
+  it("preserves presenter-surface navigation, boundaries, and suppresses held-key repeats", () => {
+    render(<FlipchartHdPanel lessonNumber={7} />);
+    const stage = screen.getByTestId("flipchart-stage");
+    expect(stage.getAttribute("tabindex")).toBe("0");
+    stage.focus();
+    fireEvent.keyDown(stage, { key: "ArrowDown", repeat: true });
+    expect(screen.getByTestId("flipchart-counter").textContent).toMatch(/Hoja 1 de/);
+    fireEvent.keyDown(stage, { key: "ArrowDown" });
+    fireEvent.keyDown(stage, { key: "PageDown" });
+    fireEvent.keyDown(stage, { key: "PageDown" });
+    expect(screen.getByTestId("flipchart-counter").textContent).toMatch(/Hoja 3 de/);
+    fireEvent.keyDown(stage, { key: "ArrowUp" });
+    fireEvent.keyDown(stage, { key: "ArrowUp" });
+    fireEvent.keyDown(stage, { key: "ArrowUp" });
+    expect(screen.getByTestId("flipchart-counter").textContent).toMatch(/Hoja 1 de/);
+  });
+
+  it("does not handle an already-prevented presenter keydown", () => {
+    render(<FlipchartHdPanel lessonNumber={7} />);
+    const stage = screen.getByTestId("flipchart-stage");
+    const event = new KeyboardEvent("keydown", { key: "ArrowDown", bubbles: true, cancelable: true });
+    event.preventDefault();
+    stage.dispatchEvent(event);
+    expect(screen.getByTestId("flipchart-counter").textContent).toMatch(/Hoja 1 de/);
+  });
+
   // useReducedMotion is mocked to true at the top of this file, so page turns
   // must be instant: no rotateX flip layer and no disabled-motion dead period.
   it("under reduced motion, advances instantly with no flip layer", () => {
