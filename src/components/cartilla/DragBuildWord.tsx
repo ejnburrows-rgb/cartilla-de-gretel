@@ -252,6 +252,9 @@ export function DragBuildWord({ words, accent, lessonId, onComplete }: DragBuild
 
   const [state, dispatch] = useReducer(reducer, currentWord, initState);
   const [feedbackState, setFeedbackState] = useState<"ok" | "x" | null>(null);
+  
+  const [completedIndices, setCompletedIndices] = useState<Set<number>>(new Set());
+  const activityCompleteFired = useRef(false);
 
   // Keyboard drag state
   const [selectedTray, setSelectedTray] = useState<number | null>(null);
@@ -290,11 +293,30 @@ export function DragBuildWord({ words, accent, lessonId, onComplete }: DragBuild
           meta: { exercise: "drag_build_word", word: state.target, completed: true },
         });
       }
-      gretelEvent("lesson:complete");
+      
+      const newCompleted = new Set(completedIndices);
+      newCompleted.add(wordIdx);
+      setCompletedIndices(newCompleted);
+
       setFeedbackState("ok");
-      onComplete?.();
+
+      if (newCompleted.size === safeWords.length && !activityCompleteFired.current) {
+        activityCompleteFired.current = true;
+        gretelEvent("lesson:complete");
+        onComplete?.();
+      }
     }
-  }, [state.completed, state.target, state.attempts, lessonId, onComplete, play]);
+  }, [
+    state.completed,
+    state.target,
+    state.attempts,
+    lessonId,
+    onComplete,
+    play,
+    completedIndices,
+    safeWords.length,
+    wordIdx,
+  ]);
 
   const handleDrop = useCallback(
     (slotIdx: number, trayIdx: number) => {
