@@ -36,7 +36,7 @@ export function TaskList({ classId }: TaskListProps) {
           classId,
           lessonId: lessonN,
           title: title.trim() || undefined,
-          dueAt: dueDate ? new Date(dueDate).toISOString() : null,
+          dueAt: dueDate ? new Date(dueDate + "T00:00:00").toISOString() : null,
           timeLimitSeconds: timeLimit ? Number(timeLimit) * 60 : null,
         },
       }),

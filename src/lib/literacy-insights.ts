@@ -297,7 +297,15 @@ export function buildStudentLearningInsight(
     if (!lessonId || completedLessonIds.has(lessonId)) continue;
     const lessonEvents = sortedEvents.filter((event) => event.lesson_id === lessonId);
     const dueAt = assignmentDueAt(assignment);
-    const overdue = dueAt ? new Date(dueAt).getTime() < now : false;
+    let overdue = false;
+    if (dueAt) {
+      // dueAt was saved by parsing the chosen date as local midnight (i.e. dueAt + "T00:00:00").
+      // Since new Date(dueAt).getTime() already points to the precise local midnight when it was created,
+      // the end of that local day is exactly 24 hours (minus 1 ms) later.
+      const localMidnightTime = new Date(dueAt).getTime();
+      const localEndTime = localMidnightTime + 24 * 60 * 60 * 1000 - 1;
+      overdue = localEndTime < now;
+    }
     if (!overdue && lessonEvents.length === 0) continue;
     const entry = catalogEntry(lessonId);
     if (!entry) continue;
