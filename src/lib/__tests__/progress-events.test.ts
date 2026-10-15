@@ -117,6 +117,22 @@ describe("progress-events", () => {
     await vi.waitFor(() => expect(logProgress).toHaveBeenCalledTimes(1));
     expect(getQueuedProgressEvents()).toHaveLength(0);
   });
+
+  it("returns fallback and does not throw when storage is corrupt (non-array JSON)", () => {
+    // Seed storage with a corrupt value
+    localStorage.setItem("cartilla.progress-events-queue.v1", JSON.stringify({ oops: "not an array" }));
+    // Expect readQueue to not throw, and emitProgressEvent to queue correctly.
+    expect(() => {
+      emitProgressEvent({
+        type: "page_opened",
+        physicalPage: 1,
+        lesson: 1,
+        mechanic: "tap-select",
+      });
+    }).not.toThrow();
+    const queued = getQueuedProgressEvents();
+    expect(queued).toHaveLength(1);
+  });
 });
 
 it("never attributes anonymous or another child's queued workbook work to the current student", async () => {
