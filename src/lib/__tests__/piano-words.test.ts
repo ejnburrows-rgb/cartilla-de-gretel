@@ -1,5 +1,6 @@
 import { describe, expect, it } from "vitest";
-import transcription from "@/data/book-transcription/lessons-08-24.json";
+import transcription0107 from "@/data/book-transcription/lessons-01-07.json";
+import transcription0824 from "@/data/book-transcription/lessons-08-24.json";
 import { PIANO_WORDS, getPianoWords } from "../piano-words";
 
 type Fill = { wordBox?: string; blank?: string; answer?: string };
@@ -10,7 +11,32 @@ type Lesson = {
   fill?: Fill[];
   circle?: { rows: string[][] }[];
 };
-const lessons = (transcription as unknown as { lessons: Record<string, Lesson> }).lessons;
+const lessons0107pages = (
+  transcription0107 as unknown as { pages: Record<string, { lesson?: number; vocabColumns?: string[][]; fill?: Fill[]; circle?: { rows: string[][] }[] }> }
+).pages;
+
+const lessons0107: Record<string, Lesson> = {};
+for (const page of Object.values(lessons0107pages)) {
+  if (page.lesson === undefined) continue;
+  const key = String(page.lesson);
+  if (!lessons0107[key]) {
+    lessons0107[key] = { lesson: page.lesson, title: "", vocab: [], fill: [], circle: [] };
+  }
+  if (page.vocabColumns) {
+    lessons0107[key].vocab!.push(...page.vocabColumns.flat());
+  }
+  if (page.fill) {
+    lessons0107[key].fill!.push(...page.fill);
+  }
+  if (page.circle) {
+    lessons0107[key].circle!.push(...page.circle);
+  }
+}
+
+const lessons = {
+  ...lessons0107,
+  ...(transcription0824 as unknown as { lessons: Record<string, Lesson> }).lessons,
+};
 
 describe("piano-words", () => {
   it("uses only words printed in that lesson of the Student Workbook transcription", () => {
