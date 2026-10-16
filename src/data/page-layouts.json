@@ -774,7 +774,7 @@
           "cells": [
             {
               "caption": "abanico",
-              "illustrationSrc": "/cartilla/art/faithful/vocal-a/abanico.webp",
+              "illustrationSrc": "/cartilla/art/optimized/workbook/leccion-1/abanico.svg",
               "correct": true
             },
             {
@@ -794,7 +794,7 @@
             },
             {
               "caption": "oveja",
-              "illustrationSrc": "/cartilla/art/faithful/vocal-o/oveja.webp",
+              "illustrationSrc": "/cartilla/art/optimized/workbook/leccion-1/oveja.svg",
               "correct": false
             },
             {
@@ -814,7 +814,7 @@
             },
             {
               "caption": "uno",
-              "illustrationSrc": "/cartilla/art/faithful/vocal-u/uno.webp",
+              "illustrationSrc": "/cartilla/art/optimized/workbook/leccion-1/uno.svg",
               "correct": false
             },
             {
@@ -849,7 +849,7 @@
             },
             {
               "caption": "oso",
-              "illustrationSrc": "/cartilla/art/faithful/vocal-o/oso.webp",
+              "illustrationSrc": "/cartilla/art/optimized/flipchart-native/p004-oso.png",
               "correct": false
             }
           ]
@@ -876,7 +876,7 @@
           "cells": [
             {
               "caption": "oso",
-              "illustrationSrc": "/cartilla/art/faithful/vocal-o/oso.webp",
+              "illustrationSrc": "/cartilla/art/optimized/flipchart-native/p004-oso.png",
               "correct": false
             },
             {

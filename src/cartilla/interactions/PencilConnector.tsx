@@ -4,7 +4,7 @@
  * No rope/lasso rendering, physics, mascot prop, failure buzzer or local TTS.
  */
 import { useCallback, useEffect, useMemo, useRef, useState, useId } from "react";
-import { useActivityEvents, useActivityState } from "@/lib/activity-events";
+import { useActivityEvents, useActivityState, useLesson3Retry } from "@/lib/activity-events";
 import { playCorrectChord } from "@/lib/piano-audio";
 import { loadLassoProgress, saveLassoProgress } from "@/lib/activity-canvas-store";
 import { useReducedMotion } from "@/hooks/useReducedMotion";
@@ -50,6 +50,7 @@ export function DirectPencilConnector({
   centerLabel = "Uu",
   className,
 }: PencilConnectorProps) {
+  const retry = useLesson3Retry(lessonId);
   const shadowUid = `pencil-shadow-${useId().replace(/[^a-zA-Z0-9_-]/g, "")}`;
   const { emit: gretelEvent, record: recordEvent } = useActivityEvents();
   const [incorrectAttempts, setIncorrectAttempts] = useActivityState("incorrectAttempts", 0);
@@ -380,7 +381,7 @@ export function DirectPencilConnector({
 
   const attemptConnect = useCallback(
     (target: PencilTarget) => {
-      if (marked.has(target.id) || completed) return;
+      if (marked.has(target.id) || completed || (retry.isProof && wrongLine)) return;
 
       const isCorrect = Boolean(target.correct);
 
@@ -394,7 +395,8 @@ export function DirectPencilConnector({
         finishIfDone(count);
         onResult?.({ objectId: target.id, result: "correct" });
       } else {
-        gretelEvent("answer:wrong", { itemId: target.id });
+        if (!retry.attempt(target.id)) return;
+        gretelEvent("answer:wrong", { itemId: target.id, text: retry.text(target.id) });
         recordWrong();
         const from = centerPt;
         const to = getTargetCenter(target.id);
@@ -406,7 +408,7 @@ export function DirectPencilConnector({
         onResult?.({ objectId: target.id, result: "wrong" });
       }
     },
-    [marked, completed, targets, centerPt, getTargetCenter, persist, finishIfDone, onResult, recordWrong, gretelEvent, reducedMotion],
+    [marked, completed, targets, centerPt, getTargetCenter, persist, finishIfDone, onResult, recordWrong, gretelEvent, reducedMotion, wrongLine, retry],
   );
 
   const attemptPairConnect = useCallback(
@@ -836,7 +838,7 @@ export function DirectPencilConnector({
                   >
                     <div className="am-direct-pencil__card">
                       {t.src ? (
-                        <img src={t.src} alt="" draggable={false} loading="lazy" />
+                        <img src={t.src} alt={retry.isProof ? t.label : ""} draggable={false} loading="lazy" />
                       ) : (
                         <span className="am-direct-pencil__target-text">{t.label}</span>
                       )}
@@ -872,7 +874,7 @@ export function DirectPencilConnector({
         ]
           .filter(Boolean)
           .join(" ")}
-        disabled={isMarked}
+        disabled={isMarked && !retry.isProof}
         onClick={() => handleTargetClick(t)}
         aria-label={t.label}
         aria-pressed={isMarked}
@@ -881,7 +883,7 @@ export function DirectPencilConnector({
       >
         <div className="am-direct-pencil__card">
           {t.src ? (
-            <img src={t.src} alt="" draggable={false} loading="lazy" />
+            <img src={t.src} alt={retry.isProof ? t.label : ""} draggable={false} loading="lazy" />
           ) : (
             <span className="am-direct-pencil__target-text">{t.label}</span>
           )}

@@ -16,7 +16,7 @@ import { useLanguage } from "@/context/LanguageContext";
 import { sCopy } from "@/content/student-copy";
 import { useLearnerScope } from "@/lib/learner-storage";
 import { readLearnerResume, saveLearnerResume } from "@/lib/learner-resume";
-import { gretelEvent } from "@/lib/gretel-bus";
+import { onGretelEvent, gretelEvent } from "@/lib/gretel-bus";
 
 import { NativeLessonViewer } from "@/components/StudentBook/NativeLessonViewer";
 import "@/styles/lesson-fit.css";
@@ -134,6 +134,16 @@ export function Leccion() {
       }, 0);
     };
   }, []);
+  const [proofFeedback, setProofFeedback] = useState("");
+  useEffect(() => {
+    if (n !== 3) return;
+    return onGretelEvent((type, detail) => {
+      if (type === "page-turn:start") setProofFeedback("");
+      if (detail.restored || ![7, 8, 9].includes(detail.pageNumber ?? 0)) return;
+      if (type === "answer:correct" || type === "activity:complete") setProofFeedback("★ Muy bien.");
+      if (type === "answer:wrong") setProofFeedback(detail.text ?? "Casi. Escucha otra vez.");
+    });
+  }, [n]);
   const [saveFailed, setSaveFailed] = useState(false);
   useEffect(() => {
     const fail = () => setSaveFailed(true);
@@ -203,7 +213,7 @@ export function Leccion() {
   };
 
   return (
-    <div className="lc-lesson-shell lc-lesson-shell--fit min-h-screen flex flex-col">
+    <div className={`lc-lesson-shell lc-lesson-shell--fit ${n === 3 ? "lc-lesson-shell--lesson-3" : ""} min-h-screen flex flex-col`}>
       <DemoStudentBanner />
       <header className="lc-lesson-header">
         <Link
@@ -212,7 +222,13 @@ export function Leccion() {
         >
           <ArrowLeft className="w-5 h-5" /> Mis lecciones
         </Link>
+        {n === 3 && (
+          <span className="lc-lesson-header__lesson-3-label">
+            {t.leccion[lang]} 3 · {t.paginas[lang]} 7–9
+          </span>
+        )}
       </header>
+      {n === 3 && <p className="lesson-3-feedback" role="status" aria-live="polite" data-feedback-audio="pending">{proofFeedback || "Toca cada dibujo para escuchar su nombre."}</p>}
       {saveFailed && <p role="alert" className="mx-3 rounded-xl bg-amber-100 p-3 text-amber-950">No se pudo guardar tu trabajo. Mantén esta página abierta y libera espacio en este navegador antes de salir.</p>}
       <main className="lc-lesson-main flex-1 px-3 pb-6 max-w-7xl w-full mx-auto flex flex-col items-center">
         <div className="lc-lesson-main__intro w-full max-w-3xl text-left mb-4">
@@ -246,7 +262,7 @@ export function Leccion() {
                 onFinish={goNext}
                 lessonNumber={n}
                 autoTurn
-                swipe
+                swipe={n !== 3}
               />
             )}
           </GardenScene>

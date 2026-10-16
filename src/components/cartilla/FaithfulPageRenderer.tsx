@@ -364,7 +364,7 @@ function RegionView({
     case "picture-grid":
       if (host === "pencil-mark") {
         return <InteractivePictureGrid region={region} accent={accent ?? "hsl(230 75% 58%)"}
-          lessonId={lessonId} mark="circle" />;
+          lessonId={lessonId} mark={lessonId === "3" ? pictureMarkFor(precedingInstruction) : "circle"} />;
       }
       if (host === "paint") {
         // Colorea on a grid: paint the first colorable illustration cell as stage
@@ -446,7 +446,7 @@ function RegionView({
             )
           : region.text;
       return (
-        <p className="fp-region--instruction">
+        <p className="fp-region--instruction" data-instruction-audio-key={lessonId === "3" ? region.id : undefined} data-recording-status={lessonId === "3" ? "pending" : undefined}>
           {region.label ? <span className="fp-label">{region.label} </span> : null}
           {instructionText}
           {interactive && region.text ? (
@@ -663,7 +663,7 @@ export function FaithfulPageRenderer({
           <RegionView
             region={region}
             interactive={interactive}
-            accent={accent}
+            accent={lessonNumber === 3 ? "#167A72" : accent}
             lessonId={lessonId}
             lessonNumber={lessonNumber}
             resolvedModelText={resolvedModelText}

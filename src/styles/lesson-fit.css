@@ -280,3 +280,227 @@
 .lc-lesson-shell--fit .native-lesson-viewer__content .fp-ix-pick__cells { display: flex; justify-content: center; align-items: center; column-gap: min(3.2cqw, 28px); }
 .lc-lesson-shell--fit .native-lesson-viewer__content .fp-ix-grid .fp-ix-cell,
 .lc-lesson-shell--fit .native-lesson-viewer__content .fp-ix-pick__cells .fp-ix-cell { flex: 0 1 114cqh; width: auto; min-width: 0; height: auto; max-height: 100%; aspect-ratio: 1; }
+
+/* Lesson 3 proof only. Owner chose source columns with sideways activity scroll
+ * on phones rather than shrinking the 104px pictures or reordering the book. */
+.lc-lesson-shell--lesson-3 {
+  --lc-teal: #167a72;
+  --lc-ink: #25313a;
+  height: auto;
+  min-height: 100dvh !important;
+  overflow: visible;
+  background: #f5f1e8;
+  color: #25313a;
+  font: 18px/1.5 "Andika", sans-serif;
+}
+.lc-lesson-shell--lesson-3 .lc-lesson-header {
+  position: static;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px 16px;
+  margin: 0;
+  padding: 12px;
+}
+.lc-lesson-shell--lesson-3 .lc-lesson-header__back {
+  min-height: 56px;
+  font: 600 18px/1.4 "Fredoka", sans-serif;
+  color: #25313a;
+}
+.lc-lesson-shell--lesson-3 .lc-lesson-header__lesson-3-label {
+  font: 600 18px/1.5 "Andika", sans-serif;
+  color: #25313a;
+}
+.lc-lesson-shell--lesson-3 .lesson-3-feedback {
+  margin: 0 12px 16px;
+  padding: 12px 16px;
+  border-left: 4px solid #167a72;
+  background: #fffdf9;
+  color: #25313a;
+  font-size: 18px;
+}
+.lc-lesson-shell--lesson-3 .lc-lesson-main {
+  container-type: normal;
+  flex: none;
+  overflow: visible;
+  padding: 0 12px 112px;
+  --ph: max(680px, calc(100dvh - 220px));
+  --pw: min(100%, 1080px);
+}
+.lc-lesson-shell--lesson-3 .lc-lesson-main > .w-full { padding: 0; }
+.lc-lesson-shell--lesson-3 .native-lesson-viewer { width: 100%; max-width: 1080px; }
+.lc-lesson-shell--lesson-3 .native-lesson-viewer__content .faithful-page {
+  height: auto;
+  min-height: 680px;
+  overflow: visible;
+  background: #f5f1e8;
+  color: #25313a;
+  --ix-accent: #167a72;
+}
+.lc-lesson-shell--lesson-3 .native-lesson-viewer__content .faithful-page__body,
+.lc-lesson-shell--lesson-3 .native-lesson-viewer__content .faithful-page--edge-right .faithful-page__body {
+  position: relative;
+  inset: auto;
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  padding: 24px 24px 80px;
+  overflow: visible;
+  zoom: 1 !important;
+}
+.lc-lesson-shell--lesson-3 .faithful-page__body > .gretel-activity,
+.lc-lesson-shell--lesson-3 .faithful-page__body > .gretel-activity > .gretel-activity__content {
+  flex: none;
+  min-width: 0;
+  width: 100%;
+}
+.lc-lesson-shell--lesson-3 .native-lesson-viewer__content .fp-region--instruction {
+  color: #25313a;
+  font: 400 22px/1.5 "Andika", sans-serif;
+  margin: 0;
+}
+.lc-lesson-shell--lesson-3 .fp-label { color: #167a72; }
+.lc-lesson-shell--lesson-3 .native-lesson-viewer__content .fp-ix-grid {
+  flex: none;
+  gap: 12px;
+  padding: 6px;
+  overflow-x: auto;
+  overscroll-behavior-x: contain;
+  scrollbar-color: #167a72 #f5f1e8;
+}
+.lc-lesson-shell--lesson-3 .native-lesson-viewer__content .fp-ix-grid .fp-ix-row {
+  container-type: normal;
+  display: grid;
+  grid-template-columns: repeat(4, minmax(104px, 1fr));
+  flex: none;
+  gap: 12px;
+  min-width: 452px;
+}
+.lc-lesson-shell--lesson-3 .native-lesson-viewer__content .fp-ix-grid .fp-ix-cell {
+  width: 100%;
+  height: 120px;
+  min-width: 104px;
+  min-height: 104px;
+  max-height: none;
+  padding: 8px;
+  aspect-ratio: auto;
+  border: 2px solid #167a72;
+  background: #fffdf9 !important;
+}
+.lc-lesson-shell--lesson-3 .native-lesson-viewer__content .fp-ix-cell .living-illustration,
+.lc-lesson-shell--lesson-3 .native-lesson-viewer__content .fp-ix-cell .living-illustration > *,
+.lc-lesson-shell--lesson-3 .native-lesson-viewer__content .fp-ix-cell img {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%; height: 100%;
+  max-width: 100%; max-height: 100%;
+  object-fit: contain;
+}
+.lc-lesson-shell--lesson-3 .am-faithful-pencil { min-width: 0; }
+.lc-lesson-shell--lesson-3 .native-lesson-viewer__content .am-direct-pencil {
+  flex: none;
+  min-height: 0;
+  overflow-x: auto;
+  padding: 6px;
+}
+.lc-lesson-shell--lesson-3 .native-lesson-viewer__content .am-direct-pencil:not(.is-expanded) .am-direct-pencil__stage {
+  flex: none;
+  width: 100%; min-width: 336px;
+  height: 360px; min-height: 360px;
+  aspect-ratio: auto;
+}
+.lc-lesson-shell--lesson-3 .am-direct-pencil__row { grid-template-columns: repeat(3, minmax(104px, 1fr)); gap: 12px; }
+.lc-lesson-shell--lesson-3 .am-direct-pencil__target,
+.lc-lesson-shell--lesson-3 .am-direct-pencil__center {
+  min-width: 104px; min-height: 104px;
+  border-color: #167a72; color: #167a72;
+  background: #fffdf9;
+}
+.lc-lesson-shell--lesson-3 .am-direct-pencil__card img { width: 100%; height: 100%; object-fit: contain; }
+.lc-lesson-shell--lesson-3 .am-direct-pencil__center-text { font: 600 64px/1.2 "Andika", sans-serif; }
+.lc-lesson-shell--lesson-3 .fp-ix-cell.graded-correct,
+.lc-lesson-shell--lesson-3 .am-direct-pencil__target.is-connected {
+  border-color: #2f7d4a;
+  box-shadow: 0 0 0 4px #2f7d4a33;
+}
+.lc-lesson-shell--lesson-3 .fp-ix-cell.graded-correct::after,
+.lc-lesson-shell--lesson-3 .am-direct-pencil__target.is-connected:not([data-example])::after {
+  content: "★";
+  position: absolute; top: 0; right: 4px;
+  color: #f2b632; font-size: 28px;
+  -webkit-text-stroke: 1px #79601a;
+}
+/* Proposal only: warm amber retry; keep the shared wooden pencil/pink eraser. */
+.lc-lesson-shell--lesson-3 .workbook-pencil-mark[data-mark-result="wrong"] .workbook-pencil-mark__stroke,
+.workbook-pencil-flight--lesson-3[data-mark-result="wrong"] .workbook-pencil-mark__stroke { stroke: #a56614; }
+.lc-lesson-shell--lesson-3 .am-direct-pencil__retry-line { stroke: #a56614; }
+.lc-lesson-shell--lesson-3 .am-direct-pencil__target.is-retry {
+  border-color: #a56614; background: #fff5df;
+  animation: lesson-3-amber-wobble .35s ease-in-out;
+}
+.lc-lesson-shell--lesson-3 .fp-ix-cell:has([data-mark-result="wrong"]) { border-color: #a56614; animation: lesson-3-amber-wobble .35s ease-in-out; }
+@keyframes lesson-3-amber-wobble { 25% { transform: translateX(-2px); } 75% { transform: translateX(2px); } }
+.lc-lesson-shell--lesson-3 .native-lesson-viewer__content .faithful-page--archetype-5 .fp-trace__svg { height: 240px; width: 100%; }
+.lc-lesson-shell--lesson-3 .native-lesson-viewer__content .am-dibuja__paper { min-height: 150px; height: 150px; }
+.lc-lesson-shell--lesson-3 .am-dibuja__toolbar,
+.lc-lesson-shell--lesson-3 .am-dibuja__swatches { flex-wrap: wrap; gap: 12px; zoom: 1; }
+.lc-lesson-shell--lesson-3 button,
+.lc-lesson-shell--lesson-3 .am-dibuja__swatch { min-height: 56px; min-width: 56px; font-size: 18px; }
+.lc-lesson-shell--lesson-3 button { font-family: "Fredoka", sans-serif; }
+.lc-lesson-shell--lesson-3 .fp-trace__footer,
+.lc-lesson-shell--lesson-3 .fp-trace__hint,
+.lc-lesson-shell--lesson-3 .faithful-page__lesson,
+.lc-lesson-shell--lesson-3 .faithful-page__pagenum { font-size: 18px; color: #25313a; }
+.lc-lesson-shell--lesson-3 .native-lesson-viewer__footer {
+  position: fixed;
+  inset: auto 0 0;
+  max-width: none;
+  margin: 0;
+  padding: 12px 12px max(12px, env(safe-area-inset-bottom));
+  background: #f5f1e8;
+  border-top: 1px solid #ccd4cd;
+  align-items: center;
+}
+.lc-lesson-shell--lesson-3 .native-lesson-viewer__navigation { width: 100%; max-width: 520px; gap: 12px; justify-content: center; }
+.lc-lesson-shell--lesson-3 .native-lesson-viewer__navigation button {
+  width: auto; min-width: 140px; height: 64px; min-height: 64px;
+  padding: 8px 16px; border-radius: 16px;
+  color: #25313a; background: #fffdf9;
+}
+.lc-lesson-shell--lesson-3 .native-lesson-viewer__navigation button[data-testid="button-next"] { background: #bf3040; color: #fffdf9; }
+.lc-lesson-shell--lesson-3 .native-lesson-viewer__navigation button[disabled] { color: #48544d; background: #dde1db; }
+.lc-lesson-shell--lesson-3 .native-lesson-viewer__nav-label { position: static; width: auto; height: auto; clip: auto; overflow: visible; white-space: normal; font-size: 18px; }
+.lc-lesson-shell--lesson-3 .native-lesson-viewer__hint { position: absolute; bottom: 100%; left: 12px; right: 12px; font-size: 18px; color: #25313a; }
+.lc-lesson-shell--lesson-3 :focus-visible { outline: 3px solid #167a72; outline-offset: 3px; }
+@media (prefers-reduced-motion: reduce) {
+  .lc-lesson-shell--lesson-3 *, .lc-lesson-shell--lesson-3 *::after { animation: none !important; transition: none !important; }
+}
+.lc-lesson-shell--lesson-3 .native-lesson-viewer__content .faithful-page { --font-book-faithful: "Andika", sans-serif; }
+.lc-lesson-shell--lesson-3 .am-dibuja__header { color: #25313a; font-family: "Andika", sans-serif; }
+.lc-lesson-shell--lesson-3 .am-dibuja__verb { font-size: 18px; color: #25313a; }
+.lc-lesson-shell--lesson-3 .am-dibuja__hint { font: 400 30px/1.5 "Andika", sans-serif; color: #25313a; }
+.lc-lesson-shell--lesson-3 .am-dibuja__done { background: #167a72; color: #fffdf9; }
+.lc-lesson-shell--lesson-3 .am-dibuja__done:disabled { opacity: 1; background: #dde1db; color: #48544d; }
+.lc-lesson-shell--lesson-3 .am-direct-pencil__focus-btn { color: #167a72; border-color: #167a72; }
+.lc-lesson-shell--lesson-3 .native-corner-hotspot { display: none; }
+@media (max-width: 600px) {
+  .lc-lesson-shell--lesson-3 .fp-ix-grid::before { content: "Desliza los dibujos de lado a lado."; font: 400 18px/1.5 "Andika", sans-serif; color: #25313a; }
+}
+/* Preserve true touch sizes against the shared fit-to-screen overrides. */
+.lc-lesson-shell--lesson-3 .native-lesson-viewer__content .am-direct-pencil__row > * { height: 104px; min-height: 104px; }
+.lc-lesson-shell--lesson-3 .native-lesson-viewer__content .am-direct-pencil__row { flex: none; height: 104px; }
+.lc-lesson-shell--lesson-3 .native-lesson-viewer__content .am-direct-pencil__grid { gap: 12px; justify-content: start; }
+.lc-lesson-shell--lesson-3 .native-lesson-viewer__content .am-dibuja__swatch { width: 56px; height: 56px; min-width: 56px; min-height: 56px; }
+.lc-lesson-shell--lesson-3 .native-lesson-viewer__content .am-dibuja__swatch.is-active { transform: none; }
+body:has(.lc-lesson-shell--lesson-3) .picture-audio-status { bottom: calc(100px + env(safe-area-inset-bottom)); font-size: 18px; background: #fffdf9; color: #25313a; }
+.lc-lesson-shell--lesson-3 button { scroll-margin-block: 120px; }
+/* Shared :has(activity) flex rules must not collapse the growing proof page. */
+.lc-lesson-shell--lesson-3 .native-lesson-viewer__content .faithful-page__body > .gretel-activity,
+.lc-lesson-shell--lesson-3 .native-lesson-viewer__content .faithful-page__body > .gretel-activity > .gretel-activity__content {
+  display: block;
+  flex: 0 0 auto;
+  height: auto;
+  min-height: min-content;
+}

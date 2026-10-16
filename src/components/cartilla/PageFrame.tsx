@@ -29,12 +29,13 @@ function WavySidebar() {
 
 export function PageFrame({ pageNumber, lessonNumber, children, className, garden, gardenBg }: PageFrameProps) {
   const edgeClass = typeof pageNumber === "number" && pageNumber % 2 === 1 ? "faithful-page--edge-right" : "faithful-page--edge-left";
-  const classes = ["faithful-page", edgeClass, garden ? "faithful-page--garden" : "", className ?? ""].filter(Boolean).join(" ");
+  const lesson3Page = lessonNumber === 3 && typeof pageNumber === "number" && pageNumber >= 7 && pageNumber <= 9;
+  const classes = ["faithful-page", edgeClass, garden ? "faithful-page--garden" : "", lesson3Page ? "faithful-page--lesson-3" : "", className ?? ""].filter(Boolean).join(" ");
   const style = garden && gardenBg ? ({ "--garden-page-bg": `url('${gardenBg}')` } as React.CSSProperties) : undefined;
 
   return (
     <div className={classes} style={style}>
-      <FinalPageBackground asset={typeof pageNumber === "number" ? workbookBackground(pageNumber) : undefined} />
+      <FinalPageBackground asset={!lesson3Page && typeof pageNumber === "number" ? workbookBackground(pageNumber) : undefined} />
       <div className="faithful-page__sidebar"><WavySidebar /></div>
       <div className="faithful-page__body">{children}</div>
       {typeof pageNumber === "number" && <div className="faithful-page__pagenum" aria-label={`Página ${pageNumber}`}><span>{pageNumber}</span></div>}
