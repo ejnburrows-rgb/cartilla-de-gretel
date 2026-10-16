@@ -521,3 +521,13 @@ body:has(.lc-lesson-shell--lesson-3) .picture-audio-status { bottom: calc(100px 
   font-family: 'Fredoka', sans-serif;
   font-size: 22px;
 }
+
+/* Owner requested explicit MISSING labels instead of substitute Lesson 3 art. */
+.lc-lesson-shell--lesson-3 .fp-art-pending {
+  visibility: visible;
+  width: 100%; height: 100%;
+  padding: 6px;
+  font: 600 14px/1.35 "Andika", sans-serif;
+  color: #62564a;
+}
+.lc-lesson-shell--lesson-3 .fp-art-pending__word { display: block; }

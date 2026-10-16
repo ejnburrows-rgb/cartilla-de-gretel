@@ -42,7 +42,7 @@ function ArtOrPending({ cell }: { cell: PageGridCell }) {
       {cell.caption ? (
         <span className="fp-art-pending__word">{cell.caption}</span>
       ) : null}
-      <span>pendiente</span>
+      <span>{cell.illustrationSrc === "" ? "MISSING" : "pendiente"}</span>
     </div>
   );
 }

@@ -840,7 +840,7 @@ export function DirectPencilConnector({
                       {t.src ? (
                         <img src={t.src} alt={retry.isProof ? t.label : ""} draggable={false} loading="lazy" />
                       ) : (
-                        <span className="am-direct-pencil__target-text">{t.label}</span>
+                        <span className="am-direct-pencil__target-text">{retry.isProof && t.src === "" ? `MISSING ${t.label}` : t.label}</span>
                       )}
                     </div>
                   </button>
@@ -885,7 +885,7 @@ export function DirectPencilConnector({
           {t.src ? (
             <img src={t.src} alt={retry.isProof ? t.label : ""} draggable={false} loading="lazy" />
           ) : (
-            <span className="am-direct-pencil__target-text">{t.label}</span>
+            <span className="am-direct-pencil__target-text">{retry.isProof && t.src === "" ? `MISSING ${t.label}` : t.label}</span>
           )}
         </div>
       </button>

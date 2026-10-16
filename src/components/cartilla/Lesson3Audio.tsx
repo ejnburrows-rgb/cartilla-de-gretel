@@ -2,7 +2,7 @@ import { audioEngine } from "@/lib/audio-engine";
 import { isGretelVoiceMuted } from "@/lib/gretel-voice";
 import { claimSpeech, registerSpeechCleanup, releaseSpeech, speechIsCurrent, stopSpeech } from "@/lib/speech-playback";
 
-/** Owner-authorized synthetic Spanish files; no change to global TTS policy. */
+/** Owner-authorized neural Spanish files; no change to global TTS policy. */
 export function playLesson3Audio(key: string): void {
   if (typeof window === "undefined" || !/^(muy-bien|p7-instr|p8-instr|p9-instr[12])$/.test(key)) return;
   if (audioEngine.isMuted() || audioEngine.getVolume() <= 0 || isGretelVoiceMuted()) return;

@@ -774,82 +774,82 @@
           "cells": [
             {
               "caption": "abanico",
-              "illustrationSrc": "/cartilla/art/optimized/workbook/leccion-1/abanico.svg",
+              "illustrationSrc": "",
               "correct": true
             },
             {
               "caption": "oruga",
               "correct": false,
-              "illustrationSrc": "/cartilla/art/faithful/vocal-o/oruga.webp"
+              "illustrationSrc": ""
             },
             {
               "caption": "aro",
-              "illustrationSrc": "/cartilla/art/faithful/vocal-a/aro.webp",
+              "illustrationSrc": "",
               "correct": true
             },
             {
               "caption": "imán",
-              "illustrationSrc": "/cartilla/art/faithful/vocal-i/iman.webp",
+              "illustrationSrc": "",
               "correct": false
             },
             {
               "caption": "oveja",
-              "illustrationSrc": "/cartilla/art/optimized/workbook/leccion-1/oveja.svg",
+              "illustrationSrc": "",
               "correct": false
             },
             {
               "caption": "abeja",
               "correct": true,
-              "illustrationSrc": "/cartilla/art/faithful/vocal-a/abeja.webp"
+              "illustrationSrc": ""
             },
             {
               "caption": "árbol",
-              "illustrationSrc": "/cartilla/art/faithful/vocal-a/arbol.webp",
+              "illustrationSrc": "",
               "correct": true
             },
             {
               "caption": "elefante",
-              "illustrationSrc": "/cartilla/art/faithful/vocal-e/elefante.webp",
+              "illustrationSrc": "",
               "correct": false
             },
             {
               "caption": "uno",
-              "illustrationSrc": "/cartilla/art/optimized/workbook/leccion-1/uno.svg",
+              "illustrationSrc": "",
               "correct": false
             },
             {
               "caption": "alas",
-              "illustrationSrc": "/cartilla/art/faithful/vocal-a/alas.webp",
+              "illustrationSrc": "",
               "correct": true
             },
             {
               "caption": "estrella",
-              "illustrationSrc": "/cartilla/art/faithful/vocal-e/estrella.webp",
+              "illustrationSrc": "",
               "correct": false
             },
             {
               "caption": "ardilla",
-              "illustrationSrc": "/cartilla/art/faithful/vocal-a/ardilla.webp",
+              "illustrationSrc": "",
               "correct": true
             },
             {
               "caption": "ojos",
-              "illustrationSrc": "/cartilla/art/faithful/leccion-1/ojos.webp",
+              "illustrationSrc": "",
               "correct": false
             },
             {
               "caption": "avión",
-              "illustrationSrc": "/cartilla/art/faithful/vocal-a/avion.webp",
+              "illustrationSrc": "",
               "correct": true
             },
             {
               "caption": "aguja",
               "correct": true,
-              "illustrationSrc": "/cartilla/art/faithful/vocal-a/aguja.webp"
+              "illustrationSrc": "/cartilla/art/owner-intake/2026-10-14/originals/primary/1fL90gBqcHNP1todBSQCr0WaHzT4B04ka.png"
             },
             {
               "caption": "oso",
-              "illustrationSrc": "/cartilla/art/optimized/flipchart-native/p004-oso.png",
+              "illustrationSrc": "",
               "correct": false
             }
           ]
@@ -876,43 +876,43 @@
           "cells": [
             {
               "caption": "oso",
-              "illustrationSrc": "/cartilla/art/optimized/flipchart-native/p004-oso.png",
+              "illustrationSrc": "",
               "correct": false
             },
             {
               "caption": "iglú",
               "correct": false,
-              "illustrationSrc": "/cartilla/art/faithful/vocal-i/iglu.webp"
+              "illustrationSrc": ""
             },
             {
               "caption": "alas",
-              "illustrationSrc": "/cartilla/art/faithful/vocal-a/alas.webp",
+              "illustrationSrc": "",
               "correct": true
             },
             {
               "caption": "abeja",
               "correct": true,
-              "illustrationSrc": "/cartilla/art/faithful/vocal-a/abeja.webp"
+              "illustrationSrc": ""
             },
             {
               "caption": "aguja",
               "correct": true,
-              "illustrationSrc": "/cartilla/art/faithful/vocal-a/aguja.webp"
+              "illustrationSrc": "/cartilla/art/owner-intake/2026-10-14/originals/primary/1fL90gBqcHNP1todBSQCr0WaHzT4B04ka.png"
             },
             {
               "caption": "maíz",
-              "illustrationSrc": "/cartilla/art/faithful/leccion-1/maiz.webp",
+              "illustrationSrc": "",
               "correct": false
             },
             {
               "caption": "avión",
               "correct": true,
-              "illustrationSrc": "/cartilla/art/faithful/leccion-1/pez.webp"
+              "illustrationSrc": ""
             },
             {
               "caption": "aro",
               "correct": true,
-              "illustrationSrc": "/cartilla/art/faithful/vocal-a/aro.webp"
+              "illustrationSrc": ""
             }
           ]
         }
