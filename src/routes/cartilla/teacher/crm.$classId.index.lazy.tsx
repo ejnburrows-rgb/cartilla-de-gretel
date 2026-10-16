@@ -91,17 +91,30 @@ function ClaseOverview() {
 
   const isSeed = useMemo(() => isSeedSessionActive(), []);
 
-  const { data: classData, isLoading: loadingClass } = useQuery({
+  const {
+    data: classData,
+    isLoading: loadingClass,
+    isError: isClassError,
+    refetch: refetchClass,
+  } = useQuery({
     queryKey: ["crm-clase", classId, isSeed],
     queryFn: () => fetchClaseData(classId, isSeed),
   });
 
-  const { data: progressData, isLoading: loadingProgress } = useQuery({
+  const {
+    data: progressData,
+    isLoading: loadingProgress,
+    isError: isProgressError,
+    refetch: refetchProgress,
+  } = useQuery({
     queryKey: ["crm-clase-progress", classId, isSeed],
     queryFn: () => fetchClaseProgress(classId, isSeed),
   });
 
   const loading = loadingClass || loadingProgress;
+  // Only treat as a blocking error when the failing query has no cached data;
+  // a failed background refetch must not blank a usable classroom.
+  const isError = (isClassError && !classData) || (isProgressError && !progressData);
   const className = classData?.className ?? "Clase";
   const students = useMemo(() => classData?.students ?? [], [classData]);
 
@@ -132,6 +145,28 @@ function ClaseOverview() {
       {loading ? (
         <div className="p-12 text-center font-bold text-stone-400 animate-pulse bg-white border border-stone-200 rounded-[2rem]">
           Cargando clase...
+        </div>
+      ) : isError ? (
+        <div
+          role="alert"
+          className="p-12 text-center bg-[hsl(354,78%,98%)] border-2 border-[hsl(354,78%,90%)] rounded-[2rem] space-y-4"
+        >
+          <div className="flex justify-center text-[hsl(354,78%,45%)] mb-2">
+            <AlertCircle className="w-10 h-10" />
+          </div>
+          <h2 className="text-xl font-black text-stone-800">Error al cargar la clase</h2>
+          <p className="text-stone-600">
+            Hubo un problema obteniendo la información o el progreso de esta clase.
+          </p>
+          <button
+            onClick={() => {
+              refetchClass();
+              refetchProgress();
+            }}
+            className="px-6 py-2.5 bg-stone-800 hover:bg-stone-900 text-white font-bold rounded-xl shadow-sm transition"
+          >
+            Reintentar
+          </button>
         </div>
       ) : (
         <>
