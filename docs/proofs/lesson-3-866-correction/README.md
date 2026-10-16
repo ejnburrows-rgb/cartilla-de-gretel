@@ -1,10 +1,10 @@
 # PR 866 — owner-requested correction
 
-Scope: Lesson 3 only, printed pages 7–9. Original baseline df8c819a95085419e5c729d8f02945a01f903484. Current source f5610b8bf515f374000066e4d049fb5f6a40b316 independently arrived during this continuation and already contains the requested source changes. Reused that current source without overwriting it. No merge, production deploy, payment, or changes to the three prohibited shared files.
+Scope: Lesson 3 only, printed pages 7–9. Current draft runtime source `0704c041da6e237dfaf5988b0f5e22353ea0474b`; hosted runtime `1997d2aacc8801ad2ed10f0f2c29c65914465747` has identical application/configuration/assets Git trees. No merge, production deploy, payment, or changes to the three prohibited shared files.
 
 ## Preview access
 
-The prior deployment has a deployment-specific public protection override. Anonymous GET returned HTTP 200 with no Location/login redirect at https://cartilla-de-gretel-bk3cwc6of-ejn.vercel.app/cartilla/leccion/3 . No project-wide protection change. A new deployment will receive its own override and anonymous check.
+Vercel project authentication protection was explicitly disabled for this preview task. The original preview and the first updated preview were anonymously fetched as HTTP 200 without a login redirect. The final preview includes the recorded-word playback correction described below.
 
 ## Artwork
 
@@ -51,6 +51,17 @@ Replaced all five eSpeak MP3s with free Microsoft Edge Read Aloud `es-MX-DaliaNe
 
 Current-source validation uses f5610b8bf515f374000066e4d049fb5f6a40b316. The initial local build log and initial before screenshots came from the equivalent local implementation before the concurrent source update; final hosted proof is authoritative for current source.
 
-Current source passes all 16 browser checks, all 24 focused tests, and TypeScript. Current preview URL: https://cartilla-de-gretel-5p9fza1ex-ejn.vercel.app/cartilla/leccion/3 . Deployment ID dpl_9SdtZsG3khkV2VcRg1kwbWhgUwqW.
+Current source passes all 16 browser checks, all 24 focused tests, and TypeScript. Initial preview URL: https://cartilla-de-gretel-5p9fza1ex-ejn.vercel.app/cartilla/leccion/3 . Deployment ID dpl_9SdtZsG3khkV2VcRg1kwbWhgUwqW.
 
-Final hosted verification: all 16 checks passed at 390×844 on the READY public preview. All four instructions and the correct-answer Muy bien reached ended events, keyboard activation worked, and zero runtime exceptions occurred. Anonymous app GET returned HTTP 200, no login redirect, and all five deployed audio hashes exactly matched current source. See live-browser.json, live-7/8/9.png, public-fetch.json, current-audio-hashes.json, and deployment.json. No physical phone/Safari or subjective listening acceptance is claimed.
+Initial hosted verification: all 16 checks passed at 390×844 on the READY public preview. All four instructions and the correct-answer Muy bien reached ended events, keyboard activation worked, and zero runtime exceptions occurred. Anonymous app GET returned HTTP 200, no login redirect, and all five deployed audio hashes exactly matched current source. See live-browser.json, live-7/8/9.png, public-fetch.json, current-audio-hashes.json, and deployment.json. No physical phone/Safari or subjective listening acceptance is claimed.
+
+
+## Final continuation
+
+The only subsequent runtime delta is a 12-line Lesson 3 correction preserving approved recorded word playback when originals-only artwork uses a new image path or MISSING label. All other lessons retain their existing behavior. Draft source `0704c041da6e237dfaf5988b0f5e22353ea0474b` and deployed runtime `1997d2aacc8801ad2ed10f0f2c29c65914465747` have identical non-document Git trees. Existing artwork, printed text, voice MP3s and screenshots are unchanged and reused; no merge or production release.
+
+Final revision: TypeScript passed; five focused audio/retry tests passed. Local Chromium at 390px verified complete recorded-word playback by keyboard for aguja plus oruga on page 7 and aguja plus oso on page 8. The wider earlier book-fidelity test is not green: `src/lib/__tests__/book-fidelity-lessons-01-07.test.ts:96`, `abanico art: expected '' to be truthy`. That test requires every drawing, so it cannot pass while the explicitly authorized MISSING cells exist. It was not weakened or skipped in the normal build. The prior shared fixture mismatch also remains outside this lane.
+
+Final public preview: https://cartilla-de-gretel-g6twrbg6z-ejn.vercel.app/cartilla/leccion/3 . Vercel deployment `dpl_JDhygAYwNVq4t6Bp2nafc2Bd37nh` completed. Anonymous GET returned Spanish app HTML, HTTP 200, identical final URL and no login redirect. All five deployed MP3 hashes match the current manifest. Four final hosted keyboard checks confirm recorded aguja/oruga playback on page 7 and aguja/oso playback on page 8. See `public-fetch-final.json` and `final-word-playback.json`.
+
+The 18-check instruction/artwork browser proof is in `instruction-browser-18-checks.json`; screenshots and instruction/success playback are reused from unchanged f5610b8 visuals/audio. `final-focused-tests.txt` and `final-typecheck.txt` cover the 12-line correction. Remaining artwork limitation: 17 unique words / 22 placements are MISSING; only aguja has a matching standalone supplied original (two placements). No substitute drawings, scans or older variants are rendered.
