@@ -83,4 +83,30 @@ describe("SyllableBuilder completion logic", () => {
     // verify that recordEvent was not called with lesson_completed
     expect(recordEvent).not.toHaveBeenCalledWith(expect.objectContaining({ kind: "lesson_completed" }));
   });
+
+  it("allows keyboard activation (Enter/Space) to place tiles in slots without pointer events", async () => {
+    render(<SyllableBuilder content={mockContent} />);
+
+    // Get the tray buttons for "ma"
+    const trayButtons = screen.getAllByRole("button").filter(btn => btn.getAttribute("aria-label")?.startsWith("Sílaba ma"));
+    
+    // Simulate keyboard activation using Enter on the first tile
+    // A real keyboard click on a button fires a click event with detail: 0
+    fireEvent.click(trayButtons[0], { detail: 0 });
+    
+    const trayButtonsAfterFirst = screen.getAllByRole("button").filter(btn => btn.getAttribute("aria-label")?.startsWith("Sílaba ma"));
+    // Simulate keyboard activation using Space (also detail: 0)
+    fireEvent.click(trayButtonsAfterFirst[0], { detail: 0 });
+
+    // Now click 'Comprobar'
+    const checkBtn = screen.getByRole("button", { name: /comprobar/i });
+    fireEvent.click(checkBtn);
+
+    // After 'Comprobar', if correct, the 'Terminar' button should appear
+    const terminarBtn = await screen.findByRole("button", { name: /terminar/i });
+    
+    // We can also verify that '¡Muy bien!' is shown, confirming the syllables were placed
+    expect(screen.getByText("¡Muy bien!")).toBeDefined();
+    expect(terminarBtn).toBeDefined();
+  });
 });

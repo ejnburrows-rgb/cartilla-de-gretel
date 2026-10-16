@@ -283,6 +283,11 @@ export function SyllableBuilder({ content }: { content: GameContent }) {
             onPointerDown={onTilePointerDown(tile)}
             onPointerMove={onTilePointerMove}
             onPointerUp={onTilePointerUp(tile)}
+            onClick={(e) => {
+              if (e.detail === 0) {
+                placeTile(tile, nextEmptySlot(placed));
+              }
+            }}
             aria-label={`Sílaba ${tile.syllable}`}
             style={{ transition, touchAction: "none" }}
             className="h-14 min-w-[4rem] touch-none select-none rounded-xl border-4 border-amber-400 bg-amber-100 px-3 text-xl font-black text-stone-800 shadow-[0_4px_0_rgb(180_130_20)] active:translate-y-[2px] active:shadow-[0_2px_0_rgb(180_130_20)] sm:h-16 sm:text-2xl"
