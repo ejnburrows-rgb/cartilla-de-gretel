@@ -57,6 +57,7 @@ export function ClassRoster() {
   const {
     data: realClasses,
     isLoading: loadingRealClasses,
+    isError: isClassesError,
     refetch: refetchRealClasses,
   } = useQuery({
     queryKey: ["roster-classes"],
@@ -80,6 +81,7 @@ export function ClassRoster() {
     [isSeed, seedClasses, realClasses],
   );
   const loadingClasses = !isSeed && loadingRealClasses;
+  const classesError = !isSeed && isClassesError && !realClasses;
 
   // Set default class
   useEffect(() => {
@@ -92,6 +94,7 @@ export function ClassRoster() {
   const {
     data: realClassData,
     isLoading: loadingRealStudents,
+    isError: isStudentsError,
     refetch: refetchRealStudents,
   } = useQuery({
     queryKey: ["roster-students", selectedClassId, showArchived],
@@ -108,6 +111,8 @@ export function ClassRoster() {
       return null;
     }
   }, [isSeed, selectedClassId, seedVersion]);
+
+  const studentsError = !isSeed && isStudentsError && !realClassData;
 
   const activeClass = classesList.find((c) => c.id === selectedClassId);
 
@@ -278,6 +283,16 @@ export function ClassRoster() {
             </label>
             {loadingClasses ? (
               <span className="text-sm text-stone-400 font-bold px-3 py-2">Cargando...</span>
+            ) : classesError ? (
+              <div className="flex items-center gap-2 px-2">
+                <span className="text-sm text-red-500 font-bold py-2">Error al cargar clases</span>
+                <button
+                  onClick={() => refetchRealClasses()}
+                  className="px-2 py-1 bg-red-100 text-red-700 rounded text-xs font-bold hover:bg-red-200 cursor-pointer"
+                >
+                  Reintentar
+                </button>
+              </div>
             ) : classesList.length === 0 ? (
               <span className="text-sm text-stone-400 font-bold px-3 py-2 italic">Sin clases</span>
             ) : (
@@ -340,7 +355,27 @@ export function ClassRoster() {
       </div>
 
       {/* Main Content Area */}
-      {classesList.length === 0 ? (
+      {classesError ? (
+        <div className="kid-card p-12 text-center bg-white/70 max-w-xl mx-auto space-y-5 border-red-200">
+          <div className="w-16 h-16 rounded-3xl bg-red-100 text-red-500 flex items-center justify-center mx-auto shadow-inner float-soft">
+            <AlertCircle className="w-9 h-9" />
+          </div>
+          <div>
+            <h2 className="text-2xl font-black text-stone-800 font-fredoka">
+              Error al cargar tus clases
+            </h2>
+            <p className="text-sm font-semibold text-stone-500 mt-2 max-w-sm mx-auto leading-relaxed">
+              Hubo un problema de conexión al intentar obtener tu lista de clases.
+            </p>
+          </div>
+          <button
+            onClick={() => refetchRealClasses()}
+            className="px-6 py-3 rounded-2xl bg-red-500 text-white font-black text-sm hover:brightness-105 active:scale-95 shadow-sm transition cursor-pointer"
+          >
+            Reintentar
+          </button>
+        </div>
+      ) : classesList.length === 0 ? (
         /* Honest Empty State: No Classes */
         <div className="kid-card p-12 text-center bg-white/70 max-w-xl mx-auto space-y-5">
           <div className="w-16 h-16 rounded-3xl bg-[hsl(48,100%,94%)] text-vowel-e flex items-center justify-center mx-auto shadow-inner float-soft">
@@ -371,6 +406,26 @@ export function ClassRoster() {
       ) : loadingStudents ? (
         <div className="p-12 text-center font-bold text-stone-400 animate-pulse bg-white border border-stone-200 rounded-3xl">
           Cargando listado de alumnos...
+        </div>
+      ) : studentsError ? (
+        <div className="kid-card p-12 text-center bg-white/70 max-w-xl mx-auto space-y-6 border-red-200">
+          <div className="w-16 h-16 rounded-3xl bg-red-100 text-red-500 flex items-center justify-center mx-auto shadow-inner">
+            <AlertCircle className="w-9 h-9" />
+          </div>
+          <div>
+            <h2 className="text-2xl font-black text-stone-800 font-fredoka">
+              Error al cargar los alumnos
+            </h2>
+            <p className="text-sm font-semibold text-stone-500 mt-2 leading-relaxed">
+              No pudimos cargar la lista de alumnos de esta clase.
+            </p>
+          </div>
+          <button
+            onClick={() => refetchRealStudents()}
+            className="px-6 py-3 rounded-2xl bg-red-500 text-white font-black text-sm hover:brightness-105 active:scale-95 shadow-sm transition cursor-pointer"
+          >
+            Reintentar
+          </button>
         </div>
       ) : allStudents.length === 0 ? (
         /* Honest Empty State: Class exists, but has no students */
