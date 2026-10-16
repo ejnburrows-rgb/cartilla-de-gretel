@@ -31,7 +31,16 @@ describe("visible classroom LessonTimer accessibility", () => {
     expect(timer).toHaveAttribute("aria-live", "off");
     expect(timer).toHaveTextContent("Quedan 0:02");
 
-    act(() => vi.advanceTimersByTime(3000));
+    act(() => vi.advanceTimersByTime(1000));
+    expect(timer).toHaveAttribute("aria-label", "Tiempo restante: 0:01");
+    expect(timer).toHaveTextContent("Quedan 0:01");
+
+    act(() => vi.advanceTimersByTime(1000));
+    expect(timer).toHaveAttribute("aria-label", "Tiempo vencido hace 0:00");
+    expect(timer).toHaveTextContent("Tiempo vencido +0:00");
+    expect(timer.querySelector("svg")).toHaveAttribute("aria-hidden", "true");
+
+    act(() => vi.advanceTimersByTime(1000));
     expect(timer).toHaveAttribute("aria-label", "Tiempo vencido hace 0:01");
     expect(timer).toHaveTextContent("Tiempo vencido +0:01");
     expect(timer.querySelector("svg")).toHaveAttribute("aria-hidden", "true");
