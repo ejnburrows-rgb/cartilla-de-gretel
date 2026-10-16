@@ -1,3 +1,4 @@
+import vocabulary from "@/content/picture-vocabulary.json";
 import { audioEngine } from "@/lib/audio-engine";
 import { isGretelVoiceMuted } from "@/lib/gretel-voice";
 import { claimSpeech, registerSpeechCleanup, releaseSpeech, speechIsCurrent, stopSpeech } from "@/lib/speech-playback";
@@ -36,4 +37,10 @@ export function Lesson3InstructionAudio({ instructionKey, text }: { instructionK
   return <button type="button" className="lesson-3-instruction-audio" aria-label={`Escuchar instrucciones: ${text}`} onClick={(event) => {
     event.preventDefault(); event.stopPropagation(); playLesson3Audio(instructionKey);
   }}>Escuchar</button>;
+}
+
+/** Keep approved recorded word playback when Lesson 3 art is missing or replaced. */
+export function lesson3PictureAudioProps(label?: string) {
+  const entry = vocabulary.find((item) => item.name === label);
+  return entry ? { "data-picture-name": entry.name, "data-picture-src": entry.images[0] } : {};
 }

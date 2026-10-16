@@ -1,3 +1,4 @@
+import { lesson3PictureAudioProps } from "@/components/cartilla/Lesson3Audio";
 /**
  * Owner-approved Workbook pencil matching, marking and erasing.
  * Progress keys retain their old storage format so previous student work survives.
@@ -834,6 +835,7 @@ export function DirectPencilConnector({
                     disabled={connected}
                     onClick={() => handleRightClick(t)}
                     aria-label={t.label}
+        {...(retry.isProof ? lesson3PictureAudioProps(t.label) : {})}
                     aria-pressed={connected}
                   >
                     <div className="am-direct-pencil__card">
@@ -877,6 +879,7 @@ export function DirectPencilConnector({
         disabled={isMarked && !retry.isProof}
         onClick={() => handleTargetClick(t)}
         aria-label={t.label}
+        {...(retry.isProof ? lesson3PictureAudioProps(t.label) : {})}
         aria-pressed={isMarked}
         data-correct={t.correct === undefined ? undefined : String(t.correct)}
         data-example={t.example ? "true" : undefined}

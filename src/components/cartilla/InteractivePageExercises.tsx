@@ -1,3 +1,4 @@
+import { lesson3PictureAudioProps } from "./Lesson3Audio";
 import { useEffect, useRef, useState } from "react";
 import "@/styles/interactive-exercises.css";
 import type { PageGridCell, PageRegion } from "@/lib/book-faithful";
@@ -182,6 +183,7 @@ export function InteractivePictureGrid({
                   key={i}
                   type="button"
                   className={`fp-ix-cell relative ${isVal ? "graded-correct" : ""}`}
+                  {...(retry.isProof ? lesson3PictureAudioProps(cell.caption) : {})}
                   style={{ ["--ix-float-delay" as string]: floatDelay(i) }}
                   onClick={() => handlePencilTap(i)}
                   disabled={!retry.isProof && (solved || (hasAnswerKey && cell.correct === undefined) || isVal || (markingCells.size > 0 && !isMarking))}
