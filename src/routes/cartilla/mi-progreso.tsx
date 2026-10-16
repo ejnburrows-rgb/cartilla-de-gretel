@@ -120,12 +120,42 @@ function MyProgress() {
   const [error, setError] = useState<string | null>(null);
 
   useEffect(() => {
-    const s = getStudentSession();
-    if (!s) return;
-    getMyProgress({ data: { studentId: s.studentId, studentCode: s.studentCode } })
-      .then((r) => setData(r as never))
-      .catch((e) => setError(e instanceof Error ? e.message : "Error desconocido"))
-      .finally(() => setLoading(false));
+    let currentToken = 0;
+
+    const load = () => {
+      const s = getStudentSession();
+      if (!s) return;
+      
+      const token = ++currentToken;
+      setLoading(true);
+      setError(null);
+      
+      getMyProgress({ data: { studentId: s.studentId, studentCode: s.studentCode } })
+        .then((r) => {
+          if (token === currentToken) {
+            setData(r as never);
+            setLoading(false);
+          }
+        })
+        .catch((e) => {
+          if (token === currentToken) {
+            setError(e instanceof Error ? e.message : "Error desconocido");
+            setLoading(false);
+          }
+        });
+    };
+
+    load();
+
+    const handler = () => {
+      load();
+    };
+
+    window.addEventListener("cartilla:student-session", handler);
+    return () => {
+      currentToken++;
+      window.removeEventListener("cartilla:student-session", handler);
+    };
   }, []);
 
   const summary = useMemo(() => {
