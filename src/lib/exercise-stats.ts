@@ -20,7 +20,12 @@ function read(): AllStats {
   if (typeof window === "undefined") return {};
   try {
     const raw = localStorage.getItem(learnerStorageKey(KEY));
-    return raw ? (JSON.parse(raw) as AllStats) : {};
+    if (!raw) return {};
+    const parsed = JSON.parse(raw);
+    if (typeof parsed === "object" && parsed !== null && !Array.isArray(parsed)) {
+      return parsed as AllStats;
+    }
+    return {};
   } catch {
     return {};
   }

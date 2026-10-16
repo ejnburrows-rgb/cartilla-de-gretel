@@ -144,4 +144,33 @@ describe("exercise-stats", () => {
       expect(getStats()).toEqual({});
     });
   });
+
+  describe("corruption recovery", () => {
+    it("recovers gracefully if storage contains literal 'null'", () => {
+      localStorage.setItem("cartilla.exercise-stats.v1", "null");
+      expect(() => {
+        recordExerciseStat({ lessonId: "1", exercise: "a", score: 3, total: 5 });
+      }).not.toThrow();
+      const stats = getStats();
+      expect(stats["1"]?.a).toMatchObject({ hits: 3, attempts: 5 });
+    });
+
+    it("recovers gracefully if storage contains a primitive like '5'", () => {
+      localStorage.setItem("cartilla.exercise-stats.v1", "5");
+      expect(() => {
+        recordExerciseStat({ lessonId: "2", exercise: "b", score: 2, total: 2 });
+      }).not.toThrow();
+      const stats = getStats();
+      expect(stats["2"]?.b).toMatchObject({ hits: 2, attempts: 2 });
+    });
+
+    it("recovers gracefully if storage contains an array", () => {
+      localStorage.setItem("cartilla.exercise-stats.v1", '["some", "data"]');
+      expect(() => {
+        recordExerciseStat({ lessonId: "3", exercise: "c", score: 1, total: 3 });
+      }).not.toThrow();
+      const stats = getStats();
+      expect(stats["3"]?.c).toMatchObject({ hits: 1, attempts: 3 });
+    });
+  });
 });
