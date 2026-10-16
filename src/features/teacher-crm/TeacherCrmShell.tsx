@@ -245,6 +245,7 @@ export function TeacherCrmShell() {
       }
     } catch (err) {
       showMessage(err instanceof Error ? err.message : "Error guardando cambios", "error");
+      throw err; // #863: let AccountPanel's error path run; never swallow a failed save
     }
   };
 
