@@ -78,7 +78,7 @@ describe("ClassRoster error handling", () => {
 
   it("displays error state when getClass rejects", async () => {
     vi.mocked(listClasses).mockResolvedValueOnce([
-      { id: "class-1", name: "Class 1", join_code: "1234", student_count: 0 }
+      { id: "class-1", name: "Class 1", join_code: "1234", student_count: 0, created_at: "2024-01-01T00:00:00Z" }
     ]);
     vi.mocked(getClass).mockRejectedValueOnce(new Error("Network Error"));
 
@@ -93,9 +93,12 @@ describe("ClassRoster error handling", () => {
     
     // Simulate retry
     vi.mocked(getClass).mockResolvedValueOnce({
-      id: "class-1",
-      name: "Class 1",
-      join_code: "1234",
+      class: {
+        id: "class-1",
+        name: "Class 1",
+        join_code: "1234",
+        created_at: "2024-01-01T00:00:00Z"
+      },
       students: []
     });
     fireEvent.click(retryButton);
@@ -115,12 +118,15 @@ describe("ClassRoster error handling", () => {
 
   it("displays empty state when getClass succeeds but is empty", async () => {
     vi.mocked(listClasses).mockResolvedValueOnce([
-      { id: "class-1", name: "Class 1", join_code: "1234", student_count: 0 }
+      { id: "class-1", name: "Class 1", join_code: "1234", student_count: 0, created_at: "2024-01-01T00:00:00Z" }
     ]);
     vi.mocked(getClass).mockResolvedValueOnce({
-      id: "class-1",
-      name: "Class 1",
-      join_code: "1234",
+      class: {
+        id: "class-1",
+        name: "Class 1",
+        join_code: "1234",
+        created_at: "2024-01-01T00:00:00Z"
+      },
       students: []
     });
 
@@ -133,13 +139,16 @@ describe("ClassRoster error handling", () => {
   it("keeps cached classes visible when a background refetch fails", async () => {
     vi.mocked(listClasses)
       .mockResolvedValueOnce([
-        { id: "class-1", name: "Class 1", join_code: "1234", student_count: 0 }
+        { id: "class-1", name: "Class 1", join_code: "1234", student_count: 0, created_at: "2024-01-01T00:00:00Z" }
       ])
       .mockRejectedValueOnce(new Error("Network Error"));
     vi.mocked(getClass).mockResolvedValue({
-      id: "class-1",
-      name: "Class 1",
-      join_code: "1234",
+      class: {
+        id: "class-1",
+        name: "Class 1",
+        join_code: "1234",
+        created_at: "2024-01-01T00:00:00Z"
+      },
       students: []
     });
 
@@ -162,13 +171,27 @@ describe("ClassRoster error handling", () => {
 
   it("keeps cached students visible when a background refetch fails", async () => {
     const classData = {
-      id: "class-1",
-      name: "Class 1",
-      join_code: "1234",
-      students: [{ id: "s-1", display_name: "Ana", student_code: "A1" }]
+      class: {
+        id: "class-1",
+        name: "Class 1",
+        join_code: "1234",
+        created_at: "2024-01-01T00:00:00Z"
+      },
+      students: [{
+        id: "s-1",
+        display_name: "Ana",
+        student_code: "A1",
+        created_at: "2024-01-01T00:00:00Z",
+        archived_at: null,
+        teacher_notes: null,
+        events: 0,
+        lessons: 0,
+        lastSeen: null,
+        completionPercent: 0
+      }]
     };
     vi.mocked(listClasses).mockResolvedValueOnce([
-      { id: "class-1", name: "Class 1", join_code: "1234", student_count: 1 }
+      { id: "class-1", name: "Class 1", join_code: "1234", student_count: 1, created_at: "2024-01-01T00:00:00Z" }
     ]);
     vi.mocked(getClass)
       .mockResolvedValueOnce(classData)
