@@ -32,7 +32,7 @@ function Repaso() {
           <div className="flex items-center justify-between gap-3 mb-4 flex-wrap">
             <Link
               to="/cartilla/lecciones"
-              className="inline-flex items-center gap-2 text-sm font-bold text-foreground/70 hover:text-foreground"
+              className="inline-flex items-center gap-2 text-sm font-bold text-foreground hover:text-foreground"
             >
               <ArrowLeft className="w-4 h-4" /> {t.lecciones[lang]}
             </Link>
@@ -49,18 +49,18 @@ function Repaso() {
               </KidButton>
             </div>
           </div>
-          <div className="inline-flex items-center gap-2 text-xs font-bold uppercase tracking-wide text-primary mb-1">
+          <div className="inline-flex items-center gap-2 text-xs font-bold uppercase tracking-wide text-[#8a3611] mb-1">
             <Sparkles className="w-3.5 h-3.5" /> {t.modoRepaso[lang]}
           </div>
           <h1 className="text-3xl sm:text-4xl font-bold leading-tight">{t.practicaFalta[lang]}</h1>
-          <p className="text-foreground/70 mt-1">{t.mostramosPrimero[lang]}</p>
+          <p className="text-foreground mt-1">{t.mostramosPrimero[lang]}</p>
         </header>
 
         <main className="px-4 pb-24 max-w-5xl mx-auto space-y-8">
           <Section
             title={t.paraReforzar[lang]}
             icon={<AlertTriangle className="w-4 h-4" />}
-            tone="text-destructive"
+            tone="text-[#991b1b]"
             emptyText={t.bienHechoRepaso[lang]}
             entries={weak}
             stats={stats}
@@ -71,7 +71,7 @@ function Repaso() {
           <Section
             title={t.pendientes[lang]}
             icon={<BookOpen className="w-4 h-4" />}
-            tone="text-primary"
+            tone="text-[#8a3611]"
             emptyText={t.hasCompletado[lang]}
             entries={pending}
             stats={stats}
@@ -113,7 +113,7 @@ function Section({
         {icon} {title} ({entries.length})
       </h2>
       {entries.length === 0 ? (
-        <p className="text-sm text-foreground/60 italic">{emptyText}</p>
+        <p className="text-sm text-foreground italic">{emptyText}</p>
       ) : (
         <ol className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3">
           {entries.map((entry) => {
@@ -127,11 +127,11 @@ function Section({
                   style={{ borderLeftColor: entry.color, borderLeftWidth: 6 }}
                 >
                   <div className="flex items-center justify-between gap-2 mb-2">
-                    <span className="text-xs font-bold uppercase tracking-wide text-foreground/50">
+                    <span className="text-xs font-bold uppercase tracking-wide text-foreground">
                       {t.leccion[lang]} {entry.n}
                     </span>
                     {showAccuracy && acc !== null && (
-                      <span className="text-[11px] font-bold text-destructive">
+                      <span className="text-[11px] font-bold text-[#991b1b]">
                         {Math.round(acc * 100)}% {t.acierto[lang]}
                       </span>
                     )}
@@ -139,7 +139,7 @@ function Section({
                   <h3 className="text-lg font-bold leading-tight" style={{ color: entry.color }}>
                     {entry.title}
                   </h3>
-                  <p className="text-sm text-foreground/70 mt-1 line-clamp-2">{entry.subtitle}</p>
+                  <p className="text-sm text-foreground mt-1 line-clamp-2">{entry.subtitle}</p>
                 </Link>
               </li>
             );

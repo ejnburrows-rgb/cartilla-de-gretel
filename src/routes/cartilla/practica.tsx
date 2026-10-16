@@ -264,7 +264,7 @@ function Practica() {
         <div className="flex items-center justify-between gap-3 flex-wrap">
           <Link
             to="/cartilla"
-            className="inline-flex items-center gap-2 text-sm font-bold text-foreground/60 hover:text-foreground"
+            className="inline-flex items-center gap-2 text-sm font-bold text-foreground hover:text-foreground"
           >
             <ArrowLeft className="w-4 h-4" /> {t.cartilla[lang]}
           </Link>
@@ -275,7 +275,7 @@ function Practica() {
             <Zap className="w-4 h-4" /> {t.practicaRapida[lang]}
           </div>
           <h1 className="text-3xl sm:text-4xl font-bold mt-3">{t.drillSilabas[lang]}</h1>
-          <p className="text-foreground/70 mt-1">{t.escuchaToca[lang]}</p>
+          <p className="text-foreground mt-1">{t.escuchaToca[lang]}</p>
         </header>
 
         {phase === "setup" && (
@@ -316,7 +316,7 @@ function Practica() {
                   {t.todasLecciones[lang]}
                 </KidButton>
               </div>
-              <p className="text-[11px] text-foreground/50 mt-2">
+              <p className="text-[11px] text-foreground mt-2">
                 {pool.length} {t.silabasPool[lang]}
               </p>
             </div>
@@ -333,7 +333,7 @@ function Practica() {
         {phase === "playing" && current && (
           <section className="mt-6">
             <div className="flex items-center justify-between mb-3 text-sm font-bold">
-              <span className="text-foreground/60">{t.tiempo[lang]}</span>
+              <span className="text-foreground">{t.tiempo[lang]}</span>
               <span
                 className={`text-2xl font-bold ${secondsLeft <= 10 ? "text-destructive animate-pulse" : ""}`}
               >
@@ -363,11 +363,11 @@ function Practica() {
               <button
                 onClick={() => speak(current.syllable)}
                 aria-label="Reescuchar"
-                className="mb-4 inline-flex items-center gap-2 text-sm text-foreground/70 hover:text-primary font-bold"
+                className="mb-4 inline-flex items-center gap-2 text-sm text-foreground hover:text-[#8a3611] font-bold"
               >
                 <Volume2 className="w-4 h-4" /> {t.reescuchar[lang]}
               </button>
-              <div className="text-xs text-foreground/50 font-bold uppercase tracking-wide">
+              <div className="text-xs text-foreground font-bold uppercase tracking-wide">
                 {t.tocaSilaba[lang]}
               </div>
               <div className="grid grid-cols-2 gap-3 mt-5">
@@ -394,15 +394,15 @@ function Practica() {
             <div className="grid grid-cols-3 gap-3 text-sm">
               <div className="rounded-xl bg-secondary p-3">
                 <div className="text-2xl font-bold text-success">{hits}</div>
-                <div className="text-xs text-foreground/60">{t.aciertos[lang]}</div>
+                <div className="text-xs text-foreground">{t.aciertos[lang]}</div>
               </div>
               <div className="rounded-xl bg-secondary p-3">
                 <div className="text-2xl font-bold text-destructive">{misses}</div>
-                <div className="text-xs text-foreground/60">{t.errores[lang]}</div>
+                <div className="text-xs text-foreground">{t.errores[lang]}</div>
               </div>
               <div className="rounded-xl bg-secondary p-3">
-                <div className="text-2xl font-bold text-primary">{accuracy}%</div>
-                <div className="text-xs text-foreground/60">{t.precision[lang]}</div>
+                <div className="text-2xl font-bold text-[#8a3611]">{accuracy}%</div>
+                <div className="text-xs text-foreground">{t.precision[lang]}</div>
               </div>
             </div>
             <div className="flex gap-2 pt-2">
