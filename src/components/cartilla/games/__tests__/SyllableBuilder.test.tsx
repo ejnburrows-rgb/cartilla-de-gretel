@@ -84,6 +84,68 @@ describe("SyllableBuilder completion logic", () => {
     expect(recordEvent).not.toHaveBeenCalledWith(expect.objectContaining({ kind: "lesson_completed" }));
   });
 
+  it("only records one check event for the same answer even if Comprobar is clicked multiple times", async () => {
+    render(<SyllableBuilder content={mockContent} />);
+
+    // Get the tray buttons for "ma"
+    let trayButtons = screen.getAllByRole("button").filter(btn => btn.getAttribute("aria-label")?.startsWith("Sílaba ma"));
+    
+    // Fill the slots
+    fireEvent.click(trayButtons[0], { detail: 0 });
+    trayButtons = screen.getAllByRole("button").filter(btn => btn.getAttribute("aria-label")?.startsWith("Sílaba ma"));
+    fireEvent.click(trayButtons[0], { detail: 0 });
+
+    const checkBtn = screen.getByRole("button", { name: /comprobar/i });
+    
+    // Clear mock
+    vi.mocked(recordEvent).mockClear();
+
+    // Click 'Comprobar' multiple times
+    fireEvent.click(checkBtn);
+    fireEvent.click(checkBtn);
+    fireEvent.click(checkBtn);
+
+    // Verify recordEvent called exactly once
+    expect(recordEvent).toHaveBeenCalledTimes(1);
+    expect(recordEvent).toHaveBeenCalledWith({
+      lessonId: "test-lesson",
+      kind: "exercise",
+      score: 1,
+      total: 1,
+      meta: {
+        exercise: "syllable-builder",
+        word: "mama",
+        completed: true
+      }
+    });
+
+    vi.mocked(recordEvent).mockClear();
+
+    // Now change the answer. First, tap a slot to return a tile to the tray
+    const slotButtons = screen.getAllByRole("button", { name: /Casilla \d: ma/i });
+    fireEvent.click(slotButtons[0]);
+
+    // Comprobar should be disabled now because the word is not complete
+    expect((checkBtn as HTMLButtonElement).disabled).toBe(true);
+
+    // Click Comprobar anyway just in case (should not trigger recordEvent)
+    fireEvent.click(checkBtn);
+    expect(recordEvent).not.toHaveBeenCalled();
+
+    // Now complete the word again with the tile that returned
+    trayButtons = screen.getAllByRole("button").filter(btn => btn.getAttribute("aria-label")?.startsWith("Sílaba ma"));
+    fireEvent.click(trayButtons[0], { detail: 0 });
+
+    // The Comprobar button should be enabled again
+    expect((checkBtn as HTMLButtonElement).disabled).toBe(false);
+
+    // Click Comprobar
+    fireEvent.click(checkBtn);
+
+    // We should see a single new check event
+    expect(recordEvent).toHaveBeenCalledTimes(1);
+  });
+
   it("allows keyboard activation (Enter/Space) to place tiles in slots without pointer events", async () => {
     render(<SyllableBuilder content={mockContent} />);
 
