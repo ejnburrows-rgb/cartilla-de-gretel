@@ -4,6 +4,7 @@ import { useQuery } from "@tanstack/react-query";
 import { Clock, Award, CheckCircle2 } from "lucide-react";
 import { isSeedSessionActive } from "@/lib/seed-data";
 import { fetchCrmStudentProgress } from "@/lib/crm-student-progress";
+import { computeLessonStatus } from "@/lib/progress-calculation";
 import { CATALOG } from "@/lib/lesson-catalog";
 import { CrmBreadcrumbs } from "@/features/teacher-crm/components/CrmBreadcrumbs";
 
@@ -17,7 +18,7 @@ const EVENT_KIND_LABELS: Record<string, string> = {
   lesson_completed: "Lección completada",
 };
 
-function LeccionDetail() {
+export function LeccionDetail() {
   const { classId, studentId, lessonId } = Route.useParams();
 
   const isSeed = useMemo(() => isSeedSessionActive(), []);
@@ -33,9 +34,11 @@ function LeccionDetail() {
     [progress, lessonId],
   );
 
-  const completed = lessonEvents.some(
-    (e: { event_kind: string }) => e.event_kind === "lesson_completed",
-  );
+  const completed = useMemo(() => {
+    const row = progress?.lessonProgress?.find((r) => r.lesson_id === lessonId);
+    return computeLessonStatus(row) === "completed";
+  }, [progress, lessonId]);
+
   const exerciseEvents = lessonEvents.filter(
     (e: { event_kind: string }) => e.event_kind === "exercise",
   );
