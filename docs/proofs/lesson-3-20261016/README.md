@@ -1,3 +1,24 @@
+# Current checkpoint — READY Vercel preview and complete printed instructions
+
+This checkpoint supersedes the older blocked-preview/40-line statuses below. The owner's latest request is every instruction printed on pages 7–9, verified against `src/data/book-transcription/lessons-01-07.json`.
+
+- **Step 1 DONE:** Vercel preview `dpl_BNkH36PQD7ZbzFRKqmEUmni87T8v`, commit `93933ba228df572467208ebe9c90d0c09fde570c`, is **READY**: https://cartilla-de-gretel-bk3cwc6of-ejn.vercel.app/cartilla/leccion/3 . Vercel authentication requires the temporary share link in the PR, valid through October 17. No Render fallback needed.
+- `package.json` adds `build:preview`, preserving prebuild, art preparation, asset verification, TypeScript and bundling while omitting tests. `vercel.json` selects it only when `VERCEL_ENV=preview`; production/unset environments select normal `pnpm build`, which retains tests. All three branches were checked. Automatic Git deployment remains disabled. Only these two build configuration files changed; the shared audit/test/fixture and lesson layouts were not edited.
+- The exact preview build passed locally and on Vercel; [build output](preview-build.txt), [deployment receipt](preview-deployment.json). Asset generation's incidental tracked delivery changes were reverted locally and excluded from commits.
+- **Step 2 DONE:** All four transcription instructions exactly match the already generated/wired free Spanish clips, including punctuation. File SHA256s verified. Reused those valid MP3s instead of generating duplicates; updated manifest with source file/hash and exact JSON pointers. No additional instruction sentence exists in those three transcription pages. [Coverage proof](transcription-audio-proof.json).
+- Live deployed Chromium at 390×844 passed **15 checks**: all four instructions completed actual playback, real correct answers on pages 7/8 played “Muy bien” completely, picture taps interrupted instructions, and no runtime exceptions occurred. [Live browser proof](preview-live-browser-proof.json); live screenshots: [7](lesson3-preview-live-7.png), [8](lesson3-preview-live-8.png), [9](lesson3-preview-live-9.png). These are the hosted build, not a local dev server.
+- **Step 3 DONE — exact printed lines:**
+  - Page 7: Marca con una x los dibujos de las palabras que comienzan con A a.
+  - Page 8: Traza una línea desde la vocal Aa hasta el dibujo de la palabra que comienza con Aa.
+  - Page 9: Escribe con tu mejor letra.
+  - Page 9: Haz un dibujo que represente una palabra que comienza con a.
+
+The deployed app code and all audio files are identical to the subsequent evidence/manifest-only commit. The deployed metadata JSON predates the added transcription pointers; these do not change playback. Existing 15 focused tests remain applicable to unchanged playback code. No full-suite passing claim: the central fixture test still fails and is deliberately skipped only by the preview build. Physical phone/Safari, voice quality/pronunciation acceptance, amber proposal approval and full page-9 activity completion remain owner/device verification gaps. No merge, paid service or production deploy.
+
+---
+
+# Earlier checkpoints (historical statuses)
+
 # Lesson 3 proof — 16 October 2026
 
 Continues draft PR #866. Before screenshots: original draft `a501d77d049af90038f42e3dce582cb64b2cd367`. Current-main baseline incorporated before implementation: `f9645c4c9681d8ced8710e323c997812e41a061f` (includes owner-approved #873 assets). No production merge/release.

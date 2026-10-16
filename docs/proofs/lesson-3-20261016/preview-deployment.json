@@ -1,0 +1,15 @@
+{
+  "id": "dpl_BNkH36PQD7ZbzFRKqmEUmni87T8v",
+  "commit": "93933ba228df572467208ebe9c90d0c09fde570c",
+  "url": "https://cartilla-de-gretel-bk3cwc6of-ejn.vercel.app",
+  "environment": "preview",
+  "target": null,
+  "state": "READY",
+  "createdAt": 1792171599734,
+  "readyAt": 1792171789644,
+  "buildCommand": "if [ \"$VERCEL_ENV\" = \"preview\" ]; then pnpm build:preview; else pnpm build; fi",
+  "testsSkippedOnlyForPreview": true,
+  "normalBuildRetainsTests": true,
+  "automaticGitDeployment": false,
+  "renderFallbackNeeded": false
+}

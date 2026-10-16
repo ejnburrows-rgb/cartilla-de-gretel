@@ -9,8 +9,7 @@
   "generation": "Offline WAV export; FFmpeg libmp3lame q:a 4. No voice cloning, API, subscription or paid service.",
   "authorization": "Owner explicitly authorized free Spanish TTS for Lesson 3 in the four-step finish request.",
   "instructionCount": 4,
-  "requestedCount": 40,
-  "coverageNote": "Only four instruction regions exist on pages 7–9. No verified 40-line script found. No unrelated lesson audio generated.",
+  "coverageNote": "All four instruction sentences in transcription pages 7–9 are installed and wired in printed-page order. Existing exact-match free Spanish audio reused; no invented lines or unrelated lesson audio.",
   "clips": [
     {
       "key": "muy-bien",
@@ -26,7 +25,8 @@
       "page": 7,
       "src": "/audio/lesson-3-tts/p7-instr.mp3",
       "sha256": "0e73255ae04e4de942cd813f11ea26caa26c742d12705cc961d1efe7021ee436",
-      "durationSeconds": 5.172245
+      "durationSeconds": 5.172245,
+      "sourcePointer": "/pages/7/instruction"
     },
     {
       "key": "p8-instr",
@@ -34,7 +34,8 @@
       "page": 8,
       "src": "/audio/lesson-3-tts/p8-instr.mp3",
       "sha256": "007ffc4fdada855b1dc5a44831392d875aeac48709a8393450a1ab97c11e7c05",
-      "durationSeconds": 6.138776
+      "durationSeconds": 6.138776,
+      "sourcePointer": "/pages/8/instruction"
     },
     {
       "key": "p9-instr1",
@@ -42,7 +43,8 @@
       "page": 9,
       "src": "/audio/lesson-3-tts/p9-instr1.mp3",
       "sha256": "6e357f18c5ba56cedc0ac07d8742e03b96e85670dfba4435c68a9dec10fa9388",
-      "durationSeconds": 2.324898
+      "durationSeconds": 2.324898,
+      "sourcePointer": "/pages/9/instruction"
     },
     {
       "key": "p9-instr2",
@@ -50,7 +52,10 @@
       "page": 9,
       "src": "/audio/lesson-3-tts/p9-instr2.mp3",
       "sha256": "157d7a7737ca4721b70cecae598b139285c5292f047f9e3dd740dad0cee8a160",
-      "durationSeconds": 4.649796
+      "durationSeconds": 4.649796,
+      "sourcePointer": "/pages/9/drawInstruction"
     }
-  ]
+  ],
+  "instructionSource": "src/data/book-transcription/lessons-01-07.json",
+  "instructionSourceSha256": "34ce3fc314c53b7731021cec2e0493a2a5174efa0c2055f60677845a662a876d"
 }
