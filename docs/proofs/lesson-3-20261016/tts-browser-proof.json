@@ -1,0 +1,297 @@
+{
+  "viewport": {
+    "width": 390,
+    "height": 844
+  },
+  "checks": [
+    {
+      "name": "page 7 p7-instr actual MP3 completes via keyboard",
+      "pass": true
+    },
+    {
+      "name": "p7-instr touch size",
+      "pass": true
+    },
+    {
+      "name": "page 7 real correct answer plays complete Muy bien",
+      "pass": true
+    },
+    {
+      "name": "page 7 feedback visible",
+      "pass": true
+    },
+    {
+      "name": "page 7 picture interrupts instruction",
+      "pass": true
+    },
+    {
+      "name": "page 8 p8-instr actual MP3 completes",
+      "pass": true
+    },
+    {
+      "name": "p8-instr touch size",
+      "pass": true
+    },
+    {
+      "name": "page 8 real correct answer plays complete Muy bien",
+      "pass": true
+    },
+    {
+      "name": "page 8 feedback visible",
+      "pass": true
+    },
+    {
+      "name": "page 8 picture interrupts instruction",
+      "pass": true
+    },
+    {
+      "name": "page 9 p9-instr1 actual MP3 completes",
+      "pass": true
+    },
+    {
+      "name": "p9-instr1 touch size",
+      "pass": true
+    },
+    {
+      "name": "page 9 p9-instr2 actual MP3 completes",
+      "pass": true
+    },
+    {
+      "name": "p9-instr2 touch size",
+      "pass": true
+    },
+    {
+      "name": "no runtime exceptions",
+      "pass": true,
+      "details": []
+    }
+  ],
+  "media": [
+    {
+      "page": 7,
+      "events": [
+        {
+          "kind": "playing",
+          "src": "http://127.0.0.1:5173/audio/lesson-3-tts/p7-instr.mp3",
+          "time": 0,
+          "duration": 5.118503,
+          "paused": false
+        },
+        {
+          "kind": "pause",
+          "src": "http://127.0.0.1:5173/audio/lesson-3-tts/p7-instr.mp3",
+          "time": 5.118503,
+          "duration": 5.118503,
+          "paused": true
+        },
+        {
+          "kind": "ended",
+          "src": "http://127.0.0.1:5173/audio/lesson-3-tts/p7-instr.mp3",
+          "time": 5.118503,
+          "duration": 5.118503,
+          "paused": true
+        },
+        {
+          "kind": "playing",
+          "src": "http://127.0.0.1:5173/audio/voz/vocabulario/abanico.mp3",
+          "time": 0,
+          "duration": 2.054083,
+          "paused": false
+        },
+        {
+          "kind": "pause",
+          "src": "http://127.0.0.1:5173/audio/voz/vocabulario/abanico.mp3",
+          "time": 2.054083,
+          "duration": 2.054083,
+          "paused": true
+        },
+        {
+          "kind": "ended",
+          "src": "http://127.0.0.1:5173/audio/voz/vocabulario/abanico.mp3",
+          "time": 2.054083,
+          "duration": 2.054083,
+          "paused": true
+        },
+        {
+          "kind": "playing",
+          "src": "http://127.0.0.1:5173/audio/lesson-3-tts/muy-bien.mp3",
+          "time": 0,
+          "duration": 1.200408,
+          "paused": false
+        },
+        {
+          "kind": "pause",
+          "src": "http://127.0.0.1:5173/audio/lesson-3-tts/muy-bien.mp3",
+          "time": 1.200408,
+          "duration": 1.200408,
+          "paused": true
+        },
+        {
+          "kind": "ended",
+          "src": "http://127.0.0.1:5173/audio/lesson-3-tts/muy-bien.mp3",
+          "time": 1.200408,
+          "duration": 1.200408,
+          "paused": true
+        },
+        {
+          "kind": "playing",
+          "src": "http://127.0.0.1:5173/audio/lesson-3-tts/p7-instr.mp3",
+          "time": 0,
+          "duration": 5.118503,
+          "paused": false
+        },
+        {
+          "kind": "pause",
+          "src": "http://127.0.0.1:5173/audio/lesson-3-tts/p7-instr.mp3",
+          "time": 0.106748,
+          "duration": 5.118503,
+          "paused": true
+        },
+        {
+          "kind": "playing",
+          "src": "http://127.0.0.1:5173/audio/voz/vocabulario/oruga.mp3",
+          "time": 0,
+          "duration": 1.784,
+          "paused": false
+        }
+      ]
+    },
+    {
+      "page": 8,
+      "events": [
+        {
+          "kind": "playing",
+          "src": "http://127.0.0.1:5173/audio/lesson-3-tts/p8-instr.mp3",
+          "time": 0,
+          "duration": 6.073107,
+          "paused": false
+        },
+        {
+          "kind": "pause",
+          "src": "http://127.0.0.1:5173/audio/lesson-3-tts/p8-instr.mp3",
+          "time": 6.073107,
+          "duration": 6.073107,
+          "paused": true
+        },
+        {
+          "kind": "ended",
+          "src": "http://127.0.0.1:5173/audio/lesson-3-tts/p8-instr.mp3",
+          "time": 6.073107,
+          "duration": 6.073107,
+          "paused": true
+        },
+        {
+          "kind": "playing",
+          "src": "http://127.0.0.1:5173/audio/voz/vocabulario/alas.mp3",
+          "time": 0,
+          "duration": 1.697875,
+          "paused": false
+        },
+        {
+          "kind": "pause",
+          "src": "http://127.0.0.1:5173/audio/voz/vocabulario/alas.mp3",
+          "time": 1.697875,
+          "duration": 1.697875,
+          "paused": true
+        },
+        {
+          "kind": "ended",
+          "src": "http://127.0.0.1:5173/audio/voz/vocabulario/alas.mp3",
+          "time": 1.697875,
+          "duration": 1.697875,
+          "paused": true
+        },
+        {
+          "kind": "playing",
+          "src": "http://127.0.0.1:5173/audio/lesson-3-tts/muy-bien.mp3",
+          "time": 0,
+          "duration": 1.200408,
+          "paused": false
+        },
+        {
+          "kind": "pause",
+          "src": "http://127.0.0.1:5173/audio/lesson-3-tts/muy-bien.mp3",
+          "time": 1.200408,
+          "duration": 1.200408,
+          "paused": true
+        },
+        {
+          "kind": "ended",
+          "src": "http://127.0.0.1:5173/audio/lesson-3-tts/muy-bien.mp3",
+          "time": 1.200408,
+          "duration": 1.200408,
+          "paused": true
+        },
+        {
+          "kind": "playing",
+          "src": "http://127.0.0.1:5173/audio/lesson-3-tts/p8-instr.mp3",
+          "time": 0,
+          "duration": 6.073107,
+          "paused": false
+        },
+        {
+          "kind": "pause",
+          "src": "http://127.0.0.1:5173/audio/lesson-3-tts/p8-instr.mp3",
+          "time": 0.096744,
+          "duration": 6.073107,
+          "paused": true
+        },
+        {
+          "kind": "playing",
+          "src": "http://127.0.0.1:5173/audio/voz/vocabulario/oso.mp3",
+          "time": 0,
+          "duration": 1.49675,
+          "paused": false
+        }
+      ]
+    },
+    {
+      "page": 9,
+      "events": [
+        {
+          "kind": "playing",
+          "src": "http://127.0.0.1:5173/audio/lesson-3-tts/p9-instr1.mp3",
+          "time": 0,
+          "duration": 2.253333,
+          "paused": false
+        },
+        {
+          "kind": "pause",
+          "src": "http://127.0.0.1:5173/audio/lesson-3-tts/p9-instr1.mp3",
+          "time": 2.253333,
+          "duration": 2.253333,
+          "paused": true
+        },
+        {
+          "kind": "ended",
+          "src": "http://127.0.0.1:5173/audio/lesson-3-tts/p9-instr1.mp3",
+          "time": 2.253333,
+          "duration": 2.253333,
+          "paused": true
+        },
+        {
+          "kind": "playing",
+          "src": "http://127.0.0.1:5173/audio/lesson-3-tts/p9-instr2.mp3",
+          "time": 0,
+          "duration": 4.578685,
+          "paused": false
+        },
+        {
+          "kind": "pause",
+          "src": "http://127.0.0.1:5173/audio/lesson-3-tts/p9-instr2.mp3",
+          "time": 4.578685,
+          "duration": 4.578685,
+          "paused": true
+        },
+        {
+          "kind": "ended",
+          "src": "http://127.0.0.1:5173/audio/lesson-3-tts/p9-instr2.mp3",
+          "time": 4.578685,
+          "duration": 4.578685,
+          "paused": true
+        }
+      ]
+    }
+  ],
+  "errors": []
+}

@@ -1,3 +1,5 @@
+import { playLesson3Audio } from "@/components/cartilla/Lesson3Audio";
+import { stopSpeech } from "@/lib/speech-playback";
 import { DemoStudentBanner } from "@/components/cartilla/DemoStudentBanner";
 import { getDemoStudentSession } from "@/lib/demo-student-session";
 import { listSeedStudentAssignments } from "@/lib/seed-data";
@@ -137,12 +139,25 @@ export function Leccion() {
   const [proofFeedback, setProofFeedback] = useState("");
   useEffect(() => {
     if (n !== 3) return;
-    return onGretelEvent((type, detail) => {
-      if (type === "page-turn:start") setProofFeedback("");
+    let successTimer: ReturnType<typeof setTimeout> | undefined;
+    const cancel = () => { clearTimeout(successTimer); successTimer = undefined; };
+    const stop = () => { cancel(); stopSpeech("gretel"); };
+    // Let the tapped vocabulary finish. A new tap cancels a queued compliment.
+    document.addEventListener("pointerdown", cancel, true);
+    document.addEventListener("keydown", cancel, true);
+    const hidden = () => { if (document.hidden) stop(); };
+    document.addEventListener("visibilitychange", hidden);
+    window.addEventListener("pagehide", stop);
+    const unsubscribe = onGretelEvent((type, detail) => {
+      if (type === "page-turn:start") { setProofFeedback(""); stop(); }
       if (detail.restored || ![7, 8, 9].includes(detail.pageNumber ?? 0)) return;
-      if (type === "answer:correct" || type === "activity:complete") setProofFeedback("★ Muy bien.");
-      if (type === "answer:wrong") setProofFeedback(detail.text ?? "Casi. Escucha otra vez.");
+      if (type === "answer:correct" || type === "activity:complete") {
+        setProofFeedback("★ Muy bien.");
+        cancel(); successTimer = setTimeout(() => playLesson3Audio("muy-bien"), 2500);
+      }
+      if (type === "answer:wrong") { cancel(); setProofFeedback(detail.text ?? "Casi. Escucha otra vez."); }
     });
+    return () => { unsubscribe(); stop(); document.removeEventListener("pointerdown", cancel, true); document.removeEventListener("keydown", cancel, true); document.removeEventListener("visibilitychange", hidden); window.removeEventListener("pagehide", stop); };
   }, [n]);
   const [saveFailed, setSaveFailed] = useState(false);
   useEffect(() => {
@@ -228,7 +243,7 @@ export function Leccion() {
           </span>
         )}
       </header>
-      {n === 3 && <p className="lesson-3-feedback" aria-live="polite" data-feedback-audio="pending">{proofFeedback || "Toca cada dibujo para escuchar su nombre."}</p>}
+      {n === 3 && <p className="lesson-3-feedback" aria-live="polite" data-feedback-audio="synthetic-spanish">{proofFeedback || "Toca cada dibujo para escuchar su nombre."}</p>}
       {saveFailed && <p role="alert" className="mx-3 rounded-xl bg-amber-100 p-3 text-amber-950">No se pudo guardar tu trabajo. Mantén esta página abierta y libera espacio en este navegador antes de salir.</p>}
       <main className="lc-lesson-main flex-1 px-3 pb-6 max-w-7xl w-full mx-auto flex flex-col items-center">
         <div className="lc-lesson-main__intro w-full max-w-3xl text-left mb-4">

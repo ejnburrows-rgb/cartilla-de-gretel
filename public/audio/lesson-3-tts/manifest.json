@@ -1,0 +1,56 @@
+{
+  "synthetic": true,
+  "engine": "eSpeak NG 1.51",
+  "voice": "es-419 (Latin American Spanish, male formant voice)",
+  "rate": 145,
+  "pitch": 58,
+  "engineLicense": "GPL-3.0-or-later",
+  "engineSource": "https://github.com/espeak-ng/espeak-ng",
+  "generation": "Offline WAV export; FFmpeg libmp3lame q:a 4. No voice cloning, API, subscription or paid service.",
+  "authorization": "Owner explicitly authorized free Spanish TTS for Lesson 3 in the four-step finish request.",
+  "instructionCount": 4,
+  "requestedCount": 40,
+  "coverageNote": "Only four instruction regions exist on pages 7–9. No verified 40-line script found. No unrelated lesson audio generated.",
+  "clips": [
+    {
+      "key": "muy-bien",
+      "text": "Muy bien.",
+      "page": null,
+      "src": "/audio/lesson-3-tts/muy-bien.mp3",
+      "sha256": "9c8e7ff81997b49c01daf69935e7df2553551039e10facf1f44c6e4bbc521e98",
+      "durationSeconds": 1.253878
+    },
+    {
+      "key": "p7-instr",
+      "text": "Marca con una x los dibujos de las palabras que comienzan con A a.",
+      "page": 7,
+      "src": "/audio/lesson-3-tts/p7-instr.mp3",
+      "sha256": "0e73255ae04e4de942cd813f11ea26caa26c742d12705cc961d1efe7021ee436",
+      "durationSeconds": 5.172245
+    },
+    {
+      "key": "p8-instr",
+      "text": "Traza una línea desde la vocal Aa hasta el dibujo de la palabra que comienza con Aa.",
+      "page": 8,
+      "src": "/audio/lesson-3-tts/p8-instr.mp3",
+      "sha256": "007ffc4fdada855b1dc5a44831392d875aeac48709a8393450a1ab97c11e7c05",
+      "durationSeconds": 6.138776
+    },
+    {
+      "key": "p9-instr1",
+      "text": "Escribe con tu mejor letra.",
+      "page": 9,
+      "src": "/audio/lesson-3-tts/p9-instr1.mp3",
+      "sha256": "6e357f18c5ba56cedc0ac07d8742e03b96e85670dfba4435c68a9dec10fa9388",
+      "durationSeconds": 2.324898
+    },
+    {
+      "key": "p9-instr2",
+      "text": "Haz un dibujo que represente una palabra que comienza con a.",
+      "page": 9,
+      "src": "/audio/lesson-3-tts/p9-instr2.mp3",
+      "sha256": "157d7a7737ca4721b70cecae598b139285c5292f047f9e3dd740dad0cee8a160",
+      "durationSeconds": 4.649796
+    }
+  ]
+}

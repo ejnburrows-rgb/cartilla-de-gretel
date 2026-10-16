@@ -504,3 +504,20 @@ body:has(.lc-lesson-shell--lesson-3) .picture-audio-status { bottom: calc(100px 
   height: auto;
   min-height: min-content;
 }
+
+/* Lesson 3 only: explicit tap-to-listen for owner-authorized Spanish TTS files. */
+.lc-lesson-shell--lesson-3 .lesson-3-instruction-audio {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 104px;
+  min-height: 56px;
+  margin-top: 12px;
+  padding: 8px 16px;
+  border: 2px solid #167A72;
+  border-radius: 14px;
+  background: #FFFDF9;
+  color: #167A72;
+  font-family: 'Fredoka', sans-serif;
+  font-size: 22px;
+}

@@ -1,3 +1,4 @@
+import { Lesson3InstructionAudio } from "./Lesson3Audio";
 import "@/styles/native-lesson.css";
 import type { ReactNode } from "react";
 import { GretelActivity } from "@/components/gretel/GretelActivity";
@@ -446,11 +447,11 @@ function RegionView({
             )
           : region.text;
       return (
-        <p className="fp-region--instruction" data-instruction-audio-key={lessonId === "3" ? region.id : undefined} data-recording-status={lessonId === "3" ? "pending" : undefined}>
+        <p className="fp-region--instruction" data-instruction-audio-key={lessonId === "3" ? region.id : undefined} data-recording-status={lessonId === "3" ? "synthetic-spanish" : undefined}>
           {region.label ? <span className="fp-label">{region.label} </span> : null}
           {instructionText}
           {interactive && region.text ? (
-            <EscucharInstruccionButton text={region.text} className="fp-instruction__escuchar" />
+            lessonId === "3" ? <Lesson3InstructionAudio instructionKey={region.id} text={region.text} /> : <EscucharInstruccionButton text={region.text} className="fp-instruction__escuchar" />
           ) : null}
         </p>
       );
