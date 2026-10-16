@@ -1,42 +1,22 @@
 import vocabulary from "@/content/picture-vocabulary.json";
-import { audioEngine } from "@/lib/audio-engine";
-import { isGretelVoiceMuted } from "@/lib/gretel-voice";
-import { claimSpeech, registerSpeechCleanup, releaseSpeech, speechIsCurrent, stopSpeech } from "@/lib/speech-playback";
 
-/** Owner-authorized neural Spanish files; no change to global TTS policy. */
-export function playLesson3Audio(key: string): void {
-  if (typeof window === "undefined" || !/^(muy-bien|p7-instr|p8-instr|p9-instr[12])$/.test(key)) return;
-  if (audioEngine.isMuted() || audioEngine.getVolume() <= 0 || isGretelVoiceMuted()) return;
-  const token = claimSpeech("gretel");
-  const audio = new Audio(`/audio/lesson-3-tts/${key}.mp3`);
-  audio.volume = audioEngine.getVolume();
-  const stop = () => {
-    audio.onended = null;
-    audio.onerror = null;
-    audio.pause();
-    audio.removeAttribute("src");
-    window.removeEventListener("cartilla:audio-settings", mute);
-    window.removeEventListener("storage", mute);
-    window.removeEventListener("pagehide", cancel);
-    document.removeEventListener("visibilitychange", hidden);
-  };
-  const finish = () => { stop(); releaseSpeech(token); };
-  const cancel = () => { if (speechIsCurrent(token)) stopSpeech("gretel"); };
-  const mute = () => { if (audioEngine.isMuted() || audioEngine.getVolume() <= 0 || isGretelVoiceMuted()) cancel(); };
-  const hidden = () => { if (document.hidden) cancel(); };
-  registerSpeechCleanup(token, stop);
-  window.addEventListener("cartilla:audio-settings", mute);
-  window.addEventListener("storage", mute);
-  window.addEventListener("pagehide", cancel);
-  document.addEventListener("visibilitychange", hidden);
-  audio.onended = audio.onerror = finish;
-  void audio.play().catch(finish);
+/**
+ * Lesson 3 (Vocal A) audio — SILENT by owner decision.
+ *
+ * Forensics (2026-10-16) proved ZERO usable owner recordings exist for any of the
+ * five Lesson 3 lines (p7-instr, p8-instr, p9-instr1, p9-instr2, muy-bien): the only
+ * upload on the VM is a voice-model demo, not the owner's voice. Per the owner's
+ * Step 5 voice-authenticity rule, all five lines stay SILENT until the owner supplies
+ * real recordings. Generated/synthesized voice is forbidden here.
+ */
+export function playLesson3Audio(_key: string): void {
+  // SILENT no-op: owner recordings pending; generated voice forbidden.
+  // Intentionally constructs no Audio and references no /audio/ path.
 }
 
-export function Lesson3InstructionAudio({ instructionKey, text }: { instructionKey: string; text: string }) {
-  return <button type="button" className="lesson-3-instruction-audio" aria-label={`Escuchar instrucciones: ${text}`} onClick={(event) => {
-    event.preventDefault(); event.stopPropagation(); playLesson3Audio(instructionKey);
-  }}>Escuchar</button>;
+/** While Lesson 3 is silent there is no listen button. Signature kept for importers. */
+export function Lesson3InstructionAudio(_props: { instructionKey: string; text: string }) {
+  return null;
 }
 
 /** Keep approved recorded word playback when Lesson 3 art is missing or replaced. */
