@@ -192,9 +192,12 @@ function Practica() {
       setPhase("done");
       return;
     }
-    const timer = setTimeout(() => setSecondsLeft((s) => s - 1), 1000);
+    const timer = setTimeout(() => {
+      const elapsed = Math.floor((Date.now() - startedAt.current) / 1000);
+      setSecondsLeft(Math.max(0, duration - elapsed));
+    }, 1000);
     return () => clearTimeout(timer);
-  }, [familyMode, phase, secondsLeft]);
+  }, [familyMode, phase, secondsLeft, duration]);
 
   useEffect(() => {
     if (familyMode || phase !== "done") return;
@@ -212,7 +215,8 @@ function Practica() {
 
   const start = () => {
     if (pool.length < 4) return;
-    setCards(buildCards(pool, 200));
+    const initialCards = buildCards(pool, 200);
+    setCards(initialCards);
     setIdx(0);
     setHits(0);
     setMisses(0);
@@ -220,7 +224,7 @@ function Practica() {
     setFeedback(null);
     startedAt.current = Date.now();
     setPhase("playing");
-    setTimeout(() => speak(pool[0]), 100);
+    setTimeout(() => speak(initialCards[0].syllable), 100);
   };
 
   const choose = (option: string) => {
