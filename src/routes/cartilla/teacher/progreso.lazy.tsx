@@ -36,7 +36,12 @@ function TeacherProgressPage() {
   const classes = isSeed ? seedClasses : realClasses;
   const loadingClasses = !isSeed && loadingRealClasses;
 
-  const { data: realClassProgress, isLoading: loadingRealProgress } = useQuery({
+  const {
+    data: realClassProgress,
+    isLoading: loadingRealProgress,
+    isError: realClassProgressError,
+    refetch: refetchRealClassProgress,
+  } = useQuery({
     queryKey: ["teacher-class-progress", selectedClassId],
     queryFn: () => getClassProgress({ data: { id: selectedClassId } }),
     enabled: !isSeed && !!selectedClassId,
@@ -53,6 +58,7 @@ function TeacherProgressPage() {
 
   const classProgress = isSeed ? seedClassProgress : realClassProgress;
   const loadingProgress = !isSeed && loadingRealProgress;
+  const isErrorProgress = !isSeed && realClassProgressError;
   const perStudent: StudentProgressRow[] = classProgress?.perStudent ?? [];
 
   useEffect(() => {
@@ -98,6 +104,17 @@ function TeacherProgressPage() {
       {loadingProgress ? (
         <div className="p-12 text-center font-bold text-stone-400 animate-pulse bg-white border border-stone-200 rounded-[2rem]">
           Cargando progreso de la clase...
+        </div>
+      ) : isErrorProgress ? (
+        <div className="p-12 text-center bg-white border border-red-200 rounded-[2rem]">
+          <h2 className="text-xl font-bold text-red-600">Hubo un error al cargar el progreso</h2>
+          <p className="text-stone-500 mt-2">No se pudo obtener el progreso de los alumnos.</p>
+          <button
+            onClick={() => refetchRealClassProgress()}
+            className="mt-4 px-6 py-2 bg-red-100 text-red-700 font-bold rounded-xl hover:bg-red-200 transition-colors"
+          >
+            Reintentar
+          </button>
         </div>
       ) : perStudent.length === 0 ? (
         <div className="p-12 text-center bg-white border border-stone-200 rounded-[2rem]">
