@@ -1,5 +1,5 @@
 import { createLazyFileRoute, Link } from "@tanstack/react-router";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { BookOpen, Rows3, Home, ClipboardCheck, Music, UserPlus } from "lucide-react";
 import { CATALOG } from "@/lib/lesson-catalog";
 import { getTeacherFolderData } from "@/content/teacher-folder-data";
@@ -59,6 +59,14 @@ const FOLDERS: FolderDef[] = [
 function TeacherGuiaFolders() {
   const { folder: folderFromUrl } = Route.useSearch();
   const [openFolder, setOpenFolder] = useState<FolderKey | null>(folderFromUrl ?? null);
+  // #835: the useState initializer above runs only on mount. Navigating
+  // ?folder=guia -> ?folder=tablas keeps this route mounted, so without this
+  // effect the displayed folder would stay stuck on the first URL value.
+  // Manual open/close still works: the effect only fires when the URL param
+  // itself changes, so closing a folder is not undone by a stale URL.
+  useEffect(() => {
+    setOpenFolder(folderFromUrl ?? null);
+  }, [folderFromUrl]);
   const [assigning, setAssigning] = useState<{
     folderKey: FolderKey;
     lessonId: string;
