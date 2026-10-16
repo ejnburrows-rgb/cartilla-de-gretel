@@ -331,7 +331,7 @@ export const LESSONS: LessonMeta[] = [
     accent: "#2A9D8F",
     studentBgClass: "cartilla-lesson-bg-24",
     teacherBgClass: "cartilla-teacher-bg-24",
-    syllables: ["za", "ce", "ci", "zo", "zu"],
+    syllables: ["za", "ze", "zi", "zo", "zu"],
     keywords: ["zapato", "zig-zag", "zorro", "zepelín", "Zulema"],
   },
 ];
