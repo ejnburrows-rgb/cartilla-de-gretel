@@ -81,7 +81,7 @@ export function ClassRoster() {
     [isSeed, seedClasses, realClasses],
   );
   const loadingClasses = !isSeed && loadingRealClasses;
-  const classesError = !isSeed && isClassesError;
+  const classesError = !isSeed && isClassesError && !realClasses;
 
   // Set default class
   useEffect(() => {
@@ -112,7 +112,7 @@ export function ClassRoster() {
     }
   }, [isSeed, selectedClassId, seedVersion]);
 
-  const studentsError = !isSeed && isStudentsError;
+  const studentsError = !isSeed && isStudentsError && !realClassData;
 
   const activeClass = classesList.find((c) => c.id === selectedClassId);
 

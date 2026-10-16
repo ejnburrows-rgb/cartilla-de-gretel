@@ -1,5 +1,5 @@
 // @vitest-environment jsdom
-import { cleanup, render, screen, fireEvent } from "@testing-library/react";
+import { cleanup, render, screen, fireEvent, waitFor } from "@testing-library/react";
 import { afterEach, beforeEach, describe, expect, it, vi } from "vitest";
 import { ClassRoster } from "../ClassRoster";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
@@ -128,5 +128,66 @@ describe("ClassRoster error handling", () => {
 
     expect(await screen.findByText("Esta clase está vacía")).toBeTruthy();
     expect(screen.queryByText("Error al cargar los alumnos")).toBeNull();
+  });
+
+  it("keeps cached classes visible when a background refetch fails", async () => {
+    vi.mocked(listClasses)
+      .mockResolvedValueOnce([
+        { id: "class-1", name: "Class 1", join_code: "1234", student_count: 0 }
+      ])
+      .mockRejectedValueOnce(new Error("Network Error"));
+    vi.mocked(getClass).mockResolvedValue({
+      id: "class-1",
+      name: "Class 1",
+      join_code: "1234",
+      students: []
+    });
+
+    renderComponent();
+
+    // initial load succeeds: the class select is rendered
+    await waitFor(() => {
+      expect(document.querySelector("#active-class-select")).toBeTruthy();
+    });
+
+    // background refetch fails while cached data exists
+    await queryClient.refetchQueries({ queryKey: ["roster-classes"] });
+
+    // cached roster stays visible; no blocking error panel
+    await waitFor(() => {
+      expect(screen.queryByText("Error al cargar tus clases")).toBeNull();
+    });
+    expect(document.querySelector("#active-class-select")).toBeTruthy();
+  });
+
+  it("keeps cached students visible when a background refetch fails", async () => {
+    const classData = {
+      id: "class-1",
+      name: "Class 1",
+      join_code: "1234",
+      students: [{ id: "s-1", display_name: "Ana", student_code: "A1" }]
+    };
+    vi.mocked(listClasses).mockResolvedValueOnce([
+      { id: "class-1", name: "Class 1", join_code: "1234", student_count: 1 }
+    ]);
+    vi.mocked(getClass)
+      .mockResolvedValueOnce(classData)
+      .mockRejectedValueOnce(new Error("Network Error"));
+
+    renderComponent();
+
+    // initial load succeeds: the student table is rendered
+    expect(await screen.findByText("Miembros de la Clase")).toBeTruthy();
+    expect(await screen.findByText("Ana")).toBeTruthy();
+
+    // background refetch fails while cached data exists
+    await queryClient.refetchQueries({ queryKey: ["roster-students"] });
+
+    // cached students stay visible; no blocking error panel
+    await waitFor(() => {
+      expect(screen.queryByText("Error al cargar los alumnos")).toBeNull();
+    });
+    expect(screen.getByText("Miembros de la Clase")).toBeTruthy();
+    expect(screen.getByText("Ana")).toBeTruthy();
   });
 });
