@@ -75,7 +75,7 @@ export function InteractivePictureGrid({
   accent,
   lessonId,
   precise = false,
-  mark = "circle",
+  mark: sourceMark = "circle",
 }: ExerciseProps & { precise?: boolean; mark?: PictureMark }) {
   const { emit: gretelEvent, record: recordEvent } = useActivityEvents();
   const cells = region.cells ?? [];
@@ -175,6 +175,7 @@ export function InteractivePictureGrid({
             const isMarking = markingCells.has(i);
             const isVal = validated.has(i);
             const isCorrect = isMarking ? markingCells.get(i) : isVal;
+            const mark = retry.isProof && !isCorrect ? "circle" : sourceMark;
 
               return (
                 <button
@@ -193,7 +194,7 @@ export function InteractivePictureGrid({
                     <div className="absolute inset-0 pointer-events-none flex items-center justify-center p-1 z-10">
                       <WorkbookPencilMark
                         round
-                        markType={retry.isProof && !isCorrect ? "circle" : mark}
+                        markType={mark}
                         retryText={retry.text(String(i))}
                         isCorrect={isCorrect}
                         itemId={`${region.id}-${i}`}

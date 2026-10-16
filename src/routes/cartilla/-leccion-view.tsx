@@ -228,7 +228,7 @@ export function Leccion() {
           </span>
         )}
       </header>
-      {n === 3 && <p className="lesson-3-feedback" role="status" aria-live="polite" data-feedback-audio="pending">{proofFeedback || "Toca cada dibujo para escuchar su nombre."}</p>}
+      {n === 3 && <p className="lesson-3-feedback" aria-live="polite" data-feedback-audio="pending">{proofFeedback || "Toca cada dibujo para escuchar su nombre."}</p>}
       {saveFailed && <p role="alert" className="mx-3 rounded-xl bg-amber-100 p-3 text-amber-950">No se pudo guardar tu trabajo. Mantén esta página abierta y libera espacio en este navegador antes de salir.</p>}
       <main className="lc-lesson-main flex-1 px-3 pb-6 max-w-7xl w-full mx-auto flex flex-col items-center">
         <div className="lc-lesson-main__intro w-full max-w-3xl text-left mb-4">
