@@ -120,6 +120,97 @@ describe("FlipchartHdPanel — CRM-grade presenter board", () => {
     );
   });
 
+  it("does not steal Space or Enter from a focused previous-sheet button", () => {
+    render(<FlipchartHdPanel lessonNumber={7} />);
+    const counter = screen.getByTestId("flipchart-counter");
+    const next = screen.getByRole("button", { name: "Lámina siguiente" });
+    const previous = screen.getByRole("button", { name: "Lámina anterior" });
+
+    fireEvent.click(next);
+    expect(counter.textContent).toMatch(/Hoja 2 de/);
+    previous.focus();
+
+    // In a browser, a non-cancelled Space key activates the focused button.
+    // Simulate the native click separately because fireEvent does not synthesize it.
+    expect(fireEvent.keyDown(previous, { key: " ", code: "Space", cancelable: true })).toBe(true);
+    expect(counter.textContent).toMatch(/Hoja 2 de/);
+    fireEvent.click(previous);
+    expect(counter.textContent).toMatch(/Hoja 1 de/);
+
+    fireEvent.click(next);
+    expect(fireEvent.keyDown(previous, { key: "Enter", cancelable: true })).toBe(true);
+    expect(counter.textContent).toMatch(/Hoja 2 de/);
+    fireEvent.click(previous);
+    expect(counter.textContent).toMatch(/Hoja 1 de/);
+  });
+
+  it("leaves Space on a focused thumbnail to its own click action", () => {
+    render(<FlipchartHdPanel lessonNumber={7} />);
+    const counter = screen.getByTestId("flipchart-counter");
+    fireEvent.click(screen.getByRole("button", { name: "Lámina siguiente" }));
+    expect(counter.textContent).toMatch(/Hoja 2 de/);
+
+    const firstThumbnail = screen.getByRole("tab", { name: "Ir a hoja 1" });
+    firstThumbnail.focus();
+    expect(fireEvent.keyDown(firstThumbnail, { key: " ", code: "Space", cancelable: true })).toBe(true);
+    // The global next-sheet listener must not turn sheet 2 to sheet 3.
+    expect(counter.textContent).toMatch(/Hoja 2 de/);
+    fireEvent.click(firstThumbnail);
+    expect(counter.textContent).toMatch(/Hoja 1 de/);
+  });
+
+  it("ignores keyboard shortcuts from editable inputs and already-handled events", () => {
+    render(
+      <>
+        <input aria-label="Notas" />
+        <div contentEditable tabIndex={0} data-testid="editable-notes">Anotación</div>
+        <FlipchartHdPanel lessonNumber={7} />
+      </>,
+    );
+    const counter = screen.getByTestId("flipchart-counter");
+    const input = screen.getByRole("textbox", { name: "Notas" });
+    input.focus();
+    fireEvent.keyDown(input, { key: "ArrowDown" });
+    expect(counter.textContent).toMatch(/Hoja 1 de/);
+
+    const editable = screen.getByTestId("editable-notes");
+    editable.focus();
+    fireEvent.keyDown(editable, { key: "PageDown" });
+    expect(counter.textContent).toMatch(/Hoja 1 de/);
+
+    const stage = screen.getByTestId("flipchart-stage");
+    const previouslyHandled = new KeyboardEvent("keydown", {
+      key: "ArrowDown",
+      bubbles: true,
+      cancelable: true,
+    });
+    previouslyHandled.preventDefault();
+    stage.dispatchEvent(previouslyHandled);
+    expect(counter.textContent).toMatch(/Hoja 1 de/);
+  });
+
+  it("keeps presenter-surface shortcuts, boundaries, and single-turn key repetition", () => {
+    render(<FlipchartHdPanel lessonNumber={7} />);
+    const stage = screen.getByTestId("flipchart-stage");
+    const counter = screen.getByTestId("flipchart-counter");
+    stage.focus();
+    expect(document.activeElement).toBe(stage);
+
+    fireEvent.keyDown(stage, { key: "ArrowDown" });
+    expect(counter.textContent).toMatch(/Hoja 2 de/);
+    fireEvent.keyDown(stage, { key: "ArrowDown", repeat: true });
+    expect(counter.textContent).toMatch(/Hoja 2 de/);
+
+    fireEvent.keyDown(stage, { key: "ArrowUp" });
+    expect(counter.textContent).toMatch(/Hoja 1 de/);
+    fireEvent.keyDown(stage, { key: "PageUp" });
+    expect(counter.textContent).toMatch(/Hoja 1 de/);
+    fireEvent.keyDown(stage, { key: " ", code: "Space" });
+    expect(counter.textContent).toMatch(/Hoja 2 de/);
+    fireEvent.keyDown(stage, { key: "ArrowLeft" });
+    expect(counter.textContent).toMatch(/Hoja 1 de/);
+  });
+
   // useReducedMotion is mocked to true at the top of this file, so page turns
   // must be instant: no rotateX flip layer and no disabled-motion dead period.
   it("under reduced motion, advances instantly with no flip layer", () => {

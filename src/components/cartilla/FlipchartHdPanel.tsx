@@ -239,6 +239,31 @@ export function FlipchartHdPanel({ lessonNumber, accentColor, chrome = "full" }:
 
   useEffect(() => {
     const onKey = (e: KeyboardEvent) => {
+      // Let native controls, editable content, and the dedicated corner
+      // handlers own their keystrokes. Otherwise Space on "Anterior" is
+      // swallowed here and incorrectly advances to the next sheet.
+      const target = e.target;
+      const interactiveTarget =
+        target instanceof Element &&
+        (target.closest(
+          'button, input, textarea, select, a[href], summary, ' +
+          '[contenteditable]:not([contenteditable="false"]), ' +
+          '[role="button"], [role="tab"], [role="link"], [role="textbox"], ' +
+          '[role="combobox"], [role="checkbox"], [role="radio"], [role="switch"], ' +
+          '[role="slider"], [role="spinbutton"], [role="menuitem"], [role="option"]',
+        ) !== null || (target instanceof HTMLElement && target.isContentEditable));
+
+      if (
+        e.defaultPrevented ||
+        e.repeat ||
+        e.isComposing ||
+        e.altKey ||
+        e.ctrlKey ||
+        e.metaKey ||
+        e.shiftKey ||
+        interactiveTarget
+      ) return;
+
       if (["ArrowDown", "ArrowRight", "PageDown", " "].includes(e.key)) {
         e.preventDefault();
         handleNext();
@@ -486,6 +511,9 @@ export function FlipchartHdPanel({ lessonNumber, accentColor, chrome = "full" }:
         ref={easelRef}
         className={`fc-board__easel${isCinematicZooming ? " is-cinematic-zoom" : ""}`}
         data-testid="flipchart-stage"
+        role="region"
+        aria-label="Superficie del rotafolio"
+        tabIndex={0}
       >
         <div className="fc-board__page">
           <div className="fc-board__page-inner" ref={pageInnerRef}>
