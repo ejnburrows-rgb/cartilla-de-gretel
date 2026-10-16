@@ -174,7 +174,7 @@ export function SyllableBuilder({ content }: { content: GameContent }) {
 
   // ── Checking ─────────────────────────────────────────────────────
   const onCheck = () => {
-    if (!grade.isComplete || !word) return;
+    if (!grade.isComplete || !word || checked) return;
     setChecked(true);
     gretelEvent(grade.isCorrect ? "answer:correct" : "answer:wrong");
     recordEvent({
@@ -313,7 +313,7 @@ export function SyllableBuilder({ content }: { content: GameContent }) {
           </p>
         )}
         <div className="flex flex-wrap justify-center gap-3">
-          <KidButton onClick={onCheck} disabled={!grade.isComplete}>
+          <KidButton onClick={onCheck} disabled={!grade.isComplete || checked}>
             Comprobar
           </KidButton>
           {checked && grade.isCorrect && (
