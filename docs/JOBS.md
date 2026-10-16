@@ -13,7 +13,7 @@ One PR per lane. Lanes push branch + report only, never merge. Picture changes a
 | Lane 5 — Flip chart look | BLOCKED | — | — | — | Owner's pick of the look — no lane until he chooses. |
 | Vercel ↔ GitHub connection (not a lane) | BLOCKED | — | — | — | Vercel is not connected to GitHub: pushes to main do not deploy. Needs the owner in the Vercel dashboard. |
 | Carryover (morning queue): readable text on Practica / Repaso / Mi progreso | IN PROGRESS | lane session 4752644656033964851 | — | — | — |
-| Lesson 3 owner-voice only (swarm) — ONLY his original recordings, no generated voice, no merge | IN PROGRESS | branch voice/lesson-3-owner-only (off PR #866 branch) → draft PR | — | — | — |
+| Lesson 3 owner-voice only (swarm) — ONLY his original recordings, no generated voice, no merge | BLOCKED — draft PR #886, all 5 lines SILENT | PR #886 (draft, not merged) | TTS reverted (zero lesson-3-tts refs), guard test in repo + passing, manifest created, wiring silent | Voice itself (nothing to approve yet) | His original recordings for the 5 lines |
 
 ## Lane file rules
 - Each lesson lane works only on its own lesson's files.
@@ -25,3 +25,4 @@ One PR per lane. Lanes push branch + report only, never merge. Picture changes a
 - 2026-10-16 ~10:45 EDT: board created; Lane 1 done (PR #875 merged).
 - 2026-10-16 ~10:50 EDT: Lanes 2/3/4 dispatched (Jules sessions above).
 - 2026-10-16 ~14:20 EDT: Lesson 3 owner-voice swarm launched (new job).
+- 2026-10-16 ~15:22 EDT: swarm done — draft PR #886. Forensics: ZERO verified owner recordings on this VM (558473 mp4 is a voice-model demo, not his voice; 67 clips rejected; 2 named .m4a masters absent). All 5 lines silent. Awaiting his recordings.
