@@ -144,7 +144,7 @@ test.describe("Non-Workbook Accessibility & Keyboard Preflight (#561 Excluded)",
       { text: "Lecciones", href: "/cartilla/teacher/lecciones" },
       { text: "Reportes", href: "/cartilla/teacher/reportes" },
       { text: "Arte", href: "/cartilla/teacher/crm/artwork" },
-      { text: "Ayuda", href: "/cartilla/ayuda" },
+      { text: "Ayuda", href: "/cartilla/teacher/ayuda" },
     ];
 
     for (const link of navLinks) {
