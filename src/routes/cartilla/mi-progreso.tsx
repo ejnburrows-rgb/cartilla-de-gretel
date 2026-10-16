@@ -70,7 +70,7 @@ function LocalProgress() {
               style={{ width: `${Math.round((completedCount / TOTAL_LESSONS) * 100)}%` }}
             />
           </div>
-          <p className="mt-3 text-sm text-foreground/70">Progreso guardado en este navegador.</p>
+          <p className="mt-3 text-sm text-foreground">Progreso guardado en este navegador.</p>
         </div>
         <KidButton onClick={exportLocal} variant="outline" className="mt-4">
           <Download className="w-4 h-4" /> CSV
@@ -277,7 +277,7 @@ function MyProgress() {
         <div className="flex items-center justify-between gap-3 flex-wrap">
           <Link
             to="/cartilla"
-            className="inline-flex items-center gap-2 text-sm font-bold text-foreground/60 hover:text-foreground"
+            className="inline-flex items-center gap-2 text-sm font-bold text-foreground hover:text-foreground"
           >
             <ArrowLeft className="w-4 h-4" /> {t.cartilla[lang]}
           </Link>
@@ -288,7 +288,7 @@ function MyProgress() {
             <h1 className="text-3xl sm:text-4xl font-bold">
               {t.holaName[lang].replace("{name}", data.student.display_name)}
             </h1>
-            <p className="text-sm text-foreground/60 mt-1">
+            <p className="text-sm text-foreground mt-1">
               {t.clase[lang]} <strong>{data.class?.name ?? "—"}</strong> · {t.tuCodigo[lang]}{" "}
               <span className="font-mono font-bold">{data.student.student_code}</span>
             </p>
@@ -320,10 +320,10 @@ function MyProgress() {
 
         {summary.weak.length > 0 && (
           <section className="mt-6 rounded-2xl border-2 border-warning/30 bg-warning/5 p-4">
-            <h2 className="font-bold inline-flex items-center gap-2 text-warning">
+            <h2 className="font-bold inline-flex items-center gap-2 text-[#855a00]">
               <Sparkles className="w-4 h-4" /> {t.teConvieneRepasar[lang]}
             </h2>
-            <p className="text-sm text-foreground/70 mt-1">{t.tuvisteErrores[lang]}</p>
+            <p className="text-sm text-foreground mt-1">{t.tuvisteErrores[lang]}</p>
             <div className="mt-3 flex flex-wrap gap-2">
               {summary.weak.map((n) => {
                 const entry = CATALOG.find((e) => String(e.n) === n);
@@ -357,7 +357,7 @@ function MyProgress() {
           </h2>
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
             <div className="kid-card p-4">
-              <h3 className="font-bold text-foreground/80 mb-3 text-sm uppercase tracking-wider">
+              <h3 className="font-bold text-foreground mb-3 text-sm uppercase tracking-wider">
                 Tus Stickers
               </h3>
               <div className="flex flex-wrap gap-2">
@@ -376,7 +376,7 @@ function MyProgress() {
               </div>
             </div>
             <div className="kid-card p-4">
-              <h3 className="font-bold text-foreground/80 mb-3 text-sm uppercase tracking-wider">
+              <h3 className="font-bold text-foreground mb-3 text-sm uppercase tracking-wider">
                 Tus Trofeos
               </h3>
               <div className="grid grid-cols-1 gap-2">
@@ -390,12 +390,11 @@ function MyProgress() {
                       <div className="text-3xl">{b.emoji}</div>
                       <div>
                         <div
-                          className="font-bold text-sm"
-                          style={{ color: earned ? b.color : "inherit" }}
+                          className="font-bold text-sm text-foreground"
                         >
                           {b.name}
                         </div>
-                        <div className="text-xs text-foreground/60">{b.description}</div>
+                        <div className="text-xs text-foreground">{b.description}</div>
                       </div>
                     </div>
                   );
@@ -407,7 +406,7 @@ function MyProgress() {
 
         <section className="mt-6 kid-card p-4">
           <h2 className="font-bold mb-3">{t.aciertosPorLeccion[lang]}</h2>
-          <SimpleBarChart bars={chartBars} max={100} formatValue={(v) => `${v}%`} />
+          <div className="simple-bar-chart-container"><style>{` .simple-bar-chart-container .text-foreground\\/60, .simple-bar-chart-container .text-foreground\\/40 { color: hsl(var(--foreground)) !important; } `}</style><SimpleBarChart bars={chartBars} max={100} formatValue={(v) => `${v}%`} /></div>
         </section>
 
         <section className="mt-6">
@@ -428,10 +427,10 @@ function MyProgress() {
                   className="kid-card p-3 flex items-center gap-3 hover:-translate-y-0.5 transition"
                   style={{ borderLeftWidth: 4, borderLeftColor: entry.color }}
                 >
-                  <div className="text-xs font-bold w-8 text-foreground/50">{entry.n}</div>
+                  <div className="text-xs font-bold w-8 text-foreground">{entry.n}</div>
                   <div className="flex-1 min-w-0">
                     <div className="font-bold text-sm truncate">{entry.title}</div>
-                    <div className="text-xs text-foreground/60 mt-0.5">
+                    <div className="text-xs text-foreground mt-0.5">
                       {isDone ? (
                         <span className="text-success font-bold">✔ {t.completada[lang]}</span>
                       ) : isInProgress ? (
@@ -471,7 +470,7 @@ function Stat({
         <Icon className="w-5 h-5" />
       </div>
       <div className="min-w-0">
-        <div className="text-xs text-foreground/60">{label}</div>
+        <div className="text-xs text-foreground">{label}</div>
         <div className="font-bold truncate">{value}</div>
       </div>
     </div>
