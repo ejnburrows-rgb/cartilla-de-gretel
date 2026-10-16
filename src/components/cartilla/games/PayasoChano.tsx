@@ -74,7 +74,7 @@ function reducer(state: PayasoState, action: Action): PayasoState {
       return { ...state, slots: newSlots, usedTrayIdx: newUsed, checkResult: null };
     }
     case "CHECK": {
-      if (state.slots.some((s) => s === null)) return state;
+      if (state.slots.some((s) => s === null) || state.checkResult !== null) return state;
       const ok = state.slots.every((s, i) => s === state.target[i]);
       return {
         ...state,
@@ -294,7 +294,7 @@ export function PayasoChano({ content, lessonId, onComplete }: PayasoChanoProps)
         <button
           type="button"
           onClick={check}
-          disabled={!allFilled || state.completed}
+          disabled={!allFilled || state.completed || state.checkResult !== null}
           aria-label="Sombrilla: comprobar la palabra"
           className="flex items-center gap-1.5 px-4 py-2.5 rounded-xl text-sm font-black text-white shadow-md transition-all hover:brightness-105 active:scale-95 disabled:opacity-40 bg-sky-500"
         >
