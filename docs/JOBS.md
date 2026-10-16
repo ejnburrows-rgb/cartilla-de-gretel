@@ -11,7 +11,7 @@ One PR per lane. Lanes push branch + report only, never merge. Picture changes a
 | Lane 3 — Lesson 24, working backward (same standard as Lane 2) | IN PROGRESS | Jules 16616365503054503016 → PR on branch lane3/lesson-24-archetype | — | — | — |
 | Lane 4 — Voice: map the 40 instruction sentences to lessons where clean audio exists | IN PROGRESS | Jules 15535474936784204385 → PR on branch lane4/instruction-voice-mapping | — | — | — |
 | Lane 5 — Flip chart look | BLOCKED | — | — | — | Owner's pick of the look — no lane until he chooses. |
-| Vercel ↔ GitHub connection (not a lane) | BLOCKED | — | — | — | Vercel is not connected to GitHub: pushes to main do not deploy. Needs the owner in the Vercel dashboard. |
+| Vercel ↔ GitHub connection (not a lane) | BLOCKED | — | — | — | Production deploy intentionally stays off during active work (project policy); current live build is 2026-10-03. GitHub→Vercel reconnect is the owner's call at the release gate. |
 | Carryover (morning queue): readable text on Practica / Repaso / Mi progreso | IN PROGRESS | lane session 4752644656033964851 | — | — | — |
 
 ## Lane file rules
@@ -23,3 +23,4 @@ One PR per lane. Lanes push branch + report only, never merge. Picture changes a
 ## Updates
 - 2026-10-16 ~10:45 EDT: board created; Lane 1 done (PR #875 merged).
 - 2026-10-16 ~10:50 EDT: Lanes 2/3/4 dispatched (Jules sessions above).
+- 2026-10-16 ~11:05 EDT: Lane 2 asked plan confirmation (10:57 EDT); controller approved on owner's behalf (CSS-file background for n===3, proceed to implement, no further questions) — answer #1. Watching for resume; kill threshold = 2 delivered answers + 35 min no activity (morning precedent).
