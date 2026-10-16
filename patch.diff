@@ -1,0 +1,9 @@
+--- src/features/teacher-crm/TeacherCrmShell.tsx
++++ src/features/teacher-crm/TeacherCrmShell.tsx
+@@ -245,6 +245,7 @@
+       }
+     } catch (err) {
+       showMessage(err instanceof Error ? err.message : "Error guardando cambios", "error");
++      throw err;
+     }
+   };

@@ -11,7 +11,7 @@ This plan defines the sequence of work required to satisfy `PROJECT_FINISH_DEFIN
 3. **Show exact visual evidence.** The owner demands source-faithful render proof in chat (screenshot/video/direct reproduction URL) when artwork or layout is changed. GitHub PR diffs or `playwright.config.ts` console output are not acceptance proof for visual tasks.
 4. **Follow `PROJECT_SOURCE_OF_TRUTH.md`.** Do not reconstruct source-blocked pages. Do not hallucinate missing book content.
 5. **No active Supabase connection yet.** Do not expand real user data until authorized (post-pilot).
-6. **Sonar is advisory.** Do not block execution on warnings. True regressions block; theoretical quality gate drops do not.
+6. **Sonar is advisory non-blocking.** Do not block execution on warnings. True regressions block; theoretical quality gate drops do not.
 
 ## Consolidated Execution Checkpoint
 
