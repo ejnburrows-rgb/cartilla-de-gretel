@@ -1,5 +1,7 @@
 # JOBS.md — job board (owner standing orders 2026-10-16)
 
+Shared coordination board for both controllers (Muse and Instinct). Kept current on GitHub after every lane event: dispatch, report, merge, block.
+
 One PR per lane. Lanes push branch + report only, never merge. Picture changes are never merged without owner approval. "Done" is never claimed without a link that proves it.
 
 | JOB | STATUS | PR LINK | PROVEN | NOT PROVEN | NEEDS FROM OWNER |
