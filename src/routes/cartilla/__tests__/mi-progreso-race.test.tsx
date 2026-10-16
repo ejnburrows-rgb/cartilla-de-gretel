@@ -114,4 +114,40 @@ describe("MiProgreso race condition", () => {
     expect(screen.queryByText(/Student A/)).not.toBeInTheDocument();
     expect(screen.getByText(/Student B/)).toBeInTheDocument();
   });
+
+  it("should not render the previous student's data when the session is cleared while its request is pending", async () => {
+    let resolveA: (value: any) => void;
+
+    mockGetMyProgress.mockImplementation(({ data }) => {
+      if (data.studentId === "studentA") {
+        return new Promise((res) => { resolveA = res; });
+      }
+      return Promise.resolve({});
+    });
+
+    currentSession = { studentId: "studentA", studentCode: "A" } as any;
+    render(<ProgressPage />);
+
+    // Request for A is in flight.
+    await waitFor(() => {
+      expect(mockGetMyProgress).toHaveBeenCalledWith({ data: { studentId: "studentA", studentCode: "A" } });
+    }, { timeout: 5000 });
+
+    // Session cleared (logout) while A's request is still pending.
+    currentSession = null;
+    window.dispatchEvent(new Event("cartilla:student-session"));
+
+    // A's late response must be ignored: the token was invalidated by the
+    // session-clear event, so the stale payload never reaches the view.
+    resolveA!({
+      student: { display_name: "Student A", student_code: "A" },
+      class: null,
+      events: [],
+      lessonProgress: [],
+    });
+
+    await new Promise((r) => setTimeout(r, 50));
+
+    expect(screen.queryByText(/Student A/)).not.toBeInTheDocument();
+  });
 });

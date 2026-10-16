@@ -123,10 +123,17 @@ function MyProgress() {
     let currentToken = 0;
 
     const load = () => {
-      const s = getStudentSession();
-      if (!s) return;
-      
+      // Invalidate any in-flight request FIRST, even when there is no
+      // session: otherwise a pending request from a cleared session would
+      // still pass the token check below and render stale student data.
       const token = ++currentToken;
+      const s = getStudentSession();
+      if (!s) {
+        setData(null);
+        setLoading(false);
+        return;
+      }
+
       setLoading(true);
       setError(null);
       
