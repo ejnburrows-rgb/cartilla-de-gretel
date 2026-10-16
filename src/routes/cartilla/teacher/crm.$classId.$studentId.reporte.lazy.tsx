@@ -18,7 +18,7 @@ function ReporteFamilias() {
   const [copyMessage, setCopyMessage] = useState("");
   const isSeed = useMemo(() => isSeedSessionActive(), []);
 
-  const { data: progress, isLoading } = useQuery({
+  const { data: progress, isLoading, isError, refetch } = useQuery({
     queryKey: ["crm-estudiante", studentId, isSeed],
     queryFn: () => fetchCrmStudentProgress(studentId, isSeed),
   });
@@ -53,6 +53,15 @@ function ReporteFamilias() {
       .filter((skill) => skill?.status === "mastered")
       .slice(0, 4);
   }, [progress, insight]);
+
+  if (isError) {
+    return (
+      <div role="alert" className="p-12 text-center text-red-900 border-2 border-red-200 bg-red-50 rounded-3xl max-w-3xl mx-auto mt-6">
+        <p className="font-bold">Hubo un error al cargar los datos del alumno.</p>
+        <button onClick={() => refetch()} className="mt-4 rounded-xl bg-red-100 px-4 py-2 text-sm font-bold text-red-950 transition hover:bg-red-200">Reintentar</button>
+      </div>
+    );
+  }
 
   if (isLoading || !progress || !summary || !insight) {
     return (

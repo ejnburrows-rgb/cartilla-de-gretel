@@ -50,7 +50,7 @@ function EstudianteDetail() {
   const [copied, setCopied] = useState(false);
   const isSeed = useMemo(() => isSeedSessionActive(), []);
 
-  const { data: progress, isLoading: loadingProgress, refetch } = useQuery({
+  const { data: progress, isLoading: loadingProgress, isError: progressError, refetch } = useQuery({
     queryKey: ["crm-estudiante", studentId, isSeed],
     queryFn: () => fetchCrmStudentProgress(studentId, isSeed),
   });
@@ -152,7 +152,12 @@ function EstudianteDetail() {
         ]}
       />
 
-      {loadingProgress || !progress || !summary || !insight ? (
+      {progressError ? (
+        <div role="alert" className="rounded-[2rem] border border-red-200 bg-red-50 p-12 text-center text-red-900">
+          <p className="font-bold">Hubo un error al cargar los datos del alumno.</p>
+          <button onClick={() => refetch()} className="mt-4 rounded-xl bg-red-100 px-4 py-2 text-sm font-bold text-red-950 transition hover:bg-red-200">Reintentar</button>
+        </div>
+      ) : loadingProgress || !progress || !summary || !insight ? (
         <div className="animate-pulse rounded-[2rem] border border-stone-200 bg-white p-12 text-center font-bold text-stone-400">Cargando alumno...</div>
       ) : (
         <div className="grid items-start gap-6 lg:grid-cols-[1fr_320px]">
