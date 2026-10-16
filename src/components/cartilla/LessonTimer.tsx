@@ -17,7 +17,7 @@ export function LessonTimer({ limitSeconds }: { limitSeconds?: number | null }) 
 
   if (limitSeconds && limitSeconds > 0) {
     const remaining = Math.max(0, limitSeconds - elapsed);
-    const over = elapsed > limitSeconds;
+    const over = elapsed >= limitSeconds;
     const warn = remaining < 30 && remaining > 0;
     return (
       <div
