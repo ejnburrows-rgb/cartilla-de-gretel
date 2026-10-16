@@ -89,7 +89,7 @@ function vowelEntry(v: VowelLesson): CatalogEntry {
   return {
     n,
     kind: "vowel",
-    title: `Vocal ${v.vowel.toUpperCase()} ${v.vowel}`,
+    title: `La vocal ${v.vowel.toUpperCase()}`,
     subtitle: v.characterName,
     pages: VOWEL_PAGES[v.vowel] ?? "",
     color: getLessonAccent(n),
@@ -102,11 +102,19 @@ function vowelEntry(v: VowelLesson): CatalogEntry {
 // mechanics using only the same canonical vowels/illustrations already on it.
 const LECCION_1_ACTIVITIES: ActivityId[] = ["silabas", "palabras", "sonido", "espejo"];
 
+/**
+ * Card title letter display: "Mm", "Pp", … "Rr".
+ * First letter capitalised; single letters repeat ("Mm"), digraphs keep both ("Rr").
+ */
+function consonantCardLetter(letter: string): string {
+  return `La consonante ${letter.charAt(0).toUpperCase()}${letter.slice(1) || letter}`;
+}
+
 export const CATALOG: CatalogEntry[] = [
   {
     n: 1,
     kind: "intro" as const,
-    title: "Introducción de las vocales",
+    title: "Las vocales: A E I O U",
     subtitle: "Las cinco vocales: a, e, i, o, u",
     pages: "1-3",
     color: getLessonAccent(1),
@@ -116,7 +124,7 @@ export const CATALOG: CatalogEntry[] = [
   ...consonants.map<CatalogEntry>((c) => ({
     n: c.lesson,
     kind: "consonant",
-    title: `Letra ${c.letter.toUpperCase()} ${c.letter}`,
+    title: consonantCardLetter(c.letter),
     subtitle: `Sílabas: ${c.syllables.join(" · ")}`,
     pages: c.pages,
     color: getLessonAccent(c.lesson),
