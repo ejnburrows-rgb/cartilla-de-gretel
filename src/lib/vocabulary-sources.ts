@@ -40,7 +40,8 @@ type LayoutRegion = {
   vowelPairs?: LayoutCell[];
 };
 
-const PAGES = (pageLayouts as unknown as { pages: Record<string, { regions: LayoutRegion[] }> }).pages;
+const PAGES = (pageLayouts as unknown as { pages: Record<string, { regions: LayoutRegion[] }> })
+  .pages;
 
 function cellWord(cell: LayoutCell): string | undefined {
   return (cell.word ?? cell.caption ?? cell.label ?? cell.wordBox)?.trim() || undefined;
@@ -60,11 +61,15 @@ export function getWorkbookWords(lessonNumber: number): WorkbookWordList {
         region.text.split("·").forEach((w) => add(w.trim()));
       }
       // Picture cells: only the pictures that answer the page (not distractors).
-      region.cells?.filter((c) => (c as { correct?: boolean }).correct !== false).forEach((c) => add(cellWord(c)));
+      region.cells
+        ?.filter((c) => (c as { correct?: boolean }).correct !== false)
+        .forEach((c) => add(cellWord(c)));
       region.matchRows?.flat().forEach((c) => add(cellWord(c)));
       region.fillItems?.forEach((c) => add(c.wordBox?.trim()));
       region.vowelRows?.forEach((row) =>
-        row.cells.filter((c) => (c as { correct?: boolean }).correct !== false).forEach((c) => add(cellWord(c))),
+        row.cells
+          .filter((c) => (c as { correct?: boolean }).correct !== false)
+          .forEach((c) => add(cellWord(c))),
       );
       region.vowelPairs?.forEach((c) => add(cellWord(c)));
     }
@@ -101,7 +106,9 @@ export function getFlipchartPictureVocab(lessonNumber: number): FlipchartPicture
 type PictureCell = { caption?: string; illustrationSrc?: string; correct?: boolean };
 
 /** Pictures printed on the Workbook pages of one lesson (answer pictures only). */
-export function getWorkbookPictures(lessonNumber: number): { word: string; illustrationSrc: string }[] {
+export function getWorkbookPictures(
+  lessonNumber: number,
+): { word: string; illustrationSrc: string }[] {
   const { start, end } = workbookPagesForLesson(lessonNumber);
   const out: { word: string; illustrationSrc: string }[] = [];
   for (let page = start; page <= end; page += 1) {
@@ -147,5 +154,9 @@ export function getPracticePictureWords(lessonNumber: number): PracticePictureWo
     entry?.kind === "vowel"
       ? entry.lesson.vocab.map((v) => ({ word: v.word, illustrationSrc: v.illustrationSrc }))
       : getWorkbookPictures(lessonNumber);
-  return { book: "workbook", sourceLabel: `Dibujos del Libro del alumno, págs. ${start}–${end}`, items };
+  return {
+    book: "workbook",
+    sourceLabel: `Dibujos del Libro del alumno, págs. ${start}–${end}`,
+    items,
+  };
 }

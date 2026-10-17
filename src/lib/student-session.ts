@@ -17,10 +17,7 @@ export type StudentSession = {
 const KEY = "cartilla.student-session.v1";
 
 function openStudentAccessActive(): boolean {
-  return (
-    import.meta.env.VITE_CRM_REVIEW === "true" &&
-    import.meta.env.MODE !== "test"
-  );
+  return import.meta.env.VITE_CRM_REVIEW === "true" && import.meta.env.MODE !== "test";
 }
 
 export function getStudentSession(): StudentSession | null {
@@ -89,8 +86,15 @@ type LogInput = {
 /** Save immediately, then sync signed-in student events in order. */
 export function recordEvent(input: LogInput) {
   if (input.kind === "exercise") {
-    const activityId = typeof input.meta?.activityId === "string" ? input.meta.activityId : undefined;
-    input = { ...input, meta: evidenceFor(input, { assisted: isGretelAssistedAttempt(activityId), demonstration: hasGretelDemonstration(activityId) }) };
+    const activityId =
+      typeof input.meta?.activityId === "string" ? input.meta.activityId : undefined;
+    input = {
+      ...input,
+      meta: evidenceFor(input, {
+        assisted: isGretelAssistedAttempt(activityId),
+        demonstration: hasGretelDemonstration(activityId),
+      }),
+    };
     if (isUngradedProduction(input.meta)) input = { ...input, score: undefined, total: undefined };
   }
   // Always mirror exercise results to local stats (works for anonymous users too).
@@ -152,11 +156,7 @@ function readPending(): PendingStudentEvent[] {
       const parsed: unknown = JSON.parse(stored);
       if (Array.isArray(parsed))
         return parsed.filter(
-          (e) =>
-            e &&
-            typeof e.id === "string" &&
-            typeof e.studentId === "string" &&
-            e.input,
+          (e) => e && typeof e.id === "string" && typeof e.studentId === "string" && e.input,
         );
     }
     return memoryPending;
@@ -184,8 +184,7 @@ export function flushStudentEvents(): Promise<void> {
         const session = getStudentSession();
         if (!session) return;
         const event = readPending().find(
-          (e) =>
-            e.studentId === session.studentId && e.classId === session.classId,
+          (e) => e.studentId === session.studentId && e.classId === session.classId,
         );
         if (!event) return;
         try {
@@ -202,9 +201,7 @@ export function flushStudentEvents(): Promise<void> {
             },
           });
         } catch {
-          console.warn(
-            "No se pudo sincronizar el progreso; se conserva para reintentar.",
-          );
+          console.warn("No se pudo sincronizar el progreso; se conserva para reintentar.");
           return;
         }
         // Re-read after the request so answers added during it are preserved.

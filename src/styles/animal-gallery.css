@@ -56,7 +56,9 @@
   border-radius: 1.25rem;
   padding: 0.9rem 0.75rem 0.75rem;
   box-shadow: 0 10px 22px rgba(28, 25, 23, 0.08);
-  transition: transform 0.15s ease, box-shadow 0.15s ease;
+  transition:
+    transform 0.15s ease,
+    box-shadow 0.15s ease;
 }
 
 .animal-card__tap {
@@ -130,8 +132,13 @@
 }
 
 @keyframes agFloat {
-  0%, 100% { transform: translateY(0) rotate(0deg); }
-  50% { transform: translateY(-3px) rotate(1deg); }
+  0%,
+  100% {
+    transform: translateY(0) rotate(0deg);
+  }
+  50% {
+    transform: translateY(-3px) rotate(1deg);
+  }
 }
 
 @media (prefers-reduced-motion: reduce) {

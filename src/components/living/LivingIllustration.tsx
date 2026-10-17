@@ -42,14 +42,23 @@ export function LivingIllustration({
   const canListen = !!picture && (!!approvedPictureRecording(picture.key) || AUDIO_POLICY.allowTts);
   const pictureRef = useRef<HTMLSpanElement>(null);
   const [insideControl, setInsideControl] = useState(true);
-  useLayoutEffect(() => { setInsideControl(Boolean(pictureRef.current?.parentElement?.closest("button, a, [role=button], [draggable=true], [aria-hidden=true], [inert]"))); }, [src]);
+  useLayoutEffect(() => {
+    setInsideControl(
+      Boolean(
+        pictureRef.current?.parentElement?.closest(
+          "button, a, [role=button], [draggable=true], [aria-hidden=true], [inert]",
+        ),
+      ),
+    );
+  }, [src]);
   const actor = useMemo(() => (forceStatic ? null : getLivingActor(src)), [forceStatic, src]);
   const trueBlink = actor?.blinkFrame ?? resolveTrueBlinkFrame(src);
   const [reduced, setReduced] = useState(prefersReducedMotion);
   const videoRef = useRef<HTMLVideoElement>(null);
   const approvedClip = clipSrc ?? (approvedMotion as Record<string, string>)[src];
   const [finishedClip, setFinishedClip] = useState<string | null>(null);
-  const clipActive = Boolean(approvedClip) && finishedClip !== approvedClip && !forceStatic && !reduced;
+  const clipActive =
+    Boolean(approvedClip) && finishedClip !== approvedClip && !forceStatic && !reduced;
   useEffect(() => {
     if (!clipActive || !videoRef.current) return;
     const playback = videoRef.current.play();
@@ -138,8 +147,14 @@ export function LivingIllustration({
   const ambientActive = Boolean(ambientProfile) && !reduced && !approvedClip && !selfAnimated;
   const partBased = Boolean(actor?.parts?.length);
   const wholeActionActive = ambientActive && !partBased;
-  const displaySrc = selfAnimated && actor?.aliveSrc ? actor.aliveSrc : blinkActive && blinking && trueBlink ? trueBlink : src;
-  const deliverySrcSet = displaySrc === src && failedDeliveryFor !== src ? getFaithfulDeliverySrcSet(src) : undefined;
+  const displaySrc =
+    selfAnimated && actor?.aliveSrc
+      ? actor.aliveSrc
+      : blinkActive && blinking && trueBlink
+        ? trueBlink
+        : src;
+  const deliverySrcSet =
+    displaySrc === src && failedDeliveryFor !== src ? getFaithfulDeliverySrcSet(src) : undefined;
 
   const reactToPointer = () => {
     if (!ambientActive || reduced) return;
@@ -155,7 +170,16 @@ export function LivingIllustration({
       role={canListen && !insideControl ? "button" : undefined}
       tabIndex={canListen && !insideControl ? 0 : undefined}
       aria-label={canListen && !insideControl ? "Escuchar el nombre del dibujo" : undefined}
-      onKeyDown={canListen && !insideControl ? event => { if (event.key === "Enter" || event.key === " ") { event.preventDefault(); event.currentTarget.click(); } } : undefined}
+      onKeyDown={
+        canListen && !insideControl
+          ? (event) => {
+              if (event.key === "Enter" || event.key === " ") {
+                event.preventDefault();
+                event.currentTarget.click();
+              }
+            }
+          : undefined
+      }
       className={[
         "living-illustration",
         blinkActive ? "living-illustration--alive" : "",
@@ -169,14 +193,27 @@ export function LivingIllustration({
       ]
         .filter(Boolean)
         .join(" ")}
-      data-ambient-motion={ambientActive ? ambientProfile ?? "none" : "none"}
+      data-ambient-motion={ambientActive ? (ambientProfile ?? "none") : "none"}
       data-natural-motion={selfAnimated ? "true" : "false"}
       data-part-based={partBased ? "true" : "false"}
       data-blink-mode={blinkMode}
       data-interactive={ambientActive ? "true" : "false"}
       onPointerDown={reactToPointer}
     >
-      {clipActive && <video ref={videoRef} src={approvedClip} autoPlay muted playsInline preload="metadata" aria-hidden className="living-illustration__clip" onEnded={() => setFinishedClip(approvedClip ?? null)} onError={() => setFinishedClip(approvedClip ?? null)} />}
+      {clipActive && (
+        <video
+          ref={videoRef}
+          src={approvedClip}
+          autoPlay
+          muted
+          playsInline
+          preload="metadata"
+          aria-hidden
+          className="living-illustration__clip"
+          onEnded={() => setFinishedClip(approvedClip ?? null)}
+          onError={() => setFinishedClip(approvedClip ?? null)}
+        />
+      )}
       <img
         style={clipActive ? { visibility: "hidden" } : undefined}
         src={displaySrc}
@@ -192,19 +229,20 @@ export function LivingIllustration({
         draggable={false}
         className="living-illustration__art"
       />
-      {ambientActive && actor?.parts?.map((part) => (
-        <img
-          key={part.name + part.clipPath}
-          src={displaySrc}
-          alt=""
-          aria-hidden
-          loading={loading}
-          decoding="async"
-          draggable={false}
-          className={`living-illustration__part living-illustration__part--${part.name}`}
-          style={{ clipPath: part.clipPath, transformOrigin: part.transformOrigin }}
-        />
-      ))}
+      {ambientActive &&
+        actor?.parts?.map((part) => (
+          <img
+            key={part.name + part.clipPath}
+            src={displaySrc}
+            alt=""
+            aria-hidden
+            loading={loading}
+            decoding="async"
+            draggable={false}
+            className={`living-illustration__part living-illustration__part--${part.name}`}
+            style={{ clipPath: part.clipPath, transformOrigin: part.transformOrigin }}
+          />
+        ))}
     </span>
   );
 }

@@ -41,7 +41,9 @@ export function WorkbookLetterTrace({
 }: WorkbookLetterTraceProps) {
   const { emit: gretelEvent, record: recordEvent } = useActivityEvents();
   const [finishedWork, setFinishedWork] = useActivityState("finishedWork", false);
-  useEffect(() => { if (finishedWork) gretelEvent("activity:complete", { restored: true }); }, [finishedWork, gretelEvent]);
+  useEffect(() => {
+    if (finishedWork) gretelEvent("activity:complete", { restored: true });
+  }, [finishedWork, gretelEvent]);
   const strokes = useMemo(() => getLetterTemplate(modelText), [modelText]);
 
   const [strokeIdx, setStrokeIdx] = useActivityState("traceStroke", 0);
@@ -60,7 +62,10 @@ export function WorkbookLetterTrace({
   // Default gesture determined by primary pointer (mouse -> tap/checkpoint, touch -> drag/freehand)
   const defaultMode = useTraceInputMode();
   // State allows learner override via manual mode toggle
-  const [overrideMode, setOverrideMode] = useActivityState<"drag" | "tap" | null>("userModeOverride", null);
+  const [overrideMode, setOverrideMode] = useActivityState<"drag" | "tap" | null>(
+    "userModeOverride",
+    null,
+  );
   const inputMode = overrideMode ?? defaultMode;
 
   /**
@@ -230,13 +235,15 @@ export function WorkbookLetterTrace({
   const isTap = inputMode === "tap";
   const shownCompleted = finishedWork ? strokes : isTap ? tap.completedStrokes : completed;
   const shownCurrent = finishedWork ? [] : isTap ? tap.currentStrokePoints : current;
-  const shownStatus: Status = finishedWork ? "done" : isTap
-    ? tap.finished
-      ? "done"
-      : shownCompleted.length || shownCurrent.length
-        ? "tracing"
-        : "idle"
-    : status;
+  const shownStatus: Status = finishedWork
+    ? "done"
+    : isTap
+      ? tap.finished
+        ? "done"
+        : shownCompleted.length || shownCurrent.length
+          ? "tracing"
+          : "idle"
+      : status;
   const shownSlips = isTap ? tap.wrongCheckpoints : slips;
   const shownOff = isTap ? tap.wrongFlash : offFlash;
   const shownDone = shownCompleted.reduce((n, s) => n + s.length, 0) + shownCurrent.length;

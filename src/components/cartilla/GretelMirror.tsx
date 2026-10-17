@@ -31,14 +31,8 @@ export function GretelMirror({ syllables, words, color, lessonId, onComplete }: 
   const handledTranscriptRef = useRef("");
   const wasListeningRef = useRef(false);
   const current = targets[index] ?? "";
-  const {
-    isListening,
-    transcript,
-    startListening,
-    stopListening,
-    isSupported,
-    error,
-  } = useSpeechRecognition({ lang: "es-MX" });
+  const { isListening, transcript, startListening, stopListening, isSupported, error } =
+    useSpeechRecognition({ lang: "es-MX" });
 
   useEffect(() => {
     if (isListening) {
@@ -158,12 +152,15 @@ export function GretelMirror({ syllables, words, color, lessonId, onComplete }: 
 
         {!isSupported && (
           <p className="mt-4 rounded-2xl bg-amber-50 px-4 py-3 text-sm font-bold text-amber-900">
-            El micrófono de práctica no está disponible en este navegador. Puedes escuchar a Gretel igualmente.
+            El micrófono de práctica no está disponible en este navegador. Puedes escuchar a Gretel
+            igualmente.
           </p>
         )}
 
         {status === "listening" && (
-          <p className="mt-4 text-sm font-black text-sky-700" role="status">Te escucho…</p>
+          <p className="mt-4 text-sm font-black text-sky-700" role="status">
+            Te escucho…
+          </p>
         )}
         {status === "correct" && (
           <div className="mt-4 space-y-3" role="status">

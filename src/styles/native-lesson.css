@@ -10,77 +10,329 @@
   box-shadow: 0 20px 60px #513c201c;
   color: #302a20;
 }
-.native-lesson-viewer__topline { display: flex; justify-content: space-between; flex-wrap: wrap; gap: 8px; align-items: center; font: 700 15px/1.4 system-ui, sans-serif; }
-.native-lesson-viewer__chapter { color: #146d67; font-size: 20px; font-weight: 850; }
-.native-lesson-viewer__page { color: #746856; }
-.native-lesson-viewer__progress { display: flex; gap: 6px; margin: 18px 0 24px; }
-.native-lesson-viewer__progress span { height: 6px; flex: 1; background: #e9ddc7; border-radius: 99px; }
-.native-lesson-viewer__progress .is-done { background: #179286; }
-.native-lesson-viewer__content .faithful-page { width: 100%; aspect-ratio: auto; min-height: 0; overflow: visible; background: transparent; border: 0; box-shadow: none; border-radius: 0; }
-.native-lesson-viewer__content .faithful-page__sidebar, .native-lesson-viewer__content .faithful-page__pagenum, .native-lesson-viewer__content .faithful-page__lesson { display: none; }
-.native-lesson-viewer__content .faithful-page__body { position: static; padding: 0; overflow: visible; display: flex; flex-direction: column; align-items: stretch; gap: 18px; }
-.native-lesson-viewer__content .fp-region--instruction { font: 750 clamp(19px, 2.5vw, 26px)/1.35 system-ui, sans-serif; color: #302a20; margin: 12px 0 0; }
-.native-lesson-viewer__content .fp-region--title { font-size: clamp(42px, 8vw, 76px); color: #136e65; }
-.native-lesson-viewer__content .fp-region--syllable-bubble { font: 800 clamp(22px, 4vw, 36px)/1.5 system-ui, sans-serif; letter-spacing: .08em; color: #156f69; }
-.native-lesson-viewer__content .fp-region--vocab-grid, .native-lesson-viewer__content .fp-region--reading-sentences { font: 650 clamp(19px, 2.8vw, 28px)/1.5 system-ui, sans-serif; }
-.native-lesson-viewer__content .fp-region--reading-sentences { background: white; border: 1px solid #eadcc6; border-radius: 18px; padding: 18px; }
-.native-syllable { border: 1px solid #deccaa; border-radius: 20px; background: #fff; padding: clamp(12px, 2vw, 20px); }
-.native-syllable h2 { margin: 0 0 12px; color: #126d65; font: 850 32px/1.2 system-ui, sans-serif; }
-.native-syllable__words { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 10px; }
-.native-syllable__words button { min-height: 56px; border: 2px solid #d6e3df; border-radius: 13px; background: #f9fcfa; color: #302a20; font: 700 clamp(16px, 2.5vw, 22px)/1.3 system-ui, sans-serif; cursor: pointer; overflow-wrap: anywhere; }
-.native-syllable__words button[aria-pressed="true"] { border-color: #188477; background: #edf9f4; }
-.native-syllable__words button:focus-visible { outline: 3px solid #136e65; outline-offset: 2px; }
-.native-syllable__words .is-circled { border: 2px solid #15796f; border-radius: 50%; padding: 3px 1px; }
-.native-syllable p { margin: 12px 0 0; color: #68776e; font: 600 13px system-ui, sans-serif; }
-.native-lesson-viewer__content .fp-writing-line, .native-lesson-viewer__content .fp-ix-grid, .native-lesson-viewer__content .fp-region--fill-in-blank { max-width: 100%; }
-.native-lesson-viewer__content .fp-trace { gap: 10px; }
-.native-lesson-viewer__content .fp-trace__svg { width: clamp(180px, 35vw, 240px); max-width: 100%; }
-.native-lesson-viewer__content .fp-trace__footer { width: clamp(180px, 35vw, 240px); max-width: 100%; gap: 8px; }
-.native-lesson-viewer__content .fp-trace__hint { font-size: 16px; white-space: normal; min-width: 0; flex: 1 1 auto; line-height: 1.15; }
-.native-lesson-viewer__content .fp-writing-line--trace { margin: 8px 0; }
-.native-lesson-viewer__content .fp-writing-response { display: flex; flex-direction: column; gap: 10px; font: 700 16px system-ui, sans-serif; color: #136e65; }
-.native-lesson-viewer__content .fp-writing-response textarea { display: block; width: 100%; min-height: 170px; resize: vertical; border: 1px solid #a5cec6; border-radius: 16px; padding: 14px 16px; color: #302a20; background: repeating-linear-gradient(#fff, #fff 36px, #d1ded9 37px); font: 500 21px/37px system-ui, sans-serif; }
-.native-lesson-viewer__content .fp-writing-response textarea:focus-visible { outline: 3px solid #167d72; outline-offset: 2px; }
-.native-lesson-viewer__content .fp-ix-fill { gap: 12px; }
-.native-lesson-viewer__content .fp-ix-fill__item { display: grid; grid-template-columns: minmax(70px, 1fr) minmax(80px, 1fr) auto; gap: 10px; align-items: center; padding: 10px; border: 1px solid #eadcc6; border-radius: 13px; background: white; }
+.native-lesson-viewer__topline {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 8px;
+  align-items: center;
+  font:
+    700 15px/1.4 system-ui,
+    sans-serif;
+}
+.native-lesson-viewer__chapter {
+  color: #146d67;
+  font-size: 20px;
+  font-weight: 850;
+}
+.native-lesson-viewer__page {
+  color: #746856;
+}
+.native-lesson-viewer__progress {
+  display: flex;
+  gap: 6px;
+  margin: 18px 0 24px;
+}
+.native-lesson-viewer__progress span {
+  height: 6px;
+  flex: 1;
+  background: #e9ddc7;
+  border-radius: 99px;
+}
+.native-lesson-viewer__progress .is-done {
+  background: #179286;
+}
+.native-lesson-viewer__content .faithful-page {
+  width: 100%;
+  aspect-ratio: auto;
+  min-height: 0;
+  overflow: visible;
+  background: transparent;
+  border: 0;
+  box-shadow: none;
+  border-radius: 0;
+}
+.native-lesson-viewer__content .faithful-page__sidebar,
+.native-lesson-viewer__content .faithful-page__pagenum,
+.native-lesson-viewer__content .faithful-page__lesson {
+  display: none;
+}
+.native-lesson-viewer__content .faithful-page__body {
+  position: static;
+  padding: 0;
+  overflow: visible;
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  gap: 18px;
+}
+.native-lesson-viewer__content .fp-region--instruction {
+  font:
+    750 clamp(19px, 2.5vw, 26px)/1.35 system-ui,
+    sans-serif;
+  color: #302a20;
+  margin: 12px 0 0;
+}
+.native-lesson-viewer__content .fp-region--title {
+  font-size: clamp(42px, 8vw, 76px);
+  color: #136e65;
+}
+.native-lesson-viewer__content .fp-region--syllable-bubble {
+  font:
+    800 clamp(22px, 4vw, 36px)/1.5 system-ui,
+    sans-serif;
+  letter-spacing: 0.08em;
+  color: #156f69;
+}
+.native-lesson-viewer__content .fp-region--vocab-grid,
+.native-lesson-viewer__content .fp-region--reading-sentences {
+  font:
+    650 clamp(19px, 2.8vw, 28px)/1.5 system-ui,
+    sans-serif;
+}
+.native-lesson-viewer__content .fp-region--reading-sentences {
+  background: white;
+  border: 1px solid #eadcc6;
+  border-radius: 18px;
+  padding: 18px;
+}
+.native-syllable {
+  border: 1px solid #deccaa;
+  border-radius: 20px;
+  background: #fff;
+  padding: clamp(12px, 2vw, 20px);
+}
+.native-syllable h2 {
+  margin: 0 0 12px;
+  color: #126d65;
+  font:
+    850 32px/1.2 system-ui,
+    sans-serif;
+}
+.native-syllable__words {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 10px;
+}
+.native-syllable__words button {
+  min-height: 56px;
+  border: 2px solid #d6e3df;
+  border-radius: 13px;
+  background: #f9fcfa;
+  color: #302a20;
+  font:
+    700 clamp(16px, 2.5vw, 22px)/1.3 system-ui,
+    sans-serif;
+  cursor: pointer;
+  overflow-wrap: anywhere;
+}
+.native-syllable__words button[aria-pressed="true"] {
+  border-color: #188477;
+  background: #edf9f4;
+}
+.native-syllable__words button:focus-visible {
+  outline: 3px solid #136e65;
+  outline-offset: 2px;
+}
+.native-syllable__words .is-circled {
+  border: 2px solid #15796f;
+  border-radius: 50%;
+  padding: 3px 1px;
+}
+.native-syllable p {
+  margin: 12px 0 0;
+  color: #68776e;
+  font:
+    600 13px system-ui,
+    sans-serif;
+}
+.native-lesson-viewer__content .fp-writing-line,
+.native-lesson-viewer__content .fp-ix-grid,
+.native-lesson-viewer__content .fp-region--fill-in-blank {
+  max-width: 100%;
+}
+.native-lesson-viewer__content .fp-trace {
+  gap: 10px;
+}
+.native-lesson-viewer__content .fp-trace__svg {
+  width: clamp(180px, 35vw, 240px);
+  max-width: 100%;
+}
+.native-lesson-viewer__content .fp-trace__footer {
+  width: clamp(180px, 35vw, 240px);
+  max-width: 100%;
+  gap: 8px;
+}
+.native-lesson-viewer__content .fp-trace__hint {
+  font-size: 16px;
+  white-space: normal;
+  min-width: 0;
+  flex: 1 1 auto;
+  line-height: 1.15;
+}
+.native-lesson-viewer__content .fp-writing-line--trace {
+  margin: 8px 0;
+}
+.native-lesson-viewer__content .fp-writing-response {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  font:
+    700 16px system-ui,
+    sans-serif;
+  color: #136e65;
+}
+.native-lesson-viewer__content .fp-writing-response textarea {
+  display: block;
+  width: 100%;
+  min-height: 170px;
+  resize: vertical;
+  border: 1px solid #a5cec6;
+  border-radius: 16px;
+  padding: 14px 16px;
+  color: #302a20;
+  background: repeating-linear-gradient(#fff, #fff 36px, #d1ded9 37px);
+  font:
+    500 21px/37px system-ui,
+    sans-serif;
+}
+.native-lesson-viewer__content .fp-writing-response textarea:focus-visible {
+  outline: 3px solid #167d72;
+  outline-offset: 2px;
+}
+.native-lesson-viewer__content .fp-ix-fill {
+  gap: 12px;
+}
+.native-lesson-viewer__content .fp-ix-fill__item {
+  display: grid;
+  grid-template-columns: minmax(70px, 1fr) minmax(80px, 1fr) auto;
+  gap: 10px;
+  align-items: center;
+  padding: 10px;
+  border: 1px solid #eadcc6;
+  border-radius: 13px;
+  background: white;
+}
 /* Items with an illustration: keep the choice buttons attached to the wordbox row, not detached at bottom-left. */
-.native-lesson-viewer__content .fp-ix-fill__item:has(.fp-ix-fill__img) { grid-template-columns: auto 1fr auto; grid-template-areas: "img wordbox blank" "img choices choices"; }
-.native-lesson-viewer__content .fp-ix-fill__item:has(.fp-ix-fill__img) .fp-ix-fill__img { grid-area: img; }
-.native-lesson-viewer__content .fp-ix-fill__item:has(.fp-ix-fill__img) .fp-ix-fill__wordbox { grid-area: wordbox; }
-.native-lesson-viewer__content .fp-ix-fill__item:has(.fp-ix-fill__img) .fp-ix-fill__blank { grid-area: blank; }
-.native-lesson-viewer__content .fp-ix-fill__item:has(.fp-ix-fill__img) .fp-ix-fill__choices { grid-area: choices; justify-content: flex-start; }
-.native-lesson-viewer__content .fp-ix-fill__wordbox, .native-lesson-viewer__content .fp-ix-fill__blank { font-size: 18px; }
-.native-lesson-viewer__content .fp-ix-fill__choice { min-height: 46px; min-width: 46px; font-size: 17px; padding: 6px 10px; }
-.native-lesson-viewer__content .fp-ix-check-btn { min-height: 48px; padding: 10px 22px; font-size: 16px; }
+.native-lesson-viewer__content .fp-ix-fill__item:has(.fp-ix-fill__img) {
+  grid-template-columns: auto 1fr auto;
+  grid-template-areas: "img wordbox blank" "img choices choices";
+}
+.native-lesson-viewer__content .fp-ix-fill__item:has(.fp-ix-fill__img) .fp-ix-fill__img {
+  grid-area: img;
+}
+.native-lesson-viewer__content .fp-ix-fill__item:has(.fp-ix-fill__img) .fp-ix-fill__wordbox {
+  grid-area: wordbox;
+}
+.native-lesson-viewer__content .fp-ix-fill__item:has(.fp-ix-fill__img) .fp-ix-fill__blank {
+  grid-area: blank;
+}
+.native-lesson-viewer__content .fp-ix-fill__item:has(.fp-ix-fill__img) .fp-ix-fill__choices {
+  grid-area: choices;
+  justify-content: flex-start;
+}
+.native-lesson-viewer__content .fp-ix-fill__wordbox,
+.native-lesson-viewer__content .fp-ix-fill__blank {
+  font-size: 18px;
+}
+.native-lesson-viewer__content .fp-ix-fill__choice {
+  min-height: 46px;
+  min-width: 46px;
+  font-size: 17px;
+  padding: 6px 10px;
+}
+.native-lesson-viewer__content .fp-ix-check-btn {
+  min-height: 48px;
+  padding: 10px 22px;
+  font-size: 16px;
+}
 /* Living actors remain active in native lessons; reduced-motion is handled by the actor runtime. */
-.native-lesson-viewer__navigation { display: flex; align-items: center; justify-content: space-between; gap: 12px; margin-top: 28px; border-top: 1px solid #e8dcca; padding-top: 22px; font: 700 15px system-ui, sans-serif; }
-.native-lesson-viewer__navigation button { min-height: 48px; display: inline-flex; align-items: center; gap: 6px; border: 1px solid #a5cec6; border-radius: 14px; padding: 9px 16px; color: #126b62; background: #fff; cursor: pointer; }
-.native-lesson-viewer__navigation button:hover:not(:disabled) { background: #e8f8f3; }
-.native-lesson-viewer__navigation button:focus-visible { outline: 3px solid #126b62; outline-offset: 3px; }
-.native-lesson-viewer__navigation button:disabled { opacity: .42; cursor: default; }
+.native-lesson-viewer__navigation {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  margin-top: 28px;
+  border-top: 1px solid #e8dcca;
+  padding-top: 22px;
+  font:
+    700 15px system-ui,
+    sans-serif;
+}
+.native-lesson-viewer__navigation button {
+  min-height: 48px;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  border: 1px solid #a5cec6;
+  border-radius: 14px;
+  padding: 9px 16px;
+  color: #126b62;
+  background: #fff;
+  cursor: pointer;
+}
+.native-lesson-viewer__navigation button:hover:not(:disabled) {
+  background: #e8f8f3;
+}
+.native-lesson-viewer__navigation button:focus-visible {
+  outline: 3px solid #126b62;
+  outline-offset: 3px;
+}
+.native-lesson-viewer__navigation button:disabled {
+  opacity: 0.42;
+  cursor: default;
+}
 /* Page-completion gate: Siguiente stays tappable so the child gets a hint. */
-.native-lesson-viewer__navigation button[data-locked="true"] { opacity: .55; border-style: dashed; cursor: help; }
-.native-lesson-viewer__hint { margin: 20px 0 0; padding: 12px 16px; border-radius: 14px; background: #fff6df; border: 1px solid #f2d27a; color: #6b4a00; font: 700 16px/1.4 system-ui, sans-serif; }
-.gretel-activity[data-page-remaining="true"] { outline: 3px dashed #e0a100; outline-offset: 6px; border-radius: 12px; animation: native-remaining-pulse 1.2s ease-in-out 2; }
-@keyframes native-remaining-pulse { 50% { outline-color: #ffcd4a; outline-offset: 10px; } }
-@media (prefers-reduced-motion: reduce) { .gretel-activity[data-page-remaining="true"] { animation: none; } }
+.native-lesson-viewer__navigation button[data-locked="true"] {
+  opacity: 0.55;
+  border-style: dashed;
+  cursor: help;
+}
+.native-lesson-viewer__hint {
+  margin: 20px 0 0;
+  padding: 12px 16px;
+  border-radius: 14px;
+  background: #fff6df;
+  border: 1px solid #f2d27a;
+  color: #6b4a00;
+  font:
+    700 16px/1.4 system-ui,
+    sans-serif;
+}
+.gretel-activity[data-page-remaining="true"] {
+  outline: 3px dashed #e0a100;
+  outline-offset: 6px;
+  border-radius: 12px;
+  animation: native-remaining-pulse 1.2s ease-in-out 2;
+}
+@keyframes native-remaining-pulse {
+  50% {
+    outline-color: #ffcd4a;
+    outline-offset: 10px;
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .gretel-activity[data-page-remaining="true"] {
+    animation: none;
+  }
+}
 /* Native literacy typography — converts the printed vocabulary blocks into
    intentional classroom UI while preserving the exact source words. */
 .fp-native-title {
   margin: 0;
   text-align: center;
   color: #136e65;
-  font: 950 clamp(2.7rem, 8vw, 5.4rem)/.95 var(--font-book-title, Georgia, serif);
-  letter-spacing: .01em;
-  text-shadow: 0 2px 0 rgba(255,255,255,.8);
+  font: 950 clamp(2.7rem, 8vw, 5.4rem)/0.95 var(--font-book-title, Georgia, serif);
+  letter-spacing: 0.01em;
+  text-shadow: 0 2px 0 rgba(255, 255, 255, 0.8);
 }
 
 .fp-native-syllables {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
-  gap: clamp(.5rem, 2vw, .9rem);
-  padding: clamp(.75rem, 2vw, 1.1rem);
+  gap: clamp(0.5rem, 2vw, 0.9rem);
+  padding: clamp(0.75rem, 2vw, 1.1rem);
   border-radius: 1.5rem;
   border: 1px solid #c9dfd9;
   background: linear-gradient(180deg, #f7fffc 0%, #ecf7f3 100%);
@@ -91,18 +343,18 @@
   border-radius: 999px;
   border: 2px solid #79b8aa;
   background: #fff;
-  padding: .48rem .75rem;
+  padding: 0.48rem 0.75rem;
   text-align: center;
   color: #126d65;
   font: 900 clamp(1.35rem, 4vw, 2.25rem)/1 var(--font-book-faithful, Georgia, serif);
-  box-shadow: 0 4px 12px -10px rgba(20,92,82,.45);
+  box-shadow: 0 4px 12px -10px rgba(20, 92, 82, 0.45);
 }
 
 .fp-native-vocab {
   display: grid;
   grid-template-columns: repeat(3, minmax(0, 1fr));
-  gap: .55rem;
-  padding: .2rem 0;
+  gap: 0.55rem;
+  padding: 0.2rem 0;
 }
 
 .fp-native-vocab span {
@@ -110,12 +362,14 @@
   place-items: center;
   min-height: 3rem;
   border: 1px solid #e5d6bc;
-  border-radius: .9rem;
+  border-radius: 0.9rem;
   background: #fffdf8;
-  padding: .55rem .65rem;
+  padding: 0.55rem 0.65rem;
   color: #403425;
-  font: 800 clamp(1rem, 2.4vw, 1.35rem)/1.15 system-ui, sans-serif;
-  box-shadow: 0 4px 10px -9px rgba(75,54,29,.28);
+  font:
+    800 clamp(1rem, 2.4vw, 1.35rem)/1.15 system-ui,
+    sans-serif;
+  box-shadow: 0 4px 10px -9px rgba(75, 54, 29, 0.28);
 }
 
 .fp-native-sight-word {
@@ -125,7 +379,7 @@
   border-radius: 999px;
   border: 2px solid #e4b45a;
   background: #fff6d7;
-  padding: .45rem .9rem;
+  padding: 0.45rem 0.9rem;
   color: #7d5214;
   text-align: center;
   font: 950 clamp(1.35rem, 3vw, 1.9rem)/1 var(--font-book-faithful, Georgia, serif);
@@ -133,13 +387,13 @@
 
 .native-lesson-viewer__content .fp-region--reading-sentences {
   display: grid;
-  gap: .35rem;
+  gap: 0.35rem;
   margin: 0;
 }
 
 .native-lesson-viewer__content .fp-region--reading-sentences p {
   margin: 0;
-  padding: .35rem .2rem;
+  padding: 0.35rem 0.2rem;
   border-bottom: 1px dashed #e8dcc7;
 }
 
@@ -149,7 +403,7 @@
 
 @media (max-width: 600px) {
   .fp-native-vocab {
-    gap: .35rem;
+    gap: 0.35rem;
   }
 }
 
@@ -160,29 +414,97 @@
   align-items: center;
   gap: 16px;
 }
-.fp-native-letter-page .faithful-page__body > .gretel-activity { display: block; grid-column: 1 / -1; min-width: 0; }
-.fp-native-letter-page .faithful-page__body > .gretel-activity:has(.fp-native-title) { grid-column: 1; grid-row: 1 / span 2; }
-.fp-native-letter-page .faithful-page__body > .gretel-activity:has(.fp-native-syllables) { grid-column: 2; }
-.fp-native-letter-page .fp-native-title { display: grid; place-items: center; aspect-ratio: 1; border-radius: 50%; background: radial-gradient(ellipse, #fff 35%, #d6eee6 85%); font-size: clamp(2rem, 6vw, 4.5rem); }
-.fp-native-letter-page .fp-native-syllables { display: grid; grid-template-columns: repeat(5, minmax(0, 1fr)); gap: 4px; padding: 8px; border-radius: 16px; }
-.fp-native-letter-page .fp-native-syllables span { min-width: 0; padding: .4rem .1rem; font-size: clamp(1rem, 3vw, 1.8rem); }
-.fp-native-letter-page .fp-native-vocab span { min-width: 0; overflow-wrap: anywhere; }
-
-/* Each Completa item stays a vertical unit in the book's two-by-three grid. */
-.native-lesson-viewer__content .fp-ix-fill--book-grid { display: grid; grid-template-columns: repeat(var(--fill-columns, 3), minmax(0, 1fr)); gap: 14px; }
-.native-lesson-viewer__content .fp-ix-fill--book-grid .fp-ix-fill__item { display: flex; flex-direction: column; justify-content: space-between; min-width: 0; gap: 14px; text-align: center; padding: 14px 8px; }
-.fp-ix-fill--book-grid .fp-ix-fill__wordbox, .fp-ix-fill--book-grid .fp-ix-fill__blank { overflow-wrap: anywhere; max-width: 100%; }
-.native-lesson-viewer__content .fp-ix-fill--book-grid .fp-ix-fill__choices { justify-content: center; flex-wrap: wrap; gap: 6px; }
-.fp-ix-fill--book-grid .fp-ix-check-row { grid-column: 1 / -1; }
-@media (max-width: 600px) {
-  .native-lesson-viewer__content .fp-ix-fill--book-grid { grid-template-columns: 1fr; }
-  .native-lesson-viewer__content .fp-native-letter-page .faithful-page__body { gap: 10px; }
+.fp-native-letter-page .faithful-page__body > .gretel-activity {
+  display: block;
+  grid-column: 1 / -1;
+  min-width: 0;
+}
+.fp-native-letter-page .faithful-page__body > .gretel-activity:has(.fp-native-title) {
+  grid-column: 1;
+  grid-row: 1 / span 2;
+}
+.fp-native-letter-page .faithful-page__body > .gretel-activity:has(.fp-native-syllables) {
+  grid-column: 2;
+}
+.fp-native-letter-page .fp-native-title {
+  display: grid;
+  place-items: center;
+  aspect-ratio: 1;
+  border-radius: 50%;
+  background: radial-gradient(ellipse, #fff 35%, #d6eee6 85%);
+  font-size: clamp(2rem, 6vw, 4.5rem);
+}
+.fp-native-letter-page .fp-native-syllables {
+  display: grid;
+  grid-template-columns: repeat(5, minmax(0, 1fr));
+  gap: 4px;
+  padding: 8px;
+  border-radius: 16px;
+}
+.fp-native-letter-page .fp-native-syllables span {
+  min-width: 0;
+  padding: 0.4rem 0.1rem;
+  font-size: clamp(1rem, 3vw, 1.8rem);
+}
+.fp-native-letter-page .fp-native-vocab span {
+  min-width: 0;
+  overflow-wrap: anywhere;
 }
 
-.fp-source-blocked { margin: 24px 0 0; padding: 10px 14px; border-radius: 12px; border: 1px dashed #c9a86a; background: #fffaf0; color: #7a5b1e; font: 600 14px/1.4 system-ui, sans-serif; }
-.fp-writing-line--freehand { display: block; }
-.fp-writing-line--freehand .fp-writing-line__model { font-size: 48px; }
+/* Each Completa item stays a vertical unit in the book's two-by-three grid. */
+.native-lesson-viewer__content .fp-ix-fill--book-grid {
+  display: grid;
+  grid-template-columns: repeat(var(--fill-columns, 3), minmax(0, 1fr));
+  gap: 14px;
+}
+.native-lesson-viewer__content .fp-ix-fill--book-grid .fp-ix-fill__item {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  min-width: 0;
+  gap: 14px;
+  text-align: center;
+  padding: 14px 8px;
+}
+.fp-ix-fill--book-grid .fp-ix-fill__wordbox,
+.fp-ix-fill--book-grid .fp-ix-fill__blank {
+  overflow-wrap: anywhere;
+  max-width: 100%;
+}
+.native-lesson-viewer__content .fp-ix-fill--book-grid .fp-ix-fill__choices {
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 6px;
+}
+.fp-ix-fill--book-grid .fp-ix-check-row {
+  grid-column: 1 / -1;
+}
+@media (max-width: 600px) {
+  .native-lesson-viewer__content .fp-ix-fill--book-grid {
+    grid-template-columns: 1fr;
+  }
+  .native-lesson-viewer__content .fp-native-letter-page .faithful-page__body {
+    gap: 10px;
+  }
+}
 
+.fp-source-blocked {
+  margin: 24px 0 0;
+  padding: 10px 14px;
+  border-radius: 12px;
+  border: 1px dashed #c9a86a;
+  background: #fffaf0;
+  color: #7a5b1e;
+  font:
+    600 14px/1.4 system-ui,
+    sans-serif;
+}
+.fp-writing-line--freehand {
+  display: block;
+}
+.fp-writing-line--freehand .fp-writing-line__model {
+  font-size: 48px;
+}
 
 /* ── In-word syllable circling ── */
 .native-syllable {
@@ -197,7 +519,7 @@
 }
 .native-syllable__words {
   display: grid;
-  grid-template-columns: repeat(3, minmax(0,1fr));
+  grid-template-columns: repeat(3, minmax(0, 1fr));
   gap: 12px 18px;
 }
 .native-syllable__word {
@@ -214,12 +536,12 @@
   font-family: "Andika", ui-rounded, system-ui, sans-serif;
   font-size: clamp(20px, 2.4vw, 28px);
   font-weight: 700;
-  padding: .42rem .7rem;
+  padding: 0.42rem 0.7rem;
   cursor: pointer;
   isolation: isolate;
 }
 .native-syllable__word:hover:not(:disabled) {
-  background: rgba(223, 247, 239, .42) !important;
+  background: rgba(223, 247, 239, 0.42) !important;
 }
 .native-syllable__word:focus-visible {
   outline: 3px solid var(--lc-focus, #1668c7);
@@ -237,7 +559,7 @@
 }
 .native-syllable__letter {
   display: inline-block;
-  min-width: .55em;
+  min-width: 0.55em;
   text-align: center;
   padding: 0;
   border: 0;
@@ -259,7 +581,7 @@
   overflow: visible;
 }
 .native-syllable__word.is-retrying {
-  box-shadow: 0 0 0 3px rgba(31, 158, 148, .14);
+  box-shadow: 0 0 0 3px rgba(31, 158, 148, 0.14);
 }
 .native-syllable > p {
   min-height: 1.5em;
@@ -269,7 +591,9 @@
   font-weight: 700;
 }
 @media (max-width: 620px) {
-  .native-syllable__words { grid-template-columns: repeat(2, minmax(0,1fr)); }
+  .native-syllable__words {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
 }
 /* Tracing touch targets: 10 SVG units on a >=240px canvas = >=48px. */
 .native-lesson-viewer__content .fp-trace__svg {
@@ -289,63 +613,272 @@
 
 /* Owner direction, 2026-10-07: one workbook surface, no character side column.
    Pages grow with content; the browser owns scrolling instead of nested panes. */
-.native-lesson-viewer { width: min(100%, 640px); padding: 0; border: 0; border-radius: 0; background: transparent; box-shadow: none; color: var(--lc-ink); font-family: "Andika", system-ui, sans-serif; }
-.native-lesson-viewer__topline { gap: 6px; margin-bottom: 12px; font: 600 13px/1.4 "Andika", system-ui, sans-serif; }
-.native-lesson-viewer__chapter { font: 700 17px/1.3 "Fredoka", system-ui, sans-serif; color: var(--lc-ink); }
-.native-lesson-viewer__layout { display: block; }
-.native-lesson-viewer__content { min-width: 0; }
-.native-lesson-viewer__content .faithful-page { width: 100%; height: auto; min-height: 720px; aspect-ratio: auto; overflow: hidden; background: var(--lc-paper, #fffdf9); border: 1px solid #d7e5e1; border-radius: 6px; box-shadow: 0 3px 14px #25313a0c; }
-.native-lesson-viewer__content .faithful-page__sidebar { display: block; width: 5%; min-width: 0; filter: none; }
-.native-lesson-viewer__content .faithful-page__pagenum { display: flex; bottom: 12px; }
-.native-lesson-viewer__content .faithful-page__lesson { display: block; bottom: 14px; }
+.native-lesson-viewer {
+  width: min(100%, 640px);
+  padding: 0;
+  border: 0;
+  border-radius: 0;
+  background: transparent;
+  box-shadow: none;
+  color: var(--lc-ink);
+  font-family: "Andika", system-ui, sans-serif;
+}
+.native-lesson-viewer__topline {
+  gap: 6px;
+  margin-bottom: 12px;
+  font:
+    600 13px/1.4 "Andika",
+    system-ui,
+    sans-serif;
+}
+.native-lesson-viewer__chapter {
+  font:
+    700 17px/1.3 "Fredoka",
+    system-ui,
+    sans-serif;
+  color: var(--lc-ink);
+}
+.native-lesson-viewer__layout {
+  display: block;
+}
+.native-lesson-viewer__content {
+  min-width: 0;
+}
+.native-lesson-viewer__content .faithful-page {
+  width: 100%;
+  height: auto;
+  min-height: 720px;
+  aspect-ratio: auto;
+  overflow: hidden;
+  background: var(--lc-paper, #fffdf9);
+  border: 1px solid #d7e5e1;
+  border-radius: 6px;
+  box-shadow: 0 3px 14px #25313a0c;
+}
+.native-lesson-viewer__content .faithful-page__sidebar {
+  display: block;
+  width: 5%;
+  min-width: 0;
+  filter: none;
+}
+.native-lesson-viewer__content .faithful-page__pagenum {
+  display: flex;
+  bottom: 12px;
+}
+.native-lesson-viewer__content .faithful-page__lesson {
+  display: block;
+  bottom: 14px;
+}
 .native-lesson-viewer__content .faithful-page__body,
-.native-lesson-viewer__content .faithful-page--edge-right .faithful-page__body { position: relative; inset: auto; overflow: visible; padding: 5% 9% 64px; gap: 18px; }
-.native-lesson-viewer__content .fp-region--instruction { margin: 0; font: 700 clamp(17px, 3.4cqw, 22px)/1.4 "Andika", system-ui, sans-serif; }
-.native-lesson-viewer__content .fp-ix-row { gap: 8px; }
-.native-lesson-viewer__content .fp-ix-cell { min-width: 0; min-height: 48px; border: 1px solid var(--lc-teal, #1f9e94); border-radius: 10px; background: #fff; padding: 8px; box-shadow: none; }
-.native-lesson-viewer__content .fp-ix-cell img { width: 100%; height: 100%; object-fit: contain; }
-.native-lesson-viewer__content .fp-ix-pick__letter { border: 1px solid var(--lc-teal); border-radius: 10px; background: #eefaf7; color: var(--lc-teal); }
-.native-lesson-viewer__content .fp-ix-fill--book-grid { gap: 10px; }
-.native-lesson-viewer__content .fp-ix-fill--book-grid .fp-ix-fill__item { border: 1px solid #91c9c1; border-radius: 10px; gap: 10px; padding: 12px 6px; }
-.native-lesson-viewer__content .fp-ix-fill__choice { min-width: 48px; min-height: 48px; }
-.native-lesson-viewer__content .fp-region--reading-sentences { padding: 14px; border-color: #91c9c1; border-radius: 10px; font: 500 clamp(18px, 3.6cqw, 24px)/1.4 "Andika", system-ui, sans-serif; }
-.fp-native-syllables, .fp-native-letter-page .fp-native-syllables { border-radius: 8px; background: #f4fbf9; }
-.fp-native-syllables span { border-width: 1px; border-radius: 6px; box-shadow: none; }
-.fp-native-vocab span { min-height: 40px; padding: 6px; border-color: #a6d1ca; border-radius: 6px; background: #fff; box-shadow: none; font-weight: 500; }
-.fp-native-letter-page .fp-native-title { background: #f4fbf9; border: 1px solid #91c9c1; }
-.native-syllable { display: grid; grid-template-columns: 60px minmax(0, 1fr); gap: 8px 12px; align-items: start; }
-.native-syllable h2 { display: grid; place-items: center; min-height: 80px; margin: 0; font-size: 28px; border: 1px solid #91c9c1; border-radius: 8px; background: #f4fbf9; }
-.native-syllable__words { gap: 6px; }
-.native-syllable__word { min-height: 48px; padding: 6px 3px; border: 1px solid #b7d9d2 !important; border-radius: 6px; background: #fff !important; font-size: clamp(14px, 3cqw, 19px); }
-.native-syllable > p { grid-column: 2; margin: 0; min-height: 0; font-size: 11px; }
-.native-lesson-viewer__footer { margin-top: 12px; }
-.native-lesson-viewer__navigation { display: flex; gap: 10px; margin: 0; padding: 0; border: 0; font: 600 14px "Andika", system-ui, sans-serif; }
-.native-lesson-viewer__navigation button { justify-content: center; min-height: 48px; border-radius: 8px; padding: 8px 12px; }
-.native-lesson-viewer__navigation button:last-child { background: var(--lc-red, #bf3040); border-color: var(--lc-red, #bf3040); color: #fff; }
-.native-lesson-viewer__navigation button:last-child:hover { background: #a32636; color: #fff; }
-.native-lesson-viewer__navigation button[data-locked="true"] { opacity: .7; }
-.native-lesson-viewer__hint { margin: 0 0 10px; }
+.native-lesson-viewer__content .faithful-page--edge-right .faithful-page__body {
+  position: relative;
+  inset: auto;
+  overflow: visible;
+  padding: 5% 9% 64px;
+  gap: 18px;
+}
+.native-lesson-viewer__content .fp-region--instruction {
+  margin: 0;
+  font:
+    700 clamp(17px, 3.4cqw, 22px)/1.4 "Andika",
+    system-ui,
+    sans-serif;
+}
+.native-lesson-viewer__content .fp-ix-row {
+  gap: 8px;
+}
+.native-lesson-viewer__content .fp-ix-cell {
+  min-width: 0;
+  min-height: 48px;
+  border: 1px solid var(--lc-teal, #1f9e94);
+  border-radius: 10px;
+  background: #fff;
+  padding: 8px;
+  box-shadow: none;
+}
+.native-lesson-viewer__content .fp-ix-cell img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+.native-lesson-viewer__content .fp-ix-pick__letter {
+  border: 1px solid var(--lc-teal);
+  border-radius: 10px;
+  background: #eefaf7;
+  color: var(--lc-teal);
+}
+.native-lesson-viewer__content .fp-ix-fill--book-grid {
+  gap: 10px;
+}
+.native-lesson-viewer__content .fp-ix-fill--book-grid .fp-ix-fill__item {
+  border: 1px solid #91c9c1;
+  border-radius: 10px;
+  gap: 10px;
+  padding: 12px 6px;
+}
+.native-lesson-viewer__content .fp-ix-fill__choice {
+  min-width: 48px;
+  min-height: 48px;
+}
+.native-lesson-viewer__content .fp-region--reading-sentences {
+  padding: 14px;
+  border-color: #91c9c1;
+  border-radius: 10px;
+  font:
+    500 clamp(18px, 3.6cqw, 24px)/1.4 "Andika",
+    system-ui,
+    sans-serif;
+}
+.fp-native-syllables,
+.fp-native-letter-page .fp-native-syllables {
+  border-radius: 8px;
+  background: #f4fbf9;
+}
+.fp-native-syllables span {
+  border-width: 1px;
+  border-radius: 6px;
+  box-shadow: none;
+}
+.fp-native-vocab span {
+  min-height: 40px;
+  padding: 6px;
+  border-color: #a6d1ca;
+  border-radius: 6px;
+  background: #fff;
+  box-shadow: none;
+  font-weight: 500;
+}
+.fp-native-letter-page .fp-native-title {
+  background: #f4fbf9;
+  border: 1px solid #91c9c1;
+}
+.native-syllable {
+  display: grid;
+  grid-template-columns: 60px minmax(0, 1fr);
+  gap: 8px 12px;
+  align-items: start;
+}
+.native-syllable h2 {
+  display: grid;
+  place-items: center;
+  min-height: 80px;
+  margin: 0;
+  font-size: 28px;
+  border: 1px solid #91c9c1;
+  border-radius: 8px;
+  background: #f4fbf9;
+}
+.native-syllable__words {
+  gap: 6px;
+}
+.native-syllable__word {
+  min-height: 48px;
+  padding: 6px 3px;
+  border: 1px solid #b7d9d2 !important;
+  border-radius: 6px;
+  background: #fff !important;
+  font-size: clamp(14px, 3cqw, 19px);
+}
+.native-syllable > p {
+  grid-column: 2;
+  margin: 0;
+  min-height: 0;
+  font-size: 11px;
+}
+.native-lesson-viewer__footer {
+  margin-top: 12px;
+}
+.native-lesson-viewer__navigation {
+  display: flex;
+  gap: 10px;
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font:
+    600 14px "Andika",
+    system-ui,
+    sans-serif;
+}
+.native-lesson-viewer__navigation button {
+  justify-content: center;
+  min-height: 48px;
+  border-radius: 8px;
+  padding: 8px 12px;
+}
+.native-lesson-viewer__navigation button:last-child {
+  background: var(--lc-red, #bf3040);
+  border-color: var(--lc-red, #bf3040);
+  color: #fff;
+}
+.native-lesson-viewer__navigation button:last-child:hover {
+  background: #a32636;
+  color: #fff;
+}
+.native-lesson-viewer__navigation button[data-locked="true"] {
+  opacity: 0.7;
+}
+.native-lesson-viewer__hint {
+  margin: 0 0 10px;
+}
 @media (max-width: 600px) {
-  .native-lesson-viewer__content .faithful-page { min-height: 0; }
-  .native-lesson-viewer__content .faithful-page__body { gap: 14px; }
-  .native-lesson-viewer__content .fp-ix-fill--book-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
-  .native-syllable { grid-template-columns: 44px minmax(0, 1fr); gap: 6px; }
-  .native-syllable h2 { font-size: 22px; }
-  .native-syllable__words { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+  .native-lesson-viewer__content .faithful-page {
+    min-height: 0;
+  }
+  .native-lesson-viewer__content .faithful-page__body {
+    gap: 14px;
+  }
+  .native-lesson-viewer__content .fp-ix-fill--book-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+  .native-syllable {
+    grid-template-columns: 44px minmax(0, 1fr);
+    gap: 6px;
+  }
+  .native-syllable h2 {
+    font-size: 22px;
+  }
+  .native-syllable__words {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
 }
 
 /* Repeated writing pages retain every source practice region in two columns. */
-.native-lesson-viewer__content .faithful-page--archetype-5 .faithful-page__body { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); align-items: start; }
-.faithful-page--archetype-5 .faithful-page__body > .gretel-activity { display: block; grid-column: 1 / -1; min-width: 0; }
-.faithful-page--archetype-5 .faithful-page__body > .gretel-activity:has(.fp-writing-line) { grid-column: auto; }
-.native-lesson-viewer__content .fp-writing-line .am-dibuja__paper { height: 150px; }
-.native-lesson-viewer__content .am-dibuja__paper { border: 1px solid #91c9c1; border-radius: 8px; box-shadow: none; }
-@media (max-width: 600px) { .native-lesson-viewer__content .faithful-page--archetype-5 .faithful-page__body { grid-template-columns: 1fr; } }
+.native-lesson-viewer__content .faithful-page--archetype-5 .faithful-page__body {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  align-items: start;
+}
+.faithful-page--archetype-5 .faithful-page__body > .gretel-activity {
+  display: block;
+  grid-column: 1 / -1;
+  min-width: 0;
+}
+.faithful-page--archetype-5 .faithful-page__body > .gretel-activity:has(.fp-writing-line) {
+  grid-column: auto;
+}
+.native-lesson-viewer__content .fp-writing-line .am-dibuja__paper {
+  height: 150px;
+}
+.native-lesson-viewer__content .am-dibuja__paper {
+  border: 1px solid #91c9c1;
+  border-radius: 8px;
+  box-shadow: none;
+}
+@media (max-width: 600px) {
+  .native-lesson-viewer__content .faithful-page--archetype-5 .faithful-page__body {
+    grid-template-columns: 1fr;
+  }
+}
 
 /* All source-equivalent central-letter pages share the existing pencil stage. */
 .native-lesson-viewer__content .fp-trace__svg,
-.native-lesson-viewer__content .fp-trace__footer { width: 240px; max-width: 100%; }
-.native-lesson-viewer__content .am-dibuja__paper { min-height: 140px; }
+.native-lesson-viewer__content .fp-trace__footer {
+  width: 240px;
+  max-width: 100%;
+}
+.native-lesson-viewer__content .am-dibuja__paper {
+  min-height: 140px;
+}
 
 /* Workbook Page 1 cells keep the printed grid's proportions (192 × 171 on
  * page-001), so the five rows fit the letter-size page the way the book does. */
@@ -398,7 +931,9 @@
   z-index: 2;
   width: 100%;
 }
-.native-lesson-viewer.is-turning .native-lesson-viewer__leaf { will-change: clip-path; }
+.native-lesson-viewer.is-turning .native-lesson-viewer__leaf {
+  will-change: clip-path;
+}
 
 /* Corner Hotspots */
 .native-corner-hotspot {
@@ -477,7 +1012,9 @@
   overflow: visible;
   pointer-events: none;
 }
-.native-lesson-viewer.is-turning:not(.turn-phase-dragging) .native-lesson-viewer__stage { pointer-events: none; }
+.native-lesson-viewer.is-turning:not(.turn-phase-dragging) .native-lesson-viewer__stage {
+  pointer-events: none;
+}
 
 @media (prefers-reduced-motion: reduce) {
   .native-lesson-viewer__leaf.turn-next-zoom,

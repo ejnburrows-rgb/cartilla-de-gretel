@@ -6,7 +6,10 @@ import type { PhysicalPage, WorkbookObject } from "@/content/workbook/types";
 import { TapSelect } from "@/cartilla/interactions/TapSelect";
 import { TapToHear } from "@/cartilla/interactions/TapToHear";
 import { DragPlace } from "@/cartilla/interactions/DragPlace";
-import { PencilConnectorFromWorkbook, PencilMarkFromWorkbook } from "@/cartilla/interactions/PencilConnector";
+import {
+  PencilConnectorFromWorkbook,
+  PencilMarkFromWorkbook,
+} from "@/cartilla/interactions/PencilConnector";
 import { PaintCanvas } from "@/cartilla/interactions/PaintCanvas";
 import { DibujaHost } from "@/cartilla/interactions/DibujaHost";
 import { emitProgressEvent } from "@/lib/progress-events";
@@ -14,8 +17,7 @@ import { getWorkbookPageFallbackChain } from "@/lib/bookImages";
 import { LivingIllustration } from "@/components/living/LivingIllustration";
 
 /** Known non-page placeholders that must NOT stand in for real page art. */
-const PLACEHOLDER_BACKGROUNDS = new Set<string>([
-]);
+const PLACEHOLDER_BACKGROUNDS = new Set<string>([]);
 
 function isPlaceholderBackground(src: string | null | undefined): boolean {
   if (!src) return true;

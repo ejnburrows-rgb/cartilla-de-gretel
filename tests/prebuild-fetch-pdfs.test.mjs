@@ -50,7 +50,9 @@ describe("prebuild Workbook PDF validation", () => {
   });
 
   it("redacts URL credentials and query tokens from build logs", () => {
-    const safe = redactBookPdfUrl("https://user:secret@example.com/private/book.pdf?token=abc#fragment");
+    const safe = redactBookPdfUrl(
+      "https://user:secret@example.com/private/book.pdf?token=abc#fragment",
+    );
     expect(safe).toBe("https://example.com/private/book.pdf");
     expect(safe).not.toContain("secret");
     expect(safe).not.toContain("token");

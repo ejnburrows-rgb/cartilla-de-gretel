@@ -109,23 +109,14 @@
       "dimensions": "2454x3128 px",
       "sourceStatus": "verified-source-image",
       "description": "Workbook page 13. Illustrated vocabulary page with sapo, sopa, pisa, Sesi, Susi.",
-      "illustratedObjects": [
-        "Sesi",
-        "sopa",
-        "sapo",
-        "pisa",
-        "Susi"
-      ],
+      "illustratedObjects": ["Sesi", "sopa", "sapo", "pisa", "Susi"],
       "safeForStudentUI": true,
       "context": "lesson-page-illustration",
       "canUseInCoverCard": false,
       "canUseInTeacherReadiness": true,
       "activityMappingVerified": true,
       "activityMappingStatus": "page scan mapped",
-      "mappedToInteractions": [
-        "l9-p27-word-reveal",
-        "l9-p27-names-reveal"
-      ],
+      "mappedToInteractions": ["l9-p27-word-reveal", "l9-p27-names-reveal"],
       "activityMappingNotes": "Mapped to Page 27 word-reveal and names-reveal."
     },
     {
@@ -156,25 +147,14 @@
         "supe",
         "esa"
       ],
-      "verifiedSightWords": [
-        "es",
-        "de",
-        "un",
-        "está",
-        "en",
-        "la",
-        "el"
-      ],
+      "verifiedSightWords": ["es", "de", "un", "está", "en", "la", "el"],
       "safeForStudentUI": true,
       "context": "lesson-page-words",
       "canUseInCoverCard": false,
       "canUseInTeacherReadiness": true,
       "activityMappingVerified": true,
       "activityMappingStatus": "page scan mapped",
-      "mappedToInteractions": [
-        "l9-p28-sight-words",
-        "l9-p28-syllable-tap"
-      ],
+      "mappedToInteractions": ["l9-p28-sight-words", "l9-p28-syllable-tap"],
       "activityMappingNotes": "Mapped to Page 28 sight words and syllables tap."
     },
     {
@@ -195,9 +175,7 @@
       "canUseInTeacherReadiness": true,
       "activityMappingVerified": true,
       "activityMappingStatus": "page scan mapped",
-      "mappedToInteractions": [
-        "l9-p29-mini-story-ss"
-      ],
+      "mappedToInteractions": ["l9-p29-mini-story-ss"],
       "activityMappingNotes": "Mapped to Page 29 mini-story."
     },
     {
@@ -211,22 +189,14 @@
       "dimensions": "2461x3128 px",
       "sourceStatus": "verified-source-image",
       "description": "Workbook page 37. Illustrated vocabulary page for R: rana, remo, Rita, rosa, rueda.",
-      "illustratedObjects": [
-        "rana",
-        "remo",
-        "Rita",
-        "rosa",
-        "rueda"
-      ],
+      "illustratedObjects": ["rana", "remo", "Rita", "rosa", "rueda"],
       "safeForStudentUI": true,
       "context": "lesson-page-illustration",
       "canUseInCoverCard": false,
       "canUseInTeacherReadiness": true,
       "activityMappingVerified": true,
       "activityMappingStatus": "page scan mapped",
-      "mappedToInteractions": [
-        "l17-p59-word-reveal-r"
-      ],
+      "mappedToInteractions": ["l17-p59-word-reveal-r"],
       "activityMappingNotes": "Mapped to Page 59 word-reveal."
     },
     {
@@ -257,9 +227,7 @@
         "Roma",
         "rebaño"
       ],
-      "verifiedSightWords": [
-        "bien"
-      ],
+      "verifiedSightWords": ["bien"],
       "verifiedStoryText": "La bola de Roberto rueda bien. Rolo patea la bola. La bola rueda y le da a un bolo. El bolo se rompe y Roberto se ríe. Rolo se ríe también. Rita le da al bolo. Rita se ríe. Rolo y Roberto se ríen también.",
       "safeForStudentUI": true,
       "context": "lesson-page-words",
@@ -292,9 +260,7 @@
       "canUseInTeacherReadiness": true,
       "activityMappingVerified": true,
       "activityMappingStatus": "page scan mapped",
-      "mappedToInteractions": [
-        "l17-p61-poem-r"
-      ],
+      "mappedToInteractions": ["l17-p61-poem-r"],
       "activityMappingNotes": "Mapped to Page 61 poem."
     },
     {

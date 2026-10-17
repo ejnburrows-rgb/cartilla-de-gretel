@@ -80,9 +80,12 @@ export function useGretelAnimation(paused = false): GretelAnimationHook {
         if (!cancelled) dispatch({ type: "IDLE" });
       }, 130);
     } else if (machineState === "idle" && !paused) {
-      timerRef.current = setTimeout(() => {
-        if (!cancelled) dispatch({ type: "BLINK" });
-      }, 2600 + Math.random() * 3200);
+      timerRef.current = setTimeout(
+        () => {
+          if (!cancelled) dispatch({ type: "BLINK" });
+        },
+        2600 + Math.random() * 3200,
+      );
     }
 
     return () => {

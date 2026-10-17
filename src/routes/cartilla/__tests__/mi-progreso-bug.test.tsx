@@ -24,7 +24,9 @@ vi.mock("@tanstack/react-router", () => ({
   useParams: () => ({ n: "3" }),
   useNavigate: () => vi.fn(),
   Link: ({ children }: { children: React.ReactNode }) => <a>{children}</a>,
-  redirect: () => { throw new Error("Redirected"); },
+  redirect: () => {
+    throw new Error("Redirected");
+  },
 }));
 
 vi.mock("@/context/LanguageContext", () => ({
@@ -53,16 +55,22 @@ describe("mi-progreso component", () => {
         { lesson_id: "1", event_kind: "lesson_completed", score: null, total: null },
         { lesson_id: "silabas-o", event_kind: "lesson_completed", score: null, total: null }, // Phantom game id
         { lesson_id: "2", event_kind: "lesson_completed", score: null, total: null },
-        { lesson_id: "silabas-o", event_kind: "exercise", score: 1, total: 1, meta: { exercise: "syllable-builder" } },
+        {
+          lesson_id: "silabas-o",
+          event_kind: "exercise",
+          score: 1,
+          total: 1,
+          meta: { exercise: "syllable-builder" },
+        },
       ],
       lessonProgress: [],
     });
 
     render(<MiProgreso />);
-    
+
     const countElement = await screen.findByText(`2/${TOTAL_LESSONS}`);
     expect(countElement).toBeInTheDocument();
-    
+
     // There are four Stat components. Ejercicios is the second one, its label is 'Ejercicios'.
     // The value should be '1' because there's 1 run (key: 'silabas-o:syllable-builder').
     const exercisesLabel = await screen.findByText("Ejercicios");

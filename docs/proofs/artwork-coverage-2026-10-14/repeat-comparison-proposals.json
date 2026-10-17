@@ -1,11 +1,7 @@
 [
   {
     "proposed_label_group": "abanico",
-    "illustration_ids": [
-      "WB-S007-OBJ03-ABANICO",
-      "WB-S013-OBJ01-ABANICO",
-      "WB-S019-OBJ04-ABANICO"
-    ],
+    "illustration_ids": ["WB-S007-OBJ03-ABANICO", "WB-S013-OBJ01-ABANICO", "WB-S019-OBJ04-ABANICO"],
     "evidence": "comparisons/WB-repeat-proposal-01.jpg",
     "same_drawing_verified": false,
     "rule": "Shared labels only retrieve comparison candidates; never establish identity"
@@ -27,20 +23,14 @@
   },
   {
     "proposed_label_group": "abrigo",
-    "illustration_ids": [
-      "WB-S007-OBJ01-UNIFORME-1"
-    ],
+    "illustration_ids": ["WB-S007-OBJ01-UNIFORME-1"],
     "evidence": "comparisons/WB-repeat-proposal-03.jpg",
     "same_drawing_verified": false,
     "rule": "Shared labels only retrieve comparison candidates; never establish identity"
   },
   {
     "proposed_label_group": "aguja",
-    "illustration_ids": [
-      "WB-S013-OBJ15-AGUJA",
-      "WB-S014-OBJ05-AGUJA",
-      "WB-S016-OBJ08-AGUJA"
-    ],
+    "illustration_ids": ["WB-S013-OBJ15-AGUJA", "WB-S014-OBJ05-AGUJA", "WB-S016-OBJ08-AGUJA"],
     "evidence": "comparisons/WB-repeat-proposal-04.jpg",
     "same_drawing_verified": false,
     "rule": "Shared labels only retrieve comparison candidates; never establish identity"
@@ -60,30 +50,21 @@
   },
   {
     "proposed_label_group": "arana",
-    "illustration_ids": [
-      "WB-S009-OBJ03-ARANA",
-      "WB-S010-OBJ13-ARANA"
-    ],
+    "illustration_ids": ["WB-S009-OBJ03-ARANA", "WB-S010-OBJ13-ARANA"],
     "evidence": "comparisons/WB-repeat-proposal-06.jpg",
     "same_drawing_verified": false,
     "rule": "Shared labels only retrieve comparison candidates; never establish identity"
   },
   {
     "proposed_label_group": "arbol",
-    "illustration_ids": [
-      "WB-S008-OBJ05-ARBOL",
-      "WB-S013-OBJ07-ARBOL",
-      "WB-S022-OBJ09-ARBOL"
-    ],
+    "illustration_ids": ["WB-S008-OBJ05-ARBOL", "WB-S013-OBJ07-ARBOL", "WB-S022-OBJ09-ARBOL"],
     "evidence": "comparisons/WB-repeat-proposal-07.jpg",
     "same_drawing_verified": false,
     "rule": "Shared labels only retrieve comparison candidates; never establish identity"
   },
   {
     "proposed_label_group": "ardilla",
-    "illustration_ids": [
-      "WB-S013-OBJ12-ARDILLA"
-    ],
+    "illustration_ids": ["WB-S013-OBJ12-ARDILLA"],
     "evidence": "comparisons/WB-repeat-proposal-08.jpg",
     "same_drawing_verified": false,
     "rule": "Shared labels only retrieve comparison candidates; never establish identity"
@@ -102,36 +83,28 @@
   },
   {
     "proposed_label_group": "avión",
-    "illustration_ids": [
-      "WB-S007-OBJ06-PEZ"
-    ],
+    "illustration_ids": ["WB-S007-OBJ06-PEZ"],
     "evidence": "comparisons/WB-repeat-proposal-10.jpg",
     "same_drawing_verified": false,
     "rule": "Shared labels only retrieve comparison candidates; never establish identity"
   },
   {
     "proposed_label_group": "carro",
-    "illustration_ids": [
-      "WB-S008-OBJ12-CARRO"
-    ],
+    "illustration_ids": ["WB-S008-OBJ12-CARRO"],
     "evidence": "comparisons/WB-repeat-proposal-11.jpg",
     "same_drawing_verified": false,
     "rule": "Shared labels only retrieve comparison candidates; never establish identity"
   },
   {
     "proposed_label_group": "chaqueta",
-    "illustration_ids": [
-      "WB-S017-OBJ08-CHAQUETA"
-    ],
+    "illustration_ids": ["WB-S017-OBJ08-CHAQUETA"],
     "evidence": "comparisons/WB-repeat-proposal-12.jpg",
     "same_drawing_verified": false,
     "rule": "Shared labels only retrieve comparison candidates; never establish identity"
   },
   {
     "proposed_label_group": "dulce",
-    "illustration_ids": [
-      "WB-S008-OBJ15-DULCE"
-    ],
+    "illustration_ids": ["WB-S008-OBJ15-DULCE"],
     "evidence": "comparisons/WB-repeat-proposal-13.jpg",
     "same_drawing_verified": false,
     "rule": "Shared labels only retrieve comparison candidates; never establish identity"
@@ -151,10 +124,7 @@
   },
   {
     "proposed_label_group": "erizo",
-    "illustration_ids": [
-      "WB-S016-OBJ06-ERIZO",
-      "WB-S017-OBJ04-ERIZO"
-    ],
+    "illustration_ids": ["WB-S016-OBJ06-ERIZO", "WB-S017-OBJ04-ERIZO"],
     "evidence": "comparisons/WB-repeat-proposal-15.jpg",
     "same_drawing_verified": false,
     "rule": "Shared labels only retrieve comparison candidates; never establish identity"
@@ -172,30 +142,21 @@
   },
   {
     "proposed_label_group": "escoba",
-    "illustration_ids": [
-      "WB-S009-OBJ05-ESCOBA",
-      "WB-S016-OBJ09-ESCOBA"
-    ],
+    "illustration_ids": ["WB-S009-OBJ05-ESCOBA", "WB-S016-OBJ09-ESCOBA"],
     "evidence": "comparisons/WB-repeat-proposal-17.jpg",
     "same_drawing_verified": false,
     "rule": "Shared labels only retrieve comparison candidates; never establish identity"
   },
   {
     "proposed_label_group": "escuela",
-    "illustration_ids": [
-      "WB-S007-OBJ11-ESCUELA",
-      "WB-S008-OBJ04-ESCUELA",
-      "WB-S016-OBJ13-ESCUELA"
-    ],
+    "illustration_ids": ["WB-S007-OBJ11-ESCUELA", "WB-S008-OBJ04-ESCUELA", "WB-S016-OBJ13-ESCUELA"],
     "evidence": "comparisons/WB-repeat-proposal-18.jpg",
     "same_drawing_verified": false,
     "rule": "Shared labels only retrieve comparison candidates; never establish identity"
   },
   {
     "proposed_label_group": "espejo",
-    "illustration_ids": [
-      "WB-S016-OBJ15-ESPEJO"
-    ],
+    "illustration_ids": ["WB-S016-OBJ15-ESPEJO"],
     "evidence": "comparisons/WB-repeat-proposal-19.jpg",
     "same_drawing_verified": false,
     "rule": "Shared labels only retrieve comparison candidates; never establish identity"
@@ -216,18 +177,14 @@
   },
   {
     "proposed_label_group": "globo",
-    "illustration_ids": [
-      "WB-S008-OBJ14-GLOBO"
-    ],
+    "illustration_ids": ["WB-S008-OBJ14-GLOBO"],
     "evidence": "comparisons/WB-repeat-proposal-21.jpg",
     "same_drawing_verified": false,
     "rule": "Shared labels only retrieve comparison candidates; never establish identity"
   },
   {
     "proposed_label_group": "iglesia",
-    "illustration_ids": [
-      "WB-S009-OBJ01-IGLESIA"
-    ],
+    "illustration_ids": ["WB-S009-OBJ01-IGLESIA"],
     "evidence": "comparisons/WB-repeat-proposal-22.jpg",
     "same_drawing_verified": false,
     "rule": "Shared labels only retrieve comparison candidates; never establish identity"
@@ -248,20 +205,14 @@
   },
   {
     "proposed_label_group": "igual",
-    "illustration_ids": [
-      "WB-S019-OBJ14-IGUAL",
-      "WB-S020-OBJ04-IGUAL"
-    ],
+    "illustration_ids": ["WB-S019-OBJ14-IGUAL", "WB-S020-OBJ04-IGUAL"],
     "evidence": "comparisons/WB-repeat-proposal-24.jpg",
     "same_drawing_verified": false,
     "rule": "Shared labels only retrieve comparison candidates; never establish identity"
   },
   {
     "proposed_label_group": "iguana",
-    "illustration_ids": [
-      "WB-S019-OBJ03-IGUANA",
-      "WB-S020-OBJ07-IGUANA"
-    ],
+    "illustration_ids": ["WB-S019-OBJ03-IGUANA", "WB-S020-OBJ07-IGUANA"],
     "evidence": "comparisons/WB-repeat-proposal-25.jpg",
     "same_drawing_verified": false,
     "rule": "Shared labels only retrieve comparison candidates; never establish identity"
@@ -281,9 +232,7 @@
   },
   {
     "proposed_label_group": "imán",
-    "illustration_ids": [
-      "WB-S007-OBJ02-IMAN-1"
-    ],
+    "illustration_ids": ["WB-S007-OBJ02-IMAN-1"],
     "evidence": "comparisons/WB-repeat-proposal-27.jpg",
     "same_drawing_verified": false,
     "rule": "Shared labels only retrieve comparison candidates; never establish identity"
@@ -302,38 +251,28 @@
   },
   {
     "proposed_label_group": "insecto",
-    "illustration_ids": [
-      "WB-S019-OBJ15-INSECTO",
-      "WB-S022-OBJ15-INSECTO"
-    ],
+    "illustration_ids": ["WB-S019-OBJ15-INSECTO", "WB-S022-OBJ15-INSECTO"],
     "evidence": "comparisons/WB-repeat-proposal-29.jpg",
     "same_drawing_verified": false,
     "rule": "Shared labels only retrieve comparison candidates; never establish identity"
   },
   {
     "proposed_label_group": "invierno",
-    "illustration_ids": [
-      "WB-S019-OBJ08-INVIERNO"
-    ],
+    "illustration_ids": ["WB-S019-OBJ08-INVIERNO"],
     "evidence": "comparisons/WB-repeat-proposal-30.jpg",
     "same_drawing_verified": false,
     "rule": "Shared labels only retrieve comparison candidates; never establish identity"
   },
   {
     "proposed_label_group": "isla",
-    "illustration_ids": [
-      "WB-S007-OBJ05-ISLA",
-      "WB-S019-OBJ12-ISLA"
-    ],
+    "illustration_ids": ["WB-S007-OBJ05-ISLA", "WB-S019-OBJ12-ISLA"],
     "evidence": "comparisons/WB-repeat-proposal-31.jpg",
     "same_drawing_verified": false,
     "rule": "Shared labels only retrieve comparison candidates; never establish identity"
   },
   {
     "proposed_label_group": "libro",
-    "illustration_ids": [
-      "WB-S008-OBJ03-LIBRO"
-    ],
+    "illustration_ids": ["WB-S008-OBJ03-LIBRO"],
     "evidence": "comparisons/WB-repeat-proposal-32.jpg",
     "same_drawing_verified": false,
     "rule": "Shared labels only retrieve comparison candidates; never establish identity"
@@ -353,19 +292,14 @@
   },
   {
     "proposed_label_group": "manzana",
-    "illustration_ids": [
-      "WB-S008-OBJ02-MANZANA"
-    ],
+    "illustration_ids": ["WB-S008-OBJ02-MANZANA"],
     "evidence": "comparisons/WB-repeat-proposal-34.jpg",
     "same_drawing_verified": false,
     "rule": "Shared labels only retrieve comparison candidates; never establish identity"
   },
   {
     "proposed_label_group": "ocho",
-    "illustration_ids": [
-      "WB-S009-OBJ02-OCHO",
-      "WB-S010-OBJ11-OCHO"
-    ],
+    "illustration_ids": ["WB-S009-OBJ02-OCHO", "WB-S010-OBJ11-OCHO"],
     "evidence": "comparisons/WB-repeat-proposal-35.jpg",
     "same_drawing_verified": false,
     "rule": "Shared labels only retrieve comparison candidates; never establish identity"
@@ -384,11 +318,7 @@
   },
   {
     "proposed_label_group": "ola",
-    "illustration_ids": [
-      "WB-S010-OBJ01-OLA",
-      "WB-S011-OBJ06-OLA",
-      "WB-S019-OBJ09-OLA"
-    ],
+    "illustration_ids": ["WB-S010-OBJ01-OLA", "WB-S011-OBJ06-OLA", "WB-S019-OBJ09-OLA"],
     "evidence": "comparisons/WB-repeat-proposal-37.jpg",
     "same_drawing_verified": false,
     "rule": "Shared labels only retrieve comparison candidates; never establish identity"
@@ -407,20 +337,14 @@
   },
   {
     "proposed_label_group": "oreja",
-    "illustration_ids": [
-      "WB-S007-OBJ12-OREJA",
-      "WB-S010-OBJ08-OREJA",
-      "WB-S011-OBJ04-OREJA"
-    ],
+    "illustration_ids": ["WB-S007-OBJ12-OREJA", "WB-S010-OBJ08-OREJA", "WB-S011-OBJ04-OREJA"],
     "evidence": "comparisons/WB-repeat-proposal-39.jpg",
     "same_drawing_verified": false,
     "rule": "Shared labels only retrieve comparison candidates; never establish identity"
   },
   {
     "proposed_label_group": "oruga",
-    "illustration_ids": [
-      "WB-S013-OBJ02-ORUGA"
-    ],
+    "illustration_ids": ["WB-S013-OBJ02-ORUGA"],
     "evidence": "comparisons/WB-repeat-proposal-40.jpg",
     "same_drawing_verified": false,
     "rule": "Shared labels only retrieve comparison candidates; never establish identity"
@@ -460,18 +384,14 @@
   },
   {
     "proposed_label_group": "pajaro",
-    "illustration_ids": [
-      "WB-S008-OBJ10-PAJARO"
-    ],
+    "illustration_ids": ["WB-S008-OBJ10-PAJARO"],
     "evidence": "comparisons/WB-repeat-proposal-43.jpg",
     "same_drawing_verified": false,
     "rule": "Shared labels only retrieve comparison candidates; never establish identity"
   },
   {
     "proposed_label_group": "pera",
-    "illustration_ids": [
-      "WB-S008-OBJ09-PERA"
-    ],
+    "illustration_ids": ["WB-S008-OBJ09-PERA"],
     "evidence": "comparisons/WB-repeat-proposal-44.jpg",
     "same_drawing_verified": false,
     "rule": "Shared labels only retrieve comparison candidates; never establish identity"
@@ -490,9 +410,7 @@
   },
   {
     "proposed_label_group": "taza",
-    "illustration_ids": [
-      "WB-S008-OBJ07-TAZA"
-    ],
+    "illustration_ids": ["WB-S008-OBJ07-TAZA"],
     "evidence": "comparisons/WB-repeat-proposal-46.jpg",
     "same_drawing_verified": false,
     "rule": "Shared labels only retrieve comparison candidates; never establish identity"
@@ -556,21 +474,14 @@
   },
   {
     "proposed_label_group": "urraca",
-    "illustration_ids": [
-      "WB-S016-OBJ12-URRACA",
-      "WB-S022-OBJ12-URRACA"
-    ],
+    "illustration_ids": ["WB-S016-OBJ12-URRACA", "WB-S022-OBJ12-URRACA"],
     "evidence": "comparisons/WB-repeat-proposal-51.jpg",
     "same_drawing_verified": false,
     "rule": "Shared labels only retrieve comparison candidates; never establish identity"
   },
   {
     "proposed_label_group": "uva",
-    "illustration_ids": [
-      "WB-S010-OBJ10-UVA",
-      "WB-S022-OBJ05-UVA",
-      "WB-S023-OBJ04-UVA"
-    ],
+    "illustration_ids": ["WB-S010-OBJ10-UVA", "WB-S022-OBJ05-UVA", "WB-S023-OBJ04-UVA"],
     "evidence": "comparisons/WB-repeat-proposal-52.jpg",
     "same_drawing_verified": false,
     "rule": "Shared labels only retrieve comparison candidates; never establish identity"

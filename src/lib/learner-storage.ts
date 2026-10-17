@@ -6,13 +6,16 @@ export function learnerScope(): string {
   if (typeof window === "undefined") return "anonymous";
   const demo = getDemoStudentSession();
   if (demo) return `demo:${encodeURIComponent(demo.classId)}:${encodeURIComponent(demo.studentId)}`;
-  if (import.meta.env.VITE_CRM_REVIEW === "true" && import.meta.env.MODE !== "test") return "anonymous";
+  if (import.meta.env.VITE_CRM_REVIEW === "true" && import.meta.env.MODE !== "test")
+    return "anonymous";
   try {
     const session = JSON.parse(localStorage.getItem("cartilla.student-session.v1") ?? "null");
     if (typeof session?.studentId === "string" && typeof session?.classId === "string") {
       return `student:${encodeURIComponent(session.classId)}:${encodeURIComponent(session.studentId)}`;
     }
-  } catch { /* unavailable or invalid identity stays anonymous */ }
+  } catch {
+    /* unavailable or invalid identity stays anonymous */
+  }
   return "anonymous";
 }
 export function learnerStorageKey(key: string): string {

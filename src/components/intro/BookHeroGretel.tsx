@@ -9,11 +9,25 @@ export type BookHeroGretelProps = {
   autoIntro?: boolean;
 };
 
-export function BookHeroGretel({ size = "lg", className = "", autoIntro = true }: BookHeroGretelProps) {
+export function BookHeroGretel({
+  size = "lg",
+  className = "",
+  autoIntro = true,
+}: BookHeroGretelProps) {
   return (
-    <figure className={`book-hero-gretel book-hero-gretel--${size}${className ? ` ${className}` : ""}`} data-testid="book-hero-gretel-frame" data-sticker="false" data-gretel-system="presence">
+    <figure
+      className={`book-hero-gretel book-hero-gretel--${size}${className ? ` ${className}` : ""}`}
+      data-testid="book-hero-gretel-frame"
+      data-sticker="false"
+      data-gretel-system="presence"
+    >
       <div className="book-hero-gretel__frame">
-        <GretelPresence variant="home" autoIntro={autoIntro} hideChrome className="book-hero-gretel__presence" />
+        <GretelPresence
+          variant="home"
+          autoIntro={autoIntro}
+          hideChrome
+          className="book-hero-gretel__presence"
+        />
       </div>
     </figure>
   );

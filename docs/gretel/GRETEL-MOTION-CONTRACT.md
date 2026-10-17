@@ -16,15 +16,15 @@ poses as matching or imply that any clip has been produced.
 
 ## What exists today (20 files)
 
-| File | Size | Background | Style | Viable as master? |
-|---|---|---|---|---|
-| `public/art/hd/gretel-authentic.jpg` | 768×1024 | opaque, painted garden, holds the book | book cover | Reference only (has scenery) |
-| `cartilla/images/gretel/gretel-autentica.png` | 1086×1448 | **opaque black** | book cover (striped sleeves, knee socks) | Yes, after a clean cut-out |
-| `cartilla/images/gretel/gretel-autentica.jpg` | 768×290 | opaque | head crop | No |
-| `poses/gretel-idle`, `-point`, `-point-left-flip`, `-talk`, `-talk-0`, `-cheer` (.webp) | 666×1000 | real transparency | painted doll | Yes (one consistent family) |
-| `poses/gretel-settle.webp` | 666×1000 | near-white box | painted doll | Needs clean-up |
-| `poses/gretel-closed-idle`, `-point-left` | 666×1000 | **black box** | painted doll | Needs clean-up |
-| `poses/gretel-blink`, `-cheer-1`, `-talk-1`, `-talk-2`, `-wave`, `-wave-1`, `-wave-2`, `-wave-exit` | 1024×1024 | **fake checkerboard baked in** or black | mixed; `-wave` is off-model (white blouse, teal skirt) | No |
+| File                                                                                                | Size      | Background                              | Style                                                  | Viable as master?            |
+| --------------------------------------------------------------------------------------------------- | --------- | --------------------------------------- | ------------------------------------------------------ | ---------------------------- |
+| `public/art/hd/gretel-authentic.jpg`                                                                | 768×1024  | opaque, painted garden, holds the book  | book cover                                             | Reference only (has scenery) |
+| `cartilla/images/gretel/gretel-autentica.png`                                                       | 1086×1448 | **opaque black**                        | book cover (striped sleeves, knee socks)               | Yes, after a clean cut-out   |
+| `cartilla/images/gretel/gretel-autentica.jpg`                                                       | 768×290   | opaque                                  | head crop                                              | No                           |
+| `poses/gretel-idle`, `-point`, `-point-left-flip`, `-talk`, `-talk-0`, `-cheer` (.webp)             | 666×1000  | real transparency                       | painted doll                                           | Yes (one consistent family)  |
+| `poses/gretel-settle.webp`                                                                          | 666×1000  | near-white box                          | painted doll                                           | Needs clean-up               |
+| `poses/gretel-closed-idle`, `-point-left`                                                           | 666×1000  | **black box**                           | painted doll                                           | Needs clean-up               |
+| `poses/gretel-blink`, `-cheer-1`, `-talk-1`, `-talk-2`, `-wave`, `-wave-1`, `-wave-2`, `-wave-exit` | 1024×1024 | **fake checkerboard baked in** or black | mixed; `-wave` is off-model (white blouse, teal skirt) | No                           |
 
 The master must match the approved Gretel 2.0, including her striped blouse,
 blue dress, floral trim, blonde hair and red bow. Existing files do not become

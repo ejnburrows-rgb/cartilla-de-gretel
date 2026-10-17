@@ -56,7 +56,8 @@ describe("Gretel Voice Readiness Architecture", () => {
       primaryVoiceName: "Español (México)",
       fallbackVoiceName: "Voz [1]",
     });
-    const voice = (name: string) => ({ name, lang: "es-MX", localService: true } as SpeechSynthesisVoice);
+    const voice = (name: string) =>
+      ({ name, lang: "es-MX", localService: true }) as SpeechSynthesisVoice;
     expect(scoreVoice(voice("Español (México)"))).toBeGreaterThan(scoreVoice(voice("Voz [1]")));
     expect(scoreVoice(voice("Voz [1]"))).toBeGreaterThan(scoreVoice(voice("Voz 1")));
   });
@@ -124,7 +125,9 @@ describe("Gretel Voice Readiness Architecture", () => {
 
   it("ends interrupted custom speech exactly once", async () => {
     let finishProvider = () => {};
-    const providerDone = new Promise<void>((resolve) => { finishProvider = () => resolve(); });
+    const providerDone = new Promise<void>((resolve) => {
+      finishProvider = () => resolve();
+    });
     setGretelVoiceProviderConfig({
       type: "custom",
       name: "Interruptible provider",

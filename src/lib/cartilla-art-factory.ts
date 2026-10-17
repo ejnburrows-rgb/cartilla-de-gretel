@@ -401,11 +401,7 @@ function buildStoreZip(entries: ZipEntry[]) {
 }
 
 export function buildIntegrationManifest(project: ArtFactoryProject) {
-  const eligible = new Set<ArtFactoryStatus>([
-    "READY FOR INTEGRATION",
-    "INTEGRATED",
-    "EXPORTED",
-  ]);
+  const eligible = new Set<ArtFactoryStatus>(["READY FOR INTEGRATION", "INTEGRATED", "EXPORTED"]);
   return {
     schemaVersion: 1,
     generatedAt: new Date().toISOString(),
@@ -426,8 +422,7 @@ export function buildIntegrationManifest(project: ArtFactoryProject) {
         sourceIdentity: asset.id,
         generatedFilename: asset.generatedResult!.name,
         expectedFilename: asset.expectedFilename,
-        productionDestination:
-          "public/cartilla/art/generated/" + asset.expectedFilename,
+        productionDestination: "public/cartilla/art/generated/" + asset.expectedFilename,
         qualityNotes: asset.qualityNotes ?? null,
       })),
   };
@@ -452,7 +447,10 @@ export function buildGenerationPackage(project: ArtFactoryProject, assetIds?: st
   const entries: ZipEntry[] = [
     { name: "manifest.json", bytes: jsonBytes(exportedProject) },
     { name: "summary.csv", bytes: textBytes(buildArtFactoryCsv(exportedProject)) },
-    { name: "integration-manifest.json", bytes: jsonBytes(buildIntegrationManifest(exportedProject)) },
+    {
+      name: "integration-manifest.json",
+      bytes: jsonBytes(buildIntegrationManifest(exportedProject)),
+    },
   ];
 
   for (const style of project.styleReferences) {
@@ -465,7 +463,10 @@ export function buildGenerationPackage(project: ArtFactoryProject, assetIds?: st
   for (const asset of selected) {
     entries.push({ name: `jobs/${asset.id}.json`, bytes: jsonBytes(asset) });
     entries.push({ name: `prompts/${asset.id}.txt`, bytes: textBytes(asset.prompt) });
-    entries.push({ name: `source-crops/${asset.id}.png`, bytes: dataUrlBytes(asset.sourceCrop.dataUrl) });
+    entries.push({
+      name: `source-crops/${asset.id}.png`,
+      bytes: dataUrlBytes(asset.sourceCrop.dataUrl),
+    });
     asset.referenceCrops.forEach((crop, index) => {
       entries.push({
         name: `reference-crops/${asset.id}-ref-${String(index + 1).padStart(2, "0")}.png`,
@@ -481,7 +482,10 @@ export function buildGenerationPackage(project: ArtFactoryProject, assetIds?: st
   }
 
   const zipBytes = buildStoreZip(entries);
-  const zipBuffer = zipBytes.buffer.slice(zipBytes.byteOffset, zipBytes.byteOffset + zipBytes.byteLength) as ArrayBuffer;
+  const zipBuffer = zipBytes.buffer.slice(
+    zipBytes.byteOffset,
+    zipBytes.byteOffset + zipBytes.byteLength,
+  ) as ArrayBuffer;
   return new Blob([zipBuffer], { type: "application/zip" });
 }
 

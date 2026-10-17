@@ -37,9 +37,7 @@
       ],
       "identity_decision": "SAME ORIGINAL DRAWING WITHIN THIS GROUP",
       "label": "abanico",
-      "decisions": [
-        "Fan rib fan, large central flower, upper scenic blocks and small corner tab."
-      ],
+      "decisions": ["Fan rib fan, large central flower, upper scenic blocks and small corner tab."],
       "availability": "OPTIMIZED VERSION EXISTS",
       "placement_counts": {
         "OPTIMIZED VERSION EXISTS": 2,
@@ -60,9 +58,7 @@
         "WB-S020-OBJ08-ABEJA",
         "WB-S022-OBJ13-ABEJA"
       ],
-      "evidence": [
-        "comparisons/WB-repeat-proposal-02.jpg"
-      ],
+      "evidence": ["comparisons/WB-repeat-proposal-02.jpg"],
       "identity_decision": "SAME ORIGINAL DRAWING WITHIN THIS GROUP",
       "label": "abeja",
       "availability": "OPTIMIZED VERSION EXISTS",
@@ -76,10 +72,7 @@
     },
     {
       "group_id": "DRAW-WB-03-1",
-      "placements": [
-        "WB-S007-OBJ01-UNIFORME-1",
-        "WB-S017-OBJ08-CHAQUETA"
-      ],
+      "placements": ["WB-S007-OBJ01-UNIFORME-1", "WB-S017-OBJ08-CHAQUETA"],
       "evidence": [
         "comparisons/WB-repeat-proposal-03.jpg",
         "comparisons/WB-repeat-proposal-12.jpg"
@@ -99,14 +92,8 @@
     },
     {
       "group_id": "DRAW-WB-04-1",
-      "placements": [
-        "WB-S013-OBJ15-AGUJA",
-        "WB-S014-OBJ05-AGUJA",
-        "WB-S016-OBJ08-AGUJA"
-      ],
-      "evidence": [
-        "comparisons/WB-repeat-proposal-04.jpg"
-      ],
+      "placements": ["WB-S013-OBJ15-AGUJA", "WB-S014-OBJ05-AGUJA", "WB-S016-OBJ08-AGUJA"],
+      "evidence": ["comparisons/WB-repeat-proposal-04.jpg"],
       "identity_decision": "SAME ORIGINAL DRAWING WITHIN THIS GROUP",
       "label": "aguja",
       "availability": "OPTIMIZATION NEEDED",
@@ -119,13 +106,8 @@
     },
     {
       "group_id": "DRAW-WB-05-1",
-      "placements": [
-        "WB-S010-OBJ07-ALA",
-        "WB-S013-OBJ10-ALA"
-      ],
-      "evidence": [
-        "comparisons/WB-repeat-proposal-05.jpg"
-      ],
+      "placements": ["WB-S010-OBJ07-ALA", "WB-S013-OBJ10-ALA"],
+      "evidence": ["comparisons/WB-repeat-proposal-05.jpg"],
       "identity_decision": "SAME ORIGINAL DRAWING WITHIN THIS GROUP",
       "label": "ala",
       "availability": "OPTIMIZATION NEEDED",
@@ -138,14 +120,8 @@
     },
     {
       "group_id": "DRAW-WB-05-2",
-      "placements": [
-        "WB-S011-OBJ08-ALA",
-        "WB-S014-OBJ03-ALA",
-        "WB-S019-OBJ07-ALA"
-      ],
-      "evidence": [
-        "comparisons/WB-repeat-proposal-05.jpg"
-      ],
+      "placements": ["WB-S011-OBJ08-ALA", "WB-S014-OBJ03-ALA", "WB-S019-OBJ07-ALA"],
+      "evidence": ["comparisons/WB-repeat-proposal-05.jpg"],
       "identity_decision": "SAME ORIGINAL DRAWING WITHIN THIS GROUP",
       "label": "ala",
       "availability": "OPTIMIZATION NEEDED",
@@ -158,11 +134,7 @@
     },
     {
       "group_id": "DRAW-WB-06-1",
-      "placements": [
-        "WB-S009-OBJ03-ARANA",
-        "WB-S010-OBJ13-ARANA",
-        "FC-005-04"
-      ],
+      "placements": ["WB-S009-OBJ03-ARANA", "WB-S010-OBJ13-ARANA", "FC-005-04"],
       "evidence": [
         "comparisons/WB-repeat-proposal-06.jpg",
         "comparisons/FC-013.jpg",
@@ -184,14 +156,8 @@
     },
     {
       "group_id": "DRAW-WB-07-1",
-      "placements": [
-        "WB-S008-OBJ05-ARBOL",
-        "WB-S013-OBJ07-ARBOL",
-        "WB-S022-OBJ09-ARBOL"
-      ],
-      "evidence": [
-        "comparisons/WB-repeat-proposal-07.jpg"
-      ],
+      "placements": ["WB-S008-OBJ05-ARBOL", "WB-S013-OBJ07-ARBOL", "WB-S022-OBJ09-ARBOL"],
+      "evidence": ["comparisons/WB-repeat-proposal-07.jpg"],
       "identity_decision": "SAME ORIGINAL DRAWING WITHIN THIS GROUP",
       "label": "arbol",
       "availability": "OPTIMIZATION NEEDED",
@@ -204,12 +170,8 @@
     },
     {
       "group_id": "DRAW-WB-08-1",
-      "placements": [
-        "WB-S013-OBJ12-ARDILLA"
-      ],
-      "evidence": [
-        "comparisons/WB-repeat-proposal-08.jpg"
-      ],
+      "placements": ["WB-S013-OBJ12-ARDILLA"],
+      "evidence": ["comparisons/WB-repeat-proposal-08.jpg"],
       "identity_decision": "SAME ORIGINAL DRAWING WITHIN THIS GROUP",
       "label": "ardilla",
       "availability": "OPTIMIZATION NEEDED",
@@ -222,14 +184,8 @@
     },
     {
       "group_id": "DRAW-WB-09-1",
-      "placements": [
-        "WB-S007-OBJ08-ARO",
-        "WB-S013-OBJ03-ARO",
-        "WB-S014-OBJ08-ARO"
-      ],
-      "evidence": [
-        "comparisons/WB-repeat-proposal-09.jpg"
-      ],
+      "placements": ["WB-S007-OBJ08-ARO", "WB-S013-OBJ03-ARO", "WB-S014-OBJ08-ARO"],
+      "evidence": ["comparisons/WB-repeat-proposal-09.jpg"],
       "identity_decision": "SAME ORIGINAL DRAWING WITHIN THIS GROUP",
       "label": "aro",
       "availability": "OPTIMIZATION NEEDED",
@@ -242,12 +198,8 @@
     },
     {
       "group_id": "DRAW-WB-09-2",
-      "placements": [
-        "WB-S008-OBJ01-ARO"
-      ],
-      "evidence": [
-        "comparisons/WB-repeat-proposal-09.jpg"
-      ],
+      "placements": ["WB-S008-OBJ01-ARO"],
+      "evidence": ["comparisons/WB-repeat-proposal-09.jpg"],
       "identity_decision": "SAME ORIGINAL DRAWING WITHIN THIS GROUP",
       "label": "aro",
       "availability": "OPTIMIZATION NEEDED",
@@ -287,12 +239,8 @@
     },
     {
       "group_id": "DRAW-WB-11-1",
-      "placements": [
-        "WB-S008-OBJ12-CARRO"
-      ],
-      "evidence": [
-        "comparisons/WB-repeat-proposal-11.jpg"
-      ],
+      "placements": ["WB-S008-OBJ12-CARRO"],
+      "evidence": ["comparisons/WB-repeat-proposal-11.jpg"],
       "identity_decision": "SAME ORIGINAL DRAWING WITHIN THIS GROUP",
       "label": "carro",
       "availability": "OPTIMIZATION NEEDED",
@@ -305,12 +253,8 @@
     },
     {
       "group_id": "DRAW-WB-13-1",
-      "placements": [
-        "WB-S008-OBJ15-DULCE"
-      ],
-      "evidence": [
-        "comparisons/WB-repeat-proposal-13.jpg"
-      ],
+      "placements": ["WB-S008-OBJ15-DULCE"],
+      "evidence": ["comparisons/WB-repeat-proposal-13.jpg"],
       "identity_decision": "SAME ORIGINAL DRAWING WITHIN THIS GROUP",
       "label": "dulce",
       "availability": "OPTIMIZATION NEEDED",
@@ -330,9 +274,7 @@
         "WB-S017-OBJ02-ELEFANTE",
         "WB-S022-OBJ08-ELEFANTE"
       ],
-      "evidence": [
-        "comparisons/WB-repeat-proposal-14.jpg"
-      ],
+      "evidence": ["comparisons/WB-repeat-proposal-14.jpg"],
       "identity_decision": "SAME ORIGINAL DRAWING WITHIN THIS GROUP",
       "label": "elefante",
       "availability": "OPTIMIZATION NEEDED",
@@ -345,11 +287,7 @@
     },
     {
       "group_id": "DRAW-WB-15-1",
-      "placements": [
-        "WB-S016-OBJ06-ERIZO",
-        "WB-S017-OBJ04-ERIZO",
-        "FC-006-06"
-      ],
+      "placements": ["WB-S016-OBJ06-ERIZO", "WB-S017-OBJ04-ERIZO", "FC-006-06"],
       "evidence": [
         "comparisons/WB-repeat-proposal-15.jpg",
         "comparisons/FC-025.jpg",
@@ -384,9 +322,7 @@
       ],
       "identity_decision": "SAME ORIGINAL DRAWING WITHIN THIS GROUP",
       "label": "escalera",
-      "decisions": [
-        "Same A-frame, rear struts, diagonal braces and rung arrangement."
-      ],
+      "decisions": ["Same A-frame, rear struts, diagonal braces and rung arrangement."],
       "availability": "OPTIMIZED VERSION EXISTS",
       "placement_counts": {
         "OPTIMIZED VERSION EXISTS": 2,
@@ -398,13 +334,8 @@
     },
     {
       "group_id": "DRAW-WB-17-1",
-      "placements": [
-        "WB-S009-OBJ05-ESCOBA",
-        "WB-S016-OBJ09-ESCOBA"
-      ],
-      "evidence": [
-        "comparisons/WB-repeat-proposal-17.jpg"
-      ],
+      "placements": ["WB-S009-OBJ05-ESCOBA", "WB-S016-OBJ09-ESCOBA"],
+      "evidence": ["comparisons/WB-repeat-proposal-17.jpg"],
       "identity_decision": "SAME ORIGINAL DRAWING WITHIN THIS GROUP",
       "label": "escoba",
       "availability": "OPTIMIZATION NEEDED",
@@ -417,13 +348,8 @@
     },
     {
       "group_id": "DRAW-WB-18-1",
-      "placements": [
-        "WB-S007-OBJ11-ESCUELA",
-        "WB-S016-OBJ13-ESCUELA"
-      ],
-      "evidence": [
-        "comparisons/WB-repeat-proposal-18.jpg"
-      ],
+      "placements": ["WB-S007-OBJ11-ESCUELA", "WB-S016-OBJ13-ESCUELA"],
+      "evidence": ["comparisons/WB-repeat-proposal-18.jpg"],
       "identity_decision": "SAME ORIGINAL DRAWING WITHIN THIS GROUP",
       "label": "escuela",
       "availability": "OPTIMIZED VERSION EXISTS",
@@ -437,12 +363,8 @@
     },
     {
       "group_id": "DRAW-WB-18-2",
-      "placements": [
-        "WB-S008-OBJ04-ESCUELA"
-      ],
-      "evidence": [
-        "comparisons/WB-repeat-proposal-18.jpg"
-      ],
+      "placements": ["WB-S008-OBJ04-ESCUELA"],
+      "evidence": ["comparisons/WB-repeat-proposal-18.jpg"],
       "identity_decision": "SAME ORIGINAL DRAWING WITHIN THIS GROUP",
       "label": "escuela",
       "availability": "OPTIMIZATION NEEDED",
@@ -455,12 +377,8 @@
     },
     {
       "group_id": "DRAW-WB-19-1",
-      "placements": [
-        "WB-S016-OBJ15-ESPEJO"
-      ],
-      "evidence": [
-        "comparisons/WB-repeat-proposal-19.jpg"
-      ],
+      "placements": ["WB-S016-OBJ15-ESPEJO"],
+      "evidence": ["comparisons/WB-repeat-proposal-19.jpg"],
       "identity_decision": "SAME ORIGINAL DRAWING WITHIN THIS GROUP",
       "label": "espejo",
       "availability": "OPTIMIZATION NEEDED",
@@ -489,9 +407,7 @@
       ],
       "identity_decision": "SAME ORIGINAL DRAWING WITHIN THIS GROUP",
       "label": "estrella",
-      "decisions": [
-        "Same five-point asymmetric outline and surrounding dot pattern."
-      ],
+      "decisions": ["Same five-point asymmetric outline and surrounding dot pattern."],
       "availability": "OPTIMIZED VERSION EXISTS",
       "placement_counts": {
         "OPTIMIZED VERSION EXISTS": 6,
@@ -503,12 +419,8 @@
     },
     {
       "group_id": "DRAW-WB-21-1",
-      "placements": [
-        "WB-S008-OBJ14-GLOBO"
-      ],
-      "evidence": [
-        "comparisons/WB-repeat-proposal-21.jpg"
-      ],
+      "placements": ["WB-S008-OBJ14-GLOBO"],
+      "evidence": ["comparisons/WB-repeat-proposal-21.jpg"],
       "identity_decision": "SAME ORIGINAL DRAWING WITHIN THIS GROUP",
       "label": "globo",
       "availability": "OPTIMIZED VERSION EXISTS",
@@ -521,12 +433,8 @@
     },
     {
       "group_id": "DRAW-WB-22-1",
-      "placements": [
-        "WB-S009-OBJ01-IGLESIA"
-      ],
-      "evidence": [
-        "comparisons/WB-repeat-proposal-22.jpg"
-      ],
+      "placements": ["WB-S009-OBJ01-IGLESIA"],
+      "evidence": ["comparisons/WB-repeat-proposal-22.jpg"],
       "identity_decision": "SAME ORIGINAL DRAWING WITHIN THIS GROUP",
       "label": "iglesia",
       "availability": "OPTIMIZATION NEEDED",
@@ -569,13 +477,8 @@
     },
     {
       "group_id": "DRAW-WB-24-1",
-      "placements": [
-        "WB-S019-OBJ14-IGUAL",
-        "WB-S020-OBJ04-IGUAL"
-      ],
-      "evidence": [
-        "comparisons/WB-repeat-proposal-24.jpg"
-      ],
+      "placements": ["WB-S019-OBJ14-IGUAL", "WB-S020-OBJ04-IGUAL"],
+      "evidence": ["comparisons/WB-repeat-proposal-24.jpg"],
       "identity_decision": "SAME ORIGINAL DRAWING WITHIN THIS GROUP",
       "label": "igual",
       "availability": "OPTIMIZATION NEEDED",
@@ -588,13 +491,8 @@
     },
     {
       "group_id": "DRAW-WB-25-1",
-      "placements": [
-        "WB-S019-OBJ03-IGUANA",
-        "WB-S020-OBJ07-IGUANA"
-      ],
-      "evidence": [
-        "comparisons/WB-repeat-proposal-25.jpg"
-      ],
+      "placements": ["WB-S019-OBJ03-IGUANA", "WB-S020-OBJ07-IGUANA"],
+      "evidence": ["comparisons/WB-repeat-proposal-25.jpg"],
       "identity_decision": "SAME ORIGINAL DRAWING WITHIN THIS GROUP",
       "label": "iguana",
       "availability": "OPTIMIZATION NEEDED",
@@ -661,11 +559,7 @@
     },
     {
       "group_id": "DRAW-WB-29-1",
-      "placements": [
-        "WB-S019-OBJ15-INSECTO",
-        "WB-S022-OBJ15-INSECTO",
-        "FC-007-05"
-      ],
+      "placements": ["WB-S019-OBJ15-INSECTO", "WB-S022-OBJ15-INSECTO", "FC-007-05"],
       "evidence": [
         "comparisons/WB-repeat-proposal-29.jpg",
         "comparisons/FC-031.jpg",
@@ -673,9 +567,7 @@
       ],
       "identity_decision": "SAME ORIGINAL DRAWING WITHIN THIS GROUP",
       "label": "insecto",
-      "decisions": [
-        "Same wing veins, head profile, antennae, six legs and grass marks."
-      ],
+      "decisions": ["Same wing veins, head profile, antennae, six legs and grass marks."],
       "availability": "OPTIMIZED VERSION EXISTS",
       "placement_counts": {
         "OPTIMIZED VERSION EXISTS": 2,
@@ -687,12 +579,8 @@
     },
     {
       "group_id": "DRAW-WB-30-1",
-      "placements": [
-        "WB-S019-OBJ08-INVIERNO"
-      ],
-      "evidence": [
-        "comparisons/WB-repeat-proposal-30.jpg"
-      ],
+      "placements": ["WB-S019-OBJ08-INVIERNO"],
+      "evidence": ["comparisons/WB-repeat-proposal-30.jpg"],
       "identity_decision": "SAME ORIGINAL DRAWING WITHIN THIS GROUP",
       "label": "invierno",
       "availability": "OPTIMIZATION NEEDED",
@@ -705,11 +593,7 @@
     },
     {
       "group_id": "DRAW-WB-31-1",
-      "placements": [
-        "WB-S007-OBJ05-ISLA",
-        "WB-S019-OBJ12-ISLA",
-        "FC-007-06"
-      ],
+      "placements": ["WB-S007-OBJ05-ISLA", "WB-S019-OBJ12-ISLA", "FC-007-06"],
       "evidence": [
         "comparisons/WB-repeat-proposal-31.jpg",
         "comparisons/FC-031.jpg",
@@ -730,12 +614,8 @@
     },
     {
       "group_id": "DRAW-WB-32-1",
-      "placements": [
-        "WB-S008-OBJ03-LIBRO"
-      ],
-      "evidence": [
-        "comparisons/WB-repeat-proposal-32.jpg"
-      ],
+      "placements": ["WB-S008-OBJ03-LIBRO"],
+      "evidence": ["comparisons/WB-repeat-proposal-32.jpg"],
       "identity_decision": "SAME ORIGINAL DRAWING WITHIN THIS GROUP",
       "label": "libro",
       "availability": "OPTIMIZED VERSION EXISTS",
@@ -755,9 +635,7 @@
         "WB-S016-OBJ03-MAIZ",
         "WB-S017-OBJ05-MAIZ"
       ],
-      "evidence": [
-        "comparisons/WB-repeat-proposal-33.jpg"
-      ],
+      "evidence": ["comparisons/WB-repeat-proposal-33.jpg"],
       "identity_decision": "SAME ORIGINAL DRAWING WITHIN THIS GROUP",
       "label": "maiz",
       "availability": "OPTIMIZED VERSION EXISTS",
@@ -771,12 +649,8 @@
     },
     {
       "group_id": "DRAW-WB-34-1",
-      "placements": [
-        "WB-S008-OBJ02-MANZANA"
-      ],
-      "evidence": [
-        "comparisons/WB-repeat-proposal-34.jpg"
-      ],
+      "placements": ["WB-S008-OBJ02-MANZANA"],
+      "evidence": ["comparisons/WB-repeat-proposal-34.jpg"],
       "identity_decision": "SAME ORIGINAL DRAWING WITHIN THIS GROUP",
       "label": "manzana",
       "availability": "OPTIMIZATION NEEDED",
@@ -789,11 +663,7 @@
     },
     {
       "group_id": "DRAW-WB-35-1",
-      "placements": [
-        "WB-S009-OBJ02-OCHO",
-        "WB-S010-OBJ11-OCHO",
-        "FC-004-07"
-      ],
+      "placements": ["WB-S009-OBJ02-OCHO", "WB-S010-OBJ11-OCHO", "FC-004-07"],
       "evidence": [
         "comparisons/WB-repeat-proposal-35.jpg",
         "comparisons/FC-013.jpg",
@@ -801,9 +671,7 @@
       ],
       "identity_decision": "SAME ORIGINAL DRAWING WITHIN THIS GROUP",
       "label": "ocho",
-      "decisions": [
-        "Same numeral outline and two circular counters."
-      ],
+      "decisions": ["Same numeral outline and two circular counters."],
       "availability": "OPTIMIZED VERSION EXISTS",
       "placement_counts": {
         "OPTIMIZED VERSION EXISTS": 3
@@ -814,12 +682,8 @@
     },
     {
       "group_id": "DRAW-WB-36-1",
-      "placements": [
-        "WB-S007-OBJ17-OJOS"
-      ],
-      "evidence": [
-        "comparisons/WB-repeat-proposal-36.jpg"
-      ],
+      "placements": ["WB-S007-OBJ17-OJOS"],
+      "evidence": ["comparisons/WB-repeat-proposal-36.jpg"],
       "identity_decision": "SAME ORIGINAL DRAWING WITHIN THIS GROUP",
       "label": "ojos",
       "availability": "OPTIMIZED VERSION EXISTS",
@@ -832,14 +696,8 @@
     },
     {
       "group_id": "DRAW-WB-36-2",
-      "placements": [
-        "WB-S010-OBJ16-OJOS",
-        "WB-S011-OBJ03-OJOS",
-        "WB-S013-OBJ13-OJOS"
-      ],
-      "evidence": [
-        "comparisons/WB-repeat-proposal-36.jpg"
-      ],
+      "placements": ["WB-S010-OBJ16-OJOS", "WB-S011-OBJ03-OJOS", "WB-S013-OBJ13-OJOS"],
+      "evidence": ["comparisons/WB-repeat-proposal-36.jpg"],
       "identity_decision": "SAME ORIGINAL DRAWING WITHIN THIS GROUP",
       "label": "ojos",
       "availability": "OPTIMIZATION NEEDED",
@@ -852,14 +710,8 @@
     },
     {
       "group_id": "DRAW-WB-37-1",
-      "placements": [
-        "WB-S010-OBJ01-OLA",
-        "WB-S011-OBJ06-OLA",
-        "WB-S019-OBJ09-OLA"
-      ],
-      "evidence": [
-        "comparisons/WB-repeat-proposal-37.jpg"
-      ],
+      "placements": ["WB-S010-OBJ01-OLA", "WB-S011-OBJ06-OLA", "WB-S019-OBJ09-OLA"],
+      "evidence": ["comparisons/WB-repeat-proposal-37.jpg"],
       "identity_decision": "SAME ORIGINAL DRAWING WITHIN THIS GROUP",
       "label": "ola",
       "availability": "OPTIMIZATION NEEDED",
@@ -931,12 +783,8 @@
     },
     {
       "group_id": "DRAW-WB-40-1",
-      "placements": [
-        "WB-S013-OBJ02-ORUGA"
-      ],
-      "evidence": [
-        "comparisons/WB-repeat-proposal-40.jpg"
-      ],
+      "placements": ["WB-S013-OBJ02-ORUGA"],
+      "evidence": ["comparisons/WB-repeat-proposal-40.jpg"],
       "identity_decision": "SAME ORIGINAL DRAWING WITHIN THIS GROUP",
       "label": "oruga",
       "availability": "OPTIMIZATION NEEDED",
@@ -971,9 +819,7 @@
       ],
       "identity_decision": "SAME ORIGINAL DRAWING WITHIN THIS GROUP",
       "label": "oso",
-      "decisions": [
-        "Same seated bear, mug, bee beside ear, belly patch and foot pads."
-      ],
+      "decisions": ["Same seated bear, mug, bee beside ear, belly patch and foot pads."],
       "availability": "OPTIMIZED VERSION EXISTS",
       "placement_counts": {
         "OPTIMIZED VERSION EXISTS": 2,
@@ -1014,12 +860,8 @@
     },
     {
       "group_id": "DRAW-WB-43-1",
-      "placements": [
-        "WB-S008-OBJ10-PAJARO"
-      ],
-      "evidence": [
-        "comparisons/WB-repeat-proposal-43.jpg"
-      ],
+      "placements": ["WB-S008-OBJ10-PAJARO"],
+      "evidence": ["comparisons/WB-repeat-proposal-43.jpg"],
       "identity_decision": "SAME ORIGINAL DRAWING WITHIN THIS GROUP",
       "label": "pajaro",
       "availability": "OPTIMIZATION NEEDED",
@@ -1032,12 +874,8 @@
     },
     {
       "group_id": "DRAW-WB-44-1",
-      "placements": [
-        "WB-S008-OBJ09-PERA"
-      ],
-      "evidence": [
-        "comparisons/WB-repeat-proposal-44.jpg"
-      ],
+      "placements": ["WB-S008-OBJ09-PERA"],
+      "evidence": ["comparisons/WB-repeat-proposal-44.jpg"],
       "identity_decision": "SAME ORIGINAL DRAWING WITHIN THIS GROUP",
       "label": "pera",
       "availability": "OPTIMIZATION NEEDED",
@@ -1050,12 +888,8 @@
     },
     {
       "group_id": "DRAW-WB-46-1",
-      "placements": [
-        "WB-S008-OBJ07-TAZA"
-      ],
-      "evidence": [
-        "comparisons/WB-repeat-proposal-46.jpg"
-      ],
+      "placements": ["WB-S008-OBJ07-TAZA"],
+      "evidence": ["comparisons/WB-repeat-proposal-46.jpg"],
       "identity_decision": "SAME ORIGINAL DRAWING WITHIN THIS GROUP",
       "label": "taza",
       "availability": "OPTIMIZATION NEEDED",
@@ -1076,9 +910,7 @@
         "WB-S022-OBJ04-UNA",
         "WB-S023-OBJ06-UNA"
       ],
-      "evidence": [
-        "comparisons/WB-repeat-proposal-47.jpg"
-      ],
+      "evidence": ["comparisons/WB-repeat-proposal-47.jpg"],
       "identity_decision": "SAME ORIGINAL DRAWING WITHIN THIS GROUP",
       "label": "una",
       "availability": "OPTIMIZED VERSION EXISTS",
@@ -1168,9 +1000,7 @@
       ],
       "identity_decision": "SAME ORIGINAL DRAWING WITHIN THIS GROUP",
       "label": "uno",
-      "decisions": [
-        "Same three-dimensional numeral inside irregular double starburst."
-      ],
+      "decisions": ["Same three-dimensional numeral inside irregular double starburst."],
       "availability": "OPTIMIZED VERSION EXISTS",
       "placement_counts": {
         "OPTIMIZED VERSION EXISTS": 2,
@@ -1182,11 +1012,7 @@
     },
     {
       "group_id": "DRAW-WB-51-1",
-      "placements": [
-        "WB-S016-OBJ12-URRACA",
-        "WB-S022-OBJ12-URRACA",
-        "FC-008-04"
-      ],
+      "placements": ["WB-S016-OBJ12-URRACA", "WB-S022-OBJ12-URRACA", "FC-008-04"],
       "evidence": [
         "comparisons/WB-repeat-proposal-51.jpg",
         "comparisons/FC-037.jpg",
@@ -1194,9 +1020,7 @@
       ],
       "identity_decision": "SAME ORIGINAL DRAWING WITHIN THIS GROUP",
       "label": "urraca",
-      "decisions": [
-        "Same open beak, crest, striped chest, folded wing and toes."
-      ],
+      "decisions": ["Same open beak, crest, striped chest, folded wing and toes."],
       "availability": "OPTIMIZED VERSION EXISTS",
       "placement_counts": {
         "OPTIMIZED VERSION EXISTS": 1,
@@ -1208,14 +1032,8 @@
     },
     {
       "group_id": "DRAW-WB-52-1",
-      "placements": [
-        "WB-S010-OBJ10-UVA",
-        "WB-S022-OBJ05-UVA",
-        "WB-S023-OBJ04-UVA"
-      ],
-      "evidence": [
-        "comparisons/WB-repeat-proposal-52.jpg"
-      ],
+      "placements": ["WB-S010-OBJ10-UVA", "WB-S022-OBJ05-UVA", "WB-S023-OBJ04-UVA"],
+      "evidence": ["comparisons/WB-repeat-proposal-52.jpg"],
       "identity_decision": "SAME ORIGINAL DRAWING WITHIN THIS GROUP",
       "label": "uva",
       "availability": "OPTIMIZATION NEEDED",
@@ -1228,12 +1046,8 @@
     },
     {
       "group_id": "DRAW-FC-003-01",
-      "placements": [
-        "FC-003-01"
-      ],
-      "evidence": [
-        "comparisons/FC-001.jpg"
-      ],
+      "placements": ["FC-003-01"],
+      "evidence": ["comparisons/FC-001.jpg"],
       "identity_decision": "DISTINCT SOURCE DRAWING UNIT",
       "label": "Ilustraci\u00f3n de la p\u00e1gina 3",
       "availability": "OPTIMIZED VERSION EXISTS",
@@ -1246,12 +1060,8 @@
     },
     {
       "group_id": "DRAW-FC-003-02",
-      "placements": [
-        "FC-003-02"
-      ],
-      "evidence": [
-        "comparisons/FC-001.jpg"
-      ],
+      "placements": ["FC-003-02"],
+      "evidence": ["comparisons/FC-001.jpg"],
       "identity_decision": "DISTINCT SOURCE DRAWING UNIT",
       "label": "avi\u00f3n",
       "availability": "OPTIMIZED VERSION EXISTS",
@@ -1264,12 +1074,8 @@
     },
     {
       "group_id": "DRAW-FC-003-03",
-      "placements": [
-        "FC-003-03"
-      ],
-      "evidence": [
-        "comparisons/FC-001.jpg"
-      ],
+      "placements": ["FC-003-03"],
+      "evidence": ["comparisons/FC-001.jpg"],
       "identity_decision": "DISTINCT SOURCE DRAWING UNIT",
       "label": "escoba",
       "availability": "OPTIMIZED VERSION EXISTS",
@@ -1282,10 +1088,7 @@
     },
     {
       "group_id": "DRAW-FC-003-04",
-      "placements": [
-        "FC-003-04",
-        "FC-007-02"
-      ],
+      "placements": ["FC-003-04", "FC-007-02"],
       "evidence": [
         "comparisons/FC-001.jpg",
         "comparisons/FC-025.jpg",
@@ -1308,12 +1111,8 @@
     },
     {
       "group_id": "DRAW-FC-003-06",
-      "placements": [
-        "FC-003-06"
-      ],
-      "evidence": [
-        "comparisons/FC-001.jpg"
-      ],
+      "placements": ["FC-003-06"],
+      "evidence": ["comparisons/FC-001.jpg"],
       "identity_decision": "DISTINCT SOURCE DRAWING UNIT",
       "label": "u\u00f1a",
       "availability": "OPTIMIZED VERSION EXISTS",
@@ -1326,12 +1125,8 @@
     },
     {
       "group_id": "DRAW-FC-004-01",
-      "placements": [
-        "FC-004-01"
-      ],
-      "evidence": [
-        "comparisons/FC-007.jpg"
-      ],
+      "placements": ["FC-004-01"],
+      "evidence": ["comparisons/FC-007.jpg"],
       "identity_decision": "DISTINCT SOURCE DRAWING UNIT",
       "label": "Ilustraci\u00f3n de la p\u00e1gina 4",
       "availability": "OPTIMIZED VERSION EXISTS",
@@ -1344,12 +1139,8 @@
     },
     {
       "group_id": "DRAW-FC-004-03",
-      "placements": [
-        "FC-004-03"
-      ],
-      "evidence": [
-        "comparisons/FC-007.jpg"
-      ],
+      "placements": ["FC-004-03"],
+      "evidence": ["comparisons/FC-007.jpg"],
       "identity_decision": "DISTINCT SOURCE DRAWING UNIT",
       "label": "Oto",
       "availability": "OPTIMIZATION NEEDED",
@@ -1362,12 +1153,8 @@
     },
     {
       "group_id": "DRAW-FC-005-01",
-      "placements": [
-        "FC-005-01"
-      ],
-      "evidence": [
-        "comparisons/FC-013.jpg"
-      ],
+      "placements": ["FC-005-01"],
+      "evidence": ["comparisons/FC-013.jpg"],
       "identity_decision": "DISTINCT SOURCE DRAWING UNIT",
       "label": "Ilustraci\u00f3n de la p\u00e1gina 5",
       "availability": "OPTIMIZED VERSION EXISTS",
@@ -1380,12 +1167,8 @@
     },
     {
       "group_id": "DRAW-FC-005-03",
-      "placements": [
-        "FC-005-03"
-      ],
-      "evidence": [
-        "comparisons/FC-013.jpg"
-      ],
+      "placements": ["FC-005-03"],
+      "evidence": ["comparisons/FC-013.jpg"],
       "identity_decision": "DISTINCT SOURCE DRAWING UNIT",
       "label": "anillo",
       "availability": "OPTIMIZED VERSION EXISTS",
@@ -1398,12 +1181,8 @@
     },
     {
       "group_id": "DRAW-FC-005-05",
-      "placements": [
-        "FC-005-05"
-      ],
-      "evidence": [
-        "comparisons/FC-013.jpg"
-      ],
+      "placements": ["FC-005-05"],
+      "evidence": ["comparisons/FC-013.jpg"],
       "identity_decision": "DISTINCT SOURCE DRAWING UNIT",
       "label": "ala",
       "availability": "OPTIMIZED VERSION EXISTS",
@@ -1416,12 +1195,8 @@
     },
     {
       "group_id": "DRAW-FC-005-06",
-      "placements": [
-        "FC-005-06"
-      ],
-      "evidence": [
-        "comparisons/FC-019.jpg"
-      ],
+      "placements": ["FC-005-06"],
+      "evidence": ["comparisons/FC-019.jpg"],
       "identity_decision": "DISTINCT SOURCE DRAWING UNIT",
       "label": "aro",
       "availability": "OPTIMIZED VERSION EXISTS",
@@ -1434,12 +1209,8 @@
     },
     {
       "group_id": "DRAW-FC-005-07",
-      "placements": [
-        "FC-005-07"
-      ],
-      "evidence": [
-        "comparisons/FC-019.jpg"
-      ],
+      "placements": ["FC-005-07"],
+      "evidence": ["comparisons/FC-019.jpg"],
       "identity_decision": "DISTINCT SOURCE DRAWING UNIT",
       "label": "Ana",
       "availability": "OPTIMIZATION NEEDED",
@@ -1452,12 +1223,8 @@
     },
     {
       "group_id": "DRAW-FC-006-01",
-      "placements": [
-        "FC-006-01"
-      ],
-      "evidence": [
-        "comparisons/FC-019.jpg"
-      ],
+      "placements": ["FC-006-01"],
+      "evidence": ["comparisons/FC-019.jpg"],
       "identity_decision": "DISTINCT SOURCE DRAWING UNIT",
       "label": "Ilustraci\u00f3n de la p\u00e1gina 6",
       "availability": "OPTIMIZED VERSION EXISTS",
@@ -1470,12 +1237,8 @@
     },
     {
       "group_id": "DRAW-FC-006-02",
-      "placements": [
-        "FC-006-02"
-      ],
-      "evidence": [
-        "comparisons/FC-019.jpg"
-      ],
+      "placements": ["FC-006-02"],
+      "evidence": ["comparisons/FC-019.jpg"],
       "identity_decision": "DISTINCT SOURCE DRAWING UNIT",
       "label": "elefante",
       "availability": "OPTIMIZED VERSION EXISTS",
@@ -1488,12 +1251,8 @@
     },
     {
       "group_id": "DRAW-FC-006-03",
-      "placements": [
-        "FC-006-03"
-      ],
-      "evidence": [
-        "comparisons/FC-019.jpg"
-      ],
+      "placements": ["FC-006-03"],
+      "evidence": ["comparisons/FC-019.jpg"],
       "identity_decision": "DISTINCT SOURCE DRAWING UNIT",
       "label": "espejo",
       "availability": "OPTIMIZED VERSION EXISTS",
@@ -1506,12 +1265,8 @@
     },
     {
       "group_id": "DRAW-FC-006-04",
-      "placements": [
-        "FC-006-04"
-      ],
-      "evidence": [
-        "comparisons/FC-019.jpg"
-      ],
+      "placements": ["FC-006-04"],
+      "evidence": ["comparisons/FC-019.jpg"],
       "identity_decision": "DISTINCT SOURCE DRAWING UNIT",
       "label": "Ema",
       "availability": "OPTIMIZATION NEEDED",
@@ -1524,12 +1279,8 @@
     },
     {
       "group_id": "DRAW-FC-007-01",
-      "placements": [
-        "FC-007-01"
-      ],
-      "evidence": [
-        "comparisons/FC-025.jpg"
-      ],
+      "placements": ["FC-007-01"],
+      "evidence": ["comparisons/FC-025.jpg"],
       "identity_decision": "DISTINCT SOURCE DRAWING UNIT",
       "label": "Ilustraci\u00f3n de la p\u00e1gina 7",
       "availability": "OPTIMIZED VERSION EXISTS",
@@ -1542,12 +1293,8 @@
     },
     {
       "group_id": "DRAW-FC-007-07",
-      "placements": [
-        "FC-007-07"
-      ],
-      "evidence": [
-        "comparisons/FC-031.jpg"
-      ],
+      "placements": ["FC-007-07"],
+      "evidence": ["comparisons/FC-031.jpg"],
       "identity_decision": "DISTINCT SOURCE DRAWING UNIT",
       "label": "Irma",
       "availability": "OPTIMIZATION NEEDED",
@@ -1560,12 +1307,8 @@
     },
     {
       "group_id": "DRAW-FC-008-01",
-      "placements": [
-        "FC-008-01"
-      ],
-      "evidence": [
-        "comparisons/FC-031.jpg"
-      ],
+      "placements": ["FC-008-01"],
+      "evidence": ["comparisons/FC-031.jpg"],
       "identity_decision": "DISTINCT SOURCE DRAWING UNIT",
       "label": "Ilustraci\u00f3n de la p\u00e1gina 8",
       "availability": "OPTIMIZED VERSION EXISTS",
@@ -1578,12 +1321,8 @@
     },
     {
       "group_id": "DRAW-FC-008-03",
-      "placements": [
-        "FC-008-03"
-      ],
-      "evidence": [
-        "comparisons/FC-037.jpg"
-      ],
+      "placements": ["FC-008-03"],
+      "evidence": ["comparisons/FC-037.jpg"],
       "identity_decision": "DISTINCT SOURCE DRAWING UNIT",
       "label": "uva",
       "availability": "OPTIMIZED VERSION EXISTS",
@@ -1596,12 +1335,8 @@
     },
     {
       "group_id": "DRAW-FC-008-07",
-      "placements": [
-        "FC-008-07"
-      ],
-      "evidence": [
-        "comparisons/FC-037.jpg"
-      ],
+      "placements": ["FC-008-07"],
+      "evidence": ["comparisons/FC-037.jpg"],
       "identity_decision": "DISTINCT SOURCE DRAWING UNIT",
       "label": "Ulises",
       "availability": "OPTIMIZED VERSION EXISTS",
@@ -1614,12 +1349,8 @@
     },
     {
       "group_id": "DRAW-FC-009-01",
-      "placements": [
-        "FC-009-01"
-      ],
-      "evidence": [
-        "comparisons/FC-037.jpg"
-      ],
+      "placements": ["FC-009-01"],
+      "evidence": ["comparisons/FC-037.jpg"],
       "identity_decision": "DISTINCT SOURCE DRAWING UNIT",
       "label": "Ilustraci\u00f3n de la p\u00e1gina 9",
       "availability": "OPTIMIZED VERSION EXISTS",
@@ -1632,12 +1363,8 @@
     },
     {
       "group_id": "DRAW-FC-009-02",
-      "placements": [
-        "FC-009-02"
-      ],
-      "evidence": [
-        "comparisons/FC-043.jpg"
-      ],
+      "placements": ["FC-009-02"],
+      "evidence": ["comparisons/FC-043.jpg"],
       "identity_decision": "DISTINCT SOURCE DRAWING UNIT",
       "label": "mam\u00e1",
       "availability": "OPTIMIZED VERSION EXISTS",
@@ -1650,12 +1377,8 @@
     },
     {
       "group_id": "DRAW-FC-009-03",
-      "placements": [
-        "FC-009-03"
-      ],
-      "evidence": [
-        "comparisons/FC-043.jpg"
-      ],
+      "placements": ["FC-009-03"],
+      "evidence": ["comparisons/FC-043.jpg"],
       "identity_decision": "DISTINCT SOURCE DRAWING UNIT",
       "label": "amo",
       "availability": "OPTIMIZATION NEEDED",
@@ -1668,14 +1391,8 @@
     },
     {
       "group_id": "DRAW-FC-009-04",
-      "placements": [
-        "FC-009-04",
-        "FC-011-01"
-      ],
-      "evidence": [
-        "comparisons/FC-043.jpg",
-        "comparisons/FC-043.jpg"
-      ],
+      "placements": ["FC-009-04", "FC-011-01"],
+      "evidence": ["comparisons/FC-043.jpg", "comparisons/FC-043.jpg"],
       "identity_decision": "SAME ORIGINAL DRAWING: mother/child/flower border reused at FC p9 and p11",
       "label": "mima",
       "availability": "OPTIMIZATION NEEDED",
@@ -1684,20 +1401,13 @@
       },
       "coverage_rule": "Availability classifies original drawing identity. Exact source orientation and runtime file integration are tracked separately per placement.",
       "production_approval_verified": false,
-      "baseline_group_ids": [
-        "DRAW-FC-009-04",
-        "DRAW-FC-011-01"
-      ],
+      "baseline_group_ids": ["DRAW-FC-009-04", "DRAW-FC-011-01"],
       "exact_placement_match_count": 0
     },
     {
       "group_id": "DRAW-FC-009-05",
-      "placements": [
-        "FC-009-05"
-      ],
-      "evidence": [
-        "comparisons/FC-043.jpg"
-      ],
+      "placements": ["FC-009-05"],
+      "evidence": ["comparisons/FC-043.jpg"],
       "identity_decision": "DISTINCT SOURCE DRAWING UNIT",
       "label": "Meme",
       "availability": "OPTIMIZATION NEEDED",
@@ -1710,12 +1420,8 @@
     },
     {
       "group_id": "DRAW-FC-009-06",
-      "placements": [
-        "FC-009-06"
-      ],
-      "evidence": [
-        "comparisons/FC-043.jpg"
-      ],
+      "placements": ["FC-009-06"],
+      "evidence": ["comparisons/FC-043.jpg"],
       "identity_decision": "DISTINCT SOURCE DRAWING UNIT",
       "label": "Mumi",
       "availability": "OPTIMIZATION NEEDED",
@@ -1728,12 +1434,8 @@
     },
     {
       "group_id": "DRAW-FC-012-01",
-      "placements": [
-        "FC-012-01"
-      ],
-      "evidence": [
-        "comparisons/FC-049.jpg"
-      ],
+      "placements": ["FC-012-01"],
+      "evidence": ["comparisons/FC-049.jpg"],
       "identity_decision": "DISTINCT SOURCE DRAWING UNIT",
       "label": "Ilustraci\u00f3n de la p\u00e1gina 12",
       "availability": "OPTIMIZATION NEEDED",
@@ -1746,12 +1448,8 @@
     },
     {
       "group_id": "DRAW-FC-012-02",
-      "placements": [
-        "FC-012-02"
-      ],
-      "evidence": [
-        "comparisons/FC-049.jpg"
-      ],
+      "placements": ["FC-012-02"],
+      "evidence": ["comparisons/FC-049.jpg"],
       "identity_decision": "DISTINCT SOURCE DRAWING UNIT",
       "label": "pap\u00e1",
       "availability": "OPTIMIZATION NEEDED",
@@ -1764,12 +1462,8 @@
     },
     {
       "group_id": "DRAW-FC-012-03",
-      "placements": [
-        "FC-012-03"
-      ],
-      "evidence": [
-        "comparisons/FC-049.jpg"
-      ],
+      "placements": ["FC-012-03"],
+      "evidence": ["comparisons/FC-049.jpg"],
       "identity_decision": "DISTINCT SOURCE DRAWING UNIT",
       "label": "pie",
       "availability": "OPTIMIZED VERSION EXISTS",
@@ -1782,12 +1476,8 @@
     },
     {
       "group_id": "DRAW-FC-012-04",
-      "placements": [
-        "FC-012-04"
-      ],
-      "evidence": [
-        "comparisons/FC-049.jpg"
-      ],
+      "placements": ["FC-012-04"],
+      "evidence": ["comparisons/FC-049.jpg"],
       "identity_decision": "DISTINCT SOURCE DRAWING UNIT",
       "label": "Pepe",
       "availability": "OPTIMIZATION NEEDED",
@@ -1800,12 +1490,8 @@
     },
     {
       "group_id": "DRAW-FC-012-05",
-      "placements": [
-        "FC-012-05"
-      ],
-      "evidence": [
-        "comparisons/FC-049.jpg"
-      ],
+      "placements": ["FC-012-05"],
+      "evidence": ["comparisons/FC-049.jpg"],
       "identity_decision": "DISTINCT SOURCE DRAWING UNIT",
       "label": "puma",
       "availability": "OPTIMIZATION NEEDED",
@@ -1818,12 +1504,8 @@
     },
     {
       "group_id": "DRAW-FC-012-06",
-      "placements": [
-        "FC-012-06"
-      ],
-      "evidence": [
-        "comparisons/FC-049.jpg"
-      ],
+      "placements": ["FC-012-06"],
+      "evidence": ["comparisons/FC-049.jpg"],
       "identity_decision": "DISTINCT SOURCE DRAWING UNIT",
       "label": "pomo",
       "availability": "OPTIMIZED VERSION EXISTS",
@@ -1836,12 +1518,8 @@
     },
     {
       "group_id": "DRAW-FC-014-01",
-      "placements": [
-        "FC-014-01"
-      ],
-      "evidence": [
-        "comparisons/FC-055.jpg"
-      ],
+      "placements": ["FC-014-01"],
+      "evidence": ["comparisons/FC-055.jpg"],
       "identity_decision": "DISTINCT SOURCE DRAWING UNIT",
       "label": "Ilustraci\u00f3n de la p\u00e1gina 14",
       "availability": "OPTIMIZATION NEEDED",
@@ -1854,12 +1532,8 @@
     },
     {
       "group_id": "DRAW-FC-015-01",
-      "placements": [
-        "FC-015-01"
-      ],
-      "evidence": [
-        "comparisons/FC-055.jpg"
-      ],
+      "placements": ["FC-015-01"],
+      "evidence": ["comparisons/FC-055.jpg"],
       "identity_decision": "DISTINCT SOURCE DRAWING UNIT",
       "label": "Ilustraci\u00f3n de la p\u00e1gina 15",
       "availability": "OPTIMIZATION NEEDED",
@@ -1872,12 +1546,8 @@
     },
     {
       "group_id": "DRAW-FC-015-02",
-      "placements": [
-        "FC-015-02"
-      ],
-      "evidence": [
-        "comparisons/FC-055.jpg"
-      ],
+      "placements": ["FC-015-02"],
+      "evidence": ["comparisons/FC-055.jpg"],
       "identity_decision": "DISTINCT SOURCE DRAWING UNIT",
       "label": "Sesi",
       "availability": "OPTIMIZED VERSION EXISTS",
@@ -1890,12 +1560,8 @@
     },
     {
       "group_id": "DRAW-FC-015-03",
-      "placements": [
-        "FC-015-03"
-      ],
-      "evidence": [
-        "comparisons/FC-055.jpg"
-      ],
+      "placements": ["FC-015-03"],
+      "evidence": ["comparisons/FC-055.jpg"],
       "identity_decision": "DISTINCT SOURCE DRAWING UNIT",
       "label": "sopa",
       "availability": "OPTIMIZED VERSION EXISTS",
@@ -1908,12 +1574,8 @@
     },
     {
       "group_id": "DRAW-FC-015-04",
-      "placements": [
-        "FC-015-04"
-      ],
-      "evidence": [
-        "comparisons/FC-055.jpg"
-      ],
+      "placements": ["FC-015-04"],
+      "evidence": ["comparisons/FC-055.jpg"],
       "identity_decision": "DISTINCT SOURCE DRAWING UNIT",
       "label": "sapo",
       "availability": "OPTIMIZED VERSION EXISTS",
@@ -1926,12 +1588,8 @@
     },
     {
       "group_id": "DRAW-FC-015-05",
-      "placements": [
-        "FC-015-05"
-      ],
-      "evidence": [
-        "comparisons/FC-055.jpg"
-      ],
+      "placements": ["FC-015-05"],
+      "evidence": ["comparisons/FC-055.jpg"],
       "identity_decision": "DISTINCT SOURCE DRAWING UNIT",
       "label": "pisa",
       "availability": "OPTIMIZATION NEEDED",
@@ -1944,12 +1602,8 @@
     },
     {
       "group_id": "DRAW-FC-015-06",
-      "placements": [
-        "FC-015-06"
-      ],
-      "evidence": [
-        "comparisons/FC-061.jpg"
-      ],
+      "placements": ["FC-015-06"],
+      "evidence": ["comparisons/FC-061.jpg"],
       "identity_decision": "DISTINCT SOURCE DRAWING UNIT",
       "label": "Susi",
       "availability": "OPTIMIZATION NEEDED",
@@ -1962,12 +1616,8 @@
     },
     {
       "group_id": "DRAW-FC-017-01",
-      "placements": [
-        "FC-017-01"
-      ],
-      "evidence": [
-        "comparisons/FC-061.jpg"
-      ],
+      "placements": ["FC-017-01"],
+      "evidence": ["comparisons/FC-061.jpg"],
       "identity_decision": "DISTINCT SOURCE DRAWING UNIT",
       "label": "Ilustraci\u00f3n de la p\u00e1gina 17",
       "availability": "OPTIMIZATION NEEDED",
@@ -1980,12 +1630,8 @@
     },
     {
       "group_id": "DRAW-FC-018-01",
-      "placements": [
-        "FC-018-01"
-      ],
-      "evidence": [
-        "comparisons/FC-061.jpg"
-      ],
+      "placements": ["FC-018-01"],
+      "evidence": ["comparisons/FC-061.jpg"],
       "identity_decision": "DISTINCT SOURCE DRAWING UNIT",
       "label": "Ilustraci\u00f3n de la p\u00e1gina 18",
       "availability": "OPTIMIZATION NEEDED",
@@ -1998,12 +1644,8 @@
     },
     {
       "group_id": "DRAW-FC-018-02",
-      "placements": [
-        "FC-018-02"
-      ],
-      "evidence": [
-        "comparisons/FC-061.jpg"
-      ],
+      "placements": ["FC-018-02"],
+      "evidence": ["comparisons/FC-061.jpg"],
       "identity_decision": "DISTINCT SOURCE DRAWING UNIT",
       "label": "tomate",
       "availability": "OPTIMIZED VERSION EXISTS",
@@ -2016,12 +1658,8 @@
     },
     {
       "group_id": "DRAW-FC-018-03",
-      "placements": [
-        "FC-018-03"
-      ],
-      "evidence": [
-        "comparisons/FC-061.jpg"
-      ],
+      "placements": ["FC-018-03"],
+      "evidence": ["comparisons/FC-061.jpg"],
       "identity_decision": "DISTINCT SOURCE DRAWING UNIT",
       "label": "tapa",
       "availability": "OPTIMIZED VERSION EXISTS",
@@ -2034,12 +1672,8 @@
     },
     {
       "group_id": "DRAW-FC-018-04",
-      "placements": [
-        "FC-018-04"
-      ],
-      "evidence": [
-        "comparisons/FC-061.jpg"
-      ],
+      "placements": ["FC-018-04"],
+      "evidence": ["comparisons/FC-061.jpg"],
       "identity_decision": "DISTINCT SOURCE DRAWING UNIT",
       "label": "topo",
       "availability": "OPTIMIZED VERSION EXISTS",
@@ -2052,12 +1686,8 @@
     },
     {
       "group_id": "DRAW-FC-018-05",
-      "placements": [
-        "FC-018-05"
-      ],
-      "evidence": [
-        "comparisons/FC-067.jpg"
-      ],
+      "placements": ["FC-018-05"],
+      "evidence": ["comparisons/FC-067.jpg"],
       "identity_decision": "DISTINCT SOURCE DRAWING UNIT",
       "label": "tipi",
       "availability": "OPTIMIZATION NEEDED",
@@ -2070,12 +1700,8 @@
     },
     {
       "group_id": "DRAW-FC-018-06",
-      "placements": [
-        "FC-018-06"
-      ],
-      "evidence": [
-        "comparisons/FC-067.jpg"
-      ],
+      "placements": ["FC-018-06"],
+      "evidence": ["comparisons/FC-067.jpg"],
       "identity_decision": "DISTINCT SOURCE DRAWING UNIT",
       "label": "Tuto",
       "availability": "OPTIMIZATION NEEDED",
@@ -2088,12 +1714,8 @@
     },
     {
       "group_id": "DRAW-FC-020-01",
-      "placements": [
-        "FC-020-01"
-      ],
-      "evidence": [
-        "comparisons/FC-067.jpg"
-      ],
+      "placements": ["FC-020-01"],
+      "evidence": ["comparisons/FC-067.jpg"],
       "identity_decision": "DISTINCT SOURCE DRAWING UNIT",
       "label": "Ilustraci\u00f3n de la p\u00e1gina 20",
       "availability": "OPTIMIZATION NEEDED",
@@ -2106,12 +1728,8 @@
     },
     {
       "group_id": "DRAW-FC-021-01",
-      "placements": [
-        "FC-021-01"
-      ],
-      "evidence": [
-        "comparisons/FC-067.jpg"
-      ],
+      "placements": ["FC-021-01"],
+      "evidence": ["comparisons/FC-067.jpg"],
       "identity_decision": "DISTINCT SOURCE DRAWING UNIT",
       "label": "Ilustraci\u00f3n de la p\u00e1gina 21",
       "availability": "OPTIMIZATION NEEDED",
@@ -2124,12 +1742,8 @@
     },
     {
       "group_id": "DRAW-FC-021-02",
-      "placements": [
-        "FC-021-02"
-      ],
-      "evidence": [
-        "comparisons/FC-067.jpg"
-      ],
+      "placements": ["FC-021-02"],
+      "evidence": ["comparisons/FC-067.jpg"],
       "identity_decision": "DISTINCT SOURCE DRAWING UNIT",
       "label": "Didi",
       "availability": "OPTIMIZED VERSION EXISTS",
@@ -2142,12 +1756,8 @@
     },
     {
       "group_id": "DRAW-FC-021-03",
-      "placements": [
-        "FC-021-03"
-      ],
-      "evidence": [
-        "comparisons/FC-067.jpg"
-      ],
+      "placements": ["FC-021-03"],
+      "evidence": ["comparisons/FC-067.jpg"],
       "identity_decision": "DISTINCT SOURCE DRAWING UNIT",
       "label": "dados",
       "availability": "OPTIMIZATION NEEDED",
@@ -2160,12 +1770,8 @@
     },
     {
       "group_id": "DRAW-FC-021-04",
-      "placements": [
-        "FC-021-04"
-      ],
-      "evidence": [
-        "comparisons/FC-073.jpg"
-      ],
+      "placements": ["FC-021-04"],
+      "evidence": ["comparisons/FC-073.jpg"],
       "identity_decision": "DISTINCT SOURCE DRAWING UNIT",
       "label": "dedo",
       "availability": "OPTIMIZATION NEEDED",
@@ -2178,12 +1784,8 @@
     },
     {
       "group_id": "DRAW-FC-021-05",
-      "placements": [
-        "FC-021-05"
-      ],
-      "evidence": [
-        "comparisons/FC-073.jpg"
-      ],
+      "placements": ["FC-021-05"],
+      "evidence": ["comparisons/FC-073.jpg"],
       "identity_decision": "DISTINCT SOURCE DRAWING UNIT",
       "label": "doce",
       "availability": "OPTIMIZED VERSION EXISTS",
@@ -2196,12 +1798,8 @@
     },
     {
       "group_id": "DRAW-FC-021-06",
-      "placements": [
-        "FC-021-06"
-      ],
-      "evidence": [
-        "comparisons/FC-073.jpg"
-      ],
+      "placements": ["FC-021-06"],
+      "evidence": ["comparisons/FC-073.jpg"],
       "identity_decision": "DISTINCT SOURCE DRAWING UNIT",
       "label": "Dunia",
       "availability": "OPTIMIZATION NEEDED",
@@ -2214,12 +1812,8 @@
     },
     {
       "group_id": "DRAW-FC-023-01",
-      "placements": [
-        "FC-023-01"
-      ],
-      "evidence": [
-        "comparisons/FC-073.jpg"
-      ],
+      "placements": ["FC-023-01"],
+      "evidence": ["comparisons/FC-073.jpg"],
       "identity_decision": "DISTINCT SOURCE DRAWING UNIT",
       "label": "Ilustraci\u00f3n de la p\u00e1gina 23",
       "availability": "OPTIMIZATION NEEDED",
@@ -2232,12 +1826,8 @@
     },
     {
       "group_id": "DRAW-FC-024-01",
-      "placements": [
-        "FC-024-01"
-      ],
-      "evidence": [
-        "comparisons/FC-073.jpg"
-      ],
+      "placements": ["FC-024-01"],
+      "evidence": ["comparisons/FC-073.jpg"],
       "identity_decision": "DISTINCT SOURCE DRAWING UNIT",
       "label": "Ilustraci\u00f3n de la p\u00e1gina 24",
       "availability": "OPTIMIZATION NEEDED",
@@ -2250,12 +1840,8 @@
     },
     {
       "group_id": "DRAW-FC-024-02",
-      "placements": [
-        "FC-024-02"
-      ],
-      "evidence": [
-        "comparisons/FC-073.jpg"
-      ],
+      "placements": ["FC-024-02"],
+      "evidence": ["comparisons/FC-073.jpg"],
       "identity_decision": "DISTINCT SOURCE DRAWING UNIT",
       "label": "maleta",
       "availability": "OPTIMIZED VERSION EXISTS",
@@ -2268,12 +1854,8 @@
     },
     {
       "group_id": "DRAW-FC-024-03",
-      "placements": [
-        "FC-024-03"
-      ],
-      "evidence": [
-        "comparisons/FC-079.jpg"
-      ],
+      "placements": ["FC-024-03"],
+      "evidence": ["comparisons/FC-079.jpg"],
       "identity_decision": "DISTINCT SOURCE DRAWING UNIT",
       "label": "lata",
       "availability": "OPTIMIZED VERSION EXISTS",
@@ -2286,12 +1868,8 @@
     },
     {
       "group_id": "DRAW-FC-024-04",
-      "placements": [
-        "FC-024-04"
-      ],
-      "evidence": [
-        "comparisons/FC-079.jpg"
-      ],
+      "placements": ["FC-024-04"],
+      "evidence": ["comparisons/FC-079.jpg"],
       "identity_decision": "DISTINCT SOURCE DRAWING UNIT",
       "label": "Luli",
       "availability": "OPTIMIZED VERSION EXISTS",
@@ -2304,12 +1882,8 @@
     },
     {
       "group_id": "DRAW-FC-024-05",
-      "placements": [
-        "FC-024-05"
-      ],
-      "evidence": [
-        "comparisons/FC-079.jpg"
-      ],
+      "placements": ["FC-024-05"],
+      "evidence": ["comparisons/FC-079.jpg"],
       "identity_decision": "DISTINCT SOURCE DRAWING UNIT",
       "label": "loma",
       "availability": "OPTIMIZED VERSION EXISTS",
@@ -2322,12 +1896,8 @@
     },
     {
       "group_id": "DRAW-FC-024-06",
-      "placements": [
-        "FC-024-06"
-      ],
-      "evidence": [
-        "comparisons/FC-079.jpg"
-      ],
+      "placements": ["FC-024-06"],
+      "evidence": ["comparisons/FC-079.jpg"],
       "identity_decision": "DISTINCT SOURCE DRAWING UNIT",
       "label": "Lala",
       "availability": "OPTIMIZED VERSION EXISTS",
@@ -2340,12 +1910,8 @@
     },
     {
       "group_id": "DRAW-FC-026-01",
-      "placements": [
-        "FC-026-01"
-      ],
-      "evidence": [
-        "comparisons/FC-079.jpg"
-      ],
+      "placements": ["FC-026-01"],
+      "evidence": ["comparisons/FC-079.jpg"],
       "identity_decision": "DISTINCT SOURCE DRAWING UNIT",
       "label": "Ilustraci\u00f3n de la p\u00e1gina 26",
       "availability": "OPTIMIZATION NEEDED",
@@ -2358,12 +1924,8 @@
     },
     {
       "group_id": "DRAW-FC-027-01",
-      "placements": [
-        "FC-027-01"
-      ],
-      "evidence": [
-        "comparisons/FC-079.jpg"
-      ],
+      "placements": ["FC-027-01"],
+      "evidence": ["comparisons/FC-079.jpg"],
       "identity_decision": "DISTINCT SOURCE DRAWING UNIT",
       "label": "Ilustraci\u00f3n de la p\u00e1gina 27",
       "availability": "OPTIMIZATION NEEDED",
@@ -2376,12 +1938,8 @@
     },
     {
       "group_id": "DRAW-FC-027-02",
-      "placements": [
-        "FC-027-02"
-      ],
-      "evidence": [
-        "comparisons/FC-085.jpg"
-      ],
+      "placements": ["FC-027-02"],
+      "evidence": ["comparisons/FC-085.jpg"],
       "identity_decision": "DISTINCT SOURCE DRAWING UNIT",
       "label": "nido",
       "availability": "OPTIMIZED VERSION EXISTS",
@@ -2394,12 +1952,8 @@
     },
     {
       "group_id": "DRAW-FC-027-03",
-      "placements": [
-        "FC-027-03"
-      ],
-      "evidence": [
-        "comparisons/FC-085.jpg"
-      ],
+      "placements": ["FC-027-03"],
+      "evidence": ["comparisons/FC-085.jpg"],
       "identity_decision": "DISTINCT SOURCE DRAWING UNIT",
       "label": "nudo",
       "availability": "OPTIMIZED VERSION EXISTS",
@@ -2412,12 +1966,8 @@
     },
     {
       "group_id": "DRAW-FC-027-04",
-      "placements": [
-        "FC-027-04"
-      ],
-      "evidence": [
-        "comparisons/FC-085.jpg"
-      ],
+      "placements": ["FC-027-04"],
+      "evidence": ["comparisons/FC-085.jpg"],
       "identity_decision": "DISTINCT SOURCE DRAWING UNIT",
       "label": "mono",
       "availability": "OPTIMIZATION NEEDED",
@@ -2430,12 +1980,8 @@
     },
     {
       "group_id": "DRAW-FC-027-05",
-      "placements": [
-        "FC-027-05"
-      ],
-      "evidence": [
-        "comparisons/FC-085.jpg"
-      ],
+      "placements": ["FC-027-05"],
+      "evidence": ["comparisons/FC-085.jpg"],
       "identity_decision": "DISTINCT SOURCE DRAWING UNIT",
       "label": "Napi",
       "availability": "OPTIMIZATION NEEDED",
@@ -2448,12 +1994,8 @@
     },
     {
       "group_id": "DRAW-FC-027-06",
-      "placements": [
-        "FC-027-06"
-      ],
-      "evidence": [
-        "comparisons/FC-085.jpg"
-      ],
+      "placements": ["FC-027-06"],
+      "evidence": ["comparisons/FC-085.jpg"],
       "identity_decision": "DISTINCT SOURCE DRAWING UNIT",
       "label": "tenedor",
       "availability": "OPTIMIZATION NEEDED",
@@ -2466,12 +2008,8 @@
     },
     {
       "group_id": "DRAW-FC-029-01",
-      "placements": [
-        "FC-029-01"
-      ],
-      "evidence": [
-        "comparisons/FC-085.jpg"
-      ],
+      "placements": ["FC-029-01"],
+      "evidence": ["comparisons/FC-085.jpg"],
       "identity_decision": "DISTINCT SOURCE DRAWING UNIT",
       "label": "Ilustraci\u00f3n de la p\u00e1gina 29",
       "availability": "OPTIMIZATION NEEDED",
@@ -2484,12 +2022,8 @@
     },
     {
       "group_id": "DRAW-FC-030-01",
-      "placements": [
-        "FC-030-01"
-      ],
-      "evidence": [
-        "comparisons/FC-091.jpg"
-      ],
+      "placements": ["FC-030-01"],
+      "evidence": ["comparisons/FC-091.jpg"],
       "identity_decision": "DISTINCT SOURCE DRAWING UNIT",
       "label": "Ilustraci\u00f3n de la p\u00e1gina 30",
       "availability": "OPTIMIZATION NEEDED",
@@ -2502,12 +2036,8 @@
     },
     {
       "group_id": "DRAW-FC-030-02",
-      "placements": [
-        "FC-030-02"
-      ],
-      "evidence": [
-        "comparisons/FC-091.jpg"
-      ],
+      "placements": ["FC-030-02"],
+      "evidence": ["comparisons/FC-091.jpg"],
       "identity_decision": "DISTINCT SOURCE DRAWING UNIT",
       "label": "pi\u00f1ata",
       "availability": "OPTIMIZATION NEEDED",
@@ -2520,12 +2050,8 @@
     },
     {
       "group_id": "DRAW-FC-030-03",
-      "placements": [
-        "FC-030-03"
-      ],
-      "evidence": [
-        "comparisons/FC-091.jpg"
-      ],
+      "placements": ["FC-030-03"],
+      "evidence": ["comparisons/FC-091.jpg"],
       "identity_decision": "DISTINCT SOURCE DRAWING UNIT",
       "label": "\u00d1uno",
       "availability": "OPTIMIZATION NEEDED",
@@ -2538,12 +2064,8 @@
     },
     {
       "group_id": "DRAW-FC-030-04",
-      "placements": [
-        "FC-030-04"
-      ],
-      "evidence": [
-        "comparisons/FC-091.jpg"
-      ],
+      "placements": ["FC-030-04"],
+      "evidence": ["comparisons/FC-091.jpg"],
       "identity_decision": "DISTINCT SOURCE DRAWING UNIT",
       "label": "ni\u00f1ito",
       "availability": "OPTIMIZATION NEEDED",
@@ -2556,12 +2078,8 @@
     },
     {
       "group_id": "DRAW-FC-030-05",
-      "placements": [
-        "FC-030-05"
-      ],
-      "evidence": [
-        "comparisons/FC-091.jpg"
-      ],
+      "placements": ["FC-030-05"],
+      "evidence": ["comparisons/FC-091.jpg"],
       "identity_decision": "DISTINCT SOURCE DRAWING UNIT",
       "label": "mo\u00f1o",
       "availability": "OPTIMIZATION NEEDED",
@@ -2574,12 +2092,8 @@
     },
     {
       "group_id": "DRAW-FC-030-06",
-      "placements": [
-        "FC-030-06"
-      ],
-      "evidence": [
-        "comparisons/FC-091.jpg"
-      ],
+      "placements": ["FC-030-06"],
+      "evidence": ["comparisons/FC-091.jpg"],
       "identity_decision": "DISTINCT SOURCE DRAWING UNIT",
       "label": "Me\u00f1e",
       "availability": "OPTIMIZATION NEEDED",
@@ -2592,12 +2106,8 @@
     },
     {
       "group_id": "DRAW-FC-032-01",
-      "placements": [
-        "FC-032-01"
-      ],
-      "evidence": [
-        "comparisons/FC-097.jpg"
-      ],
+      "placements": ["FC-032-01"],
+      "evidence": ["comparisons/FC-097.jpg"],
       "identity_decision": "DISTINCT SOURCE DRAWING UNIT",
       "label": "Ilustraci\u00f3n de la p\u00e1gina 32",
       "availability": "OPTIMIZATION NEEDED",
@@ -2610,12 +2120,8 @@
     },
     {
       "group_id": "DRAW-FC-033-01",
-      "placements": [
-        "FC-033-01"
-      ],
-      "evidence": [
-        "comparisons/FC-097.jpg"
-      ],
+      "placements": ["FC-033-01"],
+      "evidence": ["comparisons/FC-097.jpg"],
       "identity_decision": "DISTINCT SOURCE DRAWING UNIT",
       "label": "Ilustraci\u00f3n de la p\u00e1gina 33",
       "availability": "OPTIMIZATION NEEDED",
@@ -2628,12 +2134,8 @@
     },
     {
       "group_id": "DRAW-FC-033-02",
-      "placements": [
-        "FC-033-02"
-      ],
-      "evidence": [
-        "comparisons/FC-097.jpg"
-      ],
+      "placements": ["FC-033-02"],
+      "evidence": ["comparisons/FC-097.jpg"],
       "identity_decision": "DISTINCT SOURCE DRAWING UNIT",
       "label": "Beba",
       "availability": "OPTIMIZED VERSION EXISTS",
@@ -2646,10 +2148,7 @@
     },
     {
       "group_id": "DRAW-FC-033-03",
-      "placements": [
-        "FC-033-03",
-        "FC-042-02"
-      ],
+      "placements": ["FC-033-03", "FC-042-02"],
       "evidence": [
         "comparisons/FC-097.jpg",
         "comparisons/FC-115.jpg",
@@ -2671,12 +2170,8 @@
     },
     {
       "group_id": "DRAW-FC-033-04",
-      "placements": [
-        "FC-033-04"
-      ],
-      "evidence": [
-        "comparisons/FC-097.jpg"
-      ],
+      "placements": ["FC-033-04"],
+      "evidence": ["comparisons/FC-097.jpg"],
       "identity_decision": "DISTINCT SOURCE DRAWING UNIT",
       "label": "bate",
       "availability": "OPTIMIZATION NEEDED",
@@ -2689,12 +2184,8 @@
     },
     {
       "group_id": "DRAW-FC-033-05",
-      "placements": [
-        "FC-033-05"
-      ],
-      "evidence": [
-        "comparisons/FC-097.jpg"
-      ],
+      "placements": ["FC-033-05"],
+      "evidence": ["comparisons/FC-097.jpg"],
       "identity_decision": "DISTINCT SOURCE DRAWING UNIT",
       "label": "bota",
       "availability": "OPTIMIZED VERSION EXISTS",
@@ -2707,12 +2198,8 @@
     },
     {
       "group_id": "DRAW-FC-033-06",
-      "placements": [
-        "FC-033-06"
-      ],
-      "evidence": [
-        "comparisons/FC-103.jpg"
-      ],
+      "placements": ["FC-033-06"],
+      "evidence": ["comparisons/FC-103.jpg"],
       "identity_decision": "DISTINCT SOURCE DRAWING UNIT",
       "label": "bebita",
       "availability": "OPTIMIZATION NEEDED",
@@ -2725,12 +2212,8 @@
     },
     {
       "group_id": "DRAW-FC-035-01",
-      "placements": [
-        "FC-035-01"
-      ],
-      "evidence": [
-        "comparisons/FC-103.jpg"
-      ],
+      "placements": ["FC-035-01"],
+      "evidence": ["comparisons/FC-103.jpg"],
       "identity_decision": "DISTINCT SOURCE DRAWING UNIT",
       "label": "Ilustraci\u00f3n de la p\u00e1gina 35",
       "availability": "OPTIMIZATION NEEDED",
@@ -2743,12 +2226,8 @@
     },
     {
       "group_id": "DRAW-FC-036-01",
-      "placements": [
-        "FC-036-01"
-      ],
-      "evidence": [
-        "comparisons/FC-103.jpg"
-      ],
+      "placements": ["FC-036-01"],
+      "evidence": ["comparisons/FC-103.jpg"],
       "identity_decision": "DISTINCT SOURCE DRAWING UNIT",
       "label": "Ilustraci\u00f3n de la p\u00e1gina 36",
       "availability": "OPTIMIZED VERSION EXISTS",
@@ -2761,12 +2240,8 @@
     },
     {
       "group_id": "DRAW-FC-036-02",
-      "placements": [
-        "FC-036-02"
-      ],
-      "evidence": [
-        "comparisons/FC-103.jpg"
-      ],
+      "placements": ["FC-036-02"],
+      "evidence": ["comparisons/FC-103.jpg"],
       "identity_decision": "DISTINCT SOURCE DRAWING UNIT",
       "label": "vaso",
       "availability": "OPTIMIZED VERSION EXISTS",
@@ -2779,12 +2254,8 @@
     },
     {
       "group_id": "DRAW-FC-036-03",
-      "placements": [
-        "FC-036-03"
-      ],
-      "evidence": [
-        "comparisons/FC-103.jpg"
-      ],
+      "placements": ["FC-036-03"],
+      "evidence": ["comparisons/FC-103.jpg"],
       "identity_decision": "DISTINCT SOURCE DRAWING UNIT",
       "label": "vela",
       "availability": "OPTIMIZED VERSION EXISTS",
@@ -2797,12 +2268,8 @@
     },
     {
       "group_id": "DRAW-FC-036-04",
-      "placements": [
-        "FC-036-04"
-      ],
-      "evidence": [
-        "comparisons/FC-103.jpg"
-      ],
+      "placements": ["FC-036-04"],
+      "evidence": ["comparisons/FC-103.jpg"],
       "identity_decision": "DISTINCT SOURCE DRAWING UNIT",
       "label": "Vita",
       "availability": "OPTIMIZED VERSION EXISTS",
@@ -2815,12 +2282,8 @@
     },
     {
       "group_id": "DRAW-FC-036-05",
-      "placements": [
-        "FC-036-05"
-      ],
-      "evidence": [
-        "comparisons/FC-109.jpg"
-      ],
+      "placements": ["FC-036-05"],
+      "evidence": ["comparisons/FC-109.jpg"],
       "identity_decision": "DISTINCT SOURCE DRAWING UNIT",
       "label": "pavo",
       "availability": "OPTIMIZATION NEEDED",
@@ -2833,12 +2296,8 @@
     },
     {
       "group_id": "DRAW-FC-036-06",
-      "placements": [
-        "FC-036-06"
-      ],
-      "evidence": [
-        "comparisons/FC-109.jpg"
-      ],
+      "placements": ["FC-036-06"],
+      "evidence": ["comparisons/FC-109.jpg"],
       "identity_decision": "DISTINCT SOURCE DRAWING UNIT",
       "label": "Vuli",
       "availability": "OPTIMIZATION NEEDED",
@@ -2851,12 +2310,8 @@
     },
     {
       "group_id": "DRAW-FC-038-01",
-      "placements": [
-        "FC-038-01"
-      ],
-      "evidence": [
-        "comparisons/FC-109.jpg"
-      ],
+      "placements": ["FC-038-01"],
+      "evidence": ["comparisons/FC-109.jpg"],
       "identity_decision": "DISTINCT SOURCE DRAWING UNIT",
       "label": "Ilustraci\u00f3n de la p\u00e1gina 38",
       "availability": "OPTIMIZATION NEEDED",
@@ -2869,12 +2324,8 @@
     },
     {
       "group_id": "DRAW-FC-039-01",
-      "placements": [
-        "FC-039-01"
-      ],
-      "evidence": [
-        "comparisons/FC-109.jpg"
-      ],
+      "placements": ["FC-039-01"],
+      "evidence": ["comparisons/FC-109.jpg"],
       "identity_decision": "DISTINCT SOURCE DRAWING UNIT",
       "label": "Ilustraci\u00f3n de la p\u00e1gina 39",
       "availability": "OPTIMIZATION NEEDED",
@@ -2887,12 +2338,8 @@
     },
     {
       "group_id": "DRAW-FC-039-02",
-      "placements": [
-        "FC-039-02"
-      ],
-      "evidence": [
-        "comparisons/FC-109.jpg"
-      ],
+      "placements": ["FC-039-02"],
+      "evidence": ["comparisons/FC-109.jpg"],
       "identity_decision": "DISTINCT SOURCE DRAWING UNIT",
       "label": "rana",
       "availability": "OPTIMIZED VERSION EXISTS",
@@ -2905,12 +2352,8 @@
     },
     {
       "group_id": "DRAW-FC-039-03",
-      "placements": [
-        "FC-039-03"
-      ],
-      "evidence": [
-        "comparisons/FC-109.jpg"
-      ],
+      "placements": ["FC-039-03"],
+      "evidence": ["comparisons/FC-109.jpg"],
       "identity_decision": "DISTINCT SOURCE DRAWING UNIT",
       "label": "remos",
       "availability": "OPTIMIZED VERSION EXISTS",
@@ -2923,12 +2366,8 @@
     },
     {
       "group_id": "DRAW-FC-039-04",
-      "placements": [
-        "FC-039-04"
-      ],
-      "evidence": [
-        "comparisons/FC-115.jpg"
-      ],
+      "placements": ["FC-039-04"],
+      "evidence": ["comparisons/FC-115.jpg"],
       "identity_decision": "DISTINCT SOURCE DRAWING UNIT",
       "label": "Rita",
       "availability": "OPTIMIZATION NEEDED",
@@ -2941,12 +2380,8 @@
     },
     {
       "group_id": "DRAW-FC-039-05",
-      "placements": [
-        "FC-039-05"
-      ],
-      "evidence": [
-        "comparisons/FC-115.jpg"
-      ],
+      "placements": ["FC-039-05"],
+      "evidence": ["comparisons/FC-115.jpg"],
       "identity_decision": "DISTINCT SOURCE DRAWING UNIT",
       "label": "rosa",
       "availability": "OPTIMIZATION NEEDED",
@@ -2959,12 +2394,8 @@
     },
     {
       "group_id": "DRAW-FC-039-06",
-      "placements": [
-        "FC-039-06"
-      ],
-      "evidence": [
-        "comparisons/FC-115.jpg"
-      ],
+      "placements": ["FC-039-06"],
+      "evidence": ["comparisons/FC-115.jpg"],
       "identity_decision": "DISTINCT SOURCE DRAWING UNIT",
       "label": "rueda",
       "availability": "OPTIMIZATION NEEDED",
@@ -2977,12 +2408,8 @@
     },
     {
       "group_id": "DRAW-FC-041-01",
-      "placements": [
-        "FC-041-01"
-      ],
-      "evidence": [
-        "comparisons/FC-115.jpg"
-      ],
+      "placements": ["FC-041-01"],
+      "evidence": ["comparisons/FC-115.jpg"],
       "identity_decision": "DISTINCT SOURCE DRAWING UNIT",
       "label": "Ilustraci\u00f3n de la p\u00e1gina 41",
       "availability": "OPTIMIZATION NEEDED",
@@ -2995,12 +2422,8 @@
     },
     {
       "group_id": "DRAW-FC-042-01",
-      "placements": [
-        "FC-042-01"
-      ],
-      "evidence": [
-        "comparisons/FC-115.jpg"
-      ],
+      "placements": ["FC-042-01"],
+      "evidence": ["comparisons/FC-115.jpg"],
       "identity_decision": "DISTINCT SOURCE DRAWING UNIT",
       "label": "Ilustraci\u00f3n de la p\u00e1gina 42",
       "availability": "OPTIMIZED VERSION EXISTS",
@@ -3013,12 +2436,8 @@
     },
     {
       "group_id": "DRAW-FC-042-03",
-      "placements": [
-        "FC-042-03"
-      ],
-      "evidence": [
-        "comparisons/FC-121.jpg"
-      ],
+      "placements": ["FC-042-03"],
+      "evidence": ["comparisons/FC-121.jpg"],
       "identity_decision": "DISTINCT SOURCE DRAWING UNIT",
       "label": "carrusel",
       "availability": "OPTIMIZED VERSION EXISTS",
@@ -3031,12 +2450,8 @@
     },
     {
       "group_id": "DRAW-FC-042-04",
-      "placements": [
-        "FC-042-04"
-      ],
-      "evidence": [
-        "comparisons/FC-121.jpg"
-      ],
+      "placements": ["FC-042-04"],
+      "evidence": ["comparisons/FC-121.jpg"],
       "identity_decision": "DISTINCT SOURCE DRAWING UNIT",
       "label": "torre",
       "availability": "OPTIMIZED VERSION EXISTS",
@@ -3049,12 +2464,8 @@
     },
     {
       "group_id": "DRAW-FC-042-05",
-      "placements": [
-        "FC-042-05"
-      ],
-      "evidence": [
-        "comparisons/FC-121.jpg"
-      ],
+      "placements": ["FC-042-05"],
+      "evidence": ["comparisons/FC-121.jpg"],
       "identity_decision": "DISTINCT SOURCE DRAWING UNIT",
       "label": "barril",
       "availability": "OPTIMIZED VERSION EXISTS",
@@ -3067,12 +2478,8 @@
     },
     {
       "group_id": "DRAW-FC-042-06",
-      "placements": [
-        "FC-042-06"
-      ],
-      "evidence": [
-        "comparisons/FC-121.jpg"
-      ],
+      "placements": ["FC-042-06"],
+      "evidence": ["comparisons/FC-121.jpg"],
       "identity_decision": "DISTINCT SOURCE DRAWING UNIT",
       "label": "Tierra",
       "availability": "OPTIMIZED VERSION EXISTS",
@@ -3085,12 +2492,8 @@
     },
     {
       "group_id": "DRAW-FC-044-01",
-      "placements": [
-        "FC-044-01"
-      ],
-      "evidence": [
-        "comparisons/FC-121.jpg"
-      ],
+      "placements": ["FC-044-01"],
+      "evidence": ["comparisons/FC-121.jpg"],
       "identity_decision": "DISTINCT SOURCE DRAWING UNIT",
       "label": "Ilustraci\u00f3n de la p\u00e1gina 44",
       "availability": "OPTIMIZATION NEEDED",
@@ -3103,12 +2506,8 @@
     },
     {
       "group_id": "DRAW-FC-045-01",
-      "placements": [
-        "FC-045-01"
-      ],
-      "evidence": [
-        "comparisons/FC-121.jpg"
-      ],
+      "placements": ["FC-045-01"],
+      "evidence": ["comparisons/FC-121.jpg"],
       "identity_decision": "DISTINCT SOURCE DRAWING UNIT",
       "label": "Ilustraci\u00f3n de la p\u00e1gina 45",
       "availability": "OPTIMIZATION NEEDED",
@@ -3121,12 +2520,8 @@
     },
     {
       "group_id": "DRAW-FC-045-02",
-      "placements": [
-        "FC-045-02"
-      ],
-      "evidence": [
-        "comparisons/FC-127.jpg"
-      ],
+      "placements": ["FC-045-02"],
+      "evidence": ["comparisons/FC-127.jpg"],
       "identity_decision": "DISTINCT SOURCE DRAWING UNIT",
       "label": "gaveta",
       "availability": "OPTIMIZED VERSION EXISTS",
@@ -3139,12 +2534,8 @@
     },
     {
       "group_id": "DRAW-FC-045-03",
-      "placements": [
-        "FC-045-03"
-      ],
-      "evidence": [
-        "comparisons/FC-127.jpg"
-      ],
+      "placements": ["FC-045-03"],
+      "evidence": ["comparisons/FC-127.jpg"],
       "identity_decision": "DISTINCT SOURCE DRAWING UNIT",
       "label": "gusano",
       "availability": "OPTIMIZED VERSION EXISTS",
@@ -3157,12 +2548,8 @@
     },
     {
       "group_id": "DRAW-FC-045-04",
-      "placements": [
-        "FC-045-04"
-      ],
-      "evidence": [
-        "comparisons/FC-127.jpg"
-      ],
+      "placements": ["FC-045-04"],
+      "evidence": ["comparisons/FC-127.jpg"],
       "identity_decision": "DISTINCT SOURCE DRAWING UNIT",
       "label": "Goloso",
       "availability": "OPTIMIZATION NEEDED",
@@ -3175,12 +2562,8 @@
     },
     {
       "group_id": "DRAW-FC-045-05",
-      "placements": [
-        "FC-045-05"
-      ],
-      "evidence": [
-        "comparisons/FC-127.jpg"
-      ],
+      "placements": ["FC-045-05"],
+      "evidence": ["comparisons/FC-127.jpg"],
       "identity_decision": "DISTINCT SOURCE DRAWING UNIT",
       "label": "gorra",
       "availability": "OPTIMIZED VERSION EXISTS",
@@ -3193,12 +2576,8 @@
     },
     {
       "group_id": "DRAW-FC-045-06",
-      "placements": [
-        "FC-045-06"
-      ],
-      "evidence": [
-        "comparisons/FC-127.jpg"
-      ],
+      "placements": ["FC-045-06"],
+      "evidence": ["comparisons/FC-127.jpg"],
       "identity_decision": "DISTINCT SOURCE DRAWING UNIT",
       "label": "mago",
       "availability": "OPTIMIZATION NEEDED",
@@ -3211,12 +2590,8 @@
     },
     {
       "group_id": "DRAW-FC-047-01",
-      "placements": [
-        "FC-047-01"
-      ],
-      "evidence": [
-        "comparisons/FC-127.jpg"
-      ],
+      "placements": ["FC-047-01"],
+      "evidence": ["comparisons/FC-127.jpg"],
       "identity_decision": "DISTINCT SOURCE DRAWING UNIT",
       "label": "Ilustraci\u00f3n de la p\u00e1gina 47",
       "availability": "OPTIMIZATION NEEDED",
@@ -3229,12 +2604,8 @@
     },
     {
       "group_id": "DRAW-FC-048-01",
-      "placements": [
-        "FC-048-01"
-      ],
-      "evidence": [
-        "comparisons/FC-133.jpg"
-      ],
+      "placements": ["FC-048-01"],
+      "evidence": ["comparisons/FC-133.jpg"],
       "identity_decision": "DISTINCT SOURCE DRAWING UNIT",
       "label": "Ilustraci\u00f3n de la p\u00e1gina 48",
       "availability": "OPTIMIZATION NEEDED",
@@ -3247,12 +2618,8 @@
     },
     {
       "group_id": "DRAW-FC-048-02",
-      "placements": [
-        "FC-048-02"
-      ],
-      "evidence": [
-        "comparisons/FC-133.jpg"
-      ],
+      "placements": ["FC-048-02"],
+      "evidence": ["comparisons/FC-133.jpg"],
       "identity_decision": "DISTINCT SOURCE DRAWING UNIT",
       "label": "foto",
       "availability": "OPTIMIZED VERSION EXISTS",
@@ -3265,12 +2632,8 @@
     },
     {
       "group_id": "DRAW-FC-048-03",
-      "placements": [
-        "FC-048-03"
-      ],
-      "evidence": [
-        "comparisons/FC-133.jpg"
-      ],
+      "placements": ["FC-048-03"],
+      "evidence": ["comparisons/FC-133.jpg"],
       "identity_decision": "DISTINCT SOURCE DRAWING UNIT",
       "label": "fideos",
       "availability": "OPTIMIZED VERSION EXISTS",
@@ -3283,12 +2646,8 @@
     },
     {
       "group_id": "DRAW-FC-048-04",
-      "placements": [
-        "FC-048-04"
-      ],
-      "evidence": [
-        "comparisons/FC-133.jpg"
-      ],
+      "placements": ["FC-048-04"],
+      "evidence": ["comparisons/FC-133.jpg"],
       "identity_decision": "DISTINCT SOURCE DRAWING UNIT",
       "label": "familia",
       "availability": "OPTIMIZATION NEEDED",
@@ -3301,12 +2660,8 @@
     },
     {
       "group_id": "DRAW-FC-048-05",
-      "placements": [
-        "FC-048-05"
-      ],
-      "evidence": [
-        "comparisons/FC-133.jpg"
-      ],
+      "placements": ["FC-048-05"],
+      "evidence": ["comparisons/FC-133.jpg"],
       "identity_decision": "DISTINCT SOURCE DRAWING UNIT",
       "label": "Felo",
       "availability": "OPTIMIZATION NEEDED",
@@ -3319,12 +2674,8 @@
     },
     {
       "group_id": "DRAW-FC-048-06",
-      "placements": [
-        "FC-048-06"
-      ],
-      "evidence": [
-        "comparisons/FC-133.jpg"
-      ],
+      "placements": ["FC-048-06"],
+      "evidence": ["comparisons/FC-133.jpg"],
       "identity_decision": "DISTINCT SOURCE DRAWING UNIT",
       "label": "funda",
       "availability": "OPTIMIZATION NEEDED",
@@ -3337,12 +2688,8 @@
     },
     {
       "group_id": "DRAW-FC-050-01",
-      "placements": [
-        "FC-050-01"
-      ],
-      "evidence": [
-        "comparisons/FC-139.jpg"
-      ],
+      "placements": ["FC-050-01"],
+      "evidence": ["comparisons/FC-139.jpg"],
       "identity_decision": "DISTINCT SOURCE DRAWING UNIT",
       "label": "Ilustraci\u00f3n de la p\u00e1gina 50",
       "availability": "OPTIMIZATION NEEDED",
@@ -3355,12 +2702,8 @@
     },
     {
       "group_id": "DRAW-FC-051-01",
-      "placements": [
-        "FC-051-01"
-      ],
-      "evidence": [
-        "comparisons/FC-139.jpg"
-      ],
+      "placements": ["FC-051-01"],
+      "evidence": ["comparisons/FC-139.jpg"],
       "identity_decision": "DISTINCT SOURCE DRAWING UNIT",
       "label": "Ilustraci\u00f3n de la p\u00e1gina 51",
       "availability": "OPTIMIZATION NEEDED",
@@ -3373,12 +2716,8 @@
     },
     {
       "group_id": "DRAW-FC-051-02",
-      "placements": [
-        "FC-051-02"
-      ],
-      "evidence": [
-        "comparisons/FC-139.jpg"
-      ],
+      "placements": ["FC-051-02"],
+      "evidence": ["comparisons/FC-139.jpg"],
       "identity_decision": "DISTINCT SOURCE DRAWING UNIT",
       "label": "jicotea",
       "availability": "OPTIMIZED VERSION EXISTS",
@@ -3391,12 +2730,8 @@
     },
     {
       "group_id": "DRAW-FC-051-03",
-      "placements": [
-        "FC-051-03"
-      ],
-      "evidence": [
-        "comparisons/FC-139.jpg"
-      ],
+      "placements": ["FC-051-03"],
+      "evidence": ["comparisons/FC-139.jpg"],
       "identity_decision": "DISTINCT SOURCE DRAWING UNIT",
       "label": "jugo",
       "availability": "OPTIMIZED VERSION EXISTS",
@@ -3409,12 +2744,8 @@
     },
     {
       "group_id": "DRAW-FC-051-04",
-      "placements": [
-        "FC-051-04"
-      ],
-      "evidence": [
-        "comparisons/FC-139.jpg"
-      ],
+      "placements": ["FC-051-04"],
+      "evidence": ["comparisons/FC-139.jpg"],
       "identity_decision": "DISTINCT SOURCE DRAWING UNIT",
       "label": "Jes\u00fas",
       "availability": "OPTIMIZATION NEEDED",
@@ -3427,12 +2758,8 @@
     },
     {
       "group_id": "DRAW-FC-051-05",
-      "placements": [
-        "FC-051-05"
-      ],
-      "evidence": [
-        "comparisons/FC-139.jpg"
-      ],
+      "placements": ["FC-051-05"],
+      "evidence": ["comparisons/FC-139.jpg"],
       "identity_decision": "DISTINCT SOURCE DRAWING UNIT",
       "label": "ajo",
       "availability": "OPTIMIZED VERSION EXISTS",
@@ -3445,12 +2772,8 @@
     },
     {
       "group_id": "DRAW-FC-051-06",
-      "placements": [
-        "FC-051-06"
-      ],
-      "evidence": [
-        "comparisons/FC-145.jpg"
-      ],
+      "placements": ["FC-051-06"],
+      "evidence": ["comparisons/FC-145.jpg"],
       "identity_decision": "DISTINCT SOURCE DRAWING UNIT",
       "label": "jarra",
       "availability": "OPTIMIZATION NEEDED",
@@ -3463,12 +2786,8 @@
     },
     {
       "group_id": "DRAW-FC-053-01",
-      "placements": [
-        "FC-053-01"
-      ],
-      "evidence": [
-        "comparisons/FC-145.jpg"
-      ],
+      "placements": ["FC-053-01"],
+      "evidence": ["comparisons/FC-145.jpg"],
       "identity_decision": "DISTINCT SOURCE DRAWING UNIT",
       "label": "Ilustraci\u00f3n de la p\u00e1gina 53",
       "availability": "OPTIMIZATION NEEDED",
@@ -3481,12 +2800,8 @@
     },
     {
       "group_id": "DRAW-FC-054-01",
-      "placements": [
-        "FC-054-01"
-      ],
-      "evidence": [
-        "comparisons/FC-145.jpg"
-      ],
+      "placements": ["FC-054-01"],
+      "evidence": ["comparisons/FC-145.jpg"],
       "identity_decision": "DISTINCT SOURCE DRAWING UNIT",
       "label": "Ilustraci\u00f3n de la p\u00e1gina 54",
       "availability": "OPTIMIZATION NEEDED",
@@ -3499,12 +2814,8 @@
     },
     {
       "group_id": "DRAW-FC-054-02",
-      "placements": [
-        "FC-054-02"
-      ],
-      "evidence": [
-        "comparisons/FC-145.jpg"
-      ],
+      "placements": ["FC-054-02"],
+      "evidence": ["comparisons/FC-145.jpg"],
       "identity_decision": "DISTINCT SOURCE DRAWING UNIT",
       "label": "cuna",
       "availability": "OPTIMIZED VERSION EXISTS",
@@ -3517,12 +2828,8 @@
     },
     {
       "group_id": "DRAW-FC-054-03",
-      "placements": [
-        "FC-054-03"
-      ],
-      "evidence": [
-        "comparisons/FC-145.jpg"
-      ],
+      "placements": ["FC-054-03"],
+      "evidence": ["comparisons/FC-145.jpg"],
       "identity_decision": "DISTINCT SOURCE DRAWING UNIT",
       "label": "conejo",
       "availability": "OPTIMIZATION NEEDED",
@@ -3535,12 +2842,8 @@
     },
     {
       "group_id": "DRAW-FC-054-04",
-      "placements": [
-        "FC-054-04"
-      ],
-      "evidence": [
-        "comparisons/FC-145.jpg"
-      ],
+      "placements": ["FC-054-04"],
+      "evidence": ["comparisons/FC-145.jpg"],
       "identity_decision": "DISTINCT SOURCE DRAWING UNIT",
       "label": "casa",
       "availability": "OPTIMIZATION NEEDED",
@@ -3553,12 +2856,8 @@
     },
     {
       "group_id": "DRAW-FC-054-05",
-      "placements": [
-        "FC-054-05"
-      ],
-      "evidence": [
-        "comparisons/FC-151.jpg"
-      ],
+      "placements": ["FC-054-05"],
+      "evidence": ["comparisons/FC-151.jpg"],
       "identity_decision": "DISTINCT SOURCE DRAWING UNIT",
       "label": "cubo",
       "availability": "OPTIMIZATION NEEDED",
@@ -3571,12 +2870,8 @@
     },
     {
       "group_id": "DRAW-FC-054-06",
-      "placements": [
-        "FC-054-06"
-      ],
-      "evidence": [
-        "comparisons/FC-151.jpg"
-      ],
+      "placements": ["FC-054-06"],
+      "evidence": ["comparisons/FC-151.jpg"],
       "identity_decision": "DISTINCT SOURCE DRAWING UNIT",
       "label": "Catalina",
       "availability": "OPTIMIZATION NEEDED",
@@ -3589,12 +2884,8 @@
     },
     {
       "group_id": "DRAW-FC-056-01",
-      "placements": [
-        "FC-056-01"
-      ],
-      "evidence": [
-        "comparisons/FC-151.jpg"
-      ],
+      "placements": ["FC-056-01"],
+      "evidence": ["comparisons/FC-151.jpg"],
       "identity_decision": "DISTINCT SOURCE DRAWING UNIT",
       "label": "Ilustraci\u00f3n de la p\u00e1gina 56",
       "availability": "OPTIMIZED VERSION EXISTS",
@@ -3607,12 +2898,8 @@
     },
     {
       "group_id": "DRAW-FC-057-01",
-      "placements": [
-        "FC-057-01"
-      ],
-      "evidence": [
-        "comparisons/FC-151.jpg"
-      ],
+      "placements": ["FC-057-01"],
+      "evidence": ["comparisons/FC-151.jpg"],
       "identity_decision": "DISTINCT SOURCE DRAWING UNIT",
       "label": "Ilustraci\u00f3n de la p\u00e1gina 57",
       "availability": "OPTIMIZATION NEEDED",
@@ -3625,12 +2912,8 @@
     },
     {
       "group_id": "DRAW-FC-057-02",
-      "placements": [
-        "FC-057-02"
-      ],
-      "evidence": [
-        "comparisons/FC-151.jpg"
-      ],
+      "placements": ["FC-057-02"],
+      "evidence": ["comparisons/FC-151.jpg"],
       "identity_decision": "DISTINCT SOURCE DRAWING UNIT",
       "label": "yate",
       "availability": "OPTIMIZED VERSION EXISTS",
@@ -3643,12 +2926,8 @@
     },
     {
       "group_id": "DRAW-FC-057-03",
-      "placements": [
-        "FC-057-03"
-      ],
-      "evidence": [
-        "comparisons/FC-151.jpg"
-      ],
+      "placements": ["FC-057-03"],
+      "evidence": ["comparisons/FC-151.jpg"],
       "identity_decision": "DISTINCT SOURCE DRAWING UNIT",
       "label": "yema",
       "availability": "OPTIMIZED VERSION EXISTS",
@@ -3661,12 +2940,8 @@
     },
     {
       "group_id": "DRAW-FC-057-04",
-      "placements": [
-        "FC-057-04"
-      ],
-      "evidence": [
-        "comparisons/FC-157.jpg"
-      ],
+      "placements": ["FC-057-04"],
+      "evidence": ["comparisons/FC-157.jpg"],
       "identity_decision": "DISTINCT SOURCE DRAWING UNIT",
       "label": "Yayita",
       "availability": "OPTIMIZED VERSION EXISTS",
@@ -3679,12 +2954,8 @@
     },
     {
       "group_id": "DRAW-FC-057-05",
-      "placements": [
-        "FC-057-05"
-      ],
-      "evidence": [
-        "comparisons/FC-157.jpg"
-      ],
+      "placements": ["FC-057-05"],
+      "evidence": ["comparisons/FC-157.jpg"],
       "identity_decision": "DISTINCT SOURCE DRAWING UNIT",
       "label": "may\u00fascula",
       "availability": "OPTIMIZATION NEEDED",
@@ -3697,12 +2968,8 @@
     },
     {
       "group_id": "DRAW-FC-057-06",
-      "placements": [
-        "FC-057-06"
-      ],
-      "evidence": [
-        "comparisons/FC-157.jpg"
-      ],
+      "placements": ["FC-057-06"],
+      "evidence": ["comparisons/FC-157.jpg"],
       "identity_decision": "DISTINCT SOURCE DRAWING UNIT",
       "label": "yoyo",
       "availability": "OPTIMIZATION NEEDED",
@@ -3715,12 +2982,8 @@
     },
     {
       "group_id": "DRAW-FC-059-01",
-      "placements": [
-        "FC-059-01"
-      ],
-      "evidence": [
-        "comparisons/FC-157.jpg"
-      ],
+      "placements": ["FC-059-01"],
+      "evidence": ["comparisons/FC-157.jpg"],
       "identity_decision": "DISTINCT SOURCE DRAWING UNIT",
       "label": "Ilustraci\u00f3n de la p\u00e1gina 59",
       "availability": "OPTIMIZATION NEEDED",
@@ -3733,12 +2996,8 @@
     },
     {
       "group_id": "DRAW-FC-060-01",
-      "placements": [
-        "FC-060-01"
-      ],
-      "evidence": [
-        "comparisons/FC-157.jpg"
-      ],
+      "placements": ["FC-060-01"],
+      "evidence": ["comparisons/FC-157.jpg"],
       "identity_decision": "DISTINCT SOURCE DRAWING UNIT",
       "label": "Ilustraci\u00f3n de la p\u00e1gina 60",
       "availability": "OPTIMIZATION NEEDED",
@@ -3751,12 +3010,8 @@
     },
     {
       "group_id": "DRAW-FC-060-02",
-      "placements": [
-        "FC-060-02"
-      ],
-      "evidence": [
-        "comparisons/FC-157.jpg"
-      ],
+      "placements": ["FC-060-02"],
+      "evidence": ["comparisons/FC-157.jpg"],
       "identity_decision": "DISTINCT SOURCE DRAWING UNIT",
       "label": "zapato",
       "availability": "OPTIMIZED VERSION EXISTS",
@@ -3769,12 +3024,8 @@
     },
     {
       "group_id": "DRAW-FC-060-03",
-      "placements": [
-        "FC-060-03"
-      ],
-      "evidence": [
-        "comparisons/FC-163.jpg"
-      ],
+      "placements": ["FC-060-03"],
+      "evidence": ["comparisons/FC-163.jpg"],
       "identity_decision": "DISTINCT SOURCE DRAWING UNIT",
       "label": "zig-zag",
       "availability": "OPTIMIZATION NEEDED",
@@ -3787,12 +3038,8 @@
     },
     {
       "group_id": "DRAW-FC-060-04",
-      "placements": [
-        "FC-060-04"
-      ],
-      "evidence": [
-        "comparisons/FC-163.jpg"
-      ],
+      "placements": ["FC-060-04"],
+      "evidence": ["comparisons/FC-163.jpg"],
       "identity_decision": "DISTINCT SOURCE DRAWING UNIT",
       "label": "zorro",
       "availability": "OPTIMIZATION NEEDED",
@@ -3805,12 +3052,8 @@
     },
     {
       "group_id": "DRAW-FC-060-05",
-      "placements": [
-        "FC-060-05"
-      ],
-      "evidence": [
-        "comparisons/FC-163.jpg"
-      ],
+      "placements": ["FC-060-05"],
+      "evidence": ["comparisons/FC-163.jpg"],
       "identity_decision": "DISTINCT SOURCE DRAWING UNIT",
       "label": "zepel\u00edn",
       "availability": "OPTIMIZATION NEEDED",
@@ -3823,12 +3066,8 @@
     },
     {
       "group_id": "DRAW-FC-060-06",
-      "placements": [
-        "FC-060-06"
-      ],
-      "evidence": [
-        "comparisons/FC-163.jpg"
-      ],
+      "placements": ["FC-060-06"],
+      "evidence": ["comparisons/FC-163.jpg"],
       "identity_decision": "DISTINCT SOURCE DRAWING UNIT",
       "label": "Zulema",
       "availability": "OPTIMIZED VERSION EXISTS",
@@ -3841,12 +3080,8 @@
     },
     {
       "group_id": "DRAW-FC-062-01",
-      "placements": [
-        "FC-062-01"
-      ],
-      "evidence": [
-        "comparisons/FC-163.jpg"
-      ],
+      "placements": ["FC-062-01"],
+      "evidence": ["comparisons/FC-163.jpg"],
       "identity_decision": "DISTINCT SOURCE DRAWING UNIT",
       "label": "Ilustraci\u00f3n de la p\u00e1gina 62",
       "availability": "OPTIMIZATION NEEDED",
@@ -3859,12 +3094,8 @@
     },
     {
       "group_id": "COMPOSITE-FC-FRONT-001",
-      "placements": [
-        "FC-FRONT-001"
-      ],
-      "evidence": [
-        "pages/FC-001.jpg"
-      ],
+      "placements": ["FC-FRONT-001"],
+      "evidence": ["pages/FC-001.jpg"],
       "identity_decision": "UNRESOLVED COMPOSITE: butterfly, dragonfly, Gretel and floral/stool/ground boundaries",
       "label": "Cover/title illustration composite",
       "availability": "UNRESOLVED",
@@ -3877,12 +3108,8 @@
     },
     {
       "group_id": "COMPOSITE-WB-FRONT-001",
-      "placements": [
-        "WB-FRONT-001"
-      ],
-      "evidence": [
-        "pages/WB-001.jpg"
-      ],
+      "placements": ["WB-FRONT-001"],
+      "evidence": ["pages/WB-001.jpg"],
       "identity_decision": "UNRESOLVED COMPOSITE: butterfly, dragonfly, Gretel and floral/stool/ground boundaries",
       "label": "Cover/title illustration composite",
       "availability": "UNRESOLVED",
@@ -3895,12 +3122,8 @@
     },
     {
       "group_id": "COMPOSITE-WB-FRONT-003",
-      "placements": [
-        "WB-FRONT-003"
-      ],
-      "evidence": [
-        "pages/WB-003.jpg"
-      ],
+      "placements": ["WB-FRONT-003"],
+      "evidence": ["pages/WB-003.jpg"],
       "identity_decision": "UNRESOLVED COMPOSITE: butterfly, dragonfly, Gretel and floral/stool/ground boundaries",
       "label": "Cover/title illustration composite",
       "availability": "UNRESOLVED",
@@ -22002,13 +21225,8 @@
     {
       "file_id": "FILE-7ea191bbb05c5e5c5701",
       "sha256": "7ea191bbb05c5e5c5701468a8cf0c03ce23f17bbe6b075d4c6cc1657a805dd0f",
-      "register_locations": [
-        "local-downloads/withheld-image-4811"
-      ],
-      "dimensions": [
-        1536,
-        1024
-      ],
+      "register_locations": ["local-downloads/withheld-image-4811"],
+      "dimensions": [1536, 1024],
       "affected_artwork_ids": null,
       "association_status": "UNATTRIBUTABLE: source register retains neither semantic filename, drawing link nor retrievable content. No evidenced artwork association; not a blanket blocker.",
       "blocks_classifications": []
@@ -22016,13 +21234,8 @@
     {
       "file_id": "FILE-74804728f0a47260801d",
       "sha256": "74804728f0a47260801d2f9a8275024e7dc930edceaf2587fa5a5e862f913f02",
-      "register_locations": [
-        "local-downloads/withheld-image-4812"
-      ],
-      "dimensions": [
-        1536,
-        864
-      ],
+      "register_locations": ["local-downloads/withheld-image-4812"],
+      "dimensions": [1536, 864],
       "affected_artwork_ids": null,
       "association_status": "UNATTRIBUTABLE: source register retains neither semantic filename, drawing link nor retrievable content. No evidenced artwork association; not a blanket blocker.",
       "blocks_classifications": []
@@ -22030,13 +21243,8 @@
     {
       "file_id": "FILE-22daffe18b229d65cb33",
       "sha256": "22daffe18b229d65cb339f83df12956cad18b00954b66b5d46342439af532803",
-      "register_locations": [
-        "local-downloads/withheld-image-4813"
-      ],
-      "dimensions": [
-        1536,
-        1024
-      ],
+      "register_locations": ["local-downloads/withheld-image-4813"],
+      "dimensions": [1536, 1024],
       "affected_artwork_ids": null,
       "association_status": "UNATTRIBUTABLE: source register retains neither semantic filename, drawing link nor retrievable content. No evidenced artwork association; not a blanket blocker.",
       "blocks_classifications": []
@@ -22044,13 +21252,8 @@
     {
       "file_id": "FILE-a872a591d0fd63189e25",
       "sha256": "a872a591d0fd63189e25931b3b0031c0f8a24ad69f022fe0dc7a35d378efab1c",
-      "register_locations": [
-        "local-downloads/withheld-image-4814"
-      ],
-      "dimensions": [
-        1536,
-        861
-      ],
+      "register_locations": ["local-downloads/withheld-image-4814"],
+      "dimensions": [1536, 861],
       "affected_artwork_ids": null,
       "association_status": "UNATTRIBUTABLE: source register retains neither semantic filename, drawing link nor retrievable content. No evidenced artwork association; not a blanket blocker.",
       "blocks_classifications": []
@@ -22058,13 +21261,8 @@
     {
       "file_id": "FILE-28d32a01ad18dae9b673",
       "sha256": "28d32a01ad18dae9b6732d630de50aeddb0d64956538a5c2f38be7e8af89d97c",
-      "register_locations": [
-        "local-downloads/withheld-image-4815"
-      ],
-      "dimensions": [
-        1086,
-        1448
-      ],
+      "register_locations": ["local-downloads/withheld-image-4815"],
+      "dimensions": [1086, 1448],
       "affected_artwork_ids": null,
       "association_status": "UNATTRIBUTABLE: source register retains neither semantic filename, drawing link nor retrievable content. No evidenced artwork association; not a blanket blocker.",
       "blocks_classifications": []
@@ -22072,13 +21270,8 @@
     {
       "file_id": "FILE-e2014fdfab5d4b616e86",
       "sha256": "e2014fdfab5d4b616e86b3f015216b47328b025f3261ab4de20d80318f357d0f",
-      "register_locations": [
-        "local-downloads/withheld-image-4816"
-      ],
-      "dimensions": [
-        1024,
-        1024
-      ],
+      "register_locations": ["local-downloads/withheld-image-4816"],
+      "dimensions": [1024, 1024],
       "affected_artwork_ids": null,
       "association_status": "UNATTRIBUTABLE: source register retains neither semantic filename, drawing link nor retrievable content. No evidenced artwork association; not a blanket blocker.",
       "blocks_classifications": []
@@ -22086,13 +21279,8 @@
     {
       "file_id": "FILE-e251219ab2ecdc13be58",
       "sha256": "e251219ab2ecdc13be585c5facf6b3cae8f9c4d2b187cbe0797c49af7b96f026",
-      "register_locations": [
-        "local-downloads/withheld-image-4817"
-      ],
-      "dimensions": [
-        1376,
-        768
-      ],
+      "register_locations": ["local-downloads/withheld-image-4817"],
+      "dimensions": [1376, 768],
       "affected_artwork_ids": null,
       "association_status": "UNATTRIBUTABLE: source register retains neither semantic filename, drawing link nor retrievable content. No evidenced artwork association; not a blanket blocker.",
       "blocks_classifications": []
@@ -22106,10 +21294,7 @@
         "local-downloads/withheld-image-4871",
         "local-downloads/withheld-image-4875"
       ],
-      "dimensions": [
-        null,
-        null
-      ],
+      "dimensions": [null, null],
       "affected_artwork_ids": null,
       "association_status": "UNATTRIBUTABLE: source register retains neither semantic filename, drawing link nor retrievable content. No evidenced artwork association; not a blanket blocker.",
       "blocks_classifications": []
@@ -22121,10 +21306,7 @@
         "local-downloads/withheld-image-4820",
         "local-downloads/withheld-image-4821"
       ],
-      "dimensions": [
-        1536,
-        1024
-      ],
+      "dimensions": [1536, 1024],
       "affected_artwork_ids": null,
       "association_status": "UNATTRIBUTABLE: source register retains neither semantic filename, drawing link nor retrievable content. No evidenced artwork association; not a blanket blocker.",
       "blocks_classifications": []
@@ -22132,13 +21314,8 @@
     {
       "file_id": "FILE-475f6c4837a543f2dddb",
       "sha256": "475f6c4837a543f2dddb34f3511bdf55490f7e7ea8c0591e0bb7432f9c535b70",
-      "register_locations": [
-        "local-downloads/withheld-image-4822"
-      ],
-      "dimensions": [
-        1536,
-        1024
-      ],
+      "register_locations": ["local-downloads/withheld-image-4822"],
+      "dimensions": [1536, 1024],
       "affected_artwork_ids": null,
       "association_status": "UNATTRIBUTABLE: source register retains neither semantic filename, drawing link nor retrievable content. No evidenced artwork association; not a blanket blocker.",
       "blocks_classifications": []
@@ -22146,13 +21323,8 @@
     {
       "file_id": "FILE-d71df1011883e773dd55",
       "sha256": "d71df1011883e773dd558759298428105a1819a5dbe9fb94c0be6932ebd3d94e",
-      "register_locations": [
-        "local-downloads/withheld-image-4823"
-      ],
-      "dimensions": [
-        1536,
-        1024
-      ],
+      "register_locations": ["local-downloads/withheld-image-4823"],
+      "dimensions": [1536, 1024],
       "affected_artwork_ids": null,
       "association_status": "UNATTRIBUTABLE: source register retains neither semantic filename, drawing link nor retrievable content. No evidenced artwork association; not a blanket blocker.",
       "blocks_classifications": []
@@ -22160,13 +21332,8 @@
     {
       "file_id": "FILE-4be1253e6365f03df771",
       "sha256": "4be1253e6365f03df77100fb149deeb0411eee63e25cb5528d5d25b1219d8ac0",
-      "register_locations": [
-        "local-downloads/withheld-image-4824"
-      ],
-      "dimensions": [
-        1024,
-        1536
-      ],
+      "register_locations": ["local-downloads/withheld-image-4824"],
+      "dimensions": [1024, 1536],
       "affected_artwork_ids": null,
       "association_status": "UNATTRIBUTABLE: source register retains neither semantic filename, drawing link nor retrievable content. No evidenced artwork association; not a blanket blocker.",
       "blocks_classifications": []
@@ -22178,10 +21345,7 @@
         "local-downloads/withheld-image-4825",
         "local-downloads/withheld-image-4827"
       ],
-      "dimensions": [
-        400,
-        600
-      ],
+      "dimensions": [400, 600],
       "affected_artwork_ids": null,
       "association_status": "UNATTRIBUTABLE: source register retains neither semantic filename, drawing link nor retrievable content. No evidenced artwork association; not a blanket blocker.",
       "blocks_classifications": []
@@ -22189,13 +21353,8 @@
     {
       "file_id": "FILE-0a09f6396ea1e78199a7",
       "sha256": "0a09f6396ea1e78199a74b488df78f07c5cb867cab3300683b541048ca5d27ed",
-      "register_locations": [
-        "local-downloads/withheld-image-4826"
-      ],
-      "dimensions": [
-        1024,
-        1536
-      ],
+      "register_locations": ["local-downloads/withheld-image-4826"],
+      "dimensions": [1024, 1536],
       "affected_artwork_ids": null,
       "association_status": "UNATTRIBUTABLE: source register retains neither semantic filename, drawing link nor retrievable content. No evidenced artwork association; not a blanket blocker.",
       "blocks_classifications": []
@@ -22203,13 +21362,8 @@
     {
       "file_id": "FILE-fd5879bf875e56a206f8",
       "sha256": "fd5879bf875e56a206f8b4f84218afc40a68eea62aa6aecdcca40895bec4a320",
-      "register_locations": [
-        "local-downloads/withheld-image-4828"
-      ],
-      "dimensions": [
-        1150,
-        900
-      ],
+      "register_locations": ["local-downloads/withheld-image-4828"],
+      "dimensions": [1150, 900],
       "affected_artwork_ids": null,
       "association_status": "UNATTRIBUTABLE: source register retains neither semantic filename, drawing link nor retrievable content. No evidenced artwork association; not a blanket blocker.",
       "blocks_classifications": []
@@ -22217,13 +21371,8 @@
     {
       "file_id": "FILE-34dcb67debb4136e62e0",
       "sha256": "34dcb67debb4136e62e0bd7b9168707abf30e6246215cb4422aa43b8696ed735",
-      "register_locations": [
-        "local-downloads/withheld-image-4829"
-      ],
-      "dimensions": [
-        1550,
-        1350
-      ],
+      "register_locations": ["local-downloads/withheld-image-4829"],
+      "dimensions": [1550, 1350],
       "affected_artwork_ids": null,
       "association_status": "UNATTRIBUTABLE: source register retains neither semantic filename, drawing link nor retrievable content. No evidenced artwork association; not a blanket blocker.",
       "blocks_classifications": []
@@ -22231,13 +21380,8 @@
     {
       "file_id": "FILE-4e164df54c329cfe5acd",
       "sha256": "4e164df54c329cfe5acdb5d364ef2a760f2674f68b7d69a2ef22dfecd279b34f",
-      "register_locations": [
-        "local-downloads/withheld-image-4830"
-      ],
-      "dimensions": [
-        4096,
-        2160
-      ],
+      "register_locations": ["local-downloads/withheld-image-4830"],
+      "dimensions": [4096, 2160],
       "affected_artwork_ids": null,
       "association_status": "UNATTRIBUTABLE: source register retains neither semantic filename, drawing link nor retrievable content. No evidenced artwork association; not a blanket blocker.",
       "blocks_classifications": []
@@ -22245,13 +21389,8 @@
     {
       "file_id": "FILE-82bcc34ecde0d6ede336",
       "sha256": "82bcc34ecde0d6ede336a5dde8d25350d1e1bab3b54e5fdcf093744f4c19b658",
-      "register_locations": [
-        "local-downloads/withheld-image-4831"
-      ],
-      "dimensions": [
-        600,
-        600
-      ],
+      "register_locations": ["local-downloads/withheld-image-4831"],
+      "dimensions": [600, 600],
       "affected_artwork_ids": null,
       "association_status": "UNATTRIBUTABLE: source register retains neither semantic filename, drawing link nor retrievable content. No evidenced artwork association; not a blanket blocker.",
       "blocks_classifications": []
@@ -22259,13 +21398,8 @@
     {
       "file_id": "FILE-645ee68fdf0a97eacf91",
       "sha256": "645ee68fdf0a97eacf91fb359a19d91381fc481ff3a84b927301264df809faf8",
-      "register_locations": [
-        "local-downloads/withheld-image-4832"
-      ],
-      "dimensions": [
-        1440,
-        930
-      ],
+      "register_locations": ["local-downloads/withheld-image-4832"],
+      "dimensions": [1440, 930],
       "affected_artwork_ids": null,
       "association_status": "UNATTRIBUTABLE: source register retains neither semantic filename, drawing link nor retrievable content. No evidenced artwork association; not a blanket blocker.",
       "blocks_classifications": []
@@ -22273,13 +21407,8 @@
     {
       "file_id": "FILE-b1b3eccc69f504414c9d",
       "sha256": "b1b3eccc69f504414c9de24ae6ecd87a97819f903d50417fb9190e89c450daff",
-      "register_locations": [
-        "local-downloads/withheld-image-4833"
-      ],
-      "dimensions": [
-        1400,
-        1300
-      ],
+      "register_locations": ["local-downloads/withheld-image-4833"],
+      "dimensions": [1400, 1300],
       "affected_artwork_ids": null,
       "association_status": "UNATTRIBUTABLE: source register retains neither semantic filename, drawing link nor retrievable content. No evidenced artwork association; not a blanket blocker.",
       "blocks_classifications": []
@@ -22287,13 +21416,8 @@
     {
       "file_id": "FILE-13c43346b25ccdc9f9bc",
       "sha256": "13c43346b25ccdc9f9bc57439f74b9312a678061a7e36d9544af71ed133cb5e1",
-      "register_locations": [
-        "local-downloads/withheld-image-4834"
-      ],
-      "dimensions": [
-        1350,
-        920
-      ],
+      "register_locations": ["local-downloads/withheld-image-4834"],
+      "dimensions": [1350, 920],
       "affected_artwork_ids": null,
       "association_status": "UNATTRIBUTABLE: source register retains neither semantic filename, drawing link nor retrievable content. No evidenced artwork association; not a blanket blocker.",
       "blocks_classifications": []
@@ -22301,13 +21425,8 @@
     {
       "file_id": "FILE-7f04442bcfa75356ea2a",
       "sha256": "7f04442bcfa75356ea2a09d3c145dbb9defdcd8267d7586646be94550401c830",
-      "register_locations": [
-        "local-downloads/withheld-image-4835"
-      ],
-      "dimensions": [
-        1300,
-        1300
-      ],
+      "register_locations": ["local-downloads/withheld-image-4835"],
+      "dimensions": [1300, 1300],
       "affected_artwork_ids": null,
       "association_status": "UNATTRIBUTABLE: source register retains neither semantic filename, drawing link nor retrievable content. No evidenced artwork association; not a blanket blocker.",
       "blocks_classifications": []
@@ -22315,13 +21434,8 @@
     {
       "file_id": "FILE-c4d8f038ff2407453dd7",
       "sha256": "c4d8f038ff2407453dd7967aa797b65c5a60d5189d2745ebe29f9ee572e7719c",
-      "register_locations": [
-        "local-downloads/withheld-image-4836"
-      ],
-      "dimensions": [
-        2400,
-        1792
-      ],
+      "register_locations": ["local-downloads/withheld-image-4836"],
+      "dimensions": [2400, 1792],
       "affected_artwork_ids": null,
       "association_status": "UNATTRIBUTABLE: source register retains neither semantic filename, drawing link nor retrievable content. No evidenced artwork association; not a blanket blocker.",
       "blocks_classifications": []
@@ -22329,13 +21443,8 @@
     {
       "file_id": "FILE-d16bd2d2f98e96feee18",
       "sha256": "d16bd2d2f98e96feee1821f20092049618a672b8cb385036f5f0c40353e21cfa",
-      "register_locations": [
-        "local-downloads/withheld-image-4837"
-      ],
-      "dimensions": [
-        1376,
-        768
-      ],
+      "register_locations": ["local-downloads/withheld-image-4837"],
+      "dimensions": [1376, 768],
       "affected_artwork_ids": null,
       "association_status": "UNATTRIBUTABLE: source register retains neither semantic filename, drawing link nor retrievable content. No evidenced artwork association; not a blanket blocker.",
       "blocks_classifications": []
@@ -22343,13 +21452,8 @@
     {
       "file_id": "FILE-3cfd96675f6309029050",
       "sha256": "3cfd96675f6309029050516ac9ef839326085261830253a9cd9ab564a84bb3df",
-      "register_locations": [
-        "local-downloads/withheld-image-4838"
-      ],
-      "dimensions": [
-        1376,
-        768
-      ],
+      "register_locations": ["local-downloads/withheld-image-4838"],
+      "dimensions": [1376, 768],
       "affected_artwork_ids": null,
       "association_status": "UNATTRIBUTABLE: source register retains neither semantic filename, drawing link nor retrievable content. No evidenced artwork association; not a blanket blocker.",
       "blocks_classifications": []
@@ -22357,13 +21461,8 @@
     {
       "file_id": "FILE-aff4e6eb6e8d29aa47a2",
       "sha256": "aff4e6eb6e8d29aa47a2c1be3da71012285bdd3c6ee63382755fc4a0bec23b30",
-      "register_locations": [
-        "local-downloads/withheld-image-4839"
-      ],
-      "dimensions": [
-        1536,
-        1024
-      ],
+      "register_locations": ["local-downloads/withheld-image-4839"],
+      "dimensions": [1536, 1024],
       "affected_artwork_ids": null,
       "association_status": "UNATTRIBUTABLE: source register retains neither semantic filename, drawing link nor retrievable content. No evidenced artwork association; not a blanket blocker.",
       "blocks_classifications": []
@@ -22371,13 +21470,8 @@
     {
       "file_id": "FILE-5b78e1d68172c51e5f2a",
       "sha256": "5b78e1d68172c51e5f2a9766cc46942328ecffc55de7d7ade91c1fd89b17ea8c",
-      "register_locations": [
-        "local-downloads/withheld-image-4840"
-      ],
-      "dimensions": [
-        1968,
-        2184
-      ],
+      "register_locations": ["local-downloads/withheld-image-4840"],
+      "dimensions": [1968, 2184],
       "affected_artwork_ids": null,
       "association_status": "UNATTRIBUTABLE: source register retains neither semantic filename, drawing link nor retrievable content. No evidenced artwork association; not a blanket blocker.",
       "blocks_classifications": []
@@ -22385,13 +21479,8 @@
     {
       "file_id": "FILE-8586097de996d6103e05",
       "sha256": "8586097de996d6103e05dc118f3f16ed685c134a4416f2bdf7d9adbc88963a70",
-      "register_locations": [
-        "local-downloads/withheld-image-4841"
-      ],
-      "dimensions": [
-        2752,
-        1536
-      ],
+      "register_locations": ["local-downloads/withheld-image-4841"],
+      "dimensions": [2752, 1536],
       "affected_artwork_ids": null,
       "association_status": "UNATTRIBUTABLE: source register retains neither semantic filename, drawing link nor retrievable content. No evidenced artwork association; not a blanket blocker.",
       "blocks_classifications": []
@@ -22403,10 +21492,7 @@
         "local-downloads/withheld-image-4842",
         "local-downloads/withheld-image-4869"
       ],
-      "dimensions": [
-        1086,
-        1448
-      ],
+      "dimensions": [1086, 1448],
       "affected_artwork_ids": null,
       "association_status": "UNATTRIBUTABLE: source register retains neither semantic filename, drawing link nor retrievable content. No evidenced artwork association; not a blanket blocker.",
       "blocks_classifications": []
@@ -22414,13 +21500,8 @@
     {
       "file_id": "FILE-20c0a115d818348c381d",
       "sha256": "20c0a115d818348c381d9cab5af2db6a326a736364c0089298b634940c987f5c",
-      "register_locations": [
-        "local-downloads/withheld-image-4843"
-      ],
-      "dimensions": [
-        1008,
-        1792
-      ],
+      "register_locations": ["local-downloads/withheld-image-4843"],
+      "dimensions": [1008, 1792],
       "affected_artwork_ids": null,
       "association_status": "UNATTRIBUTABLE: source register retains neither semantic filename, drawing link nor retrievable content. No evidenced artwork association; not a blanket blocker.",
       "blocks_classifications": []
@@ -22428,13 +21509,8 @@
     {
       "file_id": "FILE-9b3b881f0ac6d117a1e2",
       "sha256": "9b3b881f0ac6d117a1e252ca3c9820d72de0ed9b70f4a7bf0d300f86484de64b",
-      "register_locations": [
-        "local-downloads/withheld-image-4867"
-      ],
-      "dimensions": [
-        768,
-        1360
-      ],
+      "register_locations": ["local-downloads/withheld-image-4867"],
+      "dimensions": [768, 1360],
       "affected_artwork_ids": null,
       "association_status": "UNATTRIBUTABLE: source register retains neither semantic filename, drawing link nor retrievable content. No evidenced artwork association; not a blanket blocker.",
       "blocks_classifications": []
@@ -22442,13 +21518,8 @@
     {
       "file_id": "FILE-2939bf56bd6609f226bd",
       "sha256": "2939bf56bd6609f226bdfe9cb80245f708b2a9c066f7a9cbb4eed464acb2feac",
-      "register_locations": [
-        "local-downloads/withheld-image-4868"
-      ],
-      "dimensions": [
-        4608,
-        1039
-      ],
+      "register_locations": ["local-downloads/withheld-image-4868"],
+      "dimensions": [4608, 1039],
       "affected_artwork_ids": null,
       "association_status": "UNATTRIBUTABLE: source register retains neither semantic filename, drawing link nor retrievable content. No evidenced artwork association; not a blanket blocker.",
       "blocks_classifications": []
@@ -22456,13 +21527,8 @@
     {
       "file_id": "FILE-9261cb3813333c801946",
       "sha256": "9261cb3813333c801946b7f8cd8a9f035c3e0dc1ea727f92e4996e2bd049e9d6",
-      "register_locations": [
-        "local-downloads/withheld-image-4870"
-      ],
-      "dimensions": [
-        1792,
-        2400
-      ],
+      "register_locations": ["local-downloads/withheld-image-4870"],
+      "dimensions": [1792, 2400],
       "affected_artwork_ids": null,
       "association_status": "UNATTRIBUTABLE: source register retains neither semantic filename, drawing link nor retrievable content. No evidenced artwork association; not a blanket blocker.",
       "blocks_classifications": []
@@ -22470,13 +21536,8 @@
     {
       "file_id": "FILE-5be76f19932ead045cbf",
       "sha256": "5be76f19932ead045cbfc95c6f9c97c970b364e2ef740dab28c0459c145a2a98",
-      "register_locations": [
-        "local-downloads/withheld-image-4872"
-      ],
-      "dimensions": [
-        2140,
-        975
-      ],
+      "register_locations": ["local-downloads/withheld-image-4872"],
+      "dimensions": [2140, 975],
       "affected_artwork_ids": null,
       "association_status": "UNATTRIBUTABLE: source register retains neither semantic filename, drawing link nor retrievable content. No evidenced artwork association; not a blanket blocker.",
       "blocks_classifications": []
@@ -22484,13 +21545,8 @@
     {
       "file_id": "FILE-2ccd2d9de7b96e2662b3",
       "sha256": "2ccd2d9de7b96e2662b3dfc85ebc41e96f1b76d87854f8cf19293b7da9819ec1",
-      "register_locations": [
-        "local-downloads/withheld-image-4873"
-      ],
-      "dimensions": [
-        1897,
-        3015
-      ],
+      "register_locations": ["local-downloads/withheld-image-4873"],
+      "dimensions": [1897, 3015],
       "affected_artwork_ids": null,
       "association_status": "UNATTRIBUTABLE: source register retains neither semantic filename, drawing link nor retrievable content. No evidenced artwork association; not a blanket blocker.",
       "blocks_classifications": []
@@ -22498,13 +21554,8 @@
     {
       "file_id": "FILE-ba063c4c6b9a8c82c98e",
       "sha256": "ba063c4c6b9a8c82c98e43f45c7df0bc6b20e3c6b6662854f7729e9451ab8de4",
-      "register_locations": [
-        "local-downloads/withheld-image-4874"
-      ],
-      "dimensions": [
-        627,
-        695
-      ],
+      "register_locations": ["local-downloads/withheld-image-4874"],
+      "dimensions": [627, 695],
       "affected_artwork_ids": null,
       "association_status": "UNATTRIBUTABLE: source register retains neither semantic filename, drawing link nor retrievable content. No evidenced artwork association; not a blanket blocker.",
       "blocks_classifications": []
@@ -22512,13 +21563,8 @@
     {
       "file_id": "FILE-bc68ebe3fe41bd9b9645",
       "sha256": "bc68ebe3fe41bd9b9645fcbd3594a7ef3d3cd339ed6db1cb6376b5c1f0bdad6f",
-      "register_locations": [
-        "local-downloads/withheld-image-4876"
-      ],
-      "dimensions": [
-        3584,
-        4800
-      ],
+      "register_locations": ["local-downloads/withheld-image-4876"],
+      "dimensions": [3584, 4800],
       "affected_artwork_ids": null,
       "association_status": "UNATTRIBUTABLE: source register retains neither semantic filename, drawing link nor retrievable content. No evidenced artwork association; not a blanket blocker.",
       "blocks_classifications": []
@@ -22526,13 +21572,8 @@
     {
       "file_id": "FILE-44173b6487c9671c63c2",
       "sha256": "44173b6487c9671c63c2e676908fca2288fe5259dbec57d539c254909a4e2d55",
-      "register_locations": [
-        "local-downloads/withheld-image-4877"
-      ],
-      "dimensions": [
-        896,
-        1200
-      ],
+      "register_locations": ["local-downloads/withheld-image-4877"],
+      "dimensions": [896, 1200],
       "affected_artwork_ids": null,
       "association_status": "UNATTRIBUTABLE: source register retains neither semantic filename, drawing link nor retrievable content. No evidenced artwork association; not a blanket blocker.",
       "blocks_classifications": []
@@ -22540,13 +21581,8 @@
     {
       "file_id": "FILE-4feeee93515a07876b19",
       "sha256": "4feeee93515a07876b19d2db633947f3722fed330a7ca79d27ade65e505a961d",
-      "register_locations": [
-        "local-downloads/withheld-image-4878"
-      ],
-      "dimensions": [
-        3584,
-        4800
-      ],
+      "register_locations": ["local-downloads/withheld-image-4878"],
+      "dimensions": [3584, 4800],
       "affected_artwork_ids": null,
       "association_status": "UNATTRIBUTABLE: source register retains neither semantic filename, drawing link nor retrievable content. No evidenced artwork association; not a blanket blocker.",
       "blocks_classifications": []
@@ -22554,13 +21590,8 @@
     {
       "file_id": "FILE-60e299f92d386192733e",
       "sha256": "60e299f92d386192733e5608b127c2861752f6ae253728f68a9c94e355d3a339",
-      "register_locations": [
-        "local-downloads/withheld-image-4879"
-      ],
-      "dimensions": [
-        896,
-        1200
-      ],
+      "register_locations": ["local-downloads/withheld-image-4879"],
+      "dimensions": [896, 1200],
       "affected_artwork_ids": null,
       "association_status": "UNATTRIBUTABLE: source register retains neither semantic filename, drawing link nor retrievable content. No evidenced artwork association; not a blanket blocker.",
       "blocks_classifications": []
@@ -22568,13 +21599,8 @@
     {
       "file_id": "FILE-fd927110d4a009839694",
       "sha256": "fd927110d4a009839694737792fa43380d5f5b7fa84b4f3605edd52f6e279c7d",
-      "register_locations": [
-        "local-downloads/withheld-image-4880"
-      ],
-      "dimensions": [
-        3584,
-        4800
-      ],
+      "register_locations": ["local-downloads/withheld-image-4880"],
+      "dimensions": [3584, 4800],
       "affected_artwork_ids": null,
       "association_status": "UNATTRIBUTABLE: source register retains neither semantic filename, drawing link nor retrievable content. No evidenced artwork association; not a blanket blocker.",
       "blocks_classifications": []
@@ -22582,13 +21608,8 @@
     {
       "file_id": "FILE-3faef1386cd10242938e",
       "sha256": "3faef1386cd10242938e34296b4c68bfa9387c674f26a8244e6c812aa93d5e18",
-      "register_locations": [
-        "local-downloads/withheld-image-4881"
-      ],
-      "dimensions": [
-        896,
-        1200
-      ],
+      "register_locations": ["local-downloads/withheld-image-4881"],
+      "dimensions": [896, 1200],
       "affected_artwork_ids": null,
       "association_status": "UNATTRIBUTABLE: source register retains neither semantic filename, drawing link nor retrievable content. No evidenced artwork association; not a blanket blocker.",
       "blocks_classifications": []
@@ -22596,13 +21617,8 @@
     {
       "file_id": "FILE-2fcd0bf513f25580eda9",
       "sha256": "2fcd0bf513f25580eda97f33bd7457dfafcf98052b66f389788d81aa6207d010",
-      "register_locations": [
-        "local-downloads/withheld-image-4882"
-      ],
-      "dimensions": [
-        896,
-        1200
-      ],
+      "register_locations": ["local-downloads/withheld-image-4882"],
+      "dimensions": [896, 1200],
       "affected_artwork_ids": null,
       "association_status": "UNATTRIBUTABLE: source register retains neither semantic filename, drawing link nor retrievable content. No evidenced artwork association; not a blanket blocker.",
       "blocks_classifications": []
@@ -22610,13 +21626,8 @@
     {
       "file_id": "FILE-27a958d635c4f59c9c9d",
       "sha256": "27a958d635c4f59c9c9d53a0d83fb28dc1b3f3ec6d7574ece4b3b3cba7d18239",
-      "register_locations": [
-        "local-downloads/withheld-image-4883"
-      ],
-      "dimensions": [
-        928,
-        1152
-      ],
+      "register_locations": ["local-downloads/withheld-image-4883"],
+      "dimensions": [928, 1152],
       "affected_artwork_ids": null,
       "association_status": "UNATTRIBUTABLE: source register retains neither semantic filename, drawing link nor retrievable content. No evidenced artwork association; not a blanket blocker.",
       "blocks_classifications": []
@@ -22624,13 +21635,8 @@
     {
       "file_id": "FILE-c5d312b748c272fc4eac",
       "sha256": "c5d312b748c272fc4eac5be9036be36ac4eb53036672a2033530f6c81bacccef",
-      "register_locations": [
-        "local-downloads/withheld-image-4884"
-      ],
-      "dimensions": [
-        928,
-        1152
-      ],
+      "register_locations": ["local-downloads/withheld-image-4884"],
+      "dimensions": [928, 1152],
       "affected_artwork_ids": null,
       "association_status": "UNATTRIBUTABLE: source register retains neither semantic filename, drawing link nor retrievable content. No evidenced artwork association; not a blanket blocker.",
       "blocks_classifications": []
@@ -22638,13 +21644,8 @@
     {
       "file_id": "FILE-c259041e9e98a2b52c4b",
       "sha256": "c259041e9e98a2b52c4b8e614ba2e26c9ae014a6c502bd8d7dee67c9289ea1c7",
-      "register_locations": [
-        "local-downloads/withheld-image-4885"
-      ],
-      "dimensions": [
-        928,
-        1152
-      ],
+      "register_locations": ["local-downloads/withheld-image-4885"],
+      "dimensions": [928, 1152],
       "affected_artwork_ids": null,
       "association_status": "UNATTRIBUTABLE: source register retains neither semantic filename, drawing link nor retrievable content. No evidenced artwork association; not a blanket blocker.",
       "blocks_classifications": []
@@ -22652,13 +21653,8 @@
     {
       "file_id": "FILE-8053a5b1380a35882274",
       "sha256": "8053a5b1380a35882274332ee737a8ea1d8967e370e50a09cc5e8604115cb0b5",
-      "register_locations": [
-        "local-downloads/withheld-image-4886"
-      ],
-      "dimensions": [
-        896,
-        1200
-      ],
+      "register_locations": ["local-downloads/withheld-image-4886"],
+      "dimensions": [896, 1200],
       "affected_artwork_ids": null,
       "association_status": "UNATTRIBUTABLE: source register retains neither semantic filename, drawing link nor retrievable content. No evidenced artwork association; not a blanket blocker.",
       "blocks_classifications": []
@@ -22666,13 +21662,8 @@
     {
       "file_id": "FILE-855ca7af16ba835c729a",
       "sha256": "855ca7af16ba835c729a3c98bdbcb60bde96aadb68f94c1b5d71e4d979bb2966",
-      "register_locations": [
-        "local-downloads/withheld-image-4887"
-      ],
-      "dimensions": [
-        1792,
-        2400
-      ],
+      "register_locations": ["local-downloads/withheld-image-4887"],
+      "dimensions": [1792, 2400],
       "affected_artwork_ids": null,
       "association_status": "UNATTRIBUTABLE: source register retains neither semantic filename, drawing link nor retrievable content. No evidenced artwork association; not a blanket blocker.",
       "blocks_classifications": []
@@ -22680,13 +21671,8 @@
     {
       "file_id": "FILE-e558b1bc0d44c3380784",
       "sha256": "e558b1bc0d44c3380784e9bc7d193ac0e0ce32bbf0cee46adc9154356245d2c8",
-      "register_locations": [
-        "local-downloads/withheld-image-4888"
-      ],
-      "dimensions": [
-        896,
-        1200
-      ],
+      "register_locations": ["local-downloads/withheld-image-4888"],
+      "dimensions": [896, 1200],
       "affected_artwork_ids": null,
       "association_status": "UNATTRIBUTABLE: source register retains neither semantic filename, drawing link nor retrievable content. No evidenced artwork association; not a blanket blocker.",
       "blocks_classifications": []
@@ -22694,13 +21680,8 @@
     {
       "file_id": "FILE-91072a05638d464a127c",
       "sha256": "91072a05638d464a127cb4d88448afaabce3f81b9626cd29ec3107bc1df8cfb7",
-      "register_locations": [
-        "local-downloads/withheld-image-4889"
-      ],
-      "dimensions": [
-        1086,
-        1448
-      ],
+      "register_locations": ["local-downloads/withheld-image-4889"],
+      "dimensions": [1086, 1448],
       "affected_artwork_ids": null,
       "association_status": "UNATTRIBUTABLE: source register retains neither semantic filename, drawing link nor retrievable content. No evidenced artwork association; not a blanket blocker.",
       "blocks_classifications": []
@@ -22715,10 +21696,7 @@
     "current_groups_including_unresolved_composites": 201,
     "merged": [
       {
-        "baseline_groups": [
-          "DRAW-FC-009-04",
-          "DRAW-FC-011-01"
-        ],
+        "baseline_groups": ["DRAW-FC-009-04", "DRAW-FC-011-01"],
         "current_group": "DRAW-FC-009-04",
         "reason": "Same mother/child pose, clothing folds and complete flower-border arrangement.",
         "source_evidence": [
@@ -22732,21 +21710,15 @@
   },
   "remaining_blockers": [
     {
-      "artwork_ids": [
-        "FC-FRONT-001"
-      ],
+      "artwork_ids": ["FC-FRONT-001"],
       "reason": "Frontmatter composite boundaries and component identity are not resolved by the existing drawing inventory; no corresponding faithful component candidate is established."
     },
     {
-      "artwork_ids": [
-        "WB-FRONT-001"
-      ],
+      "artwork_ids": ["WB-FRONT-001"],
       "reason": "Frontmatter composite boundaries and component identity are not resolved by the existing drawing inventory; no corresponding faithful component candidate is established."
     },
     {
-      "artwork_ids": [
-        "WB-FRONT-003"
-      ],
+      "artwork_ids": ["WB-FRONT-003"],
       "reason": "Frontmatter composite boundaries and component identity are not resolved by the existing drawing inventory; no corresponding faithful component candidate is established."
     }
   ]

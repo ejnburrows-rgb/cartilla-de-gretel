@@ -24,7 +24,10 @@ function SourceScan({ pageNumber }: { pageNumber: number }) {
   const [failed, setFailed] = useState(false);
   if (SOURCE_BLOCKED_WORKBOOK_PAGES.includes(pageNumber) || failed) {
     return (
-      <div className="flex h-full w-full items-center justify-center bg-stone-50 p-8 text-center text-sm font-bold text-stone-500" role="status">
+      <div
+        className="flex h-full w-full items-center justify-center bg-stone-50 p-8 text-center text-sm font-bold text-stone-500"
+        role="status"
+      >
         Escaneo fuente no disponible para la página {pageNumber} — la página no se inventa.
       </div>
     );
@@ -59,8 +62,8 @@ function PilotFaithfulPage() {
           Libro vs. digital — página {pageNumber} · Lección {lesson}
         </h1>
         <p className="mt-1 text-sm text-foreground/60">
-          Control de calidad: a la izquierda la página tal como la ve el estudiante; a la derecha
-          el escaneo del libro del alumno.
+          Control de calidad: a la izquierda la página tal como la ve el estudiante; a la derecha el
+          escaneo del libro del alumno.
         </p>
 
         <nav className="mt-4 flex flex-wrap gap-1.5" aria-label="Páginas del cuaderno">
@@ -89,7 +92,13 @@ function PilotFaithfulPage() {
             </h2>
             {/* Same container the student lesson viewer uses, so this shows exactly what the child sees. */}
             <div className="native-lesson-viewer__content overflow-hidden rounded-xl border border-foreground/10 bg-[#fffaf0] p-4">
-              <FaithfulPageRenderer key={pageNumber} pageNumber={pageNumber} lessonNumber={lesson} interactive native />
+              <FaithfulPageRenderer
+                key={pageNumber}
+                pageNumber={pageNumber}
+                lessonNumber={lesson}
+                interactive
+                native
+              />
             </div>
           </section>
           <section data-qa="source">

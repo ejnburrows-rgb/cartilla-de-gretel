@@ -8,14 +8,22 @@ import { TeacherDailyHome } from "../TeacherDailyHome";
 
 // Mock router links so we don't need a real router context
 vi.mock("@tanstack/react-router", () => ({
-  Link: ({ to, children, ...props }: any) => <a href={to} {...props}>{children}</a>,
+  Link: ({ to, children, ...props }: any) => (
+    <a href={to} {...props}>
+      {children}
+    </a>
+  ),
 }));
 
 // Mock seed data library
 vi.mock("@/lib/seed-data", () => ({
   isSeedSessionActive: vi.fn().mockReturnValue(true),
-  listSeedClasses: vi.fn().mockReturnValue([{ id: "1", name: "Seed Class 1", created_at: "2023-01-01" }]),
-  getSeedClass: vi.fn().mockReturnValue({ id: "1", name: "Seed Class 1", created_at: "2023-01-01", students: [] }),
+  listSeedClasses: vi
+    .fn()
+    .mockReturnValue([{ id: "1", name: "Seed Class 1", created_at: "2023-01-01" }]),
+  getSeedClass: vi
+    .fn()
+    .mockReturnValue({ id: "1", name: "Seed Class 1", created_at: "2023-01-01", students: [] }),
   listSeedAssignments: vi.fn().mockReturnValue([]),
   createSeedClass: vi.fn(),
   addSeedStudents: vi.fn(),
@@ -63,9 +71,7 @@ describe("TeacherDailyHome", () => {
   });
 
   const TestWrapper = ({ children }: { children: React.ReactNode }) => (
-    <QueryClientProvider client={queryClient}>
-      {children}
-    </QueryClientProvider>
+    <QueryClientProvider client={queryClient}>{children}</QueryClientProvider>
   );
 
   it("renders without crashing and displays the seed class", async () => {
@@ -73,14 +79,14 @@ describe("TeacherDailyHome", () => {
 
     // Header check
     expect(screen.getByText("Hoy en tu clase")).toBeDefined();
-    
-    // Check that we display the class name in the dropdown 
+
+    // Check that we display the class name in the dropdown
     await waitFor(() => {
       const select = screen.getByRole("combobox", { name: "Clase activa" });
       expect(within(select).getByRole("option", { name: "Seed Class 1" })).toBeDefined();
     });
   });
-  
+
   it("can toggle creating a new class", async () => {
     render(<TeacherDailyHome />, { wrapper: TestWrapper });
 
@@ -90,7 +96,7 @@ describe("TeacherDailyHome", () => {
 
     const newClassButton = screen.getByRole("button", { name: "Nueva clase" });
     fireEvent.click(newClassButton);
-    
+
     // Check that we're now showing the create class form
     expect(screen.getByPlaceholderText("Nombre de la clase")).toBeDefined();
     expect(screen.getByRole("button", { name: "Cancelar nueva clase" })).toBeDefined();

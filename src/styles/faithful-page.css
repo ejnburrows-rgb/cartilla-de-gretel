@@ -27,8 +27,12 @@
 /* Student pages use their printed paper surface. Lesson objects and source
  * illustrations remain separate content; no garden collage is painted behind
  * every exercise. */
-.faithful-page--garden { background: var(--book-paper); }
-.faithful-page--garden::before { content: none; }
+.faithful-page--garden {
+  background: var(--book-paper);
+}
+.faithful-page--garden::before {
+  content: none;
+}
 
 /* Wavy teal sidebar down the left edge */
 .faithful-page__sidebar {
@@ -282,8 +286,12 @@
      for the tracing canvas or the mode toggle beneath it. */
   pointer-events: none;
 }
-.fp-trace__hint--off { color: #e11d48; }
-.fp-trace__hint--ok { color: #059669; }
+.fp-trace__hint--off {
+  color: #e11d48;
+}
+.fp-trace__hint--ok {
+  color: #059669;
+}
 .fp-trace__reset {
   border: none;
   background: rgba(31, 41, 55, 0.06);
@@ -295,9 +303,13 @@
   line-height: 1;
   cursor: pointer;
 }
-.fp-trace__reset:hover { background: rgba(31, 41, 55, 0.12); }
+.fp-trace__reset:hover {
+  background: rgba(31, 41, 55, 0.12);
+}
 @media (prefers-reduced-motion: reduce) {
-  .fp-trace__progress-fill { transition: none; }
+  .fp-trace__progress-fill {
+    transition: none;
+  }
 }
 
 /* Empty draw box for "haz un dibujo" */
@@ -359,14 +371,22 @@
   font-size: 2.2cqw;
   cursor: pointer;
 }
-.fp-draw-box__btn:hover { background: rgba(31, 41, 55, 0.12); }
-.fp-draw-box__btn:disabled { opacity: 0.5; cursor: not-allowed; }
+.fp-draw-box__btn:hover {
+  background: rgba(31, 41, 55, 0.12);
+}
+.fp-draw-box__btn:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
 .fp-draw-box__btn--done {
   background: var(--book-teal);
   color: #fff;
   margin-left: auto;
 }
-.fp-draw-box__btn--done:hover { background: var(--book-teal); filter: brightness(1.1); }
+.fp-draw-box__btn--done:hover {
+  background: var(--book-teal);
+  filter: brightness(1.1);
+}
 .fp-draw-box__done {
   margin-left: auto;
   font-weight: 700;
@@ -615,8 +635,13 @@
  * FaithfulPageRenderer.tsx's floatDelay helper) so a grid never moves in
  * lockstep. */
 @keyframes fpFaithfulFloat {
-  0%, 100% { transform: translateY(0) rotate(0deg); }
-  50% { transform: translateY(-2.5px) rotate(1deg); }
+  0%,
+  100% {
+    transform: translateY(0) rotate(0deg);
+  }
+  50% {
+    transform: translateY(-2.5px) rotate(1deg);
+  }
 }
 .fp-picture-grid__cell img,
 .fp-vowel-match__cell img,
@@ -651,26 +676,39 @@
   color: var(--book-ink-soft);
 }
 
-
 /* ── Approved book-page presentation overrides ── */
 .faithful-page {
-  background: radial-gradient(120% 90% at 16% 8%, rgba(167, 243, 208, 0.08), transparent 55%), #fbfaf5;
+  background:
+    radial-gradient(120% 90% at 16% 8%, rgba(167, 243, 208, 0.08), transparent 55%), #fbfaf5;
   color: var(--lc-ink, #25313a);
   font-family: "Andika", ui-rounded, system-ui, sans-serif;
-  border: 1px solid rgba(37,49,58,.14);
+  border: 1px solid rgba(37, 49, 58, 0.14);
   border-radius: 8px;
-  box-shadow: 0 10px 32px rgba(37,49,58,.10);
+  box-shadow: 0 10px 32px rgba(37, 49, 58, 0.1);
 }
-.faithful-page__sidebar { color: var(--lc-teal, #1f9e94); }
+.faithful-page__sidebar {
+  color: var(--lc-teal, #1f9e94);
+}
 .faithful-page--edge-right .faithful-page__sidebar {
   left: auto;
   right: 0;
   transform: scaleX(-1);
 }
-.faithful-page--edge-right .faithful-page__body { padding: 6% 12% 9% 7%; }
-.faithful-page--edge-right .faithful-page__pagenum { left:auto; right:2.2%; }
-.faithful-page--edge-right .faithful-page__lesson { right:auto; left:5%; }
-.faithful-page__pagenum { background: var(--lc-teal, #1f9e94); box-shadow:none; }
+.faithful-page--edge-right .faithful-page__body {
+  padding: 6% 12% 9% 7%;
+}
+.faithful-page--edge-right .faithful-page__pagenum {
+  left: auto;
+  right: 2.2%;
+}
+.faithful-page--edge-right .faithful-page__lesson {
+  right: auto;
+  left: 5%;
+}
+.faithful-page__pagenum {
+  background: var(--lc-teal, #1f9e94);
+  box-shadow: none;
+}
 .faithful-page__lesson {
   display: inline-flex;
   align-items: center;
@@ -685,12 +723,14 @@
   font-family: "Andika", ui-rounded, system-ui, sans-serif;
 }
 .fp-region--title,
-.fp-native-title { font-family:"Fredoka",ui-rounded,system-ui,sans-serif; }
+.fp-native-title {
+  font-family: "Fredoka", ui-rounded, system-ui, sans-serif;
+}
 .fp-region--instruction {
-  font-family:"Andika",ui-rounded,system-ui,sans-serif;
+  font-family: "Andika", ui-rounded, system-ui, sans-serif;
   font-size: clamp(28px, 4.2cqw, 38px);
-  line-height:1.35;
-  color:var(--lc-ink,#25313a);
+  line-height: 1.35;
+  color: var(--lc-ink, #25313a);
 }
 .fp-region--instruction .fp-label {
   font-weight: 800;
@@ -707,11 +747,14 @@
 .fp-syllable-match__word,
 .fp-fill-in-blank__wordbox,
 .fp-fill-in-blank__blank {
-  font-family:"Andika",ui-rounded,system-ui,sans-serif;
+  font-family: "Andika", ui-rounded, system-ui, sans-serif;
   font-size: clamp(20px, 3.5cqw, 32px);
-  line-height:1.4;
+  line-height: 1.4;
 }
-.fp-illustration img { filter:none; border-radius:0; }
+.fp-illustration img {
+  filter: none;
+  border-radius: 0;
+}
 .fp-picture-grid__cell,
 .fp-vowel-match__cell,
 .fp-vowel-pick__cell,
@@ -719,25 +762,32 @@
   border: 1.5px solid rgba(13, 148, 136, 0.3);
   background: #ffffff;
   border-radius: 12px;
-  box-shadow: 0 0 0 3px rgba(167, 243, 208, 0.18), 0 3px 10px rgba(13, 148, 136, 0.08);
+  box-shadow:
+    0 0 0 3px rgba(167, 243, 208, 0.18),
+    0 3px 10px rgba(13, 148, 136, 0.08);
 }
 .fp-art-pending {
-  visibility:hidden;
-  border:0;
-  background:transparent;
+  visibility: hidden;
+  border: 0;
+  background: transparent;
 }
 .fp-writing-line__model,
 .fp-region--syllable-bubble,
 .fp-syllable-match__syllable,
 .fp-vowel-match__letters {
-  font-family:"Fredoka",ui-rounded,system-ui,sans-serif;
+  font-family: "Fredoka", ui-rounded, system-ui, sans-serif;
 }
 .fp-instruction__escuchar button,
 .fp-instruction__escuchar {
-  min-height:44px;
-  min-width:44px;
+  min-height: 44px;
+  min-width: 44px;
 }
 @media (max-width: 700px) {
-  .faithful-page { border-radius:0; box-shadow:none; }
-  .faithful-page__body { overflow: visible; }
+  .faithful-page {
+    border-radius: 0;
+    box-shadow: none;
+  }
+  .faithful-page__body {
+    overflow: visible;
+  }
 }

@@ -63,9 +63,18 @@ test.describe("full flip chart visual audit capture", () => {
           }
           const broken = await stage.locator("img:visible").evaluateAll((nodes) =>
             nodes
-              .filter((node) => { const img = node as HTMLImageElement; return !(img.complete && img.naturalWidth > 0); })
-              .map((node) => (node as HTMLImageElement).currentSrc || (node as HTMLImageElement).src));
-          expect(broken, `broken pictures on lesson ${lesson} sheet ${sheet + 1} (${viewport.name})`).toEqual([]);
+              .filter((node) => {
+                const img = node as HTMLImageElement;
+                return !(img.complete && img.naturalWidth > 0);
+              })
+              .map(
+                (node) => (node as HTMLImageElement).currentSrc || (node as HTMLImageElement).src,
+              ),
+          );
+          expect(
+            broken,
+            `broken pictures on lesson ${lesson} sheet ${sheet + 1} (${viewport.name})`,
+          ).toEqual([]);
           await stage.screenshot({
             path: path.join(lessonDir, `Hoja-${sheet + 1}-de-${sheetCount}.png`),
           });
@@ -74,10 +83,9 @@ test.describe("full flip chart visual audit capture", () => {
       }
 
       expect(captured, `sheets captured at ${viewport.name}`).toBeGreaterThanOrEqual(60);
-      expect(
-        errors,
-        `console/page errors during flip chart capture (${viewport.name})`,
-      ).toEqual([]);
+      expect(errors, `console/page errors during flip chart capture (${viewport.name})`).toEqual(
+        [],
+      );
     });
   }
 });

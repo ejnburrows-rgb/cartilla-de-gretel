@@ -10,7 +10,6 @@
 4. **No stale or fake approval evidence.** A merge, code review, unit test, Jules receipt or local dev fake does NOT prove visual approval. Fresh proof must depict the REAL source-faithful Student Workbook or Teacher/Flip Chart page at the exact verified commit/deployment, with the latest approved pencil/eraser, on the stated viewport/device; screenshots from `/dev-*`, old Vercel previews or synthetic demos are prohibited as owner approval evidence. Missing actual proof means **NOT APPROVAL-READY**; no historical substitution or unapproved release.
 5. **Precedence:** the owner's latest explicit 2026-10-13 authorization to proactively refill verified useful Jules capacity supersedes older 'never target 15', 'no automatic refill', and blanket new-task per-issue approval instructions. The latest source-faithful product designs, owner-only approval/release gates, credit/Antigravity prohibition and evidence standards remain fully binding. Muse is the single active dispatch controller; do not restore obsolete ChatGPT dispatch schedules, a rival controller, retired Windows/Neon/OpenHands infrastructure or paid systems.
 
-
 **Owner-locked:** 2026-10-05  
 **Scope:** entire La Cartilla de Gretel product  
 **Authority:** this file defines what "project finished" means. It is not a task list or changelog.

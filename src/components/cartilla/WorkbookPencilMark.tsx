@@ -945,7 +945,8 @@ export function WorkbookPencilMark({
   const height = Math.round(100 * aspect * 10) / 10;
   const seed = useMemo(() => hashSeed(itemId ?? "mark"), [itemId]);
   const strokePoints = useMemo(
-    () => (markType === "circle" ? [handDrawnLoop(height, seed, round)] : handDrawnCross(height, round)),
+    () =>
+      markType === "circle" ? [handDrawnLoop(height, seed, round)] : handDrawnCross(height, round),
     [height, markType, seed, round],
   );
   const strokes = useMemo(() => strokePoints.map(smoothPath), [strokePoints]);

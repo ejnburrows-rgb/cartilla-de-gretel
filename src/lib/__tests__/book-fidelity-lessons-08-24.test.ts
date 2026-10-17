@@ -53,7 +53,10 @@ const COMPLETE = "Completa las palabras con la sílaba correcta.";
 const SENTENCES = "Escribe oraciones. Usa las sílabas que aprendiste.";
 
 const fold = (s: string) =>
-  s.normalize("NFD").replace(/[\u0300-\u036f]/g, "").toLowerCase();
+  s
+    .normalize("NFD")
+    .replace(/[\u0300-\u036f]/g, "")
+    .toLowerCase();
 const byOrder = (p: Page) => [...p.regions].sort((a, b) => a.order - b.order);
 const page = (n: number): Page => {
   const p = pages[String(n)];
@@ -174,7 +177,10 @@ describe("book fidelity — Lessons 8–24", () => {
           expect(item.blank).toBe(f.blank);
           expect(item.choices.map((c) => c.text)).toEqual(f.choices);
           const correct = item.choices.filter((c) => c.correct);
-          expect(correct.map((c) => c.text), `${item.wordBox} single answer`).toEqual([f.answer]);
+          expect(
+            correct.map((c) => c.text),
+            `${item.wordBox} single answer`,
+          ).toEqual([f.answer]);
           // The answer placed in the blank must rebuild the printed word.
           const rebuilt = item.blank.replace("___", correct[0].text).replace(/\s+/g, "");
           expect(fold(rebuilt), `${item.blank} -> ${item.wordBox}`).toBe(fold(item.wordBox));
@@ -219,7 +225,8 @@ describe("book fidelity — Lessons 8–24", () => {
       expect(c, `consonants.json lesson ${n}`).toBeDefined();
       expect(c!.pages, `L${n} page range`).toBe(`${l.pages.write}-${l.pages.complete}`);
       expect(c!.syllables).toEqual(l.circle.map((x) => x.syllable));
-      for (const x of l.circle) expect(c!.examples[x.syllable]).toEqual([...new Set(x.rows.flat())]);
+      for (const x of l.circle)
+        expect(c!.examples[x.syllable]).toEqual([...new Set(x.rows.flat())]);
       const bookText = l.sentences.filter(Boolean).join(" ").replace(/\s+/g, " ");
       for (const s of c!.sentences) expect(bookText, `L${n}: "${s}"`).toContain(s);
     }

@@ -83,7 +83,10 @@ export function isLessonWeak(lessonId: string, stats: AllStats = read()): boolea
   const lesson = stats[lessonId];
   if (!lesson) return false;
   return Object.entries(lesson).some(
-    ([exercise, s]) => countsForLiteracy({ ...s.meta, exercise }) && s.attempts >= 3 && s.hits / Math.max(s.attempts, 1) < 0.7,
+    ([exercise, s]) =>
+      countsForLiteracy({ ...s.meta, exercise }) &&
+      s.attempts >= 3 &&
+      s.hits / Math.max(s.attempts, 1) < 0.7,
   );
 }
 

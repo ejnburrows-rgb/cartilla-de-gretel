@@ -10,7 +10,6 @@
 4. **No stale or fake approval evidence.** A merge, code review, unit test, Jules receipt or local dev fake does NOT prove visual approval. Fresh proof must depict the REAL source-faithful Student Workbook or Teacher/Flip Chart page at the exact verified commit/deployment, with the latest approved pencil/eraser, on the stated viewport/device; screenshots from `/dev-*`, old Vercel previews or synthetic demos are prohibited as owner approval evidence. Missing actual proof means **NOT APPROVAL-READY**; no historical substitution or unapproved release.
 5. **Precedence:** latest explicit owner decision > current `AGENTS.md` execution/safety policy > this document's owner-locked domain specifications > older tasks, PRs, memories and evidence. Do not create a rival dispatcher, restart disabled observers/controllers, invoke Antigravity, or use unauthorized paid services.
 
-
 ## Latest owner direction — 2026-10-07
 
 The uploaded second eight-panel image is the repeating main-page archetype.
@@ -21,7 +20,6 @@ content in nested scroll areas. Flipchart uses a clean paper surface with no
 background images; source instructional foreground scenes and useful motion
 remain. This explicit direction supersedes older side-companion and scenic
 Flipchart presentation statements below. Reference title bars are annotations.
-
 
 > **Status:** CANONICAL OWNER-LOCKED STUDENT WORKBOOK VISUAL SYSTEM  
 > **Owner direction:** 2026-10-06  
@@ -34,6 +32,7 @@ This file is the durable source of truth for how repeated Student Workbook exerc
 The physical Workbook page remains authoritative for **content and page identity**.
 
 Every digital page must remain immediately recognizable as its exact physical source page. Preserve:
+
 - exact wording;
 - exact approved artwork;
 - exact exercise structure;
@@ -54,6 +53,7 @@ Everything below those annotation bars is the approved visual direction for the 
 ## Shared Workbook visual treatment
 
 Across all eight archetypes:
+
 - warm off-white / very subtle clean paper surface;
 - preserve the original teal source-side wave/outline;
 - friendly rounded early-reader typography;
@@ -73,9 +73,11 @@ Do not regenerate, redraw, recolor, or replace source artwork outside the narrow
 ## The eight canonical visual archetypes
 
 ### 1. Picture grid / circle-X
+
 Use for source pages built around a picture grid where the child circles or marks matching pictures.
 
 Canonical structure:
+
 - instruction at top;
 - source-faithful picture grid;
 - each picture sits on a clean white rounded teal-framed surface;
@@ -85,9 +87,11 @@ Canonical structure:
 Representative source family includes page 1 and vowel picture-grid pages.
 
 ### 2. Vowel/letter + row choices
+
 Use for source pages with one target letter/vowel at the left of each row and picture choices across that row.
 
 Canonical structure:
+
 - source letter/vowel remains the row anchor;
 - choices remain in their original row relationship;
 - rounded white/teal picture surfaces;
@@ -96,9 +100,11 @@ Canonical structure:
 Representative source page: page 2.
 
 ### 3. Multi-pair matching / connect
+
 Use only when the physical source is genuinely a multi-source / multi-target matching layout.
 
 Canonical structure:
+
 - preserve the source columns/rows and correspondence geometry;
 - draw direct learner connectors between the source endpoints;
 - do not convert it into a central-target layout.
@@ -106,9 +112,11 @@ Canonical structure:
 Representative source page: page 3.
 
 ### 4. Single target + surrounding pictures
+
 Use when one central letter/vowel/object is surrounded by picture choices.
 
 Canonical structure:
+
 - one clearly raised central target;
 - surrounding pictures retain the source-faithful 3–2–3 or exact physical arrangement;
 - direct teal pencil connectors originate from the central target;
@@ -121,9 +129,11 @@ Representative vowel pages: **5, 8, 11, 14, 17**.
 This archetype may use the same underlying Pencil Line interaction behavior as matching activities. Visual archetype classification and interaction-adapter ownership are separate concepts.
 
 ### 5. Handwriting / tracing + open drawing
+
 Use for pages combining letter formation/tracing/writing with an open drawing prompt.
 
 Canonical structure:
+
 - preserve the original writing-line order and relative proportions;
 - large checkpoint/stroke-order tracing is the desktop default where applicable;
 - optional freehand tracing remains available;
@@ -132,9 +142,11 @@ Canonical structure:
 Representative source page family begins with page 6.
 
 ### 6. Syllable recognition / circle
+
 Use for repeated syllable rows where the learner circles/selects the correct word/syllable response.
 
 Canonical structure:
+
 - syllable anchor remains visually prominent;
 - word choices preserve source row/grouping;
 - use shared real Pencil/Eraser circle behavior;
@@ -143,9 +155,11 @@ Canonical structure:
 Representative source page: page 20 and equivalent consonant syllable pages.
 
 ### 7. Phonics / reading practice
+
 Use for letter/syllable/vocabulary/sentence reading pages.
 
 Canonical structure:
+
 - preserve the original reading hierarchy and order;
 - keep letter/syllable emphasis visually strong but restrained;
 - vocabulary and sentences remain source-faithful;
@@ -154,9 +168,11 @@ Canonical structure:
 Representative source page: page 21 and equivalent reading pages.
 
 ### 8. Complete-the-word + sentence writing
+
 Use for pages combining syllable/word completion and open sentence writing.
 
 Canonical structure:
+
 - preserve the original word boxes, blanks, choices, and writing lines;
 - existing syllable choices may be draggable into the original blank with click/tap fallback;
 - sentence writing defaults to typed input on digital handwriting lines with optional freehand mode;
@@ -167,6 +183,7 @@ Representative source family includes page 22 and later equivalents such as page
 ## Source-first classification rule
 
 Before changing any Workbook page:
+
 1. open that exact physical Workbook source page;
 2. classify its actual source structure into the matching archetype(s);
 3. do not infer one page from a neighboring page;
@@ -180,6 +197,7 @@ Current known blocked pages: **86–87**. Do not infer their text, artwork, regi
 `WORKBOOK_ARCHETYPE_STANDARD.md` owns the repeated **visual/source-layout family**.
 
 `STUDENT_INTERACTION_STANDARD.md` and `UX-CONTRACT.md` own the shared behavior/state system:
+
 - Circle/X → shared Pencil + Eraser;
 - line matching / central-target connectors → shared Pencil Line behavior;
 - matching/placement → existing drag/drop with click/tap fallback;
@@ -208,6 +226,7 @@ The underlying page remains unchanged. Preserve content, order, relationships, a
 ## Verification
 
 For every archetype implementation:
+
 - compare the rendered result against the exact physical source;
 - verify desktop and tablet;
 - verify normal / active / success / retry states where applicable;

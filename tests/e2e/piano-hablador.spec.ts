@@ -286,7 +286,9 @@ test.describe("Piano Hablador", () => {
   });
 
   for (const local of ["downloadable", "unavailable", "no-api"] as const) {
-    test(`on-device recognition ${local}: microphone unavailable and no false key confirmation`, async ({ page }) => {
+    test(`on-device recognition ${local}: microphone unavailable and no false key confirmation`, async ({
+      page,
+    }) => {
       await installFakeRecognizer(page, { local });
       await page.goto(PIANO_URL);
       const piano = page.locator(".piano-hablador");

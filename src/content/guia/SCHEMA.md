@@ -9,12 +9,13 @@ currently sources its data from two places:
    used by Folder 1 ("Guía del profesor").
 2. `src/content/teacher-folder-data.ts` — evaluation page + rhyme title
    per lesson, extracted verbatim from `docs/Transcripción Integral_ La
-   cartilla de Gretel - Guía del profesor.txt`, used by Folders 3-5.
+cartilla de Gretel - Guía del profesor.txt`, used by Folders 3-5.
 
 **Target schema for Anti-Gravity's future delivery** (`src/content/guia/lesson-N.json`
-+ a top-level `manifest.json`) — when this lands, it becomes the new
-source of truth and both files above get pointed at it instead, without
-changing the folder UI itself:
+
+- a top-level `manifest.json`) — when this lands, it becomes the new
+  source of truth and both files above get pointed at it instead, without
+  changing the folder UI itself:
 
 ```json
 {

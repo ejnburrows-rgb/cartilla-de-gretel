@@ -28,7 +28,7 @@ async function expectNoBrokenImages(page: Page, label: string) {
     }));
     expect(
       natural.complete && natural.naturalWidth > 0 && natural.naturalHeight > 0,
-      `Broken visible image in ${label}: ${natural.src}`
+      `Broken visible image in ${label}: ${natural.src}`,
     ).toBeTruthy();
   }
 }
@@ -52,7 +52,9 @@ test.describe("Workbook Archetype 5 & 6 Proof", () => {
     await ensureProofDir();
   });
 
-  test("Archetype 5: Handwriting/tracing and freehand drawing, progressive fade, persistence, responsive fit, reduced motion", async ({ page }) => {
+  test("Archetype 5: Handwriting/tracing and freehand drawing, progressive fade, persistence, responsive fit, reduced motion", async ({
+    page,
+  }) => {
     // 1. Laptop fit (1280x800) & Initial visual check on Lesson 7 (Printed page 19 - Archetype 5)
     await page.setViewportSize({ width: 1280, height: 800 });
     await page.goto("/cartilla/leccion/7", { waitUntil: "domcontentloaded" });
@@ -126,12 +128,16 @@ test.describe("Workbook Archetype 5 & 6 Proof", () => {
     await page.emulateMedia({ reducedMotion: "no-preference" });
   });
 
-  test("Archetype 6: Syllable recognition / circle, ordering, save/reload persistence, responsive fit, reduced motion", async ({ page }) => {
+  test("Archetype 6: Syllable recognition / circle, ordering, save/reload persistence, responsive fit, reduced motion", async ({
+    page,
+  }) => {
     // 1. Laptop fit (1280x800) on Pilot faithful route for Printed page 20 (Archetype 6)
     await page.setViewportSize({ width: 1280, height: 800 });
     await page.goto("/cartilla/pilot-faithful/20", { waitUntil: "domcontentloaded" });
     await expect(
-      page.locator(".native-syllable:visible, .fp-syllable-match:visible, .am-lasso:visible").first(),
+      page
+        .locator(".native-syllable:visible, .fp-syllable-match:visible, .am-lasso:visible")
+        .first(),
     ).toBeVisible({ timeout: 15000 });
 
     await expectNoBrokenImages(page, "Archetype 6 laptop");
@@ -140,12 +146,18 @@ test.describe("Workbook Archetype 5 & 6 Proof", () => {
     await page.screenshot({ path: path.join(PROOF_DIR, "archetype-6-laptop.png") });
 
     // Verify syllable match rows / circle selection / source ordering
-    const syllableMatchRows = page.locator(".native-syllable:visible, .fp-syllable-match:visible, .am-lasso:visible");
+    const syllableMatchRows = page.locator(
+      ".native-syllable:visible, .fp-syllable-match:visible, .am-lasso:visible",
+    );
     const matchCount = await syllableMatchRows.count();
     expect(matchCount, "Syllable match rows present").toBeGreaterThan(0);
 
     // Interact with first syllable / word choice
-    const selectableWord = page.locator(".native-syllable__word:visible, .fp-syllable-match__word:visible, .am-lasso__target:visible").first();
+    const selectableWord = page
+      .locator(
+        ".native-syllable__word:visible, .fp-syllable-match__word:visible, .am-lasso__target:visible",
+      )
+      .first();
     if (await selectableWord.isVisible().catch(() => false)) {
       await selectableWord.click();
       await page.waitForTimeout(300);
@@ -156,7 +168,9 @@ test.describe("Workbook Archetype 5 & 6 Proof", () => {
     // Verify save/reload persistence where supported
     await page.reload({ waitUntil: "domcontentloaded" });
     await expect(
-      page.locator(".native-syllable:visible, .fp-syllable-match:visible, .am-lasso:visible").first(),
+      page
+        .locator(".native-syllable:visible, .fp-syllable-match:visible, .am-lasso:visible")
+        .first(),
     ).toBeVisible({ timeout: 15000 });
 
     // Verify responsive viewports for Archetype 6
@@ -196,14 +210,20 @@ test.describe("Workbook Archetype 5 & 6 Proof", () => {
     // 2. Hit-testing at the hint's center must skip the hint element.
     const hit = await hint.evaluate((el) => {
       const r = el.getBoundingClientRect();
-      const top = document.elementFromPoint(r.left + r.width / 2, r.top + r.height / 2) as HTMLElement | null;
+      const top = document.elementFromPoint(
+        r.left + r.width / 2,
+        r.top + r.height / 2,
+      ) as HTMLElement | null;
       return {
         topTag: top?.tagName ?? null,
         topClass: String(top?.className ?? "").slice(0, 80),
         isHint: top === el || !!top?.closest?.(".fp-trace__hint"),
       };
     });
-    expect(hit.isHint, `hit-test at hint center must not land on the hint (landed on ${hit.topTag}.${hit.topClass})`).toBe(false);
+    expect(
+      hit.isHint,
+      `hit-test at hint center must not land on the hint (landed on ${hit.topTag}.${hit.topClass})`,
+    ).toBe(false);
 
     // 3. A real tap at the hint's center must reach the layer beneath, not the hint.
     await page.evaluate(() => {
@@ -225,10 +245,15 @@ test.describe("Workbook Archetype 5 & 6 Proof", () => {
     expect(box, "hint has a bounding box").not.toBeNull();
     await page.mouse.click(box!.x + box!.width / 2, box!.y + box!.height / 2);
     const tapTarget = await page.evaluate(
-      () => (window as unknown as { __tapTarget: { tag: string; cls: string; isHint: boolean } | null }).__tapTarget,
+      () =>
+        (window as unknown as { __tapTarget: { tag: string; cls: string; isHint: boolean } | null })
+          .__tapTarget,
     );
     expect(tapTarget, "tap was captured").not.toBeNull();
-    expect(tapTarget!.isHint, `tap at hint center must not target the hint (targeted ${tapTarget!.tag}.${tapTarget!.cls})`).toBe(false);
+    expect(
+      tapTarget!.isHint,
+      `tap at hint center must not target the hint (targeted ${tapTarget!.tag}.${tapTarget!.cls})`,
+    ).toBe(false);
 
     // 4. The hint is still visible (non-interactive, not removed).
     await expect(hint).toBeVisible();

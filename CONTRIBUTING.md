@@ -1,10 +1,11 @@
 # Contributing
 
-This repository is the digital edition and classroom platform for *La Cartilla de Gretel* by Leonor Lopetegui. The source content — workbook text, illustrations, sight words, pedagogy order, and book-page presentation — is authored by the project owner and is not accepted via pull request.
+This repository is the digital edition and classroom platform for _La Cartilla de Gretel_ by Leonor Lopetegui. The source content — workbook text, illustrations, sight words, pedagogy order, and book-page presentation — is authored by the project owner and is not accepted via pull request.
 
 Before changing any teacher Flip Chart / flipbook or Student Workbook surface, read `AGENTS.md`. It defines the complete active instruction hierarchy; follow that hierarchy rather than maintaining a second list here.
 
 Current-state terms:
+
 - `main` = current repository source tree.
 - live Vercel = deployed/runtime truth.
 - an open PR = candidate state.

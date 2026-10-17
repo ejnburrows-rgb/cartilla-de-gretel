@@ -11,11 +11,7 @@ async function ensureProofDir() {
 /**
  * Helper to verify that an element has a non-empty accessible name and proper semantic role.
  */
-async function verifyElementAccessibility(
-  page: Page,
-  selector: string,
-  expectedRole?: string,
-) {
+async function verifyElementAccessibility(page: Page, selector: string, expectedRole?: string) {
   const locator = page.locator(selector).first();
   await expect(locator).toBeVisible();
 
@@ -73,8 +69,7 @@ async function verifyVisibleFocus(page: Page, locator: ReturnType<Page["locator"
     focusStyle.outlineStyle !== "none" &&
     focusStyle.outlineStyle !== "" &&
     focusStyle.outlineWidth !== "0px";
-  const hasVisibleBoxShadow =
-    focusStyle.boxShadow !== "none" && focusStyle.boxShadow !== "";
+  const hasVisibleBoxShadow = focusStyle.boxShadow !== "none" && focusStyle.boxShadow !== "";
 
   expect(hasVisibleOutline || hasVisibleBoxShadow).toBe(true);
 }

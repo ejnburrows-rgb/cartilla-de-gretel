@@ -30,9 +30,17 @@ export function LessonTimer({ limitSeconds }: { limitSeconds?: number | null }) 
         }`}
         role="timer"
         aria-live="off"
-        aria-label={over ? `Tiempo vencido hace ${fmt(elapsed - limitSeconds)}` : `Tiempo restante: ${fmt(remaining)}`}
+        aria-label={
+          over
+            ? `Tiempo vencido hace ${fmt(elapsed - limitSeconds)}`
+            : `Tiempo restante: ${fmt(remaining)}`
+        }
       >
-        {over ? <AlertTriangle aria-hidden="true" className="w-3.5 h-3.5" /> : <Timer aria-hidden="true" className="w-3.5 h-3.5" />}
+        {over ? (
+          <AlertTriangle aria-hidden="true" className="w-3.5 h-3.5" />
+        ) : (
+          <Timer aria-hidden="true" className="w-3.5 h-3.5" />
+        )}
         {over ? `Tiempo vencido +${fmt(elapsed - limitSeconds)}` : `Quedan ${fmt(remaining)}`}
       </div>
     );

@@ -1584,9 +1584,7 @@
           "url": "https://drive.google.com/file/d/17EGTjY1OyEAJK0je5a6DFlNXuODCmM_l/view?usp=drivesdk"
         }
       ],
-      "existingRepositoryPaths": [
-        "public/cartilla/art/optimized/flipchart-native/p024-lata.webp"
-      ]
+      "existingRepositoryPaths": ["public/cartilla/art/optimized/flipchart-native/p024-lata.webp"]
     },
     {
       "sha256": "ff59ea11dd1ebe90d71c3a22489d03f42f063b30b44a51ca7f3d84b2b440dcdd",
@@ -1602,9 +1600,7 @@
           "url": "https://drive.google.com/file/d/1UDgi3wPfKhrp9P_fovYisN5E0G0Wnw6W/view?usp=drivesdk"
         }
       ],
-      "existingRepositoryPaths": [
-        "public/cartilla/images/gretel/gretel-approved-master.png"
-      ]
+      "existingRepositoryPaths": ["public/cartilla/images/gretel/gretel-approved-master.png"]
     }
   ]
 }

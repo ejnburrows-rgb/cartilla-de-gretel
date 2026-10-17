@@ -36,30 +36,49 @@ const optimizedFlipchartAssets = readJson("src/data/optimized-flipchart-exclusiv
 const gretelClips = readJson("src/data/gretel-approved-clips.json");
 for (const [scene, clip] of Object.entries(gretelClips)) {
   for (const [kind, src] of Object.entries(clip)) {
-    assert(typeof src === "string" && src.startsWith("/cartilla/") && !src.includes(".."), `invalid Gretel ${kind} path for ${scene}`);
-    if (typeof src === "string") assert(exists(`public${src}`), `missing registered Gretel ${kind} for ${scene}: ${src}`);
+    assert(
+      typeof src === "string" && src.startsWith("/cartilla/") && !src.includes(".."),
+      `invalid Gretel ${kind} path for ${scene}`,
+    );
+    if (typeof src === "string")
+      assert(exists(`public${src}`), `missing registered Gretel ${kind} for ${scene}: ${src}`);
   }
-  assert(Boolean(clip.mp4 && clip.poster), `Gretel ${scene} requires a produced clip and approved poster`);
+  assert(
+    Boolean(clip.mp4 && clip.poster),
+    `Gretel ${scene} requires a produced clip and approved poster`,
+  );
 }
-const nativeCompletePages = (conversion.pages ?? []).filter((page) => page.status === "NATIVE_COMPLETE").length;
-const blockedPages = (conversion.pages ?? []).filter((page) => page.status === "SOURCE_BLOCKED").map((page) => page.physicalPage);
+const nativeCompletePages = (conversion.pages ?? []).filter(
+  (page) => page.status === "NATIVE_COMPLETE",
+).length;
+const blockedPages = (conversion.pages ?? [])
+  .filter((page) => page.status === "SOURCE_BLOCKED")
+  .map((page) => page.physicalPage);
 
 const workbookPages = conversion.pages ?? [];
 assert(workbookPages.length === 90, `expected 90 workbook pages, found ${workbookPages.length}`);
 assert(
   workbookPages.every((page) =>
-    [86, 87].includes(page.physicalPage) ? page.status === "SOURCE_BLOCKED" : page.status === "NATIVE_COMPLETE",
+    [86, 87].includes(page.physicalPage)
+      ? page.status === "SOURCE_BLOCKED"
+      : page.status === "NATIVE_COMPLETE",
   ),
   "workbook pages must be NATIVE_COMPLETE except the source-blocked pages 86–87",
 );
-assert(Object.keys(layouts.pages ?? {}).length === 90, "page-layouts must contain exactly 90 instructional pages");
+assert(
+  Object.keys(layouts.pages ?? {}).length === 90,
+  "page-layouts must contain exactly 90 instructional pages",
+);
 
 const verifiedSourceGap = new Set([86, 87]);
 for (let page = 1; page <= 90; page += 1) {
   assert(Boolean(layouts.pages?.[String(page)]), `missing native layout for workbook page ${page}`);
   const sourcePath = `public/cartilla/art/source/workbook/page-${pad(page)}.jpg`;
   if (verifiedSourceGap.has(page)) {
-    assert(!exists(sourcePath), `page ${page} must remain an explicit source-scan gap, not a substitute image`);
+    assert(
+      !exists(sourcePath),
+      `page ${page} must remain an explicit source-scan gap, not a substitute image`,
+    );
   } else {
     assert(exists(sourcePath), `missing repository workbook source page ${page}`);
   }
@@ -80,10 +99,14 @@ for (let page = 1; page <= 62; page += 1) {
 
 for (const [page, assets] of Object.entries(nativeFlipchartAssets)) {
   assert(Number(page) >= 3 && Number(page) <= 62, `invalid native Flip Chart crop page ${page}`);
-  assert(Array.isArray(assets) && assets.length > 0, `native Flip Chart crop page ${page} is empty`);
+  assert(
+    Array.isArray(assets) && assets.length > 0,
+    `native Flip Chart crop page ${page} is empty`,
+  );
   for (const asset of assets) {
     assert(
-      typeof asset.src === "string" && asset.src.startsWith("/cartilla/art/optimized/flipchart-native/"),
+      typeof asset.src === "string" &&
+        asset.src.startsWith("/cartilla/art/optimized/flipchart-native/"),
       `invalid native Flip Chart crop destination on page ${page}`,
     );
     assert(
@@ -123,9 +146,15 @@ const gretelMachineSource = fs.readFileSync(
   path.join(srcDir, "components", "gretel", "gretelMachine.ts"),
   "utf8",
 );
-assert(gretelRigSource.includes("GRETEL_APPROVED_MASTER_SRC"), "Gretel host must display the exact approved master");
+assert(
+  gretelRigSource.includes("GRETEL_APPROVED_MASTER_SRC"),
+  "Gretel host must display the exact approved master",
+);
 const gretelMaster = readJson("src/data/gretel-approved-master.json");
-assert(gretelMaster.status === "owner-approved" && exists(`public${gretelMaster.productionSrc}`), "approved Gretel master must exist");
+assert(
+  gretelMaster.status === "owner-approved" && exists(`public${gretelMaster.productionSrc}`),
+  "approved Gretel master must exist",
+);
 for (const state of ["listening", "teaching", "help", "gentle-error", "cheering"]) {
   assert(gretelMachineSource.includes(`"${state}"`), `Gretel state machine is missing ${state}`);
 }
@@ -141,40 +170,87 @@ for (const part of ["wings", "tail", "ears", "trunk"]) {
   );
 }
 
-const cinematicSource = fs.readFileSync(path.join(srcDir, "content", "gretel-cinematics.ts"), "utf8");
+const cinematicSource = fs.readFileSync(
+  path.join(srcDir, "content", "gretel-cinematics.ts"),
+  "utf8",
+);
 assert(cinematicSource.includes('id: "master-welcome"'), "missing master Gretel welcome");
 assert(cinematicSource.includes('id: "how-to"'), "missing Gretel how-to cinematic");
 assert(cinematicSource.includes('id: "cartilla-final"'), "missing final completion cinematic");
-assert(cinematicSource.includes("...CATALOG.map"), "lesson cinematic manifest must derive all 24 lessons from canonical catalog");
+assert(
+  cinematicSource.includes("...CATALOG.map"),
+  "lesson cinematic manifest must derive all 24 lessons from canonical catalog",
+);
 
-const presenterSource = fs.readFileSync(path.join(srcDir, "components", "cartilla", "FlipchartHdPanel.tsx"), "utf8");
-const boardSource = fs.readFileSync(path.join(srcDir, "components", "cartilla", "FlipchartNativeBoard.tsx"), "utf8");
+const presenterSource = fs.readFileSync(
+  path.join(srcDir, "components", "cartilla", "FlipchartHdPanel.tsx"),
+  "utf8",
+);
+const boardSource = fs.readFileSync(
+  path.join(srcDir, "components", "cartilla", "FlipchartNativeBoard.tsx"),
+  "utf8",
+);
 const nativeModelSource = fs.readFileSync(path.join(srcDir, "lib", "flipchart-native.ts"), "utf8");
-assert(presenterSource.includes("FlipchartNativeBoard"), "teacher presenter must use FlipchartNativeBoard");
-assert(!presenterSource.includes("<FlipchartPlate"), "teacher presenter must not use full-page FlipchartPlate as the primary face");
-assert(boardSource.includes("LivingIllustration"), "native Flip Chart must render independent learning objects");
-assert(!boardSource.includes("getFlipchartDeliverySrc"), "native Flip Chart must not use page-level delivery scans");
-assert(nativeModelSource.includes("faithfulManifest"), "native Flip Chart model must resolve repository faithful art");
-assert(nativeModelSource.includes("optimized-flipchart-exclusive"), "native Flip Chart model must load final optimized exclusive art");
+assert(
+  presenterSource.includes("FlipchartNativeBoard"),
+  "teacher presenter must use FlipchartNativeBoard",
+);
+assert(
+  !presenterSource.includes("<FlipchartPlate"),
+  "teacher presenter must not use full-page FlipchartPlate as the primary face",
+);
+assert(
+  boardSource.includes("LivingIllustration"),
+  "native Flip Chart must render independent learning objects",
+);
+assert(
+  !boardSource.includes("getFlipchartDeliverySrc"),
+  "native Flip Chart must not use page-level delivery scans",
+);
+assert(
+  nativeModelSource.includes("faithfulManifest"),
+  "native Flip Chart model must resolve repository faithful art",
+);
+assert(
+  nativeModelSource.includes("optimized-flipchart-exclusive"),
+  "native Flip Chart model must load final optimized exclusive art",
+);
 
-const lessonSource = fs.readFileSync(path.join(srcDir, "routes", "cartilla", "-leccion-view.tsx"), "utf8");
+const lessonSource = fs.readFileSync(
+  path.join(srcDir, "routes", "cartilla", "-leccion-view.tsx"),
+  "utf8",
+);
 assert(lessonSource.includes("<NativeLessonViewer"), "student lessons must use NativeLessonViewer");
-assert(!lessonSource.includes("<CurlPageViewer"), "legacy scan/book viewer must not be active in lesson route");
+assert(
+  !lessonSource.includes("<CurlPageViewer"),
+  "legacy scan/book viewer must not be active in lesson route",
+);
 
 if (process.exitCode) process.exit(process.exitCode);
 
-console.log("[platform-certification] PASS: structural checks only; product completion remains PARTIAL");
-console.log(JSON.stringify({
-  completionStatus: "PARTIAL",
-  workbookNative: `${nativeCompletePages}/${workbookPages.length}`,
-  workbookSourceBlocked: blockedPages,
-  workbookSourceAssets: "88 canonical source pages + verified scan gap at 86–87",
-  flipchartNativeRegistry: "62/62",
-  flipchartCanonicalMasters: "62/62",
-  flipchartSurface: "62/62 native boards; pages 1-2 native frontmatter; pages 3-62 separate faithful learning objects",
-  flipchartOptimizedExclusive: `${optimizedFlipchartAssets.length} fabricated/exclusive assets; 167 approved standalone book images use the native registry`,
-  gretelRig: "owner-approved master still installed; existing host state machine retained",
-  livingArt: "semantic registry with independent wings/tails/ears/trunk and reduced-motion policy",
-  cinematics: "Existing lesson scripts retained; owner scope requires one looping welcome video only",
-  gretelClips: `${gretelClips["master-welcome"] ? 1 : 0}/1 approved welcome clip registered; no lesson videos required`,
-}, null, 2));
+console.log(
+  "[platform-certification] PASS: structural checks only; product completion remains PARTIAL",
+);
+console.log(
+  JSON.stringify(
+    {
+      completionStatus: "PARTIAL",
+      workbookNative: `${nativeCompletePages}/${workbookPages.length}`,
+      workbookSourceBlocked: blockedPages,
+      workbookSourceAssets: "88 canonical source pages + verified scan gap at 86–87",
+      flipchartNativeRegistry: "62/62",
+      flipchartCanonicalMasters: "62/62",
+      flipchartSurface:
+        "62/62 native boards; pages 1-2 native frontmatter; pages 3-62 separate faithful learning objects",
+      flipchartOptimizedExclusive: `${optimizedFlipchartAssets.length} fabricated/exclusive assets; 167 approved standalone book images use the native registry`,
+      gretelRig: "owner-approved master still installed; existing host state machine retained",
+      livingArt:
+        "semantic registry with independent wings/tails/ears/trunk and reduced-motion policy",
+      cinematics:
+        "Existing lesson scripts retained; owner scope requires one looping welcome video only",
+      gretelClips: `${gretelClips["master-welcome"] ? 1 : 0}/1 approved welcome clip registered; no lesson videos required`,
+    },
+    null,
+    2,
+  ),
+);

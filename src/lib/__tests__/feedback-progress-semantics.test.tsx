@@ -1,123 +1,275 @@
-import '@testing-library/jest-dom/vitest';
-import { beforeEach, afterEach, expect, it, vi } from 'vitest';
-import { act, cleanup, fireEvent, render, screen } from '@testing-library/react';
-import { recordEvent } from '../student-session';
-import { evidenceFor } from '../progress-semantics';
-import { recordExerciseStat, lessonAccuracy, getStats, resetStats } from '../exercise-stats';
-import { gretelEvent, isGretelAssistedAttempt, hasGretelDemonstration } from '../gretel-bus';
-import { InteractivePictureGrid, InteractiveFillInBlank } from '@/components/cartilla/InteractivePageExercises';
-import { GretelActivity } from '@/components/gretel/GretelActivity';
-import { SyllableWordCircle } from '@/cartilla/interactions/SyllableWordCircle';
-beforeEach(() => { localStorage.clear(); resetStats(); });
-afterEach(() => { cleanup(); vi.useRealTimers(); });
-it('distinguishes independent completion, assisted completion and recovery after demonstration', () => {
-  const input = { score: 1, total: 1, meta: { activityId: 'A', encounterId: 'run', completed: true } };
-  expect(evidenceFor(input, { assisted: false, demonstration: false })).toMatchObject({ outcome: 'independent-success', completed: true, grading: 'practice' });
-  expect(evidenceFor(input, { assisted: true, demonstration: false })).toMatchObject({ outcome: 'assisted-success', completed: true });
-  expect(evidenceFor(input, { assisted: true, demonstration: true })).toMatchObject({ outcome: 'recovery-after-support', completed: true, needsIndependentAttempt: true });
-  expect(evidenceFor({ score: 0, total: 1 }, { assisted: false, demonstration: false }).outcome).toBe('incorrect-attempt');
-  expect(evidenceFor({ score: 1, total: 1 }, { assisted: false, demonstration: false }).outcome).toBe('correct-independence-unknown');
-  expect(evidenceFor({ ...input, meta: { grading: 'formal-evaluation' } }, { assisted: false, demonstration: false }).grading).toBe('formal-evaluation');
+import "@testing-library/jest-dom/vitest";
+import { beforeEach, afterEach, expect, it, vi } from "vitest";
+import { act, cleanup, fireEvent, render, screen } from "@testing-library/react";
+import { recordEvent } from "../student-session";
+import { evidenceFor } from "../progress-semantics";
+import { recordExerciseStat, lessonAccuracy, getStats, resetStats } from "../exercise-stats";
+import { gretelEvent, isGretelAssistedAttempt, hasGretelDemonstration } from "../gretel-bus";
+import {
+  InteractivePictureGrid,
+  InteractiveFillInBlank,
+} from "@/components/cartilla/InteractivePageExercises";
+import { GretelActivity } from "@/components/gretel/GretelActivity";
+import { SyllableWordCircle } from "@/cartilla/interactions/SyllableWordCircle";
+beforeEach(() => {
+  localStorage.clear();
+  resetStats();
 });
-it('help requests and planned reactions alone are not delivered assistance', () => {
-  gretelEvent('hint:show', { activityId: 'A' });
-  gretelEvent('guide:reaction', { activityId: 'A', reaction: 'demonstration' });
-  expect(isGretelAssistedAttempt('A')).toBe(false);
-  gretelEvent('support:delivered', { activityId: 'A', reaction: 'demonstration', targetId: 'one-target', text: 'Mira esta opción.' });
-  expect(isGretelAssistedAttempt('A')).toBe(true);
-  expect(hasGretelDemonstration('A')).toBe(true);
+afterEach(() => {
+  cleanup();
+  vi.useRealTimers();
 });
-it('ungraded production completes while old and new production never affect literacy accuracy', () => {
-  expect(evidenceFor({ score: 1, total: 1, meta: { exercise: 'draw_box_A', completed: true } }, { assisted: true, demonstration: false })).toMatchObject({ outcome: 'ungraded-production', completed: true, grading: 'ungraded' });
-  recordExerciseStat({ lessonId: '1', exercise: 'draw_box_old', score: 1, total: 1, completed: true });
-  expect(lessonAccuracy('1')).toBeNull();
-  recordExerciseStat({ lessonId: '1', exercise: 'picture_grid_A', score: 1, total: 2 });
-  expect(lessonAccuracy('1')).toBe(.5);
-  expect(getStats()['1'].draw_box_old.completedRounds).toBe(1);
-});
-it('picture grids use source-faithful pencil/eraser, retain correct marks and do not reveal missing targets', () => {
-  vi.useFakeTimers();
-  const view = render(<GretelActivity id="multi" pageNumber={1} kind="picture-grid"><InteractivePictureGrid lessonId="1" accent="#123" region={{
-    id: 'multi', regionType: 'picture-grid', order: 1, fontRole: 'body',
-    cells: [{ caption: 'oso', correct: true }, { caption: 'olla', correct: true }, { caption: 'avión', correct: false }],
-  }} /></GretelActivity>);
-  const select = (label: string) => {
-    fireEvent.click(screen.getByRole('button', { name: label }));
-    act(() => vi.advanceTimersByTime(3600));
-      // The eraser's timer starts after React commits the wrong-answer transition.
-      act(() => vi.advanceTimersByTime(4400));
+it("distinguishes independent completion, assisted completion and recovery after demonstration", () => {
+  const input = {
+    score: 1,
+    total: 1,
+    meta: { activityId: "A", encounterId: "run", completed: true },
   };
-  expect(view.container.querySelector('.fp-ix-cell__lasso')).toBeNull();
-  expect(screen.queryByText('Comprobar')).toBeNull();
-
-  select('avión');
-  expect(screen.getByRole('button', { name: 'avión' })).toHaveAttribute('aria-pressed', 'false');
-  expect(getStats()['1'].picture_grid_multi.meta).toMatchObject({ completed: false });
-  // A wrong answer does not reveal all correct choices or give mastery credit.
-  expect(screen.getByRole('button', { name: 'olla' })).toHaveAttribute('aria-pressed', 'false');
-
-  select('oso');
-  expect(screen.getByRole('button', { name: 'oso' })).toBeDisabled();
-  select('olla');
-  expect(getStats()['1'].picture_grid_multi.meta).toMatchObject({
-    completed: true, attemptCorrect: true, corrected: true,
-    outcome: 'independent-success',
+  expect(evidenceFor(input, { assisted: false, demonstration: false })).toMatchObject({
+    outcome: "independent-success",
+    completed: true,
+    grading: "practice",
   });
-  expect(view.container.querySelector('.fp-ix-cell__lasso')).toBeNull();
+  expect(evidenceFor(input, { assisted: true, demonstration: false })).toMatchObject({
+    outcome: "assisted-success",
+    completed: true,
+  });
+  expect(evidenceFor(input, { assisted: true, demonstration: true })).toMatchObject({
+    outcome: "recovery-after-support",
+    completed: true,
+    needsIndependentAttempt: true,
+  });
+  expect(
+    evidenceFor({ score: 0, total: 1 }, { assisted: false, demonstration: false }).outcome,
+  ).toBe("incorrect-attempt");
+  expect(
+    evidenceFor({ score: 1, total: 1 }, { assisted: false, demonstration: false }).outcome,
+  ).toBe("correct-independence-unknown");
+  expect(
+    evidenceFor(
+      { ...input, meta: { grading: "formal-evaluation" } },
+      { assisted: false, demonstration: false },
+    ).grading,
+  ).toBe("formal-evaluation");
 });
-it('Completa gives immediate gentle wrong feedback for implicit distractors and permits correction', () => {
-  render(<InteractiveFillInBlank accent="#123" region={{ id: 'fill', regionType: 'fill-in-blank', order: 1, fontRole: 'body', fillItems: [{ wordBox: 'mapa', blank: '___pa', choices: [{ text: 'sa' }, { text: 'ma', correct: true }] }] }} />);
-  fireEvent.click(screen.getByText('sa'));
-  expect(screen.getByText('sa')).toHaveClass('is-retry');
-  expect(screen.queryByText('Comprobar')).toBeNull();
-  fireEvent.click(screen.getByText('ma'));
-  expect(screen.getByText('ma')).toHaveClass('graded-correct');
-  expect(screen.getByText('Completado')).toBeInTheDocument();
+it("help requests and planned reactions alone are not delivered assistance", () => {
+  gretelEvent("hint:show", { activityId: "A" });
+  gretelEvent("guide:reaction", { activityId: "A", reaction: "demonstration" });
+  expect(isGretelAssistedAttempt("A")).toBe(false);
+  gretelEvent("support:delivered", {
+    activityId: "A",
+    reaction: "demonstration",
+    targetId: "one-target",
+    text: "Mira esta opción.",
+  });
+  expect(isGretelAssistedAttempt("A")).toBe(true);
+  expect(hasGretelDemonstration("A")).toBe(true);
 });
-it('both occurrences of pa in papá are valid, and the word is one hit target', () => {
+it("ungraded production completes while old and new production never affect literacy accuracy", () => {
+  expect(
+    evidenceFor(
+      { score: 1, total: 1, meta: { exercise: "draw_box_A", completed: true } },
+      { assisted: true, demonstration: false },
+    ),
+  ).toMatchObject({ outcome: "ungraded-production", completed: true, grading: "ungraded" });
+  recordExerciseStat({
+    lessonId: "1",
+    exercise: "draw_box_old",
+    score: 1,
+    total: 1,
+    completed: true,
+  });
+  expect(lessonAccuracy("1")).toBeNull();
+  recordExerciseStat({ lessonId: "1", exercise: "picture_grid_A", score: 1, total: 2 });
+  expect(lessonAccuracy("1")).toBe(0.5);
+  expect(getStats()["1"].draw_box_old.completedRounds).toBe(1);
+});
+it("picture grids use source-faithful pencil/eraser, retain correct marks and do not reveal missing targets", () => {
   vi.useFakeTimers();
-  const view = render(<SyllableWordCircle region={{ id: 'repeat', regionType: 'syllable-match', order: 1, fontRole: 'body', syllable: 'pa', matchRows: [[{ word: 'papá', correct: true }]] }} />);
-  const word = screen.getByRole('button', { name: 'papá' });
-  vi.spyOn(word, 'getBoundingClientRect').mockReturnValue({ x: 0, y: 0, left: 0, top: 0, right: 400, bottom: 64, width: 400, height: 64, toJSON: () => ({}) } as DOMRect);
-  expect(view.container.querySelector('.native-syllable__mark')).toBeNull();
-  expect(screen.getAllByRole('button')).toHaveLength(1);
+  const view = render(
+    <GretelActivity id="multi" pageNumber={1} kind="picture-grid">
+      <InteractivePictureGrid
+        lessonId="1"
+        accent="#123"
+        region={{
+          id: "multi",
+          regionType: "picture-grid",
+          order: 1,
+          fontRole: "body",
+          cells: [
+            { caption: "oso", correct: true },
+            { caption: "olla", correct: true },
+            { caption: "avión", correct: false },
+          ],
+        }}
+      />
+    </GretelActivity>,
+  );
+  const select = (label: string) => {
+    fireEvent.click(screen.getByRole("button", { name: label }));
+    act(() => vi.advanceTimersByTime(3600));
+    // The eraser's timer starts after React commits the wrong-answer transition.
+    act(() => vi.advanceTimersByTime(4400));
+  };
+  expect(view.container.querySelector(".fp-ix-cell__lasso")).toBeNull();
+  expect(screen.queryByText("Comprobar")).toBeNull();
+
+  select("avión");
+  expect(screen.getByRole("button", { name: "avión" })).toHaveAttribute("aria-pressed", "false");
+  expect(getStats()["1"].picture_grid_multi.meta).toMatchObject({ completed: false });
+  // A wrong answer does not reveal all correct choices or give mastery credit.
+  expect(screen.getByRole("button", { name: "olla" })).toHaveAttribute("aria-pressed", "false");
+
+  select("oso");
+  expect(screen.getByRole("button", { name: "oso" })).toBeDisabled();
+  select("olla");
+  expect(getStats()["1"].picture_grid_multi.meta).toMatchObject({
+    completed: true,
+    attemptCorrect: true,
+    corrected: true,
+    outcome: "independent-success",
+  });
+  expect(view.container.querySelector(".fp-ix-cell__lasso")).toBeNull();
+});
+it("Completa gives immediate gentle wrong feedback for implicit distractors and permits correction", () => {
+  render(
+    <InteractiveFillInBlank
+      accent="#123"
+      region={{
+        id: "fill",
+        regionType: "fill-in-blank",
+        order: 1,
+        fontRole: "body",
+        fillItems: [
+          {
+            wordBox: "mapa",
+            blank: "___pa",
+            choices: [{ text: "sa" }, { text: "ma", correct: true }],
+          },
+        ],
+      }}
+    />,
+  );
+  fireEvent.click(screen.getByText("sa"));
+  expect(screen.getByText("sa")).toHaveClass("is-retry");
+  expect(screen.queryByText("Comprobar")).toBeNull();
+  fireEvent.click(screen.getByText("ma"));
+  expect(screen.getByText("ma")).toHaveClass("graded-correct");
+  expect(screen.getByText("Completado")).toBeInTheDocument();
+});
+it("both occurrences of pa in papá are valid, and the word is one hit target", () => {
+  vi.useFakeTimers();
+  const view = render(
+    <SyllableWordCircle
+      region={{
+        id: "repeat",
+        regionType: "syllable-match",
+        order: 1,
+        fontRole: "body",
+        syllable: "pa",
+        matchRows: [[{ word: "papá", correct: true }]],
+      }}
+    />,
+  );
+  const word = screen.getByRole("button", { name: "papá" });
+  vi.spyOn(word, "getBoundingClientRect").mockReturnValue({
+    x: 0,
+    y: 0,
+    left: 0,
+    top: 0,
+    right: 400,
+    bottom: 64,
+    width: 400,
+    height: 64,
+    toJSON: () => ({}),
+  } as DOMRect);
+  expect(view.container.querySelector(".native-syllable__mark")).toBeNull();
+  expect(screen.getAllByRole("button")).toHaveLength(1);
 
   fireEvent.pointerUp(word, { clientX: 50, pointerId: 1 });
   act(() => vi.advanceTimersByTime(6000));
-  expect(screen.getByRole('status')).toHaveTextContent('1 de 1');
-  expect(word).toHaveAttribute('aria-pressed', 'true');
+  expect(screen.getByRole("status")).toHaveTextContent("1 de 1");
+  expect(word).toHaveAttribute("aria-pressed", "true");
 
   fireEvent.pointerUp(word, { clientX: 50, pointerId: 2 });
-  expect(word).toHaveAttribute('aria-pressed', 'false');
+  expect(word).toHaveAttribute("aria-pressed", "false");
 
   fireEvent.pointerUp(word, { clientX: 260, pointerId: 3 });
   act(() => vi.advanceTimersByTime(6000));
-  expect(screen.getByRole('status')).toHaveTextContent('1 de 1');
-  expect(word).toHaveAttribute('aria-pressed', 'true');
+  expect(screen.getByRole("status")).toHaveTextContent("1 de 1");
+  expect(word).toHaveAttribute("aria-pressed", "true");
 });
-it('before an attempt, Gretel gives a strategy without displaying a correct target; later demonstrates only one', () => {
-  const view = render(<GretelActivity id="help" pageNumber={1} kind="picture-grid"><button data-gretel-correct="true">A</button><button data-gretel-correct="true">B</button><button data-gretel-correct="false">C</button></GretelActivity>);
-  act(() => gretelEvent('guide:reaction', { activityId: 'help', reaction: 'demonstration' }));
-  expect(view.container.querySelector('[data-gretel-highlight]')).toBeNull();
-  expect(isGretelAssistedAttempt('help')).toBe(true);
-  expect(hasGretelDemonstration('help')).toBe(false);
-  act(() => { gretelEvent('answer:wrong', { activityId: 'help' }); gretelEvent('guide:reaction', { activityId: 'help', reaction: 'demonstration' }); });
-  expect(view.container.querySelectorAll('[data-gretel-highlight]')).toHaveLength(1);
-  expect(screen.getByText('C')).toBeEnabled();
-  expect(hasGretelDemonstration('help')).toBe(true);
+it("before an attempt, Gretel gives a strategy without displaying a correct target; later demonstrates only one", () => {
+  const view = render(
+    <GretelActivity id="help" pageNumber={1} kind="picture-grid">
+      <button data-gretel-correct="true">A</button>
+      <button data-gretel-correct="true">B</button>
+      <button data-gretel-correct="false">C</button>
+    </GretelActivity>,
+  );
+  act(() => gretelEvent("guide:reaction", { activityId: "help", reaction: "demonstration" }));
+  expect(view.container.querySelector("[data-gretel-highlight]")).toBeNull();
+  expect(isGretelAssistedAttempt("help")).toBe(true);
+  expect(hasGretelDemonstration("help")).toBe(false);
+  act(() => {
+    gretelEvent("answer:wrong", { activityId: "help" });
+    gretelEvent("guide:reaction", { activityId: "help", reaction: "demonstration" });
+  });
+  expect(view.container.querySelectorAll("[data-gretel-highlight]")).toHaveLength(1);
+  expect(screen.getByText("C")).toBeEnabled();
+  expect(hasGretelDemonstration("help")).toBe(true);
 });
 
-it('the existing reporting pipeline retains assisted completion, records recovery and excludes ungraded scores', () => {
-  const identity = { activityId: 'pipeline', encounterId: 'run' };
-  recordEvent({ lessonId: '1', kind: 'exercise', score: 1, total: 1, meta: { ...identity, exercise: 'picture_grid_pipeline', completed: true } });
-  expect(getStats()['1'].picture_grid_pipeline.meta?.outcome).toBe('independent-success');
-  gretelEvent('support:delivered', { activityId: 'pipeline', text: 'Escucha el sonido inicial.' });
-  recordEvent({ lessonId: '1', kind: 'exercise', score: 1, total: 1, meta: { ...identity, exercise: 'picture_grid_pipeline', completed: true } });
-  expect(getStats()['1'].picture_grid_pipeline.meta).toMatchObject({ completed: true, outcome: 'assisted-success' });
-  gretelEvent('support:delivered', { activityId: 'pipeline', reaction: 'demonstration', targetId: 'one' });
-  recordEvent({ lessonId: '1', kind: 'exercise', score: 1, total: 1, meta: { ...identity, exercise: 'picture_grid_pipeline', completed: true } });
-  expect(getStats()['1'].picture_grid_pipeline.meta).toMatchObject({ completed: true, outcome: 'recovery-after-support' });
-  recordEvent({ lessonId: '1', kind: 'exercise', score: 1, total: 1, meta: { ...identity, exercise: 'draw_box_pipeline', completed: true } });
-  expect(getStats()['1'].draw_box_pipeline).toMatchObject({ hits: 0, attempts: 0, completedRounds: 1, meta: { completed: true, grading: 'ungraded', outcome: 'ungraded-production' } });
-  expect(lessonAccuracy('1')).toBe(1);
+it("the existing reporting pipeline retains assisted completion, records recovery and excludes ungraded scores", () => {
+  const identity = { activityId: "pipeline", encounterId: "run" };
+  recordEvent({
+    lessonId: "1",
+    kind: "exercise",
+    score: 1,
+    total: 1,
+    meta: { ...identity, exercise: "picture_grid_pipeline", completed: true },
+  });
+  expect(getStats()["1"].picture_grid_pipeline.meta?.outcome).toBe("independent-success");
+  gretelEvent("support:delivered", { activityId: "pipeline", text: "Escucha el sonido inicial." });
+  recordEvent({
+    lessonId: "1",
+    kind: "exercise",
+    score: 1,
+    total: 1,
+    meta: { ...identity, exercise: "picture_grid_pipeline", completed: true },
+  });
+  expect(getStats()["1"].picture_grid_pipeline.meta).toMatchObject({
+    completed: true,
+    outcome: "assisted-success",
+  });
+  gretelEvent("support:delivered", {
+    activityId: "pipeline",
+    reaction: "demonstration",
+    targetId: "one",
+  });
+  recordEvent({
+    lessonId: "1",
+    kind: "exercise",
+    score: 1,
+    total: 1,
+    meta: { ...identity, exercise: "picture_grid_pipeline", completed: true },
+  });
+  expect(getStats()["1"].picture_grid_pipeline.meta).toMatchObject({
+    completed: true,
+    outcome: "recovery-after-support",
+  });
+  recordEvent({
+    lessonId: "1",
+    kind: "exercise",
+    score: 1,
+    total: 1,
+    meta: { ...identity, exercise: "draw_box_pipeline", completed: true },
+  });
+  expect(getStats()["1"].draw_box_pipeline).toMatchObject({
+    hits: 0,
+    attempts: 0,
+    completedRounds: 1,
+    meta: { completed: true, grading: "ungraded", outcome: "ungraded-production" },
+  });
+  expect(lessonAccuracy("1")).toBe(1);
 });

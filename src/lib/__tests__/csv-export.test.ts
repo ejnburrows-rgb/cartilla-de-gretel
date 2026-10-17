@@ -141,7 +141,7 @@ describe("exportStudentProgressCsv", () => {
         score: 0,
         total: 0,
         time_seconds: 0,
-      }
+      },
     ]);
 
     const text = await blobText(capture.getBlob()!);

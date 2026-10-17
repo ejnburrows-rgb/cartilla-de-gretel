@@ -48,7 +48,9 @@ test.describe("Owner-Proof Final Capture Harness & Device Matrix", () => {
           );
 
           await page.goto(`/cartilla/leccion/${arch.lesson}`);
-          const viewer = page.locator(".native-lesson-viewer, [data-testid='native-lesson-viewer']");
+          const viewer = page.locator(
+            ".native-lesson-viewer, [data-testid='native-lesson-viewer']",
+          );
           await expect(viewer.first()).toBeVisible({ timeout: 15000 });
 
           // Clean digital canvas check: no scenic wallpaper on workbook pages
@@ -58,7 +60,9 @@ test.describe("Owner-Proof Final Capture Harness & Device Matrix", () => {
           }
 
           // Document overflow assertion
-          const overflow = await page.evaluate(() => document.documentElement.scrollWidth - document.documentElement.clientWidth);
+          const overflow = await page.evaluate(
+            () => document.documentElement.scrollWidth - document.documentElement.clientWidth,
+          );
           expect(overflow).toBeLessThanOrEqual(2);
 
           await page.screenshot({
@@ -73,9 +77,13 @@ test.describe("Owner-Proof Final Capture Harness & Device Matrix", () => {
         await page.setViewportSize(viewport);
         await page.goto("/cartilla/teacher");
 
-        await expect(page.locator("h1, header, .teacher-chrome__title").first()).toBeVisible({ timeout: 10000 });
+        await expect(page.locator("h1, header, .teacher-chrome__title").first()).toBeVisible({
+          timeout: 10000,
+        });
 
-        const overflow = await page.evaluate(() => document.documentElement.scrollWidth - document.documentElement.clientWidth);
+        const overflow = await page.evaluate(
+          () => document.documentElement.scrollWidth - document.documentElement.clientWidth,
+        );
         expect(overflow).toBeLessThanOrEqual(2);
 
         await page.screenshot({
@@ -95,10 +103,14 @@ test.describe("Owner-Proof Final Capture Harness & Device Matrix", () => {
         const procBtn = page.locator("button:has-text('Procedimiento')");
         if ((await procBtn.count()) > 0) {
           await procBtn.click();
-          await expect(page.locator(".guide-html-content.active-tab-procedimiento, .guide-section").first()).toBeVisible();
+          await expect(
+            page.locator(".guide-html-content.active-tab-procedimiento, .guide-section").first(),
+          ).toBeVisible();
         }
 
-        const overflow = await page.evaluate(() => document.documentElement.scrollWidth - document.documentElement.clientWidth);
+        const overflow = await page.evaluate(
+          () => document.documentElement.scrollWidth - document.documentElement.clientWidth,
+        );
         expect(overflow).toBeLessThanOrEqual(2);
 
         await page.screenshot({
@@ -114,7 +126,9 @@ test.describe("Owner-Proof Final Capture Harness & Device Matrix", () => {
         const panel = page.getByTestId("flipchart-hd-panel");
         await expect(panel).toBeVisible({ timeout: 15000 });
 
-        const nativeBoard = page.getByTestId("flipchart-stage").getByTestId("flipchart-native-board");
+        const nativeBoard = page
+          .getByTestId("flipchart-stage")
+          .getByTestId("flipchart-native-board");
         await expect(nativeBoard).toHaveAttribute("data-flipchart-page", "9");
 
         await page.screenshot({
@@ -123,7 +137,10 @@ test.describe("Owner-Proof Final Capture Harness & Device Matrix", () => {
 
         // Trigger page turn key navigation
         await page.keyboard.press("ArrowRight");
-        await page.locator("[data-testid='vertical-flip-layer']").waitFor({ state: "detached", timeout: 5000 }).catch(() => {});
+        await page
+          .locator("[data-testid='vertical-flip-layer']")
+          .waitFor({ state: "detached", timeout: 5000 })
+          .catch(() => {});
         await expect(nativeBoard).toHaveAttribute("data-flipchart-page", "10");
 
         await page.screenshot({
@@ -143,14 +160,18 @@ test.describe("Owner-Proof Final Capture Harness & Device Matrix", () => {
 
         // Progreso View
         await page.goto("/cartilla/teacher/progreso");
-        await expect(page.locator("text=Progreso de la Clase").first()).toBeVisible({ timeout: 10000 });
+        await expect(page.locator("text=Progreso de la Clase").first()).toBeVisible({
+          timeout: 10000,
+        });
         await page.screenshot({
           path: path.join(PROOF_DIR, `teacher-progreso-${device}.png`),
         });
 
         // Reportes View
         await page.goto("/cartilla/teacher/reportes");
-        await expect(page.locator("text=Panel de Reportes").first()).toBeVisible({ timeout: 10000 });
+        await expect(page.locator("text=Panel de Reportes").first()).toBeVisible({
+          timeout: 10000,
+        });
         await page.screenshot({
           path: path.join(PROOF_DIR, `teacher-reportes-${device}.png`),
         });

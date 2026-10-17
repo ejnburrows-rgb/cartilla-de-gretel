@@ -28,6 +28,7 @@ This is an e-learning platform with the **same layout as the physical books** �
 ## WHAT IS WORKING (do not break)
 
 ### 1. Defect 14: ñ vs n bug — FIXED ✅
+
 - **Commit:** `bdd18fb9` (on `main`)
 - **File:** `src/lib/flipchart-native.ts`, `normalizeWord()` function
 - **What was wrong:** NFD Unicode normalization decomposed ñ into n + combining tilde, then stripped the tilde. This conflated ñ with n. The word "araña" (split as "a" + "raña") normalized "raña" → "rana", falsely matching the frog image from lesson 17.
@@ -35,32 +36,38 @@ This is an e-learning platform with the **same layout as the physical books** �
 - **Do not touch:** This fix is correct and verified. Do not modify `normalizeWord()`.
 
 ### 2. Flipchart defects 1-9, 17 — FIXED ✅
+
 - All 35 quarantined assets removed from disk (0 remain)
 - 32 optimized + 60 hero + 16 native-crop images all present and loading
 - 0 broken images across all flipchart sheets
 - **Do not touch:** The image files. The asset manifest. The `pageArt()` priority chain.
 
 ### 3. Workbook defects 20, 21, 22 — FIXED ✅
+
 - **Defect 20:** L21-24 p2 syllable cards — words moved to correct cards (e.g., L21: jinete/Jimena/jícara→ji, Javi/jamón→ja, juguete→ju, jarra→ja; L22: Quirino→qui, queso/queja→que, etc.)
 - **Defect 21:** L14-p3 "araña" row — correct answer `ña` now among options
 - **Defect 22:** L16-p3 "vela" row, L17-p3 "rana" row — option buttons aligned with their row
 - **Do not touch:** These fixes are verified. Do not modify the syllable card logic or option button positioning.
 
 ### 4. 16 native crops — GENERATED ✅
-- **Location:** `public/cartilla/art/faithful/flipchart-native/` (16 files: p018-*.webp, p021-*.webp, p024-*.webp, p056-*.webp)
+
+- **Location:** `public/cartilla/art/faithful/flipchart-native/` (16 files: p018-_.webp, p021-_.webp, p024-_.webp, p056-_.webp)
 - These were cut from HD scans using coordinates from `flipchart-native-assets.json` to fill missing images (defects 1-5).
 - **Do not touch:** These files. They are the source for ChatGPT's optimization (see "Waiting On").
 
 ### 5. Vercel cleanup — DONE ✅
+
 - 116 old deployments deleted, 7 kept (4 live + 3 backups). 0 errors.
 - **Do not touch:** Deployment configuration.
 
 ### 6. CARTILLA_DIGITAL_DIRECTIVE rule — IN REPO ✅
+
 - `AGENTS.md` has the CARTILLA_DIGITAL_DIRECTIVE section at the top (commits `112c2373`, `c20ec578`)
 - Conflicting artwork-modernization docs have been voided
 - **Do not touch:** AGENTS.md. The CARTILLA_DIGITAL_DIRECTIVE section. This handoff file.
 
 ### 7. Digital directive Batches 1-3 (flipchart) — DONE, ON WORK BRANCH ⚠️
+
 - **Branch:** `muse/exact-replica-placements` (4 commits ahead of `origin/main`, NOT yet merged)
 - **Batch 1** (`f37b4521`): Single-column flipchart layout, no chrome. Removed "Lámina N" header + meta pill. Art grid: 2 cols → 3 cols. Stripped card styling (no borders/radius/gradients/shadows). White page background. Word labels: black bold rounded sans. Printed page number bottom-right.
 - **Batch 2** (`8c0bd1be`): Red-letter rule for vowel pages. Word labels: red initial vowel ONLY on pages 3-6 (a,e,i,o,u lessons). All consonant pages: 100% black labels.
@@ -81,7 +88,7 @@ This is an e-learning platform with the **same layout as the physical books** �
 4. **DO NOT modify the layout spec files:**
    - `~/workspace/cartilla-reference/flipchart-layout-spec.md`
    - `~/workspace/cartilla-reference/workbook-layout-spec.md`
-   These are the source of truth for placements. Read them, follow them, don't change them.
+     These are the source of truth for placements. Read them, follow them, don't change them.
 
 5. **DO NOT push to `main`** without explicit user approval. The user has a HARD RULE: never push to production without FIRST explaining in plain non-technical language WHY and getting explicit go-ahead. Work on a branch.
 
@@ -92,14 +99,17 @@ This is an e-learning platform with the **same layout as the physical books** �
 ## WHAT NEEDS TO CHANGE (your task list)
 
 ### PRIORITY 1: Verify and merge the 4 work-branch commits
+
 **Branch:** `muse/exact-replica-placements`  
 **Commits to verify:**
+
 1. `977398cf` — Batch 3: empty-middle-cell
-2. `8c0bd1be` — Batch 2: red-letter rule  
+2. `8c0bd1be` — Batch 2: red-letter rule
 3. `f37b4521` — Batch 1: single-column layout
 4. `c20ec578` — Void conflicting docs
 
 **What to do:**
+
 1. Check out the branch: `git checkout muse/exact-replica-placements`
 2. Start dev server: `npm run dev` (Vite, port 5173)
 3. Visually verify flipchart sheets against the spec (`~/workspace/cartilla-reference/flipchart-layout-spec.md`):
@@ -112,12 +122,14 @@ This is an e-learning platform with the **same layout as the physical books** �
 6. If issues found: fix on the branch, do not merge until clean
 
 ### PRIORITY 2: Workbook digital directive (NOT STARTED)
+
 **Spec:** `~/workspace/cartilla-reference/workbook-layout-spec.md`  
 **Reference PDF:** `~/workspace/cartilla-reference/workbook.pdf` (92 pages)
 
 **Current state:** The workbook app does NOT match the book. It has garden-painted backgrounds, top nav bars, progress dots, card-based layouts — NONE of which exist in the book.
 
 **What the book actually looks like:**
+
 - **Page chrome (every page):** Teal wavy vertical stripe on outer edge only (right on odd pages, left on even). Page number in pale-teal diamond at bottom outer corner. "Lección N" small text at bottom inner corner. Plain white background — no illustrations, no gradients.
 - **Exercise templates:**
   1. "Instrucciones:" — bold label + regular instruction text, top-left
@@ -129,6 +141,7 @@ This is an e-learning platform with the **same layout as the physical books** �
   7. Letter intro page — "Ff" in teal oval halo, two syllable bars, 3×5 word columns, full-width sight-word box, reading passage
 
 **What to do:**
+
 1. Read the full spec: `~/workspace/cartilla-reference/workbook-layout-spec.md`
 2. Identify the workbook rendering components (likely in `src/components/cartilla/` — look for workbook/lesson components)
 3. Create a new branch: `git checkout -b chatgpt/workbook-exact-replica`
@@ -142,6 +155,7 @@ This is an e-learning platform with the **same layout as the physical books** �
 7. Do NOT merge or push without user approval
 
 ### PRIORITY 3: Flipchart art defects (BLOCKED — do not start without user approval)
+
 The user said "don't touch the images." These defects require image work. **DO NOT START** until the user explicitly approves.
 
 - **Defect 10:** uña.webp is a washed-out beige blob (7 sheets: 6, 8, 31, 34, 43, 46, 52). Needs new artwork. Re-cropping won't help — source is washed out.
@@ -152,6 +166,7 @@ The user said "don't touch the images." These defects require image work. **DO N
 - **Defect 16:** Sheet 33 missing 4 images (Beba, Bubi, bate, bebita). Need extraction from HD scans (same pattern as 16 native crops).
 
 ### PRIORITY 4: Workbook defects 23-24 (NEED USER DECISION — do not change unilaterally)
+
 - **Defect 23:** Every lesson 13-24 page-3 "Completa" exercise pre-prints the correct answer next to the blank (e.g., `nariz [____] na`). Is this an intentional hint or a bug? If bug, hide until "Comprobar" is clicked.
 - **Defect 24:** Verify vocabulary: "ñutu", "ñeque", "ñero" (L14-p2), "borrumba" (L18-p2) — are these intended words?
 - **DO NOT CHANGE** until the user decides.

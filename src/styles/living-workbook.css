@@ -86,11 +86,7 @@
   border-radius: 5px;
   background:
     radial-gradient(circle at 32% 34%, hsl(var(--warning) / 0.9) 0 3px, transparent 4px),
-    linear-gradient(
-      to top,
-      hsl(var(--brand-green) / 0.55) 0 35%,
-      transparent 35%
-    );
+    linear-gradient(to top, hsl(var(--brand-green) / 0.55) 0 35%, transparent 35%);
   opacity: 0.8;
 }
 
@@ -210,34 +206,69 @@
 /* ── Ambient motion keyframes (used only when !prefers-reduced-motion,
      gated in LivingWorkbookPage via inline styles) ─────────────────── */
 @keyframes lwp-float {
-  0%, 100% { transform: translateY(0); }
-  50% { transform: translateY(-6%); }
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-6%);
+  }
 }
 
 @keyframes lwp-bob {
-  0%, 100% { transform: translateY(0); }
-  50% { transform: translateY(-4%); }
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-4%);
+  }
 }
 
 @keyframes lwp-breathe {
-  0%, 100% { transform: scale(1); }
-  50% { transform: scale(1.03); }
+  0%,
+  100% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.03);
+  }
 }
 
 @keyframes lwp-blink {
-  0%, 90%, 100% { opacity: 1; }
-  95% { opacity: 0.2; }
+  0%,
+  90%,
+  100% {
+    opacity: 1;
+  }
+  95% {
+    opacity: 0.2;
+  }
 }
 
 @keyframes lwp-shake {
-  0%, 100% { transform: translateX(0); }
-  25% { transform: translateX(-4px); }
-  75% { transform: translateX(4px); }
+  0%,
+  100% {
+    transform: translateX(0);
+  }
+  25% {
+    transform: translateX(-4px);
+  }
+  75% {
+    transform: translateX(4px);
+  }
 }
 
 @keyframes lwp-pulse {
-  0%, 100% { transform: scale(1); opacity: 0.4; }
-  50% { transform: scale(1.6); opacity: 1; }
+  0%,
+  100% {
+    transform: scale(1);
+    opacity: 0.4;
+  }
+  50% {
+    transform: scale(1.6);
+    opacity: 1;
+  }
 }
 
 @media (prefers-reduced-motion: reduce) {

@@ -1,1 +1,953 @@
-{"sha":"64666e84aa5e3e080de1fde6c1366f1f30b8aa50","viewport":{"width":1920,"height":1080},"runtime":"real /cartilla/presentar route on isolated Vite worker with dead-local Supabase and no product modifications","results":[{"page":"10","board":{"x":33,"y":99.984375,"width":1854,"height":893.234375},"replica":true,"tokens":[{"text":"Mm","kind":"letter","fitGroup":null,"box":{"x":696.59375,"y":219.17282104492188,"width":114.125,"height":66.140625}},{"text":"ma","kind":"syllable","fitGroup":"syllables","box":{"x":894.78125,"y":192.34194946289062,"width":62.65625,"height":48.625}},{"text":"me","kind":"syllable","fitGroup":"syllables","box":{"x":967.640625,"y":192.34194946289062,"width":62.65625,"height":48.625}},{"text":"mi","kind":"syllable","fitGroup":"syllables","box":{"x":1040.5,"y":190.33230590820312,"width":62.65625,"height":51.9375}},{"text":"mo","kind":"syllable","fitGroup":"syllables","box":{"x":1113.359375,"y":192.34194946289062,"width":62.65625,"height":48.625}},{"text":"mu","kind":"syllable","fitGroup":"syllables","box":{"x":1186.21875,"y":190.834716796875,"width":62.65625,"height":51.109375}},{"text":"mu","kind":"syllable","fitGroup":"syllables","box":{"x":894.78125,"y":282.62322998046875,"width":62.65625,"height":48.625}},{"text":"mo","kind":"syllable","fitGroup":"syllables","box":{"x":967.640625,"y":282.62322998046875,"width":62.65625,"height":48.625}},{"text":"ma","kind":"syllable","fitGroup":"syllables","box":{"x":1040.5,"y":280.6135559082031,"width":62.65625,"height":51.9375}},{"text":"me","kind":"syllable","fitGroup":"syllables","box":{"x":1113.359375,"y":282.62322998046875,"width":62.65625,"height":48.625}},{"text":"mi","kind":"syllable","fitGroup":"syllables","box":{"x":1186.21875,"y":281.115966796875,"width":62.65625,"height":51.109375}},{"text":"mamá","kind":"word","fitGroup":"columns","box":{"x":697.21875,"y":374.23748779296875,"width":112.953125,"height":39.015625}},{"text":"mami","kind":"word","fitGroup":"columns","box":{"x":878.25,"y":374.23748779296875,"width":102.59375,"height":39.015625}},{"text":"Mimo","kind":"word","fitGroup":"columns","box":{"x":1062.015625,"y":375.58123779296875,"width":100.375,"height":39.015625}},{"text":"mío","kind":"word","fitGroup":"columns","box":{"x":697.21875,"y":421.29998779296875,"width":69.578125,"height":39.015625}},{"text":"me","kind":"word","fitGroup":"columns","box":{"x":878.25,"y":421.40936279296875,"width":60.15625,"height":39.015625}},{"text":"mímame","kind":"word","fitGroup":"columns","box":{"x":1061.5625,"y":422.65936279296875,"width":156.296875,"height":39.015625}},{"text":"Meme","kind":"word","fitGroup":"columns","box":{"x":696.765625,"y":468.36248779296875,"width":110.4375,"height":39.015625}},{"text":"ama","kind":"word","fitGroup":"columns","box":{"x":877.8125,"y":468.59686279296875,"width":78.734375,"height":39.015625}},{"text":"mía","kind":"word","fitGroup":"columns","box":{"x":1061.5625,"y":469.72186279296875,"width":68.375,"height":39.015625}},{"text":"Mumi","kind":"word","fitGroup":"columns","box":{"x":696.765625,"y":515.4406127929688,"width":101.828125,"height":39.015625}},{"text":"Memo","kind":"word","fitGroup":"columns","box":{"x":879.15625,"y":515.7687377929688,"width":111.171875,"height":39.015625}},{"text":"mima","kind":"word","fitGroup":"columns","box":{"x":1062.015625,"y":516.7843627929688,"width":102.59375,"height":39.015625}},{"text":"amo","kind":"word","fitGroup":"columns","box":{"x":695.421875,"y":562.5031127929688,"width":79.921875,"height":39.015625}},{"text":"Mimí","kind":"word","fitGroup":"columns","box":{"x":878.71875,"y":562.9406127929688,"width":88.828125,"height":39.015625}},{"text":"ámame","kind":"word","fitGroup":"columns","box":{"x":1061.5625,"y":563.8624877929688,"width":132.421875,"height":39.015625}},{"text":"y","kind":"chip","fitGroup":null,"box":{"x":949.359375,"y":635.3517456054688,"width":21.6875,"height":41.71875}},{"text":"Mi mamá me ama.","kind":"verse","fitGroup":"column-152-917","box":{"x":740.109375,"y":702.9700317382812,"width":271.125,"height":33.078125}},{"text":"Amo a mami. Mamá mía.","kind":"verse","fitGroup":"column-152-917","box":{"x":740.109375,"y":749.0012817382812,"width":361.21875,"height":33.078125}},{"text":"Mamá ama a Meme y a Mimí.","kind":"verse","fitGroup":"column-152-917","box":{"x":740.109375,"y":795.0481567382812,"width":424.875,"height":33.078125}},{"text":"Memo ama a Mumi.","kind":"verse","fitGroup":"column-152-917","box":{"x":740.109375,"y":841.0950317382812,"width":288.453125,"height":33.078125}},{"text":"Mamá mía ámame. Mímame a mí.","kind":"verse","fitGroup":"column-152-917","box":{"x":740.109375,"y":887.1419067382812,"width":494.96875,"height":33.078125}},{"text":"Mi mamá me mima.","kind":"verse","fitGroup":"column-152-917","box":{"x":740.109375,"y":933.1887817382812,"width":292.390625,"height":33.078125}}],"rows":[],"words":[],"prose":[],"fullText":"Mm\n\nma\n\nme\n\nmi\n\nmo\n\nmu\n\nmu\n\nmo\n\nma\n\nme\n\nmi\n\nmamá\n\nmami\n\nMimo\n\nmío\n\nme\n\nmímame\n\nMeme\n\nama\n\nmía\n\nMumi\n\nMemo\n\nmima\n\namo\n\nMimí\n\námame\n\ny\n\nMi mamá me ama.\n\nAmo a mami. Mamá mía.\n\nMamá ama a Meme y a Mimí.\n\nMemo ama a Mumi.\n\nMamá mía ámame. Mímame a mí.\n\nMi mamá me mima.\n\n10"},{"page":"16","board":{"x":33,"y":99.984375,"width":1854,"height":893.234375},"replica":true,"tokens":[{"text":"Ss","kind":"letter","fitGroup":null,"box":{"x":707.21875,"y":232.09451293945312,"width":77.6875,"height":77.765625}},{"text":"sa","kind":"syllable","fitGroup":"syllables","box":{"x":881.296875,"y":205.00350952148438,"width":61,"height":52.734375}},{"text":"se","kind":"syllable","fitGroup":"syllables","box":{"x":952.234375,"y":205.4904327392578,"width":61,"height":51.93748474121094}},{"text":"si","kind":"syllable","fitGroup":"syllables","box":{"x":1023.171875,"y":204.0296630859375,"width":61,"height":54.3125}},{"text":"so","kind":"syllable","fitGroup":"syllables","box":{"x":1094.109375,"y":205.00350952148438,"width":61,"height":52.734375}},{"text":"su","kind":"syllable","fitGroup":"syllables","box":{"x":1165.046875,"y":204.51658630371094,"width":61,"height":53.51564025878906}},{"text":"su","kind":"syllable","fitGroup":"syllables","box":{"x":881.296875,"y":289.3628845214844,"width":61,"height":52.734375}},{"text":"so","kind":"syllable","fitGroup":"syllables","box":{"x":952.234375,"y":289.84979248046875,"width":61,"height":51.9375}},{"text":"sa","kind":"syllable","fitGroup":"syllables","box":{"x":1023.171875,"y":288.3890380859375,"width":61,"height":54.3125}},{"text":"se","kind":"syllable","fitGroup":"syllables","box":{"x":1094.109375,"y":289.3628845214844,"width":61,"height":52.734375}},{"text":"si","kind":"syllable","fitGroup":"syllables","box":{"x":1165.046875,"y":288.8759765625,"width":61,"height":53.515625}},{"text":"masa","kind":"word","fitGroup":"columns","box":{"x":689.359375,"y":391.748291015625,"width":97.765625,"height":40.375}},{"text":"mesa","kind":"word","fitGroup":"columns","box":{"x":873.3125,"y":388.060791015625,"width":98.234375,"height":40.375}},{"text":"suma","kind":"word","fitGroup":"columns","box":{"x":1078.453125,"y":385.763916015625,"width":100.5,"height":40.375}},{"text":"sapo","kind":"word","fitGroup":"columns","box":{"x":687.0625,"y":434.732666015625,"width":86.21875,"height":40.375}},{"text":"seso","kind":"word","fitGroup":"columns","box":{"x":871.46875,"y":431.732666015625,"width":80.34375,"height":40.375}},{"text":"Susi","kind":"word","fitGroup":"columns","box":{"x":1077.53125,"y":429.904541015625,"width":74.890625,"height":40.375}},{"text":"así","kind":"word","fitGroup":"columns","box":{"x":687.0625,"y":477.717041015625,"width":51.640625,"height":40.375}},{"text":"sopa","kind":"word","fitGroup":"columns","box":{"x":870.546875,"y":475.420166015625,"width":86.109375,"height":40.375}},{"text":"paso","kind":"word","fitGroup":"columns","box":{"x":1078,"y":474.029541015625,"width":86.109375,"height":40.375}},{"text":"puso","kind":"word","fitGroup":"columns","box":{"x":686.140625,"y":520.701416015625,"width":88.953125,"height":40.375}},{"text":"supo","kind":"word","fitGroup":"columns","box":{"x":870.078125,"y":519.092041015625,"width":88.953125,"height":40.375}},{"text":"supe","kind":"word","fitGroup":"columns","box":{"x":1076.15625,"y":518.170166015625,"width":88.1875,"height":40.375}},{"text":"Sisi","kind":"word","fitGroup":"columns","box":{"x":684.75,"y":563.701416015625,"width":61.453125,"height":40.375}},{"text":"ese","kind":"word","fitGroup":"columns","box":{"x":869.625,"y":562.779541015625,"width":63.28125,"height":40.375}},{"text":"esa","kind":"word","fitGroup":"columns","box":{"x":1076.15625,"y":562.310791015625,"width":62.8125,"height":40.375}},{"text":"es","kind":"verse","fitGroup":"row-2","box":{"x":673.28125,"y":626.9144287109375,"width":38.15625,"height":37.765625}},{"text":"de","kind":"verse","fitGroup":"row-2","box":{"x":752.703125,"y":626.9144287109375,"width":43.4375,"height":37.765625}},{"text":"un","kind":"verse","fitGroup":"row-2","box":{"x":835.234375,"y":626.9144287109375,"width":45.25,"height":37.765625}},{"text":"está","kind":"verse","fitGroup":"row-2","box":{"x":920.9375,"y":626.9144287109375,"width":72.09375,"height":37.765625}},{"text":"en","kind":"verse","fitGroup":"row-2","box":{"x":1030.015625,"y":626.9144287109375,"width":43.40625,"height":37.765625}},{"text":"la","kind":"verse","fitGroup":"row-2","box":{"x":1127.0078125,"y":626.9144287109375,"width":30.140625,"height":37.765625}},{"text":"el","kind":"verse","fitGroup":"row-2","box":{"x":1204.6796875,"y":626.9144287109375,"width":30.609375,"height":37.765625}},{"text":"La mesa es de Susi.","kind":"verse","fitGroup":"column-63-887","box":{"x":683.375,"y":690.4859619140625,"width":281.625,"height":33.203125}},{"text":"La sopa está en la mesa.","kind":"verse","fitGroup":"column-63-887","box":{"x":682.90625,"y":732.4390869140625,"width":355.171875,"height":33.203125}},{"text":"Papá pasa la sopa a Susi.","kind":"verse","fitGroup":"column-63-887","box":{"x":682.453125,"y":774.3922119140625,"width":356.578125,"height":33.203125}},{"text":"Sisi pasa la sopa a mamá.","kind":"verse","fitGroup":"column-63-887","box":{"x":680.140625,"y":816.3297119140625,"width":366.421875,"height":33.203125}},{"text":"Ese sapo es de Sisi. Es el sapo Samapo.","kind":"verse","fitGroup":"column-63-887","box":{"x":680.140625,"y":858.2828369140625,"width":561.125,"height":33.203125}},{"text":"Sisi pasa el sapo a Pepe.","kind":"verse","fitGroup":"column-63-887","box":{"x":678.296875,"y":900.2359619140625,"width":346.40625,"height":33.203125}},{"text":"Pepe puso un sapo en la mesa.","kind":"verse","fitGroup":"column-63-887","box":{"x":677.84375,"y":942.1890869140625,"width":449.796875,"height":33.203125}}],"rows":[],"words":[],"prose":[],"fullText":"Ss\n\nsa\n\nse\n\nsi\n\nso\n\nsu\n\nsu\n\nso\n\nsa\n\nse\n\nsi\n\nmasa\n\nmesa\n\nsuma\n\nsapo\n\nseso\n\nSusi\n\nasí\n\nsopa\n\npaso\n\npuso\n\nsupo\n\nsupe\n\nSisi\n\nese\n\nesa\n\nes\n\nde\n\nun\n\nestá\n\nen\n\nla\n\nel\n\nLa mesa es de Susi.\n\nLa sopa está en la mesa.\n\nPapá pasa la sopa a Susi.\n\nSisi pasa la sopa a mamá.\n\nEse sapo es de Sisi. Es el sapo Samapo.\n\nSisi pasa el sapo a Pepe.\n\nPepe puso un sapo en la mesa.\n\n16"},{"page":"19","board":{"x":33,"y":99.984375,"width":1854,"height":893.234375},"replica":true,"tokens":[{"text":"Tt","kind":"letter","fitGroup":null,"box":{"x":701.84375,"y":203.08358764648438,"width":74.3125,"height":82.421875}},{"text":"ta","kind":"syllable","fitGroup":"syllables","box":{"x":890.0234375,"y":185.6009979248047,"width":64.578125,"height":49.453125}},{"text":"te","kind":"syllable","fitGroup":"syllables","box":{"x":965.1171875,"y":185.14419555664062,"width":64.578125,"height":50.203125}},{"text":"ti","kind":"syllable","fitGroup":"syllables","box":{"x":1040.2265625,"y":185.14419555664062,"width":64.578125,"height":50.203125}},{"text":"to","kind":"syllable","fitGroup":"syllables","box":{"x":1115.3359375,"y":185.14419555664062,"width":64.578125,"height":50.203125}},{"text":"tu","kind":"syllable","fitGroup":"syllables","box":{"x":1190.4296875,"y":185.14419555664062,"width":64.578125,"height":50.203125}},{"text":"tu","kind":"syllable","fitGroup":"syllables","box":{"x":890.0234375,"y":279.66351318359375,"width":64.578125,"height":49.453125}},{"text":"to","kind":"syllable","fitGroup":"syllables","box":{"x":965.1171875,"y":279.2066955566406,"width":64.578125,"height":50.203125}},{"text":"ta","kind":"syllable","fitGroup":"syllables","box":{"x":1040.2265625,"y":279.2066955566406,"width":64.578125,"height":50.203125}},{"text":"te","kind":"syllable","fitGroup":"syllables","box":{"x":1115.3359375,"y":279.2066955566406,"width":64.578125,"height":50.203125}},{"text":"ti","kind":"syllable","fitGroup":"syllables","box":{"x":1190.4296875,"y":279.2066955566406,"width":64.578125,"height":50.203125}},{"text":"toma","kind":"word","fitGroup":"columns","box":{"x":682.609375,"y":356.93487548828125,"width":101.296875,"height":42.765625}},{"text":"teme","kind":"word","fitGroup":"columns","box":{"x":879.84375,"y":355.98175048828125,"width":100.984375,"height":42.765625}},{"text":"seta","kind":"word","fitGroup":"columns","box":{"x":1088.109375,"y":354.04425048828125,"width":80.1875,"height":42.765625}},{"text":"tute","kind":"word","fitGroup":"columns","box":{"x":683.09375,"y":401.8411560058594,"width":80.234375,"height":42.765625}},{"text":"Titi","kind":"word","fitGroup":"columns","box":{"x":880.328125,"y":401.0911560058594,"width":60.421875,"height":42.765625}},{"text":"pata","kind":"word","fitGroup":"columns","box":{"x":1089.546875,"y":398.2474060058594,"width":86.3125,"height":42.765625}},{"text":"Soto","kind":"word","fitGroup":"columns","box":{"x":684.0625,"y":446.7630310058594,"width":86.84375,"height":42.765625}},{"text":"tupe","kind":"word","fitGroup":"columns","box":{"x":881.28125,"y":446.2005310058594,"width":90.515625,"height":42.765625}},{"text":"tapa","kind":"word","fitGroup":"columns","box":{"x":1088.109375,"y":442.4505310058594,"width":86.3125,"height":42.765625}},{"text":"mete","kind":"word","fitGroup":"columns","box":{"x":685.96875,"y":491.6849060058594,"width":100.984375,"height":42.765655517578125}},{"text":"Mota","kind":"word","fitGroup":"columns","box":{"x":883.6875,"y":491.2942810058594,"width":97.515625,"height":42.765655517578125}},{"text":"Piti","kind":"word","fitGroup":"columns","box":{"x":1090.03125,"y":486.6536560058594,"width":65.515625,"height":42.765655517578125}},{"text":"topo","kind":"word","fitGroup":"columns","box":{"x":685.015625,"y":536.6068115234375,"width":89.0625,"height":42.765625}},{"text":"sapito","kind":"word","fitGroup":"columns","box":{"x":882.71875,"y":536.4036865234375,"width":114.203125,"height":42.765625}},{"text":"peseta","kind":"word","fitGroup":"columns","box":{"x":1090.03125,"y":530.8568115234375,"width":125.53125,"height":42.765625}},{"text":"tomate","kind":"word","fitGroup":"columns","box":{"x":685.015625,"y":581.5130615234375,"width":136.34375,"height":42.765625}},{"text":"Poti","kind":"word","fitGroup":"columns","box":{"x":884.15625,"y":581.5130615234375,"width":78.03125,"height":42.765625}},{"text":"pato","kind":"word","fitGroup":"columns","box":{"x":1090.515625,"y":575.0599365234375,"width":87.65625,"height":42.765625}},{"text":"tiene","kind":"verse","fitGroup":"row-2","box":{"x":659.6484375,"y":632.9644165039062,"width":94.890625,"height":40.53125}},{"text":"patio","kind":"verse","fitGroup":"row-2","box":{"x":912.609375,"y":632.9644165039062,"width":94.75,"height":40.53125}},{"text":"no","kind":"verse","fitGroup":"row-2","box":{"x":1213.0859375,"y":632.9644165039062,"width":47.578125,"height":40.53125}},{"text":"La mesa tiene un tapete.","kind":"verse","fitGroup":"column-91-860","box":{"x":685.5,"y":694.7269287109375,"width":367.171875,"height":33.84375}},{"text":"El pomo está en la mesa.","kind":"verse","fitGroup":"column-91-860","box":{"x":685.5,"y":736.9613037109375,"width":365.125,"height":33.84375}},{"text":"La mesa está en el patio.","kind":"verse","fitGroup":"column-91-860","box":{"x":686.453125,"y":779.1956787109375,"width":363.703125,"height":33.84375}},{"text":"El pomo tiene sopa. El pomo tiene tapa.","kind":"verse","fitGroup":"column-91-860","box":{"x":686.453125,"y":821.4456787109375,"width":592.53125,"height":33.84375}},{"text":"Tito tapa el pomo.","kind":"verse","fitGroup":"column-91-860","box":{"x":685.015625,"y":863.6800537109375,"width":263.125,"height":33.84375}},{"text":"-¡No Tito, no, no tapes el pomo!","kind":"verse","fitGroup":"column-91-860","box":{"x":685.96875,"y":905.9144287109375,"width":456.515625,"height":33.84375}},{"text":"Papá tapa la sopa.","kind":"verse","fitGroup":"column-91-860","box":{"x":686.9375,"y":948.1488037109375,"width":266,"height":33.84375}}],"rows":[],"words":[],"prose":[],"fullText":"Tt\n\nta\n\nte\n\nti\n\nto\n\ntu\n\ntu\n\nto\n\nta\n\nte\n\nti\n\ntoma\n\nteme\n\nseta\n\ntute\n\nTiti\n\npata\n\nSoto\n\ntupe\n\ntapa\n\nmete\n\nMota\n\nPiti\n\ntopo\n\nsapito\n\npeseta\n\ntomate\n\nPoti\n\npato\n\ntiene\n\npatio\n\nno\n\nLa mesa tiene un tapete.\n\nEl pomo está en la mesa.\n\nLa mesa está en el patio.\n\nEl pomo tiene sopa. El pomo tiene tapa.\n\nTito tapa el pomo.\n\n-¡No Tito, no, no tapes el pomo!\n\nPapá tapa la sopa.\n\n19"}],"errors":[]}
+{
+  "sha": "64666e84aa5e3e080de1fde6c1366f1f30b8aa50",
+  "viewport": { "width": 1920, "height": 1080 },
+  "runtime": "real /cartilla/presentar route on isolated Vite worker with dead-local Supabase and no product modifications",
+  "results": [
+    {
+      "page": "10",
+      "board": { "x": 33, "y": 99.984375, "width": 1854, "height": 893.234375 },
+      "replica": true,
+      "tokens": [
+        {
+          "text": "Mm",
+          "kind": "letter",
+          "fitGroup": null,
+          "box": { "x": 696.59375, "y": 219.17282104492188, "width": 114.125, "height": 66.140625 }
+        },
+        {
+          "text": "ma",
+          "kind": "syllable",
+          "fitGroup": "syllables",
+          "box": { "x": 894.78125, "y": 192.34194946289062, "width": 62.65625, "height": 48.625 }
+        },
+        {
+          "text": "me",
+          "kind": "syllable",
+          "fitGroup": "syllables",
+          "box": { "x": 967.640625, "y": 192.34194946289062, "width": 62.65625, "height": 48.625 }
+        },
+        {
+          "text": "mi",
+          "kind": "syllable",
+          "fitGroup": "syllables",
+          "box": { "x": 1040.5, "y": 190.33230590820312, "width": 62.65625, "height": 51.9375 }
+        },
+        {
+          "text": "mo",
+          "kind": "syllable",
+          "fitGroup": "syllables",
+          "box": { "x": 1113.359375, "y": 192.34194946289062, "width": 62.65625, "height": 48.625 }
+        },
+        {
+          "text": "mu",
+          "kind": "syllable",
+          "fitGroup": "syllables",
+          "box": { "x": 1186.21875, "y": 190.834716796875, "width": 62.65625, "height": 51.109375 }
+        },
+        {
+          "text": "mu",
+          "kind": "syllable",
+          "fitGroup": "syllables",
+          "box": { "x": 894.78125, "y": 282.62322998046875, "width": 62.65625, "height": 48.625 }
+        },
+        {
+          "text": "mo",
+          "kind": "syllable",
+          "fitGroup": "syllables",
+          "box": { "x": 967.640625, "y": 282.62322998046875, "width": 62.65625, "height": 48.625 }
+        },
+        {
+          "text": "ma",
+          "kind": "syllable",
+          "fitGroup": "syllables",
+          "box": { "x": 1040.5, "y": 280.6135559082031, "width": 62.65625, "height": 51.9375 }
+        },
+        {
+          "text": "me",
+          "kind": "syllable",
+          "fitGroup": "syllables",
+          "box": { "x": 1113.359375, "y": 282.62322998046875, "width": 62.65625, "height": 48.625 }
+        },
+        {
+          "text": "mi",
+          "kind": "syllable",
+          "fitGroup": "syllables",
+          "box": { "x": 1186.21875, "y": 281.115966796875, "width": 62.65625, "height": 51.109375 }
+        },
+        {
+          "text": "mamá",
+          "kind": "word",
+          "fitGroup": "columns",
+          "box": {
+            "x": 697.21875,
+            "y": 374.23748779296875,
+            "width": 112.953125,
+            "height": 39.015625
+          }
+        },
+        {
+          "text": "mami",
+          "kind": "word",
+          "fitGroup": "columns",
+          "box": { "x": 878.25, "y": 374.23748779296875, "width": 102.59375, "height": 39.015625 }
+        },
+        {
+          "text": "Mimo",
+          "kind": "word",
+          "fitGroup": "columns",
+          "box": {
+            "x": 1062.015625,
+            "y": 375.58123779296875,
+            "width": 100.375,
+            "height": 39.015625
+          }
+        },
+        {
+          "text": "mío",
+          "kind": "word",
+          "fitGroup": "columns",
+          "box": {
+            "x": 697.21875,
+            "y": 421.29998779296875,
+            "width": 69.578125,
+            "height": 39.015625
+          }
+        },
+        {
+          "text": "me",
+          "kind": "word",
+          "fitGroup": "columns",
+          "box": { "x": 878.25, "y": 421.40936279296875, "width": 60.15625, "height": 39.015625 }
+        },
+        {
+          "text": "mímame",
+          "kind": "word",
+          "fitGroup": "columns",
+          "box": {
+            "x": 1061.5625,
+            "y": 422.65936279296875,
+            "width": 156.296875,
+            "height": 39.015625
+          }
+        },
+        {
+          "text": "Meme",
+          "kind": "word",
+          "fitGroup": "columns",
+          "box": {
+            "x": 696.765625,
+            "y": 468.36248779296875,
+            "width": 110.4375,
+            "height": 39.015625
+          }
+        },
+        {
+          "text": "ama",
+          "kind": "word",
+          "fitGroup": "columns",
+          "box": { "x": 877.8125, "y": 468.59686279296875, "width": 78.734375, "height": 39.015625 }
+        },
+        {
+          "text": "mía",
+          "kind": "word",
+          "fitGroup": "columns",
+          "box": { "x": 1061.5625, "y": 469.72186279296875, "width": 68.375, "height": 39.015625 }
+        },
+        {
+          "text": "Mumi",
+          "kind": "word",
+          "fitGroup": "columns",
+          "box": {
+            "x": 696.765625,
+            "y": 515.4406127929688,
+            "width": 101.828125,
+            "height": 39.015625
+          }
+        },
+        {
+          "text": "Memo",
+          "kind": "word",
+          "fitGroup": "columns",
+          "box": {
+            "x": 879.15625,
+            "y": 515.7687377929688,
+            "width": 111.171875,
+            "height": 39.015625
+          }
+        },
+        {
+          "text": "mima",
+          "kind": "word",
+          "fitGroup": "columns",
+          "box": {
+            "x": 1062.015625,
+            "y": 516.7843627929688,
+            "width": 102.59375,
+            "height": 39.015625
+          }
+        },
+        {
+          "text": "amo",
+          "kind": "word",
+          "fitGroup": "columns",
+          "box": {
+            "x": 695.421875,
+            "y": 562.5031127929688,
+            "width": 79.921875,
+            "height": 39.015625
+          }
+        },
+        {
+          "text": "Mimí",
+          "kind": "word",
+          "fitGroup": "columns",
+          "box": { "x": 878.71875, "y": 562.9406127929688, "width": 88.828125, "height": 39.015625 }
+        },
+        {
+          "text": "ámame",
+          "kind": "word",
+          "fitGroup": "columns",
+          "box": {
+            "x": 1061.5625,
+            "y": 563.8624877929688,
+            "width": 132.421875,
+            "height": 39.015625
+          }
+        },
+        {
+          "text": "y",
+          "kind": "chip",
+          "fitGroup": null,
+          "box": { "x": 949.359375, "y": 635.3517456054688, "width": 21.6875, "height": 41.71875 }
+        },
+        {
+          "text": "Mi mamá me ama.",
+          "kind": "verse",
+          "fitGroup": "column-152-917",
+          "box": { "x": 740.109375, "y": 702.9700317382812, "width": 271.125, "height": 33.078125 }
+        },
+        {
+          "text": "Amo a mami. Mamá mía.",
+          "kind": "verse",
+          "fitGroup": "column-152-917",
+          "box": {
+            "x": 740.109375,
+            "y": 749.0012817382812,
+            "width": 361.21875,
+            "height": 33.078125
+          }
+        },
+        {
+          "text": "Mamá ama a Meme y a Mimí.",
+          "kind": "verse",
+          "fitGroup": "column-152-917",
+          "box": { "x": 740.109375, "y": 795.0481567382812, "width": 424.875, "height": 33.078125 }
+        },
+        {
+          "text": "Memo ama a Mumi.",
+          "kind": "verse",
+          "fitGroup": "column-152-917",
+          "box": {
+            "x": 740.109375,
+            "y": 841.0950317382812,
+            "width": 288.453125,
+            "height": 33.078125
+          }
+        },
+        {
+          "text": "Mamá mía ámame. Mímame a mí.",
+          "kind": "verse",
+          "fitGroup": "column-152-917",
+          "box": {
+            "x": 740.109375,
+            "y": 887.1419067382812,
+            "width": 494.96875,
+            "height": 33.078125
+          }
+        },
+        {
+          "text": "Mi mamá me mima.",
+          "kind": "verse",
+          "fitGroup": "column-152-917",
+          "box": {
+            "x": 740.109375,
+            "y": 933.1887817382812,
+            "width": 292.390625,
+            "height": 33.078125
+          }
+        }
+      ],
+      "rows": [],
+      "words": [],
+      "prose": [],
+      "fullText": "Mm\n\nma\n\nme\n\nmi\n\nmo\n\nmu\n\nmu\n\nmo\n\nma\n\nme\n\nmi\n\nmamá\n\nmami\n\nMimo\n\nmío\n\nme\n\nmímame\n\nMeme\n\nama\n\nmía\n\nMumi\n\nMemo\n\nmima\n\namo\n\nMimí\n\námame\n\ny\n\nMi mamá me ama.\n\nAmo a mami. Mamá mía.\n\nMamá ama a Meme y a Mimí.\n\nMemo ama a Mumi.\n\nMamá mía ámame. Mímame a mí.\n\nMi mamá me mima.\n\n10"
+    },
+    {
+      "page": "16",
+      "board": { "x": 33, "y": 99.984375, "width": 1854, "height": 893.234375 },
+      "replica": true,
+      "tokens": [
+        {
+          "text": "Ss",
+          "kind": "letter",
+          "fitGroup": null,
+          "box": { "x": 707.21875, "y": 232.09451293945312, "width": 77.6875, "height": 77.765625 }
+        },
+        {
+          "text": "sa",
+          "kind": "syllable",
+          "fitGroup": "syllables",
+          "box": { "x": 881.296875, "y": 205.00350952148438, "width": 61, "height": 52.734375 }
+        },
+        {
+          "text": "se",
+          "kind": "syllable",
+          "fitGroup": "syllables",
+          "box": {
+            "x": 952.234375,
+            "y": 205.4904327392578,
+            "width": 61,
+            "height": 51.93748474121094
+          }
+        },
+        {
+          "text": "si",
+          "kind": "syllable",
+          "fitGroup": "syllables",
+          "box": { "x": 1023.171875, "y": 204.0296630859375, "width": 61, "height": 54.3125 }
+        },
+        {
+          "text": "so",
+          "kind": "syllable",
+          "fitGroup": "syllables",
+          "box": { "x": 1094.109375, "y": 205.00350952148438, "width": 61, "height": 52.734375 }
+        },
+        {
+          "text": "su",
+          "kind": "syllable",
+          "fitGroup": "syllables",
+          "box": {
+            "x": 1165.046875,
+            "y": 204.51658630371094,
+            "width": 61,
+            "height": 53.51564025878906
+          }
+        },
+        {
+          "text": "su",
+          "kind": "syllable",
+          "fitGroup": "syllables",
+          "box": { "x": 881.296875, "y": 289.3628845214844, "width": 61, "height": 52.734375 }
+        },
+        {
+          "text": "so",
+          "kind": "syllable",
+          "fitGroup": "syllables",
+          "box": { "x": 952.234375, "y": 289.84979248046875, "width": 61, "height": 51.9375 }
+        },
+        {
+          "text": "sa",
+          "kind": "syllable",
+          "fitGroup": "syllables",
+          "box": { "x": 1023.171875, "y": 288.3890380859375, "width": 61, "height": 54.3125 }
+        },
+        {
+          "text": "se",
+          "kind": "syllable",
+          "fitGroup": "syllables",
+          "box": { "x": 1094.109375, "y": 289.3628845214844, "width": 61, "height": 52.734375 }
+        },
+        {
+          "text": "si",
+          "kind": "syllable",
+          "fitGroup": "syllables",
+          "box": { "x": 1165.046875, "y": 288.8759765625, "width": 61, "height": 53.515625 }
+        },
+        {
+          "text": "masa",
+          "kind": "word",
+          "fitGroup": "columns",
+          "box": { "x": 689.359375, "y": 391.748291015625, "width": 97.765625, "height": 40.375 }
+        },
+        {
+          "text": "mesa",
+          "kind": "word",
+          "fitGroup": "columns",
+          "box": { "x": 873.3125, "y": 388.060791015625, "width": 98.234375, "height": 40.375 }
+        },
+        {
+          "text": "suma",
+          "kind": "word",
+          "fitGroup": "columns",
+          "box": { "x": 1078.453125, "y": 385.763916015625, "width": 100.5, "height": 40.375 }
+        },
+        {
+          "text": "sapo",
+          "kind": "word",
+          "fitGroup": "columns",
+          "box": { "x": 687.0625, "y": 434.732666015625, "width": 86.21875, "height": 40.375 }
+        },
+        {
+          "text": "seso",
+          "kind": "word",
+          "fitGroup": "columns",
+          "box": { "x": 871.46875, "y": 431.732666015625, "width": 80.34375, "height": 40.375 }
+        },
+        {
+          "text": "Susi",
+          "kind": "word",
+          "fitGroup": "columns",
+          "box": { "x": 1077.53125, "y": 429.904541015625, "width": 74.890625, "height": 40.375 }
+        },
+        {
+          "text": "así",
+          "kind": "word",
+          "fitGroup": "columns",
+          "box": { "x": 687.0625, "y": 477.717041015625, "width": 51.640625, "height": 40.375 }
+        },
+        {
+          "text": "sopa",
+          "kind": "word",
+          "fitGroup": "columns",
+          "box": { "x": 870.546875, "y": 475.420166015625, "width": 86.109375, "height": 40.375 }
+        },
+        {
+          "text": "paso",
+          "kind": "word",
+          "fitGroup": "columns",
+          "box": { "x": 1078, "y": 474.029541015625, "width": 86.109375, "height": 40.375 }
+        },
+        {
+          "text": "puso",
+          "kind": "word",
+          "fitGroup": "columns",
+          "box": { "x": 686.140625, "y": 520.701416015625, "width": 88.953125, "height": 40.375 }
+        },
+        {
+          "text": "supo",
+          "kind": "word",
+          "fitGroup": "columns",
+          "box": { "x": 870.078125, "y": 519.092041015625, "width": 88.953125, "height": 40.375 }
+        },
+        {
+          "text": "supe",
+          "kind": "word",
+          "fitGroup": "columns",
+          "box": { "x": 1076.15625, "y": 518.170166015625, "width": 88.1875, "height": 40.375 }
+        },
+        {
+          "text": "Sisi",
+          "kind": "word",
+          "fitGroup": "columns",
+          "box": { "x": 684.75, "y": 563.701416015625, "width": 61.453125, "height": 40.375 }
+        },
+        {
+          "text": "ese",
+          "kind": "word",
+          "fitGroup": "columns",
+          "box": { "x": 869.625, "y": 562.779541015625, "width": 63.28125, "height": 40.375 }
+        },
+        {
+          "text": "esa",
+          "kind": "word",
+          "fitGroup": "columns",
+          "box": { "x": 1076.15625, "y": 562.310791015625, "width": 62.8125, "height": 40.375 }
+        },
+        {
+          "text": "es",
+          "kind": "verse",
+          "fitGroup": "row-2",
+          "box": { "x": 673.28125, "y": 626.9144287109375, "width": 38.15625, "height": 37.765625 }
+        },
+        {
+          "text": "de",
+          "kind": "verse",
+          "fitGroup": "row-2",
+          "box": { "x": 752.703125, "y": 626.9144287109375, "width": 43.4375, "height": 37.765625 }
+        },
+        {
+          "text": "un",
+          "kind": "verse",
+          "fitGroup": "row-2",
+          "box": { "x": 835.234375, "y": 626.9144287109375, "width": 45.25, "height": 37.765625 }
+        },
+        {
+          "text": "está",
+          "kind": "verse",
+          "fitGroup": "row-2",
+          "box": { "x": 920.9375, "y": 626.9144287109375, "width": 72.09375, "height": 37.765625 }
+        },
+        {
+          "text": "en",
+          "kind": "verse",
+          "fitGroup": "row-2",
+          "box": {
+            "x": 1030.015625,
+            "y": 626.9144287109375,
+            "width": 43.40625,
+            "height": 37.765625
+          }
+        },
+        {
+          "text": "la",
+          "kind": "verse",
+          "fitGroup": "row-2",
+          "box": {
+            "x": 1127.0078125,
+            "y": 626.9144287109375,
+            "width": 30.140625,
+            "height": 37.765625
+          }
+        },
+        {
+          "text": "el",
+          "kind": "verse",
+          "fitGroup": "row-2",
+          "box": {
+            "x": 1204.6796875,
+            "y": 626.9144287109375,
+            "width": 30.609375,
+            "height": 37.765625
+          }
+        },
+        {
+          "text": "La mesa es de Susi.",
+          "kind": "verse",
+          "fitGroup": "column-63-887",
+          "box": { "x": 683.375, "y": 690.4859619140625, "width": 281.625, "height": 33.203125 }
+        },
+        {
+          "text": "La sopa está en la mesa.",
+          "kind": "verse",
+          "fitGroup": "column-63-887",
+          "box": {
+            "x": 682.90625,
+            "y": 732.4390869140625,
+            "width": 355.171875,
+            "height": 33.203125
+          }
+        },
+        {
+          "text": "Papá pasa la sopa a Susi.",
+          "kind": "verse",
+          "fitGroup": "column-63-887",
+          "box": {
+            "x": 682.453125,
+            "y": 774.3922119140625,
+            "width": 356.578125,
+            "height": 33.203125
+          }
+        },
+        {
+          "text": "Sisi pasa la sopa a mamá.",
+          "kind": "verse",
+          "fitGroup": "column-63-887",
+          "box": {
+            "x": 680.140625,
+            "y": 816.3297119140625,
+            "width": 366.421875,
+            "height": 33.203125
+          }
+        },
+        {
+          "text": "Ese sapo es de Sisi. Es el sapo Samapo.",
+          "kind": "verse",
+          "fitGroup": "column-63-887",
+          "box": { "x": 680.140625, "y": 858.2828369140625, "width": 561.125, "height": 33.203125 }
+        },
+        {
+          "text": "Sisi pasa el sapo a Pepe.",
+          "kind": "verse",
+          "fitGroup": "column-63-887",
+          "box": {
+            "x": 678.296875,
+            "y": 900.2359619140625,
+            "width": 346.40625,
+            "height": 33.203125
+          }
+        },
+        {
+          "text": "Pepe puso un sapo en la mesa.",
+          "kind": "verse",
+          "fitGroup": "column-63-887",
+          "box": {
+            "x": 677.84375,
+            "y": 942.1890869140625,
+            "width": 449.796875,
+            "height": 33.203125
+          }
+        }
+      ],
+      "rows": [],
+      "words": [],
+      "prose": [],
+      "fullText": "Ss\n\nsa\n\nse\n\nsi\n\nso\n\nsu\n\nsu\n\nso\n\nsa\n\nse\n\nsi\n\nmasa\n\nmesa\n\nsuma\n\nsapo\n\nseso\n\nSusi\n\nasí\n\nsopa\n\npaso\n\npuso\n\nsupo\n\nsupe\n\nSisi\n\nese\n\nesa\n\nes\n\nde\n\nun\n\nestá\n\nen\n\nla\n\nel\n\nLa mesa es de Susi.\n\nLa sopa está en la mesa.\n\nPapá pasa la sopa a Susi.\n\nSisi pasa la sopa a mamá.\n\nEse sapo es de Sisi. Es el sapo Samapo.\n\nSisi pasa el sapo a Pepe.\n\nPepe puso un sapo en la mesa.\n\n16"
+    },
+    {
+      "page": "19",
+      "board": { "x": 33, "y": 99.984375, "width": 1854, "height": 893.234375 },
+      "replica": true,
+      "tokens": [
+        {
+          "text": "Tt",
+          "kind": "letter",
+          "fitGroup": null,
+          "box": { "x": 701.84375, "y": 203.08358764648438, "width": 74.3125, "height": 82.421875 }
+        },
+        {
+          "text": "ta",
+          "kind": "syllable",
+          "fitGroup": "syllables",
+          "box": {
+            "x": 890.0234375,
+            "y": 185.6009979248047,
+            "width": 64.578125,
+            "height": 49.453125
+          }
+        },
+        {
+          "text": "te",
+          "kind": "syllable",
+          "fitGroup": "syllables",
+          "box": {
+            "x": 965.1171875,
+            "y": 185.14419555664062,
+            "width": 64.578125,
+            "height": 50.203125
+          }
+        },
+        {
+          "text": "ti",
+          "kind": "syllable",
+          "fitGroup": "syllables",
+          "box": {
+            "x": 1040.2265625,
+            "y": 185.14419555664062,
+            "width": 64.578125,
+            "height": 50.203125
+          }
+        },
+        {
+          "text": "to",
+          "kind": "syllable",
+          "fitGroup": "syllables",
+          "box": {
+            "x": 1115.3359375,
+            "y": 185.14419555664062,
+            "width": 64.578125,
+            "height": 50.203125
+          }
+        },
+        {
+          "text": "tu",
+          "kind": "syllable",
+          "fitGroup": "syllables",
+          "box": {
+            "x": 1190.4296875,
+            "y": 185.14419555664062,
+            "width": 64.578125,
+            "height": 50.203125
+          }
+        },
+        {
+          "text": "tu",
+          "kind": "syllable",
+          "fitGroup": "syllables",
+          "box": {
+            "x": 890.0234375,
+            "y": 279.66351318359375,
+            "width": 64.578125,
+            "height": 49.453125
+          }
+        },
+        {
+          "text": "to",
+          "kind": "syllable",
+          "fitGroup": "syllables",
+          "box": {
+            "x": 965.1171875,
+            "y": 279.2066955566406,
+            "width": 64.578125,
+            "height": 50.203125
+          }
+        },
+        {
+          "text": "ta",
+          "kind": "syllable",
+          "fitGroup": "syllables",
+          "box": {
+            "x": 1040.2265625,
+            "y": 279.2066955566406,
+            "width": 64.578125,
+            "height": 50.203125
+          }
+        },
+        {
+          "text": "te",
+          "kind": "syllable",
+          "fitGroup": "syllables",
+          "box": {
+            "x": 1115.3359375,
+            "y": 279.2066955566406,
+            "width": 64.578125,
+            "height": 50.203125
+          }
+        },
+        {
+          "text": "ti",
+          "kind": "syllable",
+          "fitGroup": "syllables",
+          "box": {
+            "x": 1190.4296875,
+            "y": 279.2066955566406,
+            "width": 64.578125,
+            "height": 50.203125
+          }
+        },
+        {
+          "text": "toma",
+          "kind": "word",
+          "fitGroup": "columns",
+          "box": {
+            "x": 682.609375,
+            "y": 356.93487548828125,
+            "width": 101.296875,
+            "height": 42.765625
+          }
+        },
+        {
+          "text": "teme",
+          "kind": "word",
+          "fitGroup": "columns",
+          "box": {
+            "x": 879.84375,
+            "y": 355.98175048828125,
+            "width": 100.984375,
+            "height": 42.765625
+          }
+        },
+        {
+          "text": "seta",
+          "kind": "word",
+          "fitGroup": "columns",
+          "box": {
+            "x": 1088.109375,
+            "y": 354.04425048828125,
+            "width": 80.1875,
+            "height": 42.765625
+          }
+        },
+        {
+          "text": "tute",
+          "kind": "word",
+          "fitGroup": "columns",
+          "box": { "x": 683.09375, "y": 401.8411560058594, "width": 80.234375, "height": 42.765625 }
+        },
+        {
+          "text": "Titi",
+          "kind": "word",
+          "fitGroup": "columns",
+          "box": {
+            "x": 880.328125,
+            "y": 401.0911560058594,
+            "width": 60.421875,
+            "height": 42.765625
+          }
+        },
+        {
+          "text": "pata",
+          "kind": "word",
+          "fitGroup": "columns",
+          "box": { "x": 1089.546875, "y": 398.2474060058594, "width": 86.3125, "height": 42.765625 }
+        },
+        {
+          "text": "Soto",
+          "kind": "word",
+          "fitGroup": "columns",
+          "box": { "x": 684.0625, "y": 446.7630310058594, "width": 86.84375, "height": 42.765625 }
+        },
+        {
+          "text": "tupe",
+          "kind": "word",
+          "fitGroup": "columns",
+          "box": { "x": 881.28125, "y": 446.2005310058594, "width": 90.515625, "height": 42.765625 }
+        },
+        {
+          "text": "tapa",
+          "kind": "word",
+          "fitGroup": "columns",
+          "box": { "x": 1088.109375, "y": 442.4505310058594, "width": 86.3125, "height": 42.765625 }
+        },
+        {
+          "text": "mete",
+          "kind": "word",
+          "fitGroup": "columns",
+          "box": {
+            "x": 685.96875,
+            "y": 491.6849060058594,
+            "width": 100.984375,
+            "height": 42.765655517578125
+          }
+        },
+        {
+          "text": "Mota",
+          "kind": "word",
+          "fitGroup": "columns",
+          "box": {
+            "x": 883.6875,
+            "y": 491.2942810058594,
+            "width": 97.515625,
+            "height": 42.765655517578125
+          }
+        },
+        {
+          "text": "Piti",
+          "kind": "word",
+          "fitGroup": "columns",
+          "box": {
+            "x": 1090.03125,
+            "y": 486.6536560058594,
+            "width": 65.515625,
+            "height": 42.765655517578125
+          }
+        },
+        {
+          "text": "topo",
+          "kind": "word",
+          "fitGroup": "columns",
+          "box": { "x": 685.015625, "y": 536.6068115234375, "width": 89.0625, "height": 42.765625 }
+        },
+        {
+          "text": "sapito",
+          "kind": "word",
+          "fitGroup": "columns",
+          "box": {
+            "x": 882.71875,
+            "y": 536.4036865234375,
+            "width": 114.203125,
+            "height": 42.765625
+          }
+        },
+        {
+          "text": "peseta",
+          "kind": "word",
+          "fitGroup": "columns",
+          "box": {
+            "x": 1090.03125,
+            "y": 530.8568115234375,
+            "width": 125.53125,
+            "height": 42.765625
+          }
+        },
+        {
+          "text": "tomate",
+          "kind": "word",
+          "fitGroup": "columns",
+          "box": {
+            "x": 685.015625,
+            "y": 581.5130615234375,
+            "width": 136.34375,
+            "height": 42.765625
+          }
+        },
+        {
+          "text": "Poti",
+          "kind": "word",
+          "fitGroup": "columns",
+          "box": { "x": 884.15625, "y": 581.5130615234375, "width": 78.03125, "height": 42.765625 }
+        },
+        {
+          "text": "pato",
+          "kind": "word",
+          "fitGroup": "columns",
+          "box": {
+            "x": 1090.515625,
+            "y": 575.0599365234375,
+            "width": 87.65625,
+            "height": 42.765625
+          }
+        },
+        {
+          "text": "tiene",
+          "kind": "verse",
+          "fitGroup": "row-2",
+          "box": {
+            "x": 659.6484375,
+            "y": 632.9644165039062,
+            "width": 94.890625,
+            "height": 40.53125
+          }
+        },
+        {
+          "text": "patio",
+          "kind": "verse",
+          "fitGroup": "row-2",
+          "box": { "x": 912.609375, "y": 632.9644165039062, "width": 94.75, "height": 40.53125 }
+        },
+        {
+          "text": "no",
+          "kind": "verse",
+          "fitGroup": "row-2",
+          "box": {
+            "x": 1213.0859375,
+            "y": 632.9644165039062,
+            "width": 47.578125,
+            "height": 40.53125
+          }
+        },
+        {
+          "text": "La mesa tiene un tapete.",
+          "kind": "verse",
+          "fitGroup": "column-91-860",
+          "box": { "x": 685.5, "y": 694.7269287109375, "width": 367.171875, "height": 33.84375 }
+        },
+        {
+          "text": "El pomo está en la mesa.",
+          "kind": "verse",
+          "fitGroup": "column-91-860",
+          "box": { "x": 685.5, "y": 736.9613037109375, "width": 365.125, "height": 33.84375 }
+        },
+        {
+          "text": "La mesa está en el patio.",
+          "kind": "verse",
+          "fitGroup": "column-91-860",
+          "box": {
+            "x": 686.453125,
+            "y": 779.1956787109375,
+            "width": 363.703125,
+            "height": 33.84375
+          }
+        },
+        {
+          "text": "El pomo tiene sopa. El pomo tiene tapa.",
+          "kind": "verse",
+          "fitGroup": "column-91-860",
+          "box": { "x": 686.453125, "y": 821.4456787109375, "width": 592.53125, "height": 33.84375 }
+        },
+        {
+          "text": "Tito tapa el pomo.",
+          "kind": "verse",
+          "fitGroup": "column-91-860",
+          "box": { "x": 685.015625, "y": 863.6800537109375, "width": 263.125, "height": 33.84375 }
+        },
+        {
+          "text": "-¡No Tito, no, no tapes el pomo!",
+          "kind": "verse",
+          "fitGroup": "column-91-860",
+          "box": { "x": 685.96875, "y": 905.9144287109375, "width": 456.515625, "height": 33.84375 }
+        },
+        {
+          "text": "Papá tapa la sopa.",
+          "kind": "verse",
+          "fitGroup": "column-91-860",
+          "box": { "x": 686.9375, "y": 948.1488037109375, "width": 266, "height": 33.84375 }
+        }
+      ],
+      "rows": [],
+      "words": [],
+      "prose": [],
+      "fullText": "Tt\n\nta\n\nte\n\nti\n\nto\n\ntu\n\ntu\n\nto\n\nta\n\nte\n\nti\n\ntoma\n\nteme\n\nseta\n\ntute\n\nTiti\n\npata\n\nSoto\n\ntupe\n\ntapa\n\nmete\n\nMota\n\nPiti\n\ntopo\n\nsapito\n\npeseta\n\ntomate\n\nPoti\n\npato\n\ntiene\n\npatio\n\nno\n\nLa mesa tiene un tapete.\n\nEl pomo está en la mesa.\n\nLa mesa está en el patio.\n\nEl pomo tiene sopa. El pomo tiene tapa.\n\nTito tapa el pomo.\n\n-¡No Tito, no, no tapes el pomo!\n\nPapá tapa la sopa.\n\n19"
+    }
+  ],
+  "errors": []
+}

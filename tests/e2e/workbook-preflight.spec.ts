@@ -241,13 +241,17 @@ test.describe("Workbook Preflight - Local Browser/Device Readiness", () => {
 
     // Test lesson viewer
     await page.goto("/cartilla/leccion/1", { waitUntil: "domcontentloaded" });
-    const lessonGretels = page.locator("[data-testid='gretel-presence'], .gretel-avatar, .gretel-mascot");
+    const lessonGretels = page.locator(
+      "[data-testid='gretel-presence'], .gretel-avatar, .gretel-mascot",
+    );
     const lessonGretelCount = await lessonGretels.count();
     expect(lessonGretelCount).toBeLessThanOrEqual(1);
 
     // Test cuaderno viewer
     await page.goto("/cartilla/cuaderno", { waitUntil: "domcontentloaded" });
-    const cuadernoGretels = page.locator("[data-testid='gretel-presence'], .gretel-avatar, .gretel-mascot");
+    const cuadernoGretels = page.locator(
+      "[data-testid='gretel-presence'], .gretel-avatar, .gretel-mascot",
+    );
     const cuadernoGretelCount = await cuadernoGretels.count();
     expect(cuadernoGretelCount).toBeLessThanOrEqual(1);
 
@@ -263,7 +267,9 @@ test.describe("Workbook Preflight - Local Browser/Device Readiness", () => {
 
     // Check that native-lesson-viewer does not force an internal vertical scrollbar
     const hasNestedScroll = await viewer.evaluate((el) => {
-      return el.scrollHeight > el.clientHeight && window.getComputedStyle(el).overflowY === "scroll";
+      return (
+        el.scrollHeight > el.clientHeight && window.getComputedStyle(el).overflowY === "scroll"
+      );
     });
     expect(hasNestedScroll).toBe(false);
 

@@ -13,7 +13,15 @@ function box(x: number, y: number, w: number, h: number, extra?: Record<string, 
 }
 
 /** How far a text may grow past its printed size to fill its printed width. */
-const MAX_GROW: Partial<Record<ReplicaToken["kind"], number>> = { letter: 1.18, vowel: 1.15, word: 1.08, syllable: 1.08, crescent: 1.2, verse: 1.5, title: 1.12 };
+const MAX_GROW: Partial<Record<ReplicaToken["kind"], number>> = {
+  letter: 1.18,
+  vowel: 1.15,
+  word: 1.08,
+  syllable: 1.08,
+  crescent: 1.2,
+  verse: 1.5,
+  title: 1.12,
+};
 /** Largest font size, as a share of the printed line pitch, that keeps lines apart. */
 const PITCH_SHARE = 0.92;
 
@@ -41,13 +49,20 @@ function Token({ token }: { token: ReplicaToken }) {
       data-fit-w={token.fitW}
       data-fit-cap={token.fitCap}
       data-fit-group={token.fitGroup}
-      data-fit-pitch={token.pitch ? (token.pitch * (token.pitchShare ?? PITCH_SHARE)) / token.fontSize : undefined}
+      data-fit-pitch={
+        token.pitch ? (token.pitch * (token.pitchShare ?? PITCH_SHARE)) / token.fontSize : undefined
+      }
       data-fit-max={token.fitMax ?? MAX_GROW[token.kind] ?? 1.04}
       style={style}
     >
       <span className="fc-replica__ink">
         {token.segments.map((segment, index) => (
-          <span key={index} style={{ color: inkFor(token, segment.color) }} data-bold={segment.bold || undefined} data-emph={segment.emph || undefined}>
+          <span
+            key={index}
+            style={{ color: inkFor(token, segment.color) }}
+            data-bold={segment.bold || undefined}
+            data-emph={segment.emph || undefined}
+          >
             {segment.text}
           </span>
         ))}
@@ -61,7 +76,13 @@ function Token({ token }: { token: ReplicaToken }) {
  * finished in the owner's reference style (paper, spiral, embossed letter
  * medallion, rose chips and cards). See src/lib/flipchart-replica.ts.
  */
-export function FlipchartReplicaSheet({ pageNumber, decorative = false }: { pageNumber: number; decorative?: boolean }) {
+export function FlipchartReplicaSheet({
+  pageNumber,
+  decorative = false,
+}: {
+  pageNumber: number;
+  decorative?: boolean;
+}) {
   const sheet = useMemo(() => getReplicaSheet(pageNumber), [pageNumber]);
   const sheetRef = useRef<HTMLDivElement>(null);
 
@@ -95,7 +116,8 @@ export function FlipchartReplicaSheet({ pageNumber, decorative = false }: { page
         const ratio = Math.max(0.6, Math.min(Number(el.dataset.fitMax) || 1, target / natural));
         ratios.set(el, ratio);
         const pitchCap = Number(el.dataset.fitPitch) || Infinity;
-        if (cap > 0 || pitchCap < Infinity) caps.set(el, Math.min(cap > 0 ? cap / natural : Infinity, pitchCap));
+        if (cap > 0 || pitchCap < Infinity)
+          caps.set(el, Math.min(cap > 0 ? cap / natural : Infinity, pitchCap));
       }
       // One size per group (median), never wider than the card allows.
       const groups = new Map<string, number[]>();
@@ -104,7 +126,8 @@ export function FlipchartReplicaSheet({ pageNumber, decorative = false }: { page
         if (key) groups.set(key, [...(groups.get(key) ?? []), ratio]);
       }
       const groupRatio = new Map<string, number>();
-      for (const [key, list] of groups) groupRatio.set(key, [...list].sort((a, b) => a - b)[Math.floor(list.length / 2)]!);
+      for (const [key, list] of groups)
+        groupRatio.set(key, [...list].sort((a, b) => a - b)[Math.floor(list.length / 2)]!);
       const final = new Map<HTMLElement, number>();
       for (const [el, ratio] of ratios) {
         const key = el.dataset.fitGroup;
@@ -118,13 +141,22 @@ export function FlipchartReplicaSheet({ pageNumber, decorative = false }: { page
       }
       for (const [el, ratio] of final) {
         const key = el.dataset.fitGroup;
-        el.style.setProperty("--fit", String(Math.min(ratio, key ? groupMin.get(key) ?? Infinity : Infinity)));
+        el.style.setProperty(
+          "--fit",
+          String(Math.min(ratio, key ? (groupMin.get(key) ?? Infinity) : Infinity)),
+        );
       }
     };
     fit();
     let cancelled = false;
-    document.fonts?.ready.then(() => { if (!cancelled) fit(); }).catch(() => undefined);
-    return () => { cancelled = true; };
+    document.fonts?.ready
+      .then(() => {
+        if (!cancelled) fit();
+      })
+      .catch(() => undefined);
+    return () => {
+      cancelled = true;
+    };
   }, [sheet]);
 
   if (!sheet) return null;
@@ -183,19 +215,43 @@ export function FlipchartReplicaSheet({ pageNumber, decorative = false }: { page
                 {fade && (
                   <>
                     {/* The printed moon's ends fade into the paper. */}
-                    <linearGradient id={`${fadeId}-ramp`} gradientUnits="userSpaceOnUse" x1="0" y1={fade[0]} x2="0" y2={fade[1]}>
+                    <linearGradient
+                      id={`${fadeId}-ramp`}
+                      gradientUnits="userSpaceOnUse"
+                      x1="0"
+                      y1={fade[0]}
+                      x2="0"
+                      y2={fade[1]}
+                    >
                       <stop offset="0" stopColor="#000" />
                       <stop offset="0.09" stopColor="#fff" />
                       <stop offset="0.91" stopColor="#fff" />
                       <stop offset="1" stopColor="#000" />
                     </linearGradient>
-                    <mask id={fadeId} maskUnits="userSpaceOnUse" x={sheet.crescent.x} y={fade[0]} width={sheet.crescent.w} height={fade[1] - fade[0]}>
-                      <rect x={sheet.crescent.x} y={fade[0]} width={sheet.crescent.w} height={fade[1] - fade[0]} fill={`url(#${fadeId}-ramp)`} />
+                    <mask
+                      id={fadeId}
+                      maskUnits="userSpaceOnUse"
+                      x={sheet.crescent.x}
+                      y={fade[0]}
+                      width={sheet.crescent.w}
+                      height={fade[1] - fade[0]}
+                    >
+                      <rect
+                        x={sheet.crescent.x}
+                        y={fade[0]}
+                        width={sheet.crescent.w}
+                        height={fade[1] - fade[0]}
+                        fill={`url(#${fadeId}-ramp)`}
+                      />
                     </mask>
                   </>
                 )}
               </defs>
-              <path d={sheet.crescent.path} fill={`url(#${gradientId})`} mask={fade ? `url(#${fadeId})` : undefined} />
+              <path
+                d={sheet.crescent.path}
+                fill={`url(#${gradientId})`}
+                mask={fade ? `url(#${fadeId})` : undefined}
+              />
             </svg>
           )}
 
@@ -210,7 +266,9 @@ export function FlipchartReplicaSheet({ pageNumber, decorative = false }: { page
                 medallion.d,
                 medallion.d,
                 // On crescent sheets the medallion ring takes the moon's colour, as printed.
-                sheet.crescent && medallion.kind === "letter" ? { "--ring-light": crescentLight, "--ring-edge": crescentEdge } : undefined,
+                sheet.crescent && medallion.kind === "letter"
+                  ? { "--ring-light": crescentLight, "--ring-edge": crescentEdge }
+                  : undefined,
               )}
             />
           ))}

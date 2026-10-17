@@ -70,11 +70,16 @@ test.describe("Workbook Archetypes 1 and 2 Proof", () => {
           // Verify images inside grid cells: no broken images
           const images = cells.locator("img");
           const imgCount = await images.count();
-          expect(imgCount, `printed page ${printedPage} must render its source images`).toBeGreaterThan(0);
+          expect(
+            imgCount,
+            `printed page ${printedPage} must render its source images`,
+          ).toBeGreaterThan(0);
           for (let i = 0; i < imgCount; i++) {
             const img = images.nth(i);
             await expect(img).toBeVisible();
-            const loaded = await img.evaluate((el: HTMLImageElement) => el.complete && el.naturalWidth > 0);
+            const loaded = await img.evaluate(
+              (el: HTMLImageElement) => el.complete && el.naturalWidth > 0,
+            );
             expect(loaded, `Image ${i} on printed page ${printedPage} should be loaded`).toBe(true);
           }
 
@@ -105,7 +110,9 @@ test.describe("Workbook Archetypes 1 and 2 Proof", () => {
 
       // Family 2: Vowel/letter + row choices
       for (const printedPage of FAMILY_2_PAGES) {
-        test(`Family 2 (Vowel/Letter + Row Choices) - Printed Page ${printedPage}`, async ({ page }) => {
+        test(`Family 2 (Vowel/Letter + Row Choices) - Printed Page ${printedPage}`, async ({
+          page,
+        }) => {
           await page.setViewportSize(viewport);
           const mapping = archetypeMappingForPage(printedPage);
           expect(mapping.archetypes).toContain(WorkbookArchetype.VOWEL_LETTER_ROW_CHOICES);
@@ -152,11 +159,16 @@ test.describe("Workbook Archetypes 1 and 2 Proof", () => {
           // Verify images inside row choices: no broken images
           const images = cells.locator("img");
           const imgCount = await images.count();
-          expect(imgCount, `printed page ${printedPage} must render its source images`).toBeGreaterThan(0);
+          expect(
+            imgCount,
+            `printed page ${printedPage} must render its source images`,
+          ).toBeGreaterThan(0);
           for (let i = 0; i < imgCount; i++) {
             const img = images.nth(i);
             await expect(img).toBeVisible();
-            const loaded = await img.evaluate((el: HTMLImageElement) => el.complete && el.naturalWidth > 0);
+            const loaded = await img.evaluate(
+              (el: HTMLImageElement) => el.complete && el.naturalWidth > 0,
+            );
             expect(loaded, `Image ${i} on printed page ${printedPage} should be loaded`).toBe(true);
           }
 

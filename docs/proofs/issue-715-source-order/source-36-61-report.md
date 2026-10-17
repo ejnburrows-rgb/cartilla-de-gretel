@@ -28,34 +28,34 @@ The lower-right printed number is scan/native index−2 on every inspected sheet
 
 ## Per-sheet source/model checks
 
-|Native / printed|Type and source syllable order|Result / gap|
-|---|---|---|
-|36 / 34|Vocabulary: va ve vi vo vu|Verified source/model sequence and structural word positions|
-|37 / 35|Drill: va ve vi vo vu vu vo va ve vi|Verified source/model sequence and structural word positions|
-|38 / 36|Reading: source line order retained|Verified source/model sequence and structural word positions|
-|39 / 37|Vocabulary: ra re ri ro ru|Verified source/model sequence and structural word positions|
-|40 / 38|Drill: ra re ri ro ru ru ro ra re ri|Verified source/model sequence and structural word positions|
-|41 / 39|Reading: source line order retained|Verified source/model sequence and structural word positions|
-|42 / 40|Vocabulary: rra rre rri rro rru|Verified source/model sequence and structural word positions|
-|43 / 41|Drill: rra rre rri rro rru rru rro rra rre rri|Verified source/model sequence and structural word positions|
-|44 / 42|Reading: source line order retained|source final period missing in data and both models; scoped browser capture verified observation|
-|45 / 43|Vocabulary: ga go gu|Verified source/model sequence and structural word positions|
-|46 / 44|Drill: ga go gu gu go ga|Verified source/model sequence and structural word positions|
-|47 / 45|Reading: source line order retained|source stanza separation flattened by evenLines; scoped browser capture verified observation|
-|48 / 46|Vocabulary: fa fe fi fo fu|Verified source/model sequence and structural word positions|
-|49 / 47|Drill: fa fe fi fo fu fu fo fa fe fi|Verified source/model sequence and structural word positions|
-|50 / 48|Reading: source line order retained|printed three dots represented by typographic ellipsis; wording/sequence preserved|
-|51 / 49|Vocabulary: ja je ji jo ju|Verified source/model sequence and structural word positions|
-|52 / 50|Drill: ja je ji jo ju ju jo ja je ji|Verified source/model sequence and structural word positions|
-|53 / 51|Reading: source line order retained|Verified source/model sequence and structural word positions|
-|54 / 52|Vocabulary: ca co cu|Verified source/model sequence and structural word positions|
-|55 / 53|Drill: ca co cu cu co ca|Verified source/model sequence and structural word positions|
-|56 / 54|Reading: source line order retained|Verified source/model sequence and structural word positions|
-|57 / 55|Vocabulary: ya ye yi yo yu|Verified source/model sequence and structural word positions|
-|58 / 56|Drill: ya ye yi yo yu yu yo ya ye yi|Verified source/model sequence and structural word positions|
-|59 / 57|Reading: source line order retained|Verified source/model sequence and structural word positions|
-|60 / 58|Vocabulary: za ze zi zo zu|label text mismatch; scoped browser capture verified observation|
-|61 / 59|Drill: za ze zi zo zu zu zo za ze zi|Verified source/model sequence and structural word positions|
+| Native / printed | Type and source syllable order                 | Result / gap                                                                                     |
+| ---------------- | ---------------------------------------------- | ------------------------------------------------------------------------------------------------ |
+| 36 / 34          | Vocabulary: va ve vi vo vu                     | Verified source/model sequence and structural word positions                                     |
+| 37 / 35          | Drill: va ve vi vo vu vu vo va ve vi           | Verified source/model sequence and structural word positions                                     |
+| 38 / 36          | Reading: source line order retained            | Verified source/model sequence and structural word positions                                     |
+| 39 / 37          | Vocabulary: ra re ri ro ru                     | Verified source/model sequence and structural word positions                                     |
+| 40 / 38          | Drill: ra re ri ro ru ru ro ra re ri           | Verified source/model sequence and structural word positions                                     |
+| 41 / 39          | Reading: source line order retained            | Verified source/model sequence and structural word positions                                     |
+| 42 / 40          | Vocabulary: rra rre rri rro rru                | Verified source/model sequence and structural word positions                                     |
+| 43 / 41          | Drill: rra rre rri rro rru rru rro rra rre rri | Verified source/model sequence and structural word positions                                     |
+| 44 / 42          | Reading: source line order retained            | source final period missing in data and both models; scoped browser capture verified observation |
+| 45 / 43          | Vocabulary: ga go gu                           | Verified source/model sequence and structural word positions                                     |
+| 46 / 44          | Drill: ga go gu gu go ga                       | Verified source/model sequence and structural word positions                                     |
+| 47 / 45          | Reading: source line order retained            | source stanza separation flattened by evenLines; scoped browser capture verified observation     |
+| 48 / 46          | Vocabulary: fa fe fi fo fu                     | Verified source/model sequence and structural word positions                                     |
+| 49 / 47          | Drill: fa fe fi fo fu fu fo fa fe fi           | Verified source/model sequence and structural word positions                                     |
+| 50 / 48          | Reading: source line order retained            | printed three dots represented by typographic ellipsis; wording/sequence preserved               |
+| 51 / 49          | Vocabulary: ja je ji jo ju                     | Verified source/model sequence and structural word positions                                     |
+| 52 / 50          | Drill: ja je ji jo ju ju jo ja je ji           | Verified source/model sequence and structural word positions                                     |
+| 53 / 51          | Reading: source line order retained            | Verified source/model sequence and structural word positions                                     |
+| 54 / 52          | Vocabulary: ca co cu                           | Verified source/model sequence and structural word positions                                     |
+| 55 / 53          | Drill: ca co cu cu co ca                       | Verified source/model sequence and structural word positions                                     |
+| 56 / 54          | Reading: source line order retained            | Verified source/model sequence and structural word positions                                     |
+| 57 / 55          | Vocabulary: ya ye yi yo yu                     | Verified source/model sequence and structural word positions                                     |
+| 58 / 56          | Drill: ya ye yi yo yu yu yo ya ye yi           | Verified source/model sequence and structural word positions                                     |
+| 59 / 57          | Reading: source line order retained            | Verified source/model sequence and structural word positions                                     |
+| 60 / 58          | Vocabulary: za ze zi zo zu                     | label text mismatch; scoped browser capture verified observation                                 |
+| 61 / 59          | Drill: za ze zi zo zu zu zo za ze zi           | Verified source/model sequence and structural word positions                                     |
 
 ## Evidence files
 

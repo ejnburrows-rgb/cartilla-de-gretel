@@ -30,7 +30,9 @@ describe("GretelLiveAvatar direct interaction", () => {
     const rig = container.querySelector('[data-gretel-rig="svg"]');
     expect(rig).toBeTruthy();
     expect(rig?.getAttribute("data-gretel-rig-state")).toBeTruthy();
-    expect(rig?.querySelector("image")?.getAttribute("href")).toBe("/cartilla/images/gretel/gretel-approved-master.png");
+    expect(rig?.querySelector("image")?.getAttribute("href")).toBe(
+      "/cartilla/images/gretel/gretel-approved-master.png",
+    );
     expect(rig?.querySelectorAll("image").length).toBe(1);
   });
 

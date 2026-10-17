@@ -88,9 +88,7 @@ describe("TapSelect", () => {
   });
 
   it("cleans up timer on unmount without state updates", () => {
-    const { unmount } = render(
-      <TapSelect objects={sampleObjects} reducedMotion={false} />,
-    );
+    const { unmount } = render(<TapSelect objects={sampleObjects} reducedMotion={false} />);
 
     const btnA = screen.getByRole("button", { name: "Opción A" });
     fireEvent.click(btnA);
@@ -144,17 +142,9 @@ describe("TapSelect", () => {
     (playWrongBuzz as ReturnType<typeof vi.fn>).mockImplementation(() =>
       events.push("playWrongBuzz"),
     );
-    (gretelEvent as ReturnType<typeof vi.fn>).mockImplementation(() =>
-      events.push("gretelEvent"),
-    );
+    (gretelEvent as ReturnType<typeof vi.fn>).mockImplementation(() => events.push("gretelEvent"));
 
-    render(
-      <TapSelect
-        objects={sampleObjects}
-        onResult={onResult}
-        reducedMotion={false}
-      />,
-    );
+    render(<TapSelect objects={sampleObjects} onResult={onResult} reducedMotion={false} />);
 
     const btnA = screen.getByRole("button", { name: "Opción A" });
     fireEvent.click(btnA);

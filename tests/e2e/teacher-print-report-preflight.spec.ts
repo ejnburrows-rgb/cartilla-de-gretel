@@ -17,7 +17,9 @@ test.describe("Teacher Print/Report Readiness", () => {
     await expect(page.locator("table")).toBeVisible();
 
     // Check progress page header no-print class exists
-    const progressHeader = page.locator("header.no-print").filter({ hasText: "Progreso de la Clase" });
+    const progressHeader = page
+      .locator("header.no-print")
+      .filter({ hasText: "Progreso de la Clase" });
     await expect(progressHeader).toBeVisible();
 
     // Emulate print media to ensure teacher-print.css hides no-print on progress

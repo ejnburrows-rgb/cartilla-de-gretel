@@ -31,7 +31,7 @@ describe("SoundSearch reset behavior", () => {
   it("resets selections and completion state when content changes", async () => {
     const onComplete = vi.fn();
     const { rerender } = render(
-      <SoundSearch targetSound="m" words={words1} color="#000" onComplete={onComplete} />
+      <SoundSearch targetSound="m" words={words1} color="#000" onComplete={onComplete} />,
     );
 
     // Complete the first search ("m")
@@ -41,9 +41,7 @@ describe("SoundSearch reset behavior", () => {
     expect(onComplete).toHaveBeenCalledTimes(1);
 
     // Change the content to "p"
-    rerender(
-      <SoundSearch targetSound="p" words={words2} color="#000" onComplete={onComplete} />
-    );
+    rerender(<SoundSearch targetSound="p" words={words2} color="#000" onComplete={onComplete} />);
 
     // We expect state to reset, meaning onComplete shouldn't have been called a second time yet
     expect(onComplete).toHaveBeenCalledTimes(1);

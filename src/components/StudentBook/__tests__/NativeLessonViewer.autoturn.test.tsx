@@ -29,8 +29,20 @@ const viewer = () => document.querySelector<HTMLElement>(".native-lesson-viewer"
 const finishTurn = () => act(() => vi.advanceTimersByTime(LESSON_PAGE_TURN_TOTAL_MS + 200));
 
 function swipe(target: Element, dx: number, dy = 0) {
-  fireEvent.pointerDown(target, { pointerId: 7, pointerType: "touch", isPrimary: true, clientX: 300, clientY: 400 });
-  fireEvent.pointerUp(target, { pointerId: 7, pointerType: "touch", isPrimary: true, clientX: 300 + dx, clientY: 400 + dy });
+  fireEvent.pointerDown(target, {
+    pointerId: 7,
+    pointerType: "touch",
+    isPrimary: true,
+    clientX: 300,
+    clientY: 400,
+  });
+  fireEvent.pointerUp(target, {
+    pointerId: 7,
+    pointerType: "touch",
+    isPrimary: true,
+    clientX: 300 + dx,
+    clientY: 400 + dy,
+  });
 }
 
 beforeEach(() => {
@@ -48,7 +60,15 @@ afterEach(() => {
 describe("NativeLessonViewer auto page turn and swipe (owner decision 2026-10-12)", () => {
   it("never turns while any pointer is down; turns after the last pointer lifts", () => {
     const onPageChange = vi.fn();
-    render(<NativeLessonViewer pages={PAGES} chapterLabel="Lección 8" lessonNumber={8} onPageChange={onPageChange} autoTurn />);
+    render(
+      <NativeLessonViewer
+        pages={PAGES}
+        chapterLabel="Lección 8"
+        lessonNumber={8}
+        onPageChange={onPageChange}
+        autoTurn
+      />,
+    );
     expect(current()).toBe(23);
     completePage(23);
     // 3-second press-and-hold: no page turn mid-stroke.

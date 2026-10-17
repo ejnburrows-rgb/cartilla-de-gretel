@@ -8,7 +8,7 @@
 
 ## Executive Summary
 
-The Gretel voice subsystem in *La Cartilla de Gretel* is fully technically verified and prepared for the final owner-authorized premium Gretel voice selection.
+The Gretel voice subsystem in _La Cartilla de Gretel_ is fully technically verified and prepared for the final owner-authorized premium Gretel voice selection.
 
 - **Zero Lesson Modification Required:** All lesson and activity components call `speakAsGretel(text, handlers)`. The underlying voice provider can be swapped via a single configuration function (`setGretelVoiceProviderConfig`) without editing any lesson code.
 - **Current Baseline:** Operates on 100% free, offline-capable, local Web Speech API browser TTS without external API dependencies.
@@ -19,14 +19,14 @@ The Gretel voice subsystem in *La Cartilla de Gretel* is fully technically verif
 
 ## Verified Technical Components
 
-| Component | Status | Description |
-| --- | --- | --- |
-| **Voice Abstraction Seam** | `VERIFIED` | `src/lib/gretel-voice.ts` abstraction layer supporting `browser-tts`, `recorded-audio`, `cloud-tts`, and `custom` providers. |
-| **Preview Route** | `VERIFIED` | `/cartilla/voces` route displaying audition line *"Presiona los dibujos de las palabras en cada línea horizontal que comienzan con el mismo sonido."* |
-| **Mute & Speech Control** | `VERIFIED` | Memory + localStorage persistence (`cartilla.gretel.voice.muted`), token-claimed cancellation, and `gretel:speak_start` / `gretel:speak_stop` event emissions. |
-| **Spanish Text Generation** | `VERIFIED` | Lesson intro, home greeting, success, and miss feedback string generators. |
-| **Unit Test Coverage** | `VERIFIED` | 11/11 passing tests in `src/lib/__tests__/gretel-voice.test.ts`. |
-| **E2E Browser Verification** | `VERIFIED` | Automated Playwright spec `tests/e2e/gretel-voice-readiness.spec.ts`. |
+| Component                    | Status     | Description                                                                                                                                                    |
+| ---------------------------- | ---------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| **Voice Abstraction Seam**   | `VERIFIED` | `src/lib/gretel-voice.ts` abstraction layer supporting `browser-tts`, `recorded-audio`, `cloud-tts`, and `custom` providers.                                   |
+| **Preview Route**            | `VERIFIED` | `/cartilla/voces` route displaying audition line _"Presiona los dibujos de las palabras en cada línea horizontal que comienzan con el mismo sonido."_          |
+| **Mute & Speech Control**    | `VERIFIED` | Memory + localStorage persistence (`cartilla.gretel.voice.muted`), token-claimed cancellation, and `gretel:speak_start` / `gretel:speak_stop` event emissions. |
+| **Spanish Text Generation**  | `VERIFIED` | Lesson intro, home greeting, success, and miss feedback string generators.                                                                                     |
+| **Unit Test Coverage**       | `VERIFIED` | 11/11 passing tests in `src/lib/__tests__/gretel-voice.test.ts`.                                                                                               |
+| **E2E Browser Verification** | `VERIFIED` | Automated Playwright spec `tests/e2e/gretel-voice-readiness.spec.ts`.                                                                                          |
 
 ---
 

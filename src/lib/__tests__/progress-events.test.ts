@@ -120,7 +120,10 @@ describe("progress-events", () => {
 
   it("returns fallback and does not throw when storage is corrupt (non-array JSON)", () => {
     // Seed storage with a corrupt value
-    localStorage.setItem("cartilla.progress-events-queue.v1", JSON.stringify({ oops: "not an array" }));
+    localStorage.setItem(
+      "cartilla.progress-events-queue.v1",
+      JSON.stringify({ oops: "not an array" }),
+    );
     // Expect readQueue to not throw, and emitProgressEvent to queue correctly.
     expect(() => {
       emitProgressEvent({
@@ -161,8 +164,15 @@ it("keeps workbook events added during a request and sends each once", async () 
   setOnline(true);
   vi.mocked(getStudentSession).mockReturnValue(session);
   let release!: (result: { ok: boolean }) => void;
-  vi.mocked(logProgress).mockReset().mockResolvedValue({ ok: true })
-    .mockImplementationOnce(() => new Promise(resolve => { release = resolve; }));
+  vi.mocked(logProgress)
+    .mockReset()
+    .mockResolvedValue({ ok: true })
+    .mockImplementationOnce(
+      () =>
+        new Promise((resolve) => {
+          release = resolve;
+        }),
+    );
   emitProgressEvent({ type: "answer_correct", physicalPage: 1, lesson: 1 });
   await vi.waitFor(() => expect(logProgress).toHaveBeenCalledTimes(1));
   emitProgressEvent({ type: "page_completed", physicalPage: 1, lesson: 1 });

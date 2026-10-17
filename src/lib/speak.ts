@@ -1,4 +1,9 @@
-import { claimSpeech, releaseSpeech, registerSpeechCleanup, speechIsCurrent } from "./speech-playback";
+import {
+  claimSpeech,
+  releaseSpeech,
+  registerSpeechCleanup,
+  speechIsCurrent,
+} from "./speech-playback";
 // Free Spanish TTS using the browser's SpeechSynthesis API.
 let cachedVoice: SpeechSynthesisVoice | null = null;
 let voicesReady: Promise<void> | null = null;
@@ -126,7 +131,8 @@ export async function speak(text: string): Promise<void> {
       u.onstart = () => window.dispatchEvent(new CustomEvent("gretel:speak_start"));
       let finished = false;
       const finish = () => {
-        if (finished) return; finished = true;
+        if (finished) return;
+        finished = true;
         releaseSpeech(token);
         window.dispatchEvent(new CustomEvent("gretel:speak_stop"));
         resolve();
@@ -175,7 +181,8 @@ export async function speakVowel(v: string): Promise<void> {
       u.onstart = () => window.dispatchEvent(new CustomEvent("gretel:speak_start"));
       let finished = false;
       const finish = () => {
-        if (finished) return; finished = true;
+        if (finished) return;
+        finished = true;
         releaseSpeech(token);
         window.dispatchEvent(new CustomEvent("gretel:speak_stop"));
         resolve();

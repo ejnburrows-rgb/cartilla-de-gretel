@@ -72,4 +72,3 @@ export const STATE_LABEL = {
   provisional: "casi",
   confirmed: "lista",
 } as const;
-

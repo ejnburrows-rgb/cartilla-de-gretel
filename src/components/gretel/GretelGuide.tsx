@@ -5,10 +5,7 @@ interface GretelGuideProps {
   bubblePosition?: "left" | "right" | "top";
 }
 
-export function GretelGuide({
-  className = "",
-  bubblePosition = "top",
-}: GretelGuideProps) {
+export function GretelGuide({ className = "", bubblePosition = "top" }: GretelGuideProps) {
   return (
     <div className={`relative flex items-center justify-center ${className}`}>
       <GretelLiveAvatar size="md" bubblePosition={bubblePosition} />

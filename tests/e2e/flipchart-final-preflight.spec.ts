@@ -2,7 +2,8 @@ import { test, expect } from "@playwright/test";
 import * as fs from "fs";
 import * as path from "path";
 
-const OUT_DIR = process.env.PROOF_DIR || path.join(process.cwd(), "docs/proofs/flipchart-final-preflight/");
+const OUT_DIR =
+  process.env.PROOF_DIR || path.join(process.cwd(), "docs/proofs/flipchart-final-preflight/");
 
 test.beforeAll(() => {
   if (!fs.existsSync(OUT_DIR)) {
@@ -11,7 +12,9 @@ test.beforeAll(() => {
 });
 
 test.describe("Flipchart pre-final regression", () => {
-  test("verify faithful page/order presentation, top-bound physical page turn, forward/back/keyboard/reduced motion, projector/laptop/tablet/phone fit", async ({ page }) => {
+  test("verify faithful page/order presentation, top-bound physical page turn, forward/back/keyboard/reduced motion, projector/laptop/tablet/phone fit", async ({
+    page,
+  }) => {
     const errors: string[] = [];
     page.on("pageerror", (e) => errors.push(e.message));
     page.on("console", (msg) => {
@@ -54,7 +57,9 @@ test.describe("Flipchart pre-final regression", () => {
       await expect(stage).toBeVisible();
 
       // Ensure no default scenic background layer is mounted on the flipchart.
-      const scenicWallpaperCount = await page.locator(".fc-final-background, img[alt='Fondo de página']").count();
+      const scenicWallpaperCount = await page
+        .locator(".fc-final-background, img[alt='Fondo de página']")
+        .count();
       expect(scenicWallpaperCount).toBe(0);
 
       await page.screenshot({ path: path.join(OUT_DIR, `flipchart-${device.name}-initial.png`) });
@@ -62,10 +67,14 @@ test.describe("Flipchart pre-final regression", () => {
       // Keyboard forward
       await page.keyboard.press("ArrowRight");
       await page.waitForTimeout(320); // Mid-turn
-      await page.screenshot({ path: path.join(OUT_DIR, `flipchart-${device.name}-mid-turn-keyboard.png`) });
+      await page.screenshot({
+        path: path.join(OUT_DIR, `flipchart-${device.name}-mid-turn-keyboard.png`),
+      });
 
       // Wait for flip layer animation to finish and unmount
-      await page.locator("[data-testid='vertical-flip-layer']").waitFor({ state: "detached", timeout: 5000 });
+      await page
+        .locator("[data-testid='vertical-flip-layer']")
+        .waitFor({ state: "detached", timeout: 5000 });
 
       // Assert it went to the next page
       await expect(nativeBoard).toHaveAttribute("data-flipchart-page", "10");
@@ -74,7 +83,9 @@ test.describe("Flipchart pre-final regression", () => {
       const prevBtn = panel.getByRole("button", { name: "Lámina anterior", exact: true });
       await expect(prevBtn).toBeEnabled();
       await prevBtn.click();
-      await page.locator("[data-testid='vertical-flip-layer']").waitFor({ state: "detached", timeout: 5000 });
+      await page
+        .locator("[data-testid='vertical-flip-layer']")
+        .waitFor({ state: "detached", timeout: 5000 });
 
       // Assert it went back to the previous page
       await expect(nativeBoard).toHaveAttribute("data-flipchart-page", "9");

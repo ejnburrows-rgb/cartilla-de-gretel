@@ -21,9 +21,7 @@ describe("literacy-insights timezone behavior", () => {
       [{ lesson_id: "8", due_at: dueAtStr }],
       localEndMs,
     );
-    expect(
-      notOverdue.attention.find((item) => item.key === "assignment-8"),
-    ).toBeUndefined();
+    expect(notOverdue.attention.find((item) => item.key === "assignment-8")).toBeUndefined();
 
     const overdue = buildStudentLearningInsight(
       [],

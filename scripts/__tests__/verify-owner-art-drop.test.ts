@@ -27,7 +27,6 @@ vi.mock("sharp", () => {
 describe("verifyArtDrop", () => {
   const auditPath = path.join(process.cwd(), "docs", "production-art-classification-audit.json");
 
-
   beforeEach(() => {
     vi.clearAllMocks();
 
@@ -116,9 +115,6 @@ describe("verifyArtDrop", () => {
       "/path/to/slot1.webp",
       "/another/path/to/slot1.webp",
     ]);
-    expect(report.missingSlots).toEqual([
-      "/path/to/slot1.webp",
-      "/another/path/to/slot1.webp",
-    ]);
+    expect(report.missingSlots).toEqual(["/path/to/slot1.webp", "/another/path/to/slot1.webp"]);
   });
 });

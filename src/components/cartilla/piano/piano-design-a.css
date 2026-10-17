@@ -306,8 +306,7 @@
 .pa__note-listen:focus-visible,
 .pa__control:focus-visible,
 .pa__mic:focus-visible,
-.pa__next:focus-visible,
-{
+.pa__next:focus-visible {
   outline: 3px solid #2563eb;
   outline-offset: 2px;
 }

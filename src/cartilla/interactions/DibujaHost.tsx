@@ -54,7 +54,10 @@ export function DibujaHost({
   verb = "Dibuja",
 }: DibujaHostProps) {
   const { emit: gretelEvent, record: recordEvent } = useActivityEvents();
-  const [mode, setMode] = useActivityState<InputModeDefault>("drawingMode", initialMode ?? defaultDibujaMode());
+  const [mode, setMode] = useActivityState<InputModeDefault>(
+    "drawingMode",
+    initialMode ?? defaultDibujaMode(),
+  );
   const reducedMotion = useReducedMotion();
 
   // ── Draw mode state ──────────────────────────────────────────────
@@ -66,7 +69,9 @@ export function DibujaHost({
   const [color, setColor] = useActivityState<string>("drawColor", BOOK_DRAW_SWATCHES[0]);
   const [erasing, setErasing] = useActivityState("drawErasing", false);
   const [strokePoints, setStrokePoints] = useActivityState("drawPoints", 0);
-  useCanvasContinuity(canvasRef, drawingRef, `dibuja:${pageKey}`, () => setStrokePoints(pointsRef.current));
+  useCanvasContinuity(canvasRef, drawingRef, `dibuja:${pageKey}`, () =>
+    setStrokePoints(pointsRef.current),
+  );
   const [drawDone, setDrawDone] = useActivityState("drawDone", false);
   const hasStroke = strokePoints >= 3;
   const canFinishDraw = strokePoints >= MIN_STROKE_POINTS;
@@ -85,7 +90,9 @@ export function DibujaHost({
     return withArt;
   }, [pickOptions]);
 
-  useEffect(() => { if (drawDone || pickDone) gretelEvent("activity:complete", { restored: true }); }, [drawDone, pickDone, gretelEvent]);
+  useEffect(() => {
+    if (drawDone || pickDone) gretelEvent("activity:complete", { restored: true });
+  }, [drawDone, pickDone, gretelEvent]);
 
   const resize = useCallback(() => {
     const canvas = canvasRef.current;
@@ -123,7 +130,10 @@ export function DibujaHost({
     window.addEventListener("resize", resize);
     const observer = typeof ResizeObserver === "undefined" ? null : new ResizeObserver(resize);
     if (canvasRef.current?.parentElement) observer?.observe(canvasRef.current.parentElement);
-    return () => { observer?.disconnect(); window.removeEventListener("resize", resize); };
+    return () => {
+      observer?.disconnect();
+      window.removeEventListener("resize", resize);
+    };
   }, [mode, resize]);
 
   useEffect(() => {
@@ -143,7 +153,10 @@ export function DibujaHost({
       pointsRef.current = strokePoints;
     };
     img.src = snap.dataUrl;
-    return () => { disposed = true; img.onload = null; };
+    return () => {
+      disposed = true;
+      img.onload = null;
+    };
   }, [pageKey, mode]);
 
   const getPoint = (e: React.PointerEvent<HTMLCanvasElement>) => {
@@ -223,7 +236,10 @@ export function DibujaHost({
   };
 
   const onPointerUp = () => {
-    if (drawingRef.current) { setStrokePoints(pointsRef.current); persistDraw(); }
+    if (drawingRef.current) {
+      setStrokePoints(pointsRef.current);
+      persistDraw();
+    }
     drawingRef.current = false;
     lastRef.current = null;
   };
@@ -263,7 +279,12 @@ export function DibujaHost({
         kind: "exercise",
         score: 0,
         total: 0,
-        meta: { exercise: `dibuja_draw_${pageKey}`, completed: true, grading: "ungraded", mode: "draw" },
+        meta: {
+          exercise: `dibuja_draw_${pageKey}`,
+          completed: true,
+          grading: "ungraded",
+          mode: "draw",
+        },
       });
     }
     onComplete?.();
@@ -285,7 +306,10 @@ export function DibujaHost({
     if (e.key === "ArrowRight" || e.key === "ArrowDown") {
       nextIndex = currentIndex < 0 ? 0 : (currentIndex + 1) % options.length;
     } else if (e.key === "ArrowLeft" || e.key === "ArrowUp") {
-      nextIndex = currentIndex < 0 ? options.length - 1 : (currentIndex - 1 + options.length) % options.length;
+      nextIndex =
+        currentIndex < 0
+          ? options.length - 1
+          : (currentIndex - 1 + options.length) % options.length;
     } else if (e.key === "Home") {
       nextIndex = 0;
     } else if (e.key === "End") {
@@ -313,7 +337,10 @@ export function DibujaHost({
     if (e.key === "ArrowRight" || e.key === "ArrowDown") {
       nextIndex = currentIndex < 0 ? 0 : (currentIndex + 1) % swatches.length;
     } else if (e.key === "ArrowLeft" || e.key === "ArrowUp") {
-      nextIndex = currentIndex < 0 ? swatches.length - 1 : (currentIndex - 1 + swatches.length) % swatches.length;
+      nextIndex =
+        currentIndex < 0
+          ? swatches.length - 1
+          : (currentIndex - 1 + swatches.length) % swatches.length;
     } else if (e.key === "Home") {
       nextIndex = 0;
     } else if (e.key === "End") {
@@ -388,28 +415,30 @@ export function DibujaHost({
         {hint ? <span className="am-dibuja__hint">{hint}</span> : null}
       </div>
 
-      {usablePicks.length >= 2 && <div className="am-dibuja__toggle" role="group" aria-label="Modo de dibujo">
-        <button
-          type="button"
-          className={mode === "draw" ? "is-active" : ""}
-          onClick={() => setMode("draw")}
-          aria-pressed={mode === "draw"}
-        >
-          <Pencil className="w-4 h-4" /> Dibujar
-        </button>
-        <button
-          type="button"
-          className={mode === "pick" ? "is-active" : ""}
-          onClick={() => setMode("pick")}
-          aria-pressed={mode === "pick"}
-          disabled={usablePicks.length < 2}
-          title={
-            usablePicks.length < 2 ? "Aún no hay dibujos para elegir en esta página" : undefined
-          }
-        >
-          <Images className="w-4 h-4" /> Elegir el dibujo
-        </button>
-      </div>}
+      {usablePicks.length >= 2 && (
+        <div className="am-dibuja__toggle" role="group" aria-label="Modo de dibujo">
+          <button
+            type="button"
+            className={mode === "draw" ? "is-active" : ""}
+            onClick={() => setMode("draw")}
+            aria-pressed={mode === "draw"}
+          >
+            <Pencil className="w-4 h-4" /> Dibujar
+          </button>
+          <button
+            type="button"
+            className={mode === "pick" ? "is-active" : ""}
+            onClick={() => setMode("pick")}
+            aria-pressed={mode === "pick"}
+            disabled={usablePicks.length < 2}
+            title={
+              usablePicks.length < 2 ? "Aún no hay dibujos para elegir en esta página" : undefined
+            }
+          >
+            <Images className="w-4 h-4" /> Elegir el dibujo
+          </button>
+        </div>
+      )}
 
       {mode === "draw" ? (
         <div className="am-dibuja__draw">
@@ -460,9 +489,27 @@ export function DibujaHost({
                 title="Borrador de goma"
               >
                 <svg viewBox="0 0 24 24" className="w-5 h-5 inline-block" aria-hidden="true">
-                  <path d="M4 15 L14 5 L20 11 L10 21 L4 21 Z" fill="#f498a9" stroke="#d9768c" strokeWidth="1.5" strokeLinejoin="round" />
-                  <path d="M10 9 L16 15" stroke="#ffffff" strokeWidth="1.2" strokeLinecap="round" opacity="0.8" />
-                  <path d="M7 18 L10 21 L21 21" fill="none" stroke="#6c737b" strokeWidth="1.5" strokeLinecap="round" />
+                  <path
+                    d="M4 15 L14 5 L20 11 L10 21 L4 21 Z"
+                    fill="#f498a9"
+                    stroke="#d9768c"
+                    strokeWidth="1.5"
+                    strokeLinejoin="round"
+                  />
+                  <path
+                    d="M10 9 L16 15"
+                    stroke="#ffffff"
+                    strokeWidth="1.2"
+                    strokeLinecap="round"
+                    opacity="0.8"
+                  />
+                  <path
+                    d="M7 18 L10 21 L21 21"
+                    fill="none"
+                    stroke="#6c737b"
+                    strokeWidth="1.5"
+                    strokeLinecap="round"
+                  />
                 </svg>
               </button>
               <button
@@ -493,7 +540,9 @@ export function DibujaHost({
           )}
           {drawDone && (
             <div className="am-dibuja__completed-banner">
-              <span className="am-dibuja__success" role="status">¡Qué lindo dibujo!</span>
+              <span className="am-dibuja__success" role="status">
+                ¡Qué lindo dibujo!
+              </span>
               <button
                 type="button"
                 className="am-dibuja__edit-btn"

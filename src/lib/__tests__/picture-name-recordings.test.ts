@@ -6,12 +6,12 @@ import vocabulary from "@/content/picture-vocabulary.json";
 import { approvedPictureRecording } from "@/lib/picture-vocabulary";
 
 const approved = recordings.approved as Array<{ key: string; src: string; approval: string }>;
-const keys = new Set(vocabulary.map(entry => entry.key));
+const keys = new Set(vocabulary.map((entry) => entry.key));
 
 describe("owner-approved picture-name recordings", () => {
   it("registers the 162 approved recordings once each, with provenance and a real file", () => {
     expect(approved).toHaveLength(162);
-    expect(new Set(approved.map(entry => entry.key)).size).toBe(approved.length);
+    expect(new Set(approved.map((entry) => entry.key)).size).toBe(approved.length);
     for (const entry of approved) {
       expect(keys.has(entry.key), entry.key).toBe(true);
       expect(entry.approval.length).toBeGreaterThan(0);

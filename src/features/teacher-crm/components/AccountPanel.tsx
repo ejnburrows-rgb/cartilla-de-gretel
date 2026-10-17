@@ -30,12 +30,16 @@ export function AccountPanel({ student, onUpdate }: AccountPanelProps) {
 
   const handleSave = async () => {
     if (!student || !onUpdate || saving) return;
-    setSaving(true); setSaveError("");
+    setSaving(true);
+    setSaveError("");
     try {
       await onUpdate(student.id, { teacher_notes: notes });
       setIsEditingNotes(false);
-    } catch { setSaveError("No se pudieron guardar las notas. Tu texto sigue aquí para reintentar."); }
-    finally { setSaving(false); }
+    } catch {
+      setSaveError("No se pudieron guardar las notas. Tu texto sigue aquí para reintentar.");
+    } finally {
+      setSaving(false);
+    }
   };
 
   if (!student) {
@@ -85,7 +89,11 @@ export function AccountPanel({ student, onUpdate }: AccountPanelProps) {
           </div>
         </div>
 
-        {saveError && <p role="alert" className="text-sm text-amber-800">{saveError}</p>}
+        {saveError && (
+          <p role="alert" className="text-sm text-amber-800">
+            {saveError}
+          </p>
+        )}
         {/* Teacher Notes Area */}
         <div className="bg-[#fefce8] p-4 rounded-2xl border border-[#fef08a]">
           <div className="flex justify-between items-center mb-2">
@@ -93,7 +101,9 @@ export function AccountPanel({ student, onUpdate }: AccountPanelProps) {
               <MessageSquare className="w-4 h-4" /> Comentarios del Maestro
             </label>
           </div>
-          <textarea aria-label="Notas del alumno" disabled={saving}
+          <textarea
+            aria-label="Notas del alumno"
+            disabled={saving}
             placeholder="Añade un comentario sobre el progreso o áreas de mejora..."
             value={notes}
             onChange={(e) => {

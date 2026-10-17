@@ -1,1 +1,35 @@
-{"viewport":{"width":1920,"height":1080},"sha":"64666e84aa5e3e080de1fde6c1366f1f30b8aa50","checks":[{"sheet":10,"active_replica":true,"source_syllables":"ma me mi mo mu mu mo ma me mi","dom_sequence_match":true,"rows_left_to_right":true},{"sheet":16,"active_replica":true,"source_syllables":"sa se si so su su so sa se si","dom_sequence_match":true,"rows_left_to_right":true},{"sheet":19,"active_replica":true,"source_syllables":"ta te ti to tu tu to ta te ti","dom_sequence_match":true,"rows_left_to_right":true},{"sheet":10,"standalone_y_kind":"chip","text_center_px":960.203125,"board_center_px":960.0,"error_px":0.203125}],"page_errors":[]}
+{
+  "viewport": { "width": 1920, "height": 1080 },
+  "sha": "64666e84aa5e3e080de1fde6c1366f1f30b8aa50",
+  "checks": [
+    {
+      "sheet": 10,
+      "active_replica": true,
+      "source_syllables": "ma me mi mo mu mu mo ma me mi",
+      "dom_sequence_match": true,
+      "rows_left_to_right": true
+    },
+    {
+      "sheet": 16,
+      "active_replica": true,
+      "source_syllables": "sa se si so su su so sa se si",
+      "dom_sequence_match": true,
+      "rows_left_to_right": true
+    },
+    {
+      "sheet": 19,
+      "active_replica": true,
+      "source_syllables": "ta te ti to tu tu to ta te ti",
+      "dom_sequence_match": true,
+      "rows_left_to_right": true
+    },
+    {
+      "sheet": 10,
+      "standalone_y_kind": "chip",
+      "text_center_px": 960.203125,
+      "board_center_px": 960.0,
+      "error_px": 0.203125
+    }
+  ],
+  "page_errors": []
+}

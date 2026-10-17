@@ -166,11 +166,7 @@ export function PianoDesignB({ syllables, words, lessonId, onComplete, locale }:
           >
             {s.micOpen ? <Mic aria-hidden="true" /> : <MicOff aria-hidden="true" />}
             <span className="pb__mic-label">
-              {s.status === "hearing"
-                ? "Te oigo"
-                : s.micOpen
-                  ? "Escucho"
-                  : "Hablar"}
+              {s.status === "hearing" ? "Te oigo" : s.micOpen ? "Escucho" : "Hablar"}
             </span>
           </button>
           <button
@@ -192,7 +188,11 @@ export function PianoDesignB({ syllables, words, lessonId, onComplete, locale }:
               data-testid="piano-sparkle"
             />
           )}
-          <div className="pb__keys piano-hablador__bed" role="img" aria-label="Teclado visual: las teclas se iluminan al reconocer la voz">
+          <div
+            className="pb__keys piano-hablador__bed"
+            role="img"
+            aria-label="Teclado visual: las teclas se iluminan al reconocer la voz"
+          >
             {FIVE_WHITE.map((key, index) => {
               const carries = index < total;
               const state = carries ? s.keyStateFor(index) : "free";

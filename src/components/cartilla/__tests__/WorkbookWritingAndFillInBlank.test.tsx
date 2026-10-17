@@ -74,15 +74,21 @@ describe("Workbook Archetype 8 — Complete-word + Sentence Handwriting", () => 
       render(<WorkbookWritingResponse pageNumber={22} interactive prompt="Mis oraciones" />);
 
       expect(screen.getByText("Mis oraciones")).toBeTruthy();
-      expect(screen.getByRole("button", { name: /Teclado/i }).getAttribute("aria-pressed")).toBe("true");
-      expect(screen.getByRole("button", { name: /Mano alzada/i }).getAttribute("aria-pressed")).toBe("false");
+      expect(screen.getByRole("button", { name: /Teclado/i }).getAttribute("aria-pressed")).toBe(
+        "true",
+      );
+      expect(
+        screen.getByRole("button", { name: /Mano alzada/i }).getAttribute("aria-pressed"),
+      ).toBe("false");
       expect(screen.getByRole("textbox", { name: "Escribe tus oraciones" })).toBeTruthy();
       expect(screen.getByRole("button", { name: /Listo/i })).toBeTruthy();
     });
 
     it("allows typing on digital lines and completes explicitly via Listo button", () => {
       render(<WorkbookWritingResponse pageNumber={22} interactive />);
-      const textarea = screen.getByRole("textbox", { name: "Escribe tus oraciones" }) as HTMLTextAreaElement;
+      const textarea = screen.getByRole("textbox", {
+        name: "Escribe tus oraciones",
+      }) as HTMLTextAreaElement;
 
       fireEvent.change(textarea, { target: { value: "Mi oración." } });
       expect(textarea.value).toBe("Mi oración.");
@@ -95,7 +101,9 @@ describe("Workbook Archetype 8 — Complete-word + Sentence Handwriting", () => 
 
     it("switches to optional freehand mode and preserves typed text in storage", () => {
       const { unmount } = render(<WorkbookWritingResponse pageNumber={22} interactive />);
-      const textarea = screen.getByRole("textbox", { name: "Escribe tus oraciones" }) as HTMLTextAreaElement;
+      const textarea = screen.getByRole("textbox", {
+        name: "Escribe tus oraciones",
+      }) as HTMLTextAreaElement;
 
       fireEvent.change(textarea, { target: { value: "Mi oracion escrita." } });
 
@@ -108,7 +116,9 @@ describe("Workbook Archetype 8 — Complete-word + Sentence Handwriting", () => 
       const typedBtn = screen.getByRole("button", { name: /Teclado/i });
       fireEvent.click(typedBtn);
 
-      const restoredTextarea = screen.getByRole("textbox", { name: "Escribe tus oraciones" }) as HTMLTextAreaElement;
+      const restoredTextarea = screen.getByRole("textbox", {
+        name: "Escribe tus oraciones",
+      }) as HTMLTextAreaElement;
       expect(restoredTextarea.value).toBe("Mi oracion escrita.");
 
       unmount();

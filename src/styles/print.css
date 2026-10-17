@@ -73,7 +73,7 @@
   .binder-sheet-page::before {
     top: 0;
     left: 0;
-    background: 
+    background:
       linear-gradient(to right, black 4mm, transparent 4mm) 0 0 / 100% 0.25pt no-repeat,
       linear-gradient(to bottom, black 4mm, transparent 4mm) 0 0 / 0.25pt 100% no-repeat,
       linear-gradient(to left, black 4mm, transparent 4mm) 100% 0 / 100% 0.25pt no-repeat,
@@ -85,7 +85,7 @@
   .binder-sheet-page::after {
     bottom: 0;
     left: 0;
-    background: 
+    background:
       linear-gradient(to right, black 4mm, transparent 4mm) 0 100% / 100% 0.25pt no-repeat,
       linear-gradient(to top, black 4mm, transparent 4mm) 0 100% / 0.25pt 100% no-repeat,
       linear-gradient(to left, black 4mm, transparent 4mm) 100% 100% / 100% 0.25pt no-repeat,

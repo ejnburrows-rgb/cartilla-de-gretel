@@ -1,9 +1,4 @@
-import {
-  createLazyFileRoute,
-  Outlet,
-  Link,
-  useLocation,
-} from "@tanstack/react-router";
+import { createLazyFileRoute, Outlet, Link, useLocation } from "@tanstack/react-router";
 import { useState } from "react";
 import {
   Users,
@@ -19,10 +14,7 @@ import {
   ShieldCheck,
 } from "lucide-react";
 import { supabase } from "@/integrations/supabase/client";
-import {
-  isSeedSessionActive,
-  signOutSeedTeacher,
-} from "@/lib/seed-data";
+import { isSeedSessionActive, signOutSeedTeacher } from "@/lib/seed-data";
 import { useIsAdmin } from "@/lib/admin-overview.functions";
 import "@/styles/teacher-chrome.css";
 
@@ -124,8 +116,7 @@ function TeacherLayout() {
           role="status"
           className="bg-amber-100 px-4 py-2 text-center text-sm font-bold text-amber-950"
         >
-          Acceso abierto · Clase de ejemplo. Los cambios se guardan solo en este
-          navegador.
+          Acceso abierto · Clase de ejemplo. Los cambios se guardan solo en este navegador.
         </div>
       )}
       <header className="teacher-chrome__header sticky top-0 z-30 no-print transition-all duration-300">
@@ -171,11 +162,7 @@ function TeacherLayout() {
             aria-expanded={mobileMenuOpen}
             onClick={() => setMobileMenuOpen((open) => !open)}
           >
-            {mobileMenuOpen ? (
-              <X className="w-5 h-5" />
-            ) : (
-              <Menu className="w-5 h-5" />
-            )}
+            {mobileMenuOpen ? <X className="w-5 h-5" /> : <Menu className="w-5 h-5" />}
           </button>
         </div>
 

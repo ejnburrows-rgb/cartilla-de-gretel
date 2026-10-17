@@ -5,6 +5,7 @@
 ## Authoritative source status
 
 ### Available
+
 - Student workbook / activity book:
   - Original rescan: 98 PDF pages.
   - 2026 remaster: 92 PDF pages.
@@ -28,6 +29,7 @@
   - Example interactive syllable presentation.
 
 ### Source-pending / not available
+
 - Original full Teacher's Guide (only generated/secondary guide summaries are currently available).
 - Evaluations 1–6 as full printable masters.
 - Homework/Rima masters 1–6 and 10–24.
@@ -35,6 +37,7 @@
 - Original/master audio files.
 
 ### Corrections to earlier NotebookLM claims
+
 - Evaluation 13 is NOT missing; it is present and transcribed below.
 - Flip Chart pages 3 and 6 are present in the uploaded Flip Chart PDF.
 - Do NOT treat “Pages 91–92” as an original review/fluency/certificate section. In the 92-page remaster, PDF page 91 is printed workbook page 90 (Lesson 24) and PDF page 92 is the back cover. The original 98-page rescan includes blank/non-instructional pages before the back cover. No review/certificate content should be invented without an authoritative source.
@@ -44,226 +47,246 @@
 # Evaluations 7–24
 
 ## Evaluación: M m — Página 7
+
 **Instrucciones:** Completa la oración con una palabra del rectángulo.
 
 **Banco de palabras:** mamá | ama | Muni | mima | Meme | Memo
 
-1. Mamá me _____________.
-2. Meme ama a _____________.
-3. Mi _____________ ama a Memo.
-4. Memo y Mumi aman a _____________.
+1. Mamá me **\*\***\_**\*\***.
+2. Meme ama a **\*\***\_**\*\***.
+3. Mi **\*\***\_**\*\*** ama a Memo.
+4. Memo y Mumi aman a **\*\***\_**\*\***.
 
 ## Evaluación: P p — Página 8
+
 **Instrucciones:** Completa la oración con una palabra del rectángulo.
 
 **Banco de palabras:** papá | Pupi | puma | Pepe | pomo | Pipo
 
-1. Es mi _____________.
-2. _____________ ama a papá.
-3. El _____________ es de Pepe.
-4. Es el _____________.
-5. _____________ y _____________ aman a mamá.
+1. Es mi **\*\***\_**\*\***.
+2. **\*\***\_**\*\*** ama a papá.
+3. El **\*\***\_**\*\*** es de Pepe.
+4. Es el **\*\***\_**\*\***.
+5. **\*\***\_**\*\*** y **\*\***\_**\*\*** aman a mamá.
 
 ## Evaluación: S s — Página 9
+
 **Instrucciones:** Completa la oración con una palabra del rectángulo.
 
 **Banco de palabras:** sapo | sopa | pasa | suma | mesa | Samapo | puso | supo
 
-1. El _____________ Samapo está en la _____________.
-2. Sisi _____________ a la sala.
-3. Sasi _____________ 1+2.
-4. Sapo _____________ no toma _____________.
-5. Sepo _____________ la suma.
-6. Susi _____________ la sopa en la mesa.
+1. El **\*\***\_**\*\*** Samapo está en la **\*\***\_**\*\***.
+2. Sisi **\*\***\_**\*\*** a la sala.
+3. Sasi **\*\***\_**\*\*** 1+2.
+4. Sapo **\*\***\_**\*\*** no toma **\*\***\_**\*\***.
+5. Sepo **\*\***\_**\*\*** la suma.
+6. Susi **\*\***\_**\*\*** la sopa en la mesa.
 
 ## Evaluación: T t — Página 10
+
 **Instrucciones:** Completa la oración con una palabra del rectángulo.
 
 **Banco de palabras:** toma | timón | moto | topo | tomate | pato | tipi | pata
 
-1. Tito _____________ sopa de _____________.
-2. El _____________ mete la _____________ en el tipi.
-3. El _____________ es de Tita.
-4. Teté monta su _____________.
-5. Esa moto tiene _____________.
-6. Piti toma sopa de _____________.
+1. Tito **\*\***\_**\*\*** sopa de **\*\***\_**\*\***.
+2. El **\*\***\_**\*\*** mete la **\*\***\_**\*\*** en el tipi.
+3. El **\*\***\_**\*\*** es de Tita.
+4. Teté monta su **\*\***\_**\*\***.
+5. Esa moto tiene **\*\***\_**\*\***.
+6. Piti toma sopa de **\*\***\_**\*\***.
 
 ## Evaluación: D d — Página 11
+
 **Instrucciones:** Completa la oración con una palabra del rectángulo.
 
 **Banco de palabras:** Made | pide | dime | Dónde | dedal | dados | dame | Dunia | dudas
 
-1. Duma _____________ si Ada tiene _____________.
-2. ¿_____________ está _____________?
-3. Adi le _____________ un pomo.
-4. Adi _____________ un _____________.
-5. El mapa de _____________ está en la mesa.
-6. Dino tiene los _____________.
+1. Duma **\*\***\_**\*\*** si Ada tiene **\*\***\_**\*\***.
+2. ¿**\*\***\_**\*\*** está **\*\***\_**\*\***?
+3. Adi le **\*\***\_**\*\*** un pomo.
+4. Adi **\*\***\_**\*\*** un **\*\***\_**\*\***.
+5. El mapa de **\*\***\_**\*\*** está en la mesa.
+6. Dino tiene los **\*\***\_**\*\***.
 
 ## Evaluación: L l — Página 12
+
 **Instrucciones:** Completa la oración con una palabra del rectángulo.
 
 **Banco de palabras:** paleta | tela | sola | lupa | pelota | maleta | lata
 
-1. Lalo tiene una _____________.
-2. La _____________ de Tula es de _____________.
-3. Pepe tiene una _____________.
-4. Leo lee _____________.
-5. La _____________ es de Pili.
-6. La _____________ es de Lalito.
+1. Lalo tiene una **\*\***\_**\*\***.
+2. La **\*\***\_**\*\*** de Tula es de **\*\***\_**\*\***.
+3. Pepe tiene una **\*\***\_**\*\***.
+4. Leo lee **\*\***\_**\*\***.
+5. La **\*\***\_**\*\*** es de Pili.
+6. La **\*\***\_**\*\*** es de Lalito.
 
 ## Evaluación: N n — Página 13
+
 **Instrucciones:** Completa la oración con una palabra del rectángulo.
 
 **Banco de palabras:** anota | lana | nido | anida | suena | Dana
 
-1. La _____________ tiene pelusas.
-2. El _____________ está en la mata.
-3. Pepe _____________ en su papel.
-4. _____________ lee en la sala.
-5. Didi se _____________ en la mata.
-6. La lata _____________ en el piso.
+1. La **\*\***\_**\*\*** tiene pelusas.
+2. El **\*\***\_**\*\*** está en la mata.
+3. Pepe **\*\***\_**\*\*** en su papel.
+4. **\*\***\_**\*\*** lee en la sala.
+5. Didi se **\*\***\_**\*\*** en la mata.
+6. La lata **\*\***\_**\*\*** en el piso.
 
 ## Evaluación: Ñ ñ — Página 14
+
 **Instrucciones:** Completa la oración con una palabra del rectángulo.
 
 **Banco de palabras:** moño | niño | años | niña | paño | pañal | sueño
 
-1. Abuela tiene un _____________.
-2. El pantalón de Pepe es de _____________.
-3. Susi tiene 2 _____________.
-4. Noña tapa su _____________ con el _____________.
-5. El _____________ lee solo en la sala.
-6. Toña tiene _____________.
+1. Abuela tiene un **\*\***\_**\*\***.
+2. El pantalón de Pepe es de **\*\***\_**\*\***.
+3. Susi tiene 2 **\*\***\_**\*\***.
+4. Noña tapa su **\*\***\_**\*\*** con el **\*\***\_**\*\***.
+5. El **\*\***\_**\*\*** lee solo en la sala.
+6. Toña tiene **\*\***\_**\*\***.
 
 ## Evaluación: B b — Página 15
+
 **Instrucciones:** Completa la oración con una palabra del rectángulo.
 
 **Banco de palabras:** batido | batea | nube | loba | baño | bota | bola
 
-1. Beba toma _____________ de mamey.
-2. Pepe _____________ la _____________ alto.
-3. Yo _____________ mi bebé.
-4. La _____________ es de Benito.
-5. La _____________ está alta.
-6. Esa _____________ me asusta.
+1. Beba toma **\*\***\_**\*\*** de mamey.
+2. Pepe **\*\***\_**\*\*** la **\*\***\_**\*\*** alto.
+3. Yo **\*\***\_**\*\*** mi bebé.
+4. La **\*\***\_**\*\*** es de Benito.
+5. La **\*\***\_**\*\*** está alta.
+6. Esa **\*\***\_**\*\*** me asusta.
 
 ## Evaluación: V v — Página 16
+
 **Instrucciones:** Completa la oración con una palabra del rectángulo.
 
 **Banco de palabras:** lava | vine | avión | vaso | nieva | invierno
 
-1. El _____________ es de papá.
-2. Mamá _____________ la tela.
-3. Yo _____________ en avión.
-4. En invierno _____________ bastante.
-5. El _____________ es bonito.
-6. El _____________ vuela alto.
+1. El **\*\***\_**\*\*** es de papá.
+2. Mamá **\*\***\_**\*\*** la tela.
+3. Yo **\*\***\_**\*\*** en avión.
+4. En invierno **\*\***\_**\*\*** bastante.
+5. El **\*\***\_**\*\*** es bonito.
+6. El **\*\***\_**\*\*** vuela alto.
 
 ## Evaluación: R r inicial — Página 17
+
 **Instrucciones:** Completa la oración con una palabra del rectángulo.
 
 **Banco de palabras:** rama | ríe | Rita | rema | ruta | rana | rota | rosas
 
-1. La _____________ está _____________.
-2. _____________ es muy buena.
-3. Rolo se _____________ de la _____________.
-4. Yo me sé la _____________ al río.
-5. Estas _____________ son de mamá.
-6. Remi _____________ en su bote rosado.
+1. La **\*\***\_**\*\*** está **\*\***\_**\*\***.
+2. **\*\***\_**\*\*** es muy buena.
+3. Rolo se **\*\***\_**\*\*** de la **\*\***\_**\*\***.
+4. Yo me sé la **\*\***\_**\*\*** al río.
+5. Estas **\*\***\_**\*\*** son de mamá.
+6. Remi **\*\***\_**\*\*** en su bote rosado.
 
 ## Evaluación: rr — Página 18, parte superior
+
 **Instrucciones:** Completa la oración con una palabra del rectángulo.
 
 **Banco de palabras:** Porra | amarra | perro | arrebatado | carro | burro | arriba | barras
 
-1. El _____________ del señor _____________ está _____________.
-2. El señor Porra _____________ su perro.
-3. La pelota de Rafael está _____________ del _____________.
-4. El caballo de Rebe salta las _____________ rápido.
-5. Ramón va a montar su _____________.
+1. El **\*\***\_**\*\*** del señor **\*\***\_**\*\*** está **\*\***\_**\*\***.
+2. El señor Porra **\*\***\_**\*\*** su perro.
+3. La pelota de Rafael está **\*\***\_**\*\*** del **\*\***\_**\*\***.
+4. El caballo de Rebe salta las **\*\***\_**\*\*** rápido.
+5. Ramón va a montar su **\*\***\_**\*\***.
 
 ## B.L. Master 7 — Página 18, parte inferior
+
 **Instrucciones:** Forma palabras con las sílabas que aprendiste. Usa tu mejor letra.
 
 **Estructura:** 10 líneas dobles numeradas del 1 al 10 para construcción independiente de palabras.
 
 ## Evaluación: G g — ga, go, gu — Página 19
+
 **Instrucciones:** Completa la oración con una palabra del rectángulo.
 
 **Banco de palabras:** gorra | gato | lago | amigo | lagarto | Gustavo | mago | goma | laguna | Magali
 
-1. _____________ tiene una _____________ muy bonita.
-2. _____________ pasea con su _____________.
-3. En la _____________ hay un _____________.
-4. Magali borra con su _____________.
-5. El _____________ saca un _____________ del pañuelo.
-6. Gabi se baña en el _____________.
+1. **\*\***\_**\*\*** tiene una **\*\***\_**\*\*** muy bonita.
+2. **\*\***\_**\*\*** pasea con su **\*\***\_**\*\***.
+3. En la **\*\***\_**\*\*** hay un **\*\***\_**\*\***.
+4. Magali borra con su **\*\***\_**\*\***.
+5. El **\*\***\_**\*\*** saca un **\*\***\_**\*\*** del pañuelo.
+6. Gabi se baña en el **\*\***\_**\*\***.
 
 ## Evaluación: F f — Página 20
+
 **Instrucciones:** Completa la oración con una palabra del rectángulo.
 
 **Banco de palabras:** fortuna | foto | Fefa | Felo | perfume | familia | fama | feliz | feo
 
-1. Felo tiene _____________ y _____________.
-2. La _____________ de Fela está en la sala.
-3. A _____________ le gusta el _____________.
-4. El patito no es _____________.
-5. Toda la _____________ va de paseo.
-6. Rafael está _____________ con su nieto.
+1. Felo tiene **\*\***\_**\*\*** y **\*\***\_**\*\***.
+2. La **\*\***\_**\*\*** de Fela está en la sala.
+3. A **\*\***\_**\*\*** le gusta el **\*\***\_**\*\***.
+4. El patito no es **\*\***\_**\*\***.
+5. Toda la **\*\***\_**\*\*** va de paseo.
+6. Rafael está **\*\***\_**\*\*** con su nieto.
 
 ## Evaluación: J j — Página 21
+
 **Instrucciones:** Completa la oración con una palabra del rectángulo.
 
 **Banco de palabras:** Jimena | jaula | Javi | jarra | jugo | Jabela | jamón | jefa | jinete | baja
 
-1. El _____________ monta muy bien.
-2. José tiene una _____________ de _____________.
-3. Juana _____________ la loma con _____________.
-4. _____________ no está en la _____________.
-5. Jimena es la _____________ de _____________.
-6. A Julio le gusta el _____________.
+1. El **\*\***\_**\*\*** monta muy bien.
+2. José tiene una **\*\***\_**\*\*** de **\*\***\_**\*\***.
+3. Juana **\*\***\_**\*\*** la loma con **\*\***\_**\*\***.
+4. **\*\***\_**\*\*** no está en la **\*\***\_**\*\***.
+5. Jimena es la **\*\***\_**\*\*** de **\*\***\_**\*\***.
+6. A Julio le gusta el **\*\***\_**\*\***.
 
 ## Evaluación: C c — ca, co, cu — Página 22
+
 **Instrucciones:** Completa la oración con una palabra del rectángulo.
 
 **Banco de palabras:** casa | cola | cama | comida | coco | contento | cubo | Cuco
 
-1. El _____________ es de papá.
-2. Catalina carga arena con su _____________.
-3. La _____________ de _____________ es muy bonita.
-4. Paco está acostado en su _____________.
-5. El perro contento mueve su _____________.
-6. Mamá sirve la _____________ para todos.
+1. El **\*\***\_**\*\*** es de papá.
+2. Catalina carga arena con su **\*\***\_**\*\***.
+3. La **\*\***\_**\*\*** de **\*\***\_**\*\*** es muy bonita.
+4. Paco está acostado en su **\*\***\_**\*\***.
+5. El perro contento mueve su **\*\***\_**\*\***.
+6. Mamá sirve la **\*\***\_**\*\*** para todos.
 
 ## Evaluación: Y y — Página 23
+
 **Instrucciones:** Completa la oración con una palabra del rectángulo.
 
 **Banco de palabras:** payaso | yodo | ayudó | yegua | ayer | yemas | yate
 
-1. Yayo tiene un _____________ en Yateras.
-2. El _____________ está en la fiesta.
-3. Me gusta comer _____________.
-4. Cuco monta su _____________ todos los días.
-5. Mayito _____________ a Yayo _____________.
-6. Yoli se puso _____________ en la cortada.
+1. Yayo tiene un **\*\***\_**\*\*** en Yateras.
+2. El **\*\***\_**\*\*** está en la fiesta.
+3. Me gusta comer **\*\***\_**\*\***.
+4. Cuco monta su **\*\***\_**\*\*** todos los días.
+5. Mayito **\*\***\_**\*\*** a Yayo **\*\***\_**\*\***.
+6. Yoli se puso **\*\***\_**\*\*** en la cortada.
 
 ## Evaluación: Z z — Página 24
+
 **Instrucciones:** Completa la oración con una palabra del rectángulo.
 
 **Banco de palabras:** zarzuela | azúcar | zumo | azules | Zulema | zapatos
 
-1. _____________ va a ver la _____________.
-2. Elizabeth bebe _____________ de naranja.
-3. El café con _____________ es mío.
-4. Los pantalones de Rafael son _____________.
-5. El señor González usa _____________ nuevos.
+1. **\*\***\_**\*\*** va a ver la **\*\***\_**\*\***.
+2. Elizabeth bebe **\*\***\_**\*\*** de naranja.
+3. El café con **\*\***\_**\*\*** es mío.
+4. Los pantalones de Rafael son **\*\***\_**\*\***.
+5. El señor González usa **\*\***\_**\*\*** nuevos.
 
 ---
 
 # Flip Chart / Lesson Source Map
 
 ## Lesson 1 — Vocales
+
 - Flip Chart page 1.
 - Poem: **Las hermanitas vocales**
   - Cinco hermanitas todas aplicadas,
@@ -271,6 +294,7 @@
 - Vocabulary: avión, escoba, imán, olla, uña.
 
 ## Lesson 2 — O o
+
 - Flip Chart page 2.
 - Poem: **Arre caballito**
   - Arre caballito
@@ -284,28 +308,33 @@
 - Vocabulary: olla, Oto, oveja, oso, oreja, ocho.
 
 ## Lesson 3 — A a
+
 - Flip Chart page 3.
 - Poem / memory association: **La niña enfermita**
 - Vocabulary: abanico, anillo, araña.
 - Note: the authoritative uploaded Flip Chart contains this page.
 
 ## Lesson 4 — E e
+
 - Flip Chart page 4.
 - Poem: **La niña sordita**
 - Vocabulary: elefante, espejo, Ema, estrella, erizo, escalera.
 
 ## Lesson 5 — I i
+
 - Flip Chart page 5.
 - Poem: **La niña llorona**
 - Vocabulary: imán, iglú, indio, insecto, isla, Irma.
 
 ## Lesson 6 — U u
+
 - Flip Chart page 6.
 - Poem / memory association: **La brujita**
 - Vocabulary includes: uno, uva, uniforme.
 - Note: the authoritative uploaded Flip Chart contains this page.
 
 ## Lesson 7 — M m
+
 - Flip Chart pages 7–11.
 - Syllables: ma, me, mi, mo, mu.
 - Sight word: y.
@@ -324,6 +353,7 @@
 - Vocabulary: mamá, mami, Mimo, mío, me, mímame, Meme, ama, mía, Mumi, Memo, mima, amo, Mimí, ámame.
 
 ## Lesson 8 — P p
+
 - Flip Chart page 12.
 - Syllables: pa, pe, pi, po, pu.
 - Sight word: yo.
@@ -341,6 +371,7 @@
 - Vocabulary: papá, mapo, Mapi, papi, puma, pie, Pepe, Mupi, púa, pipo, mapa, pomo, Pupi, ¡upa!, Pepo.
 
 ## Lesson 9 — S s
+
 - Flip Chart pages 13–15.
 - Syllables: sa, se, si, so, su.
 - Sight words: es, de, un, está, en, la, el.
@@ -349,6 +380,7 @@
 - Vocabulary: masa, mesa, suma, sapo, seso, Susi, así, sopa, paso, puso, supo, supe, Sisi, ese, esa.
 
 ## Lesson 10 — T t
+
 - Flip Chart pages 16–17.
 - Syllables: ta, te, ti, to, tu.
 - Sight words: tiene, patio, no.
@@ -356,6 +388,7 @@
 - Vocabulary: toma, teme, seta, tute, Titi, pata, Soto, tupe, tapa, mete, Mota, Piti, topo, sapito, peseta, tomate, Poti, pato.
 
 ## Lesson 11 — D d
+
 - Flip Chart pages 18–21.
 - Syllables: da, de, di, do, du.
 - Sight words: son, están.
@@ -364,6 +397,7 @@
 - Vocabulary: dedo, dónde, deme, dame, Duma, de, día, dime, duda, Ada, pide, mudo, moneda, mide, Dunia.
 
 ## Lesson 12 — L l
+
 - Flip Chart pages 22–24.
 - Syllables: la, le, li, lo, lu.
 - Sight word: también.
@@ -372,6 +406,7 @@
 - Vocabulary: lima, lata, aleta, maleta, lupa, sale, paloma, pala, lomo, pelusa, Lilo, Lola, Luli, tela, Tula.
 
 ## Lesson 13 — N n
+
 - Flip Chart pages 25–26.
 - Syllables: na, ne, ni, no, nu.
 - Sight words: esa, a.
@@ -379,6 +414,7 @@
 - Vocabulary: nido, tina, nada, nené, mano, nulo, Nono, Tono, Alina, poni, Nena, nata, mono, luna, Neli.
 
 ## Lesson 14 — Ñ ñ
+
 - Flip Chart pages 27–30.
 - Syllables: ña, ñe, ñi, ño, ñu.
 - Sight word: del.
@@ -387,18 +423,21 @@
 - Vocabulary: ñame, año, moñudo, moño, niña, sueña, Meñe, paño, piña, niñito, sueño, puño, uña, añitos, pañuelo.
 
 ## Lesson 15 — B b
+
 - Flip Chart pages 31–33.
 - Syllables: ba, be, bi, bo, bu.
 - Poem: **Sube la bola**.
 - Vocabulary: batido, batea, nube, loba, baño, bota, bola, cubo, bolo, cubito, burro.
 
 ## Lesson 16 — V v
+
 - Flip Chart pages 34–36.
 - Syllables: va, ve, vi, vo, vu.
 - Poem: **Mi bote de vela**.
 - Vocabulary: vaso, vela, viento, velita, volantina, nave, pavo, aviso, vino, lavan.
 
 ## Lesson 17 — R r
+
 - Flip Chart pages 37–39.
 - Syllables: ra, re, ri, ro, ru.
 - Sight word: bien.
@@ -407,6 +446,7 @@
 - Vocabulary includes: ramo, remo, ropa, rosa, rana, rosado, risa, ruta, rulo, rata, Rita, Rolo, roto, Roma, rebaño, rueda, remos.
 
 ## Lesson 18 — rr
+
 - Flip Chart pages 40–42.
 - Syllables: rra, rre, rri, rro, rru.
 - Poem: **¡Rápido arriba!**
@@ -414,6 +454,7 @@
 - Vocabulary: tarro, burro, tierra, perro, amarro, carrusel, barro, arrebato, torre, arroba, parra, burrito, arriba, arruina, carro.
 
 ## Lesson 19 — G g
+
 - Flip Chart pages 43–45.
 - Syllables: ga, go, gu.
 - Poem: **El gato enamorado**.
@@ -421,6 +462,7 @@
 - Vocabulary: gaveta, gusano, Goloso, gorra, mago, gato, Gustavo, gotero, goma, lago, laguna, Magali, agua, golosina, ganas, gándola, gusta.
 
 ## Lesson 20 — F f
+
 - Flip Chart pages 46–48.
 - Syllables: fa, fe, fi, fo, fu.
 - Sight word: hay.
@@ -429,6 +471,7 @@
 - Vocabulary: familia, fino, fila, Fígaro, fusta, falso, fama, fumiga, fortuna, famoso, teléfono, Ofelia, foto, feo, foca.
 
 ## Lesson 21 — J j
+
 - Flip Chart pages 49–51.
 - Syllables: ja, je, ji, jo, ju.
 - Poem: **La jicotea Jabela**.
@@ -436,6 +479,7 @@
 - Vocabulary: jaba, jicotea, ají, baja, jura, jinete, jabón, vieja, jefe, Jesús, jamón, José, Julia, jarro, joven.
 
 ## Lesson 22 — C c
+
 - Flip Chart pages 52–54.
 - Syllables: ca, co, cu.
 - Poem: **Los caramelos**.
@@ -443,12 +487,14 @@
 - Vocabulary: carro, boca, cuna, coco, Colombia, saco, casa, poco, roca, Cuba, pico, cumbia, camisa, Cuco, colonia.
 
 ## Lesson 23 — Y y
+
 - Flip Chart pages 55–57.
 - Syllables: ya, ye, yi, yo, yu.
 - Reading begins: “El yate de Yayo está en Yateras...”
 - Vocabulary: yuca, ayer, cayo, yema, payaso, Mayito, yate, yute, joya, yegua, yoyo, yucateco, yagua, Yucatán, yeso.
 
 ## Lesson 24 — Z z
+
 - Flip Chart pages 58–60.
 - Syllables: za, ze, zi, zo, zu.
 - Reading begins: “Zulema toma zumo de melón...”
@@ -459,6 +505,7 @@
 # Workbook methodological structure
 
 The workbook repeats a consistent instructional progression:
+
 1. Auditory/visual discrimination.
 2. Letter formation/tracing.
 3. Syllable discrimination.
@@ -466,6 +513,7 @@ The workbook repeats a consistent instructional progression:
 5. Reading/comprehension or drawing response.
 
 ## Lesson/page map
+
 - Pages 1–3: vowels.
 - Pages 4–6: O o.
 - Pages 7–9: A a.
@@ -496,17 +544,20 @@ The workbook repeats a consistent instructional progression:
 # Homework / Rima source status
 
 ## Available samples
+
 - Rima 7 — M m / “Mi mamá”.
 - Rima 8 — P p / “Mi papá”.
 - Rima 9 — S s / “Sapo Samapo”.
 
 Each sample includes bilingual parent/family directions that ask families to:
+
 - count words in each verse;
 - count letters in selected words;
 - circle the target syllables;
 - reread the rhyme several times.
 
 ## Missing
+
 - Rimas/Homework 1–6.
 - Rimas/Homework 10–24.
 
@@ -517,12 +568,16 @@ These remain **SOURCE-PENDING**. Do not reconstruct them and label them as origi
 # B.L. Master source status
 
 ## B.L. Master 7
+
 Available in full:
+
 - “Forma palabras con las sílabas que aprendiste. Usa tu mejor letra.”
 - Ten numbered double-writing lines.
 
 ## B.L. Master 25
+
 Partial source:
+
 - Full CV matrix visible in overview/thumbnail.
 - Rows:
   1. ma me mi mo mu / pa pe pi po pu
@@ -536,6 +591,7 @@ Partial source:
   9. ya ye yi yo yu / za ze zi zo zu
 
 ## Missing
+
 Most other individual Blackline Masters / lesson-specific syllabic sheets remain SOURCE-PENDING.
 
 ---
@@ -543,6 +599,7 @@ Most other individual Blackline Masters / lesson-specific syllabic sheets remain
 # Implementation use
 
 This source extraction is approved for:
+
 - canonical curriculum skill mapping;
 - lesson/item IDs;
 - evaluation item mapping for Lessons 7–24;

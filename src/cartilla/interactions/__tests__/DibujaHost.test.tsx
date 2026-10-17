@@ -93,7 +93,10 @@ describe("DibujaHost — dual mode", () => {
       },
     });
   });
-  afterEach(() => { cleanup(); vi.useRealTimers(); });
+  afterEach(() => {
+    cleanup();
+    vi.useRealTimers();
+  });
 
   it("a prior wrong-answer timer cannot erase the subsequent correct choice", () => {
     vi.useFakeTimers();

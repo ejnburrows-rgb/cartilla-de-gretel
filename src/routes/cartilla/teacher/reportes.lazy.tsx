@@ -25,18 +25,25 @@ function TeacherReportsPage() {
 
   const handleExportCSV = async () => {
     if (!classId || exporting) return;
-    setExporting(true); setExportError("");
+    setExporting(true);
+    setExportError("");
     try {
-
-    if (studentId) {
-      const data = isSeedSessionActive() ? getSeedStudentProgress(studentId) : await getStudentProgress({ data: { id: studentId } });
-      exportStudentProgressCsv(data.student.display_name, data.events);
-    } else {
-      const data = isSeedSessionActive() ? getSeedClassProgress(classId) : await getClassProgress({ data: { id: classId } });
-      exportClassProgressCsv(`clase_${classId.slice(0, 8)}`, [], data);
+      if (studentId) {
+        const data = isSeedSessionActive()
+          ? getSeedStudentProgress(studentId)
+          : await getStudentProgress({ data: { id: studentId } });
+        exportStudentProgressCsv(data.student.display_name, data.events);
+      } else {
+        const data = isSeedSessionActive()
+          ? getSeedClassProgress(classId)
+          : await getClassProgress({ data: { id: classId } });
+        exportClassProgressCsv(`clase_${classId.slice(0, 8)}`, [], data);
+      }
+    } catch {
+      setExportError("No se pudo exportar el reporte. Comprueba la conexión e inténtalo de nuevo.");
+    } finally {
+      setExporting(false);
     }
-    } catch { setExportError("No se pudo exportar el reporte. Comprueba la conexión e inténtalo de nuevo."); }
-    finally { setExporting(false); }
   };
 
   return (
@@ -69,7 +76,11 @@ function TeacherReportsPage() {
         </div>
       </header>
 
-      {exportError && <p role="alert" className="no-print rounded-xl bg-amber-100 p-3 text-amber-950">{exportError}</p>}
+      {exportError && (
+        <p role="alert" className="no-print rounded-xl bg-amber-100 p-3 text-amber-950">
+          {exportError}
+        </p>
+      )}
       <StudentPicker onSelectionChange={handleSelectionChange} />
 
       {classId ? (

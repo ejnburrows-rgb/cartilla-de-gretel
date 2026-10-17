@@ -56,7 +56,7 @@ describe("Approved wooden pencil connector — line and pair matching", () => {
         pageKey="p17-proto"
         targets={p17Targets}
         mode="mark"
-                centerLabel="Uu"
+        centerLabel="Uu"
         instruction="Traza una línea desde la vocal Uu hasta el dibujo de la palabra que comienza con Uu."
         reducedMotion
       />,
@@ -65,9 +65,15 @@ describe("Approved wooden pencil connector — line and pair matching", () => {
     expect(screen.getByRole("button", { name: "Vocal central Uu" })).toBeTruthy();
     expect(screen.getByRole("button", { name: "uniforme" })).toBeTruthy();
     expect(screen.getByRole("button", { name: "uña" })).toBeTruthy();
-    expect(container.querySelectorAll(".am-direct-pencil__row--top .am-direct-pencil__target")).toHaveLength(3);
-    expect(container.querySelectorAll(".am-direct-pencil__row--mid .am-direct-pencil__target")).toHaveLength(2);
-    expect(container.querySelectorAll(".am-direct-pencil__row--bottom .am-direct-pencil__target")).toHaveLength(3);
+    expect(
+      container.querySelectorAll(".am-direct-pencil__row--top .am-direct-pencil__target"),
+    ).toHaveLength(3);
+    expect(
+      container.querySelectorAll(".am-direct-pencil__row--mid .am-direct-pencil__target"),
+    ).toHaveLength(2);
+    expect(
+      container.querySelectorAll(".am-direct-pencil__row--bottom .am-direct-pencil__target"),
+    ).toHaveLength(3);
     expect(container.querySelector(".am-direct-pencil__instruction")).toBeNull();
     expect(container.querySelector(".am-lasso__rope-layer")).toBeNull();
     expect(container.querySelector(".am-direct-pencil__example-badge")).toBeNull();
@@ -80,7 +86,7 @@ describe("Approved wooden pencil connector — line and pair matching", () => {
         pageKey="p17-proto-ok"
         targets={p17Targets}
         mode="mark"
-                centerLabel="Uu"
+        centerLabel="Uu"
         lessonId="6"
         reducedMotion
       />,
@@ -91,7 +97,9 @@ describe("Approved wooden pencil connector — line and pair matching", () => {
 
     expect(playCorrectChord).toHaveBeenCalled();
     expect(gretelEvent).toHaveBeenCalledWith("answer:correct", { itemId: "0" });
-    expect(screen.getByRole("button", { name: "uniforme" }).classList.contains("is-connected")).toBe(true);
+    expect(
+      screen.getByRole("button", { name: "uniforme" }).classList.contains("is-connected"),
+    ).toBe(true);
   });
 
   it("wrong target retracts neutrally and delegates retry voice without local buzz or TTS", async () => {
@@ -100,7 +108,7 @@ describe("Approved wooden pencil connector — line and pair matching", () => {
         pageKey="p17-proto-bad"
         targets={p17Targets}
         mode="mark"
-                centerLabel="Uu"
+        centerLabel="Uu"
         reducedMotion
       />,
     );
@@ -110,7 +118,9 @@ describe("Approved wooden pencil connector — line and pair matching", () => {
     expect(playWrongBuzz).not.toHaveBeenCalled();
     expect(speakGretelPhrase).not.toHaveBeenCalled();
     expect(gretelEvent).toHaveBeenCalledWith("answer:wrong", { itemId: "2" });
-    expect(screen.getByRole("button", { name: "oso" }).classList.contains("is-connected")).toBe(false);
+    expect(screen.getByRole("button", { name: "oso" }).classList.contains("is-connected")).toBe(
+      false,
+    );
     expect(screen.getByRole("button", { name: "oso" }).classList.contains("is-retry")).toBe(true);
     expect(container.querySelector(".am-direct-pencil__retry-line")).toBeTruthy();
 
@@ -124,7 +134,7 @@ describe("Approved wooden pencil connector — line and pair matching", () => {
         pageKey="p17-proto-focus"
         targets={p17Targets}
         mode="mark"
-                centerLabel="Uu"
+        centerLabel="Uu"
         reducedMotion
       />,
     );
@@ -144,7 +154,7 @@ describe("Approved wooden pencil connector — line and pair matching", () => {
         pageKey="p17-proto-drag"
         targets={p17Targets}
         mode="mark"
-                centerLabel="Uu"
+        centerLabel="Uu"
         reducedMotion
       />,
     );
@@ -171,22 +181,36 @@ describe("Approved wooden pencil connector — line and pair matching", () => {
         pageKey="p17-proto-example"
         targets={targetsWithExample}
         mode="mark"
-                centerLabel="Uu"
+        centerLabel="Uu"
         reducedMotion
       />,
     );
 
     const exampleBtn = screen.getByRole("button", { name: "uña" });
     expect(exampleBtn.classList.contains("is-connected")).toBe(true);
-    expect(container.querySelector(".am-direct-pencil__line-group line[stroke-dasharray]")).toBeTruthy();
+    expect(
+      container.querySelector(".am-direct-pencil__line-group line[stroke-dasharray]"),
+    ).toBeTruthy();
   });
 
   it("p3 Archetype 3 multi-pair Pencil Line connector connects left letter to right picture via click and drag", async () => {
     const p3Targets = [
       { id: "p3-L-0", label: "o", role: "left" as const, pairId: "pair-0" },
-      { id: "p3-R-0", label: "ocho", role: "right" as const, pairId: "pair-0", src: "/art/ocho.webp" },
+      {
+        id: "p3-R-0",
+        label: "ocho",
+        role: "right" as const,
+        pairId: "pair-0",
+        src: "/art/ocho.webp",
+      },
       { id: "p3-L-1", label: "a", role: "left" as const, pairId: "pair-1" },
-      { id: "p3-R-1", label: "araña", role: "right" as const, pairId: "pair-1", src: "/art/arana.webp" },
+      {
+        id: "p3-R-1",
+        label: "araña",
+        role: "right" as const,
+        pairId: "pair-1",
+        src: "/art/arana.webp",
+      },
     ];
 
     const { container } = render(
@@ -194,7 +218,7 @@ describe("Approved wooden pencil connector — line and pair matching", () => {
         pageKey="p3-multi-pair"
         targets={p3Targets}
         mode="pair"
-                reducedMotion
+        reducedMotion
       />,
     );
 
@@ -202,7 +226,9 @@ describe("Approved wooden pencil connector — line and pair matching", () => {
     expect(screen.getByRole("button", { name: "ocho" })).toBeTruthy();
 
     fireEvent.click(screen.getByRole("button", { name: "Vocal o" }));
-    expect(screen.getByRole("button", { name: "Vocal o" }).classList.contains("is-active")).toBe(true);
+    expect(screen.getByRole("button", { name: "Vocal o" }).classList.contains("is-active")).toBe(
+      true,
+    );
 
     fireEvent.click(screen.getByRole("button", { name: "ocho" }));
     await flushAnim(200);
@@ -215,9 +241,21 @@ describe("Approved wooden pencil connector — line and pair matching", () => {
   it("filters out stale/mismatched saved keys and restores valid ones silently", () => {
     const p3Targets = [
       { id: "p3-L-0", label: "o", role: "left" as const, pairId: "pair-0" },
-      { id: "p3-R-0", label: "ocho", role: "right" as const, pairId: "pair-0", src: "/art/ocho.webp" },
+      {
+        id: "p3-R-0",
+        label: "ocho",
+        role: "right" as const,
+        pairId: "pair-0",
+        src: "/art/ocho.webp",
+      },
       { id: "p3-L-1", label: "a", role: "left" as const, pairId: "pair-1" },
-      { id: "p3-R-1", label: "araña", role: "right" as const, pairId: "pair-1", src: "/art/arana.webp" },
+      {
+        id: "p3-R-1",
+        label: "araña",
+        role: "right" as const,
+        pairId: "pair-1",
+        src: "/art/arana.webp",
+      },
     ];
 
     // Seed localStorage via saveLassoProgress with one valid pair key and several stale/mismatched keys
@@ -233,15 +271,19 @@ describe("Approved wooden pencil connector — line and pair matching", () => {
         pageKey="p3-stale-test"
         targets={p3Targets}
         mode="pair"
-                reducedMotion
+        reducedMotion
       />,
     );
 
     // Only the valid line ("p3-L-0|p3-R-0") should be rendered
     const lineGroups = container.querySelectorAll(".am-direct-pencil__line-group");
     expect(lineGroups).toHaveLength(1);
-    expect(screen.getByRole("button", { name: "Vocal o" }).classList.contains("is-connected")).toBe(true);
-    expect(screen.getByRole("button", { name: "Vocal a" }).classList.contains("is-connected")).toBe(false);
+    expect(screen.getByRole("button", { name: "Vocal o" }).classList.contains("is-connected")).toBe(
+      true,
+    );
+    expect(screen.getByRole("button", { name: "Vocal a" }).classList.contains("is-connected")).toBe(
+      false,
+    );
   });
 
   it("clears transient drag state cleanly onPointerCancel without committing", () => {
@@ -250,7 +292,7 @@ describe("Approved wooden pencil connector — line and pair matching", () => {
         pageKey="p17-proto-cancel"
         targets={p17Targets}
         mode="mark"
-                centerLabel="Uu"
+        centerLabel="Uu"
         reducedMotion
       />,
     );
@@ -274,7 +316,7 @@ describe("Approved wooden pencil connector — line and pair matching", () => {
         pageKey="p17-proto-tap"
         targets={p17Targets}
         mode="mark"
-                centerLabel="Uu"
+        centerLabel="Uu"
         reducedMotion
       />,
     );

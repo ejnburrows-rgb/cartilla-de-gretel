@@ -3,9 +3,20 @@
  * Warm book palette (not dark navy SaaS). Stage is the hero; chrome is
  * light and finger-friendly. Used by /cartilla/presentar/$n only.
  */
-import { useState, useEffect, useRef, type CSSProperties, type MouseEvent, type ReactNode } from "react";
+import {
+  useState,
+  useEffect,
+  useRef,
+  type CSSProperties,
+  type MouseEvent,
+  type ReactNode,
+} from "react";
 import { Maximize2, Minimize2, MousePointerClick, X, Focus, Hand } from "lucide-react";
-import { getTeacherHandMode, setTeacherHandMode, type TeacherHandMode } from "@/lib/teacher-hand-mode";
+import {
+  getTeacherHandMode,
+  setTeacherHandMode,
+  type TeacherHandMode,
+} from "@/lib/teacher-hand-mode";
 import { TeacherPresentationContext } from "@/lib/teacher-presentation-context";
 import "@/styles/flipchart-presenter.css";
 
@@ -91,11 +102,12 @@ export function TeacherPresentationShell({
 
   // Bare mode: Escape exits (no visible exit button in zero-chrome mode).
   useEffect(() => {
-
     const onKey = (e: KeyboardEvent) => {
       if (e.key === "Escape") {
-        if (focusMode) { setFocusMode(false); setIsIdle(false); }
-        else if (!document.fullscreenElement) onExit?.();
+        if (focusMode) {
+          setFocusMode(false);
+          setIsIdle(false);
+        } else if (!document.fullscreenElement) onExit?.();
       }
     };
     window.addEventListener("keydown", onKey);
@@ -127,90 +139,90 @@ export function TeacherPresentationShell({
         setHandMode: handleSetHandMode,
       }}
     >
-    <div
-      className={`fc-presenter${focusClass}${bare ? " is-bare" : ""}`}
-      style={shellStyle}
-      data-accent=""
-      data-testid="teacher-presenter-shell"
-      data-bare={bare ? "true" : "false"}
-      onMouseMove={handleMouseMove}
-    >
-      {laserPointer && <div className="fc-presenter__laser" style={laserStyle} aria-hidden />}
+      <div
+        className={`fc-presenter${focusClass}${bare ? " is-bare" : ""}`}
+        style={shellStyle}
+        data-accent=""
+        data-testid="teacher-presenter-shell"
+        data-bare={bare ? "true" : "false"}
+        onMouseMove={handleMouseMove}
+      >
+        {laserPointer && <div className="fc-presenter__laser" style={laserStyle} aria-hidden />}
 
-      {!bare && (
-        <header className="fc-presenter__header" data-testid="teacher-presenter-header">
-        <div className="fc-presenter__brand">
-          <button
-            type="button"
-            onClick={onExit}
-            className="fc-presenter__exit"
-            aria-label="Volver al panel del docente"
-          >
-            <X className="w-5 h-5" aria-hidden />
-          </button>
-          <div className="fc-presenter__titles">
-            <span className="fc-presenter__eyebrow">{eyebrow}</span>
-            <h1 className="fc-presenter__title">{title}</h1>
-            {subtitle ? <p className="fc-presenter__subtitle">{subtitle}</p> : null}
-          </div>
-        </div>
+        {!bare && (
+          <header className="fc-presenter__header" data-testid="teacher-presenter-header">
+            <div className="fc-presenter__brand">
+              <button
+                type="button"
+                onClick={onExit}
+                className="fc-presenter__exit"
+                aria-label="Volver al panel del docente"
+              >
+                <X className="w-5 h-5" aria-hidden />
+              </button>
+              <div className="fc-presenter__titles">
+                <span className="fc-presenter__eyebrow">{eyebrow}</span>
+                <h1 className="fc-presenter__title">{title}</h1>
+                {subtitle ? <p className="fc-presenter__subtitle">{subtitle}</p> : null}
+              </div>
+            </div>
 
-        <div className="fc-presenter__actions">
-          <button
-            type="button"
-            onClick={() => setLaserPointer((v) => !v)}
-            className={`fc-presenter__btn${laserPointer ? " is-active" : ""}`}
-            aria-pressed={laserPointer}
-            aria-label="Alternar puntero láser"
-          >
-            <MousePointerClick className="w-4 h-4" aria-hidden />
-            <span className="hidden sm:inline">Puntero</span>
-          </button>
-          <button
-            type="button"
-            onClick={() => handleSetHandMode(handMode === "left" ? "right" : "left")}
-            className="fc-presenter__btn"
-            aria-label={`Modo docente: ${handMode === "left" ? "Mano izquierda" : "Mano derecha"}`}
-            title={`Modo docente: ${handMode === "left" ? "Mano izquierda" : "Mano derecha"}`}
-            data-testid="hand-mode-toggle"
-          >
-            <Hand className="w-4 h-4" aria-hidden />
-            <span className="hidden sm:inline">
-              {handMode === "left" ? "Mano Izq" : "Mano Der"}
-            </span>
-          </button>
-          <button
-            type="button"
-            onClick={() => setFocusMode((v) => !v)}
-            className={`fc-presenter__btn${focusMode ? " is-active" : ""}`}
-            aria-pressed={focusMode}
-            aria-label="Modo proyección sin cromo"
-          >
-            <Focus className="w-4 h-4" aria-hidden />
-            <span className="hidden sm:inline">Enfoque</span>
-          </button>
-          <button
-            type="button"
-            onClick={toggleFullscreen}
-            className="fc-presenter__btn"
-            aria-label="Alternar pantalla completa"
-          >
-            {isFullscreen ? (
-              <Minimize2 className="w-4 h-4" aria-hidden />
-            ) : (
-              <Maximize2 className="w-4 h-4" aria-hidden />
-            )}
-            <span className="hidden sm:inline">Pantalla completa</span>
-          </button>
-        </div>
-        </header>
-      )}
+            <div className="fc-presenter__actions">
+              <button
+                type="button"
+                onClick={() => setLaserPointer((v) => !v)}
+                className={`fc-presenter__btn${laserPointer ? " is-active" : ""}`}
+                aria-pressed={laserPointer}
+                aria-label="Alternar puntero láser"
+              >
+                <MousePointerClick className="w-4 h-4" aria-hidden />
+                <span className="hidden sm:inline">Puntero</span>
+              </button>
+              <button
+                type="button"
+                onClick={() => handleSetHandMode(handMode === "left" ? "right" : "left")}
+                className="fc-presenter__btn"
+                aria-label={`Modo docente: ${handMode === "left" ? "Mano izquierda" : "Mano derecha"}`}
+                title={`Modo docente: ${handMode === "left" ? "Mano izquierda" : "Mano derecha"}`}
+                data-testid="hand-mode-toggle"
+              >
+                <Hand className="w-4 h-4" aria-hidden />
+                <span className="hidden sm:inline">
+                  {handMode === "left" ? "Mano Izq" : "Mano Der"}
+                </span>
+              </button>
+              <button
+                type="button"
+                onClick={() => setFocusMode((v) => !v)}
+                className={`fc-presenter__btn${focusMode ? " is-active" : ""}`}
+                aria-pressed={focusMode}
+                aria-label="Modo proyección sin cromo"
+              >
+                <Focus className="w-4 h-4" aria-hidden />
+                <span className="hidden sm:inline">Enfoque</span>
+              </button>
+              <button
+                type="button"
+                onClick={toggleFullscreen}
+                className="fc-presenter__btn"
+                aria-label="Alternar pantalla completa"
+              >
+                {isFullscreen ? (
+                  <Minimize2 className="w-4 h-4" aria-hidden />
+                ) : (
+                  <Maximize2 className="w-4 h-4" aria-hidden />
+                )}
+                <span className="hidden sm:inline">Pantalla completa</span>
+              </button>
+            </div>
+          </header>
+        )}
 
-      {/* Full-width stage — no max-w postage stamp */}
-      <main className="fc-presenter__main" data-testid="teacher-presenter-stage">
-        <div className="fc-presenter__stage">{children}</div>
-      </main>
-    </div>
+        {/* Full-width stage — no max-w postage stamp */}
+        <main className="fc-presenter__main" data-testid="teacher-presenter-stage">
+          <div className="fc-presenter__stage">{children}</div>
+        </main>
+      </div>
     </TeacherPresentationContext.Provider>
   );
 }

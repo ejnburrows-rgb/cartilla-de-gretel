@@ -30,7 +30,11 @@ describe("workbook recovery and earned completion", () => {
         accent="#123"
         lessonId="1"
         region={{
-          id: "grid", regionType: "picture-grid", order: 1, fontRole: "body", columns: 3,
+          id: "grid",
+          regionType: "picture-grid",
+          order: 1,
+          fontRole: "body",
+          columns: 3,
           cells: [
             { caption: "oso", illustrationSrc: "/oso.webp", correct: true },
             { caption: "olla", illustrationSrc: "/olla.webp", correct: true },
@@ -51,7 +55,8 @@ describe("workbook recovery and earned completion", () => {
     select("avión");
     expect(recordEvent).toHaveBeenLastCalledWith(
       expect.objectContaining({
-        score: 0, total: 3,
+        score: 0,
+        total: 3,
         meta: expect.objectContaining({ completed: false }),
       }),
     );
@@ -61,7 +66,8 @@ describe("workbook recovery and earned completion", () => {
     select("olla");
     expect(recordEvent).toHaveBeenLastCalledWith(
       expect.objectContaining({
-        score: 2, total: 3,
+        score: 2,
+        total: 3,
         meta: expect.objectContaining({ completed: true, corrected: true, attempt: 2 }),
       }),
     );
@@ -78,12 +84,7 @@ describe("workbook recovery and earned completion", () => {
   it("requires listening and a correct answer for each sound, with no double-click credit", () => {
     const complete = vi.fn();
     const view = render(
-      <SyllableTapGame
-        syllables={["a", "e"]}
-        color="#123"
-        lessonId="2"
-        onComplete={complete}
-      />,
+      <SyllableTapGame syllables={["a", "e"]} color="#123" lessonId="2" onComplete={complete} />,
     );
     expect(view.getByRole("button", { name: "a" })).toBeDisabled();
     fireEvent.click(view.getByRole("button", { name: "Escuchar" }));
@@ -97,9 +98,7 @@ describe("workbook recovery and earned completion", () => {
     fireEvent.click(view.getByRole("button", { name: "e" }));
     expect(complete).toHaveBeenCalledTimes(1);
     expect(recordEvent).toHaveBeenCalledTimes(3);
-    expect(
-      view.queryByRole("button", { name: "Marcar como completado" }),
-    ).toBeNull();
+    expect(view.queryByRole("button", { name: "Marcar como completado" })).toBeNull();
   });
 
   it("supports matching with buttons and reports one accurate result even after a parent rerender", () => {
@@ -108,24 +107,14 @@ describe("workbook recovery and earned completion", () => {
       { word: "olla", emoji: "olla", illustrationSrc: "/olla.webp" },
     ];
     const complete = vi.fn();
-    const view = render(
-      <DragMatchPairs pairs={pairs} lessonId="1" onComplete={complete} />,
-    );
+    const view = render(<DragMatchPairs pairs={pairs} lessonId="1" onComplete={complete} />);
     fireEvent.click(view.getByRole("button", { name: "oso" }));
     fireEvent.click(view.getByRole("button", { name: "Dibujo: olla" }));
     fireEvent.click(view.getByRole("button", { name: "Dibujo: oso" }));
     fireEvent.click(view.getByRole("button", { name: "olla" }));
     fireEvent.click(view.getByRole("button", { name: "Dibujo: olla" }));
-    expect(recordEvent).toHaveBeenLastCalledWith(
-      expect.objectContaining({ score: 2, total: 3 }),
-    );
-    view.rerender(
-      <DragMatchPairs
-        pairs={pairs}
-        lessonId="1"
-        onComplete={() => complete()}
-      />,
-    );
+    expect(recordEvent).toHaveBeenLastCalledWith(expect.objectContaining({ score: 2, total: 3 }));
+    view.rerender(<DragMatchPairs pairs={pairs} lessonId="1" onComplete={() => complete()} />);
     expect(complete).toHaveBeenCalledTimes(1);
   });
 });

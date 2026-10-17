@@ -3,12 +3,14 @@
 ## Overview
 
 This directory documents the current-main rendered verification proof for Workbook Archetypes 5 and 6:
+
 - **Archetype 5:** Handwriting / tracing / open drawing (e.g., printed Page 19 / Lesson 7).
 - **Archetype 6:** Syllable recognition / circle (e.g., printed Page 20 / Lesson 7).
 
 ## Verification Findings
 
 ### Archetype 5: Handwriting / Tracing + Open Drawing
+
 - **Handwriting & Tracing Controls:** Verified tracing guide rows (`.fp-trace`), mode toggle button (`.fp-trace__mode-toggle`), and dot-based stroke interaction.
 - **Freehand Canvas:** Verified the open drawing canvas (`.am-dibuja`), which accepts mouse/touch drawing strokes.
 - **Progressive Fade & Shared Pencil:** Mode toggle switches between ordered dot guides and freehand tracing mode.
@@ -17,6 +19,7 @@ This directory documents the current-main rendered verification proof for Workbo
 - **Reduced Motion:** Verified clean static rendering with `prefers-reduced-motion: reduce`.
 
 ### Archetype 6: Syllable Recognition / Circle
+
 - **Syllable Circle Behavior:** Verified `SyllableWordCircle` rendering syllable anchors (`ma`, `me`, `mi`, `mo`, `mu`) and source-ordered word choices (`mami`, `ama`, `mamá`, `mima`, `Coloma`, `Manolo`, etc.).
 - **Circle Selection:** Tapping words places a `WorkbookPencilMark` circle overlay around target syllables.
 - **Save/Reload Persistence:** Selections persist in `localStorage` under `cartilla-circle-${region.id}`.

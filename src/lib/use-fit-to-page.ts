@@ -47,11 +47,15 @@ export function useFitToPage(rootRef: RefObject<HTMLElement | null>, key: unknow
     const observed = new Set<Element>();
     const ro = new ResizeObserver(() => schedule());
     const observeAll = () => {
-      root.querySelectorAll<HTMLElement>(".faithful-page__body, .faithful-page__body > .gretel-activity").forEach((el) => {
-        if (observed.has(el)) return;
-        observed.add(el);
-        ro.observe(el);
-      });
+      root
+        .querySelectorAll<HTMLElement>(
+          ".faithful-page__body, .faithful-page__body > .gretel-activity",
+        )
+        .forEach((el) => {
+          if (observed.has(el)) return;
+          observed.add(el);
+          ro.observe(el);
+        });
     };
     function schedule() {
       cancelAnimationFrame(frame);

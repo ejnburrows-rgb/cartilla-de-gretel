@@ -40,7 +40,14 @@ const TURN_EASE = "cubic-bezier(0.6, 0.02, 0.28, 1)";
 /** The spiral's holes sit this far below the sheet's top edge (share of sheet width). */
 const HINGE_SHARE = 0.054;
 
-type LeafBox = { left: number; top: number; width: number; height: number; innerW: number; innerH: number };
+type LeafBox = {
+  left: number;
+  top: number;
+  width: number;
+  height: number;
+  innerW: number;
+  innerH: number;
+};
 
 interface FlipchartHdPanelProps {
   lessonNumber: number;
@@ -54,13 +61,7 @@ interface FlipchartHdPanelProps {
   chrome?: "full" | "bare";
 }
 
-function FlipchartFace({
-  page,
-  onReady,
-}: {
-  page?: FlipchartPage;
-  onReady?: () => void;
-}) {
+function FlipchartFace({ page, onReady }: { page?: FlipchartPage; onReady?: () => void }) {
   if (!page) return <div className="fc-board__face" aria-hidden />;
   const canonicalSrc = getFlipchartPageSrc(page);
   return (
@@ -75,7 +76,11 @@ function FlipchartFace({
   );
 }
 
-export function FlipchartHdPanel({ lessonNumber, accentColor, chrome = "full" }: FlipchartHdPanelProps) {
+export function FlipchartHdPanel({
+  lessonNumber,
+  accentColor,
+  chrome = "full",
+}: FlipchartHdPanelProps) {
   const pages: FlipchartPage[] = useMemo(
     () => getFlipchartPagesForLesson(lessonNumber),
     [lessonNumber],
@@ -221,12 +226,17 @@ export function FlipchartHdPanel({ lessonNumber, accentColor, chrome = "full" }:
         });
       });
 
-      flipTimerRef.current = window.setTimeout(
-        () => afterFlip(index, token),
-        FLIPCHART_FLIP_MS,
-      );
+      flipTimerRef.current = window.setTimeout(() => afterFlip(index, token), FLIPCHART_FLIP_MS);
     },
-    [afterFlip, isFlipping, measureLeaf, pages.length, reducedMotion, safeIdx, triggerCinematicZoom],
+    [
+      afterFlip,
+      isFlipping,
+      measureLeaf,
+      pages.length,
+      reducedMotion,
+      safeIdx,
+      triggerCinematicZoom,
+    ],
   );
 
   const handlePrev = useCallback(() => {
@@ -246,12 +256,13 @@ export function FlipchartHdPanel({ lessonNumber, accentColor, chrome = "full" }:
       const interactiveTarget =
         target instanceof Element &&
         (target.closest(
-          'button, input, textarea, select, a[href], summary, ' +
-          '[contenteditable]:not([contenteditable="false"]), ' +
-          '[role="button"], [role="tab"], [role="link"], [role="textbox"], ' +
-          '[role="combobox"], [role="checkbox"], [role="radio"], [role="switch"], ' +
-          '[role="slider"], [role="spinbutton"], [role="menuitem"], [role="option"]',
-        ) !== null || (target instanceof HTMLElement && target.isContentEditable));
+          "button, input, textarea, select, a[href], summary, " +
+            '[contenteditable]:not([contenteditable="false"]), ' +
+            '[role="button"], [role="tab"], [role="link"], [role="textbox"], ' +
+            '[role="combobox"], [role="checkbox"], [role="radio"], [role="switch"], ' +
+            '[role="slider"], [role="spinbutton"], [role="menuitem"], [role="option"]',
+        ) !== null ||
+          (target instanceof HTMLElement && target.isContentEditable));
 
       if (
         e.defaultPrevented ||
@@ -262,7 +273,8 @@ export function FlipchartHdPanel({ lessonNumber, accentColor, chrome = "full" }:
         e.metaKey ||
         e.shiftKey ||
         interactiveTarget
-      ) return;
+      )
+        return;
 
       if (["ArrowDown", "ArrowRight", "PageDown", " "].includes(e.key)) {
         e.preventDefault();
@@ -518,11 +530,17 @@ export function FlipchartHdPanel({ lessonNumber, accentColor, chrome = "full" }:
         <div className="fc-board__page">
           <div className="fc-board__page-inner" ref={pageInnerRef}>
             <div className="absolute inset-0 h-full w-full">
-              <FlipchartFace page={pages[staticIdx] ?? currentPage} onReady={() => setPageReady(true)} />
+              <FlipchartFace
+                page={pages[staticIdx] ?? currentPage}
+                onReady={() => setPageReady(true)}
+              />
             </div>
 
             {!pageReady && !isFlipping && (
-              <div className="pointer-events-none absolute inset-x-0 bottom-4 z-40 flex justify-center" aria-live="polite">
+              <div
+                className="pointer-events-none absolute inset-x-0 bottom-4 z-40 flex justify-center"
+                aria-live="polite"
+              >
                 <span className="rounded-full border border-stone-200 bg-white/90 px-3 py-1.5 text-xs font-extrabold text-stone-600 shadow-sm backdrop-blur">
                   Cargando lámina…
                 </span>
@@ -553,7 +571,9 @@ export function FlipchartHdPanel({ lessonNumber, accentColor, chrome = "full" }:
                     style={{
                       transform: flipTransform,
                       transformOrigin: `50% ${hinge}px`,
-                      transition: isDragging ? "none" : `transform ${flipTransitionMs}ms ${TURN_EASE}`,
+                      transition: isDragging
+                        ? "none"
+                        : `transform ${flipTransitionMs}ms ${TURN_EASE}`,
                       willChange: "transform",
                     }}
                   >
@@ -562,7 +582,12 @@ export function FlipchartHdPanel({ lessonNumber, accentColor, chrome = "full" }:
                         className="fc-turn__face"
                         style={
                           leaf
-                            ? { left: -leaf.left, top: -leaf.top, width: leaf.innerW, height: leaf.innerH }
+                            ? {
+                                left: -leaf.left,
+                                top: -leaf.top,
+                                width: leaf.innerW,
+                                height: leaf.innerH,
+                              }
                             : { inset: 0 }
                         }
                       >
@@ -630,7 +655,9 @@ export function FlipchartHdPanel({ lessonNumber, accentColor, chrome = "full" }:
         </button>
 
         <div className="fc-board__counter" data-testid="flipchart-counter">
-          <span>Hoja {safeIdx + 1} de {pages.length}</span>
+          <span>
+            Hoja {safeIdx + 1} de {pages.length}
+          </span>
           <span className="fc-board__counter-sub">
             Lámina {currentPage?.flipchartPage ?? "—"} · Lección {lessonNumber}
           </span>

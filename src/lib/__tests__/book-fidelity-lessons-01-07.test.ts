@@ -60,7 +60,11 @@ type FixturePage = {
 const pages = (layouts as unknown as { pages: Record<string, Page> }).pages;
 const book = (fixture as unknown as { pages: Record<string, FixturePage> }).pages;
 
-const fold = (s: string) => s.normalize("NFD").replace(/[\u0300-\u036f]/g, "").toLowerCase();
+const fold = (s: string) =>
+  s
+    .normalize("NFD")
+    .replace(/[\u0300-\u036f]/g, "")
+    .toLowerCase();
 const ordered = (n: number) => {
   const p = pages[String(n)];
   if (!p) throw new Error(`page ${n} missing from page-layouts.json`);
@@ -72,8 +76,13 @@ const LESSON_OF_PAGE = [1, 1, 1, 2, 2, 2, 3, 3, 3, 4, 4, 4, 5, 5, 5, 6, 6, 6, 7,
 
 describe("book fidelity — Lessons 1–7 (pages 1–22)", () => {
   it("fixture covers every printed page 1–22 with the printed lesson footer", () => {
-    expect(Object.keys(book).map(Number).sort((a, b) => a - b)).toEqual(PAGE_NUMBERS);
-    for (const n of PAGE_NUMBERS) expect(book[String(n)].lesson, `p${n}`).toBe(LESSON_OF_PAGE[n - 1]);
+    expect(
+      Object.keys(book)
+        .map(Number)
+        .sort((a, b) => a - b),
+    ).toEqual(PAGE_NUMBERS);
+    for (const n of PAGE_NUMBERS)
+      expect(book[String(n)].lesson, `p${n}`).toBe(LESSON_OF_PAGE[n - 1]);
   });
 
   for (const n of PAGE_NUMBERS) {
@@ -93,7 +102,8 @@ describe("book fidelity — Lessons 1–7 (pages 1–22)", () => {
           const rows = f.rows as Pair[][];
           expect(grid.columns).toBe(rows[0].length);
           expect((grid.cells ?? []).map((c) => [c.caption, c.correct])).toEqual(rows.flat());
-          for (const c of grid.cells ?? []) expect(c.illustrationSrc, `${c.caption} art`).toBeTruthy();
+          for (const c of grid.cells ?? [])
+            expect(c.illustrationSrc, `${c.caption} art`).toBeTruthy();
           break;
         }
         case "vowel-pick-one": {
@@ -138,32 +148,48 @@ describe("book fidelity — Lessons 1–7 (pages 1–22)", () => {
           const matches = r.filter((x) => x.regionType === "syllable-match");
           expect(matches.map((m) => m.syllable)).toEqual(f.circle!.map((c) => c.syllable));
           matches.forEach((m, i) => {
-            expect((m.matchRows ?? []).map((row) => row.map((w) => w.word))).toEqual(f.circle![i].rows);
+            expect((m.matchRows ?? []).map((row) => row.map((w) => w.word))).toEqual(
+              f.circle![i].rows,
+            );
             for (const row of m.matchRows ?? [])
-              for (const w of row) expect(w.correct, w.word).toBe(fold(w.word).includes(fold(m.syllable ?? "")));
+              for (const w of row)
+                expect(w.correct, w.word).toBe(fold(w.word).includes(fold(m.syllable ?? "")));
           });
           break;
         }
         case "letter": {
           expect(r.find((x) => x.regionType === "title")?.text).toBe(f.title);
-          expect(r.filter((x) => x.regionType === "syllable-bubble").map((x) => x.text)).toEqual(f.syllableBubbles);
+          expect(r.filter((x) => x.regionType === "syllable-bubble").map((x) => x.text)).toEqual(
+            f.syllableBubbles,
+          );
           // The book prints three columns; the data stores them row by row.
           const cols = f.vocabColumns!;
           const rowMajor = cols[0].flatMap((_, i) => cols.map((c) => c[i]));
           expect(r.find((x) => x.regionType === "vocab-grid")?.text).toBe(rowMajor.join(" · "));
-          expect(r.find((x) => x.regionType === "sentence-line")?.text).toBe(f.sightWords!.join("  "));
-          expect(r.find((x) => x.regionType === "reading-sentences")?.sentences).toEqual(f.sentences);
+          expect(r.find((x) => x.regionType === "sentence-line")?.text).toBe(
+            f.sightWords!.join("  "),
+          );
+          expect(r.find((x) => x.regionType === "reading-sentences")?.sentences).toEqual(
+            f.sentences,
+          );
           break;
         }
         case "complete": {
-          expect(r.map((x) => x.regionType)).toEqual(["instruction", "fill-in-blank", "instruction", "writing-response"]);
+          expect(r.map((x) => x.regionType)).toEqual([
+            "instruction",
+            "fill-in-blank",
+            "instruction",
+            "writing-response",
+          ]);
           expect(instructions[1].text).toBe(f.sentencesInstruction);
           const items = r.find((x) => x.regionType === "fill-in-blank")!.fillItems ?? [];
           expect(items.map((i) => [i.wordBox, i.blank, i.choices.map((c) => c.text)])).toEqual(
             f.fill!.map((i) => [i.wordBox, i.blank, i.choices]),
           );
           items.forEach((item, i) =>
-            expect(item.choices.filter((c) => c.correct).map((c) => c.text)).toEqual([f.fill![i].answer]),
+            expect(item.choices.filter((c) => c.correct).map((c) => c.text)).toEqual([
+              f.fill![i].answer,
+            ]),
           );
           break;
         }
@@ -177,12 +203,14 @@ describe("book fidelity — Lessons 1–7 (pages 1–22)", () => {
     for (const n of PAGE_NUMBERS) {
       const f = book[String(n)];
       const vowel =
-        f.letterPair?.[1] ?? f.instruction?.match(/comienzan con ([AEIOU]) [aeiou]\.$/)?.[1]?.toLowerCase();
+        f.letterPair?.[1] ??
+        f.instruction?.match(/comienzan con ([AEIOU]) [aeiou]\.$/)?.[1]?.toLowerCase();
       if (f.type === "picture-grid" && vowel)
         for (const [caption, ok] of (f.rows as Pair[][]).flat())
           expect(ok, `p${n} ${caption}`).toBe(fold(caption).startsWith(vowel));
       if (f.type === "vowel-line-match" && vowel)
-        for (const [caption, ok] of f.cells!) expect(ok, `p${n} ${caption}`).toBe(fold(caption).startsWith(vowel));
+        for (const [caption, ok] of f.cells!)
+          expect(ok, `p${n} ${caption}`).toBe(fold(caption).startsWith(vowel));
       if (f.type === "vowel-pick-one")
         for (const row of f.rows as { letter: string; pictures: Pair[] }[])
           for (const [caption, ok] of row.pictures)

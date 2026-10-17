@@ -5,6 +5,7 @@ All notable changes to this project are documented in this file. Format follows 
 ## [Unreleased]
 
 ### Added
+
 - `LICENSE` (MIT) at the repository root.
 - `CONTRIBUTING.md` documenting accepted and rejected change types.
 - `CHANGELOG.md` to track release history.
@@ -16,17 +17,22 @@ All notable changes to this project are documented in this file. Format follows 
 - **Supabase Integration**: Live connection established via local Vercel CLI token linking.
 
 ### Removed
+
 - Kid-voice recording entry point and related orphans (`src/routes/cartilla/grabar.tsx`, `src/lib/audio-recorder.ts`) as out of spec.
 
 ## [Verified-2026-05-23]
 
 ### Verified in production
+
 - `/robots.txt` served commit `3901508f61e620c8b22b9d9683a629168302eea0`.
 - `/cartilla/leccion/9` rendered with Letra S s, páginas 27-30, sight-word chips, and aria labels.
 - `/cartilla/leccion/17` rendered with Letra R r, páginas 59-62, and the mini-story banner.
 - Browser console: no errors during the smoke test.
+
 ## [Unreleased] - 2026-07-07
+
 ### Added
+
 - 1.5s elegant animations for 3D flipbook page turns.
 - Garden aesthetic applied directly to the Teacher Flipchart presentation mode.
 - Lesson Catalog now points to the immersive presenter mode.

@@ -1,13 +1,29 @@
 import { useEffect, type CSSProperties } from "react";
 import { FlipchartFrontmatter } from "@/components/cartilla/FlipchartFrontmatter";
-import { getNativeFlipchartPage, type FlipchartLayoutType, type NativeFlipchartPage, type FlipchartTextItem } from "@/lib/flipchart-native";
+import {
+  getNativeFlipchartPage,
+  type FlipchartLayoutType,
+  type NativeFlipchartPage,
+  type FlipchartTextItem,
+} from "@/lib/flipchart-native";
 import { LivingIllustration } from "@/components/living/LivingIllustration";
 import { FlipchartReplicaSheet } from "@/components/cartilla/FlipchartReplicaSheet";
 import { hasReplicaSheet } from "@/lib/flipchart-replica";
 import type { FlipchartPage } from "@/lib/flipchart-hd";
 
 function BookLine({ line }: { line: FlipchartTextItem }) {
-  return line.segments ? <>{line.segments.map((part, index) => <span key={index} style={{ color: part.color }}>{index > 0 ? " " : ""}{part.text}</span>)}</> : <>{line.text}</>;
+  return line.segments ? (
+    <>
+      {line.segments.map((part, index) => (
+        <span key={index} style={{ color: part.color }}>
+          {index > 0 ? " " : ""}
+          {part.text}
+        </span>
+      ))}
+    </>
+  ) : (
+    <>{line.text}</>
+  );
 }
 
 import sourceColors from "@/data/flipchart-source-colors.json";
@@ -34,11 +50,16 @@ export function panelColorFor(pageNumber: number): string {
 export function crescentColorsFor(pageNumber: number): { light: string; edge: string } {
   const colors = SOURCE_COLORS[String(pageNumber)];
   const panel = panelColorFor(pageNumber);
-  return { light: colors?.crescentLight ?? panel, edge: colors?.crescentEdge ?? colors?.crescentLight ?? panel };
+  return {
+    light: colors?.crescentLight ?? panel,
+    edge: colors?.crescentEdge ?? colors?.crescentLight ?? panel,
+  };
 }
 
 function vowelCircleColorFor(pageNumber: number, vowel: string): string {
-  const match = SOURCE_COLORS[String(pageNumber)]?.vowelCircles?.find((c) => c.vowel === vowel.trim().toLowerCase());
+  const match = SOURCE_COLORS[String(pageNumber)]?.vowelCircles?.find(
+    (c) => c.vowel === vowel.trim().toLowerCase(),
+  );
   return match?.color ?? panelColorFor(pageNumber);
 }
 
@@ -48,8 +69,19 @@ function SyllableCrescent({ pageNumber, syllables }: { pageNumber: number; sylla
   const { light, edge } = crescentColorsFor(pageNumber);
   const gradientId = `fc-crescent-gradient-${pageNumber}`;
   return (
-    <div className="fc-crescent" aria-label="Sílabas" data-crescent-light={light} data-crescent-edge={edge}>
-      <svg className="fc-crescent__shape" viewBox="0 0 100 200" preserveAspectRatio="none" aria-hidden="true" focusable="false">
+    <div
+      className="fc-crescent"
+      aria-label="Sílabas"
+      data-crescent-light={light}
+      data-crescent-edge={edge}
+    >
+      <svg
+        className="fc-crescent__shape"
+        viewBox="0 0 100 200"
+        preserveAspectRatio="none"
+        aria-hidden="true"
+        focusable="false"
+      >
         <defs>
           <linearGradient id={gradientId} x1="0" y1="0" x2="1" y2="0">
             <stop offset="0.25" stopColor={light} />
@@ -61,8 +93,12 @@ function SyllableCrescent({ pageNumber, syllables }: { pageNumber: number; sylla
       <div className="fc-crescent__stack">
         {syllables.map((syllable, index) => (
           <span key={`${syllable}-${index}`} className="fc-crescent__syllable">
-            <span className="fc-crescent__consonant">{syllable.toLowerCase().startsWith("rr") ? syllable.slice(0, 2) : syllable[0]}</span>
-            <span className="fc-crescent__vowel">{syllable.toLowerCase().startsWith("rr") ? syllable.slice(2) : syllable.slice(1)}</span>
+            <span className="fc-crescent__consonant">
+              {syllable.toLowerCase().startsWith("rr") ? syllable.slice(0, 2) : syllable[0]}
+            </span>
+            <span className="fc-crescent__vowel">
+              {syllable.toLowerCase().startsWith("rr") ? syllable.slice(2) : syllable.slice(1)}
+            </span>
           </span>
         ))}
       </div>
@@ -79,7 +115,11 @@ type BoardProps = {
 };
 
 /** Shared: vocabulary grid with red-letter rule */
-function VocabGrid({ native, isVowelPage, decorative }: Pick<BoardProps, "native" | "isVowelPage" | "decorative">) {
+function VocabGrid({
+  native,
+  isVowelPage,
+  decorative,
+}: Pick<BoardProps, "native" | "isVowelPage" | "decorative">) {
   if (native.words.length === 0) return null;
   return (
     <ul className="fc-native-board__words" data-testid="flipchart-words">
@@ -108,38 +148,53 @@ function VocabGrid({ native, isVowelPage, decorative }: Pick<BoardProps, "native
 }
 
 /** Shared: art grid (images float on white, labels below) */
-function ArtGrid({ native, isVowelPage, decorative }: Pick<BoardProps, "native" | "isVowelPage" | "decorative">) {
+function ArtGrid({
+  native,
+  isVowelPage,
+  decorative,
+}: Pick<BoardProps, "native" | "isVowelPage" | "decorative">) {
   if (native.art.length === 0) return null;
   // Baked-label guard: these image files have the word printed inside the image itself.
   // Never render a figcaption for them (would duplicate the baked text as ghost).
 
   return (
-    <div className="fc-native-board__art-grid" data-testid="flipchart-art-grid" data-art-count={native.art.length}>
+    <div
+      className="fc-native-board__art-grid"
+      data-testid="flipchart-art-grid"
+      data-art-count={native.art.length}
+    >
       {native.art.map((asset, index) => {
         const hasBakedLabel = asset.labelInImage;
         return (
-        <figure key={asset.src} className="fc-native-board__art-card" data-art-index={index}>
-          {native.flipchartPage === 3 && <span className="fc-vocab-vowel" style={{ backgroundColor: vowelCircleColorFor(3, asset.word[0]!) }}>{asset.word[0]}</span>}
-          <LivingIllustration
-            src={asset.src}
-            alt={decorative ? "" : asset.word}
-            static={decorative}
-            loading={decorative ? "lazy" : "eager"}
-            className="fc-native-board__living-art"
-          />
-          {!decorative && !hasBakedLabel && (
-            <figcaption className="fc-native-board__art-label">
-              {isVowelPage && /^[aeiouáéíóú]/i.test(asset.word) ? (
-                <>
-                  <span className="fc-native-board__art-label-red">{asset.word[0]}</span>
-                  {asset.word.slice(1)}
-                </>
-              ) : (
-                asset.word
-              )}
-            </figcaption>
-          )}
-        </figure>
+          <figure key={asset.src} className="fc-native-board__art-card" data-art-index={index}>
+            {native.flipchartPage === 3 && (
+              <span
+                className="fc-vocab-vowel"
+                style={{ backgroundColor: vowelCircleColorFor(3, asset.word[0]!) }}
+              >
+                {asset.word[0]}
+              </span>
+            )}
+            <LivingIllustration
+              src={asset.src}
+              alt={decorative ? "" : asset.word}
+              static={decorative}
+              loading={decorative ? "lazy" : "eager"}
+              className="fc-native-board__living-art"
+            />
+            {!decorative && !hasBakedLabel && (
+              <figcaption className="fc-native-board__art-label">
+                {isVowelPage && /^[aeiouáéíóú]/i.test(asset.word) ? (
+                  <>
+                    <span className="fc-native-board__art-label-red">{asset.word[0]}</span>
+                    {asset.word.slice(1)}
+                  </>
+                ) : (
+                  asset.word
+                )}
+              </figcaption>
+            )}
+          </figure>
         );
       })}
     </div>
@@ -156,9 +211,15 @@ function VowelHeaderLayout(props: BoardProps) {
   const verseLines = native.body.filter((item) => item.y < 500 && item.text.trim().length > 0);
   // Vowel circles: large single vowels (page 3 variant)
   const vowelCircles = native.body.filter(
-    (item) => item.y >= 450 && item.y < 650 && item.text.trim().length === 1 && /^[aeiou]/i.test(item.text.trim())
+    (item) =>
+      item.y >= 450 &&
+      item.y < 650 &&
+      item.text.trim().length === 1 &&
+      /^[aeiou]/i.test(item.text.trim()),
   );
-  const remainingBody = native.body.filter((item) => !verseLines.includes(item) && !vowelCircles.includes(item));
+  const remainingBody = native.body.filter(
+    (item) => !verseLines.includes(item) && !vowelCircles.includes(item),
+  );
 
   return (
     <>
@@ -181,12 +242,11 @@ function VowelHeaderLayout(props: BoardProps) {
             className="fc-vowel-header__panel"
             style={{ backgroundColor: panelColorFor(pageNumber) }}
           >
-            <h3 className="fc-vowel-header__title">{native.title.map((line) => line.text).join(" ")}</h3>
+            <h3 className="fc-vowel-header__title">
+              {native.title.map((line) => line.text).join(" ")}
+            </h3>
             {verseLines.map((line, index) => (
-              <p
-                key={`${line.x}-${line.y}-${index}`}
-                className="fc-vowel-header__verse"
-              >
+              <p key={`${line.x}-${line.y}-${index}`} className="fc-vowel-header__verse">
                 <BookLine line={line} />
               </p>
             ))}
@@ -234,7 +294,11 @@ function VowelHeaderLayout(props: BoardProps) {
  */
 function ConsonantVocabLayout(props: BoardProps) {
   const { native, pageNumber, decorative, isVowelPage } = props;
-  const letterText = native.title.map((item) => item.text.trim()).filter(Boolean).join(" ") || "Aa";
+  const letterText =
+    native.title
+      .map((item) => item.text.trim())
+      .filter(Boolean)
+      .join(" ") || "Aa";
 
   return (
     <>
@@ -252,10 +316,16 @@ function ConsonantVocabLayout(props: BoardProps) {
           </div>
         )}
         {/* Big red letter in soft oval (center) */}
-        <div className="fc-letter-oval" style={{ "--fc-letter-ring": panelColorFor(pageNumber) } as CSSProperties} aria-label={`Letra ${letterText}`}>
+        <div
+          className="fc-letter-oval"
+          style={{ "--fc-letter-ring": panelColorFor(pageNumber) } as CSSProperties}
+          aria-label={`Letra ${letterText}`}
+        >
           <span>{letterText}</span>
         </div>
-        {native.syllables.length > 0 && <SyllableCrescent pageNumber={pageNumber} syllables={native.syllables} />}
+        {native.syllables.length > 0 && (
+          <SyllableCrescent pageNumber={pageNumber} syllables={native.syllables} />
+        )}
       </div>
       <div className="fc-native-board__body-zone">
         {/* Vocab grid (excluding scene art) */}
@@ -275,13 +345,19 @@ function ConsonantVocabLayout(props: BoardProps) {
  */
 function SyllableDrillLayout(props: BoardProps) {
   const { native, pageNumber, decorative } = props;
-  const letterText = native.title.map((item) => item.text.trim()).filter(Boolean).join(" ") || "Aa";
+  const letterText =
+    native.title
+      .map((item) => item.text.trim())
+      .filter(Boolean)
+      .join(" ") || "Aa";
   // Split syllables into two rows (first 5 in order, rest scrambled)
   const row1 = native.syllables.slice(0, 5);
   const row2 = native.syllables.slice(5, 10);
   // Reading paragraph: body items in lower zone with spaces (prose)
   const proseLines = native.body.filter((item) => item.text.includes(" "));
-  const wordListItems = native.body.filter((item) => !item.text.includes(" ") && item.text.trim().length > 0);
+  const wordListItems = native.body.filter(
+    (item) => !item.text.includes(" ") && item.text.trim().length > 0,
+  );
 
   return (
     <>
@@ -358,7 +434,11 @@ function SyllableDrillLayout(props: BoardProps) {
  */
 function ReadingPanelLayout(props: BoardProps) {
   const { native, pageNumber, decorative } = props;
-  const letterText = native.title.map((item) => item.text.trim()).filter(Boolean).join(" ") || "Aa";
+  const letterText =
+    native.title
+      .map((item) => item.text.trim())
+      .filter(Boolean)
+      .join(" ") || "Aa";
   // Panel title: first bold/large item; verse: remaining body items
   const sortedBody = [...native.body].sort((a, b) => a.y - b.y);
   const panelTitle = sortedBody[0];
@@ -387,13 +467,8 @@ function ReadingPanelLayout(props: BoardProps) {
       <div className="fc-native-board__body-zone">
         {/* Pastel reading panel */}
         {(panelTitle || verseLines.length > 0) && (
-          <div
-            className="fc-reading-panel"
-            style={{ backgroundColor: panelColorFor(pageNumber) }}
-          >
-            {panelTitle && (
-              <h3 className="fc-reading-panel__title">{panelTitle.text}</h3>
-            )}
+          <div className="fc-reading-panel" style={{ backgroundColor: panelColorFor(pageNumber) }}>
+            {panelTitle && <h3 className="fc-reading-panel__title">{panelTitle.text}</h3>}
             {verseLines.map((line, index) => (
               <p key={`${line.x}-${line.y}-${index}`} className="fc-reading-panel__verse">
                 <BookLine line={line} />
@@ -413,7 +488,11 @@ function ReadingPanelLayout(props: BoardProps) {
  */
 function StoryLetterLayout(props: BoardProps) {
   const { native, pageNumber, decorative } = props;
-  const letterText = native.title.map((item) => item.text.trim()).filter(Boolean).join(" ") || "Aa";
+  const letterText =
+    native.title
+      .map((item) => item.text.trim())
+      .filter(Boolean)
+      .join(" ") || "Aa";
   const sortedBody = [...native.body].sort((a, b) => a.y - b.y);
   const storyTitle = sortedBody[0];
   const storyLines = sortedBody.slice(1);
@@ -439,13 +518,12 @@ function StoryLetterLayout(props: BoardProps) {
           </div>
         )}
       </div>
-      <div className={`fc-native-board__body-zone ${isPage44 ? "fc-story-letter__asymmetric" : ""}`}>
+      <div
+        className={`fc-native-board__body-zone ${isPage44 ? "fc-story-letter__asymmetric" : ""}`}
+      >
         {isPage44 ? (
           /* p44: panel bottom-left, right side empty */
-          <div
-            className="fc-story-panel"
-            style={{ backgroundColor: panelColorFor(pageNumber) }}
-          >
+          <div className="fc-story-panel" style={{ backgroundColor: panelColorFor(pageNumber) }}>
             {storyTitle && <h3 className="fc-story-panel__title">{storyTitle.text}</h3>}
             {storyLines.map((line, index) => (
               <p key={`${line.x}-${line.y}-${index}`} className="fc-story-panel__verse">

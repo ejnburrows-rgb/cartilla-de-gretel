@@ -21,9 +21,9 @@ export type FlipchartPage = {
 export type FlipchartDeliveryTier = "canonical" | "screen" | "thumb";
 
 /** All 62 HD flipchart pages, sorted by flipchartPage ascending. */
-export const FLIPCHART_PAGES: FlipchartPage[] = (
-  flipchartData.pages as FlipchartPage[]
-).sort((a, b) => a.flipchartPage - b.flipchartPage);
+export const FLIPCHART_PAGES: FlipchartPage[] = (flipchartData.pages as FlipchartPage[]).sort(
+  (a, b) => a.flipchartPage - b.flipchartPage,
+);
 
 /**
  * Return the canonical HD master URL for a flipchart page (leading slash).
@@ -64,9 +64,7 @@ export function isHdFlipchartPath(src: string): boolean {
 }
 
 /** Prefer HD path for a lesson's first plate; null if none authored. */
-export function getPreferredFlipchartSrcForLesson(
-  lessonNumber: number,
-): string | null {
+export function getPreferredFlipchartSrcForLesson(lessonNumber: number): string | null {
   const pages = getFlipchartPagesForLesson(lessonNumber);
   if (pages.length === 0) return null;
   const src = getFlipchartPageSrc(pages[0]!);
@@ -74,16 +72,12 @@ export function getPreferredFlipchartSrcForLesson(
 }
 
 /** Return all flipchart pages that belong to the given lesson. */
-export function getFlipchartPagesForLesson(
-  lessonNumber: number,
-): FlipchartPage[] {
+export function getFlipchartPagesForLesson(lessonNumber: number): FlipchartPage[] {
   return FLIPCHART_PAGES.filter((p) => p.lesson === lessonNumber);
 }
 
 /** Return the first flipchartPage number for a given lesson (useful for linking). */
-export function getFirstFlipchartPageForLesson(
-  lessonNumber: number,
-): number | null {
+export function getFirstFlipchartPageForLesson(lessonNumber: number): number | null {
   const pages = getFlipchartPagesForLesson(lessonNumber);
   return pages.length > 0 ? (pages[0]?.flipchartPage ?? null) : null;
 }

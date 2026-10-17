@@ -18,11 +18,11 @@ export const BUDGET_LIMITS = {
   // baseline was measured against a stale pre-existing dist/ and underreported
   // react-vendor by ~40%; React 19.2.6 bundles ~395 KB raw / ~118 KB gzip.
   // Budgets are fresh measured values plus ~6-8% headroom.
-  entryJsRawMax: 500 * 1024,      // ~445.7 KB fresh baseline
-  entryJsGzipMax: 125 * 1024,     // ~109.6 KB fresh baseline
-  entryCssRawMax: 300 * 1024,     // ~256 KB fresh baseline
-  entryCssGzipMax: 50 * 1024,     // ~42 KB fresh baseline
-  reactVendorRawMax: 430 * 1024,  // ~385.7 KB fresh baseline (react+react-dom-client+scheduler, React 19.2.6)
+  entryJsRawMax: 500 * 1024, // ~445.7 KB fresh baseline
+  entryJsGzipMax: 125 * 1024, // ~109.6 KB fresh baseline
+  entryCssRawMax: 300 * 1024, // ~256 KB fresh baseline
+  entryCssGzipMax: 50 * 1024, // ~42 KB fresh baseline
+  reactVendorRawMax: 430 * 1024, // ~385.7 KB fresh baseline (react+react-dom-client+scheduler, React 19.2.6)
   reactVendorGzipMax: 130 * 1024, // ~115.2 KB fresh baseline
   tanstackRouterRawMax: 110 * 1024, // ~94.3 KB fresh baseline
   tanstackRouterGzipMax: 40 * 1024, // ~30.2 KB fresh baseline
@@ -125,9 +125,7 @@ export function runPerformanceBudgetCheck(options = {}) {
   }
 
   // Check that teacher lazy route chunks exist
-  const missingTeacherChunks = Object.keys(teacherChunkMap).filter(
-    (k) => !teacherChunkMap[k],
-  );
+  const missingTeacherChunks = Object.keys(teacherChunkMap).filter((k) => !teacherChunkMap[k]);
 
   // Inspect entry JS code to ensure heavy teacher-specific symbols or code are not bundled
   const entryJsCode = fs.readFileSync(path.join(ASSETS_DIR, entryJsFile), "utf8");
@@ -138,17 +136,11 @@ export function runPerformanceBudgetCheck(options = {}) {
     { name: "CRMArtwork", pattern: "CRMArtwork" },
   ];
 
-  const entryLeakages = forbiddenEntrySymbols.filter((sym) =>
-    entryJsCode.includes(sym.pattern),
-  );
+  const entryLeakages = forbiddenEntrySymbols.filter((sym) => entryJsCode.includes(sym.pattern));
 
   // 5. Route Group Isolation Verification
   // Heavy assets/workers MUST NOT be preloaded in dist/index.html
-  const forbiddenIndexPreloads = [
-    "crm.artwork.lazy",
-    "flipchart-native",
-    "pdf.worker",
-  ];
+  const forbiddenIndexPreloads = ["crm.artwork.lazy", "flipchart-native", "pdf.worker"];
 
   const indexPreloadViolations = forbiddenIndexPreloads.filter((item) =>
     htmlContent.includes(item),
@@ -297,9 +289,15 @@ if (process.argv[1] && fileURLToPath(import.meta.url) === path.resolve(process.a
     console.log("  LOCAL PERFORMANCE BUDGET VERIFICATION");
     console.log("==========================================");
     console.log(`Status: ${result.passed ? "PASSED" : "FAILED"}`);
-    console.log(`Entry JS: ${(result.entryJs.sizes.raw / 1024).toFixed(1)} KB (gzip: ${(result.entryJs.sizes.gzip / 1024).toFixed(1)} KB)`);
-    console.log(`Entry CSS: ${(result.entryCss.sizes.raw / 1024).toFixed(1)} KB (gzip: ${(result.entryCss.sizes.gzip / 1024).toFixed(1)} KB)`);
-    console.log(`Total First-Paint JS: ${(result.totalFirstPaintJs.raw / 1024).toFixed(1)} KB (gzip: ${(result.totalFirstPaintJs.gzip / 1024).toFixed(1)} KB)`);
+    console.log(
+      `Entry JS: ${(result.entryJs.sizes.raw / 1024).toFixed(1)} KB (gzip: ${(result.entryJs.sizes.gzip / 1024).toFixed(1)} KB)`,
+    );
+    console.log(
+      `Entry CSS: ${(result.entryCss.sizes.raw / 1024).toFixed(1)} KB (gzip: ${(result.entryCss.sizes.gzip / 1024).toFixed(1)} KB)`,
+    );
+    console.log(
+      `Total First-Paint JS: ${(result.totalFirstPaintJs.raw / 1024).toFixed(1)} KB (gzip: ${(result.totalFirstPaintJs.gzip / 1024).toFixed(1)} KB)`,
+    );
     console.log("------------------------------------------");
     if (result.violations.length > 0) {
       console.error("Violations:");

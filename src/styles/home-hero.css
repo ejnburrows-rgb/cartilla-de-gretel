@@ -1,13 +1,61 @@
 /* Shared Gretel hero support. No invented scene art. */
-.book-hero-gretel { width:100%; margin:0; display:flex; justify-content:center; }
-.book-hero-gretel__frame { width:100%; display:flex; justify-content:center; background:transparent; border:0; box-shadow:none; }
-.book-hero-gretel__presence { width:100%; }
-.book-hero-gretel--sm .gretel-avatar-interactive { width:8rem; height:8rem; }
-.book-hero-gretel--md .gretel-avatar-interactive { width:12rem; height:12rem; }
-.book-hero-gretel--lg .gretel-avatar-interactive { width:min(42vw,24rem); height:min(58vh,34rem); }
-.home-landing { min-height:100dvh; background:var(--lc-bg,#f5f1e8); color:var(--lc-ink,#25313a); font-family:"Andika",ui-rounded,system-ui,sans-serif; }
-.home-landing__panel { background:var(--lc-paper,#fffdf9); border:1px solid rgba(37,49,58,.12); border-radius:20px; box-shadow:0 16px 40px rgba(37,49,58,.08); }
-.home-landing__greeting { font-family:"Fredoka",ui-rounded,system-ui,sans-serif; color:var(--lc-ink,#25313a); }
-.home-landing__cta { min-height:64px; font-family:"Fredoka",ui-rounded,system-ui,sans-serif; font-weight:700; border-radius:16px; }
-.home-landing__cta--student { background:var(--lc-red,#bf3040); color:#fff; }
-.home-landing__cta--teacher { border:2px solid var(--lc-teal,#1f9e94); color:var(--lc-teal,#1f9e94); background:transparent; }
+.book-hero-gretel {
+  width: 100%;
+  margin: 0;
+  display: flex;
+  justify-content: center;
+}
+.book-hero-gretel__frame {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  background: transparent;
+  border: 0;
+  box-shadow: none;
+}
+.book-hero-gretel__presence {
+  width: 100%;
+}
+.book-hero-gretel--sm .gretel-avatar-interactive {
+  width: 8rem;
+  height: 8rem;
+}
+.book-hero-gretel--md .gretel-avatar-interactive {
+  width: 12rem;
+  height: 12rem;
+}
+.book-hero-gretel--lg .gretel-avatar-interactive {
+  width: min(42vw, 24rem);
+  height: min(58vh, 34rem);
+}
+.home-landing {
+  min-height: 100dvh;
+  background: var(--lc-bg, #f5f1e8);
+  color: var(--lc-ink, #25313a);
+  font-family: "Andika", ui-rounded, system-ui, sans-serif;
+}
+.home-landing__panel {
+  background: var(--lc-paper, #fffdf9);
+  border: 1px solid rgba(37, 49, 58, 0.12);
+  border-radius: 20px;
+  box-shadow: 0 16px 40px rgba(37, 49, 58, 0.08);
+}
+.home-landing__greeting {
+  font-family: "Fredoka", ui-rounded, system-ui, sans-serif;
+  color: var(--lc-ink, #25313a);
+}
+.home-landing__cta {
+  min-height: 64px;
+  font-family: "Fredoka", ui-rounded, system-ui, sans-serif;
+  font-weight: 700;
+  border-radius: 16px;
+}
+.home-landing__cta--student {
+  background: var(--lc-red, #bf3040);
+  color: #fff;
+}
+.home-landing__cta--teacher {
+  border: 2px solid var(--lc-teal, #1f9e94);
+  color: var(--lc-teal, #1f9e94);
+  background: transparent;
+}

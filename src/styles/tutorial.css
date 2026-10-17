@@ -58,7 +58,9 @@
   color: var(--text-color, #1c1917);
   border-radius: 1.5rem;
   padding: 1.25rem 1.5rem;
-  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2), 0 0 20px var(--accent-glow);
+  box-shadow:
+    0 20px 40px rgba(0, 0, 0, 0.2),
+    0 0 20px var(--accent-glow);
   z-index: 99996;
   width: 90%;
   max-width: 380px;
@@ -81,7 +83,9 @@
   .tutorial-hand {
     animation: none;
   }
-  .tutorial-spotlight-cutout, .tutorial-step-card, .tutorial-hand {
+  .tutorial-spotlight-cutout,
+  .tutorial-step-card,
+  .tutorial-hand {
     transition: none;
   }
 }

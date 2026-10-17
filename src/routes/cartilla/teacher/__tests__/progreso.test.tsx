@@ -45,11 +45,11 @@ function renderProgreso() {
   });
   const routeTree = rootRoute.addChildren([progresoRoute]);
   const router = createRouter({ routeTree, history });
-  
+
   return render(
     <QueryClientProvider client={queryClient}>
       <RouterProvider router={router} />
-    </QueryClientProvider>
+    </QueryClientProvider>,
   );
 }
 
@@ -61,7 +61,13 @@ describe("/cartilla/teacher/progreso", () => {
   it("shows error UI when query fails", async () => {
     vi.mocked(seedData.isSeedSessionActive).mockReturnValue(false);
     vi.mocked(teacherFunctions.listClasses).mockResolvedValue([
-      { id: "class-1", name: "Class 1", student_count: 5, join_code: "123", created_at: "2023-01-01" },
+      {
+        id: "class-1",
+        name: "Class 1",
+        student_count: 5,
+        join_code: "123",
+        created_at: "2023-01-01",
+      },
     ]);
     vi.mocked(teacherFunctions.getClassProgress).mockRejectedValue(new Error("Network Error"));
 
@@ -75,7 +81,7 @@ describe("/cartilla/teacher/progreso", () => {
     // Check for error UI
     const errorMsg = await screen.findByText(/Hubo un error al cargar el progreso/i);
     expect(errorMsg).toBeTruthy();
-    
+
     // Check for retry button
     const retryBtn = screen.getByRole("button", { name: /Reintentar/i });
     expect(retryBtn).toBeTruthy();

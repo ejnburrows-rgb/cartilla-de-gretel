@@ -2,9 +2,7 @@
   {
     "key": "a la fiesta scene",
     "name": "a la fiesta scene",
-    "images": [
-      "/cartilla/art/optimized/flipchart-native/p050-scene.png"
-    ]
+    "images": ["/cartilla/art/optimized/flipchart-native/p050-scene.png"]
   },
   {
     "key": "abanico",
@@ -26,58 +24,42 @@
   {
     "key": "abejas z",
     "name": "abejas z",
-    "images": [
-      "/cartilla/art/optimized/flipchart-native/p060-scene.png"
-    ]
+    "images": ["/cartilla/art/optimized/flipchart-native/p060-scene.png"]
   },
   {
     "key": "abrigo",
     "name": "abrigo",
-    "images": [
-      "/cartilla/art/optimized/workbook/leccion-1/abrigo.png"
-    ]
+    "images": ["/cartilla/art/optimized/workbook/leccion-1/abrigo.png"]
   },
   {
     "key": "aguja",
     "name": "aguja",
-    "images": [
-      "/cartilla/art/faithful/vocal-a/aguja.webp"
-    ]
+    "images": ["/cartilla/art/faithful/vocal-a/aguja.webp"]
   },
   {
     "key": "ajo",
     "name": "ajo",
-    "images": [
-      "/cartilla/art/optimized/flipchart-native/p051-ajo.png"
-    ]
+    "images": ["/cartilla/art/optimized/flipchart-native/p051-ajo.png"]
   },
   {
     "key": "ala",
     "name": "ala",
-    "images": [
-      "/cartilla/art/optimized/flipchart-native/p005-ala.png"
-    ]
+    "images": ["/cartilla/art/optimized/flipchart-native/p005-ala.png"]
   },
   {
     "key": "alas",
     "name": "alas",
-    "images": [
-      "/cartilla/art/faithful/vocal-a/alas.webp"
-    ]
+    "images": ["/cartilla/art/faithful/vocal-a/alas.webp"]
   },
   {
     "key": "amo",
     "name": "amo",
-    "images": [
-      "/cartilla/art/optimized/flipchart-native/p009-amo.png"
-    ]
+    "images": ["/cartilla/art/optimized/flipchart-native/p009-amo.png"]
   },
   {
     "key": "ana",
     "name": "Ana",
-    "images": [
-      "/cartilla/art/optimized/flipchart-native/p005-ana.png"
-    ]
+    "images": ["/cartilla/art/optimized/flipchart-native/p005-ana.png"]
   },
   {
     "key": "anillo",
@@ -98,9 +80,7 @@
   {
     "key": "ardilla",
     "name": "ardilla",
-    "images": [
-      "/cartilla/art/faithful/vocal-a/ardilla.webp"
-    ]
+    "images": ["/cartilla/art/faithful/vocal-a/ardilla.webp"]
   },
   {
     "key": "aro",
@@ -114,9 +94,7 @@
   {
     "key": "arre caballito",
     "name": "arre caballito",
-    "images": [
-      "/cartilla/art/optimized/flipchart-native/p004-scene.png"
-    ]
+    "images": ["/cartilla/art/optimized/flipchart-native/p004-scene.png"]
   },
   {
     "key": "avión",
@@ -139,30 +117,22 @@
   {
     "key": "bate",
     "name": "bate",
-    "images": [
-      "/cartilla/art/optimized/flipchart-native/p033-bate.png"
-    ]
+    "images": ["/cartilla/art/optimized/flipchart-native/p033-bate.png"]
   },
   {
     "key": "beba",
     "name": "Beba",
-    "images": [
-      "/cartilla/art/optimized/flipchart-native/p033-beba.png"
-    ]
+    "images": ["/cartilla/art/optimized/flipchart-native/p033-beba.png"]
   },
   {
     "key": "bebita",
     "name": "bebita",
-    "images": [
-      "/cartilla/art/optimized/flipchart-native/p033-bebita.png"
-    ]
+    "images": ["/cartilla/art/optimized/flipchart-native/p033-bebita.png"]
   },
   {
     "key": "bebé",
     "name": "bebé",
-    "images": [
-      "/cartilla/art/faithful/leccion-15-b/bebe.webp"
-    ]
+    "images": ["/cartilla/art/faithful/leccion-15-b/bebe.webp"]
   },
   {
     "key": "bota",
@@ -175,16 +145,12 @@
   {
     "key": "brujita",
     "name": "brujita",
-    "images": [
-      "/cartilla/art/optimized/flipchart-native/p008-scene.png"
-    ]
+    "images": ["/cartilla/art/optimized/flipchart-native/p008-scene.png"]
   },
   {
     "key": "bubi",
     "name": "Bubi",
-    "images": [
-      "/cartilla/art/optimized/flipchart-native/p033-bubi.png"
-    ]
+    "images": ["/cartilla/art/optimized/flipchart-native/p033-bubi.png"]
   },
   {
     "key": "burro",
@@ -197,37 +163,27 @@
   {
     "key": "burro b",
     "name": "burro b",
-    "images": [
-      "/cartilla/art/optimized/flipchart-native/p033-scene.png"
-    ]
+    "images": ["/cartilla/art/optimized/flipchart-native/p033-scene.png"]
   },
   {
     "key": "campana d",
     "name": "campana d",
-    "images": [
-      "/cartilla/art/optimized/flipchart-native/p021-scene.png"
-    ]
+    "images": ["/cartilla/art/optimized/flipchart-native/p021-scene.png"]
   },
   {
     "key": "carro",
     "name": "carro",
-    "images": [
-      "/cartilla/art/faithful/leccion-1/carro.webp"
-    ]
+    "images": ["/cartilla/art/faithful/leccion-1/carro.webp"]
   },
   {
     "key": "carro calabaza scene",
     "name": "carro calabaza scene",
-    "images": [
-      "/cartilla/art/optimized/flipchart-native/p062-scene.png"
-    ]
+    "images": ["/cartilla/art/optimized/flipchart-native/p062-scene.png"]
   },
   {
     "key": "carro rr",
     "name": "carro rr",
-    "images": [
-      "/cartilla/art/optimized/flipchart-native/p042-scene.png"
-    ]
+    "images": ["/cartilla/art/optimized/flipchart-native/p042-scene.png"]
   },
   {
     "key": "carrusel",
@@ -280,51 +236,37 @@
   {
     "key": "dado",
     "name": "dado",
-    "images": [
-      "/cartilla/art/faithful/leccion-11-d/dado.webp"
-    ]
+    "images": ["/cartilla/art/faithful/leccion-11-d/dado.webp"]
   },
   {
     "key": "dados",
     "name": "dados",
-    "images": [
-      "/cartilla/art/optimized/flipchart-native/p021-dados.webp"
-    ]
+    "images": ["/cartilla/art/optimized/flipchart-native/p021-dados.webp"]
   },
   {
     "key": "dedo",
     "name": "dedo",
-    "images": [
-      "/cartilla/art/optimized/flipchart-native/p021-dedo.webp"
-    ]
+    "images": ["/cartilla/art/optimized/flipchart-native/p021-dedo.webp"]
   },
   {
     "key": "didi",
     "name": "Didi",
-    "images": [
-      "/cartilla/art/optimized/flipchart-native/p021-didi.webp"
-    ]
+    "images": ["/cartilla/art/optimized/flipchart-native/p021-didi.webp"]
   },
   {
     "key": "doce",
     "name": "doce",
-    "images": [
-      "/cartilla/art/optimized/flipchart-native/p021-doce.webp"
-    ]
+    "images": ["/cartilla/art/optimized/flipchart-native/p021-doce.webp"]
   },
   {
     "key": "dulce",
     "name": "dulce",
-    "images": [
-      "/cartilla/art/faithful/leccion-1/dulce.webp"
-    ]
+    "images": ["/cartilla/art/faithful/leccion-1/dulce.webp"]
   },
   {
     "key": "dunia",
     "name": "Dunia",
-    "images": [
-      "/cartilla/art/optimized/flipchart-native/p021-dunia.webp"
-    ]
+    "images": ["/cartilla/art/optimized/flipchart-native/p021-dunia.webp"]
   },
   {
     "key": "elefante",
@@ -338,9 +280,7 @@
   {
     "key": "ema",
     "name": "Ema",
-    "images": [
-      "/cartilla/art/optimized/flipchart-native/p006-ema.png"
-    ]
+    "images": ["/cartilla/art/optimized/flipchart-native/p006-ema.png"]
   },
   {
     "key": "erizo",
@@ -418,16 +358,12 @@
   {
     "key": "fiesta",
     "name": "fiesta",
-    "images": [
-      "/cartilla/art/faithful/leccion-20-f/fiesta.webp"
-    ]
+    "images": ["/cartilla/art/faithful/leccion-20-f/fiesta.webp"]
   },
   {
     "key": "flor abeja f",
     "name": "flor abeja f",
-    "images": [
-      "/cartilla/art/optimized/flipchart-native/p048-scene.png"
-    ]
+    "images": ["/cartilla/art/optimized/flipchart-native/p048-scene.png"]
   },
   {
     "key": "foto",
@@ -448,23 +384,17 @@
   {
     "key": "gallina c",
     "name": "gallina c",
-    "images": [
-      "/cartilla/art/optimized/flipchart-native/p054-scene.png"
-    ]
+    "images": ["/cartilla/art/optimized/flipchart-native/p054-scene.png"]
   },
   {
     "key": "gato",
     "name": "gato",
-    "images": [
-      "/cartilla/art/faithful/leccion-19-g/gato.webp"
-    ]
+    "images": ["/cartilla/art/faithful/leccion-19-g/gato.webp"]
   },
   {
     "key": "gato enamorado scene",
     "name": "gato enamorado scene",
-    "images": [
-      "/cartilla/art/optimized/flipchart-native/p047-scene.png"
-    ]
+    "images": ["/cartilla/art/optimized/flipchart-native/p047-scene.png"]
   },
   {
     "key": "gaveta",
@@ -477,9 +407,7 @@
   {
     "key": "globo",
     "name": "globo",
-    "images": [
-      "/cartilla/art/faithful/leccion-1/globo.webp"
-    ]
+    "images": ["/cartilla/art/faithful/leccion-1/globo.webp"]
   },
   {
     "key": "goloso",
@@ -508,16 +436,12 @@
   {
     "key": "hermanitas vocales",
     "name": "hermanitas vocales",
-    "images": [
-      "/cartilla/art/optimized/flipchart-native/p003-scene.png"
-    ]
+    "images": ["/cartilla/art/optimized/flipchart-native/p003-scene.png"]
   },
   {
     "key": "iglesia",
     "name": "iglesia",
-    "images": [
-      "/cartilla/art/faithful/vocal-i/iglesia.webp"
-    ]
+    "images": ["/cartilla/art/faithful/vocal-i/iglesia.webp"]
   },
   {
     "key": "iglú",
@@ -530,16 +454,12 @@
   {
     "key": "igual",
     "name": "igual",
-    "images": [
-      "/cartilla/art/faithful/vocal-i/igual.webp"
-    ]
+    "images": ["/cartilla/art/faithful/vocal-i/igual.webp"]
   },
   {
     "key": "iguana",
     "name": "iguana",
-    "images": [
-      "/cartilla/art/faithful/vocal-i/iguana.webp"
-    ]
+    "images": ["/cartilla/art/faithful/vocal-i/iguana.webp"]
   },
   {
     "key": "imán",
@@ -570,16 +490,12 @@
   {
     "key": "invierno",
     "name": "invierno",
-    "images": [
-      "/cartilla/art/faithful/vocal-i/invierno.webp"
-    ]
+    "images": ["/cartilla/art/faithful/vocal-i/invierno.webp"]
   },
   {
     "key": "irma",
     "name": "Irma",
-    "images": [
-      "/cartilla/art/optimized/flipchart-native/p007-irma.png"
-    ]
+    "images": ["/cartilla/art/optimized/flipchart-native/p007-irma.png"]
   },
   {
     "key": "isla",
@@ -617,23 +533,17 @@
   {
     "key": "jicotea jabela scene",
     "name": "jicotea jabela scene",
-    "images": [
-      "/cartilla/art/optimized/flipchart-native/p053-scene.png"
-    ]
+    "images": ["/cartilla/art/optimized/flipchart-native/p053-scene.png"]
   },
   {
     "key": "jirafa",
     "name": "jirafa",
-    "images": [
-      "/cartilla/art/faithful/leccion-21-j/jirafa.webp"
-    ]
+    "images": ["/cartilla/art/faithful/leccion-21-j/jirafa.webp"]
   },
   {
     "key": "jirafa j",
     "name": "jirafa j",
-    "images": [
-      "/cartilla/art/optimized/flipchart-native/p051-scene.png"
-    ]
+    "images": ["/cartilla/art/optimized/flipchart-native/p051-scene.png"]
   },
   {
     "key": "jugo",
@@ -646,58 +556,42 @@
   {
     "key": "lala",
     "name": "Lala",
-    "images": [
-      "/cartilla/art/optimized/flipchart-native/p024-lala.png"
-    ]
+    "images": ["/cartilla/art/optimized/flipchart-native/p024-lala.png"]
   },
   {
     "key": "lata",
     "name": "lata",
-    "images": [
-      "/cartilla/art/optimized/flipchart-native/p024-lata.webp"
-    ]
+    "images": ["/cartilla/art/optimized/flipchart-native/p024-lata.webp"]
   },
   {
     "key": "leo lee gretel scene",
     "name": "leo lee gretel scene",
-    "images": [
-      "/cartilla/art/optimized/flipchart-native/p026-scene.png"
-    ]
+    "images": ["/cartilla/art/optimized/flipchart-native/p026-scene.png"]
   },
   {
     "key": "libro",
     "name": "libro",
-    "images": [
-      "/cartilla/art/faithful/leccion-1/libro.webp"
-    ]
+    "images": ["/cartilla/art/faithful/leccion-1/libro.webp"]
   },
   {
     "key": "loma",
     "name": "loma",
-    "images": [
-      "/cartilla/art/optimized/flipchart-native/p024-loma.webp"
-    ]
+    "images": ["/cartilla/art/optimized/flipchart-native/p024-loma.webp"]
   },
   {
     "key": "los caramelos scene",
     "name": "los caramelos scene",
-    "images": [
-      "/cartilla/art/optimized/flipchart-native/p056-caramelos.webp"
-    ]
+    "images": ["/cartilla/art/optimized/flipchart-native/p056-caramelos.webp"]
   },
   {
     "key": "luli",
     "name": "Luli",
-    "images": [
-      "/cartilla/art/optimized/flipchart-native/p024-luli.webp"
-    ]
+    "images": ["/cartilla/art/optimized/flipchart-native/p024-luli.webp"]
   },
   {
     "key": "made y papa scene",
     "name": "made y papa scene",
-    "images": [
-      "/cartilla/art/optimized/flipchart-native/p023-scene.png"
-    ]
+    "images": ["/cartilla/art/optimized/flipchart-native/p023-scene.png"]
   },
   {
     "key": "mago",
@@ -710,9 +604,7 @@
   {
     "key": "maleta",
     "name": "maleta",
-    "images": [
-      "/cartilla/art/optimized/flipchart-native/p024-maleta.webp"
-    ]
+    "images": ["/cartilla/art/optimized/flipchart-native/p024-maleta.webp"]
   },
   {
     "key": "mamá",
@@ -725,9 +617,7 @@
   {
     "key": "manzana",
     "name": "manzana",
-    "images": [
-      "/cartilla/art/faithful/leccion-1/manzana.webp"
-    ]
+    "images": ["/cartilla/art/faithful/leccion-1/manzana.webp"]
   },
   {
     "key": "mayúscula",
@@ -748,44 +638,32 @@
   {
     "key": "meme",
     "name": "Meme",
-    "images": [
-      "/cartilla/art/optimized/flipchart-native/p009-meme.png"
-    ]
+    "images": ["/cartilla/art/optimized/flipchart-native/p009-meme.png"]
   },
   {
     "key": "meñe",
     "name": "Meñe",
-    "images": [
-      "/cartilla/art/optimized/flipchart-native/p030-mene.png"
-    ]
+    "images": ["/cartilla/art/optimized/flipchart-native/p030-mene.png"]
   },
   {
     "key": "mi bote de vela scene",
     "name": "mi bote de vela scene",
-    "images": [
-      "/cartilla/art/optimized/flipchart-native/p038-scene.png"
-    ]
+    "images": ["/cartilla/art/optimized/flipchart-native/p038-scene.png"]
   },
   {
     "key": "mi mama scene",
     "name": "mi mama scene",
-    "images": [
-      "/cartilla/art/optimized/flipchart-native/p011-scene.png"
-    ]
+    "images": ["/cartilla/art/optimized/flipchart-native/p011-scene.png"]
   },
   {
     "key": "mi papa scene",
     "name": "mi papa scene",
-    "images": [
-      "/cartilla/art/optimized/flipchart-native/p014-scene.png"
-    ]
+    "images": ["/cartilla/art/optimized/flipchart-native/p014-scene.png"]
   },
   {
     "key": "mima",
     "name": "mima",
-    "images": [
-      "/cartilla/art/optimized/flipchart-native/p009-mima.png"
-    ]
+    "images": ["/cartilla/art/optimized/flipchart-native/p009-mima.png"]
   },
   {
     "key": "mono",
@@ -798,23 +676,17 @@
   {
     "key": "moño",
     "name": "moño",
-    "images": [
-      "/cartilla/art/optimized/flipchart-native/p030-mono.png"
-    ]
+    "images": ["/cartilla/art/optimized/flipchart-native/p030-mono.png"]
   },
   {
     "key": "mumi",
     "name": "Mumi",
-    "images": [
-      "/cartilla/art/optimized/flipchart-native/p009-mumi.png"
-    ]
+    "images": ["/cartilla/art/optimized/flipchart-native/p009-mumi.png"]
   },
   {
     "key": "napi",
     "name": "Napi",
-    "images": [
-      "/cartilla/art/optimized/flipchart-native/p027-napi.png"
-    ]
+    "images": ["/cartilla/art/optimized/flipchart-native/p027-napi.png"]
   },
   {
     "key": "nido",
@@ -827,86 +699,62 @@
   {
     "key": "nina enfermita",
     "name": "nina enfermita",
-    "images": [
-      "/cartilla/art/optimized/flipchart-native/p005-scene.png"
-    ]
+    "images": ["/cartilla/art/optimized/flipchart-native/p005-scene.png"]
   },
   {
     "key": "nina enmarcada ny",
     "name": "nina enmarcada ny",
-    "images": [
-      "/cartilla/art/optimized/flipchart-native/p030-scene.png"
-    ]
+    "images": ["/cartilla/art/optimized/flipchart-native/p030-scene.png"]
   },
   {
     "key": "nina l",
     "name": "nina l",
-    "images": [
-      "/cartilla/art/optimized/flipchart-native/p024-scene.png"
-    ]
+    "images": ["/cartilla/art/optimized/flipchart-native/p024-scene.png"]
   },
   {
     "key": "nina llorona",
     "name": "nina llorona",
-    "images": [
-      "/cartilla/art/optimized/flipchart-native/p007-scene.png"
-    ]
+    "images": ["/cartilla/art/optimized/flipchart-native/p007-scene.png"]
   },
   {
     "key": "nina sordita",
     "name": "nina sordita",
-    "images": [
-      "/cartilla/art/optimized/flipchart-native/p006-scene.png"
-    ]
+    "images": ["/cartilla/art/optimized/flipchart-native/p006-scene.png"]
   },
   {
     "key": "nina suena scene",
     "name": "nina suena scene",
-    "images": [
-      "/cartilla/art/optimized/flipchart-native/p032-scene.png"
-    ]
+    "images": ["/cartilla/art/optimized/flipchart-native/p032-scene.png"]
   },
   {
     "key": "nino nada scene",
     "name": "nino nada scene",
-    "images": [
-      "/cartilla/art/optimized/flipchart-native/p029-scene.png"
-    ]
+    "images": ["/cartilla/art/optimized/flipchart-native/p029-scene.png"]
   },
   {
     "key": "nino tambor t",
     "name": "nino tambor t",
-    "images": [
-      "/cartilla/art/optimized/flipchart-native/p018-scene.png"
-    ]
+    "images": ["/cartilla/art/optimized/flipchart-native/p018-scene.png"]
   },
   {
     "key": "nino yoyo y",
     "name": "nino yoyo y",
-    "images": [
-      "/cartilla/art/optimized/flipchart-native/p057-scene.png"
-    ]
+    "images": ["/cartilla/art/optimized/flipchart-native/p057-scene.png"]
   },
   {
     "key": "niñito",
     "name": "niñito",
-    "images": [
-      "/cartilla/art/optimized/flipchart-native/p030-ninito.png"
-    ]
+    "images": ["/cartilla/art/optimized/flipchart-native/p030-ninito.png"]
   },
   {
     "key": "niño",
     "name": "niño",
-    "images": [
-      "/cartilla/art/faithful/leccion-14-n/nino.webp"
-    ]
+    "images": ["/cartilla/art/faithful/leccion-14-n/nino.webp"]
   },
   {
     "key": "nudo",
     "name": "nudo",
-    "images": [
-      "/cartilla/art/optimized/flipchart-native/p027-nudo.png"
-    ]
+    "images": ["/cartilla/art/optimized/flipchart-native/p027-nudo.png"]
   },
   {
     "key": "ocho",
@@ -927,9 +775,7 @@
   {
     "key": "ola",
     "name": "ola",
-    "images": [
-      "/cartilla/art/faithful/vocal-o/ola.webp"
-    ]
+    "images": ["/cartilla/art/faithful/vocal-o/ola.webp"]
   },
   {
     "key": "olla",
@@ -953,9 +799,7 @@
   {
     "key": "oruga",
     "name": "oruga",
-    "images": [
-      "/cartilla/art/faithful/vocal-o/oruga.webp"
-    ]
+    "images": ["/cartilla/art/faithful/vocal-o/oruga.webp"]
   },
   {
     "key": "oso",
@@ -969,16 +813,12 @@
   {
     "key": "oso (parpadeo)",
     "name": "oso (parpadeo)",
-    "images": [
-      "/cartilla/art/faithful/vocal-o/oso-blink.webp"
-    ]
+    "images": ["/cartilla/art/faithful/vocal-o/oso-blink.webp"]
   },
   {
     "key": "oto",
     "name": "Oto",
-    "images": [
-      "/cartilla/art/optimized/flipchart-native/p004-oto.png"
-    ]
+    "images": ["/cartilla/art/optimized/flipchart-native/p004-oto.png"]
   },
   {
     "key": "oveja",
@@ -1000,79 +840,57 @@
   {
     "key": "pavo",
     "name": "pavo",
-    "images": [
-      "/cartilla/art/optimized/flipchart-native/p036-pavo.png"
-    ]
+    "images": ["/cartilla/art/optimized/flipchart-native/p036-pavo.png"]
   },
   {
     "key": "pepe",
     "name": "Pepe",
-    "images": [
-      "/cartilla/art/optimized/flipchart-native/p012-pepe.png"
-    ]
+    "images": ["/cartilla/art/optimized/flipchart-native/p012-pepe.png"]
   },
   {
     "key": "pera",
     "name": "pera",
-    "images": [
-      "/cartilla/art/faithful/leccion-1/pera.webp"
-    ]
+    "images": ["/cartilla/art/faithful/leccion-1/pera.webp"]
   },
   {
     "key": "perro",
     "name": "perro",
-    "images": [
-      "/cartilla/art/faithful/leccion-18-rr/perro.webp"
-    ]
+    "images": ["/cartilla/art/faithful/leccion-18-rr/perro.webp"]
   },
   {
     "key": "pie",
     "name": "pie",
-    "images": [
-      "/cartilla/art/optimized/flipchart-native/p012-pie.png"
-    ]
+    "images": ["/cartilla/art/optimized/flipchart-native/p012-pie.png"]
   },
   {
     "key": "pisa",
     "name": "pisa",
-    "images": [
-      "/cartilla/art/optimized/flipchart-native/p015-pisa.png"
-    ]
+    "images": ["/cartilla/art/optimized/flipchart-native/p015-pisa.png"]
   },
   {
     "key": "piñata",
     "name": "piñata",
-    "images": [
-      "/cartilla/art/optimized/flipchart-native/p030-pinata.png"
-    ]
+    "images": ["/cartilla/art/optimized/flipchart-native/p030-pinata.png"]
   },
   {
     "key": "pollito p",
     "name": "pollito p",
-    "images": [
-      "/cartilla/art/optimized/flipchart-native/p012-scene.png"
-    ]
+    "images": ["/cartilla/art/optimized/flipchart-native/p012-scene.png"]
   },
   {
     "key": "pomo",
     "name": "pomo",
-    "images": [
-      "/cartilla/art/optimized/flipchart-native/p012-pomo.png"
-    ]
+    "images": ["/cartilla/art/optimized/flipchart-native/p012-pomo.png"]
   },
   {
     "key": "puma",
     "name": "puma",
-    "images": [
-      "/cartilla/art/optimized/flipchart-native/p012-puma.png"
-    ]
+    "images": ["/cartilla/art/optimized/flipchart-native/p012-puma.png"]
   },
   {
     "key": "pájaro",
     "name": "pájaro",
-    "images": [
-      "/cartilla/art/faithful/leccion-1/pajaro.webp"
-    ]
+    "images": ["/cartilla/art/faithful/leccion-1/pajaro.webp"]
   },
   {
     "key": "rana",
@@ -1085,30 +903,22 @@
   {
     "key": "rapido arriba scene",
     "name": "rapido arriba scene",
-    "images": [
-      "/cartilla/art/optimized/flipchart-native/p044-scene.png"
-    ]
+    "images": ["/cartilla/art/optimized/flipchart-native/p044-scene.png"]
   },
   {
     "key": "raton r",
     "name": "raton r",
-    "images": [
-      "/cartilla/art/optimized/flipchart-native/p039-scene.png"
-    ]
+    "images": ["/cartilla/art/optimized/flipchart-native/p039-scene.png"]
   },
   {
     "key": "remo",
     "name": "remo",
-    "images": [
-      "/cartilla/art/faithful/leccion-17-r/remo.webp"
-    ]
+    "images": ["/cartilla/art/faithful/leccion-17-r/remo.webp"]
   },
   {
     "key": "remos",
     "name": "remos",
-    "images": [
-      "/cartilla/art/optimized/flipchart-native/p039-remos.png"
-    ]
+    "images": ["/cartilla/art/optimized/flipchart-native/p039-remos.png"]
   },
   {
     "key": "rita",
@@ -1129,9 +939,7 @@
   {
     "key": "rosca manolo scene",
     "name": "rosca manolo scene",
-    "images": [
-      "/cartilla/art/optimized/flipchart-native/p041-scene.png"
-    ]
+    "images": ["/cartilla/art/optimized/flipchart-native/p041-scene.png"]
   },
   {
     "key": "rueda",
@@ -1144,9 +952,7 @@
   {
     "key": "saltamontes g",
     "name": "saltamontes g",
-    "images": [
-      "/cartilla/art/optimized/flipchart-native/p045-scene.png"
-    ]
+    "images": ["/cartilla/art/optimized/flipchart-native/p045-scene.png"]
   },
   {
     "key": "sapo",
@@ -1159,23 +965,17 @@
   {
     "key": "sapo samapo scene",
     "name": "sapo samapo scene",
-    "images": [
-      "/cartilla/art/optimized/flipchart-native/p017-scene.png"
-    ]
+    "images": ["/cartilla/art/optimized/flipchart-native/p017-scene.png"]
   },
   {
     "key": "serpiente s",
     "name": "serpiente s",
-    "images": [
-      "/cartilla/art/optimized/flipchart-native/p015-scene.png"
-    ]
+    "images": ["/cartilla/art/optimized/flipchart-native/p015-scene.png"]
   },
   {
     "key": "sesi",
     "name": "Sesi",
-    "images": [
-      "/cartilla/art/optimized/flipchart-native/p015-sesi.png"
-    ]
+    "images": ["/cartilla/art/optimized/flipchart-native/p015-sesi.png"]
   },
   {
     "key": "sopa",
@@ -1188,51 +988,37 @@
   {
     "key": "sopa de pato scene",
     "name": "sopa de pato scene",
-    "images": [
-      "/cartilla/art/optimized/flipchart-native/p020-scene.png"
-    ]
+    "images": ["/cartilla/art/optimized/flipchart-native/p020-scene.png"]
   },
   {
     "key": "sube la bola scene",
     "name": "sube la bola scene",
-    "images": [
-      "/cartilla/art/optimized/flipchart-native/p035-scene.png"
-    ]
+    "images": ["/cartilla/art/optimized/flipchart-native/p035-scene.png"]
   },
   {
     "key": "susi",
     "name": "Susi",
-    "images": [
-      "/cartilla/art/optimized/flipchart-native/p015-susi.png"
-    ]
+    "images": ["/cartilla/art/optimized/flipchart-native/p015-susi.png"]
   },
   {
     "key": "tapa",
     "name": "tapa",
-    "images": [
-      "/cartilla/art/optimized/flipchart-native/p018-tapa.webp"
-    ]
+    "images": ["/cartilla/art/optimized/flipchart-native/p018-tapa.webp"]
   },
   {
     "key": "taza",
     "name": "taza",
-    "images": [
-      "/cartilla/art/faithful/leccion-1/taza.webp"
-    ]
+    "images": ["/cartilla/art/faithful/leccion-1/taza.webp"]
   },
   {
     "key": "tenedor",
     "name": "tenedor",
-    "images": [
-      "/cartilla/art/optimized/flipchart-native/p027-tenedor.png"
-    ]
+    "images": ["/cartilla/art/optimized/flipchart-native/p027-tenedor.png"]
   },
   {
     "key": "ternero n",
     "name": "ternero n",
-    "images": [
-      "/cartilla/art/optimized/flipchart-native/p027-scene.png"
-    ]
+    "images": ["/cartilla/art/optimized/flipchart-native/p027-scene.png"]
   },
   {
     "key": "tierra",
@@ -1245,30 +1031,22 @@
   {
     "key": "tipi",
     "name": "tipi",
-    "images": [
-      "/cartilla/art/optimized/flipchart-native/p018-tipi.webp"
-    ]
+    "images": ["/cartilla/art/optimized/flipchart-native/p018-tipi.webp"]
   },
   {
     "key": "tomate",
     "name": "tomate",
-    "images": [
-      "/cartilla/art/optimized/flipchart-native/p018-tomate.webp"
-    ]
+    "images": ["/cartilla/art/optimized/flipchart-native/p018-tomate.webp"]
   },
   {
     "key": "topo",
     "name": "topo",
-    "images": [
-      "/cartilla/art/optimized/flipchart-native/p018-topo.webp"
-    ]
+    "images": ["/cartilla/art/optimized/flipchart-native/p018-topo.webp"]
   },
   {
     "key": "toro m",
     "name": "toro m",
-    "images": [
-      "/cartilla/art/optimized/flipchart-native/p009-scene.png"
-    ]
+    "images": ["/cartilla/art/optimized/flipchart-native/p009-scene.png"]
   },
   {
     "key": "torre",
@@ -1281,16 +1059,12 @@
   {
     "key": "tuto",
     "name": "Tuto",
-    "images": [
-      "/cartilla/art/optimized/flipchart-native/p018-tuto.webp"
-    ]
+    "images": ["/cartilla/art/optimized/flipchart-native/p018-tuto.webp"]
   },
   {
     "key": "ulises",
     "name": "Ulises",
-    "images": [
-      "/cartilla/art/optimized/flipchart-native/p008-ulises.png"
-    ]
+    "images": ["/cartilla/art/optimized/flipchart-native/p008-ulises.png"]
   },
   {
     "key": "unicornio",
@@ -1322,23 +1096,17 @@
   {
     "key": "urraca",
     "name": "urraca",
-    "images": [
-      "/cartilla/art/optimized/flipchart-native/p008-urraca.png"
-    ]
+    "images": ["/cartilla/art/optimized/flipchart-native/p008-urraca.png"]
   },
   {
     "key": "uva",
     "name": "uva",
-    "images": [
-      "/cartilla/art/optimized/flipchart-native/p008-uva.png"
-    ]
+    "images": ["/cartilla/art/optimized/flipchart-native/p008-uva.png"]
   },
   {
     "key": "uvas",
     "name": "uvas",
-    "images": [
-      "/cartilla/art/faithful/vocal-u/uvas.webp"
-    ]
+    "images": ["/cartilla/art/faithful/vocal-u/uvas.webp"]
   },
   {
     "key": "uña",
@@ -1353,9 +1121,7 @@
   {
     "key": "vaso",
     "name": "vaso",
-    "images": [
-      "/cartilla/art/optimized/flipchart-native/p036-vaso.png"
-    ]
+    "images": ["/cartilla/art/optimized/flipchart-native/p036-vaso.png"]
   },
   {
     "key": "vela",
@@ -1368,23 +1134,17 @@
   {
     "key": "viento v",
     "name": "viento v",
-    "images": [
-      "/cartilla/art/optimized/flipchart-native/p036-scene.png"
-    ]
+    "images": ["/cartilla/art/optimized/flipchart-native/p036-scene.png"]
   },
   {
     "key": "vita",
     "name": "Vita",
-    "images": [
-      "/cartilla/art/optimized/flipchart-native/p036-vita.png"
-    ]
+    "images": ["/cartilla/art/optimized/flipchart-native/p036-vita.png"]
   },
   {
     "key": "vuli",
     "name": "Vuli",
-    "images": [
-      "/cartilla/art/optimized/flipchart-native/p036-vuli.png"
-    ]
+    "images": ["/cartilla/art/optimized/flipchart-native/p036-vuli.png"]
   },
   {
     "key": "yate",
@@ -1397,9 +1157,7 @@
   {
     "key": "yate de yayo scene",
     "name": "yate de yayo scene",
-    "images": [
-      "/cartilla/art/optimized/flipchart-native/p059-scene.png"
-    ]
+    "images": ["/cartilla/art/optimized/flipchart-native/p059-scene.png"]
   },
   {
     "key": "yayita",
@@ -1468,22 +1226,16 @@
   {
     "key": "águila",
     "name": "águila",
-    "images": [
-      "/cartilla/art/faithful/leccion-1/aguila.webp"
-    ]
+    "images": ["/cartilla/art/faithful/leccion-1/aguila.webp"]
   },
   {
     "key": "árbol",
     "name": "árbol",
-    "images": [
-      "/cartilla/art/faithful/vocal-a/arbol.webp"
-    ]
+    "images": ["/cartilla/art/faithful/vocal-a/arbol.webp"]
   },
   {
     "key": "ñuno",
     "name": "Ñuno",
-    "images": [
-      "/cartilla/art/optimized/flipchart-native/p030-nuno.png"
-    ]
+    "images": ["/cartilla/art/optimized/flipchart-native/p030-nuno.png"]
   }
 ]

@@ -32,23 +32,30 @@ const current = () =>
 const finishTurn = () => act(() => vi.advanceTimersByTime(LESSON_PAGE_TURN_TOTAL_MS + 200));
 
 function beginLongForwardDrag(onPageChange: (index: number) => void) {
-    render(
-      <NativeLessonViewer
-        pages={PAGES}
-        chapterLabel="Lección 8"
-        lessonNumber={8}
-        onPageChange={onPageChange}
-      />,
-    );
-    completePage(23);
-    const viewer = document.querySelector(".native-lesson-viewer")!;
-    vi.spyOn(viewer, "getBoundingClientRect").mockReturnValue({
-      width: 600, height: 800, left: 0, top: 0, right: 600, bottom: 800,
-      x: 0, y: 0, toJSON: () => {},
-    });
-    const next = screen.getByTestId("corner-next");
-    fireEvent.pointerDown(next, { pointerId: 1, clientX: 500, clientY: 700 });
-    fireEvent.pointerMove(next, { pointerId: 1, clientX: 100, clientY: 700 });
+  render(
+    <NativeLessonViewer
+      pages={PAGES}
+      chapterLabel="Lección 8"
+      lessonNumber={8}
+      onPageChange={onPageChange}
+    />,
+  );
+  completePage(23);
+  const viewer = document.querySelector(".native-lesson-viewer")!;
+  vi.spyOn(viewer, "getBoundingClientRect").mockReturnValue({
+    width: 600,
+    height: 800,
+    left: 0,
+    top: 0,
+    right: 600,
+    bottom: 800,
+    x: 0,
+    y: 0,
+    toJSON: () => {},
+  });
+  const next = screen.getByTestId("corner-next");
+  fireEvent.pointerDown(next, { pointerId: 1, clientX: 500, clientY: 700 });
+  fireEvent.pointerMove(next, { pointerId: 1, clientX: 100, clientY: 700 });
   return { viewer, next };
 }
 
@@ -149,8 +156,17 @@ describe("NativeLessonViewer real-paper page turn contracts", () => {
     // Mock getBoundingClientRect
     const stage = document.querySelector(".native-lesson-viewer");
     if (stage) {
-      stage.getBoundingClientRect = () =>
-        ({ width: 600, left: 0, top: 0, right: 600, bottom: 800, height: 800, x: 0, y: 0, toJSON: () => {} });
+      stage.getBoundingClientRect = () => ({
+        width: 600,
+        left: 0,
+        top: 0,
+        right: 600,
+        bottom: 800,
+        height: 800,
+        x: 0,
+        y: 0,
+        toJSON: () => {},
+      });
     }
 
     // Drag 1: less than halfway (drag 100px left on a 600px stage = ~20%)
@@ -215,19 +231,32 @@ describe("NativeLessonViewer real-paper page turn contracts", () => {
   });
 
   it("reduced-motion corner dragging has no 3D layer and commits without a timed animation", () => {
-    vi.stubGlobal("matchMedia", vi.fn().mockImplementation((query: string) => ({
-      matches: query.includes("prefers-reduced-motion"),
-      media: query, onchange: null,
-      addListener: vi.fn(), removeListener: vi.fn(),
-      addEventListener: vi.fn(), removeEventListener: vi.fn(),
-      dispatchEvent: vi.fn(),
-    })));
+    vi.stubGlobal(
+      "matchMedia",
+      vi.fn().mockImplementation((query: string) => ({
+        matches: query.includes("prefers-reduced-motion"),
+        media: query,
+        onchange: null,
+        addListener: vi.fn(),
+        removeListener: vi.fn(),
+        addEventListener: vi.fn(),
+        removeEventListener: vi.fn(),
+        dispatchEvent: vi.fn(),
+      })),
+    );
     render(<NativeLessonViewer pages={PAGES} chapterLabel="Lección 8" lessonNumber={8} />);
     completePage(23);
     const viewer = document.querySelector(".native-lesson-viewer")!;
     vi.spyOn(viewer, "getBoundingClientRect").mockReturnValue({
-      width: 600, height: 800, left: 0, top: 0, right: 600, bottom: 800,
-      x: 0, y: 0, toJSON: () => {},
+      width: 600,
+      height: 800,
+      left: 0,
+      top: 0,
+      right: 600,
+      bottom: 800,
+      x: 0,
+      y: 0,
+      toJSON: () => {},
     });
     const next = screen.getByTestId("corner-next");
     fireEvent.pointerDown(next, { pointerId: 1, clientX: 500, clientY: 700 });
@@ -282,8 +311,15 @@ describe("NativeLessonViewer real-paper page turn contracts", () => {
 
     const viewer = document.querySelector(".native-lesson-viewer")!;
     vi.spyOn(viewer, "getBoundingClientRect").mockReturnValue({
-      width: 600, height: 800, left: 0, top: 0, right: 600, bottom: 800,
-      x: 0, y: 0, toJSON: () => {},
+      width: 600,
+      height: 800,
+      left: 0,
+      top: 0,
+      right: 600,
+      bottom: 800,
+      x: 0,
+      y: 0,
+      toJSON: () => {},
     });
 
     const prev = screen.getByTestId("corner-prev");

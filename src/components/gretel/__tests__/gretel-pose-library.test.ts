@@ -35,8 +35,17 @@ describe("Gretel approved-master inventory", () => {
   it("keeps every semantic pose key but resolves it to the approved master", () => {
     const keys = Object.keys(GRETEL_POSES);
     for (const key of [
-      "idle", "blinking", "welcome", "waving", "pointing", "pointingLeft",
-      "cheering", "talking", "settling", "exiting", "encouraging",
+      "idle",
+      "blinking",
+      "welcome",
+      "waving",
+      "pointing",
+      "pointingLeft",
+      "cheering",
+      "talking",
+      "settling",
+      "exiting",
+      "encouraging",
     ]) {
       expect(keys).toContain(key);
       expect(getGretelPose(key as keyof typeof GRETEL_POSES)).toBe(APPROVED);

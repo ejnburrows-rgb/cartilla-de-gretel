@@ -34,7 +34,11 @@ export function LessonCatalog() {
       <div
         className={`w-16 h-16 rounded-2xl flex items-center justify-center font-black text-white shadow-inner mb-4 z-10 font-fredoka ${l.kind === "intro" ? "text-sm" : "text-4xl"} ${l.kind !== "consonant" ? "bg-gradient-to-br from-[#ea580c] to-[#c2410c]" : "bg-gradient-to-br from-[#0284c7] to-[#0369a1]"}`}
       >
-        {l.kind === "intro" ? "aeiou" : l.kind === "vowel" ? l.vowel.toUpperCase() : l.letter.toUpperCase()}
+        {l.kind === "intro"
+          ? "aeiou"
+          : l.kind === "vowel"
+            ? l.vowel.toUpperCase()
+            : l.letter.toUpperCase()}
       </div>
 
       <h2 className="font-bold text-[#3b2a12] mb-4 z-10 font-fredoka text-xl">{l.title}</h2>

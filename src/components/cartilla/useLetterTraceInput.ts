@@ -116,7 +116,10 @@ export function useLetterTapTrace({
   onCorrectTap,
   onWrongTap,
 }: UseLetterTapTraceArgs): LetterTapTrace {
-  const [position, setPosition] = useActivityState<TapPosition>("tapPosition", { strokeIdx: 0, pointIdx: 0 });
+  const [position, setPosition] = useActivityState<TapPosition>("tapPosition", {
+    strokeIdx: 0,
+    pointIdx: 0,
+  });
   const [completedStrokes, setCompletedStrokes] = useActivityState<Point[][]>("tapCompleted", []);
   const [currentStrokePoints, setCurrentStrokePoints] = useActivityState<Point[]>("tapCurrent", []);
   const [finished, setFinished] = useActivityState("tapFinished", false);

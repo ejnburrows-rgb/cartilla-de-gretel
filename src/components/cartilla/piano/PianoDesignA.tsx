@@ -11,12 +11,7 @@ import type { CSSProperties } from "react";
 import { ArrowRight, Check, Mic, MicOff, RotateCcw, Volume2 } from "lucide-react";
 import { GretelLiveAvatar } from "@/components/gretel/GretelLiveAvatar";
 import { usePianoSession, PRIVACY_NOTE, type PianoDesignProps } from "./usePianoSession";
-import {
-  OCTAVE_BLACK,
-  OCTAVE_WHITE,
-  STATE_LABEL,
-  SYLLABLE_COLORS,
-} from "./piano-keyboard";
+import { OCTAVE_BLACK, OCTAVE_WHITE, STATE_LABEL, SYLLABLE_COLORS } from "./piano-keyboard";
 import "./piano-design-a.css";
 
 export const DESIGN_A_MAX_SYLLABLES = OCTAVE_WHITE.length;

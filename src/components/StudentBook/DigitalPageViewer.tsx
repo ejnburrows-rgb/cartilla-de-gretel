@@ -20,19 +20,34 @@ export function DigitalPageViewer({
   const touchStart = useRef<number | null>(null);
   const firstReveal = useRef(true);
 
-  const goTo = useCallback((target: number) => {
-    if (target < 0 || target >= pages.length || target === index) return;
-    gretelEvent("page-turn:start");
-    setDirection(target > index ? "next" : "prev");
-    setIndex(target);
-  }, [index, pages.length]);
+  const goTo = useCallback(
+    (target: number) => {
+      if (target < 0 || target >= pages.length || target === index) return;
+      gretelEvent("page-turn:start");
+      setDirection(target > index ? "next" : "prev");
+      setIndex(target);
+    },
+    [index, pages.length],
+  );
 
   useEffect(() => {
     const onKeyDown = (event: KeyboardEvent) => {
       if (event.altKey || event.ctrlKey || event.metaKey) return;
-      if (event.target instanceof HTMLElement && event.target.closest("input, textarea, select, [contenteditable], .digital-page-canvas button")) return;
-      if (event.key === "ArrowRight") { event.preventDefault(); goTo(index + 1); }
-      if (event.key === "ArrowLeft") { event.preventDefault(); goTo(index - 1); }
+      if (
+        event.target instanceof HTMLElement &&
+        event.target.closest(
+          "input, textarea, select, [contenteditable], .digital-page-canvas button",
+        )
+      )
+        return;
+      if (event.key === "ArrowRight") {
+        event.preventDefault();
+        goTo(index + 1);
+      }
+      if (event.key === "ArrowLeft") {
+        event.preventDefault();
+        goTo(index - 1);
+      }
     };
     window.addEventListener("keydown", onKeyDown);
     return () => window.removeEventListener("keydown", onKeyDown);
@@ -52,13 +67,19 @@ export function DigitalPageViewer({
   }, [index, pages]);
 
   const page = pages[index];
-  const pageLabel = page.pageNumber === index + 1
-    ? `Página ${page.pageNumber} de ${pages.length}`
-    : `Página ${page.pageNumber} · hoja ${index + 1} de ${pages.length}`;
+  const pageLabel =
+    page.pageNumber === index + 1
+      ? `Página ${page.pageNumber} de ${pages.length}`
+      : `Página ${page.pageNumber} · hoja ${index + 1} de ${pages.length}`;
   return (
     <div className="digital-reader" aria-label="Cuaderno interactivo de La Cartilla de Gretel">
       <div className="digital-reader__toolbar">
-        <button type="button" className="digital-reader__nav-toggle" aria-expanded={navigatorOpen} onClick={() => setNavigatorOpen((open) => !open)}>
+        <button
+          type="button"
+          className="digital-reader__nav-toggle"
+          aria-expanded={navigatorOpen}
+          onClick={() => setNavigatorOpen((open) => !open)}
+        >
           <List size={18} /> Páginas
         </button>
         <span aria-live="polite">{pageLabel}</span>
@@ -73,7 +94,10 @@ export function DigitalPageViewer({
                 key={entry.id}
                 className={target === index ? "is-current" : ""}
                 aria-current={target === index ? "page" : undefined}
-                onClick={() => { goTo(target); setNavigatorOpen(false); }}
+                onClick={() => {
+                  goTo(target);
+                  setNavigatorOpen(false);
+                }}
               >
                 Página {entry.pageNumber}
               </button>
@@ -85,7 +109,10 @@ export function DigitalPageViewer({
           <div
             className="digital-reader__page-slot"
             onTouchStart={(event) => {
-              if (event.target instanceof HTMLElement && event.target.closest(".digital-region--grid, button, canvas, [data-interactive]")) {
+              if (
+                event.target instanceof HTMLElement &&
+                event.target.closest(".digital-region--grid, button, canvas, [data-interactive]")
+              ) {
                 touchStart.current = null;
                 return;
               }
@@ -93,23 +120,46 @@ export function DigitalPageViewer({
             }}
             onTouchEnd={(event) => {
               if (touchStart.current === null) return;
-              const distance = (event.changedTouches[0]?.clientX ?? touchStart.current) - touchStart.current;
+              const distance =
+                (event.changedTouches[0]?.clientX ?? touchStart.current) - touchStart.current;
               if (Math.abs(distance) > 55) goTo(index + (distance < 0 ? 1 : -1));
               touchStart.current = null;
             }}
           >
-            <div key={page.id} className={`digital-reader__page-motion digital-reader__page-motion--${direction}`} style={{ ["--turn-ms" as string]: `${TURN_MS}ms` }}>
+            <div
+              key={page.id}
+              className={`digital-reader__page-motion digital-reader__page-motion--${direction}`}
+              style={{ ["--turn-ms" as string]: `${TURN_MS}ms` }}
+            >
               {page.content}
             </div>
           </div>
-          {bookCompanion && <aside className="digital-reader__companion" aria-label="Gretel, guía del cuaderno">{bookCompanion}</aside>}
+          {bookCompanion && (
+            <aside className="digital-reader__companion" aria-label="Gretel, guía del cuaderno">
+              {bookCompanion}
+            </aside>
+          )}
         </div>
       </div>
 
       <div className="digital-reader__controls">
-        <button type="button" onClick={() => goTo(index - 1)} disabled={index === 0} aria-label="Página anterior"><ChevronLeft size={20} /> Anterior</button>
+        <button
+          type="button"
+          onClick={() => goTo(index - 1)}
+          disabled={index === 0}
+          aria-label="Página anterior"
+        >
+          <ChevronLeft size={20} /> Anterior
+        </button>
         <span>{pageLabel}</span>
-        <button type="button" onClick={() => goTo(index + 1)} disabled={index === pages.length - 1} aria-label="Página siguiente">Siguiente <ChevronRight size={20} /></button>
+        <button
+          type="button"
+          onClick={() => goTo(index + 1)}
+          disabled={index === pages.length - 1}
+          aria-label="Página siguiente"
+        >
+          Siguiente <ChevronRight size={20} />
+        </button>
       </div>
     </div>
   );

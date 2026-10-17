@@ -33,15 +33,9 @@ function ArtOrPending({ cell }: { cell: PageGridCell }) {
     <div
       className="fp-art-pending"
       role="img"
-      aria-label={
-        cell.caption
-          ? `Ilustración pendiente: ${cell.caption}`
-          : "Ilustración pendiente"
-      }
+      aria-label={cell.caption ? `Ilustración pendiente: ${cell.caption}` : "Ilustración pendiente"}
     >
-      {cell.caption ? (
-        <span className="fp-art-pending__word">{cell.caption}</span>
-      ) : null}
+      {cell.caption ? <span className="fp-art-pending__word">{cell.caption}</span> : null}
       <span>pendiente</span>
     </div>
   );
@@ -93,7 +87,8 @@ export function InteractivePictureGrid({
 
   const hasAnswerKey = cells.some((cell) => cell.correct !== undefined);
   const totalCorrectRequired = hasAnswerKey
-    ? cells.filter((cell) => cell.correct === true).length : cells.length;
+    ? cells.filter((cell) => cell.correct === true).length
+    : cells.length;
 
   const handlePencilTap = (i: number) => {
     if (solved || validated.has(i) || markingCells.size > 0) return;
@@ -150,18 +145,22 @@ export function InteractivePictureGrid({
   };
 
   const rows: PageGridCell[][] = [];
-  for (let i = 0; i < cells.length; i += columns)
-    rows.push(cells.slice(i, i + columns));
+  for (let i = 0; i < cells.length; i += columns) rows.push(cells.slice(i, i + columns));
 
-  const exactColumns = precise && region.gridColumnFracs?.length === columns
-    ? region.gridColumnFracs.map((fraction) => `${fraction * 100}%`).join(" ")
-    : undefined;
-  const exactRows = precise && region.gridRowFracs?.length === rows.length
-    ? region.gridRowFracs.map((fraction) => `${fraction * 100}%`).join(" ")
-    : undefined;
+  const exactColumns =
+    precise && region.gridColumnFracs?.length === columns
+      ? region.gridColumnFracs.map((fraction) => `${fraction * 100}%`).join(" ")
+      : undefined;
+  const exactRows =
+    precise && region.gridRowFracs?.length === rows.length
+      ? region.gridRowFracs.map((fraction) => `${fraction * 100}%`).join(" ")
+      : undefined;
 
   return (
-    <div className={`fp-ix-grid${precise ? " fp-ix-grid--precise" : ""}`} style={{ ["--ix-accent" as string]: accent, gridTemplateRows: exactRows }}>
+    <div
+      className={`fp-ix-grid${precise ? " fp-ix-grid--precise" : ""}`}
+      style={{ ["--ix-accent" as string]: accent, gridTemplateRows: exactRows }}
+    >
       {rows.map((row, r) => (
         <div
           key={r}
@@ -174,57 +173,54 @@ export function InteractivePictureGrid({
             const isVal = validated.has(i);
             const isCorrect = isMarking ? markingCells.get(i) : isVal;
 
-              return (
-                <button
-                  key={i}
-                  type="button"
-                  className={`fp-ix-cell relative ${isVal ? "graded-correct" : ""}`}
-                  style={{ ["--ix-float-delay" as string]: floatDelay(i) }}
-                  onClick={() => handlePencilTap(i)}
-                  disabled={solved || (hasAnswerKey && cell.correct === undefined) || isVal || (markingCells.size > 0 && !isMarking)}
-                  aria-label={cell.caption ?? "dibujo"}
-                  data-gretel-correct={cell.correct === undefined ? undefined : String(cell.correct)}
-                  aria-pressed={isVal || isMarking}
-                >
-                  <ArtOrPending cell={cell} />
-                  {(isMarking || isVal) && (
-                    <div className="absolute inset-0 pointer-events-none flex items-center justify-center p-1 z-10">
-                      <WorkbookPencilMark
-                        round
-                        markType={mark}
-                        isCorrect={isCorrect}
-                        itemId={`${region.id}-${i}`}
-                        completeOnSuccess={Boolean(isCorrect) && validated.size + 1 === totalCorrectRequired}
-                        status={isVal && !isMarking ? "correct" : undefined}
-                        onSuccess={() => handleCellCorrect(i)}
-                        onRetry={handleCellRetry}
-                      />
-                    </div>
-                  )}
-                </button>
-              );
+            return (
+              <button
+                key={i}
+                type="button"
+                className={`fp-ix-cell relative ${isVal ? "graded-correct" : ""}`}
+                style={{ ["--ix-float-delay" as string]: floatDelay(i) }}
+                onClick={() => handlePencilTap(i)}
+                disabled={
+                  solved ||
+                  (hasAnswerKey && cell.correct === undefined) ||
+                  isVal ||
+                  (markingCells.size > 0 && !isMarking)
+                }
+                aria-label={cell.caption ?? "dibujo"}
+                data-gretel-correct={cell.correct === undefined ? undefined : String(cell.correct)}
+                aria-pressed={isVal || isMarking}
+              >
+                <ArtOrPending cell={cell} />
+                {(isMarking || isVal) && (
+                  <div className="absolute inset-0 pointer-events-none flex items-center justify-center p-1 z-10">
+                    <WorkbookPencilMark
+                      round
+                      markType={mark}
+                      isCorrect={isCorrect}
+                      itemId={`${region.id}-${i}`}
+                      completeOnSuccess={
+                        Boolean(isCorrect) && validated.size + 1 === totalCorrectRequired
+                      }
+                      status={isVal && !isMarking ? "correct" : undefined}
+                      onSuccess={() => handleCellCorrect(i)}
+                      onRetry={handleCellRetry}
+                    />
+                  </div>
+                )}
+              </button>
+            );
           })}
         </div>
       ))}
-
     </div>
   );
 }
 
 /** Digital vowel cue: keep the printed vowel visible, but use the natural
  * on-screen action — the child taps the matching picture directly. */
-function VowelLetterLabel({
-  letter,
-  precise = false,
-}: {
-  letter: string;
-  precise?: boolean;
-}) {
+function VowelLetterLabel({ letter, precise = false }: { letter: string; precise?: boolean }) {
   return (
-    <span
-      className="fp-ix-pick__letter"
-      aria-label={`Vocal ${letter}`}
-    >
+    <span className="fp-ix-pick__letter" aria-label={`Vocal ${letter}`}>
       {precise ? letter : `${letter.toUpperCase()}${letter}`}
     </span>
   );
@@ -282,12 +278,12 @@ export function InteractiveVowelPickOne({
 }: ExerciseProps & { precise?: boolean }) {
   const { emit: gretelEvent, record: recordEvent } = useActivityEvents();
   const rows = region.vowelRows ?? [];
-  const exactRows = precise && region.gridRowFracs?.length === rows.length
-    ? region.gridRowFracs.map((fraction) => `${fraction * 100}%`).join(" ")
-    : undefined;
-  const exactColumns = precise && region.gridColumnFracs?.length === 4
-    ? region.gridColumnFracs
-    : undefined;
+  const exactRows =
+    precise && region.gridRowFracs?.length === rows.length
+      ? region.gridRowFracs.map((fraction) => `${fraction * 100}%`).join(" ")
+      : undefined;
+  const exactColumns =
+    precise && region.gridColumnFracs?.length === 4 ? region.gridColumnFracs : undefined;
 
   const [correctRows, setCorrectRows] = useActivityState<Set<number>>("correctRows", new Set());
   const [markingCells, setMarkingCells] = useState<Map<string, boolean>>(new Map());
@@ -310,7 +306,16 @@ export function InteractiveVowelPickOne({
         });
       }
     }
-  }, [correctRows, rows.length, completed, lessonId, region.id, incorrectAttempts, gretelEvent, recordEvent]);
+  }, [
+    correctRows,
+    rows.length,
+    completed,
+    lessonId,
+    region.id,
+    incorrectAttempts,
+    gretelEvent,
+    recordEvent,
+  ]);
 
   const attempt = (rowIdx: number, cellIdx: number) => {
     if (correctRows.has(rowIdx) || markingCells.size > 0) return;
@@ -349,16 +354,23 @@ export function InteractiveVowelPickOne({
         <div
           key={r}
           className="fp-ix-pick__row"
-          style={exactColumns ? { gridTemplateColumns: `${exactColumns[0] * 100}% 1fr` } : undefined}
+          style={
+            exactColumns ? { gridTemplateColumns: `${exactColumns[0] * 100}% 1fr` } : undefined
+          }
         >
           <VowelLetterLabel letter={row.letter} precise={precise} />
           <div
             className="fp-ix-pick__cells"
-            style={exactColumns ? {
-              gridTemplateColumns: exactColumns.slice(1)
-                .map((fraction) => `${fraction / (1 - exactColumns[0]) * 100}%`)
-                .join(" "),
-            } : undefined}
+            style={
+              exactColumns
+                ? {
+                    gridTemplateColumns: exactColumns
+                      .slice(1)
+                      .map((fraction) => `${(fraction / (1 - exactColumns[0])) * 100}%`)
+                      .join(" "),
+                  }
+                : undefined
+            }
           >
             {row.cells.map((cell, cellIdx) => {
               const key = `${r}-${cellIdx}`;
@@ -373,7 +385,11 @@ export function InteractiveVowelPickOne({
                   type="button"
                   className={`fp-ix-cell relative ${isThisCorrect ? "graded-correct" : ""}`}
                   style={{ ["--ix-float-delay" as string]: floatDelay(r * 3 + cellIdx) }}
-                  disabled={cell.correct === undefined || isRowCorrect || (markingCells.size > 0 && !isMarking)}
+                  disabled={
+                    cell.correct === undefined ||
+                    isRowCorrect ||
+                    (markingCells.size > 0 && !isMarking)
+                  }
                   onClick={() => attempt(r, cellIdx)}
                   aria-label={cell.caption ?? "dibujo"}
                 >
@@ -385,7 +401,9 @@ export function InteractiveVowelPickOne({
                         markType="circle"
                         isCorrect={isCorrectMark}
                         itemId={`${region.id}-${r}-${cellIdx}`}
-                        completeOnSuccess={Boolean(isCorrectMark) && correctRows.size + 1 === rows.length}
+                        completeOnSuccess={
+                          Boolean(isCorrectMark) && correctRows.size + 1 === rows.length
+                        }
                         status={isThisCorrect && !isMarking ? "correct" : undefined}
                         onSuccess={() => handleCellCorrect(r)}
                         onRetry={handleCellRetry}
@@ -403,16 +421,15 @@ export function InteractiveVowelPickOne({
 }
 
 /** "Traza una línea de la vocal al dibujo..." — no distractors, tap to connect each pair. */
-export function InteractiveVowelMatchAll({
-  region,
-  accent,
-  lessonId,
-}: ExerciseProps) {
+export function InteractiveVowelMatchAll({ region, accent, lessonId }: ExerciseProps) {
   const { emit: gretelEvent, record: recordEvent } = useActivityEvents();
   const pairs = region.vowelPairs ?? [];
   const [linked, setLinked] = useActivityState<Set<number>>("picked", new Set());
 
-  useEffect(() => { if (pairs.length > 0 && linked.size === pairs.length) gretelEvent("activity:complete", { restored: true }); }, [linked, pairs.length, gretelEvent]);
+  useEffect(() => {
+    if (pairs.length > 0 && linked.size === pairs.length)
+      gretelEvent("activity:complete", { restored: true });
+  }, [linked, pairs.length, gretelEvent]);
 
   const connect = (i: number) => {
     if (linked.has(i)) return;
@@ -435,20 +452,10 @@ export function InteractiveVowelMatchAll({
   };
 
   return (
-    <div
-      className="fp-ix-match-all"
-      style={{ ["--ix-accent" as string]: accent }}
-    >
+    <div className="fp-ix-match-all" style={{ ["--ix-accent" as string]: accent }}>
       {pairs.map((pair, i) => (
-        <div
-          key={i}
-          className={`fp-ix-match-row${linked.has(i) ? " linked" : ""}`}
-        >
-          <button
-            type="button"
-            className="fp-ix-letter-btn"
-            onClick={() => connect(i)}
-          >
+        <div key={i} className={`fp-ix-match-row${linked.has(i) ? " linked" : ""}`}>
+          <button type="button" className="fp-ix-letter-btn" onClick={() => connect(i)}>
             {pair.letter.toUpperCase()}
             {pair.letter}
           </button>
@@ -477,11 +484,7 @@ export function InteractiveVowelMatchAll({
 /** "Encierra en un círculo la sílaba correspondiente" — every word in a row
  * genuinely contains the target syllable (no distractors); tap each word to
  * mark it found, grade on check whether all got marked. */
-export function InteractiveSyllableMatch({
-  region,
-  accent,
-  lessonId,
-}: ExerciseProps) {
+export function InteractiveSyllableMatch({ region, accent, lessonId }: ExerciseProps) {
   const { emit: gretelEvent, record: recordEvent } = useActivityEvents();
   const rows = region.matchRows ?? [];
   const [picked, setPicked] = useActivityState<Set<string>>("picked", new Set());
@@ -491,7 +494,9 @@ export function InteractiveSyllableMatch({
   const [attempts, setAttempts] = useState(0);
   const total = rows.reduce((n, row) => n + row.length, 0);
 
-  useEffect(() => { if (solved) gretelEvent("activity:complete", { restored: true }); }, [solved, gretelEvent]);
+  useEffect(() => {
+    if (solved) gretelEvent("activity:complete", { restored: true });
+  }, [solved, gretelEvent]);
 
   const toggle = (key: string) => {
     if (graded || validated.has(key)) return;
@@ -503,10 +508,14 @@ export function InteractiveSyllableMatch({
     });
   };
 
-  const targets = rows.flatMap((row, r) => row.map((entry, w) => ({ key: `${r}-${w}`, correct: entry.correct })));
-  const remaining = targets.filter(t => t.correct === true && !picked.has(t.key)).length;
+  const targets = rows.flatMap((row, r) =>
+    row.map((entry, w) => ({ key: `${r}-${w}`, correct: entry.correct })),
+  );
+  const remaining = targets.filter((t) => t.correct === true && !picked.has(t.key)).length;
   const check = () => {
-    setValidated(new Set(targets.filter(t => t.correct === true && picked.has(t.key)).map(t => t.key)));
+    setValidated(
+      new Set(targets.filter((t) => t.correct === true && picked.has(t.key)).map((t) => t.key)),
+    );
     setGraded(true);
     let allCorrect = true;
     rows.forEach((row, r) => {
@@ -527,8 +536,10 @@ export function InteractiveSyllableMatch({
       recordEvent({
         lessonId,
         kind: "exercise",
-        score: targets.filter(t => t.correct === true && picked.has(t.key)).length,
-        total: targets.filter(t => t.correct === true || (t.correct === false && picked.has(t.key))).length,
+        score: targets.filter((t) => t.correct === true && picked.has(t.key)).length,
+        total: targets.filter(
+          (t) => t.correct === true || (t.correct === false && picked.has(t.key)),
+        ).length,
         meta: {
           exercise: `syllable_match_${region.id}`,
           completed: allCorrect,
@@ -541,10 +552,7 @@ export function InteractiveSyllableMatch({
   };
 
   return (
-    <div
-      className="fp-ix-syllable"
-      style={{ ["--ix-accent" as string]: accent }}
-    >
+    <div className="fp-ix-syllable" style={{ ["--ix-accent" as string]: accent }}>
       <div className="fp-ix-syllable__top">
         <span className="fp-ix-syllable__label">{region.syllable}</span>
         <div className="fp-ix-syllable__rows">
@@ -568,7 +576,9 @@ export function InteractiveSyllableMatch({
                     key={key}
                     type="button"
                     className={classes}
-                    data-gretel-correct={entry.correct === undefined ? undefined : String(entry.correct)}
+                    data-gretel-correct={
+                      entry.correct === undefined ? undefined : String(entry.correct)
+                    }
                     disabled={flagged || graded || validated.has(key)}
                     onClick={() => toggle(key)}
                   >
@@ -588,7 +598,9 @@ export function InteractiveSyllableMatch({
           ))}
         </div>
       </div>
-      {graded && !solved && <p role="status">Revisa las selecciones marcadas. Faltan {remaining} respuestas.</p>}
+      {graded && !solved && (
+        <p role="status">Revisa las selecciones marcadas. Faltan {remaining} respuestas.</p>
+      )}
       <div className="fp-ix-check-row">
         <button
           type="button"
@@ -602,7 +614,14 @@ export function InteractiveSyllableMatch({
           <button
             type="button"
             className="fp-ix-check-btn"
-            onClick={() => { setPicked(new Set(targets.filter(t => t.correct === true && picked.has(t.key)).map(t => t.key))); setGraded(false); }}
+            onClick={() => {
+              setPicked(
+                new Set(
+                  targets.filter((t) => t.correct === true && picked.has(t.key)).map((t) => t.key),
+                ),
+              );
+              setGraded(false);
+            }}
           >
             Corregir respuestas
           </button>
@@ -699,11 +718,7 @@ function DroppableBlankSlot({
 }
 
 /** "Completa las palabras con la sílaba correcta" — tap or drag choice onto item blank. */
-export function InteractiveFillInBlank({
-  region,
-  accent,
-  lessonId,
-}: ExerciseProps) {
+export function InteractiveFillInBlank({ region, accent, lessonId }: ExerciseProps) {
   const { emit: gretelEvent, record: recordEvent } = useActivityEvents();
   const items = region.fillItems ?? [];
   const [picked, setPicked] = useActivityState<Record<number, number>>("picked", {});
@@ -717,7 +732,9 @@ export function InteractiveFillInBlank({
     useSensor(KeyboardSensor),
   );
 
-  useEffect(() => { if (solved) gretelEvent("activity:complete", { restored: true }); }, [solved, gretelEvent]);
+  useEffect(() => {
+    if (solved) gretelEvent("activity:complete", { restored: true });
+  }, [solved, gretelEvent]);
 
   // Gentle reset timer for wrong choices
   useEffect(() => {
@@ -803,9 +820,7 @@ export function InteractiveFillInBlank({
   const hasWrongPick = items.some(
     (item, i) => picked[i] !== undefined && !item.choices[picked[i]]?.correct,
   );
-  const hasCorrectPick = items.some(
-    (item, i) => item.choices[picked[i]]?.correct === true,
-  );
+  const hasCorrectPick = items.some((item, i) => item.choices[picked[i]]?.correct === true);
   const statusMessage = solved
     ? "Completado"
     : hasWrongPick
@@ -842,11 +857,7 @@ export function InteractiveFillInBlank({
                 />
               )}
               <span className="fp-ix-fill__wordbox">{item.wordBox}</span>
-              <DroppableBlankSlot
-                itemIdx={i}
-                displayText={displayText}
-                isCorrect={isItemCorrect}
-              />
+              <DroppableBlankSlot itemIdx={i} displayText={displayText} isCorrect={isItemCorrect} />
               <div className="fp-ix-fill__choices">
                 {item.choices.map((choice, c) => {
                   const isPicked = picked[i] === c;
@@ -869,9 +880,7 @@ export function InteractiveFillInBlank({
             </div>
           );
         })}
-        {graded && statusMessage && (
-          <p role="status">{statusMessage}</p>
-        )}
+        {graded && statusMessage && <p role="status">{statusMessage}</p>}
       </div>
     </DndContext>
   );

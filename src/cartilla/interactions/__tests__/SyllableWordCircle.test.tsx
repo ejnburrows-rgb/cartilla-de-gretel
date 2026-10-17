@@ -21,15 +21,18 @@ const region = {
   order: 1,
   fontRole: "body",
   syllable: "sa",
-  matchRows: [[
-    { word: "semana", correct: false },
-    { word: "sala", correct: true },
-    { word: "sapo", correct: true },
-  ], [
-    { word: "sano", correct: true },
-    { word: "sube", correct: false },
-    { word: "suyo", correct: false },
-  ]],
+  matchRows: [
+    [
+      { word: "semana", correct: false },
+      { word: "sala", correct: true },
+      { word: "sapo", correct: true },
+    ],
+    [
+      { word: "sano", correct: true },
+      { word: "sube", correct: false },
+      { word: "suyo", correct: false },
+    ],
+  ],
 } as PageRegion;
 
 function mockWordRect(button: HTMLElement, width = 400) {
@@ -69,10 +72,13 @@ describe("SyllableWordCircle", () => {
     expect(screen.getByRole("status").textContent).toContain("2 de 3");
     expect(screen.getByRole("button", { name: "sala" }).getAttribute("aria-pressed")).toBe("true");
     expect(screen.getByRole("button", { name: "sano" }).getAttribute("aria-pressed")).toBe("true");
-    expect(screen.getByRole("button", { name: "semana" }).getAttribute("aria-pressed")).toBe("false");
+    expect(screen.getByRole("button", { name: "semana" }).getAttribute("aria-pressed")).toBe(
+      "false",
+    );
 
-    expect(JSON.parse(localStorage.getItem(learnerStorageKey("cartilla-circle-test-sa")) ?? "[]"))
-      .toEqual([1, 3]);
+    expect(
+      JSON.parse(localStorage.getItem(learnerStorageKey("cartilla-circle-test-sa")) ?? "[]"),
+    ).toEqual([1, 3]);
     fireEvent.click(screen.getByRole("button", { name: "sapo" }), { detail: 0 });
     act(() => vi.advanceTimersByTime(3000));
     expect(screen.getByRole("status").textContent).toContain("3 de 3");
@@ -120,12 +126,14 @@ describe("SyllableWordCircle", () => {
 
     expect(screen.getByRole("status").textContent).toContain("3 de 3");
     expect(gretelEvent).toHaveBeenCalledWith("activity:complete");
-    expect(recordEvent).toHaveBeenCalledWith(expect.objectContaining({
-      lessonId: "9",
-      kind: "exercise",
-      score: 1,
-      total: 1,
-    }));
+    expect(recordEvent).toHaveBeenCalledWith(
+      expect.objectContaining({
+        lessonId: "9",
+        kind: "exercise",
+        score: 1,
+        total: 1,
+      }),
+    );
   });
 
   it("lets pointer position select either repeated occurrence in the same word", () => {

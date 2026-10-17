@@ -33,8 +33,7 @@ export const PROBLEM_MESSAGE: Record<PianoListenProblem, string> = {
   unsupported: "Este navegador no permite usar el micrófono para reconocer la voz.",
   "no-local":
     "Este navegador no tiene reconocimiento local compatible. Necesitas un dispositivo que pueda escuchar las vocales.",
-  denied:
-    "El micrófono no tiene permiso. Un adulto puede permitirlo en el navegador.",
+  denied: "El micrófono no tiene permiso. Un adulto puede permitirlo en el navegador.",
   "no-microphone": "No encuentro un micrófono. Necesitas uno para jugar.",
   network: "El reconocimiento de voz no está disponible ahora. Prueba otra vez.",
   "no-speech": "No te oí. Toca el micrófono y habla cerca.",
@@ -212,9 +211,7 @@ export function usePianoSession({
       setProvisional(next);
       playMelody(previous, next);
       if (next < keys.length) {
-        setMessage(
-          `${heard ? `¡Bien! Oí «${heard}». ` : "¡Bien! "}${promptFor(next)}`,
-        );
+        setMessage(`${heard ? `¡Bien! Oí «${heard}». ` : "¡Bien! "}${promptFor(next)}`);
       }
       return true;
     },
