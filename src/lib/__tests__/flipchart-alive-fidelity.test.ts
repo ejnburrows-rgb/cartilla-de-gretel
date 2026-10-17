@@ -16,6 +16,7 @@ const PICTURES = [
   "p007-iman",
   "p015-sopa",
   "p024-lala",
+  "p008-unicornio",
 ];
 
 describe("Flip Chart moving pictures keep the sheet drawing", () => {

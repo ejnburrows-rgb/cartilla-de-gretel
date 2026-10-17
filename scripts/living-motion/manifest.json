@@ -44,6 +44,11 @@
     "alive": "public/cartilla/art/optimized/flipchart-native/p007-iman-alive.svg",
     "stillSha256": "68f73587c2fad2bf33e3232838870184da3affa273e674db0324564d9223bd7f"
   },
+  "fc_p008_unicornio": {
+    "still": "public/cartilla/art/optimized/flipchart-native/p008-unicornio.png",
+    "alive": "public/cartilla/art/optimized/flipchart-native/p008-unicornio-alive.svg",
+    "stillSha256": "db0de93fd2ed7b99c05ff347b05865e0a6315fed1c5f539540ee2f87b9681cbf"
+  },
   "fc_p015_sopa": {
     "still": "public/cartilla/art/optimized/flipchart-native/p015-sopa.png",
     "alive": "public/cartilla/art/optimized/flipchart-native/p015-sopa-alive.svg",
