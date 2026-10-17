@@ -189,6 +189,8 @@ test.describe("foreground art placement browser proof harness", () => {
         return missing.map((m) => m.src);
       }, assets);
 
+      expect(unmountedSrcs, `Missing or mis-slotted pictures on route ${url}`).toEqual([]);
+
       // Give browser time to load and decode images
       await page.waitForTimeout(300);
 
