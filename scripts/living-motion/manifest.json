@@ -49,6 +49,11 @@
     "alive": "public/cartilla/art/optimized/workbook/leccion-1/iman-alive.svg",
     "stillSha256": "c8a80b42542979dd37809a40a334c0266c4241cb1639cb58a67d6aee6cfeee52"
   },
+  "leccion-1-carro": {
+    "still": "public/cartilla/art/faithful/leccion-1/carro.webp",
+    "alive": "public/cartilla/art/faithful/leccion-1/carro-alive.svg",
+    "stillSha256": "9a6c158c497843da73d981cd017761434029df313524404d7bd59683ae10e140"
+  },
   "leccion-1-maiz": {
     "still": "public/cartilla/art/faithful/leccion-1/maiz.webp",
     "alive": "public/cartilla/art/faithful/leccion-1/maiz-alive.svg",
@@ -113,6 +118,11 @@
     "still": "public/cartilla/art/faithful/vocal-e/elefante.webp",
     "alive": "public/cartilla/art/faithful/vocal-e/elefante-alive.svg",
     "stillSha256": "f54e533c6a33b901fcfc79da83b2f7a38977defc47662f6cf29ca948d1cfd28a"
+  },
+  "vocal-e-escoba": {
+    "still": "public/cartilla/art/faithful/vocal-e/escoba.webp",
+    "alive": "public/cartilla/art/faithful/vocal-e/escoba-alive.svg",
+    "stillSha256": "6f4a542ddde9d03b03f0987d9813bafded1d946632cb0f2c1c12acf4e9732091"
   },
   "vocal-e-estrella": {
     "still": "public/cartilla/art/faithful/vocal-e/estrella.webp",

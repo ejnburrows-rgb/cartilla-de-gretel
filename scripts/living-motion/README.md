@@ -69,5 +69,5 @@ practice and keeps each file ~60–240 KB).
 
 Source is current main `c99ab4ee26175e0ea2b494e56c39dfaa31f42e5d`. Historical `redrawn_*.py` names do not authorize redrawn artwork.
 Source stills, crop, colour and alpha remain unchanged; motion uses original pixels.
-Enabled original-art lane entries: vocal-a-abanico, vocal-a-abeja, vocal-o-oso, vocal-o-oveja, vocal-e-elefante, vocal-i-iman, vocal-o-oruga, vocal-a-ardilla, vocal-a-alas, leccion-1-ojos, vocal-e-estrella, vocal-a-aguja, leccion-1-maiz.
+Enabled original-art lane entries: vocal-a-abanico, vocal-a-abeja, vocal-o-oso, vocal-o-oveja, vocal-e-elefante, vocal-i-iman, vocal-o-oruga, vocal-a-ardilla, vocal-a-alas, leccion-1-ojos, vocal-e-estrella, vocal-a-aguja, leccion-1-maiz, leccion-1-carro, vocal-e-escoba.
 Source fidelity, standalone motion, integration and owner approval are distinct checks.
