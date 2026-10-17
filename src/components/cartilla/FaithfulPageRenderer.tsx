@@ -1,4 +1,5 @@
 import "@/styles/native-lesson.css";
+import { Lesson24Syllable, Lesson24Word } from "./lesson24/Lesson24Reading";
 import type { ReactNode } from "react";
 import { GretelActivity } from "@/components/gretel/GretelActivity";
 import { SOURCE_BLOCKED_WORKBOOK_PAGES } from "@/lib/workbook-pages";
@@ -525,7 +526,7 @@ function RegionView({
       return native ? (
         <div className="fp-native-syllables" aria-label={region.text ?? undefined}>
           {(region.text ?? "").split(/\s+/).filter(Boolean).map((syllable) => (
-            <span key={syllable}>{syllable}</span>
+            <span key={syllable}>{lessonNumber === 24 ? <Lesson24Syllable text={syllable} /> : syllable}</span>
           ))}
         </div>
       ) : (
@@ -535,13 +536,14 @@ function RegionView({
       return native ? (
         <div className="fp-native-vocab" style={{ gridTemplateColumns: `repeat(${region.columns ?? 3}, minmax(0, 1fr))` }}>
           {(region.text ?? "").split(/\u00c2?\u00b7/).map((word) => word.trim()).filter(Boolean).map((word) => (
-            <span key={word}>{word}</span>
+            lessonNumber === 24 ? <Lesson24Word key={word} word={word} /> : <span key={word}>{word}</span>
           ))}
         </div>
       ) : (
         <p className="fp-region--vocab-grid">{region.text}</p>
       );
     case "sentence-line":
+      if (lessonNumber === 24 && !region.text?.trim()) return null;
       return native ? (
         <div className="fp-native-sight-word" aria-label="Palabra de enlace">{region.text}</div>
       ) : (
@@ -612,7 +614,7 @@ export function FaithfulPageRenderer({
   const ordered = [...layout].sort((a, b) => a.order - b.order);
   const letterReadingPage = native && ordered.some((region) => region.regionType === "vocab-grid")
     && ordered.filter((region) => region.regionType === "syllable-bubble").length === 2;
-  const accent = lessonNumber ? CATALOG.find((e) => e.n === lessonNumber)?.color : undefined;
+  const accent = lessonNumber === 24 ? "#167A72" : lessonNumber ? CATALOG.find((e) => e.n === lessonNumber)?.color : undefined;
   const lessonId = lessonNumber ? String(lessonNumber) : undefined;
 
   let archetypeClasses: string[] = [];

@@ -280,3 +280,91 @@
 .lc-lesson-shell--fit .native-lesson-viewer__content .fp-ix-pick__cells { display: flex; justify-content: center; align-items: center; column-gap: min(3.2cqw, 28px); }
 .lc-lesson-shell--fit .native-lesson-viewer__content .fp-ix-grid .fp-ix-cell,
 .lc-lesson-shell--fit .native-lesson-viewer__content .fp-ix-pick__cells .fp-ix-cell { flex: 0 1 114cqh; width: auto; min-width: 0; height: auto; max-height: 100%; aspect-ratio: 1; }
+
+/* Lesson 24 draft recipe only. Keep the book's columns at teaching size.
+ * A 390px viewport cannot contain them: preserve full-size content with
+ * horizontal page scrolling; Muse must report this constraint to the owner.
+ * Navigation stays outside that scroll surface. No fit-to-page text zoom. */
+.lc-lesson-24 {
+  --font-book-faithful: "Andika", sans-serif;
+  --font-book-title: "Fredoka", sans-serif;
+  --lc-bg: #f5f1e8;
+  --lc-paper: #fffdf9;
+  --lc-ink: #25313a;
+  --lc-teal: #167a72;
+  background: var(--lc-bg);
+  color: var(--lc-ink);
+  font: 400 22px/1.5 "Andika", sans-serif;
+}
+.lc-lesson-24 .lc-lesson-header { position: static; padding: 12px 20px; }
+.lc-lesson-24 .lc-lesson-header__back { display: inline-flex; align-items: center; gap: 10px; min-height: 64px; color: #167a72; font: 600 22px/1.3 "Fredoka", sans-serif; }
+.lc-lesson-24 .lc-lesson-main { min-width: 0; padding: 0 16px 24px; }
+.lc-lesson-24 .lc-lesson-main__intro { display: none; }
+.lc-lesson-24 .native-lesson-viewer { width: 100%; max-width: 1120px; margin: auto; }
+.lc-lesson-24 .native-lesson-viewer__topline { display: flex; flex-wrap: wrap; gap: 12px; color: #25313a; font: 400 18px/1.5 "Andika", sans-serif; }
+.lc-lesson-24 .native-lesson-viewer__chapter { color: #25313a; font: 600 24px/1.4 "Fredoka", sans-serif; }
+.lc-lesson-24 .native-lesson-viewer__stage { overflow-x: auto; padding: 8px 0; touch-action: pan-x pan-y pinch-zoom; }
+.lc-lesson-24 .native-lesson-viewer__leaf { min-width: 960px; }
+.lc-lesson-24 .native-lesson-viewer__content .faithful-page { width: 100%; max-width: none; aspect-ratio: auto; height: auto; min-height: 720px; background: #fffdf9; }
+.lc-lesson-24 .final-page-background { display: none; }
+.lc-lesson-24 .native-lesson-viewer__content .faithful-page__body,
+.lc-lesson-24 .native-lesson-viewer__content .faithful-page--edge-right .faithful-page__body { position: relative; inset: auto; display: flex; flex-direction: column; overflow: visible; gap: 28px; padding: 40px 7% 96px; }
+.lc-lesson-24 .faithful-page__body > .gretel-activity { min-width: 0; }
+.lc-lesson-24 .faithful-page__pagenum,
+.lc-lesson-24 .faithful-page__lesson { font: 600 18px/1.4 "Andika", sans-serif; }
+.lc-lesson-24 .native-lesson-viewer__content .fp-region--instruction { font: 700 22px/1.5 "Andika", sans-serif; color: #25313a; }
+.lc-lesson-24 .native-syllable { display: grid; grid-template-columns: 112px minmax(0, 1fr); gap: 20px; padding: 24px; border: 1px solid #167a72; border-radius: 20px; background: #fffdf9; }
+.lc-lesson-24 .native-syllable h2 { display: flex; align-items: center; justify-content: center; margin: 0; color: #167a72; background: #fffdf9; font: 700 64px/1.3 "Andika", sans-serif; border: 2px solid #167a72; border-radius: 16px; }
+.lc-lesson-24 .native-syllable__words { grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 16px; }
+.lc-lesson-24 .native-syllable__words .native-syllable__word { min-height: 88px; padding: 14px 10px; color: #25313a; background: #fffdf9; border: 2px solid #167a72; font: 400 30px/1.5 "Andika", sans-serif; overflow-wrap: normal; }
+.lc-lesson-24 .native-syllable p { grid-column: 1 / -1; margin: 0; font: 400 18px/1.5 "Andika", sans-serif; color: #25313a; }
+.lc-lesson-24 .native-syllable__word[aria-pressed="true"],
+.lc-lesson-24 .fp-ix-fill__choice.graded-correct { border-color: #2f7d4a; box-shadow: 0 0 0 4px #2f7d4a26; }
+.lc-lesson-24 .native-syllable__word[aria-pressed="true"]::after,
+.lc-lesson-24 .fp-ix-fill__choice.graded-correct::after { content: "★"; color: #f2b632; margin-left: 8px; }
+.lc-lesson-24 .native-lesson-viewer__content .fp-native-letter-page .faithful-page__body { display: grid; grid-template-columns: 112px minmax(0, 1fr); gap: 24px; align-content: start; }
+.lc-lesson-24 .native-lesson-viewer__content .fp-native-letter-page .fp-native-title { width: 112px; min-width: 112px; font: 600 72px/1.2 "Fredoka", sans-serif; color: #167a72; background: #fffdf9; border: 2px solid #167a72; box-shadow: none; }
+.lc-lesson-24 .native-lesson-viewer__content .fp-native-letter-page .fp-native-syllables { display: grid; grid-template-columns: repeat(5, minmax(0, 1fr)); gap: 12px; padding: 12px; background: #fffdf9; border-color: #167a72; }
+.lc-lesson-24 .native-lesson-viewer__content .fp-native-letter-page .fp-native-syllables > span { padding: 8px 0; border-color: #167a72; background: #fffdf9; color: #167a72; font: 400 64px/1.3 "Andika", sans-serif; }
+.lc-lesson-24 .native-lesson-viewer__content .l24-vowel,
+.lc-lesson-24 .native-lesson-viewer__content .fp-native-syllables .l24-vowel { display: inline; min-width: 0; padding: 0; border: 0; border-radius: 0; background: none; box-shadow: none; color: #bf3040; font: inherit; }
+.lc-lesson-24 .fp-native-vocab { gap: 16px; }
+.lc-lesson-24 .native-lesson-viewer__content .fp-native-letter-page .fp-native-vocab > :is(span, button) { display: flex; flex-wrap: wrap; align-items: center; justify-content: center; gap: 8px; min-width: 0; min-height: 72px; padding: 12px; border: 1px solid #167a72; border-radius: 14px; background: #fffdf9; color: #25313a; overflow-wrap: normal; font: 400 30px/1.5 "Andika", sans-serif; }
+.lc-lesson-24 .l24-word-audio { cursor: pointer; }
+.lc-lesson-24 .l24-word-audio[aria-pressed="true"] { outline: 3px solid #167a72; }
+.lc-lesson-24 .l24-audio-error { flex-basis: 100%; font-size: 18px; }
+.lc-lesson-24 .native-lesson-viewer__content .fp-native-letter-page .fp-region--reading-sentences { color: #25313a; background: #fffdf9; border-color: #167a72; font: 400 30px/1.6 "Andika", sans-serif; }
+.lc-lesson-24 .native-lesson-viewer__content .fp-ix-fill--book-grid { grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 24px; }
+.lc-lesson-24 .native-lesson-viewer__content .fp-ix-fill--book-grid .fp-ix-fill__item { gap: 20px; padding: 24px 16px; border: 1px solid #167a72; background: #fffdf9; }
+.lc-lesson-24 .native-lesson-viewer__content :is(.fp-ix-fill__wordbox, .fp-ix-fill__blank) { color: #25313a; font: 400 30px/1.5 "Andika", sans-serif; overflow-wrap: normal; }
+.lc-lesson-24 .native-lesson-viewer__content .fp-ix-fill__choices { gap: 12px; }
+.lc-lesson-24 .native-lesson-viewer__content .fp-ix-fill__choice { min-width: 104px; min-height: 96px; padding: 10px; color: #167a72; border-color: #167a72; font: 400 64px/1.3 "Andika", sans-serif; }
+.lc-lesson-24 .fp-ix-fill > p[role="status"] { grid-column: 1 / -1; font-size: 22px; color: #25313a; }
+.lc-lesson-24 .native-lesson-viewer__content .fp-writing-response { gap: 16px; color: #25313a; font: 400 22px/1.5 "Andika", sans-serif; }
+.lc-lesson-24 .native-lesson-viewer__content .fp-writing-response textarea { min-height: 240px; resize: vertical; color: #25313a; background: repeating-linear-gradient(#fffdf9, #fffdf9 47px, #9fbdb8 48px); font: 400 30px/48px "Andika", sans-serif; }
+.lc-lesson-24 .fp-writing-response button { min-width: 56px; min-height: 56px; font: 500 22px/1.4 "Fredoka", sans-serif; }
+.lc-lesson-24 .fp-writing-response :is(label, p, span) { font-size: 18px; }
+.lc-lesson-24 .native-lesson-viewer__footer { position: static; padding-top: 20px; }
+.lc-lesson-24 .native-lesson-viewer__navigation { flex-wrap: wrap; gap: 12px; }
+.lc-lesson-24 .native-lesson-viewer__navigation > span { font-size: 18px; }
+.lc-lesson-24 .native-lesson-viewer__navigation button { min-height: 64px; min-width: 64px; padding: 12px 18px; border-radius: 16px; background: #fffdf9; color: #167a72; font: 600 22px/1.4 "Fredoka", sans-serif; }
+.lc-lesson-24 .native-lesson-viewer__navigation button[data-testid="button-next"] { background: #bf3040; border-color: #bf3040; color: #fffdf9; }
+.lc-lesson-24 .native-lesson-viewer__navigation button[data-locked="true"] { opacity: 1; border-style: dashed; }
+.lc-lesson-24 .native-lesson-viewer__navigation button:disabled { opacity: 1; color: #52616b; background: #f5f1e8; border-color: #52616b; }
+.lc-lesson-24 .native-lesson-viewer__hint { color: #25313a; background: #fffdf9; font: 400 22px/1.5 "Andika", sans-serif; }
+.lc-lesson-24 :is(button, a, textarea):focus-visible { outline: 3px solid #167a72; outline-offset: 4px; }
+.lc-lesson-24 .l24-scroll-hint { display: none; }
+.lc-lesson-24 .native-lesson-viewer__stage:focus-visible { outline: 3px solid #167a72; outline-offset: 3px; }
+@media (max-width: 991px) {
+  .lc-lesson-24 .native-lesson-viewer__topline { display: grid; grid-template-columns: minmax(0, 1fr); gap: 4px; }
+  .lc-lesson-24 .l24-scroll-hint { display: block; margin: 12px 0; color: #25313a; font: 400 18px/1.5 "Andika", sans-serif; }
+  .lc-lesson-24 .native-lesson-viewer__navigation { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); }
+  .lc-lesson-24 .native-lesson-viewer__navigation > span { grid-column: 1 / -1; grid-row: 1; text-align: center; }
+  .lc-lesson-24 .native-lesson-viewer__navigation button { padding-inline: 8px; font-size: 20px; }
+}
+
+/* Keep the writing hint readable and recognition boundaries visible even
+ * when the shared base stylesheet is emitted after this scoped stylesheet. */
+.lc-lesson-24 .fp-writing-response textarea::placeholder { color: #52616b; opacity: 1; }
+.lc-lesson-24 .native-syllable__words .native-syllable__word { border-color: #167a72 !important; }
+.lc-lesson-24 .native-syllable__word[aria-pressed="true"] { border-color: #2f7d4a !important; }
