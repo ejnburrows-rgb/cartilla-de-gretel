@@ -220,6 +220,7 @@ os.environ.setdefault('LIVING_OUT', OUT)
 from wb_vowels import vocal_o_oso, vocal_o_oveja, vocal_e_elefante, vocal_o_olla, vocal_a_avion, vocal_a_abeja, vocal_a_abanico, vocal_i_iman  # noqa: E402
 # Original main artwork only: source-preserving recipes use measured part masks.
 from redrawn_vocal_a import vocal_a_abanico, vocal_a_abeja  # noqa: E402,F811
+from redrawn_vocal_o import vocal_o_oso, vocal_o_oveja  # noqa: E402,F811
 
 if __name__ == '__main__':
     import os; os.makedirs(OUT, exist_ok=True)
