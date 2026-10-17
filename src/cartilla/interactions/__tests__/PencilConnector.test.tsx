@@ -324,7 +324,9 @@ describe("Pencil connector card pictures — owner-approved living motion", () =
       card("avión").querySelector<HTMLElement>(".living-illustration")?.dataset.ambientMotion,
     ).toBe("glide");
     // Unregistered pictures stay exactly the previous plain still image.
-    expect(card("alas").querySelector(".living-illustration img")?.getAttribute("src")).toContain("alas-alive.svg");
+    expect(
+      card("alas").querySelector(".living-illustration img")?.getAttribute("src"),
+    ).toContain("alas-alive.svg");
     for (const t of [targets[1]]) {
       expect(card(t.label).querySelector(".living-illustration")).toBeNull();
       expect(card(t.label).querySelector("img")?.getAttribute("src")).toBe(t.src);

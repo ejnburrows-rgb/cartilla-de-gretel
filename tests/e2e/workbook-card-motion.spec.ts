@@ -12,10 +12,22 @@ const PAGES: { lesson: number; index: number; page: string; moving: string[] }[]
     lesson: 3,
     index: 1,
     page: "8",
-    moving: ["oso-alive.svg", "alas-alive.svg", "abeja-alive.svg", "aguja-alive.svg", "maiz-alive.svg", "leccion-1/pez.webp"],
+    moving: [
+      "oso-alive.svg",
+      "alas-alive.svg",
+      "abeja-alive.svg",
+      "aguja-alive.svg",
+      "maiz-alive.svg",
+      "leccion-1/pez.webp",
+    ],
   },
   // This verifies source selection. Estrella's SVG deliberately contains no motion.
-  { lesson: 6, index: 1, page: "17", moving: ["oso-alive.svg", "unicornio-alive.svg", "estrella-alive.svg", "iman-alive.svg"] },
+  {
+    lesson: 6,
+    index: 1,
+    page: "17",
+    moving: ["oso-alive.svg", "unicornio-alive.svg", "estrella-alive.svg", "iman-alive.svg"],
+  },
 ];
 
 async function openPage(page: Page, lesson: number, index: number) {
