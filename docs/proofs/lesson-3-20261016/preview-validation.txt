@@ -1,0 +1,8 @@
+Vercel first preview: dpl_31oN7fpQwXRq5AUD3nig67ffLpoV, commit d5d2bd9142d279e529a5d95f79b2236ef5683528.
+Repository-wide result: 3 failed files / 180 passed; 4 failed tests / 1877 passed / 2 expected-fail.
+Repaired in this lane: duplicate status role affecting 2 learner-resume checks; static pencil forwarding-form guard (1 check).
+After repair: learner-resume-isolation.test.tsx (10 tests) + owner-approved-pencil-only.test.ts (3 tests) pass.
+Additional fixture reproduction: production-art-audit.test.ts has 5 passing tests and 1 pre-existing fixture mismatch.
+Combined focused run: 2 files passed / 1 failed; 18 passed / 1 failed. TypeScript passes.
+No diff from f9645c4 in scripts/audit-foreground-art.mjs, docs/production-art-classification-audit.json or public/cartilla/art.
+Existing 56 focused passing tests and the 13 repaired/check tests give 69 relevant passing tests. No full-suite pass is claimed.

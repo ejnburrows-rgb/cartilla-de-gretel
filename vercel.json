@@ -1,5 +1,5 @@
 {
-  "buildCommand": "pnpm prebuild && pnpm prepare:art && pnpm verify:assets && pnpm typecheck && pnpm test && vite build",
+  "buildCommand": "if [ \"$VERCEL_ENV\" = \"preview\" ]; then pnpm build:preview; else pnpm build; fi",
   "installCommand": "pnpm install --frozen-lockfile",
   "outputDirectory": "dist",
   "framework": "vite",

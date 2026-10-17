@@ -1,0 +1,36 @@
+{
+  "url": "https://cartilla-de-gretel-g6twrbg6z-ejn.vercel.app/cartilla/leccion/3",
+  "anonymous": true,
+  "status": 200,
+  "finalUrl": "https://cartilla-de-gretel-g6twrbg6z-ejn.vercel.app/cartilla/leccion/3",
+  "loginRedirect": false,
+  "appHtml": true,
+  "runtimeCommit": "1997d2aacc8801ad2ed10f0f2c29c65914465747",
+  "audio": [
+    {
+      "file": "/audio/lesson-3-tts/muy-bien.mp3",
+      "status": 200,
+      "hashMatches": true
+    },
+    {
+      "file": "/audio/lesson-3-tts/p7-instr.mp3",
+      "status": 200,
+      "hashMatches": true
+    },
+    {
+      "file": "/audio/lesson-3-tts/p8-instr.mp3",
+      "status": 200,
+      "hashMatches": true
+    },
+    {
+      "file": "/audio/lesson-3-tts/p9-instr1.mp3",
+      "status": 200,
+      "hashMatches": true
+    },
+    {
+      "file": "/audio/lesson-3-tts/p9-instr2.mp3",
+      "status": 200,
+      "hashMatches": true
+    }
+  ]
+}

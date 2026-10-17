@@ -1,0 +1,20 @@
+HTTP/1.1 200 OK
+date: Fri, 16 Oct 2026 17:48:58 GMT
+
+HTTP/2 200 
+accept-ranges: bytes
+access-control-allow-origin: *
+age: 21
+cache-control: public, max-age=0, must-revalidate
+content-disposition: inline; filename="index.html"
+content-type: text/html; charset=utf-8
+date: Fri, 16 Oct 2026 17:48:58 GMT
+etag: "ae27e1c5cb160248b250db8fa2f83406"
+last-modified: Fri, 16 Oct 2026 17:48:37 GMT
+server: Vercel
+strict-transport-security: max-age=63072000; includeSubDomains; preload
+x-robots-tag: noindex
+x-vercel-cache: HIT
+x-vercel-id: cle1::92ccc-1792172938713-340972036fab
+content-length: 1435
+

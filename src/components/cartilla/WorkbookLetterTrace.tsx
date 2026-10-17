@@ -355,7 +355,7 @@ export function WorkbookLetterTrace({
                 }}
               >
                 {/* generous invisible hit area — small targets are hard for kids */}
-                <circle cx={activePoint.x} cy={activePoint.y} r="10" fill="transparent" />
+                <circle cx={activePoint.x} cy={activePoint.y} r={lessonId === "3" ? 14 : 10} fill="transparent" />
                 <circle
                   cx={activePoint.x}
                   cy={activePoint.y}
