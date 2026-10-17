@@ -82,12 +82,12 @@
   "vocal-e-elefante": {
     "still": "public/cartilla/art/faithful/vocal-e/elefante.webp",
     "alive": "public/cartilla/art/faithful/vocal-e/elefante-alive.svg",
-    "stillSha256": "f54e533c6a33b901fcfc79da83b2f7a38977defc47662f6cf29ca948d1cfd28a"
+    "stillSha256": "6923d549b79d92bad9beef7a3c104a6efb9b517657a93f75310542a4528e17cf"
   },
   "vocal-i-iman": {
     "still": "public/cartilla/art/faithful/vocal-i/iman.webp",
     "alive": "public/cartilla/art/faithful/vocal-i/iman-alive.svg",
-    "stillSha256": "881055e3411d1b78e68c751ff24472d465f33028aa3c173fb5b3ee830a4fe804"
+    "stillSha256": "0ff9e90bc2832cc860ae5fae11ccf50fb567f6ad96f691429d0fc25b469643d3"
   },
   "vocal-o-oso": {
     "still": "public/cartilla/art/faithful/vocal-o/oso.webp",
