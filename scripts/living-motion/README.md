@@ -89,3 +89,6 @@ live in `redrawn_*.py` with coordinates measured on the new still (shared helper
   `vocal-u/uniforme.webp` stays **still**.
 - Lesson 4 (`redrawn_l4.py`): `vocal-u-unicornio` (the front ear flicks; the eyes are
   drawn closed, so no blink). Also used in Lesson 6.
+- Lesson 9 Flip Chart (`redrawn_fc_l9.py`): `fc_p015_sopa` (a small travelling ripple
+  runs across the broth). Its 813 KB PNG is embedded as a lossless WebP copy (pixels
+  checked identical at build time) to keep the file under 1 MB.

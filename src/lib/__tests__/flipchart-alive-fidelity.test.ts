@@ -26,6 +26,19 @@ describe("Flip Chart moving pictures keep the sheet drawing", () => {
     });
   }
 
+  it("p015-sopa: embeds a same-size lossless WebP copy of the redrawn sheet picture (PNG is too big to embed under 1 MB)", () => {
+    const src = `${FC}/p015-sopa.png`;
+    const actor = getLivingActor(src);
+    expect(actor?.aliveSrc).toBe(`${FC}/p015-sopa-alive.svg`);
+    const still = readFileSync(resolve(ROOT, `public${src}`));
+    const svg = readFileSync(resolve(ROOT, `public${actor!.aliveSrc}`), "utf8");
+    const w = still.readUInt32BE(16);
+    const h = still.readUInt32BE(20);
+    expect(svg).toMatch(new RegExp(`viewBox="0 0 ${w} ${h}"`));
+    expect(svg).toMatch(new RegExp(`<image[^>]*x="0" y="0" width="${w}" height="${h}" href="data:image/webp;base64,`));
+    expect(svg.length).toBeLessThan(1_000_000);
+  });
+
   it("keeps the differently cropped Lámina 3 olla and imán still", () => {
     expect(getLivingActor(`${FC}/p003-olla.png`)).toBeNull();
     expect(getLivingActor(`${FC}/p003-iman.png`)).toBeNull();
