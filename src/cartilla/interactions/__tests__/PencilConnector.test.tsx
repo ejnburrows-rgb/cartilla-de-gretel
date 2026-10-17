@@ -286,3 +286,137 @@ describe("Approved wooden pencil connector — line and pair matching", () => {
     expect(centerBtn.classList.contains("is-active")).toBe(true);
   });
 });
+
+describe("Pencil connector card pictures — owner-approved living motion", () => {
+  // This file mocks useReducedMotion → true, so motion cases pass reducedMotion={false}.
+  beforeEach(() => cleanup());
+
+  it("routes only registered actors through LivingIllustration and keeps other cards as plain stills", () => {
+    const targets = [
+      { id: "0", label: "oso", correct: false, src: "/cartilla/art/faithful/vocal-o/oso.webp" },
+      { id: "1", label: "iglú", correct: false, src: "/cartilla/art/faithful/vocal-i/iglu.webp" },
+      { id: "2", label: "alas", correct: true, src: "/cartilla/art/faithful/vocal-a/alas.webp" },
+      { id: "3", label: "avión", correct: true, src: "/cartilla/art/faithful/leccion-1/pez.webp" },
+    ];
+    const { container } = render(
+      <DirectPencilConnector
+        pageKey="p8-motion"
+        targets={targets}
+        mode="mark"
+        centerLabel="Aa"
+        reducedMotion={false}
+        instruction="Traza una línea."
+      />,
+    );
+    const cards = [...container.querySelectorAll(".am-direct-pencil__card")];
+    expect(cards).toHaveLength(4);
+    const card = (label: string) => {
+      const c = container.querySelector(`button[aria-label="${label}"] .am-direct-pencil__card`);
+      if (!c) throw new Error(`missing card ${label}`);
+      return c;
+    };
+    // oso is a registered actor: its card plays the approved natural-motion SVG.
+    const oso = card("oso").querySelector<HTMLElement>(".living-illustration");
+    expect(oso?.dataset.naturalMotion).toBe("true");
+    expect(oso?.querySelector("img")?.getAttribute("src")).toContain("oso-alive.svg");
+    // The book's airplane may glide as a whole.
+    expect(
+      card("avión").querySelector<HTMLElement>(".living-illustration")?.dataset.ambientMotion,
+    ).toBe("glide");
+    // Unregistered pictures stay exactly the previous plain still image.
+    expect(card("alas").querySelector(".living-illustration img")?.getAttribute("src")).toContain("alas-alive.svg");
+    for (const t of [targets[1]]) {
+      expect(card(t.label).querySelector(".living-illustration")).toBeNull();
+      expect(card(t.label).querySelector("img")?.getAttribute("src")).toBe(t.src);
+    }
+    // Card pictures never expose their own listen button inside the pencil target.
+    expect(container.querySelector(".am-direct-pencil__card [role=button]")).toBeNull();
+  });
+
+  it("animates the Uu page-17 oso and imán through their alive.svg sources", () => {
+    const targets = [
+      {
+        id: "0",
+        label: "traje",
+        correct: false,
+        src: "/cartilla/art/faithful/leccion-1/traje.webp",
+      },
+      { id: "1", label: "oso", correct: false, src: "/cartilla/art/faithful/vocal-o/oso.webp" },
+      { id: "2", label: "imán", correct: false, src: "/cartilla/art/faithful/vocal-i/iman.webp" },
+      { id: "3", label: "uvas", correct: true, src: "/cartilla/art/faithful/vocal-u/uvas.webp" },
+    ];
+    const { container } = render(
+      <DirectPencilConnector
+        pageKey="p17-motion"
+        targets={targets}
+        mode="mark"
+        centerLabel="Uu"
+        reducedMotion={false}
+        instruction="Traza una línea."
+      />,
+    );
+    const living = [
+      ...container.querySelectorAll<HTMLElement>(".am-direct-pencil__card .living-illustration"),
+    ];
+    expect(living.map((w) => w.querySelector("img")?.getAttribute("src"))).toEqual([
+      "/cartilla/art/faithful/vocal-o/oso-alive.svg",
+      "/cartilla/art/faithful/vocal-i/iman-alive.svg",
+    ]);
+    expect(living.every((w) => w.dataset.naturalMotion === "true")).toBe(true);
+  });
+
+  it("keeps the page-3 pair pictures (no approved actor) as the same plain stills", () => {
+    const srcs = [
+      "vocal-o/ocho",
+      "vocal-a/arana",
+      "vocal-i/iglesia",
+      "vocal-e/escoba",
+      "vocal-u/uno",
+    ].map((n) => `/cartilla/art/faithful/${n}.webp`);
+    const targets = srcs.flatMap((src, i) => [
+      { id: `L${i}`, label: `letra ${i}`, role: "left" as const, pairId: `p${i}` },
+      { id: `R${i}`, label: `dibujo ${i}`, src, role: "right" as const, pairId: `p${i}` },
+    ]);
+    const { container } = render(
+      <DirectPencilConnector
+        pageKey="p3-motion"
+        targets={targets}
+        mode="pair"
+        instruction="Traza una línea."
+      />,
+    );
+    expect(container.querySelector(".living-illustration")).toBeNull();
+    expect(
+      [...container.querySelectorAll(".am-direct-pencil__card img")].map((i) =>
+        i.getAttribute("src"),
+      ),
+    ).toEqual(srcs);
+  });
+
+  it("shows the original still art when the connector runs in reduced motion", () => {
+    const targets = [
+      { id: "0", label: "oso", correct: false, src: "/cartilla/art/faithful/vocal-o/oso.webp" },
+      { id: "1", label: "abeja", correct: true, src: "/cartilla/art/faithful/vocal-a/abeja.webp" },
+      { id: "2", label: "avión", correct: true, src: "/cartilla/art/faithful/leccion-1/pez.webp" },
+    ];
+    const { container } = render(
+      <DirectPencilConnector
+        pageKey="p8-reduced"
+        targets={targets}
+        mode="mark"
+        centerLabel="Aa"
+        reducedMotion
+        instruction="Traza una línea."
+      />,
+    );
+    const wrappers = [
+      ...container.querySelectorAll<HTMLElement>(".am-direct-pencil__card .living-illustration"),
+    ];
+    expect(wrappers).toHaveLength(3);
+    for (const [i, w] of wrappers.entries()) {
+      expect(w.dataset.naturalMotion).toBe("false");
+      expect(w.dataset.ambientMotion).toBe("none");
+      expect(w.querySelector("img")?.getAttribute("src")).toBe(targets[i].src);
+    }
+  });
+});
