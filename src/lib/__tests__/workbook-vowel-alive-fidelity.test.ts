@@ -12,7 +12,8 @@ const PICTURES = [
   "vocal-o/oveja",
   "vocal-o/olla",
   "vocal-e/elefante",
-  "vocal-a/avion",
+  // vocal-a/avion: the redrawn jet (PR #888) has no propeller and is painted on its
+  // own blue sky, so nothing can move without moving scenery; it stays still.
   "vocal-a/abeja",
   "vocal-a/abanico",
   "vocal-i/iman",

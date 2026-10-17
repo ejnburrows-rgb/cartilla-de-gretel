@@ -32,7 +32,7 @@ STILLS = {
     # Workbook vowel-review pages (Lessons 2-6); recipes in wb_vowels.py
     'vocal-o-oso': f'{FV}/vocal-o/oso.webp', 'vocal-o-oveja': f'{FV}/vocal-o/oveja.webp',
     'vocal-e-elefante': f'{FV}/vocal-e/elefante.webp', 'vocal-o-olla': f'{FV}/vocal-o/olla.webp',
-    'vocal-a-avion': f'{FV}/vocal-a/avion.webp', 'vocal-a-abeja': f'{FV}/vocal-a/abeja.webp',
+    'vocal-a-abeja': f'{FV}/vocal-a/abeja.webp',
     'vocal-a-abanico': f'{FV}/vocal-a/abanico.webp', 'vocal-i-iman': f'{FV}/vocal-i/iman.webp',
 }
 # Teacher Flip Chart sheet pictures (recipes in fc_natives.py).

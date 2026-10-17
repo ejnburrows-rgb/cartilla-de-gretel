@@ -72,17 +72,12 @@
   "vocal-a-abanico": {
     "still": "public/cartilla/art/faithful/vocal-a/abanico.webp",
     "alive": "public/cartilla/art/faithful/vocal-a/abanico-alive.svg",
-    "stillSha256": "6d3b360695225f2127ed98bc93af554a4b3c947f97d88c9b9ff846c436f89888"
+    "stillSha256": "ec529bb3ec9d9bfc6312f47a35c92c7180d604b4f72bd495b33a59968e6e424c"
   },
   "vocal-a-abeja": {
     "still": "public/cartilla/art/faithful/vocal-a/abeja.webp",
     "alive": "public/cartilla/art/faithful/vocal-a/abeja-alive.svg",
-    "stillSha256": "1f03f92afdf3005ffffccae6aff6cfdd37314ebe016012e8634a102078bca5ef"
-  },
-  "vocal-a-avion": {
-    "still": "public/cartilla/art/faithful/vocal-a/avion.webp",
-    "alive": "public/cartilla/art/faithful/vocal-a/avion-alive.svg",
-    "stillSha256": "db993f2a86aa40a3d9ac8d0d6819e4b98460ca5362de8bb2ba9337a647e82003"
+    "stillSha256": "989ee62ea87c78a5aba91aa10040031d26fa0c9f2c239069c45c3c4e7491cfab"
   },
   "vocal-e-elefante": {
     "still": "public/cartilla/art/faithful/vocal-e/elefante.webp",
