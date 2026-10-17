@@ -17,6 +17,7 @@ import {
   type DragEndEvent,
 } from "@dnd-kit/core";
 import { feelBus } from "@/lib/feel-bus";
+import { Lesson24Syllable } from "./lesson24/Lesson24Reading";
 
 /** Pseudo-random per-cell animation offset so a grid never floats in lockstep. */
 function floatDelay(index: number): string {
@@ -621,6 +622,7 @@ function DraggableFillChoice({
   flagged,
   disabled,
   onClick,
+  lesson24 = false,
 }: {
   itemIdx: number;
   choiceIdx: number;
@@ -630,6 +632,7 @@ function DraggableFillChoice({
   flagged: boolean;
   disabled: boolean;
   onClick: () => void;
+  lesson24?: boolean;
 }) {
   const { attributes, listeners, setNodeRef, transform, isDragging } = useDraggable({
     id: `fill-choice-${itemIdx}-${choiceIdx}`,
@@ -668,7 +671,7 @@ function DraggableFillChoice({
       disabled={disabled || flagged}
       onClick={onClick}
     >
-      {text}
+      {lesson24 ? <Lesson24Syllable text={text} /> : text}
     </button>
   );
 }
@@ -854,6 +857,7 @@ export function InteractiveFillInBlank({
                   return (
                     <DraggableFillChoice
                       key={c}
+                      lesson24={lessonId === "24"}
                       itemIdx={i}
                       choiceIdx={c}
                       text={choice.text}

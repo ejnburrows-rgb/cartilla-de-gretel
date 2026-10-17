@@ -5,6 +5,7 @@ import type { PointerEvent as ReactPointerEvent } from "react";
 import type { PageRegion } from "@/lib/book-faithful";
 import { useActivityEvents, useActivityState } from "@/lib/activity-events";
 import { WorkbookPencilMark } from "@/components/cartilla/WorkbookPencilMark";
+import { Lesson24Syllable } from "@/components/cartilla/lesson24/Lesson24Reading";
 
 export function validSyllableStarts(word: string, syllable: string): number[] {
   const normalize = (value: string) =>
@@ -216,7 +217,7 @@ export function SyllableWordCircle({ region, lessonId }: { region: PageRegion; l
 
   return (
     <section className="native-syllable" aria-label={`Busca ${syllable} en cada palabra`}>
-      <h2>{syllable}</h2>
+      <h2>{lessonId === "24" ? <Lesson24Syllable text={syllable} /> : syllable}</h2>
       <div className="native-syllable__words">
         {words.map((entry, i) => {
           const retrying = pending?.wordIndex === i && pending.correct === false;
