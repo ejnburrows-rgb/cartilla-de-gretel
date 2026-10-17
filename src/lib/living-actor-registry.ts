@@ -157,7 +157,7 @@ export const LIVING_ACTORS: Readonly<Record<string, LivingActor>> = Object.freez
   [`${A}/vocal-a/avion.webp`]: { src: `${A}/vocal-a/avion.webp`, aliveSrc: `${A}/vocal-a/avion-alive.svg`, action: "glide", creature: false, reducedMotion: "static", meaning: "desplazamiento de avión" },
   [`${A}/vocal-a/abanico.webp`]: { src: `${A}/vocal-a/abanico.webp`, aliveSrc: `${A}/vocal-a/abanico-alive.svg`, action: "sway", creature: false, reducedMotion: "static", meaning: "abanico que se mece" },
   [`${A}/vocal-e/elefante.webp`]: { src: `${A}/vocal-e/elefante.webp`, aliveSrc: `${A}/vocal-e/elefante-alive.svg`, action: "nod", creature: true, parts: [{ name: "trunk", clipPath: "inset(20% 55% 18% 2%)", transformOrigin: "38% 45%" }], reducedMotion: "static", meaning: "trompa que se balancea con suavidad" },
-  [`${A}/vocal-i/iman.webp`]: { src: `${A}/vocal-i/iman.webp`, aliveSrc: `${A}/vocal-i/iman-alive.svg`, action: "float", creature: false, reducedMotion: "static", meaning: "clips atraídos por el imán, líneas del campo y chispas" },
+  [`${A}/vocal-i/iman.webp`]: { src: `${A}/vocal-i/iman.webp`, aliveSrc: `${A}/vocal-i/iman-alive.svg`, action: "float", creature: false, reducedMotion: "static", meaning: "solo parpadean las chispas pintadas del imán original" },
   // Lesson 3 remaining pictures, original main artwork. Only parts that are
   // drawn as separate pieces move (owner rule 2026-10-11). Other actors remain unchanged.
   [`${A}/vocal-o/oruga.webp`]: {

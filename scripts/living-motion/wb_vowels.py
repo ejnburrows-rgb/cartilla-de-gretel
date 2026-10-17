@@ -202,39 +202,45 @@ def vocal_a_abanico():
     svg.warp(vx, vy, [0, 0.045, 0, -0.03, 0], '5.2s')
     return svg.render(_out(n))
 
-# ---------- IMAN (vowel i): clips are pulled in, field lines flow, sparks flicker ----------
+# ---------- IMAN (vowel i): only the original painted sparks flicker ----------
 def vocal_i_iman():
-    n = 'vocal-i-iman'; t = Fit(n); base = load(n); size = base.size; svg = OriginalSvg(n, base); k = t.s
-    a = np.array(base).astype(int); r, g, b, al = a[..., 0], a[..., 1], a[..., 2], a[..., 3]
-    dark = (r + g + b) < 230; pink = (r > 170) & (g < 120) & (b > 70)
-    right = soft_mask(size, [('poly', t.poly([(161, 98), (214, 98), (214, 166), (161, 166)]))], 0) > .5
-    bottom = soft_mask(size, [('poly', t.poly([(92, 143), (152, 143), (152, 214), (92, 214)]))], 0) > .5
-    ker = max(3, int(round(3 * k)) | 1)
-    for nm, reg, root, dl in [('r', right, t.p(162, 128), 0), ('b', bottom, t.p(118, 144), .9)]:
-        m = reg & (al > 40) & (dark | pink)
-        lay = a.copy(); lay[..., 3] = np.where(m, al, 0)
-        glow = cv2.GaussianBlur(cv2.dilate(m.astype(np.uint8) * 255, np.ones((ker, ker), np.uint8)).astype(np.float32), (0, 0), 2.2 * k)
-        gl = np.zeros((size[1], size[0], 4), np.uint8); gl[..., 0] = 255; gl[..., 1] = 236; gl[..., 2] = 120; gl[..., 3] = np.clip(glow * 1.6, 0, 255).astype(np.uint8)
-        svg.css.append(f'@keyframes fl{nm}{{0%,100%{{opacity:0}}9%{{opacity:1}}14%{{opacity:.3}}22%{{opacity:1}}30%{{opacity:0}}55%{{opacity:0}}61%{{opacity:.85}}66%{{opacity:.2}}72%{{opacity:0}}}}')
-        svg.css.append(f'@keyframes jt{nm}{{0%,100%{{transform:scale(1)}}9%{{transform:scale(1.1)}}14%{{transform:scale(1.02)}}22%{{transform:scale(1.12)}}30%{{transform:scale(1)}}61%{{transform:scale(1.08)}}72%{{transform:scale(1)}}}}')
-        # Overlays are cropped to their own box (keeps the file light at this scan size).
-        gim, gx, gy = _crop(gl); lim, lx, ly = _crop(lay.astype(np.uint8))
-        svg.over.append(svg.image(gim, gx, gy, cls='ov', extra=f'style="animation:fl{nm} 2.6s linear {dl}s infinite;opacity:0"'))
-        svg.over.append(svg.image(lim, lx, ly, cls='ov', extra=f'style="transform-origin:{root[0]:.1f}px {root[1]:.1f}px;animation:jt{nm} 2.6s linear {dl}s infinite"'))
-    svg.css.append(f'@keyframes flow{{to{{stroke-dashoffset:{-14*k:.1f}}}}}')
-    svg.css.append('@keyframes fieldpulse{0%,100%{opacity:.45}50%{opacity:.85}}')
-    def P(x, y): X, Y = t.p(x, y); return f'{X:.1f} {Y:.1f}'
-    arcs = [f'M {P(172, 104)} C {P(198, 108)} {P(210, 132)} {P(186, 150)}',
-            f'M {P(102, 158)} C {P(108, 186)} {P(132, 198)} {P(148, 174)}',
-            f'M {P(180, 114)} C {P(214, 136)} {P(188, 202)} {P(126, 182)}']
-    for i, d in enumerate(arcs):
-        svg.over.append(f'<path class="ov" d="{d}" fill="none" stroke="#4a6e95" stroke-width="{1.3*k:.1f}" stroke-linecap="round" stroke-dasharray="{3*k:.1f} {4*k:.1f}" style="animation:flow 1.4s linear infinite, fieldpulse 2.8s ease-in-out {i*0.45:.2f}s infinite"/>')
-    clip = (f'<g transform="scale({2.1*k:.2f})"><path d="M -7 -2.6 L 6 -2.6 A 2.6 2.6 0 0 1 6 2.6 L -5 2.6 A 1.8 1.8 0 0 1 -5 -1 L 4.2 -1" fill="none" stroke="#4f5964" stroke-width="1.6" stroke-linecap="round"/>'
-            '<path d="M -7 -2.6 L 6 -2.6 A 2.6 2.6 0 0 1 6 2.6" fill="none" stroke="#e8edf2" stroke-width=".55" stroke-linecap="round"/></g>')
-    pulls = [((206, 150), (158, 101), 32, 0.0), ((196, 120), (160, 92), -18, 1.7), ((140, 202), (109, 140), 64, 0.85)]
-    for i, ((x0, y0), (x1, y1), rot, dl) in enumerate(pulls):
-        (X0, Y0), (X1, Y1) = t.p(x0, y0), t.p(x1, y1)
-        q = (X0 + (X1 - X0) * .25, Y0 + (Y1 - Y0) * .25); bump = 1.2 * k
-        svg.css.append(f'@keyframes pull{i}{{0%{{transform:translate({X0:.1f}px,{Y0:.1f}px) rotate({rot+25}deg);opacity:0}}8%{{opacity:1}}34%{{transform:translate({q[0]:.1f}px,{q[1]:.1f}px) rotate({rot+15}deg)}}48%{{transform:translate({X1:.1f}px,{Y1:.1f}px) rotate({rot}deg)}}51%{{transform:translate({X1-bump:.1f}px,{Y1-bump:.1f}px) rotate({rot}deg)}}54%,86%{{transform:translate({X1:.1f}px,{Y1:.1f}px) rotate({rot}deg);opacity:1}}100%{{transform:translate({X1:.1f}px,{Y1:.1f}px) rotate({rot}deg);opacity:0}}}}')
-        svg.over.append(f'<g class="ov" style="opacity:0;animation:pull{i} 3.4s cubic-bezier(.55,0,.9,.6) {dl}s infinite">{clip}</g>')
-    return svg.render(_out(n))
+    # Original source bytes stay embedded; masks select existing painted pixels
+    # only. No paperclips, field lines, glow, duplicate outlines or transforms.
+    import io
+    n = 'vocal-i-iman'
+    source = open(os.path.join(ROOT, STILLS[n]), 'rb').read()
+    base = Image.open(io.BytesIO(source)).convert('RGBA')
+    width, height = base.size
+    pixels = np.array(base).astype(int)
+    r, g, b, alpha = [pixels[..., i] for i in range(4)]
+    yy, xx = np.indices((height, width))
+    # Measured source regions outside the magnet's yellow circular plate.
+    right = (xx >= 644) & (xx < 854) & (yy >= 394) & (yy < 663)
+    bottom = (xx >= 373) & (xx < 609) & (yy >= 571)
+    dark = (r + g + b) < 230
+    pink = (r > 170) & (g < 120) & (b > 70)
+    purple = (b > r * 1.15) & (g < 120) & (r < 140)
+    sparks = (alpha > 40) & ((right & (dark | pink)) | (bottom & purple))
+    mask = Image.fromarray(np.where(sparks, 255, 0).astype(np.uint8))
+    encoded = io.BytesIO()
+    mask.save(encoded, format='PNG')
+    mask_uri = 'data:image/png;base64,' + base64.b64encode(encoded.getvalue()).decode()
+    uri = 'data:image/webp;base64,' + base64.b64encode(source).decode()
+    size = f'x="0" y="0" width="{width}" height="{height}"'
+    svg = f'''<svg xmlns="http://www.w3.org/2000/svg" width="{width}" height="{height}" viewBox="0 0 {width} {height}">
+<style>
+@keyframes original-sparks {{0%,100%{{opacity:1}}35%{{opacity:.6}}50%{{opacity:.9}}65%{{opacity:.7}}}}
+.sparks{{animation:original-sparks 2.6s ease-in-out infinite}}
+.reduced{{display:none}}
+@media(prefers-reduced-motion:reduce){{.source,.sparks{{display:none;animation:none}}.reduced{{display:inline}}}}
+</style>
+<defs>
+<mask id="spark-pixels" maskUnits="userSpaceOnUse" {size}><image {size} href="{mask_uri}"/></mask>
+<mask id="still-pixels" maskUnits="userSpaceOnUse" {size}><rect {size} fill="white"/><image {size} href="{mask_uri}" style="filter:invert(1)"/></mask>
+</defs>
+<image class="source" {size} href="{uri}" mask="url(#still-pixels)"/>
+<image class="sparks" {size} href="{uri}" mask="url(#spark-pixels)"/>
+<image class="reduced" {size} href="{uri}"/>
+</svg>'''
+    open(_out(n), 'w').write(svg)
+    return len(svg)

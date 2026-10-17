@@ -55,7 +55,7 @@ the same approved part motion, rebuilt for these scans in `wb_vowels.py`:
 | vocal-a-avion | vocal-a/avion.webp | propeller spins, air streaks (no whole-plane glide: this scan has its own sky and sun) |
 | vocal-a-abeja | vocal-a/abeja.webp | wings flutter |
 | vocal-a-abanico | vocal-a/abanico.webp | the fan opens and closes slightly |
-| vocal-i-iman | vocal-i/iman.webp | paper clips pulled to the poles, field lines flow, sparks |
+| vocal-i-iman | vocal-i/iman.webp | only the original painted sparks flicker; no added clips, lines or glow |
 
 Each Page 1 coordinate is carried over with a measured similarity transform
 (`FITS` in `wb_vowels.py`: SIFT feature match + RANSAC, Page 1 still → vowel still).
