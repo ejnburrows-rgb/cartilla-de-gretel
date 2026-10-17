@@ -48,6 +48,7 @@ STILLS.update({
     'fc_p007_iman': f'{FC_NATIVE}/p007-iman.png',
     # redrawn sheet pictures (picture PR #888); recipes in redrawn_fc.py
     'fc_p015_sopa': f'{FC_NATIVE}/p015-sopa.png',
+    'fc_p024_lala': f'{FC_NATIVE}/p024-lala.png',
 })
 
 def still_png(path):

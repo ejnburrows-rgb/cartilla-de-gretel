@@ -92,3 +92,5 @@ live in `redrawn_*.py` with coordinates measured on the new still (shared helper
 - Lesson 9 Flip Chart (`redrawn_fc_l9.py`): `fc_p015_sopa` (a small travelling ripple
   runs across the broth). Its 813 KB PNG is embedded as a lossless WebP copy (pixels
   checked identical at build time) to keep the file under 1 MB.
+- Lesson 12 Flip Chart (`redrawn_fc_l12.py`): `fc_p024_lala` (Lala blinks with green
+  lids and the tail tip flicks). PNG embedded byte-for-byte.
