@@ -110,6 +110,14 @@ export const LIVING_ACTORS: Readonly<Record<string, LivingActor>> = Object.freez
     reducedMotion: "static",
     meaning: "Lala parpadea y mueve la punta de la cola",
   },
+  [`${FC_NATIVE}/p008-unicornio.png`]: {
+    src: `${FC_NATIVE}/p008-unicornio.png`,
+    aliveSrc: `${FC_NATIVE}/p008-unicornio-alive.svg`,
+    action: "nod",
+    creature: true,
+    reducedMotion: "static",
+    meaning: "el unicornio parpadea y su crín-mecha baja se mece",
+  },
   // Workbook Page 1 (owner color art / printed drawings): same meaning as the
   // faithful actors, whole-picture motion only (part rigs belong to other crops).
   [`${W1}/oso.svg`]: {
