@@ -153,6 +153,8 @@ export const LIVING_ACTORS: Readonly<Record<string, LivingActor>> = Object.freez
   [`${A}/vocal-e/estrella.webp`]: { src: `${A}/vocal-e/estrella.webp`, aliveSrc: `${A}/vocal-e/estrella-alive.svg`, action: "float", creature: false, reducedMotion: "static", meaning: "las cinco puntas brillan una tras otra" },
   [`${A}/vocal-a/aguja.webp`]: { src: `${A}/vocal-a/aguja.webp`, aliveSrc: `${A}/vocal-a/aguja-alive.svg`, action: "sway", creature: false, reducedMotion: "static", meaning: "la punta de la aguja se mueve un poco" },
   [`${A}/leccion-1/maiz.webp`]: { src: `${A}/leccion-1/maiz.webp`, aliveSrc: `${A}/leccion-1/maiz-alive.svg`, action: "sway", creature: false, reducedMotion: "static", meaning: "una hoja del maíz se dobla" },
+  // Lesson 1 redrawn pictures (picture PR #888). uniforme stays still: stiff flat shapes, no loose edge.
+  [`${A}/vocal-e/escoba.webp`]: { src: `${A}/vocal-e/escoba.webp`, aliveSrc: `${A}/vocal-e/escoba-alive.svg`, action: "sway", creature: false, reducedMotion: "static", meaning: "las cerdas de la escoba se mecen" },
   // Held still (owner rule 2026-10-11: only the parts that really move may move;
   // whole pictures never bob, tilt, breathe or slide). Their old whole-picture
   // motion moved the drawn ground/background too: araña, erizo, iguana, insecto,
@@ -165,7 +167,9 @@ export const LIVING_ACTORS: Readonly<Record<string, LivingActor>> = Object.freez
   // book-transcription notes "picture-identity"); the file name is historical.
   // A flying airplane is the one thing that may travel gently as a whole.
   [`${A}/leccion-1/pez.webp`]: { src: `${A}/leccion-1/pez.webp`, action: "glide", creature: false, reducedMotion: "static", meaning: "avión que vuela" },
-  [`${A}/leccion-1/carro.webp`]: { src: `${A}/leccion-1/carro.webp`, action: "roll", creature: false, reducedMotion: "static", meaning: "rodar corto" },
+  // carro: redrawn car (picture PR #888). Its old CSS rolled the whole drawing; now only
+  // the painted wheel dots turn, in the wheel's own plane. The car body stays still.
+  [`${A}/leccion-1/carro.webp`]: { src: `${A}/leccion-1/carro.webp`, aliveSrc: `${A}/leccion-1/carro-alive.svg`, action: "roll", creature: false, reducedMotion: "static", meaning: "las ruedas giran; el carro queda quieto" },
   [`${A}/leccion-1/globo.webp`]: { src: `${A}/leccion-1/globo.webp`, action: "float", creature: false, reducedMotion: "static", meaning: "flotación de globo" },
 
   [`${A}/leccion-17-r/rueda.webp`]: { src: `${A}/leccion-17-r/rueda.webp`, action: "spin", creature: false, reducedMotion: "static", meaning: "giro de rueda" },

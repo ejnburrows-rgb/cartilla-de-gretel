@@ -140,6 +140,8 @@ describe("LivingIllustration faithful recovered art", () => {
       ["/cartilla/art/faithful/vocal-e/estrella.webp", "estrella-alive.svg"],
       ["/cartilla/art/faithful/vocal-a/aguja.webp", "aguja-alive.svg"],
       ["/cartilla/art/faithful/leccion-1/maiz.webp", "maiz-alive.svg"],
+      ["/cartilla/art/faithful/leccion-1/carro.webp", "carro-alive.svg"],
+      ["/cartilla/art/faithful/vocal-e/escoba.webp", "escoba-alive.svg"],
     ]) {
       const { container, unmount } = render(
         <div className="fp-ix-cell">
@@ -169,6 +171,7 @@ describe("LivingIllustration faithful recovered art", () => {
       "/cartilla/art/faithful/vocal-a/arbol.webp",
       "/cartilla/art/faithful/vocal-u/uno.webp",
       "/cartilla/art/faithful/vocal-i/iglu.webp",
+      "/cartilla/art/faithful/vocal-u/uniforme.webp",
     ]) {
       const { container, unmount } = render(
         <div className="fp-ix-cell">
