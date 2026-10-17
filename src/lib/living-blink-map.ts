@@ -4,7 +4,9 @@
  * back to its CSS eyelid animation when no clean authored frame exists.
  */
 export const TRUE_BLINK_FRAMES: Readonly<Record<string, string>> = {
-  "/cartilla/art/faithful/vocal-o/oso.webp": "/cartilla/art/faithful/vocal-o/oso-blink.webp",
+  // vocal-o/oso-blink.webp was made from the OLD bear. The bear was redrawn
+  // (picture PR #888), so swapping to it would flash old art. The new bear blinks
+  // inside vocal-o/oso-alive.svg instead.
 };
 
 export function resolveTrueBlinkFrame(openSrc: string): string | undefined {

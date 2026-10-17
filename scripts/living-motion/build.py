@@ -31,7 +31,7 @@ STILLS = {
     'p009-scene': f'{FC_NATIVE}/p009-scene.png',
     # Workbook vowel-review pages (Lessons 2-6); recipes in wb_vowels.py
     'vocal-o-oso': f'{FV}/vocal-o/oso.webp', 'vocal-o-oveja': f'{FV}/vocal-o/oveja.webp',
-    'vocal-e-elefante': f'{FV}/vocal-e/elefante.webp', 'vocal-o-olla': f'{FV}/vocal-o/olla.webp',
+    'vocal-e-elefante': f'{FV}/vocal-e/elefante.webp',
     'vocal-a-abeja': f'{FV}/vocal-a/abeja.webp',
     'vocal-a-abanico': f'{FV}/vocal-a/abanico.webp', 'vocal-i-iman': f'{FV}/vocal-i/iman.webp',
 }

@@ -32,7 +32,7 @@ describe("living art runtime", () => {
     expect(img.classList.contains("living-runtime-art--reacting")).toBe(true);
   });
 
-  it("uses the real authored blink frame for mapped animals", () => {
+  it("never swaps the redrawn bear to the old-art blink frame", () => {
     vi.useFakeTimers();
     const img = document.createElement("img");
     img.src = "/cartilla/art/faithful/vocal-o/oso.webp";
@@ -40,14 +40,10 @@ describe("living art runtime", () => {
 
     enhanceLivingArtImage(img);
 
-    expect(img.dataset.trueBlinkFrame).toBe(
-      "/cartilla/art/faithful/vocal-o/oso-blink.webp",
-    );
+    expect(img.dataset.trueBlinkFrame).toBeUndefined();
 
     vi.advanceTimersToNextTimer();
-    expect(img.src).toContain("oso-blink.webp");
-
-    vi.advanceTimersToNextTimer();
+    expect(img.src).not.toContain("oso-blink.webp");
     expect(img.src).toContain("oso.webp");
   });
 
@@ -59,7 +55,7 @@ describe("living art runtime", () => {
     document.body.appendChild(img);
 
     enhanceLivingArtImage(img);
-    expect(img.dataset.trueBlinkFrame).toContain("oso-blink.webp");
+    expect(img.dataset.trueBlinkFrame).toBeUndefined();
 
     img.src = "/cartilla/art/faithful/leccion-7-m/mono.webp";
     enhanceLivingArtImage(img);

@@ -46,10 +46,11 @@ describe("LivingIllustration faithful recovered art", () => {
     }
   });
 
-  it("uses a true closed-eye frame when one exists", () => {
+  it("never swaps the redrawn bear to the old-art blink frame (it blinks inside its rig)", () => {
     render(<LivingIllustration src="/cartilla/art/faithful/vocal-o/oso.webp" alt="oso" />);
-    const wrapper = screen.getByRole("img", { name: "oso" }).parentElement;
-    expect(wrapper?.getAttribute("data-blink-mode")).toBe("frame");
+    const img = screen.getByRole("img", { name: "oso" });
+    expect(img.parentElement?.getAttribute("data-blink-mode")).not.toBe("frame");
+    expect(img.getAttribute("src")).toContain("vocal-o/oso-alive.svg");
   });
 
   it("keeps an explicitly approved source animated and tap-reactive", () => {
@@ -130,7 +131,6 @@ describe("LivingIllustration faithful recovered art", () => {
     for (const [src, alive] of [
       ["/cartilla/art/faithful/vocal-o/oso.webp", "oso-alive.svg"],
       ["/cartilla/art/faithful/vocal-o/oveja.webp", "oveja-alive.svg"],
-      ["/cartilla/art/faithful/vocal-o/olla.webp", "olla-alive.svg"],
       ["/cartilla/art/faithful/vocal-e/elefante.webp", "elefante-alive.svg"],
       ["/cartilla/art/faithful/vocal-a/abeja.webp", "abeja-alive.svg"],
       ["/cartilla/art/faithful/vocal-a/abanico.webp", "abanico-alive.svg"],
@@ -156,19 +156,19 @@ describe("LivingIllustration faithful recovered art", () => {
     }
   });
 
-  it("keeps the redrawn vowel-a jet still (no propeller; its sky must not move)", () => {
-    const { container, unmount } = render(
-      <div className="fp-ix-cell">
-        <LivingIllustration src="/cartilla/art/faithful/vocal-a/avion.webp" alt="avión" />
-      </div>,
-    );
-    const wrapper = container.querySelector(".living-illustration");
-    expect(wrapper?.getAttribute("data-ambient-motion")).toBe("none");
-    expect(wrapper?.getAttribute("data-natural-motion")).not.toBe("true");
-    expect(container.querySelector("img.living-illustration__art")?.getAttribute("src")).toContain(
-      "vocal-a/avion.webp",
-    );
-    unmount();
+  it("keeps the redrawn jet and pot still (no propeller to spin, no steam drawn)", () => {
+    for (const src of ["/cartilla/art/faithful/vocal-a/avion.webp", "/cartilla/art/faithful/vocal-o/olla.webp"]) {
+      const { container, unmount } = render(
+        <div className="fp-ix-cell">
+          <LivingIllustration src={src} alt={src} />
+        </div>,
+      );
+      const wrapper = container.querySelector(".living-illustration");
+      expect(wrapper?.getAttribute("data-ambient-motion"), src).toBe("none");
+      expect(wrapper?.getAttribute("data-natural-motion"), src).not.toBe("true");
+      expect(container.querySelector("img.living-illustration__art")?.getAttribute("src"), src).toBe(src);
+      unmount();
+    }
   });
 
   it("preserves the approved source but suppresses motion when reduced motion is requested", async () => {
