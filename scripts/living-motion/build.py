@@ -34,6 +34,10 @@ STILLS = {
     'vocal-e-elefante': f'{FV}/vocal-e/elefante.webp',
     'vocal-a-abeja': f'{FV}/vocal-a/abeja.webp',
     'vocal-a-abanico': f'{FV}/vocal-a/abanico.webp', 'vocal-i-iman': f'{FV}/vocal-i/iman.webp',
+    'vocal-o-oruga': f'{FV}/vocal-o/oruga.webp', 'vocal-a-ardilla': f'{FV}/vocal-a/ardilla.webp',
+    'vocal-a-alas': f'{FV}/vocal-a/alas.webp', 'vocal-e-estrella': f'{FV}/vocal-e/estrella.webp',
+    'vocal-a-aguja': f'{FV}/vocal-a/aguja.webp', 'leccion-1-ojos': f'{FV}/leccion-1/ojos.webp',
+    'leccion-1-maiz': f'{FV}/leccion-1/maiz.webp',
 }
 # Teacher Flip Chart sheet pictures (recipes in fc_natives.py).
 STILLS.update({
