@@ -10,8 +10,8 @@ try {
     "pdfjs-dist/build/pdf.worker.min.mjs",
     import.meta.url,
   ).toString();
-} catch (error) {
-  console.error("Worker registration error", error);
+} catch (_error) {
+  // Ignore worker registration errors
 }
 
 type OfficialWorkbookPageProps = {
