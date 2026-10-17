@@ -188,6 +188,13 @@ function assignmentLessonId(assignment: InsightAssignment): string | null {
   return assignment.lessonId ?? assignment.lesson_id ?? null;
 }
 
+function parseLocalDateString(dateStr: string): Date {
+  if (/^[0-9]{4}-[0-9]{2}-[0-9]{2}$/.test(dateStr)) {
+    return new Date(dateStr + "T00:00:00");
+  }
+  return new Date(dateStr);
+}
+
 function assignmentDueAt(assignment: InsightAssignment): string | null {
   return assignment.dueAt ?? assignment.due_at ?? null;
 }
@@ -300,9 +307,9 @@ export function buildStudentLearningInsight(
     let overdue = false;
     if (dueAt) {
       // dueAt was saved by parsing the chosen date as local midnight (i.e. dueAt + "T00:00:00").
-      // Since new Date(dueAt).getTime() already points to the precise local midnight when it was created,
+      // Since parseLocalDateString(dueAt).getTime() already points to the precise local midnight when it was created,
       // the end of that local day is exactly 24 hours (minus 1 ms) later.
-      const localMidnightTime = new Date(dueAt).getTime();
+      const localMidnightTime = parseLocalDateString(dueAt).getTime();
       const localEndTime = localMidnightTime + 24 * 60 * 60 * 1000 - 1;
       overdue = localEndTime < now;
     }
@@ -316,7 +323,7 @@ export function buildStudentLearningInsight(
       exactSkill: skillDisplay(skill),
       reason: overdue ? "Lección asignada vencida y sin terminar" : "Lección asignada iniciada y sin terminar",
       supportingData: overdue
-        ? `Fecha límite: ${new Date(dueAt as string).toLocaleDateString("es")}. La lección no figura como completada.`
+        ? `Fecha límite: ${parseLocalDateString(dueAt as string).toLocaleDateString("es")}. La lección no figura como completada.`
         : `${counted(lessonEvents.length, "registro", "registros")} de actividad; la lección no figura como completada.`,
       activity: activityForLesson(lessonEvents),
     });
