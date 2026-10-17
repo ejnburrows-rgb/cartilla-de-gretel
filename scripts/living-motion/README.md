@@ -53,7 +53,7 @@ the same approved part motion, rebuilt for these scans in `wb_vowels.py`:
 | vocal-e-elefante | vocal-e/elefante.webp | trunk swings, ears flap, both eyes blink |
 | vocal-a-abeja | vocal-a/abeja.webp | wings flutter |
 | vocal-a-abanico | vocal-a/abanico.webp | the fan opens and closes slightly |
-| vocal-i-iman | vocal-i/iman.webp | paper clips pulled to the poles, field lines flow, sparks |
+| vocal-i-iman | vocal-i/iman.webp | redrawn: the painted sparks flicker (no clips in the new art) |
 
 Each Page 1 coordinate is carried over with a measured similarity transform
 (`FITS` in `wb_vowels.py`: SIFT feature match + RANSAC, Page 1 still → vowel still).
@@ -72,6 +72,8 @@ live in `redrawn_*.py` with coordinates measured on the new still (shared helper
 - `vocal-a-abanico`, `vocal-a-abeja`: rebuilt in `redrawn_vocal_a.py`.
 - `vocal-o-oso`, `vocal-o-oveja`: rebuilt in `redrawn_vocal_o.py` (the old-bear
   `oso-blink.webp` swap is unlinked; the new bear blinks inside its rig).
+- `vocal-e-elefante`, `vocal-i-iman`: rebuilt in `redrawn_vocal_e_i.py`. The new imán
+  has no paper clips or field lines, so only its painted sparks flicker.
 - `vocal-o/olla.webp` stays **still**: the new pot has no steam drawn.
 - `vocal-a/avion.webp` stays **still**: the new jet has no propeller and is painted
   on its own blue sky, so no part can move on its own.
