@@ -218,7 +218,9 @@ export function SyllableWordCircle({ region, lessonId }: { region: PageRegion; l
   return (
     <section className="native-syllable" aria-label={`Busca ${syllable} en cada palabra`}>
       <h2>{lessonId === "24" ? <Lesson24Syllable text={syllable} /> : syllable}</h2>
-      <div className="native-syllable__words">
+      <div className="native-syllable__words" style={lessonId === "24" ? {
+        gridTemplateColumns: `repeat(${region.matchRows?.[0]?.length || 3}, minmax(0, 1fr))`,
+      } : undefined}>
         {words.map((entry, i) => {
           const retrying = pending?.wordIndex === i && pending.correct === false;
           return (

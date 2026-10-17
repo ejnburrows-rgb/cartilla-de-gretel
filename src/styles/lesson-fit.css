@@ -305,7 +305,7 @@
 .lc-lesson-24 .native-lesson-viewer__chapter { color: #25313a; font: 600 24px/1.4 "Fredoka", sans-serif; }
 .lc-lesson-24 .native-lesson-viewer__stage { overflow-x: auto; padding: 8px 0; touch-action: pan-x pan-y pinch-zoom; }
 .lc-lesson-24 .native-lesson-viewer__leaf { min-width: 960px; }
-.lc-lesson-24 .native-lesson-viewer__content .faithful-page { height: auto; min-height: 720px; background: #fffdf9; }
+.lc-lesson-24 .native-lesson-viewer__content .faithful-page { width: 100%; max-width: none; aspect-ratio: auto; height: auto; min-height: 720px; background: #fffdf9; }
 .lc-lesson-24 .final-page-background { display: none; }
 .lc-lesson-24 .native-lesson-viewer__content .faithful-page__body,
 .lc-lesson-24 .native-lesson-viewer__content .faithful-page--edge-right .faithful-page__body { position: relative; inset: auto; display: flex; flex-direction: column; overflow: visible; gap: 28px; padding: 40px 7% 96px; }
@@ -323,16 +323,17 @@
 .lc-lesson-24 .native-syllable__word[aria-pressed="true"]::after,
 .lc-lesson-24 .fp-ix-fill__choice.graded-correct::after { content: "★"; color: #f2b632; margin-left: 8px; }
 .lc-lesson-24 .native-lesson-viewer__content .fp-native-letter-page .faithful-page__body { display: grid; grid-template-columns: 112px minmax(0, 1fr); gap: 24px; align-content: start; }
-.lc-lesson-24 .fp-native-letter-page .fp-native-title { width: 112px; min-width: 112px; font: 600 72px/1.2 "Fredoka", sans-serif; color: #167a72; }
+.lc-lesson-24 .fp-native-letter-page .fp-native-title { width: 112px; min-width: 112px; font: 600 72px/1.2 "Fredoka", sans-serif; color: #167a72; background: #fffdf9; border: 2px solid #167a72; box-shadow: none; }
 .lc-lesson-24 .fp-native-letter-page .fp-native-syllables { display: grid; grid-template-columns: repeat(5, minmax(0, 1fr)); gap: 12px; padding: 12px; background: #fffdf9; border-color: #167a72; }
-.lc-lesson-24 .fp-native-letter-page .fp-native-syllables > span { padding: 8px 0; border-color: #167a72; color: #167a72; font: 400 64px/1.3 "Andika", sans-serif; }
-.lc-lesson-24 .native-lesson-viewer__content .l24-vowel { display: inline; min-width: 0; padding: 0; border: 0; border-radius: 0; background: none; box-shadow: none; color: #bf3040; font: inherit; }
+.lc-lesson-24 .fp-native-letter-page .fp-native-syllables > span { padding: 8px 0; border-color: #167a72; background: #fffdf9; color: #167a72; font: 400 64px/1.3 "Andika", sans-serif; }
+.lc-lesson-24 .native-lesson-viewer__content .l24-vowel,
+.lc-lesson-24 .native-lesson-viewer__content .fp-native-syllables .l24-vowel { display: inline; min-width: 0; padding: 0; border: 0; border-radius: 0; background: none; box-shadow: none; color: #bf3040; font: inherit; }
 .lc-lesson-24 .fp-native-vocab { gap: 16px; }
 .lc-lesson-24 .fp-native-letter-page .fp-native-vocab > :is(span, button) { display: flex; flex-wrap: wrap; align-items: center; justify-content: center; gap: 8px; min-width: 0; min-height: 72px; padding: 12px; border: 1px solid #167a72; border-radius: 14px; background: #fffdf9; color: #25313a; overflow-wrap: normal; font: 400 30px/1.5 "Andika", sans-serif; }
 .lc-lesson-24 .l24-word-audio { cursor: pointer; }
 .lc-lesson-24 .l24-word-audio[aria-pressed="true"] { outline: 3px solid #167a72; }
 .lc-lesson-24 .l24-audio-error { flex-basis: 100%; font-size: 18px; }
-.lc-lesson-24 .native-lesson-viewer__content .fp-region--reading-sentences { color: #25313a; background: #fffdf9; font: 400 30px/1.6 "Andika", sans-serif; }
+.lc-lesson-24 .native-lesson-viewer__content .fp-region--reading-sentences { color: #25313a; background: #fffdf9; border-color: #167a72; font: 400 30px/1.6 "Andika", sans-serif; }
 .lc-lesson-24 .native-lesson-viewer__content .fp-ix-fill--book-grid { grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 24px; }
 .lc-lesson-24 .native-lesson-viewer__content .fp-ix-fill--book-grid .fp-ix-fill__item { gap: 20px; padding: 24px 16px; border: 1px solid #167a72; background: #fffdf9; }
 .lc-lesson-24 .native-lesson-viewer__content :is(.fp-ix-fill__wordbox, .fp-ix-fill__blank) { color: #25313a; font: 400 30px/1.5 "Andika", sans-serif; overflow-wrap: normal; }
@@ -352,3 +353,12 @@
 .lc-lesson-24 .native-lesson-viewer__navigation button:disabled { opacity: 1; color: #52616b; background: #f5f1e8; border-color: #52616b; }
 .lc-lesson-24 .native-lesson-viewer__hint { color: #25313a; background: #fffdf9; font: 400 22px/1.5 "Andika", sans-serif; }
 .lc-lesson-24 :is(button, a, textarea):focus-visible { outline: 3px solid #167a72; outline-offset: 4px; }
+.lc-lesson-24 .l24-scroll-hint { display: none; }
+.lc-lesson-24 .native-lesson-viewer__stage:focus-visible { outline: 3px solid #167a72; outline-offset: 3px; }
+@media (max-width: 991px) {
+  .lc-lesson-24 .native-lesson-viewer__topline { display: grid; grid-template-columns: minmax(0, 1fr); gap: 4px; }
+  .lc-lesson-24 .l24-scroll-hint { display: block; margin: 12px 0; color: #25313a; font: 400 18px/1.5 "Andika", sans-serif; }
+  .lc-lesson-24 .native-lesson-viewer__navigation { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); }
+  .lc-lesson-24 .native-lesson-viewer__navigation > span { grid-column: 1 / -1; grid-row: 1; text-align: center; }
+  .lc-lesson-24 .native-lesson-viewer__navigation button { padding-inline: 8px; font-size: 20px; }
+}

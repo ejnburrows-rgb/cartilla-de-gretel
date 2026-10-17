@@ -337,6 +337,9 @@ export function NativeLessonViewer({
     const handleKeyDown = (e: KeyboardEvent) => {
       if (e.defaultPrevented) return;
       const target = e.target as HTMLElement | null;
+      // Lesson 24 preserves source columns in a horizontal scroll region.
+      // Arrow keys on that region must scroll it rather than turn the page.
+      if (lessonNumber === 24 && target?.classList.contains("native-lesson-viewer__stage")) return;
       if (
         target &&
         (target.tagName === "INPUT" ||
@@ -355,7 +358,7 @@ export function NativeLessonViewer({
     };
     window.addEventListener("keydown", handleKeyDown);
     return () => window.removeEventListener("keydown", handleKeyDown);
-  }, [forward, turnPrev]);
+  }, [forward, turnPrev, lessonNumber]);
 
   // Drag physics on corner hotspots
   const handlePointerDown = (direction: "next" | "prev", e: React.PointerEvent) => {
@@ -547,7 +550,14 @@ export function NativeLessonViewer({
         </span>
       </div>
 
-      <div className="native-lesson-viewer__stage">
+      {lessonNumber === 24 && (
+        <p className="l24-scroll-hint">Desliza la página de lado a lado para ver todas las columnas.</p>
+      )}
+      <div className="native-lesson-viewer__stage"
+        tabIndex={lessonNumber === 24 ? 0 : undefined}
+        role={lessonNumber === 24 ? "region" : undefined}
+        aria-label={lessonNumber === 24 ? "Página del libro. Desplazamiento horizontal para ver todas las columnas" : undefined}
+      >
         {/* Destination page rendered underneath during turn */}
         {turning && underPage && (
           <div className="native-lesson-viewer__underneath" aria-hidden="true">
