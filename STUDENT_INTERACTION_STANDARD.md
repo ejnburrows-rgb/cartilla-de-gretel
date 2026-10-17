@@ -224,6 +224,14 @@ Activity families are adapters over this kernel:
 
 An activity issue must not invent a second pencil, eraser, success color, retry animation, timing system, Gretel feedback path, or persistence model. Fix shared behavior at the kernel owner, then let adapters consume it.
 
+### 9. Answer marking — Ash pencil start, green/red resolve (owner decision 2026-10-17)
+
+**Supersedes the "no gray waiting period" in §2.** Every answer mark starts in ash pencil (gray). On evaluation:
+- **Correct:** the mark slowly turns green, accompanied by Gretel's voice.
+- **Wrong:** the mark turns red, then erases (Pencil Retry, §1), and Gretel encourages another try ("Inténtalo otra vez.").
+
+Applies to "Marca con una X" (Mark with an X) exercises and every lesson of that answer-marking type across the book. Voice: only the owner's own recordings — no generated/AI voice, no exceptions.
+
 ### Reference implementation and freeze rule
 
 The p1/p2 work is the reference implementation for the shared kernel. Once its shared API/behavior is verified, later activity-family work should treat that contract as stable and add only the gesture/layout adapter needed for that source activity unless a proven kernel defect requires a central fix.
