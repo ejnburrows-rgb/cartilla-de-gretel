@@ -1,32 +1,32 @@
-# Lesson 24 check — 2026-10-17
+# Lesson 24 — current check
 
-Checked application commit: `474495d3cdfaed16dd09986d89bd4a8797cba2a5` on draft PR #884. This evidence commit changes documentation/media only.
+Final application commit: `8a87f7560311690cb8e6cd8de7040e8e91fd90ce`. Preview: https://cartilla-lesson24-pr884-preview.onrender.com/cartilla/leccion/24 . Render service is explicitly free, auto-deploy off; no production alias/promotion or main merge.
 
-Actual runtime: local Vite worker at `http://127.0.0.1:5173/cartilla/leccion/24`, real headed Chromium. Desktop viewport requested1366x900; phone390x844. PNG dimensions exclude the browser scrollbar gutter; these are full-height page captures, not single-screen images. Original source columns are preserved with a960px horizontal page on phone. Left/middle/right captures document the horizontal page; phone-fit/owner acceptance is UNVERIFIED.
+Final hosted evidence is in `hosted-final/`; capture status and exact deploy are recorded there after opening. Earlier `final-*` screenshots and the root video are historical local-runtime evidence at474495d. Root `preview-*` files are intermediate hosted evidence at64cfc5a; they do not certify the final palette/contrast. Preserve the provenance rather than treating earlier captures as final revision proof.
 
-## VERIFIED — opened and inspected
-- All12 screenshots in this folder were opened and visually inspected. Desktop88/89/90 show full source content; phone headers/navigation remain within the viewport. Page89 no longer cuts off its vocabulary/story; vowel64px/red/border0; words30px; navigation64px. `runtime-metrics.json` records the measured final DOM. Page88 zi retains two columns. No overflowing word/fill cells detected in the sampled final DOM.
-- Video `lesson24-interaction.webm`: real49.56s browser recording, decoded and inspected at representative frames. Shows phone horizontal scrolling/keyboard pan on89, actual Siguiente navigation89→90, incomplete-page hint, three wrong answers returning for retry, then correct za and typed source-related sentence. No completion state was seeded for this video; initial page89 opened using an ordinary saved-page bookmark. Screenshot pages were likewise opened using diagnostic bookmarks; screenshots alone do not prove navigation or completion.
-- Page90 separately exercised all six correct fill choices and writing Listo: actual blanks became `za pato`, `ze ta`, `zu mo`, `la zo`, `a zu les`, `Zi ta`; Siguiente's aria-disabled cleared. This separate sequence was local, not a production or final lesson completion claim.
-- TypeScript compilation after repairs: exit0, no diagnostics.
-- Page87 source-blocked in canonical layout, empty regions; first actual lesson page88. No invented source content or art changes.
+Current repairs are Lesson24 only: growing paper/no vertical clipping, stable cream/teal/ink compiled reading styles, red64px teaching vowels, zi's original two-column rows, source three-column vocabulary/fill regions, phone header/navigation, accessible horizontal pan, readable opaque writing hint and teal answer boundaries. No source text, transcription, artwork or page order changed. Missing printed87 stays SOURCE_BLOCKED; no invented placeholder or task.
 
-## UNVERIFIED / limits
-- Phone fit is unresolved: horizontal panning is necessary to preserve both original columns and required teaching sizes. This is not owner-approved phone acceptance.
-- Audio click did not produce an observed clip request in the recorded run (`audioInitial/final=idle`, no zorro resource entry); audible playback and spoken identity/quality remain UNVERIFIED. The video has no audio track and does not certify genuine audio. No voice synthesized/substituted. Missing recordings remain as listed on #884.
-- Existing optional Piano adds a fourth activity entry. Its microphone behavior and whole-lesson final completion are not checked here; physical workbook pages checked are88–90 only.
-- Desktop pages grow vertically at full teaching sizes; this is not a no-scroll1366x768 certification.
-- Native touch device, drag operation, full reload/progress regression, every possible feedback/zoom state, final owner visual/voice approval and production are not certified by these captures. The observed input path was real mouse/keyboard in a phone-sized browser, not a physical touchscreen.
-- Amber wrong-answer proposal remains pending and not implemented.
+## VERIFIED / UNVERIFIED boundaries
 
-PR remains DRAFT. No merge, production deployment, alias promotion or paid option requested. Temporary Vercel preview status is recorded on #877 and #884; a URL is VERIFIED only after browser opening.
+- VERIFIED only after opening: final hosted screenshots88/89/90 at requested1366x900 desktop and390x844 phone viewports. Full-height captures; PNG content excludes the scrollbar gutter. DOM metrics accompany the captures. No assertion that a full source page fits into one phone screen.
+- UNVERIFIED phone acceptance: the960px source-column surface requires horizontal panning. This preserves the original columns/teaching sizes, not an owner-approved phone redesign.
+- Actual video evidence covers only shown navigation/selection/retry/writing actions. Any video with no audio track certifies no spoken recording identity or sound quality. Earlier audio attempt stayed idle/no clip resource; spoken audio remains UNVERIFIED. No TTS or substitute was added.
+- Page87 absence/source-block state is VERIFIED; its unknown contents are not reconstructed or verified.
+- TypeScript compile passed after the TS changes. Subsequent source changes are CSS only. Vercel's normal full build at474495d FAILED on production-art-audit.test.ts105:25 (generated/committed audit fixture mismatch):1878 tests passed,1 failed,2 expected failures. Full gate is not green; fixture/assertions remain intact. Render's preview uses direct Vite compilation and does not qualify a release.
+- Native touchscreen/drag, all persistence/feedback/zoom states, optional fourth Piano/microphone, whole-lesson final completion, and final owner look/voice acceptance remain UNVERIFIED. Amber feedback proposal is pending/not implemented.
 
-## Screenshots
+Both screenshots and a real short video are linked on #884 itself and #877. A limited check is not blanket approval. PR remains DRAFT; no merge or production deployment.
 
-| Page | Desktop | Phone left | Phone middle | Phone right |
-|---|---|---|---|---|
-|88|[desktop](final-desktop-88.png)|[left](final-phone-88-left.png)|[middle](final-phone-88-middle.png)|[right](final-phone-88-right.png)|
-|89|[desktop](final-desktop-89.png)|[left](final-phone-89-left.png)|[middle](final-phone-89-middle.png)|[right](final-phone-89-right.png)|
-|90|[desktop](final-desktop-90.png)|[left](final-phone-90-left.png)|[middle](final-phone-90-middle.png)|[right](final-phone-90-right.png)|
+## Final hosted evidence — VERIFIED OPEN
 
-[Watch/download the real interaction video](lesson24-interaction.webm).
+Deployment `dep-db9ieth124ks73ds67d0`, applicationSHA8a87f7560311690cb8e6cd8de7040e8e91fd90ce, became live2026-10-17T07:49:17Z. Opened in a fresh realChromium context. All6 final screenshots opened/inspected. Reading title/anchors nowteal rgb22,122,114; story ink rgb37,49,58; vowelsred rgb191,48,64 at64px/border0; placeholderopaque rgb82,97,107. Page/body heights agree for88/89/90 (1752/1332/1266px on phone); no vertical clipping. Target text pairs on warmwhite:ink13.09:1,teal5.09:1,red5.57:1,hint6.30:1. These sampled pairs are not a certification of every state.
+
+Video23.52s from this actual hosted revision: source89 keyboardpan stays89, actual89→90 navigation, incomplete hint, wrong then correctza, typed sentence; pageerrors[]. Decoded/opened representativefirst/finalframes. No audio track; spokenaudioUNVERIFIED. Screenshot pages were opened with saved-page bookmarks, no completion values seeded. This evidence is finalhosted; earlier local/intermediatefiles are historical.
+
+| Page | Desktop1366x900 | Phone390x844 |
+|---|---|---|
+|88|[desktop](hosted-final/preview-desktop-88.png)|[phone](hosted-final/preview-phone-88.png)|
+|89|[desktop](hosted-final/preview-desktop-89.png)|[phone](hosted-final/preview-phone-89.png)|
+|90|[desktop](hosted-final/preview-desktop-90.png)|[phone](hosted-final/preview-phone-90.png)|
+
+[Real23.52s hosted interaction video](hosted-final/lesson24-hosted-final.webm) · [DOM metrics](hosted-final/runtime-metrics.json) · [Observed interaction results](hosted-final/interaction-results.json).
