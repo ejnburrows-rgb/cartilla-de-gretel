@@ -58,6 +58,15 @@ export const LIVING_ACTORS: Readonly<Record<string, LivingActor>> = Object.freez
   [`${FC_NATIVE}/p004-olla.png`]: { src: `${FC_NATIVE}/p004-olla.png`, aliveSrc: `${FC_NATIVE}/p004-olla-alive.svg`, action: "float", creature: false, reducedMotion: "static", meaning: "vapor que sube de la olla" },
   [`${FC_NATIVE}/p006-elefante.png`]: { src: `${FC_NATIVE}/p006-elefante.png`, aliveSrc: `${FC_NATIVE}/p006-elefante-alive.svg`, action: "nod", creature: true, reducedMotion: "static", meaning: "trompa, orejas y parpadeo" },
   [`${FC_NATIVE}/p007-iman.png`]: { src: `${FC_NATIVE}/p007-iman.png`, aliveSrc: `${FC_NATIVE}/p007-iman-alive.svg`, action: "float", creature: false, reducedMotion: "static", meaning: "clips atraídos por el imán, líneas del campo y chispas" },
+  // Original main sheet pictures, part motion only.
+  [`${FC_NATIVE}/p015-sopa.png`]: {
+    src: `${FC_NATIVE}/p015-sopa.png`,
+    aliveSrc: `${FC_NATIVE}/p015-sopa-alive.svg`,
+    action: "float",
+    creature: false,
+    reducedMotion: "static",
+    meaning: "la superficie de la sopa ondula",
+  },
   // Workbook Page 1 (owner color art / printed drawings): same meaning as the
   // faithful actors, whole-picture motion only (part rigs belong to other crops).
   [`${W1}/oso.svg`]: {

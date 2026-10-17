@@ -226,6 +226,7 @@ from redrawn_l3_rest import (vocal_o_oruga, vocal_a_ardilla, vocal_a_alas, lecci
                              vocal_e_estrella, vocal_a_aguja, leccion_1_maiz)
 from redrawn_l1 import leccion_1_carro, vocal_e_escoba  # noqa: E402,F811
 from redrawn_l4 import vocal_u_unicornio  # noqa: E402,F811
+from redrawn_fc_l9 import fc_p015_sopa  # noqa: E402
 
 if __name__ == '__main__':
     import os; os.makedirs(OUT, exist_ok=True)

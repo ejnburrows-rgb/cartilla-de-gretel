@@ -8,7 +8,7 @@ import { getLivingActor } from "../living-actor-registry";
 // origin, so the moving parts sit exactly where the drawing has them.
 const ROOT = resolve(__dirname, "../../..");
 const FC = "/cartilla/art/optimized/flipchart-native";
-const PICTURES = ["p004-oso", "p004-oveja", "p004-olla", "p006-elefante", "p007-iman"];
+const PICTURES = ["p004-oso", "p004-oveja", "p004-olla", "p006-elefante", "p007-iman", "p015-sopa"];
 
 describe("Flip Chart moving pictures keep the sheet drawing", () => {
   for (const name of PICTURES) {
