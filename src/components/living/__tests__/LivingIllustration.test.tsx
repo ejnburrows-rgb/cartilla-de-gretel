@@ -103,12 +103,12 @@ describe("LivingIllustration faithful recovered art", () => {
   it("holds the vowel-page pictures whose old motion moved the whole drawing still", () => {
     for (const name of [
       "vocal-o/oruga",
-      "vocal-a/arana",
       "vocal-a/ardilla",
+      "vocal-u/unicornio",
+      "vocal-a/arana",
       "vocal-e/erizo",
       "vocal-i/iguana",
       "vocal-i/insecto",
-      "vocal-u/unicornio",
     ]) {
       const src = `/cartilla/art/faithful/${name}.webp`;
       expect(getLivingActor(src), name).toBeNull();
