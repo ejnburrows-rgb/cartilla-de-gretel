@@ -101,13 +101,7 @@ describe("LivingIllustration faithful recovered art", () => {
   });
 
   it("holds the vowel-page pictures whose old motion moved the whole drawing still", () => {
-    for (const name of [
-      "vocal-u/unicornio",
-      "vocal-a/arana",
-      "vocal-e/erizo",
-      "vocal-i/iguana",
-      "vocal-i/insecto",
-    ]) {
+    for (const name of ["vocal-a/arana", "vocal-e/erizo", "vocal-i/iguana", "vocal-i/insecto"]) {
       const src = `/cartilla/art/faithful/${name}.webp`;
       expect(getLivingActor(src), name).toBeNull();
       const { container, unmount } = render(
@@ -143,6 +137,7 @@ describe("LivingIllustration faithful recovered art", () => {
       ["/cartilla/art/faithful/leccion-1/maiz.webp", "maiz-alive.svg"],
       ["/cartilla/art/faithful/leccion-1/carro.webp", "carro-alive.svg"],
       ["/cartilla/art/faithful/vocal-e/escoba.webp", "escoba-alive.svg"],
+      ["/cartilla/art/faithful/vocal-u/unicornio.webp", "unicornio-alive.svg"],
     ]) {
       const { container, unmount } = render(
         <div className="fp-ix-cell">

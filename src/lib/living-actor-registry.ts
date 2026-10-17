@@ -208,6 +208,15 @@ export const LIVING_ACTORS: Readonly<Record<string, LivingActor>> = Object.freez
     reducedMotion: "static",
     meaning: "las cerdas de la escoba se mecen",
   },
+  // Lesson 4 original main picture, also on Lesson 6; the drawn eye stays closed.
+  [`${A}/vocal-u/unicornio.webp`]: {
+    src: `${A}/vocal-u/unicornio.webp`,
+    aliveSrc: `${A}/vocal-u/unicornio-alive.svg`,
+    action: "nod",
+    creature: true,
+    reducedMotion: "static",
+    meaning: "la oreja del unicornio se mueve",
+  },
   // Held still (owner rule 2026-10-11: only the parts that really move may move;
   // whole pictures never bob, tilt, breathe or slide). Their old whole-picture
   // motion moved the drawn ground/background too: araña, erizo, iguana, insecto.
