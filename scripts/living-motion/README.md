@@ -87,3 +87,5 @@ live in `redrawn_*.py` with coordinates measured on the new still (shared helper
   wheel's own tilted plane; the tyre under them is filled from its own paint; the old
   whole-picture CSS roll is no longer used) and `vocal-e-escoba` (the bristle fan sways).
   `vocal-u/uniforme.webp` stays **still**.
+- Lesson 4 (`redrawn_l4.py`): `vocal-u-unicornio` (the front ear flicks; the eyes are
+  drawn closed, so no blink). Also used in Lesson 6.

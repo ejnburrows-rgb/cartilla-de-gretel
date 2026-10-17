@@ -107,7 +107,6 @@ describe("LivingIllustration faithful recovered art", () => {
       "vocal-e/erizo",
       "vocal-i/iguana",
       "vocal-i/insecto",
-      "vocal-u/unicornio",
     ]) {
       const src = `/cartilla/art/faithful/${name}.webp`;
       expect(getLivingActor(src), name).toBeNull();
@@ -142,6 +141,7 @@ describe("LivingIllustration faithful recovered art", () => {
       ["/cartilla/art/faithful/leccion-1/maiz.webp", "maiz-alive.svg"],
       ["/cartilla/art/faithful/leccion-1/carro.webp", "carro-alive.svg"],
       ["/cartilla/art/faithful/vocal-e/escoba.webp", "escoba-alive.svg"],
+      ["/cartilla/art/faithful/vocal-u/unicornio.webp", "unicornio-alive.svg"],
     ]) {
       const { container, unmount } = render(
         <div className="fp-ix-cell">
