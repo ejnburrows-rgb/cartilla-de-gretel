@@ -10,7 +10,7 @@ const ROOT = resolve(__dirname, "../../..");
 const PICTURES = [
   "vocal-o/oso",
   "vocal-o/oveja",
-  "vocal-o/olla",
+  // vocal-o/olla: the redrawn pot (PR #888) has no steam, so it has no rig and stays still.
   "vocal-e/elefante",
   // vocal-a/avion: the redrawn jet (PR #888) has no propeller and is painted on its
   // own blue sky, so nothing can move without moving scenery; it stays still.

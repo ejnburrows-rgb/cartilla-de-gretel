@@ -89,19 +89,14 @@
     "alive": "public/cartilla/art/faithful/vocal-i/iman-alive.svg",
     "stillSha256": "881055e3411d1b78e68c751ff24472d465f33028aa3c173fb5b3ee830a4fe804"
   },
-  "vocal-o-olla": {
-    "still": "public/cartilla/art/faithful/vocal-o/olla.webp",
-    "alive": "public/cartilla/art/faithful/vocal-o/olla-alive.svg",
-    "stillSha256": "7f38ec806dc9da0d44910c5084c96c35c4c920f5ae3f8750040b801b7518b79d"
-  },
   "vocal-o-oso": {
     "still": "public/cartilla/art/faithful/vocal-o/oso.webp",
     "alive": "public/cartilla/art/faithful/vocal-o/oso-alive.svg",
-    "stillSha256": "cd49151f12332d1201e535eb18f0e0191867bd035af46f3d836492ab7680fbdf"
+    "stillSha256": "10716a9f5485cdf14e037d9f47d25c7fb9ea366d1322f1eeee7c31eafa07a668"
   },
   "vocal-o-oveja": {
     "still": "public/cartilla/art/faithful/vocal-o/oveja.webp",
     "alive": "public/cartilla/art/faithful/vocal-o/oveja-alive.svg",
-    "stillSha256": "6835094e54b0ea0e5082792e1ae8cdde452ab4bd8be265d170f99d74e7f22d59"
+    "stillSha256": "625755c06af60b38ac807ed9d9b94d998b8ea3a156020ec8fe61cf6a839885a9"
   }
 }

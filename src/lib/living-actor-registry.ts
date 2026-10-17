@@ -133,9 +133,9 @@ export const LIVING_ACTORS: Readonly<Record<string, LivingActor>> = Object.freez
     reducedMotion: "static",
     meaning: "vuelo suspendido de abeja",
   },
-  [`${A}/vocal-o/oso.webp`]: { src: `${A}/vocal-o/oso.webp`, aliveSrc: `${A}/vocal-o/oso-alive.svg`, action: "breathe", creature: true, blinkFrame: `${A}/vocal-o/oso-blink.webp`, reducedMotion: "static", meaning: "respiración y mirada natural" },
+  [`${A}/vocal-o/oso.webp`]: { src: `${A}/vocal-o/oso.webp`, aliveSrc: `${A}/vocal-o/oso-alive.svg`, action: "breathe", creature: true, reducedMotion: "static", meaning: "respiración y mirada natural" },
   [`${A}/vocal-o/oveja.webp`]: { src: `${A}/vocal-o/oveja.webp`, aliveSrc: `${A}/vocal-o/oveja-alive.svg`, action: "nod", creature: true, reducedMotion: "static", meaning: "gesto suave de oveja" },
-  [`${A}/vocal-o/olla.webp`]: { src: `${A}/vocal-o/olla.webp`, aliveSrc: `${A}/vocal-o/olla-alive.svg`, action: "float", creature: false, reducedMotion: "static", meaning: "vapor que sube de la olla" },
+  // vocal-o/olla.webp: the redrawn pot (picture PR #888) has no steam drawn, so it stays still.
   [`${A}/vocal-a/abeja.webp`]: { src: `${A}/vocal-a/abeja.webp`, aliveSrc: `${A}/vocal-a/abeja-alive.svg`, action: "hover", creature: true, parts: [{ name: "wings", clipPath: "inset(8% 8% 48% 8%)", transformOrigin: "50% 58%" }], reducedMotion: "static", meaning: "vuelo suspendido con aleteo" },
   // vocal-a/avion.webp: the redrawn jet (picture PR #888) sits on a painted blue sky
   // patch and has no propeller, so no part can move on its own; it stays still.

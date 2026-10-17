@@ -50,7 +50,6 @@ the same approved part motion, rebuilt for these scans in `wb_vowels.py`:
 | --- | --- | --- |
 | vocal-o-oso | vocal-o/oso.webp | breathes, blinks, the bee's wings buzz (the bee stays put) |
 | vocal-o-oveja | vocal-o/oveja.webp | blinks, ear flick |
-| vocal-o-olla | vocal-o/olla.webp | steam curls rise above the lid |
 | vocal-e-elefante | vocal-e/elefante.webp | trunk swings, ears flap, both eyes blink |
 | vocal-a-abeja | vocal-a/abeja.webp | wings flutter |
 | vocal-a-abanico | vocal-a/abanico.webp | the fan opens and closes slightly |
@@ -71,5 +70,8 @@ live in `redrawn_*.py` with coordinates measured on the new still (shared helper
 `redrawn_common.py`); `all.py` imports them after `wb_vowels.py` so they win.
 
 - `vocal-a-abanico`, `vocal-a-abeja`: rebuilt in `redrawn_vocal_a.py`.
+- `vocal-o-oso`, `vocal-o-oveja`: rebuilt in `redrawn_vocal_o.py` (the old-bear
+  `oso-blink.webp` swap is unlinked; the new bear blinks inside its rig).
+- `vocal-o/olla.webp` stays **still**: the new pot has no steam drawn.
 - `vocal-a/avion.webp` stays **still**: the new jet has no propeller and is painted
   on its own blue sky, so no part can move on its own.

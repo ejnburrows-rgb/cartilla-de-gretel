@@ -2,7 +2,7 @@ import { describe, expect, it } from 'vitest';
 import { enhanceLivingArtImage } from '../living-art-runtime';
 
 describe('source-aware living art policy', () => {
-  it('leaves unapproved pictures still while keeping the verified blink', () => {
+  it('leaves unapproved pictures still and never swaps the redrawn bear to old blink art', () => {
     const generic = document.createElement('img');
     generic.src = '/cartilla/art/faithful/leccion-7-m/mono.webp';
     document.body.appendChild(generic);
@@ -14,7 +14,7 @@ describe('source-aware living art policy', () => {
     bear.src = '/cartilla/art/faithful/vocal-o/oso.webp';
     document.body.appendChild(bear);
     enhanceLivingArtImage(bear);
-    expect(bear.dataset.trueBlinkFrame).toContain('oso-blink.webp');
+    expect(bear.dataset.trueBlinkFrame).toBeUndefined();
     expect(bear.dataset.livingProfile).toBe('breathe');
     generic.remove(); bear.remove();
   });
