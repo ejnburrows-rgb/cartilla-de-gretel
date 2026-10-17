@@ -143,5 +143,10 @@
     "still": "public/cartilla/art/faithful/vocal-o/oveja.webp",
     "alive": "public/cartilla/art/faithful/vocal-o/oveja-alive.svg",
     "stillSha256": "625755c06af60b38ac807ed9d9b94d998b8ea3a156020ec8fe61cf6a839885a9"
+  },
+  "vocal-u-unicornio": {
+    "still": "public/cartilla/art/faithful/vocal-u/unicornio.webp",
+    "alive": "public/cartilla/art/faithful/vocal-u/unicornio-alive.svg",
+    "stillSha256": "f7cbea01c38e18712169304a57560796b5e802c1bf5a4855927526ebead3e5b5"
   }
 }

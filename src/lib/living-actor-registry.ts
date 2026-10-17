@@ -155,11 +155,13 @@ export const LIVING_ACTORS: Readonly<Record<string, LivingActor>> = Object.freez
   [`${A}/leccion-1/maiz.webp`]: { src: `${A}/leccion-1/maiz.webp`, aliveSrc: `${A}/leccion-1/maiz-alive.svg`, action: "sway", creature: false, reducedMotion: "static", meaning: "una hoja del maíz se dobla" },
   // Lesson 1 redrawn pictures (picture PR #888). uniforme stays still: stiff flat shapes, no loose edge.
   [`${A}/vocal-e/escoba.webp`]: { src: `${A}/vocal-e/escoba.webp`, aliveSrc: `${A}/vocal-e/escoba-alive.svg`, action: "sway", creature: false, reducedMotion: "static", meaning: "las cerdas de la escoba se mecen" },
+  // Lesson 4 redrawn picture (picture PR #888); also on Lesson 6. Eyes are drawn closed, so no blink.
+  [`${A}/vocal-u/unicornio.webp`]: { src: `${A}/vocal-u/unicornio.webp`, aliveSrc: `${A}/vocal-u/unicornio-alive.svg`, action: "nod", creature: true, reducedMotion: "static", meaning: "la oreja del unicornio se mueve" },
   // Held still (owner rule 2026-10-11: only the parts that really move may move;
   // whole pictures never bob, tilt, breathe or slide). Their old whole-picture
-  // motion moved the drawn ground/background too: araña, erizo, iguana, insecto,
-  // unicornio. Part motion for them needs owner approval. (oruga and ardilla now
-  // have part-only motion on their redrawn art, above; draft, owner approval pending.)
+  // motion moved the drawn ground/background too: araña, erizo, iguana, insecto.
+  // Part motion for them needs owner approval. (oruga, ardilla and unicornio now have
+  // part-only motion on their redrawn art, above; draft, owner approval pending.)
 
   [`${A}/leccion-1/aguila.webp`]: { src: `${A}/leccion-1/aguila.webp`, action: "flutter", creature: true, parts: [{ name: "wings", clipPath: "inset(8% 4% 42% 4%)", transformOrigin: "50% 62%" }], reducedMotion: "static", meaning: "aleteo breve de águila" },
   [`${A}/leccion-1/pajaro.webp`]: { src: `${A}/leccion-1/pajaro.webp`, action: "flutter", creature: true, parts: [{ name: "wings", clipPath: "inset(10% 6% 44% 6%)", transformOrigin: "50% 60%" }], reducedMotion: "static", meaning: "aleteo breve de pájaro" },
