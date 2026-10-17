@@ -21,8 +21,8 @@ export function PartialLessonGuide({ lessonId }: { lessonId: number }) {
   return (
     <div className="space-y-12">
       <div className="rounded-xl border-2 border-amber-300 bg-amber-50 px-4 py-3 text-sm font-bold text-amber-800">
-        La guía original de la Lección {lessonId} está pendiente. Puedes usar el vocabulario y el poema disponibles, las actividades del cuaderno y el Flip Chart.
-
+        La guía original de la Lección {lessonId} está pendiente. Puedes usar el vocabulario y el
+        poema disponibles, las actividades del cuaderno y el Flip Chart.
       </div>
 
       <section id="objetivos" className="scroll-mt-24">
@@ -30,9 +30,7 @@ export function PartialLessonGuide({ lessonId }: { lessonId: number }) {
           <span className="text-orange-500">1.</span> Objetivos de Aprendizaje
         </h2>
         <div className="bg-orange-50/50 border border-orange-100 rounded-2xl p-6">
-          <p className="text-amber-600 italic">
-            Objetivos pendientes de la guía original.
-          </p>
+          <p className="text-amber-600 italic">Objetivos pendientes de la guía original.</p>
         </div>
       </section>
 
@@ -40,9 +38,7 @@ export function PartialLessonGuide({ lessonId }: { lessonId: number }) {
         <h2 className="text-2xl font-black text-stone-800 mb-6 flex items-center gap-3">
           <span className="text-emerald-500">2.</span> Procedimiento Sugerido
         </h2>
-        <p className="text-amber-600 italic">
-          Procedimiento pendiente de la guía original.
-        </p>
+        <p className="text-amber-600 italic">Procedimiento pendiente de la guía original.</p>
       </section>
 
       <section id="vocabulario" className="scroll-mt-24">
@@ -61,9 +57,7 @@ export function PartialLessonGuide({ lessonId }: { lessonId: number }) {
             </p>
           </div>
         ) : (
-          <p className="text-amber-600 italic">
-            Poema pendiente de la fuente original.
-          </p>
+          <p className="text-amber-600 italic">Poema pendiente de la fuente original.</p>
         )}
       </section>
 

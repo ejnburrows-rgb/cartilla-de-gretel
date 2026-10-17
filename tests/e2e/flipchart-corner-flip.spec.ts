@@ -13,7 +13,9 @@ test.beforeAll(() => {
 test.use({ video: "on" });
 
 test.describe("Flip Chart Corner Flip & Teacher Hand Mode E2E Proof", () => {
-  test("Projector 1920x1080 forward and back in both hand modes without console errors", async ({ page }) => {
+  test("Projector 1920x1080 forward and back in both hand modes without console errors", async ({
+    page,
+  }) => {
     const consoleErrors: string[] = [];
     page.on("console", (msg) => {
       if (msg.type() === "error") {
@@ -41,7 +43,9 @@ test.describe("Flip Chart Corner Flip & Teacher Hand Mode E2E Proof", () => {
 
     // 3. Mid-flip screenshot (~800ms into 2000ms flip): verify no duplicate text or ghost page numbers
     await page.waitForTimeout(800);
-    await page.screenshot({ path: path.join(PROOF_DIR, "projector-02-mid-flip-no-duplicate-text.png") });
+    await page.screenshot({
+      path: path.join(PROOF_DIR, "projector-02-mid-flip-no-duplicate-text.png"),
+    });
 
     // 4. Settled on sheet 2
     await page.waitForTimeout(1400);
@@ -108,7 +112,9 @@ test.describe("Flip Chart Corner Flip & Teacher Hand Mode E2E Proof", () => {
       // Drag upward slightly (only 60px)
       await page.mouse.move(startX, startY - 60, { steps: 5 });
       await page.waitForTimeout(150);
-      await page.screenshot({ path: path.join(PROOF_DIR, "tablet-01-drag-spring-back-active.png") });
+      await page.screenshot({
+        path: path.join(PROOF_DIR, "tablet-01-drag-spring-back-active.png"),
+      });
       await page.mouse.up();
 
       // Wait for spring back

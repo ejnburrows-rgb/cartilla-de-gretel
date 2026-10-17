@@ -32,7 +32,9 @@ for (const width of [1280, 820, 390]) {
     await expect(lesson).toHaveAttribute("data-native-page", "26", { timeout: 6000 });
     await expect(lesson.locator(".fp-ix-fill__item").first()).toBeVisible();
     expect(await lesson.locator("img[src*='/art/source/workbook/']").count()).toBe(0);
-    expect(await page.evaluate(() => document.documentElement.scrollWidth <= innerWidth)).toBe(true);
+    expect(await page.evaluate(() => document.documentElement.scrollWidth <= innerWidth)).toBe(
+      true,
+    );
     await expect(lesson.getByRole("button", { name: "Terminar lección" })).toBeVisible();
   });
 }

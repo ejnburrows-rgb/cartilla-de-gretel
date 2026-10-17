@@ -4,13 +4,7 @@
     "lesson": 7,
     "pages": "19-22",
     "color": "#E63946",
-    "syllables": [
-      "ma",
-      "me",
-      "mi",
-      "mo",
-      "mu"
-    ],
+    "syllables": ["ma", "me", "mi", "mo", "mu"],
     "vocab": [
       {
         "word": "mamá",
@@ -44,46 +38,11 @@
       "note": "Picture vocabulary plate of the Teacher Flip Chart. Not Workbook content: Workbook activities/print use page-layouts.json."
     },
     "examples": {
-      "ma": [
-        "mami",
-        "ama",
-        "mamá",
-        "mima",
-        "Coloma",
-        "Manolo"
-      ],
-      "me": [
-        "media",
-        "Memo",
-        "melón",
-        "mesa",
-        "meta",
-        "Meme"
-      ],
-      "mi": [
-        "mío",
-        "amigo",
-        "mima",
-        "mira",
-        "misa",
-        "Mimí"
-      ],
-      "mo": [
-        "amo",
-        "Memo",
-        "mono",
-        "como",
-        "moneda",
-        "moto"
-      ],
-      "mu": [
-        "mulo",
-        "muleta",
-        "muro",
-        "mudo",
-        "mujer",
-        "Mumi"
-      ]
+      "ma": ["mami", "ama", "mamá", "mima", "Coloma", "Manolo"],
+      "me": ["media", "Memo", "melón", "mesa", "meta", "Meme"],
+      "mi": ["mío", "amigo", "mima", "mira", "misa", "Mimí"],
+      "mo": ["amo", "Memo", "mono", "como", "moneda", "moto"],
+      "mu": ["mulo", "muleta", "muro", "mudo", "mujer", "Mumi"]
     },
     "sentences": [
       "Mi mamá me ama.",
@@ -101,13 +60,7 @@
     "lesson": 8,
     "pages": "23-26",
     "color": "#F4A261",
-    "syllables": [
-      "pa",
-      "pe",
-      "pi",
-      "po",
-      "pu"
-    ],
+    "syllables": ["pa", "pe", "pi", "po", "pu"],
     "vocab": [
       {
         "word": "papá",
@@ -141,46 +94,11 @@
       "note": "Picture vocabulary plate of the Teacher Flip Chart. Not Workbook content: Workbook activities/print use page-layouts.json."
     },
     "examples": {
-      "pa": [
-        "papá",
-        "pupa",
-        "mapa",
-        "Papo",
-        "¡upa!",
-        "pala"
-      ],
-      "pe": [
-        "Pepe",
-        "pelo",
-        "tapete",
-        "pesa",
-        "pelota",
-        "chupete"
-      ],
-      "pi": [
-        "pipo",
-        "Pupi",
-        "Mupi",
-        "papi",
-        "Mapi",
-        "pío"
-      ],
-      "po": [
-        "pomo",
-        "polo",
-        "sapo",
-        "mapo",
-        "tapo",
-        "Pepo"
-      ],
-      "pu": [
-        "puso",
-        "Pupa",
-        "puma",
-        "apura",
-        "Pupi",
-        "púa"
-      ]
+      "pa": ["papá", "pupa", "mapa", "Papo", "¡upa!", "pala"],
+      "pe": ["Pepe", "pelo", "tapete", "pesa", "pelota", "chupete"],
+      "pi": ["pipo", "Pupi", "Mupi", "papi", "Mapi", "pío"],
+      "po": ["pomo", "polo", "sapo", "mapo", "tapo", "Pepo"],
+      "pu": ["puso", "Pupa", "puma", "apura", "Pupi", "púa"]
     },
     "sentences": [
       "Papá y Pepe aman a mamá.",
@@ -195,13 +113,7 @@
     "lesson": 9,
     "pages": "27-30",
     "color": "#2A9D8F",
-    "syllables": [
-      "sa",
-      "se",
-      "si",
-      "so",
-      "su"
-    ],
+    "syllables": ["sa", "se", "si", "so", "su"],
     "vocab": [
       {
         "word": "Sesi",
@@ -235,46 +147,11 @@
       "note": "Picture vocabulary plate of the Teacher Flip Chart. Not Workbook content: Workbook activities/print use page-layouts.json."
     },
     "examples": {
-      "sa": [
-        "masa",
-        "casa",
-        "pesa",
-        "sala",
-        "mesa",
-        "sapo"
-      ],
-      "se": [
-        "sello",
-        "pase",
-        "caseta",
-        "seca",
-        "semilla",
-        "secante"
-      ],
-      "si": [
-        "silla",
-        "casita",
-        "cosita",
-        "pasito",
-        "osito",
-        "sitio"
-      ],
-      "so": [
-        "paso",
-        "sopa",
-        "soga",
-        "oso",
-        "toso",
-        "puso"
-      ],
-      "su": [
-        "suyo",
-        "suma",
-        "Susi",
-        "supo",
-        "sube",
-        "sudor"
-      ]
+      "sa": ["masa", "casa", "pesa", "sala", "mesa", "sapo"],
+      "se": ["sello", "pase", "caseta", "seca", "semilla", "secante"],
+      "si": ["silla", "casita", "cosita", "pasito", "osito", "sitio"],
+      "so": ["paso", "sopa", "soga", "oso", "toso", "puso"],
+      "su": ["suyo", "suma", "Susi", "supo", "sube", "sudor"]
     },
     "sentences": [
       "La mesa es de Susi.",
@@ -292,13 +169,7 @@
     "lesson": 10,
     "pages": "31-34",
     "color": "#264653",
-    "syllables": [
-      "ta",
-      "te",
-      "ti",
-      "to",
-      "tu"
-    ],
+    "syllables": ["ta", "te", "ti", "to", "tu"],
     "vocab": [
       {
         "word": "tomate",
@@ -332,46 +203,11 @@
       "note": "Picture vocabulary plate of the Teacher Flip Chart. Not Workbook content: Workbook activities/print use page-layouts.json."
     },
     "examples": {
-      "ta": [
-        "tapa",
-        "Mota",
-        "Tota",
-        "seta",
-        "peseta",
-        "pata"
-      ],
-      "te": [
-        "tema",
-        "tomate",
-        "mete",
-        "teme",
-        "Teté",
-        "tapete"
-      ],
-      "ti": [
-        "Tito",
-        "Piti",
-        "timón",
-        "tina",
-        "Poti",
-        "tipi"
-      ],
-      "to": [
-        "topo",
-        "moto",
-        "tomate",
-        "pato",
-        "toma",
-        "sapito"
-      ],
-      "tu": [
-        "tupe",
-        "tubo",
-        "tulipán",
-        "tuna",
-        "tuba",
-        "Matute"
-      ]
+      "ta": ["tapa", "Mota", "Tota", "seta", "peseta", "pata"],
+      "te": ["tema", "tomate", "mete", "teme", "Teté", "tapete"],
+      "ti": ["Tito", "Piti", "timón", "tina", "Poti", "tipi"],
+      "to": ["topo", "moto", "tomate", "pato", "toma", "sapito"],
+      "tu": ["tupe", "tubo", "tulipán", "tuna", "tuba", "Matute"]
     },
     "sentences": [
       "La mesa tiene un tapete.",
@@ -389,13 +225,7 @@
     "lesson": 11,
     "pages": "35-38",
     "color": "#8338EC",
-    "syllables": [
-      "da",
-      "de",
-      "di",
-      "do",
-      "du"
-    ],
+    "syllables": ["da", "de", "di", "do", "du"],
     "vocab": [
       {
         "word": "Didi",
@@ -429,46 +259,11 @@
       "note": "Picture vocabulary plate of the Teacher Flip Chart. Not Workbook content: Workbook activities/print use page-layouts.json."
     },
     "examples": {
-      "da": [
-        "dame",
-        "Ada",
-        "Made",
-        "duda",
-        "dado",
-        "poda"
-      ],
-      "de": [
-        "dedo",
-        "además",
-        "deme",
-        "modelo",
-        "pide",
-        "debajo"
-      ],
-      "di": [
-        "dime",
-        "Adi",
-        "dice",
-        "dinero",
-        "día",
-        "Didi"
-      ],
-      "do": [
-        "dado",
-        "podo",
-        "doce",
-        "dedo",
-        "modo",
-        "mudo"
-      ],
-      "du": [
-        "Duma",
-        "duro",
-        "duda",
-        "durazno",
-        "maduro",
-        "ducha"
-      ]
+      "da": ["dame", "Ada", "Made", "duda", "dado", "poda"],
+      "de": ["dedo", "además", "deme", "modelo", "pide", "debajo"],
+      "di": ["dime", "Adi", "dice", "dinero", "día", "Didi"],
+      "do": ["dado", "podo", "doce", "dedo", "modo", "mudo"],
+      "du": ["Duma", "duro", "duda", "durazno", "maduro", "ducha"]
     },
     "sentences": [
       "Dime si Ada tiene dados.",
@@ -485,13 +280,7 @@
     "lesson": 12,
     "pages": "39-42",
     "color": "#E63946",
-    "syllables": [
-      "la",
-      "le",
-      "li",
-      "lo",
-      "lu"
-    ],
+    "syllables": ["la", "le", "li", "lo", "lu"],
     "vocab": [
       {
         "word": "maleta",
@@ -525,46 +314,11 @@
       "note": "Picture vocabulary plate of the Teacher Flip Chart. Not Workbook content: Workbook activities/print use page-layouts.json."
     },
     "examples": {
-      "la": [
-        "lata",
-        "mala",
-        "pala",
-        "Lamas",
-        "mula",
-        "pila"
-      ],
-      "le": [
-        "Leo",
-        "aleta",
-        "saleta",
-        "maleta",
-        "sale",
-        "paleta"
-      ],
-      "li": [
-        "lima",
-        "Lila",
-        "alita",
-        "liso",
-        "palito",
-        "limón"
-      ],
-      "lo": [
-        "pelota",
-        "palo",
-        "Lolo",
-        "Polo",
-        "Lola",
-        "paloma"
-      ],
-      "lu": [
-        "lupa",
-        "pelusa",
-        "Luli",
-        "luna",
-        "saluda",
-        "Lupe"
-      ]
+      "la": ["lata", "mala", "pala", "Lamas", "mula", "pila"],
+      "le": ["Leo", "aleta", "saleta", "maleta", "sale", "paleta"],
+      "li": ["lima", "Lila", "alita", "liso", "palito", "limón"],
+      "lo": ["pelota", "palo", "Lolo", "Polo", "Lola", "paloma"],
+      "lu": ["lupa", "pelusa", "Luli", "luna", "saluda", "Lupe"]
     },
     "sentences": [
       "La maleta de Luli está en la mesa.",
@@ -580,13 +334,7 @@
     "lesson": 13,
     "pages": "43-46",
     "color": "#F4A261",
-    "syllables": [
-      "na",
-      "ne",
-      "ni",
-      "no",
-      "nu"
-    ],
+    "syllables": ["na", "ne", "ni", "no", "nu"],
     "vocab": [
       {
         "word": "nido",
@@ -620,46 +368,11 @@
       "note": "Picture vocabulary plate of the Teacher Flip Chart. Not Workbook content: Workbook activities/print use page-layouts.json."
     },
     "examples": {
-      "na": [
-        "nata",
-        "nariz",
-        "tina",
-        "nada",
-        "Napi",
-        "lana"
-      ],
-      "ne": [
-        "Nena",
-        "negro",
-        "Nela",
-        "tenedor",
-        "negar",
-        "Nenita"
-      ],
-      "ni": [
-        "nido",
-        "niño",
-        "poni",
-        "sonido",
-        "anida",
-        "Nino"
-      ],
-      "no": [
-        "mono",
-        "Nora",
-        "pino",
-        "Nono",
-        "noche",
-        "mano"
-      ],
-      "nu": [
-        "nudo",
-        "menudo",
-        "nulo",
-        "Anuca",
-        "anudo",
-        "nube"
-      ]
+      "na": ["nata", "nariz", "tina", "nada", "Napi", "lana"],
+      "ne": ["Nena", "negro", "Nela", "tenedor", "negar", "Nenita"],
+      "ni": ["nido", "niño", "poni", "sonido", "anida", "Nino"],
+      "no": ["mono", "Nora", "pino", "Nono", "noche", "mano"],
+      "nu": ["nudo", "menudo", "nulo", "Anuca", "anudo", "nube"]
     },
     "sentences": [
       "Tomás dame esa tina.",
@@ -676,13 +389,7 @@
     "lesson": 14,
     "pages": "47-50",
     "color": "#2A9D8F",
-    "syllables": [
-      "ña",
-      "ñe",
-      "ñi",
-      "ño",
-      "ñu"
-    ],
+    "syllables": ["ña", "ñe", "ñi", "ño", "ñu"],
     "vocab": [
       {
         "word": "piñata",
@@ -716,46 +423,11 @@
       "note": "Picture vocabulary plate of the Teacher Flip Chart. Not Workbook content: Workbook activities/print use page-layouts.json."
     },
     "examples": {
-      "ña": [
-        "maña",
-        "mañana",
-        "montaña",
-        "ñame",
-        "araña",
-        "caña"
-      ],
-      "ñe": [
-        "Meñe",
-        "añejo",
-        "sueñe",
-        "adueñe",
-        "cañengo",
-        "apañe"
-      ],
-      "ñi": [
-        "añico",
-        "pañito",
-        "cañita",
-        "niñito",
-        "arañita",
-        "reñido"
-      ],
-      "ño": [
-        "moño",
-        "niño",
-        "sueño",
-        "Ñoña",
-        "año",
-        "Ñuco"
-      ],
-      "ñu": [
-        "Ñuto",
-        "cañuto",
-        "moñudo",
-        "ceñudo",
-        "pañuelo",
-        "puño"
-      ]
+      "ña": ["maña", "mañana", "montaña", "ñame", "araña", "caña"],
+      "ñe": ["Meñe", "añejo", "sueñe", "adueñe", "cañengo", "apañe"],
+      "ñi": ["añico", "pañito", "cañita", "niñito", "arañita", "reñido"],
+      "ño": ["moño", "niño", "sueño", "Ñoña", "año", "Ñuco"],
+      "ñu": ["Ñuto", "cañuto", "moñudo", "ceñudo", "pañuelo", "puño"]
     },
     "sentences": [
       "Meñe es dueña de esa piñata.",
@@ -771,13 +443,7 @@
     "lesson": 15,
     "pages": "51-54",
     "color": "#264653",
-    "syllables": [
-      "ba",
-      "be",
-      "bi",
-      "bo",
-      "bu"
-    ],
+    "syllables": ["ba", "be", "bi", "bo", "bu"],
     "vocab": [
       {
         "word": "Beba",
@@ -811,46 +477,11 @@
       "note": "Picture vocabulary plate of the Teacher Flip Chart. Not Workbook content: Workbook activities/print use page-layouts.json."
     },
     "examples": {
-      "ba": [
-        "baño",
-        "bala",
-        "batir",
-        "batea",
-        "abanico",
-        "loba"
-      ],
-      "be": [
-        "sube",
-        "Bebo",
-        "bebé",
-        "abeja",
-        "nube",
-        "cubeta"
-      ],
-      "bi": [
-        "bebida",
-        "cabito",
-        "bicicleta",
-        "bisagra",
-        "bisonte",
-        "cubito"
-      ],
-      "bo": [
-        "lobo",
-        "bonita",
-        "tubo",
-        "bodega",
-        "bola",
-        "botella"
-      ],
-      "bu": [
-        "burro",
-        "aburre",
-        "aburrido",
-        "bulla",
-        "abuso",
-        "buche"
-      ]
+      "ba": ["baño", "bala", "batir", "batea", "abanico", "loba"],
+      "be": ["sube", "Bebo", "bebé", "abeja", "nube", "cubeta"],
+      "bi": ["bebida", "cabito", "bicicleta", "bisagra", "bisonte", "cubito"],
+      "bo": ["lobo", "bonita", "tubo", "bodega", "bola", "botella"],
+      "bu": ["burro", "aburre", "aburrido", "bulla", "abuso", "buche"]
     },
     "sentences": [
       "La nube sube y sube.",
@@ -868,13 +499,7 @@
     "lesson": 16,
     "pages": "55-58",
     "color": "#8338EC",
-    "syllables": [
-      "va",
-      "ve",
-      "vi",
-      "vo",
-      "vu"
-    ],
+    "syllables": ["va", "ve", "vi", "vo", "vu"],
     "vocab": [
       {
         "word": "vaso",
@@ -908,46 +533,11 @@
       "note": "Picture vocabulary plate of the Teacher Flip Chart. Not Workbook content: Workbook activities/print use page-layouts.json."
     },
     "examples": {
-      "va": [
-        "vaso",
-        "lavamos",
-        "vámonos",
-        "lava",
-        "nieva",
-        "lavamanos"
-      ],
-      "ve": [
-        "venado",
-        "ave",
-        "vela",
-        "venas",
-        "velo",
-        "nave"
-      ],
-      "vi": [
-        "vino",
-        "vivo",
-        "vidente",
-        "vine",
-        "aviso",
-        "vitamina"
-      ],
-      "vo": [
-        "lavo",
-        "vivo",
-        "pavo",
-        "clavo",
-        "volar",
-        "Tavo"
-      ],
-      "vu": [
-        "vuela",
-        "vuelta",
-        "vuelan",
-        "vuelo",
-        "revuelta",
-        "revuelo"
-      ]
+      "va": ["vaso", "lavamos", "vámonos", "lava", "nieva", "lavamanos"],
+      "ve": ["venado", "ave", "vela", "venas", "velo", "nave"],
+      "vi": ["vino", "vivo", "vidente", "vine", "aviso", "vitamina"],
+      "vo": ["lavo", "vivo", "pavo", "clavo", "volar", "Tavo"],
+      "vu": ["vuela", "vuelta", "vuelan", "vuelo", "revuelta", "revuelo"]
     },
     "sentences": [
       "La nieve se va.",
@@ -963,13 +553,7 @@
     "lesson": 17,
     "pages": "59-62",
     "color": "#E63946",
-    "syllables": [
-      "ra",
-      "re",
-      "ri",
-      "ro",
-      "ru"
-    ],
+    "syllables": ["ra", "re", "ri", "ro", "ru"],
     "vocab": [
       {
         "word": "rana",
@@ -1003,45 +587,11 @@
       "note": "Picture vocabulary plate of the Teacher Flip Chart. Not Workbook content: Workbook activities/print use page-layouts.json."
     },
     "examples": {
-      "ra": [
-        "rana",
-        "rama",
-        "ratón",
-        "rata",
-        "raso"
-      ],
-      "re": [
-        "remo",
-        "reloj",
-        "relevo",
-        "rezo",
-        "revista",
-        "rema"
-      ],
-      "ri": [
-        "riña",
-        "rima",
-        "rimamos",
-        "Rita",
-        "risa",
-        "rizo"
-      ],
-      "ro": [
-        "rosa",
-        "roto",
-        "Rolo",
-        "roca",
-        "rota",
-        "Roberto"
-      ],
-      "ru": [
-        "ruta",
-        "Rufino",
-        "rubio",
-        "ruso",
-        "rutina",
-        "rudo"
-      ]
+      "ra": ["rana", "rama", "ratón", "rata", "raso"],
+      "re": ["remo", "reloj", "relevo", "rezo", "revista", "rema"],
+      "ri": ["riña", "rima", "rimamos", "Rita", "risa", "rizo"],
+      "ro": ["rosa", "roto", "Rolo", "roca", "rota", "Roberto"],
+      "ru": ["ruta", "Rufino", "rubio", "ruso", "rutina", "rudo"]
     },
     "sentences": [
       "La bola de Roberto rueda bien.",
@@ -1059,13 +609,7 @@
     "lesson": 18,
     "pages": "63-66",
     "color": "#F4A261",
-    "syllables": [
-      "rra",
-      "rre",
-      "rri",
-      "rro",
-      "rru"
-    ],
+    "syllables": ["rra", "rre", "rri", "rro", "rru"],
     "vocab": [
       {
         "word": "burro",
@@ -1099,46 +643,11 @@
       "note": "Picture vocabulary plate of the Teacher Flip Chart. Not Workbook content: Workbook activities/print use page-layouts.json."
     },
     "examples": {
-      "rra": [
-        "barra",
-        "amarra",
-        "pizarra",
-        "Porra",
-        "arrasar",
-        "perra"
-      ],
-      "rre": [
-        "torre",
-        "amarre",
-        "arrebatado",
-        "barre",
-        "arrebatar",
-        "arrepiente"
-      ],
-      "rri": [
-        "arriba",
-        "arrima",
-        "parrilla",
-        "perrita",
-        "barril",
-        "carrito"
-      ],
-      "rro": [
-        "carro",
-        "arroyo",
-        "burro",
-        "perro",
-        "amarro",
-        "tarro"
-      ],
-      "rru": [
-        "arruga",
-        "arrugado",
-        "arrullo",
-        "verruga",
-        "arrullar",
-        "arrullador"
-      ]
+      "rra": ["barra", "amarra", "pizarra", "Porra", "arrasar", "perra"],
+      "rre": ["torre", "amarre", "arrebatado", "barre", "arrebatar", "arrepiente"],
+      "rri": ["arriba", "arrima", "parrilla", "perrita", "barril", "carrito"],
+      "rro": ["carro", "arroyo", "burro", "perro", "amarro", "tarro"],
+      "rru": ["arruga", "arrugado", "arrullo", "verruga", "arrullar", "arrullador"]
     },
     "sentences": [
       "Rode tiene un perro.",
@@ -1156,11 +665,7 @@
     "lesson": 19,
     "pages": "67-70",
     "color": "#2A9D8F",
-    "syllables": [
-      "ga",
-      "go",
-      "gu"
-    ],
+    "syllables": ["ga", "go", "gu"],
     "vocab": [
       {
         "word": "gaveta",
@@ -1194,30 +699,9 @@
       "note": "Picture vocabulary plate of the Teacher Flip Chart. Not Workbook content: Workbook activities/print use page-layouts.json."
     },
     "examples": {
-      "ga": [
-        "garras",
-        "gasolina",
-        "gato",
-        "paga",
-        "ganas",
-        "maga"
-      ],
-      "go": [
-        "goma",
-        "gorra",
-        "lago",
-        "gota",
-        "mago",
-        "goloso"
-      ],
-      "gu": [
-        "gusano",
-        "gula",
-        "agudo",
-        "mangú",
-        "laguna",
-        "aguja"
-      ]
+      "ga": ["garras", "gasolina", "gato", "paga", "ganas", "maga"],
+      "go": ["goma", "gorra", "lago", "gota", "mago", "goloso"],
+      "gu": ["gusano", "gula", "agudo", "mangú", "laguna", "aguja"]
     },
     "sentences": [
       "El gato de Magali bebe agua en el lago.",
@@ -1235,13 +719,7 @@
     "lesson": 20,
     "pages": "71-74",
     "color": "#264653",
-    "syllables": [
-      "fa",
-      "fe",
-      "fi",
-      "fo",
-      "fu"
-    ],
+    "syllables": ["fa", "fe", "fi", "fo", "fu"],
     "vocab": [
       {
         "word": "foto",
@@ -1275,46 +753,11 @@
       "note": "Picture vocabulary plate of the Teacher Flip Chart. Not Workbook content: Workbook activities/print use page-layouts.json."
     },
     "examples": {
-      "fa": [
-        "fama",
-        "familia",
-        "faro",
-        "famoso",
-        "fatiga",
-        "afanado"
-      ],
-      "fe": [
-        "feo",
-        "fecha",
-        "Felo",
-        "feliz",
-        "felino",
-        "Felicia"
-      ],
-      "fi": [
-        "fila",
-        "filo",
-        "afinado",
-        "afina",
-        "fino",
-        "afilar"
-      ],
-      "fo": [
-        "foto",
-        "sofoca",
-        "fosa",
-        "foso",
-        "teléfono",
-        "foca"
-      ],
-      "fu": [
-        "furia",
-        "funda",
-        "futuro",
-        "furor",
-        "perfume",
-        "fuga"
-      ]
+      "fa": ["fama", "familia", "faro", "famoso", "fatiga", "afanado"],
+      "fe": ["feo", "fecha", "Felo", "feliz", "felino", "Felicia"],
+      "fi": ["fila", "filo", "afinado", "afina", "fino", "afilar"],
+      "fo": ["foto", "sofoca", "fosa", "foso", "teléfono", "foca"],
+      "fu": ["furia", "funda", "futuro", "furor", "perfume", "fuga"]
     },
     "sentences": [
       "La familia de Ofelia va a la finca de Felo.",
@@ -1330,13 +773,7 @@
     "lesson": 21,
     "pages": "75-78",
     "color": "#8338EC",
-    "syllables": [
-      "ja",
-      "je",
-      "ji",
-      "jo",
-      "ju"
-    ],
+    "syllables": ["ja", "je", "ji", "jo", "ju"],
     "vocab": [
       {
         "word": "jicotea",
@@ -1369,46 +806,11 @@
       "note": "Picture vocabulary plate of the Teacher Flip Chart. Not Workbook content: Workbook activities/print use page-layouts.json."
     },
     "examples": {
-      "ja": [
-        "jaba",
-        "jabón",
-        "jamás",
-        "jarra",
-        "jamón",
-        "baja"
-      ],
-      "je": [
-        "Jesús",
-        "jefe",
-        "baje",
-        "jefatura",
-        "jerez",
-        "ajeno"
-      ],
-      "ji": [
-        "jicotea",
-        "jíbaro",
-        "jirafa",
-        "ají",
-        "ajillo",
-        "jinete"
-      ],
-      "jo": [
-        "jobo",
-        "José",
-        "bajo",
-        "ajo",
-        "jota",
-        "jorobado"
-      ],
-      "ju": [
-        "júbilo",
-        "Julio",
-        "jutía",
-        "juventud",
-        "jugo",
-        "jugar"
-      ]
+      "ja": ["jaba", "jabón", "jamás", "jarra", "jamón", "baja"],
+      "je": ["Jesús", "jefe", "baje", "jefatura", "jerez", "ajeno"],
+      "ji": ["jicotea", "jíbaro", "jirafa", "ají", "ajillo", "jinete"],
+      "jo": ["jobo", "José", "bajo", "ajo", "jota", "jorobado"],
+      "ju": ["júbilo", "Julio", "jutía", "juventud", "jugo", "jugar"]
     },
     "sentences": [
       "Jesús y Julia son amigos.",
@@ -1425,11 +827,7 @@
     "lesson": 22,
     "pages": "79-82",
     "color": "#E63946",
-    "syllables": [
-      "ca",
-      "co",
-      "cu"
-    ],
+    "syllables": ["ca", "co", "cu"],
     "vocab": [
       {
         "word": "cuna",
@@ -1463,30 +861,9 @@
       "note": "Picture vocabulary plate of the Teacher Flip Chart. Not Workbook content: Workbook activities/print use page-layouts.json."
     },
     "examples": {
-      "ca": [
-        "cama",
-        "cala",
-        "casa",
-        "cana",
-        "loca",
-        "saca"
-      ],
-      "co": [
-        "coma",
-        "cosa",
-        "poco",
-        "cola",
-        "copa",
-        "saco"
-      ],
-      "cu": [
-        "cuna",
-        "Cuba",
-        "acuna",
-        "acuso",
-        "acumula",
-        "cubo"
-      ]
+      "ca": ["cama", "cala", "casa", "cana", "loca", "saca"],
+      "co": ["coma", "cosa", "poco", "cola", "copa", "saco"],
+      "cu": ["cuna", "Cuba", "acuna", "acuso", "acumula", "cubo"]
     },
     "sentences": [
       "Cuco Casanova es un buen amigo del papá y de la mamá de Paco.",
@@ -1501,13 +878,7 @@
     "lesson": 23,
     "pages": "83-86",
     "color": "#F4A261",
-    "syllables": [
-      "ya",
-      "ye",
-      "yi",
-      "yo",
-      "yu"
-    ],
+    "syllables": ["ya", "ye", "yi", "yo", "yu"],
     "vocab": [
       {
         "word": "yate",
@@ -1541,46 +912,11 @@
       "note": "Picture vocabulary plate of the Teacher Flip Chart. Not Workbook content: Workbook activities/print use page-layouts.json."
     },
     "examples": {
-      "ya": [
-        "yate",
-        "Yara",
-        "payaso",
-        "yana",
-        "yagua",
-        "maya"
-      ],
-      "ye": [
-        "yegua",
-        "enyesado",
-        "yema",
-        "Yesenia",
-        "Yeyo",
-        "yeso"
-      ],
-      "yi": [
-        "Mayito",
-        "Yayita",
-        "Yayi",
-        "Yigüiro",
-        "Yoyita",
-        "Mayita"
-      ],
-      "yo": [
-        "cayo",
-        "yoyo",
-        "rayo",
-        "coyote",
-        "yo",
-        "Yayo"
-      ],
-      "yu": [
-        "Yucatán",
-        "Cayuco",
-        "ayudar",
-        "yuca",
-        "ayuda",
-        "desayuno"
-      ]
+      "ya": ["yate", "Yara", "payaso", "yana", "yagua", "maya"],
+      "ye": ["yegua", "enyesado", "yema", "Yesenia", "Yeyo", "yeso"],
+      "yi": ["Mayito", "Yayita", "Yayi", "Yigüiro", "Yoyita", "Mayita"],
+      "yo": ["cayo", "yoyo", "rayo", "coyote", "yo", "Yayo"],
+      "yu": ["Yucatán", "Cayuco", "ayudar", "yuca", "ayuda", "desayuno"]
     },
     "sentences": [
       "El yate de Yayo está en Yateras.",
@@ -1597,13 +933,7 @@
     "lesson": 24,
     "pages": "87-90",
     "color": "#2A9D8F",
-    "syllables": [
-      "za",
-      "ze",
-      "zi",
-      "zo",
-      "zu"
-    ],
+    "syllables": ["za", "ze", "zi", "zo", "zu"],
     "vocab": [
       {
         "word": "zapato",
@@ -1637,44 +967,11 @@
       "note": "Picture vocabulary plate of the Teacher Flip Chart. Not Workbook content: Workbook activities/print use page-layouts.json."
     },
     "examples": {
-      "za": [
-        "taza",
-        "caza",
-        "zapatero",
-        "plaza",
-        "zapato",
-        "zapote"
-      ],
-      "ze": [
-        "zepelín",
-        "zebra",
-        "Zenaida",
-        "zeta",
-        "Zegrí",
-        "Zema"
-      ],
-      "zi": [
-        "zig-zag",
-        "Zimba",
-        "Zila",
-        "Zita"
-      ],
-      "zo": [
-        "zorro",
-        "portazo",
-        "zocato",
-        "azotes",
-        "zopilote",
-        "lazo"
-      ],
-      "zu": [
-        "azúcar",
-        "zurra",
-        "azucarado",
-        "azules",
-        "Zulema",
-        "azulado"
-      ]
+      "za": ["taza", "caza", "zapatero", "plaza", "zapato", "zapote"],
+      "ze": ["zepelín", "zebra", "Zenaida", "zeta", "Zegrí", "Zema"],
+      "zi": ["zig-zag", "Zimba", "Zila", "Zita"],
+      "zo": ["zorro", "portazo", "zocato", "azotes", "zopilote", "lazo"],
+      "zu": ["azúcar", "zurra", "azucarado", "azules", "Zulema", "azulado"]
     },
     "sentences": [
       "Zulema toma zumo de melón.",

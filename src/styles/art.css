@@ -48,7 +48,9 @@
   display: inline-block;
   cursor: pointer;
   outline: none;
-  transition: transform 0.15s ease, filter 0.15s ease;
+  transition:
+    transform 0.15s ease,
+    filter 0.15s ease;
   max-width: 140px;
 }
 
@@ -74,7 +76,9 @@
 /* ── StarBadge ─────────────────────────────────────────────────── */
 .art-star-badge {
   display: inline-block;
-  transition: transform 0.2s ease, opacity 0.2s ease;
+  transition:
+    transform 0.2s ease,
+    opacity 0.2s ease;
 }
 
 .art-star-badge--filled {
@@ -99,7 +103,8 @@
 
 /* Floating animation for individual sparkle particles */
 @keyframes art-sparkle-float {
-  0%, 100% {
+  0%,
+  100% {
     transform: translateY(0) scale(1);
     opacity: 0.5;
   }

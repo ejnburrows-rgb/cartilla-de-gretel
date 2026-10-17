@@ -84,8 +84,14 @@ export function classifyLayoutType(pageNumber: number): FlipchartLayoutType {
   return "reading-panel";
 }
 
-const digitalPages = { ...firstPages, ...middlePages, ...lastPages } as Record<string, FlipchartTextItem[]>;
-const frameMap = frames as Record<string, { width: number; height: number; left: number; right: number; bottom: number }>;
+const digitalPages = { ...firstPages, ...middlePages, ...lastPages } as Record<
+  string,
+  FlipchartTextItem[]
+>;
+const frameMap = frames as Record<
+  string,
+  { width: number; height: number; left: number; right: number; bottom: number }
+>;
 const PAGE_META = (flipchartData.pages as { flipchartPage: number; lesson: number }[])
   .slice()
   .sort((a, b) => a.flipchartPage - b.flipchartPage);
@@ -108,21 +114,26 @@ type OptimizedExclusiveEntry = {
 };
 
 const OPTIMIZED_EXCLUSIVE = optimizedExclusive as OptimizedExclusiveEntry[];
-const PRODUCTION_ART = productionArt as Record<string, {
-  scene?: { src: string; word: string };
-  vocab: Array<{ src: string; word: string; labelInImage?: boolean }>;
-}>;
+const PRODUCTION_ART = productionArt as Record<
+  string,
+  {
+    scene?: { src: string; word: string };
+    vocab: Array<{ src: string; word: string; labelInImage?: boolean }>;
+  }
+>;
 
 function normalizeWord(value: string) {
-  return value
-    .normalize("NFD")
-    // Preserve ñ as distinct from n (fixes "raña" fragment matching "rana"/frog).
-    // NFD decomposes ñ into n + combining tilde (U+0303); recompose it before
-    // stripping other diacritics so "araña" ≠ "arana" and "raña" ≠ "rana".
-    .replace(/n\u0303/gi, "ñ")
-    .replace(/[\u0300-\u036f]/g, "")
-    .toLowerCase()
-    .replace(/[^a-zñü0-9]+/g, "");
+  return (
+    value
+      .normalize("NFD")
+      // Preserve ñ as distinct from n (fixes "raña" fragment matching "rana"/frog).
+      // NFD decomposes ñ into n + combining tilde (U+0303); recompose it before
+      // stripping other diacritics so "araña" ≠ "arana" and "raña" ≠ "rana".
+      .replace(/n\u0303/gi, "ñ")
+      .replace(/[\u0300-\u036f]/g, "")
+      .toLowerCase()
+      .replace(/[^a-zñü0-9]+/g, "")
+  );
 }
 
 function pageArt(
@@ -132,15 +143,23 @@ function pageArt(
   body: FlipchartTextItem[],
 ) {
   const production = PRODUCTION_ART[String(flipchartPage)];
-  if (production) return production.vocab.map((asset) => {
-    // Archive filenames omit accents/case. Captions retain the transcribed book.
-    const labelKey = (value: string) => value.normalize("NFD").replace(/[\u0300-\u036f]/g, "").toLowerCase().replace(/[^a-z0-9]/g, "");
-    const labels = new Set([
-      ...words.map((word) => word.parts.join("")),
-      ...(digitalPages[String(flipchartPage)] ?? []).map((item) => item.text),
-    ].filter((text) => labelKey(text) === labelKey(asset.word)));
-    return { ...asset, word: labels.size === 1 ? [...labels][0]! : asset.word };
-  });
+  if (production)
+    return production.vocab.map((asset) => {
+      // Archive filenames omit accents/case. Captions retain the transcribed book.
+      const labelKey = (value: string) =>
+        value
+          .normalize("NFD")
+          .replace(/[\u0300-\u036f]/g, "")
+          .toLowerCase()
+          .replace(/[^a-z0-9]/g, "");
+      const labels = new Set(
+        [
+          ...words.map((word) => word.parts.join("")),
+          ...(digitalPages[String(flipchartPage)] ?? []).map((item) => item.text),
+        ].filter((text) => labelKey(text) === labelKey(asset.word)),
+      );
+      return { ...asset, word: labels.size === 1 ? [...labels][0]! : asset.word };
+    });
   const tokens = new Set<string>();
   for (const word of words) {
     const joined = word.parts.join("");
@@ -227,9 +246,7 @@ function classify(items: FlipchartTextItem[], pageNumber: number) {
   const accentStarts = remainder
     .filter(
       (item) =>
-        item.y < 430 &&
-        item.text.trim().length <= 2 &&
-        Number(item.fontWeight ?? 400) >= 600,
+        item.y < 430 && item.text.trim().length <= 2 && Number(item.fontWeight ?? 400) >= 600,
     )
     .sort((a, b) => a.y - b.y || a.x - b.x);
 
@@ -264,10 +281,7 @@ function classify(items: FlipchartTextItem[], pageNumber: number) {
   const readingLayout = ["story-letter", "reading-panel"].includes(classifyLayoutType(pageNumber));
   const lower = rest.filter(
     (item) =>
-      !readingLayout &&
-      item.y >= 340 &&
-      item.fontSize >= 30 &&
-      !/\s/.test(item.text.trim()),
+      !readingLayout && item.y >= 340 && item.fontSize >= 30 && !/\s/.test(item.text.trim()),
   );
   const body = rest.filter((item) => !lower.includes(item));
   const narrativeLines: FlipchartTextItem[] = [];
@@ -311,16 +325,15 @@ function classify(items: FlipchartTextItem[], pageNumber: number) {
       narrativeLines.push({
         x,
         y,
-        width:
-          Math.max(...row.map((member) => member.x + member.width)) - x,
-        height:
-          Math.max(...row.map((member) => member.y + member.height)) - y,
-        text: row.map((member) => member.text.trim()).filter(Boolean).join(" "),
+        width: Math.max(...row.map((member) => member.x + member.width)) - x,
+        height: Math.max(...row.map((member) => member.y + member.height)) - y,
+        text: row
+          .map((member) => member.text.trim())
+          .filter(Boolean)
+          .join(" "),
         fontSize: Math.max(...row.map((member) => member.fontSize)),
         color: row[0]!.color,
-        fontWeight: row.some((member) => Number(member.fontWeight ?? 400) >= 600)
-          ? 700
-          : 400,
+        fontWeight: row.some((member) => Number(member.fontWeight ?? 400) >= 600) ? 700 : 400,
       });
       continue;
     }
@@ -344,18 +357,15 @@ function classify(items: FlipchartTextItem[], pageNumber: number) {
       const first = members[0]!;
       const x = Math.min(...members.map((member) => member.x));
       const y = Math.min(...members.map((member) => member.y));
-      const width =
-        Math.max(...members.map((member) => member.x + member.width)) - x;
-      const height =
-        Math.max(...members.map((member) => member.y + member.height)) - y;
+      const width = Math.max(...members.map((member) => member.x + member.width)) - x;
+      const height = Math.max(...members.map((member) => member.y + member.height)) - y;
 
       // PDF text extraction sometimes splits a reading sentence into one
       // positioned item per word. Those rows are prose, not vocabulary chips.
       // Keep short 1–2 fragment color-split words together, but reconstruct
       // longer multi-fragment rows as a native sentence with real spaces.
       const looksLikeSentence =
-        members.length >= 3 &&
-        members.map((member) => member.text.trim()).join("").length > 12;
+        members.length >= 3 && members.map((member) => member.text.trim()).join("").length > 12;
 
       if (looksLikeSentence) {
         narrativeLines.push({
@@ -363,12 +373,13 @@ function classify(items: FlipchartTextItem[], pageNumber: number) {
           y,
           width,
           height,
-          text: members.map((member) => member.text.trim()).filter(Boolean).join(" "),
+          text: members
+            .map((member) => member.text.trim())
+            .filter(Boolean)
+            .join(" "),
           fontSize: Math.max(...members.map((member) => member.fontSize)),
           color: first.color,
-          fontWeight: members.some((member) => Number(member.fontWeight ?? 400) >= 600)
-            ? 700
-            : 400,
+          fontWeight: members.some((member) => Number(member.fontWeight ?? 400) >= 600) ? 700 : 400,
         });
         continue;
       }
@@ -393,17 +404,23 @@ function classify(items: FlipchartTextItem[], pageNumber: number) {
     const lines: FlipchartTextItem[][] = [];
     for (const item of readingBody) {
       const line = lines.find((row) => Math.abs(row[0]!.y - item.y) < 9);
-      if (line) line.push(item); else lines.push([item]);
+      if (line) line.push(item);
+      else lines.push([item]);
     }
     readingBody = lines.map((row) => {
       row.sort((a, b) => a.x - b.x);
-      return { ...row[0]!, text: row.map((item) => item.text).join(" "),
-        ...(row.length > 1 ? { segments: row.map((item) => ({ text: item.text, color: item.color })) } : {}) };
+      return {
+        ...row[0]!,
+        text: row.map((item) => item.text).join(" "),
+        ...(row.length > 1
+          ? { segments: row.map((item) => ({ text: item.text, color: item.color })) }
+          : {}),
+      };
     });
   }
   // The PDF extraction offsets glyphs within the same printed syllable row.
   // Group near-equal Y coordinates first, then read left-to-right within each row.
-  const syllableRows: typeof syllables[] = [];
+  const syllableRows: (typeof syllables)[] = [];
   for (const item of [...syllables].sort((a, b) => a.y - b.y || a.x - b.x)) {
     const row = syllableRows.find((candidate) => Math.abs(candidate[0]!.y - item.y) < 18);
     if (row) row.push(item);
@@ -420,8 +437,19 @@ function classify(items: FlipchartTextItem[], pageNumber: number) {
   };
 }
 
-function deriveArtRegion(pageNumber: number, body: FlipchartTextItem[], words: FlipchartWordGroup[], hasDigitalText: boolean) {
-  const frame = frameMap[String(pageNumber)] ?? { width: 1000, height: 1344, left: 0, right: 1000, bottom: 1344 };
+function deriveArtRegion(
+  pageNumber: number,
+  body: FlipchartTextItem[],
+  words: FlipchartWordGroup[],
+  hasDigitalText: boolean,
+) {
+  const frame = frameMap[String(pageNumber)] ?? {
+    width: 1000,
+    height: 1344,
+    left: 0,
+    right: 1000,
+    bottom: 1344,
+  };
   const h = Math.max(1, frame.height);
   if (!hasDigitalText) return { top: 8, bottom: 92, left: 8, right: 92 };
 
@@ -440,7 +468,8 @@ function deriveArtRegion(pageNumber: number, body: FlipchartTextItem[], words: F
 
 export function flipchartArtSlots(pageNumber: number, lesson: number, wordCount: number) {
   const slots = [`flipchart-p${String(pageNumber).padStart(3, "0")}-hero`];
-  if (lesson >= 1 && lesson <= 6) slots.push(`flipchart-p${String(pageNumber).padStart(3, "0")}-vowel-scene`);
+  if (lesson >= 1 && lesson <= 6)
+    slots.push(`flipchart-p${String(pageNumber).padStart(3, "0")}-vowel-scene`);
   if (wordCount >= 3) slots.push(`flipchart-p${String(pageNumber).padStart(3, "0")}-words-strip`);
   return slots;
 }
@@ -471,7 +500,9 @@ export function getNativeFlipchartPage(pageNumber: number): NativeFlipchartPage 
   };
 }
 
-export const NATIVE_FLIPCHART_PAGES = PAGE_META.map((page) => getNativeFlipchartPage(page.flipchartPage)!).filter(Boolean);
+export const NATIVE_FLIPCHART_PAGES = PAGE_META.map(
+  (page) => getNativeFlipchartPage(page.flipchartPage)!,
+).filter(Boolean);
 
 export function flipchartSlotAssetSrc(slot: string) {
   return `/cartilla/art/faithful/flipchart/${slot}.webp`;

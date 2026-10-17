@@ -8,9 +8,12 @@ interface GardenSceneProps {
 }
 
 export const GardenScene = forwardRef<HTMLDivElement, GardenSceneProps>(function GardenScene(
-  { children, className }, ref,
+  { children, className },
+  ref,
 ) {
-  return <div ref={ref} className={`garden-scene ${className ?? ""}`}>
-    <div className="garden-scene__content">{children}</div>
-  </div>;
+  return (
+    <div ref={ref} className={`garden-scene ${className ?? ""}`}>
+      <div className="garden-scene__content">{children}</div>
+    </div>
+  );
 });

@@ -34,7 +34,9 @@ test.describe("native lesson and presenter motion", () => {
     }
   });
 
-  test("teacher presenter turns the printed Flip Chart sheet over the top binding", async ({ page }) => {
+  test("teacher presenter turns the printed Flip Chart sheet over the top binding", async ({
+    page,
+  }) => {
     await page.goto("/cartilla/presentar/7", { waitUntil: "domcontentloaded" });
     await dismissIntro(page);
 

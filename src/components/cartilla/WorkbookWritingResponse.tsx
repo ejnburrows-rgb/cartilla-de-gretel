@@ -14,7 +14,12 @@ import { playCorrectChord } from "@/lib/piano-audio";
 
 /** Enough writing to count the page's open-ended task as done (no grading). */
 export function isWritingResponseDone(value: string): boolean {
-  return value.trim().split(/\s+/).filter((w) => /\p{L}/u.test(w)).length >= 2;
+  return (
+    value
+      .trim()
+      .split(/\s+/)
+      .filter((w) => /\p{L}/u.test(w)).length >= 2
+  );
 }
 
 function canvasHasInk(canvas: HTMLCanvasElement): boolean {
@@ -57,7 +62,11 @@ function LearnerWritingResponse({ pageNumber, interactive, prompt }: WorkbookWri
   // Typed text state
   const [value, setValue] = useState(() => {
     try {
-      return window.localStorage.getItem(keyTyped) ?? window.localStorage.getItem(learnerStorageKey(`cartilla-writing-page-${pageNumber}`)) ?? "";
+      return (
+        window.localStorage.getItem(keyTyped) ??
+        window.localStorage.getItem(learnerStorageKey(`cartilla-writing-page-${pageNumber}`)) ??
+        ""
+      );
     } catch {
       return "";
     }
@@ -109,14 +118,20 @@ function LearnerWritingResponse({ pageNumber, interactive, prompt }: WorkbookWri
     reported.current = false;
     setCompleted(false);
     gretelEvent("activity:retry", { reason: "work-cleared" });
-    try { window.localStorage.removeItem(keyDone); }
-    catch { window.dispatchEvent(new Event("cartilla:work-save-failed")); }
+    try {
+      window.localStorage.removeItem(keyDone);
+    } catch {
+      window.dispatchEvent(new Event("cartilla:work-save-failed"));
+    }
   }, [gretelEvent, keyDone]);
 
   // A saved done flag is valid only if qualifying work actually remains.
   useEffect(() => {
     if (!interactive || restoring || !completed) return;
-    if (!hasInk && !isWritingResponseDone(value)) { revokeCompletion(); return; }
+    if (!hasInk && !isWritingResponseDone(value)) {
+      revokeCompletion();
+      return;
+    }
     if (!restoreReported.current) {
       restoreReported.current = true;
       gretelEvent("activity:complete", { restored: true });
@@ -128,7 +143,10 @@ function LearnerWritingResponse({ pageNumber, interactive, prompt }: WorkbookWri
   useEffect(() => {
     if (!interactive) return;
     const snap = savedSnapshot.current;
-    if (!snap?.dataUrl) { setRestoring(false); return; }
+    if (!snap?.dataUrl) {
+      setRestoring(false);
+      return;
+    }
     let cancelled = false;
     const startedRevision = revision.current;
     const img = new Image();
@@ -136,9 +154,15 @@ function LearnerWritingResponse({ pageNumber, interactive, prompt }: WorkbookWri
       if (cancelled || revision.current !== startedRevision) return;
       const canvas = mode === "freehand" ? canvasRef.current : document.createElement("canvas");
       if (!canvas) return;
-      if (mode !== "freehand") { canvas.width = img.width; canvas.height = img.height; }
+      if (mode !== "freehand") {
+        canvas.width = img.width;
+        canvas.height = img.height;
+      }
       const ctx = canvas.getContext("2d");
-      if (!ctx) { setRestoring(false); return; }
+      if (!ctx) {
+        setRestoring(false);
+        return;
+      }
       const dpr = mode === "freehand" ? Math.min(window.devicePixelRatio || 1, 2) : 1;
       ctx.globalCompositeOperation = "source-over";
       ctx.clearRect(0, 0, canvas.width / dpr, canvas.height / dpr);
@@ -146,9 +170,16 @@ function LearnerWritingResponse({ pageNumber, interactive, prompt }: WorkbookWri
       setHasInk(canvasHasInk(canvas));
       setRestoring(false);
     };
-    img.onerror = () => { if (!cancelled && revision.current === startedRevision) { setHasInk(false); setRestoring(false); } };
+    img.onerror = () => {
+      if (!cancelled && revision.current === startedRevision) {
+        setHasInk(false);
+        setRestoring(false);
+      }
+    };
     img.src = snap.dataUrl;
-    return () => { cancelled = true; };
+    return () => {
+      cancelled = true;
+    };
   }, [interactive, mode, canvasKey]);
 
   // Resize canvas responsively
@@ -447,9 +478,27 @@ function LearnerWritingResponse({ pageNumber, interactive, prompt }: WorkbookWri
                 aria-pressed={erasing}
               >
                 <svg viewBox="0 0 24 24" className="w-4 h-4" aria-hidden="true">
-                  <path d="M4 15 L14 5 L20 11 L10 21 L4 21 Z" fill="#f498a9" stroke="#d9768c" strokeWidth="1.5" strokeLinejoin="round" />
-                  <path d="M10 9 L16 15" stroke="#ffffff" strokeWidth="1.2" strokeLinecap="round" opacity="0.8" />
-                  <path d="M7 18 L10 21 L21 21" fill="none" stroke="#6c737b" strokeWidth="1.5" strokeLinecap="round" />
+                  <path
+                    d="M4 15 L14 5 L20 11 L10 21 L4 21 Z"
+                    fill="#f498a9"
+                    stroke="#d9768c"
+                    strokeWidth="1.5"
+                    strokeLinejoin="round"
+                  />
+                  <path
+                    d="M10 9 L16 15"
+                    stroke="#ffffff"
+                    strokeWidth="1.2"
+                    strokeLinecap="round"
+                    opacity="0.8"
+                  />
+                  <path
+                    d="M7 18 L10 21 L21 21"
+                    fill="none"
+                    stroke="#6c737b"
+                    strokeWidth="1.5"
+                    strokeLinecap="round"
+                  />
                 </svg>
                 Borrador
               </button>

@@ -83,11 +83,13 @@ function PaginasLeccion() {
 
   const toggleFullscreen = () => {
     if (!document.fullscreenElement) {
-      void document.documentElement.requestFullscreen()
+      void document.documentElement
+        .requestFullscreen()
         .then(() => setIsFullscreen(true))
         .catch(() => setIsFullscreen(false));
     } else if (document.exitFullscreen) {
-      void document.exitFullscreen()
+      void document
+        .exitFullscreen()
         .then(() => setIsFullscreen(false))
         .catch(() => setIsFullscreen(Boolean(document.fullscreenElement)));
     }

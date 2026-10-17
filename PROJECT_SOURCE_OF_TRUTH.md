@@ -6,7 +6,6 @@
 
 **Use only the existing original master recording** `Gretel_558674_Original.m4a` for current recovery and alignment (source SHA256 `239e3518f364adfcefab39f4220a4b2b85a6e3987679af823d7ef0f26f76935d`). It has 151 source-boundary-verified speech segments, but the text actually spoken and workbook page associations are **NOT YET VERIFIED**; do not equate `gr_0001` recording segment with `GR0001` book script. Corrected exports preserve original continuous speech and authentic pauses; do not join bad clip fragments or add music. Review auditory quality, verify each transcript and page/event mapping before approved runtime playback. PR #769 holds the implementation in DRAFT; don't merge/deploy until verified. Owner already supplied the voice and audio; do not propose any new generation, cloning, or recording.
 
-
 ## LATEST OWNER AUDIO SOURCE CORRECTION — REJECT WRONG STUTTERING/MUSIC TRACKS (2026-10-15)
 
 **Supersedes the earlier 2026-10-15 statement that the 67 indexed recordings are automatically acceptable for playback.** Owner explicitly rejected the prior stitched demonstrations: "The stitching is wrong. It stutters. It has music in the background. That's not the one that you're supposed to use. So do it again."
@@ -17,7 +16,6 @@
 - Confirm source phrase transcript and printed page/event before enabling audio, and test on actual workbook. Do not claim clean sound, 100% coverage, or integrated playback based only on MP3 installation. No new recording, cloning, or alternative speech generator. Existing integration stays draft/held pending corrected sources and real verification.
 - Owner repeatedly said not to revisit generator selection or ask them to repeat already-supplied recordings. This correction is specific to rejecting the wrong audio mix, **not revoking the underlying real recordings**.
 
-
 ## OVERRIDING OWNER DIRECTIVE — USE THE EXISTING FINISHED AUDIO (2026-10-15)
 
 **Newest owner-approved source-of-truth correction, effective immediately. Applies to all agents, Muse, Jules, reviewers, schedulers, and every future session. Supersedes older proposals/options elsewhere in this repository.**
@@ -25,11 +23,9 @@
 1. **Generator already solved.** The owner has a functioning generator that creates any Spanish sentence requested. **Do not research, clone, train, replace, deploy, self-host, or recommend another generator, TTS model, Colab voice setup, GPU, paid provider, or new recordings.** Do not reopen older "choose final Gretel voice" tasks.
 2. **Real finished source assets already supplied.** On **2026-10-14**, the owner generated and provided **more than one hour of actual recordings**, including recordings in video files. They are completed audio outputs; **not** voice-cloning reference material or merely recording prompts. Do not request re-recording or have the owner repeat explanations/uploads.
 3. **Exact authorized job:** find/recover the previously supplied assets through accessible authorized sources; extract audio from existing videos where necessary; use the real existing recordings to map to **every authentic workbook page instruction, applicable narration, alerts, correct-answer compliments, incorrect-answer and "try again" reactions, and all other recorded responses**. Map by actual spoken content and source pages (no invented alignment, words, or coverage). Install valid playable audio and connect it to appropriate events. Check real page-by-page browser playback, audio correctness, keyboard accessibility, mute/stop, and completeness. Preserve existing approved sound and unrelated behavior.
-4. **Evidence boundary:** PR #769 is an existing draft integration effort with **67 indexed MP3 cues and a 1,639-entry script** in its 2026-10-15 description, but it reported that its needed MP3 binaries were *not installed* on the running app, its exact-page active manifest was empty, and runtime playback was not proven. Recover this work; do not duplicate it. Recheck latest PR before making a new claim. **The recordings are usable source material; missing local tool access or uninstalled repo assets are an ACCESS/INTEGRATION blocker, never evidence that the recordings cannot be used.**
+4. **Evidence boundary:** PR #769 is an existing draft integration effort with **67 indexed MP3 cues and a 1,639-entry script** in its 2026-10-15 description, but it reported that its needed MP3 binaries were _not installed_ on the running app, its exact-page active manifest was empty, and runtime playback was not proven. Recover this work; do not duplicate it. Recheck latest PR before making a new claim. **The recordings are usable source material; missing local tool access or uninstalled repo assets are an ACCESS/INTEGRATION blocker, never evidence that the recordings cannot be used.**
 5. **Never say "100% integrated" without proof** that the actual audio is accessible and installed and every claimed workbook page and response has correctly mapped, verified playback. Separate owner-supplied recording duration, extracted cue count, script entries, installed assets, mapped coverage, and live playback.
 6. **Stop unsolicited discussion of voice.** Only discuss the remaining integration/proof task if the owner explicitly asks. Preserve all standing permissions, no-paid-services rule, and owner-only production release gate. No unapproved merges/releases/assets deletion.
-
-
 
 ## OWNER-APPROVED — permanently close workbook page 86–87 scan gap (2026-10-14)
 
@@ -39,14 +35,13 @@ Student-facing lesson flow: **Lección 23 = pages 83 → 84 → 85, then normal 
 
 **Curriculum discussion order (owner, 2026-10-14):** first GrillMe/brainstorm HOW each already-built practice activity works for the learner/teacher within a session, including sequencing and completion. **Only afterward discuss Piano Hablador's specific lesson placement.** Piano inside lessons is approved in principle; its details have not yet been chosen.
 
-
 ## Current artwork reconciliation routing — 2026-10-14
 
 The **current source-evidenced artwork reconciliation** is in [PR #751](https://github.com/ejnburrows-rgb/cartilla-de-gretel/pull/751), [MASTER-MAPPING.md](https://github.com/ejnburrows-rgb/cartilla-de-gretel/blob/evidence/artwork-coverage-20261014/docs/proofs/artwork-coverage-2026-10-14/MASTER-MAPPING.md), and its 330-row CSV/201-group JSON. **The PR is a draft evidence branch, not installed on `main`, not deployed, and not a production-art approval.** Every agent, including Muse/Jules/controller/reviewer, must read the current PR head and its evidence **before** making artwork availability, candidate or owner-missing claims; do not restart the four completed artwork audits. No automatic Jules job is created by this pointer.
 
 90 faithful optimized drawing masters available by group (186 placements), 108 groups need actual optimization (141 placements), 3 unresolved frontmatter composite groups (3 placements). **115 exact placement matches** recorded; **71 READY group placements** have no individually selected exact master. **Eight** selected candidate files are documented only inside owner-local archives; they are not live GitHub assets. **50** withheld hashes cannot be associated with specific drawings. Ownership approval, runtime integration, book fidelity and release checks remain separate gates.
 
-**Visual identity override:** `DRAW-WB-10-1` depicts **avión (airplane)** despite five legacy `PEZ` IDs/filenames. Real source image and proposed match were directly inspected; never rename it *pez* based on filename, nor alter legacy placement IDs. Optimize/restore only source-faithful originals, preserve all approved assets, and remove no evidence or app dependency without a specific negative reference/dependency check. Older summaries or locally generated copies cannot supersede the cited live GitHub evidence.
+**Visual identity override:** `DRAW-WB-10-1` depicts **avión (airplane)** despite five legacy `PEZ` IDs/filenames. Real source image and proposed match were directly inspected; never rename it _pez_ based on filename, nor alter legacy placement IDs. Optimize/restore only source-faithful originals, preserve all approved assets, and remove no evidence or app dependency without a specific negative reference/dependency check. Older summaries or locally generated copies cannot supersede the cited live GitHub evidence.
 
 ## STOP — OWNER CREDIT / ANTIGRAVITY DENY-BY-DEFAULT GATE (2026-10-11)
 
@@ -59,7 +54,6 @@ The **current source-evidenced artwork reconciliation** is in [PR #751](https://
 - If a task cannot proceed without prohibited access, report the precise dependency rather than silently using the connected launcher. Any pre-existing local Antigravity launcher/agent must stay unused until the owner grants new explicit permission.
 - This repository rule **does not itself technically disable the laptop launcher**; verify the laptop execution path separately before claiming a technical block.
 
-
 ## STOP — OWNER PROACTIVE 15-LANE JULES + LATEST-APPROVAL-ONLY VISUAL GATE (2026-10-13)
 
 **HIGHEST PRIORITY FOR ALL AGENTS, JULES, DISPATCHERS, WATCHERS, REVIEWERS, SUPERVISORS, AUTOMATIONS AND REPORTS. Overrides older instructions anywhere in the repository, issues, PRs, historical screenshots, memories or prompts.**
@@ -70,9 +64,7 @@ The **current source-evidenced artwork reconciliation** is in [PR #751](https://
 4. **No stale or fake approval evidence.** A merge, code review, unit test, Jules receipt or local dev fake does NOT prove visual approval. Fresh proof must depict the REAL source-faithful Student Workbook or Teacher/Flip Chart page at the exact verified commit/deployment, with the latest approved pencil/eraser, on the stated viewport/device; screenshots from `/dev-*`, old Vercel previews or synthetic demos are prohibited as owner approval evidence. Missing actual proof means **NOT APPROVAL-READY**; no historical substitution or unapproved release.
 5. **Precedence:** the owner's latest explicit 2026-10-13 authorization to proactively refill verified useful Jules capacity supersedes older 'never target 15', 'no automatic refill', and blanket new-task per-issue approval instructions. The latest source-faithful product designs, owner-only approval/release gates, credit/Antigravity prohibition and evidence standards remain fully binding. Muse is the single active dispatch controller; do not restore obsolete ChatGPT dispatch schedules, a rival controller, retired Windows/Neon/OpenHands infrastructure or paid systems.
 
-
 > **Finish contract:** Read PROJECT_FINISH_DEFINITION.md before planning or declaring Cartilla work complete. It is the canonical definition of what must be true for the entire project to be finished. Compare current verified reality against it and close only real remaining gaps.
-
 
 **Status:** Active project entry point  
 **Last verified:** 2026-10-06
@@ -84,6 +76,7 @@ Finish La Cartilla de Gretel as a **school-pilot-ready e-learning platform** bas
 Under the currently deferred live-auth/Supabase scope, "school-pilot-ready" means demo/pilot use with **non-real student data** until real-data security/privacy blockers are resolved. A real-child/student-data pilot cannot pass final release merely by declaring backend work deferred.
 
 The digital product must:
+
 - preserve the books' instructional structure, sequence, wording, exercises, and approved artwork;
 - remove non-instructional filler such as blank/credits-only pages from the learner flow;
 - use digital-native interactions where the physical gesture is awkward on screen;
@@ -92,6 +85,7 @@ The digital product must:
 ## Authoritative sources
 
 Google Drive originals:
+
 - `La Cartilla de Gretel Flip Chart.pdf`
 - `Libro del alumno - Rescan and Optimize (2).pdf`
 
@@ -106,9 +100,9 @@ For curriculum, wording, page order, exercise content, and source-page structure
 5. A student cannot advance with **Next** until the required work on the current page is completed.
 6. Workbook and Flip Chart are separate experiences:
    - Workbook = student interaction on a clean digital canvas. Dense learner exercises do not use full scenic wallpaper; source structure/content and foreground art remain book-faithful.
-   - Flip Chart/Presenter = teacher classroom presentation with the owner-approved rich, optimized presentation, faithful to the original book. Clean paper is the default page *background* (no default scenic wallpaper), not a direction to flatten or remove approved art, source scenes, composition, visual hierarchy, polished finish, or purposeful motion.
+   - Flip Chart/Presenter = teacher classroom presentation with the owner-approved rich, optimized presentation, faithful to the original book. Clean paper is the default page _background_ (no default scenic wallpaper), not a direction to flatten or remove approved art, source scenes, composition, visual hierarchy, polished finish, or purposeful motion.
    - The **six visual manifestation guides presented and approved by the owner** remain the presentation references for their corresponding sections. Match the approved visual result for each applicable section; do not treat those guides as optional or redesign physical-book structure, text, artwork identity, relationships, sequence or educational meaning. Approved refinements in layout quality, typography, color/finish, layering, responsiveness, projector readability and restrained motion remain allowed within the source/asset fidelity contracts.
-   - Preserve historic scenic assets on disk, but do not mount them as *default* Flip Chart wallpaper. This default does not revoke any **specifically approved** page/context background treatment under `repo.md`.
+   - Preserve historic scenic assets on disk, but do not mount them as _default_ Flip Chart wallpaper. This default does not revoke any **specifically approved** page/context background treatment under `repo.md`.
 7. Gretel uses the exact approved master identified by `src/data/gretel-approved-master.json` and the existing character system. Final voice/TTS direction is deferred until the owner explicitly approves it.
 8. Google Flow's current production scope is one owner-approved 5–6 second silent welcome loop from the exact approved final still. In-app lesson reactions use the existing Gretel state system; no 31-clip requirement remains.
 9. Automatic Vercel deployment stays off during active work. Do not use production deployment as a test runner.
@@ -121,6 +115,7 @@ For curriculum, wording, page order, exercise content, and source-page structure
 Current product-completion execution remains intentionally parallel where scopes are isolated.
 
 Historical October 4 work snapshot (NOT a live open-PR list; check GitHub for today's open candidates):
+
 - #476 — shared student interaction kernel + Workbook p1/p2;
 - #477 — Gretel behavior and motion discipline;
 - #478 — welcome-media code integration; the owner-supplied 5–6 second silent MP4 remains an external dependency;
@@ -147,6 +142,7 @@ Supabase/live-auth expansion remains deferred from the current product-completio
 For meaningful code/behavior PRs, the controller independently reviews the material diff and current head, reuses relevant Jules test and UI evidence, confirms scope/approvals, and fixes independently confirmed serious defects. SonarCloud/SonarQube analysis stays available as **advisory and non-blocking** information: its quality gate, duplication threshold, missing report, or failed status alone never blocks dispatch or merge. A confirmed substantive defect still blocks the affected change. Recheck only evidence invalidated by a material change; unrelated documentation/head movement does not invalidate focused proof. The lightweight `node scripts/check-merge-policy.mjs --docs` consistency check detects contradictory policy, while `--evidence <receipt.json>` evaluates a particular proposed merge without running product tests.
 
 No task is "done" without visible or test evidence:
+
 - what changed;
 - what source it was checked against;
 - relevant test/build result;

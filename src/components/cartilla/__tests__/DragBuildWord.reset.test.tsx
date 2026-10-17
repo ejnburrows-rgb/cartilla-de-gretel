@@ -67,8 +67,8 @@ const completeCurrentWord = (word: string) => {
     const trayEls = Array.from(traysParent.children);
 
     // find a tray that has not been used yet and has the target letter
-    const trayIdx = trayEls.findIndex(el =>
-      el.getAttribute("data-used") === "false" && el.textContent === targetLetter
+    const trayIdx = trayEls.findIndex(
+      (el) => el.getAttribute("data-used") === "false" && el.textContent === targetLetter,
     );
 
     triggerDrop(trayIdx, slotIdx, targetLetter);
@@ -86,7 +86,7 @@ describe("DragBuildWord reset behavior", () => {
   it("resets state when content changes", async () => {
     const onComplete = vi.fn();
     const { rerender } = render(
-      <DragBuildWord words={words1} accent="#000" onComplete={onComplete} />
+      <DragBuildWord words={words1} accent="#000" onComplete={onComplete} />,
     );
 
     // Complete the first word ("sol")
@@ -97,9 +97,7 @@ describe("DragBuildWord reset behavior", () => {
     expect(onComplete).toHaveBeenCalledTimes(1);
 
     // Now rerender with words2
-    rerender(
-      <DragBuildWord words={words2} accent="#000" onComplete={onComplete} />
-    );
+    rerender(<DragBuildWord words={words2} accent="#000" onComplete={onComplete} />);
 
     // Check that we're on the new word
     const slotParent = screen.getByRole("group", { name: "Casillas de la palabra" });

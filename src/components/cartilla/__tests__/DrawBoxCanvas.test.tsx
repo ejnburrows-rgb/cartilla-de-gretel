@@ -5,13 +5,13 @@ import { DrawBoxCanvas } from "../DrawBoxCanvas";
 const MockProvider = ({ children }: { children: React.ReactNode }) => <>{children}</>;
 vi.mock("@/lib/activity-events", () => ({
   useActivityEvents: () => ({ emit: vi.fn(), record: vi.fn() }),
-  ActivityEventsProvider: ({ children }: { children: React.ReactNode }) => <>{children}</>
+  ActivityEventsProvider: ({ children }: { children: React.ReactNode }) => <>{children}</>,
 }));
 
 describe("DrawBoxCanvas", () => {
   let originalGetContext: any;
   let getBoundingClientRectMock: any;
-  
+
   beforeEach(() => {
     vi.restoreAllMocks();
     originalGetContext = HTMLCanvasElement.prototype.getContext;
@@ -24,13 +24,13 @@ describe("DrawBoxCanvas", () => {
       right: 100,
       x: 0,
       y: 0,
-      toJSON: () => {}
+      toJSON: () => {},
     });
     window.HTMLElement.prototype.getBoundingClientRect = getBoundingClientRectMock;
   });
-  
+
   afterEach(() => {
-     HTMLCanvasElement.prototype.getContext = originalGetContext;
+    HTMLCanvasElement.prototype.getContext = originalGetContext;
   });
 
   it("should preserve drawing across window resize", () => {
@@ -52,28 +52,28 @@ describe("DrawBoxCanvas", () => {
       }
       return null;
     });
-    
+
     HTMLCanvasElement.prototype.getContext = getContextMock as any;
 
     const { unmount, container } = render(
       <MockProvider>
         <DrawBoxCanvas regionId="test" />
-      </MockProvider>
+      </MockProvider>,
     );
 
     // Initial resize inside useEffect calls getContext and scale
     expect(getContextMock).toHaveBeenCalled();
     expect(scaleMock).toHaveBeenCalled();
 
-    const canvas = container.querySelector('canvas') as HTMLCanvasElement;
-    
+    const canvas = container.querySelector("canvas") as HTMLCanvasElement;
+
     // Simulate setting width and height explicitly to positive values
-    Object.defineProperty(canvas, 'width', { value: 100, writable: true });
-    Object.defineProperty(canvas, 'height', { value: 100, writable: true });
+    Object.defineProperty(canvas, "width", { value: 100, writable: true });
+    Object.defineProperty(canvas, "height", { value: 100, writable: true });
 
     // Clear initial calls
     drawImageMock.mockClear();
-    
+
     // Trigger window resize
     act(() => {
       window.dispatchEvent(new Event("resize"));
@@ -83,7 +83,7 @@ describe("DrawBoxCanvas", () => {
     // First it creates offscreen canvas and draws existing canvas on it.
     // Then it restores offscreen canvas to main canvas.
     expect(drawImageMock).toHaveBeenCalled();
-    
+
     // Cleanup
     unmount();
   });

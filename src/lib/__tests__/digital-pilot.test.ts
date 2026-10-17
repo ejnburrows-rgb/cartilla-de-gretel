@@ -55,7 +55,9 @@ describe("faithful digital workbook pages", () => {
         // Display copy of the owner's optimized color image; the source stays byte-identical.
         const source = readFileSync(join(root, "public", color.source.slice(1)));
         expect(createHash("sha256").update(source).digest("hex")).toBe(color.sourceSha256);
-        expect(color.source).toMatch(/^\/cartilla\/art\/optimized\/(?:flipchart-native|workbook\/leccion-1)\//);
+        expect(color.source).toMatch(
+          /^\/cartilla\/art\/optimized\/(?:flipchart-native|workbook\/leccion-1)\//,
+        );
         continue;
       }
       if (printed.has(src)) {

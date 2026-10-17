@@ -2,7 +2,6 @@
 
 > **Finish contract:** Read PROJECT_FINISH_DEFINITION.md before planning or declaring Cartilla work complete. It is the canonical definition of what must be true for the entire project to be finished. Compare current verified reality against it and close only real remaining gaps.
 
-
 **Status:** CANONICAL OBSERVABLE INTERACTION CONTRACT  
 **Owner direction locked:** 2026-10-03
 
@@ -13,6 +12,7 @@ This file defines shared state/interaction behavior across the Student Workbook 
 One shared interaction kernel owns cross-activity behavior.
 
 Canonical observable states:
+
 1. **idle** — learner can act; Gretel quiet.
 2. **marking** — pencil/handwriting action is being rendered.
 3. **neutral-hold** — short internal pause after the mark is drawn, before the result event. Owner 2026-10-06: Real Workbook Mark circles are already green (right) or red (wrong) from the first line; no gray waiting period is shown.
@@ -21,6 +21,7 @@ Canonical observable states:
 6. **complete** — activity/page completion is recorded and navigation eligibility updates.
 
 The kernel owns:
+
 - pencil/eraser visual primitives;
 - shared motion/timing tokens;
 - retry/success feedback state;
@@ -73,6 +74,7 @@ Final voice/TTS provider remains deferred.
 **Precondition:** Forward page turns (via Siguiente button, bottom-right corner tap/drag, or ArrowRight key) may activate only when the existing page completion rule allows it. Bottom-right corner gives the "Termina la actividad de esta página para seguir" hint when incomplete. Back navigation (via Anterior button, bottom-left corner tap/drag, or ArrowLeft key) is always allowed.
 
 Lesson screen (`/cartilla/leccion/$n`) sequence (owner decision 2026-10-09):
+
 1. save/commit current learner state;
 2. disable duplicate navigation;
 3. play soft paper sound (`audioEngine.playPageTurn(true)`, respecting mute);
@@ -87,6 +89,7 @@ Complete book (`/cartilla/cuaderno`) uses this same lesson-screen viewer: one na
 Back navigation reverses the physical direction.
 
 Do not:
+
 - use cube/card flips;
 - introduce elastic waves or dramatic 3D spins;
 - alter source page assets;
@@ -100,6 +103,7 @@ Reduced motion: immediate or very short non-3D page replacement, preserving focu
 The Flip Chart behaves like a real top-bound classroom flip chart with teacher hand mode support (owner direction 2026-10-09).
 
 Hand mode and corner interaction:
+
 - Hand mode setting: Left-hand (default) / Right-hand, saved on the device (`cartilla:teacher:hand-mode`).
 - Left-hand mode: bottom-left corner tap/drag = next sheet; bottom-right corner = previous sheet.
 - Right-hand mode: bottom-right corner tap/drag = next sheet; bottom-left corner = previous sheet.
@@ -107,6 +111,7 @@ Hand mode and corner interaction:
 - Pointer protection: corner hotspots are non-interactive while Laser Pointer mode is active.
 
 Advance sequence:
+
 1. prepare destination sheet behind current sheet;
 2. disable duplicate navigation;
 3. play soft paper sound (respecting mute);
@@ -138,6 +143,7 @@ Animate compositor-friendly transform/opacity properties. Avoid layout-thrashing
 Visible lanes publish milestone screenshots before final completion.
 
 For the page-turn system, proof must include:
+
 - Workbook before/mid-turn/settled next page;
 - Workbook reverse;
 - Flip Chart before/mid-turn/settled next sheet;
@@ -148,7 +154,6 @@ For the page-turn system, proof must include:
 - representative tablet/phone/projector views.
 
 Final regression remains responsible for end-to-end confirmation across the assembled product.
-
 
 ## 9. Issue ownership
 

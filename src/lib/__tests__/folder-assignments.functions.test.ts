@@ -197,28 +197,31 @@ describe("folder-assignments.functions tests", () => {
   });
 });
 
-  describe("createFolderAssignment cross-class validation", () => {
-    it("throws if any studentId does not belong to the target class", async () => {
-      vi.mocked(supabase.auth.getUser).mockResolvedValue(authedUser() as never);
-      const ownsClass = makeQueryBuilder(ok({ id: CLASS_ID }));
-      
-      const missingStudent = makeQueryBuilder(ok([{ id: "valid-student" }])); // length 1 instead of 2
+describe("createFolderAssignment cross-class validation", () => {
+  it("throws if any studentId does not belong to the target class", async () => {
+    vi.mocked(supabase.auth.getUser).mockResolvedValue(authedUser() as never);
+    const ownsClass = makeQueryBuilder(ok({ id: CLASS_ID }));
 
-      vi.mocked(supabase.from)
-        .mockReturnValueOnce(ownsClass as never)
-        .mockReturnValueOnce(missingStudent as never);
+    const missingStudent = makeQueryBuilder(ok([{ id: "valid-student" }])); // length 1 instead of 2
 
-      await expect(
-        createFolderAssignment({
-          data: {
-            classId: CLASS_ID,
-            folderKey: "guia",
-            lessonId: "7",
-            activityLabel: "Guía Lección 7",
-            targetScope: "students",
-            studentIds: ["11111111-1111-1111-1111-111111111111", "22222222-2222-2222-2222-222222222222"],
-          },
-        }),
-      ).rejects.toThrow("Uno o más estudiantes no pertenecen a esta clase.");
-    });
+    vi.mocked(supabase.from)
+      .mockReturnValueOnce(ownsClass as never)
+      .mockReturnValueOnce(missingStudent as never);
+
+    await expect(
+      createFolderAssignment({
+        data: {
+          classId: CLASS_ID,
+          folderKey: "guia",
+          lessonId: "7",
+          activityLabel: "Guía Lección 7",
+          targetScope: "students",
+          studentIds: [
+            "11111111-1111-1111-1111-111111111111",
+            "22222222-2222-2222-2222-222222222222",
+          ],
+        },
+      }),
+    ).rejects.toThrow("Uno o más estudiantes no pertenecen a esta clase.");
   });
+});

@@ -13,10 +13,18 @@ test.describe("Living Motion Regression Suite", () => {
     await ensureProofDir();
   });
 
-  test("Workbook Page 1: registered living actors render, move, and pass asset checks", async ({ page }) => {
+  test("Workbook Page 1: registered living actors render, move, and pass asset checks", async ({
+    page,
+  }) => {
     const failedUrls: string[] = [];
     page.on("response", (response) => {
-      if (response.status() >= 400 && (response.url().includes("/art/") || response.url().includes(".svg") || response.url().includes(".png") || response.url().includes(".webp"))) {
+      if (
+        response.status() >= 400 &&
+        (response.url().includes("/art/") ||
+          response.url().includes(".svg") ||
+          response.url().includes(".png") ||
+          response.url().includes(".webp"))
+      ) {
         failedUrls.push(`${response.status()} ${response.url()}`);
       }
     });
@@ -29,7 +37,9 @@ test.describe("Living Motion Regression Suite", () => {
 
     const naturalActors = ["oso", "oveja", "avión", "abanico", "elefante", "imán", "olla"];
     for (const actorName of naturalActors) {
-      const wrapper = page.locator(`.living-illustration[data-picture-name="${actorName}"]`).first();
+      const wrapper = page
+        .locator(`.living-illustration[data-picture-name="${actorName}"]`)
+        .first();
       await expect(wrapper, `Living illustration for ${actorName} exists`).toBeVisible();
 
       const isNatural = await wrapper.getAttribute("data-natural-motion");
@@ -39,7 +49,10 @@ test.describe("Living Motion Regression Suite", () => {
       await expect(img).toBeVisible();
 
       const naturalWidth = await img.evaluate((el: HTMLImageElement) => el.naturalWidth);
-      expect(naturalWidth, `${actorName} image rendered with positive naturalWidth`).toBeGreaterThan(0);
+      expect(
+        naturalWidth,
+        `${actorName} image rendered with positive naturalWidth`,
+      ).toBeGreaterThan(0);
 
       const imgSrc = await img.getAttribute("src");
       expect(imgSrc, `${actorName} display src uses aliveSrc SVG`).toContain("-alive.svg");
@@ -48,7 +61,10 @@ test.describe("Living Motion Regression Suite", () => {
     // abeja on Page 1 uses ambient CSS hover motion
     const abejaWrapper = page.locator('.living-illustration[data-picture-name="abeja"]').first();
     await expect(abejaWrapper, "Living illustration for abeja exists").toBeVisible();
-    expect(await abejaWrapper.getAttribute("data-ambient-motion"), "abeja uses hover ambient motion").toBe("hover");
+    expect(
+      await abejaWrapper.getAttribute("data-ambient-motion"),
+      "abeja uses hover ambient motion",
+    ).toBe("hover");
 
     const abejaImg = abejaWrapper.locator("img.living-illustration__art");
     await expect(abejaImg).toBeVisible();
@@ -63,10 +79,18 @@ test.describe("Living Motion Regression Suite", () => {
     });
   });
 
-  test("Flip Chart Lesson 7: registered scene actor renders and uses aliveSrc", async ({ page }) => {
+  test("Flip Chart Lesson 7: registered scene actor renders and uses aliveSrc", async ({
+    page,
+  }) => {
     const failedUrls: string[] = [];
     page.on("response", (response) => {
-      if (response.status() >= 400 && (response.url().includes("/art/") || response.url().includes(".svg") || response.url().includes(".png") || response.url().includes(".webp"))) {
+      if (
+        response.status() >= 400 &&
+        (response.url().includes("/art/") ||
+          response.url().includes(".svg") ||
+          response.url().includes(".png") ||
+          response.url().includes(".webp"))
+      ) {
         failedUrls.push(`${response.status()} ${response.url()}`);
       }
     });
@@ -78,8 +102,14 @@ test.describe("Living Motion Regression Suite", () => {
     await expect(panel).toBeVisible({ timeout: 30_000 });
 
     // Only the presented sheet counts; turn layers hold hidden copies of neighbours.
-    const sceneWrapper = page.getByTestId("flipchart-stage").locator(".living-illustration").filter({ has: page.locator('img[src*="p009-scene"]') }).first();
-    await expect(sceneWrapper, "Flip chart Lesson 7 scene actor exists").toBeVisible({ timeout: 15_000 });
+    const sceneWrapper = page
+      .getByTestId("flipchart-stage")
+      .locator(".living-illustration")
+      .filter({ has: page.locator('img[src*="p009-scene"]') })
+      .first();
+    await expect(sceneWrapper, "Flip chart Lesson 7 scene actor exists").toBeVisible({
+      timeout: 15_000,
+    });
 
     const isNatural = await sceneWrapper.getAttribute("data-natural-motion");
     expect(isNatural, "p009-scene uses self-animated natural motion").toBe("true");
@@ -101,7 +131,9 @@ test.describe("Living Motion Regression Suite", () => {
     });
   });
 
-  test("Reduced motion: falls back to still assets and halts motion across Workbook Page 1 and Flip Chart Lesson 7", async ({ browser }) => {
+  test("Reduced motion: falls back to still assets and halts motion across Workbook Page 1 and Flip Chart Lesson 7", async ({
+    browser,
+  }) => {
     const context = await browser.newContext({
       reducedMotion: "reduce",
       viewport: { width: 1280, height: 900 },
@@ -115,7 +147,9 @@ test.describe("Living Motion Regression Suite", () => {
 
     const wbActors = ["oso", "oveja", "avión", "abanico", "elefante", "imán", "olla", "abeja"];
     for (const actorName of wbActors) {
-      const wrapper = page.locator(`.living-illustration[data-picture-name="${actorName}"]`).first();
+      const wrapper = page
+        .locator(`.living-illustration[data-picture-name="${actorName}"]`)
+        .first();
       await expect(wrapper).toBeVisible();
 
       expect(await wrapper.getAttribute("data-natural-motion")).toBe("false");
@@ -123,14 +157,18 @@ test.describe("Living Motion Regression Suite", () => {
 
       const img = wrapper.locator("img.living-illustration__art");
       const imgSrc = await img.getAttribute("src");
-      expect(imgSrc, `${actorName} uses still asset under reduced motion`).not.toContain("-alive.svg");
+      expect(imgSrc, `${actorName} uses still asset under reduced motion`).not.toContain(
+        "-alive.svg",
+      );
       expect(imgSrc, `${actorName} uses still image file`).toMatch(/\.(svg|png|webp)$/);
 
       const anyRunning = await wrapper.evaluate((el) => {
         const els = [el, ...el.querySelectorAll("*")];
         return els.some((e) => getComputedStyle(e).animationName !== "none");
       });
-      expect(anyRunning, `${actorName} has no running CSS animations under reduced motion`).toBe(false);
+      expect(anyRunning, `${actorName} has no running CSS animations under reduced motion`).toBe(
+        false,
+      );
     }
 
     await page.screenshot({
@@ -141,7 +179,11 @@ test.describe("Living Motion Regression Suite", () => {
     // Test Flip Chart Lesson 7 under reduced motion
     await page.goto("/cartilla/presentar/7", { waitUntil: "networkidle" });
     // Only the presented sheet counts; turn layers hold hidden copies of neighbours.
-    const sceneWrapper = page.getByTestId("flipchart-stage").locator(".living-illustration").filter({ has: page.locator('img[src*="p009-scene"]') }).first();
+    const sceneWrapper = page
+      .getByTestId("flipchart-stage")
+      .locator(".living-illustration")
+      .filter({ has: page.locator('img[src*="p009-scene"]') })
+      .first();
     await expect(sceneWrapper).toBeVisible({ timeout: 15_000 });
 
     expect(await sceneWrapper.getAttribute("data-natural-motion")).toBe("false");

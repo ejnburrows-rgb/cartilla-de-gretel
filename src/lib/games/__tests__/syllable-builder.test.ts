@@ -142,7 +142,7 @@ describe("syllable-builder — the 3-lesson pilot content", () => {
   it("only references real PASS-verified book art (or honestly omits it)", () => {
     const qaPath = join(
       dirname(fileURLToPath(import.meta.url)),
-      "../../../../public/cartilla/art/faithful/qa-results.json"
+      "../../../../public/cartilla/art/faithful/qa-results.json",
     );
     if (!existsSync(qaPath)) {
       console.warn("SKIP: qa-results.json not present — QA gate cannot run");

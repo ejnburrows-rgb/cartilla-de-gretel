@@ -2,13 +2,19 @@ import { describe, expect, it } from "vitest";
 import { getReplicaSheet, replicaReadingOrder } from "@/lib/flipchart-replica";
 
 const read = (page: number) =>
-  replicaReadingOrder(getReplicaSheet(page)!).map((item) => (item.kind === "art" ? `[${item.art.word}]` : item.token.text.trim()));
+  replicaReadingOrder(getReplicaSheet(page)!).map((item) =>
+    item.kind === "art" ? `[${item.art.word}]` : item.token.text.trim(),
+  );
 
 describe("Flip Chart replica reading order", () => {
   it("reads the lesson letter before the syllables that ring it", () => {
     const tokens = getReplicaSheet(9)!.tokens.map((t) => t.text.trim());
     expect(tokens.slice(0, 6)).toEqual(["Mm", "ma", "me", "mi", "mo", "mu"]);
-    expect(getReplicaSheet(24)!.tokens.map((t) => t.text.trim()).slice(0, 6)).toEqual(["Ll", "la", "le", "li", "lo", "lu"]);
+    expect(
+      getReplicaSheet(24)!
+        .tokens.map((t) => t.text.trim())
+        .slice(0, 6),
+    ).toEqual(["Ll", "la", "le", "li", "lo", "lu"]);
     for (let page = 3; page <= 62; page++) {
       const sheet = getReplicaSheet(page);
       const letter = sheet?.tokens.findIndex((t) => t.kind === "letter") ?? -1;
@@ -30,7 +36,9 @@ describe("Flip Chart replica reading order", () => {
       if (!sheet) continue;
       const items = replicaReadingOrder(sheet);
       expect(items.filter((i) => i.kind === "art")).toHaveLength(sheet.art.length);
-      expect(items.filter((i) => i.kind === "token").map((i) => (i.kind === "token" ? i.token.id : ""))).toEqual(sheet.tokens.map((t) => t.id));
+      expect(
+        items.filter((i) => i.kind === "token").map((i) => (i.kind === "token" ? i.token.id : "")),
+      ).toEqual(sheet.tokens.map((t) => t.id));
     }
   });
 });

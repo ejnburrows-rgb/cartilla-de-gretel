@@ -18,7 +18,9 @@ export type LassoProgressSnapshot = {
   updatedAt: number;
 };
 
-export function canvasStorageKey(pageKey: string): string { return key("paint", pageKey); }
+export function canvasStorageKey(pageKey: string): string {
+  return key("paint", pageKey);
+}
 
 function key(scope: string, pageKey: string): string {
   return learnerStorageKey(`${PREFIX}${scope}:${pageKey}`);
@@ -35,7 +37,11 @@ export function loadCanvasSnapshot(pageKey: string): CanvasSnapshot | null {
   }
 }
 
-export function saveCanvasSnapshot(pageKey: string, dataUrl: string, capturedKey = canvasStorageKey(pageKey)): void {
+export function saveCanvasSnapshot(
+  pageKey: string,
+  dataUrl: string,
+  capturedKey = canvasStorageKey(pageKey),
+): void {
   if (typeof window === "undefined") return;
   try {
     const snap: CanvasSnapshot = { dataUrl, updatedAt: Date.now() };

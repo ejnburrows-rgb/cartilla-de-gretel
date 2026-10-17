@@ -66,7 +66,16 @@ describe("GretelMachine", () => {
   });
 
   it("lets real speech replace active gestures so the rig mouth follows audio", () => {
-    for (const state of ["waving", "pointing", "listening", "teaching", "help", "gentle-error", "cheering", "exiting"] as const) {
+    for (const state of [
+      "waving",
+      "pointing",
+      "listening",
+      "teaching",
+      "help",
+      "gentle-error",
+      "cheering",
+      "exiting",
+    ] as const) {
       expect(canTransition(state, { type: "SPEAK_START" })).toBe(true);
       expect(gretelReducer(state, { type: "SPEAK_START" })).toBe("talking");
     }

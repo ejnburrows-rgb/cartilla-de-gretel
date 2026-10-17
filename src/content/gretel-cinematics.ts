@@ -51,8 +51,13 @@ export const GRETEL_CINEMATICS: GretelCinematic[] = [
     id: "master-welcome",
     kind: "welcome",
     lesson: null,
-    script: "¡Hola! Soy Gretel. Vamos a aprender juntos. Mira con atención, escucha y ahora inténtalo tú.",
-    captions: ["¡Hola! Soy Gretel.", "Vamos a aprender juntos.", "Mira con atención, escucha y ahora inténtalo tú."],
+    script:
+      "¡Hola! Soy Gretel. Vamos a aprender juntos. Mira con atención, escucha y ahora inténtalo tú.",
+    captions: [
+      "¡Hola! Soy Gretel.",
+      "Vamos a aprender juntos.",
+      "Mira con atención, escucha y ahora inténtalo tú.",
+    ],
     durationSeconds: 9,
     actions: ["enter", "wave", "talk", "point-right"],
   }),
@@ -60,7 +65,8 @@ export const GRETEL_CINEMATICS: GretelCinematic[] = [
     id: "how-to",
     kind: "how-to",
     lesson: null,
-    script: "En cada lección vamos a mirar, escuchar, trazar, leer y practicar. Puedes repetir una actividad cuando lo necesites.",
+    script:
+      "En cada lección vamos a mirar, escuchar, trazar, leer y practicar. Puedes repetir una actividad cuando lo necesites.",
     captions: ["Mira y escucha.", "Traza, lee y practica.", "Puedes repetir cuando lo necesites."],
     durationSeconds: 10,
     actions: ["enter", "talk", "teach", "listen", "exit"],
@@ -81,10 +87,13 @@ export const GRETEL_CINEMATICS: GretelCinematic[] = [
       id: `milestone-${lesson}`,
       kind: "milestone",
       lesson,
-      script: lesson === 24
-        ? "¡Terminaste las veinticuatro lecciones! Mira todo lo que has aprendido. Celebremos tu esfuerzo."
-        : `¡Muy bien! Ya llegaste a la lección ${lesson}. Has trabajado mucho. Sigamos aprendiendo.`,
-      captions: [lesson === 24 ? "¡Terminaste las 24 lecciones!" : `¡Llegaste a la lección ${lesson}!`],
+      script:
+        lesson === 24
+          ? "¡Terminaste las veinticuatro lecciones! Mira todo lo que has aprendido. Celebremos tu esfuerzo."
+          : `¡Muy bien! Ya llegaste a la lección ${lesson}. Has trabajado mucho. Sigamos aprendiendo.`,
+      captions: [
+        lesson === 24 ? "¡Terminaste las 24 lecciones!" : `¡Llegaste a la lección ${lesson}!`,
+      ],
       durationSeconds: 7,
       actions: ["enter", "celebrate", "talk", "exit"],
     }),
@@ -93,7 +102,8 @@ export const GRETEL_CINEMATICS: GretelCinematic[] = [
     id: "cartilla-final",
     kind: "final",
     lesson: 24,
-    script: "¡Lo lograste! Terminaste La Cartilla de Gretel. Sigue leyendo, practicando y descubriendo nuevas palabras cada día.",
+    script:
+      "¡Lo lograste! Terminaste La Cartilla de Gretel. Sigue leyendo, practicando y descubriendo nuevas palabras cada día.",
     captions: ["¡Lo lograste!", "Terminaste La Cartilla de Gretel.", "Sigue leyendo cada día."],
     durationSeconds: 9,
     actions: ["enter", "celebrate", "talk", "exit"],
@@ -101,10 +111,11 @@ export const GRETEL_CINEMATICS: GretelCinematic[] = [
 ];
 
 export function getLessonCinematic(lesson: number): GretelCinematic {
-  return GRETEL_CINEMATICS.find((item) => item.kind === "lesson" && item.lesson === lesson)
-    ?? GRETEL_CINEMATICS[0]!;
+  return (
+    GRETEL_CINEMATICS.find((item) => item.kind === "lesson" && item.lesson === lesson) ??
+    GRETEL_CINEMATICS[0]!
+  );
 }
-
 
 export function getCinematicById(id: string): GretelCinematic | null {
   return GRETEL_CINEMATICS.find((item) => item.id === id) ?? null;
@@ -114,5 +125,7 @@ export function getCompletionCinematic(lesson: number): GretelCinematic | null {
   if (lesson === 24) {
     return GRETEL_CINEMATICS.find((item) => item.id === "cartilla-final") ?? null;
   }
-  return GRETEL_CINEMATICS.find((item) => item.kind === "milestone" && item.lesson === lesson) ?? null;
+  return (
+    GRETEL_CINEMATICS.find((item) => item.kind === "milestone" && item.lesson === lesson) ?? null
+  );
 }

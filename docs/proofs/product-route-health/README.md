@@ -9,6 +9,7 @@
 ## 1. Executive Summary
 
 This route health sweep executed an end-to-end sweep of the assembled product across 20+ core routes. Each route was monitored for:
+
 1. **Unhandled Page Errors** (`pageerror`)
 2. **Console Exceptions** (`console.error`)
 3. **Failed Critical Requests** (`requestfailed` for same-origin scripts, stylesheets, assets, fonts)
@@ -22,16 +23,16 @@ All routes passed DOM mounting, layout overflow, broken image, and critical netw
 
 ## 2. Coverage & Verified Routes
 
-| Category | Tested Routes | Status / Findings | Proof Artifact |
-| :--- | :--- | :--- | :--- |
-| **Welcome / Home** | `/`<br>`/cartilla/`<br>`/entrar`<br>`/cartilla/student-login` | **HEALTHY.** Phone viewport capture created for owner decision #356. | `welcome-phone.png`<br>`welcome-desktop.png` |
-| **Lesson Catalog** | `/cartilla/lecciones`<br>`/cartilla/teacher/lecciones` | **HEALTHY.** | `lesson-catalog.png` |
-| **Workbook Lessons** | `/cartilla/leccion/1`<br>`/cartilla/leccion/2`<br>`/cartilla/leccion/12`<br>`/cartilla/leccion/14`<br>`/cartilla/leccion/23`<br>`/cartilla/leccion/24` | **HEALTHY.** Early, middle, and late lessons load correctly. | `workbook-early-l1.png`<br>`workbook-middle-l12.png`<br>`workbook-late-l24.png` |
-| **Print Route** | `/cartilla/imprimir/1`<br>`/cartilla/imprimir/2`<br>`/cartilla/imprimir/all` | **HEALTHY.** Sheets render correctly. | `print-route.png` |
-| **Teacher Suite** | `/cartilla/teacher`<br>`/cartilla/teacher/guide`<br>`/cartilla/teacher/guia/1`<br>`/cartilla/teacher/progreso`<br>`/cartilla/teacher/reportes`<br>`/cartilla/teacher/crm`<br>`/cartilla/teacher/roster` | **HEALTHY** (See Defect #1 below for React key warning in Teacher Guide). | `teacher-home.png`<br>`teacher-guide.png`<br>`teacher-progress.png`<br>`teacher-reports.png` |
-| **Flip Chart** | `/cartilla/teacher/flipchart`<br>`/cartilla/presentar/1`<br>`/cartilla/presentar/7` | **HEALTHY.** HD presenter and catalog render without errors. | `flipchart-catalog.png`<br>`flipchart-presenter.png` |
-| **Voice Audition** | `/cartilla/voces` | **HEALTHY.** Voice audition route mounts cleanly. | `voice-audition.png` |
-| **Source-Blocked Exemption** | `/cartilla/leccion/23` (Page 86) | **DOCUMENTED EXCEPTION PRESERVED.** Physical page 86 renders `.fp-source-blocked` / `data-source-blocked="true"` without crashing or fabricating artwork. | `source-blocked-p86.png` |
+| Category                     | Tested Routes                                                                                                                                                                                           | Status / Findings                                                                                                                                         | Proof Artifact                                                                               |
+| :--------------------------- | :------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | :-------------------------------------------------------------------------------------------------------------------------------------------------------- | :------------------------------------------------------------------------------------------- |
+| **Welcome / Home**           | `/`<br>`/cartilla/`<br>`/entrar`<br>`/cartilla/student-login`                                                                                                                                           | **HEALTHY.** Phone viewport capture created for owner decision #356.                                                                                      | `welcome-phone.png`<br>`welcome-desktop.png`                                                 |
+| **Lesson Catalog**           | `/cartilla/lecciones`<br>`/cartilla/teacher/lecciones`                                                                                                                                                  | **HEALTHY.**                                                                                                                                              | `lesson-catalog.png`                                                                         |
+| **Workbook Lessons**         | `/cartilla/leccion/1`<br>`/cartilla/leccion/2`<br>`/cartilla/leccion/12`<br>`/cartilla/leccion/14`<br>`/cartilla/leccion/23`<br>`/cartilla/leccion/24`                                                  | **HEALTHY.** Early, middle, and late lessons load correctly.                                                                                              | `workbook-early-l1.png`<br>`workbook-middle-l12.png`<br>`workbook-late-l24.png`              |
+| **Print Route**              | `/cartilla/imprimir/1`<br>`/cartilla/imprimir/2`<br>`/cartilla/imprimir/all`                                                                                                                            | **HEALTHY.** Sheets render correctly.                                                                                                                     | `print-route.png`                                                                            |
+| **Teacher Suite**            | `/cartilla/teacher`<br>`/cartilla/teacher/guide`<br>`/cartilla/teacher/guia/1`<br>`/cartilla/teacher/progreso`<br>`/cartilla/teacher/reportes`<br>`/cartilla/teacher/crm`<br>`/cartilla/teacher/roster` | **HEALTHY** (See Defect #1 below for React key warning in Teacher Guide).                                                                                 | `teacher-home.png`<br>`teacher-guide.png`<br>`teacher-progress.png`<br>`teacher-reports.png` |
+| **Flip Chart**               | `/cartilla/teacher/flipchart`<br>`/cartilla/presentar/1`<br>`/cartilla/presentar/7`                                                                                                                     | **HEALTHY.** HD presenter and catalog render without errors.                                                                                              | `flipchart-catalog.png`<br>`flipchart-presenter.png`                                         |
+| **Voice Audition**           | `/cartilla/voces`                                                                                                                                                                                       | **HEALTHY.** Voice audition route mounts cleanly.                                                                                                         | `voice-audition.png`                                                                         |
+| **Source-Blocked Exemption** | `/cartilla/leccion/23` (Page 86)                                                                                                                                                                        | **DOCUMENTED EXCEPTION PRESERVED.** Physical page 86 renders `.fp-source-blocked` / `data-source-blocked="true"` without crashing or fabricating artwork. | `source-blocked-p86.png`                                                                     |
 
 ---
 
@@ -53,6 +54,7 @@ The sweep logic is codified in:
 `tests/e2e/product-route-health.spec.ts`
 
 To re-run the sweep locally:
+
 ```bash
 pnpm exec playwright test tests/e2e/product-route-health.spec.ts
 ```

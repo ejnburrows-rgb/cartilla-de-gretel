@@ -16,10 +16,15 @@ export function useCanvasContinuity(
       const canvas = canvasRef.current;
       if (!canvas || !activeRef.current) return;
       flushRef.current?.();
-      try { saveCanvasSnapshot(pageKey, canvas.toDataURL("image/png"), capturedKey); }
-      catch { window.dispatchEvent(new Event("cartilla:work-save-failed")); }
+      try {
+        saveCanvasSnapshot(pageKey, canvas.toDataURL("image/png"), capturedKey);
+      } catch {
+        window.dispatchEvent(new Event("cartilla:work-save-failed"));
+      }
     };
-    const hide = () => { if (document.hidden) save(); };
+    const hide = () => {
+      if (document.hidden) save();
+    };
     window.addEventListener("pagehide", save);
     document.addEventListener("visibilitychange", hide);
     return () => {

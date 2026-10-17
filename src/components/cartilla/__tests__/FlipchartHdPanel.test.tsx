@@ -35,16 +35,20 @@ describe("FlipchartHdPanel — CRM-grade presenter board", () => {
       const board = container.querySelector('[data-native-flipchart="true"]');
       expect(board, `Native board missing on plate ${page.flipchartPage}`).toBeTruthy();
       const images = [...container.querySelectorAll("img")];
-      expect(images.every((img) => !(img.getAttribute("src") ?? "").includes("/hd/flipchart/"))).toBe(true);
-      expect(images.every((img) => !(img.getAttribute("src") ?? "").includes("/delivery/flipchart/"))).toBe(true);
+      expect(
+        images.every((img) => !(img.getAttribute("src") ?? "").includes("/hd/flipchart/")),
+      ).toBe(true);
+      expect(
+        images.every((img) => !(img.getAttribute("src") ?? "").includes("/delivery/flipchart/")),
+      ).toBe(true);
       expect(container.textContent?.trim().length).toBeGreaterThan(0);
       if (page.flipchartPage > 2) {
         // Exact replica: pages render via layout-type-specific compositions (book §2).
         // Accept the art grid, legacy letter stage, or any layout-type marker.
         expect(
           container.querySelector('[data-testid="flipchart-art-grid"]') ||
-          container.querySelector(".fc-native-board__letter-stage") ||
-          container.querySelector("[data-layout-type]"),
+            container.querySelector(".fc-native-board__letter-stage") ||
+            container.querySelector("[data-layout-type]"),
         ).toBeTruthy();
       }
       unmount();
@@ -56,7 +60,9 @@ describe("FlipchartHdPanel — CRM-grade presenter board", () => {
       const page = FLIPCHART_PAGES.find((entry) => entry.flipchartPage === pageNumber)!;
       const { container, unmount } = render(<FlipchartNativeBoard page={page} />);
       expect(container.querySelector('[data-native-flipchart="true"]')).toBeTruthy();
-      expect(container.querySelector("img")?.getAttribute("src") ?? "").not.toContain("hd/flipchart/page-00");
+      expect(container.querySelector("img")?.getAttribute("src") ?? "").not.toContain(
+        "hd/flipchart/page-00",
+      );
       unmount();
     }
   });
@@ -71,9 +77,7 @@ describe("FlipchartHdPanel — CRM-grade presenter board", () => {
     expect(panel?.getAttribute("data-presenter-mode")).toBe("native");
     expect(panel?.hasAttribute("data-physical-flipchart")).toBe(false);
     expect(panel?.getAttribute("data-page-turn-axis")).toBe("vertical");
-    expect(panel?.getAttribute("data-page-turn-ms")).toBe(
-      String(FLIPCHART_FLIP_MS),
-    );
+    expect(panel?.getAttribute("data-page-turn-ms")).toBe(String(FLIPCHART_FLIP_MS));
     expect(container.querySelector(".fc-board__binding")).toBeNull();
     expect(container.querySelectorAll(".fc-board__ring")).toHaveLength(0);
     // Legacy narrow constraints must not reappear on the board root.
@@ -89,7 +93,9 @@ describe("FlipchartHdPanel — CRM-grade presenter board", () => {
       expect(face.getAttribute("data-hd")).toBe("true");
       expect(face.querySelector('[data-native-flipchart="true"]')).toBeTruthy();
       const images = [...face.querySelectorAll("img")];
-      expect(images.every((img) => !(img.getAttribute("src") ?? "").includes("/hd/flipchart/"))).toBe(true);
+      expect(
+        images.every((img) => !(img.getAttribute("src") ?? "").includes("/hd/flipchart/")),
+      ).toBe(true);
     } else {
       expect(screen.getByTestId("flipchart-empty")).toBeTruthy();
     }
@@ -98,9 +104,7 @@ describe("FlipchartHdPanel — CRM-grade presenter board", () => {
   it("shows Spanish hoja counter and large nav when plates exist", () => {
     const { container } = render(<FlipchartHdPanel lessonNumber={2} />);
     if (container.querySelector('[data-testid="flipchart-empty"]')) return;
-    expect(screen.getByTestId("flipchart-counter").textContent).toMatch(
-      /Hoja/i,
-    );
+    expect(screen.getByTestId("flipchart-counter").textContent).toMatch(/Hoja/i);
     expect(screen.getByRole("button", { name: "Lámina anterior" })).toBeTruthy();
     expect(screen.getByRole("button", { name: "Lámina siguiente" })).toBeTruthy();
   });
@@ -111,13 +115,9 @@ describe("FlipchartHdPanel — CRM-grade presenter board", () => {
     const counter = screen.getByTestId("flipchart-counter");
     expect(counter.textContent).toMatch(/Hoja 1 de/);
     fireEvent.keyDown(window, { key: "ArrowDown" });
-    expect(screen.getByTestId("flipchart-counter").textContent).toMatch(
-      /Hoja 2 de/,
-    );
+    expect(screen.getByTestId("flipchart-counter").textContent).toMatch(/Hoja 2 de/);
     fireEvent.keyDown(window, { key: "ArrowUp" });
-    expect(screen.getByTestId("flipchart-counter").textContent).toMatch(
-      /Hoja 1 de/,
-    );
+    expect(screen.getByTestId("flipchart-counter").textContent).toMatch(/Hoja 1 de/);
   });
 
   it("does not steal Space or Enter from a focused previous-sheet button", () => {
@@ -152,7 +152,9 @@ describe("FlipchartHdPanel — CRM-grade presenter board", () => {
 
     const firstThumbnail = screen.getByRole("tab", { name: "Ir a hoja 1" });
     firstThumbnail.focus();
-    expect(fireEvent.keyDown(firstThumbnail, { key: " ", code: "Space", cancelable: true })).toBe(true);
+    expect(fireEvent.keyDown(firstThumbnail, { key: " ", code: "Space", cancelable: true })).toBe(
+      true,
+    );
     // The global next-sheet listener must not turn sheet 2 to sheet 3.
     expect(counter.textContent).toMatch(/Hoja 2 de/);
     fireEvent.click(firstThumbnail);
@@ -163,7 +165,9 @@ describe("FlipchartHdPanel — CRM-grade presenter board", () => {
     render(
       <>
         <input aria-label="Notas" />
-        <div contentEditable tabIndex={0} data-testid="editable-notes">Anotación</div>
+        <div contentEditable tabIndex={0} data-testid="editable-notes">
+          Anotación
+        </div>
         <FlipchartHdPanel lessonNumber={7} />
       </>,
     );
@@ -219,9 +223,7 @@ describe("FlipchartHdPanel — CRM-grade presenter board", () => {
     const counter = screen.getByTestId("flipchart-counter");
     expect(counter.textContent).toMatch(/Hoja 1 de/);
     fireEvent.click(screen.getByRole("button", { name: "Lámina siguiente" }));
-    expect(screen.getByTestId("flipchart-counter").textContent).toMatch(
-      /Hoja 2 de/,
-    );
+    expect(screen.getByTestId("flipchart-counter").textContent).toMatch(/Hoja 2 de/);
     expect(container.querySelector(".flipchart-flip-wrapper")).toBeNull();
   });
 });
@@ -236,7 +238,9 @@ describe("FlipchartHdPanel bare chrome mode", () => {
     expect(container.querySelector('[data-testid="flipchart-stage"]')).toBeTruthy();
     expect(container.querySelector('[data-native-flipchart="true"]')).toBeTruthy();
     expect(container.querySelector(".fc-board__controls")).toBeTruthy();
-    expect(container.querySelector('[data-testid="flipchart-stage"] .fc-board__controls')).toBeNull();
+    expect(
+      container.querySelector('[data-testid="flipchart-stage"] .fc-board__controls'),
+    ).toBeNull();
     expect(container.querySelector(".fc-board__strip")).toBeNull();
     expect(screen.queryByTestId("flipchart-counter")).toBeTruthy();
     expect(screen.queryByRole("button", { name: "Lámina anterior" })).toBeTruthy();
@@ -262,7 +266,10 @@ describe("FlipchartHdPanel bare chrome mode", () => {
     const captionTexts = captions.map((c) => c.textContent?.trim().toLowerCase());
     // None of the baked-label words may have a duplicate figcaption.
     for (const word of ["dados", "dedo", "didi", "dunia"]) {
-      expect(captionTexts.filter((text) => text === word), `one label for "${word}"`).toHaveLength(1);
+      expect(
+        captionTexts.filter((text) => text === word),
+        `one label for "${word}"`,
+      ).toHaveLength(1);
     }
   });
 
@@ -292,12 +299,8 @@ describe("TeacherPresentationShell — book-warm presenter chrome", () => {
         <div>board</div>
       </TeacherPresentationShell>,
     );
-    const shell = container.querySelector(
-      '[data-testid="teacher-presenter-shell"]',
-    );
-    const stage = container.querySelector(
-      '[data-testid="teacher-presenter-stage"]',
-    );
+    const shell = container.querySelector('[data-testid="teacher-presenter-shell"]');
+    const stage = container.querySelector('[data-testid="teacher-presenter-stage"]');
     expect(shell).toBeTruthy();
     expect(stage).toBeTruthy();
     expect(shell?.className).toContain("fc-presenter");

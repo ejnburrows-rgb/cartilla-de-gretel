@@ -6,7 +6,6 @@
 
 **Use only the existing original master recording** `Gretel_558674_Original.m4a` for current recovery and alignment (source SHA256 `239e3518f364adfcefab39f4220a4b2b85a6e3987679af823d7ef0f26f76935d`). It has 151 source-boundary-verified speech segments, but the text actually spoken and workbook page associations are **NOT YET VERIFIED**; do not equate `gr_0001` recording segment with `GR0001` book script. Corrected exports preserve original continuous speech and authentic pauses; do not join bad clip fragments or add music. Review auditory quality, verify each transcript and page/event mapping before approved runtime playback. PR #769 holds the implementation in DRAFT; don't merge/deploy until verified. Owner already supplied the voice and audio; do not propose any new generation, cloning, or recording.
 
-
 ## LATEST OWNER AUDIO SOURCE CORRECTION — REJECT WRONG STUTTERING/MUSIC TRACKS (2026-10-15)
 
 **Supersedes the earlier 2026-10-15 statement that the 67 indexed recordings are automatically acceptable for playback.** Owner explicitly rejected the prior stitched demonstrations: "The stitching is wrong. It stutters. It has music in the background. That's not the one that you're supposed to use. So do it again."
@@ -17,7 +16,6 @@
 - Confirm source phrase transcript and printed page/event before enabling audio, and test on actual workbook. Do not claim clean sound, 100% coverage, or integrated playback based only on MP3 installation. No new recording, cloning, or alternative speech generator. Existing integration stays draft/held pending corrected sources and real verification.
 - Owner repeatedly said not to revisit generator selection or ask them to repeat already-supplied recordings. This correction is specific to rejecting the wrong audio mix, **not revoking the underlying real recordings**.
 
-
 ## OVERRIDING OWNER DIRECTIVE — USE THE EXISTING FINISHED AUDIO (2026-10-15)
 
 **Newest owner-approved source-of-truth correction, effective immediately. Applies to all agents, Muse, Jules, reviewers, schedulers, and every future session. Supersedes older proposals/options elsewhere in this repository.**
@@ -25,18 +23,15 @@
 1. **Generator already solved.** The owner has a functioning generator that creates any Spanish sentence requested. **Do not research, clone, train, replace, deploy, self-host, or recommend another generator, TTS model, Colab voice setup, GPU, paid provider, or new recordings.** Do not reopen older "choose final Gretel voice" tasks.
 2. **Real finished source assets already supplied.** On **2026-10-14**, the owner generated and provided **more than one hour of actual recordings**, including recordings in video files. They are completed audio outputs; **not** voice-cloning reference material or merely recording prompts. Do not request re-recording or have the owner repeat explanations/uploads.
 3. **Exact authorized job:** find/recover the previously supplied assets through accessible authorized sources; extract audio from existing videos where necessary; use the real existing recordings to map to **every authentic workbook page instruction, applicable narration, alerts, correct-answer compliments, incorrect-answer and "try again" reactions, and all other recorded responses**. Map by actual spoken content and source pages (no invented alignment, words, or coverage). Install valid playable audio and connect it to appropriate events. Check real page-by-page browser playback, audio correctness, keyboard accessibility, mute/stop, and completeness. Preserve existing approved sound and unrelated behavior.
-4. **Evidence boundary:** PR #769 is an existing draft integration effort with **67 indexed MP3 cues and a 1,639-entry script** in its 2026-10-15 description, but it reported that its needed MP3 binaries were *not installed* on the running app, its exact-page active manifest was empty, and runtime playback was not proven. Recover this work; do not duplicate it. Recheck latest PR before making a new claim. **The recordings are usable source material; missing local tool access or uninstalled repo assets are an ACCESS/INTEGRATION blocker, never evidence that the recordings cannot be used.**
+4. **Evidence boundary:** PR #769 is an existing draft integration effort with **67 indexed MP3 cues and a 1,639-entry script** in its 2026-10-15 description, but it reported that its needed MP3 binaries were _not installed_ on the running app, its exact-page active manifest was empty, and runtime playback was not proven. Recover this work; do not duplicate it. Recheck latest PR before making a new claim. **The recordings are usable source material; missing local tool access or uninstalled repo assets are an ACCESS/INTEGRATION blocker, never evidence that the recordings cannot be used.**
 5. **Never say "100% integrated" without proof** that the actual audio is accessible and installed and every claimed workbook page and response has correctly mapped, verified playback. Separate owner-supplied recording duration, extracted cue count, script entries, installed assets, mapped coverage, and live playback.
 6. **Stop unsolicited discussion of voice.** Only discuss the remaining integration/proof task if the owner explicitly asks. Preserve all standing permissions, no-paid-services rule, and owner-only production release gate. No unapproved merges/releases/assets deletion.
-
-
 
 ## OVERRIDING OWNER DECISION — do not re-open workbook pages 86–87 (2026-10-14)
 
 Printed workbook pages **86–87 are missing from the owner's actual PDF** (85 jumps to 88). **Final owner instruction: STOP repeatedly asking for scans, do not generate fake pages, and do not block completion.** Student lessons must show only authentic existing printed pages: Lección 23 **83,84,85**; Lección 24 **88,89,90**. Whole Workbook already skips 86–87. Keep original printed numbering and internal `SOURCE_BLOCKED` documentation, not learner placeholders. Preserve existing work/save progress. **Never invent missing content or represent artificial reconstructions as book originals.** Canonical decision details: `PROJECT_SOURCE_OF_TRUTH.md`.
 
 **Current design task order:** owner wants interactive GrillMe about the existing practice activities and session mechanics **before** discussion/implementation of Piano placement. Do not pick Piano placement or add unrelated activity pathways without owner decision. No repetitive audits, extra agents, duplicate issues or design handoffs.
-
 
 ## REQUIRED: NO REPEAT AUDITS + GITHUB CHECKPOINT WRITEBACK (2026-10-14)
 
@@ -52,14 +47,13 @@ Printed workbook pages **86–87 are missing from the owner's actual PDF** (85 j
 
 **Canonical sources:** current `AGENTS.md`, `PROJECT_FINISH_DEFINITION.md`, `PROJECT_SOURCE_OF_TRUTH.md`, `tasks/plan.md`, then exact-head issue/PR and real runtime proof. Always check changed source rather than treating a historical checkpoint as current code.
 
-
 ## Current artwork reconciliation routing — 2026-10-14
 
 The **current source-evidenced artwork reconciliation** is in [PR #751](https://github.com/ejnburrows-rgb/cartilla-de-gretel/pull/751), [MASTER-MAPPING.md](https://github.com/ejnburrows-rgb/cartilla-de-gretel/blob/evidence/artwork-coverage-20261014/docs/proofs/artwork-coverage-2026-10-14/MASTER-MAPPING.md), and its 330-row CSV/201-group JSON. **The PR is a draft evidence branch, not installed on `main`, not deployed, and not a production-art approval.** Every agent, including Muse/Jules/controller/reviewer, must read the current PR head and its evidence **before** making artwork availability, candidate or owner-missing claims; do not restart the four completed artwork audits. No automatic Jules job is created by this pointer.
 
 90 faithful optimized drawing masters available by group (186 placements), 108 groups need actual optimization (141 placements), 3 unresolved frontmatter composite groups (3 placements). **115 exact placement matches** recorded; **71 READY group placements** have no individually selected exact master. **Eight** selected candidate files are documented only inside owner-local archives; they are not live GitHub assets. **50** withheld hashes cannot be associated with specific drawings. Ownership approval, runtime integration, book fidelity and release checks remain separate gates.
 
-**Visual identity override:** `DRAW-WB-10-1` depicts **avión (airplane)** despite five legacy `PEZ` IDs/filenames. Real source image and proposed match were directly inspected; never rename it *pez* based on filename, nor alter legacy placement IDs. Optimize/restore only source-faithful originals, preserve all approved assets, and remove no evidence or app dependency without a specific negative reference/dependency check. Older summaries or locally generated copies cannot supersede the cited live GitHub evidence.
+**Visual identity override:** `DRAW-WB-10-1` depicts **avión (airplane)** despite five legacy `PEZ` IDs/filenames. Real source image and proposed match were directly inspected; never rename it _pez_ based on filename, nor alter legacy placement IDs. Optimize/restore only source-faithful originals, preserve all approved assets, and remove no evidence or app dependency without a specific negative reference/dependency check. Older summaries or locally generated copies cannot supersede the cited live GitHub evidence.
 
 ## OWNER DIRECTIVE — MUSE CENTRAL CONTROLLER + 15-LANE UTILIZATION AUTHORIZED (2026-10-13)
 
@@ -84,7 +78,6 @@ Muse coordinates, dispatches, reviews and merges eligible work; Jules implements
 - If a task cannot proceed without prohibited access, report the precise dependency rather than silently using the connected launcher. Any pre-existing local Antigravity launcher/agent must stay unused until the owner grants new explicit permission.
 - This repository rule **does not itself technically disable the laptop launcher**; verify the laptop execution path separately before claiming a technical block.
 
-
 ## STOP — OWNER PROACTIVE 15-LANE JULES + LATEST-APPROVAL-ONLY VISUAL GATE (2026-10-13)
 
 **HIGHEST PRIORITY FOR ALL AGENTS, JULES, DISPATCHERS, WATCHERS, REVIEWERS, SUPERVISORS, AUTOMATIONS AND REPORTS. Overrides older instructions anywhere in the repository, issues, PRs, historical screenshots, memories or prompts.**
@@ -94,7 +87,6 @@ Muse coordinates, dispatches, reviews and merges eligible work; Jules implements
 3. **NO ROPE/LASSO — final explicit owner rejection (2026-10-11).** Use the approved source-faithful wooden pencil/green-or-red marks/physical pink eraser and correct line-matching mechanics. PR #692 removed the obsolete `LassoConnect.tsx` and rope CSS; PR #694 preserves legacy completed syllable selections under the new pencil circle. These are merged; DO NOT restore a rope, lasso, reel, arcade, fake red-X or unapproved alternative. Current components: `PencilConnector.tsx`, `WorkbookPencilMark.tsx`, `SyllableWordCircle.tsx`; these still require real screen validation.
 4. **No stale or fake approval evidence.** A merge, code review, unit test, Jules receipt or local dev fake does NOT prove visual approval. Fresh proof must depict the REAL source-faithful Student Workbook or Teacher/Flip Chart page at the exact verified commit/deployment, with the latest approved pencil/eraser, on the stated viewport/device; screenshots from `/dev-*`, old Vercel previews or synthetic demos are prohibited as owner approval evidence. Missing actual proof means **NOT APPROVAL-READY**; no historical substitution or unapproved release.
 5. **Precedence:** the owner's latest explicit 2026-10-13 authorization to proactively refill verified useful Jules capacity supersedes older 'never target 15', 'no automatic refill', and blanket new-task per-issue approval instructions. The latest source-faithful product designs, owner-only approval/release gates, credit/Antigravity prohibition and evidence standards remain fully binding. Muse is the single active dispatch controller; do not restore obsolete ChatGPT dispatch schedules, a rival controller, retired Windows/Neon/OpenHands infrastructure or paid systems.
-
 
 You are EJN's development team. EJN is the owner and the client, not the
 project manager — work out what needs doing and do it.
@@ -107,7 +99,7 @@ project manager — work out what needs doing and do it.
 
 1. **Compare against the actual finish requirements and current code.** Identify an observable user-facing defect, reproducible regression, real security/accessibility/performance problem, or explicit unfulfilled requirement, with exact file/source evidence and meaningful expected result.
 2. **Check existing ownership and proof FIRST:** current `main`, recent merged PRs, open issues/PR heads and diffs, Jules session/task receipts and review state, existing passing tests/screenshots, dependencies, owner decisions and exclusive file ownership. If already fixed, verified, assigned, under review, owner-gated or superseded, **DO NOT dispatch again**. A stale issue title is not evidence of unfinished work.
-3. **Prefer advancing the existing lane:** review real changed files, validate targeted results, request the *specific missing correction on the same issue/PR/session*, or integrate independently verified work when allowed. A new task requires a proven separate gap that cannot be completed in a currently owned lane, with a nonoverlapping file scope and concrete acceptance test.
+3. **Prefer advancing the existing lane:** review real changed files, validate targeted results, request the _specific missing correction on the same issue/PR/session_, or integrate independently verified work when allowed. A new task requires a proven separate gap that cannot be completed in a currently owned lane, with a nonoverlapping file scope and concrete acceptance test.
 4. **Only then dispatch** via the established authorized Jules GitHub trigger once; confirm the provider's bot task receipt, and later actual material code/tests/browser proof. A label, acknowledgement, new issue, prompt, completed-but-empty PR or activity report alone **does not count as accomplishment**.
 5. **Fill every verified available Jules slot with genuine independent eligible work.** If fewer than 15 such assignments exist, leave the remainder empty and report the exact reason, not a fabricated occupancy count. Never schedule duplicate, speculative, owner-held or dependency-blocked work.
 
@@ -125,7 +117,7 @@ project manager — work out what needs doing and do it.
 
 **Concrete boundary example:** If Workbook issue #495 may own `src/routes/cartilla/-leccion-view.tsx` or `src/routes/cartilla/cuaderno.tsx`, hold changes to those route files pending Muse ownership reconciliation. That uncertainty **does not by itself block** independent `src/components/cartilla/WorkbookWritingResponse.tsx` corrections and focused tests when current evidence shows no conflicting owner. Confirm this exact example against current PR/file ownership before acting; it is a rule illustration, not proof of today's Jules sessions.
 
-**Required worker outcome:** `IMPLEMENTED + FOCUSED PROOF` for every safely actionable portion; `HELD + EXACT FILE/OWNER REASON` only for the overlapping portion. A full `FAILED/BLOCKED, ZERO CHANGES` outcome requires evidence that *every* material portion is actually unsafe or otherwise impossible within approved constraints.
+**Required worker outcome:** `IMPLEMENTED + FOCUSED PROOF` for every safely actionable portion; `HELD + EXACT FILE/OWNER REASON` only for the overlapping portion. A full `FAILED/BLOCKED, ZERO CHANGES` outcome requires evidence that _every_ material portion is actually unsafe or otherwise impossible within approved constraints.
 
 ---
 
@@ -192,7 +184,6 @@ Anything under `docs/archive/` is historical reference only and must not overrid
 - A blocked, completed, owner-gated or dependency-waiting lane must not count as active Jules utilization. Reconcile/cancel provider state when authorized, then fill available capacity only with distinct eligible work. Do not dispatch against a held issue.
 - Seek 15 productive sessions by surfacing real code/finish-contract gaps, not by manufacturing tasks. Only source-backed independent work qualifies.
 - Other active documents may describe current allocation or sequencing, but they must not define a competing numeric concurrency rule.
-
 
 ### Jules capacity census and evidence-first proactive dispatch — owner-authorized 2026-10-13
 
@@ -274,7 +265,9 @@ Documentation under `docs/proofs/`, `docs/completion/`, `docs/research/`, and ot
 GitHub live state is the shared handoff between agents. Memory, chat summaries, Miro, scheduled-task prompts, and stale documentation are never sufficient by themselves.
 
 ### Start-of-session read
+
 Before any meaningful Cartilla work, every controller, reviewer, supervisor, watchdog, and implementation worker must resolve and read:
+
 1. CURRENT `main` SHA;
 2. the current `AGENTS.md`, `PROJECT_FINISH_DEFINITION.md`, `PROJECT_SOURCE_OF_TRUTH.md`, and `tasks/plan.md`;
 3. the relevant existing issue and PR, including the latest comments, exact head SHA, changed-file set, checks, and material diff;
@@ -283,9 +276,11 @@ Before any meaningful Cartilla work, every controller, reviewer, supervisor, wat
 Do not begin from an old chat/session summary when current GitHub state is available.
 
 ### Mandatory publish-after-change
+
 After any MATERIAL change, the agent that caused or verified the change must publish a compact handoff to the EXISTING relevant issue or PR before ending the session. Do not create a duplicate coordination issue merely to report status.
 
 A material change includes:
+
 - a real code/content diff;
 - a new blocker or blocker resolution;
 - a changed PR head that invalidates prior proof;
@@ -295,6 +290,7 @@ A material change includes:
 - an owner decision that changes scope/order.
 
 The handoff must state, when applicable:
+
 - STATUS: DISPATCHED / ACKNOWLEDGED / ACTUALLY RUNNING / MATERIAL WORK PRODUCED / VERIFIED / BLOCKED / MERGED;
 - exact issue/PR and head SHA;
 - exact material files changed, or explicit `0 material files`;
@@ -306,13 +302,16 @@ The handoff must state, when applicable:
 Empty commits, timestamp-only changes, metadata churn, repeated test reruns, bot acknowledgements, open PRs, and head-SHA changes with 0 material files are NOT progress and must be reported as such.
 
 ### Canonical coordination snapshot
+
 `tasks/plan.md` is the concise current coordination snapshot, not a history log.
+
 - A controller/supervisor must refresh it whenever lane ownership/order, blockers, merge readiness, or current-main baseline materially changes.
 - Do not update it for trivial worker chatter or every commit.
 - Every refresh must use CURRENT GitHub state and remove stale lane claims rather than appending contradictory history.
 - New sessions must treat live GitHub issue/PR evidence as newer than a stale `tasks/plan.md` line and must reconcile the file when coordination materially changed.
 
 ### No silent session exit
+
 A worker or coordinator may not finish a session after material work without leaving the GitHub handoff above.
 If no material work occurred, say so explicitly on the existing lane when a prior dispatch/acknowledgement could otherwise be mistaken for progress.
 
@@ -373,6 +372,7 @@ A session that produces no material tree change when implementation was requeste
 Implementation sessions must NOT run commands that mutate the tracked asset tree merely to prove unrelated code work.
 
 For ordinary implementation work, Jules workers MUST NOT run:
+
 - `pnpm prepare:art`;
 - `pnpm build`;
 - `pnpm build:app`;
@@ -382,6 +382,7 @@ For ordinary implementation work, Jules workers MUST NOT run:
 Those commands are allowed only when the task explicitly owns production-art generation or is a dedicated clean-checkout release-verification task.
 
 Jules implementation workers use:
+
 - the narrow targeted Vitest/Playwright test(s) or checks for the changed behavior;
 - `pnpm typecheck` when relevant;
 - `pnpm verify:worker` when a broader non-mutating repository check is useful;
@@ -396,6 +397,7 @@ For ordinary implementation lanes, the **dedicated Jules release-verification wo
 Jules should use its environment to prove its **own bounded change** with targeted tests/checks and, for visible work, representative browser evidence when practical.
 
 Jules is **not required to consume its session running the entire project release gate** before handing back a candidate implementation. The controller owns:
+
 - independent diff review;
 - reconciliation of actual reproduced defects and test evidence;
 - coordination of final `pnpm verify:release` performed by a dedicated Jules verification lane, or a specifically justified unusually long test runner;
@@ -427,7 +429,6 @@ The controller assigns missing final or cross-lane verification to Jules as a de
 - Before merge, record exact head SHA, material changed-file list, applicable test command/results, observable UI proof if relevant, concrete unresolved problems and the merge decision. No Sonar-specific or second-reviewer signoff language is required.
 - Full assembled-product `pnpm verify:release`, final browser/device validation and owner-gated approvals still apply to the eventual product release, **not** to every implementation task or unrelated PR. Preserve all applicable safety, source fidelity, security and owner approval rules.
 
-
 ---
 
 ## CARTILLA BOOK FIDELITY DIRECTIVE — HIGHEST PRIORITY FOR STRUCTURE / CONTENT / PRESENTATION FIDELITY
@@ -450,6 +451,7 @@ identical. The book defines WHAT goes WHERE. You define HOW it looks and feels
 digitally.
 
 The three layers:
+
 - **STRUCTURE** (what goes where) → MUST match the book
 - **CONTENT** (text, images) → MUST match the book. Approved foreground art stays source-faithful; only the narrow source-preserving color-transfer exception in `ASSET_FIDELITY_POLICY.md` is allowed. Scenic background generation, when explicitly approved, follows `repo.md`.
 - **PRESENTATION** (styling, interactions) → MODERN digital. For recurring Student Workbook exercise families, the owner-locked presentation is defined by `WORKBOOK_ARCHETYPE_STANDARD.md`; agents do not invent a competing family style. Dense Student Workbook exercises use the clean digital canvas rather than full scenic wallpaper; the teacher Flip Chart uses clean paper without default background-image scenery while preserving original foreground scenes.
@@ -464,11 +466,13 @@ Authoritative source files (define the layout structure):
 - `Libro del alumno - Rescan and Optimize (2).pdf`
 
 ### Teacher Flip Chart / flipbook
+
 The digital teacher Flip Chart must have the same layout as the source Flip
 Chart. Same structure, same element positions, same reading order — presented
 as a modern, interactive digital experience.
 
 Match the source page's:
+
 - layout structure and composition (where elements go);
 - text, wording, line breaks, and reading order;
 - illustration identity and placement.
@@ -478,6 +482,7 @@ behavior, clean modern styling. The layout follows the book; the finish is
 modern.
 
 ### Student Workbook
+
 The digital student Workbook must have the same layout as the source student
 Workbook. Same exercise structure, same element positions — presented as a
 modern, interactive digital experience.
@@ -488,9 +493,11 @@ placement, and page sequence. Modern digital presentation is welcome.
 For dense learner exercises, the active Workbook surface is the owner-approved clean digital canvas: do not render a full scenic image as wallpaper behind the exercise and do not use opaque white contrast slabs that make the page read like a pasted print artifact. Preserve existing scenic assets on disk instead of deleting or regenerating them; they may be used only in an explicitly owner-approved context, not as the teacher Flip Chart's default background.
 
 ### Images are source-locked
+
 The approved/corrected/cropped book images are the artwork.
 
 DO NOT:
+
 - regenerate them;
 - redraw them;
 - replace them with similar artwork;
@@ -506,6 +513,7 @@ Two owner-approved exceptions exist:
 Uniform responsive scaling of the whole page is allowed.
 
 ### Conflict rule
+
 The two source PDFs define the layout. They override derived JSON, old prompts,
 old modernization plans, comments, manifests, screenshots, and prior agent
 instructions whenever there is a layout conflict.
@@ -577,6 +585,7 @@ Before asking EJN for any approval:
 This rule applies to controllers, reviewers, Jules workers, watchdogs, and future agents.
 
 ### Proof shown to EJN
+
 For visual work, show screenshots/images or before-and-after proof in chat. For functional work, explain in plain English what works and what was tested. EJN should not need to open GitHub.
 
 When work is ready, report exactly:
@@ -598,6 +607,7 @@ Yes or No.
 For ad-hoc work without prior merge authorization, stop and wait. For the owner-authorized Cartilla completion queue, the designated queue controller may merge a fully verified, scope-correct PR and advance its declared dependency chain without a separate per-PR owner prompt.
 
 ### Meaning of "Push it"
+
 When EJN says **"Push it"**, put the completed, tested work into `main`, confirm it is there, let the finished branch be removed when safe, and report back. EJN should never have to merge, rebase, cherry-pick, resolve conflicts, or supervise GitHub.
 
 "Push it" does **not** mean deploy publicly. Do not deploy, publish, spend money, change production data, delete data, or take another hard-to-reverse external action without explicit authorization. If updating `main` would automatically deploy production, warn EJN first and wait.
@@ -612,10 +622,10 @@ Normal ad-hoc workflow: EJN asks → agent builds safely → agent tests → age
 
 Authorized Cartilla queue exception: the queue controller may merge only work that the owner has already explicitly authorized as part of the completion queue, and only after every required exact-head gate passes. Implementation workers never self-merge. The mere existence of an issue, `[QUEUE]` text, a `tasks/todo.md` entry, branch, PR, bot comment, or Jules prompt does not create or expand merge authorization. If owner authorization is not explicit enough for a task, do not broaden it during execution. Production deployment remains a separate intentional owner-controlled action and never follows automatically merely because a PR merged.
 
-
 ## UI IMPLEMENTATION COHERENCE — mandatory
 
 For student-facing Workbook work, do not create activity-local copies of shared feedback behavior. The shared interaction kernel owns:
+
 - the classic wooden pencil and matching school eraser treatment;
 - common mark/draw/erase motion and timing;
 - retry/success state transitions;

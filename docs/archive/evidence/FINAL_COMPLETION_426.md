@@ -15,24 +15,24 @@ Read `CARTILLA_FINAL_ASSET_HANDOFF.md` in Cartilla Production Hub / 03 Generated
 
 Canonical directory: `public/cartilla/art/optimized/flipchart-native/`. `flipchart-production-art.json` separates scenes and vocabulary on the 42 illustrated plates, preserving all vocabulary slots. The final-slot registry and delivery metadata use the same destinations. The preparation function verifies these immutable inputs instead of overwriting them with old PDF crops.
 
-| Slot | Production filename | Source | SHA-256 |
-| --- | --- | --- | --- |
-| p018-tomate | `p018-tomate.webp` | Final collected export | `9a5e9fd2cad78fefaeb7ea25c3e9ff208989af6c0a5b5c53aaab1b94bbcd0c02` |
-| p018-tapa | `p018-tapa.webp` | Final collected export | `12d301a36bd70573e5d074566f97710be238fe786afc77a349f4b13d23a30ab8` |
-| p018-topo | `p018-topo.webp` | Final collected export | `4fb295743140b209d8dd904ebf0c41dfc0f210733c05ae4e322f3baeef134a31` |
-| p018-tipi | `p018-tipi.webp` | Final collected export | `e8d79029f574760d317c2149fd5277de3b5426c1bee9bafed11c1ea2c36e4776` |
-| p018-tuto | `p018-tuto.webp` | Final collected export | `f4e724569662349e4b153fef92b8eb5c9bbbe85dc291099a91671f63418ff66d` |
-| p021-didi | `p021-didi.webp` | Final collected export | `bee90469d28b79ba0860b5bb571a4dff230ce310b473c885a673dfb981e2fdf5` |
-| p021-dados | `p021-dados.webp` | Final collected export | `23924290a7f5e214d5d0e4fe09612f170958064b463a4851cce88a9d5db3eb0b` |
-| p021-dedo | `p021-dedo.webp` | Final collected export | `1638e7607ebc9ef0200bd055e14bfaeee623ef9ee6f07f8d0f1b93c33b5dd8f8` |
-| p021-doce | `p021-doce.webp` | Final collected export | `c6f89e7ba7f11bd6c3f5ba1ede8e949bd845c457324ceb31f376a79a9d2cb9b0` |
-| p021-dunia | `p021-dunia.webp` | Final collected export | `a1f9cbc5fbfda20fdb401c2e95a464d3e1a40ed0e9c1bbade65c1891e6125af2` |
-| p024-maleta | `p024-maleta.webp` | Final collected export | `7f25455815b38ce70a173634e97b71583b075b45adbf0646ee0e51c855f41452` |
-| p024-lata | `p024-lata.webp` | Final collected export | `1cc2938e63b8674cf72a1e4b07106b7eea50943013e8ef9c2e37bd82f465802e` |
-| p024-luli | `p024-luli.webp` | Final collected export | `bec7d120b337decdc698370426b208bc73daa8aa07129d8fc0ea5c79f1b01cd7` |
-| p024-loma | `p024-loma.webp` | Final collected export | `806b74aa7173ad75d87bbecac154e92edc8ec63213e9cca01d0dc0180071abee` |
-| p024-lala | `p024-lala.png` | Remastered standalone archive: p24_vocab_lala_05.png | `314e85e8731370105a83c8a636f17580d1f9421a6b159ee049065a6960309459` |
-| p056-caramelos | `p056-caramelos.webp` | Final collected export | `f861369a1d1b4535b39331f7743187754caa8099c7eb8b257217c1e03a021a5d` |
+| Slot           | Production filename   | Source                                               | SHA-256                                                            |
+| -------------- | --------------------- | ---------------------------------------------------- | ------------------------------------------------------------------ |
+| p018-tomate    | `p018-tomate.webp`    | Final collected export                               | `9a5e9fd2cad78fefaeb7ea25c3e9ff208989af6c0a5b5c53aaab1b94bbcd0c02` |
+| p018-tapa      | `p018-tapa.webp`      | Final collected export                               | `12d301a36bd70573e5d074566f97710be238fe786afc77a349f4b13d23a30ab8` |
+| p018-topo      | `p018-topo.webp`      | Final collected export                               | `4fb295743140b209d8dd904ebf0c41dfc0f210733c05ae4e322f3baeef134a31` |
+| p018-tipi      | `p018-tipi.webp`      | Final collected export                               | `e8d79029f574760d317c2149fd5277de3b5426c1bee9bafed11c1ea2c36e4776` |
+| p018-tuto      | `p018-tuto.webp`      | Final collected export                               | `f4e724569662349e4b153fef92b8eb5c9bbbe85dc291099a91671f63418ff66d` |
+| p021-didi      | `p021-didi.webp`      | Final collected export                               | `bee90469d28b79ba0860b5bb571a4dff230ce310b473c885a673dfb981e2fdf5` |
+| p021-dados     | `p021-dados.webp`     | Final collected export                               | `23924290a7f5e214d5d0e4fe09612f170958064b463a4851cce88a9d5db3eb0b` |
+| p021-dedo      | `p021-dedo.webp`      | Final collected export                               | `1638e7607ebc9ef0200bd055e14bfaeee623ef9ee6f07f8d0f1b93c33b5dd8f8` |
+| p021-doce      | `p021-doce.webp`      | Final collected export                               | `c6f89e7ba7f11bd6c3f5ba1ede8e949bd845c457324ceb31f376a79a9d2cb9b0` |
+| p021-dunia     | `p021-dunia.webp`     | Final collected export                               | `a1f9cbc5fbfda20fdb401c2e95a464d3e1a40ed0e9c1bbade65c1891e6125af2` |
+| p024-maleta    | `p024-maleta.webp`    | Final collected export                               | `7f25455815b38ce70a173634e97b71583b075b45adbf0646ee0e51c855f41452` |
+| p024-lata      | `p024-lata.webp`      | Final collected export                               | `1cc2938e63b8674cf72a1e4b07106b7eea50943013e8ef9c2e37bd82f465802e` |
+| p024-luli      | `p024-luli.webp`      | Final collected export                               | `bec7d120b337decdc698370426b208bc73daa8aa07129d8fc0ea5c79f1b01cd7` |
+| p024-loma      | `p024-loma.webp`      | Final collected export                               | `806b74aa7173ad75d87bbecac154e92edc8ec63213e9cca01d0dc0180071abee` |
+| p024-lala      | `p024-lala.png`       | Remastered standalone archive: p24_vocab_lala_05.png | `314e85e8731370105a83c8a636f17580d1f9421a6b159ee049065a6960309459` |
+| p056-caramelos | `p056-caramelos.webp` | Final collected export                               | `f861369a1d1b4535b39331f7743187754caa8099c7eb8b257217c1e03a021a5d` |
 
 All 167 production artwork images are asserted exactly once in each applicable browser-rendered plate at projector, laptop, and tablet sizes. All 16 obsolete `faithful/flipchart-native/` derivatives were removed after proving active code and delivery metadata no longer reference them. Authoritative PDF/source scans remain untouched.
 

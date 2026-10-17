@@ -1,4 +1,10 @@
-import { claimSpeech, registerSpeechCleanup, releaseSpeech, speechIsCurrent, stopSpeech } from "./speech-playback";
+import {
+  claimSpeech,
+  registerSpeechCleanup,
+  releaseSpeech,
+  speechIsCurrent,
+  stopSpeech,
+} from "./speech-playback";
 
 /**
  * Gretel voice — neutral, child-friendly Spanish browser TTS with pluggable provider architecture.
@@ -19,7 +25,8 @@ export interface GretelVoiceProviderConfig {
 }
 
 const MUTE_KEY = "cartilla.gretel.voice.muted";
-const FRIENDLY_HINTS = /child|niña|nina|girl|kids|junior|zira|samantha|karen|tessa|fiona|paulina|sabina|dalia|elvira|ximena|helena|monica|mónica|lucia|laura|sara|maria|soledad|esperanza|paloma|carmen/i;
+const FRIENDLY_HINTS =
+  /child|niña|nina|girl|kids|junior|zira|samantha|karen|tessa|fiona|paulina|sabina|dalia|elvira|ximena|helena|monica|mónica|lucia|laura|sara|maria|soledad|esperanza|paloma|carmen/i;
 const LATAM = new Set(["es-mx", "es-us", "es-419", "es-la"]);
 
 export const GRETEL_PRIMARY_VOICE = "Leda";
@@ -70,13 +77,15 @@ export function scoreVoice(voice: SpeechSynthesisVoice): number {
   if (/natural|neural|online|premium|enhanced/i.test(voice.name)) score += 300;
   if (/google/i.test(voice.name)) score += 200;
   if (/microsoft/i.test(voice.name)) score += 150;
-  if (typeof navigator !== "undefined" && !navigator.onLine) score += voice.localService ? 3000 : -2000;
+  if (typeof navigator !== "undefined" && !navigator.onLine)
+    score += voice.localService ? 3000 : -2000;
   return score;
 }
 
 export function pickVoice(): SpeechSynthesisVoice | null {
   if (typeof window === "undefined" || !("speechSynthesis" in window)) return null;
-  const ranked = window.speechSynthesis.getVoices()
+  const ranked = window.speechSynthesis
+    .getVoices()
     .map((voice) => ({ voice, score: scoreVoice(voice) }))
     .filter((item) => item.score >= 0)
     .sort((a, b) => b.score - a.score);
@@ -85,7 +94,8 @@ export function pickVoice(): SpeechSynthesisVoice | null {
 
 export function getAvailableGretelVoices(): SpeechSynthesisVoice[] {
   if (typeof window === "undefined" || !("speechSynthesis" in window)) return [];
-  return window.speechSynthesis.getVoices()
+  return window.speechSynthesis
+    .getVoices()
     .map((voice) => ({ voice, score: scoreVoice(voice) }))
     .filter((item) => item.score >= 0)
     .sort((a, b) => b.score - a.score)
@@ -147,7 +157,10 @@ export function cancelGretelSpeech(): void {
   window.dispatchEvent(new CustomEvent("gretel:speak_stop"));
 }
 
-export async function speakAsGretel(text: string, handlers: GretelVoiceHandlers = {}): Promise<void> {
+export async function speakAsGretel(
+  text: string,
+  handlers: GretelVoiceHandlers = {},
+): Promise<void> {
   if (!text?.trim() || isGretelVoiceMuted()) {
     handlers.onEnd?.();
     return;
@@ -244,7 +257,9 @@ export async function speakAsGretel(text: string, handlers: GretelVoiceHandlers 
 }
 
 export const HOME_GREETING = "Bienvenidos a la Cartilla de Gretel. Vamos a aprender a leer juntos.";
-export function buildHomeIntroLines(): string[] { return [HOME_GREETING]; }
+export function buildHomeIntroLines(): string[] {
+  return [HOME_GREETING];
+}
 
 export type IntroCatalogSlice = {
   n: number;
@@ -257,7 +272,10 @@ export type IntroCatalogSlice = {
 
 export function buildLessonIntroLines(entry: IntroCatalogSlice): string[] {
   if (entry.kind === "intro") {
-    return ["¡Hola! Vamos a conocer las vocales.", ...(entry.subtitle?.trim() ? [entry.subtitle.trim()] : [])];
+    return [
+      "¡Hola! Vamos a conocer las vocales.",
+      ...(entry.subtitle?.trim() ? [entry.subtitle.trim()] : []),
+    ];
   }
   if (entry.kind === "vowel" && entry.vowel) {
     return [`¡Hola! Vamos a la lección de la vocal ${entry.vowel.toUpperCase()}.`];

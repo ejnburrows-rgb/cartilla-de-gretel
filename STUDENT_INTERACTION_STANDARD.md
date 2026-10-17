@@ -10,9 +10,7 @@
 4. **No stale or fake approval evidence.** A merge, code review, unit test, Jules receipt or local dev fake does NOT prove visual approval. Fresh proof must depict the REAL source-faithful Student Workbook or Teacher/Flip Chart page at the exact verified commit/deployment, with the latest approved pencil/eraser, on the stated viewport/device; screenshots from `/dev-*`, old Vercel previews or synthetic demos are prohibited as owner approval evidence. Missing actual proof means **NOT APPROVAL-READY**; no historical substitution or unapproved release.
 5. **Precedence:** latest explicit owner decision > current `AGENTS.md` execution/safety policy > this document's owner-locked domain specifications > older tasks, PRs, memories and evidence. Do not create a rival dispatcher, restart disabled observers/controllers, invoke Antigravity, or use unauthorized paid services.
 
-
 > **Finish contract:** Read PROJECT_FINISH_DEFINITION.md before planning or declaring Cartilla work complete. It is the canonical definition of what must be true for the entire project to be finished. Compare current verified reality against it and close only real remaining gaps.
-
 
 **Status:** CANONICAL OWNER-APPROVED STUDENT INTERACTION DIRECTION  
 **Approved by:** Emilio  
@@ -25,6 +23,7 @@ This file is the source of truth for the premium student-facing Workbook interac
 The digital Workbook should feel like the physical Cartilla has gently come alive.
 
 Use one coherent nostalgic school-tool language:
+
 - one classic wooden pencil;
 - one matching classic school eraser;
 - real workbook marks and handwriting;
@@ -50,6 +49,7 @@ Pencil, eraser and feedback motion must be polished and seamless: one purposeful
 ### 1. Wrong answer — Pencil Retry
 
 When a learner makes an incorrect mark/selection:
+
 1. The learner's mark is visible.
 2. The pencil draws the mark in **red** from the first line, then travels back out past the right edge of the screen, over everything on the way (owner decisions 2026-10-06 and 2026-10-08).
 3. The same big, solid pencil turned around — its pink eraser and silver band at the picture, its body running off the edge of the screen — comes in from off the right edge of the screen, passing over everything on the way, rubs back and forth along the mark while a few small, realistic eraser crumbs, the size and color a real pink eraser leaves, fall and fade — never large, bright or cartoon-like (owner decision 2026-10-11) — and leaves past the right edge of the screen once the mark is gone. It never pops up inside the picture's box.
@@ -91,6 +91,7 @@ No thrown rope, lasso, spinning coil, or rope physics.
 ### 4. Letter tracing — Checkpoint / stroke-order default
 
 On desktop/mouse, the default is large checkpoint/stroke-order interaction:
+
 - the child clicks points in order;
 - the letter progressively draws between checkpoints;
 - reuse existing tracing templates, persistence, scoring, and reset behavior.
@@ -104,6 +105,7 @@ Never invent stroke geometry for letters/paths that are not source-verified.
 Drawing remains a drawing activity.
 
 Use:
+
 - classic wooden pencil;
 - nostalgic school eraser;
 - undo/clear only when needed, designed as physical/narratively consistent school tools rather than generic app icons;
@@ -123,6 +125,7 @@ Correct circles remain. Incorrect circles use Pencil Retry and are erased.
 ### 7. Complete-the-word — Draggable syllable placement
 
 Use the existing syllable choices as draggable pieces:
+
 - drag the selected syllable into the original printed blank;
 - snap the correct syllable into place;
 - keep click/tap-to-place as a full fallback;
@@ -147,6 +150,7 @@ Desktop default is typing directly on large digital handwriting lines.
 The same pencil/eraser family must be reused across applicable activities so the product feels coherent.
 
 Required qualities:
+
 - classic wooden school pencil;
 - nostalgic but polished;
 - no cartoon face or mascot on the pencil;
@@ -180,6 +184,7 @@ The final Gretel voice/TTS direction is **NOT YET LOCKED**.
 Do not treat the older real-recording-only policy, browser TTS voice selection, or any particular provider as the final owner decision.
 
 Until the owner explicitly finalizes the voice direction:
+
 - do not create a new paid voice dependency;
 - do not generate a final voice library;
 - do not replace the current voice system merely to satisfy this interaction standard.
@@ -191,6 +196,7 @@ The owner has stated that the eventual target is a premium natural little-girl v
 These interaction decisions change presentation/interaction only.
 
 They do not authorize:
+
 - changing curriculum;
 - changing answer content;
 - changing page order;
@@ -199,12 +205,12 @@ They do not authorize:
 - changing Workbook drawing geometry;
 - bypassing completion/persistence rules.
 
-
 ## Shared interaction kernel — canonical implementation architecture
 
 The interaction standard above must be implemented as one shared Workbook system, not as separate mini-app behavior on each activity page.
 
 The shared kernel owns:
+
 - the classic wooden pencil and matching eraser visual family;
 - pencil draw/mark/erase choreography and shared motion tokens;
 - retry, neutral-hold, success, and completion feedback states;
@@ -213,6 +219,7 @@ The shared kernel owns:
 - persistence/completion integration hooks.
 
 Activity families are adapters over this kernel:
+
 - picture/vowel selection → Real Workbook Mark;
 - line matching → Direct Pencil Connector with click/tap/keyboard fallback;
 - matching/placement → existing drag/drop with click/tap fallback;
@@ -245,6 +252,7 @@ Previous-page navigation uses the natural reverse direction.
 Target duration: **2.0 seconds** page curl (plus ~0.3 s corner zoom) on the lesson screen (owner decision 2026-10-09); the complete book (`/cartilla/cuaderno`) uses the same single-page lesson viewer and timing (owner decision 2026-10-13).
 
 The page turn is presentation only:
+
 - it never bypasses completion gating;
 - it never changes saved learner work;
 - it never changes Workbook source layout/content/artwork;

@@ -11,11 +11,18 @@ const props = { video: clip, fallback: "/still.webp", durationSeconds: 8 };
 beforeEach(() => {
   vi.useFakeTimers();
   settings.reduced = false;
-  Object.defineProperty(navigator, "connection", { configurable: true, value: { saveData: false } });
+  Object.defineProperty(navigator, "connection", {
+    configurable: true,
+    value: { saveData: false },
+  });
   vi.spyOn(HTMLMediaElement.prototype, "play").mockResolvedValue();
   vi.spyOn(HTMLMediaElement.prototype, "pause").mockImplementation(() => {});
 });
-afterEach(() => { cleanup(); vi.restoreAllMocks(); vi.useRealTimers(); });
+afterEach(() => {
+  cleanup();
+  vi.restoreAllMocks();
+  vi.useRealTimers();
+});
 
 describe("approved Gretel scene playback", () => {
   it("plays once, then shows the approved still and reports completion", () => {
@@ -27,7 +34,10 @@ describe("approved Gretel scene playback", () => {
     fireEvent.canPlay(video);
     expect(video.play).toHaveBeenCalledTimes(1);
     fireEvent.playing(video);
-    expect(container.querySelector("[data-gretel-media]")).toHaveAttribute("data-gretel-media", "playing");
+    expect(container.querySelector("[data-gretel-media]")).toHaveAttribute(
+      "data-gretel-media",
+      "playing",
+    );
     fireEvent.ended(video);
     expect(container.querySelector("video")).toBeNull();
     expect(container.querySelector("img")).toHaveAttribute("src", clip.poster);
@@ -69,12 +79,17 @@ describe("approved Gretel scene playback", () => {
     expect(container.querySelector("video")).toBeNull();
   });
   it("never loads a clip when data saving is requested", () => {
-    Object.defineProperty(navigator, "connection", { configurable: true, value: { saveData: true } });
+    Object.defineProperty(navigator, "connection", {
+      configurable: true,
+      value: { saveData: true },
+    });
     const { container } = render(<GretelSceneMedia {...props} />);
     expect(container.querySelector("video")).toBeNull();
   });
   it("uses the current still when no approved clip is registered", () => {
-    const { container } = render(<GretelSceneMedia fallback={props.fallback} durationSeconds={8} />);
+    const { container } = render(
+      <GretelSceneMedia fallback={props.fallback} durationSeconds={8} />,
+    );
     expect(container.querySelector("video")).toBeNull();
     expect(container.querySelector("img")).toHaveAttribute("src", props.fallback);
   });
@@ -90,16 +105,21 @@ describe("approved Gretel scene playback", () => {
   });
 });
 
- it("loops the approved welcome silently without a forced deadline", () => {
-  const { container } = render(<GretelSceneMedia video={clip} fallback="/still.png" durationSeconds={6} loop />);
+it("loops the approved welcome silently without a forced deadline", () => {
+  const { container } = render(
+    <GretelSceneMedia video={clip} fallback="/still.png" durationSeconds={6} loop />,
+  );
   const video = container.querySelector("video")!;
   expect(video.loop).toBe(true);
   expect(video.muted).toBe(true);
   fireEvent.playing(video);
   fireEvent.ended(video);
   act(() => vi.advanceTimersByTime(12000));
-  expect(container.querySelector("[data-gretel-media]")).toHaveAttribute("data-gretel-media", "playing");
- });
+  expect(container.querySelector("[data-gretel-media]")).toHaveAttribute(
+    "data-gretel-media",
+    "playing",
+  );
+});
 
 describe("broken registered poster fallback", () => {
   it("uses the independently supplied fallback still when the registered poster fails", () => {
@@ -148,7 +168,10 @@ describe("broken registered poster fallback", () => {
     const video = container.querySelector("video")!;
     fireEvent.canPlay(video);
     fireEvent.playing(video);
-    expect(container.querySelector("[data-gretel-media]")).toHaveAttribute("data-gretel-media", "playing");
+    expect(container.querySelector("[data-gretel-media]")).toHaveAttribute(
+      "data-gretel-media",
+      "playing",
+    );
     fireEvent.ended(video);
     expect(container.querySelector("video")).toBeNull();
     expect(container.querySelector("img")).toHaveAttribute("src", props.fallback);

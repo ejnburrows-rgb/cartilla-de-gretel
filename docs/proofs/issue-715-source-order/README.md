@@ -1,6 +1,7 @@
 # #715 — active Flip Chart source-order proof
 
 ## Verified conclusion
+
 The historical raw-Y syllable-order defect is not reproduced. Merged #734 grouped syllable rows; merged #744 installed the active positional replica. Sheets10/16/19 match their source rows, and sheet10 has a separate centered `y` between15 vocabulary words and six reading lines. Do not repair the active screen based on a legacy-fallback-only diagnosis.
 
 Verified product snapshot: `64666e84aa5e3e080de1fde6c1366f1f30b8aa50`.
@@ -8,16 +9,19 @@ Latest main checked: `35645c3ecbb88a62bb380800abb5c980cda563c7`.
 No affected Flip Chart model/data/renderer/styles/presenter/package/config changes; reuse the focused proof. Tests/screenshots were not rerun on the newer Workbook-only revision.
 
 ## Publication scope
+
 Owner explicitly requested pushing the test-only patch and evidence. This branch contains **no product implementation changes**, no merge/deploy, and no issue closure. `src/lib/__tests__/flipchart-715-source-order.test.ts` is the proposed narrow regression addition, independently reviewed. It is not integrated into main yet.
 
 Existing focused tests:39/39 passed (native coverage11, active replica order3, plate fidelity25). New active-renderer tests:4/4 passed. Logs are included. No full-release test claim.
 
 ## All pages: same implementation is not all-page clearance
+
 A fresh read-only geometry check on main35645c3 confirms all60 instructional sheets (source indexes3–62) satisfy the active replica's source text/frame requirement. They share the paper/spiral/pink presentation renderer. Covers/source indexes1–2 use separate frontmatter rendering. This is implementation/style coverage, NOT full rendered/fidelity approval for every sheet.
 
 All53 source JPEGs9–61 were visually compared with the active model for sequence and structural word positions. The original PDF binary was not independently downloaded or byte-certified. Source indexes are not printed pages: printed=index−2.
 
 ## Remaining exact-source findings — proposals, not applied fixes
+
 - Sheet29: preserve source stanza boundary before `Nada, nada mi patito`; source baseline gap~87.06 units, current replica64.64.
 - Sheet47: preserve source stanza boundary before `–Gatita gordita`; source gap87.70, regular66.16, replica66.15 throughout.
 - Sheet44: source final `arrebatado.` loses its period; native coverage currently locks `arrebatado`.
@@ -27,6 +31,7 @@ All53 source JPEGs9–61 were visually compared with the active model for sequen
 Smallest safe follow-up: explicit source-confirmed stanza boundaries for29/47 in the replica, preserving each second stanza's first source baseline; one-token source corrections44/60 plus focused tests. Do NOT globally lower evenLines'1.45 threshold, alter native row sorting again, change scans/art, or broaden into F15/redesign. #715 remains open.
 
 ## Repository evidence
+
 - `source-9-35.json` and `source-36-61.json`:53 distinct per-sheet records, source identity/image hashes, independent expected sequences, raw source text and active-model coordinates, verification limits and isolated fallback-only observations.
 - `source-9-35-report.md` / `source-36-61-report.md`:specialist reports.
 - `browser-dom.json` / `browser-checks.json`:actual browser token order/bounds and sequence/centering assertions for10/16/19. No page errors. Browser y text center960.203125px vs viewport center960px.

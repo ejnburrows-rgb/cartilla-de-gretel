@@ -1,79 +1,97 @@
-import { test, expect, type Page, type Locator } from '@playwright/test';
-import fs from 'node:fs';
-import path from 'node:path';
-const plates = JSON.parse(fs.readFileSync('src/data/teacher-flipchart.json', 'utf8')).pages;
-const layouts = JSON.parse(fs.readFileSync('src/data/page-layouts.json', 'utf8')).pages;
-const finalAssets = JSON.parse(fs.readFileSync('src/data/flipchart-native-assets.json', 'utf8'));
-const output = path.resolve('test-results/final-candidate');
+import { test, expect, type Page, type Locator } from "@playwright/test";
+import fs from "node:fs";
+import path from "node:path";
+const plates = JSON.parse(fs.readFileSync("src/data/teacher-flipchart.json", "utf8")).pages;
+const layouts = JSON.parse(fs.readFileSync("src/data/page-layouts.json", "utf8")).pages;
+const finalAssets = JSON.parse(fs.readFileSync("src/data/flipchart-native-assets.json", "utf8"));
+const output = path.resolve("test-results/final-candidate");
 const problems: unknown[] = [];
 
 async function stroke(page: Page, canvas: Locator) {
   await canvas.scrollIntoViewIfNeeded();
   const box = await canvas.boundingBox();
   expect(box).toBeTruthy();
-  await page.mouse.move(box!.x + box!.width * .25, box!.y + box!.height * .3);
+  await page.mouse.move(box!.x + box!.width * 0.25, box!.y + box!.height * 0.3);
   await page.mouse.down();
   for (let i = 1; i <= 30; i++) {
-    await page.mouse.move(box!.x + box!.width * (.25 + .4 * i / 30), box!.y + box!.height * (.3 + .3 * i / 30));
+    await page.mouse.move(
+      box!.x + box!.width * (0.25 + (0.4 * i) / 30),
+      box!.y + box!.height * (0.3 + (0.3 * i) / 30),
+    );
     await page.waitForTimeout(12);
   }
   await page.mouse.up();
 }
 async function complete(page: Page, number: number) {
-  const reader = page.locator('.native-lesson-viewer');
+  const reader = page.locator(".native-lesson-viewer");
   for (const region of layouts[String(number)].regions) {
     // Solve the live page only: while a page turns, a copy is drawn underneath.
-    await expect(reader.locator('.native-lesson-viewer__underneath')).toHaveCount(0, { timeout: 8000 });
-    const area = reader.locator(`.native-lesson-viewer__leaf [data-gretel-activity="page-${number}-${region.id}"]`);
-    const traces = area.locator('.fp-trace');
+    await expect(reader.locator(".native-lesson-viewer__underneath")).toHaveCount(0, {
+      timeout: 8000,
+    });
+    const area = reader.locator(
+      `.native-lesson-viewer__leaf [data-gretel-activity="page-${number}-${region.id}"]`,
+    );
+    const traces = area.locator(".fp-trace");
     if (await traces.count()) {
       for (let i = 0; i < 100; i++) {
-        const active = traces.locator('.fp-trace__dot--active');
-        if (!await active.count()) break;
+        const active = traces.locator(".fp-trace__dot--active");
+        if (!(await active.count())) break;
         await active.click();
       }
     }
-    const draw = area.locator('.am-dibuja, .am-paint');
+    const draw = area.locator(".am-dibuja, .am-paint");
     if (await draw.count()) {
-      await stroke(page, draw.locator('canvas').last());
-      await draw.getByRole('button', { name: 'Listo', exact: true }).click();
+      await stroke(page, draw.locator("canvas").last());
+      await draw.getByRole("button", { name: "Listo", exact: true }).click();
     }
-    const circles = area.locator('.native-syllable');
+    const circles = area.locator(".native-syllable");
     if (await circles.count()) {
       const words = region.matchRows.flat();
-      for (let i = 0; i < words.length; i++) if (words[i].correct !== false) {
-        const choice = circles.locator('button').nth(i);
-        // Circle the syllable from the keyboard (a pointer tap must land on the
-        // syllable's letters). Taps made while the previous circle is still
-        // being drawn are ignored, so give each one time and retry.
-        for (let attempt = 0; attempt < 5 && await choice.getAttribute('aria-pressed') !== 'true'; attempt++) {
-          await choice.focus();
-          await page.keyboard.press('Enter');
-          await page.waitForTimeout(700);
+      for (let i = 0; i < words.length; i++)
+        if (words[i].correct !== false) {
+          const choice = circles.locator("button").nth(i);
+          // Circle the syllable from the keyboard (a pointer tap must land on the
+          // syllable's letters). Taps made while the previous circle is still
+          // being drawn are ignored, so give each one time and retry.
+          for (
+            let attempt = 0;
+            attempt < 5 && (await choice.getAttribute("aria-pressed")) !== "true";
+            attempt++
+          ) {
+            await choice.focus();
+            await page.keyboard.press("Enter");
+            await page.waitForTimeout(700);
+          }
+          await expect(choice).toHaveAttribute("aria-pressed", "true");
         }
-        await expect(choice).toHaveAttribute('aria-pressed', 'true');
-      }
     }
     // Pencil-line matching: tap the vowel card, then the picture it belongs to.
-    const pencil = area.locator('.am-direct-pencil');
+    const pencil = area.locator(".am-direct-pencil");
     if (await pencil.count()) {
       const links: Array<{ left: string | null; target: string }> = region.vowelPairs
-        ? region.vowelPairs.filter((pair: any) => pair.correct !== false).map((pair: any) => ({ left: `Vocal ${pair.letter}`, target: pair.caption }))
-        : (region.cells ?? []).filter((cell: any) => cell.correct === true).map((cell: any) => ({ left: null, target: cell.caption }));
+        ? region.vowelPairs
+            .filter((pair: any) => pair.correct !== false)
+            .map((pair: any) => ({ left: `Vocal ${pair.letter}`, target: pair.caption }))
+        : (region.cells ?? [])
+            .filter((cell: any) => cell.correct === true)
+            .map((cell: any) => ({ left: null, target: cell.caption }));
       for (const link of links) {
         const left = link.left
           ? pencil.locator(`.am-direct-pencil__left-card[aria-label="${link.left}"]`).first()
-          : pencil.locator('.am-direct-pencil__center').first();
-        const target = pencil.locator(`.am-direct-pencil__target[aria-label="${link.target}"]`).first();
+          : pencil.locator(".am-direct-pencil__center").first();
+        const target = pencil
+          .locator(`.am-direct-pencil__target[aria-label="${link.target}"]`)
+          .first();
         // The printed example line (e.g. Oo→ola) is already drawn.
-        if (((await target.getAttribute('class')) ?? '').includes('is-connected')) continue;
+        if (((await target.getAttribute("class")) ?? "").includes("is-connected")) continue;
         if (await left.isEnabled()) await left.click();
         await target.click();
         await page.waitForTimeout(150);
       }
-      await expect(pencil).toHaveAttribute('data-complete', 'true', { timeout: 10000 });
+      await expect(pencil).toHaveAttribute("data-complete", "true", { timeout: 10000 });
     }
-    const lasso = area.locator('.am-lasso');
+    const lasso = area.locator(".am-lasso");
     if (await lasso.count()) {
       const targets = lasso.locator('button.am-lasso__target[data-gretel-correct="true"]');
       const count = await targets.count();
@@ -85,128 +103,213 @@ async function complete(page: Page, number: number) {
       }
     }
     // Circle the picture that starts with each row's vowel (graded on tap).
-    const picks = area.locator('.fp-ix-pick__row');
-    for (let i = 0; i < await picks.count(); i++) {
+    const picks = area.locator(".fp-ix-pick__row");
+    for (let i = 0; i < (await picks.count()); i++) {
       const row = picks.nth(i);
-      const answer = region.vowelRows?.[i]?.cells?.find((cell: any) => cell.correct === true)?.caption;
+      const answer = region.vowelRows?.[i]?.cells?.find(
+        (cell: any) => cell.correct === true,
+      )?.caption;
       if (!answer) continue;
-      const cell = row.getByRole('button', { name: answer, exact: true }).first();
-      if (!((await cell.getAttribute('class')) ?? '').includes('graded-correct')) await cell.click();
+      const cell = row.getByRole("button", { name: answer, exact: true }).first();
+      if (!((await cell.getAttribute("class")) ?? "").includes("graded-correct"))
+        await cell.click();
       await expect(cell).toHaveClass(/graded-correct/, { timeout: 10000 });
     }
-    const grid = area.locator('.fp-ix-grid');
+    const grid = area.locator(".fp-ix-grid");
     if (await grid.count()) {
       // Every right picture is graded on tap; there is no Comprobar step.
       const choices = grid.locator('.fp-ix-cell[data-gretel-correct="true"]');
-      for (let i = 0; i < await choices.count(); i++) {
+      for (let i = 0; i < (await choices.count()); i++) {
         const cell = choices.nth(i);
-        if (!((await cell.getAttribute('class')) ?? '').includes('graded-correct')) await cell.click();
+        if (!((await cell.getAttribute("class")) ?? "").includes("graded-correct"))
+          await cell.click();
         await expect(cell).toHaveClass(/graded-correct/, { timeout: 15000 });
       }
     }
-    const fill = area.locator('.fp-ix-fill');
+    const fill = area.locator(".fp-ix-fill");
     if (await fill.count()) {
       // Pick each blank's right syllable from the printed answer key; graded on tap.
-      const items = fill.locator('.fp-ix-fill__item');
-      for (let i = 0; i < await items.count(); i++) {
-        const answer = region.fillItems?.[i]?.choices?.find((choice: any) => choice.correct === true)?.text;
+      const items = fill.locator(".fp-ix-fill__item");
+      for (let i = 0; i < (await items.count()); i++) {
+        const answer = region.fillItems?.[i]?.choices?.find(
+          (choice: any) => choice.correct === true,
+        )?.text;
         if (!answer) continue;
-        const choice = items.nth(i).getByRole('button', { name: answer, exact: true }).first();
-        if (!((await choice.getAttribute('class')) ?? '').includes('graded-correct')) await choice.click();
+        const choice = items.nth(i).getByRole("button", { name: answer, exact: true }).first();
+        if (!((await choice.getAttribute("class")) ?? "").includes("graded-correct"))
+          await choice.click();
         await expect(choice).toHaveClass(/graded-correct/, { timeout: 10000 });
       }
     }
-    const writing = area.locator('textarea');
+    const writing = area.locator("textarea");
     if (await writing.count()) {
-      await writing.fill('Escribí una oración con las palabras de esta página.');
+      await writing.fill("Escribí una oración con las palabras de esta página.");
       // Writing is finished only when the learner confirms with Listo.
-      const done = area.getByRole('button', { name: 'Listo', exact: true });
+      const done = area.getByRole("button", { name: "Listo", exact: true });
       if (await done.count()) await done.click();
     }
   }
-  const reading = reader.getByRole('button', { name: 'Ya leí esta página' });
+  const reading = reader.getByRole("button", { name: "Ya leí esta página" });
   if (await reading.count()) await reading.click();
 }
 
 for (const viewport of [
-  { name: 'projector', width: 1280, height: 720 },
-  { name: 'laptop', width: 1440, height: 900 },
-  { name: 'tablet', width: 820, height: 1180 },
-]) test(`all teacher plates, final artwork and geometry — ${viewport.name}`, async ({ page }) => {
-  test.setTimeout(600_000);
-  fs.mkdirSync(output, { recursive: true });
-  problems.length = 0;
-  await page.setViewportSize(viewport);
-  await page.emulateMedia({ reducedMotion: 'reduce' });
-  const errors: string[] = [];
-  page.on('pageerror', error => errors.push(error.message));
-  for (let lesson = 1; lesson <= 24; lesson++) {
-    await page.goto(`/cartilla/presentar/${lesson}`, { waitUntil: 'domcontentloaded' });
-    const pages = plates.filter((p: any) => p.lesson === lesson);
-    for (let i = 0; i < pages.length; i++) {
-      const stage = page.getByTestId('flipchart-stage');
-      await expect(stage.locator('[data-native-flipchart="true"]')).toBeVisible();
-      await expect(stage.locator('.fc-native-board__pagenum')).toHaveText(String(pages[i].flipchartPage));
-      await expect.poll(() => stage.locator('img').evaluateAll(images => images.every(i => (i as HTMLImageElement).complete && (i as HTMLImageElement).naturalWidth > 0))).toBe(true);
-      for (const asset of finalAssets[String(pages[i].flipchartPage)] ?? []) {
-        await expect(stage.locator(`img[src="${asset.src}"]`)).toHaveCount(1);
+  { name: "projector", width: 1280, height: 720 },
+  { name: "laptop", width: 1440, height: 900 },
+  { name: "tablet", width: 820, height: 1180 },
+])
+  test(`all teacher plates, final artwork and geometry — ${viewport.name}`, async ({ page }) => {
+    test.setTimeout(600_000);
+    fs.mkdirSync(output, { recursive: true });
+    problems.length = 0;
+    await page.setViewportSize(viewport);
+    await page.emulateMedia({ reducedMotion: "reduce" });
+    const errors: string[] = [];
+    page.on("pageerror", (error) => errors.push(error.message));
+    for (let lesson = 1; lesson <= 24; lesson++) {
+      await page.goto(`/cartilla/presentar/${lesson}`, { waitUntil: "domcontentloaded" });
+      const pages = plates.filter((p: any) => p.lesson === lesson);
+      for (let i = 0; i < pages.length; i++) {
+        const stage = page.getByTestId("flipchart-stage");
+        await expect(stage.locator('[data-native-flipchart="true"]')).toBeVisible();
+        await expect(stage.locator(".fc-native-board__pagenum")).toHaveText(
+          String(pages[i].flipchartPage),
+        );
+        await expect
+          .poll(() =>
+            stage
+              .locator("img")
+              .evaluateAll((images) =>
+                images.every(
+                  (i) =>
+                    (i as HTMLImageElement).complete && (i as HTMLImageElement).naturalWidth > 0,
+                ),
+              ),
+          )
+          .toBe(true);
+        for (const asset of finalAssets[String(pages[i].flipchartPage)] ?? []) {
+          await expect(stage.locator(`img[src="${asset.src}"]`)).toHaveCount(1);
+        }
+        const overflow = await stage.evaluate((root) => {
+          const bounds = root.getBoundingClientRect();
+          return [
+            ...root.querySelectorAll<HTMLElement>(
+              "figcaption, .fc-vowel-header__title, .fc-vowel-header__verse, .fc-story-panel__verse, .fc-syllable-row__item, .fc-word-columns__list li, .fc-crescent__syllable, .fc-reading-panel__verse, .fc-story-fullwidth__para, .fc-reading-bar__line, .fc-native-board__word",
+            ),
+          ]
+            .filter((el) => {
+              const b = el.getBoundingClientRect();
+              return (
+                b.width > 0 &&
+                b.height > 0 &&
+                (b.top < bounds.top - 2 ||
+                  b.bottom > bounds.bottom + 2 ||
+                  b.left < bounds.left - 2 ||
+                  b.right > bounds.right + 2)
+              );
+            })
+            .map((el) => el.textContent);
+        });
+        if (overflow.length)
+          problems.push({ viewport: viewport.name, page: pages[i].flipchartPage, overflow });
+        await stage.screenshot({
+          path: path.join(
+            output,
+            `${viewport.name}-flipchart-${String(pages[i].flipchartPage).padStart(3, "0")}.png`,
+          ),
+        });
+        if (i < pages.length - 1)
+          await page.getByRole("button", { name: "Lámina siguiente", exact: true }).click();
       }
-      const overflow = await stage.evaluate(root => {
-        const bounds = root.getBoundingClientRect();
-        return [...root.querySelectorAll<HTMLElement>('figcaption, .fc-vowel-header__title, .fc-vowel-header__verse, .fc-story-panel__verse, .fc-syllable-row__item, .fc-word-columns__list li, .fc-crescent__syllable, .fc-reading-panel__verse, .fc-story-fullwidth__para, .fc-reading-bar__line, .fc-native-board__word')]
-          .filter(el => { const b = el.getBoundingClientRect(); return b.width > 0 && b.height > 0 && (b.top < bounds.top - 2 || b.bottom > bounds.bottom + 2 || b.left < bounds.left - 2 || b.right > bounds.right + 2); })
-          .map(el => el.textContent);
-      });
-      if (overflow.length) problems.push({ viewport: viewport.name, page: pages[i].flipchartPage, overflow });
-      await stage.screenshot({ path: path.join(output, `${viewport.name}-flipchart-${String(pages[i].flipchartPage).padStart(3, '0')}.png`) });
-      if (i < pages.length - 1) await page.getByRole('button', { name: 'Lámina siguiente', exact: true }).click();
     }
-  }
-  fs.writeFileSync(path.join(output, `${viewport.name}-geometry.json`), JSON.stringify(problems, null, 2));
-  expect(errors).toEqual([]);
-  expect(problems).toEqual([]);
-});
+    fs.writeFileSync(
+      path.join(output, `${viewport.name}-geometry.json`),
+      JSON.stringify(problems, null, 2),
+    );
+    expect(errors).toEqual([]);
+    expect(problems).toEqual([]);
+  });
 
 async function walkLessons(page: Page, from: number, to: number) {
   fs.mkdirSync(output, { recursive: true });
-  await page.emulateMedia({ reducedMotion: 'reduce' });
+  await page.emulateMedia({ reducedMotion: "reduce" });
   const checked: number[] = [];
   for (let lesson = from; lesson <= to; lesson++) {
-    await page.goto(`/cartilla/leccion/${lesson}`, { waitUntil: 'domcontentloaded' });
-    const start = page.getByRole('button', { name: 'Comenzar', exact: true });
-    if (await start.waitFor({ state: 'visible', timeout: 3000 }).then(() => true).catch(() => false)) {
+    await page.goto(`/cartilla/leccion/${lesson}`, { waitUntil: "domcontentloaded" });
+    const start = page.getByRole("button", { name: "Comenzar", exact: true });
+    if (
+      await start
+        .waitFor({ state: "visible", timeout: 3000 })
+        .then(() => true)
+        .catch(() => false)
+    ) {
       await start.click();
       await expect(start).toBeHidden();
     }
-    const reader = page.locator('.native-lesson-viewer');
+    const reader = page.locator(".native-lesson-viewer");
     await expect(reader).toBeVisible();
-    const first = Number(await reader.getAttribute('data-native-page'));
+    const first = Number(await reader.getAttribute("data-native-page"));
     // Lessons follow each other in the book with no missing page.
     if (checked.length) expect(first).toBe(checked[checked.length - 1] + 1);
-    const count = Number((await reader.locator('.native-lesson-viewer__page').innerText()).match(/de (\d+)/)?.[1]);
+    const count = Number(
+      (await reader.locator(".native-lesson-viewer__page").innerText()).match(/de (\d+)/)?.[1],
+    );
     for (let i = 0; i < count; i++) {
       const number = first + i;
-      await expect(reader).toHaveAttribute('data-native-page', String(number));
-      const next = reader.locator('.native-lesson-viewer__navigation button').last();
-      const activityTypes = ['writing-line', 'picture-grid', 'vowel-line-match', 'vowel-pick-one', 'vowel-match-all', 'syllable-match', 'fill-in-blank', 'writing-response', 'draw-box', 'paint-box'];
-      const hasActivity = layouts[String(number)].regions.some((region: any) => activityTypes.includes(region.regionType));
-      await expect(reader).toHaveAttribute('data-page-complete', hasActivity ? 'false' : 'true');
-      if (hasActivity) await expect(next).toHaveAttribute('data-locked', 'true');
-      expect(await reader.locator("img[src*='/art/source/workbook/'], canvas[data-pdf-page]").count()).toBe(0);
-      for (const img of await reader.locator('img').all()) {
+      await expect(reader).toHaveAttribute("data-native-page", String(number));
+      const next = reader.locator(".native-lesson-viewer__navigation button").last();
+      const activityTypes = [
+        "writing-line",
+        "picture-grid",
+        "vowel-line-match",
+        "vowel-pick-one",
+        "vowel-match-all",
+        "syllable-match",
+        "fill-in-blank",
+        "writing-response",
+        "draw-box",
+        "paint-box",
+      ];
+      const hasActivity = layouts[String(number)].regions.some((region: any) =>
+        activityTypes.includes(region.regionType),
+      );
+      await expect(reader).toHaveAttribute("data-page-complete", hasActivity ? "false" : "true");
+      if (hasActivity) await expect(next).toHaveAttribute("data-locked", "true");
+      expect(
+        await reader.locator("img[src*='/art/source/workbook/'], canvas[data-pdf-page]").count(),
+      ).toBe(0);
+      for (const img of await reader.locator("img").all()) {
         await img.evaluate((el) => el.scrollIntoView({ block: "center", behavior: "instant" }));
-        await expect.poll(() => img.evaluate((el) => (el as HTMLImageElement).complete && (el as HTMLImageElement).naturalWidth > 0)).toBe(true);
+        await expect
+          .poll(() =>
+            img.evaluate(
+              (el) =>
+                (el as HTMLImageElement).complete && (el as HTMLImageElement).naturalWidth > 0,
+            ),
+          )
+          .toBe(true);
       }
-      await reader.screenshot({ path: path.join(output, `workbook-${String(number).padStart(3, '0')}.png`) });
+      await reader.screenshot({
+        path: path.join(output, `workbook-${String(number).padStart(3, "0")}.png`),
+      });
       await complete(page, number);
-      console.log("Workbook completed attempt", number, await reader.getAttribute("data-page-complete"));
-      await expect(reader).toHaveAttribute('data-page-complete', 'true');
+      console.log(
+        "Workbook completed attempt",
+        number,
+        await reader.getAttribute("data-page-complete"),
+      );
+      await expect(reader).toHaveAttribute("data-page-complete", "true");
       await expect(next).toBeEnabled();
-      if ([3, 23, 47, 86, 90].includes(number)) await reader.screenshot({ path: path.join(output, `workbook-completed-${String(number).padStart(3, '0')}.png`) });
+      if ([3, 23, 47, 86, 90].includes(number))
+        await reader.screenshot({
+          path: path.join(output, `workbook-completed-${String(number).padStart(3, "0")}.png`),
+        });
       checked.push(number);
       if (i < count - 1) {
         await next.click();
-        await expect(reader).toHaveAttribute('data-native-page', String(number + 1), { timeout: 8000 });
+        await expect(reader).toHaveAttribute("data-native-page", String(number + 1), {
+          timeout: 8000,
+        });
       }
     }
   }
@@ -216,41 +319,76 @@ async function walkLessons(page: Page, from: number, to: number) {
 // The 90-page walk is split in two halves so each fits a browser-test time limit
 // and both can run side by side. The first half also proves that Lesson 13
 // opens on the page right after its last page, so together they cover every page.
-test('workbook lessons 1-12, page activities and Next gate', async ({ page }) => {
+test("workbook lessons 1-12, page activities and Next gate", async ({ page }) => {
   test.setTimeout(1_800_000);
   const checked = await walkLessons(page, 1, 12);
   expect(checked[0]).toBe(1);
-  await page.goto('/cartilla/leccion/13', { waitUntil: 'domcontentloaded' });
-  const start = page.getByRole('button', { name: 'Comenzar', exact: true });
-  if (await start.waitFor({ state: 'visible', timeout: 3000 }).then(() => true).catch(() => false)) await start.click();
-  await expect(page.locator('.native-lesson-viewer')).toHaveAttribute('data-native-page', String(checked[checked.length - 1] + 1));
+  await page.goto("/cartilla/leccion/13", { waitUntil: "domcontentloaded" });
+  const start = page.getByRole("button", { name: "Comenzar", exact: true });
+  if (
+    await start
+      .waitFor({ state: "visible", timeout: 3000 })
+      .then(() => true)
+      .catch(() => false)
+  )
+    await start.click();
+  await expect(page.locator(".native-lesson-viewer")).toHaveAttribute(
+    "data-native-page",
+    String(checked[checked.length - 1] + 1),
+  );
 });
 
-test('workbook lessons 13-24, page activities and Next gate', async ({ page }) => {
+test("workbook lessons 13-24, page activities and Next gate", async ({ page }) => {
   test.setTimeout(1_800_000);
   const checked = await walkLessons(page, 13, 24);
   expect(checked[checked.length - 1]).toBe(90);
-  fs.writeFileSync(path.join(output, 'workbook-activities.json'), JSON.stringify({ pagesExercisedFrom: checked[0], pagesExercisedTo: 90, sourceVerificationPending: [86, 87] }, null, 2));
-  await page.goto('/cartilla/lecciones', { waitUntil: 'domcontentloaded' });
+  fs.writeFileSync(
+    path.join(output, "workbook-activities.json"),
+    JSON.stringify(
+      { pagesExercisedFrom: checked[0], pagesExercisedTo: 90, sourceVerificationPending: [86, 87] },
+      null,
+      2,
+    ),
+  );
+  await page.goto("/cartilla/lecciones", { waitUntil: "domcontentloaded" });
   const master = page.locator('img[src="/cartilla/images/gretel/gretel-approved-master.png"]');
   await expect(master).toBeVisible();
-  await expect.poll(() => master.evaluate((el) => (el as HTMLImageElement).complete && (el as HTMLImageElement).naturalWidth > 0)).toBe(true);
-  await master.locator('..').screenshot({ path: path.join(output, 'gretel-approved-master.png') });
+  await expect
+    .poll(() =>
+      master.evaluate(
+        (el) => (el as HTMLImageElement).complete && (el as HTMLImageElement).naturalWidth > 0,
+      ),
+    )
+    .toBe(true);
+  await master.locator("..").screenshot({ path: path.join(output, "gretel-approved-master.png") });
 });
 
-test('single welcome entry and approved still at every presentation size', async ({ page }) => {
-  for (const viewport of [{ width: 1280, height: 720 }, { width: 1440, height: 900 }, { width: 820, height: 1180 }]) {
+test("single welcome entry and approved still at every presentation size", async ({ page }) => {
+  for (const viewport of [
+    { width: 1280, height: 720 },
+    { width: 1440, height: 900 },
+    { width: 820, height: 1180 },
+  ]) {
     await page.setViewportSize(viewport);
-    await page.emulateMedia({ reducedMotion: 'reduce' });
-    await page.goto('/cartilla/', { waitUntil: 'domcontentloaded' });
-    const start = page.getByRole('link', { name: 'Comenzar', exact: true });
+    await page.emulateMedia({ reducedMotion: "reduce" });
+    await page.goto("/cartilla/", { waitUntil: "domcontentloaded" });
+    const start = page.getByRole("link", { name: "Comenzar", exact: true });
     await expect(start).toBeVisible();
     const startBounds = await start.boundingBox();
     expect(startBounds!.y + startBounds!.height).toBeLessThanOrEqual(viewport.height);
     const still = page.locator('img[src="/cartilla/images/gretel/gretel-approved-master.png"]');
-    await expect.poll(() => still.evaluate((el) => (el as HTMLImageElement).complete && (el as HTMLImageElement).naturalWidth > 0)).toBe(true);
-    expect(await page.locator('video').count()).toBe(0);
-    await page.screenshot({ path: path.join(output, `welcome-${viewport.width}.png`), fullPage: true });
+    await expect
+      .poll(() =>
+        still.evaluate(
+          (el) => (el as HTMLImageElement).complete && (el as HTMLImageElement).naturalWidth > 0,
+        ),
+      )
+      .toBe(true);
+    expect(await page.locator("video").count()).toBe(0);
+    await page.screenshot({
+      path: path.join(output, `welcome-${viewport.width}.png`),
+      fullPage: true,
+    });
     await start.click();
     await expect(page).toHaveURL(/cartilla\/lecciones/);
   }

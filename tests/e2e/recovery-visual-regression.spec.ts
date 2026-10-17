@@ -1,29 +1,29 @@
-import { test, expect, type Page } from '@playwright/test';
-import sharp from 'sharp';
+import { test, expect, type Page } from "@playwright/test";
+import sharp from "sharp";
 
 const LESSONS = [1, 2, 8, 9, 13, 17, 18, 19, 20, 21, 22, 23, 24] as const;
 const SIZES = [
-  { name: 'desktop', width: 1280, height: 900 },
-  { name: 'tablet', width: 820, height: 1180 },
-  { name: 'mobile', width: 390, height: 844 },
+  { name: "desktop", width: 1280, height: 900 },
+  { name: "tablet", width: 820, height: 1180 },
+  { name: "mobile", width: 390, height: 844 },
 ] as const;
 
 async function dismissIntro(page: Page) {
-  const start = page.getByRole('button', { name: 'Comenzar' });
+  const start = page.getByRole("button", { name: "Comenzar" });
   if (await start.isVisible().catch(() => false)) await start.click();
 }
 
 async function expectNonBlank(shot: Buffer, label: string) {
   const stats = await sharp(shot).stats();
   expect(
-    stats.channels.slice(0, 3).some(channel => channel.stdev >= 4),
+    stats.channels.slice(0, 3).some((channel) => channel.stdev >= 4),
     `${label} unexpectedly has near-uniform pixels`,
   ).toBe(true);
 }
 
 async function expectNativeReaderGeometry(
   page: Page,
-  viewport: typeof SIZES[number],
+  viewport: (typeof SIZES)[number],
   lesson: number,
 ) {
   await page.evaluate(() => window.scrollTo(0, document.documentElement.scrollHeight));
@@ -42,21 +42,35 @@ async function expectNativeReaderGeometry(
       };
     };
     return {
-      reader: rect('.native-lesson-viewer'),
-      content: rect('.native-lesson-viewer__content'),
-      navigation: rect('.native-lesson-viewer__navigation'),
+      reader: rect(".native-lesson-viewer"),
+      content: rect(".native-lesson-viewer__content"),
+      navigation: rect(".native-lesson-viewer__navigation"),
       // Page controls hidden under the page arrows. The arrows may sit below,
       // beside or (on phones) float over the page, but must not hide a control
       // once the page is scrolled to its end.
       arrowsOnPage: (() => {
-        const controls = [...document.querySelectorAll<HTMLElement>('.native-lesson-viewer__content button, .native-lesson-viewer__content canvas, .native-lesson-viewer__content textarea')];
-        return [...document.querySelectorAll<HTMLElement>('.native-lesson-viewer__navigation button')].flatMap((button) => {
+        const controls = [
+          ...document.querySelectorAll<HTMLElement>(
+            ".native-lesson-viewer__content button, .native-lesson-viewer__content canvas, .native-lesson-viewer__content textarea",
+          ),
+        ];
+        return [
+          ...document.querySelectorAll<HTMLElement>(".native-lesson-viewer__navigation button"),
+        ].flatMap((button) => {
           const b = button.getBoundingClientRect();
           if (!b.width) return [];
-          return controls.filter((el) => {
-            const q = el.getBoundingClientRect();
-            return q.width > 0 && q.x < b.right - 2 && q.right > b.x + 2 && q.y < b.bottom - 2 && q.bottom > b.y + 2;
-          }).map((el) => el.getAttribute('aria-label') || el.textContent?.trim() || el.tagName);
+          return controls
+            .filter((el) => {
+              const q = el.getBoundingClientRect();
+              return (
+                q.width > 0 &&
+                q.x < b.right - 2 &&
+                q.right > b.x + 2 &&
+                q.y < b.bottom - 2 &&
+                q.bottom > b.y + 2
+              );
+            })
+            .map((el) => el.getAttribute("aria-label") || el.textContent?.trim() || el.tagName);
         });
       })(),
     };
@@ -75,7 +89,9 @@ async function expectNativeReaderGeometry(
   );
   expect(content.height, `content too short lesson ${lesson}`).toBeGreaterThan(220);
   expect(content.x, `content clipped left lesson ${lesson}`).toBeGreaterThanOrEqual(reader.x - 2);
-  expect(content.right, `content clipped right lesson ${lesson}`).toBeLessThanOrEqual(reader.right + 2);
+  expect(content.right, `content clipped right lesson ${lesson}`).toBeLessThanOrEqual(
+    reader.right + 2,
+  );
   expect(navigation.height, `navigation missing lesson ${lesson}`).toBeGreaterThan(0);
   expect(geometry.arrowsOnPage, `navigation overlaps content lesson ${lesson}`).toEqual([]);
 }
@@ -86,41 +102,45 @@ for (const viewport of SIZES) {
     await page.setViewportSize(viewport);
 
     const broken: string[] = [];
-    page.on('response', response => {
+    page.on("response", (response) => {
       if (response.status() >= 400 && /\.(webp|png|jpe?g|svg)(\?|$)/i.test(response.url())) {
         broken.push(`${response.status()} ${response.url()}`);
       }
     });
 
     for (const n of LESSONS) {
-      await page.goto(`/cartilla/leccion/${n}`, { waitUntil: 'domcontentloaded' });
+      await page.goto(`/cartilla/leccion/${n}`, { waitUntil: "domcontentloaded" });
       await dismissIntro(page);
 
-      const reader = page.locator('.native-lesson-viewer');
-      const stage = reader.locator('.native-lesson-viewer__content');
+      const reader = page.locator(".native-lesson-viewer");
+      const stage = reader.locator(".native-lesson-viewer__content");
       await expect(reader).toBeVisible();
       await expect(stage).toBeVisible();
-      await expect(page.getByTestId('physical-book-reader')).toHaveCount(0);
+      await expect(page.getByTestId("physical-book-reader")).toHaveCount(0);
 
       // No Gretel side column or picture on lesson pages (owner direction 2026-10-07 / #739).
-      await expect(page.getByTestId('gretel-presence')).toHaveCount(0);
+      await expect(page.getByTestId("gretel-presence")).toHaveCount(0);
       await page.evaluate(() => document.fonts.ready);
       await expectNativeReaderGeometry(page, viewport, n);
 
       const layout = await page.evaluate(() => ({
         width: document.documentElement.scrollWidth,
         viewport: innerWidth,
-        zero: [...document.querySelectorAll<HTMLElement>('button, [role="button"]')].filter(el => {
-          if (!el.getClientRects().length || el.closest('[aria-hidden="true"]')) return false;
-          const r = el.getBoundingClientRect();
-          return r.width < 1 || r.height < 1;
-        }).length,
+        zero: [...document.querySelectorAll<HTMLElement>('button, [role="button"]')].filter(
+          (el) => {
+            if (!el.getClientRects().length || el.closest('[aria-hidden="true"]')) return false;
+            const r = el.getBoundingClientRect();
+            return r.width < 1 || r.height < 1;
+          },
+        ).length,
       }));
-      expect(layout.width, `horizontal overflow lesson ${n}`).toBeLessThanOrEqual(layout.viewport + 2);
+      expect(layout.width, `horizontal overflow lesson ${n}`).toBeLessThanOrEqual(
+        layout.viewport + 2,
+      );
       expect(layout.zero, `zero-size interactive target lesson ${n}`).toBe(0);
 
-      const images = await stage.locator('img:visible').evaluateAll(nodes =>
-        nodes.map(node => {
+      const images = await stage.locator("img:visible").evaluateAll((nodes) =>
+        nodes.map((node) => {
           const img = node as HTMLImageElement;
           return {
             src: img.currentSrc || img.src,
@@ -128,12 +148,15 @@ for (const viewport of SIZES) {
           };
         }),
       );
-      expect(images.filter(image => !image.loaded), `missing art lesson ${n}`).toEqual([]);
+      expect(
+        images.filter((image) => !image.loaded),
+        `missing art lesson ${n}`,
+      ).toEqual([]);
 
       const shot = await stage.screenshot({
-        type: 'jpeg',
+        type: "jpeg",
         quality: 65,
-        animations: 'disabled',
+        animations: "disabled",
       });
       await expectNonBlank(shot, `lesson ${n} ${viewport.name}`);
     }
@@ -146,18 +169,20 @@ for (const viewport of SIZES) {
     await page.setViewportSize(viewport);
 
     for (const n of [7, 18, 24]) {
-      await page.goto(`/cartilla/presentar/${n}`, { waitUntil: 'domcontentloaded' });
+      await page.goto(`/cartilla/presentar/${n}`, { waitUntil: "domcontentloaded" });
       await dismissIntro(page);
 
-      const panel = page.getByTestId('flipchart-hd-panel');
+      const panel = page.getByTestId("flipchart-hd-panel");
       await expect(panel).toBeVisible();
-      await expect(panel).toHaveAttribute('data-presenter-mode', 'native');
+      await expect(panel).toHaveAttribute("data-presenter-mode", "native");
       // The stage shows one sheet; turn layers hold hidden copies of neighbours.
-      await expect(panel.getByTestId('flipchart-stage').locator('[data-native-flipchart="true"]').first()).toBeVisible();
+      await expect(
+        panel.getByTestId("flipchart-stage").locator('[data-native-flipchart="true"]').first(),
+      ).toBeVisible();
       await page.evaluate(() => document.fonts.ready);
 
-      const pageImages = await panel.locator('img:visible').evaluateAll(nodes =>
-        nodes.map(node => {
+      const pageImages = await panel.locator("img:visible").evaluateAll((nodes) =>
+        nodes.map((node) => {
           const img = node as HTMLImageElement;
           return {
             src: img.currentSrc || img.src,
@@ -165,16 +190,22 @@ for (const viewport of SIZES) {
           };
         }),
       );
-      expect(pageImages.filter(image => !image.loaded), `presenter missing image ${n}`).toEqual([]);
       expect(
-        pageImages.some(image => image.src.includes('/hd/flipchart/') || image.src.includes('/delivery/flipchart/')),
+        pageImages.filter((image) => !image.loaded),
+        `presenter missing image ${n}`,
+      ).toEqual([]);
+      expect(
+        pageImages.some(
+          (image) =>
+            image.src.includes("/hd/flipchart/") || image.src.includes("/delivery/flipchart/"),
+        ),
         `source-page image leaked into presenter ${n}`,
       ).toBe(false);
 
       const shot = await panel.screenshot({
-        type: 'jpeg',
+        type: "jpeg",
         quality: 65,
-        animations: 'disabled',
+        animations: "disabled",
       });
       await expectNonBlank(shot, `presenter ${n} ${viewport.name}`);
     }

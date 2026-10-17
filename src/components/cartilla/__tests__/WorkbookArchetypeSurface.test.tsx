@@ -105,7 +105,9 @@ describe("Workbook Clean Surface & Archetype Wiring", () => {
 
     // Workbook page 1 uses clean digital paper frame
     cleanup();
-    const { container: wbContainer } = render(<FaithfulPageRenderer pageNumber={1} lessonNumber={1} />);
+    const { container: wbContainer } = render(
+      <FaithfulPageRenderer pageNumber={1} lessonNumber={1} />,
+    );
     const wbPage = wbContainer.querySelector(".faithful-page");
     expect(wbPage).toBeTruthy();
   });

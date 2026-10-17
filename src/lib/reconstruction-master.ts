@@ -69,7 +69,8 @@ function validPlacement(value: unknown): value is ReconstructionPlacement {
     return false;
   }
   if (typeof p.flipchart_source_file !== "string" || !p.flipchart_source_file) return false;
-  if (typeof p.flipchart_source_sha256 !== "string" || !SHA256.test(p.flipchart_source_sha256)) return false;
+  if (typeof p.flipchart_source_sha256 !== "string" || !SHA256.test(p.flipchart_source_sha256))
+    return false;
 
   if (p.strategy === "EXACT_COLORED_COUNTERPART") {
     if (!validBox(p.flipchart_box_norm)) return false;

@@ -58,7 +58,10 @@ export function MariposasGame({ content }: { content: GameContent }) {
         <p className="text-center font-bold text-stone-600">
           {score} de {content.words.length} palabras completas
         </p>
-        <button onClick={reset} className="mx-auto flex items-center gap-2 rounded-xl bg-primary px-5 py-3 font-bold text-primary-foreground">
+        <button
+          onClick={reset}
+          className="mx-auto flex items-center gap-2 rounded-xl bg-primary px-5 py-3 font-bold text-primary-foreground"
+        >
           <RotateCcw className="h-4 w-4" /> Jugar otra vez
         </button>
       </CompleteCard>
@@ -69,7 +72,9 @@ export function MariposasGame({ content }: { content: GameContent }) {
     if (feedback) return;
     const next = [...picked, tile];
     const expected = word.syllables.slice(0, next.length);
-    const validPrefix = next.every((value, i) => value.toLocaleLowerCase("es") === expected[i]?.toLocaleLowerCase("es"));
+    const validPrefix = next.every(
+      (value, i) => value.toLocaleLowerCase("es") === expected[i]?.toLocaleLowerCase("es"),
+    );
     if (!validPrefix) {
       setFeedback("no");
       setTimeout(() => {
@@ -84,7 +89,8 @@ export function MariposasGame({ content }: { content: GameContent }) {
       setScore((s) => s + 1);
       setTimeout(() => {
         const nextIndex = wordIndex + 1;
-        if (nextIndex === content.words.length) finishGame(content, score + 1, content.words.length);
+        if (nextIndex === content.words.length)
+          finishGame(content, score + 1, content.words.length);
         setWordIndex(nextIndex);
         setPicked([]);
         setFeedback(null);
@@ -95,20 +101,31 @@ export function MariposasGame({ content }: { content: GameContent }) {
   return (
     <CompleteCard>
       <div className="text-center">
-        <div className="text-5xl" aria-hidden>🦋</div>
-        <p className="mt-2 text-sm font-bold text-stone-500">Palabra {wordIndex + 1} de {content.words.length}</p>
+        <div className="text-5xl" aria-hidden>
+          🦋
+        </div>
+        <p className="mt-2 text-sm font-bold text-stone-500">
+          Palabra {wordIndex + 1} de {content.words.length}
+        </p>
         <h2 className="text-3xl font-black mt-1">{word.word}</h2>
       </div>
       <div className="min-h-16 rounded-2xl border-2 border-dashed border-stone-300 bg-white p-3 flex flex-wrap justify-center gap-2">
         {word.syllables.map((_, i) => (
-          <span key={i} className="min-w-16 rounded-xl bg-stone-100 px-4 py-3 text-center text-2xl font-black">
+          <span
+            key={i}
+            className="min-w-16 rounded-xl bg-stone-100 px-4 py-3 text-center text-2xl font-black"
+          >
             {picked[i] ?? "__"}
           </span>
         ))}
       </div>
       <div className="grid grid-cols-3 sm:grid-cols-4 gap-2">
         {(content.tiles ?? []).map((tile) => (
-          <button key={tile} onClick={() => choose(tile)} className="rounded-xl border-2 border-sky-200 bg-sky-50 py-3 text-xl font-black hover:bg-sky-100 active:scale-95">
+          <button
+            key={tile}
+            onClick={() => choose(tile)}
+            className="rounded-xl border-2 border-sky-200 bg-sky-50 py-3 text-xl font-black hover:bg-sky-100 active:scale-95"
+          >
             {tile}
           </button>
         ))}
@@ -142,18 +159,42 @@ export function VowelGame({ content }: { content: GameContent }) {
 
   return (
     <CompleteCard>
-      <h2 className="text-xl font-black text-center">¿Comienza con {content.letter.toUpperCase()}?</h2>
+      <h2 className="text-xl font-black text-center">
+        ¿Comienza con {content.letter.toUpperCase()}?
+      </h2>
       <div className="grid sm:grid-cols-2 gap-3">
         {content.words.map((item) => {
           const marked = answers[item.word];
           const answered = item.word in answers;
           return (
-            <div key={item.word} className={`rounded-2xl border-2 p-3 bg-white ${answered ? (marked ? "border-emerald-400" : "border-rose-400") : "border-stone-200"}`}>
-              {item.imageUrl && <img src={item.imageUrl} alt={item.word} className="h-28 w-full object-contain" loading="lazy" />}
+            <div
+              key={item.word}
+              className={`rounded-2xl border-2 p-3 bg-white ${answered ? (marked ? "border-emerald-400" : "border-rose-400") : "border-stone-200"}`}
+            >
+              {item.imageUrl && (
+                <img
+                  src={item.imageUrl}
+                  alt={item.word}
+                  className="h-28 w-full object-contain"
+                  loading="lazy"
+                />
+              )}
               <p className="text-center text-xl font-black mt-2">{item.word}</p>
               <div className="grid grid-cols-2 gap-2 mt-3">
-                <button disabled={answered} onClick={() => answer(item, true)} className="rounded-xl bg-emerald-100 px-3 py-2 font-bold disabled:opacity-50">Sí</button>
-                <button disabled={answered} onClick={() => answer(item, false)} className="rounded-xl bg-stone-100 px-3 py-2 font-bold disabled:opacity-50">No</button>
+                <button
+                  disabled={answered}
+                  onClick={() => answer(item, true)}
+                  className="rounded-xl bg-emerald-100 px-3 py-2 font-bold disabled:opacity-50"
+                >
+                  Sí
+                </button>
+                <button
+                  disabled={answered}
+                  onClick={() => answer(item, false)}
+                  className="rounded-xl bg-stone-100 px-3 py-2 font-bold disabled:opacity-50"
+                >
+                  No
+                </button>
               </div>
             </div>
           );
@@ -161,8 +202,16 @@ export function VowelGame({ content }: { content: GameContent }) {
       </div>
       {allDone && (
         <div className="text-center space-y-3">
-          <Result ok={score === content.words.length} text={`${score} de ${content.words.length} correctas`} />
-          <button onClick={reset} className="inline-flex items-center gap-2 rounded-xl bg-primary px-4 py-2 font-bold text-primary-foreground"><RotateCcw className="h-4 w-4" /> Repetir</button>
+          <Result
+            ok={score === content.words.length}
+            text={`${score} de ${content.words.length} correctas`}
+          />
+          <button
+            onClick={reset}
+            className="inline-flex items-center gap-2 rounded-xl bg-primary px-4 py-2 font-bold text-primary-foreground"
+          >
+            <RotateCcw className="h-4 w-4" /> Repetir
+          </button>
         </div>
       )}
     </CompleteCard>
@@ -186,20 +235,30 @@ export function PhonicsCompleteGame({ content }: { content: GameContent }) {
   if (done) {
     return (
       <CompleteCard>
-        <Result ok={score === content.words.length} text={`${score} de ${content.words.length} palabras completadas`} />
-        <button onClick={reset} className="mx-auto flex items-center gap-2 rounded-xl bg-primary px-4 py-2 font-bold text-primary-foreground"><RotateCcw className="h-4 w-4" /> Repetir</button>
+        <Result
+          ok={score === content.words.length}
+          text={`${score} de ${content.words.length} palabras completadas`}
+        />
+        <button
+          onClick={reset}
+          className="mx-auto flex items-center gap-2 rounded-xl bg-primary px-4 py-2 font-bold text-primary-foreground"
+        >
+          <RotateCcw className="h-4 w-4" /> Repetir
+        </button>
       </CompleteCard>
     );
   }
 
   const choose = (tile: string) => {
     if (feedback) return;
-    const correct = tile.toLocaleLowerCase("es") === item.syllables[missingIndex].toLocaleLowerCase("es");
+    const correct =
+      tile.toLocaleLowerCase("es") === item.syllables[missingIndex].toLocaleLowerCase("es");
     setFeedback(correct ? "ok" : "no");
     if (correct) setScore((s) => s + 1);
     setTimeout(() => {
       if (correct) {
-        if (index + 1 === content.words.length) finishGame(content, score + 1, content.words.length);
+        if (index + 1 === content.words.length)
+          finishGame(content, score + 1, content.words.length);
         setIndex((n) => n + 1);
       }
       setFeedback(null);
@@ -211,14 +270,23 @@ export function PhonicsCompleteGame({ content }: { content: GameContent }) {
       <p className="text-center text-sm font-bold text-stone-500">Completa: {item.word}</p>
       <div className="flex justify-center gap-2 text-3xl font-black">
         {item.syllables.map((syllable, i) => (
-          <span key={`${syllable}-${i}`} className="rounded-xl bg-white border-2 border-stone-200 px-4 py-3">
+          <span
+            key={`${syllable}-${i}`}
+            className="rounded-xl bg-white border-2 border-stone-200 px-4 py-3"
+          >
             {i === missingIndex ? "___" : syllable}
           </span>
         ))}
       </div>
       <div className="flex flex-wrap justify-center gap-2">
         {(content.tiles ?? []).map((tile) => (
-          <button key={tile} onClick={() => choose(tile)} className="rounded-xl bg-amber-100 border-2 border-amber-200 px-5 py-3 text-xl font-black hover:bg-amber-200">{tile}</button>
+          <button
+            key={tile}
+            onClick={() => choose(tile)}
+            className="rounded-xl bg-amber-100 border-2 border-amber-200 px-5 py-3 text-xl font-black hover:bg-amber-200"
+          >
+            {tile}
+          </button>
         ))}
       </div>
       {feedback === "ok" && <Result ok text="¡Correcto!" />}
@@ -235,7 +303,9 @@ export function RhymeGame({ content }: { content: GameContent }) {
       const first = remaining.shift();
       if (!first) break;
       const ending = first.syllables.at(-1)?.toLocaleLowerCase("es");
-      const matchIndex = remaining.findIndex((w) => w.syllables.at(-1)?.toLocaleLowerCase("es") === ending);
+      const matchIndex = remaining.findIndex(
+        (w) => w.syllables.at(-1)?.toLocaleLowerCase("es") === ending,
+      );
       if (matchIndex >= 0) result.push([first, remaining.splice(matchIndex, 1)[0]]);
     }
     return result;
@@ -255,7 +325,12 @@ export function RhymeGame({ content }: { content: GameContent }) {
     return (
       <CompleteCard>
         <Result ok text={`${score} de ${pairs.length} rimas encontradas`} />
-        <button onClick={reset} className="mx-auto flex items-center gap-2 rounded-xl bg-primary px-4 py-2 font-bold text-primary-foreground"><RotateCcw className="h-4 w-4" /> Repetir</button>
+        <button
+          onClick={reset}
+          className="mx-auto flex items-center gap-2 rounded-xl bg-primary px-4 py-2 font-bold text-primary-foreground"
+        >
+          <RotateCcw className="h-4 w-4" /> Repetir
+        </button>
       </CompleteCard>
     );
   }
@@ -283,7 +358,13 @@ export function RhymeGame({ content }: { content: GameContent }) {
       <div className="text-center text-4xl font-black">{pair[0].word}</div>
       <div className="grid grid-cols-2 gap-3">
         {candidates.map((candidate) => (
-          <button key={candidate.word} onClick={() => choose(candidate)} className="rounded-2xl border-2 border-purple-200 bg-purple-50 py-4 text-xl font-black hover:bg-purple-100">{candidate.word}</button>
+          <button
+            key={candidate.word}
+            onClick={() => choose(candidate)}
+            className="rounded-2xl border-2 border-purple-200 bg-purple-50 py-4 text-xl font-black hover:bg-purple-100"
+          >
+            {candidate.word}
+          </button>
         ))}
       </div>
       {feedback === "ok" && <Result ok text="¡Riman!" />}
@@ -297,7 +378,7 @@ export function WordsPerMinuteGame({ content }: { content: GameContent }) {
   const [seconds, setSeconds] = useState(60);
   const [count, setCount] = useState(0);
   const finished = !running && seconds === 0;
-  
+
   const countRef = useRef(count);
   countRef.current = count;
   const contentRef = useRef(content);
@@ -330,27 +411,55 @@ export function WordsPerMinuteGame({ content }: { content: GameContent }) {
   return (
     <CompleteCard>
       <div className="flex items-center justify-between rounded-2xl bg-white border-2 border-stone-200 p-4">
-        <span className="inline-flex items-center gap-2 font-black"><Timer className="h-5 w-5" /> {seconds}s</span>
+        <span className="inline-flex items-center gap-2 font-black">
+          <Timer className="h-5 w-5" /> {seconds}s
+        </span>
         <span className="font-black">Leídas: {count}</span>
       </div>
-      {!running && !finished && <button onClick={start} className="w-full rounded-xl bg-primary py-3 text-lg font-black text-primary-foreground">Empezar 1 minuto</button>}
+      {!running && !finished && (
+        <button
+          onClick={start}
+          className="w-full rounded-xl bg-primary py-3 text-lg font-black text-primary-foreground"
+        >
+          Empezar 1 minuto
+        </button>
+      )}
       <div className="grid grid-cols-3 gap-2">
         {content.words.map((item, i) => (
-          <button key={`${item.word}-${i}`} disabled={!running || i !== count} onClick={() => setCount((n) => Math.min(n + 1, content.words.length))} className={`rounded-xl border-2 p-3 text-lg font-black ${i < count ? "border-emerald-300 bg-emerald-50" : "border-stone-200 bg-white"} disabled:opacity-60`}>
+          <button
+            key={`${item.word}-${i}`}
+            disabled={!running || i !== count}
+            onClick={() => setCount((n) => Math.min(n + 1, content.words.length))}
+            className={`rounded-xl border-2 p-3 text-lg font-black ${i < count ? "border-emerald-300 bg-emerald-50" : "border-stone-200 bg-white"} disabled:opacity-60`}
+          >
             {item.word}
           </button>
         ))}
       </div>
-      {running && count >= content.words.length && <button onClick={() => { 
-        setRunning(false); 
-        setSeconds(0); 
-        if (!hasFinishedRef.current) {
-          hasFinishedRef.current = true;
-          finishGame(content, count, content.words.length);
-        }
-      }} className="w-full rounded-xl bg-emerald-600 py-3 font-black text-white">Terminé la lista</button>}
+      {running && count >= content.words.length && (
+        <button
+          onClick={() => {
+            setRunning(false);
+            setSeconds(0);
+            if (!hasFinishedRef.current) {
+              hasFinishedRef.current = true;
+              finishGame(content, count, content.words.length);
+            }
+          }}
+          className="w-full rounded-xl bg-emerald-600 py-3 font-black text-white"
+        >
+          Terminé la lista
+        </button>
+      )}
       {finished && <Result ok text={`Leíste ${count} palabras.`} />}
-      {finished && <button onClick={start} className="mx-auto flex items-center gap-2 rounded-xl bg-primary px-4 py-2 font-bold text-primary-foreground"><RotateCcw className="h-4 w-4" /> Otra vez</button>}
+      {finished && (
+        <button
+          onClick={start}
+          className="mx-auto flex items-center gap-2 rounded-xl bg-primary px-4 py-2 font-bold text-primary-foreground"
+        >
+          <RotateCcw className="h-4 w-4" /> Otra vez
+        </button>
+      )}
     </CompleteCard>
   );
 }
@@ -371,7 +480,12 @@ export function DrawingsGame({ content }: { content: GameContent }) {
     return (
       <CompleteCard>
         <Result ok text={`${score} de ${content.words.length} dibujos correctos`} />
-        <button onClick={reset} className="mx-auto flex items-center gap-2 rounded-xl bg-primary px-4 py-2 font-bold text-primary-foreground"><RotateCcw className="h-4 w-4" /> Repetir</button>
+        <button
+          onClick={reset}
+          className="mx-auto flex items-center gap-2 rounded-xl bg-primary px-4 py-2 font-bold text-primary-foreground"
+        >
+          <RotateCcw className="h-4 w-4" /> Repetir
+        </button>
       </CompleteCard>
     );
   }
@@ -384,7 +498,8 @@ export function DrawingsGame({ content }: { content: GameContent }) {
     playWord(candidate.audioUrl);
     setTimeout(() => {
       if (correct) {
-        if (index + 1 === content.words.length) finishGame(content, score + 1, content.words.length);
+        if (index + 1 === content.words.length)
+          finishGame(content, score + 1, content.words.length);
         setIndex((n) => n + 1);
       }
       setFeedback(null);
@@ -396,13 +511,29 @@ export function DrawingsGame({ content }: { content: GameContent }) {
       <h2 className="text-center text-3xl font-black">{item.word}</h2>
       <div className="grid grid-cols-3 gap-3">
         {content.words.map((candidate) => (
-          <button key={candidate.word} onClick={() => choose(candidate)} aria-label={`Dibujo de ${candidate.word}`} className="rounded-2xl border-2 border-stone-200 bg-white p-2 hover:border-primary active:scale-95">
-            {candidate.imageUrl ? <img src={candidate.imageUrl} alt={candidate.word} className="h-32 w-full object-contain" loading="lazy" /> : <span className="font-bold">{candidate.word}</span>}
+          <button
+            key={candidate.word}
+            onClick={() => choose(candidate)}
+            aria-label={`Dibujo de ${candidate.word}`}
+            className="rounded-2xl border-2 border-stone-200 bg-white p-2 hover:border-primary active:scale-95"
+          >
+            {candidate.imageUrl ? (
+              <img
+                src={candidate.imageUrl}
+                alt={candidate.word}
+                className="h-32 w-full object-contain"
+                loading="lazy"
+              />
+            ) : (
+              <span className="font-bold">{candidate.word}</span>
+            )}
           </button>
         ))}
       </div>
       {feedback === "ok" && <Result ok text="¡Ese es el dibujo!" />}
-      {feedback === "no" && <Result ok={false} text="Busca el dibujo que corresponde a la palabra." />}
+      {feedback === "no" && (
+        <Result ok={false} text="Busca el dibujo que corresponde a la palabra." />
+      )}
     </CompleteCard>
   );
 }

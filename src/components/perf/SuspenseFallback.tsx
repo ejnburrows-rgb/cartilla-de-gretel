@@ -27,7 +27,9 @@ export function SuspenseFallback({
           <div className="w-8 h-8 rounded-full border-4 border-amber-500 border-t-transparent animate-spin" />
         </div>
         <div className="w-full flex flex-col items-center gap-2">
-          <span className="text-sm font-semibold text-stone-700 dark:text-slate-200">{message}</span>
+          <span className="text-sm font-semibold text-stone-700 dark:text-slate-200">
+            {message}
+          </span>
           <div className="h-4 w-1/2 bg-stone-100 dark:bg-slate-700/60 rounded-lg" />
         </div>
         <div className="w-full flex flex-col gap-3">

@@ -151,10 +151,7 @@ export function initLivingArtRuntime(): void {
 
   observer = new MutationObserver((records) => {
     for (const record of records) {
-      if (
-        record.type === "attributes" &&
-        record.target instanceof HTMLImageElement
-      ) {
+      if (record.type === "attributes" && record.target instanceof HTMLImageElement) {
         enhanceLivingArtImage(record.target);
         continue;
       }

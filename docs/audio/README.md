@@ -15,12 +15,14 @@ The shared service prefers approved recordings. Its conditional device TTS path 
 Gretel's character voice across all lessons and activities uses a unified provider abstraction (`speakAsGretel`) in `src/lib/gretel-voice.ts`.
 
 ### Technical Seam (One-Config Replacement)
+
 - **Unified Function:** All lesson logic calls `speakAsGretel(text, handlers)` without knowing the underlying speech engine or provider.
 - **Provider Configuration:** Configured via `setGretelVoiceProviderConfig(config)`. Supports provider types `browser-tts`, `recorded-audio`, `cloud-tts`, and `custom`.
 - **Default Baseline:** Local/free Web Speech API browser TTS (`browser-tts`) with neutral LatAm Spanish voice selection and adult female fallback.
 - **Mute & Cancellation Control:** Unified mute persistence (`cartilla.gretel.voice.muted`) and global speech cancellation token integration via `src/lib/speech-playback.ts`.
 
 ### Owner Choice Options
+
 1. **Option A: Free Browser Native TTS (Current Default)** — $0/mo. Uses local device voice synthesizers.
 2. **Option B: Premium Cloud Neural TTS (ElevenLabs / Google Cloud / Azure Neural TTS)** — Requires subscription or usage API key. Plugs directly into `setGretelVoiceProviderConfig({ type: 'cloud-tts', speakFn: ... })` without changing lesson code.
 3. **Option C: Studio Recorded Audio Assets** — Girl's recorded voice audio files mapped per line/prompt. Plugs directly into `setGretelVoiceProviderConfig({ type: 'recorded-audio', speakFn: ... })`.

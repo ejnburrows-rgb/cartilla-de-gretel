@@ -9,11 +9,16 @@ import "@/styles/digital-workbook.css";
 export const DIGITAL_PAGE_WIDTH = 612;
 export const DIGITAL_PAGE_HEIGHT = 792;
 
-function exactBox(region: PageRegion): region is PageRegion & Required<Pick<PageRegion, "x" | "y" | "width" | "height">> {
-  return [region.x, region.y, region.width, region.height].every(
-    (value) => typeof value === "number" && Number.isFinite(value) && value >= 0 && value <= 1,
-  ) && (region.x ?? 1) + (region.width ?? 1) <= 1.000001
-    && (region.y ?? 1) + (region.height ?? 1) <= 1.000001;
+function exactBox(
+  region: PageRegion,
+): region is PageRegion & Required<Pick<PageRegion, "x" | "y" | "width" | "height">> {
+  return (
+    [region.x, region.y, region.width, region.height].every(
+      (value) => typeof value === "number" && Number.isFinite(value) && value >= 0 && value <= 1,
+    ) &&
+    (region.x ?? 1) + (region.width ?? 1) <= 1.000001 &&
+    (region.y ?? 1) + (region.height ?? 1) <= 1.000001
+  );
 }
 
 function position(region: PageRegion): CSSProperties {
@@ -60,17 +65,43 @@ function FixedRegion({ region, interactive }: { region: PageRegion; interactive:
           {interactive ? (
             <InteractivePictureGrid region={region} accent="#008b82" precise lessonId="1" />
           ) : (
-            <div className="digital-static-picture-grid" style={{ gridTemplateColumns: region.gridColumnFracs?.map((fraction) => `${fraction * 100}%`).join(" "), gridTemplateRows: region.gridRowFracs?.map((fraction) => `${fraction * 100}%`).join(" ") }}>
-              {(region.cells ?? []).map((cell, index) => <img key={index} src={cell.illustrationSrc} alt={cell.caption ?? ""} />)}
+            <div
+              className="digital-static-picture-grid"
+              style={{
+                gridTemplateColumns: region.gridColumnFracs
+                  ?.map((fraction) => `${fraction * 100}%`)
+                  .join(" "),
+                gridTemplateRows: region.gridRowFracs
+                  ?.map((fraction) => `${fraction * 100}%`)
+                  .join(" "),
+              }}
+            >
+              {(region.cells ?? []).map((cell, index) => (
+                <img key={index} src={cell.illustrationSrc} alt={cell.caption ?? ""} />
+              ))}
             </div>
           )}
         </div>
       );
     case "footer":
     case "page-number":
-      return <span className={`digital-region digital-region--${region.regionType}`} style={{ ...position(region), justifyContent: region.textAlign === "start" ? "flex-start" : "flex-end" }}>{region.text}</span>;
+      return (
+        <span
+          className={`digital-region digital-region--${region.regionType}`}
+          style={{
+            ...position(region),
+            justifyContent: region.textAlign === "start" ? "flex-start" : "flex-end",
+          }}
+        >
+          {region.text}
+        </span>
+      );
     default:
-      return <div className="digital-region" style={position(region)}>{region.text}</div>;
+      return (
+        <div className="digital-region" style={position(region)}>
+          {region.text}
+        </div>
+      );
   }
 }
 
@@ -107,9 +138,11 @@ export function FixedLayoutPage({
         aria-label={`Página digital ${pageNumber}`}
       >
         <FinalPageBackground asset={workbookBackground(pageNumber)} />
-        {[...regions].sort((a, b) => a.order - b.order).map((region) => (
-          <FixedRegion key={region.id} region={region} interactive={interactive} />
-        ))}
+        {[...regions]
+          .sort((a, b) => a.order - b.order)
+          .map((region) => (
+            <FixedRegion key={region.id} region={region} interactive={interactive} />
+          ))}
       </div>
     </div>
   );

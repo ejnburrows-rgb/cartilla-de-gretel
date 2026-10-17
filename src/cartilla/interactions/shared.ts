@@ -32,7 +32,9 @@ export function fireWrongFeedback() {
 
 /** Shared vocabulary playback obeys approved recording policy and never reports progress. */
 export function playObjectAudio(object: WorkbookObject): boolean {
-  const entry = object.src ? resolvePictureName(object.src, object.audio?.label ?? object.alt ?? object.text ?? "") : null;
+  const entry = object.src
+    ? resolvePictureName(object.src, object.audio?.label ?? object.alt ?? object.text ?? "")
+    : null;
   if (!entry) return false;
   return ["recorded", "tts"].includes(playPictureName(entry));
 }

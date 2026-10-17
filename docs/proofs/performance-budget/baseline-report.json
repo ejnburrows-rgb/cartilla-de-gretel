@@ -111,11 +111,7 @@
     }
   },
   "isolation": {
-    "forbiddenIndexPreloadsChecked": [
-      "crm.artwork.lazy",
-      "flipchart-native",
-      "pdf.worker"
-    ],
+    "forbiddenIndexPreloadsChecked": ["crm.artwork.lazy", "flipchart-native", "pdf.worker"],
     "violations": []
   },
   "passed": true,

@@ -20,25 +20,39 @@ describe("exercise-stats", () => {
   describe("learner isolation", () => {
     it("isolates stats between two learners A and B, falling back to bare key for anonymous", () => {
       // 1) Setup Learner A
-      localStorage.setItem("cartilla.student-session.v1", JSON.stringify({ classId: "class-X", studentId: "learner-A" }));
+      localStorage.setItem(
+        "cartilla.student-session.v1",
+        JSON.stringify({ classId: "class-X", studentId: "learner-A" }),
+      );
       recordExerciseStat({ lessonId: "test-lesson", exercise: "a-exercise", score: 2, total: 5 });
 
       const statsA = getStats();
       expect(statsA["test-lesson"]?.["a-exercise"].hits).toBe(2);
 
       // 2) Switch to Learner B
-      localStorage.setItem("cartilla.student-session.v1", JSON.stringify({ classId: "class-X", studentId: "learner-B" }));
+      localStorage.setItem(
+        "cartilla.student-session.v1",
+        JSON.stringify({ classId: "class-X", studentId: "learner-B" }),
+      );
       const statsB = getStats();
       expect(statsB).toEqual({}); // None of A's results should be here
 
       // 3) Switch back to Learner A
-      localStorage.setItem("cartilla.student-session.v1", JSON.stringify({ classId: "class-X", studentId: "learner-A" }));
+      localStorage.setItem(
+        "cartilla.student-session.v1",
+        JSON.stringify({ classId: "class-X", studentId: "learner-A" }),
+      );
       const statsARecovered = getStats();
       expect(statsARecovered["test-lesson"]?.["a-exercise"].hits).toBe(2); // A's results recovered
 
       // 4) Check anonymous scope behavior
       localStorage.removeItem("cartilla.student-session.v1");
-      recordExerciseStat({ lessonId: "anon-lesson", exercise: "anon-exercise", score: 1, total: 1 });
+      recordExerciseStat({
+        lessonId: "anon-lesson",
+        exercise: "anon-exercise",
+        score: 1,
+        total: 1,
+      });
       const statsAnon = getStats();
       expect(statsAnon["anon-lesson"]?.["anon-exercise"].hits).toBe(1);
       // The bare key should have been used
@@ -50,8 +64,7 @@ describe("exercise-stats", () => {
   describe("useExerciseStats session changes", () => {
     it("refreshes the mounted Modo Repaso stats when the active learner changes", () => {
       const sessionKey = "cartilla.student-session.v1";
-      const session = (studentId: string) =>
-        JSON.stringify({ classId: "class-X", studentId });
+      const session = (studentId: string) => JSON.stringify({ classId: "class-X", studentId });
 
       localStorage.setItem(sessionKey, session("learner-A"));
       recordExerciseStat({ lessonId: "7", exercise: "picture_grid", score: 1, total: 5 });

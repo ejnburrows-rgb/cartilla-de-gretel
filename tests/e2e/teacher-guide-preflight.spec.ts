@@ -18,14 +18,18 @@ test("teacher guide routes structure and interactions", async ({ page }) => {
   await expect(page).toHaveURL(/\/cartilla\/teacher\/guia\/1$/);
 
   // Assert real procedure content (Objectives)
-  await expect(page.locator(".guide-html-content.active-tab-objetivos")).toContainText("Escucha un cuento simple basado en representaciones pictóricas");
+  await expect(page.locator(".guide-html-content.active-tab-objetivos")).toContainText(
+    "Escucha un cuento simple basado en representaciones pictóricas",
+  );
 
   // Switch to another tab (e.g., "Procedimiento")
   await page.click("text=Procedimiento");
 
   // Check that the tab switched and has real content
   await expect(page.locator(".guide-html-content.active-tab-procedimiento")).toBeVisible();
-  await expect(page.locator(".guide-html-content.active-tab-procedimiento")).toContainText("Las hermanitas vocales");
+  await expect(page.locator(".guide-html-content.active-tab-procedimiento")).toContainText(
+    "Las hermanitas vocales",
+  );
 
   // Verify EXACT back navigation works to the guide index
   await page.click("text=Carpetas");
@@ -37,7 +41,7 @@ const viewports = [
   { name: "mobile", width: 375, height: 667, isMobile: true },
   { name: "tablet", width: 768, height: 1024, isMobile: false },
   { name: "laptop", width: 1280, height: 800, isMobile: false },
-  { name: "projector", width: 1024, height: 768, isMobile: false }
+  { name: "projector", width: 1024, height: 768, isMobile: false },
 ];
 
 for (const vp of viewports) {
@@ -55,7 +59,7 @@ for (const vp of viewports) {
 
     // Automated overflow/clipping assertions for the main container
     const isOverflowing = await page.evaluate(() => {
-      const el = document.querySelector('.teacher-guide-page');
+      const el = document.querySelector(".teacher-guide-page");
       if (!el) return false;
       return el.scrollWidth > el.clientWidth;
     });
@@ -71,7 +75,7 @@ for (const vp of viewports) {
 
 test("teacher guide has no runtime errors", async ({ page }) => {
   const errors: Error[] = [];
-  page.on('pageerror', error => errors.push(error));
+  page.on("pageerror", (error) => errors.push(error));
 
   await page.goto("/cartilla/teacher/guia");
   await page.goto("/cartilla/teacher/guia/1");

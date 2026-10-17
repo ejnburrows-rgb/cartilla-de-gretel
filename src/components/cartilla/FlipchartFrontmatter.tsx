@@ -32,14 +32,22 @@ export function FlipchartFrontmatter({
         data-source-page="1"
       >
         <div className="absolute right-[7%] top-[10%] w-[47%] rounded-[50%] bg-[#e1f4f8] px-[5%] py-[7%] text-center shadow-inner">
-          <div className="font-black leading-[0.95] text-[#4b1637]" style={{ fontSize: "clamp(2rem, 6vw, 5.8rem)" }}>
-            La Cartilla<br />de Gretel
+          <div
+            className="font-black leading-[0.95] text-[#4b1637]"
+            style={{ fontSize: "clamp(2rem, 6vw, 5.8rem)" }}
+          >
+            La Cartilla
+            <br />
+            de Gretel
           </div>
         </div>
         <div className="absolute bottom-[10%] left-[26%] h-[62%] w-[46%]" aria-hidden>
           <GretelLayerRig state="idle" paused />
         </div>
-        <div className="absolute bottom-[4%] left-0 right-0 text-center font-bold text-stone-700" style={{ fontSize: "clamp(1rem, 2.5vw, 2.2rem)" }}>
+        <div
+          className="absolute bottom-[4%] left-0 right-0 text-center font-bold text-stone-700"
+          style={{ fontSize: "clamp(1rem, 2.5vw, 2.2rem)" }}
+        >
           Autora: Leonor Lopetegui
         </div>
         <div className="fc-frontmatter__butterfly" aria-hidden>
@@ -47,7 +55,11 @@ export function FlipchartFrontmatter({
           <span />
         </div>
         <div className="fc-frontmatter__flower" aria-hidden>
-          <i /><i /><i /><i /><b />
+          <i />
+          <i />
+          <i />
+          <i />
+          <b />
         </div>
       </div>
     );
@@ -63,18 +75,48 @@ export function FlipchartFrontmatter({
     >
       <div className="grid h-full gap-[5%] md:grid-cols-[0.9fr_1.1fr]">
         <section className="space-y-4 text-[clamp(.7rem,1.35vw,1.2rem)] leading-snug">
-          <p><strong>Copyright © 2004</strong><br />Revisión 2010</p>
-          <p><strong>Autor:</strong><br />Leonor Lopetegui</p>
-          <p><strong>Contributors:</strong><br />Silvia Diez and Aida Fernández</p>
-          <p><strong>Illustrator:</strong><br />Estela de Armas Plasencia<br />Additional Illustrations from Jupiter Images</p>
-          <p><strong>Graphic Designer:</strong><br />María Artola</p>
-          <p><strong>La Cartilla de Gretel</strong><br />ISBN 0-971-8696-7-7</p>
+          <p>
+            <strong>Copyright © 2004</strong>
+            <br />
+            Revisión 2010
+          </p>
+          <p>
+            <strong>Autor:</strong>
+            <br />
+            Leonor Lopetegui
+          </p>
+          <p>
+            <strong>Contributors:</strong>
+            <br />
+            Silvia Diez and Aida Fernández
+          </p>
+          <p>
+            <strong>Illustrator:</strong>
+            <br />
+            Estela de Armas Plasencia
+            <br />
+            Additional Illustrations from Jupiter Images
+          </p>
+          <p>
+            <strong>Graphic Designer:</strong>
+            <br />
+            María Artola
+          </p>
+          <p>
+            <strong>La Cartilla de Gretel</strong>
+            <br />
+            ISBN 0-971-8696-7-7
+          </p>
         </section>
         <section className="rounded-3xl border border-stone-200 bg-stone-50 p-[6%] text-[clamp(.72rem,1.45vw,1.25rem)] leading-relaxed shadow-sm">
           <h2 className="mb-5 rounded-xl bg-stone-600 px-4 py-2 text-center text-[clamp(1rem,2vw,1.8rem)] font-black italic text-white">
             Agradecimiento
           </h2>
-          {ACKNOWLEDGEMENT.map((paragraph) => <p key={paragraph} className="mb-4">{paragraph}</p>)}
+          {ACKNOWLEDGEMENT.map((paragraph) => (
+            <p key={paragraph} className="mb-4">
+              {paragraph}
+            </p>
+          ))}
           <p className="font-bold italic">La autora</p>
         </section>
       </div>

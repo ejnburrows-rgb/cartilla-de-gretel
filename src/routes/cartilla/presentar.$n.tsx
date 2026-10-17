@@ -21,8 +21,7 @@ export const Route = createFileRoute("/cartilla/presentar/$n")({
       { title: `Presentando Lección ${params.n} — La Cartilla de Gretel` },
       {
         name: "description",
-        content:
-          "Proyector profesional del flipchart del maestro con navegación y puntero.",
+        content: "Proyector profesional del flipchart del maestro con navegación y puntero.",
       },
     ],
   }),
@@ -59,10 +58,7 @@ function PresentarLesson() {
   const navigate = useNavigate();
   const n = Number(nParam);
 
-  const entry = useMemo<CatalogEntry | undefined>(
-    () => CATALOG.find((e) => e.n === n),
-    [n],
-  );
+  const entry = useMemo<CatalogEntry | undefined>(() => CATALOG.find((e) => e.n === n), [n]);
 
   const sheetCount = useMemo(() => getFlipchartPagesForLesson(n).length, [n]);
 
@@ -82,9 +78,9 @@ function PresentarLesson() {
         eyebrow={`Lección ${n} · Flipchart`}
         title={entry.title}
         subtitle={
-        sheetCount > 0
-          ? `${sheetCount} láminas digitales · Proyector del maestro`
-          : "Proyector del maestro"
+          sheetCount > 0
+            ? `${sheetCount} láminas digitales · Proyector del maestro`
+            : "Proyector del maestro"
         }
       >
         {/* Full-bleed native board — zero chrome, the page IS the book page. */}

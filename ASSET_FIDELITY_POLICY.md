@@ -2,7 +2,6 @@
 
 > **Finish contract:** Read PROJECT_FINISH_DEFINITION.md before planning or declaring Cartilla work complete. It is the canonical definition of what must be true for the entire project to be finished. Compare current verified reality against it and close only real remaining gaps.
 
-
 **Owner decisions (EJN), 30 Sep 2026 and 3 Oct 2026. This is the active rule for artwork, images, color transfer, and animation.**
 **Two narrow source-safe exceptions exist:** verified source-preserving color transfer for eligible Workbook foreground art, and background-only generation under `repo.md`.
 It replaces `IMAGE_GENERATION_BAN.md` and `docs/GOOGLE_FLOW_PROMPTS.md`, which are kept only as history and must not guide any agent.
@@ -59,12 +58,14 @@ If the printed book page has no picture, the digital page adds no picture: do no
 ## Motion
 
 ### Welcome video
+
 - The current owner-approved production target is **one** 5–6 second silent welcome loop, not 31 lesson clips.
 - It starts from the exact owner-approved final welcome still and approved Gretel identity.
 - Motion is restrained: gentle wave, subtle breathing, natural blink, warm smile; scene and identity remain stable.
 - Keep the approved still as poster/fallback and respect reduced motion/data-saving/load failure.
 
 ### In-app Gretel
+
 - Lesson interaction uses the existing approved Gretel master/state system rather than generating a separate video/pose set.
 - Motion must be purposeful and restrained. Per owner decision of 2026-10-09, living pictures move continuously, gently, and smoothly while the student works. Motion must be realistic for what each thing is (owner decision 2026-10-11). Animals move like the real animal — for example, the cow blinks, breathes, and flicks its ears or tail — and only the parts that really move do so. Whole pictures must never wave, ripple, bob or float like a flag; only something that really travels as a whole, such as a flying airplane, may move gently as a whole (owner decision 2026-10-11). Motion is built using the original workbook art as the template; owner-approved image snippets follow the same rule.
 - Follow `STUDENT_INTERACTION_STANDARD.md` for student feedback motion.
@@ -82,7 +83,6 @@ For a new scenic background made under `repo.md`:
 2. Show the page side by side without and with the new background, with the original foreground composited unchanged.
 3. Confirm: the background follows `repo.md`, and the foreground illustrations, characters, objects, text, lesson content, educational meaning, composition, and page structure are unchanged.
 4. If any answer is "no" or "not sure", do not commit it — ask EJN.
-
 
 ## Page-turn motion and asset fidelity
 

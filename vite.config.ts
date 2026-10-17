@@ -17,18 +17,14 @@ function compressPlugin() {
         const asset = bundle[fileName];
         let code: string | Uint8Array;
         if (asset.type === "asset") {
-          code =
-            typeof asset.source === "string"
-              ? asset.source
-              : new Uint8Array(asset.source);
+          code = typeof asset.source === "string" ? asset.source : new Uint8Array(asset.source);
         } else if (asset.type === "chunk") {
           code = asset.code;
         } else {
           continue;
         }
 
-        const buffer =
-          typeof code === "string" ? Buffer.from(code, "utf-8") : code;
+        const buffer = typeof code === "string" ? Buffer.from(code, "utf-8") : code;
         if (buffer && buffer.length > 500) {
           try {
             const gzipped = gzipSync(buffer);
@@ -60,9 +56,7 @@ export default defineConfig(({ mode }) => ({
     // overridable so the E2E lane can boot a second, login-gated server and
     // keep exercising the join-by-code screens, which are unreachable while
     // open access is on. Production never sets the variable.
-    "import.meta.env.VITE_CRM_REVIEW": JSON.stringify(
-      process.env.VITE_CRM_REVIEW ?? "true",
-    ),
+    "import.meta.env.VITE_CRM_REVIEW": JSON.stringify(process.env.VITE_CRM_REVIEW ?? "true"),
   },
   plugins: [
     // The tracked route tree is already committed. Worker/browser verification
@@ -92,7 +86,11 @@ export default defineConfig(({ mode }) => ({
     hookTimeout: 180_000,
     // Playwright E2E specs live in tests/e2e and must not be run by Vitest
     // (they use @playwright/test, not the jsdom unit runner).
-    exclude: [...configDefaults.exclude, "tests/e2e/**", "scripts/__tests__/check-merge-policy.test.mjs"],
+    exclude: [
+      ...configDefaults.exclude,
+      "tests/e2e/**",
+      "scripts/__tests__/check-merge-policy.test.mjs",
+    ],
   },
   esbuild: {
     // Only strip debugger statements and no-op console.log/debug/info calls.
@@ -110,9 +108,7 @@ export default defineConfig(({ mode }) => ({
         chunkFileNames: "assets/[name].[hash].js",
         assetFileNames: "assets/[name].[hash].[ext]",
         manualChunks(id) {
-          if (
-            /[\\/]node_modules[\\/](react|react-dom|scheduler)[\\/]/.test(id)
-          ) {
+          if (/[\\/]node_modules[\\/](react|react-dom|scheduler)[\\/]/.test(id)) {
             return "react-vendor";
           }
           if (id.includes("node_modules/lucide-react")) {

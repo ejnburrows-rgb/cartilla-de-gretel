@@ -45,7 +45,9 @@ test.describe("Workbook Final Student Activity Regression & Fit Suite (#450)", (
   // 1. PENCIL RETRY, REAL WORKBOOK MARK, & SHARED INTERACTION KERNEL
   // =========================================================================
   test.describe("1. Real Workbook Mark & Pencil Retry Mechanics", () => {
-    test("Page 1: Correct selection draws green mark and emits success; wrong selection triggers Pencil Retry and Gretel cue", async ({ page }) => {
+    test("Page 1: Correct selection draws green mark and emits success; wrong selection triggers Pencil Retry and Gretel cue", async ({
+      page,
+    }) => {
       await page.setViewportSize({ width: 1280, height: 900 });
       await seedLessonPage(page, 1, 0); // Printed page 1
       await page.goto("/cartilla/leccion/1", { waitUntil: "domcontentloaded" });
@@ -81,7 +83,9 @@ test.describe("Workbook Final Student Activity Regression & Fit Suite (#450)", (
       await page.screenshot({ path: path.join(PROOF_DIR, "01-pencil-mark-selection.png") });
     });
 
-    test("Pencil Line matching (Page 3 & Page 5): direct pencil line active, no lasso/rope layer", async ({ page }) => {
+    test("Pencil Line matching (Page 3 & Page 5): direct pencil line active, no lasso/rope layer", async ({
+      page,
+    }) => {
       await page.setViewportSize({ width: 1280, height: 900 });
 
       // Page 3 (Archetype 3)
@@ -113,14 +117,18 @@ test.describe("Workbook Final Student Activity Regression & Fit Suite (#450)", (
   // 2. COMPLETION GATING, REFUSAL HINT, & Siguiente NAVIGATION
   // =========================================================================
   test.describe("2. Completion Gating & Page Advancement (#470 Integration)", () => {
-    test("Incomplete page blocks Siguiente advancement and shows refusal hint", async ({ page }) => {
+    test("Incomplete page blocks Siguiente advancement and shows refusal hint", async ({
+      page,
+    }) => {
       await page.setViewportSize({ width: 1280, height: 900 });
       // Go to fresh uncompleted page (e.g. Lesson 1 Page index 0)
       await page.goto("/cartilla/leccion/1", { waitUntil: "domcontentloaded" });
       await dismissIntro(page);
       await expect(page.locator(".native-lesson-viewer")).toBeVisible({ timeout: 15000 });
 
-      const nextBtn = page.locator(".native-lesson-viewer__navigation").getByRole("button", { name: "Siguiente" });
+      const nextBtn = page
+        .locator(".native-lesson-viewer__navigation")
+        .getByRole("button", { name: "Siguiente" });
 
       if (await nextBtn.isVisible()) {
         await expect(nextBtn).toHaveAttribute("data-locked", "true");
@@ -145,7 +153,9 @@ test.describe("Workbook Final Student Activity Regression & Fit Suite (#450)", (
       }
     });
 
-    test("Forward & Reverse page turns with keyboard, corner interaction, and rapid-click protection", async ({ page }) => {
+    test("Forward & Reverse page turns with keyboard, corner interaction, and rapid-click protection", async ({
+      page,
+    }) => {
       await page.setViewportSize({ width: 1280, height: 900 });
       await page.goto("/cartilla/cuaderno", { waitUntil: "domcontentloaded" });
 
@@ -182,7 +192,9 @@ test.describe("Workbook Final Student Activity Regression & Fit Suite (#450)", (
   // 3. LEARNER-SCOPED SAVE/RESTORE PERSISTENCE
   // =========================================================================
   test.describe("3. Learner Progress Save & Restore", () => {
-    test("Learner state is persisted in localStorage and restored cleanly after reload", async ({ page }) => {
+    test("Learner state is persisted in localStorage and restored cleanly after reload", async ({
+      page,
+    }) => {
       await page.setViewportSize({ width: 1280, height: 900 });
 
       // Seed progress in localStorage
@@ -192,7 +204,10 @@ test.describe("Workbook Final Student Activity Regression & Fit Suite (#450)", (
 
       // Verify page index 1 was restored
       const pageInfo = await page.evaluate(() => {
-        return localStorage.getItem("cartilla.learner-resume.v1:3") || localStorage.getItem("cartilla.learner-resume.v1");
+        return (
+          localStorage.getItem("cartilla.learner-resume.v1:3") ||
+          localStorage.getItem("cartilla.learner-resume.v1")
+        );
       });
       expect(pageInfo).toContain('"lesson":3');
       expect(pageInfo).toContain('"page":1');
@@ -209,7 +224,9 @@ test.describe("Workbook Final Student Activity Regression & Fit Suite (#450)", (
   // 4. AUDIO, MUTE, & REDUCED MOTION BEHAVIOR
   // =========================================================================
   test.describe("4. Audio, Gretel, & Reduced Motion", () => {
-    test("Reduced motion replaces 3D page curl/zoom with immediate transition", async ({ page }) => {
+    test("Reduced motion replaces 3D page curl/zoom with immediate transition", async ({
+      page,
+    }) => {
       await page.emulateMedia({ reducedMotion: "reduce" });
       await page.setViewportSize({ width: 1280, height: 900 });
       await page.goto("/cartilla/cuaderno", { waitUntil: "domcontentloaded" });
@@ -227,7 +244,9 @@ test.describe("Workbook Final Student Activity Regression & Fit Suite (#450)", (
       await page.screenshot({ path: path.join(PROOF_DIR, "06-reduced-motion-turn.png") });
     });
 
-    test("One Gretel only; no continuous distracting motion during active exercise", async ({ page }) => {
+    test("One Gretel only; no continuous distracting motion during active exercise", async ({
+      page,
+    }) => {
       await page.setViewportSize({ width: 1280, height: 900 });
       await page.goto("/cartilla/leccion/7", { waitUntil: "domcontentloaded" });
       await dismissIntro(page);
@@ -281,13 +300,20 @@ test.describe("Workbook Final Student Activity Regression & Fit Suite (#450)", (
   // 6. SOURCE-BLOCKED PAGES 86–87 EXCEPTION
   // =========================================================================
   test.describe("6. Source-Blocked Pages 86–87 Exception", () => {
-    test("Pages 86–87 carry no invented activities or mandatory completion gating", async ({ page }) => {
+    test("Pages 86–87 carry no invented activities or mandatory completion gating", async ({
+      page,
+    }) => {
       await page.setViewportSize({ width: 1280, height: 900 });
 
       // Navigate to Lesson 30 / end of book (representing pages 86–87)
       await page.goto("/cartilla/leccion/30", { waitUntil: "domcontentloaded" });
 
-      if (await page.locator(".native-lesson-viewer").isVisible().catch(() => false)) {
+      if (
+        await page
+          .locator(".native-lesson-viewer")
+          .isVisible()
+          .catch(() => false)
+      ) {
         // Confirm no invented interactive exercise or blocked completion on pages 86–87
         const gatedExercises = page.locator(".fp-ix-cell[data-mandatory='true']");
         await expect(gatedExercises).toHaveCount(0);

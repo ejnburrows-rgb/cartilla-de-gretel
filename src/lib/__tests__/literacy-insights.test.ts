@@ -30,11 +30,7 @@ function completed(lessonId: string, day: number): LearningEvent {
 
 describe("buildStudentLearningInsight", () => {
   it("marks repeated low performance as needs review with supporting counts", () => {
-    const events = [
-      exercise("7", 2, 5, 12),
-      exercise("7", 1, 5, 11),
-      exercise("7", 2, 5, 10),
-    ];
+    const events = [exercise("7", 2, 5, 12), exercise("7", 1, 5, 11), exercise("7", 2, 5, 10)];
     const insight = buildStudentLearningInsight(events, new Set());
     const skill = insight.skills.find((item) => item.lessonId === "7");
 
@@ -45,11 +41,7 @@ describe("buildStudentLearningInsight", () => {
   });
 
   it("marks a completed lesson with strong repeated accuracy as mastered", () => {
-    const events = [
-      completed("7", 13),
-      exercise("7", 9, 10, 12),
-      exercise("7", 8, 10, 11),
-    ];
+    const events = [completed("7", 13), exercise("7", 9, 10, 12), exercise("7", 8, 10, 11)];
     const insight = buildStudentLearningInsight(events, new Set(["7"]));
     const skill = insight.skills.find((item) => item.lessonId === "7");
 
@@ -77,16 +69,16 @@ describe("buildStudentLearningInsight", () => {
     const insight = buildStudentLearningInsight(events, new Set());
 
     expect(insight.attention.some((flag) => flag.key === "decline")).toBe(true);
-    expect(insight.attention.find((flag) => flag.key === "decline")?.supportingData).toContain("3 rondas");
+    expect(insight.attention.find((flag) => flag.key === "decline")?.supportingData).toContain(
+      "3 rondas",
+    );
   });
 
   it("flags a started unfinished assignment with the exact lesson skill", () => {
     const events = [exercise("8", 4, 5, 14)];
-    const insight = buildStudentLearningInsight(
-      events,
-      new Set(),
-      [{ lesson_id: "8", due_at: null }],
-    );
+    const insight = buildStudentLearningInsight(events, new Set(), [
+      { lesson_id: "8", due_at: null },
+    ]);
 
     const flag = insight.attention.find((item) => item.key === "assignment-8");
     expect(flag?.reason).toContain("iniciada");

@@ -56,14 +56,25 @@ type TeacherStudentWithClass = {
  * student's rows through the one shared progress-calculation module — the
  * same source every surface (roster, dashboard, student detail) reads, so
  * "lessons completed" never disagrees between screens. */
-async function fetchProgressStats(
-  studentIds: string[],
-): Promise<
-  Record<string, { lessons: number; completedLessonIds: string[]; lastSeen: string | null; completionPercent: number }>
+async function fetchProgressStats(studentIds: string[]): Promise<
+  Record<
+    string,
+    {
+      lessons: number;
+      completedLessonIds: string[];
+      lastSeen: string | null;
+      completionPercent: number;
+    }
+  >
 > {
   const stats: Record<
     string,
-    { lessons: number; completedLessonIds: string[]; lastSeen: string | null; completionPercent: number }
+    {
+      lessons: number;
+      completedLessonIds: string[];
+      lastSeen: string | null;
+      completionPercent: number;
+    }
   > = {};
   if (studentIds.length === 0) return stats;
 
@@ -510,8 +521,7 @@ export async function getClassProgress(input: Call<{ id: string }>) {
   const progressStats = await fetchProgressStats(ids);
   for (const id of ids) {
     for (const lessonId of progressStats[id]?.completedLessonIds ?? []) {
-      (perLesson[lessonId] ??= { score: 0, total: 0, completedBy: new Set() })
-        .completedBy.add(id);
+      (perLesson[lessonId] ??= { score: 0, total: 0, completedBy: new Set() }).completedBy.add(id);
     }
   }
   // Shared with the cross-teacher admin roll-up so the two screens cannot

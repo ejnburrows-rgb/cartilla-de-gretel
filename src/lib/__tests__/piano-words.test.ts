@@ -12,7 +12,12 @@ type Lesson = {
   circle?: { rows: string[][] }[];
 };
 const lessons0107pages = (
-  transcription0107 as unknown as { pages: Record<string, { lesson?: number; vocabColumns?: string[][]; fill?: Fill[]; circle?: { rows: string[][] }[] }> }
+  transcription0107 as unknown as {
+    pages: Record<
+      string,
+      { lesson?: number; vocabColumns?: string[][]; fill?: Fill[]; circle?: { rows: string[][] }[] }
+    >;
+  }
 ).pages;
 
 const lessons0107: Record<string, Lesson> = {};

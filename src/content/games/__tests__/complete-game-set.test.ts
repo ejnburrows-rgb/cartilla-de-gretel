@@ -34,7 +34,9 @@ describe("complete themed game set", () => {
   });
 
   it("uses only real illustration paths for picture-based games", () => {
-    const pictureGames = ALL.filter((game) => game.type === "juego-vocal" || game.type === "dibujos");
+    const pictureGames = ALL.filter(
+      (game) => game.type === "juego-vocal" || game.type === "dibujos",
+    );
     for (const game of pictureGames) {
       for (const word of game.words) {
         expect(word.imageUrl).toMatch(/^\/cartilla\/art\/faithful\/.+\.webp$/);

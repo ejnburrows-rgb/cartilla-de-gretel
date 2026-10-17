@@ -15,7 +15,10 @@ async function dismissCinematic(page: Page) {
   }
 }
 
-async function expectNoBrokenImages(scope: Page | import("@playwright/test").Locator, label: string) {
+async function expectNoBrokenImages(
+  scope: Page | import("@playwright/test").Locator,
+  label: string,
+) {
   const brokenSources = await scope.locator("img:visible").evaluateAll((elements) =>
     elements
       .filter((element) => {
@@ -113,7 +116,9 @@ test.describe("Whole-Product Route Health + Console/Network Error Sweep", () => 
     await ensureProofDir();
   });
 
-  test("1. Welcome / Home routes health and phone splash capture (#356 proof)", async ({ page }) => {
+  test("1. Welcome / Home routes health and phone splash capture (#356 proof)", async ({
+    page,
+  }) => {
     // 1a. Phone viewport capture on welcome splash for owner issue #356
     await page.setViewportSize({ width: 390, height: 844 });
     const monitorPhone = attachRouteErrorMonitors(page, "welcome-phone /entrar");
@@ -159,7 +164,9 @@ test.describe("Whole-Product Route Health + Console/Network Error Sweep", () => 
     }
   });
 
-  test("3. Representative Workbook lessons health across early/middle/late pages", async ({ page }) => {
+  test("3. Representative Workbook lessons health across early/middle/late pages", async ({
+    page,
+  }) => {
     const lessonSamples = [
       { lesson: 1, proofName: "workbook-early-l1.png" },
       { lesson: 2 },
@@ -288,14 +295,19 @@ test.describe("Whole-Product Route Health + Console/Network Error Sweep", () => 
     monitor.assertClean();
   });
 
-  test("8. Missing scan leaves are skipped in student lessons without console errors", async ({ page }) => {
+  test("8. Missing scan leaves are skipped in student lessons without console errors", async ({
+    page,
+  }) => {
     const monitor = attachRouteErrorMonitors(page, "lesson 23 without page-86 placeholder");
 
     // A pre-existing bookmark at old index 3 (page 86) must settle at the last
     // available original leaf, page 85, without introducing synthetic content.
     await page.goto("/cartilla/lecciones");
     await page.evaluate(() => {
-      localStorage.setItem("cartilla.learner-resume.v1:23", JSON.stringify({ lesson: 23, page: 3 }));
+      localStorage.setItem(
+        "cartilla.learner-resume.v1:23",
+        JSON.stringify({ lesson: 23, page: 3 }),
+      );
     });
     await page.goto("/cartilla/leccion/23", { waitUntil: "domcontentloaded" });
     await page.waitForLoadState("networkidle").catch(() => {});

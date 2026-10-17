@@ -32,7 +32,9 @@ type PdfDocument = {
   numPages: number;
   getPage(pageNumber: number): Promise<{
     getViewport(options: { scale: number }): { width: number; height: number };
-    render(options: { canvasContext: CanvasRenderingContext2D; viewport: unknown }): { promise: Promise<void> };
+    render(options: { canvasContext: CanvasRenderingContext2D; viewport: unknown }): {
+      promise: Promise<void>;
+    };
   }>;
 };
 
@@ -59,7 +61,8 @@ function readDataUrl(file: File) {
   return new Promise<string>((resolve, reject) => {
     const reader = new FileReader();
     reader.onload = () => resolve(String(reader.result ?? ""));
-    reader.onerror = () => reject(reader.error ?? new Error("No se pudo leer el archivo seleccionado."));
+    reader.onerror = () =>
+      reject(reader.error ?? new Error("No se pudo leer el archivo seleccionado."));
     reader.readAsDataURL(file);
   });
 }
@@ -79,7 +82,11 @@ async function loadPdf(file: File): Promise<PdfDocument> {
   return (await task.promise) as unknown as PdfDocument;
 }
 
-async function renderPdfPage(pdf: PdfDocument | null, pageNumber: number, canvas: HTMLCanvasElement | null) {
+async function renderPdfPage(
+  pdf: PdfDocument | null,
+  pageNumber: number,
+  canvas: HTMLCanvasElement | null,
+) {
   if (!pdf || !canvas || pageNumber < 1 || pageNumber > pdf.numPages) return;
   const page = await pdf.getPage(pageNumber);
   const viewport = page.getViewport({ scale: 1.15 });
@@ -109,7 +116,11 @@ async function renderPdfThumbnails(pdf: PdfDocument) {
   return thumbs;
 }
 
-function cropFromCanvas(canvas: HTMLCanvasElement, drag: Drag, page: number): NormalizedCrop | null {
+function cropFromCanvas(
+  canvas: HTMLCanvasElement,
+  drag: Drag,
+  page: number,
+): NormalizedCrop | null {
   const left = Math.max(0, Math.min(drag.startX, drag.endX));
   const top = Math.max(0, Math.min(drag.startY, drag.endY));
   const right = Math.min(canvas.width, Math.max(drag.startX, drag.endX));
@@ -358,7 +369,12 @@ function CartillaArtFactoryPage() {
   };
 
   const resetProject = () => {
-    if (!window.confirm("¿Reiniciar el proyecto local de Art Factory? Los PDF originales no se modifican.")) return;
+    if (
+      !window.confirm(
+        "¿Reiniciar el proyecto local de Art Factory? Los PDF originales no se modifican.",
+      )
+    )
+      return;
     setProject(createEmptyArtFactoryProject());
     setWorkbookPdf(null);
     setFlipchartPdf(null);
@@ -382,19 +398,32 @@ function CartillaArtFactoryPage() {
                   </p>
                   <h1 className="mt-1 text-3xl font-black text-[#332616]">Cartilla Art Factory</h1>
                   <p className="mt-2 max-w-3xl text-sm font-semibold text-stone-600">
-                    PDF → mapping → crop → job → generation package → result import → integration-ready.
-                    No paid API and no owner-approval gate.
+                    PDF → mapping → crop → job → generation package → result import →
+                    integration-ready. No paid API and no owner-approval gate.
                   </p>
                 </div>
                 <div className="flex flex-wrap gap-2">
                   <label className="cursor-pointer rounded-xl border border-[#d9c9ac] bg-white px-4 py-2 text-sm font-black text-stone-700">
                     <FileUp className="mr-2 inline h-4 w-4" /> Import manifest
-                    <input type="file" accept="application/json" className="hidden" onChange={(event) => void importManifest(event.target.files?.[0])} />
+                    <input
+                      type="file"
+                      accept="application/json"
+                      className="hidden"
+                      onChange={(event) => void importManifest(event.target.files?.[0])}
+                    />
                   </label>
-                  <button type="button" onClick={exportManifest} className="rounded-xl bg-[#356b43] px-4 py-2 text-sm font-black text-white">
+                  <button
+                    type="button"
+                    onClick={exportManifest}
+                    className="rounded-xl bg-[#356b43] px-4 py-2 text-sm font-black text-white"
+                  >
                     <Download className="mr-2 inline h-4 w-4" /> Manifest
                   </button>
-                  <button type="button" onClick={resetProject} className="rounded-xl border border-stone-300 px-3 py-2 text-sm font-black text-stone-600">
+                  <button
+                    type="button"
+                    onClick={resetProject}
+                    className="rounded-xl border border-stone-300 px-3 py-2 text-sm font-black text-stone-600"
+                  >
                     <RotateCcw className="mr-2 inline h-4 w-4" /> Reset
                   </button>
                 </div>
@@ -404,7 +433,11 @@ function CartillaArtFactoryPage() {
             <section className="grid gap-4 lg:grid-cols-2">
               <PdfPane
                 title="Libro del alumno"
-                subtitle={project.workbook.name ? project.workbook.name + " · " + project.workbook.pageCount + " páginas" : "Carga el PDF de 98 páginas"}
+                subtitle={
+                  project.workbook.name
+                    ? project.workbook.name + " · " + project.workbook.pageCount + " páginas"
+                    : "Carga el PDF de 98 páginas"
+                }
                 page={studentPage}
                 pageCount={project.workbook.pageCount}
                 canvasRef={workbookCanvas}
@@ -419,7 +452,11 @@ function CartillaArtFactoryPage() {
               />
               <PdfPane
                 title="Rotafolio / Flip Chart"
-                subtitle={project.flipchart.name ? project.flipchart.name + " · " + project.flipchart.pageCount + " páginas" : "Carga el PDF de 62 páginas"}
+                subtitle={
+                  project.flipchart.name
+                    ? project.flipchart.name + " · " + project.flipchart.pageCount + " páginas"
+                    : "Carga el PDF de 62 páginas"
+                }
                 page={flipchartPage}
                 pageCount={project.flipchart.pageCount}
                 canvasRef={flipchartCanvas}
@@ -430,7 +467,9 @@ function CartillaArtFactoryPage() {
                 onPage={setFlipchartPage}
                 onPointerDown={(event) => beginDrag(event, setReferenceDrag)}
                 onPointerMove={(event) => moveDrag(event, referenceDrag, setReferenceDrag)}
-                onPointerUp={(event) => finishDrag(event, referenceDrag, flipchartPage, setReferenceCrop)}
+                onPointerUp={(event) =>
+                  finishDrag(event, referenceDrag, flipchartPage, setReferenceCrop)
+                }
               />
             </section>
 
@@ -438,7 +477,8 @@ function CartillaArtFactoryPage() {
               <div className="rounded-[2rem] border border-[#eadfc8] bg-white p-5 shadow-sm">
                 <h2 className="text-xl font-black text-stone-800">Mapping explícito</h2>
                 <p className="mt-1 text-sm font-semibold text-stone-500">
-                  Libro página {studentPage} → cero, una o varias páginas del Flip Chart. Nunca se asume 1:1.
+                  Libro página {studentPage} → cero, una o varias páginas del Flip Chart. Nunca se
+                  asume 1:1.
                 </p>
                 <div className="mt-4 flex gap-2">
                   <input
@@ -447,31 +487,63 @@ function CartillaArtFactoryPage() {
                     placeholder="Ej. 3, 4, 8"
                     className="min-w-0 flex-1 rounded-xl border border-stone-300 px-3 py-2 text-sm font-bold"
                   />
-                  <button type="button" onClick={saveMapping} className="rounded-xl bg-[#356b43] px-4 py-2 text-sm font-black text-white">
+                  <button
+                    type="button"
+                    onClick={saveMapping}
+                    className="rounded-xl bg-[#356b43] px-4 py-2 text-sm font-black text-white"
+                  >
                     Guardar
                   </button>
                 </div>
                 <div className="mt-4">
-                  <p className="text-xs font-black uppercase tracking-wide text-stone-500">Referencias de estilo globales</p>
+                  <p className="text-xs font-black uppercase tracking-wide text-stone-500">
+                    Referencias de estilo globales
+                  </p>
                   <label className="mt-2 flex cursor-pointer items-center justify-center rounded-xl border border-dashed border-[#d8c8aa] p-4 text-sm font-black text-[#a45d22]">
                     <ImagePlus className="mr-2 h-4 w-4" /> Añadir imágenes Gretel 2.0
-                    <input type="file" accept="image/*" multiple className="hidden" onChange={(event) => void addStyleReferences(event.target.files)} />
+                    <input
+                      type="file"
+                      accept="image/*"
+                      multiple
+                      className="hidden"
+                      onChange={(event) => void addStyleReferences(event.target.files)}
+                    />
                   </label>
-                  <p className="mt-2 text-xs font-semibold text-stone-500">{project.styleReferences.length} referencia(s) registrada(s).</p>
+                  <p className="mt-2 text-xs font-semibold text-stone-500">
+                    {project.styleReferences.length} referencia(s) registrada(s).
+                  </p>
                 </div>
               </div>
 
               <div className="rounded-[2rem] border border-[#eadfc8] bg-white p-5 shadow-sm">
                 <h2 className="text-xl font-black text-stone-800">Crear generation job</h2>
                 <div className="mt-4 grid gap-3 sm:grid-cols-2">
-                  <input value={subject} onChange={(event) => setSubject(event.target.value)} placeholder="Sujeto / nombre" className="rounded-xl border border-stone-300 px-3 py-2 text-sm font-bold" />
-                  <select value={category} onChange={(event) => setCategory(event.target.value as ArtFactoryCategory)} className="rounded-xl border border-stone-300 px-3 py-2 text-sm font-bold">
-                    {ART_FACTORY_CATEGORIES.map((item) => <option key={item}>{item}</option>)}
+                  <input
+                    value={subject}
+                    onChange={(event) => setSubject(event.target.value)}
+                    placeholder="Sujeto / nombre"
+                    className="rounded-xl border border-stone-300 px-3 py-2 text-sm font-bold"
+                  />
+                  <select
+                    value={category}
+                    onChange={(event) => setCategory(event.target.value as ArtFactoryCategory)}
+                    className="rounded-xl border border-stone-300 px-3 py-2 text-sm font-bold"
+                  >
+                    {ART_FACTORY_CATEGORIES.map((item) => (
+                      <option key={item}>{item}</option>
+                    ))}
                   </select>
-                  <textarea value={notes} onChange={(event) => setNotes(event.target.value)} placeholder="Detalles que deben preservarse" className="min-h-24 rounded-xl border border-stone-300 px-3 py-2 text-sm font-semibold sm:col-span-2" />
+                  <textarea
+                    value={notes}
+                    onChange={(event) => setNotes(event.target.value)}
+                    placeholder="Detalles que deben preservarse"
+                    className="min-h-24 rounded-xl border border-stone-300 px-3 py-2 text-sm font-semibold sm:col-span-2"
+                  />
                 </div>
                 <div className="mt-3 flex flex-wrap items-center gap-3 text-xs font-bold text-stone-600">
-                  <span>Source crop: {sourceCrop ? "LISTO" : "selecciona arrastrando en Libro"}</span>
+                  <span>
+                    Source crop: {sourceCrop ? "LISTO" : "selecciona arrastrando en Libro"}
+                  </span>
                   <span>Reference crop: {referenceCrop ? "LISTO" : "opcional"}</span>
                 </div>
                 <button
@@ -489,24 +561,62 @@ function CartillaArtFactoryPage() {
               <div className="flex flex-wrap items-center justify-between gap-3">
                 <div>
                   <h2 className="text-xl font-black text-stone-800">Batch de producción</h2>
-                  <p className="text-sm font-semibold text-stone-500">{project.assets.length} asset(s) · {selectedIds.length} seleccionado(s)</p>
+                  <p className="text-sm font-semibold text-stone-500">
+                    {project.assets.length} asset(s) · {selectedIds.length} seleccionado(s)
+                  </p>
                 </div>
                 <div className="flex flex-wrap gap-2">
-                  <select value={statusFilter} onChange={(event) => setStatusFilter(event.target.value as ArtFactoryStatus | "ALL")} className="rounded-xl border border-stone-300 px-3 py-2 text-sm font-bold">
+                  <select
+                    value={statusFilter}
+                    onChange={(event) =>
+                      setStatusFilter(event.target.value as ArtFactoryStatus | "ALL")
+                    }
+                    className="rounded-xl border border-stone-300 px-3 py-2 text-sm font-bold"
+                  >
                     <option value="ALL">Todos</option>
-                    {ART_FACTORY_STATUSES.map((status) => <option key={status}>{status}</option>)}
+                    {ART_FACTORY_STATUSES.map((status) => (
+                      <option key={status}>{status}</option>
+                    ))}
                   </select>
-                  <select value={bulkStatus} onChange={(event) => setBulkStatus(event.target.value as ArtFactoryStatus)} className="rounded-xl border border-stone-300 px-3 py-2 text-sm font-bold">
-                    {ART_FACTORY_STATUSES.map((status) => <option key={status}>{status}</option>)}
+                  <select
+                    value={bulkStatus}
+                    onChange={(event) => setBulkStatus(event.target.value as ArtFactoryStatus)}
+                    className="rounded-xl border border-stone-300 px-3 py-2 text-sm font-bold"
+                  >
+                    {ART_FACTORY_STATUSES.map((status) => (
+                      <option key={status}>{status}</option>
+                    ))}
                   </select>
-                  <button type="button" onClick={() => setSelectedIds(filteredAssets.map((asset) => asset.id))} className="rounded-xl border border-stone-300 px-3 py-2 text-sm font-black text-stone-600">Seleccionar visibles</button>
-                  <button type="button" onClick={applyBulkStatus} className="rounded-xl border border-[#356b43] px-3 py-2 text-sm font-black text-[#356b43]">Aplicar estado</button>
-                  <button type="button" onClick={exportPackage} className="rounded-xl bg-[#356b43] px-4 py-2 text-sm font-black text-white">
+                  <button
+                    type="button"
+                    onClick={() => setSelectedIds(filteredAssets.map((asset) => asset.id))}
+                    className="rounded-xl border border-stone-300 px-3 py-2 text-sm font-black text-stone-600"
+                  >
+                    Seleccionar visibles
+                  </button>
+                  <button
+                    type="button"
+                    onClick={applyBulkStatus}
+                    className="rounded-xl border border-[#356b43] px-3 py-2 text-sm font-black text-[#356b43]"
+                  >
+                    Aplicar estado
+                  </button>
+                  <button
+                    type="button"
+                    onClick={exportPackage}
+                    className="rounded-xl bg-[#356b43] px-4 py-2 text-sm font-black text-white"
+                  >
                     <PackageOpen className="mr-2 inline h-4 w-4" /> Export ZIP
                   </button>
                   <label className="cursor-pointer rounded-xl bg-[#a45d22] px-4 py-2 text-sm font-black text-white">
                     Import results
-                    <input type="file" accept="image/*" multiple className="hidden" onChange={(event) => void importGenerated(event.target.files)} />
+                    <input
+                      type="file"
+                      accept="image/*"
+                      multiple
+                      className="hidden"
+                      onChange={(event) => void importGenerated(event.target.files)}
+                    />
                   </label>
                 </div>
               </div>
@@ -514,63 +624,113 @@ function CartillaArtFactoryPage() {
               <div className="mt-5 space-y-3">
                 {filteredAssets.length === 0 ? (
                   <div className="rounded-2xl border border-dashed border-stone-300 p-8 text-center text-sm font-bold text-stone-500">
-                    No hay jobs todavía. Carga los PDF, guarda el mapping, selecciona un crop y crea el primer job.
+                    No hay jobs todavía. Carga los PDF, guarda el mapping, selecciona un crop y crea
+                    el primer job.
                   </div>
-                ) : filteredAssets.map((asset) => (
-                  <article key={asset.id} className="rounded-2xl border border-[#eadfc8] bg-[#fffdf8] p-4">
-                    <div className="flex flex-wrap items-start gap-4">
-                      <input
-                        type="checkbox"
-                        checked={selectedIds.includes(asset.id)}
-                        onChange={(event) =>
-                          setSelectedIds((current) =>
-                            event.target.checked ? [...current, asset.id] : current.filter((id) => id !== asset.id),
-                          )
-                        }
-                        className="mt-2 h-4 w-4"
-                      />
-                      <div className="grid min-w-0 flex-1 gap-3 md:grid-cols-[120px_120px_120px_1fr]">
-                        <Preview title="ORIGINAL" src={asset.sourceCrop.dataUrl} />
-                        <Preview title="ROTafolio" src={asset.referenceCrops[0]?.dataUrl} />
-                        <Preview title="RESULT" src={asset.generatedResult?.dataUrl} />
-                        <div className="min-w-0">
-                          <div className="flex flex-wrap items-center gap-2">
-                            <strong className="text-sm text-stone-800">{asset.id}</strong>
-                            <span className="rounded-full bg-[#efe8d8] px-2 py-1 text-[10px] font-black text-stone-600">{asset.status}</span>
-                          </div>
-                          <p className="mt-1 text-sm font-black text-stone-700">{asset.subject} · Libro {asset.studentPage}</p>
-                          <p className="mt-1 text-xs font-semibold text-stone-500">Flip Chart: {asset.referencePages.join(", ") || "sin mapping"}</p>
-                          <p className="mt-1 break-all text-[11px] font-semibold text-stone-500">{asset.expectedFilename}</p>
-                          <select
-                            value={asset.qualityNotes ?? ""}
-                            onChange={(event) =>
-                              updateProject((current) => ({
-                                ...current,
-                                assets: current.assets.map((item) =>
-                                  item.id === asset.id
-                                    ? { ...item, qualityNotes: event.target.value, updatedAt: new Date().toISOString() }
-                                    : item,
-                                ),
-                              }))
-                            }
-                            className="mt-3 w-full rounded-lg border border-stone-300 px-2 py-1.5 text-xs font-bold text-stone-600"
-                          >
-                            <option value="">Quality check: no issue selected</option>
-                            {QUALITY_REASONS.map((reason) => <option key={reason} value={reason}>{reason}</option>)}
-                          </select>
-                          <div className="mt-3 flex flex-wrap gap-2">
-                            <button type="button" onClick={() => updateProject((current) => ({ ...current, assets: current.assets.map((item) => item.id === asset.id ? setAssetStatus(item, "READY FOR INTEGRATION") : item) }))} className="rounded-lg bg-[#356b43] px-3 py-1.5 text-xs font-black text-white">
-                              Ready for integration
-                            </button>
-                            <button type="button" onClick={() => updateProject((current) => ({ ...current, assets: current.assets.map((item) => item.id === asset.id ? setAssetStatus(item, "NEEDS FIX") : item) }))} className="rounded-lg border border-amber-400 px-3 py-1.5 text-xs font-black text-amber-700">
-                              Needs fix
-                            </button>
+                ) : (
+                  filteredAssets.map((asset) => (
+                    <article
+                      key={asset.id}
+                      className="rounded-2xl border border-[#eadfc8] bg-[#fffdf8] p-4"
+                    >
+                      <div className="flex flex-wrap items-start gap-4">
+                        <input
+                          type="checkbox"
+                          checked={selectedIds.includes(asset.id)}
+                          onChange={(event) =>
+                            setSelectedIds((current) =>
+                              event.target.checked
+                                ? [...current, asset.id]
+                                : current.filter((id) => id !== asset.id),
+                            )
+                          }
+                          className="mt-2 h-4 w-4"
+                        />
+                        <div className="grid min-w-0 flex-1 gap-3 md:grid-cols-[120px_120px_120px_1fr]">
+                          <Preview title="ORIGINAL" src={asset.sourceCrop.dataUrl} />
+                          <Preview title="ROTafolio" src={asset.referenceCrops[0]?.dataUrl} />
+                          <Preview title="RESULT" src={asset.generatedResult?.dataUrl} />
+                          <div className="min-w-0">
+                            <div className="flex flex-wrap items-center gap-2">
+                              <strong className="text-sm text-stone-800">{asset.id}</strong>
+                              <span className="rounded-full bg-[#efe8d8] px-2 py-1 text-[10px] font-black text-stone-600">
+                                {asset.status}
+                              </span>
+                            </div>
+                            <p className="mt-1 text-sm font-black text-stone-700">
+                              {asset.subject} · Libro {asset.studentPage}
+                            </p>
+                            <p className="mt-1 text-xs font-semibold text-stone-500">
+                              Flip Chart: {asset.referencePages.join(", ") || "sin mapping"}
+                            </p>
+                            <p className="mt-1 break-all text-[11px] font-semibold text-stone-500">
+                              {asset.expectedFilename}
+                            </p>
+                            <select
+                              value={asset.qualityNotes ?? ""}
+                              onChange={(event) =>
+                                updateProject((current) => ({
+                                  ...current,
+                                  assets: current.assets.map((item) =>
+                                    item.id === asset.id
+                                      ? {
+                                          ...item,
+                                          qualityNotes: event.target.value,
+                                          updatedAt: new Date().toISOString(),
+                                        }
+                                      : item,
+                                  ),
+                                }))
+                              }
+                              className="mt-3 w-full rounded-lg border border-stone-300 px-2 py-1.5 text-xs font-bold text-stone-600"
+                            >
+                              <option value="">Quality check: no issue selected</option>
+                              {QUALITY_REASONS.map((reason) => (
+                                <option key={reason} value={reason}>
+                                  {reason}
+                                </option>
+                              ))}
+                            </select>
+                            <div className="mt-3 flex flex-wrap gap-2">
+                              <button
+                                type="button"
+                                onClick={() =>
+                                  updateProject((current) => ({
+                                    ...current,
+                                    assets: current.assets.map((item) =>
+                                      item.id === asset.id
+                                        ? setAssetStatus(item, "READY FOR INTEGRATION")
+                                        : item,
+                                    ),
+                                  }))
+                                }
+                                className="rounded-lg bg-[#356b43] px-3 py-1.5 text-xs font-black text-white"
+                              >
+                                Ready for integration
+                              </button>
+                              <button
+                                type="button"
+                                onClick={() =>
+                                  updateProject((current) => ({
+                                    ...current,
+                                    assets: current.assets.map((item) =>
+                                      item.id === asset.id
+                                        ? setAssetStatus(item, "NEEDS FIX")
+                                        : item,
+                                    ),
+                                  }))
+                                }
+                                className="rounded-lg border border-amber-400 px-3 py-1.5 text-xs font-black text-amber-700"
+                              >
+                                Needs fix
+                              </button>
+                            </div>
                           </div>
                         </div>
                       </div>
-                    </div>
-                  </article>
-                ))}
+                    </article>
+                  ))
+                )}
               </div>
             </section>
           </div>
@@ -604,11 +764,23 @@ function PdfPane(props: {
         </div>
         <label className="cursor-pointer rounded-xl border border-[#d9c9ac] px-3 py-2 text-xs font-black text-[#a45d22]">
           Cargar PDF
-          <input type="file" accept="application/pdf" className="hidden" onChange={(event) => props.onFile(event.target.files?.[0])} />
+          <input
+            type="file"
+            accept="application/pdf"
+            className="hidden"
+            onChange={(event) => props.onFile(event.target.files?.[0])}
+          />
         </label>
       </div>
       <div className="mt-3 flex items-center gap-2">
-        <button type="button" disabled={props.page <= 1} onClick={() => props.onPage(Math.max(1, props.page - 1))} className="rounded-lg border px-3 py-1 text-xs font-black disabled:opacity-40">←</button>
+        <button
+          type="button"
+          disabled={props.page <= 1}
+          onClick={() => props.onPage(Math.max(1, props.page - 1))}
+          className="rounded-lg border px-3 py-1 text-xs font-black disabled:opacity-40"
+        >
+          ←
+        </button>
         <input
           type="number"
           min={1}
@@ -618,8 +790,19 @@ function PdfPane(props: {
           className="w-20 rounded-lg border px-2 py-1 text-center text-sm font-black"
         />
         <span className="text-xs font-bold text-stone-500">/ {props.pageCount || "—"}</span>
-        <button type="button" disabled={Boolean(props.pageCount && props.page >= props.pageCount)} onClick={() => props.onPage(Math.min(props.pageCount || props.page + 1, props.page + 1))} className="rounded-lg border px-3 py-1 text-xs font-black disabled:opacity-40">→</button>
-        {props.crop ? <span className="ml-auto text-xs font-black text-[#356b43]">Crop listo</span> : <span className="ml-auto text-xs font-bold text-stone-500">Arrastra para recortar</span>}
+        <button
+          type="button"
+          disabled={Boolean(props.pageCount && props.page >= props.pageCount)}
+          onClick={() => props.onPage(Math.min(props.pageCount || props.page + 1, props.page + 1))}
+          className="rounded-lg border px-3 py-1 text-xs font-black disabled:opacity-40"
+        >
+          →
+        </button>
+        {props.crop ? (
+          <span className="ml-auto text-xs font-black text-[#356b43]">Crop listo</span>
+        ) : (
+          <span className="ml-auto text-xs font-bold text-stone-500">Arrastra para recortar</span>
+        )}
       </div>
       <div className="mt-3 overflow-auto rounded-2xl border border-[#eadfc8] bg-stone-100 p-2">
         <canvas
@@ -633,18 +816,25 @@ function PdfPane(props: {
       <div className="mt-3 flex gap-2 overflow-x-auto pb-2">
         {props.thumbnails.length === 0 && props.pageCount > 0 ? (
           <span className="px-2 py-3 text-xs font-bold text-stone-400">Generando miniaturas…</span>
-        ) : props.thumbnails.map((src, index) => (
-          <button
-            type="button"
-            key={index}
-            onClick={() => props.onPage(index + 1)}
-            className={"shrink-0 rounded-lg border-2 p-1 " + (props.page === index + 1 ? "border-[#a45d22]" : "border-transparent")}
-            aria-label={"Página " + (index + 1)}
-          >
-            {src ? <img src={src} alt="" className="h-20 w-auto rounded bg-white object-contain" /> : null}
-            <span className="block text-[10px] font-black text-stone-500">{index + 1}</span>
-          </button>
-        ))}
+        ) : (
+          props.thumbnails.map((src, index) => (
+            <button
+              type="button"
+              key={index}
+              onClick={() => props.onPage(index + 1)}
+              className={
+                "shrink-0 rounded-lg border-2 p-1 " +
+                (props.page === index + 1 ? "border-[#a45d22]" : "border-transparent")
+              }
+              aria-label={"Página " + (index + 1)}
+            >
+              {src ? (
+                <img src={src} alt="" className="h-20 w-auto rounded bg-white object-contain" />
+              ) : null}
+              <span className="block text-[10px] font-black text-stone-500">{index + 1}</span>
+            </button>
+          ))
+        )}
       </div>
     </section>
   );
@@ -655,7 +845,11 @@ function Preview({ title, src }: { title: string; src?: string }) {
     <div>
       <p className="mb-1 text-[10px] font-black uppercase tracking-wide text-stone-500">{title}</p>
       <div className="flex aspect-square items-center justify-center overflow-hidden rounded-xl border border-stone-200 bg-white">
-        {src ? <img src={src} alt="" className="h-full w-full object-contain" /> : <span className="px-2 text-center text-[10px] font-bold text-stone-400">pendiente</span>}
+        {src ? (
+          <img src={src} alt="" className="h-full w-full object-contain" />
+        ) : (
+          <span className="px-2 text-center text-[10px] font-bold text-stone-400">pendiente</span>
+        )}
       </div>
     </div>
   );

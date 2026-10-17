@@ -133,9 +133,7 @@ describe("WorkbookPencilMark shared feedback kernel", () => {
   });
 
   it("drops few small realistic eraser crumbs (#720 F05)", () => {
-    const { container } = render(
-      <WorkbookPencilMark isCorrect={false} itemId="p1-crumbs" />,
-    );
+    const { container } = render(<WorkbookPencilMark isCorrect={false} itemId="p1-crumbs" />);
     act(() => vi.advanceTimersByTime(drawMs + holdMs));
     const crumbs = container.querySelectorAll(".workbook-pencil__crumbs > g");
     expect(crumbs.length).toBeGreaterThanOrEqual(5);

@@ -1,7 +1,13 @@
 import { render, screen, waitFor } from "@testing-library/react";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { describe, expect, it, vi, beforeEach } from "vitest";
-import { createMemoryHistory, createRootRoute, createRoute, createRouter, RouterProvider } from "@tanstack/react-router";
+import {
+  createMemoryHistory,
+  createRootRoute,
+  createRoute,
+  createRouter,
+  RouterProvider,
+} from "@tanstack/react-router";
 import * as CRMStudentProgressModule from "@/lib/crm-student-progress";
 import { Route as EstudianteRoute } from "../crm.$classId.$studentId.index.lazy";
 import { Route as ReporteRoute } from "../crm.$classId.$studentId.reporte.lazy";
@@ -44,10 +50,9 @@ function createTestRouter(Component: any) {
   return router;
 }
 
-
 // We have to mock Route for the lazy components
-vi.mock('@tanstack/react-router', async (importOriginal) => {
-  const actual = await importOriginal<typeof import('@tanstack/react-router')>();
+vi.mock("@tanstack/react-router", async (importOriginal) => {
+  const actual = await importOriginal<typeof import("@tanstack/react-router")>();
   return {
     ...actual,
     createLazyFileRoute: () => (config: any) => {
@@ -60,7 +65,6 @@ vi.mock('@tanstack/react-router', async (importOriginal) => {
   };
 });
 
-
 describe("CRM Student Route Error Handling", () => {
   beforeEach(() => {
     vi.clearAllMocks();
@@ -68,17 +72,21 @@ describe("CRM Student Route Error Handling", () => {
   });
 
   it("shows an alert when fetchCrmStudentProgress fails in the index route", async () => {
-    vi.spyOn(CRMStudentProgressModule, "fetchCrmStudentProgress").mockRejectedValue(new Error("Network Error"));
+    vi.spyOn(CRMStudentProgressModule, "fetchCrmStudentProgress").mockRejectedValue(
+      new Error("Network Error"),
+    );
 
     const TestComponent = EstudianteRoute as unknown as React.ComponentType;
-    
+
     // Patch useParams for the test
-    (EstudianteRoute as any).useParams = vi.fn().mockReturnValue({ classId: "class1", studentId: "student1" });
+    (EstudianteRoute as any).useParams = vi
+      .fn()
+      .mockReturnValue({ classId: "class1", studentId: "student1" });
 
     render(
       <QueryClientProvider client={queryClient}>
         <TestComponent />
-      </QueryClientProvider>
+      </QueryClientProvider>,
     );
 
     await waitFor(() => {
@@ -91,17 +99,21 @@ describe("CRM Student Route Error Handling", () => {
   });
 
   it("shows an alert when fetchCrmStudentProgress fails in the reporte route", async () => {
-    vi.spyOn(CRMStudentProgressModule, "fetchCrmStudentProgress").mockRejectedValue(new Error("Network Error"));
+    vi.spyOn(CRMStudentProgressModule, "fetchCrmStudentProgress").mockRejectedValue(
+      new Error("Network Error"),
+    );
 
     const TestComponent = ReporteRoute as unknown as React.ComponentType;
 
     // Patch useParams for the test
-    (ReporteRoute as any).useParams = vi.fn().mockReturnValue({ classId: "class1", studentId: "student1" });
+    (ReporteRoute as any).useParams = vi
+      .fn()
+      .mockReturnValue({ classId: "class1", studentId: "student1" });
 
     render(
       <QueryClientProvider client={queryClient}>
         <TestComponent />
-      </QueryClientProvider>
+      </QueryClientProvider>,
     );
 
     await waitFor(() => {

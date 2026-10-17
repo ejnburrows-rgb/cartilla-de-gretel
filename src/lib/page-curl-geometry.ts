@@ -20,7 +20,7 @@ function clipHalf(poly: Pt[], f: (p: Pt) => number): Pt[] {
     const fa = f(a);
     const fb = f(b);
     if (fa <= 0) out.push(a);
-    if ((fa <= 0) !== (fb <= 0)) {
+    if (fa <= 0 !== fb <= 0) {
       const k = fa / (fa - fb);
       out.push([a[0] + (b[0] - a[0]) * k, a[1] + (b[1] - a[1]) * k]);
     }
@@ -35,12 +35,14 @@ function densify(poly: Pt[], step: number): Pt[] {
     const a = poly[i];
     const b = poly[(i + 1) % poly.length];
     const n = Math.max(1, Math.ceil(Math.hypot(b[0] - a[0], b[1] - a[1]) / step));
-    for (let k = 0; k < n; k++) out.push([a[0] + ((b[0] - a[0]) * k) / n, a[1] + ((b[1] - a[1]) * k) / n]);
+    for (let k = 0; k < n; k++)
+      out.push([a[0] + ((b[0] - a[0]) * k) / n, a[1] + ((b[1] - a[1]) * k) / n]);
   }
   return out;
 }
 
-export const fmt = (poly: Pt[]) => poly.map(([x, y]) => `${x.toFixed(1)},${y.toFixed(1)}`).join(" ");
+export const fmt = (poly: Pt[]) =>
+  poly.map(([x, y]) => `${x.toFixed(1)},${y.toFixed(1)}`).join(" ");
 
 export interface CurlGeometry {
   /** Flat part of the turning sheet still on the table (leaf clip). */

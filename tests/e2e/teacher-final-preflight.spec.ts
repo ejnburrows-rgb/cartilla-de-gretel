@@ -2,7 +2,8 @@ import { test, expect } from "@playwright/test";
 import * as fs from "fs";
 import * as path from "path";
 
-const PROOF_DIR = process.env.PROOF_DIR || path.join(process.cwd(), "docs/proofs/teacher-final-preflight/");
+const PROOF_DIR =
+  process.env.PROOF_DIR || path.join(process.cwd(), "docs/proofs/teacher-final-preflight/");
 
 test.beforeAll(() => {
   if (!fs.existsSync(PROOF_DIR)) {
@@ -19,7 +20,9 @@ test.describe("Teacher + Flip Chart Pre-Final Regression", () => {
     });
   });
 
-  test("Teacher guide navigation, section switching, device responsiveness, zero console errors", async ({ page }) => {
+  test("Teacher guide navigation, section switching, device responsiveness, zero console errors", async ({
+    page,
+  }) => {
     const consoleErrors: string[] = [];
     page.on("pageerror", (err) => consoleErrors.push(`PageError: ${err.message}`));
     page.on("console", (msg) => {
@@ -48,7 +51,9 @@ test.describe("Teacher + Flip Chart Pre-Final Regression", () => {
     // Switch to Procedimiento tab
     await page.click("button:has-text('Procedimiento')");
     await expect(page.locator(".guide-html-content.active-tab-procedimiento")).toBeVisible();
-    await expect(page.locator(".guide-html-content.active-tab-procedimiento")).toContainText("Las hermanitas vocales");
+    await expect(page.locator(".guide-html-content.active-tab-procedimiento")).toContainText(
+      "Las hermanitas vocales",
+    );
 
     // Switch to Evaluación tab
     await page.click("button:has-text('Evaluación')");
@@ -80,7 +85,7 @@ test.describe("Teacher + Flip Chart Pre-Final Regression", () => {
       const brokenImages = await page.evaluate(() =>
         Array.from(document.querySelectorAll("img"))
           .filter((img) => img.src && (!img.complete || img.naturalWidth === 0))
-          .map((img) => img.src)
+          .map((img) => img.src),
       );
       expect(brokenImages).toEqual([]);
 
@@ -104,11 +109,15 @@ test.describe("Teacher + Flip Chart Pre-Final Regression", () => {
     await expect(page.locator("text=Progreso de la Clase")).toBeVisible();
     await expect(page.locator("table")).toBeVisible();
 
-    const progressHeader = page.locator("header.no-print").filter({ hasText: "Progreso de la Clase" });
+    const progressHeader = page
+      .locator("header.no-print")
+      .filter({ hasText: "Progreso de la Clase" });
     await expect(progressHeader).toBeVisible();
 
     // Check no horizontal document overflow
-    const docOverflowProgress = await page.evaluate(() => document.documentElement.scrollWidth > document.documentElement.clientWidth);
+    const docOverflowProgress = await page.evaluate(
+      () => document.documentElement.scrollWidth > document.documentElement.clientWidth,
+    );
     expect(docOverflowProgress).toBe(false);
 
     await page.screenshot({ path: path.join(PROOF_DIR, "teacher-progreso-view.png") });
@@ -161,7 +170,9 @@ test.describe("Teacher + Flip Chart Pre-Final Regression", () => {
     expect(consoleErrors).toEqual([]);
   });
 
-  test("Flip Chart catalog, presenter, top-bound page turns, device fit, return flow, reduced motion", async ({ page }) => {
+  test("Flip Chart catalog, presenter, top-bound page turns, device fit, return flow, reduced motion", async ({
+    page,
+  }) => {
     const consoleErrors: string[] = [];
     page.on("pageerror", (err) => consoleErrors.push(`PageError: ${err.message}`));
     page.on("console", (msg) => {
@@ -195,7 +206,9 @@ test.describe("Teacher + Flip Chart Pre-Final Regression", () => {
       await expect(nativeBoard).toHaveAttribute("data-flipchart-page", "9");
 
       // Verify device fit (no document horizontal overflow)
-      const docOverflow = await page.evaluate(() => document.documentElement.scrollWidth > document.documentElement.clientWidth);
+      const docOverflow = await page.evaluate(
+        () => document.documentElement.scrollWidth > document.documentElement.clientWidth,
+      );
       expect(docOverflow).toBe(false);
 
       // Ensure stage is rendered
@@ -203,31 +216,43 @@ test.describe("Teacher + Flip Chart Pre-Final Regression", () => {
       await expect(stage).toBeVisible();
 
       // Ensure no default scenic background layer is mounted on the flipchart.
-      const scenicWallpaperCount = await page.locator(".fc-final-background, img[alt='Fondo de página']").count();
+      const scenicWallpaperCount = await page
+        .locator(".fc-final-background, img[alt='Fondo de página']")
+        .count();
       expect(scenicWallpaperCount).toBe(0);
 
       // Verify no broken images (image element present with src that fails to load)
       const brokenImages = await page.evaluate(() =>
         Array.from(document.querySelectorAll("img"))
-          .filter((img) => img.src && (img.naturalWidth === 0 && img.naturalHeight === 0 && img.complete))
-          .map((img) => img.src)
+          .filter(
+            (img) => img.src && img.naturalWidth === 0 && img.naturalHeight === 0 && img.complete,
+          )
+          .map((img) => img.src),
       );
       expect(brokenImages).toEqual([]);
 
-      await page.screenshot({ path: path.join(PROOF_DIR, `flipchart-presenter-${dev.name}-p9.png`) });
+      await page.screenshot({
+        path: path.join(PROOF_DIR, `flipchart-presenter-${dev.name}-p9.png`),
+      });
 
       // Page turn with Keyboard ArrowRight
       await page.keyboard.press("ArrowRight");
-      await page.locator("[data-testid='vertical-flip-layer']").waitFor({ state: "detached", timeout: 5000 });
+      await page
+        .locator("[data-testid='vertical-flip-layer']")
+        .waitFor({ state: "detached", timeout: 5000 });
       await expect(nativeBoard).toHaveAttribute("data-flipchart-page", "10");
 
-      await page.screenshot({ path: path.join(PROOF_DIR, `flipchart-presenter-${dev.name}-p10.png`) });
+      await page.screenshot({
+        path: path.join(PROOF_DIR, `flipchart-presenter-${dev.name}-p10.png`),
+      });
 
       // Page turn back with button
       const prevBtn = panel.getByRole("button", { name: "Lámina anterior", exact: true });
       await expect(prevBtn).toBeEnabled();
       await prevBtn.click();
-      await page.locator("[data-testid='vertical-flip-layer']").waitFor({ state: "detached", timeout: 5000 });
+      await page
+        .locator("[data-testid='vertical-flip-layer']")
+        .waitFor({ state: "detached", timeout: 5000 });
       await expect(nativeBoard).toHaveAttribute("data-flipchart-page", "9");
     }
 

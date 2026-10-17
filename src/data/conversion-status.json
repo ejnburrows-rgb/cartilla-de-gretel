@@ -20,9 +20,7 @@
       "lesson": 1,
       "renderer": "FaithfulPageRenderer",
       "structuredContent": "src/data/page-layouts.json#pages.1",
-      "exerciseMechanics": [
-        "picture-grid"
-      ],
+      "exerciseMechanics": ["picture-grid"],
       "faithfulIllustrations": [
         "/cartilla/art/digital/page-001/r1-c1.png",
         "/cartilla/art/digital/page-001/r1-c2.png",
@@ -60,9 +58,7 @@
       "lesson": 1,
       "renderer": "FaithfulPageRenderer",
       "structuredContent": "src/data/page-layouts.json#pages.2",
-      "exerciseMechanics": [
-        "vowel-pick-one"
-      ],
+      "exerciseMechanics": ["vowel-pick-one"],
       "faithfulIllustrations": [
         "/cartilla/art/digital/page-002/r1-c2.png",
         "/cartilla/art/digital/page-002/r1-c3.png",
@@ -84,9 +80,7 @@
       "legacyScanReference": "/cartilla/images/source/vocales/vocales-page-02.png",
       "sourceScanPresentInCheckout": true,
       "animationCandidates": [],
-      "gretelGuidance": [
-        "Circula el dibujo que comienza con la vocal del recuadro."
-      ],
+      "gretelGuidance": ["Circula el dibujo que comienza con la vocal del recuadro."],
       "status": "NATIVE_COMPLETE",
       "certification": null
     },
@@ -95,9 +89,7 @@
       "lesson": 1,
       "renderer": "FaithfulPageRenderer",
       "structuredContent": "src/data/page-layouts.json#pages.3",
-      "exerciseMechanics": [
-        "vowel-match-all"
-      ],
+      "exerciseMechanics": ["vowel-match-all"],
       "faithfulIllustrations": [
         "/cartilla/art/faithful/vocal-o/ocho.webp",
         "/cartilla/art/faithful/vocal-a/arana.webp",
@@ -109,9 +101,7 @@
       "legacyScanReference": "/cartilla/images/source/vocales/vocales-page-03.png",
       "sourceScanPresentInCheckout": true,
       "animationCandidates": [],
-      "gretelGuidance": [
-        "Traza una línea de la vocal al dibujo que le corresponde."
-      ],
+      "gretelGuidance": ["Traza una línea de la vocal al dibujo que le corresponde."],
       "status": "NATIVE_COMPLETE",
       "certification": null
     },
@@ -120,9 +110,7 @@
       "lesson": 2,
       "renderer": "FaithfulPageRenderer",
       "structuredContent": "src/data/page-layouts.json#pages.4",
-      "exerciseMechanics": [
-        "picture-grid"
-      ],
+      "exerciseMechanics": ["picture-grid"],
       "faithfulIllustrations": [
         "/cartilla/art/faithful/vocal-o/ola.webp",
         "/cartilla/art/faithful/vocal-i/iglu.webp",
@@ -143,12 +131,8 @@
       "sourceScan": "/cartilla/art/source/workbook/page-004.jpg",
       "legacyScanReference": "/cartilla/images/source/o/o-page-3.jpg",
       "sourceScanPresentInCheckout": true,
-      "animationCandidates": [
-        "/cartilla/art/faithful/vocal-o/oso.webp"
-      ],
-      "gretelGuidance": [
-        "Marca con una x los dibujos que comienzan con O o."
-      ],
+      "animationCandidates": ["/cartilla/art/faithful/vocal-o/oso.webp"],
+      "gretelGuidance": ["Marca con una x los dibujos que comienzan con O o."],
       "status": "NATIVE_COMPLETE",
       "certification": null
     },
@@ -157,9 +141,7 @@
       "lesson": 2,
       "renderer": "FaithfulPageRenderer",
       "structuredContent": "src/data/page-layouts.json#pages.5",
-      "exerciseMechanics": [
-        "vowel-line-match"
-      ],
+      "exerciseMechanics": ["vowel-line-match"],
       "faithfulIllustrations": [
         "/cartilla/art/faithful/vocal-i/iglu.webp",
         "/cartilla/art/faithful/vocal-o/oveja.webp",
@@ -173,9 +155,7 @@
       "sourceScan": "/cartilla/art/source/workbook/page-005.jpg",
       "legacyScanReference": "/cartilla/images/source/o/o-page-4.jpg",
       "sourceScanPresentInCheckout": true,
-      "animationCandidates": [
-        "/cartilla/art/faithful/vocal-o/oso.webp"
-      ],
+      "animationCandidates": ["/cartilla/art/faithful/vocal-o/oso.webp"],
       "gretelGuidance": [
         "Traza una línea desde la vocal Oo hasta el dibujo de la palabra que comienza con Oo."
       ],
@@ -187,10 +167,7 @@
       "lesson": 2,
       "renderer": "FaithfulPageRenderer",
       "structuredContent": "src/data/page-layouts.json#pages.6",
-      "exerciseMechanics": [
-        "writing-line",
-        "draw-box"
-      ],
+      "exerciseMechanics": ["writing-line", "draw-box"],
       "faithfulIllustrations": [],
       "sourceScan": "/cartilla/art/source/workbook/page-006.jpg",
       "legacyScanReference": "/cartilla/images/source/o/o-page-5.jpg",
@@ -208,9 +185,7 @@
       "lesson": 3,
       "renderer": "FaithfulPageRenderer",
       "structuredContent": "src/data/page-layouts.json#pages.7",
-      "exerciseMechanics": [
-        "picture-grid"
-      ],
+      "exerciseMechanics": ["picture-grid"],
       "faithfulIllustrations": [
         "/cartilla/art/faithful/vocal-a/abanico.webp",
         "/cartilla/art/faithful/vocal-o/oruga.webp",
@@ -237,9 +212,7 @@
         "/cartilla/art/faithful/vocal-a/abeja.webp",
         "/cartilla/art/faithful/vocal-o/oso.webp"
       ],
-      "gretelGuidance": [
-        "Marca con una x los dibujos de las palabras que comienzan con A a."
-      ],
+      "gretelGuidance": ["Marca con una x los dibujos de las palabras que comienzan con A a."],
       "status": "NATIVE_COMPLETE",
       "certification": null
     },
@@ -248,9 +221,7 @@
       "lesson": 3,
       "renderer": "FaithfulPageRenderer",
       "structuredContent": "src/data/page-layouts.json#pages.8",
-      "exerciseMechanics": [
-        "vowel-line-match"
-      ],
+      "exerciseMechanics": ["vowel-line-match"],
       "faithfulIllustrations": [
         "/cartilla/art/faithful/vocal-o/oso.webp",
         "/cartilla/art/faithful/vocal-i/iglu.webp",
@@ -280,10 +251,7 @@
       "lesson": 3,
       "renderer": "FaithfulPageRenderer",
       "structuredContent": "src/data/page-layouts.json#pages.9",
-      "exerciseMechanics": [
-        "writing-line",
-        "draw-box"
-      ],
+      "exerciseMechanics": ["writing-line", "draw-box"],
       "faithfulIllustrations": [],
       "sourceScan": "/cartilla/art/source/workbook/page-009.jpg",
       "legacyScanReference": "/cartilla/images/source/a/a-page-6.jpg",
@@ -301,9 +269,7 @@
       "lesson": 4,
       "renderer": "FaithfulPageRenderer",
       "structuredContent": "src/data/page-layouts.json#pages.10",
-      "exerciseMechanics": [
-        "picture-grid"
-      ],
+      "exerciseMechanics": ["picture-grid"],
       "faithfulIllustrations": [
         "/cartilla/art/faithful/vocal-e/elefante.webp",
         "/cartilla/art/faithful/vocal-i/iglu.webp",
@@ -325,12 +291,8 @@
       "sourceScan": "/cartilla/art/source/workbook/page-010.jpg",
       "legacyScanReference": "/cartilla/images/source/e/e-page-10.jpg",
       "sourceScanPresentInCheckout": true,
-      "animationCandidates": [
-        "/cartilla/art/faithful/vocal-a/abeja.webp"
-      ],
-      "gretelGuidance": [
-        "Marca con una x los dibujos de las palabras que comienzan con E e."
-      ],
+      "animationCandidates": ["/cartilla/art/faithful/vocal-a/abeja.webp"],
+      "gretelGuidance": ["Marca con una x los dibujos de las palabras que comienzan con E e."],
       "status": "NATIVE_COMPLETE",
       "certification": null
     },
@@ -339,9 +301,7 @@
       "lesson": 4,
       "renderer": "FaithfulPageRenderer",
       "structuredContent": "src/data/page-layouts.json#pages.11",
-      "exerciseMechanics": [
-        "vowel-line-match"
-      ],
+      "exerciseMechanics": ["vowel-line-match"],
       "faithfulIllustrations": [
         "/cartilla/art/faithful/vocal-o/oso.webp",
         "/cartilla/art/faithful/vocal-e/elefante.webp",
@@ -370,10 +330,7 @@
       "lesson": 4,
       "renderer": "FaithfulPageRenderer",
       "structuredContent": "src/data/page-layouts.json#pages.12",
-      "exerciseMechanics": [
-        "writing-line",
-        "draw-box"
-      ],
+      "exerciseMechanics": ["writing-line", "draw-box"],
       "faithfulIllustrations": [],
       "sourceScan": "/cartilla/art/source/workbook/page-012.jpg",
       "legacyScanReference": "/cartilla/images/source/e/e-page-12.jpg",
@@ -391,9 +348,7 @@
       "lesson": 5,
       "renderer": "FaithfulPageRenderer",
       "structuredContent": "src/data/page-layouts.json#pages.13",
-      "exerciseMechanics": [
-        "picture-grid"
-      ],
+      "exerciseMechanics": ["picture-grid"],
       "faithfulIllustrations": [
         "/cartilla/art/faithful/vocal-i/iglu.webp",
         "/cartilla/art/faithful/leccion-1/pez.webp",
@@ -419,9 +374,7 @@
         "/cartilla/art/faithful/leccion-1/pez.webp",
         "/cartilla/art/faithful/vocal-o/oso.webp"
       ],
-      "gretelGuidance": [
-        "Marca con una x los dibujos de las palabras que comienzan con I i."
-      ],
+      "gretelGuidance": ["Marca con una x los dibujos de las palabras que comienzan con I i."],
       "status": "NATIVE_COMPLETE",
       "certification": null
     },
@@ -430,9 +383,7 @@
       "lesson": 5,
       "renderer": "FaithfulPageRenderer",
       "structuredContent": "src/data/page-layouts.json#pages.14",
-      "exerciseMechanics": [
-        "vowel-line-match"
-      ],
+      "exerciseMechanics": ["vowel-line-match"],
       "faithfulIllustrations": [
         "/cartilla/art/faithful/vocal-i/iman.webp",
         "/cartilla/art/faithful/vocal-o/oso.webp",
@@ -461,10 +412,7 @@
       "lesson": 5,
       "renderer": "FaithfulPageRenderer",
       "structuredContent": "src/data/page-layouts.json#pages.15",
-      "exerciseMechanics": [
-        "writing-line",
-        "draw-box"
-      ],
+      "exerciseMechanics": ["writing-line", "draw-box"],
       "faithfulIllustrations": [],
       "sourceScan": "/cartilla/art/source/workbook/page-015.jpg",
       "legacyScanReference": "/cartilla/images/source/i/i-page-15.jpg",
@@ -482,9 +430,7 @@
       "lesson": 6,
       "renderer": "FaithfulPageRenderer",
       "structuredContent": "src/data/page-layouts.json#pages.16",
-      "exerciseMechanics": [
-        "picture-grid"
-      ],
+      "exerciseMechanics": ["picture-grid"],
       "faithfulIllustrations": [
         "/cartilla/art/faithful/vocal-u/unicornio.webp",
         "/cartilla/art/faithful/vocal-o/oveja.webp",
@@ -509,9 +455,7 @@
         "/cartilla/art/faithful/vocal-o/oso.webp",
         "/cartilla/art/faithful/vocal-a/abeja.webp"
       ],
-      "gretelGuidance": [
-        "Marca con una x los dibujos de las palabras que comienzan con U u."
-      ],
+      "gretelGuidance": ["Marca con una x los dibujos de las palabras que comienzan con U u."],
       "status": "NATIVE_COMPLETE",
       "certification": null
     },
@@ -520,9 +464,7 @@
       "lesson": 6,
       "renderer": "FaithfulPageRenderer",
       "structuredContent": "src/data/page-layouts.json#pages.17",
-      "exerciseMechanics": [
-        "vowel-line-match"
-      ],
+      "exerciseMechanics": ["vowel-line-match"],
       "faithfulIllustrations": [
         "/cartilla/art/faithful/leccion-1/traje.webp",
         "/cartilla/art/faithful/vocal-u/uno.webp",
@@ -536,9 +478,7 @@
       "sourceScan": "/cartilla/art/source/workbook/page-017.jpg",
       "legacyScanReference": "/cartilla/images/source/u/u-page-17.jpg",
       "sourceScanPresentInCheckout": true,
-      "animationCandidates": [
-        "/cartilla/art/faithful/vocal-o/oso.webp"
-      ],
+      "animationCandidates": ["/cartilla/art/faithful/vocal-o/oso.webp"],
       "gretelGuidance": [
         "Traza una línea desde la vocal Uu hasta el dibujo de la palabra que comienza con Uu."
       ],
@@ -550,10 +490,7 @@
       "lesson": 6,
       "renderer": "FaithfulPageRenderer",
       "structuredContent": "src/data/page-layouts.json#pages.18",
-      "exerciseMechanics": [
-        "writing-line",
-        "draw-box"
-      ],
+      "exerciseMechanics": ["writing-line", "draw-box"],
       "faithfulIllustrations": [],
       "sourceScan": "/cartilla/art/source/workbook/page-018.jpg",
       "legacyScanReference": "/cartilla/images/source/u/u-page-18.jpg",
@@ -571,10 +508,7 @@
       "lesson": 7,
       "renderer": "FaithfulPageRenderer",
       "structuredContent": "src/data/page-layouts.json#pages.19",
-      "exerciseMechanics": [
-        "writing-line",
-        "draw-box"
-      ],
+      "exerciseMechanics": ["writing-line", "draw-box"],
       "faithfulIllustrations": [],
       "sourceScan": "/cartilla/art/source/workbook/page-019.jpg",
       "legacyScanReference": "/cartilla/images/source/m/m-page-8.jpg",
@@ -592,17 +526,13 @@
       "lesson": 7,
       "renderer": "FaithfulPageRenderer",
       "structuredContent": "src/data/page-layouts.json#pages.20",
-      "exerciseMechanics": [
-        "syllable-match"
-      ],
+      "exerciseMechanics": ["syllable-match"],
       "faithfulIllustrations": [],
       "sourceScan": "/cartilla/art/source/workbook/page-020.jpg",
       "legacyScanReference": "/cartilla/images/source/m/m-page-9.jpg",
       "sourceScanPresentInCheckout": true,
       "animationCandidates": [],
-      "gretelGuidance": [
-        "Encierra en un círculo la sílaba correspondiente."
-      ],
+      "gretelGuidance": ["Encierra en un círculo la sílaba correspondiente."],
       "status": "NATIVE_COMPLETE",
       "certification": null
     },
@@ -617,9 +547,7 @@
       "legacyScanReference": "/cartilla/images/source/m/m-page-10.jpg",
       "sourceScanPresentInCheckout": true,
       "animationCandidates": [],
-      "gretelGuidance": [
-        "Mm"
-      ],
+      "gretelGuidance": ["Mm"],
       "status": "NATIVE_COMPLETE",
       "certification": null
     },
@@ -628,9 +556,7 @@
       "lesson": 7,
       "renderer": "FaithfulPageRenderer",
       "structuredContent": "src/data/page-layouts.json#pages.22",
-      "exerciseMechanics": [
-        "fill-in-blank"
-      ],
+      "exerciseMechanics": ["fill-in-blank"],
       "faithfulIllustrations": [],
       "sourceScan": "/cartilla/art/source/workbook/page-022.jpg",
       "legacyScanReference": "/cartilla/images/source/m/m-page-11.jpg",
@@ -648,10 +574,7 @@
       "lesson": 8,
       "renderer": "FaithfulPageRenderer",
       "structuredContent": "src/data/page-layouts.json#pages.23",
-      "exerciseMechanics": [
-        "writing-line",
-        "draw-box"
-      ],
+      "exerciseMechanics": ["writing-line", "draw-box"],
       "faithfulIllustrations": [],
       "sourceScan": "/cartilla/art/source/workbook/page-023.jpg",
       "legacyScanReference": "/cartilla/images/source/p/p-page-11.jpg",
@@ -669,17 +592,13 @@
       "lesson": 8,
       "renderer": "FaithfulPageRenderer",
       "structuredContent": "src/data/page-layouts.json#pages.24",
-      "exerciseMechanics": [
-        "syllable-match"
-      ],
+      "exerciseMechanics": ["syllable-match"],
       "faithfulIllustrations": [],
       "sourceScan": "/cartilla/art/source/workbook/page-024.jpg",
       "legacyScanReference": "/cartilla/images/source/p/p-page-12.jpg",
       "sourceScanPresentInCheckout": true,
       "animationCandidates": [],
-      "gretelGuidance": [
-        "Encierra en un círculo la sílaba correspondiente."
-      ],
+      "gretelGuidance": ["Encierra en un círculo la sílaba correspondiente."],
       "status": "NATIVE_COMPLETE",
       "certification": null
     },
@@ -694,9 +613,7 @@
       "legacyScanReference": "/cartilla/images/source/p/p-page-13.jpg",
       "sourceScanPresentInCheckout": true,
       "animationCandidates": [],
-      "gretelGuidance": [
-        "Pp"
-      ],
+      "gretelGuidance": ["Pp"],
       "status": "NATIVE_COMPLETE",
       "certification": null
     },
@@ -705,9 +622,7 @@
       "lesson": 8,
       "renderer": "FaithfulPageRenderer",
       "structuredContent": "src/data/page-layouts.json#pages.26",
-      "exerciseMechanics": [
-        "fill-in-blank"
-      ],
+      "exerciseMechanics": ["fill-in-blank"],
       "faithfulIllustrations": [],
       "sourceScan": "/cartilla/art/source/workbook/page-026.jpg",
       "legacyScanReference": "/cartilla/images/source/p/p-page-14.jpg",
@@ -725,10 +640,7 @@
       "lesson": 9,
       "renderer": "FaithfulPageRenderer",
       "structuredContent": "src/data/page-layouts.json#pages.27",
-      "exerciseMechanics": [
-        "writing-line",
-        "draw-box"
-      ],
+      "exerciseMechanics": ["writing-line", "draw-box"],
       "faithfulIllustrations": [],
       "sourceScan": "/cartilla/art/source/workbook/page-027.jpg",
       "legacyScanReference": "/cartilla/images/source/ss/ss-page-14.jpg",
@@ -746,17 +658,13 @@
       "lesson": 9,
       "renderer": "FaithfulPageRenderer",
       "structuredContent": "src/data/page-layouts.json#pages.28",
-      "exerciseMechanics": [
-        "syllable-match"
-      ],
+      "exerciseMechanics": ["syllable-match"],
       "faithfulIllustrations": [],
       "sourceScan": "/cartilla/art/source/workbook/page-028.jpg",
       "legacyScanReference": "/cartilla/images/source/ss/ss-page-15.jpg",
       "sourceScanPresentInCheckout": true,
       "animationCandidates": [],
-      "gretelGuidance": [
-        "Encierra en un círculo la sílaba correspondiente."
-      ],
+      "gretelGuidance": ["Encierra en un círculo la sílaba correspondiente."],
       "status": "NATIVE_COMPLETE",
       "certification": null
     },
@@ -771,9 +679,7 @@
       "legacyScanReference": "/cartilla/images/source/ss/ss-page-16.jpg",
       "sourceScanPresentInCheckout": true,
       "animationCandidates": [],
-      "gretelGuidance": [
-        "Ss"
-      ],
+      "gretelGuidance": ["Ss"],
       "status": "NATIVE_COMPLETE",
       "certification": null
     },
@@ -782,9 +688,7 @@
       "lesson": 9,
       "renderer": "FaithfulPageRenderer",
       "structuredContent": "src/data/page-layouts.json#pages.30",
-      "exerciseMechanics": [
-        "fill-in-blank"
-      ],
+      "exerciseMechanics": ["fill-in-blank"],
       "faithfulIllustrations": [],
       "sourceScan": "/cartilla/art/source/workbook/page-030.jpg",
       "legacyScanReference": "/cartilla/images/source/ss/ss-page-17.jpg",
@@ -802,10 +706,7 @@
       "lesson": 10,
       "renderer": "FaithfulPageRenderer",
       "structuredContent": "src/data/page-layouts.json#pages.31",
-      "exerciseMechanics": [
-        "writing-line",
-        "draw-box"
-      ],
+      "exerciseMechanics": ["writing-line", "draw-box"],
       "faithfulIllustrations": [],
       "sourceScan": "/cartilla/art/source/workbook/page-031.jpg",
       "legacyScanReference": "/cartilla/images/source/t/t-page-17.jpg",
@@ -823,17 +724,13 @@
       "lesson": 10,
       "renderer": "FaithfulPageRenderer",
       "structuredContent": "src/data/page-layouts.json#pages.32",
-      "exerciseMechanics": [
-        "syllable-match"
-      ],
+      "exerciseMechanics": ["syllable-match"],
       "faithfulIllustrations": [],
       "sourceScan": "/cartilla/art/source/workbook/page-032.jpg",
       "legacyScanReference": "/cartilla/images/source/t/t-page-18.jpg",
       "sourceScanPresentInCheckout": true,
       "animationCandidates": [],
-      "gretelGuidance": [
-        "Encierra en un círculo la sílaba correspondiente."
-      ],
+      "gretelGuidance": ["Encierra en un círculo la sílaba correspondiente."],
       "status": "NATIVE_COMPLETE",
       "certification": null
     },
@@ -848,9 +745,7 @@
       "legacyScanReference": "/cartilla/images/source/t/t-page-19.jpg",
       "sourceScanPresentInCheckout": true,
       "animationCandidates": [],
-      "gretelGuidance": [
-        "Tt"
-      ],
+      "gretelGuidance": ["Tt"],
       "status": "NATIVE_COMPLETE",
       "certification": null
     },
@@ -859,9 +754,7 @@
       "lesson": 10,
       "renderer": "FaithfulPageRenderer",
       "structuredContent": "src/data/page-layouts.json#pages.34",
-      "exerciseMechanics": [
-        "fill-in-blank"
-      ],
+      "exerciseMechanics": ["fill-in-blank"],
       "faithfulIllustrations": [],
       "sourceScan": "/cartilla/art/source/workbook/page-034.jpg",
       "legacyScanReference": "/cartilla/images/source/t/t-page-20.jpg",
@@ -879,10 +772,7 @@
       "lesson": 11,
       "renderer": "FaithfulPageRenderer",
       "structuredContent": "src/data/page-layouts.json#pages.35",
-      "exerciseMechanics": [
-        "writing-line",
-        "draw-box"
-      ],
+      "exerciseMechanics": ["writing-line", "draw-box"],
       "faithfulIllustrations": [],
       "sourceScan": "/cartilla/art/source/workbook/page-035.jpg",
       "legacyScanReference": "/cartilla/images/source/d/d-page-19.jpg",
@@ -900,17 +790,13 @@
       "lesson": 11,
       "renderer": "FaithfulPageRenderer",
       "structuredContent": "src/data/page-layouts.json#pages.36",
-      "exerciseMechanics": [
-        "syllable-match"
-      ],
+      "exerciseMechanics": ["syllable-match"],
       "faithfulIllustrations": [],
       "sourceScan": "/cartilla/art/source/workbook/page-036.jpg",
       "legacyScanReference": "/cartilla/images/source/d/d-page-20.jpg",
       "sourceScanPresentInCheckout": true,
       "animationCandidates": [],
-      "gretelGuidance": [
-        "Encierra en un círculo la sílaba correspondiente."
-      ],
+      "gretelGuidance": ["Encierra en un círculo la sílaba correspondiente."],
       "status": "NATIVE_COMPLETE",
       "certification": null
     },
@@ -925,9 +811,7 @@
       "legacyScanReference": "/cartilla/images/source/d/d-page-21.jpg",
       "sourceScanPresentInCheckout": true,
       "animationCandidates": [],
-      "gretelGuidance": [
-        "Dd"
-      ],
+      "gretelGuidance": ["Dd"],
       "status": "NATIVE_COMPLETE",
       "certification": null
     },
@@ -936,9 +820,7 @@
       "lesson": 11,
       "renderer": "FaithfulPageRenderer",
       "structuredContent": "src/data/page-layouts.json#pages.38",
-      "exerciseMechanics": [
-        "fill-in-blank"
-      ],
+      "exerciseMechanics": ["fill-in-blank"],
       "faithfulIllustrations": [],
       "sourceScan": "/cartilla/art/source/workbook/page-038.jpg",
       "legacyScanReference": "/cartilla/images/source/d/d-page-22.jpg",
@@ -956,10 +838,7 @@
       "lesson": 12,
       "renderer": "FaithfulPageRenderer",
       "structuredContent": "src/data/page-layouts.json#pages.39",
-      "exerciseMechanics": [
-        "writing-line",
-        "draw-box"
-      ],
+      "exerciseMechanics": ["writing-line", "draw-box"],
       "faithfulIllustrations": [],
       "sourceScan": "/cartilla/art/source/workbook/page-039.jpg",
       "legacyScanReference": "/cartilla/images/source/l/l-page-22.jpg",
@@ -977,17 +856,13 @@
       "lesson": 12,
       "renderer": "FaithfulPageRenderer",
       "structuredContent": "src/data/page-layouts.json#pages.40",
-      "exerciseMechanics": [
-        "syllable-match"
-      ],
+      "exerciseMechanics": ["syllable-match"],
       "faithfulIllustrations": [],
       "sourceScan": "/cartilla/art/source/workbook/page-040.jpg",
       "legacyScanReference": "/cartilla/images/source/l/l-page-23.jpg",
       "sourceScanPresentInCheckout": true,
       "animationCandidates": [],
-      "gretelGuidance": [
-        "Encierra en un círculo la sílaba correspondiente."
-      ],
+      "gretelGuidance": ["Encierra en un círculo la sílaba correspondiente."],
       "status": "NATIVE_COMPLETE",
       "certification": null
     },
@@ -1002,9 +877,7 @@
       "legacyScanReference": "/cartilla/images/source/l/l-page-24.jpg",
       "sourceScanPresentInCheckout": true,
       "animationCandidates": [],
-      "gretelGuidance": [
-        "Ll"
-      ],
+      "gretelGuidance": ["Ll"],
       "status": "NATIVE_COMPLETE",
       "certification": null
     },
@@ -1013,9 +886,7 @@
       "lesson": 12,
       "renderer": "FaithfulPageRenderer",
       "structuredContent": "src/data/page-layouts.json#pages.42",
-      "exerciseMechanics": [
-        "fill-in-blank"
-      ],
+      "exerciseMechanics": ["fill-in-blank"],
       "faithfulIllustrations": [],
       "sourceScan": "/cartilla/art/source/workbook/page-042.jpg",
       "legacyScanReference": "/cartilla/images/source/l/l-page-25.jpg",
@@ -1033,10 +904,7 @@
       "lesson": 13,
       "renderer": "FaithfulPageRenderer",
       "structuredContent": "src/data/page-layouts.json#pages.43",
-      "exerciseMechanics": [
-        "writing-line",
-        "draw-box"
-      ],
+      "exerciseMechanics": ["writing-line", "draw-box"],
       "faithfulIllustrations": [],
       "sourceScan": "/cartilla/art/source/workbook/page-043.jpg",
       "legacyScanReference": "/cartilla/images/source/n/n-page-25.jpg",
@@ -1054,17 +922,13 @@
       "lesson": 13,
       "renderer": "FaithfulPageRenderer",
       "structuredContent": "src/data/page-layouts.json#pages.44",
-      "exerciseMechanics": [
-        "syllable-match"
-      ],
+      "exerciseMechanics": ["syllable-match"],
       "faithfulIllustrations": [],
       "sourceScan": "/cartilla/art/source/workbook/page-044.jpg",
       "legacyScanReference": "/cartilla/images/source/n/n-page-26.jpg",
       "sourceScanPresentInCheckout": true,
       "animationCandidates": [],
-      "gretelGuidance": [
-        "Encierra en un círculo la sílaba correspondiente."
-      ],
+      "gretelGuidance": ["Encierra en un círculo la sílaba correspondiente."],
       "status": "NATIVE_COMPLETE",
       "certification": null
     },
@@ -1079,9 +943,7 @@
       "legacyScanReference": "/cartilla/images/source/n/n-page-27.jpg",
       "sourceScanPresentInCheckout": true,
       "animationCandidates": [],
-      "gretelGuidance": [
-        "Nn"
-      ],
+      "gretelGuidance": ["Nn"],
       "status": "NATIVE_COMPLETE",
       "certification": null
     },
@@ -1090,9 +952,7 @@
       "lesson": 13,
       "renderer": "FaithfulPageRenderer",
       "structuredContent": "src/data/page-layouts.json#pages.46",
-      "exerciseMechanics": [
-        "fill-in-blank"
-      ],
+      "exerciseMechanics": ["fill-in-blank"],
       "faithfulIllustrations": [],
       "sourceScan": "/cartilla/art/source/workbook/page-046.jpg",
       "legacyScanReference": "/cartilla/images/source/n/n-page-28.jpg",
@@ -1110,10 +970,7 @@
       "lesson": 14,
       "renderer": "FaithfulPageRenderer",
       "structuredContent": "src/data/page-layouts.json#pages.47",
-      "exerciseMechanics": [
-        "writing-line",
-        "draw-box"
-      ],
+      "exerciseMechanics": ["writing-line", "draw-box"],
       "faithfulIllustrations": [],
       "sourceScan": "/cartilla/art/source/workbook/page-047.jpg",
       "legacyScanReference": "/cartilla/images/source/ñ/ñ-page-28.jpg",
@@ -1131,17 +988,13 @@
       "lesson": 14,
       "renderer": "FaithfulPageRenderer",
       "structuredContent": "src/data/page-layouts.json#pages.48",
-      "exerciseMechanics": [
-        "syllable-match"
-      ],
+      "exerciseMechanics": ["syllable-match"],
       "faithfulIllustrations": [],
       "sourceScan": "/cartilla/art/source/workbook/page-048.jpg",
       "legacyScanReference": "/cartilla/images/source/ñ/ñ-page-29.jpg",
       "sourceScanPresentInCheckout": true,
       "animationCandidates": [],
-      "gretelGuidance": [
-        "Encierra en un círculo la sílaba correspondiente."
-      ],
+      "gretelGuidance": ["Encierra en un círculo la sílaba correspondiente."],
       "status": "NATIVE_COMPLETE",
       "certification": null
     },
@@ -1156,9 +1009,7 @@
       "legacyScanReference": "/cartilla/images/source/ñ/ñ-page-30.jpg",
       "sourceScanPresentInCheckout": true,
       "animationCandidates": [],
-      "gretelGuidance": [
-        "Ññ"
-      ],
+      "gretelGuidance": ["Ññ"],
       "status": "NATIVE_COMPLETE",
       "certification": null
     },
@@ -1167,9 +1018,7 @@
       "lesson": 14,
       "renderer": "FaithfulPageRenderer",
       "structuredContent": "src/data/page-layouts.json#pages.50",
-      "exerciseMechanics": [
-        "fill-in-blank"
-      ],
+      "exerciseMechanics": ["fill-in-blank"],
       "faithfulIllustrations": [],
       "sourceScan": "/cartilla/art/source/workbook/page-050.jpg",
       "legacyScanReference": "/cartilla/images/source/ñ/ñ-page-31.jpg",
@@ -1187,10 +1036,7 @@
       "lesson": 15,
       "renderer": "FaithfulPageRenderer",
       "structuredContent": "src/data/page-layouts.json#pages.51",
-      "exerciseMechanics": [
-        "writing-line",
-        "draw-box"
-      ],
+      "exerciseMechanics": ["writing-line", "draw-box"],
       "faithfulIllustrations": [],
       "sourceScan": "/cartilla/art/source/workbook/page-051.jpg",
       "legacyScanReference": "/cartilla/images/source/b/b-page-31.jpg",
@@ -1208,17 +1054,13 @@
       "lesson": 15,
       "renderer": "FaithfulPageRenderer",
       "structuredContent": "src/data/page-layouts.json#pages.52",
-      "exerciseMechanics": [
-        "syllable-match"
-      ],
+      "exerciseMechanics": ["syllable-match"],
       "faithfulIllustrations": [],
       "sourceScan": "/cartilla/art/source/workbook/page-052.jpg",
       "legacyScanReference": "/cartilla/images/source/b/b-page-32.jpg",
       "sourceScanPresentInCheckout": true,
       "animationCandidates": [],
-      "gretelGuidance": [
-        "Encierra en un círculo la sílaba correspondiente."
-      ],
+      "gretelGuidance": ["Encierra en un círculo la sílaba correspondiente."],
       "status": "NATIVE_COMPLETE",
       "certification": null
     },
@@ -1233,9 +1075,7 @@
       "legacyScanReference": "/cartilla/images/source/b/b-page-33.jpg",
       "sourceScanPresentInCheckout": true,
       "animationCandidates": [],
-      "gretelGuidance": [
-        "Bb"
-      ],
+      "gretelGuidance": ["Bb"],
       "status": "NATIVE_COMPLETE",
       "certification": null
     },
@@ -1244,9 +1084,7 @@
       "lesson": 15,
       "renderer": "FaithfulPageRenderer",
       "structuredContent": "src/data/page-layouts.json#pages.54",
-      "exerciseMechanics": [
-        "fill-in-blank"
-      ],
+      "exerciseMechanics": ["fill-in-blank"],
       "faithfulIllustrations": [],
       "sourceScan": "/cartilla/art/source/workbook/page-054.jpg",
       "legacyScanReference": "/cartilla/images/source/b/b-page-39.png",
@@ -1264,10 +1102,7 @@
       "lesson": 16,
       "renderer": "FaithfulPageRenderer",
       "structuredContent": "src/data/page-layouts.json#pages.55",
-      "exerciseMechanics": [
-        "writing-line",
-        "draw-box"
-      ],
+      "exerciseMechanics": ["writing-line", "draw-box"],
       "faithfulIllustrations": [],
       "sourceScan": "/cartilla/art/source/workbook/page-055.jpg",
       "legacyScanReference": "/cartilla/images/source/v/v-page-34.jpg",
@@ -1285,17 +1120,13 @@
       "lesson": 16,
       "renderer": "FaithfulPageRenderer",
       "structuredContent": "src/data/page-layouts.json#pages.56",
-      "exerciseMechanics": [
-        "syllable-match"
-      ],
+      "exerciseMechanics": ["syllable-match"],
       "faithfulIllustrations": [],
       "sourceScan": "/cartilla/art/source/workbook/page-056.jpg",
       "legacyScanReference": "/cartilla/images/source/v/v-page-35.jpg",
       "sourceScanPresentInCheckout": true,
       "animationCandidates": [],
-      "gretelGuidance": [
-        "Encierra en un círculo la sílaba correspondiente."
-      ],
+      "gretelGuidance": ["Encierra en un círculo la sílaba correspondiente."],
       "status": "NATIVE_COMPLETE",
       "certification": null
     },
@@ -1310,9 +1141,7 @@
       "legacyScanReference": "/cartilla/images/source/v/v-page-36.jpg",
       "sourceScanPresentInCheckout": true,
       "animationCandidates": [],
-      "gretelGuidance": [
-        "Vv"
-      ],
+      "gretelGuidance": ["Vv"],
       "status": "NATIVE_COMPLETE",
       "certification": null
     },
@@ -1321,9 +1150,7 @@
       "lesson": 16,
       "renderer": "FaithfulPageRenderer",
       "structuredContent": "src/data/page-layouts.json#pages.58",
-      "exerciseMechanics": [
-        "fill-in-blank"
-      ],
+      "exerciseMechanics": ["fill-in-blank"],
       "faithfulIllustrations": [],
       "sourceScan": "/cartilla/art/source/workbook/page-058.jpg",
       "legacyScanReference": "/cartilla/images/source/v/v-page-37.jpg",
@@ -1341,10 +1168,7 @@
       "lesson": 17,
       "renderer": "FaithfulPageRenderer",
       "structuredContent": "src/data/page-layouts.json#pages.59",
-      "exerciseMechanics": [
-        "writing-line",
-        "draw-box"
-      ],
+      "exerciseMechanics": ["writing-line", "draw-box"],
       "faithfulIllustrations": [],
       "sourceScan": "/cartilla/art/source/workbook/page-059.jpg",
       "legacyScanReference": "/cartilla/images/source/r/r-page-37.jpg",
@@ -1362,17 +1186,13 @@
       "lesson": 17,
       "renderer": "FaithfulPageRenderer",
       "structuredContent": "src/data/page-layouts.json#pages.60",
-      "exerciseMechanics": [
-        "syllable-match"
-      ],
+      "exerciseMechanics": ["syllable-match"],
       "faithfulIllustrations": [],
       "sourceScan": "/cartilla/art/source/workbook/page-060.jpg",
       "legacyScanReference": "/cartilla/images/source/r/r-page-38.jpg",
       "sourceScanPresentInCheckout": true,
       "animationCandidates": [],
-      "gretelGuidance": [
-        "Encierra en un círculo la sílaba correspondiente."
-      ],
+      "gretelGuidance": ["Encierra en un círculo la sílaba correspondiente."],
       "status": "NATIVE_COMPLETE",
       "certification": null
     },
@@ -1387,9 +1207,7 @@
       "legacyScanReference": "/cartilla/images/source/r/r-page-39.jpg",
       "sourceScanPresentInCheckout": true,
       "animationCandidates": [],
-      "gretelGuidance": [
-        "Rr"
-      ],
+      "gretelGuidance": ["Rr"],
       "status": "NATIVE_COMPLETE",
       "certification": null
     },
@@ -1398,9 +1216,7 @@
       "lesson": 17,
       "renderer": "FaithfulPageRenderer",
       "structuredContent": "src/data/page-layouts.json#pages.62",
-      "exerciseMechanics": [
-        "fill-in-blank"
-      ],
+      "exerciseMechanics": ["fill-in-blank"],
       "faithfulIllustrations": [],
       "sourceScan": "/cartilla/art/source/workbook/page-062.jpg",
       "legacyScanReference": "/cartilla/images/source/r/r-page-40.jpg",
@@ -1418,10 +1234,7 @@
       "lesson": 18,
       "renderer": "FaithfulPageRenderer",
       "structuredContent": "src/data/page-layouts.json#pages.63",
-      "exerciseMechanics": [
-        "writing-line",
-        "draw-box"
-      ],
+      "exerciseMechanics": ["writing-line", "draw-box"],
       "faithfulIllustrations": [],
       "sourceScan": "/cartilla/art/source/workbook/page-063.jpg",
       "legacyScanReference": "/cartilla/images/source/rr/rr-page-40.jpg",
@@ -1439,17 +1252,13 @@
       "lesson": 18,
       "renderer": "FaithfulPageRenderer",
       "structuredContent": "src/data/page-layouts.json#pages.64",
-      "exerciseMechanics": [
-        "syllable-match"
-      ],
+      "exerciseMechanics": ["syllable-match"],
       "faithfulIllustrations": [],
       "sourceScan": "/cartilla/art/source/workbook/page-064.jpg",
       "legacyScanReference": "/cartilla/images/source/rr/rr-page-41.jpg",
       "sourceScanPresentInCheckout": true,
       "animationCandidates": [],
-      "gretelGuidance": [
-        "Encierra en un círculo la sílaba correspondiente."
-      ],
+      "gretelGuidance": ["Encierra en un círculo la sílaba correspondiente."],
       "status": "NATIVE_COMPLETE",
       "certification": null
     },
@@ -1464,9 +1273,7 @@
       "legacyScanReference": "/cartilla/images/source/rr/rr-page-42.jpg",
       "sourceScanPresentInCheckout": true,
       "animationCandidates": [],
-      "gretelGuidance": [
-        "rr"
-      ],
+      "gretelGuidance": ["rr"],
       "status": "NATIVE_COMPLETE",
       "certification": null
     },
@@ -1475,9 +1282,7 @@
       "lesson": 18,
       "renderer": "FaithfulPageRenderer",
       "structuredContent": "src/data/page-layouts.json#pages.66",
-      "exerciseMechanics": [
-        "fill-in-blank"
-      ],
+      "exerciseMechanics": ["fill-in-blank"],
       "faithfulIllustrations": [],
       "sourceScan": "/cartilla/art/source/workbook/page-066.jpg",
       "legacyScanReference": "/cartilla/images/source/rr/rr-page-43.jpg",
@@ -1495,10 +1300,7 @@
       "lesson": 19,
       "renderer": "FaithfulPageRenderer",
       "structuredContent": "src/data/page-layouts.json#pages.67",
-      "exerciseMechanics": [
-        "writing-line",
-        "draw-box"
-      ],
+      "exerciseMechanics": ["writing-line", "draw-box"],
       "faithfulIllustrations": [],
       "sourceScan": "/cartilla/art/source/workbook/page-067.jpg",
       "legacyScanReference": "/cartilla/images/source/g/g-page-43.jpg",
@@ -1516,17 +1318,13 @@
       "lesson": 19,
       "renderer": "FaithfulPageRenderer",
       "structuredContent": "src/data/page-layouts.json#pages.68",
-      "exerciseMechanics": [
-        "syllable-match"
-      ],
+      "exerciseMechanics": ["syllable-match"],
       "faithfulIllustrations": [],
       "sourceScan": "/cartilla/art/source/workbook/page-068.jpg",
       "legacyScanReference": "/cartilla/images/source/g/g-page-44.jpg",
       "sourceScanPresentInCheckout": true,
       "animationCandidates": [],
-      "gretelGuidance": [
-        "Encierra en un círculo la sílaba correspondiente."
-      ],
+      "gretelGuidance": ["Encierra en un círculo la sílaba correspondiente."],
       "status": "NATIVE_COMPLETE",
       "certification": null
     },
@@ -1541,9 +1339,7 @@
       "legacyScanReference": "/cartilla/images/source/g/g-page-45.jpg",
       "sourceScanPresentInCheckout": true,
       "animationCandidates": [],
-      "gretelGuidance": [
-        "Gg"
-      ],
+      "gretelGuidance": ["Gg"],
       "status": "NATIVE_COMPLETE",
       "certification": null
     },
@@ -1552,9 +1348,7 @@
       "lesson": 19,
       "renderer": "FaithfulPageRenderer",
       "structuredContent": "src/data/page-layouts.json#pages.70",
-      "exerciseMechanics": [
-        "fill-in-blank"
-      ],
+      "exerciseMechanics": ["fill-in-blank"],
       "faithfulIllustrations": [],
       "sourceScan": "/cartilla/art/source/workbook/page-070.jpg",
       "legacyScanReference": "/cartilla/images/source/g/g-page-46.jpg",
@@ -1572,10 +1366,7 @@
       "lesson": 20,
       "renderer": "FaithfulPageRenderer",
       "structuredContent": "src/data/page-layouts.json#pages.71",
-      "exerciseMechanics": [
-        "writing-line",
-        "draw-box"
-      ],
+      "exerciseMechanics": ["writing-line", "draw-box"],
       "faithfulIllustrations": [],
       "sourceScan": "/cartilla/art/source/workbook/page-071.jpg",
       "legacyScanReference": "/cartilla/images/source/f/f-page-46.jpg",
@@ -1593,17 +1384,13 @@
       "lesson": 20,
       "renderer": "FaithfulPageRenderer",
       "structuredContent": "src/data/page-layouts.json#pages.72",
-      "exerciseMechanics": [
-        "syllable-match"
-      ],
+      "exerciseMechanics": ["syllable-match"],
       "faithfulIllustrations": [],
       "sourceScan": "/cartilla/art/source/workbook/page-072.jpg",
       "legacyScanReference": "/cartilla/images/source/f/f-page-47.jpg",
       "sourceScanPresentInCheckout": true,
       "animationCandidates": [],
-      "gretelGuidance": [
-        "Encierra en un círculo la sílaba correspondiente."
-      ],
+      "gretelGuidance": ["Encierra en un círculo la sílaba correspondiente."],
       "status": "NATIVE_COMPLETE",
       "certification": null
     },
@@ -1618,9 +1405,7 @@
       "legacyScanReference": "/cartilla/images/source/f/f-page-48.jpg",
       "sourceScanPresentInCheckout": true,
       "animationCandidates": [],
-      "gretelGuidance": [
-        "Ff"
-      ],
+      "gretelGuidance": ["Ff"],
       "status": "NATIVE_COMPLETE",
       "certification": null
     },
@@ -1629,9 +1414,7 @@
       "lesson": 20,
       "renderer": "FaithfulPageRenderer",
       "structuredContent": "src/data/page-layouts.json#pages.74",
-      "exerciseMechanics": [
-        "fill-in-blank"
-      ],
+      "exerciseMechanics": ["fill-in-blank"],
       "faithfulIllustrations": [],
       "sourceScan": "/cartilla/art/source/workbook/page-074.jpg",
       "legacyScanReference": "/cartilla/images/source/f/f-page-49.jpg",
@@ -1649,10 +1432,7 @@
       "lesson": 21,
       "renderer": "FaithfulPageRenderer",
       "structuredContent": "src/data/page-layouts.json#pages.75",
-      "exerciseMechanics": [
-        "writing-line",
-        "draw-box"
-      ],
+      "exerciseMechanics": ["writing-line", "draw-box"],
       "faithfulIllustrations": [],
       "sourceScan": "/cartilla/art/source/workbook/page-075.jpg",
       "legacyScanReference": "/cartilla/images/source/j/j-page-49.jpg",
@@ -1670,17 +1450,13 @@
       "lesson": 21,
       "renderer": "FaithfulPageRenderer",
       "structuredContent": "src/data/page-layouts.json#pages.76",
-      "exerciseMechanics": [
-        "syllable-match"
-      ],
+      "exerciseMechanics": ["syllable-match"],
       "faithfulIllustrations": [],
       "sourceScan": "/cartilla/art/source/workbook/page-076.jpg",
       "legacyScanReference": "/cartilla/images/source/j/j-page-50.jpg",
       "sourceScanPresentInCheckout": true,
       "animationCandidates": [],
-      "gretelGuidance": [
-        "Encierra en un círculo la sílaba correspondiente."
-      ],
+      "gretelGuidance": ["Encierra en un círculo la sílaba correspondiente."],
       "status": "NATIVE_COMPLETE",
       "certification": null
     },
@@ -1695,9 +1471,7 @@
       "legacyScanReference": "/cartilla/images/source/j/j-page-51.jpg",
       "sourceScanPresentInCheckout": true,
       "animationCandidates": [],
-      "gretelGuidance": [
-        "Jj"
-      ],
+      "gretelGuidance": ["Jj"],
       "status": "NATIVE_COMPLETE",
       "certification": null
     },
@@ -1706,9 +1480,7 @@
       "lesson": 21,
       "renderer": "FaithfulPageRenderer",
       "structuredContent": "src/data/page-layouts.json#pages.78",
-      "exerciseMechanics": [
-        "fill-in-blank"
-      ],
+      "exerciseMechanics": ["fill-in-blank"],
       "faithfulIllustrations": [],
       "sourceScan": "/cartilla/art/source/workbook/page-078.jpg",
       "legacyScanReference": null,
@@ -1726,10 +1498,7 @@
       "lesson": 22,
       "renderer": "FaithfulPageRenderer",
       "structuredContent": "src/data/page-layouts.json#pages.79",
-      "exerciseMechanics": [
-        "writing-line",
-        "draw-box"
-      ],
+      "exerciseMechanics": ["writing-line", "draw-box"],
       "faithfulIllustrations": [],
       "sourceScan": "/cartilla/art/source/workbook/page-079.jpg",
       "legacyScanReference": "/cartilla/images/source/c/c-page-52.jpg",
@@ -1747,17 +1516,13 @@
       "lesson": 22,
       "renderer": "FaithfulPageRenderer",
       "structuredContent": "src/data/page-layouts.json#pages.80",
-      "exerciseMechanics": [
-        "syllable-match"
-      ],
+      "exerciseMechanics": ["syllable-match"],
       "faithfulIllustrations": [],
       "sourceScan": "/cartilla/art/source/workbook/page-080.jpg",
       "legacyScanReference": "/cartilla/images/source/c/c-page-53.jpg",
       "sourceScanPresentInCheckout": true,
       "animationCandidates": [],
-      "gretelGuidance": [
-        "Encierra en un círculo la sílaba correspondiente."
-      ],
+      "gretelGuidance": ["Encierra en un círculo la sílaba correspondiente."],
       "status": "NATIVE_COMPLETE",
       "certification": null
     },
@@ -1772,9 +1537,7 @@
       "legacyScanReference": "/cartilla/images/source/c/c-page-54.jpg",
       "sourceScanPresentInCheckout": true,
       "animationCandidates": [],
-      "gretelGuidance": [
-        "Cc"
-      ],
+      "gretelGuidance": ["Cc"],
       "status": "NATIVE_COMPLETE",
       "certification": null
     },
@@ -1783,9 +1546,7 @@
       "lesson": 22,
       "renderer": "FaithfulPageRenderer",
       "structuredContent": "src/data/page-layouts.json#pages.82",
-      "exerciseMechanics": [
-        "fill-in-blank"
-      ],
+      "exerciseMechanics": ["fill-in-blank"],
       "faithfulIllustrations": [],
       "sourceScan": "/cartilla/art/source/workbook/page-082.jpg",
       "legacyScanReference": null,
@@ -1803,10 +1564,7 @@
       "lesson": 23,
       "renderer": "FaithfulPageRenderer",
       "structuredContent": "src/data/page-layouts.json#pages.83",
-      "exerciseMechanics": [
-        "writing-line",
-        "draw-box"
-      ],
+      "exerciseMechanics": ["writing-line", "draw-box"],
       "faithfulIllustrations": [],
       "sourceScan": "/cartilla/art/source/workbook/page-083.jpg",
       "legacyScanReference": "/cartilla/images/source/y/y-page-55.jpg",
@@ -1824,17 +1582,13 @@
       "lesson": 23,
       "renderer": "FaithfulPageRenderer",
       "structuredContent": "src/data/page-layouts.json#pages.84",
-      "exerciseMechanics": [
-        "syllable-match"
-      ],
+      "exerciseMechanics": ["syllable-match"],
       "faithfulIllustrations": [],
       "sourceScan": "/cartilla/art/source/workbook/page-084.jpg",
       "legacyScanReference": "/cartilla/images/source/y/y-page-56.jpg",
       "sourceScanPresentInCheckout": true,
       "animationCandidates": [],
-      "gretelGuidance": [
-        "Encierra en un círculo la sílaba correspondiente."
-      ],
+      "gretelGuidance": ["Encierra en un círculo la sílaba correspondiente."],
       "status": "NATIVE_COMPLETE",
       "certification": null
     },
@@ -1849,9 +1603,7 @@
       "legacyScanReference": "/cartilla/images/source/y/y-page-57.jpg",
       "sourceScanPresentInCheckout": true,
       "animationCandidates": [],
-      "gretelGuidance": [
-        "Yy"
-      ],
+      "gretelGuidance": ["Yy"],
       "status": "NATIVE_COMPLETE",
       "certification": null
     },
@@ -1878,10 +1630,7 @@
       "lesson": 24,
       "renderer": "FaithfulPageRenderer",
       "structuredContent": "src/data/page-layouts.json#pages.87",
-      "exerciseMechanics": [
-        "writing-line",
-        "draw-box"
-      ],
+      "exerciseMechanics": ["writing-line", "draw-box"],
       "faithfulIllustrations": [],
       "sourceScan": null,
       "legacyScanReference": "/cartilla/images/source/z/z-page-58.jpg",
@@ -1899,17 +1648,13 @@
       "lesson": 24,
       "renderer": "FaithfulPageRenderer",
       "structuredContent": "src/data/page-layouts.json#pages.88",
-      "exerciseMechanics": [
-        "syllable-match"
-      ],
+      "exerciseMechanics": ["syllable-match"],
       "faithfulIllustrations": [],
       "sourceScan": "/cartilla/art/source/workbook/page-088.jpg",
       "legacyScanReference": "/cartilla/images/source/z/z-page-59.jpg",
       "sourceScanPresentInCheckout": true,
       "animationCandidates": [],
-      "gretelGuidance": [
-        "Encierra en un círculo la sílaba correspondiente."
-      ],
+      "gretelGuidance": ["Encierra en un círculo la sílaba correspondiente."],
       "status": "NATIVE_COMPLETE",
       "certification": null
     },
@@ -1924,9 +1669,7 @@
       "legacyScanReference": "/cartilla/images/source/z/z-page-60.jpg",
       "sourceScanPresentInCheckout": true,
       "animationCandidates": [],
-      "gretelGuidance": [
-        "Zz"
-      ],
+      "gretelGuidance": ["Zz"],
       "status": "NATIVE_COMPLETE",
       "certification": null
     },
@@ -1935,9 +1678,7 @@
       "lesson": 24,
       "renderer": "FaithfulPageRenderer",
       "structuredContent": "src/data/page-layouts.json#pages.90",
-      "exerciseMechanics": [
-        "fill-in-blank"
-      ],
+      "exerciseMechanics": ["fill-in-blank"],
       "faithfulIllustrations": [],
       "sourceScan": "/cartilla/art/source/workbook/page-090.jpg",
       "legacyScanReference": null,

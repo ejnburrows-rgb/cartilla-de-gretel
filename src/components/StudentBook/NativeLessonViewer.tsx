@@ -2,7 +2,11 @@ import { useCallback, useEffect, useRef, useState } from "react";
 import { ChevronLeft, ChevronRight } from "lucide-react";
 import { gretelEvent } from "@/lib/gretel-bus";
 import { audioEngine } from "@/lib/audio-engine";
-import { LESSON_PAGE_LIFT_MS, LESSON_PAGE_TURN_MS, prefersReducedMotion } from "@/lib/living-motion";
+import {
+  LESSON_PAGE_LIFT_MS,
+  LESSON_PAGE_TURN_MS,
+  prefersReducedMotion,
+} from "@/lib/living-motion";
 import { remainingHint, usePageCompletion } from "@/lib/page-completion";
 import { useFitToPage } from "@/lib/use-fit-to-page";
 import { PageCurl } from "./PageCurl";
@@ -52,9 +56,7 @@ export function NativeLessonViewer({
   /** Require page completion before turning forward (lessons). The complete book browses freely. */
   gated?: boolean;
 }) {
-  const [index, setIndex] = useState(() =>
-    Math.min(Math.max(0, initialPage), pages.length - 1),
-  );
+  const [index, setIndex] = useState(() => Math.min(Math.max(0, initialPage), pages.length - 1));
   const revealTimer = useRef<number | undefined>(undefined);
   const turnTimeoutRef = useRef<number | undefined>(undefined);
   const [hint, setHint] = useState("");
@@ -62,7 +64,9 @@ export function NativeLessonViewer({
   // Turn state
   const [turning, setTurning] = useState(false);
   const [turnDirection, setTurnDirection] = useState<"next" | "prev" | null>(null);
-  const [turnPhase, setTurnPhase] = useState<"idle" | "zoom" | "curling" | "settling" | "dragging">("idle");
+  const [turnPhase, setTurnPhase] = useState<"idle" | "zoom" | "curling" | "settling" | "dragging">(
+    "idle",
+  );
   const [destinationIndex, setDestinationIndex] = useState<number | null>(null);
   const dragProgressRef = useRef(0);
   const dragRafRef = useRef<number | undefined>(undefined);
@@ -105,7 +109,9 @@ export function NativeLessonViewer({
   useEffect(() => {
     if (!completion.complete) return;
     setHint("");
-    document.querySelectorAll("[data-page-remaining]").forEach((el) => el.removeAttribute("data-page-remaining"));
+    document
+      .querySelectorAll("[data-page-remaining]")
+      .forEach((el) => el.removeAttribute("data-page-remaining"));
   }, [completion.complete]);
 
   // Update hint if activity changes
@@ -119,19 +125,26 @@ export function NativeLessonViewer({
   const showRemaining = useCallback(() => {
     const text = remainingHint(completion.remaining);
     setHint(text);
-    document.querySelectorAll("[data-page-remaining]").forEach((el) => el.removeAttribute("data-page-remaining"));
+    document
+      .querySelectorAll("[data-page-remaining]")
+      .forEach((el) => el.removeAttribute("data-page-remaining"));
     completion.remaining.forEach((activity) => {
-      document.querySelector(`[data-gretel-activity="${activity.id}"]`)?.setAttribute("data-page-remaining", "true");
+      document
+        .querySelector(`[data-gretel-activity="${activity.id}"]`)
+        ?.setAttribute("data-page-remaining", "true");
     });
     const first = completion.remaining[0];
-    const target = first ? document.querySelector<HTMLElement>(`[data-gretel-activity="${first.id}"]`) : null;
+    const target = first
+      ? document.querySelector<HTMLElement>(`[data-gretel-activity="${first.id}"]`)
+      : null;
     const reduce = prefersReducedMotion();
     target?.scrollIntoView?.({ behavior: reduce ? "auto" : "smooth", block: "center" });
   }, [completion.remaining]);
 
   const executeTurn = useCallback(
     (targetIndex: number, direction: "next" | "prev") => {
-      if (turning || targetIndex < 0 || targetIndex >= pages.length || targetIndex === index) return;
+      if (turning || targetIndex < 0 || targetIndex >= pages.length || targetIndex === index)
+        return;
 
       if (direction === "next" && !completion.complete) {
         showRemaining();
@@ -253,7 +266,14 @@ export function NativeLessonViewer({
   useEffect(() => {
     const previous = autoTurnBaseline.current;
     autoTurnBaseline.current = { index, complete: completion.complete };
-    if (!autoTurn || previous.index !== index || previous.complete || !completion.complete || isLast) return;
+    if (
+      !autoTurn ||
+      previous.index !== index ||
+      previous.complete ||
+      !completion.complete ||
+      isLast
+    )
+      return;
     const root = containerRef.current;
     let timer: number | undefined;
     const startIdleTimer = () => {
@@ -308,14 +328,22 @@ export function NativeLessonViewer({
       if (!begin || begin.id !== event.pointerId) return;
       const dx = event.clientX - begin.x;
       const dy = event.clientY - begin.y;
-      if (Math.abs(dx) < SWIPE_MIN_PX || Math.abs(dy) > Math.abs(dx) * 0.6 || event.timeStamp - begin.t > 900) return;
+      if (
+        Math.abs(dx) < SWIPE_MIN_PX ||
+        Math.abs(dy) > Math.abs(dx) * 0.6 ||
+        event.timeStamp - begin.t > 900
+      )
+        return;
       // A swipe that starts on a picture must not also choose that picture.
       const swallowClick = (click: MouseEvent) => {
         click.preventDefault();
         click.stopPropagation();
       };
       window.addEventListener("click", swallowClick, { capture: true, once: true });
-      window.setTimeout(() => window.removeEventListener("click", swallowClick, { capture: true }), 400);
+      window.setTimeout(
+        () => window.removeEventListener("click", swallowClick, { capture: true }),
+        400,
+      );
       if (dx < 0) forwardRef.current();
       else turnPrevRef.current();
     };
@@ -339,9 +367,7 @@ export function NativeLessonViewer({
       const target = e.target as HTMLElement | null;
       if (
         target &&
-        (target.tagName === "INPUT" ||
-          target.tagName === "TEXTAREA" ||
-          target.isContentEditable)
+        (target.tagName === "INPUT" || target.tagName === "TEXTAREA" || target.isContentEditable)
       ) {
         return;
       }
@@ -376,9 +402,10 @@ export function NativeLessonViewer({
   const handlePointerMove = (direction: "next" | "prev", e: React.PointerEvent) => {
     if (!dragStartRef.current.active) return;
 
-    const deltaX = direction === "next"
-      ? dragStartRef.current.x - e.clientX
-      : e.clientX - dragStartRef.current.x;
+    const deltaX =
+      direction === "next"
+        ? dragStartRef.current.x - e.clientX
+        : e.clientX - dragStartRef.current.x;
 
     if (!dragStartRef.current.isDragging) {
       if (Math.abs(deltaX) < 6) return; // threshold for drag vs tap
@@ -476,27 +503,30 @@ export function NativeLessonViewer({
         setTurnPhase("curling");
 
         if (turnTimeoutRef.current) window.clearTimeout(turnTimeoutRef.current);
-        turnTimeoutRef.current = window.setTimeout(() => {
-          setTurnPhase("settling");
-          setIndex(targetIdx);
-          onPageChange?.(targetIdx);
-          window.scrollTo({ top: 0, behavior: "instant" });
+        turnTimeoutRef.current = window.setTimeout(
+          () => {
+            setTurnPhase("settling");
+            setIndex(targetIdx);
+            onPageChange?.(targetIdx);
+            window.scrollTo({ top: 0, behavior: "instant" });
 
-          turnTimeoutRef.current = window.setTimeout(() => {
-            setTurning(false);
-            setTurnDirection(null);
-            setTurnPhase("idle");
-            setDestinationIndex(null);
+            turnTimeoutRef.current = window.setTimeout(() => {
+              setTurning(false);
+              setTurnDirection(null);
+              setTurnPhase("idle");
+              setDestinationIndex(null);
 
-            if (revealTimer.current) window.clearTimeout(revealTimer.current);
-            revealTimer.current = window.setTimeout(() => {
-              gretelEvent("page:revealed", {
-                pageNumber: pages[targetIdx]?.pageNumber,
-                text: pages[targetIdx]?.gretelLine,
-              });
-            }, 150);
-          }, 100);
-        }, Math.round(LESSON_PAGE_TURN_MS * (1 - progress)));
+              if (revealTimer.current) window.clearTimeout(revealTimer.current);
+              revealTimer.current = window.setTimeout(() => {
+                gretelEvent("page:revealed", {
+                  pageNumber: pages[targetIdx]?.pageNumber,
+                  text: pages[targetIdx]?.gretelLine,
+                });
+              }, 150);
+            }, 100);
+          },
+          Math.round(LESSON_PAGE_TURN_MS * (1 - progress)),
+        );
       } else {
         // Spring back
         setTurnPhase("idle");
@@ -522,7 +552,8 @@ export function NativeLessonViewer({
   const destPage = destinationIndex !== null ? pages[destinationIndex] : null;
   // Going back, the previous page is the sheet that rolls back in over the
   // current one; going forward, the current sheet rolls away.
-  const rollingBack = turning && turnDirection === "prev" && turnPhase !== "settling" && destPage !== null;
+  const rollingBack =
+    turning && turnDirection === "prev" && turnPhase !== "settling" && destPage !== null;
   const leafPage = rollingBack && destPage ? destPage : page;
   const underPage = rollingBack ? page : destPage;
 
@@ -540,9 +571,8 @@ export function NativeLessonViewer({
       <div className="native-lesson-viewer__topline">
         <span className="native-lesson-viewer__chapter">{chapterLabel}</span>
         <span className="native-lesson-viewer__page">
-          {typeof page.pageNumber === "number"
-            ? `Página ${page.pageNumber}`
-            : "Actividad"}{" · "}
+          {typeof page.pageNumber === "number" ? `Página ${page.pageNumber}` : "Actividad"}
+          {" · "}
           {index + 1} de {pages.length}
         </span>
       </div>
@@ -634,17 +664,15 @@ export function NativeLessonViewer({
             {hint}
           </p>
         )}
-        <nav
-          className="native-lesson-viewer__navigation"
-          aria-label="Navegación de páginas"
-        >
+        <nav className="native-lesson-viewer__navigation" aria-label="Navegación de páginas">
           <button
             type="button"
             onClick={turnPrev}
             disabled={index === 0 || turning}
             data-testid="button-prev"
           >
-            <ChevronLeft size={20} aria-hidden="true" /> <span className="native-lesson-viewer__nav-label">Anterior</span>
+            <ChevronLeft size={20} aria-hidden="true" />{" "}
+            <span className="native-lesson-viewer__nav-label">Anterior</span>
           </button>
           <span>
             {index + 1} / {pages.length}
@@ -658,12 +686,13 @@ export function NativeLessonViewer({
             data-locked={completion.complete ? undefined : "true"}
             data-testid="button-next"
             title={
-              completion.complete
-                ? undefined
-                : "Termina la actividad de esta página para seguir"
+              completion.complete ? undefined : "Termina la actividad de esta página para seguir"
             }
           >
-            <span className="native-lesson-viewer__nav-label">{isBookEnd ? "Fin del cuaderno" : isLast ? "Terminar lección" : "Siguiente"}</span> <ChevronRight size={20} aria-hidden="true" />
+            <span className="native-lesson-viewer__nav-label">
+              {isBookEnd ? "Fin del cuaderno" : isLast ? "Terminar lección" : "Siguiente"}
+            </span>{" "}
+            <ChevronRight size={20} aria-hidden="true" />
           </button>
         </nav>
       </div>

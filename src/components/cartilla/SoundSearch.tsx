@@ -127,7 +127,8 @@ export function SoundSearch({
             La búsqueda del sonido
           </p>
           <h4 className="mt-1 text-lg font-black text-stone-900">
-            Busca las imágenes que empiezan con <span style={{ color }}>{targetSound.toUpperCase()}</span>
+            Busca las imágenes que empiezan con{" "}
+            <span style={{ color }}>{targetSound.toUpperCase()}</span>
           </h4>
         </div>
         <button
@@ -153,11 +154,7 @@ export function SoundSearch({
               whileTap={{ scale: 0.96 }}
               className="relative flex min-h-40 flex-col items-center justify-center gap-2 overflow-hidden rounded-3xl border-2 bg-white p-3 shadow-sm"
               style={{
-                borderColor: isSelected
-                  ? color
-                  : isMiss
-                    ? "#d6a13a"
-                    : "rgba(120,113,108,0.16)",
+                borderColor: isSelected ? color : isMiss ? "#d6a13a" : "rgba(120,113,108,0.16)",
                 background: isMiss ? "#fff8e8" : "#fff",
               }}
               aria-pressed={isSelected}
@@ -170,9 +167,7 @@ export function SoundSearch({
                   className="h-24 w-full"
                 />
               ) : (
-                <span className="text-sm font-bold text-stone-500">
-                  {item.word}
-                </span>
+                <span className="text-sm font-bold text-stone-500">{item.word}</span>
               )}
               <span className="text-sm font-black text-stone-800">{item.word}</span>
               {isSelected && (

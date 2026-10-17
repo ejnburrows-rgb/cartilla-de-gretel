@@ -37,13 +37,16 @@ test.describe("Performance: Current Main", () => {
 
     // Extract performance entries for images
     const imageStats = await page.evaluate(() => {
-      const resourceEntries = performance.getEntriesByType("resource") as PerformanceResourceTiming[];
+      const resourceEntries = performance.getEntriesByType(
+        "resource",
+      ) as PerformanceResourceTiming[];
       return resourceEntries
-        .filter((entry) =>
-          entry.initiatorType === "img" ||
-          entry.initiatorType === "image" ||
-          entry.initiatorType === "css" ||
-          /\.(png|jpe?g|webp|avif|svg)(\?.*)?$/i.test(entry.name)
+        .filter(
+          (entry) =>
+            entry.initiatorType === "img" ||
+            entry.initiatorType === "image" ||
+            entry.initiatorType === "css" ||
+            /\.(png|jpe?g|webp|avif|svg)(\?.*)?$/i.test(entry.name),
         )
         .map((entry) => ({
           name: entry.name,
@@ -64,7 +67,7 @@ test.describe("Performance: Current Main", () => {
 
     writeFileSync(
       "docs/proofs/performance-current-main/report.json",
-      JSON.stringify(reportData, null, 2)
+      JSON.stringify(reportData, null, 2),
     );
 
     expect(lcp).toBeLessThan(2500);
@@ -84,7 +87,9 @@ test.describe("Performance: Current Main", () => {
     await page.waitForLoadState("networkidle");
 
     // Take screenshot of loaded state
-    await page.screenshot({ path: "docs/proofs/performance-current-main/teacher-lesson-1-loaded.png" });
+    await page.screenshot({
+      path: "docs/proofs/performance-current-main/teacher-lesson-1-loaded.png",
+    });
 
     // Measure LCP using PerformanceObserver
     const lcp = await page.evaluate(() => {
@@ -105,13 +110,16 @@ test.describe("Performance: Current Main", () => {
 
     // Extract performance entries for images
     const imageStats = await page.evaluate(() => {
-      const resourceEntries = performance.getEntriesByType("resource") as PerformanceResourceTiming[];
+      const resourceEntries = performance.getEntriesByType(
+        "resource",
+      ) as PerformanceResourceTiming[];
       return resourceEntries
-        .filter((entry) =>
-          entry.initiatorType === "img" ||
-          entry.initiatorType === "image" ||
-          entry.initiatorType === "css" ||
-          /\.(png|jpe?g|webp|avif|svg)(\?.*)?$/i.test(entry.name)
+        .filter(
+          (entry) =>
+            entry.initiatorType === "img" ||
+            entry.initiatorType === "image" ||
+            entry.initiatorType === "css" ||
+            /\.(png|jpe?g|webp|avif|svg)(\?.*)?$/i.test(entry.name),
         )
         .map((entry) => ({
           name: entry.name,
@@ -132,7 +140,7 @@ test.describe("Performance: Current Main", () => {
 
     writeFileSync(
       "docs/proofs/performance-current-main/teacher-report.json",
-      JSON.stringify(reportData, null, 2)
+      JSON.stringify(reportData, null, 2),
     );
 
     expect(lcp).toBeLessThan(2500);

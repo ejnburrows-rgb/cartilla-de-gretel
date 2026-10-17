@@ -6,12 +6,7 @@
     "pageNumber": 1,
     "src": "/cartilla/art/faithful/leccion-1/abrigo.webp",
     "source": "public/cartilla/art/restored/workbook/page-003.png",
-    "cropBox": [
-      230,
-      800,
-      440,
-      520
-    ],
+    "cropBox": [230, 800, 440, 520],
     "provenanceStatus": "VERIFIED-EXACT-WORKBOOK-CROP-2026-08-08",
     "note": "Exact lossless student-workbook drawing. Exhaustive 62-page teacher search confirmed no identical flip-chart counterpart."
   },
@@ -22,12 +17,7 @@
     "pageNumber": 2,
     "src": "/cartilla/art/faithful/leccion-1/globo.webp",
     "source": "public/cartilla/art/restored/workbook/page-004.png",
-    "cropBox": [
-      1740,
-      2985,
-      580,
-      515
-    ],
+    "cropBox": [1740, 2985, 580, 515],
     "provenanceStatus": "VERIFIED-EXACT-WORKBOOK-CROP-2026-08-08",
     "note": "Exact lossless student-workbook drawing. Exhaustive 62-page teacher search confirmed no identical flip-chart counterpart."
   },
@@ -38,12 +28,7 @@
     "pageNumber": 7,
     "src": "/cartilla/art/faithful/vocal-a/abeja.webp",
     "source": "public/cartilla/art/restored/workbook/page-009.png",
-    "cropBox": [
-      720,
-      1420,
-      580,
-      560
-    ],
+    "cropBox": [720, 1420, 580, 560],
     "provenanceStatus": "VERIFIED-EXACT-WORKBOOK-CROP-2026-08-08",
     "note": "Exact lossless student-workbook drawing. Exhaustive 62-page teacher search confirmed no identical flip-chart counterpart."
   },
@@ -54,12 +39,7 @@
     "pageNumber": 7,
     "src": "/cartilla/art/faithful/vocal-o/oruga.webp",
     "source": "public/cartilla/art/restored/workbook/page-009.png",
-    "cropBox": [
-      720,
-      800,
-      580,
-      570
-    ],
+    "cropBox": [720, 800, 580, 570],
     "provenanceStatus": "VERIFIED-EXACT-WORKBOOK-CROP-2026-08-08",
     "note": "Exact lossless student-workbook drawing. Exhaustive 62-page teacher search confirmed no identical flip-chart counterpart."
   },
@@ -70,12 +50,7 @@
     "pageNumber": 7,
     "src": "/cartilla/art/faithful/vocal-a/aguja.webp",
     "source": "public/cartilla/art/restored/workbook/page-009.png",
-    "cropBox": [
-      1350,
-      2650,
-      575,
-      590
-    ],
+    "cropBox": [1350, 2650, 575, 590],
     "provenanceStatus": "VERIFIED-EXACT-WORKBOOK-CROP-2026-08-08",
     "note": "Exact lossless student-workbook drawing. Exhaustive 62-page teacher search confirmed no identical flip-chart counterpart."
   },
@@ -86,12 +61,7 @@
     "pageNumber": null,
     "src": "/cartilla/art/faithful/vocal-i/iglu.webp",
     "source": "public/cartilla/art/hd/flipchart/page-007.jpg",
-    "cropBox": [
-      960,
-      1530,
-      600,
-      570
-    ],
+    "cropBox": [960, 1530, 600, 570],
     "provenanceStatus": "VERIFIED-AUTHENTIC-FLIPCHART-2026-08-08",
     "note": "Exact authentic colored iglú crop from teacher flip-chart page 7. No generated replacement or recoloring.",
     "sourceFlipchartPage": 7
@@ -103,12 +73,7 @@
     "pageNumber": null,
     "src": "/cartilla/art/faithful/vocal-o/oso.webp",
     "sourceFlipchartPage": "o-page-3.jpg",
-    "cropBox": [
-      41,
-      2275,
-      750,
-      554
-    ]
+    "cropBox": [41, 2275, 750, 554]
   },
   {
     "slug": "estrella",
@@ -117,12 +82,7 @@
     "pageNumber": null,
     "src": "/cartilla/art/faithful/vocal-e/estrella.webp",
     "sourceFlipchartPage": 4,
-    "cropBox": [
-      195,
-      3450,
-      780,
-      930
-    ],
+    "cropBox": [195, 3450, 780, 930],
     "sourcePdfPage": 6,
     "sourceRenderScale": 6,
     "provenanceStatus": "VERIFIED-AUTHENTIC-FLIPCHART-2026-09-25",
@@ -135,12 +95,7 @@
     "pageNumber": null,
     "src": "/cartilla/art/faithful/vocal-a/abanico.webp",
     "sourceFlipchartPage": null,
-    "cropBox": [
-      190,
-      1470,
-      550,
-      515
-    ],
+    "cropBox": [190, 1470, 550, 515],
     "source": "public/cartilla/images/source/a/a-page-4.jpg",
     "provenanceStatus": "FIXED-2026-WRONG-CROP",
     "note": "Was showing the ala (wings) crop by mistake. Re-cropped from the real source page a-page-4.jpg, top-left cell (the fan next to anillo/araña, matching the printed abanico/anillo/araña/ala/aro/Ana grid)."
@@ -152,12 +107,7 @@
     "pageNumber": null,
     "src": "/cartilla/art/faithful/vocal-a/alas.webp",
     "sourceFlipchartPage": "a-page-5.jpg",
-    "cropBox": [
-      1045,
-      917,
-      29,
-      38
-    ]
+    "cropBox": [1045, 917, 29, 38]
   },
   {
     "slug": "arana",
@@ -166,12 +116,7 @@
     "pageNumber": null,
     "src": "/cartilla/art/faithful/vocal-a/arana.webp",
     "sourceFlipchartPage": "a-page-4.jpg",
-    "cropBox": [
-      1330,
-      2785,
-      105,
-      9
-    ]
+    "cropBox": [1330, 2785, 105, 9]
   },
   {
     "slug": "elefante",
@@ -180,12 +125,7 @@
     "pageNumber": null,
     "src": "/cartilla/art/faithful/vocal-e/elefante.webp",
     "sourceFlipchartPage": "e-page-5.jpg",
-    "cropBox": [
-      274,
-      1387,
-      1228,
-      811
-    ]
+    "cropBox": [274, 1387, 1228, 811]
   },
   {
     "slug": "erizo",
@@ -194,12 +134,7 @@
     "pageNumber": null,
     "src": "/cartilla/art/faithful/vocal-e/erizo.webp",
     "sourceFlipchartPage": "e-page-11.jpg",
-    "cropBox": [
-      210,
-      598,
-      195,
-      131
-    ]
+    "cropBox": [210, 598, 195, 131]
   },
   {
     "slug": "escalera",
@@ -208,12 +143,7 @@
     "pageNumber": null,
     "src": "/cartilla/art/faithful/vocal-e/escalera.webp",
     "sourceFlipchartPage": "e-page-10.jpg",
-    "cropBox": [
-      230,
-      640,
-      60,
-      115
-    ]
+    "cropBox": [230, 640, 60, 115]
   },
   {
     "slug": "indio",
@@ -222,12 +152,7 @@
     "pageNumber": null,
     "src": "/cartilla/art/faithful/vocal-i/indio.webp",
     "sourceFlipchartPage": "i-page-6.jpg",
-    "cropBox": [
-      1570,
-      1526,
-      773,
-      472
-    ]
+    "cropBox": [1570, 1526, 773, 472]
   },
   {
     "slug": "insecto",
@@ -236,12 +161,7 @@
     "pageNumber": null,
     "src": "/cartilla/art/faithful/vocal-i/insecto.webp",
     "sourceFlipchartPage": 5,
-    "cropBox": [
-      210,
-      3480,
-      900,
-      900
-    ],
+    "cropBox": [210, 3480, 900, 900],
     "sourcePdfPage": 7,
     "sourceRenderScale": 6,
     "provenanceStatus": "VERIFIED-AUTHENTIC-FLIPCHART-2026-09-25",
@@ -254,12 +174,7 @@
     "pageNumber": null,
     "src": "/cartilla/art/faithful/vocal-i/isla.webp",
     "sourceFlipchartPage": 5,
-    "cropBox": [
-      1230,
-      3450,
-      1020,
-      975
-    ],
+    "cropBox": [1230, 3450, 1020, 975],
     "sourcePdfPage": 7,
     "sourceRenderScale": 6,
     "provenanceStatus": "VERIFIED-AUTHENTIC-FLIPCHART-2026-09-25",
@@ -272,12 +187,7 @@
     "pageNumber": null,
     "src": "/cartilla/art/faithful/vocal-o/ocho.webp",
     "sourceFlipchartPage": "o-page-5.jpg",
-    "cropBox": [
-      116,
-      1524,
-      4,
-      8
-    ]
+    "cropBox": [116, 1524, 4, 8]
   },
   {
     "slug": "oreja",
@@ -286,12 +196,7 @@
     "pageNumber": null,
     "src": "/cartilla/art/faithful/vocal-o/oreja.webp",
     "sourceFlipchartPage": "o-page-3.jpg",
-    "cropBox": [
-      1188,
-      2438,
-      11,
-      12
-    ]
+    "cropBox": [1188, 2438, 11, 12]
   },
   {
     "slug": "unicornio",
@@ -300,12 +205,7 @@
     "pageNumber": null,
     "src": "/cartilla/art/faithful/vocal-u/unicornio.webp",
     "sourceFlipchartPage": "u-page-17.jpg",
-    "cropBox": [
-      794,
-      739,
-      320,
-      229
-    ]
+    "cropBox": [794, 739, 320, 229]
   },
   {
     "slug": "espejo",
@@ -314,12 +214,7 @@
     "pageNumber": null,
     "src": "/cartilla/art/faithful/vocal-e/espejo.webp",
     "sourceFlipchartPage": "e-page-5.jpg",
-    "cropBox": [
-      827,
-      2527,
-      256,
-      106
-    ]
+    "cropBox": [827, 2527, 256, 106]
   },
   {
     "slug": "uno",
@@ -328,12 +223,7 @@
     "pageNumber": null,
     "src": "/cartilla/art/faithful/vocal-u/uno.webp",
     "sourceFlipchartPage": "u-page-18.jpg",
-    "cropBox": [
-      68,
-      1556,
-      18,
-      27
-    ]
+    "cropBox": [68, 1556, 18, 27]
   },
   {
     "slug": "oveja",
@@ -342,12 +232,7 @@
     "pageNumber": null,
     "src": "/cartilla/art/faithful/vocal-o/oveja.webp",
     "sourceFlipchartPage": "o-page-3.jpg",
-    "cropBox": [
-      1529,
-      1553,
-      807,
-      511
-    ]
+    "cropBox": [1529, 1553, 807, 511]
   },
   {
     "slug": "avion",
@@ -356,12 +241,7 @@
     "pageNumber": null,
     "src": "/cartilla/art/faithful/vocal-a/avion.webp",
     "sourceFlipchartPage": "a-page-6.jpg",
-    "cropBox": [
-      1168,
-      1572,
-      3,
-      5
-    ]
+    "cropBox": [1168, 1572, 3, 5]
   },
   {
     "slug": "aro",
@@ -370,12 +250,7 @@
     "pageNumber": null,
     "src": "/cartilla/art/faithful/vocal-a/aro.webp",
     "sourceFlipchartPage": 5,
-    "cropBox": [
-      870,
-      2580,
-      780,
-      660
-    ],
+    "cropBox": [870, 2580, 780, 660],
     "source": "public/cartilla/art/hd/flipchart/page-005.jpg",
     "provenanceStatus": "VERIFIED-AUTHENTIC-FLIPCHART-2026-08-08",
     "note": "Exact authentic colored aro crop from teacher flip-chart page 5. The legacy student cells captioned remolino were verified as the same aro drawing and now reference this asset."
@@ -387,12 +262,7 @@
     "pageNumber": null,
     "src": "/cartilla/art/faithful/vocal-i/iman.webp",
     "sourceFlipchartPage": "i-page-6.jpg",
-    "cropBox": [
-      32,
-      1311,
-      781,
-      557
-    ]
+    "cropBox": [32, 1311, 781, 557]
   },
   {
     "slug": "olla",
@@ -401,12 +271,7 @@
     "pageNumber": null,
     "src": "/cartilla/art/faithful/vocal-o/olla.webp",
     "sourceFlipchartPage": "o-page-3.jpg",
-    "cropBox": [
-      50,
-      1338,
-      798,
-      517
-    ]
+    "cropBox": [50, 1338, 798, 517]
   },
   {
     "slug": "uvas",
@@ -415,12 +280,7 @@
     "pageNumber": null,
     "src": "/cartilla/art/faithful/vocal-u/uvas.webp",
     "sourceFlipchartPage": "u-page-7.jpg",
-    "cropBox": [
-      838,
-      1320,
-      738,
-      495
-    ]
+    "cropBox": [838, 1320, 738, 495]
   },
   {
     "slug": "iglesia",
@@ -450,12 +310,7 @@
     "src": "/cartilla/art/faithful/vocal-e/escoba.webp",
     "source": "public/cartilla/images/teacher-flipchart/teacher-page-03.jpg",
     "sourceFlipchartPage": "teacher-page-03.jpg",
-    "cropBox": [
-      478,
-      744,
-      172,
-      220
-    ],
+    "cropBox": [478, 744, 172, 220],
     "provenanceStatus": "FIXED-2026-WRONG-PAGE",
     "note": "Old sourceFlipchartPage (e-page-10.jpg) was a grayscale workbook exercise page, not a colored vocab source — that's why the old crop QA-failed for background contamination. Re-cropped from the real colored teacher flipchart page 3 ('Las hermanitas vocales'), the labeled 'escoba' cell under the e. The lime-green panel is part of the printed illustration, not contamination."
   },
@@ -466,12 +321,7 @@
     "pageNumber": null,
     "src": "/cartilla/art/faithful/leccion-19-c/casa.webp",
     "sourceFlipchartPage": "c-page-52.jpg",
-    "cropBox": [
-      1540,
-      1300,
-      660,
-      540
-    ],
+    "cropBox": [1540, 1300, 660, 540],
     "sourceNote": "house with trees (verify existing)"
   },
   {
@@ -490,12 +340,7 @@
     "pageNumber": null,
     "src": "/cartilla/art/faithful/leccion-1/pajaro.webp",
     "sourceFlipchartPage": "page-003.jpg",
-    "cropBox": [
-      530,
-      1380,
-      360,
-      360
-    ],
+    "cropBox": [530, 1380, 360, 360],
     "provenanceStatus": "BACKFILLED-2026-FROM-FLIPCHART-PAGE-003"
   },
   {
@@ -505,12 +350,7 @@
     "pageNumber": null,
     "src": "/cartilla/art/faithful/leccion-1/dulce.webp",
     "sourceFlipchartPage": "page-003.jpg",
-    "cropBox": [
-      190,
-      200,
-      620,
-      540
-    ],
+    "cropBox": [190, 200, 620, 540],
     "provenanceStatus": "BACKFILLED-2026-FROM-FLIPCHART-PAGE-003"
   },
   {
@@ -520,12 +360,7 @@
     "pageNumber": null,
     "src": "/cartilla/art/faithful/leccion-1/libro.webp",
     "sourceFlipchartPage": "page-003.jpg",
-    "cropBox": [
-      180,
-      50,
-      620,
-      540
-    ],
+    "cropBox": [180, 50, 620, 540],
     "provenanceStatus": "BACKFILLED-2026-FROM-FLIPCHART-PAGE-003"
   },
   {
@@ -535,12 +370,7 @@
     "pageNumber": null,
     "src": "/cartilla/art/faithful/leccion-1/maiz.webp",
     "sourceFlipchartPage": "a-page-4.jpg",
-    "cropBox": [
-      850,
-      2549,
-      448,
-      319
-    ]
+    "cropBox": [850, 2549, 448, 319]
   },
   {
     "slug": "arbol",
@@ -549,12 +379,7 @@
     "pageNumber": null,
     "src": "/cartilla/art/faithful/vocal-a/arbol.webp",
     "sourceFlipchartPage": "a-page-5.jpg",
-    "cropBox": [
-      403,
-      751,
-      222,
-      160
-    ]
+    "cropBox": [403, 751, 222, 160]
   },
   {
     "slug": "ardilla",
@@ -603,12 +428,7 @@
     "pageNumber": null,
     "src": "/cartilla/art/faithful/vocal-i/invierno.webp",
     "sourceFlipchartPage": "i-page-13.jpg",
-    "cropBox": [
-      941,
-      581,
-      140,
-      237
-    ]
+    "cropBox": [941, 581, 140, 237]
   },
   {
     "slug": "uña",
@@ -617,12 +437,7 @@
     "pageNumber": null,
     "src": "/cartilla/art/faithful/vocal-u/uña.webp",
     "sourceFlipchartPage": "u-page-17.jpg",
-    "cropBox": [
-      128,
-      1121,
-      240,
-      216
-    ]
+    "cropBox": [128, 1121, 240, 216]
   },
   {
     "slug": "anillo",
@@ -671,12 +486,7 @@
     "pageNumber": null,
     "src": "/cartilla/art/faithful/vocal-u/uniforme.webp",
     "sourceFlipchartPage": "u-page-17.jpg",
-    "cropBox": [
-      79,
-      471,
-      247,
-      222
-    ]
+    "cropBox": [79, 471, 247, 222]
   },
   {
     "slug": "mama",
@@ -685,12 +495,7 @@
     "pageNumber": null,
     "src": "/cartilla/art/faithful/leccion-7-m/mama.webp",
     "sourceFlipchartPage": "m-page-10.jpg",
-    "cropBox": [
-      231,
-      1095,
-      575,
-      398
-    ]
+    "cropBox": [231, 1095, 575, 398]
   },
   {
     "slug": "mono",
@@ -699,12 +504,7 @@
     "pageNumber": null,
     "src": "/cartilla/art/faithful/leccion-7-m/mono.webp",
     "sourceFlipchartPage": "n-page-25.jpg",
-    "cropBox": [
-      1783,
-      1212,
-      406,
-      743
-    ]
+    "cropBox": [1783, 1212, 406, 743]
   },
   {
     "slug": "papa",
@@ -713,12 +513,7 @@
     "pageNumber": null,
     "src": "/cartilla/art/faithful/leccion-8-p/papa.webp",
     "sourceFlipchartPage": "p-page-11.jpg",
-    "cropBox": [
-      231,
-      1094,
-      575,
-      398
-    ]
+    "cropBox": [231, 1094, 575, 398]
   },
   {
     "slug": "pez",
@@ -727,12 +522,7 @@
     "pageNumber": 16,
     "src": "/cartilla/art/faithful/leccion-1/pez.webp",
     "sourceFlipchartPage": "u-page-16.jpg",
-    "cropBox": [
-      718,
-      350,
-      254,
-      235
-    ]
+    "cropBox": [718, 350, 254, 235]
   },
   {
     "slug": "sapo",
@@ -741,12 +531,7 @@
     "pageNumber": null,
     "src": "/cartilla/art/faithful/leccion-9-s/sapo.webp",
     "sourceFlipchartPage": "ss-page-14.jpg",
-    "cropBox": [
-      1689,
-      1454,
-      594,
-      501
-    ]
+    "cropBox": [1689, 1454, 594, 501]
   },
   {
     "slug": "sopa",
@@ -755,12 +540,7 @@
     "pageNumber": null,
     "src": "/cartilla/art/faithful/leccion-9-s/sopa.webp",
     "sourceFlipchartPage": "ss-page-14.jpg",
-    "cropBox": [
-      938,
-      1470,
-      516,
-      453
-    ]
+    "cropBox": [938, 1470, 516, 453]
   },
   {
     "slug": "dado",
@@ -769,12 +549,7 @@
     "pageNumber": null,
     "src": "/cartilla/art/faithful/leccion-11-d/dado.webp",
     "sourceFlipchartPage": "d-page-19.jpg",
-    "cropBox": [
-      880,
-      1240,
-      630,
-      630
-    ]
+    "cropBox": [880, 1240, 630, 630]
   },
   {
     "slug": "nido",
@@ -783,12 +558,7 @@
     "pageNumber": null,
     "src": "/cartilla/art/faithful/leccion-13-n/nido.webp",
     "sourceFlipchartPage": "n-page-25.jpg",
-    "cropBox": [
-      179,
-      1470,
-      556,
-      399
-    ]
+    "cropBox": [179, 1470, 556, 399]
   },
   {
     "slug": "nino",
@@ -797,12 +567,7 @@
     "pageNumber": null,
     "src": "/cartilla/art/faithful/leccion-14-n/nino.webp",
     "sourceFlipchartPage": 28,
-    "cropBox": [
-      1378,
-      1095,
-      574,
-      398
-    ],
+    "cropBox": [1378, 1095, 574, 398],
     "provenanceStatus": "VERIFIED-AUTHENTIC-FLIPCHART-2026-09-25",
     "note": "Re-cropped 2026-09-25 from authoritative Flip Chart printed page 28 / PDF page 30; removed stray scan/crop-edge bars without redrawing the original art."
   },
@@ -813,12 +578,7 @@
     "pageNumber": null,
     "src": "/cartilla/art/faithful/leccion-15-b/bebe.webp",
     "sourceFlipchartPage": "b-page-31.jpg",
-    "cropBox": [
-      1329,
-      2158,
-      657,
-      438
-    ]
+    "cropBox": [1329, 2158, 657, 438]
   },
   {
     "slug": "bota",
@@ -827,12 +587,7 @@
     "pageNumber": null,
     "src": "/cartilla/art/faithful/leccion-15-b/bota.webp",
     "sourceFlipchartPage": "b-page-31.jpg",
-    "cropBox": [
-      230,
-      1493,
-      574,
-      398
-    ]
+    "cropBox": [230, 1493, 574, 398]
   },
   {
     "slug": "vela",
@@ -841,12 +596,7 @@
     "pageNumber": null,
     "src": "/cartilla/art/faithful/leccion-16-v/vela.webp",
     "sourceFlipchartPage": "v-page-34.jpg",
-    "cropBox": [
-      804,
-      1095,
-      574,
-      398
-    ]
+    "cropBox": [804, 1095, 574, 398]
   },
   {
     "slug": "rana",
@@ -855,12 +605,7 @@
     "pageNumber": null,
     "src": "/cartilla/art/faithful/leccion-17-r/rana.webp",
     "sourceFlipchartPage": "r-page-37.jpg",
-    "cropBox": [
-      60,
-      1325,
-      630,
-      500
-    ]
+    "cropBox": [60, 1325, 630, 500]
   },
   {
     "slug": "rosa",
@@ -869,12 +614,7 @@
     "pageNumber": null,
     "src": "/cartilla/art/faithful/leccion-17-r/rosa.webp",
     "sourceFlipchartPage": "r-page-37.jpg",
-    "cropBox": [
-      420,
-      2150,
-      450,
-      460
-    ]
+    "cropBox": [420, 2150, 450, 460]
   },
   {
     "slug": "remo",
@@ -883,12 +623,7 @@
     "pageNumber": null,
     "src": "/cartilla/art/faithful/leccion-17-r/remo.webp",
     "sourceFlipchartPage": "r-page-37.jpg",
-    "cropBox": [
-      930,
-      1300,
-      590,
-      580
-    ]
+    "cropBox": [930, 1300, 590, 580]
   },
   {
     "slug": "torre",
@@ -897,12 +632,7 @@
     "pageNumber": null,
     "src": "/cartilla/art/faithful/leccion-18-rr/torre.webp",
     "sourceFlipchartPage": "rr-page-40.jpg",
-    "cropBox": [
-      804,
-      1094,
-      574,
-      398
-    ]
+    "cropBox": [804, 1094, 574, 398]
   },
   {
     "slug": "barril",
@@ -911,12 +641,7 @@
     "pageNumber": null,
     "src": "/cartilla/art/faithful/leccion-18-rr/barril.webp",
     "sourceFlipchartPage": "rr-page-40.jpg",
-    "cropBox": [
-      1378,
-      1094,
-      574,
-      398
-    ]
+    "cropBox": [1378, 1094, 574, 398]
   },
   {
     "slug": "cuna",
@@ -925,12 +650,7 @@
     "pageNumber": null,
     "src": "/cartilla/art/faithful/leccion-19-c/cuna.webp",
     "sourceFlipchartPage": "c-page-52.jpg",
-    "cropBox": [
-      120,
-      1300,
-      660,
-      540
-    ],
+    "cropBox": [120, 1300, 660, 540],
     "sourceNote": "baby crib (re-crop correct subject)"
   },
   {
@@ -940,12 +660,7 @@
     "pageNumber": null,
     "src": "/cartilla/art/faithful/leccion-22-y/yoyo.webp",
     "sourceFlipchartPage": "y-page-55.jpg",
-    "cropBox": [
-      1260,
-      2100,
-      700,
-      600
-    ],
+    "cropBox": [1260, 2100, 700, 600],
     "sourceNote": "yo-yo toy"
   },
   {
@@ -955,12 +670,7 @@
     "pageNumber": null,
     "src": "/cartilla/art/faithful/leccion-22-y/yate.webp",
     "sourceFlipchartPage": "y-page-55.jpg",
-    "cropBox": [
-      120,
-      1320,
-      660,
-      520
-    ],
+    "cropBox": [120, 1320, 660, 520],
     "sourceNote": "yacht (re-verify)"
   },
   {
@@ -970,12 +680,7 @@
     "pageNumber": null,
     "src": "/cartilla/art/faithful/leccion-22-y/yema.webp",
     "sourceFlipchartPage": "y-page-55.jpg",
-    "cropBox": [
-      900,
-      1380,
-      560,
-      420
-    ],
+    "cropBox": [900, 1380, 560, 420],
     "sourceNote": "fried egg yolk"
   },
   {
@@ -985,12 +690,7 @@
     "pageNumber": null,
     "src": "/cartilla/art/faithful/leccion-23-z/zapato.webp",
     "sourceFlipchartPage": "z-page-58.jpg",
-    "cropBox": [
-      120,
-      1320,
-      660,
-      520
-    ],
+    "cropBox": [120, 1320, 660, 520],
     "sourceNote": "purple shoe (re-verify)"
   },
   {
@@ -1000,12 +700,7 @@
     "pageNumber": null,
     "src": "/cartilla/art/faithful/leccion-23-z/zorro.webp",
     "sourceFlipchartPage": 58,
-    "cropBox": [
-      1540,
-      1320,
-      680,
-      540
-    ],
+    "cropBox": [1540, 1320, 680, 540],
     "sourceNote": "fox (re-verify)",
     "provenanceStatus": "VERIFIED-AUTHENTIC-FLIPCHART-2026-09-25",
     "note": "Re-cropped 2026-09-25 from authoritative Flip Chart printed page 58 / PDF page 60; removed embedded vertical crop artifact while preserving the full fox and tail."
@@ -1028,12 +723,7 @@
     "pageNumber": 16,
     "src": "/cartilla/art/faithful/leccion-1/arco.webp",
     "sourceFlipchartPage": "u-page-16.jpg",
-    "cropBox": [
-      980,
-      350,
-      252,
-      235
-    ]
+    "cropBox": [980, 350, 252, 235]
   },
   {
     "slug": "aguila",
@@ -1042,12 +732,7 @@
     "pageNumber": 16,
     "src": "/cartilla/art/faithful/leccion-1/aguila.webp",
     "sourceFlipchartPage": "u-page-16.jpg",
-    "cropBox": [
-      980,
-      842,
-      252,
-      236
-    ]
+    "cropBox": [980, 842, 252, 236]
   },
   {
     "slug": "gaveta",
@@ -1056,12 +741,7 @@
     "pageNumber": null,
     "src": "/cartilla/art/faithful/leccion-19-g/gaveta.webp",
     "sourceFlipchartPage": "g-page-43.jpg",
-    "cropBox": [
-      120,
-      1280,
-      700,
-      620
-    ],
+    "cropBox": [120, 1280, 700, 620],
     "sourceNote": "open drawer with papers"
   },
   {
@@ -1071,12 +751,7 @@
     "pageNumber": null,
     "src": "/cartilla/art/faithful/leccion-19-g/gusano.webp",
     "sourceFlipchartPage": "g-page-43.jpg",
-    "cropBox": [
-      820,
-      1480,
-      640,
-      360
-    ],
+    "cropBox": [820, 1480, 640, 360],
     "sourceNote": "green worm (re-crop tight, correct subject)"
   },
   {
@@ -1086,12 +761,7 @@
     "pageNumber": null,
     "src": "/cartilla/art/faithful/leccion-19-g/goloso.webp",
     "sourceFlipchartPage": "g-page-43.jpg",
-    "cropBox": [
-      1560,
-      1300,
-      680,
-      560
-    ],
+    "cropBox": [1560, 1300, 680, 560],
     "sourceNote": "cat Goloso with necktie"
   },
   {
@@ -1101,12 +771,7 @@
     "pageNumber": null,
     "src": "/cartilla/art/faithful/leccion-19-g/gorra.webp",
     "sourceFlipchartPage": "g-page-43.jpg",
-    "cropBox": [
-      300,
-      2140,
-      680,
-      560
-    ],
+    "cropBox": [300, 2140, 680, 560],
     "sourceNote": "striped baseball cap"
   },
   {
@@ -1116,12 +781,7 @@
     "pageNumber": null,
     "src": "/cartilla/art/faithful/leccion-19-g/mago.webp",
     "sourceFlipchartPage": "g-page-43.jpg",
-    "cropBox": [
-      1220,
-      2100,
-      900,
-      700
-    ],
+    "cropBox": [1220, 2100, 900, 700],
     "sourceNote": "magician with rabbit and hat"
   },
   {
@@ -1131,12 +791,7 @@
     "pageNumber": null,
     "src": "/cartilla/art/faithful/leccion-20-f/foto.webp",
     "sourceFlipchartPage": "f-page-46.jpg",
-    "cropBox": [
-      140,
-      1320,
-      640,
-      540
-    ],
+    "cropBox": [140, 1320, 640, 540],
     "sourceNote": "framed portrait photo"
   },
   {
@@ -1146,12 +801,7 @@
     "pageNumber": null,
     "src": "/cartilla/art/faithful/leccion-20-f/fideos.webp",
     "sourceFlipchartPage": "f-page-46.jpg",
-    "cropBox": [
-      860,
-      1300,
-      620,
-      560
-    ],
+    "cropBox": [860, 1300, 620, 560],
     "sourceNote": "man eating noodles/fideos"
   },
   {
@@ -1161,12 +811,7 @@
     "pageNumber": null,
     "src": "/cartilla/art/faithful/leccion-20-f/familia.webp",
     "sourceFlipchartPage": "f-page-46.jpg",
-    "cropBox": [
-      1580,
-      1300,
-      680,
-      560
-    ],
+    "cropBox": [1580, 1300, 680, 560],
     "sourceNote": "family of four"
   },
   {
@@ -1176,12 +821,7 @@
     "pageNumber": null,
     "src": "/cartilla/art/faithful/leccion-20-f/felo.webp",
     "sourceFlipchartPage": "f-page-46.jpg",
-    "cropBox": [
-      220,
-      2200,
-      820,
-      640
-    ],
+    "cropBox": [220, 2200, 820, 640],
     "sourceNote": "man on red tractor Felo"
   },
   {
@@ -1191,12 +831,7 @@
     "pageNumber": null,
     "src": "/cartilla/art/faithful/leccion-20-f/funda.webp",
     "sourceFlipchartPage": "f-page-46.jpg",
-    "cropBox": [
-      1280,
-      2180,
-      720,
-      560
-    ],
+    "cropBox": [1280, 2180, 720, 560],
     "sourceNote": "yellow pillowcase/funda"
   },
   {
@@ -1206,12 +841,7 @@
     "pageNumber": null,
     "src": "/cartilla/art/faithful/leccion-21-j/jirafa.webp",
     "sourceFlipchartPage": "j-page-49.jpg",
-    "cropBox": [
-      60,
-      100,
-      1050,
-      1100
-    ],
+    "cropBox": [60, 100, 1050, 1100],
     "sourceNote": "giraffe with glasses (top scene)"
   },
   {
@@ -1221,12 +851,7 @@
     "pageNumber": null,
     "src": "/cartilla/art/faithful/leccion-21-j/jicotea.webp",
     "sourceFlipchartPage": "j-page-49.jpg",
-    "cropBox": [
-      120,
-      1300,
-      640,
-      520
-    ],
+    "cropBox": [120, 1300, 640, 520],
     "sourceNote": "turtle jicotea"
   },
   {
@@ -1236,12 +861,7 @@
     "pageNumber": null,
     "src": "/cartilla/art/faithful/leccion-21-j/jugo.webp",
     "sourceFlipchartPage": "j-page-49.jpg",
-    "cropBox": [
-      860,
-      1280,
-      620,
-      520
-    ],
+    "cropBox": [860, 1280, 620, 520],
     "sourceNote": "glass of juice with orange"
   },
   {
@@ -1251,12 +871,7 @@
     "pageNumber": null,
     "src": "/cartilla/art/faithful/leccion-21-j/jesus.webp",
     "sourceFlipchartPage": "j-page-49.jpg",
-    "cropBox": [
-      1520,
-      1240,
-      700,
-      580
-    ],
+    "cropBox": [1520, 1240, 700, 580],
     "sourceNote": "boy Jesús with oversized pencil"
   },
   {
@@ -1266,12 +881,7 @@
     "pageNumber": null,
     "src": "/cartilla/art/faithful/leccion-21-j/jarra.webp",
     "sourceFlipchartPage": "j-page-49.jpg",
-    "cropBox": [
-      1180,
-      2100,
-      700,
-      620
-    ],
+    "cropBox": [1180, 2100, 700, 620],
     "sourceNote": "pink pitcher jarra"
   },
   {
@@ -1281,12 +891,7 @@
     "pageNumber": null,
     "src": "/cartilla/art/faithful/leccion-19-c/conejo.webp",
     "sourceFlipchartPage": "c-page-52.jpg",
-    "cropBox": [
-      900,
-      1280,
-      560,
-      540
-    ],
+    "cropBox": [900, 1280, 560, 540],
     "sourceNote": "rabbit with bowtie"
   },
   {
@@ -1296,12 +901,7 @@
     "pageNumber": null,
     "src": "/cartilla/art/faithful/leccion-19-c/cubo.webp",
     "sourceFlipchartPage": "c-page-52.jpg",
-    "cropBox": [
-      320,
-      2120,
-      640,
-      600
-    ],
+    "cropBox": [320, 2120, 640, 600],
     "sourceNote": "green bucket cubo"
   },
   {
@@ -1311,12 +911,7 @@
     "pageNumber": null,
     "src": "/cartilla/art/faithful/leccion-19-c/catalina.webp",
     "sourceFlipchartPage": "c-page-52.jpg",
-    "cropBox": [
-      1280,
-      2080,
-      720,
-      660
-    ],
+    "cropBox": [1280, 2080, 720, 660],
     "sourceNote": "hen Catalina"
   },
   {
@@ -1326,12 +921,7 @@
     "pageNumber": null,
     "src": "/cartilla/art/faithful/leccion-22-y/yayita.webp",
     "sourceFlipchartPage": "y-page-55.jpg",
-    "cropBox": [
-      1560,
-      1260,
-      660,
-      560
-    ],
+    "cropBox": [1560, 1260, 660, 560],
     "sourceNote": "blue octopus-like Yayita character"
   },
   {
@@ -1341,12 +931,7 @@
     "pageNumber": null,
     "src": "/cartilla/art/faithful/leccion-22-y/mayuscula.webp",
     "sourceFlipchartPage": "y-page-55.jpg",
-    "cropBox": [
-      220,
-      2100,
-      780,
-      640
-    ],
+    "cropBox": [220, 2100, 780, 640],
     "sourceNote": "decorated capital Y with girl"
   },
   {
@@ -1356,12 +941,7 @@
     "pageNumber": null,
     "src": "/cartilla/art/faithful/leccion-23-z/zigzag.webp",
     "sourceFlipchartPage": "z-page-58.jpg",
-    "cropBox": [
-      900,
-      1360,
-      560,
-      440
-    ],
+    "cropBox": [900, 1360, 560, 440],
     "sourceNote": "zigzag chevron graphic"
   },
   {
@@ -1371,12 +951,7 @@
     "pageNumber": null,
     "src": "/cartilla/art/faithful/leccion-23-z/zepelin.webp",
     "sourceFlipchartPage": "z-page-58.jpg",
-    "cropBox": [
-      240,
-      2100,
-      760,
-      600
-    ],
+    "cropBox": [240, 2100, 760, 600],
     "sourceNote": "zeppelin airship"
   },
   {
@@ -1386,12 +961,7 @@
     "pageNumber": null,
     "src": "/cartilla/art/faithful/leccion-23-z/zulema.webp",
     "sourceFlipchartPage": "z-page-58.jpg",
-    "cropBox": [
-      1240,
-      2080,
-      780,
-      700
-    ],
+    "cropBox": [1240, 2080, 780, 700],
     "sourceNote": "girl Zulema with pinwheel"
   },
   {
@@ -1495,12 +1065,7 @@
     "pageNumber": null,
     "src": "/cartilla/art/optimized/flipchart-native/p009-amo.png",
     "sourceFlipchartPage": "page-009.jpg",
-    "cropBox": [
-      895,
-      1402,
-      688,
-      727
-    ]
+    "cropBox": [895, 1402, 688, 727]
   },
   {
     "slug": "p009-mama",
@@ -1509,12 +1074,7 @@
     "pageNumber": null,
     "src": "/cartilla/art/optimized/flipchart-native/p009-mama.png",
     "sourceFlipchartPage": "page-009.jpg",
-    "cropBox": [
-      117,
-      1431,
-      553,
-      729
-    ]
+    "cropBox": [117, 1431, 553, 729]
   },
   {
     "slug": "p009-meme",
@@ -1523,12 +1083,7 @@
     "pageNumber": null,
     "src": "/cartilla/art/optimized/flipchart-native/p009-meme.png",
     "sourceFlipchartPage": "page-009.jpg",
-    "cropBox": [
-      586,
-      2443,
-      382,
-      788
-    ]
+    "cropBox": [586, 2443, 382, 788]
   },
   {
     "slug": "p009-mima",
@@ -1537,12 +1092,7 @@
     "pageNumber": null,
     "src": "/cartilla/art/optimized/flipchart-native/p009-mima.png",
     "sourceFlipchartPage": "page-009.jpg",
-    "cropBox": [
-      1686,
-      1349,
-      775,
-      775
-    ]
+    "cropBox": [1686, 1349, 775, 775]
   },
   {
     "slug": "p009-mumi",
@@ -1551,12 +1101,7 @@
     "pageNumber": null,
     "src": "/cartilla/art/optimized/flipchart-native/p009-mumi.png",
     "sourceFlipchartPage": "page-009.jpg",
-    "cropBox": [
-      1359,
-      2448,
-      717,
-      755
-    ]
+    "cropBox": [1359, 2448, 717, 755]
   },
   {
     "slug": "p012-papa",
@@ -1565,12 +1110,7 @@
     "pageNumber": null,
     "src": "/cartilla/art/optimized/flipchart-native/p012-papa.png",
     "sourceFlipchartPage": "page-012.jpg",
-    "cropBox": [
-      143,
-      1380,
-      464,
-      709
-    ]
+    "cropBox": [143, 1380, 464, 709]
   },
   {
     "slug": "p012-pepe",
@@ -1579,12 +1119,7 @@
     "pageNumber": null,
     "src": "/cartilla/art/optimized/flipchart-native/p012-pepe.png",
     "sourceFlipchartPage": "page-012.jpg",
-    "cropBox": [
-      1737,
-      1313,
-      778,
-      780
-    ]
+    "cropBox": [1737, 1313, 778, 780]
   },
   {
     "slug": "p012-pie",
@@ -1593,12 +1128,7 @@
     "pageNumber": null,
     "src": "/cartilla/art/optimized/flipchart-native/p012-pie.png",
     "sourceFlipchartPage": "page-012.jpg",
-    "cropBox": [
-      885,
-      1612,
-      676,
-      456
-    ]
+    "cropBox": [885, 1612, 676, 456]
   },
   {
     "slug": "p012-pomo",
@@ -1607,12 +1137,7 @@
     "pageNumber": null,
     "src": "/cartilla/art/optimized/flipchart-native/p012-pomo.png",
     "sourceFlipchartPage": "page-012.jpg",
-    "cropBox": [
-      1596,
-      2512,
-      393,
-      706
-    ]
+    "cropBox": [1596, 2512, 393, 706]
   },
   {
     "slug": "p012-puma",
@@ -1621,12 +1146,7 @@
     "pageNumber": null,
     "src": "/cartilla/art/optimized/flipchart-native/p012-puma.png",
     "sourceFlipchartPage": "page-012.jpg",
-    "cropBox": [
-      176,
-      2468,
-      694,
-      752
-    ]
+    "cropBox": [176, 2468, 694, 752]
   },
   {
     "slug": "p015-pisa",
@@ -1635,12 +1155,7 @@
     "pageNumber": null,
     "src": "/cartilla/art/optimized/flipchart-native/p015-pisa.png",
     "sourceFlipchartPage": "page-015.jpg",
-    "cropBox": [
-      342,
-      2606,
-      813,
-      561
-    ]
+    "cropBox": [342, 2606, 813, 561]
   },
   {
     "slug": "p015-sapo",
@@ -1649,12 +1164,7 @@
     "pageNumber": null,
     "src": "/cartilla/art/optimized/flipchart-native/p015-sapo.png",
     "sourceFlipchartPage": "page-015.jpg",
-    "cropBox": [
-      1734,
-      1584,
-      691,
-      538
-    ]
+    "cropBox": [1734, 1584, 691, 538]
   },
   {
     "slug": "p015-sesi",
@@ -1663,12 +1173,7 @@
     "pageNumber": null,
     "src": "/cartilla/art/optimized/flipchart-native/p015-sesi.png",
     "sourceFlipchartPage": "page-015.jpg",
-    "cropBox": [
-      252,
-      1443,
-      615,
-      750
-    ]
+    "cropBox": [252, 1443, 615, 750]
   },
   {
     "slug": "p015-sopa",
@@ -1677,12 +1182,7 @@
     "pageNumber": null,
     "src": "/cartilla/art/optimized/flipchart-native/p015-sopa.png",
     "sourceFlipchartPage": "page-015.jpg",
-    "cropBox": [
-      954,
-      1701,
-      615,
-      380
-    ]
+    "cropBox": [954, 1701, 615, 380]
   },
   {
     "slug": "p015-susi",
@@ -1691,12 +1191,7 @@
     "pageNumber": null,
     "src": "/cartilla/art/optimized/flipchart-native/p015-susi.png",
     "sourceFlipchartPage": "page-015.jpg",
-    "cropBox": [
-      1415,
-      2430,
-      586,
-      785
-    ]
+    "cropBox": [1415, 2430, 586, 785]
   },
   {
     "slug": "p018-tapa",
@@ -1705,12 +1200,7 @@
     "pageNumber": null,
     "src": "/cartilla/art/optimized/flipchart-native/p018-tapa.webp",
     "sourceFlipchartPage": "page-018.jpg",
-    "cropBox": [
-      892,
-      1454,
-      727,
-      586
-    ]
+    "cropBox": [892, 1454, 727, 586]
   },
   {
     "slug": "p018-tipi",
@@ -1719,12 +1209,7 @@
     "pageNumber": null,
     "src": "/cartilla/art/optimized/flipchart-native/p018-tipi.webp",
     "sourceFlipchartPage": "page-018.jpg",
-    "cropBox": [
-      242,
-      2270,
-      816,
-      778
-    ]
+    "cropBox": [242, 2270, 816, 778]
   },
   {
     "slug": "p018-tomate",
@@ -1733,12 +1218,7 @@
     "pageNumber": null,
     "src": "/cartilla/art/optimized/flipchart-native/p018-tomate.webp",
     "sourceFlipchartPage": "page-018.jpg",
-    "cropBox": [
-      89,
-      1466,
-      688,
-      625
-    ]
+    "cropBox": [89, 1466, 688, 625]
   },
   {
     "slug": "p018-topo",
@@ -1747,12 +1227,7 @@
     "pageNumber": null,
     "src": "/cartilla/art/optimized/flipchart-native/p018-topo.webp",
     "sourceFlipchartPage": "page-018.jpg",
-    "cropBox": [
-      1759,
-      1390,
-      663,
-      688
-    ]
+    "cropBox": [1759, 1390, 663, 688]
   },
   {
     "slug": "p018-tuto",
@@ -1761,12 +1236,7 @@
     "pageNumber": null,
     "src": "/cartilla/art/optimized/flipchart-native/p018-tuto.webp",
     "sourceFlipchartPage": "page-018.jpg",
-    "cropBox": [
-      1377,
-      2323,
-      803,
-      775
-    ]
+    "cropBox": [1377, 2323, 803, 775]
   },
   {
     "slug": "p021-dados",
@@ -1775,12 +1245,7 @@
     "pageNumber": null,
     "src": "/cartilla/art/optimized/flipchart-native/p021-dados.webp",
     "sourceFlipchartPage": "page-021.jpg",
-    "cropBox": [
-      959,
-      1316,
-      625,
-      638
-    ]
+    "cropBox": [959, 1316, 625, 638]
   },
   {
     "slug": "p021-dedo",
@@ -1789,12 +1254,7 @@
     "pageNumber": null,
     "src": "/cartilla/art/optimized/flipchart-native/p021-dedo.webp",
     "sourceFlipchartPage": "page-021.jpg",
-    "cropBox": [
-      1887,
-      1308,
-      459,
-      653
-    ]
+    "cropBox": [1887, 1308, 459, 653]
   },
   {
     "slug": "p021-didi",
@@ -1803,12 +1263,7 @@
     "pageNumber": null,
     "src": "/cartilla/art/optimized/flipchart-native/p021-didi.webp",
     "sourceFlipchartPage": "page-021.jpg",
-    "cropBox": [
-      107,
-      1390,
-      528,
-      589
-    ]
+    "cropBox": [107, 1390, 528, 589]
   },
   {
     "slug": "p021-doce",
@@ -1817,12 +1272,7 @@
     "pageNumber": null,
     "src": "/cartilla/art/optimized/flipchart-native/p021-doce.webp",
     "sourceFlipchartPage": "page-021.jpg",
-    "cropBox": [
-      311,
-      2318,
-      592,
-      740
-    ]
+    "cropBox": [311, 2318, 592, 740]
   },
   {
     "slug": "p021-dunia",
@@ -1831,12 +1281,7 @@
     "pageNumber": null,
     "src": "/cartilla/art/optimized/flipchart-native/p021-dunia.webp",
     "sourceFlipchartPage": "page-021.jpg",
-    "cropBox": [
-      1295,
-      2331,
-      921,
-      653
-    ]
+    "cropBox": [1295, 2331, 921, 653]
   },
   {
     "slug": "p024-lala",
@@ -1845,12 +1290,7 @@
     "pageNumber": null,
     "src": "/cartilla/art/optimized/flipchart-native/p024-lala.png",
     "sourceFlipchartPage": "page-024.jpg",
-    "cropBox": [
-      1441,
-      2474,
-      714,
-      625
-    ]
+    "cropBox": [1441, 2474, 714, 625]
   },
   {
     "slug": "p024-lata",
@@ -1859,12 +1299,7 @@
     "pageNumber": null,
     "src": "/cartilla/art/optimized/flipchart-native/p024-lata.webp",
     "sourceFlipchartPage": "page-024.jpg",
-    "cropBox": [
-      982,
-      1415,
-      625,
-      688
-    ]
+    "cropBox": [982, 1415, 625, 688]
   },
   {
     "slug": "p024-loma",
@@ -1873,12 +1308,7 @@
     "pageNumber": null,
     "src": "/cartilla/art/optimized/flipchart-native/p024-loma.webp",
     "sourceFlipchartPage": "page-024.jpg",
-    "cropBox": [
-      229,
-      2422,
-      918,
-      740
-    ]
+    "cropBox": [229, 2422, 918, 740]
   },
   {
     "slug": "p024-luli",
@@ -1887,12 +1317,7 @@
     "pageNumber": null,
     "src": "/cartilla/art/optimized/flipchart-native/p024-luli.webp",
     "sourceFlipchartPage": "page-024.jpg",
-    "cropBox": [
-      1836,
-      1275,
-      561,
-      816
-    ]
+    "cropBox": [1836, 1275, 561, 816]
   },
   {
     "slug": "p024-maleta",
@@ -1901,12 +1326,7 @@
     "pageNumber": null,
     "src": "/cartilla/art/optimized/flipchart-native/p024-maleta.webp",
     "sourceFlipchartPage": "page-024.jpg",
-    "cropBox": [
-      115,
-      1415,
-      625,
-      701
-    ]
+    "cropBox": [115, 1415, 625, 701]
   },
   {
     "slug": "p027-mono",
@@ -1915,12 +1335,7 @@
     "pageNumber": null,
     "src": "/cartilla/art/optimized/flipchart-native/p027-mono.png",
     "sourceFlipchartPage": "page-027.jpg",
-    "cropBox": [
-      1821,
-      1336,
-      462,
-      765
-    ]
+    "cropBox": [1821, 1336, 462, 765]
   },
   {
     "slug": "p027-napi",
@@ -1929,12 +1344,7 @@
     "pageNumber": null,
     "src": "/cartilla/art/optimized/flipchart-native/p027-napi.png",
     "sourceFlipchartPage": "page-027.jpg",
-    "cropBox": [
-      311,
-      2471,
-      673,
-      714
-    ]
+    "cropBox": [311, 2471, 673, 714]
   },
   {
     "slug": "p027-nido",
@@ -1943,12 +1353,7 @@
     "pageNumber": null,
     "src": "/cartilla/art/optimized/flipchart-native/p027-nido.png",
     "sourceFlipchartPage": "page-027.jpg",
-    "cropBox": [
-      145,
-      1619,
-      625,
-      428
-    ]
+    "cropBox": [145, 1619, 625, 428]
   },
   {
     "slug": "p027-nudo",
@@ -1957,12 +1362,7 @@
     "pageNumber": null,
     "src": "/cartilla/art/optimized/flipchart-native/p027-nudo.png",
     "sourceFlipchartPage": "page-027.jpg",
-    "cropBox": [
-      900,
-      1573,
-      663,
-      520
-    ]
+    "cropBox": [900, 1573, 663, 520]
   },
   {
     "slug": "p027-tenedor",
@@ -1971,12 +1371,7 @@
     "pageNumber": null,
     "src": "/cartilla/art/optimized/flipchart-native/p027-tenedor.png",
     "sourceFlipchartPage": "page-027.jpg",
-    "cropBox": [
-      1637,
-      2361,
-      176,
-      824
-    ]
+    "cropBox": [1637, 2361, 176, 824]
   },
   {
     "slug": "p030-mene",
@@ -1985,12 +1380,7 @@
     "pageNumber": null,
     "src": "/cartilla/art/optimized/flipchart-native/p030-mene.png",
     "sourceFlipchartPage": "page-030.jpg",
-    "cropBox": [
-      1446,
-      2310,
-      500,
-      803
-    ]
+    "cropBox": [1446, 2310, 500, 803]
   },
   {
     "slug": "p030-mono",
@@ -1999,12 +1389,7 @@
     "pageNumber": null,
     "src": "/cartilla/art/optimized/flipchart-native/p030-mono.png",
     "sourceFlipchartPage": "page-030.jpg",
-    "cropBox": [
-      319,
-      2359,
-      617,
-      745
-    ]
+    "cropBox": [319, 2359, 617, 745]
   },
   {
     "slug": "p030-ninito",
@@ -2013,12 +1398,7 @@
     "pageNumber": null,
     "src": "/cartilla/art/optimized/flipchart-native/p030-ninito.png",
     "sourceFlipchartPage": "page-030.jpg",
-    "cropBox": [
-      1833,
-      1364,
-      490,
-      666
-    ]
+    "cropBox": [1833, 1364, 490, 666]
   },
   {
     "slug": "p030-nuno",
@@ -2027,12 +1407,7 @@
     "pageNumber": null,
     "src": "/cartilla/art/optimized/flipchart-native/p030-nuno.png",
     "sourceFlipchartPage": "page-030.jpg",
-    "cropBox": [
-      1033,
-      1300,
-      490,
-      734
-    ]
+    "cropBox": [1033, 1300, 490, 734]
   },
   {
     "slug": "p030-pinata",
@@ -2041,12 +1416,7 @@
     "pageNumber": null,
     "src": "/cartilla/art/optimized/flipchart-native/p030-pinata.png",
     "sourceFlipchartPage": "page-030.jpg",
-    "cropBox": [
-      117,
-      1433,
-      553,
-      602
-    ]
+    "cropBox": [117, 1433, 553, 602]
   },
   {
     "slug": "p033-bate",
@@ -2055,12 +1425,7 @@
     "pageNumber": null,
     "src": "/cartilla/art/optimized/flipchart-native/p033-bate.png",
     "sourceFlipchartPage": "page-033.jpg",
-    "cropBox": [
-      1785,
-      1344,
-      548,
-      673
-    ]
+    "cropBox": [1785, 1344, 548, 673]
   },
   {
     "slug": "p033-beba",
@@ -2069,12 +1434,7 @@
     "pageNumber": null,
     "src": "/cartilla/art/optimized/flipchart-native/p033-beba.png",
     "sourceFlipchartPage": "page-033.jpg",
-    "cropBox": [
-      145,
-      1459,
-      604,
-      569
-    ]
+    "cropBox": [145, 1459, 604, 569]
   },
   {
     "slug": "p033-bebita",
@@ -2083,12 +1443,7 @@
     "pageNumber": null,
     "src": "/cartilla/art/optimized/flipchart-native/p033-bebita.png",
     "sourceFlipchartPage": "page-033.jpg",
-    "cropBox": [
-      1364,
-      2346,
-      711,
-      783
-    ]
+    "cropBox": [1364, 2346, 711, 783]
   },
   {
     "slug": "p033-bota",
@@ -2097,12 +1452,7 @@
     "pageNumber": null,
     "src": "/cartilla/art/optimized/flipchart-native/p033-bota.png",
     "sourceFlipchartPage": "page-033.jpg",
-    "cropBox": [
-      342,
-      2456,
-      607,
-      663
-    ]
+    "cropBox": [342, 2456, 607, 663]
   },
   {
     "slug": "p033-bubi",
@@ -2111,12 +1461,7 @@
     "pageNumber": null,
     "src": "/cartilla/art/optimized/flipchart-native/p033-bubi.png",
     "sourceFlipchartPage": "page-033.jpg",
-    "cropBox": [
-      931,
-      1433,
-      640,
-      586
-    ]
+    "cropBox": [931, 1433, 640, 586]
   },
   {
     "slug": "p036-pavo",
@@ -2125,12 +1470,7 @@
     "pageNumber": null,
     "src": "/cartilla/art/optimized/flipchart-native/p036-pavo.png",
     "sourceFlipchartPage": "page-036.jpg",
-    "cropBox": [
-      380,
-      2486,
-      589,
-      663
-    ]
+    "cropBox": [380, 2486, 589, 663]
   },
   {
     "slug": "p036-vaso",
@@ -2139,12 +1479,7 @@
     "pageNumber": null,
     "src": "/cartilla/art/optimized/flipchart-native/p036-vaso.png",
     "sourceFlipchartPage": "page-036.jpg",
-    "cropBox": [
-      288,
-      1533,
-      258,
-      495
-    ]
+    "cropBox": [288, 1533, 258, 495]
   },
   {
     "slug": "p036-vela",
@@ -2153,12 +1488,7 @@
     "pageNumber": null,
     "src": "/cartilla/art/optimized/flipchart-native/p036-vela.png",
     "sourceFlipchartPage": "page-036.jpg",
-    "cropBox": [
-      1012,
-      1451,
-      556,
-      599
-    ]
+    "cropBox": [1012, 1451, 556, 599]
   },
   {
     "slug": "p036-vita",
@@ -2167,12 +1497,7 @@
     "pageNumber": null,
     "src": "/cartilla/art/optimized/flipchart-native/p036-vita.png",
     "sourceFlipchartPage": "page-036.jpg",
-    "cropBox": [
-      1803,
-      1413,
-      561,
-      643
-    ]
+    "cropBox": [1803, 1413, 561, 643]
   },
   {
     "slug": "p036-vuli",
@@ -2181,11 +1506,6 @@
     "pageNumber": null,
     "src": "/cartilla/art/optimized/flipchart-native/p036-vuli.png",
     "sourceFlipchartPage": "page-036.jpg",
-    "cropBox": [
-      1367,
-      2639,
-      783,
-      533
-    ]
+    "cropBox": [1367, 2639, 783, 533]
   }
 ]

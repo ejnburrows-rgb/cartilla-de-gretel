@@ -187,18 +187,20 @@ function FolderLessonRow({
     content = data.rhymeTitle ? (
       <span>Refuerzo de sílabas + practicar en casa la rima "{data.rhymeTitle}".</span>
     ) : (
-      <span className="text-amber-600 font-bold">
-        Material pendiente de la guía original.
-      </span>
+      <span className="text-amber-600 font-bold">Material pendiente de la guía original.</span>
     );
     activityLabel = `Tarea para el hogar — Lección ${entry.n}`;
   } else if (folderKey === "evaluaciones") {
     content = data.evaluationPage ? (
-      <Link to="/cartilla/teacher/paginas/$n" params={{ n: String(entry.n) }} className="underline decoration-dotted">Abrir actividades · evaluación, página {data.evaluationPage}.</Link>
+      <Link
+        to="/cartilla/teacher/paginas/$n"
+        params={{ n: String(entry.n) }}
+        className="underline decoration-dotted"
+      >
+        Abrir actividades · evaluación, página {data.evaluationPage}.
+      </Link>
     ) : (
-      <span className="text-amber-600 font-bold">
-        Referencia pendiente de la guía original.
-      </span>
+      <span className="text-amber-600 font-bold">Referencia pendiente de la guía original.</span>
     );
     activityLabel = `Evaluación — Lección ${entry.n} (página ${data.evaluationPage ?? "?"})`;
   } else {
@@ -210,9 +212,7 @@ function FolderLessonRow({
         </span>
       </span>
     ) : (
-      <span className="text-amber-600 font-bold">
-        Poema pendiente de la guía original.
-      </span>
+      <span className="text-amber-600 font-bold">Poema pendiente de la guía original.</span>
     );
     activityLabel = `Poema — Lección ${entry.n} (${data.rhymeTitle ?? "sin título"})`;
   }

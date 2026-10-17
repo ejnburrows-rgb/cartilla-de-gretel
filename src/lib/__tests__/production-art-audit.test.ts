@@ -6,9 +6,7 @@ import path from "node:path";
 
 const root = process.cwd();
 const auditPath = path.join(root, "docs/production-art-classification-audit.json");
-const audit = existsSync(auditPath)
-  ? JSON.parse(readFileSync(auditPath, "utf8"))
-  : null;
+const audit = existsSync(auditPath) ? JSON.parse(readFileSync(auditPath, "utf8")) : null;
 
 const bySrc = new Map((audit?.faithfulAudit ?? []).map((item: any) => [item.src, item]));
 
@@ -83,49 +81,56 @@ describe.skipIf(!audit)("production foreground art audit truthfulness", () => {
     // stay pending: presence of metadata is not proof of provenance.
     const metadataOnly = audit.nativeAudit.filter(
       (item: any) =>
-        item.exists && item.sourcePageMatches && item.hasCropEvidence && item.classification !== "PASS",
+        item.exists &&
+        item.sourcePageMatches &&
+        item.hasCropEvidence &&
+        item.classification !== "PASS",
     );
     expect(metadataOnly.length).toBeGreaterThan(0);
     expect(metadataOnly.every((item: any) => item.cropMatch === false)).toBe(true);
   });
 
-  it("reproduces the committed audit and locks the native evidence schema", { timeout: 60_000 }, () => {
-    const tempDir = mkdtempSync(path.join(tmpdir(), "cartilla-art-audit-"));
-    const output = path.join(tempDir, "audit.json");
-    try {
-      execFileSync(process.execPath, [path.join(root, "scripts", "audit-foreground-art.mjs")], {
-        cwd: root,
-        env: { ...process.env, ART_AUDIT_OUTPUT: output },
-        stdio: "pipe",
-      });
-      const generated = JSON.parse(readFileSync(output, "utf8"));
-      const committed = structuredClone(audit);
-      delete generated.timestamp;
-      delete committed.timestamp;
-      expect(generated).toEqual(committed);
-      expect(
-        generated.nativeAudit.every(
-          (item: any) =>
-            !("approvedInput" in item) &&
-            "sourcePage" in item &&
-            Array.isArray(item.crop) &&
-            typeof item.verified === "boolean" &&
-            typeof item.sourcePageMatches === "boolean" &&
-            typeof item.hasCropEvidence === "boolean" &&
-            typeof item.cropMatch === "boolean" &&
-            typeof item.aspectMatch === "boolean" &&
-            (item.matchScore === null || typeof item.matchScore === "number") &&
-            (item.meanDiff === null || typeof item.meanDiff === "number") &&
-            (item.evidence === null || typeof item.evidence === "string") &&
-            (item.classification === "PASS"
-              ? item.pendingReason === null
-              : typeof item.pendingReason === "string"),
-        ),
-      ).toBe(true);
-    } finally {
-      rmSync(tempDir, { recursive: true, force: true });
-    }
-  });
+  it(
+    "reproduces the committed audit and locks the native evidence schema",
+    { timeout: 60_000 },
+    () => {
+      const tempDir = mkdtempSync(path.join(tmpdir(), "cartilla-art-audit-"));
+      const output = path.join(tempDir, "audit.json");
+      try {
+        execFileSync(process.execPath, [path.join(root, "scripts", "audit-foreground-art.mjs")], {
+          cwd: root,
+          env: { ...process.env, ART_AUDIT_OUTPUT: output },
+          stdio: "pipe",
+        });
+        const generated = JSON.parse(readFileSync(output, "utf8"));
+        const committed = structuredClone(audit);
+        delete generated.timestamp;
+        delete committed.timestamp;
+        expect(generated).toEqual(committed);
+        expect(
+          generated.nativeAudit.every(
+            (item: any) =>
+              !("approvedInput" in item) &&
+              "sourcePage" in item &&
+              Array.isArray(item.crop) &&
+              typeof item.verified === "boolean" &&
+              typeof item.sourcePageMatches === "boolean" &&
+              typeof item.hasCropEvidence === "boolean" &&
+              typeof item.cropMatch === "boolean" &&
+              typeof item.aspectMatch === "boolean" &&
+              (item.matchScore === null || typeof item.matchScore === "number") &&
+              (item.meanDiff === null || typeof item.meanDiff === "number") &&
+              (item.evidence === null || typeof item.evidence === "string") &&
+              (item.classification === "PASS"
+                ? item.pendingReason === null
+                : typeof item.pendingReason === "string"),
+          ),
+        ).toBe(true);
+      } finally {
+        rmSync(tempDir, { recursive: true, force: true });
+      }
+    },
+  );
 
   it("does not misclassify backfilled source crops as verified color transfers", () => {
     for (const src of [

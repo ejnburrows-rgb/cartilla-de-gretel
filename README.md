@@ -1,6 +1,6 @@
 # La Cartilla de Gretel
 
-Digital classroom edition of *La Cartilla de Gretel* by Leonor Lopetegui.
+Digital classroom edition of _La Cartilla de Gretel_ by Leonor Lopetegui.
 
 ## Artwork evidence (October 14, 2026)
 
@@ -11,6 +11,7 @@ The source-faithful image availability reconciliation lives in [PR #751](https:/
 `AGENTS.md` defines the complete active instruction hierarchy; follow that hierarchy.
 
 Repository/runtime state is interpreted as follows:
+
 - `main` = the current repository source tree.
 - live Vercel = deployed/runtime truth and must be checked directly when deployment state matters.
 - an open PR = candidate state, not current `main` and not deployed truth.

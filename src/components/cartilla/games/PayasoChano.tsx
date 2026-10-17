@@ -146,7 +146,7 @@ export function PayasoChano({ content, lessonId, onComplete }: PayasoChanoProps)
     if (state.completed && !hasCelebrated.current) {
       hasCelebrated.current = true;
       completedWordsRef.current.add(wordIdx);
-      
+
       recordEvent({
         lessonId: lessonId ?? content.id,
         kind: "exercise",
@@ -154,7 +154,7 @@ export function PayasoChano({ content, lessonId, onComplete }: PayasoChanoProps)
         total: state.attempts,
         meta: { exercise: "payaso_chano", word: word.word, completed: true },
       });
-      
+
       if (completedWordsRef.current.size === content.words.length) {
         if (!globalCelebratedRef.current) {
           globalCelebratedRef.current = true;

@@ -1,10 +1,5 @@
 import { afterEach, expect, it, vi } from "vitest";
-import {
-  SEED_TEACHERS,
-  isSeedSessionActive,
-  startTeacherReview,
-  getSeedClass,
-} from "../seed-data";
+import { SEED_TEACHERS, isSeedSessionActive, startTeacherReview, getSeedClass } from "../seed-data";
 import { normalizeFacultyDemoRoster } from "../demo-roster";
 afterEach(() => {
   localStorage.clear();
@@ -68,24 +63,17 @@ it("migrates the two retired demo students out of an existing browser roster", (
           created_at: "2026-09-01T00:00:00.000Z",
         },
       ],
-      students: [
-        "sofia",
-        "mateo",
-        "camila",
-        "lucas",
-        "emma",
-        "nico",
-        "valentina",
-        "diego",
-      ].map((name) => ({
-        id: `seed-student-${name}`,
-        class_id: ["lucas", "emma", "nico"].includes(name)
-          ? "seed-class-emilio"
-          : "seed-class-demo",
-        display_name: name,
-        student_code: name.toUpperCase(),
-        created_at: "2026-09-01T00:00:00.000Z",
-      })),
+      students: ["sofia", "mateo", "camila", "lucas", "emma", "nico", "valentina", "diego"].map(
+        (name) => ({
+          id: `seed-student-${name}`,
+          class_id: ["lucas", "emma", "nico"].includes(name)
+            ? "seed-class-emilio"
+            : "seed-class-demo",
+          display_name: name,
+          student_code: name.toUpperCase(),
+          created_at: "2026-09-01T00:00:00.000Z",
+        }),
+      ),
       events: [
         {
           id: "legacy-diego-event",
@@ -131,8 +119,7 @@ it("updates local class and student lists immediately after creation", async () 
   normalizeFacultyDemoRoster();
   const React = await import("react");
   const { render, fireEvent, cleanup } = await import("@testing-library/react");
-  const { QueryClient, QueryClientProvider } =
-    await import("@tanstack/react-query");
+  const { QueryClient, QueryClientProvider } = await import("@tanstack/react-query");
   const { ClassRoster } = await import("@/components/teacher/ClassRoster");
   const view = render(
     React.createElement(
@@ -145,16 +132,12 @@ it("updates local class and student lists immediately after creation", async () 
     target: { value: "Prueba nueva" },
   });
   fireEvent.click(view.getByRole("button", { name: "Crear clase" }));
-  expect(
-    view.getByRole("option", { name: "Prueba nueva (0 alumnos)" }),
-  ).toBeTruthy();
+  expect(view.getByRole("option", { name: "Prueba nueva (0 alumnos)" })).toBeTruthy();
   fireEvent.change(view.getByRole("textbox", { name: "Nombre del alumno" }), {
     target: { value: "Alumna nueva" },
   });
   fireEvent.click(view.getByRole("button", { name: "Añadir alumno" }));
-  expect(
-    view.getByRole("option", { name: "Prueba nueva (1 alumnos)" }),
-  ).toBeTruthy();
+  expect(view.getByRole("option", { name: "Prueba nueva (1 alumnos)" })).toBeTruthy();
   expect(view.getByRole("button", { name: "Alumna nueva" })).toBeTruthy();
   fireEvent.click(view.getByRole("button", { name: "Alumna nueva" }));
   const renameInput = view.getByDisplayValue("Alumna nueva");
@@ -167,8 +150,7 @@ it("updates local class and student lists immediately after creation", async () 
 it("uses the same attention flag for board columns as for the dashboard KPI", async () => {
   const React = await import("react");
   const { render, cleanup } = await import("@testing-library/react");
-  const { PipelineBoard } =
-    await import("@/features/teacher-crm/components/PipelineBoard");
+  const { PipelineBoard } = await import("@/features/teacher-crm/components/PipelineBoard");
   const view = render(
     React.createElement(PipelineBoard, {
       students: [
@@ -192,12 +174,10 @@ it("uses the same attention flag for board columns as for the dashboard KPI", as
     }),
   );
   expect(
-    view.getByText("Principiante activo").closest(".crm-pipeline-column")
-      ?.textContent,
+    view.getByText("Principiante activo").closest(".crm-pipeline-column")?.textContent,
   ).toContain("En progreso normal");
-  expect(
-    view.getByText("Necesita apoyo").closest(".crm-pipeline-column")
-      ?.textContent,
-  ).toContain("Requieren atención");
+  expect(view.getByText("Necesita apoyo").closest(".crm-pipeline-column")?.textContent).toContain(
+    "Requieren atención",
+  );
   cleanup();
 });

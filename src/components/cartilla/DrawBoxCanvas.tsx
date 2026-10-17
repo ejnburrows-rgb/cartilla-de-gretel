@@ -11,7 +11,6 @@ import { useRef, useState, useEffect } from "react";
 import { Check } from "lucide-react";
 import { useActivityEvents } from "@/lib/activity-events";
 
-
 const CRAYON_COLORS = ["#1f2937", "#dc2626", "#2563eb", "#16a34a", "#f59e0b", "#9333ea"];
 
 interface DrawBoxCanvasProps {
@@ -36,12 +35,12 @@ export function DrawBoxCanvas({ regionId, hint, lessonId }: DrawBoxCanvasProps) 
     const resize = () => {
       const rect = canvas.getBoundingClientRect();
       const ratio = window.devicePixelRatio || 1;
-      
+
       // Snapshot the existing canvas before resizing (resizing clears it)
       const currentWidth = canvas.width;
       const currentHeight = canvas.height;
       let snapshot: HTMLCanvasElement | null = null;
-      
+
       if (currentWidth > 0 && currentHeight > 0) {
         snapshot = document.createElement("canvas");
         snapshot.width = currentWidth;
@@ -53,12 +52,22 @@ export function DrawBoxCanvas({ regionId, hint, lessonId }: DrawBoxCanvasProps) 
       canvas.width = rect.width * ratio;
       canvas.height = rect.height * ratio;
       const ctx = canvas.getContext("2d");
-      
+
       // Restore the snapshot
       if (snapshot && ctx) {
-        ctx.drawImage(snapshot, 0, 0, currentWidth, currentHeight, 0, 0, canvas.width, canvas.height);
+        ctx.drawImage(
+          snapshot,
+          0,
+          0,
+          currentWidth,
+          currentHeight,
+          0,
+          0,
+          canvas.width,
+          canvas.height,
+        );
       }
-      
+
       ctx?.scale(ratio, ratio);
     };
     resize();
@@ -168,9 +177,27 @@ export function DrawBoxCanvas({ regionId, hint, lessonId }: DrawBoxCanvasProps) 
               title="Borrar con goma"
             >
               <svg viewBox="0 0 24 24" className="w-5 h-5 inline-block" aria-hidden="true">
-                <path d="M4 15 L14 5 L20 11 L10 21 L4 21 Z" fill="#f498a9" stroke="#d9768c" strokeWidth="1.5" strokeLinejoin="round" />
-                <path d="M10 9 L16 15" stroke="#ffffff" strokeWidth="1.2" strokeLinecap="round" opacity="0.8" />
-                <path d="M7 18 L10 21 L21 21" fill="none" stroke="#6c737b" strokeWidth="1.5" strokeLinecap="round" />
+                <path
+                  d="M4 15 L14 5 L20 11 L10 21 L4 21 Z"
+                  fill="#f498a9"
+                  stroke="#d9768c"
+                  strokeWidth="1.5"
+                  strokeLinejoin="round"
+                />
+                <path
+                  d="M10 9 L16 15"
+                  stroke="#ffffff"
+                  strokeWidth="1.2"
+                  strokeLinecap="round"
+                  opacity="0.8"
+                />
+                <path
+                  d="M7 18 L10 21 L21 21"
+                  fill="none"
+                  stroke="#6c737b"
+                  strokeWidth="1.5"
+                  strokeLinecap="round"
+                />
               </svg>
             </button>
             <button

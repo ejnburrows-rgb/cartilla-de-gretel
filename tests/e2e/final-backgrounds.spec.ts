@@ -62,12 +62,24 @@ for (const [name, viewport] of Object.entries({
     expect(sheetBox.width).toBeGreaterThan(0);
     expect(sheetBox.x).toBeGreaterThanOrEqual(stageBox.x - 2);
     expect(sheetBox.x + sheetBox.width).toBeLessThanOrEqual(stageBox.x + stageBox.width + 2);
-    await expect.poll(() => stage.locator("img").evaluateAll((images) =>
-      images.every((i) => (i as HTMLImageElement).complete && (i as HTMLImageElement).naturalWidth > 0))).toBe(true);
+    await expect
+      .poll(() =>
+        stage
+          .locator("img")
+          .evaluateAll((images) =>
+            images.every(
+              (i) => (i as HTMLImageElement).complete && (i as HTMLImageElement).naturalWidth > 0,
+            ),
+          ),
+      )
+      .toBe(true);
     await stage.screenshot({ path: `docs/proofs/final-backgrounds/flipchart-${name}-after.png` });
     await page.goto("/cartilla/presentar/2");
     const second = page.getByTestId("flipchart-stage");
     await expect(second.locator(".final-page-background")).toHaveCount(0);
-    await expect(second.locator('[data-native-flipchart="true"]').first()).toHaveAttribute("data-flipchart-page", "4");
+    await expect(second.locator('[data-native-flipchart="true"]').first()).toHaveAttribute(
+      "data-flipchart-page",
+      "4",
+    );
   });
 }

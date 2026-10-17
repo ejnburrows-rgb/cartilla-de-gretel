@@ -29,12 +29,12 @@ describe("ActivityCarousel component remounts", () => {
 
   it("remounts DragBuildWord when lessonNumber changes", () => {
     const { rerender } = render(
-      <ActivityCarousel {...baseProps} lessonNumber={1} activities={["armar"]} />
+      <ActivityCarousel {...baseProps} lessonNumber={1} activities={["armar"]} />,
     );
 
     // Initial mount and effects can cause re-renders. Let's record the baseline.
     const initialCalls = vi.mocked(DragBuildWord).mock.calls.length;
-    
+
     // Changing lessonNumber should cause a remount due to the `key` prop
     rerender(<ActivityCarousel {...baseProps} lessonNumber={2} activities={["armar"]} />);
 
@@ -45,11 +45,11 @@ describe("ActivityCarousel component remounts", () => {
 
   it("remounts SoundSearch when lessonNumber changes", () => {
     const { rerender } = render(
-      <ActivityCarousel {...baseProps} lessonNumber={1} activities={["sonido"]} />
+      <ActivityCarousel {...baseProps} lessonNumber={1} activities={["sonido"]} />,
     );
 
     const initialCalls = vi.mocked(SoundSearch).mock.calls.length;
-    
+
     rerender(<ActivityCarousel {...baseProps} lessonNumber={2} activities={["sonido"]} />);
 
     const subsequentCalls = vi.mocked(SoundSearch).mock.calls.length;

@@ -6,14 +6,14 @@ All 330 provisional placement IDs have **NEEDS REVIEW** status. None has verifie
 
 [Machine-readable gate report](production-integration-gate.json) lists every affected ID, page, mapping proposal, evidence gap and corrective action. [Review comparison gallery](gallery.md) remains available; it is not a certified missing-art gallery.
 
-| Required total | Verified result |
-| --- | --- |
-| Unique approved optimized illustrations certified by the input | 0 |
-| Unique illustrations integrated and production verified by this work | 0 |
-| Additional production placements updated through reuse | 0 |
-| Unique illustrations certified as awaiting optimization | 0 |
-| Unique illustrations requiring review | Unknown |
-| Provisional placements requiring review | 330 |
+| Required total                                                       | Verified result |
+| -------------------------------------------------------------------- | --------------- |
+| Unique approved optimized illustrations certified by the input       | 0               |
+| Unique illustrations integrated and production verified by this work | 0               |
+| Additional production placements updated through reuse               | 0               |
+| Unique illustrations certified as awaiting optimization              | 0               |
+| Unique illustrations requiring review                                | Unknown         |
+| Provisional placements requiring review                              | 330             |
 
 The unique inventory is unresolved because repeated drawing identities and frontmatter components are not consolidated. Zero certifications do not establish that approved or missing artwork does not exist. Existing production artwork is not recertified by this report.
 
@@ -34,7 +34,15 @@ No production mapping or artwork was changed. No integration commit or deploymen
 The source check found another concrete evidence defect: 14 Workbook lesson-1 SVG candidate hashes in the input describe Windows CRLF checkout bytes, rather than GitHub's LF blob bytes. The first complete verification returned exit 1:
 
 ```json
-{"source_integrity": false, "pdf_files_checked": 2, "crop_records_checked": 330, "production_candidate_files_checked": 239, "eligible_approved": 0, "verified_missing": 0, "gate": "NOT PASSED"}
+{
+  "source_integrity": false,
+  "pdf_files_checked": 2,
+  "crop_records_checked": 330,
+  "production_candidate_files_checked": 239,
+  "eligible_approved": 0,
+  "verified_missing": 0,
+  "gate": "NOT PASSED"
+}
 ```
 
 The verifier now separately records both committed hashes, exact committed-byte continuity, and whether LF-to-CRLF conversion reproduces the manifest hash. The affected paths and artwork IDs appear in the gate JSON; no authoritative input hash is silently replaced. The next coverage revision must label these byte domains and add committed-file SHA-256 values. This diagnosis does not approve any drawing.
@@ -42,7 +50,15 @@ The verifier now separately records both committed hashes, exact committed-byte 
 Corrected verification returned exit 0:
 
 ```json
-{"source_integrity": true, "pdf_files_checked": 2, "crop_records_checked": 330, "production_candidate_files_checked": 239, "eligible_approved": 0, "verified_missing": 0, "gate": "NOT PASSED"}
+{
+  "source_integrity": true,
+  "pdf_files_checked": 2,
+  "crop_records_checked": 330,
+  "production_candidate_files_checked": 239,
+  "eligible_approved": 0,
+  "verified_missing": 0,
+  "gate": "NOT PASSED"
+}
 ```
 
 This verifies unchanged sources and explains the byte-domain discrepancy. It does not pass the production integration gate.

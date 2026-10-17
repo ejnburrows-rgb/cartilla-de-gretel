@@ -23,7 +23,7 @@ export async function seedCompletedPages(page: Page, pages: number[]) {
   await page.addInitScript(
     ([key, map]) => {
       const current = JSON.parse(localStorage.getItem(key as string) || "{}");
-      localStorage.setItem(key as string, JSON.stringify({ ...map as object, ...current }));
+      localStorage.setItem(key as string, JSON.stringify({ ...(map as object), ...current }));
     },
     [PAGE_COMPLETION_KEY, completionFor(pages)] as const,
   );

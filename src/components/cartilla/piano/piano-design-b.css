@@ -520,8 +520,7 @@
 .pb__syllable:focus-visible,
 .pb__control:focus-visible,
 .pb__mic:focus-visible,
-.pb__next:focus-visible,
-{
+.pb__next:focus-visible {
   outline: 3px solid #2563eb;
   outline-offset: 2px;
 }

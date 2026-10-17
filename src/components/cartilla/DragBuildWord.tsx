@@ -252,7 +252,7 @@ export function DragBuildWord({ words, accent, lessonId, onComplete }: DragBuild
 
   const [state, dispatch] = useReducer(reducer, currentWord, initState);
   const [feedbackState, setFeedbackState] = useState<"ok" | "x" | null>(null);
-  
+
   const [completedIndices, setCompletedIndices] = useState<Set<number>>(new Set());
   const activityCompleteFired = useRef(false);
   const hasCalledComplete = useRef(false);
@@ -315,7 +315,7 @@ export function DragBuildWord({ words, accent, lessonId, onComplete }: DragBuild
           meta: { exercise: "drag_build_word", word: state.target, completed: true },
         });
       }
-      
+
       const newCompleted = new Set(completedIndices);
       newCompleted.add(wordIdx);
       setCompletedIndices(newCompleted);

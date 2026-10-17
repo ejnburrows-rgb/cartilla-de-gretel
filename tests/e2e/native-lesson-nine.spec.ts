@@ -7,7 +7,7 @@ for (const width of [1280, 820, 390]) {
   test(`Lesson 9 native pages and syllable grading at ${width}px`, async ({ page }) => {
     await page.setViewportSize({ width, height: 900 });
     await page.addInitScript(() => {
-      localStorage.setItem("cartilla.lesson-progress.v1", JSON.stringify([1,2,3,4,5,6,7,8]));
+      localStorage.setItem("cartilla.lesson-progress.v1", JSON.stringify([1, 2, 3, 4, 5, 6, 7, 8]));
     });
     // Earlier pages are finished; the completion gate itself is covered elsewhere.
     await seedCompletedPages(page, [27, 28, 29]);
@@ -35,6 +35,8 @@ for (const width of [1280, 820, 390]) {
     await expect(lesson).toHaveAttribute("data-native-page", "30", { timeout: 6000 });
     await expect(lesson.locator(".fp-ix-fill__item").first()).toBeVisible();
     await expect(lesson.getByRole("button", { name: "Terminar lección" })).toBeVisible();
-    expect(await page.evaluate(() => document.documentElement.scrollWidth <= innerWidth)).toBe(true);
+    expect(await page.evaluate(() => document.documentElement.scrollWidth <= innerWidth)).toBe(
+      true,
+    );
   });
 }

@@ -79,7 +79,10 @@ function TeacherProgressPage() {
 
       <div className="flex gap-4 p-5 bg-stone-50 border border-stone-200 rounded-3xl no-print shadow-sm">
         <div className="flex-1 max-w-sm">
-          <label htmlFor="teacher-progress-class" className="block text-[10px] font-bold text-stone-500 uppercase tracking-widest mb-1.5 ml-1">
+          <label
+            htmlFor="teacher-progress-class"
+            className="block text-[10px] font-bold text-stone-500 uppercase tracking-widest mb-1.5 ml-1"
+          >
             Clase
           </label>
           {loadingClasses ? (
