@@ -292,7 +292,7 @@ export const LIVING_ACTORS: Readonly<Record<string, LivingActor>> = Object.freez
     action: "float",
     creature: false,
     reducedMotion: "static",
-    meaning: "la estrella original permanece quieta",
+    meaning: "la estrella titila suavemente en torno a su forma original",
   },
   [`${A}/vocal-a/aguja.webp`]: {
     src: `${A}/vocal-a/aguja.webp`,

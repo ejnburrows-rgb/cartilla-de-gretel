@@ -9,9 +9,9 @@ import os, sys
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 import numpy as np, cv2
 from PIL import Image
-from lib import load, soft_mask, grid, field_rotate, b64
+from lib import load, soft_mask, grid, field_rotate, field_scale, b64
 from wb_vowels import OriginalSvg, _out
-from redrawn_common import soften
+from redrawn_common import soften, color_mask, solid, grow
 
 
 def _smooth(v):
@@ -133,12 +133,22 @@ def vocal_a_alas():
     return svg.render(_out(n))
 
 
-# ESTRELLA — 757x864. Printed five-point symbol, no anatomical moving part.
-# Preserve its original dots/scan streaks too. No invented twinkle, colour
-# shift, wobble, extra sparkle or point deformation is source-justified.
+# ESTRELLA — 757x864. Printed five-point symbol. Lane D owner-requested
+# candidate: a gentle radial twinkle (breathing) of the original star only.
+# The motion mask is the star's own measured ink (its largest connected
+# component, outer contour filled), so the confetti dots, scan streaks and
+# paper around it stay untouched; only original star pixels move, slightly
+# in and out around the star's measured centroid (376.6, 453.9). The mask
+# is not grown past the ink, so the surrounding paper never smears.
 def vocal_e_estrella():
-    n = 'vocal-e-estrella'; base = load(n)
-    svg = OriginalSvg(n, base)
+    n = 'vocal-e-estrella'; base = load(n); svg = MainOriginalSvg(n, base)
+    ink = color_mask(base, lambda r, g, b: (r < 245) | (g < 245) | (b < 245))
+    num, lab, st, _ = cv2.connectedComponentsWithStats(ink.astype('uint8'), 8)
+    star = lab == 1 + int(np.argmax(st[1:, cv2.CC_STAT_AREA]))
+    star = solid(star, min_area=1000)
+    w = soften(star, 2)
+    vx, vy = field_scale(base.size, w, (376.6, 453.9), 1, 1)
+    svg.warp(vx, vy, [0, .010, 0, -.007, 0], '3.4s')
     return svg.render(_out(n))
 
 
