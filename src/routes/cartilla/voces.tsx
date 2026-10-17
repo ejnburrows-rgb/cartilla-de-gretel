@@ -4,7 +4,7 @@ import {
   speakAsGretel,
   cancelGretelSpeech,
   setGretelVoiceProviderConfig,
-  resetGretelVoiceProviderConfig,
+  getGretelVoiceProviderConfig,
   getAvailableGretelVoices,
 } from "@/lib/gretel-voice";
 
@@ -101,6 +101,17 @@ function VoiceAudition() {
   const [ready, setReady] = useState(false);
   const [playingKey, setPlayingKey] = useState<string | null>(null);
   const [error, setError] = useState<string | null>(null);
+  const [newText, setNewText] = useState("Mañana el pingüino leerá una palabra nueva.");
+  const originalProvider = useMemo(() => getGretelVoiceProviderConfig(), []);
+  const customAvailable = originalProvider.type === "custom" && Boolean(originalProvider.speakFn);
+  useEffect(() => {
+    const onCustomVoiceError = () => {
+      setPlayingKey(null);
+      setError("El motor de voz de Gretel no está disponible. No se sustituyó por una voz del navegador.");
+    };
+    window.addEventListener("gretel:speak_error", onCustomVoiceError);
+    return () => window.removeEventListener("gretel:speak_error", onCustomVoiceError);
+  }, []);
 
   useEffect(() => {
     if (typeof window === "undefined" || !("speechSynthesis" in window)) {
@@ -124,11 +135,25 @@ function VoiceAudition() {
       window.speechSynthesis.removeEventListener("voiceschanged", load);
       clearTimeout(timeout);
       cancelGretelSpeech();
-      resetGretelVoiceProviderConfig();
+      // The audition page must not silently erase the workbook custom voice.
+      setGretelVoiceProviderConfig(originalProvider);
     };
-  }, []);
+  }, [originalProvider]);
 
   const candidates = useMemo(() => buildCandidates(voices), [voices]);
+
+  const playCustom = async () => {
+    setError(null);
+    cancelGretelSpeech();
+    setGretelVoiceProviderConfig(originalProvider);
+    setPlayingKey("gretel-custom");
+    try {
+      await speakAsGretel(newText, { onEnd: () => setPlayingKey(null) });
+    } catch {
+      setError("El motor de voz personalizado no respondió.");
+      setPlayingKey(null);
+    }
+  };
 
   const play = async (c: Candidate) => {
     setError(null);
@@ -163,16 +188,36 @@ function VoiceAudition() {
       <div className="max-w-2xl mx-auto">
         <h1 className="text-2xl font-black text-stone-800 mb-2">Audición de voces de Gretel</h1>
         <p className="text-stone-500 font-medium mb-8">
-          Cada botón lee la misma línea real del libro (Lección 1) con una voz distinta. Toca cada
-          una, escucha, y responde con el número que prefieras — esa será la voz de Gretel en toda
-          la app.
+          Escucha la voz personalizada de Gretel cuando esté disponible. Las voces del navegador
+          aparecen únicamente como alternativas de comparación, no como reemplazo automático.
         </p>
 
         <div className="bg-white rounded-2xl border border-stone-200 p-4 mb-8 text-stone-600 text-sm font-medium italic">
           "{AUDITION_LINE}"
         </div>
 
-        {!ready ? (
+        {customAvailable && (
+          <section className="rounded-2xl border-2 border-primary/40 bg-white p-5 mb-8 space-y-3">
+            <h2 className="font-black text-stone-800">Gretel — voz personalizada</h2>
+            <p className="text-sm text-stone-500">Escribe una oración nueva para comprobar la síntesis real.</p>
+            <input
+              aria-label="Oración nueva para Gretel"
+              className="w-full rounded-xl border border-stone-300 px-3 py-2 text-stone-800"
+              value={newText}
+              maxLength={320}
+              onChange={(event) => setNewText(event.target.value)}
+            />
+            <button
+              className="rounded-xl bg-primary px-5 py-3 font-bold text-white disabled:opacity-50"
+              disabled={!newText.trim() || playingKey === "gretel-custom"}
+              onClick={() => void playCustom()}
+            >
+              {playingKey === "gretel-custom" ? "Reproduciendo…" : "Escuchar con Gretel"}
+            </button>
+          </section>
+        )}
+
+        {customAvailable ? null : !ready ? (
           <p className="text-stone-400 font-medium">
             Cargando voces disponibles en este navegador…
           </p>
@@ -216,30 +261,26 @@ function VoiceAudition() {
         <div className="bg-stone-50 border border-stone-200 rounded-2xl p-6 text-sm text-stone-600 space-y-3 mb-8">
           <div className="flex items-center justify-between">
             <p className="font-black text-stone-800">Estado de preparación técnica</p>
-            <span className="px-3 py-1 rounded-full text-xs font-bold bg-emerald-100 text-emerald-800">
-              ✓ Abstracción lista (One-Config Seam)
+            <span className="px-3 py-1 rounded-full text-xs font-bold bg-stone-100 text-stone-700">
+              {customAvailable ? "Motor Gretel configurado — audio real pendiente de verificación" : "Motor Gretel no configurado — sin prueba de voz personalizada"}
             </span>
           </div>
           <p className="text-xs text-stone-500">
-            Toda la app utiliza la abstracción unificada <code className="bg-stone-200 px-1 py-0.5 rounded text-stone-800">speakAsGretel</code>. Cambiar a una voz premium aprobada por el propietario no requiere modificar la lógica de las lecciones.
+            La lectura del cuaderno, las vocales, las instrucciones, las palabras y las reacciones tienen rutas hacia el motor personalizado. Esto no significa que exista un modelo entrenado ni que la voz ya haya sido aprobada. Una prueba con audio nuevo, en la voz de Gretel, sigue siendo obligatoria.
           </p>
         </div>
 
         <div className="bg-stone-50 border border-stone-200 rounded-2xl p-6 text-sm text-stone-600 space-y-2">
-          <p className="font-black text-stone-800">Honestidad, no promesas:</p>
+          <p className="font-black text-stone-800">Una sola voz de Gretel</p>
           <p>
-            Las voces gratuitas incorporadas del navegador (arriba) son voces de mujer adulta —
-            ninguna suena genuinamente como una niña pequeña, ni afinando el tono. Es un límite real
-            de lo que el navegador ofrece gratis, no algo que se pueda arreglar con más código.
+            El propietario ya entregó una grabación de más de 32 minutos.
+            Las voces genéricas de este navegador NO son la voz personalizada de Gretel.
+            No se aceptan grabaciones ensambladas como prueba de texto-a-voz.
           </p>
           <p>
-            Lo que SÍ sonaría como una niña de verdad: (1) un servicio de voz pagado con voces
-            infantiles reales — por ejemplo ElevenLabs (voces por suscripción, desde unos $5–22
-            USD/mes) o Google Cloud / Azure Neural TTS (se cobra por caracteres leídos, típicamente
-            unos $4–16 USD por cada millón de caracteres, que para esta app es un costo pequeño pero
-            real cada mes); o (2) grabar la voz real de una niña y usar esos audios grabados en vez
-            de texto-a-voz. Ninguna de las dos opciones se ha contratado ni pagado — es tu decisión,
-            no la mía.
+            Para completar esta función se debe generar y escuchar una frase nueva,
+            demostrar que conserva el timbre y la pronunciación de Gretel, y comprobar
+            las actividades del cuaderno con el servicio real.
           </p>
         </div>
       </div>

@@ -1,0 +1,26 @@
+{
+  "version": 2,
+  "source": "Gretel_558674_Original.m4a; exact SHA256 checked; all 67 prior music/stutter clips rejected",
+  "sequences": [
+    {
+      "id": "original_source_0001_0002",
+      "segment_ids": [
+        "gr_0001",
+        "gr_0002"
+      ],
+      "purpose": "source_quality_preview_only",
+      "page": null,
+      "trigger": null
+    },
+    {
+      "id": "original_source_0003_0004",
+      "segment_ids": [
+        "gr_0003",
+        "gr_0004"
+      ],
+      "purpose": "source_quality_preview_only",
+      "page": null,
+      "trigger": null
+    }
+  ]
+}

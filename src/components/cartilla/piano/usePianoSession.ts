@@ -24,6 +24,7 @@ import {
   stopSpeech,
 } from "@/lib/speech-playback";
 import { speak } from "@/lib/speak";
+import { getGretelVoiceProviderConfig } from "@/lib/gretel-voice";
 import { recordEvent } from "@/lib/student-session";
 import type { GretelLiveAvatarRef } from "@/components/gretel/GretelLiveAvatar";
 
@@ -55,6 +56,8 @@ export const MELODY_STEP_MS = 170;
 
 /** One example at a time; resolves when it finishes or is interrupted. */
 function playExample(text: string, recording: string | undefined): Promise<void> {
+  // One character voice throughout the reading curriculum, including Piano examples.
+  if (getGretelVoiceProviderConfig().type === "custom") return speak(text);
   if (!recording || typeof Audio === "undefined") return speak(text);
   return new Promise<void>((resolve) => {
     const token = claimSpeech("reading");

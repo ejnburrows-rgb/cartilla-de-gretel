@@ -1,4 +1,5 @@
 import { AUDIO_POLICY } from "@/content/audio-manifest";
+import { getGretelVoiceProviderConfig } from "@/lib/gretel-voice";
 import { approvedPictureRecording } from "@/lib/picture-vocabulary";
 import { resolvePictureName } from "@/lib/picture-vocabulary";
 /**
@@ -39,7 +40,7 @@ export function LivingIllustration({
   clipSrc,
 }: LivingIllustrationProps) {
   const picture = resolvePictureName(src, alt);
-  const canListen = !!picture && (!!approvedPictureRecording(picture.key) || AUDIO_POLICY.allowTts);
+  const canListen = !!picture && (!!approvedPictureRecording(picture.key) || AUDIO_POLICY.allowTts || (AUDIO_POLICY.allowCustomGretelTts && getGretelVoiceProviderConfig().type === "custom"));
   const pictureRef = useRef<HTMLSpanElement>(null);
   const [insideControl, setInsideControl] = useState(true);
   useLayoutEffect(() => { setInsideControl(Boolean(pictureRef.current?.parentElement?.closest("button, a, [role=button], [draggable=true], [aria-hidden=true], [inert]"))); }, [src]);

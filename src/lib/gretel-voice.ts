@@ -1,4 +1,6 @@
 import { claimSpeech, registerSpeechCleanup, releaseSpeech, speechIsCurrent, stopSpeech } from "./speech-playback";
+import { exactRecordedPhraseUrls } from "./gretel-recorded-clips";
+import { playGretelRecordingQueue } from "./gretel-recorded-playback";
 
 /**
  * Gretel voice — neutral, child-friendly Spanish browser TTS with pluggable provider architecture.
@@ -16,6 +18,7 @@ export interface GretelVoiceProviderConfig {
   pitch?: number;
   rate?: number;
   speakFn?: (text: string, handlers: GretelVoiceHandlers) => Promise<void>;
+  cancelFn?: () => void;
 }
 
 const MUTE_KEY = "cartilla.gretel.voice.muted";
@@ -153,7 +156,28 @@ export async function speakAsGretel(text: string, handlers: GretelVoiceHandlers 
     return;
   }
 
+  if (activeProviderConfig.type === "recorded-audio" && !activeProviderConfig.speakFn) {
+    const urls = exactRecordedPhraseUrls(text);
+    if (typeof window === "undefined" || urls.length === 0) {
+      // Missing exact owner recording is not permission to substitute a browser voice.
+      if (typeof window !== "undefined") {
+        window.dispatchEvent(new CustomEvent("gretel:speak_missing", { detail: { text } }));
+      }
+      handlers.onEnd?.();
+      return;
+    }
+    lastSpokenVoiceName = "Existing Gretel MP3 recording";
+    handlers.onStart?.();
+    try {
+      await playGretelRecordingQueue(urls);
+    } finally {
+      handlers.onEnd?.();
+    }
+    return;
+  }
+
   if (activeProviderConfig.type !== "browser-tts" && activeProviderConfig.speakFn) {
+    const provider = activeProviderConfig;
     const token = claimSpeech("gretel");
     let started = false;
     let ended = false;
@@ -170,13 +194,16 @@ export async function speakAsGretel(text: string, handlers: GretelVoiceHandlers 
       if (started) window.dispatchEvent(new CustomEvent("gretel:speak_stop"));
       handlers.onEnd?.();
     };
-    registerSpeechCleanup(token, finish);
-    start();
+    registerSpeechCleanup(token, () => { provider.cancelFn?.(); finish(); });
     try {
-      lastSpokenVoiceName = `${activeProviderConfig.name} (${activeProviderConfig.type})`;
-      await activeProviderConfig.speakFn(text, { onStart: start, onEnd: finish });
-    } catch {
-      /* handled gracefully */
+      lastSpokenVoiceName = `${provider.name} (${provider.type})`;
+      await provider.speakFn(text, { onStart: start, onEnd: finish });
+    } catch (error) {
+      // Custom speech failures must be visible. Never substitute browser TTS.
+      if (speechIsCurrent(token)) {
+        console.warn("[Gretel TTS] Custom voice could not speak.", error);
+        window.dispatchEvent(new CustomEvent("gretel:speak_error", { detail: { source: "custom" } }));
+      }
     } finally {
       finish();
     }
