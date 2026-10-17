@@ -27,6 +27,22 @@ const deterministicallyVerifiedNative = [
 ];
 
 describe.skipIf(!audit)("production foreground art audit truthfulness", () => {
+  it("preserves the owner-accepted canonical mapping pointers and counts", () => {
+    expect(audit._canonicalMapping).toEqual({
+      note: "Canonical artwork-to-slot mapping. Do NOT ask the owner to re-map. Do NOT regenerate it.",
+      csv: "docs/artwork-reconciliation/mapping/MASTER-MAPPING.csv",
+      md: "docs/artwork-reconciliation/mapping/MASTER-MAPPING.md",
+      evidence: "docs/proofs/artwork-coverage-2026-10-14/",
+      pointer: "docs/ARTWORK_MAPPING_CANONICAL.md",
+      placements: 330,
+      drawingGroups: 201,
+      engravedOnMain: "2026-10-15",
+    });
+    for (const key of ["csv", "md", "evidence", "pointer"]) {
+      expect(existsSync(path.join(root, audit._canonicalMapping[key]))).toBe(true);
+    }
+  });
+
   it("keeps the five owner-approved Page-1 assets present on disk", () => {
     const required = [
       "/cartilla/art/faithful/leccion-1/abrigo.webp",

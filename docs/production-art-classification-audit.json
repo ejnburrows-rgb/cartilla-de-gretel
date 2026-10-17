@@ -9,7 +9,7 @@
     "drawingGroups": 201,
     "engravedOnMain": "2026-10-15"
   },
-  "timestamp": "2026-10-08T18:13:58.313Z",
+  "timestamp": "2026-10-17T15:13:17.403Z",
   "counts": {
     "faithfulWired": 110,
     "flipchartNativeWired": 167,
@@ -112,7 +112,7 @@
       "provenance": "PROVENANCE-UNKNOWN",
       "qaVerdict": "PASS",
       "dimensions": "870x852",
-      "bytes": 67248,
+      "bytes": 73130,
       "isQuarantined": false
     },
     {
@@ -762,7 +762,7 @@
       "provenance": "VERIFIED-EXACT-WORKBOOK-CROP-2026-08-08",
       "qaVerdict": "PASS",
       "dimensions": "413x495",
-      "bytes": 20268,
+      "bytes": 32144,
       "isQuarantined": false
     },
     {
@@ -1140,17 +1140,17 @@
       ],
       "classification": "PENDING NO VERIFIED SOURCE",
       "dimensions": "539x539",
-      "bytes": 177783,
+      "bytes": 322834,
       "exists": true,
       "verified": false,
       "sourcePageMatches": true,
       "hasCropEvidence": true,
       "cropMatch": false,
       "aspectMatch": false,
-      "matchScore": 39,
-      "meanDiff": 45.3,
+      "matchScore": 31,
+      "meanDiff": 50.8,
       "evidence": null,
-      "pendingReason": "no deterministic crop correspondence (ncc 0.388, mean diff 45.3, aspectMatch false)"
+      "pendingReason": "no deterministic crop correspondence (ncc 0.313, mean diff 50.8, aspectMatch false)"
     },
     {
       "src": "/cartilla/art/optimized/flipchart-native/p003-avion.png",
