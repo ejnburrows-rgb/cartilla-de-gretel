@@ -362,3 +362,9 @@
   .lc-lesson-24 .native-lesson-viewer__navigation > span { grid-column: 1 / -1; grid-row: 1; text-align: center; }
   .lc-lesson-24 .native-lesson-viewer__navigation button { padding-inline: 8px; font-size: 20px; }
 }
+
+/* Keep the writing hint readable and recognition boundaries visible even
+ * when the shared base stylesheet is emitted after this scoped stylesheet. */
+.lc-lesson-24 .fp-writing-response textarea::placeholder { color: #52616b; opacity: 1; }
+.lc-lesson-24 .native-syllable__words .native-syllable__word { border-color: #167a72 !important; }
+.lc-lesson-24 .native-syllable__word[aria-pressed="true"] { border-color: #2f7d4a !important; }
