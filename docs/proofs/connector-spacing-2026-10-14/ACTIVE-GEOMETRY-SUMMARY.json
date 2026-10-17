@@ -1,0 +1,330 @@
+{
+  "composition": "#764 a40a6f6688497cbb1ac5de2f6e4cfe5abbcb6379 +1d92698d329b69891d993f042222b35cb39c808a exactCSS/test",
+  "cases": [
+    {
+      "case": "p11-laptop-mouse-geometry",
+      "normalGap": 67.25,
+      "activeGap": 62.352020263671875,
+      "pictureMin": 103.6875,
+      "sourceMin": 76.859375,
+      "clipped": false,
+      "hscroll": 0
+    },
+    {
+      "case": "p11-laptop-touch-geometry",
+      "normalGap": 67.25,
+      "activeGap": 62.352020263671875,
+      "pictureMin": 103.6875,
+      "sourceMin": 76.859375,
+      "clipped": false,
+      "hscroll": 0
+    },
+    {
+      "case": "p11-phone-mouse-geometry",
+      "normalGap": 30.328125,
+      "activeGap": 26.3917236328125,
+      "pictureMin": 80.65625,
+      "sourceMin": 64,
+      "clipped": false,
+      "hscroll": 0
+    },
+    {
+      "case": "p11-phone-touch-geometry",
+      "normalGap": 30.328125,
+      "activeGap": 26.3917236328125,
+      "pictureMin": 80.65625,
+      "sourceMin": 64,
+      "clipped": false,
+      "hscroll": 0
+    },
+    {
+      "case": "p11-tablet-mouse-geometry",
+      "normalGap": 116.78125,
+      "activeGap": 111.36126708984375,
+      "pictureMin": 140,
+      "sourceMin": 64,
+      "clipped": false,
+      "hscroll": 0
+    },
+    {
+      "case": "p11-tablet-touch-geometry",
+      "normalGap": 116.78125,
+      "activeGap": 111.36126708984375,
+      "pictureMin": 140,
+      "sourceMin": 64,
+      "clipped": false,
+      "hscroll": 0
+    },
+    {
+      "case": "p14-laptop-mouse-geometry",
+      "normalGap": 66.515625,
+      "activeGap": 61.574066162109375,
+      "pictureMin": 103.6875,
+      "sourceMin": 78.3125,
+      "clipped": false,
+      "hscroll": 0
+    },
+    {
+      "case": "p14-laptop-touch-geometry",
+      "normalGap": 66.515625,
+      "activeGap": 61.574066162109375,
+      "pictureMin": 103.6875,
+      "sourceMin": 78.3125,
+      "clipped": false,
+      "hscroll": 0
+    },
+    {
+      "case": "p14-phone-mouse-geometry",
+      "normalGap": 30.328125,
+      "activeGap": 26.3917236328125,
+      "pictureMin": 80.65625,
+      "sourceMin": 64,
+      "clipped": false,
+      "hscroll": 0
+    },
+    {
+      "case": "p14-phone-touch-geometry",
+      "normalGap": 30.328125,
+      "activeGap": 26.3917236328125,
+      "pictureMin": 80.65625,
+      "sourceMin": 64,
+      "clipped": false,
+      "hscroll": 0
+    },
+    {
+      "case": "p14-tablet-mouse-geometry",
+      "normalGap": 120.78125,
+      "activeGap": 115.36123657226562,
+      "pictureMin": 140,
+      "sourceMin": 64,
+      "clipped": false,
+      "hscroll": 0
+    },
+    {
+      "case": "p14-tablet-touch-geometry",
+      "normalGap": 120.78125,
+      "activeGap": 115.36123657226562,
+      "pictureMin": 140,
+      "sourceMin": 64,
+      "clipped": false,
+      "hscroll": 0
+    },
+    {
+      "case": "p17-laptop-mouse-geometry",
+      "normalGap": 67.25,
+      "activeGap": 62.352020263671875,
+      "pictureMin": 103.6875,
+      "sourceMin": 76.859375,
+      "clipped": false,
+      "hscroll": 0
+    },
+    {
+      "case": "p17-laptop-touch-geometry",
+      "normalGap": 67.25,
+      "activeGap": 62.352020263671875,
+      "pictureMin": 103.6875,
+      "sourceMin": 76.859375,
+      "clipped": false,
+      "hscroll": 0
+    },
+    {
+      "case": "p17-phone-mouse-geometry",
+      "normalGap": 30.328125,
+      "activeGap": 26.3917236328125,
+      "pictureMin": 80.65625,
+      "sourceMin": 64,
+      "clipped": false,
+      "hscroll": 0
+    },
+    {
+      "case": "p17-phone-touch-geometry",
+      "normalGap": 30.328125,
+      "activeGap": 26.3917236328125,
+      "pictureMin": 80.65625,
+      "sourceMin": 64,
+      "clipped": false,
+      "hscroll": 0
+    },
+    {
+      "case": "p17-tablet-mouse-geometry",
+      "normalGap": 116.78125,
+      "activeGap": 111.36126708984375,
+      "pictureMin": 140,
+      "sourceMin": 64,
+      "clipped": false,
+      "hscroll": 0
+    },
+    {
+      "case": "p17-tablet-touch-geometry",
+      "normalGap": 116.78125,
+      "activeGap": 111.36126708984375,
+      "pictureMin": 140,
+      "sourceMin": 64,
+      "clipped": false,
+      "hscroll": 0
+    },
+    {
+      "case": "p3-laptop-mouse-geometry",
+      "normalGap": 693,
+      "activeGap": 688.131846644537,
+      "pictureMin": 72,
+      "sourceMin": 72,
+      "clipped": false,
+      "hscroll": 0
+    },
+    {
+      "case": "p3-laptop-touch-geometry",
+      "normalGap": 693,
+      "activeGap": 688.131846644537,
+      "pictureMin": 72,
+      "sourceMin": 72,
+      "clipped": false,
+      "hscroll": 0
+    },
+    {
+      "case": "p3-phone-mouse-geometry",
+      "normalGap": 126.421875,
+      "activeGap": 121.35241317749023,
+      "pictureMin": 87.5625,
+      "sourceMin": 72,
+      "clipped": false,
+      "hscroll": 0
+    },
+    {
+      "case": "p3-phone-touch-geometry",
+      "normalGap": 126.421875,
+      "activeGap": 121.35241317749023,
+      "pictureMin": 87.5625,
+      "sourceMin": 72,
+      "clipped": false,
+      "hscroll": 0
+    },
+    {
+      "case": "p3-tablet-mouse-geometry",
+      "normalGap": 415.6875,
+      "activeGap": 409.188720703125,
+      "pictureMin": 134.578125,
+      "sourceMin": 72,
+      "clipped": false,
+      "hscroll": 0
+    },
+    {
+      "case": "p3-tablet-touch-geometry",
+      "normalGap": 415.6875,
+      "activeGap": 409.188720703125,
+      "pictureMin": 134.578125,
+      "sourceMin": 72,
+      "clipped": false,
+      "hscroll": 0
+    },
+    {
+      "case": "p5-laptop-mouse-geometry",
+      "normalGap": 67.25,
+      "activeGap": 62.352020263671875,
+      "pictureMin": 103.6875,
+      "sourceMin": 76.859375,
+      "clipped": false,
+      "hscroll": 0
+    },
+    {
+      "case": "p5-laptop-touch-geometry",
+      "normalGap": 67.25,
+      "activeGap": 62.352020263671875,
+      "pictureMin": 103.6875,
+      "sourceMin": 76.859375,
+      "clipped": false,
+      "hscroll": 0
+    },
+    {
+      "case": "p5-phone-mouse-geometry",
+      "normalGap": 30.328125,
+      "activeGap": 26.3917236328125,
+      "pictureMin": 80.65625,
+      "sourceMin": 64,
+      "clipped": false,
+      "hscroll": 0
+    },
+    {
+      "case": "p5-phone-touch-geometry",
+      "normalGap": 30.328125,
+      "activeGap": 26.3917236328125,
+      "pictureMin": 80.65625,
+      "sourceMin": 64,
+      "clipped": false,
+      "hscroll": 0
+    },
+    {
+      "case": "p5-tablet-mouse-geometry",
+      "normalGap": 116.78125,
+      "activeGap": 111.36126708984375,
+      "pictureMin": 140,
+      "sourceMin": 64,
+      "clipped": false,
+      "hscroll": 0
+    },
+    {
+      "case": "p5-tablet-touch-geometry",
+      "normalGap": 116.78125,
+      "activeGap": 111.36126708984375,
+      "pictureMin": 140,
+      "sourceMin": 64,
+      "clipped": false,
+      "hscroll": 0
+    },
+    {
+      "case": "p8-laptop-mouse-geometry",
+      "normalGap": 66.515625,
+      "activeGap": 61.574066162109375,
+      "pictureMin": 103.6875,
+      "sourceMin": 78.3125,
+      "clipped": false,
+      "hscroll": 0
+    },
+    {
+      "case": "p8-laptop-touch-geometry",
+      "normalGap": 66.515625,
+      "activeGap": 61.574066162109375,
+      "pictureMin": 103.6875,
+      "sourceMin": 78.3125,
+      "clipped": false,
+      "hscroll": 0
+    },
+    {
+      "case": "p8-phone-mouse-geometry",
+      "normalGap": 30.328125,
+      "activeGap": 26.407333374023438,
+      "pictureMin": 80.65625,
+      "sourceMin": 64,
+      "clipped": false,
+      "hscroll": 0
+    },
+    {
+      "case": "p8-phone-touch-geometry",
+      "normalGap": 30.328125,
+      "activeGap": 26.407333374023438,
+      "pictureMin": 80.65625,
+      "sourceMin": 64,
+      "clipped": false,
+      "hscroll": 0
+    },
+    {
+      "case": "p8-tablet-mouse-geometry",
+      "normalGap": 120.78125,
+      "activeGap": 115.36123657226562,
+      "pictureMin": 140,
+      "sourceMin": 64,
+      "clipped": false,
+      "hscroll": 0
+    },
+    {
+      "case": "p8-tablet-touch-geometry",
+      "normalGap": 120.78125,
+      "activeGap": 115.36123657226562,
+      "pictureMin": 140,
+      "sourceMin": 64,
+      "clipped": false,
+      "hscroll": 0
+    }
+  ],
+  "minimumActiveGap": 26.3917236328125
+}

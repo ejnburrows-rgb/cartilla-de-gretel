@@ -1,0 +1,1847 @@
+[
+  {
+    "phase": "after",
+    "device": "laptop",
+    "page": 3,
+    "sources": [
+      {
+        "x": 247.875,
+        "y": 205.796875,
+        "width": 72,
+        "height": 72,
+        "right": 319.875,
+        "bottom": 277.796875,
+        "label": "Vocal o"
+      },
+      {
+        "x": 247.875,
+        "y": 299.890625,
+        "width": 72,
+        "height": 72,
+        "right": 319.875,
+        "bottom": 371.890625,
+        "label": "Vocal a"
+      },
+      {
+        "x": 247.875,
+        "y": 393.984375,
+        "width": 72,
+        "height": 72,
+        "right": 319.875,
+        "bottom": 465.984375,
+        "label": "Vocal i"
+      },
+      {
+        "x": 247.875,
+        "y": 488.09375,
+        "width": 72,
+        "height": 72,
+        "right": 319.875,
+        "bottom": 560.09375,
+        "label": "Vocal e"
+      },
+      {
+        "x": 247.875,
+        "y": 582.1875,
+        "width": 72,
+        "height": 72,
+        "right": 319.875,
+        "bottom": 654.1875,
+        "label": "Vocal u"
+      }
+    ],
+    "targets": [
+      {
+        "x": 1013.671875,
+        "y": 200.75,
+        "width": 88.296875,
+        "height": 88.296875,
+        "right": 1101.96875,
+        "bottom": 289.046875,
+        "label": "ocho"
+      },
+      {
+        "x": 1012.875,
+        "y": 301.046875,
+        "width": 89.09375,
+        "height": 89.09375,
+        "right": 1101.96875,
+        "bottom": 390.140625,
+        "label": "araña"
+      },
+      {
+        "x": 1029.96875,
+        "y": 402.140625,
+        "width": 72,
+        "height": 72,
+        "right": 1101.96875,
+        "bottom": 474.140625,
+        "label": "iglesia"
+      },
+      {
+        "x": 1029.96875,
+        "y": 486.140625,
+        "width": 72,
+        "height": 72,
+        "right": 1101.96875,
+        "bottom": 558.140625,
+        "label": "escoba"
+      },
+      {
+        "x": 1012.875,
+        "y": 570.140625,
+        "width": 89.09375,
+        "height": 89.09375,
+        "right": 1101.96875,
+        "bottom": 659.234375,
+        "label": "uno"
+      }
+    ],
+    "stage": {
+      "x": 230.734375,
+      "y": 183.609375,
+      "width": 888.375,
+      "height": 492.765625,
+      "right": 1119.109375,
+      "bottom": 676.375,
+      "label": null
+    },
+    "minGap": 693,
+    "hscroll": 0
+  },
+  {
+    "phase": "after",
+    "device": "laptop",
+    "page": 5,
+    "sources": [
+      {
+        "x": 636.484375,
+        "y": 411.4375,
+        "width": 76.859375,
+        "height": 76.859375,
+        "right": 713.34375,
+        "bottom": 488.296875,
+        "label": "Vocal central Oo"
+      }
+    ],
+    "targets": [
+      {
+        "x": 327.609375,
+        "y": 240.5,
+        "width": 103.6875,
+        "height": 103.6875,
+        "right": 431.296875,
+        "bottom": 344.1875,
+        "label": "iglú"
+      },
+      {
+        "x": 623.0625,
+        "y": 240.5,
+        "width": 103.6875,
+        "height": 103.6875,
+        "right": 726.75,
+        "bottom": 344.1875,
+        "label": "oveja"
+      },
+      {
+        "x": 918.53125,
+        "y": 240.5,
+        "width": 103.6875,
+        "height": 103.6875,
+        "right": 1022.21875,
+        "bottom": 344.1875,
+        "label": "ojos"
+      },
+      {
+        "x": 327.59375,
+        "y": 398.015625,
+        "width": 103.703125,
+        "height": 103.703125,
+        "right": 431.296875,
+        "bottom": 501.71875,
+        "label": "oreja"
+      },
+      {
+        "x": 918.515625,
+        "y": 398.015625,
+        "width": 103.703125,
+        "height": 103.703125,
+        "right": 1022.21875,
+        "bottom": 501.71875,
+        "label": "olla"
+      },
+      {
+        "x": 327.609375,
+        "y": 555.546875,
+        "width": 103.6875,
+        "height": 103.6875,
+        "right": 431.296875,
+        "bottom": 659.234375,
+        "label": "ola"
+      },
+      {
+        "x": 623.0625,
+        "y": 555.546875,
+        "width": 103.6875,
+        "height": 103.6875,
+        "right": 726.75,
+        "bottom": 659.234375,
+        "label": "oso"
+      },
+      {
+        "x": 918.53125,
+        "y": 555.546875,
+        "width": 103.6875,
+        "height": 103.6875,
+        "right": 1022.21875,
+        "bottom": 659.234375,
+        "label": "alas"
+      }
+    ],
+    "stage": {
+      "x": 230.734375,
+      "y": 223.359375,
+      "width": 888.375,
+      "height": 453.015625,
+      "right": 1119.109375,
+      "bottom": 676.375,
+      "label": null
+    },
+    "minGap": 67.25,
+    "hscroll": 0
+  },
+  {
+    "phase": "after",
+    "device": "laptop",
+    "page": 8,
+    "sources": [
+      {
+        "x": 643.828125,
+        "y": 410.703125,
+        "width": 78.3125,
+        "height": 78.3125,
+        "right": 722.140625,
+        "bottom": 489.015625,
+        "label": "Vocal central Aa"
+      }
+    ],
+    "targets": [
+      {
+        "x": 330.296875,
+        "y": 240.5,
+        "width": 103.6875,
+        "height": 103.6875,
+        "right": 433.984375,
+        "bottom": 344.1875,
+        "label": "oso"
+      },
+      {
+        "x": 631.140625,
+        "y": 240.5,
+        "width": 103.6875,
+        "height": 103.6875,
+        "right": 734.828125,
+        "bottom": 344.1875,
+        "label": "iglú"
+      },
+      {
+        "x": 931.984375,
+        "y": 240.5,
+        "width": 103.6875,
+        "height": 103.6875,
+        "right": 1035.671875,
+        "bottom": 344.1875,
+        "label": "alas"
+      },
+      {
+        "x": 330.296875,
+        "y": 398.015625,
+        "width": 103.703125,
+        "height": 103.703125,
+        "right": 434,
+        "bottom": 501.71875,
+        "label": "abeja"
+      },
+      {
+        "x": 931.984375,
+        "y": 398.015625,
+        "width": 103.703125,
+        "height": 103.703125,
+        "right": 1035.6875,
+        "bottom": 501.71875,
+        "label": "aguja"
+      },
+      {
+        "x": 330.296875,
+        "y": 555.546875,
+        "width": 103.6875,
+        "height": 103.6875,
+        "right": 433.984375,
+        "bottom": 659.234375,
+        "label": "maíz"
+      },
+      {
+        "x": 631.140625,
+        "y": 555.546875,
+        "width": 103.6875,
+        "height": 103.6875,
+        "right": 734.828125,
+        "bottom": 659.234375,
+        "label": "avión"
+      },
+      {
+        "x": 931.984375,
+        "y": 555.546875,
+        "width": 103.6875,
+        "height": 103.6875,
+        "right": 1035.671875,
+        "bottom": 659.234375,
+        "label": "aro"
+      }
+    ],
+    "stage": {
+      "x": 230.734375,
+      "y": 223.359375,
+      "width": 904.515625,
+      "height": 453.015625,
+      "right": 1135.25,
+      "bottom": 676.375,
+      "label": null
+    },
+    "minGap": 66.515625,
+    "hscroll": 0
+  },
+  {
+    "phase": "after",
+    "device": "laptop",
+    "page": 11,
+    "sources": [
+      {
+        "x": 636.484375,
+        "y": 411.4375,
+        "width": 76.859375,
+        "height": 76.859375,
+        "right": 713.34375,
+        "bottom": 488.296875,
+        "label": "Vocal central Ee"
+      }
+    ],
+    "targets": [
+      {
+        "x": 327.609375,
+        "y": 240.5,
+        "width": 103.6875,
+        "height": 103.6875,
+        "right": 431.296875,
+        "bottom": 344.1875,
+        "label": "oso"
+      },
+      {
+        "x": 623.0625,
+        "y": 240.5,
+        "width": 103.6875,
+        "height": 103.6875,
+        "right": 726.75,
+        "bottom": 344.1875,
+        "label": "elefante"
+      },
+      {
+        "x": 918.53125,
+        "y": 240.5,
+        "width": 103.6875,
+        "height": 103.6875,
+        "right": 1022.21875,
+        "bottom": 344.1875,
+        "label": "abeja"
+      },
+      {
+        "x": 327.59375,
+        "y": 398.015625,
+        "width": 103.703125,
+        "height": 103.703125,
+        "right": 431.296875,
+        "bottom": 501.71875,
+        "label": "erizo"
+      },
+      {
+        "x": 918.515625,
+        "y": 398.015625,
+        "width": 103.703125,
+        "height": 103.703125,
+        "right": 1022.21875,
+        "bottom": 501.71875,
+        "label": "maíz"
+      },
+      {
+        "x": 327.609375,
+        "y": 555.546875,
+        "width": 103.6875,
+        "height": 103.6875,
+        "right": 431.296875,
+        "bottom": 659.234375,
+        "label": "escalera"
+      },
+      {
+        "x": 623.0625,
+        "y": 555.546875,
+        "width": 103.6875,
+        "height": 103.6875,
+        "right": 726.75,
+        "bottom": 659.234375,
+        "label": "estrella"
+      },
+      {
+        "x": 918.53125,
+        "y": 555.546875,
+        "width": 103.6875,
+        "height": 103.6875,
+        "right": 1022.21875,
+        "bottom": 659.234375,
+        "label": "abrigo"
+      }
+    ],
+    "stage": {
+      "x": 230.734375,
+      "y": 223.359375,
+      "width": 888.375,
+      "height": 453.015625,
+      "right": 1119.109375,
+      "bottom": 676.375,
+      "label": null
+    },
+    "minGap": 67.25,
+    "hscroll": 0
+  },
+  {
+    "phase": "after",
+    "device": "laptop",
+    "page": 14,
+    "sources": [
+      {
+        "x": 643.828125,
+        "y": 410.703125,
+        "width": 78.3125,
+        "height": 78.3125,
+        "right": 722.140625,
+        "bottom": 489.015625,
+        "label": "Vocal central Ii"
+      }
+    ],
+    "targets": [
+      {
+        "x": 330.296875,
+        "y": 240.5,
+        "width": 103.6875,
+        "height": 103.6875,
+        "right": 433.984375,
+        "bottom": 344.1875,
+        "label": "imán"
+      },
+      {
+        "x": 631.140625,
+        "y": 240.5,
+        "width": 103.6875,
+        "height": 103.6875,
+        "right": 734.828125,
+        "bottom": 344.1875,
+        "label": "oso"
+      },
+      {
+        "x": 931.984375,
+        "y": 240.5,
+        "width": 103.6875,
+        "height": 103.6875,
+        "right": 1035.671875,
+        "bottom": 344.1875,
+        "label": "iglú"
+      },
+      {
+        "x": 330.296875,
+        "y": 398.015625,
+        "width": 103.703125,
+        "height": 103.703125,
+        "right": 434,
+        "bottom": 501.71875,
+        "label": "igual"
+      },
+      {
+        "x": 931.984375,
+        "y": 398.015625,
+        "width": 103.703125,
+        "height": 103.703125,
+        "right": 1035.6875,
+        "bottom": 501.71875,
+        "label": "indio"
+      },
+      {
+        "x": 330.296875,
+        "y": 555.546875,
+        "width": 103.6875,
+        "height": 103.6875,
+        "right": 433.984375,
+        "bottom": 659.234375,
+        "label": "uña"
+      },
+      {
+        "x": 631.140625,
+        "y": 555.546875,
+        "width": 103.6875,
+        "height": 103.6875,
+        "right": 734.828125,
+        "bottom": 659.234375,
+        "label": "iguana"
+      },
+      {
+        "x": 931.984375,
+        "y": 555.546875,
+        "width": 103.6875,
+        "height": 103.6875,
+        "right": 1035.671875,
+        "bottom": 659.234375,
+        "label": "abeja"
+      }
+    ],
+    "stage": {
+      "x": 230.734375,
+      "y": 223.359375,
+      "width": 904.515625,
+      "height": 453.015625,
+      "right": 1135.25,
+      "bottom": 676.375,
+      "label": null
+    },
+    "minGap": 66.515625,
+    "hscroll": 0
+  },
+  {
+    "phase": "after",
+    "device": "laptop",
+    "page": 17,
+    "sources": [
+      {
+        "x": 636.484375,
+        "y": 411.4375,
+        "width": 76.859375,
+        "height": 76.859375,
+        "right": 713.34375,
+        "bottom": 488.296875,
+        "label": "Vocal central Uu"
+      }
+    ],
+    "targets": [
+      {
+        "x": 327.609375,
+        "y": 240.5,
+        "width": 103.6875,
+        "height": 103.6875,
+        "right": 431.296875,
+        "bottom": 344.1875,
+        "label": "uniforme"
+      },
+      {
+        "x": 623.0625,
+        "y": 240.5,
+        "width": 103.6875,
+        "height": 103.6875,
+        "right": 726.75,
+        "bottom": 344.1875,
+        "label": "uno"
+      },
+      {
+        "x": 918.53125,
+        "y": 240.5,
+        "width": 103.6875,
+        "height": 103.6875,
+        "right": 1022.21875,
+        "bottom": 344.1875,
+        "label": "oso"
+      },
+      {
+        "x": 327.59375,
+        "y": 398.015625,
+        "width": 103.703125,
+        "height": 103.703125,
+        "right": 431.296875,
+        "bottom": 501.71875,
+        "label": "uvas"
+      },
+      {
+        "x": 918.515625,
+        "y": 398.015625,
+        "width": 103.703125,
+        "height": 103.703125,
+        "right": 1022.21875,
+        "bottom": 501.71875,
+        "label": "unicornio"
+      },
+      {
+        "x": 327.609375,
+        "y": 555.546875,
+        "width": 103.6875,
+        "height": 103.6875,
+        "right": 431.296875,
+        "bottom": 659.234375,
+        "label": "uña"
+      },
+      {
+        "x": 623.0625,
+        "y": 555.546875,
+        "width": 103.6875,
+        "height": 103.6875,
+        "right": 726.75,
+        "bottom": 659.234375,
+        "label": "estrella"
+      },
+      {
+        "x": 918.53125,
+        "y": 555.546875,
+        "width": 103.6875,
+        "height": 103.6875,
+        "right": 1022.21875,
+        "bottom": 659.234375,
+        "label": "imán"
+      }
+    ],
+    "stage": {
+      "x": 230.734375,
+      "y": 223.359375,
+      "width": 888.375,
+      "height": 453.015625,
+      "right": 1119.109375,
+      "bottom": 676.375,
+      "label": null
+    },
+    "minGap": 67.25,
+    "hscroll": 0
+  },
+  {
+    "phase": "after",
+    "device": "tablet",
+    "page": 3,
+    "sources": [
+      {
+        "x": 87.796875,
+        "y": 266.25,
+        "width": 72,
+        "height": 72,
+        "right": 159.796875,
+        "bottom": 338.25,
+        "label": "Vocal o"
+      },
+      {
+        "x": 87.796875,
+        "y": 420.953125,
+        "width": 72,
+        "height": 72,
+        "right": 159.796875,
+        "bottom": 492.953125,
+        "label": "Vocal a"
+      },
+      {
+        "x": 87.796875,
+        "y": 575.65625,
+        "width": 72,
+        "height": 72,
+        "right": 159.796875,
+        "bottom": 647.65625,
+        "label": "Vocal i"
+      },
+      {
+        "x": 87.796875,
+        "y": 730.375,
+        "width": 72,
+        "height": 72,
+        "right": 159.796875,
+        "bottom": 802.375,
+        "label": "Vocal e"
+      },
+      {
+        "x": 87.796875,
+        "y": 885.078125,
+        "width": 72,
+        "height": 72,
+        "right": 159.796875,
+        "bottom": 957.078125,
+        "label": "Vocal u"
+      }
+    ],
+    "targets": [
+      {
+        "x": 575.484375,
+        "y": 230.90625,
+        "width": 144.75,
+        "height": 144.75,
+        "right": 720.234375,
+        "bottom": 375.65625,
+        "label": "ocho"
+      },
+      {
+        "x": 575.5,
+        "y": 387.65625,
+        "width": 144.734375,
+        "height": 144.734375,
+        "right": 720.234375,
+        "bottom": 532.390625,
+        "label": "araña"
+      },
+      {
+        "x": 585.65625,
+        "y": 544.390625,
+        "width": 134.578125,
+        "height": 134.578125,
+        "right": 720.234375,
+        "bottom": 678.96875,
+        "label": "iglesia"
+      },
+      {
+        "x": 575.5,
+        "y": 690.96875,
+        "width": 144.734375,
+        "height": 144.734375,
+        "right": 720.234375,
+        "bottom": 835.703125,
+        "label": "escoba"
+      },
+      {
+        "x": 575.5,
+        "y": 847.703125,
+        "width": 144.734375,
+        "height": 144.734375,
+        "right": 720.234375,
+        "bottom": 992.4375,
+        "label": "uno"
+      }
+    ],
+    "stage": {
+      "x": 74.828125,
+      "y": 217.9375,
+      "width": 658.375,
+      "height": 787.46875,
+      "right": 733.203125,
+      "bottom": 1005.40625,
+      "label": null
+    },
+    "minGap": 415.6875,
+    "hscroll": 0
+  },
+  {
+    "phase": "after",
+    "device": "tablet",
+    "page": 5,
+    "sources": [
+      {
+        "x": 372,
+        "y": 594.390625,
+        "width": 64,
+        "height": 64,
+        "right": 436,
+        "bottom": 658.390625,
+        "label": "Vocal central Oo"
+      }
+    ],
+    "targets": [
+      {
+        "x": 115.21875,
+        "y": 299.0625,
+        "width": 140,
+        "height": 140,
+        "right": 255.21875,
+        "bottom": 439.0625,
+        "label": "iglú"
+      },
+      {
+        "x": 334,
+        "y": 299.0625,
+        "width": 140,
+        "height": 140,
+        "right": 474,
+        "bottom": 439.0625,
+        "label": "oveja"
+      },
+      {
+        "x": 552.796875,
+        "y": 299.0625,
+        "width": 140,
+        "height": 140,
+        "right": 692.796875,
+        "bottom": 439.0625,
+        "label": "ojos"
+      },
+      {
+        "x": 115.21875,
+        "y": 556.390625,
+        "width": 140,
+        "height": 140,
+        "right": 255.21875,
+        "bottom": 696.390625,
+        "label": "oreja"
+      },
+      {
+        "x": 552.796875,
+        "y": 556.390625,
+        "width": 140,
+        "height": 140,
+        "right": 692.796875,
+        "bottom": 696.390625,
+        "label": "olla"
+      },
+      {
+        "x": 115.21875,
+        "y": 813.71875,
+        "width": 140,
+        "height": 140,
+        "right": 255.21875,
+        "bottom": 953.71875,
+        "label": "ola"
+      },
+      {
+        "x": 334,
+        "y": 813.71875,
+        "width": 140,
+        "height": 140,
+        "right": 474,
+        "bottom": 953.71875,
+        "label": "oso"
+      },
+      {
+        "x": 552.796875,
+        "y": 813.71875,
+        "width": 140,
+        "height": 140,
+        "right": 692.796875,
+        "bottom": 953.71875,
+        "label": "alas"
+      }
+    ],
+    "stage": {
+      "x": 74.828125,
+      "y": 247.390625,
+      "width": 658.375,
+      "height": 758.015625,
+      "right": 733.203125,
+      "bottom": 1005.40625,
+      "label": null
+    },
+    "minGap": 116.78125,
+    "hscroll": 0
+  },
+  {
+    "phase": "after",
+    "device": "tablet",
+    "page": 8,
+    "sources": [
+      {
+        "x": 378,
+        "y": 594.390625,
+        "width": 64,
+        "height": 64,
+        "right": 442,
+        "bottom": 658.390625,
+        "label": "Vocal central Aa"
+      }
+    ],
+    "targets": [
+      {
+        "x": 117.21875,
+        "y": 299.0625,
+        "width": 140,
+        "height": 140,
+        "right": 257.21875,
+        "bottom": 439.0625,
+        "label": "oso"
+      },
+      {
+        "x": 340,
+        "y": 299.0625,
+        "width": 140,
+        "height": 140,
+        "right": 480,
+        "bottom": 439.0625,
+        "label": "iglú"
+      },
+      {
+        "x": 562.78125,
+        "y": 299.0625,
+        "width": 140,
+        "height": 140,
+        "right": 702.78125,
+        "bottom": 439.0625,
+        "label": "alas"
+      },
+      {
+        "x": 117.21875,
+        "y": 556.390625,
+        "width": 140,
+        "height": 140,
+        "right": 257.21875,
+        "bottom": 696.390625,
+        "label": "abeja"
+      },
+      {
+        "x": 562.78125,
+        "y": 556.390625,
+        "width": 140,
+        "height": 140,
+        "right": 702.78125,
+        "bottom": 696.390625,
+        "label": "aguja"
+      },
+      {
+        "x": 117.21875,
+        "y": 813.71875,
+        "width": 140,
+        "height": 140,
+        "right": 257.21875,
+        "bottom": 953.71875,
+        "label": "maíz"
+      },
+      {
+        "x": 340,
+        "y": 813.71875,
+        "width": 140,
+        "height": 140,
+        "right": 480,
+        "bottom": 953.71875,
+        "label": "avión"
+      },
+      {
+        "x": 562.78125,
+        "y": 813.71875,
+        "width": 140,
+        "height": 140,
+        "right": 702.78125,
+        "bottom": 953.71875,
+        "label": "aro"
+      }
+    ],
+    "stage": {
+      "x": 74.828125,
+      "y": 247.390625,
+      "width": 670.34375,
+      "height": 758.015625,
+      "right": 745.171875,
+      "bottom": 1005.40625,
+      "label": null
+    },
+    "minGap": 120.78125,
+    "hscroll": 0
+  },
+  {
+    "phase": "after",
+    "device": "tablet",
+    "page": 11,
+    "sources": [
+      {
+        "x": 372,
+        "y": 594.390625,
+        "width": 64,
+        "height": 64,
+        "right": 436,
+        "bottom": 658.390625,
+        "label": "Vocal central Ee"
+      }
+    ],
+    "targets": [
+      {
+        "x": 115.21875,
+        "y": 299.0625,
+        "width": 140,
+        "height": 140,
+        "right": 255.21875,
+        "bottom": 439.0625,
+        "label": "oso"
+      },
+      {
+        "x": 334,
+        "y": 299.0625,
+        "width": 140,
+        "height": 140,
+        "right": 474,
+        "bottom": 439.0625,
+        "label": "elefante"
+      },
+      {
+        "x": 552.796875,
+        "y": 299.0625,
+        "width": 140,
+        "height": 140,
+        "right": 692.796875,
+        "bottom": 439.0625,
+        "label": "abeja"
+      },
+      {
+        "x": 115.21875,
+        "y": 556.390625,
+        "width": 140,
+        "height": 140,
+        "right": 255.21875,
+        "bottom": 696.390625,
+        "label": "erizo"
+      },
+      {
+        "x": 552.796875,
+        "y": 556.390625,
+        "width": 140,
+        "height": 140,
+        "right": 692.796875,
+        "bottom": 696.390625,
+        "label": "maíz"
+      },
+      {
+        "x": 115.21875,
+        "y": 813.71875,
+        "width": 140,
+        "height": 140,
+        "right": 255.21875,
+        "bottom": 953.71875,
+        "label": "escalera"
+      },
+      {
+        "x": 334,
+        "y": 813.71875,
+        "width": 140,
+        "height": 140,
+        "right": 474,
+        "bottom": 953.71875,
+        "label": "estrella"
+      },
+      {
+        "x": 552.796875,
+        "y": 813.71875,
+        "width": 140,
+        "height": 140,
+        "right": 692.796875,
+        "bottom": 953.71875,
+        "label": "abrigo"
+      }
+    ],
+    "stage": {
+      "x": 74.828125,
+      "y": 247.390625,
+      "width": 658.375,
+      "height": 758.015625,
+      "right": 733.203125,
+      "bottom": 1005.40625,
+      "label": null
+    },
+    "minGap": 116.78125,
+    "hscroll": 0
+  },
+  {
+    "phase": "after",
+    "device": "tablet",
+    "page": 14,
+    "sources": [
+      {
+        "x": 378,
+        "y": 594.390625,
+        "width": 64,
+        "height": 64,
+        "right": 442,
+        "bottom": 658.390625,
+        "label": "Vocal central Ii"
+      }
+    ],
+    "targets": [
+      {
+        "x": 117.21875,
+        "y": 299.0625,
+        "width": 140,
+        "height": 140,
+        "right": 257.21875,
+        "bottom": 439.0625,
+        "label": "imán"
+      },
+      {
+        "x": 340,
+        "y": 299.0625,
+        "width": 140,
+        "height": 140,
+        "right": 480,
+        "bottom": 439.0625,
+        "label": "oso"
+      },
+      {
+        "x": 562.78125,
+        "y": 299.0625,
+        "width": 140,
+        "height": 140,
+        "right": 702.78125,
+        "bottom": 439.0625,
+        "label": "iglú"
+      },
+      {
+        "x": 117.21875,
+        "y": 556.390625,
+        "width": 140,
+        "height": 140,
+        "right": 257.21875,
+        "bottom": 696.390625,
+        "label": "igual"
+      },
+      {
+        "x": 562.78125,
+        "y": 556.390625,
+        "width": 140,
+        "height": 140,
+        "right": 702.78125,
+        "bottom": 696.390625,
+        "label": "indio"
+      },
+      {
+        "x": 117.21875,
+        "y": 813.71875,
+        "width": 140,
+        "height": 140,
+        "right": 257.21875,
+        "bottom": 953.71875,
+        "label": "uña"
+      },
+      {
+        "x": 340,
+        "y": 813.71875,
+        "width": 140,
+        "height": 140,
+        "right": 480,
+        "bottom": 953.71875,
+        "label": "iguana"
+      },
+      {
+        "x": 562.78125,
+        "y": 813.71875,
+        "width": 140,
+        "height": 140,
+        "right": 702.78125,
+        "bottom": 953.71875,
+        "label": "abeja"
+      }
+    ],
+    "stage": {
+      "x": 74.828125,
+      "y": 247.390625,
+      "width": 670.34375,
+      "height": 758.015625,
+      "right": 745.171875,
+      "bottom": 1005.40625,
+      "label": null
+    },
+    "minGap": 120.78125,
+    "hscroll": 0
+  },
+  {
+    "phase": "after",
+    "device": "tablet",
+    "page": 17,
+    "sources": [
+      {
+        "x": 372,
+        "y": 594.390625,
+        "width": 64,
+        "height": 64,
+        "right": 436,
+        "bottom": 658.390625,
+        "label": "Vocal central Uu"
+      }
+    ],
+    "targets": [
+      {
+        "x": 115.21875,
+        "y": 299.0625,
+        "width": 140,
+        "height": 140,
+        "right": 255.21875,
+        "bottom": 439.0625,
+        "label": "uniforme"
+      },
+      {
+        "x": 334,
+        "y": 299.0625,
+        "width": 140,
+        "height": 140,
+        "right": 474,
+        "bottom": 439.0625,
+        "label": "uno"
+      },
+      {
+        "x": 552.796875,
+        "y": 299.0625,
+        "width": 140,
+        "height": 140,
+        "right": 692.796875,
+        "bottom": 439.0625,
+        "label": "oso"
+      },
+      {
+        "x": 115.21875,
+        "y": 556.390625,
+        "width": 140,
+        "height": 140,
+        "right": 255.21875,
+        "bottom": 696.390625,
+        "label": "uvas"
+      },
+      {
+        "x": 552.796875,
+        "y": 556.390625,
+        "width": 140,
+        "height": 140,
+        "right": 692.796875,
+        "bottom": 696.390625,
+        "label": "unicornio"
+      },
+      {
+        "x": 115.21875,
+        "y": 813.71875,
+        "width": 140,
+        "height": 140,
+        "right": 255.21875,
+        "bottom": 953.71875,
+        "label": "uña"
+      },
+      {
+        "x": 334,
+        "y": 813.71875,
+        "width": 140,
+        "height": 140,
+        "right": 474,
+        "bottom": 953.71875,
+        "label": "estrella"
+      },
+      {
+        "x": 552.796875,
+        "y": 813.71875,
+        "width": 140,
+        "height": 140,
+        "right": 692.796875,
+        "bottom": 953.71875,
+        "label": "imán"
+      }
+    ],
+    "stage": {
+      "x": 74.828125,
+      "y": 247.390625,
+      "width": 658.375,
+      "height": 758.015625,
+      "right": 733.203125,
+      "bottom": 1005.40625,
+      "label": null
+    },
+    "minGap": 116.78125,
+    "hscroll": 0
+  },
+  {
+    "phase": "after",
+    "device": "phone",
+    "page": 3,
+    "sources": [
+      {
+        "x": 36,
+        "y": 202.46875,
+        "width": 72,
+        "height": 72,
+        "right": 108,
+        "bottom": 274.46875,
+        "label": "Vocal o"
+      },
+      {
+        "x": 36,
+        "y": 302.046875,
+        "width": 72,
+        "height": 72,
+        "right": 108,
+        "bottom": 374.046875,
+        "label": "Vocal a"
+      },
+      {
+        "x": 36,
+        "y": 401.625,
+        "width": 72,
+        "height": 72,
+        "right": 108,
+        "bottom": 473.625,
+        "label": "Vocal i"
+      },
+      {
+        "x": 36,
+        "y": 501.1875,
+        "width": 72,
+        "height": 72,
+        "right": 108,
+        "bottom": 573.1875,
+        "label": "Vocal e"
+      },
+      {
+        "x": 36,
+        "y": 600.765625,
+        "width": 72,
+        "height": 72,
+        "right": 108,
+        "bottom": 672.765625,
+        "label": "Vocal u"
+      }
+    ],
+    "targets": [
+      {
+        "x": 234.421875,
+        "y": 194.6875,
+        "width": 87.578125,
+        "height": 87.578125,
+        "right": 322,
+        "bottom": 282.265625,
+        "label": "ocho"
+      },
+      {
+        "x": 234.4375,
+        "y": 294.265625,
+        "width": 87.5625,
+        "height": 87.5625,
+        "right": 322,
+        "bottom": 381.828125,
+        "label": "araña"
+      },
+      {
+        "x": 234.421875,
+        "y": 393.828125,
+        "width": 87.578125,
+        "height": 87.578125,
+        "right": 322,
+        "bottom": 481.40625,
+        "label": "iglesia"
+      },
+      {
+        "x": 234.421875,
+        "y": 493.40625,
+        "width": 87.578125,
+        "height": 87.578125,
+        "right": 322,
+        "bottom": 580.984375,
+        "label": "escoba"
+      },
+      {
+        "x": 234.421875,
+        "y": 592.984375,
+        "width": 87.578125,
+        "height": 87.578125,
+        "right": 322,
+        "bottom": 680.5625,
+        "label": "uno"
+      }
+    ],
+    "stage": {
+      "x": 27,
+      "y": 185.6875,
+      "width": 304,
+      "height": 503.875,
+      "right": 331,
+      "bottom": 689.5625,
+      "label": null
+    },
+    "minGap": 126.421875,
+    "hscroll": 0
+  },
+  {
+    "phase": "after",
+    "device": "phone",
+    "page": 5,
+    "sources": [
+      {
+        "x": 146.984375,
+        "y": 428.734375,
+        "width": 64,
+        "height": 64,
+        "right": 210.984375,
+        "bottom": 492.734375,
+        "label": "Vocal central Oo"
+      }
+    ],
+    "targets": [
+      {
+        "x": 36,
+        "y": 263.1875,
+        "width": 80.65625,
+        "height": 80.65625,
+        "right": 116.65625,
+        "bottom": 343.84375,
+        "label": "iglú"
+      },
+      {
+        "x": 138.65625,
+        "y": 263.171875,
+        "width": 80.671875,
+        "height": 80.671875,
+        "right": 219.328125,
+        "bottom": 343.84375,
+        "label": "oveja"
+      },
+      {
+        "x": 241.328125,
+        "y": 263.1875,
+        "width": 80.65625,
+        "height": 80.65625,
+        "right": 321.984375,
+        "bottom": 343.84375,
+        "label": "ojos"
+      },
+      {
+        "x": 36,
+        "y": 420.40625,
+        "width": 80.65625,
+        "height": 80.65625,
+        "right": 116.65625,
+        "bottom": 501.0625,
+        "label": "oreja"
+      },
+      {
+        "x": 241.328125,
+        "y": 420.40625,
+        "width": 80.65625,
+        "height": 80.65625,
+        "right": 321.984375,
+        "bottom": 501.0625,
+        "label": "olla"
+      },
+      {
+        "x": 36,
+        "y": 577.625,
+        "width": 80.65625,
+        "height": 80.65625,
+        "right": 116.65625,
+        "bottom": 658.28125,
+        "label": "ola"
+      },
+      {
+        "x": 138.65625,
+        "y": 577.609375,
+        "width": 80.671875,
+        "height": 80.671875,
+        "right": 219.328125,
+        "bottom": 658.28125,
+        "label": "oso"
+      },
+      {
+        "x": 241.328125,
+        "y": 577.625,
+        "width": 80.65625,
+        "height": 80.65625,
+        "right": 321.984375,
+        "bottom": 658.28125,
+        "label": "alas"
+      }
+    ],
+    "stage": {
+      "x": 27,
+      "y": 231.90625,
+      "width": 304,
+      "height": 457.65625,
+      "right": 331,
+      "bottom": 689.5625,
+      "label": null
+    },
+    "minGap": 30.328125,
+    "hscroll": 0
+  },
+  {
+    "phase": "after",
+    "device": "phone",
+    "page": 8,
+    "sources": [
+      {
+        "x": 178.984375,
+        "y": 428.734375,
+        "width": 64,
+        "height": 64,
+        "right": 242.984375,
+        "bottom": 492.734375,
+        "label": "Vocal central Aa"
+      }
+    ],
+    "targets": [
+      {
+        "x": 68,
+        "y": 263.1875,
+        "width": 80.65625,
+        "height": 80.65625,
+        "right": 148.65625,
+        "bottom": 343.84375,
+        "label": "oso"
+      },
+      {
+        "x": 170.65625,
+        "y": 263.171875,
+        "width": 80.671875,
+        "height": 80.671875,
+        "right": 251.328125,
+        "bottom": 343.84375,
+        "label": "iglú"
+      },
+      {
+        "x": 273.328125,
+        "y": 263.1875,
+        "width": 80.65625,
+        "height": 80.65625,
+        "right": 353.984375,
+        "bottom": 343.84375,
+        "label": "alas"
+      },
+      {
+        "x": 68,
+        "y": 420.40625,
+        "width": 80.65625,
+        "height": 80.65625,
+        "right": 148.65625,
+        "bottom": 501.0625,
+        "label": "abeja"
+      },
+      {
+        "x": 273.328125,
+        "y": 420.40625,
+        "width": 80.65625,
+        "height": 80.65625,
+        "right": 353.984375,
+        "bottom": 501.0625,
+        "label": "aguja"
+      },
+      {
+        "x": 68,
+        "y": 577.625,
+        "width": 80.65625,
+        "height": 80.65625,
+        "right": 148.65625,
+        "bottom": 658.28125,
+        "label": "maíz"
+      },
+      {
+        "x": 170.65625,
+        "y": 577.609375,
+        "width": 80.671875,
+        "height": 80.671875,
+        "right": 251.328125,
+        "bottom": 658.28125,
+        "label": "avión"
+      },
+      {
+        "x": 273.328125,
+        "y": 577.625,
+        "width": 80.65625,
+        "height": 80.65625,
+        "right": 353.984375,
+        "bottom": 658.28125,
+        "label": "aro"
+      }
+    ],
+    "stage": {
+      "x": 59,
+      "y": 231.90625,
+      "width": 304,
+      "height": 457.65625,
+      "right": 363,
+      "bottom": 689.5625,
+      "label": null
+    },
+    "minGap": 30.328125,
+    "hscroll": 0
+  },
+  {
+    "phase": "after",
+    "device": "phone",
+    "page": 11,
+    "sources": [
+      {
+        "x": 146.984375,
+        "y": 428.734375,
+        "width": 64,
+        "height": 64,
+        "right": 210.984375,
+        "bottom": 492.734375,
+        "label": "Vocal central Ee"
+      }
+    ],
+    "targets": [
+      {
+        "x": 36,
+        "y": 263.1875,
+        "width": 80.65625,
+        "height": 80.65625,
+        "right": 116.65625,
+        "bottom": 343.84375,
+        "label": "oso"
+      },
+      {
+        "x": 138.65625,
+        "y": 263.171875,
+        "width": 80.671875,
+        "height": 80.671875,
+        "right": 219.328125,
+        "bottom": 343.84375,
+        "label": "elefante"
+      },
+      {
+        "x": 241.328125,
+        "y": 263.1875,
+        "width": 80.65625,
+        "height": 80.65625,
+        "right": 321.984375,
+        "bottom": 343.84375,
+        "label": "abeja"
+      },
+      {
+        "x": 36,
+        "y": 420.40625,
+        "width": 80.65625,
+        "height": 80.65625,
+        "right": 116.65625,
+        "bottom": 501.0625,
+        "label": "erizo"
+      },
+      {
+        "x": 241.328125,
+        "y": 420.40625,
+        "width": 80.65625,
+        "height": 80.65625,
+        "right": 321.984375,
+        "bottom": 501.0625,
+        "label": "maíz"
+      },
+      {
+        "x": 36,
+        "y": 577.625,
+        "width": 80.65625,
+        "height": 80.65625,
+        "right": 116.65625,
+        "bottom": 658.28125,
+        "label": "escalera"
+      },
+      {
+        "x": 138.65625,
+        "y": 577.609375,
+        "width": 80.671875,
+        "height": 80.671875,
+        "right": 219.328125,
+        "bottom": 658.28125,
+        "label": "estrella"
+      },
+      {
+        "x": 241.328125,
+        "y": 577.625,
+        "width": 80.65625,
+        "height": 80.65625,
+        "right": 321.984375,
+        "bottom": 658.28125,
+        "label": "abrigo"
+      }
+    ],
+    "stage": {
+      "x": 27,
+      "y": 231.90625,
+      "width": 304,
+      "height": 457.65625,
+      "right": 331,
+      "bottom": 689.5625,
+      "label": null
+    },
+    "minGap": 30.328125,
+    "hscroll": 0
+  },
+  {
+    "phase": "after",
+    "device": "phone",
+    "page": 14,
+    "sources": [
+      {
+        "x": 178.984375,
+        "y": 428.734375,
+        "width": 64,
+        "height": 64,
+        "right": 242.984375,
+        "bottom": 492.734375,
+        "label": "Vocal central Ii"
+      }
+    ],
+    "targets": [
+      {
+        "x": 68,
+        "y": 263.1875,
+        "width": 80.65625,
+        "height": 80.65625,
+        "right": 148.65625,
+        "bottom": 343.84375,
+        "label": "imán"
+      },
+      {
+        "x": 170.65625,
+        "y": 263.171875,
+        "width": 80.671875,
+        "height": 80.671875,
+        "right": 251.328125,
+        "bottom": 343.84375,
+        "label": "oso"
+      },
+      {
+        "x": 273.328125,
+        "y": 263.1875,
+        "width": 80.65625,
+        "height": 80.65625,
+        "right": 353.984375,
+        "bottom": 343.84375,
+        "label": "iglú"
+      },
+      {
+        "x": 68,
+        "y": 420.40625,
+        "width": 80.65625,
+        "height": 80.65625,
+        "right": 148.65625,
+        "bottom": 501.0625,
+        "label": "igual"
+      },
+      {
+        "x": 273.328125,
+        "y": 420.40625,
+        "width": 80.65625,
+        "height": 80.65625,
+        "right": 353.984375,
+        "bottom": 501.0625,
+        "label": "indio"
+      },
+      {
+        "x": 68,
+        "y": 577.625,
+        "width": 80.65625,
+        "height": 80.65625,
+        "right": 148.65625,
+        "bottom": 658.28125,
+        "label": "uña"
+      },
+      {
+        "x": 170.65625,
+        "y": 577.609375,
+        "width": 80.671875,
+        "height": 80.671875,
+        "right": 251.328125,
+        "bottom": 658.28125,
+        "label": "iguana"
+      },
+      {
+        "x": 273.328125,
+        "y": 577.625,
+        "width": 80.65625,
+        "height": 80.65625,
+        "right": 353.984375,
+        "bottom": 658.28125,
+        "label": "abeja"
+      }
+    ],
+    "stage": {
+      "x": 59,
+      "y": 231.90625,
+      "width": 304,
+      "height": 457.65625,
+      "right": 363,
+      "bottom": 689.5625,
+      "label": null
+    },
+    "minGap": 30.328125,
+    "hscroll": 0
+  },
+  {
+    "phase": "after",
+    "device": "phone",
+    "page": 17,
+    "sources": [
+      {
+        "x": 146.984375,
+        "y": 428.734375,
+        "width": 64,
+        "height": 64,
+        "right": 210.984375,
+        "bottom": 492.734375,
+        "label": "Vocal central Uu"
+      }
+    ],
+    "targets": [
+      {
+        "x": 36,
+        "y": 263.1875,
+        "width": 80.65625,
+        "height": 80.65625,
+        "right": 116.65625,
+        "bottom": 343.84375,
+        "label": "uniforme"
+      },
+      {
+        "x": 138.65625,
+        "y": 263.171875,
+        "width": 80.671875,
+        "height": 80.671875,
+        "right": 219.328125,
+        "bottom": 343.84375,
+        "label": "uno"
+      },
+      {
+        "x": 241.328125,
+        "y": 263.1875,
+        "width": 80.65625,
+        "height": 80.65625,
+        "right": 321.984375,
+        "bottom": 343.84375,
+        "label": "oso"
+      },
+      {
+        "x": 36,
+        "y": 420.40625,
+        "width": 80.65625,
+        "height": 80.65625,
+        "right": 116.65625,
+        "bottom": 501.0625,
+        "label": "uvas"
+      },
+      {
+        "x": 241.328125,
+        "y": 420.40625,
+        "width": 80.65625,
+        "height": 80.65625,
+        "right": 321.984375,
+        "bottom": 501.0625,
+        "label": "unicornio"
+      },
+      {
+        "x": 36,
+        "y": 577.625,
+        "width": 80.65625,
+        "height": 80.65625,
+        "right": 116.65625,
+        "bottom": 658.28125,
+        "label": "uña"
+      },
+      {
+        "x": 138.65625,
+        "y": 577.609375,
+        "width": 80.671875,
+        "height": 80.671875,
+        "right": 219.328125,
+        "bottom": 658.28125,
+        "label": "estrella"
+      },
+      {
+        "x": 241.328125,
+        "y": 577.625,
+        "width": 80.65625,
+        "height": 80.65625,
+        "right": 321.984375,
+        "bottom": 658.28125,
+        "label": "imán"
+      }
+    ],
+    "stage": {
+      "x": 27,
+      "y": 231.90625,
+      "width": 304,
+      "height": 457.65625,
+      "right": 331,
+      "bottom": 689.5625,
+      "label": null
+    },
+    "minGap": 30.328125,
+    "hscroll": 0
+  }
+]

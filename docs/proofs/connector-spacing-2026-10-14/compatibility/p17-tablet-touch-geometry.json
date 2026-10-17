@@ -1,0 +1,913 @@
+{
+  "normal": {
+    "sources": [
+      {
+        "x": 372,
+        "y": 594.390625,
+        "right": 436,
+        "bottom": 658.390625,
+        "width": 64,
+        "height": 64,
+        "label": "Vocal central Uu"
+      }
+    ],
+    "targets": [
+      {
+        "x": 115.21875,
+        "y": 299.0625,
+        "right": 255.21875,
+        "bottom": 439.0625,
+        "width": 140,
+        "height": 140,
+        "label": "uniforme"
+      },
+      {
+        "x": 334,
+        "y": 299.0625,
+        "right": 474,
+        "bottom": 439.0625,
+        "width": 140,
+        "height": 140,
+        "label": "uno"
+      },
+      {
+        "x": 552.796875,
+        "y": 299.0625,
+        "right": 692.796875,
+        "bottom": 439.0625,
+        "width": 140,
+        "height": 140,
+        "label": "oso"
+      },
+      {
+        "x": 115.21875,
+        "y": 556.390625,
+        "right": 255.21875,
+        "bottom": 696.390625,
+        "width": 140,
+        "height": 140,
+        "label": "uvas"
+      },
+      {
+        "x": 552.796875,
+        "y": 556.390625,
+        "right": 692.796875,
+        "bottom": 696.390625,
+        "width": 140,
+        "height": 140,
+        "label": "unicornio"
+      },
+      {
+        "x": 115.21875,
+        "y": 813.71875,
+        "right": 255.21875,
+        "bottom": 953.71875,
+        "width": 140,
+        "height": 140,
+        "label": "uña"
+      },
+      {
+        "x": 334,
+        "y": 813.71875,
+        "right": 474,
+        "bottom": 953.71875,
+        "width": 140,
+        "height": 140,
+        "label": "estrella"
+      },
+      {
+        "x": 552.796875,
+        "y": 813.71875,
+        "right": 692.796875,
+        "bottom": 953.71875,
+        "width": 140,
+        "height": 140,
+        "label": "imán"
+      }
+    ],
+    "stage": {
+      "x": 74.828125,
+      "y": 247.390625,
+      "right": 733.203125,
+      "bottom": 1005.40625,
+      "width": 658.375,
+      "height": 758.015625,
+      "label": null
+    },
+    "minGap": 116.78125,
+    "minCardGap": 78.78125,
+    "clipped": false,
+    "outsideViewport": false,
+    "hscroll": 0
+  },
+  "active": [
+    {
+      "sources": [
+        {
+          "x": 370.08001708984375,
+          "y": 592.4706420898438,
+          "right": 437.9200134277344,
+          "bottom": 660.3106079101562,
+          "width": 67.83999633789062,
+          "height": 67.8399658203125,
+          "label": "Vocal central Uu"
+        }
+      ],
+      "targets": [
+        {
+          "x": 111.71875,
+          "y": 295.5625,
+          "right": 258.71875,
+          "bottom": 442.5625,
+          "width": 147,
+          "height": 147,
+          "label": "uniforme"
+        },
+        {
+          "x": 334,
+          "y": 299.0625,
+          "right": 474,
+          "bottom": 439.0625,
+          "width": 140,
+          "height": 140,
+          "label": "uno"
+        },
+        {
+          "x": 552.796875,
+          "y": 299.0625,
+          "right": 692.796875,
+          "bottom": 439.0625,
+          "width": 140,
+          "height": 140,
+          "label": "oso"
+        },
+        {
+          "x": 115.21875,
+          "y": 556.390625,
+          "right": 255.21875,
+          "bottom": 696.390625,
+          "width": 140,
+          "height": 140,
+          "label": "uvas"
+        },
+        {
+          "x": 552.796875,
+          "y": 556.390625,
+          "right": 692.796875,
+          "bottom": 696.390625,
+          "width": 140,
+          "height": 140,
+          "label": "unicornio"
+        },
+        {
+          "x": 115.21875,
+          "y": 813.71875,
+          "right": 255.21875,
+          "bottom": 953.71875,
+          "width": 140,
+          "height": 140,
+          "label": "uña"
+        },
+        {
+          "x": 334,
+          "y": 813.71875,
+          "right": 474,
+          "bottom": 953.71875,
+          "width": 140,
+          "height": 140,
+          "label": "estrella"
+        },
+        {
+          "x": 552.796875,
+          "y": 813.71875,
+          "right": 692.796875,
+          "bottom": 953.71875,
+          "width": 140,
+          "height": 140,
+          "label": "imán"
+        }
+      ],
+      "stage": {
+        "x": 74.828125,
+        "y": 247.390625,
+        "right": 733.203125,
+        "bottom": 1005.40625,
+        "width": 658.375,
+        "height": 758.015625,
+        "label": null
+      },
+      "minGap": 114.86126708984375,
+      "minCardGap": 75.28125,
+      "clipped": false,
+      "outsideViewport": false,
+      "hscroll": 0
+    },
+    {
+      "sources": [
+        {
+          "x": 370.08001708984375,
+          "y": 592.4706420898438,
+          "right": 437.9200134277344,
+          "bottom": 660.3106079101562,
+          "width": 67.83999633789062,
+          "height": 67.8399658203125,
+          "label": "Vocal central Uu"
+        }
+      ],
+      "targets": [
+        {
+          "x": 115.21875,
+          "y": 299.0625,
+          "right": 255.21875,
+          "bottom": 439.0625,
+          "width": 140,
+          "height": 140,
+          "label": "uniforme"
+        },
+        {
+          "x": 330.5,
+          "y": 295.5625,
+          "right": 477.5,
+          "bottom": 442.5625,
+          "width": 147,
+          "height": 147,
+          "label": "uno"
+        },
+        {
+          "x": 552.796875,
+          "y": 299.0625,
+          "right": 692.796875,
+          "bottom": 439.0625,
+          "width": 140,
+          "height": 140,
+          "label": "oso"
+        },
+        {
+          "x": 115.21875,
+          "y": 556.390625,
+          "right": 255.21875,
+          "bottom": 696.390625,
+          "width": 140,
+          "height": 140,
+          "label": "uvas"
+        },
+        {
+          "x": 552.796875,
+          "y": 556.390625,
+          "right": 692.796875,
+          "bottom": 696.390625,
+          "width": 140,
+          "height": 140,
+          "label": "unicornio"
+        },
+        {
+          "x": 115.21875,
+          "y": 813.71875,
+          "right": 255.21875,
+          "bottom": 953.71875,
+          "width": 140,
+          "height": 140,
+          "label": "uña"
+        },
+        {
+          "x": 334,
+          "y": 813.71875,
+          "right": 474,
+          "bottom": 953.71875,
+          "width": 140,
+          "height": 140,
+          "label": "estrella"
+        },
+        {
+          "x": 552.796875,
+          "y": 813.71875,
+          "right": 692.796875,
+          "bottom": 953.71875,
+          "width": 140,
+          "height": 140,
+          "label": "imán"
+        }
+      ],
+      "stage": {
+        "x": 74.828125,
+        "y": 247.390625,
+        "right": 733.203125,
+        "bottom": 1005.40625,
+        "width": 658.375,
+        "height": 758.015625,
+        "label": null
+      },
+      "minGap": 114.86126708984375,
+      "minCardGap": 75.28125,
+      "clipped": false,
+      "outsideViewport": false,
+      "hscroll": 0
+    },
+    {
+      "sources": [
+        {
+          "x": 370.08001708984375,
+          "y": 592.4706420898438,
+          "right": 437.9200134277344,
+          "bottom": 660.3106079101562,
+          "width": 67.83999633789062,
+          "height": 67.8399658203125,
+          "label": "Vocal central Uu"
+        }
+      ],
+      "targets": [
+        {
+          "x": 115.21875,
+          "y": 299.0625,
+          "right": 255.21875,
+          "bottom": 439.0625,
+          "width": 140,
+          "height": 140,
+          "label": "uniforme"
+        },
+        {
+          "x": 334,
+          "y": 299.0625,
+          "right": 474,
+          "bottom": 439.0625,
+          "width": 140,
+          "height": 140,
+          "label": "uno"
+        },
+        {
+          "x": 549.296875,
+          "y": 295.5625,
+          "right": 696.296875,
+          "bottom": 442.5625,
+          "width": 147,
+          "height": 147,
+          "label": "oso"
+        },
+        {
+          "x": 115.21875,
+          "y": 556.390625,
+          "right": 255.21875,
+          "bottom": 696.390625,
+          "width": 140,
+          "height": 140,
+          "label": "uvas"
+        },
+        {
+          "x": 552.796875,
+          "y": 556.390625,
+          "right": 692.796875,
+          "bottom": 696.390625,
+          "width": 140,
+          "height": 140,
+          "label": "unicornio"
+        },
+        {
+          "x": 115.21875,
+          "y": 813.71875,
+          "right": 255.21875,
+          "bottom": 953.71875,
+          "width": 140,
+          "height": 140,
+          "label": "uña"
+        },
+        {
+          "x": 334,
+          "y": 813.71875,
+          "right": 474,
+          "bottom": 953.71875,
+          "width": 140,
+          "height": 140,
+          "label": "estrella"
+        },
+        {
+          "x": 552.796875,
+          "y": 813.71875,
+          "right": 692.796875,
+          "bottom": 953.71875,
+          "width": 140,
+          "height": 140,
+          "label": "imán"
+        }
+      ],
+      "stage": {
+        "x": 74.828125,
+        "y": 247.390625,
+        "right": 733.203125,
+        "bottom": 1005.40625,
+        "width": 658.375,
+        "height": 758.015625,
+        "label": null
+      },
+      "minGap": 114.86126708984375,
+      "minCardGap": 75.296875,
+      "clipped": false,
+      "outsideViewport": false,
+      "hscroll": 0
+    },
+    {
+      "sources": [
+        {
+          "x": 370.08001708984375,
+          "y": 592.4706420898438,
+          "right": 437.9200134277344,
+          "bottom": 660.3106079101562,
+          "width": 67.83999633789062,
+          "height": 67.8399658203125,
+          "label": "Vocal central Uu"
+        }
+      ],
+      "targets": [
+        {
+          "x": 115.21875,
+          "y": 299.0625,
+          "right": 255.21875,
+          "bottom": 439.0625,
+          "width": 140,
+          "height": 140,
+          "label": "uniforme"
+        },
+        {
+          "x": 334,
+          "y": 299.0625,
+          "right": 474,
+          "bottom": 439.0625,
+          "width": 140,
+          "height": 140,
+          "label": "uno"
+        },
+        {
+          "x": 552.796875,
+          "y": 299.0625,
+          "right": 692.796875,
+          "bottom": 439.0625,
+          "width": 140,
+          "height": 140,
+          "label": "oso"
+        },
+        {
+          "x": 111.71875,
+          "y": 552.890625,
+          "right": 258.71875,
+          "bottom": 699.890625,
+          "width": 147,
+          "height": 147,
+          "label": "uvas"
+        },
+        {
+          "x": 552.796875,
+          "y": 556.390625,
+          "right": 692.796875,
+          "bottom": 696.390625,
+          "width": 140,
+          "height": 140,
+          "label": "unicornio"
+        },
+        {
+          "x": 115.21875,
+          "y": 813.71875,
+          "right": 255.21875,
+          "bottom": 953.71875,
+          "width": 140,
+          "height": 140,
+          "label": "uña"
+        },
+        {
+          "x": 334,
+          "y": 813.71875,
+          "right": 474,
+          "bottom": 953.71875,
+          "width": 140,
+          "height": 140,
+          "label": "estrella"
+        },
+        {
+          "x": 552.796875,
+          "y": 813.71875,
+          "right": 692.796875,
+          "bottom": 953.71875,
+          "width": 140,
+          "height": 140,
+          "label": "imán"
+        }
+      ],
+      "stage": {
+        "x": 74.828125,
+        "y": 247.390625,
+        "right": 733.203125,
+        "bottom": 1005.40625,
+        "width": 658.375,
+        "height": 758.015625,
+        "label": null
+      },
+      "minGap": 111.36126708984375,
+      "minCardGap": 78.78125,
+      "clipped": false,
+      "outsideViewport": false,
+      "hscroll": 0
+    },
+    {
+      "sources": [
+        {
+          "x": 370.08001708984375,
+          "y": 592.4706420898438,
+          "right": 437.9200134277344,
+          "bottom": 660.3106079101562,
+          "width": 67.83999633789062,
+          "height": 67.8399658203125,
+          "label": "Vocal central Uu"
+        }
+      ],
+      "targets": [
+        {
+          "x": 115.21875,
+          "y": 299.0625,
+          "right": 255.21875,
+          "bottom": 439.0625,
+          "width": 140,
+          "height": 140,
+          "label": "uniforme"
+        },
+        {
+          "x": 334,
+          "y": 299.0625,
+          "right": 474,
+          "bottom": 439.0625,
+          "width": 140,
+          "height": 140,
+          "label": "uno"
+        },
+        {
+          "x": 552.796875,
+          "y": 299.0625,
+          "right": 692.796875,
+          "bottom": 439.0625,
+          "width": 140,
+          "height": 140,
+          "label": "oso"
+        },
+        {
+          "x": 115.21875,
+          "y": 556.390625,
+          "right": 255.21875,
+          "bottom": 696.390625,
+          "width": 140,
+          "height": 140,
+          "label": "uvas"
+        },
+        {
+          "x": 549.296875,
+          "y": 552.890625,
+          "right": 696.296875,
+          "bottom": 699.890625,
+          "width": 147,
+          "height": 147,
+          "label": "unicornio"
+        },
+        {
+          "x": 115.21875,
+          "y": 813.71875,
+          "right": 255.21875,
+          "bottom": 953.71875,
+          "width": 140,
+          "height": 140,
+          "label": "uña"
+        },
+        {
+          "x": 334,
+          "y": 813.71875,
+          "right": 474,
+          "bottom": 953.71875,
+          "width": 140,
+          "height": 140,
+          "label": "estrella"
+        },
+        {
+          "x": 552.796875,
+          "y": 813.71875,
+          "right": 692.796875,
+          "bottom": 953.71875,
+          "width": 140,
+          "height": 140,
+          "label": "imán"
+        }
+      ],
+      "stage": {
+        "x": 74.828125,
+        "y": 247.390625,
+        "right": 733.203125,
+        "bottom": 1005.40625,
+        "width": 658.375,
+        "height": 758.015625,
+        "label": null
+      },
+      "minGap": 111.37686157226562,
+      "minCardGap": 78.78125,
+      "clipped": false,
+      "outsideViewport": false,
+      "hscroll": 0
+    },
+    {
+      "sources": [
+        {
+          "x": 370.08001708984375,
+          "y": 592.4706420898438,
+          "right": 437.9200134277344,
+          "bottom": 660.3106079101562,
+          "width": 67.83999633789062,
+          "height": 67.8399658203125,
+          "label": "Vocal central Uu"
+        }
+      ],
+      "targets": [
+        {
+          "x": 115.21875,
+          "y": 299.0625,
+          "right": 255.21875,
+          "bottom": 439.0625,
+          "width": 140,
+          "height": 140,
+          "label": "uniforme"
+        },
+        {
+          "x": 334,
+          "y": 299.0625,
+          "right": 474,
+          "bottom": 439.0625,
+          "width": 140,
+          "height": 140,
+          "label": "uno"
+        },
+        {
+          "x": 552.796875,
+          "y": 299.0625,
+          "right": 692.796875,
+          "bottom": 439.0625,
+          "width": 140,
+          "height": 140,
+          "label": "oso"
+        },
+        {
+          "x": 115.21875,
+          "y": 556.390625,
+          "right": 255.21875,
+          "bottom": 696.390625,
+          "width": 140,
+          "height": 140,
+          "label": "uvas"
+        },
+        {
+          "x": 552.796875,
+          "y": 556.390625,
+          "right": 692.796875,
+          "bottom": 696.390625,
+          "width": 140,
+          "height": 140,
+          "label": "unicornio"
+        },
+        {
+          "x": 115.21875,
+          "y": 813.71875,
+          "right": 255.21875,
+          "bottom": 953.71875,
+          "width": 140,
+          "height": 140,
+          "label": "uña"
+        },
+        {
+          "x": 334,
+          "y": 813.71875,
+          "right": 474,
+          "bottom": 953.71875,
+          "width": 140,
+          "height": 140,
+          "label": "estrella"
+        },
+        {
+          "x": 552.796875,
+          "y": 813.71875,
+          "right": 692.796875,
+          "bottom": 953.71875,
+          "width": 140,
+          "height": 140,
+          "label": "imán"
+        }
+      ],
+      "stage": {
+        "x": 74.828125,
+        "y": 247.390625,
+        "right": 733.203125,
+        "bottom": 1005.40625,
+        "width": 658.375,
+        "height": 758.015625,
+        "label": null
+      },
+      "minGap": 114.86126708984375,
+      "minCardGap": 78.78125,
+      "clipped": false,
+      "outsideViewport": false,
+      "hscroll": 0
+    },
+    {
+      "sources": [
+        {
+          "x": 370.08001708984375,
+          "y": 592.4706420898438,
+          "right": 437.9200134277344,
+          "bottom": 660.3106079101562,
+          "width": 67.83999633789062,
+          "height": 67.8399658203125,
+          "label": "Vocal central Uu"
+        }
+      ],
+      "targets": [
+        {
+          "x": 115.21875,
+          "y": 299.0625,
+          "right": 255.21875,
+          "bottom": 439.0625,
+          "width": 140,
+          "height": 140,
+          "label": "uniforme"
+        },
+        {
+          "x": 334,
+          "y": 299.0625,
+          "right": 474,
+          "bottom": 439.0625,
+          "width": 140,
+          "height": 140,
+          "label": "uno"
+        },
+        {
+          "x": 552.796875,
+          "y": 299.0625,
+          "right": 692.796875,
+          "bottom": 439.0625,
+          "width": 140,
+          "height": 140,
+          "label": "oso"
+        },
+        {
+          "x": 115.21875,
+          "y": 556.390625,
+          "right": 255.21875,
+          "bottom": 696.390625,
+          "width": 140,
+          "height": 140,
+          "label": "uvas"
+        },
+        {
+          "x": 552.796875,
+          "y": 556.390625,
+          "right": 692.796875,
+          "bottom": 696.390625,
+          "width": 140,
+          "height": 140,
+          "label": "unicornio"
+        },
+        {
+          "x": 115.21875,
+          "y": 813.71875,
+          "right": 255.21875,
+          "bottom": 953.71875,
+          "width": 140,
+          "height": 140,
+          "label": "uña"
+        },
+        {
+          "x": 330.5,
+          "y": 810.21875,
+          "right": 477.5,
+          "bottom": 957.21875,
+          "width": 147,
+          "height": 147,
+          "label": "estrella"
+        },
+        {
+          "x": 552.796875,
+          "y": 813.71875,
+          "right": 692.796875,
+          "bottom": 953.71875,
+          "width": 140,
+          "height": 140,
+          "label": "imán"
+        }
+      ],
+      "stage": {
+        "x": 74.828125,
+        "y": 247.390625,
+        "right": 733.203125,
+        "bottom": 1005.40625,
+        "width": 658.375,
+        "height": 758.015625,
+        "label": null
+      },
+      "minGap": 114.86126708984375,
+      "minCardGap": 75.28125,
+      "clipped": false,
+      "outsideViewport": false,
+      "hscroll": 0
+    },
+    {
+      "sources": [
+        {
+          "x": 370.08001708984375,
+          "y": 592.4706420898438,
+          "right": 437.9200134277344,
+          "bottom": 660.3106079101562,
+          "width": 67.83999633789062,
+          "height": 67.8399658203125,
+          "label": "Vocal central Uu"
+        }
+      ],
+      "targets": [
+        {
+          "x": 115.21875,
+          "y": 299.0625,
+          "right": 255.21875,
+          "bottom": 439.0625,
+          "width": 140,
+          "height": 140,
+          "label": "uniforme"
+        },
+        {
+          "x": 334,
+          "y": 299.0625,
+          "right": 474,
+          "bottom": 439.0625,
+          "width": 140,
+          "height": 140,
+          "label": "uno"
+        },
+        {
+          "x": 552.796875,
+          "y": 299.0625,
+          "right": 692.796875,
+          "bottom": 439.0625,
+          "width": 140,
+          "height": 140,
+          "label": "oso"
+        },
+        {
+          "x": 115.21875,
+          "y": 556.390625,
+          "right": 255.21875,
+          "bottom": 696.390625,
+          "width": 140,
+          "height": 140,
+          "label": "uvas"
+        },
+        {
+          "x": 552.796875,
+          "y": 556.390625,
+          "right": 692.796875,
+          "bottom": 696.390625,
+          "width": 140,
+          "height": 140,
+          "label": "unicornio"
+        },
+        {
+          "x": 115.21875,
+          "y": 813.71875,
+          "right": 255.21875,
+          "bottom": 953.71875,
+          "width": 140,
+          "height": 140,
+          "label": "uña"
+        },
+        {
+          "x": 334,
+          "y": 813.71875,
+          "right": 474,
+          "bottom": 953.71875,
+          "width": 140,
+          "height": 140,
+          "label": "estrella"
+        },
+        {
+          "x": 549.296875,
+          "y": 810.21875,
+          "right": 696.296875,
+          "bottom": 957.21875,
+          "width": 147,
+          "height": 147,
+          "label": "imán"
+        }
+      ],
+      "stage": {
+        "x": 74.828125,
+        "y": 247.390625,
+        "right": 733.203125,
+        "bottom": 1005.40625,
+        "width": 658.375,
+        "height": 758.015625,
+        "label": null
+      },
+      "minGap": 114.86126708984375,
+      "minCardGap": 75.296875,
+      "clipped": false,
+      "outsideViewport": false,
+      "hscroll": 0
+    }
+  ]
+}

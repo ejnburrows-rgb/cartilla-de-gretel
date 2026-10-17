@@ -1,0 +1,337 @@
+{
+  "embedded": {
+    "sources": [
+      {
+        "x": 194.15625,
+        "y": 134.0625,
+        "right": 266.15625,
+        "bottom": 206.0625,
+        "width": 72,
+        "height": 72,
+        "label": "Vocal o"
+      },
+      {
+        "x": 194.15625,
+        "y": 218.265625,
+        "right": 266.15625,
+        "bottom": 290.265625,
+        "width": 72,
+        "height": 72,
+        "label": "Vocal a"
+      },
+      {
+        "x": 194.15625,
+        "y": 302.46875,
+        "right": 266.15625,
+        "bottom": 374.46875,
+        "width": 72,
+        "height": 72,
+        "label": "Vocal i"
+      },
+      {
+        "x": 194.15625,
+        "y": 386.65625,
+        "right": 266.15625,
+        "bottom": 458.65625,
+        "width": 72,
+        "height": 72,
+        "label": "Vocal e"
+      },
+      {
+        "x": 194.15625,
+        "y": 470.859375,
+        "right": 266.15625,
+        "bottom": 542.859375,
+        "width": 72,
+        "height": 72,
+        "label": "Vocal u"
+      }
+    ],
+    "targets": [
+      {
+        "x": 569.15625,
+        "y": 133.96875,
+        "right": 641.359375,
+        "bottom": 206.171875,
+        "width": 72.203125,
+        "height": 72.203125,
+        "label": "ocho"
+      },
+      {
+        "x": 569.171875,
+        "y": 218.171875,
+        "right": 641.359375,
+        "bottom": 290.359375,
+        "width": 72.1875,
+        "height": 72.1875,
+        "label": "araña"
+      },
+      {
+        "x": 569.15625,
+        "y": 302.359375,
+        "right": 641.359375,
+        "bottom": 374.5625,
+        "width": 72.203125,
+        "height": 72.203125,
+        "label": "iglesia"
+      },
+      {
+        "x": 569.15625,
+        "y": 386.5625,
+        "right": 641.359375,
+        "bottom": 458.765625,
+        "width": 72.203125,
+        "height": 72.203125,
+        "label": "escoba"
+      },
+      {
+        "x": 569.15625,
+        "y": 470.765625,
+        "right": 641.359375,
+        "bottom": 542.96875,
+        "width": 72.203125,
+        "height": 72.203125,
+        "label": "uno"
+      }
+    ],
+    "stage": {
+      "x": 184.6875,
+      "y": 124.5,
+      "right": 650.828125,
+      "bottom": 552.4375,
+      "width": 466.140625,
+      "height": 427.9375,
+      "label": null
+    },
+    "minGap": 303,
+    "minCardGap": 12,
+    "clipped": false,
+    "outsideViewport": true,
+    "hscroll": 0
+  },
+  "expanded": {
+    "sources": [
+      {
+        "x": 113.65625,
+        "y": 101.0625,
+        "right": 185.65625,
+        "bottom": 173.0625,
+        "width": 72,
+        "height": 72,
+        "label": "Vocal o"
+      },
+      {
+        "x": 113.65625,
+        "y": 185.265625,
+        "right": 185.65625,
+        "bottom": 257.265625,
+        "width": 72,
+        "height": 72,
+        "label": "Vocal a"
+      },
+      {
+        "x": 113.65625,
+        "y": 269.46875,
+        "right": 185.65625,
+        "bottom": 341.46875,
+        "width": 72,
+        "height": 72,
+        "label": "Vocal i"
+      },
+      {
+        "x": 113.65625,
+        "y": 353.65625,
+        "right": 185.65625,
+        "bottom": 425.65625,
+        "width": 72,
+        "height": 72,
+        "label": "Vocal e"
+      },
+      {
+        "x": 113.65625,
+        "y": 437.859375,
+        "right": 185.65625,
+        "bottom": 509.859375,
+        "width": 72,
+        "height": 72,
+        "label": "Vocal u"
+      }
+    ],
+    "targets": [
+      {
+        "x": 742.375,
+        "y": 100.96875,
+        "right": 814.71875,
+        "bottom": 173.3125,
+        "width": 72.34375,
+        "height": 72.34375,
+        "label": "ocho"
+      },
+      {
+        "x": 742.390625,
+        "y": 185.3125,
+        "right": 814.71875,
+        "bottom": 257.640625,
+        "width": 72.328125,
+        "height": 72.328125,
+        "label": "araña"
+      },
+      {
+        "x": 742.71875,
+        "y": 269.640625,
+        "right": 814.71875,
+        "bottom": 341.640625,
+        "width": 72,
+        "height": 72,
+        "label": "iglesia"
+      },
+      {
+        "x": 742.71875,
+        "y": 353.640625,
+        "right": 814.71875,
+        "bottom": 425.640625,
+        "width": 72,
+        "height": 72,
+        "label": "escoba"
+      },
+      {
+        "x": 742.390625,
+        "y": 437.640625,
+        "right": 814.71875,
+        "bottom": 509.96875,
+        "width": 72.328125,
+        "height": 72.328125,
+        "label": "uno"
+      }
+    ],
+    "stage": {
+      "x": 104.1875,
+      "y": 91.5,
+      "right": 824.1875,
+      "bottom": 519.4375,
+      "width": 720,
+      "height": 427.9375,
+      "label": null
+    },
+    "minGap": 556.71875,
+    "minCardGap": 12,
+    "clipped": false,
+    "outsideViewport": true,
+    "hscroll": 0
+  },
+  "returned": {
+    "sources": [
+      {
+        "x": 194.15625,
+        "y": 134.0625,
+        "right": 266.15625,
+        "bottom": 206.0625,
+        "width": 72,
+        "height": 72,
+        "label": "Vocal o"
+      },
+      {
+        "x": 194.15625,
+        "y": 218.265625,
+        "right": 266.15625,
+        "bottom": 290.265625,
+        "width": 72,
+        "height": 72,
+        "label": "Vocal a"
+      },
+      {
+        "x": 194.15625,
+        "y": 302.46875,
+        "right": 266.15625,
+        "bottom": 374.46875,
+        "width": 72,
+        "height": 72,
+        "label": "Vocal i"
+      },
+      {
+        "x": 194.15625,
+        "y": 386.65625,
+        "right": 266.15625,
+        "bottom": 458.65625,
+        "width": 72,
+        "height": 72,
+        "label": "Vocal e"
+      },
+      {
+        "x": 194.15625,
+        "y": 470.859375,
+        "right": 266.15625,
+        "bottom": 542.859375,
+        "width": 72,
+        "height": 72,
+        "label": "Vocal u"
+      }
+    ],
+    "targets": [
+      {
+        "x": 569.15625,
+        "y": 133.96875,
+        "right": 641.359375,
+        "bottom": 206.171875,
+        "width": 72.203125,
+        "height": 72.203125,
+        "label": "ocho"
+      },
+      {
+        "x": 569.171875,
+        "y": 218.171875,
+        "right": 641.359375,
+        "bottom": 290.359375,
+        "width": 72.1875,
+        "height": 72.1875,
+        "label": "araña"
+      },
+      {
+        "x": 569.15625,
+        "y": 302.359375,
+        "right": 641.359375,
+        "bottom": 374.5625,
+        "width": 72.203125,
+        "height": 72.203125,
+        "label": "iglesia"
+      },
+      {
+        "x": 569.15625,
+        "y": 386.5625,
+        "right": 641.359375,
+        "bottom": 458.765625,
+        "width": 72.203125,
+        "height": 72.203125,
+        "label": "escoba"
+      },
+      {
+        "x": 569.15625,
+        "y": 470.765625,
+        "right": 641.359375,
+        "bottom": 542.96875,
+        "width": 72.203125,
+        "height": 72.203125,
+        "label": "uno"
+      }
+    ],
+    "stage": {
+      "x": 184.6875,
+      "y": 124.5,
+      "right": 650.828125,
+      "bottom": 552.4375,
+      "width": 466.140625,
+      "height": 427.9375,
+      "label": null
+    },
+    "minGap": 303,
+    "minCardGap": 12,
+    "clipped": false,
+    "outsideViewport": true,
+    "hscroll": 0
+  },
+  "scroll": {
+    "widthOverflow": 0,
+    "heightOverflow": 173,
+    "overflow": "auto"
+  }
+}

@@ -1,0 +1,310 @@
+{
+  "embedded": {
+    "sources": [
+      {
+        "x": 146.984375,
+        "y": 428.734375,
+        "right": 210.984375,
+        "bottom": 492.734375,
+        "width": 64,
+        "height": 64,
+        "label": "Vocal central Oo"
+      }
+    ],
+    "targets": [
+      {
+        "x": 36,
+        "y": 263.1875,
+        "right": 116.65625,
+        "bottom": 343.84375,
+        "width": 80.65625,
+        "height": 80.65625,
+        "label": "iglú"
+      },
+      {
+        "x": 138.65625,
+        "y": 263.171875,
+        "right": 219.328125,
+        "bottom": 343.84375,
+        "width": 80.671875,
+        "height": 80.671875,
+        "label": "oveja"
+      },
+      {
+        "x": 241.328125,
+        "y": 263.1875,
+        "right": 321.984375,
+        "bottom": 343.84375,
+        "width": 80.65625,
+        "height": 80.65625,
+        "label": "ojos"
+      },
+      {
+        "x": 36,
+        "y": 420.40625,
+        "right": 116.65625,
+        "bottom": 501.0625,
+        "width": 80.65625,
+        "height": 80.65625,
+        "label": "oreja"
+      },
+      {
+        "x": 241.328125,
+        "y": 420.40625,
+        "right": 321.984375,
+        "bottom": 501.0625,
+        "width": 80.65625,
+        "height": 80.65625,
+        "label": "olla"
+      },
+      {
+        "x": 36,
+        "y": 577.625,
+        "right": 116.65625,
+        "bottom": 658.28125,
+        "width": 80.65625,
+        "height": 80.65625,
+        "label": "ola"
+      },
+      {
+        "x": 138.65625,
+        "y": 577.609375,
+        "right": 219.328125,
+        "bottom": 658.28125,
+        "width": 80.671875,
+        "height": 80.671875,
+        "label": "oso"
+      },
+      {
+        "x": 241.328125,
+        "y": 577.625,
+        "right": 321.984375,
+        "bottom": 658.28125,
+        "width": 80.65625,
+        "height": 80.65625,
+        "label": "alas"
+      }
+    ],
+    "stage": {
+      "x": 27,
+      "y": 231.90625,
+      "right": 331,
+      "bottom": 689.5625,
+      "width": 304,
+      "height": 457.65625,
+      "label": null
+    },
+    "minGap": 30.328125,
+    "minCardGap": 22,
+    "clipped": false,
+    "outsideViewport": false,
+    "hscroll": 0
+  },
+  "expanded": {
+    "sources": [
+      {
+        "x": 182.484375,
+        "y": 414.1875,
+        "right": 246.484375,
+        "bottom": 478.1875,
+        "width": 64,
+        "height": 64,
+        "label": "Vocal central Oo"
+      }
+    ],
+    "targets": [
+      {
+        "x": 52.5,
+        "y": 173.515625,
+        "right": 145.828125,
+        "bottom": 266.84375,
+        "width": 93.328125,
+        "height": 93.328125,
+        "label": "iglú"
+      },
+      {
+        "x": 167.828125,
+        "y": 173.515625,
+        "right": 261.15625,
+        "bottom": 266.84375,
+        "width": 93.328125,
+        "height": 93.328125,
+        "label": "oveja"
+      },
+      {
+        "x": 283.15625,
+        "y": 173.515625,
+        "right": 376.5,
+        "bottom": 266.859375,
+        "width": 93.34375,
+        "height": 93.34375,
+        "label": "ojos"
+      },
+      {
+        "x": 52.5,
+        "y": 399.515625,
+        "right": 145.828125,
+        "bottom": 492.84375,
+        "width": 93.328125,
+        "height": 93.328125,
+        "label": "oreja"
+      },
+      {
+        "x": 283.15625,
+        "y": 399.515625,
+        "right": 376.5,
+        "bottom": 492.859375,
+        "width": 93.34375,
+        "height": 93.34375,
+        "label": "olla"
+      },
+      {
+        "x": 52.5,
+        "y": 625.515625,
+        "right": 145.828125,
+        "bottom": 718.84375,
+        "width": 93.328125,
+        "height": 93.328125,
+        "label": "ola"
+      },
+      {
+        "x": 167.828125,
+        "y": 625.515625,
+        "right": 261.15625,
+        "bottom": 718.84375,
+        "width": 93.328125,
+        "height": 93.328125,
+        "label": "oso"
+      },
+      {
+        "x": 283.15625,
+        "y": 625.515625,
+        "right": 376.5,
+        "bottom": 718.859375,
+        "width": 93.34375,
+        "height": 93.34375,
+        "label": "alas"
+      }
+    ],
+    "stage": {
+      "x": 43.5,
+      "y": 114.1875,
+      "right": 385.5,
+      "bottom": 778.1875,
+      "width": 342,
+      "height": 664,
+      "label": null
+    },
+    "minGap": 36.65625,
+    "minCardGap": 22,
+    "clipped": false,
+    "outsideViewport": false,
+    "hscroll": 0
+  },
+  "returned": {
+    "sources": [
+      {
+        "x": 146.984375,
+        "y": 428.734375,
+        "right": 210.984375,
+        "bottom": 492.734375,
+        "width": 64,
+        "height": 64,
+        "label": "Vocal central Oo"
+      }
+    ],
+    "targets": [
+      {
+        "x": 36,
+        "y": 263.1875,
+        "right": 116.65625,
+        "bottom": 343.84375,
+        "width": 80.65625,
+        "height": 80.65625,
+        "label": "iglú"
+      },
+      {
+        "x": 138.65625,
+        "y": 263.171875,
+        "right": 219.328125,
+        "bottom": 343.84375,
+        "width": 80.671875,
+        "height": 80.671875,
+        "label": "oveja"
+      },
+      {
+        "x": 241.328125,
+        "y": 263.1875,
+        "right": 321.984375,
+        "bottom": 343.84375,
+        "width": 80.65625,
+        "height": 80.65625,
+        "label": "ojos"
+      },
+      {
+        "x": 36,
+        "y": 420.40625,
+        "right": 116.65625,
+        "bottom": 501.0625,
+        "width": 80.65625,
+        "height": 80.65625,
+        "label": "oreja"
+      },
+      {
+        "x": 241.328125,
+        "y": 420.40625,
+        "right": 321.984375,
+        "bottom": 501.0625,
+        "width": 80.65625,
+        "height": 80.65625,
+        "label": "olla"
+      },
+      {
+        "x": 36,
+        "y": 577.625,
+        "right": 116.65625,
+        "bottom": 658.28125,
+        "width": 80.65625,
+        "height": 80.65625,
+        "label": "ola"
+      },
+      {
+        "x": 138.65625,
+        "y": 577.609375,
+        "right": 219.328125,
+        "bottom": 658.28125,
+        "width": 80.671875,
+        "height": 80.671875,
+        "label": "oso"
+      },
+      {
+        "x": 241.328125,
+        "y": 577.625,
+        "right": 321.984375,
+        "bottom": 658.28125,
+        "width": 80.65625,
+        "height": 80.65625,
+        "label": "alas"
+      }
+    ],
+    "stage": {
+      "x": 27,
+      "y": 231.90625,
+      "right": 331,
+      "bottom": 689.5625,
+      "width": 304,
+      "height": 457.65625,
+      "label": null
+    },
+    "minGap": 30.328125,
+    "minCardGap": 22,
+    "clipped": false,
+    "outsideViewport": false,
+    "hscroll": 0
+  },
+  "scroll": {
+    "widthOverflow": 0,
+    "heightOverflow": 0,
+    "overflow": "auto"
+  }
+}

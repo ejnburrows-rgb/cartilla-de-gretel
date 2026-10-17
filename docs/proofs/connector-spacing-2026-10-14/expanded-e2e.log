@@ -1,0 +1,17 @@
+
+Running 12 tests using 2 workers
+
+  ✓   1 tests/e2e/pencil-connector-space.spec.ts:179:31 › expanded 844x390 › p3: full stage capacity and return (5.7s)
+  ✓   2 tests/e2e/pencil-connector-space.spec.ts:179:31 › expanded 844x390 › p5: full stage capacity and return (5.8s)
+  ✓   4 tests/e2e/pencil-connector-space.spec.ts:179:31 › expanded 844x390 › p11: full stage capacity and return (5.4s)
+  ✓   3 tests/e2e/pencil-connector-space.spec.ts:179:31 › expanded 844x390 › p8: full stage capacity and return (5.7s)
+  ✓   6 tests/e2e/pencil-connector-space.spec.ts:179:31 › expanded 844x390 › p17: full stage capacity and return (5.8s)
+  ✓   5 tests/e2e/pencil-connector-space.spec.ts:179:31 › expanded 844x390 › p14: full stage capacity and return (6.1s)
+  ✓   8 tests/e2e/pencil-connector-space.spec.ts:179:31 › expanded 390x844 › p5: full stage capacity and return (4.9s)
+  ✓   7 tests/e2e/pencil-connector-space.spec.ts:179:31 › expanded 390x844 › p3: full stage capacity and return (5.2s)
+  ✓   9 tests/e2e/pencil-connector-space.spec.ts:179:31 › expanded 390x844 › p8: full stage capacity and return (3.9s)
+  ✓  10 tests/e2e/pencil-connector-space.spec.ts:179:31 › expanded 390x844 › p11: full stage capacity and return (4.1s)
+  ✓  11 tests/e2e/pencil-connector-space.spec.ts:179:31 › expanded 390x844 › p14: full stage capacity and return (4.1s)
+  ✓  12 tests/e2e/pencil-connector-space.spec.ts:179:31 › expanded 390x844 › p17: full stage capacity and return (3.8s)
+
+  12 passed (32.1s)
