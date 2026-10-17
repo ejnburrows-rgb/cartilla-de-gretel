@@ -49,6 +49,16 @@
     "alive": "public/cartilla/art/optimized/workbook/leccion-1/iman-alive.svg",
     "stillSha256": "c8a80b42542979dd37809a40a334c0266c4241cb1639cb58a67d6aee6cfeee52"
   },
+  "leccion-1-maiz": {
+    "still": "public/cartilla/art/faithful/leccion-1/maiz.webp",
+    "alive": "public/cartilla/art/faithful/leccion-1/maiz-alive.svg",
+    "stillSha256": "b37aa3b97f5e5c0dc0449af30dae278a9c4d40a316e8fba7f705905a9f6964ce"
+  },
+  "leccion-1-ojos": {
+    "still": "public/cartilla/art/faithful/leccion-1/ojos.webp",
+    "alive": "public/cartilla/art/faithful/leccion-1/ojos-alive.svg",
+    "stillSha256": "fd75dd3634478a10be84b7139ec440081a69c7fd89b39e59e9f3ad5ff5e26c90"
+  },
   "olla": {
     "still": "public/cartilla/art/optimized/workbook/leccion-1/olla.svg",
     "alive": "public/cartilla/art/optimized/workbook/leccion-1/olla-alive.svg",
@@ -79,15 +89,40 @@
     "alive": "public/cartilla/art/faithful/vocal-a/abeja-alive.svg",
     "stillSha256": "989ee62ea87c78a5aba91aa10040031d26fa0c9f2c239069c45c3c4e7491cfab"
   },
+  "vocal-a-aguja": {
+    "still": "public/cartilla/art/faithful/vocal-a/aguja.webp",
+    "alive": "public/cartilla/art/faithful/vocal-a/aguja-alive.svg",
+    "stillSha256": "fe6deee0d75f1421fa7c97d7bd4ccae4334122b2ef34a4229ffb8544ffa13e8b"
+  },
+  "vocal-a-alas": {
+    "still": "public/cartilla/art/faithful/vocal-a/alas.webp",
+    "alive": "public/cartilla/art/faithful/vocal-a/alas-alive.svg",
+    "stillSha256": "d3f5cb567b8f57658a8c4aca72fda575a583d03443053119d0860dfb3a7eaf0b"
+  },
+  "vocal-a-ardilla": {
+    "still": "public/cartilla/art/faithful/vocal-a/ardilla.webp",
+    "alive": "public/cartilla/art/faithful/vocal-a/ardilla-alive.svg",
+    "stillSha256": "259af9bc12d231e50bfa4c7c9f5dbe527fe0da9efd9eb7822974691d5d01c962"
+  },
   "vocal-e-elefante": {
     "still": "public/cartilla/art/faithful/vocal-e/elefante.webp",
     "alive": "public/cartilla/art/faithful/vocal-e/elefante-alive.svg",
     "stillSha256": "6923d549b79d92bad9beef7a3c104a6efb9b517657a93f75310542a4528e17cf"
   },
+  "vocal-e-estrella": {
+    "still": "public/cartilla/art/faithful/vocal-e/estrella.webp",
+    "alive": "public/cartilla/art/faithful/vocal-e/estrella-alive.svg",
+    "stillSha256": "10ef1111bf7bc729dd4e0e7f6f022f2c8a63f8811a0d93cbeb4bffcff834e02a"
+  },
   "vocal-i-iman": {
     "still": "public/cartilla/art/faithful/vocal-i/iman.webp",
     "alive": "public/cartilla/art/faithful/vocal-i/iman-alive.svg",
     "stillSha256": "0ff9e90bc2832cc860ae5fae11ccf50fb567f6ad96f691429d0fc25b469643d3"
+  },
+  "vocal-o-oruga": {
+    "still": "public/cartilla/art/faithful/vocal-o/oruga.webp",
+    "alive": "public/cartilla/art/faithful/vocal-o/oruga-alive.svg",
+    "stillSha256": "2dfdebc0ed5c3cf5a741803f6505d5792613fc53e0401806b3556b375ed6e163"
   },
   "vocal-o-oso": {
     "still": "public/cartilla/art/faithful/vocal-o/oso.webp",

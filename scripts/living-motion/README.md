@@ -77,3 +77,9 @@ live in `redrawn_*.py` with coordinates measured on the new still (shared helper
 - `vocal-o/olla.webp` stays **still**: the new pot has no steam drawn.
 - `vocal-a/avion.webp` stays **still**: the new jet has no propeller and is painted
   on its own blue sky, so no part can move on its own.
+- `vocal-o-oruga`, `vocal-a-ardilla`, `vocal-a-alas`, `leccion-1-ojos`, `vocal-e-estrella`,
+  `vocal-a-aguja`, `leccion-1-maiz`: new part-only rigs in `redrawn_l3_rest.py` (hand
+  wave + blink, tail + blink, wing flap, separate eye blinks, star points brighten in
+  turn, needle tip pivot, one husk leaf flexes). Draft; owner approval pending.
+- `vocal-a/aro.webp`, `vocal-a/arbol.webp`, `vocal-u/uno.webp`, `vocal-i/iglu.webp` stay
+  **still**: no separately drawn moving part in the new art.

@@ -142,10 +142,22 @@ export const LIVING_ACTORS: Readonly<Record<string, LivingActor>> = Object.freez
   [`${A}/vocal-a/abanico.webp`]: { src: `${A}/vocal-a/abanico.webp`, aliveSrc: `${A}/vocal-a/abanico-alive.svg`, action: "sway", creature: false, reducedMotion: "static", meaning: "abanico que se mece" },
   [`${A}/vocal-e/elefante.webp`]: { src: `${A}/vocal-e/elefante.webp`, aliveSrc: `${A}/vocal-e/elefante-alive.svg`, action: "nod", creature: true, parts: [{ name: "trunk", clipPath: "inset(20% 55% 18% 2%)", transformOrigin: "38% 45%" }], reducedMotion: "static", meaning: "trompa que se balancea con suavidad" },
   [`${A}/vocal-i/iman.webp`]: { src: `${A}/vocal-i/iman.webp`, aliveSrc: `${A}/vocal-i/iman-alive.svg`, action: "float", creature: false, reducedMotion: "static", meaning: "chispas del imán que destellan" },
+  // Lesson 3 remaining pictures, redrawn art (picture PR #888). Only parts that are
+  // drawn as separate pieces move (owner rule 2026-10-11). Still on purpose: aro (hoop
+  // woven through the ribbon over a painted swirl), arbol (one canopy mass), uno
+  // (a trace would add marks), iglu (no separate snow-rim highlight is drawn).
+  [`${A}/vocal-o/oruga.webp`]: { src: `${A}/vocal-o/oruga.webp`, aliveSrc: `${A}/vocal-o/oruga-alive.svg`, action: "nod", creature: true, reducedMotion: "static", meaning: "la mano saluda y los ojos parpadean" },
+  [`${A}/vocal-a/ardilla.webp`]: { src: `${A}/vocal-a/ardilla.webp`, aliveSrc: `${A}/vocal-a/ardilla-alive.svg`, action: "wag", creature: true, reducedMotion: "static", meaning: "la cola se mece y los ojos parpadean" },
+  [`${A}/vocal-a/alas.webp`]: { src: `${A}/vocal-a/alas.webp`, aliveSrc: `${A}/vocal-a/alas-alive.svg`, action: "flutter", creature: false, reducedMotion: "static", meaning: "las alas aletean un poco" },
+  [`${A}/leccion-1/ojos.webp`]: { src: `${A}/leccion-1/ojos.webp`, aliveSrc: `${A}/leccion-1/ojos-alive.svg`, action: "nod", creature: true, reducedMotion: "static", meaning: "cada ojo parpadea a su tiempo" },
+  [`${A}/vocal-e/estrella.webp`]: { src: `${A}/vocal-e/estrella.webp`, aliveSrc: `${A}/vocal-e/estrella-alive.svg`, action: "float", creature: false, reducedMotion: "static", meaning: "las cinco puntas brillan una tras otra" },
+  [`${A}/vocal-a/aguja.webp`]: { src: `${A}/vocal-a/aguja.webp`, aliveSrc: `${A}/vocal-a/aguja-alive.svg`, action: "sway", creature: false, reducedMotion: "static", meaning: "la punta de la aguja se mueve un poco" },
+  [`${A}/leccion-1/maiz.webp`]: { src: `${A}/leccion-1/maiz.webp`, aliveSrc: `${A}/leccion-1/maiz-alive.svg`, action: "sway", creature: false, reducedMotion: "static", meaning: "una hoja del maíz se dobla" },
   // Held still (owner rule 2026-10-11: only the parts that really move may move;
   // whole pictures never bob, tilt, breathe or slide). Their old whole-picture
-  // motion moved the drawn ground/background too: oruga, araña, ardilla, erizo,
-  // iguana, insecto, unicornio. Part motion for them needs owner approval.
+  // motion moved the drawn ground/background too: araña, erizo, iguana, insecto,
+  // unicornio. Part motion for them needs owner approval. (oruga and ardilla now
+  // have part-only motion on their redrawn art, above; draft, owner approval pending.)
 
   [`${A}/leccion-1/aguila.webp`]: { src: `${A}/leccion-1/aguila.webp`, action: "flutter", creature: true, parts: [{ name: "wings", clipPath: "inset(8% 4% 42% 4%)", transformOrigin: "50% 62%" }], reducedMotion: "static", meaning: "aleteo breve de águila" },
   [`${A}/leccion-1/pajaro.webp`]: { src: `${A}/leccion-1/pajaro.webp`, action: "flutter", creature: true, parts: [{ name: "wings", clipPath: "inset(10% 6% 44% 6%)", transformOrigin: "50% 60%" }], reducedMotion: "static", meaning: "aleteo breve de pájaro" },
