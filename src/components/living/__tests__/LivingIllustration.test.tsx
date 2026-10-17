@@ -132,7 +132,6 @@ describe("LivingIllustration faithful recovered art", () => {
       ["/cartilla/art/faithful/vocal-o/oveja.webp", "oveja-alive.svg"],
       ["/cartilla/art/faithful/vocal-o/olla.webp", "olla-alive.svg"],
       ["/cartilla/art/faithful/vocal-e/elefante.webp", "elefante-alive.svg"],
-      ["/cartilla/art/faithful/vocal-a/avion.webp", "avion-alive.svg"],
       ["/cartilla/art/faithful/vocal-a/abeja.webp", "abeja-alive.svg"],
       ["/cartilla/art/faithful/vocal-a/abanico.webp", "abanico-alive.svg"],
       ["/cartilla/art/faithful/vocal-i/iman.webp", "iman-alive.svg"],
@@ -155,6 +154,21 @@ describe("LivingIllustration faithful recovered art", () => {
       ).toContain(alive);
       unmount();
     }
+  });
+
+  it("keeps the redrawn vowel-a jet still (no propeller; its sky must not move)", () => {
+    const { container, unmount } = render(
+      <div className="fp-ix-cell">
+        <LivingIllustration src="/cartilla/art/faithful/vocal-a/avion.webp" alt="avión" />
+      </div>,
+    );
+    const wrapper = container.querySelector(".living-illustration");
+    expect(wrapper?.getAttribute("data-ambient-motion")).toBe("none");
+    expect(wrapper?.getAttribute("data-natural-motion")).not.toBe("true");
+    expect(container.querySelector("img.living-illustration__art")?.getAttribute("src")).toContain(
+      "vocal-a/avion.webp",
+    );
+    unmount();
   });
 
   it("preserves the approved source but suppresses motion when reduced motion is requested", async () => {

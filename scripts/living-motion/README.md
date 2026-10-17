@@ -52,7 +52,6 @@ the same approved part motion, rebuilt for these scans in `wb_vowels.py`:
 | vocal-o-oveja | vocal-o/oveja.webp | blinks, ear flick |
 | vocal-o-olla | vocal-o/olla.webp | steam curls rise above the lid |
 | vocal-e-elefante | vocal-e/elefante.webp | trunk swings, ears flap, both eyes blink |
-| vocal-a-avion | vocal-a/avion.webp | propeller spins, air streaks (no whole-plane glide: this scan has its own sky and sun) |
 | vocal-a-abeja | vocal-a/abeja.webp | wings flutter |
 | vocal-a-abanico | vocal-a/abanico.webp | the fan opens and closes slightly |
 | vocal-i-iman | vocal-i/iman.webp | paper clips pulled to the poles, field lines flow, sparks |
@@ -64,3 +63,13 @@ the motion maps are stored at 1/3 size (they are smooth, so this is lossless in
 practice and keeps each file ~60–240 KB).
 
     python3 scripts/living-motion/build.py vocal-o-oso vocal-e-elefante   # etc.
+
+### Redrawn Lesson 3 pictures (2026-10-17, picture PR #888)
+
+The redrawn pictures are new drawings, so the old `FITS` do not apply. Their recipes
+live in `redrawn_*.py` with coordinates measured on the new still (shared helpers in
+`redrawn_common.py`); `all.py` imports them after `wb_vowels.py` so they win.
+
+- `vocal-a-abanico`, `vocal-a-abeja`: rebuilt in `redrawn_vocal_a.py`.
+- `vocal-a/avion.webp` stays **still**: the new jet has no propeller and is painted
+  on its own blue sky, so no part can move on its own.

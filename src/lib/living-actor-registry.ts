@@ -137,7 +137,8 @@ export const LIVING_ACTORS: Readonly<Record<string, LivingActor>> = Object.freez
   [`${A}/vocal-o/oveja.webp`]: { src: `${A}/vocal-o/oveja.webp`, aliveSrc: `${A}/vocal-o/oveja-alive.svg`, action: "nod", creature: true, reducedMotion: "static", meaning: "gesto suave de oveja" },
   [`${A}/vocal-o/olla.webp`]: { src: `${A}/vocal-o/olla.webp`, aliveSrc: `${A}/vocal-o/olla-alive.svg`, action: "float", creature: false, reducedMotion: "static", meaning: "vapor que sube de la olla" },
   [`${A}/vocal-a/abeja.webp`]: { src: `${A}/vocal-a/abeja.webp`, aliveSrc: `${A}/vocal-a/abeja-alive.svg`, action: "hover", creature: true, parts: [{ name: "wings", clipPath: "inset(8% 8% 48% 8%)", transformOrigin: "50% 58%" }], reducedMotion: "static", meaning: "vuelo suspendido con aleteo" },
-  [`${A}/vocal-a/avion.webp`]: { src: `${A}/vocal-a/avion.webp`, aliveSrc: `${A}/vocal-a/avion-alive.svg`, action: "glide", creature: false, reducedMotion: "static", meaning: "desplazamiento de avión" },
+  // vocal-a/avion.webp: the redrawn jet (picture PR #888) sits on a painted blue sky
+  // patch and has no propeller, so no part can move on its own; it stays still.
   [`${A}/vocal-a/abanico.webp`]: { src: `${A}/vocal-a/abanico.webp`, aliveSrc: `${A}/vocal-a/abanico-alive.svg`, action: "sway", creature: false, reducedMotion: "static", meaning: "abanico que se mece" },
   [`${A}/vocal-e/elefante.webp`]: { src: `${A}/vocal-e/elefante.webp`, aliveSrc: `${A}/vocal-e/elefante-alive.svg`, action: "nod", creature: true, parts: [{ name: "trunk", clipPath: "inset(20% 55% 18% 2%)", transformOrigin: "38% 45%" }], reducedMotion: "static", meaning: "trompa que se balancea con suavidad" },
   [`${A}/vocal-i/iman.webp`]: { src: `${A}/vocal-i/iman.webp`, aliveSrc: `${A}/vocal-i/iman-alive.svg`, action: "float", creature: false, reducedMotion: "static", meaning: "clips atraídos por el imán, líneas del campo y chispas" },
