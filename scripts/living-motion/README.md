@@ -83,3 +83,7 @@ live in `redrawn_*.py` with coordinates measured on the new still (shared helper
   turn, needle tip pivot, one husk leaf flexes). Draft; owner approval pending.
 - `vocal-a/aro.webp`, `vocal-a/arbol.webp`, `vocal-u/uno.webp`, `vocal-i/iglu.webp` stay
   **still**: no separately drawn moving part in the new art.
+- Lesson 1 (`redrawn_l1.py`): `leccion-1-carro` (the painted wheel dots turn in each
+  wheel's own tilted plane; the tyre under them is filled from its own paint; the old
+  whole-picture CSS roll is no longer used) and `vocal-e-escoba` (the bristle fan sways).
+  `vocal-u/uniforme.webp` stays **still**.
