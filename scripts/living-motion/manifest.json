@@ -49,6 +49,11 @@
     "alive": "public/cartilla/art/optimized/flipchart-native/p015-sopa-alive.svg",
     "stillSha256": "b75d4e00d644bf9f67a2eb6fe67d5e00d015a947807263f41479a7f56b626b63"
   },
+  "fc_p024_lala": {
+    "still": "public/cartilla/art/optimized/flipchart-native/p024-lala.png",
+    "alive": "public/cartilla/art/optimized/flipchart-native/p024-lala-alive.svg",
+    "stillSha256": "838b80efd1c28aa4d651dbc398d3ebf3f38d0cabc39664acc71d11fbf14a5480"
+  },
   "iman": {
     "still": "public/cartilla/art/optimized/workbook/leccion-1/iman.svg",
     "alive": "public/cartilla/art/optimized/workbook/leccion-1/iman-alive.svg",

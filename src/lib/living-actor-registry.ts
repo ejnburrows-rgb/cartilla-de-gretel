@@ -67,6 +67,14 @@ export const LIVING_ACTORS: Readonly<Record<string, LivingActor>> = Object.freez
     reducedMotion: "static",
     meaning: "la superficie de la sopa ondula",
   },
+  [`${FC_NATIVE}/p024-lala.png`]: {
+    src: `${FC_NATIVE}/p024-lala.png`,
+    aliveSrc: `${FC_NATIVE}/p024-lala-alive.svg`,
+    action: "nod",
+    creature: true,
+    reducedMotion: "static",
+    meaning: "Lala parpadea y mueve la punta de la cola",
+  },
   // Workbook Page 1 (owner color art / printed drawings): same meaning as the
   // faithful actors, whole-picture motion only (part rigs belong to other crops).
   [`${W1}/oso.svg`]: {
