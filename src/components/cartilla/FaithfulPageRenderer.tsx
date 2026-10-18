@@ -1,4 +1,5 @@
 import "@/styles/native-lesson.css";
+import { Lesson17GardenText } from "./lesson17/Lesson17Text";
 import type { ReactNode } from "react";
 import { GretelActivity } from "@/components/gretel/GretelActivity";
 import { SOURCE_BLOCKED_WORKBOOK_PAGES } from "@/lib/workbook-pages";
@@ -444,7 +445,10 @@ function RegionView({
                 part
               ),
             )
-          : region.text;
+          : // Lesson 17 wide-screen design: garden-palette instruction letters.
+            lessonNumber === 17 && region.text
+            ? <Lesson17GardenText text={region.text} />
+            : region.text;
       return (
         <p className="fp-region--instruction">
           {region.label ? <span className="fp-label">{region.label} </span> : null}
@@ -542,6 +546,10 @@ function RegionView({
         <p className="fp-region--vocab-grid">{region.text}</p>
       );
     case "sentence-line":
+      // Lesson 17 page 61 carries a real sight word ("bien"), so the skip
+      // below never triggers; kept symmetric with the other wide-screen
+      // lessons in case the source ever ships an empty sight-word box.
+      if (lessonNumber === 17 && !region.text?.trim()) return null;
       return native ? (
         <div className="fp-native-sight-word" aria-label="Palabra de enlace">{region.text}</div>
       ) : (
@@ -612,7 +620,9 @@ export function FaithfulPageRenderer({
   const ordered = [...layout].sort((a, b) => a.order - b.order);
   const letterReadingPage = native && ordered.some((region) => region.regionType === "vocab-grid")
     && ordered.filter((region) => region.regionType === "syllable-bubble").length === 2;
-  const accent = lessonNumber ? CATALOG.find((e) => e.n === lessonNumber)?.color : undefined;
+  // Lesson 17 wide-screen design uses the shared teal accent (owner-approved
+  // Lesson 3 design language) instead of the lesson's red catalog accent.
+  const accent = lessonNumber === 17 ? "#167A72" : lessonNumber ? CATALOG.find((e) => e.n === lessonNumber)?.color : undefined;
   const lessonId = lessonNumber ? String(lessonNumber) : undefined;
 
   let archetypeClasses: string[] = [];
