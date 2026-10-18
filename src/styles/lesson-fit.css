@@ -399,3 +399,20 @@
 }
 .lc-lesson-17 .native-lesson-viewer__navigation button[data-testid="button-next"] { background: #167a72; border-color: #167a72; color: #fffaf0; }
 .lc-lesson-17 :is(button, a, textarea):focus-visible { outline: 3px solid #167a72; outline-offset: 3px; }
+
+/* Phone audit fixes (2026-10-18).
+ * 1. At phone widths the page-turn corner peel (z-index 20) hid the
+ *    page-number diamond's number entirely. Lift the diamond above the
+ *    peel on small screens; it is not interactive, so let pointer events
+ *    fall through to the page-turn hotspot beneath it. Desktop keeps the
+ *    template (PR #927) stacking untouched.
+ * 2. When a tall page scrolls (fit-overflow mode), the viewer's fixed
+ *    bottom navigation covered the page's bottom corner — the diamond on
+ *    odd pages and the Listo button. Reserve room below the page so the
+ *    corner furniture never slides underneath the fixed buttons. */
+@media (max-width: 600px) {
+  .lc-lesson-17 .faithful-page__pagenum { z-index: 30; pointer-events: none; }
+}
+.lc-lesson-17.lc-lesson-shell--fit:has(.faithful-page__body[data-lc-fit-overflow="true"]) {
+  padding-bottom: 76px;
+}
