@@ -3,12 +3,12 @@ import { audioEngine } from "@/lib/audio-engine";
 import { isGretelVoiceMuted } from "@/lib/gretel-voice";
 import { claimSpeech, registerSpeechCleanup, releaseSpeech, speechIsCurrent, stopSpeech } from "@/lib/speech-playback";
 
-/** Owner-authorized neural Spanish files; no change to global TTS policy. */
+/** Owner's own voice recordings (public/audio/leccion3/). Never AI-generated voice. */
 export function playLesson3Audio(key: string): void {
   if (typeof window === "undefined" || !/^(muy-bien|p7-instr|p8-instr|p9-instr[12])$/.test(key)) return;
   if (audioEngine.isMuted() || audioEngine.getVolume() <= 0 || isGretelVoiceMuted()) return;
   const token = claimSpeech("gretel");
-  const audio = new Audio(`/audio/lesson-3-tts/${key}.mp3`);
+  const audio = new Audio(`/audio/leccion3/${key}.mp3`);
   audio.volume = audioEngine.getVolume();
   const stop = () => {
     audio.onended = null;
