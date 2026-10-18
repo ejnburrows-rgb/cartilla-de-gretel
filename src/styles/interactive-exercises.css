@@ -45,12 +45,14 @@
 .fp-ix-line-match {
   display: flex;
   flex-direction: column;
-  gap: 1.4cqw;
+  gap: 2.8cqw;
+  /* Un-cramped breathing room per owner 2026-10-18: match wide design spacing. */
+  padding: 1cqw;
 }
 
 .fp-ix-row {
   display: grid;
-  gap: 1.4cqw;
+  gap: 2.8cqw;
 }
 
 .fp-ix-cell {
@@ -61,7 +63,7 @@
   /* Soft translucent tile so the cleaned (transparent) art sits ON the page's
      warm design instead of on a hard white card-within-a-card. */
   background: rgba(255, 255, 255, 0.72);
-  padding: 8%;
+  padding: 10%;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -71,7 +73,10 @@
     transform 0.15s ease,
     border-color 0.15s ease,
     box-shadow 0.15s ease;
-  box-shadow: 0 4px 12px -6px rgba(31, 41, 55, 0.22);
+  /* Teal glow around picture boxes per wide design (owner 2026-10-18). */
+  box-shadow:
+    0 4px 12px -6px rgba(31, 41, 55, 0.22),
+    0 0 18px -4px color-mix(in srgb, var(--ix-accent) 35%, transparent);
 }
 .fp-ix-cell:hover {
   transform: translateY(-1px) scale(0.97);
