@@ -1,0 +1,232 @@
+/* Lesson cutoff fixes — TASK 2 (lesson cutoffs), 2026-10-18.
+ *
+ * Scope: printed pages 35 (L11 Dd), 39 (L12 Ll), 55 & 56 (L16 Vv),
+ * 63 (L18 rr) and 83 (L23 Yy) — and nothing else. Every selector below is
+ * keyed to the page-scoped activity ids the workbook renderer emits
+ * (`data-gretel-activity="page-NN-..."`), so no other lesson, page or
+ * shared surface is touched.
+ *
+ * Defects fixed (owner task 2026-10-18 "lesson cutoffs"):
+ * 1. L16 p56 — portrait: keep all five syllable groups comfortably inside
+ *    the phone page (smaller word-tile floors and tighter gaps).
+ * 2/3/4/5. L11 p35, L12 p39, L16 p55, L18 p63, L23 p83 — the first
+ *    "Escribe con tu mejor letra" writing pages were taller than even the
+ *    fit hook's 0.6 floor, so they grew past the screen with their bottom
+ *    rows cut off. Compact the repeated exercise chrome (tracing pads,
+ *    freehand writing boxes, drawing toolbars) enough that the shared
+ *    fit-to-page hook can scale the whole page into 390x844 portrait and
+ *    844x390 landscape. Book words, letters, art and activity order are
+ *    unchanged — only sizes and spacing.
+ *
+ * On short landscape screens the shared #717 design lets a tall page grow
+ * and scroll. For these fixed pages that IS the reported cutoff, so the
+ * landscape block below restores the portrait-style fixed page (with the
+ * fit hook scaling) — but only while the page actually fits; if the hook
+ * ever gives up it sets data-lc-fit-overflow and every rule here stands
+ * down, falling back to the shared grow-and-scroll behavior.
+ *
+ * Loaded from src/routes/cartilla/-leccion-view.tsx AFTER lesson-fit.css,
+ * so equal-specificity shared rules are overridden deterministically. */
+
+/* ------------------------------------------------------------------ *
+ * Writing pages (p35, p39, p55, p63, p83) — compact exercise chrome. */
+
+.lc-lesson-shell--fit .native-lesson-viewer__content .gretel-activity[data-gretel-activity^="page-35-"] .fp-trace__svg,
+.lc-lesson-shell--fit .native-lesson-viewer__content .gretel-activity[data-gretel-activity^="page-39-"] .fp-trace__svg,
+.lc-lesson-shell--fit .native-lesson-viewer__content .gretel-activity[data-gretel-activity^="page-55-"] .fp-trace__svg,
+.lc-lesson-shell--fit .native-lesson-viewer__content .gretel-activity[data-gretel-activity^="page-63-"] .fp-trace__svg,
+.lc-lesson-shell--fit .native-lesson-viewer__content .gretel-activity[data-gretel-activity^="page-83-"] .fp-trace__svg {
+  height: calc(var(--ph) * 0.15);
+}
+
+.lc-lesson-shell--fit .native-lesson-viewer__content .gretel-activity[data-gretel-activity^="page-35-"] .fp-trace__footer,
+.lc-lesson-shell--fit .native-lesson-viewer__content .gretel-activity[data-gretel-activity^="page-39-"] .fp-trace__footer,
+.lc-lesson-shell--fit .native-lesson-viewer__content .gretel-activity[data-gretel-activity^="page-55-"] .fp-trace__footer,
+.lc-lesson-shell--fit .native-lesson-viewer__content .gretel-activity[data-gretel-activity^="page-63-"] .fp-trace__footer,
+.lc-lesson-shell--fit .native-lesson-viewer__content .gretel-activity[data-gretel-activity^="page-83-"] .fp-trace__footer {
+  flex-wrap: nowrap;
+  gap: 4px;
+  font-size: 11px;
+  min-height: 18px;
+}
+
+.lc-lesson-shell--fit .native-lesson-viewer__content .gretel-activity[data-gretel-activity^="page-35-"] .fp-writing-line--trace,
+.lc-lesson-shell--fit .native-lesson-viewer__content .gretel-activity[data-gretel-activity^="page-39-"] .fp-writing-line--trace,
+.lc-lesson-shell--fit .native-lesson-viewer__content .gretel-activity[data-gretel-activity^="page-55-"] .fp-writing-line--trace,
+.lc-lesson-shell--fit .native-lesson-viewer__content .gretel-activity[data-gretel-activity^="page-63-"] .fp-writing-line--trace,
+.lc-lesson-shell--fit .native-lesson-viewer__content .gretel-activity[data-gretel-activity^="page-83-"] .fp-writing-line--trace {
+  margin: 1cqw 0;
+}
+
+/* Freehand "Escribe …" lines and the "Haz un dibujo" box: one compact row
+ * of tools, a short header and a shorter drawing sheet. */
+.lc-lesson-shell--fit .native-lesson-viewer__content .gretel-activity[data-gretel-activity^="page-35-"] .am-dibuja__header,
+.lc-lesson-shell--fit .native-lesson-viewer__content .gretel-activity[data-gretel-activity^="page-39-"] .am-dibuja__header,
+.lc-lesson-shell--fit .native-lesson-viewer__content .gretel-activity[data-gretel-activity^="page-55-"] .am-dibuja__header,
+.lc-lesson-shell--fit .native-lesson-viewer__content .gretel-activity[data-gretel-activity^="page-63-"] .am-dibuja__header,
+.lc-lesson-shell--fit .native-lesson-viewer__content .gretel-activity[data-gretel-activity^="page-83-"] .am-dibuja__header {
+  gap: 0;
+  min-height: 0;
+}
+.lc-lesson-shell--fit .native-lesson-viewer__content .gretel-activity[data-gretel-activity^="page-35-"] .am-dibuja__header .am-dibuja__verb,
+.lc-lesson-shell--fit .native-lesson-viewer__content .gretel-activity[data-gretel-activity^="page-39-"] .am-dibuja__header .am-dibuja__verb,
+.lc-lesson-shell--fit .native-lesson-viewer__content .gretel-activity[data-gretel-activity^="page-55-"] .am-dibuja__header .am-dibuja__verb,
+.lc-lesson-shell--fit .native-lesson-viewer__content .gretel-activity[data-gretel-activity^="page-63-"] .am-dibuja__header .am-dibuja__verb,
+.lc-lesson-shell--fit .native-lesson-viewer__content .gretel-activity[data-gretel-activity^="page-83-"] .am-dibuja__header .am-dibuja__verb {
+  font-size: 13px;
+  line-height: 1.1;
+}
+.lc-lesson-shell--fit .native-lesson-viewer__content .gretel-activity[data-gretel-activity^="page-35-"] .am-dibuja__header .am-dibuja__hint,
+.lc-lesson-shell--fit .native-lesson-viewer__content .gretel-activity[data-gretel-activity^="page-39-"] .am-dibuja__header .am-dibuja__hint,
+.lc-lesson-shell--fit .native-lesson-viewer__content .gretel-activity[data-gretel-activity^="page-55-"] .am-dibuja__header .am-dibuja__hint,
+.lc-lesson-shell--fit .native-lesson-viewer__content .gretel-activity[data-gretel-activity^="page-63-"] .am-dibuja__header .am-dibuja__hint,
+.lc-lesson-shell--fit .native-lesson-viewer__content .gretel-activity[data-gretel-activity^="page-83-"] .am-dibuja__header .am-dibuja__hint {
+  font-size: 12px;
+  line-height: 1.1;
+}
+
+.lc-lesson-shell--fit .native-lesson-viewer__content .gretel-activity[data-gretel-activity^="page-35-"] .am-dibuja__paper,
+.lc-lesson-shell--fit .native-lesson-viewer__content .gretel-activity[data-gretel-activity^="page-39-"] .am-dibuja__paper,
+.lc-lesson-shell--fit .native-lesson-viewer__content .gretel-activity[data-gretel-activity^="page-55-"] .am-dibuja__paper,
+.lc-lesson-shell--fit .native-lesson-viewer__content .gretel-activity[data-gretel-activity^="page-63-"] .am-dibuja__paper,
+.lc-lesson-shell--fit .native-lesson-viewer__content .gretel-activity[data-gretel-activity^="page-83-"] .am-dibuja__paper {
+  height: calc(var(--ph) * 0.07);
+  min-height: 36px;
+  aspect-ratio: auto;
+}
+
+/* One compact, horizontally scrollable strip of tools per drawing box:
+ * pencil colors, eraser and the "Listo" check stay visible; undo and clear
+ * sit just past the right edge on a narrow phone (swipe the strip). The
+ * strip keeps the shared zoom compensation, so tools stay true-to-size at
+ * every fit scale. */
+.lc-lesson-shell--fit .native-lesson-viewer__content .gretel-activity[data-gretel-activity^="page-35-"] .am-dibuja__toolbar,
+.lc-lesson-shell--fit .native-lesson-viewer__content .gretel-activity[data-gretel-activity^="page-39-"] .am-dibuja__toolbar,
+.lc-lesson-shell--fit .native-lesson-viewer__content .gretel-activity[data-gretel-activity^="page-55-"] .am-dibuja__toolbar,
+.lc-lesson-shell--fit .native-lesson-viewer__content .gretel-activity[data-gretel-activity^="page-63-"] .am-dibuja__toolbar,
+.lc-lesson-shell--fit .native-lesson-viewer__content .gretel-activity[data-gretel-activity^="page-83-"] .am-dibuja__toolbar {
+  flex-wrap: nowrap;
+  overflow-x: auto;
+  gap: 4px;
+  scrollbar-width: none;
+}
+.lc-lesson-shell--fit .native-lesson-viewer__content .gretel-activity[data-gretel-activity^="page-35-"] .am-dibuja__swatches,
+.lc-lesson-shell--fit .native-lesson-viewer__content .gretel-activity[data-gretel-activity^="page-39-"] .am-dibuja__swatches,
+.lc-lesson-shell--fit .native-lesson-viewer__content .gretel-activity[data-gretel-activity^="page-55-"] .am-dibuja__swatches,
+.lc-lesson-shell--fit .native-lesson-viewer__content .gretel-activity[data-gretel-activity^="page-63-"] .am-dibuja__swatches,
+.lc-lesson-shell--fit .native-lesson-viewer__content .gretel-activity[data-gretel-activity^="page-83-"] .am-dibuja__swatches {
+  flex-wrap: nowrap;
+  gap: 3px;
+}
+.lc-lesson-shell--fit .native-lesson-viewer__content .gretel-activity[data-gretel-activity^="page-35-"] .am-dibuja__swatch,
+.lc-lesson-shell--fit .native-lesson-viewer__content .gretel-activity[data-gretel-activity^="page-39-"] .am-dibuja__swatch,
+.lc-lesson-shell--fit .native-lesson-viewer__content .gretel-activity[data-gretel-activity^="page-55-"] .am-dibuja__swatch,
+.lc-lesson-shell--fit .native-lesson-viewer__content .gretel-activity[data-gretel-activity^="page-63-"] .am-dibuja__swatch,
+.lc-lesson-shell--fit .native-lesson-viewer__content .gretel-activity[data-gretel-activity^="page-83-"] .am-dibuja__swatch {
+  width: 26px;
+  height: 26px;
+  min-width: 26px;
+  min-height: 26px;
+}
+/* Visual order: colors, eraser, done check — then undo and clear behind the
+ * strip's right edge on the narrowest screens. The done button becomes a
+ * compact check; its "Listo" text stays as the accessible name. */
+.lc-lesson-shell--fit .native-lesson-viewer__content .gretel-activity[data-gretel-activity^="page-35-"] .am-dibuja__done,
+.lc-lesson-shell--fit .native-lesson-viewer__content .gretel-activity[data-gretel-activity^="page-39-"] .am-dibuja__done,
+.lc-lesson-shell--fit .native-lesson-viewer__content .gretel-activity[data-gretel-activity^="page-55-"] .am-dibuja__done,
+.lc-lesson-shell--fit .native-lesson-viewer__content .gretel-activity[data-gretel-activity^="page-63-"] .am-dibuja__done,
+.lc-lesson-shell--fit .native-lesson-viewer__content .gretel-activity[data-gretel-activity^="page-83-"] .am-dibuja__done {
+  order: 1;
+  min-height: 26px;
+  min-width: 26px;
+  height: 26px;
+  padding: 0 6px;
+  font-size: 0;
+}
+.lc-lesson-shell--fit .native-lesson-viewer__content .gretel-activity[data-gretel-activity^="page-35-"] .am-dibuja__done::after,
+.lc-lesson-shell--fit .native-lesson-viewer__content .gretel-activity[data-gretel-activity^="page-39-"] .am-dibuja__done::after,
+.lc-lesson-shell--fit .native-lesson-viewer__content .gretel-activity[data-gretel-activity^="page-55-"] .am-dibuja__done::after,
+.lc-lesson-shell--fit .native-lesson-viewer__content .gretel-activity[data-gretel-activity^="page-63-"] .am-dibuja__done::after,
+.lc-lesson-shell--fit .native-lesson-viewer__content .gretel-activity[data-gretel-activity^="page-83-"] .am-dibuja__done::after {
+  content: "✓";
+  font-size: 14px;
+  font-weight: 700;
+}
+.lc-lesson-shell--fit .native-lesson-viewer__content .gretel-activity[data-gretel-activity^="page-35-"] .am-dibuja__tool,
+.lc-lesson-shell--fit .native-lesson-viewer__content .gretel-activity[data-gretel-activity^="page-39-"] .am-dibuja__tool,
+.lc-lesson-shell--fit .native-lesson-viewer__content .gretel-activity[data-gretel-activity^="page-55-"] .am-dibuja__tool,
+.lc-lesson-shell--fit .native-lesson-viewer__content .gretel-activity[data-gretel-activity^="page-63-"] .am-dibuja__tool,
+.lc-lesson-shell--fit .native-lesson-viewer__content .gretel-activity[data-gretel-activity^="page-83-"] .am-dibuja__tool {
+  order: 2;
+  min-height: 26px;
+  min-width: 26px;
+  height: 26px;
+  padding: 2px 5px;
+  font-size: 11px;
+}
+.lc-lesson-shell--fit .native-lesson-viewer__content .gretel-activity[data-gretel-activity^="page-35-"] .am-dibuja__tool--eraser,
+.lc-lesson-shell--fit .native-lesson-viewer__content .gretel-activity[data-gretel-activity^="page-39-"] .am-dibuja__tool--eraser,
+.lc-lesson-shell--fit .native-lesson-viewer__content .gretel-activity[data-gretel-activity^="page-55-"] .am-dibuja__tool--eraser,
+.lc-lesson-shell--fit .native-lesson-viewer__content .gretel-activity[data-gretel-activity^="page-63-"] .am-dibuja__tool--eraser,
+.lc-lesson-shell--fit .native-lesson-viewer__content .gretel-activity[data-gretel-activity^="page-83-"] .am-dibuja__tool--eraser {
+  order: 0;
+}
+
+/* ------------------------------------------------------------------ *
+ * L16 p56 — portrait slack for the five syllable groups. */
+
+.lc-lesson-shell--fit .native-lesson-viewer__content .gretel-activity[data-gretel-activity^="page-56-"] .native-syllable__words {
+  grid-auto-rows: minmax(40px, 1fr);
+  gap: 4px 8px;
+}
+.lc-lesson-shell--fit .native-lesson-viewer__content .gretel-activity[data-gretel-activity^="page-56-"] .native-syllable__word {
+  min-height: 40px;
+}
+.lc-lesson-shell--fit .native-lesson-viewer__content .gretel-activity[data-gretel-activity^="page-56-"] .native-syllable {
+  gap: 4px 8px;
+}
+
+/* ------------------------------------------------------------------ *
+ * Short landscape (844x390 and friends): the fixed writing pages must fit
+ * the screen instead of growing past it. Only while the fit hook
+ * succeeds; the :not([data-lc-fit-overflow]) guards stand down if it
+ * can't, restoring the shared #717 grow-and-scroll fallback. */
+
+@media (orientation: landscape) and (max-height: 500px) {
+  .lc-lesson-shell--fit:has(.native-lesson-viewer__content .faithful-page__body:not([data-lc-fit-overflow]) .gretel-activity[data-gretel-activity^="page-35-"]),
+  .lc-lesson-shell--fit:has(.native-lesson-viewer__content .faithful-page__body:not([data-lc-fit-overflow]) .gretel-activity[data-gretel-activity^="page-39-"]),
+  .lc-lesson-shell--fit:has(.native-lesson-viewer__content .faithful-page__body:not([data-lc-fit-overflow]) .gretel-activity[data-gretel-activity^="page-55-"]),
+  .lc-lesson-shell--fit:has(.native-lesson-viewer__content .faithful-page__body:not([data-lc-fit-overflow]) .gretel-activity[data-gretel-activity^="page-63-"]),
+  .lc-lesson-shell--fit:has(.native-lesson-viewer__content .faithful-page__body:not([data-lc-fit-overflow]) .gretel-activity[data-gretel-activity^="page-83-"]) {
+    height: 100dvh;
+    overflow: hidden;
+  }
+  .lc-lesson-shell--fit:has(.native-lesson-viewer__content .faithful-page__body:not([data-lc-fit-overflow]) .gretel-activity[data-gretel-activity^="page-35-"]) .lc-lesson-main,
+  .lc-lesson-shell--fit:has(.native-lesson-viewer__content .faithful-page__body:not([data-lc-fit-overflow]) .gretel-activity[data-gretel-activity^="page-39-"]) .lc-lesson-main,
+  .lc-lesson-shell--fit:has(.native-lesson-viewer__content .faithful-page__body:not([data-lc-fit-overflow]) .gretel-activity[data-gretel-activity^="page-55-"]) .lc-lesson-main,
+  .lc-lesson-shell--fit:has(.native-lesson-viewer__content .faithful-page__body:not([data-lc-fit-overflow]) .gretel-activity[data-gretel-activity^="page-63-"]) .lc-lesson-main,
+  .lc-lesson-shell--fit:has(.native-lesson-viewer__content .faithful-page__body:not([data-lc-fit-overflow]) .gretel-activity[data-gretel-activity^="page-83-"]) .lc-lesson-main {
+    container-type: size;
+    flex: 1 1 0;
+    min-height: 0;
+    overflow: hidden;
+  }
+  .lc-lesson-shell--fit .native-lesson-viewer__content .faithful-page:has(> .faithful-page__body:not([data-lc-fit-overflow]) .gretel-activity[data-gretel-activity^="page-35-"]),
+  .lc-lesson-shell--fit .native-lesson-viewer__content .faithful-page:has(> .faithful-page__body:not([data-lc-fit-overflow]) .gretel-activity[data-gretel-activity^="page-39-"]),
+  .lc-lesson-shell--fit .native-lesson-viewer__content .faithful-page:has(> .faithful-page__body:not([data-lc-fit-overflow]) .gretel-activity[data-gretel-activity^="page-55-"]),
+  .lc-lesson-shell--fit .native-lesson-viewer__content .faithful-page:has(> .faithful-page__body:not([data-lc-fit-overflow]) .gretel-activity[data-gretel-activity^="page-63-"]),
+  .lc-lesson-shell--fit .native-lesson-viewer__content .faithful-page:has(> .faithful-page__body:not([data-lc-fit-overflow]) .gretel-activity[data-gretel-activity^="page-83-"]) {
+    height: var(--ph);
+    min-height: 0;
+    overflow: hidden;
+  }
+  .lc-lesson-shell--fit .native-lesson-viewer__content .faithful-page:has(> .faithful-page__body:not([data-lc-fit-overflow]) .gretel-activity[data-gretel-activity^="page-35-"]) > .faithful-page__body,
+  .lc-lesson-shell--fit .native-lesson-viewer__content .faithful-page:has(> .faithful-page__body:not([data-lc-fit-overflow]) .gretel-activity[data-gretel-activity^="page-39-"]) > .faithful-page__body,
+  .lc-lesson-shell--fit .native-lesson-viewer__content .faithful-page:has(> .faithful-page__body:not([data-lc-fit-overflow]) .gretel-activity[data-gretel-activity^="page-55-"]) > .faithful-page__body,
+  .lc-lesson-shell--fit .native-lesson-viewer__content .faithful-page:has(> .faithful-page__body:not([data-lc-fit-overflow]) .gretel-activity[data-gretel-activity^="page-63-"]) > .faithful-page__body,
+  .lc-lesson-shell--fit .native-lesson-viewer__content .faithful-page:has(> .faithful-page__body:not([data-lc-fit-overflow]) .gretel-activity[data-gretel-activity^="page-83-"]) > .faithful-page__body {
+    position: absolute;
+    inset: 0;
+    overflow: hidden;
+  }
+}

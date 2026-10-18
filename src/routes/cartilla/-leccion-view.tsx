@@ -20,6 +20,10 @@ import { gretelEvent } from "@/lib/gretel-bus";
 
 import { NativeLessonViewer } from "@/components/StudentBook/NativeLessonViewer";
 import "@/styles/lesson-fit.css";
+// TASK 2 (lesson cutoffs, 2026-10-18): page-scoped fixes for lessons
+// 11/12/16/18/23 cutoff pages. All rules inside are keyed to printed-page
+// activity ids, so no other lesson or shared surface is affected.
+import "@/styles/lesson-cutoff-fixes.css";
 import { exitLessonFullscreen, requestLessonFullscreen } from "@/lib/lesson-fullscreen";
 import { buildPageArray } from "@/utils/buildPageArray";
 import { GretelCinematic } from "@/components/gretel/GretelCinematic";
