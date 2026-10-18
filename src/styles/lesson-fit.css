@@ -410,3 +410,26 @@
     padding-inline: 0.15em;
   }
 }
+
+/* Phone audit fixes (2026-10-18, independent re-audit).
+ * 1. At phone widths the page-turn corner peel (z-index 20) hid the
+ *    page-number diamond's number entirely (diamond "84" in DOM at
+ *    390x844 but only the folded corner visible). Lift the diamond above
+ *    the peel on small screens; it is not interactive, so let pointer
+ *    events fall through to the page-turn hotspot beneath it. Desktop
+ *    keeps the template (PR #927) stacking untouched.
+ * 2. When a tall page scrolls (fit-overflow mode), the viewer's fixed
+ *    bottom navigation covered the page's bottom corner — diamonds "83"
+ *    and "85" slid under the "next" button when scrolled to the bottom at
+ *    390x844. Reserve room below the page so the corner furniture never
+ *    slides underneath the fixed buttons. */
+@media (max-width: 600px) {
+  .lc-lesson-23 .faithful-page__pagenum { z-index: 30; pointer-events: none; }
+  /* The page has isolation:isolate so z-index alone cannot lift the diamond
+   * above the corner peel — move it inward, clear of the peel and sidebar. */
+  .lc-lesson-23 .faithful-page--edge-left .faithful-page__pagenum { left: 11%; }
+  .lc-lesson-23 .faithful-page--edge-right .faithful-page__pagenum { right: 11%; }
+}
+.lc-lesson-23.lc-lesson-shell--fit:has(.faithful-page__body[data-lc-fit-overflow="true"]) {
+  padding-bottom: 76px;
+}
