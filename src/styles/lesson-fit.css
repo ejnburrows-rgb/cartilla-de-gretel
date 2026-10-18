@@ -368,6 +368,20 @@
   box-shadow: 0 0 0 4px rgba(47, 125, 74, 0.22);
 }
 
+/* Page 80 — phone portrait: long words (e.g. "acumula") overflowed their
+ * tiles at ~390px. Slightly smaller word text + tighter letter padding keeps
+ * every word inside its teal box. Scoped to Lesson 22 only. */
+@media (max-width: 560px) {
+  .lc-lesson-22 .native-lesson-viewer__content .native-syllable__word {
+    font-size: clamp(11px, 3.1vw, 15px);
+    padding: 0 2px;
+    letter-spacing: 0;
+  }
+  .lc-lesson-22 .native-lesson-viewer__content .native-syllable__words .native-syllable__word .native-syllable__letter {
+    padding: .15em .02em;
+  }
+}
+
 /* Page 81 — letter/reading: raised teal Cc card, garden-colored syllable
  * chips, boxed vocabulary tiles, cream reading card. */
 .lc-lesson-22 .native-lesson-viewer__content .fp-native-letter-page .fp-native-title {
