@@ -690,11 +690,10 @@
   font-family:"Andika",ui-rounded,system-ui,sans-serif;
   font-size: clamp(28px, 4.2cqw, 38px);
   line-height:1.35;
-  color:var(--lc-ink,#25313a);
+  color:#0d9488;
 }
 .fp-region--instruction .fp-label {
   font-weight: 800;
-  color: #0d9488;
 }
 .fp-target-emphasis {
   color: #0d9488;
