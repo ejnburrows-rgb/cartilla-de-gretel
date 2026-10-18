@@ -202,7 +202,7 @@ function MatchingSection({ activity }: { activity: LecturaLetterActivity }) {
                 placeDrawing(e.dataTransfer.getData("text/plain") || null, w.word);
               }}
               onClick={() => placeDrawing(selected, w.word)}
-              aria-label={`Palabra ${w.word}${matched[w.word] ? " (completa) : ""}`}
+              aria-label={`Palabra ${w.word}${matched[w.word] ? " (completa)" : ""}`}
               className={`min-h-20 w-full rounded-2xl border-2 p-2 text-lg font-black transition-colors sm:min-h-24 ${
                 matched[w.word]
                   ? "border-emerald-400 bg-emerald-50 text-emerald-800"
