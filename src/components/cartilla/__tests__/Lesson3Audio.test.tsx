@@ -13,7 +13,7 @@ beforeEach(() => { localStorage.clear(); vi.stubGlobal("Audio", Media); Media.al
 afterEach(() => { stopSpeech(); audioEngine.setMuted(false); setGretelVoiceMuted(false); vi.unstubAllGlobals(); });
 it("limits playback to the five Lesson 3 assets", () => {
   playLesson3Audio("p10-instr"); playLesson3Audio("../vocabulario/oso"); expect(Media.all).toHaveLength(0);
-  playLesson3Audio("muy-bien"); expect(Media.all[0].src).toBe("/audio/lesson-3-tts/muy-bien.mp3"); expect(Media.all[0].play).toHaveBeenCalledOnce();
+  playLesson3Audio("muy-bien"); expect(Media.all[0].src).toBe("/audio/leccion3/muy-bien.mp3"); expect(Media.all[0].play).toHaveBeenCalledOnce();
 });
 it("honors both mute controls and stops a playing instruction on mute", () => {
   audioEngine.setMuted(true); playLesson3Audio("p7-instr"); expect(Media.all).toHaveLength(0);
