@@ -4,9 +4,11 @@ import { GameShell } from "@/components/cartilla/games/GameShell";
 import { PayasoChano } from "@/components/cartilla/games/PayasoChano";
 import { SyllableBuilder } from "@/components/cartilla/games/SyllableBuilder";
 import { CoreGame } from "@/components/cartilla/games/CoreGames";
+import { CowGame } from "@/components/cartilla/games/CowGame";
 import { PAYASO_CHANO_SS } from "@/content/games/payaso-chano-ss";
 import { SYLLABLE_BUILDER_PILOT } from "@/content/games/syllable-builder-pilot";
 import { CORE_THEMED_GAMES } from "@/content/games/core-games";
+import { COW_GAMES } from "@/content/games/cow-game";
 import type { GameContent } from "@/lib/games/gameContent";
 
 export const Route = createFileRoute("/cartilla/juego/$gameId")({
@@ -17,6 +19,7 @@ export const LIVE_GAMES: GameContent[] = [
   PAYASO_CHANO_SS,
   ...SYLLABLE_BUILDER_PILOT,
   ...CORE_THEMED_GAMES,
+  ...COW_GAMES,
 ];
 
 const GAMES: Record<string, GameContent> = Object.fromEntries(
@@ -29,6 +32,8 @@ function renderGame(content: GameContent) {
       return <PayasoChano content={content} />;
     case "lectura-silabas":
       return <SyllableBuilder content={content} />;
+    case "cow-game":
+      return <CowGame content={content} />;
     case "mariposas":
     case "juego-vocal":
     case "fonetica-completar":
