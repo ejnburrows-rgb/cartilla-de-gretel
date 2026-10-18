@@ -369,6 +369,12 @@
  * Two columns give each button room for a whole word, so words never
  * break or clip. Lesson-scoped; other lessons untouched. */
 @media (max-width: 600px) {
+  /* The live page-56 grid is .native-syllable__words (interactive
+   * SyllableWordCircle: 5 groups x 6 words, verified in DOM) — this is
+   * the rule that actually fixes the "lavamanos" overflow at 390px. */
+  .lc-lesson-16 .native-lesson-viewer__content .native-syllable__words {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
   .lc-lesson-16 .native-lesson-viewer__content .fp-syllable-match__row {
     display: grid;
     grid-template-columns: repeat(2, minmax(0, 1fr));
