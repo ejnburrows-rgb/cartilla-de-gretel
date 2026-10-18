@@ -348,13 +348,20 @@
   background: #fdf8ec;
   box-shadow: 0 4px 14px -8px rgba(22, 122, 114, 0.35);
 }
-.lc-lesson-7 .native-lesson-viewer__content .native-syllable__letter,
 .lc-lesson-7 .native-lesson-viewer__content .fp-syllable-match__syllable {
   color: #167a72;
   background: #fffaf0;
   border: 2px solid #167a72;
   border-radius: 14px;
   box-shadow: var(--l7-glow);
+}
+/* Individual letters inside syllable words stay transparent — the teal box
+ * belongs on the syllable group (.native-syllable), not on each letter.
+ * (Fixes #954 teal per-letter box bug on page 20.) */
+.lc-lesson-7 .native-lesson-viewer__content .native-syllable__letter {
+  background: transparent !important;
+  border: 0 !important;
+  box-shadow: none !important;
 }
 .lc-lesson-7 .native-lesson-viewer__content .native-syllable__word[aria-pressed="true"] {
   border-color: #2f7d4a !important;
