@@ -280,3 +280,80 @@
 .lc-lesson-shell--fit .native-lesson-viewer__content .fp-ix-pick__cells { display: flex; justify-content: center; align-items: center; column-gap: min(3.2cqw, 28px); }
 .lc-lesson-shell--fit .native-lesson-viewer__content .fp-ix-grid .fp-ix-cell,
 .lc-lesson-shell--fit .native-lesson-viewer__content .fp-ix-pick__cells .fp-ix-cell { flex: 0 1 114cqh; width: auto; min-width: 0; height: auto; max-height: 100%; aspect-ratio: 1; }
+
+/* ===== Lesson 2 (Oo) wide-screen design — muse lane, 2026-10-18 =====
+ * Owner-approved Lesson 3 design language applied to Lesson 2 pages 4–6:
+ * classic cream paper, slimmer teal spine, teal glow around the boxed
+ * work surfaces, garden-palette instruction letters. Additive and scoped to
+ * .lc-lesson-2; the shared fit-to-screen system above still sizes the page
+ * (wide desktop and horizontal tablet are the targets).
+ * Lesson 2's printed pages: picture-grid mark-with-X (4), vowel line-match
+ * (5), and handwriting tracing (6). The boxed-surface rules apply to the
+ * picture tiles, the vowel letter chip + line-match cells, and the
+ * writing-line trace areas. Pencil mechanics are untouched. */
+
+.lc-lesson-2 {
+  --lc-teal: #167a72;
+  --l2-cream: #faf2df;
+  --l2-cream-deep: #ece1c6;
+  --l2-glow: 0 0 0 3px rgba(22, 122, 114, 0.16), 0 10px 22px -10px rgba(22, 122, 114, 0.5);
+  background: var(--l2-cream-deep);
+}
+
+/* Garden-palette instruction letters (not dark ink). Colors chosen for
+ * readable contrast on the cream paper. */
+.lc-lesson-2 .l2-garden-letter { font-weight: 700; }
+.lc-lesson-2 .l2-leaf { color: #2e7d43; }
+.lc-lesson-2 .l2-rose { color: #c74f7c; }
+.lc-lesson-2 .l2-sun { color: #b97a10; }
+.lc-lesson-2 .l2-sky { color: #2f6fb2; }
+.lc-lesson-2 .l2-lavender { color: #7c53a6; }
+
+/* Classic cream paper page with a slimmer teal spine. */
+.lc-lesson-2 .native-lesson-viewer__content .faithful-page {
+  background:
+    radial-gradient(120% 90% at 16% 8%, rgba(255, 255, 255, 0.55), transparent 55%),
+    var(--l2-cream);
+  border: 1px solid rgba(22, 122, 114, 0.28);
+}
+.lc-lesson-2 .faithful-page__sidebar { width: 4.5%; min-width: 24px; }
+.lc-lesson-2 .faithful-page__pagenum { background: #167a72; }
+
+/* Teal glow around every boxed work surface: the picture tiles (page 4),
+ * the vowel line-match cells (page 5), and the writing lines (page 6). */
+.lc-lesson-2 .native-lesson-viewer__content .fp-ix-grid .fp-ix-cell,
+.lc-lesson-2 .native-lesson-viewer__content .fp-ix-line-match .fp-ix-cell,
+.lc-lesson-2 .native-lesson-viewer__content .fp-writing-line {
+  background: #fffaf0 !important;
+  border: 2px solid #167a72 !important;
+  border-radius: 14px;
+  box-shadow: var(--l2-glow);
+}
+
+/* Page 5 — vowel line-match: raised teal vowel chip, cream trace track.
+ * The chip keeps its printed circle shape (border-radius untouched). */
+.lc-lesson-2 .native-lesson-viewer__content .fp-ix-letter-btn {
+  background: #167a72 !important;
+  border-color: #167a72 !important;
+  color: #fffaf0;
+  font-weight: 700;
+  box-shadow: var(--l2-glow);
+}
+.lc-lesson-2 .native-lesson-viewer__content .fp-ix-match-row.linked .fp-ix-letter-btn {
+  background: #2e7d43 !important;
+  border-color: #2e7d43 !important;
+}
+
+/* Page 6 — handwriting: cream trace paper with teal glow, garden-colored
+ * model letter. */
+.lc-lesson-2 .native-lesson-viewer__content .fp-writing-line--trace,
+.lc-lesson-2 .native-lesson-viewer__content .fp-trace__svg {
+  background: #fffaf0;
+  border: 2px solid #167a72;
+  border-radius: 14px;
+  box-shadow: var(--l2-glow);
+}
+.lc-lesson-2 .native-lesson-viewer__content .fp-writing-line__model { color: #167a72; }
+
+.lc-lesson-2 .native-lesson-viewer__navigation button[data-testid="button-next"] { background: #167a72; border-color: #167a72; color: #fffaf0; }
+.lc-lesson-2 :is(button, a, textarea):focus-visible { outline: 3px solid #167a72; outline-offset: 3px; }
