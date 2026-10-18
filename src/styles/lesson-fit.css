@@ -280,3 +280,104 @@
 .lc-lesson-shell--fit .native-lesson-viewer__content .fp-ix-pick__cells { display: flex; justify-content: center; align-items: center; column-gap: min(3.2cqw, 28px); }
 .lc-lesson-shell--fit .native-lesson-viewer__content .fp-ix-grid .fp-ix-cell,
 .lc-lesson-shell--fit .native-lesson-viewer__content .fp-ix-pick__cells .fp-ix-cell { flex: 0 1 114cqh; width: auto; min-width: 0; height: auto; max-height: 100%; aspect-ratio: 1; }
+
+/* ===== Lesson 13 (Nn) wide-screen design — 2026-10-18 =====
+ * Owner-approved Lesson 3 design language applied to Lesson 13 pages 43–46:
+ * classic cream paper, slimmer teal spine, stronger teal glow around the
+ * work boxes, teal instruction line, garden-palette instruction letters,
+ * boxed pictures capped at 8 per screen, pictures gently float from page
+ * load, tap feedback on top. Additive and scoped to .lesson-13-wide; the
+ * shared fit-to-screen system above still sizes the page (wide desktop and
+ * horizontal tablet are the targets).
+ * Lesson 13's printed pages are handwriting/tracing rows + draw box
+ * (page 43), syllable circle-match (page 44), phonics/reading practice
+ * (page 45), and complete-the-word + sentence writing (page 46).
+ * Pencil/tracing mechanics are untouched. */
+
+.lesson-13-wide {
+  --lc-teal: #167a72;
+  --l13-instruction-teal: #0d9488;
+  --l13-cream: #faf2df;
+  --l13-cream-deep: #ece1c6;
+  --l13-glow: 0 0 0 3px rgba(22, 122, 114, 0.16), 0 10px 22px -10px rgba(22, 122, 114, 0.5);
+  background: var(--l13-cream-deep);
+}
+
+/* Garden-palette instruction letters (not dark ink). Colors chosen for
+ * readable contrast on the cream paper. */
+.lesson-13-wide .l13-garden-letter { font-weight: 700; }
+.lesson-13-wide .l13-leaf { color: #2e7d43; }
+.lesson-13-wide .l13-rose { color: #c74f7c; }
+.lesson-13-wide .l13-sun { color: #b97a10; }
+.lesson-13-wide .l13-sky { color: #2f6fb2; }
+.lesson-13-wide .l13-lavender { color: #7c53a6; }
+
+/* Classic cream paper page with a slimmer teal spine. */
+.lesson-13-wide .native-lesson-viewer__content .faithful-page {
+  background:
+    radial-gradient(120% 90% at 16% 8%, rgba(255, 255, 255, 0.55), transparent 55%),
+    var(--l13-cream);
+  border: 1px solid rgba(22, 122, 114, 0.28);
+}
+.lesson-13-wide .faithful-page__sidebar { width: 4.5%; min-width: 24px; }
+.lesson-13-wide .faithful-page__pagenum { background: #167a72; }
+
+/* Teal instruction line. */
+.lesson-13-wide .native-lesson-viewer__content .fp-region--instruction {
+  border-bottom: 3px solid var(--l13-instruction-teal);
+  padding-bottom: 0.4rem;
+}
+
+/* Boxed work surfaces get the teal glow: tracing/writing lines, syllable
+ * circle-match words, syllable bubbles, fill-in-blank word boxes, draw paper. */
+.lesson-13-wide .native-lesson-viewer__content .fp-writing-line,
+.lesson-13-wide .native-lesson-viewer__content .fp-syllable-match__word,
+.lesson-13-wide .native-lesson-viewer__content .fp-region--syllable-bubble,
+.lesson-13-wide .native-lesson-viewer__content .fp-fill-in-blank__wordbox,
+.lesson-13-wide .native-lesson-viewer__content .am-dibuja__paper {
+  background: #fffaf0;
+  border: 2px solid #167a72;
+  border-radius: 14px;
+  box-shadow: var(--l13-glow);
+}
+.lesson-13-wide .native-lesson-viewer__content .fp-writing-line__model { color: #167a72; }
+
+/* Boxed pictures, at most 8 per screen: a 4×2 grid; extra tiles flow into a
+ * horizontally scrollable strip so no picture is ever dropped. */
+.lesson-13-wide .native-lesson-viewer__content .fp-picture-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-template-rows: repeat(2, auto);
+  grid-auto-flow: column;
+  gap: 1rem;
+  overflow-x: auto;
+  padding: 0.5rem;
+}
+.lesson-13-wide .native-lesson-viewer__content .fp-picture-grid__cell {
+  background: #fffaf0;
+  border: 2px solid #167a72;
+  border-radius: 14px;
+  box-shadow: var(--l13-glow);
+}
+
+/* Pictures gently float from page load — calm slow CSS loop. */
+.lesson-13-wide .native-lesson-viewer__content .fp-picture-grid__cell {
+  animation: l13-float 8s ease-in-out infinite;
+}
+.lesson-13-wide .native-lesson-viewer__content .fp-picture-grid__cell:nth-child(4n+2) { animation-delay: -2s; }
+.lesson-13-wide .native-lesson-viewer__content .fp-picture-grid__cell:nth-child(4n+3) { animation-delay: -4s; }
+.lesson-13-wide .native-lesson-viewer__content .fp-picture-grid__cell:nth-child(4n+4) { animation-delay: -6s; }
+
+/* Tap feedback on top. */
+.lesson-13-wide .native-lesson-viewer__content .fp-picture-grid__cell:active { transform: scale(0.96); }
+
+@keyframes l13-float {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-6px); }
+}
+@media (prefers-reduced-motion: reduce) {
+  .lesson-13-wide .native-lesson-viewer__content .fp-picture-grid__cell { animation: none; }
+}
+
+.lesson-13-wide .native-lesson-viewer__navigation button[data-testid="button-next"] { background: #167a72; border-color: #167a72; color: #fffaf0; }
+.lesson-13-wide :is(button, a, textarea):focus-visible { outline: 3px solid #167a72; outline-offset: 3px; }
