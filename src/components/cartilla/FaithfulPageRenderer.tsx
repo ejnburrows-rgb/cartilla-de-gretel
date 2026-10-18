@@ -19,6 +19,7 @@ import { DibujaHost } from "@/cartilla/interactions/DibujaHost";
 import { SyllableWordCircle } from "@/cartilla/interactions/SyllableWordCircle";
 import { getLetterTemplate } from "./letter-stroke-templates";
 import { LivingIllustration } from "@/components/living/LivingIllustration";
+import { Lesson8GardenText } from "./lesson8/Lesson8GardenText";
 import { EscucharInstruccionButton } from "./EscucharInstruccionButton";
 import { FixedLayoutPage } from "./FixedLayoutPage";
 import {
@@ -444,7 +445,9 @@ function RegionView({
                 part
               ),
             )
-          : region.text;
+          : lessonNumber === 8 && region.text
+            ? <Lesson8GardenText text={region.text} />
+            : region.text;
       return (
         <p className="fp-region--instruction">
           {region.label ? <span className="fp-label">{region.label} </span> : null}
