@@ -412,6 +412,10 @@
  *    the corner furniture never slides underneath the fixed buttons. */
 @media (max-width: 600px) {
   .lc-lesson-15 .faithful-page__pagenum { z-index: 30; pointer-events: none; }
+  /* The page has isolation:isolate so z-index alone cannot lift the diamond
+   * above the corner peel — move it inward, clear of the peel and sidebar. */
+  .lc-lesson-15 .faithful-page--edge-left .faithful-page__pagenum { left: 11%; }
+  .lc-lesson-15 .faithful-page--edge-right .faithful-page__pagenum { right: 11%; }
 }
 .lc-lesson-15.lc-lesson-shell--fit:has(.faithful-page__body[data-lc-fit-overflow="true"]) {
   padding-bottom: 76px;
