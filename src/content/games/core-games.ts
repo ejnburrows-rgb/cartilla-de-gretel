@@ -8,11 +8,20 @@ const VOWEL_TRAY = ["a", "e", "i", "o", "u"];
  * The vocabulary is taken from the owner's Cartilla interactives and existing
  * verified workbook crops. No placeholder image paths are used here.
  */
-// The teacher's document has no verified complete-word script or recordings.
- // The only explicitly visible prompts are these eight printed syllables.
- // This draft therefore runs a source-faithful syllable rehearsal, not an
- // invented multi-syllable vocabulary list.
-const MARIPOSAS_SOURCE_SYLLABLES = ["mi", "ma", "me", "má", "mu", "mo", "Mu", "Me"];
+// Owner-provided Mariposas mockup (2026-10-18): the sign lists exactly these
+// six words and the garden has exactly these ten syllable butterflies. No
+// recordings exist yet, so audio stays visibly "Audio pendiente" — never
+// synthesized. Matching is case-insensitive because the mockup plaques show
+// "Mu"/"Pu"/"Pe" while "puma"/"Pepe" use lowercase print syllables.
+const MARIPOSAS_SIGN_WORDS: { word: string; syllables: string[] }[] = [
+  { word: "mapa", syllables: ["ma", "pa"] },
+  { word: "pomo", syllables: ["po", "mo"] },
+  { word: "Mupi", syllables: ["Mu", "pi"] },
+  { word: "Pepe", syllables: ["Pe", "pe"] },
+  { word: "puma", syllables: ["pu", "ma"] },
+  { word: "Pupi", syllables: ["Pu", "pi"] },
+];
+const MARIPOSAS_SYLLABLES = ["ma", "mo", "mi", "Mu", "pa", "po", "me", "Pe", "pi", "Pu"];
 
 export const MARIPOSAS_P: GameContent = {
   id: "mariposas-p",
@@ -28,21 +37,21 @@ export const MARIPOSAS_P: GameContent = {
     "Presiona la red para que las mariposas regresen al jardín.",
     "Presiona la regadera para escuchar la próxima palabra.",
   ],
-  // The data contract requires WordItem; these are print-attested syllable
-  // practice cues, NOT claims that the teacher prescribed full target words.
-  words: MARIPOSAS_SOURCE_SYLLABLES.map((syllable) => ({
-    word: syllable,
-    syllables: [syllable],
-  })),
-  tiles: MARIPOSAS_SOURCE_SYLLABLES,
+  words: MARIPOSAS_SIGN_WORDS,
+  tiles: MARIPOSAS_SYLLABLES,
   assets: {
-    board: "/games/mariposas/garden.jpeg",
+    board: "/games/mariposas/scene-sky.svg",
     props: {
-      butterfly: "/games/mariposas/butterfly.png",
-      flower: "/games/mariposas/flower.png",
-      sun: "/games/mariposas/sun.png",
-      net: "/games/mariposas/net.png",
-      wateringCan: "/games/mariposas/watering-can.png",
+      garden: "/games/mariposas/scene-garden.svg",
+      fence: "/games/mariposas/scene-fence.svg",
+      cloud: "/games/mariposas/scene-cloud.svg",
+      sun: "/games/mariposas/sun.svg",
+      can: "/games/mariposas/can.svg",
+      sign: "/games/mariposas/sign.svg",
+      bar: "/games/mariposas/bar.svg",
+      panelA: "/games/mariposas/panel-a.svg",
+      panelB: "/games/mariposas/panel-b.svg",
+      check: "/games/mariposas/bf-check.svg",
     },
   },
 };

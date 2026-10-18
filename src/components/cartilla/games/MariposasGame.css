@@ -1,9 +1,37 @@
-/* Mariposas Mm: only the original document's extracted artwork is used. */
+/* Mariposas Mm — owner mockup (2026-10-18) cut sprites only; no redrawn art. */
 .mariposas-route {
   min-height: 100svh;
-  padding: 6px 12px 16px;
+  padding: 8px 12px 14px;
   background: #fcf9ee;
   color: #2b3f25;
+}
+.mariposas-game {
+  max-width: 1100px;
+  margin: 0 auto;
+}
+.mariposas-heading {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 4px 12px;
+  margin: 0 0 6px;
+  font-size: 13px;
+}
+.mariposas-heading h1 {
+  margin: 0;
+  font-size: clamp(17px, 2.4vw, 24px);
+  font-weight: 800;
+}
+.mariposas-audio-label {
+  padding: 3px 8px;
+  border: 1px solid #7c93b4;
+  border-radius: 999px;
+  background: #eef4fd;
+  color: #2c4f7c;
+  font-size: 12px;
+  font-weight: 700;
+  white-space: nowrap;
 }
 .mariposas-back {
   display: inline-flex;
@@ -14,198 +42,347 @@
   font-weight: 700;
   text-decoration: underline;
 }
-.mariposas-game { max-width: 980px; margin: 0 auto; }
-.mariposas-heading {
-  display: flex;
-  flex-wrap: wrap;
-  align-items: center;
-  justify-content: space-between;
-  gap: 4px 14px;
-  margin: 0 0 6px;
-  font-size: 13px;
-}
-.mariposas-heading h1 { margin: 0; font-size: clamp(18px, 2.5vw, 25px); font-weight: 800; }
-.mariposas-audio-label {
-  padding: 3px 8px;
-  border: 1px solid #a78d51;
-  border-radius: 5px;
-  background: #fff9e7;
-  color: #62491b;
-  font-size: 12px;
-  font-weight: 700;
-}
+
+/* Scene */
 .mariposas-scene {
   position: relative;
   isolation: isolate;
-  height: min(43vw, 45svh, 420px);
-  min-height: 175px;
+  width: 100%;
+  height: clamp(230px, 32vw, 430px);
   overflow: hidden;
-  border: 3px double #168c94;
-  background: #f5fbec;
+  border-radius: 14px;
 }
-.mariposas-garden-art {
+.mariposas-sky {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  background: url("/games/mariposas/scene-sky.svg") no-repeat center / 100% 100%;
+}
+.mariposas-cloud {
+  position: absolute;
+  top: 2.5%;
+  left: 34%;
+  width: 20%;
+  z-index: 0;
+  pointer-events: none;
+  user-select: none;
+}
+.mariposas-fence,
+.mariposas-garden {
+  position: absolute;
+  left: 0;
+  right: 0;
+  z-index: 0;
+  pointer-events: none;
+}
+.mariposas-garden {
+  bottom: 14%;
+  height: 46%;
+  background: url("/games/mariposas/scene-garden.svg") repeat-x bottom / auto 100%;
+}
+.mariposas-fence {
+  bottom: 32%;
+  height: 34%;
+  background: url("/games/mariposas/scene-fence.svg") repeat-x bottom / auto 100%;
+}
+
+/* Sign */
+.mariposas-sign {
+  position: absolute;
+  top: 2%;
+  left: 2%;
+  z-index: 1;
+  width: clamp(120px, 24%, 300px);
+}
+.mariposas-sign img {
+  display: block;
+  width: 100%;
+  height: auto;
+  user-select: none;
+}
+.mariposas-sign span {
+  position: absolute;
+  left: 34%;
+  width: 52%;
+  height: 10.5%;
+  border-radius: 8px;
+  background: rgb(64 168 79 / 38%);
+  box-shadow: 0 0 0 2px rgb(64 168 79 / 55%);
+}
+.mariposas-sign span.is-current {
+  background: rgb(64 168 79 / 55%);
+}
+
+/* Props: sun + can (static mockup art, tap targets >= 44px) */
+.mariposas-prop {
+  position: absolute;
+  z-index: 3;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0;
+  border: 0;
+  background: none;
+  cursor: pointer;
+}
+.mariposas-prop img {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+.mariposas-sun {
+  top: 2%;
+  right: 3%;
+  width: clamp(52px, 15%, 150px);
+  min-height: 44px;
+}
+.mariposas-can {
+  bottom: 15%;
+  right: 2.5%;
+  width: clamp(48px, 13%, 130px);
+  min-height: 44px;
+}
+
+/* Butterflies */
+.mariposas-bf {
+  position: absolute;
+  z-index: 4;
+  width: clamp(52px, 13.5%, 150px);
+  min-width: 44px;
+  min-height: 44px;
+  padding: 0;
+  border: 0;
+  background: none;
+  cursor: pointer;
+  translate: -50% -50%;
+  transition:
+    left 0.85s ease-in-out,
+    top 0.85s ease-in-out,
+    scale 0.85s ease-in-out,
+    opacity 0.3s ease;
+}
+.mariposas-bf:disabled {
+  cursor: default;
+}
+.mariposas-bf.is-flying {
+  z-index: 7;
+  scale: 0.85;
+}
+.mariposas-bf-float {
+  display: block;
+  animation: mariposas-float 3.4s ease-in-out infinite alternate;
+}
+.mariposas-bf-wings {
+  display: block;
+  scale: var(--bf-scale, 1);
+  animation: mariposas-flap 1.05s ease-in-out infinite;
+}
+.mariposas-bf img {
+  display: block;
+  width: 100%;
+  height: auto;
+  pointer-events: none;
+}
+.mariposas-prop:focus-visible,
+.mariposas-bf:focus-visible,
+.mariposas-check:focus-visible {
+  outline: 3px solid #126d87;
+  outline-offset: 2px;
+  border-radius: 10px;
+}
+
+/* Wooden bottom bar */
+.mariposas-bar {
+  position: absolute;
+  inset: auto 0 0 0;
+  z-index: 6;
+  height: 15%;
+  min-height: 46px;
+}
+.mariposas-bar-art {
   position: absolute;
   inset: 0;
   width: 100%;
   height: 100%;
   object-fit: fill;
-  user-select: none;
-  pointer-events: none;
 }
-.mariposas-decoration {
+.mariposas-bar-word {
   position: absolute;
-  width: clamp(30px, 7.2%, 75px);
+  left: 20%;
+  top: 50%;
+  translate: 0 -50%;
+  color: #2f9e46;
+  font-size: clamp(15px, 2.3vw, 26px);
+  font-weight: 800;
+  letter-spacing: 0.02em;
+  text-shadow: 0 1px 0 rgb(255 255 255 / 60%);
+}
+.mariposas-slots {
+  position: absolute;
+  left: 46%;
+  top: 50%;
+  translate: 0 -50%;
+  display: flex;
+  gap: 6px;
+}
+.mariposas-slot {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-width: clamp(44px, 5.6vw, 62px);
+  min-height: clamp(44px, 5.6vw, 62px);
+  border-radius: 9px;
+  background: rgb(66 44 28 / 78%);
+  box-shadow: inset 0 0 0 2px rgb(208 175 89 / 55%);
+  color: #8b8b83;
+  font-size: clamp(17px, 2.4vw, 26px);
+  font-weight: 800;
+}
+.mariposas-slots[data-mark="green"] .mariposas-slot {
+  color: #35c65b;
+  transition: color 1.4s ease;
+}
+.mariposas-slots[data-mark="red"] .mariposas-slot {
+  color: #e5484d;
+}
+.mariposas-slots[data-mark="erasing"] .mariposas-slot {
+  color: #e5484d;
+  opacity: 0.25;
+  transition: opacity 0.45s ease;
+}
+.mariposas-check {
+  position: absolute;
+  right: 4%;
+  bottom: 12%;
+  z-index: 7;
+  width: clamp(48px, 8.5%, 96px);
+  min-width: 44px;
+  min-height: 44px;
+  padding: 0;
+  border: 0;
+  background: none;
+  cursor: pointer;
+}
+.mariposas-check img {
+  display: block;
+  width: 100%;
   height: auto;
-  object-fit: contain;
-  user-select: none;
-  pointer-events: none;
-  animation: mariposas-float 3.8s ease-in-out infinite alternate;
 }
-.mariposas-decoration:nth-of-type(even) { animation-delay: -1.5s; }
-.mariposas-prop {
-  position: absolute;
-  z-index: 2;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  min-width: 44px;
-  min-height: 44px;
-  border: 1px solid rgb(44 91 38 / 44%);
-  border-radius: 9px;
-  padding: 2px;
-  background: rgb(255 252 241 / 91%);
-  color: #244824;
-  cursor: pointer;
-  font-size: clamp(10px, 1.1vw, 13px);
-  font-weight: 800;
-  line-height: 1.05;
+.mariposas-check:disabled {
+  opacity: 0.55;
+  cursor: default;
 }
-.mariposas-prop:focus-visible,
-.mariposas-tray button:focus-visible {
-  outline: 3px solid #126d87;
-  outline-offset: 2px;
-}
-.mariposas-prop:disabled { opacity: .66; cursor: not-allowed; }
-.mariposas-prop img { width: auto; height: 40px; max-width: 100%; object-fit: contain; }
-.mariposas-sun { top: 4%; right: 2%; width: 60px; height: 60px; }
-.mariposas-sun img { height: 52px; }
-.mariposas-butterfly { top: 21%; right: 19%; width: 86px; height: 81px; }
-.mariposas-butterfly img { height: 57px; }
-.mariposas-net { left: 2%; bottom: 3%; width: 72px; height: 75px; }
-.mariposas-net img { height: 45px; }
-.mariposas-can { right: 2%; bottom: 3%; width: 78px; height: 79px; }
-.mariposas-can img { height: 50px; }
-.mariposas-flower { left: 61%; bottom: 3%; width: 76px; height: 76px; }
-.mariposas-flower img { height: 48px; }
-.mariposas-answer-area {
-  position: absolute;
-  bottom: 6%;
-  left: 33%;
-  z-index: 2;
-  display: flex;
-  justify-content: center;
-  gap: 3px;
-  min-height: 49px;
-  min-width: 84px;
-  max-width: 27%;
-  border: 3px solid #7f817b;
-  border-radius: 9px;
-  padding: 4px;
-  background: rgb(255 251 231 / 94%);
-  color: #666;
-  font-size: 25px;
-  font-weight: 800;
-  transition: border-color 1s ease, color 1s ease, opacity .35s ease;
-}
-.mariposas-answer-area[data-mark="green"] { border-color: #168a36; color: #137b32; }
-.mariposas-answer-area[data-mark="red"],
-.mariposas-answer-area[data-mark="erasing"] { border-color: #bc2929; color: #bc2929; }
-.mariposas-answer-area[data-mark="erasing"] { opacity: .12; text-decoration: line-through; }
-.mariposas-answer-slot { display: block; min-width: 39px; text-align: center; }
-.mariposas-tray {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 5px;
-  padding: 5px 2px;
-  border-left: 3px double #168c94;
-  border-right: 3px double #168c94;
-  border-bottom: 3px double #168c94;
-  background: #566e2e;
-}
-.mariposas-tray button {
-  flex: 0 1 80px;
-  min-width: 44px;
-  min-height: 44px;
-  border: 2px solid #d0af59;
-  border-radius: 5px;
-  background: #fff9db;
-  color: #2c3c26;
-  font-size: clamp(14px, 2.3vw, 21px);
-  font-weight: 800;
-  cursor: pointer;
-}
-.mariposas-tray button.is-selected { background: #e4e5df; border-color: #7c7f7c; }
-.mariposas-tray button:disabled { opacity: .75; cursor: default; }
+
+/* Feedback + instruction panels (mockup art, wording unchanged) */
 .mariposas-feedback {
   min-height: 22px;
-  padding: 1px 4px;
-  font-size: 12px;
+  padding: 3px 4px;
+  font-size: 13px;
   font-weight: 700;
   text-align: center;
 }
 .mariposas-instructions {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 7px;
-  align-items: stretch;
+  display: flex;
+  gap: 8px;
+  align-items: flex-start;
+  justify-content: center;
+  flex-wrap: wrap;
 }
-.mariposas-instruction-panel {
-  background: #f5ffca;
-  border: 1px solid #cfdb82;
-  padding: 8px 12px;
-  font: 500 clamp(11px, 1.15vw, 14px) / 1.27 Georgia, serif;
+.mariposas-instructions img {
+  width: clamp(180px, 27vw, 330px);
+  height: auto;
+  user-select: none;
 }
-.mariposas-instruction-panel strong { font-weight: 700; }
-.mariposas-instruction-panel ol { list-style: decimal; padding-left: 18px; margin: 2px 0 0; }
-.mariposas-instruction-panel li { padding: 1px 0; }
+
 @keyframes mariposas-float {
-  from { translate: 0 -2px; }
-  to { translate: 0 4px; }
+  from {
+    translate: 0 -0.9%;
+  }
+  to {
+    translate: 0 1.1%;
+  }
 }
-@media (max-width: 550px) and (orientation: portrait) {
-  .mariposas-route { padding: 4px 8px 18px; }
-  .mariposas-scene { height: clamp(220px, 60vw, 290px); }
-  .mariposas-butterfly { right: 20%; top: 17%; width: 67px; height: 72px; }
-  .mariposas-butterfly img { height: 45px; }
-  .mariposas-can,.mariposas-net { width: 60px; height: 65px; }
-  .mariposas-can img,.mariposas-net img { height: 40px; }
-  .mariposas-flower { left: 58%; width: 64px; height: 66px; }
-  .mariposas-flower img { height: 40px; }
-  .mariposas-answer-area { left: 31%; }
-  .mariposas-instructions { grid-template-columns: 1fr; }
-  .mariposas-instruction-panel { font-size: 12px; padding: 6px 9px; }
+@keyframes mariposas-flap {
+  0%,
+  100% {
+    scale: var(--bf-scale, 1) 1;
+  }
+  50% {
+    scale: calc(var(--bf-scale, 1) * 0.86) 1;
+  }
 }
-@media (orientation: landscape) and (max-height: 500px) {
-  .mariposas-route { padding: 0 8px 8px; }
-  .mariposas-heading { font-size: 11px; margin: 0 0 2px; }
-  .mariposas-heading h1 { font-size: 18px; }
-  .mariposas-scene { min-height: 0; height: min(45svh, 177px); }
-  .mariposas-sun { width: 47px; height: 47px; }
-  .mariposas-sun img { height: 38px; }
-  .mariposas-butterfly { width: 64px; height: 62px; }
-  .mariposas-butterfly img { height: 41px; }
-  .mariposas-net,.mariposas-can,.mariposas-flower { width: 56px; height: 55px; }
-  .mariposas-prop img { height: 32px; }
-  .mariposas-answer-area { min-height: 44px; font-size: 22px; }
-  .mariposas-tray { padding: 3px; }
-  .mariposas-tray button { min-height: 44px; }
-  .mariposas-instruction-panel { padding: 3px 8px; font-size: 10px; line-height: 1.09; }
-  .mariposas-instruction-panel li { padding: 0; }
-  .mariposas-feedback { min-height: 17px; font-size: 11px; }
+
+@media (orientation: portrait) {
+  .mariposas-scene {
+    height: clamp(300px, 88vw, 430px);
+  }
+  .mariposas-sign {
+    width: clamp(130px, 34vw, 300px);
+  }
+  .mariposas-sun {
+    width: clamp(56px, 17vw, 150px);
+  }
+  .mariposas-bf {
+    width: clamp(52px, 16vw, 150px);
+  }
+  .mariposas-can {
+    width: clamp(50px, 15vw, 130px);
+  }
+}
+@media (orientation: landscape) and (max-height: 520px) {
+  .mariposas-route {
+    padding: 2px 8px 8px;
+  }
+  .mariposas-heading {
+    margin-bottom: 2px;
+    font-size: 11px;
+  }
+  .mariposas-heading h1 {
+    font-size: 15px;
+  }
+  .mariposas-audio-label {
+    font-size: 10px;
+    padding: 1px 6px;
+  }
+  .mariposas-scene {
+    height: clamp(170px, 52vh, 300px);
+  }
+  .mariposas-sign {
+    width: clamp(110px, 20%, 300px);
+  }
+  .mariposas-sun {
+    width: clamp(50px, 12%, 150px);
+  }
+  .mariposas-bf {
+    width: clamp(48px, 11%, 150px);
+  }
+  .mariposas-can {
+    width: clamp(46px, 10%, 130px);
+  }
+  .mariposas-bar {
+    min-height: 44px;
+  }
+  .mariposas-slot {
+    min-width: 44px;
+    min-height: 44px;
+  }
+  .mariposas-feedback {
+    min-height: 17px;
+    font-size: 11px;
+  }
+  .mariposas-instructions img {
+    width: clamp(150px, 26vw, 300px);
+  }
 }
 @media (prefers-reduced-motion: reduce) {
-  .mariposas-decoration { animation: none; }
-  .mariposas-answer-area { transition-duration: 0.01ms; }
+  .mariposas-bf {
+    transition-duration: 0.01ms;
+  }
+  .mariposas-bf-float,
+  .mariposas-bf-wings {
+    animation: none;
+  }
+  .mariposas-slots[data-mark="green"] .mariposas-slot {
+    transition-duration: 0.01ms;
+  }
 }
