@@ -9,6 +9,7 @@ export type GameArchetype =
   | "fonetica-completar"
   | "lectura-silabas"
   | "lectura-rima"
+  | "lectura-rima-mm"
   | "palabras-por-minuto"
   | "dibujos";
 
