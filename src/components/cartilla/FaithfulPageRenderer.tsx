@@ -1,4 +1,5 @@
 import "@/styles/native-lesson.css";
+import { Lesson20GardenText } from "./lesson20/Lesson20GardenText";
 import type { ReactNode } from "react";
 import { GretelActivity } from "@/components/gretel/GretelActivity";
 import { SOURCE_BLOCKED_WORKBOOK_PAGES } from "@/lib/workbook-pages";
@@ -434,7 +435,9 @@ function RegionView({
       );
     case "instruction": {
       const instructionText =
-        pageNumber === 17 && region.text
+        lessonNumber === 20 && region.text ? (
+          <Lesson20GardenText text={region.text} />
+        ) : pageNumber === 17 && region.text
           ? region.text.split(/(Uu)/g).map((part, index) =>
               part === "Uu" ? (
                 <span key={part + "-" + index} className="fp-target-emphasis">
@@ -525,7 +528,12 @@ function RegionView({
       return native ? (
         <div className="fp-native-syllables" aria-label={region.text ?? undefined}>
           {(region.text ?? "").split(/\s+/).filter(Boolean).map((syllable) => (
-            <span key={syllable}>{syllable}</span>
+            <span
+              key={syllable}
+              data-syl={lessonNumber === 20 ? syllable : undefined}
+            >
+              {syllable}
+            </span>
           ))}
         </div>
       ) : (

@@ -280,3 +280,125 @@
 .lc-lesson-shell--fit .native-lesson-viewer__content .fp-ix-pick__cells { display: flex; justify-content: center; align-items: center; column-gap: min(3.2cqw, 28px); }
 .lc-lesson-shell--fit .native-lesson-viewer__content .fp-ix-grid .fp-ix-cell,
 .lc-lesson-shell--fit .native-lesson-viewer__content .fp-ix-pick__cells .fp-ix-cell { flex: 0 1 114cqh; width: auto; min-width: 0; height: auto; max-height: 100%; aspect-ratio: 1; }
+
+/* ==================== Lesson 20 (Ff) wide-screen design ====================
+ * Owner-approved Lesson-3 wide-screen look applied to Lesson 20 only (swarm
+ * back-to-front, 2026-10-18). Additive and fully scoped under .lc-lesson-20,
+ * which is added alongside .lc-lesson-shell--fit on the lesson route, so the
+ * shared fit-to-screen system (including phone behavior) is untouched.
+ * Presentation only: pencil circle, pencil mark, drag/tap completa, tracing
+ * and drawing mechanics all stay on the shared kernel components. */
+
+/* Slimmer teal spine — same wave, narrower band, more room for the work. */
+.lc-lesson-20 .native-lesson-viewer__content .faithful-page__sidebar { width: 3.4%; min-width: 18px; }
+
+/* Instruction letters use the colorful garden palette (per-letter spans are
+ * emitted by Lesson20GardenText; wording is unchanged). */
+.lc-lesson-20 .native-lesson-viewer__content .fp-region--instruction { font-weight: 700; letter-spacing: .01em; }
+
+/* One garden color per teaching syllable, stable across the whole lesson:
+ * the fa/fe/fi/fo/fu anchors on the circle page, both bubble rows on the
+ * letter page, and the completa choices all agree. The letter-page selectors
+ * carry .fp-native-letter-page so they outrank the older blush family skin. */
+.lc-lesson-20 .native-syllable h2[data-syl="fa"],
+.lc-lesson-20 .native-lesson-viewer__content .fp-native-letter-page .fp-native-syllables span[data-syl="fa"],
+.lc-lesson-20 .fp-ix-fill__choice[data-syl="fa"] { color: #2f7d4a; border-color: #2f7d4a !important; }
+.lc-lesson-20 .native-syllable h2[data-syl="fe"],
+.lc-lesson-20 .native-lesson-viewer__content .fp-native-letter-page .fp-native-syllables span[data-syl="fe"],
+.lc-lesson-20 .fp-ix-fill__choice[data-syl="fe"] { color: #c46a1b; border-color: #c46a1b !important; }
+.lc-lesson-20 .native-syllable h2[data-syl="fi"],
+.lc-lesson-20 .native-lesson-viewer__content .fp-native-letter-page .fp-native-syllables span[data-syl="fi"],
+.lc-lesson-20 .fp-ix-fill__choice[data-syl="fi"] { color: #7756a8; border-color: #7756a8 !important; }
+.lc-lesson-20 .native-syllable h2[data-syl="fo"],
+.lc-lesson-20 .native-lesson-viewer__content .fp-native-letter-page .fp-native-syllables span[data-syl="fo"],
+.lc-lesson-20 .fp-ix-fill__choice[data-syl="fo"] { color: #356fbd; border-color: #356fbd !important; }
+.lc-lesson-20 .native-syllable h2[data-syl="fu"],
+.lc-lesson-20 .native-lesson-viewer__content .fp-native-letter-page .fp-native-syllables span[data-syl="fu"],
+.lc-lesson-20 .fp-ix-fill__choice[data-syl="fu"] { color: #c24d75; border-color: #c24d75 !important; }
+
+/* Stronger teal glow around every boxed work surface (picture boxes when a
+ * page has pictures, word tiles, letter card, bubble strips, vocab boxes,
+ * completa items, writing lines, drawing paper, sentence box). */
+.lc-lesson-20 .native-lesson-viewer__content :is(
+  .fp-ix-cell,
+  .native-syllable__word,
+  .fp-native-vocab span,
+  .fp-ix-fill__item,
+  .fp-writing-line,
+  .am-dibuja__paper
+) {
+  border-color: var(--lc-teal, #1f9e94) !important;
+  box-shadow:
+    0 0 0 3px rgba(31, 158, 148, 0.16),
+    0 10px 24px -10px rgba(22, 122, 114, 0.5);
+}
+.lc-lesson-20 .native-lesson-viewer__content .native-syllable h2,
+.lc-lesson-20 .native-lesson-viewer__content .fp-native-title {
+  border: 2px solid var(--lc-teal, #1f9e94);
+  box-shadow:
+    0 0 0 4px rgba(31, 158, 148, 0.18),
+    0 12px 26px -10px rgba(22, 122, 114, 0.55);
+}
+.lc-lesson-20 .native-lesson-viewer__content .fp-native-syllables,
+.lc-lesson-20 .native-lesson-viewer__content .fp-native-sight-word,
+.lc-lesson-20 .native-lesson-viewer__content .fp-writing-response textarea {
+  border: 2px solid var(--lc-teal, #1f9e94) !important;
+  box-shadow:
+    0 0 0 3px rgba(31, 158, 148, 0.16),
+    0 10px 24px -10px rgba(22, 122, 114, 0.5);
+}
+/* Letter page sheds the old blush skin for the approved cream + teal look. */
+.lc-lesson-20 .native-lesson-viewer__content .fp-native-letter-page .fp-native-syllables {
+  border: 2px solid var(--lc-teal, #1f9e94);
+  background: #fff;
+  box-shadow:
+    0 0 0 3px rgba(31, 158, 148, 0.16),
+    0 10px 24px -10px rgba(22, 122, 114, 0.5);
+}
+.lc-lesson-20 .native-lesson-viewer__content .fp-native-letter-page .fp-native-syllables span {
+  background: #fff;
+  box-shadow: 0 0 0 3px rgba(31, 158, 148, 0.12);
+}
+.lc-lesson-20 .native-lesson-viewer__content .fp-native-letter-page .fp-native-vocab span {
+  border: 2px solid var(--lc-teal, #1f9e94);
+  border-radius: 12px;
+  background: #fff;
+  color: var(--lc-ink, #25313a);
+  box-shadow:
+    0 0 0 3px rgba(31, 158, 148, 0.16),
+    0 10px 24px -10px rgba(22, 122, 114, 0.5);
+}
+.lc-lesson-20 .native-lesson-viewer__content .fp-native-letter-page .fp-region--reading-sentences {
+  border: 2px solid var(--lc-teal, #1f9e94);
+  background: #fff;
+  color: var(--lc-ink, #25313a);
+  box-shadow:
+    0 0 0 3px rgba(31, 158, 148, 0.16),
+    0 10px 24px -10px rgba(22, 122, 114, 0.5);
+}
+/* Bubble strips keep their white pills; the syllable color carries them. */
+.lc-lesson-20 .native-lesson-viewer__content .fp-native-syllables span[data-syl] {
+  border-width: 2px;
+}
+
+/* The Ff letter card is the page's main teaching target: garden green with
+ * the strongest raised treatment on the page. */
+.lc-lesson-20 .native-lesson-viewer__content .fp-native-letter-page .fp-native-title {
+  color: #2f7d4a;
+  background: radial-gradient(ellipse, #fff 35%, #e3f2e8 85%);
+  border-color: #2f7d4a;
+  box-shadow:
+    0 0 0 5px rgba(47, 125, 74, 0.16),
+    0 14px 30px -10px rgba(22, 122, 114, 0.55);
+}
+
+/* Keep the pointer lift/press feedback from the shared fit system readable
+ * on top of the stronger glow. */
+@media (hover: hover) {
+  .lc-lesson-20 .native-lesson-viewer__content .fp-ix-cell:hover,
+  .lc-lesson-20 .native-lesson-viewer__content .native-syllable__word:hover {
+    box-shadow:
+      0 0 0 5px rgba(31, 158, 148, 0.28),
+      0 16px 26px -10px rgba(22, 122, 114, 0.6);
+  }
+}

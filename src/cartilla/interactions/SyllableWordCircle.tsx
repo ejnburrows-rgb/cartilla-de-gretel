@@ -216,7 +216,7 @@ export function SyllableWordCircle({ region, lessonId }: { region: PageRegion; l
 
   return (
     <section className="native-syllable" aria-label={`Busca ${syllable} en cada palabra`}>
-      <h2>{syllable}</h2>
+      <h2 data-syl={lessonId === "20" ? syllable : undefined}>{syllable}</h2>
       <div className="native-syllable__words">
         {words.map((entry, i) => {
           const retrying = pending?.wordIndex === i && pending.correct === false;

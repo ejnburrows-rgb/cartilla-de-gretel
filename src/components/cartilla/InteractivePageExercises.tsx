@@ -664,6 +664,7 @@ function DraggableFillChoice({
       type="button"
       className={classes}
       style={style}
+      data-syl={text.toLowerCase()}
       data-gretel-correct={flagged ? undefined : String(grade === "correct")}
       disabled={disabled || flagged}
       onClick={onClick}
