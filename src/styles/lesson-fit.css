@@ -317,7 +317,10 @@
   border: 1px solid rgba(22, 122, 114, 0.28);
 }
 .lc-lesson-21 .faithful-page__sidebar { width: 4.5%; min-width: 24px; }
-.lc-lesson-21 .faithful-page__pagenum { background: #167a72; }
+/* Page-number diamond always sits above the wavy page edge: on narrow
+ * screens the wave bulges over the diamond's corner (mobile p77) and would
+ * otherwise cover it. */
+.lc-lesson-21 .faithful-page__pagenum { background: #167a72; z-index: 3; }
 
 /* Stronger teal glow around every boxed work surface. */
 .lc-lesson-21 .native-lesson-viewer__content .native-syllable__word,
@@ -370,7 +373,10 @@
 .lc-lesson-21 .native-lesson-viewer__content .fp-native-syllables > span:nth-child(5n+3) { color: #b97a10; border-color: #b97a10 !important; }
 .lc-lesson-21 .native-lesson-viewer__content .fp-native-syllables > span:nth-child(5n+4) { color: #2f6fb2; border-color: #2f6fb2 !important; }
 .lc-lesson-21 .native-lesson-viewer__content .fp-native-syllables > span:nth-child(5n+5) { color: #7c53a6; border-color: #7c53a6 !important; }
-.lc-lesson-21 .native-lesson-viewer__content .fp-region--reading-sentences {
+/* The shared letter-page rule in native-lesson.css colors reading text maroon
+ * (#70263b); with equal specificity the later-loaded shared stylesheet wins.
+ * Strengthen the selector so the lesson's intended dark ink always applies. */
+.lc-lesson-21 .native-lesson-viewer__content .fp-native-letter-page .fp-region--reading-sentences {
   padding: calc(var(--ph) * .014) calc(var(--ph) * .02);
   border: 1.5px solid rgba(22, 122, 114, 0.45);
   border-radius: 16px;
@@ -398,4 +404,8 @@
   box-shadow: 0 0 0 4px rgba(47, 125, 74, 0.22);
 }
 .lc-lesson-21 .native-lesson-viewer__navigation button[data-testid="button-next"] { background: #167a72; border-color: #167a72; color: #fffaf0; }
+/* Keep the teal design language on hover: the shared fit-mode rule colors the
+ * last nav button red on hover (#a32636), which looks like a defect against
+ * the lesson's teal button. Lesson-scoped, higher specificity. */
+.lc-lesson-21 .native-lesson-viewer__navigation button[data-testid="button-next"]:hover:not(:disabled) { background: #126b62; border-color: #126b62; color: #fffaf0; }
 .lc-lesson-21 :is(button, a, textarea):focus-visible { outline: 3px solid #167a72; outline-offset: 3px; }
