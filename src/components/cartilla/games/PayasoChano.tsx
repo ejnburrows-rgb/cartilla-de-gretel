@@ -245,6 +245,13 @@ export function PayasoChano({ content, lessonId, onComplete }: PayasoChanoProps)
         </button>
       </div>
 
+      <a
+        href="/games/payaso-chano.html"
+        className="lesson-focus-ring flex min-h-14 w-full items-center justify-center rounded-xl bg-amber-500 px-5 py-3 text-center text-lg font-black text-stone-950 shadow-md transition-colors hover:bg-amber-400"
+      >
+        Jugar con Chano animado
+      </a>
+
       <DndContext sensors={sensors} onDragEnd={onDragEnd}>
         {/* Pizarra de Chano */}
         <div
