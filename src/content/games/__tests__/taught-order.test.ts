@@ -201,6 +201,7 @@ const ACKNOWLEDGED_WORD_TILES: Record<string, string[]> = {
   "fonetica-p": [],
   "mariposas-p": [],
   "palabras-minuto-p": [],
+  "palabras-minuto-m": [],
   "rima-p": [],
   "vocal-a": [],
 };

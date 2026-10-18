@@ -114,6 +114,44 @@ export const PALABRAS_MINUTO_P: GameContent = {
   tiles: VOWEL_TRAY,
 };
 
+/**
+ * Palabras por minuto — Mm (teacher file 3: "¿Cuántas palabras puedo leer por minuto? Mm").
+ * Exactly the 18 words from the teacher's original, in order. No invented words.
+ */
+const PPM_M_WORDS = [
+  "mamá",
+  "mami",
+  "Mimo",
+  "mío",
+  "me",
+  "mímame",
+  "Momi",
+  "Meme",
+  "mi",
+  "Meme",
+  "ama",
+  "mía",
+  "Mumi",
+  "Memo",
+  "mima",
+  "amo",
+  "Mimí",
+  "ámame",
+];
+
+export const PALABRAS_MINUTO_M: GameContent = {
+  id: "palabras-minuto-m",
+  type: "palabras-por-minuto",
+  letter: "m",
+  instructions: [
+    "¿Cuántas palabras puedo leer por minuto?",
+    "Lee cada palabra.",
+    "Antes de comenzar ajusta el cronómetro.",
+  ],
+  words: PPM_M_WORDS.map((word) => ({ word, syllables: [word] })),
+  tiles: VOWEL_TRAY,
+};
+
 export const DIBUJOS_O: GameContent = {
   id: "dibujos-o",
   type: "dibujos",
@@ -137,5 +175,6 @@ export const CORE_THEMED_GAMES: GameContent[] = [
   FONETICA_P,
   RIMA_P,
   PALABRAS_MINUTO_P,
+  PALABRAS_MINUTO_M,
   DIBUJOS_O,
 ];

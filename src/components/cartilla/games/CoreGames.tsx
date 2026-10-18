@@ -3,6 +3,8 @@ import { Check, RotateCcw, Timer, X } from "lucide-react";
 import type { GameContent, WordItem } from "@/lib/games/gameContent";
 import { playWord } from "@/lib/games/wordAudio";
 import { recordEvent } from "@/lib/student-session";
+import { PalabrasPorMinuto } from "./PalabrasPorMinuto";
+import { PALABRAS_MINUTO_M, PALABRAS_MINUTO_P } from "@/content/games/core-games";
 
 function finishGame(content: GameContent, score: number, total: number) {
   recordEvent({
@@ -418,7 +420,14 @@ export function CoreGame({ content }: { content: GameContent }) {
     case "lectura-rima":
       return <RhymeGame content={content} />;
     case "palabras-por-minuto":
-      return <WordsPerMinuteGame content={content} />;
+      return (
+        <PalabrasPorMinuto
+          letters={[
+            { letter: "m", label: "Mm", content: PALABRAS_MINUTO_M },
+            { letter: "p", label: "Pp", content: PALABRAS_MINUTO_P },
+          ]}
+        />
+      );
     case "dibujos":
       return <DrawingsGame content={content} />;
     default:
