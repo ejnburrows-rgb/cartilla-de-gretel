@@ -14,13 +14,10 @@
 // until the owner supplies the real syllables.
 //
 // Word audio does not exist yet (voice work is "pendiente" by owner rule);
-// no audioUrl is invented. The drawings are the source document's own images
-// (256-color quantized PNG, no redraw, wrapped in SVG for GitHub text push).
+// no audioUrl is invented. The drawings are the source document's own images,
+// stored unchanged (PNG bytes wrapped in SVG for GitHub text push).
 
-/**
- * Letter families in the Cartilla's own teaching order
- * (src/data/lessons.json `consonantOrder`). Only Mm has a source file today.
- */
+/** Letter families in the Cartilla's own teaching order (src/data/lessons.json `consonantOrder`). Only Mm has a source file today. */
 export const LECTURA_LETTERS: Array<{ letter: string; available: boolean }> = [
   "Mm",
   "Pp",
