@@ -203,7 +203,7 @@ export function Leccion() {
   };
 
   return (
-    <div className="lc-lesson-shell lc-lesson-shell--fit min-h-screen flex flex-col">
+    <div className={`lc-lesson-shell lc-lesson-shell--fit ${n === 10 ? "lc-lesson-10" : ""} min-h-screen flex flex-col`}>
       <DemoStudentBanner />
       <header className="lc-lesson-header">
         <Link
