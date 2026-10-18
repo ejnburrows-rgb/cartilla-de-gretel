@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-10-09T21:31:20.782Z",
+  "generatedAt": "2026-10-18T04:02:49.838Z",
   "sourceManifest": "/cartilla/art/faithful/manifest.json",
   "canonicalPolicy": "Canonical faithful WebP files remain untouched. Delivery derivatives are disposable build output.",
   "counts": {
@@ -9,12 +9,12 @@
     "processedCanonicalAssets": 108,
     "unavailableManifestAssets": 0,
     "wiredQaPass": 96,
-    "backgroundCleaned": 99,
-    "paddingTrimmed": 104,
-    "edgeTouchWarnings": 9,
+    "backgroundCleaned": 100,
+    "paddingTrimmed": 106,
+    "edgeTouchWarnings": 5,
     "duplicateContentGroups": 0,
     "errors": 0,
-    "warnings": 24,
+    "warnings": 22,
     "flipchartCanonicalMasters": 62,
     "flipchartNativeBoards": 62,
     "flipchartNativeCrops": 167
@@ -23,10 +23,6 @@
   "warnings": [
     "/cartilla/art/faithful/leccion-1/abrigo.webp: visible content touches canonical crop edge; source recrop may be required",
     "/cartilla/art/faithful/leccion-1/globo.webp: visible content touches canonical crop edge; source recrop may be required",
-    "/cartilla/art/faithful/vocal-a/abeja.webp: visible content touches canonical crop edge; source recrop may be required",
-    "/cartilla/art/faithful/vocal-o/oruga.webp: visible content touches canonical crop edge; source recrop may be required",
-    "/cartilla/art/faithful/vocal-a/aguja.webp: visible content touches canonical crop edge; source recrop may be required",
-    "/cartilla/art/faithful/vocal-i/iglu.webp: visible content touches canonical crop edge; source recrop may be required",
     "/cartilla/art/faithful/vocal-a/alas.webp: suspiciously small cropBox 29x38",
     "/cartilla/art/faithful/vocal-a/arana.webp: suspiciously small cropBox 105x9",
     "/cartilla/art/faithful/vocal-e/escalera.webp: crop/canonical aspect drift 50%",
@@ -35,6 +31,8 @@
     "/cartilla/art/faithful/vocal-e/espejo.webp: crop/canonical aspect drift 56%",
     "/cartilla/art/faithful/vocal-u/uno.webp: suspiciously small cropBox 18x27",
     "/cartilla/art/faithful/vocal-a/avion.webp: suspiciously small cropBox 3x5",
+    "/cartilla/art/faithful/vocal-o/olla.webp: crop/canonical aspect drift 48%",
+    "/cartilla/art/faithful/vocal-i/invierno.webp: crop/canonical aspect drift 45%",
     "/cartilla/art/faithful/leccion-7-m/mama.webp: crop/canonical aspect drift 46%",
     "/cartilla/art/faithful/leccion-8-p/papa.webp: crop/canonical aspect drift 50%",
     "/cartilla/art/faithful/leccion-8-p/papa.webp: visible content touches canonical crop edge; source recrop may be required",
@@ -206,12 +204,12 @@
       "sourceAsset": "public/cartilla/art/restored/workbook/page-009.png",
       "canonicalSrc": "/cartilla/art/faithful/vocal-a/abeja.webp",
       "canonical": {
-        "width": 462,
-        "height": 495,
-        "bytes": 40196,
+        "width": 1254,
+        "height": 1254,
+        "bytes": 197584,
         "format": "webp",
         "hasAlpha": false,
-        "sha256": "1f03f92afdf3005ffffccae6aff6cfdd37314ebe016012e8634a102078bca5ef"
+        "sha256": "989ee62ea87c78a5aba91aa10040031d26fa0c9f2c239069c45c3c4e7491cfab"
       },
       "cropBox": [
         720,
@@ -222,31 +220,31 @@
       "provenanceStatus": "VERIFIED-EXACT-WORKBOOK-CROP-2026-08-08",
       "cleanup": {
         "backgroundRemoved": true,
-        "removedPixels": 117925,
+        "removedPixels": 797257,
         "estimatedBackground": {
           "color": {
-            "r": 255,
-            "g": 255,
-            "b": 255
+            "r": 254,
+            "g": 254,
+            "b": 254
           },
-          "agreement": 0.5722513089005236,
+          "agreement": 1,
           "paperLike": true
         },
-        "transparentPaddingTrimmed": false,
-        "normalizedWidth": 462,
-        "normalizedHeight": 495,
+        "transparentPaddingTrimmed": true,
+        "normalizedWidth": 1183,
+        "normalizedHeight": 1206,
         "contentBounds": {
-          "x": 0,
-          "y": 0,
-          "width": 462,
-          "height": 495,
-          "opaquePixels": 110765
+          "x": 33,
+          "y": 34,
+          "width": 1163,
+          "height": 1186,
+          "opaquePixels": 775259
         },
         "touchesCropEdge": {
-          "left": true,
-          "top": true,
-          "right": true,
-          "bottom": true
+          "left": false,
+          "top": false,
+          "right": false,
+          "bottom": false
         },
         "interiorTransparentPixels": 0
       },
@@ -255,20 +253,18 @@
           "widthTier": 384,
           "path": "/cartilla/art/delivery/faithful/384/vocal-a/abeja.webp",
           "width": 384,
-          "height": 411,
-          "bytes": 37646
+          "height": 391,
+          "bytes": 40256
         },
         {
           "widthTier": 768,
           "path": "/cartilla/art/delivery/faithful/768/vocal-a/abeja.webp",
-          "width": 462,
-          "height": 495,
-          "bytes": 44160
+          "width": 768,
+          "height": 783,
+          "bytes": 99374
         }
       ],
-      "warnings": [
-        "visible content touches canonical crop edge; source recrop may be required"
-      ],
+      "warnings": [],
       "errors": []
     },
     {
@@ -280,12 +276,12 @@
       "sourceAsset": "public/cartilla/art/restored/workbook/page-009.png",
       "canonicalSrc": "/cartilla/art/faithful/vocal-o/oruga.webp",
       "canonical": {
-        "width": 580,
-        "height": 570,
-        "bytes": 246636,
+        "width": 1254,
+        "height": 1254,
+        "bytes": 195170,
         "format": "webp",
         "hasAlpha": false,
-        "sha256": "69977ee19c874c68a1e82d0f7747b4fae8e79640cd961e23c3d4ea9ec3046ead"
+        "sha256": "2dfdebc0ed5c3cf5a741803f6505d5792613fc53e0401806b3556b375ed6e163"
       },
       "cropBox": [
         720,
@@ -296,30 +292,30 @@
       "provenanceStatus": "VERIFIED-EXACT-WORKBOOK-CROP-2026-08-08",
       "cleanup": {
         "backgroundRemoved": true,
-        "removedPixels": 178320,
+        "removedPixels": 887916,
         "estimatedBackground": {
           "color": {
-            "r": 253,
+            "r": 254,
             "g": 254,
             "b": 254
           },
-          "agreement": 0.9115853658536586,
+          "agreement": 1,
           "paperLike": true
         },
         "transparentPaddingTrimmed": true,
-        "normalizedWidth": 580,
-        "normalizedHeight": 543,
+        "normalizedWidth": 1224,
+        "normalizedHeight": 1148,
         "contentBounds": {
-          "x": 0,
-          "y": 16,
-          "width": 580,
-          "height": 523,
-          "opaquePixels": 152280
+          "x": 30,
+          "y": 57,
+          "width": 1204,
+          "height": 1128,
+          "opaquePixels": 684600
         },
         "touchesCropEdge": {
-          "left": true,
+          "left": false,
           "top": false,
-          "right": true,
+          "right": false,
           "bottom": false
         },
         "interiorTransparentPixels": 0
@@ -330,19 +326,17 @@
           "path": "/cartilla/art/delivery/faithful/384/vocal-o/oruga.webp",
           "width": 384,
           "height": 360,
-          "bytes": 36596
+          "bytes": 39820
         },
         {
           "widthTier": 768,
           "path": "/cartilla/art/delivery/faithful/768/vocal-o/oruga.webp",
-          "width": 580,
-          "height": 543,
-          "bytes": 56780
+          "width": 768,
+          "height": 720,
+          "bytes": 98924
         }
       ],
-      "warnings": [
-        "visible content touches canonical crop edge; source recrop may be required"
-      ],
+      "warnings": [],
       "errors": []
     },
     {
@@ -354,12 +348,12 @@
       "sourceAsset": "public/cartilla/art/restored/workbook/page-009.png",
       "canonicalSrc": "/cartilla/art/faithful/vocal-a/aguja.webp",
       "canonical": {
-        "width": 413,
-        "height": 495,
-        "bytes": 20268,
+        "width": 1254,
+        "height": 1254,
+        "bytes": 78456,
         "format": "webp",
         "hasAlpha": false,
-        "sha256": "c2058129634833972b306a23ac423bbd42bb925ea181f2d6c5cdbe67c2bac0ac"
+        "sha256": "7b0088d07a6e47feba046445aa70ac8f9f1d9d8b324c0790a4eb8d709000f324"
       },
       "cropBox": [
         1350,
@@ -370,31 +364,31 @@
       "provenanceStatus": "VERIFIED-EXACT-WORKBOOK-CROP-2026-08-08",
       "cleanup": {
         "backgroundRemoved": true,
-        "removedPixels": 167423,
+        "removedPixels": 1270414,
         "estimatedBackground": {
           "color": {
-            "r": 255,
-            "g": 255,
-            "b": 255
+            "r": 254,
+            "g": 254,
+            "b": 254
           },
-          "agreement": 0.739514348785872,
+          "agreement": 1,
           "paperLike": true
         },
-        "transparentPaddingTrimmed": false,
-        "normalizedWidth": 413,
-        "normalizedHeight": 495,
+        "transparentPaddingTrimmed": true,
+        "normalizedWidth": 1196,
+        "normalizedHeight": 1094,
         "contentBounds": {
-          "x": 0,
-          "y": 6,
-          "width": 413,
-          "height": 489,
-          "opaquePixels": 37012
+          "x": 63,
+          "y": 106,
+          "width": 1176,
+          "height": 1074,
+          "opaquePixels": 302102
         },
         "touchesCropEdge": {
-          "left": true,
+          "left": false,
           "top": false,
-          "right": true,
-          "bottom": true
+          "right": false,
+          "bottom": false
         },
         "interiorTransparentPixels": 0
       },
@@ -403,20 +397,18 @@
           "widthTier": 384,
           "path": "/cartilla/art/delivery/faithful/384/vocal-a/aguja.webp",
           "width": 384,
-          "height": 460,
-          "bytes": 24518
+          "height": 351,
+          "bytes": 22406
         },
         {
           "widthTier": 768,
           "path": "/cartilla/art/delivery/faithful/768/vocal-a/aguja.webp",
-          "width": 413,
-          "height": 495,
-          "bytes": 21228
+          "width": 768,
+          "height": 703,
+          "bytes": 52568
         }
       ],
-      "warnings": [
-        "visible content touches canonical crop edge; source recrop may be required"
-      ],
+      "warnings": [],
       "errors": []
     },
     {
@@ -428,12 +420,12 @@
       "sourceAsset": "public/cartilla/art/hd/flipchart/page-007.jpg",
       "canonicalSrc": "/cartilla/art/faithful/vocal-i/iglu.webp",
       "canonical": {
-        "width": 600,
-        "height": 570,
-        "bytes": 22594,
+        "width": 1254,
+        "height": 1254,
+        "bytes": 186916,
         "format": "webp",
         "hasAlpha": false,
-        "sha256": "bfc0ab830718b9d1dd37163800ce64aadc5b9df1d487d89e071cdbb1afa3ee6f"
+        "sha256": "efc0f302f80470fc3621837988fc95ad9a76e4a1e855fa3ba62ceabac6db0772"
       },
       "cropBox": [
         960,
@@ -444,31 +436,31 @@
       "provenanceStatus": "VERIFIED-AUTHENTIC-FLIPCHART-2026-08-08",
       "cleanup": {
         "backgroundRemoved": true,
-        "removedPixels": 214202,
+        "removedPixels": 638848,
         "estimatedBackground": {
           "color": {
-            "r": 255,
-            "g": 255,
-            "b": 255
+            "r": 254,
+            "g": 254,
+            "b": 254
           },
-          "agreement": 0.9837328767123288,
+          "agreement": 1,
           "paperLike": true
         },
         "transparentPaddingTrimmed": true,
-        "normalizedWidth": 556,
-        "normalizedHeight": 440,
+        "normalizedWidth": 1215,
+        "normalizedHeight": 1174,
         "contentBounds": {
           "x": 33,
-          "y": 140,
-          "width": 536,
-          "height": 430,
-          "opaquePixels": 127798
+          "y": 37,
+          "width": 1195,
+          "height": 1154,
+          "opaquePixels": 933668
         },
         "touchesCropEdge": {
           "left": false,
           "top": false,
           "right": false,
-          "bottom": true
+          "bottom": false
         },
         "interiorTransparentPixels": 0
       },
@@ -477,20 +469,18 @@
           "widthTier": 384,
           "path": "/cartilla/art/delivery/faithful/384/vocal-i/iglu.webp",
           "width": 384,
-          "height": 304,
-          "bytes": 29440
+          "height": 371,
+          "bytes": 42230
         },
         {
           "widthTier": 768,
           "path": "/cartilla/art/delivery/faithful/768/vocal-i/iglu.webp",
-          "width": 556,
-          "height": 440,
-          "bytes": 44426
+          "width": 768,
+          "height": 742,
+          "bytes": 103532
         }
       ],
-      "warnings": [
-        "visible content touches canonical crop edge; source recrop may be required"
-      ],
+      "warnings": [],
       "errors": []
     },
     {
@@ -502,12 +492,12 @@
       "sourceAsset": "o-page-3.jpg",
       "canonicalSrc": "/cartilla/art/faithful/vocal-o/oso.webp",
       "canonical": {
-        "width": 823,
-        "height": 870,
-        "bytes": 118004,
+        "width": 1254,
+        "height": 1254,
+        "bytes": 155254,
         "format": "webp",
-        "hasAlpha": true,
-        "sha256": "cd49151f12332d1201e535eb18f0e0191867bd035af46f3d836492ab7680fbdf"
+        "hasAlpha": false,
+        "sha256": "10716a9f5485cdf14e037d9f47d25c7fb9ea366d1322f1eeee7c31eafa07a668"
       },
       "cropBox": [
         41,
@@ -518,25 +508,25 @@
       "provenanceStatus": null,
       "cleanup": {
         "backgroundRemoved": true,
-        "removedPixels": 911,
+        "removedPixels": 803699,
         "estimatedBackground": {
           "color": {
-            "r": 255,
-            "g": 255,
-            "b": 255
+            "r": 254,
+            "g": 254,
+            "b": 254
           },
-          "agreement": 0,
-          "paperLike": false
+          "agreement": 1,
+          "paperLike": true
         },
         "transparentPaddingTrimmed": true,
-        "normalizedWidth": 793,
-        "normalizedHeight": 840,
+        "normalizedWidth": 1001,
+        "normalizedHeight": 1185,
         "contentBounds": {
-          "x": 25,
-          "y": 25,
-          "width": 773,
-          "height": 820,
-          "opaquePixels": 422267
+          "x": 136,
+          "y": 42,
+          "width": 981,
+          "height": 1165,
+          "opaquePixels": 768817
         },
         "touchesCropEdge": {
           "left": false,
@@ -551,15 +541,15 @@
           "widthTier": 384,
           "path": "/cartilla/art/delivery/faithful/384/vocal-o/oso.webp",
           "width": 384,
-          "height": 407,
-          "bytes": 43614
+          "height": 455,
+          "bytes": 44062
         },
         {
           "widthTier": 768,
           "path": "/cartilla/art/delivery/faithful/768/vocal-o/oso.webp",
           "width": 768,
-          "height": 814,
-          "bytes": 105238
+          "height": 909,
+          "bytes": 98824
         }
       ],
       "warnings": [],
@@ -574,12 +564,12 @@
       "sourceAsset": 4,
       "canonicalSrc": "/cartilla/art/faithful/vocal-e/estrella.webp",
       "canonical": {
-        "width": 757,
-        "height": 864,
-        "bytes": 235260,
+        "width": 1254,
+        "height": 1254,
+        "bytes": 140780,
         "format": "webp",
-        "hasAlpha": true,
-        "sha256": "f8b613f63a923668ec36a558bf35585aaca15f4d2f9d80c247432ed15c3e13ab"
+        "hasAlpha": false,
+        "sha256": "33c0dc5db489a430282795aef28f3c85e63b676272261a3cd949b465080ff477"
       },
       "cropBox": [
         195,
@@ -589,26 +579,26 @@
       ],
       "provenanceStatus": "VERIFIED-AUTHENTIC-FLIPCHART-2026-09-25",
       "cleanup": {
-        "backgroundRemoved": false,
-        "removedPixels": 0,
+        "backgroundRemoved": true,
+        "removedPixels": 835955,
         "estimatedBackground": {
           "color": {
-            "r": 255,
-            "g": 255,
-            "b": 255
+            "r": 254,
+            "g": 254,
+            "b": 254
           },
-          "agreement": 0,
-          "paperLike": false
+          "agreement": 1,
+          "paperLike": true
         },
         "transparentPaddingTrimmed": true,
-        "normalizedWidth": 741,
-        "normalizedHeight": 848,
+        "normalizedWidth": 1150,
+        "normalizedHeight": 1219,
         "contentBounds": {
-          "x": 18,
-          "y": 18,
-          "width": 721,
-          "height": 828,
-          "opaquePixels": 322258
+          "x": 64,
+          "y": 21,
+          "width": 1130,
+          "height": 1199,
+          "opaquePixels": 736561
         },
         "touchesCropEdge": {
           "left": false,
@@ -623,15 +613,15 @@
           "widthTier": 384,
           "path": "/cartilla/art/delivery/faithful/384/vocal-e/estrella.webp",
           "width": 384,
-          "height": 439,
-          "bytes": 31784
+          "height": 407,
+          "bytes": 39232
         },
         {
           "widthTier": 768,
           "path": "/cartilla/art/delivery/faithful/768/vocal-e/estrella.webp",
-          "width": 741,
-          "height": 848,
-          "bytes": 63804
+          "width": 768,
+          "height": 814,
+          "bytes": 94858
         }
       ],
       "warnings": [],
@@ -646,12 +636,12 @@
       "sourceAsset": "public/cartilla/images/source/a/a-page-4.jpg",
       "canonicalSrc": "/cartilla/art/faithful/vocal-a/abanico.webp",
       "canonical": {
-        "width": 870,
-        "height": 842,
-        "bytes": 149674,
+        "width": 1254,
+        "height": 1254,
+        "bytes": 205102,
         "format": "webp",
-        "hasAlpha": true,
-        "sha256": "6d3b360695225f2127ed98bc93af554a4b3c947f97d88c9b9ff846c436f89888"
+        "hasAlpha": false,
+        "sha256": "ec529bb3ec9d9bfc6312f47a35c92c7180d604b4f72bd495b33a59968e6e424c"
       },
       "cropBox": [
         190,
@@ -662,25 +652,25 @@
       "provenanceStatus": "FIXED-2026-WRONG-CROP",
       "cleanup": {
         "backgroundRemoved": true,
-        "removedPixels": 710,
+        "removedPixels": 673583,
         "estimatedBackground": {
           "color": {
-            "r": 255,
-            "g": 255,
-            "b": 255
+            "r": 254,
+            "g": 254,
+            "b": 254
           },
-          "agreement": 0,
-          "paperLike": false
+          "agreement": 1,
+          "paperLike": true
         },
         "transparentPaddingTrimmed": true,
-        "normalizedWidth": 840,
-        "normalizedHeight": 812,
+        "normalizedWidth": 1152,
+        "normalizedHeight": 1179,
         "contentBounds": {
-          "x": 25,
-          "y": 25,
-          "width": 820,
-          "height": 792,
-          "opaquePixels": 465044
+          "x": 66,
+          "y": 43,
+          "width": 1132,
+          "height": 1159,
+          "opaquePixels": 898933
         },
         "touchesCropEdge": {
           "left": false,
@@ -695,15 +685,15 @@
           "widthTier": 384,
           "path": "/cartilla/art/delivery/faithful/384/vocal-a/abanico.webp",
           "width": 384,
-          "height": 371,
-          "bytes": 45406
+          "height": 393,
+          "bytes": 41612
         },
         {
           "widthTier": 768,
           "path": "/cartilla/art/delivery/faithful/768/vocal-a/abanico.webp",
           "width": 768,
-          "height": 742,
-          "bytes": 122620
+          "height": 786,
+          "bytes": 100454
         }
       ],
       "warnings": [],
@@ -718,12 +708,12 @@
       "sourceAsset": "a-page-5.jpg",
       "canonicalSrc": "/cartilla/art/faithful/vocal-a/alas.webp",
       "canonical": {
-        "width": 870,
-        "height": 636,
-        "bytes": 57452,
+        "width": 1254,
+        "height": 1254,
+        "bytes": 83662,
         "format": "webp",
-        "hasAlpha": true,
-        "sha256": "6a923fda703e0812a908b7ee2e0606d2d67fd5acf3ad3ba579f99922910fe671"
+        "hasAlpha": false,
+        "sha256": "2cb64f6a1bdb0456eccfc4ccec6b01d1ea3069422bd7c622adacd6e837a674f0"
       },
       "cropBox": [
         1045,
@@ -734,25 +724,25 @@
       "provenanceStatus": null,
       "cleanup": {
         "backgroundRemoved": true,
-        "removedPixels": 1329,
+        "removedPixels": 976937,
         "estimatedBackground": {
           "color": {
-            "r": 255,
-            "g": 255,
-            "b": 255
+            "r": 254,
+            "g": 254,
+            "b": 254
           },
-          "agreement": 0,
-          "paperLike": false
+          "agreement": 1,
+          "paperLike": true
         },
         "transparentPaddingTrimmed": true,
-        "normalizedWidth": 840,
-        "normalizedHeight": 606,
+        "normalizedWidth": 1165,
+        "normalizedHeight": 1009,
         "contentBounds": {
-          "x": 25,
-          "y": 25,
-          "width": 820,
-          "height": 586,
-          "opaquePixels": 191814
+          "x": 56,
+          "y": 108,
+          "width": 1145,
+          "height": 989,
+          "opaquePixels": 595579
         },
         "touchesCropEdge": {
           "left": false,
@@ -767,15 +757,15 @@
           "widthTier": 384,
           "path": "/cartilla/art/delivery/faithful/384/vocal-a/alas.webp",
           "width": 384,
-          "height": 277,
-          "bytes": 20810
+          "height": 333,
+          "bytes": 21278
         },
         {
           "widthTier": 768,
           "path": "/cartilla/art/delivery/faithful/768/vocal-a/alas.webp",
           "width": 768,
-          "height": 554,
-          "bytes": 52084
+          "height": 665,
+          "bytes": 49086
         }
       ],
       "warnings": [
@@ -866,12 +856,12 @@
       "sourceAsset": "e-page-5.jpg",
       "canonicalSrc": "/cartilla/art/faithful/vocal-e/elefante.webp",
       "canonical": {
-        "width": 870,
-        "height": 809,
-        "bytes": 71864,
+        "width": 1254,
+        "height": 1254,
+        "bytes": 178444,
         "format": "webp",
-        "hasAlpha": true,
-        "sha256": "f54e533c6a33b901fcfc79da83b2f7a38977defc47662f6cf29ca948d1cfd28a"
+        "hasAlpha": false,
+        "sha256": "6923d549b79d92bad9beef7a3c104a6efb9b517657a93f75310542a4528e17cf"
       },
       "cropBox": [
         274,
@@ -882,25 +872,25 @@
       "provenanceStatus": null,
       "cleanup": {
         "backgroundRemoved": true,
-        "removedPixels": 763,
+        "removedPixels": 790384,
         "estimatedBackground": {
           "color": {
-            "r": 255,
-            "g": 255,
-            "b": 255
+            "r": 254,
+            "g": 254,
+            "b": 254
           },
-          "agreement": 0,
-          "paperLike": false
+          "agreement": 1,
+          "paperLike": true
         },
         "transparentPaddingTrimmed": true,
-        "normalizedWidth": 840,
-        "normalizedHeight": 779,
+        "normalizedWidth": 1208,
+        "normalizedHeight": 1191,
         "contentBounds": {
-          "x": 25,
-          "y": 25,
-          "width": 820,
-          "height": 759,
-          "opaquePixels": 353711
+          "x": 34,
+          "y": 34,
+          "width": 1188,
+          "height": 1171,
+          "opaquePixels": 782132
         },
         "touchesCropEdge": {
           "left": false,
@@ -915,15 +905,15 @@
           "widthTier": 384,
           "path": "/cartilla/art/delivery/faithful/384/vocal-e/elefante.webp",
           "width": 384,
-          "height": 356,
-          "bytes": 25366
+          "height": 379,
+          "bytes": 32660
         },
         {
           "widthTier": 768,
           "path": "/cartilla/art/delivery/faithful/768/vocal-e/elefante.webp",
           "width": 768,
-          "height": 712,
-          "bytes": 61136
+          "height": 757,
+          "bytes": 79208
         }
       ],
       "warnings": [],
@@ -1448,12 +1438,12 @@
       "sourceAsset": "u-page-17.jpg",
       "canonicalSrc": "/cartilla/art/faithful/vocal-u/unicornio.webp",
       "canonical": {
-        "width": 870,
-        "height": 741,
-        "bytes": 70436,
+        "width": 1254,
+        "height": 1254,
+        "bytes": 122748,
         "format": "webp",
-        "hasAlpha": true,
-        "sha256": "b8b317eed9123b61371bdd7f175f19eddc0a3c48eea58b569c648227f74d714d"
+        "hasAlpha": false,
+        "sha256": "f7cbea01c38e18712169304a57560796b5e802c1bf5a4855927526ebead3e5b5"
       },
       "cropBox": [
         794,
@@ -1464,25 +1454,25 @@
       "provenanceStatus": null,
       "cleanup": {
         "backgroundRemoved": true,
-        "removedPixels": 987,
+        "removedPixels": 914396,
         "estimatedBackground": {
           "color": {
-            "r": 255,
-            "g": 255,
-            "b": 255
+            "r": 254,
+            "g": 254,
+            "b": 254
           },
-          "agreement": 0,
-          "paperLike": false
+          "agreement": 1,
+          "paperLike": true
         },
         "transparentPaddingTrimmed": true,
-        "normalizedWidth": 840,
-        "normalizedHeight": 711,
+        "normalizedWidth": 1160,
+        "normalizedHeight": 1130,
         "contentBounds": {
-          "x": 25,
-          "y": 25,
-          "width": 820,
-          "height": 691,
-          "opaquePixels": 292211
+          "x": 50,
+          "y": 67,
+          "width": 1140,
+          "height": 1110,
+          "opaquePixels": 658120
         },
         "touchesCropEdge": {
           "left": false,
@@ -1497,15 +1487,15 @@
           "widthTier": 384,
           "path": "/cartilla/art/delivery/faithful/384/vocal-u/unicornio.webp",
           "width": 384,
-          "height": 325,
-          "bytes": 23584
+          "height": 374,
+          "bytes": 29700
         },
         {
           "widthTier": 768,
           "path": "/cartilla/art/delivery/faithful/768/vocal-u/unicornio.webp",
           "width": 768,
-          "height": 650,
-          "bytes": 60266
+          "height": 748,
+          "bytes": 69766
         }
       ],
       "warnings": [],
@@ -1594,12 +1584,12 @@
       "sourceAsset": "u-page-18.jpg",
       "canonicalSrc": "/cartilla/art/faithful/vocal-u/uno.webp",
       "canonical": {
-        "width": 870,
-        "height": 757,
-        "bytes": 80090,
+        "width": 1254,
+        "height": 1254,
+        "bytes": 229734,
         "format": "webp",
-        "hasAlpha": true,
-        "sha256": "dd202b07eeae643f96adc290d32cb0a10fe167e049ae7f7d6304291dea7d22ed"
+        "hasAlpha": false,
+        "sha256": "3e501dd6235b98c7778f470025f6af243ea379e3da36f48de022029c5b0f2197"
       },
       "cropBox": [
         68,
@@ -1610,25 +1600,25 @@
       "provenanceStatus": null,
       "cleanup": {
         "backgroundRemoved": true,
-        "removedPixels": 728,
+        "removedPixels": 536856,
         "estimatedBackground": {
           "color": {
-            "r": 255,
-            "g": 255,
-            "b": 255
+            "r": 254,
+            "g": 254,
+            "b": 254
           },
-          "agreement": 0,
-          "paperLike": false
+          "agreement": 1,
+          "paperLike": true
         },
         "transparentPaddingTrimmed": true,
-        "normalizedWidth": 840,
-        "normalizedHeight": 727,
+        "normalizedWidth": 1165,
+        "normalizedHeight": 1196,
         "contentBounds": {
-          "x": 25,
-          "y": 25,
-          "width": 820,
-          "height": 707,
-          "opaquePixels": 512697
+          "x": 55,
+          "y": 29,
+          "width": 1145,
+          "height": 1176,
+          "opaquePixels": 1035660
         },
         "touchesCropEdge": {
           "left": false,
@@ -1643,15 +1633,15 @@
           "widthTier": 384,
           "path": "/cartilla/art/delivery/faithful/384/vocal-u/uno.webp",
           "width": 384,
-          "height": 332,
-          "bytes": 26986
+          "height": 394,
+          "bytes": 46950
         },
         {
           "widthTier": 768,
           "path": "/cartilla/art/delivery/faithful/768/vocal-u/uno.webp",
           "width": 768,
-          "height": 665,
-          "bytes": 66570
+          "height": 788,
+          "bytes": 123634
         }
       ],
       "warnings": [
@@ -1668,12 +1658,12 @@
       "sourceAsset": "o-page-3.jpg",
       "canonicalSrc": "/cartilla/art/faithful/vocal-o/oveja.webp",
       "canonical": {
-        "width": 870,
-        "height": 824,
-        "bytes": 98014,
+        "width": 1254,
+        "height": 1254,
+        "bytes": 122616,
         "format": "webp",
-        "hasAlpha": true,
-        "sha256": "6835094e54b0ea0e5082792e1ae8cdde452ab4bd8be265d170f99d74e7f22d59"
+        "hasAlpha": false,
+        "sha256": "625755c06af60b38ac807ed9d9b94d998b8ea3a156020ec8fe61cf6a839885a9"
       },
       "cropBox": [
         1529,
@@ -1684,25 +1674,25 @@
       "provenanceStatus": null,
       "cleanup": {
         "backgroundRemoved": true,
-        "removedPixels": 1526,
+        "removedPixels": 931098,
         "estimatedBackground": {
           "color": {
-            "r": 255,
-            "g": 255,
-            "b": 255
+            "r": 254,
+            "g": 254,
+            "b": 254
           },
-          "agreement": 0,
-          "paperLike": false
+          "agreement": 1,
+          "paperLike": true
         },
         "transparentPaddingTrimmed": true,
-        "normalizedWidth": 840,
-        "normalizedHeight": 794,
+        "normalizedWidth": 1102,
+        "normalizedHeight": 1108,
         "contentBounds": {
-          "x": 25,
-          "y": 25,
-          "width": 820,
-          "height": 774,
-          "opaquePixels": 308816
+          "x": 94,
+          "y": 72,
+          "width": 1082,
+          "height": 1088,
+          "opaquePixels": 641418
         },
         "touchesCropEdge": {
           "left": false,
@@ -1717,15 +1707,15 @@
           "widthTier": 384,
           "path": "/cartilla/art/delivery/faithful/384/vocal-o/oveja.webp",
           "width": 384,
-          "height": 363,
-          "bytes": 36612
+          "height": 386,
+          "bytes": 33218
         },
         {
           "widthTier": 768,
           "path": "/cartilla/art/delivery/faithful/768/vocal-o/oveja.webp",
           "width": 768,
-          "height": 726,
-          "bytes": 83288
+          "height": 772,
+          "bytes": 74444
         }
       ],
       "warnings": [],
@@ -1740,12 +1730,12 @@
       "sourceAsset": "a-page-6.jpg",
       "canonicalSrc": "/cartilla/art/faithful/vocal-a/avion.webp",
       "canonical": {
-        "width": 834,
-        "height": 870,
-        "bytes": 77618,
+        "width": 1536,
+        "height": 1024,
+        "bytes": 142458,
         "format": "webp",
-        "hasAlpha": true,
-        "sha256": "db993f2a86aa40a3d9ac8d0d6819e4b98460ca5362de8bb2ba9337a647e82003"
+        "hasAlpha": false,
+        "sha256": "455b89a9f0b4740c5db5f716cb7cf8f8f30de5084b8996ca42dd5f6443d0e5e5"
       },
       "cropBox": [
         1168,
@@ -1756,25 +1746,25 @@
       "provenanceStatus": null,
       "cleanup": {
         "backgroundRemoved": true,
-        "removedPixels": 1591,
+        "removedPixels": 888994,
         "estimatedBackground": {
           "color": {
-            "r": 255,
-            "g": 255,
-            "b": 255
+            "r": 254,
+            "g": 254,
+            "b": 254
           },
-          "agreement": 0,
-          "paperLike": false
+          "agreement": 1,
+          "paperLike": true
         },
         "transparentPaddingTrimmed": true,
-        "normalizedWidth": 804,
-        "normalizedHeight": 840,
+        "normalizedWidth": 1237,
+        "normalizedHeight": 981,
         "contentBounds": {
-          "x": 25,
-          "y": 25,
-          "width": 784,
-          "height": 820,
-          "opaquePixels": 333759
+          "x": 160,
+          "y": 31,
+          "width": 1217,
+          "height": 961,
+          "opaquePixels": 683870
         },
         "touchesCropEdge": {
           "left": false,
@@ -1789,15 +1779,15 @@
           "widthTier": 384,
           "path": "/cartilla/art/delivery/faithful/384/vocal-a/avion.webp",
           "width": 384,
-          "height": 401,
-          "bytes": 29228
+          "height": 305,
+          "bytes": 24414
         },
         {
           "widthTier": 768,
           "path": "/cartilla/art/delivery/faithful/768/vocal-a/avion.webp",
           "width": 768,
-          "height": 802,
-          "bytes": 69736
+          "height": 609,
+          "bytes": 62028
         }
       ],
       "warnings": [
@@ -1814,12 +1804,12 @@
       "sourceAsset": "public/cartilla/art/hd/flipchart/page-005.jpg",
       "canonicalSrc": "/cartilla/art/faithful/vocal-a/aro.webp",
       "canonical": {
-        "width": 780,
-        "height": 660,
-        "bytes": 28648,
+        "width": 1254,
+        "height": 1254,
+        "bytes": 225932,
         "format": "webp",
         "hasAlpha": false,
-        "sha256": "c0ce78535ac9b93efcc4a5fafa77f427f975fe592685f751c38287c9ac5a2c4b"
+        "sha256": "d62d770e715bb1f32e04b3975bcdbb0c420ecddb158d5ae05c974eb9795bf6e0"
       },
       "cropBox": [
         870,
@@ -1830,25 +1820,25 @@
       "provenanceStatus": "VERIFIED-AUTHENTIC-FLIPCHART-2026-08-08",
       "cleanup": {
         "backgroundRemoved": true,
-        "removedPixels": 305714,
+        "removedPixels": 697683,
         "estimatedBackground": {
           "color": {
-            "r": 255,
-            "g": 255,
-            "b": 255
+            "r": 254,
+            "g": 254,
+            "b": 254
           },
           "agreement": 1,
           "paperLike": true
         },
         "transparentPaddingTrimmed": true,
-        "normalizedWidth": 536,
-        "normalizedHeight": 649,
+        "normalizedWidth": 1100,
+        "normalizedHeight": 1223,
         "contentBounds": {
-          "x": 149,
-          "y": 20,
-          "width": 516,
-          "height": 629,
-          "opaquePixels": 209086
+          "x": 91,
+          "y": 13,
+          "width": 1080,
+          "height": 1203,
+          "opaquePixels": 874833
         },
         "touchesCropEdge": {
           "left": false,
@@ -1863,15 +1853,15 @@
           "widthTier": 384,
           "path": "/cartilla/art/delivery/faithful/384/vocal-a/aro.webp",
           "width": 384,
-          "height": 465,
-          "bytes": 39768
+          "height": 427,
+          "bytes": 49628
         },
         {
           "widthTier": 768,
           "path": "/cartilla/art/delivery/faithful/768/vocal-a/aro.webp",
-          "width": 536,
-          "height": 649,
-          "bytes": 62488
+          "width": 768,
+          "height": 854,
+          "bytes": 121652
         }
       ],
       "warnings": [],
@@ -1886,12 +1876,12 @@
       "sourceAsset": "i-page-6.jpg",
       "canonicalSrc": "/cartilla/art/faithful/vocal-i/iman.webp",
       "canonical": {
-        "width": 870,
-        "height": 716,
-        "bytes": 70850,
+        "width": 1431,
+        "height": 1099,
+        "bytes": 113824,
         "format": "webp",
-        "hasAlpha": true,
-        "sha256": "881055e3411d1b78e68c751ff24472d465f33028aa3c173fb5b3ee830a4fe804"
+        "hasAlpha": false,
+        "sha256": "93482770796ce8f3179eea19ac8d44667d121e800df5db11654da18d6aefe99f"
       },
       "cropBox": [
         32,
@@ -1902,25 +1892,25 @@
       "provenanceStatus": null,
       "cleanup": {
         "backgroundRemoved": true,
-        "removedPixels": 1308,
+        "removedPixels": 850305,
         "estimatedBackground": {
           "color": {
-            "r": 255,
-            "g": 255,
-            "b": 255
+            "r": 254,
+            "g": 254,
+            "b": 254
           },
-          "agreement": 0,
-          "paperLike": false
+          "agreement": 1,
+          "paperLike": true
         },
         "transparentPaddingTrimmed": true,
-        "normalizedWidth": 840,
-        "normalizedHeight": 686,
+        "normalizedWidth": 1267,
+        "normalizedHeight": 1070,
         "contentBounds": {
-          "x": 25,
-          "y": 25,
-          "width": 820,
-          "height": 666,
-          "opaquePixels": 292778
+          "x": 100,
+          "y": 17,
+          "width": 1247,
+          "height": 1050,
+          "opaquePixels": 722364
         },
         "touchesCropEdge": {
           "left": false,
@@ -1935,15 +1925,15 @@
           "widthTier": 384,
           "path": "/cartilla/art/delivery/faithful/384/vocal-i/iman.webp",
           "width": 384,
-          "height": 314,
-          "bytes": 24632
+          "height": 324,
+          "bytes": 26830
         },
         {
           "widthTier": 768,
           "path": "/cartilla/art/delivery/faithful/768/vocal-i/iman.webp",
           "width": 768,
-          "height": 627,
-          "bytes": 59822
+          "height": 649,
+          "bytes": 64264
         }
       ],
       "warnings": [],
@@ -1958,12 +1948,12 @@
       "sourceAsset": "o-page-3.jpg",
       "canonicalSrc": "/cartilla/art/faithful/vocal-o/olla.webp",
       "canonical": {
-        "width": 870,
-        "height": 618,
-        "bytes": 47618,
+        "width": 1122,
+        "height": 1402,
+        "bytes": 84864,
         "format": "webp",
-        "hasAlpha": true,
-        "sha256": "7f38ec806dc9da0d44910c5084c96c35c4c920f5ae3f8750040b801b7518b79d"
+        "hasAlpha": false,
+        "sha256": "47150f5ae5f4823ba622c8c88af89d1173a8b2bec40383c58ba1c190ee7c0c60"
       },
       "cropBox": [
         50,
@@ -1974,25 +1964,25 @@
       "provenanceStatus": null,
       "cleanup": {
         "backgroundRemoved": true,
-        "removedPixels": 569,
+        "removedPixels": 994789,
         "estimatedBackground": {
           "color": {
-            "r": 255,
-            "g": 255,
-            "b": 255
+            "r": 254,
+            "g": 254,
+            "b": 254
           },
-          "agreement": 0,
-          "paperLike": false
+          "agreement": 1,
+          "paperLike": true
         },
         "transparentPaddingTrimmed": true,
-        "normalizedWidth": 840,
-        "normalizedHeight": 588,
+        "normalizedWidth": 1027,
+        "normalizedHeight": 848,
         "contentBounds": {
-          "x": 25,
-          "y": 25,
-          "width": 820,
-          "height": 568,
-          "opaquePixels": 334470
+          "x": 57,
+          "y": 280,
+          "width": 1007,
+          "height": 828,
+          "opaquePixels": 578255
         },
         "touchesCropEdge": {
           "left": false,
@@ -2007,18 +1997,20 @@
           "widthTier": 384,
           "path": "/cartilla/art/delivery/faithful/384/vocal-o/olla.webp",
           "width": 384,
-          "height": 269,
-          "bytes": 16450
+          "height": 317,
+          "bytes": 19938
         },
         {
           "widthTier": 768,
           "path": "/cartilla/art/delivery/faithful/768/vocal-o/olla.webp",
           "width": 768,
-          "height": 538,
-          "bytes": 40212
+          "height": 634,
+          "bytes": 49194
         }
       ],
-      "warnings": [],
+      "warnings": [
+        "crop/canonical aspect drift 48%"
+      ],
       "errors": []
     },
     {
@@ -2236,12 +2228,12 @@
       "sourceAsset": "public/cartilla/images/teacher-flipchart/teacher-page-03.jpg",
       "canonicalSrc": "/cartilla/art/faithful/vocal-e/escoba.webp",
       "canonical": {
-        "width": 556,
-        "height": 700,
-        "bytes": 39104,
+        "width": 1122,
+        "height": 1402,
+        "bytes": 92464,
         "format": "webp",
-        "hasAlpha": true,
-        "sha256": "6f4a542ddde9d03b03f0987d9813bafded1d946632cb0f2c1c12acf4e9732091"
+        "hasAlpha": false,
+        "sha256": "41c50904e77da7d79dbeee944b305cfa8690a7c0458eded14270797c3010b0f9"
       },
       "cropBox": [
         478,
@@ -2252,25 +2244,25 @@
       "provenanceStatus": "FIXED-2026-WRONG-PAGE",
       "cleanup": {
         "backgroundRemoved": true,
-        "removedPixels": 150,
+        "removedPixels": 1256788,
         "estimatedBackground": {
           "color": {
-            "r": 255,
-            "g": 255,
-            "b": 255
+            "r": 254,
+            "g": 254,
+            "b": 254
           },
-          "agreement": 0,
-          "paperLike": false
+          "agreement": 1,
+          "paperLike": true
         },
         "transparentPaddingTrimmed": true,
-        "normalizedWidth": 536,
-        "normalizedHeight": 680,
+        "normalizedWidth": 827,
+        "normalizedHeight": 1256,
         "contentBounds": {
-          "x": 20,
-          "y": 20,
-          "width": 516,
-          "height": 660,
-          "opaquePixels": 322642
+          "x": 172,
+          "y": 89,
+          "width": 807,
+          "height": 1236,
+          "opaquePixels": 316256
         },
         "touchesCropEdge": {
           "left": false,
@@ -2285,15 +2277,15 @@
           "widthTier": 384,
           "path": "/cartilla/art/delivery/faithful/384/vocal-e/escoba.webp",
           "width": 384,
-          "height": 487,
-          "bytes": 26674
+          "height": 583,
+          "bytes": 31934
         },
         {
           "widthTier": 768,
           "path": "/cartilla/art/delivery/faithful/768/vocal-e/escoba.webp",
-          "width": 536,
-          "height": 680,
-          "bytes": 41408
+          "width": 768,
+          "height": 1166,
+          "bytes": 71652
         }
       ],
       "warnings": [],
@@ -2735,12 +2727,12 @@
       "sourceAsset": "a-page-5.jpg",
       "canonicalSrc": "/cartilla/art/faithful/vocal-a/arbol.webp",
       "canonical": {
-        "width": 870,
-        "height": 744,
-        "bytes": 92816,
+        "width": 1376,
+        "height": 768,
+        "bytes": 81652,
         "format": "webp",
-        "hasAlpha": true,
-        "sha256": "e313f0ec62619e0f8498a7f84baf3f74b27e24cd46435a214b23301e6e040ff3"
+        "hasAlpha": false,
+        "sha256": "44c717f8a513214ce8aeeb118da4e9be747ddde19ccdb90e28940efcbb4c32dc"
       },
       "cropBox": [
         403,
@@ -2751,25 +2743,25 @@
       "provenanceStatus": null,
       "cleanup": {
         "backgroundRemoved": true,
-        "removedPixels": 1459,
+        "removedPixels": 831486,
         "estimatedBackground": {
           "color": {
             "r": 255,
             "g": 255,
             "b": 255
           },
-          "agreement": 0,
-          "paperLike": false
+          "agreement": 1,
+          "paperLike": true
         },
         "transparentPaddingTrimmed": true,
-        "normalizedWidth": 840,
-        "normalizedHeight": 714,
+        "normalizedWidth": 619,
+        "normalizedHeight": 727,
         "contentBounds": {
-          "x": 25,
-          "y": 25,
-          "width": 820,
-          "height": 694,
-          "opaquePixels": 380442
+          "x": 375,
+          "y": 41,
+          "width": 599,
+          "height": 707,
+          "opaquePixels": 225282
         },
         "touchesCropEdge": {
           "left": false,
@@ -2784,15 +2776,15 @@
           "widthTier": 384,
           "path": "/cartilla/art/delivery/faithful/384/vocal-a/arbol.webp",
           "width": 384,
-          "height": 326,
-          "bytes": 32506
+          "height": 451,
+          "bytes": 37656
         },
         {
           "widthTier": 768,
           "path": "/cartilla/art/delivery/faithful/768/vocal-a/arbol.webp",
-          "width": 768,
-          "height": 653,
-          "bytes": 78584
+          "width": 619,
+          "height": 727,
+          "bytes": 77318
         }
       ],
       "warnings": [],
@@ -2807,36 +2799,36 @@
       "sourceAsset": null,
       "canonicalSrc": "/cartilla/art/faithful/vocal-a/ardilla.webp",
       "canonical": {
-        "width": 870,
-        "height": 751,
-        "bytes": 92590,
+        "width": 1254,
+        "height": 1254,
+        "bytes": 175008,
         "format": "webp",
-        "hasAlpha": true,
-        "sha256": "ddf3333971afba4e709073e4ba7c0b3c12ad9e08a5cae10c5763a453dc7b5f52"
+        "hasAlpha": false,
+        "sha256": "259af9bc12d231e50bfa4c7c9f5dbe527fe0da9efd9eb7822974691d5d01c962"
       },
       "cropBox": null,
       "provenanceStatus": "PROVENANCE-UNKNOWN",
       "cleanup": {
         "backgroundRemoved": true,
-        "removedPixels": 1960,
+        "removedPixels": 920146,
         "estimatedBackground": {
           "color": {
-            "r": 255,
-            "g": 255,
-            "b": 255
+            "r": 254,
+            "g": 254,
+            "b": 254
           },
-          "agreement": 0,
-          "paperLike": false
+          "agreement": 1,
+          "paperLike": true
         },
         "transparentPaddingTrimmed": true,
-        "normalizedWidth": 840,
-        "normalizedHeight": 721,
+        "normalizedWidth": 1229,
+        "normalizedHeight": 1091,
         "contentBounds": {
-          "x": 25,
-          "y": 25,
-          "width": 820,
-          "height": 701,
-          "opaquePixels": 303559
+          "x": 22,
+          "y": 65,
+          "width": 1209,
+          "height": 1071,
+          "opaquePixels": 652370
         },
         "touchesCropEdge": {
           "left": false,
@@ -2851,15 +2843,15 @@
           "widthTier": 384,
           "path": "/cartilla/art/delivery/faithful/384/vocal-a/ardilla.webp",
           "width": 384,
-          "height": 330,
-          "bytes": 31662
+          "height": 341,
+          "bytes": 31636
         },
         {
           "widthTier": 768,
           "path": "/cartilla/art/delivery/faithful/768/vocal-a/ardilla.webp",
           "width": 768,
-          "height": 659,
-          "bytes": 78294
+          "height": 682,
+          "bytes": 79534
         }
       ],
       "warnings": [],
@@ -3075,12 +3067,12 @@
       "sourceAsset": "i-page-13.jpg",
       "canonicalSrc": "/cartilla/art/faithful/vocal-i/invierno.webp",
       "canonical": {
-        "width": 270,
-        "height": 414,
-        "bytes": 24158,
+        "width": 1304,
+        "height": 1206,
+        "bytes": 284970,
         "format": "webp",
-        "hasAlpha": true,
-        "sha256": "35e515beb0bda63c986e7741b9460b5f96ac226286926e9af8cc95c03aad50ee"
+        "hasAlpha": false,
+        "sha256": "3ecf0ffc8bf7fef7654c8e80a15714ccfc13c10878b3ac5bbf781e2701e8ac37"
       },
       "cropBox": [
         941,
@@ -3091,25 +3083,25 @@
       "provenanceStatus": null,
       "cleanup": {
         "backgroundRemoved": true,
-        "removedPixels": 582,
+        "removedPixels": 495850,
         "estimatedBackground": {
           "color": {
-            "r": 255,
-            "g": 255,
-            "b": 255
+            "r": 254,
+            "g": 254,
+            "b": 254
           },
-          "agreement": 0,
-          "paperLike": false
+          "agreement": 1,
+          "paperLike": true
         },
         "transparentPaddingTrimmed": true,
-        "normalizedWidth": 266,
-        "normalizedHeight": 410,
+        "normalizedWidth": 1154,
+        "normalizedHeight": 1182,
         "contentBounds": {
-          "x": 12,
-          "y": 12,
-          "width": 246,
-          "height": 390,
-          "opaquePixels": 72320
+          "x": 95,
+          "y": 11,
+          "width": 1134,
+          "height": 1162,
+          "opaquePixels": 1076774
         },
         "touchesCropEdge": {
           "left": false,
@@ -3123,19 +3115,21 @@
         {
           "widthTier": 384,
           "path": "/cartilla/art/delivery/faithful/384/vocal-i/invierno.webp",
-          "width": 266,
-          "height": 410,
-          "bytes": 26862
+          "width": 384,
+          "height": 393,
+          "bytes": 58350
         },
         {
           "widthTier": 768,
           "path": "/cartilla/art/delivery/faithful/768/vocal-i/invierno.webp",
-          "width": 266,
-          "height": 410,
-          "bytes": 26862
+          "width": 768,
+          "height": 787,
+          "bytes": 141040
         }
       ],
-      "warnings": [],
+      "warnings": [
+        "crop/canonical aspect drift 45%"
+      ],
       "errors": []
     },
     {
@@ -3288,16 +3282,16 @@
       "canonical": {
         "width": 870,
         "height": 852,
-        "bytes": 67248,
+        "bytes": 73130,
         "format": "webp",
         "hasAlpha": true,
-        "sha256": "1021c8c3842f5f9078faf756663113c12da061934a199e15317b5a6e9a119972"
+        "sha256": "618a7788ed59c3c5452b7d144114bb445d17196d1ff24deb086fa8229379a7d9"
       },
       "cropBox": null,
       "provenanceStatus": "PROVENANCE-UNKNOWN",
       "cleanup": {
         "backgroundRemoved": true,
-        "removedPixels": 1774,
+        "removedPixels": 4694,
         "estimatedBackground": {
           "color": {
             "r": 255,
@@ -3308,14 +3302,14 @@
           "paperLike": false
         },
         "transparentPaddingTrimmed": true,
-        "normalizedWidth": 840,
-        "normalizedHeight": 822,
+        "normalizedWidth": 683,
+        "normalizedHeight": 775,
         "contentBounds": {
-          "x": 25,
-          "y": 25,
-          "width": 820,
-          "height": 802,
-          "opaquePixels": 504828
+          "x": 129,
+          "y": 40,
+          "width": 663,
+          "height": 755,
+          "opaquePixels": 365750
         },
         "touchesCropEdge": {
           "left": false,
@@ -3323,22 +3317,22 @@
           "right": false,
           "bottom": false
         },
-        "interiorTransparentPixels": 0
+        "interiorTransparentPixels": 3
       },
       "derivatives": [
         {
           "widthTier": 384,
           "path": "/cartilla/art/delivery/faithful/384/leccion-1/manzana.webp",
           "width": 384,
-          "height": 376,
-          "bytes": 22424
+          "height": 436,
+          "bytes": 23664
         },
         {
           "widthTier": 768,
           "path": "/cartilla/art/delivery/faithful/768/leccion-1/manzana.webp",
-          "width": 768,
-          "height": 752,
-          "bytes": 56404
+          "width": 683,
+          "height": 775,
+          "bytes": 53540
         }
       ],
       "warnings": [],
@@ -3487,12 +3481,12 @@
       "sourceAsset": "u-page-17.jpg",
       "canonicalSrc": "/cartilla/art/faithful/vocal-u/uniforme.webp",
       "canonical": {
-        "width": 685,
-        "height": 870,
-        "bytes": 54992,
+        "width": 1007,
+        "height": 1561,
+        "bytes": 140298,
         "format": "webp",
-        "hasAlpha": true,
-        "sha256": "8c0156ea857c533d85e701e51ff923e0ab6cc1e85f2368528ad2f6f896fee0c4"
+        "hasAlpha": false,
+        "sha256": "70acf5504a816614f6033bd7daeafdca78854ed283e04d152f68f1c493b9ea1b"
       },
       "cropBox": [
         79,
@@ -3503,25 +3497,25 @@
       "provenanceStatus": null,
       "cleanup": {
         "backgroundRemoved": true,
-        "removedPixels": 1077,
+        "removedPixels": 822738,
         "estimatedBackground": {
           "color": {
-            "r": 255,
-            "g": 255,
-            "b": 255
+            "r": 254,
+            "g": 254,
+            "b": 254
           },
-          "agreement": 0,
-          "paperLike": false
+          "agreement": 1,
+          "paperLike": true
         },
         "transparentPaddingTrimmed": true,
-        "normalizedWidth": 655,
-        "normalizedHeight": 840,
+        "normalizedWidth": 948,
+        "normalizedHeight": 1437,
         "contentBounds": {
-          "x": 25,
-          "y": 25,
-          "width": 635,
-          "height": 820,
-          "opaquePixels": 331947
+          "x": 28,
+          "y": 65,
+          "width": 928,
+          "height": 1417,
+          "opaquePixels": 749189
         },
         "touchesCropEdge": {
           "left": false,
@@ -3536,15 +3530,15 @@
           "widthTier": 384,
           "path": "/cartilla/art/delivery/faithful/384/vocal-u/uniforme.webp",
           "width": 384,
-          "height": 492,
-          "bytes": 26782
+          "height": 582,
+          "bytes": 35760
         },
         {
           "widthTier": 768,
           "path": "/cartilla/art/delivery/faithful/768/vocal-u/uniforme.webp",
-          "width": 655,
-          "height": 840,
-          "bytes": 54032
+          "width": 768,
+          "height": 1164,
+          "bytes": 87418
         }
       ],
       "warnings": [],
@@ -8207,7 +8201,7 @@
         "src": "/cartilla/art/optimized/flipchart-native/p003-scene.png",
         "width": 539,
         "height": 539,
-        "bytes": 177783,
+        "bytes": 322834,
         "approvedInput": true
       },
       {

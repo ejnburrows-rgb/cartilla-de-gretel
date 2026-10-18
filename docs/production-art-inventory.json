@@ -1,53 +1,71 @@
 {
   "schemaVersion": 1,
   "sourceManifest": "public/cartilla/art/faithful/manifest.json",
-  "sourceManifestSha256": "8e251afc168fe26c8d213fe82025f681dea2c069d79b85dc01523114ece0d3f2",
+  "sourceManifestSha256": "ecb846c1ab37a7313eeb2112f318b36dd51f3d697d65d30adf7513a2028b81fc",
   "visualCoverageManifest": "tests/e2e/recovery-visual-coverage.json",
   "visualCoverageSha256": "e797c31924ac122290e60445a459b316ebe88b9e8c8214cc732fff6b2284ff02",
-  "assetSetSha256": "2703a3a2f06c072f1a79cf5a358417bddc6c78b28d2c72ea7809ae60deff97ec",
+  "assetSetSha256": "da676e571373c027acabc13bb68d395b5623908ed3c640e35f35b7490e74d6bf",
   "counts": {
     "referencedProductionAssets": 108,
-    "manifestEntries": 143,
-    "unreferencedManifestEntries": 35,
-    "errors": 0
+    "manifestEntries": 158,
+    "unreferencedManifestEntries": 50,
+    "errors": 2
   },
-  "errors": [],
+  "errors": [
+    "Referenced faithful asset is absent from manifest: /cartilla/art/faithful/flipchart/${slot}.webp",
+    "Referenced faithful asset is missing: /cartilla/art/faithful/flipchart/${slot}.webp"
+  ],
   "unreferencedManifestEntries": [
-    "/cartilla/art/faithful/leccion-10-t/tapa.webp",
-    "/cartilla/art/faithful/leccion-10-t/tina.webp",
-    "/cartilla/art/faithful/leccion-10-t/tomate.webp",
-    "/cartilla/art/faithful/leccion-10-t/tulipan.webp",
-    "/cartilla/art/faithful/leccion-11-d/delfin.webp",
-    "/cartilla/art/faithful/leccion-11-d/dona.webp",
-    "/cartilla/art/faithful/leccion-11-d/ducha.webp",
-    "/cartilla/art/faithful/leccion-12-l/lobo.webp",
-    "/cartilla/art/faithful/leccion-12-l/loro.webp",
-    "/cartilla/art/faithful/leccion-12-l/luna.webp",
-    "/cartilla/art/faithful/leccion-12-l/lupa.webp",
-    "/cartilla/art/faithful/leccion-13-n/nariz.webp",
-    "/cartilla/art/faithful/leccion-13-n/nata.webp",
-    "/cartilla/art/faithful/leccion-13-n/nube.webp",
-    "/cartilla/art/faithful/leccion-14-n/muneca.webp",
-    "/cartilla/art/faithful/leccion-14-n/pina.webp",
-    "/cartilla/art/faithful/leccion-15-b/barco.webp",
-    "/cartilla/art/faithful/leccion-15-b/bici.webp",
-    "/cartilla/art/faithful/leccion-16-v/vaca.webp",
-    "/cartilla/art/faithful/leccion-16-v/vino.webp",
-    "/cartilla/art/faithful/leccion-16-v/volcan.webp",
-    "/cartilla/art/faithful/leccion-18-rr/carro.webp",
-    "/cartilla/art/faithful/leccion-19-c/camisa.webp",
-    "/cartilla/art/faithful/leccion-19-c/cono.webp",
-    "/cartilla/art/faithful/leccion-21-j/ajo.webp",
-    "/cartilla/art/faithful/leccion-22-y/yegua.webp",
-    "/cartilla/art/faithful/leccion-23-z/cepillo.webp",
-    "/cartilla/art/faithful/leccion-23-z/cisne.webp",
-    "/cartilla/art/faithful/leccion-23-z/zanahoria.webp",
-    "/cartilla/art/faithful/leccion-7-m/mapa.webp",
-    "/cartilla/art/faithful/leccion-7-m/moto.webp",
-    "/cartilla/art/faithful/leccion-8-p/pino.webp",
-    "/cartilla/art/faithful/leccion-8-p/pulpo.webp",
-    "/cartilla/art/faithful/leccion-9-s/silla.webp",
-    "/cartilla/art/faithful/leccion-9-s/sol.webp"
+    "/cartilla/art/optimized/flipchart-native/p009-amo.png",
+    "/cartilla/art/optimized/flipchart-native/p009-mama.png",
+    "/cartilla/art/optimized/flipchart-native/p009-meme.png",
+    "/cartilla/art/optimized/flipchart-native/p009-mima.png",
+    "/cartilla/art/optimized/flipchart-native/p009-mumi.png",
+    "/cartilla/art/optimized/flipchart-native/p012-papa.png",
+    "/cartilla/art/optimized/flipchart-native/p012-pepe.png",
+    "/cartilla/art/optimized/flipchart-native/p012-pie.png",
+    "/cartilla/art/optimized/flipchart-native/p012-pomo.png",
+    "/cartilla/art/optimized/flipchart-native/p012-puma.png",
+    "/cartilla/art/optimized/flipchart-native/p015-pisa.png",
+    "/cartilla/art/optimized/flipchart-native/p015-sapo.png",
+    "/cartilla/art/optimized/flipchart-native/p015-sesi.png",
+    "/cartilla/art/optimized/flipchart-native/p015-sopa.png",
+    "/cartilla/art/optimized/flipchart-native/p015-susi.png",
+    "/cartilla/art/optimized/flipchart-native/p018-tapa.webp",
+    "/cartilla/art/optimized/flipchart-native/p018-tipi.webp",
+    "/cartilla/art/optimized/flipchart-native/p018-tomate.webp",
+    "/cartilla/art/optimized/flipchart-native/p018-topo.webp",
+    "/cartilla/art/optimized/flipchart-native/p018-tuto.webp",
+    "/cartilla/art/optimized/flipchart-native/p021-dados.webp",
+    "/cartilla/art/optimized/flipchart-native/p021-dedo.webp",
+    "/cartilla/art/optimized/flipchart-native/p021-didi.webp",
+    "/cartilla/art/optimized/flipchart-native/p021-doce.webp",
+    "/cartilla/art/optimized/flipchart-native/p021-dunia.webp",
+    "/cartilla/art/optimized/flipchart-native/p024-lala.png",
+    "/cartilla/art/optimized/flipchart-native/p024-lata.webp",
+    "/cartilla/art/optimized/flipchart-native/p024-loma.webp",
+    "/cartilla/art/optimized/flipchart-native/p024-luli.webp",
+    "/cartilla/art/optimized/flipchart-native/p024-maleta.webp",
+    "/cartilla/art/optimized/flipchart-native/p027-mono.png",
+    "/cartilla/art/optimized/flipchart-native/p027-napi.png",
+    "/cartilla/art/optimized/flipchart-native/p027-nido.png",
+    "/cartilla/art/optimized/flipchart-native/p027-nudo.png",
+    "/cartilla/art/optimized/flipchart-native/p027-tenedor.png",
+    "/cartilla/art/optimized/flipchart-native/p030-mene.png",
+    "/cartilla/art/optimized/flipchart-native/p030-mono.png",
+    "/cartilla/art/optimized/flipchart-native/p030-ninito.png",
+    "/cartilla/art/optimized/flipchart-native/p030-nuno.png",
+    "/cartilla/art/optimized/flipchart-native/p030-pinata.png",
+    "/cartilla/art/optimized/flipchart-native/p033-bate.png",
+    "/cartilla/art/optimized/flipchart-native/p033-beba.png",
+    "/cartilla/art/optimized/flipchart-native/p033-bebita.png",
+    "/cartilla/art/optimized/flipchart-native/p033-bota.png",
+    "/cartilla/art/optimized/flipchart-native/p033-bubi.png",
+    "/cartilla/art/optimized/flipchart-native/p036-pavo.png",
+    "/cartilla/art/optimized/flipchart-native/p036-vaso.png",
+    "/cartilla/art/optimized/flipchart-native/p036-vela.png",
+    "/cartilla/art/optimized/flipchart-native/p036-vita.png",
+    "/cartilla/art/optimized/flipchart-native/p036-vuli.png"
   ],
   "assets": [
     {
@@ -69,10 +87,11 @@
       "aspectRatio": 0.846154,
       "provenanceStatus": "VERIFIED-EXACT-WORKBOOK-CROP-2026-08-08",
       "sha256": "03cafdb0b52172796d7cfd99a19ec0650d157db95f11fe70e5d1599b4f0a41e2",
-      "referenceCount": 2,
+      "referenceCount": 3,
       "referenceLocations": [
-        "src/data/page-layouts.json:24",
-        "src/data/page-layouts.json:869"
+        "src/data/conversion-status.json:353",
+        "src/data/faithful-art-manifest.json:7",
+        "src/data/page-layouts.json:1128"
       ]
     },
     {
@@ -96,13 +115,13 @@
       "sha256": "1b105d7d45ba624dc8cf1991bdd6229ffff370797e43196f36fb51707cef200b",
       "referenceCount": 7,
       "referenceLocations": [
-        "src/content/animal-gallery.ts:59",
-        "src/content/workbook/workbook-manifest.json:1310",
-        "src/content/workbook/workbook-manifest.json:1926",
-        "src/data/page-layouts.json:1208",
-        "src/data/page-layouts.json:6042",
-        "src/data/page-layouts.json:6121",
-        "src/data/page-layouts.json:788"
+        "src/content/animal-gallery.ts:63",
+        "src/content/picture-vocabulary.json:1472",
+        "src/data/conversion-status.json:319",
+        "src/data/conversion-status.json:500",
+        "src/data/faithful-art-manifest.json:1043",
+        "src/data/page-layouts.json:1046",
+        "src/data/page-layouts.json:1472"
       ]
     },
     {
@@ -126,18 +145,18 @@
       "sha256": "9a185cb57412c5d000dc763c84dcb75a840343bfa61da0c6895b3cf219aa032a",
       "referenceCount": 12,
       "referenceLocations": [
-        "src/content/workbook/workbook-manifest.json:1630",
-        "src/content/workbook/workbook-manifest.json:168",
-        "src/content/workbook/workbook-manifest.json:1746",
-        "src/content/workbook/workbook-manifest.json:1838",
-        "src/content/workbook/workbook-manifest.json:2053",
-        "src/content/workbook/workbook-manifest.json:619",
-        "src/data/page-layouts.json:1005",
-        "src/data/page-layouts.json:1071",
-        "src/data/page-layouts.json:1168",
-        "src/data/page-layouts.json:1275",
-        "src/data/page-layouts.json:329",
-        "src/data/page-layouts.json:87"
+        "src/content/picture-vocabulary.json:1347",
+        "src/data/conversion-status.json:131",
+        "src/data/conversion-status.json:410",
+        "src/data/conversion-status.json:442",
+        "src/data/conversion-status.json:492",
+        "src/data/conversion-status.json:532",
+        "src/data/faithful-art-manifest.json:1029",
+        "src/data/page-layouts.json:1264",
+        "src/data/page-layouts.json:1331",
+        "src/data/page-layouts.json:1431",
+        "src/data/page-layouts.json:1544",
+        "src/data/page-layouts.json:585"
       ]
     },
     {
@@ -159,10 +178,11 @@
       "aspectRatio": 1.457286,
       "provenanceStatus": "PASS-VERIFIED-2026-QA",
       "sha256": "9a6c158c497843da73d981cd017761434029df313524404d7bd59683ae10e140",
-      "referenceCount": 2,
+      "referenceCount": 3,
       "referenceLocations": [
-        "src/content/workbook/workbook-manifest.json:386",
-        "src/data/page-layouts.json:211"
+        "src/content/picture-vocabulary.json:215",
+        "src/data/faithful-art-manifest.json:1402",
+        "src/data/page-layouts.json:402"
       ]
     },
     {
@@ -184,10 +204,11 @@
       "aspectRatio": 1.211699,
       "provenanceStatus": "BACKFILLED-2026-FROM-FLIPCHART-PAGE-003",
       "sha256": "c671b23de9d6efecb736655441dbadf22de9d19780d832dd422c60e33dc2a052",
-      "referenceCount": 2,
+      "referenceCount": 3,
       "referenceLocations": [
-        "src/content/workbook/workbook-manifest.json:412",
-        "src/data/page-layouts.json:231"
+        "src/content/picture-vocabulary.json:319",
+        "src/data/faithful-art-manifest.json:506",
+        "src/data/page-layouts.json:438"
       ]
     },
     {
@@ -209,9 +230,11 @@
       "aspectRatio": 1.126214,
       "provenanceStatus": "VERIFIED-EXACT-WORKBOOK-CROP-2026-08-08",
       "sha256": "d2105fc2c8dfe42fcd3c5637371f355ccf821e104d396a2b62f8649b6d61d109",
-      "referenceCount": 1,
+      "referenceCount": 3,
       "referenceLocations": [
-        "src/data/page-layouts.json:227"
+        "src/content/picture-vocabulary.json:481",
+        "src/data/faithful-art-manifest.json:23",
+        "src/data/page-layouts.json:430"
       ]
     },
     {
@@ -233,10 +256,11 @@
       "aspectRatio": 1.502591,
       "provenanceStatus": "BACKFILLED-2026-FROM-FLIPCHART-PAGE-003",
       "sha256": "f0d52522950c4cfaef94adb57c6b076ebb34c48cba5438d9312063499a9c0208",
-      "referenceCount": 2,
+      "referenceCount": 3,
       "referenceLocations": [
-        "src/content/workbook/workbook-manifest.json:281",
-        "src/data/page-layouts.json:151"
+        "src/content/picture-vocabulary.json:671",
+        "src/data/faithful-art-manifest.json:521",
+        "src/data/page-layouts.json:294"
       ]
     },
     {
@@ -260,16 +284,16 @@
       "sha256": "3ba3071ba13ad179b7e72c5d01631efe5600e2311f8b052675a8443c17e33d72",
       "referenceCount": 10,
       "referenceLocations": [
-        "src/content/workbook/workbook-manifest.json:1130",
-        "src/content/workbook/workbook-manifest.json:1215",
-        "src/content/workbook/workbook-manifest.json:1426",
-        "src/content/workbook/workbook-manifest.json:211",
-        "src/content/workbook/workbook-manifest.json:608",
-        "src/data/page-layouts.json:104",
-        "src/data/page-layouts.json:323",
-        "src/data/page-layouts.json:646",
-        "src/data/page-layouts.json:742",
-        "src/data/page-layouts.json:853"
+        "src/content/picture-vocabulary.json:745",
+        "src/data/conversion-status.json:130",
+        "src/data/conversion-status.json:260",
+        "src/data/conversion-status.json:310",
+        "src/data/conversion-status.json:350",
+        "src/data/faithful-art-manifest.json:536",
+        "src/data/page-layouts.json:1000",
+        "src/data/page-layouts.json:1112",
+        "src/data/page-layouts.json:579",
+        "src/data/page-layouts.json:904"
       ]
     },
     {
@@ -290,11 +314,12 @@
       "hasAlpha": true,
       "aspectRatio": 1.021127,
       "provenanceStatus": "PROVENANCE-UNKNOWN",
-      "sha256": "1021c8c3842f5f9078faf756663113c12da061934a199e15317b5a6e9a119972",
-      "referenceCount": 2,
+      "sha256": "618a7788ed59c3c5452b7d144114bb445d17196d1ff24deb086fa8229379a7d9",
+      "referenceCount": 3,
       "referenceLocations": [
-        "src/content/workbook/workbook-manifest.json:270",
-        "src/data/page-layouts.json:146"
+        "src/content/picture-vocabulary.json:729",
+        "src/data/faithful-art-manifest.json:642",
+        "src/data/page-layouts.json:285"
       ]
     },
     {
@@ -316,13 +341,17 @@
       "aspectRatio": 1.795756,
       "provenanceStatus": "RECOVERED-2026-FROM-GIT-HISTORY-BLOB-cf0d6c7d",
       "sha256": "cd45239f16e938c055a773e8690f0cb3f744721d09e37d7e6437883e0e835ee9",
-      "referenceCount": 5,
+      "referenceCount": 9,
       "referenceLocations": [
-        "src/content/lessons.json:227",
-        "src/data/page-layouts.json:383",
-        "src/data/page-layouts.json:419",
-        "src/data/page-layouts.json:580",
-        "src/data/page-layouts.json:99"
+        "src/content/lessons.json:254",
+        "src/content/picture-vocabulary.json:924",
+        "src/data/conversion-status.json:141",
+        "src/data/conversion-status.json:166",
+        "src/data/conversion-status.json:227",
+        "src/data/faithful-art-manifest.json:440",
+        "src/data/page-layouts.json:639",
+        "src/data/page-layouts.json:676",
+        "src/data/page-layouts.json:837"
       ]
     },
     {
@@ -344,10 +373,11 @@
       "aspectRatio": 1.561939,
       "provenanceStatus": "BACKFILLED-2026-FROM-FLIPCHART-PAGE-003",
       "sha256": "fcfc800fc3bfbcb675ede388cdbc88eca15253d9e1d0775020e8ebdf9883ed7c",
-      "referenceCount": 2,
+      "referenceCount": 3,
       "referenceLocations": [
-        "src/content/workbook/workbook-manifest.json:358",
-        "src/data/page-layouts.json:201"
+        "src/content/picture-vocabulary.json:1074",
+        "src/data/faithful-art-manifest.json:491",
+        "src/data/page-layouts.json:384"
       ]
     },
     {
@@ -369,15 +399,11 @@
       "aspectRatio": 1.300448,
       "provenanceStatus": "PROVENANCE-UNKNOWN",
       "sha256": "ffd961282135cbd91dae1bb1759402840423360aca0fc2831364b92ca1a615a5",
-      "referenceCount": 7,
+      "referenceCount": 3,
       "referenceLocations": [
-        "src/content/workbook/workbook-manifest.json:2628",
-        "src/content/workbook/workbook-manifest.json:2769",
-        "src/content/workbook/workbook-manifest.json:347",
-        "src/content/workbook/workbook-manifest.json:6206",
-        "src/content/workbook/workbook-manifest.json:6277",
-        "src/content/workbook/workbook-manifest.json:6378",
-        "src/data/page-layouts.json:191"
+        "src/content/picture-vocabulary.json:1018",
+        "src/data/faithful-art-manifest.json:652",
+        "src/data/page-layouts.json:366"
       ]
     },
     {
@@ -399,17 +425,19 @@
       "aspectRatio": 1.175385,
       "provenanceStatus": null,
       "sha256": "9f5abb0b60661e476ed9351d678e9a2fa876d4584e5cf0602da8b2da25e57243",
-      "referenceCount": 9,
+      "referenceCount": 11,
       "referenceLocations": [
-        "src/content/animal-gallery.ts:103",
-        "src/content/consonants.json:96",
-        "src/content/workbook/workbook-manifest.json:1141",
-        "src/content/workbook/workbook-manifest.json:1511",
-        "src/content/workbook/workbook-manifest.json:1827",
-        "src/data/page-layouts.json:1164",
-        "src/data/page-layouts.json:1863",
-        "src/data/page-layouts.json:652",
-        "src/data/page-layouts.json:950"
+        "src/content/picture-vocabulary.json:125",
+        "src/data/conversion-status.json:261",
+        "src/data/conversion-status.json:270",
+        "src/data/conversion-status.json:399",
+        "src/data/conversion-status.json:419",
+        "src/data/conversion-status.json:491",
+        "src/data/conversion-status.json:508",
+        "src/data/faithful-art-manifest.json:728",
+        "src/data/page-layouts.json:1209",
+        "src/data/page-layouts.json:1426",
+        "src/data/page-layouts.json:910"
       ]
     },
     {
@@ -431,10 +459,11 @@
       "aspectRatio": 1.444023,
       "provenanceStatus": "PROVENANCE-UNKNOWN",
       "sha256": "de928351ad7291c3ac5757d21e93dc66db0c7a661c6bfab6269cdc181462d74e",
-      "referenceCount": 2,
+      "referenceCount": 3,
       "referenceLocations": [
-        "src/content/workbook/workbook-manifest.json:325",
-        "src/data/page-layouts.json:181"
+        "src/content/picture-vocabulary.json:1220",
+        "src/data/faithful-art-manifest.json:662",
+        "src/data/page-layouts.json:348"
       ]
     },
     {
@@ -458,18 +487,18 @@
       "sha256": "a869ce67afc82e23eeceb8b16f89c6f4b497c1a1b56790027415d3f8d2dbb406",
       "referenceCount": 12,
       "referenceLocations": [
-        "src/content/workbook/workbook-manifest.json:1332",
-        "src/content/workbook/workbook-manifest.json:157",
-        "src/content/workbook/workbook-manifest.json:1871",
-        "src/content/workbook/workbook-manifest.json:1947",
-        "src/content/workbook/workbook-manifest.json:1998",
-        "src/content/workbook/workbook-manifest.json:729",
-        "src/data/page-layouts.json:1183",
-        "src/data/page-layouts.json:1216",
-        "src/data/page-layouts.json:1250",
-        "src/data/page-layouts.json:379",
-        "src/data/page-layouts.json:798",
-        "src/data/page-layouts.json:83"
+        "src/content/lessons.json:343",
+        "src/content/picture-vocabulary.json:1307",
+        "src/data/conversion-status.json:140",
+        "src/data/conversion-status.json:321",
+        "src/data/conversion-status.json:495",
+        "src/data/conversion-status.json:527",
+        "src/data/faithful-art-manifest.json:1018",
+        "src/data/page-layouts.json:1056",
+        "src/data/page-layouts.json:1447",
+        "src/data/page-layouts.json:1481",
+        "src/data/page-layouts.json:1519",
+        "src/data/page-layouts.json:635"
       ]
     },
     {
@@ -491,13 +520,10 @@
       "aspectRatio": 0.897701,
       "provenanceStatus": null,
       "sha256": "12b2027fdd18da8fc9bd980fdf3f3b730c8930e1dbb8d5fb9a72c61d6b376d55",
-      "referenceCount": 5,
+      "referenceCount": 2,
       "referenceLocations": [
-        "src/content/consonants.json:310",
-        "src/content/workbook/workbook-manifest.json:4091",
-        "src/data/page-layouts.json:2971",
-        "src/data/page-layouts.json:3001",
-        "src/data/page-layouts.json:3080"
+        "src/content/picture-vocabulary.json:284",
+        "src/data/faithful-art-manifest.json:770"
       ]
     },
     {
@@ -519,12 +545,10 @@
       "aspectRatio": 1.564748,
       "provenanceStatus": null,
       "sha256": "8631178289926420c103ccfecdf49fda31e3ec017f3ab81bf9742842a7502ec1",
-      "referenceCount": 4,
+      "referenceCount": 2,
       "referenceLocations": [
-        "src/content/consonants.json:458",
-        "src/content/workbook/workbook-manifest.json:4896",
-        "src/data/page-layouts.json:3803",
-        "src/data/page-layouts.json:3895"
+        "src/content/picture-vocabulary.json:823",
+        "src/data/faithful-art-manifest.json:784"
       ]
     },
     {
@@ -546,13 +570,10 @@
       "aspectRatio": 0.77305,
       "provenanceStatus": "VERIFIED-AUTHENTIC-FLIPCHART-2026-09-25",
       "sha256": "1a585f692dd1c19a38be43593b78bb91acd3b7731b9c12edfe61f0d5353c3217",
-      "referenceCount": 5,
+      "referenceCount": 2,
       "referenceLocations": [
-        "src/content/consonants.json:535",
-        "src/data/page-layouts.json:3724",
-        "src/data/page-layouts.json:3808",
-        "src/data/page-layouts.json:3890",
-        "src/data/page-layouts.json:4222"
+        "src/content/picture-vocabulary.json:901",
+        "src/data/faithful-art-manifest.json:798"
       ]
     },
     {
@@ -574,12 +595,10 @@
       "aspectRatio": 1.459732,
       "provenanceStatus": null,
       "sha256": "f1c0d7a88f2533e2e7b44831671113c2c2595dcf62797c2356c1a65ba0a8450d",
-      "referenceCount": 4,
+      "referenceCount": 2,
       "referenceLocations": [
-        "src/content/consonants.json:605",
-        "src/content/workbook/workbook-manifest.json:5713",
-        "src/data/page-layouts.json:4530",
-        "src/data/page-layouts.json:4586"
+        "src/content/picture-vocabulary.json:164",
+        "src/data/faithful-art-manifest.json:814"
       ]
     },
     {
@@ -601,13 +620,10 @@
       "aspectRatio": 0.949425,
       "provenanceStatus": null,
       "sha256": "efe241c7a667d809ad867b0335091e7403b01b9da94e0f6cf522bc4568987cb8",
-      "referenceCount": 5,
+      "referenceCount": 2,
       "referenceLocations": [
-        "src/content/consonants.json:614",
-        "src/content/workbook/workbook-manifest.json:5565",
-        "src/content/workbook/workbook-manifest.json:5725",
-        "src/data/page-layouts.json:4606",
-        "src/data/page-layouts.json:4738"
+        "src/content/picture-vocabulary.json:171",
+        "src/data/faithful-art-manifest.json:828"
       ]
     },
     {
@@ -629,17 +645,10 @@
       "aspectRatio": 0.906897,
       "provenanceStatus": null,
       "sha256": "2258b95ee36a10bcea41ca14abefb8d2a8a5699f41e2abc1ec5b7af9ff2d6927",
-      "referenceCount": 9,
+      "referenceCount": 2,
       "referenceLocations": [
-        "src/content/consonants.json:679",
-        "src/content/workbook/workbook-manifest.json:5816",
-        "src/content/workbook/workbook-manifest.json:5857",
-        "src/content/workbook/workbook-manifest.json:5938",
-        "src/content/workbook/workbook-manifest.json:6125",
-        "src/data/page-layouts.json:4885",
-        "src/data/page-layouts.json:4915",
-        "src/data/page-layouts.json:4961",
-        "src/data/page-layouts.json:5089"
+        "src/content/picture-vocabulary.json:1364",
+        "src/data/faithful-art-manifest.json:842"
       ]
     },
     {
@@ -661,16 +670,12 @@
       "aspectRatio": 1.051995,
       "provenanceStatus": null,
       "sha256": "a805c84f82f033bfce1895db819b067e0ad82df307eab540a5d0925b8681e4b3",
-      "referenceCount": 8,
+      "referenceCount": 4,
       "referenceLocations": [
-        "src/content/animal-gallery.ts:115",
-        "src/content/consonants.json:748",
-        "src/content/workbook/workbook-manifest.json:6389",
-        "src/content/workbook/workbook-manifest.json:6450",
-        "src/content/workbook/workbook-manifest.json:6540",
-        "src/data/page-layouts.json:5373",
-        "src/data/page-layouts.json:5412",
-        "src/data/page-layouts.json:5458"
+        "src/content/animal-gallery.ts:113",
+        "src/content/consonants.json:977",
+        "src/content/picture-vocabulary.json:1081",
+        "src/data/faithful-art-manifest.json:856"
       ]
     },
     {
@@ -694,9 +699,9 @@
       "sha256": "c4af2cdfaf439e49e4a49aae9e7464212a56ca6e7c7e4d77f279c4ad0dbb1fb3",
       "referenceCount": 3,
       "referenceLocations": [
-        "src/content/consonants.json:753",
-        "src/content/workbook/workbook-manifest.json:6564",
-        "src/data/page-layouts.json:5343"
+        "src/content/consonants.json:982",
+        "src/content/picture-vocabulary.json:1103",
+        "src/data/faithful-art-manifest.json:884"
       ]
     },
     {
@@ -718,9 +723,11 @@
       "aspectRatio": 1.279412,
       "provenanceStatus": "QA-PASS-SOURCE-PAGE-NOT-RECORDED",
       "sha256": "c0fff9c01e6e52cf05b1f2dcca74ab99b935014f7c753d5f06a95dc24c3ea198",
-      "referenceCount": 1,
+      "referenceCount": 3,
       "referenceLocations": [
-        "src/content/consonants.json:758"
+        "src/content/consonants.json:987",
+        "src/content/picture-vocabulary.json:1117",
+        "src/data/faithful-art-manifest.json:1413"
       ]
     },
     {
@@ -744,9 +751,9 @@
       "sha256": "31b0821613ceb896c63c5ba013c638db31bae69a5340d577682723b7a81da445",
       "referenceCount": 3,
       "referenceLocations": [
-        "src/content/consonants.json:763",
-        "src/content/workbook/workbook-manifest.json:6552",
-        "src/data/page-layouts.json:5382"
+        "src/content/consonants.json:992",
+        "src/content/picture-vocabulary.json:1125",
+        "src/data/faithful-art-manifest.json:870"
       ]
     },
     {
@@ -770,9 +777,9 @@
       "sha256": "0e848e73d6c48752718b5dde4bdb4584fa8a4a4f0b94b40b65f0cd04fa28e72f",
       "referenceCount": 3,
       "referenceLocations": [
-        "src/content/consonants.json:768",
-        "src/content/workbook/workbook-manifest.json:6576",
-        "src/data/page-layouts.json:5274"
+        "src/content/consonants.json:997",
+        "src/content/picture-vocabulary.json:1140",
+        "src/data/faithful-art-manifest.json:1422"
       ]
     },
     {
@@ -794,9 +801,11 @@
       "aspectRatio": 0.683908,
       "provenanceStatus": null,
       "sha256": "c7c1b438a276e8b52b044bd02ffce44bd5bd57e291c33d27c5122285ce8a36db",
-      "referenceCount": 1,
+      "referenceCount": 3,
       "referenceLocations": [
-        "src/content/consonants.json:824"
+        "src/content/consonants.json:1088",
+        "src/content/picture-vocabulary.json:135",
+        "src/data/faithful-art-manifest.json:912"
       ]
     },
     {
@@ -818,12 +827,11 @@
       "aspectRatio": 1.178862,
       "provenanceStatus": "QA-PASS-SOURCE-PAGE-NOT-RECORDED",
       "sha256": "96391879b3291f02a639ffd869fcdad8fe3b532be12fe54b2a3ee9ecf66448b0",
-      "referenceCount": 4,
+      "referenceCount": 3,
       "referenceLocations": [
-        "src/content/consonants.json:809",
-        "src/content/workbook/workbook-manifest.json:6979",
-        "src/data/page-layouts.json:4611",
-        "src/data/page-layouts.json:5757"
+        "src/content/consonants.json:1073",
+        "src/content/picture-vocabulary.json:193",
+        "src/data/faithful-art-manifest.json:1431"
       ]
     },
     {
@@ -845,9 +853,11 @@
       "aspectRatio": 1.00578,
       "provenanceStatus": "QA-PASS-SOURCE-PAGE-NOT-RECORDED",
       "sha256": "9930f24f920eecfb6782e6ea7c9475bffb3c122d3e896bcd07508f002f31e604",
-      "referenceCount": 1,
+      "referenceCount": 3,
       "referenceLocations": [
-        "src/content/consonants.json:814"
+        "src/content/consonants.json:1078",
+        "src/content/picture-vocabulary.json:236",
+        "src/data/faithful-art-manifest.json:1440"
       ]
     },
     {
@@ -869,9 +879,11 @@
       "aspectRatio": 1.098485,
       "provenanceStatus": "QA-PASS-SOURCE-PAGE-NOT-RECORDED",
       "sha256": "7f616ed25384f70c9409799d30c4842cbac8f532d672a34c325a1120713e8bb9",
-      "referenceCount": 1,
+      "referenceCount": 3,
       "referenceLocations": [
-        "src/content/animal-gallery.ts:121"
+        "src/content/animal-gallery.ts:119",
+        "src/content/picture-vocabulary.json:1025",
+        "src/data/faithful-art-manifest.json:1449"
       ]
     },
     {
@@ -893,9 +905,11 @@
       "aspectRatio": 0.998851,
       "provenanceStatus": "QA-PASS-SOURCE-PAGE-NOT-RECORDED",
       "sha256": "8c9be585ca8ae6241c3a45e89a684a8efb7f846e0545a268e4383105d91f3d0b",
-      "referenceCount": 1,
+      "referenceCount": 3,
       "referenceLocations": [
-        "src/content/consonants.json:829"
+        "src/content/consonants.json:1093",
+        "src/content/picture-vocabulary.json:1241",
+        "src/data/faithful-art-manifest.json:1458"
       ]
     },
     {
@@ -919,9 +933,9 @@
       "sha256": "4a12495a0531d7066f3732deb75142db39a5aed021666570a3dfc75281d53e83",
       "referenceCount": 3,
       "referenceLocations": [
-        "src/content/consonants.json:819",
-        "src/content/workbook/workbook-manifest.json:6707",
-        "src/data/page-layouts.json:5690"
+        "src/content/consonants.json:1083",
+        "src/content/picture-vocabulary.json:1277",
+        "src/data/faithful-art-manifest.json:898"
       ]
     },
     {
@@ -943,14 +957,12 @@
       "aspectRatio": 1.017544,
       "provenanceStatus": null,
       "sha256": "991fa2ac978bec8a3e839438e1f5f38bce572f3d9222df6bb70aff7e1a0704f0",
-      "referenceCount": 6,
+      "referenceCount": 4,
       "referenceLocations": [
-        "src/content/consonants.json:1060",
-        "src/content/workbook/workbook-manifest.json:292",
-        "src/content/workbook/workbook-manifest.json:8591",
-        "src/data/page-layouts.json:161",
-        "src/data/page-layouts.json:7180",
-        "src/data/page-layouts.json:7265"
+        "src/content/consonants.json:1447",
+        "src/content/picture-vocabulary.json:244",
+        "src/data/faithful-art-manifest.json:467",
+        "src/data/page-layouts.json:312"
       ]
     },
     {
@@ -972,9 +984,11 @@
       "aspectRatio": 0.572414,
       "provenanceStatus": null,
       "sha256": "fbbbdbc4a74c75b0226f6fd9f9608979617a0a64b15776464feb23eaf3ab06e5",
-      "referenceCount": 1,
+      "referenceCount": 3,
       "referenceLocations": [
-        "src/content/consonants.json:1070"
+        "src/content/consonants.json:1457",
+        "src/content/picture-vocabulary.json:252",
+        "src/data/faithful-art-manifest.json:1312"
       ]
     },
     {
@@ -996,10 +1010,12 @@
       "aspectRatio": 0.729885,
       "provenanceStatus": null,
       "sha256": "bc4956390f4405514fc03d7b0d97d5de6b7e25927add0087b2bc2520314fa390",
-      "referenceCount": 2,
+      "referenceCount": 4,
       "referenceLocations": [
-        "src/content/animal-gallery.ts:145",
-        "src/content/consonants.json:1055"
+        "src/content/animal-gallery.ts:143",
+        "src/content/consonants.json:1442",
+        "src/content/picture-vocabulary.json:260",
+        "src/data/faithful-art-manifest.json:1282"
       ]
     },
     {
@@ -1021,9 +1037,11 @@
       "aspectRatio": 1.099874,
       "provenanceStatus": null,
       "sha256": "0cf2ea9a57e27dc415322e29d782b62b17c07f2f888a07dd6d70aa9eb21f8994",
-      "referenceCount": 1,
+      "referenceCount": 3,
       "referenceLocations": [
-        "src/content/consonants.json:1065"
+        "src/content/consonants.json:1452",
+        "src/content/picture-vocabulary.json:268",
+        "src/data/faithful-art-manifest.json:1297"
       ]
     },
     {
@@ -1047,9 +1065,9 @@
       "sha256": "f1bcbf8edbaa0d3c07ff67aeef8fc745a391d6ed283b7a28aba77dafe31fa52e",
       "referenceCount": 3,
       "referenceLocations": [
-        "src/content/consonants.json:1050",
-        "src/content/workbook/workbook-manifest.json:8524",
-        "src/data/page-layouts.json:7334"
+        "src/content/consonants.json:1437",
+        "src/content/picture-vocabulary.json:276",
+        "src/data/faithful-art-manifest.json:926"
       ]
     },
     {
@@ -1073,8 +1091,8 @@
       "sha256": "258b5ce1b6e994fc509881240836642357711ef4d1ad70f4f307bc699059ceb6",
       "referenceCount": 2,
       "referenceLocations": [
-        "src/content/workbook/workbook-manifest.json:7370",
-        "src/data/page-layouts.json:6030"
+        "src/content/picture-vocabulary.json:459",
+        "src/data/faithful-art-manifest.json:1467"
       ]
     },
     {
@@ -1096,9 +1114,11 @@
       "aspectRatio": 1.149273,
       "provenanceStatus": null,
       "sha256": "b0ac80649a65046a80c20b53487a089fb7707f2db16020ab0969c35410bb6a1b",
-      "referenceCount": 1,
+      "referenceCount": 3,
       "referenceLocations": [
-        "src/content/consonants.json:870"
+        "src/content/consonants.json:1168",
+        "src/content/picture-vocabulary.json:473",
+        "src/data/faithful-art-manifest.json:1057"
       ]
     },
     {
@@ -1120,9 +1140,11 @@
       "aspectRatio": 0.92069,
       "provenanceStatus": null,
       "sha256": "64344a3245c4fef64eb19116ccb39ab59019f704adc3852f2ca1537917209e04",
-      "referenceCount": 1,
+      "referenceCount": 3,
       "referenceLocations": [
-        "src/content/consonants.json:880"
+        "src/content/consonants.json:1178",
+        "src/content/picture-vocabulary.json:488",
+        "src/data/faithful-art-manifest.json:1087"
       ]
     },
     {
@@ -1144,9 +1166,11 @@
       "aspectRatio": 1.537102,
       "provenanceStatus": null,
       "sha256": "a892afd68c68a3dc8bd719b45b37355148036c97d30121c7303b9c494b22ce69",
-      "referenceCount": 1,
+      "referenceCount": 3,
       "referenceLocations": [
-        "src/content/consonants.json:885"
+        "src/content/consonants.json:1183",
+        "src/content/picture-vocabulary.json:496",
+        "src/data/faithful-art-manifest.json:1102"
       ]
     },
     {
@@ -1170,10 +1194,10 @@
       "sha256": "0f2e4e3b15b8fa1a5028c54ccd0354f74e29b96b28f9193dbd61b0abcf7a6b88",
       "referenceCount": 4,
       "referenceLocations": [
-        "src/content/animal-gallery.ts:127",
-        "src/content/consonants.json:875",
-        "src/content/workbook/workbook-manifest.json:7404",
-        "src/data/page-layouts.json:6035"
+        "src/content/animal-gallery.ts:125",
+        "src/content/consonants.json:1173",
+        "src/content/picture-vocabulary.json:504",
+        "src/data/faithful-art-manifest.json:1072"
       ]
     },
     {
@@ -1195,9 +1219,11 @@
       "aspectRatio": 0.947126,
       "provenanceStatus": null,
       "sha256": "672e07209e62d405a699d604c4ff0b1bb4834c480468a9b36706874244334c58",
-      "referenceCount": 1,
+      "referenceCount": 3,
       "referenceLocations": [
-        "src/content/consonants.json:890"
+        "src/content/consonants.json:1188",
+        "src/content/picture-vocabulary.json:706",
+        "src/data/faithful-art-manifest.json:1117"
       ]
     },
     {
@@ -1219,9 +1245,11 @@
       "aspectRatio": 0.797701,
       "provenanceStatus": null,
       "sha256": "55da2994a06a472d7b39e5fbdddb3fb7fbbb9f0d50dcb697eed55a32249ebcdd",
-      "referenceCount": 1,
+      "referenceCount": 3,
       "referenceLocations": [
-        "src/content/consonants.json:939"
+        "src/content/consonants.json:1259",
+        "src/content/picture-vocabulary.json:398",
+        "src/data/faithful-art-manifest.json:1162"
       ]
     },
     {
@@ -1243,9 +1271,11 @@
       "aspectRatio": 1.113956,
       "provenanceStatus": null,
       "sha256": "7cb1a1fc8d37c14bcc49bb2f379471281af4b241b3f74274cde301820439c123",
-      "referenceCount": 1,
+      "referenceCount": 3,
       "referenceLocations": [
-        "src/content/consonants.json:944"
+        "src/content/consonants.json:1264",
+        "src/content/picture-vocabulary.json:406",
+        "src/data/faithful-art-manifest.json:1177"
       ]
     },
     {
@@ -1267,9 +1297,11 @@
       "aspectRatio": 0.841379,
       "provenanceStatus": null,
       "sha256": "dd01b137ac8ec6d42d8a9be58dc1e9e926240536423f765457c8e44d682bec46",
-      "referenceCount": 1,
+      "referenceCount": 3,
       "referenceLocations": [
-        "src/content/consonants.json:934"
+        "src/content/consonants.json:1254",
+        "src/content/picture-vocabulary.json:414",
+        "src/data/faithful-art-manifest.json:1147"
       ]
     },
     {
@@ -1293,8 +1325,8 @@
       "sha256": "cc20a6bb6fb513afb3c9c1f516d3eb2b12e83f56499213e93dafc7af25260277",
       "referenceCount": 2,
       "referenceLocations": [
-        "src/content/workbook/workbook-manifest.json:7794",
-        "src/data/page-layouts.json:6538"
+        "src/content/picture-vocabulary.json:422",
+        "src/data/faithful-art-manifest.json:1476"
       ]
     },
     {
@@ -1316,13 +1348,11 @@
       "aspectRatio": 0.96092,
       "provenanceStatus": null,
       "sha256": "437faa452b2c80eba40d2db579645ba9bf9720406cbc38b15d1fc7a2977269e7",
-      "referenceCount": 5,
+      "referenceCount": 3,
       "referenceLocations": [
-        "src/content/consonants.json:929",
-        "src/data/page-layouts.json:6413",
-        "src/data/page-layouts.json:6461",
-        "src/data/page-layouts.json:6503",
-        "src/data/page-layouts.json:6523"
+        "src/content/consonants.json:1249",
+        "src/content/picture-vocabulary.json:436",
+        "src/data/faithful-art-manifest.json:1132"
       ]
     },
     {
@@ -1344,9 +1374,11 @@
       "aspectRatio": 1.378764,
       "provenanceStatus": null,
       "sha256": "8a2f2efd5294ec2803df918fc0f2cb2be7ba17f23f2ad6b5e8de49fff0db4cf8",
-      "referenceCount": 1,
+      "referenceCount": 3,
       "referenceLocations": [
-        "src/content/consonants.json:949"
+        "src/content/consonants.json:1269",
+        "src/content/picture-vocabulary.json:444",
+        "src/data/faithful-art-manifest.json:1192"
       ]
     },
     {
@@ -1368,10 +1400,11 @@
       "aspectRatio": 0.905747,
       "provenanceStatus": null,
       "sha256": "59d34b9aa8c580a29d4ffc56203944ccae1ea0278baa0b240af8fb0cb3b95c12",
-      "referenceCount": 2,
+      "referenceCount": 3,
       "referenceLocations": [
-        "src/content/consonants.json:1009",
-        "src/data/page-layouts.json:6872"
+        "src/content/consonants.json:1363",
+        "src/content/picture-vocabulary.json:597",
+        "src/data/faithful-art-manifest.json:1267"
       ]
     },
     {
@@ -1393,9 +1426,11 @@
       "aspectRatio": 0.743678,
       "provenanceStatus": null,
       "sha256": "0ff8a168101454ac04864d832dece7996a44dd47c3cf9afcf131f0409b5425b5",
-      "referenceCount": 1,
+      "referenceCount": 3,
       "referenceLocations": [
-        "src/content/consonants.json:1000"
+        "src/content/consonants.json:1354",
+        "src/content/picture-vocabulary.json:605",
+        "src/data/faithful-art-manifest.json:1252"
       ]
     },
     {
@@ -1417,10 +1452,12 @@
       "aspectRatio": 1.241084,
       "provenanceStatus": null,
       "sha256": "603a01fb9e5d20322b491e34253464dcf0d5a38c85632d3d5a4fca0202b503fa",
-      "referenceCount": 2,
+      "referenceCount": 4,
       "referenceLocations": [
-        "src/content/animal-gallery.ts:139",
-        "src/content/consonants.json:990"
+        "src/content/animal-gallery.ts:137",
+        "src/content/consonants.json:1344",
+        "src/content/picture-vocabulary.json:613",
+        "src/data/faithful-art-manifest.json:1222"
       ]
     },
     {
@@ -1444,9 +1481,9 @@
       "sha256": "abe39f0ccdb47c912cb296836528abddc9996188981c78937e8938cadfed7996",
       "referenceCount": 3,
       "referenceLocations": [
-        "src/content/animal-gallery.ts:133",
-        "src/data/page-layouts.json:6867",
-        "src/data/page-layouts.json:6910"
+        "src/content/animal-gallery.ts:131",
+        "src/content/picture-vocabulary.json:628",
+        "src/data/faithful-art-manifest.json:1207"
       ]
     },
     {
@@ -1468,10 +1505,11 @@
       "aspectRatio": 0.947126,
       "provenanceStatus": null,
       "sha256": "1dbce8215fadeed5d88c338e4a01950aaa29fb3f4e23d2888c30f5c8f4b5cc91",
-      "referenceCount": 2,
+      "referenceCount": 3,
       "referenceLocations": [
-        "src/content/consonants.json:995",
-        "src/data/page-layouts.json:6952"
+        "src/content/consonants.json:1349",
+        "src/content/picture-vocabulary.json:642",
+        "src/data/faithful-art-manifest.json:1237"
       ]
     },
     {
@@ -1493,9 +1531,11 @@
       "aspectRatio": 1.092965,
       "provenanceStatus": null,
       "sha256": "011ceb3f669c5a549d2b95fd340d3515330feacdf8ed097bfd016a1234a33d5b",
-      "referenceCount": 1,
+      "referenceCount": 3,
       "referenceLocations": [
-        "src/content/consonants.json:1124"
+        "src/content/consonants.json:1530",
+        "src/content/picture-vocabulary.json:736",
+        "src/data/faithful-art-manifest.json:1342"
       ]
     },
     {
@@ -1519,9 +1559,9 @@
       "sha256": "645a4c92cd850c2edb9faf5a74390ad610ca0d59ba028744fcf5560ad282842c",
       "referenceCount": 3,
       "referenceLocations": [
-        "src/content/consonants.json:1109",
-        "src/content/workbook/workbook-manifest.json:8999",
-        "src/data/page-layouts.json:7562"
+        "src/content/consonants.json:1515",
+        "src/content/picture-vocabulary.json:1393",
+        "src/data/faithful-art-manifest.json:956"
       ]
     },
     {
@@ -1543,9 +1583,11 @@
       "aspectRatio": 0.988506,
       "provenanceStatus": null,
       "sha256": "6954f8b87ce8ff463a02352bd5a66ce36816d321245eabc1572d544f1312e275",
-      "referenceCount": 1,
+      "referenceCount": 3,
       "referenceLocations": [
-        "src/content/consonants.json:1119"
+        "src/content/consonants.json:1525",
+        "src/content/picture-vocabulary.json:1408",
+        "src/data/faithful-art-manifest.json:1327"
       ]
     },
     {
@@ -1567,9 +1609,11 @@
       "aspectRatio": 2.492837,
       "provenanceStatus": null,
       "sha256": "ee82c9d4b24fbee461794c14a0f6c0bcae12a263267833e96ed1f002962e2851",
-      "referenceCount": 1,
+      "referenceCount": 3,
       "referenceLocations": [
-        "src/content/consonants.json:1114"
+        "src/content/consonants.json:1520",
+        "src/content/picture-vocabulary.json:1416",
+        "src/data/faithful-art-manifest.json:971"
       ]
     },
     {
@@ -1591,13 +1635,11 @@
       "aspectRatio": 1.083437,
       "provenanceStatus": null,
       "sha256": "930e29b2c71222fbb040d897d457b205700bb85bba8cc340a261dc1714e3044a",
-      "referenceCount": 5,
+      "referenceCount": 3,
       "referenceLocations": [
-        "src/content/consonants.json:1129",
-        "src/content/workbook/workbook-manifest.json:9011",
-        "src/data/page-layouts.json:7633",
-        "src/data/page-layouts.json:7675",
-        "src/data/page-layouts.json:7731"
+        "src/content/consonants.json:1535",
+        "src/content/picture-vocabulary.json:1424",
+        "src/data/faithful-art-manifest.json:941"
       ]
     },
     {
@@ -1619,12 +1661,11 @@
       "aspectRatio": 1.101266,
       "provenanceStatus": null,
       "sha256": "7d79d5acb1e9b92eda31f0e8bdd4ba144539a6ba7f9607f5bdd33a8e14ebd292",
-      "referenceCount": 4,
+      "referenceCount": 3,
       "referenceLocations": [
-        "src/content/consonants.json:1169",
-        "src/content/workbook/workbook-manifest.json:9409",
-        "src/data/page-layouts.json:7945",
-        "src/data/page-layouts.json:8024"
+        "src/content/consonants.json:1611",
+        "src/content/picture-vocabulary.json:1432",
+        "src/data/faithful-art-manifest.json:986"
       ]
     },
     {
@@ -1646,9 +1687,11 @@
       "aspectRatio": 1.761134,
       "provenanceStatus": null,
       "sha256": "af236a913ba290ed3d587f8ffd8aaf8ce5d8e0000aef93d6a61dbfdc7e7802c9",
-      "referenceCount": 1,
+      "referenceCount": 3,
       "referenceLocations": [
-        "src/content/consonants.json:1184"
+        "src/content/consonants.json:1626",
+        "src/content/picture-vocabulary.json:1440",
+        "src/data/faithful-art-manifest.json:1372"
       ]
     },
     {
@@ -1670,9 +1713,11 @@
       "aspectRatio": 1.002304,
       "provenanceStatus": null,
       "sha256": "ee275d942bf32209df9816cf89c553fe6488e806a90faf8679552f142698261e",
-      "referenceCount": 1,
+      "referenceCount": 3,
       "referenceLocations": [
-        "src/content/consonants.json:1174"
+        "src/content/consonants.json:1616",
+        "src/content/picture-vocabulary.json:1448",
+        "src/data/faithful-art-manifest.json:1357"
       ]
     },
     {
@@ -1694,13 +1739,12 @@
       "aspectRatio": 0.901852,
       "provenanceStatus": "VERIFIED-AUTHENTIC-FLIPCHART-2026-09-25",
       "sha256": "7de81da009983718716f894e630bb386bfdaa6874eceba668d3d23c7a1371960",
-      "referenceCount": 5,
+      "referenceCount": 4,
       "referenceLocations": [
-        "src/content/animal-gallery.ts:151",
-        "src/content/consonants.json:1179",
-        "src/content/workbook/workbook-manifest.json:9421",
-        "src/data/page-layouts.json:8054",
-        "src/data/page-layouts.json:8106"
+        "src/content/animal-gallery.ts:149",
+        "src/content/consonants.json:1621",
+        "src/content/picture-vocabulary.json:1456",
+        "src/data/faithful-art-manifest.json:1001"
       ]
     },
     {
@@ -1722,10 +1766,11 @@
       "aspectRatio": 0.755172,
       "provenanceStatus": null,
       "sha256": "6c0f07ea2d6384daa37c83bb6d838fb443918118d5dde62019c3929a53cbbaf0",
-      "referenceCount": 2,
+      "referenceCount": 3,
       "referenceLocations": [
-        "src/content/consonants.json:1189",
-        "src/data/page-layouts.json:8111"
+        "src/content/consonants.json:1631",
+        "src/content/picture-vocabulary.json:1464",
+        "src/data/faithful-art-manifest.json:1387"
       ]
     },
     {
@@ -1747,15 +1792,10 @@
       "aspectRatio": 0.781609,
       "provenanceStatus": null,
       "sha256": "eb1bb2f8641653b474cf3c119fbd027ed6a4bbbf02d497c60faa865f4df21f9b",
-      "referenceCount": 7,
+      "referenceCount": 2,
       "referenceLocations": [
-        "src/content/consonants.json:18",
-        "src/content/workbook/workbook-manifest.json:2134",
-        "src/content/workbook/workbook-manifest.json:2265",
-        "src/content/workbook/workbook-manifest.json:2476",
-        "src/data/page-layouts.json:1411",
-        "src/data/page-layouts.json:1490",
-        "src/data/page-layouts.json:1607"
+        "src/content/picture-vocabulary.json:721",
+        "src/data/faithful-art-manifest.json:686"
       ]
     },
     {
@@ -1771,21 +1811,17 @@
       "assetClass": "cutout",
       "dimensions": {
         "width": 472,
-        "height": 870
+        "height": 770
       },
       "hasAlpha": true,
-      "aspectRatio": 0.542529,
+      "aspectRatio": 0.612987,
       "provenanceStatus": null,
-      "sha256": "d3b31554dae5f3ecb3ba241a646ea924899029a954be2e614fe070cd5e390845",
-      "referenceCount": 7,
+      "sha256": "cf26f8d67d01aa1596645a2c8f9aaab865bf009412e8cc5d5b050ebc6a6d0d86",
+      "referenceCount": 3,
       "referenceLocations": [
-        "src/content/animal-gallery.ts:97",
-        "src/content/consonants.json:23",
-        "src/content/workbook/workbook-manifest.json:2497",
-        "src/data/page-layouts.json:1524",
-        "src/data/page-layouts.json:3838",
-        "src/data/page-layouts.json:4206",
-        "src/data/page-layouts.json:4231"
+        "src/content/animal-gallery.ts:101",
+        "src/content/picture-vocabulary.json:794",
+        "src/data/faithful-art-manifest.json:700"
       ]
     },
     {
@@ -1800,20 +1836,17 @@
       "pageNumber": null,
       "assetClass": "cutout",
       "dimensions": {
-        "width": 870,
-        "height": 618
+        "width": 480,
+        "height": 660
       },
-      "hasAlpha": true,
-      "aspectRatio": 1.407767,
+      "hasAlpha": false,
+      "aspectRatio": 0.727273,
       "provenanceStatus": null,
-      "sha256": "4709a397083966dc19d254a1782bfb040c17e9ce064b1cb3d537c5ba7b17f82c",
-      "referenceCount": 5,
+      "sha256": "be557e2633765e45d15eedd9a962290406b5601b2d96734af0ba79f1cd4e5627",
+      "referenceCount": 2,
       "referenceLocations": [
-        "src/content/consonants.json:91",
-        "src/content/workbook/workbook-manifest.json:2557",
-        "src/content/workbook/workbook-manifest.json:2876",
-        "src/data/page-layouts.json:1811",
-        "src/data/page-layouts.json:2002"
+        "src/content/picture-vocabulary.json:996",
+        "src/data/faithful-art-manifest.json:714"
       ]
     },
     {
@@ -1835,13 +1868,11 @@
       "aspectRatio": 1.172507,
       "provenanceStatus": null,
       "sha256": "ebc7f527d10fa92ed9a3a1d61e67d49ae43e89e6bd3d74e6b458232edd20842a",
-      "referenceCount": 5,
+      "referenceCount": 3,
       "referenceLocations": [
-        "src/content/animal-gallery.ts:109",
-        "src/content/consonants.json:165",
-        "src/content/workbook/workbook-manifest.json:3284",
-        "src/data/page-layouts.json:2210",
-        "src/data/page-layouts.json:2291"
+        "src/content/animal-gallery.ts:107",
+        "src/content/picture-vocabulary.json:1155",
+        "src/data/faithful-art-manifest.json:742"
       ]
     },
     {
@@ -1863,11 +1894,10 @@
       "aspectRatio": 1.286982,
       "provenanceStatus": null,
       "sha256": "94e5563da676bc38116693b26365340f33bc380150fac8d5322d859b4f574c28",
-      "referenceCount": 3,
+      "referenceCount": 2,
       "referenceLocations": [
-        "src/content/consonants.json:174",
-        "src/content/workbook/workbook-manifest.json:3296",
-        "src/data/page-layouts.json:2319"
+        "src/content/picture-vocabulary.json:1184",
+        "src/data/faithful-art-manifest.json:756"
       ]
     },
     {
@@ -1882,23 +1912,21 @@
       "pageNumber": null,
       "assetClass": "cutout",
       "dimensions": {
-        "width": 870,
-        "height": 842
+        "width": 1254,
+        "height": 1254
       },
-      "hasAlpha": true,
-      "aspectRatio": 1.033254,
+      "hasAlpha": false,
+      "aspectRatio": 1,
       "provenanceStatus": "FIXED-2026-WRONG-CROP",
-      "sha256": "6d3b360695225f2127ed98bc93af554a4b3c947f97d88c9b9ff846c436f89888",
-      "referenceCount": 8,
+      "sha256": "ec529bb3ec9d9bfc6312f47a35c92c7180d604b4f72bd495b33a59968e6e424c",
+      "referenceCount": 6,
       "referenceLocations": [
-        "src/content/workbook/workbook-manifest.json:1532",
-        "src/content/workbook/workbook-manifest.json:48",
-        "src/content/workbook/workbook-manifest.json:889",
-        "src/data/page-layouts.json:33",
-        "src/data/page-layouts.json:520",
-        "src/data/page-layouts.json:959",
-        "src/routes/cartilla/-leccion-view.tsx:32",
-        "src/routes/cartilla/practica.tsx:32"
+        "src/content/picture-vocabulary.json:13",
+        "src/data/conversion-status.json:215",
+        "src/data/conversion-status.json:401",
+        "src/data/faithful-art-manifest.json:136",
+        "src/data/page-layouts.json:1218",
+        "src/data/page-layouts.json:777"
       ]
     },
     {
@@ -1913,22 +1941,35 @@
       "pageNumber": 7,
       "assetClass": "cutout",
       "dimensions": {
-        "width": 462,
-        "height": 495
+        "width": 1254,
+        "height": 1254
       },
       "hasAlpha": false,
-      "aspectRatio": 0.933333,
+      "aspectRatio": 1,
       "provenanceStatus": "VERIFIED-EXACT-WORKBOOK-CROP-2026-08-08",
-      "sha256": "1f03f92afdf3005ffffccae6aff6cfdd37314ebe016012e8634a102078bca5ef",
-      "referenceCount": 7,
+      "sha256": "989ee62ea87c78a5aba91aa10040031d26fa0c9f2c239069c45c3c4e7491cfab",
+      "referenceCount": 20,
       "referenceLocations": [
-        "src/data/page-layouts.json:1081",
-        "src/data/page-layouts.json:110",
-        "src/data/page-layouts.json:1212",
-        "src/data/page-layouts.json:546",
-        "src/data/page-layouts.json:637",
-        "src/data/page-layouts.json:763",
-        "src/data/page-layouts.json:844"
+        "src/content/picture-vocabulary.json:23",
+        "src/data/conversion-status.json:220",
+        "src/data/conversion-status.json:237",
+        "src/data/conversion-status.json:258",
+        "src/data/conversion-status.json:269",
+        "src/data/conversion-status.json:314",
+        "src/data/conversion-status.json:329",
+        "src/data/conversion-status.json:348",
+        "src/data/conversion-status.json:360",
+        "src/data/conversion-status.json:444",
+        "src/data/conversion-status.json:451",
+        "src/data/conversion-status.json:501",
+        "src/data/conversion-status.json:510",
+        "src/data/faithful-art-manifest.json:39",
+        "src/data/page-layouts.json:1021",
+        "src/data/page-layouts.json:1103",
+        "src/data/page-layouts.json:1341",
+        "src/data/page-layouts.json:1476",
+        "src/data/page-layouts.json:803",
+        "src/data/page-layouts.json:895"
       ]
     },
     {
@@ -1943,18 +1984,23 @@
       "pageNumber": 7,
       "assetClass": "cutout",
       "dimensions": {
-        "width": 413,
-        "height": 495
+        "width": 1254,
+        "height": 1254
       },
       "hasAlpha": false,
-      "aspectRatio": 0.834343,
+      "aspectRatio": 1,
       "provenanceStatus": "VERIFIED-EXACT-WORKBOOK-CROP-2026-08-08",
-      "sha256": "c2058129634833972b306a23ac423bbd42bb925ea181f2d6c5cdbe67c2bac0ac",
-      "referenceCount": 3,
+      "sha256": "7b0088d07a6e47feba046445aa70ac8f9f1d9d8b324c0790a4eb8d709000f324",
+      "referenceCount": 8,
       "referenceLocations": [
-        "src/data/page-layouts.json:591",
-        "src/data/page-layouts.json:642",
-        "src/data/page-layouts.json:768"
+        "src/content/picture-vocabulary.json:44",
+        "src/data/conversion-status.json:229",
+        "src/data/conversion-status.json:259",
+        "src/data/conversion-status.json:315",
+        "src/data/faithful-art-manifest.json:71",
+        "src/data/page-layouts.json:1026",
+        "src/data/page-layouts.json:848",
+        "src/data/page-layouts.json:900"
       ]
     },
     {
@@ -1969,26 +2015,28 @@
       "pageNumber": null,
       "assetClass": "cutout",
       "dimensions": {
-        "width": 870,
-        "height": 636
+        "width": 1254,
+        "height": 1254
       },
-      "hasAlpha": true,
-      "aspectRatio": 1.367925,
+      "hasAlpha": false,
+      "aspectRatio": 1,
       "provenanceStatus": null,
-      "sha256": "6a923fda703e0812a908b7ee2e0606d2d67fd5acf3ad3ba579f99922910fe671",
-      "referenceCount": 11,
+      "sha256": "2cb64f6a1bdb0456eccfc4ccec6b01d1ea3069422bd7c622adacd6e837a674f0",
+      "referenceCount": 13,
       "referenceLocations": [
         "src/content/lessons.json:28",
-        "src/content/workbook/workbook-manifest.json:1099",
-        "src/content/workbook/workbook-manifest.json:1565",
-        "src/content/workbook/workbook-manifest.json:641",
-        "src/content/workbook/workbook-manifest.json:845",
-        "src/content/workbook/workbook-manifest.json:986",
-        "src/data/page-layouts.json:338",
-        "src/data/page-layouts.json:444",
-        "src/data/page-layouts.json:565",
-        "src/data/page-layouts.json:631",
-        "src/data/page-layouts.json:974"
+        "src/content/picture-vocabulary.json:65",
+        "src/data/conversion-status.json:133",
+        "src/data/conversion-status.json:171",
+        "src/data/conversion-status.json:224",
+        "src/data/conversion-status.json:257",
+        "src/data/conversion-status.json:404",
+        "src/data/faithful-art-manifest.json:153",
+        "src/data/page-layouts.json:1233",
+        "src/data/page-layouts.json:594",
+        "src/data/page-layouts.json:701",
+        "src/data/page-layouts.json:822",
+        "src/data/page-layouts.json:889"
       ]
     },
     {
@@ -2010,12 +2058,11 @@
       "aspectRatio": 1.211699,
       "provenanceStatus": "PROVENANCE-UNKNOWN",
       "sha256": "e2d3bbf6c1a7a406f6597162f036bb8bd945bc7f78a335b7a1a26d39c24ba5ce",
-      "referenceCount": 4,
+      "referenceCount": 3,
       "referenceLocations": [
-        "src/content/workbook/workbook-manifest.json:259",
-        "src/data/page-layouts.json:141",
-        "src/routes/cartilla/-leccion-view.tsx:33",
-        "src/routes/cartilla/practica.tsx:33"
+        "src/content/picture-vocabulary.json:86",
+        "src/data/faithful-art-manifest.json:632",
+        "src/data/page-layouts.json:276"
       ]
     },
     {
@@ -2037,20 +2084,15 @@
       "aspectRatio": 0.931034,
       "provenanceStatus": null,
       "sha256": "9d90c866b946b8859ff92886eee2c2c6ca9ffe78527d8f50e89218f79b59c918",
-      "referenceCount": 12,
+      "referenceCount": 7,
       "referenceLocations": [
-        "src/content/animal-gallery.ts:47",
-        "src/content/consonants.json:540",
-        "src/content/workbook/workbook-manifest.json:481",
-        "src/content/workbook/workbook-manifest.json:4987",
-        "src/content/workbook/workbook-manifest.json:5304",
-        "src/content/workbook/workbook-manifest.json:707",
-        "src/data/page-layouts.json:264",
-        "src/data/page-layouts.json:368",
-        "src/data/page-layouts.json:4113",
-        "src/data/page-layouts.json:4354",
-        "src/routes/cartilla/-leccion-view.tsx:34",
-        "src/routes/cartilla/practica.tsx:34"
+        "src/content/animal-gallery.ts:51",
+        "src/content/picture-vocabulary.json:94",
+        "src/data/conversion-status.json:103",
+        "src/data/conversion-status.json:139",
+        "src/data/faithful-art-manifest.json:167",
+        "src/data/page-layouts.json:520",
+        "src/data/page-layouts.json:624"
       ]
     },
     {
@@ -2065,22 +2107,23 @@
       "pageNumber": null,
       "assetClass": "cutout",
       "dimensions": {
-        "width": 870,
-        "height": 744
+        "width": 1376,
+        "height": 768
       },
-      "hasAlpha": true,
-      "aspectRatio": 1.169355,
+      "hasAlpha": false,
+      "aspectRatio": 1.791667,
       "provenanceStatus": null,
-      "sha256": "e313f0ec62619e0f8498a7f84baf3f74b27e24cd46435a214b23301e6e040ff3",
-      "referenceCount": 7,
+      "sha256": "44c717f8a513214ce8aeeb118da4e9be747ddde19ccdb90e28940efcbb4c32dc",
+      "referenceCount": 8,
       "referenceLocations": [
         "src/content/lessons.json:14",
-        "src/content/workbook/workbook-manifest.json:1893",
-        "src/content/workbook/workbook-manifest.json:303",
-        "src/content/workbook/workbook-manifest.json:953",
-        "src/data/page-layouts.json:1192",
-        "src/data/page-layouts.json:166",
-        "src/data/page-layouts.json:550"
+        "src/content/picture-vocabulary.json:1479",
+        "src/data/conversion-status.json:221",
+        "src/data/conversion-status.json:497",
+        "src/data/faithful-art-manifest.json:550",
+        "src/data/page-layouts.json:1456",
+        "src/data/page-layouts.json:321",
+        "src/data/page-layouts.json:807"
       ]
     },
     {
@@ -2095,17 +2138,20 @@
       "pageNumber": null,
       "assetClass": "cutout",
       "dimensions": {
-        "width": 870,
-        "height": 751
+        "width": 1254,
+        "height": 1254
       },
-      "hasAlpha": true,
-      "aspectRatio": 1.158455,
+      "hasAlpha": false,
+      "aspectRatio": 1,
       "provenanceStatus": "PROVENANCE-UNKNOWN",
-      "sha256": "ddf3333971afba4e709073e4ba7c0b3c12ad9e08a5cae10c5763a453dc7b5f52",
-      "referenceCount": 2,
+      "sha256": "259af9bc12d231e50bfa4c7c9f5dbe527fe0da9efd9eb7822974691d5d01c962",
+      "referenceCount": 5,
       "referenceLocations": [
-        "src/content/animal-gallery.ts:53",
-        "src/data/page-layouts.json:575"
+        "src/content/animal-gallery.ts:57",
+        "src/content/picture-vocabulary.json:102",
+        "src/data/conversion-status.json:226",
+        "src/data/faithful-art-manifest.json:564",
+        "src/data/page-layouts.json:832"
       ]
     },
     {
@@ -2120,21 +2166,21 @@
       "pageNumber": null,
       "assetClass": "cutout",
       "dimensions": {
-        "width": 780,
-        "height": 660
+        "width": 1254,
+        "height": 1254
       },
       "hasAlpha": false,
-      "aspectRatio": 1.181818,
+      "aspectRatio": 1,
       "provenanceStatus": "VERIFIED-AUTHENTIC-FLIPCHART-2026-08-08",
-      "sha256": "c0ce78535ac9b93efcc4a5fafa77f427f975fe592685f751c38287c9ac5a2c4b",
+      "sha256": "d62d770e715bb1f32e04b3975bcdbb0c420ecddb158d5ae05c974eb9795bf6e0",
       "referenceCount": 6,
       "referenceLocations": [
-        "src/content/workbook/workbook-manifest.json:1049",
-        "src/content/workbook/workbook-manifest.json:910",
-        "src/data/page-layouts.json:530",
-        "src/data/page-layouts.json:59",
-        "src/data/page-layouts.json:595",
-        "src/data/page-layouts.json:657"
+        "src/content/picture-vocabulary.json:109",
+        "src/data/conversion-status.json:217",
+        "src/data/conversion-status.json:262",
+        "src/data/faithful-art-manifest.json:371",
+        "src/data/page-layouts.json:787",
+        "src/data/page-layouts.json:915"
       ]
     },
     {
@@ -2149,22 +2195,20 @@
       "pageNumber": null,
       "assetClass": "cutout",
       "dimensions": {
-        "width": 834,
-        "height": 870
+        "width": 1536,
+        "height": 1024
       },
-      "hasAlpha": true,
-      "aspectRatio": 0.958621,
+      "hasAlpha": false,
+      "aspectRatio": 1.5,
       "provenanceStatus": null,
-      "sha256": "db993f2a86aa40a3d9ac8d0d6819e4b98460ca5362de8bb2ba9337a647e82003",
-      "referenceCount": 7,
+      "sha256": "455b89a9f0b4740c5db5f716cb7cf8f8f30de5084b8996ca42dd5f6443d0e5e5",
+      "referenceCount": 5,
       "referenceLocations": [
         "src/content/lessons.json:19",
-        "src/content/workbook/workbook-manifest.json:1028",
-        "src/content/workbook/workbook-manifest.json:81",
-        "src/data/page-layouts.json:48",
-        "src/data/page-layouts.json:585",
-        "src/routes/cartilla/-leccion-view.tsx:35",
-        "src/routes/cartilla/practica.tsx:35"
+        "src/content/picture-vocabulary.json:126",
+        "src/data/conversion-status.json:228",
+        "src/data/faithful-art-manifest.json:357",
+        "src/data/page-layouts.json:842"
       ]
     },
     {
@@ -2179,27 +2223,27 @@
       "pageNumber": null,
       "assetClass": "cutout",
       "dimensions": {
-        "width": 870,
-        "height": 809
+        "width": 1254,
+        "height": 1254
       },
-      "hasAlpha": true,
-      "aspectRatio": 1.075402,
+      "hasAlpha": false,
+      "aspectRatio": 1,
       "provenanceStatus": null,
-      "sha256": "f54e533c6a33b901fcfc79da83b2f7a38977defc47662f6cf29ca948d1cfd28a",
+      "sha256": "6923d549b79d92bad9beef7a3c104a6efb9b517657a93f75310542a4528e17cf",
       "referenceCount": 12,
       "referenceLocations": [
-        "src/content/animal-gallery.ts:65",
-        "src/content/lessons.json:83",
-        "src/content/workbook/workbook-manifest.json:1194",
-        "src/content/workbook/workbook-manifest.json:1395",
-        "src/content/workbook/workbook-manifest.json:1882",
-        "src/content/workbook/workbook-manifest.json:190",
-        "src/content/workbook/workbook-manifest.json:964",
-        "src/data/page-layouts.json:1187",
-        "src/data/page-layouts.json:555",
-        "src/data/page-layouts.json:732",
-        "src/data/page-layouts.json:838",
-        "src/data/page-layouts.json:95"
+        "src/content/animal-gallery.ts:69",
+        "src/content/lessons.json:92",
+        "src/content/picture-vocabulary.json:333",
+        "src/data/conversion-status.json:222",
+        "src/data/conversion-status.json:308",
+        "src/data/conversion-status.json:347",
+        "src/data/conversion-status.json:496",
+        "src/data/faithful-art-manifest.json:181",
+        "src/data/page-layouts.json:1097",
+        "src/data/page-layouts.json:1451",
+        "src/data/page-layouts.json:812",
+        "src/data/page-layouts.json:990"
       ]
     },
     {
@@ -2221,11 +2265,15 @@
       "aspectRatio": 1.010453,
       "provenanceStatus": null,
       "sha256": "5f3a27b85db1ba6178ca9bc22c3aad28146d1d45f95aabc80caeaa71cd7b892d",
-      "referenceCount": 3,
+      "referenceCount": 7,
       "referenceLocations": [
-        "src/content/animal-gallery.ts:71",
-        "src/data/page-layouts.json:757",
-        "src/data/page-layouts.json:848"
+        "src/content/animal-gallery.ts:75",
+        "src/content/picture-vocabulary.json:349",
+        "src/data/conversion-status.json:313",
+        "src/data/conversion-status.json:349",
+        "src/data/faithful-art-manifest.json:195",
+        "src/data/page-layouts.json:1015",
+        "src/data/page-layouts.json:1107"
       ]
     },
     {
@@ -2249,12 +2297,12 @@
       "sha256": "2d5b6a8d9728a46748041231ed82f40b5f9e955669ca88c43b9e93e7e84d32f4",
       "referenceCount": 6,
       "referenceLocations": [
-        "src/content/workbook/workbook-manifest.json:113",
-        "src/content/workbook/workbook-manifest.json:1237",
-        "src/content/workbook/workbook-manifest.json:1437",
-        "src/data/page-layouts.json:63",
-        "src/data/page-layouts.json:752",
-        "src/data/page-layouts.json:858"
+        "src/content/picture-vocabulary.json:357",
+        "src/data/conversion-status.json:312",
+        "src/data/conversion-status.json:351",
+        "src/data/faithful-art-manifest.json:209",
+        "src/data/page-layouts.json:1010",
+        "src/data/page-layouts.json:1117"
       ]
     },
     {
@@ -2269,17 +2317,21 @@
       "pageNumber": null,
       "assetClass": "cutout",
       "dimensions": {
-        "width": 556,
-        "height": 700
+        "width": 1122,
+        "height": 1402
       },
-      "hasAlpha": true,
-      "aspectRatio": 0.794286,
+      "hasAlpha": false,
+      "aspectRatio": 0.800285,
       "provenanceStatus": "FIXED-2026-WRONG-PAGE",
-      "sha256": "6f4a542ddde9d03b03f0987d9813bafded1d946632cb0f2c1c12acf4e9732091",
-      "referenceCount": 2,
+      "sha256": "41c50904e77da7d79dbeee944b305cfa8690a7c0458eded14270797c3010b0f9",
+      "referenceCount": 6,
       "referenceLocations": [
-        "src/data/page-layouts.json:277",
-        "src/data/page-layouts.json:773"
+        "src/content/picture-vocabulary.json:366",
+        "src/data/conversion-status.json:105",
+        "src/data/conversion-status.json:316",
+        "src/data/faithful-art-manifest.json:450",
+        "src/data/page-layouts.json:1031",
+        "src/data/page-layouts.json:533"
       ]
     },
     {
@@ -2303,10 +2355,10 @@
       "sha256": "37858d5e3e071c4f18d7f369cf4796ee30b878d0c05eb3a8da037e6afb5e6134",
       "referenceCount": 4,
       "referenceLocations": [
-        "src/content/workbook/workbook-manifest.json:1321",
-        "src/content/workbook/workbook-manifest.json:135",
-        "src/data/page-layouts.json:73",
-        "src/data/page-layouts.json:792"
+        "src/content/picture-vocabulary.json:375",
+        "src/data/conversion-status.json:320",
+        "src/data/faithful-art-manifest.json:574",
+        "src/data/page-layouts.json:1050"
       ]
     },
     {
@@ -2328,11 +2380,13 @@
       "aspectRatio": 1.057108,
       "provenanceStatus": null,
       "sha256": "7db9f69595efd252bce1e11cec378cb05d0cbf0f9be017b84226affd519508b2",
-      "referenceCount": 3,
+      "referenceCount": 5,
       "referenceLocations": [
-        "src/content/lessons.json:92",
-        "src/content/workbook/workbook-manifest.json:1343",
-        "src/data/page-layouts.json:802"
+        "src/content/lessons.json:101",
+        "src/content/picture-vocabulary.json:382",
+        "src/data/conversion-status.json:322",
+        "src/data/faithful-art-manifest.json:315",
+        "src/data/page-layouts.json:1060"
       ]
     },
     {
@@ -2347,28 +2401,29 @@
       "pageNumber": null,
       "assetClass": "cutout",
       "dimensions": {
-        "width": 757,
-        "height": 864
+        "width": 1254,
+        "height": 1254
       },
-      "hasAlpha": true,
-      "aspectRatio": 0.876157,
+      "hasAlpha": false,
+      "aspectRatio": 1,
       "provenanceStatus": "VERIFIED-AUTHENTIC-FLIPCHART-2026-09-25",
-      "sha256": "f8b613f63a923668ec36a558bf35585aaca15f4d2f9d80c247432ed15c3e13ab",
-      "referenceCount": 13,
+      "sha256": "33c0dc5db489a430282795aef28f3c85e63b676272261a3cd949b465080ff477",
+      "referenceCount": 14,
       "referenceLocations": [
-        "src/content/lessons.json:97",
-        "src/content/workbook/workbook-manifest.json:1299",
-        "src/content/workbook/workbook-manifest.json:1448",
-        "src/content/workbook/workbook-manifest.json:1860",
-        "src/content/workbook/workbook-manifest.json:2064",
-        "src/content/workbook/workbook-manifest.json:314",
-        "src/content/workbook/workbook-manifest.json:997",
-        "src/data/page-layouts.json:1177",
-        "src/data/page-layouts.json:1279",
-        "src/data/page-layouts.json:171",
-        "src/data/page-layouts.json:570",
-        "src/data/page-layouts.json:782",
-        "src/data/page-layouts.json:863"
+        "src/content/lessons.json:106",
+        "src/content/picture-vocabulary.json:390",
+        "src/data/conversion-status.json:225",
+        "src/data/conversion-status.json:318",
+        "src/data/conversion-status.json:352",
+        "src/data/conversion-status.json:494",
+        "src/data/conversion-status.json:533",
+        "src/data/faithful-art-manifest.json:118",
+        "src/data/page-layouts.json:1040",
+        "src/data/page-layouts.json:1122",
+        "src/data/page-layouts.json:1441",
+        "src/data/page-layouts.json:1548",
+        "src/data/page-layouts.json:330",
+        "src/data/page-layouts.json:827"
       ]
     },
     {
@@ -2390,10 +2445,12 @@
       "aspectRatio": 1.162162,
       "provenanceStatus": "PROVENANCE-UNKNOWN",
       "sha256": "3747101ccd2e49b823f43da39ccb3171eeb213dbbc99ef0d7d0b4d1d39c5392b",
-      "referenceCount": 2,
+      "referenceCount": 4,
       "referenceLocations": [
-        "src/content/workbook/workbook-manifest.json:502",
-        "src/data/page-layouts.json:270"
+        "src/content/picture-vocabulary.json:519",
+        "src/data/conversion-status.json:104",
+        "src/data/faithful-art-manifest.json:430",
+        "src/data/page-layouts.json:526"
       ]
     },
     {
@@ -2408,22 +2465,30 @@
       "pageNumber": null,
       "assetClass": "cutout",
       "dimensions": {
-        "width": 600,
-        "height": 570
+        "width": 1254,
+        "height": 1254
       },
       "hasAlpha": false,
-      "aspectRatio": 1.052632,
+      "aspectRatio": 1,
       "provenanceStatus": "VERIFIED-AUTHENTIC-FLIPCHART-2026-08-08",
-      "sha256": "bfc0ab830718b9d1dd37163800ce64aadc5b9df1d487d89e071cdbb1afa3ee6f",
-      "referenceCount": 7,
+      "sha256": "efc0f302f80470fc3621837988fc95ad9a76e4a1e855fa3ba62ceabac6db0772",
+      "referenceCount": 15,
       "referenceLocations": [
-        "src/content/lessons.json:152",
-        "src/data/page-layouts.json:1056",
-        "src/data/page-layouts.json:314",
-        "src/data/page-layouts.json:410",
-        "src/data/page-layouts.json:627",
-        "src/data/page-layouts.json:738",
-        "src/data/page-layouts.json:945"
+        "src/content/lessons.json:170",
+        "src/content/picture-vocabulary.json:526",
+        "src/data/conversion-status.json:128",
+        "src/data/conversion-status.json:164",
+        "src/data/conversion-status.json:256",
+        "src/data/conversion-status.json:309",
+        "src/data/conversion-status.json:398",
+        "src/data/conversion-status.json:439",
+        "src/data/faithful-art-manifest.json:87",
+        "src/data/page-layouts.json:1204",
+        "src/data/page-layouts.json:1316",
+        "src/data/page-layouts.json:570",
+        "src/data/page-layouts.json:667",
+        "src/data/page-layouts.json:885",
+        "src/data/page-layouts.json:996"
       ]
     },
     {
@@ -2445,10 +2510,14 @@
       "aspectRatio": 1.266376,
       "provenanceStatus": "PROVENANCE-UNKNOWN",
       "sha256": "22dd1c51277b2ae1a236677758a836567626f4b84660c45dee5deb6c19f3fb4a",
-      "referenceCount": 2,
+      "referenceCount": 6,
       "referenceLocations": [
-        "src/data/page-layouts.json:1009",
-        "src/data/page-layouts.json:1060"
+        "src/content/picture-vocabulary.json:534",
+        "src/data/conversion-status.json:411",
+        "src/data/conversion-status.json:440",
+        "src/data/faithful-art-manifest.json:584",
+        "src/data/page-layouts.json:1268",
+        "src/data/page-layouts.json:1320"
       ]
     },
     {
@@ -2470,12 +2539,16 @@
       "aspectRatio": 1.158455,
       "provenanceStatus": "PROVENANCE-UNKNOWN",
       "sha256": "2d54a211628f6d479dc15e55cb705170e5e295fa724d10f08334b7c7f9b9e491",
-      "referenceCount": 4,
+      "referenceCount": 8,
       "referenceLocations": [
-        "src/content/animal-gallery.ts:77",
-        "src/content/lessons.json:162",
-        "src/data/page-layouts.json:1075",
-        "src/data/page-layouts.json:954"
+        "src/content/animal-gallery.ts:81",
+        "src/content/lessons.json:180",
+        "src/content/picture-vocabulary.json:541",
+        "src/data/conversion-status.json:400",
+        "src/data/conversion-status.json:443",
+        "src/data/faithful-art-manifest.json:594",
+        "src/data/page-layouts.json:1213",
+        "src/data/page-layouts.json:1335"
       ]
     },
     {
@@ -2490,29 +2563,26 @@
       "pageNumber": null,
       "assetClass": "cutout",
       "dimensions": {
-        "width": 870,
-        "height": 716
+        "width": 1431,
+        "height": 1099
       },
-      "hasAlpha": true,
-      "aspectRatio": 1.215084,
+      "hasAlpha": false,
+      "aspectRatio": 1.302093,
       "provenanceStatus": null,
-      "sha256": "881055e3411d1b78e68c751ff24472d465f33028aa3c173fb5b3ee830a4fe804",
-      "referenceCount": 14,
+      "sha256": "93482770796ce8f3179eea19ac8d44667d121e800df5db11654da18d6aefe99f",
+      "referenceCount": 11,
       "referenceLocations": [
-        "src/content/lessons.json:167",
-        "src/content/workbook/workbook-manifest.json:1597",
-        "src/content/workbook/workbook-manifest.json:1693",
-        "src/content/workbook/workbook-manifest.json:2075",
-        "src/content/workbook/workbook-manifest.json:37",
-        "src/content/workbook/workbook-manifest.json:92",
-        "src/content/workbook/workbook-manifest.json:921",
-        "src/data/page-layouts.json:1045",
-        "src/data/page-layouts.json:1284",
-        "src/data/page-layouts.json:28",
-        "src/data/page-layouts.json:53",
-        "src/data/page-layouts.json:535",
-        "src/data/page-layouts.json:989",
-        "src/routes/cartilla/-leccion-view.tsx:36"
+        "src/content/lessons.json:185",
+        "src/content/picture-vocabulary.json:548",
+        "src/data/conversion-status.json:218",
+        "src/data/conversion-status.json:407",
+        "src/data/conversion-status.json:437",
+        "src/data/conversion-status.json:534",
+        "src/data/faithful-art-manifest.json:388",
+        "src/data/page-layouts.json:1248",
+        "src/data/page-layouts.json:1305",
+        "src/data/page-layouts.json:1553",
+        "src/data/page-layouts.json:792"
       ]
     },
     {
@@ -2534,16 +2604,17 @@
       "aspectRatio": 0.955172,
       "provenanceStatus": null,
       "sha256": "5a51e6c5d9fe0c04c9be33c4d171774970063e1873eb66f4ecc557d7620bd542",
-      "referenceCount": 8,
+      "referenceCount": 9,
       "referenceLocations": [
-        "src/content/workbook/workbook-manifest.json:1226",
-        "src/content/workbook/workbook-manifest.json:1554",
-        "src/content/workbook/workbook-manifest.json:1735",
-        "src/content/workbook/workbook-manifest.json:336",
-        "src/data/page-layouts.json:1065",
-        "src/data/page-layouts.json:186",
-        "src/data/page-layouts.json:747",
-        "src/data/page-layouts.json:969"
+        "src/content/picture-vocabulary.json:558",
+        "src/data/conversion-status.json:311",
+        "src/data/conversion-status.json:403",
+        "src/data/conversion-status.json:441",
+        "src/data/faithful-art-manifest.json:223",
+        "src/data/page-layouts.json:1005",
+        "src/data/page-layouts.json:1228",
+        "src/data/page-layouts.json:1325",
+        "src/data/page-layouts.json:357"
       ]
     },
     {
@@ -2565,12 +2636,14 @@
       "aspectRatio": 1.148148,
       "provenanceStatus": "VERIFIED-AUTHENTIC-FLIPCHART-2026-09-25",
       "sha256": "95396f7f1f45ed81dc1b0bbc2ea68eae391c817cff76732158f8d49c54d8499d",
-      "referenceCount": 4,
+      "referenceCount": 6,
       "referenceLocations": [
-        "src/content/workbook/workbook-manifest.json:1651",
-        "src/content/workbook/workbook-manifest.json:1958",
-        "src/data/page-layouts.json:1014",
-        "src/data/page-layouts.json:1220"
+        "src/content/picture-vocabulary.json:566",
+        "src/data/conversion-status.json:412",
+        "src/data/conversion-status.json:502",
+        "src/data/faithful-art-manifest.json:237",
+        "src/data/page-layouts.json:1273",
+        "src/data/page-layouts.json:1486"
       ]
     },
     {
@@ -2585,17 +2658,19 @@
       "pageNumber": null,
       "assetClass": "cutout",
       "dimensions": {
-        "width": 270,
-        "height": 414
+        "width": 1304,
+        "height": 1206
       },
-      "hasAlpha": true,
-      "aspectRatio": 0.652174,
+      "hasAlpha": false,
+      "aspectRatio": 1.08126,
       "provenanceStatus": null,
-      "sha256": "35e515beb0bda63c986e7741b9460b5f96ac226286926e9af8cc95c03aad50ee",
-      "referenceCount": 2,
+      "sha256": "3ecf0ffc8bf7fef7654c8e80a15714ccfc13c10878b3ac5bbf781e2701e8ac37",
+      "referenceCount": 4,
       "referenceLocations": [
-        "src/content/workbook/workbook-manifest.json:1576",
-        "src/data/page-layouts.json:979"
+        "src/content/picture-vocabulary.json:574",
+        "src/data/conversion-status.json:405",
+        "src/data/faithful-art-manifest.json:604",
+        "src/data/page-layouts.json:1238"
       ]
     },
     {
@@ -2617,14 +2692,13 @@
       "aspectRatio": 1.108518,
       "provenanceStatus": "VERIFIED-AUTHENTIC-FLIPCHART-2026-09-25",
       "sha256": "927a08c561bbe5b963fb3d3a78ecb0f697044fe8f369c2455e3dcd1ef03583bf",
-      "referenceCount": 6,
+      "referenceCount": 5,
       "referenceLocations": [
-        "src/content/lessons.json:157",
-        "src/content/workbook/workbook-manifest.json:1619",
-        "src/content/workbook/workbook-manifest.json:70",
-        "src/data/page-layouts.json:43",
-        "src/data/page-layouts.json:999",
-        "src/routes/cartilla/-leccion-view.tsx:37"
+        "src/content/lessons.json:175",
+        "src/content/picture-vocabulary.json:588",
+        "src/data/conversion-status.json:409",
+        "src/data/faithful-art-manifest.json:255",
+        "src/data/page-layouts.json:1258"
       ]
     },
     {
@@ -2646,12 +2720,14 @@
       "aspectRatio": 0.835632,
       "provenanceStatus": null,
       "sha256": "57e774105813678e5df5ab957530f67d0b5948936ef884054c9f4b23b6725bfb",
-      "referenceCount": 4,
+      "referenceCount": 6,
       "referenceLocations": [
-        "src/content/workbook/workbook-manifest.json:460",
-        "src/content/workbook/workbook-manifest.json:685",
-        "src/data/page-layouts.json:258",
-        "src/data/page-layouts.json:358"
+        "src/content/picture-vocabulary.json:915",
+        "src/data/conversion-status.json:102",
+        "src/data/conversion-status.json:137",
+        "src/data/faithful-art-manifest.json:273",
+        "src/data/page-layouts.json:514",
+        "src/data/page-layouts.json:614"
       ]
     },
     {
@@ -2673,12 +2749,17 @@
       "aspectRatio": 0.98046,
       "provenanceStatus": "QA-PASS-SOURCE-PAGE-NOT-RECORDED",
       "sha256": "61dd81317cbbf7fa5e43b09c09ad1d9b21a68db790c39c0a4857aa088876d313",
-      "referenceCount": 4,
+      "referenceCount": 9,
       "referenceLocations": [
-        "src/content/lessons.json:232",
-        "src/data/page-layouts.json:308",
-        "src/data/page-layouts.json:434",
-        "src/data/page-layouts.json:984"
+        "src/content/lessons.json:259",
+        "src/content/picture-vocabulary.json:931",
+        "src/data/conversion-status.json:127",
+        "src/data/conversion-status.json:169",
+        "src/data/conversion-status.json:406",
+        "src/data/faithful-art-manifest.json:482",
+        "src/data/page-layouts.json:1243",
+        "src/data/page-layouts.json:564",
+        "src/data/page-layouts.json:691"
       ]
     },
     {
@@ -2693,24 +2774,24 @@
       "pageNumber": null,
       "assetClass": "cutout",
       "dimensions": {
-        "width": 870,
-        "height": 618
+        "width": 1122,
+        "height": 1402
       },
-      "hasAlpha": true,
-      "aspectRatio": 1.407767,
+      "hasAlpha": false,
+      "aspectRatio": 0.800285,
       "provenanceStatus": null,
-      "sha256": "7f38ec806dc9da0d44910c5084c96c35c4c920f5ae3f8750040b801b7518b79d",
+      "sha256": "47150f5ae5f4823ba622c8c88af89d1173a8b2bec40383c58ba1c190ee7c0c60",
       "referenceCount": 9,
       "referenceLocations": [
-        "src/content/lessons.json:237",
-        "src/content/workbook/workbook-manifest.json:1662",
-        "src/content/workbook/workbook-manifest.json:232",
-        "src/content/workbook/workbook-manifest.json:663",
-        "src/content/workbook/workbook-manifest.json:813",
-        "src/data/page-layouts.json:1019",
-        "src/data/page-layouts.json:114",
-        "src/data/page-layouts.json:348",
-        "src/data/page-layouts.json:429"
+        "src/content/lessons.json:264",
+        "src/content/picture-vocabulary.json:938",
+        "src/data/conversion-status.json:135",
+        "src/data/conversion-status.json:168",
+        "src/data/conversion-status.json:413",
+        "src/data/faithful-art-manifest.json:402",
+        "src/data/page-layouts.json:1278",
+        "src/data/page-layouts.json:604",
+        "src/data/page-layouts.json:686"
       ]
     },
     {
@@ -2734,12 +2815,12 @@
       "sha256": "7f602fbf9fad421d05f0d6af2158ce0d8351499b6ec338b771409e810a7d798d",
       "referenceCount": 6,
       "referenceLocations": [
-        "src/content/workbook/workbook-manifest.json:146",
-        "src/content/workbook/workbook-manifest.json:652",
-        "src/content/workbook/workbook-manifest.json:802",
-        "src/data/page-layouts.json:343",
-        "src/data/page-layouts.json:424",
-        "src/data/page-layouts.json:78"
+        "src/content/picture-vocabulary.json:948",
+        "src/data/conversion-status.json:134",
+        "src/data/conversion-status.json:167",
+        "src/data/faithful-art-manifest.json:287",
+        "src/data/page-layouts.json:599",
+        "src/data/page-layouts.json:681"
       ]
     },
     {
@@ -2754,17 +2835,20 @@
       "pageNumber": 7,
       "assetClass": "cutout",
       "dimensions": {
-        "width": 580,
-        "height": 570
+        "width": 1254,
+        "height": 1254
       },
       "hasAlpha": false,
-      "aspectRatio": 1.017544,
+      "aspectRatio": 1,
       "provenanceStatus": "VERIFIED-EXACT-WORKBOOK-CROP-2026-08-08",
-      "sha256": "69977ee19c874c68a1e82d0f7747b4fae8e79640cd961e23c3d4ea9ec3046ead",
-      "referenceCount": 3,
+      "sha256": "2dfdebc0ed5c3cf5a741803f6505d5792613fc53e0401806b3556b375ed6e163",
+      "referenceCount": 6,
       "referenceLocations": [
-        "src/components/living/LivingIllustration.tsx:24",
-        "src/data/page-layouts.json:526",
+        "src/content/picture-vocabulary.json:957",
+        "src/data/conversion-status.json:216",
+        "src/data/conversion-status.json:236",
+        "src/data/faithful-art-manifest.json:55",
+        "src/data/page-layouts.json:783",
         "src/lib/living-art-runtime.ts:27"
       ]
     },
@@ -2787,8 +2871,10 @@
       "aspectRatio": 0.945977,
       "provenanceStatus": "QA-PASS-AUTHORED-BLINK-2026-09-25",
       "sha256": "f77a0331cefb6dd7840977b2565f0a7d7986e598c158fef36bc42e58e81c5212",
-      "referenceCount": 1,
+      "referenceCount": 3,
       "referenceLocations": [
+        "src/content/picture-vocabulary.json:973",
+        "src/data/faithful-art-manifest.json:1485",
         "src/lib/living-blink-map.ts:7"
       ]
     },
@@ -2804,44 +2890,52 @@
       "pageNumber": null,
       "assetClass": "cutout",
       "dimensions": {
-        "width": 823,
-        "height": 870
+        "width": 1254,
+        "height": 1254
       },
-      "hasAlpha": true,
-      "aspectRatio": 0.945977,
+      "hasAlpha": false,
+      "aspectRatio": 1,
       "provenanceStatus": null,
-      "sha256": "cd49151f12332d1201e535eb18f0e0191867bd035af46f3d836492ab7680fbdf",
-      "referenceCount": 29,
+      "sha256": "10716a9f5485cdf14e037d9f47d25c7fb9ea366d1322f1eeee7c31eafa07a668",
+      "referenceCount": 37,
       "referenceLocations": [
-        "src/components/living/LivingIllustration.tsx:23",
-        "src/content/animal-gallery.ts:83",
-        "src/content/lessons.json:222",
-        "src/content/workbook/workbook-manifest.json:1078",
-        "src/content/workbook/workbook-manifest.json:1384",
-        "src/content/workbook/workbook-manifest.json:1543",
-        "src/content/workbook/workbook-manifest.json:1704",
-        "src/content/workbook/workbook-manifest.json:1915",
-        "src/content/workbook/workbook-manifest.json:2020",
-        "src/content/workbook/workbook-manifest.json:369",
-        "src/content/workbook/workbook-manifest.json:59",
-        "src/content/workbook/workbook-manifest.json:597",
-        "src/content/workbook/workbook-manifest.json:718",
-        "src/content/workbook/workbook-manifest.json:834",
-        "src/data/page-layouts.json:1050",
-        "src/data/page-layouts.json:1202",
-        "src/data/page-layouts.json:1259",
-        "src/data/page-layouts.json:206",
-        "src/data/page-layouts.json:318",
-        "src/data/page-layouts.json:373",
-        "src/data/page-layouts.json:38",
-        "src/data/page-layouts.json:439",
-        "src/data/page-layouts.json:621",
-        "src/data/page-layouts.json:833",
-        "src/data/page-layouts.json:964",
-        "src/lib/book-faithful.ts:131",
+        "src/content/animal-gallery.ts:87",
+        "src/content/lessons.json:249",
+        "src/content/picture-vocabulary.json:964",
+        "src/data/conversion-status.json:129",
+        "src/data/conversion-status.json:147",
+        "src/data/conversion-status.json:170",
+        "src/data/conversion-status.json:177",
+        "src/data/conversion-status.json:230",
+        "src/data/conversion-status.json:238",
+        "src/data/conversion-status.json:255",
+        "src/data/conversion-status.json:268",
+        "src/data/conversion-status.json:346",
+        "src/data/conversion-status.json:359",
+        "src/data/conversion-status.json:402",
+        "src/data/conversion-status.json:420",
+        "src/data/conversion-status.json:438",
+        "src/data/conversion-status.json:450",
+        "src/data/conversion-status.json:499",
+        "src/data/conversion-status.json:509",
+        "src/data/conversion-status.json:529",
+        "src/data/conversion-status.json:540",
+        "src/data/faithful-art-manifest.json:104",
+        "src/data/faithful-art-manifest.json:1486",
+        "src/data/page-layouts.json:1092",
+        "src/data/page-layouts.json:1223",
+        "src/data/page-layouts.json:1310",
+        "src/data/page-layouts.json:1466",
+        "src/data/page-layouts.json:1528",
+        "src/data/page-layouts.json:393",
+        "src/data/page-layouts.json:574",
+        "src/data/page-layouts.json:629",
+        "src/data/page-layouts.json:696",
+        "src/data/page-layouts.json:852",
+        "src/data/page-layouts.json:879",
+        "src/lib/book-faithful.ts:145",
         "src/lib/living-art-runtime.ts:26",
-        "src/lib/living-blink-map.ts:7",
-        "src/routes/cartilla/-leccion-view.tsx:38"
+        "src/lib/living-blink-map.ts:7"
       ]
     },
     {
@@ -2856,26 +2950,26 @@
       "pageNumber": null,
       "assetClass": "cutout",
       "dimensions": {
-        "width": 870,
-        "height": 824
+        "width": 1254,
+        "height": 1254
       },
-      "hasAlpha": true,
-      "aspectRatio": 1.055825,
+      "hasAlpha": false,
+      "aspectRatio": 1,
       "provenanceStatus": null,
-      "sha256": "6835094e54b0ea0e5082792e1ae8cdde452ab4bd8be265d170f99d74e7f22d59",
+      "sha256": "625755c06af60b38ac807ed9d9b94d998b8ea3a156020ec8fe61cf6a839885a9",
       "referenceCount": 11,
       "referenceLocations": [
-        "src/content/animal-gallery.ts:89",
-        "src/content/workbook/workbook-manifest.json:179",
-        "src/content/workbook/workbook-manifest.json:1816",
-        "src/content/workbook/workbook-manifest.json:630",
-        "src/content/workbook/workbook-manifest.json:781",
-        "src/content/workbook/workbook-manifest.json:932",
-        "src/data/page-layouts.json:1160",
-        "src/data/page-layouts.json:333",
-        "src/data/page-layouts.json:414",
-        "src/data/page-layouts.json:540",
-        "src/data/page-layouts.json:91"
+        "src/content/animal-gallery.ts:93",
+        "src/content/picture-vocabulary.json:987",
+        "src/data/conversion-status.json:132",
+        "src/data/conversion-status.json:165",
+        "src/data/conversion-status.json:219",
+        "src/data/conversion-status.json:490",
+        "src/data/faithful-art-manifest.json:343",
+        "src/data/page-layouts.json:1421",
+        "src/data/page-layouts.json:589",
+        "src/data/page-layouts.json:671",
+        "src/data/page-layouts.json:797"
       ]
     },
     {
@@ -2897,10 +2991,12 @@
       "aspectRatio": 0.918391,
       "provenanceStatus": null,
       "sha256": "14b2ffeb6bb6c4d70421e4adeed9a59b438bb859484c3123990b2806647c1e70",
-      "referenceCount": 2,
+      "referenceCount": 4,
       "referenceLocations": [
-        "src/content/lessons.json:297",
-        "src/content/lessons.json:336"
+        "src/content/lessons.json:333",
+        "src/content/lessons.json:382",
+        "src/content/picture-vocabulary.json:1348",
+        "src/data/faithful-art-manifest.json:618"
       ]
     },
     {
@@ -2915,21 +3011,23 @@
       "pageNumber": null,
       "assetClass": "cutout",
       "dimensions": {
-        "width": 870,
-        "height": 741
+        "width": 1254,
+        "height": 1254
       },
-      "hasAlpha": true,
-      "aspectRatio": 1.174089,
+      "hasAlpha": false,
+      "aspectRatio": 1,
       "provenanceStatus": null,
-      "sha256": "b8b317eed9123b61371bdd7f175f19eddc0a3c48eea58b569c648227f74d714d",
-      "referenceCount": 6,
+      "sha256": "f7cbea01c38e18712169304a57560796b5e802c1bf5a4855927526ebead3e5b5",
+      "referenceCount": 8,
       "referenceLocations": [
-        "src/content/workbook/workbook-manifest.json:1288",
-        "src/content/workbook/workbook-manifest.json:1805",
-        "src/content/workbook/workbook-manifest.json:2042",
-        "src/data/page-layouts.json:1156",
-        "src/data/page-layouts.json:1269",
-        "src/data/page-layouts.json:777"
+        "src/content/picture-vocabulary.json:1299",
+        "src/data/conversion-status.json:317",
+        "src/data/conversion-status.json:489",
+        "src/data/conversion-status.json:531",
+        "src/data/faithful-art-manifest.json:301",
+        "src/data/page-layouts.json:1035",
+        "src/data/page-layouts.json:1416",
+        "src/data/page-layouts.json:1538"
       ]
     },
     {
@@ -2944,17 +3042,18 @@
       "pageNumber": null,
       "assetClass": "cutout",
       "dimensions": {
-        "width": 685,
-        "height": 870
+        "width": 1007,
+        "height": 1561
       },
-      "hasAlpha": true,
-      "aspectRatio": 0.787356,
+      "hasAlpha": false,
+      "aspectRatio": 0.645099,
       "provenanceStatus": null,
-      "sha256": "8c0156ea857c533d85e701e51ff923e0ab6cc1e85f2368528ad2f6f896fee0c4",
-      "referenceCount": 2,
+      "sha256": "70acf5504a816614f6033bd7daeafdca78854ed283e04d152f68f1c493b9ea1b",
+      "referenceCount": 3,
       "referenceLocations": [
-        "src/content/workbook/workbook-manifest.json:391",
-        "src/data/page-layouts.json:221"
+        "src/content/picture-vocabulary.json:1308",
+        "src/data/faithful-art-manifest.json:672",
+        "src/data/page-layouts.json:420"
       ]
     },
     {
@@ -2969,34 +3068,33 @@
       "pageNumber": null,
       "assetClass": "cutout",
       "dimensions": {
-        "width": 870,
-        "height": 757
+        "width": 1254,
+        "height": 1254
       },
-      "hasAlpha": true,
-      "aspectRatio": 1.149273,
+      "hasAlpha": false,
+      "aspectRatio": 1,
       "provenanceStatus": null,
-      "sha256": "dd202b07eeae643f96adc290d32cb0a10fe167e049ae7f7d6304291dea7d22ed",
-      "referenceCount": 19,
+      "sha256": "3e501dd6235b98c7778f470025f6af243ea379e3da36f48de022029c5b0f2197",
+      "referenceCount": 18,
       "referenceLocations": [
-        "src/content/lessons.json:302",
-        "src/content/workbook/workbook-manifest.json:124",
-        "src/content/workbook/workbook-manifest.json:1354",
-        "src/content/workbook/workbook-manifest.json:1608",
-        "src/content/workbook/workbook-manifest.json:1904",
-        "src/content/workbook/workbook-manifest.json:1969",
-        "src/content/workbook/workbook-manifest.json:2009",
-        "src/content/workbook/workbook-manifest.json:543",
-        "src/content/workbook/workbook-manifest.json:696",
-        "src/content/workbook/workbook-manifest.json:975",
-        "src/data/page-layouts.json:1197",
-        "src/data/page-layouts.json:1224",
-        "src/data/page-layouts.json:1254",
-        "src/data/page-layouts.json:282",
-        "src/data/page-layouts.json:363",
-        "src/data/page-layouts.json:560",
-        "src/data/page-layouts.json:68",
-        "src/data/page-layouts.json:807",
-        "src/data/page-layouts.json:994"
+        "src/content/lessons.json:338",
+        "src/content/picture-vocabulary.json:1317",
+        "src/data/conversion-status.json:106",
+        "src/data/conversion-status.json:138",
+        "src/data/conversion-status.json:223",
+        "src/data/conversion-status.json:323",
+        "src/data/conversion-status.json:408",
+        "src/data/conversion-status.json:498",
+        "src/data/conversion-status.json:528",
+        "src/data/faithful-art-manifest.json:329",
+        "src/data/page-layouts.json:1065",
+        "src/data/page-layouts.json:1253",
+        "src/data/page-layouts.json:1461",
+        "src/data/page-layouts.json:1491",
+        "src/data/page-layouts.json:1523",
+        "src/data/page-layouts.json:538",
+        "src/data/page-layouts.json:619",
+        "src/data/page-layouts.json:817"
       ]
     },
     {
@@ -3018,15 +3116,17 @@
       "aspectRatio": 1.438017,
       "provenanceStatus": null,
       "sha256": "2413df1fb07b25b5f40edf0bb96d0a636020eb65ff5c8637f2bf9695735a3c41",
-      "referenceCount": 7,
+      "referenceCount": 9,
       "referenceLocations": [
-        "src/content/lessons.json:292",
-        "src/content/workbook/workbook-manifest.json:1849",
-        "src/content/workbook/workbook-manifest.json:2031",
-        "src/content/workbook/workbook-manifest.json:674",
-        "src/data/page-layouts.json:1172",
-        "src/data/page-layouts.json:1264",
-        "src/data/page-layouts.json:353"
+        "src/content/lessons.json:328",
+        "src/content/picture-vocabulary.json:1340",
+        "src/data/conversion-status.json:136",
+        "src/data/conversion-status.json:493",
+        "src/data/conversion-status.json:530",
+        "src/data/faithful-art-manifest.json:416",
+        "src/data/page-layouts.json:1436",
+        "src/data/page-layouts.json:1533",
+        "src/data/page-layouts.json:609"
       ]
     }
   ]

@@ -1,15 +1,5 @@
 {
-  "_canonicalMapping": {
-    "note": "Canonical artwork-to-slot mapping. Do NOT ask the owner to re-map. Do NOT regenerate it.",
-    "csv": "docs/artwork-reconciliation/mapping/MASTER-MAPPING.csv",
-    "md": "docs/artwork-reconciliation/mapping/MASTER-MAPPING.md",
-    "evidence": "docs/proofs/artwork-coverage-2026-10-14/",
-    "pointer": "docs/ARTWORK_MAPPING_CANONICAL.md",
-    "placements": 330,
-    "drawingGroups": 201,
-    "engravedOnMain": "2026-10-15"
-  },
-  "timestamp": "2026-10-08T18:13:58.313Z",
+  "timestamp": "2026-10-18T04:03:05.403Z",
   "counts": {
     "faithfulWired": 110,
     "flipchartNativeWired": 167,
@@ -112,7 +102,7 @@
       "provenance": "PROVENANCE-UNKNOWN",
       "qaVerdict": "PASS",
       "dimensions": "870x852",
-      "bytes": 67248,
+      "bytes": 73130,
       "isQuarantined": false
     },
     {
@@ -741,8 +731,8 @@
       "classification": "CROP FIX",
       "provenance": "FIXED-2026-WRONG-CROP",
       "qaVerdict": "PASS",
-      "dimensions": "870x842",
-      "bytes": 149674,
+      "dimensions": "1254x1254",
+      "bytes": 205102,
       "isQuarantined": false
     },
     {
@@ -751,8 +741,8 @@
       "classification": "PASS",
       "provenance": "VERIFIED-EXACT-WORKBOOK-CROP-2026-08-08",
       "qaVerdict": "PASS",
-      "dimensions": "462x495",
-      "bytes": 40196,
+      "dimensions": "1254x1254",
+      "bytes": 197584,
       "isQuarantined": false
     },
     {
@@ -761,8 +751,8 @@
       "classification": "PASS",
       "provenance": "VERIFIED-EXACT-WORKBOOK-CROP-2026-08-08",
       "qaVerdict": "PASS",
-      "dimensions": "413x495",
-      "bytes": 20268,
+      "dimensions": "1254x1254",
+      "bytes": 78456,
       "isQuarantined": false
     },
     {
@@ -771,8 +761,8 @@
       "classification": "PASS",
       "provenance": "",
       "qaVerdict": "PASS",
-      "dimensions": "870x636",
-      "bytes": 57452,
+      "dimensions": "1254x1254",
+      "bytes": 83662,
       "isQuarantined": false
     },
     {
@@ -801,8 +791,8 @@
       "classification": "PASS",
       "provenance": "",
       "qaVerdict": "PASS",
-      "dimensions": "870x744",
-      "bytes": 92816,
+      "dimensions": "1376x768",
+      "bytes": 81652,
       "isQuarantined": false
     },
     {
@@ -811,8 +801,8 @@
       "classification": "PENDING NO VERIFIED SOURCE",
       "provenance": "PROVENANCE-UNKNOWN",
       "qaVerdict": "PASS",
-      "dimensions": "870x751",
-      "bytes": 92590,
+      "dimensions": "1254x1254",
+      "bytes": 175008,
       "isQuarantined": false
     },
     {
@@ -821,8 +811,8 @@
       "classification": "PASS",
       "provenance": "VERIFIED-AUTHENTIC-FLIPCHART-2026-08-08",
       "qaVerdict": "PASS",
-      "dimensions": "780x660",
-      "bytes": 28648,
+      "dimensions": "1254x1254",
+      "bytes": 225932,
       "isQuarantined": false
     },
     {
@@ -831,8 +821,8 @@
       "classification": "PASS",
       "provenance": "",
       "qaVerdict": "PASS",
-      "dimensions": "834x870",
-      "bytes": 77618,
+      "dimensions": "1536x1024",
+      "bytes": 142458,
       "isQuarantined": false
     },
     {
@@ -841,8 +831,8 @@
       "classification": "PASS",
       "provenance": "",
       "qaVerdict": "PASS",
-      "dimensions": "870x809",
-      "bytes": 71864,
+      "dimensions": "1254x1254",
+      "bytes": 178444,
       "isQuarantined": false
     },
     {
@@ -871,8 +861,8 @@
       "classification": "PASS",
       "provenance": "FIXED-2026-WRONG-PAGE",
       "qaVerdict": "PASS",
-      "dimensions": "556x700",
-      "bytes": 39104,
+      "dimensions": "1122x1402",
+      "bytes": 92464,
       "isQuarantined": false
     },
     {
@@ -901,8 +891,8 @@
       "classification": "PASS",
       "provenance": "VERIFIED-AUTHENTIC-FLIPCHART-2026-09-25",
       "qaVerdict": "PASS",
-      "dimensions": "757x864",
-      "bytes": 235260,
+      "dimensions": "1254x1254",
+      "bytes": 140780,
       "isQuarantined": false
     },
     {
@@ -921,8 +911,8 @@
       "classification": "PASS",
       "provenance": "VERIFIED-AUTHENTIC-FLIPCHART-2026-08-08",
       "qaVerdict": "PASS",
-      "dimensions": "600x570",
-      "bytes": 22594,
+      "dimensions": "1254x1254",
+      "bytes": 186916,
       "isQuarantined": false
     },
     {
@@ -951,8 +941,8 @@
       "classification": "PASS",
       "provenance": "",
       "qaVerdict": "PASS",
-      "dimensions": "870x716",
-      "bytes": 70850,
+      "dimensions": "1431x1099",
+      "bytes": 113824,
       "isQuarantined": false
     },
     {
@@ -981,8 +971,8 @@
       "classification": "PASS",
       "provenance": "",
       "qaVerdict": "PASS",
-      "dimensions": "270x414",
-      "bytes": 24158,
+      "dimensions": "1304x1206",
+      "bytes": 284970,
       "isQuarantined": false
     },
     {
@@ -1021,8 +1011,8 @@
       "classification": "PASS",
       "provenance": "",
       "qaVerdict": "PASS",
-      "dimensions": "870x618",
-      "bytes": 47618,
+      "dimensions": "1122x1402",
+      "bytes": 84864,
       "isQuarantined": false
     },
     {
@@ -1041,8 +1031,8 @@
       "classification": "PASS",
       "provenance": "VERIFIED-EXACT-WORKBOOK-CROP-2026-08-08",
       "qaVerdict": "PASS",
-      "dimensions": "580x570",
-      "bytes": 246636,
+      "dimensions": "1254x1254",
+      "bytes": 195170,
       "isQuarantined": false
     },
     {
@@ -1061,8 +1051,8 @@
       "classification": "PASS",
       "provenance": "",
       "qaVerdict": "PASS",
-      "dimensions": "823x870",
-      "bytes": 118004,
+      "dimensions": "1254x1254",
+      "bytes": 155254,
       "isQuarantined": false
     },
     {
@@ -1071,8 +1061,8 @@
       "classification": "PASS",
       "provenance": "",
       "qaVerdict": "PASS",
-      "dimensions": "870x824",
-      "bytes": 98014,
+      "dimensions": "1254x1254",
+      "bytes": 122616,
       "isQuarantined": false
     },
     {
@@ -1091,8 +1081,8 @@
       "classification": "PASS",
       "provenance": "",
       "qaVerdict": "PASS",
-      "dimensions": "870x741",
-      "bytes": 70436,
+      "dimensions": "1254x1254",
+      "bytes": 122748,
       "isQuarantined": false
     },
     {
@@ -1101,8 +1091,8 @@
       "classification": "PASS",
       "provenance": "",
       "qaVerdict": "PASS",
-      "dimensions": "685x870",
-      "bytes": 54992,
+      "dimensions": "1007x1561",
+      "bytes": 140298,
       "isQuarantined": false
     },
     {
@@ -1111,8 +1101,8 @@
       "classification": "PASS",
       "provenance": "",
       "qaVerdict": "PASS",
-      "dimensions": "870x757",
-      "bytes": 80090,
+      "dimensions": "1254x1254",
+      "bytes": 229734,
       "isQuarantined": false
     },
     {
@@ -1140,17 +1130,17 @@
       ],
       "classification": "PENDING NO VERIFIED SOURCE",
       "dimensions": "539x539",
-      "bytes": 177783,
+      "bytes": 322834,
       "exists": true,
       "verified": false,
       "sourcePageMatches": true,
       "hasCropEvidence": true,
       "cropMatch": false,
       "aspectMatch": false,
-      "matchScore": 39,
-      "meanDiff": 45.3,
+      "matchScore": 31,
+      "meanDiff": 50.8,
       "evidence": null,
-      "pendingReason": "no deterministic crop correspondence (ncc 0.388, mean diff 45.3, aspectMatch false)"
+      "pendingReason": "no deterministic crop correspondence (ncc 0.313, mean diff 50.8, aspectMatch false)"
     },
     {
       "src": "/cartilla/art/optimized/flipchart-native/p003-avion.png",

@@ -1,7 +1,8 @@
+import { lesson3PictureAudioProps } from "./Lesson3Audio";
 import { useEffect, useRef, useState } from "react";
 import "@/styles/interactive-exercises.css";
 import type { PageGridCell, PageRegion } from "@/lib/book-faithful";
-import { useActivityEvents, useActivityState } from "@/lib/activity-events";
+import { useActivityEvents, useActivityState, useLesson3Retry } from "@/lib/activity-events";
 import { playCorrectChord, playWrongBuzz } from "@/lib/piano-audio";
 import { LivingIllustration } from "@/components/living/LivingIllustration";
 import { WorkbookPencilMark } from "./WorkbookPencilMark";
@@ -42,7 +43,7 @@ function ArtOrPending({ cell }: { cell: PageGridCell }) {
       {cell.caption ? (
         <span className="fp-art-pending__word">{cell.caption}</span>
       ) : null}
-      <span>pendiente</span>
+      <span>{cell.illustrationSrc === "" ? "MISSING" : "pendiente"}</span>
     </div>
   );
 }
@@ -75,11 +76,12 @@ export function InteractivePictureGrid({
   accent,
   lessonId,
   precise = false,
-  mark = "circle",
+  mark: sourceMark = "circle",
 }: ExerciseProps & { precise?: boolean; mark?: PictureMark }) {
   const { emit: gretelEvent, record: recordEvent } = useActivityEvents();
   const cells = region.cells ?? [];
   const columns = region.columns ?? 4;
+  const retry = useLesson3Retry(lessonId);
   const [solved, setSolved] = useActivityState("solved", false);
   const [validated, setValidated] = useActivityState<Set<number>>("validated", new Set());
   const [attempts, setAttempts] = useState(0);
@@ -99,6 +101,7 @@ export function InteractivePictureGrid({
     if (solved || validated.has(i) || markingCells.size > 0) return;
     const cell = cells[i];
     if (!cell || (hasAnswerKey && cell.correct === undefined)) return;
+    if (hasAnswerKey && cell.correct === false && !retry.attempt(String(i))) return;
     setMarkingCells(new Map([[i, !hasAnswerKey || cell.correct === true]]));
   };
 
@@ -161,7 +164,7 @@ export function InteractivePictureGrid({
     : undefined;
 
   return (
-    <div className={`fp-ix-grid${precise ? " fp-ix-grid--precise" : ""}`} style={{ ["--ix-accent" as string]: accent, gridTemplateRows: exactRows }}>
+    <div data-no-swipe={retry.isProof ? "true" : undefined} className={`fp-ix-grid${precise ? " fp-ix-grid--precise" : ""}`} style={{ ["--ix-accent" as string]: accent, gridTemplateRows: exactRows }}>
       {rows.map((row, r) => (
         <div
           key={r}
@@ -173,15 +176,17 @@ export function InteractivePictureGrid({
             const isMarking = markingCells.has(i);
             const isVal = validated.has(i);
             const isCorrect = isMarking ? markingCells.get(i) : isVal;
+            const mark = retry.isProof && !isCorrect ? "circle" : sourceMark;
 
               return (
                 <button
                   key={i}
                   type="button"
                   className={`fp-ix-cell relative ${isVal ? "graded-correct" : ""}`}
+                  {...(retry.isProof ? lesson3PictureAudioProps(cell.caption) : {})}
                   style={{ ["--ix-float-delay" as string]: floatDelay(i) }}
                   onClick={() => handlePencilTap(i)}
-                  disabled={solved || (hasAnswerKey && cell.correct === undefined) || isVal || (markingCells.size > 0 && !isMarking)}
+                  disabled={!retry.isProof && (solved || (hasAnswerKey && cell.correct === undefined) || isVal || (markingCells.size > 0 && !isMarking))}
                   aria-label={cell.caption ?? "dibujo"}
                   data-gretel-correct={cell.correct === undefined ? undefined : String(cell.correct)}
                   aria-pressed={isVal || isMarking}
@@ -192,6 +197,7 @@ export function InteractivePictureGrid({
                       <WorkbookPencilMark
                         round
                         markType={mark}
+                        retryText={retry.text(String(i))}
                         isCorrect={isCorrect}
                         itemId={`${region.id}-${i}`}
                         completeOnSuccess={Boolean(isCorrect) && validated.size + 1 === totalCorrectRequired}
