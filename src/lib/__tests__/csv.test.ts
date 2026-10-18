@@ -59,4 +59,19 @@ describe("toCSV", () => {
       "leccion,titulo,completada,nota\n1,Lección 1,sí,-10\n2,Matemáticas - Nivel 2,no,",
     );
   });
+
+  it("handles empty strings", () => {
+    expect(toCSV([{ v: "" }])).toBe("v\n");
+  });
+
+  it("handles carriage returns", () => {
+    expect(toCSV([{ v: "a\rb" }])).toBe('v\n"a\rb"');
+    expect(toCSV([{ v: "a\r\nb" }])).toBe('v\n"a\r\nb"');
+  });
+
+  it("handles non-string inputs like objects, arrays and booleans", () => {
+    expect(toCSV([{ obj: { a: 1 } }])).toBe('obj\n[object Object]');
+    expect(toCSV([{ arr: [1, 2, 3] }])).toBe('arr\n"1,2,3"');
+    expect(toCSV([{ bool: true, bool2: false }])).toBe('bool,bool2\ntrue,false');
+  });
 });
