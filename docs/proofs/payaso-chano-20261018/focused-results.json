@@ -1,0 +1,18 @@
+{
+  "checks": 11,
+  "keyboardSpace": true,
+  "nestedButtons": 0,
+  "successAnimationNames": [
+    "chanoLaugh",
+    "boardCheer",
+    "bounce",
+    "bounce"
+  ],
+  "incorrectAnimationNames": [
+    "wobble",
+    "wobble",
+    "wobble"
+  ],
+  "noSystemSpeechOrExternalUrls": true,
+  "sourceSha256": "4c2e92e331d4ea57a396bf9475f264cf20af76f98331b9484418e13e1a958f3b"
+}

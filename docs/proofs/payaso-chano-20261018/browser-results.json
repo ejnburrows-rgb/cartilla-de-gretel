@@ -1,0 +1,70 @@
+{
+  "sourceSha256": "4c2e92e331d4ea57a396bf9475f264cf20af76f98331b9484418e13e1a958f3b",
+  "startedAt": "2026-10-18T10:39:03.466Z",
+  "browser": "153.0.8010.0",
+  "coverage": [
+    {
+      "viewport": "390x844",
+      "input": "native CDP touch drag/tap/cancel",
+      "assertions": 202,
+      "all13": true,
+      "errors": [],
+      "externalNetworkRequests": [],
+      "musicRms": 0.009899488675110792,
+      "reducedMotion": true
+    },
+    {
+      "viewport": "667x375",
+      "input": "native CDP touch drag/tap/cancel",
+      "assertions": 202,
+      "all13": true,
+      "errors": [],
+      "externalNetworkRequests": [],
+      "musicRms": 0.009899488675110792,
+      "reducedMotion": true
+    },
+    {
+      "viewport": "844x390",
+      "input": "native CDP touch drag/tap/cancel",
+      "assertions": 202,
+      "all13": true,
+      "errors": [],
+      "externalNetworkRequests": [],
+      "musicRms": 0.01018905098370223,
+      "reducedMotion": true
+    },
+    {
+      "viewport": "1366x768",
+      "input": "native mouse drag/click and Tab/Enter keyboard",
+      "assertions": 200,
+      "all13": true,
+      "errors": [],
+      "externalNetworkRequests": [],
+      "musicRms": 0.011526968033443876,
+      "reducedMotion": true
+    },
+    {
+      "viewport": "1920x1080",
+      "input": "native mouse drag/click and Tab/Enter keyboard",
+      "assertions": 200,
+      "all13": true,
+      "errors": [],
+      "externalNetworkRequests": [],
+      "musicRms": 0.012602074857426324,
+      "reducedMotion": true
+    },
+    {
+      "viewport": "768x1024",
+      "input": "native CDP touch drag/tap/cancel",
+      "assertions": 202,
+      "all13": true,
+      "errors": [],
+      "externalNetworkRequests": [],
+      "musicRms": 0.011526968033443876,
+      "reducedMotion": true
+    }
+  ],
+  "realIPhoneSafari": "NOT VERIFIED",
+  "failures": [],
+  "finishedAt": "2026-10-18T10:40:42.462Z"
+}
