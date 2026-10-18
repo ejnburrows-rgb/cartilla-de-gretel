@@ -32,6 +32,7 @@ import { Route as CartillaAutoraRouteImport } from './routes/cartilla/autora'
 import { Route as CartillaAnimalesRouteImport } from './routes/cartilla/animales'
 import { Route as CartillaTeacherRouteRouteImport } from './routes/cartilla/teacher/route'
 import { Route as CartillaTeacherIndexRouteImport } from './routes/cartilla/teacher/index'
+import { Route as CartillaLecturaDePalabrasIndexRouteImport } from './routes/cartilla/lectura-de-palabras/index'
 import { Route as CartillaTeacherRosterRouteImport } from './routes/cartilla/teacher/roster'
 import { Route as CartillaTeacherReportesRouteImport } from './routes/cartilla/teacher/reportes'
 import { Route as CartillaTeacherProgresoRouteImport } from './routes/cartilla/teacher/progreso'
@@ -43,6 +44,7 @@ import { Route as CartillaTeacherAyudaRouteImport } from './routes/cartilla/teac
 import { Route as CartillaTeacherAdminRouteImport } from './routes/cartilla/teacher/admin'
 import { Route as CartillaPresentarNRouteImport } from './routes/cartilla/presentar.$n'
 import { Route as CartillaPilotFaithfulNRouteImport } from './routes/cartilla/pilot-faithful.$n'
+import { Route as CartillaLecturaDePalabrasLetraRouteImport } from './routes/cartilla/lectura-de-palabras/$letra'
 import { Route as CartillaLeccionNRouteImport } from './routes/cartilla/leccion.$n'
 import { Route as CartillaJuegoGameIdRouteImport } from './routes/cartilla/juego.$gameId'
 import { Route as CartillaImprimirAllRouteImport } from './routes/cartilla/imprimir.all'
@@ -181,6 +183,12 @@ const CartillaTeacherIndexRoute = CartillaTeacherIndexRouteImport.update({
 } as any).lazy(() =>
   import('./routes/cartilla/teacher/index.lazy').then((d) => d.Route),
 )
+const CartillaLecturaDePalabrasIndexRoute =
+  CartillaLecturaDePalabrasIndexRouteImport.update({
+    id: '/cartilla/lectura-de-palabras/',
+    path: '/cartilla/lectura-de-palabras/',
+    getParentRoute: () => rootRouteImport,
+  } as any)
 const CartillaTeacherRosterRoute = CartillaTeacherRosterRouteImport.update({
   id: '/roster',
   path: '/roster',
@@ -254,6 +262,12 @@ const CartillaPilotFaithfulNRoute = CartillaPilotFaithfulNRouteImport.update({
   path: '/cartilla/pilot-faithful/$n',
   getParentRoute: () => rootRouteImport,
 } as any)
+const CartillaLecturaDePalabrasLetraRoute =
+  CartillaLecturaDePalabrasLetraRouteImport.update({
+    id: '/cartilla/lectura-de-palabras/$letra',
+    path: '/cartilla/lectura-de-palabras/$letra',
+    getParentRoute: () => rootRouteImport,
+  } as any)
 const CartillaLeccionNRoute = CartillaLeccionNRouteImport.update({
   id: '/cartilla/leccion/$n',
   path: '/cartilla/leccion/$n',
@@ -403,6 +417,7 @@ export interface FileRoutesByFullPath {
   '/cartilla/imprimir/all': typeof CartillaImprimirAllRoute
   '/cartilla/juego/$gameId': typeof CartillaJuegoGameIdRoute
   '/cartilla/leccion/$n': typeof CartillaLeccionNRoute
+  '/cartilla/lectura-de-palabras/$letra': typeof CartillaLecturaDePalabrasLetraRoute
   '/cartilla/pilot-faithful/$n': typeof CartillaPilotFaithfulNRoute
   '/cartilla/presentar/$n': typeof CartillaPresentarNRoute
   '/cartilla/teacher/admin': typeof CartillaTeacherAdminRoute
@@ -414,6 +429,7 @@ export interface FileRoutesByFullPath {
   '/cartilla/teacher/progreso': typeof CartillaTeacherProgresoRoute
   '/cartilla/teacher/reportes': typeof CartillaTeacherReportesRoute
   '/cartilla/teacher/roster': typeof CartillaTeacherRosterRoute
+  '/cartilla/lectura-de-palabras/': typeof CartillaLecturaDePalabrasIndexRoute
   '/cartilla/teacher/': typeof CartillaTeacherIndexRoute
   '/cartilla/teacher/crm/$classId': typeof CartillaTeacherCrmClassIdRouteWithChildren
   '/cartilla/teacher/crm/artwork': typeof CartillaTeacherCrmArtworkRoute
@@ -454,6 +470,7 @@ export interface FileRoutesByTo {
   '/cartilla/imprimir/all': typeof CartillaImprimirAllRoute
   '/cartilla/juego/$gameId': typeof CartillaJuegoGameIdRoute
   '/cartilla/leccion/$n': typeof CartillaLeccionNRoute
+  '/cartilla/lectura-de-palabras/$letra': typeof CartillaLecturaDePalabrasLetraRoute
   '/cartilla/pilot-faithful/$n': typeof CartillaPilotFaithfulNRoute
   '/cartilla/presentar/$n': typeof CartillaPresentarNRoute
   '/cartilla/teacher/admin': typeof CartillaTeacherAdminRoute
@@ -464,6 +481,7 @@ export interface FileRoutesByTo {
   '/cartilla/teacher/progreso': typeof CartillaTeacherProgresoRoute
   '/cartilla/teacher/reportes': typeof CartillaTeacherReportesRoute
   '/cartilla/teacher/roster': typeof CartillaTeacherRosterRoute
+  '/cartilla/lectura-de-palabras': typeof CartillaLecturaDePalabrasIndexRoute
   '/cartilla/teacher': typeof CartillaTeacherIndexRoute
   '/cartilla/teacher/crm/artwork': typeof CartillaTeacherCrmArtworkRoute
   '/cartilla/teacher/guia/$n': typeof CartillaTeacherGuiaNRoute
@@ -504,6 +522,7 @@ export interface FileRoutesById {
   '/cartilla/imprimir/all': typeof CartillaImprimirAllRoute
   '/cartilla/juego/$gameId': typeof CartillaJuegoGameIdRoute
   '/cartilla/leccion/$n': typeof CartillaLeccionNRoute
+  '/cartilla/lectura-de-palabras/$letra': typeof CartillaLecturaDePalabrasLetraRoute
   '/cartilla/pilot-faithful/$n': typeof CartillaPilotFaithfulNRoute
   '/cartilla/presentar/$n': typeof CartillaPresentarNRoute
   '/cartilla/teacher/admin': typeof CartillaTeacherAdminRoute
@@ -515,6 +534,7 @@ export interface FileRoutesById {
   '/cartilla/teacher/progreso': typeof CartillaTeacherProgresoRoute
   '/cartilla/teacher/reportes': typeof CartillaTeacherReportesRoute
   '/cartilla/teacher/roster': typeof CartillaTeacherRosterRoute
+  '/cartilla/lectura-de-palabras/': typeof CartillaLecturaDePalabrasIndexRoute
   '/cartilla/teacher/': typeof CartillaTeacherIndexRoute
   '/cartilla/teacher/crm/$classId': typeof CartillaTeacherCrmClassIdRouteWithChildren
   '/cartilla/teacher/crm/artwork': typeof CartillaTeacherCrmArtworkRoute
@@ -558,6 +578,7 @@ export interface FileRouteTypes {
     | '/cartilla/imprimir/all'
     | '/cartilla/juego/$gameId'
     | '/cartilla/leccion/$n'
+    | '/cartilla/lectura-de-palabras/$letra'
     | '/cartilla/pilot-faithful/$n'
     | '/cartilla/presentar/$n'
     | '/cartilla/teacher/admin'
@@ -569,6 +590,7 @@ export interface FileRouteTypes {
     | '/cartilla/teacher/progreso'
     | '/cartilla/teacher/reportes'
     | '/cartilla/teacher/roster'
+    | '/cartilla/lectura-de-palabras/'
     | '/cartilla/teacher/'
     | '/cartilla/teacher/crm/$classId'
     | '/cartilla/teacher/crm/artwork'
@@ -609,6 +631,7 @@ export interface FileRouteTypes {
     | '/cartilla/imprimir/all'
     | '/cartilla/juego/$gameId'
     | '/cartilla/leccion/$n'
+    | '/cartilla/lectura-de-palabras/$letra'
     | '/cartilla/pilot-faithful/$n'
     | '/cartilla/presentar/$n'
     | '/cartilla/teacher/admin'
@@ -619,6 +642,7 @@ export interface FileRouteTypes {
     | '/cartilla/teacher/progreso'
     | '/cartilla/teacher/reportes'
     | '/cartilla/teacher/roster'
+    | '/cartilla/lectura-de-palabras'
     | '/cartilla/teacher'
     | '/cartilla/teacher/crm/artwork'
     | '/cartilla/teacher/guia/$n'
@@ -658,6 +682,7 @@ export interface FileRouteTypes {
     | '/cartilla/imprimir/all'
     | '/cartilla/juego/$gameId'
     | '/cartilla/leccion/$n'
+    | '/cartilla/lectura-de-palabras/$letra'
     | '/cartilla/pilot-faithful/$n'
     | '/cartilla/presentar/$n'
     | '/cartilla/teacher/admin'
@@ -669,6 +694,7 @@ export interface FileRouteTypes {
     | '/cartilla/teacher/progreso'
     | '/cartilla/teacher/reportes'
     | '/cartilla/teacher/roster'
+    | '/cartilla/lectura-de-palabras/'
     | '/cartilla/teacher/'
     | '/cartilla/teacher/crm/$classId'
     | '/cartilla/teacher/crm/artwork'
@@ -711,8 +737,10 @@ export interface RootRouteChildren {
   CartillaImprimirAllRoute: typeof CartillaImprimirAllRoute
   CartillaJuegoGameIdRoute: typeof CartillaJuegoGameIdRoute
   CartillaLeccionNRoute: typeof CartillaLeccionNRoute
+  CartillaLecturaDePalabrasLetraRoute: typeof CartillaLecturaDePalabrasLetraRoute
   CartillaPilotFaithfulNRoute: typeof CartillaPilotFaithfulNRoute
   CartillaPresentarNRoute: typeof CartillaPresentarNRoute
+  CartillaLecturaDePalabrasIndexRoute: typeof CartillaLecturaDePalabrasIndexRoute
 }
 
 declare module '@tanstack/react-router' {
@@ -878,6 +906,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof CartillaTeacherIndexRouteImport
       parentRoute: typeof CartillaTeacherRouteRoute
     }
+    '/cartilla/lectura-de-palabras/': {
+      id: '/cartilla/lectura-de-palabras/'
+      path: '/cartilla/lectura-de-palabras'
+      fullPath: '/cartilla/lectura-de-palabras/'
+      preLoaderRoute: typeof CartillaLecturaDePalabrasIndexRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/cartilla/teacher/roster': {
       id: '/cartilla/teacher/roster'
       path: '/roster'
@@ -953,6 +988,13 @@ declare module '@tanstack/react-router' {
       path: '/cartilla/pilot-faithful/$n'
       fullPath: '/cartilla/pilot-faithful/$n'
       preLoaderRoute: typeof CartillaPilotFaithfulNRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/cartilla/lectura-de-palabras/$letra': {
+      id: '/cartilla/lectura-de-palabras/$letra'
+      path: '/cartilla/lectura-de-palabras/$letra'
+      fullPath: '/cartilla/lectura-de-palabras/$letra'
+      preLoaderRoute: typeof CartillaLecturaDePalabrasLetraRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/cartilla/leccion/$n': {
@@ -1187,8 +1229,10 @@ const rootRouteChildren: RootRouteChildren = {
   CartillaImprimirAllRoute: CartillaImprimirAllRoute,
   CartillaJuegoGameIdRoute: CartillaJuegoGameIdRoute,
   CartillaLeccionNRoute: CartillaLeccionNRoute,
+  CartillaLecturaDePalabrasLetraRoute: CartillaLecturaDePalabrasLetraRoute,
   CartillaPilotFaithfulNRoute: CartillaPilotFaithfulNRoute,
   CartillaPresentarNRoute: CartillaPresentarNRoute,
+  CartillaLecturaDePalabrasIndexRoute: CartillaLecturaDePalabrasIndexRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
