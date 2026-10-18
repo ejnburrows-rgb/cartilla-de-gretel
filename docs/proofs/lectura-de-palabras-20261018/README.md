@@ -1,0 +1,1 @@
+Lectura de palabras activity — source: teacher DOCX files 3 and 5 (Mm). This branch holds the implementation and proof screenshots; see the PR description for verification evidence. The syllable list missing from the source document is rendered as placeholders and is never invented; word audio is pendiente.
