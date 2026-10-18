@@ -1,4 +1,5 @@
 import "@/styles/native-lesson.css";
+import { Lesson19GardenText } from "./lesson19/Lesson19Text";
 import type { ReactNode } from "react";
 import { GretelActivity } from "@/components/gretel/GretelActivity";
 import { SOURCE_BLOCKED_WORKBOOK_PAGES } from "@/lib/workbook-pages";
@@ -444,7 +445,9 @@ function RegionView({
                 part
               ),
             )
-          : region.text;
+          : lessonNumber === 19 && region.text
+            ? <Lesson19GardenText text={region.text} />
+            : region.text;
       return (
         <p className="fp-region--instruction">
           {region.label ? <span className="fp-label">{region.label} </span> : null}
@@ -542,6 +545,9 @@ function RegionView({
         <p className="fp-region--vocab-grid">{region.text}</p>
       );
     case "sentence-line":
+      // Lesson 19 page 69 has no sight word on the source page: skip the
+      // empty box rather than rendering a blank frame.
+      if (lessonNumber === 19 && !region.text?.trim()) return null;
       return native ? (
         <div className="fp-native-sight-word" aria-label="Palabra de enlace">{region.text}</div>
       ) : (
@@ -612,7 +618,9 @@ export function FaithfulPageRenderer({
   const ordered = [...layout].sort((a, b) => a.order - b.order);
   const letterReadingPage = native && ordered.some((region) => region.regionType === "vocab-grid")
     && ordered.filter((region) => region.regionType === "syllable-bubble").length === 2;
-  const accent = lessonNumber ? CATALOG.find((e) => e.n === lessonNumber)?.color : undefined;
+  // Lesson 19 wide-screen design uses the shared teal accent (owner-approved
+  // Lesson 3 design language) instead of the lesson's catalog accent.
+  const accent = lessonNumber === 19 ? "#167A72" : lessonNumber ? CATALOG.find((e) => e.n === lessonNumber)?.color : undefined;
   const lessonId = lessonNumber ? String(lessonNumber) : undefined;
 
   let archetypeClasses: string[] = [];
