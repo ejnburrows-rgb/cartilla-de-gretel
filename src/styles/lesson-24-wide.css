@@ -299,10 +299,20 @@
  *     Lesson 24 text pages so the whole paper, down to its bottom edge, is
  *     on screen without shrinking any word below readable size. */
 @media (orientation: landscape) and (max-height: 500px) {
-  .lc-lesson-shell--fit[data-lesson-n="24"] .native-lesson-viewer__content .faithful-page__body {
+  .lc-lesson-shell--fit[data-lesson-n="24"] .native-lesson-viewer__content .faithful-page__body,
+  .lc-lesson-shell--fit[data-lesson-n="24"] .native-lesson-viewer__content .faithful-page--edge-right .faithful-page__body {
     row-gap: 4px;
     padding-top: 26px;
     padding-bottom: 8px;
+  }
+  /* p89 is an edge-right letter page: its Zz tile sits at the paper's
+   * top-left corner, directly under the fixed "Mis lecciones" corner link
+   * (bottom edge 48px at every size). The edge-right body variant above
+   * (specificity 0,5,0) otherwise beats this block, so the tile needs its
+   * own clearance here to never slide under the header on short screens
+   * (owner 2026-10-18: p89 844x390 Zz tile overlap). */
+  .lc-lesson-shell--fit[data-lesson-n="24"] .native-lesson-viewer__content .fp-native-letter-page .faithful-page__body {
+    padding-top: 40px;
   }
   .lc-lesson-shell--fit[data-lesson-n="24"] .native-lesson-viewer__content .fp-region--instruction {
     font-size: clamp(14px, 2cqw, 17px);
