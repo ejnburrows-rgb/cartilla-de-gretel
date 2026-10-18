@@ -401,3 +401,12 @@
 }
 .lc-lesson-23 .native-lesson-viewer__navigation button[data-testid="button-next"] { background: #167a72; border-color: #167a72; color: #fffaf0; }
 .lc-lesson-23 :is(button, a, textarea):focus-visible { outline: 3px solid #167a72; outline-offset: 3px; }
+
+/* Phone portrait: page 85's 3-column vocab grid is narrow — keep each word
+ * on one line so long words ("yucateco", "Yucatán") never wrap mid-word. */
+@media (max-width: 600px) {
+  .lc-lesson-23 .native-lesson-viewer__content .fp-native-letter-page .fp-native-vocab span {
+    font-size: clamp(12px, 4.4cqw, 20px);
+    padding-inline: 0.15em;
+  }
+}
