@@ -1,6 +1,11 @@
 {
   "approved": [
     {
+      "key": "a la fiesta scene",
+      "src": "/audio/voz/vocabulario/a-la-fiesta-scene.mp3",
+      "approval": "Pending owner recording"
+    },
+    {
       "key": "abanico",
       "src": "/audio/voz/vocabulario/abanico.mp3",
       "approval": "Owner EJN approved the Candidate B voice for picture names in chat on 2026-10-04; recordings merged to main in #503 (a1936b5)"
@@ -11,8 +16,18 @@
       "approval": "Owner EJN approved the Candidate B voice for picture names in chat on 2026-10-04; recordings merged to main in #503 (a1936b5)"
     },
     {
+      "key": "abejas z",
+      "src": "/audio/voz/vocabulario/abejas-z.mp3",
+      "approval": "Pending owner recording"
+    },
+    {
       "key": "abrigo",
       "src": "/audio/voz/vocabulario/abrigo.mp3",
+      "approval": "Owner EJN approved the Candidate B voice for picture names in chat on 2026-10-04; recordings merged to main in #503 (a1936b5)"
+    },
+    {
+      "key": "águila",
+      "src": "/audio/voz/vocabulario/águila.mp3",
       "approval": "Owner EJN approved the Candidate B voice for picture names in chat on 2026-10-04; recordings merged to main in #503 (a1936b5)"
     },
     {
@@ -56,6 +71,11 @@
       "approval": "Owner EJN approved the Candidate B voice for picture names in chat on 2026-10-04; recordings merged to main in #503 (a1936b5)"
     },
     {
+      "key": "árbol",
+      "src": "/audio/voz/vocabulario/árbol.mp3",
+      "approval": "Owner EJN approved the Candidate B voice for picture names in chat on 2026-10-04; recordings merged to main in #503 (a1936b5)"
+    },
+    {
       "key": "ardilla",
       "src": "/audio/voz/vocabulario/ardilla.mp3",
       "approval": "Owner EJN approved the Candidate B voice for picture names in chat on 2026-10-04; recordings merged to main in #503 (a1936b5)"
@@ -91,13 +111,13 @@
       "approval": "Owner EJN approved the Candidate B voice for picture names in chat on 2026-10-04; recordings merged to main in #503 (a1936b5)"
     },
     {
-      "key": "bebita",
-      "src": "/audio/voz/vocabulario/bebita.mp3",
+      "key": "bebé",
+      "src": "/audio/voz/vocabulario/bebé.mp3",
       "approval": "Owner EJN approved the Candidate B voice for picture names in chat on 2026-10-04; recordings merged to main in #503 (a1936b5)"
     },
     {
-      "key": "bebé",
-      "src": "/audio/voz/vocabulario/bebé.mp3",
+      "key": "bebita",
+      "src": "/audio/voz/vocabulario/bebita.mp3",
       "approval": "Owner EJN approved the Candidate B voice for picture names in chat on 2026-10-04; recordings merged to main in #503 (a1936b5)"
     },
     {
@@ -121,9 +141,29 @@
       "approval": "Owner EJN approved the Candidate B voice for picture names in chat on 2026-10-04; recordings merged to main in #503 (a1936b5)"
     },
     {
+      "key": "burro b",
+      "src": "/audio/voz/vocabulario/burro-b.mp3",
+      "approval": "Pending owner recording"
+    },
+    {
+      "key": "campana d",
+      "src": "/audio/voz/vocabulario/campana-d.mp3",
+      "approval": "Pending owner recording"
+    },
+    {
       "key": "carro",
       "src": "/audio/voz/vocabulario/carro.mp3",
       "approval": "Owner EJN approved the Candidate B voice for picture names in chat on 2026-10-04; recordings merged to main in #503 (a1936b5)"
+    },
+    {
+      "key": "carro calabaza scene",
+      "src": "/audio/voz/vocabulario/carro-calabaza-scene.mp3",
+      "approval": "Pending owner recording"
+    },
+    {
+      "key": "carro rr",
+      "src": "/audio/voz/vocabulario/carro-rr.mp3",
+      "approval": "Pending owner recording"
     },
     {
       "key": "carrusel",
@@ -251,6 +291,11 @@
       "approval": "Owner EJN approved the Candidate B voice for picture names in chat on 2026-10-04; recordings merged to main in #503 (a1936b5)"
     },
     {
+      "key": "flor abeja f",
+      "src": "/audio/voz/vocabulario/flor-abeja-f.mp3",
+      "approval": "Pending owner recording"
+    },
+    {
       "key": "foto",
       "src": "/audio/voz/vocabulario/foto.mp3",
       "approval": "Owner EJN approved the Candidate B voice for picture names in chat on 2026-10-04; recordings merged to main in #503 (a1936b5)"
@@ -261,9 +306,19 @@
       "approval": "Owner EJN approved the Candidate B voice for picture names in chat on 2026-10-04; recordings merged to main in #503 (a1936b5)"
     },
     {
+      "key": "gallina c",
+      "src": "/audio/voz/vocabulario/gallina-c.mp3",
+      "approval": "Pending owner recording"
+    },
+    {
       "key": "gato",
       "src": "/audio/voz/vocabulario/gato.mp3",
       "approval": "Owner EJN approved the Candidate B voice for picture names in chat on 2026-10-04; recordings merged to main in #503 (a1936b5)"
+    },
+    {
+      "key": "gato enamorado scene",
+      "src": "/audio/voz/vocabulario/gato-enamorado-scene.mp3",
+      "approval": "Pending owner recording"
     },
     {
       "key": "gaveta",
@@ -361,9 +416,19 @@
       "approval": "Owner EJN approved the Candidate B voice for picture names in chat on 2026-10-04; recordings merged to main in #503 (a1936b5)"
     },
     {
+      "key": "jicotea jabela scene",
+      "src": "/audio/voz/vocabulario/jicotea-jabela-scene.mp3",
+      "approval": "Pending owner recording"
+    },
+    {
       "key": "jirafa",
       "src": "/audio/voz/vocabulario/jirafa.mp3",
       "approval": "Owner EJN approved the Candidate B voice for picture names in chat on 2026-10-04; recordings merged to main in #503 (a1936b5)"
+    },
+    {
+      "key": "jirafa j",
+      "src": "/audio/voz/vocabulario/jirafa-j.mp3",
+      "approval": "Pending owner recording"
     },
     {
       "key": "jugo",
@@ -381,6 +446,11 @@
       "approval": "Owner EJN approved the Candidate B voice for picture names in chat on 2026-10-04; recordings merged to main in #503 (a1936b5)"
     },
     {
+      "key": "leo lee gretel scene",
+      "src": "/audio/voz/vocabulario/leo-lee-gretel-scene.mp3",
+      "approval": "Pending owner recording"
+    },
+    {
       "key": "libro",
       "src": "/audio/voz/vocabulario/libro.mp3",
       "approval": "Owner EJN approved the Candidate B voice for picture names in chat on 2026-10-04; recordings merged to main in #503 (a1936b5)"
@@ -391,13 +461,28 @@
       "approval": "Owner EJN approved the Candidate B voice for picture names in chat on 2026-10-04; recordings merged to main in #503 (a1936b5)"
     },
     {
+      "key": "los caramelos scene",
+      "src": "/audio/voz/vocabulario/los-caramelos-scene.mp3",
+      "approval": "Pending owner recording"
+    },
+    {
       "key": "luli",
       "src": "/audio/voz/vocabulario/luli.mp3",
       "approval": "Owner EJN approved the Candidate B voice for picture names in chat on 2026-10-04; recordings merged to main in #503 (a1936b5)"
     },
     {
+      "key": "made y papa scene",
+      "src": "/audio/voz/vocabulario/made-y-papa-scene.mp3",
+      "approval": "Pending owner recording"
+    },
+    {
       "key": "mago",
       "src": "/audio/voz/vocabulario/mago.mp3",
+      "approval": "Owner EJN approved the Candidate B voice for picture names in chat on 2026-10-04; recordings merged to main in #503 (a1936b5)"
+    },
+    {
+      "key": "maíz",
+      "src": "/audio/voz/vocabulario/maíz.mp3",
       "approval": "Owner EJN approved the Candidate B voice for picture names in chat on 2026-10-04; recordings merged to main in #503 (a1936b5)"
     },
     {
@@ -421,11 +506,6 @@
       "approval": "Owner EJN approved the Candidate B voice for picture names in chat on 2026-10-04; recordings merged to main in #503 (a1936b5)"
     },
     {
-      "key": "maíz",
-      "src": "/audio/voz/vocabulario/maíz.mp3",
-      "approval": "Owner EJN approved the Candidate B voice for picture names in chat on 2026-10-04; recordings merged to main in #503 (a1936b5)"
-    },
-    {
       "key": "meme",
       "src": "/audio/voz/vocabulario/meme.mp3",
       "approval": "Owner EJN approved the Candidate B voice for picture names in chat on 2026-10-04; recordings merged to main in #503 (a1936b5)"
@@ -434,6 +514,21 @@
       "key": "meñe",
       "src": "/audio/voz/vocabulario/meñe.mp3",
       "approval": "Owner EJN approved the Candidate B voice for picture names in chat on 2026-10-04; recordings merged to main in #503 (a1936b5)"
+    },
+    {
+      "key": "mi bote de vela scene",
+      "src": "/audio/voz/vocabulario/mi-bote-de-vela-scene.mp3",
+      "approval": "Pending owner recording"
+    },
+    {
+      "key": "mi mama scene",
+      "src": "/audio/voz/vocabulario/mi-mama-scene.mp3",
+      "approval": "Pending owner recording"
+    },
+    {
+      "key": "mi papa scene",
+      "src": "/audio/voz/vocabulario/mi-papa-scene.mp3",
+      "approval": "Pending owner recording"
     },
     {
       "key": "mima",
@@ -471,6 +566,16 @@
       "approval": "Owner EJN approved the Candidate B voice for picture names in chat on 2026-10-04; recordings merged to main in #503 (a1936b5)"
     },
     {
+      "key": "nina enmarcada ny",
+      "src": "/audio/voz/vocabulario/nina-enmarcada-ny.mp3",
+      "approval": "Pending owner recording"
+    },
+    {
+      "key": "nina l",
+      "src": "/audio/voz/vocabulario/nina-l.mp3",
+      "approval": "Pending owner recording"
+    },
+    {
       "key": "nina llorona",
       "src": "/audio/voz/vocabulario/nina-llorona.mp3",
       "approval": "Owner EJN approved the Candidate B voice for picture names in chat on 2026-10-04; recordings merged to main in #503 (a1936b5)"
@@ -479,6 +584,11 @@
       "key": "nina sordita",
       "src": "/audio/voz/vocabulario/nina-sordita.mp3",
       "approval": "Owner EJN approved the Candidate B voice for picture names in chat on 2026-10-04; recordings merged to main in #503 (a1936b5)"
+    },
+    {
+      "key": "nina suena scene",
+      "src": "/audio/voz/vocabulario/nina-suena-scene.mp3",
+      "approval": "Pending owner recording"
     },
     {
       "key": "niñito",
@@ -491,8 +601,28 @@
       "approval": "Owner EJN approved the Candidate B voice for picture names in chat on 2026-10-04; recordings merged to main in #503 (a1936b5)"
     },
     {
+      "key": "nino nada scene",
+      "src": "/audio/voz/vocabulario/nino-nada-scene.mp3",
+      "approval": "Pending owner recording"
+    },
+    {
+      "key": "nino tambor t",
+      "src": "/audio/voz/vocabulario/nino-tambor-t.mp3",
+      "approval": "Pending owner recording"
+    },
+    {
+      "key": "nino yoyo y",
+      "src": "/audio/voz/vocabulario/nino-yoyo-y.mp3",
+      "approval": "Pending owner recording"
+    },
+    {
       "key": "nudo",
       "src": "/audio/voz/vocabulario/nudo.mp3",
+      "approval": "Owner EJN approved the Candidate B voice for picture names in chat on 2026-10-04; recordings merged to main in #503 (a1936b5)"
+    },
+    {
+      "key": "ñuno",
+      "src": "/audio/voz/vocabulario/ñuno.mp3",
       "approval": "Owner EJN approved the Candidate B voice for picture names in chat on 2026-10-04; recordings merged to main in #503 (a1936b5)"
     },
     {
@@ -531,6 +661,11 @@
       "approval": "Owner EJN approved the Candidate B voice for picture names in chat on 2026-10-04; recordings merged to main in #503 (a1936b5)"
     },
     {
+      "key": "oso (parpadeo)",
+      "src": "/audio/voz/vocabulario/oso-parpadeo.mp3",
+      "approval": "Pending owner recording"
+    },
+    {
       "key": "oto",
       "src": "/audio/voz/vocabulario/oto.mp3",
       "approval": "Owner EJN approved the Candidate B voice for picture names in chat on 2026-10-04; recordings merged to main in #503 (a1936b5)"
@@ -538,6 +673,11 @@
     {
       "key": "oveja",
       "src": "/audio/voz/vocabulario/oveja.mp3",
+      "approval": "Owner EJN approved the Candidate B voice for picture names in chat on 2026-10-04; recordings merged to main in #503 (a1936b5)"
+    },
+    {
+      "key": "pájaro",
+      "src": "/audio/voz/vocabulario/pájaro.mp3",
       "approval": "Owner EJN approved the Candidate B voice for picture names in chat on 2026-10-04; recordings merged to main in #503 (a1936b5)"
     },
     {
@@ -571,14 +711,19 @@
       "approval": "Owner EJN approved the Candidate B voice for picture names in chat on 2026-10-04; recordings merged to main in #503 (a1936b5)"
     },
     {
+      "key": "piñata",
+      "src": "/audio/voz/vocabulario/piñata.mp3",
+      "approval": "Owner EJN approved the Candidate B voice for picture names in chat on 2026-10-04; recordings merged to main in #503 (a1936b5)"
+    },
+    {
       "key": "pisa",
       "src": "/audio/voz/vocabulario/pisa.mp3",
       "approval": "Owner EJN approved the Candidate B voice for picture names in chat on 2026-10-04; recordings merged to main in #503 (a1936b5)"
     },
     {
-      "key": "piñata",
-      "src": "/audio/voz/vocabulario/piñata.mp3",
-      "approval": "Owner EJN approved the Candidate B voice for picture names in chat on 2026-10-04; recordings merged to main in #503 (a1936b5)"
+      "key": "pollito p",
+      "src": "/audio/voz/vocabulario/pollito-p.mp3",
+      "approval": "Pending owner recording"
     },
     {
       "key": "pomo",
@@ -591,14 +736,19 @@
       "approval": "Owner EJN approved the Candidate B voice for picture names in chat on 2026-10-04; recordings merged to main in #503 (a1936b5)"
     },
     {
-      "key": "pájaro",
-      "src": "/audio/voz/vocabulario/pájaro.mp3",
-      "approval": "Owner EJN approved the Candidate B voice for picture names in chat on 2026-10-04; recordings merged to main in #503 (a1936b5)"
-    },
-    {
       "key": "rana",
       "src": "/audio/voz/vocabulario/rana.mp3",
       "approval": "Owner EJN approved the Candidate B voice for picture names in chat on 2026-10-04; recordings merged to main in #503 (a1936b5)"
+    },
+    {
+      "key": "rapido arriba scene",
+      "src": "/audio/voz/vocabulario/rapido-arriba-scene.mp3",
+      "approval": "Pending owner recording"
+    },
+    {
+      "key": "raton r",
+      "src": "/audio/voz/vocabulario/raton-r.mp3",
+      "approval": "Pending owner recording"
     },
     {
       "key": "remo",
@@ -621,14 +771,34 @@
       "approval": "Owner EJN approved the Candidate B voice for picture names in chat on 2026-10-04; recordings merged to main in #503 (a1936b5)"
     },
     {
+      "key": "rosca manolo scene",
+      "src": "/audio/voz/vocabulario/rosca-manolo-scene.mp3",
+      "approval": "Pending owner recording"
+    },
+    {
       "key": "rueda",
       "src": "/audio/voz/vocabulario/rueda.mp3",
       "approval": "Owner EJN approved the Candidate B voice for picture names in chat on 2026-10-04; recordings merged to main in #503 (a1936b5)"
     },
     {
+      "key": "saltamontes g",
+      "src": "/audio/voz/vocabulario/saltamontes-g.mp3",
+      "approval": "Pending owner recording"
+    },
+    {
       "key": "sapo",
       "src": "/audio/voz/vocabulario/sapo.mp3",
       "approval": "Owner EJN approved the Candidate B voice for picture names in chat on 2026-10-04; recordings merged to main in #503 (a1936b5)"
+    },
+    {
+      "key": "sapo samapo scene",
+      "src": "/audio/voz/vocabulario/sapo-samapo-scene.mp3",
+      "approval": "Pending owner recording"
+    },
+    {
+      "key": "serpiente s",
+      "src": "/audio/voz/vocabulario/serpiente-s.mp3",
+      "approval": "Pending owner recording"
     },
     {
       "key": "sesi",
@@ -639,6 +809,16 @@
       "key": "sopa",
       "src": "/audio/voz/vocabulario/sopa.mp3",
       "approval": "Owner EJN approved the Candidate B voice for picture names in chat on 2026-10-04; recordings merged to main in #503 (a1936b5)"
+    },
+    {
+      "key": "sopa de pato scene",
+      "src": "/audio/voz/vocabulario/sopa-de-pato-scene.mp3",
+      "approval": "Pending owner recording"
+    },
+    {
+      "key": "sube la bola scene",
+      "src": "/audio/voz/vocabulario/sube-la-bola-scene.mp3",
+      "approval": "Pending owner recording"
     },
     {
       "key": "susi",
@@ -661,6 +841,11 @@
       "approval": "Owner EJN approved the Candidate B voice for picture names in chat on 2026-10-04; recordings merged to main in #503 (a1936b5)"
     },
     {
+      "key": "ternero n",
+      "src": "/audio/voz/vocabulario/ternero-n.mp3",
+      "approval": "Pending owner recording"
+    },
+    {
       "key": "tierra",
       "src": "/audio/voz/vocabulario/tierra.mp3",
       "approval": "Owner EJN approved the Candidate B voice for picture names in chat on 2026-10-04; recordings merged to main in #503 (a1936b5)"
@@ -681,6 +866,11 @@
       "approval": "Owner EJN approved the Candidate B voice for picture names in chat on 2026-10-04; recordings merged to main in #503 (a1936b5)"
     },
     {
+      "key": "toro m",
+      "src": "/audio/voz/vocabulario/toro-m.mp3",
+      "approval": "Pending owner recording"
+    },
+    {
       "key": "torre",
       "src": "/audio/voz/vocabulario/torre.mp3",
       "approval": "Owner EJN approved the Candidate B voice for picture names in chat on 2026-10-04; recordings merged to main in #503 (a1936b5)"
@@ -693,6 +883,11 @@
     {
       "key": "ulises",
       "src": "/audio/voz/vocabulario/ulises.mp3",
+      "approval": "Owner EJN approved the Candidate B voice for picture names in chat on 2026-10-04; recordings merged to main in #503 (a1936b5)"
+    },
+    {
+      "key": "uña",
+      "src": "/audio/voz/vocabulario/uña.mp3",
       "approval": "Owner EJN approved the Candidate B voice for picture names in chat on 2026-10-04; recordings merged to main in #503 (a1936b5)"
     },
     {
@@ -726,11 +921,6 @@
       "approval": "Owner EJN approved the Candidate B voice for picture names in chat on 2026-10-04; recordings merged to main in #503 (a1936b5)"
     },
     {
-      "key": "uña",
-      "src": "/audio/voz/vocabulario/uña.mp3",
-      "approval": "Owner EJN approved the Candidate B voice for picture names in chat on 2026-10-04; recordings merged to main in #503 (a1936b5)"
-    },
-    {
       "key": "vaso",
       "src": "/audio/voz/vocabulario/vaso.mp3",
       "approval": "Owner EJN approved the Candidate B voice for picture names in chat on 2026-10-04; recordings merged to main in #503 (a1936b5)"
@@ -739,6 +929,11 @@
       "key": "vela",
       "src": "/audio/voz/vocabulario/vela.mp3",
       "approval": "Owner EJN approved the Candidate B voice for picture names in chat on 2026-10-04; recordings merged to main in #503 (a1936b5)"
+    },
+    {
+      "key": "viento v",
+      "src": "/audio/voz/vocabulario/viento-v.mp3",
+      "approval": "Pending owner recording"
     },
     {
       "key": "vita",
@@ -754,6 +949,11 @@
       "key": "yate",
       "src": "/audio/voz/vocabulario/yate.mp3",
       "approval": "Owner EJN approved the Candidate B voice for picture names in chat on 2026-10-04; recordings merged to main in #503 (a1936b5)"
+    },
+    {
+      "key": "yate de yayo scene",
+      "src": "/audio/voz/vocabulario/yate-de-yayo-scene.mp3",
+      "approval": "Pending owner recording"
     },
     {
       "key": "yayita",
@@ -793,21 +993,6 @@
     {
       "key": "zulema",
       "src": "/audio/voz/vocabulario/zulema.mp3",
-      "approval": "Owner EJN approved the Candidate B voice for picture names in chat on 2026-10-04; recordings merged to main in #503 (a1936b5)"
-    },
-    {
-      "key": "águila",
-      "src": "/audio/voz/vocabulario/águila.mp3",
-      "approval": "Owner EJN approved the Candidate B voice for picture names in chat on 2026-10-04; recordings merged to main in #503 (a1936b5)"
-    },
-    {
-      "key": "árbol",
-      "src": "/audio/voz/vocabulario/árbol.mp3",
-      "approval": "Owner EJN approved the Candidate B voice for picture names in chat on 2026-10-04; recordings merged to main in #503 (a1936b5)"
-    },
-    {
-      "key": "ñuno",
-      "src": "/audio/voz/vocabulario/ñuno.mp3",
       "approval": "Owner EJN approved the Candidate B voice for picture names in chat on 2026-10-04; recordings merged to main in #503 (a1936b5)"
     }
   ]

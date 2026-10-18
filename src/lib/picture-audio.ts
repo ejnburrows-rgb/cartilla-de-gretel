@@ -32,8 +32,10 @@ export function playPictureName(entry: VerifiedPictureName): PictureAudioStatus 
       const finish = () => { audio.onended = null; audio.onerror = null; audio.pause(); audio.removeAttribute('src'); };
       registerSpeechCleanup(token, finish);
       audio.onended = () => { finish(); releaseSpeech(token); };
-      audio.onerror = () => { if (!speechIsCurrent(token)) return; finish(); releaseSpeech(token); status('failed'); };
-      void audio.play().catch((err: any) => { if (!speechIsCurrent(token)) return; if (err?.name === 'AbortError') { releaseSpeech(token); return; } finish(); releaseSpeech(token); status('failed'); });
+      // Network errors (404) for missing recording files fallback silently
+      const fallback = () => status((audio.error && audio.error.code === 4) ? 'missing-recording' : 'failed');
+      audio.onerror = () => { if (!speechIsCurrent(token)) return; finish(); releaseSpeech(token); fallback(); };
+      void audio.play().catch((err: any) => { if (!speechIsCurrent(token)) return; if (err?.name === 'AbortError') { releaseSpeech(token); return; } finish(); releaseSpeech(token); fallback(); });
       return status('recorded');
     } catch { releaseSpeech(token); return status('failed'); }
   }
