@@ -399,3 +399,15 @@
 }
 .lc-lesson-18 .native-lesson-viewer__navigation button[data-testid="button-next"] { background: #167a72; border-color: #167a72; color: #fffaf0; }
 .lc-lesson-18 :is(button, a, textarea):focus-visible { outline: 3px solid #167a72; outline-offset: 3px; }
+
+/* Page 64 — narrow portrait phones: the longest words (arrebatado) clip
+ * inside their tiles at ~390px widths. Shrink the tile type a touch so
+ * every word fits without truncation. */
+@media (max-width: 480px) {
+  .lc-lesson-18 .native-lesson-viewer__content .native-syllable__word {
+    font-size: clamp(12px, 2.4cqw, 30px);
+    letter-spacing: 0;
+    padding-left: 2px;
+    padding-right: 2px;
+  }
+}
