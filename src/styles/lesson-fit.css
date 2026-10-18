@@ -93,10 +93,10 @@
 .lc-lesson-shell--fit .native-lesson-viewer__content .fp-ix-cell img { width: 100%; height: 100%; object-fit: contain; }
 
 /* Syllable groups share the height. */
-.lc-lesson-shell--fit .native-lesson-viewer__content .native-syllable { flex: 1 1 0; min-height: min-content; grid-template-columns: clamp(48px, 9cqw, 96px) minmax(0, 1fr); grid-template-rows: minmax(0, 1fr) auto; gap: 6px 2.8cqw; }
-.lc-lesson-shell--fit .native-lesson-viewer__content .native-syllable h2 { height: 100%; min-height: 0; font-size: clamp(22px, 4.6cqw, 48px); border-width: 2px; border-color: var(--lc-teal, #1f9e94); box-shadow: 0 3px 0 #b5ddd5; }
-.lc-lesson-shell--fit .native-lesson-viewer__content .native-syllable__words { height: 100%; min-height: 0; grid-auto-rows: minmax(48px, 1fr); gap: clamp(6px, 1.1cqw, 12px) clamp(8px, 1.8cqw, 18px); }
-.lc-lesson-shell--fit .native-lesson-viewer__content .native-syllable__word { display: grid; place-items: center; height: 100%; min-height: 0; padding: 0 4px; border: 2px solid #9fd3ca !important; border-radius: 12px; font-size: clamp(15px, 2.9cqw, 30px); line-height: 1; letter-spacing: .02em; }
+.lc-lesson-shell--fit .native-lesson-viewer__content .native-syllable { flex: none; min-height: min-content; grid-template-columns: clamp(48px, 9cqw, 96px) minmax(0, 1fr); grid-template-rows: minmax(0, 1fr) auto; gap: 6px 2.8cqw; }
+.lc-lesson-shell--fit .native-lesson-viewer__content .native-syllable h2 { height: auto; min-height: 0; font-size: clamp(22px, 4.6cqw, 48px); border-width: 2px; border-color: var(--lc-teal, #1f9e94); box-shadow: 0 3px 0 #b5ddd5; }
+.lc-lesson-shell--fit .native-lesson-viewer__content .native-syllable__words { height: auto; min-height: 0; grid-auto-rows: minmax(48px, 1fr); gap: clamp(6px, 1.1cqw, 12px) clamp(8px, 1.8cqw, 18px); }
+.lc-lesson-shell--fit .native-lesson-viewer__content .native-syllable__word { display: grid; place-items: center; height: auto; min-height: 0; padding: 0 4px; border: 2px solid #9fd3ca !important; border-radius: 12px; font-size: clamp(15px, 2.9cqw, 30px); line-height: 1; letter-spacing: .02em; }
 .lc-lesson-shell--fit .native-lesson-viewer__content .native-syllable__words .native-syllable__word .native-syllable__letter { display: inline-flex; align-items: center; justify-content: center; }
 .lc-lesson-shell--fit .native-lesson-viewer__content .native-syllable > p { font-size: clamp(14px, 1.8cqw, 17px); line-height: 1.25; }
 
@@ -217,7 +217,7 @@
 }
 /* Syllable groups never overlap: if five groups need more than the page
  * height, the page content is scaled to fit instead. */
-.lc-lesson-shell--fit .faithful-page__body > .gretel-activity:has(.native-syllable) { min-height: auto; }
+.lc-lesson-shell--fit .faithful-page__body > .gretel-activity:has(.native-syllable) { height: auto; min-height: auto; }
 
 /* Completa: larger words and syllable choices. */
 .lc-lesson-shell--fit .native-lesson-viewer__content .fp-ix-fill__wordbox,

@@ -1,0 +1,50 @@
+{
+  "base_url": "http://localhost:5173",
+  "captures": [
+    {
+      "page": 88,
+      "viewport": "phone-portrait",
+      "file": "docs/proofs/lesson-24-wide-20261018/lesson-24-88-phone-portrait.png"
+    },
+    {
+      "page": 89,
+      "viewport": "phone-portrait",
+      "file": "docs/proofs/lesson-24-wide-20261018/lesson-24-89-phone-portrait.png"
+    },
+    {
+      "page": 90,
+      "viewport": "phone-portrait",
+      "file": "docs/proofs/lesson-24-wide-20261018/lesson-24-90-phone-portrait.png"
+    },
+    {
+      "page": 88,
+      "viewport": "phone-landscape",
+      "file": "docs/proofs/lesson-24-wide-20261018/lesson-24-88-phone-landscape.png"
+    },
+    {
+      "page": 89,
+      "viewport": "phone-landscape",
+      "file": "docs/proofs/lesson-24-wide-20261018/lesson-24-89-phone-landscape.png"
+    },
+    {
+      "page": 90,
+      "viewport": "phone-landscape",
+      "file": "docs/proofs/lesson-24-wide-20261018/lesson-24-90-phone-landscape.png"
+    },
+    {
+      "page": 88,
+      "viewport": "desktop",
+      "file": "docs/proofs/lesson-24-wide-20261018/lesson-24-88-desktop.png"
+    },
+    {
+      "page": 89,
+      "viewport": "desktop",
+      "file": "docs/proofs/lesson-24-wide-20261018/lesson-24-89-desktop.png"
+    },
+    {
+      "page": 90,
+      "viewport": "desktop",
+      "file": "docs/proofs/lesson-24-wide-20261018/lesson-24-90-desktop.png"
+    }
+  ]
+}
