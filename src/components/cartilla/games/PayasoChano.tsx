@@ -14,7 +14,7 @@ import {
   useSensors,
   type DragEndEvent,
 } from "@dnd-kit/core";
-import { RotateCcw, Volume2, Umbrella } from "lucide-react";
+import { Play, RotateCcw, Volume2, Umbrella } from "lucide-react";
 import { recordEvent } from "@/lib/student-session";
 import { playWord } from "@/lib/games/wordAudio";
 import { useGameReactions } from "./useGameReactions";
@@ -228,6 +228,13 @@ export function PayasoChano({ content, lessonId, onComplete }: PayasoChanoProps)
 
   return (
     <div className="w-full max-w-xl mx-auto p-5 bg-white/60 backdrop-blur-md border border-stone-200/50 rounded-2xl shadow-sm space-y-6">
+      <a
+        href="/games/payaso-chano/index.html"
+        className="lesson-focus-ring flex min-h-14 items-center justify-center gap-3 rounded-2xl border-2 border-amber-300 bg-amber-100 px-5 py-3 text-center text-base font-black text-amber-950 shadow-sm transition-colors hover:bg-amber-200"
+      >
+        <Play aria-hidden="true" className="h-5 w-5 fill-current" />
+        Abrir juego animado de Chano
+      </a>
       <div className="flex items-center justify-between pb-3 border-b border-stone-200/40">
         <div>
           <h3 className="text-lg font-black text-stone-800">Juego Payaso Chano</h3>
