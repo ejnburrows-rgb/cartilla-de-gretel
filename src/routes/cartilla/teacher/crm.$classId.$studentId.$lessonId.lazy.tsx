@@ -28,7 +28,7 @@ export function LeccionDetail() {
     queryFn: () => fetchCrmStudentProgress(studentId, isSeed),
   });
 
-  const entry = CATALOG.find((c) => String(c.n) === lessonId);
+  const entry = CATALOG[Number(lessonId) - 1];
   const lessonEvents = useMemo(
     () => (progress?.events ?? []).filter((e) => e.lesson_id === lessonId),
     [progress, lessonId],

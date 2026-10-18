@@ -20,7 +20,7 @@ export const Route = createFileRoute("/cartilla/imprimir/$n")({
   }),
   beforeLoad: async ({ params }) => {
     const n = Number(params.n);
-    if (!Number.isFinite(n) || !CATALOG.find((e) => e.n === n)) {
+    if (!Number.isFinite(n) || !(n >= 1 && n <= CATALOG.length)) {
       throw redirect({ to: "/cartilla/lecciones" });
     }
 

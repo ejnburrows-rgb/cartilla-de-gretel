@@ -62,7 +62,7 @@ function pianoSectionEntry(lessonId: number): WorkbookPageEntry {
 export function buildPageArray(lessonId: number): WorkbookPageEntry[] {
   const lessonEntry = (pageInventory.workbook.lessons as Array<{ lessonId: number; pages: string[] }>).find((l) => l.lessonId === lessonId);
   const paths: string[] = lessonEntry?.pages ?? [];
-  const catalogEntry = CATALOG.find((e) => e.n === lessonId);
+  const catalogEntry = CATALOG[lessonId - 1];
   const globalPages = catalogEntry ? getLessonPageNumbers(catalogEntry.pages) : [];
   const count = globalPages.length > 0 ? globalPages.length : paths.length;
   if (count === 0) return [];

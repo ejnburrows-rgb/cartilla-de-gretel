@@ -18,7 +18,7 @@ function PaginasLeccion() {
   const navigate = useNavigate();
   const n = Number(nParam);
 
-  const catalogEntry = useMemo(() => CATALOG.find((e) => e.n === n), [n]);
+  const catalogEntry = useMemo(() => CATALOG[n - 1], [n]);
   const globalPageNumbers = useMemo(
     () => (catalogEntry ? getLessonPageNumbers(catalogEntry.pages) : []),
     [catalogEntry],

@@ -31,7 +31,7 @@ type Card = { syllable: string; options: string[]; lessonN: number; color: strin
 
 
 function FamilyPractice({ lessonNumber, requestedActivity }: { lessonNumber: number; requestedActivity: ActivityId }) {
-  const entry = CATALOG.find((item) => item.n === lessonNumber);
+  const entry = CATALOG[lessonNumber - 1];
   if (!entry) {
     return (
       <main className="min-h-screen bg-[#f7f2e8] p-6 flex items-center justify-center">

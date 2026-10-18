@@ -19,7 +19,7 @@ function TeacherGuide() {
     return allLessonExercises.filter((ex) => ex.lessonNumber === selectedLesson);
   }, [selectedLesson]);
 
-  const selectedCatalogEntry = CATALOG.find((c) => c.n === selectedLesson);
+  const selectedCatalogEntry = CATALOG[selectedLesson - 1];
   const theme = selectedCatalogEntry ? getCartillaCrmTheme(selectedLesson) : null;
 
   return (

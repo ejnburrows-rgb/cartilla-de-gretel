@@ -9,7 +9,7 @@ describe("release integration — workbook + lessons", () => {
     expect(TOTAL_LESSONS).toBe(24);
     expect(CATALOG).toHaveLength(24);
     for (let n = 1; n <= 24; n++) {
-      expect(CATALOG.find((e) => e.n === n)).toBeTruthy();
+      expect(CATALOG[n - 1]).toBeTruthy();
     }
   });
 

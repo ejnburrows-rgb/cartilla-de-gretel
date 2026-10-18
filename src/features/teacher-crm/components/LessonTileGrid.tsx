@@ -24,7 +24,7 @@ export function LessonTileGrid({ tiles, classId, studentId }: LessonTileGridProp
   return (
     <div className="grid grid-cols-4 sm:grid-cols-6 gap-3">
       {tiles.map((tile) => {
-        const entry = CATALOG.find((c) => c.n === tile.lessonNumber);
+        const entry = CATALOG[tile.lessonNumber - 1];
         const label =
           tile.status === "completed"
             ? "Completada"

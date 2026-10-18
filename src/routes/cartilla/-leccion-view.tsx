@@ -40,7 +40,7 @@ export function Leccion() {
   const session = useStudentSession();
   const demo = getDemoStudentSession();
   const scope = useLearnerScope();
-  const entry = useMemo<CatalogEntry | undefined>(() => CATALOG.find((e) => e.n === n), [n]);
+  const entry = useMemo<CatalogEntry | undefined>(() => CATALOG[n - 1], [n]);
 
   // Build this lesson from the canonical structured workbook page data.
   // All instructional pages render through the native learning surface.
