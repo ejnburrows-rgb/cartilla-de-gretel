@@ -362,16 +362,17 @@
   box-shadow: 0 0 0 4px rgba(47, 125, 74, 0.22);
 }
 
-/* Audit fix 2026-10-18: on narrow portrait screens (390px) the letter
- * strip inside each syllable word button overflowed the button and spilled
- * past the page edge ("lavamanos", "vámonos"...). Two columns give each
- * button room for a whole word, so words never break or clip. */
-.lc-lesson-16 .native-lesson-viewer__content .native-syllable__words {
-  grid-template-columns: repeat(3, minmax(0, 1fr));
-}
-@media (max-width: 480px) {
-  .lc-lesson-16 .native-lesson-viewer__content .native-syllable__words {
+/* Audit fix 2026-10-18 (corrected): on narrow portrait screens (390px)
+ * the word buttons on page 56 overflowed ("lavamanos" spilled past its
+ * tile). The rows are .fp-syllable-match__row, not .native-syllable__words
+ * (no such element on this lesson, so the earlier selector was a no-op).
+ * Two columns give each button room for a whole word, so words never
+ * break or clip. Lesson-scoped; other lessons untouched. */
+@media (max-width: 600px) {
+  .lc-lesson-16 .native-lesson-viewer__content .fp-syllable-match__row {
+    display: grid;
     grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 2.4cqw;
   }
 }
 
