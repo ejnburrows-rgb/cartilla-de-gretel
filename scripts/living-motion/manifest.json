@@ -49,6 +49,21 @@
     "alive": "public/cartilla/art/optimized/workbook/leccion-1/iman-alive.svg",
     "stillSha256": "c8a80b42542979dd37809a40a334c0266c4241cb1639cb58a67d6aee6cfeee52"
   },
+  "leccion-1-carro": {
+    "still": "public/cartilla/art/faithful/leccion-1/carro.webp",
+    "alive": "public/cartilla/art/faithful/leccion-1/carro-alive.svg",
+    "stillSha256": "9a6c158c497843da73d981cd017761434029df313524404d7bd59683ae10e140"
+  },
+  "leccion-1-maiz": {
+    "still": "public/cartilla/art/faithful/leccion-1/maiz.webp",
+    "alive": "public/cartilla/art/faithful/leccion-1/maiz-alive.svg",
+    "stillSha256": "3ba3071ba13ad179b7e72c5d01631efe5600e2311f8b052675a8443c17e33d72"
+  },
+  "leccion-1-ojos": {
+    "still": "public/cartilla/art/faithful/leccion-1/ojos.webp",
+    "alive": "public/cartilla/art/faithful/leccion-1/ojos-alive.svg",
+    "stillSha256": "cd45239f16e938c055a773e8690f0cb3f744721d09e37d7e6437883e0e835ee9"
+  },
   "olla": {
     "still": "public/cartilla/art/optimized/workbook/leccion-1/olla.svg",
     "alive": "public/cartilla/art/optimized/workbook/leccion-1/olla-alive.svg",
@@ -79,6 +94,21 @@
     "alive": "public/cartilla/art/faithful/vocal-a/abeja-alive.svg",
     "stillSha256": "1f03f92afdf3005ffffccae6aff6cfdd37314ebe016012e8634a102078bca5ef"
   },
+  "vocal-a-aguja": {
+    "still": "public/cartilla/art/faithful/vocal-a/aguja.webp",
+    "alive": "public/cartilla/art/faithful/vocal-a/aguja-alive.svg",
+    "stillSha256": "0197baa4567a7a703366ca2214e5439ffee5e204d06a116d6b33177ab6514e72"
+  },
+  "vocal-a-alas": {
+    "still": "public/cartilla/art/faithful/vocal-a/alas.webp",
+    "alive": "public/cartilla/art/faithful/vocal-a/alas-alive.svg",
+    "stillSha256": "6a923fda703e0812a908b7ee2e0606d2d67fd5acf3ad3ba579f99922910fe671"
+  },
+  "vocal-a-ardilla": {
+    "still": "public/cartilla/art/faithful/vocal-a/ardilla.webp",
+    "alive": "public/cartilla/art/faithful/vocal-a/ardilla-alive.svg",
+    "stillSha256": "ddf3333971afba4e709073e4ba7c0b3c12ad9e08a5cae10c5763a453dc7b5f52"
+  },
   "vocal-a-avion": {
     "still": "public/cartilla/art/faithful/vocal-a/avion.webp",
     "alive": "public/cartilla/art/faithful/vocal-a/avion-alive.svg",
@@ -88,6 +118,16 @@
     "still": "public/cartilla/art/faithful/vocal-e/elefante.webp",
     "alive": "public/cartilla/art/faithful/vocal-e/elefante-alive.svg",
     "stillSha256": "f54e533c6a33b901fcfc79da83b2f7a38977defc47662f6cf29ca948d1cfd28a"
+  },
+  "vocal-e-escoba": {
+    "still": "public/cartilla/art/faithful/vocal-e/escoba.webp",
+    "alive": "public/cartilla/art/faithful/vocal-e/escoba-alive.svg",
+    "stillSha256": "6f4a542ddde9d03b03f0987d9813bafded1d946632cb0f2c1c12acf4e9732091"
+  },
+  "vocal-e-estrella": {
+    "still": "public/cartilla/art/faithful/vocal-e/estrella.webp",
+    "alive": "public/cartilla/art/faithful/vocal-e/estrella-alive.svg",
+    "stillSha256": "f8b613f63a923668ec36a558bf35585aaca15f4d2f9d80c247432ed15c3e13ab"
   },
   "vocal-i-iman": {
     "still": "public/cartilla/art/faithful/vocal-i/iman.webp",
@@ -99,6 +139,11 @@
     "alive": "public/cartilla/art/faithful/vocal-o/olla-alive.svg",
     "stillSha256": "7f38ec806dc9da0d44910c5084c96c35c4c920f5ae3f8750040b801b7518b79d"
   },
+  "vocal-o-oruga": {
+    "still": "public/cartilla/art/faithful/vocal-o/oruga.webp",
+    "alive": "public/cartilla/art/faithful/vocal-o/oruga-alive.svg",
+    "stillSha256": "69977ee19c874c68a1e82d0f7747b4fae8e79640cd961e23c3d4ea9ec3046ead"
+  },
   "vocal-o-oso": {
     "still": "public/cartilla/art/faithful/vocal-o/oso.webp",
     "alive": "public/cartilla/art/faithful/vocal-o/oso-alive.svg",
@@ -108,5 +153,10 @@
     "still": "public/cartilla/art/faithful/vocal-o/oveja.webp",
     "alive": "public/cartilla/art/faithful/vocal-o/oveja-alive.svg",
     "stillSha256": "6835094e54b0ea0e5082792e1ae8cdde452ab4bd8be265d170f99d74e7f22d59"
+  },
+  "vocal-u-unicornio": {
+    "still": "public/cartilla/art/faithful/vocal-u/unicornio.webp",
+    "alive": "public/cartilla/art/faithful/vocal-u/unicornio-alive.svg",
+    "stillSha256": "b8b317eed9123b61371bdd7f175f19eddc0a3c48eea58b569c648227f74d714d"
   }
 }

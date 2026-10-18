@@ -2,6 +2,7 @@ import { useEffect, useId, useLayoutEffect, useMemo, useRef, useState } from "re
 import { createPortal } from "react-dom";
 import { useReducedMotion } from "@/hooks/useReducedMotion";
 import { useActivityEvents } from "@/lib/activity-events";
+import { fireCorrectFeedback, fireWrongFeedback } from "@/cartilla/interactions/shared";
 import "@/styles/workbook-pencil.css";
 
 export type WorkbookMarkStatus = "drawing" | "holding" | "correct" | "erasing" | "erased";
@@ -945,7 +946,8 @@ export function WorkbookPencilMark({
   const height = Math.round(100 * aspect * 10) / 10;
   const seed = useMemo(() => hashSeed(itemId ?? "mark"), [itemId]);
   const strokePoints = useMemo(
-    () => (markType === "circle" ? [handDrawnLoop(height, seed, round)] : handDrawnCross(height, round)),
+    () =>
+      markType === "circle" ? [handDrawnLoop(height, seed, round)] : handDrawnCross(height, round),
     [height, markType, seed, round],
   );
   const strokes = useMemo(() => strokePoints.map(smoothPath), [strokePoints]);
@@ -953,11 +955,11 @@ export function WorkbookPencilMark({
   const result =
     externalStatus === "correct"
       ? "correct"
-      : isCorrect == null
-        ? undefined
-        : isCorrect
-          ? "correct"
-          : "wrong";
+      : currentStatus === "correct"
+        ? "correct"
+        : currentStatus === "erasing"
+          ? "wrong"
+          : undefined;
 
   useEffect(() => {
     onSuccessRef.current = onSuccess;
@@ -977,13 +979,13 @@ export function WorkbookPencilMark({
     const resultTimer = window.setTimeout(() => {
       if (isCorrect) {
         setInternalStatus("correct");
-        emit(
-          completeOnSuccess ? "activity:complete" : "answer:correct",
-          itemId ? { itemId } : undefined,
-        );
+        if (completeOnSuccess) {
+          emit("activity:complete", itemId ? { itemId } : undefined);
+        }
+        fireCorrectFeedback(itemId ? { itemId } : undefined);
         onSuccessRef.current?.();
       } else {
-        emit("answer:wrong", itemId ? { itemId } : undefined);
+        fireWrongFeedback(itemId ? { itemId } : undefined);
         setInternalStatus("erasing");
       }
     }, resultDelay);

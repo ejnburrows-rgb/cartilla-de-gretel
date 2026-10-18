@@ -860,3 +860,8 @@
   border-radius: 8px;
   box-shadow: 0 0 0 3px rgba(167, 243, 208, 0.2);
 }
+
+
+.am-direct-pencil__stroke {
+  transition: stroke 0.5s ease-in-out, fill 0.5s ease-in-out;
+}

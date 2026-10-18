@@ -20,19 +20,21 @@ export interface InteractionProps {
 /** Shared correct/wrong feedback: real audio (WebAudio, no asset) + Gretel
  * reaction. Never a silent grade — every attempt gets both a sound and a
  * Gretel cue, same convention as the existing faithful-page exercises. */
-export function fireCorrectFeedback() {
+export function fireCorrectFeedback(detail?: { itemId?: string }) {
   playCorrectChord();
-  gretelEvent("answer:correct");
+  gretelEvent("answer:correct", detail);
 }
 
-export function fireWrongFeedback() {
+export function fireWrongFeedback(detail?: { itemId?: string }) {
   playWrongBuzz();
-  gretelEvent("answer:wrong");
+  gretelEvent("answer:wrong", detail);
 }
 
 /** Shared vocabulary playback obeys approved recording policy and never reports progress. */
 export function playObjectAudio(object: WorkbookObject): boolean {
-  const entry = object.src ? resolvePictureName(object.src, object.audio?.label ?? object.alt ?? object.text ?? "") : null;
+  const entry = object.src
+    ? resolvePictureName(object.src, object.audio?.label ?? object.alt ?? object.text ?? "")
+    : null;
   if (!entry) return false;
   return ["recorded", "tts"].includes(playPictureName(entry));
 }

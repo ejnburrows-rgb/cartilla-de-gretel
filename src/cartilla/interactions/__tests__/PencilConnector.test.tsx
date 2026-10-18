@@ -87,7 +87,7 @@ describe("Approved wooden pencil connector — line and pair matching", () => {
     );
 
     fireEvent.click(screen.getByRole("button", { name: "uniforme" }));
-    await flushAnim(300);
+    await flushAnim(1000);
 
     expect(playCorrectChord).toHaveBeenCalled();
     expect(gretelEvent).toHaveBeenCalledWith("answer:correct", { itemId: "0" });
@@ -107,14 +107,15 @@ describe("Approved wooden pencil connector — line and pair matching", () => {
 
     fireEvent.click(screen.getByRole("button", { name: "oso" }));
 
-    expect(playWrongBuzz).not.toHaveBeenCalled();
-    expect(speakGretelPhrase).not.toHaveBeenCalled();
-    expect(gretelEvent).toHaveBeenCalledWith("answer:wrong", { itemId: "2" });
-    expect(screen.getByRole("button", { name: "oso" }).classList.contains("is-connected")).toBe(false);
     expect(screen.getByRole("button", { name: "oso" }).classList.contains("is-retry")).toBe(true);
     expect(container.querySelector(".am-direct-pencil__retry-line")).toBeTruthy();
 
-    await flushAnim(150);
+    await flushAnim(1000);
+
+    expect(playWrongBuzz).toHaveBeenCalled();
+    expect(speakGretelPhrase).not.toHaveBeenCalled();
+    expect(gretelEvent).toHaveBeenCalledWith("answer:wrong", { itemId: "2" });
+    expect(screen.getByRole("button", { name: "oso" }).classList.contains("is-connected")).toBe(false);
     expect(screen.getByRole("button", { name: "oso" }).classList.contains("is-retry")).toBe(false);
   });
 
@@ -205,7 +206,7 @@ describe("Approved wooden pencil connector — line and pair matching", () => {
     expect(screen.getByRole("button", { name: "Vocal o" }).classList.contains("is-active")).toBe(true);
 
     fireEvent.click(screen.getByRole("button", { name: "ocho" }));
-    await flushAnim(200);
+    await flushAnim(1000);
 
     expect(playCorrectChord).toHaveBeenCalled();
     expect(gretelEvent).toHaveBeenCalledWith("answer:correct", { itemId: "p3-L-0|p3-R-0" });

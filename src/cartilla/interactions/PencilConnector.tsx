@@ -5,10 +5,14 @@
  */
 import { useCallback, useEffect, useMemo, useRef, useState, useId } from "react";
 import { useActivityEvents, useActivityState } from "@/lib/activity-events";
-import { playCorrectChord } from "@/lib/piano-audio";
+import { fireCorrectFeedback, fireWrongFeedback } from "@/cartilla/interactions/shared";
 import { loadLassoProgress, saveLassoProgress } from "@/lib/activity-canvas-store";
 import { useReducedMotion } from "@/hooks/useReducedMotion";
-import { PencilShape, WorkbookPencilMark, WORKBOOK_MARK_TIMING } from "@/components/cartilla/WorkbookPencilMark";
+import {
+  PencilShape,
+  WorkbookPencilMark,
+  WORKBOOK_MARK_TIMING,
+} from "@/components/cartilla/WorkbookPencilMark";
 import type { WorkbookObject } from "@/content/workbook/types";
 import type { InteractionProps } from "./shared";
 import "@/styles/activity-mechanics.css";
@@ -110,10 +114,12 @@ export function DirectPencilConnector({
         const usedLeft = new Set<string>();
         const usedRight = new Set<string>();
 
-        targets.filter((t) => t.example).forEach((t) => {
-          if (t.role === "left") usedLeft.add(t.id);
-          if (t.role === "right") usedRight.add(t.id);
-        });
+        targets
+          .filter((t) => t.example)
+          .forEach((t) => {
+            if (t.role === "left") usedLeft.add(t.id);
+            if (t.role === "right") usedRight.add(t.id);
+          });
 
         for (const key of rawKeys) {
           if (typeof key !== "string") continue;
@@ -385,20 +391,32 @@ export function DirectPencilConnector({
       const isCorrect = Boolean(target.correct);
 
       if (isCorrect) {
-        playCorrectChord();
-        gretelEvent("answer:correct", { itemId: target.id });
         const next = new Set(marked).add(target.id);
         setMarked(next);
         persist([...next]);
         const count = [...next].filter((id) => !targets.find((t) => t.id === id)?.example).length;
-        finishIfDone(count);
-        onResult?.({ objectId: target.id, result: "correct" });
+
+        const delay = reducedMotion
+          ? WORKBOOK_MARK_TIMING.holdMs
+          : WORKBOOK_MARK_TIMING.drawMs + WORKBOOK_MARK_TIMING.holdMs;
+        setTimeout(() => {
+          fireCorrectFeedback({ itemId: target.id });
+          finishIfDone(count);
+          onResult?.({ objectId: target.id, result: "correct" });
+        }, delay);
       } else {
-        gretelEvent("answer:wrong", { itemId: target.id });
         recordWrong();
         const from = centerPt;
         const to = getTargetCenter(target.id);
         setWrongLine({ from, to, targetId: target.id });
+
+        const delay = reducedMotion
+          ? WORKBOOK_MARK_TIMING.holdMs
+          : WORKBOOK_MARK_TIMING.drawMs + WORKBOOK_MARK_TIMING.holdMs;
+        setTimeout(() => {
+          fireWrongFeedback({ itemId: target.id });
+        }, delay);
+
         const retryDuration = reducedMotion
           ? WORKBOOK_MARK_TIMING.reducedEraseMs
           : WORKBOOK_MARK_TIMING.eraseMs;
@@ -406,7 +424,19 @@ export function DirectPencilConnector({
         onResult?.({ objectId: target.id, result: "wrong" });
       }
     },
-    [marked, completed, targets, centerPt, getTargetCenter, persist, finishIfDone, onResult, recordWrong, gretelEvent, reducedMotion],
+    [
+      marked,
+      completed,
+      targets,
+      centerPt,
+      getTargetCenter,
+      persist,
+      finishIfDone,
+      onResult,
+      recordWrong,
+      gretelEvent,
+      reducedMotion,
+    ],
   );
 
   const attemptPairConnect = useCallback(
@@ -417,21 +447,33 @@ export function DirectPencilConnector({
       const pairKey = `${left.id}|${right.id}`;
 
       if (isCorrect) {
-        playCorrectChord();
-        gretelEvent("answer:correct", { itemId: pairKey });
         const next = new Set(marked).add(pairKey);
         setMarked(next);
         persist([...next]);
         const count = [...next].filter((id) => !id.includes("example")).length;
-        finishIfDone(count);
         setSelectedStartId(null);
-        onResult?.({ objectId: pairKey, result: "correct" });
+
+        const delay = reducedMotion
+          ? WORKBOOK_MARK_TIMING.holdMs
+          : WORKBOOK_MARK_TIMING.drawMs + WORKBOOK_MARK_TIMING.holdMs;
+        setTimeout(() => {
+          fireCorrectFeedback({ itemId: pairKey });
+          finishIfDone(count);
+          onResult?.({ objectId: pairKey, result: "correct" });
+        }, delay);
       } else {
-        gretelEvent("answer:wrong", { itemId: right.id });
         recordWrong();
         const from = getTargetCenter(left.id);
         const to = getTargetCenter(right.id);
         setWrongLine({ from, to, targetId: right.id });
+
+        const delay = reducedMotion
+          ? WORKBOOK_MARK_TIMING.holdMs
+          : WORKBOOK_MARK_TIMING.drawMs + WORKBOOK_MARK_TIMING.holdMs;
+        setTimeout(() => {
+          fireWrongFeedback({ itemId: right.id });
+        }, delay);
+
         const retryDuration = reducedMotion
           ? WORKBOOK_MARK_TIMING.reducedEraseMs
           : WORKBOOK_MARK_TIMING.eraseMs;
@@ -439,7 +481,19 @@ export function DirectPencilConnector({
         onResult?.({ objectId: right.id, result: "wrong" });
       }
     },
-    [marked, completed, isLeftConnected, isRightConnected, getTargetCenter, persist, finishIfDone, onResult, recordWrong, gretelEvent, reducedMotion],
+    [
+      marked,
+      completed,
+      isLeftConnected,
+      isRightConnected,
+      getTargetCenter,
+      persist,
+      finishIfDone,
+      onResult,
+      recordWrong,
+      gretelEvent,
+      reducedMotion,
+    ],
   );
 
   const cancelDragState = useCallback(() => {
@@ -552,7 +606,13 @@ export function DirectPencilConnector({
         <svg className="am-direct-pencil__svg-layer" aria-hidden="true">
           <defs>
             <filter id={shadowUid} x="-20%" y="-20%" width="140%" height="140%">
-              <feDropShadow dx="1" dy="2" stdDeviation="1.5" floodColor="#0f766e" floodOpacity="0.25" />
+              <feDropShadow
+                dx="1"
+                dy="2"
+                stdDeviation="1.5"
+                floodColor="#0f766e"
+                floodOpacity="0.25"
+              />
             </filter>
             <linearGradient id={`${shadowUid}-grad`} x1="0%" y1="0%" x2="100%" y2="100%">
               <stop offset="0%" stopColor="#0d9488" />
@@ -575,14 +635,38 @@ export function DirectPencilConnector({
                     y1={centerPt.y}
                     x2={targetPt.x}
                     y2={targetPt.y}
-                    stroke="#0d9488"
+                    stroke="#16a34a"
                     strokeWidth={isExample ? 3 : 4.5}
                     strokeDasharray={isExample ? "6 4" : undefined}
                     strokeLinecap="round"
                     filter={`url(#${shadowUid})`}
-                  />
-                  <circle cx={targetPt.x} cy={targetPt.y} r={isExample ? 4 : 5.5} fill="#0d9488" />
-                  <circle cx={centerPt.x} cy={centerPt.y} r={4} fill="#0d9488" />
+                  >
+                    <animate
+                      attributeName="stroke"
+                      from="#46464d"
+                      to="#16a34a"
+                      dur="0.5s"
+                      fill="freeze"
+                    />
+                  </line>
+                  <circle cx={targetPt.x} cy={targetPt.y} r={isExample ? 4 : 5.5} fill="#16a34a">
+                    <animate
+                      attributeName="fill"
+                      from="#46464d"
+                      to="#16a34a"
+                      dur="0.5s"
+                      fill="freeze"
+                    />
+                  </circle>
+                  <circle cx={centerPt.x} cy={centerPt.y} r={4} fill="#16a34a">
+                    <animate
+                      attributeName="fill"
+                      from="#46464d"
+                      to="#16a34a"
+                      dur="0.5s"
+                      fill="freeze"
+                    />
+                  </circle>
                 </g>
               );
             })}
@@ -603,13 +687,37 @@ export function DirectPencilConnector({
                     y1={ptA.y}
                     x2={ptB.x}
                     y2={ptB.y}
-                    stroke="#0d9488"
+                    stroke="#16a34a"
                     strokeWidth={4.5}
                     strokeLinecap="round"
                     filter={`url(#${shadowUid})`}
-                  />
-                  <circle cx={ptA.x} cy={ptA.y} r={5} fill="#0d9488" />
-                  <circle cx={ptB.x} cy={ptB.y} r={5} fill="#0d9488" />
+                  >
+                    <animate
+                      attributeName="stroke"
+                      from="#46464d"
+                      to="#16a34a"
+                      dur="0.5s"
+                      fill="freeze"
+                    />
+                  </line>
+                  <circle cx={ptA.x} cy={ptA.y} r={5} fill="#16a34a">
+                    <animate
+                      attributeName="fill"
+                      from="#46464d"
+                      to="#16a34a"
+                      dur="0.5s"
+                      fill="freeze"
+                    />
+                  </circle>
+                  <circle cx={ptB.x} cy={ptB.y} r={5} fill="#16a34a">
+                    <animate
+                      attributeName="fill"
+                      from="#46464d"
+                      to="#16a34a"
+                      dur="0.5s"
+                      fill="freeze"
+                    />
+                  </circle>
                 </g>
               );
             })}
@@ -622,12 +730,19 @@ export function DirectPencilConnector({
                 y1={activeStartPt.y}
                 x2={dragPt.x}
                 y2={dragPt.y}
-                stroke="#0d9488"
+                stroke="#46464d"
+                style={{ transition: "stroke 0.5s ease-in-out" }}
                 strokeWidth={5}
                 strokeLinecap="round"
                 filter={`url(#${shadowUid})`}
               />
-              <circle cx={dragPt.x} cy={dragPt.y} r={6} fill="#0f766e" />
+              <circle
+                cx={dragPt.x}
+                cy={dragPt.y}
+                r={6}
+                fill="#46464d"
+                style={{ transition: "fill 0.5s ease-in-out" }}
+              />
               {/* Wooden Pencil at Tip */}
               {(() => {
                 const angle =
@@ -655,7 +770,7 @@ export function DirectPencilConnector({
                   y1={wrongLine.from.y}
                   x2={wrongLine.to.x}
                   y2={wrongLine.to.y}
-                  stroke="#0d9488"
+                  stroke="#dc2626"
                   strokeWidth={4}
                   strokeLinecap="round"
                   opacity="0.6"
@@ -675,12 +790,19 @@ export function DirectPencilConnector({
                     <>
                       <path
                         d={linePath}
-                        stroke="#0d9488"
+                        stroke="#dc2626"
                         strokeWidth={4}
                         strokeLinecap="round"
                         pathLength={100}
                         strokeDasharray="100 100"
                       >
+                        <animate
+                          attributeName="stroke"
+                          dur={`${eraseMs}ms`}
+                          fill="freeze"
+                          values="#46464d;#dc2626;#dc2626"
+                          keyTimes={`0;${kFlip};1`}
+                        />
                         <animate
                           attributeName="stroke-dashoffset"
                           dur={`${eraseMs}ms`}
@@ -893,28 +1015,75 @@ export function DirectPencilConnector({
 
 /** Preserve existing saved pair progress while presenting only approved pencil lines. */
 export function PencilConnectorFromWorkbook({
-  objects, onResult, onComplete, reducedMotion, pageKey, mode, instruction, lessonId,
-}: InteractionProps & { pageKey: string; mode: PencilMode; instruction?: string; lessonId?: string }) {
+  objects,
+  onResult,
+  onComplete,
+  reducedMotion,
+  pageKey,
+  mode,
+  instruction,
+  lessonId,
+}: InteractionProps & {
+  pageKey: string;
+  mode: PencilMode;
+  instruction?: string;
+  lessonId?: string;
+}) {
   const targets: PencilTarget[] = objects.map((o: WorkbookObject) => {
-    const d = (o.interaction?.data ?? {}) as { correct?: boolean; role?: "left" | "right"; pairId?: string };
-    return { id: o.id, label: o.alt ?? o.text ?? o.id, src: o.src, box: o.box,
-      correct: d.correct, role: d.role ?? "solo", pairId: d.pairId };
+    const d = (o.interaction?.data ?? {}) as {
+      correct?: boolean;
+      role?: "left" | "right";
+      pairId?: string;
+    };
+    return {
+      id: o.id,
+      label: o.alt ?? o.text ?? o.id,
+      src: o.src,
+      box: o.box,
+      correct: d.correct,
+      role: d.role ?? "solo",
+      pairId: d.pairId,
+    };
   });
-  return <DirectPencilConnector pageKey={pageKey} targets={targets} mode={mode}
-    instruction={instruction} lessonId={lessonId} reducedMotion={reducedMotion}
-    onResult={onResult} onComplete={onComplete} className="am-direct-pencil--workbook" />;
+  return (
+    <DirectPencilConnector
+      pageKey={pageKey}
+      targets={targets}
+      mode={mode}
+      instruction={instruction}
+      lessonId={lessonId}
+      reducedMotion={reducedMotion}
+      onResult={onResult}
+      onComplete={onComplete}
+      className="am-direct-pencil--workbook"
+    />
+  );
 }
 
 /** Source-page picture choices: circle each answer with the shared real pencil actor. */
 export function PencilMarkFromWorkbook({
-  objects, onResult, onComplete, pageKey,
+  objects,
+  onResult,
+  onComplete,
+  pageKey,
 }: InteractionProps & { pageKey: string }) {
-  const graded = objects.filter((o) => (o.interaction?.data as {correct?: boolean} | undefined)?.correct !== undefined);
-  const correct = objects.filter((o) =>
-    graded.length === 0 || (o.interaction?.data as {correct?: boolean} | undefined)?.correct === true);
-  const [marked, setMarked] = useState<Set<string>>(() =>
-    new Set((loadLassoProgress(pageKey)?.completedIds ?? []).filter(id => correct.some(o => o.id === id))));
-  const [pending, setPending] = useState<{id: string; correct: boolean} | null>(null);
+  const graded = objects.filter(
+    (o) => (o.interaction?.data as { correct?: boolean } | undefined)?.correct !== undefined,
+  );
+  const correct = objects.filter(
+    (o) =>
+      graded.length === 0 ||
+      (o.interaction?.data as { correct?: boolean } | undefined)?.correct === true,
+  );
+  const [marked, setMarked] = useState<Set<string>>(
+    () =>
+      new Set(
+        (loadLassoProgress(pageKey)?.completedIds ?? []).filter((id) =>
+          correct.some((o) => o.id === id),
+        ),
+      ),
+  );
+  const [pending, setPending] = useState<{ id: string; correct: boolean } | null>(null);
   const finished = useRef(false);
   useEffect(() => {
     if (correct.length > 0 && marked.size === correct.length && !finished.current) {
@@ -922,27 +1091,52 @@ export function PencilMarkFromWorkbook({
       onComplete?.();
     }
   }, [correct.length, marked, onComplete]);
-  return <div className="am-pencil-mark-grid">
-    {objects.map((object) => {
-      const isCorrect = correct.some((o) => o.id === object.id);
-      const done = marked.has(object.id);
-      const active = pending?.id === object.id;
-      return <button key={object.id} type="button" className="am-pencil-mark-grid__item"
-        aria-label={object.alt ?? object.text ?? object.id} aria-pressed={done || active}
-        disabled={done || (pending !== null && !active)}
-        onClick={() => setPending({id: object.id, correct: isCorrect})}>
-        {object.src ? <img src={object.src} alt="" draggable={false} /> : <span>{object.text ?? object.alt ?? object.id}</span>}
-        {(active || done) && <span className="am-pencil-mark-grid__overlay" aria-hidden="true">
-          <WorkbookPencilMark markType="circle" round itemId={object.id}
-            isCorrect={active ? isCorrect : true} status={done ? "correct" : undefined}
-            onSuccess={() => {
-              const next = new Set(marked).add(object.id);
-              setMarked(next); saveLassoProgress(pageKey, [...next]); setPending(null);
-              onResult?.({objectId: object.id, result: "correct"});
-            }}
-            onRetry={() => { setPending(null); onResult?.({objectId: object.id, result: "wrong"}); }} />
-        </span>}
-      </button>;
-    })}
-  </div>;
+  return (
+    <div className="am-pencil-mark-grid">
+      {objects.map((object) => {
+        const isCorrect = correct.some((o) => o.id === object.id);
+        const done = marked.has(object.id);
+        const active = pending?.id === object.id;
+        return (
+          <button
+            key={object.id}
+            type="button"
+            className="am-pencil-mark-grid__item"
+            aria-label={object.alt ?? object.text ?? object.id}
+            aria-pressed={done || active}
+            disabled={done || (pending !== null && !active)}
+            onClick={() => setPending({ id: object.id, correct: isCorrect })}
+          >
+            {object.src ? (
+              <img src={object.src} alt="" draggable={false} />
+            ) : (
+              <span>{object.text ?? object.alt ?? object.id}</span>
+            )}
+            {(active || done) && (
+              <span className="am-pencil-mark-grid__overlay" aria-hidden="true">
+                <WorkbookPencilMark
+                  markType="circle"
+                  round
+                  itemId={object.id}
+                  isCorrect={active ? isCorrect : true}
+                  status={done ? "correct" : undefined}
+                  onSuccess={() => {
+                    const next = new Set(marked).add(object.id);
+                    setMarked(next);
+                    saveLassoProgress(pageKey, [...next]);
+                    setPending(null);
+                    onResult?.({ objectId: object.id, result: "correct" });
+                  }}
+                  onRetry={() => {
+                    setPending(null);
+                    onResult?.({ objectId: object.id, result: "wrong" });
+                  }}
+                />
+              </span>
+            )}
+          </button>
+        );
+      })}
+    </div>
+  );
 }
