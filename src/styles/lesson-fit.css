@@ -399,3 +399,20 @@
 }
 .lc-lesson-20 .native-lesson-viewer__navigation button[data-testid="button-next"] { background: #167a72; border-color: #167a72; color: #fffaf0; }
 .lc-lesson-20 :is(button, a, textarea):focus-visible { outline: 3px solid #167a72; outline-offset: 3px; }
+
+/* Owner audit 2026-10-18 (PR #933 lane), defect #2 — page-number diamond.
+ * (a) On even pages the diamond sat at left:2.2%, directly behind the teal
+ * sidebar: teal-on-teal, so the number vanished at phone widths. Move it
+ * onto the cream paper just right of the sidebar (sidebar is 4.5%/min 24px
+ * in this lesson's theme). Odd-page corner placement is unchanged.
+ * (b) On a tall page that grows past the viewport (fit-overflow scroll
+ * mode, e.g. page 71 on a phone) the fixed page-turn nav covered the
+ * diamond at the paper's bottom corner once scrolled to the end; lift it
+ * clear of the 52px nav zone there. */
+.lc-lesson-20 .faithful-page--edge-left .faithful-page__pagenum {
+  left: max(calc(4.5% + 10px), 34px);
+}
+.lc-lesson-shell--fit.lc-lesson-20:has(.faithful-page__body[data-lc-fit-overflow="true"])
+  .faithful-page__pagenum {
+  bottom: 84px;
+}
