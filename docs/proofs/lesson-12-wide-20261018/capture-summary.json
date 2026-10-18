@@ -1,0 +1,25 @@
+{
+  "base_url": "http://127.0.0.1:5179",
+  "captures": [
+    {
+      "page": 39,
+      "viewport": "desktop",
+      "file": "docs/proofs/lesson-12-wide-20261018/lesson-12-39-desktop.png"
+    },
+    {
+      "page": 40,
+      "viewport": "desktop",
+      "file": "docs/proofs/lesson-12-wide-20261018/lesson-12-40-desktop.png"
+    },
+    {
+      "page": 41,
+      "viewport": "desktop",
+      "file": "docs/proofs/lesson-12-wide-20261018/lesson-12-41-desktop.png"
+    },
+    {
+      "page": 42,
+      "viewport": "desktop",
+      "file": "docs/proofs/lesson-12-wide-20261018/lesson-12-42-desktop.png"
+    }
+  ]
+}
