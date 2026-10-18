@@ -317,10 +317,13 @@
   border: 1px solid rgba(22, 122, 114, 0.28);
 }
 .lc-lesson-21 .faithful-page__sidebar { width: 4.5%; min-width: 24px; }
-/* Page-number diamond always sits above the wavy page edge: on narrow
- * screens the wave bulges over the diamond's corner (mobile p77) and would
- * otherwise cover it. */
+/* Audit fix 2026-10-18: the page-number diamond sat at left/right 2.2%,
+ * under the wavy teal sidebar, so the wave covered its corner on narrow
+ * screens (mobile p77) — z-index alone cannot lift it. Clear the sidebar
+ * and paint above it (same pattern as the lesson-16 audit fix). */
 .lc-lesson-21 .faithful-page__pagenum { background: #167a72; z-index: 3; }
+.lc-lesson-21 .faithful-page--edge-left .faithful-page__pagenum { left: 6.2%; }
+.lc-lesson-21 .faithful-page--edge-right .faithful-page__pagenum { right: 6.2%; }
 
 /* Stronger teal glow around every boxed work surface. */
 .lc-lesson-21 .native-lesson-viewer__content .native-syllable__word,
