@@ -8,22 +8,43 @@ const VOWEL_TRAY = ["a", "e", "i", "o", "u"];
  * The vocabulary is taken from the owner's Cartilla interactives and existing
  * verified workbook crops. No placeholder image paths are used here.
  */
+// The teacher's document has no verified complete-word script or recordings.
+ // The only explicitly visible prompts are these eight printed syllables.
+ // This draft therefore runs a source-faithful syllable rehearsal, not an
+ // invented multi-syllable vocabulary list.
+const MARIPOSAS_SOURCE_SYLLABLES = ["mi", "ma", "me", "má", "mu", "mo", "Mu", "Me"];
+
 export const MARIPOSAS_P: GameContent = {
   id: "mariposas-p",
   type: "mariposas",
-  letter: "p",
+  letter: "m",
   instructions: [
     "Escucha la palabra.",
     "Presiona la primera sílaba que necesitas para formar la palabra.",
     "Presiona la otra sílaba o las otras sílabas que forman la palabra.",
-    "Completa la palabra para que las mariposas regresen al jardín.",
+    "Presiona la florecita donde vas a colocar la próxima sílaba.",
+    "Presiona el sol para escuchar de nuevo la palabra.",
+    "Presiona la mariposa para comprobar la palabra.",
+    "Presiona la red para que las mariposas regresen al jardín.",
+    "Presiona la regadera para escuchar la próxima palabra.",
   ],
-  words: [
-    { word: "papi", syllables: ["pa", "pi"] },
-    { word: "papá", syllables: ["pa", "pá"] },
-    { word: "pomo", syllables: ["po", "mo"] },
-  ],
-  tiles: ["pa", "pi", "pá", "po", "mo", "pe", "pu"],
+  // The data contract requires WordItem; these are print-attested syllable
+  // practice cues, NOT claims that the teacher prescribed full target words.
+  words: MARIPOSAS_SOURCE_SYLLABLES.map((syllable) => ({
+    word: syllable,
+    syllables: [syllable],
+  })),
+  tiles: MARIPOSAS_SOURCE_SYLLABLES,
+  assets: {
+    board: "/games/mariposas/garden.jpeg",
+    props: {
+      butterfly: "/games/mariposas/butterfly.png",
+      flower: "/games/mariposas/flower.png",
+      sun: "/games/mariposas/sun.png",
+      net: "/games/mariposas/net.png",
+      wateringCan: "/games/mariposas/watering-can.png",
+    },
+  },
 };
 
 export const VOCAL_A: GameContent = {
