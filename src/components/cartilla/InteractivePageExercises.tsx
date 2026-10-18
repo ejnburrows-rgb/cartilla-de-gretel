@@ -197,7 +197,6 @@ export function InteractivePictureGrid({
                       <WorkbookPencilMark
                         round
                         markType={mark}
-                        retryText={retry.text(String(i))}
                         isCorrect={isCorrect}
                         itemId={`${region.id}-${i}`}
                         completeOnSuccess={Boolean(isCorrect) && validated.size + 1 === totalCorrectRequired}
