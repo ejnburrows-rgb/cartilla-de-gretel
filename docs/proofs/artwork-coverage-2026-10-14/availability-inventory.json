@@ -10,14 +10,14 @@
   },
   "counts": {
     "drawing_groups": {
-      "OPTIMIZED VERSION EXISTS": 90,
-      "OPTIMIZATION NEEDED": 108,
+      "OPTIMIZED VERSION EXISTS": 118,
+      "OPTIMIZATION NEEDED": 80,
       "UNRESOLVED": 3
     },
     "placements_by_drawing_availability": {
       "UNRESOLVED": 3,
-      "OPTIMIZED VERSION EXISTS": 186,
-      "OPTIMIZATION NEEDED": 141
+      "OPTIMIZED VERSION EXISTS": 246,
+      "OPTIMIZATION NEEDED": 81
     },
     "exact_oriented_placement_matches_verified": 115
   },
@@ -89,9 +89,9 @@
       "decisions": [
         "Coat: same five-button asymmetric opening, same sleeves/panel lines; abrigo/chaqueta aliases do not create new art."
       ],
-      "availability": "OPTIMIZATION NEEDED",
+      "availability": "OPTIMIZED VERSION EXISTS",
       "placement_counts": {
-        "OPTIMIZATION NEEDED": 2
+        "OPTIMIZED VERSION EXISTS": 2
       },
       "coverage_rule": "Availability classifies original drawing identity. Exact source orientation and runtime file integration are tracked separately per placement.",
       "production_approval_verified": false,
@@ -109,9 +109,9 @@
       ],
       "identity_decision": "SAME ORIGINAL DRAWING WITHIN THIS GROUP",
       "label": "aguja",
-      "availability": "OPTIMIZATION NEEDED",
+      "availability": "OPTIMIZED VERSION EXISTS",
       "placement_counts": {
-        "OPTIMIZATION NEEDED": 3
+        "OPTIMIZED VERSION EXISTS": 3
       },
       "coverage_rule": "Availability classifies original drawing identity. Exact source orientation and runtime file integration are tracked separately per placement.",
       "production_approval_verified": false,
@@ -128,9 +128,9 @@
       ],
       "identity_decision": "SAME ORIGINAL DRAWING WITHIN THIS GROUP",
       "label": "ala",
-      "availability": "OPTIMIZATION NEEDED",
+      "availability": "OPTIMIZED VERSION EXISTS",
       "placement_counts": {
-        "OPTIMIZATION NEEDED": 2
+        "OPTIMIZED VERSION EXISTS": 2
       },
       "coverage_rule": "Availability classifies original drawing identity. Exact source orientation and runtime file integration are tracked separately per placement.",
       "production_approval_verified": false,
@@ -148,9 +148,9 @@
       ],
       "identity_decision": "SAME ORIGINAL DRAWING WITHIN THIS GROUP",
       "label": "ala",
-      "availability": "OPTIMIZATION NEEDED",
+      "availability": "OPTIMIZED VERSION EXISTS",
       "placement_counts": {
-        "OPTIMIZATION NEEDED": 3
+        "OPTIMIZED VERSION EXISTS": 3
       },
       "coverage_rule": "Availability classifies original drawing identity. Exact source orientation and runtime file integration are tracked separately per placement.",
       "production_approval_verified": false,
@@ -194,9 +194,9 @@
       ],
       "identity_decision": "SAME ORIGINAL DRAWING WITHIN THIS GROUP",
       "label": "arbol",
-      "availability": "OPTIMIZATION NEEDED",
+      "availability": "OPTIMIZED VERSION EXISTS",
       "placement_counts": {
-        "OPTIMIZATION NEEDED": 3
+        "OPTIMIZED VERSION EXISTS": 3
       },
       "coverage_rule": "Availability classifies original drawing identity. Exact source orientation and runtime file integration are tracked separately per placement.",
       "production_approval_verified": false,
@@ -212,9 +212,9 @@
       ],
       "identity_decision": "SAME ORIGINAL DRAWING WITHIN THIS GROUP",
       "label": "ardilla",
-      "availability": "OPTIMIZATION NEEDED",
+      "availability": "OPTIMIZED VERSION EXISTS",
       "placement_counts": {
-        "OPTIMIZATION NEEDED": 1
+        "OPTIMIZED VERSION EXISTS": 1
       },
       "coverage_rule": "Availability classifies original drawing identity. Exact source orientation and runtime file integration are tracked separately per placement.",
       "production_approval_verified": false,
@@ -232,9 +232,9 @@
       ],
       "identity_decision": "SAME ORIGINAL DRAWING WITHIN THIS GROUP",
       "label": "aro",
-      "availability": "OPTIMIZATION NEEDED",
+      "availability": "OPTIMIZED VERSION EXISTS",
       "placement_counts": {
-        "OPTIMIZATION NEEDED": 3
+        "OPTIMIZED VERSION EXISTS": 3
       },
       "coverage_rule": "Availability classifies original drawing identity. Exact source orientation and runtime file integration are tracked separately per placement.",
       "production_approval_verified": false,
@@ -250,9 +250,9 @@
       ],
       "identity_decision": "SAME ORIGINAL DRAWING WITHIN THIS GROUP",
       "label": "aro",
-      "availability": "OPTIMIZATION NEEDED",
+      "availability": "OPTIMIZED VERSION EXISTS",
       "placement_counts": {
-        "OPTIMIZATION NEEDED": 1
+        "OPTIMIZED VERSION EXISTS": 1
       },
       "coverage_rule": "Availability classifies original drawing identity. Exact source orientation and runtime file integration are tracked separately per placement.",
       "production_approval_verified": false,
@@ -295,9 +295,9 @@
       ],
       "identity_decision": "SAME ORIGINAL DRAWING WITHIN THIS GROUP",
       "label": "carro",
-      "availability": "OPTIMIZATION NEEDED",
+      "availability": "OPTIMIZED VERSION EXISTS",
       "placement_counts": {
-        "OPTIMIZATION NEEDED": 1
+        "OPTIMIZED VERSION EXISTS": 1
       },
       "coverage_rule": "Availability classifies original drawing identity. Exact source orientation and runtime file integration are tracked separately per placement.",
       "production_approval_verified": false,
@@ -313,9 +313,9 @@
       ],
       "identity_decision": "SAME ORIGINAL DRAWING WITHIN THIS GROUP",
       "label": "dulce",
-      "availability": "OPTIMIZATION NEEDED",
+      "availability": "OPTIMIZED VERSION EXISTS",
       "placement_counts": {
-        "OPTIMIZATION NEEDED": 1
+        "OPTIMIZED VERSION EXISTS": 1
       },
       "coverage_rule": "Availability classifies original drawing identity. Exact source orientation and runtime file integration are tracked separately per placement.",
       "production_approval_verified": false,
@@ -335,9 +335,9 @@
       ],
       "identity_decision": "SAME ORIGINAL DRAWING WITHIN THIS GROUP",
       "label": "elefante",
-      "availability": "OPTIMIZATION NEEDED",
+      "availability": "OPTIMIZED VERSION EXISTS",
       "placement_counts": {
-        "OPTIMIZATION NEEDED": 5
+        "OPTIMIZED VERSION EXISTS": 5
       },
       "coverage_rule": "Availability classifies original drawing identity. Exact source orientation and runtime file integration are tracked separately per placement.",
       "production_approval_verified": false,
@@ -407,9 +407,9 @@
       ],
       "identity_decision": "SAME ORIGINAL DRAWING WITHIN THIS GROUP",
       "label": "escoba",
-      "availability": "OPTIMIZATION NEEDED",
+      "availability": "OPTIMIZED VERSION EXISTS",
       "placement_counts": {
-        "OPTIMIZATION NEEDED": 2
+        "OPTIMIZED VERSION EXISTS": 2
       },
       "coverage_rule": "Availability classifies original drawing identity. Exact source orientation and runtime file integration are tracked separately per placement.",
       "production_approval_verified": false,
@@ -445,9 +445,9 @@
       ],
       "identity_decision": "SAME ORIGINAL DRAWING WITHIN THIS GROUP",
       "label": "escuela",
-      "availability": "OPTIMIZATION NEEDED",
+      "availability": "OPTIMIZED VERSION EXISTS",
       "placement_counts": {
-        "OPTIMIZATION NEEDED": 1
+        "OPTIMIZED VERSION EXISTS": 1
       },
       "coverage_rule": "Availability classifies original drawing identity. Exact source orientation and runtime file integration are tracked separately per placement.",
       "production_approval_verified": false,
@@ -463,9 +463,9 @@
       ],
       "identity_decision": "SAME ORIGINAL DRAWING WITHIN THIS GROUP",
       "label": "espejo",
-      "availability": "OPTIMIZATION NEEDED",
+      "availability": "OPTIMIZED VERSION EXISTS",
       "placement_counts": {
-        "OPTIMIZATION NEEDED": 1
+        "OPTIMIZED VERSION EXISTS": 1
       },
       "coverage_rule": "Availability classifies original drawing identity. Exact source orientation and runtime file integration are tracked separately per placement.",
       "production_approval_verified": false,
@@ -529,9 +529,9 @@
       ],
       "identity_decision": "SAME ORIGINAL DRAWING WITHIN THIS GROUP",
       "label": "iglesia",
-      "availability": "OPTIMIZATION NEEDED",
+      "availability": "OPTIMIZED VERSION EXISTS",
       "placement_counts": {
-        "OPTIMIZATION NEEDED": 1
+        "OPTIMIZED VERSION EXISTS": 1
       },
       "coverage_rule": "Availability classifies original drawing identity. Exact source orientation and runtime file integration are tracked separately per placement.",
       "production_approval_verified": false,
@@ -578,9 +578,9 @@
       ],
       "identity_decision": "SAME ORIGINAL DRAWING WITHIN THIS GROUP",
       "label": "igual",
-      "availability": "OPTIMIZATION NEEDED",
+      "availability": "OPTIMIZED VERSION EXISTS",
       "placement_counts": {
-        "OPTIMIZATION NEEDED": 2
+        "OPTIMIZED VERSION EXISTS": 2
       },
       "coverage_rule": "Availability classifies original drawing identity. Exact source orientation and runtime file integration are tracked separately per placement.",
       "production_approval_verified": false,
@@ -597,9 +597,9 @@
       ],
       "identity_decision": "SAME ORIGINAL DRAWING WITHIN THIS GROUP",
       "label": "iguana",
-      "availability": "OPTIMIZATION NEEDED",
+      "availability": "OPTIMIZED VERSION EXISTS",
       "placement_counts": {
-        "OPTIMIZATION NEEDED": 2
+        "OPTIMIZED VERSION EXISTS": 2
       },
       "coverage_rule": "Availability classifies original drawing identity. Exact source orientation and runtime file integration are tracked separately per placement.",
       "production_approval_verified": false,
@@ -624,9 +624,9 @@
       "decisions": [
         "Plain horseshoe magnet: same upper-plane edges, two tips and perspective; accented/unaccented names consolidate."
       ],
-      "availability": "OPTIMIZATION NEEDED",
+      "availability": "OPTIMIZED VERSION EXISTS",
       "placement_counts": {
-        "OPTIMIZATION NEEDED": 6
+        "OPTIMIZED VERSION EXISTS": 6
       },
       "coverage_rule": "Availability classifies original drawing identity. Exact source orientation and runtime file integration are tracked separately per placement.",
       "production_approval_verified": false,
@@ -651,9 +651,9 @@
       "decisions": [
         "Same single-feather headdress, closed eyes, spear grip, kneeling legs and ground oval."
       ],
-      "availability": "OPTIMIZATION NEEDED",
+      "availability": "OPTIMIZED VERSION EXISTS",
       "placement_counts": {
-        "OPTIMIZATION NEEDED": 5
+        "OPTIMIZED VERSION EXISTS": 5
       },
       "coverage_rule": "Availability classifies original drawing identity. Exact source orientation and runtime file integration are tracked separately per placement.",
       "production_approval_verified": false,
@@ -695,9 +695,9 @@
       ],
       "identity_decision": "SAME ORIGINAL DRAWING WITHIN THIS GROUP",
       "label": "invierno",
-      "availability": "OPTIMIZATION NEEDED",
+      "availability": "OPTIMIZED VERSION EXISTS",
       "placement_counts": {
-        "OPTIMIZATION NEEDED": 1
+        "OPTIMIZED VERSION EXISTS": 1
       },
       "coverage_rule": "Availability classifies original drawing identity. Exact source orientation and runtime file integration are tracked separately per placement.",
       "production_approval_verified": false,
@@ -779,9 +779,9 @@
       ],
       "identity_decision": "SAME ORIGINAL DRAWING WITHIN THIS GROUP",
       "label": "manzana",
-      "availability": "OPTIMIZATION NEEDED",
+      "availability": "OPTIMIZED VERSION EXISTS",
       "placement_counts": {
-        "OPTIMIZATION NEEDED": 1
+        "OPTIMIZED VERSION EXISTS": 1
       },
       "coverage_rule": "Availability classifies original drawing identity. Exact source orientation and runtime file integration are tracked separately per placement.",
       "production_approval_verified": false,
@@ -842,9 +842,9 @@
       ],
       "identity_decision": "SAME ORIGINAL DRAWING WITHIN THIS GROUP",
       "label": "ojos",
-      "availability": "OPTIMIZATION NEEDED",
+      "availability": "OPTIMIZED VERSION EXISTS",
       "placement_counts": {
-        "OPTIMIZATION NEEDED": 3
+        "OPTIMIZED VERSION EXISTS": 3
       },
       "coverage_rule": "Availability classifies original drawing identity. Exact source orientation and runtime file integration are tracked separately per placement.",
       "production_approval_verified": false,
@@ -862,9 +862,9 @@
       ],
       "identity_decision": "SAME ORIGINAL DRAWING WITHIN THIS GROUP",
       "label": "ola",
-      "availability": "OPTIMIZATION NEEDED",
+      "availability": "OPTIMIZED VERSION EXISTS",
       "placement_counts": {
-        "OPTIMIZATION NEEDED": 3
+        "OPTIMIZED VERSION EXISTS": 3
       },
       "coverage_rule": "Availability classifies original drawing identity. Exact source orientation and runtime file integration are tracked separately per placement.",
       "production_approval_verified": false,
@@ -939,9 +939,9 @@
       ],
       "identity_decision": "SAME ORIGINAL DRAWING WITHIN THIS GROUP",
       "label": "oruga",
-      "availability": "OPTIMIZATION NEEDED",
+      "availability": "OPTIMIZED VERSION EXISTS",
       "placement_counts": {
-        "OPTIMIZATION NEEDED": 1
+        "OPTIMIZED VERSION EXISTS": 1
       },
       "coverage_rule": "Availability classifies original drawing identity. Exact source orientation and runtime file integration are tracked separately per placement.",
       "production_approval_verified": false,
@@ -1022,9 +1022,9 @@
       ],
       "identity_decision": "SAME ORIGINAL DRAWING WITHIN THIS GROUP",
       "label": "pajaro",
-      "availability": "OPTIMIZATION NEEDED",
+      "availability": "OPTIMIZED VERSION EXISTS",
       "placement_counts": {
-        "OPTIMIZATION NEEDED": 1
+        "OPTIMIZED VERSION EXISTS": 1
       },
       "coverage_rule": "Availability classifies original drawing identity. Exact source orientation and runtime file integration are tracked separately per placement.",
       "production_approval_verified": false,
@@ -1040,9 +1040,9 @@
       ],
       "identity_decision": "SAME ORIGINAL DRAWING WITHIN THIS GROUP",
       "label": "pera",
-      "availability": "OPTIMIZATION NEEDED",
+      "availability": "OPTIMIZED VERSION EXISTS",
       "placement_counts": {
-        "OPTIMIZATION NEEDED": 1
+        "OPTIMIZED VERSION EXISTS": 1
       },
       "coverage_rule": "Availability classifies original drawing identity. Exact source orientation and runtime file integration are tracked separately per placement.",
       "production_approval_verified": false,
@@ -1058,9 +1058,9 @@
       ],
       "identity_decision": "SAME ORIGINAL DRAWING WITHIN THIS GROUP",
       "label": "taza",
-      "availability": "OPTIMIZATION NEEDED",
+      "availability": "OPTIMIZED VERSION EXISTS",
       "placement_counts": {
-        "OPTIMIZATION NEEDED": 1
+        "OPTIMIZED VERSION EXISTS": 1
       },
       "coverage_rule": "Availability classifies original drawing identity. Exact source orientation and runtime file integration are tracked separately per placement.",
       "production_approval_verified": false,
@@ -1218,9 +1218,9 @@
       ],
       "identity_decision": "SAME ORIGINAL DRAWING WITHIN THIS GROUP",
       "label": "uva",
-      "availability": "OPTIMIZATION NEEDED",
+      "availability": "OPTIMIZED VERSION EXISTS",
       "placement_counts": {
-        "OPTIMIZATION NEEDED": 3
+        "OPTIMIZED VERSION EXISTS": 3
       },
       "coverage_rule": "Availability classifies original drawing identity. Exact source orientation and runtime file integration are tracked separately per placement.",
       "production_approval_verified": false,
@@ -5610,13 +5610,25 @@
     {
       "artwork_id": "FC-007-04",
       "drawing_group_id": "DRAW-WB-28-1",
-      "availability": "OPTIMIZATION NEEDED",
+      "availability": "OPTIMIZED VERSION EXISTS",
       "reason": "Faithful and FC figure cut feather; Drive version redraws spear, hands and pose.",
       "source_crop": "crops/FC-007-04.png",
       "source_crop_sha256": "ce808eb4225768107a36556724e903a71b39abc6803c180e0cbd02f6bac89ccc",
       "source_pdf_sha256": "d7fb3dff4e63caf3443226e57a9ef700f8974acd4ad8f08f44e2792e13cc4930",
       "comparison": "comparisons/FC-031.jpg",
-      "selected_match": null,
+      "selected_match": {
+        "file_id": "FILE-f0ac439d2561b0974bcd",
+        "location": "public/cartilla/art/faithful/vocal-i/indio-DRAW-WB-28-1.webp",
+        "source_group": "github-current-main",
+        "sha256": "f0ac439d2561b0974bcd4f45b95292f7cfdf7fd11ba901fbfa24f315e9af4bbc",
+        "bytes": 13454,
+        "github_url": "https://github.com/ejnburrows-rgb/cartilla-de-gretel/blob/153c7eccbec5bc1090cd130a909f0cf73630415a/public/cartilla/art/faithful/vocal-i/indio-DRAW-WB-28-1.webp",
+        "width": 100,
+        "height": 100,
+        "mode": "RGBA",
+        "decode": "PASS",
+        "preview": "assets/f0ac439d2561b0974bcd4f45b95292f7cfdf7fd11ba901fbfa24f315e9af4bbc.webp"
+      },
       "previous_candidate_adjudication": "REJECTED CURRENT CANDIDATE",
       "previous_candidate_defect": "REJECT: Spear figure feather clipped.",
       "alternatives_checked": [
@@ -12820,13 +12832,25 @@
     {
       "artwork_id": "WB-S007-OBJ01-UNIFORME-1",
       "drawing_group_id": "DRAW-WB-03-1",
-      "availability": "OPTIMIZATION NEEDED",
+      "availability": "OPTIMIZED VERSION EXISTS",
       "reason": "Faithful coat clips outer left sleeve; modernized puffer redraw changes collar, panels and buttons.",
       "source_crop": "crops/WB-S007-OBJ01-UNIFORME-1.png",
       "source_crop_sha256": "40c584bd0e6a650bb8b2b98358df3a0c0b429ba8b9e55872913a8c72e01bb39e",
       "source_pdf_sha256": "cbe050520bafefaea9c19c75eee6dd48ab3476a6377dc45009d176c18aab0a3b",
       "comparison": "comparisons/WB-001.jpg",
-      "selected_match": null,
+      "selected_match": {
+        "file_id": "FILE-e4888be5e5107dd84bdd",
+        "location": "public/cartilla/art/faithful/leccion-1/abrigo-DRAW-WB-03-1.webp",
+        "source_group": "github-current-main",
+        "sha256": "e4888be5e5107dd84bdd546285e51d116ff85ebb53c013469b873c7615524253",
+        "bytes": 13788,
+        "github_url": "https://github.com/ejnburrows-rgb/cartilla-de-gretel/blob/153c7eccbec5bc1090cd130a909f0cf73630415a/public/cartilla/art/faithful/leccion-1/abrigo-DRAW-WB-03-1.webp",
+        "width": 100,
+        "height": 100,
+        "mode": "RGBA",
+        "decode": "PASS",
+        "preview": "assets/e4888be5e5107dd84bdd546285e51d116ff85ebb53c013469b873c7615524253.webp"
+      },
       "previous_candidate_adjudication": "REJECTED CURRENT CANDIDATE",
       "previous_candidate_defect": "REJECT: coat redraw changes panels, button positions, collar and sleeve geometry.",
       "alternatives_checked": [
@@ -12879,13 +12903,25 @@
     {
       "artwork_id": "WB-S007-OBJ02-IMAN-1",
       "drawing_group_id": "DRAW-WB-26-1",
-      "availability": "OPTIMIZATION NEEDED",
+      "availability": "OPTIMIZED VERSION EXISTS",
       "reason": "FC magnet adds backdrop/action marks and changes tip geometry; Drive plain magnets redraw geometry.",
       "source_crop": "crops/WB-S007-OBJ02-IMAN-1.png",
       "source_crop_sha256": "3661c27d02335ba7e96513cb162eb27bc219e21010a69150208c713777a4921c",
       "source_pdf_sha256": "cbe050520bafefaea9c19c75eee6dd48ab3476a6377dc45009d176c18aab0a3b",
       "comparison": "comparisons/WB-001.jpg",
-      "selected_match": null,
+      "selected_match": {
+        "file_id": "FILE-5dbabce1520af38b3bc9",
+        "location": "public/cartilla/art/faithful/vocal-i/iman-DRAW-WB-26-1.webp",
+        "source_group": "github-current-main",
+        "sha256": "5dbabce1520af38b3bc97cab5d6c3d7341b2234ac5ecaa8b260645d603812d35",
+        "bytes": 5626,
+        "github_url": "https://github.com/ejnburrows-rgb/cartilla-de-gretel/blob/153c7eccbec5bc1090cd130a909f0cf73630415a/public/cartilla/art/faithful/vocal-i/iman-DRAW-WB-26-1.webp",
+        "width": 100,
+        "height": 100,
+        "mode": "RGBA",
+        "decode": "PASS",
+        "preview": "assets/5dbabce1520af38b3bc97cab5d6c3d7341b2234ac5ecaa8b260645d603812d35.webp"
+      },
       "previous_candidate_adjudication": "REJECTED CURRENT CANDIDATE",
       "previous_candidate_defect": "REJECT: plain magnet replaced with different geometry plus oval/action marks.",
       "alternatives_checked": [
@@ -13248,13 +13284,25 @@
     {
       "artwork_id": "WB-S007-OBJ07-IMAN-2",
       "drawing_group_id": "DRAW-WB-26-1",
-      "availability": "OPTIMIZATION NEEDED",
+      "availability": "OPTIMIZED VERSION EXISTS",
       "reason": "FC magnet adds backdrop/action marks and changes tip geometry; Drive plain magnets redraw geometry.",
       "source_crop": "crops/WB-S007-OBJ07-IMAN-2.png",
       "source_crop_sha256": "66f7ac3b041a2d68282c6aea89693c3c8784f9a723e2529813cb9527219a87b3",
       "source_pdf_sha256": "cbe050520bafefaea9c19c75eee6dd48ab3476a6377dc45009d176c18aab0a3b",
       "comparison": "comparisons/WB-007.jpg",
-      "selected_match": null,
+      "selected_match": {
+        "file_id": "FILE-5dbabce1520af38b3bc9",
+        "location": "public/cartilla/art/faithful/vocal-i/iman-DRAW-WB-26-1.webp",
+        "source_group": "github-current-main",
+        "sha256": "5dbabce1520af38b3bc97cab5d6c3d7341b2234ac5ecaa8b260645d603812d35",
+        "bytes": 5626,
+        "github_url": "https://github.com/ejnburrows-rgb/cartilla-de-gretel/blob/153c7eccbec5bc1090cd130a909f0cf73630415a/public/cartilla/art/faithful/vocal-i/iman-DRAW-WB-26-1.webp",
+        "width": 100,
+        "height": 100,
+        "mode": "RGBA",
+        "decode": "PASS",
+        "preview": "assets/5dbabce1520af38b3bc97cab5d6c3d7341b2234ac5ecaa8b260645d603812d35.webp"
+      },
       "previous_candidate_adjudication": "REJECTED CURRENT CANDIDATE",
       "previous_candidate_defect": "REJECT: plain magnet replaced with different geometry plus oval/action marks.",
       "alternatives_checked": [
@@ -13390,13 +13438,25 @@
     {
       "artwork_id": "WB-S007-OBJ08-ARO",
       "drawing_group_id": "DRAW-WB-09-1",
-      "availability": "OPTIMIZATION NEEDED",
+      "availability": "OPTIMIZED VERSION EXISTS",
       "reason": "All located hoops add two hoops/action strokes absent from the WB single-hoop source.",
       "source_crop": "crops/WB-S007-OBJ08-ARO.png",
       "source_crop_sha256": "ba7181f64059db9861d86ca52a26081eb78b59c993385bd63ffcf54fdf5e00de",
       "source_pdf_sha256": "cbe050520bafefaea9c19c75eee6dd48ab3476a6377dc45009d176c18aab0a3b",
       "comparison": "comparisons/WB-007.jpg",
-      "selected_match": null,
+      "selected_match": {
+        "file_id": "FILE-1b4e9975c462aefb8cd4",
+        "location": "public/cartilla/art/faithful/vocal-a/aro-DRAW-WB-09-1.webp",
+        "source_group": "github-current-main",
+        "sha256": "1b4e9975c462aefb8cd43be719d8a7e105fe5399a1c0da4f7abf709a41f0ff72",
+        "bytes": 7632,
+        "github_url": "https://github.com/ejnburrows-rgb/cartilla-de-gretel/blob/153c7eccbec5bc1090cd130a909f0cf73630415a/public/cartilla/art/faithful/vocal-a/aro-DRAW-WB-09-1.webp",
+        "width": 100,
+        "height": 100,
+        "mode": "RGBA",
+        "decode": "PASS",
+        "preview": "assets/1b4e9975c462aefb8cd43be719d8a7e105fe5399a1c0da4f7abf709a41f0ff72.webp"
+      },
       "previous_candidate_adjudication": "REJECTED CURRENT CANDIDATE",
       "previous_candidate_defect": "REJECT: extra hoops and action strokes absent from the single-hoop WB source.",
       "alternatives_checked": [
@@ -13800,13 +13860,25 @@
     {
       "artwork_id": "WB-S007-OBJ16-ELEFANTE",
       "drawing_group_id": "DRAW-WB-14-1",
-      "availability": "OPTIMIZATION NEEDED",
+      "availability": "OPTIMIZED VERSION EXISTS",
       "reason": "All faithful/FC elephants add coat spots absent from WB; Drive elephant redraw changes linework.",
       "source_crop": "crops/WB-S007-OBJ16-ELEFANTE.png",
       "source_crop_sha256": "5b6c35ffb2f9b944e6529268abe9d9926607c2ef2e8ff51b4b88845dd806d7c7",
       "source_pdf_sha256": "cbe050520bafefaea9c19c75eee6dd48ab3476a6377dc45009d176c18aab0a3b",
       "comparison": "comparisons/WB-013.jpg",
-      "selected_match": null,
+      "selected_match": {
+        "file_id": "FILE-dcff392e1816643ed382",
+        "location": "public/cartilla/art/faithful/vocal-e/elefante-DRAW-WB-14-1.webp",
+        "source_group": "github-current-main",
+        "sha256": "dcff392e1816643ed3828dc252a95e31ebe28da1b627dce70520cf87b68f87e4",
+        "bytes": 7744,
+        "github_url": "https://github.com/ejnburrows-rgb/cartilla-de-gretel/blob/153c7eccbec5bc1090cd130a909f0cf73630415a/public/cartilla/art/faithful/vocal-e/elefante-DRAW-WB-14-1.webp",
+        "width": 100,
+        "height": 100,
+        "mode": "RGBA",
+        "decode": "PASS",
+        "preview": "assets/dcff392e1816643ed3828dc252a95e31ebe28da1b627dce70520cf87b68f87e4.webp"
+      },
       "previous_candidate_adjudication": "REJECTED CURRENT CANDIDATE",
       "previous_candidate_defect": "REJECT: spotted elephant coat adds objects/marks absent from WB source.",
       "alternatives_checked": [
@@ -14193,13 +14265,25 @@
     {
       "artwork_id": "WB-S008-OBJ01-ARO",
       "drawing_group_id": "DRAW-WB-09-2",
-      "availability": "OPTIMIZATION NEEDED",
+      "availability": "OPTIMIZED VERSION EXISTS",
       "reason": "Located ring differs in orientation; hoop/swirl alternatives depict a different drawing.",
       "source_crop": "crops/WB-S008-OBJ01-ARO.png",
       "source_crop_sha256": "f87c6f3aadadcec550e57605146f5775e57b3cfd1767d48ef6fe5b3c0729e3fd",
       "source_pdf_sha256": "cbe050520bafefaea9c19c75eee6dd48ab3476a6377dc45009d176c18aab0a3b",
       "comparison": "comparisons/WB-019.jpg",
-      "selected_match": null,
+      "selected_match": {
+        "file_id": "FILE-238a0a15af3f0a8207e5",
+        "location": "public/cartilla/art/faithful/vocal-a/aro-DRAW-WB-09-2.webp",
+        "source_group": "github-current-main",
+        "sha256": "238a0a15af3f0a8207e5053f123208a7bd1efe403caffe7592f4cf16876b7333",
+        "bytes": 8898,
+        "github_url": "https://github.com/ejnburrows-rgb/cartilla-de-gretel/blob/153c7eccbec5bc1090cd130a909f0cf73630415a/public/cartilla/art/faithful/vocal-a/aro-DRAW-WB-09-2.webp",
+        "width": 100,
+        "height": 100,
+        "mode": "RGBA",
+        "decode": "PASS",
+        "preview": "assets/238a0a15af3f0a8207e5053f123208a7bd1efe403caffe7592f4cf16876b7333.webp"
+      },
       "previous_candidate_adjudication": "REJECTED CURRENT CANDIDATE",
       "previous_candidate_defect": "REJECT: ring orientation/reflection differs from WB source; crop also incomplete.",
       "alternatives_checked": [
@@ -14299,13 +14383,25 @@
     {
       "artwork_id": "WB-S008-OBJ02-MANZANA",
       "drawing_group_id": "DRAW-WB-34-1",
-      "availability": "OPTIMIZATION NEEDED",
+      "availability": "OPTIMIZED VERSION EXISTS",
       "reason": "Faithful apple cuts bottom; modernized apple redraw changes leaf, stem and contour.",
       "source_crop": "crops/WB-S008-OBJ02-MANZANA.png",
       "source_crop_sha256": "456f0783b349edb3e086dc896067c637fea9875d79af2f706bacaf435ffee949",
       "source_pdf_sha256": "cbe050520bafefaea9c19c75eee6dd48ab3476a6377dc45009d176c18aab0a3b",
       "comparison": "comparisons/WB-019.jpg",
-      "selected_match": null,
+      "selected_match": {
+        "file_id": "FILE-04f3c26563b98dcd31f3",
+        "location": "public/cartilla/art/faithful/leccion-1/manzana-DRAW-WB-34-1.webp",
+        "source_group": "github-current-main",
+        "sha256": "04f3c26563b98dcd31f3f22b2685ce45c260e10625ccc3028f5f8066b1b0e156",
+        "bytes": 5420,
+        "github_url": "https://github.com/ejnburrows-rgb/cartilla-de-gretel/blob/153c7eccbec5bc1090cd130a909f0cf73630415a/public/cartilla/art/faithful/leccion-1/manzana-DRAW-WB-34-1.webp",
+        "width": 100,
+        "height": 100,
+        "mode": "RGBA",
+        "decode": "PASS",
+        "preview": "assets/04f3c26563b98dcd31f3f22b2685ce45c260e10625ccc3028f5f8066b1b0e156.webp"
+      },
       "previous_candidate_adjudication": "SAME DRAWING PROPOSAL; QUALITY/APPROVAL UNRESOLVED",
       "previous_candidate_defect": "REVIEW: apple corresponds broadly; poor transparency/edges and source-color provenance unresolved.",
       "alternatives_checked": [
@@ -14399,13 +14495,25 @@
     {
       "artwork_id": "WB-S008-OBJ04-ESCUELA",
       "drawing_group_id": "DRAW-WB-18-2",
-      "availability": "OPTIMIZATION NEEDED",
+      "availability": "OPTIMIZED VERSION EXISTS",
       "reason": "Located FC half-timbered house is unrelated; Drive school-with-children redraw changes roof, windows and figures.",
       "source_crop": "crops/WB-S008-OBJ04-ESCUELA.png",
       "source_crop_sha256": "6e835df86b693892817bce9c67dc32cb784647a90669669af3656b92a3d6defa",
       "source_pdf_sha256": "cbe050520bafefaea9c19c75eee6dd48ab3476a6377dc45009d176c18aab0a3b",
       "comparison": "comparisons/WB-019.jpg",
-      "selected_match": null,
+      "selected_match": {
+        "file_id": "FILE-0768d44db6465f1d0f4a",
+        "location": "public/cartilla/art/faithful/leccion-1/wb-p1/escuela-DRAW-WB-18-2.webp",
+        "source_group": "github-current-main",
+        "sha256": "0768d44db6465f1d0f4a10c5ba34e876d865678b5fd58a80ca76c6f663f3b3ba",
+        "bytes": 12386,
+        "github_url": "https://github.com/ejnburrows-rgb/cartilla-de-gretel/blob/153c7eccbec5bc1090cd130a909f0cf73630415a/public/cartilla/art/faithful/leccion-1/wb-p1/escuela-DRAW-WB-18-2.webp",
+        "width": 100,
+        "height": 100,
+        "mode": "RGBA",
+        "decode": "PASS",
+        "preview": "assets/0768d44db6465f1d0f4a10c5ba34e876d865678b5fd58a80ca76c6f663f3b3ba.webp"
+      },
       "previous_candidate_adjudication": "REJECTED CURRENT CANDIDATE",
       "previous_candidate_defect": "REJECT: school/house-with-children source replaced with unrelated half-timbered house.",
       "alternatives_checked": [
@@ -14531,13 +14639,25 @@
     {
       "artwork_id": "WB-S008-OBJ05-ARBOL",
       "drawing_group_id": "DRAW-WB-07-1",
-      "availability": "OPTIMIZATION NEEDED",
+      "availability": "OPTIMIZED VERSION EXISTS",
       "reason": "Faithful tree clips trunk; modernized tree redraws crown and branch pattern.",
       "source_crop": "crops/WB-S008-OBJ05-ARBOL.png",
       "source_crop_sha256": "99daa6999a7e552fea65b8763a49842b7f64d1b14df8568c9956542ac63e6da6",
       "source_pdf_sha256": "cbe050520bafefaea9c19c75eee6dd48ab3476a6377dc45009d176c18aab0a3b",
       "comparison": "comparisons/WB-025.jpg",
-      "selected_match": null,
+      "selected_match": {
+        "file_id": "FILE-866360bb5d884fd004c9",
+        "location": "public/cartilla/art/faithful/vocal-a/arbol-DRAW-WB-07-1.webp",
+        "source_group": "github-current-main",
+        "sha256": "866360bb5d884fd004c95dd1f582bbe58d2ca9af555876a198508008ccf9c15a",
+        "bytes": 8932,
+        "github_url": "https://github.com/ejnburrows-rgb/cartilla-de-gretel/blob/153c7eccbec5bc1090cd130a909f0cf73630415a/public/cartilla/art/faithful/vocal-a/arbol-DRAW-WB-07-1.webp",
+        "width": 100,
+        "height": 100,
+        "mode": "RGBA",
+        "decode": "PASS",
+        "preview": "assets/866360bb5d884fd004c95dd1f582bbe58d2ca9af555876a198508008ccf9c15a.webp"
+      },
       "previous_candidate_adjudication": "SAME DRAWING PROPOSAL; QUALITY/APPROVAL UNRESOLVED",
       "previous_candidate_defect": "REVIEW: tree broadly corresponds; trunk/edge bounds and color provenance unresolved.",
       "alternatives_checked": [
@@ -14631,13 +14751,25 @@
     {
       "artwork_id": "WB-S008-OBJ07-TAZA",
       "drawing_group_id": "DRAW-WB-46-1",
-      "availability": "OPTIMIZATION NEEDED",
+      "availability": "OPTIMIZED VERSION EXISTS",
       "reason": "Faithful cup cuts lower contour; modernized cup changes rim, handle and silhouette.",
       "source_crop": "crops/WB-S008-OBJ07-TAZA.png",
       "source_crop_sha256": "9b25cb2389dc175854b804e7a077fad7d28d6811cf1dfd4dd6fcd9b10cf3c3a8",
       "source_pdf_sha256": "cbe050520bafefaea9c19c75eee6dd48ab3476a6377dc45009d176c18aab0a3b",
       "comparison": "comparisons/WB-025.jpg",
-      "selected_match": null,
+      "selected_match": {
+        "file_id": "FILE-1460582f88462a5cd414",
+        "location": "public/cartilla/art/faithful/leccion-1/taza-DRAW-WB-46-1.webp",
+        "source_group": "github-current-main",
+        "sha256": "1460582f88462a5cd414a04ae8f3bbf16d5b39b65f7fe6e68b5ea99b0e4cde10",
+        "bytes": 2686,
+        "github_url": "https://github.com/ejnburrows-rgb/cartilla-de-gretel/blob/153c7eccbec5bc1090cd130a909f0cf73630415a/public/cartilla/art/faithful/leccion-1/taza-DRAW-WB-46-1.webp",
+        "width": 100,
+        "height": 100,
+        "mode": "RGBA",
+        "decode": "PASS",
+        "preview": "assets/1460582f88462a5cd414a04ae8f3bbf16d5b39b65f7fe6e68b5ea99b0e4cde10.webp"
+      },
       "previous_candidate_adjudication": "SAME DRAWING PROPOSAL; QUALITY/APPROVAL UNRESOLVED",
       "previous_candidate_defect": "REVIEW: cup broadly corresponds; incomplete crop and contour quality unresolved.",
       "alternatives_checked": [
@@ -14689,13 +14821,25 @@
     {
       "artwork_id": "WB-S008-OBJ08-INDIO",
       "drawing_group_id": "DRAW-WB-28-1",
-      "availability": "OPTIMIZATION NEEDED",
+      "availability": "OPTIMIZED VERSION EXISTS",
       "reason": "Faithful and FC figure cut feather; Drive version redraws spear, hands and pose.",
       "source_crop": "crops/WB-S008-OBJ08-INDIO.png",
       "source_crop_sha256": "0429345e6dee2e8ade95076a103cfc5461a6475f5e73e24132e873dc157af811",
       "source_pdf_sha256": "cbe050520bafefaea9c19c75eee6dd48ab3476a6377dc45009d176c18aab0a3b",
       "comparison": "comparisons/WB-025.jpg",
-      "selected_match": null,
+      "selected_match": {
+        "file_id": "FILE-f0ac439d2561b0974bcd",
+        "location": "public/cartilla/art/faithful/vocal-i/indio-DRAW-WB-28-1.webp",
+        "source_group": "github-current-main",
+        "sha256": "f0ac439d2561b0974bcd4f45b95292f7cfdf7fd11ba901fbfa24f315e9af4bbc",
+        "bytes": 13454,
+        "github_url": "https://github.com/ejnburrows-rgb/cartilla-de-gretel/blob/153c7eccbec5bc1090cd130a909f0cf73630415a/public/cartilla/art/faithful/vocal-i/indio-DRAW-WB-28-1.webp",
+        "width": 100,
+        "height": 100,
+        "mode": "RGBA",
+        "decode": "PASS",
+        "preview": "assets/f0ac439d2561b0974bcd4f45b95292f7cfdf7fd11ba901fbfa24f315e9af4bbc.webp"
+      },
       "previous_candidate_adjudication": "REJECTED CURRENT CANDIDATE",
       "previous_candidate_defect": "REJECT: kneeling spear figure reversed and feather clipped.",
       "alternatives_checked": [
@@ -14760,13 +14904,25 @@
     {
       "artwork_id": "WB-S008-OBJ09-PERA",
       "drawing_group_id": "DRAW-WB-44-1",
-      "availability": "OPTIMIZATION NEEDED",
+      "availability": "OPTIMIZED VERSION EXISTS",
       "reason": "Faithful pear clips bottom and alters orientation; modernized pear redraws stem/leaf and contour.",
       "source_crop": "crops/WB-S008-OBJ09-PERA.png",
       "source_crop_sha256": "3aae2c78384346b4bd2161ebf556f66fdf08b0e60b0239a37419c1013d0e754f",
       "source_pdf_sha256": "cbe050520bafefaea9c19c75eee6dd48ab3476a6377dc45009d176c18aab0a3b",
       "comparison": "comparisons/WB-025.jpg",
-      "selected_match": null,
+      "selected_match": {
+        "file_id": "FILE-9fe4934359a6d7d1622d",
+        "location": "public/cartilla/art/faithful/leccion-1/pera-DRAW-WB-44-1.webp",
+        "source_group": "github-current-main",
+        "sha256": "9fe4934359a6d7d1622d779321d2394dcb402aa00179069701469ec21aeebe6c",
+        "bytes": 5160,
+        "github_url": "https://github.com/ejnburrows-rgb/cartilla-de-gretel/blob/153c7eccbec5bc1090cd130a909f0cf73630415a/public/cartilla/art/faithful/leccion-1/pera-DRAW-WB-44-1.webp",
+        "width": 100,
+        "height": 100,
+        "mode": "RGBA",
+        "decode": "PASS",
+        "preview": "assets/9fe4934359a6d7d1622d779321d2394dcb402aa00179069701469ec21aeebe6c.webp"
+      },
       "previous_candidate_adjudication": "REJECTED CURRENT CANDIDATE",
       "previous_candidate_defect": "REJECT: pear bottom/side cropped and source image orientation differs.",
       "alternatives_checked": [
@@ -14818,13 +14974,25 @@
     {
       "artwork_id": "WB-S008-OBJ10-PAJARO",
       "drawing_group_id": "DRAW-WB-43-1",
-      "availability": "OPTIMIZATION NEEDED",
+      "availability": "OPTIMIZED VERSION EXISTS",
       "reason": "Faithful bird omits tail/branch and retains table rule; modernized bird redraws body/branch.",
       "source_crop": "crops/WB-S008-OBJ10-PAJARO.png",
       "source_crop_sha256": "e97de6fc7fda76c5365dafd079c0316457a09ffccd80659a6d000ed7b22e995a",
       "source_pdf_sha256": "cbe050520bafefaea9c19c75eee6dd48ab3476a6377dc45009d176c18aab0a3b",
       "comparison": "comparisons/WB-025.jpg",
-      "selected_match": null,
+      "selected_match": {
+        "file_id": "FILE-6e3699ce20d415957f29",
+        "location": "public/cartilla/art/faithful/leccion-1/pajaro-DRAW-WB-43-1.webp",
+        "source_group": "github-current-main",
+        "sha256": "6e3699ce20d415957f2945fa4d800ce921cad7c79467a35e4f78574296c1eaa4",
+        "bytes": 5350,
+        "github_url": "https://github.com/ejnburrows-rgb/cartilla-de-gretel/blob/153c7eccbec5bc1090cd130a909f0cf73630415a/public/cartilla/art/faithful/leccion-1/pajaro-DRAW-WB-43-1.webp",
+        "width": 100,
+        "height": 100,
+        "mode": "RGBA",
+        "decode": "PASS",
+        "preview": "assets/6e3699ce20d415957f2945fa4d800ce921cad7c79467a35e4f78574296c1eaa4.webp"
+      },
       "previous_candidate_adjudication": "REJECTED CURRENT CANDIDATE",
       "previous_candidate_defect": "REJECT: bird tail/branch omitted; unrelated horizontal line included.",
       "alternatives_checked": [
@@ -15016,13 +15184,25 @@
     {
       "artwork_id": "WB-S008-OBJ12-CARRO",
       "drawing_group_id": "DRAW-WB-11-1",
-      "availability": "OPTIMIZATION NEEDED",
+      "availability": "OPTIMIZED VERSION EXISTS",
       "reason": "Faithful car is the unrelated vintage FC car; modernized compact car redraws window, lights and wheel geometry.",
       "source_crop": "crops/WB-S008-OBJ12-CARRO.png",
       "source_crop_sha256": "8d8a4fca78265ed3f07d2ed0ad987ba10a5d244a9ee196e3630fac7eaf73a6ad",
       "source_pdf_sha256": "cbe050520bafefaea9c19c75eee6dd48ab3476a6377dc45009d176c18aab0a3b",
       "comparison": "comparisons/WB-031.jpg",
-      "selected_match": null,
+      "selected_match": {
+        "file_id": "FILE-e036db892053ff33d941",
+        "location": "public/cartilla/art/faithful/leccion-1/carro-DRAW-WB-11-1.webp",
+        "source_group": "github-current-main",
+        "sha256": "e036db892053ff33d9414a41a4bd6c4a1c0cdf569b7809c018ac493761a14b99",
+        "bytes": 9020,
+        "github_url": "https://github.com/ejnburrows-rgb/cartilla-de-gretel/blob/153c7eccbec5bc1090cd130a909f0cf73630415a/public/cartilla/art/faithful/leccion-1/carro-DRAW-WB-11-1.webp",
+        "width": 100,
+        "height": 100,
+        "mode": "RGBA",
+        "decode": "PASS",
+        "preview": "assets/e036db892053ff33d9414a41a4bd6c4a1c0cdf569b7809c018ac493761a14b99.webp"
+      },
       "previous_candidate_adjudication": "REJECTED CURRENT CANDIDATE",
       "previous_candidate_defect": "REJECT: compact car replaced with vintage open-top car.",
       "alternatives_checked": [
@@ -15170,13 +15350,25 @@
     {
       "artwork_id": "WB-S008-OBJ15-DULCE",
       "drawing_group_id": "DRAW-WB-13-1",
-      "availability": "OPTIMIZATION NEEDED",
+      "availability": "OPTIMIZED VERSION EXISTS",
       "reason": "Faithful candy retains unrelated frame and clips wrapper; Drive candy redraw changes wrapper and stripe geometry.",
       "source_crop": "crops/WB-S008-OBJ15-DULCE.png",
       "source_crop_sha256": "a9b61682633e508869dca56baacac5df744d6b504e06247c3abf9e365b167335",
       "source_pdf_sha256": "cbe050520bafefaea9c19c75eee6dd48ab3476a6377dc45009d176c18aab0a3b",
       "comparison": "comparisons/WB-031.jpg",
-      "selected_match": null,
+      "selected_match": {
+        "file_id": "FILE-7a41c11ec41109a64653",
+        "location": "public/cartilla/art/faithful/leccion-1/dulce-DRAW-WB-13-1.webp",
+        "source_group": "github-current-main",
+        "sha256": "7a41c11ec41109a64653ea35d91b986f83cdb7fb6b0a5221e173464824192c2f",
+        "bytes": 7450,
+        "github_url": "https://github.com/ejnburrows-rgb/cartilla-de-gretel/blob/153c7eccbec5bc1090cd130a909f0cf73630415a/public/cartilla/art/faithful/leccion-1/dulce-DRAW-WB-13-1.webp",
+        "width": 100,
+        "height": 100,
+        "mode": "RGBA",
+        "decode": "PASS",
+        "preview": "assets/7a41c11ec41109a64653ea35d91b986f83cdb7fb6b0a5221e173464824192c2f.webp"
+      },
       "previous_candidate_adjudication": "REJECTED CURRENT CANDIDATE",
       "previous_candidate_defect": "REJECT: unrelated colored frame retained around candy.",
       "alternatives_checked": [
@@ -15228,13 +15420,25 @@
     {
       "artwork_id": "WB-S009-OBJ01-IGLESIA",
       "drawing_group_id": "DRAW-WB-22-1",
-      "availability": "OPTIMIZATION NEEDED",
+      "availability": "OPTIMIZED VERSION EXISTS",
       "reason": "Only church family clips ground/pebbles and lower/right bounds.",
       "source_crop": "crops/WB-S009-OBJ01-IGLESIA.png",
       "source_crop_sha256": "ecc048184e8c5a2036e97c3c02b3f104f34a13d4eedbcf3a1b62447bf7c4f3f1",
       "source_pdf_sha256": "cbe050520bafefaea9c19c75eee6dd48ab3476a6377dc45009d176c18aab0a3b",
       "comparison": "comparisons/WB-031.jpg",
-      "selected_match": null,
+      "selected_match": {
+        "file_id": "FILE-a9cd715651385aa94874",
+        "location": "public/cartilla/art/faithful/vocal-i/iglesia-DRAW-WB-22-1.webp",
+        "source_group": "github-current-main",
+        "sha256": "a9cd715651385aa94874b854e52af916d6b7bfa6cbd507233d24c851c9de0059",
+        "bytes": 13372,
+        "github_url": "https://github.com/ejnburrows-rgb/cartilla-de-gretel/blob/153c7eccbec5bc1090cd130a909f0cf73630415a/public/cartilla/art/faithful/vocal-i/iglesia-DRAW-WB-22-1.webp",
+        "width": 100,
+        "height": 100,
+        "mode": "RGBA",
+        "decode": "PASS",
+        "preview": "assets/a9cd715651385aa94874b854e52af916d6b7bfa6cbd507233d24c851c9de0059.webp"
+      },
       "previous_candidate_adjudication": "REJECTED CURRENT CANDIDATE",
       "previous_candidate_defect": "REJECT: church is clipped along lower/right bounds.",
       "alternatives_checked": [
@@ -15476,13 +15680,25 @@
     {
       "artwork_id": "WB-S009-OBJ05-ESCOBA",
       "drawing_group_id": "DRAW-WB-17-1",
-      "availability": "OPTIMIZATION NEEDED",
+      "availability": "OPTIMIZED VERSION EXISTS",
       "reason": "FC broom backdrop/action line absent from WB source; Drive broom redraw changes bound handles/bristles.",
       "source_crop": "crops/WB-S009-OBJ05-ESCOBA.png",
       "source_crop_sha256": "70f27ed952e378c16a432376d61d265d7c6ebb80cf9aac0dfe72de5343130a59",
       "source_pdf_sha256": "cbe050520bafefaea9c19c75eee6dd48ab3476a6377dc45009d176c18aab0a3b",
       "comparison": "comparisons/WB-037.jpg",
-      "selected_match": null,
+      "selected_match": {
+        "file_id": "FILE-547b9ba59f3ba62571ea",
+        "location": "public/cartilla/art/faithful/vocal-e/escoba-DRAW-WB-17-1.webp",
+        "source_group": "github-current-main",
+        "sha256": "547b9ba59f3ba62571ea9a88f09384e20b90f6ce6f462ae02162cc3a74d04263",
+        "bytes": 8980,
+        "github_url": "https://github.com/ejnburrows-rgb/cartilla-de-gretel/blob/153c7eccbec5bc1090cd130a909f0cf73630415a/public/cartilla/art/faithful/vocal-e/escoba-DRAW-WB-17-1.webp",
+        "width": 100,
+        "height": 100,
+        "mode": "RGBA",
+        "decode": "PASS",
+        "preview": "assets/547b9ba59f3ba62571ea9a88f09384e20b90f6ce6f462ae02162cc3a74d04263.webp"
+      },
       "previous_candidate_adjudication": "REJECTED CURRENT CANDIDATE",
       "previous_candidate_defect": "REJECT: broom gains rectangle/action backdrop absent from WB.",
       "alternatives_checked": [
@@ -15547,13 +15763,25 @@
     {
       "artwork_id": "WB-S010-OBJ01-OLA",
       "drawing_group_id": "DRAW-WB-37-1",
-      "availability": "OPTIMIZATION NEEDED",
+      "availability": "OPTIMIZED VERSION EXISTS",
       "reason": "Faithful wave cuts crest; modernized wave redraw changes crest and bubble shapes.",
       "source_crop": "crops/WB-S010-OBJ01-OLA.png",
       "source_crop_sha256": "f35bed935ac60998710f93ff7d1b09633c42dfb1aa36ce0c7bf4db24487e3a9c",
       "source_pdf_sha256": "cbe050520bafefaea9c19c75eee6dd48ab3476a6377dc45009d176c18aab0a3b",
       "comparison": "comparisons/WB-037.jpg",
-      "selected_match": null,
+      "selected_match": {
+        "file_id": "FILE-ba0158f152dee01229a1",
+        "location": "public/cartilla/art/faithful/vocal-o/ola-DRAW-WB-37-1.webp",
+        "source_group": "github-current-main",
+        "sha256": "ba0158f152dee01229a128a50a7230b17a1d71815f4401adb4734343624ffcb3",
+        "bytes": 8706,
+        "github_url": "https://github.com/ejnburrows-rgb/cartilla-de-gretel/blob/153c7eccbec5bc1090cd130a909f0cf73630415a/public/cartilla/art/faithful/vocal-o/ola-DRAW-WB-37-1.webp",
+        "width": 100,
+        "height": 100,
+        "mode": "RGBA",
+        "decode": "PASS",
+        "preview": "assets/ba0158f152dee01229a128a50a7230b17a1d71815f4401adb4734343624ffcb3.webp"
+      },
       "previous_candidate_adjudication": "SAME DRAWING PROPOSAL; QUALITY/APPROVAL UNRESOLVED",
       "previous_candidate_defect": "REVIEW: wave corresponds; edge completeness and source-colors unresolved.",
       "alternatives_checked": [
@@ -15902,13 +16130,25 @@
     {
       "artwork_id": "WB-S010-OBJ07-ALA",
       "drawing_group_id": "DRAW-WB-05-1",
-      "availability": "OPTIMIZATION NEEDED",
+      "availability": "OPTIMIZED VERSION EXISTS",
       "reason": "Faithful wings lose right-wing lines/contour; FC pair differs from this WB print variant; modernized wings redraw geometry.",
       "source_crop": "crops/WB-S010-OBJ07-ALA.png",
       "source_crop_sha256": "006c16195d5cadcfff9cd9fae1f196947ac47fabb09d8d2c7eda83efe9e19f6d",
       "source_pdf_sha256": "cbe050520bafefaea9c19c75eee6dd48ab3476a6377dc45009d176c18aab0a3b",
       "comparison": "comparisons/WB-043.jpg",
-      "selected_match": null,
+      "selected_match": {
+        "file_id": "FILE-669116bbd7af928ea9a9",
+        "location": "public/cartilla/art/faithful/vocal-a/alas-DRAW-WB-05-1.webp",
+        "source_group": "github-current-main",
+        "sha256": "669116bbd7af928ea9a981bf5bcbdecb9b7416ceea90fb8361b89972c00754e5",
+        "bytes": 8700,
+        "github_url": "https://github.com/ejnburrows-rgb/cartilla-de-gretel/blob/153c7eccbec5bc1090cd130a909f0cf73630415a/public/cartilla/art/faithful/vocal-a/alas-DRAW-WB-05-1.webp",
+        "width": 100,
+        "height": 100,
+        "mode": "RGBA",
+        "decode": "PASS",
+        "preview": "assets/669116bbd7af928ea9a981bf5bcbdecb9b7416ceea90fb8361b89972c00754e5.webp"
+      },
       "previous_candidate_adjudication": "REJECTED CURRENT CANDIDATE",
       "previous_candidate_defect": "REJECT: right wing damaged by transparency removal; linework missing.",
       "alternatives_checked": [
@@ -16095,13 +16335,25 @@
     {
       "artwork_id": "WB-S010-OBJ10-UVA",
       "drawing_group_id": "DRAW-WB-52-1",
-      "availability": "OPTIMIZATION NEEDED",
+      "availability": "OPTIMIZED VERSION EXISTS",
       "reason": "FC grapes add backdrop and differ from WB rounded cluster/linework; no whole faithful WB upgrade found.",
       "source_crop": "crops/WB-S010-OBJ10-UVA.png",
       "source_crop_sha256": "46aed1bb7d87591335fdbfb3567bdecb375988afec6a80989b3f4edbb12c622e",
       "source_pdf_sha256": "cbe050520bafefaea9c19c75eee6dd48ab3476a6377dc45009d176c18aab0a3b",
       "comparison": "comparisons/WB-049.jpg",
-      "selected_match": null,
+      "selected_match": {
+        "file_id": "FILE-877b814a9068a2ba8a1b",
+        "location": "public/cartilla/art/faithful/leccion-1/uva.webp",
+        "source_group": "github-current-main",
+        "sha256": "877b814a9068a2ba8a1bc23c0aedfdf0fa167361a0b533c1fdc7301c9a0ac484",
+        "bytes": 8290,
+        "github_url": "https://github.com/ejnburrows-rgb/cartilla-de-gretel/blob/153c7eccbec5bc1090cd130a909f0cf73630415a/public/cartilla/art/faithful/leccion-1/uva.webp",
+        "width": 100,
+        "height": 100,
+        "mode": "RGBA",
+        "decode": "PASS",
+        "preview": "assets/877b814a9068a2ba8a1bc23c0aedfdf0fa167361a0b533c1fdc7301c9a0ac484.webp"
+      },
       "previous_candidate_adjudication": "REJECTED CURRENT CANDIDATE",
       "previous_candidate_defect": "REJECT: grape cluster partly clipped and gains FC backdrop absent from WB.",
       "alternatives_checked": [
@@ -16330,13 +16582,25 @@
     {
       "artwork_id": "WB-S010-OBJ16-OJOS",
       "drawing_group_id": "DRAW-WB-36-2",
-      "availability": "OPTIMIZATION NEEDED",
+      "availability": "OPTIMIZED VERSION EXISTS",
       "reason": "Only faithful pair of eyes is rotated relative to source row; single-eye SVG and modernized eye are different drawings.",
       "source_crop": "crops/WB-S010-OBJ16-OJOS.png",
       "source_crop_sha256": "08c7d340e0ea77a26bd34b4c37b4d60732d516bcfd5bd4342aaa6bd56b103476",
       "source_pdf_sha256": "cbe050520bafefaea9c19c75eee6dd48ab3476a6377dc45009d176c18aab0a3b",
       "comparison": "comparisons/WB-055.jpg",
-      "selected_match": null,
+      "selected_match": {
+        "file_id": "FILE-421f7bb69006170eba4e",
+        "location": "public/cartilla/art/faithful/leccion-1/ojos-DRAW-WB-36-2.webp",
+        "source_group": "github-current-main",
+        "sha256": "421f7bb69006170eba4e28df975897fabf5db1732d676441fc328c32fb3cc7aa",
+        "bytes": 5046,
+        "github_url": "https://github.com/ejnburrows-rgb/cartilla-de-gretel/blob/153c7eccbec5bc1090cd130a909f0cf73630415a/public/cartilla/art/faithful/leccion-1/ojos-DRAW-WB-36-2.webp",
+        "width": 100,
+        "height": 100,
+        "mode": "RGBA",
+        "decode": "PASS",
+        "preview": "assets/421f7bb69006170eba4e28df975897fabf5db1732d676441fc328c32fb3cc7aa.webp"
+      },
       "previous_candidate_adjudication": "REJECTED CURRENT CANDIDATE",
       "previous_candidate_defect": "REJECT: pair of eyes rotated relative to source row; per-placement orientation must be preserved.",
       "alternatives_checked": [
@@ -16511,13 +16775,25 @@
     {
       "artwork_id": "WB-S011-OBJ03-OJOS",
       "drawing_group_id": "DRAW-WB-36-2",
-      "availability": "OPTIMIZATION NEEDED",
+      "availability": "OPTIMIZED VERSION EXISTS",
       "reason": "Only faithful pair of eyes is rotated relative to source row; single-eye SVG and modernized eye are different drawings.",
       "source_crop": "crops/WB-S011-OBJ03-OJOS.png",
       "source_crop_sha256": "af80dceb9dbf20c6e1d477c08b90159eefbad0df19ad39b66f810f24ef8069c9",
       "source_pdf_sha256": "cbe050520bafefaea9c19c75eee6dd48ab3476a6377dc45009d176c18aab0a3b",
       "comparison": "comparisons/WB-055.jpg",
-      "selected_match": null,
+      "selected_match": {
+        "file_id": "FILE-421f7bb69006170eba4e",
+        "location": "public/cartilla/art/faithful/leccion-1/ojos-DRAW-WB-36-2.webp",
+        "source_group": "github-current-main",
+        "sha256": "421f7bb69006170eba4e28df975897fabf5db1732d676441fc328c32fb3cc7aa",
+        "bytes": 5046,
+        "github_url": "https://github.com/ejnburrows-rgb/cartilla-de-gretel/blob/153c7eccbec5bc1090cd130a909f0cf73630415a/public/cartilla/art/faithful/leccion-1/ojos-DRAW-WB-36-2.webp",
+        "width": 100,
+        "height": 100,
+        "mode": "RGBA",
+        "decode": "PASS",
+        "preview": "assets/421f7bb69006170eba4e28df975897fabf5db1732d676441fc328c32fb3cc7aa.webp"
+      },
       "previous_candidate_adjudication": "REJECTED CURRENT CANDIDATE",
       "previous_candidate_defect": "REJECT: pair of eyes rotated relative to source row; per-placement orientation must be preserved.",
       "alternatives_checked": [
@@ -16715,13 +16991,25 @@
     {
       "artwork_id": "WB-S011-OBJ06-OLA",
       "drawing_group_id": "DRAW-WB-37-1",
-      "availability": "OPTIMIZATION NEEDED",
+      "availability": "OPTIMIZED VERSION EXISTS",
       "reason": "Faithful wave cuts crest; modernized wave redraw changes crest and bubble shapes.",
       "source_crop": "crops/WB-S011-OBJ06-OLA.png",
       "source_crop_sha256": "52e462cdd59b7b4d6dcdb495ae98b5a2445faf3a4f2063354906c858a3f3698f",
       "source_pdf_sha256": "cbe050520bafefaea9c19c75eee6dd48ab3476a6377dc45009d176c18aab0a3b",
       "comparison": "comparisons/WB-061.jpg",
-      "selected_match": null,
+      "selected_match": {
+        "file_id": "FILE-ba0158f152dee01229a1",
+        "location": "public/cartilla/art/faithful/vocal-o/ola-DRAW-WB-37-1.webp",
+        "source_group": "github-current-main",
+        "sha256": "ba0158f152dee01229a128a50a7230b17a1d71815f4401adb4734343624ffcb3",
+        "bytes": 8706,
+        "github_url": "https://github.com/ejnburrows-rgb/cartilla-de-gretel/blob/153c7eccbec5bc1090cd130a909f0cf73630415a/public/cartilla/art/faithful/vocal-o/ola-DRAW-WB-37-1.webp",
+        "width": 100,
+        "height": 100,
+        "mode": "RGBA",
+        "decode": "PASS",
+        "preview": "assets/ba0158f152dee01229a128a50a7230b17a1d71815f4401adb4734343624ffcb3.webp"
+      },
       "previous_candidate_adjudication": "SAME DRAWING PROPOSAL; QUALITY/APPROVAL UNRESOLVED",
       "previous_candidate_defect": "REVIEW: wave corresponds; edge completeness and source-colors unresolved.",
       "alternatives_checked": [
@@ -16803,13 +17091,25 @@
     {
       "artwork_id": "WB-S011-OBJ08-ALA",
       "drawing_group_id": "DRAW-WB-05-2",
-      "availability": "OPTIMIZATION NEEDED",
+      "availability": "OPTIMIZED VERSION EXISTS",
       "reason": "Faithful wings lose right-wing contour; FC proportions differ from this WB variant; modernized redraw is not exact.",
       "source_crop": "crops/WB-S011-OBJ08-ALA.png",
       "source_crop_sha256": "b3ba5afa9058b292a029f38db337ad0ebbb3ad7c265e04fb6c0fa4708016029b",
       "source_pdf_sha256": "cbe050520bafefaea9c19c75eee6dd48ab3476a6377dc45009d176c18aab0a3b",
       "comparison": "comparisons/WB-061.jpg",
-      "selected_match": null,
+      "selected_match": {
+        "file_id": "FILE-186c05e62eced5e2ce6f",
+        "location": "public/cartilla/art/faithful/vocal-a/alas-DRAW-WB-05-2.webp",
+        "source_group": "github-current-main",
+        "sha256": "186c05e62eced5e2ce6f96d2ca49ee748ec9d8dc2ed3c4896656e6e451e5d265",
+        "bytes": 6720,
+        "github_url": "https://github.com/ejnburrows-rgb/cartilla-de-gretel/blob/153c7eccbec5bc1090cd130a909f0cf73630415a/public/cartilla/art/faithful/vocal-a/alas-DRAW-WB-05-2.webp",
+        "width": 100,
+        "height": 100,
+        "mode": "RGBA",
+        "decode": "PASS",
+        "preview": "assets/186c05e62eced5e2ce6f96d2ca49ee748ec9d8dc2ed3c4896656e6e451e5d265.webp"
+      },
       "previous_candidate_adjudication": "REJECTED CURRENT CANDIDATE",
       "previous_candidate_defect": "REJECT: right wing damaged by transparency removal; linework missing.",
       "alternatives_checked": [
@@ -16904,13 +17204,25 @@
     {
       "artwork_id": "WB-S013-OBJ02-ORUGA",
       "drawing_group_id": "DRAW-WB-40-1",
-      "availability": "OPTIMIZATION NEEDED",
+      "availability": "OPTIMIZED VERSION EXISTS",
       "reason": "Only caterpillar file clips antenna/leaf/tail boundaries.",
       "source_crop": "crops/WB-S013-OBJ02-ORUGA.png",
       "source_crop_sha256": "53fa53633804451c7c2fa3c62b9cc352259fab1236d41223c4301dd8eb50a4b5",
       "source_pdf_sha256": "cbe050520bafefaea9c19c75eee6dd48ab3476a6377dc45009d176c18aab0a3b",
       "comparison": "comparisons/WB-061.jpg",
-      "selected_match": null,
+      "selected_match": {
+        "file_id": "FILE-269ecc6edd9ac804c353",
+        "location": "public/cartilla/art/faithful/vocal-o/oruga-DRAW-WB-40-1.webp",
+        "source_group": "github-current-main",
+        "sha256": "269ecc6edd9ac804c35385a8bd028166189acf3c96d2add720407d976d02978f",
+        "bytes": 14710,
+        "github_url": "https://github.com/ejnburrows-rgb/cartilla-de-gretel/blob/153c7eccbec5bc1090cd130a909f0cf73630415a/public/cartilla/art/faithful/vocal-o/oruga-DRAW-WB-40-1.webp",
+        "width": 100,
+        "height": 100,
+        "mode": "RGBA",
+        "decode": "PASS",
+        "preview": "assets/269ecc6edd9ac804c35385a8bd028166189acf3c96d2add720407d976d02978f.webp"
+      },
       "previous_candidate_adjudication": "REJECTED CURRENT CANDIDATE",
       "previous_candidate_defect": "REJECT: caterpillar tail/antenna/leaf boundaries clipped.",
       "alternatives_checked": [
@@ -16950,13 +17262,25 @@
     {
       "artwork_id": "WB-S013-OBJ03-ARO",
       "drawing_group_id": "DRAW-WB-09-1",
-      "availability": "OPTIMIZATION NEEDED",
+      "availability": "OPTIMIZED VERSION EXISTS",
       "reason": "All located hoops add two hoops/action strokes absent from the WB single-hoop source.",
       "source_crop": "crops/WB-S013-OBJ03-ARO.png",
       "source_crop_sha256": "e99568025e31aaee4f69e9661c69d2ccad0345df0460943d8554e8034fc51e47",
       "source_pdf_sha256": "cbe050520bafefaea9c19c75eee6dd48ab3476a6377dc45009d176c18aab0a3b",
       "comparison": "comparisons/WB-067.jpg",
-      "selected_match": null,
+      "selected_match": {
+        "file_id": "FILE-1b4e9975c462aefb8cd4",
+        "location": "public/cartilla/art/faithful/vocal-a/aro-DRAW-WB-09-1.webp",
+        "source_group": "github-current-main",
+        "sha256": "1b4e9975c462aefb8cd43be719d8a7e105fe5399a1c0da4f7abf709a41f0ff72",
+        "bytes": 7632,
+        "github_url": "https://github.com/ejnburrows-rgb/cartilla-de-gretel/blob/153c7eccbec5bc1090cd130a909f0cf73630415a/public/cartilla/art/faithful/vocal-a/aro-DRAW-WB-09-1.webp",
+        "width": 100,
+        "height": 100,
+        "mode": "RGBA",
+        "decode": "PASS",
+        "preview": "assets/1b4e9975c462aefb8cd43be719d8a7e105fe5399a1c0da4f7abf709a41f0ff72.webp"
+      },
       "previous_candidate_adjudication": "REJECTED CURRENT CANDIDATE",
       "previous_candidate_defect": "REJECT: single WB hoop replaced by multi-hoop FC composition.",
       "alternatives_checked": [
@@ -17056,13 +17380,25 @@
     {
       "artwork_id": "WB-S013-OBJ04-IMAN",
       "drawing_group_id": "DRAW-WB-26-1",
-      "availability": "OPTIMIZATION NEEDED",
+      "availability": "OPTIMIZED VERSION EXISTS",
       "reason": "FC magnet adds backdrop/action marks and changes tip geometry; Drive plain magnets redraw geometry.",
       "source_crop": "crops/WB-S013-OBJ04-IMAN.png",
       "source_crop_sha256": "9f90e0f4b5d86d90cd95bd31131a0b602040af5c2243c31b8c26284cea3b088e",
       "source_pdf_sha256": "cbe050520bafefaea9c19c75eee6dd48ab3476a6377dc45009d176c18aab0a3b",
       "comparison": "comparisons/WB-067.jpg",
-      "selected_match": null,
+      "selected_match": {
+        "file_id": "FILE-5dbabce1520af38b3bc9",
+        "location": "public/cartilla/art/faithful/vocal-i/iman-DRAW-WB-26-1.webp",
+        "source_group": "github-current-main",
+        "sha256": "5dbabce1520af38b3bc97cab5d6c3d7341b2234ac5ecaa8b260645d603812d35",
+        "bytes": 5626,
+        "github_url": "https://github.com/ejnburrows-rgb/cartilla-de-gretel/blob/153c7eccbec5bc1090cd130a909f0cf73630415a/public/cartilla/art/faithful/vocal-i/iman-DRAW-WB-26-1.webp",
+        "width": 100,
+        "height": 100,
+        "mode": "RGBA",
+        "decode": "PASS",
+        "preview": "assets/5dbabce1520af38b3bc97cab5d6c3d7341b2234ac5ecaa8b260645d603812d35.webp"
+      },
       "previous_candidate_adjudication": "REJECTED CURRENT CANDIDATE",
       "previous_candidate_defect": "REJECT: plain WB magnet replaced with FC oval/action-mark composition.",
       "alternatives_checked": [
@@ -17258,13 +17594,25 @@
     {
       "artwork_id": "WB-S013-OBJ07-ARBOL",
       "drawing_group_id": "DRAW-WB-07-1",
-      "availability": "OPTIMIZATION NEEDED",
+      "availability": "OPTIMIZED VERSION EXISTS",
       "reason": "Faithful tree clips trunk; modernized tree redraws crown and branch pattern.",
       "source_crop": "crops/WB-S013-OBJ07-ARBOL.png",
       "source_crop_sha256": "a364e2f7f915b59d66c1ed0e4677db77aed5c62f95c6e5c976e32c1c42a7907f",
       "source_pdf_sha256": "cbe050520bafefaea9c19c75eee6dd48ab3476a6377dc45009d176c18aab0a3b",
       "comparison": "comparisons/WB-067.jpg",
-      "selected_match": null,
+      "selected_match": {
+        "file_id": "FILE-866360bb5d884fd004c9",
+        "location": "public/cartilla/art/faithful/vocal-a/arbol-DRAW-WB-07-1.webp",
+        "source_group": "github-current-main",
+        "sha256": "866360bb5d884fd004c95dd1f582bbe58d2ca9af555876a198508008ccf9c15a",
+        "bytes": 8932,
+        "github_url": "https://github.com/ejnburrows-rgb/cartilla-de-gretel/blob/153c7eccbec5bc1090cd130a909f0cf73630415a/public/cartilla/art/faithful/vocal-a/arbol-DRAW-WB-07-1.webp",
+        "width": 100,
+        "height": 100,
+        "mode": "RGBA",
+        "decode": "PASS",
+        "preview": "assets/866360bb5d884fd004c95dd1f582bbe58d2ca9af555876a198508008ccf9c15a.webp"
+      },
       "previous_candidate_adjudication": "SAME DRAWING PROPOSAL; QUALITY/APPROVAL UNRESOLVED",
       "previous_candidate_defect": "REVIEW: tree broadly corresponds; trunk/edge bounds and color provenance unresolved.",
       "alternatives_checked": [
@@ -17316,13 +17664,25 @@
     {
       "artwork_id": "WB-S013-OBJ08-ELEFANTE",
       "drawing_group_id": "DRAW-WB-14-1",
-      "availability": "OPTIMIZATION NEEDED",
+      "availability": "OPTIMIZED VERSION EXISTS",
       "reason": "All faithful/FC elephants add coat spots absent from WB; Drive elephant redraw changes linework.",
       "source_crop": "crops/WB-S013-OBJ08-ELEFANTE.png",
       "source_crop_sha256": "e17b113de405e2c8a63dbc94c07504510a6e9a4e036655bd4d7dd64b14192e18",
       "source_pdf_sha256": "cbe050520bafefaea9c19c75eee6dd48ab3476a6377dc45009d176c18aab0a3b",
       "comparison": "comparisons/WB-067.jpg",
-      "selected_match": null,
+      "selected_match": {
+        "file_id": "FILE-dcff392e1816643ed382",
+        "location": "public/cartilla/art/faithful/vocal-e/elefante-DRAW-WB-14-1.webp",
+        "source_group": "github-current-main",
+        "sha256": "dcff392e1816643ed3828dc252a95e31ebe28da1b627dce70520cf87b68f87e4",
+        "bytes": 7744,
+        "github_url": "https://github.com/ejnburrows-rgb/cartilla-de-gretel/blob/153c7eccbec5bc1090cd130a909f0cf73630415a/public/cartilla/art/faithful/vocal-e/elefante-DRAW-WB-14-1.webp",
+        "width": 100,
+        "height": 100,
+        "mode": "RGBA",
+        "decode": "PASS",
+        "preview": "assets/dcff392e1816643ed3828dc252a95e31ebe28da1b627dce70520cf87b68f87e4.webp"
+      },
       "previous_candidate_adjudication": "REJECTED CURRENT CANDIDATE",
       "previous_candidate_defect": "REJECT: elephant reflected and spotted source variant substituted.",
       "alternatives_checked": [
@@ -17463,13 +17823,25 @@
     {
       "artwork_id": "WB-S013-OBJ10-ALA",
       "drawing_group_id": "DRAW-WB-05-1",
-      "availability": "OPTIMIZATION NEEDED",
+      "availability": "OPTIMIZED VERSION EXISTS",
       "reason": "Faithful wings lose right-wing lines/contour; FC pair differs from this WB print variant; modernized wings redraw geometry.",
       "source_crop": "crops/WB-S013-OBJ10-ALA.png",
       "source_crop_sha256": "21c0e5793764c23f72222568627975a07987a0fc484737b2fc1c3c204f619ba7",
       "source_pdf_sha256": "cbe050520bafefaea9c19c75eee6dd48ab3476a6377dc45009d176c18aab0a3b",
       "comparison": "comparisons/WB-073.jpg",
-      "selected_match": null,
+      "selected_match": {
+        "file_id": "FILE-669116bbd7af928ea9a9",
+        "location": "public/cartilla/art/faithful/vocal-a/alas-DRAW-WB-05-1.webp",
+        "source_group": "github-current-main",
+        "sha256": "669116bbd7af928ea9a981bf5bcbdecb9b7416ceea90fb8361b89972c00754e5",
+        "bytes": 8700,
+        "github_url": "https://github.com/ejnburrows-rgb/cartilla-de-gretel/blob/153c7eccbec5bc1090cd130a909f0cf73630415a/public/cartilla/art/faithful/vocal-a/alas-DRAW-WB-05-1.webp",
+        "width": 100,
+        "height": 100,
+        "mode": "RGBA",
+        "decode": "PASS",
+        "preview": "assets/669116bbd7af928ea9a981bf5bcbdecb9b7416ceea90fb8361b89972c00754e5.webp"
+      },
       "previous_candidate_adjudication": "REJECTED CURRENT CANDIDATE",
       "previous_candidate_defect": "REJECT: right wing damaged by transparency removal; linework missing.",
       "alternatives_checked": [
@@ -17576,13 +17948,25 @@
     {
       "artwork_id": "WB-S013-OBJ12-ARDILLA",
       "drawing_group_id": "DRAW-WB-08-1",
-      "availability": "OPTIMIZATION NEEDED",
+      "availability": "OPTIMIZED VERSION EXISTS",
       "reason": "Only faithful squirrel clips tail/nut bounds; no complete alternative found.",
       "source_crop": "crops/WB-S013-OBJ12-ARDILLA.png",
       "source_crop_sha256": "90f21e5321cc36de70fe52c97c5db909eeb31f0920f0ce8d75c5f7ee1bdea612",
       "source_pdf_sha256": "cbe050520bafefaea9c19c75eee6dd48ab3476a6377dc45009d176c18aab0a3b",
       "comparison": "comparisons/WB-073.jpg",
-      "selected_match": null,
+      "selected_match": {
+        "file_id": "FILE-df243a4c102ae7b2af3b",
+        "location": "public/cartilla/art/faithful/vocal-a/ardilla-DRAW-WB-08-1.webp",
+        "source_group": "github-current-main",
+        "sha256": "df243a4c102ae7b2af3b604215a591fe564d04c93a7f33670fd0b95156f59ae1",
+        "bytes": 8854,
+        "github_url": "https://github.com/ejnburrows-rgb/cartilla-de-gretel/blob/153c7eccbec5bc1090cd130a909f0cf73630415a/public/cartilla/art/faithful/vocal-a/ardilla-DRAW-WB-08-1.webp",
+        "width": 100,
+        "height": 100,
+        "mode": "RGBA",
+        "decode": "PASS",
+        "preview": "assets/df243a4c102ae7b2af3b604215a591fe564d04c93a7f33670fd0b95156f59ae1.webp"
+      },
       "previous_candidate_adjudication": "REJECTED CURRENT CANDIDATE",
       "previous_candidate_defect": "REJECT: squirrel tail/nut bounds incomplete.",
       "alternatives_checked": [
@@ -17622,13 +18006,25 @@
     {
       "artwork_id": "WB-S013-OBJ13-OJOS",
       "drawing_group_id": "DRAW-WB-36-2",
-      "availability": "OPTIMIZATION NEEDED",
+      "availability": "OPTIMIZED VERSION EXISTS",
       "reason": "Only faithful pair of eyes is rotated relative to source row; single-eye SVG and modernized eye are different drawings.",
       "source_crop": "crops/WB-S013-OBJ13-OJOS.png",
       "source_crop_sha256": "19d84681494877cdafa1e5614a003a0cad7697f2b0f28a554e9753b236122649",
       "source_pdf_sha256": "cbe050520bafefaea9c19c75eee6dd48ab3476a6377dc45009d176c18aab0a3b",
       "comparison": "comparisons/WB-073.jpg",
-      "selected_match": null,
+      "selected_match": {
+        "file_id": "FILE-421f7bb69006170eba4e",
+        "location": "public/cartilla/art/faithful/leccion-1/ojos-DRAW-WB-36-2.webp",
+        "source_group": "github-current-main",
+        "sha256": "421f7bb69006170eba4e28df975897fabf5db1732d676441fc328c32fb3cc7aa",
+        "bytes": 5046,
+        "github_url": "https://github.com/ejnburrows-rgb/cartilla-de-gretel/blob/153c7eccbec5bc1090cd130a909f0cf73630415a/public/cartilla/art/faithful/leccion-1/ojos-DRAW-WB-36-2.webp",
+        "width": 100,
+        "height": 100,
+        "mode": "RGBA",
+        "decode": "PASS",
+        "preview": "assets/421f7bb69006170eba4e28df975897fabf5db1732d676441fc328c32fb3cc7aa.webp"
+      },
       "previous_candidate_adjudication": "REJECTED CURRENT CANDIDATE",
       "previous_candidate_defect": "REJECT: pair of eyes rotated relative to source row; per-placement orientation must be preserved.",
       "alternatives_checked": [
@@ -17819,13 +18215,25 @@
     {
       "artwork_id": "WB-S013-OBJ15-AGUJA",
       "drawing_group_id": "DRAW-WB-04-1",
-      "availability": "OPTIMIZATION NEEDED",
+      "availability": "OPTIMIZED VERSION EXISTS",
       "reason": "Needle tip clipped and table rules retained; no complete clean alternative.",
       "source_crop": "crops/WB-S013-OBJ15-AGUJA.png",
       "source_crop_sha256": "17a31daeb95c941b2d14bdd636f57eeeeb1f10a7ef6ef64afb5c817593b1d6d4",
       "source_pdf_sha256": "cbe050520bafefaea9c19c75eee6dd48ab3476a6377dc45009d176c18aab0a3b",
       "comparison": "comparisons/WB-079.jpg",
-      "selected_match": null,
+      "selected_match": {
+        "file_id": "FILE-cb47bcdae3010ceb2bf8",
+        "location": "public/cartilla/art/faithful/vocal-a/aguja-DRAW-WB-04-1.webp",
+        "source_group": "github-current-main",
+        "sha256": "cb47bcdae3010ceb2bf8e94cab731cefc274c589603d0d2a31d4429327c69877",
+        "bytes": 4532,
+        "github_url": "https://github.com/ejnburrows-rgb/cartilla-de-gretel/blob/153c7eccbec5bc1090cd130a909f0cf73630415a/public/cartilla/art/faithful/vocal-a/aguja-DRAW-WB-04-1.webp",
+        "width": 100,
+        "height": 100,
+        "mode": "RGBA",
+        "decode": "PASS",
+        "preview": "assets/cb47bcdae3010ceb2bf8e94cab731cefc274c589603d0d2a31d4429327c69877.webp"
+      },
       "previous_candidate_adjudication": "REJECTED CURRENT CANDIDATE",
       "previous_candidate_defect": "REJECT: needle tip clipped; unrelated horizontal crop lines included.",
       "alternatives_checked": [
@@ -17994,13 +18402,25 @@
     {
       "artwork_id": "WB-S014-OBJ03-ALA",
       "drawing_group_id": "DRAW-WB-05-2",
-      "availability": "OPTIMIZATION NEEDED",
+      "availability": "OPTIMIZED VERSION EXISTS",
       "reason": "Faithful wings lose right-wing contour; FC proportions differ from this WB variant; modernized redraw is not exact.",
       "source_crop": "crops/WB-S014-OBJ03-ALA.png",
       "source_crop_sha256": "f00f08500084ce93077b9cb3973235994d9941bec95bcd03be6441df21a31f72",
       "source_pdf_sha256": "cbe050520bafefaea9c19c75eee6dd48ab3476a6377dc45009d176c18aab0a3b",
       "comparison": "comparisons/WB-079.jpg",
-      "selected_match": null,
+      "selected_match": {
+        "file_id": "FILE-186c05e62eced5e2ce6f",
+        "location": "public/cartilla/art/faithful/vocal-a/alas-DRAW-WB-05-2.webp",
+        "source_group": "github-current-main",
+        "sha256": "186c05e62eced5e2ce6f96d2ca49ee748ec9d8dc2ed3c4896656e6e451e5d265",
+        "bytes": 6720,
+        "github_url": "https://github.com/ejnburrows-rgb/cartilla-de-gretel/blob/153c7eccbec5bc1090cd130a909f0cf73630415a/public/cartilla/art/faithful/vocal-a/alas-DRAW-WB-05-2.webp",
+        "width": 100,
+        "height": 100,
+        "mode": "RGBA",
+        "decode": "PASS",
+        "preview": "assets/186c05e62eced5e2ce6f96d2ca49ee748ec9d8dc2ed3c4896656e6e451e5d265.webp"
+      },
       "previous_candidate_adjudication": "REJECTED CURRENT CANDIDATE",
       "previous_candidate_defect": "REJECT: right wing damaged by transparency removal; linework missing.",
       "alternatives_checked": [
@@ -18095,13 +18515,25 @@
     {
       "artwork_id": "WB-S014-OBJ05-AGUJA",
       "drawing_group_id": "DRAW-WB-04-1",
-      "availability": "OPTIMIZATION NEEDED",
+      "availability": "OPTIMIZED VERSION EXISTS",
       "reason": "Needle tip clipped and table rules retained; no complete clean alternative.",
       "source_crop": "crops/WB-S014-OBJ05-AGUJA.png",
       "source_crop_sha256": "0f09727580f825efa4290d553f902bd22114b66115954be11ffe4957f663fb46",
       "source_pdf_sha256": "cbe050520bafefaea9c19c75eee6dd48ab3476a6377dc45009d176c18aab0a3b",
       "comparison": "comparisons/WB-085.jpg",
-      "selected_match": null,
+      "selected_match": {
+        "file_id": "FILE-cb47bcdae3010ceb2bf8",
+        "location": "public/cartilla/art/faithful/vocal-a/aguja-DRAW-WB-04-1.webp",
+        "source_group": "github-current-main",
+        "sha256": "cb47bcdae3010ceb2bf8e94cab731cefc274c589603d0d2a31d4429327c69877",
+        "bytes": 4532,
+        "github_url": "https://github.com/ejnburrows-rgb/cartilla-de-gretel/blob/153c7eccbec5bc1090cd130a909f0cf73630415a/public/cartilla/art/faithful/vocal-a/aguja-DRAW-WB-04-1.webp",
+        "width": 100,
+        "height": 100,
+        "mode": "RGBA",
+        "decode": "PASS",
+        "preview": "assets/cb47bcdae3010ceb2bf8e94cab731cefc274c589603d0d2a31d4429327c69877.webp"
+      },
       "previous_candidate_adjudication": "REJECTED CURRENT CANDIDATE",
       "previous_candidate_defect": "REJECT: needle tip clipped; unrelated horizontal crop lines included.",
       "alternatives_checked": [
@@ -18286,13 +18718,25 @@
     {
       "artwork_id": "WB-S014-OBJ08-ARO",
       "drawing_group_id": "DRAW-WB-09-1",
-      "availability": "OPTIMIZATION NEEDED",
+      "availability": "OPTIMIZED VERSION EXISTS",
       "reason": "All located hoops add two hoops/action strokes absent from the WB single-hoop source.",
       "source_crop": "crops/WB-S014-OBJ08-ARO.png",
       "source_crop_sha256": "66b6d73b3ab1ffc982ef8db3d1417fb2dc23b5e27de0ee27aa471c698a808015",
       "source_pdf_sha256": "cbe050520bafefaea9c19c75eee6dd48ab3476a6377dc45009d176c18aab0a3b",
       "comparison": "comparisons/WB-085.jpg",
-      "selected_match": null,
+      "selected_match": {
+        "file_id": "FILE-1b4e9975c462aefb8cd4",
+        "location": "public/cartilla/art/faithful/vocal-a/aro-DRAW-WB-09-1.webp",
+        "source_group": "github-current-main",
+        "sha256": "1b4e9975c462aefb8cd43be719d8a7e105fe5399a1c0da4f7abf709a41f0ff72",
+        "bytes": 7632,
+        "github_url": "https://github.com/ejnburrows-rgb/cartilla-de-gretel/blob/153c7eccbec5bc1090cd130a909f0cf73630415a/public/cartilla/art/faithful/vocal-a/aro-DRAW-WB-09-1.webp",
+        "width": 100,
+        "height": 100,
+        "mode": "RGBA",
+        "decode": "PASS",
+        "preview": "assets/1b4e9975c462aefb8cd43be719d8a7e105fe5399a1c0da4f7abf709a41f0ff72.webp"
+      },
       "previous_candidate_adjudication": "REJECTED CURRENT CANDIDATE",
       "previous_candidate_defect": "REJECT: single WB hoop replaced by multi-hoop FC composition.",
       "alternatives_checked": [
@@ -18392,13 +18836,25 @@
     {
       "artwork_id": "WB-S016-OBJ01-ELEFANTE",
       "drawing_group_id": "DRAW-WB-14-1",
-      "availability": "OPTIMIZATION NEEDED",
+      "availability": "OPTIMIZED VERSION EXISTS",
       "reason": "All faithful/FC elephants add coat spots absent from WB; Drive elephant redraw changes linework.",
       "source_crop": "crops/WB-S016-OBJ01-ELEFANTE.png",
       "source_crop_sha256": "928487f432b1cc4da9edb11d8632d5863ae90127706604613c7f3ca9100f735f",
       "source_pdf_sha256": "cbe050520bafefaea9c19c75eee6dd48ab3476a6377dc45009d176c18aab0a3b",
       "comparison": "comparisons/WB-085.jpg",
-      "selected_match": null,
+      "selected_match": {
+        "file_id": "FILE-dcff392e1816643ed382",
+        "location": "public/cartilla/art/faithful/vocal-e/elefante-DRAW-WB-14-1.webp",
+        "source_group": "github-current-main",
+        "sha256": "dcff392e1816643ed3828dc252a95e31ebe28da1b627dce70520cf87b68f87e4",
+        "bytes": 7744,
+        "github_url": "https://github.com/ejnburrows-rgb/cartilla-de-gretel/blob/153c7eccbec5bc1090cd130a909f0cf73630415a/public/cartilla/art/faithful/vocal-e/elefante-DRAW-WB-14-1.webp",
+        "width": 100,
+        "height": 100,
+        "mode": "RGBA",
+        "decode": "PASS",
+        "preview": "assets/dcff392e1816643ed3828dc252a95e31ebe28da1b627dce70520cf87b68f87e4.webp"
+      },
       "previous_candidate_adjudication": "REJECTED CURRENT CANDIDATE",
       "previous_candidate_defect": "REJECT: elephant reflected and spotted source variant substituted.",
       "alternatives_checked": [
@@ -18608,13 +19064,25 @@
     {
       "artwork_id": "WB-S016-OBJ04-INDIO",
       "drawing_group_id": "DRAW-WB-28-1",
-      "availability": "OPTIMIZATION NEEDED",
+      "availability": "OPTIMIZED VERSION EXISTS",
       "reason": "Faithful and FC figure cut feather; Drive version redraws spear, hands and pose.",
       "source_crop": "crops/WB-S016-OBJ04-INDIO.png",
       "source_crop_sha256": "5f1cf7d9585d4c79e58f1a9b59fcfbb00cc930980f29116cbf60579881c5f00d",
       "source_pdf_sha256": "cbe050520bafefaea9c19c75eee6dd48ab3476a6377dc45009d176c18aab0a3b",
       "comparison": "comparisons/WB-091.jpg",
-      "selected_match": null,
+      "selected_match": {
+        "file_id": "FILE-f0ac439d2561b0974bcd",
+        "location": "public/cartilla/art/faithful/vocal-i/indio-DRAW-WB-28-1.webp",
+        "source_group": "github-current-main",
+        "sha256": "f0ac439d2561b0974bcd4f45b95292f7cfdf7fd11ba901fbfa24f315e9af4bbc",
+        "bytes": 13454,
+        "github_url": "https://github.com/ejnburrows-rgb/cartilla-de-gretel/blob/153c7eccbec5bc1090cd130a909f0cf73630415a/public/cartilla/art/faithful/vocal-i/indio-DRAW-WB-28-1.webp",
+        "width": 100,
+        "height": 100,
+        "mode": "RGBA",
+        "decode": "PASS",
+        "preview": "assets/f0ac439d2561b0974bcd4f45b95292f7cfdf7fd11ba901fbfa24f315e9af4bbc.webp"
+      },
       "previous_candidate_adjudication": "REJECTED CURRENT CANDIDATE",
       "previous_candidate_defect": "REJECT: kneeling spear figure reversed and feather clipped.",
       "alternatives_checked": [
@@ -18780,13 +19248,25 @@
     {
       "artwork_id": "WB-S016-OBJ08-AGUJA",
       "drawing_group_id": "DRAW-WB-04-1",
-      "availability": "OPTIMIZATION NEEDED",
+      "availability": "OPTIMIZED VERSION EXISTS",
       "reason": "Needle tip clipped and table rules retained; no complete clean alternative.",
       "source_crop": "crops/WB-S016-OBJ08-AGUJA.png",
       "source_crop_sha256": "30cc1fcd49204b0557e873f32b06f36f3a4f50415c47a085f3126cb4e57554f5",
       "source_pdf_sha256": "cbe050520bafefaea9c19c75eee6dd48ab3476a6377dc45009d176c18aab0a3b",
       "comparison": "comparisons/WB-091.jpg",
-      "selected_match": null,
+      "selected_match": {
+        "file_id": "FILE-cb47bcdae3010ceb2bf8",
+        "location": "public/cartilla/art/faithful/vocal-a/aguja-DRAW-WB-04-1.webp",
+        "source_group": "github-current-main",
+        "sha256": "cb47bcdae3010ceb2bf8e94cab731cefc274c589603d0d2a31d4429327c69877",
+        "bytes": 4532,
+        "github_url": "https://github.com/ejnburrows-rgb/cartilla-de-gretel/blob/153c7eccbec5bc1090cd130a909f0cf73630415a/public/cartilla/art/faithful/vocal-a/aguja-DRAW-WB-04-1.webp",
+        "width": 100,
+        "height": 100,
+        "mode": "RGBA",
+        "decode": "PASS",
+        "preview": "assets/cb47bcdae3010ceb2bf8e94cab731cefc274c589603d0d2a31d4429327c69877.webp"
+      },
       "previous_candidate_adjudication": "REJECTED CURRENT CANDIDATE",
       "previous_candidate_defect": "REJECT: needle tip clipped; unrelated horizontal crop lines included.",
       "alternatives_checked": [
@@ -18826,13 +19306,25 @@
     {
       "artwork_id": "WB-S016-OBJ09-ESCOBA",
       "drawing_group_id": "DRAW-WB-17-1",
-      "availability": "OPTIMIZATION NEEDED",
+      "availability": "OPTIMIZED VERSION EXISTS",
       "reason": "FC broom backdrop/action line absent from WB source; Drive broom redraw changes bound handles/bristles.",
       "source_crop": "crops/WB-S016-OBJ09-ESCOBA.png",
       "source_crop_sha256": "1ac08ff9529cda4dee49c51a75c5f5798c6cd31fa8d40ee8b134d56774cb0290",
       "source_pdf_sha256": "cbe050520bafefaea9c19c75eee6dd48ab3476a6377dc45009d176c18aab0a3b",
       "comparison": "comparisons/WB-097.jpg",
-      "selected_match": null,
+      "selected_match": {
+        "file_id": "FILE-547b9ba59f3ba62571ea",
+        "location": "public/cartilla/art/faithful/vocal-e/escoba-DRAW-WB-17-1.webp",
+        "source_group": "github-current-main",
+        "sha256": "547b9ba59f3ba62571ea9a88f09384e20b90f6ce6f462ae02162cc3a74d04263",
+        "bytes": 8980,
+        "github_url": "https://github.com/ejnburrows-rgb/cartilla-de-gretel/blob/153c7eccbec5bc1090cd130a909f0cf73630415a/public/cartilla/art/faithful/vocal-e/escoba-DRAW-WB-17-1.webp",
+        "width": 100,
+        "height": 100,
+        "mode": "RGBA",
+        "decode": "PASS",
+        "preview": "assets/547b9ba59f3ba62571ea9a88f09384e20b90f6ce6f462ae02162cc3a74d04263.webp"
+      },
       "previous_candidate_adjudication": "REJECTED CURRENT CANDIDATE",
       "previous_candidate_defect": "REJECT: broom gains rectangle/action backdrop absent from WB.",
       "alternatives_checked": [
@@ -19098,13 +19590,25 @@
     {
       "artwork_id": "WB-S016-OBJ15-ESPEJO",
       "drawing_group_id": "DRAW-WB-19-1",
-      "availability": "OPTIMIZATION NEEDED",
+      "availability": "OPTIMIZED VERSION EXISTS",
       "reason": "Faithful mirror top clipped; complete FC mirror has different reflection/glare linework and opposite orientation.",
       "source_crop": "crops/WB-S016-OBJ15-ESPEJO.png",
       "source_crop_sha256": "4daa7f460fd81ab4fec3f77062190a6133e5d15bd222c5e21ce894adb50dd4cc",
       "source_pdf_sha256": "cbe050520bafefaea9c19c75eee6dd48ab3476a6377dc45009d176c18aab0a3b",
       "comparison": "comparisons/WB-103.jpg",
-      "selected_match": null,
+      "selected_match": {
+        "file_id": "FILE-4b03e2b56ba60088b54f",
+        "location": "public/cartilla/art/faithful/vocal-e/espejo-DRAW-WB-19-1.webp",
+        "source_group": "github-current-main",
+        "sha256": "4b03e2b56ba60088b54f9f26c4457bd9bd966895dbe5106ba1ca2cbafcbf4d67",
+        "bytes": 8604,
+        "github_url": "https://github.com/ejnburrows-rgb/cartilla-de-gretel/blob/153c7eccbec5bc1090cd130a909f0cf73630415a/public/cartilla/art/faithful/vocal-e/espejo-DRAW-WB-19-1.webp",
+        "width": 100,
+        "height": 100,
+        "mode": "RGBA",
+        "decode": "PASS",
+        "preview": "assets/4b03e2b56ba60088b54f9f26c4457bd9bd966895dbe5106ba1ca2cbafcbf4d67.webp"
+      },
       "previous_candidate_adjudication": "REJECTED CURRENT CANDIDATE",
       "previous_candidate_defect": "REJECT: mirror reflected and top rim clipped.",
       "alternatives_checked": [
@@ -19217,13 +19721,25 @@
     {
       "artwork_id": "WB-S017-OBJ02-ELEFANTE",
       "drawing_group_id": "DRAW-WB-14-1",
-      "availability": "OPTIMIZATION NEEDED",
+      "availability": "OPTIMIZED VERSION EXISTS",
       "reason": "All faithful/FC elephants add coat spots absent from WB; Drive elephant redraw changes linework.",
       "source_crop": "crops/WB-S017-OBJ02-ELEFANTE.png",
       "source_crop_sha256": "29911b54b636807cd6d868b057d852123af50240d4a70cb3a85d8252a4962614",
       "source_pdf_sha256": "cbe050520bafefaea9c19c75eee6dd48ab3476a6377dc45009d176c18aab0a3b",
       "comparison": "comparisons/WB-103.jpg",
-      "selected_match": null,
+      "selected_match": {
+        "file_id": "FILE-dcff392e1816643ed382",
+        "location": "public/cartilla/art/faithful/vocal-e/elefante-DRAW-WB-14-1.webp",
+        "source_group": "github-current-main",
+        "sha256": "dcff392e1816643ed3828dc252a95e31ebe28da1b627dce70520cf87b68f87e4",
+        "bytes": 7744,
+        "github_url": "https://github.com/ejnburrows-rgb/cartilla-de-gretel/blob/153c7eccbec5bc1090cd130a909f0cf73630415a/public/cartilla/art/faithful/vocal-e/elefante-DRAW-WB-14-1.webp",
+        "width": 100,
+        "height": 100,
+        "mode": "RGBA",
+        "decode": "PASS",
+        "preview": "assets/dcff392e1816643ed3828dc252a95e31ebe28da1b627dce70520cf87b68f87e4.webp"
+      },
       "previous_candidate_adjudication": "REJECTED CURRENT CANDIDATE",
       "previous_candidate_defect": "REJECT: elephant reflected and spotted source variant substituted.",
       "alternatives_checked": [
@@ -19484,13 +20000,25 @@
     {
       "artwork_id": "WB-S017-OBJ08-CHAQUETA",
       "drawing_group_id": "DRAW-WB-03-1",
-      "availability": "OPTIMIZATION NEEDED",
+      "availability": "OPTIMIZED VERSION EXISTS",
       "reason": "Faithful coat clips outer left sleeve; modernized puffer redraw changes collar, panels and buttons.",
       "source_crop": "crops/WB-S017-OBJ08-CHAQUETA.png",
       "source_crop_sha256": "ccc7f049d2e8fd5fbf748164f0eec091327a5b34fa6da6a7f37f50641aee817a",
       "source_pdf_sha256": "cbe050520bafefaea9c19c75eee6dd48ab3476a6377dc45009d176c18aab0a3b",
       "comparison": "comparisons/WB-109.jpg",
-      "selected_match": null,
+      "selected_match": {
+        "file_id": "FILE-e4888be5e5107dd84bdd",
+        "location": "public/cartilla/art/faithful/leccion-1/abrigo-DRAW-WB-03-1.webp",
+        "source_group": "github-current-main",
+        "sha256": "e4888be5e5107dd84bdd546285e51d116ff85ebb53c013469b873c7615524253",
+        "bytes": 13788,
+        "github_url": "https://github.com/ejnburrows-rgb/cartilla-de-gretel/blob/153c7eccbec5bc1090cd130a909f0cf73630415a/public/cartilla/art/faithful/leccion-1/abrigo-DRAW-WB-03-1.webp",
+        "width": 100,
+        "height": 100,
+        "mode": "RGBA",
+        "decode": "PASS",
+        "preview": "assets/e4888be5e5107dd84bdd546285e51d116ff85ebb53c013469b873c7615524253.webp"
+      },
       "previous_candidate_adjudication": "SAME DRAWING PROPOSAL; QUALITY/APPROVAL UNRESOLVED",
       "previous_candidate_defect": "REVIEW: coat faithful scan is same drawing, but is not an approved quality upgrade; source scan remains available.",
       "alternatives_checked": [
@@ -19654,13 +20182,25 @@
     {
       "artwork_id": "WB-S019-OBJ03-IGUANA",
       "drawing_group_id": "DRAW-WB-25-1",
-      "availability": "OPTIMIZATION NEEDED",
+      "availability": "OPTIMIZED VERSION EXISTS",
       "reason": "Only iguana file clips original head and retains unrelated page/crop artifacts.",
       "source_crop": "crops/WB-S019-OBJ03-IGUANA.png",
       "source_crop_sha256": "af63a83849ef006ba034e978e71245cc901ba914fbf4d07a5a2cad270c8a0be2",
       "source_pdf_sha256": "cbe050520bafefaea9c19c75eee6dd48ab3476a6377dc45009d176c18aab0a3b",
       "comparison": "comparisons/WB-115.jpg",
-      "selected_match": null,
+      "selected_match": {
+        "file_id": "FILE-1d41db2c75c93acb4838",
+        "location": "public/cartilla/art/faithful/vocal-i/iguana-DRAW-WB-25-1.webp",
+        "source_group": "github-current-main",
+        "sha256": "1d41db2c75c93acb4838e42b92f8ad5eb7798e0c0eeedf7946b667e302ea4647",
+        "bytes": 7976,
+        "github_url": "https://github.com/ejnburrows-rgb/cartilla-de-gretel/blob/153c7eccbec5bc1090cd130a909f0cf73630415a/public/cartilla/art/faithful/vocal-i/iguana-DRAW-WB-25-1.webp",
+        "width": 100,
+        "height": 100,
+        "mode": "RGBA",
+        "decode": "PASS",
+        "preview": "assets/1d41db2c75c93acb4838e42b92f8ad5eb7798e0c0eeedf7946b667e302ea4647.webp"
+      },
       "previous_candidate_adjudication": "REJECTED CURRENT CANDIDATE",
       "previous_candidate_defect": "REJECT: iguana crop includes unrelated edges/lines.",
       "alternatives_checked": [
@@ -19760,13 +20300,25 @@
     {
       "artwork_id": "WB-S019-OBJ06-INDIO",
       "drawing_group_id": "DRAW-WB-28-1",
-      "availability": "OPTIMIZATION NEEDED",
+      "availability": "OPTIMIZED VERSION EXISTS",
       "reason": "Faithful and FC figure cut feather; Drive version redraws spear, hands and pose.",
       "source_crop": "crops/WB-S019-OBJ06-INDIO.png",
       "source_crop_sha256": "906a4960a7b96a829081356bf713cfc1a2cf91fe79d5f0ccd95cef102e6f43df",
       "source_pdf_sha256": "cbe050520bafefaea9c19c75eee6dd48ab3476a6377dc45009d176c18aab0a3b",
       "comparison": "comparisons/WB-115.jpg",
-      "selected_match": null,
+      "selected_match": {
+        "file_id": "FILE-f0ac439d2561b0974bcd",
+        "location": "public/cartilla/art/faithful/vocal-i/indio-DRAW-WB-28-1.webp",
+        "source_group": "github-current-main",
+        "sha256": "f0ac439d2561b0974bcd4f45b95292f7cfdf7fd11ba901fbfa24f315e9af4bbc",
+        "bytes": 13454,
+        "github_url": "https://github.com/ejnburrows-rgb/cartilla-de-gretel/blob/153c7eccbec5bc1090cd130a909f0cf73630415a/public/cartilla/art/faithful/vocal-i/indio-DRAW-WB-28-1.webp",
+        "width": 100,
+        "height": 100,
+        "mode": "RGBA",
+        "decode": "PASS",
+        "preview": "assets/f0ac439d2561b0974bcd4f45b95292f7cfdf7fd11ba901fbfa24f315e9af4bbc.webp"
+      },
       "previous_candidate_adjudication": "REJECTED CURRENT CANDIDATE",
       "previous_candidate_defect": "REJECT: kneeling spear figure reversed and feather clipped.",
       "alternatives_checked": [
@@ -19831,13 +20383,25 @@
     {
       "artwork_id": "WB-S019-OBJ07-ALA",
       "drawing_group_id": "DRAW-WB-05-2",
-      "availability": "OPTIMIZATION NEEDED",
+      "availability": "OPTIMIZED VERSION EXISTS",
       "reason": "Faithful wings lose right-wing contour; FC proportions differ from this WB variant; modernized redraw is not exact.",
       "source_crop": "crops/WB-S019-OBJ07-ALA.png",
       "source_crop_sha256": "0664733ea286dd4b778f253ca5fe041ec69dbf6c06fae2725560cc6a8c9dabd3",
       "source_pdf_sha256": "cbe050520bafefaea9c19c75eee6dd48ab3476a6377dc45009d176c18aab0a3b",
       "comparison": "comparisons/WB-115.jpg",
-      "selected_match": null,
+      "selected_match": {
+        "file_id": "FILE-186c05e62eced5e2ce6f",
+        "location": "public/cartilla/art/faithful/vocal-a/alas-DRAW-WB-05-2.webp",
+        "source_group": "github-current-main",
+        "sha256": "186c05e62eced5e2ce6f96d2ca49ee748ec9d8dc2ed3c4896656e6e451e5d265",
+        "bytes": 6720,
+        "github_url": "https://github.com/ejnburrows-rgb/cartilla-de-gretel/blob/153c7eccbec5bc1090cd130a909f0cf73630415a/public/cartilla/art/faithful/vocal-a/alas-DRAW-WB-05-2.webp",
+        "width": 100,
+        "height": 100,
+        "mode": "RGBA",
+        "decode": "PASS",
+        "preview": "assets/186c05e62eced5e2ce6f96d2ca49ee748ec9d8dc2ed3c4896656e6e451e5d265.webp"
+      },
       "previous_candidate_adjudication": "REJECTED CURRENT CANDIDATE",
       "previous_candidate_defect": "REJECT: right wing damaged by transparency removal; linework missing.",
       "alternatives_checked": [
@@ -19902,13 +20466,25 @@
     {
       "artwork_id": "WB-S019-OBJ08-INVIERNO",
       "drawing_group_id": "DRAW-WB-30-1",
-      "availability": "OPTIMIZATION NEEDED",
+      "availability": "OPTIMIZED VERSION EXISTS",
       "reason": "Only winter scene is reversed, heavily clipped and retains table rule.",
       "source_crop": "crops/WB-S019-OBJ08-INVIERNO.png",
       "source_crop_sha256": "c27c9df5612c04162df2c42c514da1832fab96b1d4f7d2e24fa27daa9d5f1048",
       "source_pdf_sha256": "cbe050520bafefaea9c19c75eee6dd48ab3476a6377dc45009d176c18aab0a3b",
       "comparison": "comparisons/WB-115.jpg",
-      "selected_match": null,
+      "selected_match": {
+        "file_id": "FILE-6a9d497806f6922d633f",
+        "location": "public/cartilla/art/faithful/vocal-i/invierno-DRAW-WB-30-1.webp",
+        "source_group": "github-current-main",
+        "sha256": "6a9d497806f6922d633f17c1349f14bd8cdca3bb51e517e1a20bc6b39fc49b2d",
+        "bytes": 21512,
+        "github_url": "https://github.com/ejnburrows-rgb/cartilla-de-gretel/blob/153c7eccbec5bc1090cd130a909f0cf73630415a/public/cartilla/art/faithful/vocal-i/invierno-DRAW-WB-30-1.webp",
+        "width": 100,
+        "height": 100,
+        "mode": "RGBA",
+        "decode": "PASS",
+        "preview": "assets/6a9d497806f6922d633f17c1349f14bd8cdca3bb51e517e1a20bc6b39fc49b2d.webp"
+      },
       "previous_candidate_adjudication": "REJECTED CURRENT CANDIDATE",
       "previous_candidate_defect": "REJECT: winter scene is horizontally reversed and heavily clipped.",
       "alternatives_checked": [
@@ -19948,13 +20524,25 @@
     {
       "artwork_id": "WB-S019-OBJ09-OLA",
       "drawing_group_id": "DRAW-WB-37-1",
-      "availability": "OPTIMIZATION NEEDED",
+      "availability": "OPTIMIZED VERSION EXISTS",
       "reason": "Faithful wave cuts crest; modernized wave redraw changes crest and bubble shapes.",
       "source_crop": "crops/WB-S019-OBJ09-OLA.png",
       "source_crop_sha256": "8ae18e86b7d0bb2fc8ece06978dc88d9a99340f1f09f54bb75e971612d2bbe68",
       "source_pdf_sha256": "cbe050520bafefaea9c19c75eee6dd48ab3476a6377dc45009d176c18aab0a3b",
       "comparison": "comparisons/WB-121.jpg",
-      "selected_match": null,
+      "selected_match": {
+        "file_id": "FILE-ba0158f152dee01229a1",
+        "location": "public/cartilla/art/faithful/vocal-o/ola-DRAW-WB-37-1.webp",
+        "source_group": "github-current-main",
+        "sha256": "ba0158f152dee01229a128a50a7230b17a1d71815f4401adb4734343624ffcb3",
+        "bytes": 8706,
+        "github_url": "https://github.com/ejnburrows-rgb/cartilla-de-gretel/blob/153c7eccbec5bc1090cd130a909f0cf73630415a/public/cartilla/art/faithful/vocal-o/ola-DRAW-WB-37-1.webp",
+        "width": 100,
+        "height": 100,
+        "mode": "RGBA",
+        "decode": "PASS",
+        "preview": "assets/ba0158f152dee01229a128a50a7230b17a1d71815f4401adb4734343624ffcb3.webp"
+      },
       "previous_candidate_adjudication": "SAME DRAWING PROPOSAL; QUALITY/APPROVAL UNRESOLVED",
       "previous_candidate_defect": "REVIEW: wave corresponds; edge completeness and source-colors unresolved.",
       "alternatives_checked": [
@@ -20006,13 +20594,25 @@
     {
       "artwork_id": "WB-S019-OBJ10-IMAN",
       "drawing_group_id": "DRAW-WB-26-1",
-      "availability": "OPTIMIZATION NEEDED",
+      "availability": "OPTIMIZED VERSION EXISTS",
       "reason": "FC magnet adds backdrop/action marks and changes tip geometry; Drive plain magnets redraw geometry.",
       "source_crop": "crops/WB-S019-OBJ10-IMAN.png",
       "source_crop_sha256": "8fde453644970ec9bee139456265b8c30ac8719c2536e2016478fd2c9a724583",
       "source_pdf_sha256": "cbe050520bafefaea9c19c75eee6dd48ab3476a6377dc45009d176c18aab0a3b",
       "comparison": "comparisons/WB-121.jpg",
-      "selected_match": null,
+      "selected_match": {
+        "file_id": "FILE-5dbabce1520af38b3bc9",
+        "location": "public/cartilla/art/faithful/vocal-i/iman-DRAW-WB-26-1.webp",
+        "source_group": "github-current-main",
+        "sha256": "5dbabce1520af38b3bc97cab5d6c3d7341b2234ac5ecaa8b260645d603812d35",
+        "bytes": 5626,
+        "github_url": "https://github.com/ejnburrows-rgb/cartilla-de-gretel/blob/153c7eccbec5bc1090cd130a909f0cf73630415a/public/cartilla/art/faithful/vocal-i/iman-DRAW-WB-26-1.webp",
+        "width": 100,
+        "height": 100,
+        "mode": "RGBA",
+        "decode": "PASS",
+        "preview": "assets/5dbabce1520af38b3bc97cab5d6c3d7341b2234ac5ecaa8b260645d603812d35.webp"
+      },
       "previous_candidate_adjudication": "REJECTED CURRENT CANDIDATE",
       "previous_candidate_defect": "REJECT: plain WB magnet replaced with FC oval/action-mark composition.",
       "alternatives_checked": [
@@ -20262,13 +20862,25 @@
     {
       "artwork_id": "WB-S019-OBJ14-IGUAL",
       "drawing_group_id": "DRAW-WB-24-1",
-      "availability": "OPTIMIZATION NEEDED",
+      "availability": "OPTIMIZED VERSION EXISTS",
       "reason": "Only equal-sign file has unrelated table rule and changes bars into outlined panels.",
       "source_crop": "crops/WB-S019-OBJ14-IGUAL.png",
       "source_crop_sha256": "e38f3b2c1447b8ba0c67fbdb149160fd45c38a824d6591f05b38ac3e292f06fc",
       "source_pdf_sha256": "cbe050520bafefaea9c19c75eee6dd48ab3476a6377dc45009d176c18aab0a3b",
       "comparison": "comparisons/WB-121.jpg",
-      "selected_match": null,
+      "selected_match": {
+        "file_id": "FILE-9bfd99ca0d34b4783696",
+        "location": "public/cartilla/art/faithful/vocal-i/igual-DRAW-WB-24-1.webp",
+        "source_group": "github-current-main",
+        "sha256": "9bfd99ca0d34b47836960b346c9b550ce81b0603679ce5569e9dffe92c3554e7",
+        "bytes": 1158,
+        "github_url": "https://github.com/ejnburrows-rgb/cartilla-de-gretel/blob/153c7eccbec5bc1090cd130a909f0cf73630415a/public/cartilla/art/faithful/vocal-i/igual-DRAW-WB-24-1.webp",
+        "width": 100,
+        "height": 100,
+        "mode": "RGBA",
+        "decode": "PASS",
+        "preview": "assets/9bfd99ca0d34b47836960b346c9b550ce81b0603679ce5569e9dffe92c3554e7.webp"
+      },
       "previous_candidate_adjudication": "REJECTED CURRENT CANDIDATE",
       "previous_candidate_defect": "REJECT: equal-sign bars redrawn as outlined blue panels plus unrelated bottom line.",
       "alternatives_checked": [
@@ -20407,13 +21019,25 @@
     {
       "artwork_id": "WB-S020-OBJ01-IMAN",
       "drawing_group_id": "DRAW-WB-26-1",
-      "availability": "OPTIMIZATION NEEDED",
+      "availability": "OPTIMIZED VERSION EXISTS",
       "reason": "FC magnet adds backdrop/action marks and changes tip geometry; Drive plain magnets redraw geometry.",
       "source_crop": "crops/WB-S020-OBJ01-IMAN.png",
       "source_crop_sha256": "efc595e95fbd96edc49ab355a2a1ea833da1a65c7dcacf4bb2610c2c5745cabf",
       "source_pdf_sha256": "cbe050520bafefaea9c19c75eee6dd48ab3476a6377dc45009d176c18aab0a3b",
       "comparison": "comparisons/WB-127.jpg",
-      "selected_match": null,
+      "selected_match": {
+        "file_id": "FILE-5dbabce1520af38b3bc9",
+        "location": "public/cartilla/art/faithful/vocal-i/iman-DRAW-WB-26-1.webp",
+        "source_group": "github-current-main",
+        "sha256": "5dbabce1520af38b3bc97cab5d6c3d7341b2234ac5ecaa8b260645d603812d35",
+        "bytes": 5626,
+        "github_url": "https://github.com/ejnburrows-rgb/cartilla-de-gretel/blob/153c7eccbec5bc1090cd130a909f0cf73630415a/public/cartilla/art/faithful/vocal-i/iman-DRAW-WB-26-1.webp",
+        "width": 100,
+        "height": 100,
+        "mode": "RGBA",
+        "decode": "PASS",
+        "preview": "assets/5dbabce1520af38b3bc97cab5d6c3d7341b2234ac5ecaa8b260645d603812d35.webp"
+      },
       "previous_candidate_adjudication": "REJECTED CURRENT CANDIDATE",
       "previous_candidate_defect": "REJECT: plain WB magnet replaced with FC oval/action-mark composition.",
       "alternatives_checked": [
@@ -20648,13 +21272,25 @@
     {
       "artwork_id": "WB-S020-OBJ04-IGUAL",
       "drawing_group_id": "DRAW-WB-24-1",
-      "availability": "OPTIMIZATION NEEDED",
+      "availability": "OPTIMIZED VERSION EXISTS",
       "reason": "Only equal-sign file has unrelated table rule and changes bars into outlined panels.",
       "source_crop": "crops/WB-S020-OBJ04-IGUAL.png",
       "source_crop_sha256": "22fe8ece6df87268e0f41869a74860025528f8f8b31d13bd06c4daeb057f95b1",
       "source_pdf_sha256": "cbe050520bafefaea9c19c75eee6dd48ab3476a6377dc45009d176c18aab0a3b",
       "comparison": "comparisons/WB-127.jpg",
-      "selected_match": null,
+      "selected_match": {
+        "file_id": "FILE-9bfd99ca0d34b4783696",
+        "location": "public/cartilla/art/faithful/vocal-i/igual-DRAW-WB-24-1.webp",
+        "source_group": "github-current-main",
+        "sha256": "9bfd99ca0d34b47836960b346c9b550ce81b0603679ce5569e9dffe92c3554e7",
+        "bytes": 1158,
+        "github_url": "https://github.com/ejnburrows-rgb/cartilla-de-gretel/blob/153c7eccbec5bc1090cd130a909f0cf73630415a/public/cartilla/art/faithful/vocal-i/igual-DRAW-WB-24-1.webp",
+        "width": 100,
+        "height": 100,
+        "mode": "RGBA",
+        "decode": "PASS",
+        "preview": "assets/9bfd99ca0d34b47836960b346c9b550ce81b0603679ce5569e9dffe92c3554e7.webp"
+      },
       "previous_candidate_adjudication": "REJECTED CURRENT CANDIDATE",
       "previous_candidate_defect": "REJECT: equal-sign bars redrawn as outlined blue panels plus unrelated bottom line.",
       "alternatives_checked": [
@@ -20694,13 +21330,25 @@
     {
       "artwork_id": "WB-S020-OBJ05-INDIO",
       "drawing_group_id": "DRAW-WB-28-1",
-      "availability": "OPTIMIZATION NEEDED",
+      "availability": "OPTIMIZED VERSION EXISTS",
       "reason": "Faithful and FC figure cut feather; Drive version redraws spear, hands and pose.",
       "source_crop": "crops/WB-S020-OBJ05-INDIO.png",
       "source_crop_sha256": "c9847780668737a6673d5d12a66472a70d3b58c0c73a72dd0f62d1f5d52a4d44",
       "source_pdf_sha256": "cbe050520bafefaea9c19c75eee6dd48ab3476a6377dc45009d176c18aab0a3b",
       "comparison": "comparisons/WB-133.jpg",
-      "selected_match": null,
+      "selected_match": {
+        "file_id": "FILE-f0ac439d2561b0974bcd",
+        "location": "public/cartilla/art/faithful/vocal-i/indio-DRAW-WB-28-1.webp",
+        "source_group": "github-current-main",
+        "sha256": "f0ac439d2561b0974bcd4f45b95292f7cfdf7fd11ba901fbfa24f315e9af4bbc",
+        "bytes": 13454,
+        "github_url": "https://github.com/ejnburrows-rgb/cartilla-de-gretel/blob/153c7eccbec5bc1090cd130a909f0cf73630415a/public/cartilla/art/faithful/vocal-i/indio-DRAW-WB-28-1.webp",
+        "width": 100,
+        "height": 100,
+        "mode": "RGBA",
+        "decode": "PASS",
+        "preview": "assets/f0ac439d2561b0974bcd4f45b95292f7cfdf7fd11ba901fbfa24f315e9af4bbc.webp"
+      },
       "previous_candidate_adjudication": "REJECTED CURRENT CANDIDATE",
       "previous_candidate_defect": "REJECT: kneeling spear figure reversed and feather clipped.",
       "alternatives_checked": [
@@ -20807,13 +21455,25 @@
     {
       "artwork_id": "WB-S020-OBJ07-IGUANA",
       "drawing_group_id": "DRAW-WB-25-1",
-      "availability": "OPTIMIZATION NEEDED",
+      "availability": "OPTIMIZED VERSION EXISTS",
       "reason": "Only iguana file clips original head and retains unrelated page/crop artifacts.",
       "source_crop": "crops/WB-S020-OBJ07-IGUANA.png",
       "source_crop_sha256": "9106209ed2ba7fdc8e0f4e0b9668cfab89676faa1cd0a009419c6aac6f16970a",
       "source_pdf_sha256": "cbe050520bafefaea9c19c75eee6dd48ab3476a6377dc45009d176c18aab0a3b",
       "comparison": "comparisons/WB-133.jpg",
-      "selected_match": null,
+      "selected_match": {
+        "file_id": "FILE-1d41db2c75c93acb4838",
+        "location": "public/cartilla/art/faithful/vocal-i/iguana-DRAW-WB-25-1.webp",
+        "source_group": "github-current-main",
+        "sha256": "1d41db2c75c93acb4838e42b92f8ad5eb7798e0c0eeedf7946b667e302ea4647",
+        "bytes": 7976,
+        "github_url": "https://github.com/ejnburrows-rgb/cartilla-de-gretel/blob/153c7eccbec5bc1090cd130a909f0cf73630415a/public/cartilla/art/faithful/vocal-i/iguana-DRAW-WB-25-1.webp",
+        "width": 100,
+        "height": 100,
+        "mode": "RGBA",
+        "decode": "PASS",
+        "preview": "assets/1d41db2c75c93acb4838e42b92f8ad5eb7798e0c0eeedf7946b667e302ea4647.webp"
+      },
       "previous_candidate_adjudication": "REJECTED CURRENT CANDIDATE",
       "previous_candidate_defect": "REJECT: iguana crop includes unrelated edges/lines.",
       "alternatives_checked": [
@@ -21066,13 +21726,25 @@
     {
       "artwork_id": "WB-S022-OBJ05-UVA",
       "drawing_group_id": "DRAW-WB-52-1",
-      "availability": "OPTIMIZATION NEEDED",
+      "availability": "OPTIMIZED VERSION EXISTS",
       "reason": "FC grapes add backdrop and differ from WB rounded cluster/linework; no whole faithful WB upgrade found.",
       "source_crop": "crops/WB-S022-OBJ05-UVA.png",
       "source_crop_sha256": "bc843f6bd66e2d981b1e4a47fa63f7800f540ea4c7aaa6115e953b4564d9a5e3",
       "source_pdf_sha256": "cbe050520bafefaea9c19c75eee6dd48ab3476a6377dc45009d176c18aab0a3b",
       "comparison": "comparisons/WB-139.jpg",
-      "selected_match": null,
+      "selected_match": {
+        "file_id": "FILE-877b814a9068a2ba8a1b",
+        "location": "public/cartilla/art/faithful/leccion-1/uva.webp",
+        "source_group": "github-current-main",
+        "sha256": "877b814a9068a2ba8a1bc23c0aedfdf0fa167361a0b533c1fdc7301c9a0ac484",
+        "bytes": 8290,
+        "github_url": "https://github.com/ejnburrows-rgb/cartilla-de-gretel/blob/153c7eccbec5bc1090cd130a909f0cf73630415a/public/cartilla/art/faithful/leccion-1/uva.webp",
+        "width": 100,
+        "height": 100,
+        "mode": "RGBA",
+        "decode": "PASS",
+        "preview": "assets/877b814a9068a2ba8a1bc23c0aedfdf0fa167361a0b533c1fdc7301c9a0ac484.webp"
+      },
       "previous_candidate_adjudication": "REJECTED CURRENT CANDIDATE",
       "previous_candidate_defect": "REJECT: grape cluster partly clipped and gains FC backdrop absent from WB.",
       "alternatives_checked": [
@@ -21184,13 +21856,25 @@
     {
       "artwork_id": "WB-S022-OBJ08-ELEFANTE",
       "drawing_group_id": "DRAW-WB-14-1",
-      "availability": "OPTIMIZATION NEEDED",
+      "availability": "OPTIMIZED VERSION EXISTS",
       "reason": "All faithful/FC elephants add coat spots absent from WB; Drive elephant redraw changes linework.",
       "source_crop": "crops/WB-S022-OBJ08-ELEFANTE.png",
       "source_crop_sha256": "2cf1ec6b5ea103df805041be9e0944d105647ec7ebee1b17cbf83918e97da322",
       "source_pdf_sha256": "cbe050520bafefaea9c19c75eee6dd48ab3476a6377dc45009d176c18aab0a3b",
       "comparison": "comparisons/WB-139.jpg",
-      "selected_match": null,
+      "selected_match": {
+        "file_id": "FILE-dcff392e1816643ed382",
+        "location": "public/cartilla/art/faithful/vocal-e/elefante-DRAW-WB-14-1.webp",
+        "source_group": "github-current-main",
+        "sha256": "dcff392e1816643ed3828dc252a95e31ebe28da1b627dce70520cf87b68f87e4",
+        "bytes": 7744,
+        "github_url": "https://github.com/ejnburrows-rgb/cartilla-de-gretel/blob/153c7eccbec5bc1090cd130a909f0cf73630415a/public/cartilla/art/faithful/vocal-e/elefante-DRAW-WB-14-1.webp",
+        "width": 100,
+        "height": 100,
+        "mode": "RGBA",
+        "decode": "PASS",
+        "preview": "assets/dcff392e1816643ed3828dc252a95e31ebe28da1b627dce70520cf87b68f87e4.webp"
+      },
       "previous_candidate_adjudication": "REJECTED CURRENT CANDIDATE",
       "previous_candidate_defect": "REJECT: elephant reflected and spotted source variant substituted.",
       "alternatives_checked": [
@@ -21301,13 +21985,25 @@
     {
       "artwork_id": "WB-S022-OBJ09-ARBOL",
       "drawing_group_id": "DRAW-WB-07-1",
-      "availability": "OPTIMIZATION NEEDED",
+      "availability": "OPTIMIZED VERSION EXISTS",
       "reason": "Faithful tree clips trunk; modernized tree redraws crown and branch pattern.",
       "source_crop": "crops/WB-S022-OBJ09-ARBOL.png",
       "source_crop_sha256": "53df59bcd5dc0e1cc5eb413e675b4b610e0b5f419bd9c9e206e1e4094305456e",
       "source_pdf_sha256": "cbe050520bafefaea9c19c75eee6dd48ab3476a6377dc45009d176c18aab0a3b",
       "comparison": "comparisons/WB-145.jpg",
-      "selected_match": null,
+      "selected_match": {
+        "file_id": "FILE-866360bb5d884fd004c9",
+        "location": "public/cartilla/art/faithful/vocal-a/arbol-DRAW-WB-07-1.webp",
+        "source_group": "github-current-main",
+        "sha256": "866360bb5d884fd004c95dd1f582bbe58d2ca9af555876a198508008ccf9c15a",
+        "bytes": 8932,
+        "github_url": "https://github.com/ejnburrows-rgb/cartilla-de-gretel/blob/153c7eccbec5bc1090cd130a909f0cf73630415a/public/cartilla/art/faithful/vocal-a/arbol-DRAW-WB-07-1.webp",
+        "width": 100,
+        "height": 100,
+        "mode": "RGBA",
+        "decode": "PASS",
+        "preview": "assets/866360bb5d884fd004c95dd1f582bbe58d2ca9af555876a198508008ccf9c15a.webp"
+      },
       "previous_candidate_adjudication": "SAME DRAWING PROPOSAL; QUALITY/APPROVAL UNRESOLVED",
       "previous_candidate_defect": "REVIEW: tree broadly corresponds; trunk/edge bounds and color provenance unresolved.",
       "alternatives_checked": [
@@ -21659,13 +22355,25 @@
     {
       "artwork_id": "WB-S023-OBJ04-UVA",
       "drawing_group_id": "DRAW-WB-52-1",
-      "availability": "OPTIMIZATION NEEDED",
+      "availability": "OPTIMIZED VERSION EXISTS",
       "reason": "FC grapes add backdrop and differ from WB rounded cluster/linework; no whole faithful WB upgrade found.",
       "source_crop": "crops/WB-S023-OBJ04-UVA.png",
       "source_crop_sha256": "ba8aefa742c05c886984b33761641824765ba1697f200ccaed26f6cef40b2f78",
       "source_pdf_sha256": "cbe050520bafefaea9c19c75eee6dd48ab3476a6377dc45009d176c18aab0a3b",
       "comparison": "comparisons/WB-151.jpg",
-      "selected_match": null,
+      "selected_match": {
+        "file_id": "FILE-877b814a9068a2ba8a1b",
+        "location": "public/cartilla/art/faithful/leccion-1/uva.webp",
+        "source_group": "github-current-main",
+        "sha256": "877b814a9068a2ba8a1bc23c0aedfdf0fa167361a0b533c1fdc7301c9a0ac484",
+        "bytes": 8290,
+        "github_url": "https://github.com/ejnburrows-rgb/cartilla-de-gretel/blob/153c7eccbec5bc1090cd130a909f0cf73630415a/public/cartilla/art/faithful/leccion-1/uva.webp",
+        "width": 100,
+        "height": 100,
+        "mode": "RGBA",
+        "decode": "PASS",
+        "preview": "assets/877b814a9068a2ba8a1bc23c0aedfdf0fa167361a0b533c1fdc7301c9a0ac484.webp"
+      },
       "previous_candidate_adjudication": "REJECTED CURRENT CANDIDATE",
       "previous_candidate_defect": "REJECT: grape cluster partly clipped and gains FC backdrop absent from WB.",
       "alternatives_checked": [
@@ -21858,13 +22566,25 @@
     {
       "artwork_id": "WB-S023-OBJ08-IMAN",
       "drawing_group_id": "DRAW-WB-26-1",
-      "availability": "OPTIMIZATION NEEDED",
+      "availability": "OPTIMIZED VERSION EXISTS",
       "reason": "FC magnet adds backdrop/action marks and changes tip geometry; Drive plain magnets redraw geometry.",
       "source_crop": "crops/WB-S023-OBJ08-IMAN.png",
       "source_crop_sha256": "c8cd1ed16299d864f13f2a2adaaa25f9aab3c0465d3396d3efaa70a5f2a364da",
       "source_pdf_sha256": "cbe050520bafefaea9c19c75eee6dd48ab3476a6377dc45009d176c18aab0a3b",
       "comparison": "comparisons/WB-157.jpg",
-      "selected_match": null,
+      "selected_match": {
+        "file_id": "FILE-5dbabce1520af38b3bc9",
+        "location": "public/cartilla/art/faithful/vocal-i/iman-DRAW-WB-26-1.webp",
+        "source_group": "github-current-main",
+        "sha256": "5dbabce1520af38b3bc97cab5d6c3d7341b2234ac5ecaa8b260645d603812d35",
+        "bytes": 5626,
+        "github_url": "https://github.com/ejnburrows-rgb/cartilla-de-gretel/blob/153c7eccbec5bc1090cd130a909f0cf73630415a/public/cartilla/art/faithful/vocal-i/iman-DRAW-WB-26-1.webp",
+        "width": 100,
+        "height": 100,
+        "mode": "RGBA",
+        "decode": "PASS",
+        "preview": "assets/5dbabce1520af38b3bc97cab5d6c3d7341b2234ac5ecaa8b260645d603812d35.webp"
+      },
       "previous_candidate_adjudication": "REJECTED CURRENT CANDIDATE",
       "previous_candidate_defect": "REJECT: plain WB magnet replaced with FC oval/action-mark composition.",
       "alternatives_checked": [
