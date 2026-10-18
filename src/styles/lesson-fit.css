@@ -320,6 +320,13 @@
 .lc-lesson-16 .faithful-page__sidebar { width: 4.5%; min-width: 24px; }
 .lc-lesson-16 .faithful-page__pagenum { background: #167a72; }
 
+/* Audit fix 2026-10-18: the page-number diamond sat at left/right 2.2%, under
+ * the teal sidebar (4.5% wide), so it rendered clipped behind the sidebar on
+ * both odd and even pages. Clear the sidebar and paint above it. */
+.lc-lesson-16 .faithful-page__pagenum { z-index: 2; }
+.lc-lesson-16 .faithful-page--edge-left .faithful-page__pagenum { left: 6.2%; }
+.lc-lesson-16 .faithful-page--edge-right .faithful-page__pagenum { right: 6.2%; }
+
 /* Stronger teal glow around every boxed work surface. */
 .lc-lesson-16 .native-lesson-viewer__content .fp-syllable-match__word,
 .lc-lesson-16 .native-lesson-viewer__content .fp-native-vocab > span,
@@ -353,6 +360,19 @@
 .lc-lesson-16 .native-lesson-viewer__content .fp-syllable-match__word[aria-pressed="true"] {
   border-color: #2f7d4a !important;
   box-shadow: 0 0 0 4px rgba(47, 125, 74, 0.22);
+}
+
+/* Audit fix 2026-10-18: on narrow portrait screens (390px) the letter
+ * strip inside each syllable word button overflowed the button and spilled
+ * past the page edge ("lavamanos", "vámonos"...). Two columns give each
+ * button room for a whole word, so words never break or clip. */
+.lc-lesson-16 .native-lesson-viewer__content .native-syllable__words {
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+}
+@media (max-width: 480px) {
+  .lc-lesson-16 .native-lesson-viewer__content .native-syllable__words {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
 }
 
 /* Page 57 — letter/reading: raised teal Vv card, garden-colored syllable
