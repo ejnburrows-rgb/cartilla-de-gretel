@@ -411,3 +411,14 @@
     padding-right: 2px;
   }
 }
+
+/* The "Mis lecciones" corner link is fixed above the page; on pages that
+ * scroll (page 63 on phones) the scrolled content passes under it. Give it
+ * a cream chip on this lesson so it stays readable over the page. */
+.lc-lesson-18 .lc-lesson-header__back {
+  background: var(--l18-cream);
+  border: 1.5px solid rgba(22, 122, 114, 0.45);
+  border-radius: 999px;
+  padding: 4px 12px;
+  box-shadow: 0 4px 12px -6px rgba(22, 122, 114, 0.4);
+}
