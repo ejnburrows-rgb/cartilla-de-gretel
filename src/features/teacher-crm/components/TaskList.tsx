@@ -138,6 +138,10 @@ export function TaskList({ classId }: TaskListProps) {
           <div className="text-center py-8 text-sm font-bold text-stone-400 animate-pulse">
             Cargando asignaciones…
           </div>
+        ) : assignments === undefined ? (
+          <div className="text-center py-8 text-sm font-bold text-red-500">
+            Error al cargar asignaciones.
+          </div>
         ) : (assignments ?? []).length > 0 ? (
           (assignments ?? []).map((task) => {
             const entry = CATALOG.find((c) => String(c.n) === task.lesson_id);
