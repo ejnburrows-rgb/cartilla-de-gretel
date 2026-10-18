@@ -1,0 +1,5 @@
+# Lesson 7 (Mm) wide-screen redesign — 2026-10-18
+
+Owner-approved Lesson 3 design language applied to La Cartilla de Gretel Lesson 7 (consonant Mm, printed pages 19–22), modeled on PR #927 (Lesson 21). The lesson shell gains a scoped `lc-lesson-7` class that gives every page a classic cream-paper background with a slimmer teal spine and a teal glow around all boxed work surfaces — Mm tracing lines and the draw box (page 19), syllable-circling tiles (page 20), the raised teal Mm title card, syllable chips, vocabulary tiles, the "y" sight-word chip and the reading card (page 21), and the fill-in-blank pieces plus the lined sentence-writing box (page 22). Instruction lines render in the rotating garden palette (leaf, rose, sun, sky, lavender) through `Lesson7GardenText`, wired into `FaithfulPageRenderer` for lesson 7 only; the lesson accent switches from its red catalog color to the shared teal. No artwork touched, no audio added, no pencil mechanics changed — additive, lesson-gated, draft only.
+
+Screenshots below are of `/cartilla/leccion/7` (page 19) at phone portrait, phone landscape, and desktop widths.
