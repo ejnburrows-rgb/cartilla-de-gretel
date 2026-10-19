@@ -194,3 +194,42 @@
     overflow: hidden;
   }
 }
+
+/* Portrait phone clip fix (2026-10-19): the nowrap tool strip made the freehand
+ * writing boxes wider than the page. Let the chain shrink to the page so the
+ * strip scrolls inside it instead of widening it. */
+.lc-lesson-shell--fit .native-lesson-viewer__content .gretel-activity[data-gretel-activity^="page-35-"],
+.lc-lesson-shell--fit .native-lesson-viewer__content .gretel-activity[data-gretel-activity^="page-39-"],
+.lc-lesson-shell--fit .native-lesson-viewer__content .gretel-activity[data-gretel-activity^="page-55-"],
+.lc-lesson-shell--fit .native-lesson-viewer__content .gretel-activity[data-gretel-activity^="page-35-"] .fp-writing-line--freehand,
+.lc-lesson-shell--fit .native-lesson-viewer__content .gretel-activity[data-gretel-activity^="page-39-"] .fp-writing-line--freehand,
+.lc-lesson-shell--fit .native-lesson-viewer__content .gretel-activity[data-gretel-activity^="page-55-"] .fp-writing-line--freehand,
+.lc-lesson-shell--fit .native-lesson-viewer__content .gretel-activity[data-gretel-activity^="page-35-"] .am-dibuja,
+.lc-lesson-shell--fit .native-lesson-viewer__content .gretel-activity[data-gretel-activity^="page-39-"] .am-dibuja,
+.lc-lesson-shell--fit .native-lesson-viewer__content .gretel-activity[data-gretel-activity^="page-55-"] .am-dibuja,
+.lc-lesson-shell--fit .native-lesson-viewer__content .gretel-activity[data-gretel-activity^="page-35-"] .am-dibuja__header,
+.lc-lesson-shell--fit .native-lesson-viewer__content .gretel-activity[data-gretel-activity^="page-39-"] .am-dibuja__header,
+.lc-lesson-shell--fit .native-lesson-viewer__content .gretel-activity[data-gretel-activity^="page-55-"] .am-dibuja__header,
+.lc-lesson-shell--fit .native-lesson-viewer__content .gretel-activity[data-gretel-activity^="page-35-"] .am-dibuja__draw,
+.lc-lesson-shell--fit .native-lesson-viewer__content .gretel-activity[data-gretel-activity^="page-39-"] .am-dibuja__draw,
+.lc-lesson-shell--fit .native-lesson-viewer__content .gretel-activity[data-gretel-activity^="page-55-"] .am-dibuja__draw,
+.lc-lesson-shell--fit .native-lesson-viewer__content .gretel-activity[data-gretel-activity^="page-35-"] .am-dibuja__paper,
+.lc-lesson-shell--fit .native-lesson-viewer__content .gretel-activity[data-gretel-activity^="page-39-"] .am-dibuja__paper,
+.lc-lesson-shell--fit .native-lesson-viewer__content .gretel-activity[data-gretel-activity^="page-55-"] .am-dibuja__paper,
+.lc-lesson-shell--fit .native-lesson-viewer__content .gretel-activity[data-gretel-activity^="page-35-"] .am-dibuja__toolbar,
+.lc-lesson-shell--fit .native-lesson-viewer__content .gretel-activity[data-gretel-activity^="page-39-"] .am-dibuja__toolbar,
+.lc-lesson-shell--fit .native-lesson-viewer__content .gretel-activity[data-gretel-activity^="page-55-"] .am-dibuja__toolbar {
+  min-width: 0;
+  max-width: 100%;
+  box-sizing: border-box;
+}
+
+/* Phone portrait: keep Limpiar and every tool inside the page. Wrap the tool
+ * row instead of scrolling it sideways. */
+.lc-lesson-shell--fit .native-lesson-viewer__content .gretel-activity[data-gretel-activity^="page-35-"] .am-dibuja__toolbar,
+.lc-lesson-shell--fit .native-lesson-viewer__content .gretel-activity[data-gretel-activity^="page-39-"] .am-dibuja__toolbar,
+.lc-lesson-shell--fit .native-lesson-viewer__content .gretel-activity[data-gretel-activity^="page-55-"] .am-dibuja__toolbar {
+  flex-wrap: wrap;
+  overflow: visible;
+  row-gap: 2px;
+}
