@@ -13,13 +13,12 @@ import { COW_SYLLABLE_AUDIO } from "@/content/games/cow-game-audio-gaps";
  * are the original painted ones, the blink swaps in the original
  * closed-eye crops, and ears, head, tail and tongue keep moving.
  *
- * Play: tap a cow, tap a slot. The cow hops over the fence - full size,
- * never through it, never shrinking - and lands on the grass in front of
- * the fence under the slot it picked. Right slot: the gate stays open, the
- * slot shows the syllable, "ma ma" plays (silent until the owner's audio
- * exists) and the cow stays. Wrong slot: moo (silent) and it hops back
- * home. A cow on its way never lands on top of a cow already placed:
- * each slot's cows fan out side by side on the grass.
+ * Play: tap a cow, tap a slot. The cow never changes size and never
+ * crosses the fence: it walks through the field to right behind the slot
+ * it picked, the fence stays in front of its body, and its syllable
+ * letters fly down and fill the slot. Then the cow walks back to its
+ * place in the field and the syllable stays in the slot. Wrong slot:
+ * moo (silent until recorded) and it walks back with no letters.
  * No Gretel on this screen. Stage coordinates are the mockup's 1238x928.
  */
 
@@ -31,9 +30,14 @@ type Layout = {
   H: number;
   home: Box[];
   slots: Box[];
-  floor: number;
-  fan: number;
+  // Ground line right behind the fence, in the field: where a cow stands
+  // while its syllable fills the slot. The fence overlay covers from
+  // fenceTop down, so the fence stays in front of the cow's lower body.
+  fieldFloor: number;
+  fenceTop: number;
   scene: string;
+  sceneTop: string;
+  sceneFence: string;
   title: Box;
   homeBtn: Box;
   settingsBtn: Box;
@@ -43,9 +47,11 @@ type Layout = {
 const LAND: Layout = {
   W: 1238,
   H: 928,
-  floor: 920,
-  fan: 85,
+  fieldFloor: 575,
+  fenceTop: 502,
   scene: "scene.webp",
+  sceneTop: "scene-top.webp",
+  sceneFence: "scene-fence.webp",
   home: [
     { x: 70, y: 155, w: 215, h: 203 },
     { x: 330, y: 128, w: 215, h: 207 },
@@ -72,9 +78,11 @@ const LAND: Layout = {
 const PORT: Layout = {
   W: 852,
   H: 1846,
-  floor: 1818,
-  fan: 64,
+  fieldFloor: 1150,
+  fenceTop: 1118,
   scene: "scene-portrait.webp",
+  sceneTop: "scene-portrait-top.webp",
+  sceneFence: "scene-portrait-fence.webp",
   home: [
     { x: 28, y: 640, w: 190, h: 180 },
     { x: 232, y: 640, w: 190, h: 180 },
@@ -113,24 +121,23 @@ const norm = (s: string) =>
     .replace(/[\u0300-\u036f]/g, "")
     .toLocaleLowerCase("es");
 
-type Pos = { slot: number; index: number; count: number };
-type Phase = "walk" | "wrong" | "back";
+type Pos = { slot: number };
+type Phase = "walk" | "deliver" | "wrong" | "back";
 
-// Full-size cow standing on the grass in front of the fence, under its slot.
-// Cows that share a slot fan out sideways; the newest stands a step closer.
-// Nothing scales and the fence never covers a body.
-function fanSpot(slot: number, index: number, count: number, cow: number): Box {
+// Full-size cow standing in the field right behind the fence, in front of
+// the slot it picked. Never scaled; the fence overlay hides its shins.
+function fieldSpot(slot: number, cow: number): Box {
   const b = L.slots[slot];
   const h = L.home[cow];
-  const off = (index - (count - 1) / 2) * L.fan;
-  const back = (count - 1 - index) * 8;
-  const rawX = b.x + b.w / 2 - h.w / 2 + off;
+  const rawX = b.x + b.w / 2 - h.w / 2;
   const x = Math.min(Math.max(rawX, 2), L.W - h.w - 2);
-  return { x, y: L.floor - h.h - back, w: h.w, h: h.h };
+  return { x, y: L.fieldFloor - h.h, w: h.w, h: h.h };
 }
 
-// Flight time for the hop over the fence (out and back).
-const HOP_MS = 1200;
+// Walk time through the field (out to the fence and back home).
+const WALK_MS = 1600;
+// Time the syllable letters take to fly from the cow into the slot.
+const FLY_MS = 750;
 
 function Cow({
   syllable,
@@ -143,7 +150,6 @@ function Cow({
   onTap,
   z,
   slow,
-  refan,
   cheer,
 }: {
   syllable: string;
@@ -156,7 +162,6 @@ function Cow({
   onTap: () => void;
   z: number;
   slow: boolean;
-  refan: boolean;
   cheer: boolean;
 }) {
   const parts = [
@@ -186,7 +191,7 @@ function Cow({
         zIndex: z,
         animationDelay: `${delay}s`,
         ["--cg-delay" as string]: `${delay}s`,
-        transitionDuration: slow ? `${HOP_MS}ms` : refan ? "0.8s" : "0s",
+        transitionDuration: slow ? `${WALK_MS}ms` : "0s",
       }}
     >
       <span className="cg-bob">
@@ -253,42 +258,45 @@ export function CowGame({ content }: { content: GameContent }) {
       if (busy || placed[cow]) return;
       const syl = COW_SYLLABLES[cow];
       const right = norm(syl) === COW_SLOTS[slot];
-      // Lands at the next free fan spot beside any cows already placed in
-      // this slot, so a retrying cow never ends up on top of one.
-      const already = Object.values(placed).filter((p) => p.slot === slot).length;
-      const to: Pos = { slot, index: already, count: already + 1 };
       const home = L.home[cow];
-      const target = fanSpot(slot, already, already + 1, cow);
+      const target = fieldSpot(slot, cow);
       const dx = target.x + target.w / 2 - (home.x + home.w / 2);
       setSelCow(null);
       setSelSlot(null);
       setTries((t) => t + 1);
       setMessage("");
       setFlips((f) => f.map((v, i) => (i === cow ? (dx > 0 ? -1 : 1) : v)));
-      setActive({ cow, slot, phase: "walk", to });
-      // The gate swings open while the cow is mid-hop.
-      later(HOP_MS / 2, () => setOpenGate((g) => ({ ...g, [slot]: true })));
-      later(HOP_MS, () => {
+      setActive({ cow, slot, phase: "walk", to: { slot } });
+      later(WALK_MS, () => {
         if (right) {
-          setFlips((f) => f.map((v, i) => (i === cow ? 1 : v)));
-          // "ma ma": silent until the owner's recording exists (gap manifest).
-          if (!muted) playWord(COW_SYLLABLE_AUDIO[norm(syl)] ?? undefined);
-          setCheer(cow);
-          later(1500, () => setCheer(null));
-          setPlaced((p) => ({ ...p, [cow]: to }));
-          setScore((s) => s + 1);
-          setActive(null);
-          setMessage("¡Muy bien!");
-          later(1200, () => setMessage(""));
+          // The syllable letters leave the cow and fill the slot.
+          setActive({ cow, slot, phase: "deliver", to: { slot } });
+          setOpenGate((g) => ({ ...g, [slot]: true }));
+          later(FLY_MS, () => {
+            // "ma ma": silent until the owner's recording exists (gap manifest).
+            if (!muted) playWord(COW_SYLLABLE_AUDIO[norm(syl)] ?? undefined);
+            setPlaced((p) => ({ ...p, [cow]: { slot } }));
+            setScore((sc) => sc + 1);
+            setCheer(cow);
+            setMessage("¡Muy bien!");
+            later(1500, () => setCheer(null));
+            later(1200, () => setMessage(""));
+            // The cow walks back to its place; the letters stay in the slot.
+            setFlips((f) => f.map((v, i) => (i === cow ? (dx > 0 ? 1 : -1) : v)));
+            setActive({ cow, slot, phase: "back", to: { slot } });
+            later(WALK_MS, () => {
+              setFlips((f) => f.map((v, i) => (i === cow ? 1 : v)));
+              setActive(null);
+            });
+          });
         } else {
           if (!muted) playWord(undefined); // moo: silent until recorded
-          setActive({ cow, slot, phase: "wrong", to });
+          setActive({ cow, slot, phase: "wrong", to: { slot } });
           setMessage("Inténtalo otra vez");
           later(900, () => {
             setFlips((f) => f.map((v, i) => (i === cow ? (dx > 0 ? 1 : -1) : v)));
-            setActive({ cow, slot, phase: "back", to });
-            setOpenGate((g) => ({ ...g, [slot]: false }));
-            later(HOP_MS, () => {
+            setActive({ cow, slot, phase: "back", to: { slot } });
+            later(WALK_MS, () => {
               setFlips((f) => f.map((v, i) => (i === cow ? 1 : v)));
               setActive(null);
               setMessage("");
@@ -432,14 +440,13 @@ export function CowGame({ content }: { content: GameContent }) {
           const isActive = active?.cow === i;
           let box = spots[i];
           let slow = false;
-          if (p) box = fanSpot(p.slot, p.index, p.count, i);
-          if (isActive && (active.phase === "walk" || active.phase === "wrong")) {
-            box = fanSpot(active.to.slot, active.to.index, active.to.count, i);
-            slow = active.phase === "walk";
+          if (isActive && active.phase !== "back") {
+            box = fieldSpot(active.slot, i);
+            slow = true;
           }
           if (isActive && active.phase === "back") slow = true;
           const walking = isActive && (active.phase === "walk" || active.phase === "back");
-          const z = isActive ? 90 : p ? 8 + p.index : 10 + Math.round(spots[i].y / 40);
+          const z = isActive ? 25 : 10 + Math.round(spots[i].y / 40);
           return (
             <Cow
               key={i}
@@ -453,11 +460,41 @@ export function CowGame({ content }: { content: GameContent }) {
               onTap={() => tapCow(i)}
               z={z}
               slow={slow}
-              refan={!!p}
               cheer={cheer === i}
             />
           );
         })}
+
+        {/* the syllable letters flying from the cow into the slot */}
+        {active?.phase === "deliver" &&
+          (() => {
+            const cowBox = fieldSpot(active.slot, active.cow);
+            const slotBox = L.slots[active.slot];
+            const from = { x: cowBox.x + cowBox.w * 0.52, y: cowBox.y + cowBox.h * 0.58 };
+            const to = { x: slotBox.x + slotBox.w / 2, y: slotBox.y + slotBox.h * 0.28 };
+            return (
+              <span
+                className="cg-fly"
+                style={{
+                  left: px(to.x),
+                  top: py(to.y),
+                  ["--cg-fly-dx" as string]: `${((from.x - to.x) / L.W) * 100}cqw`,
+                  ["--cg-fly-dy" as string]: `${((from.y - to.y) / L.W) * 100}cqw`,
+                }}
+              >
+                {COW_SYLLABLES[active.cow]}
+              </span>
+            );
+          })()}
+
+        {/* fence layer: in front of the cows, behind the slot UI */}
+        <img
+          className="cg-scene-fence"
+          src={`${ART}${L.sceneFence}`}
+          alt=""
+          draggable={false}
+          style={{ top: py(L.fenceTop), height: py(L.H - L.fenceTop) }}
+        />
 
         <div className="cg-msg" role="status" aria-live="polite">
           {message}
@@ -481,6 +518,10 @@ const CSS = `
 .cg-root{position:fixed;inset:0;overflow:hidden;background:#7ec850;touch-action:manipulation;user-select:none;-webkit-user-select:none}
 .cg-stage{position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);container-type:inline-size;overflow:visible;border-radius:0}
 .cg-scene{position:absolute;inset:0;width:100%;height:100%;display:block;pointer-events:none}
+.cg-scene-top{position:absolute;left:0;top:0;width:100%;display:block;pointer-events:none;z-index:1}
+.cg-scene-fence{position:absolute;left:0;width:100%;display:block;pointer-events:none;z-index:30}
+.cg-fly{position:absolute;z-index:65;pointer-events:none;font:900 6.4cqw/1 "Fredoka",ui-rounded,system-ui,sans-serif;color:#3a1a0e;text-shadow:0 0 1.4cqw #fff4d6,0 .3cqw .6cqw rgba(60,30,10,.35);white-space:nowrap;transform:translate(-50%,-50%);animation:cg-fly ${FLY_MS}ms ease-in both}
+@keyframes cg-fly{0%{transform:translate(calc(-50% + var(--cg-fly-dx)),calc(-50% + var(--cg-fly-dy))) scale(.75);opacity:.85}100%{transform:translate(-50%,-50%) scale(1);opacity:1}}
 .cg-title,.cg-btn{position:absolute}
 .cg-title img,.cg-btn img{width:100%;height:100%;display:block;pointer-events:none}
 .cg-btn{padding:0;border:0;background:none;cursor:pointer;display:block}
@@ -518,7 +559,7 @@ const CSS = `
 .cg-ear-l,.cg-ear-r{animation:cg-ear 4.2s ease-in-out infinite;animation-delay:var(--cg-delay)}
 .cg-ear-r{animation-delay:calc(var(--cg-delay) + 1.7s)}
 /* hop over the fence: legs run mid-air while the body rides the leap arc */
-.cg-walking .cg-bob{animation:cg-leap ${HOP_MS}ms cubic-bezier(.34,.05,.58,.95) 1}
+.cg-walking .cg-bob{animation:cg-bob .62s ease-in-out infinite}
 .cg-walking .cg-leg-a,.cg-walking .cg-leg-d{animation:cg-step .5s ease-in-out infinite}
 .cg-walking .cg-leg-b,.cg-walking .cg-leg-c{animation:cg-step .5s ease-in-out infinite;animation-delay:-.25s}
 .cg-walking .cg-body{animation:cg-roll .5s ease-in-out infinite}
@@ -533,7 +574,7 @@ const CSS = `
 .cg-cheer .cg-ear-l,.cg-cheer .cg-ear-r{animation:cg-ear-flap .25s ease-in-out 6!important}
 .cg-cheer .cg-tail{animation:cg-tail .3s ease-in-out 5!important}
 @keyframes cg-blink{0%,90%,100%{opacity:0}92%,96%{opacity:1}}
-@keyframes cg-leap{0%{transform:translateY(0)}46%{transform:translateY(-118%)}100%{transform:translateY(0)}}
+@keyframes cg-bob{0%,50%,100%{transform:translateY(0)}25%,75%{transform:translateY(-2.4%)}}
 @keyframes cg-ear{0%,80%,100%{transform:rotate(0)}86%{transform:rotate(-14deg)}92%{transform:rotate(5deg)}}
 @keyframes cg-look-head{0%,100%{transform:rotate(-3.5deg) translate(0,0)}35%{transform:rotate(3deg) translate(1%,-.6%)}70%{transform:rotate(-1deg) translate(-.6%,.8%)}}
 @keyframes cg-cheer-hop{0%,100%{transform:translateY(0)}50%{transform:translateY(-8%)}}
