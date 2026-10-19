@@ -1,0 +1,3 @@
+/* Scope module for per-lesson workbook styles. Each lesson file scopes its
+ * rules with .lc-lesson-shell[data-lesson="N"]. */
+@import "./workbook-fill-1-7.css";
