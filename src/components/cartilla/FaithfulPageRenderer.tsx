@@ -20,6 +20,7 @@ import { SyllableWordCircle } from "@/cartilla/interactions/SyllableWordCircle";
 import { getLetterTemplate } from "./letter-stroke-templates";
 import { LivingIllustration } from "@/components/living/LivingIllustration";
 import { EscucharInstruccionButton } from "./EscucharInstruccionButton";
+import { Lesson10GardenText } from "./lesson10/Lesson10GardenText";
 import { FixedLayoutPage } from "./FixedLayoutPage";
 import {
   DibujaFromRegion,
@@ -444,7 +445,9 @@ function RegionView({
                 part
               ),
             )
-          : region.text;
+          : lessonNumber === 10 && region.text
+            ? <Lesson10GardenText text={region.text} />
+            : region.text;
       return (
         <p className="fp-region--instruction">
           {region.label ? <span className="fp-label">{region.label} </span> : null}

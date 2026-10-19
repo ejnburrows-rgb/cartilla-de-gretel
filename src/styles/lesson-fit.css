@@ -280,3 +280,271 @@
 .lc-lesson-shell--fit .native-lesson-viewer__content .fp-ix-pick__cells { display: flex; justify-content: center; align-items: center; column-gap: min(3.2cqw, 28px); }
 .lc-lesson-shell--fit .native-lesson-viewer__content .fp-ix-grid .fp-ix-cell,
 .lc-lesson-shell--fit .native-lesson-viewer__content .fp-ix-pick__cells .fp-ix-cell { flex: 0 1 114cqh; width: auto; min-width: 0; height: auto; max-height: 100%; aspect-ratio: 1; }
+
+/* ===== Lesson 10 (Tt) wide-screen design — muse lane, 2026-10-18 =====
+ * Owner-approved Lesson 3 design language applied to Lesson 10 pages 31–34:
+ * classic cream paper, slimmer teal spine, teal glow around the boxed work
+ * surfaces, garden-palette instruction letters. Additive and scoped to
+ * .lc-lesson-10; the shared fit-to-screen system above still sizes the page
+ * (wide desktop and horizontal tablet are the targets).
+ * Lesson 10's printed pages are: trace + write + draw (31), syllable
+ * circling (32), letter/reading with sight words and sentences (33), and
+ * complete-the-word + sentence writing (34) — so the boxed-surface rules
+ * apply to its trace tiles, drawing canvases, syllable tiles, letter card,
+ * syllable chips, vocab tiles, sight-word tiles, fill wordboxes/choices,
+ * blanks and writing surfaces. Pencil mechanics are untouched. */
+
+.lc-lesson-10 {
+  --lc-teal: #167a72;
+  --l10-cream: #faf2df;
+  --l10-cream-deep: #ece1c6;
+  --l10-glow: 0 0 0 3px rgba(22, 122, 114, 0.16), 0 10px 22px -10px rgba(22, 122, 114, 0.5);
+  background: var(--l10-cream-deep);
+}
+
+/* Garden-palette instruction letters (not dark ink). Colors chosen for
+ * readable contrast on the cream paper. */
+.lc-lesson-10 .l10-garden-letter { font-weight: 700; }
+.lc-lesson-10 .l10-leaf { color: #2e7d43; }
+.lc-lesson-10 .l10-rose { color: #c74f7c; }
+.lc-lesson-10 .l10-sun { color: #b97a10; }
+.lc-lesson-10 .l10-sky { color: #2f6fb2; }
+.lc-lesson-10 .l10-lavender { color: #7c53a6; }
+
+/* Classic cream paper page with a slimmer teal spine. */
+.lc-lesson-10 .native-lesson-viewer__content .faithful-page {
+  background:
+    radial-gradient(120% 90% at 16% 8%, rgba(255, 255, 255, 0.55), transparent 55%),
+    var(--l10-cream);
+  border: 1px solid rgba(22, 122, 114, 0.28);
+}
+.lc-lesson-10 .faithful-page__sidebar { width: 4.5%; min-width: 24px; }
+.lc-lesson-10 .faithful-page__pagenum { background: #167a72; }
+
+/* Page 31 — trace tiles, freehand writing line and drawing canvases get the
+ * teal glow on their boxed work surfaces. */
+.lc-lesson-10 .native-lesson-viewer__content .fp-trace__svg,
+.lc-lesson-10 .native-lesson-viewer__content .fp-writing-line,
+.lc-lesson-10 .native-lesson-viewer__content .am-dibuja__paper {
+  background: #fffaf0;
+  border: 2px solid #167a72;
+  border-radius: 14px;
+  box-shadow: var(--l10-glow);
+}
+
+/* Page 32 — syllable circling: each syllable group is a cream card, the
+ * target syllable is a raised teal tile, word tiles keep the teal glow. */
+.lc-lesson-10 .native-lesson-viewer__content .native-syllable {
+  padding: calc(var(--ph) * .012) calc(var(--ph) * .016);
+  border: 1.5px solid rgba(22, 122, 114, 0.45);
+  border-radius: 18px;
+  background: #fdf8ec;
+  box-shadow: 0 4px 14px -8px rgba(22, 122, 114, 0.35);
+}
+.lc-lesson-10 .native-lesson-viewer__content .native-syllable h2 {
+  color: #167a72;
+  background: #fffaf0;
+  border: 2px solid #167a72;
+  box-shadow: var(--l10-glow);
+}
+.lc-lesson-10 .native-lesson-viewer__content .native-syllable__word {
+  background: #fffaf0 !important;
+  border: 2px solid #167a72 !important;
+  border-radius: 14px;
+  box-shadow: var(--l10-glow);
+}
+.lc-lesson-10 .native-lesson-viewer__content .native-syllable__word[aria-pressed="true"] {
+  border-color: #2f7d4a !important;
+  box-shadow: 0 0 0 4px rgba(47, 125, 74, 0.22);
+}
+
+/* Page 33 — letter/reading: raised teal Tt card, garden-colored syllable
+ * chips, boxed vocabulary tiles, sight-word tiles, cream reading card. */
+.lc-lesson-10 .native-lesson-viewer__content .fp-native-letter-page .fp-native-title {
+  color: #167a72;
+  background: #fffaf0;
+  border: 2px solid #167a72;
+  border-radius: 20px;
+  box-shadow: var(--l10-glow);
+}
+.lc-lesson-10 .native-lesson-viewer__content .fp-native-syllables { gap: calc(var(--ph) * .012); }
+.lc-lesson-10 .native-lesson-viewer__content .fp-native-syllables > span {
+  font-weight: 700;
+  background: #fffaf0;
+  border: 2px solid #167a72;
+  border-radius: 12px;
+  box-shadow: var(--l10-glow);
+}
+.lc-lesson-10 .native-lesson-viewer__content .fp-native-syllables > span:nth-child(5n+1) { color: #2e7d43; border-color: #2e7d43 !important; }
+.lc-lesson-10 .native-lesson-viewer__content .fp-native-syllables > span:nth-child(5n+2) { color: #c74f7c; border-color: #c74f7c !important; }
+.lc-lesson-10 .native-lesson-viewer__content .fp-native-syllables > span:nth-child(5n+3) { color: #b97a10; border-color: #b97a10 !important; }
+.lc-lesson-10 .native-lesson-viewer__content .fp-native-syllables > span:nth-child(5n+4) { color: #2f6fb2; border-color: #2f6fb2 !important; }
+.lc-lesson-10 .native-lesson-viewer__content .fp-native-syllables > span:nth-child(5n+5) { color: #7c53a6; border-color: #7c53a6 !important; }
+.lc-lesson-10 .native-lesson-viewer__content .fp-native-vocab > span,
+.lc-lesson-10 .native-lesson-viewer__content .fp-native-sight-word {
+  background: #fffaf0 !important;
+  border: 2px solid #167a72 !important;
+  border-radius: 14px;
+  box-shadow: var(--l10-glow);
+}
+.lc-lesson-10 .native-lesson-viewer__content .fp-region--reading-sentences {
+  padding: calc(var(--ph) * .014) calc(var(--ph) * .02);
+  border: 1.5px solid rgba(22, 122, 114, 0.45);
+  border-radius: 16px;
+  background: #fdf8ec;
+  color: #25313a;
+  box-shadow: 0 4px 14px -8px rgba(22, 122, 114, 0.35);
+}
+
+/* Page 34 — complete-the-word: wordboxes, answer-choice circles and blanks
+ * glow; sentence-writing surface keeps the ruled-line cream look. */
+.lc-lesson-10 .native-lesson-viewer__content .fp-ix-fill__item,
+.lc-lesson-10 .native-lesson-viewer__content .fp-ix-fill__choice,
+.lc-lesson-10 .native-lesson-viewer__content .fp-ix-fill__wordbox,
+.lc-lesson-10 .native-lesson-viewer__content .fp-ix-fill__blank {
+  background: #fffaf0 !important;
+  border: 2px solid #167a72 !important;
+  border-radius: 14px;
+  box-shadow: var(--l10-glow);
+}
+.lc-lesson-10 .native-lesson-viewer__content .fp-ix-fill__blank { background: #fdf6e6 !important; }
+.lc-lesson-10 .fp-ix-fill__choice.graded-correct {
+  border-color: #2f7d4a !important;
+  box-shadow: 0 0 0 4px rgba(47, 125, 74, 0.22);
+}
+.lc-lesson-10 .native-lesson-viewer__content .fp-writing-response textarea {
+  background: repeating-linear-gradient(#fffaf0, #fffaf0 47px, #b7d4cd 48px);
+  border: 2px solid #167a72;
+  border-radius: 14px;
+  box-shadow: var(--l10-glow);
+}
+.lc-lesson-10 .native-lesson-viewer__content .fp-writing-line__model { color: #167a72; }
+
+.lc-lesson-10 .native-lesson-viewer__navigation button[data-testid="button-next"] { background: #167a72; border-color: #167a72; color: #fffaf0; }
+.lc-lesson-10 :is(button, a, textarea):focus-visible { outline: 3px solid #167a72; outline-offset: 3px; }
+
+/* ===== Lesson 10 (Tt) wide-screen design — muse lane, 2026-10-18 =====
+ * Owner-approved Lesson 3 design language applied to Lesson 10 pages 31–34:
+ * classic cream paper, slimmer teal spine, stronger teal glow around the
+ * work boxes, garden-palette instruction letters. Additive and scoped to
+ * .lc-lesson-10; the shared fit-to-screen system above still sizes the page
+ * (wide desktop and horizontal tablet are the targets).
+ * Lesson 10's printed pages are: tracing Tt (31, with a draw box),
+ * syllable circling (32), letter/reading (33, Tt card + syllable chips +
+ * vocab tiles + sight words + reading sentences) and complete-the-word +
+ * sentence writing (34) — so the boxed-surface rules cover its tracing,
+ * drawing, syllable, vocab and fill-in-blank tiles. Pencil mechanics are
+ * untouched. */
+
+.lc-lesson-10 {
+  --lc-teal: #167a72;
+  --l10-cream: #faf2df;
+  --l10-cream-deep: #ece1c6;
+  --l10-glow: 0 0 0 3px rgba(22, 122, 114, 0.16), 0 10px 22px -10px rgba(22, 122, 114, 0.5);
+  background: var(--l10-cream-deep);
+}
+
+/* Garden-palette instruction letters (not dark ink). Colors chosen for
+ * readable contrast on the cream paper. */
+.lc-lesson-10 .l10-garden-letter { font-weight: 700; }
+.lc-lesson-10 .l10-leaf { color: #2e7d43; }
+.lc-lesson-10 .l10-rose { color: #c74f7c; }
+.lc-lesson-10 .l10-sun { color: #b97a10; }
+.lc-lesson-10 .l10-sky { color: #2f6fb2; }
+.lc-lesson-10 .l10-lavender { color: #7c53a6; }
+
+/* Classic cream paper page with a slimmer teal spine. */
+.lc-lesson-10 .native-lesson-viewer__content .faithful-page {
+  background:
+    radial-gradient(120% 90% at 16% 8%, rgba(255, 255, 255, 0.55), transparent 55%),
+    var(--l10-cream);
+  border: 1px solid rgba(22, 122, 114, 0.28);
+}
+.lc-lesson-10 .faithful-page__sidebar { width: 4.5%; min-width: 24px; }
+.lc-lesson-10 .faithful-page__pagenum { background: #167a72; }
+
+/* Stronger teal glow around every boxed work surface. */
+.lc-lesson-10 .native-lesson-viewer__content .native-syllable__word,
+.lc-lesson-10 .native-lesson-viewer__content .fp-ix-fill__item,
+.lc-lesson-10 .native-lesson-viewer__content .fp-native-vocab > span,
+.lc-lesson-10 .native-lesson-viewer__content .fp-native-syllables > span,
+.lc-lesson-10 .native-lesson-viewer__content .fp-ix-fill__choice,
+.lc-lesson-10 .native-lesson-viewer__content .fp-ix-fill__wordbox,
+.lc-lesson-10 .native-lesson-viewer__content .fp-ix-fill__blank {
+  background: #fffaf0 !important;
+  border: 2px solid #167a72 !important;
+  border-radius: 14px;
+  box-shadow: var(--l10-glow);
+}
+.lc-lesson-10 .native-lesson-viewer__content .fp-ix-fill__blank { background: #fdf6e6 !important; }
+
+/* Page 32 — syllable circling: each syllable group is a cream card, the
+ * target syllable is a raised teal tile, word tiles keep the teal glow. */
+.lc-lesson-10 .native-lesson-viewer__content .native-syllable {
+  padding: calc(var(--ph) * .012) calc(var(--ph) * .016);
+  border: 1.5px solid rgba(22, 122, 114, 0.45);
+  border-radius: 18px;
+  background: #fdf8ec;
+  box-shadow: 0 4px 14px -8px rgba(22, 122, 114, 0.35);
+}
+.lc-lesson-10 .native-lesson-viewer__content .native-syllable h2 {
+  color: #167a72;
+  background: #fffaf0;
+  border: 2px solid #167a72;
+  box-shadow: var(--l10-glow);
+}
+.lc-lesson-10 .native-lesson-viewer__content .native-syllable__word[aria-pressed="true"] {
+  border-color: #2f7d4a !important;
+  box-shadow: 0 0 0 4px rgba(47, 125, 74, 0.22);
+}
+
+/* Page 33 — letter/reading: raised teal Tt card, garden-colored syllable
+ * chips, boxed vocabulary tiles, sight-word pills, cream reading card. */
+.lc-lesson-10 .native-lesson-viewer__content .fp-native-letter-page .fp-native-title {
+  color: #167a72;
+  background: #fffaf0;
+  border: 2px solid #167a72;
+  border-radius: 20px;
+  box-shadow: var(--l10-glow);
+}
+.lc-lesson-10 .native-lesson-viewer__content .fp-native-syllables { gap: calc(var(--ph) * .012); }
+.lc-lesson-10 .native-lesson-viewer__content .fp-native-syllables > span { font-weight: 700; }
+.lc-lesson-10 .native-lesson-viewer__content .fp-native-syllables > span:nth-child(5n+1) { color: #2e7d43; border-color: #2e7d43 !important; }
+.lc-lesson-10 .native-lesson-viewer__content .fp-native-syllables > span:nth-child(5n+2) { color: #c74f7c; border-color: #c74f7c !important; }
+.lc-lesson-10 .native-lesson-viewer__content .fp-native-syllables > span:nth-child(5n+3) { color: #b97a10; border-color: #b97a10 !important; }
+.lc-lesson-10 .native-lesson-viewer__content .fp-native-syllables > span:nth-child(5n+4) { color: #2f6fb2; border-color: #2f6fb2 !important; }
+.lc-lesson-10 .native-lesson-viewer__content .fp-native-syllables > span:nth-child(5n+5) { color: #7c53a6; border-color: #7c53a6 !important; }
+.lc-lesson-10 .native-lesson-viewer__content .fp-native-sight-word {
+  border-color: #167a72 !important;
+  background: #fffaf0 !important;
+  box-shadow: var(--l10-glow);
+}
+.lc-lesson-10 .native-lesson-viewer__content .fp-region--reading-sentences {
+  padding: calc(var(--ph) * .014) calc(var(--ph) * .02);
+  border: 1.5px solid rgba(22, 122, 114, 0.45);
+  border-radius: 16px;
+  background: #fdf8ec;
+  color: #25313a;
+  box-shadow: 0 4px 14px -8px rgba(22, 122, 114, 0.35);
+}
+
+/* Page 31 — tracing and drawing on cream paper with the same teal glow;
+ * page 34 — sentence writing on lined cream paper. */
+.lc-lesson-10 .native-lesson-viewer__content .fp-trace__svg,
+.lc-lesson-10 .native-lesson-viewer__content .am-dibuja__paper,
+.lc-lesson-10 .native-lesson-viewer__content .fp-writing-response textarea {
+  background: #fffaf0;
+  border: 2px solid #167a72;
+  border-radius: 14px;
+  box-shadow: var(--l10-glow);
+}
+.lc-lesson-10 .native-lesson-viewer__content .fp-writing-response textarea {
+  background: repeating-linear-gradient(#fffaf0, #fffaf0 47px, #b7d4cd 48px);
+}
+.lc-lesson-10 .native-lesson-viewer__content .fp-writing-line__model { color: #167a72; }
+.lc-lesson-10 .fp-ix-fill__choice.graded-correct {
+  border-color: #2f7d4a !important;
+  box-shadow: 0 0 0 4px rgba(47, 125, 74, 0.22);
+}
+.lc-lesson-10 .native-lesson-viewer__navigation button[data-testid="button-next"] { background: #167a72; border-color: #167a72; color: #fffaf0; }
+.lc-lesson-10 :is(button, a, textarea):focus-visible { outline: 3px solid #167a72; outline-offset: 3px; }
