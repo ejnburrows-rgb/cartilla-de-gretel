@@ -1,0 +1,42 @@
+[
+  {
+    "name": "1440x900-L21-p75.png",
+    "n": 21,
+    "p": 75,
+    "viewport": [
+      1440,
+      900
+    ],
+    "document": [
+      1440,
+      900
+    ],
+    "paper": {
+      "x": 0,
+      "y": 0,
+      "width": 1440,
+      "height": 836
+    },
+    "overflow": false
+  },
+  {
+    "name": "390x844-L21-p75.png",
+    "n": 21,
+    "p": 75,
+    "viewport": [
+      390,
+      844
+    ],
+    "document": [
+      390,
+      844
+    ],
+    "paper": {
+      "x": 0,
+      "y": 0,
+      "width": 390,
+      "height": 780
+    },
+    "overflow": false
+  }
+]

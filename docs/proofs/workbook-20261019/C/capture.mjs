@@ -7,7 +7,7 @@ const ledger=[];
 for(const [w,h] of JSON.parse(process.env.SIZES || "[[1440,900],[390,844]]")) {
  const ctx=await browser.newContext({viewport:{width:w,height:h},reducedMotion:'reduce'});
  const page=await ctx.newPage();
- for(const [n,pages] of [[19,[67,68,69,70]],[20,[71,72,73,74]],[21,[75,76,77,78]],[22,[79,80,81,82]],[23,[83,84,85]],[24,[88,89,90]]]) {
+ for(const [n,pages] of JSON.parse(process.env.PAGES || "[[19,[67,68,69,70]],[20,[71,72,73,74]],[21,[75,76,77,78]],[22,[79,80,81,82]],[23,[83,84,85]],[24,[88,89,90]]]")) {
   for(const [i,p] of pages.entries()) {
    await ctx.addInitScript(({n,p,i})=>{
     localStorage.setItem('cartilla.lesson-progress.v1',JSON.stringify(Array.from({length:24},(_,j)=>j+1)));
