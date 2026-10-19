@@ -280,3 +280,158 @@
 .lc-lesson-shell--fit .native-lesson-viewer__content .fp-ix-pick__cells { display: flex; justify-content: center; align-items: center; column-gap: min(3.2cqw, 28px); }
 .lc-lesson-shell--fit .native-lesson-viewer__content .fp-ix-grid .fp-ix-cell,
 .lc-lesson-shell--fit .native-lesson-viewer__content .fp-ix-pick__cells .fp-ix-cell { flex: 0 1 114cqh; width: auto; min-width: 0; height: auto; max-height: 100%; aspect-ratio: 1; }
+
+/* ===== Lesson 16 (Vv) wide-screen design — swarm lane, 2026-10-18 =====
+ * Owner-approved Lesson 3 design language applied to Lesson 16 pages 55–58:
+ * classic cream paper, slimmer teal spine, stronger teal glow around the
+ * work boxes, garden-palette instruction letters. Additive and scoped to
+ * .lc-lesson-16; the shared fit-to-screen system above still sizes the page
+ * (wide desktop and horizontal tablet are the targets).
+ * Lesson 16's printed pages are writing/tracing + drawing (55), syllable
+ * circling (56), letter/reading (57) and complete-the-word + sentence
+ * writing (58) — no picture-grid pages, so the boxed-surface rules apply to
+ * its syllable, word and fill-in tiles. Pencil mechanics are untouched.
+ * Owner artwork untouched (no art files changed). */
+
+.lc-lesson-16 {
+  --lc-teal: #167a72;
+  --l16-cream: #faf2df;
+  --l16-cream-deep: #ece1c6;
+  --l16-glow: 0 0 0 3px rgba(22, 122, 114, 0.16), 0 10px 22px -10px rgba(22, 122, 114, 0.5);
+  background: var(--l16-cream-deep);
+}
+
+/* Garden-palette instruction letters (not dark ink). Colors chosen for
+ * readable contrast on the cream paper. */
+.lc-lesson-16 .l16-garden-letter { font-weight: 700; }
+.lc-lesson-16 .l16-leaf { color: #2e7d43; }
+.lc-lesson-16 .l16-rose { color: #c74f7c; }
+.lc-lesson-16 .l16-sun { color: #b97a10; }
+.lc-lesson-16 .l16-sky { color: #2f6fb2; }
+.lc-lesson-16 .l16-lavender { color: #7c53a6; }
+
+/* Classic cream paper page with a slimmer teal spine. */
+.lc-lesson-16 .native-lesson-viewer__content .faithful-page {
+  background:
+    radial-gradient(120% 90% at 16% 8%, rgba(255, 255, 255, 0.55), transparent 55%),
+    var(--l16-cream);
+  border: 1px solid rgba(22, 122, 114, 0.28);
+}
+.lc-lesson-16 .faithful-page__sidebar { width: 4.5%; min-width: 24px; }
+.lc-lesson-16 .faithful-page__pagenum { background: #167a72; }
+
+/* Audit fix 2026-10-18: the page-number diamond sat at left/right 2.2%, under
+ * the teal sidebar (4.5% wide), so it rendered clipped behind the sidebar on
+ * both odd and even pages. Clear the sidebar and paint above it. */
+.lc-lesson-16 .faithful-page__pagenum { z-index: 2; }
+.lc-lesson-16 .faithful-page--edge-left .faithful-page__pagenum { left: 6.2%; }
+.lc-lesson-16 .faithful-page--edge-right .faithful-page__pagenum { right: 6.2%; }
+
+/* Issue #988 2026-10-19 (controller): at phone widths (<=600px) the diamond
+ * at 6.2% still hid under the corner peel — move it further inward so it
+ * stays visible on odd (edge-left) and even (edge-right) pages. */
+@media (max-width: 600px) {
+  .lc-lesson-16 .faithful-page--edge-left .faithful-page__pagenum { left: 11%; }
+  .lc-lesson-16 .faithful-page--edge-right .faithful-page__pagenum { right: 11%; }
+}
+
+/* Stronger teal glow around every boxed work surface. */
+.lc-lesson-16 .native-lesson-viewer__content .fp-syllable-match__word,
+.lc-lesson-16 .native-lesson-viewer__content .fp-native-vocab > span,
+.lc-lesson-16 .native-lesson-viewer__content .fp-native-syllables > span,
+.lc-lesson-16 .native-lesson-viewer__content .fp-fill-in-blank__item,
+.lc-lesson-16 .native-lesson-viewer__content .fp-fill-in-blank__wordbox,
+.lc-lesson-16 .native-lesson-viewer__content .fp-fill-in-blank__blank,
+.lc-lesson-16 .native-lesson-viewer__content .fp-fill-in-blank__choice {
+  background: #fffaf0 !important;
+  border: 2px solid #167a72 !important;
+  border-radius: 14px;
+  box-shadow: var(--l16-glow);
+}
+.lc-lesson-16 .native-lesson-viewer__content .fp-fill-in-blank__blank { background: #fdf6e6 !important; }
+
+/* Page 56 — syllable circling: each syllable-match group is a cream card,
+ * the target syllable is a raised teal tile, word tiles keep the teal glow. */
+.lc-lesson-16 .native-lesson-viewer__content .fp-syllable-match {
+  padding: calc(var(--ph) * .012) calc(var(--ph) * .016);
+  border: 1.5px solid rgba(22, 122, 114, 0.45);
+  border-radius: 18px;
+  background: #fdf8ec;
+  box-shadow: 0 4px 14px -8px rgba(22, 122, 114, 0.35);
+}
+.lc-lesson-16 .native-lesson-viewer__content .fp-syllable-match__syllable {
+  color: #167a72;
+  background: #fffaf0;
+  border: 2px solid #167a72;
+  box-shadow: var(--l16-glow);
+}
+.lc-lesson-16 .native-lesson-viewer__content .fp-syllable-match__word[aria-pressed="true"] {
+  border-color: #2f7d4a !important;
+  box-shadow: 0 0 0 4px rgba(47, 125, 74, 0.22);
+}
+
+/* Audit fix 2026-10-18 (corrected): on narrow portrait screens (390px)
+ * the word buttons on page 56 overflowed ("lavamanos" spilled past its
+ * tile). The rows are .fp-syllable-match__row, not .native-syllable__words
+ * (no such element on this lesson, so the earlier selector was a no-op).
+ * Two columns give each button room for a whole word, so words never
+ * break or clip. Lesson-scoped; other lessons untouched. */
+@media (max-width: 600px) {
+  /* The live page-56 grid is .native-syllable__words (interactive
+   * SyllableWordCircle: 5 groups x 6 words, verified in DOM) — this is
+   * the rule that actually fixes the "lavamanos" overflow at 390px. */
+  .lc-lesson-16 .native-lesson-viewer__content .native-syllable__words {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+  .lc-lesson-16 .native-lesson-viewer__content .fp-syllable-match__row {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 2.4cqw;
+  }
+}
+
+/* Page 57 — letter/reading: raised teal Vv card, garden-colored syllable
+ * chips, boxed vocabulary tiles, cream reading card. */
+.lc-lesson-16 .native-lesson-viewer__content .fp-native-letter-page .fp-native-title {
+  color: #167a72;
+  background: #fffaf0;
+  border: 2px solid #167a72;
+  border-radius: 20px;
+  box-shadow: var(--l16-glow);
+}
+.lc-lesson-16 .native-lesson-viewer__content .fp-native-syllables { gap: calc(var(--ph) * .012); }
+.lc-lesson-16 .native-lesson-viewer__content .fp-native-syllables > span { font-weight: 700; }
+.lc-lesson-16 .native-lesson-viewer__content .fp-native-syllables > span:nth-child(5n+1) { color: #2e7d43; border-color: #2e7d43 !important; }
+.lc-lesson-16 .native-lesson-viewer__content .fp-native-syllables > span:nth-child(5n+2) { color: #c74f7c; border-color: #c74f7c !important; }
+.lc-lesson-16 .native-lesson-viewer__content .fp-native-syllables > span:nth-child(5n+3) { color: #b97a10; border-color: #b97a10 !important; }
+.lc-lesson-16 .native-lesson-viewer__content .fp-native-syllables > span:nth-child(5n+4) { color: #2f6fb2; border-color: #2f6fb2 !important; }
+.lc-lesson-16 .native-lesson-viewer__content .fp-native-syllables > span:nth-child(5n+5) { color: #7c53a6; border-color: #7c53a6 !important; }
+.lc-lesson-16 .native-lesson-viewer__content .fp-region--reading-sentences {
+  padding: calc(var(--ph) * .014) calc(var(--ph) * .02);
+  border: 1.5px solid rgba(22, 122, 114, 0.45);
+  border-radius: 16px;
+  background: #fdf8ec;
+  color: #25313a;
+  box-shadow: 0 4px 14px -8px rgba(22, 122, 114, 0.35);
+}
+
+/* Pages 55 and 58 — tracing, drawing and sentence writing on cream paper
+ * with the same teal glow. */
+.lc-lesson-16 .native-lesson-viewer__content .fp-trace__svg,
+.lc-lesson-16 .native-lesson-viewer__content .am-dibuja__paper,
+.lc-lesson-16 .native-lesson-viewer__content .fp-writing-response textarea {
+  background: #fffaf0;
+  border: 2px solid #167a72;
+  border-radius: 14px;
+  box-shadow: var(--l16-glow);
+}
+.lc-lesson-16 .native-lesson-viewer__content .fp-writing-response textarea {
+  background: repeating-linear-gradient(#fffaf0, #fffaf0 47px, #b7d4cd 48px);
+}
+.lc-lesson-16 .native-lesson-viewer__content .fp-writing-line__model { color: #167a72; }
+.lc-lesson-16 .fp-fill-in-blank__choice.graded-correct {
+  border-color: #2f7d4a !important;
+  box-shadow: 0 0 0 4px rgba(47, 125, 74, 0.22);
+}
+.lc-lesson-16 .native-lesson-viewer__navigation button[data-testid="button-next"] { background: #167a72; border-color: #167a72; color: #fffaf0; }
+.lc-lesson-16 :is(button, a, textarea):focus-visible { outline: 3px solid #167a72; outline-offset: 3px; }
