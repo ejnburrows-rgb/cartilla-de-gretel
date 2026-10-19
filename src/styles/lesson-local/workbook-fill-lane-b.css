@@ -48,7 +48,7 @@
   .lc-lesson-shell--fit[data-lesson="13"] .native-lesson-viewer__content .faithful-page__body,
   .lc-lesson-shell--fit[data-lesson="15"] .native-lesson-viewer__content .faithful-page__body,
   .lc-lesson-shell--fit[data-lesson="17"] .native-lesson-viewer__content .faithful-page__body,
-  .lc-lesson-shell--fit[data-lesson="18"] .native-lesson-viewer__content .faithful-page__body { min-height: 100dvh; box-sizing: border-box; padding-top: 40px; padding-bottom: 84px; }
+  .lc-lesson-shell--fit[data-lesson="18"] .native-lesson-viewer__content .faithful-page__body { min-height: 100dvh; box-sizing: border-box; padding-top: 40px; padding-bottom: 84px; padding-right: 120px; }
   .lc-lesson-shell--fit[data-lesson="9"] .lc-lesson-header,
   .lc-lesson-shell--fit[data-lesson="13"] .lc-lesson-header,
   .lc-lesson-shell--fit[data-lesson="15"] .lc-lesson-header,
@@ -74,6 +74,12 @@
   .lc-lesson-shell--fit[data-lesson="17"] .native-lesson-viewer__content .faithful-page--edge-right .faithful-page__pagenum,
   .lc-lesson-shell--fit[data-lesson="18"] .native-lesson-viewer__content .faithful-page--edge-right .faithful-page__pagenum { right: calc(2.2% + 110px); }
 }
+/* Keep the Dibuja "Listo" button clear of the page-number diamond (bottom right). */
+.lc-lesson-shell--fit[data-lesson="9"] .am-dibuja__toolbar,
+.lc-lesson-shell--fit[data-lesson="13"] .am-dibuja__toolbar,
+.lc-lesson-shell--fit[data-lesson="15"] .am-dibuja__toolbar,
+.lc-lesson-shell--fit[data-lesson="17"] .am-dibuja__toolbar,
+.lc-lesson-shell--fit[data-lesson="18"] .am-dibuja__toolbar { padding-right: 120px; box-sizing: border-box; }
 /* Portrait phones and desktops: leave room for the corner link above the instruction. */
 @media not ((orientation: landscape) and (max-height: 500px)) {
   .lc-lesson-shell--fit[data-lesson="9"] .native-lesson-viewer__content .faithful-page__body,

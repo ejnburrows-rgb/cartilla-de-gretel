@@ -40,9 +40,15 @@ overflow at any of the four viewports. PASS for fit and activity presence.
 - Nav buttons sit in a reserved cream strip under the page; page-number
   diamond and bottom-right content move clear of them on sideways phones.
 
+## Resolved since the previous round (2)
+- Desktop/tablet/portrait: the Dibuja "Listo" button no longer sits under
+  the page-number diamond - the draw toolbar keeps 120px clear on the right
+  (lane B's workbook-fill-lane-b.css).
+- Short landscape: the page body keeps 120px clear on the right so
+  instruction text, trace rows and toolbars never run under the nav arrows.
+
 ## Known open
-- Desktop full bleed: the Dibuja "Listo" button can touch the right edge
-  near the page-number diamond (shared chrome, lane A's scope).
+- None in lane B scope.
 All four viewports re-shot after the 3755f877 mirror; every shot passes
   the automated overflow checks ("OK").
 
