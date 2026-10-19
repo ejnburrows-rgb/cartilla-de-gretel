@@ -280,3 +280,90 @@
 .lc-lesson-shell--fit .native-lesson-viewer__content .fp-ix-pick__cells { display: flex; justify-content: center; align-items: center; column-gap: min(3.2cqw, 28px); }
 .lc-lesson-shell--fit .native-lesson-viewer__content .fp-ix-grid .fp-ix-cell,
 .lc-lesson-shell--fit .native-lesson-viewer__content .fp-ix-pick__cells .fp-ix-cell { flex: 0 1 114cqh; width: auto; min-width: 0; height: auto; max-height: 100%; aspect-ratio: 1; }
+
+/* ===== Lesson 1 (vocales A/E/I/O/U) wide-screen design — 2026-10-18 =====
+ * Owner-approved Lesson 3 design language (template: PR #927 Lesson 21)
+ * applied to Lesson 1 pages 3–6: classic cream paper, slimmer teal spine,
+ * stronger teal glow around the boxed work surfaces, garden-palette
+ * instruction letters. Additive and scoped to .lc-lesson-1; the shared
+ * fit-to-screen system above still sizes the page (wide desktop and
+ * horizontal tablet are the targets).
+ * Lesson 1's printed pages are: p3 circling same-sound pictures
+ * (vowel-match-all -> .fp-ix-cell tiles), p4 marking pictures beginning
+ * with O (picture-grid -> .fp-ix-cell / .fp-picture-grid__cell tiles),
+ * p5 vowel-to-picture line match (.am-direct-pencil__card tiles),
+ * p6 tracing the O lines + drawing box
+ * (.fp-writing-line--trace/.fp-writing-line--freehand, .am-dibuja__paper).
+ * Pencil mechanics are untouched. */
+
+.lc-lesson-1 {
+  --lc-teal: #167a72;
+  --l1-cream: #faf2df;
+  --l1-cream-deep: #ece1c6;
+  --l1-glow: 0 0 0 3px rgba(22, 122, 114, 0.16), 0 10px 22px -10px rgba(22, 122, 114, 0.5);
+  background: var(--l1-cream-deep);
+}
+
+/* Garden-palette instruction letters (not dark ink). Colors chosen for
+ * readable contrast on the cream paper. */
+.lc-lesson-1 .l1-garden-letter { font-weight: 700; }
+.lc-lesson-1 .l1-leaf { color: #2e7d43; }
+.lc-lesson-1 .l1-rose { color: #c74f7c; }
+.lc-lesson-1 .l1-sun { color: #b97a10; }
+.lc-lesson-1 .l1-sky { color: #2f6fb2; }
+.lc-lesson-1 .l1-lavender { color: #7c53a6; }
+
+/* Classic cream paper page with a slimmer teal spine. */
+.lc-lesson-1 .native-lesson-viewer__content .faithful-page {
+  background:
+    radial-gradient(120% 90% at 16% 8%, rgba(255, 255, 255, 0.55), transparent 55%),
+    var(--l1-cream);
+  border: 1px solid rgba(22, 122, 114, 0.28);
+}
+.lc-lesson-1 .faithful-page__sidebar { width: 4.5%; min-width: 24px; }
+.lc-lesson-1 .faithful-page__pagenum { background: #167a72; }
+
+/* Stronger teal glow around every boxed work surface on Lesson 1's pages:
+ * p3/p4 pencil-mark picture tiles, p4 static picture-grid cells,
+ * p3 static vowel cells, p5 vowel-line-match pencil cards,
+ * p6 tracing lines and the drawing box. */
+.lc-lesson-1 .native-lesson-viewer__content .fp-ix-cell,
+.lc-lesson-1 .native-lesson-viewer__content .fp-picture-grid__cell,
+.lc-lesson-1 .native-lesson-viewer__content .fp-vowel-match-all__cell,
+.lc-lesson-1 .native-lesson-viewer__content .am-direct-pencil__card,
+.lc-lesson-1 .native-lesson-viewer__content .fp-writing-line--trace,
+.lc-lesson-1 .native-lesson-viewer__content .fp-writing-line--freehand,
+.lc-lesson-1 .native-lesson-viewer__content .am-dibuja__paper,
+.lc-lesson-1 .native-lesson-viewer__content .fp-draw-box {
+  background: #fffaf0 !important;
+  border: 2px solid #167a72 !important;
+  border-radius: 14px;
+  box-shadow: var(--l1-glow);
+}
+.lc-lesson-1 .native-lesson-viewer__content .fp-draw-box { background: #fdf6e6 !important; }
+.lc-lesson-1 .native-lesson-viewer__content .am-direct-pencil__center {
+  background: #fffaf0;
+  border: 2px solid #167a72;
+  box-shadow: var(--l1-glow);
+}
+
+/* Pages 3–4 — vowel rows and match-all letters become garden-colored chips
+ * on cream cards, keeping the teal glow. */
+.lc-lesson-1 .native-lesson-viewer__content .fp-vowel-match-all__letter,
+.lc-lesson-1 .native-lesson-viewer__content .fp-ix-pick__letter {
+  background: #fffaf0;
+  border: 2px solid #167a72;
+  border-radius: 12px;
+  box-shadow: var(--l1-glow);
+  color: #167a72;
+  font-weight: 800;
+}
+
+/* Correct-mark states stay green (never the teal used for wrong marks). */
+.lc-lesson-1 .fp-ix-cell.graded-correct,
+.lc-lesson-1 .fp-ix-fill__choice.graded-correct {
+  border-color: #2f7d4a !important;
+  box-shadow: 0 0 0 4px rgba(47, 125, 74, 0.22);
+}
+.lc-lesson-1 .native-lesson-viewer__navigation button[data-testid="button-next"] { background: #167a72; border-color: #167a72; color: #fffaf0; }
+.lc-lesson-1 :is(button, a, textarea):focus-visible { outline: 3px solid #167a72; outline-offset: 3px; }

@@ -21,6 +21,7 @@ import { getLetterTemplate } from "./letter-stroke-templates";
 import { LivingIllustration } from "@/components/living/LivingIllustration";
 import { EscucharInstruccionButton } from "./EscucharInstruccionButton";
 import { FixedLayoutPage } from "./FixedLayoutPage";
+import { Lesson1GardenText } from "./lesson1/Lesson1GardenText";
 import {
   DibujaFromRegion,
   PencilVowelLineMatch,
@@ -444,7 +445,9 @@ function RegionView({
                 part
               ),
             )
-          : region.text;
+          : lessonNumber === 1 && region.text
+            ? <Lesson1GardenText text={region.text} />
+            : region.text;
       return (
         <p className="fp-region--instruction">
           {region.label ? <span className="fp-label">{region.label} </span> : null}
