@@ -13,6 +13,7 @@ export function RecordedGameFrame({
   return (
     <div
       data-recorded-game={content.id}
+      className="flex min-h-0 flex-1 flex-col gap-2"
       onClickCapture={(event) => {
         const target = event.target instanceof Element ? event.target : null;
         const button = target?.closest("button");
