@@ -20,6 +20,7 @@ import { gretelEvent } from "@/lib/gretel-bus";
 
 import { NativeLessonViewer } from "@/components/StudentBook/NativeLessonViewer";
 import "@/styles/lesson-fit.css";
+import "@/styles/lesson-24-wide.css";
 import { exitLessonFullscreen, requestLessonFullscreen } from "@/lib/lesson-fullscreen";
 import { buildPageArray } from "@/utils/buildPageArray";
 import { GretelCinematic } from "@/components/gretel/GretelCinematic";
@@ -203,7 +204,7 @@ export function Leccion() {
   };
 
   return (
-    <div className="lc-lesson-shell lc-lesson-shell--fit min-h-screen flex flex-col">
+    <div className="lc-lesson-shell lc-lesson-shell--fit min-h-screen flex flex-col" data-lesson-n={n}>
       <DemoStudentBanner />
       <header className="lc-lesson-header">
         <Link
