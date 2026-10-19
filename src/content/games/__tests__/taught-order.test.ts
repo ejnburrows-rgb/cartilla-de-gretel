@@ -197,9 +197,6 @@ const ACKNOWLEDGED_WORD_TILES: Record<string, string[]> = {
   // lesson 8 (P): sopa -> so (9)
   "silabas-p": ["so"],
   "payaso-chano-ss": [],
-  // lesson 7 (M): complete-word cards carry no syllable splits in the teacher
-  // file, so it forces no tiles; its tray is the m family itself.
-  "completar-palabras": [],
   "dibujos-o": [],
   "fonetica-p": [],
   "mariposas-p": [],

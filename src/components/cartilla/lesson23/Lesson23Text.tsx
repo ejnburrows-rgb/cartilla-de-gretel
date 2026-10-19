@@ -1,14 +1,14 @@
 /**
- * Lesson 16 (Vv) wide-screen design — garden-palette instruction letters.
+ * Lesson 23 (Yy) wide-screen design — garden-palette instruction letters.
  * Owner-approved Lesson 3 design language: instruction text is rendered in
  * rotating garden colors (leaf, rose, sun, sky, lavender) instead of plain
  * dark ink. Text content is never changed — only letter colors.
  */
 
-const GARDEN_CLASSES = ["l16-leaf", "l16-rose", "l16-sun", "l16-sky", "l16-lavender"] as const;
+const GARDEN_CLASSES = ["l23-leaf", "l23-rose", "l23-sun", "l23-sky", "l23-lavender"] as const;
 
 /** Render text with each letter in a rotating garden-palette color. */
-export function Lesson16GardenText({ text }: { text: string }) {
+export function Lesson23GardenText({ text }: { text: string }) {
   let colorIndex = 0;
   return (
     <>
@@ -17,7 +17,7 @@ export function Lesson16GardenText({ text }: { text: string }) {
         const cls = GARDEN_CLASSES[colorIndex % GARDEN_CLASSES.length];
         colorIndex += 1;
         return (
-          <span key={i} className={`l16-garden-letter ${cls}`}>
+          <span key={i} className={`l23-garden-letter ${cls}`}>
             {char}
           </span>
         );
