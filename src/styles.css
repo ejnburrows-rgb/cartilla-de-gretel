@@ -1012,6 +1012,99 @@ html.student-pencil.a11y-xlarge body {
 @media (prefers-reduced-motion: reduce) { .lc-lesson-tile { transition: none; } .lc-lesson-tile:hover { transform:none; } }
 
 
+/* ── Shared letter picker hub (activity entrance) ── */
+.lc-letras {
+  min-height: 100vh;
+  padding: 26px 22px 34px;
+  background: var(--lc-bg, #f5f1e8);
+  color: var(--lc-ink, #25313a);
+  font-family: "Andika", ui-rounded, system-ui, sans-serif;
+}
+.lc-letras__header { max-width: 1280px; margin: 0 auto 18px; }
+.lc-letras__header h1 {
+  margin: 0;
+  font-family: "Fredoka", ui-rounded, system-ui, sans-serif;
+  font-size: clamp(2rem, 4vw, 3.2rem);
+  line-height: 1;
+}
+.lc-letras__header p {
+  margin: 8px 0 0;
+  color: var(--lc-ink-soft, #53616b);
+  font-weight: 700;
+}
+.lc-letras__grid {
+  max-width: 1280px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: repeat(6, minmax(0, 1fr));
+  gap: 16px;
+}
+.lc-letras__tile {
+  position: relative;
+  min-height: 148px;
+  display: grid;
+  align-content: center;
+  justify-items: center;
+  gap: 8px;
+  padding: 18px 12px 14px;
+  border: 2px solid rgba(37,49,58,.14);
+  border-radius: 18px;
+  background: var(--lc-paper, #fffdf9);
+  color: var(--lc-ink, #25313a);
+  cursor: pointer;
+  box-shadow: 0 8px 22px rgba(37,49,58,.07);
+  transition: transform .14s ease, border-color .14s ease, box-shadow .14s ease;
+}
+.lc-letras__tile:hover { transform: translateY(-2px); border-color: var(--lesson-color); }
+.lc-letras__tile:focus-visible { outline: 4px solid var(--lc-focus, #1668c7); outline-offset: 4px; }
+.lc-letras__tile-letter {
+  font-family: "Fredoka", ui-rounded, system-ui, sans-serif;
+  font-size: clamp(2.2rem, 3.6vw, 3.4rem);
+  line-height: .95;
+  color: var(--lesson-color);
+}
+.lc-letras__tile-syllables {
+  min-height: 1.4em;
+  color: var(--lc-ink-soft, #53616b);
+  font-size: .95rem;
+  font-weight: 700;
+  text-align: center;
+  line-height: 1.3;
+}
+.lc-letras__tile-done,
+.lc-letras__tile-lock {
+  position: absolute;
+  top: 10px;
+  width: 30px;
+  height: 30px;
+  display: grid;
+  place-items: center;
+  border-radius: 50%;
+}
+.lc-letras__tile-done { right: 10px; background: var(--lc-teal, #1f9e94); color: #fff; }
+.lc-letras__tile-lock {
+  right: 10px;
+  background: rgba(37,49,58,.08);
+  color: var(--lc-ink-soft, #53616b);
+}
+.lc-letras__tile.is-locked {
+  cursor: default;
+  background: rgba(255,253,249,.55);
+  border-color: rgba(37,49,58,.10);
+  box-shadow: none;
+}
+.lc-letras__tile.is-locked .lc-letras__tile-letter { color: rgba(83,97,107,.45); }
+.lc-letras__tile.is-locked .lc-letras__tile-syllables { color: rgba(83,97,107,.40); }
+.lc-letras__tile.is-locked:hover { transform: none; border-color: rgba(37,49,58,.10); }
+@media (max-width: 1080px) { .lc-letras__grid { grid-template-columns: repeat(4, minmax(0,1fr)); } }
+@media (max-width: 720px) {
+  .lc-letras { padding-inline: 14px; }
+  .lc-letras__grid { grid-template-columns: repeat(2, minmax(0,1fr)); gap: 12px; }
+  .lc-letras__tile { min-height: 128px; }
+}
+@media (prefers-reduced-motion: reduce) { .lc-letras__tile { transition: none; } .lc-letras__tile:hover { transform: none; } }
+
+
 /* ── Approved lesson shell ── */
 .lc-lesson-shell { background: var(--lc-bg, #f5f1e8); color:var(--lc-ink,#25313a); font-family:"Andika",ui-rounded,system-ui,sans-serif; }
 .lc-lesson-header {
