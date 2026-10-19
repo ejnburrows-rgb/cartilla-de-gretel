@@ -1,0 +1,165 @@
+vite v7.3.3 building client environment for worker...
+transforming...
+✓ 2704 modules transformed.
+rendering chunks...
+[esbuild css minify]
+▲ [WARNING] Unexpected "{" [css-syntax-error]
+
+    <stdin>:1334:0:
+      1334 │ {
+           ╵ ^
+
+
+▲ [WARNING] Unexpected "{" [css-syntax-error]
+
+    <stdin>:2233:0:
+      2233 │ {
+           ╵ ^
+
+
+[plugin vite:reporter] 
+(!) /home/sandbox/cartilla/src/integrations/supabase/client.ts is dynamically imported by /home/sandbox/cartilla/src/components/cartilla/Ejercicios.tsx, /home/sandbox/cartilla/src/lib/student.functions.ts, /home/sandbox/cartilla/src/routes/__root.tsx but also statically imported by /home/sandbox/cartilla/src/lib/admin-overview.functions.ts, /home/sandbox/cartilla/src/lib/admin-teacher.functions.ts, /home/sandbox/cartilla/src/lib/assignments.functions.ts, /home/sandbox/cartilla/src/lib/auth-role.ts, /home/sandbox/cartilla/src/lib/folder-assignments.functions.ts, /home/sandbox/cartilla/src/lib/teacher.functions.ts, /home/sandbox/cartilla/src/routes/cartilla/imprimir.$n.tsx, /home/sandbox/cartilla/src/routes/cartilla/imprimir.all.tsx, /home/sandbox/cartilla/src/routes/cartilla/presentar.$n.tsx, /home/sandbox/cartilla/src/routes/cartilla/teacher/admin.lazy.tsx, /home/sandbox/cartilla/src/routes/cartilla/teacher/route.lazy.tsx, /home/sandbox/cartilla/src/routes/cartilla/teacher/route.tsx, /home/sandbox/cartilla/src/routes/cartilla/unirse.tsx, /home/sandbox/cartilla/src/routes/login.lazy.tsx, dynamic import will not move module into another chunk.
+
+computing gzip size...
+dist/assets/crm-student-progress.D-3hKlEJ.js.br                        0.23 kB
+dist/assets/crm-student-progress.D-3hKlEJ.js.gz                        0.26 kB
+dist/assets/CrmBreadcrumbs.Bh-LeMEb.js.br                              0.36 kB
+dist/assets/lecciones.lazy.BxQdSOiX.js.br                              0.37 kB
+dist/assets/CrmBreadcrumbs.Bh-LeMEb.js.gz                              0.42 kB
+dist/assets/lecciones.lazy.BxQdSOiX.js.gz                              0.44 kB
+dist/assets/teacher-chrome.Be_YPX-O.css.br                             0.47 kB
+dist/assets/assignments.functions.CnSF_3HE.js.br                       0.48 kB
+dist/assets/teacher-print.BmM_lcBC.css.br                              0.50 kB
+dist/index.html.br                                                     0.53 kB
+dist/assets/assignments.functions.CnSF_3HE.js.gz                       0.55 kB
+dist/assets/csv-export.DkPiK1Qo.js.br                                  0.55 kB
+dist/assets/teacher-chrome.Be_YPX-O.css.gz                             0.56 kB
+dist/assets/teacher-crm.DCXYJT9J.css.br                                0.63 kB
+dist/assets/teacher-print.BmM_lcBC.css.gz                              0.66 kB
+dist/assets/csv-export.DkPiK1Qo.js.gz                                  0.67 kB
+dist/index.html.gz                                                     0.72 kB
+dist/assets/dev-living-workbook.lazy.BtZfPvJd.js.br                    0.76 kB
+dist/assets/teacher-crm.DCXYJT9J.css.gz                                0.77 kB
+dist/assets/dev-living-workbook.lazy.BtZfPvJd.js.gz                    0.88 kB
+dist/assets/Topbar.D55GMht6.js.br                                      0.98 kB
+dist/assets/dev-living-workbook.CF1HoTAz.css.br                        1.06 kB
+dist/assets/_recursoId.lazy.Dk_cH23e.js.br                             1.09 kB
+dist/assets/Topbar.D55GMht6.js.gz                                      1.11 kB
+dist/assets/_recursoId.lazy.Dk_cH23e.js.gz                             1.21 kB
+dist/assets/dev-living-workbook.CF1HoTAz.css.gz                        1.27 kB
+dist/assets/index.lazy.E8RSV6Ao.js.br                                  1.32 kB
+dist/assets/route.lazy.DNADU04Z.js.br                                  1.40 kB
+dist/assets/index.lazy.E8RSV6Ao.js.gz                                  1.48 kB
+dist/index.html                                                        1.51 kB │ gzip:   0.72 kB
+dist/assets/crm._classId._studentId._lessonId.lazy.Cvhdoy07.js.br      1.54 kB
+dist/assets/route.lazy.DNADU04Z.js.gz                                  1.60 kB
+dist/assets/LessonCatalog.DapDTE6B.js.br                               1.60 kB
+dist/assets/progreso.lazy.DoAaXMHk.js.br                               1.66 kB
+dist/assets/crm._classId._studentId._lessonId.lazy.Cvhdoy07.js.gz      1.70 kB
+dist/assets/progreso.lazy.DoAaXMHk.js.gz                               1.82 kB
+dist/assets/LessonCatalog.DapDTE6B.js.gz                               1.82 kB
+dist/assets/leccion._n.DVphe2ur.css.br                                 1.95 kB
+dist/assets/leccion._n.DVphe2ur.css.gz                                 2.22 kB
+dist/assets/paginas._n.lazy.BhvP5unb.js.br                             2.26 kB
+dist/assets/crm._classId.index.lazy.BgciNaxs.js.br                     2.29 kB
+dist/assets/guide.lazy.CHfACPX4.js.br                                  2.34 kB
+dist/assets/crm._classId.index.lazy.BgciNaxs.js.gz                     2.54 kB
+dist/assets/paginas._n.lazy.BhvP5unb.js.gz                             2.56 kB
+dist/assets/literacy-insights.C1PTXpI0.js.br                           2.59 kB
+dist/assets/guide.lazy.CHfACPX4.js.gz                                  2.64 kB
+dist/assets/teacher.functions.E9KncwF4.js.br                           2.66 kB
+dist/assets/admin.lazy.DRmv0SsP.js.br                                  2.71 kB
+dist/assets/literacy-insights.C1PTXpI0.js.gz                           2.88 kB
+dist/assets/teacher.functions.E9KncwF4.js.gz                           2.96 kB
+dist/assets/crm._classId._studentId.reporte.lazy.D6bis_-E.js.br        2.96 kB
+dist/assets/login.lazy.DNoAfVL6.js.br                                  2.98 kB
+dist/assets/useQuery.9pvDVPwP.js.br                                    2.99 kB
+dist/assets/admin.lazy.DRmv0SsP.js.gz                                  3.03 kB
+dist/assets/useQuery.9pvDVPwP.js.gz                                    3.27 kB
+dist/assets/crm._classId._studentId.reporte.lazy.D6bis_-E.js.gz        3.33 kB
+dist/assets/login.lazy.DNoAfVL6.js.gz                                  3.36 kB
+dist/assets/ayuda.lazy.3IBrInuT.js.br                                  3.58 kB
+dist/assets/reportes.lazy.CmYCSXr5.js.br                               3.73 kB
+dist/assets/ayuda.lazy.3IBrInuT.js.gz                                  4.07 kB
+dist/assets/guia.index.lazy.FKNCqDi2.js.br                             4.12 kB
+dist/assets/reportes.lazy.CmYCSXr5.js.gz                               4.21 kB
+dist/assets/roster.lazy.DNTC_GFE.js.br                                 4.45 kB
+dist/assets/leccion._n.lazy.CeHZGUgp.js.br                             4.58 kB
+dist/assets/guia.index.lazy.FKNCqDi2.js.gz                             4.62 kB
+dist/assets/crm._classId._studentId.index.lazy.Clk4JIs3.js.br          4.62 kB
+dist/assets/roster.lazy.DNTC_GFE.js.gz                                 5.09 kB
+dist/assets/leccion._n.lazy.CeHZGUgp.js.gz                             5.18 kB
+dist/assets/crm._classId._studentId.index.lazy.Clk4JIs3.js.gz          5.21 kB
+dist/assets/crm.index.lazy.BLpHUPWR.js.br                              5.44 kB
+dist/assets/crm.index.lazy.BLpHUPWR.js.gz                              6.11 kB
+dist/assets/lucide.DOVbHM6I.js.br                                      7.42 kB
+dist/assets/guia._n.lazy.BaVaDgpu.js.br                                8.54 kB
+dist/assets/lucide.DOVbHM6I.js.gz                                      8.86 kB
+dist/assets/guia._n.lazy.BaVaDgpu.js.gz                               10.61 kB
+dist/assets/loader.BAn-vttx.js.br                                     10.79 kB
+dist/assets/loader.BAn-vttx.js.gz                                     14.17 kB
+dist/assets/tanstack-router.hfWXkm3H.js.br                            24.92 kB
+dist/assets/tanstack-router.hfWXkm3H.js.gz                            27.62 kB
+dist/assets/react-vendor.B2X0IauE.js.br                               51.94 kB
+dist/assets/react-vendor.B2X0IauE.js.gz                               60.37 kB
+dist/assets/crm.artwork.lazy.CwZha8qE.js.br                          109.08 kB
+dist/assets/index.Dr9Bmd0q.css.br                                    114.03 kB
+dist/assets/index.Dr9Bmd0q.css.gz                                    130.67 kB
+dist/assets/crm.artwork.lazy.CwZha8qE.js.gz                          130.88 kB
+dist/assets/index.BQnmifN4.js.br                                     294.94 kB
+dist/assets/pdf.worker.min.iDqQPrd3.mjs.br                           298.69 kB
+dist/assets/pdf.worker.min.iDqQPrd3.mjs.gz                           364.73 kB
+dist/assets/index.BQnmifN4.js.gz                                     369.56 kB
+dist/assets/pdf.worker.min.iDqQPrd3.mjs                            1,232.30 kB
+dist/assets/autora-portrait.DK9aYRi8.png                           2,243.05 kB
+dist/assets/autora-portrait.DK9aYRi8.png.br                        2,243.06 kB
+dist/assets/autora-portrait.DK9aYRi8.png.gz                        2,243.73 kB
+dist/assets/teacher-chrome.Be_YPX-O.css                                1.35 kB │ gzip:   0.56 kB
+dist/assets/teacher-print.BmM_lcBC.css                                 1.86 kB │ gzip:   0.66 kB
+dist/assets/teacher-crm.DCXYJT9J.css                                   2.07 kB │ gzip:   0.77 kB
+dist/assets/dev-living-workbook.CF1HoTAz.css                           4.25 kB │ gzip:   1.27 kB
+dist/assets/leccion._n.DVphe2ur.css                                   13.85 kB │ gzip:   2.22 kB
+dist/assets/index.Dr9Bmd0q.css                                       495.64 kB │ gzip: 130.67 kB
+dist/assets/flipchart.lazy.Bg7NZg2g.js                                 0.39 kB │ gzip:   0.29 kB
+dist/assets/crm-student-progress.D-3hKlEJ.js                           0.58 kB │ gzip:   0.26 kB
+dist/assets/lecciones.lazy.BxQdSOiX.js                                 0.66 kB │ gzip:   0.44 kB
+dist/assets/CrmBreadcrumbs.Bh-LeMEb.js                                 0.68 kB │ gzip:   0.42 kB
+dist/assets/assignments.functions.CnSF_3HE.js                          1.16 kB │ gzip:   0.55 kB
+dist/assets/csv-export.DkPiK1Qo.js                                     1.21 kB │ gzip:   0.67 kB
+dist/assets/dev-living-workbook.lazy.BtZfPvJd.js                       1.68 kB │ gzip:   0.88 kB
+dist/assets/_recursoId.lazy.Dk_cH23e.js                                2.76 kB │ gzip:   1.21 kB
+dist/assets/index.lazy.E8RSV6Ao.js                                     3.85 kB │ gzip:   1.48 kB
+dist/assets/Topbar.D55GMht6.js                                         3.93 kB │ gzip:   1.11 kB
+dist/assets/route.lazy.DNADU04Z.js                                     4.47 kB │ gzip:   1.60 kB
+dist/assets/progreso.lazy.DoAaXMHk.js                                  4.58 kB │ gzip:   1.82 kB
+dist/assets/crm._classId._studentId._lessonId.lazy.Cvhdoy07.js         4.89 kB │ gzip:   1.70 kB
+dist/assets/LessonCatalog.DapDTE6B.js                                  5.30 kB │ gzip:   1.82 kB
+dist/assets/paginas._n.lazy.BhvP5unb.js                                6.53 kB │ gzip:   2.56 kB
+dist/assets/crm._classId.index.lazy.BgciNaxs.js                        7.46 kB │ gzip:   2.54 kB
+dist/assets/literacy-insights.C1PTXpI0.js                              7.50 kB │ gzip:   2.88 kB
+dist/assets/guide.lazy.CHfACPX4.js                                     7.65 kB │ gzip:   2.64 kB
+dist/assets/login.lazy.DNoAfVL6.js                                     8.60 kB │ gzip:   3.36 kB
+dist/assets/useQuery.9pvDVPwP.js                                       8.95 kB │ gzip:   3.27 kB
+dist/assets/teacher.functions.E9KncwF4.js                              9.19 kB │ gzip:   2.96 kB
+dist/assets/admin.lazy.DRmv0SsP.js                                     9.39 kB │ gzip:   3.03 kB
+dist/assets/crm._classId._studentId.reporte.lazy.D6bis_-E.js           9.95 kB │ gzip:   3.33 kB
+dist/assets/ayuda.lazy.3IBrInuT.js                                    12.14 kB │ gzip:   4.07 kB
+dist/assets/guia.index.lazy.FKNCqDi2.js                               13.29 kB │ gzip:   4.62 kB
+dist/assets/leccion._n.lazy.CeHZGUgp.js                               13.44 kB │ gzip:   5.18 kB
+dist/assets/reportes.lazy.CmYCSXr5.js                                 14.72 kB │ gzip:   4.21 kB
+dist/assets/crm._classId._studentId.index.lazy.Clk4JIs3.js            15.12 kB │ gzip:   5.21 kB
+dist/assets/roster.lazy.DNTC_GFE.js                                   18.09 kB │ gzip:   5.09 kB
+dist/assets/crm.index.lazy.BLpHUPWR.js                                19.27 kB │ gzip:   6.11 kB
+dist/assets/lucide.DOVbHM6I.js                                        26.30 kB │ gzip:   8.86 kB
+dist/assets/tanstack-router.hfWXkm3H.js                               84.54 kB │ gzip:  27.62 kB
+dist/assets/loader.BAn-vttx.js                                        95.83 kB │ gzip:  14.17 kB
+dist/assets/guia._n.lazy.BaVaDgpu.js                                 100.54 kB │ gzip:  10.61 kB
+dist/assets/react-vendor.B2X0IauE.js                                 192.52 kB │ gzip:  60.37 kB
+dist/assets/crm.artwork.lazy.CwZha8qE.js                             439.77 kB │ gzip: 130.88 kB
+dist/assets/index.BQnmifN4.js                                      1,547.19 kB │ gzip: 370.38 kB
+
+(!) Some chunks are larger than 500 kB after minification. Consider:
+- Using dynamic import() to code-split the application
+- Use build.rollupOptions.output.manualChunks to improve chunking: https://rollupjs.org/configuration-options/#output-manualchunks
+- Adjust chunk size limit for this warning via build.chunkSizeWarningLimit.
+✓ built in 24.33s
