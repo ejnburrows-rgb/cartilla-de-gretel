@@ -199,7 +199,9 @@ const ACKNOWLEDGED_WORD_TILES: Record<string, string[]> = {
   "payaso-chano-ss": [],
   "dibujos-o": [],
   "fonetica-p": [],
-  "mariposas-p": [],
+  // Owner Mariposas mockup (2026-10-18): the mockup's butterfly bank and sign
+  // words (mapa, pomo, Mupi, Pepe, puma, Pupi) require the P syllables.
+  "mariposas-p": ["pa", "pe", "pi", "po", "pu"],
   "palabras-minuto-p": [],
   "rima-p": [],
   "vocal-a": [],

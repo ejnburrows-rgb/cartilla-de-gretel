@@ -4,6 +4,7 @@ import { GameShell } from "@/components/cartilla/games/GameShell";
 import { PayasoChano } from "@/components/cartilla/games/PayasoChano";
 import { SyllableBuilder } from "@/components/cartilla/games/SyllableBuilder";
 import { CoreGame } from "@/components/cartilla/games/CoreGames";
+import { MariposasGame } from "@/components/cartilla/games/MariposasGame";
 import { PAYASO_CHANO_SS } from "@/content/games/payaso-chano-ss";
 import { SYLLABLE_BUILDER_PILOT } from "@/content/games/syllable-builder-pilot";
 import { CORE_THEMED_GAMES } from "@/content/games/core-games";
@@ -52,6 +53,19 @@ function Juego() {
             Volver a práctica
           </Link>
         </div>
+      </main>
+    );
+  }
+
+  // This source page has its own compact original garden + instructions;
+  // the generic mascot/instructions shell would crop the phone landscape view.
+  if (content.type === "mariposas") {
+    return (
+      <main className="mariposas-route">
+        <Link to="/cartilla/practica" className="mariposas-back" aria-label="Volver a práctica">
+          <ArrowLeft className="h-4 w-4" aria-hidden /> Práctica
+        </Link>
+        <MariposasGame content={content} />
       </main>
     );
   }

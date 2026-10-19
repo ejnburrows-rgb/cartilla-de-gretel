@@ -1,3 +1,4 @@
+import { MariposasGame } from "./MariposasGame";
 import { useEffect, useMemo, useState, useRef } from "react";
 import { Check, RotateCcw, Timer, X } from "lucide-react";
 import type { GameContent, WordItem } from "@/lib/games/gameContent";
@@ -34,89 +35,6 @@ function Result({ ok, text }: { ok: boolean; text: string }) {
 
 function CompleteCard({ children }: { children: React.ReactNode }) {
   return <section className="kid-card p-5 sm:p-7 space-y-5">{children}</section>;
-}
-
-export function MariposasGame({ content }: { content: GameContent }) {
-  const [wordIndex, setWordIndex] = useState(0);
-  const [picked, setPicked] = useState<string[]>([]);
-  const [feedback, setFeedback] = useState<"ok" | "no" | null>(null);
-  const [score, setScore] = useState(0);
-  const word = content.words[wordIndex];
-  const done = wordIndex >= content.words.length;
-
-  const reset = () => {
-    setWordIndex(0);
-    setPicked([]);
-    setFeedback(null);
-    setScore(0);
-  };
-
-  if (done) {
-    return (
-      <CompleteCard>
-        <h2 className="text-2xl font-black text-center">¡Las mariposas volvieron al jardín!</h2>
-        <p className="text-center font-bold text-stone-600">
-          {score} de {content.words.length} palabras completas
-        </p>
-        <button onClick={reset} className="mx-auto flex items-center gap-2 rounded-xl bg-primary px-5 py-3 font-bold text-primary-foreground">
-          <RotateCcw className="h-4 w-4" /> Jugar otra vez
-        </button>
-      </CompleteCard>
-    );
-  }
-
-  const choose = (tile: string) => {
-    if (feedback) return;
-    const next = [...picked, tile];
-    const expected = word.syllables.slice(0, next.length);
-    const validPrefix = next.every((value, i) => value.toLocaleLowerCase("es") === expected[i]?.toLocaleLowerCase("es"));
-    if (!validPrefix) {
-      setFeedback("no");
-      setTimeout(() => {
-        setPicked([]);
-        setFeedback(null);
-      }, 650);
-      return;
-    }
-    setPicked(next);
-    if (next.length === word.syllables.length) {
-      setFeedback("ok");
-      setScore((s) => s + 1);
-      setTimeout(() => {
-        const nextIndex = wordIndex + 1;
-        if (nextIndex === content.words.length) finishGame(content, score + 1, content.words.length);
-        setWordIndex(nextIndex);
-        setPicked([]);
-        setFeedback(null);
-      }, 650);
-    }
-  };
-
-  return (
-    <CompleteCard>
-      <div className="text-center">
-        <div className="text-5xl" aria-hidden>🦋</div>
-        <p className="mt-2 text-sm font-bold text-stone-500">Palabra {wordIndex + 1} de {content.words.length}</p>
-        <h2 className="text-3xl font-black mt-1">{word.word}</h2>
-      </div>
-      <div className="min-h-16 rounded-2xl border-2 border-dashed border-stone-300 bg-white p-3 flex flex-wrap justify-center gap-2">
-        {word.syllables.map((_, i) => (
-          <span key={i} className="min-w-16 rounded-xl bg-stone-100 px-4 py-3 text-center text-2xl font-black">
-            {picked[i] ?? "__"}
-          </span>
-        ))}
-      </div>
-      <div className="grid grid-cols-3 sm:grid-cols-4 gap-2">
-        {(content.tiles ?? []).map((tile) => (
-          <button key={tile} onClick={() => choose(tile)} className="rounded-xl border-2 border-sky-200 bg-sky-50 py-3 text-xl font-black hover:bg-sky-100 active:scale-95">
-            {tile}
-          </button>
-        ))}
-      </div>
-      {feedback === "ok" && <Result ok text="¡Palabra completa!" />}
-      {feedback === "no" && <Result ok={false} text="Prueba de nuevo desde la primera sílaba." />}
-    </CompleteCard>
-  );
 }
 
 export function VowelGame({ content }: { content: GameContent }) {
