@@ -5,21 +5,21 @@
   width: 100vw;
   height: 100dvh;
   overflow: hidden;
-  display: grid;
-  grid-template-rows: 51.0129% 48.9871%;
-  background: #80c946;
   isolation: isolate;
+  background: #75c6e5 url("/cartilla/games/rima/approved-scene.jpg") center top/cover no-repeat;
   color: #071448;
   font-family: "Arial Rounded MT Bold", "Nunito", sans-serif;
 }
 .rima-scene * {
   box-sizing: border-box;
 }
-.rima-top,
+.rima-top {
+  position: absolute;
+  inset: 0 0 49%;
+}
 .rima-panel {
-  position: relative;
-  min-height: 0;
-  min-width: 0;
+  position: absolute;
+  inset: 51% 0 0;
 }
 .rima-top-art,
 .rima-panel-art {
@@ -27,8 +27,11 @@
   inset: 0;
   width: 100%;
   height: 100%;
-  user-select: none;
   pointer-events: none;
+  user-select: none;
+}
+.rima-title {
+  display: none;
 }
 .rima-card,
 .rima-audio {
@@ -37,15 +40,20 @@
   background: transparent;
   cursor: pointer;
   padding: 0;
-  border-radius: 12%;
+  border-radius: 16px;
   touch-action: manipulation;
 }
 .rima-card {
   width: 25.8%;
   height: 29%;
+  font-size: clamp(20px, 4vw, 53px);
+  font-weight: 1000;
   transition:
     box-shadow 0.2s,
     transform 0.2s;
+}
+.rima-card:not(.dynamic) span {
+  visibility: hidden;
 }
 .rima-card-0 {
   left: 4.8%;
@@ -68,7 +76,7 @@
 }
 .rima-card.is-selected {
   box-shadow:
-    0 0 0 4px #f8f7a9,
+    0 0 0 4px #fff6af,
     0 0 0 7px #136d71;
   transform: translateY(-2px);
 }
@@ -84,6 +92,9 @@
   width: 10.4%;
   height: 29%;
   border-radius: 50%;
+}
+.rima-audio svg {
+  display: none;
 }
 .rima-line {
   position: absolute;
@@ -184,8 +195,6 @@
 .rima-card.dynamic {
   background: #fff8e5;
   border: 3px solid #2c9bbc;
-  font-size: clamp(20px, 4vw, 52px);
-  font-weight: 900;
   border-radius: 20px;
 }
 .rima-card.dynamic.rima-card-1 {
@@ -197,9 +206,12 @@
 .rima-card.dynamic.rima-card-3 {
   border-color: #ecc33a;
 }
+.rima-unused {
+  pointer-events: none;
+}
 .rima-pair-board {
   position: absolute;
-  inset: 5% 19% 14% 27%;
+  inset: 3% 10% 12% 26%;
   background: #fff8e7;
   display: flex;
   flex-direction: column;
@@ -224,16 +236,192 @@
     transform: translateY(0);
   }
 }
-@media (orientation: portrait) {
-  .rima-scene {
-    grid-template-rows: 43% 57%;
+/* Phone reflow: one undistorted approved background, real text and controls.
+   Opaque HTML plates cover baked-in text; no stitched artwork panels. */
+@media (orientation: portrait), (min-aspect-ratio: 1.79) {
+  .rima-top-art,
+  .rima-panel-art {
+    display: none;
   }
-  /* Same approved scene, rebalanced vertically. All words/slots remain onscreen. */
-  .rima-card {
-    height: 29%;
+  .rima-title {
+    position: absolute;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin: 0;
+    left: 4%;
+    top: 2%;
+    width: 29%;
+    height: 31%;
+    background: #ffe6a5;
+    border: 3px solid #bb722c;
+    border-radius: 22px;
+    box-shadow:
+      inset 0 0 0 4px #fff2cc,
+      0 3px 3px #66402066;
+    font-weight: 1000;
+    line-height: 0.95;
+    font-size: clamp(22px, 4vw, 45px);
+    color: #0b5892;
+    text-shadow: 1px 2px #fff6;
+  }
+  .rima-title span:nth-child(2) {
+    color: #1b9d54;
+  }
+  .rima-title i {
+    font-style: normal;
+    color: #f84a76;
+  }
+  .rima-audio {
+    background: #0ab7ed;
+    color: white;
+    border: 4px solid #ffd849;
+    box-shadow: 0 1px 4px #102e4b;
+    border-radius: 50%;
+    aspect-ratio: 1;
+    height: auto;
+    max-height: 80px;
+    max-width: 80px;
+  }
+  .rima-audio svg {
+    display: block;
+    width: 100%;
+    height: 100%;
+    padding: 12%;
+  }
+  .rima-card,
+  .rima-card.dynamic {
+    background: #fff9e8;
+    border: 4px solid #25b4de;
+    border-radius: 19px;
+    box-shadow:
+      inset 0 0 0 3px white,
+      0 3px 3px #3c672b66;
+  }
+  .rima-card span,
+  .rima-card:not(.dynamic) span {
+    visibility: visible;
+  }
+  .rima-card-1,
+  .rima-card.dynamic.rima-card-1 {
+    border-color: #e53c7c;
+  }
+  .rima-card-2,
+  .rima-card.dynamic.rima-card-2 {
+    border-color: #65b63b;
+  }
+  .rima-card-3,
+  .rima-card.dynamic.rima-card-3 {
+    border-color: #f3bd35;
+  }
+  .rima-panel::before {
+    content: "";
+    position: absolute;
+    inset: 0 5% 10%;
+    background: #fff8e8;
+    border: 10px solid #ffd139;
+    border-radius: 32px;
+    box-shadow: 0 2px 3px #755c3266;
+  }
+  .rima-panel::after {
+    content: "";
+    position: absolute;
+    left: 9%;
+    top: 9%;
+    width: 17%;
+    height: 39%;
+    background: url("/cartilla/games/rima/bee.webp") center/contain no-repeat;
+    mask-image: radial-gradient(ellipse, black 42%, transparent 72%);
+    pointer-events: none;
+  }
+  .rima-line::after {
+    content: attr(data-ending);
+    position: absolute;
+    left: 110%;
+    top: 0;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    font-size: clamp(20px, 4vw, 36px);
+    font-weight: 1000;
+    white-space: nowrap;
   }
   .rima-slot {
-    font-size: clamp(15px, 4.5vw, 28px);
+    background: #d1efff;
+    border: 2px dashed #399abf;
+    font-size: clamp(15px, 2.6vw, 25px);
+  }
+}
+@media (orientation: portrait) {
+  .rima-top {
+    bottom: 47%;
+  }
+  .rima-panel {
+    top: 53%;
+  }
+  .rima-title {
+    left: 3%;
+    top: 1%;
+    width: 64%;
+    height: 19%;
+    font-size: 32px;
+  }
+  .rima-audio {
+    left: 79%;
+    top: 2%;
+    width: 18%;
+  }
+  .rima-card {
+    width: 44%;
+    height: 13%;
+    font-size: 28px;
+  }
+  .rima-card-0 {
+    left: 4%;
+    top: 69%;
+  }
+  .rima-card-1 {
+    left: 4%;
+    top: 84%;
+  }
+  .rima-card-2 {
+    left: 52%;
+    top: 69%;
+  }
+  .rima-card-3 {
+    left: 52%;
+    top: 84%;
+  }
+  .rima-panel::before {
+    inset: 0 2% 14%;
+    border-width: 8px;
+  }
+  .rima-panel::after {
+    left: 1%;
+    top: 3%;
+    width: 21%;
+    height: 29%;
+  }
+  .rima-line {
+    left: 23%;
+    width: 33%;
+    height: 13%;
+  }
+  .rima-line-0 {
+    top: 7%;
+  }
+  .rima-line-1 {
+    top: 26%;
+  }
+  .rima-line-2 {
+    top: 45%;
+  }
+  .rima-line-3 {
+    top: 64%;
+  }
+  .rima-line::after {
+    font-size: 25px;
   }
   .rima-controls button,
   .rima-controls a {
@@ -241,22 +429,59 @@
     min-width: 44px;
   }
   .rima-feedback {
-    bottom: 54px;
-    left: 10%;
-    max-width: 80%;
-    font-size: 14px;
+    bottom: 52px;
+    left: 7%;
+    max-width: 86%;
+    font-size: 13px;
+  }
+  .rima-pair-board {
+    inset: 8% 8% 19% 22%;
   }
 }
-@media (max-height: 450px) and (orientation: landscape) {
-  .rima-controls {
-    bottom: 3px;
+@media (min-aspect-ratio: 1.79) {
+  .rima-top {
+    bottom: 48%;
+  }
+  .rima-panel {
+    top: 52%;
+  }
+  .rima-card {
+    height: 29%;
+    font-size: 32px;
+  }
+  .rima-card-0,
+  .rima-card-2 {
+    top: 35%;
+  }
+  .rima-card-1,
+  .rima-card-3 {
+    top: 68%;
+  }
+  .rima-line {
+    left: 29%;
+    width: 27%;
+    height: 16%;
+  }
+  .rima-line-0 {
+    top: 7%;
+  }
+  .rima-line-1 {
+    top: 26%;
+  }
+  .rima-line-2 {
+    top: 45%;
+  }
+  .rima-line-3 {
+    top: 64%;
+  }
+  .rima-panel::after {
+    height: 55%;
+    top: 8%;
+    left: 10%;
+    width: 18%;
   }
   .rima-feedback {
     font-size: 12px;
-    bottom: 3px;
-  }
-  .rima-slot {
-    font-size: 22px;
   }
 }
 @media (prefers-reduced-motion: reduce) {
@@ -265,418 +490,165 @@
     transition: none !important;
   }
 }
-/* Recompose only when source proportions cannot fit. Never stretch people or words. */
-.rima-top {
-  background: #60ccf3 url("/cartilla/games/rima/sky.webp") center/cover;
-}
-.rima-top-art {
-  object-fit: cover;
-  opacity: 0;
-}
-.rima-top::before {
-  content: "";
-  position: absolute;
-  left: 35%;
-  top: 3%;
-  width: 32%;
-  height: 96%;
-  background: url("/cartilla/games/rima/mother.webp") center/contain no-repeat;
-  clip-path: polygon(
-    39% 0,
-    75% 0,
-    83% 12%,
-    81% 28%,
-    91% 47%,
-    100% 82%,
-    89% 100%,
-    10% 100%,
-    0 78%,
-    17% 60%,
-    23% 34%,
-    15% 20%
-  );
-}
-.rima-top::after {
-  content: "";
-  position: absolute;
-  left: 3.5%;
-  top: 0;
-  width: 29%;
-  height: 36%;
-  background: url("/cartilla/games/rima/title.webp") center/contain no-repeat;
-  pointer-events: none;
-}
-.rima-card {
-  background-position: center;
-  background-size: 100% 100%;
-  background-repeat: no-repeat;
-}
-.rima-card-0 {
-  background-image: url("/cartilla/games/rima/card0.webp");
-}
-.rima-card-1 {
-  background-image: url("/cartilla/games/rima/card1.webp");
-}
-.rima-card-2 {
-  background-image: url("/cartilla/games/rima/card2.webp");
-}
-.rima-card-3 {
-  background-image: url("/cartilla/games/rima/card3.webp");
-}
-.rima-audio {
-  background: url("/cartilla/games/rima/speaker.webp") center/contain no-repeat;
-}
-.rima-panel {
-  background: #72bd3b url("/cartilla/games/rima/grass.webp") center/cover;
-}
-.rima-panel-art {
-  opacity: 0;
-}
-.rima-panel::before {
-  content: "";
-  position: absolute;
-  inset: 0 9% 11%;
-  background: #fff8e8;
-  border: clamp(6px, 1.5vw, 16px) solid #ffd139;
-  border-radius: clamp(20px, 4vw, 46px);
-  box-shadow: 0 2px 4px #775a3266;
-}
-.rima-panel::after {
-  content: "";
+.rima-bee {
   position: absolute;
   left: 12%;
-  top: 8%;
-  width: 15%;
-  height: 40%;
-  background: url("/cartilla/games/rima/bee.webp") center/contain no-repeat;
+  top: 59%;
+  width: clamp(45px, 9vw, 115px);
+  height: auto;
+  z-index: 10;
   pointer-events: none;
+  will-change: transform;
 }
-.rima-slot {
-  background: #d1efff;
-  border: 2px dashed #399abf;
+.rima-bee img {
+  width: 100%;
+  height: auto;
+  display: block;
 }
-.rima-line::after {
-  content: attr(data-ending);
+.rima-bee span {
+  display: block;
   position: absolute;
-  left: 109%;
-  top: 0;
-  height: 100%;
-  width: 140%;
-  display: flex;
-  align-items: center;
-  font-size: clamp(20px, 4.1vw, 53px);
-  font-weight: 1000;
+  top: 74%;
+  left: 40%;
+  background: #fff8e5;
+  border: 2px solid #e5ac37;
+  border-radius: 8px;
+  padding: 2px 8px;
+  font-weight: 900;
+  font-size: clamp(15px, 2vw, 25px);
   white-space: nowrap;
-  line-height: 1;
-  color: #071448;
 }
-@media (min-aspect-ratio: 1.22) and (max-aspect-ratio: 1.78) {
-  /* At tablet proportions preserve the full approved source without restyling. */
-  .rima-top-art,
-  .rima-panel-art {
-    opacity: 1;
-    object-fit: fill;
-  }
-  .rima-top::before,
-  .rima-top::after,
-  .rima-panel::before,
-  .rima-panel::after,
-  .rima-line::after {
+@media (orientation: portrait), (min-aspect-ratio: 1.79) {
+  .rima-panel::after {
     display: none;
   }
-  .rima-card,
-  .rima-audio {
-    background-image: none;
+  .rima-panel::before {
+    inset: 0 0 0;
+    border-radius: 27px;
   }
-  .rima-slot:not(.is-correct):not(.is-wrong) {
-    background: transparent;
-    border: 0;
+  .rima-scene {
+    background-size: auto 105%;
   }
 }
 @media (orientation: portrait) {
-  .rima-scene {
-    grid-template-rows: 46% 54%;
+  .rima-bee {
+    left: 1%;
+    top: 56%;
+    width: 76px;
   }
-  .rima-top::before {
-    left: 25%;
-    top: 18%;
-    width: 50%;
-    height: 62%;
+  .rima-panel {
+    bottom: 0;
   }
-  .rima-top::after {
-    left: 2%;
+  .rima-title {
     top: 0;
-    width: 67%;
-    height: 25%;
   }
   .rima-audio {
-    left: 79%;
-    top: 2%;
-    width: 19%;
-    height: 20%;
+    top: 0;
   }
-  .rima-card {
-    width: 46%;
-    height: 20%;
-    background-size: contain;
+}
+@media (min-aspect-ratio: 1.79) {
+  .rima-bee {
+    left: 10%;
+    top: 57%;
+    width: 90px;
   }
-  .rima-card-0 {
-    left: 3%;
-    top: 61%;
+  .rima-title {
+    top: 0;
+    height: 35%;
   }
+  .rima-card-0,
   .rima-card-2 {
-    left: 51%;
-    top: 61%;
+    top: 37%;
   }
-  .rima-card-1 {
-    left: 3%;
-    top: 81%;
-  }
+  .rima-card-1,
   .rima-card-3 {
-    left: 51%;
-    top: 81%;
+    top: 70%;
   }
-  .rima-panel::before {
-    inset: 2% 3% 13%;
-    border-width: 8px;
+}
+@media (min-aspect-ratio: 1.22) and (max-aspect-ratio: 1.78) {
+  .rima-bee {
+    left: 12%;
+    top: 59%;
   }
   .rima-panel::after {
-    left: 3%;
-    top: 3%;
-    width: 17%;
-    height: 20%;
+    content: "";
+    display: block;
+    position: absolute;
+    left: 12%;
+    top: 8%;
+    width: 15%;
+    height: 40%;
+    background: #fff8e8;
+    border-radius: 50%;
   }
   .rima-line {
-    left: 22%;
-    width: 34%;
-    height: 13%;
-  }
-  .rima-line-0 {
-    top: 10%;
-  }
-  .rima-line-1 {
-    top: 29%;
-  }
-  .rima-line-2 {
-    top: 48%;
-  }
-  .rima-line-3 {
-    top: 67%;
-  }
-  .rima-line::after {
-    left: 110%;
-    width: 120%;
-    font-size: clamp(20px, 6.6vw, 28px);
-  }
-  .rima-pair-board {
-    inset: 10% 12% 23% 22%;
+    z-index: 1;
   }
 }
-@media (min-aspect-ratio: 1.79) {
-  .rima-top::before {
-    width: 30%;
-    left: 35%;
+.rima-slot.just-correct {
+  animation: rima-drop 0.7s ease-out;
+}
+@keyframes rima-drop {
+  0% {
+    transform: scale(0.94);
+    box-shadow: 0 0 0 3px #73bd4c;
   }
-  .rima-card {
-    height: 30%;
-    background-size: contain;
+  45% {
+    transform: scale(1.06) translateY(-3px);
+    box-shadow: 0 0 18px 5px #c8ed6a;
+  }
+  100% {
+    transform: scale(1);
+    box-shadow: inset 0 0 0 3px #239b56;
   }
 }
-/* Source-preserving crop masks: soften crop boundaries, never deform the drawing. */
-@media (orientation: portrait), (min-aspect-ratio: 1.79) {
-  .rima-top::before {
-    clip-path: none;
-    mask-image:
-      linear-gradient(to right, transparent, black 12%, black 85%, transparent),
-      linear-gradient(to bottom, transparent, black 8%, black 92%, transparent);
-    mask-composite: intersect;
-  }
-  .rima-top::after {
-    mask-image: linear-gradient(to right, transparent, black 7%, black 95%, transparent);
-  }
-  .rima-card {
-    border-radius: 18px;
-    clip-path: inset(2% 1% round 18px);
-  }
-  .rima-audio {
-    clip-path: circle(44%);
-  }
-  .rima-panel::after {
-    mask-image: radial-gradient(ellipse, black 48%, transparent 73%);
-  }
-}
-@media (min-aspect-ratio: 1.79) {
-  /* Preserve every original scene element on wide screens. The scene is centered,
-    with same-source garden extensions, rather than squashing the characters. */
-  .rima-scene {
-    display: block;
-    background: url("/cartilla/games/rima/approved-scene.jpg") center/cover;
-  }
-  .rima-top,
-  .rima-panel {
-    width: calc(100dvh * 1.333333);
-    max-width: 100%;
-    margin: auto;
-  }
-  .rima-top {
-    height: 51.0129%;
-  }
-  .rima-panel {
-    height: 48.9871%;
-  }
-  .rima-top-art,
-  .rima-panel-art {
-    opacity: 1;
-    object-fit: fill;
-  }
-  .rima-top::before,
-  .rima-top::after,
-  .rima-panel::before,
-  .rima-panel::after,
-  .rima-line::after {
-    display: none;
-  }
-  .rima-card,
-  .rima-audio {
-    background-image: none;
-  }
-  .rima-slot:not(.is-correct):not(.is-wrong) {
-    background: transparent;
-    border: 0;
-  }
-  .rima-card {
-    clip-path: none;
-  }
-  .rima-slot {
-    font-size: 17px;
-  }
-  .rima-card.dynamic {
-    background: #fff8e5;
-    font-size: 25px;
-  }
-}
-@media (min-aspect-ratio: 1.79) {
-  .rima-scene {
-    background: linear-gradient(#70d2f6 0%, #b2e0f1 49%, #8bc644 51%, #8bc644 100%);
-  }
-}
-.rima-unused {
+.rima-celebration {
+  position: fixed;
+  left: 35%;
+  top: 42%;
+  font-size: clamp(30px, 6vw, 70px);
+  color: #ffd43b;
+  text-shadow: 0 2px #a63b59;
+  animation: rima-celebrate 1.2s ease-out forwards;
   pointer-events: none;
 }
-.rima-practice .rima-pair-board {
-  inset: 3% 10% 12% 26%;
+@keyframes rima-celebrate {
+  from {
+    transform: translateY(20px) scale(0.6);
+    opacity: 0;
+  }
+  30% {
+    opacity: 1;
+  }
+  to {
+    transform: translateY(-50px) scale(1.15);
+    opacity: 0;
+  }
 }
 @media (min-aspect-ratio: 1.79) {
   .rima-scene {
-    display: grid;
-    grid-template-columns: 48% 52%;
-    grid-template-rows: 100%;
-    background: #8bc644;
-  }
-  .rima-top,
-  .rima-panel {
-    width: 100%;
-    height: 100%;
-    max-width: none;
-    margin: 0;
-  }
-  .rima-top-art,
-  .rima-panel-art {
-    opacity: 0;
+    background-size: cover;
   }
   .rima-top::before,
-  .rima-top::after,
-  .rima-panel::before,
-  .rima-panel::after,
-  .rima-line::after {
-    display: block;
+  .rima-top::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    width: 33%;
+    background: #fff7e8ef;
+    pointer-events: none;
   }
   .rima-top::before {
-    left: 26%;
-    top: 13%;
-    width: 48%;
-    height: 65%;
+    left: 0;
   }
   .rima-top::after {
-    left: 1%;
-    top: 0;
-    width: 65%;
-    height: 25%;
+    right: 0;
   }
+  .rima-title,
+  .rima-card,
   .rima-audio {
-    background-image: url("/cartilla/games/rima/speaker.webp");
-    left: 80%;
-    top: 2%;
-    width: 19%;
-    height: 20%;
-  }
-  .rima-card {
-    width: 46%;
-    height: 21%;
-    background-size: contain;
-    clip-path: inset(2% 1% round 18px);
-  }
-  .rima-card-0 {
-    left: 2%;
-    top: 59%;
-    background-image: url("/cartilla/games/rima/card0.webp");
-  }
-  .rima-card-1 {
-    left: 2%;
-    top: 79%;
-    background-image: url("/cartilla/games/rima/card1.webp");
-  }
-  .rima-card-2 {
-    left: 51%;
-    top: 59%;
-    background-image: url("/cartilla/games/rima/card2.webp");
-  }
-  .rima-card-3 {
-    left: 51%;
-    top: 79%;
-    background-image: url("/cartilla/games/rima/card3.webp");
-  }
-  .rima-card.dynamic {
-    background-image: none;
-    font-size: 25px;
-  }
-  .rima-panel::before {
-    inset: 2% 2% 12%;
-    border-width: 8px;
-  }
-  .rima-panel::after {
-    left: 2%;
-    top: 4%;
-    width: 19%;
-    height: 25%;
-  }
-  .rima-line {
-    left: 23%;
-    width: 33%;
-    height: 13%;
-  }
-  .rima-line-0 {
-    top: 9%;
-  }
-  .rima-line-1 {
-    top: 28%;
-  }
-  .rima-line-2 {
-    top: 47%;
-  }
-  .rima-line-3 {
-    top: 66%;
-  }
-  .rima-line::after {
-    font-size: 27px;
-  }
-  .rima-slot:not(.is-correct):not(.is-wrong) {
-    background: #d1efff;
-    border: 2px dashed #399abf;
-  }
-  .rima-feedback {
-    bottom: 4px;
-    left: 10%;
-    max-width: 72%;
+    z-index: 1;
   }
 }
+@media (min-aspect-ratio:1.22) and (max-aspect-ratio:1.78) {.rima-panel::after {left:12.6%;top:7%;width:13.4%;height:39%;border-radius:0;background:#fff8e8;}}

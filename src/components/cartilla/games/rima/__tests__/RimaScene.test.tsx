@@ -1,9 +1,26 @@
 import "@testing-library/jest-dom/vitest";
 import { fireEvent, render, screen, act } from "@testing-library/react";
-import { afterEach, describe, expect, it, vi } from "vitest";
+import { afterEach, beforeEach, describe, expect, it, vi } from "vitest";
 import { RimaScene, rhymePairs } from "../RimaScene";
 import { RIMA_P } from "@/content/games/core-games";
+vi.mock("@/lib/piano-audio", () => ({
+  playUiTick: vi.fn(),
+  playNote: vi.fn(),
+  playCorrectChord: vi.fn(),
+  playWrongBuzz: vi.fn(),
+}));
 vi.mock("@/lib/student-session", () => ({ recordEvent: vi.fn() }));
+beforeEach(() => {
+  Object.defineProperty(window, "matchMedia", {
+    configurable: true,
+    value: () => ({ matches: false }),
+  });
+  Element.prototype.animate = vi.fn(() => ({
+    finished: Promise.resolve(),
+    cancel: vi.fn(),
+  })) as unknown as typeof Element.prototype.animate;
+  vi.spyOn(HTMLMediaElement.prototype, "play").mockResolvedValue();
+});
 afterEach(() => {
   vi.useRealTimers();
 });
@@ -21,18 +38,20 @@ describe("approved Rima scene", () => {
     expect(document.querySelector("[data-rima-scene]")?.parentElement).toBe(document.body);
     view.unmount();
   });
-  it("rejects wrong placements, accepts the poem, retains P rounds, resets", () => {
+  it("rejects wrong placements, accepts the poem, retains P rounds, resets", async () => {
     vi.useFakeTimers();
     const view = render(<RimaScene content={RIMA_P} />);
     fireEvent.click(screen.getByRole("button", { name: "Palabra amo" }));
     fireEvent.click(screen.getByRole("button", { name: /Espacio 1:/ }));
+    await act(async () => {});
     expect(screen.getByRole("status")).toHaveTextContent("Intenta otra vez");
     act(() => vi.advanceTimersByTime(700));
-    ["Mami", "amo", "mímame", "ámame"].forEach((word, i) => {
+    for (const [i, word] of ["Mami", "amo", "mímame", "ámame"].entries()) {
       fireEvent.click(screen.getByRole("button", { name: `Palabra ${word}` }));
       fireEvent.click(screen.getByRole("button", { name: new RegExp(`Espacio ${i + 1}:`) }));
+      await act(async () => {});
       act(() => vi.advanceTimersByTime(700));
-    });
+    }
     fireEvent.click(screen.getByRole("button", { name: /Siguiente/ }));
     expect(screen.getByText("papi")).toBeInTheDocument();
     fireEvent.click(screen.getByRole("button", { name: "Palabra Pipo" }));

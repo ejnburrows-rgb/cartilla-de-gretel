@@ -1,10 +1,11 @@
 
 [1m[30m[46m RUN [49m[39m[22m [36mv4.1.8 [39m[90m/home/sandbox/cartilla[39m
 
- [32m✓[39m src/components/cartilla/games/rima/__tests__/RimaScene.test.tsx [2m([22m[2m4 tests[22m[2m)[22m[33m 606[2mms[22m[39m
+ [32m✓[39m src/components/cartilla/games/rima/__tests__/RimaScene.test.tsx [2m([22m[2m4 tests[22m[2m)[22m[33m 576[2mms[22m[39m
+     [33m[2m✓[22m[39m rejects wrong placements, accepts the poem, retains P rounds, resets [33m 338[2mms[22m[39m
 
 [2m Test Files [22m [1m[32m1 passed[39m[22m[90m (1)[39m
 [2m      Tests [22m [1m[32m4 passed[39m[22m[90m (4)[39m
-[2m   Start at [22m 14:49:06
-[2m   Duration [22m 2.75s[2m (transform 240ms, setup 396ms, import 288ms, tests 606ms, environment 1.28s)[22m
+[2m   Start at [22m 15:04:21
+[2m   Duration [22m 2.37s[2m (transform 192ms, setup 288ms, import 239ms, tests 576ms, environment 1.11s)[22m
 

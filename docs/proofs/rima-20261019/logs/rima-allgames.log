@@ -1,21 +1,22 @@
 
 [1m[30m[46m RUN [49m[39m[22m [36mv4.1.8 [39m[90m/home/sandbox/cartilla[39m
 
- [32m✓[39m src/components/cartilla/games/__tests__/WordsPerMinuteGame.test.tsx [2m([22m[2m4 tests[22m[2m)[22m[33m 2541[2mms[22m[39m
-     [33m[2m✓[22m[39m does NOT stretch the countdown when words are marked (defect repro) [33m 2321[2mms[22m[39m
- [32m✓[39m src/components/cartilla/games/__tests__/PayasoChano.test.tsx [2m([22m[2m3 tests[22m[2m)[22m[33m 1241[2mms[22m[39m
-     [33m[2m✓[22m[39m does not earn completion by skipping to the final word [33m 420[2mms[22m[39m
-     [33m[2m✓[22m[39m earns completion exactly once when all words are completed [33m 369[2mms[22m[39m
-     [33m[2m✓[22m[39m does not allow repeated checking while incorrect answer feedback is active [33m 448[2mms[22m[39m
- [32m✓[39m src/components/cartilla/games/rima/__tests__/RimaScene.test.tsx [2m([22m[2m4 tests[22m[2m)[22m[33m 535[2mms[22m[39m
- [32m✓[39m src/components/cartilla/games/__tests__/SyllableBuilder.test.tsx [2m([22m[2m3 tests[22m[2m)[22m[33m 485[2mms[22m[39m
-     [33m[2m✓[22m[39m emits exercise completion, not lesson_completed, when the last word is completed [33m 329[2mms[22m[39m
- [32m✓[39m src/content/games/__tests__/taught-order.test.ts [2m([22m[2m35 tests[22m[2m)[22m[32m 17[2mms[22m[39m
- [32m✓[39m src/content/games/__tests__/completar-palabras.test.ts [2m([22m[2m5 tests[22m[2m)[22m[32m 8[2mms[22m[39m
- [32m✓[39m src/content/games/__tests__/complete-game-set.test.ts [2m([22m[2m3 tests[22m[2m)[22m[32m 7[2mms[22m[39m
+ [32m✓[39m src/components/cartilla/games/__tests__/WordsPerMinuteGame.test.tsx [2m([22m[2m4 tests[22m[2m)[22m[33m 2647[2mms[22m[39m
+     [33m[2m✓[22m[39m does NOT stretch the countdown when words are marked (defect repro) [33m 2406[2mms[22m[39m
+ [32m✓[39m src/components/cartilla/games/__tests__/PayasoChano.test.tsx [2m([22m[2m3 tests[22m[2m)[22m[33m 1156[2mms[22m[39m
+     [33m[2m✓[22m[39m does not earn completion by skipping to the final word [33m 367[2mms[22m[39m
+     [33m[2m✓[22m[39m earns completion exactly once when all words are completed [33m 356[2mms[22m[39m
+     [33m[2m✓[22m[39m does not allow repeated checking while incorrect answer feedback is active [33m 430[2mms[22m[39m
+Not implemented: HTMLMediaElement's pause() method
+ [32m✓[39m src/components/cartilla/games/rima/__tests__/RimaScene.test.tsx [2m([22m[2m4 tests[22m[2m)[22m[33m 572[2mms[22m[39m
+     [33m[2m✓[22m[39m rejects wrong placements, accepts the poem, retains P rounds, resets [33m 333[2mms[22m[39m
+ [32m✓[39m src/components/cartilla/games/__tests__/SyllableBuilder.test.tsx [2m([22m[2m3 tests[22m[2m)[22m[33m 425[2mms[22m[39m
+ [32m✓[39m src/content/games/__tests__/taught-order.test.ts [2m([22m[2m35 tests[22m[2m)[22m[32m 15[2mms[22m[39m
+ [32m✓[39m src/content/games/__tests__/completar-palabras.test.ts [2m([22m[2m5 tests[22m[2m)[22m[32m 10[2mms[22m[39m
+ [32m✓[39m src/content/games/__tests__/complete-game-set.test.ts [2m([22m[2m3 tests[22m[2m)[22m[32m 8[2mms[22m[39m
 
 [2m Test Files [22m [1m[32m7 passed[39m[22m[90m (7)[39m
 [2m      Tests [22m [1m[32m57 passed[39m[22m[90m (57)[39m
-[2m   Start at [22m 14:54:49
-[2m   Duration [22m 13.96s[2m (transform 734ms, setup 947ms, import 1.46s, tests 4.83s, environment 5.67s)[22m
+[2m   Start at [22m 15:05:32
+[2m   Duration [22m 13.68s[2m (transform 742ms, setup 900ms, import 1.52s, tests 4.83s, environment 5.36s)[22m
 

@@ -1,25 +1,21 @@
-# Vamos a rimar draft
+# Vamos a rimar draft, revised
 
-Base: ba4e6ff3 (main at checkout). No main mutation, merge or deploy.
+Base ba4e6ff3. No merge or deploy.
 
-Implemented: isolated full-viewport Rima scene, original approved image/crops only, tap-and-place and HTML drag/drop poem fields, correct/wrong feedback, next P matching rounds, reset, existing pair/scoring semantics, session completion event. GameShell chrome is covered by a body portal. Only the RhymeGame function and its import changed in CoreGames.tsx.
+## Current implementation
 
-## Evidence
+- Full viewport. Tablet retains approved scene. Phones use one undistorted approved scene background with real HTML title, four word cards, four drop fields and rhyme lines. No stitched mother/background crops. Portrait stacks the panel below; landscape retains left cards, central mother, right cards, bottom panel.
+- Source-only flood-masked bee cutout. Select a card: bee follows a gentle rigid path to it, shows the word it carries. Select an empty field: bee delivers the word; correct drops bounce/glow, wrong drops carry the word back. Completion has small stars/hearts. Reduced motion uses instant travel, no wave filters.
+- Original Mm poem retained. Next round preserves main's P syllable-pair algorithm, scoring and session completion events. Reset works. No other letter poems invented.
+- Existing piano-audio UI functions supply pickup, drop, right/wrong and finish sounds. The originally requested public/audio/feel tap/chime files were inspected and are 19-byte text stubs, not audio. They are not used.
+- Music: Meadow Thoughts, CC0, https://opengameart.org/content/meadow-thoughts . File supplied by coordinator. Soft 0.12 volume, loops after first action, mute/unmute control. Voice slots stay empty; no voice substitution.
 
-- portrait: 390x844; landscape: 844x390; tablet: 1280x800.
-- Each has reference/build comparison, initial/wrong/complete/P-round screenshots and play recording.
-- Gameplay automation exercised wrong choice, correct poem, next round, wrong/right P pairs, reset and empty audio at all sizes. No page errors or horizontal overflow.
-- Typecheck passed. 57 focused game/content tests passed. Asset verification passed (582 checked, no errors). Vite production build passed with existing large-chunk warning.
-- Full Vitest suite was attempted but interrupted by the execution time limit before a summary. This is NOT a full-suite pass.
+## Proof
 
-## Not exact-match / remaining gaps
+390x844, 844x390, 1280x800 actual Chromium screenshots and source/build comparisons. Each has wrong/right/complete/next/P-round/reset recording. The portrait-with-live-sound.mp4 captures actual browser Web Audio and music output using MediaRecorder, combined with the browser screen recording; approximate synchronization (audio starts at first sound, video starts at page load). It is not a post-added replacement soundtrack.
 
-- Tablet retains the complete approved scene; its source 4:3 image is scaled into 1280x800.
-- Portrait uses only cropped source elements and CSS fields to keep all controls readable; crop/feather edges remain around the mother/title. The bee and source butterflies are retained where the crop allows, not independently animated.
-- Wide phone uses side-by-side scene and rhyme panel to avoid clipping or distorted people. This is a responsive adaptation, not the reference's exact arrangement.
-- No clean independent mother/child, bee wing, butterfly wing, leaf or background layers were available in this lane. No breathing/wing motion has been fabricated. No ripple, displacement or generated art.
-- Audio slots are empty in public/cartilla/games/rima/gaps.json. Audio button reports the missing approved recording and never substitutes speech.
-- Only the approved Mm poem and main's P pair data exist. No other letter poems were invented. The initial Mm scene is shared for this route; the existing content parameter controls next-round P pair data. A broader letter picker requires authentic content and separate integration.
-- Phone landscape source cards are about 80px tall and fields about 50px; tablet fields are smaller. Physical-device touch drag was not tested; tap-and-place was exercised in desktop Chromium at all sizes.
+57 focused game/content tests pass. Typecheck and Vite production build pass. Asset verification previously passed (582 checked, no errors). Full-suite attempt was interrupted at the execution time limit before summary, not a pass. Exact logs included. Browser instrumentation counted 188 oscillator starts in each viewport workflow. Physical device touch drag is not verified; tap-and-place was tested.
 
-Do not merge as an exact-match or motion-complete result. The branch preserves functional progress and visible proof for the remaining asset work.
+## Remaining visual limitations
+
+Phone HTML title/cards deliberately replace baked-in source lettering, so typography is not an exact visual match. The mother remains source art without seams or distortion. Landscape side areas are masked by opaque cream UI plates to hide baked-in reference words; this changes the garden balance. Tablet moving-bee start location needs a small cream background plate over the baked-in bee. No clean mother/child, wing, leaf and background layers exist in this lane, so breathing/wing motion is still missing. This is not an exact-match or motion-complete release. Keep draft for visual review.
