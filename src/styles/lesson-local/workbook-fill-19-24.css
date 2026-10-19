@@ -1,4 +1,10 @@
-/* Lessons 19-24: full viewport paper, following the shared lesson pattern. */
+/* Lessons 19-24: edge-to-edge paper with a separate navigation strip. */
+.lc-lesson-shell--fit[data-lesson="19"],
+.lc-lesson-shell--fit[data-lesson="20"],
+.lc-lesson-shell--fit[data-lesson="21"],
+.lc-lesson-shell--fit[data-lesson="22"],
+.lc-lesson-shell--fit[data-lesson="23"],
+.lc-lesson-shell--fit[data-lesson="24"] { background: #ece1c6; }
 .lc-lesson-shell--fit[data-lesson="19"] .lc-lesson-main,
 .lc-lesson-shell--fit[data-lesson="20"] .lc-lesson-main,
 .lc-lesson-shell--fit[data-lesson="21"] .lc-lesson-main,
@@ -6,8 +12,8 @@
 .lc-lesson-shell--fit[data-lesson="23"] .lc-lesson-main,
 .lc-lesson-shell--fit[data-lesson="24"] .lc-lesson-main {
   --lc-top: 0px;
-  --lc-bottom: 0px;
-  --ph: 100cqh;
+  --lc-bottom: 64px;
+  --ph: calc(100cqh - var(--lc-bottom));
   --pw: 100cqw;
 }
 .lc-lesson-shell--fit[data-lesson="19"] .lc-lesson-main .native-lesson-viewer,
@@ -16,3 +22,17 @@
 .lc-lesson-shell--fit[data-lesson="22"] .lc-lesson-main .native-lesson-viewer,
 .lc-lesson-shell--fit[data-lesson="23"] .lc-lesson-main .native-lesson-viewer,
 .lc-lesson-shell--fit[data-lesson="24"] .lc-lesson-main .native-lesson-viewer { width: 100%; margin: 0; }
+@media (orientation: landscape) and (max-height: 500px) {
+  .lc-lesson-shell--fit[data-lesson="19"] .lc-lesson-main,
+.lc-lesson-shell--fit[data-lesson="20"] .lc-lesson-main,
+.lc-lesson-shell--fit[data-lesson="21"] .lc-lesson-main,
+.lc-lesson-shell--fit[data-lesson="22"] .lc-lesson-main,
+.lc-lesson-shell--fit[data-lesson="23"] .lc-lesson-main,
+.lc-lesson-shell--fit[data-lesson="24"] .lc-lesson-main { --lc-top: 0px; --lc-bottom: 0px; --ph: 100cqh; --pw: calc(100cqw - 130px); overflow: hidden; }
+  .lc-lesson-shell--fit[data-lesson="19"] .lc-lesson-main .native-lesson-viewer,
+.lc-lesson-shell--fit[data-lesson="20"] .lc-lesson-main .native-lesson-viewer,
+.lc-lesson-shell--fit[data-lesson="21"] .lc-lesson-main .native-lesson-viewer,
+.lc-lesson-shell--fit[data-lesson="22"] .lc-lesson-main .native-lesson-viewer,
+.lc-lesson-shell--fit[data-lesson="23"] .lc-lesson-main .native-lesson-viewer,
+.lc-lesson-shell--fit[data-lesson="24"] .lc-lesson-main .native-lesson-viewer { width: var(--pw); margin: 0; }
+}
