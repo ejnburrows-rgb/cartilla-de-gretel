@@ -1,3 +1,5 @@
+
 /* Lesson 24: page-scoped workbook repairs. Book text and data unchanged. */
 
-.lc-lesson-shell[data-lesson="24"] .native-lesson-viewer__content .gretel-activity[data-gretel-activity^="page-89-"] .fp-native-sight-word:empty { display:none; }.lc-lesson-shell[data-lesson="24"] .faithful-page__body > .gretel-activity[data-gretel-activity^="page-89-"]:has(.fp-native-sight-word:empty) { display:none; }
+.lc-lesson-shell[data-lesson="24"] .native-lesson-viewer__content .gretel-activity[data-gretel-activity^="page-89-"] .fp-native-sight-word:empty { display:none; }
+.lc-lesson-shell[data-lesson="24"] .faithful-page__body > .gretel-activity[data-gretel-activity^="page-89-"]:has(.fp-native-sight-word:empty) { display:none; }

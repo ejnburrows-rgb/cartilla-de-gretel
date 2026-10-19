@@ -1,82 +1,99 @@
+
 /* Lesson 20: page-scoped workbook repairs. Book text and data unchanged. */
-
-
-
 
 .lc-lesson-shell[data-lesson="20"] .native-lesson-viewer__content .gretel-activity[data-gretel-activity^="page-71-"] .fp-trace__svg,
 .lc-lesson-shell[data-lesson="20"] .native-lesson-viewer__content .gretel-activity[data-gretel-activity^="page-71-"] .fp-trace__svg {
   height: calc(var(--ph) * 0.15);
-}.lc-lesson-shell[data-lesson="20"] .native-lesson-viewer__content .gretel-activity[data-gretel-activity^="page-71-"] .fp-trace__footer {
+}
+.lc-lesson-shell[data-lesson="20"] .native-lesson-viewer__content .gretel-activity[data-gretel-activity^="page-71-"] .fp-trace__footer {
   flex-wrap: nowrap;
   gap: 4px;
   font-size: 11px;
   min-height: 18px;
-}.lc-lesson-shell[data-lesson="20"] .native-lesson-viewer__content .gretel-activity[data-gretel-activity^="page-71-"] .fp-writing-line--trace {
+}
+.lc-lesson-shell[data-lesson="20"] .native-lesson-viewer__content .gretel-activity[data-gretel-activity^="page-71-"] .fp-writing-line--trace {
   margin: 1cqw 0;
-}.lc-lesson-shell[data-lesson="20"] .native-lesson-viewer__content .gretel-activity[data-gretel-activity^="page-71-"] .am-dibuja__header {
+}
+.lc-lesson-shell[data-lesson="20"] .native-lesson-viewer__content .gretel-activity[data-gretel-activity^="page-71-"] .am-dibuja__header {
   gap: 0;
   min-height: 0;
-}.lc-lesson-shell[data-lesson="20"] .native-lesson-viewer__content .gretel-activity[data-gretel-activity^="page-71-"] .am-dibuja__header .am-dibuja__verb {
+}
+.lc-lesson-shell[data-lesson="20"] .native-lesson-viewer__content .gretel-activity[data-gretel-activity^="page-71-"] .am-dibuja__header .am-dibuja__verb {
   font-size: 13px;
   line-height: 1.1;
-}.lc-lesson-shell[data-lesson="20"] .native-lesson-viewer__content .gretel-activity[data-gretel-activity^="page-71-"] .am-dibuja__header .am-dibuja__hint {
+}
+.lc-lesson-shell[data-lesson="20"] .native-lesson-viewer__content .gretel-activity[data-gretel-activity^="page-71-"] .am-dibuja__header .am-dibuja__hint {
   font-size: 12px;
   line-height: 1.1;
-}.lc-lesson-shell[data-lesson="20"] .native-lesson-viewer__content .gretel-activity[data-gretel-activity^="page-71-"] .am-dibuja__paper {
+}
+.lc-lesson-shell[data-lesson="20"] .native-lesson-viewer__content .gretel-activity[data-gretel-activity^="page-71-"] .am-dibuja__paper {
   height: calc(var(--ph) * 0.07);
   min-height: 36px;
   aspect-ratio: auto;
-}.lc-lesson-shell[data-lesson="20"] .native-lesson-viewer__content .gretel-activity[data-gretel-activity^="page-71-"] .am-dibuja__toolbar {
+}
+.lc-lesson-shell[data-lesson="20"] .native-lesson-viewer__content .gretel-activity[data-gretel-activity^="page-71-"] .am-dibuja__toolbar {
   flex-wrap: nowrap;
   overflow-x: auto;
   gap: 4px;
   scrollbar-width: none;
-}.lc-lesson-shell[data-lesson="20"] .native-lesson-viewer__content .gretel-activity[data-gretel-activity^="page-71-"] .am-dibuja__swatches {
+}
+.lc-lesson-shell[data-lesson="20"] .native-lesson-viewer__content .gretel-activity[data-gretel-activity^="page-71-"] .am-dibuja__swatches {
   flex-wrap: nowrap;
   gap: 3px;
-}.lc-lesson-shell[data-lesson="20"] .native-lesson-viewer__content .gretel-activity[data-gretel-activity^="page-71-"] .am-dibuja__swatch {
+}
+.lc-lesson-shell[data-lesson="20"] .native-lesson-viewer__content .gretel-activity[data-gretel-activity^="page-71-"] .am-dibuja__swatch {
   width: 26px;
   height: 26px;
   min-width: 26px;
   min-height: 26px;
-}.lc-lesson-shell[data-lesson="20"] .native-lesson-viewer__content .gretel-activity[data-gretel-activity^="page-71-"] .am-dibuja__done {
+}
+.lc-lesson-shell[data-lesson="20"] .native-lesson-viewer__content .gretel-activity[data-gretel-activity^="page-71-"] .am-dibuja__done {
   order: 1;
   min-height: 26px;
   min-width: 26px;
   height: 26px;
   padding: 0 6px;
   font-size: 0;
-}.lc-lesson-shell[data-lesson="20"] .native-lesson-viewer__content .gretel-activity[data-gretel-activity^="page-71-"] .am-dibuja__done::after {
+}
+.lc-lesson-shell[data-lesson="20"] .native-lesson-viewer__content .gretel-activity[data-gretel-activity^="page-71-"] .am-dibuja__done::after {
   content: "✓";
   font-size: 14px;
   font-weight: 700;
-}.lc-lesson-shell[data-lesson="20"] .native-lesson-viewer__content .gretel-activity[data-gretel-activity^="page-71-"] .am-dibuja__tool {
+}
+.lc-lesson-shell[data-lesson="20"] .native-lesson-viewer__content .gretel-activity[data-gretel-activity^="page-71-"] .am-dibuja__tool {
   order: 2;
   min-height: 26px;
   min-width: 26px;
   height: 26px;
   padding: 2px 5px;
   font-size: 11px;
-}.lc-lesson-shell[data-lesson="20"] .native-lesson-viewer__content .gretel-activity[data-gretel-activity^="page-71-"] .am-dibuja__tool--eraser {
+}
+.lc-lesson-shell[data-lesson="20"] .native-lesson-viewer__content .gretel-activity[data-gretel-activity^="page-71-"] .am-dibuja__tool--eraser {
   order: 0;
-}@media (orientation: landscape) and (max-height: 500px) {.lc-lesson-shell[data-lesson="20"]:has(.native-lesson-viewer__content .faithful-page__body:not([data-lc-fit-overflow]) .gretel-activity[data-gretel-activity^="page-71-"]) {
+}
+@media (orientation: landscape) and (max-height: 500px) {
+.lc-lesson-shell[data-lesson="20"]:has(.native-lesson-viewer__content .faithful-page__body:not([data-lc-fit-overflow]) .gretel-activity[data-gretel-activity^="page-71-"]) {
     height: 100dvh;
     overflow: hidden;
-  }.lc-lesson-shell[data-lesson="20"]:has(.native-lesson-viewer__content .faithful-page__body:not([data-lc-fit-overflow]) .gretel-activity[data-gretel-activity^="page-71-"]) .lc-lesson-main {
+  }
+.lc-lesson-shell[data-lesson="20"]:has(.native-lesson-viewer__content .faithful-page__body:not([data-lc-fit-overflow]) .gretel-activity[data-gretel-activity^="page-71-"]) .lc-lesson-main {
     container-type: size;
     flex: 1 1 0;
     min-height: 0;
     overflow: hidden;
-  }.lc-lesson-shell[data-lesson="20"] .native-lesson-viewer__content .faithful-page:has(> .faithful-page__body:not([data-lc-fit-overflow]) .gretel-activity[data-gretel-activity^="page-71-"]) {
+  }
+.lc-lesson-shell[data-lesson="20"] .native-lesson-viewer__content .faithful-page:has(> .faithful-page__body:not([data-lc-fit-overflow]) .gretel-activity[data-gretel-activity^="page-71-"]) {
     height: var(--ph);
     min-height: 0;
     overflow: hidden;
-  }.lc-lesson-shell[data-lesson="20"] .native-lesson-viewer__content .faithful-page:has(> .faithful-page__body:not([data-lc-fit-overflow]) .gretel-activity[data-gretel-activity^="page-71-"]) > .faithful-page__body {
+  }
+.lc-lesson-shell[data-lesson="20"] .native-lesson-viewer__content .faithful-page:has(> .faithful-page__body:not([data-lc-fit-overflow]) .gretel-activity[data-gretel-activity^="page-71-"]) > .faithful-page__body {
     position: absolute;
     inset: 0;
     overflow: hidden;
   }
-}.lc-lesson-shell[data-lesson="20"] .native-lesson-viewer__content .gretel-activity[data-gretel-activity^="page-71-"],
+}
+.lc-lesson-shell[data-lesson="20"] .native-lesson-viewer__content .gretel-activity[data-gretel-activity^="page-71-"],
 .lc-lesson-shell[data-lesson="20"] .native-lesson-viewer__content .gretel-activity[data-gretel-activity^="page-71-"] .fp-writing-line--freehand,
 .lc-lesson-shell[data-lesson="20"] .native-lesson-viewer__content .gretel-activity[data-gretel-activity^="page-71-"] .am-dibuja,
 .lc-lesson-shell[data-lesson="20"] .native-lesson-viewer__content .gretel-activity[data-gretel-activity^="page-71-"] .am-dibuja__header,
@@ -86,7 +103,8 @@
   min-width: 0;
   max-width: 100%;
   box-sizing: border-box;
-}.lc-lesson-shell[data-lesson="20"] .native-lesson-viewer__content .gretel-activity[data-gretel-activity^="page-71-"] .am-dibuja__toolbar {
+}
+.lc-lesson-shell[data-lesson="20"] .native-lesson-viewer__content .gretel-activity[data-gretel-activity^="page-71-"] .am-dibuja__toolbar {
   flex-wrap: wrap;
   overflow: visible;
   row-gap: 2px;
