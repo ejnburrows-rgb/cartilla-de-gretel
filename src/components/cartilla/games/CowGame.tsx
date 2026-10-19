@@ -196,13 +196,16 @@ export function CowGame({ content }: { content: GameContent }) {
                 : isPicked && markState === "red"
                   ? "border-rose-500 bg-rose-100 text-rose-900"
                   : "border-stone-300 bg-stone-100 text-stone-700"; // ash/gray start per PR #903
+            
+            const transitionDuration = isPicked && markState === "green" ? "duration-1000" : "";
+
             return (
               <button
                 key={tile}
                 onClick={() => choose(tile)}
                 disabled={phase !== "ready"}
                 aria-label={`Sílaba ${tile}`}
-                className={`min-h-[44px] min-w-[44px] rounded-xl border-2 px-5 py-3 text-2xl font-black transition-colors ${tileClass} ${
+                className={`min-h-[44px] min-w-[44px] rounded-xl border-2 px-5 py-3 text-2xl font-black transition-colors ${transitionDuration} ${tileClass} ${
                   phase !== "ready" ? "opacity-60" : "hover:border-teal-600"
                 }`}
               >
