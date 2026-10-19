@@ -32,7 +32,7 @@ describe("lesson-catalog", () => {
   });
 
   it("lesson 1 is the vowel intro with the lighter four-activity set", () => {
-    const l1 = CATALOG.find((e) => e.n === 1);
+    const l1 = CATALOG[0];
     expect(l1?.kind).toBe("intro");
     expect(l1?.activities).toEqual(["silabas", "palabras", "sonido", "espejo"]);
   });

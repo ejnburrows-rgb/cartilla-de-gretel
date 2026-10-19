@@ -14,7 +14,7 @@ import { CATALOG } from "@/lib/lesson-catalog";
 export const Route = createFileRoute("/cartilla/leccion/$n")({
   beforeLoad: ({ params }) => {
     const n = Number(params.n);
-    if (!Number.isFinite(n) || !CATALOG.find((e) => e.n === n)) {
+    if (!Number.isFinite(n) || !(n >= 1 && n <= CATALOG.length)) {
       throw redirect({ to: "/cartilla/lecciones" });
     }
   },

@@ -70,7 +70,7 @@ export function getLessonPageNumbers(pages: string): number[] {
 }
 
 export function getCartillaCrmTheme(lessonNumber: number): CartillaCrmTheme {
-  const entry = CATALOG.find((item) => item.n === lessonNumber);
+  const entry = CATALOG[lessonNumber - 1];
   const section = getBookSectionForLesson(lessonNumber);
   const accent = VOWEL_ACCENTS[lessonNumber] ?? entry?.color ?? "#2a9d8f";
   const accentDark = mix(accent, 0.36, "#071f2a");

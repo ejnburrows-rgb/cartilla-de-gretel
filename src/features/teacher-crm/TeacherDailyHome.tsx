@@ -46,7 +46,7 @@ function combineStudentProgressResults(
 
 
 function lessonTitle(lessonId: string) {
-  const entry = CATALOG.find((item) => String(item.n) === lessonId);
+  const entry = CATALOG[Number(lessonId) - 1];
   return entry ? `L${entry.n} · ${entry.title}` : `Lección ${lessonId}`;
 }
 

@@ -75,7 +75,7 @@ export function printedPaintVerb(text?: string): string {
 /** Collect pick options from lesson catalog vocab (in-repo art only). */
 export function pickOptionsForLesson(lessonNumber?: number): DibujaPickOption[] {
   if (!lessonNumber) return [];
-  const entry = CATALOG.find((e) => e.n === lessonNumber);
+  const entry = CATALOG[lessonNumber - 1];
   if (!entry) return [];
   if (entry.kind === "vowel") {
     const vocab = entry.lesson.vocab ?? [];

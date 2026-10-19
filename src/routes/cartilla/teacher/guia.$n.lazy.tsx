@@ -15,7 +15,7 @@ function TeacherGuideLeccion() {
   const navigate = useNavigate();
   const n = Number(nParam);
 
-  const catalogEntry = CATALOG.find((e) => e.n === n);
+  const catalogEntry = CATALOG[n - 1];
   const accentColor = catalogEntry?.color || "#f97316";
 
   const handleSelectLesson = (newN: number) => {

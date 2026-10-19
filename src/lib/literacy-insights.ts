@@ -67,7 +67,7 @@ export const SKILL_STATUS_RULES = {
 
 function catalogEntry(lessonId: string): CatalogEntry | undefined {
   const n = Number(lessonId);
-  return Number.isFinite(n) ? CATALOG.find((entry) => entry.n === n) : undefined;
+  return Number.isFinite(n) ? CATALOG[n - 1] : undefined;
 }
 
 function skillName(entry: CatalogEntry): { title: string; detail: string } {

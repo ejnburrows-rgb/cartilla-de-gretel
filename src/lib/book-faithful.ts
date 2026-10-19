@@ -415,7 +415,7 @@ function buildPageFromScaffold(
 }
 
 export function getWorkbookPagesForLesson(lessonNumber: number): WorkbookPageContent[] {
-  const entry = CATALOG.find((item) => item.n === lessonNumber);
+  const entry = CATALOG[lessonNumber - 1];
   if (!entry) return [];
   const scaffolds = raw.lessons.filter((page) => page.bookFaithfulLesson === lessonNumber);
   const pageNumbers = getLessonPageNumbers(entry.pages);

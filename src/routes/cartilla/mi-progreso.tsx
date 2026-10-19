@@ -326,7 +326,7 @@ function MyProgress() {
             <p className="text-sm text-foreground mt-1">{t.tuvisteErrores[lang]}</p>
             <div className="mt-3 flex flex-wrap gap-2">
               {summary.weak.map((n) => {
-                const entry = CATALOG.find((e) => String(e.n) === n);
+                const entry = CATALOG[Number(n) - 1];
                 if (!entry) return null;
                 return (
                   <Link

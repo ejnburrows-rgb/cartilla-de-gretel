@@ -612,7 +612,7 @@ export function FaithfulPageRenderer({
   const ordered = [...layout].sort((a, b) => a.order - b.order);
   const letterReadingPage = native && ordered.some((region) => region.regionType === "vocab-grid")
     && ordered.filter((region) => region.regionType === "syllable-bubble").length === 2;
-  const accent = lessonNumber ? CATALOG.find((e) => e.n === lessonNumber)?.color : undefined;
+  const accent = lessonNumber ? CATALOG[lessonNumber - 1]?.color : undefined;
   const lessonId = lessonNumber ? String(lessonNumber) : undefined;
 
   let archetypeClasses: string[] = [];

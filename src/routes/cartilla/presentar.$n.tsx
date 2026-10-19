@@ -28,7 +28,7 @@ export const Route = createFileRoute("/cartilla/presentar/$n")({
   }),
   beforeLoad: async ({ params }) => {
     const n = Number(params.n);
-    if (!Number.isFinite(n) || !CATALOG.find((e) => e.n === n)) {
+    if (!Number.isFinite(n) || !(n >= 1 && n <= CATALOG.length)) {
       throw redirect({ to: "/cartilla/teacher" });
     }
 
@@ -60,7 +60,7 @@ function PresentarLesson() {
   const n = Number(nParam);
 
   const entry = useMemo<CatalogEntry | undefined>(
-    () => CATALOG.find((e) => e.n === n),
+    () => CATALOG[n - 1],
     [n],
   );
 

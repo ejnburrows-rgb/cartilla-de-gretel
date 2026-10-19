@@ -17,7 +17,7 @@ import { LivingIllustration } from "@/components/living/LivingIllustration";
  * the app, it's never silently hidden or replaced.
  */
 export function VocabularyList({ lessonNumber }: { lessonNumber: number }) {
-  const entry = CATALOG.find((e) => e.n === lessonNumber);
+  const entry = CATALOG[lessonNumber - 1];
   if (!entry) return null;
 
   const vocab =

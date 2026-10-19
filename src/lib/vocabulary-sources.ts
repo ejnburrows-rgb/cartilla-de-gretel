@@ -74,7 +74,7 @@ export function getWorkbookWords(lessonNumber: number): WorkbookWordList {
 
 /** The Flip Chart picture-vocabulary plate for one lesson. */
 export function getFlipchartPictureVocab(lessonNumber: number): FlipchartPictureVocab {
-  const entry = CATALOG.find((e) => e.n === lessonNumber);
+  const entry = CATALOG[lessonNumber - 1];
   if (entry?.kind === "consonant") {
     return {
       book: "flipchart",
@@ -134,7 +134,7 @@ export type PracticePictureWords = {
  * vocabulary plate — and says so explicitly instead of mixing silently.
  */
 export function getPracticePictureWords(lessonNumber: number): PracticePictureWords {
-  const entry = CATALOG.find((e) => e.n === lessonNumber);
+  const entry = CATALOG[lessonNumber - 1];
   if (entry?.kind === "consonant") {
     return {
       book: "flipchart",

@@ -140,7 +140,7 @@ export function TaskList({ classId }: TaskListProps) {
           </div>
         ) : (assignments ?? []).length > 0 ? (
           (assignments ?? []).map((task) => {
-            const entry = CATALOG.find((c) => String(c.n) === task.lesson_id);
+            const entry = CATALOG[Number(task.lesson_id) - 1];
             return (
               <div
                 key={task.id}
