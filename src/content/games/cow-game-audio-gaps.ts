@@ -13,3 +13,14 @@ export const COW_AUDIO_GAPS: CowAudioGap[] = [
   { cue: "syllable-me", text: "me", url: null },
   { cue: "syllable-ma-accent", text: "má", url: null },
 ];
+
+// Syllable recordings by plain syllable (accent stripped). Null = not recorded yet.
+// Checked 2026-10-19: public/audio (main) and audio/owner-instructions-20261019 hold
+// 162 vocabulary words and 40 workbook instruction lines, no isolated syllables.
+export const COW_SYLLABLE_AUDIO: Record<string, string | null> = {
+  ma: null,
+  mo: null,
+  mu: null,
+  mi: null,
+  me: null,
+};
