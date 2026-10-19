@@ -1,3 +1,4 @@
+import { playWord } from "@/lib/games/wordAudio";
 // SyllableBuilder.tsx — the syllable word-builder (issue #344).
 //
 // The child drags syllable tiles into the word's slots (ma + má → mamá). This
@@ -19,7 +20,7 @@
 import { useCallback, useEffect, useMemo, useRef, useState } from "react";
 import { KidButton } from "@/components/ui/KidButton";
 import { recordEvent } from "@/lib/student-session";
-import { gretelEvent } from "@/lib/gretel-bus";
+import { PickMark, useGameClock, PICK_ERASE_MS } from "./PickMark";
 import type { GameContent } from "@/lib/games/gameContent";
 import {
   buildTileBank,
@@ -52,6 +53,7 @@ function usePrefersReducedMotion(): boolean {
 
 export function SyllableBuilder({ content }: { content: GameContent }) {
   const reducedMotion = usePrefersReducedMotion();
+  const clock = useGameClock();
   const [wordIndex, setWordIndex] = useState(0);
   const [checked, setChecked] = useState(false);
 
@@ -72,6 +74,7 @@ export function SyllableBuilder({ content }: { content: GameContent }) {
 
   const resetForWord = useCallback(
     (index: number) => {
+      clock.cancel();
       const w = content.words[index];
       if (!w) return;
       setTiles(makeTiles(buildTileBank(w.syllables, extraTiles(content, index))));
@@ -79,7 +82,7 @@ export function SyllableBuilder({ content }: { content: GameContent }) {
       setSlotTileIds(new Array(w.syllables.length).fill(null));
       setChecked(false);
     },
-    [content],
+    [content, clock.cancel],
   );
 
   const grade = useMemo(() => gradeAttempt(placed, target), [placed, target]);
@@ -88,6 +91,7 @@ export function SyllableBuilder({ content }: { content: GameContent }) {
   const placeTile = useCallback(
     (tile: Tile, slot: number) => {
       if (slot < 0 || slot >= target.length) return;
+      clock.cancel();
       setChecked(false);
       setPlaced((prev) => {
         const next = [...prev];
@@ -107,28 +111,32 @@ export function SyllableBuilder({ content }: { content: GameContent }) {
       });
       setTiles((prev) => prev.filter((t) => t.id !== tile.id));
     },
-    [target.length],
+    [target.length, clock.cancel],
   );
 
   /** Sends the tile in `slot` back to the tray. */
-  const clearSlot = useCallback((slot: number) => {
-    setChecked(false);
-    setSlotTileIds((prev) => {
-      const id = prev[slot];
-      if (id) {
-        const back = tilesRef.current.find((t) => t.id === id);
-        if (back) setTiles((ts) => (ts.some((t) => t.id === back.id) ? ts : [...ts, back]));
-      }
-      const next = [...prev];
-      next[slot] = null;
-      return next;
-    });
-    setPlaced((prev) => {
-      const next = [...prev];
-      next[slot] = null;
-      return next;
-    });
-  }, []);
+  const clearSlot = useCallback(
+    (slot: number) => {
+      clock.cancel();
+      setChecked(false);
+      setSlotTileIds((prev) => {
+        const id = prev[slot];
+        if (id) {
+          const back = tilesRef.current.find((t) => t.id === id);
+          if (back) setTiles((ts) => (ts.some((t) => t.id === back.id) ? ts : [...ts, back]));
+        }
+        const next = [...prev];
+        next[slot] = null;
+        return next;
+      });
+      setPlaced((prev) => {
+        const next = [...prev];
+        next[slot] = null;
+        return next;
+      });
+    },
+    [clock.cancel],
+  );
 
   // Every tile ever created for this word, so a placed tile can be restored.
   const tilesRef = useRef<Tile[]>([]);
@@ -175,8 +183,9 @@ export function SyllableBuilder({ content }: { content: GameContent }) {
   // ── Checking ─────────────────────────────────────────────────────
   const onCheck = () => {
     if (!grade.isComplete || !word || checked) return;
+    clock.cancel();
     setChecked(true);
-    gretelEvent(grade.isCorrect ? "answer:correct" : "answer:wrong");
+    if (!grade.isCorrect) clock.later(() => resetForWord(wordIndex), PICK_ERASE_MS);
     recordEvent({
       lessonId: content.id,
       kind: "exercise",
@@ -194,7 +203,6 @@ export function SyllableBuilder({ content }: { content: GameContent }) {
 
   const onNext = () => {
     if (isLastWord) {
-      gretelEvent("activity:complete");
       recordEvent({
         lessonId: content.id,
         kind: "exercise",
@@ -216,11 +224,20 @@ export function SyllableBuilder({ content }: { content: GameContent }) {
   return (
     <section className="space-y-6" aria-label="Formar la palabra con sílabas">
       {/* The picture: real book art, or an honest "pendiente" card. */}
-      <div className="flex justify-center">
+      <button
+        type="button"
+        onClick={() => playWord(word.audioUrl, word.word)}
+        aria-label={`Escuchar la palabra "${word.word}"`}
+        className="min-h-11 rounded-xl border-2 px-4"
+      >
+        ▷
+      </button>
+      <div className="flex justify-center" role="img" aria-label={word.word}>
         {word.imageUrl ? (
           <img
             src={word.imageUrl}
-            alt={word.word}
+            alt=""
+            aria-hidden="true"
             className="h-40 w-auto rounded-2xl bg-white/70 p-2 shadow-sm sm:h-52"
             draggable={false}
           />
@@ -249,18 +266,19 @@ export function SyllableBuilder({ content }: { content: GameContent }) {
               key={i}
               type="button"
               data-slot-index={i}
+              data-pick-mark={checked ? (grade.isCorrect ? "right" : "wrong") : undefined}
               onClick={() => value && clearSlot(i)}
               aria-label={
                 value ? `Casilla ${i + 1}: ${value}. Tocar para quitar.` : `Casilla ${i + 1}: vacía`
               }
-              style={{ transition }}
+              style={{ transition, outline: value && !checked ? "3px solid #77746e" : undefined }}
               className={[
                 "h-16 min-w-[4.5rem] rounded-xl border-4 px-3 text-2xl font-black sm:h-20 sm:min-w-[5.5rem] sm:text-3xl",
                 value ? "bg-white" : "border-dashed bg-white/50",
                 state === "ok"
-                  ? "border-emerald-500 text-emerald-700"
+                  ? "border-stone-300 text-stone-700"
                   : state === "bad"
-                    ? "border-rose-400 text-rose-600"
+                    ? "border-stone-300 text-stone-700"
                     : "border-stone-300 text-stone-800",
               ].join(" ")}
             >
@@ -305,14 +323,15 @@ export function SyllableBuilder({ content }: { content: GameContent }) {
       {/* Feedback + actions. */}
       <div className="flex flex-col items-center gap-3">
         {checked && (
-          <p
-            role="status"
-            className={`text-lg font-black ${grade.isCorrect ? "text-emerald-700" : "text-rose-600"}`}
-          >
-            {grade.isCorrect ? "¡Muy bien!" : "Casi. Inténtalo otra vez."}
-          </p>
+          <PickMark
+            correct={grade.isCorrect}
+            text={grade.isCorrect ? "¡Muy bien!" : "Casi. Inténtalo otra vez."}
+          />
         )}
         <div className="flex flex-wrap justify-center gap-3">
+          <KidButton variant="outline" onClick={() => resetForWord(wordIndex)}>
+            Reiniciar
+          </KidButton>
           <KidButton onClick={onCheck} disabled={!grade.isComplete || checked}>
             Comprobar
           </KidButton>

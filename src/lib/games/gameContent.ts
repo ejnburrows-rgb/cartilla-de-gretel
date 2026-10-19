@@ -3,6 +3,7 @@
 // pattern (src/content/exercise-seed.ts) so there is one mental model for lesson content.
 
 export type GameArchetype =
+  | "author-games"
   | "payaso-chano"
   | "mariposas"
   | "juego-vocal"
@@ -24,6 +25,7 @@ export type GameContent = {
   id: string;
   type: GameArchetype;
   letter: string;
+  instructionAudioUrls?: (string | undefined)[];
   instructions: string[]; // verbatim Spanish, in order
   words: WordItem[];
   tiles?: string[]; // syllable tray bank, verbatim casing preserved

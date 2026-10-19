@@ -1,0 +1,96 @@
+[data-pick-mark] {
+  position: relative;
+  outline: 3px solid #77746e;
+  outline-offset: 2px;
+}
+[data-pick-mark="right"] {
+  animation: game-pencil-green 2.2s ease forwards;
+}
+[data-pick-mark="wrong"] {
+  animation: game-pencil-erase 3.6s ease forwards;
+}
+[data-pick-mark="wrong"]::after {
+  content: "";
+  position: absolute;
+  pointer-events: none;
+  width: 26px;
+  height: 14px;
+  border: 1px solid #a65c73;
+  border-radius: 3px;
+  background: #eda0b6;
+  top: 0;
+  left: 0;
+  opacity: 0;
+  animation: game-school-eraser 3.6s ease forwards;
+}
+.game-pick-status {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 44px;
+  min-height: 44px;
+  border-radius: 50%;
+  font-size: 1.5rem;
+  color: #77746e;
+}
+@keyframes game-pencil-green {
+  0%,
+  16% {
+    outline-color: #77746e;
+    color: #77746e;
+  }
+  75%,
+  100% {
+    outline-color: #279450;
+    color: #217841;
+  }
+}
+@keyframes game-pencil-erase {
+  0%,
+  10% {
+    outline-color: #77746e;
+  }
+  28%,
+  55% {
+    outline-color: #cb4141;
+  }
+  95%,
+  100% {
+    outline-color: transparent;
+  }
+}
+@keyframes game-school-eraser {
+  0%,
+  50% {
+    opacity: 0;
+  }
+  55% {
+    opacity: 1;
+    transform: translateX(0) rotate(-12deg);
+  }
+  70% {
+    opacity: 1;
+    transform: translateX(70px) rotate(12deg);
+  }
+  83% {
+    opacity: 1;
+    transform: translateX(10px) rotate(-12deg);
+  }
+  100% {
+    opacity: 0;
+    transform: translateX(90px);
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  [data-pick-mark="right"] {
+    animation: none;
+    outline-color: #279450;
+  }
+  [data-pick-mark="wrong"] {
+    animation: none;
+    outline-color: #cb4141;
+  }
+  [data-pick-mark="wrong"]::after {
+    animation: none;
+  }
+}
