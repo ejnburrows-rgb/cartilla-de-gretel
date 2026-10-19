@@ -280,25 +280,36 @@
 .lc-lesson-shell--fit .native-lesson-viewer__content .fp-ix-pick__cells { display: flex; justify-content: center; align-items: center; column-gap: min(3.2cqw, 28px); }
 .lc-lesson-shell--fit .native-lesson-viewer__content .fp-ix-grid .fp-ix-cell,
 .lc-lesson-shell--fit .native-lesson-viewer__content .fp-ix-pick__cells .fp-ix-cell { flex: 0 1 114cqh; width: auto; min-width: 0; height: auto; max-height: 100%; aspect-ratio: 1; }
-
-/* ===== Shared 844x390 landscape guard — 2026-10-18 =====
- * Root cause: `.fp-ix-cell` uses `flex: 0 1 114cqh` with `height: auto` and
- * `aspect-ratio: 1` inside a centered flex row that has
- * `container-type: size`. At short viewport heights (e.g. 844x390 landscape
- * phone) the cqh unit resolves against a container with no definite height,
- * `max-height: 100%` clamps against a ~0-height row, and aspect-ratio cannot
- * recover — tiles collapse to ~10px (verified on main, Lesson 5 p13).
- * Fix: below 500px viewport height, give tiles a definite viewport-relative
- * size. min-height wins over the clamping max-height per CSS spec.
- * Desktop (900px) and portrait phone (844px) are untouched by the query. */
-@media (max-height: 500px) {
+/* Short landscape phones (e.g. 844x390): the page is content-sized in this
+ * mode (see the #717 block above), so every fit rule that sizes against the
+ * page/row height goes circular and collapses its tiles to slivers:
+ *  - picture grids (.fp-ix-grid / .fp-ix-pick): the rows are size-contained
+ *    with 0px height, and cells sized at 114cqh of that collapse to ~10px;
+ *  - line-match boards (.am-direct-pencil): stage, grid and rows chain
+ *    height:100%/flex off an indefinite page height and flatten.
+ * Size these tiles against the viewport (definite dvh) instead; the page is
+ * allowed to scroll in this mode. Shared/generic — not lesson-scoped. */
+@media (orientation: landscape) and (max-height: 500px) {
+  .lc-lesson-shell--fit .native-lesson-viewer__content .fp-ix-grid,
+  .lc-lesson-shell--fit .native-lesson-viewer__content .fp-ix-pick,
+  .lc-lesson-shell--fit .native-lesson-viewer__content .am-direct-pencil,
+  .lc-lesson-shell--fit .native-lesson-viewer__content .am-faithful-pencil { flex: none; }
+  .lc-lesson-shell--fit .native-lesson-viewer__content .fp-ix-grid .fp-ix-row,
+  .lc-lesson-shell--fit .native-lesson-viewer__content .fp-ix-pick__cells { container-type: normal; flex: none; }
   .lc-lesson-shell--fit .native-lesson-viewer__content .fp-ix-grid .fp-ix-cell,
   .lc-lesson-shell--fit .native-lesson-viewer__content .fp-ix-pick__cells .fp-ix-cell {
     flex: 0 0 auto;
-    width: 18vh;
-    min-width: 18vh;
-    height: 18vh;
-    min-height: 18vh;
+    width: clamp(60px, 22dvh, 140px);
     max-height: none;
+  }
+  .lc-lesson-shell--fit .native-lesson-viewer__content .am-direct-pencil__stage { flex: none; }
+  .lc-lesson-shell--fit .native-lesson-viewer__content .am-direct-pencil__grid { height: auto; row-gap: 10px; }
+  .lc-lesson-shell--fit .native-lesson-viewer__content .am-direct-pencil__row { flex: none; grid-template-rows: none; align-items: center; justify-items: center; }
+  .lc-lesson-shell--fit .native-lesson-viewer__content .am-direct-pencil__row > .am-direct-pencil__target,
+  .lc-lesson-shell--fit .native-lesson-viewer__content .am-direct-pencil__row > .am-direct-pencil__center {
+    height: auto;
+    min-height: 0;
+    aspect-ratio: 1;
+    width: clamp(56px, 22dvh, 140px);
   }
 }
