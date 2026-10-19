@@ -33,13 +33,13 @@
 
 .lc-lesson-shell--fit .native-lesson-viewer__content .gretel-activity[data-gretel-activity^="page-35-"] .fp-trace__svg,
 .lc-lesson-shell--fit .native-lesson-viewer__content .gretel-activity[data-gretel-activity^="page-39-"] .fp-trace__svg,
-.lc-lesson-shell--fit .native-lesson-viewer__content .gretel-activity[data-gretel-activity^="page-55-"] .fp-trace__svg,
+.lc-lesson-shell--fit .native-lesson-viewer__content .gretel-activity[data-gretel-activity^="page-55-"] .fp-trace__svg {
   height: calc(var(--ph) * 0.15);
 }
 
 .lc-lesson-shell--fit .native-lesson-viewer__content .gretel-activity[data-gretel-activity^="page-35-"] .fp-trace__footer,
 .lc-lesson-shell--fit .native-lesson-viewer__content .gretel-activity[data-gretel-activity^="page-39-"] .fp-trace__footer,
-.lc-lesson-shell--fit .native-lesson-viewer__content .gretel-activity[data-gretel-activity^="page-55-"] .fp-trace__footer,
+.lc-lesson-shell--fit .native-lesson-viewer__content .gretel-activity[data-gretel-activity^="page-55-"] .fp-trace__footer {
   flex-wrap: nowrap;
   gap: 4px;
   font-size: 11px;
@@ -48,7 +48,7 @@
 
 .lc-lesson-shell--fit .native-lesson-viewer__content .gretel-activity[data-gretel-activity^="page-35-"] .fp-writing-line--trace,
 .lc-lesson-shell--fit .native-lesson-viewer__content .gretel-activity[data-gretel-activity^="page-39-"] .fp-writing-line--trace,
-.lc-lesson-shell--fit .native-lesson-viewer__content .gretel-activity[data-gretel-activity^="page-55-"] .fp-writing-line--trace,
+.lc-lesson-shell--fit .native-lesson-viewer__content .gretel-activity[data-gretel-activity^="page-55-"] .fp-writing-line--trace {
   margin: 1cqw 0;
 }
 
@@ -56,26 +56,26 @@
  * of tools, a short header and a shorter drawing sheet. */
 .lc-lesson-shell--fit .native-lesson-viewer__content .gretel-activity[data-gretel-activity^="page-35-"] .am-dibuja__header,
 .lc-lesson-shell--fit .native-lesson-viewer__content .gretel-activity[data-gretel-activity^="page-39-"] .am-dibuja__header,
-.lc-lesson-shell--fit .native-lesson-viewer__content .gretel-activity[data-gretel-activity^="page-55-"] .am-dibuja__header,
+.lc-lesson-shell--fit .native-lesson-viewer__content .gretel-activity[data-gretel-activity^="page-55-"] .am-dibuja__header {
   gap: 0;
   min-height: 0;
 }
 .lc-lesson-shell--fit .native-lesson-viewer__content .gretel-activity[data-gretel-activity^="page-35-"] .am-dibuja__header .am-dibuja__verb,
 .lc-lesson-shell--fit .native-lesson-viewer__content .gretel-activity[data-gretel-activity^="page-39-"] .am-dibuja__header .am-dibuja__verb,
-.lc-lesson-shell--fit .native-lesson-viewer__content .gretel-activity[data-gretel-activity^="page-55-"] .am-dibuja__header .am-dibuja__verb,
+.lc-lesson-shell--fit .native-lesson-viewer__content .gretel-activity[data-gretel-activity^="page-55-"] .am-dibuja__header .am-dibuja__verb {
   font-size: 13px;
   line-height: 1.1;
 }
 .lc-lesson-shell--fit .native-lesson-viewer__content .gretel-activity[data-gretel-activity^="page-35-"] .am-dibuja__header .am-dibuja__hint,
 .lc-lesson-shell--fit .native-lesson-viewer__content .gretel-activity[data-gretel-activity^="page-39-"] .am-dibuja__header .am-dibuja__hint,
-.lc-lesson-shell--fit .native-lesson-viewer__content .gretel-activity[data-gretel-activity^="page-55-"] .am-dibuja__header .am-dibuja__hint,
+.lc-lesson-shell--fit .native-lesson-viewer__content .gretel-activity[data-gretel-activity^="page-55-"] .am-dibuja__header .am-dibuja__hint {
   font-size: 12px;
   line-height: 1.1;
 }
 
 .lc-lesson-shell--fit .native-lesson-viewer__content .gretel-activity[data-gretel-activity^="page-35-"] .am-dibuja__paper,
 .lc-lesson-shell--fit .native-lesson-viewer__content .gretel-activity[data-gretel-activity^="page-39-"] .am-dibuja__paper,
-.lc-lesson-shell--fit .native-lesson-viewer__content .gretel-activity[data-gretel-activity^="page-55-"] .am-dibuja__paper,
+.lc-lesson-shell--fit .native-lesson-viewer__content .gretel-activity[data-gretel-activity^="page-55-"] .am-dibuja__paper {
   height: calc(var(--ph) * 0.07);
   min-height: 36px;
   aspect-ratio: auto;
@@ -88,7 +88,7 @@
  * every fit scale. */
 .lc-lesson-shell--fit .native-lesson-viewer__content .gretel-activity[data-gretel-activity^="page-35-"] .am-dibuja__toolbar,
 .lc-lesson-shell--fit .native-lesson-viewer__content .gretel-activity[data-gretel-activity^="page-39-"] .am-dibuja__toolbar,
-.lc-lesson-shell--fit .native-lesson-viewer__content .gretel-activity[data-gretel-activity^="page-55-"] .am-dibuja__toolbar,
+.lc-lesson-shell--fit .native-lesson-viewer__content .gretel-activity[data-gretel-activity^="page-55-"] .am-dibuja__toolbar {
   flex-wrap: nowrap;
   overflow-x: auto;
   gap: 4px;
@@ -96,13 +96,13 @@
 }
 .lc-lesson-shell--fit .native-lesson-viewer__content .gretel-activity[data-gretel-activity^="page-35-"] .am-dibuja__swatches,
 .lc-lesson-shell--fit .native-lesson-viewer__content .gretel-activity[data-gretel-activity^="page-39-"] .am-dibuja__swatches,
-.lc-lesson-shell--fit .native-lesson-viewer__content .gretel-activity[data-gretel-activity^="page-55-"] .am-dibuja__swatches,
+.lc-lesson-shell--fit .native-lesson-viewer__content .gretel-activity[data-gretel-activity^="page-55-"] .am-dibuja__swatches {
   flex-wrap: nowrap;
   gap: 3px;
 }
 .lc-lesson-shell--fit .native-lesson-viewer__content .gretel-activity[data-gretel-activity^="page-35-"] .am-dibuja__swatch,
 .lc-lesson-shell--fit .native-lesson-viewer__content .gretel-activity[data-gretel-activity^="page-39-"] .am-dibuja__swatch,
-.lc-lesson-shell--fit .native-lesson-viewer__content .gretel-activity[data-gretel-activity^="page-55-"] .am-dibuja__swatch,
+.lc-lesson-shell--fit .native-lesson-viewer__content .gretel-activity[data-gretel-activity^="page-55-"] .am-dibuja__swatch {
   width: 26px;
   height: 26px;
   min-width: 26px;
@@ -113,7 +113,7 @@
  * compact check; its "Listo" text stays as the accessible name. */
 .lc-lesson-shell--fit .native-lesson-viewer__content .gretel-activity[data-gretel-activity^="page-35-"] .am-dibuja__done,
 .lc-lesson-shell--fit .native-lesson-viewer__content .gretel-activity[data-gretel-activity^="page-39-"] .am-dibuja__done,
-.lc-lesson-shell--fit .native-lesson-viewer__content .gretel-activity[data-gretel-activity^="page-55-"] .am-dibuja__done,
+.lc-lesson-shell--fit .native-lesson-viewer__content .gretel-activity[data-gretel-activity^="page-55-"] .am-dibuja__done {
   order: 1;
   min-height: 26px;
   min-width: 26px;
@@ -123,14 +123,14 @@
 }
 .lc-lesson-shell--fit .native-lesson-viewer__content .gretel-activity[data-gretel-activity^="page-35-"] .am-dibuja__done::after,
 .lc-lesson-shell--fit .native-lesson-viewer__content .gretel-activity[data-gretel-activity^="page-39-"] .am-dibuja__done::after,
-.lc-lesson-shell--fit .native-lesson-viewer__content .gretel-activity[data-gretel-activity^="page-55-"] .am-dibuja__done::after,
+.lc-lesson-shell--fit .native-lesson-viewer__content .gretel-activity[data-gretel-activity^="page-55-"] .am-dibuja__done::after {
   content: "✓";
   font-size: 14px;
   font-weight: 700;
 }
 .lc-lesson-shell--fit .native-lesson-viewer__content .gretel-activity[data-gretel-activity^="page-35-"] .am-dibuja__tool,
 .lc-lesson-shell--fit .native-lesson-viewer__content .gretel-activity[data-gretel-activity^="page-39-"] .am-dibuja__tool,
-.lc-lesson-shell--fit .native-lesson-viewer__content .gretel-activity[data-gretel-activity^="page-55-"] .am-dibuja__tool,
+.lc-lesson-shell--fit .native-lesson-viewer__content .gretel-activity[data-gretel-activity^="page-55-"] .am-dibuja__tool {
   order: 2;
   min-height: 26px;
   min-width: 26px;
@@ -140,7 +140,7 @@
 }
 .lc-lesson-shell--fit .native-lesson-viewer__content .gretel-activity[data-gretel-activity^="page-35-"] .am-dibuja__tool--eraser,
 .lc-lesson-shell--fit .native-lesson-viewer__content .gretel-activity[data-gretel-activity^="page-39-"] .am-dibuja__tool--eraser,
-.lc-lesson-shell--fit .native-lesson-viewer__content .gretel-activity[data-gretel-activity^="page-55-"] .am-dibuja__tool--eraser,
+.lc-lesson-shell--fit .native-lesson-viewer__content .gretel-activity[data-gretel-activity^="page-55-"] .am-dibuja__tool--eraser {
   order: 0;
 }
 
@@ -167,13 +167,13 @@
 @media (orientation: landscape) and (max-height: 500px) {
   .lc-lesson-shell--fit:has(.native-lesson-viewer__content .faithful-page__body:not([data-lc-fit-overflow]) .gretel-activity[data-gretel-activity^="page-35-"]),
   .lc-lesson-shell--fit:has(.native-lesson-viewer__content .faithful-page__body:not([data-lc-fit-overflow]) .gretel-activity[data-gretel-activity^="page-39-"]),
-  .lc-lesson-shell--fit:has(.native-lesson-viewer__content .faithful-page__body:not([data-lc-fit-overflow]) .gretel-activity[data-gretel-activity^="page-55-"]),
+  .lc-lesson-shell--fit:has(.native-lesson-viewer__content .faithful-page__body:not([data-lc-fit-overflow]) .gretel-activity[data-gretel-activity^="page-55-"]) {
     height: 100dvh;
     overflow: hidden;
   }
   .lc-lesson-shell--fit:has(.native-lesson-viewer__content .faithful-page__body:not([data-lc-fit-overflow]) .gretel-activity[data-gretel-activity^="page-35-"]) .lc-lesson-main,
   .lc-lesson-shell--fit:has(.native-lesson-viewer__content .faithful-page__body:not([data-lc-fit-overflow]) .gretel-activity[data-gretel-activity^="page-39-"]) .lc-lesson-main,
-  .lc-lesson-shell--fit:has(.native-lesson-viewer__content .faithful-page__body:not([data-lc-fit-overflow]) .gretel-activity[data-gretel-activity^="page-55-"]) .lc-lesson-main,
+  .lc-lesson-shell--fit:has(.native-lesson-viewer__content .faithful-page__body:not([data-lc-fit-overflow]) .gretel-activity[data-gretel-activity^="page-55-"]) .lc-lesson-main {
     container-type: size;
     flex: 1 1 0;
     min-height: 0;
@@ -181,14 +181,14 @@
   }
   .lc-lesson-shell--fit .native-lesson-viewer__content .faithful-page:has(> .faithful-page__body:not([data-lc-fit-overflow]) .gretel-activity[data-gretel-activity^="page-35-"]),
   .lc-lesson-shell--fit .native-lesson-viewer__content .faithful-page:has(> .faithful-page__body:not([data-lc-fit-overflow]) .gretel-activity[data-gretel-activity^="page-39-"]),
-  .lc-lesson-shell--fit .native-lesson-viewer__content .faithful-page:has(> .faithful-page__body:not([data-lc-fit-overflow]) .gretel-activity[data-gretel-activity^="page-55-"]),
+  .lc-lesson-shell--fit .native-lesson-viewer__content .faithful-page:has(> .faithful-page__body:not([data-lc-fit-overflow]) .gretel-activity[data-gretel-activity^="page-55-"]) {
     height: var(--ph);
     min-height: 0;
     overflow: hidden;
   }
   .lc-lesson-shell--fit .native-lesson-viewer__content .faithful-page:has(> .faithful-page__body:not([data-lc-fit-overflow]) .gretel-activity[data-gretel-activity^="page-35-"]) > .faithful-page__body,
   .lc-lesson-shell--fit .native-lesson-viewer__content .faithful-page:has(> .faithful-page__body:not([data-lc-fit-overflow]) .gretel-activity[data-gretel-activity^="page-39-"]) > .faithful-page__body,
-  .lc-lesson-shell--fit .native-lesson-viewer__content .faithful-page:has(> .faithful-page__body:not([data-lc-fit-overflow]) .gretel-activity[data-gretel-activity^="page-55-"]) > .faithful-page__body,
+  .lc-lesson-shell--fit .native-lesson-viewer__content .faithful-page:has(> .faithful-page__body:not([data-lc-fit-overflow]) .gretel-activity[data-gretel-activity^="page-55-"]) > .faithful-page__body {
     position: absolute;
     inset: 0;
     overflow: hidden;
