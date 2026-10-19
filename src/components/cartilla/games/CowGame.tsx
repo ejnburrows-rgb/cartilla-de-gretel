@@ -79,7 +79,7 @@ const PORT: Layout = {
   W: 852,
   H: 1846,
   fieldFloor: 1150,
-  fenceTop: 1118,
+  fenceTop: 1107,
   scene: "scene-portrait.webp",
   sceneTop: "scene-portrait-top.webp",
   sceneFence: "scene-portrait-fence.webp",
