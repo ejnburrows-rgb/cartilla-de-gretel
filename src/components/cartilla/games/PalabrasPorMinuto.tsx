@@ -195,37 +195,31 @@ function CorkBoard({ content, onBack }: { content: GameContent; onBack: () => vo
         Leídas: {count} de {total}
       </p>
 
-      {/* Pinned mima drawing */}
-      <div className="relative mx-auto mb-3 w-fit">
-        <div className="absolute -top-2 left-1/2 z-10 h-5 w-5 -translate-x-1/2 rounded-full bg-[#b91c1c] shadow-md ring-2 ring-[#7f1d1d]" aria-hidden />
-        <img
-          src={`${ASSETS}/mima.png`}
-          alt="Mima abrazando a su bebé"
-          className="w-40 rotate-[-2deg] rounded-lg border-4 border-white bg-white shadow-xl sm:w-48"
-        />
-      </div>
-
       {/* Word grid — pinned cards on the cork board */}
       <div className="mx-auto grid max-w-2xl grid-cols-2 gap-2 sm:grid-cols-3 sm:gap-3">
         {content.words.map((item, i) => {
           const read = i < count;
           const current = running && i === count;
+          // Spec: Answer marking: start ash/gray; correct turns green slowly; wrong turns red then erases
+          // In this specific UI, clicking the "current" button means the user read it correctly,
+          // progressing the count. There's no wrong button here.
+          // The CSS transitions handle the 'correct turns green slowly' and 'start ash/gray'.
           return (
             <button
               key={`${item.word}-${i}`}
               disabled={!current}
               onClick={() => setCount((n) => Math.min(n + 1, total))}
-              className={`relative rounded-xl border-2 px-3 py-3 text-lg font-black shadow-md transition-all sm:text-xl ${
+              className={`relative rounded-xl border-2 px-3 py-3 text-lg font-black shadow-md transition-all duration-1000 sm:text-xl ${
                 read
-                  ? "border-emerald-600 bg-emerald-100 text-emerald-900"
+                  ? "border-emerald-600 bg-emerald-100 text-emerald-900 scale-100"
                   : current
-                    ? "border-[#0d9488] bg-white text-stone-900 ring-4 ring-[#0d9488]/40"
-                    : "border-stone-300 bg-[#fffdf5] text-stone-800"
+                    ? "border-stone-400 bg-stone-100 text-stone-800 ring-4 ring-stone-400/40 scale-105"
+                    : "border-stone-300 bg-stone-200 text-stone-600 scale-100"
               } ${!current && !read ? "opacity-90" : ""} min-h-[44px]`}
               aria-label={read ? `${item.word} (leída)` : `Leer: ${item.word}`}
             >
               {read && (
-                <Check className="absolute right-1 top-1 h-4 w-4 text-emerald-600" aria-hidden />
+                <Check className="absolute right-1 top-1 h-4 w-4 text-emerald-600 animate-in fade-in duration-1000" aria-hidden />
               )}
               {item.word}
             </button>
