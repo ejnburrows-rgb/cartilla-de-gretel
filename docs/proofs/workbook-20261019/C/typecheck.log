@@ -1,0 +1,4 @@
+
+> cartilla-de-gretel-platform@ typecheck /home/sandbox/cartilla-de-gretel
+> tsc --noEmit
+

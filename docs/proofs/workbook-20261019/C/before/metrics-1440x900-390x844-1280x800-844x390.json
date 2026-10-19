@@ -1,0 +1,102 @@
+[
+  {
+    "name": "1440x900-L19-p67.png",
+    "n": 19,
+    "p": 67,
+    "viewport": [
+      1440,
+      900
+    ],
+    "document": [
+      1440,
+      900
+    ],
+    "paper": {
+      "x": 140,
+      "y": 12,
+      "width": 1160,
+      "height": 876
+    },
+    "overflow": false
+  },
+  {
+    "name": "1440x900-L19-p68.png",
+    "n": 19,
+    "p": 68,
+    "viewport": [
+      1440,
+      900
+    ],
+    "document": [
+      1440,
+      900
+    ],
+    "paper": {
+      "x": 140,
+      "y": 12,
+      "width": 1160,
+      "height": 876
+    },
+    "overflow": false
+  },
+  {
+    "name": "1440x900-L19-p69.png",
+    "n": 19,
+    "p": 69,
+    "viewport": [
+      1440,
+      900
+    ],
+    "document": [
+      1440,
+      900
+    ],
+    "paper": {
+      "x": 140,
+      "y": 12,
+      "width": 1160,
+      "height": 876
+    },
+    "overflow": false
+  },
+  {
+    "name": "1440x900-L19-p70.png",
+    "n": 19,
+    "p": 70,
+    "viewport": [
+      1440,
+      900
+    ],
+    "document": [
+      1440,
+      900
+    ],
+    "paper": {
+      "x": 140,
+      "y": 12,
+      "width": 1160,
+      "height": 876
+    },
+    "overflow": false
+  },
+  {
+    "name": "1440x900-L20-p71.png",
+    "n": 20,
+    "p": 71,
+    "viewport": [
+      1440,
+      900
+    ],
+    "document": [
+      1440,
+      900
+    ],
+    "paper": {
+      "x": 140,
+      "y": 12,
+      "width": 1160,
+      "height": 876
+    },
+    "overflow": false
+  }
+]

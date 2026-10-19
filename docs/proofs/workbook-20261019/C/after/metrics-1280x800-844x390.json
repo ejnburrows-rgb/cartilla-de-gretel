@@ -1,0 +1,97 @@
+[
+  {
+    "name": "1280x800-L19-p67.png",
+    "n": 19,
+    "p": 67,
+    "viewport": [
+      1280,
+      800
+    ],
+    "document": [
+      1280,
+      800
+    ],
+    "paper": {
+      "x": 0,
+      "y": 0,
+      "width": 1280,
+      "height": 736
+    },
+    "overflow": false
+  },
+  {
+    "name": "1280x800-L19-p68.png",
+    "n": 19,
+    "p": 68,
+    "viewport": [
+      1280,
+      800
+    ],
+    "document": [
+      1280,
+      800
+    ],
+    "paper": {
+      "x": 0,
+      "y": 0,
+      "width": 1280,
+      "height": 736
+    },
+    "overflow": false
+  },
+  {
+    "name": "1280x800-L19-p69.png",
+    "n": 19,
+    "p": 69,
+    "viewport": [
+      1280,
+      800
+    ],
+    "document": [
+      1280,
+      800
+    ],
+    "paper": {
+      "x": 0,
+      "y": 0,
+      "width": 1280,
+      "height": 736
+    },
+    "overflow": false
+  },
+  {
+    "name": "1280x800-L19-p70.png",
+    "n": 19,
+    "p": 70,
+    "viewport": [
+      1280,
+      800
+    ],
+    "document": [
+      1280,
+      800
+    ],
+    "paper": null,
+    "overflow": false
+  },
+  {
+    "name": "1280x800-L20-p71.png",
+    "n": 20,
+    "p": 71,
+    "viewport": [
+      1280,
+      800
+    ],
+    "document": [
+      1280,
+      800
+    ],
+    "paper": {
+      "x": 0,
+      "y": 0,
+      "width": 1280,
+      "height": 736
+    },
+    "overflow": false
+  }
+]

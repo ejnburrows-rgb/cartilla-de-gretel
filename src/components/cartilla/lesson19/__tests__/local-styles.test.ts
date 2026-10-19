@@ -10,6 +10,9 @@ describe("lessons 19-24 local workbook repairs", () => {
       expect(referenced.length).toBeGreaterThan(0);
       expect(referenced.every(p => allowed.includes(p))).toBe(true);
       expect(css).not.toMatch(/page-(86|87)-/);
+      expect(css).not.toContain('font-size: 0');
+      expect(css).not.toContain('min-width: 26px');
+      expect(css).not.toContain('.am-dibuja__done::after');
     });
   }
 });
