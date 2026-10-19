@@ -1,0 +1,553 @@
+/* Lesson 12 (Pp) — owner-approved wide cream-paper redesign (2026-10-18).
+ *
+ * Scoped strictly to the Lesson 12 student route via .lc-lesson-12 on the
+ * lesson shell (added by -leccion-view.tsx only when the lesson number is
+ * 12), so no other lesson, the shared interaction kernel, or any locked
+ * data file (lesson-meta.ts, consonants.json, page-layouts.json) is
+ * affected. Book wording, artwork and exercise content are unchanged; this
+ * file only presents the same verified page-layouts.json regions wide, in
+ * cream paper, with the design's teal.
+ *
+ * Lesson 12 printed pages and archetypes (workbook-archetypes.ts):
+ *   39 — handwriting + open drawing             (writing-line, draw-box, archetype-5)
+ *   40 — syllable recognition / circle          (5 syllable-match groups)
+ *   41 — phonics / reading practice             (fp-native-letter-page: Ll)
+ *   42 — complete-the-word + sentence writing   (fill-in-blank, writing-response)
+ *
+ * NOTE on pictures: none of the four printed pages contains picture
+ * regions in the source (verified against page-layouts.json — no
+ * illustrationSrc anywhere on pages 39–42). The wide design's
+ * "always-moving pictures from page load" rule therefore has nothing to
+ * attach to in this lesson; the owner-approved LivingIllustration motion
+ * is untouched and no art was invented. No boxed-picture rules were added
+ * (there is nothing to box).
+ */
+
+.lc-lesson-12 {
+  --l12-teal: #0d9488;
+  --l12-teal-deep: #0a756c;
+  --l12-teal-soft: #1f9e94;
+  --l12-cream: #faf2df;
+  --l12-cream-deep: #ece1c6;
+  --l12-ink: #3c3423;
+  --l12-glow: 0 0 0 1px rgba(13, 148, 136, 0.22), 0 12px 30px -14px rgba(13, 148, 136, 0.5);
+}
+
+/* 1. Wide paper: the page uses the screen width on every orientation
+ *    instead of the narrow book-proportion column. */
+.lc-lesson-12 .lc-lesson-main {
+  --lc-top: 10px;
+  --lc-bottom: 10px;
+  --pw: min(100cqw - 16px, 1500px);
+}
+@media (orientation: portrait) {
+  .lc-lesson-12 .lc-lesson-main {
+    --lc-top: 46px;
+    --lc-bottom: 80px;
+    --pw: calc(100cqw - 12px);
+  }
+}
+.lc-lesson-12 .native-lesson-viewer {
+  width: var(--pw);
+  max-width: none;
+  background: var(--l12-cream-deep);
+  border-color: #e5d5b5;
+  border-radius: 18px;
+  padding: clamp(6px, 1.2vw, 16px);
+}
+
+/* 2. Cream paper sheet with a slim (~4.5%) teal spine on the left edge. */
+.lc-lesson-12 .native-lesson-viewer__content .faithful-page {
+  background:
+    radial-gradient(120% 90% at 16% 8%, rgba(255, 255, 255, 0.55), transparent 55%),
+    var(--l12-cream);
+  border: 1px solid #ead9b8;
+  border-radius: 14px;
+  box-shadow:
+    inset 0 0 0 1px rgba(255, 255, 255, 0.55),
+    0 12px 30px -18px rgba(80, 60, 20, 0.35);
+}
+.lc-lesson-12 .native-lesson-viewer__content .faithful-page__sidebar {
+  display: block;
+  width: 4.5%;
+  min-width: 24px;
+  color: var(--l12-teal-soft);
+  opacity: 0.92;
+}
+.lc-lesson-12 .native-lesson-viewer__content .faithful-page__body,
+.lc-lesson-12
+  .native-lesson-viewer__content
+  .faithful-page--edge-right
+  .faithful-page__body {
+  padding: clamp(8px, 2.4cqh, 26px) clamp(12px, 2.4cqw, 36px);
+  padding-left: calc(4.5% + clamp(10px, 2cqw, 30px));
+}
+
+/* 3. The instruction LINE reads in the single teal #0d9488 (labels,
+ *    spaces, fallback text); the instruction LETTERS rotate through the
+ *    owner-approved garden palette (Lesson12GardenText component). */
+.lc-lesson-12 .native-lesson-viewer__content .fp-region--instruction {
+  color: var(--l12-teal) !important;
+}
+.lc-lesson-12
+  .native-lesson-viewer__content
+  .fp-region--instruction
+  .fp-label {
+  color: inherit;
+}
+
+/* Garden-palette instruction letters (not dark ink). Colors chosen for
+ * readable contrast on the cream paper. */
+.lc-lesson-12 .l12-garden-letter { font-weight: 700; }
+.lc-lesson-12 .l12-leaf { color: #2e7d43; }
+.lc-lesson-12 .l12-rose { color: #c74f7c; }
+.lc-lesson-12 .l12-sun { color: #b97a10; }
+.lc-lesson-12 .l12-sky { color: #2f6fb2; }
+.lc-lesson-12 .l12-lavender { color: #7c53a6; }
+
+/* 4. Strong teal glow around the exercise boxes. Every box keeps its
+ *    border and gets the glow. */
+.lc-lesson-12 .native-lesson-viewer__content .fp-ix-fill__item,
+.lc-lesson-12 .native-lesson-viewer__content .fp-ix-fill__choice,
+.lc-lesson-12 .native-lesson-viewer__content .fp-fill-in-blank__item,
+.lc-lesson-12 .native-lesson-viewer__content .fp-fill-in-blank__wordbox,
+.lc-lesson-12 .native-lesson-viewer__content .fp-syllable-match__word,
+.lc-lesson-12 .native-lesson-viewer__content .fp-writing-line,
+.lc-lesson-12 .native-lesson-viewer__content .fp-draw-box,
+.lc-lesson-12 .native-lesson-viewer__content .am-dibuja__paper,
+.lc-lesson-12 .native-lesson-viewer__content .fp-native-syllables,
+.lc-lesson-12 .native-lesson-viewer__content .fp-native-vocab span,
+.lc-lesson-12 .native-lesson-viewer__content .fp-native-sight-word,
+.lc-lesson-12 .native-lesson-viewer__content .fp-region--reading-sentences {
+  box-shadow:
+    0 0 0 1px rgba(13, 148, 136, 0.22),
+    0 12px 30px -14px rgba(13, 148, 136, 0.5);
+}
+
+/* 5. Letter card at the LEFT edge of the letter page (p41), with a wide
+ *    open gap before the syllable chips and vocabulary. */
+.lc-lesson-12
+  .native-lesson-viewer__content
+  .faithful-page__body:has(> .gretel-activity .fp-native-title) {
+  column-gap: clamp(20px, 7cqw, 110px);
+}
+.lc-lesson-12
+  .native-lesson-viewer__content
+  .faithful-page__body:has(> .gretel-activity .fp-native-title)
+  > .gretel-activity:has(.fp-native-title) {
+  justify-self: start;
+  align-self: start;
+}
+.lc-lesson-12 .native-lesson-viewer__content .fp-native-title {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: clamp(88px, 19cqw, 210px);
+  aspect-ratio: 1 / 1.12;
+  margin: 0;
+  border: 3px solid var(--l12-teal-soft);
+  border-radius: clamp(18px, 3cqw, 34px);
+  background: #fffdf6;
+  padding: 0.15em 0.1em;
+  color: var(--l12-teal);
+  font-size: clamp(48px, 13cqw, 150px);
+  box-shadow:
+    0 0 0 1px rgba(13, 148, 136, 0.25),
+    0 16px 36px -16px rgba(13, 148, 136, 0.6);
+}
+
+/* 6. The page blocks flow naturally inside the wide grid body: the shared
+ *    fit-shell flex chain (flex: 1 1 0 + min-height: 0) collapses to zero
+ *    height inside a grid, so it is reset here. */
+.lc-lesson-12
+  .native-lesson-viewer__content
+  .faithful-page__body
+  > .gretel-activity {
+  display: block;
+  min-height: 0;
+}
+.lc-lesson-12
+  .native-lesson-viewer__content
+  .faithful-page__body
+  > .gretel-activity
+  > .gretel-activity__content {
+  display: block;
+  flex: none;
+  min-height: 0;
+}
+
+/* 7. Circle page (p40): the five syllable groups sit side by side on the
+ *    wide paper — one column on a narrow phone, three across on wide
+ *    landscape screens (five across on the very widest). The student view
+ *    renders the interactive SyllableWordCircle (.native-syllable). */
+.lc-lesson-12
+  .native-lesson-viewer__content
+  .faithful-page__body:has(> .gretel-activity .native-syllable) {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  align-content: safe center;
+  column-gap: clamp(12px, 2.4cqw, 30px);
+  row-gap: clamp(8px, 1.8cqh, 18px);
+}
+.lc-lesson-12
+  .native-lesson-viewer__content
+  .faithful-page__body:has(> .gretel-activity .native-syllable)
+  > .gretel-activity:first-child {
+  grid-column: 1 / -1;
+}
+@media (orientation: landscape) and (min-width: 640px) {
+  .lc-lesson-12
+    .native-lesson-viewer__content
+    .faithful-page__body:has(> .gretel-activity .native-syllable) {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+}
+@media (orientation: landscape) and (min-width: 1200px) {
+  .lc-lesson-12
+    .native-lesson-viewer__content
+    .faithful-page__body:has(> .gretel-activity .native-syllable) {
+    grid-template-columns: repeat(5, minmax(0, 1fr));
+  }
+}
+/* Word tiles keep the printed book's row width (three words per row) and
+ * their type tracks the tile. */
+.lc-lesson-12 .native-lesson-viewer__content .native-syllable__words {
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+}
+.lc-lesson-12 .native-lesson-viewer__content .native-syllable {
+  display: block;
+  border-radius: 18px;
+  background: #fffdf6;
+  border: 2px solid #9fd3ca;
+  padding: clamp(10px, 1.8cqh, 20px);
+}
+.lc-lesson-12 .native-lesson-viewer__content .native-syllable h2 {
+  display: inline-flex;
+  align-items: center;
+  margin: 0 0 10px;
+  padding: 0.28em 0.7em;
+  border-radius: 14px;
+  background: var(--l12-teal-soft);
+  border-color: var(--l12-teal-soft);
+  color: #fdfaf2;
+  font-size: clamp(18px, 2.2cqw, 30px);
+  font-weight: 900;
+  box-shadow: 0 4px 0 rgba(13, 148, 136, 0.35);
+}
+.lc-lesson-12 .native-lesson-viewer__content .native-syllable__word {
+  container-type: inline-size;
+  border-radius: 12px;
+  background: #fffdf6 !important;
+  border-color: #9fd3ca;
+  min-width: 0;
+  overflow: hidden;
+}
+/* The interactive circle view sets big tap type on the letters; keep the
+ * word tiles' type tracking the tile so words never overflow their boxes. */
+.lc-lesson-12
+  .native-lesson-viewer__content
+  .native-syllable__word
+  .native-syllable__letters {
+  font-size: min(24cqw, 26px);
+  line-height: 1.1;
+}
+/* Non-interactive fallback keeps the same look. */
+.lc-lesson-12 .native-lesson-viewer__content .fp-syllable-match {
+  display: block;
+  border-radius: 18px;
+  background: #fffdf6;
+  border: 2px solid #9fd3ca;
+  padding: clamp(10px, 1.8cqh, 20px);
+}
+.lc-lesson-12 .native-lesson-viewer__content .fp-syllable-match__syllable {
+  display: inline-flex;
+  align-items: center;
+  margin: 0 0 10px;
+  padding: 0.28em 0.7em;
+  border-radius: 14px;
+  background: var(--l12-teal-soft);
+  color: #fdfaf2;
+  font-size: clamp(18px, 2.2cqw, 30px);
+  font-weight: 900;
+  box-shadow: 0 4px 0 rgba(13, 148, 136, 0.35);
+}
+.lc-lesson-12 .native-lesson-viewer__content .fp-syllable-match__row {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: clamp(6px, 1.1cqw, 12px) clamp(8px, 1.8cqw, 18px);
+}
+.lc-lesson-12 .native-lesson-viewer__content .fp-syllable-match__word {
+  display: grid;
+  place-items: center;
+  min-height: 48px;
+  padding: 0 4px;
+  border: 2px solid #9fd3ca;
+  border-radius: 12px;
+  background: #fffdf6;
+  font-size: clamp(15px, 2.9cqw, 30px);
+  line-height: 1;
+}
+
+/* 8. Completa page (p42): the fill-in word boxes and the sentence-writing
+ *    box. The student view renders the interactive InteractiveFillInBlank
+ *    (.fp-ix-fill__*). */
+.lc-lesson-12 .native-lesson-viewer__content .fp-ix-fill__item {
+  border-radius: 16px;
+  background: #fffdf6;
+  border: 2px solid #e3d2b0;
+  padding: 8px 12px;
+}
+.lc-lesson-12 .native-lesson-viewer__content .fp-ix-fill__wordbox {
+  border-radius: 12px;
+  background: #fffdf6;
+  border: 2px solid var(--l12-teal-soft);
+  color: var(--l12-teal);
+  font-weight: 800;
+}
+.lc-lesson-12 .native-lesson-viewer__content .fp-ix-fill__blank {
+  min-width: 90px;
+  border-bottom: 3px solid var(--l12-teal-soft);
+}
+.lc-lesson-12 .native-lesson-viewer__content .fp-ix-fill__choice {
+  border-radius: 999px;
+  background: #fffdf6;
+  border-color: #9fd3ca;
+  color: var(--l12-teal-deep);
+  font-weight: 700;
+}
+/* Non-interactive fallback keeps the same look. */
+.lc-lesson-12 .native-lesson-viewer__content .fp-fill-in-blank__item {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  flex-wrap: wrap;
+  border-radius: 16px;
+  background: #fffdf6;
+  border: 2px solid #e3d2b0;
+  padding: 8px 12px;
+}
+.lc-lesson-12 .native-lesson-viewer__content .fp-fill-in-blank__wordbox {
+  border-radius: 12px;
+  background: #fffdf6;
+  border: 2px solid var(--l12-teal-soft);
+  color: var(--l12-teal);
+  font-weight: 800;
+  padding: 2px 12px;
+}
+.lc-lesson-12 .native-lesson-viewer__content .fp-fill-in-blank__blank {
+  min-width: 90px;
+  border-bottom: 3px solid var(--l12-teal-soft);
+}
+.lc-lesson-12 .native-lesson-viewer__content .fp-fill-in-blank__choices {
+  color: var(--l12-teal-deep);
+  font-weight: 700;
+}
+.lc-lesson-12 .native-lesson-viewer__content .fp-writing-response textarea {
+  background: repeating-linear-gradient(#fffdf6, #fffdf6 47px, #b7d4cd 48px);
+  border: 2px solid var(--l12-teal-soft);
+  border-radius: 14px;
+  box-shadow:
+    0 0 0 1px rgba(13, 148, 136, 0.25),
+    0 10px 24px -12px rgba(13, 148, 136, 0.5);
+  min-height: 120px;
+}
+
+/* 9. Tracing/drawing page (p39): writing lines and draw paper with teal
+ *    glow; model letters in teal. */
+.lc-lesson-12
+  .native-lesson-viewer__content
+  .faithful-page--archetype-5
+  .faithful-page__body
+  > .gretel-activity {
+  display: block;
+  flex: none;
+  min-height: auto;
+}
+.lc-lesson-12 .native-lesson-viewer__content .fp-writing-line {
+  background: #fffdf6;
+  border: 2px solid var(--l12-teal-soft);
+  border-radius: 14px;
+}
+.lc-lesson-12 .native-lesson-viewer__content .fp-writing-line__model {
+  color: var(--l12-teal);
+}
+.lc-lesson-12 .native-lesson-viewer__content .fp-draw-box,
+.lc-lesson-12 .native-lesson-viewer__content .am-dibuja__paper {
+  background: #fffdf6;
+  border: 2px solid var(--l12-teal-soft);
+  border-radius: 16px;
+}
+
+/* 10. Letter page (p41): garden-palette syllable chips, vocabulary grid,
+ *     sight word pill, reading-sentences box. */
+.lc-lesson-12 .native-lesson-viewer__content .fp-native-syllables {
+  background: linear-gradient(180deg, #fdfaf1 0%, #f2f9f4 100%);
+  border: 1px solid #cfe4de;
+  border-radius: 14px;
+  font-weight: 900;
+}
+.lc-lesson-12 .native-lesson-viewer__content .fp-native-syllables span:nth-child(5n + 1) {
+  color: #2e7d43; border-color: #2e7d43 !important;
+}
+.lc-lesson-12 .native-lesson-viewer__content .fp-native-syllables span:nth-child(5n + 2) {
+  color: #c74f7c; border-color: #c74f7c !important;
+}
+.lc-lesson-12 .native-lesson-viewer__content .fp-native-syllables span:nth-child(5n + 3) {
+  color: #b97a10; border-color: #b97a10 !important;
+}
+.lc-lesson-12 .native-lesson-viewer__content .fp-native-syllables span:nth-child(5n + 4) {
+  color: #2f6fb2; border-color: #2f6fb2 !important;
+}
+.lc-lesson-12 .native-lesson-viewer__content .fp-native-syllables span:nth-child(5n + 5) {
+  color: #7c53a6; border-color: #7c53a6 !important;
+}
+.lc-lesson-12 .native-lesson-viewer__content .fp-native-vocab span {
+  border-radius: 14px;
+  background: #fffdf6;
+  border-color: #e3d2b0;
+}
+.lc-lesson-12 .native-lesson-viewer__content .fp-native-sight-word {
+  background: #f5c85e;
+  border-color: #d9a83c;
+  color: #5b4510;
+  font-weight: 900;
+}
+.lc-lesson-12 .native-lesson-viewer__content .fp-region--reading-sentences {
+  border-radius: 18px;
+  background: #fffdf6;
+  border: 1px solid #ead9b8;
+}
+
+/* 11. Every page block rises into place from page load (presentation only —
+ *     the pencil marks stay the approved pencil circle / tap-and-X). */
+@keyframes l12-page-rise {
+  from {
+    opacity: 0;
+    transform: translateY(12px);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+.lc-lesson-12 .faithful-page__body > .gretel-activity {
+  animation: l12-page-rise 0.5s cubic-bezier(0.2, 0.7, 0.3, 1) both;
+}
+.lc-lesson-12 .faithful-page__body > .gretel-activity:nth-child(2) {
+  animation-delay: 0.07s;
+}
+.lc-lesson-12 .faithful-page__body > .gretel-activity:nth-child(3) {
+  animation-delay: 0.14s;
+}
+.lc-lesson-12 .faithful-page__body > .gretel-activity:nth-child(4) {
+  animation-delay: 0.21s;
+}
+.lc-lesson-12 .faithful-page__body > .gretel-activity:nth-child(5) {
+  animation-delay: 0.28s;
+}
+.lc-lesson-12 .faithful-page__body > .gretel-activity:nth-child(6) {
+  animation-delay: 0.35s;
+}
+@media (prefers-reduced-motion: reduce) {
+  .lc-lesson-12 .faithful-page__body > .gretel-activity {
+    animation: none;
+  }
+}
+
+/* 12. Short landscape screens (a phone held sideways, 844×390): compact the
+ *     Lesson 12 pages so the whole paper, down to its bottom edge, is on
+ *     screen without shrinking words below readable size. */
+@media (orientation: landscape) and (max-height: 500px) {
+  .lc-lesson-12 .native-lesson-viewer__content .faithful-page__body {
+    row-gap: 4px;
+    padding-top: 26px;
+    padding-bottom: 8px;
+  }
+  .lc-lesson-12 .native-lesson-viewer__content .fp-region--instruction {
+    font-size: clamp(14px, 2cqw, 17px);
+    margin: 0;
+  }
+  .lc-lesson-12 .native-lesson-viewer__content .fp-syllable-match,
+  .lc-lesson-12 .native-lesson-viewer__content .native-syllable {
+    padding: 6px 9px;
+    border-radius: 12px;
+  }
+  .lc-lesson-12 .native-lesson-viewer__content .fp-syllable-match__syllable,
+  .lc-lesson-12 .native-lesson-viewer__content .native-syllable h2 {
+    margin: 0 0 3px;
+    padding: 0.12em 0.45em;
+    font-size: 14px;
+    border-radius: 8px;
+  }
+  .lc-lesson-12 .native-lesson-viewer__content .fp-syllable-match__word,
+  .lc-lesson-12 .native-lesson-viewer__content .native-syllable__word {
+    min-height: 28px;
+    font-size: clamp(10px, 1.4cqw, 13px);
+  }
+  .lc-lesson-12 .native-lesson-viewer__content .fp-native-syllables span {
+    font-size: clamp(10px, 1.3cqw, 13px);
+    padding: 0.2em 0.45em;
+  }
+  .lc-lesson-12 .native-lesson-viewer__content .fp-native-vocab span {
+    min-height: 0;
+    padding: 2px 5px;
+    font-size: clamp(9px, 1.2cqw, 12px);
+    border-radius: 8px;
+  }
+  .lc-lesson-12 .native-lesson-viewer__content .fp-native-sight-word {
+    font-size: 12px;
+    padding: 0.2rem 0.6rem;
+  }
+  .lc-lesson-12
+    .native-lesson-viewer__content
+    .fp-region--reading-sentences {
+    padding: 8px 10px;
+    font-size: 11px;
+    line-height: 1.3;
+  }
+  .lc-lesson-12 .native-lesson-viewer__content .fp-native-title {
+    width: clamp(60px, 12cqw, 110px);
+    font-size: clamp(36px, 8.5cqw, 78px);
+    border-radius: 16px;
+  }
+  .lc-lesson-12 .native-lesson-viewer__content .fp-fill-in-blank__item,
+  .lc-lesson-12 .native-lesson-viewer__content .fp-ix-fill__item {
+    padding: 4px 8px;
+  }
+  .lc-lesson-12 .native-lesson-viewer__content .fp-fill-in-blank__wordbox,
+  .lc-lesson-12 .native-lesson-viewer__content .fp-fill-in-blank__blank,
+  .lc-lesson-12 .native-lesson-viewer__content .fp-ix-fill__wordbox,
+  .lc-lesson-12 .native-lesson-viewer__content .fp-ix-fill__blank {
+    font-size: clamp(11px, 1.4cqw, 14px);
+  }
+  .lc-lesson-12 .native-lesson-viewer__content .fp-fill-in-blank__blank,
+  .lc-lesson-12 .native-lesson-viewer__content .fp-ix-fill__blank {
+    min-width: 60px;
+  }
+  .lc-lesson-12 .native-lesson-viewer__content .fp-writing-response textarea {
+    min-height: 48px;
+  }
+  .lc-lesson-12 .native-lesson-viewer__content .fp-writing-line {
+    font-size: 12px;
+  }
+}
+
+/* 13. The "Lección 12" footer chip has no free corner on the wide paper —
+ *     screenshots prove it overlaps live exercise content (reading text on
+ *     p41, fill tiles on p42) — so the lesson label stays in the
+ *     (screen-reader-visible) chapter line instead of covering the child's
+ *     work. */
+.lc-lesson-12 .native-lesson-viewer__content .faithful-page__lesson {
+  display: none;
+}
+
+/* 14. Navigation + focus keep the design's teal. */
+.lc-lesson-12 .native-lesson-viewer__navigation button[data-testid="button-next"] {
+  background: var(--l12-teal);
+  border-color: var(--l12-teal);
+  color: #fffdf6;
+}
+.lc-lesson-12 :is(button, a, textarea):focus-visible {
+  outline: 3px solid var(--l12-teal);
+  outline-offset: 3px;
+}
