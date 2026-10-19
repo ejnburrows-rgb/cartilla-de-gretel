@@ -225,3 +225,32 @@
   .lc-lesson-shell--fit[data-lesson="6"] .native-lesson-viewer__content .faithful-page .faithful-page__pagenum span,
   .lc-lesson-shell--fit[data-lesson="7"] .native-lesson-viewer__content .faithful-page .faithful-page__pagenum span { font-size: 13px !important; }
 }
+
+/* Sideways phone: a cream strip at the top of the page so scrolled content never shows through the controls. */
+@media (orientation: landscape) and (max-height: 500px) {
+  .lc-lesson-shell--fit[data-lesson="1"] .native-lesson-viewer__content .faithful-page::before,
+  .lc-lesson-shell--fit[data-lesson="2"] .native-lesson-viewer__content .faithful-page::before,
+  .lc-lesson-shell--fit[data-lesson="3"] .native-lesson-viewer__content .faithful-page::before,
+  .lc-lesson-shell--fit[data-lesson="4"] .native-lesson-viewer__content .faithful-page::before,
+  .lc-lesson-shell--fit[data-lesson="5"] .native-lesson-viewer__content .faithful-page::before,
+  .lc-lesson-shell--fit[data-lesson="6"] .native-lesson-viewer__content .faithful-page::before,
+  .lc-lesson-shell--fit[data-lesson="7"] .native-lesson-viewer__content .faithful-page::before {
+    content: ""; position: fixed; left: 0; top: 0; width: 100vw; height: 44px; background: #f6edd3; z-index: 1;
+  }
+  .lc-lesson-shell--fit[data-lesson="1"] .native-lesson-viewer__content .faithful-page .faithful-page__lesson,
+  .lc-lesson-shell--fit[data-lesson="1"] .native-lesson-viewer__content .faithful-page .faithful-page__pagenum,
+  .lc-lesson-shell--fit[data-lesson="2"] .native-lesson-viewer__content .faithful-page .faithful-page__lesson,
+  .lc-lesson-shell--fit[data-lesson="2"] .native-lesson-viewer__content .faithful-page .faithful-page__pagenum,
+  .lc-lesson-shell--fit[data-lesson="3"] .native-lesson-viewer__content .faithful-page .faithful-page__lesson,
+  .lc-lesson-shell--fit[data-lesson="3"] .native-lesson-viewer__content .faithful-page .faithful-page__pagenum,
+  .lc-lesson-shell--fit[data-lesson="4"] .native-lesson-viewer__content .faithful-page .faithful-page__lesson,
+  .lc-lesson-shell--fit[data-lesson="4"] .native-lesson-viewer__content .faithful-page .faithful-page__pagenum,
+  .lc-lesson-shell--fit[data-lesson="5"] .native-lesson-viewer__content .faithful-page .faithful-page__lesson,
+  .lc-lesson-shell--fit[data-lesson="5"] .native-lesson-viewer__content .faithful-page .faithful-page__pagenum,
+  .lc-lesson-shell--fit[data-lesson="6"] .native-lesson-viewer__content .faithful-page .faithful-page__lesson,
+  .lc-lesson-shell--fit[data-lesson="6"] .native-lesson-viewer__content .faithful-page .faithful-page__pagenum,
+  .lc-lesson-shell--fit[data-lesson="7"] .native-lesson-viewer__content .faithful-page .faithful-page__lesson,
+  .lc-lesson-shell--fit[data-lesson="7"] .native-lesson-viewer__content .faithful-page .faithful-page__pagenum {
+    z-index: 2 !important;
+  }
+}
