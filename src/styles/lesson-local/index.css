@@ -1,3 +1,9 @@
 /* Scope module for per-lesson workbook styles. Each lesson file scopes its
  * rules with .lc-lesson-shell[data-lesson="N"]. */
 @import "./workbook-fill-1-7.css";
+@import "./lesson-19-local.css";
+@import "./lesson-20-local.css";
+@import "./lesson-21-local.css";
+@import "./lesson-22-local.css";
+@import "./lesson-23-local.css";
+@import "./lesson-24-local.css";
