@@ -8,7 +8,31 @@ import { recordEvent } from "@/lib/student-session";
 vi.mock("@/lib/student-session", () => ({ recordEvent: vi.fn() }));
 
 describe("PalabrasMinutoScene", () => {
-  beforeEach(() => vi.clearAllMocks());
+  let play: ReturnType<typeof vi.spyOn>;
+  let pause: ReturnType<typeof vi.spyOn>;
+  beforeEach(() => {
+    vi.clearAllMocks();
+    localStorage.clear();
+    play = vi.spyOn(HTMLMediaElement.prototype, "play").mockResolvedValue(undefined);
+    pause = vi.spyOn(HTMLMediaElement.prototype, "pause").mockImplementation(() => undefined);
+  });
+
+  it("starts the soft music loop after the first tap and the toggle pauses it", () => {
+    render(<PalabrasMinutoScene content={PALABRAS_MINUTO_M} />);
+    expect(play).not.toHaveBeenCalled();
+    fireEvent.click(screen.getByRole("button", { name: "Empezar 1 minuto" }));
+    expect(play).toHaveBeenCalledTimes(1);
+    fireEvent.click(screen.getByRole("button", { name: "Apagar la música" }));
+    expect(pause).toHaveBeenCalled();
+    expect(localStorage.getItem("cartilla:ppm:music")).toBe("off");
+  });
+
+  it("stays silent when the app is muted", () => {
+    localStorage.setItem("cartilla:audio:muted", "true");
+    render(<PalabrasMinutoScene content={PALABRAS_MINUTO_M} />);
+    fireEvent.click(screen.getByRole("button", { name: "Empezar 1 minuto" }));
+    expect(play).not.toHaveBeenCalled();
+  });
 
   it("shows the 18 words of the set and no Gretel mascot on the screen", () => {
     render(<PalabrasMinutoScene content={PALABRAS_MINUTO_M} />);

@@ -4,7 +4,16 @@
 import { useEffect, useRef, useState } from "react";
 import type { GameContent } from "@/lib/games/gameContent";
 import { recordEvent } from "@/lib/student-session";
-import { playFinish, playRight, playWrong } from "./sounds";
+import { Music, VolumeX } from "lucide-react";
+import {
+  appMuted,
+  createMusic,
+  musicPreferred,
+  playFinish,
+  playRight,
+  playWrong,
+  setMusicPreferred,
+} from "./sounds";
 import "./PalabrasMinutoScene.css";
 
 const ART = "/cartilla/games/palabras-minuto";
@@ -100,6 +109,45 @@ export function PalabrasMinutoScene({ content }: { content: GameContent }) {
     }
   };
 
+  // Background music: soft loop, starts after the first tap, own on/off button, silent when the app is muted.
+  const [musicOn, setMusicOn] = useState(musicPreferred);
+  const musicRef = useRef<HTMLAudioElement | null>(null);
+  const touchedRef = useRef(false);
+  const syncMusic = (on: boolean) => {
+    if (!touchedRef.current) return;
+    if (!on || appMuted()) {
+      musicRef.current?.pause();
+      return;
+    }
+    musicRef.current ??= createMusic();
+    try {
+      void Promise.resolve(musicRef.current?.play()).catch(() => {
+        /* autoplay blocked until a tap */
+      });
+    } catch {
+      /* no media support */
+    }
+  };
+  const firstTap = () => {
+    if (touchedRef.current) return;
+    touchedRef.current = true;
+    syncMusic(musicOn);
+  };
+  const toggleMusic = () => {
+    const next = !musicOn;
+    setMusicOn(next);
+    setMusicPreferred(next);
+    touchedRef.current = true;
+    syncMusic(next);
+  };
+  useEffect(
+    () => () => {
+      musicRef.current?.pause();
+      musicRef.current = null;
+    },
+    [],
+  );
+
   const allDone = running && count >= total;
   const celebratedRef = useRef(false);
   useEffect(() => {
@@ -114,6 +162,8 @@ export function PalabrasMinutoScene({ content }: { content: GameContent }) {
   return (
     <main
       className="ppm"
+      onPointerDownCapture={firstTap}
+      onClickCapture={firstTap}
       aria-label="Palabras por minuto"
       data-game-id={content.id}
       data-letter={content.letter}
@@ -215,6 +265,16 @@ export function PalabrasMinutoScene({ content }: { content: GameContent }) {
         <div className="ppm-abs ppm-right" aria-hidden>
           <img className="ppm-cup" src={`${ART}/cup.webp`} alt="" />
         </div>
+
+        <button
+          type="button"
+          className="ppm-music"
+          aria-label={musicOn ? "Apagar la música" : "Encender la música"}
+          aria-pressed={musicOn}
+          onClick={toggleMusic}
+        >
+          {musicOn && !appMuted() ? <Music aria-hidden /> : <VolumeX aria-hidden />}
+        </button>
 
         {(allDone || finished) && (
           <div className="ppm-result" role="status">

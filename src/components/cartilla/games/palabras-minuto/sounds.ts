@@ -61,3 +61,37 @@ export const playFinish = () =>
   play(
     [523.25, 659.25, 783.99, 1046.5].map((f, i) => ({ f, at: i * 0.12, len: 0.28, peak: 0.25 })),
   );
+
+const MUSIC_SRC = "/cartilla/games/palabras-minuto/music-happy-adventure.mp3";
+export const MUSIC_VOLUME = 0.12;
+const MUSIC_KEY = "cartilla:ppm:music";
+
+export function musicPreferred(): boolean {
+  try {
+    return localStorage.getItem(MUSIC_KEY) !== "off";
+  } catch {
+    return true;
+  }
+}
+
+export function setMusicPreferred(on: boolean) {
+  try {
+    localStorage.setItem(MUSIC_KEY, on ? "on" : "off");
+  } catch {
+    /* ignore */
+  }
+}
+
+/** App-level mute also silences the music. */
+export function appMuted(): boolean {
+  return muted();
+}
+
+export function createMusic(): HTMLAudioElement | null {
+  if (typeof Audio === "undefined") return null;
+  const a = new Audio(MUSIC_SRC);
+  a.loop = true;
+  a.volume = MUSIC_VOLUME;
+  a.preload = "auto";
+  return a;
+}
