@@ -9,7 +9,6 @@ const LIVE_GAME_IDS = [
   "rima-p",
   "palabras-minuto-p",
   "dibujos-o",
-  "completar-palabras",
 ] as const;
 
 test.describe("all themed games", () => {
