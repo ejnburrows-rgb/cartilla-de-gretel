@@ -7,7 +7,7 @@ This plan defines the sequence of work required to satisfy `PROJECT_FINISH_DEFIN
 ## Core Rules
 
 1. **Follow `AGENTS.md` and the 2026-10-13 autonomous controller directive:** Autonomous controllers and dispatchers (Muse) may refill up to 15 useful active Jules lanes with independent, ready work supported by a real gap without re-requesting owner approval per issue, provided no owner-only gates (release, payment, unapproved redesign, artwork approval) are crossed.
-2. **Never duplicate work.** Inspect actual GitHub branches, existing PRs, and live provider sessions. If another agent is assigned a task, do not dispatch a duplicate to another worker. Reuse proof (Vitest/Playwright/types) when valid. A test run is needed only for *new* changes or *missing* final release bounds.
+2. **Never duplicate work.** Inspect actual GitHub branches, existing PRs, and live provider sessions. If another agent is assigned a task, do not dispatch a duplicate to another worker. Reuse proof (Vitest/Playwright/types) when valid. A test run is needed only for _new_ changes or _missing_ final release bounds.
 3. **Show exact visual evidence.** The owner demands source-faithful render proof in chat (screenshot/video/direct reproduction URL) when artwork or layout is changed. GitHub PR diffs or `playwright.config.ts` console output are not acceptance proof for visual tasks.
 4. **Follow `PROJECT_SOURCE_OF_TRUTH.md`.** Do not reconstruct source-blocked pages. Do not hallucinate missing book content.
 5. **No active Supabase connection yet.** Do not expand real user data until authorized (post-pilot).
@@ -16,12 +16,14 @@ This plan defines the sequence of work required to satisfy `PROJECT_FINISH_DEFIN
 ## Consolidated Execution Checkpoint
 
 **Evidence already obtained — DO NOT REDO:**
+
 - Four completed broad artwork audits. PR #751 provides the canonical 201 drawing groups/330 placements reconciliation (draft evidence only).
 - Merged #733 Piano Hablador designs/logic, #743 Workbook physical page turn, #744 printed 60-sheet Flip Chart top-bound page turn, #726 approved pencil/eraser.
 - Verification PRs merged: #641 (full assembled Workbook regression, closed #450), #642 (keyboard/pointer access, closed #457), #643 (living motion bounds, closed #560), #646/648 (artwork intake tooling, closed #579), #636 (Gretel voice abstract, closed #570).
 - #713 authorization-gate reconciliations into `WORKBOOK_ARCHETYPE_STANDARD.md` and `STUDENT_INTERACTION_STANDARD.md` already merged.
 
 **Remaining integration (not yet independently proven complete):**
+
 - PR #739 (one-native-page whole Workbook plus student resume/handwriting).
 - PR #735 (motion of 8 Workbook images).
 - PR #737 (5 Flip Chart images).

@@ -135,8 +135,6 @@ describe("WordsPerMinuteGame #783 timer", () => {
     }
     fireEvent.click(screen.getByRole("button", { name: "Terminé la lista" }));
     expect(recordEvent).toHaveBeenCalledTimes(1);
-    expect(recordEvent).toHaveBeenCalledWith(
-      expect.objectContaining({ score: 3, total: 3 }),
-    );
+    expect(recordEvent).toHaveBeenCalledWith(expect.objectContaining({ score: 3, total: 3 }));
   });
 });

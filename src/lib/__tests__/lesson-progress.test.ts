@@ -68,7 +68,7 @@ describe("lesson-progress", () => {
       // Seed malformed data for page 23 and valid data for page 24
       localStorage.setItem(
         learnerStorageKey("cartilla.page-completion.v1"),
-        JSON.stringify({ "23": {}, "24": ["b"] })
+        JSON.stringify({ "23": {}, "24": ["b"] }),
       );
 
       // markPageActivityCompleted should not throw
@@ -79,7 +79,7 @@ describe("lesson-progress", () => {
       // Seed malformed data again to test unmark
       localStorage.setItem(
         learnerStorageKey("cartilla.page-completion.v1"),
-        JSON.stringify({ "23": {}, "24": ["b"] })
+        JSON.stringify({ "23": {}, "24": ["b"] }),
       );
 
       // unmarkPageActivityCompleted should not throw

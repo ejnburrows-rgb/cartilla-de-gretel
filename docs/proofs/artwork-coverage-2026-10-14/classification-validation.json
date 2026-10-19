@@ -23,126 +23,98 @@
       "path": "public/cartilla/art/optimized/workbook/leccion-1/iman.svg",
       "canonical_sha256": "c8a80b42542979dd37809a40a334c0266c4241cb1639cb58a67d6aee6cfeee52",
       "lf_crlf_parsed_svg_identical": true,
-      "embedded_image_sha256": [
-        "050d4b89401d015db0c60ba3233358243756bb22f7742af97841bf1eac225393"
-      ],
+      "embedded_image_sha256": ["050d4b89401d015db0c60ba3233358243756bb22f7742af97841bf1eac225393"],
       "source_bytes_unchanged": true
     },
     {
       "path": "public/cartilla/art/optimized/workbook/leccion-1/abanico.svg",
       "canonical_sha256": "39e248975a1f4a7516893741c7e8becc2465fbdbd19a41ff3f23948896af4603",
       "lf_crlf_parsed_svg_identical": true,
-      "embedded_image_sha256": [
-        "5931cd57eedc6b9d44526c61912ef1ca4c17877dfeb5c4153ffc5891bc0856f2"
-      ],
+      "embedded_image_sha256": ["5931cd57eedc6b9d44526c61912ef1ca4c17877dfeb5c4153ffc5891bc0856f2"],
       "source_bytes_unchanged": true
     },
     {
       "path": "public/cartilla/art/optimized/workbook/leccion-1/oso.svg",
       "canonical_sha256": "f920f41e957eead0bb5df3ea9f79ec84ff84562d0ccdcdf01d3cf953b3857fc2",
       "lf_crlf_parsed_svg_identical": true,
-      "embedded_image_sha256": [
-        "89fa2d62b3d7eef214b40058ab647568693040337864b5afa6799b88def90a0a"
-      ],
+      "embedded_image_sha256": ["89fa2d62b3d7eef214b40058ab647568693040337864b5afa6799b88def90a0a"],
       "source_bytes_unchanged": true
     },
     {
       "path": "public/cartilla/art/optimized/workbook/leccion-1/isla.svg",
       "canonical_sha256": "d2eb7f6cd79720685e4378524e07ef10ec6a0b5e863ffd24eed520940c758e3c",
       "lf_crlf_parsed_svg_identical": true,
-      "embedded_image_sha256": [
-        "b20c5f1731e23038edcee8a4682debb333716962cec04b4cf05e92183999f37f"
-      ],
+      "embedded_image_sha256": ["b20c5f1731e23038edcee8a4682debb333716962cec04b4cf05e92183999f37f"],
       "source_bytes_unchanged": true
     },
     {
       "path": "public/cartilla/art/optimized/workbook/leccion-1/avion.svg",
       "canonical_sha256": "9ac9429316f4e5cac4ee54a3fb4c314c528f836d8f8e7e476ac86898ea484c06",
       "lf_crlf_parsed_svg_identical": true,
-      "embedded_image_sha256": [
-        "58977ba5c9164b6fd562c29d9efd1aae1ef5ed3849be24f59afc5a7b51ccf3a4"
-      ],
+      "embedded_image_sha256": ["58977ba5c9164b6fd562c29d9efd1aae1ef5ed3849be24f59afc5a7b51ccf3a4"],
       "source_bytes_unchanged": true
     },
     {
       "path": "public/cartilla/art/optimized/workbook/leccion-1/aro.svg",
       "canonical_sha256": "63fc05856c88cf805b6ef2d489b6e37054bbdd4b090738b2a69b3894f6f4393c",
       "lf_crlf_parsed_svg_identical": true,
-      "embedded_image_sha256": [
-        "f811cb3f01cb50b718ec664534a963fcc42760f8503ba29623edde5336783343"
-      ],
+      "embedded_image_sha256": ["f811cb3f01cb50b718ec664534a963fcc42760f8503ba29623edde5336783343"],
       "source_bytes_unchanged": true
     },
     {
       "path": "public/cartilla/art/optimized/workbook/leccion-1/escalera.svg",
       "canonical_sha256": "027cf2767a28ea16caabfc7601c03074fbd9e7771fad2ecf2d9d642a8ab3b8ce",
       "lf_crlf_parsed_svg_identical": true,
-      "embedded_image_sha256": [
-        "bcfb66807be6797f3ba481834670d2855c19caf81a8492fe7d0ba138578c992c"
-      ],
+      "embedded_image_sha256": ["bcfb66807be6797f3ba481834670d2855c19caf81a8492fe7d0ba138578c992c"],
       "source_bytes_unchanged": true
     },
     {
       "path": "public/cartilla/art/optimized/workbook/leccion-1/uno.svg",
       "canonical_sha256": "c9d8767c62f30d72ec3cc03a3a0a9a9959f364b92c03debd43f4242052b3b523",
       "lf_crlf_parsed_svg_identical": true,
-      "embedded_image_sha256": [
-        "4b620b00fc127cf35ff08799ea276586b697fe8f5dbc8071a243af4f12dced3d"
-      ],
+      "embedded_image_sha256": ["4b620b00fc127cf35ff08799ea276586b697fe8f5dbc8071a243af4f12dced3d"],
       "source_bytes_unchanged": true
     },
     {
       "path": "public/cartilla/art/optimized/workbook/leccion-1/oreja.svg",
       "canonical_sha256": "4a029972bba17234d104360ddf8318eff3862387cf205e5206576b9093fc41de",
       "lf_crlf_parsed_svg_identical": true,
-      "embedded_image_sha256": [
-        "1051cc22115a034800e89dc686f409ded7743ec444a2bfcfd3cc2041a5d96847"
-      ],
+      "embedded_image_sha256": ["1051cc22115a034800e89dc686f409ded7743ec444a2bfcfd3cc2041a5d96847"],
       "source_bytes_unchanged": true
     },
     {
       "path": "public/cartilla/art/optimized/workbook/leccion-1/uniforme.svg",
       "canonical_sha256": "26b271eb2d8f2b1788dbc84c55ac39c083c24e3dd624bc0a60841a19c79f9485",
       "lf_crlf_parsed_svg_identical": true,
-      "embedded_image_sha256": [
-        "c3868daa3c9a5e5f184a9a0c4baca2d82c50d42a8a456988d0c80e5aad810157"
-      ],
+      "embedded_image_sha256": ["c3868daa3c9a5e5f184a9a0c4baca2d82c50d42a8a456988d0c80e5aad810157"],
       "source_bytes_unchanged": true
     },
     {
       "path": "public/cartilla/art/optimized/workbook/leccion-1/una.svg",
       "canonical_sha256": "e7e6aaea13e3c450a8819d95a50f8c6278101e6607d51f25378841316c82b861",
       "lf_crlf_parsed_svg_identical": true,
-      "embedded_image_sha256": [
-        "814b3395cf4e14d5330f765dcea1637042f216c948c51923f75c2672a55845d1"
-      ],
+      "embedded_image_sha256": ["814b3395cf4e14d5330f765dcea1637042f216c948c51923f75c2672a55845d1"],
       "source_bytes_unchanged": true
     },
     {
       "path": "public/cartilla/art/optimized/workbook/leccion-1/oveja.svg",
       "canonical_sha256": "956e2ad1290b9303213789c1066c4fb8272365fd0a956e5868ab0126a98868ff",
       "lf_crlf_parsed_svg_identical": true,
-      "embedded_image_sha256": [
-        "829ea33e8764a94ae5f9e9a2478305cdef869bbe2d240bf25e62fc78b331221d"
-      ],
+      "embedded_image_sha256": ["829ea33e8764a94ae5f9e9a2478305cdef869bbe2d240bf25e62fc78b331221d"],
       "source_bytes_unchanged": true
     },
     {
       "path": "public/cartilla/art/optimized/workbook/leccion-1/elefante.svg",
       "canonical_sha256": "9609ded8255e090884ba3a10f514d81363b0721b97694390c7fd44c2d0fcbd94",
       "lf_crlf_parsed_svg_identical": true,
-      "embedded_image_sha256": [
-        "bb0a73a54c4d340eab40ecadb27f264ecacdc6271406a0dbfa6828815228960a"
-      ],
+      "embedded_image_sha256": ["bb0a73a54c4d340eab40ecadb27f264ecacdc6271406a0dbfa6828815228960a"],
       "source_bytes_unchanged": true
     },
     {
       "path": "public/cartilla/art/optimized/workbook/leccion-1/olla.svg",
       "canonical_sha256": "f137b2bcf792cef39b9009930457554d93932837c88f02e89a7425346a16834c",
       "lf_crlf_parsed_svg_identical": true,
-      "embedded_image_sha256": [
-        "1ef4854c30fa6dc24b6739ee0ccb5c230a9cedd218c49d486e01d9529b2d97fd"
-      ],
+      "embedded_image_sha256": ["1ef4854c30fa6dc24b6739ee0ccb5c230a9cedd218c49d486e01d9529b2d97fd"],
       "source_bytes_unchanged": true
     }
   ],

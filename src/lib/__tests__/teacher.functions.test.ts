@@ -287,13 +287,17 @@ describe("teacher.functions tests", () => {
       vi.mocked(supabase.auth.getUser).mockResolvedValue(authedUser() as never);
       vi.mocked(supabase.from)
         .mockReturnValueOnce(makeQueryBuilder(ok({ id: CLASS_ID })) as never)
-        .mockReturnValueOnce(makeQueryBuilder(ok([{ id: STUDENT_ID, display_name: "Ana" }])) as never)
+        .mockReturnValueOnce(
+          makeQueryBuilder(ok([{ id: STUDENT_ID, display_name: "Ana" }])) as never,
+        )
         .mockReturnValueOnce(makeQueryBuilder(ok([])) as never)
         .mockReturnValueOnce(makeQueryBuilder(ok([])) as never)
         .mockReturnValueOnce(makeQueryBuilder(ok([])) as never)
-        .mockReturnValueOnce(makeQueryBuilder(ok([
-          { student_id: STUDENT_ID, lesson_id: "2", status: "completed" },
-        ])) as never);
+        .mockReturnValueOnce(
+          makeQueryBuilder(
+            ok([{ student_id: STUDENT_ID, lesson_id: "2", status: "completed" }]),
+          ) as never,
+        );
 
       const result = await getClassProgress({ data: { id: CLASS_ID } });
       expect(result.perStudent[0]).toMatchObject({

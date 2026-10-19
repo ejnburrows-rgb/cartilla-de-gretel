@@ -87,7 +87,11 @@ describe("Listbox Keyboard Navigation & Page Turn Prevention", () => {
 
       // ArrowRight -> options[1]
       act(() => {
-        const ev = new KeyboardEvent("keydown", { key: "ArrowRight", bubbles: true, cancelable: true });
+        const ev = new KeyboardEvent("keydown", {
+          key: "ArrowRight",
+          bubbles: true,
+          cancelable: true,
+        });
         options[0].dispatchEvent(ev);
         expect(ev.defaultPrevented).toBe(true);
       });
@@ -95,7 +99,11 @@ describe("Listbox Keyboard Navigation & Page Turn Prevention", () => {
 
       // ArrowRight -> options[2]
       act(() => {
-        const ev = new KeyboardEvent("keydown", { key: "ArrowRight", bubbles: true, cancelable: true });
+        const ev = new KeyboardEvent("keydown", {
+          key: "ArrowRight",
+          bubbles: true,
+          cancelable: true,
+        });
         options[1].dispatchEvent(ev);
         expect(ev.defaultPrevented).toBe(true);
       });
@@ -103,7 +111,11 @@ describe("Listbox Keyboard Navigation & Page Turn Prevention", () => {
 
       // ArrowRight -> options[0] (wrap-around)
       act(() => {
-        const ev = new KeyboardEvent("keydown", { key: "ArrowRight", bubbles: true, cancelable: true });
+        const ev = new KeyboardEvent("keydown", {
+          key: "ArrowRight",
+          bubbles: true,
+          cancelable: true,
+        });
         options[2].dispatchEvent(ev);
         expect(ev.defaultPrevented).toBe(true);
       });
@@ -111,7 +123,11 @@ describe("Listbox Keyboard Navigation & Page Turn Prevention", () => {
 
       // ArrowLeft -> options[2] (wrap-around backwards)
       act(() => {
-        const ev = new KeyboardEvent("keydown", { key: "ArrowLeft", bubbles: true, cancelable: true });
+        const ev = new KeyboardEvent("keydown", {
+          key: "ArrowLeft",
+          bubbles: true,
+          cancelable: true,
+        });
         options[0].dispatchEvent(ev);
         expect(ev.defaultPrevented).toBe(true);
       });
@@ -135,12 +151,18 @@ describe("Listbox Keyboard Navigation & Page Turn Prevention", () => {
     });
 
     it("pressing Arrow keys moves focus without triggering option grading", () => {
-      render(<DibujaHost pageKey="kb-dibuja-no-auto-submit" pickOptions={picks} initialMode="pick" />);
+      render(
+        <DibujaHost pageKey="kb-dibuja-no-auto-submit" pickOptions={picks} initialMode="pick" />,
+      );
       const options = screen.getAllByRole("option");
 
       options[0].focus();
       act(() => {
-        const ev = new KeyboardEvent("keydown", { key: "ArrowRight", bubbles: true, cancelable: true });
+        const ev = new KeyboardEvent("keydown", {
+          key: "ArrowRight",
+          bubbles: true,
+          cancelable: true,
+        });
         options[0].dispatchEvent(ev);
       });
 
@@ -167,7 +189,11 @@ describe("Listbox Keyboard Navigation & Page Turn Prevention", () => {
 
       swatches[0].focus();
       act(() => {
-        const ev = new KeyboardEvent("keydown", { key: "ArrowRight", bubbles: true, cancelable: true });
+        const ev = new KeyboardEvent("keydown", {
+          key: "ArrowRight",
+          bubbles: true,
+          cancelable: true,
+        });
         swatches[0].dispatchEvent(ev);
         expect(ev.defaultPrevented).toBe(true);
       });
@@ -186,7 +212,11 @@ describe("Listbox Keyboard Navigation & Page Turn Prevention", () => {
       expect(swatches[0].getAttribute("aria-selected")).toBe("true");
 
       act(() => {
-        const ev = new KeyboardEvent("keydown", { key: "ArrowRight", bubbles: true, cancelable: true });
+        const ev = new KeyboardEvent("keydown", {
+          key: "ArrowRight",
+          bubbles: true,
+          cancelable: true,
+        });
         swatches[0].dispatchEvent(ev);
         expect(ev.defaultPrevented).toBe(true);
       });
@@ -250,7 +280,11 @@ describe("Listbox Keyboard Navigation & Page Turn Prevention", () => {
       options[0].focus();
 
       act(() => {
-        const ev = new KeyboardEvent("keydown", { key: "ArrowRight", bubbles: true, cancelable: true });
+        const ev = new KeyboardEvent("keydown", {
+          key: "ArrowRight",
+          bubbles: true,
+          cancelable: true,
+        });
         options[0].dispatchEvent(ev);
       });
 
@@ -293,7 +327,11 @@ describe("Listbox Keyboard Navigation & Page Turn Prevention", () => {
       swatches[0].focus();
 
       act(() => {
-        const ev = new KeyboardEvent("keydown", { key: "ArrowRight", bubbles: true, cancelable: true });
+        const ev = new KeyboardEvent("keydown", {
+          key: "ArrowRight",
+          bubbles: true,
+          cancelable: true,
+        });
         swatches[0].dispatchEvent(ev);
       });
 

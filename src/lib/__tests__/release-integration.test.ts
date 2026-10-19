@@ -14,7 +14,9 @@ describe("release integration — workbook + lessons", () => {
   });
 
   it("page-layouts (canonical runtime structured Workbook representation) covers all 90 printed pages", () => {
-    const pages = Object.keys(pageLayouts.pages).map(Number).sort((a, b) => a - b);
+    const pages = Object.keys(pageLayouts.pages)
+      .map(Number)
+      .sort((a, b) => a - b);
     expect(pages).toEqual(Array.from({ length: 90 }, (_, i) => i + 1));
     for (const n of pages) {
       const layout = (pageLayouts.pages as Record<string, { regions?: unknown[] }>)[String(n)];
@@ -48,16 +50,11 @@ describe("release integration — workbook + lessons", () => {
   });
 
   it("keeps the fallback chain repository-controlled and does not invent restored artwork", () => {
-    const chain = getWorkbookPageFallbackChain(
-      4,
-      "/cartilla/art/hd/lineart/page-004.png",
-    );
+    const chain = getWorkbookPageFallbackChain(4, "/cartilla/art/hd/lineart/page-004.png");
     expect(chain[0]).toBe("/cartilla/art/source/workbook/page-004.jpg");
     expect(chain).toContain("/cartilla/art/hd/lineart/page-004.png");
-    expect(
-      chain.some((p) =>
-        /art\/(restored|hd)\/workbook|art\/color\/workbook/.test(p),
-      ),
-    ).toBe(false);
+    expect(chain.some((p) => /art\/(restored|hd)\/workbook|art\/color\/workbook/.test(p))).toBe(
+      false,
+    );
   });
 });

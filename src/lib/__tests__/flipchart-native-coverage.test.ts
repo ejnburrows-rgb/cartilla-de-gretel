@@ -86,9 +86,17 @@ describe("native Flip Chart coverage", () => {
     }
   });
   it("retains book caption accents and every reading fragment", () => {
-    expect(getNativeFlipchartPage(3)?.art.map((asset) => asset.word)).toEqual(["avión", "escoba", "imán", "olla", "uña"]);
+    expect(getNativeFlipchartPage(3)?.art.map((asset) => asset.word)).toEqual([
+      "avión",
+      "escoba",
+      "imán",
+      "olla",
+      "uña",
+    ]);
     expect(getNativeFlipchartPage(15)?.art.map((asset) => asset.word)).toContain("Sesi");
-    expect(getNativeFlipchartPage(41)?.body.some((line) => line.text === "La r para la rama")).toBe(true);
+    expect(getNativeFlipchartPage(41)?.body.some((line) => line.text === "La r para la rama")).toBe(
+      true,
+    );
     expect(getNativeFlipchartPage(44)?.body.some((line) => line.text === "arrebatado")).toBe(true);
   });
 
@@ -96,10 +104,12 @@ describe("native Flip Chart coverage", () => {
     { pageNumber: 10, top: ["ma", "me", "mi", "mo", "mu"], bottom: ["mu", "mo", "ma", "me", "mi"] },
     { pageNumber: 16, top: ["sa", "se", "si", "so", "su"], bottom: ["su", "so", "sa", "se", "si"] },
     { pageNumber: 19, top: ["ta", "te", "ti", "to", "tu"], bottom: ["tu", "to", "ta", "te", "ti"] },
-  ])("reads tilted syllable rows left-to-right on source sheet $pageNumber", ({ pageNumber, top, bottom }) => {
-    const syllables = getNativeFlipchartPage(pageNumber)?.syllables;
-    expect(syllables?.slice(0, 5)).toEqual(top);
-    expect(syllables?.slice(5, 10)).toEqual(bottom);
-  });
-
+  ])(
+    "reads tilted syllable rows left-to-right on source sheet $pageNumber",
+    ({ pageNumber, top, bottom }) => {
+      const syllables = getNativeFlipchartPage(pageNumber)?.syllables;
+      expect(syllables?.slice(0, 5)).toEqual(top);
+      expect(syllables?.slice(5, 10)).toEqual(bottom);
+    },
+  );
 });

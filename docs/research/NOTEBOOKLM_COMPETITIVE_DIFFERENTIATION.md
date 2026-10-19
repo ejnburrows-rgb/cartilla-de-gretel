@@ -3,9 +3,11 @@
 > Durable text-only summary of the competitive research supplied through NotebookLM and subsequently validated against other research in this project.
 
 ## Core conclusion
+
 Cartilla should not compete primarily on generic adaptive phonics, mascots, dashboards, gamification, assignments, huge content libraries, or open-ended AI tutoring. Established competitors already provide these capabilities.
 
 The strongest defensible combination is:
+
 1. High-fidelity original physical↔digital Cartilla continuity.
 2. Original heritage artwork and curriculum identity.
 3. Gretel embedded inside the exact book context.
@@ -15,6 +17,7 @@ The strongest defensible combination is:
 7. Low recurring AI dependence.
 
 ## True or execution-dependent differentiators
+
 - Exact heritage workbook page as the interactive digital environment.
 - Exact digital attempt → skill/error → Cartilla page/object → teacher intervention loop.
 - Gretel as a page-aware, skill-aware, error-aware guide inside the book.
@@ -22,6 +25,7 @@ The strongest defensible combination is:
 - Physical/digital/Presenter/print resource continuity when mapped to the identical instructional artifact.
 
 ## Parity requirements, not differentiators
+
 - CV/syllabic instruction.
 - Phoneme/grapheme instruction.
 - Character/mascot.
@@ -37,6 +41,7 @@ The strongest defensible combination is:
 - Standards mapping for procurement.
 
 ## Areas where competitors are materially stronger
+
 - Adaptive-learning maturity.
 - Skill/mastery modeling.
 - Misconception/error analytics.
@@ -46,7 +51,9 @@ The strongest defensible combination is:
 - Breadth of content libraries.
 
 ## Strategic non-goals
+
 Do not build Cartilla around:
+
 - coins/currencies;
 - streak/reward economies;
 - leaderboards;
@@ -60,14 +67,17 @@ Do not build Cartilla around:
 - AI-generated replacement of original instructional artwork.
 
 ## Spanish-first conclusion
+
 Spanish-first design is valuable but not unique. The strongest pedagogy is phono-syllabic:
 phoneme/grapheme → syllable → word → connected text.
 
 Syllables remain central, but Cartilla should not use a syllable-only model.
 
 ## Gretel conclusion
+
 Generic mascot behavior is parity.
 Differentiated Gretel behavior:
+
 - knows the visible page;
 - knows the active item/skill;
 - points to exact page objects;
@@ -79,8 +89,10 @@ Differentiated Gretel behavior:
 - ties student performance to the original book sequence.
 
 ## Teacher intelligence conclusion
+
 Generic CRM is parity.
 Differentiated teacher workflow:
+
 - exact skill evidence;
 - exact page/activity linkage;
 - independent vs assisted evidence;
@@ -91,13 +103,16 @@ Differentiated teacher workflow:
 - explainable rationale.
 
 ## Implementation priorities
+
 P0:
+
 - preserve high-fidelity physical↔digital architecture;
 - fix source/image fidelity;
 - secure classroom identity and data boundaries;
 - enforce curriculum correctness.
 
 P1:
+
 - canonical skills/items/attempts;
 - misconception taxonomy;
 - explainable mastery and review;
@@ -107,6 +122,7 @@ P1:
 - visual/accessibility/performance verification.
 
 P2:
+
 - physical/print resource mapping;
 - diagnostic-driven printables;
 - bilingual family sharing;
@@ -114,9 +130,11 @@ P2:
 - standards/SSO as procurement requires.
 
 Later:
+
 - narrowly scoped oral-reading pilot only if validated;
 - formal efficacy study.
 
 ## Product identity
+
 The target product is a secure, skill-aware, high-fidelity connected workbook:
 the child works in the original Cartilla; each interaction creates structured literacy evidence; Gretel responds inside the page; the teacher receives exact actionable evidence and can immediately use the corresponding digital page, Presenter view, printable, or physical material.

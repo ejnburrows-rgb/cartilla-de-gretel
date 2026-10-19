@@ -97,8 +97,13 @@ function buildPage(lessonNumber: number, pageNumber: number): LessonExercise {
     KIND_PRIORITY.find((k) => regions.some((r) => r.regionType === k)) ??
     regions.find((r) => r.regionType !== "instruction")?.regionType ??
     "reading";
-  const instructions = regions.filter((r) => r.regionType === "instruction" && r.text).map((r) => r.text!.trim());
-  const title = regions.find((r) => r.regionType === "title")?.text?.trim() ?? instructions[0] ?? `Página ${pageNumber}`;
+  const instructions = regions
+    .filter((r) => r.regionType === "instruction" && r.text)
+    .map((r) => r.text!.trim());
+  const title =
+    regions.find((r) => r.regionType === "title")?.text?.trim() ??
+    instructions[0] ??
+    `Página ${pageNumber}`;
   return {
     id: `l${lessonNumber}-p${pageNumber}-${kind}`,
     lessonNumber,

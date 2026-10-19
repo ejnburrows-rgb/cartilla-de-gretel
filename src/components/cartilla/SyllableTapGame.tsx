@@ -16,10 +16,7 @@ export function SyllableTapGame({
   lessonId?: string;
   onComplete?: () => void;
 }) {
-  const sounds = useMemo(
-    () => [...new Set(syllables.filter((s) => s.trim()))],
-    [syllables],
-  );
+  const sounds = useMemo(() => [...new Set(syllables.filter((s) => s.trim()))], [syllables]);
   const [round, setRound] = useState(0);
   const [answered, setAnswered] = useState(false);
   const [heard, setHeard] = useState(false);
@@ -91,8 +88,7 @@ export function SyllableTapGame({
             key={sound}
             className="h-2 flex-1 rounded-full"
             style={{
-              background:
-                i < round || (i === round && answered) ? color : "#e7e5e4",
+              background: i < round || (i === round && answered) ? color : "#e7e5e4",
             }}
           />
         ))}
@@ -129,10 +125,7 @@ export function SyllableTapGame({
       </div>
       {answered && (
         <div className="mt-5 flex items-center justify-between gap-3">
-          <span
-            className="inline-flex items-center gap-2 font-bold"
-            role="status"
-          >
+          <span className="inline-flex items-center gap-2 font-bold" role="status">
             <Check aria-hidden="true" className="h-5 w-5" />
             {finished ? "Completado" : "Correcto"}
           </span>

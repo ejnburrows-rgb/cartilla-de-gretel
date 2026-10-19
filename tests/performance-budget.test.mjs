@@ -2,10 +2,7 @@ import { describe, it, expect, beforeAll } from "vitest";
 import fs from "fs";
 import path from "path";
 import { fileURLToPath } from "url";
-import {
-  runPerformanceBudgetCheck,
-  BUDGET_LIMITS,
-} from "../scripts/verify-performance-budget.mjs";
+import { runPerformanceBudgetCheck, BUDGET_LIMITS } from "../scripts/verify-performance-budget.mjs";
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const ROOT_DIR = path.resolve(__dirname, "..");
@@ -38,9 +35,7 @@ describe("Local Performance Budget & Teacher Route Chunking", () => {
   });
 
   it("keeps total first-paint JS payload within budget", () => {
-    expect(result.totalFirstPaintJs.raw).toBeLessThanOrEqual(
-      BUDGET_LIMITS.totalFirstPaintJsRawMax,
-    );
+    expect(result.totalFirstPaintJs.raw).toBeLessThanOrEqual(BUDGET_LIMITS.totalFirstPaintJsRawMax);
     expect(result.totalFirstPaintJs.gzip).toBeLessThanOrEqual(
       BUDGET_LIMITS.totalFirstPaintJsGzipMax,
     );

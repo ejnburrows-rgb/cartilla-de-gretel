@@ -198,14 +198,16 @@ function TeacherGuide() {
                         Vocabulario / Elementos
                       </h4>
                       <div className="flex flex-wrap gap-2">
-                        {exercise.items.map((item: { id: string; label?: string }, itemIndex: number) => (
-                          <span
-                            key={`${item.id}-${itemIndex}`}
-                            className="px-3 py-1.5 bg-white border border-stone-200 rounded-xl text-sm font-bold text-stone-700 shadow-sm"
-                          >
-                            {item.label}
-                          </span>
-                        ))}
+                        {exercise.items.map(
+                          (item: { id: string; label?: string }, itemIndex: number) => (
+                            <span
+                              key={`${item.id}-${itemIndex}`}
+                              className="px-3 py-1.5 bg-white border border-stone-200 rounded-xl text-sm font-bold text-stone-700 shadow-sm"
+                            >
+                              {item.label}
+                            </span>
+                          ),
+                        )}
                       </div>
                     </div>
                   )}

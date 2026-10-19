@@ -2,7 +2,6 @@
 
 > **Finish contract:** Read PROJECT_FINISH_DEFINITION.md before planning or declaring Cartilla work complete. It is the canonical definition of what must be true for the entire project to be finished. Compare current verified reality against it and close only real remaining gaps.
 
-
 **Status:** CANONICAL for Cartilla book structure, content, fidelity, and presentation. Within that domain it supersedes prior layout/fidelity instructions; it does not outrank newer explicit owner decisions or `AGENTS.md` execution/safety policy.
 **Last updated:** 2026-10-06 (owner locked eight recurring Student Workbook archetype designs while preserving exact source-page identity)
 
@@ -19,6 +18,7 @@ Build a modern e-learning platform where every page has the **same layout struct
 Every page has three layers. Each has different rules:
 
 ### Layer 1: STRUCTURE — Must match the book
+
 This is **fixed**. Do not change it.
 
 - Which elements appear on the page (titles, images, text blocks, exercises)
@@ -29,6 +29,7 @@ This is **fixed**. Do not change it.
 **Example:** If the book's vocabulary page has a scene illustration top-left, the big letter top-center, syllables top-right, and a 3-column image grid below — your digital page must have those same elements in that same arrangement.
 
 ### Layer 2: CONTENT — Must match the book
+
 This is **fixed**. Do not change it.
 
 - All text: exact words, in the same order
@@ -38,6 +39,7 @@ This is **fixed**. Do not change it.
 **Example:** If the book says "Completa las palabras" with specific words and syllable options, you use those exact words and options. You do not rewrite, simplify, or add hints.
 
 ### Layer 3: PRESENTATION — Modern digital within the owner-locked Workbook archetype system
+
 Presentation is flexible only where the owner has not already locked a recurring Student Workbook family. For recurring Student Workbook exercises, `WORKBOOK_ARCHETYPE_STANDARD.md` defines the canonical visual treatment and must be reused rather than reinvented.
 
 - Typography: clean, readable digital fonts (does not need to match the book's print font)
@@ -65,6 +67,7 @@ The test is about **structure and content**, not visual style. A modern-looking 
 ## Concrete DO and DON'T
 
 ### DO
+
 - ✅ Arrange elements to match the book's page structure
 - ✅ Use all the book's text content verbatim
 - ✅ Place the approved images where the book places them
@@ -75,6 +78,7 @@ The test is about **structure and content**, not visual style. A modern-looking 
 - ✅ Create a new scenic background environment only when specifically owner-approved for that context and it follows `repo.md`. For dense Student Workbook exercises, the default is the clean digital canvas rather than full scenic wallpaper; the teacher Flip Chart uses a clean paper surface without a default background-image layer.
 
 ### DON'T
+
 - ❌ Rearrange the page structure (move the grid above the header, put exercises in a different order)
 - ❌ Add new content not in the book (extra exercises, new characters, new text)
 - ❌ Remove content that's in the book (skip a verse, drop an image)
@@ -94,6 +98,7 @@ The test is about **structure and content**, not visual style. A modern-looking 
 The approved/corrected/cropped book images remain source-locked.
 
 DO NOT:
+
 - regenerate or redraw them;
 - replace them with similar artwork;
 - remaster or stylistically modernize them;
@@ -132,20 +137,20 @@ The Student Workbook and teacher Flip Chart share book-faithful structure/conten
 
 ## Summary for quick reference
 
-| Aspect | Rule |
-|---|---|
-| Page structure (what goes where) | MUST match the book |
-| Text content | MUST match the book (verbatim) |
-| Foreground images | MUST remain source-faithful; verified source-preserving color transfer is allowed under `ASSET_FIDELITY_POLICY.md` |
-| Scenic backgrounds | MAY be created under `repo.md` only for specifically approved contexts; Student Workbook defaults to clean digital canvas, and Flip Chart uses a clean paper surface without a default wallpaper layer |
-| Page sequence | MUST match the book |
-| Visual style | Recurring Student Workbook families MUST use `WORKBOOK_ARCHETYPE_STANDARD.md`; other presentation follows the durable design system |
-| Typography | MODERN readable (not print replica) |
-| Spacing/measurements | COMFORTABLE digital (not inch-for-inch) |
-| Interactions | SMOOTH, delightful, expected |
-| Responsiveness | YES, adapt to screen |
-| New content | NO |
-| Removed content | NO |
+| Aspect                           | Rule                                                                                                                                                                                                   |
+| -------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| Page structure (what goes where) | MUST match the book                                                                                                                                                                                    |
+| Text content                     | MUST match the book (verbatim)                                                                                                                                                                         |
+| Foreground images                | MUST remain source-faithful; verified source-preserving color transfer is allowed under `ASSET_FIDELITY_POLICY.md`                                                                                     |
+| Scenic backgrounds               | MAY be created under `repo.md` only for specifically approved contexts; Student Workbook defaults to clean digital canvas, and Flip Chart uses a clean paper surface without a default wallpaper layer |
+| Page sequence                    | MUST match the book                                                                                                                                                                                    |
+| Visual style                     | Recurring Student Workbook families MUST use `WORKBOOK_ARCHETYPE_STANDARD.md`; other presentation follows the durable design system                                                                    |
+| Typography                       | MODERN readable (not print replica)                                                                                                                                                                    |
+| Spacing/measurements             | COMFORTABLE digital (not inch-for-inch)                                                                                                                                                                |
+| Interactions                     | SMOOTH, delightful, expected                                                                                                                                                                           |
+| Responsiveness                   | YES, adapt to screen                                                                                                                                                                                   |
+| New content                      | NO                                                                                                                                                                                                     |
+| Removed content                  | NO                                                                                                                                                                                                     |
 
 ---
 
@@ -154,7 +159,6 @@ The Student Workbook and teacher Flip Chart share book-faithful structure/conten
 ### Directive protection
 
 `CARTILLA_DIGITAL_DIRECTIVE.md` is the standing owner directive for Cartilla book structure/content/presentation fidelity. Within that domain, do not modify, soften, reinterpret, or supersede it without the owner's explicit instruction. It does not override `AGENTS.md` execution/safety policy or a newer explicit owner decision. If an older domain instruction contradicts it, update the older instruction rather than silently changing this directive.
-
 
 ## Canonical page-turn presentation
 

@@ -40,13 +40,7 @@
     {
       "page_number": 3,
       "ui_component_type": "SyllableCircleWorksheet",
-      "letter_focus": [
-        "a",
-        "e",
-        "i",
-        "o",
-        "u"
-      ],
+      "letter_focus": ["a", "e", "i", "o", "u"],
       "instructions": "Circula los dibujos de las palabras en cada línea horizontal que comienzan con el mismo sonido.",
       "exercise_rows": [
         {
@@ -270,13 +264,7 @@
     {
       "page_number": 5,
       "ui_component_type": "InteractiveMatchingChart",
-      "letter_focus": [
-        "o",
-        "a",
-        "i",
-        "e",
-        "u"
-      ],
+      "letter_focus": ["o", "a", "i", "e", "u"],
       "instructions": "Traza una línea de la vocal al dibujo que le corresponde.",
       "matching_pairs": [
         {
@@ -793,69 +781,18 @@
       "letter_focus": "Mm",
       "instructions": "Encierra en un círculo la sílaba correspondiente.",
       "syllable_mappings": {
-        "ma": [
-          "mami",
-          "ama",
-          "mamá",
-          "ma",
-          "mima",
-          "Coloma",
-          "Manolo",
-          "media"
-        ],
-        "me": [
-          "Memo",
-          "melón",
-          "me",
-          "mesa",
-          "meta",
-          "Meme",
-          "mío",
-          "amigo"
-        ],
-        "mi": [
-          "mima",
-          "mi",
-          "mira",
-          "misa",
-          "Mimí",
-          "amo",
-          "Memo",
-          "mono"
-        ],
-        "mo": [
-          "mo",
-          "como",
-          "moneda",
-          "moto"
-        ],
-        "mu": [
-          "mulo",
-          "muleta",
-          "muro",
-          "mu",
-          "mudo",
-          "mujer",
-          "Mumi"
-        ]
+        "ma": ["mami", "ama", "mamá", "ma", "mima", "Coloma", "Manolo", "media"],
+        "me": ["Memo", "melón", "me", "mesa", "meta", "Meme", "mío", "amigo"],
+        "mi": ["mima", "mi", "mira", "misa", "Mimí", "amo", "Memo", "mono"],
+        "mo": ["mo", "como", "moneda", "moto"],
+        "mu": ["mulo", "muleta", "muro", "mu", "mudo", "mujer", "Mumi"]
       }
     },
     {
       "page_number": 23,
       "ui_component_type": "InteractiveSyllableChart",
       "letter_focus": "Mm",
-      "syllables": [
-        "ma",
-        "me",
-        "mi",
-        "mo",
-        "mu",
-        "mu",
-        "mo",
-        "ma",
-        "me",
-        "mi"
-      ],
+      "syllables": ["ma", "me", "mi", "mo", "mu", "mu", "mo", "ma", "me", "mi"],
       "words": [
         "mamá",
         "mami",
@@ -942,69 +879,18 @@
       "letter_focus": "Pp",
       "instructions": "Encierra en un círculo la sílaba correspondiente.",
       "syllable_mappings": {
-        "pa": [
-          "papá",
-          "pupa",
-          "mapa",
-          "pa",
-          "Papo",
-          "jupa!",
-          "pala"
-        ],
-        "pe": [
-          "Pepe",
-          "pelo",
-          "tapete",
-          "pe",
-          "pesa",
-          "pelota",
-          "chupete"
-        ],
-        "pi": [
-          "pipo",
-          "Pupi",
-          "Mupi",
-          "pi",
-          "papi",
-          "Mapi",
-          "pío"
-        ],
-        "po": [
-          "pomo",
-          "polo",
-          "sapo",
-          "po",
-          "mapo",
-          "tapo",
-          "Pepo"
-        ],
-        "pu": [
-          "puso",
-          "Pupa",
-          "puma",
-          "pu",
-          "apura",
-          "Pupi",
-          "púa"
-        ]
+        "pa": ["papá", "pupa", "mapa", "pa", "Papo", "jupa!", "pala"],
+        "pe": ["Pepe", "pelo", "tapete", "pe", "pesa", "pelota", "chupete"],
+        "pi": ["pipo", "Pupi", "Mupi", "pi", "papi", "Mapi", "pío"],
+        "po": ["pomo", "polo", "sapo", "po", "mapo", "tapo", "Pepo"],
+        "pu": ["puso", "Pupa", "puma", "pu", "apura", "Pupi", "púa"]
       }
     },
     {
       "page_number": 27,
       "ui_component_type": "InteractiveSyllableChart",
       "letter_focus": "Pp",
-      "syllables": [
-        "pa",
-        "pe",
-        "pi",
-        "po",
-        "pu",
-        "pu",
-        "po",
-        "pa",
-        "pe",
-        "pi"
-      ],
+      "syllables": ["pa", "pe", "pi", "po", "pu", "pu", "po", "pa", "pe", "pi"],
       "words": [
         "papá",
         "mapo",
@@ -1110,69 +996,18 @@
       "letter_focus": "Ss",
       "instructions": "Encierra en un círculo la sílaba correspondiente.",
       "syllable_mappings": {
-        "sa": [
-          "masa",
-          "casa",
-          "pesa",
-          "sa",
-          "sala",
-          "mesa",
-          "sapo"
-        ],
-        "se": [
-          "semilla",
-          "caseta",
-          "secante",
-          "sello",
-          "pase",
-          "se",
-          "seca"
-        ],
-        "si": [
-          "silla",
-          "casita",
-          "cosita",
-          "si",
-          "pasito",
-          "osito",
-          "sitio"
-        ],
-        "so": [
-          "paso",
-          "sopa",
-          "soga",
-          "so",
-          "oso",
-          "toso",
-          "puso"
-        ],
-        "su": [
-          "suyo",
-          "suma",
-          "Susi",
-          "su",
-          "supo",
-          "sube",
-          "sudor"
-        ]
+        "sa": ["masa", "casa", "pesa", "sa", "sala", "mesa", "sapo"],
+        "se": ["semilla", "caseta", "secante", "sello", "pase", "se", "seca"],
+        "si": ["silla", "casita", "cosita", "si", "pasito", "osito", "sitio"],
+        "so": ["paso", "sopa", "soga", "so", "oso", "toso", "puso"],
+        "su": ["suyo", "suma", "Susi", "su", "supo", "sube", "sudor"]
       }
     },
     {
       "page_number": 31,
       "ui_component_type": "InteractiveSyllableChart",
       "letter_focus": "Ss",
-      "syllables": [
-        "sa",
-        "se",
-        "si",
-        "so",
-        "su",
-        "su",
-        "so",
-        "sa",
-        "se",
-        "si"
-      ],
+      "syllables": ["sa", "se", "si", "so", "su", "su", "so", "sa", "se", "si"],
       "words": [
         "masa",
         "mesa",
@@ -1190,15 +1025,7 @@
         "ese",
         "esa"
       ],
-      "focus_words": [
-        "es",
-        "de",
-        "un",
-        "está",
-        "en",
-        "la",
-        "el"
-      ],
+      "focus_words": ["es", "de", "un", "está", "en", "la", "el"],
       "sentences": [
         "La mesa es de Susi.",
         "La sopa está en la mesa.",
@@ -1288,69 +1115,18 @@
       "letter_focus": "Tt",
       "instructions": "Encierra en un círculo la sílaba correspondiente.",
       "syllable_mappings": {
-        "ta": [
-          "tapa",
-          "Mota",
-          "Tota",
-          "ta",
-          "seta",
-          "peseta",
-          "pata"
-        ],
-        "te": [
-          "tema",
-          "tomate",
-          "mete",
-          "te",
-          "teme",
-          "Teté",
-          "tapete"
-        ],
-        "ti": [
-          "Tito",
-          "Piti",
-          "timón",
-          "ti",
-          "tina",
-          "Poti",
-          "tipi"
-        ],
-        "to": [
-          "topo",
-          "moto",
-          "tomate",
-          "to",
-          "pato",
-          "toma",
-          "sapito"
-        ],
-        "tu": [
-          "tupe",
-          "tubo",
-          "tulipán",
-          "tu",
-          "tuna",
-          "tuba",
-          "Matute"
-        ]
+        "ta": ["tapa", "Mota", "Tota", "ta", "seta", "peseta", "pata"],
+        "te": ["tema", "tomate", "mete", "te", "teme", "Teté", "tapete"],
+        "ti": ["Tito", "Piti", "timón", "ti", "tina", "Poti", "tipi"],
+        "to": ["topo", "moto", "tomate", "to", "pato", "toma", "sapito"],
+        "tu": ["tupe", "tubo", "tulipán", "tu", "tuna", "tuba", "Matute"]
       }
     },
     {
       "page_number": 35,
       "ui_component_type": "InteractiveSyllableChart",
       "letter_focus": "Tt",
-      "syllables": [
-        "ta",
-        "te",
-        "ti",
-        "to",
-        "tu",
-        "tu",
-        "to",
-        "ta",
-        "te",
-        "ti"
-      ],
+      "syllables": ["ta", "te", "ti", "to", "tu", "tu", "to", "ta", "te", "ti"],
       "words": [
         "toma",
         "teme",
@@ -1371,11 +1147,7 @@
         "Poti",
         "pato"
       ],
-      "focus_words": [
-        "tiene",
-        "patio",
-        "no"
-      ],
+      "focus_words": ["tiene", "patio", "no"],
       "sentences": [
         "La mesa tiene un tapete.",
         "El pomo está en la mesa.",
@@ -1465,69 +1237,18 @@
       "letter_focus": "Dd",
       "instructions": "Encierra en un círculo la sílaba correspondiente.",
       "syllable_mappings": {
-        "da": [
-          "da",
-          "dame",
-          "Ada",
-          "Made",
-          "duda",
-          "dado",
-          "poda"
-        ],
-        "de": [
-          "dedo",
-          "además",
-          "deme",
-          "de",
-          "modelo",
-          "pide",
-          "debajo"
-        ],
-        "di": [
-          "dime",
-          "Adi",
-          "dice",
-          "di",
-          "dinero",
-          "día",
-          "Didi"
-        ],
-        "do": [
-          "dado",
-          "podo",
-          "doce",
-          "do",
-          "dedo",
-          "modo",
-          "mudo"
-        ],
-        "du": [
-          "du",
-          "Duma",
-          "duro",
-          "duda",
-          "durazno",
-          "maduro",
-          "ducha"
-        ]
+        "da": ["da", "dame", "Ada", "Made", "duda", "dado", "poda"],
+        "de": ["dedo", "además", "deme", "de", "modelo", "pide", "debajo"],
+        "di": ["dime", "Adi", "dice", "di", "dinero", "día", "Didi"],
+        "do": ["dado", "podo", "doce", "do", "dedo", "modo", "mudo"],
+        "du": ["du", "Duma", "duro", "duda", "durazno", "maduro", "ducha"]
       }
     },
     {
       "page_number": 39,
       "ui_component_type": "InteractiveSyllableChart",
       "letter_focus": "Dd",
-      "syllables": [
-        "da",
-        "de",
-        "di",
-        "do",
-        "du",
-        "du",
-        "do",
-        "da",
-        "de",
-        "di"
-      ],
+      "syllables": ["da", "de", "di", "do", "du", "du", "do", "da", "de", "di"],
       "words": [
         "dedo",
         "dónde",
@@ -1545,10 +1266,7 @@
         "mide",
         "Dunia"
       ],
-      "focus_words": [
-        "son",
-        "están"
-      ],
+      "focus_words": ["son", "están"],
       "sentences": [
         "Dime si Ada tiene dados. Los dados son de Dunia.",
         "-¿Dónde están los dados?",
@@ -1637,69 +1355,18 @@
       "letter_focus": "Ll",
       "instructions": "Encierra en un círculo la sílaba correspondiente.",
       "syllable_mappings": {
-        "la": [
-          "lata",
-          "mala",
-          "pala",
-          "la",
-          "Lamas",
-          "mula",
-          "pila"
-        ],
-        "le": [
-          "Leo",
-          "aleta",
-          "saleta",
-          "le",
-          "maleta",
-          "sale",
-          "paleta"
-        ],
-        "li": [
-          "lima",
-          "Lila",
-          "alita",
-          "li",
-          "liso",
-          "palito",
-          "limón"
-        ],
-        "lo": [
-          "pelota",
-          "palo",
-          "Lolo",
-          "lo",
-          "Polo",
-          "Lola",
-          "paloma"
-        ],
-        "lu": [
-          "lu",
-          "lupa",
-          "pelusa",
-          "Luli",
-          "luna",
-          "saluda",
-          "Lupe"
-        ]
+        "la": ["lata", "mala", "pala", "la", "Lamas", "mula", "pila"],
+        "le": ["Leo", "aleta", "saleta", "le", "maleta", "sale", "paleta"],
+        "li": ["lima", "Lila", "alita", "li", "liso", "palito", "limón"],
+        "lo": ["pelota", "palo", "Lolo", "lo", "Polo", "Lola", "paloma"],
+        "lu": ["lu", "lupa", "pelusa", "Luli", "luna", "saluda", "Lupe"]
       }
     },
     {
       "page_number": 43,
       "ui_component_type": "InteractiveSyllableChart",
       "letter_focus": "Ll",
-      "syllables": [
-        "la",
-        "le",
-        "li",
-        "lo",
-        "lu",
-        "lu",
-        "lo",
-        "la",
-        "le",
-        "li"
-      ],
+      "syllables": ["la", "le", "li", "lo", "lu", "lu", "lo", "la", "le", "li"],
       "words": [
         "lima",
         "lata",
@@ -1806,69 +1473,18 @@
       "letter_focus": "Nn",
       "instructions": "Encierra en un círculo la sílaba correspondiente.",
       "syllable_mappings": {
-        "na": [
-          "nata",
-          "nariz",
-          "tina",
-          "na",
-          "nada",
-          "Napi",
-          "lana"
-        ],
-        "ne": [
-          "Nena",
-          "negro",
-          "Nela",
-          "ne",
-          "tenedor",
-          "negar",
-          "Nenita"
-        ],
-        "ni": [
-          "nido",
-          "niño",
-          "poni",
-          "ni",
-          "sonido",
-          "anida",
-          "Nino"
-        ],
-        "no": [
-          "mono",
-          "Nora",
-          "pino",
-          "no",
-          "Nono",
-          "noche",
-          "mano"
-        ],
-        "nu": [
-          "nudo",
-          "menudo",
-          "nulo",
-          "nu",
-          "Anuca",
-          "anudo",
-          "nube"
-        ]
+        "na": ["nata", "nariz", "tina", "na", "nada", "Napi", "lana"],
+        "ne": ["Nena", "negro", "Nela", "ne", "tenedor", "negar", "Nenita"],
+        "ni": ["nido", "niño", "poni", "ni", "sonido", "anida", "Nino"],
+        "no": ["mono", "Nora", "pino", "no", "Nono", "noche", "mano"],
+        "nu": ["nudo", "menudo", "nulo", "nu", "Anuca", "anudo", "nube"]
       }
     },
     {
       "page_number": 47,
       "ui_component_type": "InteractiveSyllableChart",
       "letter_focus": "Nn",
-      "syllables": [
-        "na",
-        "ne",
-        "ni",
-        "no",
-        "nu",
-        "nu",
-        "no",
-        "na",
-        "ne",
-        "ni"
-      ],
+      "syllables": ["na", "ne", "ni", "no", "nu", "nu", "no", "na", "ne", "ni"],
       "words": [
         "nido",
         "tina",
@@ -1886,10 +1502,7 @@
         "luna",
         "Neli"
       ],
-      "focus_words": [
-        "esa",
-        "a"
-      ],
+      "focus_words": ["esa", "a"],
       "sentences": [
         "Tomás james esa tina. La tina es de Napi. Tono y Alina aman a Napi.",
         "Napi tiene pelo.",
@@ -1977,69 +1590,18 @@
       "letter_focus": "Ññ",
       "instructions": "Encierra en un círculo la sílaba correspondiente.",
       "syllable_mappings": {
-        "ña": [
-          "maña",
-          "mañana",
-          "montaña",
-          "ña",
-          "ñame",
-          "araña",
-          "caña"
-        ],
-        "ñe": [
-          "Meñe",
-          "añejo",
-          "sueñe",
-          "ñe",
-          "adueñe",
-          "cañengo",
-          "apañe"
-        ],
-        "ñi": [
-          "añico",
-          "pañito",
-          "cañita",
-          "ñi",
-          "niñito",
-          "arañita",
-          "reñido"
-        ],
-        "ño": [
-          "moño",
-          "niño",
-          "sueño",
-          "ño",
-          "Noña",
-          "año"
-        ],
-        "ñu": [
-          "Nuco",
-          "Nuto",
-          "cañuto",
-          "moñudo",
-          "ñu",
-          "ceñudo",
-          "pañuelo",
-          "puño"
-        ]
+        "ña": ["maña", "mañana", "montaña", "ña", "ñame", "araña", "caña"],
+        "ñe": ["Meñe", "añejo", "sueñe", "ñe", "adueñe", "cañengo", "apañe"],
+        "ñi": ["añico", "pañito", "cañita", "ñi", "niñito", "arañita", "reñido"],
+        "ño": ["moño", "niño", "sueño", "ño", "Noña", "año"],
+        "ñu": ["Nuco", "Nuto", "cañuto", "moñudo", "ñu", "ceñudo", "pañuelo", "puño"]
       }
     },
     {
       "page_number": 51,
       "ui_component_type": "InteractiveSyllableChart",
       "letter_focus": "Ññ",
-      "syllables": [
-        "ña",
-        "ñe",
-        "ñi",
-        "ño",
-        "ñu",
-        "ñu",
-        "ño",
-        "ña",
-        "ñe",
-        "ñi"
-      ],
+      "syllables": ["ña", "ñe", "ñi", "ño", "ñu", "ñu", "ño", "ña", "ñe", "ñi"],
       "words": [
         "ñame",
         "año",
@@ -2146,69 +1708,18 @@
       "letter_focus": "Bb",
       "instructions": "Encierra en un círculo la sílaba correspondiente.",
       "syllable_mappings": {
-        "ba": [
-          "ba",
-          "baño",
-          "bala",
-          "batir",
-          "batea",
-          "abanico",
-          "loba"
-        ],
-        "be": [
-          "sube",
-          "Bebo",
-          "bebé",
-          "be",
-          "abeja",
-          "nube",
-          "cubeta"
-        ],
-        "bi": [
-          "bebida",
-          "cabito",
-          "bicicleta",
-          "bi",
-          "bisagra",
-          "bisonte",
-          "cubito"
-        ],
-        "bo": [
-          "lobo",
-          "bonita",
-          "tubo",
-          "bo",
-          "bodega",
-          "bola",
-          "botella"
-        ],
-        "bu": [
-          "burro",
-          "aburre",
-          "aburrido",
-          "bu",
-          "bulla",
-          "abuso",
-          "buche"
-        ]
+        "ba": ["ba", "baño", "bala", "batir", "batea", "abanico", "loba"],
+        "be": ["sube", "Bebo", "bebé", "be", "abeja", "nube", "cubeta"],
+        "bi": ["bebida", "cabito", "bicicleta", "bi", "bisagra", "bisonte", "cubito"],
+        "bo": ["lobo", "bonita", "tubo", "bo", "bodega", "bola", "botella"],
+        "bu": ["burro", "aburre", "aburrido", "bu", "bulla", "abuso", "buche"]
       }
     },
     {
       "page_number": 55,
       "ui_component_type": "InteractiveSyllableChart",
       "letter_focus": "Bb",
-      "syllables": [
-        "ba",
-        "be",
-        "bi",
-        "bo",
-        "bu",
-        "bu",
-        "bo",
-        "ba",
-        "be",
-        "bi"
-      ],
+      "syllables": ["ba", "be", "bi", "bo", "bu", "bu", "bo", "ba", "be", "bi"],
       "words": [
         "baño",
         "bota",
@@ -2226,11 +1737,7 @@
         "bote",
         "nube"
       ],
-      "focus_words": [
-        "alto",
-        "con",
-        "bueno"
-      ],
+      "focus_words": ["alto", "con", "bueno"],
       "sentences": [
         "La nube sube y sube. Es una nube bonita.",
         "Bebo batea la bola de Pepito.",
@@ -2313,69 +1820,18 @@
       "letter_focus": "Vv",
       "instructions": "Encierra en un círculo la sílaba correspondiente.",
       "syllable_mappings": {
-        "va": [
-          "Vaso",
-          "lavamos",
-          "vámonos",
-          "va",
-          "lava",
-          "nieva",
-          "lavamanos"
-        ],
-        "ve": [
-          "venado",
-          "ave",
-          "vela",
-          "ve",
-          "venas",
-          "velo",
-          "nave"
-        ],
-        "vi": [
-          "vino",
-          "vivo",
-          "vidente",
-          "vi",
-          "vine",
-          "aviso",
-          "vitamina"
-        ],
-        "vo": [
-          "lavo",
-          "vivo",
-          "pavo",
-          "vo",
-          "clavo",
-          "volar",
-          "Tavo"
-        ],
-        "vu": [
-          "vuela",
-          "vuelta",
-          "vuelan",
-          "vu",
-          "vuelo",
-          "revuelta",
-          "revuelo"
-        ]
+        "va": ["Vaso", "lavamos", "vámonos", "va", "lava", "nieva", "lavamanos"],
+        "ve": ["venado", "ave", "vela", "ve", "venas", "velo", "nave"],
+        "vi": ["vino", "vivo", "vidente", "vi", "vine", "aviso", "vitamina"],
+        "vo": ["lavo", "vivo", "pavo", "vo", "clavo", "volar", "Tavo"],
+        "vu": ["vuela", "vuelta", "vuelan", "vu", "vuelo", "revuelta", "revuelo"]
       }
     },
     {
       "page_number": 59,
       "ui_component_type": "InteractiveSyllableChart",
       "letter_focus": "Vv",
-      "syllables": [
-        "va",
-        "ve",
-        "vi",
-        "vo",
-        "vu",
-        "vu",
-        "vo",
-        "va",
-        "ve",
-        "vi"
-      ],
+      "syllables": ["va", "ve", "vi", "vo", "vu", "vu", "vo", "va", "ve", "vi"],
       "words": [
         "vaso",
         "avena",
@@ -2473,69 +1929,18 @@
       "letter_focus": "Rr",
       "instructions": "Encierra en un círculo la sílaba correspondiente.",
       "syllable_mappings": {
-        "ra": [
-          "rana",
-          "rama",
-          "ratón",
-          "ra",
-          "rata",
-          "raso",
-          "rama"
-        ],
-        "re": [
-          "remo",
-          "reloj",
-          "relevo",
-          "re",
-          "rezo",
-          "revista",
-          "rema"
-        ],
-        "ri": [
-          "riña",
-          "rima",
-          "rimamos",
-          "ri",
-          "Rita",
-          "risa",
-          "rizo"
-        ],
-        "ro": [
-          "rosa",
-          "roto",
-          "Rolo",
-          "ro",
-          "roca",
-          "rota",
-          "Roberto"
-        ],
-        "ru": [
-          "ruta",
-          "Rufino",
-          "rubio",
-          "ru",
-          "ruso",
-          "rutina",
-          "rudo"
-        ]
+        "ra": ["rana", "rama", "ratón", "ra", "rata", "raso", "rama"],
+        "re": ["remo", "reloj", "relevo", "re", "rezo", "revista", "rema"],
+        "ri": ["riña", "rima", "rimamos", "ri", "Rita", "risa", "rizo"],
+        "ro": ["rosa", "roto", "Rolo", "ro", "roca", "rota", "Roberto"],
+        "ru": ["ruta", "Rufino", "rubio", "ru", "ruso", "rutina", "rudo"]
       }
     },
     {
       "page_number": 63,
       "ui_component_type": "InteractiveSyllableChart",
       "letter_focus": "Rr",
-      "syllables": [
-        "ra",
-        "re",
-        "ri",
-        "ro",
-        "ru",
-        "ru",
-        "ro",
-        "ra",
-        "re",
-        "ri"
-      ],
+      "syllables": ["ra", "re", "ri", "ro", "ru", "ru", "ro", "ra", "re", "ri"],
       "words": [
         "ramo",
         "remo",
@@ -2636,69 +2041,18 @@
       "letter_focus": "rr",
       "instructions": "Encierra en un círculo la sílaba correspondiente.",
       "syllable_mappings": {
-        "rra": [
-          "amarra",
-          "pizarra",
-          "barra",
-          "rra",
-          "Porra",
-          "arrasar",
-          "perra"
-        ],
-        "rre": [
-          "torre",
-          "amarre",
-          "arrebatado",
-          "rre",
-          "barre",
-          "arrebatar",
-          "arrepiente"
-        ],
-        "rri": [
-          "arriba",
-          "arrima",
-          "parrilla",
-          "rri",
-          "perrita",
-          "barril",
-          "carrito"
-        ],
-        "rro": [
-          "carro",
-          "arroyo",
-          "burro",
-          "rro",
-          "perro",
-          "amarro",
-          "tarro"
-        ],
-        "rru": [
-          "arruga",
-          "arrugado",
-          "arrullo",
-          "rru",
-          "verruga",
-          "arrullar",
-          "arrullador"
-        ]
+        "rra": ["amarra", "pizarra", "barra", "rra", "Porra", "arrasar", "perra"],
+        "rre": ["torre", "amarre", "arrebatado", "rre", "barre", "arrebatar", "arrepiente"],
+        "rri": ["arriba", "arrima", "parrilla", "rri", "perrita", "barril", "carrito"],
+        "rro": ["carro", "arroyo", "burro", "rro", "perro", "amarro", "tarro"],
+        "rru": ["arruga", "arrugado", "arrullo", "rru", "verruga", "arrullar", "arrullador"]
       }
     },
     {
       "page_number": 67,
       "ui_component_type": "InteractiveSyllableChart",
       "letter_focus": "rr",
-      "syllables": [
-        "rra",
-        "rre",
-        "rri",
-        "rro",
-        "rru",
-        "rru",
-        "rro",
-        "rra",
-        "rre",
-        "rri"
-      ],
+      "syllables": ["rra", "rre", "rri", "rro", "rru", "rru", "rro", "rra", "rre", "rri"],
       "words": [
         "tarro",
         "burro",
@@ -2795,47 +2149,16 @@
       "letter_focus": "Gg",
       "instructions": "Encierra en un círculo la sílaba correspondiente.",
       "syllable_mappings": {
-        "ga": [
-          "garras",
-          "gasolina",
-          "ga",
-          "gato",
-          "paga",
-          "ganas",
-          "maga"
-        ],
-        "go": [
-          "goma",
-          "gorra",
-          "go",
-          "lago",
-          "gota",
-          "mago",
-          "goloso"
-        ],
-        "gu": [
-          "gusano",
-          "gula",
-          "gu",
-          "agudo",
-          "mangú",
-          "laguna",
-          "aguja"
-        ]
+        "ga": ["garras", "gasolina", "ga", "gato", "paga", "ganas", "maga"],
+        "go": ["goma", "gorra", "go", "lago", "gota", "mago", "goloso"],
+        "gu": ["gusano", "gula", "gu", "agudo", "mangú", "laguna", "aguja"]
       }
     },
     {
       "page_number": 71,
       "ui_component_type": "InteractiveSyllableChart",
       "letter_focus": "Gg",
-      "syllables": [
-        "ga",
-        "go",
-        "gu",
-        "gu",
-        "go",
-        "ga"
-      ],
+      "syllables": ["ga", "go", "gu", "gu", "go", "ga"],
       "words": [
         "gato",
         "Gustavo",
@@ -2932,69 +2255,18 @@
       "letter_focus": "Ff",
       "instructions": "Encierra en un círculo la sílaba correspondiente.",
       "syllable_mappings": {
-        "fa": [
-          "fama",
-          "familia",
-          "faro",
-          "fa",
-          "famoso",
-          "fatiga",
-          "afanado"
-        ],
-        "fe": [
-          "feo",
-          "fecha",
-          "Felo",
-          "fe",
-          "feliz",
-          "felino",
-          "Felicia"
-        ],
-        "fi": [
-          "fila",
-          "filo",
-          "afinado",
-          "fi",
-          "afina",
-          "fino",
-          "afilar"
-        ],
-        "fo": [
-          "foto",
-          "sofoca",
-          "fosa",
-          "fo",
-          "foso",
-          "teléfono",
-          "foca"
-        ],
-        "fu": [
-          "furia",
-          "funda",
-          "futuro",
-          "fu",
-          "furor",
-          "perfume",
-          "fuga"
-        ]
+        "fa": ["fama", "familia", "faro", "fa", "famoso", "fatiga", "afanado"],
+        "fe": ["feo", "fecha", "Felo", "fe", "feliz", "felino", "Felicia"],
+        "fi": ["fila", "filo", "afinado", "fi", "afina", "fino", "afilar"],
+        "fo": ["foto", "sofoca", "fosa", "fo", "foso", "teléfono", "foca"],
+        "fu": ["furia", "funda", "futuro", "fu", "furor", "perfume", "fuga"]
       }
     },
     {
       "page_number": 75,
       "ui_component_type": "InteractiveSyllableChart",
       "letter_focus": "Ff",
-      "syllables": [
-        "fa",
-        "fe",
-        "fi",
-        "fo",
-        "fu",
-        "fu",
-        "fo",
-        "fa",
-        "fe",
-        "fi"
-      ],
+      "syllables": ["fa", "fe", "fi", "fo", "fu", "fu", "fo", "fa", "fe", "fi"],
       "words": [
         "familia",
         "fino",
@@ -3096,69 +2368,18 @@
       "letter_focus": "Jj",
       "instructions": "Encierra en un círculo la sílaba correspondiente.",
       "syllable_mappings": {
-        "ja": [
-          "jaba",
-          "jabón",
-          "jamás",
-          "ja",
-          "jarra",
-          "jamón",
-          "baja"
-        ],
-        "je": [
-          "Jesús",
-          "jefe",
-          "baje",
-          "je",
-          "jefatura",
-          "jerez",
-          "ajeno"
-        ],
-        "ji": [
-          "jicotea",
-          "jíbaro",
-          "jirafa",
-          "ji",
-          "ají",
-          "jinete",
-          "ajillo"
-        ],
-        "jo": [
-          "jobo",
-          "José",
-          "bajo",
-          "jo",
-          "ajo",
-          "jota",
-          "jorobado"
-        ],
-        "ju": [
-          "júbilo",
-          "Julio",
-          "jutía",
-          "ju",
-          "juventud",
-          "jugo",
-          "jugar"
-        ]
+        "ja": ["jaba", "jabón", "jamás", "ja", "jarra", "jamón", "baja"],
+        "je": ["Jesús", "jefe", "baje", "je", "jefatura", "jerez", "ajeno"],
+        "ji": ["jicotea", "jíbaro", "jirafa", "ji", "ají", "jinete", "ajillo"],
+        "jo": ["jobo", "José", "bajo", "jo", "ajo", "jota", "jorobado"],
+        "ju": ["júbilo", "Julio", "jutía", "ju", "juventud", "jugo", "jugar"]
       }
     },
     {
       "page_number": 79,
       "ui_component_type": "InteractiveSyllableChart",
       "letter_focus": "Jj",
-      "syllables": [
-        "ja",
-        "je",
-        "ji",
-        "jo",
-        "ju",
-        "ju",
-        "jo",
-        "ja",
-        "je",
-        "ji"
-      ],
+      "syllables": ["ja", "je", "ji", "jo", "ju", "ju", "jo", "ja", "je", "ji"],
       "words": [
         "jaba",
         "jicotea",
@@ -3257,44 +2478,16 @@
       "letter_focus": "Cc",
       "instructions": "Encierra en un círculo la sílaba correspondiente.",
       "syllable_mappings": {
-        "ca": [
-          "cama",
-          "cala",
-          "casa",
-          "ca",
-          "cana",
-          "loca",
-          "saca"
-        ],
-        "co": [
-          "coma",
-          "cosa",
-          "poco",
-          "co",
-          "cola",
-          "copa",
-          "saco"
-        ],
-        "cu": [
-          "cuna",
-          "Cuba",
-          "acuna",
-          "cu",
-          "acuso",
-          "acumula",
-          "cubo"
-        ]
+        "ca": ["cama", "cala", "casa", "ca", "cana", "loca", "saca"],
+        "co": ["coma", "cosa", "poco", "co", "cola", "copa", "saco"],
+        "cu": ["cuna", "Cuba", "acuna", "cu", "acuso", "acumula", "cubo"]
       }
     },
     {
       "page_number": 83,
       "ui_component_type": "InteractiveSyllableChart",
       "letter_focus": "Cc",
-      "syllables": [
-        "ca",
-        "co",
-        "cu"
-      ],
+      "syllables": ["ca", "co", "cu"],
       "words": [
         "carro",
         "boca",
@@ -3395,69 +2588,18 @@
       "letter_focus": "Yy",
       "instructions": "Encierra en un círculo la sílaba correspondiente.",
       "syllable_mappings": {
-        "ya": [
-          "yate",
-          "Yara",
-          "payaso",
-          "ya",
-          "yana",
-          "yagua",
-          "maya"
-        ],
-        "ye": [
-          "yegua",
-          "enyesado",
-          "yema",
-          "ye",
-          "Yesenia",
-          "Yeyo",
-          "yeso"
-        ],
-        "yi": [
-          "Mayito",
-          "yi",
-          "Yayita",
-          "Yayi",
-          "Yigüiro",
-          "Yoyita",
-          "Mayita"
-        ],
-        "yo": [
-          "cayo",
-          "yoyo",
-          "rayo",
-          "yo",
-          "coyote",
-          "yo",
-          "Yayo"
-        ],
-        "yu": [
-          "Yucatán",
-          "Cayuco",
-          "ayudar",
-          "yu",
-          "yuca",
-          "ayuda",
-          "desayuno"
-        ]
+        "ya": ["yate", "Yara", "payaso", "ya", "yana", "yagua", "maya"],
+        "ye": ["yegua", "enyesado", "yema", "ye", "Yesenia", "Yeyo", "yeso"],
+        "yi": ["Mayito", "yi", "Yayita", "Yayi", "Yigüiro", "Yoyita", "Mayita"],
+        "yo": ["cayo", "yoyo", "rayo", "yo", "coyote", "yo", "Yayo"],
+        "yu": ["Yucatán", "Cayuco", "ayudar", "yu", "yuca", "ayuda", "desayuno"]
       }
     },
     {
       "page_number": 87,
       "ui_component_type": "InteractiveSyllableChart",
       "letter_focus": "Yy",
-      "syllables": [
-        "ya",
-        "ye",
-        "yi",
-        "yo",
-        "yu",
-        "yu",
-        "yo",
-        "ya",
-        "ye",
-        "yi"
-      ],
+      "syllables": ["ya", "ye", "yi", "yo", "yu", "yu", "yo", "ya", "ye", "yi"],
       "words": [
         "yuca",
         "ayer",
@@ -3558,67 +2700,18 @@
       "letter_focus": "Zz",
       "instructions": "Encierra en un círculo la sílaba correspondiente.",
       "syllable_mappings": {
-        "za": [
-          "taza",
-          "caza",
-          "zapatero",
-          "za",
-          "plaza",
-          "zapato",
-          "zapote"
-        ],
-        "ze": [
-          "zepelín",
-          "zeta",
-          "zebra",
-          "ze",
-          "Zegrí",
-          "Zenaida",
-          "Zema"
-        ],
-        "zi": [
-          "zig-zag",
-          "Zimba",
-          "zi",
-          "Zila",
-          "Zita"
-        ],
-        "zo": [
-          "zorro",
-          "portazo",
-          "zocato",
-          "zo",
-          "azotes",
-          "zopilote",
-          "lazo"
-        ],
-        "zu": [
-          "azúcar",
-          "zurra",
-          "azucarado",
-          "zu",
-          "azules",
-          "Zulema",
-          "azulado"
-        ]
+        "za": ["taza", "caza", "zapatero", "za", "plaza", "zapato", "zapote"],
+        "ze": ["zepelín", "zeta", "zebra", "ze", "Zegrí", "Zenaida", "Zema"],
+        "zi": ["zig-zag", "Zimba", "zi", "Zila", "Zita"],
+        "zo": ["zorro", "portazo", "zocato", "zo", "azotes", "zopilote", "lazo"],
+        "zu": ["azúcar", "zurra", "azucarado", "zu", "azules", "Zulema", "azulado"]
       }
     },
     {
       "page_number": 91,
       "ui_component_type": "InteractiveSyllableChart",
       "letter_focus": "Zz",
-      "syllables": [
-        "za",
-        "ze",
-        "zi",
-        "zo",
-        "zu",
-        "zu",
-        "zo",
-        "za",
-        "ze",
-        "zi"
-      ],
+      "syllables": ["za", "ze", "zi", "zo", "zu", "zu", "zo", "za", "ze", "zi"],
       "words": [
         "zorro",
         "zeta",

@@ -180,7 +180,11 @@ export function buildRecentAccuracies(
     seen.add(key);
 
     const total = e.total ?? 0;
-    if (countsForLiteracy((e.meta ?? {}) as Record<string, unknown>) && total > 0 && bucket.length < RECENT_ACCURACY_WINDOW) {
+    if (
+      countsForLiteracy((e.meta ?? {}) as Record<string, unknown>) &&
+      total > 0 &&
+      bucket.length < RECENT_ACCURACY_WINDOW
+    ) {
       bucket.push((e.score ?? 0) / total);
     }
   }

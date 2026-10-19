@@ -59,15 +59,11 @@ vi.mock("@/lib/useServerFn", () => ({
 
 vi.mock("@/context/LanguageContext", () => ({
   useLanguage: () => ({ t: (k: string) => k, lang: "es", language: "es" }),
-  LanguageProvider: ({ children }: { children?: React.ReactNode }) => (
-    <>{children}</>
-  ),
+  LanguageProvider: ({ children }: { children?: React.ReactNode }) => <>{children}</>,
 }));
 
 vi.mock("@tanstack/react-query", () => ({
-  QueryClientProvider: ({ children }: { children?: React.ReactNode }) => (
-    <>{children}</>
-  ),
+  QueryClientProvider: ({ children }: { children?: React.ReactNode }) => <>{children}</>,
   QueryClient: vi.fn().mockImplementation(() => ({
     mount: vi.fn(),
     unmount: vi.fn(),
@@ -128,9 +124,7 @@ describe("Student-Teacher Routing Isolation", () => {
 
   it("(a) student login lands on /cartilla/lecciones", async () => {
     const { history } = renderWithRouter(["/cartilla/unirse"]);
-    await waitFor(() =>
-      expect(history.location.pathname).toBe("/cartilla/unirse"),
-    );
+    await waitFor(() => expect(history.location.pathname).toBe("/cartilla/unirse"));
     const joinCodeInput = (await screen.findByLabelText(
       /código de la clase/i,
       {},
@@ -243,7 +237,9 @@ describe("Student-Teacher Routing Isolation", () => {
     await PrintLesson.options.beforeLoad!({ params: { n: "1" } } as never);
     await PrintAll.options.beforeLoad!({} as never);
     expect(getSessionMock).not.toHaveBeenCalled();
-    await expect(PrintLesson.options.beforeLoad!({ params: { n: "999" } } as never)).rejects.toBeDefined();
+    await expect(
+      PrintLesson.options.beforeLoad!({ params: { n: "999" } } as never),
+    ).rejects.toBeDefined();
   });
 
   it("shows anonymous progress without a login or a permanent loading screen", async () => {
@@ -251,11 +247,21 @@ describe("Student-Teacher Routing Isolation", () => {
     const { Route: ProgressRoute } = await import("../cartilla/mi-progreso");
     await ProgressRoute.options.beforeLoad!({} as never);
     const root = createRootRouteWithContext<{ queryClient: unknown }>()({ component: Outlet });
-    const progress = createRoute({ getParentRoute: () => root, path: "/cartilla/mi-progreso", component: ProgressRoute.options.component });
+    const progress = createRoute({
+      getParentRoute: () => root,
+      path: "/cartilla/mi-progreso",
+      component: ProgressRoute.options.component,
+    });
     const history = createMemoryHistory({ initialEntries: ["/cartilla/mi-progreso"] });
-    const router = createRouter({ routeTree: root.addChildren([progress]), history, context: { queryClient: {} } });
+    const router = createRouter({
+      routeTree: root.addChildren([progress]),
+      history,
+      context: { queryClient: {} },
+    });
     render(<RouterProvider router={router} />);
-    expect(await screen.findByRole("heading", { name: "Mi progreso" }, { timeout: 10_000 })).toBeTruthy();
+    expect(
+      await screen.findByRole("heading", { name: "Mi progreso" }, { timeout: 10_000 }),
+    ).toBeTruthy();
     expect(screen.getByText("Progreso guardado en este navegador.")).toBeTruthy();
     expect(getSessionMock).not.toHaveBeenCalled();
   });
@@ -276,9 +282,7 @@ describe("Student-Teacher Routing Isolation", () => {
 
     it("(c) student login clears teacher session", async () => {
       const { history } = renderWithRouter(["/cartilla/unirse"]);
-      await waitFor(() =>
-        expect(history.location.pathname).toBe("/cartilla/unirse"),
-      );
+      await waitFor(() => expect(history.location.pathname).toBe("/cartilla/unirse"));
 
       const joinCodeInput = (await screen.findByLabelText(
         /código de la clase/i,

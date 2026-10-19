@@ -30,10 +30,7 @@ export function isLessonCompleted(n: number): boolean {
 }
 /** Open access exposes every lesson; otherwise preserve the sequential rule. */
 export function isLessonUnlocked(n: number): boolean {
-  if (
-    import.meta.env.VITE_CRM_REVIEW === "true" &&
-    import.meta.env.MODE !== "test"
-  ) {
+  if (import.meta.env.VITE_CRM_REVIEW === "true" && import.meta.env.MODE !== "test") {
     return true;
   }
   if (n <= 1) return true;

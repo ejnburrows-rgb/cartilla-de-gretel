@@ -16,7 +16,7 @@ or pick lessons on the owner's behalf.
 
 - **How students reach it now:** only from a teacher's practice link,
   `/cartilla/practica?family=1&lesson=N&activity=piano`. There is no student
-  button for it in the lessons, the Cuaderno, or *Mis lecciones*.
+  button for it in the lessons, the Cuaderno, or _Mis lecciones_.
 - **Two looks, same behavior:** "Piano" (wooden piano, tablets/laptops) and
   "Cancionero" (Gretel's songbook, five big keys, phones). A switch lets the
   child or teacher change it; the choice is remembered on the device.
@@ -25,7 +25,7 @@ or pick lessons on the owner's behalf.
 - **Content:** verified Student Workbook words from `src/lib/piano-words.ts`
   (five words each for Lessons 8–17 and 19–24). Lessons with no such words
   (vowel lessons 1–6, Lesson 7 Mm, Lesson 18 RRrr) use the lesson's own
-  syllables, e.g. *ma · me · mi · mo · mu*.
+  syllables, e.g. _ma · me · mi · mo · mu_.
 - **Microphone:** PR #758 (open, owner review) makes the Piano microphone-only,
   per the owner's correction of 2026-10-14. Recognition is word-based (what was
   heard), not pitch. Verified: tsc, 203 piano unit tests, 9/9 piano browser tests.
@@ -55,7 +55,7 @@ or pick lessons on the owner's behalf.
 
 Copy this into a new chat to brainstorm before updating this file:
 
-> I'm the owner of *La Cartilla de Gretel*, a Spanish early-reading app built
+> I'm the owner of _La Cartilla de Gretel_, a Spanish early-reading app built
 > from a printed workbook (24 lessons: Lesson 1 introduces the vowels; Lessons
 > 2–6 are o, a, e, i, u; Lessons 7–24 are m, p, s, t, d, l, n, ñ, b, v, r, rr,
 > g, f, j, c, y, z). Each lesson has Student Workbook pages (circle pictures,
@@ -75,6 +75,7 @@ Copy this into a new chat to brainstorm before updating this file:
 >
 > Help me decide, with pros and cons for 5–7-year-old learners and their
 > teacher:
+>
 > 1. Which lessons should include the Piano, and why (where does saying whole
 >    words add the most: early consonants, harder sounds like rr/ñ/g/c, or
 >    review points)?

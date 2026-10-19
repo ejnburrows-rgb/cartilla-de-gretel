@@ -10,7 +10,7 @@ import { FaithfulPageRenderer } from "../FaithfulPageRenderer";
 import { getPageLayout, type PageRegion } from "@/lib/book-faithful";
 
 vi.mock("@/lib/gretel-bus", async (importOriginal) => ({
-  ...await importOriginal<typeof import("@/lib/gretel-bus")>(),
+  ...(await importOriginal<typeof import("@/lib/gretel-bus")>()),
   gretelEvent: vi.fn(),
 }));
 
@@ -173,7 +173,6 @@ describe("FaithfulPageRenderer mechanic hosts", () => {
     expect(screen.queryByRole("button", { name: "Comprobar" })).toBeNull();
   });
 
-
   it("paint-box → PaintCanvas with Colorea verb (not tap)", () => {
     render(
       <FaithfulPageRenderer
@@ -217,11 +216,15 @@ describe("FaithfulPageRenderer mechanic hosts", () => {
 
   it("Encierra syllable-match renders the source-syllable pencil circle, never rope", () => {
     const { container } = render(
-      <FaithfulPageRenderer pageNumber={9994} lessonNumber={7} regions={encierraRegions()} interactive />
+      <FaithfulPageRenderer
+        pageNumber={9994}
+        lessonNumber={7}
+        regions={encierraRegions()}
+        interactive
+      />,
     );
     expect(container.querySelector(".native-syllable")).toBeTruthy();
     expect(screen.getByRole("button", { name: "mamá" })).toBeTruthy();
     expect(container.querySelector(".am-lasso__rope-layer")).toBeNull();
   });
-
 });

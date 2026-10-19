@@ -27,13 +27,20 @@ describe("StudentTable", () => {
   });
 
   it("still renders a populated roster normally", () => {
-    render(<StudentTable {...baseProps} studentsList={[{
-      id: "student-1",
-      display_name: "Ana",
-      student_code: "1234",
-      lessons: 2,
-      lastSeen: null,
-    }]} />);
+    render(
+      <StudentTable
+        {...baseProps}
+        studentsList={[
+          {
+            id: "student-1",
+            display_name: "Ana",
+            student_code: "1234",
+            lessons: 2,
+            lastSeen: null,
+          },
+        ]}
+      />,
+    );
     expect(screen.getByRole("table")).toBeTruthy();
     expect(screen.getByRole("button", { name: "Ana" })).toBeTruthy();
     expect(screen.getByText("1234")).toBeTruthy();

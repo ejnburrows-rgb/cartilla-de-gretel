@@ -67,7 +67,12 @@ describe("AssignActivityModal", () => {
 
   it("clears selected students when class changes", async () => {
     render(
-      <AssignActivityModal folderKey="guia" lessonId="1" activityLabel="Activity 1" onClose={vi.fn()} />
+      <AssignActivityModal
+        folderKey="guia"
+        lessonId="1"
+        activityLabel="Activity 1"
+        onClose={vi.fn()}
+      />,
     );
 
     // Select class 1

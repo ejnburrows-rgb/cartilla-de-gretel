@@ -52,7 +52,10 @@ export function PdfPage({ pageNumber, className = "", eager = false, onStatus }:
           className={`w-full h-full object-contain transition-opacity duration-300 ${loaded ? "opacity-100" : "opacity-0"}`}
           draggable={false}
           loading={eager ? "eager" : "lazy"}
-          onLoad={() => { setLoaded(true); onStatus?.(true); }}
+          onLoad={() => {
+            setLoaded(true);
+            onStatus?.(true);
+          }}
           onError={() => {
             setLoaded(false);
             if (chainIndex + 1 >= chain.length) onStatus?.(false);

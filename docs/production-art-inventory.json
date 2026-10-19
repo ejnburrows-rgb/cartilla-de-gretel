@@ -70,10 +70,7 @@
       "provenanceStatus": "VERIFIED-EXACT-WORKBOOK-CROP-2026-08-08",
       "sha256": "03cafdb0b52172796d7cfd99a19ec0650d157db95f11fe70e5d1599b4f0a41e2",
       "referenceCount": 2,
-      "referenceLocations": [
-        "src/data/page-layouts.json:24",
-        "src/data/page-layouts.json:869"
-      ]
+      "referenceLocations": ["src/data/page-layouts.json:24", "src/data/page-layouts.json:869"]
     },
     {
       "src": "/cartilla/art/faithful/leccion-1/aguila.webp",
@@ -210,9 +207,7 @@
       "provenanceStatus": "VERIFIED-EXACT-WORKBOOK-CROP-2026-08-08",
       "sha256": "d2105fc2c8dfe42fcd3c5637371f355ccf821e104d396a2b62f8649b6d61d109",
       "referenceCount": 1,
-      "referenceLocations": [
-        "src/data/page-layouts.json:227"
-      ]
+      "referenceLocations": ["src/data/page-layouts.json:227"]
     },
     {
       "src": "/cartilla/art/faithful/leccion-1/libro.webp",
@@ -719,9 +714,7 @@
       "provenanceStatus": "QA-PASS-SOURCE-PAGE-NOT-RECORDED",
       "sha256": "c0fff9c01e6e52cf05b1f2dcca74ab99b935014f7c753d5f06a95dc24c3ea198",
       "referenceCount": 1,
-      "referenceLocations": [
-        "src/content/consonants.json:758"
-      ]
+      "referenceLocations": ["src/content/consonants.json:758"]
     },
     {
       "src": "/cartilla/art/faithful/leccion-17-r/rosa.webp",
@@ -795,9 +788,7 @@
       "provenanceStatus": null,
       "sha256": "c7c1b438a276e8b52b044bd02ffce44bd5bd57e291c33d27c5122285ce8a36db",
       "referenceCount": 1,
-      "referenceLocations": [
-        "src/content/consonants.json:824"
-      ]
+      "referenceLocations": ["src/content/consonants.json:824"]
     },
     {
       "src": "/cartilla/art/faithful/leccion-18-rr/burro.webp",
@@ -846,9 +837,7 @@
       "provenanceStatus": "QA-PASS-SOURCE-PAGE-NOT-RECORDED",
       "sha256": "9930f24f920eecfb6782e6ea7c9475bffb3c122d3e896bcd07508f002f31e604",
       "referenceCount": 1,
-      "referenceLocations": [
-        "src/content/consonants.json:814"
-      ]
+      "referenceLocations": ["src/content/consonants.json:814"]
     },
     {
       "src": "/cartilla/art/faithful/leccion-18-rr/perro.webp",
@@ -870,9 +859,7 @@
       "provenanceStatus": "QA-PASS-SOURCE-PAGE-NOT-RECORDED",
       "sha256": "7f616ed25384f70c9409799d30c4842cbac8f532d672a34c325a1120713e8bb9",
       "referenceCount": 1,
-      "referenceLocations": [
-        "src/content/animal-gallery.ts:121"
-      ]
+      "referenceLocations": ["src/content/animal-gallery.ts:121"]
     },
     {
       "src": "/cartilla/art/faithful/leccion-18-rr/tierra.webp",
@@ -894,9 +881,7 @@
       "provenanceStatus": "QA-PASS-SOURCE-PAGE-NOT-RECORDED",
       "sha256": "8c9be585ca8ae6241c3a45e89a684a8efb7f846e0545a268e4383105d91f3d0b",
       "referenceCount": 1,
-      "referenceLocations": [
-        "src/content/consonants.json:829"
-      ]
+      "referenceLocations": ["src/content/consonants.json:829"]
     },
     {
       "src": "/cartilla/art/faithful/leccion-18-rr/torre.webp",
@@ -973,9 +958,7 @@
       "provenanceStatus": null,
       "sha256": "fbbbdbc4a74c75b0226f6fd9f9608979617a0a64b15776464feb23eaf3ab06e5",
       "referenceCount": 1,
-      "referenceLocations": [
-        "src/content/consonants.json:1070"
-      ]
+      "referenceLocations": ["src/content/consonants.json:1070"]
     },
     {
       "src": "/cartilla/art/faithful/leccion-19-c/conejo.webp",
@@ -1022,9 +1005,7 @@
       "provenanceStatus": null,
       "sha256": "0cf2ea9a57e27dc415322e29d782b62b17c07f2f888a07dd6d70aa9eb21f8994",
       "referenceCount": 1,
-      "referenceLocations": [
-        "src/content/consonants.json:1065"
-      ]
+      "referenceLocations": ["src/content/consonants.json:1065"]
     },
     {
       "src": "/cartilla/art/faithful/leccion-19-c/cuna.webp",
@@ -1097,9 +1078,7 @@
       "provenanceStatus": null,
       "sha256": "b0ac80649a65046a80c20b53487a089fb7707f2db16020ab0969c35410bb6a1b",
       "referenceCount": 1,
-      "referenceLocations": [
-        "src/content/consonants.json:870"
-      ]
+      "referenceLocations": ["src/content/consonants.json:870"]
     },
     {
       "src": "/cartilla/art/faithful/leccion-19-g/goloso.webp",
@@ -1121,9 +1100,7 @@
       "provenanceStatus": null,
       "sha256": "64344a3245c4fef64eb19116ccb39ab59019f704adc3852f2ca1537917209e04",
       "referenceCount": 1,
-      "referenceLocations": [
-        "src/content/consonants.json:880"
-      ]
+      "referenceLocations": ["src/content/consonants.json:880"]
     },
     {
       "src": "/cartilla/art/faithful/leccion-19-g/gorra.webp",
@@ -1145,9 +1122,7 @@
       "provenanceStatus": null,
       "sha256": "a892afd68c68a3dc8bd719b45b37355148036c97d30121c7303b9c494b22ce69",
       "referenceCount": 1,
-      "referenceLocations": [
-        "src/content/consonants.json:885"
-      ]
+      "referenceLocations": ["src/content/consonants.json:885"]
     },
     {
       "src": "/cartilla/art/faithful/leccion-19-g/gusano.webp",
@@ -1196,9 +1171,7 @@
       "provenanceStatus": null,
       "sha256": "672e07209e62d405a699d604c4ff0b1bb4834c480468a9b36706874244334c58",
       "referenceCount": 1,
-      "referenceLocations": [
-        "src/content/consonants.json:890"
-      ]
+      "referenceLocations": ["src/content/consonants.json:890"]
     },
     {
       "src": "/cartilla/art/faithful/leccion-20-f/familia.webp",
@@ -1220,9 +1193,7 @@
       "provenanceStatus": null,
       "sha256": "55da2994a06a472d7b39e5fbdddb3fb7fbbb9f0d50dcb697eed55a32249ebcdd",
       "referenceCount": 1,
-      "referenceLocations": [
-        "src/content/consonants.json:939"
-      ]
+      "referenceLocations": ["src/content/consonants.json:939"]
     },
     {
       "src": "/cartilla/art/faithful/leccion-20-f/felo.webp",
@@ -1244,9 +1215,7 @@
       "provenanceStatus": null,
       "sha256": "7cb1a1fc8d37c14bcc49bb2f379471281af4b241b3f74274cde301820439c123",
       "referenceCount": 1,
-      "referenceLocations": [
-        "src/content/consonants.json:944"
-      ]
+      "referenceLocations": ["src/content/consonants.json:944"]
     },
     {
       "src": "/cartilla/art/faithful/leccion-20-f/fideos.webp",
@@ -1268,9 +1237,7 @@
       "provenanceStatus": null,
       "sha256": "dd01b137ac8ec6d42d8a9be58dc1e9e926240536423f765457c8e44d682bec46",
       "referenceCount": 1,
-      "referenceLocations": [
-        "src/content/consonants.json:934"
-      ]
+      "referenceLocations": ["src/content/consonants.json:934"]
     },
     {
       "src": "/cartilla/art/faithful/leccion-20-f/fiesta.webp",
@@ -1345,9 +1312,7 @@
       "provenanceStatus": null,
       "sha256": "8a2f2efd5294ec2803df918fc0f2cb2be7ba17f23f2ad6b5e8de49fff0db4cf8",
       "referenceCount": 1,
-      "referenceLocations": [
-        "src/content/consonants.json:949"
-      ]
+      "referenceLocations": ["src/content/consonants.json:949"]
     },
     {
       "src": "/cartilla/art/faithful/leccion-21-j/jarra.webp",
@@ -1369,10 +1334,7 @@
       "provenanceStatus": null,
       "sha256": "59d34b9aa8c580a29d4ffc56203944ccae1ea0278baa0b240af8fb0cb3b95c12",
       "referenceCount": 2,
-      "referenceLocations": [
-        "src/content/consonants.json:1009",
-        "src/data/page-layouts.json:6872"
-      ]
+      "referenceLocations": ["src/content/consonants.json:1009", "src/data/page-layouts.json:6872"]
     },
     {
       "src": "/cartilla/art/faithful/leccion-21-j/jesus.webp",
@@ -1394,9 +1356,7 @@
       "provenanceStatus": null,
       "sha256": "0ff8a168101454ac04864d832dece7996a44dd47c3cf9afcf131f0409b5425b5",
       "referenceCount": 1,
-      "referenceLocations": [
-        "src/content/consonants.json:1000"
-      ]
+      "referenceLocations": ["src/content/consonants.json:1000"]
     },
     {
       "src": "/cartilla/art/faithful/leccion-21-j/jicotea.webp",
@@ -1418,10 +1378,7 @@
       "provenanceStatus": null,
       "sha256": "603a01fb9e5d20322b491e34253464dcf0d5a38c85632d3d5a4fca0202b503fa",
       "referenceCount": 2,
-      "referenceLocations": [
-        "src/content/animal-gallery.ts:139",
-        "src/content/consonants.json:990"
-      ]
+      "referenceLocations": ["src/content/animal-gallery.ts:139", "src/content/consonants.json:990"]
     },
     {
       "src": "/cartilla/art/faithful/leccion-21-j/jirafa.webp",
@@ -1469,10 +1426,7 @@
       "provenanceStatus": null,
       "sha256": "1dbce8215fadeed5d88c338e4a01950aaa29fb3f4e23d2888c30f5c8f4b5cc91",
       "referenceCount": 2,
-      "referenceLocations": [
-        "src/content/consonants.json:995",
-        "src/data/page-layouts.json:6952"
-      ]
+      "referenceLocations": ["src/content/consonants.json:995", "src/data/page-layouts.json:6952"]
     },
     {
       "src": "/cartilla/art/faithful/leccion-22-y/mayuscula.webp",
@@ -1494,9 +1448,7 @@
       "provenanceStatus": null,
       "sha256": "011ceb3f669c5a549d2b95fd340d3515330feacdf8ed097bfd016a1234a33d5b",
       "referenceCount": 1,
-      "referenceLocations": [
-        "src/content/consonants.json:1124"
-      ]
+      "referenceLocations": ["src/content/consonants.json:1124"]
     },
     {
       "src": "/cartilla/art/faithful/leccion-22-y/yate.webp",
@@ -1544,9 +1496,7 @@
       "provenanceStatus": null,
       "sha256": "6954f8b87ce8ff463a02352bd5a66ce36816d321245eabc1572d544f1312e275",
       "referenceCount": 1,
-      "referenceLocations": [
-        "src/content/consonants.json:1119"
-      ]
+      "referenceLocations": ["src/content/consonants.json:1119"]
     },
     {
       "src": "/cartilla/art/faithful/leccion-22-y/yema.webp",
@@ -1568,9 +1518,7 @@
       "provenanceStatus": null,
       "sha256": "ee82c9d4b24fbee461794c14a0f6c0bcae12a263267833e96ed1f002962e2851",
       "referenceCount": 1,
-      "referenceLocations": [
-        "src/content/consonants.json:1114"
-      ]
+      "referenceLocations": ["src/content/consonants.json:1114"]
     },
     {
       "src": "/cartilla/art/faithful/leccion-22-y/yoyo.webp",
@@ -1647,9 +1595,7 @@
       "provenanceStatus": null,
       "sha256": "af236a913ba290ed3d587f8ffd8aaf8ce5d8e0000aef93d6a61dbfdc7e7802c9",
       "referenceCount": 1,
-      "referenceLocations": [
-        "src/content/consonants.json:1184"
-      ]
+      "referenceLocations": ["src/content/consonants.json:1184"]
     },
     {
       "src": "/cartilla/art/faithful/leccion-23-z/zigzag.webp",
@@ -1671,9 +1617,7 @@
       "provenanceStatus": null,
       "sha256": "ee275d942bf32209df9816cf89c553fe6488e806a90faf8679552f142698261e",
       "referenceCount": 1,
-      "referenceLocations": [
-        "src/content/consonants.json:1174"
-      ]
+      "referenceLocations": ["src/content/consonants.json:1174"]
     },
     {
       "src": "/cartilla/art/faithful/leccion-23-z/zorro.webp",
@@ -1723,10 +1667,7 @@
       "provenanceStatus": null,
       "sha256": "6c0f07ea2d6384daa37c83bb6d838fb443918118d5dde62019c3929a53cbbaf0",
       "referenceCount": 2,
-      "referenceLocations": [
-        "src/content/consonants.json:1189",
-        "src/data/page-layouts.json:8111"
-      ]
+      "referenceLocations": ["src/content/consonants.json:1189", "src/data/page-layouts.json:8111"]
     },
     {
       "src": "/cartilla/art/faithful/leccion-7-m/mama.webp",
@@ -2103,10 +2044,7 @@
       "provenanceStatus": "PROVENANCE-UNKNOWN",
       "sha256": "ddf3333971afba4e709073e4ba7c0b3c12ad9e08a5cae10c5763a453dc7b5f52",
       "referenceCount": 2,
-      "referenceLocations": [
-        "src/content/animal-gallery.ts:53",
-        "src/data/page-layouts.json:575"
-      ]
+      "referenceLocations": ["src/content/animal-gallery.ts:53", "src/data/page-layouts.json:575"]
     },
     {
       "src": "/cartilla/art/faithful/vocal-a/aro.webp",
@@ -2277,10 +2215,7 @@
       "provenanceStatus": "FIXED-2026-WRONG-PAGE",
       "sha256": "6f4a542ddde9d03b03f0987d9813bafded1d946632cb0f2c1c12acf4e9732091",
       "referenceCount": 2,
-      "referenceLocations": [
-        "src/data/page-layouts.json:277",
-        "src/data/page-layouts.json:773"
-      ]
+      "referenceLocations": ["src/data/page-layouts.json:277", "src/data/page-layouts.json:773"]
     },
     {
       "src": "/cartilla/art/faithful/vocal-e/escuela.webp",
@@ -2446,10 +2381,7 @@
       "provenanceStatus": "PROVENANCE-UNKNOWN",
       "sha256": "22dd1c51277b2ae1a236677758a836567626f4b84660c45dee5deb6c19f3fb4a",
       "referenceCount": 2,
-      "referenceLocations": [
-        "src/data/page-layouts.json:1009",
-        "src/data/page-layouts.json:1060"
-      ]
+      "referenceLocations": ["src/data/page-layouts.json:1009", "src/data/page-layouts.json:1060"]
     },
     {
       "src": "/cartilla/art/faithful/vocal-i/iguana.webp",
@@ -2788,9 +2720,7 @@
       "provenanceStatus": "QA-PASS-AUTHORED-BLINK-2026-09-25",
       "sha256": "f77a0331cefb6dd7840977b2565f0a7d7986e598c158fef36bc42e58e81c5212",
       "referenceCount": 1,
-      "referenceLocations": [
-        "src/lib/living-blink-map.ts:7"
-      ]
+      "referenceLocations": ["src/lib/living-blink-map.ts:7"]
     },
     {
       "src": "/cartilla/art/faithful/vocal-o/oso.webp",
@@ -2898,10 +2828,7 @@
       "provenanceStatus": null,
       "sha256": "14b2ffeb6bb6c4d70421e4adeed9a59b438bb859484c3123990b2806647c1e70",
       "referenceCount": 2,
-      "referenceLocations": [
-        "src/content/lessons.json:297",
-        "src/content/lessons.json:336"
-      ]
+      "referenceLocations": ["src/content/lessons.json:297", "src/content/lessons.json:336"]
     },
     {
       "src": "/cartilla/art/faithful/vocal-u/unicornio.webp",

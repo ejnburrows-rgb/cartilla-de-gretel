@@ -95,14 +95,12 @@ function exactGeometryVerified(item) {
 
 async function openPdf(file) {
   const data = new Uint8Array(fs.readFileSync(file));
-  return pdfjsLib
-    .getDocument({
-      data,
-      isEvalSupported: false,
-      useSystemFonts: true,
-      useWorkerFetch: false,
-    })
-    .promise;
+  return pdfjsLib.getDocument({
+    data,
+    isEvalSupported: false,
+    useSystemFonts: true,
+    useWorkerFetch: false,
+  }).promise;
 }
 
 async function renderPdfPage(doc, pageNumber, scale) {
@@ -298,7 +296,9 @@ async function restoreEdgeGridLines(patch, targetCrop, width, height) {
       restored[i + 3] = targetRaw[i + 3];
     }
   }
-  return sharp(restored, { raw: { width, height, channels: 4 } }).png().toBuffer();
+  return sharp(restored, { raw: { width, height, channels: 4 } })
+    .png()
+    .toBuffer();
 }
 
 async function buildReplacementPatch(targetCrop, source, targetWidth, targetHeight) {
@@ -379,16 +379,14 @@ async function createProof(originalCrop, sourceCrop, finalCrop, output) {
 async function outsideTargetDiff(original, output, boxes) {
   const a = await sharp(original).ensureAlpha().raw().toBuffer({ resolveWithObject: true });
   const b = await sharp(output).ensureAlpha().raw().toBuffer({ resolveWithObject: true });
-  if (a.info.width !== b.info.width || a.info.height !== b.info.height) return Number.POSITIVE_INFINITY;
+  if (a.info.width !== b.info.width || a.info.height !== b.info.height)
+    return Number.POSITIVE_INFINITY;
   const width = a.info.width;
   const height = a.info.height;
   const inside = (x, y) =>
     boxes.some(
       (box) =>
-        x >= box.left &&
-        x < box.left + box.width &&
-        y >= box.top &&
-        y < box.top + box.height,
+        x >= box.left && x < box.left + box.width && y >= box.top && y < box.top + box.height,
     );
 
   let changed = 0;
@@ -433,7 +431,9 @@ async function main() {
   if (!Number.isFinite(scale) || scale <= 0) throw new Error("--scale must be > 0");
 
   const plan = readJson(planPath);
-  const mapping = readJson(path.join(root, "src/data/reconstruction/student-to-flipchart-284.json"));
+  const mapping = readJson(
+    path.join(root, "src/data/reconstruction/student-to-flipchart-284.json"),
+  );
   const pageIndex = readJson(
     path.join(root, "src/data/reconstruction/pdf-sheet-to-printed-page.json"),
   );
@@ -450,8 +450,10 @@ async function main() {
   const flipchartSha = sha256File(flipchartPath);
   const workbookDoc = await openPdf(workbookPath);
   const flipchartDoc = await openPdf(flipchartPath);
-  if (workbookDoc.numPages !== 98) throw new Error(`Workbook source must have 98 sheets; found ${workbookDoc.numPages}`);
-  if (flipchartDoc.numPages !== 62) throw new Error(`Flip Chart source must have 62 pages; found ${flipchartDoc.numPages}`);
+  if (workbookDoc.numPages !== 98)
+    throw new Error(`Workbook source must have 98 sheets; found ${workbookDoc.numPages}`);
+  if (flipchartDoc.numPages !== 62)
+    throw new Error(`Flip Chart source must have 62 pages; found ${flipchartDoc.numPages}`);
 
   const grouped = new Map();
   const skippedItems = [];
@@ -472,11 +474,9 @@ async function main() {
       throw new Error(`${item.id}: invalid workbook_box_norm`);
     }
     if (
-      ![
-        "EXACT_COLORED_COUNTERPART",
-        "COLOR_TRANSFER_REQUIRED",
-        "NO_VALID_COUNTERPART",
-      ].includes(item.strategy)
+      !["EXACT_COLORED_COUNTERPART", "COLOR_TRANSFER_REQUIRED", "NO_VALID_COUNTERPART"].includes(
+        item.strategy,
+      )
     ) {
       throw new Error(`${item.id}: invalid strategy`);
     }
@@ -498,7 +498,9 @@ async function main() {
         throw new Error(`${item.id}: exact counterpart requires flipchart_box_norm`);
       }
       if (!exactGeometryVerified(item)) {
-        throw new Error(`${item.id}: exact counterpart is missing one or more geometry PASS checks`);
+        throw new Error(
+          `${item.id}: exact counterpart is missing one or more geometry PASS checks`,
+        );
       }
     } else {
       if (!item.verified_colorized_asset || item.color_transfer_verification !== "PASS") {
@@ -646,8 +648,7 @@ async function main() {
     flipchart_source_sha256: flipchartSha,
     source_mapping: "src/data/reconstruction/student-to-flipchart-284.json",
     page_index: "src/data/reconstruction/pdf-sheet-to-printed-page.json",
-    note:
-      "Structural PASS verifies deterministic placement and zero changes outside declared target boxes. verification_status remains UNVERIFIED until rendered visual proof is reviewed.",
+    note: "Structural PASS verifies deterministic placement and zero changes outside declared target boxes. verification_status remains UNVERIFIED until rendered visual proof is reviewed.",
     skipped_items: skippedItems,
     pages: pageRecords,
   };

@@ -61,7 +61,7 @@ describe("student-session", () => {
     expect(getStudentSession()).toBeNull();
     localStorage.setItem(
       "cartilla.student-session.v1",
-      JSON.stringify({ ...SAMPLE, studentName: undefined })
+      JSON.stringify({ ...SAMPLE, studentName: undefined }),
     );
     expect(getStudentSession()).toBeNull();
   });
@@ -69,7 +69,7 @@ describe("student-session", () => {
   it("returns null for objects with incorrect field types", () => {
     localStorage.setItem(
       "cartilla.student-session.v1",
-      JSON.stringify({ ...SAMPLE, studentId: 123 })
+      JSON.stringify({ ...SAMPLE, studentId: 123 }),
     );
     expect(getStudentSession()).toBeNull();
   });

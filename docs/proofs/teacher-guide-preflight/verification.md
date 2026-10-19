@@ -32,14 +32,17 @@ All designated allowed paths were audited and verified to perform without errors
 ## Test Verification Results
 
 ### 1. TypeScript & Static Analysis (`pnpm typecheck`)
+
 - **Command:** `pnpm typecheck`
 - **Result:** PASSED (0 errors)
 
 ### 2. Unit & Integration Suite (`pnpm test`)
+
 - **Command:** `pnpm test --run`
 - **Result:** PASSED (129 test files, 1579 passed)
 
 ### 3. End-to-End Preflight Suite (`tests/e2e/teacher-guide-preflight.spec.ts`)
+
 - **Command:** `PATH=/tmp/bin:$PATH pnpm exec playwright test tests/e2e/teacher-guide-preflight.spec.ts`
 - **Results:** 7 passed across 2 workers (15.8s total duration)
   - `teacher guide routes structure and interactions` — PASSED
@@ -55,14 +58,14 @@ All designated allowed paths were audited and verified to perform without errors
 ## Feature & Interaction Checks
 
 1. **Guide Index (`/cartilla/teacher/guia`)**
-   - Renders 5 teacher folders (*Guía del profesor*, *Tablas silábicas y de vocales*, *Tareas para el hogar*, *Evaluaciones*, *Poemas*).
+   - Renders 5 teacher folders (_Guía del profesor_, _Tablas silábicas y de vocales_, _Tareas para el hogar_, _Evaluaciones_, _Poemas_).
    - Folder toggle and 24-lesson catalog row display behave correctly.
    - Assignment modal (`AssignActivityModal`) triggers properly on action button click.
 
 2. **Lesson Guide & Navigation (`/cartilla/teacher/guia/$n`)**
-   - Open/back navigation verified via *Volver al Panel* (`/cartilla/teacher/crm`) and *Carpetas* (`/cartilla/teacher/guia`).
+   - Open/back navigation verified via _Volver al Panel_ (`/cartilla/teacher/crm`) and _Carpetas_ (`/cartilla/teacher/guia`).
    - Cross-links to student activities (`/cartilla/teacher/paginas/$n`) and presenter flipchart (`/cartilla/presentar/$n`) link to proper targets with accent styling.
-   - Tab switching (*Objetivos*, *Procedimiento*, etc.) displays verified lesson guide content.
+   - Tab switching (_Objetivos_, _Procedimiento_, etc.) displays verified lesson guide content.
    - Print trigger (`window.print()`) works cleanly.
 
 3. **Responsive Fit & Accessibility**
@@ -77,4 +80,5 @@ All designated allowed paths were audited and verified to perform without errors
 ---
 
 ## Conclusion
+
 The teacher guide and lesson navigation experience is regression-free, fully responsive, and compliant with all project standards.

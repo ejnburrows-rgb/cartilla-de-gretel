@@ -2,10 +2,12 @@ import { describe, expect, it } from "vitest";
 import { curlEase, curlGeometry } from "@/lib/page-curl-geometry";
 
 const area = (poly: [number, number][]) =>
-  Math.abs(poly.reduce((s, [x, y], i) => {
-    const [x2, y2] = poly[(i + 1) % poly.length];
-    return s + x * y2 - x2 * y;
-  }, 0)) / 2;
+  Math.abs(
+    poly.reduce((s, [x, y], i) => {
+      const [x2, y2] = poly[(i + 1) % poly.length];
+      return s + x * y2 - x2 * y;
+    }, 0),
+  ) / 2;
 
 describe("PageCurl geometry (right-to-left paper curl)", () => {
   const W = 1000;
@@ -20,7 +22,8 @@ describe("PageCurl geometry (right-to-left paper curl)", () => {
 
   it("lifts the bottom-right corner first", () => {
     const g = curlGeometry(W, H, 0.06);
-    const maxX = (y: number) => Math.max(...g.front.filter((p) => Math.abs(p[1] - y) < 1e-6).map((p) => p[0]));
+    const maxX = (y: number) =>
+      Math.max(...g.front.filter((p) => Math.abs(p[1] - y) < 1e-6).map((p) => p[0]));
     // The flat part reaches farther right at the top than at the bottom.
     expect(maxX(0)).toBeGreaterThan(maxX(H));
   });

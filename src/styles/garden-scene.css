@@ -1,3 +1,11 @@
 /* A neutral reader surround keeps attention on the book's own pages. */
-.garden-scene { position: relative; background: transparent; border: 0; box-shadow: none; overflow: visible; }
-.garden-scene__content { position: relative; }
+.garden-scene {
+  position: relative;
+  background: transparent;
+  border: 0;
+  box-shadow: none;
+  overflow: visible;
+}
+.garden-scene__content {
+  position: relative;
+}

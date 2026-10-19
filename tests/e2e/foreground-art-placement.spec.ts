@@ -62,7 +62,8 @@ function resolveAssetRouteMap(faithfulAudit: AuditItem[]): Map<string, string> {
   }
 
   // 3. Animal gallery
-  const animalMatches = animalText.match(/\/cartilla\/art\/faithful\/[^\s\x22\x27\x60]+\.webp/g) || [];
+  const animalMatches =
+    animalText.match(/\/cartilla\/art\/faithful\/[^\s\x22\x27\x60]+\.webp/g) || [];
   for (const m of animalMatches) add(m, "/cartilla/animales");
 
   // 4. Default fallback for active assets not yet assigned to a layout
@@ -289,7 +290,10 @@ test.describe("foreground art placement browser proof harness", () => {
       await page.setViewportSize({ width: viewport.width, height: viewport.height });
 
       // 1. Workbook Page 3
-      await page.goto("/cartilla/pilot-faithful/3", { waitUntil: "domcontentloaded", timeout: 30_000 });
+      await page.goto("/cartilla/pilot-faithful/3", {
+        waitUntil: "domcontentloaded",
+        timeout: 30_000,
+      });
       const start1 = page.getByRole("button", { name: "Comenzar" });
       if (await start1.isVisible().catch(() => false)) await start1.click();
       await page.waitForTimeout(500);
@@ -319,7 +323,10 @@ test.describe("foreground art placement browser proof harness", () => {
       });
 
       // 4. Workbench Proof Page (all active foreground assets)
-      await page.goto("/cartilla/pilot-faithful/1", { waitUntil: "domcontentloaded", timeout: 30_000 });
+      await page.goto("/cartilla/pilot-faithful/1", {
+        waitUntil: "domcontentloaded",
+        timeout: 30_000,
+      });
       const start4 = page.getByRole("button", { name: "Comenzar" });
       if (await start4.isVisible().catch(() => false)) await start4.click();
       await page.waitForTimeout(500);

@@ -4,7 +4,11 @@ import { classifyLayoutType, getNativeFlipchartPage } from "@/lib/flipchart-nati
 // Every Flip Chart picture plate must show exactly the pictures printed on
 // that page of the book, in printed reading order, cropped from that page.
 const norm = (s: string) =>
-  s.normalize("NFD").replace(/[\u0300-\u036f]/g, "").toLowerCase().replace(/[^a-zñ-]/g, "");
+  s
+    .normalize("NFD")
+    .replace(/[\u0300-\u036f]/g, "")
+    .toLowerCase()
+    .replace(/[^a-zñ-]/g, "");
 
 const plates: number[] = [];
 for (let page = 3; page <= 62; page++) {
@@ -20,7 +24,11 @@ describe("Flip Chart picture plates match the printed book", () => {
   it.each(plates)("plate %i shows its own printed pictures, in order", (page) => {
     const native = getNativeFlipchartPage(page)!;
     const placed = [
-      ...native.words.map((w) => ({ text: (w.lead ?? "") + (w.rest || w.parts.join("")), x: w.x, y: w.y })),
+      ...native.words.map((w) => ({
+        text: (w.lead ?? "") + (w.rest || w.parts.join("")),
+        x: w.x,
+        y: w.y,
+      })),
       ...native.body
         .filter((b) => b.y > 700)
         .flatMap((b) => b.text.split(/\s+/).map((text, i) => ({ text, x: b.x + i, y: b.y }))),

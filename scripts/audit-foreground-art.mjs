@@ -202,7 +202,9 @@ async function audit() {
     }
 
     const sourceNote = String(m.note || m.sourceNote || "");
-    const explicitlyNeedsVerification = /(?:re-?verify|verify existing|needs? verification)/i.test(sourceNote);
+    const explicitlyNeedsVerification = /(?:re-?verify|verify existing|needs? verification)/i.test(
+      sourceNote,
+    );
 
     let category = "PENDING NO VERIFIED SOURCE";
     if (!exists || explicitlyNeedsVerification) {
@@ -261,7 +263,14 @@ async function audit() {
     // Only a deterministic source-crop-to-output comparison can prove provenance.
     const evidence = exists
       ? await nativeCropEvidence(slot, localPath)
-      : { cropMatch: false, aspectMatch: false, matchScore: null, meanDiff: null, evidence: null, pendingReason: "output file missing" };
+      : {
+          cropMatch: false,
+          aspectMatch: false,
+          matchScore: null,
+          meanDiff: null,
+          evidence: null,
+          pendingReason: "output file missing",
+        };
 
     let category = "PENDING NO VERIFIED SOURCE";
     if (exists && evidence.cropMatch) {

@@ -100,7 +100,8 @@ describe("WelcomeSplash", () => {
     await renderSplash();
     expect(screen.getByTestId("wc-entrar")).toHaveAttribute("href", "/cartilla/lecciones");
     expect(screen.getByRole("link", { name: "Soy maestro" })).toHaveAttribute(
-      "href", "/cartilla/teacher/crm",
+      "href",
+      "/cartilla/teacher/crm",
     );
   });
 
@@ -124,7 +125,8 @@ describe("WelcomeSplash", () => {
 
   it("immediately uses the still when data saving is enabled", async () => {
     Object.defineProperty(navigator, "connection", {
-      configurable: true, value: { saveData: true },
+      configurable: true,
+      value: { saveData: true },
     });
     registerTestClip();
     await renderSplash();

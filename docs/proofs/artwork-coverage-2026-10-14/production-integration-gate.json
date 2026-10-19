@@ -12,17 +12,13 @@
     "pdf_checks": [
       {
         "source": "La Cartilla de Gretel Flip Chart (1).pdf",
-        "expected_sha256": [
-          "d7fb3dff4e63caf3443226e57a9ef700f8974acd4ad8f08f44e2792e13cc4930"
-        ],
+        "expected_sha256": ["d7fb3dff4e63caf3443226e57a9ef700f8974acd4ad8f08f44e2792e13cc4930"],
         "actual_sha256": "d7fb3dff4e63caf3443226e57a9ef700f8974acd4ad8f08f44e2792e13cc4930",
         "unchanged": true
       },
       {
         "source": "Libro del alumno - Rescan and Optimize (2) (2).pdf",
-        "expected_sha256": [
-          "cbe050520bafefaea9c19c75eee6dd48ab3476a6377dc45009d176c18aab0a3b"
-        ],
+        "expected_sha256": ["cbe050520bafefaea9c19c75eee6dd48ab3476a6377dc45009d176c18aab0a3b"],
         "actual_sha256": "cbe050520bafefaea9c19c75eee6dd48ab3476a6377dc45009d176c18aab0a3b",
         "unchanged": true
       }
@@ -2682,10 +2678,7 @@
   "validation": {
     "source_integrity_command": "python docs/proofs/artwork-coverage-2026-10-14/integration-intake-verifier.py",
     "asset_validation": "NOT RUN: no eligible mapping changes; sparse audit checkout is not a complete release environment",
-    "required_asset_commands_after_eligibility": [
-      "pnpm audit:art",
-      "pnpm verify:assets"
-    ],
+    "required_asset_commands_after_eligibility": ["pnpm audit:art", "pnpm verify:assets"],
     "regression_tests": "NOT RUN: no implementation change; select existing regression tests for actual changed placements after eligibility",
     "browser_production_screenshots": "NOT CAPTURED: no eligible integration or exact deployed revision was established",
     "missing_gallery": "NOT CREATED: authoritative input contains zero verified MISSING OPTIMIZATION records; existing comparison gallery is a review gallery"

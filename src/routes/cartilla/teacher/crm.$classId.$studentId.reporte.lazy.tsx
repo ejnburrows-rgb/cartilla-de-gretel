@@ -18,7 +18,12 @@ function ReporteFamilias() {
   const [copyMessage, setCopyMessage] = useState("");
   const isSeed = useMemo(() => isSeedSessionActive(), []);
 
-  const { data: progress, isLoading, isError, refetch } = useQuery({
+  const {
+    data: progress,
+    isLoading,
+    isError,
+    refetch,
+  } = useQuery({
     queryKey: ["crm-estudiante", studentId, isSeed],
     queryFn: () => fetchCrmStudentProgress(studentId, isSeed),
   });
@@ -56,9 +61,17 @@ function ReporteFamilias() {
 
   if (isError) {
     return (
-      <div role="alert" className="p-12 text-center text-red-900 border-2 border-red-200 bg-red-50 rounded-3xl max-w-3xl mx-auto mt-6">
+      <div
+        role="alert"
+        className="p-12 text-center text-red-900 border-2 border-red-200 bg-red-50 rounded-3xl max-w-3xl mx-auto mt-6"
+      >
         <p className="font-bold">Hubo un error al cargar los datos del alumno.</p>
-        <button onClick={() => refetch()} className="mt-4 rounded-xl bg-red-100 px-4 py-2 text-sm font-bold text-red-950 transition hover:bg-red-200">Reintentar</button>
+        <button
+          onClick={() => refetch()}
+          className="mt-4 rounded-xl bg-red-100 px-4 py-2 text-sm font-bold text-red-950 transition hover:bg-red-200"
+        >
+          Reintentar
+        </button>
       </div>
     );
   }
@@ -81,16 +94,19 @@ function ReporteFamilias() {
     day: "numeric",
   });
   const recentAccuracy =
-    insight.recentAccuracy == null ? "sin suficientes respuestas puntuadas" : `${Math.round(insight.recentAccuracy * 100)}% de aciertos recientes`;
+    insight.recentAccuracy == null
+      ? "sin suficientes respuestas puntuadas"
+      : `${Math.round(insight.recentAccuracy * 100)}% de aciertos recientes`;
   const lastActive = summary.lastActiveAt
     ? new Date(summary.lastActiveAt).toLocaleDateString("es-US")
     : "sin actividad registrada";
   const fiveMinutePractice = insight.recommendation
     ? `Durante 5 minutos, practica ${insight.recommendation.exactSkill}. Usa la actividad “${insight.recommendation.activity}” y detente después de una ronda corta.`
     : "Durante 5 minutos, repasa oralmente una habilidad ya dominada de la Cartilla.";
-  const practiceUrl = insight.recommendation && typeof window !== "undefined"
-    ? `${window.location.origin}/cartilla/practica?family=1&lesson=${insight.recommendation.lessonNumber}&activity=${insight.recommendation.activity}`
-    : "";
+  const practiceUrl =
+    insight.recommendation && typeof window !== "undefined"
+      ? `${window.location.origin}/cartilla/practica?family=1&lesson=${insight.recommendation.lessonNumber}&activity=${insight.recommendation.activity}`
+      : "";
   const qrUrl = practiceUrl
     ? `https://api.qrserver.com/v1/create-qr-code/?size=180x180&data=${encodeURIComponent(practiceUrl)}`
     : "";
@@ -109,7 +125,9 @@ function ReporteFamilias() {
       : "Áreas de práctica: no hay señales de repaso con los datos actuales.",
     `Práctica de 5 minutos: ${fiveMinutePractice}`,
     practiceUrl ? `Enlace de práctica: ${practiceUrl}` : "",
-  ].filter(Boolean).join("\n");
+  ]
+    .filter(Boolean)
+    .join("\n");
 
   const copyText = async (text: string, message: string) => {
     await navigator.clipboard.writeText(text);
@@ -141,7 +159,9 @@ function ReporteFamilias() {
           </button>
         </div>
       </div>
-      {copyMessage && <p className="no-print text-right text-xs font-bold text-emerald-700">{copyMessage}</p>}
+      {copyMessage && (
+        <p className="no-print text-right text-xs font-bold text-emerald-700">{copyMessage}</p>
+      )}
 
       <div className="print-page bg-white border-2 border-[#e8dcc0] rounded-3xl p-6 sm:p-10 space-y-7">
         <header className="border-b-2 border-[#e8dcc0] pb-6">
@@ -157,81 +177,137 @@ function ReporteFamilias() {
 
         <section className="grid grid-cols-2 gap-4 text-center sm:grid-cols-3">
           <div className="p-4 bg-[hsl(145,60%,97%)] rounded-2xl border border-[hsl(145,60%,90%)]">
-            <div className="text-3xl font-black text-[hsl(145,65%,25%)]">{summary.completedLessons}</div>
-            <div className="text-[10px] font-black uppercase tracking-wider text-stone-500 mt-1">de {TOTAL_LESSONS} lecciones</div>
+            <div className="text-3xl font-black text-[hsl(145,65%,25%)]">
+              {summary.completedLessons}
+            </div>
+            <div className="text-[10px] font-black uppercase tracking-wider text-stone-500 mt-1">
+              de {TOTAL_LESSONS} lecciones
+            </div>
           </div>
           <div className="p-4 bg-[hsl(198,78%,97%)] rounded-2xl border border-[hsl(198,78%,90%)]">
-            <div className="text-3xl font-black text-[hsl(198,78%,35%)]">{summary.completionPercent}%</div>
-            <div className="text-[10px] font-black uppercase tracking-wider text-stone-500 mt-1">del recorrido</div>
+            <div className="text-3xl font-black text-[hsl(198,78%,35%)]">
+              {summary.completionPercent}%
+            </div>
+            <div className="text-[10px] font-black uppercase tracking-wider text-stone-500 mt-1">
+              del recorrido
+            </div>
           </div>
           <div className="col-span-2 p-4 bg-[hsl(48,100%,96%)] rounded-2xl border border-[hsl(48,60%,85%)] sm:col-span-1">
             <div className="text-base font-black text-[#8c6b36]">{recentAccuracy}</div>
-            <div className="text-[10px] font-black uppercase tracking-wider text-stone-500 mt-1">datos recientes</div>
+            <div className="text-[10px] font-black uppercase tracking-wider text-stone-500 mt-1">
+              datos recientes
+            </div>
           </div>
         </section>
 
         <section>
-          <h2 className="text-xs font-black uppercase tracking-wider text-stone-500 mb-2">Práctica actual</h2>
+          <h2 className="text-xs font-black uppercase tracking-wider text-stone-500 mb-2">
+            Práctica actual
+          </h2>
           <p className="text-lg font-black text-stone-800">{currentSkill}</p>
           {insight.recommendation && (
-            <p className="mt-2 text-sm font-semibold leading-relaxed text-stone-600">{insight.recommendation.reason}</p>
+            <p className="mt-2 text-sm font-semibold leading-relaxed text-stone-600">
+              {insight.recommendation.reason}
+            </p>
           )}
         </section>
 
         <section>
-          <h2 className="text-xs font-black uppercase tracking-wider text-stone-500 mb-3">Recientemente dominado</h2>
+          <h2 className="text-xs font-black uppercase tracking-wider text-stone-500 mb-3">
+            Recientemente dominado
+          </h2>
           {recentlyMastered.length > 0 ? (
             <div className="flex flex-wrap gap-2">
-              {recentlyMastered.map((skill) => skill && (
-                <span key={skill.lessonId} className="rounded-full border border-emerald-200 bg-emerald-50 px-3 py-1.5 text-xs font-black text-emerald-800">
-                  {skill.title} · {skill.detail}
-                </span>
-              ))}
+              {recentlyMastered.map(
+                (skill) =>
+                  skill && (
+                    <span
+                      key={skill.lessonId}
+                      className="rounded-full border border-emerald-200 bg-emerald-50 px-3 py-1.5 text-xs font-black text-emerald-800"
+                    >
+                      {skill.title} · {skill.detail}
+                    </span>
+                  ),
+              )}
             </div>
           ) : (
-            <p className="text-sm font-semibold text-stone-500">No hay nuevas habilidades con evidencia suficiente en este reporte.</p>
+            <p className="text-sm font-semibold text-stone-500">
+              No hay nuevas habilidades con evidencia suficiente en este reporte.
+            </p>
           )}
         </section>
 
         <section>
-          <h2 className="text-xs font-black uppercase tracking-wider text-stone-500 mb-3">Áreas de práctica</h2>
+          <h2 className="text-xs font-black uppercase tracking-wider text-stone-500 mb-3">
+            Áreas de práctica
+          </h2>
           {practiceAreas.length > 0 ? (
             <div className="space-y-2">
               {practiceAreas.map((skill) => (
                 <div key={skill.lessonId} className="rounded-2xl bg-stone-50 p-4">
-                  <p className="text-sm font-black text-stone-800">{skill.title} · {skill.detail}</p>
-                  <p className="mt-1 text-xs font-semibold leading-relaxed text-stone-500">{skill.reason}</p>
+                  <p className="text-sm font-black text-stone-800">
+                    {skill.title} · {skill.detail}
+                  </p>
+                  <p className="mt-1 text-xs font-semibold leading-relaxed text-stone-500">
+                    {skill.reason}
+                  </p>
                 </div>
               ))}
             </div>
           ) : (
-            <p className="text-sm font-semibold text-stone-500">No hay señales de repaso con los datos actuales.</p>
+            <p className="text-sm font-semibold text-stone-500">
+              No hay señales de repaso con los datos actuales.
+            </p>
           )}
         </section>
 
         <section className="rounded-2xl border-2 border-[#e8dcc0] bg-[#fffaf1] p-5">
-          <h2 className="text-xs font-black uppercase tracking-wider text-[#8a4c1c]">Resumen factual</h2>
+          <h2 className="text-xs font-black uppercase tracking-wider text-[#8a4c1c]">
+            Resumen factual
+          </h2>
           <p className="mt-2 text-sm font-semibold leading-relaxed text-stone-700">
-            Ha completado {summary.completedLessons} de {TOTAL_LESSONS} lecciones. La última actividad registrada fue {lastActive}. Los datos recientes muestran {recentAccuracy}.
+            Ha completado {summary.completedLessons} de {TOTAL_LESSONS} lecciones. La última
+            actividad registrada fue {lastActive}. Los datos recientes muestran {recentAccuracy}.
           </p>
         </section>
 
         <section className="rounded-2xl border border-blue-200 bg-blue-50 p-5">
-          <h2 className="text-xs font-black uppercase tracking-wider text-blue-800">Práctica de 5 minutos en casa</h2>
-          <p className="mt-2 text-sm font-semibold leading-relaxed text-blue-950">{fiveMinutePractice}</p>
+          <h2 className="text-xs font-black uppercase tracking-wider text-blue-800">
+            Práctica de 5 minutos en casa
+          </h2>
+          <p className="mt-2 text-sm font-semibold leading-relaxed text-blue-950">
+            {fiveMinutePractice}
+          </p>
           {practiceUrl && (
             <div className="mt-4 grid gap-4 sm:grid-cols-[1fr_180px] sm:items-center">
               <div className="no-print space-y-3">
-                <a href={practiceUrl} target="_blank" rel="noreferrer" className="inline-flex min-h-11 items-center gap-2 rounded-xl bg-blue-700 px-4 text-sm font-black text-white">
+                <a
+                  href={practiceUrl}
+                  target="_blank"
+                  rel="noreferrer"
+                  className="inline-flex min-h-11 items-center gap-2 rounded-xl bg-blue-700 px-4 text-sm font-black text-white"
+                >
                   <Link2 className="h-4 w-4" /> Abrir práctica familiar
                 </a>
-                <button onClick={() => copyText(practiceUrl, "Enlace copiado")} className="ml-2 min-h-11 rounded-xl border border-blue-300 bg-white px-4 text-sm font-black text-blue-800">
+                <button
+                  onClick={() => copyText(practiceUrl, "Enlace copiado")}
+                  className="ml-2 min-h-11 rounded-xl border border-blue-300 bg-white px-4 text-sm font-black text-blue-800"
+                >
                   Copiar enlace
                 </button>
-                <p className="text-xs font-semibold text-blue-800">El enlace contiene solo la lección y la actividad; no incluye nombre, clase ni código del estudiante.</p>
+                <p className="text-xs font-semibold text-blue-800">
+                  El enlace contiene solo la lección y la actividad; no incluye nombre, clase ni
+                  código del estudiante.
+                </p>
               </div>
               <div className="flex justify-center">
-                <img src={qrUrl} alt="Código QR para abrir la práctica familiar" width="180" height="180" className="rounded-xl border border-blue-200 bg-white p-2" />
+                <img
+                  src={qrUrl}
+                  alt="Código QR para abrir la práctica familiar"
+                  width="180"
+                  height="180"
+                  className="rounded-xl border border-blue-200 bg-white p-2"
+                />
               </div>
             </div>
           )}

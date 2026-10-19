@@ -24,7 +24,9 @@ vi.mock("@tanstack/react-router", () => ({
   useParams: () => ({ n: "3" }),
   useNavigate: () => vi.fn(),
   Link: ({ children }: { children: React.ReactNode }) => <a>{children}</a>,
-  redirect: () => { throw new Error("Redirected"); },
+  redirect: () => {
+    throw new Error("Redirected");
+  },
 }));
 
 vi.mock("@/context/LanguageContext", () => ({
@@ -54,13 +56,17 @@ describe("MiProgreso race condition", () => {
   it("should not show Student A's data when it resolves after Student B has signed in", async () => {
     let resolveA: (value: any) => void;
     let resolveB: (value: any) => void;
-    
+
     mockGetMyProgress.mockImplementation(({ data }) => {
       if (data.studentId === "studentA") {
-        return new Promise((res) => { resolveA = res; });
+        return new Promise((res) => {
+          resolveA = res;
+        });
       }
       if (data.studentId === "studentB") {
-        return new Promise((res) => { resolveB = res; });
+        return new Promise((res) => {
+          resolveB = res;
+        });
       }
       return Promise.resolve({});
     });
@@ -72,7 +78,9 @@ describe("MiProgreso race condition", () => {
     // Request for A is in flight.
     await waitFor(
       () => {
-        expect(mockGetMyProgress).toHaveBeenCalledWith({ data: { studentId: "studentA", studentCode: "A" } });
+        expect(mockGetMyProgress).toHaveBeenCalledWith({
+          data: { studentId: "studentA", studentCode: "A" },
+        });
       },
       // Deflake: the TanStack router vite plugin rewrites this route into a dynamic
       // lazyRouteComponent import that can exceed the 1000ms default on a cold cache.
@@ -82,10 +90,12 @@ describe("MiProgreso race condition", () => {
     // Now Student B signs in!
     currentSession = { studentId: "studentB", studentCode: "B" } as any;
     window.dispatchEvent(new Event("cartilla:student-session"));
-    
+
     // Request for B is in flight.
     await waitFor(() => {
-        expect(mockGetMyProgress).toHaveBeenCalledWith({ data: { studentId: "studentB", studentCode: "B" } });
+      expect(mockGetMyProgress).toHaveBeenCalledWith({
+        data: { studentId: "studentB", studentCode: "B" },
+      });
     });
 
     // Resolve B first
@@ -97,7 +107,7 @@ describe("MiProgreso race condition", () => {
     });
 
     await waitFor(() => {
-        expect(screen.getByText(/Student B/)).toBeInTheDocument();
+      expect(screen.getByText(/Student B/)).toBeInTheDocument();
     });
 
     // Now resolve A
@@ -107,7 +117,7 @@ describe("MiProgreso race condition", () => {
       events: [],
       lessonProgress: [],
     });
-    
+
     // Wait a bit to ensure it doesn't switch
     await new Promise((r) => setTimeout(r, 50));
 
@@ -120,7 +130,9 @@ describe("MiProgreso race condition", () => {
 
     mockGetMyProgress.mockImplementation(({ data }) => {
       if (data.studentId === "studentA") {
-        return new Promise((res) => { resolveA = res; });
+        return new Promise((res) => {
+          resolveA = res;
+        });
       }
       return Promise.resolve({});
     });
@@ -129,9 +141,14 @@ describe("MiProgreso race condition", () => {
     render(<ProgressPage />);
 
     // Request for A is in flight.
-    await waitFor(() => {
-      expect(mockGetMyProgress).toHaveBeenCalledWith({ data: { studentId: "studentA", studentCode: "A" } });
-    }, { timeout: 5000 });
+    await waitFor(
+      () => {
+        expect(mockGetMyProgress).toHaveBeenCalledWith({
+          data: { studentId: "studentA", studentCode: "A" },
+        });
+      },
+      { timeout: 5000 },
+    );
 
     // Session cleared (logout) while A's request is still pending.
     currentSession = null;

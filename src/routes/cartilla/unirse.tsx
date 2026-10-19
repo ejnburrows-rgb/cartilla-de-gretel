@@ -81,7 +81,8 @@ function JoinPage() {
                 {t.holaName[lang].replace("{name}", session.studentName)}!
               </p>
               <p className="text-sm font-bold text-stone-500 mb-6">
-                {t.estasEnClase[lang]} <strong className="text-primary">{session.className}</strong>.
+                {t.estasEnClase[lang]} <strong className="text-primary">{session.className}</strong>
+                .
               </p>
               <div className="flex flex-col gap-3">
                 <Link
@@ -101,7 +102,10 @@ function JoinPage() {
           ) : (
             <form onSubmit={submit} className="space-y-5">
               <div>
-                <label htmlFor="join-code" className="text-xs font-black text-stone-500 uppercase tracking-widest ml-4 mb-2 block">
+                <label
+                  htmlFor="join-code"
+                  className="text-xs font-black text-stone-500 uppercase tracking-widest ml-4 mb-2 block"
+                >
                   {t.codigoClase[lang]}
                 </label>
                 <input
@@ -118,7 +122,10 @@ function JoinPage() {
               </div>
 
               <div>
-                <label htmlFor="student-code" className="text-xs font-black text-stone-500 uppercase tracking-widest ml-4 mb-2 block">
+                <label
+                  htmlFor="student-code"
+                  className="text-xs font-black text-stone-500 uppercase tracking-widest ml-4 mb-2 block"
+                >
                   Tu código personal
                 </label>
                 <input
@@ -134,7 +141,10 @@ function JoinPage() {
               </div>
 
               {error && (
-                <div className="bg-red-50 text-red-600 font-bold text-sm text-center py-3 px-4 rounded-2xl border-2 border-red-100" role="alert">
+                <div
+                  className="bg-red-50 text-red-600 font-bold text-sm text-center py-3 px-4 rounded-2xl border-2 border-red-100"
+                  role="alert"
+                >
                   {error}
                 </div>
               )}

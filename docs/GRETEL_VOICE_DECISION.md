@@ -6,7 +6,6 @@
 
 **Use only the existing original master recording** `Gretel_558674_Original.m4a` for current recovery and alignment (source SHA256 `239e3518f364adfcefab39f4220a4b2b85a6e3987679af823d7ef0f26f76935d`). It has 151 source-boundary-verified speech segments, but the text actually spoken and workbook page associations are **NOT YET VERIFIED**; do not equate `gr_0001` recording segment with `GR0001` book script. Corrected exports preserve original continuous speech and authentic pauses; do not join bad clip fragments or add music. Review auditory quality, verify each transcript and page/event mapping before approved runtime playback. PR #769 holds the implementation in DRAFT; don't merge/deploy until verified. Owner already supplied the voice and audio; do not propose any new generation, cloning, or recording.
 
-
 ## OVERRIDING OWNER DIRECTIVE — USE THE EXISTING FINISHED AUDIO (2026-10-15)
 
 **Newest owner-approved source-of-truth correction, effective immediately. Applies to all agents, Muse, Jules, reviewers, schedulers, and every future session. Supersedes older proposals/options elsewhere in this repository.**
@@ -14,10 +13,9 @@
 1. **Generator already solved.** The owner has a functioning generator that creates any Spanish sentence requested. **Do not research, clone, train, replace, deploy, self-host, or recommend another generator, TTS model, Colab voice setup, GPU, paid provider, or new recordings.** Do not reopen older "choose final Gretel voice" tasks.
 2. **Real finished source assets already supplied.** On **2026-10-14**, the owner generated and provided **more than one hour of actual recordings**, including recordings in video files. They are completed audio outputs; **not** voice-cloning reference material or merely recording prompts. Do not request re-recording or have the owner repeat explanations/uploads.
 3. **Exact authorized job:** find/recover the previously supplied assets through accessible authorized sources; extract audio from existing videos where necessary; use the real existing recordings to map to **every authentic workbook page instruction, applicable narration, alerts, correct-answer compliments, incorrect-answer and "try again" reactions, and all other recorded responses**. Map by actual spoken content and source pages (no invented alignment, words, or coverage). Install valid playable audio and connect it to appropriate events. Check real page-by-page browser playback, audio correctness, keyboard accessibility, mute/stop, and completeness. Preserve existing approved sound and unrelated behavior.
-4. **Evidence boundary:** PR #769 is an existing draft integration effort with **67 indexed MP3 cues and a 1,639-entry script** in its 2026-10-15 description, but it reported that its needed MP3 binaries were *not installed* on the running app, its exact-page active manifest was empty, and runtime playback was not proven. Recover this work; do not duplicate it. Recheck latest PR before making a new claim. **The recordings are usable source material; missing local tool access or uninstalled repo assets are an ACCESS/INTEGRATION blocker, never evidence that the recordings cannot be used.**
+4. **Evidence boundary:** PR #769 is an existing draft integration effort with **67 indexed MP3 cues and a 1,639-entry script** in its 2026-10-15 description, but it reported that its needed MP3 binaries were _not installed_ on the running app, its exact-page active manifest was empty, and runtime playback was not proven. Recover this work; do not duplicate it. Recheck latest PR before making a new claim. **The recordings are usable source material; missing local tool access or uninstalled repo assets are an ACCESS/INTEGRATION blocker, never evidence that the recordings cannot be used.**
 5. **Never say "100% integrated" without proof** that the actual audio is accessible and installed and every claimed workbook page and response has correctly mapped, verified playback. Separate owner-supplied recording duration, extracted cue count, script entries, installed assets, mapped coverage, and live playback.
 6. **Stop unsolicited discussion of voice.** Only discuss the remaining integration/proof task if the owner explicitly asks. Preserve all standing permissions, no-paid-services rule, and owner-only production release gate. No unapproved merges/releases/assets deletion.
-
 
 ## 1. Executive Summary
 
@@ -30,19 +28,20 @@ All speech entry points in the application are centralized through `src/lib/gret
 ## 2. Gretel Speech Entry Points Map
 
 Every speech call site in the application uses one of two centralized functions:
+
 - `speakAsGretel(text, handlers)` in `src/lib/gretel-voice.ts`
 - `speakGretelPhrase(phrase)` in `src/lib/gretel-tts.ts` (which delegates directly to `speakAsGretel`)
 
-| Component / Call Site | Source File | Function Used | Purpose |
-| :--- | :--- | :--- | :--- |
-| **Gretel Presence Host** | `src/components/gretel/GretelPresence.tsx` | `speakAsGretel` | Spoken page introductions & idle guidance |
-| **Gretel Live Avatar** | `src/components/gretel/GretelLiveAvatar.tsx` | `speakAsGretel` | Spoken dialogue for live Gretel reactions |
-| **Gretel Cinematic** | `src/components/gretel/GretelCinematic.tsx` | `speakAsGretel` | Spoken scripts during lesson story scenes |
-| **Gretel Mirror** | `src/components/cartilla/GretelMirror.tsx` | `speakAsGretel` | Spoken instruction repetition |
-| **Sound Search Game** | `src/components/cartilla/SoundSearch.tsx` | `speakAsGretel` | Spoken target phonemes & sound prompts |
-| **Interaction Feedback (Lasso, Workbook)** | `src/cartilla/interactions/LassoConnect.tsx` | `speakGretelPhrase` | Encouraging success/retry phrases |
-| **Gretel Event Listener** | `src/components/gretel/useGretelEvents.ts` | `speakGretelPhrase` | Global interaction event speech reactions |
-| **Voice Audition Route** | `src/routes/cartilla/voces.tsx` | `speakAsGretel` | Live audition of candidate voices |
+| Component / Call Site                      | Source File                                  | Function Used       | Purpose                                   |
+| :----------------------------------------- | :------------------------------------------- | :------------------ | :---------------------------------------- |
+| **Gretel Presence Host**                   | `src/components/gretel/GretelPresence.tsx`   | `speakAsGretel`     | Spoken page introductions & idle guidance |
+| **Gretel Live Avatar**                     | `src/components/gretel/GretelLiveAvatar.tsx` | `speakAsGretel`     | Spoken dialogue for live Gretel reactions |
+| **Gretel Cinematic**                       | `src/components/gretel/GretelCinematic.tsx`  | `speakAsGretel`     | Spoken scripts during lesson story scenes |
+| **Gretel Mirror**                          | `src/components/cartilla/GretelMirror.tsx`   | `speakAsGretel`     | Spoken instruction repetition             |
+| **Sound Search Game**                      | `src/components/cartilla/SoundSearch.tsx`    | `speakAsGretel`     | Spoken target phonemes & sound prompts    |
+| **Interaction Feedback (Lasso, Workbook)** | `src/cartilla/interactions/LassoConnect.tsx` | `speakGretelPhrase` | Encouraging success/retry phrases         |
+| **Gretel Event Listener**                  | `src/components/gretel/useGretelEvents.ts`   | `speakGretelPhrase` | Global interaction event speech reactions |
+| **Voice Audition Route**                   | `src/routes/cartilla/voces.tsx`              | `speakAsGretel`     | Live audition of candidate voices         |
 
 ---
 
@@ -79,6 +78,7 @@ By default, the application runs on `"browser-tts"` using free, offline-capable 
 ## 5. Audition Route (`/cartilla/voces`)
 
 The route `/cartilla/voces` serves as the owner's audition page:
+
 - Reads available OS/browser Spanish voices dynamically via `getAvailableGretelVoices()`.
 - Reads exact Lección 1 printed text ("Presiona los dibujos de las palabras en cada línea horizontal que comienzan con el mismo sonido.").
 - Plays candidate voices using `speakAsGretel` and `setGretelVoiceProviderConfig`.
@@ -91,21 +91,25 @@ The route `/cartilla/voces` serves as the owner's audition page:
 The final premium Gretel voice selection remains **100% gated by EJN (Owner)**. The remaining options are:
 
 ### Option A: Free Browser-Native Web Speech TTS (Current Default)
+
 - **Description:** Uses built-in browser/OS Spanish voice engines (e.g. Google, Microsoft, Apple voices).
 - **Pros:** $0 cost, offline capable, no external dependencies, zero latency.
 - **Cons:** Built-in voices are adult female voices. Pitch tuning makes them lighter, but they do not sound like a genuine young girl.
 
 ### Option B: Cloud Neural TTS (Google Cloud Text-to-Speech / Azure Speech / AWS Polly)
+
 - **Description:** Server/API-backed neural text-to-speech with high naturalness.
 - **Pros:** Natural pronunciation, neural quality, highly reliable.
 - **Cons:** Character-based usage fees (~$4–$16 USD per 1M characters), requires API key management / backend proxy.
 
 ### Option C: Paid Premium Child Voice Provider (e.g. ElevenLabs)
+
 - **Description:** Dedicated AI voice synthesis with realistic child voice profiles.
 - **Pros:** Expressive, authentic young child voice tone.
 - **Cons:** Monthly subscription cost ($5–$22+ USD/mo), potential network latency for dynamic synthesis, requires API key.
 
 ### Option D: Studio Pre-recorded Audio Clips (Real Child Voice Actor)
+
 - **Description:** High-quality studio audio files recorded by a real young voice actor for all lesson instructions and feedback phrases.
 - **Pros:** 100% natural, ideal pedagogical quality for early childhood literacy, $0 recurring API cost once recorded.
 - **Cons:** Requires recording session and asset management for all required phrases.

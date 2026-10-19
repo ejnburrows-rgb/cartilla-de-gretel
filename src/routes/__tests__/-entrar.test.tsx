@@ -62,7 +62,9 @@ describe('Entrar ("/entrar") — same approved single welcome screen', () => {
     const comenzar = await screen.findByTestId("wc-entrar");
     expect(comenzar.textContent?.trim()).toBe("Comenzar");
     expect(comenzar.getAttribute("href")).toBe("/cartilla/lecciones");
-    expect(screen.getByRole("link", { name: "Soy maestro" }).getAttribute("href")).toBe("/cartilla/teacher/crm");
+    expect(screen.getByRole("link", { name: "Soy maestro" }).getAttribute("href")).toBe(
+      "/cartilla/teacher/crm",
+    );
 
     const imgs = Array.from(splash.querySelectorAll("img"));
     expect(imgs).toHaveLength(1);

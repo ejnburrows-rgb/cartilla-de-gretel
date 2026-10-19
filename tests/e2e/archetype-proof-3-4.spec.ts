@@ -53,7 +53,9 @@ async function checkViewportFit(page: Page) {
 
 test.describe("Workbook Archetypes 3 & 4 Proof Suite", () => {
   test.describe("Archetype 3: Multi-pair matching / connect (Printed Page 3)", () => {
-    test("Source order, labels, images, and Pencil Line presentation on Page 3", async ({ page }) => {
+    test("Source order, labels, images, and Pencil Line presentation on Page 3", async ({
+      page,
+    }) => {
       await page.setViewportSize({ width: 1280, height: 900 });
       await navigateToLessonPage(page, 1, 2); // Printed Page 3 is index 2 in Lesson 1
 
@@ -62,7 +64,9 @@ test.describe("Workbook Archetypes 3 & 4 Proof Suite", () => {
       await expect(pageContainer).toBeVisible();
 
       const instruction = page.locator(".fp-region--instruction");
-      await expect(instruction).toContainText("Traza una línea de la vocal al dibujo que le corresponde");
+      await expect(instruction).toContainText(
+        "Traza una línea de la vocal al dibujo que le corresponde",
+      );
 
       // 2. Pencil Line direct connector is active, never lasso/rope
       const directPencil = page.locator(".am-direct-pencil");
@@ -79,7 +83,9 @@ test.describe("Workbook Archetypes 3 & 4 Proof Suite", () => {
       }
 
       // 4. Verify right column target images and captions
-      const rightTargets = page.locator(".am-direct-pencil__column--right .am-direct-pencil__target");
+      const rightTargets = page.locator(
+        ".am-direct-pencil__column--right .am-direct-pencil__target",
+      );
       await expect(rightTargets).toHaveCount(5);
       await verifyImagesLoaded(page, ".am-direct-pencil__column--right");
 
@@ -110,7 +116,9 @@ test.describe("Workbook Archetypes 3 & 4 Proof Suite", () => {
 
       for (const pair of pairs) {
         const leftBtn = page.locator(".am-direct-pencil__left-card", { hasText: pair.leftText });
-        const rightBtn = page.locator(`.am-direct-pencil__column--right .am-direct-pencil__target[aria-label="${pair.rightLabel}"]`);
+        const rightBtn = page.locator(
+          `.am-direct-pencil__column--right .am-direct-pencil__target[aria-label="${pair.rightLabel}"]`,
+        );
 
         await leftBtn.click();
         await rightBtn.click();
@@ -148,20 +156,58 @@ test.describe("Workbook Archetypes 3 & 4 Proof Suite", () => {
 
   test.describe("Archetype 4: Single central target + surrounding pictures", () => {
     const ARCHETYPE_4_PAGES = [
-      { pageNum: 5, lesson: 2, pageIndex: 1, letter: "Oo", exampleCaption: "ola", correctCaptions: ["oveja", "ojos", "oreja", "olla", "oso"] },
-      { pageNum: 8, lesson: 3, pageIndex: 1, letter: "Aa", exampleCaption: "abeja", correctCaptions: ["alas", "aguja", "avión", "aro"] },
-      { pageNum: 11, lesson: 4, pageIndex: 1, letter: "Ee", exampleCaption: "escalera", correctCaptions: ["elefante", "erizo", "estrella"] },
-      { pageNum: 14, lesson: 5, pageIndex: 1, letter: "Ii", exampleCaption: "iguana", correctCaptions: ["imán", "iglú", "igual", "indio"] },
-      { pageNum: 17, lesson: 6, pageIndex: 1, letter: "Uu", exampleCaption: "uña", correctCaptions: ["uniforme", "uno", "uvas", "unicornio"] },
+      {
+        pageNum: 5,
+        lesson: 2,
+        pageIndex: 1,
+        letter: "Oo",
+        exampleCaption: "ola",
+        correctCaptions: ["oveja", "ojos", "oreja", "olla", "oso"],
+      },
+      {
+        pageNum: 8,
+        lesson: 3,
+        pageIndex: 1,
+        letter: "Aa",
+        exampleCaption: "abeja",
+        correctCaptions: ["alas", "aguja", "avión", "aro"],
+      },
+      {
+        pageNum: 11,
+        lesson: 4,
+        pageIndex: 1,
+        letter: "Ee",
+        exampleCaption: "escalera",
+        correctCaptions: ["elefante", "erizo", "estrella"],
+      },
+      {
+        pageNum: 14,
+        lesson: 5,
+        pageIndex: 1,
+        letter: "Ii",
+        exampleCaption: "iguana",
+        correctCaptions: ["imán", "iglú", "igual", "indio"],
+      },
+      {
+        pageNum: 17,
+        lesson: 6,
+        pageIndex: 1,
+        letter: "Uu",
+        exampleCaption: "uña",
+        correctCaptions: ["uniforme", "uno", "uvas", "unicornio"],
+      },
     ];
 
     for (const item of ARCHETYPE_4_PAGES) {
-      test(`Printed Page ${item.pageNum} (Central target ${item.letter}) rendered fidelity and fit`, async ({ page }) => {
+      test(`Printed Page ${item.pageNum} (Central target ${item.letter}) rendered fidelity and fit`, async ({
+        page,
+      }) => {
         await page.setViewportSize({ width: 1280, height: 900 });
         await navigateToLessonPage(page, item.lesson, item.pageIndex);
 
         // 1. Verify archetype container
-        const pageClass = item.pageNum === 17 ? ".faithful-page--archetype4-p17" : ".faithful-page--archetype-4";
+        const pageClass =
+          item.pageNum === 17 ? ".faithful-page--archetype4-p17" : ".faithful-page--archetype-4";
         const pageContainer = page.locator(pageClass);
         await expect(pageContainer).toBeVisible();
 
@@ -188,7 +234,9 @@ test.describe("Workbook Archetypes 3 & 4 Proof Suite", () => {
         await expect(exampleCell).toBeVisible();
 
         // Capture screenshot
-        await page.screenshot({ path: path.join(PROOF_DIR, `page${item.pageNum}-archetype4-laptop.png`) });
+        await page.screenshot({
+          path: path.join(PROOF_DIR, `page${item.pageNum}-archetype4-laptop.png`),
+        });
       });
     }
 

@@ -20,7 +20,8 @@ export function isWorkbookPageSourceBlocked(page: number): boolean {
 }
 
 export function workbookPagesForLesson(lesson: number): { start: number; end: number } {
-  if (!Number.isInteger(lesson) || lesson < 1 || lesson > 24) throw new RangeError(`lesson ${lesson}`);
+  if (!Number.isInteger(lesson) || lesson < 1 || lesson > 24)
+    throw new RangeError(`lesson ${lesson}`);
   if (lesson === 1) return { start: 1, end: 3 };
   if (lesson <= 6) {
     const start = 4 + 3 * (lesson - 2);
@@ -32,7 +33,8 @@ export function workbookPagesForLesson(lesson: number): { start: number; end: nu
 }
 
 export function lessonForWorkbookPage(page: number): number {
-  if (!Number.isInteger(page) || page < 1 || page > WORKBOOK_PAGE_COUNT) throw new RangeError(`page ${page}`);
+  if (!Number.isInteger(page) || page < 1 || page > WORKBOOK_PAGE_COUNT)
+    throw new RangeError(`page ${page}`);
   if (page <= 3) return 1;
   if (page <= 18) return 2 + Math.floor((page - 4) / 3);
   return 7 + Math.floor((page - 19) / 4);

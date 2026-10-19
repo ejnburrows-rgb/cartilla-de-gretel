@@ -25,13 +25,16 @@ async function main() {
 
   // Run Playwright capture test
   try {
-    execSync("pnpm exec playwright test tests/e2e/finish-proof-capture.spec.ts --project=chromium", {
-      stdio: "inherit",
-      env: {
-        ...process.env,
-        PROOF_DIR,
+    execSync(
+      "pnpm exec playwright test tests/e2e/finish-proof-capture.spec.ts --project=chromium",
+      {
+        stdio: "inherit",
+        env: {
+          ...process.env,
+          PROOF_DIR,
+        },
       },
-    });
+    );
   } catch (err) {
     console.error("Error executing Playwright capture harness:", err.message);
     process.exit(1);

@@ -63,9 +63,11 @@ function bodyAnimation(state: string) {
   if (state === "cheering") return { y: [0, -18, 0], scale: [1, 1.08, 1], rotate: [0, -4, 4, 0] };
   if (state === "waving") return { rotate: [0, -3, 3, 0], scale: [1, 1.015, 1] };
   if (state === "talking") return { rotate: [0, -1.2, 1.2, 0], scale: [1, 1.01, 1] };
-  if (state === "pointing" || state === "teaching" || state === "help") return { rotate: [0, 1.4, 0], scale: [1, 1.015, 1] };
+  if (state === "pointing" || state === "teaching" || state === "help")
+    return { rotate: [0, 1.4, 0], scale: [1, 1.015, 1] };
   if (state === "listening") return { rotate: -1.5, scale: 1 };
-  if (state === "gentle-error") return { y: [0, 1.5, 0], rotate: [1.2, -1.2, 1.2], scale: [1, 0.995, 1] };
+  if (state === "gentle-error")
+    return { y: [0, 1.5, 0], rotate: [1.2, -1.2, 1.2], scale: [1, 0.995, 1] };
   return { y: 0, rotate: 0, scale: 1 };
 }
 
@@ -73,13 +75,24 @@ function bodyTransition(state: string) {
   if (state === "cheering") return { duration: 0.65, repeat: 2, ease: "easeInOut" as const };
   if (state === "waving") return { duration: 1.2, repeat: 1, ease: "easeInOut" as const };
   if (state === "talking") return { duration: 0.7, repeat: Infinity, ease: "easeInOut" as const };
-  if (["pointing", "teaching", "help", "gentle-error"].includes(state)) return { duration: 0.55, ease: "easeOut" as const };
+  if (["pointing", "teaching", "help", "gentle-error"].includes(state))
+    return { duration: 0.55, ease: "easeOut" as const };
   if (state === "listening") return { duration: 0.4, ease: "easeOut" as const };
   return { duration: 0.4, ease: "easeOut" as const };
 }
 
 export const GretelLiveAvatar = forwardRef<GretelLiveAvatarRef, GretelLiveAvatarProps>(
-  ({ className = "", size = "md", bubblePosition = "top", paused = false, managed = false, showBubble = true }, ref) => {
+  (
+    {
+      className = "",
+      size = "md",
+      bubblePosition = "top",
+      paused = false,
+      managed = false,
+      showBubble = true,
+    },
+    ref,
+  ) => {
     const reducedMotion = useReducedMotion();
     const { machineState, send, isSpeaking } = useGretelAnimation(paused || !!reducedMotion);
     const [bubbleText, setBubbleText] = useState<string | null>(null);
@@ -89,20 +102,23 @@ export const GretelLiveAvatar = forwardRef<GretelLiveAvatarRef, GretelLiveAvatar
     const particleId = useRef(0);
     const speechRequestId = useRef(0);
 
-    const burst = useCallback((kind: Particle["kind"], count: number) => {
-      if (reducedMotion) return;
-      const created = Array.from({ length: count }, () => ({
-        id: particleId.current++,
-        x: (Math.random() - 0.5) * 160,
-        y: -30 - Math.random() * 110,
-        kind,
-      }));
-      setParticles((current) => [...current, ...created]);
-      window.setTimeout(() => {
-        const ids = new Set(created.map((item) => item.id));
-        setParticles((current) => current.filter((item) => !ids.has(item.id)));
-      }, 1500);
-    }, [reducedMotion]);
+    const burst = useCallback(
+      (kind: Particle["kind"], count: number) => {
+        if (reducedMotion) return;
+        const created = Array.from({ length: count }, () => ({
+          id: particleId.current++,
+          x: (Math.random() - 0.5) * 160,
+          y: -30 - Math.random() * 110,
+          kind,
+        }));
+        setParticles((current) => [...current, ...created]);
+        window.setTimeout(() => {
+          const ids = new Set(created.map((item) => item.id));
+          setParticles((current) => current.filter((item) => !ids.has(item.id)));
+        }, 1500);
+      },
+      [reducedMotion],
+    );
 
     const speakMessage = useCallback(async (text: string) => {
       const clean = text.trim();
@@ -119,12 +135,16 @@ export const GretelLiveAvatar = forwardRef<GretelLiveAvatarRef, GretelLiveAvatar
       }
     }, []);
 
-    const celebrate = useCallback(async (customText?: string) => {
-      const text = customText ?? CONGRATULATIONS[Math.floor(Math.random() * CONGRATULATIONS.length)]!;
-      send({ type: "CHEER" });
-      burst("star", 10);
-      await speakMessage(text);
-    }, [burst, send, speakMessage]);
+    const celebrate = useCallback(
+      async (customText?: string) => {
+        const text =
+          customText ?? CONGRATULATIONS[Math.floor(Math.random() * CONGRATULATIONS.length)]!;
+        send({ type: "CHEER" });
+        burst("star", 10);
+        await speakMessage(text);
+      },
+      [burst, send, speakMessage],
+    );
 
     const encourage = useCallback(async () => {
       const text = ENCOURAGEMENTS[Math.floor(Math.random() * ENCOURAGEMENTS.length)]!;
@@ -133,48 +153,51 @@ export const GretelLiveAvatar = forwardRef<GretelLiveAvatarRef, GretelLiveAvatar
       await speakMessage(text);
     }, [burst, send, speakMessage]);
 
-    const perform = useCallback((action: GretelPerformanceAction) => {
-      if (action !== "listen") setListening(false);
-      switch (action) {
-        case "enter":
-          send({ type: machineState === "boot" ? "INIT" : "SETTLE" });
-          break;
-        case "idle":
-          send({ type: "IDLE" });
-          break;
-        case "wave":
-          send({ type: "WAVE" });
-          break;
-        case "point-left":
-          setPointingLeft(true);
-          send({ type: "POINT" });
-          break;
-        case "point-right":
-          setPointingLeft(false);
-          send({ type: "POINT" });
-          break;
-        case "listen":
-          setListening(true);
-          send({ type: "LISTEN" });
-          break;
-        case "teach":
-          send({ type: "TEACH" });
-          break;
-        case "help":
-          send({ type: "HELP" });
-          break;
-        case "gentle-error":
-          send({ type: "GENTLE_ERROR" });
-          break;
-        case "celebrate":
-          send({ type: "CHEER" });
-          burst("star", 10);
-          break;
-        case "exit":
-          send({ type: "EXIT" });
-          break;
-      }
-    }, [burst, machineState, send]);
+    const perform = useCallback(
+      (action: GretelPerformanceAction) => {
+        if (action !== "listen") setListening(false);
+        switch (action) {
+          case "enter":
+            send({ type: machineState === "boot" ? "INIT" : "SETTLE" });
+            break;
+          case "idle":
+            send({ type: "IDLE" });
+            break;
+          case "wave":
+            send({ type: "WAVE" });
+            break;
+          case "point-left":
+            setPointingLeft(true);
+            send({ type: "POINT" });
+            break;
+          case "point-right":
+            setPointingLeft(false);
+            send({ type: "POINT" });
+            break;
+          case "listen":
+            setListening(true);
+            send({ type: "LISTEN" });
+            break;
+          case "teach":
+            send({ type: "TEACH" });
+            break;
+          case "help":
+            send({ type: "HELP" });
+            break;
+          case "gentle-error":
+            send({ type: "GENTLE_ERROR" });
+            break;
+          case "celebrate":
+            send({ type: "CHEER" });
+            burst("star", 10);
+            break;
+          case "exit":
+            send({ type: "EXIT" });
+            break;
+        }
+      },
+      [burst, machineState, send],
+    );
 
     const cancel = useCallback(() => {
       speechRequestId.current++;
@@ -183,11 +206,13 @@ export const GretelLiveAvatar = forwardRef<GretelLiveAvatarRef, GretelLiveAvatar
       setListening(false);
       send({ type: "EXIT" });
     }, [send]);
-    useImperativeHandle(
-      ref,
-      () => ({ celebrate, speakMessage, encourage, cancel, perform }),
-      [celebrate, encourage, speakMessage, cancel, perform],
-    );
+    useImperativeHandle(ref, () => ({ celebrate, speakMessage, encourage, cancel, perform }), [
+      celebrate,
+      encourage,
+      speakMessage,
+      cancel,
+      perform,
+    ]);
 
     const interact = useCallback(() => {
       if (isSpeaking) return;
@@ -214,7 +239,17 @@ export const GretelLiveAvatar = forwardRef<GretelLiveAvatarRef, GretelLiveAvatar
           if (detail.reaction === "mastery") burst("star", 5);
           return;
         }
-        if (managed && ["answer:correct", "answer:wrong", "activity:complete", "lesson:complete", "hint:show"].includes(type)) return;
+        if (
+          managed &&
+          [
+            "answer:correct",
+            "answer:wrong",
+            "activity:complete",
+            "lesson:complete",
+            "hint:show",
+          ].includes(type)
+        )
+          return;
         if (type === "lesson:start") {
           send({ type: "WAVE" });
           return;
@@ -304,8 +339,16 @@ export const GretelLiveAvatar = forwardRef<GretelLiveAvatarRef, GretelLiveAvatar
           <motion.span
             className="absolute inset-[8%] rounded-full border-2 border-sky-400/70"
             aria-hidden
-            animate={reducedMotion ? { scale: 1, opacity: 0.65 } : { scale: [0.94, 1.08, 0.94], opacity: [0.35, 0.9, 0.35] }}
-            transition={reducedMotion ? { duration: 0 } : { duration: 1.2, repeat: Infinity, ease: "easeInOut" }}
+            animate={
+              reducedMotion
+                ? { scale: 1, opacity: 0.65 }
+                : { scale: [0.94, 1.08, 0.94], opacity: [0.35, 0.9, 0.35] }
+            }
+            transition={
+              reducedMotion
+                ? { duration: 0 }
+                : { duration: 1.2, repeat: Infinity, ease: "easeInOut" }
+            }
           />
         )}
 
@@ -315,12 +358,23 @@ export const GretelLiveAvatar = forwardRef<GretelLiveAvatarRef, GretelLiveAvatar
               key={particle.id}
               className="pointer-events-none absolute left-1/2 top-1/2 z-20 text-amber-400"
               initial={{ x: 0, y: 0, opacity: 0, scale: 0.4 }}
-              animate={{ x: particle.x, y: particle.y, opacity: [0, 1, 1, 0], scale: [0.4, 1, 0.8] }}
+              animate={{
+                x: particle.x,
+                y: particle.y,
+                opacity: [0, 1, 1, 0],
+                scale: [0.4, 1, 0.8],
+              }}
               exit={{ opacity: 0 }}
               transition={{ duration: 1.25, ease: "easeOut" }}
               aria-hidden
             >
-              {particle.kind === "heart" ? <Heart className="h-4 w-4 fill-rose-300 text-rose-400" /> : particle.id % 2 ? <Star className="h-4 w-4 fill-amber-300" /> : <Sparkles className="h-4 w-4" />}
+              {particle.kind === "heart" ? (
+                <Heart className="h-4 w-4 fill-rose-300 text-rose-400" />
+              ) : particle.id % 2 ? (
+                <Star className="h-4 w-4 fill-amber-300" />
+              ) : (
+                <Sparkles className="h-4 w-4" />
+              )}
             </motion.span>
           ))}
         </AnimatePresence>
@@ -328,8 +382,16 @@ export const GretelLiveAvatar = forwardRef<GretelLiveAvatarRef, GretelLiveAvatar
         <motion.div
           className="absolute inset-0 z-10 h-full w-full origin-bottom"
           initial={reducedMotion ? false : { opacity: 0, y: 28, scale: 0.72 }}
-          animate={paused || reducedMotion ? { opacity: 1, y: 0, rotate: 0, scale: 1 } : { opacity: 1, ...bodyAnimation(machineState) }}
-          transition={paused || reducedMotion ? { duration: 0 } : { opacity: { duration: 0.35 }, ...bodyTransition(machineState) }}
+          animate={
+            paused || reducedMotion
+              ? { opacity: 1, y: 0, rotate: 0, scale: 1 }
+              : { opacity: 1, ...bodyAnimation(machineState) }
+          }
+          transition={
+            paused || reducedMotion
+              ? { duration: 0 }
+              : { opacity: { duration: 0.35 }, ...bodyTransition(machineState) }
+          }
         >
           <GretelLayerRig
             state={machineState}

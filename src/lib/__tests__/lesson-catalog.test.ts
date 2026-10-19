@@ -1,10 +1,5 @@
 import { describe, it, expect } from "vitest";
-import {
-  CATALOG,
-  TOTAL_LESSONS,
-  DEFAULT_ACTIVITIES,
-  getCanonicalArtPool,
-} from "../lesson-catalog";
+import { CATALOG, TOTAL_LESSONS, DEFAULT_ACTIVITIES, getCanonicalArtPool } from "../lesson-catalog";
 
 describe("lesson-catalog", () => {
   it("has exactly 24 lessons", () => {
@@ -53,7 +48,15 @@ describe("lesson-catalog", () => {
   });
 
   it("exposes the default 7-activity ordering", () => {
-    expect(DEFAULT_ACTIVITIES).toEqual(["silabas", "palabras", "armar", "trazar", "piano", "sonido", "espejo"]);
+    expect(DEFAULT_ACTIVITIES).toEqual([
+      "silabas",
+      "palabras",
+      "armar",
+      "trazar",
+      "piano",
+      "sonido",
+      "espejo",
+    ]);
   });
 });
 

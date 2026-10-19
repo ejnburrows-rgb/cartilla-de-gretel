@@ -86,11 +86,7 @@ export function DragMatchPairs({
 
   // Handle successful match completion
   useEffect(() => {
-    if (
-      !reported.current &&
-      pairs.length > 0 &&
-      Object.keys(matches).length === pairs.length
-    ) {
+    if (!reported.current && pairs.length > 0 && Object.keys(matches).length === pairs.length) {
       reported.current = true;
       playCorrectChord();
       window.dispatchEvent(
@@ -112,8 +108,7 @@ export function DragMatchPairs({
   }, [matches, pairs, attempts, lessonId, onComplete]);
 
   const attemptMatch = (activeWord: string, overEmoji: string) => {
-    if (matches[activeWord] || Object.values(matches).includes(overEmoji))
-      return;
+    if (matches[activeWord] || Object.values(matches).includes(overEmoji)) return;
     // Check if correct
     const targetPair = pairs.find((p) => p.word === activeWord);
     const isCorrect = targetPair?.emoji === overEmoji;
@@ -138,8 +133,7 @@ export function DragMatchPairs({
   const handleDragEnd = (event: DragEndEvent) => {
     const word = event.active.data.current?.word;
     const picture = event.over?.data.current?.emoji;
-    if (typeof word === "string" && typeof picture === "string")
-      attemptMatch(word, picture);
+    if (typeof word === "string" && typeof picture === "string") attemptMatch(word, picture);
   };
 
   const isCompleted = Object.keys(matches).length === pairs.length;
@@ -148,12 +142,9 @@ export function DragMatchPairs({
     <div className="w-full max-w-2xl mx-auto p-4 bg-white/40 backdrop-blur-md border border-stone-200/50 rounded-2xl shadow-sm space-y-6">
       <div className="flex items-center justify-between pb-3 border-b border-stone-200/40">
         <div>
-          <h3 className="text-lg font-black text-stone-800">
-            Emparejar Palabras
-          </h3>
+          <h3 className="text-lg font-black text-stone-800">Emparejar Palabras</h3>
           <p className="text-xs font-bold text-stone-500">
-            Arrastra la palabra a su dibujo, o toca la palabra y después el
-            dibujo.
+            Arrastra la palabra a su dibujo, o toca la palabra y después el dibujo.
           </p>
         </div>
         <button
@@ -198,9 +189,7 @@ export function DragMatchPairs({
             <div className="space-y-3">
               {shuffledEmojis.map((pair, i) => {
                 // Find if a word has matched this emoji
-                const matchedWord = Object.keys(matches).find(
-                  (k) => matches[k] === pair.emoji,
-                );
+                const matchedWord = Object.keys(matches).find((k) => matches[k] === pair.emoji);
                 return (
                   <DroppableEmojiCard
                     key={pair.emoji}
@@ -226,9 +215,7 @@ export function DragMatchPairs({
           animate={{ opacity: 1, y: 0 }}
           className="p-3 bg-emerald-50 border border-emerald-200 rounded-xl text-center"
         >
-          <span className="text-sm font-black text-emerald-800">
-            Completado
-          </span>
+          <span className="text-sm font-black text-emerald-800">Completado</span>
         </motion.div>
       )}
     </div>
@@ -251,12 +238,11 @@ function DraggableWordCard({
   color: string;
   isWrong: boolean;
 }) {
-  const { attributes, listeners, setNodeRef, transform, isDragging } =
-    useDraggable({
-      id: `word-${word}`,
-      data: { word },
-      disabled: isMatched,
-    });
+  const { attributes, listeners, setNodeRef, transform, isDragging } = useDraggable({
+    id: `word-${word}`,
+    data: { word },
+    disabled: isMatched,
+  });
 
   const style = {
     transform: transform

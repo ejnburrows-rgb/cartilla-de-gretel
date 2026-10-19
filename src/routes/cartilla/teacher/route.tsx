@@ -3,10 +3,7 @@ import { createFileRoute, redirect } from "@tanstack/react-router";
 import { getStudentSession } from "@/lib/student-session";
 import { supabase } from "@/integrations/supabase/client";
 import { hasTeacherOrAdminRole } from "@/lib/auth-role";
-import {
-  isSeedSessionActive,
-  startTeacherReview,
-} from "@/lib/seed-data";
+import { isSeedSessionActive, startTeacherReview } from "@/lib/seed-data";
 import { normalizeFacultyDemoRoster } from "@/lib/demo-roster";
 
 // Public access opens an isolated local classroom. Cloud reads still require

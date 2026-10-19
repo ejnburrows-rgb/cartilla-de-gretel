@@ -1,16 +1,6 @@
 import { useEffect, useMemo, useState, type CSSProperties, type ReactElement } from "react";
 import { AnimatePresence, motion } from "framer-motion";
-import {
-  Check,
-  Grid,
-  Mic2,
-  Music,
-  PenTool,
-  Puzzle,
-  Search,
-  Sparkles,
-  Volume2,
-} from "lucide-react";
+import { Check, Grid, Mic2, Music, PenTool, Puzzle, Search, Sparkles, Volume2 } from "lucide-react";
 import { SyllableTap } from "@/components/cartilla/Ejercicios";
 import { DragMatchPairs } from "@/components/cartilla/DragMatchPairs";
 import { DragBuildWord } from "@/components/cartilla/DragBuildWord";
@@ -214,7 +204,9 @@ export function ActivityCarousel({
             <Sparkles className="h-5 w-5 text-white" />
           </span>
           <div>
-            <h3 className="font-display text-lg font-black leading-tight text-stone-900">¡A jugar!</h3>
+            <h3 className="font-display text-lg font-black leading-tight text-stone-900">
+              ¡A jugar!
+            </h3>
             <p className="text-xs font-bold text-stone-500">
               {doneCount} de {tabs.length} completados
             </p>

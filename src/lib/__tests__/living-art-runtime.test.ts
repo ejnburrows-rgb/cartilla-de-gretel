@@ -1,8 +1,5 @@
 import { afterEach, describe, expect, it, vi } from "vitest";
-import {
-  enhanceLivingArtImage,
-  isLivingArtSource,
-} from "../living-art-runtime";
+import { enhanceLivingArtImage, isLivingArtSource } from "../living-art-runtime";
 
 afterEach(() => {
   vi.useRealTimers();
@@ -40,9 +37,7 @@ describe("living art runtime", () => {
 
     enhanceLivingArtImage(img);
 
-    expect(img.dataset.trueBlinkFrame).toBe(
-      "/cartilla/art/faithful/vocal-o/oso-blink.webp",
-    );
+    expect(img.dataset.trueBlinkFrame).toBe("/cartilla/art/faithful/vocal-o/oso-blink.webp");
 
     vi.advanceTimersToNextTimer();
     expect(img.src).toContain("oso-blink.webp");
@@ -50,7 +45,6 @@ describe("living art runtime", () => {
     vi.advanceTimersToNextTimer();
     expect(img.src).toContain("oso.webp");
   });
-
 
   it("reconfigures a reused image node when its faithful source changes", () => {
     vi.useFakeTimers();
@@ -64,9 +58,7 @@ describe("living art runtime", () => {
     img.src = "/cartilla/art/faithful/leccion-7-m/mono.webp";
     enhanceLivingArtImage(img);
 
-    expect(img.dataset.livingSource).toBe(
-      "/cartilla/art/faithful/leccion-7-m/mono.webp",
-    );
+    expect(img.dataset.livingSource).toBe("/cartilla/art/faithful/leccion-7-m/mono.webp");
     expect(img.dataset.trueBlinkFrame).toBeUndefined();
     expect(img.src).toContain("mono.webp");
   });

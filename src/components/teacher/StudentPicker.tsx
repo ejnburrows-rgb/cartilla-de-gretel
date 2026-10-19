@@ -87,11 +87,18 @@ export function StudentPicker({ onSelectionChange }: StudentPickerProps) {
   return (
     <div className="flex flex-col sm:flex-row gap-4 p-5 bg-stone-50 border border-stone-200 rounded-3xl no-print shadow-sm">
       <div className="flex-1">
-        <label htmlFor={`${id}-class`} className={labelClass}>Clase</label>
+        <label htmlFor={`${id}-class`} className={labelClass}>
+          Clase
+        </label>
         {loadingClasses ? (
           <div className="text-sm font-bold text-stone-400 py-2">Cargando clases...</div>
         ) : (
-          <select id={`${id}-class`} value={selectedClassId} onChange={handleClassChange} className={dropdownClass}>
+          <select
+            id={`${id}-class`}
+            value={selectedClassId}
+            onChange={handleClassChange}
+            className={dropdownClass}
+          >
             {classes?.map((c) => (
               <option key={c.id} value={c.id}>
                 {c.name} ({c.student_count} alumnos)
@@ -102,7 +109,9 @@ export function StudentPicker({ onSelectionChange }: StudentPickerProps) {
       </div>
 
       <div className="flex-1">
-        <label htmlFor={`${id}-student`} className={labelClass}>Alumno</label>
+        <label htmlFor={`${id}-student`} className={labelClass}>
+          Alumno
+        </label>
         {loadingStudents && selectedClassId ? (
           <div className="text-sm font-bold text-stone-400 py-2">Cargando alumnos...</div>
         ) : (

@@ -46,16 +46,16 @@ The first page of Lessons 2–6 shows the faithful vowel pictures
 as the approved Page 1 pictures (oso, elefante and abeja are mirrored), so they get
 the same approved part motion, rebuilt for these scans in `wb_vowels.py`:
 
-| name | still | motion |
-| --- | --- | --- |
-| vocal-o-oso | vocal-o/oso.webp | breathes, blinks, the bee's wings buzz (the bee stays put) |
-| vocal-o-oveja | vocal-o/oveja.webp | blinks, ear flick |
-| vocal-o-olla | vocal-o/olla.webp | steam curls rise above the lid |
-| vocal-e-elefante | vocal-e/elefante.webp | trunk swings, ears flap, both eyes blink |
-| vocal-a-avion | vocal-a/avion.webp | propeller spins, air streaks (no whole-plane glide: this scan has its own sky and sun) |
-| vocal-a-abeja | vocal-a/abeja.webp | wings flutter |
-| vocal-a-abanico | vocal-a/abanico.webp | the fan opens and closes slightly |
-| vocal-i-iman | vocal-i/iman.webp | paper clips pulled to the poles, field lines flow, sparks |
+| name             | still                 | motion                                                                                 |
+| ---------------- | --------------------- | -------------------------------------------------------------------------------------- |
+| vocal-o-oso      | vocal-o/oso.webp      | breathes, blinks, the bee's wings buzz (the bee stays put)                             |
+| vocal-o-oveja    | vocal-o/oveja.webp    | blinks, ear flick                                                                      |
+| vocal-o-olla     | vocal-o/olla.webp     | steam curls rise above the lid                                                         |
+| vocal-e-elefante | vocal-e/elefante.webp | trunk swings, ears flap, both eyes blink                                               |
+| vocal-a-avion    | vocal-a/avion.webp    | propeller spins, air streaks (no whole-plane glide: this scan has its own sky and sun) |
+| vocal-a-abeja    | vocal-a/abeja.webp    | wings flutter                                                                          |
+| vocal-a-abanico  | vocal-a/abanico.webp  | the fan opens and closes slightly                                                      |
+| vocal-i-iman     | vocal-i/iman.webp     | paper clips pulled to the poles, field lines flow, sparks                              |
 
 Each Page 1 coordinate is carried over with a measured similarity transform
 (`FITS` in `wb_vowels.py`: SIFT feature match + RANSAC, Page 1 still → vowel still).

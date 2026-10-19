@@ -40,11 +40,11 @@
   .bg-white {
     background-color: #ffffff !important;
   }
-  
+
   .border {
     border: 1px solid #e5e5e5 !important;
   }
-  
+
   .shadow-sm {
     box-shadow: none !important; /* Shadows look bad on print */
   }
@@ -56,7 +56,8 @@
     margin-top: 1rem !important;
   }
 
-  th, td {
+  th,
+  td {
     border: 1px solid #e5e5e5 !important;
     padding: 10px !important;
     text-align: left !important;
@@ -75,20 +76,44 @@
 }
 
 @media print {
-  .teacher-chrome, .teacher-guide-page, .guide-layout, .guide-detail, .guide-scroll {
-    height: auto !important; min-height: 0 !important; overflow: visible !important;
-    display: block !important; box-shadow: none !important;
+  .teacher-chrome,
+  .teacher-guide-page,
+  .guide-layout,
+  .guide-detail,
+  .guide-scroll {
+    height: auto !important;
+    min-height: 0 !important;
+    overflow: visible !important;
+    display: block !important;
+    box-shadow: none !important;
   }
-  .guide-html-content section { display: block !important; }
-  .teacher-chrome > [role="status"], .teacher-chrome__header { display: none !important; }
-  .teacher-chrome > main, .guide-scroll { padding: 0 !important; max-width: none !important; }
-  .guide-detail { border: 0 !important; border-radius: 0 !important; }
-  .guide-html-content h2, .guide-html-content h3 { break-after: avoid; }
+  .guide-html-content section {
+    display: block !important;
+  }
+  .teacher-chrome > [role="status"],
+  .teacher-chrome__header {
+    display: none !important;
+  }
+  .teacher-chrome > main,
+  .guide-scroll {
+    padding: 0 !important;
+    max-width: none !important;
+  }
+  .guide-detail {
+    border: 0 !important;
+    border-radius: 0 !important;
+  }
+  .guide-html-content h2,
+  .guide-html-content h3 {
+    break-after: avoid;
+  }
 }
 
 @media screen {
   .guide-html-content.active-tab-objetivos section:not(#objetivos),
   .guide-html-content.active-tab-procedimiento section:not(#procedimiento),
   .guide-html-content.active-tab-vocabulario section:not(#vocabulario),
-  .guide-html-content.active-tab-evaluacion section:not(#evaluacion) { display: none; }
+  .guide-html-content.active-tab-evaluacion section:not(#evaluacion) {
+    display: none;
+  }
 }

@@ -1,11 +1,7 @@
 import { beforeEach, expect, it, vi } from "vitest";
 vi.mock("../student.functions", () => ({ logProgress: vi.fn() }));
 import { logProgress } from "../student.functions";
-import {
-  setStudentSession,
-  recordEvent,
-  flushStudentEvents,
-} from "../student-session";
+import { setStudentSession, recordEvent, flushStudentEvents } from "../student-session";
 const ana = {
   studentId: "a",
   studentName: "Ana",
@@ -48,9 +44,7 @@ it("preserves answers added during a request without concurrent duplicate sends"
   release({ ok: true });
   await pending;
   expect(logProgress).toHaveBeenCalledTimes(2);
-  expect(
-    JSON.parse(localStorage.getItem("cartilla.student-events.v1")!),
-  ).toHaveLength(0);
+  expect(JSON.parse(localStorage.getItem("cartilla.student-events.v1")!)).toHaveLength(0);
 });
 it("does not send Ana's offline answer as another student's work", async () => {
   online(false);
@@ -72,13 +66,9 @@ it("retains a failed answer and retries it on reconnection", async () => {
   setStudentSession(ana);
   recordEvent(input);
   await flushStudentEvents();
-  expect(
-    JSON.parse(localStorage.getItem("cartilla.student-events.v1")!),
-  ).toHaveLength(1);
+  expect(JSON.parse(localStorage.getItem("cartilla.student-events.v1")!)).toHaveLength(1);
   window.dispatchEvent(new Event("online"));
   await flushStudentEvents();
   expect(logProgress).toHaveBeenCalledTimes(2);
-  expect(
-    JSON.parse(localStorage.getItem("cartilla.student-events.v1")!),
-  ).toHaveLength(0);
+  expect(JSON.parse(localStorage.getItem("cartilla.student-events.v1")!)).toHaveLength(0);
 });

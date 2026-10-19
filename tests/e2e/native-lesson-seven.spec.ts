@@ -28,7 +28,9 @@ for (const width of [1280, 820, 390]) {
     const writing = lesson.getByRole("textbox", { name: "Escribe tus oraciones" });
     await writing.fill("Mi mamá me ama.");
     await expect(writing).toHaveValue("Mi mamá me ama.");
-    expect(await page.evaluate(() => document.documentElement.scrollWidth <= innerWidth)).toBe(true);
+    expect(await page.evaluate(() => document.documentElement.scrollWidth <= innerWidth)).toBe(
+      true,
+    );
     await expect(lesson.getByRole("button", { name: "Terminar lección" })).toBeVisible();
   });
 }

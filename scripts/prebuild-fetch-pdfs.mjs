@@ -7,7 +7,8 @@ const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const rootDir = path.resolve(__dirname, "..");
 const pdfPath = path.join(rootDir, "public", "book", "book.pdf");
 
-export const CANONICAL_BOOK_PDF_SHA256 = "cbe050520bafefaea9c19c75eee6dd48ab3476a6377dc45009d176c18aab0a3b";
+export const CANONICAL_BOOK_PDF_SHA256 =
+  "cbe050520bafefaea9c19c75eee6dd48ab3476a6377dc45009d176c18aab0a3b";
 export const CANONICAL_BOOK_PDF_BYTES = 15500956;
 export const MIN_BOOK_PDF_BYTES = 10_000_000;
 

@@ -43,9 +43,7 @@ describe("Cartilla Art Factory", () => {
     const asset = createAsset(project, {
       studentPage: 9,
       sourceCrop: { page: 9, x: 0.1, y: 0.2, width: 0.3, height: 0.4, dataUrl: pixel },
-      referenceCrops: [
-        { page: 15, x: 0.2, y: 0.2, width: 0.2, height: 0.2, dataUrl: pixel },
-      ],
+      referenceCrops: [{ page: 15, x: 0.2, y: 0.2, width: 0.2, height: 0.2, dataUrl: pixel }],
       category: "animal",
       subject: "sapo",
       preservationNotes: "Preserve pose and count.",

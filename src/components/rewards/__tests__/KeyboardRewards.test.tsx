@@ -2,7 +2,10 @@ import { afterEach, describe, expect, it, vi } from "vitest";
 import { cleanup, fireEvent, render, screen, renderHook, act } from "@testing-library/react";
 import { BadgeGrid } from "../BadgeGrid";
 import { StickerReel } from "../StickerReel";
-import { PipelineBoard, type DashboardStudent } from "@/features/teacher-crm/components/PipelineBoard";
+import {
+  PipelineBoard,
+  type DashboardStudent,
+} from "@/features/teacher-crm/components/PipelineBoard";
 import { feelBus } from "@/lib/feel-bus";
 import { BADGES, STICKERS, useRewards } from "@/lib/rewards";
 
@@ -67,7 +70,9 @@ describe("Keyboard Rewards and Pipeline Board Interactions", () => {
 
     it("exposes student cards across all columns as radio options with aria-checked", () => {
       const onSelect = vi.fn();
-      render(<PipelineBoard students={students} selectedStudentId="b" onSelectStudent={onSelect} />);
+      render(
+        <PipelineBoard students={students} selectedStudentId="b" onSelectStudent={onSelect} />,
+      );
 
       const group = screen.getByRole("radiogroup", { name: "Seleccionar alumno" });
       expect(group).toBeTruthy();
@@ -81,7 +86,9 @@ describe("Keyboard Rewards and Pipeline Board Interactions", () => {
 
     it("selects students via Enter, Space, and click handlers identically", () => {
       const onSelect = vi.fn();
-      render(<PipelineBoard students={students} selectedStudentId={null} onSelectStudent={onSelect} />);
+      render(
+        <PipelineBoard students={students} selectedStudentId={null} onSelectStudent={onSelect} />,
+      );
 
       const ana = screen.getByRole("radio", { name: "Seleccionar alumno Ana" });
       const bruno = screen.getByRole("radio", { name: "Seleccionar alumno Bruno" });

@@ -47,9 +47,13 @@ describe("DirectPencilConnector stored progress validation", () => {
       />,
     );
 
-    const lineGroups = container.querySelectorAll(".am-direct-pencil__line-group line[stroke-dasharray]");
+    const lineGroups = container.querySelectorAll(
+      ".am-direct-pencil__line-group line[stroke-dasharray]",
+    );
     expect(lineGroups).toHaveLength(0);
-    expect(screen.getByRole("button", { name: "uniforme" }).classList.contains("is-connected")).toBe(false);
+    expect(
+      screen.getByRole("button", { name: "uniforme" }).classList.contains("is-connected"),
+    ).toBe(false);
   });
 
   it("filters out missing targets cleanly", () => {
@@ -64,7 +68,9 @@ describe("DirectPencilConnector stored progress validation", () => {
       />,
     );
 
-    const lineGroups = container.querySelectorAll(".am-direct-pencil__line-group line[stroke-dasharray]");
+    const lineGroups = container.querySelectorAll(
+      ".am-direct-pencil__line-group line[stroke-dasharray]",
+    );
     expect(lineGroups).toHaveLength(0);
   });
 
@@ -96,7 +102,9 @@ describe("DirectPencilConnector stored progress validation", () => {
 
     const lineGroups = container.querySelectorAll(".am-direct-pencil__line-group");
     expect(lineGroups).toHaveLength(0);
-    expect(screen.getByRole("button", { name: "Vocal o" }).classList.contains("is-connected")).toBe(false);
+    expect(screen.getByRole("button", { name: "Vocal o" }).classList.contains("is-connected")).toBe(
+      false,
+    );
   });
 
   it("filters out valid mark IDs if the target is marked as correct: false in mark mode", () => {
@@ -112,8 +120,12 @@ describe("DirectPencilConnector stored progress validation", () => {
       />,
     );
 
-    expect(screen.getByRole("button", { name: "uniforme" }).classList.contains("is-connected")).toBe(true);
-    expect(screen.getByRole("button", { name: "oso" }).classList.contains("is-connected")).toBe(false);
+    expect(
+      screen.getByRole("button", { name: "uniforme" }).classList.contains("is-connected"),
+    ).toBe(true);
+    expect(screen.getByRole("button", { name: "oso" }).classList.contains("is-connected")).toBe(
+      false,
+    );
   });
 
   it("handles null and undefined saved states safely", () => {
@@ -127,7 +139,9 @@ describe("DirectPencilConnector stored progress validation", () => {
         reducedMotion
       />,
     );
-    expect(container1.querySelectorAll(".am-direct-pencil__line-group line[stroke-dasharray]")).toHaveLength(0);
+    expect(
+      container1.querySelectorAll(".am-direct-pencil__line-group line[stroke-dasharray]"),
+    ).toHaveLength(0);
     cleanup();
 
     saveLassoProgress("undefined-test", undefined as any);
@@ -140,7 +154,9 @@ describe("DirectPencilConnector stored progress validation", () => {
         reducedMotion
       />,
     );
-    expect(container2.querySelectorAll(".am-direct-pencil__line-group line[stroke-dasharray]")).toHaveLength(0);
+    expect(
+      container2.querySelectorAll(".am-direct-pencil__line-group line[stroke-dasharray]"),
+    ).toHaveLength(0);
   });
 
   it("handles non-array object input gracefully without crashing", () => {
@@ -154,7 +170,9 @@ describe("DirectPencilConnector stored progress validation", () => {
         reducedMotion
       />,
     );
-    expect(container.querySelectorAll(".am-direct-pencil__line-group line[stroke-dasharray]")).toHaveLength(0);
+    expect(
+      container.querySelectorAll(".am-direct-pencil__line-group line[stroke-dasharray]"),
+    ).toHaveLength(0);
   });
 
   it("handles targets missing required keys like id, or extra unknown keys in pair mode", () => {
@@ -170,7 +188,7 @@ describe("DirectPencilConnector stored progress validation", () => {
     saveLassoProgress("boundary-test", [
       "undefined|valid-right",
       "valid-left|b-R",
-      "valid-left|valid-right"
+      "valid-left|valid-right",
     ]);
 
     const { container } = render(
@@ -188,7 +206,7 @@ describe("DirectPencilConnector stored progress validation", () => {
   });
 
   it("ignores incorrectly typed IDs in progress array", () => {
-    saveLassoProgress("wrong-types-test", [123, true, {id: "0"}] as any);
+    saveLassoProgress("wrong-types-test", [123, true, { id: "0" }] as any);
     const { container } = render(
       <DirectPencilConnector
         pageKey="wrong-types-test"
@@ -198,7 +216,9 @@ describe("DirectPencilConnector stored progress validation", () => {
         reducedMotion
       />,
     );
-    expect(container.querySelectorAll(".am-direct-pencil__line-group line[stroke-dasharray]")).toHaveLength(0);
+    expect(
+      container.querySelectorAll(".am-direct-pencil__line-group line[stroke-dasharray]"),
+    ).toHaveLength(0);
   });
   it("ignores non-string saved pair keys without throwing and still restores a valid pair", () => {
     const pairTargets: PencilTarget[] = [
@@ -221,5 +241,4 @@ describe("DirectPencilConnector stored progress validation", () => {
     );
     expect(container.querySelectorAll(".am-direct-pencil__line-group")).toHaveLength(1);
   });
-
 });

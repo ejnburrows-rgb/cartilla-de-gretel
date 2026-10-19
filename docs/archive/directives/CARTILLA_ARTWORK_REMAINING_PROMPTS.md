@@ -16,6 +16,7 @@ These prompts continue after Prompts 1–3. The governing rule for all remaining
 Continue from the real authenticated Cartilla Art Factory state.
 
 USE:
+
 - Remote Desktop Commander for the real authenticated CAF/browser state;
 - Lovable only if the existing app code genuinely needs changing;
 - the repo standard `CARTILLA_ARTWORK_OPTIMIZATION_STANDARD.md`;
@@ -25,6 +26,7 @@ GOAL:
 Make the new watercolor/paper preservation standard the canonical job-building rule so every future Rebuild/Recompile uses it automatically. Do not rely on one-off edits to existing IndexedDB records.
 
 REQUIRED:
+
 - locate the actual global prompt/job-builder template used by CAF;
 - replace only the obsolete redesign/3D-reinterpretation instructions;
 - preserve all existing mapping, source, reference, queue, candidate, automated validation, and manifest functionality;
@@ -33,9 +35,10 @@ REQUIRED:
 - make style references finish-only;
 - allow watercolor pigment, tactile paper, relief/pop-out depth, natural paper shadows, color/clarity cleanup;
 - forbid redesign, altered anatomy/pose/proportions/expression/props/composition, invented content, mascot/toy substitution.
-After the canonical fix, use the normal CAF UI to Rebuild/Recompile CAF-0002 and CAF-0003 from their saved details. Do not manually patch their compiled prompt after rebuilding.
+  After the canonical fix, use the normal CAF UI to Rebuild/Recompile CAF-0002 and CAF-0003 from their saved details. Do not manually patch their compiled prompt after rebuilding.
 
 PASS:
+
 - both rebuild from the normal UI and remain READY;
 - their freshly rebuilt prompts contain the new standard;
 - no obsolete instruction tells the model to replace the original drawing with a newly designed character;
@@ -62,11 +65,12 @@ IMPORTANT:
 This is an IMAGE EDIT / STYLE-FINISH TRANSFORMATION of the original Libro crop, not a from-scratch character generation.
 
 REFERENCE PRIORITY:
+
 1. Libro crop = authoritative identity, geometry, pose, proportions, expression, silhouette, basket/prop, composition, line structure.
 2. Flip Chart p.4 = intended COLOR reference only.
 3. Canonical style references = watercolor/paper/material/depth/lighting finish only.
-TARGET:
-The exact same bear drawing, professionally optimized into authentic watercolor pigment on tactile real paper with subtle cut-paper/embossed dimensional relief, gentle pop-out depth, richer faithful color, natural paper/contact shadows, and premium print clarity.
+   TARGET:
+   The exact same bear drawing, professionally optimized into authentic watercolor pigment on tactile real paper with subtle cut-paper/embossed dimensional relief, gentle pop-out depth, richer faithful color, natural paper/contact shadows, and premium print clarity.
 
 DO NOT:
 change anatomy, face, expression, pose, proportions, silhouette, basket, subject count, composition, or educational meaning; add/remove objects; import unrelated Flip Chart/style-reference content; create a new mascot/toy/3D redesign.
@@ -76,6 +80,7 @@ Record the visible Nano Banana Pro model/settings and credit cost before generat
 Generate only after the cost is known and the correct four inputs are visually confirmed.
 
 After generation:
+
 - download/save the result;
 - import it into CAF as a candidate for CAF-0002 only;
 - do not pause for owner input; proceed directly to source-faithfulness validation and the next executable step.
@@ -96,6 +101,7 @@ TRUE PROBLEM
 
 Use the original Libro p.7 bear crop and the generated CAF-0002 candidate side by side.
 PASS ONLY IF:
+
 - same bear identity;
 - same single-subject count;
 - same seated pose/action;
@@ -109,6 +115,7 @@ PASS ONLY IF:
 Watercolor/paper/relief differences are allowed. Geometry/content changes are not.
 
 If FAIL:
+
 - identify the exact deviation;
 - mark the candidate failed in CAF;
 - tighten only the instruction needed to prevent that deviation;
@@ -116,6 +123,7 @@ If FAIL:
 - repeat comparison until PASS or a proven external limitation exists.
 
 If PASS:
+
 - mark CAF-0002 validated in CAF without waiting for owner input;
 - verify validated/current manifest state is internally consistent;
 - preserve the accepted file as the production master.
@@ -141,6 +149,7 @@ Generate one Nano Banana Pro candidate at a time.
 Do not accept historical CAF-0003 exportCount as proof of current generation or validation.
 
 The elephant must remain the exact original drawing:
+
 - same elephant;
 - same pose;
 - same proportions/silhouette;
@@ -169,6 +178,7 @@ GOAL:
 Identify every Libro del alumno illustration that should receive the same optimization treatment.
 
 USE:
+
 - actual 98-page Libro;
 - actual 62-page Flip Chart;
 - authoritative 98-page / 284-link mapping;
@@ -178,6 +188,7 @@ USE:
 DO NOT:
 invent missing illustrations, duplicate existing assets, recrop assets that are already correct, or optimize page furniture/text unless explicitly part of an illustration.
 For every eligible illustration:
+
 - assign/reuse stable CAF asset ID;
 - record Libro page and exact crop;
 - verify complete meaningful crop;
@@ -230,6 +241,7 @@ TRUE REMAINING BLOCKERS
 ## Prompt 10 — Final CAF reconciliation and production manifest
 
 After all artwork is validated:
+
 - verify every validated asset has one current production master;
 - verify no rejected/test candidate remains falsely CURRENT or EXPORTED;
 - verify every manifest entry maps to the correct CAF ID and Libro page;
@@ -250,10 +262,12 @@ FINAL PACKAGE
 TRUE BLOCKERS
 
 ## Prompt 11 — Integrate validated optimized assets into Cartilla without changing the workbook design
+
 Use the actual Cartilla repo and existing artwork wiring.
 
 GOAL:
 Replace only the intended workbook illustration assets with their validated optimized masters while preserving:
+
 - page layout;
 - crop/position;
 - aspect/proportions;
@@ -283,6 +297,7 @@ TRUE REMAINING BLOCKERS
 Run final end-to-end QA only after integration is complete.
 
 VERIFY:
+
 - all relevant workbook pages load;
 - validated optimized art appears in the correct locations;
 - no old/generated-invalid substitute art remains;
@@ -292,8 +307,8 @@ VERIFY:
 - no demo/test contamination;
 - production build/tests pass;
 - user-visible deployed result matches the verified build.
-Do not report deployed/live based only on a commit or build log.
-Verify the actual user-visible production site after deployment.
+  Do not report deployed/live based only on a commit or build log.
+  Verify the actual user-visible production site after deployment.
 
 PASS:
 the complete optimized-art implementation is visibly correct in production and all artwork remains faithful to the original Libro design.
@@ -305,7 +320,6 @@ RAW/VISIBLE PROOF
 PRODUCTION VERIFICATION
 TRUE REMAINING BLOCKERS
 
-
 ## Prompt 13 — Rebuild the Flip Chart as native e-learning classroom presentation
 
 Proceed directly. There is **no owner checkpoint**.
@@ -314,6 +328,7 @@ GOAL:
 Replace the visible teacher Flip Chart experience with a native, polished e-learning/classroom presentation. The original 62-page PDF/JPG scans remain source/reference/fallback evidence only; they are not the finished visual surface.
 
 USE:
+
 - the authoritative 62-page Flip Chart;
 - `src/data/teacher-flipchart.json`;
 - `src/data/flipchart-text-3-22.json`, `flipchart-text-23-42.json`, and `flipchart-text-43-62.json`;
@@ -322,6 +337,7 @@ USE:
 - the canonical Gretel 2.0 / modernized Cartilla visual standard.
 
 REQUIRED:
+
 - import every already-generated Flip Chart-only image asset into the repository with stable descriptive filenames;
 - map each asset to its exact Flip Chart page and slot;
 - finish the remaining Flip Chart-only assets under the same visual standard;
@@ -334,6 +350,7 @@ REQUIRED:
 - run automated/source-faithfulness checks, visual checks, build/tests, deployment, and live production verification continuously.
 
 E-LEARNING PRESENTATION:
+
 - projection-ready 16:9/large-screen stage where practical;
 - clear hierarchy for lesson letter/syllables, vocabulary, rhyme/story text, and illustration;
 - subtle motion/interactivity only where it improves teaching and does not alter the source artwork;
@@ -341,6 +358,7 @@ E-LEARNING PRESENTATION:
 - no PDF-reader chrome, photographed bindings, scan shadows, page-edge artifacts, or low-resolution text baked into images.
 
 PASS:
+
 - all 62 pages are accounted for;
 - completed pages render natively rather than as full-page source scans;
 - high-quality standalone artwork is used in the correct slots;

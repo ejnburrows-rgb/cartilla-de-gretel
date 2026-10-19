@@ -62,13 +62,17 @@ describe("consonants.json vocab vs book (L17–L24)", () => {
       vocabSource: { book: string; flipchartPage: number };
     }>) {
       const page = entry.lesson === 7 ? 9 : 12 + 3 * (entry.lesson - 8);
-      expect(entry.vocabSource, `L${entry.lesson}`).toMatchObject({ book: "flipchart", flipchartPage: page });
+      expect(entry.vocabSource, `L${entry.lesson}`).toMatchObject({
+        book: "flipchart",
+        flipchartPage: page,
+      });
       const plateWords = fc[String(page)]
         .filter((t) => t.text.trim().length > 1 && t.y > 700)
         .map((t) => t.text.trim());
-      expect(entry.vocab.map((v) => v.word).sort(), `L${entry.lesson} vs Flip Chart p${page}`).toEqual(
-        [...plateWords].sort(),
-      );
+      expect(
+        entry.vocab.map((v) => v.word).sort(),
+        `L${entry.lesson} vs Flip Chart p${page}`,
+      ).toEqual([...plateWords].sort());
     }
   });
 });

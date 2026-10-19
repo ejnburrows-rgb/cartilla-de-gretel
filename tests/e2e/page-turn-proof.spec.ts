@@ -47,7 +47,9 @@ test.describe("Page Turn System - Visual Proof Milestone", () => {
     await expect(reader).toHaveAttribute("data-native-page", "1", { timeout: 5000 });
   });
 
-  test("Current native book renders page 45 on desktop and final page 90 on phone", async ({ page }) => {
+  test("Current native book renders page 45 on desktop and final page 90 on phone", async ({
+    page,
+  }) => {
     await page.setViewportSize({ width: 1366, height: 768 });
     await page.goto("/cartilla/lecciones");
     await page.evaluate(() => localStorage.setItem("cartilla.workbook-reader-page.v1", "45"));
@@ -57,14 +59,20 @@ test.describe("Page Turn System - Visual Proof Milestone", () => {
     await expect(page.locator("[data-native-page]")).toHaveCount(1);
     await expect(page.getByTestId("physical-book-reader")).toHaveCount(0);
     await expect(page.getByTestId("book-companion-anchor")).toHaveCount(0);
-    await page.screenshot({ path: path.join(PROOF_DIR, "workbook-page45-desktop.png"), fullPage: true });
+    await page.screenshot({
+      path: path.join(PROOF_DIR, "workbook-page45-desktop.png"),
+      fullPage: true,
+    });
 
     await page.setViewportSize({ width: 390, height: 844 });
     await page.evaluate(() => localStorage.setItem("cartilla.workbook-reader-page.v1", "90"));
     await page.reload();
     await expect(reader).toHaveAttribute("data-native-page", "90");
     await expect(page.getByRole("button", { name: "Fin del cuaderno" })).toBeDisabled();
-    await page.screenshot({ path: path.join(PROOF_DIR, "workbook-page90-phone.png"), fullPage: true });
+    await page.screenshot({
+      path: path.join(PROOF_DIR, "workbook-page90-phone.png"),
+      fullPage: true,
+    });
   });
 
   test("Flip Chart forward & reverse physical page turn frames", async ({ page }) => {

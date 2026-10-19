@@ -221,7 +221,10 @@ function VoiceAudition() {
             </span>
           </div>
           <p className="text-xs text-stone-500">
-            Toda la app utiliza la abstracción unificada <code className="bg-stone-200 px-1 py-0.5 rounded text-stone-800">speakAsGretel</code>. Cambiar a una voz premium aprobada por el propietario no requiere modificar la lógica de las lecciones.
+            Toda la app utiliza la abstracción unificada{" "}
+            <code className="bg-stone-200 px-1 py-0.5 rounded text-stone-800">speakAsGretel</code>.
+            Cambiar a una voz premium aprobada por el propietario no requiere modificar la lógica de
+            las lecciones.
           </p>
         </div>
 

@@ -11,9 +11,7 @@ background images; source instructional foreground scenes and useful motion
 remain. This explicit direction supersedes older side-companion and scenic
 Flipchart presentation statements below. Reference title bars are annotations.
 
-
 > **Finish contract:** Read PROJECT_FINISH_DEFINITION.md before planning or declaring Cartilla work complete. It is the canonical definition of what must be true for the entire project to be finished. Compare current verified reality against it and close only real remaining gaps.
-
 
 **Status:** CANONICAL DURABLE VISUAL SYSTEM  
 **Owner direction locked:** 2026-10-06
@@ -29,6 +27,7 @@ The product should feel like a carefully preserved Latin American schoolbook tra
 ## Visual world
 
 Use the book's established country/tole folk-art DNA and school-material vocabulary:
+
 - warm cream paper;
 - sienna/brown structure and outlines;
 - deep Cartilla blue/cobalt accents in broader brand/teacher surfaces;
@@ -47,6 +46,7 @@ Digital chrome should recede. The book/page is the main object. Do not surround 
 There is one canonical classic wooden pencil and one matching physical school eraser treatment across student activities.
 
 The same family must drive:
+
 - marks and circles;
 - line matching;
 - retry erase;
@@ -122,6 +122,7 @@ The page remains the dominant object on laptop, tablet, phone, and projector.
 ## Visual proof
 
 For every visible implementation lane, capture milestone screenshots before final completion:
+
 - resting/normal state;
 - correct/success state;
 - incorrect/retry state;

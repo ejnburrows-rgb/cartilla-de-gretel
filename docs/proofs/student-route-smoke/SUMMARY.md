@@ -1,9 +1,11 @@
 # Student Route Smoke Test Proof Summary
 
 ## Overview
+
 This document records proof for the student route smoke suite outside the `#561` cuaderno/viewer ownership.
 
 ## Verified Scenarios
+
 - **Student Entry (`/cartilla`)**: Loads splash screen, Gretel identity artwork, and primary navigation buttons cleanly without console exceptions.
 - **Lesson List (`/cartilla/lecciones`)**: Displays total lesson progress, lesson grid catalog (24 lessons), and active/completed states.
 - **Legacy Login Redirect (`/cartilla/student-login`)**: Redirects through join flow and lands safely on `/cartilla/lecciones`.
@@ -14,6 +16,7 @@ This document records proof for the student route smoke suite outside the `#561`
 - **Console & Network Error Tracking**: Zero unhandled console errors or unexpected network failures across test runs.
 
 ## Viewports Tested & Visual Proofs
+
 Tests were run and verified across three device viewports:
 
 1. **Phone (375 x 667)**
@@ -32,6 +35,7 @@ Tests were run and verified across three device viewports:
    - Progreso: `docs/proofs/student-route-smoke/laptop-progreso.png`
 
 ## Test Results
+
 - `pnpm vitest run src/routes/__tests__/student-routing.test.tsx` -> **10 passed**
 - `pnpm exec playwright test tests/e2e/student-route-smoke.spec.ts` -> **3 passed (Phone, Tablet, Laptop)**
 - `pnpm typecheck` -> **0 errors**

@@ -29,20 +29,27 @@ export const Route = createFileRoute("/cartilla/mi-progreso")({
 });
 
 function ProgressPage() {
-  return import.meta.env.VITE_CRM_REVIEW === "true" && !getStudentSession()
-    ? <LocalProgress />
-    : <MyProgress />;
+  return import.meta.env.VITE_CRM_REVIEW === "true" && !getStudentSession() ? (
+    <LocalProgress />
+  ) : (
+    <MyProgress />
+  );
 }
 
 function LocalProgress() {
   const { isCompleted } = useLessonProgress();
   const completedCount = CATALOG.filter((entry) => isCompleted(entry.n)).length;
   const exportLocal = () => {
-    downloadCSV("mi-progreso-local.csv", toCSV(CATALOG.map((entry) => ({
-      leccion: entry.n,
-      titulo: entry.title,
-      completada: isCompleted(entry.n) ? "sí" : "no",
-    }))));
+    downloadCSV(
+      "mi-progreso-local.csv",
+      toCSV(
+        CATALOG.map((entry) => ({
+          leccion: entry.n,
+          titulo: entry.title,
+          completada: isCompleted(entry.n) ? "sí" : "no",
+        })),
+      ),
+    );
   };
   return (
     <main className="min-h-screen relative px-4 py-6 max-w-4xl mx-auto">
@@ -55,7 +62,9 @@ function LocalProgress() {
         <div className="mt-5 rounded-2xl border-2 border-[var(--book-teal)]/30 bg-[#fffaf0] p-4 shadow-sm">
           <div className="flex items-center justify-between gap-3 text-sm font-bold">
             <span>Lecciones completadas</span>
-            <span>{completedCount}/{TOTAL_LESSONS}</span>
+            <span>
+              {completedCount}/{TOTAL_LESSONS}
+            </span>
           </div>
           <div
             className="mt-3 h-3 overflow-hidden rounded-full bg-stone-200"
@@ -84,8 +93,13 @@ function LocalProgress() {
               className="kid-card p-4 border-l-4"
               style={{ borderLeftColor: entry.color }}
             >
-              <span className="font-bold">{entry.n}. {entry.title}</span>
-              <span className="block mt-1 text-sm font-semibold" style={{ color: isCompleted(entry.n) ? entry.color : undefined }}>
+              <span className="font-bold">
+                {entry.n}. {entry.title}
+              </span>
+              <span
+                className="block mt-1 text-sm font-semibold"
+                style={{ color: isCompleted(entry.n) ? entry.color : undefined }}
+              >
                 {isCompleted(entry.n) ? "✓ Completada" : "Pendiente"}
               </span>
             </Link>
@@ -136,7 +150,7 @@ function MyProgress() {
 
       setLoading(true);
       setError(null);
-      
+
       getMyProgress({ data: { studentId: s.studentId, studentCode: s.studentCode } })
         .then((r) => {
           if (token === currentToken) {
@@ -174,7 +188,8 @@ function MyProgress() {
     const badges: string[] = [];
     let level: string | null = null;
     for (const e of data.events) {
-      if (e.event_kind === "lesson_completed" && /^\d+$/.test(e.lesson_id)) completed.add(e.lesson_id);
+      if (e.event_kind === "lesson_completed" && /^\d+$/.test(e.lesson_id))
+        completed.add(e.lesson_id);
       if (
         e.event_kind === "exercise" &&
         typeof e.score === "number" &&
@@ -389,11 +404,7 @@ function MyProgress() {
                     >
                       <div className="text-3xl">{b.emoji}</div>
                       <div>
-                        <div
-                          className="font-bold text-sm text-foreground"
-                        >
-                          {b.name}
-                        </div>
+                        <div className="font-bold text-sm text-foreground">{b.name}</div>
                         <div className="text-xs text-foreground">{b.description}</div>
                       </div>
                     </div>
@@ -406,7 +417,10 @@ function MyProgress() {
 
         <section className="mt-6 kid-card p-4">
           <h2 className="font-bold mb-3">{t.aciertosPorLeccion[lang]}</h2>
-          <div className="simple-bar-chart-container"><style>{` .simple-bar-chart-container .text-foreground\\/60, .simple-bar-chart-container .text-foreground\\/40 { color: hsl(var(--foreground)) !important; } `}</style><SimpleBarChart bars={chartBars} max={100} formatValue={(v) => `${v}%`} /></div>
+          <div className="simple-bar-chart-container">
+            <style>{` .simple-bar-chart-container .text-foreground\\/60, .simple-bar-chart-container .text-foreground\\/40 { color: hsl(var(--foreground)) !important; } `}</style>
+            <SimpleBarChart bars={chartBars} max={100} formatValue={(v) => `${v}%`} />
+          </div>
         </section>
 
         <section className="mt-6">
@@ -476,4 +490,3 @@ function Stat({
     </div>
   );
 }
-

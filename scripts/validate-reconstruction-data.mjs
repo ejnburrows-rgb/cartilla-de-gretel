@@ -20,7 +20,12 @@ function refs(value) {
 }
 
 function normalizeSrc(value) {
-  return "/" + String(value ?? "").replace(/^public\//, "").replace(/^\/+/, "");
+  return (
+    "/" +
+    String(value ?? "")
+      .replace(/^public\//, "")
+      .replace(/^\/+/, "")
+  );
 }
 
 function isSha(value) {
@@ -63,23 +68,38 @@ const assert = (condition, message) => {
 const mapping = readJson("src/data/reconstruction/student-to-flipchart-284.json");
 assert(mapping.student_pages === 98, "284 mapping must declare 98 student PDF sheets");
 assert(mapping.flipchart_pages === 62, "284 mapping must declare 62 Flip Chart pages");
-assert(Array.isArray(mapping.mappings) && mapping.mappings.length === 98, "284 mapping must contain 98 records");
+assert(
+  Array.isArray(mapping.mappings) && mapping.mappings.length === 98,
+  "284 mapping must contain 98 records",
+);
 
 const mappingBySheet = new Map();
 let totalLinks = 0;
 for (const row of mapping.mappings ?? []) {
-  assert(Number.isInteger(row.student_pdf_page) && row.student_pdf_page >= 1 && row.student_pdf_page <= 98,
-    "invalid student_pdf_page in 284 mapping");
-  assert(!mappingBySheet.has(row.student_pdf_page), `duplicate student_pdf_page ${row.student_pdf_page}`);
+  assert(
+    Number.isInteger(row.student_pdf_page) &&
+      row.student_pdf_page >= 1 &&
+      row.student_pdf_page <= 98,
+    "invalid student_pdf_page in 284 mapping",
+  );
+  assert(
+    !mappingBySheet.has(row.student_pdf_page),
+    `duplicate student_pdf_page ${row.student_pdf_page}`,
+  );
   mappingBySheet.set(row.student_pdf_page, row);
   const all = [...refs(row.primary_flip_pages), ...refs(row.supplemental_flip_pages)];
   totalLinks += all.length;
   for (const page of all) {
-    assert(Number.isInteger(page) && page >= 1 && page <= 62,
-      `invalid Flip Chart page ${page} for student PDF sheet ${row.student_pdf_page}`);
+    assert(
+      Number.isInteger(page) && page >= 1 && page <= 62,
+      `invalid Flip Chart page ${page} for student PDF sheet ${row.student_pdf_page}`,
+    );
   }
 }
-assert(totalLinks === 284, `authoritative mapping must contain exactly 284 links; found ${totalLinks}`);
+assert(
+  totalLinks === 284,
+  `authoritative mapping must contain exactly 284 links; found ${totalLinks}`,
+);
 for (let sheet = 1; sheet <= 98; sheet++) {
   assert(mappingBySheet.has(sheet), `284 mapping missing student PDF sheet ${sheet}`);
 }
@@ -90,8 +110,12 @@ assert(pageIndex.printed_page_count === 90, "page index must declare 90 printed 
 assert(pageIndex.pdf_sheets?.length === 98, "page index must list all 98 PDF sheets");
 assert(pageIndex.printed_pages?.length === 90, "page index must list all 90 printed pages");
 
-const sheetToPrinted = new Map((pageIndex.pdf_sheets ?? []).map((x) => [x.pdf_sheet, x.printed_page]));
-const printedToSheet = new Map((pageIndex.printed_pages ?? []).map((x) => [x.printed_page, x.pdf_sheet]));
+const sheetToPrinted = new Map(
+  (pageIndex.pdf_sheets ?? []).map((x) => [x.pdf_sheet, x.printed_page]),
+);
+const printedToSheet = new Map(
+  (pageIndex.printed_pages ?? []).map((x) => [x.printed_page, x.pdf_sheet]),
+);
 for (let sheet = 1; sheet <= 98; sheet++) {
   assert(sheetToPrinted.has(sheet), `page index missing PDF sheet ${sheet}`);
 }
@@ -99,21 +123,31 @@ for (let printed = 1; printed <= 90; printed++) {
   assert(printedToSheet.has(printed), `page index missing printed page ${printed}`);
   const sheet = printedToSheet.get(printed);
   if (sheet != null) {
-    assert(sheetToPrinted.get(sheet) === printed,
-      `page index inverse mismatch: printed ${printed} -> sheet ${sheet}`);
+    assert(
+      sheetToPrinted.get(sheet) === printed,
+      `page index inverse mismatch: printed ${printed} -> sheet ${sheet}`,
+    );
   }
 }
 const missingPrinted = (pageIndex.printed_pages ?? [])
   .filter((x) => x.status === "MISSING_FROM_98_PAGE_SOURCE")
   .map((x) => x.printed_page)
   .sort((a, b) => a - b);
-assert(JSON.stringify(missingPrinted) === JSON.stringify([86, 87]),
-  `expected only printed pages 86-87 missing from source; found ${missingPrinted.join(",")}`);
-assert(sheetToPrinted.get(7) === 1 && sheetToPrinted.get(10) === 4,
-  "verified front offset mapping is not preserved");
-assert(sheetToPrinted.get(91) === 85 && sheetToPrinted.get(92) === 88 &&
-       sheetToPrinted.get(93) === 89 && sheetToPrinted.get(94) === 90,
-  "verified tail page mapping is not preserved");
+assert(
+  JSON.stringify(missingPrinted) === JSON.stringify([86, 87]),
+  `expected only printed pages 86-87 missing from source; found ${missingPrinted.join(",")}`,
+);
+assert(
+  sheetToPrinted.get(7) === 1 && sheetToPrinted.get(10) === 4,
+  "verified front offset mapping is not preserved",
+);
+assert(
+  sheetToPrinted.get(91) === 85 &&
+    sheetToPrinted.get(92) === 88 &&
+    sheetToPrinted.get(93) === 89 &&
+    sheetToPrinted.get(94) === 90,
+  "verified tail page mapping is not preserved",
+);
 
 const availablePrintedPages = (pageIndex.printed_pages ?? [])
   .filter((page) => page.status === "AVAILABLE")
@@ -171,12 +205,20 @@ for (const item of plan.items) {
   planIds.add(item.id);
   assert(planStrategies.has(item.strategy), `${item.id}: invalid strategy`);
   assert(Number.isInteger(item.workbook_pdf_sheet), `${item.id}: invalid workbook sheet`);
-  assert(printedToSheet.get(item.printed_page) === item.workbook_pdf_sheet,
-    `${item.id}: workbook sheet/printed page mismatch`);
+  assert(
+    printedToSheet.get(item.printed_page) === item.workbook_pdf_sheet,
+    `${item.id}: workbook sheet/printed page mismatch`,
+  );
   assert(validNormBox(item.workbook_box_norm), `${item.id}: invalid workbook box`);
   if (item.strategy === "NO_VALID_COUNTERPART") {
-    assert(item.flipchart_pdf_page == null, `${item.id}: no-counterpart item must not claim a source page`);
-    assert(Array.isArray(item.reviewed_flipchart_pages), `${item.id}: missing reviewed source pages`);
+    assert(
+      item.flipchart_pdf_page == null,
+      `${item.id}: no-counterpart item must not claim a source page`,
+    );
+    assert(
+      Array.isArray(item.reviewed_flipchart_pages),
+      `${item.id}: missing reviewed source pages`,
+    );
     continue;
   }
   assert(Number.isInteger(item.flipchart_pdf_page), `${item.id}: invalid Flip Chart page`);
@@ -185,18 +227,26 @@ for (const item of plan.items) {
     ...refs(mappingRow?.primary_flip_pages),
     ...refs(mappingRow?.supplemental_flip_pages),
   ]);
-  assert(allowedSourcePages.has(item.flipchart_pdf_page),
-    `${item.id}: source page is outside authoritative mapping`);
+  assert(
+    allowedSourcePages.has(item.flipchart_pdf_page),
+    `${item.id}: source page is outside authoritative mapping`,
+  );
   assert(validNormBox(item.flipchart_box_norm), `${item.id}: invalid Flip Chart box`);
   if (item.strategy === "EXACT_COLORED_COUNTERPART") {
-    assert(geometryKeys.every((key) => item.geometry_checks?.[key] === true),
-      `${item.id}: exact counterpart lacks complete geometry PASS checks`);
+    assert(
+      geometryKeys.every((key) => item.geometry_checks?.[key] === true),
+      `${item.id}: exact counterpart lacks complete geometry PASS checks`,
+    );
   } else if (item.color_transfer_verification === "PASS") {
-    assert(typeof item.verified_colorized_asset === "string" && item.verified_colorized_asset.length > 0,
-      `${item.id}: verified color transfer lacks an asset`);
+    assert(
+      typeof item.verified_colorized_asset === "string" && item.verified_colorized_asset.length > 0,
+      `${item.id}: verified color transfer lacks an asset`,
+    );
   } else {
-    assert(item.color_transfer_verification === "PENDING",
-      `${item.id}: color transfer must be PENDING or PASS`);
+    assert(
+      item.color_transfer_verification === "PENDING",
+      `${item.id}: color transfer must be PENDING or PASS`,
+    );
   }
 }
 
@@ -204,13 +254,20 @@ function sha256File(file) {
   return crypto.createHash("sha256").update(fs.readFileSync(file)).digest("hex");
 }
 const strategyCounts = Object.fromEntries(
-  [...planStrategies].map((strategy) => [strategy, plan.items.filter((item) => item.strategy === strategy).length]),
+  [...planStrategies].map((strategy) => [
+    strategy,
+    plan.items.filter((item) => item.strategy === strategy).length,
+  ]),
 );
-assert(plan.summary?.total_object_records === plan.items.length,
-  "reconstruction plan summary total does not match items");
+assert(
+  plan.summary?.total_object_records === plan.items.length,
+  "reconstruction plan summary total does not match items",
+);
 for (const [strategy, count] of Object.entries(strategyCounts)) {
-  assert(plan.summary?.[strategy] === count,
-    `reconstruction plan summary mismatch for ${strategy}`);
+  assert(
+    plan.summary?.[strategy] === count,
+    `reconstruction plan summary mismatch for ${strategy}`,
+  );
 }
 
 const faithful = readJson("public/cartilla/art/faithful/manifest.json");
@@ -221,8 +278,10 @@ const activeSrcs = new Set((faithful ?? []).map((x) => normalizeSrc(x.src)));
 const quarantineSrcs = new Set((quarantine.assets ?? []).map((x) => normalizeSrc(x.src)));
 
 assert(Array.isArray(faithful), "active faithful manifest must be an array");
-assert(quarantine.count === 35 && quarantineSrcs.size === 35,
-  `expected 35 quarantined faithful assets; found ${quarantineSrcs.size}`);
+assert(
+  quarantine.count === 35 && quarantineSrcs.size === 35,
+  `expected 35 quarantined faithful assets; found ${quarantineSrcs.size}`,
+);
 for (const src of activeSrcs) {
   assert(!quarantineSrcs.has(src), `quarantined asset remains in active manifest: ${src}`);
   const q = qaBySrc.get(src);
@@ -234,43 +293,73 @@ for (const src of quarantineSrcs) {
 }
 
 const production = readJson("src/data/reconstruction/production-manifest.json");
-assert(Array.isArray(production.assets), "production reconstruction manifest must contain assets[]");
+assert(
+  Array.isArray(production.assets),
+  "production reconstruction manifest must contain assets[]",
+);
 
 for (const asset of production.assets ?? []) {
-  assert(Number.isInteger(asset.printed_page) && asset.printed_page >= 1 && asset.printed_page <= 90,
-    "production asset has invalid printed_page");
-  assert(Number.isInteger(asset.workbook_pdf_sheet) && asset.workbook_pdf_sheet >= 1 && asset.workbook_pdf_sheet <= 98,
-    `production page ${asset.printed_page} has invalid workbook_pdf_sheet`);
-  assert(printedToSheet.get(asset.printed_page) === asset.workbook_pdf_sheet,
-    `production page ${asset.printed_page} does not match canonical PDF-sheet index`);
-  assert(typeof asset.workbook_source_file === "string" && asset.workbook_source_file.length > 0,
-    `production page ${asset.printed_page} missing workbook_source_file`);
-  assert(isSha(asset.workbook_source_sha256),
-    `production page ${asset.printed_page} missing valid workbook source SHA-256`);
-  assert(typeof asset.output_path === "string" &&
-         /^\/cartilla\/art\/reconstructed\/workbook\/page-\d{3}\.png$/.test(asset.output_path),
-    `production page ${asset.printed_page} has invalid reconstructed output_path`);
-  assert(isSha(asset.output_sha256),
-    `production page ${asset.printed_page} missing valid output SHA-256`);
+  assert(
+    Number.isInteger(asset.printed_page) && asset.printed_page >= 1 && asset.printed_page <= 90,
+    "production asset has invalid printed_page",
+  );
+  assert(
+    Number.isInteger(asset.workbook_pdf_sheet) &&
+      asset.workbook_pdf_sheet >= 1 &&
+      asset.workbook_pdf_sheet <= 98,
+    `production page ${asset.printed_page} has invalid workbook_pdf_sheet`,
+  );
+  assert(
+    printedToSheet.get(asset.printed_page) === asset.workbook_pdf_sheet,
+    `production page ${asset.printed_page} does not match canonical PDF-sheet index`,
+  );
+  assert(
+    typeof asset.workbook_source_file === "string" && asset.workbook_source_file.length > 0,
+    `production page ${asset.printed_page} missing workbook_source_file`,
+  );
+  assert(
+    isSha(asset.workbook_source_sha256),
+    `production page ${asset.printed_page} missing valid workbook source SHA-256`,
+  );
+  assert(
+    typeof asset.output_path === "string" &&
+      /^\/cartilla\/art\/reconstructed\/workbook\/page-\d{3}\.png$/.test(asset.output_path),
+    `production page ${asset.printed_page} has invalid reconstructed output_path`,
+  );
+  assert(
+    isSha(asset.output_sha256),
+    `production page ${asset.printed_page} missing valid output SHA-256`,
+  );
   const outputFile = path.join(root, "public", asset.output_path.replace(/^\/+/, ""));
-  assert(fs.existsSync(outputFile),
-    `production page ${asset.printed_page} output file is missing`);
+  assert(fs.existsSync(outputFile), `production page ${asset.printed_page} output file is missing`);
   if (fs.existsSync(outputFile)) {
-    assert(sha256File(outputFile) === asset.output_sha256,
-      `production page ${asset.printed_page} output hash does not match the locked master`);
+    assert(
+      sha256File(outputFile) === asset.output_sha256,
+      `production page ${asset.printed_page} output hash does not match the locked master`,
+    );
   }
-  assert(asset.verification_status === "PASS",
-    `production page ${asset.printed_page} is not visually verified PASS`);
-  assert(Array.isArray(asset.placements) && asset.placements.length > 0,
-    `production page ${asset.printed_page} has no placement provenance`);
+  assert(
+    asset.verification_status === "PASS",
+    `production page ${asset.printed_page} is not visually verified PASS`,
+  );
+  assert(
+    Array.isArray(asset.placements) && asset.placements.length > 0,
+    `production page ${asset.printed_page} has no placement provenance`,
+  );
 
   for (const placement of asset.placements ?? []) {
-    assert(typeof placement.id === "string" && placement.id.length > 0,
-      `production page ${asset.printed_page} has placement without id`);
-    assert(validBox(placement.workbook_box_norm),
-      `placement ${placement.id} has invalid workbook_box_norm`);
-    assert(placement.mapping_verified === true,
-      `placement ${placement.id} is not verified against the 284-link mapping`);
+    assert(
+      typeof placement.id === "string" && placement.id.length > 0,
+      `production page ${asset.printed_page} has placement without id`,
+    );
+    assert(
+      validBox(placement.workbook_box_norm),
+      `placement ${placement.id} has invalid workbook_box_norm`,
+    );
+    assert(
+      placement.mapping_verified === true,
+      `placement ${placement.id} is not verified against the 284-link mapping`,
+    );
     assert(
       placement.strategy === "EXACT_COLORED_COUNTERPART" ||
         placement.strategy === "COLOR_TRANSFER_REQUIRED",
@@ -278,33 +367,54 @@ for (const asset of production.assets ?? []) {
     );
 
     const row = mappingBySheet.get(asset.workbook_pdf_sheet);
-    const allowed = new Set([...refs(row?.primary_flip_pages), ...refs(row?.supplemental_flip_pages)]);
+    const allowed = new Set([
+      ...refs(row?.primary_flip_pages),
+      ...refs(row?.supplemental_flip_pages),
+    ]);
 
-    assert(Number.isInteger(placement.flipchart_pdf_page) &&
-           placement.flipchart_pdf_page >= 1 && placement.flipchart_pdf_page <= 62,
-      `placement ${placement.id} has invalid Flip Chart page`);
-    assert(allowed.has(placement.flipchart_pdf_page),
-      `placement ${placement.id} uses Flip Chart page outside authoritative mapping`);
-    assert(typeof placement.flipchart_source_file === "string" && placement.flipchart_source_file.length > 0,
-      `placement ${placement.id} missing Flip Chart source file`);
-    assert(isSha(placement.flipchart_source_sha256),
-      `placement ${placement.id} missing Flip Chart source SHA-256`);
+    assert(
+      Number.isInteger(placement.flipchart_pdf_page) &&
+        placement.flipchart_pdf_page >= 1 &&
+        placement.flipchart_pdf_page <= 62,
+      `placement ${placement.id} has invalid Flip Chart page`,
+    );
+    assert(
+      allowed.has(placement.flipchart_pdf_page),
+      `placement ${placement.id} uses Flip Chart page outside authoritative mapping`,
+    );
+    assert(
+      typeof placement.flipchart_source_file === "string" &&
+        placement.flipchart_source_file.length > 0,
+      `placement ${placement.id} missing Flip Chart source file`,
+    );
+    assert(
+      isSha(placement.flipchart_source_sha256),
+      `placement ${placement.id} missing Flip Chart source SHA-256`,
+    );
 
     if (placement.strategy === "EXACT_COLORED_COUNTERPART") {
-      assert(validBox(placement.flipchart_box_norm),
-        `exact placement ${placement.id} has invalid flipchart_box_norm`);
+      assert(
+        validBox(placement.flipchart_box_norm),
+        `exact placement ${placement.id} has invalid flipchart_box_norm`,
+      );
       assert(
         GEOMETRY_KEYS.every((key) => placement.geometry_checks?.[key] === true),
         `exact placement ${placement.id} does not contain a complete PASS geometry check`,
       );
     } else {
-      assert(typeof placement.verified_colorized_asset === "string" &&
-             placement.verified_colorized_asset.length > 0,
-        `color-transfer placement ${placement.id} lacks verified_colorized_asset`);
-      assert(isSha(placement.verified_colorized_asset_sha256),
-        `color-transfer placement ${placement.id} lacks verified asset SHA-256`);
-      assert(placement.color_transfer_verification === "PASS",
-        `color-transfer placement ${placement.id} is not verified PASS`);
+      assert(
+        typeof placement.verified_colorized_asset === "string" &&
+          placement.verified_colorized_asset.length > 0,
+        `color-transfer placement ${placement.id} lacks verified_colorized_asset`,
+      );
+      assert(
+        isSha(placement.verified_colorized_asset_sha256),
+        `color-transfer placement ${placement.id} lacks verified asset SHA-256`,
+      );
+      assert(
+        placement.color_transfer_verification === "PASS",
+        `color-transfer placement ${placement.id} is not verified PASS`,
+      );
     }
   }
 }
@@ -312,7 +422,9 @@ for (const asset of production.assets ?? []) {
 const colorFinish = readJson("src/data/reconstruction/color-finishing-manifest.json");
 const noCounterpartItems = plan.items.filter((item) => item.strategy === "NO_VALID_COUNTERPART");
 const noCounterpartById = new Map(noCounterpartItems.map((item) => [item.id, item]));
-const productionByPage = new Map((production.assets ?? []).map((asset) => [asset.printed_page, asset]));
+const productionByPage = new Map(
+  (production.assets ?? []).map((asset) => [asset.printed_page, asset]),
+);
 const reviewedIds = new Set();
 assert(colorFinish.status === "LOCKED_PASS", "Workbook color finish is not locked PASS");
 for (const finished of colorFinish.pages ?? []) {
@@ -321,39 +433,61 @@ for (const finished of colorFinish.pages ?? []) {
   const sourceFile = path.join(root, "public", finished.source_path.replace(/^\/+/, ""));
   const outputFile = path.join(root, "public", finished.output_path.replace(/^\/+/, ""));
   const referenceFile = path.join(root, finished.reference_path);
-  assert(fs.existsSync(sourceFile) && fs.existsSync(outputFile) && fs.existsSync(referenceFile),
-    `color-finished page ${finished.printed_page} is missing a source, reference, or output`);
+  assert(
+    fs.existsSync(sourceFile) && fs.existsSync(outputFile) && fs.existsSync(referenceFile),
+    `color-finished page ${finished.printed_page} is missing a source, reference, or output`,
+  );
   if (![sourceFile, outputFile, referenceFile].every((file) => fs.existsSync(file))) continue;
-  assert(sha256File(sourceFile) === finished.source_sha256,
-    `color-finished page ${finished.printed_page} deterministic source hash changed`);
-  assert(sha256File(referenceFile) === finished.reference_sha256,
-    `color-finished page ${finished.printed_page} reference hash changed`);
-  assert(sha256File(outputFile) === finished.output_sha256,
-    `color-finished page ${finished.printed_page} output hash changed`);
-  assert(productionAsset?.output_sha256 === finished.output_sha256,
-    `color-finished page ${finished.printed_page} production hash is stale`);
-  assert(productionAsset?.color_finishing?.verification_status === "PASS",
-    `color-finished page ${finished.printed_page} lacks production PASS`);
-  assert(finished.verification_status === "PASS",
-    `color-finished page ${finished.printed_page} lacks final QA PASS`);
+  assert(
+    sha256File(sourceFile) === finished.source_sha256,
+    `color-finished page ${finished.printed_page} deterministic source hash changed`,
+  );
+  assert(
+    sha256File(referenceFile) === finished.reference_sha256,
+    `color-finished page ${finished.printed_page} reference hash changed`,
+  );
+  assert(
+    sha256File(outputFile) === finished.output_sha256,
+    `color-finished page ${finished.printed_page} output hash changed`,
+  );
+  assert(
+    productionAsset?.output_sha256 === finished.output_sha256,
+    `color-finished page ${finished.printed_page} production hash is stale`,
+  );
+  assert(
+    productionAsset?.color_finishing?.verification_status === "PASS",
+    `color-finished page ${finished.printed_page} lacks production PASS`,
+  );
+  assert(
+    finished.verification_status === "PASS",
+    `color-finished page ${finished.printed_page} lacks final QA PASS`,
+  );
 
   const source = await sharp(sourceFile).removeAlpha().raw().toBuffer({ resolveWithObject: true });
   const output = await sharp(outputFile).removeAlpha().raw().toBuffer({ resolveWithObject: true });
   const width = source.info.width;
   const height = source.info.height;
-  assert(output.info.width === width && output.info.height === height,
-    `color-finished page ${finished.printed_page} changed dimensions`);
+  assert(
+    output.info.width === width && output.info.height === height,
+    `color-finished page ${finished.printed_page} changed dimensions`,
+  );
   if (output.info.width !== width || output.info.height !== height) continue;
   const editable = new Uint8Array(width * height);
   const symbolInk = new Uint8Array(width * height);
   for (const object of finished.objects ?? []) {
     const planned = noCounterpartById.get(object.id);
-    assert(planned && planned.printed_page === finished.printed_page,
-      `color-finished object ${object.id} lacks a matching plan record`);
-    assert(JSON.stringify(planned?.workbook_box_norm) === JSON.stringify(object.workbook_box_norm),
-      `color-finished object ${object.id} changed its verified region`);
-    assert(object.verification_status === "PASS" && object.colored_pixels > 0,
-      `color-finished object ${object.id} lacks color or QA PASS`);
+    assert(
+      planned && planned.printed_page === finished.printed_page,
+      `color-finished object ${object.id} lacks a matching plan record`,
+    );
+    assert(
+      JSON.stringify(planned?.workbook_box_norm) === JSON.stringify(object.workbook_box_norm),
+      `color-finished object ${object.id} changed its verified region`,
+    );
+    assert(
+      object.verification_status === "PASS" && object.colored_pixels > 0,
+      `color-finished object ${object.id} lacks color or QA PASS`,
+    );
     assert(!reviewedIds.has(object.id), `duplicate color-finished object ${object.id}`);
     reviewedIds.add(object.id);
     const box = object.workbook_box_norm;
@@ -373,22 +507,31 @@ for (const finished of colorFinish.pages ?? []) {
   let darkLineChanged = 0;
   for (let index = 0; index < editable.length; index++) {
     const offset = index * 3;
-    const changed = source.data[offset] !== output.data[offset] ||
+    const changed =
+      source.data[offset] !== output.data[offset] ||
       source.data[offset + 1] !== output.data[offset + 1] ||
       source.data[offset + 2] !== output.data[offset + 2];
     if (!changed) continue;
     if (!editable[index]) outsideChanged++;
-    const luminance = 0.114 * source.data[offset] + 0.587 * source.data[offset + 1] +
+    const luminance =
+      0.114 * source.data[offset] +
+      0.587 * source.data[offset + 1] +
       0.299 * source.data[offset + 2];
     if (luminance < 65 && !symbolInk[index]) darkLineChanged++;
   }
-  assert(outsideChanged === 0,
-    `color-finished page ${finished.printed_page} changed ${outsideChanged} pixels outside target regions`);
-  assert(darkLineChanged === 0,
-    `color-finished page ${finished.printed_page} changed ${darkLineChanged} original dark line pixels`);
+  assert(
+    outsideChanged === 0,
+    `color-finished page ${finished.printed_page} changed ${outsideChanged} pixels outside target regions`,
+  );
+  assert(
+    darkLineChanged === 0,
+    `color-finished page ${finished.printed_page} changed ${darkLineChanged} original dark line pixels`,
+  );
 }
-assert(reviewedIds.size === noCounterpartItems.length,
-  `color finish covers ${reviewedIds.size}/${noCounterpartItems.length} formerly grayscale objects`);
+assert(
+  reviewedIds.size === noCounterpartItems.length,
+  `color finish covers ${reviewedIds.size}/${noCounterpartItems.length} formerly grayscale objects`,
+);
 
 if (errors.length) {
   for (const error of errors) console.error("RECONSTRUCTION_DATA_ERROR " + error);

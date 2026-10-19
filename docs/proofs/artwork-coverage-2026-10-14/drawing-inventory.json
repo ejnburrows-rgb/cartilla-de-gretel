@@ -36,9 +36,7 @@
       ],
       "identity_decision": "SAME ORIGINAL DRAWING WITHIN THIS GROUP",
       "label": "abanico",
-      "decisions": [
-        "Fan rib fan, large central flower, upper scenic blocks and small corner tab."
-      ]
+      "decisions": ["Fan rib fan, large central flower, upper scenic blocks and small corner tab."]
     },
     {
       "group_id": "DRAW-WB-02-1",
@@ -51,18 +49,13 @@
         "WB-S020-OBJ08-ABEJA",
         "WB-S022-OBJ13-ABEJA"
       ],
-      "evidence": [
-        "comparisons/WB-repeat-proposal-02.jpg"
-      ],
+      "evidence": ["comparisons/WB-repeat-proposal-02.jpg"],
       "identity_decision": "SAME ORIGINAL DRAWING WITHIN THIS GROUP",
       "label": "abeja"
     },
     {
       "group_id": "DRAW-WB-03-1",
-      "placements": [
-        "WB-S007-OBJ01-UNIFORME-1",
-        "WB-S017-OBJ08-CHAQUETA"
-      ],
+      "placements": ["WB-S007-OBJ01-UNIFORME-1", "WB-S017-OBJ08-CHAQUETA"],
       "evidence": [
         "comparisons/WB-repeat-proposal-03.jpg",
         "comparisons/WB-repeat-proposal-12.jpg"
@@ -75,49 +68,28 @@
     },
     {
       "group_id": "DRAW-WB-04-1",
-      "placements": [
-        "WB-S013-OBJ15-AGUJA",
-        "WB-S014-OBJ05-AGUJA",
-        "WB-S016-OBJ08-AGUJA"
-      ],
-      "evidence": [
-        "comparisons/WB-repeat-proposal-04.jpg"
-      ],
+      "placements": ["WB-S013-OBJ15-AGUJA", "WB-S014-OBJ05-AGUJA", "WB-S016-OBJ08-AGUJA"],
+      "evidence": ["comparisons/WB-repeat-proposal-04.jpg"],
       "identity_decision": "SAME ORIGINAL DRAWING WITHIN THIS GROUP",
       "label": "aguja"
     },
     {
       "group_id": "DRAW-WB-05-1",
-      "placements": [
-        "WB-S010-OBJ07-ALA",
-        "WB-S013-OBJ10-ALA"
-      ],
-      "evidence": [
-        "comparisons/WB-repeat-proposal-05.jpg"
-      ],
+      "placements": ["WB-S010-OBJ07-ALA", "WB-S013-OBJ10-ALA"],
+      "evidence": ["comparisons/WB-repeat-proposal-05.jpg"],
       "identity_decision": "SAME ORIGINAL DRAWING WITHIN THIS GROUP",
       "label": "ala"
     },
     {
       "group_id": "DRAW-WB-05-2",
-      "placements": [
-        "WB-S011-OBJ08-ALA",
-        "WB-S014-OBJ03-ALA",
-        "WB-S019-OBJ07-ALA"
-      ],
-      "evidence": [
-        "comparisons/WB-repeat-proposal-05.jpg"
-      ],
+      "placements": ["WB-S011-OBJ08-ALA", "WB-S014-OBJ03-ALA", "WB-S019-OBJ07-ALA"],
+      "evidence": ["comparisons/WB-repeat-proposal-05.jpg"],
       "identity_decision": "SAME ORIGINAL DRAWING WITHIN THIS GROUP",
       "label": "ala"
     },
     {
       "group_id": "DRAW-WB-06-1",
-      "placements": [
-        "WB-S009-OBJ03-ARANA",
-        "WB-S010-OBJ13-ARANA",
-        "FC-005-04"
-      ],
+      "placements": ["WB-S009-OBJ03-ARANA", "WB-S010-OBJ13-ARANA", "FC-005-04"],
       "evidence": [
         "comparisons/WB-repeat-proposal-06.jpg",
         "comparisons/FC-013.jpg",
@@ -131,49 +103,29 @@
     },
     {
       "group_id": "DRAW-WB-07-1",
-      "placements": [
-        "WB-S008-OBJ05-ARBOL",
-        "WB-S013-OBJ07-ARBOL",
-        "WB-S022-OBJ09-ARBOL"
-      ],
-      "evidence": [
-        "comparisons/WB-repeat-proposal-07.jpg"
-      ],
+      "placements": ["WB-S008-OBJ05-ARBOL", "WB-S013-OBJ07-ARBOL", "WB-S022-OBJ09-ARBOL"],
+      "evidence": ["comparisons/WB-repeat-proposal-07.jpg"],
       "identity_decision": "SAME ORIGINAL DRAWING WITHIN THIS GROUP",
       "label": "arbol"
     },
     {
       "group_id": "DRAW-WB-08-1",
-      "placements": [
-        "WB-S013-OBJ12-ARDILLA"
-      ],
-      "evidence": [
-        "comparisons/WB-repeat-proposal-08.jpg"
-      ],
+      "placements": ["WB-S013-OBJ12-ARDILLA"],
+      "evidence": ["comparisons/WB-repeat-proposal-08.jpg"],
       "identity_decision": "SAME ORIGINAL DRAWING WITHIN THIS GROUP",
       "label": "ardilla"
     },
     {
       "group_id": "DRAW-WB-09-1",
-      "placements": [
-        "WB-S007-OBJ08-ARO",
-        "WB-S013-OBJ03-ARO",
-        "WB-S014-OBJ08-ARO"
-      ],
-      "evidence": [
-        "comparisons/WB-repeat-proposal-09.jpg"
-      ],
+      "placements": ["WB-S007-OBJ08-ARO", "WB-S013-OBJ03-ARO", "WB-S014-OBJ08-ARO"],
+      "evidence": ["comparisons/WB-repeat-proposal-09.jpg"],
       "identity_decision": "SAME ORIGINAL DRAWING WITHIN THIS GROUP",
       "label": "aro"
     },
     {
       "group_id": "DRAW-WB-09-2",
-      "placements": [
-        "WB-S008-OBJ01-ARO"
-      ],
-      "evidence": [
-        "comparisons/WB-repeat-proposal-09.jpg"
-      ],
+      "placements": ["WB-S008-OBJ01-ARO"],
+      "evidence": ["comparisons/WB-repeat-proposal-09.jpg"],
       "identity_decision": "SAME ORIGINAL DRAWING WITHIN THIS GROUP",
       "label": "aro"
     },
@@ -198,23 +150,15 @@
     },
     {
       "group_id": "DRAW-WB-11-1",
-      "placements": [
-        "WB-S008-OBJ12-CARRO"
-      ],
-      "evidence": [
-        "comparisons/WB-repeat-proposal-11.jpg"
-      ],
+      "placements": ["WB-S008-OBJ12-CARRO"],
+      "evidence": ["comparisons/WB-repeat-proposal-11.jpg"],
       "identity_decision": "SAME ORIGINAL DRAWING WITHIN THIS GROUP",
       "label": "carro"
     },
     {
       "group_id": "DRAW-WB-13-1",
-      "placements": [
-        "WB-S008-OBJ15-DULCE"
-      ],
-      "evidence": [
-        "comparisons/WB-repeat-proposal-13.jpg"
-      ],
+      "placements": ["WB-S008-OBJ15-DULCE"],
+      "evidence": ["comparisons/WB-repeat-proposal-13.jpg"],
       "identity_decision": "SAME ORIGINAL DRAWING WITHIN THIS GROUP",
       "label": "dulce"
     },
@@ -227,19 +171,13 @@
         "WB-S017-OBJ02-ELEFANTE",
         "WB-S022-OBJ08-ELEFANTE"
       ],
-      "evidence": [
-        "comparisons/WB-repeat-proposal-14.jpg"
-      ],
+      "evidence": ["comparisons/WB-repeat-proposal-14.jpg"],
       "identity_decision": "SAME ORIGINAL DRAWING WITHIN THIS GROUP",
       "label": "elefante"
     },
     {
       "group_id": "DRAW-WB-15-1",
-      "placements": [
-        "WB-S016-OBJ06-ERIZO",
-        "WB-S017-OBJ04-ERIZO",
-        "FC-006-06"
-      ],
+      "placements": ["WB-S016-OBJ06-ERIZO", "WB-S017-OBJ04-ERIZO", "FC-006-06"],
       "evidence": [
         "comparisons/WB-repeat-proposal-15.jpg",
         "comparisons/FC-025.jpg",
@@ -266,53 +204,33 @@
       ],
       "identity_decision": "SAME ORIGINAL DRAWING WITHIN THIS GROUP",
       "label": "escalera",
-      "decisions": [
-        "Same A-frame, rear struts, diagonal braces and rung arrangement."
-      ]
+      "decisions": ["Same A-frame, rear struts, diagonal braces and rung arrangement."]
     },
     {
       "group_id": "DRAW-WB-17-1",
-      "placements": [
-        "WB-S009-OBJ05-ESCOBA",
-        "WB-S016-OBJ09-ESCOBA"
-      ],
-      "evidence": [
-        "comparisons/WB-repeat-proposal-17.jpg"
-      ],
+      "placements": ["WB-S009-OBJ05-ESCOBA", "WB-S016-OBJ09-ESCOBA"],
+      "evidence": ["comparisons/WB-repeat-proposal-17.jpg"],
       "identity_decision": "SAME ORIGINAL DRAWING WITHIN THIS GROUP",
       "label": "escoba"
     },
     {
       "group_id": "DRAW-WB-18-1",
-      "placements": [
-        "WB-S007-OBJ11-ESCUELA",
-        "WB-S016-OBJ13-ESCUELA"
-      ],
-      "evidence": [
-        "comparisons/WB-repeat-proposal-18.jpg"
-      ],
+      "placements": ["WB-S007-OBJ11-ESCUELA", "WB-S016-OBJ13-ESCUELA"],
+      "evidence": ["comparisons/WB-repeat-proposal-18.jpg"],
       "identity_decision": "SAME ORIGINAL DRAWING WITHIN THIS GROUP",
       "label": "escuela"
     },
     {
       "group_id": "DRAW-WB-18-2",
-      "placements": [
-        "WB-S008-OBJ04-ESCUELA"
-      ],
-      "evidence": [
-        "comparisons/WB-repeat-proposal-18.jpg"
-      ],
+      "placements": ["WB-S008-OBJ04-ESCUELA"],
+      "evidence": ["comparisons/WB-repeat-proposal-18.jpg"],
       "identity_decision": "SAME ORIGINAL DRAWING WITHIN THIS GROUP",
       "label": "escuela"
     },
     {
       "group_id": "DRAW-WB-19-1",
-      "placements": [
-        "WB-S016-OBJ15-ESPEJO"
-      ],
-      "evidence": [
-        "comparisons/WB-repeat-proposal-19.jpg"
-      ],
+      "placements": ["WB-S016-OBJ15-ESPEJO"],
+      "evidence": ["comparisons/WB-repeat-proposal-19.jpg"],
       "identity_decision": "SAME ORIGINAL DRAWING WITHIN THIS GROUP",
       "label": "espejo"
     },
@@ -334,29 +252,19 @@
       ],
       "identity_decision": "SAME ORIGINAL DRAWING WITHIN THIS GROUP",
       "label": "estrella",
-      "decisions": [
-        "Same five-point asymmetric outline and surrounding dot pattern."
-      ]
+      "decisions": ["Same five-point asymmetric outline and surrounding dot pattern."]
     },
     {
       "group_id": "DRAW-WB-21-1",
-      "placements": [
-        "WB-S008-OBJ14-GLOBO"
-      ],
-      "evidence": [
-        "comparisons/WB-repeat-proposal-21.jpg"
-      ],
+      "placements": ["WB-S008-OBJ14-GLOBO"],
+      "evidence": ["comparisons/WB-repeat-proposal-21.jpg"],
       "identity_decision": "SAME ORIGINAL DRAWING WITHIN THIS GROUP",
       "label": "globo"
     },
     {
       "group_id": "DRAW-WB-22-1",
-      "placements": [
-        "WB-S009-OBJ01-IGLESIA"
-      ],
-      "evidence": [
-        "comparisons/WB-repeat-proposal-22.jpg"
-      ],
+      "placements": ["WB-S009-OBJ01-IGLESIA"],
+      "evidence": ["comparisons/WB-repeat-proposal-22.jpg"],
       "identity_decision": "SAME ORIGINAL DRAWING WITHIN THIS GROUP",
       "label": "iglesia"
     },
@@ -384,25 +292,15 @@
     },
     {
       "group_id": "DRAW-WB-24-1",
-      "placements": [
-        "WB-S019-OBJ14-IGUAL",
-        "WB-S020-OBJ04-IGUAL"
-      ],
-      "evidence": [
-        "comparisons/WB-repeat-proposal-24.jpg"
-      ],
+      "placements": ["WB-S019-OBJ14-IGUAL", "WB-S020-OBJ04-IGUAL"],
+      "evidence": ["comparisons/WB-repeat-proposal-24.jpg"],
       "identity_decision": "SAME ORIGINAL DRAWING WITHIN THIS GROUP",
       "label": "igual"
     },
     {
       "group_id": "DRAW-WB-25-1",
-      "placements": [
-        "WB-S019-OBJ03-IGUANA",
-        "WB-S020-OBJ07-IGUANA"
-      ],
-      "evidence": [
-        "comparisons/WB-repeat-proposal-25.jpg"
-      ],
+      "placements": ["WB-S019-OBJ03-IGUANA", "WB-S020-OBJ07-IGUANA"],
+      "evidence": ["comparisons/WB-repeat-proposal-25.jpg"],
       "identity_decision": "SAME ORIGINAL DRAWING WITHIN THIS GROUP",
       "label": "iguana"
     },
@@ -448,11 +346,7 @@
     },
     {
       "group_id": "DRAW-WB-29-1",
-      "placements": [
-        "WB-S019-OBJ15-INSECTO",
-        "WB-S022-OBJ15-INSECTO",
-        "FC-007-05"
-      ],
+      "placements": ["WB-S019-OBJ15-INSECTO", "WB-S022-OBJ15-INSECTO", "FC-007-05"],
       "evidence": [
         "comparisons/WB-repeat-proposal-29.jpg",
         "comparisons/FC-031.jpg",
@@ -460,28 +354,18 @@
       ],
       "identity_decision": "SAME ORIGINAL DRAWING WITHIN THIS GROUP",
       "label": "insecto",
-      "decisions": [
-        "Same wing veins, head profile, antennae, six legs and grass marks."
-      ]
+      "decisions": ["Same wing veins, head profile, antennae, six legs and grass marks."]
     },
     {
       "group_id": "DRAW-WB-30-1",
-      "placements": [
-        "WB-S019-OBJ08-INVIERNO"
-      ],
-      "evidence": [
-        "comparisons/WB-repeat-proposal-30.jpg"
-      ],
+      "placements": ["WB-S019-OBJ08-INVIERNO"],
+      "evidence": ["comparisons/WB-repeat-proposal-30.jpg"],
       "identity_decision": "SAME ORIGINAL DRAWING WITHIN THIS GROUP",
       "label": "invierno"
     },
     {
       "group_id": "DRAW-WB-31-1",
-      "placements": [
-        "WB-S007-OBJ05-ISLA",
-        "WB-S019-OBJ12-ISLA",
-        "FC-007-06"
-      ],
+      "placements": ["WB-S007-OBJ05-ISLA", "WB-S019-OBJ12-ISLA", "FC-007-06"],
       "evidence": [
         "comparisons/WB-repeat-proposal-31.jpg",
         "comparisons/FC-031.jpg",
@@ -495,12 +379,8 @@
     },
     {
       "group_id": "DRAW-WB-32-1",
-      "placements": [
-        "WB-S008-OBJ03-LIBRO"
-      ],
-      "evidence": [
-        "comparisons/WB-repeat-proposal-32.jpg"
-      ],
+      "placements": ["WB-S008-OBJ03-LIBRO"],
+      "evidence": ["comparisons/WB-repeat-proposal-32.jpg"],
       "identity_decision": "SAME ORIGINAL DRAWING WITHIN THIS GROUP",
       "label": "libro"
     },
@@ -513,30 +393,20 @@
         "WB-S016-OBJ03-MAIZ",
         "WB-S017-OBJ05-MAIZ"
       ],
-      "evidence": [
-        "comparisons/WB-repeat-proposal-33.jpg"
-      ],
+      "evidence": ["comparisons/WB-repeat-proposal-33.jpg"],
       "identity_decision": "SAME ORIGINAL DRAWING WITHIN THIS GROUP",
       "label": "maiz"
     },
     {
       "group_id": "DRAW-WB-34-1",
-      "placements": [
-        "WB-S008-OBJ02-MANZANA"
-      ],
-      "evidence": [
-        "comparisons/WB-repeat-proposal-34.jpg"
-      ],
+      "placements": ["WB-S008-OBJ02-MANZANA"],
+      "evidence": ["comparisons/WB-repeat-proposal-34.jpg"],
       "identity_decision": "SAME ORIGINAL DRAWING WITHIN THIS GROUP",
       "label": "manzana"
     },
     {
       "group_id": "DRAW-WB-35-1",
-      "placements": [
-        "WB-S009-OBJ02-OCHO",
-        "WB-S010-OBJ11-OCHO",
-        "FC-004-07"
-      ],
+      "placements": ["WB-S009-OBJ02-OCHO", "WB-S010-OBJ11-OCHO", "FC-004-07"],
       "evidence": [
         "comparisons/WB-repeat-proposal-35.jpg",
         "comparisons/FC-013.jpg",
@@ -544,44 +414,26 @@
       ],
       "identity_decision": "SAME ORIGINAL DRAWING WITHIN THIS GROUP",
       "label": "ocho",
-      "decisions": [
-        "Same numeral outline and two circular counters."
-      ]
+      "decisions": ["Same numeral outline and two circular counters."]
     },
     {
       "group_id": "DRAW-WB-36-1",
-      "placements": [
-        "WB-S007-OBJ17-OJOS"
-      ],
-      "evidence": [
-        "comparisons/WB-repeat-proposal-36.jpg"
-      ],
+      "placements": ["WB-S007-OBJ17-OJOS"],
+      "evidence": ["comparisons/WB-repeat-proposal-36.jpg"],
       "identity_decision": "SAME ORIGINAL DRAWING WITHIN THIS GROUP",
       "label": "ojos"
     },
     {
       "group_id": "DRAW-WB-36-2",
-      "placements": [
-        "WB-S010-OBJ16-OJOS",
-        "WB-S011-OBJ03-OJOS",
-        "WB-S013-OBJ13-OJOS"
-      ],
-      "evidence": [
-        "comparisons/WB-repeat-proposal-36.jpg"
-      ],
+      "placements": ["WB-S010-OBJ16-OJOS", "WB-S011-OBJ03-OJOS", "WB-S013-OBJ13-OJOS"],
+      "evidence": ["comparisons/WB-repeat-proposal-36.jpg"],
       "identity_decision": "SAME ORIGINAL DRAWING WITHIN THIS GROUP",
       "label": "ojos"
     },
     {
       "group_id": "DRAW-WB-37-1",
-      "placements": [
-        "WB-S010-OBJ01-OLA",
-        "WB-S011-OBJ06-OLA",
-        "WB-S019-OBJ09-OLA"
-      ],
-      "evidence": [
-        "comparisons/WB-repeat-proposal-37.jpg"
-      ],
+      "placements": ["WB-S010-OBJ01-OLA", "WB-S011-OBJ06-OLA", "WB-S019-OBJ09-OLA"],
+      "evidence": ["comparisons/WB-repeat-proposal-37.jpg"],
       "identity_decision": "SAME ORIGINAL DRAWING WITHIN THIS GROUP",
       "label": "ola"
     },
@@ -630,12 +482,8 @@
     },
     {
       "group_id": "DRAW-WB-40-1",
-      "placements": [
-        "WB-S013-OBJ02-ORUGA"
-      ],
-      "evidence": [
-        "comparisons/WB-repeat-proposal-40.jpg"
-      ],
+      "placements": ["WB-S013-OBJ02-ORUGA"],
+      "evidence": ["comparisons/WB-repeat-proposal-40.jpg"],
       "identity_decision": "SAME ORIGINAL DRAWING WITHIN THIS GROUP",
       "label": "oruga"
     },
@@ -663,9 +511,7 @@
       ],
       "identity_decision": "SAME ORIGINAL DRAWING WITHIN THIS GROUP",
       "label": "oso",
-      "decisions": [
-        "Same seated bear, mug, bee beside ear, belly patch and foot pads."
-      ]
+      "decisions": ["Same seated bear, mug, bee beside ear, belly patch and foot pads."]
     },
     {
       "group_id": "DRAW-WB-42-1",
@@ -690,34 +536,22 @@
     },
     {
       "group_id": "DRAW-WB-43-1",
-      "placements": [
-        "WB-S008-OBJ10-PAJARO"
-      ],
-      "evidence": [
-        "comparisons/WB-repeat-proposal-43.jpg"
-      ],
+      "placements": ["WB-S008-OBJ10-PAJARO"],
+      "evidence": ["comparisons/WB-repeat-proposal-43.jpg"],
       "identity_decision": "SAME ORIGINAL DRAWING WITHIN THIS GROUP",
       "label": "pajaro"
     },
     {
       "group_id": "DRAW-WB-44-1",
-      "placements": [
-        "WB-S008-OBJ09-PERA"
-      ],
-      "evidence": [
-        "comparisons/WB-repeat-proposal-44.jpg"
-      ],
+      "placements": ["WB-S008-OBJ09-PERA"],
+      "evidence": ["comparisons/WB-repeat-proposal-44.jpg"],
       "identity_decision": "SAME ORIGINAL DRAWING WITHIN THIS GROUP",
       "label": "pera"
     },
     {
       "group_id": "DRAW-WB-46-1",
-      "placements": [
-        "WB-S008-OBJ07-TAZA"
-      ],
-      "evidence": [
-        "comparisons/WB-repeat-proposal-46.jpg"
-      ],
+      "placements": ["WB-S008-OBJ07-TAZA"],
+      "evidence": ["comparisons/WB-repeat-proposal-46.jpg"],
       "identity_decision": "SAME ORIGINAL DRAWING WITHIN THIS GROUP",
       "label": "taza"
     },
@@ -731,9 +565,7 @@
         "WB-S022-OBJ04-UNA",
         "WB-S023-OBJ06-UNA"
       ],
-      "evidence": [
-        "comparisons/WB-repeat-proposal-47.jpg"
-      ],
+      "evidence": ["comparisons/WB-repeat-proposal-47.jpg"],
       "identity_decision": "SAME ORIGINAL DRAWING WITHIN THIS GROUP",
       "label": "una"
     },
@@ -800,17 +632,11 @@
       ],
       "identity_decision": "SAME ORIGINAL DRAWING WITHIN THIS GROUP",
       "label": "uno",
-      "decisions": [
-        "Same three-dimensional numeral inside irregular double starburst."
-      ]
+      "decisions": ["Same three-dimensional numeral inside irregular double starburst."]
     },
     {
       "group_id": "DRAW-WB-51-1",
-      "placements": [
-        "WB-S016-OBJ12-URRACA",
-        "WB-S022-OBJ12-URRACA",
-        "FC-008-04"
-      ],
+      "placements": ["WB-S016-OBJ12-URRACA", "WB-S022-OBJ12-URRACA", "FC-008-04"],
       "evidence": [
         "comparisons/WB-repeat-proposal-51.jpg",
         "comparisons/FC-037.jpg",
@@ -818,62 +644,39 @@
       ],
       "identity_decision": "SAME ORIGINAL DRAWING WITHIN THIS GROUP",
       "label": "urraca",
-      "decisions": [
-        "Same open beak, crest, striped chest, folded wing and toes."
-      ]
+      "decisions": ["Same open beak, crest, striped chest, folded wing and toes."]
     },
     {
       "group_id": "DRAW-WB-52-1",
-      "placements": [
-        "WB-S010-OBJ10-UVA",
-        "WB-S022-OBJ05-UVA",
-        "WB-S023-OBJ04-UVA"
-      ],
-      "evidence": [
-        "comparisons/WB-repeat-proposal-52.jpg"
-      ],
+      "placements": ["WB-S010-OBJ10-UVA", "WB-S022-OBJ05-UVA", "WB-S023-OBJ04-UVA"],
+      "evidence": ["comparisons/WB-repeat-proposal-52.jpg"],
       "identity_decision": "SAME ORIGINAL DRAWING WITHIN THIS GROUP",
       "label": "uva"
     },
     {
       "group_id": "DRAW-FC-003-01",
-      "placements": [
-        "FC-003-01"
-      ],
-      "evidence": [
-        "comparisons/FC-001.jpg"
-      ],
+      "placements": ["FC-003-01"],
+      "evidence": ["comparisons/FC-001.jpg"],
       "identity_decision": "DISTINCT SOURCE DRAWING UNIT",
       "label": "Ilustración de la página 3"
     },
     {
       "group_id": "DRAW-FC-003-02",
-      "placements": [
-        "FC-003-02"
-      ],
-      "evidence": [
-        "comparisons/FC-001.jpg"
-      ],
+      "placements": ["FC-003-02"],
+      "evidence": ["comparisons/FC-001.jpg"],
       "identity_decision": "DISTINCT SOURCE DRAWING UNIT",
       "label": "avión"
     },
     {
       "group_id": "DRAW-FC-003-03",
-      "placements": [
-        "FC-003-03"
-      ],
-      "evidence": [
-        "comparisons/FC-001.jpg"
-      ],
+      "placements": ["FC-003-03"],
+      "evidence": ["comparisons/FC-001.jpg"],
       "identity_decision": "DISTINCT SOURCE DRAWING UNIT",
       "label": "escoba"
     },
     {
       "group_id": "DRAW-FC-003-04",
-      "placements": [
-        "FC-003-04",
-        "FC-007-02"
-      ],
+      "placements": ["FC-003-04", "FC-007-02"],
       "evidence": [
         "comparisons/FC-001.jpg",
         "comparisons/FC-025.jpg",
@@ -888,835 +691,532 @@
     },
     {
       "group_id": "DRAW-FC-003-06",
-      "placements": [
-        "FC-003-06"
-      ],
-      "evidence": [
-        "comparisons/FC-001.jpg"
-      ],
+      "placements": ["FC-003-06"],
+      "evidence": ["comparisons/FC-001.jpg"],
       "identity_decision": "DISTINCT SOURCE DRAWING UNIT",
       "label": "uña"
     },
     {
       "group_id": "DRAW-FC-004-01",
-      "placements": [
-        "FC-004-01"
-      ],
-      "evidence": [
-        "comparisons/FC-007.jpg"
-      ],
+      "placements": ["FC-004-01"],
+      "evidence": ["comparisons/FC-007.jpg"],
       "identity_decision": "DISTINCT SOURCE DRAWING UNIT",
       "label": "Ilustración de la página 4"
     },
     {
       "group_id": "DRAW-FC-004-03",
-      "placements": [
-        "FC-004-03"
-      ],
-      "evidence": [
-        "comparisons/FC-007.jpg"
-      ],
+      "placements": ["FC-004-03"],
+      "evidence": ["comparisons/FC-007.jpg"],
       "identity_decision": "DISTINCT SOURCE DRAWING UNIT",
       "label": "Oto"
     },
     {
       "group_id": "DRAW-FC-005-01",
-      "placements": [
-        "FC-005-01"
-      ],
-      "evidence": [
-        "comparisons/FC-013.jpg"
-      ],
+      "placements": ["FC-005-01"],
+      "evidence": ["comparisons/FC-013.jpg"],
       "identity_decision": "DISTINCT SOURCE DRAWING UNIT",
       "label": "Ilustración de la página 5"
     },
     {
       "group_id": "DRAW-FC-005-03",
-      "placements": [
-        "FC-005-03"
-      ],
-      "evidence": [
-        "comparisons/FC-013.jpg"
-      ],
+      "placements": ["FC-005-03"],
+      "evidence": ["comparisons/FC-013.jpg"],
       "identity_decision": "DISTINCT SOURCE DRAWING UNIT",
       "label": "anillo"
     },
     {
       "group_id": "DRAW-FC-005-05",
-      "placements": [
-        "FC-005-05"
-      ],
-      "evidence": [
-        "comparisons/FC-013.jpg"
-      ],
+      "placements": ["FC-005-05"],
+      "evidence": ["comparisons/FC-013.jpg"],
       "identity_decision": "DISTINCT SOURCE DRAWING UNIT",
       "label": "ala"
     },
     {
       "group_id": "DRAW-FC-005-06",
-      "placements": [
-        "FC-005-06"
-      ],
-      "evidence": [
-        "comparisons/FC-019.jpg"
-      ],
+      "placements": ["FC-005-06"],
+      "evidence": ["comparisons/FC-019.jpg"],
       "identity_decision": "DISTINCT SOURCE DRAWING UNIT",
       "label": "aro"
     },
     {
       "group_id": "DRAW-FC-005-07",
-      "placements": [
-        "FC-005-07"
-      ],
-      "evidence": [
-        "comparisons/FC-019.jpg"
-      ],
+      "placements": ["FC-005-07"],
+      "evidence": ["comparisons/FC-019.jpg"],
       "identity_decision": "DISTINCT SOURCE DRAWING UNIT",
       "label": "Ana"
     },
     {
       "group_id": "DRAW-FC-006-01",
-      "placements": [
-        "FC-006-01"
-      ],
-      "evidence": [
-        "comparisons/FC-019.jpg"
-      ],
+      "placements": ["FC-006-01"],
+      "evidence": ["comparisons/FC-019.jpg"],
       "identity_decision": "DISTINCT SOURCE DRAWING UNIT",
       "label": "Ilustración de la página 6"
     },
     {
       "group_id": "DRAW-FC-006-02",
-      "placements": [
-        "FC-006-02"
-      ],
-      "evidence": [
-        "comparisons/FC-019.jpg"
-      ],
+      "placements": ["FC-006-02"],
+      "evidence": ["comparisons/FC-019.jpg"],
       "identity_decision": "DISTINCT SOURCE DRAWING UNIT",
       "label": "elefante"
     },
     {
       "group_id": "DRAW-FC-006-03",
-      "placements": [
-        "FC-006-03"
-      ],
-      "evidence": [
-        "comparisons/FC-019.jpg"
-      ],
+      "placements": ["FC-006-03"],
+      "evidence": ["comparisons/FC-019.jpg"],
       "identity_decision": "DISTINCT SOURCE DRAWING UNIT",
       "label": "espejo"
     },
     {
       "group_id": "DRAW-FC-006-04",
-      "placements": [
-        "FC-006-04"
-      ],
-      "evidence": [
-        "comparisons/FC-019.jpg"
-      ],
+      "placements": ["FC-006-04"],
+      "evidence": ["comparisons/FC-019.jpg"],
       "identity_decision": "DISTINCT SOURCE DRAWING UNIT",
       "label": "Ema"
     },
     {
       "group_id": "DRAW-FC-007-01",
-      "placements": [
-        "FC-007-01"
-      ],
-      "evidence": [
-        "comparisons/FC-025.jpg"
-      ],
+      "placements": ["FC-007-01"],
+      "evidence": ["comparisons/FC-025.jpg"],
       "identity_decision": "DISTINCT SOURCE DRAWING UNIT",
       "label": "Ilustración de la página 7"
     },
     {
       "group_id": "DRAW-FC-007-07",
-      "placements": [
-        "FC-007-07"
-      ],
-      "evidence": [
-        "comparisons/FC-031.jpg"
-      ],
+      "placements": ["FC-007-07"],
+      "evidence": ["comparisons/FC-031.jpg"],
       "identity_decision": "DISTINCT SOURCE DRAWING UNIT",
       "label": "Irma"
     },
     {
       "group_id": "DRAW-FC-008-01",
-      "placements": [
-        "FC-008-01"
-      ],
-      "evidence": [
-        "comparisons/FC-031.jpg"
-      ],
+      "placements": ["FC-008-01"],
+      "evidence": ["comparisons/FC-031.jpg"],
       "identity_decision": "DISTINCT SOURCE DRAWING UNIT",
       "label": "Ilustración de la página 8"
     },
     {
       "group_id": "DRAW-FC-008-03",
-      "placements": [
-        "FC-008-03"
-      ],
-      "evidence": [
-        "comparisons/FC-037.jpg"
-      ],
+      "placements": ["FC-008-03"],
+      "evidence": ["comparisons/FC-037.jpg"],
       "identity_decision": "DISTINCT SOURCE DRAWING UNIT",
       "label": "uva"
     },
     {
       "group_id": "DRAW-FC-008-07",
-      "placements": [
-        "FC-008-07"
-      ],
-      "evidence": [
-        "comparisons/FC-037.jpg"
-      ],
+      "placements": ["FC-008-07"],
+      "evidence": ["comparisons/FC-037.jpg"],
       "identity_decision": "DISTINCT SOURCE DRAWING UNIT",
       "label": "Ulises"
     },
     {
       "group_id": "DRAW-FC-009-01",
-      "placements": [
-        "FC-009-01"
-      ],
-      "evidence": [
-        "comparisons/FC-037.jpg"
-      ],
+      "placements": ["FC-009-01"],
+      "evidence": ["comparisons/FC-037.jpg"],
       "identity_decision": "DISTINCT SOURCE DRAWING UNIT",
       "label": "Ilustración de la página 9"
     },
     {
       "group_id": "DRAW-FC-009-02",
-      "placements": [
-        "FC-009-02"
-      ],
-      "evidence": [
-        "comparisons/FC-043.jpg"
-      ],
+      "placements": ["FC-009-02"],
+      "evidence": ["comparisons/FC-043.jpg"],
       "identity_decision": "DISTINCT SOURCE DRAWING UNIT",
       "label": "mamá"
     },
     {
       "group_id": "DRAW-FC-009-03",
-      "placements": [
-        "FC-009-03"
-      ],
-      "evidence": [
-        "comparisons/FC-043.jpg"
-      ],
+      "placements": ["FC-009-03"],
+      "evidence": ["comparisons/FC-043.jpg"],
       "identity_decision": "DISTINCT SOURCE DRAWING UNIT",
       "label": "amo"
     },
     {
       "group_id": "DRAW-FC-009-04",
-      "placements": [
-        "FC-009-04"
-      ],
-      "evidence": [
-        "comparisons/FC-043.jpg"
-      ],
+      "placements": ["FC-009-04"],
+      "evidence": ["comparisons/FC-043.jpg"],
       "identity_decision": "DISTINCT SOURCE DRAWING UNIT",
       "label": "mima"
     },
     {
       "group_id": "DRAW-FC-009-05",
-      "placements": [
-        "FC-009-05"
-      ],
-      "evidence": [
-        "comparisons/FC-043.jpg"
-      ],
+      "placements": ["FC-009-05"],
+      "evidence": ["comparisons/FC-043.jpg"],
       "identity_decision": "DISTINCT SOURCE DRAWING UNIT",
       "label": "Meme"
     },
     {
       "group_id": "DRAW-FC-009-06",
-      "placements": [
-        "FC-009-06"
-      ],
-      "evidence": [
-        "comparisons/FC-043.jpg"
-      ],
+      "placements": ["FC-009-06"],
+      "evidence": ["comparisons/FC-043.jpg"],
       "identity_decision": "DISTINCT SOURCE DRAWING UNIT",
       "label": "Mumi"
     },
     {
       "group_id": "DRAW-FC-011-01",
-      "placements": [
-        "FC-011-01"
-      ],
-      "evidence": [
-        "comparisons/FC-043.jpg"
-      ],
+      "placements": ["FC-011-01"],
+      "evidence": ["comparisons/FC-043.jpg"],
       "identity_decision": "DISTINCT SOURCE DRAWING UNIT",
       "label": "Ilustración de la página 11"
     },
     {
       "group_id": "DRAW-FC-012-01",
-      "placements": [
-        "FC-012-01"
-      ],
-      "evidence": [
-        "comparisons/FC-049.jpg"
-      ],
+      "placements": ["FC-012-01"],
+      "evidence": ["comparisons/FC-049.jpg"],
       "identity_decision": "DISTINCT SOURCE DRAWING UNIT",
       "label": "Ilustración de la página 12"
     },
     {
       "group_id": "DRAW-FC-012-02",
-      "placements": [
-        "FC-012-02"
-      ],
-      "evidence": [
-        "comparisons/FC-049.jpg"
-      ],
+      "placements": ["FC-012-02"],
+      "evidence": ["comparisons/FC-049.jpg"],
       "identity_decision": "DISTINCT SOURCE DRAWING UNIT",
       "label": "papá"
     },
     {
       "group_id": "DRAW-FC-012-03",
-      "placements": [
-        "FC-012-03"
-      ],
-      "evidence": [
-        "comparisons/FC-049.jpg"
-      ],
+      "placements": ["FC-012-03"],
+      "evidence": ["comparisons/FC-049.jpg"],
       "identity_decision": "DISTINCT SOURCE DRAWING UNIT",
       "label": "pie"
     },
     {
       "group_id": "DRAW-FC-012-04",
-      "placements": [
-        "FC-012-04"
-      ],
-      "evidence": [
-        "comparisons/FC-049.jpg"
-      ],
+      "placements": ["FC-012-04"],
+      "evidence": ["comparisons/FC-049.jpg"],
       "identity_decision": "DISTINCT SOURCE DRAWING UNIT",
       "label": "Pepe"
     },
     {
       "group_id": "DRAW-FC-012-05",
-      "placements": [
-        "FC-012-05"
-      ],
-      "evidence": [
-        "comparisons/FC-049.jpg"
-      ],
+      "placements": ["FC-012-05"],
+      "evidence": ["comparisons/FC-049.jpg"],
       "identity_decision": "DISTINCT SOURCE DRAWING UNIT",
       "label": "puma"
     },
     {
       "group_id": "DRAW-FC-012-06",
-      "placements": [
-        "FC-012-06"
-      ],
-      "evidence": [
-        "comparisons/FC-049.jpg"
-      ],
+      "placements": ["FC-012-06"],
+      "evidence": ["comparisons/FC-049.jpg"],
       "identity_decision": "DISTINCT SOURCE DRAWING UNIT",
       "label": "pomo"
     },
     {
       "group_id": "DRAW-FC-014-01",
-      "placements": [
-        "FC-014-01"
-      ],
-      "evidence": [
-        "comparisons/FC-055.jpg"
-      ],
+      "placements": ["FC-014-01"],
+      "evidence": ["comparisons/FC-055.jpg"],
       "identity_decision": "DISTINCT SOURCE DRAWING UNIT",
       "label": "Ilustración de la página 14"
     },
     {
       "group_id": "DRAW-FC-015-01",
-      "placements": [
-        "FC-015-01"
-      ],
-      "evidence": [
-        "comparisons/FC-055.jpg"
-      ],
+      "placements": ["FC-015-01"],
+      "evidence": ["comparisons/FC-055.jpg"],
       "identity_decision": "DISTINCT SOURCE DRAWING UNIT",
       "label": "Ilustración de la página 15"
     },
     {
       "group_id": "DRAW-FC-015-02",
-      "placements": [
-        "FC-015-02"
-      ],
-      "evidence": [
-        "comparisons/FC-055.jpg"
-      ],
+      "placements": ["FC-015-02"],
+      "evidence": ["comparisons/FC-055.jpg"],
       "identity_decision": "DISTINCT SOURCE DRAWING UNIT",
       "label": "Sesi"
     },
     {
       "group_id": "DRAW-FC-015-03",
-      "placements": [
-        "FC-015-03"
-      ],
-      "evidence": [
-        "comparisons/FC-055.jpg"
-      ],
+      "placements": ["FC-015-03"],
+      "evidence": ["comparisons/FC-055.jpg"],
       "identity_decision": "DISTINCT SOURCE DRAWING UNIT",
       "label": "sopa"
     },
     {
       "group_id": "DRAW-FC-015-04",
-      "placements": [
-        "FC-015-04"
-      ],
-      "evidence": [
-        "comparisons/FC-055.jpg"
-      ],
+      "placements": ["FC-015-04"],
+      "evidence": ["comparisons/FC-055.jpg"],
       "identity_decision": "DISTINCT SOURCE DRAWING UNIT",
       "label": "sapo"
     },
     {
       "group_id": "DRAW-FC-015-05",
-      "placements": [
-        "FC-015-05"
-      ],
-      "evidence": [
-        "comparisons/FC-055.jpg"
-      ],
+      "placements": ["FC-015-05"],
+      "evidence": ["comparisons/FC-055.jpg"],
       "identity_decision": "DISTINCT SOURCE DRAWING UNIT",
       "label": "pisa"
     },
     {
       "group_id": "DRAW-FC-015-06",
-      "placements": [
-        "FC-015-06"
-      ],
-      "evidence": [
-        "comparisons/FC-061.jpg"
-      ],
+      "placements": ["FC-015-06"],
+      "evidence": ["comparisons/FC-061.jpg"],
       "identity_decision": "DISTINCT SOURCE DRAWING UNIT",
       "label": "Susi"
     },
     {
       "group_id": "DRAW-FC-017-01",
-      "placements": [
-        "FC-017-01"
-      ],
-      "evidence": [
-        "comparisons/FC-061.jpg"
-      ],
+      "placements": ["FC-017-01"],
+      "evidence": ["comparisons/FC-061.jpg"],
       "identity_decision": "DISTINCT SOURCE DRAWING UNIT",
       "label": "Ilustración de la página 17"
     },
     {
       "group_id": "DRAW-FC-018-01",
-      "placements": [
-        "FC-018-01"
-      ],
-      "evidence": [
-        "comparisons/FC-061.jpg"
-      ],
+      "placements": ["FC-018-01"],
+      "evidence": ["comparisons/FC-061.jpg"],
       "identity_decision": "DISTINCT SOURCE DRAWING UNIT",
       "label": "Ilustración de la página 18"
     },
     {
       "group_id": "DRAW-FC-018-02",
-      "placements": [
-        "FC-018-02"
-      ],
-      "evidence": [
-        "comparisons/FC-061.jpg"
-      ],
+      "placements": ["FC-018-02"],
+      "evidence": ["comparisons/FC-061.jpg"],
       "identity_decision": "DISTINCT SOURCE DRAWING UNIT",
       "label": "tomate"
     },
     {
       "group_id": "DRAW-FC-018-03",
-      "placements": [
-        "FC-018-03"
-      ],
-      "evidence": [
-        "comparisons/FC-061.jpg"
-      ],
+      "placements": ["FC-018-03"],
+      "evidence": ["comparisons/FC-061.jpg"],
       "identity_decision": "DISTINCT SOURCE DRAWING UNIT",
       "label": "tapa"
     },
     {
       "group_id": "DRAW-FC-018-04",
-      "placements": [
-        "FC-018-04"
-      ],
-      "evidence": [
-        "comparisons/FC-061.jpg"
-      ],
+      "placements": ["FC-018-04"],
+      "evidence": ["comparisons/FC-061.jpg"],
       "identity_decision": "DISTINCT SOURCE DRAWING UNIT",
       "label": "topo"
     },
     {
       "group_id": "DRAW-FC-018-05",
-      "placements": [
-        "FC-018-05"
-      ],
-      "evidence": [
-        "comparisons/FC-067.jpg"
-      ],
+      "placements": ["FC-018-05"],
+      "evidence": ["comparisons/FC-067.jpg"],
       "identity_decision": "DISTINCT SOURCE DRAWING UNIT",
       "label": "tipi"
     },
     {
       "group_id": "DRAW-FC-018-06",
-      "placements": [
-        "FC-018-06"
-      ],
-      "evidence": [
-        "comparisons/FC-067.jpg"
-      ],
+      "placements": ["FC-018-06"],
+      "evidence": ["comparisons/FC-067.jpg"],
       "identity_decision": "DISTINCT SOURCE DRAWING UNIT",
       "label": "Tuto"
     },
     {
       "group_id": "DRAW-FC-020-01",
-      "placements": [
-        "FC-020-01"
-      ],
-      "evidence": [
-        "comparisons/FC-067.jpg"
-      ],
+      "placements": ["FC-020-01"],
+      "evidence": ["comparisons/FC-067.jpg"],
       "identity_decision": "DISTINCT SOURCE DRAWING UNIT",
       "label": "Ilustración de la página 20"
     },
     {
       "group_id": "DRAW-FC-021-01",
-      "placements": [
-        "FC-021-01"
-      ],
-      "evidence": [
-        "comparisons/FC-067.jpg"
-      ],
+      "placements": ["FC-021-01"],
+      "evidence": ["comparisons/FC-067.jpg"],
       "identity_decision": "DISTINCT SOURCE DRAWING UNIT",
       "label": "Ilustración de la página 21"
     },
     {
       "group_id": "DRAW-FC-021-02",
-      "placements": [
-        "FC-021-02"
-      ],
-      "evidence": [
-        "comparisons/FC-067.jpg"
-      ],
+      "placements": ["FC-021-02"],
+      "evidence": ["comparisons/FC-067.jpg"],
       "identity_decision": "DISTINCT SOURCE DRAWING UNIT",
       "label": "Didi"
     },
     {
       "group_id": "DRAW-FC-021-03",
-      "placements": [
-        "FC-021-03"
-      ],
-      "evidence": [
-        "comparisons/FC-067.jpg"
-      ],
+      "placements": ["FC-021-03"],
+      "evidence": ["comparisons/FC-067.jpg"],
       "identity_decision": "DISTINCT SOURCE DRAWING UNIT",
       "label": "dados"
     },
     {
       "group_id": "DRAW-FC-021-04",
-      "placements": [
-        "FC-021-04"
-      ],
-      "evidence": [
-        "comparisons/FC-073.jpg"
-      ],
+      "placements": ["FC-021-04"],
+      "evidence": ["comparisons/FC-073.jpg"],
       "identity_decision": "DISTINCT SOURCE DRAWING UNIT",
       "label": "dedo"
     },
     {
       "group_id": "DRAW-FC-021-05",
-      "placements": [
-        "FC-021-05"
-      ],
-      "evidence": [
-        "comparisons/FC-073.jpg"
-      ],
+      "placements": ["FC-021-05"],
+      "evidence": ["comparisons/FC-073.jpg"],
       "identity_decision": "DISTINCT SOURCE DRAWING UNIT",
       "label": "doce"
     },
     {
       "group_id": "DRAW-FC-021-06",
-      "placements": [
-        "FC-021-06"
-      ],
-      "evidence": [
-        "comparisons/FC-073.jpg"
-      ],
+      "placements": ["FC-021-06"],
+      "evidence": ["comparisons/FC-073.jpg"],
       "identity_decision": "DISTINCT SOURCE DRAWING UNIT",
       "label": "Dunia"
     },
     {
       "group_id": "DRAW-FC-023-01",
-      "placements": [
-        "FC-023-01"
-      ],
-      "evidence": [
-        "comparisons/FC-073.jpg"
-      ],
+      "placements": ["FC-023-01"],
+      "evidence": ["comparisons/FC-073.jpg"],
       "identity_decision": "DISTINCT SOURCE DRAWING UNIT",
       "label": "Ilustración de la página 23"
     },
     {
       "group_id": "DRAW-FC-024-01",
-      "placements": [
-        "FC-024-01"
-      ],
-      "evidence": [
-        "comparisons/FC-073.jpg"
-      ],
+      "placements": ["FC-024-01"],
+      "evidence": ["comparisons/FC-073.jpg"],
       "identity_decision": "DISTINCT SOURCE DRAWING UNIT",
       "label": "Ilustración de la página 24"
     },
     {
       "group_id": "DRAW-FC-024-02",
-      "placements": [
-        "FC-024-02"
-      ],
-      "evidence": [
-        "comparisons/FC-073.jpg"
-      ],
+      "placements": ["FC-024-02"],
+      "evidence": ["comparisons/FC-073.jpg"],
       "identity_decision": "DISTINCT SOURCE DRAWING UNIT",
       "label": "maleta"
     },
     {
       "group_id": "DRAW-FC-024-03",
-      "placements": [
-        "FC-024-03"
-      ],
-      "evidence": [
-        "comparisons/FC-079.jpg"
-      ],
+      "placements": ["FC-024-03"],
+      "evidence": ["comparisons/FC-079.jpg"],
       "identity_decision": "DISTINCT SOURCE DRAWING UNIT",
       "label": "lata"
     },
     {
       "group_id": "DRAW-FC-024-04",
-      "placements": [
-        "FC-024-04"
-      ],
-      "evidence": [
-        "comparisons/FC-079.jpg"
-      ],
+      "placements": ["FC-024-04"],
+      "evidence": ["comparisons/FC-079.jpg"],
       "identity_decision": "DISTINCT SOURCE DRAWING UNIT",
       "label": "Luli"
     },
     {
       "group_id": "DRAW-FC-024-05",
-      "placements": [
-        "FC-024-05"
-      ],
-      "evidence": [
-        "comparisons/FC-079.jpg"
-      ],
+      "placements": ["FC-024-05"],
+      "evidence": ["comparisons/FC-079.jpg"],
       "identity_decision": "DISTINCT SOURCE DRAWING UNIT",
       "label": "loma"
     },
     {
       "group_id": "DRAW-FC-024-06",
-      "placements": [
-        "FC-024-06"
-      ],
-      "evidence": [
-        "comparisons/FC-079.jpg"
-      ],
+      "placements": ["FC-024-06"],
+      "evidence": ["comparisons/FC-079.jpg"],
       "identity_decision": "DISTINCT SOURCE DRAWING UNIT",
       "label": "Lala"
     },
     {
       "group_id": "DRAW-FC-026-01",
-      "placements": [
-        "FC-026-01"
-      ],
-      "evidence": [
-        "comparisons/FC-079.jpg"
-      ],
+      "placements": ["FC-026-01"],
+      "evidence": ["comparisons/FC-079.jpg"],
       "identity_decision": "DISTINCT SOURCE DRAWING UNIT",
       "label": "Ilustración de la página 26"
     },
     {
       "group_id": "DRAW-FC-027-01",
-      "placements": [
-        "FC-027-01"
-      ],
-      "evidence": [
-        "comparisons/FC-079.jpg"
-      ],
+      "placements": ["FC-027-01"],
+      "evidence": ["comparisons/FC-079.jpg"],
       "identity_decision": "DISTINCT SOURCE DRAWING UNIT",
       "label": "Ilustración de la página 27"
     },
     {
       "group_id": "DRAW-FC-027-02",
-      "placements": [
-        "FC-027-02"
-      ],
-      "evidence": [
-        "comparisons/FC-085.jpg"
-      ],
+      "placements": ["FC-027-02"],
+      "evidence": ["comparisons/FC-085.jpg"],
       "identity_decision": "DISTINCT SOURCE DRAWING UNIT",
       "label": "nido"
     },
     {
       "group_id": "DRAW-FC-027-03",
-      "placements": [
-        "FC-027-03"
-      ],
-      "evidence": [
-        "comparisons/FC-085.jpg"
-      ],
+      "placements": ["FC-027-03"],
+      "evidence": ["comparisons/FC-085.jpg"],
       "identity_decision": "DISTINCT SOURCE DRAWING UNIT",
       "label": "nudo"
     },
     {
       "group_id": "DRAW-FC-027-04",
-      "placements": [
-        "FC-027-04"
-      ],
-      "evidence": [
-        "comparisons/FC-085.jpg"
-      ],
+      "placements": ["FC-027-04"],
+      "evidence": ["comparisons/FC-085.jpg"],
       "identity_decision": "DISTINCT SOURCE DRAWING UNIT",
       "label": "mono"
     },
     {
       "group_id": "DRAW-FC-027-05",
-      "placements": [
-        "FC-027-05"
-      ],
-      "evidence": [
-        "comparisons/FC-085.jpg"
-      ],
+      "placements": ["FC-027-05"],
+      "evidence": ["comparisons/FC-085.jpg"],
       "identity_decision": "DISTINCT SOURCE DRAWING UNIT",
       "label": "Napi"
     },
     {
       "group_id": "DRAW-FC-027-06",
-      "placements": [
-        "FC-027-06"
-      ],
-      "evidence": [
-        "comparisons/FC-085.jpg"
-      ],
+      "placements": ["FC-027-06"],
+      "evidence": ["comparisons/FC-085.jpg"],
       "identity_decision": "DISTINCT SOURCE DRAWING UNIT",
       "label": "tenedor"
     },
     {
       "group_id": "DRAW-FC-029-01",
-      "placements": [
-        "FC-029-01"
-      ],
-      "evidence": [
-        "comparisons/FC-085.jpg"
-      ],
+      "placements": ["FC-029-01"],
+      "evidence": ["comparisons/FC-085.jpg"],
       "identity_decision": "DISTINCT SOURCE DRAWING UNIT",
       "label": "Ilustración de la página 29"
     },
     {
       "group_id": "DRAW-FC-030-01",
-      "placements": [
-        "FC-030-01"
-      ],
-      "evidence": [
-        "comparisons/FC-091.jpg"
-      ],
+      "placements": ["FC-030-01"],
+      "evidence": ["comparisons/FC-091.jpg"],
       "identity_decision": "DISTINCT SOURCE DRAWING UNIT",
       "label": "Ilustración de la página 30"
     },
     {
       "group_id": "DRAW-FC-030-02",
-      "placements": [
-        "FC-030-02"
-      ],
-      "evidence": [
-        "comparisons/FC-091.jpg"
-      ],
+      "placements": ["FC-030-02"],
+      "evidence": ["comparisons/FC-091.jpg"],
       "identity_decision": "DISTINCT SOURCE DRAWING UNIT",
       "label": "piñata"
     },
     {
       "group_id": "DRAW-FC-030-03",
-      "placements": [
-        "FC-030-03"
-      ],
-      "evidence": [
-        "comparisons/FC-091.jpg"
-      ],
+      "placements": ["FC-030-03"],
+      "evidence": ["comparisons/FC-091.jpg"],
       "identity_decision": "DISTINCT SOURCE DRAWING UNIT",
       "label": "Ñuno"
     },
     {
       "group_id": "DRAW-FC-030-04",
-      "placements": [
-        "FC-030-04"
-      ],
-      "evidence": [
-        "comparisons/FC-091.jpg"
-      ],
+      "placements": ["FC-030-04"],
+      "evidence": ["comparisons/FC-091.jpg"],
       "identity_decision": "DISTINCT SOURCE DRAWING UNIT",
       "label": "niñito"
     },
     {
       "group_id": "DRAW-FC-030-05",
-      "placements": [
-        "FC-030-05"
-      ],
-      "evidence": [
-        "comparisons/FC-091.jpg"
-      ],
+      "placements": ["FC-030-05"],
+      "evidence": ["comparisons/FC-091.jpg"],
       "identity_decision": "DISTINCT SOURCE DRAWING UNIT",
       "label": "moño"
     },
     {
       "group_id": "DRAW-FC-030-06",
-      "placements": [
-        "FC-030-06"
-      ],
-      "evidence": [
-        "comparisons/FC-091.jpg"
-      ],
+      "placements": ["FC-030-06"],
+      "evidence": ["comparisons/FC-091.jpg"],
       "identity_decision": "DISTINCT SOURCE DRAWING UNIT",
       "label": "Meñe"
     },
     {
       "group_id": "DRAW-FC-032-01",
-      "placements": [
-        "FC-032-01"
-      ],
-      "evidence": [
-        "comparisons/FC-097.jpg"
-      ],
+      "placements": ["FC-032-01"],
+      "evidence": ["comparisons/FC-097.jpg"],
       "identity_decision": "DISTINCT SOURCE DRAWING UNIT",
       "label": "Ilustración de la página 32"
     },
     {
       "group_id": "DRAW-FC-033-01",
-      "placements": [
-        "FC-033-01"
-      ],
-      "evidence": [
-        "comparisons/FC-097.jpg"
-      ],
+      "placements": ["FC-033-01"],
+      "evidence": ["comparisons/FC-097.jpg"],
       "identity_decision": "DISTINCT SOURCE DRAWING UNIT",
       "label": "Ilustración de la página 33"
     },
     {
       "group_id": "DRAW-FC-033-02",
-      "placements": [
-        "FC-033-02"
-      ],
-      "evidence": [
-        "comparisons/FC-097.jpg"
-      ],
+      "placements": ["FC-033-02"],
+      "evidence": ["comparisons/FC-097.jpg"],
       "identity_decision": "DISTINCT SOURCE DRAWING UNIT",
       "label": "Beba"
     },
     {
       "group_id": "DRAW-FC-033-03",
-      "placements": [
-        "FC-033-03",
-        "FC-042-02"
-      ],
+      "placements": ["FC-033-03", "FC-042-02"],
       "evidence": [
         "comparisons/FC-097.jpg",
         "comparisons/FC-115.jpg",
@@ -1731,760 +1231,484 @@
     },
     {
       "group_id": "DRAW-FC-033-04",
-      "placements": [
-        "FC-033-04"
-      ],
-      "evidence": [
-        "comparisons/FC-097.jpg"
-      ],
+      "placements": ["FC-033-04"],
+      "evidence": ["comparisons/FC-097.jpg"],
       "identity_decision": "DISTINCT SOURCE DRAWING UNIT",
       "label": "bate"
     },
     {
       "group_id": "DRAW-FC-033-05",
-      "placements": [
-        "FC-033-05"
-      ],
-      "evidence": [
-        "comparisons/FC-097.jpg"
-      ],
+      "placements": ["FC-033-05"],
+      "evidence": ["comparisons/FC-097.jpg"],
       "identity_decision": "DISTINCT SOURCE DRAWING UNIT",
       "label": "bota"
     },
     {
       "group_id": "DRAW-FC-033-06",
-      "placements": [
-        "FC-033-06"
-      ],
-      "evidence": [
-        "comparisons/FC-103.jpg"
-      ],
+      "placements": ["FC-033-06"],
+      "evidence": ["comparisons/FC-103.jpg"],
       "identity_decision": "DISTINCT SOURCE DRAWING UNIT",
       "label": "bebita"
     },
     {
       "group_id": "DRAW-FC-035-01",
-      "placements": [
-        "FC-035-01"
-      ],
-      "evidence": [
-        "comparisons/FC-103.jpg"
-      ],
+      "placements": ["FC-035-01"],
+      "evidence": ["comparisons/FC-103.jpg"],
       "identity_decision": "DISTINCT SOURCE DRAWING UNIT",
       "label": "Ilustración de la página 35"
     },
     {
       "group_id": "DRAW-FC-036-01",
-      "placements": [
-        "FC-036-01"
-      ],
-      "evidence": [
-        "comparisons/FC-103.jpg"
-      ],
+      "placements": ["FC-036-01"],
+      "evidence": ["comparisons/FC-103.jpg"],
       "identity_decision": "DISTINCT SOURCE DRAWING UNIT",
       "label": "Ilustración de la página 36"
     },
     {
       "group_id": "DRAW-FC-036-02",
-      "placements": [
-        "FC-036-02"
-      ],
-      "evidence": [
-        "comparisons/FC-103.jpg"
-      ],
+      "placements": ["FC-036-02"],
+      "evidence": ["comparisons/FC-103.jpg"],
       "identity_decision": "DISTINCT SOURCE DRAWING UNIT",
       "label": "vaso"
     },
     {
       "group_id": "DRAW-FC-036-03",
-      "placements": [
-        "FC-036-03"
-      ],
-      "evidence": [
-        "comparisons/FC-103.jpg"
-      ],
+      "placements": ["FC-036-03"],
+      "evidence": ["comparisons/FC-103.jpg"],
       "identity_decision": "DISTINCT SOURCE DRAWING UNIT",
       "label": "vela"
     },
     {
       "group_id": "DRAW-FC-036-04",
-      "placements": [
-        "FC-036-04"
-      ],
-      "evidence": [
-        "comparisons/FC-103.jpg"
-      ],
+      "placements": ["FC-036-04"],
+      "evidence": ["comparisons/FC-103.jpg"],
       "identity_decision": "DISTINCT SOURCE DRAWING UNIT",
       "label": "Vita"
     },
     {
       "group_id": "DRAW-FC-036-05",
-      "placements": [
-        "FC-036-05"
-      ],
-      "evidence": [
-        "comparisons/FC-109.jpg"
-      ],
+      "placements": ["FC-036-05"],
+      "evidence": ["comparisons/FC-109.jpg"],
       "identity_decision": "DISTINCT SOURCE DRAWING UNIT",
       "label": "pavo"
     },
     {
       "group_id": "DRAW-FC-036-06",
-      "placements": [
-        "FC-036-06"
-      ],
-      "evidence": [
-        "comparisons/FC-109.jpg"
-      ],
+      "placements": ["FC-036-06"],
+      "evidence": ["comparisons/FC-109.jpg"],
       "identity_decision": "DISTINCT SOURCE DRAWING UNIT",
       "label": "Vuli"
     },
     {
       "group_id": "DRAW-FC-038-01",
-      "placements": [
-        "FC-038-01"
-      ],
-      "evidence": [
-        "comparisons/FC-109.jpg"
-      ],
+      "placements": ["FC-038-01"],
+      "evidence": ["comparisons/FC-109.jpg"],
       "identity_decision": "DISTINCT SOURCE DRAWING UNIT",
       "label": "Ilustración de la página 38"
     },
     {
       "group_id": "DRAW-FC-039-01",
-      "placements": [
-        "FC-039-01"
-      ],
-      "evidence": [
-        "comparisons/FC-109.jpg"
-      ],
+      "placements": ["FC-039-01"],
+      "evidence": ["comparisons/FC-109.jpg"],
       "identity_decision": "DISTINCT SOURCE DRAWING UNIT",
       "label": "Ilustración de la página 39"
     },
     {
       "group_id": "DRAW-FC-039-02",
-      "placements": [
-        "FC-039-02"
-      ],
-      "evidence": [
-        "comparisons/FC-109.jpg"
-      ],
+      "placements": ["FC-039-02"],
+      "evidence": ["comparisons/FC-109.jpg"],
       "identity_decision": "DISTINCT SOURCE DRAWING UNIT",
       "label": "rana"
     },
     {
       "group_id": "DRAW-FC-039-03",
-      "placements": [
-        "FC-039-03"
-      ],
-      "evidence": [
-        "comparisons/FC-109.jpg"
-      ],
+      "placements": ["FC-039-03"],
+      "evidence": ["comparisons/FC-109.jpg"],
       "identity_decision": "DISTINCT SOURCE DRAWING UNIT",
       "label": "remos"
     },
     {
       "group_id": "DRAW-FC-039-04",
-      "placements": [
-        "FC-039-04"
-      ],
-      "evidence": [
-        "comparisons/FC-115.jpg"
-      ],
+      "placements": ["FC-039-04"],
+      "evidence": ["comparisons/FC-115.jpg"],
       "identity_decision": "DISTINCT SOURCE DRAWING UNIT",
       "label": "Rita"
     },
     {
       "group_id": "DRAW-FC-039-05",
-      "placements": [
-        "FC-039-05"
-      ],
-      "evidence": [
-        "comparisons/FC-115.jpg"
-      ],
+      "placements": ["FC-039-05"],
+      "evidence": ["comparisons/FC-115.jpg"],
       "identity_decision": "DISTINCT SOURCE DRAWING UNIT",
       "label": "rosa"
     },
     {
       "group_id": "DRAW-FC-039-06",
-      "placements": [
-        "FC-039-06"
-      ],
-      "evidence": [
-        "comparisons/FC-115.jpg"
-      ],
+      "placements": ["FC-039-06"],
+      "evidence": ["comparisons/FC-115.jpg"],
       "identity_decision": "DISTINCT SOURCE DRAWING UNIT",
       "label": "rueda"
     },
     {
       "group_id": "DRAW-FC-041-01",
-      "placements": [
-        "FC-041-01"
-      ],
-      "evidence": [
-        "comparisons/FC-115.jpg"
-      ],
+      "placements": ["FC-041-01"],
+      "evidence": ["comparisons/FC-115.jpg"],
       "identity_decision": "DISTINCT SOURCE DRAWING UNIT",
       "label": "Ilustración de la página 41"
     },
     {
       "group_id": "DRAW-FC-042-01",
-      "placements": [
-        "FC-042-01"
-      ],
-      "evidence": [
-        "comparisons/FC-115.jpg"
-      ],
+      "placements": ["FC-042-01"],
+      "evidence": ["comparisons/FC-115.jpg"],
       "identity_decision": "DISTINCT SOURCE DRAWING UNIT",
       "label": "Ilustración de la página 42"
     },
     {
       "group_id": "DRAW-FC-042-03",
-      "placements": [
-        "FC-042-03"
-      ],
-      "evidence": [
-        "comparisons/FC-121.jpg"
-      ],
+      "placements": ["FC-042-03"],
+      "evidence": ["comparisons/FC-121.jpg"],
       "identity_decision": "DISTINCT SOURCE DRAWING UNIT",
       "label": "carrusel"
     },
     {
       "group_id": "DRAW-FC-042-04",
-      "placements": [
-        "FC-042-04"
-      ],
-      "evidence": [
-        "comparisons/FC-121.jpg"
-      ],
+      "placements": ["FC-042-04"],
+      "evidence": ["comparisons/FC-121.jpg"],
       "identity_decision": "DISTINCT SOURCE DRAWING UNIT",
       "label": "torre"
     },
     {
       "group_id": "DRAW-FC-042-05",
-      "placements": [
-        "FC-042-05"
-      ],
-      "evidence": [
-        "comparisons/FC-121.jpg"
-      ],
+      "placements": ["FC-042-05"],
+      "evidence": ["comparisons/FC-121.jpg"],
       "identity_decision": "DISTINCT SOURCE DRAWING UNIT",
       "label": "barril"
     },
     {
       "group_id": "DRAW-FC-042-06",
-      "placements": [
-        "FC-042-06"
-      ],
-      "evidence": [
-        "comparisons/FC-121.jpg"
-      ],
+      "placements": ["FC-042-06"],
+      "evidence": ["comparisons/FC-121.jpg"],
       "identity_decision": "DISTINCT SOURCE DRAWING UNIT",
       "label": "Tierra"
     },
     {
       "group_id": "DRAW-FC-044-01",
-      "placements": [
-        "FC-044-01"
-      ],
-      "evidence": [
-        "comparisons/FC-121.jpg"
-      ],
+      "placements": ["FC-044-01"],
+      "evidence": ["comparisons/FC-121.jpg"],
       "identity_decision": "DISTINCT SOURCE DRAWING UNIT",
       "label": "Ilustración de la página 44"
     },
     {
       "group_id": "DRAW-FC-045-01",
-      "placements": [
-        "FC-045-01"
-      ],
-      "evidence": [
-        "comparisons/FC-121.jpg"
-      ],
+      "placements": ["FC-045-01"],
+      "evidence": ["comparisons/FC-121.jpg"],
       "identity_decision": "DISTINCT SOURCE DRAWING UNIT",
       "label": "Ilustración de la página 45"
     },
     {
       "group_id": "DRAW-FC-045-02",
-      "placements": [
-        "FC-045-02"
-      ],
-      "evidence": [
-        "comparisons/FC-127.jpg"
-      ],
+      "placements": ["FC-045-02"],
+      "evidence": ["comparisons/FC-127.jpg"],
       "identity_decision": "DISTINCT SOURCE DRAWING UNIT",
       "label": "gaveta"
     },
     {
       "group_id": "DRAW-FC-045-03",
-      "placements": [
-        "FC-045-03"
-      ],
-      "evidence": [
-        "comparisons/FC-127.jpg"
-      ],
+      "placements": ["FC-045-03"],
+      "evidence": ["comparisons/FC-127.jpg"],
       "identity_decision": "DISTINCT SOURCE DRAWING UNIT",
       "label": "gusano"
     },
     {
       "group_id": "DRAW-FC-045-04",
-      "placements": [
-        "FC-045-04"
-      ],
-      "evidence": [
-        "comparisons/FC-127.jpg"
-      ],
+      "placements": ["FC-045-04"],
+      "evidence": ["comparisons/FC-127.jpg"],
       "identity_decision": "DISTINCT SOURCE DRAWING UNIT",
       "label": "Goloso"
     },
     {
       "group_id": "DRAW-FC-045-05",
-      "placements": [
-        "FC-045-05"
-      ],
-      "evidence": [
-        "comparisons/FC-127.jpg"
-      ],
+      "placements": ["FC-045-05"],
+      "evidence": ["comparisons/FC-127.jpg"],
       "identity_decision": "DISTINCT SOURCE DRAWING UNIT",
       "label": "gorra"
     },
     {
       "group_id": "DRAW-FC-045-06",
-      "placements": [
-        "FC-045-06"
-      ],
-      "evidence": [
-        "comparisons/FC-127.jpg"
-      ],
+      "placements": ["FC-045-06"],
+      "evidence": ["comparisons/FC-127.jpg"],
       "identity_decision": "DISTINCT SOURCE DRAWING UNIT",
       "label": "mago"
     },
     {
       "group_id": "DRAW-FC-047-01",
-      "placements": [
-        "FC-047-01"
-      ],
-      "evidence": [
-        "comparisons/FC-127.jpg"
-      ],
+      "placements": ["FC-047-01"],
+      "evidence": ["comparisons/FC-127.jpg"],
       "identity_decision": "DISTINCT SOURCE DRAWING UNIT",
       "label": "Ilustración de la página 47"
     },
     {
       "group_id": "DRAW-FC-048-01",
-      "placements": [
-        "FC-048-01"
-      ],
-      "evidence": [
-        "comparisons/FC-133.jpg"
-      ],
+      "placements": ["FC-048-01"],
+      "evidence": ["comparisons/FC-133.jpg"],
       "identity_decision": "DISTINCT SOURCE DRAWING UNIT",
       "label": "Ilustración de la página 48"
     },
     {
       "group_id": "DRAW-FC-048-02",
-      "placements": [
-        "FC-048-02"
-      ],
-      "evidence": [
-        "comparisons/FC-133.jpg"
-      ],
+      "placements": ["FC-048-02"],
+      "evidence": ["comparisons/FC-133.jpg"],
       "identity_decision": "DISTINCT SOURCE DRAWING UNIT",
       "label": "foto"
     },
     {
       "group_id": "DRAW-FC-048-03",
-      "placements": [
-        "FC-048-03"
-      ],
-      "evidence": [
-        "comparisons/FC-133.jpg"
-      ],
+      "placements": ["FC-048-03"],
+      "evidence": ["comparisons/FC-133.jpg"],
       "identity_decision": "DISTINCT SOURCE DRAWING UNIT",
       "label": "fideos"
     },
     {
       "group_id": "DRAW-FC-048-04",
-      "placements": [
-        "FC-048-04"
-      ],
-      "evidence": [
-        "comparisons/FC-133.jpg"
-      ],
+      "placements": ["FC-048-04"],
+      "evidence": ["comparisons/FC-133.jpg"],
       "identity_decision": "DISTINCT SOURCE DRAWING UNIT",
       "label": "familia"
     },
     {
       "group_id": "DRAW-FC-048-05",
-      "placements": [
-        "FC-048-05"
-      ],
-      "evidence": [
-        "comparisons/FC-133.jpg"
-      ],
+      "placements": ["FC-048-05"],
+      "evidence": ["comparisons/FC-133.jpg"],
       "identity_decision": "DISTINCT SOURCE DRAWING UNIT",
       "label": "Felo"
     },
     {
       "group_id": "DRAW-FC-048-06",
-      "placements": [
-        "FC-048-06"
-      ],
-      "evidence": [
-        "comparisons/FC-133.jpg"
-      ],
+      "placements": ["FC-048-06"],
+      "evidence": ["comparisons/FC-133.jpg"],
       "identity_decision": "DISTINCT SOURCE DRAWING UNIT",
       "label": "funda"
     },
     {
       "group_id": "DRAW-FC-050-01",
-      "placements": [
-        "FC-050-01"
-      ],
-      "evidence": [
-        "comparisons/FC-139.jpg"
-      ],
+      "placements": ["FC-050-01"],
+      "evidence": ["comparisons/FC-139.jpg"],
       "identity_decision": "DISTINCT SOURCE DRAWING UNIT",
       "label": "Ilustración de la página 50"
     },
     {
       "group_id": "DRAW-FC-051-01",
-      "placements": [
-        "FC-051-01"
-      ],
-      "evidence": [
-        "comparisons/FC-139.jpg"
-      ],
+      "placements": ["FC-051-01"],
+      "evidence": ["comparisons/FC-139.jpg"],
       "identity_decision": "DISTINCT SOURCE DRAWING UNIT",
       "label": "Ilustración de la página 51"
     },
     {
       "group_id": "DRAW-FC-051-02",
-      "placements": [
-        "FC-051-02"
-      ],
-      "evidence": [
-        "comparisons/FC-139.jpg"
-      ],
+      "placements": ["FC-051-02"],
+      "evidence": ["comparisons/FC-139.jpg"],
       "identity_decision": "DISTINCT SOURCE DRAWING UNIT",
       "label": "jicotea"
     },
     {
       "group_id": "DRAW-FC-051-03",
-      "placements": [
-        "FC-051-03"
-      ],
-      "evidence": [
-        "comparisons/FC-139.jpg"
-      ],
+      "placements": ["FC-051-03"],
+      "evidence": ["comparisons/FC-139.jpg"],
       "identity_decision": "DISTINCT SOURCE DRAWING UNIT",
       "label": "jugo"
     },
     {
       "group_id": "DRAW-FC-051-04",
-      "placements": [
-        "FC-051-04"
-      ],
-      "evidence": [
-        "comparisons/FC-139.jpg"
-      ],
+      "placements": ["FC-051-04"],
+      "evidence": ["comparisons/FC-139.jpg"],
       "identity_decision": "DISTINCT SOURCE DRAWING UNIT",
       "label": "Jesús"
     },
     {
       "group_id": "DRAW-FC-051-05",
-      "placements": [
-        "FC-051-05"
-      ],
-      "evidence": [
-        "comparisons/FC-139.jpg"
-      ],
+      "placements": ["FC-051-05"],
+      "evidence": ["comparisons/FC-139.jpg"],
       "identity_decision": "DISTINCT SOURCE DRAWING UNIT",
       "label": "ajo"
     },
     {
       "group_id": "DRAW-FC-051-06",
-      "placements": [
-        "FC-051-06"
-      ],
-      "evidence": [
-        "comparisons/FC-145.jpg"
-      ],
+      "placements": ["FC-051-06"],
+      "evidence": ["comparisons/FC-145.jpg"],
       "identity_decision": "DISTINCT SOURCE DRAWING UNIT",
       "label": "jarra"
     },
     {
       "group_id": "DRAW-FC-053-01",
-      "placements": [
-        "FC-053-01"
-      ],
-      "evidence": [
-        "comparisons/FC-145.jpg"
-      ],
+      "placements": ["FC-053-01"],
+      "evidence": ["comparisons/FC-145.jpg"],
       "identity_decision": "DISTINCT SOURCE DRAWING UNIT",
       "label": "Ilustración de la página 53"
     },
     {
       "group_id": "DRAW-FC-054-01",
-      "placements": [
-        "FC-054-01"
-      ],
-      "evidence": [
-        "comparisons/FC-145.jpg"
-      ],
+      "placements": ["FC-054-01"],
+      "evidence": ["comparisons/FC-145.jpg"],
       "identity_decision": "DISTINCT SOURCE DRAWING UNIT",
       "label": "Ilustración de la página 54"
     },
     {
       "group_id": "DRAW-FC-054-02",
-      "placements": [
-        "FC-054-02"
-      ],
-      "evidence": [
-        "comparisons/FC-145.jpg"
-      ],
+      "placements": ["FC-054-02"],
+      "evidence": ["comparisons/FC-145.jpg"],
       "identity_decision": "DISTINCT SOURCE DRAWING UNIT",
       "label": "cuna"
     },
     {
       "group_id": "DRAW-FC-054-03",
-      "placements": [
-        "FC-054-03"
-      ],
-      "evidence": [
-        "comparisons/FC-145.jpg"
-      ],
+      "placements": ["FC-054-03"],
+      "evidence": ["comparisons/FC-145.jpg"],
       "identity_decision": "DISTINCT SOURCE DRAWING UNIT",
       "label": "conejo"
     },
     {
       "group_id": "DRAW-FC-054-04",
-      "placements": [
-        "FC-054-04"
-      ],
-      "evidence": [
-        "comparisons/FC-145.jpg"
-      ],
+      "placements": ["FC-054-04"],
+      "evidence": ["comparisons/FC-145.jpg"],
       "identity_decision": "DISTINCT SOURCE DRAWING UNIT",
       "label": "casa"
     },
     {
       "group_id": "DRAW-FC-054-05",
-      "placements": [
-        "FC-054-05"
-      ],
-      "evidence": [
-        "comparisons/FC-151.jpg"
-      ],
+      "placements": ["FC-054-05"],
+      "evidence": ["comparisons/FC-151.jpg"],
       "identity_decision": "DISTINCT SOURCE DRAWING UNIT",
       "label": "cubo"
     },
     {
       "group_id": "DRAW-FC-054-06",
-      "placements": [
-        "FC-054-06"
-      ],
-      "evidence": [
-        "comparisons/FC-151.jpg"
-      ],
+      "placements": ["FC-054-06"],
+      "evidence": ["comparisons/FC-151.jpg"],
       "identity_decision": "DISTINCT SOURCE DRAWING UNIT",
       "label": "Catalina"
     },
     {
       "group_id": "DRAW-FC-056-01",
-      "placements": [
-        "FC-056-01"
-      ],
-      "evidence": [
-        "comparisons/FC-151.jpg"
-      ],
+      "placements": ["FC-056-01"],
+      "evidence": ["comparisons/FC-151.jpg"],
       "identity_decision": "DISTINCT SOURCE DRAWING UNIT",
       "label": "Ilustración de la página 56"
     },
     {
       "group_id": "DRAW-FC-057-01",
-      "placements": [
-        "FC-057-01"
-      ],
-      "evidence": [
-        "comparisons/FC-151.jpg"
-      ],
+      "placements": ["FC-057-01"],
+      "evidence": ["comparisons/FC-151.jpg"],
       "identity_decision": "DISTINCT SOURCE DRAWING UNIT",
       "label": "Ilustración de la página 57"
     },
     {
       "group_id": "DRAW-FC-057-02",
-      "placements": [
-        "FC-057-02"
-      ],
-      "evidence": [
-        "comparisons/FC-151.jpg"
-      ],
+      "placements": ["FC-057-02"],
+      "evidence": ["comparisons/FC-151.jpg"],
       "identity_decision": "DISTINCT SOURCE DRAWING UNIT",
       "label": "yate"
     },
     {
       "group_id": "DRAW-FC-057-03",
-      "placements": [
-        "FC-057-03"
-      ],
-      "evidence": [
-        "comparisons/FC-151.jpg"
-      ],
+      "placements": ["FC-057-03"],
+      "evidence": ["comparisons/FC-151.jpg"],
       "identity_decision": "DISTINCT SOURCE DRAWING UNIT",
       "label": "yema"
     },
     {
       "group_id": "DRAW-FC-057-04",
-      "placements": [
-        "FC-057-04"
-      ],
-      "evidence": [
-        "comparisons/FC-157.jpg"
-      ],
+      "placements": ["FC-057-04"],
+      "evidence": ["comparisons/FC-157.jpg"],
       "identity_decision": "DISTINCT SOURCE DRAWING UNIT",
       "label": "Yayita"
     },
     {
       "group_id": "DRAW-FC-057-05",
-      "placements": [
-        "FC-057-05"
-      ],
-      "evidence": [
-        "comparisons/FC-157.jpg"
-      ],
+      "placements": ["FC-057-05"],
+      "evidence": ["comparisons/FC-157.jpg"],
       "identity_decision": "DISTINCT SOURCE DRAWING UNIT",
       "label": "mayúscula"
     },
     {
       "group_id": "DRAW-FC-057-06",
-      "placements": [
-        "FC-057-06"
-      ],
-      "evidence": [
-        "comparisons/FC-157.jpg"
-      ],
+      "placements": ["FC-057-06"],
+      "evidence": ["comparisons/FC-157.jpg"],
       "identity_decision": "DISTINCT SOURCE DRAWING UNIT",
       "label": "yoyo"
     },
     {
       "group_id": "DRAW-FC-059-01",
-      "placements": [
-        "FC-059-01"
-      ],
-      "evidence": [
-        "comparisons/FC-157.jpg"
-      ],
+      "placements": ["FC-059-01"],
+      "evidence": ["comparisons/FC-157.jpg"],
       "identity_decision": "DISTINCT SOURCE DRAWING UNIT",
       "label": "Ilustración de la página 59"
     },
     {
       "group_id": "DRAW-FC-060-01",
-      "placements": [
-        "FC-060-01"
-      ],
-      "evidence": [
-        "comparisons/FC-157.jpg"
-      ],
+      "placements": ["FC-060-01"],
+      "evidence": ["comparisons/FC-157.jpg"],
       "identity_decision": "DISTINCT SOURCE DRAWING UNIT",
       "label": "Ilustración de la página 60"
     },
     {
       "group_id": "DRAW-FC-060-02",
-      "placements": [
-        "FC-060-02"
-      ],
-      "evidence": [
-        "comparisons/FC-157.jpg"
-      ],
+      "placements": ["FC-060-02"],
+      "evidence": ["comparisons/FC-157.jpg"],
       "identity_decision": "DISTINCT SOURCE DRAWING UNIT",
       "label": "zapato"
     },
     {
       "group_id": "DRAW-FC-060-03",
-      "placements": [
-        "FC-060-03"
-      ],
-      "evidence": [
-        "comparisons/FC-163.jpg"
-      ],
+      "placements": ["FC-060-03"],
+      "evidence": ["comparisons/FC-163.jpg"],
       "identity_decision": "DISTINCT SOURCE DRAWING UNIT",
       "label": "zig-zag"
     },
     {
       "group_id": "DRAW-FC-060-04",
-      "placements": [
-        "FC-060-04"
-      ],
-      "evidence": [
-        "comparisons/FC-163.jpg"
-      ],
+      "placements": ["FC-060-04"],
+      "evidence": ["comparisons/FC-163.jpg"],
       "identity_decision": "DISTINCT SOURCE DRAWING UNIT",
       "label": "zorro"
     },
     {
       "group_id": "DRAW-FC-060-05",
-      "placements": [
-        "FC-060-05"
-      ],
-      "evidence": [
-        "comparisons/FC-163.jpg"
-      ],
+      "placements": ["FC-060-05"],
+      "evidence": ["comparisons/FC-163.jpg"],
       "identity_decision": "DISTINCT SOURCE DRAWING UNIT",
       "label": "zepelín"
     },
     {
       "group_id": "DRAW-FC-060-06",
-      "placements": [
-        "FC-060-06"
-      ],
-      "evidence": [
-        "comparisons/FC-163.jpg"
-      ],
+      "placements": ["FC-060-06"],
+      "evidence": ["comparisons/FC-163.jpg"],
       "identity_decision": "DISTINCT SOURCE DRAWING UNIT",
       "label": "Zulema"
     },
     {
       "group_id": "DRAW-FC-062-01",
-      "placements": [
-        "FC-062-01"
-      ],
-      "evidence": [
-        "comparisons/FC-163.jpg"
-      ],
+      "placements": ["FC-062-01"],
+      "evidence": ["comparisons/FC-163.jpg"],
       "identity_decision": "DISTINCT SOURCE DRAWING UNIT",
       "label": "Ilustración de la página 62"
     },
     {
       "group_id": "COMPOSITE-FC-FRONT-001",
-      "placements": [
-        "FC-FRONT-001"
-      ],
-      "evidence": [
-        "pages/FC-001.jpg"
-      ],
+      "placements": ["FC-FRONT-001"],
+      "evidence": ["pages/FC-001.jpg"],
       "identity_decision": "UNRESOLVED COMPOSITE: butterfly, dragonfly, Gretel and floral/stool/ground boundaries",
       "label": "Cover/title illustration composite"
     },
     {
       "group_id": "COMPOSITE-WB-FRONT-001",
-      "placements": [
-        "WB-FRONT-001"
-      ],
-      "evidence": [
-        "pages/WB-001.jpg"
-      ],
+      "placements": ["WB-FRONT-001"],
+      "evidence": ["pages/WB-001.jpg"],
       "identity_decision": "UNRESOLVED COMPOSITE: butterfly, dragonfly, Gretel and floral/stool/ground boundaries",
       "label": "Cover/title illustration composite"
     },
     {
       "group_id": "COMPOSITE-WB-FRONT-003",
-      "placements": [
-        "WB-FRONT-003"
-      ],
-      "evidence": [
-        "pages/WB-003.jpg"
-      ],
+      "placements": ["WB-FRONT-003"],
+      "evidence": ["pages/WB-003.jpg"],
       "identity_decision": "UNRESOLVED COMPOSITE: butterfly, dragonfly, Gretel and floral/stool/ground boundaries",
       "label": "Cover/title illustration composite"
     }
@@ -2564,9 +1788,7 @@
         "reason": "No exact-candidate approval citation is linked in the existing source evidence. A path, merge or folder name is not substituted for approval."
       },
       "comparison": "pages/FC-001.jpg",
-      "repeated_use_locations": [
-        "FC-FRONT-001"
-      ],
+      "repeated_use_locations": ["FC-FRONT-001"],
       "production_mapping_changed": false
     },
     {
@@ -2587,9 +1809,7 @@
         "reason": "No exact-candidate approval citation is linked in the existing source evidence. A path, merge or folder name is not substituted for approval."
       },
       "comparison": "comparisons/FC-001.jpg",
-      "repeated_use_locations": [
-        "FC-003-01"
-      ],
+      "repeated_use_locations": ["FC-003-01"],
       "production_mapping_changed": false,
       "candidate_sha256": "b909e1e5dd9c7ad3b1ba6f3c8017721ed7e5b96a1f814db9b97da0503d6f193c",
       "candidate_sha256_domain": "REGISTERED_SOURCE_BYTES"
@@ -2612,9 +1832,7 @@
         "reason": "No exact-candidate approval citation is linked in the existing source evidence. A path, merge or folder name is not substituted for approval."
       },
       "comparison": "comparisons/FC-001.jpg",
-      "repeated_use_locations": [
-        "FC-003-02"
-      ],
+      "repeated_use_locations": ["FC-003-02"],
       "production_mapping_changed": false,
       "candidate_sha256": "12d1a26a7a5d1aa200b47c2afb27fa3b39a3eea3c91008e0de69446328cac74a",
       "candidate_sha256_domain": "REGISTERED_SOURCE_BYTES"
@@ -2637,9 +1855,7 @@
         "reason": "No exact-candidate approval citation is linked in the existing source evidence. A path, merge or folder name is not substituted for approval."
       },
       "comparison": "comparisons/FC-001.jpg",
-      "repeated_use_locations": [
-        "FC-003-03"
-      ],
+      "repeated_use_locations": ["FC-003-03"],
       "production_mapping_changed": false,
       "candidate_sha256": "0752ce234c2d44dde02c799a4c6e5cc98d76058c9c3230b7e840fdd788759a34",
       "candidate_sha256_domain": "REGISTERED_SOURCE_BYTES"
@@ -2662,10 +1878,7 @@
         "reason": "No exact-candidate approval citation is linked in the existing source evidence. A path, merge or folder name is not substituted for approval."
       },
       "comparison": "comparisons/FC-001.jpg",
-      "repeated_use_locations": [
-        "FC-003-04",
-        "FC-007-02"
-      ],
+      "repeated_use_locations": ["FC-003-04", "FC-007-02"],
       "production_mapping_changed": false,
       "candidate_sha256": "806f013c4338e9bc89d7105235ef063bb6277d5ff64397c5ec1683f711c03518",
       "candidate_sha256_domain": "REGISTERED_SOURCE_BYTES"
@@ -2718,9 +1931,7 @@
         "reason": "No exact-candidate approval citation is linked in the existing source evidence. A path, merge or folder name is not substituted for approval."
       },
       "comparison": "comparisons/FC-001.jpg",
-      "repeated_use_locations": [
-        "FC-003-06"
-      ],
+      "repeated_use_locations": ["FC-003-06"],
       "production_mapping_changed": false,
       "candidate_sha256": "0bbcaec007c0924fe61e027a745def0ce5b9651af2d1b0d8d5229b4816138776",
       "candidate_sha256_domain": "REGISTERED_SOURCE_BYTES"
@@ -2743,9 +1954,7 @@
         "reason": "No exact-candidate approval citation is linked in the existing source evidence. A path, merge or folder name is not substituted for approval."
       },
       "comparison": "comparisons/FC-007.jpg",
-      "repeated_use_locations": [
-        "FC-004-01"
-      ],
+      "repeated_use_locations": ["FC-004-01"],
       "production_mapping_changed": false,
       "candidate_sha256": "04d36e3e14779e8d2482e8eea9d623c17c28dc3863f2ee97d4b9f499edcac1ce",
       "candidate_sha256_domain": "REGISTERED_SOURCE_BYTES"
@@ -2798,9 +2007,7 @@
         "reason": "No exact-candidate approval citation is linked in the existing source evidence. A path, merge or folder name is not substituted for approval."
       },
       "comparison": "comparisons/FC-007.jpg",
-      "repeated_use_locations": [
-        "FC-004-03"
-      ],
+      "repeated_use_locations": ["FC-004-03"],
       "production_mapping_changed": false,
       "candidate_sha256": "ee1be0be1643d493c1675988ad5c4fc6611ea01774ea6e825994f541251e7f93",
       "candidate_sha256_domain": "REGISTERED_SOURCE_BYTES"
@@ -2918,11 +2125,7 @@
         "reason": "No exact-candidate approval citation is linked in the existing source evidence. A path, merge or folder name is not substituted for approval."
       },
       "comparison": "comparisons/FC-013.jpg",
-      "repeated_use_locations": [
-        "WB-S009-OBJ02-OCHO",
-        "WB-S010-OBJ11-OCHO",
-        "FC-004-07"
-      ],
+      "repeated_use_locations": ["WB-S009-OBJ02-OCHO", "WB-S010-OBJ11-OCHO", "FC-004-07"],
       "production_mapping_changed": false,
       "candidate_sha256": "509b104b9e93796a49da2d3cccd6bc3cc5e1679f509f0123670963330517ded3",
       "candidate_sha256_domain": "REGISTERED_SOURCE_BYTES"
@@ -2945,9 +2148,7 @@
         "reason": "No exact-candidate approval citation is linked in the existing source evidence. A path, merge or folder name is not substituted for approval."
       },
       "comparison": "comparisons/FC-013.jpg",
-      "repeated_use_locations": [
-        "FC-005-01"
-      ],
+      "repeated_use_locations": ["FC-005-01"],
       "production_mapping_changed": false,
       "candidate_sha256": "b3c0c21535f3f348ca13991dc6ab7b684c9b4655cff457690c0bcaf4efc10197",
       "candidate_sha256_domain": "REGISTERED_SOURCE_BYTES"
@@ -2998,9 +2199,7 @@
         "reason": "No exact-candidate approval citation is linked in the existing source evidence. A path, merge or folder name is not substituted for approval."
       },
       "comparison": "comparisons/FC-013.jpg",
-      "repeated_use_locations": [
-        "FC-005-03"
-      ],
+      "repeated_use_locations": ["FC-005-03"],
       "production_mapping_changed": false,
       "candidate_sha256": "ccb9e2969b6dc95ae917a25d5ab1a7d3bdbb2e57e6925f0cf8ab0bdc3e1ca88b",
       "candidate_sha256_domain": "REGISTERED_SOURCE_BYTES"
@@ -3023,11 +2222,7 @@
         "reason": "No exact-candidate approval citation is linked in the existing source evidence. A path, merge or folder name is not substituted for approval."
       },
       "comparison": "comparisons/FC-013.jpg",
-      "repeated_use_locations": [
-        "WB-S009-OBJ03-ARANA",
-        "WB-S010-OBJ13-ARANA",
-        "FC-005-04"
-      ],
+      "repeated_use_locations": ["WB-S009-OBJ03-ARANA", "WB-S010-OBJ13-ARANA", "FC-005-04"],
       "production_mapping_changed": false,
       "candidate_sha256": "92a83d2e72f74106fc0ea50cdf49734a962713628775dc33c74afb8cb3a85560",
       "candidate_sha256_domain": "REGISTERED_SOURCE_BYTES"
@@ -3050,9 +2245,7 @@
         "reason": "No exact-candidate approval citation is linked in the existing source evidence. A path, merge or folder name is not substituted for approval."
       },
       "comparison": "comparisons/FC-013.jpg",
-      "repeated_use_locations": [
-        "FC-005-05"
-      ],
+      "repeated_use_locations": ["FC-005-05"],
       "production_mapping_changed": false,
       "candidate_sha256": "6c194036804593fd7f7c373c99eb0ea060c55966342849e83522bd8cf6ed4bb3",
       "candidate_sha256_domain": "REGISTERED_SOURCE_BYTES"
@@ -3075,9 +2268,7 @@
         "reason": "No exact-candidate approval citation is linked in the existing source evidence. A path, merge or folder name is not substituted for approval."
       },
       "comparison": "comparisons/FC-019.jpg",
-      "repeated_use_locations": [
-        "FC-005-06"
-      ],
+      "repeated_use_locations": ["FC-005-06"],
       "production_mapping_changed": false,
       "candidate_sha256": "ddedc37db7a893582e2fcd873302fcb7b55ade9a263ac6e5b819e69713bfce88",
       "candidate_sha256_domain": "REGISTERED_SOURCE_BYTES"
@@ -3100,9 +2291,7 @@
         "reason": "No exact-candidate approval citation is linked in the existing source evidence. A path, merge or folder name is not substituted for approval."
       },
       "comparison": "comparisons/FC-019.jpg",
-      "repeated_use_locations": [
-        "FC-005-07"
-      ],
+      "repeated_use_locations": ["FC-005-07"],
       "production_mapping_changed": false,
       "candidate_sha256": "8f188be82fba352dfebf6e89c4ac15816f7d4a1716498df637400a7c54d45b0b",
       "candidate_sha256_domain": "REGISTERED_SOURCE_BYTES"
@@ -3125,9 +2314,7 @@
         "reason": "No exact-candidate approval citation is linked in the existing source evidence. A path, merge or folder name is not substituted for approval."
       },
       "comparison": "comparisons/FC-019.jpg",
-      "repeated_use_locations": [
-        "FC-006-01"
-      ],
+      "repeated_use_locations": ["FC-006-01"],
       "production_mapping_changed": false,
       "candidate_sha256": "57e2c14681d8a89bea63daf9e4be6447a913c7f220be51bc74fc8421d5b6de0a",
       "candidate_sha256_domain": "REGISTERED_SOURCE_BYTES"
@@ -3150,9 +2337,7 @@
         "reason": "No exact-candidate approval citation is linked in the existing source evidence. A path, merge or folder name is not substituted for approval."
       },
       "comparison": "comparisons/FC-019.jpg",
-      "repeated_use_locations": [
-        "FC-006-02"
-      ],
+      "repeated_use_locations": ["FC-006-02"],
       "production_mapping_changed": false,
       "candidate_sha256": "8b9e451845f51044424339ea14dbacf4873b7954d5877e46d721c212a463a3c6",
       "candidate_sha256_domain": "REGISTERED_SOURCE_BYTES"
@@ -3175,9 +2360,7 @@
         "reason": "No exact-candidate approval citation is linked in the existing source evidence. A path, merge or folder name is not substituted for approval."
       },
       "comparison": "comparisons/FC-019.jpg",
-      "repeated_use_locations": [
-        "FC-006-03"
-      ],
+      "repeated_use_locations": ["FC-006-03"],
       "production_mapping_changed": false,
       "candidate_sha256": "e26b4d4e52d7eae24800908b164d53c6069d42529756c9cac60c805dbb790b61",
       "candidate_sha256_domain": "REGISTERED_SOURCE_BYTES"
@@ -3200,9 +2383,7 @@
         "reason": "No exact-candidate approval citation is linked in the existing source evidence. A path, merge or folder name is not substituted for approval."
       },
       "comparison": "comparisons/FC-019.jpg",
-      "repeated_use_locations": [
-        "FC-006-04"
-      ],
+      "repeated_use_locations": ["FC-006-04"],
       "production_mapping_changed": false,
       "candidate_sha256": "2e1a2bcee584b47405ac770b069755e9838a35caadc478fa0cddd92aa15ca026",
       "candidate_sha256_domain": "REGISTERED_SOURCE_BYTES"
@@ -3256,11 +2437,7 @@
         "reason": "No exact-candidate approval citation is linked in the existing source evidence. A path, merge or folder name is not substituted for approval."
       },
       "comparison": "comparisons/FC-025.jpg",
-      "repeated_use_locations": [
-        "WB-S016-OBJ06-ERIZO",
-        "WB-S017-OBJ04-ERIZO",
-        "FC-006-06"
-      ],
+      "repeated_use_locations": ["WB-S016-OBJ06-ERIZO", "WB-S017-OBJ04-ERIZO", "FC-006-06"],
       "production_mapping_changed": false,
       "candidate_sha256": "90855950c40950c988e6b924830a8817d3a7db96ee960b0c4ffb7f4c9e9254b6",
       "candidate_sha256_domain": "REGISTERED_SOURCE_BYTES"
@@ -3311,9 +2488,7 @@
         "reason": "No exact-candidate approval citation is linked in the existing source evidence. A path, merge or folder name is not substituted for approval."
       },
       "comparison": "comparisons/FC-025.jpg",
-      "repeated_use_locations": [
-        "FC-007-01"
-      ],
+      "repeated_use_locations": ["FC-007-01"],
       "production_mapping_changed": false,
       "candidate_sha256": "8e1ba17b6e24c490d611742402912a9366acf0f75f3b62eb750d65dea2c8dab5",
       "candidate_sha256_domain": "REGISTERED_SOURCE_BYTES"
@@ -3336,10 +2511,7 @@
         "reason": "No exact-candidate approval citation is linked in the existing source evidence. A path, merge or folder name is not substituted for approval."
       },
       "comparison": "comparisons/FC-025.jpg",
-      "repeated_use_locations": [
-        "FC-003-04",
-        "FC-007-02"
-      ],
+      "repeated_use_locations": ["FC-003-04", "FC-007-02"],
       "production_mapping_changed": false,
       "candidate_sha256": "68f73587c2fad2bf33e3232838870184da3affa273e674db0324564d9223bd7f",
       "candidate_sha256_domain": "REGISTERED_SOURCE_BYTES"
@@ -3422,11 +2594,7 @@
         "reason": "No exact-candidate approval citation is linked in the existing source evidence. A path, merge or folder name is not substituted for approval."
       },
       "comparison": "comparisons/FC-031.jpg",
-      "repeated_use_locations": [
-        "WB-S019-OBJ15-INSECTO",
-        "WB-S022-OBJ15-INSECTO",
-        "FC-007-05"
-      ],
+      "repeated_use_locations": ["WB-S019-OBJ15-INSECTO", "WB-S022-OBJ15-INSECTO", "FC-007-05"],
       "production_mapping_changed": false,
       "candidate_sha256": "557e192939da036b96f65662272de5b3aed026118d444b5ad64e10062eb2d080",
       "candidate_sha256_domain": "REGISTERED_SOURCE_BYTES"
@@ -3449,11 +2617,7 @@
         "reason": "No exact-candidate approval citation is linked in the existing source evidence. A path, merge or folder name is not substituted for approval."
       },
       "comparison": "comparisons/FC-031.jpg",
-      "repeated_use_locations": [
-        "WB-S007-OBJ05-ISLA",
-        "WB-S019-OBJ12-ISLA",
-        "FC-007-06"
-      ],
+      "repeated_use_locations": ["WB-S007-OBJ05-ISLA", "WB-S019-OBJ12-ISLA", "FC-007-06"],
       "production_mapping_changed": false,
       "candidate_sha256": "b47db2fe60fa1f0e62f414e5a4085ab4efa8044b725ca713eb4c961ce4c2746d",
       "candidate_sha256_domain": "REGISTERED_SOURCE_BYTES"
@@ -3476,9 +2640,7 @@
         "reason": "No exact-candidate approval citation is linked in the existing source evidence. A path, merge or folder name is not substituted for approval."
       },
       "comparison": "comparisons/FC-031.jpg",
-      "repeated_use_locations": [
-        "FC-007-07"
-      ],
+      "repeated_use_locations": ["FC-007-07"],
       "production_mapping_changed": false,
       "candidate_sha256": "2ef35198f10aaabcc6dac26966b7490f9d9581694bfca73ababe34d6669103b9",
       "candidate_sha256_domain": "REGISTERED_SOURCE_BYTES"
@@ -3501,9 +2663,7 @@
         "reason": "No exact-candidate approval citation is linked in the existing source evidence. A path, merge or folder name is not substituted for approval."
       },
       "comparison": "comparisons/FC-031.jpg",
-      "repeated_use_locations": [
-        "FC-008-01"
-      ],
+      "repeated_use_locations": ["FC-008-01"],
       "production_mapping_changed": false,
       "candidate_sha256": "18a2aa0dce16e31085c3ecadf4c394e768e75fe684e33e9a9b3d1ffeac90a9d2",
       "candidate_sha256_domain": "REGISTERED_SOURCE_BYTES"
@@ -3560,9 +2720,7 @@
         "reason": "No exact-candidate approval citation is linked in the existing source evidence. A path, merge or folder name is not substituted for approval."
       },
       "comparison": "comparisons/FC-037.jpg",
-      "repeated_use_locations": [
-        "FC-008-03"
-      ],
+      "repeated_use_locations": ["FC-008-03"],
       "production_mapping_changed": false,
       "candidate_sha256": "be7423b95a3a08584c9e497b989cc58c25e3a8181e84a322f3918eb65ec726cb",
       "candidate_sha256_domain": "REGISTERED_SOURCE_BYTES"
@@ -3585,11 +2743,7 @@
         "reason": "No exact-candidate approval citation is linked in the existing source evidence. A path, merge or folder name is not substituted for approval."
       },
       "comparison": "comparisons/FC-037.jpg",
-      "repeated_use_locations": [
-        "WB-S016-OBJ12-URRACA",
-        "WB-S022-OBJ12-URRACA",
-        "FC-008-04"
-      ],
+      "repeated_use_locations": ["WB-S016-OBJ12-URRACA", "WB-S022-OBJ12-URRACA", "FC-008-04"],
       "production_mapping_changed": false,
       "candidate_sha256": "f1e9e8b30ce0e653aef47ec4eb44a2192b49dbe2b56cc09c5291b81c9714e1bf",
       "candidate_sha256_domain": "REGISTERED_SOURCE_BYTES"
@@ -3672,9 +2826,7 @@
         "reason": "No exact-candidate approval citation is linked in the existing source evidence. A path, merge or folder name is not substituted for approval."
       },
       "comparison": "comparisons/FC-037.jpg",
-      "repeated_use_locations": [
-        "FC-008-07"
-      ],
+      "repeated_use_locations": ["FC-008-07"],
       "production_mapping_changed": false,
       "candidate_sha256": "436f33a1bc59aee96f8e8ac1bc31e3e1be9a7f87eb8c160bfbd86b8d8074370d",
       "candidate_sha256_domain": "REGISTERED_SOURCE_BYTES"
@@ -3697,9 +2849,7 @@
         "reason": "No exact-candidate approval citation is linked in the existing source evidence. A path, merge or folder name is not substituted for approval."
       },
       "comparison": "comparisons/FC-037.jpg",
-      "repeated_use_locations": [
-        "FC-009-01"
-      ],
+      "repeated_use_locations": ["FC-009-01"],
       "production_mapping_changed": false,
       "candidate_sha256": "f30fde7e57e37cc16d461eac0a0794c75a5362568b63b1978a7ed10af34c12ff",
       "candidate_sha256_domain": "REGISTERED_SOURCE_BYTES"
@@ -3722,9 +2872,7 @@
         "reason": "No exact-candidate approval citation is linked in the existing source evidence. A path, merge or folder name is not substituted for approval."
       },
       "comparison": "comparisons/FC-043.jpg",
-      "repeated_use_locations": [
-        "FC-009-02"
-      ],
+      "repeated_use_locations": ["FC-009-02"],
       "production_mapping_changed": false,
       "candidate_sha256": "59f49b523364a1f6190ac03c4ab54fac949ca49bd87d4fe4ca3d84edbfae1c73",
       "candidate_sha256_domain": "REGISTERED_SOURCE_BYTES"
@@ -3747,9 +2895,7 @@
         "reason": "No exact-candidate approval citation is linked in the existing source evidence. A path, merge or folder name is not substituted for approval."
       },
       "comparison": "comparisons/FC-043.jpg",
-      "repeated_use_locations": [
-        "FC-009-03"
-      ],
+      "repeated_use_locations": ["FC-009-03"],
       "production_mapping_changed": false,
       "candidate_sha256": "15153f34537c436094c90b6a72f62dbda90546120036274c88dc2b4a9abcbdae",
       "candidate_sha256_domain": "REGISTERED_SOURCE_BYTES"
@@ -3772,9 +2918,7 @@
         "reason": "No exact-candidate approval citation is linked in the existing source evidence. A path, merge or folder name is not substituted for approval."
       },
       "comparison": "comparisons/FC-043.jpg",
-      "repeated_use_locations": [
-        "FC-009-04"
-      ],
+      "repeated_use_locations": ["FC-009-04"],
       "production_mapping_changed": false,
       "candidate_sha256": "c3fefce201e0ba991be9f88e9e7e05bd92797415aa43a71545751b901ebca714",
       "candidate_sha256_domain": "REGISTERED_SOURCE_BYTES"
@@ -3797,9 +2941,7 @@
         "reason": "No exact-candidate approval citation is linked in the existing source evidence. A path, merge or folder name is not substituted for approval."
       },
       "comparison": "comparisons/FC-043.jpg",
-      "repeated_use_locations": [
-        "FC-009-05"
-      ],
+      "repeated_use_locations": ["FC-009-05"],
       "production_mapping_changed": false,
       "candidate_sha256": "ad1812880b67e4f76b5c228d6c8eaacf9ded50b866cb24ea78bff926bfa19594",
       "candidate_sha256_domain": "REGISTERED_SOURCE_BYTES"
@@ -3822,9 +2964,7 @@
         "reason": "No exact-candidate approval citation is linked in the existing source evidence. A path, merge or folder name is not substituted for approval."
       },
       "comparison": "comparisons/FC-043.jpg",
-      "repeated_use_locations": [
-        "FC-009-06"
-      ],
+      "repeated_use_locations": ["FC-009-06"],
       "production_mapping_changed": false,
       "candidate_sha256": "e16e9db9b67dfb38d1733ad82ad5b0e95fe87dc1f956ee5d6d48eb14e870b065",
       "candidate_sha256_domain": "REGISTERED_SOURCE_BYTES"
@@ -3847,9 +2987,7 @@
         "reason": "No exact-candidate approval citation is linked in the existing source evidence. A path, merge or folder name is not substituted for approval."
       },
       "comparison": "comparisons/FC-043.jpg",
-      "repeated_use_locations": [
-        "FC-011-01"
-      ],
+      "repeated_use_locations": ["FC-011-01"],
       "production_mapping_changed": false,
       "candidate_sha256": "d0e2e7eff9f0be54b73f8c0d2e44fc1c03ba6c8cc367335cf9beab65e605ef49",
       "candidate_sha256_domain": "REGISTERED_SOURCE_BYTES"
@@ -3872,9 +3010,7 @@
         "reason": "No exact-candidate approval citation is linked in the existing source evidence. A path, merge or folder name is not substituted for approval."
       },
       "comparison": "comparisons/FC-049.jpg",
-      "repeated_use_locations": [
-        "FC-012-01"
-      ],
+      "repeated_use_locations": ["FC-012-01"],
       "production_mapping_changed": false,
       "candidate_sha256": "63dafdd319439f7834be4f6625f179bd3aa8a1e774039b1a48522c3fd875ac32",
       "candidate_sha256_domain": "REGISTERED_SOURCE_BYTES"
@@ -3897,9 +3033,7 @@
         "reason": "No exact-candidate approval citation is linked in the existing source evidence. A path, merge or folder name is not substituted for approval."
       },
       "comparison": "comparisons/FC-049.jpg",
-      "repeated_use_locations": [
-        "FC-012-02"
-      ],
+      "repeated_use_locations": ["FC-012-02"],
       "production_mapping_changed": false,
       "candidate_sha256": "924b72e5b2ea92d69e3559e130992a3a40f831e509686d2176f4cf9be351cc79",
       "candidate_sha256_domain": "REGISTERED_SOURCE_BYTES"
@@ -3922,9 +3056,7 @@
         "reason": "No exact-candidate approval citation is linked in the existing source evidence. A path, merge or folder name is not substituted for approval."
       },
       "comparison": "comparisons/FC-049.jpg",
-      "repeated_use_locations": [
-        "FC-012-03"
-      ],
+      "repeated_use_locations": ["FC-012-03"],
       "production_mapping_changed": false,
       "candidate_sha256": "41de373f469604d3204ac0a47a3d0408ad702057728d15a7f093d789dfeac72c",
       "candidate_sha256_domain": "REGISTERED_SOURCE_BYTES"
@@ -3947,9 +3079,7 @@
         "reason": "No exact-candidate approval citation is linked in the existing source evidence. A path, merge or folder name is not substituted for approval."
       },
       "comparison": "comparisons/FC-049.jpg",
-      "repeated_use_locations": [
-        "FC-012-04"
-      ],
+      "repeated_use_locations": ["FC-012-04"],
       "production_mapping_changed": false,
       "candidate_sha256": "e54e3177ce934943644e9787839821fe6fcc8be4e4292f8ea376af1e2be8921a",
       "candidate_sha256_domain": "REGISTERED_SOURCE_BYTES"
@@ -3972,9 +3102,7 @@
         "reason": "No exact-candidate approval citation is linked in the existing source evidence. A path, merge or folder name is not substituted for approval."
       },
       "comparison": "comparisons/FC-049.jpg",
-      "repeated_use_locations": [
-        "FC-012-05"
-      ],
+      "repeated_use_locations": ["FC-012-05"],
       "production_mapping_changed": false,
       "candidate_sha256": "880911cf0278e273220bd5be18cba911f080d02f4be7ac19579c212a93ca34f4",
       "candidate_sha256_domain": "REGISTERED_SOURCE_BYTES"
@@ -3997,9 +3125,7 @@
         "reason": "No exact-candidate approval citation is linked in the existing source evidence. A path, merge or folder name is not substituted for approval."
       },
       "comparison": "comparisons/FC-049.jpg",
-      "repeated_use_locations": [
-        "FC-012-06"
-      ],
+      "repeated_use_locations": ["FC-012-06"],
       "production_mapping_changed": false,
       "candidate_sha256": "ea36a2f7b9eb98c12382a5cdb9a83c920d4a5c775e1780e4d2b87ce4bac5da69",
       "candidate_sha256_domain": "REGISTERED_SOURCE_BYTES"
@@ -4022,9 +3148,7 @@
         "reason": "No exact-candidate approval citation is linked in the existing source evidence. A path, merge or folder name is not substituted for approval."
       },
       "comparison": "comparisons/FC-055.jpg",
-      "repeated_use_locations": [
-        "FC-014-01"
-      ],
+      "repeated_use_locations": ["FC-014-01"],
       "production_mapping_changed": false,
       "candidate_sha256": "64407f1c8715c8620e6aa3a063348c1a698c9b4665ca05e5a6f162daf06d32e0",
       "candidate_sha256_domain": "REGISTERED_SOURCE_BYTES"
@@ -4047,9 +3171,7 @@
         "reason": "No exact-candidate approval citation is linked in the existing source evidence. A path, merge or folder name is not substituted for approval."
       },
       "comparison": "comparisons/FC-055.jpg",
-      "repeated_use_locations": [
-        "FC-015-01"
-      ],
+      "repeated_use_locations": ["FC-015-01"],
       "production_mapping_changed": false,
       "candidate_sha256": "a42b9c105923d6b1478dc92fae8b556b3b40e74796684908522ed5a3cd65c8e4",
       "candidate_sha256_domain": "REGISTERED_SOURCE_BYTES"
@@ -4072,9 +3194,7 @@
         "reason": "No exact-candidate approval citation is linked in the existing source evidence. A path, merge or folder name is not substituted for approval."
       },
       "comparison": "comparisons/FC-055.jpg",
-      "repeated_use_locations": [
-        "FC-015-02"
-      ],
+      "repeated_use_locations": ["FC-015-02"],
       "production_mapping_changed": false,
       "candidate_sha256": "d65bf08730873d02f7acb9e6d03e1ccc526cdc3fd019ff6d34f54ed4c4771eb4",
       "candidate_sha256_domain": "REGISTERED_SOURCE_BYTES"
@@ -4097,9 +3217,7 @@
         "reason": "No exact-candidate approval citation is linked in the existing source evidence. A path, merge or folder name is not substituted for approval."
       },
       "comparison": "comparisons/FC-055.jpg",
-      "repeated_use_locations": [
-        "FC-015-03"
-      ],
+      "repeated_use_locations": ["FC-015-03"],
       "production_mapping_changed": false,
       "candidate_sha256": "b75d4e00d644bf9f67a2eb6fe67d5e00d015a947807263f41479a7f56b626b63",
       "candidate_sha256_domain": "REGISTERED_SOURCE_BYTES"
@@ -4122,9 +3240,7 @@
         "reason": "No exact-candidate approval citation is linked in the existing source evidence. A path, merge or folder name is not substituted for approval."
       },
       "comparison": "comparisons/FC-055.jpg",
-      "repeated_use_locations": [
-        "FC-015-04"
-      ],
+      "repeated_use_locations": ["FC-015-04"],
       "production_mapping_changed": false,
       "candidate_sha256": "d6adeff7ed2e4f3ab462b05057f8954ef78d2a746de322c794925f1a8ae25d4e",
       "candidate_sha256_domain": "REGISTERED_SOURCE_BYTES"
@@ -4147,9 +3263,7 @@
         "reason": "No exact-candidate approval citation is linked in the existing source evidence. A path, merge or folder name is not substituted for approval."
       },
       "comparison": "comparisons/FC-055.jpg",
-      "repeated_use_locations": [
-        "FC-015-05"
-      ],
+      "repeated_use_locations": ["FC-015-05"],
       "production_mapping_changed": false,
       "candidate_sha256": "ed9a7b949a8d47f5891674429973ed1113ac9427b6fb6bf7f64381f6337ad4e1",
       "candidate_sha256_domain": "REGISTERED_SOURCE_BYTES"
@@ -4172,9 +3286,7 @@
         "reason": "No exact-candidate approval citation is linked in the existing source evidence. A path, merge or folder name is not substituted for approval."
       },
       "comparison": "comparisons/FC-061.jpg",
-      "repeated_use_locations": [
-        "FC-015-06"
-      ],
+      "repeated_use_locations": ["FC-015-06"],
       "production_mapping_changed": false,
       "candidate_sha256": "76b7dbf6f5266f216735cbbb6c0a1ceee738382d0e14bb8f18c96710ccd3695b",
       "candidate_sha256_domain": "REGISTERED_SOURCE_BYTES"
@@ -4197,9 +3309,7 @@
         "reason": "No exact-candidate approval citation is linked in the existing source evidence. A path, merge or folder name is not substituted for approval."
       },
       "comparison": "comparisons/FC-061.jpg",
-      "repeated_use_locations": [
-        "FC-017-01"
-      ],
+      "repeated_use_locations": ["FC-017-01"],
       "production_mapping_changed": false,
       "candidate_sha256": "ee2e1531a74eb6a54bbb75de5abdb2481b45fea63867ce608277609814f7eaaf",
       "candidate_sha256_domain": "REGISTERED_SOURCE_BYTES"
@@ -4222,9 +3332,7 @@
         "reason": "No exact-candidate approval citation is linked in the existing source evidence. A path, merge or folder name is not substituted for approval."
       },
       "comparison": "comparisons/FC-061.jpg",
-      "repeated_use_locations": [
-        "FC-018-01"
-      ],
+      "repeated_use_locations": ["FC-018-01"],
       "production_mapping_changed": false,
       "candidate_sha256": "c62ccb78cb3d3eb7f157ba68ed0c8212481e4e974417f6f41fd71dc6ab08c73f",
       "candidate_sha256_domain": "REGISTERED_SOURCE_BYTES"
@@ -4247,9 +3355,7 @@
         "reason": "No exact-candidate approval citation is linked in the existing source evidence. A path, merge or folder name is not substituted for approval."
       },
       "comparison": "comparisons/FC-061.jpg",
-      "repeated_use_locations": [
-        "FC-018-02"
-      ],
+      "repeated_use_locations": ["FC-018-02"],
       "production_mapping_changed": false,
       "candidate_sha256": "9a5e9fd2cad78fefaeb7ea25c3e9ff208989af6c0a5b5c53aaab1b94bbcd0c02",
       "candidate_sha256_domain": "REGISTERED_SOURCE_BYTES"
@@ -4272,9 +3378,7 @@
         "reason": "No exact-candidate approval citation is linked in the existing source evidence. A path, merge or folder name is not substituted for approval."
       },
       "comparison": "comparisons/FC-061.jpg",
-      "repeated_use_locations": [
-        "FC-018-03"
-      ],
+      "repeated_use_locations": ["FC-018-03"],
       "production_mapping_changed": false,
       "candidate_sha256": "12d301a36bd70573e5d074566f97710be238fe786afc77a349f4b13d23a30ab8",
       "candidate_sha256_domain": "REGISTERED_SOURCE_BYTES"
@@ -4297,9 +3401,7 @@
         "reason": "No exact-candidate approval citation is linked in the existing source evidence. A path, merge or folder name is not substituted for approval."
       },
       "comparison": "comparisons/FC-061.jpg",
-      "repeated_use_locations": [
-        "FC-018-04"
-      ],
+      "repeated_use_locations": ["FC-018-04"],
       "production_mapping_changed": false,
       "candidate_sha256": "4fb295743140b209d8dd904ebf0c41dfc0f210733c05ae4e322f3baeef134a31",
       "candidate_sha256_domain": "REGISTERED_SOURCE_BYTES"
@@ -4322,9 +3424,7 @@
         "reason": "No exact-candidate approval citation is linked in the existing source evidence. A path, merge or folder name is not substituted for approval."
       },
       "comparison": "comparisons/FC-067.jpg",
-      "repeated_use_locations": [
-        "FC-018-05"
-      ],
+      "repeated_use_locations": ["FC-018-05"],
       "production_mapping_changed": false,
       "candidate_sha256": "e8d79029f574760d317c2149fd5277de3b5426c1bee9bafed11c1ea2c36e4776",
       "candidate_sha256_domain": "REGISTERED_SOURCE_BYTES"
@@ -4347,9 +3447,7 @@
         "reason": "No exact-candidate approval citation is linked in the existing source evidence. A path, merge or folder name is not substituted for approval."
       },
       "comparison": "comparisons/FC-067.jpg",
-      "repeated_use_locations": [
-        "FC-018-06"
-      ],
+      "repeated_use_locations": ["FC-018-06"],
       "production_mapping_changed": false,
       "candidate_sha256": "f4e724569662349e4b153fef92b8eb5c9bbbe85dc291099a91671f63418ff66d",
       "candidate_sha256_domain": "REGISTERED_SOURCE_BYTES"
@@ -4372,9 +3470,7 @@
         "reason": "No exact-candidate approval citation is linked in the existing source evidence. A path, merge or folder name is not substituted for approval."
       },
       "comparison": "comparisons/FC-067.jpg",
-      "repeated_use_locations": [
-        "FC-020-01"
-      ],
+      "repeated_use_locations": ["FC-020-01"],
       "production_mapping_changed": false,
       "candidate_sha256": "9657a566a45dc8e0a3b254d10f863afe6ce7997757016e7b5f93afdb2d063bd3",
       "candidate_sha256_domain": "REGISTERED_SOURCE_BYTES"
@@ -4397,9 +3493,7 @@
         "reason": "No exact-candidate approval citation is linked in the existing source evidence. A path, merge or folder name is not substituted for approval."
       },
       "comparison": "comparisons/FC-067.jpg",
-      "repeated_use_locations": [
-        "FC-021-01"
-      ],
+      "repeated_use_locations": ["FC-021-01"],
       "production_mapping_changed": false,
       "candidate_sha256": "acab93c282df06059d4d0a085c133cae2c86a718433cf10078911fa0924db5a4",
       "candidate_sha256_domain": "REGISTERED_SOURCE_BYTES"
@@ -4422,9 +3516,7 @@
         "reason": "No exact-candidate approval citation is linked in the existing source evidence. A path, merge or folder name is not substituted for approval."
       },
       "comparison": "comparisons/FC-067.jpg",
-      "repeated_use_locations": [
-        "FC-021-02"
-      ],
+      "repeated_use_locations": ["FC-021-02"],
       "production_mapping_changed": false,
       "candidate_sha256": "bee90469d28b79ba0860b5bb571a4dff230ce310b473c885a673dfb981e2fdf5",
       "candidate_sha256_domain": "REGISTERED_SOURCE_BYTES"
@@ -4447,9 +3539,7 @@
         "reason": "No exact-candidate approval citation is linked in the existing source evidence. A path, merge or folder name is not substituted for approval."
       },
       "comparison": "comparisons/FC-067.jpg",
-      "repeated_use_locations": [
-        "FC-021-03"
-      ],
+      "repeated_use_locations": ["FC-021-03"],
       "production_mapping_changed": false,
       "candidate_sha256": "23924290a7f5e214d5d0e4fe09612f170958064b463a4851cce88a9d5db3eb0b",
       "candidate_sha256_domain": "REGISTERED_SOURCE_BYTES"
@@ -4472,9 +3562,7 @@
         "reason": "No exact-candidate approval citation is linked in the existing source evidence. A path, merge or folder name is not substituted for approval."
       },
       "comparison": "comparisons/FC-073.jpg",
-      "repeated_use_locations": [
-        "FC-021-04"
-      ],
+      "repeated_use_locations": ["FC-021-04"],
       "production_mapping_changed": false,
       "candidate_sha256": "1638e7607ebc9ef0200bd055e14bfaeee623ef9ee6f07f8d0f1b93c33b5dd8f8",
       "candidate_sha256_domain": "REGISTERED_SOURCE_BYTES"
@@ -4497,9 +3585,7 @@
         "reason": "No exact-candidate approval citation is linked in the existing source evidence. A path, merge or folder name is not substituted for approval."
       },
       "comparison": "comparisons/FC-073.jpg",
-      "repeated_use_locations": [
-        "FC-021-05"
-      ],
+      "repeated_use_locations": ["FC-021-05"],
       "production_mapping_changed": false,
       "candidate_sha256": "c6f89e7ba7f11bd6c3f5ba1ede8e949bd845c457324ceb31f376a79a9d2cb9b0",
       "candidate_sha256_domain": "REGISTERED_SOURCE_BYTES"
@@ -4522,9 +3608,7 @@
         "reason": "No exact-candidate approval citation is linked in the existing source evidence. A path, merge or folder name is not substituted for approval."
       },
       "comparison": "comparisons/FC-073.jpg",
-      "repeated_use_locations": [
-        "FC-021-06"
-      ],
+      "repeated_use_locations": ["FC-021-06"],
       "production_mapping_changed": false,
       "candidate_sha256": "a1f9cbc5fbfda20fdb401c2e95a464d3e1a40ed0e9c1bbade65c1891e6125af2",
       "candidate_sha256_domain": "REGISTERED_SOURCE_BYTES"
@@ -4547,9 +3631,7 @@
         "reason": "No exact-candidate approval citation is linked in the existing source evidence. A path, merge or folder name is not substituted for approval."
       },
       "comparison": "comparisons/FC-073.jpg",
-      "repeated_use_locations": [
-        "FC-023-01"
-      ],
+      "repeated_use_locations": ["FC-023-01"],
       "production_mapping_changed": false,
       "candidate_sha256": "98e1dbae369f70f5a0ec69d5b3cbba68ea4a7f85af86d9779f5816131de48620",
       "candidate_sha256_domain": "REGISTERED_SOURCE_BYTES"
@@ -4572,9 +3654,7 @@
         "reason": "No exact-candidate approval citation is linked in the existing source evidence. A path, merge or folder name is not substituted for approval."
       },
       "comparison": "comparisons/FC-073.jpg",
-      "repeated_use_locations": [
-        "FC-024-01"
-      ],
+      "repeated_use_locations": ["FC-024-01"],
       "production_mapping_changed": false,
       "candidate_sha256": "77fa7689852da7e092ffe3d8437ea92c5cd59703a76fe0133e9b8036b7a093e4",
       "candidate_sha256_domain": "REGISTERED_SOURCE_BYTES"
@@ -4597,9 +3677,7 @@
         "reason": "No exact-candidate approval citation is linked in the existing source evidence. A path, merge or folder name is not substituted for approval."
       },
       "comparison": "comparisons/FC-073.jpg",
-      "repeated_use_locations": [
-        "FC-024-02"
-      ],
+      "repeated_use_locations": ["FC-024-02"],
       "production_mapping_changed": false,
       "candidate_sha256": "7f25455815b38ce70a173634e97b71583b075b45adbf0646ee0e51c855f41452",
       "candidate_sha256_domain": "REGISTERED_SOURCE_BYTES"
@@ -4622,9 +3700,7 @@
         "reason": "No exact-candidate approval citation is linked in the existing source evidence. A path, merge or folder name is not substituted for approval."
       },
       "comparison": "comparisons/FC-079.jpg",
-      "repeated_use_locations": [
-        "FC-024-03"
-      ],
+      "repeated_use_locations": ["FC-024-03"],
       "production_mapping_changed": false,
       "candidate_sha256": "1cc2938e63b8674cf72a1e4b07106b7eea50943013e8ef9c2e37bd82f465802e",
       "candidate_sha256_domain": "REGISTERED_SOURCE_BYTES"
@@ -4647,9 +3723,7 @@
         "reason": "No exact-candidate approval citation is linked in the existing source evidence. A path, merge or folder name is not substituted for approval."
       },
       "comparison": "comparisons/FC-079.jpg",
-      "repeated_use_locations": [
-        "FC-024-04"
-      ],
+      "repeated_use_locations": ["FC-024-04"],
       "production_mapping_changed": false,
       "candidate_sha256": "bec7d120b337decdc698370426b208bc73daa8aa07129d8fc0ea5c79f1b01cd7",
       "candidate_sha256_domain": "REGISTERED_SOURCE_BYTES"
@@ -4672,9 +3746,7 @@
         "reason": "No exact-candidate approval citation is linked in the existing source evidence. A path, merge or folder name is not substituted for approval."
       },
       "comparison": "comparisons/FC-079.jpg",
-      "repeated_use_locations": [
-        "FC-024-05"
-      ],
+      "repeated_use_locations": ["FC-024-05"],
       "production_mapping_changed": false,
       "candidate_sha256": "806b74aa7173ad75d87bbecac154e92edc8ec63213e9cca01d0dc0180071abee",
       "candidate_sha256_domain": "REGISTERED_SOURCE_BYTES"
@@ -4697,9 +3769,7 @@
         "reason": "No exact-candidate approval citation is linked in the existing source evidence. A path, merge or folder name is not substituted for approval."
       },
       "comparison": "comparisons/FC-079.jpg",
-      "repeated_use_locations": [
-        "FC-024-06"
-      ],
+      "repeated_use_locations": ["FC-024-06"],
       "production_mapping_changed": false,
       "candidate_sha256": "838b80efd1c28aa4d651dbc398d3ebf3f38d0cabc39664acc71d11fbf14a5480",
       "candidate_sha256_domain": "REGISTERED_SOURCE_BYTES"
@@ -4722,9 +3792,7 @@
         "reason": "No exact-candidate approval citation is linked in the existing source evidence. A path, merge or folder name is not substituted for approval."
       },
       "comparison": "comparisons/FC-079.jpg",
-      "repeated_use_locations": [
-        "FC-026-01"
-      ],
+      "repeated_use_locations": ["FC-026-01"],
       "production_mapping_changed": false,
       "candidate_sha256": "8478a10d6e3b5d7b091bb7bc158e321290136c480b1149007cdc23caf83df3b2",
       "candidate_sha256_domain": "REGISTERED_SOURCE_BYTES"
@@ -4747,9 +3815,7 @@
         "reason": "No exact-candidate approval citation is linked in the existing source evidence. A path, merge or folder name is not substituted for approval."
       },
       "comparison": "comparisons/FC-079.jpg",
-      "repeated_use_locations": [
-        "FC-027-01"
-      ],
+      "repeated_use_locations": ["FC-027-01"],
       "production_mapping_changed": false,
       "candidate_sha256": "41399eb80a9c6a9ebf6ddebc7c35b0527e90d20d023306c1c7b725646c82ee40",
       "candidate_sha256_domain": "REGISTERED_SOURCE_BYTES"
@@ -4772,9 +3838,7 @@
         "reason": "No exact-candidate approval citation is linked in the existing source evidence. A path, merge or folder name is not substituted for approval."
       },
       "comparison": "comparisons/FC-085.jpg",
-      "repeated_use_locations": [
-        "FC-027-02"
-      ],
+      "repeated_use_locations": ["FC-027-02"],
       "production_mapping_changed": false,
       "candidate_sha256": "5bdbd0cefd1e335e149a11efeaa523c6f08bc05942383065e0c0370622fccd86",
       "candidate_sha256_domain": "REGISTERED_SOURCE_BYTES"
@@ -4797,9 +3861,7 @@
         "reason": "No exact-candidate approval citation is linked in the existing source evidence. A path, merge or folder name is not substituted for approval."
       },
       "comparison": "comparisons/FC-085.jpg",
-      "repeated_use_locations": [
-        "FC-027-03"
-      ],
+      "repeated_use_locations": ["FC-027-03"],
       "production_mapping_changed": false,
       "candidate_sha256": "743617b3bfa87e8348d93142cf4b6c92fadb7209ccec649f053122590ed95c0e",
       "candidate_sha256_domain": "REGISTERED_SOURCE_BYTES"
@@ -4822,9 +3884,7 @@
         "reason": "No exact-candidate approval citation is linked in the existing source evidence. A path, merge or folder name is not substituted for approval."
       },
       "comparison": "comparisons/FC-085.jpg",
-      "repeated_use_locations": [
-        "FC-027-04"
-      ],
+      "repeated_use_locations": ["FC-027-04"],
       "production_mapping_changed": false,
       "candidate_sha256": "431531c85abe2f4c3179de79ac1fa6f36969cbc4b88e96cea861fb0230787161",
       "candidate_sha256_domain": "REGISTERED_SOURCE_BYTES"
@@ -4847,9 +3907,7 @@
         "reason": "No exact-candidate approval citation is linked in the existing source evidence. A path, merge or folder name is not substituted for approval."
       },
       "comparison": "comparisons/FC-085.jpg",
-      "repeated_use_locations": [
-        "FC-027-05"
-      ],
+      "repeated_use_locations": ["FC-027-05"],
       "production_mapping_changed": false,
       "candidate_sha256": "31c788db609be8d230a511ba7af513c01d5189314be293e7ca3cb1dbfb08fc3f",
       "candidate_sha256_domain": "REGISTERED_SOURCE_BYTES"
@@ -4872,9 +3930,7 @@
         "reason": "No exact-candidate approval citation is linked in the existing source evidence. A path, merge or folder name is not substituted for approval."
       },
       "comparison": "comparisons/FC-085.jpg",
-      "repeated_use_locations": [
-        "FC-027-06"
-      ],
+      "repeated_use_locations": ["FC-027-06"],
       "production_mapping_changed": false,
       "candidate_sha256": "3c652e25bdd68851971dce08906cab2482360cfa63f3c935e9763817834f9172",
       "candidate_sha256_domain": "REGISTERED_SOURCE_BYTES"
@@ -4897,9 +3953,7 @@
         "reason": "No exact-candidate approval citation is linked in the existing source evidence. A path, merge or folder name is not substituted for approval."
       },
       "comparison": "comparisons/FC-085.jpg",
-      "repeated_use_locations": [
-        "FC-029-01"
-      ],
+      "repeated_use_locations": ["FC-029-01"],
       "production_mapping_changed": false,
       "candidate_sha256": "c1f16281aaf2b35217329f16de610e248a781227ab2f5396586ad2e8469368cc",
       "candidate_sha256_domain": "REGISTERED_SOURCE_BYTES"
@@ -4922,9 +3976,7 @@
         "reason": "No exact-candidate approval citation is linked in the existing source evidence. A path, merge or folder name is not substituted for approval."
       },
       "comparison": "comparisons/FC-091.jpg",
-      "repeated_use_locations": [
-        "FC-030-01"
-      ],
+      "repeated_use_locations": ["FC-030-01"],
       "production_mapping_changed": false,
       "candidate_sha256": "38e14362ee4cf7bd73fddb4d0eb65bfcd4307df810f5b7349cb87cdc9373afe4",
       "candidate_sha256_domain": "REGISTERED_SOURCE_BYTES"
@@ -4947,9 +3999,7 @@
         "reason": "No exact-candidate approval citation is linked in the existing source evidence. A path, merge or folder name is not substituted for approval."
       },
       "comparison": "comparisons/FC-091.jpg",
-      "repeated_use_locations": [
-        "FC-030-02"
-      ],
+      "repeated_use_locations": ["FC-030-02"],
       "production_mapping_changed": false,
       "candidate_sha256": "b55f2165378c072b150bba7af29441ffd6baa86f74b580ad9225c3bc1ca43d0b",
       "candidate_sha256_domain": "REGISTERED_SOURCE_BYTES"
@@ -4972,9 +4022,7 @@
         "reason": "No exact-candidate approval citation is linked in the existing source evidence. A path, merge or folder name is not substituted for approval."
       },
       "comparison": "comparisons/FC-091.jpg",
-      "repeated_use_locations": [
-        "FC-030-03"
-      ],
+      "repeated_use_locations": ["FC-030-03"],
       "production_mapping_changed": false,
       "candidate_sha256": "9de06f63484ae8060a118d37902e5e1220b6fb0401ab83350c4b1a2f7b1ff0aa",
       "candidate_sha256_domain": "REGISTERED_SOURCE_BYTES"
@@ -4997,9 +4045,7 @@
         "reason": "No exact-candidate approval citation is linked in the existing source evidence. A path, merge or folder name is not substituted for approval."
       },
       "comparison": "comparisons/FC-091.jpg",
-      "repeated_use_locations": [
-        "FC-030-04"
-      ],
+      "repeated_use_locations": ["FC-030-04"],
       "production_mapping_changed": false,
       "candidate_sha256": "4721af2b878779544bc0ba5a3ed3c9d9f033be063cda2da6d121483b92ab7d21",
       "candidate_sha256_domain": "REGISTERED_SOURCE_BYTES"
@@ -5022,9 +4068,7 @@
         "reason": "No exact-candidate approval citation is linked in the existing source evidence. A path, merge or folder name is not substituted for approval."
       },
       "comparison": "comparisons/FC-091.jpg",
-      "repeated_use_locations": [
-        "FC-030-05"
-      ],
+      "repeated_use_locations": ["FC-030-05"],
       "production_mapping_changed": false,
       "candidate_sha256": "e44da5ea8869ca8f5a928525205ed8e28a7e79afbf6d2575248454e595c53569",
       "candidate_sha256_domain": "REGISTERED_SOURCE_BYTES"
@@ -5047,9 +4091,7 @@
         "reason": "No exact-candidate approval citation is linked in the existing source evidence. A path, merge or folder name is not substituted for approval."
       },
       "comparison": "comparisons/FC-091.jpg",
-      "repeated_use_locations": [
-        "FC-030-06"
-      ],
+      "repeated_use_locations": ["FC-030-06"],
       "production_mapping_changed": false,
       "candidate_sha256": "865abe364e97c16c70ac3a68a4a8029ee87ac7cdc45d4f141328d212f4f7c4fe",
       "candidate_sha256_domain": "REGISTERED_SOURCE_BYTES"
@@ -5072,9 +4114,7 @@
         "reason": "No exact-candidate approval citation is linked in the existing source evidence. A path, merge or folder name is not substituted for approval."
       },
       "comparison": "comparisons/FC-097.jpg",
-      "repeated_use_locations": [
-        "FC-032-01"
-      ],
+      "repeated_use_locations": ["FC-032-01"],
       "production_mapping_changed": false,
       "candidate_sha256": "f0b1afee390bc63eadbd5bc8398d45557ab13b76136d84804f0beb804afa1361",
       "candidate_sha256_domain": "REGISTERED_SOURCE_BYTES"
@@ -5097,9 +4137,7 @@
         "reason": "No exact-candidate approval citation is linked in the existing source evidence. A path, merge or folder name is not substituted for approval."
       },
       "comparison": "comparisons/FC-097.jpg",
-      "repeated_use_locations": [
-        "FC-033-01"
-      ],
+      "repeated_use_locations": ["FC-033-01"],
       "production_mapping_changed": false,
       "candidate_sha256": "d632dced17f45ff7194c08c99f25fae8c9c9a4187e38b85e000b0412f138a9e4",
       "candidate_sha256_domain": "REGISTERED_SOURCE_BYTES"
@@ -5122,9 +4160,7 @@
         "reason": "No exact-candidate approval citation is linked in the existing source evidence. A path, merge or folder name is not substituted for approval."
       },
       "comparison": "comparisons/FC-097.jpg",
-      "repeated_use_locations": [
-        "FC-033-02"
-      ],
+      "repeated_use_locations": ["FC-033-02"],
       "production_mapping_changed": false,
       "candidate_sha256": "28a39262d479491ffb33434ee98334d4c03c9296566166ac3d35a7727fd23935",
       "candidate_sha256_domain": "REGISTERED_SOURCE_BYTES"
@@ -5147,10 +4183,7 @@
         "reason": "No exact-candidate approval citation is linked in the existing source evidence. A path, merge or folder name is not substituted for approval."
       },
       "comparison": "comparisons/FC-097.jpg",
-      "repeated_use_locations": [
-        "FC-033-03",
-        "FC-042-02"
-      ],
+      "repeated_use_locations": ["FC-033-03", "FC-042-02"],
       "production_mapping_changed": false,
       "candidate_sha256": "0eeddfbadae14d775bbad608c569d465572923c359d9597d7d343597aab60714",
       "candidate_sha256_domain": "REGISTERED_SOURCE_BYTES"
@@ -5173,9 +4206,7 @@
         "reason": "No exact-candidate approval citation is linked in the existing source evidence. A path, merge or folder name is not substituted for approval."
       },
       "comparison": "comparisons/FC-097.jpg",
-      "repeated_use_locations": [
-        "FC-033-04"
-      ],
+      "repeated_use_locations": ["FC-033-04"],
       "production_mapping_changed": false,
       "candidate_sha256": "2f98ae25dbfba3efeb110b36c03e615666299bb5ece871d29add8338eebb08fb",
       "candidate_sha256_domain": "REGISTERED_SOURCE_BYTES"
@@ -5198,9 +4229,7 @@
         "reason": "No exact-candidate approval citation is linked in the existing source evidence. A path, merge or folder name is not substituted for approval."
       },
       "comparison": "comparisons/FC-097.jpg",
-      "repeated_use_locations": [
-        "FC-033-05"
-      ],
+      "repeated_use_locations": ["FC-033-05"],
       "production_mapping_changed": false,
       "candidate_sha256": "3ec82c48953809808c9a0ea36c7ca5fbd707b5f7e6dd44d39b322594b6f0ef0e",
       "candidate_sha256_domain": "REGISTERED_SOURCE_BYTES"
@@ -5223,9 +4252,7 @@
         "reason": "No exact-candidate approval citation is linked in the existing source evidence. A path, merge or folder name is not substituted for approval."
       },
       "comparison": "comparisons/FC-103.jpg",
-      "repeated_use_locations": [
-        "FC-033-06"
-      ],
+      "repeated_use_locations": ["FC-033-06"],
       "production_mapping_changed": false,
       "candidate_sha256": "e3ef42b12781ed7216e10a9a846f3361c46857619a9f86fe2f46724550595645",
       "candidate_sha256_domain": "REGISTERED_SOURCE_BYTES"
@@ -5248,9 +4275,7 @@
         "reason": "No exact-candidate approval citation is linked in the existing source evidence. A path, merge or folder name is not substituted for approval."
       },
       "comparison": "comparisons/FC-103.jpg",
-      "repeated_use_locations": [
-        "FC-035-01"
-      ],
+      "repeated_use_locations": ["FC-035-01"],
       "production_mapping_changed": false,
       "candidate_sha256": "32c1a3ce38243911233f04911c65cbe891357ad44cc7b525f50f68f4d7e91897",
       "candidate_sha256_domain": "REGISTERED_SOURCE_BYTES"
@@ -5273,9 +4298,7 @@
         "reason": "No exact-candidate approval citation is linked in the existing source evidence. A path, merge or folder name is not substituted for approval."
       },
       "comparison": "comparisons/FC-103.jpg",
-      "repeated_use_locations": [
-        "FC-036-01"
-      ],
+      "repeated_use_locations": ["FC-036-01"],
       "production_mapping_changed": false,
       "candidate_sha256": "bf7f19e1152d0fb4b585bf79cb05ab62799d4715eb0062f2681a78c1bae8a31d",
       "candidate_sha256_domain": "REGISTERED_SOURCE_BYTES"
@@ -5298,9 +4321,7 @@
         "reason": "No exact-candidate approval citation is linked in the existing source evidence. A path, merge or folder name is not substituted for approval."
       },
       "comparison": "comparisons/FC-103.jpg",
-      "repeated_use_locations": [
-        "FC-036-02"
-      ],
+      "repeated_use_locations": ["FC-036-02"],
       "production_mapping_changed": false,
       "candidate_sha256": "3c4df2d705effaf6f770371ecabc175ddc36bd8994c7ab7783ec045ef85f3b0b",
       "candidate_sha256_domain": "REGISTERED_SOURCE_BYTES"
@@ -5323,9 +4344,7 @@
         "reason": "No exact-candidate approval citation is linked in the existing source evidence. A path, merge or folder name is not substituted for approval."
       },
       "comparison": "comparisons/FC-103.jpg",
-      "repeated_use_locations": [
-        "FC-036-03"
-      ],
+      "repeated_use_locations": ["FC-036-03"],
       "production_mapping_changed": false,
       "candidate_sha256": "f81d18bc724f86c1db064e8c1a04efb338e75919510311ec4edc382b77a331a3",
       "candidate_sha256_domain": "REGISTERED_SOURCE_BYTES"
@@ -5348,9 +4367,7 @@
         "reason": "No exact-candidate approval citation is linked in the existing source evidence. A path, merge or folder name is not substituted for approval."
       },
       "comparison": "comparisons/FC-103.jpg",
-      "repeated_use_locations": [
-        "FC-036-04"
-      ],
+      "repeated_use_locations": ["FC-036-04"],
       "production_mapping_changed": false,
       "candidate_sha256": "73d217479e1bdb49991d972f27728da1a2fe5631a6090f0bc22ee1a271d7cfa9",
       "candidate_sha256_domain": "REGISTERED_SOURCE_BYTES"
@@ -5373,9 +4390,7 @@
         "reason": "No exact-candidate approval citation is linked in the existing source evidence. A path, merge or folder name is not substituted for approval."
       },
       "comparison": "comparisons/FC-109.jpg",
-      "repeated_use_locations": [
-        "FC-036-05"
-      ],
+      "repeated_use_locations": ["FC-036-05"],
       "production_mapping_changed": false,
       "candidate_sha256": "832a612a6af7ccbc8779dd8902af229d65a801ca63acc374cd0ba2535797b8a5",
       "candidate_sha256_domain": "REGISTERED_SOURCE_BYTES"
@@ -5398,9 +4413,7 @@
         "reason": "No exact-candidate approval citation is linked in the existing source evidence. A path, merge or folder name is not substituted for approval."
       },
       "comparison": "comparisons/FC-109.jpg",
-      "repeated_use_locations": [
-        "FC-036-06"
-      ],
+      "repeated_use_locations": ["FC-036-06"],
       "production_mapping_changed": false,
       "candidate_sha256": "ab03247ef567bed09969f37c7b58bb8ad55a837e59d6e8d9e4d2f00727e10130",
       "candidate_sha256_domain": "REGISTERED_SOURCE_BYTES"
@@ -5423,9 +4436,7 @@
         "reason": "No exact-candidate approval citation is linked in the existing source evidence. A path, merge or folder name is not substituted for approval."
       },
       "comparison": "comparisons/FC-109.jpg",
-      "repeated_use_locations": [
-        "FC-038-01"
-      ],
+      "repeated_use_locations": ["FC-038-01"],
       "production_mapping_changed": false,
       "candidate_sha256": "b0159f0b49b6502bcd02b4e1354faf49b5e0cf75179a70abc165944c13c5e71f",
       "candidate_sha256_domain": "REGISTERED_SOURCE_BYTES"
@@ -5448,9 +4459,7 @@
         "reason": "No exact-candidate approval citation is linked in the existing source evidence. A path, merge or folder name is not substituted for approval."
       },
       "comparison": "comparisons/FC-109.jpg",
-      "repeated_use_locations": [
-        "FC-039-01"
-      ],
+      "repeated_use_locations": ["FC-039-01"],
       "production_mapping_changed": false,
       "candidate_sha256": "34c483c6f78d8bd554ee59e4fe539dd273af72e6d89b34d7424735a33b4aabbe",
       "candidate_sha256_domain": "REGISTERED_SOURCE_BYTES"
@@ -5473,9 +4482,7 @@
         "reason": "No exact-candidate approval citation is linked in the existing source evidence. A path, merge or folder name is not substituted for approval."
       },
       "comparison": "comparisons/FC-109.jpg",
-      "repeated_use_locations": [
-        "FC-039-02"
-      ],
+      "repeated_use_locations": ["FC-039-02"],
       "production_mapping_changed": false,
       "candidate_sha256": "d32601e5581417472d045e334165d2f304f76ffa7227a8ac5e6d832891ad609d",
       "candidate_sha256_domain": "REGISTERED_SOURCE_BYTES"
@@ -5498,9 +4505,7 @@
         "reason": "No exact-candidate approval citation is linked in the existing source evidence. A path, merge or folder name is not substituted for approval."
       },
       "comparison": "comparisons/FC-109.jpg",
-      "repeated_use_locations": [
-        "FC-039-03"
-      ],
+      "repeated_use_locations": ["FC-039-03"],
       "production_mapping_changed": false,
       "candidate_sha256": "26721dd413bb7b1fc989ea0701505c277a8cd51d0efc9b72a7b9baf0f5015c92",
       "candidate_sha256_domain": "REGISTERED_SOURCE_BYTES"
@@ -5523,9 +4528,7 @@
         "reason": "No exact-candidate approval citation is linked in the existing source evidence. A path, merge or folder name is not substituted for approval."
       },
       "comparison": "comparisons/FC-115.jpg",
-      "repeated_use_locations": [
-        "FC-039-04"
-      ],
+      "repeated_use_locations": ["FC-039-04"],
       "production_mapping_changed": false,
       "candidate_sha256": "82f72e5daaf1f77dcdb1b3c711bd36d1730a8de9184b823a9060857c8f6d48b5",
       "candidate_sha256_domain": "REGISTERED_SOURCE_BYTES"
@@ -5548,9 +4551,7 @@
         "reason": "No exact-candidate approval citation is linked in the existing source evidence. A path, merge or folder name is not substituted for approval."
       },
       "comparison": "comparisons/FC-115.jpg",
-      "repeated_use_locations": [
-        "FC-039-05"
-      ],
+      "repeated_use_locations": ["FC-039-05"],
       "production_mapping_changed": false,
       "candidate_sha256": "4f17fa4f9f55b53c65ea8260bf913c0b626316085ba258b3d6a0dc87c44d6c9f",
       "candidate_sha256_domain": "REGISTERED_SOURCE_BYTES"
@@ -5573,9 +4574,7 @@
         "reason": "No exact-candidate approval citation is linked in the existing source evidence. A path, merge or folder name is not substituted for approval."
       },
       "comparison": "comparisons/FC-115.jpg",
-      "repeated_use_locations": [
-        "FC-039-06"
-      ],
+      "repeated_use_locations": ["FC-039-06"],
       "production_mapping_changed": false,
       "candidate_sha256": "9627859e245bd017c8d238dd8d8b9b367500ab452cc00c2a7c35d610bc837f95",
       "candidate_sha256_domain": "REGISTERED_SOURCE_BYTES"
@@ -5598,9 +4597,7 @@
         "reason": "No exact-candidate approval citation is linked in the existing source evidence. A path, merge or folder name is not substituted for approval."
       },
       "comparison": "comparisons/FC-115.jpg",
-      "repeated_use_locations": [
-        "FC-041-01"
-      ],
+      "repeated_use_locations": ["FC-041-01"],
       "production_mapping_changed": false,
       "candidate_sha256": "0e311ba60bf5e5986768364b5cb064302c7d65a4a160d82eb961a2f9c8ac1751",
       "candidate_sha256_domain": "REGISTERED_SOURCE_BYTES"
@@ -5623,9 +4620,7 @@
         "reason": "No exact-candidate approval citation is linked in the existing source evidence. A path, merge or folder name is not substituted for approval."
       },
       "comparison": "comparisons/FC-115.jpg",
-      "repeated_use_locations": [
-        "FC-042-01"
-      ],
+      "repeated_use_locations": ["FC-042-01"],
       "production_mapping_changed": false,
       "candidate_sha256": "8136023f9cf62ba36dc7c6ded96092fba27b1c6c31929ae39cbe49d8acfc1ed0",
       "candidate_sha256_domain": "REGISTERED_SOURCE_BYTES"
@@ -5648,10 +4643,7 @@
         "reason": "No exact-candidate approval citation is linked in the existing source evidence. A path, merge or folder name is not substituted for approval."
       },
       "comparison": "comparisons/FC-115.jpg",
-      "repeated_use_locations": [
-        "FC-033-03",
-        "FC-042-02"
-      ],
+      "repeated_use_locations": ["FC-033-03", "FC-042-02"],
       "production_mapping_changed": false,
       "candidate_sha256": "ee6894a7e53dd3052b235b84998d1678af83bff2fa78274394e76558307280d1",
       "candidate_sha256_domain": "REGISTERED_SOURCE_BYTES"
@@ -5674,9 +4666,7 @@
         "reason": "No exact-candidate approval citation is linked in the existing source evidence. A path, merge or folder name is not substituted for approval."
       },
       "comparison": "comparisons/FC-121.jpg",
-      "repeated_use_locations": [
-        "FC-042-03"
-      ],
+      "repeated_use_locations": ["FC-042-03"],
       "production_mapping_changed": false,
       "candidate_sha256": "5db57c1b6efd1711150956cd93dc87e174ea67d3e8fa3a5cc60beaf9de17bc8e",
       "candidate_sha256_domain": "REGISTERED_SOURCE_BYTES"
@@ -5699,9 +4689,7 @@
         "reason": "No exact-candidate approval citation is linked in the existing source evidence. A path, merge or folder name is not substituted for approval."
       },
       "comparison": "comparisons/FC-121.jpg",
-      "repeated_use_locations": [
-        "FC-042-04"
-      ],
+      "repeated_use_locations": ["FC-042-04"],
       "production_mapping_changed": false,
       "candidate_sha256": "f689cf8898274af1d917351f5796e17434ce4cd36e057bb4c57e0b167ff40eed",
       "candidate_sha256_domain": "REGISTERED_SOURCE_BYTES"
@@ -5724,9 +4712,7 @@
         "reason": "No exact-candidate approval citation is linked in the existing source evidence. A path, merge or folder name is not substituted for approval."
       },
       "comparison": "comparisons/FC-121.jpg",
-      "repeated_use_locations": [
-        "FC-042-05"
-      ],
+      "repeated_use_locations": ["FC-042-05"],
       "production_mapping_changed": false,
       "candidate_sha256": "8b9ba6b7e33ff898695e71fa3402f1f6cfe540de09d7ea25017f560d1404f66d",
       "candidate_sha256_domain": "REGISTERED_SOURCE_BYTES"
@@ -5749,9 +4735,7 @@
         "reason": "No exact-candidate approval citation is linked in the existing source evidence. A path, merge or folder name is not substituted for approval."
       },
       "comparison": "comparisons/FC-121.jpg",
-      "repeated_use_locations": [
-        "FC-042-06"
-      ],
+      "repeated_use_locations": ["FC-042-06"],
       "production_mapping_changed": false,
       "candidate_sha256": "7190a6cd5593cb0c54ebe8d331d0402b03864b8161a13966581c18e92c7e4d3b",
       "candidate_sha256_domain": "REGISTERED_SOURCE_BYTES"
@@ -5774,9 +4758,7 @@
         "reason": "No exact-candidate approval citation is linked in the existing source evidence. A path, merge or folder name is not substituted for approval."
       },
       "comparison": "comparisons/FC-121.jpg",
-      "repeated_use_locations": [
-        "FC-044-01"
-      ],
+      "repeated_use_locations": ["FC-044-01"],
       "production_mapping_changed": false,
       "candidate_sha256": "d87f26de856966768c3551986bf73f9e56172aff909b695d578efdbcaadd0c44",
       "candidate_sha256_domain": "REGISTERED_SOURCE_BYTES"
@@ -5799,9 +4781,7 @@
         "reason": "No exact-candidate approval citation is linked in the existing source evidence. A path, merge or folder name is not substituted for approval."
       },
       "comparison": "comparisons/FC-121.jpg",
-      "repeated_use_locations": [
-        "FC-045-01"
-      ],
+      "repeated_use_locations": ["FC-045-01"],
       "production_mapping_changed": false,
       "candidate_sha256": "daca8465ac306a48da3e9624b983f63af4036179caf487bd32d0aae7bb2657a3",
       "candidate_sha256_domain": "REGISTERED_SOURCE_BYTES"
@@ -5824,9 +4804,7 @@
         "reason": "No exact-candidate approval citation is linked in the existing source evidence. A path, merge or folder name is not substituted for approval."
       },
       "comparison": "comparisons/FC-127.jpg",
-      "repeated_use_locations": [
-        "FC-045-02"
-      ],
+      "repeated_use_locations": ["FC-045-02"],
       "production_mapping_changed": false,
       "candidate_sha256": "7ce80523578311fe047342fb0214f78af7da7c28e36831116265ce3cc61a79fb",
       "candidate_sha256_domain": "REGISTERED_SOURCE_BYTES"
@@ -5849,9 +4827,7 @@
         "reason": "No exact-candidate approval citation is linked in the existing source evidence. A path, merge or folder name is not substituted for approval."
       },
       "comparison": "comparisons/FC-127.jpg",
-      "repeated_use_locations": [
-        "FC-045-03"
-      ],
+      "repeated_use_locations": ["FC-045-03"],
       "production_mapping_changed": false,
       "candidate_sha256": "e206fc91fbc3067d55b8dbfa9a2d53402a0b606618119061c87b12b3393a94e2",
       "candidate_sha256_domain": "REGISTERED_SOURCE_BYTES"
@@ -5874,9 +4850,7 @@
         "reason": "No exact-candidate approval citation is linked in the existing source evidence. A path, merge or folder name is not substituted for approval."
       },
       "comparison": "comparisons/FC-127.jpg",
-      "repeated_use_locations": [
-        "FC-045-04"
-      ],
+      "repeated_use_locations": ["FC-045-04"],
       "production_mapping_changed": false,
       "candidate_sha256": "08f9e9c96c8842caf4c751a672dbb6baf4d9dd062c88ccc5deac61314de8ea4d",
       "candidate_sha256_domain": "REGISTERED_SOURCE_BYTES"
@@ -5899,9 +4873,7 @@
         "reason": "No exact-candidate approval citation is linked in the existing source evidence. A path, merge or folder name is not substituted for approval."
       },
       "comparison": "comparisons/FC-127.jpg",
-      "repeated_use_locations": [
-        "FC-045-05"
-      ],
+      "repeated_use_locations": ["FC-045-05"],
       "production_mapping_changed": false,
       "candidate_sha256": "d5ab1198b6d411ca1ff4174c167577c9157ef8e67ffc5965088fc20bab320844",
       "candidate_sha256_domain": "REGISTERED_SOURCE_BYTES"
@@ -5924,9 +4896,7 @@
         "reason": "No exact-candidate approval citation is linked in the existing source evidence. A path, merge or folder name is not substituted for approval."
       },
       "comparison": "comparisons/FC-127.jpg",
-      "repeated_use_locations": [
-        "FC-045-06"
-      ],
+      "repeated_use_locations": ["FC-045-06"],
       "production_mapping_changed": false,
       "candidate_sha256": "e8db22eec8ec0f40bd8a2938133a15f4ed41f6e2eff169714784a1265447b0b5",
       "candidate_sha256_domain": "REGISTERED_SOURCE_BYTES"
@@ -5949,9 +4919,7 @@
         "reason": "No exact-candidate approval citation is linked in the existing source evidence. A path, merge or folder name is not substituted for approval."
       },
       "comparison": "comparisons/FC-127.jpg",
-      "repeated_use_locations": [
-        "FC-047-01"
-      ],
+      "repeated_use_locations": ["FC-047-01"],
       "production_mapping_changed": false,
       "candidate_sha256": "6263550bb5e27b40f10a38bf126b28f89f3a68b090440e9a96ec27ed320099f1",
       "candidate_sha256_domain": "REGISTERED_SOURCE_BYTES"
@@ -5974,9 +4942,7 @@
         "reason": "No exact-candidate approval citation is linked in the existing source evidence. A path, merge or folder name is not substituted for approval."
       },
       "comparison": "comparisons/FC-133.jpg",
-      "repeated_use_locations": [
-        "FC-048-01"
-      ],
+      "repeated_use_locations": ["FC-048-01"],
       "production_mapping_changed": false,
       "candidate_sha256": "66de2c61335109e85614f8304872c93ac0865c052742630e96a68e9df7e5dad6",
       "candidate_sha256_domain": "REGISTERED_SOURCE_BYTES"
@@ -5999,9 +4965,7 @@
         "reason": "No exact-candidate approval citation is linked in the existing source evidence. A path, merge or folder name is not substituted for approval."
       },
       "comparison": "comparisons/FC-133.jpg",
-      "repeated_use_locations": [
-        "FC-048-02"
-      ],
+      "repeated_use_locations": ["FC-048-02"],
       "production_mapping_changed": false,
       "candidate_sha256": "0dff03ab499e72b2876da2a473faaeb88acb7292ac14abffa1cb83e17abecc04",
       "candidate_sha256_domain": "REGISTERED_SOURCE_BYTES"
@@ -6024,9 +4988,7 @@
         "reason": "No exact-candidate approval citation is linked in the existing source evidence. A path, merge or folder name is not substituted for approval."
       },
       "comparison": "comparisons/FC-133.jpg",
-      "repeated_use_locations": [
-        "FC-048-03"
-      ],
+      "repeated_use_locations": ["FC-048-03"],
       "production_mapping_changed": false,
       "candidate_sha256": "a2569ab214a7ca83b9c263a44266a7ba9e3c14062dfafad9aeb551be21da2e51",
       "candidate_sha256_domain": "REGISTERED_SOURCE_BYTES"
@@ -6049,9 +5011,7 @@
         "reason": "No exact-candidate approval citation is linked in the existing source evidence. A path, merge or folder name is not substituted for approval."
       },
       "comparison": "comparisons/FC-133.jpg",
-      "repeated_use_locations": [
-        "FC-048-04"
-      ],
+      "repeated_use_locations": ["FC-048-04"],
       "production_mapping_changed": false,
       "candidate_sha256": "c247d1d08e36814be5fb2c6fd382e7855e6a14f97747159f38958fa3601dfb49",
       "candidate_sha256_domain": "REGISTERED_SOURCE_BYTES"
@@ -6074,9 +5034,7 @@
         "reason": "No exact-candidate approval citation is linked in the existing source evidence. A path, merge or folder name is not substituted for approval."
       },
       "comparison": "comparisons/FC-133.jpg",
-      "repeated_use_locations": [
-        "FC-048-05"
-      ],
+      "repeated_use_locations": ["FC-048-05"],
       "production_mapping_changed": false,
       "candidate_sha256": "3fbfcbf5455d3af3b0cad83f65448c54fcceafd75b9af2d0c838ec7519ebe629",
       "candidate_sha256_domain": "REGISTERED_SOURCE_BYTES"
@@ -6099,9 +5057,7 @@
         "reason": "No exact-candidate approval citation is linked in the existing source evidence. A path, merge or folder name is not substituted for approval."
       },
       "comparison": "comparisons/FC-133.jpg",
-      "repeated_use_locations": [
-        "FC-048-06"
-      ],
+      "repeated_use_locations": ["FC-048-06"],
       "production_mapping_changed": false,
       "candidate_sha256": "82f9f7caf0ea5176073cb9a62ece7f00b31b2f21341d8ca245761edeeaf1c0db",
       "candidate_sha256_domain": "REGISTERED_SOURCE_BYTES"
@@ -6124,9 +5080,7 @@
         "reason": "No exact-candidate approval citation is linked in the existing source evidence. A path, merge or folder name is not substituted for approval."
       },
       "comparison": "comparisons/FC-139.jpg",
-      "repeated_use_locations": [
-        "FC-050-01"
-      ],
+      "repeated_use_locations": ["FC-050-01"],
       "production_mapping_changed": false,
       "candidate_sha256": "79fb627881ae0c8c094116faa3dac4c9fc5364e9470fa0d06e8869a4e2390ccd",
       "candidate_sha256_domain": "REGISTERED_SOURCE_BYTES"
@@ -6149,9 +5103,7 @@
         "reason": "No exact-candidate approval citation is linked in the existing source evidence. A path, merge or folder name is not substituted for approval."
       },
       "comparison": "comparisons/FC-139.jpg",
-      "repeated_use_locations": [
-        "FC-051-01"
-      ],
+      "repeated_use_locations": ["FC-051-01"],
       "production_mapping_changed": false,
       "candidate_sha256": "22c46279ac9d1ca1de41dde3737eae1662c0ba2f73f2d45dcf8438c7df9e1457",
       "candidate_sha256_domain": "REGISTERED_SOURCE_BYTES"
@@ -6174,9 +5126,7 @@
         "reason": "No exact-candidate approval citation is linked in the existing source evidence. A path, merge or folder name is not substituted for approval."
       },
       "comparison": "comparisons/FC-139.jpg",
-      "repeated_use_locations": [
-        "FC-051-02"
-      ],
+      "repeated_use_locations": ["FC-051-02"],
       "production_mapping_changed": false,
       "candidate_sha256": "195abb5e60528f5056b9cf56e8c6b72df9e1626e17d0528d3da5027486763ba1",
       "candidate_sha256_domain": "REGISTERED_SOURCE_BYTES"
@@ -6199,9 +5149,7 @@
         "reason": "No exact-candidate approval citation is linked in the existing source evidence. A path, merge or folder name is not substituted for approval."
       },
       "comparison": "comparisons/FC-139.jpg",
-      "repeated_use_locations": [
-        "FC-051-03"
-      ],
+      "repeated_use_locations": ["FC-051-03"],
       "production_mapping_changed": false,
       "candidate_sha256": "0a1a6787ce243787a742addb233b1df2a0031480987180b29be21bdd6fba81c8",
       "candidate_sha256_domain": "REGISTERED_SOURCE_BYTES"
@@ -6224,9 +5172,7 @@
         "reason": "No exact-candidate approval citation is linked in the existing source evidence. A path, merge or folder name is not substituted for approval."
       },
       "comparison": "comparisons/FC-139.jpg",
-      "repeated_use_locations": [
-        "FC-051-04"
-      ],
+      "repeated_use_locations": ["FC-051-04"],
       "production_mapping_changed": false,
       "candidate_sha256": "3961ccc6b23c7e37bfa3838796fb91e6b9f6dd3b381ab62f469c7f00d15e46db",
       "candidate_sha256_domain": "REGISTERED_SOURCE_BYTES"
@@ -6249,9 +5195,7 @@
         "reason": "No exact-candidate approval citation is linked in the existing source evidence. A path, merge or folder name is not substituted for approval."
       },
       "comparison": "comparisons/FC-139.jpg",
-      "repeated_use_locations": [
-        "FC-051-05"
-      ],
+      "repeated_use_locations": ["FC-051-05"],
       "production_mapping_changed": false,
       "candidate_sha256": "df10b9233d81b4d9fc3f5ede43bc327ec7b418d0c0b659d4ed627c6e4fb94905",
       "candidate_sha256_domain": "REGISTERED_SOURCE_BYTES"
@@ -6274,9 +5218,7 @@
         "reason": "No exact-candidate approval citation is linked in the existing source evidence. A path, merge or folder name is not substituted for approval."
       },
       "comparison": "comparisons/FC-145.jpg",
-      "repeated_use_locations": [
-        "FC-051-06"
-      ],
+      "repeated_use_locations": ["FC-051-06"],
       "production_mapping_changed": false,
       "candidate_sha256": "f3eebfd4f82a30621862eca9c84d08f4ada9c61f031a12734cec053d757fb912",
       "candidate_sha256_domain": "REGISTERED_SOURCE_BYTES"
@@ -6299,9 +5241,7 @@
         "reason": "No exact-candidate approval citation is linked in the existing source evidence. A path, merge or folder name is not substituted for approval."
       },
       "comparison": "comparisons/FC-145.jpg",
-      "repeated_use_locations": [
-        "FC-053-01"
-      ],
+      "repeated_use_locations": ["FC-053-01"],
       "production_mapping_changed": false,
       "candidate_sha256": "f378edc2854b497daf0992a1f5859445a25829d7c164dee3b55b139e560c1936",
       "candidate_sha256_domain": "REGISTERED_SOURCE_BYTES"
@@ -6324,9 +5264,7 @@
         "reason": "No exact-candidate approval citation is linked in the existing source evidence. A path, merge or folder name is not substituted for approval."
       },
       "comparison": "comparisons/FC-145.jpg",
-      "repeated_use_locations": [
-        "FC-054-01"
-      ],
+      "repeated_use_locations": ["FC-054-01"],
       "production_mapping_changed": false,
       "candidate_sha256": "a5a46a2805929946a95cfac5076e6422de15d6df051f290d29e652cd1449a4d9",
       "candidate_sha256_domain": "REGISTERED_SOURCE_BYTES"
@@ -6349,9 +5287,7 @@
         "reason": "No exact-candidate approval citation is linked in the existing source evidence. A path, merge or folder name is not substituted for approval."
       },
       "comparison": "comparisons/FC-145.jpg",
-      "repeated_use_locations": [
-        "FC-054-02"
-      ],
+      "repeated_use_locations": ["FC-054-02"],
       "production_mapping_changed": false,
       "candidate_sha256": "b2a1761d51c93b870be18a47cf996435c4521c26a5d7c9f844e1ebbf0cd9fbfc",
       "candidate_sha256_domain": "REGISTERED_SOURCE_BYTES"
@@ -6374,9 +5310,7 @@
         "reason": "No exact-candidate approval citation is linked in the existing source evidence. A path, merge or folder name is not substituted for approval."
       },
       "comparison": "comparisons/FC-145.jpg",
-      "repeated_use_locations": [
-        "FC-054-03"
-      ],
+      "repeated_use_locations": ["FC-054-03"],
       "production_mapping_changed": false,
       "candidate_sha256": "e9b03b216e33fc918f32b867ccd1670830a454a41eb761cb71c5d2a81c0d0774",
       "candidate_sha256_domain": "REGISTERED_SOURCE_BYTES"
@@ -6399,9 +5333,7 @@
         "reason": "No exact-candidate approval citation is linked in the existing source evidence. A path, merge or folder name is not substituted for approval."
       },
       "comparison": "comparisons/FC-145.jpg",
-      "repeated_use_locations": [
-        "FC-054-04"
-      ],
+      "repeated_use_locations": ["FC-054-04"],
       "production_mapping_changed": false,
       "candidate_sha256": "fbd51541452b7e61cae7d3680b05e5e09263457d4f6f712ed6bdd2bc7ee4c72c",
       "candidate_sha256_domain": "REGISTERED_SOURCE_BYTES"
@@ -6424,9 +5356,7 @@
         "reason": "No exact-candidate approval citation is linked in the existing source evidence. A path, merge or folder name is not substituted for approval."
       },
       "comparison": "comparisons/FC-151.jpg",
-      "repeated_use_locations": [
-        "FC-054-05"
-      ],
+      "repeated_use_locations": ["FC-054-05"],
       "production_mapping_changed": false,
       "candidate_sha256": "6009374105062e6c17433787b2b7de02a8487a832391c9045313bfaf967c35ab",
       "candidate_sha256_domain": "REGISTERED_SOURCE_BYTES"
@@ -6449,9 +5379,7 @@
         "reason": "No exact-candidate approval citation is linked in the existing source evidence. A path, merge or folder name is not substituted for approval."
       },
       "comparison": "comparisons/FC-151.jpg",
-      "repeated_use_locations": [
-        "FC-054-06"
-      ],
+      "repeated_use_locations": ["FC-054-06"],
       "production_mapping_changed": false,
       "candidate_sha256": "fe0cc0dfe25cb6e3ecdb935c555087a87ddae86a4eb311a84fce9e7ef08771ab",
       "candidate_sha256_domain": "REGISTERED_SOURCE_BYTES"
@@ -6474,9 +5402,7 @@
         "reason": "No exact-candidate approval citation is linked in the existing source evidence. A path, merge or folder name is not substituted for approval."
       },
       "comparison": "comparisons/FC-151.jpg",
-      "repeated_use_locations": [
-        "FC-056-01"
-      ],
+      "repeated_use_locations": ["FC-056-01"],
       "production_mapping_changed": false,
       "candidate_sha256": "f861369a1d1b4535b39331f7743187754caa8099c7eb8b257217c1e03a021a5d",
       "candidate_sha256_domain": "REGISTERED_SOURCE_BYTES"
@@ -6499,9 +5425,7 @@
         "reason": "No exact-candidate approval citation is linked in the existing source evidence. A path, merge or folder name is not substituted for approval."
       },
       "comparison": "comparisons/FC-151.jpg",
-      "repeated_use_locations": [
-        "FC-057-01"
-      ],
+      "repeated_use_locations": ["FC-057-01"],
       "production_mapping_changed": false,
       "candidate_sha256": "0f6bd7bb102886637a05e6de47e86d698c41db7abbe8efdfdb4eb07544f3cd6e",
       "candidate_sha256_domain": "REGISTERED_SOURCE_BYTES"
@@ -6524,9 +5448,7 @@
         "reason": "No exact-candidate approval citation is linked in the existing source evidence. A path, merge or folder name is not substituted for approval."
       },
       "comparison": "comparisons/FC-151.jpg",
-      "repeated_use_locations": [
-        "FC-057-02"
-      ],
+      "repeated_use_locations": ["FC-057-02"],
       "production_mapping_changed": false,
       "candidate_sha256": "a839c243b7d07664bf6572ba7e5de29f8d056e2fb03d50ec8240eb9f2d8a9be9",
       "candidate_sha256_domain": "REGISTERED_SOURCE_BYTES"
@@ -6549,9 +5471,7 @@
         "reason": "No exact-candidate approval citation is linked in the existing source evidence. A path, merge or folder name is not substituted for approval."
       },
       "comparison": "comparisons/FC-151.jpg",
-      "repeated_use_locations": [
-        "FC-057-03"
-      ],
+      "repeated_use_locations": ["FC-057-03"],
       "production_mapping_changed": false,
       "candidate_sha256": "ef6c24dea183c21000714d20c22836073b0ce547bfa95bdb59dc78c6cb17edd5",
       "candidate_sha256_domain": "REGISTERED_SOURCE_BYTES"
@@ -6574,9 +5494,7 @@
         "reason": "No exact-candidate approval citation is linked in the existing source evidence. A path, merge or folder name is not substituted for approval."
       },
       "comparison": "comparisons/FC-157.jpg",
-      "repeated_use_locations": [
-        "FC-057-04"
-      ],
+      "repeated_use_locations": ["FC-057-04"],
       "production_mapping_changed": false,
       "candidate_sha256": "3628884317308b67f4ba4027c9f9f769afc43c39a5baea63913795c32cb1f808",
       "candidate_sha256_domain": "REGISTERED_SOURCE_BYTES"
@@ -6599,9 +5517,7 @@
         "reason": "No exact-candidate approval citation is linked in the existing source evidence. A path, merge or folder name is not substituted for approval."
       },
       "comparison": "comparisons/FC-157.jpg",
-      "repeated_use_locations": [
-        "FC-057-05"
-      ],
+      "repeated_use_locations": ["FC-057-05"],
       "production_mapping_changed": false,
       "candidate_sha256": "aae66fd99efa1d5bb481e44e3fc5fd81db1af704794770bd39fe866ddd30d087",
       "candidate_sha256_domain": "REGISTERED_SOURCE_BYTES"
@@ -6624,9 +5540,7 @@
         "reason": "No exact-candidate approval citation is linked in the existing source evidence. A path, merge or folder name is not substituted for approval."
       },
       "comparison": "comparisons/FC-157.jpg",
-      "repeated_use_locations": [
-        "FC-057-06"
-      ],
+      "repeated_use_locations": ["FC-057-06"],
       "production_mapping_changed": false,
       "candidate_sha256": "a375c09667975f394eca7e463f6e3b06247a3ab9089a14f8e626368f89f0358d",
       "candidate_sha256_domain": "REGISTERED_SOURCE_BYTES"
@@ -6649,9 +5563,7 @@
         "reason": "No exact-candidate approval citation is linked in the existing source evidence. A path, merge or folder name is not substituted for approval."
       },
       "comparison": "comparisons/FC-157.jpg",
-      "repeated_use_locations": [
-        "FC-059-01"
-      ],
+      "repeated_use_locations": ["FC-059-01"],
       "production_mapping_changed": false,
       "candidate_sha256": "b162f40f156efd54a95a07405852a4418775d5a5bce246653c372950e2b7fa56",
       "candidate_sha256_domain": "REGISTERED_SOURCE_BYTES"
@@ -6674,9 +5586,7 @@
         "reason": "No exact-candidate approval citation is linked in the existing source evidence. A path, merge or folder name is not substituted for approval."
       },
       "comparison": "comparisons/FC-157.jpg",
-      "repeated_use_locations": [
-        "FC-060-01"
-      ],
+      "repeated_use_locations": ["FC-060-01"],
       "production_mapping_changed": false,
       "candidate_sha256": "cea0116f822ef79ad42dc3282b2bb0a841c772d62448cb610dfeea8f990c8441",
       "candidate_sha256_domain": "REGISTERED_SOURCE_BYTES"
@@ -6699,9 +5609,7 @@
         "reason": "No exact-candidate approval citation is linked in the existing source evidence. A path, merge or folder name is not substituted for approval."
       },
       "comparison": "comparisons/FC-157.jpg",
-      "repeated_use_locations": [
-        "FC-060-02"
-      ],
+      "repeated_use_locations": ["FC-060-02"],
       "production_mapping_changed": false,
       "candidate_sha256": "bf280e8b350e3dab47a648911851167fad9d8c872204e6e8c63ac408a90f622f",
       "candidate_sha256_domain": "REGISTERED_SOURCE_BYTES"
@@ -6724,9 +5632,7 @@
         "reason": "No exact-candidate approval citation is linked in the existing source evidence. A path, merge or folder name is not substituted for approval."
       },
       "comparison": "comparisons/FC-163.jpg",
-      "repeated_use_locations": [
-        "FC-060-03"
-      ],
+      "repeated_use_locations": ["FC-060-03"],
       "production_mapping_changed": false,
       "candidate_sha256": "ef2e824b3c5da98b0a67a98dabe7b49532052ac80783e1d18f41912b7a8818fb",
       "candidate_sha256_domain": "REGISTERED_SOURCE_BYTES"
@@ -6749,9 +5655,7 @@
         "reason": "No exact-candidate approval citation is linked in the existing source evidence. A path, merge or folder name is not substituted for approval."
       },
       "comparison": "comparisons/FC-163.jpg",
-      "repeated_use_locations": [
-        "FC-060-04"
-      ],
+      "repeated_use_locations": ["FC-060-04"],
       "production_mapping_changed": false,
       "candidate_sha256": "b490aabe3cd810c0cfc273c2273d9b8d4026e9b0d9de893afe83a5037959e332",
       "candidate_sha256_domain": "REGISTERED_SOURCE_BYTES"
@@ -6774,9 +5678,7 @@
         "reason": "No exact-candidate approval citation is linked in the existing source evidence. A path, merge or folder name is not substituted for approval."
       },
       "comparison": "comparisons/FC-163.jpg",
-      "repeated_use_locations": [
-        "FC-060-05"
-      ],
+      "repeated_use_locations": ["FC-060-05"],
       "production_mapping_changed": false,
       "candidate_sha256": "d2fc75d87f09ead18caf37c1b3f98dfe48d9874aecb27cfdc37374ef7ad2e824",
       "candidate_sha256_domain": "REGISTERED_SOURCE_BYTES"
@@ -6799,9 +5701,7 @@
         "reason": "No exact-candidate approval citation is linked in the existing source evidence. A path, merge or folder name is not substituted for approval."
       },
       "comparison": "comparisons/FC-163.jpg",
-      "repeated_use_locations": [
-        "FC-060-06"
-      ],
+      "repeated_use_locations": ["FC-060-06"],
       "production_mapping_changed": false,
       "candidate_sha256": "66be7bd6808eab0985f71eaf3ba6da6e945af7c6b2de29653671162ee940ea17",
       "candidate_sha256_domain": "REGISTERED_SOURCE_BYTES"
@@ -6824,9 +5724,7 @@
         "reason": "No exact-candidate approval citation is linked in the existing source evidence. A path, merge or folder name is not substituted for approval."
       },
       "comparison": "comparisons/FC-163.jpg",
-      "repeated_use_locations": [
-        "FC-062-01"
-      ],
+      "repeated_use_locations": ["FC-062-01"],
       "production_mapping_changed": false,
       "candidate_sha256": "3bbd8a4f795b588ceea42501cedacfb92a486265e2d8978acdf057bfafb80d0b",
       "candidate_sha256_domain": "REGISTERED_SOURCE_BYTES"
@@ -6849,9 +5747,7 @@
         "reason": "No exact-candidate approval citation is linked in the existing source evidence. A path, merge or folder name is not substituted for approval."
       },
       "comparison": "pages/WB-001.jpg",
-      "repeated_use_locations": [
-        "WB-FRONT-001"
-      ],
+      "repeated_use_locations": ["WB-FRONT-001"],
       "production_mapping_changed": false
     },
     {
@@ -6872,9 +5768,7 @@
         "reason": "No exact-candidate approval citation is linked in the existing source evidence. A path, merge or folder name is not substituted for approval."
       },
       "comparison": "pages/WB-003.jpg",
-      "repeated_use_locations": [
-        "WB-FRONT-003"
-      ],
+      "repeated_use_locations": ["WB-FRONT-003"],
       "production_mapping_changed": false
     },
     {
@@ -6895,10 +5789,7 @@
         "reason": "No exact-candidate approval citation is linked in the existing source evidence. A path, merge or folder name is not substituted for approval."
       },
       "comparison": "comparisons/WB-001.jpg",
-      "repeated_use_locations": [
-        "WB-S007-OBJ01-UNIFORME-1",
-        "WB-S017-OBJ08-CHAQUETA"
-      ],
+      "repeated_use_locations": ["WB-S007-OBJ01-UNIFORME-1", "WB-S017-OBJ08-CHAQUETA"],
       "production_mapping_changed": false,
       "candidate_sha256": "44d7deb17425c4e1f8d63061a2b066223b698b2835b2293aa99bf993579b2592",
       "candidate_sha256_domain": "REGISTERED_SOURCE_BYTES"
@@ -7016,11 +5907,7 @@
         "reason": "No exact-candidate approval citation is linked in the existing source evidence. A path, merge or folder name is not substituted for approval."
       },
       "comparison": "comparisons/WB-001.jpg",
-      "repeated_use_locations": [
-        "WB-S007-OBJ05-ISLA",
-        "WB-S019-OBJ12-ISLA",
-        "FC-007-06"
-      ],
+      "repeated_use_locations": ["WB-S007-OBJ05-ISLA", "WB-S019-OBJ12-ISLA", "FC-007-06"],
       "production_mapping_changed": false,
       "candidate_sha256": "d2eb7f6cd79720685e4378524e07ef10ec6a0b5e863ffd24eed520940c758e3c",
       "candidate_sha256_domain": "GIT_BLOB_BYTES_LF"
@@ -7102,11 +5989,7 @@
         "reason": "No exact-candidate approval citation is linked in the existing source evidence. A path, merge or folder name is not substituted for approval."
       },
       "comparison": "comparisons/WB-007.jpg",
-      "repeated_use_locations": [
-        "WB-S007-OBJ08-ARO",
-        "WB-S013-OBJ03-ARO",
-        "WB-S014-OBJ08-ARO"
-      ],
+      "repeated_use_locations": ["WB-S007-OBJ08-ARO", "WB-S013-OBJ03-ARO", "WB-S014-OBJ08-ARO"],
       "production_mapping_changed": false,
       "candidate_sha256": "63fc05856c88cf805b6ef2d489b6e37054bbdd4b090738b2a69b3894f6f4393c",
       "candidate_sha256_domain": "GIT_BLOB_BYTES_LF"
@@ -7191,10 +6074,7 @@
         "reason": "No exact-candidate approval citation is linked in the existing source evidence. A path, merge or folder name is not substituted for approval."
       },
       "comparison": "comparisons/WB-007.jpg",
-      "repeated_use_locations": [
-        "WB-S007-OBJ11-ESCUELA",
-        "WB-S016-OBJ13-ESCUELA"
-      ],
+      "repeated_use_locations": ["WB-S007-OBJ11-ESCUELA", "WB-S016-OBJ13-ESCUELA"],
       "production_mapping_changed": false,
       "candidate_sha256": "647b72f72819ffef4b8b637ff4f9ae04877b02e068ad6edd1e161c6e6f55f3da",
       "candidate_sha256_domain": "REGISTERED_SOURCE_BYTES"
@@ -7366,9 +6246,7 @@
         "reason": "No exact-candidate approval citation is linked in the existing source evidence. A path, merge or folder name is not substituted for approval."
       },
       "comparison": "comparisons/WB-013.jpg",
-      "repeated_use_locations": [
-        "WB-S007-OBJ17-OJOS"
-      ],
+      "repeated_use_locations": ["WB-S007-OBJ17-OJOS"],
       "production_mapping_changed": false,
       "candidate_sha256": "60d3cef70285b038387bd5a7f37fb66708a9878d0d8da43c9958dfa26f276204",
       "candidate_sha256_domain": "REGISTERED_SOURCE_BYTES"
@@ -7481,9 +6359,7 @@
         "reason": "No exact-candidate approval citation is linked in the existing source evidence. A path, merge or folder name is not substituted for approval."
       },
       "comparison": "comparisons/WB-019.jpg",
-      "repeated_use_locations": [
-        "WB-S008-OBJ01-ARO"
-      ],
+      "repeated_use_locations": ["WB-S008-OBJ01-ARO"],
       "production_mapping_changed": false,
       "candidate_sha256": "e2d3bbf6c1a7a406f6597162f036bb8bd945bc7f78a335b7a1a26d39c24ba5ce",
       "candidate_sha256_domain": "REGISTERED_SOURCE_BYTES"
@@ -7506,9 +6382,7 @@
         "reason": "No exact-candidate approval citation is linked in the existing source evidence. A path, merge or folder name is not substituted for approval."
       },
       "comparison": "comparisons/WB-019.jpg",
-      "repeated_use_locations": [
-        "WB-S008-OBJ02-MANZANA"
-      ],
+      "repeated_use_locations": ["WB-S008-OBJ02-MANZANA"],
       "production_mapping_changed": false,
       "candidate_sha256": "1021c8c3842f5f9078faf756663113c12da061934a199e15317b5a6e9a119972",
       "candidate_sha256_domain": "REGISTERED_SOURCE_BYTES"
@@ -7531,9 +6405,7 @@
         "reason": "No exact-candidate approval citation is linked in the existing source evidence. A path, merge or folder name is not substituted for approval."
       },
       "comparison": "comparisons/WB-019.jpg",
-      "repeated_use_locations": [
-        "WB-S008-OBJ03-LIBRO"
-      ],
+      "repeated_use_locations": ["WB-S008-OBJ03-LIBRO"],
       "production_mapping_changed": false,
       "candidate_sha256": "f0d52522950c4cfaef94adb57c6b076ebb34c48cba5438d9312063499a9c0208",
       "candidate_sha256_domain": "REGISTERED_SOURCE_BYTES"
@@ -7556,9 +6428,7 @@
         "reason": "No exact-candidate approval citation is linked in the existing source evidence. A path, merge or folder name is not substituted for approval."
       },
       "comparison": "comparisons/WB-019.jpg",
-      "repeated_use_locations": [
-        "WB-S008-OBJ04-ESCUELA"
-      ],
+      "repeated_use_locations": ["WB-S008-OBJ04-ESCUELA"],
       "production_mapping_changed": false,
       "candidate_sha256": "991fa2ac978bec8a3e839438e1f5f38bce572f3d9222df6bb70aff7e1a0704f0",
       "candidate_sha256_domain": "REGISTERED_SOURCE_BYTES"
@@ -7639,9 +6509,7 @@
         "reason": "No exact-candidate approval citation is linked in the existing source evidence. A path, merge or folder name is not substituted for approval."
       },
       "comparison": "comparisons/WB-025.jpg",
-      "repeated_use_locations": [
-        "WB-S008-OBJ07-TAZA"
-      ],
+      "repeated_use_locations": ["WB-S008-OBJ07-TAZA"],
       "production_mapping_changed": false,
       "candidate_sha256": "de928351ad7291c3ac5757d21e93dc66db0c7a661c6bfab6269cdc181462d74e",
       "candidate_sha256_domain": "REGISTERED_SOURCE_BYTES"
@@ -7693,9 +6561,7 @@
         "reason": "No exact-candidate approval citation is linked in the existing source evidence. A path, merge or folder name is not substituted for approval."
       },
       "comparison": "comparisons/WB-025.jpg",
-      "repeated_use_locations": [
-        "WB-S008-OBJ09-PERA"
-      ],
+      "repeated_use_locations": ["WB-S008-OBJ09-PERA"],
       "production_mapping_changed": false,
       "candidate_sha256": "ffd961282135cbd91dae1bb1759402840423360aca0fc2831364b92ca1a615a5",
       "candidate_sha256_domain": "REGISTERED_SOURCE_BYTES"
@@ -7718,9 +6584,7 @@
         "reason": "No exact-candidate approval citation is linked in the existing source evidence. A path, merge or folder name is not substituted for approval."
       },
       "comparison": "comparisons/WB-025.jpg",
-      "repeated_use_locations": [
-        "WB-S008-OBJ10-PAJARO"
-      ],
+      "repeated_use_locations": ["WB-S008-OBJ10-PAJARO"],
       "production_mapping_changed": false,
       "candidate_sha256": "fcfc800fc3bfbcb675ede388cdbc88eca15253d9e1d0775020e8ebdf9883ed7c",
       "candidate_sha256_domain": "REGISTERED_SOURCE_BYTES"
@@ -7780,9 +6644,7 @@
         "reason": "No exact-candidate approval citation is linked in the existing source evidence. A path, merge or folder name is not substituted for approval."
       },
       "comparison": "comparisons/WB-031.jpg",
-      "repeated_use_locations": [
-        "WB-S008-OBJ12-CARRO"
-      ],
+      "repeated_use_locations": ["WB-S008-OBJ12-CARRO"],
       "production_mapping_changed": false,
       "candidate_sha256": "9a6c158c497843da73d981cd017761434029df313524404d7bd59683ae10e140",
       "candidate_sha256_domain": "REGISTERED_SOURCE_BYTES"
@@ -7837,9 +6699,7 @@
         "reason": "No exact-candidate approval citation is linked in the existing source evidence. A path, merge or folder name is not substituted for approval."
       },
       "comparison": "comparisons/WB-031.jpg",
-      "repeated_use_locations": [
-        "WB-S008-OBJ14-GLOBO"
-      ],
+      "repeated_use_locations": ["WB-S008-OBJ14-GLOBO"],
       "production_mapping_changed": false,
       "candidate_sha256": "d2105fc2c8dfe42fcd3c5637371f355ccf821e104d396a2b62f8649b6d61d109",
       "candidate_sha256_domain": "REGISTERED_SOURCE_BYTES"
@@ -7862,9 +6722,7 @@
         "reason": "No exact-candidate approval citation is linked in the existing source evidence. A path, merge or folder name is not substituted for approval."
       },
       "comparison": "comparisons/WB-031.jpg",
-      "repeated_use_locations": [
-        "WB-S008-OBJ15-DULCE"
-      ],
+      "repeated_use_locations": ["WB-S008-OBJ15-DULCE"],
       "production_mapping_changed": false,
       "candidate_sha256": "c671b23de9d6efecb736655441dbadf22de9d19780d832dd422c60e33dc2a052",
       "candidate_sha256_domain": "REGISTERED_SOURCE_BYTES"
@@ -7887,9 +6745,7 @@
         "reason": "No exact-candidate approval citation is linked in the existing source evidence. A path, merge or folder name is not substituted for approval."
       },
       "comparison": "comparisons/WB-031.jpg",
-      "repeated_use_locations": [
-        "WB-S009-OBJ01-IGLESIA"
-      ],
+      "repeated_use_locations": ["WB-S009-OBJ01-IGLESIA"],
       "production_mapping_changed": false,
       "candidate_sha256": "3747101ccd2e49b823f43da39ccb3171eeb213dbbc99ef0d7d0b4d1d39c5392b",
       "candidate_sha256_domain": "REGISTERED_SOURCE_BYTES"
@@ -7912,11 +6768,7 @@
         "reason": "No exact-candidate approval citation is linked in the existing source evidence. A path, merge or folder name is not substituted for approval."
       },
       "comparison": "comparisons/WB-037.jpg",
-      "repeated_use_locations": [
-        "WB-S009-OBJ02-OCHO",
-        "WB-S010-OBJ11-OCHO",
-        "FC-004-07"
-      ],
+      "repeated_use_locations": ["WB-S009-OBJ02-OCHO", "WB-S010-OBJ11-OCHO", "FC-004-07"],
       "production_mapping_changed": false,
       "candidate_sha256": "57e774105813678e5df5ab957530f67d0b5948936ef884054c9f4b23b6725bfb",
       "candidate_sha256_domain": "REGISTERED_SOURCE_BYTES"
@@ -7939,11 +6791,7 @@
         "reason": "No exact-candidate approval citation is linked in the existing source evidence. A path, merge or folder name is not substituted for approval."
       },
       "comparison": "comparisons/WB-037.jpg",
-      "repeated_use_locations": [
-        "WB-S009-OBJ03-ARANA",
-        "WB-S010-OBJ13-ARANA",
-        "FC-005-04"
-      ],
+      "repeated_use_locations": ["WB-S009-OBJ03-ARANA", "WB-S010-OBJ13-ARANA", "FC-005-04"],
       "production_mapping_changed": false,
       "candidate_sha256": "9d90c866b946b8859ff92886eee2c2c6ca9ffe78527d8f50e89218f79b59c918",
       "candidate_sha256_domain": "REGISTERED_SOURCE_BYTES"
@@ -8000,10 +6848,7 @@
         "reason": "No exact-candidate approval citation is linked in the existing source evidence. A path, merge or folder name is not substituted for approval."
       },
       "comparison": "comparisons/WB-037.jpg",
-      "repeated_use_locations": [
-        "WB-S009-OBJ05-ESCOBA",
-        "WB-S016-OBJ09-ESCOBA"
-      ],
+      "repeated_use_locations": ["WB-S009-OBJ05-ESCOBA", "WB-S016-OBJ09-ESCOBA"],
       "production_mapping_changed": false,
       "candidate_sha256": "6f4a542ddde9d03b03f0987d9813bafded1d946632cb0f2c1c12acf4e9732091",
       "candidate_sha256_domain": "REGISTERED_SOURCE_BYTES"
@@ -8026,11 +6871,7 @@
         "reason": "No exact-candidate approval citation is linked in the existing source evidence. A path, merge or folder name is not substituted for approval."
       },
       "comparison": "comparisons/WB-037.jpg",
-      "repeated_use_locations": [
-        "WB-S010-OBJ01-OLA",
-        "WB-S011-OBJ06-OLA",
-        "WB-S019-OBJ09-OLA"
-      ],
+      "repeated_use_locations": ["WB-S010-OBJ01-OLA", "WB-S011-OBJ06-OLA", "WB-S019-OBJ09-OLA"],
       "production_mapping_changed": false,
       "candidate_sha256": "61dd81317cbbf7fa5e43b09c09ad1d9b21a68db790c39c0a4857aa088876d313",
       "candidate_sha256_domain": "REGISTERED_SOURCE_BYTES"
@@ -8210,10 +7051,7 @@
         "reason": "No exact-candidate approval citation is linked in the existing source evidence. A path, merge or folder name is not substituted for approval."
       },
       "comparison": "comparisons/WB-043.jpg",
-      "repeated_use_locations": [
-        "WB-S010-OBJ07-ALA",
-        "WB-S013-OBJ10-ALA"
-      ],
+      "repeated_use_locations": ["WB-S010-OBJ07-ALA", "WB-S013-OBJ10-ALA"],
       "production_mapping_changed": false,
       "candidate_sha256": "6a923fda703e0812a908b7ee2e0606d2d67fd5acf3ad3ba579f99922910fe671",
       "candidate_sha256_domain": "REGISTERED_SOURCE_BYTES"
@@ -8294,11 +7132,7 @@
         "reason": "No exact-candidate approval citation is linked in the existing source evidence. A path, merge or folder name is not substituted for approval."
       },
       "comparison": "comparisons/WB-049.jpg",
-      "repeated_use_locations": [
-        "WB-S010-OBJ10-UVA",
-        "WB-S022-OBJ05-UVA",
-        "WB-S023-OBJ04-UVA"
-      ],
+      "repeated_use_locations": ["WB-S010-OBJ10-UVA", "WB-S022-OBJ05-UVA", "WB-S023-OBJ04-UVA"],
       "production_mapping_changed": false,
       "candidate_sha256": "2413df1fb07b25b5f40edf0bb96d0a636020eb65ff5c8637f2bf9695735a3c41",
       "candidate_sha256_domain": "REGISTERED_SOURCE_BYTES"
@@ -8321,11 +7155,7 @@
         "reason": "No exact-candidate approval citation is linked in the existing source evidence. A path, merge or folder name is not substituted for approval."
       },
       "comparison": "comparisons/WB-049.jpg",
-      "repeated_use_locations": [
-        "WB-S009-OBJ02-OCHO",
-        "WB-S010-OBJ11-OCHO",
-        "FC-004-07"
-      ],
+      "repeated_use_locations": ["WB-S009-OBJ02-OCHO", "WB-S010-OBJ11-OCHO", "FC-004-07"],
       "production_mapping_changed": false,
       "candidate_sha256": "57e774105813678e5df5ab957530f67d0b5948936ef884054c9f4b23b6725bfb",
       "candidate_sha256_domain": "REGISTERED_SOURCE_BYTES"
@@ -8382,11 +7212,7 @@
         "reason": "No exact-candidate approval citation is linked in the existing source evidence. A path, merge or folder name is not substituted for approval."
       },
       "comparison": "comparisons/WB-049.jpg",
-      "repeated_use_locations": [
-        "WB-S009-OBJ03-ARANA",
-        "WB-S010-OBJ13-ARANA",
-        "FC-005-04"
-      ],
+      "repeated_use_locations": ["WB-S009-OBJ03-ARANA", "WB-S010-OBJ13-ARANA", "FC-005-04"],
       "production_mapping_changed": false,
       "candidate_sha256": "9d90c866b946b8859ff92886eee2c2c6ca9ffe78527d8f50e89218f79b59c918",
       "candidate_sha256_domain": "REGISTERED_SOURCE_BYTES"
@@ -8478,11 +7304,7 @@
         "reason": "No exact-candidate approval citation is linked in the existing source evidence. A path, merge or folder name is not substituted for approval."
       },
       "comparison": "comparisons/WB-055.jpg",
-      "repeated_use_locations": [
-        "WB-S010-OBJ16-OJOS",
-        "WB-S011-OBJ03-OJOS",
-        "WB-S013-OBJ13-OJOS"
-      ],
+      "repeated_use_locations": ["WB-S010-OBJ16-OJOS", "WB-S011-OBJ03-OJOS", "WB-S013-OBJ13-OJOS"],
       "production_mapping_changed": false,
       "candidate_sha256": "cd45239f16e938c055a773e8690f0cb3f744721d09e37d7e6437883e0e835ee9",
       "candidate_sha256_domain": "REGISTERED_SOURCE_BYTES"
@@ -8566,11 +7388,7 @@
         "reason": "No exact-candidate approval citation is linked in the existing source evidence. A path, merge or folder name is not substituted for approval."
       },
       "comparison": "comparisons/WB-055.jpg",
-      "repeated_use_locations": [
-        "WB-S010-OBJ16-OJOS",
-        "WB-S011-OBJ03-OJOS",
-        "WB-S013-OBJ13-OJOS"
-      ],
+      "repeated_use_locations": ["WB-S010-OBJ16-OJOS", "WB-S011-OBJ03-OJOS", "WB-S013-OBJ13-OJOS"],
       "production_mapping_changed": false,
       "candidate_sha256": "cd45239f16e938c055a773e8690f0cb3f744721d09e37d7e6437883e0e835ee9",
       "candidate_sha256_domain": "REGISTERED_SOURCE_BYTES"
@@ -8651,11 +7469,7 @@
         "reason": "No exact-candidate approval citation is linked in the existing source evidence. A path, merge or folder name is not substituted for approval."
       },
       "comparison": "comparisons/WB-061.jpg",
-      "repeated_use_locations": [
-        "WB-S010-OBJ01-OLA",
-        "WB-S011-OBJ06-OLA",
-        "WB-S019-OBJ09-OLA"
-      ],
+      "repeated_use_locations": ["WB-S010-OBJ01-OLA", "WB-S011-OBJ06-OLA", "WB-S019-OBJ09-OLA"],
       "production_mapping_changed": false,
       "candidate_sha256": "61dd81317cbbf7fa5e43b09c09ad1d9b21a68db790c39c0a4857aa088876d313",
       "candidate_sha256_domain": "REGISTERED_SOURCE_BYTES"
@@ -8715,11 +7529,7 @@
         "reason": "No exact-candidate approval citation is linked in the existing source evidence. A path, merge or folder name is not substituted for approval."
       },
       "comparison": "comparisons/WB-061.jpg",
-      "repeated_use_locations": [
-        "WB-S011-OBJ08-ALA",
-        "WB-S014-OBJ03-ALA",
-        "WB-S019-OBJ07-ALA"
-      ],
+      "repeated_use_locations": ["WB-S011-OBJ08-ALA", "WB-S014-OBJ03-ALA", "WB-S019-OBJ07-ALA"],
       "production_mapping_changed": false,
       "candidate_sha256": "6a923fda703e0812a908b7ee2e0606d2d67fd5acf3ad3ba579f99922910fe671",
       "candidate_sha256_domain": "REGISTERED_SOURCE_BYTES"
@@ -8770,9 +7580,7 @@
         "reason": "No exact-candidate approval citation is linked in the existing source evidence. A path, merge or folder name is not substituted for approval."
       },
       "comparison": "comparisons/WB-061.jpg",
-      "repeated_use_locations": [
-        "WB-S013-OBJ02-ORUGA"
-      ],
+      "repeated_use_locations": ["WB-S013-OBJ02-ORUGA"],
       "production_mapping_changed": false,
       "candidate_sha256": "69977ee19c874c68a1e82d0f7747b4fae8e79640cd961e23c3d4ea9ec3046ead",
       "candidate_sha256_domain": "REGISTERED_SOURCE_BYTES"
@@ -8795,11 +7603,7 @@
         "reason": "No exact-candidate approval citation is linked in the existing source evidence. A path, merge or folder name is not substituted for approval."
       },
       "comparison": "comparisons/WB-067.jpg",
-      "repeated_use_locations": [
-        "WB-S007-OBJ08-ARO",
-        "WB-S013-OBJ03-ARO",
-        "WB-S014-OBJ08-ARO"
-      ],
+      "repeated_use_locations": ["WB-S007-OBJ08-ARO", "WB-S013-OBJ03-ARO", "WB-S014-OBJ08-ARO"],
       "production_mapping_changed": false,
       "candidate_sha256": "c0ce78535ac9b93efcc4a5fafa77f427f975fe592685f751c38287c9ac5a2c4b",
       "candidate_sha256_domain": "REGISTERED_SOURCE_BYTES"
@@ -9003,10 +7807,7 @@
         "reason": "No exact-candidate approval citation is linked in the existing source evidence. A path, merge or folder name is not substituted for approval."
       },
       "comparison": "comparisons/WB-073.jpg",
-      "repeated_use_locations": [
-        "WB-S010-OBJ07-ALA",
-        "WB-S013-OBJ10-ALA"
-      ],
+      "repeated_use_locations": ["WB-S010-OBJ07-ALA", "WB-S013-OBJ10-ALA"],
       "production_mapping_changed": false,
       "candidate_sha256": "6a923fda703e0812a908b7ee2e0606d2d67fd5acf3ad3ba579f99922910fe671",
       "candidate_sha256_domain": "REGISTERED_SOURCE_BYTES"
@@ -9060,9 +7861,7 @@
         "reason": "No exact-candidate approval citation is linked in the existing source evidence. A path, merge or folder name is not substituted for approval."
       },
       "comparison": "comparisons/WB-073.jpg",
-      "repeated_use_locations": [
-        "WB-S013-OBJ12-ARDILLA"
-      ],
+      "repeated_use_locations": ["WB-S013-OBJ12-ARDILLA"],
       "production_mapping_changed": false,
       "candidate_sha256": "ddf3333971afba4e709073e4ba7c0b3c12ad9e08a5cae10c5763a453dc7b5f52",
       "candidate_sha256_domain": "REGISTERED_SOURCE_BYTES"
@@ -9085,11 +7884,7 @@
         "reason": "No exact-candidate approval citation is linked in the existing source evidence. A path, merge or folder name is not substituted for approval."
       },
       "comparison": "comparisons/WB-073.jpg",
-      "repeated_use_locations": [
-        "WB-S010-OBJ16-OJOS",
-        "WB-S011-OBJ03-OJOS",
-        "WB-S013-OBJ13-OJOS"
-      ],
+      "repeated_use_locations": ["WB-S010-OBJ16-OJOS", "WB-S011-OBJ03-OJOS", "WB-S013-OBJ13-OJOS"],
       "production_mapping_changed": false,
       "candidate_sha256": "cd45239f16e938c055a773e8690f0cb3f744721d09e37d7e6437883e0e835ee9",
       "candidate_sha256_domain": "REGISTERED_SOURCE_BYTES"
@@ -9273,11 +8068,7 @@
         "reason": "No exact-candidate approval citation is linked in the existing source evidence. A path, merge or folder name is not substituted for approval."
       },
       "comparison": "comparisons/WB-079.jpg",
-      "repeated_use_locations": [
-        "WB-S011-OBJ08-ALA",
-        "WB-S014-OBJ03-ALA",
-        "WB-S019-OBJ07-ALA"
-      ],
+      "repeated_use_locations": ["WB-S011-OBJ08-ALA", "WB-S014-OBJ03-ALA", "WB-S019-OBJ07-ALA"],
       "production_mapping_changed": false,
       "candidate_sha256": "6a923fda703e0812a908b7ee2e0606d2d67fd5acf3ad3ba579f99922910fe671",
       "candidate_sha256_domain": "REGISTERED_SOURCE_BYTES"
@@ -9416,11 +8207,7 @@
         "reason": "No exact-candidate approval citation is linked in the existing source evidence. A path, merge or folder name is not substituted for approval."
       },
       "comparison": "comparisons/WB-085.jpg",
-      "repeated_use_locations": [
-        "WB-S007-OBJ08-ARO",
-        "WB-S013-OBJ03-ARO",
-        "WB-S014-OBJ08-ARO"
-      ],
+      "repeated_use_locations": ["WB-S007-OBJ08-ARO", "WB-S013-OBJ03-ARO", "WB-S014-OBJ08-ARO"],
       "production_mapping_changed": false,
       "candidate_sha256": "c0ce78535ac9b93efcc4a5fafa77f427f975fe592685f751c38287c9ac5a2c4b",
       "candidate_sha256_domain": "REGISTERED_SOURCE_BYTES"
@@ -9589,11 +8376,7 @@
         "reason": "No exact-candidate approval citation is linked in the existing source evidence. A path, merge or folder name is not substituted for approval."
       },
       "comparison": "comparisons/WB-091.jpg",
-      "repeated_use_locations": [
-        "WB-S016-OBJ06-ERIZO",
-        "WB-S017-OBJ04-ERIZO",
-        "FC-006-06"
-      ],
+      "repeated_use_locations": ["WB-S016-OBJ06-ERIZO", "WB-S017-OBJ04-ERIZO", "FC-006-06"],
       "production_mapping_changed": false,
       "candidate_sha256": "5f3a27b85db1ba6178ca9bc22c3aad28146d1d45f95aabc80caeaa71cd7b892d",
       "candidate_sha256_domain": "REGISTERED_SOURCE_BYTES"
@@ -9674,10 +8457,7 @@
         "reason": "No exact-candidate approval citation is linked in the existing source evidence. A path, merge or folder name is not substituted for approval."
       },
       "comparison": "comparisons/WB-097.jpg",
-      "repeated_use_locations": [
-        "WB-S009-OBJ05-ESCOBA",
-        "WB-S016-OBJ09-ESCOBA"
-      ],
+      "repeated_use_locations": ["WB-S009-OBJ05-ESCOBA", "WB-S016-OBJ09-ESCOBA"],
       "production_mapping_changed": false,
       "candidate_sha256": "6f4a542ddde9d03b03f0987d9813bafded1d946632cb0f2c1c12acf4e9732091",
       "candidate_sha256_domain": "REGISTERED_SOURCE_BYTES"
@@ -9759,11 +8539,7 @@
         "reason": "No exact-candidate approval citation is linked in the existing source evidence. A path, merge or folder name is not substituted for approval."
       },
       "comparison": "comparisons/WB-097.jpg",
-      "repeated_use_locations": [
-        "WB-S016-OBJ12-URRACA",
-        "WB-S022-OBJ12-URRACA",
-        "FC-008-04"
-      ],
+      "repeated_use_locations": ["WB-S016-OBJ12-URRACA", "WB-S022-OBJ12-URRACA", "FC-008-04"],
       "production_mapping_changed": false,
       "candidate_sha256": "1b105d7d45ba624dc8cf1991bdd6229ffff370797e43196f36fb51707cef200b",
       "candidate_sha256_domain": "REGISTERED_SOURCE_BYTES"
@@ -9786,10 +8562,7 @@
         "reason": "No exact-candidate approval citation is linked in the existing source evidence. A path, merge or folder name is not substituted for approval."
       },
       "comparison": "comparisons/WB-097.jpg",
-      "repeated_use_locations": [
-        "WB-S007-OBJ11-ESCUELA",
-        "WB-S016-OBJ13-ESCUELA"
-      ],
+      "repeated_use_locations": ["WB-S007-OBJ11-ESCUELA", "WB-S016-OBJ13-ESCUELA"],
       "production_mapping_changed": false,
       "candidate_sha256": "37858d5e3e071c4f18d7f369cf4796ee30b878d0c05eb3a8da037e6afb5e6134",
       "candidate_sha256_domain": "REGISTERED_SOURCE_BYTES"
@@ -9844,9 +8617,7 @@
         "reason": "No exact-candidate approval citation is linked in the existing source evidence. A path, merge or folder name is not substituted for approval."
       },
       "comparison": "comparisons/WB-103.jpg",
-      "repeated_use_locations": [
-        "WB-S016-OBJ15-ESPEJO"
-      ],
+      "repeated_use_locations": ["WB-S016-OBJ15-ESPEJO"],
       "production_mapping_changed": false,
       "candidate_sha256": "7db9f69595efd252bce1e11cec378cb05d0cbf0f9be017b84226affd519508b2",
       "candidate_sha256_domain": "REGISTERED_SOURCE_BYTES"
@@ -10000,11 +8771,7 @@
         "reason": "No exact-candidate approval citation is linked in the existing source evidence. A path, merge or folder name is not substituted for approval."
       },
       "comparison": "comparisons/WB-103.jpg",
-      "repeated_use_locations": [
-        "WB-S016-OBJ06-ERIZO",
-        "WB-S017-OBJ04-ERIZO",
-        "FC-006-06"
-      ],
+      "repeated_use_locations": ["WB-S016-OBJ06-ERIZO", "WB-S017-OBJ04-ERIZO", "FC-006-06"],
       "production_mapping_changed": false,
       "candidate_sha256": "5f3a27b85db1ba6178ca9bc22c3aad28146d1d45f95aabc80caeaa71cd7b892d",
       "candidate_sha256_domain": "REGISTERED_SOURCE_BYTES"
@@ -10115,10 +8882,7 @@
         "reason": "No exact-candidate approval citation is linked in the existing source evidence. A path, merge or folder name is not substituted for approval."
       },
       "comparison": "comparisons/WB-109.jpg",
-      "repeated_use_locations": [
-        "WB-S007-OBJ01-UNIFORME-1",
-        "WB-S017-OBJ08-CHAQUETA"
-      ],
+      "repeated_use_locations": ["WB-S007-OBJ01-UNIFORME-1", "WB-S017-OBJ08-CHAQUETA"],
       "production_mapping_changed": false,
       "candidate_sha256": "03cafdb0b52172796d7cfd99a19ec0650d157db95f11fe70e5d1599b4f0a41e2",
       "candidate_sha256_domain": "REGISTERED_SOURCE_BYTES"
@@ -10201,10 +8965,7 @@
         "reason": "No exact-candidate approval citation is linked in the existing source evidence. A path, merge or folder name is not substituted for approval."
       },
       "comparison": "comparisons/WB-115.jpg",
-      "repeated_use_locations": [
-        "WB-S019-OBJ03-IGUANA",
-        "WB-S020-OBJ07-IGUANA"
-      ],
+      "repeated_use_locations": ["WB-S019-OBJ03-IGUANA", "WB-S020-OBJ07-IGUANA"],
       "production_mapping_changed": false,
       "candidate_sha256": "2d54a211628f6d479dc15e55cb705170e5e295fa724d10f08334b7c7f9b9e491",
       "candidate_sha256_domain": "REGISTERED_SOURCE_BYTES"
@@ -10321,11 +9082,7 @@
         "reason": "No exact-candidate approval citation is linked in the existing source evidence. A path, merge or folder name is not substituted for approval."
       },
       "comparison": "comparisons/WB-115.jpg",
-      "repeated_use_locations": [
-        "WB-S011-OBJ08-ALA",
-        "WB-S014-OBJ03-ALA",
-        "WB-S019-OBJ07-ALA"
-      ],
+      "repeated_use_locations": ["WB-S011-OBJ08-ALA", "WB-S014-OBJ03-ALA", "WB-S019-OBJ07-ALA"],
       "production_mapping_changed": false,
       "candidate_sha256": "6a923fda703e0812a908b7ee2e0606d2d67fd5acf3ad3ba579f99922910fe671",
       "candidate_sha256_domain": "REGISTERED_SOURCE_BYTES"
@@ -10348,9 +9105,7 @@
         "reason": "No exact-candidate approval citation is linked in the existing source evidence. A path, merge or folder name is not substituted for approval."
       },
       "comparison": "comparisons/WB-115.jpg",
-      "repeated_use_locations": [
-        "WB-S019-OBJ08-INVIERNO"
-      ],
+      "repeated_use_locations": ["WB-S019-OBJ08-INVIERNO"],
       "production_mapping_changed": false,
       "candidate_sha256": "35e515beb0bda63c986e7741b9460b5f96ac226286926e9af8cc95c03aad50ee",
       "candidate_sha256_domain": "REGISTERED_SOURCE_BYTES"
@@ -10373,11 +9128,7 @@
         "reason": "No exact-candidate approval citation is linked in the existing source evidence. A path, merge or folder name is not substituted for approval."
       },
       "comparison": "comparisons/WB-121.jpg",
-      "repeated_use_locations": [
-        "WB-S010-OBJ01-OLA",
-        "WB-S011-OBJ06-OLA",
-        "WB-S019-OBJ09-OLA"
-      ],
+      "repeated_use_locations": ["WB-S010-OBJ01-OLA", "WB-S011-OBJ06-OLA", "WB-S019-OBJ09-OLA"],
       "production_mapping_changed": false,
       "candidate_sha256": "61dd81317cbbf7fa5e43b09c09ad1d9b21a68db790c39c0a4857aa088876d313",
       "candidate_sha256_domain": "REGISTERED_SOURCE_BYTES"
@@ -10464,11 +9215,7 @@
         "reason": "No exact-candidate approval citation is linked in the existing source evidence. A path, merge or folder name is not substituted for approval."
       },
       "comparison": "comparisons/WB-121.jpg",
-      "repeated_use_locations": [
-        "WB-S007-OBJ05-ISLA",
-        "WB-S019-OBJ12-ISLA",
-        "FC-007-06"
-      ],
+      "repeated_use_locations": ["WB-S007-OBJ05-ISLA", "WB-S019-OBJ12-ISLA", "FC-007-06"],
       "production_mapping_changed": false,
       "candidate_sha256": "927a08c561bbe5b963fb3d3a78ecb0f697044fe8f369c2455e3dcd1ef03583bf",
       "candidate_sha256_domain": "REGISTERED_SOURCE_BYTES"
@@ -10521,10 +9268,7 @@
         "reason": "No exact-candidate approval citation is linked in the existing source evidence. A path, merge or folder name is not substituted for approval."
       },
       "comparison": "comparisons/WB-121.jpg",
-      "repeated_use_locations": [
-        "WB-S019-OBJ14-IGUAL",
-        "WB-S020-OBJ04-IGUAL"
-      ],
+      "repeated_use_locations": ["WB-S019-OBJ14-IGUAL", "WB-S020-OBJ04-IGUAL"],
       "production_mapping_changed": false,
       "candidate_sha256": "22dd1c51277b2ae1a236677758a836567626f4b84660c45dee5deb6c19f3fb4a",
       "candidate_sha256_domain": "REGISTERED_SOURCE_BYTES"
@@ -10547,11 +9291,7 @@
         "reason": "No exact-candidate approval citation is linked in the existing source evidence. A path, merge or folder name is not substituted for approval."
       },
       "comparison": "comparisons/WB-127.jpg",
-      "repeated_use_locations": [
-        "WB-S019-OBJ15-INSECTO",
-        "WB-S022-OBJ15-INSECTO",
-        "FC-007-05"
-      ],
+      "repeated_use_locations": ["WB-S019-OBJ15-INSECTO", "WB-S022-OBJ15-INSECTO", "FC-007-05"],
       "production_mapping_changed": false,
       "candidate_sha256": "95396f7f1f45ed81dc1b0bbc2ea68eae391c817cff76732158f8d49c54d8499d",
       "candidate_sha256_domain": "REGISTERED_SOURCE_BYTES"
@@ -10702,10 +9442,7 @@
         "reason": "No exact-candidate approval citation is linked in the existing source evidence. A path, merge or folder name is not substituted for approval."
       },
       "comparison": "comparisons/WB-127.jpg",
-      "repeated_use_locations": [
-        "WB-S019-OBJ14-IGUAL",
-        "WB-S020-OBJ04-IGUAL"
-      ],
+      "repeated_use_locations": ["WB-S019-OBJ14-IGUAL", "WB-S020-OBJ04-IGUAL"],
       "production_mapping_changed": false,
       "candidate_sha256": "22dd1c51277b2ae1a236677758a836567626f4b84660c45dee5deb6c19f3fb4a",
       "candidate_sha256_domain": "REGISTERED_SOURCE_BYTES"
@@ -10787,10 +9524,7 @@
         "reason": "No exact-candidate approval citation is linked in the existing source evidence. A path, merge or folder name is not substituted for approval."
       },
       "comparison": "comparisons/WB-133.jpg",
-      "repeated_use_locations": [
-        "WB-S019-OBJ03-IGUANA",
-        "WB-S020-OBJ07-IGUANA"
-      ],
+      "repeated_use_locations": ["WB-S019-OBJ03-IGUANA", "WB-S020-OBJ07-IGUANA"],
       "production_mapping_changed": false,
       "candidate_sha256": "2d54a211628f6d479dc15e55cb705170e5e295fa724d10f08334b7c7f9b9e491",
       "candidate_sha256_domain": "REGISTERED_SOURCE_BYTES"
@@ -10961,11 +9695,7 @@
         "reason": "No exact-candidate approval citation is linked in the existing source evidence. A path, merge or folder name is not substituted for approval."
       },
       "comparison": "comparisons/WB-139.jpg",
-      "repeated_use_locations": [
-        "WB-S010-OBJ10-UVA",
-        "WB-S022-OBJ05-UVA",
-        "WB-S023-OBJ04-UVA"
-      ],
+      "repeated_use_locations": ["WB-S010-OBJ10-UVA", "WB-S022-OBJ05-UVA", "WB-S023-OBJ04-UVA"],
       "production_mapping_changed": false,
       "candidate_sha256": "2413df1fb07b25b5f40edf0bb96d0a636020eb65ff5c8637f2bf9695735a3c41",
       "candidate_sha256_domain": "REGISTERED_SOURCE_BYTES"
@@ -11178,11 +9908,7 @@
         "reason": "No exact-candidate approval citation is linked in the existing source evidence. A path, merge or folder name is not substituted for approval."
       },
       "comparison": "comparisons/WB-145.jpg",
-      "repeated_use_locations": [
-        "WB-S016-OBJ12-URRACA",
-        "WB-S022-OBJ12-URRACA",
-        "FC-008-04"
-      ],
+      "repeated_use_locations": ["WB-S016-OBJ12-URRACA", "WB-S022-OBJ12-URRACA", "FC-008-04"],
       "production_mapping_changed": false,
       "candidate_sha256": "1b105d7d45ba624dc8cf1991bdd6229ffff370797e43196f36fb51707cef200b",
       "candidate_sha256_domain": "REGISTERED_SOURCE_BYTES"
@@ -11268,11 +9994,7 @@
         "reason": "No exact-candidate approval citation is linked in the existing source evidence. A path, merge or folder name is not substituted for approval."
       },
       "comparison": "comparisons/WB-151.jpg",
-      "repeated_use_locations": [
-        "WB-S019-OBJ15-INSECTO",
-        "WB-S022-OBJ15-INSECTO",
-        "FC-007-05"
-      ],
+      "repeated_use_locations": ["WB-S019-OBJ15-INSECTO", "WB-S022-OBJ15-INSECTO", "FC-007-05"],
       "production_mapping_changed": false,
       "candidate_sha256": "95396f7f1f45ed81dc1b0bbc2ea68eae391c817cff76732158f8d49c54d8499d",
       "candidate_sha256_domain": "REGISTERED_SOURCE_BYTES"
@@ -11432,11 +10154,7 @@
         "reason": "No exact-candidate approval citation is linked in the existing source evidence. A path, merge or folder name is not substituted for approval."
       },
       "comparison": "comparisons/WB-151.jpg",
-      "repeated_use_locations": [
-        "WB-S010-OBJ10-UVA",
-        "WB-S022-OBJ05-UVA",
-        "WB-S023-OBJ04-UVA"
-      ],
+      "repeated_use_locations": ["WB-S010-OBJ10-UVA", "WB-S022-OBJ05-UVA", "WB-S023-OBJ04-UVA"],
       "production_mapping_changed": false,
       "candidate_sha256": "2413df1fb07b25b5f40edf0bb96d0a636020eb65ff5c8637f2bf9695735a3c41",
       "candidate_sha256_domain": "REGISTERED_SOURCE_BYTES"

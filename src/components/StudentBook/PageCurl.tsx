@@ -93,12 +93,16 @@ export function PageCurl({
         svg.setAttribute("viewBox", `0 0 ${w} ${h}`);
         svg.setAttribute("width", String(w));
         svg.setAttribute("height", String(h));
-        const set = (sel: string, pts: string) => svg.querySelector(sel)?.setAttribute("points", pts);
+        const set = (sel: string, pts: string) =>
+          svg.querySelector(sel)?.setAttribute("points", pts);
         set(".native-page-curl__back", g.back.length > 2 ? fmt(g.back) : "");
         set(".native-page-curl__roll", g.roll.length > 2 ? fmt(g.roll) : "");
         set(".native-page-curl__shadow", g.shadow.length > 2 ? fmt(g.shadow) : "");
         // Shading bands run parallel to the fold line.
-        const along = (d: number): Pt => [g.origin[0] + g.normal[0] * d, g.origin[1] + g.normal[1] * d];
+        const along = (d: number): Pt => [
+          g.origin[0] + g.normal[0] * d,
+          g.origin[1] + g.normal[1] * d,
+        ];
         const band = (sel: string, a: number, b: number) => {
           const el = svg.querySelector(sel);
           if (!el) return;
@@ -114,7 +118,13 @@ export function PageCurl({
         band("linearGradient[data-band='shadow']", 0, g.radius * 2.4);
         const backStops = svg.querySelectorAll("linearGradient[data-band='back'] stop");
         const span = w * 1.1 + g.radius;
-        const offsets = [0, (w * 1.1) / span, (w * 1.1 + g.radius * 0.45) / span, (w * 1.1 + g.radius * 0.85) / span, 1];
+        const offsets = [
+          0,
+          (w * 1.1) / span,
+          (w * 1.1 + g.radius * 0.45) / span,
+          (w * 1.1 + g.radius * 0.85) / span,
+          1,
+        ];
         backStops.forEach((stop, i) => stop.setAttribute("offset", offsets[i].toFixed(4)));
         svg.style.opacity = String(g.opacity);
       }
@@ -141,7 +151,11 @@ export function PageCurl({
           <stop offset="0.6" stopColor="#efe6d6" />
           <stop offset="1" stopColor="#cfc1a8" />
         </linearGradient>
-        <linearGradient data-band="shadow" id="native-page-curl-shadow" gradientUnits="userSpaceOnUse">
+        <linearGradient
+          data-band="shadow"
+          id="native-page-curl-shadow"
+          gradientUnits="userSpaceOnUse"
+        >
           <stop offset="0" stopColor="#2b1d0e" stopOpacity="0.34" />
           <stop offset="0.42" stopColor="#2b1d0e" stopOpacity="0.26" />
           <stop offset="1" stopColor="#2b1d0e" stopOpacity="0" />

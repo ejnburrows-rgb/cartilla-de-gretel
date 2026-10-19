@@ -21,9 +21,19 @@ export function GuideLayout({
 
   return (
     <div className="flex flex-col lg:flex-row gap-6 items-start relative min-h-[70vh] guide-layout">
-      <label className="lg:hidden w-full no-print font-bold">Lección
-        <select aria-label="Seleccionar lección de la guía" className="block w-full mt-2 rounded-xl border p-3" value={selectedLesson} onChange={(event) => onSelectLesson(Number(event.target.value))}>
-          {CATALOG.map(entry => <option key={entry.n} value={entry.n}>{entry.n} · {entry.title}</option>)}
+      <label className="lg:hidden w-full no-print font-bold">
+        Lección
+        <select
+          aria-label="Seleccionar lección de la guía"
+          className="block w-full mt-2 rounded-xl border p-3"
+          value={selectedLesson}
+          onChange={(event) => onSelectLesson(Number(event.target.value))}
+        >
+          {CATALOG.map((entry) => (
+            <option key={entry.n} value={entry.n}>
+              {entry.n} · {entry.title}
+            </option>
+          ))}
         </select>
       </label>
       {/* Master Sidebar: Curriculum Map */}

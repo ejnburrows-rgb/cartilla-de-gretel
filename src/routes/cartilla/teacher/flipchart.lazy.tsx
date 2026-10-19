@@ -7,7 +7,9 @@ export const Route = createLazyFileRoute("/cartilla/teacher/flipchart")({
 });
 
 function TeacherFlipchartPage() {
-  return <div className="space-y-4">
-    <LessonCatalog />
-  </div>;
+  return (
+    <div className="space-y-4">
+      <LessonCatalog />
+    </div>
+  );
 }

@@ -276,7 +276,11 @@ function VowelMatchAll({ region }: { region: PageRegion }) {
             style={{ ["--float-delay" as string]: floatDelay(i) }}
           >
             {pair.illustrationSrc ? (
-              <LivingIllustration src={pair.illustrationSrc} alt={pair.caption ?? ""} loading="lazy" />
+              <LivingIllustration
+                src={pair.illustrationSrc}
+                alt={pair.caption ?? ""}
+                loading="lazy"
+              />
             ) : (
               <div
                 className="fp-art-pending"
@@ -356,15 +360,25 @@ function RegionView({
       ) : (
         <div className="fp-draw-box" aria-label={region.text ?? "Colorea"}>
           {region.illustrationSrc ? (
-            <LivingIllustration src={region.illustrationSrc} alt={region.caption ?? ""} loading="lazy" />
+            <LivingIllustration
+              src={region.illustrationSrc}
+              alt={region.caption ?? ""}
+              loading="lazy"
+            />
           ) : null}
           {region.text ? <span className="fp-draw-box__hint">{region.text}</span> : null}
         </div>
       );
     case "picture-grid":
       if (host === "pencil-mark") {
-        return <InteractivePictureGrid region={region} accent={accent ?? "hsl(230 75% 58%)"}
-          lessonId={lessonId} mark="circle" />;
+        return (
+          <InteractivePictureGrid
+            region={region}
+            accent={accent ?? "hsl(230 75% 58%)"}
+            lessonId={lessonId}
+            mark="circle"
+          />
+        );
       }
       if (host === "paint") {
         // Colorea on a grid: paint the first colorable illustration cell as stage
@@ -420,8 +434,11 @@ function RegionView({
         <VowelMatchAll region={region} />
       );
     case "syllable-match":
-      return interactive ? <SyllableWordCircle region={region} lessonId={lessonId} />
-        : <SyllableMatch region={region} />;
+      return interactive ? (
+        <SyllableWordCircle region={region} lessonId={lessonId} />
+      ) : (
+        <SyllableMatch region={region} />
+      );
     case "fill-in-blank":
       return interactive ? (
         <InteractiveFillInBlank
@@ -476,12 +493,19 @@ function RegionView({
           </div>
         );
       }
-      if (interactive && native) return (
-        <div className="fp-writing-line fp-writing-line--freehand">
-          {traceLetter && <span className="fp-writing-line__model">{traceLetter}</span>}
-          <DibujaHost pageKey={region.id} hint={traceLetter} lessonId={lessonId} initialMode="draw" verb="Escribe" />
-        </div>
-      );
+      if (interactive && native)
+        return (
+          <div className="fp-writing-line fp-writing-line--freehand">
+            {traceLetter && <span className="fp-writing-line__model">{traceLetter}</span>}
+            <DibujaHost
+              pageKey={region.id}
+              hint={traceLetter}
+              lessonId={lessonId}
+              initialMode="draw"
+              verb="Escribe"
+            />
+          </div>
+        );
       return (
         <div className="fp-writing-line">
           {region.modelText ? (
@@ -492,7 +516,12 @@ function RegionView({
       );
     }
     case "writing-response":
-      return <WorkbookWritingResponse pageNumber={Number(region.id.match(/^p(\d+)/)?.[1] ?? 0)} interactive={Boolean(interactive)} />;
+      return (
+        <WorkbookWritingResponse
+          pageNumber={Number(region.id.match(/^p(\d+)/)?.[1] ?? 0)}
+          interactive={Boolean(interactive)}
+        />
+      );
     case "draw-box":
       return interactive ? (
         <DibujaFromRegion
@@ -524,26 +553,38 @@ function RegionView({
     case "syllable-bubble":
       return native ? (
         <div className="fp-native-syllables" aria-label={region.text ?? undefined}>
-          {(region.text ?? "").split(/\s+/).filter(Boolean).map((syllable) => (
-            <span key={syllable}>{syllable}</span>
-          ))}
+          {(region.text ?? "")
+            .split(/\s+/)
+            .filter(Boolean)
+            .map((syllable) => (
+              <span key={syllable}>{syllable}</span>
+            ))}
         </div>
       ) : (
         <p className="fp-region--syllable-bubble">{region.text}</p>
       );
     case "vocab-grid":
       return native ? (
-        <div className="fp-native-vocab" style={{ gridTemplateColumns: `repeat(${region.columns ?? 3}, minmax(0, 1fr))` }}>
-          {(region.text ?? "").split(/\u00c2?\u00b7/).map((word) => word.trim()).filter(Boolean).map((word) => (
-            <span key={word}>{word}</span>
-          ))}
+        <div
+          className="fp-native-vocab"
+          style={{ gridTemplateColumns: `repeat(${region.columns ?? 3}, minmax(0, 1fr))` }}
+        >
+          {(region.text ?? "")
+            .split(/\u00c2?\u00b7/)
+            .map((word) => word.trim())
+            .filter(Boolean)
+            .map((word) => (
+              <span key={word}>{word}</span>
+            ))}
         </div>
       ) : (
         <p className="fp-region--vocab-grid">{region.text}</p>
       );
     case "sentence-line":
       return native ? (
-        <div className="fp-native-sight-word" aria-label="Palabra de enlace">{region.text}</div>
+        <div className="fp-native-sight-word" aria-label="Palabra de enlace">
+          {region.text}
+        </div>
       ) : (
         <p className="fp-region--sentence-line">{region.text}</p>
       );
@@ -580,13 +621,23 @@ export function FaithfulPageRenderer({
   }
 
   if (fixedLayout) {
-    if (layout.length > 0 && layout.every((region) => {
-      const { x, y, width, height } = region;
-      return [x, y, width, height].every((value) =>
-        typeof value === "number" && Number.isFinite(value))
-        && x! >= 0 && y! >= 0 && width! > 0 && height! > 0
-        && x! + width! <= 1.000001 && y! + height! <= 1.000001;
-    })) {
+    if (
+      layout.length > 0 &&
+      layout.every((region) => {
+        const { x, y, width, height } = region;
+        return (
+          [x, y, width, height].every(
+            (value) => typeof value === "number" && Number.isFinite(value),
+          ) &&
+          x! >= 0 &&
+          y! >= 0 &&
+          width! > 0 &&
+          height! > 0 &&
+          x! + width! <= 1.000001 &&
+          y! + height! <= 1.000001
+        );
+      })
+    ) {
       return <FixedLayoutPage pageNumber={pageNumber} regions={layout} interactive={interactive} />;
     }
     if (fallback !== undefined) return <>{fallback}</>;
@@ -603,15 +654,18 @@ export function FaithfulPageRenderer({
         className="fp-native-blocked-page"
       >
         <p className="fp-source-blocked" data-source-blocked="true" role="note">
-          Esta página falta en el escaneo del libro. Su contenido está pendiente de verificación con el libro impreso.
+          Esta página falta en el escaneo del libro. Su contenido está pendiente de verificación con
+          el libro impreso.
         </p>
       </PageFrame>
     );
   }
 
   const ordered = [...layout].sort((a, b) => a.order - b.order);
-  const letterReadingPage = native && ordered.some((region) => region.regionType === "vocab-grid")
-    && ordered.filter((region) => region.regionType === "syllable-bubble").length === 2;
+  const letterReadingPage =
+    native &&
+    ordered.some((region) => region.regionType === "vocab-grid") &&
+    ordered.filter((region) => region.regionType === "syllable-bubble").length === 2;
   const accent = lessonNumber ? CATALOG.find((e) => e.n === lessonNumber)?.color : undefined;
   const lessonId = lessonNumber ? String(lessonNumber) : undefined;
 
@@ -642,12 +696,15 @@ export function FaithfulPageRenderer({
     <PageFrame
       pageNumber={pageNumber}
       lessonNumber={lessonNumber}
-
-      className={[
-        letterReadingPage ? "fp-native-letter-page" : "",
-        pageNumber === 17 ? "faithful-page--archetype4-p17" : "",
-        ...archetypeClasses,
-      ].filter(Boolean).join(" ") || undefined}
+      className={
+        [
+          letterReadingPage ? "fp-native-letter-page" : "",
+          pageNumber === 17 ? "faithful-page--archetype4-p17" : "",
+          ...archetypeClasses,
+        ]
+          .filter(Boolean)
+          .join(" ") || undefined
+      }
     >
       {ordered.map((region) => {
         if (region.regionType === "instruction" && region.text) {
@@ -659,25 +716,31 @@ export function FaithfulPageRenderer({
           lastWritingLineModelText = region.modelText || lastWritingLineModelText;
         }
         return (
-          <GretelActivity key={region.id} id={`page-${pageNumber}-${region.id}`} pageNumber={pageNumber} kind={region.regionType}>
-          <RegionView
-            region={region}
-            interactive={interactive}
-            accent={accent}
-            lessonId={lessonId}
-            lessonNumber={lessonNumber}
-            resolvedModelText={resolvedModelText}
-            precedingInstruction={lastInstructionText}
-            siblingCells={siblingCells}
-            native={native}
+          <GretelActivity
+            key={region.id}
+            id={`page-${pageNumber}-${region.id}`}
             pageNumber={pageNumber}
-          />
+            kind={region.regionType}
+          >
+            <RegionView
+              region={region}
+              interactive={interactive}
+              accent={accent}
+              lessonId={lessonId}
+              lessonNumber={lessonNumber}
+              resolvedModelText={resolvedModelText}
+              precedingInstruction={lastInstructionText}
+              siblingCells={siblingCells}
+              native={native}
+              pageNumber={pageNumber}
+            />
           </GretelActivity>
         );
       })}
       {SOURCE_BLOCKED_WORKBOOK_PAGES.includes(pageNumber) ? (
         <p className="fp-source-blocked" data-source-blocked="true" role="note">
-          Esta página falta en el escaneo del libro. Su contenido está pendiente de verificación con el libro impreso.
+          Esta página falta en el escaneo del libro. Su contenido está pendiente de verificación con
+          el libro impreso.
         </p>
       ) : null}
     </PageFrame>

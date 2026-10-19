@@ -29,8 +29,13 @@ export const Route = createFileRoute("/cartilla/practica")({
 
 type Card = { syllable: string; options: string[]; lessonN: number; color: string };
 
-
-function FamilyPractice({ lessonNumber, requestedActivity }: { lessonNumber: number; requestedActivity: ActivityId }) {
+function FamilyPractice({
+  lessonNumber,
+  requestedActivity,
+}: {
+  lessonNumber: number;
+  requestedActivity: ActivityId;
+}) {
   const entry = CATALOG.find((item) => item.n === lessonNumber);
   if (!entry) {
     return (
@@ -54,7 +59,8 @@ function FamilyPractice({ lessonNumber, requestedActivity }: { lessonNumber: num
   // Source-by-surface: the list carries its book (Workbook vs Flip Chart).
   const practiceWords = getPracticePictureWords(entry.n);
   const words = practiceWords.items;
-  const letter = entry.kind === "consonant" ? entry.letter : entry.kind === "vowel" ? entry.vowel : "";
+  const letter =
+    entry.kind === "consonant" ? entry.letter : entry.kind === "vowel" ? entry.vowel : "";
   const pictureCount = words.filter((word) => Boolean(word.illustrationSrc)).length;
   // Every activity falls back to "silabas" when this lesson's canonical
   // material cannot support it. Sílabas is always available because it only
@@ -85,9 +91,13 @@ function FamilyPractice({ lessonNumber, requestedActivity }: { lessonNumber: num
 
         <section className="rounded-3xl border border-[#eadfc8] bg-white p-4 sm:p-6 shadow-sm">
           <p className="mb-4 text-sm font-semibold text-stone-600">
-            Practica esta actividad directamente. Este enlace no contiene nombre, código de estudiante ni datos de la clase.
+            Practica esta actividad directamente. Este enlace no contiene nombre, código de
+            estudiante ni datos de la clase.
           </p>
-          <p className="mb-4 text-xs font-bold text-stone-500" data-vocab-source={practiceWords.book}>
+          <p
+            className="mb-4 text-xs font-bold text-stone-500"
+            data-vocab-source={practiceWords.book}
+          >
             {practiceWords.sourceLabel}
           </p>
           <ActivityCarousel
@@ -160,7 +170,8 @@ function Practica() {
     const params = new URLSearchParams(window.location.search);
     const lessonNumber = Number(params.get("lesson"));
     return {
-      familyMode: params.get("family") === "1" && Number.isInteger(lessonNumber) && lessonNumber > 0,
+      familyMode:
+        params.get("family") === "1" && Number.isInteger(lessonNumber) && lessonNumber > 0,
       lessonNumber,
       activity: normalizeActivityId(params.get("activity")),
     };

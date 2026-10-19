@@ -65,7 +65,8 @@ describe("complete book (/cartilla/cuaderno) — owner decision 2026-10-13", () 
     const end = screen.getByRole("button", { name: "Fin del cuaderno" });
     expect(end.hasAttribute("disabled")).toBe(true);
     expect(screen.queryByRole("button", { name: "Terminar lección" })).toBeNull();
-    expect(document.querySelector("[data-native-page]")?.getAttribute("data-native-page")).toBe("90");
+    expect(document.querySelector("[data-native-page]")?.getAttribute("data-native-page")).toBe(
+      "90",
+    );
   });
-
 });
