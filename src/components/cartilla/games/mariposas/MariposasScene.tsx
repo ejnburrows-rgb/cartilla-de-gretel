@@ -7,19 +7,51 @@ import { recordEvent } from "@/lib/student-session";
 import { SCENE_H, SCENE_W, SLOTS, type Slot, type Tone } from "./layout";
 import "./mariposas.css";
 
-// Word set printed on the approved mockup. Preview only (?set=mockup): its words reach past the
-// lesson order that the taught-order gate checks, so it is not registered as a live game.
-const MOCKUP_SET: Pick<GameContent, "words" | "tiles"> = {
-  words: [
-    { word: "mapa", syllables: ["ma", "pa"] },
-    { word: "pomo", syllables: ["po", "mo"] },
-    { word: "Mupi", syllables: ["Mu", "pi"] },
-    { word: "Pepe", syllables: ["Pe", "pe"] },
-    { word: "puma", syllables: ["pu", "ma"] },
-    { word: "Pupi", syllables: ["Pu", "pi"] },
-  ],
-  tiles: ["ma", "mo", "mi", "Mu", "pa", "po", "me", "Pe", "pi", "Pu"],
+const SFX = {
+  pick: "/audio/feel/tap.mp3",
+  ok: "/audio/feel/success.mp3",
+  no: "/audio/feel/error.mp3",
+  party: "/audio/feel/sparkle.mp3",
+} as const;
+
+function sfx(name: keyof typeof SFX, volume = 0.5) {
+  if (typeof window === "undefined" || typeof Audio === "undefined") return;
+  try {
+    const a = new Audio(SFX[name]);
+    a.volume = volume;
+    a.play().catch(() => {});
+  } catch {
+    /* no audio support */
+  }
+}
+
+// Horizontal centre of each butterfly's head in the mockup (px): wings sit left of it.
+const HEAD_CX: Record<string, number> = {
+  ma: 385,
+  mo: 732,
+  mi: 1052,
+  Mu: 557,
+  pa: 797,
+  po: 1055,
+  me: 277,
+  Pe: 610,
+  pi: 932,
+  Pu: 1285,
 };
+
+const MUSIC = "/cartilla/audio/mariposas-once-upon-a-time.mp3"; // CC0, Chasersgaming, opengameart.org/content/once-upon-a-time-loop
+const MUTE_KEY = "cartilla:mariposas:muted";
+
+// Leaf regions cut from the scene (px of the mockup) that sway softly.
+const LEAVES = [
+  { x: 0, y: 0, w: 620, h: 70, origin: "20% 0%", dur: 7.5, d: 0 },
+  { x: 462, y: 92, w: 146, h: 110, origin: "50% 0%", dur: 6.2, d: -2 },
+  { x: 1100, y: 185, w: 255, h: 130, origin: "50% 100%", dur: 8.4, d: -4 },
+  { x: 1420, y: 262, w: 64, h: 228, origin: "50% 0%", dur: 6.8, d: -1 },
+];
+
+type Flight = { id: string; dx: number; dy: number; phase: "out" | "back"; ok: boolean };
+type Fx = { x: number; y: number; kind: "ok" | "no"; key: number };
 
 const ART = "/cartilla/art/mariposas-scene";
 const BAR = { x: 449, y: 641, w: 116, h: 72, step: 128 };
@@ -52,6 +84,11 @@ function useMode(): { mode: Mode; vw: number; vh: number } {
   return { mode, ...v };
 }
 
+function wingSplit(s: Slot): number {
+  const f = (HEAD_CX[s.id] - s.x) / s.w - 0.12;
+  return Math.min(0.7, Math.max(0.3, f));
+}
+
 function finish(content: GameContent, score: number, total: number) {
   recordEvent({
     lessonId: `game:${content.id}`,
@@ -62,11 +99,7 @@ function finish(content: GameContent, score: number, total: number) {
   });
 }
 
-export function MariposasScene({ content: base }: { content: GameContent }) {
-  const preview =
-    typeof window !== "undefined" &&
-    new URLSearchParams(window.location.search).get("set") === "mockup";
-  const content: GameContent = preview ? { ...base, ...MOCKUP_SET } : base;
+export function MariposasScene({ content }: { content: GameContent }) {
   const { mode, vw, vh } = useMode();
   const [wordIndex, setWordIndex] = useState(0);
   const [picked, setPicked] = useState<string[]>([]);
@@ -75,8 +108,60 @@ export function MariposasScene({ content: base }: { content: GameContent }) {
   const [hop, setHop] = useState<string | null>(null);
   const [pour, setPour] = useState(false);
   const [sheet, setSheet] = useState(false);
-  const timer = useRef<number | undefined>(undefined);
-  useEffect(() => () => window.clearTimeout(timer.current), []);
+  const [flight, setFlight] = useState<Flight | null>(null);
+  const [chipGone, setChipGone] = useState(false);
+  const [returned, setReturned] = useState<string | null>(null);
+  const [rejected, setRejected] = useState<{ i: number; tile: string } | null>(null);
+  const [fx, setFx] = useState<Fx | null>(null);
+  const [muted, setMuted] = useState(() => {
+    try {
+      return window.localStorage.getItem(MUTE_KEY) === "1";
+    } catch {
+      return false;
+    }
+  });
+  const rootRef = useRef<HTMLDivElement>(null);
+  const timers = useRef<number[]>([]);
+  const musicRef = useRef<HTMLAudioElement | null>(null);
+  const later = (fn: () => void, ms: number) => {
+    timers.current.push(window.setTimeout(fn, ms));
+  };
+  const clearTimers = () => {
+    timers.current.forEach((t) => window.clearTimeout(t));
+    timers.current = [];
+  };
+  useEffect(
+    () => () => {
+      clearTimers();
+      musicRef.current?.pause();
+      musicRef.current = null;
+    },
+    [],
+  );
+  const startMusic = () => {
+    if (musicRef.current || typeof Audio === "undefined") return;
+    try {
+      const a = new Audio(MUSIC);
+      a.loop = true;
+      a.volume = 0.22;
+      a.muted = muted;
+      musicRef.current = a;
+      a.play().catch(() => {});
+    } catch {
+      /* no audio support */
+    }
+  };
+  const toggleMute = () => {
+    const next = !muted;
+    setMuted(next);
+    if (musicRef.current) musicRef.current.muted = next;
+    else if (!next) startMusic();
+    try {
+      window.localStorage.setItem(MUTE_KEY, next ? "1" : "0");
+    } catch {
+      /* ignore */
+    }
+  };
 
   const words = content.words;
   const done = wordIndex >= words.length;
@@ -92,51 +177,81 @@ export function MariposasScene({ content: base }: { content: GameContent }) {
   }, []);
 
   const reset = () => {
-    window.clearTimeout(timer.current);
+    clearTimers();
     setWordIndex(0);
     setPicked([]);
     setFeedback(null);
     setScore(0);
   };
 
-  const choose = (tile: string, id: string) => {
-    if (feedback || done) return;
-    setHop(id);
-    window.setTimeout(() => setHop(null), 420);
-    const next = [...picked, tile];
-    const ok = next.every((v, i) => lower(v) === lower(word.syllables[i] ?? ""));
-    if (!ok) {
-      setPicked(next);
-      setFeedback("no");
-      timer.current = window.setTimeout(() => {
-        setPicked([]);
-        setFeedback(null);
-      }, 900);
-      return;
+  const choose = (tile: string, id: string, btn: HTMLElement) => {
+    if (feedback || flight || done) return;
+    const slotIdx = picked.length;
+    const ok = lower(tile) === lower(word.syllables[slotIdx] ?? "");
+    const complete = ok && slotIdx + 1 === word.syllables.length;
+    const slotEl = rootRef.current?.querySelector(`[data-slot="${slotIdx}"]`);
+    const chipEl = btn.querySelector(".mps-chip");
+    let dx = 0;
+    let dy = 0;
+    let fxPos = { x: 0, y: 0 };
+    if (slotEl && chipEl) {
+      const sr = slotEl.getBoundingClientRect();
+      const cr = chipEl.getBoundingClientRect();
+      const sx = sr.left + sr.width / 2;
+      const sy = sr.top + sr.height / 2;
+      dx = (sx - (cr.left + cr.width / 2)) / k;
+      dy = (sy - (cr.top + cr.height / 2)) / k;
+      fxPos = { x: sx, y: sy };
     }
-    setPicked(next);
-    if (next.length === word.syllables.length) {
-      setFeedback("ok");
-      const total = words.length;
-      const nextScore = score + 1;
-      setScore(nextScore);
-      timer.current = window.setTimeout(() => {
-        if (wordIndex + 1 === total) finish(content, nextScore, total);
-        goNext();
-      }, 1100);
-    }
+    sfx("pick", 0.4);
+    setChipGone(false);
+    setFlight({ id, dx, dy, phase: "out", ok });
+    later(() => {
+      setFx({ ...fxPos, kind: ok ? "ok" : "no", key: Date.now() });
+      if (ok) {
+        sfx("ok", 0.5);
+        setPicked((p) => [...p, tile]);
+        setChipGone(true);
+        if (complete) setFeedback("ok");
+      } else {
+        sfx("no", 0.45);
+        setRejected({ i: slotIdx, tile });
+        setFeedback("no");
+      }
+    }, 760);
+    later(() => {
+      setRejected(null);
+      if (!ok) setFeedback(null);
+      setFlight((f) => (f ? { ...f, phase: "back" } : f));
+    }, 1250);
+    later(() => {
+      setFlight(null);
+      setChipGone(false);
+      setReturned(id);
+      later(() => setReturned(null), 700);
+      if (complete) {
+        const total = words.length;
+        const nextScore = score + 1;
+        setScore(nextScore);
+        if (wordIndex + 1 === total) {
+          finish(content, nextScore, total);
+          sfx("party", 0.5);
+        }
+        later(goNext, 500);
+      }
+    }, 2100);
   };
 
   const unpick = (i: number) => {
-    if (feedback || done) return;
+    if (feedback || flight || done) return;
     setPicked((p) => p.slice(0, i));
   };
 
   const skip = () => {
-    if (feedback || done) return;
+    if (feedback || flight || done) return;
     setPour(true);
-    window.setTimeout(() => setPour(false), 700);
-    timer.current = window.setTimeout(goNext, 450);
+    later(() => setPour(false), 700);
+    later(goNext, 450);
   };
 
   const sunPress = () => playWord(word?.audioUrl);
@@ -169,54 +284,79 @@ export function MariposasScene({ content: base }: { content: GameContent }) {
     tile: string,
     i: number,
     pos: { sx: number; sy: number; cx: number; cy: number; z: number },
-  ) => (
-    <button
-      key={s.id}
-      type="button"
-      aria-label={tile}
-      className={`mps-bf${hop === s.id ? " mps-hop" : ""}`}
-      style={{
-        left: pos.sx,
-        top: pos.sy,
-        width: s.w * pos.z,
-        height: s.h * pos.z,
-        animationDelay: `${-(i * 0.73) % 3.6}s`,
-        animationDuration: `${3 + (i % 4) * 0.45}s`,
-      }}
-      onClick={() => choose(tile, s.id)}
-    >
-      <img
-        src={`${ART}/${s.sprite}`}
-        alt=""
-        draggable={false}
-        style={{ width: "100%", height: "100%" }}
-      />
-      <span
-        className={`mps-chip mps-${s.tone}`}
-        style={{
-          left: pos.cx - pos.sx,
-          top: pos.cy - pos.sy,
-          width: s.chip.w * pos.z,
-          height: s.chip.h * pos.z,
-          fontSize: s.chip.h * pos.z * 0.56,
-        }}
-        aria-hidden
+  ) => {
+    const flying = flight?.id === s.id;
+    const vars = {
+      "--dx": `${flight?.dx ?? 0}px`,
+      "--dy": `${flight?.dy ?? 0}px`,
+      "--fx": `${6 + (i % 3) * 3}px`,
+      "--fy": `${7 + (i % 4) * 2}px`,
+    } as CSSProperties;
+    return (
+      <div
+        key={s.id}
+        className={`mps-fl${flying ? ` mps-flying mps-fl-${flight?.phase}` : ""}`}
+        style={{ left: pos.sx, top: pos.sy, width: s.w * pos.z, height: s.h * pos.z, ...vars }}
       >
-        {tile}
-      </span>
-    </button>
-  );
+        <button
+          type="button"
+          aria-label={tile}
+          className="mps-bf"
+          style={{
+            animationDelay: `${-(i * 0.73) % 5}s`,
+            animationDuration: `${4.6 + (i % 4) * 0.7}s`,
+          }}
+          onClick={(e) => choose(tile, s.id, e.currentTarget)}
+        >
+          <img
+            src={`${ART}/${s.sprite}`}
+            alt=""
+            draggable={false}
+            style={{ width: "100%", height: "100%" }}
+          />
+          <img
+            className="mps-wing"
+            src={`${ART}/${s.sprite}`}
+            alt=""
+            draggable={false}
+            style={{
+              width: "100%",
+              height: "100%",
+              clipPath: `inset(0 ${100 - wingSplit(s) * 100}% 0 0)`,
+              transformOrigin: `${wingSplit(s) * 100}% 62%`,
+              animationDelay: `${-(i * 0.37) % 1.4}s`,
+            }}
+          />
+          <span
+            className={`mps-chip mps-${s.tone}${flying && chipGone ? " mps-chip-gone" : ""}${returned === s.id ? " mps-chip-in" : ""}`}
+            style={{
+              left: pos.cx - pos.sx,
+              top: pos.cy - pos.sy,
+              width: s.chip.w * pos.z,
+              height: s.chip.h * pos.z,
+              fontSize: s.chip.h * pos.z * 0.56,
+            }}
+            aria-hidden
+          >
+            {tile}
+          </span>
+        </button>
+      </div>
+    );
+  };
 
   const slotsEl = (sc: number, style: CSSProperties) => (
     <div className="mps-slots" style={style}>
       {Array.from({ length: slotCount }).map((_, i) => {
-        const filled = picked[i];
+        const rej = rejected?.i === i ? rejected.tile : undefined;
+        const filled = rej ?? picked[i];
         return (
           <button
             key={i}
             type="button"
             aria-label={filled ? `Sílaba ${i + 1}: ${filled}` : `Espacio ${i + 1}`}
-            className={`mps-slot${filled ? ` mps-filled mps-${slotState}` : ""}`}
+            data-slot={i}
+            className={`mps-slot${filled ? ` mps-filled mps-${rej ? "no" : slotState}` : ""}${!rej && picked[i] && fx?.kind === "ok" && picked.length === i + 1 ? " mps-pop" : ""}`}
             style={{
               width: BAR.w * sc,
               height: BAR.h * sc,
@@ -271,11 +411,79 @@ export function MariposasScene({ content: base }: { content: GameContent }) {
       <button type="button" onClick={reset}>
         Jugar otra vez
       </button>
+      {SLOTS.map((b, i) => (
+        <img
+          key={b.id}
+          className="mps-fly"
+          src={`${ART}/${b.sprite}`}
+          alt=""
+          draggable={false}
+          style={{
+            left: `${6 + i * 9.5}%`,
+            width: 80 + (i % 3) * 18,
+            animationDelay: `${i * 0.28}s`,
+            animationDuration: `${4.2 + (i % 4) * 0.5}s`,
+          }}
+        />
+      ))}
     </div>
   );
 
+  const leafEls = (sc: number, x0: number, x1: number, keyPrefix: string) =>
+    LEAVES.filter((l) => l.x >= x0 && l.x + l.w <= x1).map((l, n) => (
+      <div
+        key={`${keyPrefix}${n}`}
+        className="mps-leaf"
+        aria-hidden
+        style={{
+          left: (l.x - x0) * sc,
+          top: l.y * sc,
+          width: l.w * sc,
+          height: l.h * sc,
+          backgroundImage: `url(${ART}/scene.webp)`,
+          backgroundSize: `${SCENE_W * sc}px ${SCENE_H * sc}px`,
+          backgroundPosition: `${-l.x * sc}px ${-l.y * sc}px`,
+          transformOrigin: l.origin,
+          animationDuration: `${l.dur}s`,
+          animationDelay: `${l.d}s`,
+        }}
+      />
+    ));
+
   return (
-    <div className="mps-root" aria-label="Mariposas" data-mode={mode} data-testid="mariposas-scene">
+    <div
+      ref={rootRef}
+      className="mps-root"
+      aria-label="Mariposas"
+      onPointerDown={startMusic}
+      data-mode={mode}
+      data-testid="mariposas-scene"
+    >
+      <button
+        type="button"
+        className={`mps-mute mps-mute-${mode}${muted ? " mps-muted" : ""}`}
+        aria-label={muted ? "Activar música" : "Silenciar música"}
+        aria-pressed={muted}
+        onClick={toggleMute}
+      >
+        ♪
+      </button>
+      {fx && (
+        <div
+          key={fx.key}
+          className={`mps-fx mps-fx-${fx.kind}`}
+          style={{ left: fx.x, top: fx.y }}
+          aria-hidden
+        >
+          <b />
+          {Array.from({ length: 12 }).map((_, n) => (
+            <i
+              key={n}
+              style={{ "--a": `${n * 30}deg`, "--r": `${46 + (n % 3) * 14}px` } as CSSProperties}
+            />
+          ))}
+        </div>
+      )}
       <div className="mps-fill" style={{ backgroundImage: `url(${ART}/scene.webp)` }} />
       <p className="mps-sr">
         {content.instructions.map((t, i) => (
@@ -293,6 +501,7 @@ export function MariposasScene({ content: base }: { content: GameContent }) {
             width={SCENE_W}
             height={SCENE_H}
           />
+          {leafEls(1, 0, SCENE_W, "w")}
           {board({ left: BOARD.x, top: BOARD.y, width: BOARD.w, height: BOARD.h }, 1)}
           {butterflies.map(({ s, tile, i }) =>
             renderButterfly(s, tile, i, { sx: s.x, sy: s.y, cx: s.chip.x, cy: s.chip.y, z: 1 }),
@@ -357,6 +566,7 @@ export function MariposasScene({ content: base }: { content: GameContent }) {
                   backgroundPosition: `${-band.x0 * sc}px 0`,
                 }}
               >
+                {leafEls(sc, band.x0, band.x1, `p${bi}`)}
                 {bi === 0 &&
                   board(
                     {

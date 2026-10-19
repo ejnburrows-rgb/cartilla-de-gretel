@@ -24,8 +24,8 @@ test.describe("all themed games", () => {
 
   test("mariposas completes a source-backed word", async ({ page }) => {
     await page.goto("/cartilla/juego/mariposas-p");
-    await page.getByRole("button", { name: "pa", exact: true }).click();
-    await page.getByRole("button", { name: "pi", exact: true }).click();
+    await page.getByRole("button", { name: "ma", exact: true }).click({ force: true });
+    await page.getByRole("button", { name: "pa", exact: true }).click({ force: true });
     await expect(page.getByText("¡Palabra completa!")).toBeVisible();
   });
 
