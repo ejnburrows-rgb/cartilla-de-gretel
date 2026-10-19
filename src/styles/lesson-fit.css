@@ -280,3 +280,236 @@
 .lc-lesson-shell--fit .native-lesson-viewer__content .fp-ix-pick__cells { display: flex; justify-content: center; align-items: center; column-gap: min(3.2cqw, 28px); }
 .lc-lesson-shell--fit .native-lesson-viewer__content .fp-ix-grid .fp-ix-cell,
 .lc-lesson-shell--fit .native-lesson-viewer__content .fp-ix-pick__cells .fp-ix-cell { flex: 0 1 114cqh; width: auto; min-width: 0; height: auto; max-height: 100%; aspect-ratio: 1; }
+
+/* ===== Lesson 13 (Nn) wide-screen design — 2026-10-18 =====
+ * Owner-approved Lesson 3 design language applied to Lesson 13 pages 43–46:
+ * classic cream paper, slimmer teal spine, stronger teal glow around the
+ * work boxes, teal instruction line, garden-palette instruction letters,
+ * boxed pictures capped at 8 per screen, pictures gently float from page
+ * load, tap feedback on top. Additive and scoped to .lesson-13-wide; the
+ * shared fit-to-screen system above still sizes the page (wide desktop and
+ * horizontal tablet are the targets).
+ * Lesson 13's printed pages are handwriting/tracing rows + draw box
+ * (page 43), syllable circle-match (page 44), phonics/reading practice
+ * (page 45), and complete-the-word + sentence writing (page 46).
+ * Pencil/tracing mechanics are untouched. */
+
+.lesson-13-wide {
+  --lc-teal: #167a72;
+  --l13-instruction-teal: #0d9488;
+  --l13-cream: #faf2df;
+  --l13-cream-deep: #ece1c6;
+  --l13-glow: 0 0 0 3px rgba(22, 122, 114, 0.16), 0 10px 22px -10px rgba(22, 122, 114, 0.5);
+  background: var(--l13-cream-deep);
+}
+
+/* Garden-palette instruction letters (not dark ink). Colors chosen for
+ * readable contrast on the cream paper. */
+.lesson-13-wide .l13-garden-letter { font-weight: 700; }
+.lesson-13-wide .l13-leaf { color: #2e7d43; }
+.lesson-13-wide .l13-rose { color: #c74f7c; }
+.lesson-13-wide .l13-sun { color: #b97a10; }
+.lesson-13-wide .l13-sky { color: #2f6fb2; }
+.lesson-13-wide .l13-lavender { color: #7c53a6; }
+
+/* Classic cream paper page with a slimmer teal spine. */
+.lesson-13-wide .native-lesson-viewer__content .faithful-page {
+  background:
+    radial-gradient(120% 90% at 16% 8%, rgba(255, 255, 255, 0.55), transparent 55%),
+    var(--l13-cream);
+  border: 1px solid rgba(22, 122, 114, 0.28);
+}
+.lesson-13-wide .faithful-page__sidebar { width: 4.5%; min-width: 24px; }
+.lesson-13-wide .faithful-page__pagenum { background: #167a72; }
+
+/* Teal instruction line. */
+.lesson-13-wide .native-lesson-viewer__content .fp-region--instruction {
+  border-bottom: 3px solid var(--l13-instruction-teal);
+  padding-bottom: 0.4rem;
+}
+
+/* Boxed work surfaces get the teal glow: tracing/writing lines, syllable
+ * circle-match words, syllable bubbles, fill-in-blank word boxes, draw paper. */
+.lesson-13-wide .native-lesson-viewer__content .fp-writing-line,
+.lesson-13-wide .native-lesson-viewer__content .fp-syllable-match__word,
+.lesson-13-wide .native-lesson-viewer__content .fp-region--syllable-bubble,
+.lesson-13-wide .native-lesson-viewer__content .fp-fill-in-blank__wordbox,
+.lesson-13-wide .native-lesson-viewer__content .am-dibuja__paper {
+  background: #fffaf0;
+  border: 2px solid #167a72;
+  border-radius: 14px;
+  box-shadow: var(--l13-glow);
+}
+.lesson-13-wide .native-lesson-viewer__content .fp-writing-line__model { color: #167a72; }
+
+/* Boxed pictures, at most 8 per screen: a 4×2 grid; extra tiles flow into a
+ * horizontally scrollable strip so no picture is ever dropped. */
+.lesson-13-wide .native-lesson-viewer__content .fp-picture-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-template-rows: repeat(2, auto);
+  grid-auto-flow: column;
+  gap: 1rem;
+  overflow-x: auto;
+  padding: 0.5rem;
+}
+.lesson-13-wide .native-lesson-viewer__content .fp-picture-grid__cell {
+  background: #fffaf0;
+  border: 2px solid #167a72;
+  border-radius: 14px;
+  box-shadow: var(--l13-glow);
+}
+
+/* Pictures gently float from page load — calm slow CSS loop. */
+.lesson-13-wide .native-lesson-viewer__content .fp-picture-grid__cell {
+  animation: l13-float 8s ease-in-out infinite;
+}
+.lesson-13-wide .native-lesson-viewer__content .fp-picture-grid__cell:nth-child(4n+2) { animation-delay: -2s; }
+.lesson-13-wide .native-lesson-viewer__content .fp-picture-grid__cell:nth-child(4n+3) { animation-delay: -4s; }
+.lesson-13-wide .native-lesson-viewer__content .fp-picture-grid__cell:nth-child(4n+4) { animation-delay: -6s; }
+
+/* Tap feedback on top. */
+.lesson-13-wide .native-lesson-viewer__content .fp-picture-grid__cell:active { transform: scale(0.96); }
+
+@keyframes l13-float {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-6px); }
+}
+@media (prefers-reduced-motion: reduce) {
+  .lesson-13-wide .native-lesson-viewer__content .fp-picture-grid__cell { animation: none; }
+}
+
+.lesson-13-wide .native-lesson-viewer__navigation button[data-testid="button-next"] { background: #167a72; border-color: #167a72; color: #fffaf0; }
+.lesson-13-wide :is(button, a, textarea):focus-visible { outline: 3px solid #167a72; outline-offset: 3px; }
+
+/* ===== Lesson 21 (Jj) wide-screen design — swarm lane, 2026-10-18 =====
+ * Owner-approved Lesson 3 design language applied to Lesson 21 pages 75–78:
+ * classic cream paper, slimmer teal spine, stronger teal glow around the
+ * work boxes, garden-palette instruction letters. Additive and scoped to
+ * .lc-lesson-21; the shared fit-to-screen system above still sizes the page
+ * (wide desktop and horizontal tablet are the targets).
+ * Lesson 21's printed pages have no picture-grid or connect pages — they are
+ * writing/tracing (75), syllable circling (76), letter/reading (77) and
+ * complete-the-word + sentence writing (78) — so the boxed-surface rules
+ * apply to its word and syllable tiles. Pencil mechanics are untouched. */
+
+.lc-lesson-21 {
+  --lc-teal: #167a72;
+  --l21-cream: #faf2df;
+  --l21-cream-deep: #ece1c6;
+  --l21-glow: 0 0 0 3px rgba(22, 122, 114, 0.16), 0 10px 22px -10px rgba(22, 122, 114, 0.5);
+  background: var(--l21-cream-deep);
+}
+
+/* Garden-palette instruction letters (not dark ink). Colors chosen for
+ * readable contrast on the cream paper. */
+.lc-lesson-21 .l21-garden-letter { font-weight: 700; }
+.lc-lesson-21 .l21-leaf { color: #2e7d43; }
+.lc-lesson-21 .l21-rose { color: #c74f7c; }
+.lc-lesson-21 .l21-sun { color: #b97a10; }
+.lc-lesson-21 .l21-sky { color: #2f6fb2; }
+.lc-lesson-21 .l21-lavender { color: #7c53a6; }
+
+/* Classic cream paper page with a slimmer teal spine. */
+.lc-lesson-21 .native-lesson-viewer__content .faithful-page {
+  background:
+    radial-gradient(120% 90% at 16% 8%, rgba(255, 255, 255, 0.55), transparent 55%),
+    var(--l21-cream);
+  border: 1px solid rgba(22, 122, 114, 0.28);
+}
+.lc-lesson-21 .faithful-page__sidebar { width: 4.5%; min-width: 24px; }
+/* Audit fix 2026-10-18: the page-number diamond sat at left/right 2.2%,
+ * under the wavy teal sidebar, so the wave covered its corner on narrow
+ * screens (mobile p77) — z-index alone cannot lift it. Clear the sidebar
+ * and paint above it (same pattern as the lesson-16 audit fix). */
+.lc-lesson-21 .faithful-page__pagenum { background: #167a72; z-index: 3; }
+.lc-lesson-21 .faithful-page--edge-left .faithful-page__pagenum { left: 6.2%; }
+.lc-lesson-21 .faithful-page--edge-right .faithful-page__pagenum { right: 6.2%; }
+
+/* Stronger teal glow around every boxed work surface. */
+.lc-lesson-21 .native-lesson-viewer__content .native-syllable__word,
+.lc-lesson-21 .native-lesson-viewer__content .fp-ix-fill__item,
+.lc-lesson-21 .native-lesson-viewer__content .fp-native-vocab > span,
+.lc-lesson-21 .native-lesson-viewer__content .fp-native-syllables > span,
+.lc-lesson-21 .native-lesson-viewer__content .fp-ix-fill__choice,
+.lc-lesson-21 .native-lesson-viewer__content .fp-ix-fill__wordbox,
+.lc-lesson-21 .native-lesson-viewer__content .fp-ix-fill__blank {
+  background: #fffaf0 !important;
+  border: 2px solid #167a72 !important;
+  border-radius: 14px;
+  box-shadow: var(--l21-glow);
+}
+.lc-lesson-21 .native-lesson-viewer__content .fp-ix-fill__blank { background: #fdf6e6 !important; }
+
+/* Page 76 — syllable circling: each syllable group is a cream card, the
+ * target syllable is a raised teal tile, word tiles keep the teal glow. */
+.lc-lesson-21 .native-lesson-viewer__content .native-syllable {
+  padding: calc(var(--ph) * .012) calc(var(--ph) * .016);
+  border: 1.5px solid rgba(22, 122, 114, 0.45);
+  border-radius: 18px;
+  background: #fdf8ec;
+  box-shadow: 0 4px 14px -8px rgba(22, 122, 114, 0.35);
+}
+.lc-lesson-21 .native-lesson-viewer__content .native-syllable h2 {
+  color: #167a72;
+  background: #fffaf0;
+  border: 2px solid #167a72;
+  box-shadow: var(--l21-glow);
+}
+.lc-lesson-21 .native-lesson-viewer__content .native-syllable__word[aria-pressed="true"] {
+  border-color: #2f7d4a !important;
+  box-shadow: 0 0 0 4px rgba(47, 125, 74, 0.22);
+}
+
+/* Page 77 — letter/reading: raised teal Jj card, garden-colored syllable
+ * chips, boxed vocabulary tiles, cream reading card. */
+.lc-lesson-21 .native-lesson-viewer__content .fp-native-letter-page .fp-native-title {
+  color: #167a72;
+  background: #fffaf0;
+  border: 2px solid #167a72;
+  border-radius: 20px;
+  box-shadow: var(--l21-glow);
+}
+.lc-lesson-21 .native-lesson-viewer__content .fp-native-syllables { gap: calc(var(--ph) * .012); }
+.lc-lesson-21 .native-lesson-viewer__content .fp-native-syllables > span { font-weight: 700; }
+.lc-lesson-21 .native-lesson-viewer__content .fp-native-syllables > span:nth-child(5n+1) { color: #2e7d43; border-color: #2e7d43 !important; }
+.lc-lesson-21 .native-lesson-viewer__content .fp-native-syllables > span:nth-child(5n+2) { color: #c74f7c; border-color: #c74f7c !important; }
+.lc-lesson-21 .native-lesson-viewer__content .fp-native-syllables > span:nth-child(5n+3) { color: #b97a10; border-color: #b97a10 !important; }
+.lc-lesson-21 .native-lesson-viewer__content .fp-native-syllables > span:nth-child(5n+4) { color: #2f6fb2; border-color: #2f6fb2 !important; }
+.lc-lesson-21 .native-lesson-viewer__content .fp-native-syllables > span:nth-child(5n+5) { color: #7c53a6; border-color: #7c53a6 !important; }
+/* The shared letter-page rule in native-lesson.css colors reading text maroon
+ * (#70263b); with equal specificity the later-loaded shared stylesheet wins.
+ * Strengthen the selector so the lesson's intended dark ink always applies. */
+.lc-lesson-21 .native-lesson-viewer__content .fp-native-letter-page .fp-region--reading-sentences {
+  padding: calc(var(--ph) * .014) calc(var(--ph) * .02);
+  border: 1.5px solid rgba(22, 122, 114, 0.45);
+  border-radius: 16px;
+  background: #fdf8ec;
+  color: #25313a;
+  box-shadow: 0 4px 14px -8px rgba(22, 122, 114, 0.35);
+}
+
+/* Pages 75 and 78 — tracing, drawing and sentence writing on cream paper
+ * with the same teal glow. */
+.lc-lesson-21 .native-lesson-viewer__content .fp-trace__svg,
+.lc-lesson-21 .native-lesson-viewer__content .am-dibuja__paper,
+.lc-lesson-21 .native-lesson-viewer__content .fp-writing-response textarea {
+  background: #fffaf0;
+  border: 2px solid #167a72;
+  border-radius: 14px;
+  box-shadow: var(--l21-glow);
+}
+.lc-lesson-21 .native-lesson-viewer__content .fp-writing-response textarea {
+  background: repeating-linear-gradient(#fffaf0, #fffaf0 47px, #b7d4cd 48px);
+}
+.lc-lesson-21 .native-lesson-viewer__content .fp-writing-line__model { color: #167a72; }
+.lc-lesson-21 .fp-ix-fill__choice.graded-correct {
+  border-color: #2f7d4a !important;
+  box-shadow: 0 0 0 4px rgba(47, 125, 74, 0.22);
+}
+.lc-lesson-21 .native-lesson-viewer__navigation button[data-testid="button-next"] { background: #167a72; border-color: #167a72; color: #fffaf0; }
+/* Keep the teal design language on hover: the shared fit-mode rule colors the
+ * last nav button red on hover (#a32636), which looks like a defect against
+ * the lesson's teal button. Lesson-scoped, higher specificity. */
+.lc-lesson-21 .native-lesson-viewer__navigation button[data-testid="button-next"]:hover:not(:disabled) { background: #126b62; border-color: #126b62; color: #fffaf0; }
+.lc-lesson-21 :is(button, a, textarea):focus-visible { outline: 3px solid #167a72; outline-offset: 3px; }
