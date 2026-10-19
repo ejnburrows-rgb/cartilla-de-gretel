@@ -596,3 +596,37 @@
     font-size: calc(var(--u) * 24);
   }
 }
+
+/* finish celebration: paper pieces fall with gravity and drift, then fade. */
+.ppm-confetti {
+  position: absolute;
+  left: 50%;
+  top: 0;
+  width: 0;
+  height: 0;
+  pointer-events: none;
+}
+.ppm-confetti i {
+  position: absolute;
+  left: calc((var(--i) - 11) * var(--u) * 26);
+  top: calc(var(--u) * -40);
+  width: calc(var(--u) * 14);
+  height: calc(var(--u) * 22);
+  border-radius: calc(var(--u) * 3);
+  background: hsl(calc(var(--i) * 47), 85%, 58%);
+  animation: ppm-fall var(--d) cubic-bezier(0.4, 0.05, 0.9, 0.6) var(--dl) both;
+}
+@keyframes ppm-fall {
+  0% {
+    transform: translate(0, 0) rotate(0deg);
+    opacity: 1;
+  }
+  80% {
+    opacity: 1;
+  }
+  100% {
+    transform: translate(calc(var(--dx) * var(--u) * 14), calc(var(--u) * 520))
+      rotate(calc(var(--i) * 140deg));
+    opacity: 0;
+  }
+}

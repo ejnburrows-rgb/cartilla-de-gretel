@@ -10,6 +10,7 @@ import { CORE_THEMED_GAMES } from "@/content/games/core-games";
 import { COMPLETAR_PALABRAS_M } from "@/content/games/completar-palabras";
 import { CompletarPalabras } from "@/components/cartilla/games/CompletarPalabras";
 import type { CompletarPalabrasContent } from "@/content/games/completar-palabras";
+import { PALABRAS_MINUTO_M } from "@/components/cartilla/games/palabras-minuto/palabras-minuto-m";
 import type { GameContent } from "@/lib/games/gameContent";
 
 export const Route = createFileRoute("/cartilla/juego/$gameId")({
@@ -21,6 +22,7 @@ export const LIVE_GAMES: GameContent[] = [
   ...SYLLABLE_BUILDER_PILOT,
   ...CORE_THEMED_GAMES,
   COMPLETAR_PALABRAS_M,
+  PALABRAS_MINUTO_M,
 ];
 
 const GAMES: Record<string, GameContent> = Object.fromEntries(

@@ -4,6 +4,7 @@
 import { useEffect, useRef, useState } from "react";
 import type { GameContent } from "@/lib/games/gameContent";
 import { recordEvent } from "@/lib/student-session";
+import { playFinish, playRight, playWrong } from "./sounds";
 import "./PalabrasMinutoScene.css";
 
 const ART = "/cartilla/games/palabras-minuto";
@@ -81,8 +82,13 @@ export function PalabrasMinutoScene({ content }: { content: GameContent }) {
       window.setTimeout(() => setPulse(false), 1100);
       return;
     }
-    if (i === count) setCount((n) => Math.min(n + 1, total));
-    else if (i > count) setWrong(i);
+    if (i === count) {
+      playRight();
+      setCount((n) => Math.min(n + 1, total));
+    } else if (i > count) {
+      playWrong();
+      setWrong(i);
+    }
   };
 
   const finishList = () => {
@@ -95,6 +101,14 @@ export function PalabrasMinutoScene({ content }: { content: GameContent }) {
   };
 
   const allDone = running && count >= total;
+  const celebratedRef = useRef(false);
+  useEffect(() => {
+    if (finished && count > 0 && !celebratedRef.current) {
+      celebratedRef.current = true;
+      playFinish();
+    }
+    if (!finished) celebratedRef.current = false;
+  }, [finished, count]);
   const rows = Math.max(1, Math.ceil(total / 3));
 
   return (
@@ -204,6 +218,23 @@ export function PalabrasMinutoScene({ content }: { content: GameContent }) {
 
         {(allDone || finished) && (
           <div className="ppm-result" role="status">
+            {finished && count > 0 && (
+              <div className="ppm-confetti" aria-hidden>
+                {Array.from({ length: 22 }, (_, k) => (
+                  <i
+                    key={k}
+                    style={
+                      {
+                        "--i": k,
+                        "--d": `${(1.5 + (k % 5) * 0.18).toFixed(2)}s`,
+                        "--dl": `${((k % 6) * 0.05).toFixed(2)}s`,
+                        "--dx": (k % 7) - 3,
+                      } as React.CSSProperties
+                    }
+                  />
+                ))}
+              </div>
+            )}
             {finished ? (
               <>
                 <div>{`Leíste ${count} palabras.`}</div>
