@@ -46,9 +46,11 @@ export function GameShell({
           </ol>
         </header>
 
-        <div className="flex justify-center">
-          <GretelMascot pose={gretelPose} text={gretelText} bubblePosition="top" />
-        </div>
+        {content.id !== "rima-mm" && (
+          <div className="flex justify-center">
+            <GretelMascot pose={gretelPose} text={gretelText} bubblePosition="top" />
+          </div>
+        )}
 
         {children}
       </div>

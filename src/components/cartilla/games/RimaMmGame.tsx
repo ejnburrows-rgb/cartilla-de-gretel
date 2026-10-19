@@ -59,14 +59,20 @@ function LetterPickerEntrance({ onPick }: { onPick: (letter: string) => void }) 
   );
 }
 
+type PlacedState = { word: string; status: "idle" | "checking" | "correct" | "wrong" } | null;
+
+// Temporary mockup answer key just to demonstrate UI behavior.
+// Mami me ama, amo a mamá, mímame mami, ámame más.
+const TEMP_MOCK_ANSWERS = ["Mami", "amo", "mímame", "ámame"];
+
 export function RimaMmGame() {
   const [letterPicked, setLetterPicked] = useState(false);
   // placed[i] = word placed in blank i, or null
-  const [placed, setPlaced] = useState<(string | null)[]>([null, null, null, null]);
+  const [placed, setPlaced] = useState<PlacedState[]>([null, null, null, null]);
   const [draggedWord, setDraggedWord] = useState<string | null>(null);
   const dragFromRef = useRef<{ type: "bank" | "blank"; index: number } | null>(null);
 
-  const usedWords = new Set(placed.filter(Boolean) as string[]);
+  const usedWords = new Set(placed.filter(Boolean).map((p) => p!.word));
   const availableWords = RIMA_MM_WORDS.filter((w) => !usedWords.has(w));
   const allFilled = placed.every(Boolean);
 
@@ -93,19 +99,46 @@ export function RimaMmGame() {
   const handleDropOnBlank = (blankIndex: number) => {
     if (!draggedWord || !dragFromRef.current) return;
     const from = dragFromRef.current;
+    const droppedWord = draggedWord;
 
     setPlaced((prev) => {
       const next = [...prev];
-      // If dragging from another blank, clear that blank
       if (from.type === "blank") {
         next[from.index] = null;
       }
-      // If target blank had a word, it goes back to bank (just clear)
-      next[blankIndex] = draggedWord;
+      next[blankIndex] = { word: droppedWord, status: "checking" };
       return next;
     });
+    
     setDraggedWord(null);
     dragFromRef.current = null;
+
+    // Simulate validation flow
+    setTimeout(() => {
+      setPlaced((current) => {
+        const next = [...current];
+        const item = next[blankIndex];
+        if (item?.word === droppedWord && item.status === "checking") {
+          const isCorrect = droppedWord === TEMP_MOCK_ANSWERS[blankIndex];
+          next[blankIndex] = { ...item, status: isCorrect ? "correct" : "wrong" };
+          
+          if (!isCorrect) {
+            // Erase wrong answer after a delay
+            setTimeout(() => {
+              setPlaced((latest) => {
+                const latestNext = [...latest];
+                const latestItem = latestNext[blankIndex];
+                if (latestItem?.word === droppedWord && latestItem.status === "wrong") {
+                  latestNext[blankIndex] = null;
+                }
+                return latestNext;
+              });
+            }, 1000);
+          }
+        }
+        return next;
+      });
+    }, 500); // 500ms checking phase
   };
 
   const handleDropOnBank = () => {
@@ -182,9 +215,9 @@ export function RimaMmGame() {
             onClick={playInstructionAudio}
             aria-label="Escuchar instrucciones (audio pendiente)"
             title="Audio pendiente — grabación del dueño"
-            className="w-14 h-14 rounded-full bg-blue-500 border-4 border-amber-400 flex items-center justify-center shadow-lg hover:bg-blue-600 active:scale-95"
+            className="w-14 h-14 rounded-full bg-blue-500 border-4 border-amber-400 flex items-center justify-center shadow-lg hover:bg-blue-600 active:scale-95 overflow-hidden p-2"
           >
-            <Volume2 className="w-7 h-7 text-white" aria-hidden />
+            <img src="/games/rima-mm/bocina.png" alt="" className="w-full h-full object-contain filter invert brightness-0" aria-hidden />
           </button>
         </div>
 
@@ -260,22 +293,22 @@ export function RimaMmGame() {
                     className={`
                       flex-1 min-h-[48px] rounded-xl border-3 border-dashed
                       flex items-center justify-center px-4 py-2
-                      text-xl font-black
-                      ${placed[i]
-                        ? "border-solid border-teal-500 bg-teal-50 text-teal-900"
-                        : "border-blue-300 bg-blue-50 text-stone-400"
-                      }
+                      text-xl font-black transition-colors duration-[1500ms]
+                      ${!placed[i] ? "border-blue-300 bg-blue-50 text-stone-400" : ""}
+                      ${placed[i]?.status === "checking" ? "border-solid border-stone-400 bg-stone-200 text-stone-700 duration-300" : ""}
+                      ${placed[i]?.status === "correct" ? "border-solid border-emerald-500 bg-emerald-100 text-emerald-900" : ""}
+                      ${placed[i]?.status === "wrong" ? "border-solid border-red-500 bg-red-100 text-red-900 duration-300" : ""}
                     `}
                     style={{ borderWidth: "3px" }}
                   >
                     {placed[i] ? (
                       <span
                         draggable
-                        onDragStart={() => handleDragStart(placed[i]!, { type: "blank", index: i })}
+                        onDragStart={() => handleDragStart(placed[i]!.word, { type: "blank", index: i })}
                         onDragEnd={handleDragEnd}
                         className="cursor-grab active:cursor-grabbing select-none"
                       >
-                        {placed[i]}
+                        {placed[i]!.word}
                       </span>
                     ) : (
                       <span className="text-stone-300">________</span>
@@ -322,31 +355,29 @@ export function RimaMmGame() {
       </div>
 
       <style>{`
-        .rima-breathe {
-          animation: rima-breathe 4s ease-in-out infinite;
-        }
-        @keyframes rima-breathe {
-          0%, 100% { transform: scale(1); }
-          50% { transform: scale(1.03); }
-        }
-        .rima-bee-hover {
-          animation: rima-bee-hover 2s ease-in-out infinite;
-        }
-        @keyframes rima-bee-hover {
-          0%, 100% { transform: translateY(0) rotate(-5deg); }
-          50% { transform: translateY(-10px) rotate(5deg); }
-        }
-        .rima-leaf-sway {
-          animation: rima-leaf-sway 5s ease-in-out infinite;
-          transform-origin: top center;
-        }
-        @keyframes rima-leaf-sway {
-          0%, 100% { transform: rotate(-8deg); }
-          50% { transform: rotate(8deg); }
-        }
-        @media (prefers-reduced-motion: reduce) {
-          .rima-breathe, .rima-bee-hover, .rima-leaf-sway {
-            animation: none;
+        @media (prefers-reduced-motion: no-preference) {
+          .rima-breathe {
+            animation: rima-breathe 5s ease-in-out infinite;
+            transform-origin: bottom center;
+          }
+          @keyframes rima-breathe {
+            0%, 100% { transform: scale(1) translateY(0); }
+            50% { transform: scale(1.02) translateY(-2px); }
+          }
+          .rima-bee-hover {
+            animation: rima-bee-hover 3s ease-in-out infinite;
+          }
+          @keyframes rima-bee-hover {
+            0%, 100% { transform: translateY(0) translateX(0) rotate(-2deg); }
+            50% { transform: translateY(-8px) translateX(2px) rotate(3deg); }
+          }
+          .rima-leaf-sway {
+            animation: rima-leaf-sway 6s ease-in-out infinite;
+            transform-origin: top center;
+          }
+          @keyframes rima-leaf-sway {
+            0%, 100% { transform: rotate(-4deg); }
+            50% { transform: rotate(6deg); }
           }
         }
       `}</style>
