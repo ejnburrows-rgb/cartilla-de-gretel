@@ -280,3 +280,82 @@
 .lc-lesson-shell--fit .native-lesson-viewer__content .fp-ix-pick__cells { display: flex; justify-content: center; align-items: center; column-gap: min(3.2cqw, 28px); }
 .lc-lesson-shell--fit .native-lesson-viewer__content .fp-ix-grid .fp-ix-cell,
 .lc-lesson-shell--fit .native-lesson-viewer__content .fp-ix-pick__cells .fp-ix-cell { flex: 0 1 114cqh; width: auto; min-width: 0; height: auto; max-height: 100%; aspect-ratio: 1; }
+
+/* ===== Lesson 4 (Ee) wide-screen design — 2026-10-18 =====
+ * Owner-approved Lesson 3 design language applied to Lesson 4 pages 10–12:
+ * classic cream paper, slimmer teal spine, stronger teal glow around the
+ * work boxes, garden-palette instruction letters. Additive and scoped to
+ * .lc-lesson-4; the shared fit-to-screen system above still sizes the page
+ * (wide desktop and horizontal tablet are the targets).
+ * Lesson 4's printed pages are a "Marca con una x" picture grid (page 10),
+ * a pencil vowel line-match (page 11), and writing lines + a draw box
+ * (page 12) — so the boxed-surface rules apply to its picture tiles
+ * (.fp-ix-cell), line-match cards/targets, tracing SVG and draw paper.
+ * Pencil mechanics are untouched. */
+
+.lc-lesson-4 {
+  --lc-teal: #167a72;
+  --l4-cream: #faf2df;
+  --l4-cream-deep: #ece1c6;
+  --l4-glow: 0 0 0 3px rgba(22, 122, 114, 0.16), 0 10px 22px -10px rgba(22, 122, 114, 0.5);
+  background: var(--l4-cream-deep);
+}
+
+/* Garden-palette instruction letters (not dark ink). Colors chosen for
+ * readable contrast on the cream paper. */
+.lc-lesson-4 .l4-garden-letter { font-weight: 700; }
+.lc-lesson-4 .l4-leaf { color: #2e7d43; }
+.lc-lesson-4 .l4-rose { color: #c74f7c; }
+.lc-lesson-4 .l4-sun { color: #b97a10; }
+.lc-lesson-4 .l4-sky { color: #2f6fb2; }
+.lc-lesson-4 .l4-lavender { color: #7c53a6; }
+
+/* Classic cream paper page with a slimmer teal spine. */
+.lc-lesson-4 .native-lesson-viewer__content .faithful-page {
+  background:
+    radial-gradient(120% 90% at 16% 8%, rgba(255, 255, 255, 0.55), transparent 55%),
+    var(--l4-cream);
+  border: 1px solid rgba(22, 122, 114, 0.28);
+}
+.lc-lesson-4 .faithful-page__sidebar { width: 4.5%; min-width: 24px; }
+.lc-lesson-4 .faithful-page__pagenum { background: #167a72; }
+
+/* Page 10 — "Marca con una x" picture tiles get the teal glow. */
+.lc-lesson-4 .native-lesson-viewer__content .fp-ix-cell {
+  background: #fffaf0 !important;
+  border: 2px solid #167a72 !important;
+  border-radius: 14px;
+  box-shadow: var(--l4-glow);
+}
+
+/* Page 11 — vowel line-match: center letter card, picture target tiles,
+ * and the interactive pencil mark grid items. */
+.lc-lesson-4 .native-lesson-viewer__content .am-direct-pencil__card,
+.lc-lesson-4 .native-lesson-viewer__content .am-direct-pencil__target,
+.lc-lesson-4 .native-lesson-viewer__content .am-pencil-mark-grid__item {
+  background: #fffaf0;
+  border: 2px solid #167a72;
+  border-radius: 14px;
+  box-shadow: var(--l4-glow);
+}
+.lc-lesson-4 .native-lesson-viewer__content .am-direct-pencil__center {
+  color: #167a72;
+  background: #fffaf0;
+  border: 2px solid #167a72;
+  border-radius: 20px;
+  box-shadow: var(--l4-glow);
+}
+
+/* Page 12 — tracing SVG, writing lines and the draw-box paper. */
+.lc-lesson-4 .native-lesson-viewer__content .fp-trace__svg,
+.lc-lesson-4 .native-lesson-viewer__content .fp-writing-line,
+.lc-lesson-4 .native-lesson-viewer__content .am-dibuja__paper {
+  background: #fffaf0;
+  border: 2px solid #167a72;
+  border-radius: 14px;
+  box-shadow: var(--l4-glow);
+}
+.lc-lesson-4 .native-lesson-viewer__content .fp-writing-line__model { color: #167a72; }
+
+.lc-lesson-4 .native-lesson-viewer__navigation button[data-testid="button-next"] { background: #167a72; border-color: #167a72; color: #fffaf0; }
+.lc-lesson-4 :is(button, a, textarea):focus-visible { outline: 3px solid #167a72; outline-offset: 3px; }

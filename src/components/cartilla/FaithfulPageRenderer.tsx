@@ -1,6 +1,7 @@
 import "@/styles/native-lesson.css";
 import type { ReactNode } from "react";
 import { GretelActivity } from "@/components/gretel/GretelActivity";
+import { Lesson4GardenText } from "./lesson4/Lesson4GardenText";
 import { SOURCE_BLOCKED_WORKBOOK_PAGES } from "@/lib/workbook-pages";
 import { getPageLayout, type PageGridCell, type PageRegion } from "@/lib/book-faithful";
 import { archetypeMappingForPage } from "@/data/workbook-archetypes";
@@ -444,6 +445,8 @@ function RegionView({
                 part
               ),
             )
+          : lessonNumber === 4 && region.text
+            ? <Lesson4GardenText text={region.text} />
           : region.text;
       return (
         <p className="fp-region--instruction">
