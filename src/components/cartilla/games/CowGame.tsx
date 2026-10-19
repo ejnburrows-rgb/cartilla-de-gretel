@@ -28,6 +28,7 @@ type Layout = {
   slots: Box[];
   plaqueY: number;
   floor: number;
+  stand: number;
   scene: string;
   title: Box;
   homeBtn: Box;
@@ -39,7 +40,8 @@ const LAND: Layout = {
   W: 1238,
   H: 928,
   plaqueY: 583,
-  floor: 905,
+  floor: 915,
+  stand: 548,
   scene: "scene.webp",
   home: [
     { x: 70, y: 155, w: 215, h: 203 },
@@ -69,6 +71,7 @@ const PORT: Layout = {
   H: 1846,
   plaqueY: 1182,
   floor: 1810,
+  stand: 1150,
   scene: "scene-portrait.webp",
   home: [
     { x: 28, y: 640, w: 190, h: 180 },
@@ -110,6 +113,12 @@ const norm = (s: string) =>
 
 // Full-size cow standing in the open slot (in front of the fence).
 function standSpot(slot: number, cow: number): Box {
+  const b = L.slots[slot];
+  const h = L.home[cow];
+  return { x: b.x + b.w / 2 - h.w / 2, y: L.floor - h.h, w: h.w, h: h.h };
+}
+// A cow that picked the wrong slot stops above the slot, clear of placed cows.
+function wrongSpot(slot: number, cow: number): Box {
   const b = L.slots[slot];
   const h = L.home[cow];
   return { x: b.x + b.w / 2 - h.w / 2, y: L.floor - h.h, w: h.w, h: h.h };
@@ -285,7 +294,7 @@ export function CowGame({ content }: { content: GameContent }) {
       const count = right ? already + 1 : 1;
       const to: Pos = { slot, index: right ? already : 0, count };
       const home = L.home[cow];
-      const target = standSpot(slot, cow);
+      const target = right ? peekSpot(slot, already, count, cow) : wrongSpot(slot, cow);
       const dx = target.x + target.w / 2 - (home.x + home.w / 2);
       setSelCow(null);
       setSelSlot(null);
@@ -473,7 +482,10 @@ export function CowGame({ content }: { content: GameContent }) {
             isActive &&
             (active.phase === "walk" || active.phase === "gate" || active.phase === "wrong")
           ) {
-            box = standSpot(active.slot, i);
+            const ok = norm(syl) === COW_SLOTS[active.slot];
+            box = ok
+              ? peekSpot(active.to.slot, active.to.index, active.to.count, i)
+              : wrongSpot(active.slot, i);
             slow = true;
           }
           if (isActive && active.phase === "back") slow = true;
@@ -564,7 +576,7 @@ const CSS = `
 .cg-walking .cg-tail{animation:cg-tail .62s ease-in-out infinite}
 .cg-walking .cg-tongue{animation:cg-tongue 1.8s ease-in-out infinite}
 
-.cg-slot-text{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;font:700 6.2cqw/1 "Fredoka",ui-rounded,system-ui,sans-serif;color:#3a1a0e;letter-spacing:.3cqw;white-space:nowrap;z-index:2;pointer-events:none}
+.cg-slot-text{position:absolute;inset:0;display:flex;align-items:flex-start;padding-top:1.2cqw;justify-content:center;font:700 5.2cqw/1 "Fredoka",ui-rounded,system-ui,sans-serif;color:#3a1a0e;letter-spacing:.3cqw;white-space:nowrap;z-index:2;pointer-events:none}
 .cg-eyes{position:absolute;inset:0;width:100%;height:100%;pointer-events:none}
 .cg-pupil{animation:cg-look 5.4s ease-in-out infinite;animation-delay:var(--cg-delay)}
 .cg-lid{opacity:0;animation:cg-blink 3.6s linear infinite;animation-delay:var(--cg-delay)}
