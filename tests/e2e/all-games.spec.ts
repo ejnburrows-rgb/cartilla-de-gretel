@@ -48,8 +48,9 @@ test.describe("all themed games", () => {
 
   test("one-minute reading timer starts", async ({ page }) => {
     await page.goto("/cartilla/juego/palabras-minuto-p");
-    await page.getByRole("button", { name: "Empezar 1 minuto" }).click();
-    await expect(page.getByText(/59s|60s/)).toBeVisible();
+    await page.getByRole("button", { name: "Letra Mm" }).click();
+    await page.getByRole("button", { name: "Empezar" }).click();
+    await expect(page.getByText(/00:59|01:00/)).toBeVisible();
   });
 
   test("picture matching accepts the correct verified crop", async ({ page }) => {

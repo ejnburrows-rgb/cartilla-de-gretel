@@ -47,7 +47,7 @@ function LetterPicker({
     <div
       className="min-h-[70vh] rounded-3xl border-4 border-[#8b5e34] p-6 sm:p-10"
       style={{
-        backgroundImage: `url(${ASSETS}/cork.jpg)`,
+        backgroundImage: `url(${ASSETS}/image-88d9e033.jpg)`,
         backgroundRepeat: "repeat",
         backgroundSize: "120px 120px",
       }}
@@ -132,7 +132,7 @@ function CorkBoard({ content, onBack }: { content: GameContent; onBack: () => vo
     <div
       className="rounded-3xl border-4 border-[#8b5e34] p-3 sm:p-6"
       style={{
-        backgroundImage: `url(${ASSETS}/cork.jpg)`,
+        backgroundImage: `url(${ASSETS}/image-88d9e033.jpg)`,
         backgroundRepeat: "repeat",
         backgroundSize: "120px 120px",
       }}
