@@ -2,6 +2,7 @@ import {chromium} from 'playwright';
 import fs from 'node:fs';
 const out=process.argv[2],url=process.argv[3]||'http://localhost:5173';fs.mkdirSync(out,{recursive:true});
 const browser=await chromium.launch({executablePath:'/usr/bin/google-chrome',args:['--no-sandbox','--disable-dev-shm-usage']});
+const metricPath=`${out}/metrics-${JSON.parse(process.env.SIZES || "[[1440,900],[390,844]]").map(([w,h])=>`${w}x${h}`).join("-")}.json`;
 const ledger=[];
 for(const [w,h] of JSON.parse(process.env.SIZES || "[[1440,900],[390,844]]")) {
  const ctx=await browser.newContext({viewport:{width:w,height:h},reducedMotion:'reduce'});
@@ -17,7 +18,7 @@ for(const [w,h] of JSON.parse(process.env.SIZES || "[[1440,900],[390,844]]")) {
    await page.locator('.native-lesson-viewer__leaf .faithful-page').waitFor({state:'visible'});
    await page.evaluate(()=>document.fonts.ready);await page.waitForTimeout(1300);
    const metrics=await page.evaluate(()=>{const r=document.querySelector('.native-lesson-viewer__leaf .faithful-page')?.getBoundingClientRect();return {viewport:[innerWidth,innerHeight],document:[document.documentElement.scrollWidth,document.documentElement.scrollHeight],paper:r?{x:r.x,y:r.y,width:r.width,height:r.height}:null,overflow:!!document.querySelector('[data-lc-fit-overflow]')};});
-   const name=`${w}x${h}-L${n}-p${p}.png`;await page.screenshot({path:`${out}/${name}`});ledger.push({name,n,p,...metrics});fs.writeFileSync(`${out}/metrics.json`,JSON.stringify(ledger,null,2));console.log(name);
+   const name=`${w}x${h}-L${n}-p${p}.png`;await page.screenshot({path:`${out}/${name}`});ledger.push({name,n,p,...metrics});fs.writeFileSync(metricPath,JSON.stringify(ledger,null,2));console.log(name);
   }
  }
  await ctx.close();
