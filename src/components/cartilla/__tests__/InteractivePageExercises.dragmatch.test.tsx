@@ -101,7 +101,7 @@ describe("InteractiveVowelPickOne shared pencil adapter", () => {
     expect(oso).toHaveProperty("disabled", false);
   });
 
-  it("records completion once and emits no separate final success event", () => {
+  it("records completion once and emits the final success event", () => {
     const view = render(<InteractiveVowelPickOne region={region} accent="#000" lessonId="2" />);
 
     fireEvent.click(view.getByRole("button", { name: "oso" }));
@@ -113,7 +113,7 @@ describe("InteractiveVowelPickOne shared pencil adapter", () => {
     expect(gretelEvent).toHaveBeenCalledWith("activity:complete", {
       itemId: "p2-pick-1-1",
     });
-    expect(gretelEvent).not.toHaveBeenCalledWith("answer:correct", {
+    expect(gretelEvent).toHaveBeenCalledWith("answer:correct", {
       itemId: "p2-pick-1-1",
     });
     expect(recordEvent).toHaveBeenCalledTimes(1);

@@ -65,14 +65,14 @@ describe("WorkbookPencilMark shared feedback kernel", () => {
     expect(gretelEvent).toHaveBeenCalledWith("answer:correct", { itemId: "p1-0" });
   });
 
-  it("emits only completion for the final correct item", () => {
+  it("emits completion and correct-answer for the final correct item", () => {
     render(<WorkbookPencilMark isCorrect completeOnSuccess itemId="p1-final" />);
 
     act(() => vi.advanceTimersByTime(drawMs + holdMs));
 
-    expect(gretelEvent).toHaveBeenCalledTimes(1);
+    expect(gretelEvent).toHaveBeenCalledTimes(2);
     expect(gretelEvent).toHaveBeenCalledWith("activity:complete", { itemId: "p1-final" });
-    expect(gretelEvent).not.toHaveBeenCalledWith("answer:correct", expect.anything());
+    expect(gretelEvent).toHaveBeenCalledWith("answer:correct", { itemId: "p1-final" });
   });
 
   it("emits retry before the eraser removes a wrong mark", () => {

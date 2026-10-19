@@ -59,7 +59,7 @@ describe("TapSelect", () => {
     expect(btnA.className).toContain("is-wrong");
     expect(btnB.className).not.toContain("is-wrong");
     expect(playWrongBuzz).toHaveBeenCalledTimes(1);
-    expect(gretelEvent).toHaveBeenCalledWith("answer:wrong");
+    expect(gretelEvent).toHaveBeenCalledWith("answer:wrong", undefined);
 
     // Advance 300ms
     act(() => {
@@ -126,7 +126,7 @@ describe("TapSelect", () => {
     fireEvent.click(btnC);
 
     expect(playCorrectChord).toHaveBeenCalledTimes(1);
-    expect(gretelEvent).toHaveBeenCalledWith("answer:correct");
+    expect(gretelEvent).toHaveBeenCalledWith("answer:correct", undefined);
     expect(onResult).toHaveBeenLastCalledWith({ objectId: "obj-c", result: "correct" });
     expect(onComplete).toHaveBeenCalledTimes(1);
     expect(btnC.className).toContain("is-correct");
