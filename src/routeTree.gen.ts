@@ -25,6 +25,7 @@ import { Route as CartillaStudentLoginRouteImport } from './routes/cartilla/stud
 import { Route as CartillaRepasoRouteImport } from './routes/cartilla/repaso'
 import { Route as CartillaPracticaRouteImport } from './routes/cartilla/practica'
 import { Route as CartillaMiProgresoRouteImport } from './routes/cartilla/mi-progreso'
+import { Route as CartillaLetrasRouteImport } from './routes/cartilla/letras'
 import { Route as CartillaLeccionesRouteImport } from './routes/cartilla/lecciones'
 import { Route as CartillaCuadernoRouteImport } from './routes/cartilla/cuaderno'
 import { Route as CartillaAyudaRouteImport } from './routes/cartilla/ayuda'
@@ -140,6 +141,11 @@ const CartillaPracticaRoute = CartillaPracticaRouteImport.update({
 const CartillaMiProgresoRoute = CartillaMiProgresoRouteImport.update({
   id: '/cartilla/mi-progreso',
   path: '/cartilla/mi-progreso',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const CartillaLetrasRoute = CartillaLetrasRouteImport.update({
+  id: '/cartilla/letras',
+  path: '/cartilla/letras',
   getParentRoute: () => rootRouteImport,
 } as any)
 const CartillaLeccionesRoute = CartillaLeccionesRouteImport.update({
@@ -392,6 +398,7 @@ export interface FileRoutesByFullPath {
   '/cartilla/ayuda': typeof CartillaAyudaRoute
   '/cartilla/cuaderno': typeof CartillaCuadernoRoute
   '/cartilla/lecciones': typeof CartillaLeccionesRoute
+  '/cartilla/letras': typeof CartillaLetrasRoute
   '/cartilla/mi-progreso': typeof CartillaMiProgresoRoute
   '/cartilla/practica': typeof CartillaPracticaRoute
   '/cartilla/repaso': typeof CartillaRepasoRoute
@@ -443,6 +450,7 @@ export interface FileRoutesByTo {
   '/cartilla/ayuda': typeof CartillaAyudaRoute
   '/cartilla/cuaderno': typeof CartillaCuadernoRoute
   '/cartilla/lecciones': typeof CartillaLeccionesRoute
+  '/cartilla/letras': typeof CartillaLetrasRoute
   '/cartilla/mi-progreso': typeof CartillaMiProgresoRoute
   '/cartilla/practica': typeof CartillaPracticaRoute
   '/cartilla/repaso': typeof CartillaRepasoRoute
@@ -493,6 +501,7 @@ export interface FileRoutesById {
   '/cartilla/ayuda': typeof CartillaAyudaRoute
   '/cartilla/cuaderno': typeof CartillaCuadernoRoute
   '/cartilla/lecciones': typeof CartillaLeccionesRoute
+  '/cartilla/letras': typeof CartillaLetrasRoute
   '/cartilla/mi-progreso': typeof CartillaMiProgresoRoute
   '/cartilla/practica': typeof CartillaPracticaRoute
   '/cartilla/repaso': typeof CartillaRepasoRoute
@@ -547,6 +556,7 @@ export interface FileRouteTypes {
     | '/cartilla/ayuda'
     | '/cartilla/cuaderno'
     | '/cartilla/lecciones'
+    | '/cartilla/letras'
     | '/cartilla/mi-progreso'
     | '/cartilla/practica'
     | '/cartilla/repaso'
@@ -598,6 +608,7 @@ export interface FileRouteTypes {
     | '/cartilla/ayuda'
     | '/cartilla/cuaderno'
     | '/cartilla/lecciones'
+    | '/cartilla/letras'
     | '/cartilla/mi-progreso'
     | '/cartilla/practica'
     | '/cartilla/repaso'
@@ -647,6 +658,7 @@ export interface FileRouteTypes {
     | '/cartilla/ayuda'
     | '/cartilla/cuaderno'
     | '/cartilla/lecciones'
+    | '/cartilla/letras'
     | '/cartilla/mi-progreso'
     | '/cartilla/practica'
     | '/cartilla/repaso'
@@ -700,6 +712,7 @@ export interface RootRouteChildren {
   CartillaAyudaRoute: typeof CartillaAyudaRoute
   CartillaCuadernoRoute: typeof CartillaCuadernoRoute
   CartillaLeccionesRoute: typeof CartillaLeccionesRoute
+  CartillaLetrasRoute: typeof CartillaLetrasRoute
   CartillaMiProgresoRoute: typeof CartillaMiProgresoRoute
   CartillaPracticaRoute: typeof CartillaPracticaRoute
   CartillaRepasoRoute: typeof CartillaRepasoRoute
@@ -827,6 +840,13 @@ declare module '@tanstack/react-router' {
       path: '/cartilla/mi-progreso'
       fullPath: '/cartilla/mi-progreso'
       preLoaderRoute: typeof CartillaMiProgresoRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/cartilla/letras': {
+      id: '/cartilla/letras'
+      path: '/cartilla/letras'
+      fullPath: '/cartilla/letras'
+      preLoaderRoute: typeof CartillaLetrasRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/cartilla/lecciones': {
@@ -1176,6 +1196,7 @@ const rootRouteChildren: RootRouteChildren = {
   CartillaAyudaRoute: CartillaAyudaRoute,
   CartillaCuadernoRoute: CartillaCuadernoRoute,
   CartillaLeccionesRoute: CartillaLeccionesRoute,
+  CartillaLetrasRoute: CartillaLetrasRoute,
   CartillaMiProgresoRoute: CartillaMiProgresoRoute,
   CartillaPracticaRoute: CartillaPracticaRoute,
   CartillaRepasoRoute: CartillaRepasoRoute,
