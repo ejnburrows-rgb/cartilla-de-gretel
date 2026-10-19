@@ -1,4 +1,8 @@
-/* Lessons 19-24: edge-to-edge paper with a separate navigation strip. */
+/* Lessons 19-24: the book page fills the viewport edge to edge. The bottom
+ * strip under the page is reserved for the round back/next buttons so
+ * nothing sits under them; the strip is cream so the screen still reads as
+ * one full page. Overrides the fit variables of lesson-fit.css for these
+ * lessons only. */
 .lc-lesson-shell--fit[data-lesson="19"],
 .lc-lesson-shell--fit[data-lesson="20"],
 .lc-lesson-shell--fit[data-lesson="21"],
@@ -22,17 +26,70 @@
 .lc-lesson-shell--fit[data-lesson="22"] .lc-lesson-main .native-lesson-viewer,
 .lc-lesson-shell--fit[data-lesson="23"] .lc-lesson-main .native-lesson-viewer,
 .lc-lesson-shell--fit[data-lesson="24"] .lc-lesson-main .native-lesson-viewer { width: 100%; margin: 0; }
+/* Short landscape (phones sideways): the page is at least one screen tall and
+ * grows (the shell scrolls) when its content needs more. The page body keeps
+ * a real minimum height so the picture grids get room instead of collapsing
+ * to zero, and the "Mis lecciones" link gets its own row above the page. */
 @media (orientation: landscape) and (max-height: 500px) {
-  .lc-lesson-shell--fit[data-lesson="19"] .lc-lesson-main,
+.lc-lesson-shell--fit[data-lesson="19"] .lc-lesson-main,
 .lc-lesson-shell--fit[data-lesson="20"] .lc-lesson-main,
 .lc-lesson-shell--fit[data-lesson="21"] .lc-lesson-main,
 .lc-lesson-shell--fit[data-lesson="22"] .lc-lesson-main,
 .lc-lesson-shell--fit[data-lesson="23"] .lc-lesson-main,
-.lc-lesson-shell--fit[data-lesson="24"] .lc-lesson-main { --lc-top: 0px; --lc-bottom: 0px; --ph: 100cqh; --pw: calc(100cqw - 130px); overflow: hidden; }
-  .lc-lesson-shell--fit[data-lesson="19"] .lc-lesson-main .native-lesson-viewer,
-.lc-lesson-shell--fit[data-lesson="20"] .lc-lesson-main .native-lesson-viewer,
-.lc-lesson-shell--fit[data-lesson="21"] .lc-lesson-main .native-lesson-viewer,
-.lc-lesson-shell--fit[data-lesson="22"] .lc-lesson-main .native-lesson-viewer,
-.lc-lesson-shell--fit[data-lesson="23"] .lc-lesson-main .native-lesson-viewer,
-.lc-lesson-shell--fit[data-lesson="24"] .lc-lesson-main .native-lesson-viewer { width: var(--pw); margin: 0; }
+.lc-lesson-shell--fit[data-lesson="24"] .lc-lesson-main { --lc-top: 0px; --lc-bottom: 0px; --ph: 100dvh; --pw: 100vw; overflow: visible; }
+.lc-lesson-shell--fit[data-lesson="19"] .native-lesson-viewer,
+.lc-lesson-shell--fit[data-lesson="20"] .native-lesson-viewer,
+.lc-lesson-shell--fit[data-lesson="21"] .native-lesson-viewer,
+.lc-lesson-shell--fit[data-lesson="22"] .native-lesson-viewer,
+.lc-lesson-shell--fit[data-lesson="23"] .native-lesson-viewer,
+.lc-lesson-shell--fit[data-lesson="24"] .native-lesson-viewer { width: var(--pw); max-width: var(--pw); margin: 0; }
+.lc-lesson-shell--fit[data-lesson="19"] .native-lesson-viewer__content .faithful-page,
+.lc-lesson-shell--fit[data-lesson="20"] .native-lesson-viewer__content .faithful-page,
+.lc-lesson-shell--fit[data-lesson="21"] .native-lesson-viewer__content .faithful-page,
+.lc-lesson-shell--fit[data-lesson="22"] .native-lesson-viewer__content .faithful-page,
+.lc-lesson-shell--fit[data-lesson="23"] .native-lesson-viewer__content .faithful-page,
+.lc-lesson-shell--fit[data-lesson="24"] .native-lesson-viewer__content .faithful-page { min-height: 100dvh; }
+.lc-lesson-shell--fit[data-lesson="19"] .native-lesson-viewer__content .faithful-page__body,
+.lc-lesson-shell--fit[data-lesson="20"] .native-lesson-viewer__content .faithful-page__body,
+.lc-lesson-shell--fit[data-lesson="21"] .native-lesson-viewer__content .faithful-page__body,
+.lc-lesson-shell--fit[data-lesson="22"] .native-lesson-viewer__content .faithful-page__body,
+.lc-lesson-shell--fit[data-lesson="23"] .native-lesson-viewer__content .faithful-page__body,
+.lc-lesson-shell--fit[data-lesson="24"] .native-lesson-viewer__content .faithful-page__body { min-height: 100dvh; box-sizing: border-box; padding-top: 40px; padding-bottom: 84px; }
+.lc-lesson-shell--fit[data-lesson="19"] .lc-lesson-header,
+.lc-lesson-shell--fit[data-lesson="20"] .lc-lesson-header,
+.lc-lesson-shell--fit[data-lesson="21"] .lc-lesson-header,
+.lc-lesson-shell--fit[data-lesson="22"] .lc-lesson-header,
+.lc-lesson-shell--fit[data-lesson="23"] .lc-lesson-header,
+.lc-lesson-shell--fit[data-lesson="24"] .lc-lesson-header { left: 6px; top: 2px; }
+}
+/* The corner link sits on a cream chip so it stays readable over the teal spine (mirrored pages). */
+.lc-lesson-shell--fit[data-lesson="19"] .lc-lesson-header__back,
+.lc-lesson-shell--fit[data-lesson="20"] .lc-lesson-header__back,
+.lc-lesson-shell--fit[data-lesson="21"] .lc-lesson-header__back,
+.lc-lesson-shell--fit[data-lesson="22"] .lc-lesson-header__back,
+.lc-lesson-shell--fit[data-lesson="23"] .lc-lesson-header__back,
+.lc-lesson-shell--fit[data-lesson="24"] .lc-lesson-header__back { background: rgba(250,242,223,.94); border-radius: 999px; padding: 2px 10px 2px 6px; }
+/* Sideways phones: whatever sits at the bottom right moves left of the nav buttons. */
+@media (orientation: landscape) and (max-height: 500px) {
+.lc-lesson-shell--fit[data-lesson="19"] .faithful-page:not(.faithful-page--edge-right) .faithful-page__lesson,
+.lc-lesson-shell--fit[data-lesson="20"] .faithful-page:not(.faithful-page--edge-right) .faithful-page__lesson,
+.lc-lesson-shell--fit[data-lesson="21"] .faithful-page:not(.faithful-page--edge-right) .faithful-page__lesson,
+.lc-lesson-shell--fit[data-lesson="22"] .faithful-page:not(.faithful-page--edge-right) .faithful-page__lesson,
+.lc-lesson-shell--fit[data-lesson="23"] .faithful-page:not(.faithful-page--edge-right) .faithful-page__lesson,
+.lc-lesson-shell--fit[data-lesson="24"] .faithful-page:not(.faithful-page--edge-right) .faithful-page__lesson { margin-right: 110px; }
+.lc-lesson-shell--fit[data-lesson="19"] .native-lesson-viewer__content .faithful-page--edge-right .faithful-page__pagenum,
+.lc-lesson-shell--fit[data-lesson="20"] .native-lesson-viewer__content .faithful-page--edge-right .faithful-page__pagenum,
+.lc-lesson-shell--fit[data-lesson="21"] .native-lesson-viewer__content .faithful-page--edge-right .faithful-page__pagenum,
+.lc-lesson-shell--fit[data-lesson="22"] .native-lesson-viewer__content .faithful-page--edge-right .faithful-page__pagenum,
+.lc-lesson-shell--fit[data-lesson="23"] .native-lesson-viewer__content .faithful-page--edge-right .faithful-page__pagenum,
+.lc-lesson-shell--fit[data-lesson="24"] .native-lesson-viewer__content .faithful-page--edge-right .faithful-page__pagenum { right: calc(2.2% + 110px); }
+}
+/* Portrait phones and desktops: leave room for the corner link above the instruction. */
+@media not ((orientation: landscape) and (max-height: 500px)) {
+.lc-lesson-shell--fit[data-lesson="19"] .native-lesson-viewer__content .faithful-page__body,
+.lc-lesson-shell--fit[data-lesson="20"] .native-lesson-viewer__content .faithful-page__body,
+.lc-lesson-shell--fit[data-lesson="21"] .native-lesson-viewer__content .faithful-page__body,
+.lc-lesson-shell--fit[data-lesson="22"] .native-lesson-viewer__content .faithful-page__body,
+.lc-lesson-shell--fit[data-lesson="23"] .native-lesson-viewer__content .faithful-page__body,
+.lc-lesson-shell--fit[data-lesson="24"] .native-lesson-viewer__content .faithful-page__body { padding-top: max(calc(var(--ph) * .045), 40px); }
 }
