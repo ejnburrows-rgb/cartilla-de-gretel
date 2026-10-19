@@ -420,8 +420,9 @@
 /* Narrow portrait phones (<=600px): the 28px corner-curl hotspot's visible
  * peel sits on top of the page footer — without this nudge it covers the
  * "Lección 20" pill on edge-right pages (71, 73). Nudge it inward so the
- * pill stays fully visible. (Diamond placement is handled by the defect-#2
- * rules above.) */
+ * pill stays fully visible. */
 @media (max-width: 600px) {
   .lc-lesson-shell--fit.lc-lesson-20 .faithful-page--edge-right .faithful-page__lesson { left: calc(5% + 26px); }
+  .lc-lesson-20 .faithful-page--edge-left .faithful-page__pagenum { left: 11%; }
+  .lc-lesson-20 .faithful-page--edge-right .faithful-page__pagenum { right: 11%; }
 }
