@@ -612,6 +612,13 @@ Normal ad-hoc workflow: EJN asks → agent builds safely → agent tests → age
 
 Merges to main need the owner's own explicit yes on his own channel; agents never merge on their own.
 
+## OWNER COMMUNICATION — mandatory (owner order 2026-10-19)
+
+- NEVER present the owner with PR numbers, commit SHAs, branch names, or GitHub links. He does not track them and does not open GitHub.
+- Every approval request = a real rendered screenshot/image of the change + a plain-words description of what he will SEE + a Yes/No choice. Video when motion is involved.
+- Message him ONLY for (1) approval requests in that visual format, (2) a genuine dead-end after exhausting all resources, lanes, and options. No status updates, no completion reports, no lane alerts. Silence is correct; everything else lives in receipts and logs.
+- Proof links, SHAs, and test results belong in PR bodies and internal records — never in his chat.
+
 
 ## UI IMPLEMENTATION COHERENCE — mandatory
 
