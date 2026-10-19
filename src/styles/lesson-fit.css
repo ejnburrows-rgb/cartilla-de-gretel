@@ -411,7 +411,7 @@
  *    odd pages and the Listo button. Reserve room below the page so the
  *    corner furniture never slides underneath the fixed buttons. */
 @media (max-width: 600px) {
-  .lc-lesson-17 .faithful-page__pagenum { z-index: 30; pointer-events: none; }
+  .lc-lesson-17 .faithful-page__pagenum { left: 11%; right: 11%; }
 }
 .lc-lesson-17.lc-lesson-shell--fit:has(.faithful-page__body[data-lc-fit-overflow="true"]) {
   padding-bottom: 76px;
