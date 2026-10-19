@@ -4,7 +4,7 @@
 import { useEffect, useRef, useState } from "react";
 import type { GameContent } from "@/lib/games/gameContent";
 import { recordEvent } from "@/lib/student-session";
-import { Music, VolumeX } from "lucide-react";
+import { Mic, MicOff, Music, VolumeX } from "lucide-react";
 import {
   appMuted,
   createMusic,
@@ -14,6 +14,14 @@ import {
   playWrong,
   setMusicPreferred,
 } from "./sounds";
+import {
+  createWordListener,
+  matchSpoken,
+  speechSupported,
+  tokens,
+  type ListenState,
+  type WordListener,
+} from "./wordListening";
 import "./PalabrasMinutoScene.css";
 
 const ART = "/cartilla/games/palabras-minuto";
@@ -48,6 +56,8 @@ export function PalabrasMinutoScene({ content }: { content: GameContent }) {
   const contentRef = useRef(content);
   contentRef.current = content;
   const hasFinishedRef = useRef(false);
+  const runningRef = useRef(false);
+  runningRef.current = running;
 
   // Timer: deps are [running, seconds] only so marking a word never stretches the minute.
   useEffect(() => {
@@ -76,6 +86,7 @@ export function PalabrasMinutoScene({ content }: { content: GameContent }) {
     setCount(0);
     setSeconds(START_SECONDS);
     setRunning(true);
+    if (micWantedRef.current) startMic();
   };
 
   const reset = () => {
@@ -108,6 +119,74 @@ export function PalabrasMinutoScene({ content }: { content: GameContent }) {
       finishGame(content, count, total);
     }
   };
+
+  // Microphone: the student reads a word aloud and it is marked on its own. Tapping always still works.
+  const [micState, setMicState] = useState<ListenState>("off");
+  const [micNote, setMicNote] = useState<string | null>(null);
+  const micWantedRef = useRef(false);
+  const listenerRef = useRef<WordListener | null>(null);
+  const consumedRef = useRef<Map<number, number>>(new Map());
+  const noteTimer = useRef<number | undefined>(undefined);
+  const showNote = (text: string) => {
+    setMicNote(text);
+    window.clearTimeout(noteTimer.current);
+    noteTimer.current = window.setTimeout(() => setMicNote(null), 5000);
+  };
+  const handleSpoken = (alternatives: string[], key: number) => {
+    if (!runningRef.current) return;
+    const words = contentRef.current.words.map((w) => w.word);
+    for (const alt of alternatives) {
+      const from = countRef.current;
+      if (from >= words.length) return;
+      const used = consumedRef.current.get(key) ?? 0;
+      const { matched, tokensUsed } = matchSpoken(tokens(alt), words, from, used);
+      if (matched > 0) {
+        consumedRef.current.set(key, tokensUsed);
+        countRef.current = from + matched;
+        setCount(from + matched);
+        playRight();
+        break;
+      }
+    }
+  };
+  const startMic = () => {
+    consumedRef.current = new Map();
+    listenerRef.current ??= createWordListener({
+      onSpoken: handleSpoken,
+      onState: (st) => {
+        setMicState(st);
+        if (st === "denied") {
+          micWantedRef.current = false;
+          showNote("No pude usar el micrófono. Toca cada palabra.");
+        }
+      },
+    });
+    listenerRef.current?.start();
+  };
+  const toggleMic = () => {
+    if (!speechSupported()) {
+      setMicState("unsupported");
+      showNote("Este navegador no entiende la voz. Toca cada palabra.");
+      return;
+    }
+    if (micWantedRef.current) {
+      micWantedRef.current = false;
+      listenerRef.current?.stop();
+      return;
+    }
+    micWantedRef.current = true;
+    startMic();
+  };
+  useEffect(() => {
+    if (finished) listenerRef.current?.stop();
+  }, [finished]);
+  useEffect(
+    () => () => {
+      listenerRef.current?.stop();
+      window.clearTimeout(noteTimer.current);
+    },
+    [],
+  );
 
   // Background music: soft loop, starts after the first tap, own on/off button, silent when the app is muted.
   const [musicOn, setMusicOn] = useState(musicPreferred);
@@ -266,6 +345,23 @@ export function PalabrasMinutoScene({ content }: { content: GameContent }) {
           <img className="ppm-cup" src={`${ART}/cup.webp`} alt="" />
         </div>
 
+        <button
+          type="button"
+          className="ppm-mic"
+          data-listening={micState === "listening" ? "true" : undefined}
+          aria-label={
+            micState === "listening" ? "Apagar el micrófono" : "Leer en voz alta con el micrófono"
+          }
+          aria-pressed={micState === "listening"}
+          onClick={toggleMic}
+        >
+          {micState === "listening" ? <Mic aria-hidden /> : <MicOff aria-hidden />}
+        </button>
+        {micNote && (
+          <div className="ppm-note" role="status">
+            {micNote}
+          </div>
+        )}
         <button
           type="button"
           className="ppm-music"

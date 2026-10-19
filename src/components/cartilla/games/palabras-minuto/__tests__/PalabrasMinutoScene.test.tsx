@@ -1,9 +1,10 @@
-import { render, screen, fireEvent } from "@testing-library/react";
+import { render, screen, fireEvent, act } from "@testing-library/react";
 import "@testing-library/jest-dom";
 import { describe, it, expect, vi, beforeEach } from "vitest";
 import { PalabrasMinutoScene } from "../PalabrasMinutoScene";
 import { PALABRAS_MINUTO_M } from "../palabras-minuto-m";
 import { recordEvent } from "@/lib/student-session";
+import { MockSpeechRecognition } from "@/test/setup";
 
 vi.mock("@/lib/student-session", () => ({ recordEvent: vi.fn() }));
 
@@ -60,5 +61,49 @@ describe("PalabrasMinutoScene", () => {
     fireEvent.click(screen.getByRole("button", { name: "Terminé la lista" }));
     expect(recordEvent).toHaveBeenCalledTimes(1);
     expect(recordEvent).toHaveBeenCalledWith(expect.objectContaining({ score: 18, total: 18 }));
+  });
+
+  describe("microphone", () => {
+    beforeEach(() => {
+      MockSpeechRecognition.clearInstances();
+      vi.stubGlobal("webkitSpeechRecognition", MockSpeechRecognition);
+    });
+
+    it("marks the spoken word green on its own and moves to the next one", async () => {
+      render(<PalabrasMinutoScene content={PALABRAS_MINUTO_M} />);
+      fireEvent.click(screen.getByRole("button", { name: "Leer en voz alta con el micrófono" }));
+      fireEvent.click(screen.getByRole("button", { name: "Empezar 1 minuto" }));
+      const rec = MockSpeechRecognition.getLastInstance()!;
+      await act(async () => {
+        await new Promise((r) => setTimeout(r, 5));
+      });
+      expect(rec.lang).toMatch(/^es/);
+      act(() => rec.triggerResult("mama", false));
+      const cells = document.querySelectorAll(".ppm-cell");
+      expect(cells[0]).toHaveAttribute("data-state", "done");
+      expect(cells[1]).toHaveAttribute("data-state", "current");
+      act(() => rec.triggerResult("casa"));
+      expect(cells[1]).toHaveAttribute("data-state", "current");
+    });
+
+    it("falls back to tapping with a note when the microphone is denied", async () => {
+      render(<PalabrasMinutoScene content={PALABRAS_MINUTO_M} />);
+      fireEvent.click(screen.getByRole("button", { name: "Leer en voz alta con el micrófono" }));
+      const rec = MockSpeechRecognition.getLastInstance()!;
+      act(() => rec.onerror?.({ error: "not-allowed" }));
+      expect(screen.getByText(/No pude usar el micrófono/)).toBeInTheDocument();
+      fireEvent.click(screen.getByRole("button", { name: "Empezar 1 minuto" }));
+      const cells = document.querySelectorAll<HTMLButtonElement>(".ppm-cell");
+      fireEvent.click(cells[0]);
+      expect(cells[0]).toHaveAttribute("data-state", "done");
+    });
+
+    it("tells the student when the browser has no speech recognition", () => {
+      vi.stubGlobal("webkitSpeechRecognition", undefined);
+      vi.stubGlobal("SpeechRecognition", undefined);
+      render(<PalabrasMinutoScene content={PALABRAS_MINUTO_M} />);
+      fireEvent.click(screen.getByRole("button", { name: "Leer en voz alta con el micrófono" }));
+      expect(screen.getByText(/no entiende la voz/)).toBeInTheDocument();
+    });
   });
 });
