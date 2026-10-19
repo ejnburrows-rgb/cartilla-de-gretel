@@ -1,0 +1,18 @@
+/* Lessons 19-24: full viewport paper, following the shared lesson pattern. */
+.lc-lesson-shell--fit[data-lesson="19"] .lc-lesson-main,
+.lc-lesson-shell--fit[data-lesson="20"] .lc-lesson-main,
+.lc-lesson-shell--fit[data-lesson="21"] .lc-lesson-main,
+.lc-lesson-shell--fit[data-lesson="22"] .lc-lesson-main,
+.lc-lesson-shell--fit[data-lesson="23"] .lc-lesson-main,
+.lc-lesson-shell--fit[data-lesson="24"] .lc-lesson-main {
+  --lc-top: 0px;
+  --lc-bottom: 0px;
+  --ph: 100cqh;
+  --pw: 100cqw;
+}
+.lc-lesson-shell--fit[data-lesson="19"] .lc-lesson-main .native-lesson-viewer,
+.lc-lesson-shell--fit[data-lesson="20"] .lc-lesson-main .native-lesson-viewer,
+.lc-lesson-shell--fit[data-lesson="21"] .lc-lesson-main .native-lesson-viewer,
+.lc-lesson-shell--fit[data-lesson="22"] .lc-lesson-main .native-lesson-viewer,
+.lc-lesson-shell--fit[data-lesson="23"] .lc-lesson-main .native-lesson-viewer,
+.lc-lesson-shell--fit[data-lesson="24"] .lc-lesson-main .native-lesson-viewer { width: 100%; margin: 0; }
