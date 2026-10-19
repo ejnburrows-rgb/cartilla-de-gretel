@@ -1,0 +1,8 @@
+{
+  "source": "approved-scene.jpg",
+  "sourceReceived": "2026-10-19T14:41:43-04:00",
+  "artMethod": "Unaltered approved JPEG plus two rectangular crops only. No generation, inpainting, displacement or invented drawing.",
+  "audio": {"rhyme": null, "instruction": null, "correct": null, "retry": null, "wordCards": null},
+  "artGaps": ["No clean mother/child layers or background plate for breathing.", "No independent bee, butterfly wings or leaf layers. Flat scene intentionally stays still; no fake wave animation."],
+  "content": "Approved Mm poem is initial screen. Next round preserves main's existing P rhyme-pair content and scoring. No other letter poems supplied."
+}
