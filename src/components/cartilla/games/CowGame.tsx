@@ -146,10 +146,14 @@ export function CowGame({ content }: { content: GameContent }) {
     <section className="kid-card p-5 sm:p-7 space-y-5" aria-label="Juego de la vaca">
       <style>{`
         .cow-game-scene { position: relative; overflow: hidden; border-radius: 1rem; background: linear-gradient(#bfe3f5 0%, #dff0fb 55%, #b9e0a8 55%, #9ed18a 100%); min-height: 220px; }
-        .cow-game-cow { position: absolute; bottom: 18%; left: 4%; width: 96px; transition: left 1.3s ease-in-out; z-index: 2; }
-        .cow-game-cow--walking { left: 4%; animation: cow-bob 0.5s ease-in-out infinite alternate; }
+        .cow-game-cow { position: absolute; bottom: 18%; left: 4%; width: 96px; transition: left 1.3s ease-in-out; z-index: 2; transform-origin: center bottom; }
+        .cow-game-cow--walking { left: 4%; animation: cow-bob 0.4s ease-in-out infinite alternate; }
         .cow-game-cow--at-fence { left: 42%; }
-        @keyframes cow-bob { from { transform: translateY(0); } to { transform: translateY(-6px); } }
+        @keyframes cow-bob {
+          0% { transform: translateY(0) rotate(0deg); }
+          50% { transform: translateY(-4px) rotate(-3deg); }
+          100% { transform: translateY(0) rotate(3deg); }
+        }
         .cow-game-fence { position: absolute; bottom: 12%; left: 38%; width: 120px; height: 90px; z-index: 1; }
         .cow-game-gate { transform-origin: left center; transition: transform 0.7s ease-in-out; }
         .cow-game-gate--open { transform: perspective(300px) rotateY(-70deg); }
