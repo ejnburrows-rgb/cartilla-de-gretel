@@ -1,0 +1,44 @@
+# Workbook lane B proofs - lessons 9, 13, 15, 17, 18 (2026-10-19)
+
+Branch: workbook/pages-B-20261019, rebased on workbook/pages-A-20261019 @ 70e581ce.
+
+## What changed
+- src/styles/lesson-local/workbook-fill-lane-b.css - full-viewport fill rule for
+  lessons 9/13/15/17/18, mirroring lane A's workbook-fill-1-7.css.
+- src/styles/lesson-local/lesson-{9,13,15,17,18}-local.css - per-lesson fit
+  rules (scoped by data-lesson + printed-page activity id): phone portrait
+  390x844 and short landscape 844x390 render every region with nothing
+  clipped and no sideways scroll.
+- src/styles/lesson-local/index.css - imports the lane-B files.
+- src/cartilla/interactions/__tests__/lesson-local-styles.test.ts - scoping
+  invariants for the files above.
+
+## Evidence
+- after/<viewport>/lesson-<N>-page-<P>.png - every printed page of the five
+  lessons at desktop 1440x900, tablet 1280x800, phone portrait 390x844 and
+  phone landscape 844x390, shot on the real lesson route
+  (/cartilla/leccion/N, pages opened via the learner-resume bookmark).
+- after/_problems.txt - automated checks: horizontal overflow and page-number
+  diamond per shot. Result: none ("OK").
+- sidebyside/sbs-L<N>-p<P>-<viewport>.png - original book scan page next to
+  the rendered digital page at desktop and portrait.
+- scripts/ - the exact screenshot and stitching scripts used.
+
+## Status per page
+All 20 pages (L9: 27-30, L13: 43-46, L15: 51-54, L17: 59-62, L18: 63-66):
+rendered in the shared cream-paper design with garden-letter instruction
+lines (lane A commits d7bf003 + 5159f0a), four page-type activities present
+(trace-and-draw, syllable circle, keyword/reading, fill-in), no horizontal
+overflow at any of the four viewports. PASS for fit and activity presence.
+
+## Known open (owned by lane A, shared)
+- Phone landscape 844x390: nav buttons overlap the page-number diamond;
+  the Dibuja "Listo" button can touch the right edge on desktop at full
+  bleed. Lane A is fixing the shared nav/fill interaction. My files do not
+  address it (shared chrome, outside lesson-local scope).
+- Phone landscape trace letters are necessarily small (48px box) to keep all
+  four tracing boxes plus the draw box on one 390px-tall screen.
+
+## Not verified
+- Full-repo typecheck/test/build output: see the lane report (runs in
+  progress at push time); the lane's own test file passes 22/22 locally.

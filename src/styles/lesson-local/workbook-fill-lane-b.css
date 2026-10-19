@@ -1,0 +1,18 @@
+/* Lessons 9, 13, 15, 17, 18 (workbook lane B): the book page fills the whole
+ * viewport (no side margins, no shrunken page). Mirrors lane A's fill rule
+ * for lessons 1-7 (workbook-fill-1-7.css). */
+.lc-lesson-shell--fit[data-lesson="9"] .lc-lesson-main,
+.lc-lesson-shell--fit[data-lesson="13"] .lc-lesson-main,
+.lc-lesson-shell--fit[data-lesson="15"] .lc-lesson-main,
+.lc-lesson-shell--fit[data-lesson="17"] .lc-lesson-main,
+.lc-lesson-shell--fit[data-lesson="18"] .lc-lesson-main {
+  --lc-top: 0px;
+  --lc-bottom: 0px;
+  --ph: 100cqh;
+  --pw: 100cqw;
+}
+.lc-lesson-shell--fit[data-lesson="9"] .lc-lesson-main .native-lesson-viewer,
+.lc-lesson-shell--fit[data-lesson="13"] .lc-lesson-main .native-lesson-viewer,
+.lc-lesson-shell--fit[data-lesson="15"] .lc-lesson-main .native-lesson-viewer,
+.lc-lesson-shell--fit[data-lesson="17"] .lc-lesson-main .native-lesson-viewer,
+.lc-lesson-shell--fit[data-lesson="18"] .lc-lesson-main .native-lesson-viewer { width: 100%; margin: 0; }
