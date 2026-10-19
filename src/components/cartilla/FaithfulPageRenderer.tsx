@@ -435,8 +435,8 @@ function RegionView({
       );
     case "instruction": {
       const instructionText =
-        lessonNumber === 16 && region.text ? (
-          // Lesson 16 wide-screen design: garden-palette instruction letters.
+        region.text && (lessonNumber === 16 || pageNumber !== 17) ? (
+          // Wide-screen design: garden-palette instruction letters on every lesson (page 17 keeps its Uu emphasis).
           <Lesson16GardenText text={region.text} />
         ) : pageNumber === 17 && region.text ? (
           region.text.split(/(Uu)/g).map((part, index) =>
