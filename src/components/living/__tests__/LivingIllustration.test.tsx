@@ -8,7 +8,7 @@ describe("LivingIllustration faithful recovered art", () => {
   for (const [word, src] of [
     ["abrigo", "/cartilla/art/faithful/leccion-1/abrigo.webp"],
     ["globo", "/cartilla/art/faithful/leccion-1/globo.webp"],
-    ["oruga", "/cartilla/art/faithful/vocal-o/oruga.webp"],
+    ["aro", "/cartilla/art/faithful/vocal-a/aro.webp"],
   ] as const) {
     it(`keeps canonical ${word} art as fallback and wires clean responsive delivery derivatives`, () => {
       render(<LivingIllustration src={src} alt={word} />);
@@ -101,15 +101,7 @@ describe("LivingIllustration faithful recovered art", () => {
   });
 
   it("holds the vowel-page pictures whose old motion moved the whole drawing still", () => {
-    for (const name of [
-      "vocal-o/oruga",
-      "vocal-a/arana",
-      "vocal-a/ardilla",
-      "vocal-e/erizo",
-      "vocal-i/iguana",
-      "vocal-i/insecto",
-      "vocal-u/unicornio",
-    ]) {
+    for (const name of ["vocal-a/arana", "vocal-e/erizo", "vocal-i/iguana", "vocal-i/insecto"]) {
       const src = `/cartilla/art/faithful/${name}.webp`;
       expect(getLivingActor(src), name).toBeNull();
       const { container, unmount } = render(
@@ -136,6 +128,16 @@ describe("LivingIllustration faithful recovered art", () => {
       ["/cartilla/art/faithful/vocal-a/abeja.webp", "abeja-alive.svg"],
       ["/cartilla/art/faithful/vocal-a/abanico.webp", "abanico-alive.svg"],
       ["/cartilla/art/faithful/vocal-i/iman.webp", "iman-alive.svg"],
+      ["/cartilla/art/faithful/vocal-o/oruga.webp", "oruga-alive.svg"],
+      ["/cartilla/art/faithful/vocal-a/ardilla.webp", "ardilla-alive.svg"],
+      ["/cartilla/art/faithful/vocal-a/alas.webp", "alas-alive.svg"],
+      ["/cartilla/art/faithful/leccion-1/ojos.webp", "ojos-alive.svg"],
+      ["/cartilla/art/faithful/vocal-e/estrella.webp", "estrella-alive.svg"],
+      ["/cartilla/art/faithful/vocal-a/aguja.webp", "aguja-alive.svg"],
+      ["/cartilla/art/faithful/leccion-1/maiz.webp", "maiz-alive.svg"],
+      ["/cartilla/art/faithful/leccion-1/carro.webp", "carro-alive.svg"],
+      ["/cartilla/art/faithful/vocal-e/escoba.webp", "escoba-alive.svg"],
+      ["/cartilla/art/faithful/vocal-u/unicornio.webp", "unicornio-alive.svg"],
     ]) {
       const { container, unmount } = render(
         <div className="fp-ix-cell">
