@@ -168,7 +168,7 @@
   .lc-lesson-shell--fit[data-lesson="5"] .native-lesson-viewer__content .faithful-page .faithful-page__pagenum,
   .lc-lesson-shell--fit[data-lesson="6"] .native-lesson-viewer__content .faithful-page .faithful-page__pagenum,
   .lc-lesson-shell--fit[data-lesson="7"] .native-lesson-viewer__content .faithful-page .faithful-page__pagenum {
-    position: absolute !important; top: 2px !important; bottom: auto !important; left: 235px !important; right: auto !important; transform: none !important; width: 34px !important; height: 34px !important; font-size: 15px !important;
+    position: absolute !important; top: 8px !important; bottom: auto !important; left: 280px !important; right: auto !important; transform: rotate(45deg) !important; width: 28px !important; height: 28px !important; min-width: 28px !important; min-height: 28px !important;
   }
 }
 
@@ -214,4 +214,14 @@
   .lc-lesson-shell--fit[data-lesson="7"] .native-lesson-viewer__content .faithful-page__body {
     padding-right: 118px !important;
   }
+}
+
+@media (orientation: landscape) and (max-height: 500px) {
+  .lc-lesson-shell--fit[data-lesson="1"] .native-lesson-viewer__content .faithful-page .faithful-page__pagenum span,
+  .lc-lesson-shell--fit[data-lesson="2"] .native-lesson-viewer__content .faithful-page .faithful-page__pagenum span,
+  .lc-lesson-shell--fit[data-lesson="3"] .native-lesson-viewer__content .faithful-page .faithful-page__pagenum span,
+  .lc-lesson-shell--fit[data-lesson="4"] .native-lesson-viewer__content .faithful-page .faithful-page__pagenum span,
+  .lc-lesson-shell--fit[data-lesson="5"] .native-lesson-viewer__content .faithful-page .faithful-page__pagenum span,
+  .lc-lesson-shell--fit[data-lesson="6"] .native-lesson-viewer__content .faithful-page .faithful-page__pagenum span,
+  .lc-lesson-shell--fit[data-lesson="7"] .native-lesson-viewer__content .faithful-page .faithful-page__pagenum span { font-size: 13px !important; }
 }
