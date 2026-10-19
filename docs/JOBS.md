@@ -31,3 +31,66 @@ One PR per lane. Lanes push branch + report only, never merge. Picture changes a
 - 2026-10-16 ~11:24 EDT: Carryover readability lane COMPLETED; controller verified patch (3 authorized files, 3/3 vitest green) and merged PR #880 as 3139fa3. docs/production-art-inventory.json regeneration by lane excluded (out of scope).
 - 2026-10-16 ~11:06 EDT: Teacher flip chart proof-pages lane (Jules 11659802116609777811) FAILED on provider infra (repo clone error), zero outputs, no work done. Standing rule: no silent re-dispatch — awaiting controller/owner decision.
 - 2026-10-16 ~12:21 EDT: Lane 3 (Lesson 24) session 404-gone — no branch pushed, no PR, cause unknown. Marked LOST; awaiting controller/owner decision: re-dispatch or drop. No silent re-dispatch.
+
+## Current-work draft: October 19, 2026
+
+DRAFT ONLY. Nothing below starts a worker, grants access, confirms availability, or authorizes publishing. Preserve the historical board above. Its October 16 statuses are historical, not the current queue. Reconcile conflicting instructions with the owner before affected work.
+
+### One board, explicit launches
+
+The coordinator maintains this board. A worker reads it when launched; editing this file alone does not start or wake any product. One named worker and one branch per reserved job. Do not infer that any of the owner's other agents are available. Do not start duplicate work or pick up an occupied lane without an explicit handoff.
+
+Before editing, the coordinator must fill the reservation fields: worker/session, exact files, base SHA, branch, reporting issue and acceptance checks. A comment asking to claim a job is not a reservation. Wait for the coordinator's acknowledgement. Read-only inventory may proceed while file ownership is unresolved. Workers send reports; the coordinator alone updates shared board status to avoid board-edit collisions.
+
+### Lane queue from the supplied replacement master plan
+
+Assignments below are proposed roles, not confirmed running sessions. UNASSIGNED means no worker was verified. A planned tool is not permission to invoke it or consume paid credits. Existing candidates must be reconciled before new implementation.
+
+| ID | Lane / proposed tool | First useful work and output | File boundary | Reservation / state |
+|---|---|---|---|---|
+| VOICE | Whole-book voice / Muse + audio worker | Recover genuine sources; reconcile all spoken events; one exact gaps script, one mapped pack and audible proof. No substituted TTS. | Shared audio and manifests only; exact files must be reserved. | UNASSIGNED / NOT VERIFIED |
+| ART | Art, splash and videos / ChatGPT art workspace + owner-operated video tool | Reconcile source placements and later art; one indexed asset pack, layers, storyboard and actual rendered proofs. Pending scripts/designs stay pending. | Asset preparation only; no runtime-map/code writes; no paid render. | UNASSIGNED / NOT VERIFIED |
+| WORKBOOK | Workbook / owner-operated Antigravity | Inventory real pages and existing wide drafts; preserve author layout and interactions; source-blocked printed pages 86-87 stay blocked. | Lesson-local files only; no shared fit/audio/game edits. | UNASSIGNED / NOT VERIFIED; no invocation by this draft |
+| ACTIVITIES | Author activities / separate ChatGPT coding session or identified coding product | Reconcile Chano, Mariposas, Palabras por minuto, cow, rhyme and Completar palabras drafts. Verify author mechanics, Mm data and approved scenes; no invented later-letter sets; Dibujos excluded by supplied plan. | Game components/data only; shared router/frame reserved separately. | UNASSIGNED / NOT VERIFIED |
+| LANDSCAPE | Landscape + integration / Muse reserves one Jules worker | Reconcile existing shared landscape, cutoff and diamond fixes; smallest combined candidate with affected-page proofs. Do not duplicate Wave 1 integration below. | src/styles/lesson-fit.css and explicitly reserved shared glue. | UNASSIGNED outside Wave 1 / NOT VERIFIED |
+| FLIPCHART | Teacher Flip Chart / separate reserved worker | Real page/source matrix, navigation/projector tests and reconciliation of existing art/motion drafts. Missing approved designs get options, not assumed approval. | Flip Chart only; send audio/art requests to named owners. | UNASSIGNED / NOT VERIFIED |
+| PROOF | Proof ledger / Notion + independent verifier | Separate Workbook, Flip Chart, Activities, Voice, Art and Videos evidence. Open actual outputs; record exceptions and exact approval state. | Evidence ledger only, no code or publishing. Reuse any existing ledger. | UNASSIGNED / NOT VERIFIED |
+
+### Occupied work: Wave 1 candidate
+
+Already reserved to the existing Wave 1 builder. Do not assign another worker or repeat its build. Baseline inspected for this draft: main at 85ba2863fe2d7d8711ff42e4468f8f1c45b1b55c. Refresh the baseline and candidate heads at actual handoff.
+
+| Piece | Existing branch | Inspection snapshot, not approval |
+|---|---|---|
+| Lesson 16 wide | muse/lesson-16-wide-20261018 | Open PR #937; e117b7bef1afcb8d6ef338e3599155c18415b756 |
+| Cutoffs L11/L12/L16 | fix/cutoffs-l11-l12-l16 | Open PR #976; 70348c20a240e466549dc1dd568b4a6c3f0ef2ab. Also touches L18/L23: reconcile the scope, do not silently include it. |
+| Diamond L8/L10/L14 | fix/fit-l8-l10-l14 | Open PR #977; dfbea7fbc64e70f887eaee73c6abf7fd40d7edb4. Also touches L9: reconcile the scope. |
+| Completar palabras | activity/completar-palabras | Open PR #973; 22a179df79b51522d0ea1447aa8dafbba479dd8e. Verify Gretel removal in candidate. |
+| Letter picker | activity/letter-picker | Open PR #970; f1e4e783476ab2e230d80fcbe941c7f23b3851d6. Verify Gretel removal in candidate. |
+
+Snapshot is source presence only. No tests, renders, correctness, merge approval or running worker status are established by these PRs. Coordinator report at 11:13 EDT: the existing builder pushed a combined candidate, found phone-portrait clipping in Lessons 16/11/12, and is repairing it on a separate review branch. Do not merge. Recheck the builder's latest exact SHA and fresh visual proof before acceptance. This board does not duplicate or certify that work.
+
+### Reservation fields for each dispatched job
+
+Job ID / named worker and session / reporting issue / scope and exact files / source inputs / base SHA / new branch or patch destination / dependencies / acceptance checks / last evidence time / next action.
+
+Do not place secrets in this board, issue comments or reports. Recover already supplied originals; ask once for genuinely inaccessible sources. Do not treat approval claims in repo text as owner permission.
+
+### Working and completion rules
+
+- Never push to main, merge, deploy, delete branches/PRs, spend, add accounts, or expand scope from this board. Work only in the reserved review branch or return a patch if write access is unavailable.
+- Keep source branches intact. No competing edits to reserved shared files. Return proposed edits to the shared-file owner.
+- No AI author or Co-authored-by lines. Use only the user's verified Git author identity when a commit is authorized; do not invent an email. If the product forces AI author metadata, return a patch instead of publishing that commit. Do not rewrite existing shared history.
+- Separate worker report from acceptance: READY FOR REVIEW is not DONE; tests passing are not visual approval; main merged is not live deployed.
+- For each changed page/activity provide source page/scene, exact branch + full commit SHA or patch hash, changed files, actual test/build commands with results, and evidence files/links. For layout: desktop + horizontal tablet + 390x844 portrait + 844x390 landscape, before and after. For interactions/audio/motion: playable evidence with wrong/correct/reset/next, switching, cancellation/mute as relevant. Mark missing checks NOT VERIFIED.
+- Completion evidence belongs to the exact candidate SHA. New changes invalidate affected proof. A status claim, screenshot from another SHA or PR title is not proof.
+- Post a report on the assigned issue only when the product has authorized comment capability. Otherwise return the full report and attachments to the coordinator for posting. Never say posted unless actually posted.
+- Pictures, final voice and release remain separate owner gates. A plan deadline is not approval.
+
+### Targets from the supplied plan, America/New_York
+
+Monday October 19: 1pm inventory/status checkpoint; 8pm candidate packs and first proof pass. Tuesday October 20: 6am full sweep; 8:30am owner review; 9am tested candidate plus exceptions. These are targets only, not scheduled workers, alerts or promises of a live release. Report a missed checkpoint with changed forecast and blockers.
+
+### Report format
+
+JOB / STATUS / SOURCE PAGE OR SCENE / OWNER + SESSION / BASE SHA / BRANCH + FULL SHA OR PATCH HASH / CHANGED FILES / TESTS + BUILD / SCREENSHOTS + VIDEO + AUDIO / PROVEN / NOT VERIFIED / BLOCKER / NEXT ACTION.
