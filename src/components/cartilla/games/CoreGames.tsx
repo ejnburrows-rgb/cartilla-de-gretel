@@ -3,6 +3,7 @@ import { Check, RotateCcw, Timer, X } from "lucide-react";
 import type { GameContent, WordItem } from "@/lib/games/gameContent";
 import { playWord } from "@/lib/games/wordAudio";
 import { recordEvent } from "@/lib/student-session";
+import { PalabrasMinutoScene } from "./palabras-minuto/PalabrasMinutoScene";
 
 function finishGame(content: GameContent, score: number, total: number) {
   recordEvent({
@@ -293,66 +294,7 @@ export function RhymeGame({ content }: { content: GameContent }) {
 }
 
 export function WordsPerMinuteGame({ content }: { content: GameContent }) {
-  const [running, setRunning] = useState(false);
-  const [seconds, setSeconds] = useState(60);
-  const [count, setCount] = useState(0);
-  const finished = !running && seconds === 0;
-  
-  const countRef = useRef(count);
-  countRef.current = count;
-  const contentRef = useRef(content);
-  contentRef.current = content;
-  const hasFinishedRef = useRef(false);
-
-  useEffect(() => {
-    if (!running) return;
-    if (seconds <= 0) {
-      setRunning(false);
-      if (!hasFinishedRef.current) {
-        hasFinishedRef.current = true;
-        finishGame(contentRef.current, countRef.current, contentRef.current.words.length);
-      }
-      return;
-    }
-    const timer = window.setTimeout(() => {
-      setSeconds((s) => s - 1);
-    }, 1000);
-    return () => window.clearTimeout(timer);
-  }, [running, seconds]); // Removed count and content from dependencies to prevent timer resets
-
-  const start = () => {
-    hasFinishedRef.current = false;
-    setCount(0);
-    setSeconds(60);
-    setRunning(true);
-  };
-
-  return (
-    <CompleteCard>
-      <div className="flex items-center justify-between rounded-2xl bg-white border-2 border-stone-200 p-4">
-        <span className="inline-flex items-center gap-2 font-black"><Timer className="h-5 w-5" /> {seconds}s</span>
-        <span className="font-black">Leídas: {count}</span>
-      </div>
-      {!running && !finished && <button onClick={start} className="w-full rounded-xl bg-primary py-3 text-lg font-black text-primary-foreground">Empezar 1 minuto</button>}
-      <div className="grid grid-cols-3 gap-2">
-        {content.words.map((item, i) => (
-          <button key={`${item.word}-${i}`} disabled={!running || i !== count} onClick={() => setCount((n) => Math.min(n + 1, content.words.length))} className={`rounded-xl border-2 p-3 text-lg font-black ${i < count ? "border-emerald-300 bg-emerald-50" : "border-stone-200 bg-white"} disabled:opacity-60`}>
-            {item.word}
-          </button>
-        ))}
-      </div>
-      {running && count >= content.words.length && <button onClick={() => { 
-        setRunning(false); 
-        setSeconds(0); 
-        if (!hasFinishedRef.current) {
-          hasFinishedRef.current = true;
-          finishGame(content, count, content.words.length);
-        }
-      }} className="w-full rounded-xl bg-emerald-600 py-3 font-black text-white">Terminé la lista</button>}
-      {finished && <Result ok text={`Leíste ${count} palabras.`} />}
-      {finished && <button onClick={start} className="mx-auto flex items-center gap-2 rounded-xl bg-primary px-4 py-2 font-bold text-primary-foreground"><RotateCcw className="h-4 w-4" /> Otra vez</button>}
-    </CompleteCard>
-  );
+  return <PalabrasMinutoScene content={content} />;
 }
 
 export function DrawingsGame({ content }: { content: GameContent }) {
