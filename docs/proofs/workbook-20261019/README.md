@@ -1,14 +1,17 @@
 # Workbook lane B proofs - lessons 9, 13, 15, 17, 18 (2026-10-19)
 
-Branch: workbook/pages-B-20261019, rebased on workbook/pages-A-20261019 @ 70e581ce.
+Branch: workbook/pages-B-20261019, rebased on workbook/pages-A-20261019 @ 3755f877 (full-width sideways rule + nav-clear).
 
 ## What changed
 - src/styles/lesson-local/workbook-fill-lane-b.css - full-viewport fill rule for
-  lessons 9/13/15/17/18, mirroring lane A's workbook-fill-1-7.css.
+  lessons 9/13/15/17/18, mirroring lane A's workbook-fill-1-7.css @ 3755f877:
+  edge-to-edge page, cream bottom strip reserved for the nav buttons,
+  full-width sideways with in-page vertical scroll at short landscape.
 - src/styles/lesson-local/lesson-{9,13,15,17,18}-local.css - per-lesson fit
   rules (scoped by data-lesson + printed-page activity id): phone portrait
-  390x844 and short landscape 844x390 render every region with nothing
-  clipped and no sideways scroll.
+  390x844 renders every region in a two-column grid with nothing clipped.
+  Short landscape 844x390 uses the shared fill rule (page scrolls, natural
+  trace/draw sizes - no more shrunken trace letters).
 - src/styles/lesson-local/index.css - imports the lane-B files.
 - src/cartilla/interactions/__tests__/lesson-local-styles.test.ts - scoping
   invariants for the files above.
@@ -21,7 +24,7 @@ Branch: workbook/pages-B-20261019, rebased on workbook/pages-A-20261019 @ 70e581
 - after/_problems.txt - automated checks: horizontal overflow and page-number
   diamond per shot. Result: none ("OK").
 - sidebyside/sbs-L<N>-p<P>-<viewport>.png - original book scan page next to
-  the rendered digital page at desktop and portrait.
+  the rendered digital page at desktop, portrait and landscape (60 composites).
 - scripts/ - the exact screenshot and stitching scripts used.
 
 ## Status per page
@@ -31,14 +34,18 @@ lines (lane A commits d7bf003 + 5159f0a), four page-type activities present
 (trace-and-draw, syllable circle, keyword/reading, fill-in), no horizontal
 overflow at any of the four viewports. PASS for fit and activity presence.
 
-## Known open (owned by lane A, shared)
-- Phone landscape 844x390: nav buttons overlap the page-number diamond;
-  the Dibuja "Listo" button can touch the right edge on desktop at full
-  bleed. Lane A is fixing the shared nav/fill interaction. My files do not
-  address it (shared chrome, outside lesson-local scope).
-- Phone landscape trace letters are necessarily small (48px box) to keep all
-  four tracing boxes plus the draw box on one 390px-tall screen.
+## Resolved since the previous round
+- Short landscape: trace letters back to natural size; the page scrolls
+  vertically inside the screen (lane A's 3755f877 pattern, mirrored).
+- Nav buttons sit in a reserved cream strip under the page; page-number
+  diamond and bottom-right content move clear of them on sideways phones.
+
+## Known open
+- Desktop full bleed: the Dibuja "Listo" button can touch the right edge
+  near the page-number diamond (shared chrome, lane A's scope).
+All four viewports re-shot after the 3755f877 mirror; every shot passes
+  the automated overflow checks ("OK").
 
 ## Not verified
 - Full-repo typecheck/test/build output: see the lane report (runs in
-  progress at push time); the lane's own test file passes 22/22 locally.
+  progress at push time); the lane's own test file passes 17/17 locally.
