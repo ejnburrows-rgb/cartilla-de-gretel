@@ -49,6 +49,8 @@
 /* Page frame sized to the screen. */
 .lc-lesson-shell--fit .native-lesson-viewer { width: var(--pw); max-width: none; margin: 0 auto; }
 .lc-lesson-shell--fit .native-lesson-viewer__topline { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; margin: 0; }
+/* Wave 1 (2026-10-19): page-number diamond fit — keep the rotated diamond inside the page at every size. */
+.lc-lesson-shell--fit .native-lesson-viewer__content .faithful-page__pagenum { bottom: max(12px, calc(6.5cqw * 0.2071)); }
 .lc-lesson-shell--fit .native-lesson-viewer__content .faithful-page {
   width: 100%;
   height: var(--ph);
