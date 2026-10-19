@@ -327,6 +327,14 @@
 .lc-lesson-16 .faithful-page--edge-left .faithful-page__pagenum { left: 6.2%; }
 .lc-lesson-16 .faithful-page--edge-right .faithful-page__pagenum { right: 6.2%; }
 
+/* Issue #988 2026-10-19 (controller): at phone widths (<=600px) the diamond
+ * at 6.2% still hid under the corner peel — move it further inward so it
+ * stays visible on odd (edge-left) and even (edge-right) pages. */
+@media (max-width: 600px) {
+  .lc-lesson-16 .faithful-page--edge-left .faithful-page__pagenum { left: 11%; }
+  .lc-lesson-16 .faithful-page--edge-right .faithful-page__pagenum { right: 11%; }
+}
+
 /* Stronger teal glow around every boxed work surface. */
 .lc-lesson-16 .native-lesson-viewer__content .fp-syllable-match__word,
 .lc-lesson-16 .native-lesson-viewer__content .fp-native-vocab > span,
