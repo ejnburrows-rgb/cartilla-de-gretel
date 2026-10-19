@@ -381,6 +381,11 @@
   box-shadow: 0 4px 14px -8px rgba(22, 122, 114, 0.35);
 }
 
+/* Lesson 23 p85 — the reading sentences overflowed the page frame because the
+ * paragraphs kept their default block margins. Tighten them so the text fits
+ * inside the page (worker-verified fix, issue #987). */
+.lc-lesson-23 .native-lesson-viewer__content .fp-region--reading-sentences p { padding-block: 0; margin-block: 0.1em; }
+
 /* Page 83 — tracing, drawing and sentence writing on cream paper
  * with the same teal glow. */
 .lc-lesson-23 .native-lesson-viewer__content .fp-trace__svg,
