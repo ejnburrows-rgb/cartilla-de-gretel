@@ -29,6 +29,10 @@
 .lc-lesson-shell--fit[data-lesson="5"] .lc-lesson-main .native-lesson-viewer,
 .lc-lesson-shell--fit[data-lesson="6"] .lc-lesson-main .native-lesson-viewer,
 .lc-lesson-shell--fit[data-lesson="7"] .lc-lesson-main .native-lesson-viewer { width: 100%; margin: 0; }
+/* Short landscape (phones sideways): the page is at least one screen tall and
+ * grows (the shell scrolls) when its content needs more. The page body keeps
+ * a real minimum height so the picture grids get room instead of collapsing
+ * to zero, and the "Mis lecciones" link gets its own row above the page. */
 @media (orientation: landscape) and (max-height: 500px) {
   .lc-lesson-shell--fit[data-lesson="1"] .lc-lesson-main,
   .lc-lesson-shell--fit[data-lesson="2"] .lc-lesson-main,
@@ -36,12 +40,43 @@
   .lc-lesson-shell--fit[data-lesson="4"] .lc-lesson-main,
   .lc-lesson-shell--fit[data-lesson="5"] .lc-lesson-main,
   .lc-lesson-shell--fit[data-lesson="6"] .lc-lesson-main,
-  .lc-lesson-shell--fit[data-lesson="7"] .lc-lesson-main { --lc-top: 0px; --lc-bottom: 0px; --ph: 100cqh; --pw: calc(100cqw - 130px); overflow: hidden; }
-  .lc-lesson-shell--fit[data-lesson="1"] .lc-lesson-main .native-lesson-viewer,
-  .lc-lesson-shell--fit[data-lesson="2"] .lc-lesson-main .native-lesson-viewer,
-  .lc-lesson-shell--fit[data-lesson="3"] .lc-lesson-main .native-lesson-viewer,
-  .lc-lesson-shell--fit[data-lesson="4"] .lc-lesson-main .native-lesson-viewer,
-  .lc-lesson-shell--fit[data-lesson="5"] .lc-lesson-main .native-lesson-viewer,
-  .lc-lesson-shell--fit[data-lesson="6"] .lc-lesson-main .native-lesson-viewer,
-  .lc-lesson-shell--fit[data-lesson="7"] .lc-lesson-main .native-lesson-viewer { width: var(--pw); margin: 0; }
+  .lc-lesson-shell--fit[data-lesson="7"] .lc-lesson-main { --lc-top: 0px; --lc-bottom: 0px; --ph: 100dvh; --pw: calc(100vw - 130px); overflow: visible; }
+  .lc-lesson-shell--fit[data-lesson="1"] .native-lesson-viewer,
+  .lc-lesson-shell--fit[data-lesson="2"] .native-lesson-viewer,
+  .lc-lesson-shell--fit[data-lesson="3"] .native-lesson-viewer,
+  .lc-lesson-shell--fit[data-lesson="4"] .native-lesson-viewer,
+  .lc-lesson-shell--fit[data-lesson="5"] .native-lesson-viewer,
+  .lc-lesson-shell--fit[data-lesson="6"] .native-lesson-viewer,
+  .lc-lesson-shell--fit[data-lesson="7"] .native-lesson-viewer { width: var(--pw); max-width: var(--pw); margin: 0; }
+  .lc-lesson-shell--fit[data-lesson="1"] .native-lesson-viewer__content .faithful-page,
+  .lc-lesson-shell--fit[data-lesson="2"] .native-lesson-viewer__content .faithful-page,
+  .lc-lesson-shell--fit[data-lesson="3"] .native-lesson-viewer__content .faithful-page,
+  .lc-lesson-shell--fit[data-lesson="4"] .native-lesson-viewer__content .faithful-page,
+  .lc-lesson-shell--fit[data-lesson="5"] .native-lesson-viewer__content .faithful-page,
+  .lc-lesson-shell--fit[data-lesson="6"] .native-lesson-viewer__content .faithful-page,
+  .lc-lesson-shell--fit[data-lesson="7"] .native-lesson-viewer__content .faithful-page { min-height: 100dvh; }
+  .lc-lesson-shell--fit[data-lesson="1"] .native-lesson-viewer__content .faithful-page__body,
+  .lc-lesson-shell--fit[data-lesson="2"] .native-lesson-viewer__content .faithful-page__body,
+  .lc-lesson-shell--fit[data-lesson="3"] .native-lesson-viewer__content .faithful-page__body,
+  .lc-lesson-shell--fit[data-lesson="4"] .native-lesson-viewer__content .faithful-page__body,
+  .lc-lesson-shell--fit[data-lesson="5"] .native-lesson-viewer__content .faithful-page__body,
+  .lc-lesson-shell--fit[data-lesson="6"] .native-lesson-viewer__content .faithful-page__body,
+  .lc-lesson-shell--fit[data-lesson="7"] .native-lesson-viewer__content .faithful-page__body { min-height: 100dvh; box-sizing: border-box; padding-top: 30px; }
+  .lc-lesson-shell--fit[data-lesson="1"] .lc-lesson-header,
+  .lc-lesson-shell--fit[data-lesson="2"] .lc-lesson-header,
+  .lc-lesson-shell--fit[data-lesson="3"] .lc-lesson-header,
+  .lc-lesson-shell--fit[data-lesson="4"] .lc-lesson-header,
+  .lc-lesson-shell--fit[data-lesson="5"] .lc-lesson-header,
+  .lc-lesson-shell--fit[data-lesson="6"] .lc-lesson-header,
+  .lc-lesson-shell--fit[data-lesson="7"] .lc-lesson-header { left: 6px; top: 2px; }
+}
+/* Portrait phones and desktops: leave room for the corner link above the instruction. */
+@media not ((orientation: landscape) and (max-height: 500px)) {
+  .lc-lesson-shell--fit[data-lesson="1"] .native-lesson-viewer__content .faithful-page__body,
+  .lc-lesson-shell--fit[data-lesson="2"] .native-lesson-viewer__content .faithful-page__body,
+  .lc-lesson-shell--fit[data-lesson="3"] .native-lesson-viewer__content .faithful-page__body,
+  .lc-lesson-shell--fit[data-lesson="4"] .native-lesson-viewer__content .faithful-page__body,
+  .lc-lesson-shell--fit[data-lesson="5"] .native-lesson-viewer__content .faithful-page__body,
+  .lc-lesson-shell--fit[data-lesson="6"] .native-lesson-viewer__content .faithful-page__body,
+  .lc-lesson-shell--fit[data-lesson="7"] .native-lesson-viewer__content .faithful-page__body { padding-top: max(calc(var(--ph) * .045), 40px); }
 }
