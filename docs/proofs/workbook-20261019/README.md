@@ -55,3 +55,10 @@ All four viewports re-shot after the 3755f877 mirror; every shot passes
 ## Not verified
 - Full-repo typecheck/test/build output: see the lane report (runs in
   progress at push time); the lane's own test file passes 17/17 locally.
+
+## 2026-10-20 full 10-lesson re-shoot (4401a425)
+- `after2/`: 160 screenshots (40 pages x 4 viewports) via `scripts/shot-all.mjs`; script result OK: no horizontal overflow, page diamonds correct everywhere.
+- `sidebyside2/`: 120 composites (original scan vs app; desktop / phone portrait / phone landscape) via `scripts/sidebyside.mjs`.
+- Lane spec 32/32 green on 4401a425.
+- Picture inventory: all 40 original scans checked (contact sheets); no subject pictures on any lane B page - nothing to prepare.
+- Known cosmetic note: portrait escribe swatches stack vertically (Chrome zoom+flex percentage bug); all controls visible/tappable.
