@@ -95,7 +95,24 @@ export function MariposasGame({ content }: { content: GameContent }) {
   return (
     <CompleteCard>
       <div className="text-center">
-        <div className="text-5xl" aria-hidden>🦋</div>
+        <div className="flex justify-center mb-2">
+          {word.imageUrl ? (
+            <img
+              src={word.imageUrl}
+              alt={word.word}
+              className="h-32 w-auto rounded-2xl bg-white/70 p-2 shadow-sm object-contain"
+              draggable={false}
+            />
+          ) : (
+            <div
+              className="flex h-32 w-32 items-center justify-center rounded-2xl border-2 border-dashed border-stone-300 bg-white/60 text-sm font-bold text-stone-500"
+              role="img"
+              aria-label="Ilustración pendiente"
+            >
+              pendiente
+            </div>
+          )}
+        </div>
         <p className="mt-2 text-sm font-bold text-stone-500">Palabra {wordIndex + 1} de {content.words.length}</p>
         <h2 className="text-3xl font-black mt-1">{word.word}</h2>
       </div>
@@ -261,7 +278,11 @@ export function RhymeGame({ content }: { content: GameContent }) {
   }
 
   const candidates = content.words.filter((w) => w.word !== pair[0].word).slice(0, 4);
-  if (!candidates.some((w) => w.word === pair[1].word)) candidates[candidates.length - 1] = pair[1];
+  if (candidates.length > 0 && !candidates.some((w) => w.word === pair[1].word)) {
+    candidates[candidates.length - 1] = pair[1];
+  } else if (candidates.length === 0) {
+    candidates.push(pair[1]);
+  }
 
   const choose = (candidate: WordItem) => {
     if (feedback) return;
