@@ -47,6 +47,18 @@ for (const width of [390, 844, 1280]) {
         const book = page.locator(".fp-lane-c");
         await expect(book).toBeVisible();
         await expect(book.locator(".living-illustration, .fp-art-pending")).toHaveCount(0);
+        if ([67, 71, 75, 79, 83].includes(number) && width === 390) {
+          await expect
+            .poll(
+              async () => {
+                const paper = await book.boundingBox();
+                const footer = await page.locator(".native-lesson-viewer__footer").boundingBox();
+                return !!paper && !!footer && footer.y >= paper.y + paper.height - 1;
+              },
+              { message: `page ${number}: navigation never covers the writing area` },
+            )
+            .toBe(true);
+        }
         expect(
           await page.evaluate(() => document.documentElement.scrollWidth <= innerWidth),
           `page ${number}`,
@@ -88,7 +100,7 @@ for (const [lesson, number] of [
     const button = host.locator(".native-syllable__word").first();
     const box = await button.boundingBox();
     expect(box).not.toBeNull();
-    // Last character is outside the first word's target syllable on all six pages.
+    // taza ends in za, so use its first character; the other five use the last.
     await button.dispatchEvent("pointerup", {
       clientX: number === 88 ? box!.x + 1 : box!.x + box!.width - 1,
       pointerId: 1,

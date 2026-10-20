@@ -274,3 +274,10 @@
   padding: 0;
   min-height: 0;
 }
+/* On the five long handwriting pages, navigation follows the paper.
+ * A fixed footer otherwise sits directly over the child's lower writing line. */
+.lc-lesson-shell--fit:has(.fp-lane-c .faithful-page__body[data-lc-fit-overflow="true"])
+  .native-lesson-viewer__footer {
+  position: static;
+  margin-top: 12px;
+}
