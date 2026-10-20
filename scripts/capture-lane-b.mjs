@@ -1,10 +1,12 @@
 import { chromium } from 'playwright';
 import fs from 'node:fs/promises';
 import path from 'node:path';
+import { fileURLToPath } from 'node:url';
 
-const out = process.argv[2] || 'docs/proofs/lane-b-2026-10-20/round-1';
-const first = Number(process.argv[3] || 23);
-const last = Number(process.argv[4] || 66);
+const out = fileURLToPath(new URL('../docs/proofs/lane-b-2026-10-20/round-6/', import.meta.url));
+const first = Number(process.argv[2] || 23);
+const last = Number(process.argv[3] || 66);
+if (!Number.isInteger(first) || !Number.isInteger(last) || first < 23 || last > 66 || first > last) throw new Error('Pages must be an ordered range within 23–66');
 const width = Number(process.env.PROOF_WIDTH || 390);
 const height = Number(process.env.PROOF_HEIGHT || 844);
 const browser = await chromium.launch({
