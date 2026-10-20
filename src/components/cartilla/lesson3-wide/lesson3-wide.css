@@ -1,0 +1,331 @@
+/**
+ * Lesson 3 wide-screen redesign (owner order 2026-10-17 20:46 EDT).
+ *
+ * Target: WIDE computer screens and horizontal tablets (1440px+).
+ * Vertical phone is a separate simpler fit done later — this file carries no
+ * phone rules on purpose.
+ *
+ * Look: classic cream paper, slimmer teal spine, MORE prominent teal glow
+ * around picture boxes, colorful garden-palette instruction letters, pictures
+ * always moving from page load (slow, calm idle loop — never fast or busy).
+ * Tap feedback (pencil X, green/red) renders above the idle motion.
+ */
+
+/* ---------- page shell: cream paper + slim teal spine ---------- */
+
+.l3w-page {
+  --l3w-paper: #fffdf9;
+  --l3w-teal: #1f9e94;
+  --l3w-teal-deep: #147a72;
+  --l3w-ink: #2b2620;
+  position: relative;
+  width: 100%;
+  max-width: 1560px;
+  margin: 0 auto;
+  background: var(--l3w-paper);
+  border: 1px solid #d9e7e3;
+  border-radius: 10px;
+  box-shadow: 0 6px 28px rgba(37, 49, 58, 0.1);
+  padding: 40px 56px 48px 96px; /* room for the spine on the left */
+  color: var(--l3w-ink);
+  overflow: hidden;
+}
+
+/* Slimmer teal spine — narrower than the book's full spine, still teal. */
+.l3w-page::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  width: 34px;
+  background: linear-gradient(90deg, var(--l3w-teal-deep) 0%, var(--l3w-teal) 70%, #37b3a8 100%);
+  box-shadow: inset -4px 0 8px rgba(0, 0, 0, 0.18);
+  pointer-events: none;
+}
+
+.l3w-page__number {
+  position: absolute;
+  top: 18px;
+  right: 28px;
+  font-size: 15px;
+  font-weight: 700;
+  color: var(--l3w-teal-deep);
+  opacity: 0.75;
+}
+
+/* ---------- instruction in garden-palette letters ---------- */
+
+.l3w-instruction {
+  display: flex;
+  align-items: center;
+  gap: 18px;
+  margin: 0 0 34px;
+  flex-wrap: wrap;
+}
+
+.l3w-instruction__label {
+  font-size: 15px;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--l3w-teal-deep);
+  white-space: nowrap;
+}
+
+.l3w-instruction__text {
+  font-size: clamp(24px, 2.4vw, 34px);
+  font-weight: 700;
+  line-height: 1.35;
+  margin: 0;
+}
+
+.l3w-instruction__text .l3w-word {
+  display: inline-block;
+  margin-right: 0.28em;
+  white-space: nowrap;
+}
+
+/* ---------- page 7: 4x2 grid of boxed pictures, big and uncramped ---------- */
+
+.l3w-p7-grid .fp-ix-grid {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 30px;
+  max-width: 1240px;
+  margin: 0 auto;
+}
+
+/* The fp-ix-row wrappers become transparent so the 4x2 grid is flat. */
+.l3w-p7-grid .fp-ix-row {
+  display: contents;
+}
+
+/* MORE prominent teal glow around every picture box — boxes stay. */
+.l3w-p7-grid .fp-ix-cell {
+  min-height: 200px;
+  border: 3px solid var(--l3w-teal);
+  border-radius: 18px;
+  background: #ffffff;
+  padding: 18px;
+  box-shadow:
+    0 0 0 5px rgba(31, 158, 148, 0.16),
+    0 0 26px rgba(31, 158, 148, 0.45),
+    0 8px 22px rgba(37, 49, 58, 0.1);
+  transition: box-shadow 0.25s ease, transform 0.25s ease;
+}
+
+.l3w-p7-grid .fp-ix-cell:hover {
+  box-shadow:
+    0 0 0 6px rgba(31, 158, 148, 0.22),
+    0 0 34px rgba(31, 158, 148, 0.6),
+    0 10px 26px rgba(37, 49, 58, 0.12);
+}
+
+.l3w-p7-grid .fp-ix-cell img,
+.l3w-p7-grid .fp-ix-cell .living-illustration img {
+  width: 100%;
+  height: 150px;
+  object-fit: contain;
+}
+
+.l3w-p7-grid .fp-ix-caption {
+  display: block;
+  text-align: center;
+  font-size: 19px;
+  font-weight: 700;
+  color: var(--l3w-ink);
+  margin-top: 10px;
+}
+
+/* ---------- page 8: Aa card at left edge, 2x4 pictures right, wide gap ---------- */
+
+.l3w-p8-stage {
+  max-width: 1360px;
+  margin: 0 auto;
+}
+
+/* Wide stage: break out of the kernel's 580px square box. */
+.l3w-p8-pencil .am-direct-pencil__stage {
+  position: relative;
+  max-width: none;
+  aspect-ratio: auto;
+  min-height: 640px;
+  background: transparent;
+  border: none;
+  box-shadow: none;
+  padding: 8px;
+}
+
+/* Flatten the kernel's 3-row DOM so the 8 cells + Aa card place freely.
+   NOTE: display:contents keeps the row divs in the DOM — the CELLS are the
+   grid items, so placement selectors are scoped per row below. */
+.l3w-p8-pencil .am-direct-pencil__grid {
+  display: grid;
+  grid-template-columns: 200px minmax(120px, 1fr) repeat(2, minmax(0, 1fr));
+  grid-template-rows: repeat(4, minmax(120px, 1fr));
+  gap: 26px;
+  align-items: stretch;
+  position: relative;
+  z-index: 1; /* pencil SVG line layer paints above */
+  height: auto;
+}
+
+.l3w-p8-pencil .am-direct-pencil__row {
+  display: contents;
+}
+
+/* Aa compact card pinned at the LEFT edge, spanning all 4 rows. */
+.l3w-p8-pencil .am-direct-pencil__center {
+  grid-column: 1;
+  grid-row: 1 / 5;
+  align-self: center;
+  justify-self: stretch;
+  min-height: 220px;
+  aspect-ratio: auto;
+  border: 3px solid var(--l3w-teal);
+  border-radius: 18px;
+  background: #eefaf7;
+  box-shadow:
+    0 0 0 5px rgba(31, 158, 148, 0.16),
+    0 0 26px rgba(31, 158, 148, 0.45);
+}
+
+.l3w-p8-pencil .am-direct-pencil__center-text {
+  font-size: 84px;
+  font-weight: 800;
+  color: var(--l3w-teal-deep);
+}
+
+/* 8 picture cells: columns 3-4, rows 1-4 (column 2 stays the wide open gap
+   the pencil line travels across). DOM order per row:
+   top: t0 t1 t2 | mid: t3 center t4 | bottom: t5 t6 t7 */
+.l3w-p8-pencil .am-direct-pencil__row--top .am-direct-pencil__target:nth-child(1) { grid-column: 3; grid-row: 1; }
+.l3w-p8-pencil .am-direct-pencil__row--top .am-direct-pencil__target:nth-child(2) { grid-column: 4; grid-row: 1; }
+.l3w-p8-pencil .am-direct-pencil__row--top .am-direct-pencil__target:nth-child(3) { grid-column: 3; grid-row: 2; }
+.l3w-p8-pencil .am-direct-pencil__row--mid .am-direct-pencil__target:nth-child(1) { grid-column: 4; grid-row: 2; }
+.l3w-p8-pencil .am-direct-pencil__row--mid .am-direct-pencil__target:nth-child(3) { grid-column: 3; grid-row: 3; }
+.l3w-p8-pencil .am-direct-pencil__row--bottom .am-direct-pencil__target:nth-child(1) { grid-column: 4; grid-row: 3; }
+.l3w-p8-pencil .am-direct-pencil__row--bottom .am-direct-pencil__target:nth-child(2) { grid-column: 3; grid-row: 4; }
+.l3w-p8-pencil .am-direct-pencil__row--bottom .am-direct-pencil__target:nth-child(3) { grid-column: 4; grid-row: 4; }
+
+/* Teal-glow boxes around page-8 pictures too. */
+.l3w-p8-pencil .am-direct-pencil__target {
+  border: 3px solid var(--l3w-teal);
+  border-radius: 18px;
+  background: #ffffff;
+  padding: 12px;
+  box-shadow:
+    0 0 0 5px rgba(31, 158, 148, 0.16),
+    0 0 26px rgba(31, 158, 148, 0.45),
+    0 8px 22px rgba(37, 49, 58, 0.1);
+}
+
+.l3w-p8-pencil .am-direct-pencil__card img {
+  width: 100%;
+  height: 104px;
+  object-fit: contain;
+}
+
+/* Idle motion on page-8 pictures (kernel renders plain <img> here, so the
+   calm loop is CSS-only and scoped to this page — the shared kernel is
+   untouched). Slow and calm: 7s loop, tiny drift. Tap feedback (pencil X,
+   green/red) renders in the SVG layer above. */
+@keyframes l3w-idle-drift {
+  0%, 100% { transform: translateY(0) rotate(0deg); }
+  50% { transform: translateY(-7px) rotate(0.6deg); }
+}
+
+.l3w-p8-pencil .am-direct-pencil__card img {
+  animation: l3w-idle-drift 7s ease-in-out infinite;
+}
+
+/* Stagger the loop so the 8 pictures don't move in lockstep. */
+.l3w-p8-pencil .am-direct-pencil__row--top .am-direct-pencil__target:nth-child(1) .am-direct-pencil__card img { animation-delay: 0s; }
+.l3w-p8-pencil .am-direct-pencil__row--top .am-direct-pencil__target:nth-child(2) .am-direct-pencil__card img { animation-delay: -1.75s; }
+.l3w-p8-pencil .am-direct-pencil__row--top .am-direct-pencil__target:nth-child(3) .am-direct-pencil__card img { animation-delay: -3.5s; }
+.l3w-p8-pencil .am-direct-pencil__row--mid .am-direct-pencil__target:nth-child(1) .am-direct-pencil__card img { animation-delay: -5.25s; }
+.l3w-p8-pencil .am-direct-pencil__row--mid .am-direct-pencil__target:nth-child(3) .am-direct-pencil__card img { animation-delay: -0.9s; }
+.l3w-p8-pencil .am-direct-pencil__row--bottom .am-direct-pencil__target:nth-child(1) .am-direct-pencil__card img { animation-delay: -2.6s; }
+.l3w-p8-pencil .am-direct-pencil__row--bottom .am-direct-pencil__target:nth-child(2) .am-direct-pencil__card img { animation-delay: -4.4s; }
+.l3w-p8-pencil .am-direct-pencil__row--bottom .am-direct-pencil__target:nth-child(3) .am-direct-pencil__card img { animation-delay: -6.1s; }
+
+@media (prefers-reduced-motion: reduce) {
+  .l3w-p8-pencil .am-direct-pencil__card img {
+    animation: none;
+  }
+}
+
+/* ---------- owner voice button ---------- */
+
+.l3w-voice-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  border: 2px solid var(--l3w-teal);
+  border-radius: 999px;
+  background: #eefaf7;
+  color: var(--l3w-teal-deep);
+  font-size: 15px;
+  font-weight: 700;
+  padding: 8px 18px;
+  cursor: pointer;
+  white-space: nowrap;
+  transition: background 0.2s ease, transform 0.15s ease;
+}
+
+.l3w-voice-btn:hover {
+  background: #d9f2ee;
+}
+
+.l3w-voice-btn:active {
+  transform: scale(0.96);
+}
+
+.l3w-voice-btn.is-playing {
+  background: var(--l3w-teal);
+  color: #fff;
+}
+
+.l3w-voice-btn__icon {
+  width: 18px;
+  height: 18px;
+}
+
+/* ---------- preview route chrome (draft only) ---------- */
+
+.l3w-preview {
+  min-height: 100vh;
+  background: #eef2f1;
+  padding: 28px 20px 60px;
+}
+
+.l3w-preview__tabs {
+  display: flex;
+  gap: 12px;
+  justify-content: center;
+  margin-bottom: 24px;
+}
+
+.l3w-preview__tab {
+  border: 2px solid #1f9e94;
+  background: #fff;
+  color: #147a72;
+  font-size: 17px;
+  font-weight: 800;
+  border-radius: 999px;
+  padding: 10px 28px;
+  cursor: pointer;
+}
+
+.l3w-preview__tab.is-active {
+  background: #1f9e94;
+  color: #fff;
+}
+
+.l3w-preview__note {
+  text-align: center;
+  color: #5a6b68;
+  font-size: 14px;
+  margin: 0 0 20px;
+}
