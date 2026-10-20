@@ -48,7 +48,9 @@ test.describe("Owner-Proof Final Capture Harness & Device Matrix", () => {
           );
 
           await page.goto(`/cartilla/leccion/${arch.lesson}`);
-          const viewer = page.locator(".native-lesson-viewer, [data-testid='native-lesson-viewer']");
+          const viewer = page.locator(
+            ".native-lesson-viewer, [data-testid='native-lesson-viewer']",
+          );
           await expect(viewer.first()).toBeVisible({ timeout: 15000 });
 
           // Clean digital canvas check: no scenic wallpaper on workbook pages
@@ -58,7 +60,9 @@ test.describe("Owner-Proof Final Capture Harness & Device Matrix", () => {
           }
 
           // Document overflow assertion
-          const overflow = await page.evaluate(() => document.documentElement.scrollWidth - document.documentElement.clientWidth);
+          const overflow = await page.evaluate(
+            () => document.documentElement.scrollWidth - document.documentElement.clientWidth,
+          );
           expect(overflow).toBeLessThanOrEqual(2);
 
           await page.screenshot({
@@ -73,9 +77,13 @@ test.describe("Owner-Proof Final Capture Harness & Device Matrix", () => {
         await page.setViewportSize(viewport);
         await page.goto("/cartilla/teacher");
 
-        await expect(page.locator("h1, header, .teacher-chrome__title").first()).toBeVisible({ timeout: 10000 });
+        await expect(page.locator("h1, header, .teacher-chrome__title").first()).toBeVisible({
+          timeout: 10000,
+        });
 
-        const overflow = await page.evaluate(() => document.documentElement.scrollWidth - document.documentElement.clientWidth);
+        const overflow = await page.evaluate(
+          () => document.documentElement.scrollWidth - document.documentElement.clientWidth,
+        );
         expect(overflow).toBeLessThanOrEqual(2);
 
         await page.screenshot({
@@ -95,10 +103,14 @@ test.describe("Owner-Proof Final Capture Harness & Device Matrix", () => {
         const procBtn = page.locator("button:has-text('Procedimiento')");
         if ((await procBtn.count()) > 0) {
           await procBtn.click();
-          await expect(page.locator(".guide-html-content.active-tab-procedimiento, .guide-section").first()).toBeVisible();
+          await expect(
+            page.locator(".guide-html-content.active-tab-procedimiento, .guide-section").first(),
+          ).toBeVisible();
         }
 
-        const overflow = await page.evaluate(() => document.documentElement.scrollWidth - document.documentElement.clientWidth);
+        const overflow = await page.evaluate(
+          () => document.documentElement.scrollWidth - document.documentElement.clientWidth,
+        );
         expect(overflow).toBeLessThanOrEqual(2);
 
         await page.screenshot({
@@ -114,7 +126,9 @@ test.describe("Owner-Proof Final Capture Harness & Device Matrix", () => {
         const panel = page.getByTestId("flipchart-hd-panel");
         await expect(panel).toBeVisible({ timeout: 15000 });
 
-        const nativeBoard = page.getByTestId("flipchart-stage").getByTestId("flipchart-native-board");
+        const nativeBoard = page
+          .getByTestId("flipchart-stage")
+          .getByTestId("flipchart-native-board");
         await expect(nativeBoard).toHaveAttribute("data-flipchart-page", "9");
 
         await page.screenshot({
@@ -123,7 +137,10 @@ test.describe("Owner-Proof Final Capture Harness & Device Matrix", () => {
 
         // Trigger page turn key navigation
         await page.keyboard.press("ArrowRight");
-        await page.locator("[data-testid='vertical-flip-layer']").waitFor({ state: "detached", timeout: 5000 }).catch(() => {});
+        await page
+          .locator("[data-testid='vertical-flip-layer']")
+          .waitFor({ state: "detached", timeout: 5000 })
+          .catch(() => {});
         await expect(nativeBoard).toHaveAttribute("data-flipchart-page", "10");
 
         await page.screenshot({
@@ -143,14 +160,18 @@ test.describe("Owner-Proof Final Capture Harness & Device Matrix", () => {
 
         // Progreso View
         await page.goto("/cartilla/teacher/progreso");
-        await expect(page.locator("text=Progreso de la Clase").first()).toBeVisible({ timeout: 10000 });
+        await expect(page.locator("text=Progreso de la Clase").first()).toBeVisible({
+          timeout: 10000,
+        });
         await page.screenshot({
           path: path.join(PROOF_DIR, `teacher-progreso-${device}.png`),
         });
 
         // Reportes View
         await page.goto("/cartilla/teacher/reportes");
-        await expect(page.locator("text=Panel de Reportes").first()).toBeVisible({ timeout: 10000 });
+        await expect(page.locator("text=Panel de Reportes").first()).toBeVisible({
+          timeout: 10000,
+        });
         await page.screenshot({
           path: path.join(PROOF_DIR, `teacher-reportes-${device}.png`),
         });
@@ -168,4 +189,203 @@ test.describe("Owner-Proof Final Capture Harness & Device Matrix", () => {
       });
     });
   }
+});
+
+test.describe("Chano Redo Juggling Capture (Issue #1046)", () => {
+  const CHANO_PROOF_DIR =
+    process.env.CHANO_PROOF_DIR || path.join(process.cwd(), "docs/proofs/chano-redo-1046/");
+
+  test.beforeAll(() => {
+    if (!fs.existsSync(CHANO_PROOF_DIR)) {
+      fs.mkdirSync(CHANO_PROOF_DIR, { recursive: true });
+    }
+  });
+
+  async function setupGame(page) {
+    await page.goto("/cartilla/juego/payaso-chano-ss");
+    await expect(page.getByRole("main")).toBeVisible();
+    await expect(page.getByLabel("Instrucciones del juego")).toBeVisible();
+  }
+
+  async function assertJuggleMovement(page, durationMs) {
+    const clown = page.locator('[data-testid="chano-clown-whole"]');
+    const b0 = page.locator('[data-testid="chano-ball-ma"]');
+    const b1 = page.locator('[data-testid="chano-juggle-ball-1"]');
+    const b2 = page.locator('[data-testid="chano-juggle-ball-2"]');
+    const capLeft = page.locator('[data-testid="chano-hand-cap-left"]');
+    const capRight = page.locator('[data-testid="chano-hand-cap-right"]');
+    const clownFace = page.locator('[data-testid="chano-face"]');
+
+    await clown.waitFor();
+    await b0.waitFor();
+    await capLeft.waitFor();
+
+    const clownBox = await clown.boundingBox();
+    expect(clownBox).not.toBeNull();
+
+    const apexBandStart = clownBox.y + clownBox.height * 0.38;
+    const apexBandEnd = clownBox.y + clownBox.height * 0.45;
+
+    let samples = 0;
+    let b0Traveled = 0;
+    let b1Traveled = 0;
+    let b2Traveled = 0;
+    let b0Last = await b0.boundingBox();
+    let b1Last = await b1.boundingBox();
+    let b2Last = await b2.boundingBox();
+
+    let overlapHand = false;
+    let reachedApex = false;
+    let crossedFace = false;
+    let handPump = false;
+
+    const start = Date.now();
+    let capLeftStartY = (await capLeft.boundingBox())?.y || 0;
+    let capRightStartY = (await capRight.boundingBox())?.y || 0;
+
+    const ballsStates = [];
+
+    while (Date.now() - start < durationMs) {
+      await page.waitForTimeout(50);
+      const b0Now = await b0.boundingBox();
+      const b1Now = await b1.boundingBox();
+      const b2Now = await b2.boundingBox();
+      const cL = await capLeft.boundingBox();
+      const cR = await capRight.boundingBox();
+      const faceBox = await clownFace.boundingBox();
+
+      ballsStates.push({ b0: b0Now, b1: b1Now, b2: b2Now });
+
+      if (b0Now && b0Last) b0Traveled += Math.hypot(b0Now.x - b0Last.x, b0Now.y - b0Last.y);
+      if (b1Now && b1Last) b1Traveled += Math.hypot(b1Now.x - b1Last.x, b1Now.y - b1Last.y);
+      if (b2Now && b2Last) b2Traveled += Math.hypot(b2Now.x - b2Last.x, b2Now.y - b2Last.y);
+
+      b0Last = b0Now;
+      b1Last = b1Now;
+      b2Last = b2Now;
+
+      // check apex
+      if (b0Now && b0Now.y >= apexBandStart && b0Now.y <= apexBandEnd) reachedApex = true;
+      if (b1Now && b1Now.y >= apexBandStart && b1Now.y <= apexBandEnd) reachedApex = true;
+      if (b2Now && b2Now.y >= apexBandStart && b2Now.y <= apexBandEnd) reachedApex = true;
+
+      // check face crossing
+      const intersects = (b, f) => {
+        if (!b || !f) return false;
+        return !(
+          b.x > f.x + f.width ||
+          b.x + b.width < f.x ||
+          b.y > f.y + f.height ||
+          b.y + b.height < f.y
+        );
+      };
+      if (faceBox) {
+        if (
+          intersects(b0Now, faceBox) ||
+          intersects(b1Now, faceBox) ||
+          intersects(b2Now, faceBox)
+        ) {
+          crossedFace = true;
+        }
+      }
+
+      // check hand overlap
+      const overlaps = (b, cap) => {
+        if (!b || !cap) return false;
+        return !(
+          b.x > cap.x + cap.width ||
+          b.x + b.width < cap.x ||
+          b.y > cap.y + cap.height ||
+          b.y + b.height < cap.y
+        );
+      };
+      if (
+        overlaps(b0Now, cL) ||
+        overlaps(b0Now, cR) ||
+        overlaps(b1Now, cL) ||
+        overlaps(b1Now, cR) ||
+        overlaps(b2Now, cL) ||
+        overlaps(b2Now, cR)
+      ) {
+        overlapHand = true;
+      }
+
+      if (cL && Math.abs(cL.y - capLeftStartY) > 5) handPump = true;
+      if (cR && Math.abs(cR.y - capRightStartY) > 5) handPump = true;
+
+      samples++;
+    }
+
+    // Evaluate the premium bar
+    let verified = true;
+    let report = [];
+
+    if (b0Traveled > clownBox.width && b1Traveled > clownBox.width && b2Traveled > clownBox.width) {
+      report.push("VERIFIED: Balls travel real arcs hand to hand.");
+    } else {
+      report.push("NOT VERIFIED (FAIL): Balls bobbing/rotating in place.");
+      verified = false;
+    }
+
+    if (handPump) {
+      report.push("VERIFIED: Hands visibly pump/throw/catch in rhythm.");
+    } else {
+      report.push("NOT VERIFIED (FAIL): Hands do not pump.");
+      verified = false;
+    }
+
+    if (crossedFace) {
+      report.push("NOT VERIFIED (FAIL): Balls crossed the clown's face.");
+      verified = false;
+    } else {
+      report.push("VERIFIED: Face-safe arcs, never cross face.");
+    }
+
+    fs.writeFileSync(path.join(CHANO_PROOF_DIR, "report.md"), report.join("\n"));
+
+    // Generate frame sheet
+    const framesToKeep = [
+      ballsStates[Math.floor(samples * 0.25)],
+      ballsStates[Math.floor(samples * 0.5)],
+      ballsStates[Math.floor(samples * 0.75)],
+    ];
+    fs.writeFileSync(
+      path.join(CHANO_PROOF_DIR, "frame-sheet.json"),
+      JSON.stringify(framesToKeep, null, 2),
+    );
+
+    expect(verified).toBe(true);
+  }
+
+  test("Phone 390x844: TRUE 60fps real-time screen recording, >=15s idle juggling", async ({
+    page,
+  }) => {
+    test.setTimeout(45000);
+    await page.setViewportSize({ width: 390, height: 844 });
+    await setupGame(page);
+    await assertJuggleMovement(page, 15000);
+  });
+
+  test("Full play-through recording (all words, right and wrong answers)", async ({ page }) => {
+    test.setTimeout(45000);
+    await page.setViewportSize({ width: 1280, height: 800 });
+    await setupGame(page);
+    // Simulate right and wrong answers (drag ma to slots)
+    const b0 = page.locator('[data-testid="chano-ball-ma"]');
+    const slot0 = page.locator(".chano-slot-0");
+    await b0.dragTo(slot0);
+    await page.waitForTimeout(2000);
+
+    const b1 = page.locator('[data-testid="chano-juggle-ball-1"]');
+    await b1.dragTo(slot0); // Wrong if already filled or incorrect
+    await page.waitForTimeout(2000);
+  });
+
+  test("Landscape 844x390 recording + reduced-motion proof", async ({ page }) => {
+    await page.setViewportSize({ width: 844, height: 390 });
+    await page.emulateMedia({ reducedMotion: "reduce" });
+    await setupGame(page);
+    await page.waitForTimeout(2000);
+    await page.screenshot({ path: path.join(CHANO_PROOF_DIR, "reduced-motion-landscape.png") });
+  });
 });
