@@ -1,16 +1,14 @@
-# Lane B — real browser proof, draft only
+# Lane B — current evidence status
 
-Code: https://github.com/ejnburrows-rgb/cartilla-de-gretel/pull/1022
-Runtime source commit: 1bb08d96a090b052073d48255eaf115d6351b417
-Base: ba4e6ff3d4e62c56b6c0d6f4ee5384abc3629e16
-Branch: draft/lane-b-workbook-lessons-8-18
+Draft branch: `draft/lane-b-workbook-lessons-8-18`
+Base: `ba4e6ff3d4e62c56b6c0d6f4ee5384abc3629e16`
+Current runtime source: `80a6eab178ffaa46029b16ac7c4f8acc41ccc743`
+Draft PR: https://github.com/ejnburrows-rgb/cartilla-de-gretel/pull/1022
 
-Open index.html for all 44 matched-scale comparisons. Each image places the original scan on the left and the actual live page on the right. originals/ contains all authentic scans; phone/ contains both full-screen and paper-only browser captures. tests/ contains unedited logs, per-page measurements, interaction outcomes, and supporting screenshots. scripts/ contains the reproduction tools. All implementation changes stay on the draft branch.
-
-## All pages reviewed in one source pass
+All 44 native Workbook pages in Lessons 8–18 have been built together and refined against their matching original scans. Existing PageFrame, pencil, eraser, tracing, drawing, completion, sentence-writing, persistence and navigation components remain in use. No subject pictures, new buttons, stars or points were added.
 
 | Lesson | Printed pages |
-| --- | --- |
+|---|---|
 | 8 | 23, 24, 25, 26 |
 | 9 | 27, 28, 29, 30 |
 | 10 | 31, 32, 33, 34 |
@@ -23,33 +21,31 @@ Open index.html for all 44 matched-scale comparisons. Each image places the orig
 | 17 | 59, 60, 61, 62 |
 | 18 | 63, 64, 65, 66 |
 
-No source pages were missing. Four page families were built together, then corrected across the whole set: writing/drawing, syllable circling, reading, and word/sentence completion.
-
 ## REAL
 
-- 44 actual lesson-route pages rendered in Chromium 153 at a 390 × 844 touch viewport. These are live HTML/components and canvases, not scans as backgrounds or generated mockups.
-- 44 pages: no uncaught runtime errors, no horizontal overflow, source font loaded, and zero subject pictures.
-- TypeScript check: PASS. Eight focused Vitest files: 175 tests PASS, including measured-letter hit testing with wide button margins.
-- Vite worker production build: PASS. Build warnings remain in the original logs.
-- 17 real-browser checks PASS: incorrect syllable retry/erasure, correct mark persistence, normal-motion pencil and eraser, canvas drawing/erasing/undo/save/reload, sentence persistence, guided uppercase trace/save/reload, all six completion choices plus sentence gating, existing next control, neighboring Lessons 7/19 excluded from Lane B styling, and four page families at landscape and desktop sizes.
-- The existing page, pencil, eraser, trace, drawing, completion, persistence, and page-turn components remain in use. No new reward system or subject pictures.
-- Blank practice areas retain actual writable canvases. Existing controls appear on focus/hover. The sentence control no longer collides with the page-turn corner.
+- Authentic scan SHA-256 bindings for all 44 pages; source-measured waves, writing models, ruling, drawing outlines, 330 circle words, 168 vocabulary words, 70 story lines, 66 completion items and 55 instructions.
+- Canonical text and answer order remain unchanged.
+- Original print geometry and partial source-derived fonts are bundled; source PDFs/JPGs are unchanged.
+- Before the execution environment disconnected, 15 focused Vitest files / 211 tests, typecheck and worker build passed. All 44 phone routes were captured at 390×844 with zero uncaught page errors, horizontal overflow or subject images.
+- Earlier browser rounds passed 20 checks, including real touch on all 11 circle pages and all 66 completion items, normal pencil/eraser, drawing erase/undo/save/reload, guided tracing, typed and freehand sentence persistence, completion gating, navigation, adjacent-page isolation, landscape and desktop.
+- The latest data-only correction restores original printed ink inside faded reading frames, including “también” on page 41. Direct source-data checks verified all 44 scan bindings and that circle, fill, vocabulary, story, writing-model and ruling data were unchanged.
 
-## NOT REAL / not established by this evidence
+## NOT REAL / not yet verified
 
-- This is browser phone emulation, not a physical iPhone/Android or Safari test.
-- The 17 interaction cases are representative; they do not mean every answer and every saved activity on all 44 pages was manually completed.
-- The reconstructed typeface, wave contour, and printed letter models are not pixel-identical to the scan. Original small stroke-order arrows/numbers are not fully reproduced at rest. Exact visual acceptance remains open; do not call this source-exact or finished.
-- The build result is the Vite worker build, not the repository's complete release command, asset gate, entire test suite, or production deployment.
-- The test backend URL/key are deliberately nonfunctional local placeholders. No real child record, production login, microphone/audio recording, or backend synchronization was tested.
-- Unit-test logs include jsdom canvas/media warnings. The real-browser checks separately exercise actual canvas drawing and persistence.
+- The latest faded-frame correction has NOT been rerun through Vitest, typecheck, build or browser captures. An additional regression test was added but has not been executed.
+- The latest full phone comparison package could not be finalized or saved. Do not present older comparison images as proof of this runtime source.
+- Existing committed `verification.json` and `comparisons/` are older evidence for the commits they name. They are not current-head proof.
+- No claim of a publisher-original font binary, raster pixel identity, physical-device/Safari testing, full release validation, live backend verification, merge or deployment.
 
-## Reproduce
+## Concrete continuation
 
-Install the frozen lockfile with pnpm 10.33.0. Run the existing Vite worker dev server on 127.0.0.1:5173 with local placeholder Supabase settings. Set PLAYWRIGHT_CHROMIUM_PATH to an available Chromium executable. From repository root run:
+The execution tool returned `409 Conflict, environment_offline: Environment is not connected` after workspace recovery. Source was preserved using the authenticated GitHub connector. No deployment, main commit or merge was made.
 
-    node scripts/verify-lane-b.mjs
-    node scripts/capture-lane-b.mjs 23 66
-    python scripts/package-lane-b-proof.py
+1. Check out this existing draft branch, preserving its current source.
+2. Use the repository lockfile dependencies. Run the same focused suites plus `src/lib/__tests__/workbook-middle-source.test.ts`, typecheck and worker build.
+3. Start the worker Vite server and Playwright scripts in the same command/session. Run `scripts/capture-lane-b.mjs 23 66` and `scripts/verify-lane-b.mjs` with a working Chromium executable.
+4. Inspect every new matched-scale comparison, particularly page 41’s sight word, page 34’s final “pi”, helper-word sizes, and reading-panel print.
+5. Run `scripts/package-lane-b-proof.py` only after all checks pass. Replace the existing Library artifact `libfile_6ffd6f55bbd88191be039c08ed185871` with the completed ZIP, preserving its identity.
+6. Keep the PR draft. Do not merge or deploy.
 
-Proof tools write only to their fixed repository proof folder; output-directory CLI paths are not accepted. Keep server and browser in the same network namespace. No merge, deployment, or main commit is part of this delivery.
+This is a blocked verification handoff, not a completion claim.
