@@ -1,0 +1,8 @@
+{
+  "left": 342.0488586425781,
+  "right": 375.8573913574219,
+  "bottom": 1675.357421875,
+  "computedLeft": "336px",
+  "computedRight": "8.09375px",
+  "computedBottom": "12px"
+}
