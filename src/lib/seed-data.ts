@@ -278,8 +278,7 @@ function initialState(): SeedState {
       display_name: "Diego Fernández",
       student_code: "DIEGO",
       created_at: daysAgoIso(50),
-      teacher_notes:
-        "Le cuesta la lectura de sílabas compuestas — reforzar en casa.",
+      teacher_notes: "Le cuesta la lectura de sílabas compuestas — reforzar en casa.",
     },
     {
       id: "seed-student-camila",
@@ -389,8 +388,7 @@ function writeState(state: SeedState) {
 export function startTeacherReview() {
   if (import.meta.env.VITE_CRM_REVIEW !== "true")
     throw new Error("La prueba no está disponible aquí.");
-  if (!isSeedSessionActive())
-    localStorage.setItem(AUTH_KEY, SEED_TEACHERS[0].id);
+  if (!isSeedSessionActive()) localStorage.setItem(AUTH_KEY, SEED_TEACHERS[0].id);
   readState();
   window.dispatchEvent(new Event("cartilla:seed-auth"));
 }
@@ -459,13 +457,9 @@ export function deleteSeedClass(id: string) {
   const teacher = getSeedTeacher();
   if (!teacher) throw new Error("Debes iniciar sesion como maestro.");
   const state = readState();
-  const cls = state.classes.find(
-    (c) => c.id === id && c.teacher_id === teacher.id,
-  );
+  const cls = state.classes.find((c) => c.id === id && c.teacher_id === teacher.id);
   if (!cls) throw new Error("Clase no encontrada.");
-  const studentIds = state.students
-    .filter((s) => s.class_id === id)
-    .map((s) => s.id);
+  const studentIds = state.students.filter((s) => s.class_id === id).map((s) => s.id);
   state.classes = state.classes.filter((c) => c.id !== id);
   state.students = state.students.filter((s) => s.class_id !== id);
   state.events = state.events.filter((e) => !studentIds.includes(e.student_id));
@@ -478,9 +472,7 @@ export function getSeedClass(id: string) {
   const teacher = getSeedTeacher();
   if (!teacher) throw new Error("Debes iniciar sesion como maestro.");
   const state = readState();
-  const cls = state.classes.find(
-    (c) => c.id === id && c.teacher_id === teacher.id,
-  );
+  const cls = state.classes.find((c) => c.id === id && c.teacher_id === teacher.id);
   if (!cls) throw new Error("Clase no encontrada.");
   const students = state.students
     .filter((s) => s.class_id === id)
@@ -492,9 +484,7 @@ export function getSeedClass(id: string) {
         ...s,
         events: events.length,
         lessons: new Set(
-          events
-            .filter((e) => e.event_kind === "lesson_completed")
-            .map((e) => e.lesson_id),
+          events.filter((e) => e.event_kind === "lesson_completed").map((e) => e.lesson_id),
         ).size,
         lastSeen: events[0]?.created_at ?? null,
       };
@@ -535,14 +525,10 @@ export function updateSeedStudent(id: string, updates: Partial<SeedStudent>) {
 
 export function joinSeedClass(joinCode: string, studentCode: string) {
   const state = readState();
-  const cls = state.classes.find(
-    (c) => c.join_code.toUpperCase() === joinCode.toUpperCase(),
-  );
+  const cls = state.classes.find((c) => c.join_code.toUpperCase() === joinCode.toUpperCase());
   if (!cls) throw new Error("Codigo de clase invalido.");
   const student = state.students.find(
-    (s) =>
-      s.class_id === cls.id &&
-      s.student_code.toUpperCase() === studentCode.toUpperCase(),
+    (s) => s.class_id === cls.id && s.student_code.toUpperCase() === studentCode.toUpperCase(),
   );
   if (!student) throw new Error("Codigo de estudiante invalido.");
   return {
@@ -583,9 +569,7 @@ export function listSeedAssignments(classId: string) {
   const teacher = getSeedTeacher();
   if (!teacher) throw new Error("Debes iniciar sesion como maestro.");
   const state = readState();
-  const cls = state.classes.find(
-    (c) => c.id === classId && c.teacher_id === teacher.id,
-  );
+  const cls = state.classes.find((c) => c.id === classId && c.teacher_id === teacher.id);
   if (!cls) throw new Error("Clase no encontrada.");
   return state.assignments
     .filter((a) => a.class_id === classId)
@@ -602,9 +586,7 @@ export function createSeedAssignment(input: {
   const teacher = getSeedTeacher();
   if (!teacher) throw new Error("Debes iniciar sesion como maestro.");
   const state = readState();
-  const cls = state.classes.find(
-    (c) => c.id === input.classId && c.teacher_id === teacher.id,
-  );
+  const cls = state.classes.find((c) => c.id === input.classId && c.teacher_id === teacher.id);
   if (!cls) throw new Error("Clase no encontrada.");
   const row: SeedAssignment = {
     id: `seed-assignment-${crypto.randomUUID()}`,
@@ -626,9 +608,7 @@ export function deleteSeedAssignment(id: string) {
   const state = readState();
   const assignment = state.assignments.find((a) => a.id === id);
   const cls = assignment
-    ? state.classes.find(
-        (c) => c.id === assignment.class_id && c.teacher_id === teacher.id,
-      )
+    ? state.classes.find((c) => c.id === assignment.class_id && c.teacher_id === teacher.id)
     : null;
   if (!assignment || !cls) throw new Error("Tarea no encontrada.");
   state.assignments = state.assignments.filter((a) => a.id !== id);
@@ -668,11 +648,7 @@ export function getSeedStudentProgress(studentId: string) {
     class: cls ? { name: cls.name } : null,
     events,
     lessonProgress: Array.from(
-      new Set(
-        events
-          .filter((e) => e.event_kind === "lesson_completed")
-          .map((e) => e.lesson_id),
-      ),
+      new Set(events.filter((e) => e.event_kind === "lesson_completed").map((e) => e.lesson_id)),
     ).map((lesson_id) => ({ lesson_id, status: "completed" })),
   };
 }
@@ -687,9 +663,7 @@ export function getSeedTeacherStudentProgress(id: string) {
   const lessonIds = new Set(events.map((e) => e.lesson_id));
   const lessonProgress = Array.from(lessonIds).map((lesson_id) => {
     const lessonEvents = events.filter((e) => e.lesson_id === lesson_id);
-    const completed = lessonEvents.some(
-      (e) => e.event_kind === "lesson_completed",
-    );
+    const completed = lessonEvents.some((e) => e.event_kind === "lesson_completed");
     const lastActive = lessonEvents
       .map((e) => e.created_at)
       .sort()
@@ -712,22 +686,15 @@ export function getSeedTeacherStudentProgress(id: string) {
     class: cls,
     events,
     lessonProgress,
-    assignments: cls
-      ? state.assignments.filter((a) => a.class_id === cls.id)
-      : [],
+    assignments: cls ? state.assignments.filter((a) => a.class_id === cls.id) : [],
   };
 }
 
 export function getSeedClassProgress(classId: string) {
   const state = readState();
-  const studentIds = state.students
-    .filter((s) => s.class_id === classId)
-    .map((s) => s.id);
+  const studentIds = state.students.filter((s) => s.class_id === classId).map((s) => s.id);
   const events = state.events.filter((e) => studentIds.includes(e.student_id));
-  const perLesson: Record<
-    string,
-    { score: number; total: number; completedBy: Set<string> }
-  > = {};
+  const perLesson: Record<string, { score: number; total: number; completedBy: Set<string> }> = {};
   events.forEach((e) => {
     const row = (perLesson[e.lesson_id] ??= {
       score: 0,
@@ -748,14 +715,9 @@ export function getSeedClassProgress(classId: string) {
   // "time" events, per student, plus a per-exercise-type hits/attempts
   // breakdown from each event's meta.exercise — so the demo lane's report
   // shows real numbers instead of always "—" / "0 mins".
-  const scoreTotalTimeByStudent: Record<
-    string,
-    { score: number; total: number; time: number }
-  > = {};
-  const perStudentExercise: Record<
-    string,
-    Record<string, { hits: number; attempts: number }>
-  > = {};
+  const scoreTotalTimeByStudent: Record<string, { score: number; total: number; time: number }> =
+    {};
+  const perStudentExercise: Record<string, Record<string, { hits: number; attempts: number }>> = {};
   classStudents.forEach((s) => {
     scoreTotalTimeByStudent[s.id] = { score: 0, total: 0, time: 0 };
     perStudentExercise[s.id] = {};
@@ -767,9 +729,7 @@ export function getSeedClassProgress(classId: string) {
       bucket.score += e.score ?? 0;
       bucket.total += e.total ?? 0;
       const exerciseKind =
-        typeof e.meta?.exercise === "string"
-          ? (e.meta.exercise as string)
-          : "exercise";
+        typeof e.meta?.exercise === "string" ? (e.meta.exercise as string) : "exercise";
       const cell = (perStudentExercise[e.student_id][exerciseKind] ??= {
         hits: 0,
         attempts: 0,
@@ -788,8 +748,7 @@ export function getSeedClassProgress(classId: string) {
     .slice(0, 20)
     .map((e) => ({
       studentId: e.student_id,
-      studentName:
-        classStudents.find((s) => s.id === e.student_id)?.display_name ?? "?",
+      studentName: classStudents.find((s) => s.id === e.student_id)?.display_name ?? "?",
       lessonId: e.lesson_id,
       eventKind: e.event_kind,
       score: e.score,
@@ -797,10 +756,7 @@ export function getSeedClassProgress(classId: string) {
       createdAt: e.created_at,
     }));
 
-  const attentionByStudent: Record<
-    string,
-    { flagged: boolean; reasons: string[] }
-  > = {};
+  const attentionByStudent: Record<string, { flagged: boolean; reasons: string[] }> = {};
   classStudents.forEach((s) => {
     const studentEvents = events
       .filter((e) => e.student_id === s.id)
@@ -832,19 +788,13 @@ export function getSeedClassProgress(classId: string) {
         name: s.display_name,
         lessonsCount: new Set(
           events
-            .filter(
-              (e) =>
-                e.student_id === s.id && e.event_kind === "lesson_completed",
-            )
+            .filter((e) => e.student_id === s.id && e.event_kind === "lesson_completed")
             .map((e) => e.lesson_id),
         ).size,
         completedLessonIds: Array.from(
           new Set(
             events
-              .filter(
-                (e) =>
-                  e.student_id === s.id && e.event_kind === "lesson_completed",
-              )
+              .filter((e) => e.student_id === s.id && e.event_kind === "lesson_completed")
               .map((e) => e.lesson_id),
           ),
         ),
@@ -862,17 +812,12 @@ export function getSeedClassProgress(classId: string) {
       ]),
     ),
     assignments: assignments.map((assignment) => {
-      const lessonEvents = events.filter(
-        (e) => e.lesson_id === assignment.lesson_id,
-      );
+      const lessonEvents = events.filter((e) => e.lesson_id === assignment.lesson_id);
       const completedIds = new Set(
-        lessonEvents
-          .filter((e) => e.event_kind === "lesson_completed")
-          .map((e) => e.student_id),
+        lessonEvents.filter((e) => e.event_kind === "lesson_completed").map((e) => e.student_id),
       );
       const exerciseRows = lessonEvents.filter(
-        (e) =>
-          e.event_kind === "exercise" && e.score != null && e.total != null,
+        (e) => e.event_kind === "exercise" && e.score != null && e.total != null,
       );
       const score = exerciseRows.reduce((sum, e) => sum + (e.score ?? 0), 0);
       const total = exerciseRows.reduce((sum, e) => sum + (e.total ?? 0), 0);
@@ -947,9 +892,7 @@ export function getSeedAdminOverview(): AdminOverview {
       .map((c): AdminClassSummary => {
         const progress = getSeedClassProgress(c.id);
         const classEvents = state.events.filter((e) =>
-          state.students.some(
-            (s) => s.class_id === c.id && s.id === e.student_id,
-          ),
+          state.students.some((s) => s.class_id === c.id && s.id === e.student_id),
         );
         const score = classEvents
           .filter((e) => e.event_kind === "exercise")
@@ -968,13 +911,9 @@ export function getSeedAdminOverview(): AdminOverview {
           totalMinutes: Math.round(
             progress.perStudent.reduce((sum, s) => sum + s.timeSeconds, 0) / 60,
           ),
-          lessonsCompleted: progress.perStudent.reduce(
-            (sum, s) => sum + s.lessonsCount,
-            0,
-          ),
-          attentionCount: Object.values(progress.attentionByStudent).filter(
-            (a) => a.flagged,
-          ).length,
+          lessonsCompleted: progress.perStudent.reduce((sum, s) => sum + s.lessonsCount, 0),
+          attentionCount: Object.values(progress.attentionByStudent).filter((a) => a.flagged)
+            .length,
         };
       });
 
@@ -987,8 +926,7 @@ export function getSeedAdminOverview(): AdminOverview {
       studentCount,
       accuracy:
         scored.length > 0
-          ? scored.reduce((sum, c) => sum + (c.accuracy ?? 0), 0) /
-            scored.length
+          ? scored.reduce((sum, c) => sum + (c.accuracy ?? 0), 0) / scored.length
           : null,
       attentionCount: classes.reduce((sum, c) => sum + c.attentionCount, 0),
     };
@@ -1022,7 +960,7 @@ export function importSeedStateRaw(jsonStr: string): boolean {
       return true;
     }
   } catch (e) {
-    console.error(e);
+    // Ignore parsing errors and return false
   }
   return false;
 }
