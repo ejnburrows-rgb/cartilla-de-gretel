@@ -1,0 +1,114 @@
+
+[1m[30m[46m RUN [49m[39m[22m [36mv4.1.8 [39m[90m/tmp/c-base[39m
+
+ [31m❯[39m src/lib/__tests__/production-art-audit.test.ts [2m([22m[2m6 tests[22m[2m | [22m[31m1 failed[39m[2m)[22m[33m 5721[2mms[22m[39m
+     [32m✓[39m keeps the five owner-approved Page-1 assets present on disk[32m 2[2mms[22m[39m
+     [32m✓[39m keeps missing mono and sapo blink slots explicitly pending instead of inventing files[32m 1[2mms[22m[39m
+     [32m✓[39m certifies native Flip Chart artwork only from a deterministic crop match[32m 12[2mms[22m[39m
+     [32m✓[39m never approves a native row merely because its declared metadata is present[32m 0[2mms[22m[39m
+[31m     [31m×[31m reproduces the committed audit and locks the native evidence schema[39m[33m 5703[2mms[22m[39m
+     [32m✓[39m does not misclassify backfilled source crops as verified color transfers[32m 1[2mms[22m[39m
+
+[31m⎯⎯⎯⎯⎯⎯⎯[39m[1m[41m Failed Tests 1 [49m[22m[31m⎯⎯⎯⎯⎯⎯⎯[39m
+
+[41m[1m FAIL [22m[49m src/lib/__tests__/production-art-audit.test.ts[2m > [22mproduction foreground art audit truthfulness[2m > [22mreproduces the committed audit and locks the native evidence schema
+[31m[1mAssertionError[22m: expected { counts: { …(4) }, …(2) } to deeply equal { _canonicalMapping: { …(8) }, …(3) }[39m
+
+[32m- Expected[39m
+[31m+ Received[39m
+
+[33m@@ -1,16 +1,6 @@[39m
+[2m  {[22m
+[32m-   "_canonicalMapping": {[39m
+[32m-     "csv": "docs/artwork-reconciliation/mapping/MASTER-MAPPING.csv",[39m
+[32m-     "drawingGroups": 201,[39m
+[32m-     "engravedOnMain": "2026-10-15",[39m
+[32m-     "evidence": "docs/proofs/artwork-coverage-2026-10-14/",[39m
+[32m-     "md": "docs/artwork-reconciliation/mapping/MASTER-MAPPING.md",[39m
+[32m-     "note": "Canonical artwork-to-slot mapping. Do NOT ask the owner to re-map. Do NOT regenerate it.",[39m
+[32m-     "placements": 330,[39m
+[32m-     "pointer": "docs/ARTWORK_MAPPING_CANONICAL.md",[39m
+[32m-   },[39m
+[2m    "counts": {[22m
+[2m      "breakdownFaithful": {[22m
+[2m        "CROP FIX": 1,[22m
+[2m        "PASS": 94,[22m
+[2m        "PENDING NO VERIFIED SOURCE": 14,[22m
+[33m@@ -103,11 +93,11 @@[39m
+[2m        "qaVerdict": "PASS",[22m
+[2m        "src": "/cartilla/art/faithful/leccion-1/maiz.webp",[22m
+[2m        "word": "maíz",[22m
+[2m      },[22m
+[2m      {[22m
+[32m-       "bytes": 67248,[39m
+[31m+       "bytes": 73130,[39m
+[2m        "classification": "PENDING NO VERIFIED SOURCE",[22m
+[2m        "dimensions": "870x852",[22m
+[2m        "isQuarantined": false,[22m
+[2m        "provenance": "PROVENANCE-UNKNOWN",[22m
+[2m        "qaVerdict": "PASS",[22m
+[33m@@ -753,13 +743,13 @@[39m
+[2m        "qaVerdict": "PASS",[22m
+[2m        "src": "/cartilla/art/faithful/vocal-a/abeja.webp",[22m
+[2m        "word": "abeja",[22m
+[2m      },[22m
+[2m      {[22m
+[32m-       "bytes": 20268,[39m
+[31m+       "bytes": 78456,[39m
+[2m        "classification": "PASS",[22m
+[32m-       "dimensions": "413x495",[39m
+[31m+       "dimensions": "1254x1254",[39m
+[2m        "isQuarantined": false,[22m
+[2m        "provenance": "VERIFIED-EXACT-WORKBOOK-CROP-2026-08-08",[22m
+[2m        "qaVerdict": "PASS",[22m
+[2m        "src": "/cartilla/art/faithful/vocal-a/aguja.webp",[22m
+[2m        "word": "aguja",[22m
+[33m@@ -1126,11 +1116,11 @@[39m
+[2m      },[22m
+[2m    ],[22m
+[2m    "nativeAudit": [[22m
+[2m      {[22m
+[2m        "aspectMatch": false,[22m
+[32m-       "bytes": 177783,[39m
+[31m+       "bytes": 322834,[39m
+[2m        "classification": "PENDING NO VERIFIED SOURCE",[22m
+[2m        "crop": [[22m
+[2m          13,[22m
+[2m          56,[22m
+[2m          514,[22m
+[33m@@ -1139,14 +1129,14 @@[39m
+[2m        "cropMatch": false,[22m
+[2m        "dimensions": "539x539",[22m
+[2m        "evidence": null,[22m
+[2m        "exists": true,[22m
+[2m        "hasCropEvidence": true,[22m
+[32m-       "matchScore": 39,[39m
+[32m-       "meanDiff": 45.3,[39m
+[31m+       "matchScore": 31,[39m
+[31m+       "meanDiff": 50.8,[39m
+[2m        "page": "3",[22m
+[32m-       "pendingReason": "no deterministic crop correspondence (ncc 0.388, mean diff 45.3, aspectMatch false)",[39m
+[31m+       "pendingReason": "no deterministic crop correspondence (ncc 0.313, mean diff 50.8, aspectMatch false)",[39m
+[2m        "sourcePage": 3,[22m
+[2m        "sourcePageMatches": true,[22m
+[2m        "src": "/cartilla/art/optimized/flipchart-native/p003-scene.png",[22m
+[2m        "verified": false,[22m
+[2m        "word": "Ilustración de la página 3",[22m
+
+[36m [2m❯[22m src/lib/__tests__/production-art-audit.test.ts:[2m105:25[22m[39m
+    [90m103|[39m       [35mdelete[39m generated[33m.[39mtimestamp[33m;[39m
+    [90m104|[39m       [35mdelete[39m committed[33m.[39mtimestamp[33m;[39m
+    [90m105|[39m       [34mexpect[39m(generated)[33m.[39m[34mtoEqual[39m(committed)[33m;[39m
+    [90m   |[39m                         [31m^[39m
+    [90m106|[39m       [34mexpect[39m(
+    [90m107|[39m         generated[33m.[39mnativeAudit[33m.[39m[34mevery[39m(
+
+[31m[2m⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/1]⎯[22m[39m
+
+
+[2m Test Files [22m [1m[31m1 failed[39m[22m[90m (1)[39m
+[2m      Tests [22m [1m[31m1 failed[39m[22m[2m | [22m[1m[32m5 passed[39m[22m[90m (6)[39m
+[2m   Start at [22m 01:39:24
+[2m   Duration [22m 6.99s[2m (transform 79ms, setup 205ms, import 31ms, tests 5.72s, environment 897ms)[22m
+
+EXIT:1

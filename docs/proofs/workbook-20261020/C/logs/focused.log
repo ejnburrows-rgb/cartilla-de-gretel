@@ -1,0 +1,13 @@
+
+[1m[30m[46m RUN [49m[39m[22m [36mv4.1.8 [39m[90m/home/sandbox/cartilla-de-gretel[39m
+
+ [32m✓[39m src/cartilla/interactions/__tests__/DibujaHost.test.tsx [2m([22m[2m7 tests[22m[2m)[22m[33m 355[2mms[22m[39m
+ [32m✓[39m src/cartilla/interactions/__tests__/SyllableWordCircle.test.tsx [2m([22m[2m5 tests[22m[2m)[22m[33m 398[2mms[22m[39m
+ [32m✓[39m src/components/cartilla/lesson19/__tests__/local-styles.test.ts [2m([22m[2m6 tests[22m[2m)[22m[32m 7[2mms[22m[39m
+
+[2m Test Files [22m [1m[32m3 passed[39m[22m[90m (3)[39m
+[2m      Tests [22m [1m[32m18 passed[39m[22m[90m (18)[39m
+[2m   Start at [22m 01:34:35
+[2m   Duration [22m 4.31s[2m (transform 445ms, setup 383ms, import 549ms, tests 760ms, environment 2.24s)[22m
+
+EXIT:0

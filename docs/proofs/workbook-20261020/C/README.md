@@ -15,7 +15,15 @@ comparisons/: original workbook left, current draft right.
 PDF and ZIP contain the consolidated review.
 
 ## Checks
-Install passed. Fresh recovery typecheck passed and assets passed582 with no errors before the final CSS-only adjustment. Prior focused interaction/scope tests passed18. Full suite and Vite build were attempted in an earlier recovery but resource pressure froze the workspace during a production transform; there is no completed green full-suite/build result. Final focused checks are reported in logs/ when available.
+Fresh checks completed after the final CSS adjustment:
+- pnpm install --frozen-lockfile: passed, 9.3s.
+- pnpm typecheck: passed, exit 0.
+- pnpm verify:assets: 582 checked, errors [], exit 0.
+- Focused tests: 3 files, 18 passed, exit 0.
+- pnpm test --maxWorkers=1: 184 files passed, 1 failed; 1898 tests passed, 1 failed, 2 expected failures. The only failure is production-art-audit.test.ts, reproduces the committed audit and locks the native evidence schema.
+- The same art-audit test was run separately on exact cream baseline 9aaca48: same assertion failed, 5 passed / 1 failed, exit 1. This establishes it predates C changes on this baseline, not an independently checked plain-main claim.
+- pnpm exec vite build: passed, built in 18.70s, exit 0.
+Real command output is saved in logs/. The earlier resource-pressure attempt is superseded by this completed run.
 
 ## Status
 No exact approved wide mockup exists in this task's evidence. Exact design approval and all-page interactive completion remain NOT VERIFIED. Layout captures and source scans are supplied for review, not permission to install. Pages86-87 are BLOCKED. All other24-lesson work outside L19-24 is out of this lane; lessons8,10,11,12,14,16 remain another lane's scope.
