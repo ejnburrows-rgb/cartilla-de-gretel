@@ -10,6 +10,7 @@ import { SyllableBuilder } from "./SyllableBuilder";
 import { CoreGame } from "./CoreGames";
 import { playInstruction, stopGameAudio } from "@/lib/games/wordAudio";
 import { RecordedGameFrame } from "./RecordedGameFrame";
+import { GameInstructions } from "./GameInstructions";
 
 /** Letter is a curriculum lesson number: Rr and rr must remain distinct. */
 export function AuthorGameTemplate({
@@ -60,29 +61,33 @@ export function AuthorGameTemplate({
       </div>
       {content ? (
         <RecordedGameFrame key={content.id} content={content}>
-          <details className="shrink-0 rounded-2xl bg-white px-3 py-1 font-semibold">
-            <summary className="min-h-11 cursor-pointer py-2">Instrucciones</summary>
-            <ol className="space-y-1 pb-2">
-              {content.instructions.map((line, index) => (
-                <li key={index}>
-                  {line}{" "}
-                  <button
-                    type="button"
-                    aria-label={`Escuchar instrucción ${index + 1}`}
-                    onClick={() =>
-                      playInstruction(
-                        content.instructionAudioUrls?.[index],
-                        content.instructions[index],
-                      )
-                    }
-                    className="min-h-11 min-w-11 rounded-lg border"
-                  >
-                    ▷
-                  </button>
-                </li>
-              ))}
-            </ol>
-          </details>
+          {type === "payaso-chano" ? (
+            <details className="shrink-0 rounded-2xl bg-white px-3 py-1 font-semibold">
+              <summary className="min-h-11 cursor-pointer py-2">Instrucciones</summary>
+              <ol className="space-y-1 pb-2">
+                {content.instructions.map((line, index) => (
+                  <li key={index}>
+                    {line}{" "}
+                    <button
+                      type="button"
+                      aria-label={`Escuchar instrucción ${index + 1}`}
+                      onClick={() =>
+                        playInstruction(
+                          content.instructionAudioUrls?.[index],
+                          content.instructions[index],
+                        )
+                      }
+                      className="min-h-11 min-w-11 rounded-lg border"
+                    >
+                      ▷
+                    </button>
+                  </li>
+                ))}
+              </ol>
+            </details>
+          ) : (
+            <GameInstructions content={content} />
+          )}
           <div className="min-h-0 flex-1 overflow-y-auto">
             {type === "payaso-chano" ? (
               <PayasoChano content={content} />
@@ -94,7 +99,16 @@ export function AuthorGameTemplate({
           </div>
         </RecordedGameFrame>
       ) : (
-        <p role="status">pendiente</p>
+        <section
+          role="status"
+          className="rounded-2xl border-2 border-dashed border-stone-300 bg-white p-4"
+        >
+          <h2 className="font-bold">Actividad pendiente de contenido verificado</h2>
+          <p>
+            No hay contenido del libro verificado para este juego y esta letra. Elige otra letra u
+            otro juego para continuar.
+          </p>
+        </section>
       )}
     </main>
   );

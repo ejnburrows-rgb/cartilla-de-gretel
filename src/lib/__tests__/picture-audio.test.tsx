@@ -60,11 +60,11 @@ it('obeys the current recorded-only policy and never substitutes TTS or silent.m
   expect(playPictureName(oso)).toBe('missing-recording');
   expect(FakeAudio.instances).toHaveLength(0); expect(speech.speak).not.toHaveBeenCalled();
 });
-it('supports missing-recording TTS only when the audio policy explicitly permits it; taps never queue speech', () => {
-  (AUDIO_POLICY as { allowTts: boolean }).allowTts = true; // Future approved-policy fixture, not production configuration.
-  expect(playPictureName(oso)).toBe('tts'); expect(playPictureName(olla)).toBe('tts');
-  expect(speech.cancel).toHaveBeenCalled();
-  expect(speech.speak.mock.calls.map(([utterance]) => utterance.text.toLowerCase())).toEqual(['oso', 'olla']);
+it('cannot enable synthesis by toggling a policy object', () => {
+  (AUDIO_POLICY as { allowTts: boolean }).allowTts = true;
+  expect(playPictureName(oso)).toBe('missing-recording');
+  expect(playPictureName(olla)).toBe('missing-recording');
+  expect(speech.speak).not.toHaveBeenCalled(); expect(FakeAudio.instances).toHaveLength(0);
 });
 it('Gretel interrupts a recording and a picture invalidates delayed Gretel speech', async () => {
   vi.mocked(approvedPictureRecording).mockReturnValue('/test-approved/oso.mp3');
@@ -121,4 +121,12 @@ it('picture exploration emits no progress/help/completion callbacks or learning 
   expect(complete).not.toHaveBeenCalled(); expect(audioPlayed).not.toHaveBeenCalled(); expect(result).not.toHaveBeenCalled();
   expect(bus).not.toHaveBeenCalled(); expect(JSON.stringify(localStorage)).toBe(before);
   window.removeEventListener('gretel:bus', bus);
+});
+it('denied settings fail closed and interrupt picture playback', () => {
+ vi.mocked(approvedPictureRecording).mockReturnValue('/test-approved/oso.mp3');
+ playPictureName(oso); const active = FakeAudio.instances[0]!;
+ const original = Object.getOwnPropertyDescriptor(globalThis, 'localStorage')!;
+ Object.defineProperty(globalThis, 'localStorage', { configurable: true, get() { throw new DOMException('Denied', 'SecurityError'); } });
+ try { expect(playPictureName(olla)).toBe('muted'); expect(active.pause).toHaveBeenCalled(); expect(FakeAudio.instances).toHaveLength(1); }
+ finally { Object.defineProperty(globalThis, 'localStorage', original); }
 });

@@ -11,17 +11,28 @@ const MUTE_KEY = "cartilla:audio:muted";
 const AMBIENT_ACTIVE_KEY = "cartilla:audio:ambient-active";
 
 let ambientAudio: HTMLAudioElement | null = null;
+let memoryVolume = 0.8;
+let memoryMuted: boolean | undefined;
+let volumeWriteFailed = false;
+let muteWriteFailed = false;
 
 export const audioEngine = {
   getVolume(): number {
     if (typeof window === "undefined") return 0.8;
-    return Number(localStorage.getItem(VOL_KEY) ?? "0.8");
+    try {
+      if (volumeWriteFailed) return memoryVolume;
+      const value = Number(localStorage.getItem(VOL_KEY) ?? "0.8");
+      return Number.isFinite(value) ? Math.max(0, Math.min(1, value)) : 0;
+    } catch { return 0; }
   },
 
   setVolume(val: number) {
     if (typeof window === "undefined") return;
-    localStorage.setItem(VOL_KEY, String(val));
-    if (val <= 0) stopSpeech("picture");
+    val = Number.isFinite(val) ? Math.max(0, Math.min(1, val)) : 0;
+    memoryVolume = val;
+    if (val <= 0) stopSpeech();
+    try { localStorage.setItem(VOL_KEY, String(val)); volumeWriteFailed = false; }
+    catch { volumeWriteFailed = true; }
     window.dispatchEvent(new Event("cartilla:audio-settings"));
     if (ambientAudio) {
       ambientAudio.volume = val * 0.4; // Keep ambient background soft
@@ -30,19 +41,23 @@ export const audioEngine = {
 
   isMuted(): boolean {
     if (typeof window === "undefined") return false;
-    return localStorage.getItem(MUTE_KEY) === "true";
+    try { return muteWriteFailed ? memoryMuted ?? true : localStorage.getItem(MUTE_KEY) === "true"; }
+    catch { return memoryMuted ?? true; }
   },
 
   setMuted(muted: boolean) {
     if (typeof window === "undefined") return;
-    localStorage.setItem(MUTE_KEY, String(muted));
-    if (muted) stopSpeech("picture");
+    memoryMuted = muted;
+    if (muted) stopSpeech();
+    try { localStorage.setItem(MUTE_KEY, String(muted)); muteWriteFailed = false; }
+    catch { muteWriteFailed = true; }
     window.dispatchEvent(new Event("cartilla:audio-settings"));
     if (ambientAudio) {
       if (muted) {
         ambientAudio.pause();
-      } else if (localStorage.getItem(AMBIENT_ACTIVE_KEY) === "true") {
-        ambientAudio.play().catch(() => {});
+      } else {
+        try { if (localStorage.getItem(AMBIENT_ACTIVE_KEY) === "true") ambientAudio.play().catch(() => {}); }
+        catch { /* no ambient playback when persisted settings are unavailable */ }
       }
     }
   },

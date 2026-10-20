@@ -1,0 +1,266 @@
+{
+  "note": "Expected recording slots only: no new audio, transcript or owner approval is implied. Metadata labels are never spoken.",
+  "pending": [
+    {
+      "key": "a la fiesta scene",
+      "src": "/audio/voz/vocabulario/a-la-fiesta-scene.mp3",
+      "state": "pending",
+      "spokenText": null,
+      "sourceReference": "Flip Chart 50 / production content"
+    },
+    {
+      "key": "abejas z",
+      "src": "/audio/voz/vocabulario/abejas-z.mp3",
+      "state": "pending",
+      "spokenText": null,
+      "sourceReference": "Flip Chart 60 / production content"
+    },
+    {
+      "key": "burro b",
+      "src": "/audio/voz/vocabulario/burro-b.mp3",
+      "state": "pending",
+      "spokenText": null,
+      "sourceReference": "Flip Chart 33 / production content"
+    },
+    {
+      "key": "campana d",
+      "src": "/audio/voz/vocabulario/campana-d.mp3",
+      "state": "pending",
+      "spokenText": null,
+      "sourceReference": "Flip Chart 21 / production content"
+    },
+    {
+      "key": "carro calabaza scene",
+      "src": "/audio/voz/vocabulario/carro-calabaza-scene.mp3",
+      "state": "pending",
+      "spokenText": null,
+      "sourceReference": "Flip Chart 62 / production content"
+    },
+    {
+      "key": "carro rr",
+      "src": "/audio/voz/vocabulario/carro-rr.mp3",
+      "state": "pending",
+      "spokenText": null,
+      "sourceReference": "Flip Chart 42 / production content"
+    },
+    {
+      "key": "flor abeja f",
+      "src": "/audio/voz/vocabulario/flor-abeja-f.mp3",
+      "state": "pending",
+      "spokenText": null,
+      "sourceReference": "Flip Chart 48 / production content"
+    },
+    {
+      "key": "gallina c",
+      "src": "/audio/voz/vocabulario/gallina-c.mp3",
+      "state": "pending",
+      "spokenText": null,
+      "sourceReference": "Flip Chart 54 / production content"
+    },
+    {
+      "key": "gato enamorado scene",
+      "src": "/audio/voz/vocabulario/gato-enamorado-scene.mp3",
+      "state": "pending",
+      "spokenText": null,
+      "sourceReference": "Flip Chart 47 / production content"
+    },
+    {
+      "key": "jicotea jabela scene",
+      "src": "/audio/voz/vocabulario/jicotea-jabela-scene.mp3",
+      "state": "pending",
+      "spokenText": null,
+      "sourceReference": "Flip Chart 53 / production content"
+    },
+    {
+      "key": "jirafa j",
+      "src": "/audio/voz/vocabulario/jirafa-j.mp3",
+      "state": "pending",
+      "spokenText": null,
+      "sourceReference": "Flip Chart 51 / production content"
+    },
+    {
+      "key": "leo lee gretel scene",
+      "src": "/audio/voz/vocabulario/leo-lee-gretel-scene.mp3",
+      "state": "pending",
+      "spokenText": null,
+      "sourceReference": "Flip Chart 26 / production content"
+    },
+    {
+      "key": "los caramelos scene",
+      "src": "/audio/voz/vocabulario/los-caramelos-scene.mp3",
+      "state": "pending",
+      "spokenText": null,
+      "sourceReference": "Flip Chart 56 / production content"
+    },
+    {
+      "key": "made y papa scene",
+      "src": "/audio/voz/vocabulario/made-y-papa-scene.mp3",
+      "state": "pending",
+      "spokenText": null,
+      "sourceReference": "Flip Chart 23 / production content"
+    },
+    {
+      "key": "mi bote de vela scene",
+      "src": "/audio/voz/vocabulario/mi-bote-de-vela-scene.mp3",
+      "state": "pending",
+      "spokenText": null,
+      "sourceReference": "Flip Chart 38 / production content"
+    },
+    {
+      "key": "mi mama scene",
+      "src": "/audio/voz/vocabulario/mi-mama-scene.mp3",
+      "state": "pending",
+      "spokenText": null,
+      "sourceReference": "Flip Chart 11 / production content"
+    },
+    {
+      "key": "mi papa scene",
+      "src": "/audio/voz/vocabulario/mi-papa-scene.mp3",
+      "state": "pending",
+      "spokenText": null,
+      "sourceReference": "Flip Chart 14 / production content"
+    },
+    {
+      "key": "nina enmarcada ny",
+      "src": "/audio/voz/vocabulario/nina-enmarcada-ny.mp3",
+      "state": "pending",
+      "spokenText": null,
+      "sourceReference": "Flip Chart 30 / production content"
+    },
+    {
+      "key": "nina l",
+      "src": "/audio/voz/vocabulario/nina-l.mp3",
+      "state": "pending",
+      "spokenText": null,
+      "sourceReference": "Flip Chart 24 / production content"
+    },
+    {
+      "key": "nina suena scene",
+      "src": "/audio/voz/vocabulario/nina-suena-scene.mp3",
+      "state": "pending",
+      "spokenText": null,
+      "sourceReference": "Flip Chart 32 / production content"
+    },
+    {
+      "key": "nino nada scene",
+      "src": "/audio/voz/vocabulario/nino-nada-scene.mp3",
+      "state": "pending",
+      "spokenText": null,
+      "sourceReference": "Flip Chart 29 / production content"
+    },
+    {
+      "key": "nino tambor t",
+      "src": "/audio/voz/vocabulario/nino-tambor-t.mp3",
+      "state": "pending",
+      "spokenText": null,
+      "sourceReference": "Flip Chart 18 / production content"
+    },
+    {
+      "key": "nino yoyo y",
+      "src": "/audio/voz/vocabulario/nino-yoyo-y.mp3",
+      "state": "pending",
+      "spokenText": null,
+      "sourceReference": "Flip Chart 57 / production content"
+    },
+    {
+      "key": "oso (parpadeo)",
+      "src": "/audio/voz/vocabulario/oso-parpadeo.mp3",
+      "state": "reuse",
+      "spokenText": "oso",
+      "sourceReference": "Verified faithful-art content",
+      "reusesRecording": "/audio/voz/vocabulario/oso.mp3",
+      "resolution": "Reserved oso-parpadeo.mp3 superseded: exact closed-eye derivative of oso.webp in TRUE_BLINK_FRAMES; reuse existing approved oso recording. No independent page or runtime target verified."
+    },
+    {
+      "key": "pollito p",
+      "src": "/audio/voz/vocabulario/pollito-p.mp3",
+      "state": "pending",
+      "spokenText": null,
+      "sourceReference": "Flip Chart 12 / production content"
+    },
+    {
+      "key": "rapido arriba scene",
+      "src": "/audio/voz/vocabulario/rapido-arriba-scene.mp3",
+      "state": "pending",
+      "spokenText": null,
+      "sourceReference": "Flip Chart 44 / production content"
+    },
+    {
+      "key": "raton r",
+      "src": "/audio/voz/vocabulario/raton-r.mp3",
+      "state": "pending",
+      "spokenText": null,
+      "sourceReference": "Flip Chart 39 / production content"
+    },
+    {
+      "key": "rosca manolo scene",
+      "src": "/audio/voz/vocabulario/rosca-manolo-scene.mp3",
+      "state": "pending",
+      "spokenText": null,
+      "sourceReference": "Flip Chart 41 / production content"
+    },
+    {
+      "key": "saltamontes g",
+      "src": "/audio/voz/vocabulario/saltamontes-g.mp3",
+      "state": "pending",
+      "spokenText": null,
+      "sourceReference": "Flip Chart 45 / production content"
+    },
+    {
+      "key": "sapo samapo scene",
+      "src": "/audio/voz/vocabulario/sapo-samapo-scene.mp3",
+      "state": "pending",
+      "spokenText": null,
+      "sourceReference": "Flip Chart 17 / production content"
+    },
+    {
+      "key": "serpiente s",
+      "src": "/audio/voz/vocabulario/serpiente-s.mp3",
+      "state": "pending",
+      "spokenText": null,
+      "sourceReference": "Flip Chart 15 / production content"
+    },
+    {
+      "key": "sopa de pato scene",
+      "src": "/audio/voz/vocabulario/sopa-de-pato-scene.mp3",
+      "state": "pending",
+      "spokenText": null,
+      "sourceReference": "Flip Chart 20 / production content"
+    },
+    {
+      "key": "sube la bola scene",
+      "src": "/audio/voz/vocabulario/sube-la-bola-scene.mp3",
+      "state": "pending",
+      "spokenText": null,
+      "sourceReference": "Flip Chart 35 / production content"
+    },
+    {
+      "key": "ternero n",
+      "src": "/audio/voz/vocabulario/ternero-n.mp3",
+      "state": "pending",
+      "spokenText": null,
+      "sourceReference": "Flip Chart 27 / production content"
+    },
+    {
+      "key": "toro m",
+      "src": "/audio/voz/vocabulario/toro-m.mp3",
+      "state": "pending",
+      "spokenText": null,
+      "sourceReference": "Flip Chart 9 / production content"
+    },
+    {
+      "key": "viento v",
+      "src": "/audio/voz/vocabulario/viento-v.mp3",
+      "state": "pending",
+      "spokenText": null,
+      "sourceReference": "Flip Chart 36 / production content"
+    },
+    {
+      "key": "yate de yayo scene",
+      "src": "/audio/voz/vocabulario/yate-de-yayo-scene.mp3",
+      "state": "pending",
+      "spokenText": null,
+      "sourceReference": "Flip Chart 59 / production content"
+    }
+  ]
+}

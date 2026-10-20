@@ -111,9 +111,9 @@ export function MariposasGame({ content }: { content: GameContent }) {
         >
           ▷
         </button>
-        <div className="text-5xl" aria-hidden>
-          🦋
-        </div>
+        <p className="mx-auto mt-2 max-w-xs rounded-xl border-2 border-dashed border-stone-300 p-3 text-sm font-semibold text-stone-600">
+          Ilustración de mariposa pendiente de fuente aprobada.
+        </p>
         <p className="mt-2 text-sm font-bold text-stone-500">
           Palabra {wordIndex + 1} de {content.words.length}
         </p>
@@ -357,6 +357,18 @@ export function RhymeGame({ content }: { content: GameContent }) {
     setFeedback(null);
     setScore(0);
   };
+
+  if (!pairs.length) {
+    return (
+      <section role="status" className="kid-card border-2 border-dashed p-5">
+        <h2 className="text-xl font-bold">Rimas pendientes de contenido verificado</h2>
+        <p>
+          No hay una pareja de rimas verificada del libro para esta actividad. Vuelve a Práctica y
+          elige otro juego.
+        </p>
+      </section>
+    );
+  }
 
   if (!pair) {
     return (

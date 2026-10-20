@@ -1,0 +1,34 @@
+/* A phone in landscape has width, not height: retain the source art alongside
+   the slots and controls instead of pushing the whole activity below it. */
+@media (orientation: landscape) and (max-height: 600px) and (min-width: 600px) {
+  .syllable-builder {
+    display: grid;
+    grid-template-columns: minmax(120px, 28%) minmax(0, 1fr);
+    align-items: start;
+    gap: 12px;
+  }
+  .syllable-builder > * {
+    margin-block: 0;
+  }
+  .syllable-builder > .syllable-picture {
+    grid-column: 1;
+    grid-row: 1 / 4;
+  }
+  .syllable-builder > [role="group"],
+  .syllable-builder > .flex {
+    grid-column: 2;
+  }
+  .syllable-builder .syllable-picture img {
+    height: 140px;
+  }
+  .syllable-builder [data-slot-index] {
+    height: 56px;
+    min-width: 64px;
+    font-size: 24px;
+  }
+  .syllable-builder [aria-label="Sílabas disponibles"] button {
+    height: 48px;
+    min-width: 56px;
+    font-size: 20px;
+  }
+}

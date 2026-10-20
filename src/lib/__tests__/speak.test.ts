@@ -1,326 +1,55 @@
-/**
- * @vitest-environment jsdom
- */
+import { afterEach, beforeEach, expect, it, vi } from 'vitest';
+import { speak, speakVowel, getVoice } from '../speak';
+import { setGretelVoiceMuted } from '../gretel-voice';
+import { stopSpeech } from '../speech-playback';
+import { audioEngine } from '../audio-engine';
 
-import { describe, it, expect, vi, beforeEach, afterEach } from "vitest";
-import { speak, speakVowel } from "../speak";
-
-describe("Speak API - Voice Caching and Offline Support", () => {
-  let originalSpeechSynthesis: typeof window.speechSynthesis;
-  let originalSpeechSynthesisUtterance: typeof window.SpeechSynthesisUtterance;
-  let originalNavigator: typeof navigator;
-
-  let mockVoices: Partial<SpeechSynthesisVoice>[] = [];
-  let spokenUtterance: SpeechSynthesisUtterance | null = null;
-  let onlineState = true;
-
-  beforeEach(() => {
-    // Mock navigator.onLine
-    originalNavigator = globalThis.navigator;
-    Object.defineProperty(globalThis, "navigator", {
-      value: {
-        get onLine() {
-          return onlineState;
-        },
-      },
-      writable: true,
-      configurable: true,
-    });
-
-    // Mock SpeechSynthesis
-    originalSpeechSynthesis = window.speechSynthesis;
-    const mockSpeechSynthesis = {
-      cancel: vi.fn(),
-      speak: vi.fn().mockImplementation((utterance) => {
-        spokenUtterance = utterance;
-        // Simulate speech end asynchronously
-        setTimeout(() => {
-          if (utterance.onstart) utterance.onstart();
-          setTimeout(() => {
-            if (utterance.onend) utterance.onend();
-          }, 10);
-        }, 10);
-      }),
-      getVoices: vi.fn().mockImplementation(() => mockVoices),
-      addEventListener: vi.fn(),
-      removeEventListener: vi.fn(),
-    };
-    Object.defineProperty(window, "speechSynthesis", {
-      value: mockSpeechSynthesis,
-      writable: true,
-      configurable: true,
-    });
-
-    // Mock SpeechSynthesisUtterance
-    originalSpeechSynthesisUtterance = window.SpeechSynthesisUtterance;
-    class MockSpeechSynthesisUtterance {
-      text: string;
-      voice: Partial<SpeechSynthesisVoice> | null = null;
-      lang = "";
-      rate = 1.0;
-      pitch = 1.0;
-      volume = 1.0;
-      onstart: (() => void) | null = null;
-      onend: (() => void) | null = null;
-      onerror: (() => void) | null = null;
-
-      constructor(text: string) {
-        this.text = text;
-      }
-    }
-    Object.defineProperty(window, "SpeechSynthesisUtterance", {
-      value: MockSpeechSynthesisUtterance,
-      writable: true,
-      configurable: true,
-    });
-
-    // Reset mocks and state
-    spokenUtterance = null;
-    onlineState = true;
-
-    // Define two voices: Google español (online preferred) and Microsoft Sabina (local service)
-    mockVoices = [
-      {
-        name: "Google español",
-        lang: "es-ES",
-        localService: false,
-      },
-      {
-        name: "Microsoft Sabina",
-        lang: "es-ES",
-        localService: true,
-      },
-    ];
-  });
-
-  afterEach(() => {
-    // Restore globals
-    Object.defineProperty(window, "speechSynthesis", {
-      value: originalSpeechSynthesis,
-      writable: true,
-      configurable: true,
-    });
-    Object.defineProperty(window, "SpeechSynthesisUtterance", {
-      value: originalSpeechSynthesisUtterance,
-      writable: true,
-      configurable: true,
-    });
-    Object.defineProperty(globalThis, "navigator", {
-      value: originalNavigator,
-      writable: true,
-      configurable: true,
-    });
-  });
-
-  it("should select the online-preferred voice when online and cache it", async () => {
-    onlineState = true;
-    await speak("Hola, ¿cómo estás?");
-
-    expect(spokenUtterance).not.toBeNull();
-    expect(spokenUtterance!.voice?.name).toBe("Google español");
-
-    // Clear spokenUtterance, modify mockVoices list to show that getVoices is bypassed due to caching
-    spokenUtterance = null;
-    mockVoices = [];
-
-    await speak("Segunda frase");
-    expect(spokenUtterance).not.toBeNull();
-    // Should still use cached "Google español" voice
-    expect(spokenUtterance!.voice?.name).toBe("Google español");
-  });
-
-  it("should invalidate the voice cache and select the local voice when transition to offline occurs", async () => {
-    // First call online to populate cache
-    onlineState = true;
-    await speak("Hola online");
-    expect(spokenUtterance!.voice?.name).toBe("Google español");
-
-    // Transition offline
-    onlineState = false;
-    spokenUtterance = null;
-
-    await speak("Hola offline");
-    expect(spokenUtterance).not.toBeNull();
-    // Cache must have been invalidated and updated to prioritize the local voice
-    expect(spokenUtterance!.voice?.name).toBe("Microsoft Sabina");
-  });
-
-  it("should invalidate the voice cache and select the online voice when transition back to online occurs", async () => {
-    // First call offline to populate cache with Microsoft Sabina
-    onlineState = false;
-    await speak("Hola offline");
-    expect(spokenUtterance!.voice?.name).toBe("Microsoft Sabina");
-
-    // Transition online
-    onlineState = true;
-    spokenUtterance = null;
-
-    await speak("Hola online de nuevo");
-    expect(spokenUtterance).not.toBeNull();
-    // Cache must have been invalidated and updated to prioritize the online voice again
-    expect(spokenUtterance!.voice?.name).toBe("Google español");
-  });
+class Recording {
+ static instances: Recording[] = [];
+ src: string; volume = 1; onplaying: (() => void) | null = null; onended: (() => void) | null = null; onerror: (() => void) | null = null;
+ play = vi.fn(() => Promise.resolve()); pause = vi.fn(); removeAttribute = vi.fn();
+ constructor(src: string) { this.src = src; Recording.instances.push(this); }
+}
+beforeEach(() => { localStorage.clear(); setGretelVoiceMuted(false); Recording.instances = []; vi.stubGlobal('Audio', Recording); });
+afterEach(() => { stopSpeech(); vi.unstubAllGlobals(); });
+it('plays exact approved vocabulary files and settles on end', async () => {
+ const pending = speak('oso'); const clip = Recording.instances[0]!;
+ expect(clip.src).toBe('/audio/voz/vocabulario/oso.mp3'); expect(clip.play).toHaveBeenCalledOnce();
+ clip.onplaying?.(); clip.onended?.(); await pending; expect(clip.pause).toHaveBeenCalled();
 });
-
-// Separate describe block: the "never a silent fallback" guarantee. Uses
-// vi.resetModules() + a dynamic import per test so each test gets a FRESH
-// copy of speak.ts's module-level `loggedFallback`/`cachedVoice` state —
-// the real module only warns once ever, so proving "warns once" and "does
-// not warn twice" both need an isolated module instance per test, not the
-// shared import the tests above use.
-describe("Speak API - no-voice / wrong-dialect fallback is never silent", () => {
-  let originalSpeechSynthesis: typeof window.speechSynthesis;
-  let originalSpeechSynthesisUtterance: typeof window.SpeechSynthesisUtterance;
-  let originalNavigator: typeof navigator;
-  let mockVoices: Partial<SpeechSynthesisVoice>[] = [];
-  let spokenUtterance: SpeechSynthesisUtterance | null = null;
-
-  function installMocks() {
-    originalNavigator = globalThis.navigator;
-    Object.defineProperty(globalThis, "navigator", {
-      value: {
-        get onLine() {
-          return true;
-        },
-      },
-      writable: true,
-      configurable: true,
-    });
-
-    originalSpeechSynthesis = window.speechSynthesis;
-    Object.defineProperty(window, "speechSynthesis", {
-      value: {
-        cancel: vi.fn(),
-        speak: vi.fn().mockImplementation((utterance) => {
-          spokenUtterance = utterance;
-          setTimeout(() => {
-            if (utterance.onstart) utterance.onstart();
-            setTimeout(() => {
-              if (utterance.onend) utterance.onend();
-            }, 5);
-          }, 5);
-        }),
-        getVoices: vi.fn().mockImplementation(() => mockVoices),
-        addEventListener: vi.fn(),
-        removeEventListener: vi.fn(),
-      },
-      writable: true,
-      configurable: true,
-    });
-
-    originalSpeechSynthesisUtterance = window.SpeechSynthesisUtterance;
-    class MockSpeechSynthesisUtterance {
-      text: string;
-      voice: Partial<SpeechSynthesisVoice> | null = null;
-      lang = "";
-      rate = 1.0;
-      pitch = 1.0;
-      volume = 1.0;
-      onstart: (() => void) | null = null;
-      onend: (() => void) | null = null;
-      onerror: (() => void) | null = null;
-      constructor(text: string) {
-        this.text = text;
-      }
-    }
-    Object.defineProperty(window, "SpeechSynthesisUtterance", {
-      value: MockSpeechSynthesisUtterance,
-      writable: true,
-      configurable: true,
-    });
-  }
-
-  function restoreMocks() {
-    Object.defineProperty(window, "speechSynthesis", {
-      value: originalSpeechSynthesis,
-      writable: true,
-      configurable: true,
-    });
-    Object.defineProperty(window, "SpeechSynthesisUtterance", {
-      value: originalSpeechSynthesisUtterance,
-      writable: true,
-      configurable: true,
-    });
-    Object.defineProperty(globalThis, "navigator", {
-      value: originalNavigator,
-      writable: true,
-      configurable: true,
-    });
-  }
-
-  beforeEach(() => {
-    spokenUtterance = null;
-    mockVoices = [];
-    installMocks();
-  });
-
-  afterEach(() => {
-    restoreMocks();
-    vi.restoreAllMocks();
-  });
-
-  it("warns once and still speaks with the best available voice when every installed voice is a non-neutral Spanish dialect (es-ES)", async () => {
-    vi.resetModules();
-    mockVoices = [
-      { name: "Google español", lang: "es-ES", localService: false },
-      { name: "Microsoft Sabina", lang: "es-ES", localService: true },
-    ];
-    const warnSpy = vi.spyOn(console, "warn").mockImplementation(() => {});
-    const { speak: freshSpeak } = await import("../speak");
-
-    await freshSpeak("Hola, ¿cómo estás?");
-
-    expect(spokenUtterance).not.toBeNull();
-    expect(spokenUtterance!.voice?.name).toBe("Google español");
-    expect(warnSpy).toHaveBeenCalledTimes(1);
-    expect(warnSpy.mock.calls[0][0]).toMatch(
-      /No neutral Latin American Spanish voice.*Falling back to "Google español" \(es-ES\)/,
-    );
-  });
-
-  it("does not repeat the fallback warning on a second call within the same session (logged once, not spammed)", async () => {
-    vi.resetModules();
-    mockVoices = [{ name: "Google español", lang: "es-ES", localService: false }];
-    const warnSpy = vi.spyOn(console, "warn").mockImplementation(() => {});
-    const { speak: freshSpeak } = await import("../speak");
-
-    await freshSpeak("Primera frase");
-    await freshSpeak("Segunda frase");
-
-    expect(warnSpy).toHaveBeenCalledTimes(1);
-  });
-
-  it("logs a distinct warning and falls back to an es-MX lang hint with NO voice object when the device has zero Spanish voices installed", async () => {
-    vi.resetModules();
-    mockVoices = [
-      { name: "Samantha", lang: "en-US", localService: true },
-      { name: "Daniel", lang: "en-GB", localService: false },
-    ];
-    const warnSpy = vi.spyOn(console, "warn").mockImplementation(() => {});
-    const { speak: freshSpeak } = await import("../speak");
-
-    await freshSpeak("Hola sin voz en español");
-
-    expect(spokenUtterance).not.toBeNull();
-    expect(spokenUtterance!.voice).toBeNull();
-    expect(spokenUtterance!.lang).toBe("es-MX");
-    expect(warnSpy).toHaveBeenCalledTimes(1);
-    expect(warnSpy.mock.calls[0][0]).toMatch(
-      /No Spanish voice available on this device at all.*es-MX as a lang hint/,
-    );
-  });
-
-  it("speakVowel also falls back to an es-MX lang hint (no voice object) when the device has zero Spanish voices", async () => {
-    vi.resetModules();
-    mockVoices = [{ name: "Samantha", lang: "en-US", localService: true }];
-    const warnSpy = vi.spyOn(console, "warn").mockImplementation(() => {});
-    const { speakVowel: freshSpeakVowel } = await import("../speak");
-
-    await freshSpeakVowel("a");
-
-    expect(spokenUtterance).not.toBeNull();
-    expect(spokenUtterance!.voice).toBeNull();
-    expect(spokenUtterance!.lang).toBe("es-MX");
-    expect(warnSpy).toHaveBeenCalledTimes(1);
-  });
+it('leaves unmapped phrases and vowels silent, never synthesizes or guesses paths', async () => {
+ const synth = vi.fn(); vi.stubGlobal('SpeechSynthesisUtterance', synth);
+ await speak('No existe esta frase'); await speakVowel('O');
+ expect(Recording.instances).toHaveLength(0); expect(synth).not.toHaveBeenCalled(); expect(getVoice()).toBeNull();
+});
+it('silent missing slots emit pending status, not a speaking animation', async () => {
+ const events: string[] = []; const pending = vi.fn();
+ window.addEventListener('gretel:speak_start', () => events.push('start'), { once: true });
+ window.addEventListener('cartilla:recorded-speech-status', pending, { once: true });
+ await speak('Una frase pendiente');
+ expect(events).toEqual([]); expect(pending.mock.calls[0]![0].detail.status).toBe('missing-recording');
+});
+it('mute, zero volume, interruption and failed files never fall back to synthesis', async () => {
+ const first = speak('oso'); const clip = Recording.instances[0]!;
+ const second = speak('olla'); expect(clip.pause).toHaveBeenCalled(); await first;
+ audioEngine.setMuted(true); await second;
+ await speak('oso'); expect(Recording.instances).toHaveLength(2);
+ audioEngine.setMuted(false); audioEngine.setVolume(0); await speak('oso'); expect(Recording.instances).toHaveLength(2);
+ audioEngine.setVolume(.8); const failure = speak('oso'); Recording.instances[2]!.onerror?.(); await failure;
+ expect(Recording.instances).toHaveLength(3);
+});
+it('Gretel mute prevents reading recordings too', async () => {
+ setGretelVoiceMuted(true); await speak('oso'); expect(Recording.instances).toHaveLength(0);
+});
+it('storage-denied browsers settle handlers and release the claimed owner without playback', async () => {
+ const { playRecordedSpeech } = await import('../recorded-speech');
+ const { claimSpeech, speechIsCurrent } = await import('../speech-playback');
+ const prior = claimSpeech('picture'); const onStart = vi.fn(), onEnd = vi.fn();
+ const original = Object.getOwnPropertyDescriptor(globalThis, 'localStorage')!;
+ Object.defineProperty(globalThis, 'localStorage', { configurable: true, get() { throw new DOMException('Denied', 'SecurityError'); } });
+ try {
+   await playRecordedSpeech('oso', 'gretel', { onStart, onEnd });
+   expect(onStart).not.toHaveBeenCalled(); expect(onEnd).toHaveBeenCalledOnce();
+   expect(Recording.instances).toHaveLength(0); expect(speechIsCurrent(prior)).toBe(false);
+ } finally { Object.defineProperty(globalThis, 'localStorage', original); }
 });

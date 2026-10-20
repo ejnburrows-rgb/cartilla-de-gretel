@@ -1,22 +1,39 @@
-// GameShell.tsx — shared shell for the themed Cartilla games (instructions header,
-// warm-cream book palette, Gretel mascot). Wraps existing infra; the game body is
-// passed in as children so each themed game only implements its own mechanic.
+// Shared viewport shell: keep the activity visible in phone landscape, with
+// instructions available on demand and a separately scrollable activity.
 import { type ReactNode } from "react";
-import { Volume2 } from "lucide-react";
-import { playInstruction } from "@/lib/games/wordAudio";
 import type { GameContent } from "@/lib/games/gameContent";
 import { GardenBackdrop } from "@/components/cartilla/GardenBackdrop";
+import { Volume2 } from "lucide-react";
+import { playInstruction } from "@/lib/games/wordAudio";
 import { KidButton } from "@/components/ui/KidButton";
+import { GameInstructions } from "./GameInstructions";
 
 interface GameShellProps {
   content: GameContent;
   children: ReactNode;
 }
 
-export function GameShell({
-  content,
-  children,
-}: GameShellProps) {
+export function GameShell({ content, children }: GameShellProps) {
+  if (content.type === "payaso-chano")
+    return <ExcludedGameShell content={content}>{children}</ExcludedGameShell>;
+  return (
+    <main className="relative h-dvh overflow-hidden p-2">
+      <GardenBackdrop variant="soft" />
+      <div className="relative z-10 mx-auto flex h-full max-w-3xl flex-col gap-2">
+        <GameInstructions content={content} />
+        <div
+          data-game-activity
+          className="min-h-0 flex-1 space-y-2 overflow-y-auto overscroll-contain p-1"
+        >
+          {children}
+        </div>
+      </div>
+    </main>
+  );
+}
+
+/** Preserve excluded Chano presentation/control behavior from PR1006 base. */
+function ExcludedGameShell({ content, children }: GameShellProps) {
   return (
     <main className="min-h-screen px-4 py-6 sm:py-10 relative">
       <GardenBackdrop variant="soft" />

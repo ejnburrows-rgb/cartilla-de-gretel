@@ -1,3 +1,4 @@
+import "./syllable-builder-layout.css";
 import { playWord } from "@/lib/games/wordAudio";
 // SyllableBuilder.tsx — the syllable word-builder (issue #344).
 //
@@ -222,34 +223,21 @@ export function SyllableBuilder({ content }: { content: GameContent }) {
   const transition = reducedMotion ? "none" : "transform 140ms ease, box-shadow 140ms ease";
 
   return (
-    <section className="space-y-6" aria-label="Formar la palabra con sílabas">
-      {/* The picture: real book art, or an honest "pendiente" card. */}
-      <button
-        type="button"
-        onClick={() => playWord(word.audioUrl, word.word)}
-        aria-label={`Escuchar la palabra "${word.word}"`}
-        className="min-h-11 rounded-xl border-2 px-4"
-      >
-        ▷
-      </button>
-      <div className="flex justify-center" role="img" aria-label={word.word}>
-        {word.imageUrl ? (
-          <img
-            src={word.imageUrl}
-            alt=""
-            aria-hidden="true"
-            className="h-40 w-auto rounded-2xl bg-white/70 p-2 shadow-sm sm:h-52"
-            draggable={false}
-          />
-        ) : (
-          <div
-            className="flex h-40 w-40 items-center justify-center rounded-2xl border-2 border-dashed border-stone-300 bg-white/60 text-sm font-bold text-stone-500 sm:h-52 sm:w-52"
-            role="img"
-            aria-label="Ilustración pendiente"
-          >
-            pendiente
-          </div>
-        )}
+    <section className="syllable-builder space-y-6" aria-label="Formar la palabra con sílabas">
+      <div className="syllable-picture space-y-2">
+        <button
+          type="button"
+          onClick={() => playWord(word.audioUrl, word.word)}
+          aria-label={`Escuchar la palabra "${word.word}"`}
+          className="min-h-11 rounded-xl border-2 px-4"
+        >
+          ▷
+        </button>
+        <SyllablePicture
+          key={`${word.word}:${word.imageUrl}`}
+          word={word.word}
+          imageUrl={word.imageUrl}
+        />
       </div>
 
       {/* The word being built. */}
@@ -371,4 +359,19 @@ function extraTiles(content: GameContent, wordIndex: number): string[] {
     seen.add(key);
     return true;
   });
+}
+
+/** No current game-specific owner approval is substantiated for the seven
+ * legacy crops. PR751 proves source availability, not production approval.
+ * Keep the existing URLs as evidence but do not mount them as lesson pictures. */
+function SyllablePicture({ word }: { word: string; imageUrl?: string }) {
+  return (
+    <p
+      role="status"
+      className="mx-auto flex min-h-32 w-48 max-w-full items-center justify-center rounded-2xl border-2 border-dashed border-stone-300 bg-white/60 p-3 text-center text-sm font-bold text-stone-600"
+    >
+      Ilustración de «{word}» pendiente de fuente aprobada. Puedes formar la palabra con las
+      sílabas.
+    </p>
+  );
 }

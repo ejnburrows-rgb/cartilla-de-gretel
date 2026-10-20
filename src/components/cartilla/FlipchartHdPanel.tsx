@@ -25,6 +25,7 @@ import {
 } from "@/lib/flipchart-hd";
 import { FLIPCHART_FLIP_MS, flipchartFlipTransforms } from "@/lib/living-motion";
 import { useReducedMotion } from "@/hooks/useReducedMotion";
+import { PendingRecordingSlots } from "@/components/audio/PendingRecordingSlots";
 import { audioEngine } from "@/lib/audio-engine";
 import { useTeacherPresentation } from "@/lib/teacher-presentation-context";
 import { FlipchartNativeBoard } from "./FlipchartNativeBoard";
@@ -634,6 +635,7 @@ export function FlipchartHdPanel({ lessonNumber, accentColor, chrome = "full" }:
           <span className="fc-board__counter-sub">
             Lámina {currentPage?.flipchartPage ?? "—"} · Lección {lessonNumber}
           </span>
+          {currentPage && <PendingRecordingSlots pageNumber={currentPage.flipchartPage} />}
         </div>
 
         <button
