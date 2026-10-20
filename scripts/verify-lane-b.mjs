@@ -2,7 +2,7 @@ import { chromium } from 'playwright';
 import fs from 'node:fs/promises';
 import assert from 'node:assert/strict';
 import { fileURLToPath } from 'node:url';
-const out=fileURLToPath(new URL('../docs/proofs/lane-b-2026-10-20/round-6/',import.meta.url));
+const out=fileURLToPath(new URL('../docs/proofs/lane-b-2026-10-20/round-16/',import.meta.url));
 await fs.mkdir(out,{recursive:true});
 const browser=await chromium.launch({executablePath:process.env.PLAYWRIGHT_CHROMIUM_PATH,args:['--no-sandbox','--disable-dev-shm-usage','--disable-gpu']});
 const results=[];

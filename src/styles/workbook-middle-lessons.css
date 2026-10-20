@@ -1,18 +1,20 @@
+@font-face{font-family:"Cartilla Source";src:url("/fonts/cartilla-source-400.woff") format("woff");font-style:normal;font-weight:400;font-display:swap;ascent-override:100%;descent-override:30%;line-gap-override:0%;unicode-range:U+0020,U+0041,U+0042,U+0043,U+0044,U+0045,U+0048,U+004C,U+004D,U+004E,U+0050,U+0052,U+0053,U+0054,U+0055,U+0056,U+0061,U+0062,U+0063,U+0064,U+0065,U+0066,U+0067,U+0068,U+0069,U+006A,U+006C,U+006D,U+006E,U+006F,U+0070,U+0071,U+0072,U+0073,U+0074,U+0075,U+0076,U+0079,U+007A,U+00D1,U+00E1,U+00E9,U+00ED,U+00F1,U+00F3,U+00FA}
+@font-face{font-family:"Cartilla Source";src:url("/fonts/cartilla-source-700.woff") format("woff");font-style:normal;font-weight:700;font-display:swap;ascent-override:100%;descent-override:30%;line-gap-override:0%;unicode-range:U+0020,U+0042,U+0044,U+0045,U+004C,U+004E,U+0052,U+0053,U+0059,U+0061,U+0062,U+0063,U+0064,U+0065,U+0069,U+006C,U+006D,U+006E,U+006F,U+0070,U+0072,U+0073,U+0074,U+0075,U+0076,U+00E1,U+00E9,U+00F1}
 @font-face{font-family:"Workbook Gothic";src:url("/fonts/workbook-gothic-400.woff") format("woff");font-style:normal;font-weight:400;font-display:swap}
 @font-face{font-family:"Workbook Gothic";src:url("/fonts/workbook-gothic-700.woff") format("woff");font-style:normal;font-weight:700;font-display:swap}
 /* Original 935×1210 page compositions, Lessons 8–18. All activity ids,
  * gestures and saved work belong to the existing shared components. */
 .lc-lesson-shell--fit:has(.faithful-page--lane-b){height:auto;min-height:100dvh;overflow:visible}
 .lc-lesson-shell--fit:has(.faithful-page--lane-b) .lc-lesson-main{container-type:inline-size;flex:none;overflow:visible;--pw:min(720px,calc(100cqw - 20px),calc((100dvh - 80px)*935/1210))}
-.lc-lesson-shell--fit .native-lesson-viewer__content .faithful-page--lane-b{width:100%;height:auto;min-height:0;aspect-ratio:935/1210;overflow:visible;background:#fff;border-radius:0;--book-ink:#292f2c;--book-teal:#269e92;--wb-vocab-top:31%;--wb-vocab-height:21%;--wb-sight-top:57%;--wb-story-top:65.5%;font-family:"Workbook Gothic",sans-serif}
+.lc-lesson-shell--fit .native-lesson-viewer__content .faithful-page--lane-b{width:100%;height:auto;min-height:0;aspect-ratio:935/1210;overflow:visible;background:#fff;border-radius:0;--book-ink:#292f2c;--book-teal:#269e92;--wb-vocab-top:31%;--wb-vocab-height:21%;--wb-sight-top:57%;--wb-story-top:65.5%;font-family:"Cartilla Source","Workbook Gothic",sans-serif}
 .lc-lesson-shell--fit .native-lesson-viewer__content .faithful-page--lane-b .faithful-page__body{position:absolute;inset:0;display:block;padding:0;overflow:visible}
 .lc-lesson-shell--fit .faithful-page--lane-b .faithful-page__body>.gretel-activity{position:absolute;display:block;margin:0;zoom:1;min-height:0}
 .lc-lesson-shell--fit .faithful-page--lane-b .gretel-activity>.gretel-activity__content{display:block;width:100%;height:100%;min-width:0;min-height:0}
-.lc-lesson-shell--fit .native-lesson-viewer__content .faithful-page--lane-b .fp-region--instruction{margin:0;padding:0;color:#292f2c;font:400 3cqw/1.3 "Workbook Gothic",sans-serif}
+.lc-lesson-shell--fit .native-lesson-viewer__content .faithful-page--lane-b .fp-region--instruction{margin:0;padding:0;color:#292f2c;font:400 3cqw/1.3 "Cartilla Source","Workbook Gothic",sans-serif}
 .faithful-page--lane-b .faithful-page__sidebar{top:1.5%;bottom:1%;width:7%;min-width:0}
 .faithful-page--lane-b.faithful-page--edge-right .faithful-page__sidebar{right:5%}
 .faithful-page--lane-b.faithful-page--edge-left .faithful-page__sidebar{left:4%}
-.native-lesson-viewer__content .faithful-page--lane-b .faithful-page__lesson{bottom:3.5%;padding:0;border:0;border-radius:0;box-shadow:none;background:transparent;font:400 2.3cqw/1.2 "Workbook Gothic",sans-serif;color:#292f2c}
+.native-lesson-viewer__content .faithful-page--lane-b .faithful-page__lesson{bottom:3.5%;padding:0;border:0;border-radius:0;box-shadow:none;background:transparent;font:400 2.3cqw/1.2 "Cartilla Source","Workbook Gothic",sans-serif;color:#292f2c}
 .native-lesson-viewer__content .faithful-page--lane-b.faithful-page--edge-right .faithful-page__lesson{left:2%;right:auto}
 .native-lesson-viewer__content .faithful-page--lane-b.faithful-page--edge-left .faithful-page__lesson{right:2%;left:auto}
 .lc-lesson-shell--fit .native-lesson-viewer__content .faithful-page--lane-b .faithful-page__pagenum{bottom:2%;width:5cqw;height:5cqw;font-size:2.4cqw;background:#bce0d1;color:#292f2c;box-shadow:none}
@@ -28,7 +30,7 @@
 .faithful-page--lane-b.faithful-page--archetype-5 .gretel-activity:nth-child(6){left:2%;top:49%;width:83%;height:6%}
 .faithful-page--lane-b.faithful-page--archetype-5 .gretel-activity:nth-child(7){left:2%;top:57%;width:83%;height:36%}
 .lc-lesson-shell--fit .native-lesson-viewer__content .faithful-page--lane-b .fp-writing-line{position:relative;display:block;width:100%;height:100%;margin:0;background:linear-gradient(#292f2c,#292f2c) 0 0/100% 1px no-repeat,linear-gradient(#292f2c,#292f2c) 0 100%/100% 1px no-repeat,repeating-linear-gradient(90deg,#81b2a7 0 6px,transparent 6px 10px) 0 50%/100% 1px no-repeat}
-.native-lesson-viewer__content .faithful-page--lane-b .fp-writing-line__model{position:absolute;left:0;top:0;z-index:2;pointer-events:none;font:400 13cqw/1 "Workbook Gothic",sans-serif;color:#292f2c}
+.native-lesson-viewer__content .faithful-page--lane-b .fp-writing-line__model{position:absolute;left:0;top:0;z-index:2;pointer-events:none;font:400 13cqw/1 "Cartilla Source","Workbook Gothic",sans-serif;color:#292f2c}
 .lc-lesson-shell--fit .native-lesson-viewer__content .faithful-page--lane-b .fp-trace,.lc-lesson-shell--fit .native-lesson-viewer__content .faithful-page--lane-b .fp-trace__svg{width:100%;height:100%;max-width:none;margin:0;border:0;border-radius:0;background:transparent;box-shadow:none}
 .faithful-page--lane-b .fp-trace__svg path[stroke-dasharray]{stroke:#292f2c;stroke-dasharray:none;stroke-width:7px}
 .faithful-page--lane-b .fp-trace{position:relative}
@@ -57,11 +59,11 @@
 .faithful-page--lane-b.faithful-page--archetype-6 .gretel-activity:nth-child(5){top:62%}
 .faithful-page--lane-b.faithful-page--archetype-6 .gretel-activity:nth-child(6){top:77%}
 .lc-lesson-shell--fit .native-lesson-viewer__content .faithful-page--lane-b .native-syllable{display:grid;grid-template-columns:12cqw minmax(0,1fr);grid-template-rows:1fr;gap:0 10cqw;height:100%;min-height:0;padding:0;border:0;border-radius:0;background:transparent;box-shadow:none}
-.lc-lesson-shell--fit .native-lesson-viewer__content .faithful-page--lane-b .native-syllable h2{position:relative;min-height:0;margin:0;border:0;background:transparent;box-shadow:none;font:700 6cqw/1 "Workbook Gothic",sans-serif;color:#269e92}
+.lc-lesson-shell--fit .native-lesson-viewer__content .faithful-page--lane-b .native-syllable h2{position:relative;min-height:0;margin:0;border:0;background:transparent;box-shadow:none;font:700 6cqw/1 "Cartilla Source","Workbook Gothic",sans-serif;color:#269e92}
 .faithful-page--lane-b .native-syllable h2::before,.faithful-page--lane-b .native-syllable h2::after{content:"";position:absolute;left:100%;top:33%;width:10cqw;border-top:1px solid #292f2c;transform:rotate(-9deg)}
 .faithful-page--lane-b .native-syllable h2::after{top:70%;transform:rotate(9deg)}
 .lc-lesson-shell--fit .native-lesson-viewer__content .faithful-page--lane-b .native-syllable__words{grid-template-columns:repeat(3,minmax(0,1fr));grid-auto-rows:minmax(0,1fr);gap:0 2cqw;height:100%}
-.lc-lesson-shell--fit .native-lesson-viewer__content .faithful-page--lane-b .native-syllable__word{min-height:0;padding:0;border:0!important;border-radius:0;box-shadow:none;background:transparent!important;color:#292f2c;font:400 3.2cqw/1.2 "Workbook Gothic",sans-serif;letter-spacing:0}
+.lc-lesson-shell--fit .native-lesson-viewer__content .faithful-page--lane-b .native-syllable__word{min-height:0;padding:0;border:0!important;border-radius:0;box-shadow:none;background:transparent!important;color:#292f2c;font:400 3.2cqw/1.2 "Cartilla Source","Workbook Gothic",sans-serif;letter-spacing:0}
 .faithful-page--lane-b .native-syllable>p{position:absolute;width:1px;height:1px;overflow:hidden;clip-path:inset(50%)}
 
 /* Letter, strips, word columns, sight-word rectangle, and original story. */
@@ -71,15 +73,15 @@
 .faithful-page--lane-b.fp-native-letter-page .gretel-activity:nth-child(4){left:7%;top:var(--wb-vocab-top);width:78%;height:var(--wb-vocab-height)}
 .faithful-page--lane-b.fp-native-letter-page .gretel-activity:nth-child(5){left:5%;top:var(--wb-sight-top);width:80%;height:4.7%}
 .faithful-page--lane-b.fp-native-letter-page .gretel-activity:nth-child(6){left:7.5%;top:var(--wb-story-top);width:78%;height:calc(92% - var(--wb-story-top))}
-.lc-lesson-shell--fit .native-lesson-viewer__content .faithful-page--lane-b .fp-native-title{display:grid;place-items:center;width:100%;height:100%;min-width:0;margin:0;border:0;border-radius:50%;background:#fff;box-shadow:0 0 2cqw 1cqw #d3eade;font:700 8cqw/1 "Workbook Gothic",sans-serif;color:#292f2c;text-shadow:none}
+.lc-lesson-shell--fit .native-lesson-viewer__content .faithful-page--lane-b .fp-native-title{display:grid;place-items:center;width:100%;height:100%;min-width:0;margin:0;border:0;border-radius:50%;background:#fff;box-shadow:0 0 2cqw 1cqw #d3eade;font:700 8cqw/1 "Cartilla Source","Workbook Gothic",sans-serif;color:#292f2c;text-shadow:none}
 .native-lesson-viewer__content .faithful-page--lane-b .fp-native-syllables{display:flex;flex-wrap:nowrap;gap:0;width:100%;height:100%;padding:0;border:1px solid #84b3a7;border-radius:2cqw;background:#f2faf5}
 .faithful-page--lane-b .gretel-activity:nth-child(3) .fp-native-syllables{background:#c5e1d4}
-.lc-lesson-shell--fit .native-lesson-viewer__content .faithful-page--lane-b .fp-native-syllables span{display:grid;place-items:center;flex:1;min-width:0;padding:0;border:0;background:transparent;box-shadow:none;font:700 4cqw/1 "Workbook Gothic",sans-serif;color:#292f2c}
+.lc-lesson-shell--fit .native-lesson-viewer__content .faithful-page--lane-b .fp-native-syllables span{display:grid;place-items:center;flex:1;min-width:0;padding:0;border:0;background:transparent;box-shadow:none;font:700 4cqw/1 "Cartilla Source","Workbook Gothic",sans-serif;color:#292f2c}
 .native-lesson-viewer__content .faithful-page--lane-b .fp-native-vocab{display:grid;height:100%;grid-auto-rows:minmax(0,1fr);gap:0;padding:0}
-.lc-lesson-shell--fit .native-lesson-viewer__content .faithful-page--lane-b .fp-native-vocab span{display:block;min-height:0;padding:0;border:0;border-radius:0;background:transparent;box-shadow:none;text-align:left;font:400 3.6cqw/1.3 "Workbook Gothic",sans-serif;color:#292f2c}
-.native-lesson-viewer__content .faithful-page--lane-b .fp-native-sight-word{display:grid;place-items:center;width:100%;height:100%;min-width:0;margin:0;padding:0;border:1px solid #9cc1b3;border-radius:0;background:transparent;box-shadow:none;white-space:pre-wrap;word-spacing:1cqw;font:700 3.8cqw/1 "Workbook Gothic",sans-serif;color:#292f2c}
+.lc-lesson-shell--fit .native-lesson-viewer__content .faithful-page--lane-b .fp-native-vocab span{display:block;min-height:0;padding:0;border:0;border-radius:0;background:transparent;box-shadow:none;text-align:left;font:400 3.6cqw/1.3 "Cartilla Source","Workbook Gothic",sans-serif;color:#292f2c}
+.native-lesson-viewer__content .faithful-page--lane-b .fp-native-sight-word{display:grid;place-items:center;width:100%;height:100%;min-width:0;margin:0;padding:0;border:1px solid #9cc1b3;border-radius:0;background:transparent;box-shadow:none;white-space:pre-wrap;word-spacing:1cqw;font:700 3.8cqw/1 "Cartilla Source","Workbook Gothic",sans-serif;color:#292f2c}
 .faithful-page--lane-b[data-workbook-page="25"] .gretel-activity:nth-child(5){left:33.5%;width:18%}
-.lc-lesson-shell--fit .native-lesson-viewer__content .faithful-page--lane-b .fp-region--reading-sentences{display:block;height:100%;margin:0;padding:0;border:0;border-radius:0;background:transparent;box-shadow:none;font:400 3.3cqw/1.55 "Workbook Gothic",sans-serif;color:#292f2c}
+.lc-lesson-shell--fit .native-lesson-viewer__content .faithful-page--lane-b .fp-region--reading-sentences{display:block;height:100%;margin:0;padding:0;border:0;border-radius:0;background:transparent;box-shadow:none;font:400 3.3cqw/1.55 "Cartilla Source","Workbook Gothic",sans-serif;color:#292f2c}
 .native-lesson-viewer__content .faithful-page--lane-b .fp-region--reading-sentences p{margin:0;padding:0;border:0}
 .faithful-page--lane-b[data-workbook-page="33"]{--wb-vocab-top:28%;--wb-vocab-height:25%;--wb-sight-top:55%;--wb-story-top:62%}
 .faithful-page--lane-b:is([data-workbook-page="29"],[data-workbook-page="37"],[data-workbook-page="45"],[data-workbook-page="53"],[data-workbook-page="61"],[data-workbook-page="65"]){--wb-vocab-top:28%;--wb-vocab-height:21%;--wb-sight-top:54%;--wb-story-top:62.5%}
@@ -91,21 +93,21 @@
 .faithful-page--lane-b.faithful-page--archetype-8 .gretel-activity:nth-child(4){left:16%;top:69%;width:81%;height:23%}
 .native-lesson-viewer__content .faithful-page--lane-b .fp-ix-fill--book-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));height:100%;gap:2cqw 3cqw}
 .native-lesson-viewer__content .faithful-page--lane-b .fp-ix-fill--book-grid .fp-ix-fill__item{min-width:0;padding:0;border:0;border-bottom:1px solid #292f2c;border-radius:0;background:transparent;gap:0}
-.lc-lesson-shell--fit .native-lesson-viewer__content .faithful-page--lane-b .fp-ix-fill__wordbox{border:1px solid #9cc1b3;border-radius:0;background:transparent;box-shadow:none;padding:1cqw 2cqw;font:400 3.2cqw/1 "Workbook Gothic",sans-serif}
-.lc-lesson-shell--fit .native-lesson-viewer__content .faithful-page--lane-b .fp-ix-fill__blank{min-width:0;min-height:0;padding:0;border:0;border-radius:0;background:transparent;box-shadow:none;font:400 3.2cqw/1.3 "Workbook Gothic",sans-serif}
+.lc-lesson-shell--fit .native-lesson-viewer__content .faithful-page--lane-b .fp-ix-fill__wordbox{border:1px solid #9cc1b3;border-radius:0;background:transparent;box-shadow:none;padding:1cqw 2cqw;font:400 3.2cqw/1 "Cartilla Source","Workbook Gothic",sans-serif}
+.lc-lesson-shell--fit .native-lesson-viewer__content .faithful-page--lane-b .fp-ix-fill__blank{min-width:0;min-height:0;padding:0;border:0;border-radius:0;background:transparent;box-shadow:none;font:400 3.2cqw/1.3 "Cartilla Source","Workbook Gothic",sans-serif}
 .lc-lesson-shell--fit .native-lesson-viewer__content .faithful-page--lane-b .fp-ix-fill__choices{flex-wrap:nowrap;gap:1cqw}
-.lc-lesson-shell--fit .native-lesson-viewer__content .faithful-page--lane-b .fp-ix-fill__choice{min-width:0;min-height:6cqw;padding:0 1cqw;border:0;border-radius:0;box-shadow:none;background:transparent;color:#292f2c;font:400 3cqw/1 "Workbook Gothic",sans-serif}
+.lc-lesson-shell--fit .native-lesson-viewer__content .faithful-page--lane-b .fp-ix-fill__choice{min-width:0;min-height:6cqw;padding:0 1cqw;border:0;border-radius:0;box-shadow:none;background:transparent;color:#292f2c;font:400 3cqw/1 "Cartilla Source","Workbook Gothic",sans-serif}
 .faithful-page--lane-b .fp-ix-fill__choice+.fp-ix-fill__choice::before{content:"-";margin-right:2cqw}
 .native-lesson-viewer__content .faithful-page--lane-b .fp-writing-response{height:100%;gap:0}
 .faithful-page--lane-b .fp-writing-response.wb-source-tools>div:first-child{position:absolute;top:100%;right:0;z-index:25;margin:0;padding:6px;background:#fff;opacity:0;pointer-events:none;visibility:hidden}
 .faithful-page--lane-b .fp-writing-response.wb-source-tools:focus-within>div:first-child,.faithful-page--lane-b .fp-writing-response.wb-source-tools:hover>div:first-child{opacity:1;pointer-events:auto;visibility:visible}
 .native-lesson-viewer__content .faithful-page--lane-b .fp-writing-response>:has(>textarea){height:100%;min-height:0;border:0;border-radius:0;box-shadow:none;background:transparent}
-.native-lesson-viewer__content .faithful-page--lane-b .fp-writing-response textarea{height:100%;min-height:0;margin:0;padding:0;border:0;border-radius:0;resize:none;background:repeating-linear-gradient(to bottom,#292f2c 0 1px,transparent 1px 7.5cqw);font:400 3.4cqw/7.5cqw "Workbook Gothic",sans-serif}
+.native-lesson-viewer__content .faithful-page--lane-b .fp-writing-response textarea{height:100%;min-height:0;margin:0;padding:0;border:0;border-radius:0;resize:none;background:repeating-linear-gradient(to bottom,#292f2c 0 1px,transparent 1px 7.5cqw);font:400 3.4cqw/7.5cqw "Cartilla Source","Workbook Gothic",sans-serif}
 .faithful-page--lane-b .fp-writing-response>:has(>textarea)>div{display:none}
 
 /* Source footer sits below the last rule, rather than inside the work. */
 .lc-lesson-shell--fit .native-lesson-viewer__content .faithful-page--lane-b .faithful-page__lesson{min-height:0;height:auto;bottom:1.4%;line-height:1}
-.lc-lesson-shell--fit .native-lesson-viewer__content .faithful-page--lane-b .faithful-page__pagenum span{color:#292f2c;font:400 2.4cqw/1 "Workbook Gothic",sans-serif}
+.lc-lesson-shell--fit .native-lesson-viewer__content .faithful-page--lane-b .faithful-page__pagenum span{color:#292f2c;font:400 2.4cqw/1 "Cartilla Source","Workbook Gothic",sans-serif}
 .lc-lesson-shell--fit .native-lesson-viewer__content .faithful-page--lane-b .native-syllable__word .native-syllable__letter{min-width:0;min-height:0;padding:0;display:inline;font:inherit}
 .lc-lesson-shell--fit .native-lesson-viewer__content .faithful-page--lane-b .native-syllable__letters{display:inline;letter-spacing:0;white-space:nowrap}
 /* Override the older Lesson 16 garden treatment on the source pages. */
@@ -129,3 +131,44 @@
 .lc-lesson-shell--fit .native-lesson-viewer__content .faithful-page--lane-b .faithful-page__sidebar{color:#269e92}
 .native-lesson-viewer__content .faithful-page--lane-b .fp-ix-fill--book-grid{background:linear-gradient(#292f2c,#292f2c) 0 48%/100% 1px no-repeat,linear-gradient(#292f2c,#292f2c) 0 100%/100% 1px no-repeat}
 .native-lesson-viewer__content .faithful-page--lane-b .fp-ix-fill--book-grid .fp-ix-fill__item{border-bottom:0}
+
+/* Measured source rules and letter/arrow outlines share the page coordinates. */
+.faithful-page--lane-b.faithful-page--archetype-5 .gretel-activity:nth-child(2),.faithful-page--lane-b.faithful-page--archetype-5 .gretel-activity:nth-child(3){top:var(--wb-writing-upper-top);height:var(--wb-writing-upper-height)}
+.faithful-page--lane-b.faithful-page--archetype-5 .gretel-activity:nth-child(4),.faithful-page--lane-b.faithful-page--archetype-5 .gretel-activity:nth-child(5){top:var(--wb-writing-lower-top);height:var(--wb-writing-lower-height)}
+.lc-lesson-shell--fit .native-lesson-viewer__content .faithful-page--lane-b .fp-writing-line{background:none}
+.native-lesson-viewer__content .faithful-page--lane-b .fp-writing-line__model{visibility:hidden}
+.faithful-page--lane-b .fp-writing-line--trace .fp-trace__svg>circle{opacity:0}
+.faithful-page--lane-b .fp-writing-line--trace:is(:hover,:focus-within) .fp-trace__svg>circle{opacity:1}
+.faithful-page--lane-b[data-workbook-page="23"]:has(.gretel-activity:nth-child(2) .fp-trace:is(:hover,:focus-within)) [data-source-model="p23-write-U"]{opacity:0}
+.faithful-page--lane-b[data-workbook-page="23"]:has(.gretel-activity:nth-child(4) .fp-trace:is(:hover,:focus-within)) [data-source-model="p23-write-l"]{opacity:0}
+.faithful-page--lane-b[data-workbook-page="27"]:has(.gretel-activity:nth-child(2) .fp-trace:is(:hover,:focus-within)) [data-source-model="p27-write-U"]{opacity:0}
+.faithful-page--lane-b[data-workbook-page="27"]:has(.gretel-activity:nth-child(4) .fp-trace:is(:hover,:focus-within)) [data-source-model="p27-write-l"]{opacity:0}
+.faithful-page--lane-b[data-workbook-page="31"]:has(.gretel-activity:nth-child(2) .fp-trace:is(:hover,:focus-within)) [data-source-model="p31-write-U"]{opacity:0}
+.faithful-page--lane-b[data-workbook-page="31"]:has(.gretel-activity:nth-child(4) .fp-trace:is(:hover,:focus-within)) [data-source-model="p31-write-l"]{opacity:0}
+.faithful-page--lane-b[data-workbook-page="35"]:has(.gretel-activity:nth-child(2) .fp-trace:is(:hover,:focus-within)) [data-source-model="p35-write-U"]{opacity:0}
+.faithful-page--lane-b[data-workbook-page="35"]:has(.gretel-activity:nth-child(4) .fp-trace:is(:hover,:focus-within)) [data-source-model="p35-write-l"]{opacity:0}
+.faithful-page--lane-b[data-workbook-page="39"]:has(.gretel-activity:nth-child(2) .fp-trace:is(:hover,:focus-within)) [data-source-model="p39-write-U"]{opacity:0}
+.faithful-page--lane-b[data-workbook-page="39"]:has(.gretel-activity:nth-child(4) .fp-trace:is(:hover,:focus-within)) [data-source-model="p39-write-l"]{opacity:0}
+.faithful-page--lane-b[data-workbook-page="43"]:has(.gretel-activity:nth-child(2) .fp-trace:is(:hover,:focus-within)) [data-source-model="p43-write-U"]{opacity:0}
+.faithful-page--lane-b[data-workbook-page="43"]:has(.gretel-activity:nth-child(4) .fp-trace:is(:hover,:focus-within)) [data-source-model="p43-write-l"]{opacity:0}
+.faithful-page--lane-b[data-workbook-page="47"]:has(.gretel-activity:nth-child(2) .fp-trace:is(:hover,:focus-within)) [data-source-model="p47-write-U"]{opacity:0}
+.faithful-page--lane-b[data-workbook-page="47"]:has(.gretel-activity:nth-child(4) .fp-trace:is(:hover,:focus-within)) [data-source-model="p47-write-l"]{opacity:0}
+.faithful-page--lane-b[data-workbook-page="51"]:has(.gretel-activity:nth-child(2) .fp-trace:is(:hover,:focus-within)) [data-source-model="p51-write-U"]{opacity:0}
+.faithful-page--lane-b[data-workbook-page="51"]:has(.gretel-activity:nth-child(4) .fp-trace:is(:hover,:focus-within)) [data-source-model="p51-write-l"]{opacity:0}
+.faithful-page--lane-b[data-workbook-page="55"]:has(.gretel-activity:nth-child(2) .fp-trace:is(:hover,:focus-within)) [data-source-model="p55-write-U"]{opacity:0}
+.faithful-page--lane-b[data-workbook-page="55"]:has(.gretel-activity:nth-child(4) .fp-trace:is(:hover,:focus-within)) [data-source-model="p55-write-l"]{opacity:0}
+.faithful-page--lane-b[data-workbook-page="59"]:has(.gretel-activity:nth-child(2) .fp-trace:is(:hover,:focus-within)) [data-source-model="p59-write-U"]{opacity:0}
+.faithful-page--lane-b[data-workbook-page="59"]:has(.gretel-activity:nth-child(4) .fp-trace:is(:hover,:focus-within)) [data-source-model="p59-write-l"]{opacity:0}
+.faithful-page--lane-b[data-workbook-page="63"]:has(.gretel-activity:nth-child(2) .fp-trace:is(:hover,:focus-within)) [data-source-model="p63-write-U"]{opacity:0}
+.faithful-page--lane-b[data-workbook-page="63"]:has(.gretel-activity:nth-child(4) .fp-trace:is(:hover,:focus-within)) [data-source-model="p63-write-l"]{opacity:0}
+
+.faithful-page--lane-b.faithful-page--archetype-5 .gretel-activity:nth-child(7){left:var(--wb-drawing-left);top:var(--wb-drawing-top);width:var(--wb-drawing-width);height:var(--wb-drawing-height)}
+.lc-lesson-shell--fit .native-lesson-viewer__content .faithful-page--lane-b.faithful-page--archetype-5 .gretel-activity:nth-child(7) .am-dibuja__paper{border:0;background:transparent}
+
+.lc-lesson-shell--fit .native-lesson-viewer__content .faithful-page--lane-b{border:0}
+.lc-lesson-shell--fit .native-lesson-viewer__content .faithful-page--lane-b .fp-native-title{color:transparent;background:transparent}
+
+.faithful-page--lane-b.fp-native-letter-page .gretel-activity:nth-child(4):has(.fp-native-vocab--source){inset:0;width:100%;height:100%;pointer-events:none}
+.native-lesson-viewer__content .faithful-page--lane-b .fp-native-vocab--source{position:absolute;inset:0;display:block;width:100%;height:100%}
+.faithful-page--lane-b.fp-native-letter-page .gretel-activity:nth-child(6){left:var(--wb-story-left,7.5%)}
+.lc-lesson-shell--fit .native-lesson-viewer__content .faithful-page--lane-b .fp-region--reading-sentences{line-height:var(--wb-story-leading,1.55)}

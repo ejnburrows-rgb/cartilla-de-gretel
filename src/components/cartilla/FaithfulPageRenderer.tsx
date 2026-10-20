@@ -1,4 +1,5 @@
 import "@/styles/native-lesson.css";
+import sourceGeometry from "@/data/workbook-middle-source-geometry.json";
 import { Lesson16GardenText } from "./lesson16/Lesson16Text";
 import type { ReactNode } from "react";
 import { GretelActivity } from "@/components/gretel/GretelActivity";
@@ -553,16 +554,19 @@ function RegionView({
       ) : (
         <p className="fp-region--syllable-bubble">{region.text}</p>
       );
-    case "vocab-grid":
+    case "vocab-grid": {
+      const measured = sourceLayout && pageNumber ? (sourceGeometry.pages as Record<string, { vocabulary?: { text: string; left: number; top: number; fontSize: number; scaleX: number }[] }>)[String(pageNumber)]?.vocabulary : undefined;
       return native ? (
-        <div className="fp-native-vocab" style={{ gridTemplateColumns: `repeat(${region.columns ?? 3}, minmax(0, 1fr))` }}>
-          {(region.text ?? "").split(/\u00c2?\u00b7/).map((word) => word.trim()).filter(Boolean).map((word) => (
-            <span key={word}>{word}</span>
-          ))}
+        <div className={`fp-native-vocab${measured ? " fp-native-vocab--source" : ""}`} style={measured ? undefined : { gridTemplateColumns: `repeat(${region.columns ?? 3}, minmax(0, 1fr))` }}>
+          {(region.text ?? "").split(/\u00c2?\u00b7/).map((word) => word.trim()).filter(Boolean).map((word, index) => {
+            const position = measured?.[index];
+            return <span key={`${index}-${word}`} style={position ? { position: "absolute", left: `${position.left}%`, top: `${position.top}%`, fontSize: `${position.fontSize}cqw`, lineHeight: 1.3, transform: `scaleX(${position.scaleX})`, transformOrigin: "left top", whiteSpace: "nowrap" } : undefined}>{word}</span>;
+          })}
         </div>
       ) : (
         <p className="fp-region--vocab-grid">{region.text}</p>
       );
+    }
     case "sentence-line":
       // The source includes an empty sight-word frame on page 57.
       // Preserve the older non-source presentation outside this lane.
