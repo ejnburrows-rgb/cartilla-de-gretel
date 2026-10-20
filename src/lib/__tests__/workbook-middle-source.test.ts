@@ -130,4 +130,15 @@ describe('Lane B source geometry provenance and completeness', () => {
     expect(lines).toBe(70);
   });
 
+  it('prints the sight words even when the original frame border is faded',()=>{
+    for(let n=25;n<=65;n+=4) {
+      const regions=layouts.pages[String(n) as keyof typeof layouts.pages].regions;
+      const region=regions.find(r=>r.regionType==='sentence-line')!;
+      const text=('text' in region ? region.text : '')!;
+      const print=pages[n].staticRegions!.find(r=>r.region==='reading-sight-ink');
+      if(text.trim())expect(print!.layers.some(layer=>layer.d.length>100)).toBe(true);
+      expect(pages[n].staticRegions!.find(r=>r.region==='reading-strips-ink')!.layers.some(layer=>layer.d.length>500)).toBe(true);
+    }
+  });
+
 });

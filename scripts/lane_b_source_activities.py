@@ -80,6 +80,7 @@ def measure_activities(n,im,regions,word_bounds):
    lab,_=ndimage.label(ndimage.binary_closing(colored,iterations=4))
    candidates=[(label,sl) for label,sl in enumerate(ndimage.find_objects(lab),1) if sl and sl[1].stop-sl[1].start>min_width and 25<sl[0].stop-sl[0].start<100]
    assert len(candidates)==(2 if id=='reading-strips' else 1),(n,id,'panel outlines',[(sl[1].start,sl[0].start,sl[1].stop,sl[0].stop) for _,sl in candidates])
+   interiors=np.zeros((h,w),bool)
    for index,(label,sl) in enumerate(candidates):
     filled=ndimage.binary_fill_holes(lab==label)
     pixels=filled&(im.max(2)>185)&(im.min(2)>160)
@@ -89,9 +90,16 @@ def measure_activities(n,im,regions,word_bounds):
     cleaned=ndimage.binary_opening(filled,iterations=2)
     py,px=np.where(cleaned);points=np.column_stack([px,py]);hull=ConvexHull(points);vertices=points[hull.vertices].tolist();vertices=simplify(vertices+[vertices[0]],1)
     outline='M'+' L'.join(f'{x},{y}' for x,y in vertices)+' Z'
+    # The photographed outline can have gaps. Use its measured convex interior,
+    # rather than requiring a closed raster ring, to retain every printed word.
+    polygon=np.ones((h,w),bool)
+    area=sum(vertices[i][0]*vertices[(i+1)%len(vertices)][1]-vertices[(i+1)%len(vertices)][0]*vertices[i][1] for i in range(len(vertices)))
+    orientation=1 if area>0 else -1
+    for i,(vx,vy) in enumerate(vertices):
+     nx,ny=vertices[(i+1)%len(vertices)];dx,dy=nx-vx,ny-vy
+     if dx or dy:polygon&=orientation*(dx*(yy-vy)-dy*(xx-vx))>=6*np.hypot(dx,dy)
+    interiors|=polygon
     out['staticRegions'].append({'region':f'{id}-panel-{index}','layers':[{'d':outline,'fill':'#'+''.join(f'{v:02x}' for v in color),'stroke':'#'+''.join(f'{v:02x}' for v in stroke),'strokeWidth':1.2}]})
-   interiors=np.zeros((h,w),bool)
-   for label,_ in candidates:interiors|=ndimage.binary_erosion(ndimage.binary_fill_holes(lab==label),iterations=6)
    static(id+'-ink',mask&interiors)
   panel('reading-strips',(yy>90)&(yy<320)&(xx>255)&(xx<825),450)
   static('reading-title-halo',((g-r>3)&(b-r>0)&(g<253))&(yy>90)&(yy<330)&(xx>15)&(xx<255),True)
