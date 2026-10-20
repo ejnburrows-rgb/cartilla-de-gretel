@@ -51,7 +51,7 @@
   position: absolute;
   inset: 0;
   pointer-events: none;
-  animation: chano-breathe 4.2s ease-in-out infinite;
+
   will-change: transform;
 }
 .chano-breathe img {
@@ -62,44 +62,9 @@
   will-change: transform;
 }
 .chano-arm-left {
-  animation: chano-sway-left 3.6s ease-in-out infinite;
+
 }
 .chano-arm-right {
-  animation: chano-sway-right 3.9s ease-in-out infinite;
-  animation-delay: -1.4s;
-}
-@keyframes chano-breathe {
-  0%,
-  100% {
-    transform: scale(1, 1);
-  }
-  50% {
-    transform: scale(1.008, 1.016);
-  }
-}
-@keyframes chano-sway-left {
-  0%,
-  100% {
-    transform: rotate(-1.3deg);
-  }
-  50% {
-    transform: rotate(1.3deg);
-  }
-}
-@keyframes chano-sway-right {
-  0%,
-  100% {
-    transform: rotate(1.3deg);
-  }
-  50% {
-    transform: rotate(-1.3deg);
-  }
-}
-@media (prefers-reduced-motion: reduce) {
-  .chano-breathe,
-  .chano-arm {
-    animation: none;
-  }
 }
 
 .chano-panel {

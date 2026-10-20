@@ -31,3 +31,16 @@ export const SLOTS = [
 /** Illustrated Instrucciones panel and its painted speaker button. */
 export const PANEL = { x: 712, y: 168, w: 352, h: 712 };
 export const SPEAKER = { cx: 1006, cy: 236, r: 42 };
+
+/** Juggling Geometry derived from hand positions */
+export const JUGGLE_GEO = {
+  // Coordinates chosen relative to arm bounds/pivots to align with the clown's illustrated hands.
+  // Left arm bounds: x: 69, y: 467, w: 192, h: 221
+  // Right arm bounds: x: 574, y: 516, w: 175, h: 206
+  catchLeft: { x: 180, y: 640 },
+  throwLeft: { x: 230, y: 620 },
+  catchRight: { x: 630, y: 670 },
+  throwRight: { x: 580, y: 650 },
+  // Apex between 38-45% of card height (1448 * 0.4 ≈ 580). Let's use 500.
+  apexY: 500
+} as const;

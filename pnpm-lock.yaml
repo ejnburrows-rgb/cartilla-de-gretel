@@ -17,6 +17,9 @@ importers:
       '@dnd-kit/utilities':
         specifier: ^3.2.2
         version: 3.2.2(react@19.2.6)
+      '@gsap/react':
+        specifier: ^2.1.2
+        version: 2.1.2(gsap@3.15.0)(react@19.2.6)
       '@hookform/resolvers':
         specifier: ^5.2.2
         version: 5.4.0(react-hook-form@7.76.1(react@19.2.6))
@@ -131,6 +134,9 @@ importers:
       framer-motion:
         specifier: ^12.38.0
         version: 12.40.0(react-dom@19.2.6(react@19.2.6))(react@19.2.6)
+      gsap:
+        specifier: ^3.15.0
+        version: 3.15.0
       input-otp:
         specifier: ^1.4.2
         version: 1.4.2(react-dom@19.2.6(react@19.2.6))(react@19.2.6)
@@ -683,6 +689,12 @@ packages:
   '@floating-ui/utils@0.2.11':
     resolution: {integrity: sha512-RiB/yIh78pcIxl6lLMG0CgBXAZ2Y0eVHqMPYugu+9U0AeT6YBeiJpf7lbdJNIugFP5SIjwNRgo4DhR1Qxi26Gg==}
 
+  '@gsap/react@2.1.2':
+    resolution: {integrity: sha512-JqliybO1837UcgH2hVOM4VO+38APk3ECNrsuSM4MuXp+rbf+/2IG2K1YJiqfTcXQHH7XlA0m3ykniFYstfq0Iw==}
+    peerDependencies:
+      gsap: ^3.12.5
+      react: '>=17'
+
   '@hookform/resolvers@5.4.0':
     resolution: {integrity: sha512-EIsqr/t/qbinPIhGjMdtvutIN1Kk4uwbROE9/UQ93CAVGR7GkA7Y92+fX80OzXi/OB67jVFYwKGO1WzkxmkFZw==}
     peerDependencies:
@@ -961,7 +973,7 @@ packages:
 
   '@playwright/test@1.63.0':
     resolution: {integrity: sha512-oxMK4vllB9RK5NQ2l1pq1IfOf2AvnEuj/vYGDj0H2nMtmtZpKtCwt/l00GEO6xjGfpBNAvjovvYdCm50dRQkpQ==}
-    engines: {node: '>=18'}
+    engines: {node: '>=20'}
     hasBin: true
 
   '@radix-ui/number@1.1.1':
@@ -1607,6 +1619,14 @@ packages:
   '@radix-ui/rect@1.1.1':
     resolution: {integrity: sha512-HPwpGIzkl28mWyZqG52jiqDJ12waP11Pa1lGoiyUkIEuMLBP0oeK/C89esbXrxsky5we7dfd8U58nm0SgAWpVw==}
 
+  '@rive-app/canvas@2.43.1':
+    resolution: {integrity: sha512-GqENtpSOK5KOnF+kmzDQ70tfEQYksSOb39jcPPAV5vj5XDJ3vekPdbqTWuQdEyOFMhJUir4iBo3On9Gy2hghtQ==}
+
+  '@rive-app/react-canvas@4.35.0':
+    resolution: {integrity: sha512-aPkFcsVf/aKSPYPj1sUJ2n5NkKeSQtEEWUPphejbhbcUbyyEzpIp4JRK4Ki7MTNvtCwu4p8tiSTZ1upC3oPRDA==}
+    peerDependencies:
+      react: ^16.8.0 || ^17.0.0 || ^18.0.0 || ^19.0
+
   '@rolldown/pluginutils@1.0.0-rc.3':
     resolution: {integrity: sha512-eybk3TjzzzV97Dlj5c+XrBFW57eTNhzod66y9HrBlzJ6NsCrWCp/2kaPS3K9wJmurBC0Tdw4yPjXKZqlznim3Q==}
 
@@ -1747,14 +1767,6 @@ packages:
     resolution: {integrity: sha512-QVTUovf40zgTqlFVrKA1uXMVvU2QWEFWfAH8Wdc48IxLvrJMQVMBRjuQyUpzZCDkakImib9eVazbWlC6ksWtJw==}
     cpu: [x64]
     os: [win32]
-
-  '@rive-app/canvas@2.43.1':
-    resolution: {integrity: sha512-GqENtpSOK5KOnF+kmzDQ70tfEQYksSOb39jcPPAV5vj5XDJ3vekPdbqTWuQdEyOFMhJUir4iBo3On9Gy2hghtQ==}
-
-  '@rive-app/react-canvas@4.35.0':
-    resolution: {integrity: sha512-aPkFcsVf/aKSPYPj1sUJ2n5NkKeSQtEEWUPphejbhbcUbyyEzpIp4JRK4Ki7MTNvtCwu4p8tiSTZ1upC3oPRDA==}
-    peerDependencies:
-      react: ^16.8.0 || ^17.0.0 || ^18.0.0 || ^19.0
 
   '@standard-schema/spec@1.1.0':
     resolution: {integrity: sha512-l2aFy5jALhniG5HgqrD6jXLi/rUWrKvqN/qJx6yoJsgKhblVd+iqqU4RCXavm/jPityDo5TCvKMnpjKnOriy0w==}
@@ -2633,11 +2645,6 @@ packages:
   fs-constants@1.0.0:
     resolution: {integrity: sha512-y6OAwoSIf7FyjMIv94u+b5rdheZEjzR63GTyZJm5qh4Bi+2YgwLCcI/fPFZkL5PSixOt6ZNKm+w+Hfp/Bciwow==}
 
-  fsevents@2.3.2:
-    resolution: {integrity: sha512-xiqMQR4xAeHTuB9uWm+fFRcIOgKBMiOBP+eXiyT7jsgVCq1bkVygt00oASowB7EdtpOHaaPgKt812P9ab+DDKA==}
-    engines: {node: ^8.16.0 || ^10.6.0 || >=11.0.0}
-    os: [darwin]
-
   fsevents@2.3.3:
     resolution: {integrity: sha512-5xoDfX+fL7faATnagmWPpbFtwh/R77WmMMqqHGS65C3vvB0YHrgF+B1YmZ3441tMj5n63k0212XNoJwzlhffQw==}
     engines: {node: ^8.16.0 || ^10.6.0 || >=11.0.0}
@@ -2676,6 +2683,9 @@ packages:
 
   graceful-fs@4.2.11:
     resolution: {integrity: sha512-RbJ5/jmFcNNCcDV5o9eTnBLJ/HszWV0P73bc+Ff4nS/rJj+YaS6IGyiOL0VoBYX+l1Wrl3k63h/KrH+nhJ0XvQ==}
+
+  gsap@3.15.0:
+    resolution: {integrity: sha512-dMW4CWBTUK1AEEDeZc1g4xpPGIrSf9fJF960qbTZmN/QwZIWY5wgliS6JWl9/25fpTGJrMRtSjGtOmPnfjZB+A==}
 
   has-flag@4.0.0:
     resolution: {integrity: sha512-EykJT/Q1KjTWctppgIAgfSO0tKVuZUjhgMr17kqTumMl6Afv3EISleU7qZUzoXDFTAHTDC4NOoG/ZxU3EvlMPQ==}
@@ -3039,12 +3049,12 @@ packages:
 
   playwright-core@1.63.0:
     resolution: {integrity: sha512-rYCsBF/M5HjUch52bbtVONEFjv6Xu8sm8h72dNlR5bzIE1fvC/bxgspzkjSfU+MweEMmPM8KJebG6nnyxo5mCg==}
-    engines: {node: '>=18'}
+    engines: {node: '>=20'}
     hasBin: true
 
   playwright@1.63.0:
     resolution: {integrity: sha512-+7ziBLidS4NaNCdt57SUDT+wYmmd5fmiQejUic/kb+YsYSCPyOOE9sebzMjNmQrsnNpDJqd4WHvV/8lfKfUDUg==}
-    engines: {node: '>=18'}
+    engines: {node: '>=20'}
     hasBin: true
 
   postcss@8.5.15:
@@ -3981,6 +3991,11 @@ snapshots:
 
   '@floating-ui/utils@0.2.11': {}
 
+  '@gsap/react@2.1.2(gsap@3.15.0)(react@19.2.6)':
+    dependencies:
+      gsap: 3.15.0
+      react: 19.2.6
+
   '@hookform/resolvers@5.4.0(react-hook-form@7.76.1(react@19.2.6))':
     dependencies:
       '@standard-schema/utils': 0.3.0
@@ -4850,6 +4865,13 @@ snapshots:
 
   '@radix-ui/rect@1.1.1': {}
 
+  '@rive-app/canvas@2.43.1': {}
+
+  '@rive-app/react-canvas@4.35.0(react@19.2.6)':
+    dependencies:
+      '@rive-app/canvas': 2.43.1
+      react: 19.2.6
+
   '@rolldown/pluginutils@1.0.0-rc.3': {}
 
   '@rollup/rollup-android-arm-eabi@4.60.4':
@@ -4926,13 +4948,6 @@ snapshots:
 
   '@rollup/rollup-win32-x64-msvc@4.60.4':
     optional: true
-
-  '@rive-app/canvas@2.43.1': {}
-
-  '@rive-app/react-canvas@4.35.0(react@19.2.6)':
-    dependencies:
-      '@rive-app/canvas': 2.43.1
-      react: 19.2.6
 
   '@standard-schema/spec@1.1.0': {}
 
@@ -5842,9 +5857,6 @@ snapshots:
 
   fs-constants@1.0.0: {}
 
-  fsevents@2.3.2:
-    optional: true
-
   fsevents@2.3.3:
     optional: true
 
@@ -5874,6 +5886,8 @@ snapshots:
       - supports-color
 
   graceful-fs@4.2.11: {}
+
+  gsap@3.15.0: {}
 
   has-flag@4.0.0: {}
 
@@ -6171,8 +6185,6 @@ snapshots:
   playwright@1.63.0:
     dependencies:
       playwright-core: 1.63.0
-    optionalDependencies:
-      fsevents: 2.3.2
 
   postcss@8.5.15:
     dependencies:

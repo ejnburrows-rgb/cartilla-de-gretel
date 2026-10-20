@@ -10,10 +10,13 @@ import {
   type CSSProperties,
 } from "react";
 import { ArrowRight, Check, RotateCcw, Volume2 } from "lucide-react";
+import gsap from "gsap";
+import { useGSAP } from "@gsap/react";
+import { ballStateAt } from "./juggle";
 import type { GameContent } from "@/lib/games/gameContent";
 import { recordEvent } from "@/lib/student-session";
 import { audioEngine } from "@/lib/audio-engine";
-import { ART, BALLS, BOARD, CHANO, PANEL, SCENE_H, SCENE_W, SLOTS, SPEAKER } from "./layout";
+import { ART, BALLS, BOARD, CHANO, PANEL, SCENE_H, SCENE_W, SLOTS, SPEAKER, JUGGLE_GEO } from "./layout";
 import { CHANO_WORDS, sameSyllable } from "./words";
 import "./chano.css";
 
@@ -66,6 +69,139 @@ export function ChanoScene({ content }: { content: GameContent }) {
   const [drag, setDrag] = useState<Drag | null>(null);
   const suppressClick = useRef(false);
   const clearTimer = useRef<number | null>(null);
+  // Juggle State
+  const clownRef = useRef<HTMLDivElement>(null);
+  const ballRefs = useRef<Record<string, HTMLButtonElement | null>>({});
+  const cascadeSlots = useRef<Record<string, number | null>>({ ma: 0, mi: 1, mu: 2, me: -1 });
+  const pendingCascadeRestarts = useRef<string[]>([]);
+
+  const handleDragStartJuggle = useCallback((syllable: string) => {
+     cascadeSlots.current[syllable] = null;
+  }, []);
+
+  const handleDragEndJuggle = useCallback((syllable: string, placed: boolean) => {
+     if (!placed) {
+        pendingCascadeRestarts.current.push(syllable);
+     }
+  }, []);
+
+  useGSAP(
+    () => {
+      const isReduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+      if (!clownRef.current) return;
+
+      let isVisible = true;
+      const observer = new IntersectionObserver((entries) => {
+        isVisible = entries[0].isIntersecting;
+      });
+      observer.observe(clownRef.current);
+
+      const onVisibilityChange = () => {
+        isVisible = document.visibilityState === 'visible';
+      };
+      document.addEventListener('visibilitychange', onVisibilityChange);
+
+      const ticker = (time: number) => {
+        if (!isVisible) return;
+
+        const tMs = time * 1000;
+
+        if (!isReduced) {
+          const swayDeg = Math.sin((tMs / 720) * Math.PI * 2) * 1.2;
+          const laughDip = Math.sin((tMs / 1440) * Math.PI * 2) * 4;
+          gsap.set(clownRef.current, {
+            rotation: swayDeg,
+            y: Math.max(0, laughDip),
+            transformOrigin: `${CHANO.breatheOrigin.x}px ${CHANO.breatheOrigin.y}px`
+          });
+        } else {
+          gsap.set(clownRef.current, { rotation: 0, y: 0 });
+        }
+
+        if (pendingCascadeRestarts.current.length > 0) {
+           const period = 2160;
+           for (let i = pendingCascadeRestarts.current.length - 1; i >= 0; i--) {
+             const syllable = pendingCascadeRestarts.current[i];
+             const usedSlots = Object.values(cascadeSlots.current).filter(v => v !== null && v !== -1) as number[];
+             const availableSlots = [0, 1, 2].filter(s => !usedSlots.includes(s));
+
+             if (availableSlots.length > 0) {
+                const targetSlot = availableSlots[0];
+                const localT = (tMs + [0, 720, 1440][targetSlot]) % period;
+                if (localT < 50 || Math.abs(localT - 1080) < 50) {
+                   cascadeSlots.current[syllable] = targetSlot;
+                   pendingCascadeRestarts.current.splice(i, 1);
+                }
+             } else {
+                const hasResting = Object.values(cascadeSlots.current).includes(-1);
+                if (!hasResting) {
+                   cascadeSlots.current[syllable] = -1;
+                   pendingCascadeRestarts.current.splice(i, 1);
+                }
+             }
+           }
+        }
+
+        const usedSlotsSet = new Set(Object.values(cascadeSlots.current));
+        const emptySlots = [0, 1, 2].filter(s => !usedSlotsSet.has(s));
+
+        let restingSyllable: string | null = null;
+        for (const [syllable, slot] of Object.entries(cascadeSlots.current)) {
+          if (slot === -1) {
+            restingSyllable = syllable;
+            break;
+          }
+        }
+
+        if (emptySlots.length > 0 && restingSyllable) {
+          const targetSlot = emptySlots[0];
+          const localT = (tMs + [0, 720, 1440][targetSlot]) % 2160;
+          if (localT < 50 || Math.abs(localT - 1080) < 50) {
+             cascadeSlots.current[restingSyllable] = targetSlot;
+          }
+        }
+
+        for (const ball of BALLS) {
+          const slot = cascadeSlots.current[ball.syllable];
+          const el = ballRefs.current[ball.syllable];
+          if (!el) continue;
+
+          if (slot === null) {
+             gsap.set(el, { clearProps: "transform,zIndex" });
+             continue;
+          }
+
+          if (slot === -1 || isReduced) {
+             gsap.set(el, {
+               x: JUGGLE_GEO.catchLeft.x - ball.cx,
+               y: JUGGLE_GEO.catchLeft.y - ball.cy,
+               scaleX: 1, scaleY: 1,
+               zIndex: 3
+             });
+          } else {
+             const state = ballStateAt(tMs, slot, JUGGLE_GEO as any);
+             gsap.set(el, {
+               x: state.x - ball.cx,
+               y: state.y - ball.cy,
+               scaleX: state.scaleX,
+               scaleY: state.scaleY,
+               zIndex: 3
+             });
+          }
+        }
+      };
+
+      gsap.ticker.add(ticker);
+
+      return () => {
+        gsap.ticker.remove(ticker);
+        observer.disconnect();
+        document.removeEventListener('visibilitychange', onVisibilityChange);
+      };
+    },
+    { scope: sceneRef }
+  );
+
   const word = CHANO_WORDS[index];
 
   // Fit the whole scene (no cropping) into the screen, leaving room for the buttons below.
@@ -104,6 +240,7 @@ export function ChanoScene({ content }: { content: GameContent }) {
   );
 
   const resetBoard = useCallback(() => {
+    slots.forEach(s => { if (s) pendingCascadeRestarts.current.push(s); });
     if (clearTimer.current) window.clearTimeout(clearTimer.current);
     clearTimer.current = null;
     setSlots([null, null]);
@@ -118,6 +255,7 @@ export function ChanoScene({ content }: { content: GameContent }) {
       setSlots((prev) => {
         const next = mark === "bad" ? [null, null] : [...prev];
         const target = slotIdx ?? next.findIndex((s) => s === null);
+        if (target >= 0) { cascadeSlots.current[syllable] = null; }
         if (target < 0) return next;
         next[target] = syllable;
         return next;
@@ -141,6 +279,7 @@ export function ChanoScene({ content }: { content: GameContent }) {
       setMark("bad");
       playFile(SFX.bad, 0.5);
       clearTimer.current = window.setTimeout(() => {
+        slots.forEach(s => { if (s) pendingCascadeRestarts.current.push(s); });
         setSlots([null, null]);
         setMark(null);
         clearTimer.current = null;
@@ -181,6 +320,7 @@ export function ChanoScene({ content }: { content: GameContent }) {
 
   const onBallPointerDown = (syllable: string) => (e: React.PointerEvent<HTMLButtonElement>) => {
     if (e.button !== 0 && e.pointerType === "mouse") return;
+    handleDragStartJuggle(syllable);
     e.currentTarget.setPointerCapture(e.pointerId);
     const p = toScene(e.clientX, e.clientY);
     setDrag({
@@ -201,14 +341,19 @@ export function ChanoScene({ content }: { content: GameContent }) {
   };
   const onBallPointerUp = (e: React.PointerEvent<HTMLButtonElement>) => {
     if (!drag || drag.pointerId !== e.pointerId) return;
+    let placed = false;
     if (drag.moved) {
       suppressClick.current = true;
       const p = toScene(e.clientX, e.clientY);
       const hit = SLOTS.findIndex(
         (s) => p.x >= s.x - 30 && p.x <= s.x + s.w + 30 && p.y >= s.y - 30 && p.y <= s.y + s.h + 30,
       );
-      if (hit >= 0) place(drag.syllable, hit);
+      if (hit >= 0) {
+        place(drag.syllable, hit);
+        placed = true;
+      }
     }
+    handleDragEndJuggle(drag.syllable, placed);
     setDrag(null);
   };
   const onBallClick = (syllable: string) => () => {
@@ -253,6 +398,8 @@ export function ChanoScene({ content }: { content: GameContent }) {
 
             <div
               className="chano-breathe"
+              ref={clownRef}
+              data-testid="chano-clown-whole"
               aria-hidden
               style={{ transformOrigin: `${CHANO.breatheOrigin.x}px ${CHANO.breatheOrigin.y}px` }}
             >
@@ -331,30 +478,52 @@ export function ChanoScene({ content }: { content: GameContent }) {
                 onClick={() => {
                   if (mark === "ok" || finished || !slots[i]) return;
                   setMark(null);
-                  setSlots((prev) => prev.map((v, j) => (j === i ? null : v)));
+                  setSlots((prev) => prev.map((v, j) => { if (j === i && v) pendingCascadeRestarts.current.push(v); return j === i ? null : v; }));
                 }}
               >
                 {slots[i] ?? <span className="chano-slot-num">{i + 1}</span>}
               </button>
             ))}
 
-            {BALLS.map((b) => (
+            {BALLS.map((b, i) => (
               <button
                 key={b.syllable}
+                ref={(el) => { ballRefs.current[b.syllable] = el; }}
                 type="button"
                 className="chano-ball"
+                data-testid={`chano-ball-${b.syllable}`}
                 data-dragging={drag?.syllable === b.syllable && drag.moved ? "true" : undefined}
                 aria-label={b.syllable}
                 style={{ left: b.cx - b.r, top: b.cy - b.r, width: b.r * 2, height: b.r * 2 }}
                 onPointerDown={onBallPointerDown(b.syllable)}
                 onPointerMove={onBallPointerMove}
                 onPointerUp={onBallPointerUp}
-                onPointerCancel={() => setDrag(null)}
+                onPointerCancel={() => {
+                  if (drag) handleDragEndJuggle(drag.syllable, false);
+                  setDrag(null);
+                }}
                 onClick={onBallClick(b.syllable)}
               >
+                <div data-testid={i < 3 ? `chano-juggle-ball-${i}` : undefined} style={{width: '100%', height: '100%', position: 'absolute'}} />
                 <img src={`${ART}/ball-${b.syllable}.svg`} alt="" draggable={false} />
               </button>
             ))}
+
+            {/* Hand caps (z4 overlays) */}
+            <img
+              src={`${ART}/hand-cap-left.svg`}
+              data-testid="chano-hand-cap-left"
+              alt=""
+              aria-hidden
+              style={{ ...px(CHANO.armLeft), zIndex: 4, position: 'absolute', pointerEvents: 'none' }}
+            />
+            <img
+              src={`${ART}/hand-cap-right.svg`}
+              data-testid="chano-hand-cap-right"
+              alt=""
+              aria-hidden
+              style={{ ...px(CHANO.armRight), zIndex: 4, position: 'absolute', pointerEvents: 'none' }}
+            />
 
             {drag?.moved && (
               <img
