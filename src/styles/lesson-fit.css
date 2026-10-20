@@ -437,3 +437,10 @@
 }
 .lc-lesson-16 .native-lesson-viewer__navigation button[data-testid="button-next"] { background: #167a72; border-color: #167a72; color: #fffaf0; }
 .lc-lesson-16 :is(button, a, textarea):focus-visible { outline: 3px solid #167a72; outline-offset: 3px; }
+
+@media (max-width: 600px) {
+  .faithful-page:has(.faithful-page__pagenum[aria-label="Página 59"]) .faithful-page__pagenum,
+  .faithful-page:has(.faithful-page__pagenum[aria-label="Página 61"]) .faithful-page__pagenum { right: 11%; }
+  .faithful-page:has(.faithful-page__pagenum[aria-label="Página 60"]) .faithful-page__pagenum,
+  .faithful-page:has(.faithful-page__pagenum[aria-label="Página 62"]) .faithful-page__pagenum { left: 11%; }
+}
