@@ -5,6 +5,7 @@ import {createHash} from 'node:crypto';
 const pages=JSON.parse(readFileSync(new URL('../../src/data/page-layouts.json',import.meta.url))).pages;
 const root='/cartilla/art/approved/lesson-3/';
 const hashes={
+ 'abeja.jpg':'9e18130a1cb1f6bc30e07815b28069817cd1f4863117a6abd3b2c0fd80128f6d',
  'iglu.png':'89d3ba9960bb3403850ef24f302b73c2dc4fde925faab12e432903e09e27c9f7',
  'oveja.png':'29bd0e7395a644a21eff158db78bddf8af78ca1d5a3113978d9202943047ce73',
  'aro.png':'a00a15c746cf0bf8129973257112cff25d27a405da9943f9d06010d6c54c9aa8',
@@ -15,7 +16,7 @@ for(const [file,hash] of Object.entries(hashes)) test(`exact supplied bytes: ${f
  const bytes=readFileSync(new URL(`../../public${root}${file}`,import.meta.url));
  assert.equal(createHash('sha256').update(bytes).digest('hex'),hash);
 });
-const expected={7:{oruga:'oruga.jpg',aro:'aro.png',oveja:'oveja.png',ojo:'ojo.png'},8:{'iglú':'iglu.png',aro:'aro.png'}};
+const expected={7:{abeja:'abeja.jpg',oruga:'oruga.jpg',aro:'aro.png',oveja:'oveja.png',ojo:'ojo.png'},8:{'iglú':'iglu.png',aro:'aro.png'}};
 for(const [page,mapping] of Object.entries(expected)) test(`Lesson 3 page ${page}: word-to-picture mapping`,()=>{
  const cells=pages[page].regions.flatMap(r=>r.cells??[]);
  for(const [word,file] of Object.entries(mapping)) assert.equal(cells.find(c=>c.caption===word)?.illustrationSrc,root+file);
