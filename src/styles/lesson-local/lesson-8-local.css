@@ -1,0 +1,31 @@
+/* Lesson 8 local fit rules (workbook lane B, 2026-10-20).
+ * Scoped to lesson 8's printed pages [23, 24, 25, 26]: the lesson scope comes from
+ * data-lesson on the shell (lane A hook d7bf003), the page scope from the
+ * activity id prefix, so no other lesson or page is affected. Loaded through
+ * src/styles/lesson-local/index.css. At phone portrait every region of these pages fits the
+ * on-screen page in a two-column grid; short landscape relies on the shared
+ * workbook-fill rules (page scrolls, natural sizes). Shared fit styles are untouched. */
+
+/* Writing page 23 (trace + write + draw boxes). */
+@media (orientation: portrait) {
+  .lc-lesson-shell--fit[data-lesson="8"] .faithful-page:has(.gretel-activity[data-gretel-activity^="page-23-"]) .faithful-page__body {
+    display: grid; grid-template-columns: 1fr 1fr; column-gap: 8px; row-gap: 4px; align-content: start;
+  }
+  .lc-lesson-shell--fit[data-lesson="8"] .faithful-page:has(.gretel-activity[data-gretel-activity^="page-23-"]) .gretel-activity[data-gretel-activity*="-instr"],
+  .lc-lesson-shell--fit[data-lesson="8"] .faithful-page:has(.gretel-activity[data-gretel-activity^="page-23-"]) .gretel-activity[data-gretel-activity*="-draw"] { grid-column: 1 / -1; }
+  .lc-lesson-shell--fit[data-lesson="8"] .faithful-page:has(.gretel-activity[data-gretel-activity^="page-23-"]) .am-dibuja__paper { min-height: 14cqh; max-height: 20cqh; }
+  .lc-lesson-shell--fit[data-lesson="8"] .faithful-page:has(.gretel-activity[data-gretel-activity^="page-23-"]) .am-dibuja__toolbar .am-dibuja__swatches { flex: 0 0 100% !important; min-width: 100% !important; flex-wrap: wrap; }
+  .lc-lesson-shell--fit[data-lesson="8"] .faithful-page:has(.gretel-activity[data-gretel-activity^="page-23-"]) .am-dibuja__toolbar { flex-wrap: wrap; row-gap: 2px; overflow: visible; gap: 4px; }
+  .lc-lesson-shell--fit[data-lesson="8"] .faithful-page:has(.gretel-activity[data-gretel-activity^="page-23-"]) .am-dibuja__toolbar .am-dibuja__swatches { gap: 4px; }
+  .lc-lesson-shell--fit[data-lesson="8"] .faithful-page:has(.gretel-activity[data-gretel-activity^="page-23-"]) .am-dibuja__toolbar .am-dibuja__swatch,
+  .lc-lesson-shell--fit[data-lesson="8"] .faithful-page:has(.gretel-activity[data-gretel-activity^="page-23-"]) .am-dibuja__toolbar .am-dibuja__tool,
+  .lc-lesson-shell--fit[data-lesson="8"] .faithful-page:has(.gretel-activity[data-gretel-activity^="page-23-"]) .am-dibuja__toolbar .am-dibuja__done { width: 26px; height: 26px; min-width: 26px; min-height: 26px; font-size: 10px; padding: 0 6px; }
+  .lc-lesson-shell--fit[data-lesson="8"] .faithful-page:has(.gretel-activity[data-gretel-activity^="page-23-"]) .am-dibuja__toolbar .am-dibuja__done { width: auto; }
+  .lc-lesson-shell--fit[data-lesson="8"] .faithful-page:has(.gretel-activity[data-gretel-activity^="page-23-"]) .am-dibuja__header { font-size: 12px; }
+  .lc-lesson-shell--fit[data-lesson="8"] .faithful-page:has(.gretel-activity[data-gretel-activity^="page-23-"]) .am-dibuja__paper { min-height: 8cqh; max-height: 11cqh; }
+  .lc-lesson-shell--fit[data-lesson="8"] .faithful-page:has(.gretel-activity[data-gretel-activity^="page-23-"]) .am-dibuja__toolbar { row-gap: 1px; gap: 2px; width: 100% !important; flex-basis: 100% !important; }
+  .lc-lesson-shell--fit[data-lesson="8"] .faithful-page:has(.gretel-activity[data-gretel-activity^="page-23-"]) .am-dibuja__toolbar .am-dibuja__swatch,
+  .lc-lesson-shell--fit[data-lesson="8"] .faithful-page:has(.gretel-activity[data-gretel-activity^="page-23-"]) .am-dibuja__toolbar .am-dibuja__tool,
+  .lc-lesson-shell--fit[data-lesson="8"] .faithful-page:has(.gretel-activity[data-gretel-activity^="page-23-"]) .am-dibuja__toolbar .am-dibuja__done { width: 18px; height: 18px; min-width: 18px; min-height: 18px; font-size: 9px; padding: 0 4px; }
+  .lc-lesson-shell--fit[data-lesson="8"] .faithful-page:has(.gretel-activity[data-gretel-activity^="page-23-"]) .am-dibuja__toolbar .am-dibuja__done { width: auto; }
+}

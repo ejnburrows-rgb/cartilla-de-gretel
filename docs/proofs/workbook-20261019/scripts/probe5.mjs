@@ -1,0 +1,20 @@
+import { chromium } from 'playwright';
+const b = await chromium.launch();
+const page = await b.newPage({ viewport: { width: 390, height: 844 } });
+await page.goto('http://localhost:5173/cartilla', { waitUntil: 'domcontentloaded' });
+await page.evaluate(() => { localStorage.clear(); localStorage.setItem('cartilla.learner-resume.v1:8', JSON.stringify({lesson:8, page:0, printedPage:23})); });
+await page.goto('http://localhost:5173/cartilla/leccion/8', { waitUntil: 'networkidle' });
+await page.waitForTimeout(800);
+const r = await page.evaluate(() => {
+  const sw = document.querySelector('[data-gretel-activity="page-23-p23-write-l"] .am-dibuja__swatches');
+  const out = {};
+  const meas = (label) => { out[label] = {cw: getComputedStyle(sw).width, rect: Math.round(sw.getBoundingClientRect().width*10)/10, cs: getComputedStyle(sw).zoom}; };
+  meas('as-is');
+  sw.style.setProperty('width', '130px', 'important'); meas('w130');
+  sw.style.setProperty('width', '216px', 'important'); meas('w216');
+  sw.style.removeProperty('width');
+  sw.style.setProperty('zoom', '1', 'important'); meas('zoom1');
+  return out;
+});
+console.log(JSON.stringify(r, null, 1));
+await b.close();

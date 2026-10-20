@@ -3,16 +3,23 @@ import { join } from "node:path";
 import { describe, expect, it } from "vitest";
 
 /**
- * Workbook lane B (2026-10-19): lessons 9, 13, 15, 17 and 18 ship lesson-local
+ * Workbook lane B (2026-10-19/20): lessons 8, 9, 10, 11, 12, 13, 14, 15, 17 and
+ * 18 ship lesson-local
  * fit and fill styles. Invariants guarded here:
  *  1. Every rule in a lesson-<N>-local.css file is scoped to that lesson's own
  *     printed pages (data-lesson on the shell + page-<printed>- activity id),
  *     so loading the files globally can never restyle another lesson.
- *  2. The lane-B fill rule covers exactly lessons 9, 13, 15, 17, 18.
+ *  2. The lane-B fill rule covers exactly lessons 8, 9, 10, 11, 12, 13, 14, 15,
+ *     17, 18 (16 is the reference lesson owned by main).
  *  3. The lesson-local index imports the lane-B files.
  */
 const LESSON_PAGES: Record<number, number[]> = {
+  8: [23, 24, 25, 26],
   9: [27, 28, 29, 30],
+  10: [31, 32, 33, 34],
+  11: [35, 36, 37, 38],
+  12: [39, 40, 41, 42],
+  14: [47, 48, 49, 50],
   13: [43, 44, 45, 46],
   15: [51, 52, 53, 54],
   17: [59, 60, 61, 62],
@@ -54,16 +61,16 @@ describe("lesson-local fit styles (lane B)", () => {
     });
   }
 
-  it("lane-B fill rule covers exactly lessons 9, 13, 15, 17, 18", () => {
+  it("lane-B fill rule covers exactly the lane-B lessons", () => {
     const css = readFileSync(join(stylesDir, "workbook-fill-lane-b.css"), "utf8");
     const scoped = [...css.matchAll(/data-lesson="(\d+)"/g)].map((m) => Number(m[1]));
-    expect([...new Set(scoped)].sort((a, b) => a - b)).toEqual([9, 13, 15, 17, 18]);
+    expect([...new Set(scoped)].sort((a, b) => a - b)).toEqual([8, 9, 10, 11, 12, 13, 14, 15, 17, 18]);
   });
 
   it("lesson-local index imports the lane-B files", () => {
     const index = readFileSync(join(stylesDir, "index.css"), "utf8");
     const imports = [...index.matchAll(/lesson-(\d+)-local\.css/g)].map((m) => Number(m[1]));
-    expect(imports.sort((a, b) => a - b)).toEqual([9, 13, 15, 17, 18]);
+    expect(imports.sort((a, b) => a - b)).toEqual([8, 9, 10, 11, 12, 13, 14, 15, 17, 18]);
     expect(index).toContain("workbook-fill-lane-b.css");
   });
 });

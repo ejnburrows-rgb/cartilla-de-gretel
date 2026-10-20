@@ -2,8 +2,13 @@
  * rules with .lc-lesson-shell[data-lesson="N"]. */
 @import "./workbook-fill-1-7.css";
 @import "./workbook-fill-lane-b.css";
+@import "./lesson-8-local.css";
 @import "./lesson-9-local.css";
+@import "./lesson-10-local.css";
+@import "./lesson-11-local.css";
+@import "./lesson-12-local.css";
 @import "./lesson-13-local.css";
+@import "./lesson-14-local.css";
 @import "./lesson-15-local.css";
 @import "./lesson-17-local.css";
 @import "./lesson-18-local.css";
