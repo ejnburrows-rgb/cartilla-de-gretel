@@ -45,6 +45,7 @@ import { Route as CartillaTeacherAdminRouteImport } from './routes/cartilla/teac
 import { Route as CartillaPresentarNRouteImport } from './routes/cartilla/presentar.$n'
 import { Route as CartillaPilotFaithfulNRouteImport } from './routes/cartilla/pilot-faithful.$n'
 import { Route as CartillaLeccionNRouteImport } from './routes/cartilla/leccion.$n'
+import { Route as CartillaJuegoCowRouteImport } from './routes/cartilla/juego.cow'
 import { Route as CartillaJuegoGameIdRouteImport } from './routes/cartilla/juego.$gameId'
 import { Route as CartillaImprimirAllRouteImport } from './routes/cartilla/imprimir.all'
 import { Route as CartillaImprimirNRouteImport } from './routes/cartilla/imprimir.$n'
@@ -267,6 +268,11 @@ const CartillaLeccionNRoute = CartillaLeccionNRouteImport.update({
 } as any).lazy(() =>
   import('./routes/cartilla/leccion.$n.lazy').then((d) => d.Route),
 )
+const CartillaJuegoCowRoute = CartillaJuegoCowRouteImport.update({
+  id: '/cartilla/juego/cow',
+  path: '/cartilla/juego/cow',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const CartillaJuegoGameIdRoute = CartillaJuegoGameIdRouteImport.update({
   id: '/cartilla/juego/$gameId',
   path: '/cartilla/juego/$gameId',
@@ -409,6 +415,7 @@ export interface FileRoutesByFullPath {
   '/cartilla/imprimir/$n': typeof CartillaImprimirNRoute
   '/cartilla/imprimir/all': typeof CartillaImprimirAllRoute
   '/cartilla/juego/$gameId': typeof CartillaJuegoGameIdRoute
+  '/cartilla/juego/cow': typeof CartillaJuegoCowRoute
   '/cartilla/leccion/$n': typeof CartillaLeccionNRoute
   '/cartilla/pilot-faithful/$n': typeof CartillaPilotFaithfulNRoute
   '/cartilla/presentar/$n': typeof CartillaPresentarNRoute
@@ -461,6 +468,7 @@ export interface FileRoutesByTo {
   '/cartilla/imprimir/$n': typeof CartillaImprimirNRoute
   '/cartilla/imprimir/all': typeof CartillaImprimirAllRoute
   '/cartilla/juego/$gameId': typeof CartillaJuegoGameIdRoute
+  '/cartilla/juego/cow': typeof CartillaJuegoCowRoute
   '/cartilla/leccion/$n': typeof CartillaLeccionNRoute
   '/cartilla/pilot-faithful/$n': typeof CartillaPilotFaithfulNRoute
   '/cartilla/presentar/$n': typeof CartillaPresentarNRoute
@@ -512,6 +520,7 @@ export interface FileRoutesById {
   '/cartilla/imprimir/$n': typeof CartillaImprimirNRoute
   '/cartilla/imprimir/all': typeof CartillaImprimirAllRoute
   '/cartilla/juego/$gameId': typeof CartillaJuegoGameIdRoute
+  '/cartilla/juego/cow': typeof CartillaJuegoCowRoute
   '/cartilla/leccion/$n': typeof CartillaLeccionNRoute
   '/cartilla/pilot-faithful/$n': typeof CartillaPilotFaithfulNRoute
   '/cartilla/presentar/$n': typeof CartillaPresentarNRoute
@@ -567,6 +576,7 @@ export interface FileRouteTypes {
     | '/cartilla/imprimir/$n'
     | '/cartilla/imprimir/all'
     | '/cartilla/juego/$gameId'
+    | '/cartilla/juego/cow'
     | '/cartilla/leccion/$n'
     | '/cartilla/pilot-faithful/$n'
     | '/cartilla/presentar/$n'
@@ -619,6 +629,7 @@ export interface FileRouteTypes {
     | '/cartilla/imprimir/$n'
     | '/cartilla/imprimir/all'
     | '/cartilla/juego/$gameId'
+    | '/cartilla/juego/cow'
     | '/cartilla/leccion/$n'
     | '/cartilla/pilot-faithful/$n'
     | '/cartilla/presentar/$n'
@@ -669,6 +680,7 @@ export interface FileRouteTypes {
     | '/cartilla/imprimir/$n'
     | '/cartilla/imprimir/all'
     | '/cartilla/juego/$gameId'
+    | '/cartilla/juego/cow'
     | '/cartilla/leccion/$n'
     | '/cartilla/pilot-faithful/$n'
     | '/cartilla/presentar/$n'
@@ -723,6 +735,7 @@ export interface RootRouteChildren {
   CartillaImprimirNRoute: typeof CartillaImprimirNRoute
   CartillaImprimirAllRoute: typeof CartillaImprimirAllRoute
   CartillaJuegoGameIdRoute: typeof CartillaJuegoGameIdRoute
+  CartillaJuegoCowRoute: typeof CartillaJuegoCowRoute
   CartillaLeccionNRoute: typeof CartillaLeccionNRoute
   CartillaPilotFaithfulNRoute: typeof CartillaPilotFaithfulNRoute
   CartillaPresentarNRoute: typeof CartillaPresentarNRoute
@@ -982,6 +995,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof CartillaLeccionNRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/cartilla/juego/cow': {
+      id: '/cartilla/juego/cow'
+      path: '/cartilla/juego/cow'
+      fullPath: '/cartilla/juego/cow'
+      preLoaderRoute: typeof CartillaJuegoCowRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/cartilla/juego/$gameId': {
       id: '/cartilla/juego/$gameId'
       path: '/cartilla/juego/$gameId'
@@ -1207,6 +1227,7 @@ const rootRouteChildren: RootRouteChildren = {
   CartillaImprimirNRoute: CartillaImprimirNRoute,
   CartillaImprimirAllRoute: CartillaImprimirAllRoute,
   CartillaJuegoGameIdRoute: CartillaJuegoGameIdRoute,
+  CartillaJuegoCowRoute: CartillaJuegoCowRoute,
   CartillaLeccionNRoute: CartillaLeccionNRoute,
   CartillaPilotFaithfulNRoute: CartillaPilotFaithfulNRoute,
   CartillaPresentarNRoute: CartillaPresentarNRoute,
