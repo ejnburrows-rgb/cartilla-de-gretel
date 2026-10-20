@@ -20,10 +20,10 @@ import { recordEvent } from "@/lib/student-session";
  */
 
 const WORD_COLORS: Record<string, string> = {
-  "Mami": "border-sky-400 bg-sky-50",
-  "mímame": "border-rose-400 bg-rose-50",
-  "amo": "border-emerald-400 bg-emerald-50",
-  "ámame": "border-amber-400 bg-amber-50",
+  "Mami": "border-blue-500 bg-white",
+  "mímame": "border-pink-500 bg-white",
+  "amo": "border-green-500 bg-white",
+  "ámame": "border-orange-500 bg-white",
 };
 
 function LetterPickerEntrance({ onPick }: { onPick: (letter: string) => void }) {
@@ -187,11 +187,25 @@ export function RimaMmGame() {
 
       <div className="relative z-10 max-w-4xl mx-auto px-4 py-6 space-y-6">
         {/* Title */}
-        <div className="text-center">
+        <div className="text-center relative mt-6">
           <h1
-            className="inline-block text-4xl sm:text-5xl font-black px-8 py-3 rounded-2xl border-4 border-amber-700 bg-amber-50 shadow-lg"
-            style={{ fontFamily: "'Comic Sans MS', 'Chalkboard SE', cursive" }}
+            className="relative inline-block text-4xl sm:text-5xl font-black px-8 py-4 rounded-xl shadow-2xl z-10"
+            style={{
+              fontFamily: "'Comic Sans MS', 'Chalkboard SE', cursive",
+              backgroundColor: "#fde68a",
+              border: "6px solid #854d0e",
+              color: "#ffffff",
+              textShadow: "2px 2px 0px #b91c1c, -2px -2px 0px #b91c1c, 2px -2px 0px #b91c1c, -2px 2px 0px #b91c1c",
+            }}
           >
+            {/* "Ropes" hanging the sign */}
+            <div className="absolute -top-12 left-8 w-2 h-14 bg-[#5c3a21] shadow-[2px_0_0_rgba(0,0,0,0.3)] -z-10" aria-hidden></div>
+            <div className="absolute -top-12 right-8 w-2 h-14 bg-[#5c3a21] shadow-[2px_0_0_rgba(0,0,0,0.3)] -z-10" aria-hidden></div>
+            
+            {/* Rope knots */}
+            <div className="absolute top-1.5 left-7 w-4 h-4 rounded-full bg-[#3f2816] shadow-[inset_1px_1px_2px_rgba(0,0,0,0.5)]" aria-hidden></div>
+            <div className="absolute top-1.5 right-7 w-4 h-4 rounded-full bg-[#3f2816] shadow-[inset_1px_1px_2px_rgba(0,0,0,0.5)]" aria-hidden></div>
+
             <span className="text-blue-600">V</span>
             <span className="text-red-500">a</span>
             <span className="text-green-600">m</span>
