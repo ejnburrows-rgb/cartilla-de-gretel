@@ -780,11 +780,11 @@
             {
               "caption": "oruga",
               "correct": false,
-              "illustrationSrc": "/cartilla/art/faithful/vocal-o/oruga.webp"
+              "illustrationSrc": "/cartilla/art/approved/lesson-3/oruga.jpg"
             },
             {
               "caption": "aro",
-              "illustrationSrc": "/cartilla/art/faithful/vocal-a/aro.webp",
+              "illustrationSrc": "/cartilla/art/approved/lesson-3/aro.png",
               "correct": true
             },
             {
@@ -794,7 +794,7 @@
             },
             {
               "caption": "oveja",
-              "illustrationSrc": "/cartilla/art/faithful/vocal-o/oveja.webp",
+              "illustrationSrc": "/cartilla/art/approved/lesson-3/oveja.png",
               "correct": false
             },
             {
@@ -833,8 +833,8 @@
               "correct": true
             },
             {
-              "caption": "ojos",
-              "illustrationSrc": "/cartilla/art/faithful/leccion-1/ojos.webp",
+              "caption": "ojo",
+              "illustrationSrc": "/cartilla/art/approved/lesson-3/ojo.png",
               "correct": false
             },
             {
@@ -882,7 +882,7 @@
             {
               "caption": "iglú",
               "correct": false,
-              "illustrationSrc": "/cartilla/art/faithful/vocal-i/iglu.webp"
+              "illustrationSrc": "/cartilla/art/approved/lesson-3/iglu.png"
             },
             {
               "caption": "alas",
@@ -912,7 +912,7 @@
             {
               "caption": "aro",
               "correct": true,
-              "illustrationSrc": "/cartilla/art/faithful/vocal-a/aro.webp"
+              "illustrationSrc": "/cartilla/art/approved/lesson-3/aro.png"
             }
           ]
         }
