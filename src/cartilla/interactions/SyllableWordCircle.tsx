@@ -159,7 +159,18 @@ export function SyllableWordCircle({ region, lessonId }: { region: PageRegion; l
     const rect = event.currentTarget.getBoundingClientRect();
     const width = Math.max(1, rect.width);
     const ratio = Math.max(0, Math.min(0.9999, (event.clientX - rect.left) / width));
-    const charIndex = Math.min(word.length - 1, Math.floor(ratio * word.length));
+    // The printed word may occupy only part of its button. Grade the actual
+    // letter under the pointer, not the button's surrounding whitespace.
+    const letters = Array.from(event.currentTarget.querySelectorAll(".native-syllable__letter"));
+    const boxes = letters.map((letter) => letter.getBoundingClientRect());
+    const measured = boxes.some((box) => box.width > 0);
+    const charIndex = measured
+      ? boxes.reduce((best, box, index) => {
+          const distance = Math.abs(event.clientX - (box.left + box.width / 2));
+          const previous = boxes[best];
+          return distance < Math.abs(event.clientX - (previous.left + previous.width / 2)) ? index : best;
+        }, 0)
+      : Math.min(word.length - 1, Math.floor(ratio * word.length));
     const starts = validSyllableStarts(word, syllable);
     const occurrence = starts.find(
       (start) => charIndex >= start && charIndex < start + Math.max(1, syllable.length),

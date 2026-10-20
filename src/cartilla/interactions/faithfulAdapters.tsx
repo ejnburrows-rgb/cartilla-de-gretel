@@ -140,12 +140,14 @@ export function DibujaFromRegion({
   lessonNumber,
   siblingCells,
   drawOnly = false,
+  sourceLayout = false,
 }: {
   region: PageRegion;
   lessonId?: string;
   lessonNumber?: number;
   siblingCells?: PageGridCell[];
   drawOnly?: boolean;
+  sourceLayout?: boolean;
 }) {
   const fromSiblings =
     siblingCells && siblingCells.some((c) => c.correct !== undefined)
@@ -166,6 +168,7 @@ export function DibujaFromRegion({
       lessonId={lessonId}
       pickOptions={drawOnly ? [] : pickOptions}
       initialMode={drawOnly ? "draw" : undefined}
+      sourceLayout={sourceLayout}
     />
   );
 }

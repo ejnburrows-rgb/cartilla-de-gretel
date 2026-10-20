@@ -308,6 +308,7 @@ function RegionView({
   siblingCells,
   native,
   pageNumber,
+  sightWords,
 }: {
   region: PageRegion;
   interactive?: boolean;
@@ -323,12 +324,14 @@ function RegionView({
   siblingCells?: PageGridCell[];
   native?: boolean;
   pageNumber?: number;
+  sightWords?: string[];
 }) {
   // Host chosen once so Colorea never silently becomes tap-select, and
   // Encierra uses the approved pencil circle and Une uses pencil lines.
   const host = interactive
     ? resolveFaithfulHost(region.regionType, precedingInstruction)
     : "static";
+  const sourceLayout = Boolean(native && pageNumber && pageNumber >= 23 && pageNumber <= 66);
 
   switch (region.regionType) {
     case "illustration-slot":
@@ -467,7 +470,7 @@ function RegionView({
       if (interactive && native && pageNumber && pageNumber >= 23 && pageNumber <= 66 && !region.modelText) {
         return (
           <div className="fp-writing-line fp-writing-line--freehand">
-            <DibujaHost pageKey={region.id} lessonId={lessonId} initialMode="draw" verb="Escribe" />
+            <DibujaHost pageKey={region.id} lessonId={lessonId} initialMode="draw" verb="Escribe" sourceLayout />
           </div>
         );
       }
@@ -494,7 +497,7 @@ function RegionView({
       if (interactive && native) return (
         <div className="fp-writing-line fp-writing-line--freehand">
           {traceLetter && <span className="fp-writing-line__model">{traceLetter}</span>}
-          <DibujaHost pageKey={region.id} hint={traceLetter} lessonId={lessonId} initialMode="draw" verb="Escribe" />
+          <DibujaHost pageKey={region.id} hint={traceLetter} lessonId={lessonId} initialMode="draw" verb="Escribe" sourceLayout={sourceLayout} />
         </div>
       );
       return (
@@ -507,7 +510,7 @@ function RegionView({
       );
     }
     case "writing-response":
-      return <WorkbookWritingResponse pageNumber={Number(region.id.match(/^p(\d+)/)?.[1] ?? 0)} interactive={Boolean(interactive)} />;
+      return <WorkbookWritingResponse pageNumber={Number(region.id.match(/^p(\d+)/)?.[1] ?? 0)} interactive={Boolean(interactive)} sourceLayout={sourceLayout} />;
     case "draw-box":
       return interactive ? (
         <DibujaFromRegion
@@ -516,6 +519,7 @@ function RegionView({
           lessonNumber={lessonNumber}
           siblingCells={siblingCells}
           drawOnly={native}
+          sourceLayout={sourceLayout}
         />
       ) : (
         <div className="fp-draw-box" aria-label={region.text ?? "Espacio para dibujar"}>
@@ -526,7 +530,7 @@ function RegionView({
       return (
         <div className="fp-region--reading-sentences">
           {(region.sentences ?? []).map((sentence, i) => (
-            <p key={i}>{sentence}</p>
+            <p key={i}>{sourceLayout && sightWords?.length ? sentence.split(/(\s+)/).map((word, index) => sightWords.includes(word.replace(/[^\p{L}]/gu, "").toLocaleLowerCase("es")) ? <strong key={index}>{word}</strong> : word) : sentence}</p>
           ))}
         </div>
       );
@@ -559,7 +563,7 @@ function RegionView({
     case "sentence-line":
       // Lesson 16 page 57 has no sight word on the source page: skip the
       // empty box rather than rendering a blank frame.
-      if (lessonNumber === 16 && !region.text?.trim()) return null;
+      if (lessonNumber === 16 && !sourceLayout && !region.text?.trim()) return null;
       return native ? (
         <div className="fp-native-sight-word" aria-label="Palabra de enlace">{region.text}</div>
       ) : (
@@ -697,6 +701,7 @@ export function FaithfulPageRenderer({
             siblingCells={siblingCells}
             native={native}
             pageNumber={pageNumber}
+            sightWords={ordered.find((r) => r.regionType === "sentence-line")?.text?.toLocaleLowerCase("es").split(/\s+/).filter(Boolean)}
           />
           </GretelActivity>
         );
