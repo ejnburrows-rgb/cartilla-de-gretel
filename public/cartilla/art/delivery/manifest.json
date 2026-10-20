@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-10-09T21:31:20.782Z",
+  "generatedAt": "2026-10-20T14:47:26.657Z",
   "sourceManifest": "/cartilla/art/faithful/manifest.json",
   "canonicalPolicy": "Canonical faithful WebP files remain untouched. Delivery derivatives are disposable build output.",
   "counts": {
@@ -10,11 +10,11 @@
     "unavailableManifestAssets": 0,
     "wiredQaPass": 96,
     "backgroundCleaned": 99,
-    "paddingTrimmed": 104,
-    "edgeTouchWarnings": 9,
+    "paddingTrimmed": 105,
+    "edgeTouchWarnings": 8,
     "duplicateContentGroups": 0,
     "errors": 0,
-    "warnings": 24,
+    "warnings": 23,
     "flipchartCanonicalMasters": 62,
     "flipchartNativeBoards": 62,
     "flipchartNativeCrops": 167
@@ -25,7 +25,6 @@
     "/cartilla/art/faithful/leccion-1/globo.webp: visible content touches canonical crop edge; source recrop may be required",
     "/cartilla/art/faithful/vocal-a/abeja.webp: visible content touches canonical crop edge; source recrop may be required",
     "/cartilla/art/faithful/vocal-o/oruga.webp: visible content touches canonical crop edge; source recrop may be required",
-    "/cartilla/art/faithful/vocal-a/aguja.webp: visible content touches canonical crop edge; source recrop may be required",
     "/cartilla/art/faithful/vocal-i/iglu.webp: visible content touches canonical crop edge; source recrop may be required",
     "/cartilla/art/faithful/vocal-a/alas.webp: suspiciously small cropBox 29x38",
     "/cartilla/art/faithful/vocal-a/arana.webp: suspiciously small cropBox 105x9",
@@ -354,12 +353,12 @@
       "sourceAsset": "public/cartilla/art/restored/workbook/page-009.png",
       "canonicalSrc": "/cartilla/art/faithful/vocal-a/aguja.webp",
       "canonical": {
-        "width": 413,
-        "height": 495,
-        "bytes": 20268,
+        "width": 1254,
+        "height": 1254,
+        "bytes": 78456,
         "format": "webp",
         "hasAlpha": false,
-        "sha256": "c2058129634833972b306a23ac423bbd42bb925ea181f2d6c5cdbe67c2bac0ac"
+        "sha256": "7b0088d07a6e47feba046445aa70ac8f9f1d9d8b324c0790a4eb8d709000f324"
       },
       "cropBox": [
         1350,
@@ -370,31 +369,31 @@
       "provenanceStatus": "VERIFIED-EXACT-WORKBOOK-CROP-2026-08-08",
       "cleanup": {
         "backgroundRemoved": true,
-        "removedPixels": 167423,
+        "removedPixels": 1270414,
         "estimatedBackground": {
           "color": {
-            "r": 255,
-            "g": 255,
-            "b": 255
+            "r": 254,
+            "g": 254,
+            "b": 254
           },
-          "agreement": 0.739514348785872,
+          "agreement": 1,
           "paperLike": true
         },
-        "transparentPaddingTrimmed": false,
-        "normalizedWidth": 413,
-        "normalizedHeight": 495,
+        "transparentPaddingTrimmed": true,
+        "normalizedWidth": 1196,
+        "normalizedHeight": 1094,
         "contentBounds": {
-          "x": 0,
-          "y": 6,
-          "width": 413,
-          "height": 489,
-          "opaquePixels": 37012
+          "x": 63,
+          "y": 106,
+          "width": 1176,
+          "height": 1074,
+          "opaquePixels": 302102
         },
         "touchesCropEdge": {
-          "left": true,
+          "left": false,
           "top": false,
-          "right": true,
-          "bottom": true
+          "right": false,
+          "bottom": false
         },
         "interiorTransparentPixels": 0
       },
@@ -403,20 +402,18 @@
           "widthTier": 384,
           "path": "/cartilla/art/delivery/faithful/384/vocal-a/aguja.webp",
           "width": 384,
-          "height": 460,
-          "bytes": 24518
+          "height": 351,
+          "bytes": 22406
         },
         {
           "widthTier": 768,
           "path": "/cartilla/art/delivery/faithful/768/vocal-a/aguja.webp",
-          "width": 413,
-          "height": 495,
-          "bytes": 21228
+          "width": 768,
+          "height": 703,
+          "bytes": 52568
         }
       ],
-      "warnings": [
-        "visible content touches canonical crop edge; source recrop may be required"
-      ],
+      "warnings": [],
       "errors": []
     },
     {
@@ -3288,16 +3285,16 @@
       "canonical": {
         "width": 870,
         "height": 852,
-        "bytes": 67248,
+        "bytes": 73130,
         "format": "webp",
         "hasAlpha": true,
-        "sha256": "1021c8c3842f5f9078faf756663113c12da061934a199e15317b5a6e9a119972"
+        "sha256": "618a7788ed59c3c5452b7d144114bb445d17196d1ff24deb086fa8229379a7d9"
       },
       "cropBox": null,
       "provenanceStatus": "PROVENANCE-UNKNOWN",
       "cleanup": {
         "backgroundRemoved": true,
-        "removedPixels": 1774,
+        "removedPixels": 4694,
         "estimatedBackground": {
           "color": {
             "r": 255,
@@ -3308,14 +3305,14 @@
           "paperLike": false
         },
         "transparentPaddingTrimmed": true,
-        "normalizedWidth": 840,
-        "normalizedHeight": 822,
+        "normalizedWidth": 683,
+        "normalizedHeight": 775,
         "contentBounds": {
-          "x": 25,
-          "y": 25,
-          "width": 820,
-          "height": 802,
-          "opaquePixels": 504828
+          "x": 129,
+          "y": 40,
+          "width": 663,
+          "height": 755,
+          "opaquePixels": 365750
         },
         "touchesCropEdge": {
           "left": false,
@@ -3323,22 +3320,22 @@
           "right": false,
           "bottom": false
         },
-        "interiorTransparentPixels": 0
+        "interiorTransparentPixels": 3
       },
       "derivatives": [
         {
           "widthTier": 384,
           "path": "/cartilla/art/delivery/faithful/384/leccion-1/manzana.webp",
           "width": 384,
-          "height": 376,
-          "bytes": 22424
+          "height": 436,
+          "bytes": 23664
         },
         {
           "widthTier": 768,
           "path": "/cartilla/art/delivery/faithful/768/leccion-1/manzana.webp",
-          "width": 768,
-          "height": 752,
-          "bytes": 56404
+          "width": 683,
+          "height": 775,
+          "bytes": 53540
         }
       ],
       "warnings": [],
@@ -8207,7 +8204,7 @@
         "src": "/cartilla/art/optimized/flipchart-native/p003-scene.png",
         "width": 539,
         "height": 539,
-        "bytes": 177783,
+        "bytes": 322834,
         "approvedInput": true
       },
       {
