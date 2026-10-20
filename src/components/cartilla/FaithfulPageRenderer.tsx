@@ -1,4 +1,5 @@
 import "@/styles/native-lesson.css";
+import "@/styles/workbook-lane-c.css";
 import { Lesson16GardenText } from "./lesson16/Lesson16Text";
 import type { ReactNode } from "react";
 import { GretelActivity } from "@/components/gretel/GretelActivity";
@@ -661,6 +662,7 @@ export function FaithfulPageRenderer({
 
       className={[
         letterReadingPage ? "fp-native-letter-page" : "",
+        native && pageNumber >= 67 && pageNumber <= 90 ? "fp-lane-c" : "",
         pageNumber === 17 ? "faithful-page--archetype4-p17" : "",
         ...archetypeClasses,
       ].filter(Boolean).join(" ") || undefined}

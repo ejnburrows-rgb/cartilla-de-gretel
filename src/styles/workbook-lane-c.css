@@ -1,0 +1,276 @@
+/* Lane C: the source book's text-only pages 67–90. Reuses the real activity
+ * hosts, pencil, eraser and cream paper; no parallel exercise implementation. */
+.lc-lesson-shell--fit .native-lesson-viewer__content .fp-lane-c .faithful-page__body {
+  gap: calc(var(--ph) * 0.018);
+}
+/* Reading: three vocabulary columns, two full syllable strips, one story.
+ * Source line breaks are reading lines, not separate bordered quiz cards. */
+.lc-lesson-shell--fit
+  .native-lesson-viewer__content
+  .fp-lane-c.fp-native-letter-page
+  .faithful-page__body {
+  align-content: start;
+  grid-template-rows: auto auto auto auto auto;
+}
+.lc-lesson-shell--fit .native-lesson-viewer__content .fp-lane-c .fp-native-syllables {
+  grid-template-columns: repeat(5, minmax(0, 1fr));
+  padding: 5px 8px;
+  border-radius: 10px;
+}
+.lc-lesson-shell--fit
+  .native-lesson-viewer__content
+  .fp-lane-c
+  .fp-native-syllables:not(:has(span:nth-child(4))) {
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+}
+.lc-lesson-shell--fit .native-lesson-viewer__content .fp-lane-c .fp-native-syllables span {
+  border: 0;
+  border-radius: 0;
+  background: transparent;
+  box-shadow: none;
+  min-width: 0;
+  padding: 2px 0;
+}
+.lc-lesson-shell--fit .native-lesson-viewer__content .fp-lane-c .fp-native-vocab {
+  gap: 6px 10px;
+}
+.lc-lesson-shell--fit
+  .native-lesson-viewer__content
+  .fp-lane-c.fp-native-letter-page
+  .fp-native-vocab
+  span {
+  display: block;
+  min-height: 0;
+  border: 0;
+  border-radius: 0;
+  background: transparent;
+  box-shadow: none;
+  padding: 0;
+  font-size: clamp(15px, 2.7cqw, 27px);
+  line-height: 1.45;
+  font-weight: 400;
+  overflow-wrap: normal;
+}
+.lc-lesson-shell--fit .native-lesson-viewer__content .fp-lane-c .fp-native-sight-word {
+  width: 100%;
+  min-height: 20px;
+  margin: 0;
+  padding: 2px 8px;
+  border: 1px solid #79b8aa;
+  border-radius: 0;
+  background: #edf6ee;
+  color: #253a34;
+  font-size: clamp(16px, 2.8cqw, 28px);
+}
+.lc-lesson-shell--fit .native-lesson-viewer__content .fp-lane-c .fp-region--reading-sentences {
+  display: block;
+  padding: 0;
+  border: 0;
+  border-radius: 0;
+  background: transparent;
+  font-size: clamp(15px, 2.6cqw, 27px);
+  line-height: 1.5;
+  font-weight: 400;
+}
+.lc-lesson-shell--fit .native-lesson-viewer__content .fp-lane-c .fp-region--reading-sentences p {
+  display: inline;
+  border: 0;
+  padding: 0;
+}
+.lc-lesson-shell--fit
+  .native-lesson-viewer__content
+  .fp-lane-c
+  .fp-region--reading-sentences
+  p:not(:last-child)::after {
+  content: " ";
+}
+/* Keep the source two-by-three completion grid at phone size too. */
+.lc-lesson-shell--fit .native-lesson-viewer__content .fp-lane-c .fp-ix-fill--book-grid {
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 12px 6px;
+}
+.lc-lesson-shell--fit
+  .native-lesson-viewer__content
+  .fp-lane-c
+  .fp-ix-fill--book-grid
+  .fp-ix-fill__item {
+  border: 0;
+  border-radius: 0;
+  background: transparent;
+  padding: 4px 0 8px;
+  border-bottom: 1px solid #79b8aa;
+  gap: 12px;
+}
+.lc-lesson-shell--fit .native-lesson-viewer__content .fp-lane-c .fp-ix-fill__wordbox,
+.lc-lesson-shell--fit .native-lesson-viewer__content .fp-lane-c .fp-ix-fill__blank {
+  font-size: clamp(13px, 2.3cqw, 24px);
+  white-space: nowrap;
+  overflow-wrap: normal;
+}
+.lc-lesson-shell--fit .native-lesson-viewer__content .fp-lane-c .fp-ix-fill__wordbox {
+  border: 1px solid #79b8aa;
+  border-radius: 0;
+  padding: 3px 5px;
+  background: transparent;
+}
+.lc-lesson-shell--fit .native-lesson-viewer__content .fp-lane-c .fp-ix-fill__choice {
+  min-width: 30px;
+  min-height: 44px;
+  padding: 2px 3px;
+  font-size: clamp(14px, 2.3cqw, 22px);
+}
+/* Cream treatment reused from the existing cream-paper draft (#1005),
+ * restricted to this lane rather than changing other lessons. */
+.lc-lesson-shell--fit .native-lesson-viewer__content .fp-lane-c {
+  --lc-teal: #167a72;
+  background: radial-gradient(120% 90% at 16% 8%, #ffffff8c, transparent 55%), #faf2df;
+  border: 1px solid #167a7247;
+}
+.fp-lane-c .faithful-page__sidebar {
+  width: 4.5%;
+  min-width: 20px;
+}
+/* Word locations stay book-faithful; these are the existing tappable words,
+ * NOT a replacement quiz. The unmodified pencil/eraser paints the syllable. */
+.lc-lesson-shell--fit .native-lesson-viewer__content .fp-lane-c .native-syllable {
+  grid-template-columns: 32px minmax(0, 1fr);
+  gap: 0 8px;
+}
+.lc-lesson-shell--fit .native-lesson-viewer__content .fp-lane-c .native-syllable h2 {
+  border: 0;
+  border-radius: 0;
+  box-shadow: none;
+  background: transparent;
+  font-size: clamp(22px, 3.5cqw, 38px);
+}
+.lc-lesson-shell--fit .native-lesson-viewer__content .fp-lane-c .native-syllable__words {
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 0 4px;
+  grid-auto-rows: minmax(44px, 1fr);
+}
+.lc-lesson-shell--fit .native-lesson-viewer__content .fp-lane-c .native-syllable__word {
+  border: 0 !important;
+  border-radius: 0;
+  background: transparent !important;
+  box-shadow: none;
+  font-size: clamp(14px, 2.2cqw, 26px);
+  letter-spacing: 0;
+  padding: 0;
+  transform: none;
+}
+.lc-lesson-shell--fit .native-lesson-viewer__content .fp-lane-c .native-syllable__letter {
+  min-width: 0;
+}
+.lc-lesson-shell--fit .native-lesson-viewer__content .fp-lane-c .native-syllable > p {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip-path: inset(50%);
+  white-space: nowrap;
+}
+/* The physical G page has THREE rows of TWO, and p88's zi has two of two. */
+.lc-lesson-shell--fit
+  .native-lesson-viewer__content
+  .fp-lane-c
+  [data-gretel-activity^="page-68-"]
+  .native-syllable__words,
+.lc-lesson-shell--fit
+  .native-lesson-viewer__content
+  .fp-lane-c
+  [data-gretel-activity="page-88-p88-zi"]
+  .native-syllable__words {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+.lc-lesson-shell--fit .native-lesson-viewer__content .fp-lane-c .fp-writing-response textarea {
+  border: 1px solid #79b8aa;
+  border-radius: 0;
+  background: repeating-linear-gradient(#fffaf0, #fffaf0 35px, #b7d4cd 36px);
+}
+.lc-lesson-shell--fit .native-lesson-viewer__content .fp-lane-c .fp-trace__svg,
+.lc-lesson-shell--fit .native-lesson-viewer__content .fp-lane-c .am-dibuja__paper {
+  background-color: #fffaf0;
+  border: 1px solid #79b8aa;
+  border-radius: 2px;
+}
+/* Do not inherit a consonant catalog's pink/blue reading-card theme. */
+.lc-lesson-shell--fit
+  .native-lesson-viewer__content
+  .fp-lane-c.fp-native-letter-page
+  .fp-native-title {
+  color: #167a72;
+  border: 1px solid #79b8aa;
+  background: radial-gradient(ellipse, #fffaf0 35%, #d6eee6 85%);
+}
+.lc-lesson-shell--fit
+  .native-lesson-viewer__content
+  .fp-lane-c.fp-native-letter-page
+  .fp-native-syllables {
+  color: #167a72;
+  background: #e4f1e8;
+  border-color: #79b8aa;
+}
+.lc-lesson-shell--fit
+  .native-lesson-viewer__content
+  .fp-lane-c.fp-native-letter-page
+  .fp-native-syllables
+  span {
+  color: #167a72;
+}
+.lc-lesson-shell--fit
+  .native-lesson-viewer__content
+  .fp-lane-c.fp-native-letter-page
+  .fp-region--reading-sentences {
+  color: #302e28;
+}
+/* The source has no duplicate model below the writing area. Keep the
+ * existing freehand host and saved ink; position its one printed model
+ * on the original handwriting line, not after its tools. */
+.lc-lesson-shell--fit .native-lesson-viewer__content .fp-lane-c .fp-writing-line--freehand {
+  position: relative;
+}
+.lc-lesson-shell--fit .native-lesson-viewer__content .fp-lane-c .fp-writing-line__model {
+  position: absolute;
+  top: 25px;
+  left: 8px;
+  z-index: 1;
+  pointer-events: none;
+  font:
+    48px/1 Georgia,
+    serif;
+  color: #253a34;
+}
+.lc-lesson-shell--fit
+  .native-lesson-viewer__content
+  .fp-lane-c
+  .fp-writing-line--freehand
+  .am-dibuja__hint {
+  display: none;
+}
+.lc-lesson-shell--fit .native-lesson-viewer__content .fp-lane-c .fp-writing-line .am-dibuja__paper {
+  background: repeating-linear-gradient(#fffaf0, #fffaf0 35px, #b7d4cd 36px);
+}
+.lc-lesson-shell--fit .native-lesson-viewer__content .fp-lane-c .am-dibuja__toolbar {
+  gap: 4px;
+}
+.lc-lesson-shell--fit .native-lesson-viewer__content .fp-lane-c .am-dibuja__swatches {
+  gap: 4px;
+  flex-wrap: nowrap;
+}
+.lc-lesson-shell--fit .native-lesson-viewer__content .fp-lane-c .am-dibuja__swatch {
+  width: 44px;
+  height: 44px;
+  min-width: 44px;
+  min-height: 44px;
+}
+@media (max-width: 600px) {
+  .lc-lesson-shell--fit .native-lesson-viewer__content .fp-lane-c .am-dibuja__toolbar {
+    zoom: 1;
+  }
+}
+/* The old per-letter padding is not a hit target (the whole word is).
+ * It made azucarado exceed its third source column at 390px. */
+.lc-lesson-shell--fit .native-lesson-viewer__content .fp-lane-c .native-syllable__letter {
+  padding: 0;
+  min-height: 0;
+}
