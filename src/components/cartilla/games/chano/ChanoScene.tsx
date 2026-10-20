@@ -15,6 +15,7 @@ import { recordEvent } from "@/lib/student-session";
 import { audioEngine } from "@/lib/audio-engine";
 import { ART, BALLS, BOARD, CHANO, PANEL, SCENE_H, SCENE_W, SLOTS, SPEAKER } from "./layout";
 import { CHANO_WORDS, sameSyllable } from "./words";
+import { JUGGLE_BALLS, frameAt } from "./juggle";
 import "./chano.css";
 
 type Mark = "ok" | "bad" | null;
@@ -67,6 +68,63 @@ export function ChanoScene({ content }: { content: GameContent }) {
   const suppressClick = useRef(false);
   const clearTimer = useRef<number | null>(null);
   const word = CHANO_WORDS[index];
+
+  // Chano juggles his own five painted balls on one clock (see juggle.ts). Transforms are
+  // written straight to the elements every frame; React state is never touched per frame.
+  // Reduced motion: no clock at all, so everything stays in the original painted position.
+  const breatheRef = useRef<HTMLDivElement>(null);
+  const armLeftRef = useRef<HTMLImageElement>(null);
+  const armRightRef = useRef<HTMLImageElement>(null);
+  const juggleRefs = useRef<(HTMLImageElement | null)[]>([]);
+  useEffect(() => {
+    if (typeof window === "undefined") return;
+    const mq = window.matchMedia?.("(prefers-reduced-motion: reduce)");
+    let raf = 0;
+    let t0 = 0;
+    const clear = () => {
+      if (breatheRef.current) breatheRef.current.style.transform = "";
+      if (armLeftRef.current) armLeftRef.current.style.transform = "";
+      if (armRightRef.current) armRightRef.current.style.transform = "";
+      juggleRefs.current.forEach((el) => el && (el.style.transform = ""));
+    };
+    const tick = (now: number) => {
+      if (!t0) t0 = now;
+      const t = now - t0;
+      const f = frameAt(t);
+      // Ease in from the painted pose over the first beat so nothing jumps on load.
+      const k = Math.min(1, t / 700);
+      const blend = k * k * (3 - 2 * k);
+      f.balls.forEach((b, i) => {
+        const el = juggleRefs.current[i];
+        const home = JUGGLE_BALLS[i];
+        if (!el) return;
+        const dx = (b.x - home.cx) * blend;
+        const dy = (b.y - home.cy) * blend;
+        el.style.transform = `translate3d(${dx.toFixed(2)}px, ${dy.toFixed(2)}px, 0)`;
+      });
+      if (armLeftRef.current)
+        armLeftRef.current.style.transform = `rotate(${(f.leftArmDeg * blend).toFixed(3)}deg)`;
+      if (armRightRef.current)
+        armRightRef.current.style.transform = `rotate(${(f.rightArmDeg * blend).toFixed(3)}deg)`;
+      if (breatheRef.current) {
+        const s = f.breath * blend;
+        breatheRef.current.style.transform = `scale(${(1 + 0.006 * s).toFixed(5)}, ${(1 + 0.012 * s).toFixed(5)})`;
+      }
+      raf = requestAnimationFrame(tick);
+    };
+    const start = () => {
+      cancelAnimationFrame(raf);
+      t0 = 0;
+      clear();
+      if (!mq?.matches) raf = requestAnimationFrame(tick);
+    };
+    start();
+    mq?.addEventListener?.("change", start);
+    return () => {
+      cancelAnimationFrame(raf);
+      mq?.removeEventListener?.("change", start);
+    };
+  }, []);
 
   // Fit the whole scene (no cropping) into the screen, leaving room for the buttons below.
   const rootRef = useRef<HTMLElement>(null);
@@ -244,7 +302,7 @@ export function ChanoScene({ content }: { content: GameContent }) {
           >
             <img
               className="chano-bg"
-              src={`${ART}/scene.svg`}
+              src={`${ART}/scene-juggle-bg.svg`}
               alt=""
               draggable={false}
               width={SCENE_W}
@@ -253,11 +311,13 @@ export function ChanoScene({ content }: { content: GameContent }) {
 
             <div
               className="chano-breathe"
+              ref={breatheRef}
               aria-hidden
               style={{ transformOrigin: `${CHANO.breatheOrigin.x}px ${CHANO.breatheOrigin.y}px` }}
             >
               <img
                 className="chano-arm chano-arm-left"
+                ref={armLeftRef}
                 src={`${ART}/chano-arm-left.svg`}
                 alt=""
                 draggable={false}
@@ -268,6 +328,7 @@ export function ChanoScene({ content }: { content: GameContent }) {
               />
               <img
                 className="chano-arm chano-arm-right"
+                ref={armRightRef}
                 src={`${ART}/chano-arm-right.svg`}
                 alt=""
                 draggable={false}
@@ -283,6 +344,20 @@ export function ChanoScene({ content }: { content: GameContent }) {
                 draggable={false}
                 style={px(CHANO.body)}
               />
+              {JUGGLE_BALLS.map((b, i) => (
+                <img
+                  key={b.syllable}
+                  ref={(el) => {
+                    juggleRefs.current[i] = el;
+                  }}
+                  className="chano-juggle-ball"
+                  data-testid={`chano-juggle-ball-${b.syllable}`}
+                  src={`${ART}/juggle-ball-${b.syllable}.svg`}
+                  alt=""
+                  draggable={false}
+                  style={{ left: b.x, top: b.y, width: b.w, height: b.h }}
+                />
+              ))}
             </div>
 
             <section className="chano-panel" aria-label="Instrucciones del juego" style={px(PANEL)}>
