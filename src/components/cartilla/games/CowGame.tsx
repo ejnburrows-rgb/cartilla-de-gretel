@@ -14,9 +14,7 @@ import { COW_SYLLABLE_AUDIO } from "@/content/games/cow-game-audio-gaps";
  */
 
 const ART = "/cartilla/art/games/cow/";
-// Replace null with the approved transparent open-eyed cow asset URL.
-// The replacement uses the same canvas, mouth anchor and animation wrapper.
-const COW_SPRITE: string | null = null;
+// The owner-supplied drawing is cut into transparent overlapping animation layers.
 type Box = { x: number; y: number; w: number; h: number };
 
 type Layout = {
@@ -117,7 +115,8 @@ type Phase = "walk" | "lean" | "drop" | "wrong" | "back";
 function fieldSpot(slot: number, cow: number): Box {
   const b = L.slots[slot];
   const h = L.home[cow];
-  const rawX = b.x + b.w / 2 - h.w * 0.28;
+  const mouthX = b.x + b.w / 2 < h.x + h.w / 2 ? 0.34 : 0.66;
+  const rawX = b.x + b.w / 2 - h.w * mouthX;
   const x = Math.min(Math.max(rawX, 2), L.W - h.w - 2);
   return { x, y: L.fieldFloor - h.h, w: h.w, h: h.h };
 }
@@ -154,18 +153,6 @@ function Cow({
   cheer: boolean;
   leaning: boolean;
 }) {
-  const parts = [
-    "leg-a",
-    "leg-c",
-    "body",
-    "leg-b",
-    "leg-d",
-    "tail",
-    "ear-l",
-    "ear-r",
-    "head",
-    "tongue",
-  ];
   return (
     <button
       type="button"
@@ -186,35 +173,10 @@ function Cow({
     >
       <span className="cg-bob">
         <span className="cg-sprite" style={{ transform: `scaleX(${flip})` }}>
-          {COW_SPRITE ? (
-            <img src={COW_SPRITE} alt="" draggable={false} className="cg-p cg-whole" />
-          ) : (
-            parts.map((p) => (
-              <img
-                key={p}
-                src={`${ART}${p}.webp`}
-                alt=""
-                draggable={false}
-                className={`cg-p cg-${p}`}
-              />
-            ))
-          )}
-          {!COW_SPRITE && (
-            <>
-              <img
-                src={`${ART}lid-l.webp`}
-                alt=""
-                draggable={false}
-                className="cg-p cg-lid cg-lid-l"
-              />
-              <img
-                src={`${ART}lid-r.webp`}
-                alt=""
-                draggable={false}
-                className="cg-p cg-lid cg-lid-r"
-              />
-            </>
-          )}
+          {['leg-a', 'leg-c', 'body', 'leg-b', 'leg-d', 'head', 'tail'].map((p) => (
+            <img key={p} src={`${ART}open-${p}.png`} alt="" draggable={false} className={`cg-p cg-new cg-${p}`} />
+          ))}
+
         </span>
       </span>
     </button>
@@ -269,6 +231,7 @@ export function CowGame({ content }: { content: GameContent }) {
       setTries((t) => t + 1);
       setMessage("");
 
+      setFlips((f) => f.map((v, i) => i === cow ? (fieldSpot(slot, cow).x < L.home[cow].x ? 1 : -1) : v));
       setActive({ cow, slot, phase: "walk", to: { slot } });
       later(WALK_MS, () => {
         if (right) {
@@ -287,6 +250,7 @@ export function CowGame({ content }: { content: GameContent }) {
               later(1200, () => setMessage(""));
               // The cow walks back to its place; the letters stay in the slot.
 
+              setFlips((f) => f.map((v, i) => i === cow ? (fieldSpot(slot, cow).x < L.home[cow].x ? -1 : 1) : v));
               setActive({ cow, slot, phase: "back", to: { slot } });
               later(WALK_MS, () => {
                 setFlips((f) => f.map((v, i) => (i === cow ? 1 : v)));
@@ -299,7 +263,8 @@ export function CowGame({ content }: { content: GameContent }) {
           setActive({ cow, slot, phase: "wrong", to: { slot } });
           setMessage("Inténtalo otra vez");
           later(900, () => {
-            setActive({ cow, slot, phase: "back", to: { slot } });
+            setFlips((f) => f.map((v, i) => i === cow ? (fieldSpot(slot, cow).x < L.home[cow].x ? -1 : 1) : v));
+              setActive({ cow, slot, phase: "back", to: { slot } });
             later(WALK_MS, () => {
               setFlips((f) => f.map((v, i) => (i === cow ? 1 : v)));
               setActive(null);
@@ -472,8 +437,8 @@ export function CowGame({ content }: { content: GameContent }) {
           const slot = placed[i]?.slot ?? (moving ? active.slot : 0);
           const box = moving && active.phase !== "back" ? fieldSpot(active.slot, i) : spots[i];
           const slotBox = L.slots[slot];
-          const x = isDropped ? slotBox.x + slotBox.w / 2 : box.x + box.w * 0.28;
-          const y = isDropped ? slotBox.y + slotBox.h * 0.52 : box.y + box.h * 0.51;
+          const x = isDropped ? slotBox.x + slotBox.w / 2 : box.x + box.w * (flips[i] === 1 ? 0.34 : 0.66);
+          const y = isDropped ? slotBox.y + slotBox.h * 0.52 : box.y + box.h * 0.48;
           return (
             <span
               key={i}
@@ -548,7 +513,7 @@ const CSS = `
 .cg-sprite{transform-origin:50% 90%}
 .cg-p{position:absolute;inset:0;width:100%;height:100%;object-fit:fill;pointer-events:none}
 .cg-card{position:absolute;z-index:65;display:flex;align-items:center;justify-content:center;box-sizing:border-box;border:.3cqw solid #74401d;border-radius:.8cqw;background:#fff4d6;color:#3a1a0e;font:900 3.1cqw/1 ui-rounded,system-ui,sans-serif;transform:translate(-50%,-10%);pointer-events:none;transition-property:left,top}
-.cg-lean .cg-head{animation:none;transform:rotate(-12deg);transition:transform .5s}
+.cg-lean .cg-head{animation:none;transform:rotate(-5deg);transition:transform .5s}
 .cg-label{position:absolute;left:52%;top:58%;font:900 19cqw/1 "Fredoka",ui-rounded,system-ui,sans-serif;color:#3a1a0e;padding:4cqw 7cqw;background:radial-gradient(ellipse,rgba(255,244,214,.95) 55%,rgba(255,244,214,0) 72%);pointer-events:none;z-index:5}
 .cg-selected{filter:drop-shadow(0 0 1.6cqw #fff3a0) drop-shadow(0 0 .8cqw #ffd54a)}
 .cg-selected{outline:2px solid #ffe27a}
@@ -605,6 +570,25 @@ const CSS = `
 @keyframes cg-hop{0%,100%{transform:translateY(0)}50%{transform:translateY(-6%)}}
 @keyframes cg-shake{0%,100%{transform:translateX(0)}25%{transform:translateX(-3%)}75%{transform:translateX(3%)}}
 @keyframes cg-pulse{0%,100%{box-shadow:0 0 2.5cqw 1cqw rgba(255,226,122,.85)}50%{box-shadow:0 0 3.5cqw 1.6cqw rgba(255,226,122,.5)}}
+
+/* Source-aligned pivots. All pixels are from the supplied open-eyed drawing. */
+.cg-new.cg-head{transform-origin:34% 49%}
+.cg-new.cg-tail{transform-origin:86% 41%}
+.cg-new.cg-leg-a{transform-origin:28% 72%}
+.cg-new.cg-leg-b{transform-origin:44% 72%}
+.cg-new.cg-leg-c{transform-origin:60% 74%}
+.cg-new.cg-leg-d{transform-origin:72% 70%}
+.cg-idle .cg-new.cg-head{animation:cg-new-look 4s ease-in-out infinite;animation-delay:var(--cg-delay)}
+.cg-idle .cg-new.cg-tail{animation:cg-new-tail 2.8s ease-in-out infinite;animation-delay:var(--cg-delay)}
+.cg-walking .cg-new.cg-tail{animation:cg-new-tail .68s ease-in-out infinite}
+.cg-walking .cg-new.cg-head{animation:cg-new-nod .68s ease-in-out infinite}
+.cg-walking .cg-new.cg-leg-a,.cg-walking .cg-new.cg-leg-d{animation:cg-new-step .68s ease-in-out infinite}
+.cg-walking .cg-new.cg-leg-b,.cg-walking .cg-new.cg-leg-c{animation:cg-new-step .68s ease-in-out infinite;animation-delay:-.34s}
+.cg-lean .cg-new.cg-head{animation:none;transform:rotate(-4deg)}
+@keyframes cg-new-step{0%,100%{transform:rotate(-3deg)}25%{transform:rotate(0) translateY(-.7%)}50%{transform:rotate(3deg)}75%{transform:rotate(0)}}
+@keyframes cg-new-look{0%,100%{transform:rotate(-.65deg)}50%{transform:rotate(.65deg)}}
+@keyframes cg-new-nod{0%,100%{transform:rotate(-1deg)}50%{transform:rotate(1deg)}}
+@keyframes cg-new-tail{0%,100%{transform:rotate(-2deg)}50%{transform:rotate(2deg)}}
 .cg-msg{position:absolute;left:50%;top:90%;transform:translateX(-50%);z-index:110;font:900 3.4cqw/1.1 "Fredoka",ui-rounded,system-ui,sans-serif;color:#fff;text-shadow:0 .3cqw .6cqw rgba(60,30,10,.7),0 0 1cqw rgba(60,30,10,.5);pointer-events:none;white-space:nowrap}
 .cg-done{position:absolute;inset:0;z-index:130;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:2cqw;background:rgba(255,255,255,.35);backdrop-filter:blur(2px)}
 .cg-done p{font:900 8cqw/1 "Fredoka",ui-rounded,system-ui,sans-serif;color:#2c7a1e;text-shadow:0 .4cqw 0 #fff}
