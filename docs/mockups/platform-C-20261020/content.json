@@ -1,0 +1,254 @@
+{
+  "69": {
+    "regions": [
+      {
+        "id": "p69-title",
+        "regionType": "title",
+        "order": 0,
+        "fontRole": "heading",
+        "text": "Gg"
+      },
+      {
+        "id": "p69-syl1",
+        "regionType": "syllable-bubble",
+        "order": 1,
+        "fontRole": "body",
+        "text": "ga  go  gu"
+      },
+      {
+        "id": "p69-syl2",
+        "regionType": "syllable-bubble",
+        "order": 2,
+        "fontRole": "body",
+        "text": "gu  go  ga"
+      },
+      {
+        "id": "p69-words",
+        "regionType": "vocab-grid",
+        "order": 3,
+        "fontRole": "body",
+        "text": "gato · Gustavo · gotero · goma · mago · laguna · Magali · lago · golosina · ganas · agua · gorra · gusta · gusano · góndola",
+        "columns": 3
+      },
+      {
+        "id": "p69-sight",
+        "regionType": "sentence-line",
+        "order": 4,
+        "fontRole": "body",
+        "text": ""
+      },
+      {
+        "id": "p69-story",
+        "regionType": "reading-sentences",
+        "order": 5,
+        "fontRole": "body",
+        "sentences": [
+          "El gato de Magali bebe agua en el lago.",
+          "Magali le pone una gorra a su gato Goloso.",
+          "Goloso ve a Musulunga, la gata gordita.",
+          "Magali y Gustavo van al lago. En el lago",
+          "ven el agua. A Magali le gusta el agua.",
+          "Goloso y Musulunga van a la laguna.",
+          "Goloso le regala un gusanito rosadito a",
+          "Musulunga."
+        ]
+      }
+    ]
+  },
+  "72": {
+    "regions": [
+      {
+        "id": "p72-instr",
+        "regionType": "instruction",
+        "order": 0,
+        "fontRole": "body",
+        "text": "Encierra en un círculo la sílaba correspondiente."
+      },
+      {
+        "id": "p72-fa",
+        "regionType": "syllable-match",
+        "order": 1,
+        "fontRole": "body",
+        "syllable": "fa",
+        "matchRows": [
+          [
+            {
+              "word": "fama",
+              "correct": true
+            },
+            {
+              "word": "familia",
+              "correct": true
+            },
+            {
+              "word": "faro",
+              "correct": true
+            }
+          ],
+          [
+            {
+              "word": "famoso",
+              "correct": true
+            },
+            {
+              "word": "fatiga",
+              "correct": true
+            },
+            {
+              "word": "afanado",
+              "correct": true
+            }
+          ]
+        ]
+      },
+      {
+        "id": "p72-fe",
+        "regionType": "syllable-match",
+        "order": 2,
+        "fontRole": "body",
+        "syllable": "fe",
+        "matchRows": [
+          [
+            {
+              "word": "feo",
+              "correct": true
+            },
+            {
+              "word": "fecha",
+              "correct": true
+            },
+            {
+              "word": "Felo",
+              "correct": true
+            }
+          ],
+          [
+            {
+              "word": "feliz",
+              "correct": true
+            },
+            {
+              "word": "felino",
+              "correct": true
+            },
+            {
+              "word": "Felicia",
+              "correct": true
+            }
+          ]
+        ]
+      },
+      {
+        "id": "p72-fi",
+        "regionType": "syllable-match",
+        "order": 3,
+        "fontRole": "body",
+        "syllable": "fi",
+        "matchRows": [
+          [
+            {
+              "word": "fila",
+              "correct": true
+            },
+            {
+              "word": "filo",
+              "correct": true
+            },
+            {
+              "word": "afinado",
+              "correct": true
+            }
+          ],
+          [
+            {
+              "word": "afina",
+              "correct": true
+            },
+            {
+              "word": "fino",
+              "correct": true
+            },
+            {
+              "word": "afilar",
+              "correct": true
+            }
+          ]
+        ]
+      },
+      {
+        "id": "p72-fo",
+        "regionType": "syllable-match",
+        "order": 4,
+        "fontRole": "body",
+        "syllable": "fo",
+        "matchRows": [
+          [
+            {
+              "word": "foto",
+              "correct": true
+            },
+            {
+              "word": "sofoca",
+              "correct": true
+            },
+            {
+              "word": "fosa",
+              "correct": true
+            }
+          ],
+          [
+            {
+              "word": "foso",
+              "correct": true
+            },
+            {
+              "word": "teléfono",
+              "correct": true
+            },
+            {
+              "word": "foca",
+              "correct": true
+            }
+          ]
+        ]
+      },
+      {
+        "id": "p72-fu",
+        "regionType": "syllable-match",
+        "order": 5,
+        "fontRole": "body",
+        "syllable": "fu",
+        "matchRows": [
+          [
+            {
+              "word": "furia",
+              "correct": true
+            },
+            {
+              "word": "funda",
+              "correct": true
+            },
+            {
+              "word": "futuro",
+              "correct": true
+            }
+          ],
+          [
+            {
+              "word": "furor",
+              "correct": true
+            },
+            {
+              "word": "perfume",
+              "correct": true
+            },
+            {
+              "word": "fuga",
+              "correct": true
+            }
+          ]
+        ]
+      }
+    ]
+  }
+}

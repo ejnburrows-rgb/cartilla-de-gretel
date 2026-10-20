@@ -1,0 +1,149 @@
+{
+  "metrics": [
+    {
+      "o": 1,
+      "p": 69,
+      "width": 1440,
+      "height": 900,
+      "scrollWidth": 1440,
+      "scrollHeight": 900,
+      "storyFont": "28px"
+    },
+    {
+      "o": 1,
+      "p": 72,
+      "width": 1440,
+      "height": 900,
+      "scrollWidth": 1440,
+      "scrollHeight": 900,
+      "storyFont": null
+    },
+    {
+      "o": 2,
+      "p": 69,
+      "width": 1440,
+      "height": 900,
+      "scrollWidth": 1440,
+      "scrollHeight": 900,
+      "storyFont": "28px"
+    },
+    {
+      "o": 2,
+      "p": 72,
+      "width": 1440,
+      "height": 900,
+      "scrollWidth": 1440,
+      "scrollHeight": 900,
+      "storyFont": null
+    },
+    {
+      "o": 1,
+      "p": 69,
+      "width": 1280,
+      "height": 800,
+      "scrollWidth": 1280,
+      "scrollHeight": 846,
+      "storyFont": "26px"
+    },
+    {
+      "o": 1,
+      "p": 72,
+      "width": 1280,
+      "height": 800,
+      "scrollWidth": 1280,
+      "scrollHeight": 800,
+      "storyFont": null
+    },
+    {
+      "o": 2,
+      "p": 69,
+      "width": 1280,
+      "height": 800,
+      "scrollWidth": 1280,
+      "scrollHeight": 800,
+      "storyFont": "28px"
+    },
+    {
+      "o": 2,
+      "p": 72,
+      "width": 1280,
+      "height": 800,
+      "scrollWidth": 1280,
+      "scrollHeight": 800,
+      "storyFont": null
+    },
+    {
+      "o": 1,
+      "p": 69,
+      "width": 390,
+      "height": 844,
+      "scrollWidth": 390,
+      "scrollHeight": 1333,
+      "storyFont": "23px"
+    },
+    {
+      "o": 1,
+      "p": 72,
+      "width": 390,
+      "height": 844,
+      "scrollWidth": 390,
+      "scrollHeight": 1408,
+      "storyFont": null
+    },
+    {
+      "o": 2,
+      "p": 69,
+      "width": 390,
+      "height": 844,
+      "scrollWidth": 390,
+      "scrollHeight": 1000,
+      "storyFont": "24px"
+    },
+    {
+      "o": 2,
+      "p": 72,
+      "width": 390,
+      "height": 844,
+      "scrollWidth": 390,
+      "scrollHeight": 844,
+      "storyFont": null
+    },
+    {
+      "o": 1,
+      "p": 69,
+      "width": 844,
+      "height": 390,
+      "scrollWidth": 844,
+      "scrollHeight": 931,
+      "storyFont": "24px"
+    },
+    {
+      "o": 1,
+      "p": 72,
+      "width": 844,
+      "height": 390,
+      "scrollWidth": 844,
+      "scrollHeight": 984,
+      "storyFont": null
+    },
+    {
+      "o": 2,
+      "p": 69,
+      "width": 844,
+      "height": 390,
+      "scrollWidth": 844,
+      "scrollHeight": 842,
+      "storyFont": "28px"
+    },
+    {
+      "o": 2,
+      "p": 72,
+      "width": 844,
+      "height": 390,
+      "scrollWidth": 844,
+      "scrollHeight": 755,
+      "storyFont": null
+    }
+  ],
+  "checks": "Tab navigation, selection count, reset, reading tabs and type resize passed. Prototype only, no saved progress or actual audio."
+}
