@@ -1,3 +1,4 @@
+import { playReward } from "@/lib/games/wordAudio";
 import { STICKERS, type Sticker } from "@/lib/rewards";
 import { Sparkles, HelpCircle } from "lucide-react";
 import { feelBus } from "@/lib/feel-bus";
@@ -11,15 +12,7 @@ export function StickerReel({ earnedIds }: StickerReelProps) {
     if (isEarned) {
       feelBus.emit("sparkle");
       // Trigger a speaking voice reading the sticker description
-      if ("speechSynthesis" in window) {
-        const utterance = new SpeechSynthesisUtterance(
-          `¡Pegatina ${sticker.name}! ${sticker.description}`,
-        );
-        utterance.lang = "es-ES";
-        utterance.rate = 1.0;
-        window.speechSynthesis.cancel();
-        window.speechSynthesis.speak(utterance);
-      }
+      playReward(`¡Pegatina ${sticker.name}! ${sticker.description}`);
     } else {
       feelBus.emit("tap");
     }

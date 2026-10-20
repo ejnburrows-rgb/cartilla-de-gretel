@@ -1,4 +1,4 @@
-/** One owner for recorded picture audio, browser speech and Gretel speech. */
+/** One owner for picture, reading and Gretel recording playback. */
 export type SpeechOwner = 'picture' | 'gretel' | 'reading';
 let generation = 0;
 let owner: SpeechOwner | undefined;
@@ -8,7 +8,6 @@ export function stopSpeech(requestedOwner?: SpeechOwner): void {
   generation += 1;
   const finish = cleanup; cleanup = undefined; owner = undefined;
   finish?.();
-  try { if (typeof window !== 'undefined') window.speechSynthesis?.cancel(); } catch { /* unsupported device */ }
 }
 export function claimSpeech(nextOwner: SpeechOwner): number { stopSpeech(); owner = nextOwner; return generation; }
 export function speechIsCurrent(token: number): boolean { return token === generation && owner !== undefined; }

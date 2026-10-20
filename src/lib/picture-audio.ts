@@ -1,11 +1,10 @@
 import { isGretelVoiceMuted } from "./gretel-voice";
-import { AUDIO_POLICY } from '@/content/audio-manifest';
-import { approvedPictureRecording, resolvePictureName, type VerifiedPictureName } from './picture-vocabulary';
+import { approvedPictureRecording, pictureRecordingSlot, resolvePictureName, type VerifiedPictureName } from './picture-vocabulary';
+import { reportRecordedSpeechStatus } from './recorded-speech';
 import { audioEngine } from './audio-engine';
-import { getVoice } from './speak';
 import { claimSpeech, registerSpeechCleanup, releaseSpeech, speechIsCurrent, stopSpeech } from './speech-playback';
 
-export type PictureAudioStatus = 'recorded' | 'tts' | 'missing-recording' | 'muted' | 'unverified' | 'failed' | 'stopped';
+export type PictureAudioStatus = 'recorded' | 'missing-recording' | 'muted' | 'unverified' | 'failed' | 'stopped';
 const STATUS_EVENT = 'cartilla:picture-audio-status';
 function status(value: PictureAudioStatus): PictureAudioStatus {
   if (typeof window !== 'undefined') window.dispatchEvent(new CustomEvent(STATUS_EVENT, { detail: value }));
@@ -13,7 +12,7 @@ function status(value: PictureAudioStatus): PictureAudioStatus {
 }
 function isMuted(): boolean {
   try { return audioEngine.isMuted() || audioEngine.getVolume() <= 0 || isGretelVoiceMuted(); }
-  catch { return false; }
+  catch { return true; }
 }
 export function stopPicturePlayback(): void { stopSpeech('picture'); }
 /** Vocabulary only: no answer, help, grading or progress events. */
@@ -23,7 +22,11 @@ export function playPictureName(entry: VerifiedPictureName): PictureAudioStatus 
   if (!entry.images.some(src => resolvePictureName(src, entry.name)?.key === entry.key)) return status('unverified');
   if (isMuted()) { stopPicturePlayback(); return status('muted'); }
   const recording = approvedPictureRecording(entry.key);
-  if (!recording && !AUDIO_POLICY.allowTts) { stopPicturePlayback(); return status('missing-recording'); }
+  if (!recording) {
+    stopSpeech();
+    reportRecordedSpeechStatus('missing-recording', entry.key, pictureRecordingSlot(entry.key)?.src);
+    return status('missing-recording');
+  }
   const token = claimSpeech('picture');
   if (recording) {
     try {
@@ -32,22 +35,9 @@ export function playPictureName(entry: VerifiedPictureName): PictureAudioStatus 
       const finish = () => { audio.onended = null; audio.onerror = null; audio.pause(); audio.removeAttribute('src'); };
       registerSpeechCleanup(token, finish);
       audio.onended = () => { finish(); releaseSpeech(token); };
-      audio.onerror = () => { if (!speechIsCurrent(token)) return; finish(); releaseSpeech(token); status('failed'); };
+      audio.onerror = () => { if (!speechIsCurrent(token)) return; finish(); releaseSpeech(token); status('missing-recording'); };
       void audio.play().catch((err: any) => { if (!speechIsCurrent(token)) return; if (err?.name === 'AbortError') { releaseSpeech(token); return; } finish(); releaseSpeech(token); status('failed'); });
       return status('recorded');
-    } catch { releaseSpeech(token); return status('failed'); }
-  }
-  // Explicitly obey the active policy. No recording is silently substituted.
-  if (AUDIO_POLICY.allowTts && 'speechSynthesis' in window) {
-    try {
-      const utterance = new SpeechSynthesisUtterance(entry.name);
-      const voice = getVoice();
-      if (voice) utterance.voice = voice;
-      utterance.lang = voice?.lang ?? 'es-MX'; utterance.rate = .94; utterance.pitch = 1; utterance.volume = audioEngine.getVolume();
-      utterance.onend = utterance.onerror = () => releaseSpeech(token);
-      registerSpeechCleanup(token, () => { utterance.onend = null; utterance.onerror = null; });
-      window.speechSynthesis.speak(utterance);
-      return status('tts');
     } catch { releaseSpeech(token); return status('failed'); }
   }
   releaseSpeech(token);
@@ -73,7 +63,7 @@ export function installPictureAudio(): () => void {
     const rawImage = target.closest('img') ?? target.closest('button, [role="button"]')?.querySelector('img');
     if (!picture && rawImage?.closest('[aria-hidden="true"]')) return;
     const entry = picture ? resolvePictureName(picture.dataset.pictureSrc ?? '', picture.dataset.pictureName ?? '') : rawImage ? resolvePictureName(rawImage.getAttribute('src') ?? '', rawImage.getAttribute('alt') ?? '') : null;
-    if (entry) { const result = playPictureName(entry); if (picture) picture.dataset.pictureAudioStatus = result; }
+    if (entry) { const result = playPictureName(entry); if (picture) { picture.dataset.pictureAudioStatus = result; picture.dataset.pictureAudioSrc = pictureRecordingSlot(entry.key)?.src ?? ''; } }
   };
   const cancel = () => { pointer = undefined; stopPicturePlayback(); };
   const page = (event: Event) => { const type = (event as CustomEvent).detail?.type; if (type === 'page-turn:start') cancel(); };

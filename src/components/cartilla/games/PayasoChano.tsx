@@ -18,7 +18,7 @@ import { RotateCcw, Volume2, Umbrella } from "lucide-react";
 import { recordEvent } from "@/lib/student-session";
 import { playWord } from "@/lib/games/wordAudio";
 import { useGameReactions } from "./useGameReactions";
-import { GretelFeedback } from "@/components/cartilla/GretelFeedback";
+import { PickMark, PICK_ERASE_MS } from "./PickMark";
 import type { GameContent } from "@/lib/games/gameContent";
 
 function shuffle<T>(arr: T[]): T[] {
@@ -133,7 +133,10 @@ export function PayasoChano({ content, lessonId, onComplete }: PayasoChanoProps)
   useEffect(() => {
     if (state.checkResult === "wrong") {
       reactions.wrong();
-      const t = setTimeout(() => dispatch({ type: "CLEAR_CHECK" }), 1200);
+      const t = setTimeout(() => {
+        dispatch({ type: "RESET_TILES" });
+        reactions.clear();
+      }, PICK_ERASE_MS);
       return () => clearTimeout(t);
     }
   }, [state.checkResult, reactions]);
@@ -146,7 +149,7 @@ export function PayasoChano({ content, lessonId, onComplete }: PayasoChanoProps)
     if (state.completed && !hasCelebrated.current) {
       hasCelebrated.current = true;
       completedWordsRef.current.add(wordIdx);
-      
+
       recordEvent({
         lessonId: lessonId ?? content.id,
         kind: "exercise",
@@ -154,7 +157,7 @@ export function PayasoChano({ content, lessonId, onComplete }: PayasoChanoProps)
         total: state.attempts,
         meta: { exercise: "payaso_chano", word: word.word, completed: true },
       });
-      
+
       if (completedWordsRef.current.size === content.words.length) {
         if (!globalCelebratedRef.current) {
           globalCelebratedRef.current = true;
@@ -189,13 +192,14 @@ export function PayasoChano({ content, lessonId, onComplete }: PayasoChanoProps)
     });
     setSelectedTray(null);
     reactions.clear();
-    playWord(nextWordData.audioUrl);
+    playWord(nextWordData.audioUrl, nextWordData.word);
   }, [wordIdx, content.words, reactions]);
 
   const check = () => dispatch({ type: "CHECK" });
   const resetTiles = () => {
     setSelectedTray(null);
     dispatch({ type: "RESET_TILES" });
+    reactions.clear();
   };
 
   const onTrayKeyDown = (e: React.KeyboardEvent, trayIdx: number) => {
@@ -237,7 +241,7 @@ export function PayasoChano({ content, lessonId, onComplete }: PayasoChanoProps)
         </div>
         <button
           type="button"
-          onClick={() => playWord(word.audioUrl)}
+          onClick={() => playWord(word.audioUrl, word.word)}
           aria-label={`Escuchar la palabra "${word.word}"`}
           className="lesson-focus-ring p-2 bg-stone-100 hover:bg-stone-200 text-stone-600 rounded-xl transition-all shadow-sm"
         >
@@ -245,17 +249,19 @@ export function PayasoChano({ content, lessonId, onComplete }: PayasoChanoProps)
         </button>
       </div>
 
-      <a
-        href="/games/payaso-chano.html"
-        className="lesson-focus-ring flex min-h-14 w-full items-center justify-center rounded-xl bg-amber-500 px-5 py-3 text-center text-lg font-black text-stone-950 shadow-md transition-colors hover:bg-amber-400"
-      >
-        Jugar con Chano animado
-      </a>
+      {!content.id.startsWith("author-") && (
+        <a
+          href="/games/payaso-chano.html"
+          className="lesson-focus-ring flex min-h-14 w-full items-center justify-center rounded-xl bg-amber-500 px-5 py-3 text-center text-lg font-black text-stone-950 shadow-md transition-colors hover:bg-amber-400"
+        >
+          Jugar con Chano animado
+        </a>
+      )}
 
       <DndContext sensors={sensors} onDragEnd={onDragEnd}>
         {/* Pizarra de Chano */}
         <div
-          className="flex gap-3 items-center justify-center p-4 bg-stone-50/70 border border-stone-200/40 rounded-2xl min-h-[88px]"
+          className="flex flex-wrap gap-3 items-center justify-center p-4 bg-stone-50/70 border border-stone-200/40 rounded-2xl min-h-[88px]"
           role="group"
           aria-label="Pizarra de Chano: casillas de la palabra"
         >
@@ -273,7 +279,7 @@ export function PayasoChano({ content, lessonId, onComplete }: PayasoChanoProps)
 
         {/* Tray */}
         <div
-          className="mt-4 flex gap-3 items-center justify-center p-4 bg-white/70 border border-stone-200/40 rounded-2xl min-h-[72px]"
+          className="mt-4 flex flex-wrap gap-3 items-center justify-center p-4 bg-white/70 border border-stone-200/40 rounded-2xl min-h-[72px]"
           role="group"
           aria-label="Sílabas disponibles"
         >
@@ -297,7 +303,7 @@ export function PayasoChano({ content, lessonId, onComplete }: PayasoChanoProps)
       )}
 
       {/* Props: sombrilla / resorte / Chano */}
-      <div className="flex items-center justify-center gap-3 pt-2">
+      <div className="flex flex-wrap items-center justify-center gap-3 pt-2">
         <button
           type="button"
           onClick={check}
@@ -325,7 +331,7 @@ export function PayasoChano({ content, lessonId, onComplete }: PayasoChanoProps)
         </button>
       </div>
 
-      <GretelFeedback state={reactions.feedback} onRetry={reactions.clear} />
+      {reactions.feedback && <PickMark correct={reactions.feedback === "ok"} />}
     </div>
   );
 }
@@ -400,12 +406,18 @@ function DroppableSlot({
       ref={setNodeRef}
       tabIndex={selectedTray !== null && filled === null ? 0 : -1}
       onKeyDown={(e) => onSlotKeyDown(e, slotIdx)}
+      data-pick-mark={
+        checkResult === "ok" ? "right" : checkResult === "wrong" ? "wrong" : undefined
+      }
+      style={
+        filled && !checkResult ? { outline: "3px solid #77746e", outlineOffset: 2 } : undefined
+      }
       aria-label={filled ? `Casilla ${slotIdx + 1}: ${filled}` : `Casilla ${slotIdx + 1}: vacía`}
       className={`lesson-focus-ring w-16 h-16 flex items-center justify-center rounded-xl border-2 text-xl font-black transition-all ${
         checkResult === "ok"
-          ? "bg-emerald-500 border-emerald-600 text-white"
+          ? "bg-white border-stone-300 text-stone-700"
           : checkResult === "wrong"
-            ? "bg-rose-100 border-rose-400 text-rose-700"
+            ? "bg-white border-stone-300 text-stone-700"
             : isOver
               ? "border-dashed border-stone-400 bg-stone-100"
               : filled

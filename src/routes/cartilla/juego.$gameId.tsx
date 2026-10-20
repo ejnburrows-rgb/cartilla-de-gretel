@@ -1,3 +1,6 @@
+import { AuthorGameTemplate } from "@/components/cartilla/games/AuthorGameTemplate";
+import { RecordedGameFrame } from "@/components/cartilla/games/RecordedGameFrame";
+import { AUTHOR_GAME_ENTRY } from "@/content/games/author/entry";
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { ArrowLeft } from "lucide-react";
 import { GameShell } from "@/components/cartilla/games/GameShell";
@@ -17,6 +20,7 @@ export const Route = createFileRoute("/cartilla/juego/$gameId")({
 });
 
 export const LIVE_GAMES: GameContent[] = [
+  AUTHOR_GAME_ENTRY,
   PAYASO_CHANO_SS,
   ...SYLLABLE_BUILDER_PILOT,
   ...CORE_THEMED_GAMES,
@@ -29,6 +33,8 @@ const GAMES: Record<string, GameContent> = Object.fromEntries(
 
 function renderGame(content: GameContent) {
   switch (content.type) {
+    case "author-games":
+      return <AuthorGameTemplate />;
     case "payaso-chano":
       return <PayasoChano content={content} />;
     case "completar-palabras":
@@ -62,7 +68,10 @@ function Juego() {
     );
   }
 
+  if (content.type === "author-games") return <AuthorGameTemplate />;
+
   return (
+    <RecordedGameFrame content={content}>
     <GameShell content={content}>
       <div className="flex justify-start">
         <Link
@@ -75,5 +84,6 @@ function Juego() {
       </div>
       {renderGame(content)}
     </GameShell>
+    </RecordedGameFrame>
   );
 }

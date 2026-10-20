@@ -147,11 +147,11 @@ describe("PayasoChano completion logic", () => {
 
     // Fast-forward feedback time
     act(() => {
-      vi.advanceTimersByTime(1200);
+      vi.advanceTimersByTime(3600);
     });
 
-    // Button should be enabled again
-    expect(checkBtn.hasAttribute("disabled")).toBe(false);
+    // Wrong attempt has been erased; checking stays disabled until refilled.
+    expect(checkBtn.hasAttribute("disabled")).toBe(true);
 
     // Reset tiles
     const resetBtn = screen.getByRole("button", { name: /Resorte: colocar las sílabas en su lugar otra vez/i });
