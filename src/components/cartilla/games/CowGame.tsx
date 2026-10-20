@@ -14,6 +14,9 @@ import { COW_SYLLABLE_AUDIO } from "@/content/games/cow-game-audio-gaps";
  */
 
 const ART = "/cartilla/art/games/cow/";
+// Replace null with the approved transparent open-eyed cow asset URL.
+// The replacement uses the same canvas, mouth anchor and animation wrapper.
+const COW_SPRITE: string | null = null;
 type Box = { x: number; y: number; w: number; h: number };
 
 type Layout = {
@@ -183,17 +186,35 @@ function Cow({
     >
       <span className="cg-bob">
         <span className="cg-sprite" style={{ transform: `scaleX(${flip})` }}>
-          {parts.map((p) => (
-            <img
-              key={p}
-              src={`${ART}${p}.webp`}
-              alt=""
-              draggable={false}
-              className={`cg-p cg-${p}`}
-            />
-          ))}
-          <img src={`${ART}lid-l.webp`} alt="" draggable={false} className="cg-p cg-lid cg-lid-l" />
-          <img src={`${ART}lid-r.webp`} alt="" draggable={false} className="cg-p cg-lid cg-lid-r" />
+          {COW_SPRITE ? (
+            <img src={COW_SPRITE} alt="" draggable={false} className="cg-p cg-whole" />
+          ) : (
+            parts.map((p) => (
+              <img
+                key={p}
+                src={`${ART}${p}.webp`}
+                alt=""
+                draggable={false}
+                className={`cg-p cg-${p}`}
+              />
+            ))
+          )}
+          {!COW_SPRITE && (
+            <>
+              <img
+                src={`${ART}lid-l.webp`}
+                alt=""
+                draggable={false}
+                className="cg-p cg-lid cg-lid-l"
+              />
+              <img
+                src={`${ART}lid-r.webp`}
+                alt=""
+                draggable={false}
+                className="cg-p cg-lid cg-lid-r"
+              />
+            </>
+          )}
         </span>
       </span>
     </button>
@@ -423,7 +444,8 @@ export function CowGame({ content }: { content: GameContent }) {
           }
           if (isActive && active.phase === "back") slow = true;
           const walking = isActive && (active.phase === "walk" || active.phase === "back");
-          const z = isActive ? 25 : 10 + Math.round(spots[i].y / 40);
+          // Moving cows stay behind all resting cows, never painted over them.
+          const z = isActive ? 8 : 10 + Math.round(spots[i].y / 40);
           return (
             <Cow
               key={i}
@@ -455,8 +477,9 @@ export function CowGame({ content }: { content: GameContent }) {
           return (
             <span
               key={i}
-              className="cg-card"
+              className={`cg-card ${moving && (active.phase === "walk" || active.phase === "back") ? "cg-card-walking" : ""}`}
               style={{
+                zIndex: isDropped ? 65 : moving ? 9 : 50,
                 left: px(x),
                 top: py(y),
                 width: px(76),
@@ -546,11 +569,11 @@ const CSS = `
 .cg-ear-l,.cg-ear-r{animation:cg-ear 4.2s ease-in-out infinite;animation-delay:var(--cg-delay)}
 .cg-ear-r{animation-delay:calc(var(--cg-delay) + 1.7s)}
 /* Grounded walk cycle; no fence crossing or size change. */
-.cg-walking .cg-bob{animation:cg-bob .62s ease-in-out infinite}
-.cg-walking .cg-leg-a,.cg-walking .cg-leg-d{animation:cg-step .5s ease-in-out infinite}
-.cg-walking .cg-leg-b,.cg-walking .cg-leg-c{animation:cg-step .5s ease-in-out infinite;animation-delay:-.25s}
-.cg-walking .cg-body{animation:cg-roll .5s ease-in-out infinite}
-.cg-walking .cg-head{animation:cg-nod .5s ease-in-out infinite}
+.cg-walking .cg-bob{animation:cg-bob .68s ease-in-out infinite}
+.cg-walking .cg-leg-a,.cg-walking .cg-leg-d{animation:cg-step .68s ease-in-out infinite}
+.cg-walking .cg-leg-b,.cg-walking .cg-leg-c{animation:cg-step .68s ease-in-out infinite;animation-delay:-.34s}
+.cg-walking .cg-body{animation:cg-roll .68s ease-in-out infinite}
+.cg-walking .cg-head{animation:cg-nod .68s ease-in-out infinite}
 .cg-walking .cg-tail{animation:cg-tail .5s ease-in-out infinite}
 .cg-walking .cg-tongue{animation:cg-tongue 1.8s ease-in-out infinite}
 
@@ -561,14 +584,18 @@ const CSS = `
 .cg-cheer .cg-ear-l,.cg-cheer .cg-ear-r{animation:cg-ear-flap .25s ease-in-out 6!important}
 .cg-cheer .cg-tail{animation:cg-tail .3s ease-in-out 5!important}
 @keyframes cg-blink{0%,90%,100%{opacity:0}92%,96%{opacity:1}}
-@keyframes cg-bob{0%,50%,100%{transform:translateY(0)}25%,75%{transform:translateY(-2.4%)}}
+@keyframes cg-bob{0%,50%,100%{transform:translateY(0)}25%,75%{transform:translateY(-1.8%)}}
+.cg-card-walking{animation:cg-card-stride .68s ease-in-out infinite}
+@keyframes cg-card-stride{0%,50%,100%{translate:0 0;rotate:0deg}25%{translate:0 -.28cqw;rotate:-1deg}75%{translate:0 -.28cqw;rotate:1deg}}
+.cg-walking .cg-whole{animation:cg-roll .68s ease-in-out infinite}
+.cg-idle .cg-whole{animation:cg-breathe 3.4s ease-in-out infinite}
 @keyframes cg-ear{0%,80%,100%{transform:rotate(0)}86%{transform:rotate(-14deg)}92%{transform:rotate(5deg)}}
 @keyframes cg-look-head{0%,100%{transform:rotate(-3.5deg) translate(0,0)}35%{transform:rotate(3deg) translate(1%,-.6%)}70%{transform:rotate(-1deg) translate(-.6%,.8%)}}
 @keyframes cg-cheer-hop{0%,100%{transform:translateY(0)}50%{transform:translateY(-8%)}}
 @keyframes cg-cheer-head{0%,100%{transform:rotate(-7deg)}50%{transform:rotate(7deg)}}
 @keyframes cg-tongue-out{0%,100%{transform:scale(1,1)}15%,85%{transform:scale(1.1,1.8) translateY(4%)}}
 @keyframes cg-ear-flap{0%,100%{transform:rotate(0)}50%{transform:rotate(-20deg)}}
-@keyframes cg-step{0%{transform:rotate(-15deg) translateY(0)}25%{transform:rotate(0deg) translateY(-3.5%)}50%{transform:rotate(15deg) translateY(0)}75%{transform:rotate(0deg) translateY(0)}100%{transform:rotate(-15deg) translateY(0)}}
+@keyframes cg-step{0%{transform:rotate(-11deg)}20%{transform:rotate(-3deg) translateY(-3%)}40%{transform:rotate(12deg) translateY(-1%)}55%{transform:rotate(11deg)}100%{transform:rotate(-11deg)}}
 @keyframes cg-roll{0%,100%{transform:rotate(-1.1deg)}50%{transform:rotate(1.1deg)}}
 @keyframes cg-nod{0%,100%{transform:rotate(-2.6deg)}50%{transform:rotate(2.6deg)}}
 @keyframes cg-tail{0%,100%{transform:rotate(-8deg)}50%{transform:rotate(8deg)}}
