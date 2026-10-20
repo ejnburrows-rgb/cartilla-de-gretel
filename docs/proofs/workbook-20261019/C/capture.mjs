@@ -17,7 +17,7 @@ for(const [w,h] of JSON.parse(process.env.SIZES || "[[1440,900],[390,844]]")) {
    await page.goto(`${url}/cartilla/leccion/${n}`,{waitUntil:'domcontentloaded',timeout:120000});
    await page.waitForFunction(p=>document.querySelector('.native-lesson-viewer')?.getAttribute('data-native-page')===String(p),p,{timeout:60000});
    await page.locator('.native-lesson-viewer__leaf .faithful-page:visible').waitFor({state:'visible'});
-   await page.evaluate(()=>document.fonts.ready);await page.waitForTimeout(1300);
+   await page.evaluate(()=>document.fonts.ready);await page.waitForTimeout(450);
    const metrics=await page.evaluate(()=>{const r=document.querySelector('.native-lesson-viewer__leaf .faithful-page')?.getBoundingClientRect();return {viewport:[innerWidth,innerHeight],document:[document.documentElement.scrollWidth,document.documentElement.scrollHeight],paper:r?{x:r.x,y:r.y,width:r.width,height:r.height}:null,overflow:!!document.querySelector('[data-lc-fit-overflow]')};});
    const name=`${w}x${h}-L${n}-p${p}.png`;await page.screenshot({path:`${out}/${name}`});ledger.push({name,n,p,...metrics});fs.writeFileSync(metricPath,JSON.stringify(ledger,null,2));if(w===844){await page.screenshot({path:`${out}/${w}x${h}-L${n}-p${p}-full.png`,fullPage:true});await page.evaluate(()=>window.scrollTo(0,document.documentElement.scrollHeight));await page.screenshot({path:`${out}/${w}x${h}-L${n}-p${p}-bottom.png`});}console.log(name);await page.close();
   }
