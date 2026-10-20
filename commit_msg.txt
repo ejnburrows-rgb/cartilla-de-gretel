@@ -1,0 +1,6 @@
+🧹 Remove console output in ErrorComponent
+
+🎯 What: Removed console.error(error) from ErrorComponent in src/routes/__root.tsx.
+💡 Why: Improves code cleanliness. console.error and console.log are typically discouraged in production code unless specifically needed for debugging purposes.
+✅ Verification: Ran pnpm lint and pnpm typecheck successfully, and ran tests.
+✨ Result: Code is cleaner and production-ready with no behavior changes.
