@@ -1,19 +1,13 @@
 import type { GameContent } from "@/lib/games/gameContent";
 
-/**
- * Cow game (juego de la vaca), Mm set. Owner-approved mockup, 2026-10-19:
- * 8 cows each carry a syllable, a wooden fence has 5 labeled slots.
- * The child picks a cow and a slot; the cow walks to the fence, the slot
- * opens and the cow stands in it. Right slot: it says "ma ma" and stays.
- * Wrong slot: it moos and walks back to try again.
- *
- * Audio is empty on purpose (gap manifest only, see cow-game-audio-gaps.ts).
- * No generated voice.
+/** Five unique cows each carry one card to one matching fence slot.
+ * Wrong attempts keep the card; right attempts drop it and return home.
+ * Audio remains empty until the owner's recordings exist.
  */
 export const COW_SLOTS = ["mo", "mu", "ma", "mi", "me"] as const;
 
 // Cow order is the order in the approved mockup: top row, then bottom row.
-export const COW_SYLLABLES = ["mu", "mo", "me", "má", "ma", "mi", "mo", "mo"] as const;
+export const COW_SYLLABLES = ["mu", "mo", "me", "ma", "mi"] as const;
 
 export const COW_GAME_M: GameContent = {
   id: "cow-game-m",
