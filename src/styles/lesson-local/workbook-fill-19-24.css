@@ -93,3 +93,11 @@
 .lc-lesson-shell--fit[data-lesson="23"] .native-lesson-viewer__content .faithful-page__body,
 .lc-lesson-shell--fit[data-lesson="24"] .native-lesson-viewer__content .faithful-page__body { padding-top: max(calc(var(--ph) * .045), 40px); }
 }
+
+/* Keep the corner link clear and sideways controls after the scrollable page. */
+.lc-lesson-shell--fit:is([data-lesson="19"],[data-lesson="20"],[data-lesson="21"],[data-lesson="22"],[data-lesson="23"],[data-lesson="24"]) .lc-lesson-header__back { padding: 0 6px; font-size: 12px; min-height: 24px; }
+.lc-lesson-shell--fit:is([data-lesson="19"],[data-lesson="20"],[data-lesson="21"],[data-lesson="22"],[data-lesson="23"],[data-lesson="24"]) .lc-lesson-header { top: 2px; }
+@media (orientation: landscape) and (max-height: 500px) {
+.lc-lesson-shell--fit:is([data-lesson="19"],[data-lesson="20"],[data-lesson="21"],[data-lesson="22"],[data-lesson="23"],[data-lesson="24"]) .native-lesson-viewer__footer { position: static; padding: 12px; max-width: none; align-items: flex-end; }
+.lc-lesson-shell--fit:is([data-lesson="19"],[data-lesson="20"],[data-lesson="21"],[data-lesson="22"],[data-lesson="23"],[data-lesson="24"]) .faithful-page--archetype-5 .fp-trace__svg { height: 150px; }
+}
