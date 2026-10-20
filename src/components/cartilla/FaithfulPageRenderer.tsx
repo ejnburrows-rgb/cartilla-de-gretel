@@ -451,6 +451,8 @@ function RegionView({
               part
             ),
           )
+        ) : sourceLayout && region.text?.startsWith("Haz un dibujo") ? (
+          region.text.split(/(\p{L}{1,2})(\.)$/u).map((part, index) => index === 1 ? <strong key={index} style={{ color: "#269e92" }}>{part}</strong> : part)
         ) : (
           region.text
         );
@@ -485,7 +487,8 @@ function RegionView({
       // line and printed model. The learner can still use the workbook page.
       if (interactive && hasTemplate) {
         return (
-          <div className="fp-writing-line fp-writing-line--trace">
+          <div className="fp-writing-line fp-writing-line--trace" tabIndex={sourceLayout ? 0 : undefined}>
+            {sourceLayout && <span className="fp-writing-line__model fp-writing-line__printed-model" aria-hidden="true">{traceLetter}</span>}
             <WorkbookLetterTrace
               modelText={traceLetter as string}
               accent={accent}
@@ -561,8 +564,8 @@ function RegionView({
         <p className="fp-region--vocab-grid">{region.text}</p>
       );
     case "sentence-line":
-      // Lesson 16 page 57 has no sight word on the source page: skip the
-      // empty box rather than rendering a blank frame.
+      // The source includes an empty sight-word frame on page 57.
+      // Preserve the older non-source presentation outside this lane.
       if (lessonNumber === 16 && !sourceLayout && !region.text?.trim()) return null;
       return native ? (
         <div className="fp-native-sight-word" aria-label="Palabra de enlace">{region.text}</div>

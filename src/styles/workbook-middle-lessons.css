@@ -117,3 +117,15 @@
 
 /* The source's writing models retain the shared handwriting face. */
 .native-lesson-viewer__content .faithful-page--lane-b .fp-writing-line__model{font-family:Andika,sans-serif}
+
+/* Print the original model at rest; retain the shared guided path on focus. */
+.lc-lesson-shell--fit .native-lesson-viewer__content .faithful-page--lane-b .fp-writing-line{padding:0;box-sizing:border-box}
+.faithful-page--lane-b .fp-writing-line__printed-model{opacity:1}
+.faithful-page--lane-b .fp-writing-line--trace .fp-trace__svg path[stroke-dasharray]{opacity:0}
+.faithful-page--lane-b .fp-writing-line--trace:is(:hover,:focus-within) .fp-writing-line__printed-model{opacity:0}
+.faithful-page--lane-b .fp-writing-line--trace:is(:hover,:focus-within) .fp-trace__svg path[stroke-dasharray]{opacity:1}
+.faithful-page--lane-b .fp-writing-line--trace:focus-within .fp-trace__footer{opacity:1;pointer-events:auto;visibility:visible}
+
+.lc-lesson-shell--fit .native-lesson-viewer__content .faithful-page--lane-b .faithful-page__sidebar{color:#269e92}
+.native-lesson-viewer__content .faithful-page--lane-b .fp-ix-fill--book-grid{background:linear-gradient(#292f2c,#292f2c) 0 48%/100% 1px no-repeat,linear-gradient(#292f2c,#292f2c) 0 100%/100% 1px no-repeat}
+.native-lesson-viewer__content .faithful-page--lane-b .fp-ix-fill--book-grid .fp-ix-fill__item{border-bottom:0}

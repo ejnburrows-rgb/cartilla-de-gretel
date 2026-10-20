@@ -4,7 +4,7 @@ from PIL import Image, ImageDraw
 import json, hashlib, shutil, zipfile
 root=Path(__file__).resolve().parents[1]
 proof=root/'docs/proofs/lane-b-2026-10-20'
-run=proof/'round-5'
+run=proof/'round-6'
 package=root/'output/Lane_B_Proof'
 package.mkdir(parents=True,exist_ok=True)
 for name in ['side-by-sides','originals','phone','tests','scripts']:(package/name).mkdir(exist_ok=True)
