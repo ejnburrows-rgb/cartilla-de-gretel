@@ -9,6 +9,8 @@ import { SYLLABLE_BUILDER_PILOT } from "@/content/games/syllable-builder-pilot";
 import { CORE_THEMED_GAMES } from "@/content/games/core-games";
 import { COMPLETAR_PALABRAS_M } from "@/content/games/completar-palabras";
 import { CompletarPalabras } from "@/components/cartilla/games/CompletarPalabras";
+import { CowGame } from "@/components/cartilla/games/CowGame";
+import { COW_GAME_M } from "@/content/games/cow-game";
 import type { CompletarPalabrasContent } from "@/content/games/completar-palabras";
 import type { GameContent } from "@/lib/games/gameContent";
 
@@ -21,6 +23,7 @@ export const LIVE_GAMES: GameContent[] = [
   ...SYLLABLE_BUILDER_PILOT,
   ...CORE_THEMED_GAMES,
   COMPLETAR_PALABRAS_M,
+  COW_GAME_M,
 ];
 
 const GAMES: Record<string, GameContent> = Object.fromEntries(
@@ -29,6 +32,8 @@ const GAMES: Record<string, GameContent> = Object.fromEntries(
 
 function renderGame(content: GameContent) {
   switch (content.type) {
+    case "cow-game":
+      return <CowGame content={content} />;
     case "payaso-chano":
       return <PayasoChano content={content} />;
     case "completar-palabras":
