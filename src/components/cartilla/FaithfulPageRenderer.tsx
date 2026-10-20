@@ -435,7 +435,7 @@ function RegionView({
       );
     case "instruction": {
       const instructionText =
-        lessonNumber === 16 && region.text ? (
+        lessonNumber === 16 && region.text && !(pageNumber && pageNumber >= 23 && pageNumber <= 66) ? (
           // Lesson 16 wide-screen design: garden-palette instruction letters.
           <Lesson16GardenText text={region.text} />
         ) : pageNumber === 17 && region.text ? (
@@ -462,6 +462,15 @@ function RegionView({
       );
     }
     case "writing-line": {
+      // A blank printed practice line is writing space, not a second
+      // printed model. Keep the original activity id and saved canvas.
+      if (interactive && native && pageNumber && pageNumber >= 23 && pageNumber <= 66 && !region.modelText) {
+        return (
+          <div className="fp-writing-line fp-writing-line--freehand">
+            <DibujaHost pageKey={region.id} lessonId={lessonId} initialMode="draw" verb="Escribe" />
+          </div>
+        );
+      }
       // Student workbook (interactive) + a faithful stroke template for this
       // model letter → real tracing exercise. The "trace it again" blank
       // line (no modelText of its own) inherits its letter from the
@@ -662,6 +671,7 @@ export function FaithfulPageRenderer({
       className={[
         letterReadingPage ? "fp-native-letter-page" : "",
         pageNumber === 17 ? "faithful-page--archetype4-p17" : "",
+        native && pageNumber >= 23 && pageNumber <= 66 ? "faithful-page--lane-b" : "",
         ...archetypeClasses,
       ].filter(Boolean).join(" ") || undefined}
     >

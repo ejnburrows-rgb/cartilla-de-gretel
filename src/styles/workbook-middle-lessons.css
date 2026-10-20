@@ -1,0 +1,215 @@
+/* Lane B: authentic Workbook pages 23–66, Lessons 8–18.
+ * All four printed page families are handled together. No artwork, controls,
+ * curriculum, shared tools, or page-turn behavior are introduced here.
+ * This file deliberately scopes every override to these native pages. */
+.native-lesson-viewer__content .faithful-page--lane-b {
+  --book-ink: #262c29;
+  --book-teal: #279e93;
+  background: #fff;
+}
+.lc-lesson-shell--fit .native-lesson-viewer__content .faithful-page--lane-b .faithful-page__body {
+  gap: 3cqw;
+  padding: 7% 9% 13%;
+  overflow: visible;
+}
+.native-lesson-viewer__content .faithful-page--lane-b .fp-region--instruction {
+  color: #262c29;
+  font-family: var(--font-book-faithful, Andika, sans-serif);
+  font-weight: 400;
+  font-size: clamp(13px, 3.2cqw, 22px);
+  line-height: 1.4;
+}
+/* Two source handwriting bands: the model at left, practice space at right.
+ * The blank regions retain their ids/state and remain real writing canvases. */
+.lc-lesson-shell--fit .native-lesson-viewer__content .faithful-page--lane-b.faithful-page--archetype-5 .faithful-page__body {
+  display: grid;
+  grid-template-columns: minmax(0, .24fr) minmax(0, 1fr);
+  align-content: start;
+  align-items: start;
+  column-gap: 2%;
+  row-gap: 3cqw;
+}
+.native-lesson-viewer__content .faithful-page--lane-b.faithful-page--archetype-5 .faithful-page__body > .gretel-activity {
+  min-width: 0;
+}
+.lc-lesson-shell--fit .native-lesson-viewer__content .faithful-page--lane-b .fp-trace__svg {
+  height: 27cqw;
+  width: 100%;
+}
+.native-lesson-viewer__content .faithful-page--lane-b .fp-trace__footer {
+  width: 100%;
+  flex-wrap: wrap;
+}
+.native-lesson-viewer__content .faithful-page--lane-b .fp-trace__hint {
+  font-size: 10px;
+}
+.lc-lesson-shell--fit .native-lesson-viewer__content .faithful-page--lane-b .fp-writing-line .am-dibuja__paper {
+  height: 27cqw;
+  min-height: 80px;
+  border: 0;
+  border-radius: 0;
+  background: linear-gradient(#26332f,#26332f) 0 0 / 100% 1px no-repeat,
+    linear-gradient(#26332f,#26332f) 0 100% / 100% 1px no-repeat,
+    repeating-linear-gradient(90deg,#67a99e 0 8px,transparent 8px 14px) 0 50% / 100% 1px no-repeat;
+}
+.native-lesson-viewer__content .faithful-page--lane-b .am-dibuja__header {
+  display: none;
+}
+.lc-lesson-shell--fit .native-lesson-viewer__content .faithful-page--lane-b .am-dibuja__toolbar {
+  zoom: 1;
+  flex-wrap: wrap;
+  gap: 4px;
+}
+.lc-lesson-shell--fit .native-lesson-viewer__content .faithful-page--lane-b .am-dibuja__swatches {
+  gap: 3px;
+}
+.lc-lesson-shell--fit .native-lesson-viewer__content .faithful-page--lane-b .am-dibuja__swatch {
+  width: 26px;
+  height: 26px;
+  min-width: 26px;
+  min-height: 26px;
+}
+.lc-lesson-shell--fit .native-lesson-viewer__content .faithful-page--lane-b .am-dibuja__paper {
+  min-height: 180px;
+  height: 54cqw;
+  border: 1px solid #339d92;
+  border-radius: 0;
+  background: #fff;
+}
+/* Five circling groups, each with the printed two rows of three words. */
+.lc-lesson-shell--fit .native-lesson-viewer__content .faithful-page--lane-b .native-syllable {
+  grid-template-columns: 12cqw minmax(0,1fr);
+  grid-template-rows: auto;
+  padding: 0;
+  border: 0;
+  border-radius: 0;
+  background: transparent;
+  box-shadow: none;
+  gap: 0 3cqw;
+  min-height: auto;
+}
+.lc-lesson-shell--fit .native-lesson-viewer__content .faithful-page--lane-b .native-syllable h2 {
+  border: 0;
+  background: transparent;
+  box-shadow: none;
+  font-size: 6cqw;
+  color: #249e92;
+}
+.lc-lesson-shell--fit .native-lesson-viewer__content .faithful-page--lane-b .native-syllable__words {
+  grid-template-columns: repeat(3,minmax(0,1fr));
+  grid-auto-rows: minmax(36px,1fr);
+  gap: 1cqw 2cqw;
+}
+.lc-lesson-shell--fit .native-lesson-viewer__content .faithful-page--lane-b .native-syllable__word {
+  border: 0 !important;
+  border-radius: 0;
+  min-height: 36px;
+  padding: 0;
+  box-shadow: none;
+  background: transparent !important;
+  font: 400 clamp(11px,2.8cqw,20px)/1.25 var(--font-book-faithful,Andika,sans-serif);
+  letter-spacing: 0;
+}
+.faithful-page--lane-b .native-syllable > p {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip-path: inset(50%);
+}
+/* Letter next to two strips, then the original three vocabulary columns. */
+.lc-lesson-shell--fit .native-lesson-viewer__content .faithful-page--lane-b.fp-native-letter-page .faithful-page__body {
+  align-content: start;
+  grid-template-rows: auto auto auto auto auto;
+  gap: 3cqw;
+}
+.lc-lesson-shell--fit .native-lesson-viewer__content .faithful-page--lane-b .fp-native-title {
+  width: 17cqw;
+  min-width: 0;
+  height: 21cqw;
+  border: 1px solid #b7d6cb;
+  border-radius: 50%;
+  font: 700 8cqw/1 var(--font-book-faithful,Andika,sans-serif);
+  box-shadow: 0 0 5px 2px #c6e5d9;
+  background: #fff;
+  color: #262c29;
+}
+.native-lesson-viewer__content .faithful-page--lane-b .fp-native-syllables {
+  flex-wrap: nowrap;
+  padding: 0;
+  gap: 0;
+  border: 1px solid #6ba69a;
+  border-radius: 3cqw;
+  background: #f1faf5;
+}
+.native-lesson-viewer__content .faithful-page--lane-b .gretel-activity:nth-child(3) .fp-native-syllables { background: #c4e0d5; }
+.lc-lesson-shell--fit .native-lesson-viewer__content .faithful-page--lane-b .fp-native-syllables span {
+  flex: 1;
+  min-width: 0;
+  font-size: 3.2cqw;
+  color: #26332f;
+  border: 0;
+  box-shadow: none;
+  background: transparent;
+  padding: .5cqw 0;
+}
+.native-lesson-viewer__content .faithful-page--lane-b .fp-native-vocab { gap: 0; }
+.lc-lesson-shell--fit .native-lesson-viewer__content .faithful-page--lane-b .fp-native-vocab span {
+  border: 0;
+  min-height: 0;
+  text-align: left;
+  padding: .3cqw 0;
+  font: 400 clamp(12px,3.2cqw,22px)/1.3 var(--font-book-faithful,Andika,sans-serif);
+  color: #262c29;
+  background: transparent;
+  box-shadow: none;
+}
+.native-lesson-viewer__content .faithful-page--lane-b .fp-native-sight-word {
+  min-height: 4cqw;
+  padding: .3cqw;
+  border: 1px solid #9bbdb1;
+  border-radius: 0;
+  background: #fff;
+  box-shadow: none;
+  font: 700 3.4cqw/1.3 var(--font-book-faithful,Andika,sans-serif);
+  color: #262c29;
+}
+.lc-lesson-shell--fit .native-lesson-viewer__content .faithful-page--lane-b .fp-region--reading-sentences {
+  padding: 0;
+  border: 0;
+  border-radius: 0;
+  background: transparent;
+  font: 400 clamp(12px,3.2cqw,22px)/1.5 var(--font-book-faithful,Andika,sans-serif);
+  color: #262c29;
+}
+/* Completa retains three columns on phones, exactly as printed. */
+.native-lesson-viewer__content .faithful-page--lane-b .fp-ix-fill--book-grid {
+  grid-template-columns: repeat(3,minmax(0,1fr));
+  gap: 3cqw 2cqw;
+}
+.native-lesson-viewer__content .faithful-page--lane-b .fp-ix-fill--book-grid .fp-ix-fill__item {
+  border: 0;
+  border-radius: 0;
+  padding: 0;
+  gap: 3cqw;
+  background: transparent;
+}
+.lc-lesson-shell--fit .native-lesson-viewer__content .faithful-page--lane-b .fp-ix-fill__wordbox,
+.lc-lesson-shell--fit .native-lesson-viewer__content .faithful-page--lane-b .fp-ix-fill__blank {
+  min-width: 0;
+  font: 400 clamp(11px,3cqw,20px)/1.3 var(--font-book-faithful,Andika,sans-serif);
+}
+.lc-lesson-shell--fit .native-lesson-viewer__content .faithful-page--lane-b .fp-ix-fill__choices { gap: 0; flex-wrap: nowrap; }
+.lc-lesson-shell--fit .native-lesson-viewer__content .faithful-page--lane-b .fp-ix-fill__choice {
+  min-width: 0;
+  min-height: 36px;
+  padding: 3px;
+  font-size: clamp(11px,2.6cqw,18px);
+}
+/* Source pages may grow on narrow screens; never conceal the drawing or
+ * sentence area to force a fit. The existing whole-page viewer scrolls. */
+.lc-lesson-shell--fit:has(.faithful-page--lane-b) { height: auto; min-height: 100dvh; overflow: visible; }
+.lc-lesson-shell--fit:has(.faithful-page--lane-b) .lc-lesson-main { container-type: inline-size; flex: none; overflow: visible; --ph: max(720px,100dvh - 110px); --pw: min(760px,100cqw - 20px); }
+.lc-lesson-shell--fit .native-lesson-viewer__content .faithful-page--lane-b { height: auto; min-height: var(--ph); overflow: visible; }
+.lc-lesson-shell--fit .native-lesson-viewer__content .faithful-page--lane-b .faithful-page__body { position: relative; inset: auto; }
+.lc-lesson-shell--fit .faithful-page--lane-b .faithful-page__body > .gretel-activity { zoom: 1; }
