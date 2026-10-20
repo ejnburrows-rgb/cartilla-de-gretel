@@ -2,6 +2,7 @@ import { createFileRoute, Link } from "@tanstack/react-router";
 import { ArrowLeft } from "lucide-react";
 import { GameShell } from "@/components/cartilla/games/GameShell";
 import { PayasoChano } from "@/components/cartilla/games/PayasoChano";
+import { ChanoScene } from "@/components/cartilla/games/chano/ChanoScene";
 import { SyllableBuilder } from "@/components/cartilla/games/SyllableBuilder";
 import { CoreGame } from "@/components/cartilla/games/CoreGames";
 import { PAYASO_CHANO_SS } from "@/content/games/payaso-chano-ss";
@@ -61,6 +62,9 @@ function Juego() {
       </main>
     );
   }
+
+  // Payaso Chano is one full-screen illustrated scene (no shell, no mascot).
+  if (content.type === "payaso-chano") return <ChanoScene content={content} />;
 
   return (
     <GameShell content={content}>
