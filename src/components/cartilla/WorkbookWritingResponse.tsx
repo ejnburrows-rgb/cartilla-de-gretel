@@ -395,7 +395,7 @@ function LearnerWritingResponse({ pageNumber, interactive, prompt, sourceLayout 
           />
         </div>
       ) : (
-        <div className="relative w-full rounded-2xl border border-teal-200/80 overflow-hidden bg-[#fffdf9] p-2 flex flex-col gap-2">
+        <div className={`relative w-full rounded-2xl border border-teal-200/80 overflow-hidden bg-[#fffdf9] p-2 flex flex-col gap-2${sourceLayout ? " wb-source-freehand" : ""}`}>
           <div className="relative w-full h-[180px] rounded-xl border border-teal-100 bg-[#fffdf9]">
             {/* Handwriting lines background */}
             <div className="absolute inset-0 pointer-events-none flex flex-col justify-around py-3 px-4 opacity-30">
@@ -406,6 +406,7 @@ function LearnerWritingResponse({ pageNumber, interactive, prompt, sourceLayout 
 
             <canvas
               ref={canvasRef}
+              tabIndex={sourceLayout ? 0 : undefined}
               className="absolute inset-0 w-full h-full touch-none z-10"
               onPointerDown={onPointerDown}
               onPointerMove={onPointerMove}

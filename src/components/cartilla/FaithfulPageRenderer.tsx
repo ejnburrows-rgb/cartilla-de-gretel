@@ -1,3 +1,4 @@
+import { sourceActivityGeometry, sourceWordStyle } from "@/lib/workbook-source-geometry";
 import "@/styles/native-lesson.css";
 import sourceGeometry from "@/data/workbook-middle-source-geometry.json";
 import { Lesson16GardenText } from "./lesson16/Lesson16Text";
@@ -425,11 +426,12 @@ function RegionView({
         <VowelMatchAll region={region} />
       );
     case "syllable-match":
-      return interactive ? <SyllableWordCircle region={region} lessonId={lessonId} />
+      return interactive ? <SyllableWordCircle region={region} lessonId={lessonId} sourceWords={sourceLayout ? sourceActivityGeometry(pageNumber)?.circles?.[region.id] : undefined} />
         : <SyllableMatch region={region} />;
     case "fill-in-blank":
       return interactive ? (
         <InteractiveFillInBlank
+          sourceItems={sourceLayout ? sourceActivityGeometry(pageNumber)?.fills : undefined}
           region={region}
           accent={accent ?? "hsl(230 75% 58%)"}
           lessonId={lessonId}
@@ -530,7 +532,9 @@ function RegionView({
           {region.text ? <span className="fp-draw-box__hint">{region.text}</span> : null}
         </div>
       );
-    case "reading-sentences":
+    case "reading-sentences": {
+      const measured = sourceLayout ? sourceActivityGeometry(pageNumber)?.readingWords : undefined;
+      if(measured) return <div className="fp-region--reading-sentences fp-source-story">{(region.sentences ?? []).map((sentence,line)=><p key={line}>{measured[line].map((word,index)=><span key={index} style={sourceWordStyle(word)}>{word.text}{index<measured[line].length-1 ? ' ' : ''}</span>)}</p>)}</div>;
       return (
         <div className="fp-region--reading-sentences">
           {(region.sentences ?? []).map((sentence, i) => (
@@ -538,6 +542,7 @@ function RegionView({
           ))}
         </div>
       );
+    }
     case "title":
       return native ? (
         <h2 className="fp-native-title">{region.text}</h2>

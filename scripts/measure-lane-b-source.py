@@ -9,6 +9,7 @@ from scipy import ndimage
 from scipy.signal import find_peaks
 root=Path(__file__).resolve().parents[1]
 from lane_b_source_contours import simplify, mask_path
+from lane_b_source_activities import measure_activities
 
 layouts=json.loads((root/'src/data/page-layouts.json').read_text())['pages']
 fonts={weight:TTFont(root/f'public/fonts/cartilla-source-{weight}.woff') for weight in [400,700]}
@@ -142,6 +143,7 @@ for n in range(23,67):
    baseline=font_px*.35+leading*.5
    entry['story']={'left':round((int(first['left'])-xa/1000*font_px)/w*100,5),'top':round((int(first['top'])-(baseline-yb/1000*font_px))/h*100,5),'leading':round(leading/w*100,5)}
 
+ entry.update(measure_activities(n,im,layouts[str(n)]['regions'],word_bounds))
  pages[str(n)]=entry
 (root/'src/data/workbook-middle-source-geometry.json').write_text(json.dumps({'width':935,'height':1210,'pages':pages},separators=(',',':'))+'\n')
 print(json.dumps({'pages':len(pages),'vertices':sum(x['wavePath'].count('L')+1 for x in pages.values()),'drawing_boxes':sum('drawing' in v for v in pages.values()),'reading_titles':sum('titlePath' in v for v in pages.values()),'measured_words':sum(len(v.get('vocabulary',[])) for v in pages.values())},indent=2))

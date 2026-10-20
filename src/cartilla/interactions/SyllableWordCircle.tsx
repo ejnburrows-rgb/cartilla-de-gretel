@@ -1,3 +1,4 @@
+import { sourceWordStyle, type SourceWord } from "@/lib/workbook-source-geometry";
 import { learnerStorageKey } from "@/lib/learner-storage";
 import { loadLassoProgress } from "@/lib/activity-canvas-store";
 import { useEffect, useState } from "react";
@@ -27,7 +28,7 @@ function clampMarkStart(word: string, syllable: string, start: number): number {
   return Math.max(0, Math.min(start, Math.max(0, word.length - span)));
 }
 
-export function SyllableWordCircle({ region, lessonId }: { region: PageRegion; lessonId?: string }) {
+export function SyllableWordCircle({ region, lessonId, sourceWords }: { region: PageRegion; lessonId?: string; sourceWords?: SourceWord[] }) {
   const { emit: gretelEvent, record: recordEvent } = useActivityEvents();
   const words = (region.matchRows ?? []).flat();
   const isTarget = (i: number) => words[i]?.correct !== false;
@@ -226,7 +227,7 @@ export function SyllableWordCircle({ region, lessonId }: { region: PageRegion; l
   };
 
   return (
-    <section className="native-syllable" aria-label={`Busca ${syllable} en cada palabra`}>
+    <section className={`native-syllable${sourceWords ? " native-syllable--source" : ""}`} aria-label={`Busca ${syllable} en cada palabra`}>
       <h2>{syllable}</h2>
       <div className="native-syllable__words">
         {words.map((entry, i) => {
@@ -234,6 +235,7 @@ export function SyllableWordCircle({ region, lessonId }: { region: PageRegion; l
           return (
             <button
               key={`${i}-${entry.word}`}
+              style={sourceWordStyle(sourceWords?.[i])}
               type="button"
               className={`native-syllable__word${retrying ? " is-retrying" : ""}`}
               aria-label={entry.word}

@@ -1,3 +1,4 @@
+import { sourceWordStyle, type SourceWord, type SourceFill } from "@/lib/workbook-source-geometry";
 import { useEffect, useRef, useState } from "react";
 import "@/styles/interactive-exercises.css";
 import type { PageGridCell, PageRegion } from "@/lib/book-faithful";
@@ -613,6 +614,7 @@ export function InteractiveSyllableMatch({
 }
 
 function DraggableFillChoice({
+  sourceWord,
   itemIdx,
   choiceIdx,
   text,
@@ -622,6 +624,7 @@ function DraggableFillChoice({
   disabled,
   onClick,
 }: {
+  sourceWord?: SourceWord;
   itemIdx: number;
   choiceIdx: number;
   text: string;
@@ -638,9 +641,8 @@ function DraggableFillChoice({
   });
 
   const style: React.CSSProperties = {
-    transform: transform
-      ? `translate3d(${Math.round(transform.x)}px, ${Math.round(transform.y)}px, 0)`
-      : undefined,
+    ...sourceWordStyle(sourceWord),
+    transform: `${transform ? `translate3d(${Math.round(transform.x)}px, ${Math.round(transform.y)}px, 0)` : ""} ${sourceWord ? `scaleX(${sourceWord.scaleX})` : ""}`.trim() || undefined,
     zIndex: isDragging ? 9999 : undefined,
     opacity: isDragging ? 0.4 : 1,
     touchAction: "none",
@@ -674,6 +676,8 @@ function DraggableFillChoice({
 }
 
 function DroppableBlankSlot({
+  sourceItem,
+  originalBlank,
   itemIdx,
   displayText,
   isCorrect,
@@ -681,6 +685,8 @@ function DroppableBlankSlot({
   itemIdx: number;
   displayText: string;
   isCorrect: boolean;
+  sourceItem?: SourceFill;
+  originalBlank?: string;
 }) {
   const { setNodeRef, isOver } = useDroppable({
     id: `fill-blank-${itemIdx}`,
@@ -692,18 +698,21 @@ function DroppableBlankSlot({
       ref={setNodeRef}
       className={`fp-ix-fill__blank${isOver ? " fp-ix-fill__blank--over" : ""}${isCorrect ? " fp-ix-fill__blank--correct" : ""}`}
       data-over={isOver ? "true" : undefined}
+      aria-label={sourceItem ? displayText : undefined}
+      style={sourceItem ? {position:'absolute',left:`${sourceItem.blank.left}%`,top:`${sourceItem.blank.top}%`,width:`${sourceItem.blank.width}%`,height:`${sourceItem.blank.height}%`,fontSize:`${sourceItem.blank.fontSize}cqw`} : undefined}
     >
-      {displayText}
+      {sourceItem && originalBlank ? (displayText.includes('___') ? '' : displayText.slice(originalBlank.split('___')[0].length, originalBlank.split('___')[1].length ? -originalBlank.split('___')[1].length : undefined)) : displayText}
     </span>
   );
 }
 
 /** "Completa las palabras con la sílaba correcta" — tap or drag choice onto item blank. */
 export function InteractiveFillInBlank({
+  sourceItems,
   region,
   accent,
   lessonId,
-}: ExerciseProps) {
+}: ExerciseProps & { sourceItems?: SourceFill[] }) {
   const { emit: gretelEvent, record: recordEvent } = useActivityEvents();
   const items = region.fillItems ?? [];
   const [picked, setPicked] = useActivityState<Record<number, number>>("picked", {});
@@ -817,7 +826,7 @@ export function InteractiveFillInBlank({
   return (
     <DndContext sensors={sensors} onDragStart={onDragStart} onDragEnd={onDragEnd}>
       <div
-        className={`fp-ix-fill${region.columns ? " fp-ix-fill--book-grid" : ""}`}
+        className={`fp-ix-fill${region.columns ? " fp-ix-fill--book-grid" : ""}${sourceItems ? " fp-ix-fill--source" : ""}`}
         style={{ ["--ix-accent" as string]: accent, ["--fill-columns" as string]: region.columns }}
       >
         {items.map((item, i) => {
@@ -841,8 +850,11 @@ export function InteractiveFillInBlank({
                   loading="lazy"
                 />
               )}
-              <span className="fp-ix-fill__wordbox">{item.wordBox}</span>
+              <span className="fp-ix-fill__wordbox" style={sourceWordStyle(sourceItems?.[i].wordBox)}>{item.wordBox}</span>
+              {sourceItems?.[i].parts.map((part,index)=><span key={index} className="fp-ix-fill__source-part" style={sourceWordStyle(part)}>{part.text}</span>)}
               <DroppableBlankSlot
+                sourceItem={sourceItems?.[i]}
+                originalBlank={item.blank}
                 itemIdx={i}
                 displayText={displayText}
                 isCorrect={isItemCorrect}
@@ -853,6 +865,7 @@ export function InteractiveFillInBlank({
                   const g = graded ? gradeOf(isPicked, choice.correct === true) : null;
                   return (
                     <DraggableFillChoice
+                      sourceWord={sourceItems?.[i].choices[c]}
                       key={c}
                       itemIdx={i}
                       choiceIdx={c}

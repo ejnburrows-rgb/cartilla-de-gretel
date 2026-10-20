@@ -172,3 +172,30 @@
 .native-lesson-viewer__content .faithful-page--lane-b .fp-native-vocab--source{position:absolute;inset:0;display:block;width:100%;height:100%}
 .faithful-page--lane-b.fp-native-letter-page .gretel-activity:nth-child(6){left:var(--wb-story-left,7.5%)}
 .lc-lesson-shell--fit .native-lesson-viewer__content .faithful-page--lane-b .fp-region--reading-sentences{line-height:var(--wb-story-leading,1.55)}
+/* Measured source fields retain existing components and original hit targets. */
+.faithful-page--lane-b .fp-region--instruction{color:transparent!important}
+.faithful-page--lane-b .fp-region--instruction strong{color:transparent!important}
+.faithful-page--lane-b .faithful-page__lesson{visibility:hidden}
+.faithful-page--lane-b.fp-native-letter-page :is(.fp-native-syllables,.fp-native-sight-word){opacity:0}
+.lc-lesson-shell--fit .native-lesson-viewer__content .faithful-page--lane-b .fp-native-title{box-shadow:none}
+.lc-lesson-shell--fit .native-lesson-viewer__content .faithful-page--lane-b .gretel-activity:has(.native-syllable--source),.lc-lesson-shell--fit .native-lesson-viewer__content .faithful-page--lane-b .gretel-activity:has(.fp-ix-fill--source){inset:0;width:100%;height:100%;pointer-events:none}
+.lc-lesson-shell--fit .native-lesson-viewer__content .faithful-page--lane-b :is(.native-syllable--source,.native-syllable--source .native-syllable__words,.fp-ix-fill--source,.fp-ix-fill--source .fp-ix-fill__item,.fp-ix-fill--source .fp-ix-fill__choices){position:absolute;inset:0;display:block;width:100%;height:100%;padding:0;margin:0;border:0;background:none;pointer-events:none}
+.lc-lesson-shell--fit .native-lesson-viewer__content .faithful-page--lane-b .native-syllable--source h2{color:transparent}
+.faithful-page--lane-b .native-syllable--source h2::before,.faithful-page--lane-b .native-syllable--source h2::after{display:none}
+.lc-lesson-shell--fit .native-lesson-viewer__content .faithful-page--lane-b .native-syllable--source .native-syllable__word{display:block;width:max-content;height:auto;min-width:0;min-height:0;text-align:left;line-height:1.3;pointer-events:auto}
+.lc-lesson-shell--fit .native-lesson-viewer__content .faithful-page--lane-b .fp-ix-fill--source :is(.fp-ix-fill__wordbox,.fp-ix-fill__source-part,.fp-ix-fill__choice){display:block;width:max-content;height:auto;min-height:0;min-width:0;margin:0;padding:0;border:0;border-radius:0;background:none;line-height:1.3;white-space:nowrap;font-family:"Cartilla Source","Workbook Gothic",sans-serif;font-weight:400;color:#343a31}
+.lc-lesson-shell--fit .native-lesson-viewer__content .faithful-page--lane-b .fp-ix-fill--source :is(.fp-ix-fill__choice,.fp-ix-fill__blank){pointer-events:auto}
+.faithful-page--lane-b .fp-ix-fill--source .fp-ix-fill__choice+.fp-ix-fill__choice::before{display:none}
+.lc-lesson-shell--fit .native-lesson-viewer__content .faithful-page--lane-b .fp-ix-fill--source .fp-ix-fill__blank{display:flex;align-items:center;justify-content:center;white-space:nowrap}
+.faithful-page--lane-b.faithful-page--archetype-8 .gretel-activity:nth-child(4){left:var(--wb-sentence-left);width:var(--wb-sentence-width);top:var(--wb-sentence-top);height:var(--wb-sentence-height)}
+.lc-lesson-shell--fit .native-lesson-viewer__content .faithful-page--lane-b .fp-writing-response textarea{background:none;line-height:var(--wb-sentence-leading)}
+.native-lesson-viewer__content .faithful-page--lane-b .wb-source-freehand{position:relative;height:100%;min-height:0;padding:0;overflow:visible;border:0;border-radius:0;background:transparent}
+.native-lesson-viewer__content .faithful-page--lane-b .wb-source-freehand>div:first-child{height:100%;min-height:0;border:0;border-radius:0;background:transparent}
+.faithful-page--lane-b .wb-source-freehand>div:first-child>div{display:none}
+.faithful-page--lane-b .wb-source-freehand>div:last-child{position:absolute;bottom:100%;left:0;z-index:26;width:max-content;max-width:80cqw;background:#fff;opacity:0;pointer-events:none;visibility:hidden}
+.faithful-page--lane-b .wb-source-freehand:is(:hover,:focus-within)>div:last-child{opacity:1;pointer-events:auto;visibility:visible}
+/* Existing pen tools sit above the existing mode/save bar, with separate hit areas. */
+.faithful-page--lane-b .wb-source-freehand>div:last-child{bottom:calc(100% + 52px)}
+/* Original story word positions preserve the book's spaces and scan baselines. */
+.lc-lesson-shell--fit .native-lesson-viewer__content .faithful-page--lane-b .gretel-activity:has(.fp-source-story){inset:0;width:100%;height:100%;pointer-events:none}
+.native-lesson-viewer__content .faithful-page--lane-b .fp-source-story{position:absolute;inset:0;width:100%;height:100%}

@@ -19,6 +19,8 @@ interface SourcePageGeometry {
   diamond: { x: number; y: number; size: number };
   rules?: { d: string; dashed: boolean; y: number }[];
   titlePath?: string;
+  staticRegions?: {region:string;layers:{fill:string;d:string;stroke?:string;strokeWidth?:number}[]}[];
+  sentenceRules?: { d: string; dashed: boolean; y: number; left:number;right:number }[];
   story?: { left: number; top: number; leading: number };
   drawing?: { d: string; color: string; left: number; top: number; width: number; height: number };
   models?: { region: string; layers: { fill: string; d: string }[] }[];
@@ -29,6 +31,8 @@ function WavySidebar({ source }: { source?: SourcePageGeometry }) {
     <svg viewBox="0 0 935 1210" preserveAspectRatio="none" aria-hidden="true">
       <path d={source.wavePath} fill={source.waveColor} />
       {source.rules?.map((rule, index) => <path key={index} d={rule.d} fill="none" stroke={rule.dashed ? "#81a99c" : "#3d443b"} strokeWidth="1.5" strokeDasharray={rule.dashed ? "14 8" : undefined} />)}
+      {source.staticRegions?.map(region => <g key={region.region} data-source-print={region.region}>{region.layers.map((layer,index)=><path key={index} d={layer.d} fill={layer.fill} stroke={layer.stroke} strokeWidth={layer.strokeWidth}/>)}</g>)}
+      {source.sentenceRules?.map((rule,index)=><path key={`sentence-${index}`} d={rule.d} fill="none" stroke={rule.dashed ? "#81a99c" : "#3d443b"} strokeWidth="1.5" strokeDasharray={rule.dashed ? "14 8" : undefined}/>)}
       {source.titlePath && <path d={source.titlePath} fill="#343a31" />}
       {source.drawing && <path d={source.drawing.d} fill={source.drawing.color} />}
       {source.models?.map((model) => <g key={model.region} data-source-model={model.region}>{model.layers.map((layer, index) => <path key={index} fill={layer.fill} d={layer.d} />)}</g>)}
@@ -56,6 +60,13 @@ export function PageFrame({ pageNumber, lessonNumber, children, className, garde
     : undefined;
   const style = {
     ...(garden && gardenBg ? { "--garden-page-bg": `url('${gardenBg}')` } : {}),
+    ...(source?.sentenceRules ? {
+      "--wb-sentence-left": `${source.sentenceRules[0].left}%`,
+      "--wb-sentence-width": `${source.sentenceRules[0].right-source.sentenceRules[0].left}%`,
+      "--wb-sentence-top": `${(source.sentenceRules[0].y-30)/1210*100}%`,
+      "--wb-sentence-height": `${(source.sentenceRules[5].y-source.sentenceRules[0].y+35)/1210*100}%`,
+      "--wb-sentence-leading": `${(source.sentenceRules[1].y-source.sentenceRules[0].y)/935*100}cqw`,
+    } : {}),
     ...(source?.story ? {
       "--wb-story-left": `${source.story.left}%`,
       "--wb-story-top": `${source.story.top}%`,
