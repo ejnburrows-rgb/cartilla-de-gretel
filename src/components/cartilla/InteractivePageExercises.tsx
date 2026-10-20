@@ -26,7 +26,7 @@ function floatDelay(index: number): string {
 function ArtOrPending({ cell }: { cell: PageGridCell }) {
   if (cell.illustrationSrc) {
     return (
-      <LivingIllustration src={cell.illustrationSrc} alt={cell.caption ?? ""} loading="lazy" />
+      <LivingIllustration src={cell.illustrationSrc} alt={cell.caption ?? ""} loading={cell.illustrationSrc.includes("/lesson-3/") ? "eager" : "lazy"} />
     );
   }
   return (

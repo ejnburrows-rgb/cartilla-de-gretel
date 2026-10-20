@@ -1,0 +1,156 @@
+/* Lesson 3 only: stable height allocation and accessible overflow. Art unchanged. */
+.lc-lesson-shell--fit .faithful-page:has([data-gretel-activity^="page-7-"]) .fp-ix-row {
+  container-type: normal;
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  align-items: stretch;
+}
+.lc-lesson-shell--fit
+  .native-lesson-viewer__content
+  .faithful-page:has([data-gretel-activity^="page-7-"])
+  .fp-ix-cell {
+  width: 100%;
+  height: 100%;
+  max-height: none;
+  aspect-ratio: auto;
+}
+.lc-lesson-shell--fit
+  .faithful-page:has([data-gretel-activity^="page-8-"])
+  .am-direct-pencil__grid {
+  display: grid;
+  grid-template-rows: repeat(3, minmax(0, 1fr));
+  gap: 12px;
+}
+.lc-lesson-shell--fit .faithful-page:has([data-gretel-activity^="page-8-"]) .am-direct-pencil__row {
+  min-height: 0;
+  align-items: stretch;
+}
+.lc-lesson-shell--fit
+  .faithful-page:has([data-gretel-activity^="page-8-"])
+  :is(.am-direct-pencil__center, .am-direct-pencil__target) {
+  min-height: 0;
+  aspect-ratio: auto;
+}
+.lc-lesson-shell--fit
+  .faithful-page:has([data-gretel-activity^="page-8-"])
+  .am-direct-pencil__card {
+  min-height: 0;
+}
+.lc-lesson-shell--fit
+  .faithful-page:has([data-gretel-activity^="page-8-"])
+  .am-direct-pencil__card
+  img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+@media (orientation: landscape) and (max-height: 500px) {
+  .lc-lesson-shell--fit:has([data-gretel-activity^="page-7-"]),
+  .lc-lesson-shell--fit:has([data-gretel-activity^="page-8-"]) {
+    height: 100dvh;
+    overflow: hidden;
+  }
+  .lc-lesson-shell--fit:has([data-gretel-activity^="page-7-"]) .lc-lesson-main,
+  .lc-lesson-shell--fit:has([data-gretel-activity^="page-8-"]) .lc-lesson-main {
+    container-type: size;
+    flex: 1 1 0;
+    overflow: hidden;
+    --ph: calc(100dvh - 12px);
+  }
+  .lc-lesson-shell--fit
+    .native-lesson-viewer__content
+    .faithful-page:has([data-gretel-activity^="page-7-"]),
+  .lc-lesson-shell--fit
+    .native-lesson-viewer__content
+    .faithful-page:has([data-gretel-activity^="page-8-"]) {
+    height: var(--ph);
+    min-height: 0;
+    overflow: hidden;
+  }
+  .lc-lesson-shell--fit
+    .native-lesson-viewer__content
+    .faithful-page:has([data-gretel-activity^="page-7-"])
+    .faithful-page__body,
+  .lc-lesson-shell--fit
+    .native-lesson-viewer__content
+    .faithful-page:has([data-gretel-activity^="page-8-"])
+    .faithful-page__body {
+    position: absolute;
+    inset: 0;
+    overflow: hidden;
+    padding: 14px 6% 48px;
+    gap: 8px;
+  }
+  .lc-lesson-shell--fit .faithful-page:has([data-gretel-activity^="page-7-"]) .fp-ix-grid {
+    gap: 6px;
+  }
+  .lc-lesson-shell--fit
+    .faithful-page:has([data-gretel-activity^="page-8-"])
+    .am-direct-pencil__grid {
+    gap: 6px;
+  }
+}
+/* Writing retains true-size tools and scrolls as one page on small screens. */
+@media (max-width: 600px), (max-height: 500px) {
+  .lc-lesson-shell--fit:has([data-gretel-activity^="page-9-"]) {
+    height: 100dvh;
+    overflow-y: auto;
+  }
+  .lc-lesson-shell--fit:has([data-gretel-activity^="page-9-"]) .lc-lesson-main {
+    container-type: normal;
+    flex: none;
+    overflow: visible;
+  }
+  .lc-lesson-shell--fit
+    .native-lesson-viewer__content
+    .faithful-page:has([data-gretel-activity^="page-9-"]) {
+    height: auto;
+    min-height: calc(100dvh - 120px);
+    overflow: visible;
+  }
+  .lc-lesson-shell--fit
+    .native-lesson-viewer__content
+    .faithful-page:has([data-gretel-activity^="page-9-"])
+    .faithful-page__body {
+    position: static;
+    overflow: visible;
+    padding-bottom: 100px;
+  }
+}
+.lc-lesson-shell--fit
+  .native-lesson-viewer__content
+  .faithful-page:has([data-gretel-activity^="page-8-"])
+  .am-direct-pencil__grid {
+  width: 100%;
+  max-width: none;
+  flex: 1 1 0;
+}
+.lc-lesson-shell--fit
+  .native-lesson-viewer__content
+  .faithful-page:has([data-gretel-activity^="page-8-"])
+  .am-direct-pencil__row {
+  width: 100%;
+  max-width: none;
+  justify-self: stretch;
+}
+.lc-lesson-shell--fit
+  .native-lesson-viewer__content
+  .faithful-page:has([data-gretel-activity^="page-8-"])
+  .am-direct-pencil__grid {
+  justify-items: stretch;
+  align-items: stretch;
+}
+.lc-lesson-shell--fit
+  .native-lesson-viewer__content
+  .faithful-page:has([data-gretel-activity^="page-7-"])
+  .living-illustration__art {
+  position: absolute;
+  inset: 0;
+}
+.lc-lesson-shell--fit
+  .native-lesson-viewer__content
+  .faithful-page:has([data-gretel-activity^="page-8-"])
+  .am-direct-pencil__grid {
+  grid-template-columns: minmax(0, 1fr);
+  justify-content: stretch;
+}

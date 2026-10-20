@@ -22,6 +22,7 @@ import { NativeLessonViewer } from "@/components/StudentBook/NativeLessonViewer"
 import "@/styles/lesson-fit.css";
 // Wave 1 (2026-10-19): page-scoped cutoff fixes for L11/L12/L16 only.
 import "@/styles/lesson-cutoff-fixes.css";
+import "@/styles/lesson-local/lesson-3-local.css";
 import { exitLessonFullscreen, requestLessonFullscreen } from "@/lib/lesson-fullscreen";
 import { buildPageArray } from "@/utils/buildPageArray";
 import { GretelCinematic } from "@/components/gretel/GretelCinematic";
