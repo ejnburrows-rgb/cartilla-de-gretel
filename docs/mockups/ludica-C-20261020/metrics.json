@@ -1,0 +1,186 @@
+{
+  "metrics": [
+    {
+      "name": "p69",
+      "width": 320,
+      "height": 844,
+      "scrollWidth": 320,
+      "scrollHeight": 2329
+    },
+    {
+      "name": "p72",
+      "width": 320,
+      "height": 844,
+      "scrollWidth": 320,
+      "scrollHeight": 1803
+    },
+    {
+      "name": "p72-retry",
+      "width": 320,
+      "height": 844,
+      "scrollWidth": 320,
+      "scrollHeight": 1803
+    },
+    {
+      "name": "p72-correct",
+      "width": 320,
+      "height": 844,
+      "scrollWidth": 320,
+      "scrollHeight": 1803
+    },
+    {
+      "name": "p72-complete",
+      "width": 320,
+      "height": 844,
+      "scrollWidth": 320,
+      "scrollHeight": 1803
+    },
+    {
+      "name": "p69",
+      "width": 390,
+      "height": 844,
+      "scrollWidth": 390,
+      "scrollHeight": 2129
+    },
+    {
+      "name": "p72",
+      "width": 390,
+      "height": 844,
+      "scrollWidth": 390,
+      "scrollHeight": 1858
+    },
+    {
+      "name": "p72-retry",
+      "width": 390,
+      "height": 844,
+      "scrollWidth": 390,
+      "scrollHeight": 1858
+    },
+    {
+      "name": "p72-correct",
+      "width": 390,
+      "height": 844,
+      "scrollWidth": 390,
+      "scrollHeight": 1858
+    },
+    {
+      "name": "p72-complete",
+      "width": 390,
+      "height": 844,
+      "scrollWidth": 390,
+      "scrollHeight": 1858
+    },
+    {
+      "name": "p69",
+      "width": 1280,
+      "height": 800,
+      "scrollWidth": 1280,
+      "scrollHeight": 1906
+    },
+    {
+      "name": "p72",
+      "width": 1280,
+      "height": 800,
+      "scrollWidth": 1280,
+      "scrollHeight": 2209
+    },
+    {
+      "name": "p72-retry",
+      "width": 1280,
+      "height": 800,
+      "scrollWidth": 1280,
+      "scrollHeight": 2209
+    },
+    {
+      "name": "p72-correct",
+      "width": 1280,
+      "height": 800,
+      "scrollWidth": 1280,
+      "scrollHeight": 2209
+    },
+    {
+      "name": "p72-complete",
+      "width": 1280,
+      "height": 800,
+      "scrollWidth": 1280,
+      "scrollHeight": 2209
+    },
+    {
+      "name": "p69",
+      "width": 1440,
+      "height": 900,
+      "scrollWidth": 1440,
+      "scrollHeight": 1906
+    },
+    {
+      "name": "p72",
+      "width": 1440,
+      "height": 900,
+      "scrollWidth": 1440,
+      "scrollHeight": 2209
+    },
+    {
+      "name": "p72-retry",
+      "width": 1440,
+      "height": 900,
+      "scrollWidth": 1440,
+      "scrollHeight": 2209
+    },
+    {
+      "name": "p72-correct",
+      "width": 1440,
+      "height": 900,
+      "scrollWidth": 1440,
+      "scrollHeight": 2209
+    },
+    {
+      "name": "p72-complete",
+      "width": 1440,
+      "height": 900,
+      "scrollWidth": 1440,
+      "scrollHeight": 2209
+    },
+    {
+      "name": "p69",
+      "width": 844,
+      "height": 390,
+      "scrollWidth": 844,
+      "scrollHeight": 2003
+    },
+    {
+      "name": "p72",
+      "width": 844,
+      "height": 390,
+      "scrollWidth": 844,
+      "scrollHeight": 2209
+    },
+    {
+      "name": "p72-retry",
+      "width": 844,
+      "height": 390,
+      "scrollWidth": 844,
+      "scrollHeight": 2209
+    },
+    {
+      "name": "p72-correct",
+      "width": 844,
+      "height": 390,
+      "scrollWidth": 844,
+      "scrollHeight": 2209
+    },
+    {
+      "name": "p72-complete",
+      "width": 844,
+      "height": 390,
+      "scrollWidth": 844,
+      "scrollHeight": 2209
+    }
+  ],
+  "checks": [
+    "320: words/progress, original page order, A-/A+, four real file-play calls, sound-selection disclosure, all exercise groups, right/wrong and reset passed",
+    "390: words/progress, original page order, A-/A+, four real file-play calls, sound-selection disclosure, all exercise groups, right/wrong and reset passed",
+    "1280: words/progress, original page order, A-/A+, four real file-play calls, sound-selection disclosure, all exercise groups, right/wrong and reset passed",
+    "1440: words/progress, original page order, A-/A+, four real file-play calls, sound-selection disclosure, all exercise groups, right/wrong and reset passed",
+    "844: words/progress, original page order, A-/A+, four real file-play calls, sound-selection disclosure, all exercise groups, right/wrong and reset passed"
+  ]
+}
