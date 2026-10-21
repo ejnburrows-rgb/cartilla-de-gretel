@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-10-09T21:31:20.782Z",
+  "generatedAt": "2026-10-21T08:25:36.844Z",
   "sourceManifest": "/cartilla/art/faithful/manifest.json",
   "canonicalPolicy": "Canonical faithful WebP files remain untouched. Delivery derivatives are disposable build output.",
   "counts": {
@@ -9,8 +9,8 @@
     "processedCanonicalAssets": 108,
     "unavailableManifestAssets": 0,
     "wiredQaPass": 96,
-    "backgroundCleaned": 99,
-    "paddingTrimmed": 104,
+    "backgroundCleaned": 96,
+    "paddingTrimmed": 101,
     "edgeTouchWarnings": 9,
     "duplicateContentGroups": 0,
     "errors": 0,
@@ -23,28 +23,28 @@
   "warnings": [
     "/cartilla/art/faithful/leccion-1/abrigo.webp: visible content touches canonical crop edge; source recrop may be required",
     "/cartilla/art/faithful/leccion-1/globo.webp: visible content touches canonical crop edge; source recrop may be required",
-    "/cartilla/art/faithful/vocal-a/abeja.webp: visible content touches canonical crop edge; source recrop may be required",
-    "/cartilla/art/faithful/vocal-o/oruga.webp: visible content touches canonical crop edge; source recrop may be required",
-    "/cartilla/art/faithful/vocal-a/aguja.webp: visible content touches canonical crop edge; source recrop may be required",
-    "/cartilla/art/faithful/vocal-i/iglu.webp: visible content touches canonical crop edge; source recrop may be required",
-    "/cartilla/art/faithful/vocal-a/alas.webp: suspiciously small cropBox 29x38",
-    "/cartilla/art/faithful/vocal-a/arana.webp: suspiciously small cropBox 105x9",
-    "/cartilla/art/faithful/vocal-e/escalera.webp: crop/canonical aspect drift 50%",
-    "/cartilla/art/faithful/vocal-o/ocho.webp: suspiciously small cropBox 4x8",
-    "/cartilla/art/faithful/vocal-o/oreja.webp: suspiciously small cropBox 11x12",
-    "/cartilla/art/faithful/vocal-e/espejo.webp: crop/canonical aspect drift 56%",
-    "/cartilla/art/faithful/vocal-u/uno.webp: suspiciously small cropBox 18x27",
-    "/cartilla/art/faithful/vocal-a/avion.webp: suspiciously small cropBox 3x5",
+    "/cartilla/art/faithful/leccion-14-n/nino.webp: crop/canonical aspect drift 46%",
+    "/cartilla/art/faithful/leccion-14-n/nino.webp: visible content touches canonical crop edge; source recrop may be required",
+    "/cartilla/art/faithful/leccion-18-rr/barril.webp: crop/canonical aspect drift 53%",
+    "/cartilla/art/faithful/leccion-18-rr/torre.webp: crop/canonical aspect drift 72%",
+    "/cartilla/art/faithful/leccion-19-c/catalina.webp: crop/canonical aspect drift 48%",
+    "/cartilla/art/faithful/leccion-22-y/yema.webp: crop/canonical aspect drift 47%",
+    "/cartilla/art/faithful/leccion-23-z/zorro.webp: visible content touches canonical crop edge; source recrop may be required",
     "/cartilla/art/faithful/leccion-7-m/mama.webp: crop/canonical aspect drift 46%",
     "/cartilla/art/faithful/leccion-8-p/papa.webp: crop/canonical aspect drift 50%",
     "/cartilla/art/faithful/leccion-8-p/papa.webp: visible content touches canonical crop edge; source recrop may be required",
-    "/cartilla/art/faithful/leccion-14-n/nino.webp: crop/canonical aspect drift 46%",
-    "/cartilla/art/faithful/leccion-14-n/nino.webp: visible content touches canonical crop edge; source recrop may be required",
-    "/cartilla/art/faithful/leccion-18-rr/torre.webp: crop/canonical aspect drift 72%",
-    "/cartilla/art/faithful/leccion-18-rr/barril.webp: crop/canonical aspect drift 53%",
-    "/cartilla/art/faithful/leccion-22-y/yema.webp: crop/canonical aspect drift 47%",
-    "/cartilla/art/faithful/leccion-23-z/zorro.webp: visible content touches canonical crop edge; source recrop may be required",
-    "/cartilla/art/faithful/leccion-19-c/catalina.webp: crop/canonical aspect drift 48%"
+    "/cartilla/art/faithful/vocal-a/abeja.webp: visible content touches canonical crop edge; source recrop may be required",
+    "/cartilla/art/faithful/vocal-a/aguja.webp: visible content touches canonical crop edge; source recrop may be required",
+    "/cartilla/art/faithful/vocal-a/alas.webp: suspiciously small cropBox 29x38",
+    "/cartilla/art/faithful/vocal-a/arana.webp: suspiciously small cropBox 105x9",
+    "/cartilla/art/faithful/vocal-a/avion.webp: suspiciously small cropBox 3x5",
+    "/cartilla/art/faithful/vocal-e/espejo.webp: crop/canonical aspect drift 56%",
+    "/cartilla/art/faithful/vocal-i/iglu.webp: visible content touches canonical crop edge; source recrop may be required",
+    "/cartilla/art/faithful/vocal-o/ocho.webp: suspiciously small cropBox 4x8",
+    "/cartilla/art/faithful/vocal-o/oreja.webp: suspiciously small cropBox 11x12",
+    "/cartilla/art/faithful/vocal-o/oruga.webp: visible content touches canonical crop edge; source recrop may be required",
+    "/cartilla/art/faithful/vocal-u/uno.webp: suspiciously small cropBox 18x27",
+    "/cartilla/art/faithful/vocal-u/uña.webp: visible content touches canonical crop edge; source recrop may be required"
   ],
   "duplicateContent": [],
   "unresolvedSourceIssues": [],
@@ -866,12 +866,12 @@
       "sourceAsset": "e-page-5.jpg",
       "canonicalSrc": "/cartilla/art/faithful/vocal-e/elefante.webp",
       "canonical": {
-        "width": 870,
-        "height": 809,
-        "bytes": 71864,
+        "width": 222,
+        "height": 214,
+        "bytes": 46210,
         "format": "webp",
         "hasAlpha": true,
-        "sha256": "f54e533c6a33b901fcfc79da83b2f7a38977defc47662f6cf29ca948d1cfd28a"
+        "sha256": "e25fa93ec3ea78fedadee10f09a72274433e39f64d789f8c5a47d498a79513d5"
       },
       "cropBox": [
         274,
@@ -881,8 +881,8 @@
       ],
       "provenanceStatus": null,
       "cleanup": {
-        "backgroundRemoved": true,
-        "removedPixels": 763,
+        "backgroundRemoved": false,
+        "removedPixels": 0,
         "estimatedBackground": {
           "color": {
             "r": 255,
@@ -892,15 +892,15 @@
           "agreement": 0,
           "paperLike": false
         },
-        "transparentPaddingTrimmed": true,
-        "normalizedWidth": 840,
-        "normalizedHeight": 779,
+        "transparentPaddingTrimmed": false,
+        "normalizedWidth": 222,
+        "normalizedHeight": 214,
         "contentBounds": {
-          "x": 25,
-          "y": 25,
-          "width": 820,
-          "height": 759,
-          "opaquePixels": 353711
+          "x": 4,
+          "y": 4,
+          "width": 214,
+          "height": 206,
+          "opaquePixels": 24390
         },
         "touchesCropEdge": {
           "left": false,
@@ -908,22 +908,22 @@
           "right": false,
           "bottom": false
         },
-        "interiorTransparentPixels": 0
+        "interiorTransparentPixels": 1
       },
       "derivatives": [
         {
           "widthTier": 384,
           "path": "/cartilla/art/delivery/faithful/384/vocal-e/elefante.webp",
-          "width": 384,
-          "height": 356,
-          "bytes": 25366
+          "width": 222,
+          "height": 214,
+          "bytes": 14402
         },
         {
           "widthTier": 768,
           "path": "/cartilla/art/delivery/faithful/768/vocal-e/elefante.webp",
-          "width": 768,
-          "height": 712,
-          "bytes": 61136
+          "width": 222,
+          "height": 214,
+          "bytes": 14402
         }
       ],
       "warnings": [],
@@ -938,12 +938,12 @@
       "sourceAsset": "e-page-11.jpg",
       "canonicalSrc": "/cartilla/art/faithful/vocal-e/erizo.webp",
       "canonical": {
-        "width": 870,
-        "height": 861,
-        "bytes": 87348,
+        "width": 320,
+        "height": 320,
+        "bytes": 71620,
         "format": "webp",
-        "hasAlpha": true,
-        "sha256": "5f3a27b85db1ba6178ca9bc22c3aad28146d1d45f95aabc80caeaa71cd7b892d"
+        "hasAlpha": false,
+        "sha256": "8c1020126de080bc5e505439afb5c36a95ce7cc1ccc6ed703699070aa88015f2"
       },
       "cropBox": [
         210,
@@ -954,25 +954,25 @@
       "provenanceStatus": null,
       "cleanup": {
         "backgroundRemoved": true,
-        "removedPixels": 1537,
+        "removedPixels": 64131,
         "estimatedBackground": {
           "color": {
             "r": 255,
             "g": 255,
             "b": 255
           },
-          "agreement": 0,
-          "paperLike": false
+          "agreement": 1,
+          "paperLike": true
         },
         "transparentPaddingTrimmed": true,
-        "normalizedWidth": 840,
-        "normalizedHeight": 831,
+        "normalizedWidth": 236,
+        "normalizedHeight": 255,
         "contentBounds": {
-          "x": 25,
-          "y": 25,
-          "width": 820,
-          "height": 811,
-          "opaquePixels": 457454
+          "x": 52,
+          "y": 46,
+          "width": 216,
+          "height": 235,
+          "opaquePixels": 38269
         },
         "touchesCropEdge": {
           "left": false,
@@ -986,16 +986,16 @@
         {
           "widthTier": 384,
           "path": "/cartilla/art/delivery/faithful/384/vocal-e/erizo.webp",
-          "width": 384,
-          "height": 380,
-          "bytes": 30054
+          "width": 236,
+          "height": 255,
+          "bytes": 19252
         },
         {
           "widthTier": 768,
           "path": "/cartilla/art/delivery/faithful/768/vocal-e/erizo.webp",
-          "width": 768,
-          "height": 760,
-          "bytes": 75516
+          "width": 236,
+          "height": 255,
+          "bytes": 19252
         }
       ],
       "warnings": [],
@@ -1010,12 +1010,12 @@
       "sourceAsset": "e-page-10.jpg",
       "canonicalSrc": "/cartilla/art/faithful/vocal-e/escalera.webp",
       "canonical": {
-        "width": 870,
-        "height": 829,
-        "bytes": 54610,
+        "width": 200,
+        "height": 254,
+        "bytes": 40434,
         "format": "webp",
         "hasAlpha": true,
-        "sha256": "2d5b6a8d9728a46748041231ed82f40b5f9e955669ca88c43b9e93e7e84d32f4"
+        "sha256": "4efe4b02c49aeb8297605d265849491115d6fb6d8163328d727fbcb10d3b29e5"
       },
       "cropBox": [
         230,
@@ -1025,8 +1025,8 @@
       ],
       "provenanceStatus": null,
       "cleanup": {
-        "backgroundRemoved": true,
-        "removedPixels": 908,
+        "backgroundRemoved": false,
+        "removedPixels": 0,
         "estimatedBackground": {
           "color": {
             "r": 255,
@@ -1036,15 +1036,15 @@
           "agreement": 0,
           "paperLike": false
         },
-        "transparentPaddingTrimmed": true,
-        "normalizedWidth": 840,
-        "normalizedHeight": 799,
+        "transparentPaddingTrimmed": false,
+        "normalizedWidth": 200,
+        "normalizedHeight": 254,
         "contentBounds": {
-          "x": 25,
-          "y": 25,
-          "width": 820,
-          "height": 779,
-          "opaquePixels": 221971
+          "x": 4,
+          "y": 4,
+          "width": 192,
+          "height": 246,
+          "opaquePixels": 23026
         },
         "touchesCropEdge": {
           "left": false,
@@ -1052,27 +1052,25 @@
           "right": false,
           "bottom": false
         },
-        "interiorTransparentPixels": 0
+        "interiorTransparentPixels": 15
       },
       "derivatives": [
         {
           "widthTier": 384,
           "path": "/cartilla/art/delivery/faithful/384/vocal-e/escalera.webp",
-          "width": 384,
-          "height": 365,
-          "bytes": 19982
+          "width": 200,
+          "height": 254,
+          "bytes": 13678
         },
         {
           "widthTier": 768,
           "path": "/cartilla/art/delivery/faithful/768/vocal-e/escalera.webp",
-          "width": 768,
-          "height": 731,
-          "bytes": 47458
+          "width": 200,
+          "height": 254,
+          "bytes": 13678
         }
       ],
-      "warnings": [
-        "crop/canonical aspect drift 50%"
-      ],
+      "warnings": [],
       "errors": []
     },
     {
@@ -2663,12 +2661,12 @@
       "sourceAsset": "a-page-4.jpg",
       "canonicalSrc": "/cartilla/art/faithful/leccion-1/maiz.webp",
       "canonical": {
-        "width": 799,
-        "height": 870,
-        "bytes": 114270,
+        "width": 1024,
+        "height": 1024,
+        "bytes": 125138,
         "format": "webp",
         "hasAlpha": true,
-        "sha256": "3ba3071ba13ad179b7e72c5d01631efe5600e2311f8b052675a8443c17e33d72"
+        "sha256": "3f73a954ed99badce76f472b996e73b8e12bfefb9113b9baf8509045ee30248d"
       },
       "cropBox": [
         850,
@@ -2679,7 +2677,7 @@
       "provenanceStatus": null,
       "cleanup": {
         "backgroundRemoved": true,
-        "removedPixels": 2474,
+        "removedPixels": 2088,
         "estimatedBackground": {
           "color": {
             "r": 255,
@@ -2690,14 +2688,14 @@
           "paperLike": false
         },
         "transparentPaddingTrimmed": true,
-        "normalizedWidth": 769,
-        "normalizedHeight": 840,
+        "normalizedWidth": 954,
+        "normalizedHeight": 992,
         "contentBounds": {
-          "x": 25,
-          "y": 25,
-          "width": 749,
-          "height": 820,
-          "opaquePixels": 271388
+          "x": 49,
+          "y": 14,
+          "width": 934,
+          "height": 972,
+          "opaquePixels": 450045
         },
         "touchesCropEdge": {
           "left": false,
@@ -2705,22 +2703,22 @@
           "right": false,
           "bottom": false
         },
-        "interiorTransparentPixels": 0
+        "interiorTransparentPixels": 38
       },
       "derivatives": [
         {
           "widthTier": 384,
           "path": "/cartilla/art/delivery/faithful/384/leccion-1/maiz.webp",
           "width": 384,
-          "height": 419,
-          "bytes": 42438
+          "height": 399,
+          "bytes": 41480
         },
         {
           "widthTier": 768,
           "path": "/cartilla/art/delivery/faithful/768/leccion-1/maiz.webp",
           "width": 768,
-          "height": 839,
-          "bytes": 107464
+          "height": 799,
+          "bytes": 118604
         }
       ],
       "warnings": [],
@@ -3147,12 +3145,12 @@
       "sourceAsset": "u-page-17.jpg",
       "canonicalSrc": "/cartilla/art/faithful/vocal-u/uña.webp",
       "canonical": {
-        "width": 799,
-        "height": 870,
-        "bytes": 37814,
+        "width": 154,
+        "height": 164,
+        "bytes": 28436,
         "format": "webp",
         "hasAlpha": true,
-        "sha256": "14b2ffeb6bb6c4d70421e4adeed9a59b438bb859484c3123990b2806647c1e70"
+        "sha256": "ee3c52a289ec38326139d9d66876153a7a2fdd739a759088178cfb38e86210fb"
       },
       "cropBox": [
         128,
@@ -3162,8 +3160,8 @@
       ],
       "provenanceStatus": null,
       "cleanup": {
-        "backgroundRemoved": true,
-        "removedPixels": 527,
+        "backgroundRemoved": false,
+        "removedPixels": 0,
         "estimatedBackground": {
           "color": {
             "r": 255,
@@ -3173,19 +3171,19 @@
           "agreement": 0,
           "paperLike": false
         },
-        "transparentPaddingTrimmed": true,
-        "normalizedWidth": 769,
-        "normalizedHeight": 840,
+        "transparentPaddingTrimmed": false,
+        "normalizedWidth": 154,
+        "normalizedHeight": 164,
         "contentBounds": {
-          "x": 25,
-          "y": 25,
-          "width": 749,
-          "height": 820,
-          "opaquePixels": 500125
+          "x": 4,
+          "y": 1,
+          "width": 146,
+          "height": 159,
+          "opaquePixels": 22726
         },
         "touchesCropEdge": {
           "left": false,
-          "top": false,
+          "top": true,
           "right": false,
           "bottom": false
         },
@@ -3195,19 +3193,21 @@
         {
           "widthTier": 384,
           "path": "/cartilla/art/delivery/faithful/384/vocal-u/uña.webp",
-          "width": 384,
-          "height": 419,
-          "bytes": 15610
+          "width": 154,
+          "height": 164,
+          "bytes": 6164
         },
         {
           "widthTier": 768,
           "path": "/cartilla/art/delivery/faithful/768/vocal-u/uña.webp",
-          "width": 768,
-          "height": 839,
-          "bytes": 36936
+          "width": 154,
+          "height": 164,
+          "bytes": 6164
         }
       ],
-      "warnings": [],
+      "warnings": [
+        "visible content touches canonical crop edge; source recrop may be required"
+      ],
       "errors": []
     },
     {
@@ -3852,12 +3852,12 @@
       "sourceAsset": "ss-page-14.jpg",
       "canonicalSrc": "/cartilla/art/faithful/leccion-9-s/sapo.webp",
       "canonical": {
-        "width": 870,
-        "height": 742,
-        "bytes": 109956,
+        "width": 320,
+        "height": 320,
+        "bytes": 41460,
         "format": "webp",
-        "hasAlpha": true,
-        "sha256": "ebc7f527d10fa92ed9a3a1d61e67d49ae43e89e6bd3d74e6b458232edd20842a"
+        "hasAlpha": false,
+        "sha256": "6eb001067e64bfc02973d1f02f10745589d58196df3f7990157d552af17e7b09"
       },
       "cropBox": [
         1689,
@@ -3868,25 +3868,25 @@
       "provenanceStatus": null,
       "cleanup": {
         "backgroundRemoved": true,
-        "removedPixels": 1151,
+        "removedPixels": 78270,
         "estimatedBackground": {
           "color": {
             "r": 255,
             "g": 255,
             "b": 255
           },
-          "agreement": 0,
-          "paperLike": false
+          "agreement": 1,
+          "paperLike": true
         },
         "transparentPaddingTrimmed": true,
-        "normalizedWidth": 840,
-        "normalizedHeight": 712,
+        "normalizedWidth": 275,
+        "normalizedHeight": 214,
         "contentBounds": {
-          "x": 25,
-          "y": 25,
-          "width": 820,
-          "height": 692,
-          "opaquePixels": 260734
+          "x": 32,
+          "y": 63,
+          "width": 255,
+          "height": 194,
+          "opaquePixels": 24130
         },
         "touchesCropEdge": {
           "left": false,
@@ -3900,16 +3900,16 @@
         {
           "widthTier": 384,
           "path": "/cartilla/art/delivery/faithful/384/leccion-9-s/sapo.webp",
-          "width": 384,
-          "height": 325,
-          "bytes": 31196
+          "width": 275,
+          "height": 214,
+          "bytes": 14208
         },
         {
           "widthTier": 768,
           "path": "/cartilla/art/delivery/faithful/768/leccion-9-s/sapo.webp",
-          "width": 768,
-          "height": 651,
-          "bytes": 89034
+          "width": 275,
+          "height": 214,
+          "bytes": 14208
         }
       ],
       "warnings": [],
@@ -4068,12 +4068,12 @@
       "sourceAsset": "n-page-25.jpg",
       "canonicalSrc": "/cartilla/art/faithful/leccion-13-n/nido.webp",
       "canonical": {
-        "width": 870,
-        "height": 556,
-        "bytes": 118576,
+        "width": 320,
+        "height": 320,
+        "bytes": 34222,
         "format": "webp",
-        "hasAlpha": true,
-        "sha256": "8631178289926420c103ccfecdf49fda31e3ec017f3ab81bf9742842a7502ec1"
+        "hasAlpha": false,
+        "sha256": "94f6cca749ef66c58da57f17c2994c56817b1d86cd835ec85f98f02911eec8b6"
       },
       "cropBox": [
         179,
@@ -4084,25 +4084,25 @@
       "provenanceStatus": null,
       "cleanup": {
         "backgroundRemoved": true,
-        "removedPixels": 782,
+        "removedPixels": 77638,
         "estimatedBackground": {
           "color": {
             "r": 255,
             "g": 255,
             "b": 255
           },
-          "agreement": 0,
-          "paperLike": false
+          "agreement": 1,
+          "paperLike": true
         },
         "transparentPaddingTrimmed": true,
-        "normalizedWidth": 840,
-        "normalizedHeight": 526,
+        "normalizedWidth": 242,
+        "normalizedHeight": 167,
         "contentBounds": {
-          "x": 25,
-          "y": 25,
-          "width": 820,
-          "height": 506,
-          "opaquePixels": 326825
+          "x": 49,
+          "y": 86,
+          "width": 222,
+          "height": 147,
+          "opaquePixels": 24762
         },
         "touchesCropEdge": {
           "left": false,
@@ -4116,16 +4116,16 @@
         {
           "widthTier": 384,
           "path": "/cartilla/art/delivery/faithful/384/leccion-13-n/nido.webp",
-          "width": 384,
-          "height": 240,
-          "bytes": 31784
+          "width": 242,
+          "height": 167,
+          "bytes": 12438
         },
         {
           "widthTier": 768,
           "path": "/cartilla/art/delivery/faithful/768/leccion-13-n/nido.webp",
-          "width": 768,
-          "height": 481,
-          "bytes": 96650
+          "width": 242,
+          "height": 167,
+          "bytes": 12438
         }
       ],
       "warnings": [],
@@ -4503,12 +4503,12 @@
       "sourceAsset": "r-page-37.jpg",
       "canonicalSrc": "/cartilla/art/faithful/leccion-17-r/rosa.webp",
       "canonical": {
-        "width": 870,
-        "height": 735,
-        "bytes": 107882,
+        "width": 320,
+        "height": 320,
+        "bytes": 42920,
         "format": "webp",
-        "hasAlpha": true,
-        "sha256": "31b0821613ceb896c63c5ba013c638db31bae69a5340d577682723b7a81da445"
+        "hasAlpha": false,
+        "sha256": "a84b578d3b38f64faa13ffeeffbb7b3e09ca0696fd5388021a59299f32590488"
       },
       "cropBox": [
         420,
@@ -4519,25 +4519,25 @@
       "provenanceStatus": null,
       "cleanup": {
         "backgroundRemoved": true,
-        "removedPixels": 597,
+        "removedPixels": 75873,
         "estimatedBackground": {
           "color": {
             "r": 255,
             "g": 255,
             "b": 255
           },
-          "agreement": 0,
-          "paperLike": false
+          "agreement": 1,
+          "paperLike": true
         },
         "transparentPaddingTrimmed": true,
-        "normalizedWidth": 840,
-        "normalizedHeight": 705,
+        "normalizedWidth": 196,
+        "normalizedHeight": 237,
         "contentBounds": {
-          "x": 25,
-          "y": 25,
-          "width": 820,
-          "height": 685,
-          "opaquePixels": 385178
+          "x": 72,
+          "y": 55,
+          "width": 176,
+          "height": 217,
+          "opaquePixels": 26527
         },
         "touchesCropEdge": {
           "left": false,
@@ -4551,16 +4551,16 @@
         {
           "widthTier": 384,
           "path": "/cartilla/art/delivery/faithful/384/leccion-17-r/rosa.webp",
-          "width": 384,
-          "height": 322,
-          "bytes": 34822
+          "width": 196,
+          "height": 237,
+          "bytes": 13038
         },
         {
           "widthTier": 768,
           "path": "/cartilla/art/delivery/faithful/768/leccion-17-r/rosa.webp",
-          "width": 768,
-          "height": 645,
-          "bytes": 89934
+          "width": 196,
+          "height": 237,
+          "bytes": 13038
         }
       ],
       "warnings": [],
@@ -7167,36 +7167,36 @@
       "sourceAsset": null,
       "canonicalSrc": "/cartilla/art/faithful/leccion-17-r/rita.webp",
       "canonical": {
-        "width": 870,
-        "height": 680,
-        "bytes": 98100,
+        "width": 324,
+        "height": 324,
+        "bytes": 35858,
         "format": "webp",
-        "hasAlpha": true,
-        "sha256": "c0fff9c01e6e52cf05b1f2dcca74ab99b935014f7c753d5f06a95dc24c3ea198"
+        "hasAlpha": false,
+        "sha256": "c6e4dcd5016f221b079b61a72561298a6d56ec2e6badf21aac89240d7e030436"
       },
       "cropBox": null,
       "provenanceStatus": "QA-PASS-SOURCE-PAGE-NOT-RECORDED",
       "cleanup": {
         "backgroundRemoved": true,
-        "removedPixels": 2036,
+        "removedPixels": 78915,
         "estimatedBackground": {
           "color": {
             "r": 255,
             "g": 255,
             "b": 255
           },
-          "agreement": 0,
-          "paperLike": false
+          "agreement": 1,
+          "paperLike": true
         },
         "transparentPaddingTrimmed": true,
-        "normalizedWidth": 840,
-        "normalizedHeight": 650,
+        "normalizedWidth": 281,
+        "normalizedHeight": 247,
         "contentBounds": {
-          "x": 25,
-          "y": 25,
-          "width": 820,
-          "height": 630,
-          "opaquePixels": 255317
+          "x": 30,
+          "y": 52,
+          "width": 261,
+          "height": 227,
+          "opaquePixels": 26061
         },
         "touchesCropEdge": {
           "left": false,
@@ -7210,16 +7210,16 @@
         {
           "widthTier": 384,
           "path": "/cartilla/art/delivery/faithful/384/leccion-17-r/rita.webp",
-          "width": 384,
-          "height": 297,
-          "bytes": 34540
+          "width": 281,
+          "height": 247,
+          "bytes": 16912
         },
         {
           "widthTier": 768,
           "path": "/cartilla/art/delivery/faithful/768/leccion-17-r/rita.webp",
-          "width": 768,
-          "height": 594,
-          "bytes": 86602
+          "width": 281,
+          "height": 247,
+          "bytes": 16912
         }
       ],
       "warnings": [],
@@ -7502,36 +7502,36 @@
       "sourceAsset": null,
       "canonicalSrc": "/cartilla/art/faithful/leccion-18-rr/tierra.webp",
       "canonical": {
-        "width": 869,
-        "height": 870,
-        "bytes": 214154,
+        "width": 320,
+        "height": 320,
+        "bytes": 77638,
         "format": "webp",
-        "hasAlpha": true,
-        "sha256": "8c9be585ca8ae6241c3a45e89a684a8efb7f846e0545a268e4383105d91f3d0b"
+        "hasAlpha": false,
+        "sha256": "60572abacf0cf844dd0086b0ef365074bd0e3f63f712a87d043c67b3b6627bab"
       },
       "cropBox": null,
       "provenanceStatus": "QA-PASS-SOURCE-PAGE-NOT-RECORDED",
       "cleanup": {
         "backgroundRemoved": true,
-        "removedPixels": 822,
+        "removedPixels": 52152,
         "estimatedBackground": {
           "color": {
             "r": 255,
             "g": 255,
             "b": 255
           },
-          "agreement": 0,
-          "paperLike": false
+          "agreement": 1,
+          "paperLike": true
         },
         "transparentPaddingTrimmed": true,
-        "normalizedWidth": 839,
-        "normalizedHeight": 840,
+        "normalizedWidth": 261,
+        "normalizedHeight": 264,
         "contentBounds": {
-          "x": 25,
-          "y": 25,
-          "width": 819,
-          "height": 820,
-          "opaquePixels": 528691
+          "x": 35,
+          "y": 42,
+          "width": 241,
+          "height": 244,
+          "opaquePixels": 50248
         },
         "touchesCropEdge": {
           "left": false,
@@ -7545,16 +7545,16 @@
         {
           "widthTier": 384,
           "path": "/cartilla/art/delivery/faithful/384/leccion-18-rr/tierra.webp",
-          "width": 384,
-          "height": 384,
-          "bytes": 46884
+          "width": 261,
+          "height": 264,
+          "bytes": 20308
         },
         {
           "widthTier": 768,
           "path": "/cartilla/art/delivery/faithful/768/leccion-18-rr/tierra.webp",
-          "width": 768,
-          "height": 769,
-          "bytes": 168294
+          "width": 261,
+          "height": 264,
+          "bytes": 20308
         }
       ],
       "warnings": [],
@@ -8207,7 +8207,7 @@
         "src": "/cartilla/art/optimized/flipchart-native/p003-scene.png",
         "width": 539,
         "height": 539,
-        "bytes": 177783,
+        "bytes": 322834,
         "approvedInput": true
       },
       {
@@ -8241,18 +8241,18 @@
         "page": 3,
         "word": "olla",
         "src": "/cartilla/art/optimized/flipchart-native/p003-olla.png",
-        "width": 320,
-        "height": 320,
-        "bytes": 55420,
+        "width": 213,
+        "height": 171,
+        "bytes": 51486,
         "approvedInput": true
       },
       {
         "page": 3,
         "word": "uña",
         "src": "/cartilla/art/optimized/flipchart-native/p003-una.png",
-        "width": 320,
-        "height": 320,
-        "bytes": 49948,
+        "width": 154,
+        "height": 164,
+        "bytes": 38741,
         "approvedInput": true
       },
       {
@@ -8646,9 +8646,9 @@
         "page": 12,
         "word": "papá",
         "src": "/cartilla/art/optimized/flipchart-native/p012-papa.png",
-        "width": 320,
-        "height": 320,
-        "bytes": 52592,
+        "width": 480,
+        "height": 660,
+        "bytes": 328948,
         "approvedInput": true
       },
       {
@@ -8979,9 +8979,9 @@
         "page": 27,
         "word": "mono",
         "src": "/cartilla/art/optimized/flipchart-native/p027-mono.png",
-        "width": 320,
-        "height": 320,
-        "bytes": 40787,
+        "width": 472,
+        "height": 770,
+        "bytes": 324824,
         "approvedInput": true
       },
       {
@@ -9294,18 +9294,18 @@
         "page": 42,
         "word": "torre",
         "src": "/cartilla/art/optimized/flipchart-native/p042-torre.png",
-        "width": 320,
-        "height": 320,
-        "bytes": 24379,
+        "width": 356,
+        "height": 870,
+        "bytes": 361247,
         "approvedInput": true
       },
       {
         "page": 42,
         "word": "barril",
         "src": "/cartilla/art/optimized/flipchart-native/p042-barril.png",
-        "width": 320,
-        "height": 320,
-        "bytes": 64861,
+        "width": 595,
+        "height": 870,
+        "bytes": 758989,
         "approvedInput": true
       },
       {
@@ -9339,18 +9339,18 @@
         "page": 45,
         "word": "gaveta",
         "src": "/cartilla/art/optimized/flipchart-native/p045-gaveta.png",
-        "width": 321,
-        "height": 321,
-        "bytes": 80865,
+        "width": 870,
+        "height": 757,
+        "bytes": 1131977,
         "approvedInput": true
       },
       {
         "page": 45,
         "word": "gusano",
         "src": "/cartilla/art/optimized/flipchart-native/p045-gusano.png",
-        "width": 333,
-        "height": 333,
-        "bytes": 27873,
+        "width": 870,
+        "height": 472,
+        "bytes": 339757,
         "approvedInput": true
       },
       {
@@ -9402,9 +9402,9 @@
         "page": 48,
         "word": "foto",
         "src": "/cartilla/art/optimized/flipchart-native/p048-foto.png",
-        "width": 320,
-        "height": 320,
-        "bytes": 65853,
+        "width": 836,
+        "height": 870,
+        "bytes": 1190667,
         "approvedInput": true
       },
       {
@@ -9429,9 +9429,9 @@
         "page": 48,
         "word": "Felo",
         "src": "/cartilla/art/optimized/flipchart-native/p048-felo.png",
-        "width": 321,
-        "height": 321,
-        "bytes": 80269,
+        "width": 870,
+        "height": 781,
+        "bytes": 673597,
         "approvedInput": true
       },
       {
@@ -9528,18 +9528,18 @@
         "page": 54,
         "word": "cuna",
         "src": "/cartilla/art/optimized/flipchart-native/p054-cuna.png",
-        "width": 320,
-        "height": 320,
-        "bytes": 66603,
+        "width": 870,
+        "height": 646,
+        "bytes": 969991,
         "approvedInput": true
       },
       {
         "page": 54,
         "word": "conejo",
         "src": "/cartilla/art/optimized/flipchart-native/p054-conejo.png",
-        "width": 320,
-        "height": 320,
-        "bytes": 39496,
+        "width": 635,
+        "height": 870,
+        "bytes": 561605,
         "approvedInput": true
       },
       {
@@ -9564,9 +9564,9 @@
         "page": 54,
         "word": "Catalina",
         "src": "/cartilla/art/optimized/flipchart-native/p054-catalina.png",
-        "width": 320,
-        "height": 320,
-        "bytes": 46615,
+        "width": 498,
+        "height": 870,
+        "bytes": 531476,
         "approvedInput": true
       },
       {
@@ -9591,9 +9591,9 @@
         "page": 57,
         "word": "yate",
         "src": "/cartilla/art/optimized/flipchart-native/p057-yate.png",
-        "width": 338,
-        "height": 338,
-        "bytes": 68646,
+        "width": 870,
+        "height": 609,
+        "bytes": 975102,
         "approvedInput": true
       },
       {
@@ -9618,18 +9618,18 @@
         "page": 57,
         "word": "mayúscula",
         "src": "/cartilla/art/optimized/flipchart-native/p057-mayuscula.png",
-        "width": 320,
-        "height": 320,
-        "bytes": 62566,
+        "width": 870,
+        "height": 796,
+        "bytes": 874659,
         "approvedInput": true
       },
       {
         "page": 57,
         "word": "yoyo",
         "src": "/cartilla/art/optimized/flipchart-native/p057-yoyo.png",
-        "width": 320,
-        "height": 320,
-        "bytes": 51013,
+        "width": 870,
+        "height": 803,
+        "bytes": 926082,
         "approvedInput": true
       },
       {
@@ -9663,9 +9663,9 @@
         "page": 60,
         "word": "zig-zag",
         "src": "/cartilla/art/optimized/flipchart-native/p060-zigzag.png",
-        "width": 344,
-        "height": 344,
-        "bytes": 35412,
+        "width": 870,
+        "height": 868,
+        "bytes": 503320,
         "approvedInput": true
       },
       {
@@ -9681,18 +9681,18 @@
         "page": 60,
         "word": "zepelín",
         "src": "/cartilla/art/optimized/flipchart-native/p060-zepelin.png",
-        "width": 362,
-        "height": 362,
-        "bytes": 74842,
+        "width": 870,
+        "height": 494,
+        "bytes": 735262,
         "approvedInput": true
       },
       {
         "page": 60,
         "word": "Zulema",
         "src": "/cartilla/art/optimized/flipchart-native/p060-zulema.png",
-        "width": 320,
-        "height": 320,
-        "bytes": 51690,
+        "width": 657,
+        "height": 870,
+        "bytes": 727943,
         "approvedInput": true
       },
       {
