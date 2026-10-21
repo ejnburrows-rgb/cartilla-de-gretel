@@ -9,7 +9,7 @@ export function BookPage({ pageNumber, active = false }: BookPageProps) {
   const activeClass = active ? "" : "opacity-80 pointer-events-none";
 
   return (
-    <div className={`book-page ${activeClass} w-full h-full`}>
+    <div className={`book-page ${activeClass} w-full h-full flex items-center justify-center overflow-hidden`}>
       <ReconstructedWorkbookPage pageNumber={pageNumber} className="w-full h-full" />
     </div>
   );
