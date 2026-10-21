@@ -4,11 +4,9 @@ import { GameShell } from "@/components/cartilla/games/GameShell";
 import { PayasoChano } from "@/components/cartilla/games/PayasoChano";
 import { SyllableBuilder } from "@/components/cartilla/games/SyllableBuilder";
 import { CoreGame } from "@/components/cartilla/games/CoreGames";
-import { CowGame } from "@/components/cartilla/games/CowGame";
 import { PAYASO_CHANO_SS } from "@/content/games/payaso-chano-ss";
 import { SYLLABLE_BUILDER_PILOT } from "@/content/games/syllable-builder-pilot";
 import { CORE_THEMED_GAMES } from "@/content/games/core-games";
-import { COW_GAMES } from "@/content/games/cow-game";
 import { COMPLETAR_PALABRAS_M } from "@/content/games/completar-palabras";
 import { CompletarPalabras } from "@/components/cartilla/games/CompletarPalabras";
 import type { CompletarPalabrasContent } from "@/content/games/completar-palabras";
@@ -23,7 +21,6 @@ export const LIVE_GAMES: GameContent[] = [
   ...SYLLABLE_BUILDER_PILOT,
   ...CORE_THEMED_GAMES,
   COMPLETAR_PALABRAS_M,
-  ...COW_GAMES,
 ];
 
 const GAMES: Record<string, GameContent> = Object.fromEntries(
@@ -36,8 +33,6 @@ function renderGame(content: GameContent) {
       return <PayasoChano content={content} />;
     case "completar-palabras":
       return <CompletarPalabras content={content as CompletarPalabrasContent} />;
-    case "cow-game":
-      return <CowGame content={content} />;
     case "lectura-silabas":
       return <SyllableBuilder content={content} />;
     case "mariposas":
@@ -66,8 +61,6 @@ function Juego() {
       </main>
     );
   }
-
-  if (content.type === "cow-game") return <CowGame content={content} />;
 
   return (
     <GameShell content={content}>

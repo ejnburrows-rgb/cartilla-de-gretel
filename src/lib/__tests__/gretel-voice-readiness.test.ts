@@ -32,21 +32,21 @@ describe("Gretel Voice Readiness Architecture", () => {
 
   it("proves provider configuration centralized defaults and custom swapping", () => {
     const defaultConfig = getGretelVoiceProviderConfig();
-    expect(defaultConfig.type).toBe("browser-tts");
+    expect(defaultConfig.type).toBe("recorded-audio");
     expect(defaultConfig.primaryVoiceName).toBe("Leda");
 
     setGretelVoiceProviderConfig({
-      type: "recorded-audio",
-      name: "Recorded Clips Provider",
-      primaryVoiceName: "Studio Recording - Gretel",
+      type: "cloud-tts",
+      name: "Cloud Provider",
+      primaryVoiceName: "Cloud Voice",
     });
 
     const updatedConfig = getGretelVoiceProviderConfig();
-    expect(updatedConfig.type).toBe("recorded-audio");
-    expect(updatedConfig.primaryVoiceName).toBe("Studio Recording - Gretel");
+    expect(updatedConfig.type).toBe("cloud-tts");
+    expect(updatedConfig.primaryVoiceName).toBe("Cloud Voice");
 
     resetGretelVoiceProviderConfig();
-    expect(getGretelVoiceProviderConfig().type).toBe("browser-tts");
+    expect(getGretelVoiceProviderConfig().type).toBe("recorded-audio");
   });
 
   it("treats punctuation in browser voice labels as literal text", () => {
