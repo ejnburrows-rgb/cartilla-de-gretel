@@ -303,13 +303,26 @@ async function audit() {
   console.log("Faithful Foreground Audit Breakdown:", breakdownFaithful);
   console.log("Flipchart Native Audit Breakdown:", breakdownNative);
 
+  // The audit rows are generated; the _canonicalMapping pointer block is
+  // hand-curated. Carry it through from the committed audit so regenerating
+  // never drops it.
+  const committedPath = path.join(root, "docs", "production-art-classification-audit.json");
+  let canonicalMapping;
+  try {
+    const committed = JSON.parse(fs.readFileSync(committedPath, "utf8"));
+    if (committed && committed._canonicalMapping) canonicalMapping = committed._canonicalMapping;
+  } catch {
+    // no committed audit yet - nothing to preserve
+  }
+
   const outputPath = process.env.ART_AUDIT_OUTPUT
     ? path.resolve(process.env.ART_AUDIT_OUTPUT)
-    : path.join(root, "docs", "production-art-classification-audit.json");
+    : committedPath;
   fs.writeFileSync(
     outputPath,
     JSON.stringify(
       {
+        ...(canonicalMapping ? { _canonicalMapping: canonicalMapping } : {}),
         timestamp: new Date().toISOString(),
         counts: {
           faithfulWired: faithfulAudit.length,
