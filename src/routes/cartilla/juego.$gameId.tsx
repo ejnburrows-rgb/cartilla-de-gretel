@@ -5,6 +5,7 @@ import { PayasoChano } from "@/components/cartilla/games/PayasoChano";
 import { SyllableBuilder } from "@/components/cartilla/games/SyllableBuilder";
 import { CoreGame } from "@/components/cartilla/games/CoreGames";
 import { CowGame } from "@/components/cartilla/games/CowGame";
+import { ButterflyGarden } from "@/components/cartilla/games/ButterflyGarden";
 import { PAYASO_CHANO_SS } from "@/content/games/payaso-chano-ss";
 import { SYLLABLE_BUILDER_PILOT } from "@/content/games/syllable-builder-pilot";
 import { CORE_THEMED_GAMES } from "@/content/games/core-games";
@@ -68,6 +69,23 @@ function Juego() {
   }
 
   if (content.type === "cow-game") return <CowGame content={content} />;
+
+  // Original-art Butterfly Garden for mariposas-p. Other "mariposas" content keeps CoreGame.
+  if (content.id === "mariposas-p") {
+    return (
+      <ButterflyGarden
+        backSlot={
+          <Link
+            to="/cartilla/practica"
+            aria-label="Volver a práctica"
+            className="grid h-12 w-12 place-items-center rounded-full bg-card text-foreground shadow-md"
+          >
+            <ArrowLeft className="h-5 w-5" aria-hidden />
+          </Link>
+        }
+      />
+    );
+  }
 
   return (
     <GameShell content={content}>
