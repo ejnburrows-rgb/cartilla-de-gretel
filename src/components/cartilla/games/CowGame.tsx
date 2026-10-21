@@ -173,10 +173,14 @@ function Cow({
     >
       <span className="cg-bob">
         <span className="cg-sprite" style={{ transform: `scaleX(${flip})` }}>
-          {['leg-a', 'leg-c', 'body', 'leg-b', 'leg-d', 'head', 'tail'].map((p) => (
+          {['leg-a', 'leg-c', 'body', 'leg-b', 'leg-d', 'tail'].map((p) => (
             <img key={p} src={`${ART}open-${p}.png`} alt="" draggable={false} className={`cg-p cg-new cg-${p}`} />
           ))}
-
+          <div className="cg-p cg-new cg-head">
+            <span className="cg-revealed-text">{syllable}</span>
+            <img src={`${ART}open-head.png`} alt="" draggable={false} className="cg-p cg-head-bottom" />
+            <img src={`${ART}open-head.png`} alt="" draggable={false} className="cg-p cg-head-top" />
+          </div>
         </span>
       </span>
     </button>
@@ -305,6 +309,7 @@ export function CowGame({ content }: { content: GameContent }) {
     if (busy || placed[i]) return;
     if (selSlot !== null) return go(i, selSlot);
     setSelCow((c) => (c === i ? null : i));
+    if (selCow !== i && !muted) playWord(undefined); // play moo on select
   };
   const tapSlot = (s: number) => {
     if (busy) return;
@@ -392,7 +397,7 @@ export function CowGame({ content }: { content: GameContent }) {
                   height: py(b.h + 12),
                 }}
               >
-                <span className="cg-door" />
+                <span className="cg-door" /><span className="cg-slot-text">{COW_SLOTS[s]}</span><span className="cg-slot-text">{COW_SLOTS[s]}</span>
               </button>
             </div>
           );
@@ -513,7 +518,7 @@ const CSS = `
 .cg-sprite{transform-origin:50% 90%}
 .cg-p{position:absolute;inset:0;width:100%;height:100%;object-fit:fill;pointer-events:none}
 .cg-card{position:absolute;z-index:65;display:flex;align-items:center;justify-content:center;box-sizing:border-box;border:.3cqw solid #74401d;border-radius:.8cqw;background:#fff4d6;color:#3a1a0e;font:900 3.1cqw/1 ui-rounded,system-ui,sans-serif;transform:translate(-50%,-10%);pointer-events:none;transition-property:left,top}
-.cg-lean .cg-head{animation:none;transform:rotate(-5deg);transition:transform .5s}
+.cg-lean .cg-bob{transform:translateY(16cqw);transition:transform 0.5s} .cg-lean .cg-bob{transform:translateY(16cqw);transition:transform 0.5s} .cg-lean .cg-head{animation:none;transform:rotate(-5deg);transition:transform .5s}
 .cg-label{position:absolute;left:52%;top:58%;font:900 19cqw/1 "Fredoka",ui-rounded,system-ui,sans-serif;color:#3a1a0e;padding:4cqw 7cqw;background:radial-gradient(ellipse,rgba(255,244,214,.95) 55%,rgba(255,244,214,0) 72%);pointer-events:none;z-index:5}
 .cg-selected{filter:drop-shadow(0 0 1.6cqw #fff3a0) drop-shadow(0 0 .8cqw #ffd54a)}
 .cg-selected{outline:2px solid #ffe27a}
@@ -595,4 +600,10 @@ const CSS = `
 .cg-done button{font:900 3cqw/1 "Fredoka",ui-rounded,system-ui,sans-serif;color:#fff;background:#2e9bb0;border:.5cqw solid #fff;border-radius:3cqw;padding:1.6cqw 4cqw;min-height:44px;cursor:pointer}
 .sr-only{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0)}
 @media (prefers-reduced-motion:reduce){.cg-idle *,.cg-selected .cg-bob{animation-duration:12s!important}}
+
+.cg-head-bottom { clip-path: polygon(0% 40%, 100% 40%, 100% 100%, 0% 100%); }
+.cg-head-top { clip-path: polygon(0% 0%, 100% 0%, 100% 40%, 0% 40%); transition: transform 0.5s ease-in-out; }
+.cg-revealed-text { position: absolute; left: 50%; top: 30%; transform: translate(-50%, -50%); font: 900 12cqw/1 "Fredoka", ui-rounded, system-ui, sans-serif; color: #4a2610; opacity: 0; transition: opacity 0.5s; z-index: -1; }
+.cg-drop .cg-head-top, .cg-lean .cg-head-top { transform: translateY(-30%); }
+.cg-drop .cg-revealed-text, .cg-lean .cg-revealed-text { opacity: 1; }
 `;
