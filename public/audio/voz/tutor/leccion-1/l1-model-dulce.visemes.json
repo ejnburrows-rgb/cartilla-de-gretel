@@ -1,0 +1,52 @@
+{
+  "metadata": {
+    "soundFile": "/audio/voz/vocabulario/dulce.mp3",
+    "duration": 1.78,
+    "rhubarbVersion": "1.14.0",
+    "recognizer": "phonetic",
+    "extendedShapes": "GX",
+    "sourceSha256": "ecf139f996a121b116feb1c73265c3195a8939d03ed5481344410aba62fea288"
+  },
+  "mouthCues": [
+    {
+      "start": 0,
+      "end": 0.41,
+      "value": "X"
+    },
+    {
+      "start": 0.41,
+      "end": 0.46,
+      "value": "B"
+    },
+    {
+      "start": 0.46,
+      "end": 0.57,
+      "value": "F"
+    },
+    {
+      "start": 0.57,
+      "end": 0.78,
+      "value": "E"
+    },
+    {
+      "start": 0.78,
+      "end": 1.06,
+      "value": "G"
+    },
+    {
+      "start": 1.06,
+      "end": 1.13,
+      "value": "C"
+    },
+    {
+      "start": 1.13,
+      "end": 1.41,
+      "value": "B"
+    },
+    {
+      "start": 1.41,
+      "end": 1.78,
+      "value": "X"
+    }
+  ]
+}

@@ -1,0 +1,42 @@
+{
+  "metadata": {
+    "soundFile": "/audio/voz/vocabulario/oruga.mp3",
+    "duration": 1.78,
+    "rhubarbVersion": "1.14.0",
+    "recognizer": "phonetic",
+    "extendedShapes": "GX",
+    "sourceSha256": "ffe70192ea9e6f03fae781e34efa9d5c5c46ca7145e7af0022004a288ba3ff62"
+  },
+  "mouthCues": [
+    {
+      "start": 0,
+      "end": 0.37,
+      "value": "X"
+    },
+    {
+      "start": 0.37,
+      "end": 0.42,
+      "value": "B"
+    },
+    {
+      "start": 0.42,
+      "end": 0.85,
+      "value": "F"
+    },
+    {
+      "start": 0.85,
+      "end": 0.93,
+      "value": "E"
+    },
+    {
+      "start": 0.93,
+      "end": 1.45,
+      "value": "C"
+    },
+    {
+      "start": 1.45,
+      "end": 1.78,
+      "value": "X"
+    }
+  ]
+}

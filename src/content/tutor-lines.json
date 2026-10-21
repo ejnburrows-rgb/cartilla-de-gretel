@@ -6,6 +6,7 @@
       "role": "word-model",
       "text": "abanico",
       "src": "/audio/voz/vocabulario/abanico.mp3",
+      "visemes": "/audio/voz/tutor/leccion-1/l1-model-abanico.visemes.json",
       "emotion": "warm",
       "approval": "picture-name-recordings.json (owner-approved 2026)"
     },
@@ -15,6 +16,7 @@
       "role": "word-model",
       "text": "abeja",
       "src": "/audio/voz/vocabulario/abeja.mp3",
+      "visemes": "/audio/voz/tutor/leccion-1/l1-model-abeja.visemes.json",
       "emotion": "warm",
       "approval": "picture-name-recordings.json (owner-approved 2026)"
     },
@@ -24,6 +26,7 @@
       "role": "word-model",
       "text": "abrigo",
       "src": "/audio/voz/vocabulario/abrigo.mp3",
+      "visemes": "/audio/voz/tutor/leccion-1/l1-model-abrigo.visemes.json",
       "emotion": "warm",
       "approval": "picture-name-recordings.json (owner-approved 2026)"
     },
@@ -33,6 +36,7 @@
       "role": "word-model",
       "text": "anillo",
       "src": "/audio/voz/vocabulario/anillo.mp3",
+      "visemes": "/audio/voz/tutor/leccion-1/l1-model-anillo.visemes.json",
       "emotion": "warm",
       "approval": "picture-name-recordings.json (owner-approved 2026)"
     },
@@ -42,6 +46,7 @@
       "role": "word-model",
       "text": "araña",
       "src": "/audio/voz/vocabulario/araña.mp3",
+      "visemes": "/audio/voz/tutor/leccion-1/l1-model-araña.visemes.json",
       "emotion": "warm",
       "approval": "picture-name-recordings.json (owner-approved 2026)"
     },
@@ -51,6 +56,7 @@
       "role": "word-model",
       "text": "aro",
       "src": "/audio/voz/vocabulario/aro.mp3",
+      "visemes": "/audio/voz/tutor/leccion-1/l1-model-aro.visemes.json",
       "emotion": "warm",
       "approval": "picture-name-recordings.json (owner-approved 2026)"
     },
@@ -60,6 +66,7 @@
       "role": "word-model",
       "text": "avión",
       "src": "/audio/voz/vocabulario/avión.mp3",
+      "visemes": "/audio/voz/tutor/leccion-1/l1-model-avión.visemes.json",
       "emotion": "warm",
       "approval": "picture-name-recordings.json (owner-approved 2026)"
     },
@@ -69,6 +76,7 @@
       "role": "word-model",
       "text": "carro",
       "src": "/audio/voz/vocabulario/carro.mp3",
+      "visemes": "/audio/voz/tutor/leccion-1/l1-model-carro.visemes.json",
       "emotion": "warm",
       "approval": "picture-name-recordings.json (owner-approved 2026)"
     },
@@ -78,6 +86,7 @@
       "role": "word-model",
       "text": "casa",
       "src": "/audio/voz/vocabulario/casa.mp3",
+      "visemes": "/audio/voz/tutor/leccion-1/l1-model-casa.visemes.json",
       "emotion": "warm",
       "approval": "picture-name-recordings.json (owner-approved 2026)"
     },
@@ -87,6 +96,7 @@
       "role": "word-model",
       "text": "dulce",
       "src": "/audio/voz/vocabulario/dulce.mp3",
+      "visemes": "/audio/voz/tutor/leccion-1/l1-model-dulce.visemes.json",
       "emotion": "warm",
       "approval": "picture-name-recordings.json (owner-approved 2026)"
     },
@@ -96,6 +106,7 @@
       "role": "word-model",
       "text": "elefante",
       "src": "/audio/voz/vocabulario/elefante.mp3",
+      "visemes": "/audio/voz/tutor/leccion-1/l1-model-elefante.visemes.json",
       "emotion": "warm",
       "approval": "picture-name-recordings.json (owner-approved 2026)"
     },
@@ -105,6 +116,7 @@
       "role": "word-model",
       "text": "escalera",
       "src": "/audio/voz/vocabulario/escalera.mp3",
+      "visemes": "/audio/voz/tutor/leccion-1/l1-model-escalera.visemes.json",
       "emotion": "warm",
       "approval": "picture-name-recordings.json (owner-approved 2026)"
     },
@@ -114,6 +126,7 @@
       "role": "word-model",
       "text": "escoba",
       "src": "/audio/voz/vocabulario/escoba.mp3",
+      "visemes": "/audio/voz/tutor/leccion-1/l1-model-escoba.visemes.json",
       "emotion": "warm",
       "approval": "picture-name-recordings.json (owner-approved 2026)"
     },
@@ -123,6 +136,7 @@
       "role": "word-model",
       "text": "escuela",
       "src": "/audio/voz/vocabulario/escuela.mp3",
+      "visemes": "/audio/voz/tutor/leccion-1/l1-model-escuela.visemes.json",
       "emotion": "warm",
       "approval": "picture-name-recordings.json (owner-approved 2026)"
     },
@@ -132,6 +146,7 @@
       "role": "word-model",
       "text": "estrella",
       "src": "/audio/voz/vocabulario/estrella.mp3",
+      "visemes": "/audio/voz/tutor/leccion-1/l1-model-estrella.visemes.json",
       "emotion": "warm",
       "approval": "picture-name-recordings.json (owner-approved 2026)"
     },
@@ -141,6 +156,7 @@
       "role": "word-model",
       "text": "globo",
       "src": "/audio/voz/vocabulario/globo.mp3",
+      "visemes": "/audio/voz/tutor/leccion-1/l1-model-globo.visemes.json",
       "emotion": "warm",
       "approval": "picture-name-recordings.json (owner-approved 2026)"
     },
@@ -150,6 +166,7 @@
       "role": "word-model",
       "text": "iglesia",
       "src": "/audio/voz/vocabulario/iglesia.mp3",
+      "visemes": "/audio/voz/tutor/leccion-1/l1-model-iglesia.visemes.json",
       "emotion": "warm",
       "approval": "picture-name-recordings.json (owner-approved 2026)"
     },
@@ -159,6 +176,7 @@
       "role": "word-model",
       "text": "imán",
       "src": "/audio/voz/vocabulario/imán.mp3",
+      "visemes": "/audio/voz/tutor/leccion-1/l1-model-imán.visemes.json",
       "emotion": "warm",
       "approval": "picture-name-recordings.json (owner-approved 2026)"
     },
@@ -168,6 +186,7 @@
       "role": "word-model",
       "text": "indio",
       "src": "/audio/voz/vocabulario/indio.mp3",
+      "visemes": "/audio/voz/tutor/leccion-1/l1-model-indio.visemes.json",
       "emotion": "warm",
       "approval": "picture-name-recordings.json (owner-approved 2026)"
     },
@@ -177,6 +196,7 @@
       "role": "word-model",
       "text": "isla",
       "src": "/audio/voz/vocabulario/isla.mp3",
+      "visemes": "/audio/voz/tutor/leccion-1/l1-model-isla.visemes.json",
       "emotion": "warm",
       "approval": "picture-name-recordings.json (owner-approved 2026)"
     },
@@ -186,6 +206,7 @@
       "role": "word-model",
       "text": "libro",
       "src": "/audio/voz/vocabulario/libro.mp3",
+      "visemes": "/audio/voz/tutor/leccion-1/l1-model-libro.visemes.json",
       "emotion": "warm",
       "approval": "picture-name-recordings.json (owner-approved 2026)"
     },
@@ -195,6 +216,7 @@
       "role": "word-model",
       "text": "manzana",
       "src": "/audio/voz/vocabulario/manzana.mp3",
+      "visemes": "/audio/voz/tutor/leccion-1/l1-model-manzana.visemes.json",
       "emotion": "warm",
       "approval": "picture-name-recordings.json (owner-approved 2026)"
     },
@@ -204,6 +226,7 @@
       "role": "word-model",
       "text": "maíz",
       "src": "/audio/voz/vocabulario/maíz.mp3",
+      "visemes": "/audio/voz/tutor/leccion-1/l1-model-maíz.visemes.json",
       "emotion": "warm",
       "approval": "picture-name-recordings.json (owner-approved 2026)"
     },
@@ -213,6 +236,7 @@
       "role": "word-model",
       "text": "ocho",
       "src": "/audio/voz/vocabulario/ocho.mp3",
+      "visemes": "/audio/voz/tutor/leccion-1/l1-model-ocho.visemes.json",
       "emotion": "warm",
       "approval": "picture-name-recordings.json (owner-approved 2026)"
     },
@@ -222,6 +246,7 @@
       "role": "word-model",
       "text": "ojos",
       "src": "/audio/voz/vocabulario/ojos.mp3",
+      "visemes": "/audio/voz/tutor/leccion-1/l1-model-ojos.visemes.json",
       "emotion": "warm",
       "approval": "picture-name-recordings.json (owner-approved 2026)"
     },
@@ -231,6 +256,7 @@
       "role": "word-model",
       "text": "olla",
       "src": "/audio/voz/vocabulario/olla.mp3",
+      "visemes": "/audio/voz/tutor/leccion-1/l1-model-olla.visemes.json",
       "emotion": "warm",
       "approval": "picture-name-recordings.json (owner-approved 2026)"
     },
@@ -240,6 +266,7 @@
       "role": "word-model",
       "text": "oreja",
       "src": "/audio/voz/vocabulario/oreja.mp3",
+      "visemes": "/audio/voz/tutor/leccion-1/l1-model-oreja.visemes.json",
       "emotion": "warm",
       "approval": "picture-name-recordings.json (owner-approved 2026)"
     },
@@ -249,6 +276,7 @@
       "role": "word-model",
       "text": "oso",
       "src": "/audio/voz/vocabulario/oso.mp3",
+      "visemes": "/audio/voz/tutor/leccion-1/l1-model-oso.visemes.json",
       "emotion": "warm",
       "approval": "picture-name-recordings.json (owner-approved 2026)"
     },
@@ -258,6 +286,7 @@
       "role": "word-model",
       "text": "oveja",
       "src": "/audio/voz/vocabulario/oveja.mp3",
+      "visemes": "/audio/voz/tutor/leccion-1/l1-model-oveja.visemes.json",
       "emotion": "warm",
       "approval": "picture-name-recordings.json (owner-approved 2026)"
     },
@@ -267,6 +296,7 @@
       "role": "word-model",
       "text": "pera",
       "src": "/audio/voz/vocabulario/pera.mp3",
+      "visemes": "/audio/voz/tutor/leccion-1/l1-model-pera.visemes.json",
       "emotion": "warm",
       "approval": "picture-name-recordings.json (owner-approved 2026)"
     },
@@ -276,6 +306,7 @@
       "role": "word-model",
       "text": "pájaro",
       "src": "/audio/voz/vocabulario/pájaro.mp3",
+      "visemes": "/audio/voz/tutor/leccion-1/l1-model-pájaro.visemes.json",
       "emotion": "warm",
       "approval": "picture-name-recordings.json (owner-approved 2026)"
     },
@@ -285,6 +316,7 @@
       "role": "word-model",
       "text": "taza",
       "src": "/audio/voz/vocabulario/taza.mp3",
+      "visemes": "/audio/voz/tutor/leccion-1/l1-model-taza.visemes.json",
       "emotion": "warm",
       "approval": "picture-name-recordings.json (owner-approved 2026)"
     },
@@ -294,6 +326,7 @@
       "role": "word-model",
       "text": "uniforme",
       "src": "/audio/voz/vocabulario/uniforme.mp3",
+      "visemes": "/audio/voz/tutor/leccion-1/l1-model-uniforme.visemes.json",
       "emotion": "warm",
       "approval": "picture-name-recordings.json (owner-approved 2026)"
     },
@@ -303,6 +336,7 @@
       "role": "word-model",
       "text": "uno",
       "src": "/audio/voz/vocabulario/uno.mp3",
+      "visemes": "/audio/voz/tutor/leccion-1/l1-model-uno.visemes.json",
       "emotion": "warm",
       "approval": "picture-name-recordings.json (owner-approved 2026)"
     },
@@ -312,6 +346,7 @@
       "role": "word-model",
       "text": "uña",
       "src": "/audio/voz/vocabulario/uña.mp3",
+      "visemes": "/audio/voz/tutor/leccion-1/l1-model-uña.visemes.json",
       "emotion": "warm",
       "approval": "picture-name-recordings.json (owner-approved 2026)"
     },
@@ -321,6 +356,7 @@
       "role": "word-model",
       "text": "árbol",
       "src": "/audio/voz/vocabulario/árbol.mp3",
+      "visemes": "/audio/voz/tutor/leccion-1/l1-model-árbol.visemes.json",
       "emotion": "warm",
       "approval": "picture-name-recordings.json (owner-approved 2026)"
     },
@@ -330,6 +366,7 @@
       "role": "word-model",
       "text": "alas",
       "src": "/audio/voz/vocabulario/alas.mp3",
+      "visemes": "/audio/voz/tutor/leccion-2/l2-model-alas.visemes.json",
       "emotion": "warm",
       "approval": "picture-name-recordings.json (owner-approved 2026)"
     },
@@ -339,6 +376,7 @@
       "role": "word-model",
       "text": "iglú",
       "src": "/audio/voz/vocabulario/iglú.mp3",
+      "visemes": "/audio/voz/tutor/leccion-2/l2-model-iglú.visemes.json",
       "emotion": "warm",
       "approval": "picture-name-recordings.json (owner-approved 2026)"
     },
@@ -348,6 +386,7 @@
       "role": "word-model",
       "text": "ola",
       "src": "/audio/voz/vocabulario/ola.mp3",
+      "visemes": "/audio/voz/tutor/leccion-2/l2-model-ola.visemes.json",
       "emotion": "warm",
       "approval": "picture-name-recordings.json (owner-approved 2026)"
     },
@@ -357,6 +396,7 @@
       "role": "word-model",
       "text": "uvas",
       "src": "/audio/voz/vocabulario/uvas.mp3",
+      "visemes": "/audio/voz/tutor/leccion-2/l2-model-uvas.visemes.json",
       "emotion": "warm",
       "approval": "picture-name-recordings.json (owner-approved 2026)"
     },
@@ -366,6 +406,7 @@
       "role": "word-model",
       "text": "aguja",
       "src": "/audio/voz/vocabulario/aguja.mp3",
+      "visemes": "/audio/voz/tutor/leccion-3/l3-model-aguja.visemes.json",
       "emotion": "warm",
       "approval": "picture-name-recordings.json (owner-approved 2026)"
     },
@@ -375,6 +416,7 @@
       "role": "word-model",
       "text": "ardilla",
       "src": "/audio/voz/vocabulario/ardilla.mp3",
+      "visemes": "/audio/voz/tutor/leccion-3/l3-model-ardilla.visemes.json",
       "emotion": "warm",
       "approval": "picture-name-recordings.json (owner-approved 2026)"
     },
@@ -384,6 +426,7 @@
       "role": "word-model",
       "text": "oruga",
       "src": "/audio/voz/vocabulario/oruga.mp3",
+      "visemes": "/audio/voz/tutor/leccion-3/l3-model-oruga.visemes.json",
       "emotion": "warm",
       "approval": "picture-name-recordings.json (owner-approved 2026)"
     }

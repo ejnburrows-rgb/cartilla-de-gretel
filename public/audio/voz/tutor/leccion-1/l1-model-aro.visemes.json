@@ -1,0 +1,57 @@
+{
+  "metadata": {
+    "soundFile": "/audio/voz/vocabulario/aro.mp3",
+    "duration": 1.25,
+    "rhubarbVersion": "1.14.0",
+    "recognizer": "phonetic",
+    "extendedShapes": "GX",
+    "sourceSha256": "bc9daeee4863af2ef6fbdf728825dea0eb99d0b38f4dae801edf891d686ea2fc"
+  },
+  "mouthCues": [
+    {
+      "start": 0,
+      "end": 0.19,
+      "value": "X"
+    },
+    {
+      "start": 0.19,
+      "end": 0.37,
+      "value": "B"
+    },
+    {
+      "start": 0.37,
+      "end": 0.44,
+      "value": "C"
+    },
+    {
+      "start": 0.44,
+      "end": 0.51,
+      "value": "B"
+    },
+    {
+      "start": 0.51,
+      "end": 0.58,
+      "value": "C"
+    },
+    {
+      "start": 0.58,
+      "end": 0.72,
+      "value": "E"
+    },
+    {
+      "start": 0.72,
+      "end": 0.79,
+      "value": "F"
+    },
+    {
+      "start": 0.79,
+      "end": 0.93,
+      "value": "B"
+    },
+    {
+      "start": 0.93,
+      "end": 1.25,
+      "value": "X"
+    }
+  ]
+}

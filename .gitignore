@@ -81,3 +81,4 @@ verification-screenshots-fresh/
 
 # Vosk on-device speech model binary (scripts/fetch-vosk-model.mjs) — never committed
 public/models/vosk/
+.tools/

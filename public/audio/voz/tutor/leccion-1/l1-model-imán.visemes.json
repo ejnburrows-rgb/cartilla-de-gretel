@@ -1,0 +1,42 @@
+{
+  "metadata": {
+    "soundFile": "/audio/voz/vocabulario/imán.mp3",
+    "duration": 1.57,
+    "rhubarbVersion": "1.14.0",
+    "recognizer": "phonetic",
+    "extendedShapes": "GX",
+    "sourceSha256": "4e356a305449b3a657348a55da22a40f9b9a407dcd19d213139172057498bc43"
+  },
+  "mouthCues": [
+    {
+      "start": 0,
+      "end": 0.25,
+      "value": "X"
+    },
+    {
+      "start": 0.25,
+      "end": 0.47,
+      "value": "B"
+    },
+    {
+      "start": 0.47,
+      "end": 0.66,
+      "value": "A"
+    },
+    {
+      "start": 0.66,
+      "end": 1.04,
+      "value": "C"
+    },
+    {
+      "start": 1.04,
+      "end": 1.32,
+      "value": "B"
+    },
+    {
+      "start": 1.32,
+      "end": 1.57,
+      "value": "X"
+    }
+  ]
+}
