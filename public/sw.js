@@ -7,6 +7,26 @@ const CACHE_NAMES = {
   book: `cartilla:book:${CACHE_VERSION}`,
 };
 
+// Tutor offline pack (spec §18.1): a dedicated, versioned cache
+// `cartilla:tutor:<version>`, downloaded once by the teacher-side
+// "Preparar sin internet" control. It is NEVER mixed into the caches above
+// and survives app cache version changes. When no pack exists the lookups
+// below resolve to null and every strategy behaves exactly as before.
+const TUTOR_PACK_CACHE_PREFIX = "cartilla:tutor:";
+
+// Cache-first match against the tutor pack cache, or null when no pack
+// exists (or the request is not packed).
+function tutorPackMatch(request) {
+  return caches
+    .keys()
+    .then((keys) => {
+      const packName = keys.find((key) => key.startsWith(TUTOR_PACK_CACHE_PREFIX));
+      if (!packName) return null;
+      return caches.open(packName).then((cache) => cache.match(request));
+    })
+    .catch(() => null);
+}
+
 const PRECACHE_URLS = [
   "/",
   "/offline.html",
@@ -54,6 +74,9 @@ self.addEventListener("activate", (event) => {
       .then((keys) => {
         return Promise.all(
           keys.map((key) => {
+            // Tutor packs are versioned on their own and outlive app cache
+            // version changes (§18.1).
+            if (key.startsWith(TUTOR_PACK_CACHE_PREFIX)) return;
             if (!activeCaches.includes(key)) {
               return caches.delete(key);
             }
@@ -90,13 +113,16 @@ self.addEventListener("fetch", (event) => {
           return response;
         })
         .catch(() => {
-          return caches.match(request).then((cached) => {
-            if (cached) return cached;
-            return caches.match("/offline.html").then((offlineFallback) => {
-              if (offlineFallback) return offlineFallback;
-              return new Response("Sin conexión", {
-                status: 503,
-                headers: { "Content-Type": "text/plain; charset=utf-8" },
+          return tutorPackMatch(request).then((packHit) => {
+            if (packHit) return packHit;
+            return caches.match(request).then((cached) => {
+              if (cached) return cached;
+              return caches.match("/offline.html").then((offlineFallback) => {
+                if (offlineFallback) return offlineFallback;
+                return new Response("Sin conexión", {
+                  status: 503,
+                  headers: { "Content-Type": "text/plain; charset=utf-8" },
+                });
               });
             });
           });
@@ -108,12 +134,15 @@ self.addEventListener("fetch", (event) => {
   // 2. Audio Strategy: Cache-first, never expire (audio cache name)
   if (path.startsWith("/audio/")) {
     event.respondWith(
-      caches.open(CACHE_NAMES.audio).then((cache) => {
-        return cache.match(request).then((cached) => {
-          if (cached) return cached;
-          return fetch(request).then((fresh) => {
-            if (fresh.ok) cache.put(request, fresh.clone());
-            return fresh;
+      tutorPackMatch(request).then((packHit) => {
+        if (packHit) return packHit;
+        return caches.open(CACHE_NAMES.audio).then((cache) => {
+          return cache.match(request).then((cached) => {
+            if (cached) return cached;
+            return fetch(request).then((fresh) => {
+              if (fresh.ok) cache.put(request, fresh.clone());
+              return fresh;
+            });
           });
         });
       }),
@@ -141,7 +170,59 @@ self.addEventListener("fetch", (event) => {
   const isJsCss = path.endsWith(".js") || path.endsWith(".css") || path.includes("/assets/");
   if (isJsCss) {
     event.respondWith(
-      caches.open(CACHE_NAMES.assets).then((cache) => {
+      tutorPackMatch(request).then((packHit) => {
+        if (packHit) return packHit;
+        return caches.open(CACHE_NAMES.assets).then((cache) => {
+          return cache.match(request).then((cached) => {
+            const fetchPromise = fetch(request)
+              .then((fresh) => {
+                if (fresh.ok) cache.put(request, fresh.clone());
+                return fresh;
+              })
+              .catch(() => null);
+
+            if (cached) {
+              event.waitUntil(fetchPromise);
+              return cached;
+            }
+            return fetchPromise;
+          });
+        });
+      }),
+    );
+    return;
+  }
+
+  // 5. Images Strategy: Cache-first, expire after 30 days
+  const isImage = /\.(png|jpg|jpeg|webp|avif|gif|svg|ico)$/i.test(path);
+  if (isImage) {
+    event.respondWith(
+      tutorPackMatch(request).then((packHit) => {
+        if (packHit) return packHit;
+        return caches.open(CACHE_NAMES.assets).then((cache) => {
+          return cache.match(request).then((cached) => {
+            const maxAgeMs = 30 * 24 * 60 * 60 * 1000; // 30 days
+            if (cached && !isExpired(cached, maxAgeMs)) {
+              return cached;
+            }
+            return fetch(request)
+              .then((fresh) => {
+                if (fresh.ok) cache.put(request, fresh.clone());
+                return fresh;
+              })
+              .catch(() => cached);
+          });
+        });
+      }),
+    );
+    return;
+  }
+
+  // 6. Generic stale-while-revalidate fallback
+  event.respondWith(
+    tutorPackMatch(request).then((packHit) => {
+      if (packHit) return packHit;
+      return caches.open(CACHE_NAMES.assets).then((cache) => {
         return cache.match(request).then((cached) => {
           const fetchPromise = fetch(request)
             .then((fresh) => {
@@ -156,49 +237,6 @@ self.addEventListener("fetch", (event) => {
           }
           return fetchPromise;
         });
-      }),
-    );
-    return;
-  }
-
-  // 5. Images Strategy: Cache-first, expire after 30 days
-  const isImage = /\.(png|jpg|jpeg|webp|avif|gif|svg|ico)$/i.test(path);
-  if (isImage) {
-    event.respondWith(
-      caches.open(CACHE_NAMES.assets).then((cache) => {
-        return cache.match(request).then((cached) => {
-          const maxAgeMs = 30 * 24 * 60 * 60 * 1000; // 30 days
-          if (cached && !isExpired(cached, maxAgeMs)) {
-            return cached;
-          }
-          return fetch(request)
-            .then((fresh) => {
-              if (fresh.ok) cache.put(request, fresh.clone());
-              return fresh;
-            })
-            .catch(() => cached);
-        });
-      }),
-    );
-    return;
-  }
-
-  // 6. Generic stale-while-revalidate fallback
-  event.respondWith(
-    caches.open(CACHE_NAMES.assets).then((cache) => {
-      return cache.match(request).then((cached) => {
-        const fetchPromise = fetch(request)
-          .then((fresh) => {
-            if (fresh.ok) cache.put(request, fresh.clone());
-            return fresh;
-          })
-          .catch(() => null);
-
-        if (cached) {
-          event.waitUntil(fetchPromise);
-          return cached;
-        }
-        return fetchPromise;
       });
     }),
   );
