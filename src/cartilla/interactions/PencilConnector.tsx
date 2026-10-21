@@ -907,8 +907,10 @@ export function PencilConnectorFromWorkbook({
 
 /** Source-page picture choices: circle each answer with the shared real pencil actor. */
 export function PencilMarkFromWorkbook({
-  objects, onResult, onComplete, pageKey,
-}: InteractionProps & { pageKey: string }) {
+  objects, onResult, onComplete, pageKey, instruction, markType,
+}: InteractionProps & { pageKey: string; instruction?: string; markType?: "circle" | "x" }) {
+  const resolvedMarkType: "circle" | "x" =
+    markType ?? (instruction && /marca con una x/i.test(instruction) ? "x" : "circle");
   const graded = objects.filter((o) => (o.interaction?.data as {correct?: boolean} | undefined)?.correct !== undefined);
   const correct = objects.filter((o) =>
     graded.length === 0 || (o.interaction?.data as {correct?: boolean} | undefined)?.correct === true);
@@ -933,7 +935,7 @@ export function PencilMarkFromWorkbook({
         onClick={() => setPending({id: object.id, correct: isCorrect})}>
         {object.src ? <img src={object.src} alt="" draggable={false} /> : <span>{object.text ?? object.alt ?? object.id}</span>}
         {(active || done) && <span className="am-pencil-mark-grid__overlay" aria-hidden="true">
-          <WorkbookPencilMark markType="circle" round itemId={object.id}
+          <WorkbookPencilMark markType={resolvedMarkType} round itemId={object.id}
             isCorrect={active ? isCorrect : true} status={done ? "correct" : undefined}
             onSuccess={() => {
               const next = new Set(marked).add(object.id);
