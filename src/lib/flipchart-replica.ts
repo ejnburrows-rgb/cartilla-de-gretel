@@ -34,29 +34,55 @@ type RawItem = {
   spaced?: boolean;
 };
 
-type RawAsset = { word: string; src: string; crop: number[]; role?: string; labelInImage?: boolean };
+type RawAsset = {
+  word: string;
+  src: string;
+  crop: number[];
+  role?: string;
+  labelInImage?: boolean;
+};
 
-const RAW_TEXT = { ...firstPages, ...middlePages, ...lastPages } as unknown as Record<string, RawItem[]>;
+const RAW_TEXT = { ...firstPages, ...middlePages, ...lastPages } as unknown as Record<
+  string,
+  RawItem[]
+>;
 const FRAMES = frames as Record<string, { width: number; height: number }>;
 const ASSETS = nativeAssets as unknown as Record<string, RawAsset[]>;
 /** [naturalWidth, naturalHeight, left, top, width, height] of the drawn area. */
-const ART_BOUNDS = artBounds as unknown as Record<string, [number, number, number, number, number, number]>;
+const ART_BOUNDS = artBounds as unknown as Record<
+  string,
+  [number, number, number, number, number, number]
+>;
 type Circle = [number, number, number];
 /** The printed syllable moon, measured on each consonant sheet's scan. */
-const CRESCENTS = crescentScans as unknown as Record<string, { outer: Circle; inner: Circle; extent?: [number, number] | null }>;
+const CRESCENTS = crescentScans as unknown as Record<
+  string,
+  { outer: Circle; inner: Circle; extent?: [number, number] | null }
+>;
 /** Printed divider bars (glossy colour tubes), measured on the scans: [x, y, w, h, colour stops top→bottom]. */
-const DIVIDERS = dividerScans as unknown as Record<string, [number, number, number, number, string[]][]>;
+const DIVIDERS = dividerScans as unknown as Record<
+  string,
+  [number, number, number, number, string[]][]
+>;
 /**
  * Card colour where the owner's reference guide departs from the default rose
  * card: sheet 3's poem card is a cool grey-lavender in the reference.
  */
 const CARD_TINT: Record<number, "mist"> = { 3: "mist" };
 /** Drawn-area rect of each picture on its printed scan: [x, y, w, h, score]. */
-const ART_PLACEMENT = artPlacement as unknown as Record<string, [number, number, number, number, number]>;
+const ART_PLACEMENT = artPlacement as unknown as Record<
+  string,
+  [number, number, number, number, number]
+>;
 
 export const REPLICA_WIDTH = 1000;
 
-export type ReplicaSegment = { text: string; color: string; bold: boolean; /** Bold inside a regular line (the lesson's letter): keep it bold. */ emph?: boolean };
+export type ReplicaSegment = {
+  text: string;
+  color: string;
+  bold: boolean;
+  /** Bold inside a regular line (the lesson's letter): keep it bold. */ emph?: boolean;
+};
 
 export type ReplicaTokenKind =
   | "letter" // taught letter pair inside a medallion (Mm, Dd …)
@@ -113,7 +139,13 @@ export type ReplicaPanel = {
   tone: number;
 };
 
-export type ReplicaMedallion = { kind: "letter" | "vowel"; cx: number; cy: number; d: number; tokenId: string };
+export type ReplicaMedallion = {
+  kind: "letter" | "vowel";
+  cx: number;
+  cy: number;
+  d: number;
+  tokenId: string;
+};
 export type ReplicaCrescent = {
   x: number;
   y: number;
@@ -164,7 +196,13 @@ function isWhite(color?: string) {
 
 function luminance(hex: string) {
   const value = hex.replace("#", "");
-  const full = value.length === 3 ? value.split("").map((c) => c + c).join("") : value.padEnd(6, "f");
+  const full =
+    value.length === 3
+      ? value
+          .split("")
+          .map((c) => c + c)
+          .join("")
+      : value.padEnd(6, "f");
   const [r, g, b] = [0, 2, 4].map((i) => parseInt(full.slice(i, i + 2), 16) / 255);
   return 0.2126 * r! + 0.7152 * g! + 0.0722 * b!;
 }
@@ -174,7 +212,9 @@ function letterPair(text: string) {
   if (/^rr$/i.test(value)) return true;
   const chars = Array.from(value);
   if (chars.length !== 2) return false;
-  return chars[0]!.toLocaleLowerCase("es") === chars[1]!.toLocaleLowerCase("es") && chars[0] !== chars[1];
+  return (
+    chars[0]!.toLocaleLowerCase("es") === chars[1]!.toLocaleLowerCase("es") && chars[0] !== chars[1]
+  );
 }
 
 /** Printed stanzas are evenly leaded; OCR baselines wobble. Re-space each
@@ -188,7 +228,8 @@ function evenLines(lines: ReplicaToken[]) {
   for (let i = 1; i <= sorted.length; i++) {
     if (i === sorted.length || gaps[i - 1]! > pitch * 1.45) {
       const stanza = sorted.slice(start, i);
-      const local = stanza.length > 1 ? median(stanza.slice(1).map((t, k) => t.base - stanza[k]!.base)) : pitch;
+      const local =
+        stanza.length > 1 ? median(stanza.slice(1).map((t, k) => t.base - stanza[k]!.base)) : pitch;
       stanza.forEach((t, k) => {
         t.base = stanza[0]!.base + k * local;
         t.pitch = Math.min(local, pitch);
@@ -233,7 +274,10 @@ function moonFromScan(outer: Circle, inner: Circle, extent?: [number, number]): 
  * is concentric with the medallion. The syllables are set evenly along its
  * middle, in their printed order. Returns undefined if they don't sit beside
  * the medallion. */
-function moonAround(tokens: ReplicaToken[], medallion: { cx: number; cy: number; d: number }): ReplicaCrescent | undefined {
+function moonAround(
+  tokens: ReplicaToken[],
+  medallion: { cx: number; cy: number; d: number },
+): ReplicaCrescent | undefined {
   const rows = [...tokens].sort((a, b) => a.y - b.y);
   const { cx, cy } = medallion;
   const centers = rows.map((t) => [t.x + t.w / 2, t.y + t.h / 2] as const);
@@ -308,7 +352,11 @@ function crescentAround(tokens: ReplicaToken[]): ReplicaCrescent {
 function inkClass(color?: string) {
   const hex = (color ?? "#000000").replace("#", "");
   if (hex.length !== 6) return "dark";
-  const [r, g, b] = [0, 2, 4].map((i) => parseInt(hex.slice(i, i + 2), 16)) as [number, number, number];
+  const [r, g, b] = [0, 2, 4].map((i) => parseInt(hex.slice(i, i + 2), 16)) as [
+    number,
+    number,
+    number,
+  ];
   if (r + g + b < 200) return "dark";
   return r > g + 60 ? "red" : `c${Math.round(r / 64)}${Math.round(g / 64)}${Math.round(b / 64)}`;
 }
@@ -336,7 +384,8 @@ function mergeLine(items: RawItem[], inBand: (item: RawItem) => boolean) {
     if (prev && gap <= Math.max(1.5, 0.05 * em)) last!.push(item);
     // Words of one printed line ("La r para la rama") join with a space;
     // syllable bands keep each syllable apart.
-    else if (prev && gap <= 0.5 * em && !inBand(prev) && !inBand(item)) last!.push({ ...item, spaced: true });
+    else if (prev && gap <= 0.5 * em && !inBand(prev) && !inBand(item))
+      last!.push({ ...item, spaced: true });
     else groups.push([item]);
   }
   return groups;
@@ -347,7 +396,13 @@ function segmentsFor(group: RawItem[]): ReplicaSegment[] {
   for (const item of group) {
     const lead = item.spaced ? " " : "";
     if (item.segments?.length) {
-      item.segments.forEach((segment, index) => out.push({ text: (index > 0 ? " " : lead) + segment.text, color: segment.color, bold: isBold(item) }));
+      item.segments.forEach((segment, index) =>
+        out.push({
+          text: (index > 0 ? " " : lead) + segment.text,
+          color: segment.color,
+          bold: isBold(item),
+        }),
+      );
     } else {
       out.push({ text: lead + item.text, color: item.color, bold: isBold(item) });
     }
@@ -362,7 +417,10 @@ export function getReplicaSheet(page: number): ReplicaSheet | null {
   const height = frame.height * (REPLICA_WIDTH / frame.width);
 
   // 1. Panels: empty text runs that only paint a background.
-  const panelItems = raw.filter((item) => !item.text.trim() && !isWhite(item.backgroundColor) && item.width > 60 && item.height > 50);
+  const panelItems = raw.filter(
+    (item) =>
+      !item.text.trim() && !isWhite(item.backgroundColor) && item.width > 60 && item.height > 50,
+  );
   const stacked: ReplicaPanel[] = panelItems.map((item, id) => ({
     id,
     kind: "card",
@@ -377,7 +435,15 @@ export function getReplicaSheet(page: number): ReplicaSheet | null {
   // rectangles; draw it as one card, with the art on top as printed.
   const panels: ReplicaPanel[] = [];
   for (const panel of [...stacked].sort((a, b) => a.y - b.y)) {
-    const above = panels.find((p) => p.color.toLowerCase() === panel.color.toLowerCase() && Math.abs(p.y + p.h - panel.y) <= 4 && Math.min(p.x + p.w, panel.x + panel.w) - Math.max(p.x, panel.x) > 0.5 * Math.min(p.w, panel.w) && p.h >= 80 && panel.h >= 80);
+    const above = panels.find(
+      (p) =>
+        p.color.toLowerCase() === panel.color.toLowerCase() &&
+        Math.abs(p.y + p.h - panel.y) <= 4 &&
+        Math.min(p.x + p.w, panel.x + panel.w) - Math.max(p.x, panel.x) >
+          0.5 * Math.min(p.w, panel.w) &&
+        p.h >= 80 &&
+        panel.h >= 80,
+    );
     if (!above) {
       panels.push({ ...panel, id: panels.length });
       continue;
@@ -392,36 +458,63 @@ export function getReplicaSheet(page: number): ReplicaSheet | null {
   // band and stays a card; an empty card the PDF paints under a bar is drawn
   // once, as the bar.
   const printed = raw.filter((r) => r.text.trim());
-  const overlap = (a: { x: number; y: number; w: number; h: number }, b: { x: number; y: number; w: number; h: number }) =>
-    Math.max(0, Math.min(a.x + a.w, b.x + b.w) - Math.max(a.x, b.x)) * Math.max(0, Math.min(a.y + a.h, b.y + b.h) - Math.max(a.y, b.y));
+  const overlap = (
+    a: { x: number; y: number; w: number; h: number },
+    b: { x: number; y: number; w: number; h: number },
+  ) =>
+    Math.max(0, Math.min(a.x + a.w, b.x + b.w) - Math.max(a.x, b.x)) *
+    Math.max(0, Math.min(a.y + a.h, b.y + b.h) - Math.max(a.y, b.y));
   const bars = (DIVIDERS[String(page)] ?? []).map(([x, y, w, h, stops]) => ({ x, y, w, h, stops }));
-  const carriesWords = (d: { x: number; y: number; w: number; h: number }) => printed.some((r) => inside(r.x + r.width / 2, r.y + r.height / 2, d));
+  const carriesWords = (d: { x: number; y: number; w: number; h: number }) =>
+    printed.some((r) => inside(r.x + r.width / 2, r.y + r.height / 2, d));
   const dividers = bars.filter((d) => !carriesWords(d));
   // A bar carrying words the PDF paints no card for: a band of its own.
   for (const d of bars.filter(carriesWords)) {
     if (panels.some((p) => overlap(p, d) >= 0.5 * d.w * d.h)) continue;
-    panels.push({ id: panels.length, kind: "card", x: d.x, y: d.y, w: d.w, h: d.h, color: d.stops[3] ?? "#f4dbe4", tone: 0 });
+    panels.push({
+      id: panels.length,
+      kind: "card",
+      x: d.x,
+      y: d.y,
+      w: d.w,
+      h: d.h,
+      color: d.stops[3] ?? "#f4dbe4",
+      tone: 0,
+    });
   }
+  const seenPanels = new Map<string, boolean>();
   for (let i = panels.length - 1; i >= 0; i--) {
     const p = panels[i]!;
-    const underBar = dividers.some((d) => overlap(p, d) >= 0.6 * Math.min(p.w * p.h, d.w * d.h));
-    if (underBar && !printed.some((r) => inside(r.x + r.width / 2, r.y + r.height / 2, p))) panels.splice(i, 1);
+    const key = `${p.x},${p.y},${p.w},${p.h}`;
+    let shouldRemove = seenPanels.get(key);
+    if (shouldRemove === undefined) {
+      const underBar = dividers.some((d) => overlap(p, d) >= 0.6 * Math.min(p.w * p.h, d.w * d.h));
+      shouldRemove =
+        underBar && !printed.some((r) => inside(r.x + r.width / 2, r.y + r.height / 2, p));
+      seenPanels.set(key, shouldRemove);
+    }
+    if (shouldRemove) panels.splice(i, 1);
   }
   panels.forEach((p, i) => (p.id = i));
 
   // 2. Text lines → tokens.
-  const textItems = raw.filter((item) => item.text.trim().length > 0).sort((a, b) => a.y - b.y || a.x - b.x);
+  const textItems = raw
+    .filter((item) => item.text.trim().length > 0)
+    .sort((a, b) => a.y - b.y || a.x - b.x);
   const lines: RawItem[][] = [];
   for (const item of textItems) {
     const cy = item.y + item.height / 2;
-    const line = lines.find((l) => Math.abs(l[0]!.y + l[0]!.height / 2 - cy) < Math.min(l[0]!.height, item.height) * 0.42);
+    const line = lines.find(
+      (l) => Math.abs(l[0]!.y + l[0]!.height / 2 - cy) < Math.min(l[0]!.height, item.height) * 0.42,
+    );
     if (line) line.push(item);
     else lines.push([item]);
   }
 
   const tokens: ReplicaToken[] = [];
   for (const line of lines) {
-    const inBand = (item: RawItem) => panels.some((p) => p.h < 160 && inside(item.x + item.width / 2, item.y + item.height / 2, p));
+    const inBand = (item: RawItem) =>
+      panels.some((p) => p.h < 160 && inside(item.x + item.width / 2, item.y + item.height / 2, p));
     for (const group of mergeLine(line, inBand)) {
       const x = Math.min(...group.map((g) => g.x));
       const y = Math.min(...group.map((g) => g.y));
@@ -479,7 +572,8 @@ export function getReplicaSheet(page: number): ReplicaSheet | null {
     } else if (
       (members.length >= 2 || (members.length === 1 && panel.w > 600)) &&
       panel.h < 160 &&
-      Math.max(...members.map((t) => t.base)) - Math.min(...members.map((t) => t.base)) < 0.4 * median(members.map((t) => t.fontSize))
+      Math.max(...members.map((t) => t.base)) - Math.min(...members.map((t) => t.base)) <
+        0.4 * median(members.map((t) => t.fontSize))
     ) {
       // A bar of the lesson's sight words on one row ("tiene · patio · no"):
       // a band, each word kept on its printed centre at one size.
@@ -526,7 +620,9 @@ export function getReplicaSheet(page: number): ReplicaSheet | null {
       const panelCenter = panel.x + panel.w / 2;
       for (const t of titles) {
         t.kind = "title";
-        const centered = Math.abs(t.x + t.w / 2 - panelCenter) < 40 && (!lefts.length || Math.abs(t.x - Math.min(...lefts)) > 30);
+        const centered =
+          Math.abs(t.x + t.w / 2 - panelCenter) < 40 &&
+          (!lefts.length || Math.abs(t.x - Math.min(...lefts)) > 30);
         t.align = centered ? "center" : "left";
         if (centered) t.x = panelCenter - t.w / 2;
       }
@@ -554,7 +650,9 @@ export function getReplicaSheet(page: number): ReplicaSheet | null {
       }
     }
   }
-  const bands = panels.filter((p) => p.kind === "band" && !wordBands.has(p.id)).sort((a, b) => luminance(b.color) - luminance(a.color));
+  const bands = panels
+    .filter((p) => p.kind === "band" && !wordBands.has(p.id))
+    .sort((a, b) => luminance(b.color) - luminance(a.color));
   bands.forEach((band, index) => (band.tone = index));
 
   // 4. Letters, vowels, crescent syllables, free text.
@@ -567,14 +665,26 @@ export function getReplicaSheet(page: number): ReplicaSheet | null {
     if (letterPair(value) && t.fontSize >= 70) {
       t.kind = "letter";
       t.align = "center";
-      medallions.push({ kind: "letter", cx: t.x + t.w / 2, cy: t.y + t.h / 2, d: 250, tokenId: t.id });
+      medallions.push({
+        kind: "letter",
+        cx: t.x + t.w / 2,
+        cy: t.y + t.h / 2,
+        d: 250,
+        tokenId: t.id,
+      });
       // The letter fills its medallion (the print's narrow face measures small).
       t.fitW = 180;
       t.fitCap = 200;
     } else if (vowelPage && /^[aeiou]$/i.test(value) && t.fontSize >= 72 && red) {
       t.kind = "vowel";
       t.align = "center";
-      medallions.push({ kind: "vowel", cx: t.x + t.w / 2, cy: t.y + t.h / 2 + 4, d: 165, tokenId: t.id });
+      medallions.push({
+        kind: "vowel",
+        cx: t.x + t.w / 2,
+        cy: t.y + t.h / 2 + 4,
+        d: 165,
+        tokenId: t.id,
+      });
       t.fitW = 100;
       t.fitCap = 118;
     }
@@ -593,7 +703,13 @@ export function getReplicaSheet(page: number): ReplicaSheet | null {
       t.kind === "word" &&
       t.text.trim().length <= 3 &&
       t.segments.length >= 1 &&
-      (inMoon(t) || raw.some((r) => r.text.trim() && !isWhite(r.backgroundColor) && inside(r.x + r.width / 2, r.y + r.height / 2, t))),
+      (inMoon(t) ||
+        raw.some(
+          (r) =>
+            r.text.trim() &&
+            !isWhite(r.backgroundColor) &&
+            inside(r.x + r.width / 2, r.y + r.height / 2, t),
+        )),
   );
   let crescent: ReplicaCrescent | undefined;
   if (measured && crescentTokens.length >= 3) {
@@ -613,9 +729,13 @@ export function getReplicaSheet(page: number): ReplicaSheet | null {
   const separators = [...panels, ...dividers];
   const separated = (a: ReplicaToken, b: ReplicaToken) => {
     const [upper, lower] = a.base <= b.base ? [a, b] : [b, a];
-    return separators.some((p) => p.y >= upper.base - 4 && p.y + p.h <= lower.y + 12 && p.x <= a.x + 8 && p.x + p.w >= a.x);
+    return separators.some(
+      (p) =>
+        p.y >= upper.base - 4 && p.y + p.h <= lower.y + 12 && p.x <= a.x + 8 && p.x + p.w >= a.x,
+    );
   };
-  const columnOf = (t: ReplicaToken) => free.filter((o) => Math.abs(o.x - t.x) <= 8 && !separated(t, o));
+  const columnOf = (t: ReplicaToken) =>
+    free.filter((o) => Math.abs(o.x - t.x) <= 8 && !separated(t, o));
   for (const t of free) {
     const column = columnOf(t).filter((o) => o !== t);
     t.align = column.length >= 2 ? "left" : "center";
@@ -629,7 +749,10 @@ export function getReplicaSheet(page: number): ReplicaSheet | null {
     } else if (column.length >= 2) {
       // Word columns have room to read larger, as in the reference guides;
       // never past the next column.
-      const next = Math.min(...free.filter((o) => o.x > t.x + 20 && Math.abs(o.base - t.base) < 40).map((o) => o.x), REPLICA_WIDTH - 20);
+      const next = Math.min(
+        ...free.filter((o) => o.x > t.x + 20 && Math.abs(o.base - t.base) < 40).map((o) => o.x),
+        REPLICA_WIDTH - 20,
+      );
       t.fitGroup = "columns";
       t.fitW = t.w * 1.22;
       t.fitMax = 1.3;
@@ -664,7 +787,13 @@ export function getReplicaSheet(page: number): ReplicaSheet | null {
   for (const t of free) {
     if (t.fitGroup !== "words" || t.text.trim().split(/\s+/).length < 3) continue;
     const host = free
-      .filter((o) => o.fitGroup?.startsWith("column-") && Math.abs(o.x - t.x) <= 80 && Math.abs(o.base - t.base) <= 2.6 * t.fontSize && !separated(t, o))
+      .filter(
+        (o) =>
+          o.fitGroup?.startsWith("column-") &&
+          Math.abs(o.x - t.x) <= 80 &&
+          Math.abs(o.base - t.base) <= 2.6 * t.fontSize &&
+          !separated(t, o),
+      )
       .sort((a, b) => Math.abs(a.base - t.base) - Math.abs(b.base - t.base))[0];
     if (!host) continue;
     t.kind = "verse";
@@ -687,10 +816,14 @@ export function getReplicaSheet(page: number): ReplicaSheet | null {
   }
 
   const columns = new Map<string, ReplicaToken[]>();
-  for (const t of free) if (t.fitGroup) columns.set(t.fitGroup, [...(columns.get(t.fitGroup) ?? []), t]);
+  for (const t of free)
+    if (t.fitGroup) columns.set(t.fitGroup, [...(columns.get(t.fitGroup) ?? []), t]);
   for (const [key, members] of columns) {
     const sorted = [...members].sort((a, b) => a.base - b.base);
-    const gaps = sorted.slice(1).map((t, i) => t.base - sorted[i]!.base).filter((g) => g > 0);
+    const gaps = sorted
+      .slice(1)
+      .map((t, i) => t.base - sorted[i]!.base)
+      .filter((g) => g > 0);
     if (key.startsWith("column-")) {
       // A bold first line over regular reading lines is the title.
       const head = sorted[0]!;
@@ -749,10 +882,25 @@ export function getReplicaSheet(page: number): ReplicaSheet | null {
   // 5. Pictures from the approved crop boxes (same frame space as the text).
   const sx = REPLICA_WIDTH / frame.width;
   const art: ReplicaArt[] = (ASSETS[String(page)] ?? []).map((asset) => {
-    const [cx, cy, cw, ch] = (asset.crop.map(Number) as [number, number, number, number]).map((v) => v * sx) as [number, number, number, number];
+    const [cx, cy, cw, ch] = (asset.crop.map(Number) as [number, number, number, number]).map(
+      (v) => v * sx,
+    ) as [number, number, number, number];
     const bounds = ART_BOUNDS[asset.src];
-    const base = { src: asset.src, word: asset.word, scene: asset.role === "scene", labelInImage: Boolean(asset.labelInImage) };
-    if (!bounds) return { ...base, x: cx, y: cy, w: cw, h: ch, clip: [0, 0, 0, 0] as [number, number, number, number] };
+    const base = {
+      src: asset.src,
+      word: asset.word,
+      scene: asset.role === "scene",
+      labelInImage: Boolean(asset.labelInImage),
+    };
+    if (!bounds)
+      return {
+        ...base,
+        x: cx,
+        y: cy,
+        w: cw,
+        h: ch,
+        clip: [0, 0, 0, 0] as [number, number, number, number],
+      };
     const [nw, nh, bl, bt, bw, bh] = bounds;
     // Where the drawing sits on the printed scan (template match); otherwise
     // fit the drawn area (not the padded canvas) into the approved box.
@@ -778,7 +926,10 @@ export function getReplicaSheet(page: number): ReplicaSheet | null {
   const plain = (w: string) => w.toLowerCase().replace(/[^\p{L}]/gu, "");
   const sight = new Set(
     tokens
-      .filter((t) => t.panel !== undefined && (wordBands.has(t.panel) || panels[t.panel]?.kind === "chip"))
+      .filter(
+        (t) =>
+          t.panel !== undefined && (wordBands.has(t.panel) || panels[t.panel]?.kind === "chip"),
+      )
       .flatMap((t) => t.text.trim().split(/\s+/).map(plain))
       .filter(Boolean),
   );
@@ -815,14 +966,28 @@ export function getReplicaSheet(page: number): ReplicaSheet | null {
   // when the crescent's first syllables sit higher than the letter's top.
   for (const letter of tokens.filter((t) => t.kind === "letter")) {
     const at = tokens.indexOf(letter);
-    const first = tokens.findIndex((t, i) => i < at && (t.kind === "crescent" || t.kind === "syllable") && t.y < letter.y + letter.h);
+    const first = tokens.findIndex(
+      (t, i) =>
+        i < at && (t.kind === "crescent" || t.kind === "syllable") && t.y < letter.y + letter.h,
+    );
     if (first >= 0) {
       tokens.splice(at, 1);
       tokens.splice(first, 0, letter);
     }
   }
 
-  return { page, width: REPLICA_WIDTH, height, tokens, panels, medallions, crescent, art, dividers, cardTint: CARD_TINT[page] };
+  return {
+    page,
+    width: REPLICA_WIDTH,
+    height,
+    tokens,
+    panels,
+    medallions,
+    crescent,
+    art,
+    dividers,
+    cardTint: CARD_TINT[page],
+  };
 }
 
 type Box = { x: number; y: number; w: number; h: number };
@@ -841,10 +1006,19 @@ export type ReplicaItem = { kind: "art"; art: ReplicaArt } | { kind: "token"; to
  * goes before the first item it precedes, judged by its visible (clipped) box.
  */
 export function replicaReadingOrder(sheet: Pick<ReplicaSheet, "tokens" | "art">): ReplicaItem[] {
-  const items: (ReplicaItem & { box: Box })[] = sheet.tokens.map((token) => ({ kind: "token", token, box: token }));
+  const items: (ReplicaItem & { box: Box })[] = sheet.tokens.map((token) => ({
+    kind: "token",
+    token,
+    box: token,
+  }));
   for (const art of sheet.art) {
     const [t, r, b, l] = art.clip;
-    const box = { x: art.x + l, y: art.y + t, w: Math.max(1, art.w - l - r), h: Math.max(1, art.h - t - b) };
+    const box = {
+      x: art.x + l,
+      y: art.y + t,
+      w: Math.max(1, art.w - l - r),
+      h: Math.max(1, art.h - t - b),
+    };
     const at = items.findIndex((item) => byReadingOrder(box, item.box) < 0);
     items.splice(at < 0 ? items.length : at, 0, { kind: "art", art, box });
   }
