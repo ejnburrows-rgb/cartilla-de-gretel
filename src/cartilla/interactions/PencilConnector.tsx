@@ -429,6 +429,7 @@ export function DirectPencilConnector({
       } else {
         gretelEvent("answer:wrong", { itemId: right.id });
         recordWrong();
+        setSelectedStartId(null);
         const from = getTargetCenter(left.id);
         const to = getTargetCenter(right.id);
         setWrongLine({ from, to, targetId: right.id });
