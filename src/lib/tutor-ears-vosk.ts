@@ -1,0 +1,362 @@
+/**
+ * VoskEars — the tutor's primary on-device ears (spec §18.2).
+ *
+ * `vosk-browser` (Apache-2.0) runs the Vosk/Kaldi WASM recognizer inside its
+ * own Web Worker. Audio flows in memory only:
+ *
+ *   getUserMedia (16 kHz mono) → AudioContext → ScriptProcessor → recognizer
+ *
+ * Nothing is recorded, cached, or uploaded: child audio never leaves memory
+ * and is discarded when the attempt ends. The only network fetch is the model
+ * archive itself, one time, from this app's own same-origin path
+ * (`scripts/fetch-vosk-model.mjs` puts it there; it is never committed).
+ *
+ * The microphone opens ONLY inside listen(), after the child taps. probe()
+ * warms/verifies the model and engine without ever touching the microphone.
+ *
+ * Grammar limiting is native, not a post-filter: `KaldiRecognizer` takes a
+ * JSON grammar and decodes constrained to it, which is far more reliable on
+ * short child utterances than open dictation. The brain layer passes the
+ * per-item list (lesson items, same-page distractors, vowels + aliases,
+ * command words) via `listen({ grammar })`; `"[unk]"` is appended here.
+ */
+
+import { assetPath } from "./assets";
+import type {
+  EarsListenOptions,
+  EarsListenOutcome,
+  EarsProblem,
+  EarsStatus,
+  TutorEars,
+} from "./tutor-ears";
+
+/** Asset path served by this app; `scripts/fetch-vosk-model.mjs` fills it. */
+export const VOSK_MODEL_ASSET_PATH = "models/vosk/vosk-model-small-es-0.42.tar.gz";
+
+export function voskModelUrl(): string {
+  return assetPath(VOSK_MODEL_ASSET_PATH);
+}
+
+// ---------------------------------------------------------------------------
+// Structural vosk-browser types (the real package's types match these; tests
+// inject fakes without loading the ~4 MB WASM bundle).
+// ---------------------------------------------------------------------------
+
+export type VoskResultMessage =
+  | { event: "result"; result: { text: string } }
+  | { event: "partialresult"; result: { partial: string } }
+  | { event: "error"; error: string };
+
+export interface VoskRecognizerLike {
+  readonly id: string;
+  on(
+    event: "result" | "partialresult" | "error",
+    listener: (message: VoskResultMessage) => void,
+  ): void;
+  acceptWaveform(buffer: AudioBuffer): void;
+  retrieveFinalResult(): void;
+  remove(): void;
+}
+
+export interface VoskModelLike {
+  readonly ready: boolean;
+  setLogLevel(level: number): void;
+  terminate(): void;
+  readonly KaldiRecognizer: new (sampleRate: number, grammar?: string) => VoskRecognizerLike;
+}
+
+export interface VoskAudioContextLike {
+  readonly sampleRate: number;
+  createScriptProcessor(
+    bufferSize: number,
+    inputChannels: number,
+    outputChannels: number,
+  ): ScriptProcessorNode;
+  createMediaStreamSource(stream: MediaStream): MediaStreamAudioSourceNode;
+  createGain(): GainNode;
+  readonly destination: AudioDestinationNode;
+  close(): Promise<void>;
+}
+
+/** Injection seam for tests. Production code never passes these. */
+export interface VoskEarsDeps {
+  createModel?: (modelUrl: string) => Promise<VoskModelLike>;
+  createAudioContext?: () => VoskAudioContextLike;
+}
+
+export interface VoskEarsOptions {
+  /** Same-origin URL of the tar.gz model archive (defaults to this app's). */
+  modelUrl?: string;
+  /** Test seam — see `VoskEarsDeps`. */
+  deps?: VoskEarsDeps;
+}
+
+/**
+ * JSON grammar for the WASM recognizer: the caller's words, deduped and
+ * lowercased, plus `"[unk]"` so off-grammar speech degrades to `[unk]`
+ * instead of being forced onto a wrong in-grammar word.
+ */
+export function voskGrammar(grammar: readonly string[] | undefined): string | undefined {
+  if (!grammar || grammar.length === 0) return undefined;
+  const words = new Set(
+    grammar.map((word) => word.trim().toLowerCase()).filter((word) => word.length > 0),
+  );
+  if (words.size === 0) return undefined;
+  words.add("[unk]");
+  return JSON.stringify([...words]);
+}
+
+const AUDIO_CHUNK_SIZE = 4096;
+/** Wait after stop for the recognizer's final `result` event to arrive. */
+const FINAL_RESULT_GRACE_MS = 300;
+
+interface VoskSession {
+  finals: string[];
+  stream: MediaStream;
+  audioContext: VoskAudioContextLike;
+  source: MediaStreamAudioSourceNode;
+  processor: ScriptProcessorNode;
+  silence: GainNode;
+  recognizer: VoskRecognizerLike;
+  listenTimer: ReturnType<typeof setTimeout> | null;
+  graceTimer: ReturnType<typeof setTimeout> | null;
+  /** True once the first final result asked the attempt to wind down. */
+  settling: boolean;
+  settled: boolean;
+  tornDown: boolean;
+  resolve: (outcome: EarsListenOutcome) => void;
+}
+
+function micProblem(error: unknown): EarsProblem {
+  const name = (error as { name?: string } | null | undefined)?.name ?? "";
+  if (name === "NotAllowedError" || name === "PermissionDeniedError") {
+    return "denied";
+  }
+  if (name === "NotFoundError" || name === "DevicesNotFoundError" || name === "NotReadableError") {
+    return "no-microphone";
+  }
+  return "failed";
+}
+
+export class VoskEars implements TutorEars {
+  readonly kind = "vosk" as const;
+  /** Coarse mic/ears state for UI feedback; not part of the TutorEars contract. */
+  status: EarsStatus = "off";
+
+  private readonly modelUrl: string;
+  private readonly deps: VoskEarsDeps;
+  private modelPromise: Promise<VoskModelLike> | null = null;
+  private model: VoskModelLike | null = null;
+  private active: VoskSession | null = null;
+
+  constructor(options: VoskEarsOptions = {}) {
+    this.modelUrl = options.modelUrl ?? voskModelUrl();
+    this.deps = options.deps ?? {};
+  }
+
+  /** Loads/verifies the on-device engine. Never opens the microphone. */
+  async probe(): Promise<"ready" | EarsProblem> {
+    if (typeof WebAssembly === "undefined") return "unsupported";
+    if (typeof window !== "undefined" && window.isSecureContext === false) {
+      // getUserMedia requires a secure context; no on-device mic here.
+      return "unsupported";
+    }
+    if (!navigator.mediaDevices?.getUserMedia) return "no-microphone";
+    try {
+      await this.ensureModel();
+    } catch {
+      return "no-local";
+    }
+    return "ready";
+  }
+
+  async listen(opts: EarsListenOptions): Promise<EarsListenOutcome> {
+    // One attempt at a time; a previous open mic session ends right here.
+    this.cancel();
+    if (typeof WebAssembly === "undefined") {
+      return { ok: false, problem: "unsupported" };
+    }
+    if (!navigator.mediaDevices?.getUserMedia) {
+      return { ok: false, problem: "no-microphone" };
+    }
+    // The model loads with the mic still off; the mic opens only below.
+    let model: VoskModelLike;
+    try {
+      model = await this.ensureModel();
+    } catch {
+      this.status = "unavailable";
+      return { ok: false, problem: "no-local" };
+    }
+
+    let stream: MediaStream;
+    try {
+      stream = await navigator.mediaDevices.getUserMedia({
+        video: false,
+        audio: {
+          echoCancellation: true,
+          noiseSuppression: true,
+          channelCount: 1,
+          sampleRate: 16000,
+        },
+      });
+    } catch (error) {
+      this.status = "unavailable";
+      return { ok: false, problem: micProblem(error) };
+    }
+
+    return new Promise<EarsListenOutcome>((resolve) => {
+      // Audio pipeline — everything below lives in memory only.
+      const audioContext = this.deps.createAudioContext?.() ?? new AudioContext();
+      const recognizer = new model.KaldiRecognizer(
+        audioContext.sampleRate,
+        voskGrammar(opts.grammar),
+      );
+      const processor = audioContext.createScriptProcessor(AUDIO_CHUNK_SIZE, 1, 1);
+      const source = audioContext.createMediaStreamSource(stream);
+      // Chrome only pumps a ScriptProcessor that reaches the destination;
+      // route it through a zero-gain node so child audio is never audible.
+      const silence = audioContext.createGain();
+      silence.gain.value = 0;
+
+      const session: VoskSession = {
+        finals: [],
+        stream,
+        audioContext,
+        source,
+        processor,
+        silence,
+        recognizer,
+        listenTimer: null,
+        graceTimer: null,
+        settling: false,
+        settled: false,
+        tornDown: false,
+        resolve,
+      };
+      this.active = session;
+
+      recognizer.on("result", (message) => {
+        if (message.event !== "result") return;
+        const text = message.result.text.trim();
+        if (!text) return;
+        session.finals.push(text);
+        this.status = "hearing";
+        // A finished child utterance is recognized: end the attempt now.
+        this.finishSession();
+      });
+      recognizer.on("partialresult", (message) => {
+        if (message.event !== "partialresult") return;
+        if (message.result.partial.trim()) this.status = "hearing";
+      });
+
+      processor.onaudioprocess = (event) => {
+        try {
+          recognizer.acceptWaveform(event.inputBuffer);
+        } catch {
+          // The recognizer was already removed (attempt ended) — drop the chunk.
+        }
+      };
+      source.connect(processor);
+      processor.connect(silence);
+      silence.connect(audioContext.destination);
+
+      this.status = "listening";
+      session.listenTimer = setTimeout(() => {
+        // No final result within maxMs: ask once more, then settle.
+        this.finishSession();
+      }, opts.maxMs);
+    });
+  }
+
+  /** Stops any open attempt immediately; all mic tracks stop right away. */
+  cancel(): void {
+    const session = this.active;
+    if (!session) return;
+    this.finalizeSession();
+  }
+
+  /** Ask the recognizer to flush its final result, then settle after a grace. */
+  private finishSession(): void {
+    const session = this.active;
+    if (!session || session.settling || session.settled) return;
+    session.settling = true;
+    if (session.listenTimer) clearTimeout(session.listenTimer);
+    session.listenTimer = null;
+    try {
+      session.recognizer.retrieveFinalResult();
+    } catch {
+      // Recognizer already gone; settle with whatever was heard.
+    }
+    session.graceTimer = setTimeout(() => {
+      this.finalizeSession();
+    }, FINAL_RESULT_GRACE_MS);
+  }
+
+  private finalizeSession(): void {
+    const session = this.active;
+    if (!session || session.settled) return;
+    session.settled = true;
+    this.teardownSession(session);
+    const transcript = session.finals.join(" ").trim();
+    session.resolve(
+      transcript ? { ok: true, transcript, alternatives: [] } : { ok: false, problem: "no-speech" },
+    );
+  }
+
+  private teardownSession(session: VoskSession): void {
+    if (session.tornDown) return;
+    session.tornDown = true;
+    if (session.listenTimer) clearTimeout(session.listenTimer);
+    if (session.graceTimer) clearTimeout(session.graceTimer);
+    session.listenTimer = null;
+    session.graceTimer = null;
+    try {
+      session.processor.onaudioprocess = null;
+    } catch {
+      // Fake nodes in tests may not accept the assignment.
+    }
+    try {
+      session.source.disconnect();
+      session.processor.disconnect();
+      session.silence.disconnect();
+    } catch {
+      // Already disconnected.
+    }
+    // Mic light off: every track stops now.
+    for (const track of session.stream.getTracks()) track.stop();
+    try {
+      session.recognizer.remove();
+    } catch {
+      // Already removed.
+    }
+    session.audioContext.close().catch(() => {
+      // Closing twice or after teardown is harmless.
+    });
+    if (this.active === session) {
+      this.active = null;
+      this.status = this.model ? "ready" : "off";
+    }
+  }
+
+  private ensureModel(): Promise<VoskModelLike> {
+    if (!this.modelPromise) {
+      this.status = "checking";
+      const createModel =
+        this.deps.createModel ??
+        ((modelUrl: string) => import("vosk-browser").then((vosk) => vosk.createModel(modelUrl)));
+      this.modelPromise = createModel(this.modelUrl)
+        .then((model) => {
+          this.model = model;
+          this.status = "ready";
+          return model;
+        })
+        .catch((error: unknown) => {
+          // A later attempt may retry (e.g. the offline pack finishing).
+          this.modelPromise = null;
+          this.status = "unavailable";
+          throw error;
+        });
+    }
+    return this.modelPromise;
+  }
+}
