@@ -64,3 +64,10 @@ the motion maps are stored at 1/3 size (they are smooth, so this is lossless in
 practice and keeps each file ~60–240 KB).
 
     python3 scripts/living-motion/build.py vocal-o-oso vocal-e-elefante   # etc.
+
+## Draft original-art rebuild
+
+Source is current main `c99ab4ee26175e0ea2b494e56c39dfaa31f42e5d`. Historical `redrawn_*.py` names do not authorize redrawn artwork.
+Source stills, crop, colour and alpha remain unchanged; motion uses original pixels.
+Enabled original-art lane entries: vocal-a-abanico, vocal-a-abeja, vocal-o-oso, vocal-o-oveja, vocal-e-elefante, vocal-i-iman, vocal-o-oruga, vocal-a-ardilla, vocal-a-alas, leccion-1-ojos, vocal-e-estrella, vocal-a-aguja, leccion-1-maiz, leccion-1-carro, vocal-e-escoba, vocal-u-unicornio, fc_p015_sopa, fc_p024_lala.
+Source fidelity, standalone motion, integration and owner approval are distinct checks.
