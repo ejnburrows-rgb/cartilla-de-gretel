@@ -210,7 +210,15 @@ export function ClassRoster() {
   const handleSaveRename = async (studentId: string) => {
     const name = editingName.trim();
     if (!name) return;
-    setEditingId(null);
+
+    // Find the current student
+    const student = allStudents.find((s) => s.id === studentId);
+    if (student && student.display_name === name) {
+      setEditingId(null);
+      return;
+    }
+
+    setBusy(true);
     try {
       if (isSeed) {
         updateSeedStudent(studentId, { display_name: name });
@@ -218,9 +226,12 @@ export function ClassRoster() {
         await updateStudent({ data: { id: studentId, displayName: name } });
         await refetchRealStudents();
       }
+      setEditingId(null);
       showMessage("Nombre actualizado.", "success");
     } catch (err) {
       showMessage(err instanceof Error ? err.message : "Error renombrando alumno", "error");
+    } finally {
+      setBusy(false);
     }
   };
 
