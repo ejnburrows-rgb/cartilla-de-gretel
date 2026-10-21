@@ -20,7 +20,7 @@ export function TaskList({ classId }: TaskListProps) {
   const [timeLimit, setTimeLimit] = useState("");
   const [dueDate, setDueDate] = useState("");
 
-  const { data: assignments, isLoading } = useQuery({
+  const { data: assignments, isLoading, isError, refetch } = useQuery({
     queryKey: ["assignments", classId],
     queryFn: () => listAssignments({ data: { classId } }),
     enabled: !!classId,
@@ -137,6 +137,16 @@ export function TaskList({ classId }: TaskListProps) {
         {isLoading ? (
           <div className="text-center py-8 text-sm font-bold text-stone-400 animate-pulse">
             Cargando asignaciones…
+          </div>
+        ) : isError ? (
+          <div className="text-center py-8 px-4 flex flex-col items-center">
+            <p className="text-sm font-bold text-red-500 mb-2">Error al cargar asignaciones</p>
+            <button
+              onClick={() => refetch()}
+              className="text-xs bg-red-100 text-red-700 px-4 py-2 rounded-lg hover:bg-red-200"
+            >
+              Reintentar
+            </button>
           </div>
         ) : (assignments ?? []).length > 0 ? (
           (assignments ?? []).map((task) => {
