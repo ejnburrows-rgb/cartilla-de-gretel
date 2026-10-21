@@ -34,6 +34,7 @@ export type BrainEvent =
   | { type: "START" }
   | { type: "LINE_DONE" }
   | { type: "MIC_TAP" }
+  | { type: "MIC_CANCEL" }
   | { type: "HEARD"; transcript: string; alternatives: string[] }
   | { type: "EARS_PROBLEM"; problem: EarsProblem }
   | { type: "IDLE_TIMEOUT" }
@@ -214,7 +215,10 @@ function activeItem(state: BrainState): TutorItem | null {
 }
 
 /** RESPOND LINE_DONE after correct/missed: log the final result, then advance. */
-function onRespondDone(state: BrainState, rng: () => number): { state: BrainState; effects: Effect[] } {
+function onRespondDone(
+  state: BrainState,
+  rng: () => number,
+): { state: BrainState; effects: Effect[] } {
   const item = state.inReview ? reviewItem(state, state.reviewIndex) : currentTargetItem(state);
   const effects: Effect[] = [];
   if (item && !state.itemLogged) {
@@ -290,7 +294,10 @@ function celebrate(
 }
 
 /** LINE_DONE dispatch by phase. */
-function onLineDone(state: BrainState, rng: () => number): { state: BrainState; effects: Effect[] } {
+function onLineDone(
+  state: BrainState,
+  rng: () => number,
+): { state: BrainState; effects: Effect[] } {
   switch (state.phase) {
     case "GREET": {
       // GREET → MODEL: highlight the item, play its model line.
@@ -303,12 +310,18 @@ function onLineDone(state: BrainState, rng: () => number): { state: BrainState; 
     }
     case "MODEL":
       // MODEL → LISTEN: mic stays off; the child taps to open it.
-      return { state: { ...state, phase: "LISTEN", capturing: false, silenceNudges: 0 }, effects: [] };
+      return {
+        state: { ...state, phase: "LISTEN", capturing: false, silenceNudges: 0 },
+        effects: [],
+      };
     case "RESPOND":
       if (state.respondKind === "retry") {
         // After a retry response (response line + slow-model hint) the child
         // listens again for the same item — the attempt counter stays.
-        return { state: { ...state, phase: "LISTEN", capturing: false, respondKind: null }, effects: [] };
+        return {
+          state: { ...state, phase: "LISTEN", capturing: false, respondKind: null },
+          effects: [],
+        };
       }
       return onRespondDone(state, rng);
     case "CELEBRATE":
@@ -340,7 +353,7 @@ function onHeard(
   // Fusion (§18.2): the item passes if the matcher passes on the transcript
   // OR any alternative — but an explicit command always wins.
   const fused = matchTarget(item, ev.transcript, ev.alternatives);
-  const pass = !commandish && (intent === "TARGET" || fused.pass);
+  const pass = !commandish && intent !== "OFF_SCRIPT" && (intent === "TARGET" || fused.pass);
 
   // Transient §5 "MATCH" phase — resolved below within this same event.
   let match: BrainState = { ...state, phase: "MATCH", capturing: false };
@@ -512,6 +525,8 @@ export function reduce(
       };
     case "LINE_DONE":
       return onLineDone(state, rng);
+    case "MIC_CANCEL":
+      return { state: { ...state, capturing: false }, effects: [{ type: "stopMic" }] };
     case "MIC_TAP":
       // The mic opens only on a tap in LISTEN; taps anywhere else do nothing.
       if (state.phase !== "LISTEN" || state.capturing) return noChange(state);

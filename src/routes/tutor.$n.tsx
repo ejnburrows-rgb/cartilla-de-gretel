@@ -22,7 +22,7 @@
  */
 import { useEffect, useRef, useState } from "react";
 import { createFileRoute, Link } from "@tanstack/react-router";
-import { ArrowLeft, Star, VolumeX } from "lucide-react";
+import { ArrowLeft, Star, VolumeX, Volume2, RotateCcw } from "lucide-react";
 import { TutorGretelPuppet } from "@/components/tutor/TutorGretelPuppet";
 import { TutorMicButton } from "@/components/tutor/TutorMicButton";
 import { TutorStage } from "@/components/tutor/TutorStage";
@@ -43,7 +43,7 @@ import {
 } from "@/lib/tutor-brain";
 import { ChromeLocalEars } from "@/lib/tutor-ears-chrome-local";
 import { createTutorEars, type EarsLang, type EarsProblem, type TutorEars } from "@/lib/tutor-ears";
-import { cancelGretelSpeech } from "@/lib/gretel-voice";
+import { cancelGretelSpeech, isGretelVoiceMuted, setGretelVoiceMuted } from "@/lib/gretel-voice";
 import { SEQUENCE_PAUSE_MS, TUTOR_LINES } from "@/lib/tutor-line-picker";
 import { beginSession, noteMissedItem, recordStreak, reviewRoundSet } from "@/lib/tutor-memory";
 import { appendTutorProgress, flushTutorProgress, makeSessionId } from "@/lib/tutor-progress";
@@ -122,6 +122,10 @@ function TutorSessionScreen() {
   const rngRef = useRef<() => number>(() => 0.5);
 
   const [unavailableProblem, setUnavailableProblem] = useState<EarsProblem | null>(null);
+  const [muted, setMuted] = useState(isGretelVoiceMuted);
+  const [spokenText, setSpokenText] = useState("");
+  const [replaying, setReplaying] = useState(false);
+  const [actuallyCapturing, setActuallyCapturing] = useState(false);
   const [linePlaying, setLinePlaying] = useState(false);
   const [silentLine, setSilentLine] = useState(false);
   const [viseme, setViseme] = useState("X");
@@ -156,24 +160,7 @@ function TutorSessionScreen() {
       visemeTimerRef.current = null;
     }
     setViseme("X");
-  }
-
-  function playVisemes(lineId: string): void {
-    stopVisemePlayer();
-    const step = (index: number): void => {
-      const timeline = visemeTimelinesRef.current.get(lineId) ?? [];
-      if (index >= timeline.length) {
-        setViseme("X");
-        return;
-      }
-      const segment = timeline[index];
-      setViseme(segment.shape);
-      visemeTimerRef.current = window.setTimeout(
-        () => step(index + 1),
-        Math.max(0, (segment.end - segment.start) * 1000),
-      );
-    };
-    step(0);
+    setLinePlaying(false);
   }
 
   async function playLine(lineId: string): Promise<void> {
@@ -183,10 +170,10 @@ function TutorSessionScreen() {
       return;
     }
     setSilentLine(false);
+    setSpokenText(text.replace(/\[DRAFT[^\]]*\]\s*/g, "").replace(/\s*\(reuse:.*\)$/, ""));
     const result = await speakTutorLine(text, {
       onStart: () => {
         setLinePlaying(true);
-        playVisemes(lineId);
       },
       onEnd: () => {
         setLinePlaying(false);
@@ -250,6 +237,7 @@ function TutorSessionScreen() {
   function stopMic(): void {
     earsRef.current?.cancel();
     chromeRef.current?.cancel();
+    setActuallyCapturing(false);
   }
 
   async function handleEffects(state: BrainState, effects: Effect[], epoch: number): Promise<void> {
@@ -267,7 +255,7 @@ function TutorSessionScreen() {
             linePlaybacks.length > 0
               ? linePlaybacks[linePlaybacks.length - 1]
                   .then(() => sleep(SEQUENCE_PAUSE_MS))
-                  .then(() => playLine(effect.lineId))
+                  .then(() => (alive() ? playLine(effect.lineId) : undefined))
               : playLine(effect.lineId);
           linePlaybacks.push(playback);
           break;
@@ -358,7 +346,12 @@ function TutorSessionScreen() {
     const epoch = epochRef.current;
     try {
       const grammar = buildListenGrammar(lessonRef.current);
-      const primary = earsRef.current?.listen({ lang: EARS_LANG, maxMs: LISTEN_MAX_MS, grammar });
+      const primary = earsRef.current?.listen({
+        lang: EARS_LANG,
+        maxMs: LISTEN_MAX_MS,
+        grammar,
+        onCaptureChange: setActuallyCapturing,
+      });
       if (!primary) return;
       const chrome = chromeReadyRef.current
         ? chromeRef.current
@@ -392,8 +385,10 @@ function TutorSessionScreen() {
     } catch {
       if (epoch === epochRef.current) dispatch({ type: "EARS_PROBLEM", problem: "failed" });
     } finally {
-      listenInFlightRef.current = false;
-      if (epoch === epochRef.current) maybeListen();
+      if (epoch === epochRef.current) {
+        listenInFlightRef.current = false;
+        maybeListen();
+      }
     }
   }
 
@@ -438,10 +433,25 @@ function TutorSessionScreen() {
   useEffect(() => {
     if (!validLesson) return;
     const epoch = ++epochRef.current;
+    setUnavailableProblem(null);
+    setBrain(null);
+    setReplaying(false);
+    brainRef.current = null;
 
     const disposeVoice = mountTutorVoice({
       onVisemeTimeline: (timeline, lineId) => {
         visemeTimelinesRef.current.set(lineId, timeline);
+      },
+      onPlaybackPosition: (position) => {
+        if (!position) {
+          setViseme("X");
+          return;
+        }
+        const timeline = visemeTimelinesRef.current.get(position.lineId) ?? [];
+        const cue = timeline.find(
+          (segment) => segment.start <= position.currentTime && segment.end > position.currentTime,
+        );
+        setViseme(cue?.shape ?? "X");
       },
       onSilentLine: () => {
         setSilentLine(true);
@@ -484,7 +494,7 @@ function TutorSessionScreen() {
       sessionIdRef.current = sessionId;
       rngRef.current = mulberry32(seedFromStrings(sessionId, String(lessonRef.current)));
 
-      const memory = beginSession(window.localStorage, sessionId, lessonRef.current);
+      const memory = beginSession(undefined, sessionId, lessonRef.current);
       prevMissedRef.current = memory.previousMissedItemIds;
 
       const initial = createBrainState({
@@ -507,11 +517,15 @@ function TutorSessionScreen() {
         dispatchRef.current({ type: "EXIT" }); // cancelSpeech + stopMic
       }
       finishSession();
+      ears.dispose?.();
+      markDoneRef.current?.();
+      markDoneRef.current = null;
+      listenInFlightRef.current = false;
       disposeVoice();
     };
     // The session identity is fixed for the life of this screen.
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, []);
+  }, [lesson, search.code, search.slot]);
 
   // Clear the pencil mark whenever the active item changes.
   useEffect(() => {
@@ -578,16 +592,39 @@ function TutorSessionScreen() {
     );
   }
 
-  const capturing = brain?.capturing ?? false;
-  const micDisabled = unavailableProblem !== null || brain?.phase !== "LISTEN";
+  const simulated = !import.meta.env.PROD && import.meta.env.VITE_TUTOR_EARS === "stub";
+  const capturing = simulated ? Boolean(brain?.capturing) : actuallyCapturing;
+  const micDisabled = unavailableProblem !== null || brain?.phase !== "LISTEN" || replaying;
 
   return (
     <TutorStage
+      controls={
+        <>
+          <Link to="/tutor" onClick={finishSession}>
+            <ArrowLeft className="h-5 w-5" /> Lecciones
+          </Link>
+          <button
+            type="button"
+            aria-pressed={muted}
+            aria-label={muted ? "Activar sonido" : "Silenciar"}
+            onClick={() => {
+              const next = !muted;
+              setMuted(next);
+              setGretelVoiceMuted(next);
+              stopMic();
+              if (brainRef.current?.capturing) dispatch({ type: "MIC_CANCEL" });
+            }}
+          >
+            {muted ? <VolumeX className="h-5 w-5" /> : <Volume2 className="h-5 w-5" />}
+            {muted ? "Sin sonido" : "Sonido"}
+          </button>
+        </>
+      }
       gretel={<TutorGretelPuppet state={puppet.machineState} viseme={viseme} />}
       card={
         <div
           data-tutor-word-card=""
-          className="relative rounded-[2rem] border-4 border-stone-200/80 bg-[#fffaf0] px-10 py-10 shadow-[0_10px_0_rgba(45,32,20,0.08)]"
+          className="tutor-word-card relative rounded-[2rem] border-4 border-stone-200/80 bg-[#fffaf0] px-10 py-10 shadow-[0_10px_0_rgba(45,32,20,0.08)]"
         >
           <div className="flex flex-col items-center gap-4">
             {item ? (
@@ -607,9 +644,32 @@ function TutorSessionScreen() {
                 aria-label="Sin audio en esta línea"
               >
                 <VolumeX className="h-5 w-5" aria-hidden="true" />
-                <span aria-hidden="true">···</span>
+                <span>Audio pendiente</span>
               </p>
             ) : null}
+
+            <p className="tutor-caption" role="status" aria-live="polite">
+              {spokenText}
+            </p>
+            <button
+              type="button"
+              className="tutor-replay"
+              disabled={!item || brain?.phase !== "LISTEN" || capturing || replaying}
+              onClick={async () => {
+                if (!item) return;
+                const epoch = epochRef.current;
+                setReplaying(true);
+                const model = TUTOR_LINES.find(
+                  (line) =>
+                    (line.role === "word-model" || line.role === "vowel-model") &&
+                    line.text === item.text,
+                );
+                if (model) await playLine(model.lineId);
+                if (epoch === epochRef.current) setReplaying(false);
+              }}
+            >
+              <RotateCcw className="inline h-4 w-4" /> Escuchar otra vez
+            </button>
 
             {/* Shared kernel marks (no tutor-local copy): wooden pencil
                 green circle on correct, red + pink eraser on wrong. */}
@@ -636,11 +696,16 @@ function TutorSessionScreen() {
           label={capturing ? "Escuchando a la niña o al niño" : "Toca para hablar"}
           onTap={() => {
             resetIdleTimer();
-            dispatch({ type: "MIC_TAP" });
+            dispatch({ type: brainRef.current?.capturing ? "MIC_CANCEL" : "MIC_TAP" });
           }}
         />
       }
-      status={<TutorUnavailable problem={unavailableProblem} />}
+      status={
+        <>
+          {simulated && <p className="text-sm">Prueba: micrófono simulado</p>}
+          <TutorUnavailable problem={unavailableProblem} />
+        </>
+      }
     />
   );
 }

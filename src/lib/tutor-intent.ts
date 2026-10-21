@@ -49,12 +49,19 @@ export const VOWEL_ALIASES: Readonly<Record<Vowel, readonly string[]>> = {
  * Command words + aliases (spec §18.3). Detected as whole phrases inside
  * the normalized transcript, so "¡Otra vez, por favor!" still counts.
  */
-export const COMMAND_WORDS: Readonly<
-  Record<"repeat" | "dontKnow" | "help", readonly string[]>
-> = {
+export const COMMAND_WORDS: Readonly<Record<"repeat" | "dontKnow" | "help", readonly string[]>> = {
   repeat: ["otra vez", "repite", "de nuevo", "repetir"],
   dontKnow: ["no sé", "no se", "no lo sé", "no lo se"],
-  help: ["ayuda", "ayúdame", "ayudame"],
+  help: [
+    "ayuda",
+    "ayúdame",
+    "ayudame",
+    "no entiendo",
+    "me ayudas",
+    "no puedo",
+    "me equivoqué",
+    "me equivoque",
+  ],
 };
 
 /** Flat command-phrase list for the ears' grammar. */
@@ -125,10 +132,7 @@ function isNoiseToken(token: string): boolean {
  * list plus same-page items from other lessons (the matcher's distractor
  * set is "same lesson or same printed page", spec §12).
  */
-function otherItemsFor(
-  target: TutorItem,
-  lessonItems: readonly TutorItem[],
-): readonly TutorItem[] {
+function otherItemsFor(target: TutorItem, lessonItems: readonly TutorItem[]): readonly TutorItem[] {
   const inLesson = lessonItems.filter((item) => item.id !== target.id);
   const ids = new Set(lessonItems.map((item) => item.id));
   const samePage = tutorItems.filter(
@@ -163,7 +167,6 @@ export function classifyIntent(
   if (tokens.length === 0) return "SILENCE";
 
   // TARGET: the matcher passes (exact, contained, edit-distance, or alias).
-  if (matchTarget(target, transcript).pass) return "TARGET";
 
   const normalized = normalize(transcript);
   // Commands next: an explicit child request never counts as an attempt.
@@ -176,6 +179,12 @@ export function classifyIntent(
   for (const phrase of COMMAND_WORDS.help) {
     if (containsPhrase(normalized, phrase)) return "HELP";
   }
+
+  // Questions and unrelated long statements are never speaking answers,
+  // even if the recognizer happens to include the target word.
+  if (tokens.length > 4 || /^(que|quien|cuando|donde|por que|cuentame|no es)\b/.test(normalized))
+    return "OFF_SCRIPT";
+  if (matchTarget(target, transcript).pass) return "TARGET";
 
   // NOISE: only "[unk]" / very short noise.
   if (tokens.every(isNoiseToken)) return "NOISE";

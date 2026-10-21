@@ -72,10 +72,7 @@ describe("missed items and the review-round set", () => {
     noteMissedItem(store, "classA:7", "l1-vowel-a");
     noteMissedItem(store, "classA:7", "l1-vowel-a");
     noteMissedItem(store, "classA:7", "l1-word-oso");
-    expect(getTutorMemory(store, "classA:7").missedItemIds).toEqual([
-      "l1-vowel-a",
-      "l1-word-oso",
-    ]);
+    expect(getTutorMemory(store, "classA:7").missedItemIds).toEqual(["l1-vowel-a", "l1-word-oso"]);
   });
 
   it("beginSession resets the current misses and hands back last time's", () => {
@@ -182,5 +179,35 @@ describe("Borrar memoria (clear-all)", () => {
 
     // A cleared child is a first-timer again.
     expect(beginSession(store, "classA:7", 1).returning).toBe(false);
+  });
+});
+
+describe("storage faults and separate seats", () => {
+  it("malformed stored records cannot crash a returning session", () => {
+    const store = fakeStore();
+    store.setItem(
+      TUTOR_MEMORY_KEY,
+      JSON.stringify({ broken: { sessions: 2, missedItemIds: null } }),
+    );
+    expect(beginSession(store, "broken", 1).returning).toBe(false);
+  });
+  it("storage denied/quota errors leave the lesson usable", () => {
+    const store = {
+      getItem() {
+        throw new Error("denied");
+      },
+      setItem() {
+        throw new Error("quota");
+      },
+      removeItem() {},
+    };
+    expect(beginSession(store, "seat", 1).returning).toBe(false);
+  });
+  it("one seat never inherits another seat's missed words", () => {
+    const store = fakeStore();
+    beginSession(store, "class:1", 1);
+    noteMissedItem(store, "class:1", "l1-word-oso");
+    expect(beginSession(store, "class:2", 1).previousMissedItemIds).toEqual([]);
+    expect(beginSession(store, "class:1", 1).previousMissedItemIds).toEqual(["l1-word-oso"]);
   });
 });

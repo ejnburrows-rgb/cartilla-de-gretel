@@ -27,7 +27,7 @@
 
 import { spawnSync } from "node:child_process";
 import { createHash } from "node:crypto";
-import { mkdirSync, rmSync, statSync } from "node:fs";
+import { mkdirSync, rmSync, statSync, readFileSync, writeFileSync, renameSync } from "node:fs";
 import { tmpdir } from "node:os";
 import path from "node:path";
 import { fileURLToPath } from "node:url";
@@ -35,21 +35,11 @@ import { fileURLToPath } from "node:url";
 const MODEL_NAME = "vosk-model-small-es-0.42";
 const MODEL_URL = `https://alphacephei.com/vosk/models/${MODEL_NAME}.zip`;
 // Pinned integrity of the official release (captured 2026-10-21).
-const EXPECTED_SHA256 =
-  "09b239888f633ef2f0b4e09736e3d9936acfd810bc65d53fad45261762c6511f";
+const EXPECTED_SHA256 = "09b239888f633ef2f0b4e09736e3d9936acfd810bc65d53fad45261762c6511f";
 const EXPECTED_BYTES = 39_817_833;
 
-const REPO_ROOT = path.resolve(
-  path.dirname(fileURLToPath(import.meta.url)),
-  "..",
-);
-const OUT_PATH = path.join(
-  REPO_ROOT,
-  "public",
-  "models",
-  "vosk",
-  `${MODEL_NAME}.tar.gz`,
-);
+const REPO_ROOT = path.resolve(path.dirname(fileURLToPath(import.meta.url)), "..");
+const OUT_PATH = path.join(REPO_ROOT, "public", "models", "vosk", `${MODEL_NAME}.bin`);
 
 const force = process.argv.includes("--force");
 
@@ -58,7 +48,21 @@ function fail(message) {
   process.exit(1);
 }
 
-if (!force && fileExists(OUT_PATH)) {
+const INTEGRITY_PATH = `${OUT_PATH}.integrity.json`;
+function verifiedOutput() {
+  try {
+    const saved = JSON.parse(readFileSync(INTEGRITY_PATH, "utf8"));
+    const bytes = readFileSync(OUT_PATH);
+    return (
+      saved.sourceSha256 === EXPECTED_SHA256 &&
+      saved.bytes === bytes.length &&
+      saved.sha256 === createHash("sha256").update(bytes).digest("hex")
+    );
+  } catch {
+    return false;
+  }
+}
+if (!force && verifiedOutput()) {
   console.log(
     `fetch-vosk-model: ${MODEL_NAME}.tar.gz already present at ${path.relative(REPO_ROOT, OUT_PATH)} (use --force to re-download)`,
   );
@@ -67,17 +71,11 @@ if (!force && fileExists(OUT_PATH)) {
 
 console.log(`fetch-vosk-model: downloading ${MODEL_URL}`);
 
-const zipPath = path.join(
-  tmpdir(),
-  `cartilla-${MODEL_NAME}-${process.pid}.zip`,
-);
-const extractDir = path.join(
-  tmpdir(),
-  `cartilla-${MODEL_NAME}-${process.pid}`,
-);
+const zipPath = path.join(tmpdir(), `cartilla-${MODEL_NAME}-${process.pid}.zip`);
+const extractDir = path.join(tmpdir(), `cartilla-${MODEL_NAME}-${process.pid}`);
 
 try {
-  const response = await fetch(MODEL_URL);
+  const response = await fetch(MODEL_URL, { signal: AbortSignal.timeout(120_000) });
   if (!response.ok || !response.body) {
     fail(`download failed: HTTP ${response.status}`);
   }
@@ -130,7 +128,31 @@ try {
   }
 
   mkdirSync(path.dirname(OUT_PATH), { recursive: true });
-  run("tar", ["-czf", OUT_PATH, "-C", extractDir, MODEL_NAME]);
+  const staged = `${OUT_PATH}.${process.pid}.partial`;
+  try {
+    run("tar", [
+      "--sort=name",
+      "--mtime=@0",
+      "--owner=0",
+      "--group=0",
+      "--numeric-owner",
+      "-czf",
+      staged,
+      "-C",
+      extractDir,
+      MODEL_NAME,
+    ]);
+    const bytes = readFileSync(staged);
+    const integrity = {
+      sourceSha256: EXPECTED_SHA256,
+      bytes: bytes.length,
+      sha256: createHash("sha256").update(bytes).digest("hex"),
+    };
+    renameSync(staged, OUT_PATH);
+    writeFileSync(INTEGRITY_PATH, JSON.stringify(integrity));
+  } finally {
+    rmSync(staged, { force: true });
+  }
 
   const outStat = statSync(OUT_PATH);
   console.log(

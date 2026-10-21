@@ -1,14 +1,10 @@
 /**
  * Tutor voice — recorded line bank only (spec §6, milestone 4 voice part).
  *
- * The tutor never reaches a TTS path:
- *  - `speakTutorLine()` refuses to call `speakAsGretel` unless the active
- *    provider config is the tutor's own "recorded-audio" config.
- *  - the `speakFn` installed on mount plays approved recordings through an
- *    HTMLAudioElement (with a viseme-timeline callback) and never touches
- *    `speechSynthesis`.
- *  - a line with no approved recording resolves to gentle silence — no error,
- *    no fallback voice, session keeps running (§18.5).
+ * A mounted provider identity gates each request. The recorded player owns
+ * the shared speech channel, and cancellation settles both pending resource
+ * loads and active media. Only the real `playing` event starts speaking UI.
+ * Unknown/pending recordings remain explicitly silent; there is no TTS path.
  *
  * Audio sources: only entries of src/content/tutor-lines.json whose `src`
  * points at an owner-approved file (today: the 43 picture-name recordings).
@@ -19,9 +15,9 @@ import {
   getGretelVoiceProviderConfig,
   isGretelVoiceMuted,
   setGretelVoiceProviderConfig,
-  speakAsGretel,
   type GretelVoiceHandlers,
 } from "./gretel-voice";
+import { claimSpeech, registerSpeechCleanup, releaseSpeech } from "./speech-playback";
 
 export interface TutorViseme {
   /** seconds from playback start */
@@ -86,153 +82,183 @@ export interface TutorVoiceOptions {
   onVisemeTimeline?: (timeline: TutorViseme[], lineId: string) => void;
   /** Fired whenever a line resolves to gentle silence (pending, unknown text, or missing file). */
   onSilentLine?: (text: string) => void;
+  onPlaybackPosition?: (position: TutorPlaybackPosition | null) => void;
 }
 
-/** One at a time; the tutor owns the speech channel while mounted. */
-let activeAudio: HTMLAudioElement | null = null;
-
-/**
- * Outcome of the most recent speakFn run ("spoken" = approved audio started).
- * speakTutorLine reads it after speakAsGretel resolves so callers get the
- * real result — speakAsGretel itself cannot report it.
- */
-let lastSpeakOutcome: TutorSpeakResult = "silent";
-
-function stopActiveAudio(): void {
-  if (!activeAudio) return;
-  const audio = activeAudio;
-  activeAudio = null;
-  try {
-    audio.pause();
-  } catch {
-    /* nothing to stop */
-  }
+/** Media time drives both visemes and the word cue; never a wall-clock guess. */
+export interface TutorPlaybackPosition {
+  currentTime: number;
+  duration: number;
+  lineId: string;
 }
 
-async function loadVisemeTimeline(entry: TutorLineEntry): Promise<TutorViseme[]> {
+let mountedPlayback:
+  | ((text: string, handlers: GretelVoiceHandlers) => Promise<TutorSpeakResult>)
+  | null = null;
+let mountedProvider: ReturnType<typeof getGretelVoiceProviderConfig> | null = null;
+let stopActive: (() => void) | null = null;
+
+async function loadVisemeTimeline(
+  entry: TutorLineEntry,
+  signal: AbortSignal,
+): Promise<TutorViseme[]> {
   if (!entry.visemes || typeof fetch !== "function") return [];
   try {
-    const response = await fetch(entry.visemes);
+    const response = await fetch(entry.visemes, { signal });
     if (!response.ok) return [];
     const data: unknown = await response.json();
-    return Array.isArray(data) ? (data as TutorViseme[]) : [];
+    const cues = Array.isArray(data)
+      ? data
+      : data && typeof data === "object" && "mouthCues" in data
+        ? (data as { mouthCues: unknown }).mouthCues
+        : null;
+    if (!Array.isArray(cues)) return [];
+    return cues
+      .map((cue) => ({ start: cue?.start, end: cue?.end, shape: cue?.shape ?? cue?.value }))
+      .filter(
+        (cue): cue is TutorViseme =>
+          Number.isFinite(cue.start) &&
+          Number.isFinite(cue.end) &&
+          cue.start >= 0 &&
+          cue.end >= cue.start &&
+          /^[A-HX]$/.test(cue.shape),
+      );
   } catch {
     return [];
   }
 }
 
-function isPlayableEntry(entry: TutorLineEntry | undefined): entry is TutorLineEntry {
-  return Boolean(entry && typeof entry.src === "string" && entry.src.length > 0);
-}
+export type TutorSpeakResult = "spoken" | "silent" | "cancelled";
 
-function buildTutorSpeakFn(
-  options: TutorVoiceOptions,
-): (text: string, handlers: GretelVoiceHandlers) => Promise<void> {
-  return async (text, handlers) => {
-    const finish = () => handlers.onEnd?.();
-    lastSpeakOutcome = "silent";
-
-    // Mute is authoritative everywhere (cartilla.gretel.voice.muted).
-    if (isGretelVoiceMuted() || !text?.trim()) {
-      finish();
-      return;
-    }
-
-    const entry = findTutorLineByText(text);
-    if (!isPlayableEntry(entry) || !entry) {
-      // Gentle silence state: pending line, unknown text, or no src.
-      options.onSilentLine?.(text);
-      finish();
-      return;
-    }
-
-    let audio: HTMLAudioElement;
-    try {
-      audio = new Audio(entry.src);
-    } catch {
-      options.onSilentLine?.(text);
-      finish();
-      return;
-    }
-
-    const timeline = await loadVisemeTimeline(entry);
-    await new Promise<void>((resolve) => {
+function buildPlayback(options: TutorVoiceOptions) {
+  return (text: string, handlers: GretelVoiceHandlers): Promise<TutorSpeakResult> => {
+    stopActive?.();
+    const token = claimSpeech("gretel");
+    return new Promise((resolve) => {
+      const controller = new AbortController();
+      let audio: HTMLAudioElement | null = null;
       let settled = false;
-      const done = () => {
+      let started = false;
+      let outcome: TutorSpeakResult = "silent";
+      let timer: ReturnType<typeof setTimeout> | undefined;
+      const entry = findTutorLineByText(text);
+      const finish = (result: TutorSpeakResult) => {
         if (settled) return;
         settled = true;
-        if (activeAudio === audio) activeAudio = null;
-        resolve();
-      };
-      audio.addEventListener("ended", done);
-      audio.addEventListener("error", () => {
-        // Missing or unreadable file → silent, never an error for the child.
-        options.onSilentLine?.(text);
-        done();
-      });
-      activeAudio = audio;
-      lastSpeakOutcome = "spoken";
-      handlers.onStart?.();
-      options.onVisemeTimeline?.(timeline, entry.lineId);
-      try {
-        const playResult = audio.play() as unknown;
-        if (playResult && typeof (playResult as Promise<void>).catch === "function") {
-          (playResult as Promise<void>).catch(() => {
-            options.onSilentLine?.(text);
-            done();
-          });
+        controller.abort();
+        clearTimeout(timer);
+        if (audio) {
+          audio.removeEventListener("playing", playing);
+          audio.removeEventListener("timeupdate", position);
+          audio.removeEventListener("ended", ended);
+          audio.removeEventListener("error", failed);
+          audio.pause();
+          audio.removeAttribute("src");
+          audio.load();
         }
-      } catch {
+        if (stopActive === cancel) stopActive = null;
+        releaseSpeech(token);
+        if (started) window.dispatchEvent(new CustomEvent("gretel:speak_stop"));
+        options.onPlaybackPosition?.(null);
+        handlers.onEnd?.();
+        resolve(result);
+      };
+      const cancel = () => finish("cancelled");
+      const position = () => {
+        if (audio && entry && !settled)
+          options.onPlaybackPosition?.({
+            currentTime: audio.currentTime,
+            duration: Number.isFinite(audio.duration) ? audio.duration : 0,
+            lineId: entry.lineId,
+          });
+      };
+      let timeline: TutorViseme[] = [];
+      const playing = () => {
+        if (settled || started) return;
+        started = true;
+        outcome = "spoken";
+        clearTimeout(timer);
+        // Bound a corrupt/stalled recording; normal clips are much shorter.
+        timer = setTimeout(failed, 120_000);
+        options.onVisemeTimeline?.(timeline, entry!.lineId);
+        window.dispatchEvent(new CustomEvent("gretel:speak_start"));
+        handlers.onStart?.();
+        position();
+      };
+      const ended = () => finish(outcome);
+      const failed = () => {
+        if (settled) return;
         options.onSilentLine?.(text);
-        done();
+        finish("silent");
+      };
+      stopActive = cancel;
+      registerSpeechCleanup(token, cancel);
+      if (isGretelVoiceMuted() || !text?.trim()) {
+        finish("silent");
+        return;
       }
+      if (!entry?.src || !tutorLines.approved.includes(entry)) {
+        failed();
+        return;
+      }
+      // Cancellation is registered BEFORE either async resource starts.
+      timer = setTimeout(failed, 15_000);
+      void (async () => {
+        timeline = await loadVisemeTimeline(entry, controller.signal);
+        if (settled || isGretelVoiceMuted()) return;
+        try {
+          audio = new Audio(entry.src);
+          audio.addEventListener("playing", playing);
+          audio.addEventListener("timeupdate", position);
+          audio.addEventListener("ended", ended);
+          audio.addEventListener("error", failed);
+          await audio.play();
+        } catch {
+          failed();
+        }
+      })();
     });
-    finish();
   };
 }
 
-/**
- * Install the tutor's recorded-audio provider. Call on tutor mount; call the
- * returned disposer on unmount to restore the previous provider config and
- * stop any line still playing.
- */
+/** Restore only this mount's provider; disposal also settles pending callers. */
 export function mountTutorVoice(options: TutorVoiceOptions = {}): () => void {
+  stopActive?.();
   const previousConfig = getGretelVoiceProviderConfig();
-  setGretelVoiceProviderConfig({
-    type: "recorded-audio",
+  const playback = buildPlayback(options);
+  const provider = {
+    type: "recorded-audio" as const,
     name: TUTOR_VOICE_PROVIDER_NAME,
-    speakFn: buildTutorSpeakFn(options),
-  });
+    speakFn: async (text: string, handlers: GretelVoiceHandlers) => {
+      await playback(text, handlers);
+    },
+  };
+  mountedPlayback = playback;
+  mountedProvider = provider;
+  setGretelVoiceProviderConfig(provider);
   return () => {
-    stopActiveAudio();
+    if (mountedPlayback !== playback) return;
+    stopActive?.();
+    mountedPlayback = null;
+    mountedProvider = null;
     setGretelVoiceProviderConfig(previousConfig);
   };
 }
 
-export type TutorSpeakResult = "spoken" | "silent";
-
-/**
- * Speak one tutor line through the recorded line bank.
- *
- * Guard: refuses to call `speakAsGretel` unless the active provider config is
- * the tutor's own "recorded-audio" config — a misconfigured provider could
- * otherwise fall back to browser TTS inside speakAsGretel (spec §6).
- * Honors the global Gretel mute. Unknown/pending text resolves silently.
- */
+/** Exact provider identity, per-call result, and actual media-start events. */
 export async function speakTutorLine(
   text: string,
   handlers: GretelVoiceHandlers = {},
 ): Promise<TutorSpeakResult> {
-  if (getGretelVoiceProviderConfig().type !== "recorded-audio") {
+  const provider = getGretelVoiceProviderConfig();
+  if (
+    !mountedPlayback ||
+    !mountedProvider ||
+    provider.type !== "recorded-audio" ||
+    provider.speakFn !== mountedProvider.speakFn
+  ) {
     handlers.onEnd?.();
     return "silent";
   }
-  if (isGretelVoiceMuted() || !text?.trim()) {
-    handlers.onEnd?.();
-    return "silent";
-  }
-  await speakAsGretel(text, handlers);
-  // The speakFn already reported the real outcome (silent for pending,
-  // unknown, or missing-file lines; spoken once approved audio starts).
-  return lastSpeakOutcome;
+  return mountedPlayback(text, handlers);
 }

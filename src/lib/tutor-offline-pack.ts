@@ -1,308 +1,273 @@
-/**
- * Tutor offline pack (spec §18.1, milestone 6).
- *
- * A teacher-side one-time download ("Preparar sin internet") that puts the
- * whole tutor into a DEDICATED, versioned service-worker cache
- * `cartilla:tutor:<version>`, so /tutor runs with Wi-Fi off. The pack cache
- * is never mixed into the app's existing caches, and `public/sw.js` serves
- * pack entries cache-first while leaving every existing strategy untouched
- * when no pack exists.
- *
- * Pack contents:
- *  - /tutor route documents (app code is discovered from the /tutor HTML's
- *    script/link tags and cached too);
- *  - the Vosk model tarball;
- *  - Lecciones 1–3 line audio + viseme JSON, derived from
- *    src/content/tutor-lines.json (read-only; only approved entries have
- *    files — pending lines stay silent per spec §18.5);
- *  - the picture recordings the manifest references;
- *  - the Gretel puppet layers when an approved layer manifest exists,
- *    otherwise the approved master image.
- *
- * Status API covers: downloading (bytes), done (with version), and the
- * cleared-storage path ("Hay que preparar de nuevo"), never a broken screen.
- * `navigator.storage.persist()` is requested (best effort) so the browser is
- * less likely to evict the pack.
- */
+/** Verified immutable packs. One cache-pointer write commits a complete generation. */
 import tutorLinesJson from "../content/tutor-lines.json";
 
-/** Cache names are `cartilla:tutor:<version>` (never the app's caches). */
 export const TUTOR_PACK_CACHE_PREFIX = "cartilla:tutor:";
-/** Pack version — bump when pack contents change so teachers re-prepare. */
-export const TUTOR_PACK_VERSION = "v1.0.0";
+export const TUTOR_PACK_VERSION = "v1.1.0";
 export const TUTOR_PACK_CACHE_NAME = `${TUTOR_PACK_CACHE_PREFIX}${TUTOR_PACK_VERSION}`;
-/** localStorage marker proving a pack finished downloading (not a partial one). */
+export const TUTOR_PACK_CONTROL_CACHE = `${TUTOR_PACK_CACHE_PREFIX}control`;
+export const TUTOR_PACK_POINTER = "/__tutor_active_pack__";
 export const TUTOR_PACK_MARKER_KEY = "cartilla.tutor.pack.v1";
-
-/** Vosk on-device model, fetched at build time by scripts/fetch-vosk-model.mjs. */
-export const VOSK_MODEL_PACK_PATH = "/models/vosk/vosk-model-small-es-0.42.tar.gz";
-/** Puppet fallback art: the approved master, shown intact (§17, until the pack is approved). */
+export const TUTOR_BUILD_ID = import.meta.env.VITE_TUTOR_BUILD_ID ?? "development";
+export const VOSK_MODEL_PACK_PATH = "/models/vosk/vosk-model-small-es-0.42.bin";
 export const GRETEL_MASTER_PACK_PATH = "/cartilla/images/gretel/gretel-approved-master.png";
-/** Layer manifest the puppet reads; empty/absent until the owner approves the pack (§17). */
-const GRETEL_LAYERS_MANIFEST_PATH = "/cartilla/images/gretel/layers/manifest.json";
-
-/** /tutor entry documents for Lecciones 1–3. */
+const LAYERS_PATH = "/cartilla/images/gretel/layers/manifest.json";
+const ASSETS_PATH = "/tutor-assets.json";
 export const TUTOR_ROUTES = ["/tutor", "/tutor/1", "/tutor/2", "/tutor/3"] as const;
 
-interface PackLineEntry {
-  lineId: string;
-  lesson: number;
-  role: string;
-  text: string;
-  src?: string;
-  visemes?: string;
-}
-
-interface PackLinesManifest {
-  approved: PackLineEntry[];
-  pending: PackLineEntry[];
-}
-
-/** Read-only use of the voice lane's finished manifest. */
-const tutorLines = tutorLinesJson as unknown as PackLinesManifest;
-
-/**
- * Deterministic core file list for the pack: tutor routes, the Vosk model,
- * the approved master, and every approved line's audio + viseme JSON
- * (approved entries are shared across lessons when lesson is 0; all are
- * included). Pending lines have no files (they stay silent). Hashed /tutor
- * app assets are added at download time from the /tutor document.
- */
 export function tutorPackFileList(): string[] {
-  const files = new Set<string>([...TUTOR_ROUTES]);
-  files.add(VOSK_MODEL_PACK_PATH);
-  files.add(GRETEL_MASTER_PACK_PATH);
-  for (const entry of tutorLines.approved) {
-    if (typeof entry.src === "string" && entry.src) files.add(entry.src);
-    if (typeof entry.visemes === "string" && entry.visemes) files.add(entry.visemes);
+  const files = new Set<string>([
+    ...TUTOR_ROUTES,
+    VOSK_MODEL_PACK_PATH,
+    GRETEL_MASTER_PACK_PATH,
+    LAYERS_PATH,
+  ]);
+  for (const entry of tutorLinesJson.approved) {
+    if (entry.src) files.add(entry.src);
+    if (entry.visemes) files.add(entry.visemes);
   }
   return [...files].sort();
 }
 
-// ---------------------------------------------------------------------------
-// Status
-// ---------------------------------------------------------------------------
-
 export type TutorPackState =
   | { state: "idle" }
-  | {
-      state: "downloading";
-      receivedBytes: number;
-      filesDone: number;
-      filesTotal: number;
-    }
+  | { state: "downloading"; receivedBytes: number; filesDone: number; filesTotal: number }
   | { state: "done"; version: string; filesTotal: number; skippedFiles: number }
-  /** Prepared before, but the pack is gone (browser cleared storage) → "Hay que preparar de nuevo". */
   | { state: "cleared" };
 
-interface PackMarker {
-  version: string;
-  files: number;
+interface Asset {
+  url: string;
   bytes: number;
-  skipped: number;
-  downloadedAt: string;
+  sha256: string;
+}
+interface PackMarker {
+  cacheName: string;
+  version: string;
+  buildId: string;
+  resources: Asset[];
+}
+interface BuildManifest {
+  buildId: string;
+  files: Asset[];
 }
 
-function readMarker(): PackMarker | null {
+function localPath(value: string): boolean {
+  return (
+    typeof value === "string" &&
+    value.startsWith("/") &&
+    !value.startsWith("//") &&
+    !/[\\?#%]/.test(value) &&
+    !value.split("/").includes("..")
+  );
+}
+async function digest(bytes: ArrayBuffer): Promise<string> {
+  const value = await crypto.subtle.digest("SHA-256", bytes);
+  return Array.from(new Uint8Array(value), (byte) => byte.toString(16).padStart(2, "0")).join("");
+}
+async function pointer(): Promise<PackMarker | null> {
+  if (typeof caches === "undefined" || !(await caches.has(TUTOR_PACK_CONTROL_CACHE))) return null;
   try {
-    const raw = globalThis.localStorage?.getItem(TUTOR_PACK_MARKER_KEY);
-    if (!raw) return null;
-    const parsed: unknown = JSON.parse(raw);
-    if (parsed && typeof parsed === "object" && "version" in parsed) {
-      return parsed as PackMarker;
-    }
-    return null;
+    const response = await (await caches.open(TUTOR_PACK_CONTROL_CACHE)).match(TUTOR_PACK_POINTER);
+    if (!response) return null;
+    const value = (await response.json()) as PackMarker;
+    if (
+      !value.cacheName?.startsWith(`${TUTOR_PACK_CACHE_NAME}:`) ||
+      !Array.isArray(value.resources) ||
+      value.resources.length === 0
+    )
+      return null;
+    if (
+      !value.resources.every(
+        (asset) => localPath(asset.url) && asset.bytes > 0 && /^[a-f0-9]{64}$/.test(asset.sha256),
+      )
+    )
+      return null;
+    return value;
   } catch {
     return null;
   }
 }
-
-function writeMarker(marker: PackMarker): void {
-  globalThis.localStorage?.setItem(TUTOR_PACK_MARKER_KEY, JSON.stringify(marker));
+function workerControlsPage(): boolean {
+  return Boolean(globalThis.navigator?.serviceWorker?.controller);
 }
 
-function removeMarker(): void {
-  globalThis.localStorage?.removeItem(TUTOR_PACK_MARKER_KEY);
-}
-
-async function findPackCacheNames(): Promise<string[]> {
-  if (typeof globalThis.caches === "undefined") return [];
-  const keys = await globalThis.caches.keys();
-  return keys.filter((key) => key.startsWith(TUTOR_PACK_CACHE_PREFIX));
-}
-
-/**
- * Current pack status. "done" requires BOTH the pack cache and the finished
- * marker; anything else that ever had a pack (cache without marker, or
- * marker without cache) is "cleared" → re-prepare, never a broken screen.
- */
+/** Verifies the active version and every required cache entry, even after eviction. */
 export async function getTutorPackStatus(): Promise<TutorPackState> {
-  const packNames = await findPackCacheNames();
-  const marker = readMarker();
-  if (packNames.length === 0) {
-    return marker ? { state: "cleared" } : { state: "idle" };
-  }
-  if (!marker) {
-    // Cache exists but never finished (interrupted, or storage was cleared
-    // mid-flight) — treat as needing a re-prepare.
+  if (typeof caches === "undefined") return { state: "idle" };
+  const marker = await pointer();
+  const names = await caches.keys();
+  if (!marker)
+    return {
+      state: names.some((name) => name.startsWith(TUTOR_PACK_CACHE_PREFIX)) ? "cleared" : "idle",
+    };
+  if (
+    !workerControlsPage() ||
+    marker.version !== TUTOR_PACK_VERSION ||
+    marker.buildId !== TUTOR_BUILD_ID ||
+    !names.includes(marker.cacheName)
+  )
     return { state: "cleared" };
+  const resources = new Set(marker.resources.map((asset) => asset.url));
+  if (!tutorPackFileList().every((url) => resources.has(url)) || !resources.has(ASSETS_PATH))
+    return { state: "cleared" };
+  const cache = await caches.open(marker.cacheName);
+  for (const asset of marker.resources) {
+    const response = await cache.match(asset.url);
+    if (
+      !response?.ok ||
+      response.headers.get("x-tutor-sha256") !== asset.sha256 ||
+      Number(response.headers.get("content-length")) !== asset.bytes
+    )
+      return { state: "cleared" };
   }
   return {
     state: "done",
     version: marker.version,
-    filesTotal: marker.files,
-    skippedFiles: marker.skipped,
+    filesTotal: marker.resources.length,
+    skippedFiles: 0,
   };
 }
 
-// ---------------------------------------------------------------------------
-// Download
-// ---------------------------------------------------------------------------
-
-/** Best-effort request so the browser is less likely to evict the pack. */
-async function requestPersistentStorage(): Promise<void> {
-  try {
-    await globalThis.navigator?.storage?.persist?.();
-  } catch {
-    /* best effort only */
-  }
+async function fetchRequired(url: string): Promise<Response> {
+  // Bypass an older active pack while preparing an update. SW honors this header.
+  const response = await fetch(url, { cache: "reload", headers: { "x-tutor-prepare": "1" } });
+  if (!response.ok) throw new Error(`Preparación incompleta: ${url} (${response.status})`);
+  return response;
 }
 
-/**
- * Collect every string under the layers manifest that is a same-origin path
- * inside the layers directory. Shape-agnostic on purpose: the layer loader
- * (`tutor-puppet-layers.ts`) lands with the puppet lane; this accepts any
- * manifest whose values point at layer files, and skips on any failure.
- */
-async function collectLayerFiles(files: Set<string>): Promise<void> {
-  try {
-    if (typeof fetch === "undefined") return;
-    const response = await fetch(GRETEL_LAYERS_MANIFEST_PATH, { cache: "reload" });
-    if (!response.ok) return;
-    const data: unknown = await response.json();
-    const walk = (value: unknown): void => {
-      if (typeof value === "string") {
-        if (value.startsWith("/cartilla/images/gretel/layers/")) files.add(value);
-        return;
-      }
-      if (Array.isArray(value)) {
-        value.forEach(walk);
-        return;
-      }
-      if (value && typeof value === "object") {
-        Object.values(value as Record<string, unknown>).forEach(walk);
-      }
-    };
-    walk(data);
-  } catch {
-    /* no approved layer pack yet — master image is already in the list */
-  }
-}
-
-/**
- * Discover the /tutor app code (hashed JS/CSS) from the /tutor document.
- * Tolerant: if /tutor is not deployed yet, the pack still downloads its
- * static files and the teacher can re-prepare later.
- */
-async function collectTutorAppAssets(files: Set<string>): Promise<void> {
-  try {
-    if (typeof fetch === "undefined") return;
-    const response = await fetch("/tutor", { cache: "reload" });
-    if (!response.ok) return;
-    const html = await response.text();
-    const attrPattern = /(?:src|href)\s*=\s*["']([^"']+)["']/g;
-    let match: RegExpExecArray | null;
-    while ((match = attrPattern.exec(html)) !== null) {
-      const url = match[1];
-      if (!url || url.startsWith("http") || url.startsWith("data:") || url.startsWith("#")) {
-        continue;
-      }
-      const path = url.startsWith("/") ? url : `/${url}`;
-      if (/\.(?:m?js|css)(?:\?|$)/.test(path) || path.includes("/assets/")) {
-        files.add(path);
-      }
-    }
-  } catch {
-    /* offline or route missing — static pack files still download */
-  }
-}
-
-/**
- * Download the tutor pack into its dedicated cache.
- * Re-preparing is safe: previous pack caches are removed first so nothing
- * stale survives. Files that are missing (not yet built, e.g. visemes) are
- * skipped and counted; the pack still reports "done".
- * Returns the final status.
- */
-export async function downloadTutorPack(
+let preparing: Promise<TutorPackState> | null = null;
+export function downloadTutorPack(
   onProgress?: (state: TutorPackState) => void,
 ): Promise<TutorPackState> {
-  if (typeof globalThis.caches === "undefined" || typeof fetch === "undefined") {
-    throw new Error("Offline pack requires Cache Storage and fetch (not available here)");
-  }
-
-  await requestPersistentStorage();
-
-  const files = new Set<string>(tutorPackFileList());
-  await collectLayerFiles(files);
-  await collectTutorAppAssets(files);
-  const list = [...files].sort();
-
-  // Fresh pack: drop any previous pack caches (re-prepare semantics).
-  for (const stale of await findPackCacheNames()) {
-    await globalThis.caches.delete(stale);
-  }
-  const cache = await globalThis.caches.open(TUTOR_PACK_CACHE_NAME);
-
-  let receivedBytes = 0;
-  let filesDone = 0;
-  let skippedFiles = 0;
-  const report = (): void => {
-    onProgress?.({
-      state: "downloading",
-      receivedBytes,
-      filesDone,
-      filesTotal: list.length,
-    });
-  };
-
-  for (const url of list) {
-    try {
-      const response = await fetch(url, { cache: "reload" });
-      if (!response.ok) {
-        skippedFiles += 1;
-      } else {
-        const body = await response.arrayBuffer();
-        receivedBytes += body.byteLength;
-        await cache.put(url, new Response(body));
-      }
-    } catch {
-      skippedFiles += 1;
-    }
-    filesDone += 1;
-    report();
-  }
-
-  writeMarker({
-    version: TUTOR_PACK_VERSION,
-    files: list.length,
-    bytes: receivedBytes,
-    skipped: skippedFiles,
-    downloadedAt: new Date().toISOString(),
+  if (preparing) return preparing;
+  preparing = preparePack(onProgress).finally(() => {
+    preparing = null;
   });
-
-  return {
-    state: "done",
-    version: TUTOR_PACK_VERSION,
-    filesTotal: list.length,
-    skippedFiles,
-  };
+  return preparing;
 }
 
-/** Remove the pack cache and marker (used by teacher controls / cleanup). */
-export async function clearTutorPack(): Promise<void> {
-  for (const name of await findPackCacheNames()) {
-    await globalThis.caches.delete(name);
+async function preparePack(onProgress?: (state: TutorPackState) => void): Promise<TutorPackState> {
+  if (typeof caches === "undefined" || !workerControlsPage())
+    throw new Error(
+      "Preparación incompleta: vuelve a abrir el tutor para activar el uso sin internet.",
+    );
+  try {
+    await navigator.storage?.persist?.();
+  } catch {
+    /* best effort */
   }
-  removeMarker();
+  const manifestResponse = await fetchRequired(ASSETS_PATH);
+  const manifest = (await manifestResponse.clone().json()) as BuildManifest;
+  if (
+    manifest.buildId !== TUTOR_BUILD_ID ||
+    !Array.isArray(manifest.files) ||
+    !manifest.files.length ||
+    !manifest.files.every(
+      (asset) => localPath(asset.url) && asset.bytes > 0 && /^[a-f0-9]{64}$/.test(asset.sha256),
+    ) ||
+    !manifest.files.some((asset) => asset.url === VOSK_MODEL_PACK_PATH) ||
+    !manifest.files.some((asset) => /\/assets\/.+\.js$/.test(asset.url))
+  ) {
+    throw new Error("Preparación incompleta: falta el paquete de esta versión.");
+  }
+  const expected = new Map(manifest.files.map((asset) => [asset.url, asset]));
+  const files = new Set([...tutorPackFileList(), ...expected.keys(), ASSETS_PATH]);
+  // Keep manifest bytes and source approval metadata in the same transaction.
+  const layersResponse = await fetchRequired(LAYERS_PATH);
+  const layers = (await layersResponse.clone().json()) as {
+    layers?: { src?: string; approval?: string }[];
+  };
+  for (const layer of layers.layers ?? []) {
+    if (
+      layer.approval &&
+      layer.src &&
+      localPath(layer.src) &&
+      layer.src.startsWith("/cartilla/images/gretel/layers/")
+    )
+      files.add(layer.src);
+  }
+  const cacheName = `${TUTOR_PACK_CACHE_NAME}:${crypto.randomUUID()}`;
+  const cache = await caches.open(cacheName);
+  const resources: Asset[] = [];
+  let receivedBytes = 0;
+  try {
+    for (const url of [...files].sort()) {
+      const response =
+        url === ASSETS_PATH
+          ? manifestResponse
+          : url === LAYERS_PATH
+            ? layersResponse
+            : await fetchRequired(url);
+      const body = await response.arrayBuffer();
+      if (!body.byteLength) throw new Error(`Preparación incompleta: ${url}`);
+      const type = response.headers.get("content-type") ?? "";
+      if (TUTOR_ROUTES.includes(url as (typeof TUTOR_ROUTES)[number])) {
+        const html = new TextDecoder().decode(body);
+        if (!type.includes("text/html") || !/<script[^>]+src=["'][^"']+\.js/.test(html))
+          throw new Error(`Falta la aplicación: ${url}`);
+      } else if (type.includes("text/html")) throw new Error(`Archivo ausente: ${url}`);
+      if (url.endsWith(".json")) JSON.parse(new TextDecoder().decode(body));
+      const hash = await digest(body);
+      const expectedAsset = expected.get(url);
+      if (
+        expectedAsset &&
+        (expectedAsset.bytes !== body.byteLength || expectedAsset.sha256 !== hash)
+      )
+        throw new Error(`Archivo incompleto: ${url}`);
+      const headers = new Headers(response.headers);
+      headers.delete("content-encoding");
+      headers.set("content-length", String(body.byteLength));
+      headers.set("x-tutor-sha256", hash);
+      await cache.put(url, new Response(body, { headers }));
+      resources.push({ url, bytes: body.byteLength, sha256: hash });
+      receivedBytes += body.byteLength;
+      onProgress?.({
+        state: "downloading",
+        receivedBytes,
+        filesDone: resources.length,
+        filesTotal: files.size,
+      });
+    }
+    // Confirm storage accepted every entry before publishing this generation.
+    for (const asset of resources) {
+      if (!(await cache.match(asset.url))?.ok) throw new Error(`No se pudo guardar: ${asset.url}`);
+    }
+    const marker: PackMarker = {
+      cacheName,
+      version: TUTOR_PACK_VERSION,
+      buildId: TUTOR_BUILD_ID,
+      resources,
+    };
+    const control = await caches.open(TUTOR_PACK_CONTROL_CACHE);
+    await control.put(
+      TUTOR_PACK_POINTER,
+      new Response(JSON.stringify(marker), { headers: { "Content-Type": "application/json" } }),
+    );
+    try {
+      localStorage.setItem(TUTOR_PACK_MARKER_KEY, JSON.stringify({ version: TUTOR_PACK_VERSION }));
+    } catch {
+      /* pointer is authoritative */
+    }
+    // Retain the previous verified generation for already-open old-build tabs.
+    return {
+      state: "done",
+      version: TUTOR_PACK_VERSION,
+      filesTotal: resources.length,
+      skippedFiles: 0,
+    };
+  } catch (error) {
+    await caches.delete(cacheName);
+    throw error;
+  }
+}
+
+/** Progress/memory are intentionally independent of the downloadable pack. */
+export async function clearTutorPack(): Promise<void> {
+  if (preparing) throw new Error("Espera a que termine la preparación.");
+  for (const name of await caches.keys())
+    if (name.startsWith(TUTOR_PACK_CACHE_PREFIX)) await caches.delete(name);
+  try {
+    localStorage.removeItem(TUTOR_PACK_MARKER_KEY);
+  } catch {
+    /* unavailable storage */
+  }
 }

@@ -68,7 +68,7 @@ export interface PuppetLayerManifest {
 /** What the puppet should render. */
 export type PuppetLayerResolution =
   | { mode: "master" }
-  | { mode: "layered"; layers: readonly PuppetLayer[] };
+  | { mode: "layered"; composition: "overlay" | "complete"; layers: readonly PuppetLayer[] };
 
 function isRecord(value: unknown): value is Record<string, unknown> {
   return typeof value === "object" && value !== null && !Array.isArray(value);
@@ -84,7 +84,7 @@ function isVisemeShape(value: unknown): value is VisemeShape {
 
 function isAllowedSrc(value: unknown): value is string {
   if (typeof value !== "string" || !value.startsWith(PUPPET_LAYERS_DIR)) return false;
-  if (value.includes("..")) return false;
+  if (value.includes("..") || /[%\\?#]/.test(value)) return false;
   return /\.(?:png|webp)$/.test(value);
 }
 
@@ -158,6 +158,37 @@ export async function loadPuppetLayers(
     raw = null;
   }
   const layers = validatePuppetLayers(raw);
-  if (layers.length === 0) return { mode: "master" };
-  return { mode: "layered", layers };
+  if (layers.length === 0 || !isRecord(raw)) return { mode: "master" };
+  // Activation requires approved registration on the actual source canvas.
+  if (
+    raw.width !== 1086 ||
+    raw.height !== 1448 ||
+    typeof raw.compositionApproval !== "string" ||
+    !raw.compositionApproval.trim()
+  )
+    return { mode: "master" };
+  if (raw.composition === "overlay") return { mode: "layered", composition: "overlay", layers };
+  const bases = [
+    "hair-back",
+    "legs",
+    "skirt",
+    "torso",
+    "neck",
+    "head-skin",
+    "eyes-open",
+    "brows",
+    "hair-front-left",
+    "hair-front-right",
+    "bow",
+  ];
+  const complete =
+    bases.every((id) => layers.some((layer) => layer.id === id && layer.role === "static")) &&
+    layers.some((layer) => layer.role === "mouth" && layer.shapes?.includes("X"));
+  if (
+    raw.composition !== "complete" ||
+    !complete ||
+    layers.length !== (raw.layers as unknown[]).length
+  )
+    return { mode: "master" };
+  return { mode: "layered", composition: "complete", layers };
 }

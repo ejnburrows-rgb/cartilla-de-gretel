@@ -11,6 +11,8 @@ import { useState } from "react";
 import { createFileRoute, Link, Outlet, useMatches } from "@tanstack/react-router";
 import { ArrowLeft, BookOpen, ShieldCheck } from "lucide-react";
 import { TutorOfflinePack } from "@/components/tutor/TutorOfflinePack";
+import { clearAllTutorMemory } from "@/lib/tutor-memory";
+import { clearTutorProgress } from "@/lib/tutor-progress";
 import { CATALOG } from "@/lib/lesson-catalog";
 import { TUTOR_LESSONS } from "@/lib/tutor-content";
 
@@ -44,6 +46,7 @@ function TutorLayout() {
 function TutorPicker() {
   const [classCode, setClassCode] = useState("clase");
   const [slot, setSlot] = useState(1);
+  const [memoryCleared, setMemoryCleared] = useState(false);
 
   const lessonEntries = TUTOR_LESSONS.map((n) => ({
     n,
@@ -70,6 +73,15 @@ function TutorPicker() {
             Lecciones 1–3 · la voz de Gretel, en este aparato
           </p>
         </header>
+
+        <p
+          className="mt-6 rounded-xl border border-amber-700/20 bg-amber-50 p-4 text-sm text-stone-800"
+          role="note"
+        >
+          Vista previa: las grabaciones de algunas instrucciones y reacciones siguen pendientes de
+          verificación. La práctica de voz usa reconocimiento local; no ofrece una puntuación de
+          pronunciación.
+        </p>
 
         {/* Class code + seat slot — anonymous progress ids (spec §10).
             No names, no storage: they travel in the link to the session. */}
@@ -128,6 +140,35 @@ function TutorPicker() {
           <TutorOfflinePack />
         </div>
 
+        <section className="mt-8 text-center text-sm">
+          <p>
+            El progreso se guarda únicamente en este navegador, mientras se conserven sus datos.
+          </p>
+          <button
+            type="button"
+            className="mt-3 min-h-11 rounded-xl border px-4 font-bold"
+            onClick={() => {
+              if (
+                !window.confirm(
+                  "¿Borrar el progreso y la memoria del tutor de este navegador? El material sin internet se conserva.",
+                )
+              )
+                return;
+              try {
+                clearAllTutorMemory();
+                clearTutorProgress();
+                setMemoryCleared(true);
+              } catch {
+                setMemoryCleared(false);
+              }
+            }}
+          >
+            Borrar progreso y memoria
+          </button>
+          <p role="status">
+            {memoryCleared ? "Memoria borrada. El material sin internet se conserva." : ""}
+          </p>
+        </section>
         <footer className="mt-8 pb-8 text-center">
           <Link
             to="/privacy/tutor"

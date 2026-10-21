@@ -8,6 +8,7 @@
  */
 import { describe, it, expect, vi, beforeEach, afterEach } from "vitest";
 import {
+  cancelGretelSpeech,
   getGretelVoiceProviderConfig,
   resetGretelVoiceProviderConfig,
   setGretelVoiceProviderConfig,
@@ -56,16 +57,22 @@ describe("tutor voice (recorded line bank, no TTS path)", () => {
       configurable: true,
     });
 
+    vi.spyOn(HTMLMediaElement.prototype, "pause").mockImplementation(() => {});
+    vi.spyOn(HTMLMediaElement.prototype, "load").mockImplementation(() => {});
     // jsdom does not implement HTMLMediaElement.play; any call is recorded and
     // immediately "ends" playback so promises resolve deterministically.
-    playSpy = vi.spyOn(HTMLMediaElement.prototype, "play").mockImplementation(function (this: HTMLMediaElement) {
-      this.dispatchEvent(new Event("ended"));
+    playSpy = vi.spyOn(HTMLMediaElement.prototype, "play").mockImplementation(function (
+      this: HTMLMediaElement,
+    ) {
+      this.dispatchEvent(new Event("playing"));
+      queueMicrotask(() => this.dispatchEvent(new Event("ended")));
       return Promise.resolve();
     });
   });
 
   afterEach(() => {
-    playSpy.mockRestore();
+    vi.restoreAllMocks();
+    vi.unstubAllGlobals();
     Object.defineProperty(window, "speechSynthesis", {
       value: originalSpeechSynthesis,
       writable: true,
@@ -109,7 +116,7 @@ describe("tutor voice (recorded line bank, no TTS path)", () => {
     expect(result).toBe("spoken");
     expect(playSpy).toHaveBeenCalledTimes(1);
     const audio = playSpy.mock.instances[0] as unknown as HTMLAudioElement;
-    expect(audio.src.endsWith(APPROVED_SRC)).toBe(true);
+    expect(audio.hasAttribute("src")).toBe(false); // released after completion
     expect(onVisemeTimeline).toHaveBeenCalledTimes(1);
     expect(onVisemeTimeline).toHaveBeenCalledWith([], "l1-model-oso");
     expect(onSilentLine).not.toHaveBeenCalled();
@@ -158,7 +165,12 @@ describe("tutor voice (recorded line bank, no TTS path)", () => {
 
   it("never calls speechSynthesis.speak on any tutor path", async () => {
     const unmount = mountTutorVoice();
-    for (const text of [APPROVED_WORD, PENDING_TEXT, "¡Muy bien! (reuse: buildSuccessLine)", "no existe"]) {
+    for (const text of [
+      APPROVED_WORD,
+      PENDING_TEXT,
+      "¡Muy bien! (reuse: buildSuccessLine)",
+      "no existe",
+    ]) {
       await speakTutorLine(text);
     }
     expect(speakSpy).not.toHaveBeenCalled();
@@ -194,5 +206,94 @@ describe("tutor voice (recorded line bank, no TTS path)", () => {
 
     expect(tutorLines.approved.length).toBe(43);
     expect(tutorLines.pending.length).toBeGreaterThan(0);
+  });
+  it("reads the shipped Rhubarb mouthCues format, mapping value to shape", async () => {
+    const cue = { start: 0.1, end: 0.3, value: "C" };
+    vi.stubGlobal(
+      "fetch",
+      vi.fn(async () => new Response(JSON.stringify({ metadata: {}, mouthCues: [cue] }))),
+    );
+    const onVisemeTimeline = vi.fn();
+    const unmount = mountTutorVoice({ onVisemeTimeline });
+    expect(await speakTutorLine(APPROVED_WORD)).toBe("spoken");
+    expect(onVisemeTimeline).toHaveBeenCalledWith(
+      [{ start: 0.1, end: 0.3, shape: "C" }],
+      "l1-model-oso",
+    );
+    unmount();
+  });
+  it("does not report spoken or start on a rejected play promise", async () => {
+    playSpy.mockRejectedValue(new DOMException("autoplay blocked", "NotAllowedError"));
+    const unmount = mountTutorVoice();
+    const onStart = vi.fn();
+    expect(await speakTutorLine(APPROVED_WORD, { onStart })).toBe("silent");
+    expect(onStart).not.toHaveBeenCalled();
+    unmount();
+  });
+  it("cancel during a deferred timeline fetch settles immediately and cannot play later", async () => {
+    let deliver!: (response: Response) => void;
+    vi.stubGlobal(
+      "fetch",
+      vi.fn(
+        () =>
+          new Promise<Response>((resolve) => {
+            deliver = resolve;
+          }),
+      ),
+    );
+    const unmount = mountTutorVoice();
+    const pending = speakTutorLine(APPROVED_WORD);
+    cancelGretelSpeech();
+    expect(await pending).toBe("cancelled");
+    deliver(new Response("[]"));
+    await Promise.resolve();
+    await Promise.resolve();
+    expect(playSpy).not.toHaveBeenCalled();
+    unmount();
+    vi.unstubAllGlobals();
+  });
+  it("mute pauses active media, settles the caller, and removes media handlers", async () => {
+    let audio!: HTMLMediaElement;
+    playSpy.mockImplementation(function (this: HTMLMediaElement) {
+      audio = this;
+      this.dispatchEvent(new Event("playing"));
+      return Promise.resolve();
+    });
+    const unmount = mountTutorVoice();
+    const onEnd = vi.fn();
+    const pending = speakTutorLine(APPROVED_WORD, { onEnd });
+    await vi.waitFor(() => expect(playSpy).toHaveBeenCalled());
+    setGretelVoiceMuted(true);
+    expect(await pending).toBe("cancelled");
+    expect(audio.pause).toHaveBeenCalled();
+    expect(audio.hasAttribute("src")).toBe(false);
+    audio.dispatchEvent(new Event("ended"));
+    expect(onEnd).toHaveBeenCalledTimes(1);
+    unmount();
+  });
+  it("rejects a foreign recorded-audio provider too", async () => {
+    const unmount = mountTutorVoice();
+    const foreign = vi.fn();
+    setGretelVoiceProviderConfig({
+      type: "recorded-audio",
+      name: TUTOR_VOICE_PROVIDER_NAME,
+      speakFn: foreign,
+    });
+    expect(await speakTutorLine(APPROVED_WORD)).toBe("silent");
+    expect(foreign).not.toHaveBeenCalled();
+    unmount();
+  });
+  it("an overlapping request cancels the first with independent outcomes", async () => {
+    playSpy.mockImplementation(function (this: HTMLMediaElement) {
+      this.dispatchEvent(new Event("playing"));
+      return Promise.resolve();
+    });
+    const unmount = mountTutorVoice();
+    const first = speakTutorLine(APPROVED_WORD);
+    await vi.waitFor(() => expect(playSpy).toHaveBeenCalledTimes(1));
+    const second = speakTutorLine("not recorded");
+    expect(await first).toBe("cancelled");
+    expect(await second).toBe("silent");
+    unmount();
   });
 });

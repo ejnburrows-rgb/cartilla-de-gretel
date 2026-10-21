@@ -13,6 +13,47 @@ import {
 } from "../tutor-ears-vosk";
 import { ChromeLocalEars } from "../tutor-ears-chrome-local";
 
+it("never constructs StubEars in a production build, including test mode", () => {
+  vi.stubEnv("PROD", true);
+  vi.stubEnv("MODE", "test");
+  vi.stubEnv("VITE_TUTOR_EARS", "stub");
+  try {
+    expect(createTutorEars().kind).toBe("vosk");
+  } finally {
+    vi.unstubAllEnvs();
+  }
+});
+
+const defaultModels = vi.hoisted(() => ({
+  models: [] as {
+    worker: { terminate: ReturnType<typeof vi.fn> };
+    handlers: Record<
+      string,
+      (message: { event: string; result?: boolean; error?: string }) => void
+    >;
+  }[],
+}));
+vi.mock("vosk-browser", () => ({
+  Model: class {
+    ready = true;
+    worker = { terminate: vi.fn() };
+    handlers: Record<
+      string,
+      (message: { event: string; result?: boolean; error?: string }) => void
+    > = {};
+    constructor() {
+      defaultModels.models.push(this);
+    }
+    on(
+      event: string,
+      listener: (message: { event: string; result?: boolean; error?: string }) => void,
+    ) {
+      this.handlers[event] = listener;
+    }
+    terminate() {}
+  },
+}));
+
 // ---------------------------------------------------------------------------
 // Vosk fakes (no WASM, no worker, no real audio)
 // ---------------------------------------------------------------------------
@@ -161,6 +202,54 @@ describe("VoskEars (primary on-device engine)", () => {
     });
   });
 
+  it("a real model error settles readiness instead of leaving the microphone waiting", async () => {
+    const ears = new VoskEars();
+    const pending = ears.probe();
+    await vi.waitFor(() => expect(defaultModels.models.at(-1)?.handlers.error).toBeDefined());
+    const model = defaultModels.models.at(-1)!;
+    model.handlers.error({ event: "error", error: "model unavailable" });
+    expect(await pending).toBe("no-local");
+    expect(model.worker.terminate).toHaveBeenCalledTimes(1);
+  });
+  it("route exit terminates the model worker while it is still loading", async () => {
+    defaultModels.models.length = 0;
+    const ears = new VoskEars();
+    const pending = ears.probe();
+    await vi.waitFor(() => expect(defaultModels.models.at(-1)).toBeDefined());
+    const model = defaultModels.models.at(-1)!;
+    ears.dispose();
+    expect(await pending).toBe("no-local");
+    expect(model.worker.terminate).toHaveBeenCalledTimes(1);
+  });
+  it("route exit while microphone permission is pending releases the late stream", async () => {
+    const { ears } = makeEars();
+    await ears.probe();
+    let grant!: (stream: unknown) => void;
+    getUserMedia.mockImplementation(
+      () =>
+        new Promise((resolve) => {
+          grant = resolve;
+        }),
+    );
+    const attempt = ears.listen({ lang: "es-MX", maxMs: 5000 });
+    await vi.waitFor(() => expect(getUserMedia).toHaveBeenCalledTimes(1));
+    ears.cancel();
+    await expect(attempt).resolves.toEqual({ ok: false, problem: "no-speech" });
+    grant({ getTracks: () => tracks });
+    await Promise.resolve();
+    expect(tracks.every((track) => track.stop.mock.calls.length === 1)).toBe(true);
+    expect(FakeVoskRecognizer.instances).toHaveLength(0);
+  });
+  it("capture indicator follows real track lifetime", async () => {
+    const { ears } = makeEars();
+    const onCaptureChange = vi.fn();
+    const attempt = ears.listen({ lang: "es-MX", maxMs: 5000, onCaptureChange });
+    expect(onCaptureChange).not.toHaveBeenCalled();
+    await vi.waitFor(() => expect(onCaptureChange).toHaveBeenCalledWith(true));
+    ears.cancel();
+    await attempt;
+    expect(onCaptureChange.mock.lastCall).toEqual([false]);
+  });
   it("probe() loads the model and reports ready but never opens the mic", async () => {
     const { createModel, ears } = makeEars();
     await expect(ears.probe()).resolves.toBe("ready");

@@ -43,27 +43,48 @@ type StoredShape = Record<string, StoredSession>;
 
 /** Default storage: the browser's localStorage, resolved lazily. */
 function defaultStore(): TutorMemoryStorage {
-  const ls = (globalThis as { localStorage?: TutorMemoryStorage }).localStorage;
-  if (!ls) {
-    throw new Error("tutor-memory needs a storage; pass one in (tests inject a fake).");
+  try {
+    const ls = (globalThis as { localStorage?: TutorMemoryStorage }).localStorage;
+    if (ls) return ls;
+  } catch {
+    /* blocked browser storage */
   }
-  return ls;
+  return { getItem: () => null, setItem: () => {}, removeItem: () => {} };
 }
 
 function readShape(store: TutorMemoryStorage): StoredShape {
-  const raw = store.getItem(TUTOR_MEMORY_KEY);
-  if (!raw) return {};
   try {
-    const parsed = JSON.parse(raw) as StoredShape;
-    if (parsed && typeof parsed === "object") return parsed;
+    const raw = store.getItem(TUTOR_MEMORY_KEY);
+    const parsed: unknown = raw ? JSON.parse(raw) : null;
+    if (!parsed || typeof parsed !== "object" || Array.isArray(parsed)) return {};
+    const clean: StoredShape = Object.create(null);
+    for (const [id, value] of Object.entries(parsed)) {
+      if (!value || typeof value !== "object") continue;
+      const record = value as StoredSession;
+      if (
+        !Number.isInteger(record.sessions) ||
+        record.sessions < 0 ||
+        !Number.isInteger(record.bestStreak) ||
+        record.bestStreak < 0 ||
+        !Array.isArray(record.missedItemIds) ||
+        !record.missedItemIds.every((id) => typeof id === "string") ||
+        (record.lastLesson !== null && ![1, 2, 3].includes(record.lastLesson))
+      )
+        continue;
+      clean[id] = record;
+    }
+    return clean;
   } catch {
-    // Corrupt data is treated as empty; the tutor re-learns from scratch.
+    return {};
   }
-  return {};
 }
 
 function writeShape(store: TutorMemoryStorage, shape: StoredShape): void {
-  store.setItem(TUTOR_MEMORY_KEY, JSON.stringify(shape));
+  try {
+    store.setItem(TUTOR_MEMORY_KEY, JSON.stringify(shape));
+  } catch {
+    /* private mode/quota: lesson remains usable */
+  }
 }
 
 function emptyRecord(sessionId: string): StoredSession {

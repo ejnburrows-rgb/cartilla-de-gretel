@@ -57,6 +57,7 @@ export interface EarsListenOptions {
    * layer composes the list from the lesson content and the command words.
    */
   grammar?: readonly string[];
+  onCaptureChange?: (capturing: boolean) => void;
 }
 
 export interface TutorEars {
@@ -67,6 +68,7 @@ export interface TutorEars {
   listen(opts: EarsListenOptions): Promise<EarsListenOutcome>;
   /** Stops any open mic session immediately; mic light off. */
   cancel(): void;
+  dispose?(): void;
 }
 
 /**
@@ -81,8 +83,8 @@ export function createTutorEars(): TutorEars {
   // scripted StubEars before the MODE check. It is impossible to trigger in
   // a production build: Vite bakes `import.meta.env.VITE_TUTOR_EARS` at
   // build time and production never defines it, so the comparison is dead.
-  if (import.meta.env.VITE_TUTOR_EARS === "stub") return new StubEars();
-  if (import.meta.env.MODE === "test") return new StubEars();
+  if (!import.meta.env.PROD && import.meta.env.VITE_TUTOR_EARS === "stub") return new StubEars();
+  if (!import.meta.env.PROD && import.meta.env.MODE === "test") return new StubEars();
   // Owner decision: Vosk is the primary engine. ChromeLocalEars is built by
   // the brain/route layer next to it and only when its own probe() is ready.
   return new VoskEars();

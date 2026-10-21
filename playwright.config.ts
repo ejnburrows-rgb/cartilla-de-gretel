@@ -78,7 +78,7 @@ export default defineConfig({
       // transcripts through the localStorage script key and never touch a
       // microphone, the Vosk WASM engine, or any cloud speech service.
       name: "chromium-tutor",
-      testMatch: TUTOR_SPECS,
+      testMatch: ["**/tutor.spec.ts"],
       use: {
         browserName: "chromium",
         baseURL: "http://127.0.0.1:5175",

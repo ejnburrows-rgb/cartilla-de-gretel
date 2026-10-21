@@ -24,7 +24,7 @@ import { loadPuppetLayers, type PuppetLayer } from "@/lib/tutor-puppet-layers";
 import type { GretelState } from "@/components/gretel/gretelMachine";
 
 /** Approved master canvas ( GretelLayerRig viewBox — unchanged). */
-const MASTER_VIEWBOX = { width: 1061, height: 1450 };
+const MASTER_VIEWBOX = { width: 1086, height: 1448 };
 
 /** GRETEL-MOTION-CONTRACT + spec §17 motion bounds (whole figure only today). */
 const MOTION = {
@@ -79,6 +79,7 @@ function layerVisible(layer: PuppetLayer, state: GretelState, viseme: string): b
 export function TutorGretelPuppet({ state, viseme = "X", onError }: TutorGretelPuppetProps) {
   const reducedMotion = useReducedMotion();
   const [mode, setMode] = useState<PuppetMode>("loading");
+  const [composition, setComposition] = useState<"overlay" | "complete">("overlay");
   const [layers, setLayers] = useState<readonly PuppetLayer[]>([]);
   const [layerFailed, setLayerFailed] = useState(false);
   const onErrorRef = useRef(onError);
@@ -87,10 +88,35 @@ export function TutorGretelPuppet({ state, viseme = "X", onError }: TutorGretelP
   // Resolve master vs layered once per mount. Failures → master, never broken.
   useEffect(() => {
     let alive = true;
-    loadPuppetLayers().then((resolution) => {
+    loadPuppetLayers().then(async (resolution) => {
       if (!alive) return;
       if (resolution.mode === "layered") {
+        try {
+          await Promise.all(
+            resolution.layers.map(
+              (layer) =>
+                new Promise<void>((resolve, reject) => {
+                  const image = new Image();
+                  image.onload = () =>
+                    image.naturalWidth === MASTER_VIEWBOX.width &&
+                    image.naturalHeight === MASTER_VIEWBOX.height
+                      ? resolve()
+                      : reject(new Error("Layer canvas does not match Gretel"));
+                  image.onerror = () => reject(new Error("Layer image unavailable"));
+                  image.src = layer.src;
+                }),
+            ),
+          );
+        } catch {
+          if (alive) {
+            setMode("master");
+            onErrorRef.current?.();
+          }
+          return;
+        }
+        if (!alive) return;
         setLayers(resolution.layers);
+        setComposition(resolution.composition);
         setMode("layered");
       } else {
         setMode("master");
@@ -101,7 +127,11 @@ export function TutorGretelPuppet({ state, viseme = "X", onError }: TutorGretelP
     };
   }, []);
 
-  const showMaster = mode === "master" || mode === "loading" || (mode === "layered" && layerFailed);
+  const showMaster =
+    composition === "overlay" ||
+    mode === "master" ||
+    mode === "loading" ||
+    (mode === "layered" && layerFailed);
 
   // Whole-figure motion (contract bounds). Reduced motion: nothing tweens.
   const tiltDegrees = state === "listening" ? MOTION.tilt.degrees : 0;
@@ -111,7 +141,7 @@ export function TutorGretelPuppet({ state, viseme = "X", onError }: TutorGretelP
   return (
     <motion.div
       data-tutor-puppet=""
-      data-puppet-mode={showMaster ? "master" : "layered"}
+      data-puppet-mode={mode === "layered" && !layerFailed ? composition : "master"}
       data-puppet-state={state}
       className="relative h-full w-full"
       style={{ originY: 0.65 }}
@@ -148,7 +178,9 @@ export function TutorGretelPuppet({ state, viseme = "X", onError }: TutorGretelP
               preserveAspectRatio="xMidYMid meet"
               onError={() => onErrorRef.current?.()}
             />
-          ) : (
+          ) : null}
+          {mode === "layered" &&
+            !layerFailed &&
             layers.map((layer) => (
               <image
                 key={layer.id}
@@ -159,15 +191,18 @@ export function TutorGretelPuppet({ state, viseme = "X", onError }: TutorGretelP
                 width={MASTER_VIEWBOX.width}
                 height={MASTER_VIEWBOX.height}
                 preserveAspectRatio="xMidYMid meet"
-                style={{ visibility: layerVisible(layer, state, viseme) ? "visible" : "hidden" }}
+                style={{
+                  visibility: layerVisible(layer, state, reducedMotion ? "X" : viseme)
+                    ? "visible"
+                    : "hidden",
+                }}
                 onError={() => {
                   // Any layer that fails to load: back to the intact master.
                   setLayerFailed(true);
                   onErrorRef.current?.();
                 }}
               />
-            ))
-          )}
+            ))}
         </svg>
       </motion.div>
     </motion.div>

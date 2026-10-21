@@ -1,0 +1,12 @@
+{
+  "buildId": "2dd0e8767b33422a939521b36b1ffe6b15b2b1f451c2f9008042bcee21a7ae82",
+  "builtFiles": 215,
+  "builtFileBytes": 54012000,
+  "mismatches": [],
+  "modelDelivery": "gzip tar archive, .bin filename, no HTTP Content-Encoding decoding",
+  "recognitionAcceptance": "NOT_VERIFIED_REAL_DEVICE",
+  "approvedMasterSize": [
+    1086,
+    1448
+  ]
+}

@@ -54,10 +54,10 @@ test.describe("tutor scripted sessions (StubEars)", () => {
 
     const taps = await driveSessionToCompletion(page, items.ids.length * 3);
     await expectSessionEnded(page);
-+    // The landed ENDED screen: the approved praise string and the way back.
-+    await expect(page.locator('[data-tutor-ended]')).toBeVisible();
-+    await expect(page.getByRole("heading", { name: "¡Muy bien!" })).toBeVisible();
-+    await expect(page.getByRole("link", { name: /Volver a las lecciones/ })).toBeVisible();
+    // The landed ENDED screen: the approved praise string and the way back.
+    await expect(page.locator('[data-tutor-ended]')).toBeVisible();
+    await expect(page.getByRole("heading", { name: "¡Muy bien!" })).toBeVisible();
+    await expect(page.getByRole("link", { name: /Volver a las lecciones/ })).toBeVisible();
 
     // Every item finished with exactly one logged progress event.
     const events = await readProgressEvents(page);

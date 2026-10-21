@@ -51,7 +51,8 @@ export function TutorOfflinePack() {
     });
     try {
       setPack(await downloadTutorPack(setPack));
-    } catch {
+    } catch (error) {
+      console.warn("Tutor preparation incomplete", error);
       setFailed(true);
       // Fall back to whatever is actually on disk — never a broken screen.
       setPack(await getTutorPackStatus().catch(() => ({ state: "idle" as const })));
@@ -81,10 +82,10 @@ export function TutorOfflinePack() {
         </Button>
 
         <p role="status" aria-live="polite" className="text-sm font-bold text-foreground">
-          {done && pack && `Listo sin internet — ${pack.version}`}
+          {done && !failed && pack && `Listo sin internet — ${pack.version}`}
           {cleared && "Hay que preparar de nuevo"}
           {downloading && pack && formatMB(pack.state === "downloading" ? pack.receivedBytes : 0)}
-          {failed && "Hay que preparar de nuevo"}
+          {failed && "Preparación incompleta. Puedes volver a intentarlo."}
         </p>
       </div>
     </section>

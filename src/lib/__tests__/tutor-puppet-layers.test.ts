@@ -156,6 +156,10 @@ describe("loadPuppetLayers", () => {
 
   it("resolves layered mode when the manifest carries valid approved layers", async () => {
     const fetchJson = vi.fn(async () => ({
+      composition: "overlay",
+      width: 1086,
+      height: 1448,
+      compositionApproval: "test approval",
       layers: [
         makeLayer({
           id: "mouth-rest",
@@ -168,6 +172,7 @@ describe("loadPuppetLayers", () => {
     }));
     await expect(loadPuppetLayers(fetchJson)).resolves.toEqual({
       mode: "layered",
+      composition: "overlay",
       layers: [
         {
           id: "mouth-rest",
@@ -189,5 +194,49 @@ describe("loadPuppetLayers", () => {
   it("falls back to master when every layer fails validation", async () => {
     const fetchJson = vi.fn(async () => ({ layers: [makeLayer({ approval: "" })] }));
     await expect(loadPuppetLayers(fetchJson)).resolves.toEqual({ mode: "master" });
+  });
+  it.each(["blink", "mouth", "static"])(
+    "partial %s pack can never replace the body",
+    async (role) => {
+      const raw = {
+        composition: "complete",
+        width: 1086,
+        height: 1448,
+        compositionApproval: "test",
+        layers: [makeLayer({ role, ...(role === "mouth" ? { shapes: ["X"] } : {}) })],
+      };
+      expect(await loadPuppetLayers(async () => raw)).toEqual({ mode: "master" });
+    },
+  );
+  it("only a complete, registered, approved base can replace the master", async () => {
+    const ids = [
+      "hair-back",
+      "legs",
+      "skirt",
+      "torso",
+      "neck",
+      "head-skin",
+      "eyes-open",
+      "brows",
+      "hair-front-left",
+      "hair-front-right",
+      "bow",
+    ];
+    const raw = {
+      composition: "complete",
+      width: 1086,
+      height: 1448,
+      compositionApproval: "test",
+      layers: [
+        ...ids.map((id) => makeLayer({ id })),
+        makeLayer({ id: "mouth-rest", role: "mouth", shapes: ["X"] }),
+      ],
+    };
+    expect(await loadPuppetLayers(async () => raw)).toMatchObject({
+      mode: "layered",
+      composition: "complete",
+    });
+    raw.width = 1000;
+    expect(await loadPuppetLayers(async () => raw)).toEqual({ mode: "master" });
   });
 });

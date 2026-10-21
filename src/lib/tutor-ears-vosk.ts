@@ -31,7 +31,7 @@ import type {
 } from "./tutor-ears";
 
 /** Asset path served by this app; `scripts/fetch-vosk-model.mjs` fills it. */
-export const VOSK_MODEL_ASSET_PATH = "models/vosk/vosk-model-small-es-0.42.tar.gz";
+export const VOSK_MODEL_ASSET_PATH = "models/vosk/vosk-model-small-es-0.42.bin";
 
 export function voskModelUrl(): string {
   return assetPath(VOSK_MODEL_ASSET_PATH);
@@ -124,6 +124,8 @@ interface VoskSession {
   settling: boolean;
   settled: boolean;
   tornDown: boolean;
+  captureStopped: boolean;
+  onCaptureChange?: (capturing: boolean) => void;
   resolve: (outcome: EarsListenOutcome) => void;
 }
 
@@ -145,8 +147,12 @@ export class VoskEars implements TutorEars {
 
   private readonly modelUrl: string;
   private readonly deps: VoskEarsDeps;
+  private cancelListenWait: (() => void) | null = null;
+  private cancelModelLoad: (() => void) | null = null;
   private modelPromise: Promise<VoskModelLike> | null = null;
   private model: VoskModelLike | null = null;
+  private generation = 0;
+  private disposed = false;
   private active: VoskSession | null = null;
 
   constructor(options: VoskEarsOptions = {}) {
@@ -173,6 +179,8 @@ export class VoskEars implements TutorEars {
   async listen(opts: EarsListenOptions): Promise<EarsListenOutcome> {
     // One attempt at a time; a previous open mic session ends right here.
     this.cancel();
+    const generation = this.generation;
+    if (this.disposed) return { ok: false, problem: "failed" };
     if (typeof WebAssembly === "undefined") {
       return { ok: false, problem: "unsupported" };
     }
@@ -182,97 +190,133 @@ export class VoskEars implements TutorEars {
     // The model loads with the mic still off; the mic opens only below.
     let model: VoskModelLike;
     try {
-      model = await this.ensureModel();
+      model = await this.waitForAttempt(this.ensureModel());
     } catch {
+      if (generation !== this.generation || this.disposed)
+        return { ok: false, problem: "no-speech" };
       this.status = "unavailable";
       return { ok: false, problem: "no-local" };
     }
 
+    if (generation !== this.generation || this.disposed) return { ok: false, problem: "no-speech" };
     let stream: MediaStream;
     try {
-      stream = await navigator.mediaDevices.getUserMedia({
-        video: false,
-        audio: {
-          echoCancellation: true,
-          noiseSuppression: true,
-          channelCount: 1,
-          sampleRate: 16000,
-        },
-      });
+      stream = await this.waitForAttempt(
+        navigator.mediaDevices
+          .getUserMedia({
+            video: false,
+            audio: {
+              echoCancellation: true,
+              noiseSuppression: true,
+              channelCount: 1,
+              sampleRate: 16000,
+            },
+          })
+          .then((stream) => {
+            if (generation !== this.generation || this.disposed)
+              stream.getTracks().forEach((track) => track.stop());
+            return stream;
+          }),
+      );
     } catch (error) {
+      if (generation !== this.generation || this.disposed)
+        return { ok: false, problem: "no-speech" };
       this.status = "unavailable";
       return { ok: false, problem: micProblem(error) };
     }
 
-    return new Promise<EarsListenOutcome>((resolve) => {
-      // Audio pipeline — everything below lives in memory only.
-      const audioContext = this.deps.createAudioContext?.() ?? new AudioContext();
-      const recognizer = new model.KaldiRecognizer(
-        audioContext.sampleRate,
-        voskGrammar(opts.grammar),
-      );
-      const processor = audioContext.createScriptProcessor(AUDIO_CHUNK_SIZE, 1, 1);
-      const source = audioContext.createMediaStreamSource(stream);
-      // Chrome only pumps a ScriptProcessor that reaches the destination;
-      // route it through a zero-gain node so child audio is never audible.
-      const silence = audioContext.createGain();
-      silence.gain.value = 0;
+    if (generation !== this.generation || this.disposed) {
+      stream.getTracks().forEach((track) => track.stop());
+      return { ok: false, problem: "no-speech" };
+    }
+    opts.onCaptureChange?.(true);
+    try {
+      return await new Promise<EarsListenOutcome>((resolve) => {
+        // Audio pipeline — everything below lives in memory only.
+        const audioContext = this.deps.createAudioContext?.() ?? new AudioContext();
+        const recognizer = new model.KaldiRecognizer(
+          audioContext.sampleRate,
+          voskGrammar(opts.grammar),
+        );
+        const processor = audioContext.createScriptProcessor(AUDIO_CHUNK_SIZE, 1, 1);
+        const source = audioContext.createMediaStreamSource(stream);
+        // Chrome only pumps a ScriptProcessor that reaches the destination;
+        // route it through a zero-gain node so child audio is never audible.
+        const silence = audioContext.createGain();
+        silence.gain.value = 0;
 
-      const session: VoskSession = {
-        finals: [],
-        stream,
-        audioContext,
-        source,
-        processor,
-        silence,
-        recognizer,
-        listenTimer: null,
-        graceTimer: null,
-        settling: false,
-        settled: false,
-        tornDown: false,
-        resolve,
-      };
-      this.active = session;
+        const session: VoskSession = {
+          finals: [],
+          stream,
+          audioContext,
+          source,
+          processor,
+          silence,
+          recognizer,
+          listenTimer: null,
+          graceTimer: null,
+          settling: false,
+          settled: false,
+          tornDown: false,
+          captureStopped: false,
+          resolve,
+          onCaptureChange: opts.onCaptureChange,
+        };
+        this.active = session;
 
-      recognizer.on("result", (message) => {
-        if (message.event !== "result") return;
-        const text = message.result.text.trim();
-        if (!text) return;
-        session.finals.push(text);
-        this.status = "hearing";
-        // A finished child utterance is recognized: end the attempt now.
-        this.finishSession();
+        recognizer.on("result", (message) => {
+          if (message.event !== "result") return;
+          const text = message.result.text.trim();
+          if (!text) return;
+          session.finals.push(text);
+          this.status = "hearing";
+          // A finished child utterance is recognized: end the attempt now.
+          this.finishSession();
+        });
+        recognizer.on("partialresult", (message) => {
+          if (message.event !== "partialresult") return;
+          if (message.result.partial.trim()) this.status = "hearing";
+        });
+
+        processor.onaudioprocess = (event) => {
+          try {
+            recognizer.acceptWaveform(event.inputBuffer);
+          } catch {
+            // The recognizer was already removed (attempt ended) — drop the chunk.
+          }
+        };
+        source.connect(processor);
+        processor.connect(silence);
+        silence.connect(audioContext.destination);
+
+        this.status = "listening";
+        session.listenTimer = setTimeout(() => {
+          // No final result within maxMs: ask once more, then settle.
+          this.finishSession();
+        }, opts.maxMs);
       });
-      recognizer.on("partialresult", (message) => {
-        if (message.event !== "partialresult") return;
-        if (message.result.partial.trim()) this.status = "hearing";
-      });
-
-      processor.onaudioprocess = (event) => {
-        try {
-          recognizer.acceptWaveform(event.inputBuffer);
-        } catch {
-          // The recognizer was already removed (attempt ended) — drop the chunk.
-        }
-      };
-      source.connect(processor);
-      processor.connect(silence);
-      silence.connect(audioContext.destination);
-
-      this.status = "listening";
-      session.listenTimer = setTimeout(() => {
-        // No final result within maxMs: ask once more, then settle.
-        this.finishSession();
-      }, opts.maxMs);
-    });
+    } catch {
+      stream.getTracks().forEach((track) => track.stop());
+      opts.onCaptureChange?.(false);
+      return { ok: false, problem: "failed" };
+    }
   }
 
   /** Stops any open attempt immediately; all mic tracks stop right away. */
   cancel(): void {
+    this.generation += 1;
+    this.cancelListenWait?.();
     const session = this.active;
     if (!session) return;
     this.finalizeSession();
+  }
+
+  dispose(): void {
+    this.disposed = true;
+    this.cancel();
+    this.cancelModelLoad?.();
+    this.model?.terminate();
+    this.model = null;
   }
 
   /** Ask the recognizer to flush its final result, then settle after a grace. */
@@ -280,6 +324,7 @@ export class VoskEars implements TutorEars {
     const session = this.active;
     if (!session || session.settling || session.settled) return;
     session.settling = true;
+    this.stopCapture(session);
     if (session.listenTimer) clearTimeout(session.listenTimer);
     session.listenTimer = null;
     try {
@@ -303,9 +348,36 @@ export class VoskEars implements TutorEars {
     );
   }
 
+  private waitForAttempt<T>(pending: Promise<T>): Promise<T> {
+    return new Promise((resolve, reject) => {
+      let settled = false;
+      const finish = (fn: () => void) => {
+        if (settled) return;
+        settled = true;
+        if (this.cancelListenWait === cancel) this.cancelListenWait = null;
+        fn();
+      };
+      const cancel = () =>
+        finish(() => reject(new DOMException("Tutor listen cancelled", "AbortError")));
+      this.cancelListenWait = cancel;
+      pending.then(
+        (value) => finish(() => resolve(value)),
+        (error) => finish(() => reject(error)),
+      );
+    });
+  }
+
+  private stopCapture(session: VoskSession): void {
+    if (session.captureStopped) return;
+    session.captureStopped = true;
+    for (const track of session.stream.getTracks()) track.stop();
+    session.onCaptureChange?.(false);
+  }
+
   private teardownSession(session: VoskSession): void {
     if (session.tornDown) return;
     session.tornDown = true;
+    this.stopCapture(session);
     if (session.listenTimer) clearTimeout(session.listenTimer);
     if (session.graceTimer) clearTimeout(session.graceTimer);
     session.listenTimer = null;
@@ -323,7 +395,7 @@ export class VoskEars implements TutorEars {
       // Already disconnected.
     }
     // Mic light off: every track stops now.
-    for (const track of session.stream.getTracks()) track.stop();
+
     try {
       session.recognizer.remove();
     } catch {
@@ -343,9 +415,45 @@ export class VoskEars implements TutorEars {
       this.status = "checking";
       const createModel =
         this.deps.createModel ??
-        ((modelUrl: string) => import("vosk-browser").then((vosk) => vosk.createModel(modelUrl)));
+        ((modelUrl: string) =>
+          import("vosk-browser").then(
+            (vosk) =>
+              new Promise<VoskModelLike>((resolve, reject) => {
+                const model = new vosk.Model(modelUrl);
+                // vosk-browser 0.0.8's createModel listens only for load, so errors
+                // otherwise leave callers waiting forever. Its public terminate
+                // also cannot close an uninitialized model; close the owned worker.
+                const worker = (model as unknown as { worker: Worker }).worker;
+                model.terminate = () => worker.terminate();
+                let settled = false;
+                const finish = (error?: Error) => {
+                  if (settled) return;
+                  settled = true;
+                  clearTimeout(timer);
+                  this.cancelModelLoad = null;
+                  if (error) {
+                    model.terminate();
+                    reject(error);
+                  } else resolve(model);
+                };
+                const timer = setTimeout(
+                  () => finish(new Error("Local model initialization timed out")),
+                  60_000,
+                );
+                this.cancelModelLoad = () => finish(new Error("Tutor closed"));
+                model.on("load", (message) =>
+                  finish(message.result ? undefined : new Error("Local model did not load")),
+                );
+                model.on("error", (message) => finish(new Error(String(message.error))));
+                if (this.disposed) this.cancelModelLoad();
+              }),
+          ));
       this.modelPromise = createModel(this.modelUrl)
         .then((model) => {
+          if (this.disposed) {
+            model.terminate();
+            throw new Error("Tutor closed");
+          }
           this.model = model;
           this.status = "ready";
           return model;
@@ -354,6 +462,7 @@ export class VoskEars implements TutorEars {
           // A later attempt may retry (e.g. the offline pack finishing).
           this.modelPromise = null;
           this.status = "unavailable";
+          if (!this.disposed) console.warn("On-device tutor model unavailable", error);
           throw error;
         });
     }

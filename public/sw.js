@@ -16,15 +16,23 @@ const TUTOR_PACK_CACHE_PREFIX = "cartilla:tutor:";
 
 // Cache-first match against the tutor pack cache, or null when no pack
 // exists (or the request is not packed).
-function tutorPackMatch(request) {
-  return caches
-    .keys()
-    .then((keys) => {
-      const packName = keys.find((key) => key.startsWith(TUTOR_PACK_CACHE_PREFIX));
-      if (!packName) return null;
-      return caches.open(packName).then((cache) => cache.match(request));
-    })
-    .catch(() => null);
+async function tutorPackMatch(request) {
+  try {
+    if (request.headers.get("x-tutor-prepare") === "1") return null;
+    const controlName = `${TUTOR_PACK_CACHE_PREFIX}control`;
+    if (!(await caches.has(controlName))) return null;
+    const control = await caches.open(controlName);
+    const pointer = await control.match("/__tutor_active_pack__");
+    if (!pointer) return null;
+    const marker = await pointer.json();
+    if (!marker.cacheName?.startsWith(`${TUTOR_PACK_CACHE_PREFIX}v1.1.0:`) ||
+        !(await caches.has(marker.cacheName))) return null;
+    const cache = await caches.open(marker.cacheName);
+    const url = new URL(request.url);
+    // Class/seat query parameters do not change the SPA document.
+    return await cache.match(request) ||
+      (/^\/tutor(?:\/[123])?\/?$/.test(url.pathname) ? await cache.match(url.pathname.replace(/\/$/, "")) : null);
+  } catch { return null; }
 }
 
 const PRECACHE_URLS = [
@@ -100,6 +108,16 @@ self.addEventListener("fetch", (event) => {
     request.mode === "navigate" ||
     path.endsWith(".html") ||
     (!path.includes(".") && !path.startsWith("/api/"));
+
+  if (request.headers.get("x-tutor-prepare") === "1") {
+    event.respondWith(fetch(request));
+    return;
+  }
+  // Tutor documents are immutable with their pack, including offline cold launch.
+  if (/^\/tutor(?:\/[123])?\/?$/.test(path) && request.mode === "navigate") {
+    event.respondWith(tutorPackMatch(request).then((hit) => hit || fetch(request)));
+    return;
+  }
 
   // 1. HTML Strategy: Network-first, fall back to cache, fall back to /offline.html
   if (isHtml) {
