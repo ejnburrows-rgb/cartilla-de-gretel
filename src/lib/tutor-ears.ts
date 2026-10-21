@@ -76,6 +76,12 @@ export interface TutorEars {
  * no test or e2e run ever touches a real microphone.
  */
 export function createTutorEars(): TutorEars {
+  // NARROW e2e OVERRIDE (screens lane, the one approved exception to the
+  // finished-lanes rule): a compile-time env flag lets Playwright force the
+  // scripted StubEars before the MODE check. It is impossible to trigger in
+  // a production build: Vite bakes `import.meta.env.VITE_TUTOR_EARS` at
+  // build time and production never defines it, so the comparison is dead.
+  if (import.meta.env.VITE_TUTOR_EARS === "stub") return new StubEars();
   if (import.meta.env.MODE === "test") return new StubEars();
   // Owner decision: Vosk is the primary engine. ChromeLocalEars is built by
   // the brain/route layer next to it and only when its own probe() is ready.

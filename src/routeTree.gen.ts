@@ -9,6 +9,7 @@
 // Additionally, you should also exclude this file from your linter and/or formatter to prevent it from being checked or modified.
 
 import { Route as rootRouteImport } from './routes/__root'
+import { Route as TutorRouteImport } from './routes/tutor'
 import { Route as LoginRouteImport } from './routes/login'
 import { Route as IntroRouteImport } from './routes/intro'
 import { Route as EntrarRouteImport } from './routes/entrar'
@@ -19,6 +20,8 @@ import { Route as ClassroomRouteImport } from './routes/classroom'
 import { Route as BookRouteImport } from './routes/book'
 import { Route as IndexRouteImport } from './routes/index'
 import { Route as CartillaIndexRouteImport } from './routes/cartilla/index'
+import { Route as TutorNRouteImport } from './routes/tutor.$n'
+import { Route as PrivacyTutorRouteImport } from './routes/privacy.tutor'
 import { Route as CartillaVocesRouteImport } from './routes/cartilla/voces'
 import { Route as CartillaUnirseRouteImport } from './routes/cartilla/unirse'
 import { Route as CartillaStudentLoginRouteImport } from './routes/cartilla/student-login'
@@ -61,6 +64,11 @@ import { Route as CartillaTeacherCrmClassIdStudentIdIndexRouteImport } from './r
 import { Route as CartillaTeacherCrmClassIdStudentIdReporteRouteImport } from './routes/cartilla/teacher/crm.$classId.$studentId.reporte'
 import { Route as CartillaTeacherCrmClassIdStudentIdLessonIdRouteImport } from './routes/cartilla/teacher/crm.$classId.$studentId.$lessonId'
 
+const TutorRoute = TutorRouteImport.update({
+  id: '/tutor',
+  path: '/tutor',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const LoginRoute = LoginRouteImport.update({
   id: '/login',
   path: '/login',
@@ -111,6 +119,16 @@ const IndexRoute = IndexRouteImport.update({
 const CartillaIndexRoute = CartillaIndexRouteImport.update({
   id: '/cartilla/',
   path: '/cartilla/',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const TutorNRoute = TutorNRouteImport.update({
+  id: '/$n',
+  path: '/$n',
+  getParentRoute: () => TutorRoute,
+} as any)
+const PrivacyTutorRoute = PrivacyTutorRouteImport.update({
+  id: '/privacy/tutor',
+  path: '/privacy/tutor',
   getParentRoute: () => rootRouteImport,
 } as any)
 const CartillaVocesRoute = CartillaVocesRouteImport.update({
@@ -392,6 +410,7 @@ export interface FileRoutesByFullPath {
   '/entrar': typeof EntrarRoute
   '/intro': typeof IntroRoute
   '/login': typeof LoginRoute
+  '/tutor': typeof TutorRouteWithChildren
   '/cartilla/teacher': typeof CartillaTeacherRouteRouteWithChildren
   '/cartilla/animales': typeof CartillaAnimalesRoute
   '/cartilla/autora': typeof CartillaAutoraRoute
@@ -405,6 +424,8 @@ export interface FileRoutesByFullPath {
   '/cartilla/student-login': typeof CartillaStudentLoginRoute
   '/cartilla/unirse': typeof CartillaUnirseRoute
   '/cartilla/voces': typeof CartillaVocesRoute
+  '/privacy/tutor': typeof PrivacyTutorRoute
+  '/tutor/$n': typeof TutorNRoute
   '/cartilla/': typeof CartillaIndexRoute
   '/cartilla/imprimir/$n': typeof CartillaImprimirNRoute
   '/cartilla/imprimir/all': typeof CartillaImprimirAllRoute
@@ -445,6 +466,7 @@ export interface FileRoutesByTo {
   '/entrar': typeof EntrarRoute
   '/intro': typeof IntroRoute
   '/login': typeof LoginRoute
+  '/tutor': typeof TutorRouteWithChildren
   '/cartilla/animales': typeof CartillaAnimalesRoute
   '/cartilla/autora': typeof CartillaAutoraRoute
   '/cartilla/ayuda': typeof CartillaAyudaRoute
@@ -457,6 +479,8 @@ export interface FileRoutesByTo {
   '/cartilla/student-login': typeof CartillaStudentLoginRoute
   '/cartilla/unirse': typeof CartillaUnirseRoute
   '/cartilla/voces': typeof CartillaVocesRoute
+  '/privacy/tutor': typeof PrivacyTutorRoute
+  '/tutor/$n': typeof TutorNRoute
   '/cartilla': typeof CartillaIndexRoute
   '/cartilla/imprimir/$n': typeof CartillaImprimirNRoute
   '/cartilla/imprimir/all': typeof CartillaImprimirAllRoute
@@ -495,6 +519,7 @@ export interface FileRoutesById {
   '/entrar': typeof EntrarRoute
   '/intro': typeof IntroRoute
   '/login': typeof LoginRoute
+  '/tutor': typeof TutorRouteWithChildren
   '/cartilla/teacher': typeof CartillaTeacherRouteRouteWithChildren
   '/cartilla/animales': typeof CartillaAnimalesRoute
   '/cartilla/autora': typeof CartillaAutoraRoute
@@ -508,6 +533,8 @@ export interface FileRoutesById {
   '/cartilla/student-login': typeof CartillaStudentLoginRoute
   '/cartilla/unirse': typeof CartillaUnirseRoute
   '/cartilla/voces': typeof CartillaVocesRoute
+  '/privacy/tutor': typeof PrivacyTutorRoute
+  '/tutor/$n': typeof TutorNRoute
   '/cartilla/': typeof CartillaIndexRoute
   '/cartilla/imprimir/$n': typeof CartillaImprimirNRoute
   '/cartilla/imprimir/all': typeof CartillaImprimirAllRoute
@@ -550,6 +577,7 @@ export interface FileRouteTypes {
     | '/entrar'
     | '/intro'
     | '/login'
+    | '/tutor'
     | '/cartilla/teacher'
     | '/cartilla/animales'
     | '/cartilla/autora'
@@ -563,6 +591,8 @@ export interface FileRouteTypes {
     | '/cartilla/student-login'
     | '/cartilla/unirse'
     | '/cartilla/voces'
+    | '/privacy/tutor'
+    | '/tutor/$n'
     | '/cartilla/'
     | '/cartilla/imprimir/$n'
     | '/cartilla/imprimir/all'
@@ -603,6 +633,7 @@ export interface FileRouteTypes {
     | '/entrar'
     | '/intro'
     | '/login'
+    | '/tutor'
     | '/cartilla/animales'
     | '/cartilla/autora'
     | '/cartilla/ayuda'
@@ -615,6 +646,8 @@ export interface FileRouteTypes {
     | '/cartilla/student-login'
     | '/cartilla/unirse'
     | '/cartilla/voces'
+    | '/privacy/tutor'
+    | '/tutor/$n'
     | '/cartilla'
     | '/cartilla/imprimir/$n'
     | '/cartilla/imprimir/all'
@@ -652,6 +685,7 @@ export interface FileRouteTypes {
     | '/entrar'
     | '/intro'
     | '/login'
+    | '/tutor'
     | '/cartilla/teacher'
     | '/cartilla/animales'
     | '/cartilla/autora'
@@ -665,6 +699,8 @@ export interface FileRouteTypes {
     | '/cartilla/student-login'
     | '/cartilla/unirse'
     | '/cartilla/voces'
+    | '/privacy/tutor'
+    | '/tutor/$n'
     | '/cartilla/'
     | '/cartilla/imprimir/$n'
     | '/cartilla/imprimir/all'
@@ -706,6 +742,7 @@ export interface RootRouteChildren {
   EntrarRoute: typeof EntrarRoute
   IntroRoute: typeof IntroRoute
   LoginRoute: typeof LoginRoute
+  TutorRoute: typeof TutorRouteWithChildren
   CartillaTeacherRouteRoute: typeof CartillaTeacherRouteRouteWithChildren
   CartillaAnimalesRoute: typeof CartillaAnimalesRoute
   CartillaAutoraRoute: typeof CartillaAutoraRoute
@@ -719,6 +756,7 @@ export interface RootRouteChildren {
   CartillaStudentLoginRoute: typeof CartillaStudentLoginRoute
   CartillaUnirseRoute: typeof CartillaUnirseRoute
   CartillaVocesRoute: typeof CartillaVocesRoute
+  PrivacyTutorRoute: typeof PrivacyTutorRoute
   CartillaIndexRoute: typeof CartillaIndexRoute
   CartillaImprimirNRoute: typeof CartillaImprimirNRoute
   CartillaImprimirAllRoute: typeof CartillaImprimirAllRoute
@@ -730,6 +768,13 @@ export interface RootRouteChildren {
 
 declare module '@tanstack/react-router' {
   interface FileRoutesByPath {
+    '/tutor': {
+      id: '/tutor'
+      path: '/tutor'
+      fullPath: '/tutor'
+      preLoaderRoute: typeof TutorRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/login': {
       id: '/login'
       path: '/login'
@@ -798,6 +843,20 @@ declare module '@tanstack/react-router' {
       path: '/cartilla'
       fullPath: '/cartilla/'
       preLoaderRoute: typeof CartillaIndexRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/tutor/$n': {
+      id: '/tutor/$n'
+      path: '/$n'
+      fullPath: '/tutor/$n'
+      preLoaderRoute: typeof TutorNRouteImport
+      parentRoute: typeof TutorRoute
+    }
+    '/privacy/tutor': {
+      id: '/privacy/tutor'
+      path: '/privacy/tutor'
+      fullPath: '/privacy/tutor'
+      preLoaderRoute: typeof PrivacyTutorRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/cartilla/voces': {
@@ -1090,6 +1149,16 @@ declare module '@tanstack/react-router' {
   }
 }
 
+interface TutorRouteChildren {
+  TutorNRoute: typeof TutorNRoute
+}
+
+const TutorRouteChildren: TutorRouteChildren = {
+  TutorNRoute: TutorNRoute,
+}
+
+const TutorRouteWithChildren = TutorRoute._addFileChildren(TutorRouteChildren)
+
 interface CartillaTeacherCrmClassIdStudentIdRouteChildren {
   CartillaTeacherCrmClassIdStudentIdLessonIdRoute: typeof CartillaTeacherCrmClassIdStudentIdLessonIdRoute
   CartillaTeacherCrmClassIdStudentIdReporteRoute: typeof CartillaTeacherCrmClassIdStudentIdReporteRoute
@@ -1190,6 +1259,7 @@ const rootRouteChildren: RootRouteChildren = {
   EntrarRoute: EntrarRoute,
   IntroRoute: IntroRoute,
   LoginRoute: LoginRoute,
+  TutorRoute: TutorRouteWithChildren,
   CartillaTeacherRouteRoute: CartillaTeacherRouteRouteWithChildren,
   CartillaAnimalesRoute: CartillaAnimalesRoute,
   CartillaAutoraRoute: CartillaAutoraRoute,
@@ -1203,6 +1273,7 @@ const rootRouteChildren: RootRouteChildren = {
   CartillaStudentLoginRoute: CartillaStudentLoginRoute,
   CartillaUnirseRoute: CartillaUnirseRoute,
   CartillaVocesRoute: CartillaVocesRoute,
+  PrivacyTutorRoute: PrivacyTutorRoute,
   CartillaIndexRoute: CartillaIndexRoute,
   CartillaImprimirNRoute: CartillaImprimirNRoute,
   CartillaImprimirAllRoute: CartillaImprimirAllRoute,

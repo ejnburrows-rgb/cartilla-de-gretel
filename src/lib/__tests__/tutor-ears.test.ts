@@ -92,6 +92,39 @@ describe("createTutorEars factory", () => {
     expect(ears.kind).toBe("stub");
     expect(ears instanceof StubEars).toBe(true);
   });
+
+  // NARROW e2e override (screens lane): VITE_TUTOR_EARS is checked BEFORE
+  // the MODE check so Playwright can force the scripted stub in any mode.
+  // It is a compile-time env: unset in production builds, so it can never
+  // fire there (dead comparison in the shipped bundle).
+  describe("VITE_TUTOR_EARS override", () => {
+    afterEach(() => {
+      vi.unstubAllEnvs();
+    });
+
+    it("forces the stub before the MODE check", () => {
+      vi.stubEnv("VITE_TUTOR_EARS", "stub");
+      vi.stubEnv("MODE", "production");
+      const ears = createTutorEars();
+      expect(ears.kind).toBe("stub");
+      expect(ears instanceof StubEars).toBe(true);
+    });
+
+    it("is inert when the flag is unset, even outside the test environment", () => {
+      vi.stubEnv("MODE", "production");
+      // The VoskEars constructor is lazy: constructing it here opens no
+      // worker, model, or mic (probe() does, and only when called).
+      const ears = createTutorEars();
+      expect(ears.kind).toBe("vosk");
+    });
+
+    it('ignores any value other than the exact string "stub"', () => {
+      vi.stubEnv("VITE_TUTOR_EARS", "Stub");
+      vi.stubEnv("MODE", "production");
+      const ears = createTutorEars();
+      expect(ears.kind).toBe("vosk");
+    });
+  });
 });
 
 describe("VoskEars (primary on-device engine)", () => {
