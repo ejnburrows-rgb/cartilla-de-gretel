@@ -19,11 +19,14 @@ export const MARIPOSAS_P: GameContent = {
     "Completa la palabra para que las mariposas regresen al jardín.",
   ],
   words: [
-    { word: "papi", syllables: ["pa", "pi"] },
-    { word: "papá", syllables: ["pa", "pá"] },
+    { word: "mapa", syllables: ["ma", "pa"] },
     { word: "pomo", syllables: ["po", "mo"] },
+    { word: "Mupi", syllables: ["Mu", "pi"] },
+    { word: "Pepe", syllables: ["Pe", "pe"] },
+    { word: "puma", syllables: ["pu", "ma"] },
+    { word: "Pupi", syllables: ["Pu", "pi"] },
   ],
-  tiles: ["pa", "pi", "pá", "po", "mo", "pe", "pu"],
+  tiles: ["ma", "pa", "po", "mo", "Mu", "pi", "Pe", "pe", "pu", "Pu"],
 };
 
 export const VOCAL_A: GameContent = {
