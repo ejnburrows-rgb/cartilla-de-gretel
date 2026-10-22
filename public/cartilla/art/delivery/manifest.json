@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-10-22T07:04:41.316981+00:00",
+  "generatedAt": "2026-10-22T07:09:51.285234+00:00",
   "sourceManifest": "/cartilla/art/faithful/manifest.json",
   "canonicalPolicy": "Canonical faithful WebP files remain untouched. Delivery derivatives are disposable build output.",
   "counts": {
@@ -111,10 +111,10 @@
       "canonical": {
         "width": 580,
         "height": 515,
-        "bytes": 113656,
+        "bytes": 106428,
         "format": "webp",
         "hasAlpha": true,
-        "sha256": "fc77ee56c255086fa6a1139a23a46a8c80d27d31fc47814756023aef9b3067c5"
+        "sha256": "ce44de6980b58217fb5fde3d5b7479483cd95a7f0edd56a8b12a09784d40f81a"
       },
       "cropBox": [
         1740,
@@ -136,14 +136,14 @@
           "path": "/cartilla/art/delivery/faithful/384/leccion-1/globo.webp",
           "width": 384,
           "height": 341,
-          "bytes": 31932
+          "bytes": 27652
         },
         {
           "widthTier": 768,
           "path": "/cartilla/art/delivery/faithful/768/leccion-1/globo.webp",
           "width": 768,
           "height": 682,
-          "bytes": 82584
+          "bytes": 70448
         }
       ],
       "warnings": [
@@ -213,10 +213,10 @@
       "canonical": {
         "width": 580,
         "height": 570,
-        "bytes": 234068,
+        "bytes": 219670,
         "format": "webp",
         "hasAlpha": true,
-        "sha256": "a9a07b46f8cff669e198f08ab3aec97b2738bb4c091f6579a95556e4164a5a52"
+        "sha256": "5420c02fd64504ad8acdb74deaca9d701effedc93e9c7e836801fad4b9602a55"
       },
       "cropBox": [
         720,
@@ -238,14 +238,14 @@
           "path": "/cartilla/art/delivery/faithful/384/vocal-o/oruga.webp",
           "width": 384,
           "height": 377,
-          "bytes": 65200
+          "bytes": 64488
         },
         {
           "widthTier": 768,
           "path": "/cartilla/art/delivery/faithful/768/vocal-o/oruga.webp",
           "width": 768,
           "height": 755,
-          "bytes": 174690
+          "bytes": 167722
         }
       ],
       "warnings": [
@@ -264,10 +264,10 @@
       "canonical": {
         "width": 1254,
         "height": 1254,
-        "bytes": 397412,
+        "bytes": 395888,
         "format": "webp",
         "hasAlpha": true,
-        "sha256": "c08e2c9070ea1cb7c2cdfbd09a6b6b8f8388fba327b3c565216b93cdc89f603f"
+        "sha256": "a45da3dad8e0c93f54f0a02b915b276a6698edc862c2838b70f73a0650bb2980"
       },
       "cropBox": [
         1350,
@@ -289,14 +289,14 @@
           "path": "/cartilla/art/delivery/faithful/384/vocal-a/aguja.webp",
           "width": 384,
           "height": 384,
-          "bytes": 37222
+          "bytes": 36112
         },
         {
           "widthTier": 768,
           "path": "/cartilla/art/delivery/faithful/768/vocal-a/aguja.webp",
           "width": 768,
           "height": 768,
-          "bytes": 94510
+          "bytes": 94760
         }
       ],
       "warnings": [
@@ -315,10 +315,10 @@
       "canonical": {
         "width": 600,
         "height": 570,
-        "bytes": 129570,
+        "bytes": 125034,
         "format": "webp",
         "hasAlpha": true,
-        "sha256": "51f55d177e5f49bd334d6986fc4471eb91b58ad1bcae8f60f079b004c8340d75"
+        "sha256": "361c37ed48332bf349aa11e397207c12a7965a95910ae74b5487cecae45d6f1d"
       },
       "cropBox": [
         960,
@@ -340,14 +340,14 @@
           "path": "/cartilla/art/delivery/faithful/384/vocal-i/iglu.webp",
           "width": 384,
           "height": 365,
-          "bytes": 55326
+          "bytes": 55440
         },
         {
           "widthTier": 768,
           "path": "/cartilla/art/delivery/faithful/768/vocal-i/iglu.webp",
           "width": 768,
           "height": 730,
-          "bytes": 151534
+          "bytes": 140160
         }
       ],
       "warnings": [
@@ -1264,10 +1264,10 @@
       "canonical": {
         "width": 780,
         "height": 660,
-        "bytes": 270134,
+        "bytes": 260762,
         "format": "webp",
         "hasAlpha": true,
-        "sha256": "ac8a57334e82ecc7105ada811a26abf5dc254c0aef6105be6679c345e1edcb06"
+        "sha256": "9d2283a2f9b69ef2809b079b2540fcf733c0f3e5f31a17334503cc5f92f097ef"
       },
       "cropBox": [
         870,
@@ -1289,14 +1289,14 @@
           "path": "/cartilla/art/delivery/faithful/384/vocal-a/aro.webp",
           "width": 384,
           "height": 325,
-          "bytes": 40514
+          "bytes": 40260
         },
         {
           "widthTier": 768,
           "path": "/cartilla/art/delivery/faithful/768/vocal-a/aro.webp",
           "width": 768,
           "height": 650,
-          "bytes": 102820
+          "bytes": 99876
         }
       ],
       "warnings": [],
