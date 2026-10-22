@@ -1,6 +1,34 @@
 import { test, expect } from "@playwright/test";
 import path from "node:path";
 
+test("routed synthetic student notes retain a rejected storage write and persist retry", async ({ page }) => {
+  test.setTimeout(60_000);
+  await page.route(/https?:\/\/[^/]*supabase\.(co|in)\//, route => route.abort());
+  await page.goto("/cartilla/teacher/crm/seed-class-demo/seed-student-sofia", { waitUntil: "domcontentloaded" });
+  const notes = page.getByRole("textbox", { name: "Notas del alumno" });
+  await expect(notes).toBeVisible({ timeout: 30_000 });
+  await notes.fill("Nota de ruta sintética");
+  await page.evaluate(() => {
+    const original = Storage.prototype.setItem;
+    (window as any).restoreSyntheticStorage = () => { Storage.prototype.setItem = original; };
+    Storage.prototype.setItem = function (key, value) {
+      if (this === localStorage && key === "cartilla.seed.state.v1") throw new Error("Synthetic storage rejection");
+      return original.call(this, key, value);
+    };
+  });
+  const save = page.getByRole("button", { name: "Guardar Notas" });
+  await save.click();
+  await expect(page.getByRole("alert")).toContainText("No se pudieron guardar las notas");
+  await expect(notes).toHaveValue("Nota de ruta sintética");
+  await expect(save).toBeVisible();
+  await page.evaluate(() => (window as any).restoreSyntheticStorage());
+  await save.click();
+  await expect(save).toHaveCount(0);
+  await expect(page.getByRole("alert")).toHaveCount(0);
+  await page.reload();
+  await expect(notes).toHaveValue("Nota de ruta sintética");
+});
+
 // Mount TeacherCrmShell, not the student-detail route's separate handler.
 for (const viewport of [{ width: 390, height: 844 }, { width: 1280, height: 900 }]) {
   test(`actual CRM shell keeps rejected notes and persists keyboard retry ${viewport.width}`, async ({ page }) => {
