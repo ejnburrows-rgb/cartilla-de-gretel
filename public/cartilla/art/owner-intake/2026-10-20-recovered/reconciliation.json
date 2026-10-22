@@ -1,0 +1,87 @@
+{
+  "image_message_records_since_oct19": 219,
+  "repo_owner_intake_distinct_images": 69,
+  "prior_inventory_owner_replacement_slots": 47,
+  "newly_recovered_installed_slots": 15,
+  "newly_recovered_installed": [
+    {
+      "slug": "oruga",
+      "canonical": "/cartilla/art/faithful/vocal-o/oruga.webp",
+      "source_email_message": "1a157794d1b6c9da",
+      "source_filename": "image-8a75e1fb.jpg",
+      "slots": [
+        "wb-p007-02"
+      ]
+    },
+    {
+      "slug": "iglu",
+      "canonical": "/cartilla/art/faithful/vocal-i/iglu.webp",
+      "source_email_message": "1a157794d1b6c9da",
+      "source_filename": "iglu-v1-c3fa044e.png",
+      "slots": [
+        "wb-p004-02",
+        "wb-p005-01",
+        "wb-p008-02",
+        "wb-p010-02",
+        "wb-p013-01",
+        "wb-p014-03"
+      ]
+    },
+    {
+      "slug": "oveja",
+      "canonical": "/cartilla/art/faithful/vocal-o/oveja.webp",
+      "source_email_message": "1a157794d1b6c9da",
+      "source_filename": "oveja-v1-eb1e498b.png",
+      "slots": [
+        "wb-p004-06",
+        "wb-p005-02",
+        "wb-p007-05",
+        "wb-p016-02"
+      ]
+    },
+    {
+      "slug": "aro",
+      "canonical": "/cartilla/art/faithful/vocal-a/aro.webp",
+      "source_email_message": "1a157794d1b6c9da",
+      "source_filename": "aro-v1-643bf873.png",
+      "slots": [
+        "wb-p007-03",
+        "wb-p008-08"
+      ]
+    },
+    {
+      "slug": "abeja",
+      "slots": [
+        "wb-p007-06"
+      ],
+      "source": "existing remote artwork/lesson3-approved-five approved/lesson-3/abeja.jpg"
+    },
+    {
+      "slug": "ojo",
+      "slots": [
+        "wb-p007-13"
+      ],
+      "source": "Gmail attachment ojo-final-2c8ee1df.png plus existing exact page7 wiring"
+    }
+  ],
+  "unreachable_owner_sources": [
+    {
+      "slots": [
+        "wb-p002-10"
+      ],
+      "object": "pajaro",
+      "status": "Owner supplied blue bird Oct21 02:03, source bytes not recovered",
+      "filename": "image-549dd29a.jpg"
+    }
+  ],
+  "owner_replacement_not_located": [
+    {
+      "slots": [
+        "wb-p002-14"
+      ],
+      "object": "globo",
+      "status": "Original scan present, owner replacement not found in checked sources. Not proof that he never sent one."
+    }
+  ],
+  "caveat": "219 messages are not 219 distinct pictures. Media omitted from history; no exhaustive image-to-slot match possible. Other script flags are optimization heuristics, not missing-source verdicts."
+}
