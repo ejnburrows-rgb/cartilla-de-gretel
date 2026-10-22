@@ -32,7 +32,8 @@
   "fc_p004_oveja": {
     "still": "public/cartilla/art/optimized/flipchart-native/p004-oveja.png",
     "alive": "public/cartilla/art/optimized/flipchart-native/p004-oveja-alive.svg",
-    "stillSha256": "b21572a982e491df6f306201980b5dd840e7fd9a004d07bf07826d57c8e3d3f8"
+    "stillSha256": "a6ac32eb0c55272dbac1f260554f3eed9e914c74df8bc6bf74da3257cdfbb252",
+    "motionStatus": "NOT VERIFIED - quality-block"
   },
   "fc_p006_elefante": {
     "still": "public/cartilla/art/optimized/flipchart-native/p006-elefante.png",
@@ -62,7 +63,8 @@
   "oveja": {
     "still": "public/cartilla/art/optimized/workbook/leccion-1/oveja.svg",
     "alive": "public/cartilla/art/optimized/workbook/leccion-1/oveja-alive.svg",
-    "stillSha256": "956e2ad1290b9303213789c1066c4fb8272365fd0a956e5868ab0126a98868ff"
+    "stillSha256": "829ea33e8764a94ae5f9e9a2478305cdef869bbe2d240bf25e62fc78b331221d",
+    "motionStatus": "NOT VERIFIED - stale-content"
   },
   "p009-scene": {
     "still": "public/cartilla/art/optimized/flipchart-native/p009-scene.png",
