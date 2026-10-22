@@ -42,7 +42,8 @@ export function WordMatch({
     return words.filter((w) => w.word?.trim()).slice(0, 4);
   }, [words]);
   const [picked, setPicked] = useState<number | null>(null);
-  const [matched, setMatched] = useState<Set<number>>(new Set());
+  const [matchedWords, setMatchedWords] = useState<Set<number>>(new Set());
+  const [matchedPictures, setMatchedPictures] = useState<Set<number>>(new Set());
   const [attempts, setAttempts] = useState(0);
   const [hits, setHits] = useState(0);
   const [feedback, setFeedback] = useState<{
@@ -55,19 +56,21 @@ export function WordMatch({
   if (items.length < 2) return null;
 
   const onWord = (idx: number) => {
-    if (matched.has(idx)) return;
+    if (matchedWords.has(idx)) return;
     setPicked(idx);
     setFeedback(null);
   };
   const onPicture = (targetIdx: number, targetWord: string) => {
     if (picked === null) return;
     setAttempts((a) => a + 1);
+    const pickedIdx = picked;
     const pickedWord = items[picked].word;
-    if (picked === targetIdx) {
+    if (pickedWord === targetWord) {
       setHits((h) => h + 1);
-      setMatched((m) => {
-        const next = new Set(m).add(targetIdx);
-        if (next.size === items.length && !loggedRound.current && lessonId) {
+
+      setMatchedWords((mw) => {
+        const nextW = new Set(mw).add(pickedIdx);
+        if (nextW.size === items.length && !loggedRound.current && lessonId) {
           loggedRound.current = true;
           recordEvent({
             lessonId,
@@ -77,8 +80,10 @@ export function WordMatch({
             meta: { exercise: "word_match", completed: true, items: items.length },
           });
         }
-        return next;
+        return nextW;
       });
+      setMatchedPictures((mp) => new Set(mp).add(targetIdx));
+
       gretelEvent("answer:correct");
       setFeedback({ kind: "ok", word: pickedWord });
       play(targetWord);
@@ -106,14 +111,15 @@ export function WordMatch({
         meta: { exercise: "word_match", completed: false },
       });
     }
-    setMatched(new Set());
+    setMatchedWords(new Set());
+    setMatchedPictures(new Set());
     setPicked(null);
     setAttempts(0);
     setHits(0);
     setFeedback(null);
     loggedRound.current = false;
   };
-  const allDone = matched.size === items.length;
+  const allDone = matchedWords.size === items.length;
   const acc = attempts > 0 ? Math.round((hits / attempts) * 100) : null;
 
   return (
@@ -145,18 +151,18 @@ export function WordMatch({
           {items.map((w, i) => (
             <button
               key={`${w.word}-${i}`}
-              disabled={matched.has(i)}
+              disabled={matchedWords.has(i)}
               onClick={() => onWord(i)}
               className={cn(
                 "w-full px-3 py-2 rounded-xl border-2 font-bold text-left transition",
-                matched.has(i)
+                matchedWords.has(i)
                   ? "opacity-40 line-through"
                   : picked === i
                     ? "scale-[1.02]"
                     : "hover:bg-secondary",
                 playingText === w.word && "animate-pulse ring-4 ring-current",
               )}
-              style={{ borderColor: color, color: matched.has(i) ? undefined : color }}
+              style={{ borderColor: color, color: matchedWords.has(i) ? undefined : color }}
             >
               {w.word}
             </button>
@@ -167,14 +173,14 @@ export function WordMatch({
             <button
               key={`${w.word}-${w.originalIndex}`}
               type="button"
-              disabled={matched.has(w.originalIndex)}
+              disabled={matchedPictures.has(w.originalIndex)}
               onClick={() => onPicture(w.originalIndex, w.word)}
               aria-label={
                 w.illustrationSrc ? `Dibujo de ${w.word}` : `Ilustración pendiente: ${w.word}`
               }
               className={cn(
                 "w-full min-h-[3.25rem] rounded-xl border-2 transition overflow-hidden flex items-center justify-center bg-white",
-                matched.has(w.originalIndex)
+                matchedPictures.has(w.originalIndex)
                   ? "opacity-40"
                   : "border-foreground/10 hover:bg-secondary active:scale-95",
               )}
