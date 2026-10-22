@@ -6592,10 +6592,10 @@
       "canonical": {
         "width": 870,
         "height": 791,
-        "bytes": 140924,
+        "bytes": 73936,
         "format": "webp",
         "hasAlpha": true,
-        "sha256": "0cf2ea9a57e27dc415322e29d782b62b17c07f2f888a07dd6d70aa9eb21f8994"
+        "sha256": "d4eda551bbd9e4064aad6313d29e144260a8bfecff1525e719969c8a1c92d432"
       },
       "cropBox": [
         320,
@@ -6620,11 +6620,11 @@
         "normalizedWidth": 840,
         "normalizedHeight": 761,
         "contentBounds": {
-          "x": 25,
-          "y": 25,
-          "width": 820,
-          "height": 741,
-          "opaquePixels": 316618
+          "x": 16,
+          "y": 34,
+          "width": 838,
+          "height": 723,
+          "opaquePixels": 262908
         },
         "touchesCropEdge": {
           "left": false,
