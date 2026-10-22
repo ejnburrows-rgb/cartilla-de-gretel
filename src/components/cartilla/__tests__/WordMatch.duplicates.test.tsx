@@ -2,13 +2,13 @@ import { render, screen, fireEvent } from "@testing-library/react";
 import { describe, it, expect, vi, beforeEach } from "vitest";
 import { WordMatch } from "../Ejercicios";
 import { gretelEvent } from "@/lib/gretel-bus";
-import { useAudio } from "@/lib/audio-engine";
+import { useAudio } from "@/hooks/useAudio";
 
 vi.mock("@/lib/gretel-bus", () => ({
   gretelEvent: vi.fn(),
 }));
 
-vi.mock("@/lib/audio-engine", () => ({
+vi.mock("@/hooks/useAudio", () => ({
   useAudio: vi.fn(() => ({ play: vi.fn(), playingText: null })),
 }));
 
