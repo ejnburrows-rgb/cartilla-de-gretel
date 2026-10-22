@@ -1,3 +1,4 @@
+import stale from "@/data/stale-motion-art.json";
 import { describe, it, expect } from "vitest";
 import { readFileSync } from "node:fs";
 import { resolve } from "node:path";
@@ -15,6 +16,10 @@ describe("Flip Chart moving pictures keep the sheet drawing", () => {
     it(`${name}: embeds the sheet picture byte-for-byte at its own size`, () => {
       const src = `${FC}/${name}.png`;
       const actor = getLivingActor(src);
+      if (Object.prototype.hasOwnProperty.call(stale, src)) {
+        expect(actor).toBeNull(); // Old embedded art must not override supplied still.
+        return;
+      }
       expect(actor?.aliveSrc).toBe(`${FC}/${name}-alive.svg`);
       const still = readFileSync(resolve(ROOT, `public${src}`));
       const svg = readFileSync(resolve(ROOT, `public${actor!.aliveSrc}`), "utf8");
