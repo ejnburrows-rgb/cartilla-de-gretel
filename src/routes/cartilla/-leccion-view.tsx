@@ -9,7 +9,6 @@ import { ArrowLeft, ClipboardList } from "lucide-react";
 import { CATALOG, TOTAL_LESSONS, type CatalogEntry } from "@/lib/lesson-catalog";
 import { useLessonProgress, isLessonUnlocked, markLessonCompleted } from "@/lib/lesson-progress";
 import { recordEvent, useStudentSession } from "@/lib/student-session";
-import { LessonTimer } from "@/components/cartilla/LessonTimer";
 import { listMyAssignments } from "@/lib/assignments.functions";
 import { getMyProgress, saveLastPage } from "@/lib/student.functions";
 import { useLanguage } from "@/context/LanguageContext";
@@ -25,7 +24,11 @@ import "@/styles/lesson-cutoff-fixes.css";
 import { exitLessonFullscreen, requestLessonFullscreen } from "@/lib/lesson-fullscreen";
 import { buildPageArray } from "@/utils/buildPageArray";
 import { GretelCinematic } from "@/components/gretel/GretelCinematic";
-import { getCompletionCinematic, getLessonCinematic, type GretelCinematic as GretelCinematicSpec } from "@/content/gretel-cinematics";
+import {
+  getCompletionCinematic,
+  getLessonCinematic,
+  type GretelCinematic as GretelCinematicSpec,
+} from "@/content/gretel-cinematics";
 import { GardenScene } from "@/components/cartilla/GardenScene";
 import "@/styles/interactive-exercises.css";
 import "@/styles/gretel.css";
@@ -50,17 +53,23 @@ export function Leccion() {
 
   const fetchAssignments = useServerFn(listMyAssignments);
   const { data: assignments } = useQuery({
-    queryKey: ["my-assignments", demo?.classId ?? session?.classId, demo?.studentId ?? session?.studentId],
+    queryKey: [
+      "my-assignments",
+      demo?.classId ?? session?.classId,
+      demo?.studentId ?? session?.studentId,
+    ],
     queryFn: () =>
-      demo ? Promise.resolve(listSeedStudentAssignments(demo)) : session
-        ? fetchAssignments({
-            data: {
-              classId: session.classId,
-              studentId: session.studentId,
-              studentCode: session.studentCode,
-            },
-          })
-        : Promise.resolve([]),
+      demo
+        ? Promise.resolve(listSeedStudentAssignments(demo))
+        : session
+          ? fetchAssignments({
+              data: {
+                classId: session.classId,
+                studentId: session.studentId,
+                studentCode: session.studentCode,
+              },
+            })
+          : Promise.resolve([]),
     enabled: !!session || !!demo,
   });
   const assignment = useMemo(
@@ -110,11 +119,13 @@ export function Leccion() {
       )?.lessonProgress ?? [];
     const row = lessonProgress.find((p) => p.lesson_id === String(n));
     return resolveSavedIndex(row?.last_page ?? 0);
-  // The local bookmark depends on learner scope, not just backend session.
-  // eslint-disable-next-line react-hooks/exhaustive-deps
+    // The local bookmark depends on learner scope, not just backend session.
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [scope, session, progressData, n, pages.length]);
 
-  useEffect(() => { if (progressReady) saveLearnerResume(n, initialPage, pages[initialPage]?.pageNumber); }, [scope, n, progressReady, initialPage, pages]);
+  useEffect(() => {
+    if (progressReady) saveLearnerResume(n, initialPage, pages[initialPage]?.pageNumber);
+  }, [scope, n, progressReady, initialPage, pages]);
   // Laptop full screen (owner decision 2026-10-12). Opening a lesson from the
   // lesson list already asks for it; if the lesson was opened another way,
   // the first tap on the page paper (not on an activity) asks once. Leaving
@@ -122,7 +133,8 @@ export function Leccion() {
   useEffect(() => {
     const onFirstPaperTap = (event: PointerEvent) => {
       const target = event.target as Element | null;
-      if (target?.closest?.("button, a, input, textarea, select, canvas, svg, [role='button']")) return;
+      if (target?.closest?.("button, a, input, textarea, select, canvas, svg, [role='button']"))
+        return;
       document.removeEventListener("pointerdown", onFirstPaperTap);
       requestLessonFullscreen();
     };
@@ -172,7 +184,6 @@ export function Leccion() {
     if (entry && !unlocked) navigate({ to: "/cartilla/lecciones" });
   }, [entry, navigate, unlocked]);
 
-
   useEffect(() => {
     startedAt.current = Date.now();
     return () => {
@@ -205,17 +216,21 @@ export function Leccion() {
   };
 
   return (
-    <div className={`lc-lesson-shell lc-lesson-shell--fit ${n === 16 ? "lc-lesson-16" : ""} min-h-screen flex flex-col`}>
+    <div
+      className={`lc-lesson-shell lc-lesson-shell--fit ${n === 16 ? "lc-lesson-16" : ""} min-h-screen flex flex-col`}
+    >
       <DemoStudentBanner />
       <header className="lc-lesson-header">
-        <Link
-          to="/cartilla/lecciones"
-          className="lc-lesson-header__back"
-        >
+        <Link to="/cartilla/lecciones" className="lc-lesson-header__back">
           <ArrowLeft className="w-5 h-5" /> Mis lecciones
         </Link>
       </header>
-      {saveFailed && <p role="alert" className="mx-3 rounded-xl bg-amber-100 p-3 text-amber-950">No se pudo guardar tu trabajo. Mantén esta página abierta y libera espacio en este navegador antes de salir.</p>}
+      {saveFailed && (
+        <p role="alert" className="mx-3 rounded-xl bg-amber-100 p-3 text-amber-950">
+          No se pudo guardar tu trabajo. Mantén esta página abierta y libera espacio en este
+          navegador antes de salir.
+        </p>
+      )}
       <main className="lc-lesson-main flex-1 px-3 pb-6 max-w-7xl w-full mx-auto flex flex-col items-center">
         <div className="lc-lesson-main__intro w-full max-w-3xl text-left mb-4">
           <div className="text-xs font-bold uppercase tracking-wide text-foreground/50">
@@ -232,10 +247,7 @@ export function Leccion() {
             />
           )}
           {progressReady && completionCinematic && (
-            <GretelCinematic
-              cinematic={completionCinematic}
-              onComplete={advanceAfterCompletion}
-            />
+            <GretelCinematic cinematic={completionCinematic} onComplete={advanceAfterCompletion} />
           )}
           <GardenScene ref={gardenRef}>
             {progressReady && (
@@ -252,7 +264,6 @@ export function Leccion() {
               />
             )}
           </GardenScene>
-
         </div>
       </main>
       {/* Completion controls never cover the learning page. */}
