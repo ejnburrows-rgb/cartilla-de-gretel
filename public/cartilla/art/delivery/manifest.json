@@ -2030,10 +2030,10 @@
       "canonical": {
         "width": 870,
         "height": 605,
-        "bytes": 64014,
+        "bytes": 78142,
         "format": "webp",
         "hasAlpha": true,
-        "sha256": "2413df1fb07b25b5f40edf0bb96d0a636020eb65ff5c8637f2bf9695735a3c41"
+        "sha256": "7f0ec4de44e14a8fc541c1ef7308e49662f56776462f7f855d501c8bd823aa8a"
       },
       "cropBox": [
         838,
@@ -2058,11 +2058,11 @@
         "normalizedWidth": 840,
         "normalizedHeight": 575,
         "contentBounds": {
-          "x": 25,
-          "y": 25,
-          "width": 820,
-          "height": 555,
-          "opaquePixels": 383975
+          "x": 66,
+          "y": 16,
+          "width": 738,
+          "height": 573,
+          "opaquePixels": 311396
         },
         "touchesCropEdge": {
           "left": false,
@@ -2078,14 +2078,14 @@
           "path": "/cartilla/art/delivery/faithful/384/vocal-u/uvas.webp",
           "width": 384,
           "height": 263,
-          "bytes": 22322
+          "bytes": 22372
         },
         {
           "widthTier": 768,
           "path": "/cartilla/art/delivery/faithful/768/vocal-u/uvas.webp",
           "width": 768,
           "height": 526,
-          "bytes": 52532
+          "bytes": 62574
         }
       ],
       "warnings": [],
@@ -3486,10 +3486,10 @@
       "canonical": {
         "width": 685,
         "height": 870,
-        "bytes": 54992,
+        "bytes": 92210,
         "format": "webp",
         "hasAlpha": true,
-        "sha256": "8c0156ea857c533d85e701e51ff923e0ab6cc1e85f2368528ad2f6f896fee0c4"
+        "sha256": "42f6f4229b42246a577518f59e0ad7c95348d564bbf98fac27f4b96c679d55a1"
       },
       "cropBox": [
         79,
@@ -3514,11 +3514,11 @@
         "normalizedWidth": 655,
         "normalizedHeight": 840,
         "contentBounds": {
-          "x": 25,
-          "y": 25,
-          "width": 635,
-          "height": 820,
-          "opaquePixels": 331947
+          "x": 67,
+          "y": 16,
+          "width": 550,
+          "height": 838,
+          "opaquePixels": 262626
         },
         "touchesCropEdge": {
           "left": false,
@@ -3534,14 +3534,14 @@
           "path": "/cartilla/art/delivery/faithful/384/vocal-u/uniforme.webp",
           "width": 384,
           "height": 492,
-          "bytes": 26782
+          "bytes": 36484
         },
         {
           "widthTier": 768,
           "path": "/cartilla/art/delivery/faithful/768/vocal-u/uniforme.webp",
           "width": 655,
           "height": 840,
-          "bytes": 54032
+          "bytes": 84650
         }
       ],
       "warnings": [],
@@ -3779,10 +3779,10 @@
       "canonical": {
         "width": 764,
         "height": 650,
-        "bytes": 62022,
+        "bytes": 97038,
         "format": "webp",
         "hasAlpha": true,
-        "sha256": "9f5abb0b60661e476ed9351d678e9a2fa876d4584e5cf0602da8b2da25e57243"
+        "sha256": "10120e06c2314c1e0b771fc144d458ad7568b6de9429251bed0784edb12705c4"
       },
       "cropBox": [
         718,
@@ -3807,11 +3807,11 @@
         "normalizedWidth": 740,
         "normalizedHeight": 626,
         "contentBounds": {
-          "x": 22,
-          "y": 22,
-          "width": 720,
-          "height": 606,
-          "opaquePixels": 225558
+          "x": 44,
+          "y": 16,
+          "width": 676,
+          "height": 618,
+          "opaquePixels": 216895
         },
         "touchesCropEdge": {
           "left": false,
@@ -3827,14 +3827,14 @@
           "path": "/cartilla/art/delivery/faithful/384/leccion-1/pez.webp",
           "width": 384,
           "height": 325,
-          "bytes": 28016
+          "bytes": 33356
         },
         {
           "widthTier": 768,
           "path": "/cartilla/art/delivery/faithful/768/leccion-1/pez.webp",
           "width": 740,
           "height": 626,
-          "bytes": 59756
+          "bytes": 92440
         }
       ],
       "warnings": [],
@@ -5230,10 +5230,10 @@
       "canonical": {
         "width": 735,
         "height": 870,
-        "bytes": 53142,
+        "bytes": 92166,
         "format": "webp",
         "hasAlpha": true,
-        "sha256": "a869ce67afc82e23eeceb8b16f89c6f4b497c1a1b56790027415d3f8d2dbb406"
+        "sha256": "1afba797e3dc5ddc792e87e34f37f43075b94ba0614312c330f8f63d140be680"
       },
       "cropBox": null,
       "provenanceStatus": "RECOLORED-FROM-FLIPCHART-2026",
@@ -5253,11 +5253,11 @@
         "normalizedWidth": 705,
         "normalizedHeight": 840,
         "contentBounds": {
-          "x": 25,
-          "y": 25,
-          "width": 685,
-          "height": 820,
-          "opaquePixels": 361039
+          "x": 92,
+          "y": 16,
+          "width": 550,
+          "height": 838,
+          "opaquePixels": 262626
         },
         "touchesCropEdge": {
           "left": false,
@@ -5273,14 +5273,14 @@
           "path": "/cartilla/art/delivery/faithful/384/leccion-1/traje.webp",
           "width": 384,
           "height": 458,
-          "bytes": 23512
+          "bytes": 33714
         },
         {
           "widthTier": 768,
           "path": "/cartilla/art/delivery/faithful/768/leccion-1/traje.webp",
           "width": 705,
           "height": 840,
-          "bytes": 53036
+          "bytes": 87136
         }
       ],
       "warnings": [],
@@ -5656,10 +5656,10 @@
       "canonical": {
         "width": 870,
         "height": 566,
-        "bytes": 93450,
+        "bytes": 67852,
         "format": "webp",
         "hasAlpha": true,
-        "sha256": "a892afd68c68a3dc8bd719b45b37355148036c97d30121c7303b9c494b22ce69"
+        "sha256": "b6b05ab599b09833132967075658380d9332bdbe7505595c1518e6b5c629426d"
       },
       "cropBox": [
         300,
@@ -5684,11 +5684,11 @@
         "normalizedWidth": 840,
         "normalizedHeight": 536,
         "contentBounds": {
-          "x": 25,
-          "y": 25,
-          "width": 820,
-          "height": 516,
-          "opaquePixels": 246303
+          "x": 57,
+          "y": 16,
+          "width": 755,
+          "height": 534,
+          "opaquePixels": 230278
         },
         "touchesCropEdge": {
           "left": false,
@@ -6448,10 +6448,10 @@
       "canonical": {
         "width": 788,
         "height": 870,
-        "bytes": 102696,
+        "bytes": 72326,
         "format": "webp",
         "hasAlpha": true,
-        "sha256": "59d34b9aa8c580a29d4ffc56203944ccae1ea0278baa0b240af8fb0cb3b95c12"
+        "sha256": "c06f923c01f413171fb0a2db9d7253ccc8d48f046d1c95b55a850b7951d9a87a"
       },
       "cropBox": [
         1180,
@@ -6476,11 +6476,11 @@
         "normalizedWidth": 758,
         "normalizedHeight": 840,
         "contentBounds": {
-          "x": 25,
-          "y": 25,
-          "width": 738,
-          "height": 820,
-          "opaquePixels": 461638
+          "x": 105,
+          "y": 16,
+          "width": 578,
+          "height": 838,
+          "opaquePixels": 342201
         },
         "touchesCropEdge": {
           "left": false,
