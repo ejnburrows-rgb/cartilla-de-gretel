@@ -1,0 +1,2291 @@
+{
+"fc-p003-01": {
+"speck": 15.09,
+"noise": 240304.0,
+"colors": 3021,
+"rough": 0.183,
+"jagged": true
+},
+"fc-p003-02": {
+"speck": 0.0,
+"noise": 25669.0,
+"colors": 1568,
+"rough": 0.002,
+"jagged": false
+},
+"fc-p003-03": {
+"speck": 0.0,
+"noise": 27363.0,
+"colors": 2047,
+"rough": 0.002,
+"jagged": false
+},
+"fc-p003-04": {
+"speck": 0.0,
+"noise": 28290.0,
+"colors": 2061,
+"rough": 0.002,
+"jagged": false
+},
+"fc-p003-05": {
+"speck": 0.0,
+"noise": 23300.0,
+"colors": 1569,
+"rough": 0.002,
+"jagged": false
+},
+"fc-p003-06": {
+"speck": 0.0,
+"noise": 8915.0,
+"colors": 871,
+"rough": 0.002,
+"jagged": false
+},
+"fc-p004-01": {
+"speck": 0.0,
+"noise": 46730.0,
+"colors": 2614,
+"rough": 0.002,
+"jagged": false
+},
+"fc-p004-02": {
+"speck": 0.0,
+"noise": 21778.0,
+"colors": 1476,
+"rough": 0.002,
+"jagged": false
+},
+"fc-p004-03": {
+"speck": 0.0,
+"noise": 98623.0,
+"colors": 1295,
+"rough": 0.132,
+"jagged": false
+},
+"fc-p004-04": {
+"speck": 0.0,
+"noise": 30029.0,
+"colors": 1458,
+"rough": 0.002,
+"jagged": false
+},
+"fc-p004-05": {
+"speck": 0.0,
+"noise": 77782.0,
+"colors": 2556,
+"rough": 0.002,
+"jagged": false
+},
+"fc-p004-06": {
+"speck": 0.0,
+"noise": 65739.0,
+"colors": 1888,
+"rough": 0.002,
+"jagged": false
+},
+"fc-p004-07": {
+"speck": 0.0,
+"noise": 22694.0,
+"colors": 1113,
+"rough": 0.002,
+"jagged": false
+},
+"fc-p005-01": {
+"speck": 0.0,
+"noise": 46722.0,
+"colors": 3147,
+"rough": 0.002,
+"jagged": false
+},
+"fc-p005-02": {
+"speck": 0.0,
+"noise": 46764.0,
+"colors": 2564,
+"rough": 0.002,
+"jagged": false
+},
+"fc-p005-03": {
+"speck": 0.0,
+"noise": 34077.0,
+"colors": 1591,
+"rough": 0.002,
+"jagged": false
+},
+"fc-p005-04": {
+"speck": 0.0,
+"noise": 27191.0,
+"colors": 734,
+"rough": 0.002,
+"jagged": false
+},
+"fc-p005-05": {
+"speck": 0.0,
+"noise": 20988.0,
+"colors": 635,
+"rough": 0.002,
+"jagged": false
+},
+"fc-p005-06": {
+"speck": 0.0,
+"noise": 51682.0,
+"colors": 2339,
+"rough": 0.002,
+"jagged": false
+},
+"fc-p005-07": {
+"speck": 0.0,
+"noise": 27260.0,
+"colors": 1946,
+"rough": 0.002,
+"jagged": false
+},
+"fc-p006-01": {
+"speck": 0.0,
+"noise": 68951.0,
+"colors": 3350,
+"rough": 0.002,
+"jagged": false
+},
+"fc-p006-02": {
+"speck": 0.0,
+"noise": 105055.0,
+"colors": 1418,
+"rough": 0.123,
+"jagged": false
+},
+"fc-p006-03": {
+"speck": 0.0,
+"noise": 30624.0,
+"colors": 1491,
+"rough": 0.002,
+"jagged": false
+},
+"fc-p006-04": {
+"speck": 0.0,
+"noise": 33707.0,
+"colors": 2371,
+"rough": 0.002,
+"jagged": false
+},
+"fc-p006-05": {
+"speck": 0.0,
+"noise": 31853.0,
+"colors": 1675,
+"rough": 0.002,
+"jagged": false
+},
+"fc-p006-06": {
+"speck": 0.0,
+"noise": 129720.0,
+"colors": 1960,
+"rough": 0.134,
+"jagged": false
+},
+"fc-p006-07": {
+"speck": 0.0,
+"noise": 34069.0,
+"colors": 2089,
+"rough": 0.002,
+"jagged": false
+},
+"fc-p007-01": {
+"speck": 0.0,
+"noise": 52216.0,
+"colors": 3454,
+"rough": 0.002,
+"jagged": false
+},
+"fc-p007-02": {
+"speck": 0.0,
+"noise": 23060.0,
+"colors": 1744,
+"rough": 0.002,
+"jagged": false
+},
+"fc-p007-03": {
+"speck": 0.0,
+"noise": 35168.0,
+"colors": 947,
+"rough": 0.002,
+"jagged": false
+},
+"fc-p007-04": {
+"speck": 0.0,
+"noise": 29106.0,
+"colors": 1411,
+"rough": 0.002,
+"jagged": false
+},
+"fc-p007-05": {
+"speck": 0.0,
+"noise": 40062.0,
+"colors": 2390,
+"rough": 0.002,
+"jagged": false
+},
+"fc-p007-06": {
+"speck": 0.0,
+"noise": 27607.0,
+"colors": 1614,
+"rough": 0.002,
+"jagged": false
+},
+"fc-p007-07": {
+"speck": 0.0,
+"noise": 44849.0,
+"colors": 2903,
+"rough": 0.002,
+"jagged": false
+},
+"fc-p008-01": {
+"speck": 0.0,
+"noise": 55687.0,
+"colors": 2827,
+"rough": 0.002,
+"jagged": false
+},
+"fc-p008-02": {
+"speck": 0.0,
+"noise": 49210.0,
+"colors": 2894,
+"rough": 0.002,
+"jagged": false
+},
+"fc-p008-03": {
+"speck": 0.0,
+"noise": 119108.0,
+"colors": 638,
+"rough": 0.138,
+"jagged": false
+},
+"fc-p008-04": {
+"speck": 0.0,
+"noise": 15446.0,
+"colors": 1153,
+"rough": 0.002,
+"jagged": false
+},
+"fc-p008-05": {
+"speck": 0.0,
+"noise": 37735.0,
+"colors": 1851,
+"rough": 0.002,
+"jagged": false
+},
+"fc-p008-06": {
+"speck": 0.46,
+"noise": 82678.0,
+"colors": 1464,
+"rough": 0.125,
+"jagged": false
+},
+"fc-p008-07": {
+"speck": 0.0,
+"noise": 48397.0,
+"colors": 2662,
+"rough": 0.002,
+"jagged": false
+},
+"fc-p009-01": {
+"speck": 0.0,
+"noise": 96703.0,
+"colors": 3272,
+"rough": 0.002,
+"jagged": false
+},
+"fc-p009-02": {
+"speck": 0.0,
+"noise": 26726.0,
+"colors": 1324,
+"rough": 0.002,
+"jagged": false
+},
+"fc-p009-03": {
+"speck": 0.0,
+"noise": 62538.0,
+"colors": 3170,
+"rough": 0.002,
+"jagged": false
+},
+"fc-p009-04": {
+"speck": 0.0,
+"noise": 94707.0,
+"colors": 5509,
+"rough": 0.002,
+"jagged": false
+},
+"fc-p009-05": {
+"speck": 0.0,
+"noise": 39928.0,
+"colors": 2073,
+"rough": 0.002,
+"jagged": false
+},
+"fc-p009-06": {
+"speck": 0.0,
+"noise": 41962.0,
+"colors": 2029,
+"rough": 0.002,
+"jagged": false
+},
+"fc-p011-01": {
+"speck": 0.0,
+"noise": 54470.0,
+"colors": 3391,
+"rough": 0.002,
+"jagged": false
+},
+"fc-p012-01": {
+"speck": 0.0,
+"noise": 72159.0,
+"colors": 3540,
+"rough": 0.002,
+"jagged": false
+},
+"fc-p012-02": {
+"speck": 0.0,
+"noise": 34039.0,
+"colors": 2255,
+"rough": 0.002,
+"jagged": false
+},
+"fc-p012-03": {
+"speck": 0.0,
+"noise": 18856.0,
+"colors": 975,
+"rough": 0.002,
+"jagged": false
+},
+"fc-p012-04": {
+"speck": 0.0,
+"noise": 19390.0,
+"colors": 1236,
+"rough": 0.002,
+"jagged": false
+},
+"fc-p012-05": {
+"speck": 0.0,
+"noise": 27393.0,
+"colors": 861,
+"rough": 0.002,
+"jagged": false
+},
+"fc-p012-06": {
+"speck": 0.0,
+"noise": 21046.0,
+"colors": 932,
+"rough": 0.002,
+"jagged": false
+},
+"fc-p014-01": {
+"speck": 0.0,
+"noise": 62813.0,
+"colors": 3638,
+"rough": 0.002,
+"jagged": false
+},
+"fc-p015-01": {
+"speck": 0.0,
+"noise": 114140.0,
+"colors": 4831,
+"rough": 0.002,
+"jagged": false
+},
+"fc-p015-02": {
+"speck": 0.0,
+"noise": 42595.0,
+"colors": 2645,
+"rough": 0.002,
+"jagged": false
+},
+"fc-p015-03": {
+"speck": 0.0,
+"noise": 142375.0,
+"colors": 2070,
+"rough": 0.126,
+"jagged": false
+},
+"fc-p015-04": {
+"speck": 0.0,
+"noise": 27790.0,
+"colors": 1191,
+"rough": 0.002,
+"jagged": false
+},
+"fc-p015-05": {
+"speck": 0.0,
+"noise": 11196.0,
+"colors": 790,
+"rough": 0.002,
+"jagged": false
+},
+"fc-p015-06": {
+"speck": 0.0,
+"noise": 47703.0,
+"colors": 2636,
+"rough": 0.002,
+"jagged": false
+},
+"fc-p017-01": {
+"speck": 0.23,
+"noise": 258470.0,
+"colors": 2804,
+"rough": 0.143,
+"jagged": false
+},
+"fc-p018-01": {
+"speck": 0.0,
+"noise": 73853.0,
+"colors": 4082,
+"rough": 0.002,
+"jagged": false
+},
+"fc-p018-02": {
+"speck": 0.0,
+"noise": 8947.0,
+"colors": 586,
+"rough": 0.002,
+"jagged": false
+},
+"fc-p018-03": {
+"speck": 0.0,
+"noise": 32853.0,
+"colors": 1920,
+"rough": 0.002,
+"jagged": false
+},
+"fc-p018-04": {
+"speck": 0.0,
+"noise": 46569.0,
+"colors": 1583,
+"rough": 0.002,
+"jagged": false
+},
+"fc-p018-05": {
+"speck": 0.0,
+"noise": 41192.0,
+"colors": 1733,
+"rough": 0.002,
+"jagged": false
+},
+"fc-p018-06": {
+"speck": 0.0,
+"noise": 40854.0,
+"colors": 1557,
+"rough": 0.002,
+"jagged": false
+},
+"fc-p020-01": {
+"speck": 0.0,
+"noise": 92144.0,
+"colors": 5305,
+"rough": 0.002,
+"jagged": false
+},
+"fc-p021-01": {
+"speck": 0.0,
+"noise": 26615.0,
+"colors": 1688,
+"rough": 0.002,
+"jagged": false
+},
+"fc-p021-02": {
+"speck": 0.0,
+"noise": 46392.0,
+"colors": 2051,
+"rough": 0.002,
+"jagged": false
+},
+"fc-p021-03": {
+"speck": 0.0,
+"noise": 24410.0,
+"colors": 1053,
+"rough": 0.002,
+"jagged": false
+},
+"fc-p021-04": {
+"speck": 0.5,
+"noise": 79287.0,
+"colors": 587,
+"rough": 0.069,
+"jagged": false
+},
+"fc-p021-05": {
+"speck": 0.0,
+"noise": 57611.0,
+"colors": 1800,
+"rough": 0.002,
+"jagged": false
+},
+"fc-p021-06": {
+"speck": 0.0,
+"noise": 53518.0,
+"colors": 2065,
+"rough": 0.002,
+"jagged": false
+},
+"fc-p023-01": {
+"speck": 0.0,
+"noise": 91133.0,
+"colors": 4398,
+"rough": 0.002,
+"jagged": false
+},
+"fc-p024-01": {
+"speck": 0.0,
+"noise": 45063.0,
+"colors": 2854,
+"rough": 0.002,
+"jagged": false
+},
+"fc-p024-02": {
+"speck": 0.0,
+"noise": 17938.0,
+"colors": 547,
+"rough": 0.002,
+"jagged": false
+},
+"fc-p024-03": {
+"speck": 0.0,
+"noise": 36836.0,
+"colors": 1436,
+"rough": 0.002,
+"jagged": false
+},
+"fc-p024-04": {
+"speck": 0.0,
+"noise": 49583.0,
+"colors": 2152,
+"rough": 0.002,
+"jagged": false
+},
+"fc-p024-05": {
+"speck": 0.0,
+"noise": 16213.0,
+"colors": 1042,
+"rough": 0.002,
+"jagged": false
+},
+"fc-p024-06": {
+"speck": 0.0,
+"noise": 39776.0,
+"colors": 1017,
+"rough": 0.002,
+"jagged": false
+},
+"fc-p026-01": {
+"speck": 0.0,
+"noise": 52284.0,
+"colors": 2690,
+"rough": 0.002,
+"jagged": false
+},
+"fc-p027-01": {
+"speck": 0.0,
+"noise": 92628.0,
+"colors": 3765,
+"rough": 0.002,
+"jagged": false
+},
+"fc-p027-02": {
+"speck": 0.0,
+"noise": 26203.0,
+"colors": 1189,
+"rough": 0.002,
+"jagged": false
+},
+"fc-p027-03": {
+"speck": 0.0,
+"noise": 28591.0,
+"colors": 1164,
+"rough": 0.002,
+"jagged": false
+},
+"fc-p027-04": {
+"speck": 0.0,
+"noise": 28130.0,
+"colors": 1608,
+"rough": 0.002,
+"jagged": false
+},
+"fc-p027-05": {
+"speck": 0.0,
+"noise": 37121.0,
+"colors": 1709,
+"rough": 0.002,
+"jagged": false
+},
+"fc-p027-06": {
+"speck": 0.0,
+"noise": 3246.0,
+"colors": 398,
+"rough": 0.002,
+"jagged": false
+},
+"fc-p029-01": {
+"speck": 0.0,
+"noise": 61558.0,
+"colors": 2306,
+"rough": 0.002,
+"jagged": false
+},
+"fc-p030-01": {
+"speck": 0.0,
+"noise": 104927.0,
+"colors": 4819,
+"rough": 0.002,
+"jagged": false
+},
+"fc-p030-02": {
+"speck": 0.0,
+"noise": 38807.0,
+"colors": 2526,
+"rough": 0.002,
+"jagged": false
+},
+"fc-p030-03": {
+"speck": 0.0,
+"noise": 26772.0,
+"colors": 1212,
+"rough": 0.002,
+"jagged": false
+},
+"fc-p030-04": {
+"speck": 0.0,
+"noise": 53001.0,
+"colors": 2333,
+"rough": 0.002,
+"jagged": false
+},
+"fc-p030-05": {
+"speck": 0.0,
+"noise": 69401.0,
+"colors": 2653,
+"rough": 0.002,
+"jagged": false
+},
+"fc-p030-06": {
+"speck": 0.0,
+"noise": 35145.0,
+"colors": 1715,
+"rough": 0.002,
+"jagged": false
+},
+"fc-p032-01": {
+"speck": 0.0,
+"noise": 59772.0,
+"colors": 2415,
+"rough": 0.002,
+"jagged": false
+},
+"fc-p033-01": {
+"speck": 0.0,
+"noise": 52094.0,
+"colors": 2530,
+"rough": 0.002,
+"jagged": false
+},
+"fc-p033-02": {
+"speck": 0.0,
+"noise": 27229.0,
+"colors": 1607,
+"rough": 0.002,
+"jagged": false
+},
+"fc-p033-03": {
+"speck": 0.0,
+"noise": 22842.0,
+"colors": 653,
+"rough": 0.002,
+"jagged": false
+},
+"fc-p033-04": {
+"speck": 0.0,
+"noise": 31975.0,
+"colors": 1454,
+"rough": 0.002,
+"jagged": false
+},
+"fc-p033-05": {
+"speck": 0.0,
+"noise": 57114.0,
+"colors": 1849,
+"rough": 0.002,
+"jagged": false
+},
+"fc-p033-06": {
+"speck": 0.0,
+"noise": 48695.0,
+"colors": 2062,
+"rough": 0.002,
+"jagged": false
+},
+"fc-p035-01": {
+"speck": 0.0,
+"noise": 35152.0,
+"colors": 2390,
+"rough": 0.002,
+"jagged": false
+},
+"fc-p036-01": {
+"speck": 0.0,
+"noise": 61619.0,
+"colors": 2071,
+"rough": 0.002,
+"jagged": false
+},
+"fc-p036-02": {
+"speck": 0.0,
+"noise": 8633.0,
+"colors": 552,
+"rough": 0.002,
+"jagged": false
+},
+"fc-p036-03": {
+"speck": 0.0,
+"noise": 27508.0,
+"colors": 1459,
+"rough": 0.002,
+"jagged": false
+},
+"fc-p036-04": {
+"speck": 0.0,
+"noise": 41931.0,
+"colors": 2435,
+"rough": 0.002,
+"jagged": false
+},
+"fc-p036-05": {
+"speck": 0.0,
+"noise": 64587.0,
+"colors": 3712,
+"rough": 0.002,
+"jagged": false
+},
+"fc-p036-06": {
+"speck": 0.0,
+"noise": 27641.0,
+"colors": 767,
+"rough": 0.002,
+"jagged": false
+},
+"fc-p038-01": {
+"speck": 0.0,
+"noise": 68027.0,
+"colors": 3553,
+"rough": 0.002,
+"jagged": false
+},
+"fc-p039-01": {
+"speck": 0.0,
+"noise": 60600.0,
+"colors": 3081,
+"rough": 0.002,
+"jagged": false
+},
+"fc-p039-02": {
+"speck": 0.0,
+"noise": 48283.0,
+"colors": 1571,
+"rough": 0.002,
+"jagged": false
+},
+"fc-p039-03": {
+"speck": 0.0,
+"noise": 60051.0,
+"colors": 2619,
+"rough": 0.002,
+"jagged": false
+},
+"fc-p039-04": {
+"speck": 0.0,
+"noise": 31696.0,
+"colors": 1132,
+"rough": 0.002,
+"jagged": false
+},
+"fc-p039-05": {
+"speck": 0.0,
+"noise": 31239.0,
+"colors": 2135,
+"rough": 0.002,
+"jagged": false
+},
+"fc-p039-06": {
+"speck": 0.0,
+"noise": 57594.0,
+"colors": 2563,
+"rough": 0.002,
+"jagged": false
+},
+"fc-p041-01": {
+"speck": 0.0,
+"noise": 83248.0,
+"colors": 3807,
+"rough": 0.002,
+"jagged": false
+},
+"fc-p042-01": {
+"speck": 0.0,
+"noise": 118820.0,
+"colors": 5098,
+"rough": 0.002,
+"jagged": false
+},
+"fc-p042-02": {
+"speck": 0.0,
+"noise": 86097.0,
+"colors": 378,
+"rough": 0.13,
+"jagged": false
+},
+"fc-p042-03": {
+"speck": 0.0,
+"noise": 81253.0,
+"colors": 4563,
+"rough": 0.002,
+"jagged": false
+},
+"fc-p042-04": {
+"speck": 0.0,
+"noise": 10025.0,
+"colors": 767,
+"rough": 0.002,
+"jagged": false
+},
+"fc-p042-05": {
+"speck": 0.0,
+"noise": 40936.0,
+"colors": 2283,
+"rough": 0.002,
+"jagged": false
+},
+"fc-p042-06": {
+"speck": 0.0,
+"noise": 67228.0,
+"colors": 504,
+"rough": 0.135,
+"jagged": false
+},
+"fc-p044-01": {
+"speck": 0.0,
+"noise": 192554.0,
+"colors": 7806,
+"rough": 0.002,
+"jagged": false
+},
+"fc-p045-01": {
+"speck": 0.0,
+"noise": 58571.0,
+"colors": 3937,
+"rough": 0.002,
+"jagged": false
+},
+"fc-p045-02": {
+"speck": 0.0,
+"noise": 45383.0,
+"colors": 3004,
+"rough": 0.002,
+"jagged": false
+},
+"fc-p045-03": {
+"speck": 0.0,
+"noise": 14221.0,
+"colors": 644,
+"rough": 0.002,
+"jagged": false
+},
+"fc-p045-04": {
+"speck": 0.0,
+"noise": 43018.0,
+"colors": 1693,
+"rough": 0.002,
+"jagged": false
+},
+"fc-p045-05": {
+"speck": 0.0,
+"noise": 130527.0,
+"colors": 784,
+"rough": 0.128,
+"jagged": false
+},
+"fc-p045-06": {
+"speck": 0.0,
+"noise": 66555.0,
+"colors": 2617,
+"rough": 0.002,
+"jagged": false
+},
+"fc-p047-01": {
+"speck": 0.0,
+"noise": 67425.0,
+"colors": 3408,
+"rough": 0.002,
+"jagged": false
+},
+"fc-p048-01": {
+"speck": 0.0,
+"noise": 41096.0,
+"colors": 2354,
+"rough": 0.002,
+"jagged": false
+},
+"fc-p048-02": {
+"speck": 0.0,
+"noise": 32177.0,
+"colors": 1520,
+"rough": 0.002,
+"jagged": false
+},
+"fc-p048-03": {
+"speck": 0.0,
+"noise": 70629.0,
+"colors": 2324,
+"rough": 0.002,
+"jagged": false
+},
+"fc-p048-04": {
+"speck": 0.0,
+"noise": 50823.0,
+"colors": 2712,
+"rough": 0.002,
+"jagged": false
+},
+"fc-p048-05": {
+"speck": 0.0,
+"noise": 36949.0,
+"colors": 1993,
+"rough": 0.002,
+"jagged": false
+},
+"fc-p048-06": {
+"speck": 0.0,
+"noise": 27874.0,
+"colors": 1441,
+"rough": 0.002,
+"jagged": false
+},
+"fc-p050-01": {
+"speck": 0.0,
+"noise": 84306.0,
+"colors": 3349,
+"rough": 0.002,
+"jagged": false
+},
+"fc-p051-01": {
+"speck": 0.0,
+"noise": 107845.0,
+"colors": 5059,
+"rough": 0.002,
+"jagged": false
+},
+"fc-p051-02": {
+"speck": 0.0,
+"noise": 35355.0,
+"colors": 2833,
+"rough": 0.002,
+"jagged": false
+},
+"fc-p051-03": {
+"speck": 0.0,
+"noise": 28221.0,
+"colors": 1577,
+"rough": 0.002,
+"jagged": false
+},
+"fc-p051-04": {
+"speck": 0.0,
+"noise": 32482.0,
+"colors": 1675,
+"rough": 0.002,
+"jagged": false
+},
+"fc-p051-05": {
+"speck": 0.0,
+"noise": 27073.0,
+"colors": 1603,
+"rough": 0.002,
+"jagged": false
+},
+"fc-p051-06": {
+"speck": 0.0,
+"noise": 90810.0,
+"colors": 1093,
+"rough": 0.148,
+"jagged": false
+},
+"fc-p053-01": {
+"speck": 0.0,
+"noise": 109253.0,
+"colors": 5689,
+"rough": 0.002,
+"jagged": false
+},
+"fc-p054-01": {
+"speck": 0.0,
+"noise": 97560.0,
+"colors": 4166,
+"rough": 0.002,
+"jagged": false
+},
+"fc-p054-02": {
+"speck": 0.0,
+"noise": 50373.0,
+"colors": 3000,
+"rough": 0.002,
+"jagged": false
+},
+"fc-p054-03": {
+"speck": 0.0,
+"noise": 34981.0,
+"colors": 1449,
+"rough": 0.002,
+"jagged": false
+},
+"fc-p054-04": {
+"speck": 0.0,
+"noise": 37292.0,
+"colors": 2077,
+"rough": 0.002,
+"jagged": false
+},
+"fc-p054-05": {
+"speck": 0.0,
+"noise": 115546.0,
+"colors": 880,
+"rough": 0.129,
+"jagged": false
+},
+"fc-p054-06": {
+"speck": 0.0,
+"noise": 39661.0,
+"colors": 1658,
+"rough": 0.002,
+"jagged": false
+},
+"fc-p056-01": {
+"speck": 0.0,
+"noise": 128463.0,
+"colors": 4951,
+"rough": 0.002,
+"jagged": false
+},
+"fc-p057-01": {
+"speck": 0.0,
+"noise": 85762.0,
+"colors": 4013,
+"rough": 0.002,
+"jagged": false
+},
+"fc-p057-02": {
+"speck": 0.0,
+"noise": 37754.0,
+"colors": 2653,
+"rough": 0.002,
+"jagged": false
+},
+"fc-p057-03": {
+"speck": 0.0,
+"noise": 8827.0,
+"colors": 430,
+"rough": 0.002,
+"jagged": false
+},
+"fc-p057-04": {
+"speck": 0.0,
+"noise": 69370.0,
+"colors": 2332,
+"rough": 0.002,
+"jagged": false
+},
+"fc-p057-05": {
+"speck": 0.0,
+"noise": 45902.0,
+"colors": 2655,
+"rough": 0.002,
+"jagged": false
+},
+"fc-p057-06": {
+"speck": 0.0,
+"noise": 26291.0,
+"colors": 844,
+"rough": 0.002,
+"jagged": false
+},
+"fc-p059-01": {
+"speck": 0.0,
+"noise": 118797.0,
+"colors": 4828,
+"rough": 0.002,
+"jagged": false
+},
+"fc-p060-01": {
+"speck": 0.0,
+"noise": 67066.0,
+"colors": 3040,
+"rough": 0.002,
+"jagged": false
+},
+"fc-p060-02": {
+"speck": 0.0,
+"noise": 41187.0,
+"colors": 1904,
+"rough": 0.002,
+"jagged": false
+},
+"fc-p060-03": {
+"speck": 0.0,
+"noise": 28687.0,
+"colors": 1265,
+"rough": 0.002,
+"jagged": false
+},
+"fc-p060-04": {
+"speck": 0.0,
+"noise": 26760.0,
+"colors": 1211,
+"rough": 0.002,
+"jagged": false
+},
+"fc-p060-05": {
+"speck": 0.0,
+"noise": 38296.0,
+"colors": 1982,
+"rough": 0.002,
+"jagged": false
+},
+"fc-p060-06": {
+"speck": 0.0,
+"noise": 39959.0,
+"colors": 2194,
+"rough": 0.002,
+"jagged": false
+},
+"fc-p062-01": {
+"speck": 0.0,
+"noise": 113056.0,
+"colors": 5131,
+"rough": 0.002,
+"jagged": false
+},
+"wb-p001-01": {
+"speck": 0.0,
+"noise": 91219.0,
+"colors": 904,
+"rough": 0.12,
+"jagged": false
+},
+"wb-p001-02": {
+"speck": 0.44,
+"noise": 87166.0,
+"colors": 2707,
+"rough": 0.153,
+"jagged": true
+},
+"wb-p001-03": {
+"speck": 0.0,
+"noise": 119489.0,
+"colors": 3669,
+"rough": 0.084,
+"jagged": false
+},
+"wb-p001-04": {
+"speck": 0.58,
+"noise": 202332.0,
+"colors": 3234,
+"rough": 0.12,
+"jagged": false
+},
+"wb-p001-05": {
+"speck": 0.0,
+"noise": 87858.0,
+"colors": 1994,
+"rough": 0.128,
+"jagged": false
+},
+"wb-p001-06": {
+"speck": 0.0,
+"noise": 85208.0,
+"colors": 2229,
+"rough": 0.135,
+"jagged": false
+},
+"wb-p001-07": {
+"speck": 0.44,
+"noise": 87166.0,
+"colors": 2707,
+"rough": 0.153,
+"jagged": true
+},
+"wb-p001-08": {
+"speck": 0.78,
+"noise": 124562.0,
+"colors": 3351,
+"rough": 0.12,
+"jagged": false
+},
+"wb-p001-09": {
+"speck": 0.0,
+"noise": 118454.0,
+"colors": 2461,
+"rough": 0.142,
+"jagged": false
+},
+"wb-p001-10": {
+"speck": 0.0,
+"noise": 87921.0,
+"colors": 3984,
+"rough": 0.147,
+"jagged": false
+},
+"wb-p001-11": {
+"speck": 0.0,
+"noise": 36689.0,
+"colors": 886,
+"rough": 0.024,
+"jagged": false
+},
+"wb-p001-12": {
+"speck": 0.0,
+"noise": 242600.0,
+"colors": 2337,
+"rough": 0.141,
+"jagged": false
+},
+"wb-p001-13": {
+"speck": 1.43,
+"noise": 55338.0,
+"colors": 1355,
+"rough": 0.075,
+"jagged": false
+},
+"wb-p001-14": {
+"speck": 0.0,
+"noise": 14322.0,
+"colors": 1439,
+"rough": 0.014,
+"jagged": false
+},
+"wb-p001-15": {
+"speck": 0.0,
+"noise": 119457.0,
+"colors": 2215,
+"rough": 0.142,
+"jagged": false
+},
+"wb-p001-16": {
+"speck": 0.0,
+"noise": 95028.0,
+"colors": 1647,
+"rough": 0.079,
+"jagged": false
+},
+"wb-p001-17": {
+"speck": 0.0,
+"noise": 80647.0,
+"colors": 483,
+"rough": 0.055,
+"jagged": false
+},
+"wb-p001-18": {
+"speck": 0.0,
+"noise": 125991.0,
+"colors": 1976,
+"rough": 0.068,
+"jagged": false
+},
+"wb-p001-19": {
+"speck": 0.0,
+"noise": 104199.0,
+"colors": 1311,
+"rough": 0.085,
+"jagged": false
+},
+"wb-p001-20": {
+"speck": 0.0,
+"noise": 63675.0,
+"colors": 1950,
+"rough": 0.143,
+"jagged": false
+},
+"wb-p002-01": {
+"speck": 0.0,
+"noise": 103280.0,
+"colors": 1852,
+"rough": 0.047,
+"jagged": false
+},
+"wb-p002-02": {
+"speck": 0.0,
+"noise": 25297.0,
+"colors": 521,
+"rough": 0.055,
+"jagged": false
+},
+"wb-p002-03": {
+"speck": 5.36,
+"noise": 37413.0,
+"colors": 384,
+"rough": 0.138,
+"jagged": true
+},
+"wb-p002-04": {
+"speck": 0.0,
+"noise": 188755.0,
+"colors": 2469,
+"rough": 0.036,
+"jagged": false
+},
+"wb-p002-05": {
+"speck": 7.28,
+"noise": 78800.0,
+"colors": 781,
+"rough": 0.182,
+"jagged": true
+},
+"wb-p002-06": {
+"speck": 20.14,
+"noise": 76495.0,
+"colors": 1898,
+"rough": 0.153,
+"jagged": true
+},
+"wb-p002-07": {
+"speck": 3.23,
+"noise": 46459.0,
+"colors": 680,
+"rough": 0.14,
+"jagged": false
+},
+"wb-p002-08": {
+"speck": 0.0,
+"noise": 133908.0,
+"colors": 1130,
+"rough": 0.097,
+"jagged": false
+},
+"wb-p002-09": {
+"speck": 3.22,
+"noise": 31913.0,
+"colors": 379,
+"rough": 0.118,
+"jagged": false
+},
+"wb-p002-10": {
+"speck": 0.0,
+"noise": 39098.0,
+"colors": 608,
+"rough": 0.142,
+"jagged": false
+},
+"wb-p002-11": {
+"speck": 3.65,
+"noise": 191524.0,
+"colors": 2149,
+"rough": 0.089,
+"jagged": true
+},
+"wb-p002-12": {
+"speck": 24.64,
+"noise": 265436.0,
+"colors": 4944,
+"rough": 0.212,
+"jagged": true
+},
+"wb-p002-13": {
+"speck": 0.89,
+"noise": 58605.0,
+"colors": 1232,
+"rough": 0.042,
+"jagged": false
+},
+"wb-p002-14": {
+"speck": 0.0,
+"noise": 23372.0,
+"colors": 229,
+"rough": 0.051,
+"jagged": false
+},
+"wb-p002-15": {
+"speck": 11.97,
+"noise": 81930.0,
+"colors": 535,
+"rough": 0.109,
+"jagged": true
+},
+"wb-p003-01": {
+"speck": 0.0,
+"noise": 54331.0,
+"colors": 1373,
+"rough": 0.065,
+"jagged": false
+},
+"wb-p003-02": {
+"speck": 0.0,
+"noise": 109749.0,
+"colors": 568,
+"rough": 0.113,
+"jagged": false
+},
+"wb-p003-03": {
+"speck": 0.0,
+"noise": 82972.0,
+"colors": 416,
+"rough": 0.106,
+"jagged": false
+},
+"wb-p003-04": {
+"speck": 0.0,
+"noise": 65340.0,
+"colors": 2819,
+"rough": 0.033,
+"jagged": false
+},
+"wb-p003-05": {
+"speck": 0.0,
+"noise": 73144.0,
+"colors": 2133,
+"rough": 0.079,
+"jagged": false
+},
+"wb-p004-01": {
+"speck": 14.58,
+"noise": 61696.0,
+"colors": 760,
+"rough": 0.162,
+"jagged": true
+},
+"wb-p004-02": {
+"speck": 1.33,
+"noise": 123335.0,
+"colors": 1286,
+"rough": 0.135,
+"jagged": false
+},
+"wb-p004-03": {
+"speck": 3.65,
+"noise": 191524.0,
+"colors": 2149,
+"rough": 0.089,
+"jagged": true
+},
+"wb-p004-04": {
+"speck": 0.0,
+"noise": 137441.0,
+"colors": 2246,
+"rough": 0.068,
+"jagged": false
+},
+"wb-p004-05": {
+"speck": 0.0,
+"noise": 15631.0,
+"colors": 447,
+"rough": 0.054,
+"jagged": false
+},
+"wb-p004-06": {
+"speck": 0.0,
+"noise": 98434.0,
+"colors": 1809,
+"rough": 0.095,
+"jagged": false
+},
+"wb-p004-07": {
+"speck": 3.42,
+"noise": 73958.0,
+"colors": 336,
+"rough": 0.128,
+"jagged": true
+},
+"wb-p004-08": {
+"speck": 0.0,
+"noise": 264515.0,
+"colors": 1431,
+"rough": 0.089,
+"jagged": false
+},
+"wb-p004-09": {
+"speck": 0.0,
+"noise": 61760.0,
+"colors": 1073,
+"rough": 0.06,
+"jagged": false
+},
+"wb-p004-10": {
+"speck": 0.0,
+"noise": 117241.0,
+"colors": 454,
+"rough": 0.102,
+"jagged": false
+},
+"wb-p004-11": {
+"speck": 0.0,
+"noise": 54331.0,
+"colors": 1373,
+"rough": 0.065,
+"jagged": false
+},
+"wb-p004-12": {
+"speck": 0.0,
+"noise": 73144.0,
+"colors": 2133,
+"rough": 0.079,
+"jagged": false
+},
+"wb-p004-13": {
+"speck": 0.0,
+"noise": 109749.0,
+"colors": 568,
+"rough": 0.113,
+"jagged": false
+},
+"wb-p004-14": {
+"speck": 3.65,
+"noise": 191524.0,
+"colors": 2149,
+"rough": 0.089,
+"jagged": true
+},
+"wb-p004-15": {
+"speck": 0.89,
+"noise": 59407.0,
+"colors": 1254,
+"rough": 0.047,
+"jagged": false
+},
+"wb-p004-16": {
+"speck": 0.0,
+"noise": 153899.0,
+"colors": 626,
+"rough": 0.184,
+"jagged": true
+},
+"wb-p005-01": {
+"speck": 1.33,
+"noise": 123335.0,
+"colors": 1286,
+"rough": 0.135,
+"jagged": false
+},
+"wb-p005-02": {
+"speck": 0.0,
+"noise": 98434.0,
+"colors": 1809,
+"rough": 0.095,
+"jagged": false
+},
+"wb-p005-03": {
+"speck": 0.0,
+"noise": 153899.0,
+"colors": 626,
+"rough": 0.184,
+"jagged": true
+},
+"wb-p005-04": {
+"speck": 0.0,
+"noise": 264515.0,
+"colors": 1431,
+"rough": 0.089,
+"jagged": false
+},
+"wb-p005-05": {
+"speck": 0.0,
+"noise": 61760.0,
+"colors": 1073,
+"rough": 0.06,
+"jagged": false
+},
+"wb-p005-06": {
+"speck": 14.58,
+"noise": 61696.0,
+"colors": 760,
+"rough": 0.162,
+"jagged": true
+},
+"wb-p005-07": {
+"speck": 3.65,
+"noise": 191524.0,
+"colors": 2149,
+"rough": 0.089,
+"jagged": true
+},
+"wb-p005-08": {
+"speck": 3.42,
+"noise": 73958.0,
+"colors": 336,
+"rough": 0.128,
+"jagged": true
+},
+"wb-p007-01": {
+"speck": 0.0,
+"noise": 218027.0,
+"colors": 4209,
+"rough": 0.053,
+"jagged": false
+},
+"wb-p007-02": {
+"speck": 0.0,
+"noise": 172109.0,
+"colors": 3602,
+"rough": 0.122,
+"jagged": false
+},
+"wb-p007-03": {
+"speck": 0.0,
+"noise": 154431.0,
+"colors": 2307,
+"rough": 0.071,
+"jagged": false
+},
+"wb-p007-04": {
+"speck": 1.03,
+"noise": 91446.0,
+"colors": 2295,
+"rough": 0.09,
+"jagged": false
+},
+"wb-p007-05": {
+"speck": 0.0,
+"noise": 98434.0,
+"colors": 1809,
+"rough": 0.095,
+"jagged": false
+},
+"wb-p007-06": {
+"speck": 0.0,
+"noise": 52219.0,
+"colors": 2343,
+"rough": 0.002,
+"jagged": false
+},
+"wb-p007-07": {
+"speck": 7.28,
+"noise": 78800.0,
+"colors": 781,
+"rough": 0.182,
+"jagged": true
+},
+"wb-p007-08": {
+"speck": 0.0,
+"noise": 90595.0,
+"colors": 1546,
+"rough": 0.088,
+"jagged": false
+},
+"wb-p007-09": {
+"speck": 0.0,
+"noise": 73144.0,
+"colors": 2133,
+"rough": 0.079,
+"jagged": false
+},
+"wb-p007-10": {
+"speck": 3.42,
+"noise": 73958.0,
+"colors": 336,
+"rough": 0.128,
+"jagged": true
+},
+"wb-p007-11": {
+"speck": 20.14,
+"noise": 76495.0,
+"colors": 1898,
+"rough": 0.153,
+"jagged": true
+},
+"wb-p007-12": {
+"speck": 16.82,
+"noise": 116076.0,
+"colors": 663,
+"rough": 0.185,
+"jagged": true
+},
+"wb-p007-13": {
+"speck": 0.0,
+"noise": 51427.0,
+"colors": 661,
+"rough": 0.003,
+"jagged": false
+},
+"wb-p007-14": {
+"speck": 0.0,
+"noise": 70859.0,
+"colors": 1132,
+"rough": 0.117,
+"jagged": false
+},
+"wb-p007-15": {
+"speck": 0.0,
+"noise": 168600.0,
+"colors": 812,
+"rough": 0.049,
+"jagged": false
+},
+"wb-p007-16": {
+"speck": 3.65,
+"noise": 191524.0,
+"colors": 2149,
+"rough": 0.089,
+"jagged": true
+},
+"wb-p008-01": {
+"speck": 3.65,
+"noise": 191524.0,
+"colors": 2149,
+"rough": 0.089,
+"jagged": true
+},
+"wb-p008-02": {
+"speck": 1.33,
+"noise": 123335.0,
+"colors": 1286,
+"rough": 0.135,
+"jagged": false
+},
+"wb-p008-03": {
+"speck": 3.42,
+"noise": 73958.0,
+"colors": 336,
+"rough": 0.128,
+"jagged": true
+},
+"wb-p008-04": {
+"speck": 0.0,
+"noise": 73880.0,
+"colors": 1031,
+"rough": 0.002,
+"jagged": false
+},
+"wb-p008-05": {
+"speck": 0.0,
+"noise": 168600.0,
+"colors": 812,
+"rough": 0.049,
+"jagged": false
+},
+"wb-p008-06": {
+"speck": 0.0,
+"noise": 137441.0,
+"colors": 2246,
+"rough": 0.068,
+"jagged": false
+},
+"wb-p008-07": {
+"speck": 0.0,
+"noise": 126358.0,
+"colors": 1154,
+"rough": 0.06,
+"jagged": false
+},
+"wb-p008-08": {
+"speck": 0.0,
+"noise": 154431.0,
+"colors": 2307,
+"rough": 0.071,
+"jagged": false
+},
+"wb-p010-01": {
+"speck": 0.0,
+"noise": 90595.0,
+"colors": 1546,
+"rough": 0.088,
+"jagged": false
+},
+"wb-p010-02": {
+"speck": 1.33,
+"noise": 123335.0,
+"colors": 1286,
+"rough": 0.135,
+"jagged": false
+},
+"wb-p010-03": {
+"speck": 0.0,
+"noise": 137441.0,
+"colors": 2246,
+"rough": 0.068,
+"jagged": false
+},
+"wb-p010-04": {
+"speck": 0.0,
+"noise": 133908.0,
+"colors": 1130,
+"rough": 0.097,
+"jagged": false
+},
+"wb-p010-05": {
+"speck": 0.0,
+"noise": 73252.0,
+"colors": 528,
+"rough": 0.088,
+"jagged": false
+},
+"wb-p010-06": {
+"speck": 0.0,
+"noise": 134990.0,
+"colors": 2038,
+"rough": 0.081,
+"jagged": false
+},
+"wb-p010-07": {
+"speck": 0.0,
+"noise": 73880.0,
+"colors": 1031,
+"rough": 0.002,
+"jagged": false
+},
+"wb-p010-08": {
+"speck": 0.0,
+"noise": 168600.0,
+"colors": 812,
+"rough": 0.049,
+"jagged": false
+},
+"wb-p010-09": {
+"speck": 0.0,
+"noise": 65340.0,
+"colors": 2819,
+"rough": 0.033,
+"jagged": false
+},
+"wb-p010-10": {
+"speck": 0.0,
+"noise": 112498.0,
+"colors": 1552,
+"rough": 0.104,
+"jagged": false
+},
+"wb-p010-11": {
+"speck": 20.14,
+"noise": 76495.0,
+"colors": 1898,
+"rough": 0.153,
+"jagged": true
+},
+"wb-p010-12": {
+"speck": 0.0,
+"noise": 107516.0,
+"colors": 310,
+"rough": 0.173,
+"jagged": true
+},
+"wb-p010-13": {
+"speck": 0.0,
+"noise": 37504.0,
+"colors": 462,
+"rough": 0.022,
+"jagged": false
+},
+"wb-p010-14": {
+"speck": 0.89,
+"noise": 59407.0,
+"colors": 1254,
+"rough": 0.047,
+"jagged": false
+},
+"wb-p010-15": {
+"speck": 0.7,
+"noise": 121088.0,
+"colors": 1548,
+"rough": 0.074,
+"jagged": false
+},
+"wb-p010-16": {
+"speck": 0.0,
+"noise": 73144.0,
+"colors": 2133,
+"rough": 0.079,
+"jagged": false
+},
+"wb-p011-01": {
+"speck": 3.65,
+"noise": 191524.0,
+"colors": 2149,
+"rough": 0.089,
+"jagged": true
+},
+"wb-p011-02": {
+"speck": 0.0,
+"noise": 90595.0,
+"colors": 1546,
+"rough": 0.088,
+"jagged": false
+},
+"wb-p011-03": {
+"speck": 0.0,
+"noise": 73880.0,
+"colors": 1031,
+"rough": 0.002,
+"jagged": false
+},
+"wb-p011-04": {
+"speck": 0.0,
+"noise": 134990.0,
+"colors": 2038,
+"rough": 0.081,
+"jagged": false
+},
+"wb-p011-05": {
+"speck": 0.0,
+"noise": 137441.0,
+"colors": 2246,
+"rough": 0.068,
+"jagged": false
+},
+"wb-p011-06": {
+"speck": 0.0,
+"noise": 73252.0,
+"colors": 528,
+"rough": 0.088,
+"jagged": false
+},
+"wb-p011-07": {
+"speck": 20.14,
+"noise": 76495.0,
+"colors": 1898,
+"rough": 0.153,
+"jagged": true
+},
+"wb-p011-08": {
+"speck": 0.0,
+"noise": 95601.0,
+"colors": 1346,
+"rough": 0.085,
+"jagged": false
+},
+"wb-p013-01": {
+"speck": 1.33,
+"noise": 123335.0,
+"colors": 1286,
+"rough": 0.135,
+"jagged": false
+},
+"wb-p013-02": {
+"speck": 0.0,
+"noise": 126358.0,
+"colors": 1154,
+"rough": 0.06,
+"jagged": false
+},
+"wb-p013-03": {
+"speck": 0.0,
+"noise": 161419.0,
+"colors": 1155,
+"rough": 0.127,
+"jagged": false
+},
+"wb-p013-04": {
+"speck": 0.0,
+"noise": 218027.0,
+"colors": 4209,
+"rough": 0.053,
+"jagged": false
+},
+"wb-p013-05": {
+"speck": 3.65,
+"noise": 191524.0,
+"colors": 2149,
+"rough": 0.089,
+"jagged": true
+},
+"wb-p013-06": {
+"speck": 0.0,
+"noise": 133908.0,
+"colors": 1130,
+"rough": 0.097,
+"jagged": false
+},
+"wb-p013-07": {
+"speck": 3.42,
+"noise": 73958.0,
+"colors": 336,
+"rough": 0.128,
+"jagged": true
+},
+"wb-p013-08": {
+"speck": 1.88,
+"noise": 156184.0,
+"colors": 415,
+"rough": 0.088,
+"jagged": false
+},
+"wb-p013-09": {
+"speck": 14.58,
+"noise": 61696.0,
+"colors": 760,
+"rough": 0.162,
+"jagged": true
+},
+"wb-p013-10": {
+"speck": 1.03,
+"noise": 91446.0,
+"colors": 2295,
+"rough": 0.09,
+"jagged": false
+},
+"wb-p013-11": {
+"speck": 0.0,
+"noise": 73144.0,
+"colors": 2133,
+"rough": 0.079,
+"jagged": false
+},
+"wb-p013-12": {
+"speck": 0.0,
+"noise": 94016.0,
+"colors": 1841,
+"rough": 0.08,
+"jagged": false
+},
+"wb-p013-13": {
+"speck": 0.0,
+"noise": 15631.0,
+"colors": 447,
+"rough": 0.054,
+"jagged": false
+},
+"wb-p013-14": {
+"speck": 0.0,
+"noise": 0.0,
+"colors": 6,
+"rough": 0.004,
+"jagged": false
+},
+"wb-p013-15": {
+"speck": 13.84,
+"noise": 107562.0,
+"colors": 2023,
+"rough": 0.171,
+"jagged": true
+},
+"wb-p013-16": {
+"speck": 0.0,
+"noise": 61760.0,
+"colors": 1073,
+"rough": 0.06,
+"jagged": false
+},
+"wb-p014-01": {
+"speck": 1.03,
+"noise": 91446.0,
+"colors": 2295,
+"rough": 0.09,
+"jagged": false
+},
+"wb-p014-02": {
+"speck": 3.65,
+"noise": 191524.0,
+"colors": 2149,
+"rough": 0.089,
+"jagged": true
+},
+"wb-p014-03": {
+"speck": 1.33,
+"noise": 123335.0,
+"colors": 1286,
+"rough": 0.135,
+"jagged": false
+},
+"wb-p014-04": {
+"speck": 0.0,
+"noise": 0.0,
+"colors": 6,
+"rough": 0.004,
+"jagged": false
+},
+"wb-p014-05": {
+"speck": 0.0,
+"noise": 133908.0,
+"colors": 1130,
+"rough": 0.097,
+"jagged": false
+},
+"wb-p014-06": {
+"speck": 0.0,
+"noise": 15631.0,
+"colors": 447,
+"rough": 0.054,
+"jagged": false
+},
+"wb-p014-07": {
+"speck": 0.0,
+"noise": 161419.0,
+"colors": 1155,
+"rough": 0.127,
+"jagged": false
+},
+"wb-p014-08": {
+"speck": 0.0,
+"noise": 73880.0,
+"colors": 1031,
+"rough": 0.002,
+"jagged": false
+},
+"wb-p016-01": {
+"speck": 0.0,
+"noise": 112498.0,
+"colors": 1552,
+"rough": 0.104,
+"jagged": false
+},
+"wb-p016-02": {
+"speck": 0.0,
+"noise": 98434.0,
+"colors": 1809,
+"rough": 0.095,
+"jagged": false
+},
+"wb-p016-03": {
+"speck": 0.0,
+"noise": 126358.0,
+"colors": 1154,
+"rough": 0.06,
+"jagged": false
+},
+"wb-p016-04": {
+"speck": 0.0,
+"noise": 15631.0,
+"colors": 447,
+"rough": 0.054,
+"jagged": false
+},
+"wb-p016-05": {
+"speck": 0.0,
+"noise": 117241.0,
+"colors": 454,
+"rough": 0.102,
+"jagged": false
+},
+"wb-p016-06": {
+"speck": 20.14,
+"noise": 76495.0,
+"colors": 1898,
+"rough": 0.153,
+"jagged": true
+},
+"wb-p016-07": {
+"speck": 0.89,
+"noise": 59407.0,
+"colors": 1254,
+"rough": 0.047,
+"jagged": false
+},
+"wb-p016-08": {
+"speck": 0.0,
+"noise": 90595.0,
+"colors": 1546,
+"rough": 0.088,
+"jagged": false
+},
+"wb-p016-09": {
+"speck": 7.28,
+"noise": 78800.0,
+"colors": 781,
+"rough": 0.182,
+"jagged": true
+},
+"wb-p016-10": {
+"speck": 0.0,
+"noise": 73144.0,
+"colors": 2133,
+"rough": 0.079,
+"jagged": false
+},
+"wb-p016-11": {
+"speck": 3.65,
+"noise": 191524.0,
+"colors": 2149,
+"rough": 0.089,
+"jagged": true
+},
+"wb-p016-12": {
+"speck": 0.0,
+"noise": 107516.0,
+"colors": 310,
+"rough": 0.173,
+"jagged": true
+},
+"wb-p016-13": {
+"speck": 0.0,
+"noise": 73880.0,
+"colors": 1031,
+"rough": 0.002,
+"jagged": false
+},
+"wb-p016-14": {
+"speck": 0.89,
+"noise": 59407.0,
+"colors": 1254,
+"rough": 0.047,
+"jagged": false
+},
+"wb-p016-15": {
+"speck": 13.84,
+"noise": 107562.0,
+"colors": 2023,
+"rough": 0.171,
+"jagged": true
+},
+"wb-p016-16": {
+"speck": 0.0,
+"noise": 73144.0,
+"colors": 2133,
+"rough": 0.079,
+"jagged": false
+},
+"wb-p017-01": {
+"speck": 0.89,
+"noise": 59407.0,
+"colors": 1254,
+"rough": 0.047,
+"jagged": false
+},
+"wb-p017-02": {
+"speck": 0.0,
+"noise": 73144.0,
+"colors": 2133,
+"rough": 0.079,
+"jagged": false
+},
+"wb-p017-03": {
+"speck": 3.65,
+"noise": 191524.0,
+"colors": 2149,
+"rough": 0.089,
+"jagged": true
+},
+"wb-p017-04": {
+"speck": 0.0,
+"noise": 117241.0,
+"colors": 454,
+"rough": 0.102,
+"jagged": false
+},
+"wb-p017-05": {
+"speck": 0.0,
+"noise": 112498.0,
+"colors": 1552,
+"rough": 0.104,
+"jagged": false
+},
+"wb-p017-06": {
+"speck": 0.0,
+"noise": 15631.0,
+"colors": 447,
+"rough": 0.054,
+"jagged": false
+},
+"wb-p017-07": {
+"speck": 20.14,
+"noise": 76495.0,
+"colors": 1898,
+"rough": 0.153,
+"jagged": true
+},
+"wb-p017-08": {
+"speck": 1.03,
+"noise": 91446.0,
+"colors": 2295,
+"rough": 0.09,
+"jagged": false
+}
+}
