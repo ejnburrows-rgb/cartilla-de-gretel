@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { motion } from "framer-motion";
-import { Check, Star, Sparkles } from "lucide-react";
+import { Star, Sparkles } from "lucide-react";
 import { feelBus } from "@/lib/feel-bus";
 import { STICKERS, type Sticker } from "@/lib/rewards";
 import { saveEarnedSticker, getEarnedStickers } from "@/lib/rewards";
