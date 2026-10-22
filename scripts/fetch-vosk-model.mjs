@@ -27,10 +27,23 @@
 
 import { spawnSync } from "node:child_process";
 import { createHash } from "node:crypto";
-import { mkdirSync, rmSync, statSync, readFileSync, writeFileSync, renameSync } from "node:fs";
+import { mkdirSync, rmSync, statSync, readFileSync, writeFileSync, renameSync, existsSync } from "node:fs";
 import { tmpdir } from "node:os";
 import path from "node:path";
 import { fileURLToPath } from "node:url";
+
+if (process.platform === "win32") {
+  const candidates = [
+    path.join(process.env.LOCALAPPDATA ?? "", "Programs", "Git", "usr", "bin"),
+    "C:\\Program Files\\Git\\usr\\bin",
+  ];
+  for (const c of candidates) {
+    if (existsSync(c) && !process.env.PATH?.includes(c)) {
+      process.env.PATH = `${c}${path.delimiter}${process.env.PATH ?? ""}`;
+      break;
+    }
+  }
+}
 
 const MODEL_NAME = "vosk-model-small-es-0.42";
 const MODEL_URL = `https://alphacephei.com/vosk/models/${MODEL_NAME}.zip`;
@@ -131,6 +144,7 @@ try {
   const staged = `${OUT_PATH}.${process.pid}.partial`;
   try {
     run("tar", [
+      ...(process.platform === "win32" ? ["--force-local"] : []),
       "--sort=name",
       "--mtime=@0",
       "--owner=0",

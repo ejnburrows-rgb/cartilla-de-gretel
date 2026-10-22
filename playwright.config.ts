@@ -107,6 +107,7 @@ export default defineConfig({
       command: envCommand(
         {
           VITE_ALLOW_DEMO_MODE: "true",
+          VITE_CACHE_DIR: "node_modules/.vite-5173",
           VITE_SUPABASE_URL: "http://127.0.0.1:54321",
           VITE_SUPABASE_PUBLISHABLE_KEY: "sb_publishable_e2e_not_a_real_key",
         },
@@ -125,6 +126,7 @@ export default defineConfig({
       command: envCommand(
         {
           VITE_CRM_REVIEW: "false",
+          VITE_CACHE_DIR: "node_modules/.vite-5174",
           VITE_SUPABASE_URL: "http://127.0.0.1:54321",
           VITE_SUPABASE_PUBLISHABLE_KEY: "sb_publishable_e2e_not_a_real_key",
         },
@@ -142,6 +144,7 @@ export default defineConfig({
       command: envCommand(
         {
           VITE_TUTOR_EARS: "stub",
+          VITE_CACHE_DIR: "node_modules/.vite-5175",
           VITE_SUPABASE_URL: "http://127.0.0.1:54321",
           VITE_SUPABASE_PUBLISHABLE_KEY: "sb_publishable_e2e_not_a_real_key",
         },

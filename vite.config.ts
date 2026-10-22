@@ -57,6 +57,7 @@ function compressPlugin() {
 const tutorId = tutorBuildId();
 
 export default defineConfig(({ mode }) => ({
+  ...(process.env.VITE_CACHE_DIR ? { cacheDir: process.env.VITE_CACHE_DIR } : {}),
   define: {
     "import.meta.env.VITE_TUTOR_BUILD_ID": JSON.stringify(tutorId),
     // Open access (no login) is the shipped product decision, so this stays
