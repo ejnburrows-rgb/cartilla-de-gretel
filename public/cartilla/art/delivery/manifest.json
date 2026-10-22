@@ -2939,12 +2939,12 @@
       "sourceAsset": null,
       "canonicalSrc": "/cartilla/art/faithful/vocal-i/igual.webp",
       "canonical": {
-        "width": 870,
-        "height": 739,
-        "bytes": 22384,
+        "width": 856,
+        "height": 482,
+        "bytes": 1368,
         "format": "webp",
         "hasAlpha": true,
-        "sha256": "ecc4b77ef4001e0a956c74e97bdf1ca4d7a330c17a0e6ba271077735bc472fc1"
+        "sha256": "1404f51a491aff775d91ee4df54069776ab196df6d983ce416a30d480ea99d42"
       },
       "cropBox": null,
       "provenanceStatus": "PROVENANCE-UNKNOWN",
@@ -2983,15 +2983,15 @@
           "widthTier": 384,
           "path": "/cartilla/art/delivery/faithful/384/vocal-i/igual.webp",
           "width": 384,
-          "height": 326,
-          "bytes": 15082
+          "height": 216,
+          "bytes": 928
         },
         {
           "widthTier": 768,
           "path": "/cartilla/art/delivery/faithful/768/vocal-i/igual.webp",
           "width": 768,
-          "height": 652,
-          "bytes": 34306
+          "height": 432,
+          "bytes": 1814
         }
       ],
       "warnings": [],
