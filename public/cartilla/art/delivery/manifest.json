@@ -421,7 +421,7 @@
     },
     {
       "slug": "iglu",
-      "word": "iglú",
+      "word": "igl\u00fa",
       "lessonNumber": null,
       "pageNumber": null,
       "sourcePage": 7,
@@ -785,7 +785,7 @@
     },
     {
       "slug": "arana",
-      "word": "araña",
+      "word": "ara\u00f1a",
       "lessonNumber": null,
       "pageNumber": null,
       "sourcePage": "a-page-4.jpg",
@@ -1731,7 +1731,7 @@
     },
     {
       "slug": "avion",
-      "word": "avión",
+      "word": "avi\u00f3n",
       "lessonNumber": null,
       "pageNumber": null,
       "sourcePage": "a-page-6.jpg",
@@ -1877,7 +1877,7 @@
     },
     {
       "slug": "iman",
-      "word": "imán",
+      "word": "im\u00e1n",
       "lessonNumber": null,
       "pageNumber": null,
       "sourcePage": "i-page-6.jpg",
@@ -2438,19 +2438,19 @@
     },
     {
       "slug": "pajaro",
-      "word": "pájaro",
+      "word": "p\u00e1jaro",
       "lessonNumber": null,
       "pageNumber": null,
       "sourcePage": "page-003.jpg",
       "sourceAsset": "page-003.jpg",
       "canonicalSrc": "/cartilla/art/faithful/leccion-1/pajaro.webp",
       "canonical": {
-        "width": 870,
-        "height": 557,
-        "bytes": 33916,
+        "width": 613,
+        "height": 522,
+        "bytes": 31216,
         "format": "webp",
         "hasAlpha": true,
-        "sha256": "fcfc800fc3bfbcb675ede388cdbc88eca15253d9e1d0775020e8ebdf9883ed7c"
+        "sha256": "c50536c816edb2f9e5cdd188240b42028a7df5c7af457de0cb08606c62e5bdef"
       },
       "cropBox": [
         530,
@@ -2494,15 +2494,15 @@
           "widthTier": 384,
           "path": "/cartilla/art/delivery/faithful/384/leccion-1/pajaro.webp",
           "width": 384,
-          "height": 241,
-          "bytes": 11448
+          "height": 327,
+          "bytes": 19626
         },
         {
           "widthTier": 768,
           "path": "/cartilla/art/delivery/faithful/768/leccion-1/pajaro.webp",
           "width": 768,
-          "height": 482,
-          "bytes": 29452
+          "height": 654,
+          "bytes": 47178
         }
       ],
       "warnings": [],
@@ -2654,19 +2654,19 @@
     },
     {
       "slug": "maiz",
-      "word": "maíz",
+      "word": "ma\u00edz",
       "lessonNumber": null,
       "pageNumber": null,
       "sourcePage": "a-page-4.jpg",
       "sourceAsset": "a-page-4.jpg",
       "canonicalSrc": "/cartilla/art/faithful/leccion-1/maiz.webp",
       "canonical": {
-        "width": 799,
-        "height": 870,
-        "bytes": 114270,
+        "width": 757,
+        "height": 765,
+        "bytes": 136056,
         "format": "webp",
         "hasAlpha": true,
-        "sha256": "3ba3071ba13ad179b7e72c5d01631efe5600e2311f8b052675a8443c17e33d72"
+        "sha256": "a7f611e9265bc9841b623d9e18ef8e4e18e5d4fd0a5934daf17d80961e849b0c"
       },
       "cropBox": [
         850,
@@ -2710,15 +2710,15 @@
           "widthTier": 384,
           "path": "/cartilla/art/delivery/faithful/384/leccion-1/maiz.webp",
           "width": 384,
-          "height": 419,
-          "bytes": 42438
+          "height": 388,
+          "bytes": 52646
         },
         {
           "widthTier": 768,
           "path": "/cartilla/art/delivery/faithful/768/leccion-1/maiz.webp",
           "width": 768,
-          "height": 839,
-          "bytes": 107464
+          "height": 776,
+          "bytes": 145222
         }
       ],
       "warnings": [],
@@ -2726,7 +2726,7 @@
     },
     {
       "slug": "arbol",
-      "word": "árbol",
+      "word": "\u00e1rbol",
       "lessonNumber": null,
       "pageNumber": null,
       "sourcePage": "a-page-5.jpg",
@@ -2940,11 +2940,11 @@
       "canonicalSrc": "/cartilla/art/faithful/vocal-i/igual.webp",
       "canonical": {
         "width": 870,
-        "height": 687,
-        "bytes": 12420,
+        "height": 739,
+        "bytes": 22384,
         "format": "webp",
         "hasAlpha": true,
-        "sha256": "22dd1c51277b2ae1a236677758a836567626f4b84660c45dee5deb6c19f3fb4a"
+        "sha256": "ecc4b77ef4001e0a956c74e97bdf1ca4d7a330c17a0e6ba271077735bc472fc1"
       },
       "cropBox": null,
       "provenanceStatus": "PROVENANCE-UNKNOWN",
@@ -2983,15 +2983,15 @@
           "widthTier": 384,
           "path": "/cartilla/art/delivery/faithful/384/vocal-i/igual.webp",
           "width": 384,
-          "height": 300,
-          "bytes": 4906
+          "height": 326,
+          "bytes": 15082
         },
         {
           "widthTier": 768,
           "path": "/cartilla/art/delivery/faithful/768/vocal-i/igual.webp",
           "width": 768,
-          "height": 601,
-          "bytes": 11648
+          "height": 652,
+          "bytes": 34306
         }
       ],
       "warnings": [],
@@ -3136,13 +3136,13 @@
       "errors": []
     },
     {
-      "slug": "uña",
-      "word": "uña",
+      "slug": "u\u00f1a",
+      "word": "u\u00f1a",
       "lessonNumber": null,
       "pageNumber": null,
       "sourcePage": "u-page-17.jpg",
       "sourceAsset": "u-page-17.jpg",
-      "canonicalSrc": "/cartilla/art/faithful/vocal-u/uña.webp",
+      "canonicalSrc": "/cartilla/art/faithful/vocal-u/u\u00f1a.webp",
       "canonical": {
         "width": 799,
         "height": 870,
@@ -3191,14 +3191,14 @@
       "derivatives": [
         {
           "widthTier": 384,
-          "path": "/cartilla/art/delivery/faithful/384/vocal-u/uña.webp",
+          "path": "/cartilla/art/delivery/faithful/384/vocal-u/u\u00f1a.webp",
           "width": 384,
           "height": 419,
           "bytes": 15610
         },
         {
           "widthTier": 768,
-          "path": "/cartilla/art/delivery/faithful/768/vocal-u/uña.webp",
+          "path": "/cartilla/art/delivery/faithful/768/vocal-u/u\u00f1a.webp",
           "width": 768,
           "height": 839,
           "bytes": 36936
@@ -3549,7 +3549,7 @@
     },
     {
       "slug": "mama",
-      "word": "mamá",
+      "word": "mam\u00e1",
       "lessonNumber": 7,
       "pageNumber": null,
       "sourcePage": "m-page-10.jpg",
@@ -3695,7 +3695,7 @@
     },
     {
       "slug": "papa",
-      "word": "papá",
+      "word": "pap\u00e1",
       "lessonNumber": 8,
       "pageNumber": null,
       "sourcePage": "p-page-11.jpg",
@@ -4130,7 +4130,7 @@
     },
     {
       "slug": "nino",
-      "word": "niño",
+      "word": "ni\u00f1o",
       "lessonNumber": 14,
       "pageNumber": null,
       "sourcePage": 28,
@@ -4205,7 +4205,7 @@
     },
     {
       "slug": "bebe",
-      "word": "bebé",
+      "word": "beb\u00e9",
       "lessonNumber": 15,
       "pageNumber": null,
       "sourcePage": "b-page-31.jpg",
@@ -5359,7 +5359,7 @@
     },
     {
       "slug": "aguila",
-      "word": "águila",
+      "word": "\u00e1guila",
       "lessonNumber": 1,
       "pageNumber": 16,
       "sourcePage": "u-page-16.jpg",
@@ -6367,7 +6367,7 @@
     },
     {
       "slug": "jesus",
-      "word": "Jesús",
+      "word": "Jes\u00fas",
       "lessonNumber": 21,
       "pageNumber": null,
       "sourcePage": "j-page-49.jpg",
@@ -6801,7 +6801,7 @@
     },
     {
       "slug": "mayuscula",
-      "word": "mayúscula",
+      "word": "may\u00fascula",
       "lessonNumber": 23,
       "pageNumber": null,
       "sourcePage": "y-page-55.jpg",
@@ -6945,7 +6945,7 @@
     },
     {
       "slug": "zepelin",
-      "word": "zepelín",
+      "word": "zepel\u00edn",
       "lessonNumber": 24,
       "pageNumber": null,
       "sourcePage": "z-page-58.jpg",
@@ -7097,11 +7097,11 @@
       "canonicalSrc": "/cartilla/art/faithful/leccion-1/carro.webp",
       "canonical": {
         "width": 870,
-        "height": 597,
-        "bytes": 193320,
+        "height": 870,
+        "bytes": 246238,
         "format": "webp",
         "hasAlpha": true,
-        "sha256": "9a6c158c497843da73d981cd017761434029df313524404d7bd59683ae10e140"
+        "sha256": "078775360dc035d2ff50637c78466e484df4f99e83cbc6ff190abc362eb7af4f"
       },
       "cropBox": null,
       "provenanceStatus": "PASS-VERIFIED-2026-QA",
@@ -7140,15 +7140,15 @@
           "widthTier": 384,
           "path": "/cartilla/art/delivery/faithful/384/leccion-1/carro.webp",
           "width": 384,
-          "height": 259,
-          "bytes": 48730
+          "height": 384,
+          "bytes": 71252
         },
         {
           "widthTier": 768,
           "path": "/cartilla/art/delivery/faithful/768/leccion-1/carro.webp",
           "width": 768,
-          "height": 518,
-          "bytes": 152800
+          "height": 768,
+          "bytes": 209322
         }
       ],
       "warnings": [],
@@ -8199,7 +8199,7 @@
     "nativeCrops": [
       {
         "page": 3,
-        "word": "Ilustración de la página 3",
+        "word": "Ilustraci\u00f3n de la p\u00e1gina 3",
         "src": "/cartilla/art/optimized/flipchart-native/p003-scene.png",
         "width": 539,
         "height": 539,
@@ -8208,7 +8208,7 @@
       },
       {
         "page": 3,
-        "word": "avión",
+        "word": "avi\u00f3n",
         "src": "/cartilla/art/optimized/flipchart-native/p003-avion.png",
         "width": 320,
         "height": 320,
@@ -8226,7 +8226,7 @@
       },
       {
         "page": 3,
-        "word": "imán",
+        "word": "im\u00e1n",
         "src": "/cartilla/art/optimized/flipchart-native/p003-iman.png",
         "width": 320,
         "height": 320,
@@ -8244,7 +8244,7 @@
       },
       {
         "page": 3,
-        "word": "uña",
+        "word": "u\u00f1a",
         "src": "/cartilla/art/optimized/flipchart-native/p003-una.png",
         "width": 320,
         "height": 320,
@@ -8253,7 +8253,7 @@
       },
       {
         "page": 4,
-        "word": "Ilustración de la página 4",
+        "word": "Ilustraci\u00f3n de la p\u00e1gina 4",
         "src": "/cartilla/art/optimized/flipchart-native/p004-scene.png",
         "width": 560,
         "height": 560,
@@ -8316,7 +8316,7 @@
       },
       {
         "page": 5,
-        "word": "Ilustración de la página 5",
+        "word": "Ilustraci\u00f3n de la p\u00e1gina 5",
         "src": "/cartilla/art/optimized/flipchart-native/p005-scene.png",
         "width": 556,
         "height": 556,
@@ -8343,7 +8343,7 @@
       },
       {
         "page": 5,
-        "word": "araña",
+        "word": "ara\u00f1a",
         "src": "/cartilla/art/optimized/flipchart-native/p005-arana.png",
         "width": 320,
         "height": 320,
@@ -8379,7 +8379,7 @@
       },
       {
         "page": 6,
-        "word": "Ilustración de la página 6",
+        "word": "Ilustraci\u00f3n de la p\u00e1gina 6",
         "src": "/cartilla/art/optimized/flipchart-native/p006-scene.png",
         "width": 560,
         "height": 560,
@@ -8442,7 +8442,7 @@
       },
       {
         "page": 7,
-        "word": "Ilustración de la página 7",
+        "word": "Ilustraci\u00f3n de la p\u00e1gina 7",
         "src": "/cartilla/art/optimized/flipchart-native/p007-scene.png",
         "width": 560,
         "height": 560,
@@ -8451,7 +8451,7 @@
       },
       {
         "page": 7,
-        "word": "imán",
+        "word": "im\u00e1n",
         "src": "/cartilla/art/optimized/flipchart-native/p007-iman.png",
         "width": 320,
         "height": 320,
@@ -8460,7 +8460,7 @@
       },
       {
         "page": 7,
-        "word": "iglú",
+        "word": "igl\u00fa",
         "src": "/cartilla/art/optimized/flipchart-native/p007-iglu.png",
         "width": 320,
         "height": 320,
@@ -8505,7 +8505,7 @@
       },
       {
         "page": 8,
-        "word": "Ilustración de la página 8",
+        "word": "Ilustraci\u00f3n de la p\u00e1gina 8",
         "src": "/cartilla/art/optimized/flipchart-native/p008-scene.png",
         "width": 480,
         "height": 480,
@@ -8568,7 +8568,7 @@
       },
       {
         "page": 9,
-        "word": "Ilustración de la página 9",
+        "word": "Ilustraci\u00f3n de la p\u00e1gina 9",
         "src": "/cartilla/art/optimized/flipchart-native/p009-scene.png",
         "width": 530,
         "height": 530,
@@ -8577,7 +8577,7 @@
       },
       {
         "page": 9,
-        "word": "mamá",
+        "word": "mam\u00e1",
         "src": "/cartilla/art/optimized/flipchart-native/p009-mama.png",
         "width": 344,
         "height": 344,
@@ -8622,7 +8622,7 @@
       },
       {
         "page": 11,
-        "word": "Ilustración de la página 11",
+        "word": "Ilustraci\u00f3n de la p\u00e1gina 11",
         "src": "/cartilla/art/optimized/flipchart-native/p011-scene.png",
         "width": 630,
         "height": 630,
@@ -8631,7 +8631,7 @@
       },
       {
         "page": 12,
-        "word": "Ilustración de la página 12",
+        "word": "Ilustraci\u00f3n de la p\u00e1gina 12",
         "src": "/cartilla/art/optimized/flipchart-native/p012-scene.png",
         "width": 560,
         "height": 560,
@@ -8640,7 +8640,7 @@
       },
       {
         "page": 12,
-        "word": "papá",
+        "word": "pap\u00e1",
         "src": "/cartilla/art/optimized/flipchart-native/p012-papa.png",
         "width": 320,
         "height": 320,
@@ -8685,7 +8685,7 @@
       },
       {
         "page": 14,
-        "word": "Ilustración de la página 14",
+        "word": "Ilustraci\u00f3n de la p\u00e1gina 14",
         "src": "/cartilla/art/optimized/flipchart-native/p014-scene.png",
         "width": 654,
         "height": 654,
@@ -8694,7 +8694,7 @@
       },
       {
         "page": 15,
-        "word": "Ilustración de la página 15",
+        "word": "Ilustraci\u00f3n de la p\u00e1gina 15",
         "src": "/cartilla/art/optimized/flipchart-native/p015-scene.png",
         "width": 560,
         "height": 560,
@@ -8748,7 +8748,7 @@
       },
       {
         "page": 17,
-        "word": "Ilustración de la página 17",
+        "word": "Ilustraci\u00f3n de la p\u00e1gina 17",
         "src": "/cartilla/art/optimized/flipchart-native/p017-scene.png",
         "width": 645,
         "height": 645,
@@ -8757,7 +8757,7 @@
       },
       {
         "page": 18,
-        "word": "Ilustración de la página 18",
+        "word": "Ilustraci\u00f3n de la p\u00e1gina 18",
         "src": "/cartilla/art/optimized/flipchart-native/p018-scene.png",
         "width": 558,
         "height": 558,
@@ -8811,7 +8811,7 @@
       },
       {
         "page": 20,
-        "word": "Ilustración de la página 20",
+        "word": "Ilustraci\u00f3n de la p\u00e1gina 20",
         "src": "/cartilla/art/optimized/flipchart-native/p020-scene.png",
         "width": 658,
         "height": 658,
@@ -8820,7 +8820,7 @@
       },
       {
         "page": 21,
-        "word": "Ilustración de la página 21",
+        "word": "Ilustraci\u00f3n de la p\u00e1gina 21",
         "src": "/cartilla/art/optimized/flipchart-native/p021-scene.png",
         "width": 559,
         "height": 559,
@@ -8874,7 +8874,7 @@
       },
       {
         "page": 23,
-        "word": "Ilustración de la página 23",
+        "word": "Ilustraci\u00f3n de la p\u00e1gina 23",
         "src": "/cartilla/art/optimized/flipchart-native/p023-scene.png",
         "width": 621,
         "height": 621,
@@ -8883,7 +8883,7 @@
       },
       {
         "page": 24,
-        "word": "Ilustración de la página 24",
+        "word": "Ilustraci\u00f3n de la p\u00e1gina 24",
         "src": "/cartilla/art/optimized/flipchart-native/p024-scene.png",
         "width": 549,
         "height": 549,
@@ -8937,7 +8937,7 @@
       },
       {
         "page": 26,
-        "word": "Ilustración de la página 26",
+        "word": "Ilustraci\u00f3n de la p\u00e1gina 26",
         "src": "/cartilla/art/optimized/flipchart-native/p026-scene.png",
         "width": 638,
         "height": 638,
@@ -8946,7 +8946,7 @@
       },
       {
         "page": 27,
-        "word": "Ilustración de la página 27",
+        "word": "Ilustraci\u00f3n de la p\u00e1gina 27",
         "src": "/cartilla/art/optimized/flipchart-native/p027-scene.png",
         "width": 560,
         "height": 560,
@@ -9000,7 +9000,7 @@
       },
       {
         "page": 29,
-        "word": "Ilustración de la página 29",
+        "word": "Ilustraci\u00f3n de la p\u00e1gina 29",
         "src": "/cartilla/art/optimized/flipchart-native/p029-scene.png",
         "width": 665,
         "height": 665,
@@ -9009,7 +9009,7 @@
       },
       {
         "page": 30,
-        "word": "Ilustración de la página 30",
+        "word": "Ilustraci\u00f3n de la p\u00e1gina 30",
         "src": "/cartilla/art/optimized/flipchart-native/p030-scene.png",
         "width": 545,
         "height": 545,
@@ -9018,7 +9018,7 @@
       },
       {
         "page": 30,
-        "word": "piñata",
+        "word": "pi\u00f1ata",
         "src": "/cartilla/art/optimized/flipchart-native/p030-pinata.png",
         "width": 320,
         "height": 320,
@@ -9027,7 +9027,7 @@
       },
       {
         "page": 30,
-        "word": "Ñuno",
+        "word": "\u00d1uno",
         "src": "/cartilla/art/optimized/flipchart-native/p030-nuno.png",
         "width": 320,
         "height": 320,
@@ -9036,7 +9036,7 @@
       },
       {
         "page": 30,
-        "word": "niñito",
+        "word": "ni\u00f1ito",
         "src": "/cartilla/art/optimized/flipchart-native/p030-ninito.png",
         "width": 320,
         "height": 320,
@@ -9045,7 +9045,7 @@
       },
       {
         "page": 30,
-        "word": "moño",
+        "word": "mo\u00f1o",
         "src": "/cartilla/art/optimized/flipchart-native/p030-mono.png",
         "width": 320,
         "height": 320,
@@ -9054,7 +9054,7 @@
       },
       {
         "page": 30,
-        "word": "Meñe",
+        "word": "Me\u00f1e",
         "src": "/cartilla/art/optimized/flipchart-native/p030-mene.png",
         "width": 320,
         "height": 320,
@@ -9063,7 +9063,7 @@
       },
       {
         "page": 32,
-        "word": "Ilustración de la página 32",
+        "word": "Ilustraci\u00f3n de la p\u00e1gina 32",
         "src": "/cartilla/art/optimized/flipchart-native/p032-scene.png",
         "width": 682,
         "height": 682,
@@ -9072,7 +9072,7 @@
       },
       {
         "page": 33,
-        "word": "Ilustración de la página 33",
+        "word": "Ilustraci\u00f3n de la p\u00e1gina 33",
         "src": "/cartilla/art/optimized/flipchart-native/p033-scene.png",
         "width": 549,
         "height": 549,
@@ -9126,7 +9126,7 @@
       },
       {
         "page": 35,
-        "word": "Ilustración de la página 35",
+        "word": "Ilustraci\u00f3n de la p\u00e1gina 35",
         "src": "/cartilla/art/optimized/flipchart-native/p035-scene.png",
         "width": 666,
         "height": 666,
@@ -9135,7 +9135,7 @@
       },
       {
         "page": 36,
-        "word": "Ilustración de la página 36",
+        "word": "Ilustraci\u00f3n de la p\u00e1gina 36",
         "src": "/cartilla/art/optimized/flipchart-native/p036-scene.png",
         "width": 526,
         "height": 526,
@@ -9189,7 +9189,7 @@
       },
       {
         "page": 38,
-        "word": "Ilustración de la página 38",
+        "word": "Ilustraci\u00f3n de la p\u00e1gina 38",
         "src": "/cartilla/art/optimized/flipchart-native/p038-scene.png",
         "width": 636,
         "height": 636,
@@ -9198,7 +9198,7 @@
       },
       {
         "page": 39,
-        "word": "Ilustración de la página 39",
+        "word": "Ilustraci\u00f3n de la p\u00e1gina 39",
         "src": "/cartilla/art/optimized/flipchart-native/p039-scene.png",
         "width": 519,
         "height": 519,
@@ -9252,7 +9252,7 @@
       },
       {
         "page": 41,
-        "word": "Ilustración de la página 41",
+        "word": "Ilustraci\u00f3n de la p\u00e1gina 41",
         "src": "/cartilla/art/optimized/flipchart-native/p041-scene.png",
         "width": 586,
         "height": 586,
@@ -9261,7 +9261,7 @@
       },
       {
         "page": 42,
-        "word": "Ilustración de la página 42",
+        "word": "Ilustraci\u00f3n de la p\u00e1gina 42",
         "src": "/cartilla/art/optimized/flipchart-native/p042-scene.png",
         "width": 529,
         "height": 529,
@@ -9315,7 +9315,7 @@
       },
       {
         "page": 44,
-        "word": "Ilustración de la página 44",
+        "word": "Ilustraci\u00f3n de la p\u00e1gina 44",
         "src": "/cartilla/art/optimized/flipchart-native/p044-scene.png",
         "width": 653,
         "height": 653,
@@ -9324,7 +9324,7 @@
       },
       {
         "page": 45,
-        "word": "Ilustración de la página 45",
+        "word": "Ilustraci\u00f3n de la p\u00e1gina 45",
         "src": "/cartilla/art/optimized/flipchart-native/p045-scene.png",
         "width": 557,
         "height": 557,
@@ -9378,7 +9378,7 @@
       },
       {
         "page": 47,
-        "word": "Ilustración de la página 47",
+        "word": "Ilustraci\u00f3n de la p\u00e1gina 47",
         "src": "/cartilla/art/optimized/flipchart-native/p047-scene.png",
         "width": 667,
         "height": 667,
@@ -9387,7 +9387,7 @@
       },
       {
         "page": 48,
-        "word": "Ilustración de la página 48",
+        "word": "Ilustraci\u00f3n de la p\u00e1gina 48",
         "src": "/cartilla/art/optimized/flipchart-native/p048-scene.png",
         "width": 552,
         "height": 552,
@@ -9441,7 +9441,7 @@
       },
       {
         "page": 50,
-        "word": "Ilustración de la página 50",
+        "word": "Ilustraci\u00f3n de la p\u00e1gina 50",
         "src": "/cartilla/art/optimized/flipchart-native/p050-scene.png",
         "width": 644,
         "height": 644,
@@ -9450,7 +9450,7 @@
       },
       {
         "page": 51,
-        "word": "Ilustración de la página 51",
+        "word": "Ilustraci\u00f3n de la p\u00e1gina 51",
         "src": "/cartilla/art/optimized/flipchart-native/p051-scene.png",
         "width": 537,
         "height": 537,
@@ -9477,7 +9477,7 @@
       },
       {
         "page": 51,
-        "word": "Jesús",
+        "word": "Jes\u00fas",
         "src": "/cartilla/art/optimized/flipchart-native/p051-jesus.png",
         "width": 320,
         "height": 320,
@@ -9504,7 +9504,7 @@
       },
       {
         "page": 53,
-        "word": "Ilustración de la página 53",
+        "word": "Ilustraci\u00f3n de la p\u00e1gina 53",
         "src": "/cartilla/art/optimized/flipchart-native/p053-scene.png",
         "width": 671,
         "height": 671,
@@ -9513,7 +9513,7 @@
       },
       {
         "page": 54,
-        "word": "Ilustración de la página 54",
+        "word": "Ilustraci\u00f3n de la p\u00e1gina 54",
         "src": "/cartilla/art/optimized/flipchart-native/p054-scene.png",
         "width": 561,
         "height": 561,
@@ -9567,7 +9567,7 @@
       },
       {
         "page": 56,
-        "word": "Ilustración de la página 56",
+        "word": "Ilustraci\u00f3n de la p\u00e1gina 56",
         "src": "/cartilla/art/optimized/flipchart-native/p056-caramelos.webp",
         "width": 1034,
         "height": 1536,
@@ -9576,7 +9576,7 @@
       },
       {
         "page": 57,
-        "word": "Ilustración de la página 57",
+        "word": "Ilustraci\u00f3n de la p\u00e1gina 57",
         "src": "/cartilla/art/optimized/flipchart-native/p057-scene.png",
         "width": 560,
         "height": 560,
@@ -9612,7 +9612,7 @@
       },
       {
         "page": 57,
-        "word": "mayúscula",
+        "word": "may\u00fascula",
         "src": "/cartilla/art/optimized/flipchart-native/p057-mayuscula.png",
         "width": 320,
         "height": 320,
@@ -9630,7 +9630,7 @@
       },
       {
         "page": 59,
-        "word": "Ilustración de la página 59",
+        "word": "Ilustraci\u00f3n de la p\u00e1gina 59",
         "src": "/cartilla/art/optimized/flipchart-native/p059-scene.png",
         "width": 567,
         "height": 567,
@@ -9639,7 +9639,7 @@
       },
       {
         "page": 60,
-        "word": "Ilustración de la página 60",
+        "word": "Ilustraci\u00f3n de la p\u00e1gina 60",
         "src": "/cartilla/art/optimized/flipchart-native/p060-scene.png",
         "width": 505,
         "height": 505,
@@ -9675,7 +9675,7 @@
       },
       {
         "page": 60,
-        "word": "zepelín",
+        "word": "zepel\u00edn",
         "src": "/cartilla/art/optimized/flipchart-native/p060-zepelin.png",
         "width": 362,
         "height": 362,
@@ -9693,7 +9693,7 @@
       },
       {
         "page": 62,
-        "word": "Ilustración de la página 62",
+        "word": "Ilustraci\u00f3n de la p\u00e1gina 62",
         "src": "/cartilla/art/optimized/flipchart-native/p062-scene.png",
         "width": 633,
         "height": 633,
