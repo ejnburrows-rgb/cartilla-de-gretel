@@ -3644,7 +3644,7 @@
   "scan_source": "public/cartilla/art/source/workbook/page-002.jpg",
   "crop_box_940x1308": null,
   "live_picture": "public/cartilla/art/faithful/leccion-1/globo.webp",
-  "installed_by_him": "no",
+  "installed_by_him": "yes",
   "status": "ok",
   "flag_reason": ""
  },
@@ -3756,7 +3756,7 @@
   "scan_source": "public/cartilla/art/source/workbook/page-004.jpg",
   "crop_box_940x1308": null,
   "live_picture": "public/cartilla/art/faithful/vocal-i/iglu.webp",
-  "installed_by_him": "no",
+  "installed_by_him": "yes",
   "status": "ok",
   "flag_reason": ""
  },
@@ -3812,7 +3812,7 @@
   "scan_source": "public/cartilla/art/source/workbook/page-004.jpg",
   "crop_box_940x1308": null,
   "live_picture": "public/cartilla/art/faithful/vocal-o/oveja.webp",
-  "installed_by_him": "no",
+  "installed_by_him": "yes",
   "status": "ok",
   "flag_reason": ""
  },
@@ -3966,7 +3966,7 @@
   "scan_source": "public/cartilla/art/source/workbook/page-005.jpg",
   "crop_box_940x1308": null,
   "live_picture": "public/cartilla/art/faithful/vocal-i/iglu.webp",
-  "installed_by_him": "no",
+  "installed_by_him": "yes",
   "status": "ok",
   "flag_reason": ""
  },
@@ -3980,7 +3980,7 @@
   "scan_source": "public/cartilla/art/source/workbook/page-005.jpg",
   "crop_box_940x1308": null,
   "live_picture": "public/cartilla/art/faithful/vocal-o/oveja.webp",
-  "installed_by_him": "no",
+  "installed_by_him": "yes",
   "status": "ok",
   "flag_reason": ""
  },
@@ -4092,7 +4092,7 @@
   "scan_source": "public/cartilla/art/source/workbook/page-007.jpg",
   "crop_box_940x1308": null,
   "live_picture": "public/cartilla/art/faithful/vocal-o/oruga.webp",
-  "installed_by_him": "no",
+  "installed_by_him": "yes",
   "status": "ok",
   "flag_reason": ""
  },
@@ -4106,7 +4106,7 @@
   "scan_source": "public/cartilla/art/source/workbook/page-007.jpg",
   "crop_box_940x1308": null,
   "live_picture": "public/cartilla/art/faithful/vocal-a/aro.webp",
-  "installed_by_him": "no",
+  "installed_by_him": "yes",
   "status": "ok",
   "flag_reason": ""
  },
@@ -4134,7 +4134,7 @@
   "scan_source": "public/cartilla/art/source/workbook/page-007.jpg",
   "crop_box_940x1308": null,
   "live_picture": "public/cartilla/art/faithful/vocal-o/oveja.webp",
-  "installed_by_him": "no",
+  "installed_by_him": "yes",
   "status": "ok",
   "flag_reason": ""
  },
@@ -4148,7 +4148,7 @@
   "scan_source": "public/cartilla/art/source/workbook/page-007.jpg",
   "crop_box_940x1308": null,
   "live_picture": "public/cartilla/art/faithful/vocal-a/abeja.webp",
-  "installed_by_him": "no",
+  "installed_by_him": "yes",
   "status": "ok",
   "flag_reason": ""
  },
@@ -4246,7 +4246,7 @@
   "scan_source": "public/cartilla/art/source/workbook/page-007.jpg",
   "crop_box_940x1308": null,
   "live_picture": "public/cartilla/art/faithful/leccion-1/ojos.webp",
-  "installed_by_him": "no",
+  "installed_by_him": "yes",
   "status": "ok",
   "flag_reason": ""
  },
@@ -4316,7 +4316,7 @@
   "scan_source": "public/cartilla/art/source/workbook/page-008.jpg",
   "crop_box_940x1308": null,
   "live_picture": "public/cartilla/art/faithful/vocal-i/iglu.webp",
-  "installed_by_him": "no",
+  "installed_by_him": "yes",
   "status": "ok",
   "flag_reason": ""
  },
@@ -4400,7 +4400,7 @@
   "scan_source": "public/cartilla/art/source/workbook/page-008.jpg",
   "crop_box_940x1308": null,
   "live_picture": "public/cartilla/art/faithful/vocal-a/aro.webp",
-  "installed_by_him": "no",
+  "installed_by_him": "yes",
   "status": "ok",
   "flag_reason": ""
  },
@@ -4428,7 +4428,7 @@
   "scan_source": "public/cartilla/art/source/workbook/page-010.jpg",
   "crop_box_940x1308": null,
   "live_picture": "public/cartilla/art/faithful/vocal-i/iglu.webp",
-  "installed_by_him": "no",
+  "installed_by_him": "yes",
   "status": "ok",
   "flag_reason": ""
  },
@@ -4750,7 +4750,7 @@
   "scan_source": "public/cartilla/art/source/workbook/page-013.jpg",
   "crop_box_940x1308": null,
   "live_picture": "public/cartilla/art/faithful/vocal-i/iglu.webp",
-  "installed_by_him": "no",
+  "installed_by_him": "yes",
   "status": "ok",
   "flag_reason": ""
  },
@@ -5002,7 +5002,7 @@
   "scan_source": "public/cartilla/art/source/workbook/page-014.jpg",
   "crop_box_940x1308": null,
   "live_picture": "public/cartilla/art/faithful/vocal-i/iglu.webp",
-  "installed_by_him": "no",
+  "installed_by_him": "yes",
   "status": "ok",
   "flag_reason": ""
  },
@@ -5100,7 +5100,7 @@
   "scan_source": "public/cartilla/art/source/workbook/page-016.jpg",
   "crop_box_940x1308": null,
   "live_picture": "public/cartilla/art/faithful/vocal-o/oveja.webp",
-  "installed_by_him": "no",
+  "installed_by_him": "yes",
   "status": "ok",
   "flag_reason": ""
  },
