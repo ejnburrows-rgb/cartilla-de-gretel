@@ -1,0 +1,5 @@
+PARTIAL DRAFT - NOT RELEASE READY
+Implemented: fan rigid pivot, wing hinges, corn husk hinge, squirrel tail pivot, unicorn ear twitch, soup's original steam rises, star glow pulse, existing magnet marks pull inward, car spoke rotation.
+Held still: eyes (no lid artwork), red-thread needle (thread and needle overlap), caterpillar (segments and ground overlap), Lala (no lids, tail/body overlaps), broom (painted into the background).
+Missing for full spec: separate lids for eyes and Lala; separate needle and red thread; caterpillar body/legs segments and clean ground; Lala tail/body; broom plus clean green background; car body/wheels/full front wheel for suspension; unicorn mane/backing; loose metal for magnet pull.
+Existing crops/masks cannot recover the hidden surfaces. No redraw, inpainting, new limbs or synthetic eyelids were used.

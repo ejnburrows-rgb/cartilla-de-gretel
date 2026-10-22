@@ -34,12 +34,21 @@ STILLS = {
     'vocal-e-elefante': f'{FV}/vocal-e/elefante.webp', 'vocal-o-olla': f'{FV}/vocal-o/olla.webp',
     'vocal-a-avion': f'{FV}/vocal-a/avion.webp', 'vocal-a-abeja': f'{FV}/vocal-a/abeja.webp',
     'vocal-a-abanico': f'{FV}/vocal-a/abanico.webp', 'vocal-i-iman': f'{FV}/vocal-i/iman.webp',
+    'vocal-o-oruga': f'{FV}/vocal-o/oruga.webp', 'vocal-a-ardilla': f'{FV}/vocal-a/ardilla.webp',
+    'vocal-a-alas': f'{FV}/vocal-a/alas.webp', 'vocal-e-estrella': f'{FV}/vocal-e/estrella.webp',
+    'vocal-a-aguja': f'{FV}/vocal-a/aguja.webp', 'leccion-1-ojos': f'{FV}/leccion-1/ojos.webp',
+    'leccion-1-maiz': f'{FV}/leccion-1/maiz.webp',
+    'leccion-1-carro': f'{FV}/leccion-1/carro.webp', 'vocal-e-escoba': f'{FV}/vocal-e/escoba.webp',
+    'vocal-u-unicornio': f'{FV}/vocal-u/unicornio.webp',
 }
 # Teacher Flip Chart sheet pictures (recipes in fc_natives.py).
 STILLS.update({
     'fc_p004_oso': f'{FC_NATIVE}/p004-oso.png', 'fc_p004_oveja': f'{FC_NATIVE}/p004-oveja.png',
     'fc_p004_olla': f'{FC_NATIVE}/p004-olla.png', 'fc_p006_elefante': f'{FC_NATIVE}/p006-elefante.png',
     'fc_p007_iman': f'{FC_NATIVE}/p007-iman.png',
+    # original main sheet pictures; source-preserving recipes in redrawn_fc_*.py
+    'fc_p015_sopa': f'{FC_NATIVE}/p015-sopa.png',
+    'fc_p024_lala': f'{FC_NATIVE}/p024-lala.png',
 })
 
 def still_png(path):

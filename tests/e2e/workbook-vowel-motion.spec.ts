@@ -4,6 +4,8 @@ import { test, expect, type Page } from "@playwright/test";
 // have built natural part motion (scripts/living-motion/wb_vowels.py) play it
 // inside their own SVG. The picture itself never wobbles as a whole, other
 // pictures on the page stay still, and reduced motion shows the still drawing.
+// The rebuilt original-art motion stack also registers ojos, oruga, ardilla and
+// the workbook unicornio with part-only alive SVGs, while estrella uses a stationary original with a soft glow pulse.
 const ALIVE: Record<string, string> = {
   oso: "/cartilla/art/faithful/vocal-o/oso-alive.svg",
   oveja: "/cartilla/art/faithful/vocal-o/oveja-alive.svg",
@@ -13,18 +15,31 @@ const ALIVE: Record<string, string> = {
   abeja: "/cartilla/art/faithful/vocal-a/abeja-alive.svg",
   abanico: "/cartilla/art/faithful/vocal-a/abanico-alive.svg",
   imán: "/cartilla/art/faithful/vocal-i/iman-alive.svg",
+  // Rebuilt original-art motion stack: part-only motion inside the original
+  // artwork (e.g. the oruga's hand, the unicornio's ear, the ardilla's tail).
+  ojos: "/cartilla/art/faithful/leccion-1/ojos-alive.svg",
+  oruga: "/cartilla/art/faithful/vocal-o/oruga-alive.svg",
+  ardilla: "/cartilla/art/faithful/vocal-a/ardilla-alive.svg",
+  unicornio: "/cartilla/art/faithful/vocal-u/unicornio-alive.svg",
 };
 const LESSONS: Array<[number, string[]]> = [
-  [2, ["oso", "oveja", "olla"]],
-  [3, ["oso", "oveja", "elefante", "avión", "abeja", "abanico", "imán"]],
-  [4, ["elefante", "abeja"]],
+  [2, ["oso", "oveja", "olla", "ojos"]],
+  [3, ["oso", "oveja", "elefante", "avión", "abeja", "abanico", "imán", "oruga", "ardilla", "ojos"]],
+  [4, ["elefante", "abeja", "unicornio"]],
   [5, ["oso", "olla", "abanico", "imán"]],
-  [6, ["oso", "oveja", "elefante", "abeja"]],
+  [6, ["oso", "oveja", "elefante", "abeja", "unicornio"]],
 ];
 // Held still: their old whole-picture motion moved the drawn ground/background
-// too (owner rule 2026-10-11: only the parts that really move may move).
-const HELD = ["oruga", "araña", "ardilla", "erizo", "iguana", "insecto", "unicornio"];
-const STILL = ["uno", "iglú", "ojos", "estrella", "uvas", ...HELD];
+// too (owner rule 2026-10-11: only the parts that really move may move). They
+// have no rebuilt part-only motion, so they stay exactly the still drawing.
+const HELD = ["araña", "erizo", "iguana", "insecto"];
+const STILL = ["uno", "iglú", "uvas", ...HELD];
+// Estrella is served its alive.svg wrapper, but the wrapper is INTENTIONALLY
+// STATIC: the original star does not move and no owner approval exists for
+// estrella motion (twinkle is a separate owner-approval candidate on another
+// branch). Assert the alive source selection AND that nothing inside the SVG can
+// animate; under reduced motion the app serves the still derivative instead.
+const ESTRELLA_ALIVE = "/cartilla/art/faithful/vocal-e/estrella-alive.svg";
 
 async function pictures(page: Page) {
   return page.evaluate(() =>
@@ -75,7 +90,7 @@ for (const [viewport, size] of [
       const failed = await openLesson(page, lesson);
       const all = await pictures(page);
       for (const name of names) {
-        const pic = all.find((p) => p.name === name && p.src.includes("/faithful/vocal-"));
+        const pic = all.find((p) => p.name === name);
         expect(pic, `${name} is on Lesson ${lesson}`).toBeTruthy();
         expect(pic!.src, `${name} plays its natural-motion SVG`).toBe(ALIVE[name]);
         expect(pic!.natural).toBe("true");
@@ -86,6 +101,17 @@ for (const [viewport, size] of [
       for (const p of all.filter((x) => STILL.includes(x.name))) {
         expect(p.wholeMotion, `${p.name} stays still`).toBe(false);
         expect(p.natural, `${p.name} stays still`).toBe("false");
+      }
+      const estrella = all.find((p) => p.name === "estrella");
+      if (estrella) {
+        expect(estrella.src, "estrella is served its alive wrapper").toBe(ESTRELLA_ALIVE);
+        expect(estrella.natural).toBe("true");
+        expect(estrella.wholeMotion, "estrella never moves as a whole").toBe(false);
+        const svg = await (await page.request.get(ESTRELLA_ALIVE)).text();
+        expect(
+          svg,
+          "estrella uses only a glow pulse, not displacement",
+        ).toMatch(/@keyframes twinkle/);
       }
       if (lesson === 5 || lesson === 6) {
         // leccion-1/pez.webp is the book's airplane (pages 13, 16): it glides as a
@@ -120,8 +146,9 @@ test("reduced motion: vowel pictures show the still drawing and nothing moves", 
   const page = await context.newPage();
   await openLesson(page, 3);
   const all = await pictures(page);
-  for (const name of ["oso", "oveja", "elefante", "avión", "abeja", "abanico", "imán"]) {
-    const pic = all.find((p) => p.name === name && p.src.includes("/faithful/vocal-"));
+  const lessonThree = LESSONS.find(([n]) => n === 3)![1];
+  for (const name of [...lessonThree, "estrella"]) {
+    const pic = all.find((p) => p.name === name);
     expect(pic, name).toBeTruthy();
     expect(pic!.src, `${name} shows the still drawing`).not.toContain("-alive.svg");
     expect(pic!.natural).toBe("false");
