@@ -7,6 +7,10 @@ Inputs (all in the repo):
   docs/artwork-reconciliation/mapping/MASTER-MAPPING.csv   slot list + original crop path
   docs/art-inventory/slot-overrides.json (optional)        {slot_id: {"live": path, "status": "...", "note": "..."}}
 Needs: Pillow."""
+try:
+    import cv2, numpy as np
+except ImportError:
+    cv2 = None  # circles for crop-file slots need opencv-python-headless; flip chart slots do not
 import csv, json, os, sys, base64, io, subprocess, datetime, html, collections
 from PIL import Image
 root = subprocess.check_output(["git","rev-parse","--show-toplevel"],text=True).strip()
@@ -26,6 +30,27 @@ def enc(im, w=240):
 def live_thumb(path):
     try: im=Image.open(path); im.load(); return enc(im)
     except Exception: return None
+
+def find_circle(x):
+    """Where the slot sits on the full book page, in page pixels: [left, top, width, height] or None.
+    Flip chart: the recorded box. Workbook: find the audited crop inside the page scan (template match, score kept)."""
+    try:
+        if x["crop_box_940x1308"]:
+            im=Image.open(x["scan_source"]); X,Y,W,H=x["crop_box_940x1308"]; sx=im.width/940; sy=3458/1308
+            return dict(box=[int(X*sx),int(Y*sy),int(W*sx),int(H*sy)], method="recorded box", score=None), im.size
+        pg=Image.open(x["scan_source"]); size=pg.size
+        c=cmap.get(x["artwork_id"])
+        if not (c and os.path.isfile(c["source_crop_path"]) and cv2 is not None): return None, size
+        page=cv2.imread(x["scan_source"],0); crop=cv2.imread(c["source_crop_path"],0); best=(-1,None)
+        for sc in np.arange(0.70,0.81,0.01):
+            r=cv2.resize(crop,None,fx=sc,fy=sc,interpolation=cv2.INTER_AREA)
+            if r.shape[0]>=page.shape[0] or r.shape[1]>=page.shape[1]: continue
+            m=cv2.matchTemplate(page,r,cv2.TM_CCOEFF_NORMED); _,mx,_,loc=cv2.minMaxLoc(m)
+            if mx>best[0]: best=(mx,[loc[0],loc[1],r.shape[1],r.shape[0]])
+        if best[0]>=0.6: return dict(box=[int(v) for v in best[1]], method="template match", score=round(float(best[0]),3)), size
+        return None, size
+    except Exception: return None, None
+
 def orig_ref(x):
     """Same choice as orig_thumb, as data the live Command Center page can draw in the browser."""
     try:
@@ -74,8 +99,12 @@ assert sum(tot.values())==len(slots)==sum(by_book.values())
 data = dict(commit=sha, branch=branch, built=when, total=len(slots), by_book=by_book, by_status=tot, by_book_status={f"{k[0]} / {k[1]}":v for k,v in combo.items()},
     slots=[{k:v for k,v in s.items() if k not in("o","l")} for s in slots], missing_live_files=sum(1 for s in slots if not s["live_exists"]))
 os.makedirs(out, exist_ok=True)
+def _bp(x):
+    c,size=find_circle(x)
+    return dict(src=x["scan_source"],size=list(size or [0,0]),circle=c)
 render=[dict(id=x["slot_id"],artwork_id=x["artwork_id"],book=x["book"],page=x["page"],label=x["object"],role=x["role"],live=x["live_picture"],
-  his=x["installed_by_him"]=="yes",was_flagged=x["status"]=="flagged",flag_reason=x["flag_reason"],orig=orig_ref(x)) for x in slots_in]
+  his=x["installed_by_him"]=="yes",was_flagged=x["status"]=="flagged",flag_reason=x["flag_reason"],orig=orig_ref(x),
+  book_page=_bp(x)) for x in slots_in]
 json.dump(render, open(f"{out}/slots-render.json","w"), separators=(",",":"), ensure_ascii=False)
 json.dump(data, open(f"{out}/inventory.json","w"), indent=1, ensure_ascii=False)
 chips = "".join(f'<button data-f="{html.escape(k)}">{html.escape(k)} <b>{v}</b></button>' for k,v in tot.most_common())
