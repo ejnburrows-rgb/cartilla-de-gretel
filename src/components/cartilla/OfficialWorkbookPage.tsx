@@ -56,14 +56,14 @@ export function OfficialWorkbookPage({
   const hasImage = Boolean(source.hasVerifiedImage && activeImage);
 
   return (
-    <article className="official-workbook-page-shell">
-      <div ref={containerRef} className="official-workbook-page-stage">
+    <article className="official-workbook-page-shell w-full h-full flex items-center justify-center overflow-hidden">
+      <div ref={containerRef} className="official-workbook-page-stage w-full h-full flex items-center justify-center overflow-hidden">
         {hasImage ? (
-          <div className="official-workbook-page-imageWrap">
+          <div className="official-workbook-page-imageWrap w-full h-full flex items-center justify-center overflow-hidden">
             <img
               src={activeImage}
               alt={`Página ${source.pageNumber} del cuaderno oficial`}
-              className="official-workbook-page-image"
+              className="official-workbook-page-image max-w-full max-h-full object-contain"
               decoding="async"
               loading="eager"
               fetchPriority="high"
