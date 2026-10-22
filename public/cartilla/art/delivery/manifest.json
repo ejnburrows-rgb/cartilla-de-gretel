@@ -868,10 +868,10 @@
       "canonical": {
         "width": 870,
         "height": 809,
-        "bytes": 71864,
+        "bytes": 85342,
         "format": "webp",
         "hasAlpha": true,
-        "sha256": "f54e533c6a33b901fcfc79da83b2f7a38977defc47662f6cf29ca948d1cfd28a"
+        "sha256": "27e76b480a87f6c6df4bb08c20f21b7b6b55edf493b39e90073070c56a81d370"
       },
       "cropBox": [
         274,
@@ -896,11 +896,10 @@
         "normalizedWidth": 840,
         "normalizedHeight": 779,
         "contentBounds": {
-          "x": 25,
-          "y": 25,
-          "width": 820,
-          "height": 759,
-          "opaquePixels": 353711
+          "x": 16,
+          "y": 21,
+          "width": 838,
+          "height": 767
         },
         "touchesCropEdge": {
           "left": false,
@@ -916,14 +915,14 @@
           "path": "/cartilla/art/delivery/faithful/384/vocal-e/elefante.webp",
           "width": 384,
           "height": 356,
-          "bytes": 25366
+          "bytes": 27952
         },
         {
           "widthTier": 768,
           "path": "/cartilla/art/delivery/faithful/768/vocal-e/elefante.webp",
           "width": 768,
           "height": 712,
-          "bytes": 61136
+          "bytes": 72808
         }
       ],
       "warnings": [],
@@ -5300,10 +5299,10 @@
       "canonical": {
         "width": 530,
         "height": 578,
-        "bytes": 27648,
+        "bytes": 23978,
         "format": "webp",
         "hasAlpha": true,
-        "sha256": "9a185cb57412c5d000dc763c84dcb75a840343bfa61da0c6895b3cf219aa032a"
+        "sha256": "a5e7643eb42589909b2fdf3089e7d8dcd430c216971f14289463b1e364dc6112"
       },
       "cropBox": [
         980,
@@ -5328,11 +5327,10 @@
         "normalizedWidth": 518,
         "normalizedHeight": 566,
         "contentBounds": {
-          "x": 16,
+          "x": 29,
           "y": 16,
-          "width": 498,
-          "height": 546,
-          "opaquePixels": 222129
+          "width": 471,
+          "height": 546
         },
         "touchesCropEdge": {
           "left": false,
@@ -5348,14 +5346,14 @@
           "path": "/cartilla/art/delivery/faithful/384/leccion-1/arco.webp",
           "width": 384,
           "height": 420,
-          "bytes": 19674
+          "bytes": 15238
         },
         {
           "widthTier": 768,
           "path": "/cartilla/art/delivery/faithful/768/leccion-1/arco.webp",
           "width": 518,
           "height": 566,
-          "bytes": 25538
+          "bytes": 22972
         }
       ],
       "warnings": [],
