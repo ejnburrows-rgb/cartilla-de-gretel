@@ -75,6 +75,7 @@ export function StudentTable({
                     <input
                       type="text"
                       value={editingName}
+                      aria-label="Nuevo nombre del alumno"
                       onChange={(e) => setEditingName(e.target.value)}
                       onBlur={() => handleSaveRename(s.id)}
                       onKeyDown={(e) => {
