@@ -252,6 +252,76 @@ test.describe("tutor scripted sessions (StubEars)", () => {
     expect(consoleErrors.errors()).toEqual([]);
   });
 
+  // 7b. Replay button works for vowels & words, and LISTEN responses keep mic disabled while Gretel speaks.
+  test("replay button plays the model line for vowel and word items and LISTEN-phase responses disable the mic while playing", async ({ page }) => {
+    test.setTimeout(180_000);
+    const consoleErrors = trackConsoleErrors(page);
+    await page.goto(tutorSessionUrl(1));
+    await scriptLessonQueue(page, 1, {
+      0: [
+        { ok: true, transcript: "repite", alternatives: [] },
+        { ok: true, transcript: "ayuda", alternatives: [] },
+        { ok: true, transcript: "no sé", alternatives: [] },
+        { ok: true, transcript: "[unk]", alternatives: [] },
+        { ok: true, transcript: "platano", alternatives: [] },
+        { ok: true, transcript: "a", alternatives: [] },
+      ],
+    });
+
+    // Wait for LISTEN on vowel "a"
+    await expect.poll(async () => micReadyToListen(page), { timeout: 60_000 }).toBe(true);
+
+    // Click "Escuchar otra vez" on vowel "a" — should disable mic while replaying and update spoken caption to "a"
+    const replayBtn = page.getByRole("button", { name: /Escuchar otra vez/i });
+    await expect(replayBtn).toBeEnabled();
+    await replayBtn.click();
+    await expect.poll(async () => page.locator(".tutor-caption").textContent(), { timeout: 15_000 }).toBe("a");
+    await expect.poll(async () => micReadyToListen(page), { timeout: 15_000 }).toBe(true);
+
+    // Exercise REPEAT, HELP, DONT_KNOW, NOISE, OFF_SCRIPT intents before passing "a"
+    for (let i = 0; i < 5; i++) {
+      await tapMicWhenReady(page);
+      // While the response line is playing (or holding), mic must be disabled
+      await expect.poll(async () => (await micState(page)).disabled, { timeout: 10_000 }).toBe(true);
+      await expect.poll(async () => micReadyToListen(page), { timeout: 20_000 }).toBe(true);
+    }
+
+    // Finally pass vowel "a"
+    await tapMicWhenReady(page);
+    await expect
+      .poll(
+        async () =>
+          (await readProgressEvents(page)).find((event) => event.item_id === "l1-vowel-a"),
+        { timeout: 60_000 },
+      )
+      .toMatchObject({ result: "correct", attempts: 1 });
+    expect(consoleErrors.errors()).toEqual([]);
+  });
+
+  // 7c. Mute / unmute stops active speech and silent-line hold immediately.
+  test("mute button toggles voice mute and cancels active mic capture cleanly", async ({ page }) => {
+    test.setTimeout(120_000);
+    const consoleErrors = trackConsoleErrors(page);
+    await page.goto(tutorSessionUrl(1));
+    await scriptLessonQueue(page, 1, {
+      0: [{ ok: true, transcript: "a", alternatives: [], holdMs: 4000 }],
+    });
+
+    await tapMicWhenReady(page);
+    await expect.poll(async () => (await micState(page)).capturing).toBe(true);
+
+    const muteBtn = page.getByRole("button", { name: "Silenciar" });
+    await muteBtn.click();
+    await expect(page.getByRole("button", { name: "Activar sonido" })).toBeVisible();
+    // Mic capture was cancelled immediately on mute toggle
+    await expect.poll(async () => (await micState(page)).capturing).toBe(false);
+
+    // Unmute
+    await page.getByRole("button", { name: "Activar sonido" }).click();
+    await expect(page.getByRole("button", { name: "Silenciar" })).toBeVisible();
+    expect(consoleErrors.errors()).toEqual([]);
+  });
+
   // 9a. Privacy: zero non-same-origin requests across a full session.
   test("a full scripted session makes zero non-same-origin requests", async ({ page }) => {
     test.setTimeout(420_000);

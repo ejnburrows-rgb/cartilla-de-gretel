@@ -44,7 +44,7 @@ import {
 import { ChromeLocalEars } from "@/lib/tutor-ears-chrome-local";
 import { createTutorEars, type EarsLang, type EarsProblem, type TutorEars } from "@/lib/tutor-ears";
 import { cancelGretelSpeech, isGretelVoiceMuted, setGretelVoiceMuted } from "@/lib/gretel-voice";
-import { SEQUENCE_PAUSE_MS, TUTOR_LINES } from "@/lib/tutor-line-picker";
+import { modelLineIdForItem, SEQUENCE_PAUSE_MS, TUTOR_LINES } from "@/lib/tutor-line-picker";
 import { beginSession, noteMissedItem, recordStreak, reviewRoundSet } from "@/lib/tutor-memory";
 import { appendTutorProgress, flushTutorProgress, makeSessionId } from "@/lib/tutor-progress";
 import { TUTOR_LESSONS } from "@/lib/tutor-content";
@@ -98,8 +98,14 @@ const lineTextById = new Map<string, string>(
   TUTOR_LINES.map((entry) => [entry.lineId, entry.text]),
 );
 
-function sleep(ms: number): Promise<void> {
-  return new Promise((resolve) => window.setTimeout(resolve, ms));
+function sleep(ms: number, onRegisterCancel?: (cancel: () => void) => void): Promise<void> {
+  return new Promise((resolve) => {
+    const id = window.setTimeout(resolve, ms);
+    onRegisterCancel?.(() => {
+      window.clearTimeout(id);
+      resolve();
+    });
+  });
 }
 
 function activeItemOf(state: BrainState) {
@@ -127,6 +133,9 @@ function TutorSessionScreen() {
   const [replaying, setReplaying] = useState(false);
   const [actuallyCapturing, setActuallyCapturing] = useState(false);
   const [linePlaying, setLinePlaying] = useState(false);
+  const [effectsRunning, setEffectsRunning] = useState(false);
+  const effectsInFlightRef = useRef(0);
+  const silentHoldCancelRef = useRef<(() => void) | null>(null);
   const [silentLine, setSilentLine] = useState(false);
   const [viseme, setViseme] = useState("X");
   const [mark, setMark] = useState<{ isCorrect: boolean; key: number; itemId: string } | null>(
@@ -159,6 +168,8 @@ function TutorSessionScreen() {
       window.clearTimeout(visemeTimerRef.current);
       visemeTimerRef.current = null;
     }
+    silentHoldCancelRef.current?.();
+    silentHoldCancelRef.current = null;
     setViseme("X");
     setLinePlaying(false);
   }
@@ -180,9 +191,12 @@ function TutorSessionScreen() {
       },
     });
     stopVisemePlayer();
-    if (result === "silent") {
+    if (result === "silent" && !isGretelVoiceMuted()) {
       // Gentle pacing for pending lines: the visual model step still runs.
-      await sleep(SILENT_LINE_HOLD_MS);
+      await sleep(SILENT_LINE_HOLD_MS, (cancel) => {
+        silentHoldCancelRef.current = cancel;
+      });
+      silentHoldCancelRef.current = null;
     }
   }
 
@@ -225,7 +239,16 @@ function TutorSessionScreen() {
   function runMark(isCorrect: boolean, state: BrainState): Promise<void> {
     const answered = activeItemOf(state);
     return new Promise((resolve) => {
-      markDoneRef.current = resolve;
+      let settled = false;
+      const finish = () => {
+        if (settled) return;
+        settled = true;
+        window.clearTimeout(safetyTimer);
+        if (markDoneRef.current === finish) markDoneRef.current = null;
+        resolve();
+      };
+      const safetyTimer = window.setTimeout(finish, isCorrect ? 5000 : 9000);
+      markDoneRef.current = finish;
       setMark({
         isCorrect,
         key: Date.now(),
@@ -242,8 +265,16 @@ function TutorSessionScreen() {
 
   async function handleEffects(state: BrainState, effects: Effect[], epoch: number): Promise<void> {
     const alive = () => epoch === epochRef.current;
+    const hasBlockingEffects = effects.some(
+      (e) => e.type === "playLine" || e.type === "markCorrect" || e.type === "markWrongErase",
+    );
+    if (hasBlockingEffects) {
+      effectsInFlightRef.current += 1;
+      setEffectsRunning(true);
+    }
     const linePlaybacks: Promise<void>[] = [];
     const markWaiters: Promise<void>[] = [];
+    try {
 
     for (const effect of effects) {
       if (!alive()) return;
@@ -313,6 +344,14 @@ function TutorSessionScreen() {
     }
 
     maybeListen();
+    } finally {
+      if (hasBlockingEffects) {
+        effectsInFlightRef.current = Math.max(0, effectsInFlightRef.current - 1);
+        if (epoch === epochRef.current && effectsInFlightRef.current === 0) {
+          setEffectsRunning(false);
+        }
+      }
+    }
   }
 
   function dispatch(ev: BrainEvent): void {
@@ -387,7 +426,6 @@ function TutorSessionScreen() {
     } finally {
       if (epoch === epochRef.current) {
         listenInFlightRef.current = false;
-        maybeListen();
       }
     }
   }
@@ -436,6 +474,8 @@ function TutorSessionScreen() {
     setUnavailableProblem(null);
     setBrain(null);
     setReplaying(false);
+    setEffectsRunning(false);
+    effectsInFlightRef.current = 0;
     brainRef.current = null;
 
     const disposeVoice = mountTutorVoice({
@@ -578,8 +618,12 @@ function TutorSessionScreen() {
         className="flex min-h-screen flex-col items-center justify-center gap-6 bg-[hsl(40_45%_93%)] px-6 text-center text-stone-800"
       >
         <Star className="h-16 w-16 text-amber-500" aria-hidden="true" />
-        {/* Approved praise string from the line bank. */}
-        <h1 className="text-4xl font-black">¡Muy bien!</h1>
+        {brain.endedReason === "idle" ? (
+          <h1 className="text-3xl font-black">Sesión en pausa</h1>
+        ) : (
+          /* Approved praise string from the line bank. */
+          <h1 className="text-4xl font-black">¡Muy bien!</h1>
+        )}
         <Link
           to="/tutor"
           className="kid-card mt-2 inline-flex items-center gap-2 px-6 py-4 text-lg font-black text-foreground"
@@ -594,7 +638,12 @@ function TutorSessionScreen() {
 
   const simulated = !import.meta.env.PROD && import.meta.env.VITE_TUTOR_EARS === "stub";
   const capturing = simulated ? Boolean(brain?.capturing) : actuallyCapturing;
-  const micDisabled = unavailableProblem !== null || brain?.phase !== "LISTEN" || replaying;
+  const micDisabled =
+    unavailableProblem !== null ||
+    brain?.phase !== "LISTEN" ||
+    replaying ||
+    linePlaying ||
+    effectsRunning;
 
   return (
     <TutorStage
@@ -611,6 +660,7 @@ function TutorSessionScreen() {
               const next = !muted;
               setMuted(next);
               setGretelVoiceMuted(next);
+              if (next) stopVisemePlayer();
               stopMic();
               if (brainRef.current?.capturing) dispatch({ type: "MIC_CANCEL" });
             }}
@@ -654,17 +704,21 @@ function TutorSessionScreen() {
             <button
               type="button"
               className="tutor-replay"
-              disabled={!item || brain?.phase !== "LISTEN" || capturing || replaying}
+              disabled={
+                !item ||
+                brain?.phase !== "LISTEN" ||
+                capturing ||
+                replaying ||
+                linePlaying ||
+                effectsRunning
+              }
               onClick={async () => {
                 if (!item) return;
+                resetIdleTimer();
                 const epoch = epochRef.current;
                 setReplaying(true);
-                const model = TUTOR_LINES.find(
-                  (line) =>
-                    (line.role === "word-model" || line.role === "vowel-model") &&
-                    line.text === item.text,
-                );
-                if (model) await playLine(model.lineId);
+                const lineId = modelLineIdForItem(item);
+                if (lineId) await playLine(lineId);
                 if (epoch === epochRef.current) setReplaying(false);
               }}
             >
