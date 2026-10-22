@@ -2663,10 +2663,10 @@
       "canonical": {
         "width": 757,
         "height": 765,
-        "bytes": 136056,
+        "bytes": 124392,
         "format": "webp",
         "hasAlpha": true,
-        "sha256": "a7f611e9265bc9841b623d9e18ef8e4e18e5d4fd0a5934daf17d80961e849b0c"
+        "sha256": "2fb31164f37eb7b3c33ec2295ea58d5eeaafe1f5fd9adceebee4d80bcc21718e"
       },
       "cropBox": [
         850,
@@ -2711,14 +2711,14 @@
           "path": "/cartilla/art/delivery/faithful/384/leccion-1/maiz.webp",
           "width": 384,
           "height": 388,
-          "bytes": 52646
+          "bytes": 47026
         },
         {
           "widthTier": 768,
           "path": "/cartilla/art/delivery/faithful/768/leccion-1/maiz.webp",
           "width": 768,
           "height": 776,
-          "bytes": 145222
+          "bytes": 128608
         }
       ],
       "warnings": [],
