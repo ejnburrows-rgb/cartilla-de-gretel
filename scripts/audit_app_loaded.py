@@ -80,6 +80,6 @@ summary=dict(total=len(slots),his_new=len(his),
   his_new_not_named=[k for k in his if not res[k]["named_by_app_code_or_data"]],
   his_new_stale_delivery=[k for k in his if res[k].get("delivery_stale")],
   his_new_opaque=[k for k in his if res[k].get("has_transparency") is False])
-doc=dict(commit=subprocess.check_output(["git","rev-parse","HEAD"],text=True).strip(),built=datetime.datetime.now(datetime.timezone.utc).isoformat(timespec="minutes"),summary=summary,slots=res)
+doc=dict(commit=os.environ.get("AUDIT_COMMIT") or subprocess.check_output(["git","rev-parse","HEAD"],text=True).strip(),built=datetime.datetime.now(datetime.timezone.utc).isoformat(timespec="minutes"),summary=summary,slots=res)
 json.dump(doc,open(OUT,"w"),separators=(",",":"))
 print(json.dumps(summary,indent=1))

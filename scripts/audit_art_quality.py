@@ -129,7 +129,7 @@ if __name__ == "__main__":
     nf = sum(1 for _, tags, _ in res if tags)
     crop_tags = {"EDGE_TOUCH", "BORDER_LINE", "TEAL_EDGE", "NEIGHBOR_FRAGMENT", "BAKED_TEXT", "BG_RESIDUE", "MARGINS", "RAW_CROP"}
     crop_bad = sum(1 for _, tags, _ in res if crop_tags & set(tags)); fmt_bad = sum(1 for _, tags, _ in res if {"NOT_WEBP", "SVG_WRAPPED_RASTER", "NO_TRANSPARENCY", "LOW_RES", "OVERSIZED", "STALE_DELIVERY"} & set(tags))
-    git = subprocess.check_output(["git", "rev-parse", "HEAD"], text=True).strip()
+    git = os.environ.get("AUDIT_COMMIT") or subprocess.check_output(["git", "rev-parse", "HEAD"], text=True).strip()
     doc = dict(commit=git, built=datetime.datetime.now(datetime.timezone.utc).isoformat(timespec="minutes"), total=len(slots), not_finished=nf,
                crop_problems=crop_bad, format_or_size_problems=fmt_bad, per_tag=dict(cnt), tag_meaning=TAGS,
                thresholds=dict(MIN_LONG_EDGE=MIN_LONG_EDGE, MAX_KB=MAX_KB, MAX_LONG_EDGE=MAX_LONG_EDGE, EDGE_FRAC=EDGE_FRAC, LINE_FRAC=LINE_FRAC), slots=per)
