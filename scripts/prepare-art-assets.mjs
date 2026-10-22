@@ -405,6 +405,14 @@ export async function prepareFlipchartNativeCrops(checkOnly) {
     const sy = sourceHeight / Number(frame.height);
 
     for (const asset of assets) {
+      const retained = path.join(publicDir, String(asset.src).replace(/^\//, ""));
+      if (fs.existsSync(retained)) {
+        const metadata = await sharp(retained).metadata();
+        generated.push({ page: pageNumber, word: asset.word, src: asset.src,
+          width: metadata.width, height: metadata.height,
+          bytes: fs.statSync(retained).size, approvedInput: true });
+        continue;
+      }
       // Owner-selected final files are immutable inputs, never regenerated
       // from an older PDF crop when development starts.
       if (String(asset.src).startsWith("/cartilla/art/optimized/flipchart-native/")) {
@@ -590,7 +598,30 @@ async function processEntry(entry, checkOnly) {
   };
 }
 
+export async function verifyFinishedArt() {
+  const manifest = readJson(deliveryManifestPath);
+  for (const item of manifest.assets) {
+    const canonical = path.join(publicDir, item.canonicalSrc.slice(1));
+    const hash = crypto.createHash("sha256").update(fs.readFileSync(canonical)).digest("hex");
+    if (hash !== item.canonical.sha256) throw new Error("Finished canonical changed: " + item.canonicalSrc);
+    for (const derivative of item.derivatives) {
+      const file = path.join(publicDir, derivative.path.slice(1));
+      const metadata = await sharp(file).metadata();
+      if (metadata.width !== derivative.width || metadata.height !== derivative.height ||
+          fs.statSync(file).size !== derivative.bytes) {
+        throw new Error("Finished delivery metadata mismatch: " + derivative.path);
+      }
+    }
+  }
+  const native = await prepareFlipchartNativeCrops(true);
+  if (native.errors.length) throw new Error(native.errors.join("; "));
+  console.log("FINISHED_ART_PRESERVED " + manifest.assets.length + " canonical groups");
+  return manifest;
+}
+
 export async function prepareArtAssets({ checkOnly = false } = {}) {
+  // Reviewed picture outputs are immutable build inputs. Never recreate them from old scans.
+  if (!checkOnly) return verifyFinishedArt();
   const manifest = readJson(sourceManifestPath);
   if (!Array.isArray(manifest)) throw new Error("faithful manifest must be an array");
   const quarantine = fs.existsSync(quarantinePath) ? readJson(quarantinePath) : { assets: [] };
