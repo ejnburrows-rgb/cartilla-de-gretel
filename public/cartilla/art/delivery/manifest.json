@@ -939,10 +939,10 @@
       "canonical": {
         "width": 870,
         "height": 861,
-        "bytes": 87348,
+        "bytes": 134494,
         "format": "webp",
         "hasAlpha": true,
-        "sha256": "5f3a27b85db1ba6178ca9bc22c3aad28146d1d45f95aabc80caeaa71cd7b892d"
+        "sha256": "2e673864a6612f0c6577c01adf7bcdbbc2de6b46e069c10a1d1ab2298021306c"
       },
       "cropBox": [
         210,
@@ -967,11 +967,10 @@
         "normalizedWidth": 840,
         "normalizedHeight": 831,
         "contentBounds": {
-          "x": 25,
-          "y": 25,
-          "width": 820,
-          "height": 811,
-          "opaquePixels": 457454
+          "x": 44,
+          "y": 16,
+          "width": 781,
+          "height": 829
         },
         "touchesCropEdge": {
           "left": false,
@@ -987,14 +986,14 @@
           "path": "/cartilla/art/delivery/faithful/384/vocal-e/erizo.webp",
           "width": 384,
           "height": 380,
-          "bytes": 30054
+          "bytes": 40116
         },
         {
           "widthTier": 768,
           "path": "/cartilla/art/delivery/faithful/768/vocal-e/erizo.webp",
           "width": 768,
           "height": 760,
-          "bytes": 75516
+          "bytes": 112446
         }
       ],
       "warnings": [],
