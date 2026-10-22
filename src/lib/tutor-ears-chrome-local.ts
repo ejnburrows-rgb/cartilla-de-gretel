@@ -92,6 +92,9 @@ export class ChromeLocalEars implements TutorEars {
   private readonly defaultLang: string;
   private readonly confirmed = new Map<string, boolean>();
   private active: ChromeSession | null = null;
+  private cancelProbe: (() => void) | null = null;
+  private generation = 0;
+  private disposed = false;
 
   constructor(options: { lang?: string } = {}) {
     this.defaultLang = options.lang ?? "es-MX";
@@ -117,6 +120,8 @@ export class ChromeLocalEars implements TutorEars {
   async listen(opts: EarsListenOptions): Promise<EarsListenOutcome> {
     // One attempt at a time; a previous recognizer session ends right here.
     this.cancel();
+    const generation = this.generation;
+    if (this.disposed) return { ok: false, problem: "failed" };
     const Ctor = this.ctor();
     if (!Ctor) return { ok: false, problem: "unsupported" };
     if (typeof Ctor.available !== "function") {
@@ -124,7 +129,30 @@ export class ChromeLocalEars implements TutorEars {
     }
     this.status = "checking";
     // Only a confirmed on-device recognizer may ever be created.
-    if (!(await this.confirmOnDevice(Ctor, opts.lang))) {
+    let isAvailable: boolean;
+    try {
+      isAvailable = await new Promise<boolean>((resolve, reject) => {
+        this.cancelProbe = () => resolve(false);
+        this.confirmOnDevice(Ctor, opts.lang).then(
+          (val) => {
+            this.cancelProbe = null;
+            resolve(val);
+          },
+          (err) => {
+            this.cancelProbe = null;
+            reject(err);
+          },
+        );
+      });
+    } catch {
+      isAvailable = false;
+    } finally {
+      this.cancelProbe = null;
+    }
+    if (generation !== this.generation || this.disposed) {
+      return { ok: false, problem: "no-speech" };
+    }
+    if (!isAvailable) {
       this.status = "unavailable";
       return { ok: false, problem: "no-local" };
     }
@@ -135,9 +163,20 @@ export class ChromeLocalEars implements TutorEars {
 
   /** Aborts any open recognizer session immediately. */
   cancel(): void {
+    this.generation += 1;
+    if (this.cancelProbe) {
+      this.cancelProbe();
+      this.cancelProbe = null;
+    }
     const session = this.active;
     if (!session) return;
     this.finalizeSession();
+  }
+
+  dispose(): void {
+    this.disposed = true;
+    this.cancel();
+    this.status = "off";
   }
 
   private ctor(): ChromeRecognitionCtor | undefined {
@@ -149,8 +188,17 @@ export class ChromeLocalEars implements TutorEars {
     const cached = this.confirmed.get(lang);
     if (cached !== undefined) return cached;
     const available = Ctor.available;
+    if (!available) return false;
+    // Headless Chromium / WebDriver crashes at the C++ Mojo layer when
+    // native SpeechRecognition.available({ processLocally: true }) is invoked
+    // without an OS SODA service. Allow injected/mocked functions in unit tests.
+    const isNativeAvailable = Function.prototype.toString.call(available).includes("[native code]");
+    if (isNativeAvailable && typeof navigator !== "undefined" && navigator.webdriver) {
+      this.confirmed.set(lang, false);
+      return false;
+    }
     // async wrapper: a synchronous throw becomes a rejection (handled below).
-    const askOnDevice = async () => available!.call(Ctor, { langs: [lang], processLocally: true });
+    const askOnDevice = async () => available.call(Ctor, { langs: [lang], processLocally: true });
     try {
       const ok = (await askOnDevice()) === "available";
       this.confirmed.set(lang, ok);
@@ -212,8 +260,12 @@ export class ChromeLocalEars implements TutorEars {
         // Every FINAL result is delivered exactly once, by result index.
         if (result?.isFinal && !session.delivered.has(index)) {
           session.delivered.add(index);
-          if (text.trim()) session.finals.push(text.trim());
-          this.status = "hearing";
+          if (text.trim()) {
+            session.finals.push(text.trim());
+            this.status = "hearing";
+            this.finalizeSession();
+            return;
+          }
         }
       }
     };

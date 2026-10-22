@@ -10,6 +10,7 @@ import { describe, expect, it } from "vitest";
 import { findTutorItem, itemsForLesson } from "../tutor-content";
 import {
   IDLE_TIMEOUT_MS,
+  SPANISH_CARRIER_WORDS,
   buildListenGrammar,
   createBrainState,
   currentTargetItem,
@@ -53,15 +54,19 @@ function toListen(lesson: number, opts: Partial<CreateBrainStateOptions> = {}): 
   ]).state;
 }
 
-function tapAndHear(state: BrainState, transcript: string, alternatives: string[] = [], rng: () => number = rng0): Drive {
-  return drive(state, [
-    { type: "MIC_TAP" },
-    { type: "HEARD", transcript, alternatives },
-  ], rng);
+function tapAndHear(
+  state: BrainState,
+  transcript: string,
+  alternatives: string[] = [],
+  rng: () => number = rng0,
+): Drive {
+  return drive(state, [{ type: "MIC_TAP" }, { type: "HEARD", transcript, alternatives }], rng);
 }
 
 function lineIds(effects: Effect[]): string[] {
-  return effects.filter((e): e is Extract<Effect, { type: "playLine" }> => e.type === "playLine").map((e) => e.lineId);
+  return effects
+    .filter((e): e is Extract<Effect, { type: "playLine" }> => e.type === "playLine")
+    .map((e) => e.lineId);
 }
 
 describe("START → GREET (greeting rotating 1 of 3)", () => {
@@ -132,7 +137,11 @@ describe("LISTEN MIC_TAP → capturing", () => {
   });
 
   it("mic-before-tap: a tap outside LISTEN does nothing", () => {
-    for (const state of [brain(1), drive(brain(1), [{ type: "START" }]).state, drive(brain(1), [{ type: "START" }, { type: "LINE_DONE" }]).state]) {
+    for (const state of [
+      brain(1),
+      drive(brain(1), [{ type: "START" }]).state,
+      drive(brain(1), [{ type: "START" }, { type: "LINE_DONE" }]).state,
+    ]) {
       const step = reduce(state, { type: "MIC_TAP" }, rng0);
       expect(step.state).toBe(state);
       expect(step.effects).toEqual([]);
@@ -257,15 +266,17 @@ describe("MATCH fail, attempts<3 → RESPOND(retry)", () => {
 
   it("correct after a retry earns praise-after-retry and logs correct_after_retry", () => {
     let state = toListen(2);
-    state = tapAndHear(state, "oso").state;      // OTHER_WORD miss 1 on the vowel "o"
+    state = tapAndHear(state, "oso").state; // OTHER_WORD miss 1 on the vowel "o"
     state = drive(state, [{ type: "LINE_DONE" }]).state; // back to LISTEN
-    const fixed = tapAndHear(state, "oh");      // pass on attempt 2
+    const fixed = tapAndHear(state, "oh"); // pass on attempt 2
     expect(fixed.state.respondKind).toBe("correct");
     expect(fixed.state.attempts).toBe(2);
     expect(lineIds(fixed.effects)).toEqual(["l0-praise-after-retry-01"]);
 
     const done = drive(fixed.state, [{ type: "LINE_DONE" }]);
-    const log = done.effects.find((e): e is Extract<Effect, { type: "logProgress" }> => e.type === "logProgress");
+    const log = done.effects.find(
+      (e): e is Extract<Effect, { type: "logProgress" }> => e.type === "logProgress",
+    );
     expect(log?.evt).toEqual({
       sessionId: "test-session",
       lessonId: "2",
@@ -409,11 +420,17 @@ describe("RESPOND LINE_DONE, last item → CELEBRATE", () => {
     const start = brain(1, { items });
     const events: BrainEvent[] = [{ type: "START" }];
     for (const item of items) {
-      events.push({ type: "LINE_DONE" }, { type: "LINE_DONE" }, { type: "MIC_TAP" }, {
-        type: "HEARD",
-        transcript: item.text,
-        alternatives: [],
-      }, { type: "LINE_DONE" });
+      events.push(
+        { type: "LINE_DONE" },
+        { type: "LINE_DONE" },
+        { type: "MIC_TAP" },
+        {
+          type: "HEARD",
+          transcript: item.text,
+          alternatives: [],
+        },
+        { type: "LINE_DONE" },
+      );
     }
     const { state, effects } = drive(start, events);
     // Third first-try correct → streak line, and the session celebrates.
@@ -505,7 +522,7 @@ describe("IDLE_TIMEOUT (15 min no tap) → ENDED", () => {
     const step = reduce(toListen(1), { type: "IDLE_TIMEOUT" }, rng0);
     expect(step.state.phase).toBe("ENDED");
     expect(step.state.endedReason).toBe("idle");
-    expect(step.effects).toEqual([{ type: "stopMic" }, { type: "flushLog" }]);
+    expect(step.effects).toEqual([{ type: "cancelSpeech" }, { type: "stopMic" }, { type: "flushLog" }]);
   });
 
   it("the idle window is 15 minutes", () => {
@@ -596,6 +613,21 @@ describe("buildListenGrammar (§18.2 / §18.6)", () => {
     }
     expect(grammar).toContain("imán");
     expect(grammar).toContain("uña");
+  });
+
+  it("includes Spanish carrier words in the recognizer grammar", () => {
+    const grammar = buildListenGrammar(1);
+    for (const word of SPANISH_CARRIER_WORDS) {
+      expect(grammar).toContain(word);
+    }
+    expect(grammar).toContain("el");
+    expect(grammar).toContain("la");
+    expect(grammar).toContain("un");
+    expect(grammar).toContain("una");
+    expect(grammar).toContain("es");
+    expect(grammar).toContain("vocal");
+    expect(grammar).toContain("letra");
+    expect(grammar).toContain("dije");
   });
 
   it("has no duplicates and is deterministic", () => {

@@ -100,10 +100,14 @@ function makeFakeModel(): {
   return { model, createModel };
 }
 
-function makeFakeAudioContext(): () => AudioContext {
+function makeFakeAudioContext(
+  options: { state?: AudioContextState; resume?: () => Promise<void> } = {},
+): () => AudioContext {
   const create = () =>
     ({
       sampleRate: 16000,
+      state: options.state ?? "running",
+      resume: options.resume ?? vi.fn(() => Promise.resolve()),
       destination: {} as AudioDestinationNode,
       createScriptProcessor: vi.fn(
         () => ({ onaudioprocess: null, connect: vi.fn() }) as unknown as ScriptProcessorNode,
@@ -123,8 +127,40 @@ function makeFakeAudioContext(): () => AudioContext {
   return create;
 }
 
-function makeFakeTracks(count = 2) {
-  return Array.from({ length: count }, () => ({ stop: vi.fn() }));
+interface FakeTrack {
+  stop: ReturnType<typeof vi.fn>;
+  addEventListener: (event: string, fn: (e: unknown) => void) => void;
+  removeEventListener: (event: string, fn: (e: unknown) => void) => void;
+  dispatchEvent: (event: { type: string }) => boolean;
+  onended: (() => void) | null;
+  _fireEnded: () => void;
+}
+
+function makeFakeTracks(count = 2): FakeTrack[] {
+  return Array.from({ length: count }, () => {
+    const listeners: Record<string, ((event: unknown) => void)[]> = {};
+    const track: FakeTrack = {
+      stop: vi.fn(),
+      addEventListener: vi.fn((event: string, fn: (e: unknown) => void) => {
+        listeners[event] = listeners[event] ?? [];
+        listeners[event].push(fn);
+      }),
+      removeEventListener: vi.fn((event: string, fn: (e: unknown) => void) => {
+        if (!listeners[event]) return;
+        listeners[event] = listeners[event].filter((l) => l !== fn);
+      }),
+      dispatchEvent: vi.fn((event: { type: string }) => {
+        listeners[event.type]?.forEach((l) => l(event));
+        return true;
+      }),
+      onended: null,
+      _fireEnded() {
+        this.dispatchEvent({ type: "ended" });
+        this.onended?.();
+      },
+    };
+    return track;
+  });
 }
 
 describe("createTutorEars factory", () => {
@@ -358,6 +394,110 @@ describe("VoskEars (primary on-device engine)", () => {
     });
     expect(getUserMedia).not.toHaveBeenCalled();
   });
+
+  it("resumes AudioContext when suspended before starting capture", async () => {
+    const resume = vi.fn(async () => {});
+    const { createModel } = makeFakeModel();
+    const ears = new VoskEars({
+      deps: {
+        createModel,
+        createAudioContext: makeFakeAudioContext({ state: "suspended", resume }),
+      },
+    });
+    const attempt = ears.listen({ lang: "es-MX", maxMs: 100, grammar: ["oso"] });
+    await vi.waitFor(() => expect(getUserMedia).toHaveBeenCalledTimes(1));
+    expect(resume).toHaveBeenCalledTimes(1);
+    const recognizer = FakeVoskRecognizer.instances.at(-1)!;
+    recognizer.emit({ event: "result", result: { text: "oso" } });
+    await expect(attempt).resolves.toEqual({
+      ok: true,
+      transcript: "oso",
+      alternatives: [],
+    });
+  });
+
+  it("resolves immediately with no-microphone when audio track emits ended event mid-session", async () => {
+    const { ears } = makeEars();
+    const attempt = ears.listen({ lang: "es-MX", maxMs: 5000, grammar: ["oso"] });
+    await vi.waitFor(() => expect(getUserMedia).toHaveBeenCalledTimes(1));
+    const recognizer = FakeVoskRecognizer.instances.at(-1)!;
+    // Simulate microphone disconnection / unplugged hardware
+    tracks[0]._fireEnded();
+    await expect(attempt).resolves.toEqual({
+      ok: false,
+      problem: "no-microphone",
+    });
+    expect(tracks.every((track) => track.stop.mock.calls.length >= 1)).toBe(true);
+    expect(recognizer.remove).toHaveBeenCalled();
+  });
+
+  it("does not abort 6s listen window when [unk] noise occurs, and recognizes speech following noise", async () => {
+    const { ears } = makeEars();
+    const attempt = ears.listen({ lang: "es-MX", maxMs: 5000, grammar: ["oso"] });
+    await vi.waitFor(() => expect(getUserMedia).toHaveBeenCalledTimes(1));
+    const recognizer = FakeVoskRecognizer.instances.at(-1)!;
+
+    // Breath / mic click produces pure [unk]
+    recognizer.emit({ event: "result", result: { text: "[unk]" } });
+    // Still capturing, not finished yet
+    expect(FakeVoskRecognizer.instances.at(-1)!.remove).not.toHaveBeenCalled();
+
+    // Now learner speaks target word
+    recognizer.emit({ event: "result", result: { text: "oso" } });
+    await expect(attempt).resolves.toEqual({
+      ok: true,
+      transcript: "oso",
+      alternatives: [],
+    });
+  });
+
+  it("resolves with [unk] transcript when pure noise was heard by window timeout", async () => {
+    const { ears } = makeEars();
+    const attempt = ears.listen({ lang: "es-MX", maxMs: 50, grammar: ["oso"] });
+    await vi.waitFor(() => expect(getUserMedia).toHaveBeenCalledTimes(1));
+    const recognizer = FakeVoskRecognizer.instances.at(-1)!;
+
+    // Noise heard
+    recognizer.emit({ event: "result", result: { text: "[unk]" } });
+
+    // Wait for timeout (50ms)
+    await expect(attempt).resolves.toEqual({
+      ok: true,
+      transcript: "[unk]",
+      alternatives: [],
+    });
+  });
+
+  it("rescues short vowel from lastValidPartial when window boundary expires without final result", async () => {
+    const { ears } = makeEars();
+    const attempt = ears.listen({ lang: "es-MX", maxMs: 50, grammar: ["a", "e", "i", "o", "u"] });
+    await vi.waitFor(() => expect(getUserMedia).toHaveBeenCalledTimes(1));
+    const recognizer = FakeVoskRecognizer.instances.at(-1)!;
+
+    // Child says short "a", only partial result arrives before boundary
+    recognizer.emit({ event: "partialresult", result: { partial: " a " } });
+
+    // Timeout fires (50ms)
+    await expect(attempt).resolves.toEqual({
+      ok: true,
+      transcript: "a",
+      alternatives: [],
+    });
+  });
+
+  it("does not rescue [unk] partial tokens on timeout and resolves with no-speech", async () => {
+    const { ears } = makeEars();
+    const attempt = ears.listen({ lang: "es-MX", maxMs: 50, grammar: ["a"] });
+    await vi.waitFor(() => expect(getUserMedia).toHaveBeenCalledTimes(1));
+    const recognizer = FakeVoskRecognizer.instances.at(-1)!;
+
+    recognizer.emit({ event: "partialresult", result: { partial: " [unk] " } });
+
+    await expect(attempt).resolves.toEqual({
+      ok: false,
+      problem: "no-speech",
+    });
+  });
 });
 
 describe("voskGrammar", () => {
@@ -522,6 +662,68 @@ describe("ChromeLocalEars (browser on-device engine)", () => {
     ears.cancel();
     expect(recognition.abort).toHaveBeenCalled();
     await expect(attempt).resolves.toEqual({ ok: false, problem: "no-speech" });
+  });
+
+  it("settles immediately on isFinal result without waiting for maxMs timeout", async () => {
+    const ears = new ChromeLocalEars();
+    const attempt = ears.listen({ lang: "es-MX", maxMs: 10_000 });
+    await vi.waitFor(() => expect(FakeRecognition.instances).toHaveLength(1));
+    const recognition = FakeRecognition.instances[0];
+
+    // Emit final result
+    recognition.results([["oso", true]]);
+
+    // Should resolve immediately without waiting 10s or calling stop() manually
+    await expect(attempt).resolves.toEqual({
+      ok: true,
+      transcript: "oso",
+      alternatives: [],
+    });
+    expect(recognition.abort).toHaveBeenCalled();
+  });
+
+  it("aborts cleanly when cancel() is called during on-device probe and never starts session", async () => {
+    let resolveAvailability!: (val: string) => void;
+    FakeRecognition.available.mockImplementationOnce(
+      () =>
+        new Promise((resolve) => {
+          resolveAvailability = resolve;
+        }),
+    );
+    const ears = new ChromeLocalEars();
+    const attempt = ears.listen({ lang: "es-MX", maxMs: 5000 });
+
+    // Cancel while probe is still pending
+    ears.cancel();
+
+    await expect(attempt).resolves.toEqual({
+      ok: false,
+      problem: "no-speech",
+    });
+
+    // Resolve probe late
+    resolveAvailability("available");
+    await Promise.resolve();
+
+    // Recognizer was never created
+    expect(FakeRecognition.instances).toHaveLength(0);
+  });
+
+  it("dispose() cancels any active session and prevents future sessions", async () => {
+    const ears = new ChromeLocalEars();
+    const attempt = ears.listen({ lang: "es-MX", maxMs: 5000 });
+    await vi.waitFor(() => expect(FakeRecognition.instances).toHaveLength(1));
+    const recognition = FakeRecognition.instances[0];
+
+    ears.dispose();
+    expect(recognition.abort).toHaveBeenCalled();
+    await expect(attempt).resolves.toEqual({ ok: false, problem: "no-speech" });
+
+    // Subsequent listen returns failed
+    await expect(ears.listen({ lang: "es-MX", maxMs: 5000 })).resolves.toEqual({
+      ok: false,
+      problem: "failed",
+    });
   });
 });
 

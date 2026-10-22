@@ -34,7 +34,11 @@ import type {
 export const VOSK_MODEL_ASSET_PATH = "models/vosk/vosk-model-small-es-0.42.bin";
 
 export function voskModelUrl(): string {
-  return assetPath(VOSK_MODEL_ASSET_PATH);
+  const relative = assetPath(VOSK_MODEL_ASSET_PATH);
+  if (typeof window !== "undefined" && window.location?.origin) {
+    return new URL(relative, window.location.origin).href;
+  }
+  return relative;
 }
 
 // ---------------------------------------------------------------------------
@@ -67,6 +71,8 @@ export interface VoskModelLike {
 
 export interface VoskAudioContextLike {
   readonly sampleRate: number;
+  readonly state?: AudioContextState;
+  resume?(): Promise<void>;
   createScriptProcessor(
     bufferSize: number,
     inputChannels: number,
@@ -112,6 +118,8 @@ const FINAL_RESULT_GRACE_MS = 300;
 
 interface VoskSession {
   finals: string[];
+  noiseHeard: boolean;
+  lastValidPartial: string;
   stream: MediaStream;
   audioContext: VoskAudioContextLike;
   source: MediaStreamAudioSourceNode;
@@ -126,6 +134,7 @@ interface VoskSession {
   tornDown: boolean;
   captureStopped: boolean;
   onCaptureChange?: (capturing: boolean) => void;
+  onTrackEnded?: () => void;
   resolve: (outcome: EarsListenOutcome) => void;
 }
 
@@ -231,9 +240,18 @@ export class VoskEars implements TutorEars {
     }
     opts.onCaptureChange?.(true);
     try {
+      const audioContext = this.deps.createAudioContext?.() ?? new AudioContext();
+      if (audioContext.state === "suspended" && typeof audioContext.resume === "function") {
+        await audioContext.resume();
+      }
+      if (generation !== this.generation || this.disposed) {
+        stream.getTracks().forEach((track) => track.stop());
+        opts.onCaptureChange?.(false);
+        audioContext.close().catch(() => {});
+        return { ok: false, problem: "no-speech" };
+      }
       return await new Promise<EarsListenOutcome>((resolve) => {
         // Audio pipeline — everything below lives in memory only.
-        const audioContext = this.deps.createAudioContext?.() ?? new AudioContext();
         const recognizer = new model.KaldiRecognizer(
           audioContext.sampleRate,
           voskGrammar(opts.grammar),
@@ -245,8 +263,17 @@ export class VoskEars implements TutorEars {
         const silence = audioContext.createGain();
         silence.gain.value = 0;
 
+        const onTrackEnded = () => {
+          if (session.captureStopped || session.settling || session.settled) return;
+          session.settled = true;
+          this.teardownSession(session);
+          session.resolve({ ok: false, problem: "no-microphone" });
+        };
+
         const session: VoskSession = {
           finals: [],
+          noiseHeard: false,
+          lastValidPartial: "",
           stream,
           audioContext,
           source,
@@ -259,15 +286,40 @@ export class VoskEars implements TutorEars {
           settled: false,
           tornDown: false,
           captureStopped: false,
+          onTrackEnded,
           resolve,
           onCaptureChange: opts.onCaptureChange,
         };
         this.active = session;
 
+        const audioTracks =
+          typeof stream.getAudioTracks === "function"
+            ? stream.getAudioTracks()
+            : typeof stream.getTracks === "function"
+              ? stream.getTracks()
+              : [];
+        for (const track of audioTracks) {
+          track.addEventListener?.("ended", onTrackEnded, { once: true });
+          if ("onended" in track && !track.onended) {
+            track.onended = onTrackEnded;
+          }
+        }
+
         recognizer.on("result", (message) => {
           if (message.event !== "result") return;
           const text = message.result.text.trim();
           if (!text) return;
+          const tokens = text.split(/\s+/).filter(Boolean);
+          const isPureNoise =
+            tokens.length > 0 &&
+            tokens.every((t) => {
+              const lower = t.toLowerCase();
+              return lower === "[unk]" || lower === "unk";
+            });
+          if (isPureNoise) {
+            session.noiseHeard = true;
+            return;
+          }
           session.finals.push(text);
           this.status = "hearing";
           // A finished child utterance is recognized: end the attempt now.
@@ -275,7 +327,17 @@ export class VoskEars implements TutorEars {
         });
         recognizer.on("partialresult", (message) => {
           if (message.event !== "partialresult") return;
-          if (message.result.partial.trim()) this.status = "hearing";
+          const partial = message.result.partial.trim();
+          if (partial) {
+            this.status = "hearing";
+            const validTokens = partial.split(/\s+/).filter((t) => {
+              const lower = t.toLowerCase();
+              return lower && lower !== "[unk]" && lower !== "unk";
+            });
+            if (validTokens.length > 0) {
+              session.lastValidPartial = validTokens.join(" ");
+            }
+          }
         });
 
         processor.onaudioprocess = (event) => {
@@ -317,6 +379,8 @@ export class VoskEars implements TutorEars {
     this.cancelModelLoad?.();
     this.model?.terminate();
     this.model = null;
+    this.modelPromise = null;
+    this.status = "off";
   }
 
   /** Ask the recognizer to flush its final result, then settle after a grace. */
@@ -342,10 +406,24 @@ export class VoskEars implements TutorEars {
     if (!session || session.settled) return;
     session.settled = true;
     this.teardownSession(session);
-    const transcript = session.finals.join(" ").trim();
-    session.resolve(
-      transcript ? { ok: true, transcript, alternatives: [] } : { ok: false, problem: "no-speech" },
-    );
+    let transcript = session.finals.join(" ").trim();
+    if (!transcript && session.lastValidPartial) {
+      transcript = session.lastValidPartial;
+    }
+    if (transcript) {
+      const cleanTokens = transcript.split(/\s+/).filter((t) => {
+        const lower = t.toLowerCase();
+        return lower !== "[unk]" && lower !== "unk";
+      });
+      if (cleanTokens.length > 0) {
+        transcript = cleanTokens.join(" ");
+      }
+      session.resolve({ ok: true, transcript, alternatives: [] });
+    } else if (session.noiseHeard) {
+      session.resolve({ ok: true, transcript: "[unk]", alternatives: [] });
+    } else {
+      session.resolve({ ok: false, problem: "no-speech" });
+    }
   }
 
   private waitForAttempt<T>(pending: Promise<T>): Promise<T> {
@@ -378,6 +456,20 @@ export class VoskEars implements TutorEars {
     if (session.tornDown) return;
     session.tornDown = true;
     this.stopCapture(session);
+    if (session.onTrackEnded) {
+      const audioTracks =
+        typeof session.stream.getAudioTracks === "function"
+          ? session.stream.getAudioTracks()
+          : typeof session.stream.getTracks === "function"
+            ? session.stream.getTracks()
+            : [];
+      for (const track of audioTracks) {
+        track.removeEventListener?.("ended", session.onTrackEnded);
+        if (track.onended === session.onTrackEnded) {
+          track.onended = null;
+        }
+      }
+    }
     if (session.listenTimer) clearTimeout(session.listenTimer);
     if (session.graceTimer) clearTimeout(session.graceTimer);
     session.listenTimer = null;
@@ -441,10 +533,30 @@ export class VoskEars implements TutorEars {
                   60_000,
                 );
                 this.cancelModelLoad = () => finish(new Error("Tutor closed"));
-                model.on("load", (message) =>
-                  finish(message.result ? undefined : new Error("Local model did not load")),
-                );
-                model.on("error", (message) => finish(new Error(String(message.error))));
+                if (worker) {
+                  worker.onerror = (e: Event) => {
+                    const message =
+                      "message" in e && typeof e.message === "string"
+                        ? e.message
+                        : "Worker initialization failed";
+                    finish(new Error(message));
+                  };
+                }
+                model.on("load", (message) => {
+                  const hasResult =
+                    typeof message === "object" &&
+                    message !== null &&
+                    "result" in message &&
+                    Boolean(message.result);
+                  finish(hasResult ? undefined : new Error("Local model did not load"));
+                });
+                model.on("error", (message) => {
+                  const errorMsg =
+                    typeof message === "object" && message !== null && "error" in message
+                      ? String(message.error)
+                      : "Model error";
+                  finish(new Error(errorMsg));
+                });
                 if (this.disposed) this.cancelModelLoad();
               }),
           ));

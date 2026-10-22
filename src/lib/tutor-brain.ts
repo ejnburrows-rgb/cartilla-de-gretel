@@ -512,10 +512,10 @@ export function reduce(
         effects: [{ type: "cancelSpeech" }, { type: "stopMic" }],
       };
     case "IDLE_TIMEOUT":
-      // any | IDLE_TIMEOUT (15 min no tap) → ENDED: stopMic + flush log.
+      // any | IDLE_TIMEOUT (15 min no tap) → ENDED: cancelSpeech + stopMic + flush log.
       return {
         state: { ...state, phase: "ENDED", endedReason: "idle", capturing: false },
-        effects: [{ type: "stopMic" }, { type: "flushLog" }],
+        effects: [{ type: "cancelSpeech" }, { type: "stopMic" }, { type: "flushLog" }],
       };
     case "EARS_PROBLEM":
       // any | EARS_PROBLEM → same phase: stopMic + showUnavailable (no voice).
@@ -538,11 +538,24 @@ export function reduce(
   }
 }
 
+export const SPANISH_CARRIER_WORDS = [
+  "el",
+  "la",
+  "los",
+  "las",
+  "un",
+  "una",
+  "es",
+  "vocal",
+  "letra",
+  "dije",
+] as const;
+
 /**
  * Grammar for ears.listen() (spec §18.2 / §18.6): lesson items ∪ same-page
- * distractors ∪ the 5 vowels and their aliases ∪ command words ∪ "[unk]".
- * Both the printed form (accents kept) and the normalized decode form are
- * included, deduped, in a deterministic order.
+ * distractors ∪ the 5 vowels and their aliases ∪ command words ∪ Spanish carrier
+ * words ∪ "[unk]". Both the printed form (accents kept) and the normalized
+ * decode form are included, deduped, in a deterministic order.
  */
 export function buildListenGrammar(lesson: number): string[] {
   const lessonItems = itemsForLesson(lesson);
@@ -564,6 +577,10 @@ export function buildListenGrammar(lesson: number): string[] {
   for (const vowel of VOWELS) {
     words.add(vowel);
     for (const alias of VOWEL_ALIASES[vowel]) words.add(alias);
+  }
+  // Spanish carrier words.
+  for (const word of SPANISH_CARRIER_WORDS) {
+    words.add(word);
   }
   // Command words + aliases.
   for (const phrase of COMMAND_PHRASES) words.add(phrase);
