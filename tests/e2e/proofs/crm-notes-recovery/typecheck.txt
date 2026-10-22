@@ -1,0 +1,4 @@
+
+> cartilla-de-gretel-platform@ typecheck C:\Users\EJN\Documents\Codex\2026-10-22\copy-paste-handoff-coding-agent-c\work\cartilla
+> tsc --noEmit
+

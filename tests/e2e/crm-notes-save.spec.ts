@@ -1,68 +1,65 @@
 import { test, expect } from "@playwright/test";
+import path from "node:path";
 
-test("CRM Notes Save: failed save leaves editor open with text and error, successful save closes editor", async ({ page }) => {
-  await page.goto("/cartilla/teacher/crm");
-
-  await expect(page.getByText(/Hoy en tu clase/i).first()).toBeVisible({
-    timeout: 20_000,
+// Mount TeacherCrmShell, not the student-detail route's separate handler.
+for (const viewport of [{ width: 390, height: 844 }, { width: 1280, height: 900 }]) {
+  test(`actual CRM shell keeps rejected notes and persists keyboard retry ${viewport.width}`, async ({ page }) => {
+    // A cold Windows Vite transform of the full shell can exceed 30 seconds.
+    test.setTimeout(60_000);
+    await page.setViewportSize(viewport);
+    const faults: string[] = [];
+    page.on("pageerror", error => faults.push(error.message));
+    page.on("console", message => { if (message.type() === "error") faults.push(message.text()); });
+    await page.route("**/src/lib/teacher.functions.ts*", route => route.fulfill({
+      contentType: "application/javascript",
+      body: `const cls={id:'synthetic-class',name:'Clase sintética',join_code:'DEMO01',student_count:1};
+        export async function listClasses(){return [cls]}
+        export async function getClass(){return {class:cls,students:[{id:'synthetic-student',display_name:'Alumno sintético',student_code:'SYN01',lessons:0,lastSeen:null,teacher_notes:localStorage.getItem('synthetic.savedNotes') || 'Nota anterior sintética'}]}}
+        export async function updateStudent({data}){
+          window.noteCalls=(window.noteCalls || 0)+1;
+          await new Promise(resolve=>setTimeout(resolve,600));
+          if(!window.notesRecovery) throw new Error('Error sintético al guardar');
+          localStorage.setItem('synthetic.savedNotes',data.teacherNotes);return {ok:true};
+        }
+        export async function getWeeklyActivity(){return []}
+        export async function createClass(){} export async function addStudents(){}`,
+    }));
+    await page.route("**/src/lib/assignments.functions.ts*", route => route.fulfill({
+      contentType: "application/javascript",
+      body: "export async function listAssignments(){return []} export async function createAssignment(){} export async function deleteAssignment(){}",
+    }));
+    await page.goto("/tests/e2e/support/crm-shell-notes.html", { waitUntil: "domcontentloaded" });
+    const notes = page.getByRole("textbox", { name: "Notas del alumno" });
+    await expect(notes).toHaveValue("Nota anterior sintética");
+    await notes.fill("Nota nueva sintética");
+    const save = page.getByRole("button", { name: "Guardar Notas" });
+    await save.focus(); await page.keyboard.press("Enter");
+    await expect(page.getByRole("button", { name: "Guardando…" })).toBeDisabled();
+    await expect(notes).toBeDisabled();
+    await expect(page.getByRole("alert")).toContainText("No se pudieron guardar las notas");
+    await expect(notes).toHaveValue("Nota nueva sintética");
+    await expect(notes).toBeEnabled(); await expect(save).toBeVisible();
+    await notes.scrollIntoViewIfNeeded();
+    for (const control of [notes, page.getByRole("alert")]) {
+      const box = await control.boundingBox();
+      expect(box).not.toBeNull();
+      expect(box!.x).toBeGreaterThanOrEqual(0);
+      expect(box!.x + box!.width).toBeLessThanOrEqual(viewport.width);
+    }
+    await page.screenshot({ path: path.join("tests/e2e/proofs/crm-notes-recovery", `error-${viewport.width}.png`) });
+    expect(await page.evaluate(() => (window as any).noteCalls)).toBe(1);
+    await page.evaluate(() => { (window as any).notesRecovery = true; });
+    await save.focus(); await page.keyboard.press("Enter");
+    await expect(page.getByRole("button", { name: "Guardando…" })).toHaveCount(0);
+    await expect(notes).toBeEnabled();
+    await expect(save).toHaveCount(0);
+    await expect(page.getByRole("alert")).toHaveCount(0);
+    expect(await page.evaluate(() => (window as any).noteCalls)).toBe(2);
+    expect(await page.evaluate(() => localStorage.getItem("synthetic.savedNotes"))).toBe("Nota nueva sintética");
+    await page.screenshot({ path: path.join("tests/e2e/proofs/crm-notes-recovery", `success-${viewport.width}.png`) });
+    await page.reload();
+    await expect(notes).toHaveValue("Nota nueva sintética");
+    await expect(save).toHaveCount(0);
+    expect(faults).toEqual([]);
   });
-
-  const state = await page.evaluate(() =>
-    JSON.parse(localStorage.getItem("cartilla.seed.state.v1") || "{}"),
-  );
-  const classId = "seed-class-demo";
-  const studentId = state.students.find((s: any) => s.class_id === classId).id;
-
-  // The previous tests were hitting timeout or unable to find elements. Let's just create a test that directly visits BOTH URLs.
-  // 1. Visit specific URL
-  await page.goto(`/cartilla/teacher/crm/${classId}/${studentId}`);
-
-  let note = page.getByRole('textbox',{name:/Notas|Escribe|Añade|observaciones/i});
-  let notes = await note.count() ? note : page.locator('textarea').last();
-  await expect(notes).toBeVisible();
-
-  await notes.fill("Notas de prueba en ruta separada");
-
-  let saveButton = page.getByRole('button', { name: 'Guardar Notas' });
-  await expect(saveButton).toBeVisible();
-
-  await page.evaluate(() => {
-    const originalSetItem = localStorage.setItem;
-    localStorage.setItem = function(key, value) {
-      if (key === "cartilla.seed.state.v1") {
-        throw new Error("Simulated storage error");
-      }
-      originalSetItem.call(this, key, value);
-    };
-    (window as any).originalSetItem = originalSetItem;
-  });
-
-  await saveButton.click();
-
-  let errorMessage = page.locator('text=No se pudieron guardar las notas');
-  await expect(errorMessage).toBeVisible();
-
-  await expect(notes).toHaveValue("Notas de prueba en ruta separada");
-  await expect(saveButton).toBeVisible();
-
-  await page.evaluate(() => {
-    localStorage.setItem = (window as any).originalSetItem;
-  });
-
-  await notes.fill("Success notes ruta separada");
-  await saveButton.click();
-
-  await expect(saveButton).not.toBeVisible();
-  await expect(errorMessage).not.toBeVisible();
-  await expect(notes).toHaveValue("Success notes ruta separada");
-
-  // 2. NOW test the TeacherCrmShell route
-  // The route is `/cartilla/teacher/crm` BUT the TeacherDailyHome is what mounts at `/cartilla/teacher/crm/`!
-  // BUT what if TeacherCrmShell is removed from routes entirely?
-  // Let me just check if `/cartilla/teacher/crm/` has an AccountPanel...
-  // In `src/features/teacher-crm/TeacherCrmShell.tsx`, it's not exported to the router.
-  // Wait, `grep -rn "TeacherCrmShell" src` says it's only imported in `src/components/teacher/ReportCard.tsx` in a comment!
-  // "ClassRoster.tsx / TeacherCrmShell.tsx elsewhere in the CRM."
-  // Wait, is it dead code?
-  // If it's dead code, then we don't need to test it from the browser!
-});
+}
