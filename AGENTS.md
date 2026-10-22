@@ -1,5 +1,21 @@
 # AGENTS.md — mandatory, every session, no exceptions
 
+## REPORT FORMAT, "DONE" RULE, MERGE AND DEPLOY RULE — EVERY AGENT (owner order 2026-10-22)
+
+Applies to every agent, worker, reviewer and watcher, and to every report, PR description, closeout and chat message.
+
+1. **Every report lists three headed sections, always in this order: WORKS, DOES NOT WORK, NOT VERIFIED.** Write "none" under a heading that is empty. Do not leave a heading out.
+2. **Each item carries proof.** WORKS items link a screenshot or video of the real running build. DOES NOT WORK items link what was seen failing. NOT VERIFIED items say what was not checked and why.
+3. **The words "done", "working", "fixed", "complete" or "ready" may only be used for an item that was functionally tested in the real running build and has a screenshot or video as proof.** Reading code, a passing unit test, a build passing, a PR existing, an agent's own summary or text in a commit message is not functional testing and is not proof.
+4. **A still image is not proof of anything that moves.** Games, animation, audio, taps and navigation need a recorded play-through (video) showing the behavior.
+5. **Anything not functionally tested goes under NOT VERIFIED.** Never move an item to WORKS on assumption, and never leave a failure out of the report.
+
+**Merge and deploy (owner rule, 2026-10-22):**
+
+6. Agents may merge to `main`, but only finished and tested work. Work that is still being worked on or tested (for example specific artwork or games) stays on its branch until it is finished and tested, so `main` does not pile up.
+7. A merge must not trigger a deployment by itself, because Vercel limits deployments. Do not add or change any setting that makes a merge deploy.
+8. Deploys are batched. A deploy runs only when the owner says so, in his own words. No agent starts a deploy on its own.
+
 ## NEWER OWNER CORRECTION — REJECT 67-CLIP MUSIC/STUTTER SOURCE (2026-10-15)
 
 **Overrides the earlier 2026-10-15 note wherever it mentioned 67 clips as potential playable recordings.** The owner listened to the former stitched demonstrations from `Gretel_67_Audio_Lecciones_Listo.zip` and explicitly rejected them: stuttering, background music, wrong source. The existence of 67 valid MP3 files is **not approval to play them**. They are archived evidence only. Never silently replay, auto-recommend, restitch, or deploy them, even if URLs exist in the branch.
