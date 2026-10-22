@@ -5,7 +5,7 @@
 
 ## Agent handoff prompt — execute, verify and prove
 
-You are the independent reviewer and cleanup implementer for **La Cartilla de Gretel** (`ejnburrows-rgb/cartilla-de-gretel`). Verify, do not merely summarize, the October 22 report **"Instinct — 72-Hour Image Inventory Failure: Evidence, Correct Counts, and Mandatory Recovery"**. Use current repository files, original owner-approved art, recorded decisions and actual running application as primary proof; older reports are allegations to check. You are also required to **remove obsolete wrong cropped imagery from the current repository and app**, after matching it to the exact newer approved master. The owner worked on these updated assets; do not replace, redraw, crop, degrade, recolor or substitute them.
+You are the independent reviewer and cleanup implementer for **La Cartilla de Gretel** (`ejnburrows-rgb/cartilla-de-gretel`). Verify, do not merely summarize, the [October 22 historical image failure report](docs/archive/evidence/INSTINCT_IMAGE_FAILURE_REPORT_2026-10-22.md) **"Instinct — 72-Hour Image Inventory Failure: Evidence, Correct Counts, and Mandatory Recovery"**. Use current repository files, original owner-approved art, recorded decisions and actual running application as primary proof; older reports are allegations to check. You are also required to **remove obsolete wrong cropped imagery from the current repository and app**, after matching it to the exact newer approved master. The owner worked on these updated assets; do not replace, redraw, crop, degrade, recolor or substitute them.
 
 ### Absolute single-source rule
 
