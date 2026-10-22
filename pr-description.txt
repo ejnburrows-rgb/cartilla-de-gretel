@@ -1,0 +1,6 @@
+Title: 🧹 Remove unused `useRef` from DragLetterTrace.tsx
+
+🎯 **What:** Removed unused `useRef` import from `src/components/cartilla/DragLetterTrace.tsx`.
+💡 **Why:** `useRef` was imported but never utilized within the component. Removing it reduces visual clutter and prevents linting/unused import warnings, which improves code readability and maintainability.
+✅ **Verification:** Ran `eslint` and vitest tests across the repository to ensure no functionality was affected.
+✨ **Result:** A cleaner component import block that accurately reflects its dependencies.
