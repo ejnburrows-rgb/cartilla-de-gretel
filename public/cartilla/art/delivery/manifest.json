@@ -3009,10 +3009,10 @@
       "canonical": {
         "width": 870,
         "height": 751,
-        "bytes": 80094,
+        "bytes": 82608,
         "format": "webp",
         "hasAlpha": true,
-        "sha256": "2d54a211628f6d479dc15e55cb705170e5e295fa724d10f08334b7c7f9b9e491"
+        "sha256": "3d6a09256e46e209f8c7b0cf7865aae0ff5163e6a796f2f3e4dfa08a20417f3c"
       },
       "cropBox": null,
       "provenanceStatus": "PROVENANCE-UNKNOWN",
@@ -3032,11 +3032,10 @@
         "normalizedWidth": 840,
         "normalizedHeight": 721,
         "contentBounds": {
-          "x": 25,
-          "y": 25,
-          "width": 820,
-          "height": 701,
-          "opaquePixels": 258073
+          "x": 16,
+          "y": 93,
+          "width": 838,
+          "height": 564
         },
         "touchesCropEdge": {
           "left": false,
@@ -3052,14 +3051,14 @@
           "path": "/cartilla/art/delivery/faithful/384/vocal-i/iguana.webp",
           "width": 384,
           "height": 330,
-          "bytes": 27710
+          "bytes": 26294
         },
         {
           "widthTier": 768,
           "path": "/cartilla/art/delivery/faithful/768/vocal-i/iguana.webp",
           "width": 768,
           "height": 659,
-          "bytes": 68564
+          "bytes": 69904
         }
       ],
       "warnings": [],
