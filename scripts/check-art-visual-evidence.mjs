@@ -25,7 +25,7 @@ export async function screenSharpness(file) {
 }
 export async function qualifyVisualEvidence({file,technicalPass=false,comparison}) {
   const assetSha256=sha256(file);const sharpness=await screenSharpness(file);
-  const lookCompared=Boolean(comparison?.reviewed===true&&comparison.assetSha256===assetSha256&&comparison.sourceSha256&&comparison.evidencePath&&existsSync(comparison.evidencePath)&&comparison.reviewer&&comparison.verdict==='MATCH');
+  const lookCompared=Boolean(comparison?.reviewed===true&&comparison.assetSha256===assetSha256&&comparison.sourceSha256&&comparison.evidencePath&&existsSync(comparison.evidencePath)&&comparison.evidenceSha256===sha256(comparison.evidencePath)&&comparison.reviewer&&comparison.verdict==='MATCH');
   const visualPass=technicalPass&&sharpness.status==='PASS'&&lookCompared;
   return {assetSha256,technicalStatus:technicalPass?'PASS':'NOT VERIFIED',sharpness,lookCompared,
     fidelityStatus:visualPass?'VISUALLY REVIEWED MATCH':'fidelity NOT verified',

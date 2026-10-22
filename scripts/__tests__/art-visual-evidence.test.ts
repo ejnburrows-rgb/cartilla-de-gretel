@@ -4,7 +4,7 @@ import {qualifyVisualEvidence,screenSharpness,sha256} from '../check-art-visual-
 const dir='docs/proofs/arbol-visual-regression/';
 const bad=dir+'fixtures/arbol-known-bad.webp';
 const good=dir+'fixtures/arbol-owner-good.webp';
-const comparison={reviewed:true,assetSha256:sha256(good),sourceSha256:sha256('public/cartilla/art/owner-intake/2026-10-22/arbol-original-15ec6eb6.jpg'),evidencePath:dir+'before-after-grey-white-cream.png',reviewer:'visual review 2026-10-22',verdict:'MATCH'};
+const comparison={reviewed:true,assetSha256:sha256(good),sourceSha256:sha256('public/cartilla/art/owner-intake/2026-10-22/arbol-original-15ec6eb6.jpg'),evidencePath:dir+'before-after-grey-white-cream.png',evidenceSha256:sha256(dir+'before-after-grey-white-cream.png'),reviewer:'visual review 2026-10-22',verdict:'MATCH'};
 describe('owner arbol known-bad regression and evidence-first labels',()=>{
  it('rejects the old jagged tree, accepts the supplied clean tree screen',async()=>{
   expect((await screenSharpness(bad)).status).toBe('FAIL');
@@ -18,5 +18,6 @@ describe('owner arbol known-bad regression and evidence-first labels',()=>{
   expect((await qualifyVisualEvidence({file:good,technicalPass:true,comparison})).fidelityStatus).toBe('VISUALLY REVIEWED MATCH');
   expect((await qualifyVisualEvidence({file:bad,technicalPass:true,comparison:{...comparison,assetSha256:sha256(bad)}})).fidelityStatus).toBe('fidelity NOT verified');
   expect((await qualifyVisualEvidence({file:good,technicalPass:true,comparison:{...comparison,assetSha256:'stale'}})).fidelityStatus).toBe('fidelity NOT verified');
+  expect((await qualifyVisualEvidence({file:good,technicalPass:true,comparison:{...comparison,evidenceSha256:'stale'}})).fidelityStatus).toBe('fidelity NOT verified');
  });
 });
