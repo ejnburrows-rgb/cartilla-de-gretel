@@ -1,0 +1,28 @@
+(node:14044) [DEP0205] DeprecationWarning: `module.register()` is deprecated. Use `module.registerHooks()` instead.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+
+ RUN  v4.1.8 C:/Users/EJN/Documents/Codex/2026-10-22/copy-paste-handoff-coding-agent-c/work/cartilla
+
+ ❯ src/components/teacher/__tests__/ClassRoster.rename.test.tsx (4 tests | 1 failed) 656ms
+     × prevents Enter plus blur double submission in the same event turn and during the request 92ms
+
+⎯⎯⎯⎯⎯⎯⎯ Failed Tests 1 ⎯⎯⎯⎯⎯⎯⎯
+
+ FAIL  src/components/teacher/__tests__/ClassRoster.rename.test.tsx > ClassRoster rename recovery > prevents Enter plus blur double submission in the same event turn and during the request
+AssertionError: expected "vi.fn()" to be called 1 times, but got 3 times
+ ❯ src/components/teacher/__tests__/ClassRoster.rename.test.tsx:68:27
+     66|       fireEvent.keyDown(input, { key: "Enter" });
+     67|     });
+     68|     expect(updateStudent).toHaveBeenCalledTimes(1);
+       |                           ^
+     69|     expect(input).toHaveAttribute("readonly");
+     70|     fireEvent.keyDown(input, { key: "Enter" });
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/1]⎯
+
+
+ Test Files  1 failed (1)
+      Tests  1 failed | 3 passed (4)
+   Start at  01:02:58
+   Duration  3.49s (transform 151ms, setup 344ms, import 462ms, tests 656ms, environment 1.64s)
+
