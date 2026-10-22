@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-10-22T07:29:19.327498+00:00",
+  "generatedAt": "2026-10-22T07:36:06.921111+00:00",
   "sourceManifest": "/cartilla/art/faithful/manifest.json",
   "canonicalPolicy": "Canonical faithful WebP files remain untouched. Delivery derivatives are disposable build output.",
   "counts": {
@@ -111,10 +111,10 @@
       "canonical": {
         "width": 580,
         "height": 515,
-        "bytes": 106428,
+        "bytes": 64850,
         "format": "webp",
         "hasAlpha": true,
-        "sha256": "ce44de6980b58217fb5fde3d5b7479483cd95a7f0edd56a8b12a09784d40f81a"
+        "sha256": "72bdcecf4b17468e5c66568e479b45d71a89360632c165d9de86c668f6eb18f9"
       },
       "cropBox": [
         1740,
@@ -136,14 +136,14 @@
           "path": "/cartilla/art/delivery/faithful/384/leccion-1/globo.webp",
           "width": 384,
           "height": 341,
-          "bytes": 27652
+          "bytes": 19554
         },
         {
           "widthTier": 768,
           "path": "/cartilla/art/delivery/faithful/768/leccion-1/globo.webp",
           "width": 768,
           "height": 682,
-          "bytes": 70448
+          "bytes": 52874
         }
       ],
       "warnings": [
