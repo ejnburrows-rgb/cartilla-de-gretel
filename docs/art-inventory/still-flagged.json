@@ -1,0 +1,10 @@
+{
+ "note": "Slots still wrong after cleanup, as reported by the picture-install agent. Everything else that was flagged in slots-327.json shows as CLEANED (new file bytes checked by the script).",
+ "still_flagged": {
+  "wb-p002-10": "Bird (pajaro): still missing legs, tail and branch from the book."
+ },
+ "cleaned_notes": {
+  "wb-p013-14": "Redone from the book's measured bars, thin dark gray.",
+  "wb-p014-04": "Redone from the book's measured bars, thin dark gray."
+ }
+}
