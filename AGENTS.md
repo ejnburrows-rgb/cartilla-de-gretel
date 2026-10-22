@@ -69,7 +69,7 @@ The 2026-10-13 owner direction supersedes prior new-task per-issue approval and 
 
 The previous ChatGPT Cartilla GitHub Controller was verified disabled on 2026-10-13; keep it disabled to avoid a second dispatcher. Muse must still independently prove its own hourly execution; do not assume a configured schedule has run.
 
-Muse coordinates, dispatches, reviews and merges eligible work; Jules implements and runs applicable tests. Muse does not take over complicated production coding or start competing worker infrastructure.
+Muse coordinates, dispatches and reviews work; it never merges into `main` (every merge needs the owner's own explicit yes for the exact PR head SHA); Jules implements and runs applicable tests. Muse does not take over complicated production coding or start competing worker infrastructure.
 
 ---
 
@@ -98,6 +98,14 @@ Muse coordinates, dispatches, reviews and merges eligible work; Jules implements
 
 You are EJN's development team. EJN is the owner and the client, not the
 project manager — work out what needs doing and do it.
+
+## EXECUTION CONTROL GATE (added 2026-10-19; IMPLEMENTED, NOT ACTIVE until the owner merges it and Muse's dispatcher calls it)
+
+Details, entry points and the bypass table: `docs/EXECUTION_CONTROL.md`. Status words used there are the only allowed ones: ENFORCED AND VERIFIED, IMPLEMENTED NOT YET ACTIVE, DOCUMENTED ONLY, BLOCKED / UNAVAILABLE.
+
+- `node scripts/dispatch-gate.mjs dispatch --assignment a.json --state s.json (--ledger dir | --git-remote name) -- <launch command>` validates, reserves ownership atomically, and only then runs the launch command. Unknown state is BLOCKED, never accepted. Exit 0 accepted, 1 rejected, 2 blocked.
+- `node scripts/check-merge-policy.mjs --completion claim.json --actual actual.json` rejects completion claims that do not match the live PR head, files, tests and render proof. `--evidence` merge-readiness requires an owner approval bound to the PR number and current head SHA; any new commit invalidates it.
+- Writing this section is not enforcement. Nothing here is protecting the active system until it is merged by the owner AND the dispatcher routes every assignment through the gate. GitHub itself does not block merges to `main` (see docs/EXECUTION_CONTROL.md, owner actions).
 
 ## STOP — MANDATORY EVIDENCE-FIRST DISPATCH GATE (EVERY AGENT, EVERY SESSION)
 
@@ -172,7 +180,7 @@ Anything under `docs/archive/` is historical reference only and must not overrid
 
 ### Definitions
 
-- **Controller** — chooses scope/order, integrates, reviews, and merges. It is not a worker lane.
+- **Controller** — chooses scope/order, integrates, and reviews. It does NOT merge into `main`: only the owner's own explicit yes, tied to the exact PR head SHA, authorizes a merge. It is not a worker lane.
 - **Supervisor** — scheduled controller/dispatcher. It is not a worker lane.
 - **Watchdog** — fallback controller. It is not a worker lane.
 - **Implementation worker lane** — one active external coding-agent session doing implementation or worker-level verification.
@@ -339,7 +347,7 @@ These tools support the repository rules; they do not override `AGENTS.md`, `PRO
 
 Jules is an approved primary implementation worker for Cartilla because the owner has available Jules capacity. Use verified capacity for **parallel, isolated coding work that passes the evidence-first dispatch gate**; do not invent tasks or treat idle slots as evidence of missing assignments.
 
-Jules is a worker, not the project controller. The controller owns scope selection, dependency ordering, review, release verification, merges, and recovery.
+Jules is a worker, not the project controller. The controller owns scope selection, dependency ordering, review, release verification, and recovery. Merges into `main` require the owner's own explicit yes for the exact PR head SHA.
 
 #### How to assign Jules
 
@@ -401,8 +409,8 @@ Jules is **not required to consume its session running the entire project releas
 - coordination of final `pnpm verify:release` performed by a dedicated Jules verification lane, or a specifically justified unusually long test runner;
 - review of Jules-produced cross-lane regression evidence, not duplicate reruns;
 - review and sharing of Jules-produced final browser/device proof;
-- merge readiness and merge;
-- dependency activation and release.
+- preparing the merge-readiness package (exact PR, head SHA, proof, tests, defects). The merge itself needs the owner's own explicit yes for that exact head; the controller never merges;
+- dependency preparation (activation and release need the owner's yes).
 
 The controller assigns missing final or cross-lane verification to Jules as a dedicated bounded task, reuses all still-valid evidence, and does not mechanically append the full release suite to every coding session. A genuinely unusually long agentic test may be assigned to a suitable isolated runner only if Jules is impractical for that specific test.
 
@@ -416,7 +424,7 @@ The controller assigns missing final or cross-lane verification to Jules as a de
 
 ### WORKER PROOF + WATCHDOG SAFETY — code/behavior PRs (owner decision 2026-10-09)
 
-**Jules is the implementation and focused-test worker.** The GitHub dispatcher routes tasks; the watchdog/controller reconciles scope, dependencies, actual code changes, necessary tests and merges. Antigravity is **prohibited by default under the owner credit gate above**, never a fallback or prerequisite for Jules, GitHub dispatch, testing, merging or the watchdog.
+**Jules is the implementation and focused-test worker.** The GitHub dispatcher routes tasks; the watchdog/controller reconciles scope, dependencies, actual code changes and necessary tests, and prepares the owner review package (merging stays owner-only). Antigravity is **prohibited by default under the owner credit gate above**, never a fallback or prerequisite for Jules, GitHub dispatch, testing, merging or the watchdog.
 
 - **SonarCloud/SonarQube is ADVISORY and NON-BLOCKING.** Keep the existing analysis visible; no quality gate, scan status, unavailable integration, bot comment, duplication percentage, or Sonar signoff is required for dispatch, continuation, or merge. A substantive defect independently confirmed by review or Jules proof still blocks the affected change. This owner-approved policy supersedes older mandatory-Sonar wording in historical comments or Engram. Do NOT restore Sonar as a required GitHub check.
 - **Small executable pre-merge evidence check:** The designated controller uses `node scripts/check-merge-policy.mjs --evidence <receipt.json>` to assess the current PR's material file list, current-head and test validity, existing independent review, owner authorization, UI proof applicability, and confirmed serious defects; Sonar result is recorded only as advice. Document-only PRs require controller review but no Jules product-test rerun. Reuse the existing Jules proof; no duplicate tests, new worker, GitHub Actions, or new infrastructure. This CLI is a local/controller decision check, NOT a GitHub server-enforced restriction; do not claim it prevents an unrelated actor from bypassing the script. Before a final release check, `pnpm verify:policy` verifies the four active policy documents.
@@ -598,7 +606,7 @@ Yes or No.
 For ad-hoc work without prior merge authorization, stop and wait. Merges to main need the owner's own explicit yes on his own channel; agents never merge on their own.
 
 ### Meaning of "Push it"
-When EJN says **"Push it"**, put the completed, tested work into `main`, confirm it is there, let the finished branch be removed when safe, and report back. EJN should never have to merge, rebase, cherry-pick, resolve conflicts, or supervise GitHub.
+"Push it" counts as the owner's explicit yes ONLY when EJN says it on his own channel about one named PR at one named head SHA (for example, replying to an item in the review package). It authorizes that single merge of that exact head, nothing else; any later commit voids it. Instinct has no merge permission and never merges. The merge is performed only by the owner or by an operator he has explicitly designated for that PR, who then confirms the merge commit and reports back. EJN should never have to rebase, cherry-pick, resolve conflicts, or supervise GitHub.
 
 "Push it" does **not** mean deploy publicly. Do not deploy, publish, spend money, change production data, delete data, or take another hard-to-reverse external action without explicit authorization. If updating `main` would automatically deploy production, warn EJN first and wait.
 
@@ -608,7 +616,7 @@ Do not enable automatic merging. Do not depend on GitHub Actions or paid GitHub 
 
 If something goes wrong after "Push it", diagnose the cause, repair it if clearly within the approved task, verify the repair, and show the result without making EJN perform Git operations.
 
-Normal ad-hoc workflow: EJN asks → agent builds safely → agent tests → agent shows proof → EJN says "Push it" → agent puts finished work in `main` → agent confirms it.
+Normal ad-hoc workflow: EJN asks → agent builds safely → agent tests → agent shows proof → EJN says "Push it" for that exact PR and head SHA → only the owner or his designated operator merges that head → merge commit is confirmed.
 
 Merges to main need the owner's own explicit yes on his own channel; agents never merge on their own.
 
