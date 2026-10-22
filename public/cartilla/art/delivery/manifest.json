@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-10-22T07:36:06.921111+00:00",
+  "generatedAt": "2026-10-22T07:50:37.724020+00:00",
   "sourceManifest": "/cartilla/art/faithful/manifest.json",
   "canonicalPolicy": "Canonical faithful WebP files remain untouched. Delivery derivatives are disposable build output.",
   "counts": {
@@ -1886,10 +1886,10 @@
       "canonical": {
         "width": 870,
         "height": 744,
-        "bytes": 92816,
+        "bytes": 254578,
         "format": "webp",
         "hasAlpha": true,
-        "sha256": "e313f0ec62619e0f8498a7f84baf3f74b27e24cd46435a214b23301e6e040ff3"
+        "sha256": "00cdde731ea499ffb946313632e8908084d11ee8ee763e52a9621e44081f538f"
       },
       "cropBox": [
         403,
@@ -1911,14 +1911,14 @@
           "path": "/cartilla/art/delivery/faithful/384/vocal-a/arbol.webp",
           "width": 384,
           "height": 328,
-          "bytes": 49310
+          "bytes": 29632
         },
         {
           "widthTier": 768,
           "path": "/cartilla/art/delivery/faithful/768/vocal-a/arbol.webp",
           "width": 768,
           "height": 657,
-          "bytes": 123528
+          "bytes": 76204
         }
       ],
       "warnings": [],

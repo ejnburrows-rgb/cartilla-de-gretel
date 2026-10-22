@@ -1,5 +1,5 @@
 {
-  "timestamp": "2026-10-22T07:40:11.888Z",
+  "timestamp": "2026-10-22T07:50:51.172Z",
   "counts": {
     "faithfulWired": 110,
     "flipchartNativeWired": 167,
@@ -792,7 +792,7 @@
       "provenance": "",
       "qaVerdict": "PASS",
       "dimensions": "870x744",
-      "bytes": 92816,
+      "bytes": 254578,
       "isQuarantined": false
     },
     {
