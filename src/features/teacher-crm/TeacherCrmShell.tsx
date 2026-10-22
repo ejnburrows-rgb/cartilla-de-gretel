@@ -245,7 +245,6 @@ export function TeacherCrmShell() {
       }
     } catch (err) {
       showMessage(err instanceof Error ? err.message : "Error guardando cambios", "error");
-      throw err;
     }
   };
 

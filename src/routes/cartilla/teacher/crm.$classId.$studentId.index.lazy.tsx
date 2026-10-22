@@ -128,13 +128,17 @@ function EstudianteDetail() {
   }, [generatedPrompt]);
 
   const handleUpdate = async (id: string, updates: Partial<DashboardStudent>) => {
-    if (isSeed) {
-      updateSeedStudent(id, { teacher_notes: updates.teacher_notes });
-    } else {
-      await updateStudent({ data: { id, teacherNotes: updates.teacher_notes ?? null } });
+    try {
+      if (isSeed) {
+        updateSeedStudent(id, { teacher_notes: updates.teacher_notes });
+      } else {
+        await updateStudent({ data: { id, teacherNotes: updates.teacher_notes ?? null } });
+      }
+      qc.invalidateQueries({ queryKey: ["crm-estudiante", studentId] });
+      refetch();
+    } catch (err) {
+      throw err;
     }
-    qc.invalidateQueries({ queryKey: ["crm-estudiante", studentId] });
-    refetch();
   };
 
   const copyPrompt = async () => {
