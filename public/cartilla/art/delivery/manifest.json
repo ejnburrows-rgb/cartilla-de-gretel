@@ -60,10 +60,10 @@
       "canonical": {
         "width": 440,
         "height": 520,
-        "bytes": 190310,
+        "bytes": 35670,
         "format": "webp",
         "hasAlpha": false,
-        "sha256": "03cafdb0b52172796d7cfd99a19ec0650d157db95f11fe70e5d1599b4f0a41e2"
+        "sha256": "a3c1d2b2498e8a76dd99cc1cc2eb9202e07d59c114503eaab77fd076b2c78be6"
       },
       "cropBox": [
         230,
@@ -89,10 +89,10 @@
         "normalizedHeight": 498,
         "contentBounds": {
           "x": 0,
-          "y": 32,
-          "width": 409,
-          "height": 488,
-          "opaquePixels": 171004
+          "y": 0,
+          "width": 440,
+          "height": 520,
+          "opaquePixels": 228800
         },
         "touchesCropEdge": {
           "left": true,
@@ -107,15 +107,15 @@
           "widthTier": 384,
           "path": "/cartilla/art/delivery/faithful/384/leccion-1/abrigo.webp",
           "width": 384,
-          "height": 456,
-          "bytes": 28130
+          "height": 384,
+          "bytes": 32722
         },
         {
           "widthTier": 768,
           "path": "/cartilla/art/delivery/faithful/768/leccion-1/abrigo.webp",
-          "width": 419,
-          "height": 498,
-          "bytes": 31980
+          "width": 768,
+          "height": 768,
+          "bytes": 77064
         }
       ],
       "warnings": [
@@ -2030,10 +2030,10 @@
       "canonical": {
         "width": 870,
         "height": 605,
-        "bytes": 78142,
+        "bytes": 48372,
         "format": "webp",
         "hasAlpha": true,
-        "sha256": "7f0ec4de44e14a8fc541c1ef7308e49662f56776462f7f855d501c8bd823aa8a"
+        "sha256": "b46584e6c352008d6ca90669f55e8828d2aec395cac1a8121855dd906045c17c"
       },
       "cropBox": [
         838,
@@ -2058,11 +2058,11 @@
         "normalizedWidth": 840,
         "normalizedHeight": 575,
         "contentBounds": {
-          "x": 66,
+          "x": 145,
           "y": 16,
-          "width": 738,
+          "width": 579,
           "height": 573,
-          "opaquePixels": 311396
+          "opaquePixels": 159962
         },
         "touchesCropEdge": {
           "left": false,
@@ -2077,15 +2077,15 @@
           "widthTier": 384,
           "path": "/cartilla/art/delivery/faithful/384/vocal-u/uvas.webp",
           "width": 384,
-          "height": 263,
-          "bytes": 22372
+          "height": 384,
+          "bytes": 27572
         },
         {
           "widthTier": 768,
           "path": "/cartilla/art/delivery/faithful/768/vocal-u/uvas.webp",
           "width": 768,
-          "height": 526,
-          "bytes": 62574
+          "height": 768,
+          "bytes": 64146
         }
       ],
       "warnings": [],
@@ -7299,10 +7299,10 @@
       "canonical": {
         "width": 870,
         "height": 738,
-        "bytes": 143478,
+        "bytes": 53758,
         "format": "webp",
         "hasAlpha": true,
-        "sha256": "96391879b3291f02a639ffd869fcdad8fe3b532be12fe54b2a3ee9ecf66448b0"
+        "sha256": "7aa54f0ae9825ade37a13249c00ce02790e13e9b0bc975fbdb6dde7d647a0b91"
       },
       "cropBox": null,
       "provenanceStatus": "QA-PASS-SOURCE-PAGE-NOT-RECORDED",
@@ -7322,11 +7322,11 @@
         "normalizedWidth": 840,
         "normalizedHeight": 708,
         "contentBounds": {
-          "x": 25,
-          "y": 25,
-          "width": 820,
-          "height": 688,
-          "opaquePixels": 257068
+          "x": 16,
+          "y": 39,
+          "width": 838,
+          "height": 659,
+          "opaquePixels": 232725
         },
         "touchesCropEdge": {
           "left": false,
