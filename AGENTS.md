@@ -9,12 +9,13 @@ Applies to every agent, worker, reviewer and watcher, and to every report, PR de
 3. **The words "done", "working", "fixed", "complete" or "ready" may only be used for an item that was functionally tested in the real running build and has a screenshot or video as proof.** Reading code, a passing unit test, a build passing, a PR existing, an agent's own summary or text in a commit message is not functional testing and is not proof.
 4. **A still image is not proof of anything that moves.** Games, animation, audio, taps and navigation need a recorded play-through (video) showing the behavior.
 5. **Anything not functionally tested goes under NOT VERIFIED.** Never move an item to WORKS on assumption, and never leave a failure out of the report.
+6. **An agent's work does not exist until it is pushed to the real repo (a branch is fine).** Keep work pushed as it goes. Any report without a link to the repo (branch, commit or PR) says NOT VERIFIED.
 
 **Merge and deploy (owner rule, 2026-10-22):**
 
-6. Agents may merge to `main`, but only finished and tested work. Work that is still being worked on or tested (for example specific artwork or games) stays on its branch until it is finished and tested, so `main` does not pile up.
-7. A merge must not trigger a deployment by itself, because Vercel limits deployments. Do not add or change any setting that makes a merge deploy.
-8. Deploys are batched. A deploy runs only when the owner says so, in his own words. No agent starts a deploy on its own.
+7. Agents may merge to `main`, but only finished and tested work. Work that is still being worked on or tested (for example specific artwork or games) stays on its branch until it is finished and tested, so `main` does not pile up.
+8. A merge must not trigger a deployment by itself, because Vercel limits deployments. Do not add or change any setting that makes a merge deploy.
+9. Deploys are batched. A deploy runs only when the owner says so, in his own words. No agent starts a deploy on its own.
 
 ## NEWER OWNER CORRECTION — REJECT 67-CLIP MUSIC/STUTTER SOURCE (2026-10-15)
 
