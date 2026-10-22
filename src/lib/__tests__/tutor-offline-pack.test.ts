@@ -175,6 +175,26 @@ describe("verified tutor pack", () => {
     expect(localStorage.getItem("cartilla.tutor.memory.v1")).toBe("memory");
     expect(await cachesMock.has("cartilla:assets:existing")).toBe(true);
   });
+  it("rolls back the new cache and reports a clear Spanish error on QuotaExceededError", async () => {
+    await downloadTutorPack();
+    const prior = await active();
+    const origOpen = cachesMock.open.bind(cachesMock);
+    const spy = vi.spyOn(cachesMock, "open").mockImplementation(async (name: string) => {
+      const cache = await origOpen(name);
+      if (name !== prior.cacheName && name.startsWith(`${TUTOR_PACK_CACHE_NAME}:`)) {
+        vi.spyOn(cache, "put").mockRejectedValueOnce(
+          Object.assign(new Error("Storage full"), { name: "QuotaExceededError" }),
+        );
+      }
+      return cache;
+    });
+    try {
+      await expect(downloadTutorPack()).rejects.toThrow("Espacio insuficiente");
+      expect(await active()).toEqual(prior);
+    } finally {
+      spy.mockRestore();
+    }
+  });
   it("reports actual bytes and counts all files only after storage accepts them", async () => {
     const progress = vi.fn();
     await downloadTutorPack(progress);

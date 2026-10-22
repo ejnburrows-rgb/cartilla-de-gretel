@@ -215,6 +215,7 @@ async function preparePack(onProgress?: (state: TutorPackState) => void): Promis
         throw new Error(`Archivo incompleto: ${url}`);
       const headers = new Headers(response.headers);
       headers.delete("content-encoding");
+      headers.delete("vary");
       headers.set("content-length", String(body.byteLength));
       headers.set("x-tutor-sha256", hash);
       await cache.put(url, new Response(body, { headers }));
@@ -256,6 +257,10 @@ async function preparePack(onProgress?: (state: TutorPackState) => void): Promis
     };
   } catch (error) {
     await caches.delete(cacheName);
+    const errName = (error as { name?: string } | null | undefined)?.name ?? "";
+    if (errName === "QuotaExceededError") {
+      throw new Error("Espacio insuficiente en el dispositivo para guardar el paquete sin internet.");
+    }
     throw error;
   }
 }

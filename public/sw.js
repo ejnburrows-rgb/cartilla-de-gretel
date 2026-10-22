@@ -29,9 +29,14 @@ async function tutorPackMatch(request) {
         !(await caches.has(marker.cacheName))) return null;
     const cache = await caches.open(marker.cacheName);
     const url = new URL(request.url);
-    // Class/seat query parameters do not change the SPA document.
-    return await cache.match(request) ||
-      (/^\/tutor(?:\/[123])?\/?$/.test(url.pathname) ? await cache.match(url.pathname.replace(/\/$/, "")) : null);
+    let decodedPath = url.pathname;
+    try { decodedPath = decodeURIComponent(url.pathname); } catch { /* keep raw */ }
+    // Class/seat query parameters do not change the SPA document; also match decoded NFC/NFD paths.
+    return (await cache.match(request, { ignoreVary: true })) ||
+      (await cache.match(url.pathname, { ignoreVary: true })) ||
+      (decodedPath !== url.pathname ? await cache.match(decodedPath, { ignoreVary: true }) : null) ||
+      (decodedPath.normalize("NFC") !== url.pathname ? await cache.match(decodedPath.normalize("NFC"), { ignoreVary: true }) : null) ||
+      (/^\/tutor(?:\/[123])?\/?$/.test(url.pathname) ? await cache.match(url.pathname.replace(/\/$/, ""), { ignoreVary: true }) : null);
   } catch { return null; }
 }
 
@@ -160,7 +165,7 @@ self.addEventListener("fetch", (event) => {
             return fetch(request).then((fresh) => {
               if (fresh.ok) cache.put(request, fresh.clone());
               return fresh;
-            });
+            }).catch(() => new Response("", { status: 503 }));
           });
         });
       }),
@@ -203,7 +208,7 @@ self.addEventListener("fetch", (event) => {
               event.waitUntil(fetchPromise);
               return cached;
             }
-            return fetchPromise;
+            return fetchPromise.then((res) => res || new Response("", { status: 503 }));
           });
         });
       }),
@@ -228,7 +233,7 @@ self.addEventListener("fetch", (event) => {
                 if (fresh.ok) cache.put(request, fresh.clone());
                 return fresh;
               })
-              .catch(() => cached);
+              .catch(() => cached || new Response("", { status: 503 }));
           });
         });
       }),
@@ -253,7 +258,7 @@ self.addEventListener("fetch", (event) => {
             event.waitUntil(fetchPromise);
             return cached;
           }
-          return fetchPromise;
+          return fetchPromise.then((res) => res || new Response("", { status: 503 }));
         });
       });
     }),
