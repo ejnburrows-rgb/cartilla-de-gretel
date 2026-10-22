@@ -1,5 +1,5 @@
 {
-  "timestamp": "2026-10-22T07:17:02.083Z",
+  "timestamp": "2026-10-22T07:40:11.888Z",
   "counts": {
     "faithfulWired": 110,
     "flipchartNativeWired": 167,
@@ -72,7 +72,7 @@
       "provenance": "VERIFIED-EXACT-WORKBOOK-CROP-2026-08-08",
       "qaVerdict": "PASS",
       "dimensions": "580x515",
-      "bytes": 106428,
+      "bytes": 64850,
       "isQuarantined": false
     },
     {
@@ -812,7 +812,7 @@
       "provenance": "VERIFIED-AUTHENTIC-FLIPCHART-2026-08-08",
       "qaVerdict": "PASS",
       "dimensions": "780x660",
-      "bytes": 260762,
+      "bytes": 334658,
       "isQuarantined": false
     },
     {
@@ -912,7 +912,7 @@
       "provenance": "VERIFIED-AUTHENTIC-FLIPCHART-2026-08-08",
       "qaVerdict": "PASS",
       "dimensions": "600x570",
-      "bytes": 125034,
+      "bytes": 250322,
       "isQuarantined": false
     },
     {
@@ -1032,7 +1032,7 @@
       "provenance": "VERIFIED-EXACT-WORKBOOK-CROP-2026-08-08",
       "qaVerdict": "PASS",
       "dimensions": "580x570",
-      "bytes": 219670,
+      "bytes": 289288,
       "isQuarantined": false
     },
     {
@@ -1062,7 +1062,7 @@
       "provenance": "",
       "qaVerdict": "PASS",
       "dimensions": "870x824",
-      "bytes": 98014,
+      "bytes": 430752,
       "isQuarantined": false
     },
     {
