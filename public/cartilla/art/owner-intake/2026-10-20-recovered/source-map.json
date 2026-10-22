@@ -1,0 +1,47 @@
+[
+  {
+    "slug": "oruga",
+    "canonical": "/cartilla/art/faithful/vocal-o/oruga.webp",
+    "source_email_message": "1a157794d1b6c9da",
+    "source_filename": "image-8a75e1fb.jpg",
+    "slots": [
+      "wb-p007-02"
+    ]
+  },
+  {
+    "slug": "iglu",
+    "canonical": "/cartilla/art/faithful/vocal-i/iglu.webp",
+    "source_email_message": "1a157794d1b6c9da",
+    "source_filename": "iglu-v1-c3fa044e.png",
+    "slots": [
+      "wb-p004-02",
+      "wb-p005-01",
+      "wb-p008-02",
+      "wb-p010-02",
+      "wb-p013-01",
+      "wb-p014-03"
+    ]
+  },
+  {
+    "slug": "oveja",
+    "canonical": "/cartilla/art/faithful/vocal-o/oveja.webp",
+    "source_email_message": "1a157794d1b6c9da",
+    "source_filename": "oveja-v1-eb1e498b.png",
+    "slots": [
+      "wb-p004-06",
+      "wb-p005-02",
+      "wb-p007-05",
+      "wb-p016-02"
+    ]
+  },
+  {
+    "slug": "aro",
+    "canonical": "/cartilla/art/faithful/vocal-a/aro.webp",
+    "source_email_message": "1a157794d1b6c9da",
+    "source_filename": "aro-v1-643bf873.png",
+    "slots": [
+      "wb-p007-03",
+      "wb-p008-08"
+    ]
+  }
+]
