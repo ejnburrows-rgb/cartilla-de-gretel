@@ -3923,10 +3923,10 @@
       "canonical": {
         "width": 870,
         "height": 676,
-        "bytes": 158268,
+        "bytes": 91132,
         "format": "webp",
         "hasAlpha": true,
-        "sha256": "94e5563da676bc38116693b26365340f33bc380150fac8d5322d859b4f574c28"
+        "sha256": "17361d40463e3b298040ada84020a58042a70666bbd9a4ebcbcbe1a46031ae58"
       },
       "cropBox": [
         938,
@@ -3951,11 +3951,11 @@
         "normalizedWidth": 840,
         "normalizedHeight": 646,
         "contentBounds": {
-          "x": 25,
-          "y": 25,
-          "width": 820,
-          "height": 626,
-          "opaquePixels": 357108
+          "x": 137,
+          "y": 16,
+          "width": 595,
+          "height": 644,
+          "opaquePixels": 222467
         },
         "touchesCropEdge": {
           "left": false,
@@ -3970,15 +3970,15 @@
           "widthTier": 384,
           "path": "/cartilla/art/delivery/faithful/384/leccion-9-s/sopa.webp",
           "width": 384,
-          "height": 295,
-          "bytes": 45438
+          "height": 384,
+          "bytes": 41382
         },
         {
           "widthTier": 768,
           "path": "/cartilla/art/delivery/faithful/768/leccion-9-s/sopa.webp",
           "width": 768,
-          "height": 591,
-          "bytes": 130500
+          "height": 768,
+          "bytes": 116520
         }
       ],
       "warnings": [],
