@@ -44,14 +44,18 @@ function combineStudentProgressResults(
   return results.map((result) => ({ data: result.data, isLoading: result.isLoading }));
 }
 
-
 function lessonTitle(lessonId: string) {
   const entry = CATALOG.find((item) => String(item.n) === lessonId);
   return entry ? `L${entry.n} · ${entry.title}` : `Lección ${lessonId}`;
 }
 
 function familyPracticeHref(lessonNumber: number, activity: string) {
-  return `/cartilla/practica?family=1&lesson=${lessonNumber}&activity=${activity}`;
+  const params = new URLSearchParams({
+    family: "1",
+    lesson: lessonNumber.toString(),
+    activity: activity,
+  });
+  return `/cartilla/practica?${params.toString()}`;
 }
 
 export function TeacherDailyHome() {
@@ -323,7 +327,8 @@ export function TeacherDailyHome() {
                     placeholder="Nombre de la clase"
                     className="min-h-11 min-w-0 flex-1 rounded-xl border p-3"
                   />
-                  <button type="submit"
+                  <button
+                    type="submit"
                     disabled={busy || !className.trim()}
                     className="rounded-xl bg-[#a45d22] px-5 py-3 font-bold text-white disabled:opacity-50"
                   >
@@ -374,7 +379,8 @@ export function TeacherDailyHome() {
                     maxLength={80}
                     className="min-h-12 flex-1 rounded-xl border border-stone-300 px-4 font-semibold"
                   />
-                  <button type="submit"
+                  <button
+                    type="submit"
                     disabled={busy || !className.trim()}
                     className="min-h-12 rounded-xl bg-[#a45d22] px-5 font-black text-white disabled:opacity-50"
                   >
@@ -400,7 +406,8 @@ export function TeacherDailyHome() {
                         maxLength={60}
                         className="min-h-11 min-w-0 flex-1 rounded-xl border border-stone-300 px-3 text-sm font-semibold"
                       />
-                      <button type="submit"
+                      <button
+                        type="submit"
                         aria-label="Añadir estudiante"
                         disabled={busy || !studentName.trim()}
                         className="inline-flex min-h-11 items-center gap-2 rounded-xl bg-[#356b43] px-4 text-sm font-black text-white disabled:opacity-50"
@@ -544,7 +551,10 @@ export function TeacherDailyHome() {
                                 maxLength={120}
                               />
                             </label>
-                            <button type="submit" className="min-h-11 rounded-xl bg-[#4759a6] px-4 text-sm font-bold text-white">
+                            <button
+                              type="submit"
+                              className="min-h-11 rounded-xl bg-[#4759a6] px-4 text-sm font-bold text-white"
+                            >
                               Asignar lección
                             </button>
                           </form>
