@@ -143,6 +143,12 @@ describe("LivingIllustration faithful recovered art", () => {
         </div>,
       );
       const wrapper = container.querySelector(".living-illustration");
+      if (!getLivingActor(src)) {
+        expect(container.querySelector("img")?.getAttribute("src")).toBe(src);
+        expect(wrapper?.getAttribute("data-motion-status")).toContain("NOT VERIFIED");
+        unmount();
+        continue;
+      }
       expect(wrapper?.getAttribute("data-natural-motion"), src).toBe("true");
       expect(wrapper?.getAttribute("data-ambient-motion"), src).toBe("none");
       expect(wrapper?.querySelectorAll(".living-illustration__part").length, src).toBe(0);
@@ -181,6 +187,12 @@ describe("LivingIllustration faithful recovered art", () => {
     for (const name of ["oso", "elefante", "oveja", "abanico", "avion", "iman", "olla"]) {
       const { unmount } = render(<LivingIllustration src={`${W1}/${name}.svg`} alt={name} />);
       const image = screen.getByRole("img", { name });
+      if (!getLivingActor(`${W1}/${name}.svg`)) {
+        expect(image.getAttribute("src")).toBe(`${W1}/${name}.svg`);
+        expect(image.parentElement?.getAttribute("data-motion-status")).toContain("NOT VERIFIED");
+        unmount();
+        continue;
+      }
       expect(image.getAttribute("src"), name).toBe(`${W1}/${name}-alive.svg`);
       expect(image.parentElement?.getAttribute("data-natural-motion"), name).toBe("true");
       expect(image.parentElement?.getAttribute("data-ambient-motion"), name).toBe("none");

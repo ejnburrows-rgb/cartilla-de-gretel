@@ -1,0 +1,461 @@
+[
+  {
+    "state": "before",
+    "lesson": 1,
+    "images": [
+      {
+        "alt": "abrigo",
+        "src": "/cartilla/art/optimized/workbook/leccion-1/abrigo.png",
+        "currentSrc": "http://127.0.0.1:5186/cartilla/art/optimized/workbook/leccion-1/abrigo.png",
+        "width": 1024
+      },
+      {
+        "alt": "imán",
+        "src": "/cartilla/art/optimized/workbook/leccion-1/iman-alive.svg",
+        "currentSrc": "http://127.0.0.1:5186/cartilla/art/optimized/workbook/leccion-1/iman-alive.svg",
+        "width": 215
+      },
+      {
+        "alt": "abanico",
+        "src": "/cartilla/art/optimized/workbook/leccion-1/abanico-alive.svg",
+        "currentSrc": "http://127.0.0.1:5186/cartilla/art/optimized/workbook/leccion-1/abanico-alive.svg",
+        "width": 220
+      },
+      {
+        "alt": "oso",
+        "src": "/cartilla/art/optimized/workbook/leccion-1/oso-alive.svg",
+        "currentSrc": "http://127.0.0.1:5186/cartilla/art/optimized/workbook/leccion-1/oso-alive.svg",
+        "width": 209
+      },
+      {
+        "alt": "isla",
+        "src": "/cartilla/art/optimized/workbook/leccion-1/isla.svg",
+        "currentSrc": "http://127.0.0.1:5186/cartilla/art/optimized/workbook/leccion-1/isla.svg",
+        "width": 266
+      },
+      {
+        "alt": "avión",
+        "src": "/cartilla/art/optimized/workbook/leccion-1/avion-alive.svg",
+        "currentSrc": "http://127.0.0.1:5186/cartilla/art/optimized/workbook/leccion-1/avion-alive.svg",
+        "width": 226
+      },
+      {
+        "alt": "imán",
+        "src": "/cartilla/art/optimized/workbook/leccion-1/iman-alive.svg",
+        "currentSrc": "http://127.0.0.1:5186/cartilla/art/optimized/workbook/leccion-1/iman-alive.svg",
+        "width": 215
+      },
+      {
+        "alt": "aro",
+        "src": "/cartilla/art/optimized/workbook/leccion-1/aro.svg",
+        "currentSrc": "http://127.0.0.1:5186/cartilla/art/optimized/workbook/leccion-1/aro.svg",
+        "width": 209
+      },
+      {
+        "alt": "escalera",
+        "src": "/cartilla/art/optimized/workbook/leccion-1/escalera.svg",
+        "currentSrc": "http://127.0.0.1:5186/cartilla/art/optimized/workbook/leccion-1/escalera.svg",
+        "width": 200
+      },
+      {
+        "alt": "uno",
+        "src": "/cartilla/art/optimized/workbook/leccion-1/uno.svg",
+        "currentSrc": "http://127.0.0.1:5186/cartilla/art/optimized/workbook/leccion-1/uno.svg",
+        "width": 234
+      },
+      {
+        "alt": "escuela",
+        "src": "/cartilla/art/optimized/workbook/leccion-1/escuela.png",
+        "currentSrc": "http://127.0.0.1:5186/cartilla/art/optimized/workbook/leccion-1/escuela.png",
+        "width": 1024
+      },
+      {
+        "alt": "oreja",
+        "src": "/cartilla/art/optimized/workbook/leccion-1/oreja.svg",
+        "currentSrc": "http://127.0.0.1:5186/cartilla/art/optimized/workbook/leccion-1/oreja.svg",
+        "width": 147
+      },
+      {
+        "alt": "uniforme",
+        "src": "/cartilla/art/optimized/workbook/leccion-1/uniforme.svg",
+        "currentSrc": "http://127.0.0.1:5186/cartilla/art/optimized/workbook/leccion-1/uniforme.svg",
+        "width": 166
+      },
+      {
+        "alt": "uña",
+        "src": "/cartilla/art/optimized/workbook/leccion-1/una.svg",
+        "currentSrc": "http://127.0.0.1:5186/cartilla/art/optimized/workbook/leccion-1/una.svg",
+        "width": 154
+      },
+      {
+        "alt": "oveja",
+        "src": "/cartilla/art/optimized/workbook/leccion-1/oveja-alive.svg",
+        "currentSrc": "http://127.0.0.1:5186/cartilla/art/optimized/workbook/leccion-1/oveja-alive.svg",
+        "width": 216
+      },
+      {
+        "alt": "elefante",
+        "src": "/cartilla/art/optimized/workbook/leccion-1/elefante-alive.svg",
+        "currentSrc": "http://127.0.0.1:5186/cartilla/art/optimized/workbook/leccion-1/elefante-alive.svg",
+        "width": 222
+      },
+      {
+        "alt": "ojos",
+        "src": "/cartilla/art/optimized/workbook/leccion-1/ojos.png",
+        "currentSrc": "http://127.0.0.1:5186/cartilla/art/optimized/workbook/leccion-1/ojos.png",
+        "width": 1024
+      },
+      {
+        "alt": "maíz",
+        "src": "/cartilla/art/optimized/workbook/leccion-1/maiz.png",
+        "currentSrc": "http://127.0.0.1:5186/cartilla/art/optimized/workbook/leccion-1/maiz.png",
+        "width": 1024
+      },
+      {
+        "alt": "abeja",
+        "src": "/cartilla/art/optimized/workbook/leccion-1/abeja.png",
+        "currentSrc": "http://127.0.0.1:5186/cartilla/art/optimized/workbook/leccion-1/abeja.png",
+        "width": 1024
+      },
+      {
+        "alt": "olla",
+        "src": "/cartilla/art/optimized/workbook/leccion-1/olla-alive.svg",
+        "currentSrc": "http://127.0.0.1:5186/cartilla/art/optimized/workbook/leccion-1/olla-alive.svg",
+        "width": 213
+      }
+    ]
+  },
+  {
+    "state": "before",
+    "lesson": 3,
+    "images": [
+      {
+        "alt": "abanico",
+        "src": "/cartilla/art/faithful/vocal-a/abanico-alive.svg",
+        "currentSrc": "http://127.0.0.1:5186/cartilla/art/faithful/vocal-a/abanico-alive.svg",
+        "width": 870
+      },
+      {
+        "alt": "oruga",
+        "src": "/cartilla/art/faithful/vocal-o/oruga.webp",
+        "currentSrc": "http://127.0.0.1:5186/cartilla/art/delivery/faithful/384/vocal-o/oruga.webp",
+        "width": 384
+      },
+      {
+        "alt": "aro",
+        "src": "/cartilla/art/faithful/vocal-a/aro.webp",
+        "currentSrc": "http://127.0.0.1:5186/cartilla/art/delivery/faithful/384/vocal-a/aro.webp",
+        "width": 384
+      },
+      {
+        "alt": "imán",
+        "src": "/cartilla/art/faithful/vocal-i/iman-alive.svg",
+        "currentSrc": "http://127.0.0.1:5186/cartilla/art/faithful/vocal-i/iman-alive.svg",
+        "width": 870
+      },
+      {
+        "alt": "oveja",
+        "src": "/cartilla/art/faithful/vocal-o/oveja-alive.svg",
+        "currentSrc": "http://127.0.0.1:5186/cartilla/art/faithful/vocal-o/oveja-alive.svg",
+        "width": 870
+      },
+      {
+        "alt": "abeja",
+        "src": "/cartilla/art/approved/lesson-3/abeja.jpg",
+        "currentSrc": "http://127.0.0.1:5186/cartilla/art/approved/lesson-3/abeja.jpg",
+        "width": 1254
+      },
+      {
+        "alt": "árbol",
+        "src": "/cartilla/art/faithful/vocal-a/arbol.webp",
+        "currentSrc": "http://127.0.0.1:5186/cartilla/art/delivery/faithful/384/vocal-a/arbol.webp",
+        "width": 384
+      },
+      {
+        "alt": "elefante",
+        "src": "/cartilla/art/faithful/vocal-e/elefante-alive.svg",
+        "currentSrc": "http://127.0.0.1:5186/cartilla/art/faithful/vocal-e/elefante-alive.svg",
+        "width": 870
+      },
+      {
+        "alt": "uno",
+        "src": "/cartilla/art/faithful/vocal-u/uno.webp",
+        "currentSrc": "http://127.0.0.1:5186/cartilla/art/delivery/faithful/384/vocal-u/uno.webp",
+        "width": 384
+      },
+      {
+        "alt": "alas",
+        "src": "/cartilla/art/faithful/vocal-a/alas.webp",
+        "currentSrc": "http://127.0.0.1:5186/cartilla/art/delivery/faithful/384/vocal-a/alas.webp",
+        "width": 384
+      },
+      {
+        "alt": "estrella",
+        "src": "/cartilla/art/faithful/vocal-e/estrella.webp",
+        "currentSrc": "http://127.0.0.1:5186/cartilla/art/delivery/faithful/384/vocal-e/estrella.webp",
+        "width": 384
+      },
+      {
+        "alt": "ardilla",
+        "src": "/cartilla/art/faithful/vocal-a/ardilla.webp",
+        "currentSrc": "http://127.0.0.1:5186/cartilla/art/delivery/faithful/384/vocal-a/ardilla.webp",
+        "width": 384
+      },
+      {
+        "alt": "ojo",
+        "src": "/cartilla/art/approved/lesson-3/ojo.png",
+        "currentSrc": "http://127.0.0.1:5186/cartilla/art/approved/lesson-3/ojo.png",
+        "width": 1254
+      },
+      {
+        "alt": "avión",
+        "src": "/cartilla/art/faithful/vocal-a/avion-alive.svg",
+        "currentSrc": "http://127.0.0.1:5186/cartilla/art/faithful/vocal-a/avion-alive.svg",
+        "width": 860
+      },
+      {
+        "alt": "aguja",
+        "src": "/cartilla/art/faithful/vocal-a/aguja.webp",
+        "currentSrc": "http://127.0.0.1:5186/cartilla/art/delivery/faithful/384/vocal-a/aguja.webp",
+        "width": 384
+      },
+      {
+        "alt": "oso",
+        "src": "/cartilla/art/faithful/vocal-o/oso-alive.svg",
+        "currentSrc": "http://127.0.0.1:5186/cartilla/art/faithful/vocal-o/oso-alive.svg",
+        "width": 823
+      }
+    ]
+  },
+  {
+    "state": "after",
+    "lesson": 1,
+    "images": [
+      {
+        "alt": "abrigo",
+        "src": "/cartilla/art/optimized/workbook/leccion-1/abrigo.png",
+        "currentSrc": "http://127.0.0.1:5186/cartilla/art/optimized/workbook/leccion-1/abrigo.png",
+        "width": 1024
+      },
+      {
+        "alt": "imán",
+        "src": "/cartilla/art/optimized/workbook/leccion-1/iman-alive.svg",
+        "currentSrc": "http://127.0.0.1:5186/cartilla/art/optimized/workbook/leccion-1/iman-alive.svg",
+        "width": 215
+      },
+      {
+        "alt": "abanico",
+        "src": "/cartilla/art/optimized/workbook/leccion-1/abanico-alive.svg",
+        "currentSrc": "http://127.0.0.1:5186/cartilla/art/optimized/workbook/leccion-1/abanico-alive.svg",
+        "width": 220
+      },
+      {
+        "alt": "oso",
+        "src": "/cartilla/art/optimized/workbook/leccion-1/oso-alive.svg",
+        "currentSrc": "http://127.0.0.1:5186/cartilla/art/optimized/workbook/leccion-1/oso-alive.svg",
+        "width": 209
+      },
+      {
+        "alt": "isla",
+        "src": "/cartilla/art/optimized/workbook/leccion-1/isla.svg",
+        "currentSrc": "http://127.0.0.1:5186/cartilla/art/optimized/workbook/leccion-1/isla.svg",
+        "width": 266
+      },
+      {
+        "alt": "avión",
+        "src": "/cartilla/art/optimized/workbook/leccion-1/avion-alive.svg",
+        "currentSrc": "http://127.0.0.1:5186/cartilla/art/optimized/workbook/leccion-1/avion-alive.svg",
+        "width": 226
+      },
+      {
+        "alt": "imán",
+        "src": "/cartilla/art/optimized/workbook/leccion-1/iman-alive.svg",
+        "currentSrc": "http://127.0.0.1:5186/cartilla/art/optimized/workbook/leccion-1/iman-alive.svg",
+        "width": 215
+      },
+      {
+        "alt": "aro",
+        "src": "/cartilla/art/optimized/workbook/leccion-1/aro.svg",
+        "currentSrc": "http://127.0.0.1:5186/cartilla/art/optimized/workbook/leccion-1/aro.svg",
+        "width": 209
+      },
+      {
+        "alt": "escalera",
+        "src": "/cartilla/art/optimized/workbook/leccion-1/escalera.svg",
+        "currentSrc": "http://127.0.0.1:5186/cartilla/art/optimized/workbook/leccion-1/escalera.svg",
+        "width": 200
+      },
+      {
+        "alt": "uno",
+        "src": "/cartilla/art/optimized/workbook/leccion-1/uno.svg",
+        "currentSrc": "http://127.0.0.1:5186/cartilla/art/optimized/workbook/leccion-1/uno.svg",
+        "width": 234
+      },
+      {
+        "alt": "escuela",
+        "src": "/cartilla/art/optimized/workbook/leccion-1/escuela.png",
+        "currentSrc": "http://127.0.0.1:5186/cartilla/art/optimized/workbook/leccion-1/escuela.png",
+        "width": 1024
+      },
+      {
+        "alt": "oreja",
+        "src": "/cartilla/art/optimized/workbook/leccion-1/oreja.svg",
+        "currentSrc": "http://127.0.0.1:5186/cartilla/art/optimized/workbook/leccion-1/oreja.svg",
+        "width": 147
+      },
+      {
+        "alt": "uniforme",
+        "src": "/cartilla/art/optimized/workbook/leccion-1/uniforme.svg",
+        "currentSrc": "http://127.0.0.1:5186/cartilla/art/optimized/workbook/leccion-1/uniforme.svg",
+        "width": 166
+      },
+      {
+        "alt": "uña",
+        "src": "/cartilla/art/optimized/workbook/leccion-1/una.svg",
+        "currentSrc": "http://127.0.0.1:5186/cartilla/art/optimized/workbook/leccion-1/una.svg",
+        "width": 154
+      },
+      {
+        "alt": "oveja",
+        "src": "/cartilla/art/optimized/workbook/leccion-1/oveja-alive.svg",
+        "currentSrc": "http://127.0.0.1:5186/cartilla/art/optimized/workbook/leccion-1/oveja-alive.svg",
+        "width": 216
+      },
+      {
+        "alt": "elefante",
+        "src": "/cartilla/art/optimized/workbook/leccion-1/elefante.svg",
+        "currentSrc": "http://127.0.0.1:5186/cartilla/art/optimized/workbook/leccion-1/elefante.svg",
+        "status": "NOT VERIFIED - current still displayed",
+        "width": 222
+      },
+      {
+        "alt": "ojos",
+        "src": "/cartilla/art/optimized/workbook/leccion-1/ojos.png",
+        "currentSrc": "http://127.0.0.1:5186/cartilla/art/optimized/workbook/leccion-1/ojos.png",
+        "width": 1024
+      },
+      {
+        "alt": "maíz",
+        "src": "/cartilla/art/optimized/workbook/leccion-1/maiz.png",
+        "currentSrc": "http://127.0.0.1:5186/cartilla/art/optimized/workbook/leccion-1/maiz.png",
+        "width": 1024
+      },
+      {
+        "alt": "abeja",
+        "src": "/cartilla/art/optimized/workbook/leccion-1/abeja.png",
+        "currentSrc": "http://127.0.0.1:5186/cartilla/art/optimized/workbook/leccion-1/abeja.png",
+        "width": 1024
+      },
+      {
+        "alt": "olla",
+        "src": "/cartilla/art/optimized/workbook/leccion-1/olla-alive.svg",
+        "currentSrc": "http://127.0.0.1:5186/cartilla/art/optimized/workbook/leccion-1/olla-alive.svg",
+        "width": 213
+      }
+    ]
+  },
+  {
+    "state": "after",
+    "lesson": 3,
+    "images": [
+      {
+        "alt": "abanico",
+        "src": "/cartilla/art/faithful/vocal-a/abanico-alive.svg",
+        "currentSrc": "http://127.0.0.1:5186/cartilla/art/faithful/vocal-a/abanico-alive.svg",
+        "width": 870
+      },
+      {
+        "alt": "oruga",
+        "src": "/cartilla/art/faithful/vocal-o/oruga.webp",
+        "currentSrc": "http://127.0.0.1:5186/cartilla/art/delivery/faithful/384/vocal-o/oruga.webp",
+        "width": 384
+      },
+      {
+        "alt": "aro",
+        "src": "/cartilla/art/faithful/vocal-a/aro.webp",
+        "currentSrc": "http://127.0.0.1:5186/cartilla/art/delivery/faithful/384/vocal-a/aro.webp",
+        "width": 384
+      },
+      {
+        "alt": "imán",
+        "src": "/cartilla/art/faithful/vocal-i/iman-alive.svg",
+        "currentSrc": "http://127.0.0.1:5186/cartilla/art/faithful/vocal-i/iman-alive.svg",
+        "width": 870
+      },
+      {
+        "alt": "oveja",
+        "src": "/cartilla/art/faithful/vocal-o/oveja.webp",
+        "currentSrc": "http://127.0.0.1:5186/cartilla/art/delivery/faithful/384/vocal-o/oveja.webp",
+        "status": "NOT VERIFIED - current still displayed",
+        "width": 384
+      },
+      {
+        "alt": "abeja",
+        "src": "/cartilla/art/approved/lesson-3/abeja.jpg",
+        "currentSrc": "http://127.0.0.1:5186/cartilla/art/approved/lesson-3/abeja.jpg",
+        "width": 1254
+      },
+      {
+        "alt": "árbol",
+        "src": "/cartilla/art/faithful/vocal-a/arbol.webp",
+        "currentSrc": "http://127.0.0.1:5186/cartilla/art/delivery/faithful/384/vocal-a/arbol.webp",
+        "width": 384
+      },
+      {
+        "alt": "elefante",
+        "src": "/cartilla/art/faithful/vocal-e/elefante.webp",
+        "currentSrc": "http://127.0.0.1:5186/cartilla/art/delivery/faithful/384/vocal-e/elefante.webp",
+        "status": "NOT VERIFIED - current still displayed",
+        "width": 384
+      },
+      {
+        "alt": "uno",
+        "src": "/cartilla/art/faithful/vocal-u/uno.webp",
+        "currentSrc": "http://127.0.0.1:5186/cartilla/art/delivery/faithful/384/vocal-u/uno.webp",
+        "width": 384
+      },
+      {
+        "alt": "alas",
+        "src": "/cartilla/art/faithful/vocal-a/alas.webp",
+        "currentSrc": "http://127.0.0.1:5186/cartilla/art/delivery/faithful/384/vocal-a/alas.webp",
+        "width": 384
+      },
+      {
+        "alt": "estrella",
+        "src": "/cartilla/art/faithful/vocal-e/estrella.webp",
+        "currentSrc": "http://127.0.0.1:5186/cartilla/art/delivery/faithful/384/vocal-e/estrella.webp",
+        "width": 384
+      },
+      {
+        "alt": "ardilla",
+        "src": "/cartilla/art/faithful/vocal-a/ardilla.webp",
+        "currentSrc": "http://127.0.0.1:5186/cartilla/art/delivery/faithful/384/vocal-a/ardilla.webp",
+        "width": 384
+      },
+      {
+        "alt": "ojo",
+        "src": "/cartilla/art/approved/lesson-3/ojo.png",
+        "currentSrc": "http://127.0.0.1:5186/cartilla/art/approved/lesson-3/ojo.png",
+        "width": 1254
+      },
+      {
+        "alt": "avión",
+        "src": "/cartilla/art/faithful/vocal-a/avion-alive.svg",
+        "currentSrc": "http://127.0.0.1:5186/cartilla/art/faithful/vocal-a/avion-alive.svg",
+        "width": 860
+      },
+      {
+        "alt": "aguja",
+        "src": "/cartilla/art/faithful/vocal-a/aguja.webp",
+        "currentSrc": "http://127.0.0.1:5186/cartilla/art/delivery/faithful/384/vocal-a/aguja.webp",
+        "width": 384
+      },
+      {
+        "alt": "oso",
+        "src": "/cartilla/art/faithful/vocal-o/oso-alive.svg",
+        "currentSrc": "http://127.0.0.1:5186/cartilla/art/faithful/vocal-o/oso-alive.svg",
+        "width": 823
+      }
+    ]
+  }
+]

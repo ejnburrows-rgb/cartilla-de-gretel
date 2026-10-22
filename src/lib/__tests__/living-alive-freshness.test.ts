@@ -2,7 +2,8 @@ import { describe, it, expect } from "vitest";
 import { createHash } from "node:crypto";
 import { existsSync, readFileSync } from "node:fs";
 import { resolve } from "node:path";
-import { LIVING_ACTORS } from "../living-actor-registry";
+import stale from "@/data/stale-motion-art.json";
+import { getLivingActor, LIVING_ACTORS } from "../living-actor-registry";
 
 // Moving ("alive") pictures are built from their still pictures by
 // scripts/living-motion/build.py. When a still picture is replaced, its moving copy
@@ -18,7 +19,7 @@ const HOW_TO_FIX =
   "src/lib/living-actor-registry.ts so it shows the still picture.";
 
 describe("moving pictures stay in step with their still pictures", () => {
-  const actors = Object.values(LIVING_ACTORS).filter((a) => a.aliveSrc);
+  const actors = Object.values(LIVING_ACTORS).filter((a) => a.aliveSrc && getLivingActor(a.src));
 
   it("every moving picture in the registry was built by the builder", () => {
     for (const a of actors) {
@@ -37,6 +38,11 @@ describe("moving pictures stay in step with their still pictures", () => {
   it("no still picture changed since its moving copy was built", () => {
     for (const [name, m] of Object.entries(manifest)) {
       if (!existsSync(resolve(ROOT, m.still))) continue; // still removed/renamed: registry test above covers live use
+      const src = `/${m.still.replace(/^public\//, "")}`;
+      if (Object.prototype.hasOwnProperty.call(stale, src)) {
+        expect(getLivingActor(src)).toBeNull();
+        continue;
+      }
       expect(sha(m.still), `The still picture for "${name}" (${m.still}) changed. ${HOW_TO_FIX}`).toBe(m.stillSha256);
     }
   });
