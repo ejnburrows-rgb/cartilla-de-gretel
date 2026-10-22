@@ -35,6 +35,15 @@ export type PencilConnectorProps = {
   onComplete?: () => void;
   centerLabel?: string;
   className?: string;
+  /** Optional accessible names for pair-mode columns (defaults keep Workbook wording). */
+  labels?: {
+    left?: (target: PencilTarget) => string;
+    right?: (target: PencilTarget) => string;
+  };
+  /** Games start each round empty; Workbook pages keep restoring saved progress. */
+  restoreProgress?: boolean;
+  /** Pair lines can meet the inner edges so words stay readable (default: centres). */
+  pairAnchors?: "center" | "edges";
 };
 type Pt = { x: number; y: number };
 
@@ -49,6 +58,9 @@ export function DirectPencilConnector({
   onComplete,
   centerLabel = "Uu",
   className,
+  labels,
+  restoreProgress = true,
+  pairAnchors = "center",
 }: PencilConnectorProps) {
   const shadowUid = `pencil-shadow-${useId().replace(/[^a-zA-Z0-9_-]/g, "")}`;
   const { emit: gretelEvent, record: recordEvent } = useActivityEvents();
@@ -148,6 +160,9 @@ export function DirectPencilConnector({
   );
 
   const [marked, setMarked] = useState<Set<string>>(() => {
+    if (!restoreProgress) {
+      return new Set(targets.filter((t) => t.example).map((t) => t.id));
+    }
     const saved = loadLassoProgress(pageKey)?.completedIds ?? [];
     return validateProgressKeys(saved);
   });
@@ -249,6 +264,23 @@ export function DirectPencilConnector({
       return getCenterPt(el ?? null);
     },
     [getCenterPt],
+  );
+
+  // Pair columns can anchor on the facing edges (right edge of the word card,
+  // left edge of the picture card) so a drawn line never covers the word.
+  const getPairAnchor = useCallback(
+    (id: string, side: "left" | "right"): Pt => {
+      const stage = stageRef.current;
+      const el = targetEls.current.get(id);
+      if (!stage || !el || pairAnchors === "center") return getTargetCenter(id);
+      const sr = stage.getBoundingClientRect();
+      const er = el.getBoundingClientRect();
+      return {
+        x: (side === "left" ? er.right : er.left) - sr.left,
+        y: er.top + er.height / 2 - sr.top,
+      };
+    },
+    [getTargetCenter, pairAnchors],
   );
 
   const [centerPt, setCenterPt] = useState<Pt>({ x: 200, y: 200 });
@@ -429,8 +461,8 @@ export function DirectPencilConnector({
       } else {
         gretelEvent("answer:wrong", { itemId: right.id });
         recordWrong();
-        const from = getTargetCenter(left.id);
-        const to = getTargetCenter(right.id);
+        const from = getPairAnchor(left.id, "left");
+        const to = getPairAnchor(right.id, "right");
         setWrongLine({ from, to, targetId: right.id });
         const retryDuration = reducedMotion
           ? WORKBOOK_MARK_TIMING.reducedEraseMs
@@ -439,7 +471,7 @@ export function DirectPencilConnector({
         onResult?.({ objectId: right.id, result: "wrong" });
       }
     },
-    [marked, completed, isLeftConnected, isRightConnected, getTargetCenter, persist, finishIfDone, onResult, recordWrong, gretelEvent, reducedMotion],
+    [marked, completed, isLeftConnected, isRightConnected, getPairAnchor, persist, finishIfDone, onResult, recordWrong, gretelEvent, reducedMotion],
   );
 
   const cancelDragState = useCallback(() => {
@@ -520,10 +552,10 @@ export function DirectPencilConnector({
   const activeStartPt = useMemo(() => {
     if (!isDragging) return null;
     if (isPairMode && dragStartId) {
-      return getTargetCenter(dragStartId);
+      return getPairAnchor(dragStartId, "left");
     }
     return centerPt;
-  }, [isDragging, isPairMode, dragStartId, getTargetCenter, centerPt]);
+  }, [isDragging, isPairMode, dragStartId, getPairAnchor, centerPt]);
 
   return (
     <div
@@ -594,8 +626,8 @@ export function DirectPencilConnector({
               if (!leftId || !rightId) return null;
               // measureTick forces recalculation once target refs mount
               void measureTick;
-              const ptA = getTargetCenter(leftId);
-              const ptB = getTargetCenter(rightId);
+              const ptA = getPairAnchor(leftId, "left");
+              const ptB = getPairAnchor(rightId, "right");
               return (
                 <g key={`pair-line-${pairKey}`} className="am-direct-pencil__line-group">
                   <line
@@ -799,7 +831,7 @@ export function DirectPencilConnector({
                     disabled={connected}
                     onPointerDown={(e) => handlePointerDownLeft(e, t)}
                     onClick={() => handleLeftClick(t)}
-                    aria-label={`Vocal ${t.label}`}
+                    aria-label={labels?.left?.(t) ?? `Vocal ${t.label}`}
                     aria-pressed={selected || connected}
                   >
                     <span className="am-direct-pencil__left-text">{t.label}</span>
@@ -831,7 +863,7 @@ export function DirectPencilConnector({
                       .join(" ")}
                     disabled={connected}
                     onClick={() => handleRightClick(t)}
-                    aria-label={t.label}
+                    aria-label={labels?.right?.(t) ?? t.label}
                     aria-pressed={connected}
                   >
                     <div className="am-direct-pencil__card">

@@ -703,6 +703,53 @@
   cursor: default;
 }
 
+/* Word → picture pencil game (juego/parejas-palabras-o): five word rows on a
+   phone-sized stage, 58px tap targets, no square-aspect overflow. */
+.pencil-word-match .am-direct-pencil__stage {
+  aspect-ratio: auto;
+  max-width: 520px;
+  padding: 0.75rem;
+}
+.pencil-word-match .am-direct-pencil__multi-grid {
+  height: auto;
+  padding: 0;
+  gap: 3rem;
+  align-items: stretch;
+}
+.pencil-word-match .am-direct-pencil__column {
+  height: auto;
+  flex: 1 1 0;
+  min-width: 0;
+  gap: 0.4rem;
+  justify-content: space-between;
+}
+.pencil-word-match .am-direct-pencil__column--left,
+.pencil-word-match .am-direct-pencil__column--right {
+  align-items: stretch;
+}
+.pencil-word-match .am-direct-pencil__left-card {
+  width: 100%;
+  min-width: 0;
+  min-height: 54px;
+  padding: 0.25rem 0.4rem;
+}
+.pencil-word-match .am-direct-pencil__left-text {
+  font-size: clamp(0.95rem, 4.2vw, 1.2rem);
+  white-space: nowrap;
+}
+.pencil-word-match .am-direct-pencil__target {
+  width: 100%;
+  height: 54px;
+  min-height: 54px;
+  aspect-ratio: auto;
+  padding: 0.2rem;
+}
+.pencil-word-match .am-direct-pencil__card img {
+  max-height: 48px;
+  width: auto;
+  max-width: 100%;
+}
+
 .am-direct-pencil__done {
   margin: 0.5rem 0 0 0;
   font-weight: 700;

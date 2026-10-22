@@ -11,6 +11,8 @@ import { CORE_THEMED_GAMES } from "@/content/games/core-games";
 import { COW_GAMES } from "@/content/games/cow-game";
 import { COMPLETAR_PALABRAS_M } from "@/content/games/completar-palabras";
 import { CompletarPalabras } from "@/components/cartilla/games/CompletarPalabras";
+import { PalabrasParejas } from "@/components/cartilla/games/PalabrasParejas";
+import { PALABRAS_PAREJAS_O } from "@/content/palabras-parejas";
 import type { CompletarPalabrasContent } from "@/content/games/completar-palabras";
 import type { GameContent } from "@/lib/games/gameContent";
 
@@ -24,6 +26,7 @@ export const LIVE_GAMES: GameContent[] = [
   ...CORE_THEMED_GAMES,
   COMPLETAR_PALABRAS_M,
   ...COW_GAMES,
+  PALABRAS_PAREJAS_O,
 ];
 
 const GAMES: Record<string, GameContent> = Object.fromEntries(
@@ -38,6 +41,8 @@ function renderGame(content: GameContent) {
       return <CompletarPalabras content={content as CompletarPalabrasContent} />;
     case "cow-game":
       return <CowGame content={content} />;
+    case "unir-palabras":
+      return <PalabrasParejas content={content} />;
     case "lectura-silabas":
       return <SyllableBuilder content={content} />;
     case "mariposas":
