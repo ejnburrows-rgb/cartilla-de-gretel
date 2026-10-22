@@ -72,11 +72,8 @@ export function StudentTable({
                     <User className="w-4 h-4" />
                   </div>
                   {editingId === s.id ? (
-                    <>
                     <input
                       type="text"
-                      aria-label="Nombre del alumno"
-                      aria-busy={busy}
                       value={editingName}
                       onChange={(e) => setEditingName(e.target.value)}
                       onBlur={() => {
@@ -94,8 +91,6 @@ export function StudentTable({
                         busy ? "opacity-50 cursor-not-allowed" : ""
                       }`}
                     />
-                    {busy && <span role="status" className="text-xs text-stone-500">Guardando…</span>}
-                    </>
                   ) : (
                     <button
                       type="button"
