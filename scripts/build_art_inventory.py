@@ -26,6 +26,18 @@ def enc(im, w=240):
 def live_thumb(path):
     try: im=Image.open(path); im.load(); return enc(im)
     except Exception: return None
+def orig_ref(x):
+    """Same choice as orig_thumb, as data the live Command Center page can draw in the browser."""
+    try:
+        if x["crop_box_940x1308"]:
+            im=Image.open(x["scan_source"]); X,Y,W,H=x["crop_box_940x1308"]
+            sx=im.width/940; sy=3458/1308; px,py=W*0.08,H*0.10
+            L=max(0,int((X-px)*sx));T=max(0,int((Y-py)*sy));R=min(im.width,int((X+W+px)*sx));B=min(im.height,int((Y+H+py)*sy))
+            return dict(kind="scan",src=x["scan_source"],sw=im.width,box=[L,T,R-L,B-T])
+        c=cmap.get(x["artwork_id"])
+        if c and os.path.isfile(c["source_crop_path"]): return dict(kind="image",src=c["source_crop_path"])
+        return dict(kind="image",src=x["scan_source"],whole_page=True)
+    except Exception: return None
 def orig_thumb(x):
     """Original book crop. Flip chart: cut from the real book scan with the recorded box.
     Workbook: the audited crop file when it exists, else the whole book page (marked)."""
@@ -62,6 +74,9 @@ assert sum(tot.values())==len(slots)==sum(by_book.values())
 data = dict(commit=sha, branch=branch, built=when, total=len(slots), by_book=by_book, by_status=tot, by_book_status={f"{k[0]} / {k[1]}":v for k,v in combo.items()},
     slots=[{k:v for k,v in s.items() if k not in("o","l")} for s in slots], missing_live_files=sum(1 for s in slots if not s["live_exists"]))
 os.makedirs(out, exist_ok=True)
+render=[dict(id=x["slot_id"],artwork_id=x["artwork_id"],book=x["book"],page=x["page"],label=x["object"],role=x["role"],live=x["live_picture"],
+  his=x["installed_by_him"]=="yes",was_flagged=x["status"]=="flagged",flag_reason=x["flag_reason"],orig=orig_ref(x)) for x in slots_in]
+json.dump(render, open(f"{out}/slots-render.json","w"), separators=(",",":"), ensure_ascii=False)
 json.dump(data, open(f"{out}/inventory.json","w"), indent=1, ensure_ascii=False)
 chips = "".join(f'<button data-f="{html.escape(k)}">{html.escape(k)} <b>{v}</b></button>' for k,v in tot.most_common())
 cards=[]
