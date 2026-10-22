@@ -2,7 +2,7 @@
 
 > **MANDATORY OWNER DIRECTIVES (2026-10-22, every agent / Muse / Instinct / Jules):** Read [PERMANENT_PROJECT_INTEGRITY_WORKFLOW.md](../PERMANENT_PROJECT_INTEGRITY_WORKFLOW.md) and [ARTWORK_REPORT_VERIFICATION_AND_SINGLE_SOURCE_CLEANUP.md](../ARTWORK_REPORT_VERIFICATION_AND_SINGLE_SOURCE_CLEANUP.md) before investigating, changing, certifying or dispatching artwork work. Only the latest authentic owner-approved updated art may be used; delete proven obsolete wrong crops from current production after switching and verifying all references. Do not create competing inventories, silently relax tests, or report file presence as correct rendered art. Existing owner-only merge/deploy gates remain in force. These Markdown directives define the obligation; actual implementation and tests are required before claiming enforcement.
 
-**Date Updated:** 2026-10-16
+**Date Updated:** 2026-10-22
 
 This plan defines the sequence of work required to satisfy `PROJECT_FINISH_DEFINITION.md` specifically for the interactive Student Workbook and Teacher Flip Chart proof.
 
@@ -15,43 +15,45 @@ This plan defines the sequence of work required to satisfy `PROJECT_FINISH_DEFIN
 5. **No active Supabase connection yet.** Do not expand real user data until authorized (post-pilot).
 6. **Sonar is advisory.** Do not block execution on warnings. True regressions block; theoretical quality gate drops do not.
 
-## Consolidated Execution Checkpoint
+## Consolidated Execution Checkpoint — verified GitHub state (2026-10-22)
 
-**Evidence already obtained — DO NOT REDO:**
-- Four completed broad artwork audits. PR #751 provides the canonical 201 drawing groups/330 placements reconciliation (draft evidence only).
-- Merged #733 Piano Hablador designs/logic, #743 Workbook physical page turn, #744 printed 60-sheet Flip Chart top-bound page turn, #726 approved pencil/eraser.
-- Verification PRs merged: #641 (full assembled Workbook regression, closed #450), #642 (keyboard/pointer access, closed #457), #643 (living motion bounds, closed #560), #646/648 (artwork intake tooling, closed #579), #636 (Gretel voice abstract, closed #570).
-- #713 authorization-gate reconciliations into `WORKBOOK_ARCHETYPE_STANDARD.md` and `STUDENT_INTERACTION_STANDARD.md` already merged.
+**Repository base verified:** `main` at `a310494d89bd82a03a7e93aed865b07a5a17b2f6` before this document change. This is a GitHub-source checkpoint, NOT proof of live app readiness. The finish definition is `PROJECT_FINISH_DEFINITION.md`, and the mandatory artwork/agent policies are `AGENTS.md`, `PERMANENT_PROJECT_INTEGRITY_WORKFLOW.md`, and `ARTWORK_REPORT_VERIFICATION_AND_SINGLE_SOURCE_CLEANUP.md`. Refresh current refs/owners before acting.
 
-**Remaining integration (not yet independently proven complete):**
-- PR #739 (one-native-page whole Workbook plus student resume/handwriting).
-- PR #735 (motion of 8 Workbook images).
-- PR #737 (5 Flip Chart images).
-- PR #769 (DRAFT, owner-gated — voice work MOOT per owner 2026-10-15: voice research stopped, the 48 recorded Gretel clips locked FINAL (commit e7d3bf2c). The 67 local MP3 cues are REJECTED stuttering/music source — archival evidence only, never map, replay, restitch, or deploy them. Audio recovery uses only `Gretel_558674_Original.m4a` with auditory/transcript/page verification per the repo AGENTS.md audio corrections; playback stays held until verification is complete.)
+**MERGED / no redispatch for already implemented scope:**
+- #739: native one-page full book, learner resume, handwriting persistence.
+- #735: part-motion of selected Workbook vowels; #737: selected Flip Chart pictures. Merged does not prove every current image or animated derivative is the latest approved source.
+- #733 Piano, #743 Workbook turn, #744 Flip Chart turn, #726 pencil/eraser.
+- #1066 teacher assignment fetch/retry, #1072 CRM notes.
+- #1095 owner green tree, #1098 replacement of stale animated variants with current stills, #1100 mandatory integrity directive, #1101 naming correction.
+- 83-picture restoration #1074 was REVERTED by #1075; it is **not** active production art.
 
-## Final Gates & Execution Order
+**Still open / real gaps / exact recovery work:**
+1. **Tracks 1–7 local UX/audio handoff, NOT PUSHED:** The supplied October 22 local report claims central mute/volume and `stopWordAudio`/`stopPianoAudio`, route/game unmount teardown, safe `returnTo` to lessons, five-viewport E2E and screenshots. Inspected remote `main` does not contain these stop exports/calls, `sanitizeReturnTo`, or `tests/e2e/multi-viewport-ux-proof.spec.ts`. Recover the local delta and tests from the existing worker before writing new implementations. Existing archetype/performance tests on `main` are distinct and should be reused.
+2. **Tutor #1073 OPEN DRAFT, remote head `94eb98f0c6158ac75448bbcde606c70125174ec3`, NOT MERGED:** October 22 *local* report claims 401 unit tests, 19 Tutor E2E, 2 offline E2E, and real Spanish-recording offline recognition for Lessons 2–3. These were NOT independently rerun on the remote head. Remote `tutor-ears-vosk.ts` does not show the reported `noiseHeard` change; remote `tutor.$n.tsx` lacks `effectsInFlightRef`; SW lacks `ignoreVary`; reported newer grammar/idle fixes also need exact-diff checks. Recover and push to **existing branch #1073**, then verify on new SHA. 77 spoken dialogue lines still pending; `olla` vs `ola` acoustic collision; physical child mic and iPad/Android classroom hardware NOT VERIFIED. Never equate synthetic recording-through-mic proof with physical child testing. No merge/deploy without necessary approvals.
+3. **Workbook interactions and phone fit, existing candidates:** #1070 one-book marking draft; #1022 middle-lesson faithful layout draft (focused local head verification recorded on #877); #1059 phone overflow, #1063 additional phone layout; #1077 WordMatch/DragBuildWord wrong success. Reconcile current files/PR owner and their exact SHA before edits. Latest approved eight-family visual proof and whole-product integration still needed.
+4. **Games, existing candidates:** #1081 Cow, #1079 Butterfly Garden and #1045 Chano's owner-chosen five painted balls/rainbow (supersedes incompatible earlier #1041 GSAP juggling). Do not re-enable old visuals or unapproved audio; real tap/audio/motion video + target viewport proof required.
+5. **Teacher integrated screens:** #1066/#1072 merged, #1071 student rename remains open. Verify routed teacher screens, classroom navigation, progress, CSV/print, error/retry and student isolation with synthetic demo data; earlier component-only tests do not prove a live route.
+6. **Artwork correctness:** latest master per illustration and 327 active placements must be reconciled through the EXISTING mapping, not a fifth independent audit. #1095/#1098 are partial improvements; #1096 known-bad tree regression, #1097 `igual` approval unknown, #1080 art-audit discrepancy draft and #1099 recovery handoffs remain existing work. Wrong/stale animated variants must display current approved stills until true derivative is verified. Obsolete wrong crops may be deleted only when the exact approved replacement and all references/byte-rendered proof are verified; preserve authentic source/history.
+7. **Recorded narration #769 OPEN DRAFT:** 67 wrong-source stuttering/music clips remain rejected. Recover owner-supplied original recordings already provided; map genuine verified spoken text to exact lesson/events. No new generator/provider research, replacement voice decisions or request to rerecord; audible runtime verification and owner gate still pending.
+8. **Final assembled #458:** student + teacher, visual proof against newest approved art, functional 8 archetypes, page-turn, handwriting save/return, actual games, audio lifecycle, keyboard/reduced-motion, performance, five browser viewports + representative physical devices. The welcome video is optional; 86–87 stay `SOURCE_BLOCKED` (85→88), not a defect. Full live Supabase and real-child data are outside authorized synthetic-data pilot scope. Owner-visible archetype and assembled-product approval, exact-head release tests and **owner-requested** deploy still not done.
 
-1. **Advance existing candidates; do not restart merged lanes**
-   - Muse reconciles live Opus assignments and active Jules sessions. Recover unfinished #739/#735/#737 lanes, no duplicate PRs. (#769 voice work is moot per owner 2026-10-15 — do not recover or restart it.)
-   - Opus continues assigned difficult cross-component Workbook implementation (reader, erase persistence, turns).
-   - Jules completes or validates existing #735/#737 and installs exact approved masters once authorized by the owner.
-   - For audio: no new voice discussion, generation, or provider selection — the owner already supplied finished audio (2026-10-15) and prohibited revisiting it. The 67 MP3 cues are rejected/archival-only; do not map or replay them. Recovery = `Gretel_558674_Original.m4a` only, with auditory/transcript/page verification per the repo AGENTS.md audio corrections; keep playback held until verification is complete.
+## Anti-Churn recovery swarm — single Muse dispatcher, maximum 15 provider-confirmed productive lanes
 
-2. **#588 — Final owner art drop**
-   - Owner-gated: integrate final supplied owner foreground art drop using the verified intake tool from #579.
+**One best next swarm: RECOVER → PUSH → FOCUSED VERIFY → INTEGRATE.** No new supervisor, duplicate plan, fifth inventory, provider experiment, paid service, unauthorized source edits or fake completion. Existing `#877` job board and `#458` integration ledger own progress updates. `#999` gate is DRAFT; do not claim its enforcement is active. Current provider capacity is **UNKNOWN** until Muse performs a current successful provider census and checks active ownership. Last #877 snapshot said zero running but also reported provider lane-sync failures, so do not claim or allocate free slots from that stale count.
 
-3. **#589 — Gretel voice: RESOLVED by owner 2026-10-15**
-   - Owner locked the 48 recorded Gretel clips as FINAL (commit e7d3bf2c) and stopped all voice research; generator/provider selection is not to be revisited. This gate now tracks recovery, mapping, and verification of the existing assets only — no local-neural vs cloud-TTS decision pending.
+**Allocate to existing workers/branches first, only with distinct file sets and real outstanding gaps:**
+- **A — local Tracks 1–7 recovery:** own audio/GameShell/game-route and `multi-viewport-ux-proof.spec.ts` only. Compare/push current local tested delta, no Tutor/art changes.
+- **B — Tutor #1073 recovery:** own `src/lib/tutor-*`, `src/routes/tutor.*`, Tutor E2E/pack/SW affected hunks only. Recover actual local work, preserve existing base branch/PR, attach offline-real-audio logs and verified changed-head tests. Coordinate SW file lock if other lanes touch it.
+- **C — approved artwork source/derivative gates:** use existing #1096/#1097/#1099, original mapping and current approved masters; narrow disjoint slot groups by provider-confirmed ownership. No global re-audit and no destructive delete without exact source/reference proof and authorization.
+- **D — Student Workbook integration:** reconcile #1022/#1070/#1059/#1063/#1077, splitting ONLY non-overlapping files after checking PR diffs; real page/marking/return screenshots and functional proof, rather than assuming a local local-test PASS on all of `main`.
+- **E — games integration:** existing #1081 Cow, #1079 Butterfly, #1045 Chano owners, one independent game surface per worker, current official mechanics and moving-frame evidence. Do not revive #1041's superseded proposal.
+- **F — routed teacher screens:** verify integrated notes/assignment behavior from merged #1066/#1072 and finish #1071, synthetic students, print/CSV and projector view; no new backend.
+- **G — original audio alignment:** continue existing #769 with exact original spoken segments and approval evidence, never rejected cues. Held where owner selection is required.
+- **H — exact-head integrated verifier, only after changes land:** reuse accepted SHA-bound test evidence, rerun only on changes that invalidate it, then full assembled gate when ready. Publish direct rendered screenshots/videos to owner and seek only required owner approvals. No production deployment without owner's explicit instruction.
 
-4. **#587 — Current clean-main Jules release baseline**
-   - Reuse existing acknowledged session; require actual output.
-   - Cross-platform launcher verified on `main`.
-   - Records exact typecheck, Vitest, build, and Playwright execution counts without mutating release assets.
+**Each Jules assignment must identify existing PR/issue + current SHA + designated owner + file scope + explicit nonoverlap + source approval + concrete before/after + proof artifacts + exact commit pushed.** A local Antigravity `walkthrough.md`, agent-written pass report, tests at another SHA, draft PR existence, or zero open tasks never proves completed deployed functionality. Mark unverified failures honestly; report `WORKS / DOES NOT WORK / NOT VERIFIED` tied to evidence. Anti-Churn: reuse previously accepted matching test/check evidence; if candidate or dependency changed, document the typed reason before the minimum relevant rerun.
 
-5. **#458 — Assembled-product proof and release**
-   - Exact integrated head; full release gate; final Student and teacher regressions.
-   - Required owner-visible archetype and assembled-product approvals remain open until actual rendered evidence is shown.
-   - Deploy only after intentional final owner authorization.
+**Dispatch policy:** Muse checks real provider capacity and lock conflicts before launching any lane; fill available capacity up to 15 **only when ready, material, genuinely distinct work exists**. No filler assignments, speculative cleanup, other controller, new branch where an existing PR already owns scope, unapproved merge of held art/voice/Tutor, deployment, or change of source-of-truth decisions. Finished non-owner-gated technical changes may merge under the current `AGENTS.md` tested-work rule only without triggering deployment. Post durable delta checkpoint on #458 and use #877 for worker jobs.
 
 ## Printed pages 86–87 — resolved source status
 
