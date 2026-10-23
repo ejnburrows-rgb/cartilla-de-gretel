@@ -4,6 +4,14 @@ import { useMutation, useQuery, useQueryClient } from "@tanstack/react-query";
 import { listAssignments, createAssignment, deleteAssignment } from "@/lib/assignments.functions";
 import { CATALOG } from "@/lib/lesson-catalog";
 
+const CATALOG_MAP = CATALOG.reduce(
+  (acc, c) => {
+    acc[String(c.n)] = c;
+    return acc;
+  },
+  {} as Record<string, (typeof CATALOG)[0]>,
+);
+
 interface TaskListProps {
   classId: string;
 }
@@ -20,7 +28,13 @@ export function TaskList({ classId }: TaskListProps) {
   const [timeLimit, setTimeLimit] = useState("");
   const [dueDate, setDueDate] = useState("");
 
-  const { data: assignments, isLoading, isError, isFetching, refetch } = useQuery({
+  const {
+    data: assignments,
+    isLoading,
+    isError,
+    isFetching,
+    refetch,
+  } = useQuery({
     queryKey: ["assignments", classId],
     queryFn: () => listAssignments({ data: { classId } }),
     enabled: !!classId,
@@ -151,7 +165,7 @@ export function TaskList({ classId }: TaskListProps) {
           </div>
         ) : (assignments ?? []).length > 0 ? (
           (assignments ?? []).map((task) => {
-            const entry = CATALOG.find((c) => String(c.n) === task.lesson_id);
+            const entry = CATALOG_MAP[task.lesson_id];
             return (
               <div
                 key={task.id}
