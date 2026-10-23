@@ -61,7 +61,13 @@ describe("toCSV", () => {
   });
 
   it("handles empty strings", () => {
-    expect(toCSV([{ v: "" }])).toBe("v\n");
+    expect(toCSV([{ v: "" }])).toBe('v\n""');
+    expect(toCSV([{ v: "" }, { v: "" }])).toBe('v\n""\n""');
+    expect(toCSV([{ v: "" }, { v: "next" }, { v: "" }])).toBe('v\n""\nnext\n""');
+    expect(toCSV([{ v: null }, { v: undefined }])).toBe('v\n""\n""');
+    expect(toCSV([{ a: "", b: "" }])).toBe("a,b\n,");
+    expect(toCSV([])).toBe("");
+    expect(toCSV([], ["v"])).toBe("");
   });
 
   it("handles carriage returns", () => {
