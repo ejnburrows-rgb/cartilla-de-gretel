@@ -1,4 +1,3 @@
-import { useState } from "react";
 import { type CatalogEntry } from "@/lib/lesson-catalog";
 import { BookOpen, ChevronLeft, ChevronRight, Check } from "lucide-react";
 
