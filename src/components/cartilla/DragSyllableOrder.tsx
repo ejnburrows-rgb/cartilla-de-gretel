@@ -17,7 +17,7 @@ import {
   useSortable,
 } from "@dnd-kit/sortable";
 import { CSS } from "@dnd-kit/utilities";
-import { playNote, playCorrectChord, playWrongBuzz } from "@/lib/piano-audio";
+import { playNote, playCorrectChord } from "@/lib/piano-audio";
 import { recordEvent } from "@/lib/student-session";
 import { LivingIllustration } from "@/components/living/LivingIllustration";
 import { RotateCcw, ArrowRight, CheckCircle2 } from "lucide-react";
