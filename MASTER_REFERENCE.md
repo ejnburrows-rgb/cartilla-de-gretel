@@ -14,8 +14,8 @@ PROJECT_SOURCE_OF_TRUTH.md, CARTILLA_DIGITAL_DIRECTIVE.md — the directive wins
 over any contradicting file.
 
 ## 2. WHO DOES WHAT (permissions — updated today)
-Chain: Emilio → Muse → Jules / ChatGPT / Antigravity / Freebuff. Opus reports to Emilio.
-- JULES (Builder): phone layout, page curl (PageCurl.tsx), piano timer, teacher
+Chain: Emilio → Muse → Jules / ChatGPT / Antigravity / Freebuff / Opus (piano only).
+- JULES (Builder): phone layout, page curl (PageCurl.tsx), teacher
   section, pencil pages, PencilConnector, build gate.
   Never: games, audio files, art files.
 - CHATGPT (Audio): TTS fallback, audio wiring, broken audio references, narration fallbacks.
@@ -25,12 +25,15 @@ Chain: Emilio → Muse → Jules / ChatGPT / Antigravity / Freebuff. Opus report
 - FREEBUFF (Backlog + Maintenance): added by the owner today. Prepares duplicate/junk
   cleanup lists and maintenance work. Closes, deletes, merges NOTHING by itself.
   Never: app code, games, audio, art, permission files.
-- OPUS (Inspector): read-only verification only. Never writes code, never merges,
-  never takes instructions from other agents. No task is done until Opus confirms it.
-- MUSE (Controller): keeps this Master Reference (it holds the Mission Board and
+- OPUS (Piano Builder): builds the piano work ONLY (Piano Hablador / piano files).
+  Removed as Inspector today (~3:40 PM — "Opus can't check on its own"); role set
+  by the owner ~3:46 PM: it builds piano, Muse checks everything it makes.
+  Verifies nothing, merges nothing.
+- MUSE (Controller + Inspector): keeps this Master Reference (it holds the Mission Board and
   the Approval Ledger as sections 3 and 6) and all starter prompts. Verifies,
   reviews, and merges finished+tested work (owner ruling today: "I keep verifying"
-  — the Oct 13 controller contract stands).
+  — the Oct 13 controller contract stands). The independent checking job is
+  Muse's — no task is done until Muse verifies it against the real source.
 - Universal: one agent per file area; no agent merges its own work; recover existing
   work before rebuilding; blockers go to Muse, never agent-to-agent; Codex owns
   artwork identification/mapping/integration.
@@ -68,7 +71,7 @@ When he asks for "today's handout prompts" or "agent dispatch": ONE complete
 Daily Dispatch Package, built fresh from the repo, this Master Reference,
 open work, and latest verified results. One finished copy-paste prompt per active
 agent, labeled SEND TO JULES / SEND TO CHATGPT / SEND TO ANTIGRAVITY /
-SEND TO OPUS / SEND TO FREEBUFF, in send order, each with the exact assignment,
+SEND TO FREEBUFF / SEND TO OPUS (piano only), in send order, each with the exact assignment,
 existing work to recover, file ownership, acceptance checks, required evidence,
 and a one-line "why." No duplicates, no blocked work, no unverified claims as done.
 An agent with nothing gets "NO DISPATCH NEEDED" + why. End with: who receives a
