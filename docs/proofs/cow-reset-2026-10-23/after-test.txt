@@ -1,0 +1,4 @@
+  ✓  1 [chromium] › tests/e2e/cow-queue-review.spec.ts:6:3 › cow wrong/correct and reset 390 (18.6s)
+  ✓  2 [chromium] › tests/e2e/cow-queue-review.spec.ts:6:3 › cow wrong/correct and reset 1280 (17.9s)
+
+  2 passed (41.2s)

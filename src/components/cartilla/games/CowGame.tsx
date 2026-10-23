@@ -291,6 +291,11 @@ export function CowGame({ content }: { content: GameContent }) {
   }, [finished]);
 
   const reset = () => {
+    // Cancel the previous round before its delayed drop can change the new round.
+    timers.current.forEach((id) => window.clearTimeout(id));
+    timers.current = [];
+    setMessage("");
+    setCheer(null);
     setPlaced({});
     setActive(null);
     setOpenGate({});
