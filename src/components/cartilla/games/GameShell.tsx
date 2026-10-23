@@ -3,6 +3,7 @@
 // passed in as children so each themed game only implements its own mechanic.
 import { type ReactNode } from "react";
 import { Volume2 } from "lucide-react";
+import { GretelMascot, type GretelPose } from "@/components/gretel/GretelMascot";
 import { playInstruction } from "@/lib/games/wordAudio";
 import type { GameContent } from "@/lib/games/gameContent";
 import { GardenBackdrop } from "@/components/cartilla/GardenBackdrop";
@@ -10,11 +11,15 @@ import { KidButton } from "@/components/ui/KidButton";
 
 interface GameShellProps {
   content: GameContent;
+  gretelPose?: GretelPose;
+  gretelText?: string;
   children: ReactNode;
 }
 
 export function GameShell({
   content,
+  gretelPose = "welcome",
+  gretelText,
   children,
 }: GameShellProps) {
   return (
@@ -40,6 +45,10 @@ export function GameShell({
             ))}
           </ol>
         </header>
+
+        <div className="flex justify-center">
+          <GretelMascot pose={gretelPose} text={gretelText} bubblePosition="top" />
+        </div>
 
         {children}
       </div>

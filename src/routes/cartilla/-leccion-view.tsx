@@ -20,8 +20,6 @@ import { gretelEvent } from "@/lib/gretel-bus";
 
 import { NativeLessonViewer } from "@/components/StudentBook/NativeLessonViewer";
 import "@/styles/lesson-fit.css";
-// Wave 1 (2026-10-19): page-scoped cutoff fixes for L11/L12/L16 only.
-import "@/styles/lesson-cutoff-fixes.css";
 import { exitLessonFullscreen, requestLessonFullscreen } from "@/lib/lesson-fullscreen";
 import { buildPageArray } from "@/utils/buildPageArray";
 import { GretelCinematic } from "@/components/gretel/GretelCinematic";
@@ -205,7 +203,7 @@ export function Leccion() {
   };
 
   return (
-    <div className={`lc-lesson-shell lc-lesson-shell--fit ${n === 16 ? "lc-lesson-16" : ""} min-h-screen flex flex-col`}>
+    <div className="lc-lesson-shell lc-lesson-shell--fit min-h-screen flex flex-col">
       <DemoStudentBanner />
       <header className="lc-lesson-header">
         <Link

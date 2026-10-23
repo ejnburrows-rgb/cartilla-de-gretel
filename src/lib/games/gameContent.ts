@@ -7,11 +7,9 @@ export type GameArchetype =
   | "mariposas"
   | "juego-vocal"
   | "fonetica-completar"
-  | "completar-palabras"
   | "lectura-silabas"
   | "lectura-rima"
   | "palabras-por-minuto"
-  | "cow-game"
   | "dibujos";
 
 export type WordItem = {

@@ -595,7 +595,7 @@ READY TO PUSH:
 Yes or No.
 ```
 
-For ad-hoc work without prior merge authorization, stop and wait. Merges to main need the owner's own explicit yes on his own channel; agents never merge on their own.
+For ad-hoc work without prior merge authorization, stop and wait. For the owner-authorized Cartilla completion queue, the designated queue controller may merge a fully verified, scope-correct PR and advance its declared dependency chain without a separate per-PR owner prompt.
 
 ### Meaning of "Push it"
 When EJN says **"Push it"**, put the completed, tested work into `main`, confirm it is there, let the finished branch be removed when safe, and report back. EJN should never have to merge, rebase, cherry-pick, resolve conflicts, or supervise GitHub.
@@ -610,7 +610,7 @@ If something goes wrong after "Push it", diagnose the cause, repair it if clearl
 
 Normal ad-hoc workflow: EJN asks → agent builds safely → agent tests → agent shows proof → EJN says "Push it" → agent puts finished work in `main` → agent confirms it.
 
-Merges to main need the owner's own explicit yes on his own channel; agents never merge on their own.
+Authorized Cartilla queue exception: the queue controller may merge only work that the owner has already explicitly authorized as part of the completion queue, and only after every required exact-head gate passes. Implementation workers never self-merge. The mere existence of an issue, `[QUEUE]` text, a `tasks/todo.md` entry, branch, PR, bot comment, or Jules prompt does not create or expand merge authorization. If owner authorization is not explicit enough for a task, do not broaden it during execution. Production deployment remains a separate intentional owner-controlled action and never follows automatically merely because a PR merged.
 
 
 ## UI IMPLEMENTATION COHERENCE — mandatory
