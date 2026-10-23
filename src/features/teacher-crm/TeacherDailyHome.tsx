@@ -45,8 +45,10 @@ function combineStudentProgressResults(
 }
 
 
+const CATALOG_MAP = new Map(CATALOG.map((item) => [String(item.n), item]));
+
 function lessonTitle(lessonId: string) {
-  const entry = CATALOG.find((item) => String(item.n) === lessonId);
+  const entry = CATALOG_MAP.get(lessonId);
   return entry ? `L${entry.n} · ${entry.title}` : `Lección ${lessonId}`;
 }
 
