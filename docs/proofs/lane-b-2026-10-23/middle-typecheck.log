@@ -1,0 +1,4 @@
+
+> cartilla-de-gretel-platform@ typecheck /tmp/gretel-middle
+> tsc --noEmit
+

@@ -1,0 +1,7 @@
+PASS touch: wrong occurrence erased, correct occurrence saved after reload
+PASS normal motion: shared pencil and eraser execute wrong-answer cycle
+PASS drawing: real canvas ink, eraser, undo, save/reload
+PASS completion page: real sentence input and saved work
+PASS source-guided uppercase: actual pointer trace completes and restores
+PASS six fill choices: wrong retry, all correct, sentence completion unlocks next
+PASS sentence freehand: source-sized canvas, erase, save and reload

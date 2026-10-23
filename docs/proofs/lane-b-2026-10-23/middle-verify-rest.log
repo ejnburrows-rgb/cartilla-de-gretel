@@ -1,0 +1,13 @@
+PASS all 11 circle pages: measured letter target accepts real touch
+PASS all 11 completion pages: all 66 measured choice fields accept correct touch
+PASS navigation: reading page advances with existing next control
+PASS adjacent page 19: source styles excluded
+PASS adjacent page 67: source styles excluded
+PASS 844x390: page 23 fits
+PASS 844x390: page 24 fits
+PASS 844x390: page 25 fits
+PASS 844x390: page 26 fits
+PASS 1366x768: page 23 fits
+PASS 1366x768: page 24 fits
+PASS 1366x768: page 25 fits
+PASS 1366x768: page 26 fits
