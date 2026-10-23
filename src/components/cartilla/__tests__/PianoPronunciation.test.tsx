@@ -5,7 +5,7 @@ import { describe, it, expect, vi, beforeEach, afterEach } from "vitest";
 import { render, cleanup, screen, fireEvent, act } from "@testing-library/react";
 import React from "react";
 import { PianoPronunciation, PIANO_DESIGN_STORAGE_KEY } from "../PianoPronunciation";
-import { CONFIRMED_GREEN } from "../piano/piano-keyboard";
+import { CONFIRMED_GREEN, RAMP_STOPS, rampColor } from "../piano/piano-keyboard";
 import { MELODY_STEP_MS, SPARKLE_MS } from "../piano/usePianoSession";
 
 // --- Microphone: the piano's own listening hook, driven by the test --------
@@ -124,6 +124,28 @@ describe.each([["piano"], ["cancionero"]] as const)("PianoPronunciation (%s desi
     vi.useRealTimers();
     window.localStorage.clear();
   });
+
+  if (design === "piano") {
+    it("colors the syllables left to right red → orange → yellow, then green only when said", () => {
+      render(<PianoPronunciation syllables={["ma", "me", "mi"]} />);
+      expect(keyColor(0)).toBe(RAMP_STOPS[0]);
+      expect(keyColor(1)).toBe(RAMP_STOPS[1]);
+      expect(keyColor(2)).toBe(RAMP_STOPS[2]);
+      expect(noteColor(0)).toBe(RAMP_STOPS[0]);
+      hear("pa"); // wrong: no color change
+      expect(keyColor(0)).toBe(RAMP_STOPS[0]);
+      hear("ma");
+      expect(keyColor(0)).toBe(CONFIRMED_GREEN);
+      expect(keyColor(1)).toBe(RAMP_STOPS[1]);
+      expect(keyColor(2)).toBe(RAMP_STOPS[2]);
+    });
+
+    it("a two-syllable word goes from red to yellow", () => {
+      expect(rampColor(0, 2)).toBe(RAMP_STOPS[0]);
+      expect(rampColor(1, 2)).toBe(RAMP_STOPS[2]);
+      expect(rampColor(0, 1)).toBe(RAMP_STOPS[0]);
+    });
+  }
 
   it("renders the chosen design", () => {
     render(<PianoPronunciation syllables={["ma", "me"]} />);

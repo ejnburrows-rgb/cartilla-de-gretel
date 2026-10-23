@@ -75,6 +75,38 @@ export function syllableColor(index: number, state: string): string {
   return state === "confirmed" ? CONFIRMED_GREEN : SYLLABLE_COLORS[index % SYLLABLE_COLORS.length];
 }
 
+/**
+ * Design A ("Piano") warm ramp, owner choice 2026-10-23: the word's syllables
+ * run left to right from red through brighter orange to yellow; each one turns
+ * green only once it is recognized by voice.
+ */
+export const RAMP_STOPS = ["#ef4444", "#f97316", "#facc15"] as const;
+
+function mixHex(a: string, b: string, t: number): string {
+  const ca = [1, 3, 5].map((i) => parseInt(a.slice(i, i + 2), 16));
+  const cb = [1, 3, 5].map((i) => parseInt(b.slice(i, i + 2), 16));
+  return `#${ca
+    .map((v, k) =>
+      Math.round(v + (cb[k] - v) * t)
+        .toString(16)
+        .padStart(2, "0"),
+    )
+    .join("")}`;
+}
+
+/** Red (first syllable) → orange → yellow (last syllable). */
+export function rampColor(index: number, total: number): string {
+  if (total <= 1) return RAMP_STOPS[0];
+  const position = (Math.min(index, total - 1) / (total - 1)) * (RAMP_STOPS.length - 1);
+  const stop = Math.min(Math.floor(position), RAMP_STOPS.length - 2);
+  return mixHex(RAMP_STOPS[stop], RAMP_STOPS[stop + 1], position - stop);
+}
+
+/** Design A color: the warm ramp, or green once confirmed. */
+export function rampSyllableColor(index: number, total: number, state: string): string {
+  return state === "confirmed" ? CONFIRMED_GREEN : rampColor(index, total);
+}
+
 /** Accessible state words for a syllable key (same wording as before). */
 export const STATE_LABEL = {
   pending: "por decir",

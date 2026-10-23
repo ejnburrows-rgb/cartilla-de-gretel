@@ -11,7 +11,7 @@ import type { CSSProperties } from "react";
 import { ArrowRight, Check, Mic, MicOff, RotateCcw, Volume2 } from "lucide-react";
 import { GretelLiveAvatar } from "@/components/gretel/GretelLiveAvatar";
 import { usePianoSession, PRIVACY_NOTE, type PianoDesignProps } from "./usePianoSession";
-import { OCTAVE_BLACK, OCTAVE_WHITE, STATE_LABEL, syllableColor } from "./piano-keyboard";
+import { OCTAVE_BLACK, OCTAVE_WHITE, STATE_LABEL, rampSyllableColor } from "./piano-keyboard";
 import "./piano-design-a.css";
 
 export const DESIGN_A_MAX_SYLLABLES = OCTAVE_WHITE.length;
@@ -72,7 +72,7 @@ export function PianoDesignA({ syllables, words, lessonId, onComplete, locale }:
         <div className="pa__notes">
           {s.keys.map((syllable, index) => {
             const state = s.keyStateFor(index);
-            const color = syllableColor(index, state);
+            const color = rampSyllableColor(index, total, state);
             return (
               <div
                 key={`${s.itemIndex}-${index}`}
@@ -111,7 +111,7 @@ export function PianoDesignA({ syllables, words, lessonId, onComplete, locale }:
           {OCTAVE_WHITE.map((key, index) => {
             const carries = index < total;
             const state = carries ? s.keyStateFor(index) : "free";
-            const color = carries ? syllableColor(index, state) : "#f5d38a";
+            const color = carries ? rampSyllableColor(index, total, state) : "#f5d38a";
             return (
               <span
                 key={key.id}

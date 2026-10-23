@@ -261,27 +261,35 @@
     transform 0.12s ease;
   transform-origin: top;
 }
+/* Syllable keys wait in their warm ramp color (red → orange → yellow) until
+   the syllable is recognized by voice and the key turns green. */
+.pa__white--pending,
 .pa__white--next {
   background: linear-gradient(
     180deg,
     #f3f0e8,
-    #fffdf8 18%,
-    color-mix(in srgb, var(--c) 10%, #fbf8f0) 85%,
-    #e9e3d4
+    color-mix(in srgb, var(--c) 28%, #fffdf8) 22%,
+    color-mix(in srgb, var(--c) 55%, #fbf8f0) 85%,
+    color-mix(in srgb, var(--c) 70%, #e9e3d4)
   );
   box-shadow:
-    inset 0 -6px color-mix(in srgb, var(--c) 45%, #ddd5c2),
+    inset 0 -6px color-mix(in srgb, var(--c) 75%, #ddd5c2),
     inset 0 0 0 2px color-mix(in srgb, var(--c) 55%, transparent),
     0 2px #0c0a09;
 }
+/* While the child is speaking, the key brightens and glows in its own color. */
 .pa__white--provisional,
 .pa__white--hearing {
   background: linear-gradient(
     180deg,
-    #f3f0e8,
-    color-mix(in srgb, var(--c) 22%, white) 40%,
-    color-mix(in srgb, var(--c) 30%, white)
+    color-mix(in srgb, var(--c) 40%, white),
+    color-mix(in srgb, var(--c) 75%, white) 45%,
+    var(--c)
   );
+  box-shadow:
+    inset 0 -6px color-mix(in srgb, var(--c) 80%, black),
+    0 0 20px var(--c),
+    0 2px #0c0a09;
 }
 .pa__white--confirmed {
   background: linear-gradient(
