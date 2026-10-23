@@ -1,0 +1,106 @@
+[
+  {
+    "n": 1,
+    "page": null,
+    "background": "radial-gradient(120% 90% at 16% 8%, rgba(255, 255, 255, 0.55), rgba(0, 0, 0, 0) 55%) repeat scroll 0% 0% / auto padding-box border-box, rgb(250, 242, 223) none repeat scroll 0% 0% / auto padding-box border-box",
+    "scrollWidth": 1366,
+    "viewport": 1366,
+    "text": "Instrucciones: Circula los dibujos de las palabras en cada línea horizontal que comienzan con el mismo sonido.\n\n1\nLección 1"
+  },
+  {
+    "n": 3,
+    "page": null,
+    "background": "radial-gradient(120% 90% at 16% 8%, rgba(255, 255, 255, 0.55), rgba(0, 0, 0, 0) 55%) repeat scroll 0% 0% / auto padding-box border-box, rgb(250, 242, 223) none repeat scroll 0% 0% / auto padding-box border-box",
+    "scrollWidth": 1366,
+    "viewport": 1366,
+    "text": "Instrucciones: Marca con una x los dibujos de las palabras que comienzan con A a.\n\nDibujos 1-8\nDibujos 9-16\n7\nLección 3"
+  },
+  {
+    "n": 8,
+    "page": null,
+    "background": "radial-gradient(120% 90% at 16% 8%, rgba(255, 255, 255, 0.55), rgba(0, 0, 0, 0) 55%) repeat scroll 0% 0% / auto padding-box border-box, rgb(250, 242, 223) none repeat scroll 0% 0% / auto padding-box border-box",
+    "scrollWidth": 1366,
+    "viewport": 1366,
+    "text": "Escribe con tu mejor letra.\n\n1\nToca los puntos en orden\n✍️ Libres\n1\nToca los puntos en orden\n✍️ Libres\np\nEscribe\np\nLimpiar\nListo\np\nEscribe\np\nLimpiar\nListo\n\nHaz un dibujo que represente una palabra que comienza con p.\n\nDibuja\nLimpiar\nListo\n23\nLección "
+  },
+  {
+    "n": 13,
+    "page": null,
+    "background": "radial-gradient(120% 90% at 16% 8%, rgba(255, 255, 255, 0.55), rgba(0, 0, 0, 0) 55%) repeat scroll 0% 0% / auto padding-box border-box, rgb(250, 242, 223) none repeat scroll 0% 0% / auto padding-box border-box",
+    "scrollWidth": 1366,
+    "viewport": 1366,
+    "text": "Escribe con tu mejor letra.\n\n1\nToca los puntos en orden\n✍️ Libres\n1\nToca los puntos en orden\n✍️ Libres\nn\nEscribe\nn\nLimpiar\nListo\nn\nEscribe\nn\nLimpiar\nListo\n\nHaz un dibujo que represente una palabra que comienza con n.\n\nDibuja\nLimpiar\nListo\n43\nLección "
+  },
+  {
+    "n": 16,
+    "page": null,
+    "background": "radial-gradient(120% 90% at 16% 8%, rgba(255, 255, 255, 0.55), rgba(0, 0, 0, 0) 55%) repeat scroll 0% 0% / auto padding-box border-box, rgb(250, 242, 223) none repeat scroll 0% 0% / auto padding-box border-box",
+    "scrollWidth": 1366,
+    "viewport": 1366,
+    "text": "Escribe con tu mejor letra.\n\n1\nToca los puntos en orden\n✍️ Libres\n1\nToca los puntos en orden\n✍️ Libres\nv\nEscribe\nv\nLimpiar\nListo\nv\nEscribe\nv\nLimpiar\nListo\n\nHaz un dibujo que represente una palabra que comienza con v.\n\nDibuja\nLimpiar\nListo\n55\nLección "
+  },
+  {
+    "n": 21,
+    "page": null,
+    "background": "radial-gradient(120% 90% at 16% 8%, rgba(255, 255, 255, 0.55), rgba(0, 0, 0, 0) 55%) repeat scroll 0% 0% / auto padding-box border-box, rgb(250, 242, 223) none repeat scroll 0% 0% / auto padding-box border-box",
+    "scrollWidth": 1366,
+    "viewport": 1366,
+    "text": "Escribe con tu mejor letra.\n\n1\nToca los puntos en orden\n✍️ Libres\n1\nToca los puntos en orden\n✍️ Libres\nj\nEscribe\nj\nLimpiar\nListo\nj\nEscribe\nj\nLimpiar\nListo\n\nHaz un dibujo que represente una palabra que comienza con j.\n\nDibuja\nLimpiar\nListo\n75\nLección "
+  },
+  {
+    "n": 24,
+    "page": null,
+    "background": "radial-gradient(120% 90% at 16% 8%, rgba(255, 255, 255, 0.55), rgba(0, 0, 0, 0) 55%) repeat scroll 0% 0% / auto padding-box border-box, rgb(250, 242, 223) none repeat scroll 0% 0% / auto padding-box border-box",
+    "scrollWidth": 1366,
+    "viewport": 1366,
+    "text": "Encierra en un círculo la sílaba correspondiente.\n\nza\nt\na\nz\na\nc\na\nz\na\nz\na\np\na\nt\ne\nr\no\np\nl\na\nz\na\nz\na\np\na\nt\no\nz\na\np\no\nt\ne\n\n0 de 6 respuestas correctas\n\nze\nz\ne\np\ne\nl\ní\nn\nz\ne\nb\nr\na\nZ\ne\nn\na\ni\nd\na\nz\ne\nt\na\nZ\ne\ng\nr\ní\nZ\ne\nm\na\n\n0 de 6 respuestas correctas\n\nzi\n"
+  },
+  {
+    "n": 11,
+    "phone": true,
+    "scrollWidth": 390,
+    "viewport": 390,
+    "page": {
+      "x": 10,
+      "y": 44,
+      "width": 370,
+      "height": 724,
+      "top": 44,
+      "right": 380,
+      "bottom": 768,
+      "left": 10
+    }
+  },
+  {
+    "n": 12,
+    "phone": true,
+    "scrollWidth": 390,
+    "viewport": 390,
+    "page": {
+      "x": 10,
+      "y": 44,
+      "width": 370,
+      "height": 724,
+      "top": 44,
+      "right": 380,
+      "bottom": 768,
+      "left": 10
+    }
+  },
+  {
+    "n": 16,
+    "phone": true,
+    "scrollWidth": 390,
+    "viewport": 390,
+    "page": {
+      "x": 10,
+      "y": 44,
+      "width": 370,
+      "height": 724,
+      "top": 44,
+      "right": 380,
+      "bottom": 768,
+      "left": 10
+    }
+  }
+]
