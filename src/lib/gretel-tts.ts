@@ -1,4 +1,3 @@
-import { speakAsGretel, isGretelVoiceMuted } from "./gretel-voice";
 
 /**
  * gretel-tts.ts — speaks Gretel's short feedback phrases aloud using the
@@ -9,8 +8,8 @@ import { speakAsGretel, isGretelVoiceMuted } from "./gretel-voice";
  * ("gretel:speak_start" and "gretel:speak_stop"), and mute/cancel cleanup.
  */
 
-export function speakGretelPhrase(phrase: string): void {
-  if (typeof window === "undefined") return;
-  if (isGretelVoiceMuted()) return;
-  void speakAsGretel(phrase);
+export function speakGretelPhrase(_phrase: string): void {
+  // Owner rule 2026-10-18: his own recordings only, never device/browser voice.
+  // Robot voice killed — this is now a no-op until wired to his recordings.
+  return;
 }
