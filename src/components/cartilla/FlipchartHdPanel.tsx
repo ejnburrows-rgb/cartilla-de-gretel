@@ -475,7 +475,7 @@ export function FlipchartHdPanel({ lessonNumber, accentColor, chrome = "full" }:
   const leafBox: CSSProperties = leaf
     ? { left: leaf.left, top: leaf.top, width: leaf.width, height: leaf.height }
     : { inset: 0 };
-  const hinge = leaf ? Math.round(leaf.height * HINGE_SHARE) : 0;
+  const hinge = leaf ? Math.round(leaf.width * HINGE_SHARE) : 0;
 
   const leftCornerLabel =
     handMode === "left"

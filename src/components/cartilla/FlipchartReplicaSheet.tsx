@@ -1,43 +1,4 @@
 import { useLayoutEffect, useMemo, useRef, type CSSProperties } from "react";
-const SILENT_SCENES: Record<number, string> = {
-  6: "/cartilla/art/optimized/flipchart-native/p006-scene.png",
-  9: "/cartilla/art/optimized/flipchart-native/p009-scene.png",
-  11: "/cartilla/art/optimized/flipchart-native/p011-scene.png",
-  12: "/cartilla/art/optimized/flipchart-native/p012-scene.png",
-  14: "/cartilla/art/optimized/flipchart-native/p014-scene.png",
-  15: "/cartilla/art/optimized/flipchart-native/p015-scene.png",
-  17: "/cartilla/art/optimized/flipchart-native/p017-scene.png",
-  18: "/cartilla/art/optimized/flipchart-native/p018-scene.png",
-  20: "/cartilla/art/optimized/flipchart-native/p020-scene.png",
-  21: "/cartilla/art/optimized/flipchart-native/p021-scene.png",
-  23: "/cartilla/art/optimized/flipchart-native/p023-scene.png",
-  24: "/cartilla/art/optimized/flipchart-native/p024-scene.png",
-  26: "/cartilla/art/optimized/flipchart-native/p026-scene.png",
-  27: "/cartilla/art/optimized/flipchart-native/p027-scene.png",
-  29: "/cartilla/art/optimized/flipchart-native/p029-scene.png",
-  30: "/cartilla/art/optimized/flipchart-native/p030-scene.png",
-  32: "/cartilla/art/optimized/flipchart-native/p032-scene.png",
-  33: "/cartilla/art/optimized/flipchart-native/p033-scene.png",
-  35: "/cartilla/art/optimized/flipchart-native/p035-scene.png",
-  36: "/cartilla/art/optimized/flipchart-native/p036-scene.png",
-  38: "/cartilla/art/optimized/flipchart-native/p038-scene.png",
-  39: "/cartilla/art/optimized/flipchart-native/p039-scene.png",
-  41: "/cartilla/art/optimized/flipchart-native/p041-scene.png",
-  42: "/cartilla/art/optimized/flipchart-native/p042-scene.png",
-  44: "/cartilla/art/optimized/flipchart-native/p044-scene.png",
-  45: "/cartilla/art/optimized/flipchart-native/p045-scene.png",
-  47: "/cartilla/art/optimized/flipchart-native/p047-scene.png",
-  48: "/cartilla/art/optimized/flipchart-native/p048-scene.png",
-  50: "/cartilla/art/optimized/flipchart-native/p050-scene.png",
-  51: "/cartilla/art/optimized/flipchart-native/p051-scene.png",
-  53: "/cartilla/art/optimized/flipchart-native/p053-scene.png",
-  54: "/cartilla/art/optimized/flipchart-native/p054-scene.png",
-  56: "/cartilla/art/optimized/flipchart-native/p056-caramelos.webp",
-  57: "/cartilla/art/optimized/flipchart-native/p057-scene.png",
-  59: "/cartilla/art/optimized/flipchart-native/p059-scene.png",
-  60: "/cartilla/art/optimized/flipchart-native/p060-scene.png",
-  62: "/cartilla/art/optimized/flipchart-native/p062-scene.png",
-};
 import { LivingIllustration } from "@/components/living/LivingIllustration";
 import { getReplicaSheet, replicaReadingOrder, type ReplicaToken } from "@/lib/flipchart-replica";
 import sourceColors from "@/data/flipchart-source-colors.json";
@@ -262,7 +223,7 @@ export function FlipchartReplicaSheet({ pageNumber, decorative = false }: { page
               <Token key={item.token.id} token={item.token} />
             ) : (
               <figure
-                key={item.art.scene && SILENT_SCENES[pageNumber] ? SILENT_SCENES[pageNumber] : item.art.src}
+                key={item.art.src}
                 className={`fc-replica__art${item.art.scene ? " fc-replica__art--scene" : ""}`}
                 style={box(item.art.x, item.art.y, item.art.w, item.art.h, {
                   "--clip-t": item.art.clip[0],
@@ -272,7 +233,7 @@ export function FlipchartReplicaSheet({ pageNumber, decorative = false }: { page
                 })}
               >
                 <LivingIllustration
-                  src={item.art.scene && SILENT_SCENES[pageNumber] ? SILENT_SCENES[pageNumber] : item.art.src}
+                  src={item.art.src}
                   alt={decorative ? "" : item.art.word}
                   static={decorative}
                   loading={decorative ? "lazy" : "eager"}
