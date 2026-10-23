@@ -20,8 +20,11 @@ Deadline in the owner's package: 4:54 PM Eastern, Oct 23, 2026 (its 12:15 PM ste
 ## Assignments (from the Daily Dispatch Package, 2026-10-23)
 - JULES: Árbol push recovery on the existing session (see dispatch package).
 - CHATGPT: Silence the device-TTS fallback; recover the existing draft audio fix first.
-- ANTIGRAVITY: NO DISPATCH — standing owner ban (read-only reports only) overrides
-  the package's games assignment until the owner lifts it himself.
+- ANTIGRAVITY: Games Agent — owner lifted the old prohibition 2026-10-23 ~14:00 EDT.
+  Games assignment activates with the next Daily Dispatch Package.
+- FREEBUFF (new, owner-added 2026-10-23): Backlog Cleaner + Maintenance.
+  First job: build the backlog cleanup list (duplicates/junk among the 98 open
+  PRs and stale branches) for the owner's yes — Freebuff closes/deletes nothing itself.
 - OPUS: Independently verify #1168, #1112, and the Flip Chart fix (J12).
 
 ## Waiting on the owner
