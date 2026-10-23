@@ -83,6 +83,20 @@ describe("useInstallPrompt", () => {
     delete (window as any).MSStream;
   });
 
+  it("should explicitly not detect iOS for non-iOS devices (e.g., Android)", () => {
+    Object.defineProperty(window, "navigator", {
+      value: {
+        ...originalNavigator,
+        userAgent: "Mozilla/5.0 (Linux; Android 10; SM-G981B) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/80.0.3987.162 Mobile Safari/537.36",
+      },
+      configurable: true,
+      writable: true,
+    });
+
+    const { result } = renderHook(() => useInstallPrompt());
+    expect(result.current.isIOS).toBe(false);
+  });
+
   it("should detect standalone mode via display-mode media query", () => {
     window.matchMedia = vi.fn().mockImplementation((query) => ({
       matches: query === "(display-mode: standalone)",
@@ -149,6 +163,18 @@ describe("useInstallPrompt", () => {
     });
 
     expect(preventDefaultSpy).toHaveBeenCalled();
+    expect(result.current.promptEvent).toBe(mockEvent);
+  });
+
+  it("should allow setting promptEvent manually via setPromptEvent", () => {
+    const { result } = renderHook(() => useInstallPrompt());
+
+    const mockEvent = new Event("beforeinstallprompt") as any;
+
+    act(() => {
+      result.current.setPromptEvent(mockEvent);
+    });
+
     expect(result.current.promptEvent).toBe(mockEvent);
   });
 
