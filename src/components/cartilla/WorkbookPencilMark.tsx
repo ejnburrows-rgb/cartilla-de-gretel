@@ -757,13 +757,22 @@ function MarkStroke({
   animate,
   begin = 0,
   dur,
+  result,
 }: {
   path: string;
   animate: boolean;
   begin?: number;
   dur: number;
+  result?: "correct" | "wrong";
 }) {
-  if (!animate) return <path className="workbook-pencil-mark__stroke" d={path} />;
+  if (!animate)
+    return (
+      <path
+        className="workbook-pencil-mark__stroke"
+        d={path}
+        stroke={result === "correct" ? "#16a34a" : result === "wrong" ? "#dc2626" : "#46464d"}
+      />
+    );
   return (
     <path
       className="workbook-pencil-mark__stroke"
@@ -773,6 +782,19 @@ function MarkStroke({
       strokeDashoffset="100"
       opacity="0"
     >
+      <animate
+        attributeName="stroke"
+        begin={`${begin}ms`}
+        dur={`${dur}ms`}
+        fill="freeze"
+        values={
+          result === "correct"
+            ? "#46464d;#16a34a"
+            : result === "wrong"
+              ? "#46464d;#dc2626"
+              : "#46464d;#46464d"
+        }
+      />
       <animate
         attributeName="stroke-dashoffset"
         begin={`${begin}ms`}
@@ -945,7 +967,8 @@ export function WorkbookPencilMark({
   const height = Math.round(100 * aspect * 10) / 10;
   const seed = useMemo(() => hashSeed(itemId ?? "mark"), [itemId]);
   const strokePoints = useMemo(
-    () => (markType === "circle" ? [handDrawnLoop(height, seed, round)] : handDrawnCross(height, round)),
+    () =>
+      markType === "circle" ? [handDrawnLoop(height, seed, round)] : handDrawnCross(height, round),
     [height, markType, seed, round],
   );
   const strokes = useMemo(() => strokePoints.map(smoothPath), [strokePoints]);
@@ -1155,6 +1178,7 @@ export function WorkbookPencilMark({
               animate={animateDraw}
               dur={strokeDur}
               begin={schedule[i].strokeBegin}
+              result={result}
             />
           ))}
         </svg>
@@ -1170,6 +1194,9 @@ export function WorkbookPencilMark({
                   className="workbook-pencil-mark__stroke workbook-pencil-mark__ghost"
                   d={d}
                   opacity="0"
+                  stroke={
+                    result === "correct" ? "#16a34a" : result === "wrong" ? "#dc2626" : "#46464d"
+                  }
                 >
                   <animate
                     attributeName="opacity"
@@ -1187,6 +1214,9 @@ export function WorkbookPencilMark({
                   d={d}
                   pathLength={100}
                   strokeDasharray="100 100"
+                  stroke={
+                    result === "correct" ? "#16a34a" : result === "wrong" ? "#dc2626" : "#46464d"
+                  }
                 >
                   <animate
                     attributeName="stroke-dashoffset"
