@@ -190,7 +190,10 @@ export function TeacherDailyHome() {
     }));
   }, [assignments, studentLearning]);
 
-  const nextAction = attentionRows[0] ?? studentLearning.find((row) => row.insight?.recommendation);
+  const nextAction = useMemo(() => {
+    return attentionRows[0] ?? studentLearning.find((row) => row.insight?.recommendation);
+  }, [attentionRows, studentLearning]);
+
   const loading =
     (!isSeed && realClasses.isLoading) ||
     (!isSeed && Boolean(selectedClassId) && realClass.isLoading) ||
