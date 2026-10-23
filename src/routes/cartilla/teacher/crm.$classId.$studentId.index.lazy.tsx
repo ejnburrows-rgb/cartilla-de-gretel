@@ -39,7 +39,12 @@ const STATUS_CLASS: Record<SkillStatus, string> = {
 type PromptKind = "review" | "parent" | "extra";
 
 function familyPracticeHref(lessonNumber: number, activity: string) {
-  return `/cartilla/practica?family=1&lesson=${lessonNumber}&activity=${activity}`;
+  const params = new URLSearchParams({
+    family: "1",
+    lesson: lessonNumber.toString(),
+    activity: activity,
+  });
+  return `/cartilla/practica?${params.toString()}`;
 }
 
 function EstudianteDetail() {
