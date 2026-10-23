@@ -54,7 +54,6 @@ export function DibujaHost({
   verb = "Dibuja",
 }: DibujaHostProps) {
   const { emit: gretelEvent, record: recordEvent } = useActivityEvents();
-  const palette = lessonId === "3" ? ["#25313A", "#167A72", "#F2B632", "#2F7D4A"] : BOOK_DRAW_SWATCHES;
   const [mode, setMode] = useActivityState<InputModeDefault>("drawingMode", initialMode ?? defaultDibujaMode());
   const reducedMotion = useReducedMotion();
 
@@ -64,7 +63,7 @@ export function DibujaHost({
   const lastRef = useRef<{ x: number; y: number } | null>(null);
   const pointsRef = useRef(0);
   const undoStackRef = useRef<ImageData[]>([]);
-  const [color, setColor] = useActivityState<string>("drawColor", palette[0]);
+  const [color, setColor] = useActivityState<string>("drawColor", BOOK_DRAW_SWATCHES[0]);
   const [erasing, setErasing] = useActivityState("drawErasing", false);
   const [strokePoints, setStrokePoints] = useActivityState("drawPoints", 0);
   useCanvasContinuity(canvasRef, drawingRef, `dibuja:${pageKey}`, () => setStrokePoints(pointsRef.current));
@@ -326,7 +325,7 @@ export function DibujaHost({
     const target = swatches[nextIndex];
     if (target) {
       target.focus();
-      const swatchColor = palette[nextIndex];
+      const swatchColor = BOOK_DRAW_SWATCHES[nextIndex];
       if (swatchColor) {
         setColor(swatchColor);
         setErasing(false);
@@ -436,7 +435,7 @@ export function DibujaHost({
                 aria-label="Colores"
                 onKeyDown={handleDrawSwatchesKeyDown}
               >
-                {palette.map((c) => (
+                {BOOK_DRAW_SWATCHES.map((c) => (
                   <button
                     key={c}
                     type="button"

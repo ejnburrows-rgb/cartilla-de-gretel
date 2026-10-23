@@ -1,5 +1,5 @@
 import { learnerStorageKey } from "./learner-storage";
-import { createContext, useCallback, useContext, useEffect, useRef, useState, type Dispatch, type SetStateAction } from 'react';
+import { createContext, useCallback, useContext, useEffect, useState, type Dispatch, type SetStateAction } from 'react';
 import { gretelEvent, type GretelBusDetail, type GretelBusEvent } from './gretel-bus';
 import { recordEvent } from './student-session';
 
@@ -24,9 +24,9 @@ export function useActivityEvents() {
 }
 
 /** Preserve the existing control's state across page remounts, including Sets. */
-export function useActivityState<T>(field: string, initial: T, enabled = true): [T, Dispatch<SetStateAction<T>>] {
+export function useActivityState<T>(field: string, initial: T): [T, Dispatch<SetStateAction<T>>] {
   const context = useContext(ActivityContext);
-  const key = enabled && context?.activityId ? learnerStorageKey(`cartilla.activity-state.v1:${context.activityId}:${field}`) : undefined;
+  const key = context?.activityId ? learnerStorageKey(`cartilla.activity-state.v1:${context.activityId}:${field}`) : undefined;
   const [value, setValue] = useState<T>(() => {
     if (!key) return initial;
     try {
@@ -45,30 +45,4 @@ export function useActivityState<T>(field: string, initial: T, enabled = true): 
     try { localStorage.setItem(key, JSON.stringify(value instanceof Set ? [...value] : value)); } catch { window.dispatchEvent(new Event("cartilla:work-save-failed")); }
   }, [key, value]);
   return [value, setValue];
-}
-
-/** Owner's Lesson 3 proof policy; other lessons retain their existing retries. */
-export function useLesson3Retry(lessonId?: string) {
-  const [counts, setCounts] = useActivityState<Record<string, number>>("lesson3Retries", {}, lessonId === "3");
-  const current = useRef(counts);
-  current.current = counts;
-  const isProof = lessonId === "3";
-  return {
-    isProof,
-    attempt(itemId: string): boolean {
-      if (!isProof) return true;
-      const count = current.current[itemId] ?? 0;
-      if (count >= 3) return false;
-      current.current = { ...current.current, [itemId]: count + 1 };
-      setCounts(current.current);
-      return true;
-    },
-    text(itemId: string): string | undefined {
-      if (!isProof) return undefined;
-      const count = current.current[itemId] ?? 0;
-      return count >= 3
-        ? "Casi. Escucha otra vez. Ya probaste 3 veces este dibujo; busca otro que comience con A."
-        : `Casi. Escucha otra vez. Intento ${count} de 3.`;
-    },
-  };
 }

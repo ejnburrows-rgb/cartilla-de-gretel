@@ -21,7 +21,6 @@ export interface WorkbookPencilMarkProps {
   className?: string;
   onSuccess?: () => void;
   onRetry?: () => void;
-  retryText?: string;
 }
 
 /**
@@ -917,7 +916,6 @@ export function WorkbookPencilMark({
   className = "",
   onSuccess,
   onRetry,
-  retryText,
 }: WorkbookPencilMarkProps) {
   const reducedMotion = useReducedMotion();
   const { emit } = useActivityEvents();
@@ -985,7 +983,7 @@ export function WorkbookPencilMark({
         );
         onSuccessRef.current?.();
       } else {
-        emit("answer:wrong", retryText ? { itemId, text: retryText } : itemId ? { itemId } : undefined);
+        emit("answer:wrong", itemId ? { itemId } : undefined);
         setInternalStatus("erasing");
       }
     }, resultDelay);
@@ -993,7 +991,7 @@ export function WorkbookPencilMark({
       if (holdTimer !== undefined) window.clearTimeout(holdTimer);
       window.clearTimeout(resultTimer);
     };
-  }, [completeOnSuccess, emit, externalStatus, isCorrect, itemId, reducedMotion, retryText]);
+  }, [completeOnSuccess, emit, externalStatus, isCorrect, itemId, reducedMotion]);
 
   useEffect(() => {
     if (externalStatus || currentStatus !== "erasing") return;
@@ -1056,7 +1054,7 @@ export function WorkbookPencilMark({
       ? createPortal(
           <svg
             key={erasing ? "erase-flight" : "draw-flight"}
-            className={`workbook-pencil-flight${retryText ? " workbook-pencil-flight--lesson-3" : ""}`}
+            className="workbook-pencil-flight"
             data-mark-status={currentStatus}
             data-mark-result={result}
             viewBox={viewBox}

@@ -10,6 +10,7 @@ const keys = new Set(vocabulary.map(entry => entry.key));
 
 describe("owner-approved picture-name recordings", () => {
   it("registers the 161 approved recordings once each, with provenance and a real file", () => {
+    // Expect 161 entries per origin/main state (updated from 162 after nina distraida rename)
     expect(approved).toHaveLength(161);
     expect(new Set(approved.map(entry => entry.key)).size).toBe(approved.length);
     for (const entry of approved) {

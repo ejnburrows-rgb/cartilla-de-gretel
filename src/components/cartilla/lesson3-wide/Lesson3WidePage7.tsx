@@ -1,11 +1,9 @@
 import { useMemo } from "react";
 import type { PageRegion } from "@/lib/book-faithful";
 import { InteractivePictureGrid } from "@/components/cartilla/InteractivePageExercises";
-import { OwnerVoiceButton } from "./Lesson3WideAudio";
 import {
   LESSON3_VOCAL_A,
   P7_INSTRUCTION,
-  LESSON3_AUDIO,
   GARDEN_PALETTE,
 } from "./lesson3-wide-data";
 import "./lesson3-wide.css";
@@ -56,10 +54,6 @@ export function Lesson3WidePage7() {
             </span>
           ))}
         </p>
-        <OwnerVoiceButton
-          src={LESSON3_AUDIO.p7Instr}
-          label="Escuchar las instrucciones de la página 7"
-        />
       </div>
       <div className="l3w-p7-grid">
         <InteractivePictureGrid region={region} accent="#1f9e94" lessonId="3" mark="x" />

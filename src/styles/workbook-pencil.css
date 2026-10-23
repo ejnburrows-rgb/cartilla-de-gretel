@@ -51,9 +51,11 @@
 .fp-ix-cell .living-runtime-art--reacting {
   animation: none !important;
 }
-/* Reduced motion: the JS already skips the flight-layer animation via the
-   `flying` flag in WorkbookPencilMark.tsx. Do NOT hide .workbook-pencil with
-   display:none — that breaks the pencil on devices reporting reduced motion. */
+@media (prefers-reduced-motion: reduce) {
+  .workbook-pencil {
+    display: none;
+  }
+}
 /* Owner 2026-10-08: while the page zooms in on the tapped picture, the enlarged
    page must not add scrollbars. */
 html.workbook-close-up-zooming,

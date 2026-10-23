@@ -1,10 +1,8 @@
 import { useMemo } from "react";
 import { DirectPencilConnector, type PencilTarget } from "@/cartilla/interactions/PencilConnector";
-import { OwnerVoiceButton } from "./Lesson3WideAudio";
 import {
   LESSON3_PAGE8_PICTURES,
   P8_INSTRUCTION,
-  LESSON3_AUDIO,
   GARDEN_PALETTE,
 } from "./lesson3-wide-data";
 import "./lesson3-wide.css";
@@ -54,10 +52,6 @@ export function Lesson3WidePage8() {
             </span>
           ))}
         </p>
-        <OwnerVoiceButton
-          src={LESSON3_AUDIO.p8Instr}
-          label="Escuchar las instrucciones de la página 8"
-        />
       </div>
       <div className="l3w-p8-stage">
         <DirectPencilConnector
