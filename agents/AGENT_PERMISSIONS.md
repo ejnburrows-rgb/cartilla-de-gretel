@@ -6,7 +6,7 @@ Agents escalate blockers to Muse (Controller), never to each other.
 Recover existing work before rebuilding anything.
 
 ## Chain of command
-Emilio (owner, decisions only) → Muse (Controller) → Jules / ChatGPT / Antigravity
+Emilio (owner, decisions only) → Muse (Controller) → Jules / ChatGPT / Antigravity / Freebuff
 Opus (Inspector, read-only) → reports to Emilio directly after every merge.
 
 ## JULES — Builder
@@ -25,13 +25,25 @@ tutor-lines manifest, BadgeGrid + StickerReel audio references,
 src/content/lesson-meta.ts (audio references only).
 Must NEVER touch: layout/CSS files, game components, art/image files.
 
-## ANTIGRAVITY — Games Agent (ON HOLD — see conflict note)
-Package assignment: Cow, Rima, Palabras por minuto, Chano games
-(src/content/games/cow/, rima/, palabras-por-minuto/, payaso-chano/).
+## ANTIGRAVITY — Games Agent
+Owns: Cow, Rima, Palabras por minuto, Chano games
+(src/content/games/cow/, rima/, palabras-por-minuto/, payaso-chano/), game route
+(use the candidate Muse identifies).
 Must NEVER touch: layout files, audio files, art/image files, tasks/plan.md.
-⚠️ CONFLICT: standing owner rule forbids Antigravity by default (read-only reports
-only, 2026-10-20 exception). This assignment stays INACTIVE until the owner lifts
-that ban explicitly for games. Do not dispatch Antigravity until then.
+Owner ruling 2026-10-23 ~14:00 EDT: the old Antigravity prohibition is LIFTED.
+Antigravity works in the repo inside its game areas only, under the same rules
+as every agent: recover existing work first, never merge its own work, proof
+(screenshots for every state) required.
+
+## FREEBUFF — Backlog Cleaner + Maintenance
+Added by owner 2026-10-23 ~14:00 EDT.
+Owns: backlog cleanup and maintenance only — duplicate/junk PR and issue
+candidates, stale branch lists, docs tidy-ups, maintenance checklists.
+Rules: Freebuff PREPARES cleanup lists and maintenance work; it does not close,
+delete, or merge anything on its own — every close/delete/merge needs the
+owner's yes, presented by Muse. Escalates blockers to Muse, not to other agents.
+Must NEVER touch: app code, game components, audio files, art/image files,
+agent permission files (Muse owns those).
 
 ## OPUS — Inspector (read-only)
 Owns: repository verification only.
