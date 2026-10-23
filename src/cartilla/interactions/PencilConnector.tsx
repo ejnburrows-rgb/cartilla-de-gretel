@@ -98,6 +98,14 @@ export function DirectPencilConnector({
     [targets],
   );
 
+  const targetsMap = useMemo(() => {
+    const map = new Map<string, PencilTarget>();
+    for (const t of targets) {
+      map.set(t.id, t);
+    }
+    return map;
+  }, [targets]);
+
   // Helper to validate saved or live pair/mark keys against current targets, roles, pairId, and unique endpoints
   const validateProgressKeys = useCallback(
     (rawKeys: string[]): Set<string> => {
@@ -122,8 +130,10 @@ export function DirectPencilConnector({
           const [leftId, rightId] = parts;
           if (usedLeft.has(leftId) || usedRight.has(rightId)) continue;
 
-          const left = targets.find((t) => t.id === leftId && t.role === "left");
-          const right = targets.find((t) => t.id === rightId && t.role === "right");
+          const leftTarget = targetsMap.get(leftId);
+          const rightTarget = targetsMap.get(rightId);
+          const left = leftTarget?.role === "left" ? leftTarget : undefined;
+          const right = rightTarget?.role === "right" ? rightTarget : undefined;
           if (!left || !right || !left.pairId || !right.pairId) continue;
           if (left.pairId !== right.pairId) continue;
 
@@ -135,7 +145,7 @@ export function DirectPencilConnector({
         for (const id of rawKeys) {
           if (typeof id !== "string") continue;
           if (validMarkIds.has(id)) {
-            const target = targets.find((t) => t.id === id);
+            const target = targetsMap.get(id);
             if (target && target.correct !== false) {
               validated.add(id);
             }
@@ -168,8 +178,8 @@ export function DirectPencilConnector({
   const [measureTick, setMeasureTick] = useState(0);
 
   const learnerMarkedCount = useMemo(() => {
-    return [...marked].filter((id) => !targets.find((t) => t.id === id)?.example).length;
-  }, [marked, targets]);
+    return [...marked].filter((id) => !targetsMap.get(id)?.example).length;
+  }, [marked, targetsMap]);
 
   const recordWrong = useCallback(() => {
     incorrectRef.current += 1;
@@ -390,7 +400,7 @@ export function DirectPencilConnector({
         const next = new Set(marked).add(target.id);
         setMarked(next);
         persist([...next]);
-        const count = [...next].filter((id) => !targets.find((t) => t.id === id)?.example).length;
+        const count = [...next].filter((id) => !targetsMap.get(id)?.example).length;
         finishIfDone(count);
         onResult?.({ objectId: target.id, result: "correct" });
       } else {
@@ -458,13 +468,13 @@ export function DirectPencilConnector({
 
     if (currentHoverId) {
       if (isPairMode && currentDragStartId) {
-        const left = targets.find((t) => t.id === currentDragStartId);
-        const right = targets.find((t) => t.id === currentHoverId);
+        const left = targetsMap.get(currentDragStartId);
+        const right = targetsMap.get(currentHoverId);
         if (left && right) {
           attemptPairConnect(left, right);
         }
       } else {
-        const target = targets.find((t) => t.id === currentHoverId);
+        const target = targetsMap.get(currentHoverId);
         if (target) {
           attemptConnect(target);
         }
@@ -503,7 +513,7 @@ export function DirectPencilConnector({
   const handleRightClick = (rightTarget: PencilTarget) => {
     if (completed || isRightConnected(rightTarget.id)) return;
     if (selectedStartId) {
-      const left = targets.find((t) => t.id === selectedStartId);
+      const left = targetsMap.get(selectedStartId);
       if (left) {
         attemptPairConnect(left, rightTarget);
       }
