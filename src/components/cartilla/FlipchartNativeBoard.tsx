@@ -1,4 +1,5 @@
 import { useEffect, type CSSProperties } from "react";
+import nativeAssets from "@/data/flipchart-native-assets.json";
 import { FlipchartFrontmatter } from "@/components/cartilla/FlipchartFrontmatter";
 import { getNativeFlipchartPage, type FlipchartLayoutType, type NativeFlipchartPage, type FlipchartTextItem } from "@/lib/flipchart-native";
 import { LivingIllustration } from "@/components/living/LivingIllustration";
@@ -481,6 +482,13 @@ export function FlipchartNativeBoard({
   onReady?: () => void;
 }) {
   const native = getNativeFlipchartPage(page.flipchartPage);
+  if (native && native.scene) {
+    const assetsForPage = (nativeAssets as Record<string, any[]>)[String(page.flipchartPage)];
+    const sceneAsset = assetsForPage?.find(a => a.role === "scene");
+    if (sceneAsset) {
+      native.scene = { ...native.scene, src: sceneAsset.src };
+    }
+  }
 
   useEffect(() => {
     if (page.flipchartPage > 2) onReady?.();

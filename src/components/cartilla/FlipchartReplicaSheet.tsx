@@ -1,5 +1,6 @@
 import { useLayoutEffect, useMemo, useRef, type CSSProperties } from "react";
 import { LivingIllustration } from "@/components/living/LivingIllustration";
+import nativeAssets from "@/data/flipchart-native-assets.json";
 import { getReplicaSheet, replicaReadingOrder, type ReplicaToken } from "@/lib/flipchart-replica";
 import sourceColors from "@/data/flipchart-source-colors.json";
 import "@/styles/flipchart-replica-fonts.css";
@@ -63,6 +64,10 @@ function Token({ token }: { token: ReplicaToken }) {
  */
 export function FlipchartReplicaSheet({ pageNumber, decorative = false }: { pageNumber: number; decorative?: boolean }) {
   const sheet = useMemo(() => getReplicaSheet(pageNumber), [pageNumber]);
+  const sceneSrc = useMemo(() => {
+    const assetsForPage = (nativeAssets as Record<string, any[]>)[String(pageNumber)];
+    return assetsForPage?.find(a => a.role === "scene")?.src;
+  }, [pageNumber]);
   const sheetRef = useRef<HTMLDivElement>(null);
 
   // Fit every text to the width the printed sheet gives it. The ratio is
@@ -223,7 +228,7 @@ export function FlipchartReplicaSheet({ pageNumber, decorative = false }: { page
               <Token key={item.token.id} token={item.token} />
             ) : (
               <figure
-                key={item.art.src}
+                key={item.art.scene && sceneSrc ? sceneSrc : item.art.src}
                 className={`fc-replica__art${item.art.scene ? " fc-replica__art--scene" : ""}`}
                 style={box(item.art.x, item.art.y, item.art.w, item.art.h, {
                   "--clip-t": item.art.clip[0],
@@ -233,7 +238,7 @@ export function FlipchartReplicaSheet({ pageNumber, decorative = false }: { page
                 })}
               >
                 <LivingIllustration
-                  src={item.art.src}
+                  src={item.art.scene && sceneSrc ? sceneSrc : item.art.src}
                   alt={decorative ? "" : item.art.word}
                   static={decorative}
                   loading={decorative ? "lazy" : "eager"}
