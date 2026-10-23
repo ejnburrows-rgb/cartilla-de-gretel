@@ -65,5 +65,5 @@ export const AUDIO_POLICY = {
   allowTts: false,
   allowSynthesizedVoice: false,
   allowAiVoiceClone: false,
-  note: "Per locked spec: real kid-voice recordings only. Engine returns silence when an asset is missing.",
+  note: "Only owner-approved recordings may play. Device TTS and generated voices are off; missing recordings play silence. Rejected rec_gretel_* files are never used.",
 } as const;

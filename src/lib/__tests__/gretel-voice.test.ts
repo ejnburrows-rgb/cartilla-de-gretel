@@ -78,7 +78,7 @@ describe("provider config seam & speech abstraction", () => {
     expect(reset.type).toBe("browser-tts");
   });
 
-  it("executes custom speakFn provider and fires start/stop handlers & events", async () => {
+  it("keeps custom voice providers silent under the owner audio policy", async () => {
     const { speakAsGretel, setGretelVoiceProviderConfig, getSelectedGretelVoiceName } =
       await import("../gretel-voice");
 
@@ -108,13 +108,13 @@ describe("provider config seam & speech abstraction", () => {
 
     await speakAsGretel("Hola, amiguitos", { onStart, onEnd });
 
-    expect(mockSpeakFn).toHaveBeenCalledTimes(1);
-    expect(speakFnCalledWith).toBe("Hola, amiguitos");
-    expect(onStart).toHaveBeenCalled();
+    expect(mockSpeakFn).not.toHaveBeenCalled();
+    expect(speakFnCalledWith).toBe("");
+    expect(onStart).not.toHaveBeenCalled();
     expect(onEnd).toHaveBeenCalled();
-    expect(getSelectedGretelVoiceName()).toContain("Mock Recorded Gretel Voice");
-    expect(startListener).toHaveBeenCalled();
-    expect(stopListener).toHaveBeenCalled();
+    expect(getSelectedGretelVoiceName()).toBe("none");
+    expect(startListener).not.toHaveBeenCalled();
+    expect(stopListener).not.toHaveBeenCalled();
 
     window.removeEventListener("gretel:speak_start", startListener);
     window.removeEventListener("gretel:speak_stop", stopListener);
@@ -190,7 +190,7 @@ describe("reduced-motion policy (presence CSS companion)", () => {
 });
 
 describe("fallback and error behavior", () => {
-  it("handles native speech API throw gracefully", async () => {
+  it("does not invoke native speech and ends the line silently", async () => {
     const { speakAsGretel, resetGretelVoiceProviderConfig, setGretelVoiceMuted } =
       await import("../gretel-voice");
     resetGretelVoiceProviderConfig();
@@ -229,11 +229,11 @@ describe("fallback and error behavior", () => {
     const stopListener = vi.fn();
     window.addEventListener("gretel:speak_stop", stopListener);
 
-    await expect(speakAsGretel("Native error", { onEnd })).resolves.toBeUndefined();
+    await expect(speakAsGretel("No approved recording", { onEnd })).resolves.toBeUndefined();
 
-    expect(window.speechSynthesis.speak).toHaveBeenCalled();
+    expect(window.speechSynthesis.speak).not.toHaveBeenCalled();
     expect(onEnd).toHaveBeenCalled();
-    expect(stopListener).toHaveBeenCalled();
+    expect(stopListener).not.toHaveBeenCalled();
 
     window.removeEventListener("gretel:speak_stop", stopListener);
 

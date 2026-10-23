@@ -1,4 +1,5 @@
 import { claimSpeech, releaseSpeech, registerSpeechCleanup, speechIsCurrent } from "./speech-playback";
+import { AUDIO_POLICY } from "../content/audio-manifest";
 // Free Spanish TTS using the browser's SpeechSynthesis API.
 let cachedVoice: SpeechSynthesisVoice | null = null;
 let voicesReady: Promise<void> | null = null;
@@ -113,6 +114,7 @@ function ensureVoices(): Promise<void> {
 }
 
 export async function speak(text: string): Promise<void> {
+  if (!AUDIO_POLICY.allowTts) return;
   if (typeof window === "undefined" || !("speechSynthesis" in window)) return;
   const token = claimSpeech("reading");
   await ensureVoices();
@@ -161,6 +163,7 @@ export async function speak(text: string): Promise<void> {
 }
 
 export async function speakVowel(v: string): Promise<void> {
+  if (!AUDIO_POLICY.allowTts) return;
   const lower = v.toLowerCase();
   if (typeof window === "undefined" || !("speechSynthesis" in window)) return;
   const token = claimSpeech("reading");
