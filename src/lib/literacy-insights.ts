@@ -296,7 +296,8 @@ export function buildStudentLearningInsight(
     const lessonId = assignmentLessonId(assignment);
     if (!lessonId || completedLessonIds.has(lessonId)) continue;
     const lessonEvents = sortedEvents.filter((event) => event.lesson_id === lessonId);
-    const dueAt = assignmentDueAt(assignment);
+    const rawDueAt = assignmentDueAt(assignment);
+    const dueAt = rawDueAt ? (rawDueAt.includes("T") ? rawDueAt : `${rawDueAt}T00:00:00`) : null;
     let overdue = false;
     if (dueAt) {
       // dueAt was saved by parsing the chosen date as local midnight (i.e. dueAt + "T00:00:00").

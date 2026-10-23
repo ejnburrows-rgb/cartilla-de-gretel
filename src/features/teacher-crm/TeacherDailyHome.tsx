@@ -44,9 +44,10 @@ function combineStudentProgressResults(
   return results.map((result) => ({ data: result.data, isLoading: result.isLoading }));
 }
 
+const CATALOG_MAP = new Map(CATALOG.map((item) => [String(item.n), item]));
 
 function lessonTitle(lessonId: string) {
-  const entry = CATALOG.find((item) => String(item.n) === lessonId);
+  const entry = CATALOG_MAP.get(lessonId);
   return entry ? `L${entry.n} · ${entry.title}` : `Lección ${lessonId}`;
 }
 
@@ -96,13 +97,14 @@ export function TeacherDailyHome() {
   }, [isSeed, seedVersion]);
 
   const classes = isSeed ? seedClasses : (realClasses.data ?? []);
+  const classesById = useMemo(() => new Map(classes.map((cls) => [cls.id, cls])), [classes]);
 
   useEffect(() => {
     if (!selectedClassId && classes[0]) setSelectedClassId(classes[0].id);
-    if (selectedClassId && !classes.some((item) => item.id === selectedClassId)) {
+    if (selectedClassId && !classesById.has(selectedClassId)) {
       setSelectedClassId(classes[0]?.id ?? "");
     }
-  }, [classes, selectedClassId]);
+  }, [classes, selectedClassId, classesById]);
 
   const realClass = useQuery({
     queryKey: ["daily-class", selectedClassId],
@@ -122,7 +124,7 @@ export function TeacherDailyHome() {
 
   const classData = isSeed ? seedClass : realClass.data;
   const students = classData?.students ?? [];
-  const activeClass = classes.find((item) => item.id === selectedClassId) ?? null;
+  const activeClass = classesById.get(selectedClassId) ?? null;
 
   const assignmentsQuery = useQuery({
     queryKey: ["daily-assignments", selectedClassId, isSeed, seedVersion],
@@ -185,17 +187,31 @@ export function TeacherDailyHome() {
   }, [studentLearning]);
 
   const assignmentRows = useMemo(() => {
+    const completedLessonsMap = new Map<string, Set<string>>();
+    for (const row of studentLearning) {
+      if (!row.progress?.lessonProgress) continue;
+      for (const lesson of row.progress.lessonProgress) {
+        if (lesson.status === "completed") {
+          let studentSet = completedLessonsMap.get(lesson.lesson_id);
+          if (!studentSet) {
+            studentSet = new Set<string>();
+            completedLessonsMap.set(lesson.lesson_id, studentSet);
+          }
+          studentSet.add(row.student.id);
+        }
+      }
+    }
+
     return assignments.map((assignment) => ({
       ...assignment,
-      completed: studentLearning.filter((row) =>
-        row.progress?.lessonProgress.some(
-          (lesson) => lesson.lesson_id === assignment.lesson_id && lesson.status === "completed",
-        ),
-      ).length,
+      completed: completedLessonsMap.get(assignment.lesson_id)?.size || 0,
     }));
   }, [assignments, studentLearning]);
 
-  const nextAction = attentionRows[0] ?? studentLearning.find((row) => row.insight?.recommendation);
+  const nextAction = useMemo(() => {
+    return attentionRows[0] ?? studentLearning.find((row) => row.insight?.recommendation);
+  }, [attentionRows, studentLearning]);
+
   const loading =
     (!isSeed && realClasses.isLoading) ||
     (!isSeed && Boolean(selectedClassId) && realClass.isLoading) ||
@@ -328,7 +344,8 @@ export function TeacherDailyHome() {
                     placeholder="Nombre de la clase"
                     className="min-h-11 min-w-0 flex-1 rounded-xl border p-3"
                   />
-                  <button type="submit"
+                  <button
+                    type="submit"
                     disabled={busy || !className.trim()}
                     className="rounded-xl bg-[#a45d22] px-5 py-3 font-bold text-white disabled:opacity-50"
                   >
@@ -379,7 +396,8 @@ export function TeacherDailyHome() {
                     maxLength={80}
                     className="min-h-12 flex-1 rounded-xl border border-stone-300 px-4 font-semibold"
                   />
-                  <button type="submit"
+                  <button
+                    type="submit"
                     disabled={busy || !className.trim()}
                     className="min-h-12 rounded-xl bg-[#a45d22] px-5 font-black text-white disabled:opacity-50"
                   >
@@ -405,7 +423,8 @@ export function TeacherDailyHome() {
                         maxLength={60}
                         className="min-h-11 min-w-0 flex-1 rounded-xl border border-stone-300 px-3 text-sm font-semibold"
                       />
-                      <button type="submit"
+                      <button
+                        type="submit"
                         aria-label="Añadir estudiante"
                         disabled={busy || !studentName.trim()}
                         className="inline-flex min-h-11 items-center gap-2 rounded-xl bg-[#356b43] px-4 text-sm font-black text-white disabled:opacity-50"
@@ -549,7 +568,10 @@ export function TeacherDailyHome() {
                                 maxLength={120}
                               />
                             </label>
-                            <button type="submit" className="min-h-11 rounded-xl bg-[#4759a6] px-4 text-sm font-bold text-white">
+                            <button
+                              type="submit"
+                              className="min-h-11 rounded-xl bg-[#4759a6] px-4 text-sm font-bold text-white"
+                            >
                               Asignar lección
                             </button>
                           </form>
