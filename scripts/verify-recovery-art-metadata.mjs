@@ -15,6 +15,11 @@ function sha256(value) {
   return crypto.createHash("sha256").update(value).digest("hex");
 }
 
+function sha256Text(value) {
+  // Git stores LF text; Windows may check it out as CRLF. Hash identical content on both OSes.
+  return sha256(value.toString("utf8").replace(/\r\n/g, "\n"));
+}
+
 function productionFiles(dir) {
   return fs.readdirSync(dir, { withFileTypes: true }).flatMap((entry) => {
     const abs = path.join(dir, entry.name);
@@ -88,9 +93,9 @@ async function buildInventory() {
   return {
     schemaVersion: 1,
     sourceManifest: "public/cartilla/art/faithful/manifest.json",
-    sourceManifestSha256: sha256(manifestBytes),
+    sourceManifestSha256: sha256Text(manifestBytes),
     visualCoverageManifest: "tests/e2e/recovery-visual-coverage.json",
-    visualCoverageSha256: sha256(coverageBytes),
+    visualCoverageSha256: sha256Text(coverageBytes),
     assetSetSha256: sha256(assets.map((asset) => `${asset.src}:${asset.sha256}`).join("\n")),
     counts: {
       referencedProductionAssets: assets.length,
