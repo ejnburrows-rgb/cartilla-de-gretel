@@ -402,10 +402,17 @@ export function getReplicaSheet(page: number): ReplicaSheet | null {
     if (panels.some((p) => overlap(p, d) >= 0.5 * d.w * d.h)) continue;
     panels.push({ id: panels.length, kind: "card", x: d.x, y: d.y, w: d.w, h: d.h, color: d.stops[3] ?? "#f4dbe4", tone: 0 });
   }
+  const seenPanels = new Map<string, boolean>();
   for (let i = panels.length - 1; i >= 0; i--) {
     const p = panels[i]!;
-    const underBar = dividers.some((d) => overlap(p, d) >= 0.6 * Math.min(p.w * p.h, d.w * d.h));
-    if (underBar && !printed.some((r) => inside(r.x + r.width / 2, r.y + r.height / 2, p))) panels.splice(i, 1);
+    const key = `${p.x},${p.y},${p.w},${p.h}`;
+    let shouldRemove = seenPanels.get(key);
+    if (shouldRemove === undefined) {
+      const underBar = dividers.some((d) => overlap(p, d) >= 0.6 * Math.min(p.w * p.h, d.w * d.h));
+      shouldRemove = underBar && !printed.some((r) => inside(r.x + r.width / 2, r.y + r.height / 2, p));
+      seenPanels.set(key, shouldRemove);
+    }
+    if (shouldRemove) panels.splice(i, 1);
   }
   panels.forEach((p, i) => (p.id = i));
 
