@@ -356,4 +356,4 @@ async function build() {
   console.log('Built art-board HTML');
 }
 
-build();
+build().catch(err => { console.error(err); process.exit(1); });
