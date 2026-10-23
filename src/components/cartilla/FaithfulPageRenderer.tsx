@@ -1,4 +1,5 @@
 import "@/styles/native-lesson.css";
+import { Lesson23GardenText } from "./lesson23/Lesson23Text";
 import { Lesson16GardenText } from "./lesson16/Lesson16Text";
 import type { ReactNode } from "react";
 import { GretelActivity } from "@/components/gretel/GretelActivity";
@@ -437,7 +438,7 @@ function RegionView({
       );
     case "instruction": {
       const instructionText =
-        lessonNumber === 16 && region.text ? (
+        lessonNumber === 23 && region.text ? (<Lesson23GardenText text={region.text} />) : lessonNumber === 16 && region.text ? (
           // Lesson 16 wide-screen design: garden-palette instruction letters.
           <Lesson16GardenText text={region.text} />
         ) : pageNumber === 17 && region.text ? (
@@ -626,7 +627,7 @@ export function FaithfulPageRenderer({
   // Lesson 16 wide-screen design uses the shared teal accent (owner-approved
   // Lesson 3 design language) instead of the lesson's blue catalog accent (#356fbd).
   const accent =
-    lessonNumber === 16
+    (lessonNumber === 16 || lessonNumber === 23)
       ? "#167A72"
       : lessonNumber
         ? CATALOG.find((e) => e.n === lessonNumber)?.color

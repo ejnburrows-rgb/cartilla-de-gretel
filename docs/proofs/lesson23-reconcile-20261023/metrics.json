@@ -1,0 +1,146 @@
+[
+  {
+    "p": 83,
+    "w": 1366,
+    "paper": {
+      "x": 140,
+      "y": 12,
+      "width": 1086,
+      "height": 876,
+      "top": 12,
+      "right": 1226,
+      "bottom": 888,
+      "left": 140
+    },
+    "scrollWidth": 1366,
+    "viewport": 1366
+  },
+  {
+    "p": 84,
+    "w": 1366,
+    "paper": {
+      "x": 140,
+      "y": 12,
+      "width": 1086,
+      "height": 876,
+      "top": 12,
+      "right": 1226,
+      "bottom": 888,
+      "left": 140
+    },
+    "scrollWidth": 1366,
+    "viewport": 1366
+  },
+  {
+    "p": 85,
+    "w": 1366,
+    "paper": {
+      "x": 140,
+      "y": 12,
+      "width": 1086,
+      "height": 876,
+      "top": 12,
+      "right": 1226,
+      "bottom": 888,
+      "left": 140
+    },
+    "scrollWidth": 1366,
+    "viewport": 1366
+  },
+  {
+    "p": 83,
+    "w": 390,
+    "paper": {
+      "x": 10,
+      "y": 44,
+      "width": 370,
+      "height": 724,
+      "top": 44,
+      "right": 380,
+      "bottom": 768,
+      "left": 10
+    },
+    "scrollWidth": 390,
+    "viewport": 390
+  },
+  {
+    "p": 84,
+    "w": 390,
+    "paper": {
+      "x": 10,
+      "y": 44,
+      "width": 370,
+      "height": 724,
+      "top": 44,
+      "right": 380,
+      "bottom": 768,
+      "left": 10
+    },
+    "scrollWidth": 390,
+    "viewport": 390
+  },
+  {
+    "p": 85,
+    "w": 390,
+    "paper": {
+      "x": 10,
+      "y": 44,
+      "width": 370,
+      "height": 1260.4375,
+      "top": 44,
+      "right": 380,
+      "bottom": 1304.4375,
+      "left": 10
+    },
+    "scrollWidth": 390,
+    "viewport": 390
+  },
+  {
+    "p": 83,
+    "w": 844,
+    "paper": {
+      "x": 138.5,
+      "y": 6,
+      "width": 567,
+      "height": 378,
+      "top": 6,
+      "right": 705.5,
+      "bottom": 384,
+      "left": 138.5
+    },
+    "scrollWidth": 844,
+    "viewport": 844
+  },
+  {
+    "p": 84,
+    "w": 844,
+    "paper": {
+      "x": 138.5,
+      "y": 6,
+      "width": 567,
+      "height": 823.15625,
+      "top": 6,
+      "right": 705.5,
+      "bottom": 829.15625,
+      "left": 138.5
+    },
+    "scrollWidth": 844,
+    "viewport": 844
+  },
+  {
+    "p": 85,
+    "w": 844,
+    "paper": {
+      "x": 138.5,
+      "y": 6,
+      "width": 567,
+      "height": 681.421875,
+      "top": 6,
+      "right": 705.5,
+      "bottom": 687.421875,
+      "left": 138.5
+    },
+    "scrollWidth": 844,
+    "viewport": 844
+  }
+]
