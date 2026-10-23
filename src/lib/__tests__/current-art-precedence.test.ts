@@ -7,8 +7,8 @@ describe('current supplied still wins over stale embedded motion',()=>{
  it('freshness index matches actual committed still bytes',()=>{
   expect(()=>execFileSync('node',['scripts/check-motion-art-freshness.mjs','--check'])).not.toThrow();
  });
- it('blocks all four old picture overrides without altering originals',()=>{
-  expect(Object.keys(stale)).toHaveLength(4);
+ it('blocks all old picture overrides without altering originals',()=>{
+  expect(Object.keys(stale)).toHaveLength(6);
   for(const src of Object.keys(stale)){
    expect(LIVING_ACTORS[src].aliveSrc).toBeTruthy();
    expect(getLivingActor(src)).toBeNull();
