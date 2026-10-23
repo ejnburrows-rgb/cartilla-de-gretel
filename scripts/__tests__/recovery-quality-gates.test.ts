@@ -34,6 +34,8 @@ describe("recovery quality gates", () => {
     expect(coverage.lessonSnapshots.state).toBe("initial-settled-page");
     expect(coverage.presenterSnapshots.lessons.length).toBeGreaterThan(0);
     expect(inventory.errors).toEqual([]);
+    expect(inventory.counts.errors).toBe(inventory.errors.length);
+    expect(inventory.assets.every((asset: { src: string }) => !asset.src.includes("${"))).toBe(true);
     expect(inventory.assetSetSha256).toMatch(/^[a-f0-9]{64}$/);
     expect(inventory.assets.length).toBeGreaterThan(0);
   });

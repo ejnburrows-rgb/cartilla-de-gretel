@@ -4,17 +4,14 @@
   "sourceManifestSha256": "ecb846c1ab37a7313eeb2112f318b36dd51f3d697d65d30adf7513a2028b81fc",
   "visualCoverageManifest": "tests/e2e/recovery-visual-coverage.json",
   "visualCoverageSha256": "e797c31924ac122290e60445a459b316ebe88b9e8c8214cc732fff6b2284ff02",
-  "assetSetSha256": "68e82753f538123aef358d247095497e5d28bbab79fa8cec9dab2dcc9a28227f",
+  "assetSetSha256": "2a03402e148f08cf5763957f9dbadd8be0919626b5f9705dfdaa1592e01d4fd3",
   "counts": {
     "referencedProductionAssets": 108,
     "manifestEntries": 158,
     "unreferencedManifestEntries": 50,
-    "errors": 2
+    "errors": 0
   },
-  "errors": [
-    "Referenced faithful asset is absent from manifest: /cartilla/art/faithful/flipchart/${slot}.webp",
-    "Referenced faithful asset is missing: /cartilla/art/faithful/flipchart/${slot}.webp"
-  ],
+  "errors": [],
   "unreferencedManifestEntries": [
     "/cartilla/art/optimized/flipchart-native/p009-amo.png",
     "/cartilla/art/optimized/flipchart-native/p009-mama.png",
@@ -334,13 +331,13 @@
       "pageNumber": null,
       "assetClass": "cutout",
       "dimensions": {
-        "width": 677,
-        "height": 377
+        "width": 1354,
+        "height": 754
       },
-      "hasAlpha": true,
+      "hasAlpha": false,
       "aspectRatio": 1.795756,
       "provenanceStatus": "RECOVERED-2026-FROM-GIT-HISTORY-BLOB-cf0d6c7d",
-      "sha256": "cd45239f16e938c055a773e8690f0cb3f744721d09e37d7e6437883e0e835ee9",
+      "sha256": "544e927bbd805d3940287c030abe9afc44b1fd2a6179e2d3ff4a6d9e56c30324",
       "referenceCount": 9,
       "referenceLocations": [
         "src/content/lessons.json:254",
@@ -1941,14 +1938,14 @@
       "pageNumber": 7,
       "assetClass": "cutout",
       "dimensions": {
-        "width": 462,
-        "height": 495
+        "width": 924,
+        "height": 990
       },
       "hasAlpha": false,
       "aspectRatio": 0.933333,
       "provenanceStatus": "VERIFIED-EXACT-WORKBOOK-CROP-2026-08-08",
-      "sha256": "1f03f92afdf3005ffffccae6aff6cfdd37314ebe016012e8634a102078bca5ef",
-      "referenceCount": 20,
+      "sha256": "4bf3d73b48d4fa7fa6bb38f8d16844134386be986a6028f4bb6f0f55a9386dd1",
+      "referenceCount": 21,
       "referenceLocations": [
         "src/content/picture-vocabulary.json:23",
         "src/data/conversion-status.json:220",
@@ -1969,7 +1966,8 @@
         "src/data/page-layouts.json:1341",
         "src/data/page-layouts.json:1476",
         "src/data/page-layouts.json:803",
-        "src/data/page-layouts.json:895"
+        "src/data/page-layouts.json:895",
+        "src/data/stale-motion-art.json:37"
       ]
     },
     {
@@ -2230,7 +2228,7 @@
       "aspectRatio": 1.075402,
       "provenanceStatus": null,
       "sha256": "f54e533c6a33b901fcfc79da83b2f7a38977defc47662f6cf29ca948d1cfd28a",
-      "referenceCount": 12,
+      "referenceCount": 13,
       "referenceLocations": [
         "src/content/animal-gallery.ts:69",
         "src/content/lessons.json:92",
@@ -2243,7 +2241,8 @@
         "src/data/page-layouts.json:1097",
         "src/data/page-layouts.json:1451",
         "src/data/page-layouts.json:812",
-        "src/data/page-layouts.json:990"
+        "src/data/page-layouts.json:990",
+        "src/data/stale-motion-art.json:44"
       ]
     },
     {
@@ -2957,7 +2956,7 @@
       "aspectRatio": 1.055825,
       "provenanceStatus": null,
       "sha256": "6835094e54b0ea0e5082792e1ae8cdde452ab4bd8be265d170f99d74e7f22d59",
-      "referenceCount": 11,
+      "referenceCount": 12,
       "referenceLocations": [
         "src/content/animal-gallery.ts:93",
         "src/content/picture-vocabulary.json:987",
@@ -2969,7 +2968,8 @@
         "src/data/page-layouts.json:1421",
         "src/data/page-layouts.json:589",
         "src/data/page-layouts.json:671",
-        "src/data/page-layouts.json:797"
+        "src/data/page-layouts.json:797",
+        "src/data/stale-motion-art.json:51"
       ]
     },
     {

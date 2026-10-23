@@ -9,7 +9,7 @@ const srcRoot = path.join(root, "src");
 const manifestPath = path.join(root, "public/cartilla/art/faithful/manifest.json");
 const coveragePath = path.join(root, "tests/e2e/recovery-visual-coverage.json");
 const inventoryPath = path.join(root, "docs/production-art-inventory.json");
-const faithfulPattern = /\/cartilla\/art\/faithful\/[^"'`\s)]+\.webp/g;
+const faithfulPattern = /\/cartilla\/art\/faithful\/[^"'`\s)${}]+\.webp/g;
 
 function sha256(value) {
   return crypto.createHash("sha256").update(value).digest("hex");
