@@ -178,6 +178,9 @@ export function DirectPencilConnector({
   const [isExpanded, setIsExpanded] = useState(false);
   const finishedRef = useRef(false);
 
+  const activePointerRef = useRef<number | null>(null);
+  const heldSourceRef = useRef<string | null>(null);
+
   const justInitiatedCenterRef = useRef(false);
   const justInitiatedLeftRef = useRef<string | null>(null);
   const [measureTick, setMeasureTick] = useState(0);
@@ -336,8 +339,11 @@ export function DirectPencilConnector({
 
   // Pointer drag handlers
   const handlePointerDownCenter = (e: React.PointerEvent) => {
-    if (completed) return;
+    if (completed || (e.button !== undefined && e.button !== 0)) return;
     e.preventDefault();
+    activePointerRef.current = e.pointerId;
+    heldSourceRef.current = "center";
+    stageRef.current?.setPointerCapture?.(e.pointerId);
     if (!selectedStart) {
       setSelectedStart(true);
       justInitiatedCenterRef.current = true;
@@ -354,8 +360,11 @@ export function DirectPencilConnector({
   };
 
   const handlePointerDownLeft = (e: React.PointerEvent, leftTarget: PencilTarget) => {
-    if (completed || isLeftConnected(leftTarget.id)) return;
+    if (completed || isLeftConnected(leftTarget.id) || (e.button !== undefined && e.button !== 0)) return;
     e.preventDefault();
+    activePointerRef.current = e.pointerId;
+    heldSourceRef.current = leftTarget.id;
+    stageRef.current?.setPointerCapture?.(e.pointerId);
     if (selectedStartId !== leftTarget.id) {
       setSelectedStartId(leftTarget.id);
       justInitiatedLeftRef.current = leftTarget.id;
@@ -372,7 +381,11 @@ export function DirectPencilConnector({
   };
 
   const handlePointerMoveStage = (e: React.PointerEvent) => {
-    if (!isDragging || !stageRef.current) return;
+    if (!isDragging || !stageRef.current || e.pointerId !== activePointerRef.current) return;
+    if (e.pointerType === "mouse" && (e.buttons & 1) === 0) {
+      cancelDragState();
+      return;
+    }
     const sr = stageRef.current.getBoundingClientRect();
     const pt = { x: e.clientX - sr.left, y: e.clientY - sr.top };
     setDragPt(pt);
@@ -475,32 +488,57 @@ export function DirectPencilConnector({
   );
 
   const cancelDragState = useCallback(() => {
+    const pointerId = activePointerRef.current;
+    activePointerRef.current = null;
+    heldSourceRef.current = null;
     setIsDragging(false);
     setDragPt(null);
     setHoverTargetId(null);
     setDragStartId(null);
+    setSelectedStart(false);
+    setSelectedStartId(null);
+    justInitiatedCenterRef.current = false;
+    justInitiatedLeftRef.current = null;
+    if (pointerId != null && stageRef.current?.hasPointerCapture?.(pointerId)) {
+      stageRef.current.releasePointerCapture(pointerId);
+    }
   }, []);
 
+  useEffect(() => {
+    const onReleaseOutside = (event: PointerEvent) => {
+      if (activePointerRef.current === event.pointerId) cancelDragState();
+    };
+    const onVisibility = () => { if (document.hidden) cancelDragState(); };
+    window.addEventListener("pointerup", onReleaseOutside);
+    window.addEventListener("pointercancel", onReleaseOutside);
+    window.addEventListener("blur", cancelDragState);
+    document.addEventListener("visibilitychange", onVisibility);
+    return () => {
+      window.removeEventListener("pointerup", onReleaseOutside);
+      window.removeEventListener("pointercancel", onReleaseOutside);
+      window.removeEventListener("blur", cancelDragState);
+      document.removeEventListener("visibilitychange", onVisibility);
+    };
+  }, [cancelDragState]);
+
   const handlePointerUpStage = (e: React.PointerEvent) => {
-    if (!isDragging) return;
-    const currentHoverId = hoverTargetId;
-    const currentDragStartId = dragStartId;
-
+    if (!isDragging || e.pointerId !== activePointerRef.current) return;
+    const sourceId = heldSourceRef.current;
+    // Capture delivers releases here even outside the page. Only an actual
+    // release inside a target counts, never a stale nearest-hover candidate.
+    const candidates = isPairMode ? rightTargets : targets;
+    const releasedTarget = candidates.find((target) => {
+      const rect = targetEls.current.get(target.id)?.getBoundingClientRect();
+      return rect && e.clientX >= rect.left && e.clientX <= rect.right &&
+        e.clientY >= rect.top && e.clientY <= rect.bottom;
+    });
     cancelDragState();
-
-    if (currentHoverId) {
-      if (isPairMode && currentDragStartId) {
-        const left = targets.find((t) => t.id === currentDragStartId);
-        const right = targets.find((t) => t.id === currentHoverId);
-        if (left && right) {
-          attemptPairConnect(left, right);
-        }
-      } else {
-        const target = targets.find((t) => t.id === currentHoverId);
-        if (target) {
-          attemptConnect(target);
-        }
-      }
+    if (!releasedTarget) return;
+    if (isPairMode && sourceId) {
+      const left = targets.find((target) => target.id === sourceId);
+      if (left) attemptPairConnect(left, releasedTarget);
+    } else if (sourceId === "center") {
+      attemptConnect(releasedTarget);
     }
   };
 
@@ -579,6 +617,7 @@ export function DirectPencilConnector({
         onPointerMove={handlePointerMoveStage}
         onPointerUp={handlePointerUpStage}
         onPointerCancel={cancelDragState}
+        onLostPointerCapture={cancelDragState}
       >
         {/* SVG Direct Pencil Lines Layer */}
         <svg className="am-direct-pencil__svg-layer" aria-hidden="true">
@@ -788,7 +827,7 @@ export function DirectPencilConnector({
                 ref={centerElRef}
                 className={`am-direct-pencil__center${selectedStart || isDragging ? " is-active" : ""}`}
                 onPointerDown={handlePointerDownCenter}
-                onClick={handleCenterClick}
+                onClick={(e) => { if (e.detail === 0) handleCenterClick(); }}
                 aria-label={`Vocal central ${centerLabel}`}
                 aria-pressed={selectedStart || isDragging}
               >
@@ -830,7 +869,7 @@ export function DirectPencilConnector({
                       .join(" ")}
                     disabled={connected}
                     onPointerDown={(e) => handlePointerDownLeft(e, t)}
-                    onClick={() => handleLeftClick(t)}
+                    onClick={(e) => { if (e.detail === 0) handleLeftClick(t); }}
                     aria-label={labels?.left?.(t) ?? `Vocal ${t.label}`}
                     aria-pressed={selected || connected}
                   >
@@ -862,7 +901,7 @@ export function DirectPencilConnector({
                       .filter(Boolean)
                       .join(" ")}
                     disabled={connected}
-                    onClick={() => handleRightClick(t)}
+                    onClick={(e) => { if (e.detail === 0) handleRightClick(t); }}
                     aria-label={labels?.right?.(t) ?? t.label}
                     aria-pressed={connected}
                   >
@@ -905,7 +944,7 @@ export function DirectPencilConnector({
           .filter(Boolean)
           .join(" ")}
         disabled={isMarked}
-        onClick={() => handleTargetClick(t)}
+        onClick={(e) => { if (e.detail === 0) handleTargetClick(t); }}
         aria-label={t.label}
         aria-pressed={isMarked}
         data-correct={t.correct === undefined ? undefined : String(t.correct)}
