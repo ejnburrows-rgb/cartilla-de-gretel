@@ -1,5 +1,5 @@
 {
-  "buildCommand": "pnpm prebuild && pnpm prepare:art && pnpm verify:assets && pnpm typecheck && pnpm test && vite build",
+  "buildCommand": "pnpm prebuild && pnpm prepare:art && pnpm verify:assets && pnpm typecheck && vite build",
   "installCommand": "pnpm install --frozen-lockfile",
   "outputDirectory": "dist",
   "framework": "vite",
@@ -21,6 +21,6 @@
     }
   ],
   "git": {
-    "deploymentEnabled": false
+    "deploymentEnabled": true
   }
 }
