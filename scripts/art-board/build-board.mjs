@@ -138,11 +138,13 @@ async function getFileStats(filePath) {
         const metadata = await sharp(filePath).metadata();
         dims = `${metadata.width}x${metadata.height}`;
       }
-    } catch (e) {
+    } catch (e) { // NOSONAR - intentional fallback logging
+      console.warn(`Failed to read dimensions for ${filePath}: ${e.message}`);
       dims = "unknown";
     }
     return { size, hash, dims, ctime: stats.ctimeMs };
   } catch (e) {
+    console.warn(`Failed to stat ${filePath}: ${e.message}`);
     return { size: "0 KB", hash: "", dims: "unknown", ctime: 0 };
   }
 }
@@ -374,4 +376,7 @@ async function build() {
   console.log("Built art-board HTML");
 }
 
-build();
+build().catch((err) => {
+  console.error("Build failed:", err);
+  process.exit(1);
+});
