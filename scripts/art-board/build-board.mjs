@@ -1,28 +1,39 @@
-import fs from 'fs';
-import path from 'path';
-import crypto from 'crypto';
+import fs from "fs";
+import path from "path";
+import crypto from "crypto";
 
 // Use sharp for dimensions to avoid adding dependencies
-import sharp from 'sharp';
+import sharp from "sharp";
 
 function parseCSV(text) {
-  return text.split('\n').filter(Boolean).map(line => {
-    let row = [];
-    let cur = '';
-    let inQuote = false;
-    for (let c of line) {
-      if (c === '"') inQuote = !inQuote;
-      else if (c === ',' && !inQuote) { row.push(cur); cur = ''; }
-      else if (c !== '\r') cur += c;
-    }
-    row.push(cur);
-    return row;
-  });
+  return text
+    .split("\n")
+    .filter(Boolean)
+    .map((line) => {
+      let row = [];
+      let cur = "";
+      let inQuote = false;
+      for (let c of line) {
+        if (c === '"') inQuote = !inQuote;
+        else if (c === "," && !inQuote) {
+          row.push(cur);
+          cur = "";
+        } else if (c !== "\r") cur += c;
+      }
+      row.push(cur);
+      return row;
+    });
 }
 
 function slugify(text) {
-  if (!text) return '';
-  return text.toLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g, '').replace(/[^a-z0-9]/g, '-').replace(/-+/g, '-').replace(/^-|-$/g, '');
+  if (!text) return "";
+  return text
+    .toLowerCase()
+    .normalize("NFD")
+    .replace(/[\u0300-\u036f]/g, "")
+    .replace(/[^a-z0-9]/g, "-")
+    .replace(/-+/g, "-")
+    .replace(/^-|-$/g, "");
 }
 
 function findFiles(dir, fileList = []) {
@@ -39,7 +50,7 @@ function findFiles(dir, fileList = []) {
   return fileList;
 }
 
-const csvData = fs.readFileSync('docs/artwork-reconciliation/mapping/MASTER-MAPPING.csv', 'utf8');
+const csvData = fs.readFileSync("docs/artwork-reconciliation/mapping/MASTER-MAPPING.csv", "utf8");
 const rows = parseCSV(csvData);
 const groupMap = new Map();
 
@@ -58,14 +69,14 @@ for (let i = 1; i < rows.length; i++) {
       label: row[5],
       sourceCrop: row[8],
       destPaths: new Set(),
-      pages: new Set()
+      pages: new Set(),
     });
   }
   const group = groupMap.get(groupId);
   group.pages.add(id);
 
   const destPath = row[10];
-  if (destPath && destPath !== 'N/A' && destPath.startsWith('public/cartilla/art/')) {
+  if (destPath && destPath !== "N/A" && destPath.startsWith("public/cartilla/art/")) {
     group.destPaths.add(destPath);
   }
 }
@@ -74,13 +85,13 @@ for (const [groupId, group] of groupMap.entries()) {
   const slugs = new Set();
 
   if (group.label) {
-    if (group.label.includes('Ilustración de la página')) {
+    if (group.label.includes("Ilustración de la página")) {
       const match = group.label.match(/página (\d+)/);
       if (match) {
-        slugs.add(`p${match[1].padStart(3, '0')}-scene`);
+        slugs.add(`p${match[1].padStart(3, "0")}-scene`);
       }
-    } else if (group.label.includes('Cover/title')) {
-      slugs.add('composite-fc-front-001');
+    } else if (group.label.includes("Cover/title")) {
+      slugs.add("composite-fc-front-001");
     } else {
       slugs.add(slugify(group.label));
     }
@@ -92,7 +103,7 @@ for (const [groupId, group] of groupMap.entries()) {
     if (match) slugs.add(match[1]);
   }
 
-  const m1 = groupId.replace(/^DRAW-/, '');
+  const m1 = groupId.replace(/^DRAW-/, "");
   slugs.add(m1);
 
   for (const pageId of group.pages) {
@@ -100,37 +111,39 @@ for (const [groupId, group] of groupMap.entries()) {
     slugs.add(pageId.toLowerCase());
   }
 
-  group.slugs = Array.from(slugs).filter(s => s && s.length > 2);
+  group.slugs = Array.from(slugs).filter((s) => s && s.length > 2);
 }
 
-const DIRS = ['optimized', 'faithful', 'delivery', 'hd', 'source', 'owner-intake', 'games'];
+const DIRS = ["optimized", "faithful", "delivery", "hd", "source", "owner-intake", "games"];
 const allArtFiles = [];
 for (const d of DIRS) {
-  const dirPath = path.join('public/cartilla/art', d);
-  allArtFiles.push(...findFiles(dirPath).filter(f => /\.(png|jpg|jpeg|webp|svg)$/i.test(f)));
+  const dirPath = path.join("public/cartilla/art", d);
+  allArtFiles.push(...findFiles(dirPath).filter((f) => /\.(png|jpg|jpeg|webp|svg)$/i.test(f)));
 }
-const approvedFiles = findFiles('public/cartilla/art/approved').filter(f => /\.(png|jpg|jpeg|webp|svg)$/i.test(f));
+const approvedFiles = findFiles("public/cartilla/art/approved").filter((f) =>
+  /\.(png|jpg|jpeg|webp|svg)$/i.test(f),
+);
 
 async function getFileStats(filePath) {
   try {
     const stats = fs.statSync(filePath);
-    const size = (stats.size / 1024).toFixed(1) + ' KB';
+    const size = (stats.size / 1024).toFixed(1) + " KB";
     const buffer = fs.readFileSync(filePath);
-    const hash = crypto.createHash('sha256').update(buffer).digest('hex');
-    let dims = '';
+    const hash = crypto.createHash("sha256").update(buffer).digest("hex");
+    let dims = "";
     try {
-      if (filePath.endsWith('.svg')) {
-        dims = 'svg'; // sharp doesn't always handle svg metadata well without density
+      if (filePath.endsWith(".svg")) {
+        dims = "svg"; // sharp doesn't always handle svg metadata well without density
       } else {
         const metadata = await sharp(filePath).metadata();
         dims = `${metadata.width}x${metadata.height}`;
       }
-    } catch(e) {
-      dims = 'unknown';
+    } catch (e) {
+      dims = "unknown";
     }
     return { size, hash, dims, ctime: stats.ctimeMs };
-  } catch(e) {
-    return { size: '0 KB', hash: '', dims: 'unknown', ctime: 0 };
+  } catch (e) {
+    return { size: "0 KB", hash: "", dims: "unknown", ctime: 0 };
   }
 }
 
@@ -173,10 +186,13 @@ async function build() {
 `;
 
   function isApproved(filePath) {
-    if (filePath.includes('/approved/')) return true;
+    if (filePath.includes("/approved/")) return true;
     const name = path.parse(filePath).name.toLowerCase();
-    if (['aguja', 'arco', 'elefante', 'arbol'].includes(name) && filePath.includes('owner-intake')) {
-        return true;
+    if (
+      ["aguja", "arco", "elefante", "arbol"].includes(name) &&
+      filePath.includes("owner-intake")
+    ) {
+      return true;
     }
     return false;
   }
@@ -188,7 +204,7 @@ async function build() {
     const candidatesMap = new Map();
 
     for (const f of allArtFiles.concat(approvedFiles)) {
-      const p = f.replace(/\\/g, '/');
+      const p = f.replace(/\\/g, "/");
       const name = path.parse(f).name;
       const nameSlug = slugify(name);
 
@@ -200,11 +216,11 @@ async function build() {
         }
       }
 
-      if (group.label && group.label.includes('Ilustración de la página')) {
+      if (group.label && group.label.includes("Ilustración de la página")) {
         const matchPage = group.label.match(/página (\d+)/);
         if (matchPage) {
-          const pageNum = matchPage[1].padStart(3, '0');
-          if (name.includes(`p${pageNum}`) && name.includes('scene')) {
+          const pageNum = matchPage[1].padStart(3, "0");
+          if (name.includes(`p${pageNum}`) && name.includes("scene")) {
             match = true;
           }
         }
@@ -215,7 +231,7 @@ async function build() {
           const stats = await getFileStats(f);
           candidatesMap.set(p, {
             path: p,
-            ...stats
+            ...stats,
           });
         }
       }
@@ -224,13 +240,15 @@ async function build() {
     const candidates = Array.from(candidatesMap.values());
     let recommended = null;
 
-    const approvedCandidates = candidates.filter(c => isApproved(c.path));
+    const approvedCandidates = candidates.filter((c) => isApproved(c.path));
     if (approvedCandidates.length > 0) {
       recommended = approvedCandidates[0];
     }
 
     if (!recommended) {
-      const ownerIntake = candidates.filter(c => c.path.includes('owner-intake')).sort((a, b) => b.ctime - a.ctime);
+      const ownerIntake = candidates
+        .filter((c) => c.path.includes("owner-intake"))
+        .sort((a, b) => b.ctime - a.ctime);
       if (ownerIntake.length > 0) {
         recommended = ownerIntake[0];
       }
@@ -240,14 +258,14 @@ async function build() {
       recommended = candidates[0];
     }
 
-    const sourceRelPath = group.sourceCrop ? '../../' + group.sourceCrop : '';
+    const sourceRelPath = group.sourceCrop ? "../../" + group.sourceCrop : "";
 
     html += `
       <tr data-group-id="${group.groupId}">
         <td>
           <strong>${group.groupId}</strong><br>
           <div class="info">Label: ${group.label}</div>
-          <div class="info">Pages: ${Array.from(group.pages).join(', ')}</div>
+          <div class="info">Pages: ${Array.from(group.pages).join(", ")}</div>
           <div class="actions">
             <button onclick="approveNone('${group.groupId}')">NONE RIGHT</button>
             <button onclick="skip('${group.groupId}')">SKIP</button>
@@ -255,7 +273,7 @@ async function build() {
         </td>
         <td>
           <div class="book-original">
-            ${group.sourceCrop ? `<img src="${sourceRelPath}" alt="Original" loading="lazy">` : 'No original'}
+            ${group.sourceCrop ? `<img src="${sourceRelPath}" alt="Original" loading="lazy">` : "No original"}
           </div>
         </td>
         <td>
@@ -264,15 +282,15 @@ async function build() {
 
     for (const c of candidates) {
       const isRec = recommended && recommended.path === c.path;
-      const relPath = '../../' + c.path;
+      const relPath = "../../" + c.path;
       html += `
-            <div class="candidate ${isRec ? 'recommended' : ''}" data-path="${c.path}" data-hash="${c.hash}">
-              ${isRec ? '<div class="badge">RECOMMENDED</div>' : ''}
+            <div class="candidate ${isRec ? "recommended" : ""}" data-path="${c.path}" data-hash="${c.hash}">
+              ${isRec ? '<div class="badge">RECOMMENDED</div>' : ""}
               <img src="${relPath}" alt="Candidate" loading="lazy">
               <div class="info">${path.basename(c.path)}</div>
               <div class="info">${c.dims}</div>
               <div class="info">${c.size}</div>
-              <div class="info" title="${c.hash}">${c.hash.substring(0,8)}...</div>
+              <div class="info" title="${c.hash}">${c.hash.substring(0, 8)}...</div>
               <div class="actions">
                 <button onclick="approve('${group.groupId}', '${c.path}', '${c.hash}')">APPROVE</button>
               </div>
@@ -351,9 +369,9 @@ async function build() {
   </html>
   `;
 
-  fs.mkdirSync('docs/art-board', { recursive: true });
-  fs.writeFileSync('docs/art-board/index.html', html);
-  console.log('Built art-board HTML');
+  fs.mkdirSync("docs/art-board", { recursive: true });
+  fs.writeFileSync("docs/art-board/index.html", html);
+  console.log("Built art-board HTML");
 }
 
-build().catch(err => { console.error(err); process.exit(1); });
+build();
