@@ -8,7 +8,7 @@ describe('current supplied still wins over stale embedded motion',()=>{
   expect(()=>execFileSync('node',['scripts/check-motion-art-freshness.mjs','--check'])).not.toThrow();
  });
  it('blocks all old picture overrides without altering originals',()=>{
-  expect(Object.keys(stale)).toHaveLength(6);
+  expect(Object.keys(stale)).toHaveLength(8);
   for(const src of Object.keys(stale)){
    expect(LIVING_ACTORS[src].aliveSrc).toBeTruthy();
    expect(getLivingActor(src)).toBeNull();
