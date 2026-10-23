@@ -205,7 +205,7 @@ export function Leccion() {
   };
 
   return (
-    <div className={`lc-lesson-shell lc-lesson-shell--fit ${n === 16 ? "lc-lesson-16" : ""} min-h-screen flex flex-col`}>
+    <div className={`lc-lesson-shell lc-lesson-shell--fit ${n === 13 ? "lesson-13-wide" : [16,21].includes(n) ? `lc-lesson-${n}` : ""} min-h-screen flex flex-col`}>
       <DemoStudentBanner />
       <header className="lc-lesson-header">
         <Link

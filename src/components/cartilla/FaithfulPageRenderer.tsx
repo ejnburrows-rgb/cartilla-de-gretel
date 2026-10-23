@@ -1,4 +1,6 @@
 import "@/styles/native-lesson.css";
+import { Lesson13GardenText } from "./lesson13/Lesson13GardenText";
+import { Lesson21GardenText } from "./lesson21/Lesson21Text";
 import { Lesson16GardenText } from "./lesson16/Lesson16Text";
 import type { ReactNode } from "react";
 import { GretelActivity } from "@/components/gretel/GretelActivity";
@@ -437,7 +439,7 @@ function RegionView({
       );
     case "instruction": {
       const instructionText =
-        lessonNumber === 16 && region.text ? (
+        lessonNumber === 13 && region.text ? (<Lesson13GardenText text={region.text} />) : lessonNumber === 21 && region.text ? (<Lesson21GardenText text={region.text} />) : lessonNumber === 16 && region.text ? (
           // Lesson 16 wide-screen design: garden-palette instruction letters.
           <Lesson16GardenText text={region.text} />
         ) : pageNumber === 17 && region.text ? (
@@ -552,7 +554,7 @@ function RegionView({
     case "sentence-line":
       // Lesson 16 page 57 has no sight word on the source page: skip the
       // empty box rather than rendering a blank frame.
-      if (lessonNumber === 16 && !region.text?.trim()) return null;
+      if ((lessonNumber === 16 || lessonNumber === 21) && !region.text?.trim()) return null;
       return native ? (
         <div className="fp-native-sight-word" aria-label="Palabra de enlace">{region.text}</div>
       ) : (
@@ -626,7 +628,7 @@ export function FaithfulPageRenderer({
   // Lesson 16 wide-screen design uses the shared teal accent (owner-approved
   // Lesson 3 design language) instead of the lesson's blue catalog accent (#356fbd).
   const accent =
-    lessonNumber === 16
+    [13,16,21].includes(lessonNumber ?? 0)
       ? "#167A72"
       : lessonNumber
         ? CATALOG.find((e) => e.n === lessonNumber)?.color
