@@ -13,7 +13,7 @@ import type { CSSProperties } from "react";
 import { ArrowRight, Check, Mic, MicOff, RotateCcw, Volume2 } from "lucide-react";
 import { GretelLiveAvatar } from "@/components/gretel/GretelLiveAvatar";
 import { usePianoSession, PRIVACY_NOTE, type PianoDesignProps } from "./usePianoSession";
-import { FIVE_BLACK, FIVE_WHITE, STATE_LABEL, SYLLABLE_COLORS } from "./piano-keyboard";
+import { FIVE_BLACK, FIVE_WHITE, STATE_LABEL, syllableColor } from "./piano-keyboard";
 import "./piano-design-b.css";
 
 export const DESIGN_B_MAX_SYLLABLES = FIVE_WHITE.length;
@@ -73,7 +73,7 @@ export function PianoDesignB({ syllables, words, lessonId, onComplete, locale }:
           </div>
           {s.keys.map((syllable, index) => {
             const state = s.keyStateFor(index);
-            const color = SYLLABLE_COLORS[index % SYLLABLE_COLORS.length];
+            const color = syllableColor(index, state);
             return (
               <div
                 key={`${s.itemIndex}-${index}`}
@@ -112,7 +112,11 @@ export function PianoDesignB({ syllables, words, lessonId, onComplete, locale }:
               key={index}
               aria-hidden="true"
               className={index < s.confirmed ? "pb__dot pb__dot--done" : "pb__dot"}
-              style={{ "--c": SYLLABLE_COLORS[index % SYLLABLE_COLORS.length] } as CSSProperties}
+              style={
+                {
+                  "--c": syllableColor(index, index < s.confirmed ? "confirmed" : "pending"),
+                } as CSSProperties
+              }
             />
           ))}
           <span className="pb__progress-text">
@@ -184,19 +188,11 @@ export function PianoDesignB({ syllables, words, lessonId, onComplete, locale }:
         </div>
 
         <div className="pb__piano">
-          {s.celebrating && (
-            <span
-              key={`spark-${s.itemIndex}`}
-              className="pb__sparkle"
-              aria-hidden="true"
-              data-testid="piano-sparkle"
-            />
-          )}
           <div className="pb__keys piano-hablador__bed" role="img" aria-label="Teclado visual: las teclas se iluminan al reconocer la voz">
             {FIVE_WHITE.map((key, index) => {
               const carries = index < total;
               const state = carries ? s.keyStateFor(index) : "free";
-              const color = carries ? SYLLABLE_COLORS[index % SYLLABLE_COLORS.length] : "#d6d3d1";
+              const color = carries ? syllableColor(index, state) : "#d6d3d1";
               return (
                 <span
                   key={key.id}
@@ -209,6 +205,15 @@ export function PianoDesignB({ syllables, words, lessonId, onComplete, locale }:
                   <span className="pb__lamp" aria-hidden="true">
                     {carries ? s.keys[index] : ""}
                   </span>
+                  {carries && s.sparkle?.index === index && (
+                    <span
+                      key={`spark-${s.sparkle.n}`}
+                      className="pb__sparkle"
+                      aria-hidden="true"
+                      data-testid="piano-sparkle"
+                      data-sparkle-for={index}
+                    />
+                  )}
                   {carries && state === "confirmed" && (
                     <Check className="pb__white-check" aria-hidden="true" />
                   )}

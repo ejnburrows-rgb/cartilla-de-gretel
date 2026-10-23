@@ -7,7 +7,9 @@
  * progress logging and the 2 s completion callback.
  *
  * Every key confirmed by one utterance plays its note in order (so a whole
- * word plays its little melody), then the chord.
+ * word plays its little melody), then the chord. Each syllable, at the moment
+ * it is recognized and turns green, gets exactly ONE small sparkle over its
+ * key; it plays once and fades. There is no other sparkle.
  */
 import { useCallback, useEffect, useMemo, useRef, useState } from "react";
 import { usePianoListening, type PianoListenProblem } from "@/hooks/usePianoListening";
@@ -52,6 +54,9 @@ export const PRIVACY_NOTE = {
 
 /** Gap between the notes of a word's melody. */
 export const MELODY_STEP_MS = 170;
+
+/** How long the one small per-syllable sparkle stays on screen. */
+export const SPARKLE_MS = 900;
 
 /** One example at a time; resolves when it finishes or is interrupted. */
 function playExample(text: string, recording: string | undefined): Promise<void> {
@@ -145,6 +150,8 @@ export function usePianoSession({
   const [message, setMessage] = useState("");
   const [celebrating, setCelebrating] = useState(false);
   const [flash, setFlash] = useState<{ key: string; n: number } | null>(null);
+  const [sparkle, setSparkle] = useState<{ index: number; n: number } | null>(null);
+  const sparkleCountRef = useRef(0);
   const confirmedRef = useRef(0);
   const celebratedRef = useRef<string | null>(null);
   const completeTimerRef = useRef<ReturnType<typeof setTimeout> | null>(null);
@@ -175,6 +182,17 @@ export function usePianoSession({
     return () => clearTimeout(timer);
   }, [flash]);
 
+  /** One small sparkle for the syllable that was just recognized. */
+  const sparkleFor = useCallback((index: number) => {
+    sparkleCountRef.current += 1;
+    setSparkle({ index, n: sparkleCountRef.current });
+  }, []);
+  useEffect(() => {
+    if (!sparkle) return;
+    const timer = setTimeout(() => setSparkle(null), SPARKLE_MS);
+    return () => clearTimeout(timer);
+  }, [sparkle]);
+
   const promptFor = useCallback(
     (count: number) => {
       const next = keys[count];
@@ -195,12 +213,13 @@ export function usePianoSession({
         const play = () => {
           playNote(noteForRef.current(index), 0.7);
           flashKey(`s${index}`);
+          sparkleFor(index);
         };
         if (index === from) play();
         else melodyTimersRef.current.push(setTimeout(play, (index - from) * MELODY_STEP_MS));
       }
     },
-    [flashKey],
+    [flashKey, sparkleFor],
   );
 
   const applyProgress = useCallback(
@@ -270,6 +289,7 @@ export function usePianoSession({
     setConfirmed(0);
     setProvisional(0);
     setCelebrating(false);
+    setSparkle(null);
     celebratedRef.current = null;
     melodyTimersRef.current.forEach(clearTimeout);
     melodyTimersRef.current = [];
@@ -444,6 +464,7 @@ export function usePianoSession({
     message,
     celebrating,
     flash,
+    sparkle,
     status,
     problem,
     processing,

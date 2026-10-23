@@ -64,6 +64,17 @@ export const SYLLABLE_COLORS = [
   "#ec4899",
 ];
 
+/**
+ * Owner-locked: a reliably recognized syllable turns GREEN and stays green
+ * (its note on the staff and its piano key), whatever its position color.
+ */
+export const CONFIRMED_GREEN = "#16a34a";
+
+/** Color for syllable `index`: its warm position color, or green once confirmed. */
+export function syllableColor(index: number, state: string): string {
+  return state === "confirmed" ? CONFIRMED_GREEN : SYLLABLE_COLORS[index % SYLLABLE_COLORS.length];
+}
+
 /** Accessible state words for a syllable key (same wording as before). */
 export const STATE_LABEL = {
   pending: "por decir",

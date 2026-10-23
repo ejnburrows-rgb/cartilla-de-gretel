@@ -301,7 +301,7 @@
     inset 0 -2px color-mix(in srgb, var(--c) 70%, black),
     0 0 26px var(--c),
     0 1px #0c0a09;
-  transform: scaleY(0.985);
+  transform: translateY(3px) scaleY(0.97);
 }
 .pa__note-listen:focus-visible,
 .pa__control:focus-visible,
@@ -371,11 +371,13 @@
   }
 }
 .pa__sparkle {
+  /* One small sparkle over the syllable key that was just recognized. */
   position: absolute;
-  top: -0.6rem;
-  right: 1.2rem;
-  width: 2.2rem;
-  height: 2.2rem;
+  top: 0.5rem;
+  left: 50%;
+  margin-left: -0.8rem;
+  width: 1.6rem;
+  height: 1.6rem;
   z-index: 3;
   background:
     radial-gradient(circle, #fde68a 0 28%, transparent 30%),
@@ -392,7 +394,7 @@
       transparent 90%
     );
   border-radius: 999px;
-  animation: pa-sparkle 0.9s ease-out both;
+  animation: pa-sparkle 0.9s ease-out forwards;
   pointer-events: none;
 }
 @keyframes pa-sparkle {
@@ -405,8 +407,8 @@
     opacity: 1;
   }
   to {
-    transform: scale(1) rotate(45deg);
-    opacity: 1;
+    transform: scale(0.8) rotate(60deg);
+    opacity: 0;
   }
 }
 .pa__controls {

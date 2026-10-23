@@ -11,12 +11,7 @@ import type { CSSProperties } from "react";
 import { ArrowRight, Check, Mic, MicOff, RotateCcw, Volume2 } from "lucide-react";
 import { GretelLiveAvatar } from "@/components/gretel/GretelLiveAvatar";
 import { usePianoSession, PRIVACY_NOTE, type PianoDesignProps } from "./usePianoSession";
-import {
-  OCTAVE_BLACK,
-  OCTAVE_WHITE,
-  STATE_LABEL,
-  SYLLABLE_COLORS,
-} from "./piano-keyboard";
+import { OCTAVE_BLACK, OCTAVE_WHITE, STATE_LABEL, syllableColor } from "./piano-keyboard";
 import "./piano-design-a.css";
 
 export const DESIGN_A_MAX_SYLLABLES = OCTAVE_WHITE.length;
@@ -77,7 +72,7 @@ export function PianoDesignA({ syllables, words, lessonId, onComplete, locale }:
         <div className="pa__notes">
           {s.keys.map((syllable, index) => {
             const state = s.keyStateFor(index);
-            const color = SYLLABLE_COLORS[index % SYLLABLE_COLORS.length];
+            const color = syllableColor(index, state);
             return (
               <div
                 key={`${s.itemIndex}-${index}`}
@@ -108,14 +103,6 @@ export function PianoDesignA({ syllables, words, lessonId, onComplete, locale }:
       {/* BOTTOM — the piano: wooden cabinet, brass bar, one octave. */}
       <div className="pa__cabinet">
         <div className="pa__brass" aria-hidden="true" />
-        {s.celebrating && (
-          <span
-            key={`spark-${s.itemIndex}`}
-            className="pa__sparkle"
-            aria-hidden="true"
-            data-testid="piano-sparkle"
-          />
-        )}
         <div
           className={`pa__keys piano-hablador__bed ${total > 5 ? "pa__keys--full" : ""}`}
           role="img"
@@ -124,7 +111,7 @@ export function PianoDesignA({ syllables, words, lessonId, onComplete, locale }:
           {OCTAVE_WHITE.map((key, index) => {
             const carries = index < total;
             const state = carries ? s.keyStateFor(index) : "free";
-            const color = carries ? SYLLABLE_COLORS[index % SYLLABLE_COLORS.length] : "#f5d38a";
+            const color = carries ? syllableColor(index, state) : "#f5d38a";
             return (
               <span
                 key={key.id}
@@ -134,6 +121,15 @@ export function PianoDesignA({ syllables, words, lessonId, onComplete, locale }:
                 data-key-state={carries ? state : undefined}
                 data-testid={`piano-key-${index}`}
               >
+                {carries && s.sparkle?.index === index && (
+                  <span
+                    key={`spark-${s.sparkle.n}`}
+                    className="pa__sparkle"
+                    aria-hidden="true"
+                    data-testid="piano-sparkle"
+                    data-sparkle-for={index}
+                  />
+                )}
                 {carries && state === "confirmed" && (
                   <Check className="pa__white-check" aria-hidden="true" />
                 )}
