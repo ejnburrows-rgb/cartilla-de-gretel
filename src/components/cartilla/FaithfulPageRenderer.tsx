@@ -386,6 +386,7 @@ function RegionView({
           accent={accent ?? "hsl(230 75% 58%)"}
           lessonId={lessonId}
           mark={pictureMarkFor(precedingInstruction)}
+          pageSize={pageNumber === 7 ? 8 : undefined}
         />
       ) : (
         <PictureGrid region={region} />
@@ -393,6 +394,7 @@ function RegionView({
     case "vowel-line-match":
       return interactive ? (
         <PencilVowelLineMatch
+          wideWorkbook={pageNumber === 8}
           region={region}
           lessonId={lessonId}
           instruction={precedingInstruction}
