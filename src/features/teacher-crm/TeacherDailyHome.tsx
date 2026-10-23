@@ -98,13 +98,14 @@ export function TeacherDailyHome() {
   }, [isSeed, seedVersion]);
 
   const classes = isSeed ? seedClasses : (realClasses.data ?? []);
+  const classesById = useMemo(() => new Map(classes.map((cls) => [cls.id, cls])), [classes]);
 
   useEffect(() => {
     if (!selectedClassId && classes[0]) setSelectedClassId(classes[0].id);
-    if (selectedClassId && !classes.some((item) => item.id === selectedClassId)) {
+    if (selectedClassId && !classesById.has(selectedClassId)) {
       setSelectedClassId(classes[0]?.id ?? "");
     }
-  }, [classes, selectedClassId]);
+  }, [classes, selectedClassId, classesById]);
 
   const realClass = useQuery({
     queryKey: ["daily-class", selectedClassId],
@@ -124,7 +125,7 @@ export function TeacherDailyHome() {
 
   const classData = isSeed ? seedClass : realClass.data;
   const students = classData?.students ?? [];
-  const activeClass = classes.find((item) => item.id === selectedClassId) ?? null;
+  const activeClass = classesById.get(selectedClassId) ?? null;
 
   const assignmentsQuery = useQuery({
     queryKey: ["daily-assignments", selectedClassId, isSeed, seedVersion],
