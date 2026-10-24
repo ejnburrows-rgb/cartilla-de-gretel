@@ -51,6 +51,8 @@ interface PianoRecognition {
   onend: (() => void) | null;
   onspeechstart?: (() => void) | null;
   onspeechend?: (() => void) | null;
+  onsoundstart?: (() => void) | null;
+  onsoundend?: (() => void) | null;
   start(): void;
   stop(): void;
   abort(): void;
@@ -68,6 +70,12 @@ export interface PianoListeningOptions {
   onInterim?: (transcript: string) => void;
   /** Safety stop so a forgotten microphone never stays open. */
   maxSessionMs?: number;
+  /**
+   * Optional, provisional only: the browser picked up any sound (true) or the
+   * sound stopped (false). Earlier than speech start, so the piano can react
+   * the moment the child begins. Never a recognized result.
+   */
+  onSound?: (active: boolean) => void;
 }
 
 export interface PianoListening {
@@ -98,6 +106,7 @@ export function usePianoListening({
   onFinal,
   onInterim,
   maxSessionMs = 15000,
+  onSound,
 }: PianoListeningOptions): PianoListening {
   const [supported, setSupported] = useState(false);
   const [status, setStatus] = useState<PianoListenStatus>("idle");
@@ -112,6 +121,8 @@ export function usePianoListening({
   const onInterimRef = useRef(onInterim);
   onFinalRef.current = onFinal;
   onInterimRef.current = onInterim;
+  const onSoundRef = useRef(onSound);
+  onSoundRef.current = onSound;
 
   useEffect(() => {
     const Ctor = getSpeechRecognitionCtor() as unknown as
@@ -173,6 +184,8 @@ export function usePianoListening({
     recognition.onresult = null;
     recognition.onspeechstart = null;
     recognition.onspeechend = null;
+    recognition.onsoundstart = null;
+    recognition.onsoundend = null;
     recognition.onerror = null;
     recognition.onend = null;
     recognition.onstart = null;
@@ -188,7 +201,10 @@ export function usePianoListening({
     const wasOpen = Boolean(recognitionRef.current);
     detach("abort");
     // Discarded provisional text must not leave keys half-lit.
-    if (wasOpen) onInterimRef.current?.("");
+    if (wasOpen) {
+      onInterimRef.current?.("");
+      onSoundRef.current?.(false);
+    }
     setStatus("idle");
   }, [detach]);
 
@@ -244,8 +260,17 @@ export function usePianoListening({
       // Some browsers report "started" after a permission error; stay idle then.
       if (current() && !failed) setStatus("listening");
     };
+    recognition.onsoundstart = () => {
+      if (current()) onSoundRef.current?.(true);
+    };
+    recognition.onsoundend = () => {
+      if (current()) onSoundRef.current?.(false);
+    };
     recognition.onspeechstart = () => {
-      if (current()) setStatus("hearing");
+      if (current()) {
+        onSoundRef.current?.(true);
+        setStatus("hearing");
+      }
     };
     recognition.onspeechend = () => {
       if (current()) setStatus("listening");
@@ -282,6 +307,7 @@ export function usePianoListening({
         failed = true;
         detach("abort");
         onInterimRef.current?.("");
+        onSoundRef.current?.(false);
         setStatus("idle");
       }
     };
@@ -290,6 +316,7 @@ export function usePianoListening({
       recognitionRef.current = null;
       clearTimer();
       onInterimRef.current?.("");
+      onSoundRef.current?.(false);
       setStatus("idle");
     };
 
