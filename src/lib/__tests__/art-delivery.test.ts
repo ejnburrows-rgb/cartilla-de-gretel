@@ -15,8 +15,8 @@ describe("faithful art delivery paths", () => {
     expect(getFaithfulDeliverySrc(src, 768)).toBe(
       "/cartilla/art/delivery/faithful/768/vocal-a/abanico.webp",
     );
-    expect(getFaithfulDeliverySrcSet(src)).toContain("384/vocal-a/abanico.webp 1x");
-    expect(getFaithfulDeliverySrcSet(src)).toContain("768/vocal-a/abanico.webp 2x");
+    expect(getFaithfulDeliverySrcSet(src)).toContain("384/vocal-a/abanico.webp 384w");
+    expect(getFaithfulDeliverySrcSet(src)).toContain("768/vocal-a/abanico.webp 768w");
   });
 
   it("leaves non-faithful sources untouched", () => {

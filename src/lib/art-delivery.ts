@@ -1,3 +1,5 @@
+import deliveryManifest from "../../public/cartilla/art/delivery/manifest.json";
+
 const FAITHFUL_PREFIX = "/cartilla/art/faithful/";
 
 export function isFaithfulCanonicalArt(src: string): boolean {
@@ -19,5 +21,21 @@ export function getFaithfulDeliverySrcSet(src: string): string | undefined {
   // Flip Chart-native cutouts are generated during prepare:art and are already
   // presentation-sized. They intentionally have no delivery derivative layer.
   if (src.startsWith(`${FAITHFUL_PREFIX}flipchart-native/`)) return undefined;
-  return `${getFaithfulDeliverySrc(src, 384)} 1x, ${getFaithfulDeliverySrc(src, 768)} 2x`;
+
+  const asset = deliveryManifest.assets.find((a) => a.canonicalSrc === src);
+  if (!asset || !asset.derivatives || asset.derivatives.length === 0) {
+    return `${getFaithfulDeliverySrc(src, 384)} 384w, ${getFaithfulDeliverySrc(src, 768)} 768w`;
+  }
+
+  const seenWidths = new Set<number>();
+  const parts: string[] = [];
+
+  for (const derivative of asset.derivatives) {
+    if (!seenWidths.has(derivative.width)) {
+      parts.push(`${derivative.path} ${derivative.width}w`);
+      seenWidths.add(derivative.width);
+    }
+  }
+
+  return parts.length > 0 ? parts.join(", ") : undefined;
 }
