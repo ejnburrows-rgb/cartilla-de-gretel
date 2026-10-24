@@ -1,0 +1,303 @@
+[
+  {
+    "lineId": "l1-model-abanico",
+    "text": "abanico",
+    "src": "/audio/voz/vocabulario/abanico.mp3",
+    "decodePassed": true,
+    "auditoryOrDeviceApproval": "NOT_CLAIMED"
+  },
+  {
+    "lineId": "l1-model-abeja",
+    "text": "abeja",
+    "src": "/audio/voz/vocabulario/abeja.mp3",
+    "decodePassed": true,
+    "auditoryOrDeviceApproval": "NOT_CLAIMED"
+  },
+  {
+    "lineId": "l1-model-abrigo",
+    "text": "abrigo",
+    "src": "/audio/voz/vocabulario/abrigo.mp3",
+    "decodePassed": true,
+    "auditoryOrDeviceApproval": "NOT_CLAIMED"
+  },
+  {
+    "lineId": "l1-model-anillo",
+    "text": "anillo",
+    "src": "/audio/voz/vocabulario/anillo.mp3",
+    "decodePassed": true,
+    "auditoryOrDeviceApproval": "NOT_CLAIMED"
+  },
+  {
+    "lineId": "l1-model-araña",
+    "text": "araña",
+    "src": "/audio/voz/vocabulario/araña.mp3",
+    "decodePassed": true,
+    "auditoryOrDeviceApproval": "NOT_CLAIMED"
+  },
+  {
+    "lineId": "l1-model-aro",
+    "text": "aro",
+    "src": "/audio/voz/vocabulario/aro.mp3",
+    "decodePassed": true,
+    "auditoryOrDeviceApproval": "NOT_CLAIMED"
+  },
+  {
+    "lineId": "l1-model-avión",
+    "text": "avión",
+    "src": "/audio/voz/vocabulario/avión.mp3",
+    "decodePassed": true,
+    "auditoryOrDeviceApproval": "NOT_CLAIMED"
+  },
+  {
+    "lineId": "l1-model-carro",
+    "text": "carro",
+    "src": "/audio/voz/vocabulario/carro.mp3",
+    "decodePassed": true,
+    "auditoryOrDeviceApproval": "NOT_CLAIMED"
+  },
+  {
+    "lineId": "l1-model-casa",
+    "text": "casa",
+    "src": "/audio/voz/vocabulario/casa.mp3",
+    "decodePassed": true,
+    "auditoryOrDeviceApproval": "NOT_CLAIMED"
+  },
+  {
+    "lineId": "l1-model-dulce",
+    "text": "dulce",
+    "src": "/audio/voz/vocabulario/dulce.mp3",
+    "decodePassed": true,
+    "auditoryOrDeviceApproval": "NOT_CLAIMED"
+  },
+  {
+    "lineId": "l1-model-elefante",
+    "text": "elefante",
+    "src": "/audio/voz/vocabulario/elefante.mp3",
+    "decodePassed": true,
+    "auditoryOrDeviceApproval": "NOT_CLAIMED"
+  },
+  {
+    "lineId": "l1-model-escalera",
+    "text": "escalera",
+    "src": "/audio/voz/vocabulario/escalera.mp3",
+    "decodePassed": true,
+    "auditoryOrDeviceApproval": "NOT_CLAIMED"
+  },
+  {
+    "lineId": "l1-model-escoba",
+    "text": "escoba",
+    "src": "/audio/voz/vocabulario/escoba.mp3",
+    "decodePassed": true,
+    "auditoryOrDeviceApproval": "NOT_CLAIMED"
+  },
+  {
+    "lineId": "l1-model-escuela",
+    "text": "escuela",
+    "src": "/audio/voz/vocabulario/escuela.mp3",
+    "decodePassed": true,
+    "auditoryOrDeviceApproval": "NOT_CLAIMED"
+  },
+  {
+    "lineId": "l1-model-estrella",
+    "text": "estrella",
+    "src": "/audio/voz/vocabulario/estrella.mp3",
+    "decodePassed": true,
+    "auditoryOrDeviceApproval": "NOT_CLAIMED"
+  },
+  {
+    "lineId": "l1-model-globo",
+    "text": "globo",
+    "src": "/audio/voz/vocabulario/globo.mp3",
+    "decodePassed": true,
+    "auditoryOrDeviceApproval": "NOT_CLAIMED"
+  },
+  {
+    "lineId": "l1-model-iglesia",
+    "text": "iglesia",
+    "src": "/audio/voz/vocabulario/iglesia.mp3",
+    "decodePassed": true,
+    "auditoryOrDeviceApproval": "NOT_CLAIMED"
+  },
+  {
+    "lineId": "l1-model-imán",
+    "text": "imán",
+    "src": "/audio/voz/vocabulario/imán.mp3",
+    "decodePassed": true,
+    "auditoryOrDeviceApproval": "NOT_CLAIMED"
+  },
+  {
+    "lineId": "l1-model-indio",
+    "text": "indio",
+    "src": "/audio/voz/vocabulario/indio.mp3",
+    "decodePassed": true,
+    "auditoryOrDeviceApproval": "NOT_CLAIMED"
+  },
+  {
+    "lineId": "l1-model-isla",
+    "text": "isla",
+    "src": "/audio/voz/vocabulario/isla.mp3",
+    "decodePassed": true,
+    "auditoryOrDeviceApproval": "NOT_CLAIMED"
+  },
+  {
+    "lineId": "l1-model-libro",
+    "text": "libro",
+    "src": "/audio/voz/vocabulario/libro.mp3",
+    "decodePassed": true,
+    "auditoryOrDeviceApproval": "NOT_CLAIMED"
+  },
+  {
+    "lineId": "l1-model-manzana",
+    "text": "manzana",
+    "src": "/audio/voz/vocabulario/manzana.mp3",
+    "decodePassed": true,
+    "auditoryOrDeviceApproval": "NOT_CLAIMED"
+  },
+  {
+    "lineId": "l1-model-maíz",
+    "text": "maíz",
+    "src": "/audio/voz/vocabulario/maíz.mp3",
+    "decodePassed": true,
+    "auditoryOrDeviceApproval": "NOT_CLAIMED"
+  },
+  {
+    "lineId": "l1-model-ocho",
+    "text": "ocho",
+    "src": "/audio/voz/vocabulario/ocho.mp3",
+    "decodePassed": true,
+    "auditoryOrDeviceApproval": "NOT_CLAIMED"
+  },
+  {
+    "lineId": "l1-model-ojos",
+    "text": "ojos",
+    "src": "/audio/voz/vocabulario/ojos.mp3",
+    "decodePassed": true,
+    "auditoryOrDeviceApproval": "NOT_CLAIMED"
+  },
+  {
+    "lineId": "l1-model-olla",
+    "text": "olla",
+    "src": "/audio/voz/vocabulario/olla.mp3",
+    "decodePassed": true,
+    "auditoryOrDeviceApproval": "NOT_CLAIMED"
+  },
+  {
+    "lineId": "l1-model-oreja",
+    "text": "oreja",
+    "src": "/audio/voz/vocabulario/oreja.mp3",
+    "decodePassed": true,
+    "auditoryOrDeviceApproval": "NOT_CLAIMED"
+  },
+  {
+    "lineId": "l1-model-oso",
+    "text": "oso",
+    "src": "/audio/voz/vocabulario/oso.mp3",
+    "decodePassed": true,
+    "auditoryOrDeviceApproval": "NOT_CLAIMED"
+  },
+  {
+    "lineId": "l1-model-oveja",
+    "text": "oveja",
+    "src": "/audio/voz/vocabulario/oveja.mp3",
+    "decodePassed": true,
+    "auditoryOrDeviceApproval": "NOT_CLAIMED"
+  },
+  {
+    "lineId": "l1-model-pera",
+    "text": "pera",
+    "src": "/audio/voz/vocabulario/pera.mp3",
+    "decodePassed": true,
+    "auditoryOrDeviceApproval": "NOT_CLAIMED"
+  },
+  {
+    "lineId": "l1-model-pájaro",
+    "text": "pájaro",
+    "src": "/audio/voz/vocabulario/pájaro.mp3",
+    "decodePassed": true,
+    "auditoryOrDeviceApproval": "NOT_CLAIMED"
+  },
+  {
+    "lineId": "l1-model-taza",
+    "text": "taza",
+    "src": "/audio/voz/vocabulario/taza.mp3",
+    "decodePassed": true,
+    "auditoryOrDeviceApproval": "NOT_CLAIMED"
+  },
+  {
+    "lineId": "l1-model-uniforme",
+    "text": "uniforme",
+    "src": "/audio/voz/vocabulario/uniforme.mp3",
+    "decodePassed": true,
+    "auditoryOrDeviceApproval": "NOT_CLAIMED"
+  },
+  {
+    "lineId": "l1-model-uno",
+    "text": "uno",
+    "src": "/audio/voz/vocabulario/uno.mp3",
+    "decodePassed": true,
+    "auditoryOrDeviceApproval": "NOT_CLAIMED"
+  },
+  {
+    "lineId": "l1-model-uña",
+    "text": "uña",
+    "src": "/audio/voz/vocabulario/uña.mp3",
+    "decodePassed": true,
+    "auditoryOrDeviceApproval": "NOT_CLAIMED"
+  },
+  {
+    "lineId": "l1-model-árbol",
+    "text": "árbol",
+    "src": "/audio/voz/vocabulario/árbol.mp3",
+    "decodePassed": true,
+    "auditoryOrDeviceApproval": "NOT_CLAIMED"
+  },
+  {
+    "lineId": "l2-model-alas",
+    "text": "alas",
+    "src": "/audio/voz/vocabulario/alas.mp3",
+    "decodePassed": true,
+    "auditoryOrDeviceApproval": "NOT_CLAIMED"
+  },
+  {
+    "lineId": "l2-model-iglú",
+    "text": "iglú",
+    "src": "/audio/voz/vocabulario/iglú.mp3",
+    "decodePassed": true,
+    "auditoryOrDeviceApproval": "NOT_CLAIMED"
+  },
+  {
+    "lineId": "l2-model-ola",
+    "text": "ola",
+    "src": "/audio/voz/vocabulario/ola.mp3",
+    "decodePassed": true,
+    "auditoryOrDeviceApproval": "NOT_CLAIMED"
+  },
+  {
+    "lineId": "l2-model-uvas",
+    "text": "uvas",
+    "src": "/audio/voz/vocabulario/uvas.mp3",
+    "decodePassed": true,
+    "auditoryOrDeviceApproval": "NOT_CLAIMED"
+  },
+  {
+    "lineId": "l3-model-aguja",
+    "text": "aguja",
+    "src": "/audio/voz/vocabulario/aguja.mp3",
+    "decodePassed": true,
+    "auditoryOrDeviceApproval": "NOT_CLAIMED"
+  },
+  {
+    "lineId": "l3-model-ardilla",
+    "text": "ardilla",
+    "src": "/audio/voz/vocabulario/ardilla.mp3",
+    "decodePassed": true,
+    "auditoryOrDeviceApproval": "NOT_CLAIMED"
+  },
+  {
+    "lineId": "l3-model-oruga",
+    "text": "oruga",
+    "src": "/audio/voz/vocabulario/oruga.mp3",
+    "decodePassed": true,
+    "auditoryOrDeviceApproval": "NOT_CLAIMED"
+  }
+]

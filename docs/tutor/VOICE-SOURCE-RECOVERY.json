@@ -1,0 +1,783 @@
+{
+  "source": {
+    "file": "Gretel_558674_Original.m4a",
+    "sha256": "239e3518f364adfcefab39f4220a4b2b85a6e3987679af823d7ef0f26f76935d",
+    "bytes": 47122635,
+    "durationSeconds": 1948.168688,
+    "recovery": "recovered from existing owner-supplied recording; hash and media duration checked",
+    "publication": "private original; not committed or enabled"
+  },
+  "approvedExistingLines": 43,
+  "pendingLines": [
+    {
+      "lineId": "l1-greeting-first-01",
+      "lesson": 1,
+      "role": "greeting-first",
+      "intendedText": "¡Hola! Vamos a conocer las vocales. (reuse: buildLessonIntroLines)",
+      "sourceStart": null,
+      "sourceEnd": null,
+      "heardText": null,
+      "status": "PENDING_HEARD_ALIGNMENT_AND_OWNER_ACCEPTANCE"
+    },
+    {
+      "lineId": "l1-greeting-first-02",
+      "lesson": 1,
+      "role": "greeting-first",
+      "intendedText": "[DRAFT — owner to approve] ¡Hola! Soy Gretel. Vamos a aprender las vocales: a, e, i, o, u.",
+      "sourceStart": null,
+      "sourceEnd": null,
+      "heardText": null,
+      "status": "PENDING_HEARD_ALIGNMENT_AND_OWNER_ACCEPTANCE"
+    },
+    {
+      "lineId": "l1-greeting-first-03",
+      "lesson": 1,
+      "role": "greeting-first",
+      "intendedText": "[DRAFT — owner to approve] ¡Hola, amiguito! Hoy empezamos con las vocales.",
+      "sourceStart": null,
+      "sourceEnd": null,
+      "heardText": null,
+      "status": "PENDING_HEARD_ALIGNMENT_AND_OWNER_ACCEPTANCE"
+    },
+    {
+      "lineId": "l2-greeting-first-01",
+      "lesson": 2,
+      "role": "greeting-first",
+      "intendedText": "¡Hola! Vamos a la lección de la vocal O. (reuse: buildLessonIntroLines)",
+      "sourceStart": null,
+      "sourceEnd": null,
+      "heardText": null,
+      "status": "PENDING_HEARD_ALIGNMENT_AND_OWNER_ACCEPTANCE"
+    },
+    {
+      "lineId": "l2-greeting-first-02",
+      "lesson": 2,
+      "role": "greeting-first",
+      "intendedText": "[DRAFT — owner to approve] ¡Hola! Hoy practicamos la vocal O.",
+      "sourceStart": null,
+      "sourceEnd": null,
+      "heardText": null,
+      "status": "PENDING_HEARD_ALIGNMENT_AND_OWNER_ACCEPTANCE"
+    },
+    {
+      "lineId": "l2-greeting-first-03",
+      "lesson": 2,
+      "role": "greeting-first",
+      "intendedText": "[DRAFT — owner to approve] ¡Qué bueno verte! Vamos a seguir con la vocal O.",
+      "sourceStart": null,
+      "sourceEnd": null,
+      "heardText": null,
+      "status": "PENDING_HEARD_ALIGNMENT_AND_OWNER_ACCEPTANCE"
+    },
+    {
+      "lineId": "l3-greeting-first-01",
+      "lesson": 3,
+      "role": "greeting-first",
+      "intendedText": "¡Hola! Vamos a la lección de la vocal A. (reuse: buildLessonIntroLines)",
+      "sourceStart": null,
+      "sourceEnd": null,
+      "heardText": null,
+      "status": "PENDING_HEARD_ALIGNMENT_AND_OWNER_ACCEPTANCE"
+    },
+    {
+      "lineId": "l3-greeting-first-02",
+      "lesson": 3,
+      "role": "greeting-first",
+      "intendedText": "[DRAFT — owner to approve] ¡Hola! Hoy practicamos la vocal A.",
+      "sourceStart": null,
+      "sourceEnd": null,
+      "heardText": null,
+      "status": "PENDING_HEARD_ALIGNMENT_AND_OWNER_ACCEPTANCE"
+    },
+    {
+      "lineId": "l3-greeting-first-03",
+      "lesson": 3,
+      "role": "greeting-first",
+      "intendedText": "[DRAFT — owner to approve] ¡Qué bueno verte! Vamos a seguir con la vocal A.",
+      "sourceStart": null,
+      "sourceEnd": null,
+      "heardText": null,
+      "status": "PENDING_HEARD_ALIGNMENT_AND_OWNER_ACCEPTANCE"
+    },
+    {
+      "lineId": "l0-greeting-return-01",
+      "lesson": 0,
+      "role": "greeting-return",
+      "intendedText": "Bienvenidos a la Cartilla de Gretel. Vamos a aprender a leer juntos. (reuse: HOME_GREETING)",
+      "sourceStart": null,
+      "sourceEnd": null,
+      "heardText": null,
+      "status": "PENDING_HEARD_ALIGNMENT_AND_OWNER_ACCEPTANCE"
+    },
+    {
+      "lineId": "l0-greeting-return-02",
+      "lesson": 0,
+      "role": "greeting-return",
+      "intendedText": "[DRAFT — owner to approve] ¡Hola otra vez! Seguimos aprendiendo a leer juntos.",
+      "sourceStart": null,
+      "sourceEnd": null,
+      "heardText": null,
+      "status": "PENDING_HEARD_ALIGNMENT_AND_OWNER_ACCEPTANCE"
+    },
+    {
+      "lineId": "l0-greeting-return-03",
+      "lesson": 0,
+      "role": "greeting-return",
+      "intendedText": "[DRAFT — owner to approve] ¡Qué bueno verte de nuevo! Vamos a continuar.",
+      "sourceStart": null,
+      "sourceEnd": null,
+      "heardText": null,
+      "status": "PENDING_HEARD_ALIGNMENT_AND_OWNER_ACCEPTANCE"
+    },
+    {
+      "lineId": "l0-praise-01",
+      "lesson": 0,
+      "role": "praise",
+      "intendedText": "¡Muy bien! (reuse: buildSuccessLine)",
+      "sourceStart": null,
+      "sourceEnd": null,
+      "heardText": null,
+      "status": "PENDING_HEARD_ALIGNMENT_AND_OWNER_ACCEPTANCE"
+    },
+    {
+      "lineId": "l0-praise-02",
+      "lesson": 0,
+      "role": "praise",
+      "intendedText": "¡Excelente! (reuse: buildSuccessLine)",
+      "sourceStart": null,
+      "sourceEnd": null,
+      "heardText": null,
+      "status": "PENDING_HEARD_ALIGNMENT_AND_OWNER_ACCEPTANCE"
+    },
+    {
+      "lineId": "l0-praise-03",
+      "lesson": 0,
+      "role": "praise",
+      "intendedText": "¡Lo lograste! (reuse: buildSuccessLine)",
+      "sourceStart": null,
+      "sourceEnd": null,
+      "heardText": null,
+      "status": "PENDING_HEARD_ALIGNMENT_AND_OWNER_ACCEPTANCE"
+    },
+    {
+      "lineId": "l0-praise-04",
+      "lesson": 0,
+      "role": "praise",
+      "intendedText": "¡Qué bien! (reuse: buildSuccessLine)",
+      "sourceStart": null,
+      "sourceEnd": null,
+      "heardText": null,
+      "status": "PENDING_HEARD_ALIGNMENT_AND_OWNER_ACCEPTANCE"
+    },
+    {
+      "lineId": "l0-praise-05",
+      "lesson": 0,
+      "role": "praise",
+      "intendedText": "Buen trabajo. (reuse: STUDENT_INTERACTION_STANDARD)",
+      "sourceStart": null,
+      "sourceEnd": null,
+      "heardText": null,
+      "status": "PENDING_HEARD_ALIGNMENT_AND_OWNER_ACCEPTANCE"
+    },
+    {
+      "lineId": "l0-praise-06",
+      "lesson": 0,
+      "role": "praise",
+      "intendedText": "[DRAFT — owner to approve] ¡Perfecto!",
+      "sourceStart": null,
+      "sourceEnd": null,
+      "heardText": null,
+      "status": "PENDING_HEARD_ALIGNMENT_AND_OWNER_ACCEPTANCE"
+    },
+    {
+      "lineId": "l0-praise-07",
+      "lesson": 0,
+      "role": "praise",
+      "intendedText": "[DRAFT — owner to approve] ¡Eso es!",
+      "sourceStart": null,
+      "sourceEnd": null,
+      "heardText": null,
+      "status": "PENDING_HEARD_ALIGNMENT_AND_OWNER_ACCEPTANCE"
+    },
+    {
+      "lineId": "l0-praise-08",
+      "lesson": 0,
+      "role": "praise",
+      "intendedText": "[DRAFT — owner to approve] ¡Muy bien hecho!",
+      "sourceStart": null,
+      "sourceEnd": null,
+      "heardText": null,
+      "status": "PENDING_HEARD_ALIGNMENT_AND_OWNER_ACCEPTANCE"
+    },
+    {
+      "lineId": "l0-praise-09",
+      "lesson": 0,
+      "role": "praise",
+      "intendedText": "[DRAFT — owner to approve] ¡Sigue así!",
+      "sourceStart": null,
+      "sourceEnd": null,
+      "heardText": null,
+      "status": "PENDING_HEARD_ALIGNMENT_AND_OWNER_ACCEPTANCE"
+    },
+    {
+      "lineId": "l0-praise-10",
+      "lesson": 0,
+      "role": "praise",
+      "intendedText": "[DRAFT — owner to approve] ¡Genial!",
+      "sourceStart": null,
+      "sourceEnd": null,
+      "heardText": null,
+      "status": "PENDING_HEARD_ALIGNMENT_AND_OWNER_ACCEPTANCE"
+    },
+    {
+      "lineId": "l0-praise-11",
+      "lesson": 0,
+      "role": "praise",
+      "intendedText": "[DRAFT — owner to approve] ¡Correcto!",
+      "sourceStart": null,
+      "sourceEnd": null,
+      "heardText": null,
+      "status": "PENDING_HEARD_ALIGNMENT_AND_OWNER_ACCEPTANCE"
+    },
+    {
+      "lineId": "l0-praise-12",
+      "lesson": 0,
+      "role": "praise",
+      "intendedText": "[DRAFT — owner to approve] ¡Tú sí puedes!",
+      "sourceStart": null,
+      "sourceEnd": null,
+      "heardText": null,
+      "status": "PENDING_HEARD_ALIGNMENT_AND_OWNER_ACCEPTANCE"
+    },
+    {
+      "lineId": "l0-praise-streak-01",
+      "lesson": 0,
+      "role": "praise-streak",
+      "intendedText": "[DRAFT — owner to approve] ¡Vas volando!",
+      "sourceStart": null,
+      "sourceEnd": null,
+      "heardText": null,
+      "status": "PENDING_HEARD_ALIGNMENT_AND_OWNER_ACCEPTANCE"
+    },
+    {
+      "lineId": "l0-praise-streak-02",
+      "lesson": 0,
+      "role": "praise-streak",
+      "intendedText": "[DRAFT — owner to approve] ¡Qué racha tan buena!",
+      "sourceStart": null,
+      "sourceEnd": null,
+      "heardText": null,
+      "status": "PENDING_HEARD_ALIGNMENT_AND_OWNER_ACCEPTANCE"
+    },
+    {
+      "lineId": "l0-praise-streak-03",
+      "lesson": 0,
+      "role": "praise-streak",
+      "intendedText": "[DRAFT — owner to approve] ¡Muchas correctas seguidas!",
+      "sourceStart": null,
+      "sourceEnd": null,
+      "heardText": null,
+      "status": "PENDING_HEARD_ALIGNMENT_AND_OWNER_ACCEPTANCE"
+    },
+    {
+      "lineId": "l0-praise-streak-04",
+      "lesson": 0,
+      "role": "praise-streak",
+      "intendedText": "[DRAFT — owner to approve] ¡Eres una estrella!",
+      "sourceStart": null,
+      "sourceEnd": null,
+      "heardText": null,
+      "status": "PENDING_HEARD_ALIGNMENT_AND_OWNER_ACCEPTANCE"
+    },
+    {
+      "lineId": "l0-praise-after-retry-01",
+      "lesson": 0,
+      "role": "praise-after-retry",
+      "intendedText": "[DRAFT — owner to approve] ¡Lo lograste! Lo intentaste otra vez y pudiste.",
+      "sourceStart": null,
+      "sourceEnd": null,
+      "heardText": null,
+      "status": "PENDING_HEARD_ALIGNMENT_AND_OWNER_ACCEPTANCE"
+    },
+    {
+      "lineId": "l0-praise-after-retry-02",
+      "lesson": 0,
+      "role": "praise-after-retry",
+      "intendedText": "[DRAFT — owner to approve] ¡Eso es! No te rendiste.",
+      "sourceStart": null,
+      "sourceEnd": null,
+      "heardText": null,
+      "status": "PENDING_HEARD_ALIGNMENT_AND_OWNER_ACCEPTANCE"
+    },
+    {
+      "lineId": "l0-praise-after-retry-03",
+      "lesson": 0,
+      "role": "praise-after-retry",
+      "intendedText": "[DRAFT — owner to approve] ¡Muy bien! Te costó, pero lo conseguiste.",
+      "sourceStart": null,
+      "sourceEnd": null,
+      "heardText": null,
+      "status": "PENDING_HEARD_ALIGNMENT_AND_OWNER_ACCEPTANCE"
+    },
+    {
+      "lineId": "l0-praise-after-retry-04",
+      "lesson": 0,
+      "role": "praise-after-retry",
+      "intendedText": "[DRAFT — owner to approve] ¡Bien por ti! Cada vez te sale mejor.",
+      "sourceStart": null,
+      "sourceEnd": null,
+      "heardText": null,
+      "status": "PENDING_HEARD_ALIGNMENT_AND_OWNER_ACCEPTANCE"
+    },
+    {
+      "lineId": "l0-close-miss-01",
+      "lesson": 0,
+      "role": "close-miss",
+      "intendedText": "[DRAFT — owner to approve] Casi casi.",
+      "sourceStart": null,
+      "sourceEnd": null,
+      "heardText": null,
+      "status": "PENDING_HEARD_ALIGNMENT_AND_OWNER_ACCEPTANCE"
+    },
+    {
+      "lineId": "l0-close-miss-02",
+      "lesson": 0,
+      "role": "close-miss",
+      "intendedText": "[DRAFT — owner to approve] Uy, casi. Un poquito más.",
+      "sourceStart": null,
+      "sourceEnd": null,
+      "heardText": null,
+      "status": "PENDING_HEARD_ALIGNMENT_AND_OWNER_ACCEPTANCE"
+    },
+    {
+      "lineId": "l0-close-miss-03",
+      "lesson": 0,
+      "role": "close-miss",
+      "intendedText": "[DRAFT — owner to approve] Tan cerquita.",
+      "sourceStart": null,
+      "sourceEnd": null,
+      "heardText": null,
+      "status": "PENDING_HEARD_ALIGNMENT_AND_OWNER_ACCEPTANCE"
+    },
+    {
+      "lineId": "l0-close-miss-04",
+      "lesson": 0,
+      "role": "close-miss",
+      "intendedText": "[DRAFT — owner to approve] Por poquito.",
+      "sourceStart": null,
+      "sourceEnd": null,
+      "heardText": null,
+      "status": "PENDING_HEARD_ALIGNMENT_AND_OWNER_ACCEPTANCE"
+    },
+    {
+      "lineId": "l0-try-again-01",
+      "lesson": 0,
+      "role": "try-again",
+      "intendedText": "Inténtalo otra vez. (reuse: STUDENT_INTERACTION_STANDARD)",
+      "sourceStart": null,
+      "sourceEnd": null,
+      "heardText": null,
+      "status": "PENDING_HEARD_ALIGNMENT_AND_OWNER_ACCEPTANCE"
+    },
+    {
+      "lineId": "l0-try-again-02",
+      "lesson": 0,
+      "role": "try-again",
+      "intendedText": "Casi. Prueba otra vez. (reuse: buildMissLine)",
+      "sourceStart": null,
+      "sourceEnd": null,
+      "heardText": null,
+      "status": "PENDING_HEARD_ALIGNMENT_AND_OWNER_ACCEPTANCE"
+    },
+    {
+      "lineId": "l0-try-again-03",
+      "lesson": 0,
+      "role": "try-again",
+      "intendedText": "Tú puedes. (reuse: buildMissLine)",
+      "sourceStart": null,
+      "sourceEnd": null,
+      "heardText": null,
+      "status": "PENDING_HEARD_ALIGNMENT_AND_OWNER_ACCEPTANCE"
+    },
+    {
+      "lineId": "l0-try-again-04",
+      "lesson": 0,
+      "role": "try-again",
+      "intendedText": "[DRAFT — owner to approve] No pasa nada. Inténtalo de nuevo.",
+      "sourceStart": null,
+      "sourceEnd": null,
+      "heardText": null,
+      "status": "PENDING_HEARD_ALIGNMENT_AND_OWNER_ACCEPTANCE"
+    },
+    {
+      "lineId": "l0-try-again-05",
+      "lesson": 0,
+      "role": "try-again",
+      "intendedText": "[DRAFT — owner to approve] Otra vez, con calma.",
+      "sourceStart": null,
+      "sourceEnd": null,
+      "heardText": null,
+      "status": "PENDING_HEARD_ALIGNMENT_AND_OWNER_ACCEPTANCE"
+    },
+    {
+      "lineId": "l0-try-again-06",
+      "lesson": 0,
+      "role": "try-again",
+      "intendedText": "[DRAFT — owner to approve] Una vez más, tú puedes.",
+      "sourceStart": null,
+      "sourceEnd": null,
+      "heardText": null,
+      "status": "PENDING_HEARD_ALIGNMENT_AND_OWNER_ACCEPTANCE"
+    },
+    {
+      "lineId": "l0-confusion-a",
+      "lesson": 0,
+      "role": "confusion",
+      "intendedText": "[DRAFT — owner to approve] Esa es la A.",
+      "sourceStart": null,
+      "sourceEnd": null,
+      "heardText": null,
+      "status": "PENDING_HEARD_ALIGNMENT_AND_OWNER_ACCEPTANCE"
+    },
+    {
+      "lineId": "l0-confusion-e",
+      "lesson": 0,
+      "role": "confusion",
+      "intendedText": "[DRAFT — owner to approve] Esa es la E.",
+      "sourceStart": null,
+      "sourceEnd": null,
+      "heardText": null,
+      "status": "PENDING_HEARD_ALIGNMENT_AND_OWNER_ACCEPTANCE"
+    },
+    {
+      "lineId": "l0-confusion-i",
+      "lesson": 0,
+      "role": "confusion",
+      "intendedText": "[DRAFT — owner to approve] Esa es la I.",
+      "sourceStart": null,
+      "sourceEnd": null,
+      "heardText": null,
+      "status": "PENDING_HEARD_ALIGNMENT_AND_OWNER_ACCEPTANCE"
+    },
+    {
+      "lineId": "l0-confusion-o",
+      "lesson": 0,
+      "role": "confusion",
+      "intendedText": "[DRAFT — owner to approve] Esa es la O.",
+      "sourceStart": null,
+      "sourceEnd": null,
+      "heardText": null,
+      "status": "PENDING_HEARD_ALIGNMENT_AND_OWNER_ACCEPTANCE"
+    },
+    {
+      "lineId": "l0-confusion-u",
+      "lesson": 0,
+      "role": "confusion",
+      "intendedText": "[DRAFT — owner to approve] Esa es la U.",
+      "sourceStart": null,
+      "sourceEnd": null,
+      "heardText": null,
+      "status": "PENDING_HEARD_ALIGNMENT_AND_OWNER_ACCEPTANCE"
+    },
+    {
+      "lineId": "l0-wrong-word-01",
+      "lesson": 0,
+      "role": "wrong-word",
+      "intendedText": "[DRAFT — owner to approve] Ese no es. Escucha otra vez.",
+      "sourceStart": null,
+      "sourceEnd": null,
+      "heardText": null,
+      "status": "PENDING_HEARD_ALIGNMENT_AND_OWNER_ACCEPTANCE"
+    },
+    {
+      "lineId": "l0-wrong-word-02",
+      "lesson": 0,
+      "role": "wrong-word",
+      "intendedText": "[DRAFT — owner to approve] Uy, no es esa palabra. Intenta de nuevo.",
+      "sourceStart": null,
+      "sourceEnd": null,
+      "heardText": null,
+      "status": "PENDING_HEARD_ALIGNMENT_AND_OWNER_ACCEPTANCE"
+    },
+    {
+      "lineId": "l0-wrong-word-03",
+      "lesson": 0,
+      "role": "wrong-word",
+      "intendedText": "[DRAFT — owner to approve] Casi, pero no es esa.",
+      "sourceStart": null,
+      "sourceEnd": null,
+      "heardText": null,
+      "status": "PENDING_HEARD_ALIGNMENT_AND_OWNER_ACCEPTANCE"
+    },
+    {
+      "lineId": "l0-repeat-ack-01",
+      "lesson": 0,
+      "role": "repeat-ack",
+      "intendedText": "[DRAFT — owner to approve] Muy bien dicho. Ahora otra vez.",
+      "sourceStart": null,
+      "sourceEnd": null,
+      "heardText": null,
+      "status": "PENDING_HEARD_ALIGNMENT_AND_OWNER_ACCEPTANCE"
+    },
+    {
+      "lineId": "l0-repeat-ack-02",
+      "lesson": 0,
+      "role": "repeat-ack",
+      "intendedText": "[DRAFT — owner to approve] ¡Otra vez, más fuerte!",
+      "sourceStart": null,
+      "sourceEnd": null,
+      "heardText": null,
+      "status": "PENDING_HEARD_ALIGNMENT_AND_OWNER_ACCEPTANCE"
+    },
+    {
+      "lineId": "l0-dont-know-01",
+      "lesson": 0,
+      "role": "dont-know",
+      "intendedText": "[DRAFT — owner to approve] No pasa nada. Escucha y repite conmigo.",
+      "sourceStart": null,
+      "sourceEnd": null,
+      "heardText": null,
+      "status": "PENDING_HEARD_ALIGNMENT_AND_OWNER_ACCEPTANCE"
+    },
+    {
+      "lineId": "l0-dont-know-02",
+      "lesson": 0,
+      "role": "dont-know",
+      "intendedText": "[DRAFT — owner to approve] Tranquilo. Primero escucha la palabra.",
+      "sourceStart": null,
+      "sourceEnd": null,
+      "heardText": null,
+      "status": "PENDING_HEARD_ALIGNMENT_AND_OWNER_ACCEPTANCE"
+    },
+    {
+      "lineId": "l0-dont-know-03",
+      "lesson": 0,
+      "role": "dont-know",
+      "intendedText": "[DRAFT — owner to approve] No te preocupes. La hacemos juntos.",
+      "sourceStart": null,
+      "sourceEnd": null,
+      "heardText": null,
+      "status": "PENDING_HEARD_ALIGNMENT_AND_OWNER_ACCEPTANCE"
+    },
+    {
+      "lineId": "l0-help-01",
+      "lesson": 0,
+      "role": "help",
+      "intendedText": "[DRAFT — owner to approve] Escucha bien el sonido y repite.",
+      "sourceStart": null,
+      "sourceEnd": null,
+      "heardText": null,
+      "status": "PENDING_HEARD_ALIGNMENT_AND_OWNER_ACCEPTANCE"
+    },
+    {
+      "lineId": "l0-help-02",
+      "lesson": 0,
+      "role": "help",
+      "intendedText": "[DRAFT — owner to approve] Mírame. Di la palabra conmigo.",
+      "sourceStart": null,
+      "sourceEnd": null,
+      "heardText": null,
+      "status": "PENDING_HEARD_ALIGNMENT_AND_OWNER_ACCEPTANCE"
+    },
+    {
+      "lineId": "l0-help-03",
+      "lesson": 0,
+      "role": "help",
+      "intendedText": "[DRAFT — owner to approve] Primero escucha, luego repite despacio.",
+      "sourceStart": null,
+      "sourceEnd": null,
+      "heardText": null,
+      "status": "PENDING_HEARD_ALIGNMENT_AND_OWNER_ACCEPTANCE"
+    },
+    {
+      "lineId": "l0-silence-nudge-01",
+      "lesson": 0,
+      "role": "silence-nudge",
+      "intendedText": "[DRAFT — owner to approve] No te oigo. Acércate al micrófono.",
+      "sourceStart": null,
+      "sourceEnd": null,
+      "heardText": null,
+      "status": "PENDING_HEARD_ALIGNMENT_AND_OWNER_ACCEPTANCE"
+    },
+    {
+      "lineId": "l0-silence-nudge-02",
+      "lesson": 0,
+      "role": "silence-nudge",
+      "intendedText": "[DRAFT — owner to approve] Habla un poquito más fuerte.",
+      "sourceStart": null,
+      "sourceEnd": null,
+      "heardText": null,
+      "status": "PENDING_HEARD_ALIGNMENT_AND_OWNER_ACCEPTANCE"
+    },
+    {
+      "lineId": "l0-silence-nudge-03",
+      "lesson": 0,
+      "role": "silence-nudge",
+      "intendedText": "[DRAFT — owner to approve] ¿Estás ahí? Dime la palabra cuando quieras.",
+      "sourceStart": null,
+      "sourceEnd": null,
+      "heardText": null,
+      "status": "PENDING_HEARD_ALIGNMENT_AND_OWNER_ACCEPTANCE"
+    },
+    {
+      "lineId": "l0-noise-01",
+      "lesson": 0,
+      "role": "noise",
+      "intendedText": "[DRAFT — owner to approve] Hay mucho ruido. Busquemos un lugar tranquilo.",
+      "sourceStart": null,
+      "sourceEnd": null,
+      "heardText": null,
+      "status": "PENDING_HEARD_ALIGNMENT_AND_OWNER_ACCEPTANCE"
+    },
+    {
+      "lineId": "l0-noise-02",
+      "lesson": 0,
+      "role": "noise",
+      "intendedText": "[DRAFT — owner to approve] Escucho ruido. Vamos a un lugar más callado.",
+      "sourceStart": null,
+      "sourceEnd": null,
+      "heardText": null,
+      "status": "PENDING_HEARD_ALIGNMENT_AND_OWNER_ACCEPTANCE"
+    },
+    {
+      "lineId": "l0-redirect-01",
+      "lesson": 0,
+      "role": "redirect",
+      "intendedText": "[DRAFT — owner to approve] Vamos a seguir con la siguiente palabra.",
+      "sourceStart": null,
+      "sourceEnd": null,
+      "heardText": null,
+      "status": "PENDING_HEARD_ALIGNMENT_AND_OWNER_ACCEPTANCE"
+    },
+    {
+      "lineId": "l0-redirect-02",
+      "lesson": 0,
+      "role": "redirect",
+      "intendedText": "[DRAFT — owner to approve] Sigue con la siguiente.",
+      "sourceStart": null,
+      "sourceEnd": null,
+      "heardText": null,
+      "status": "PENDING_HEARD_ALIGNMENT_AND_OWNER_ACCEPTANCE"
+    },
+    {
+      "lineId": "l0-redirect-03",
+      "lesson": 0,
+      "role": "redirect",
+      "intendedText": "[DRAFT — owner to approve] Dejemos esa y seguimos aprendiendo.",
+      "sourceStart": null,
+      "sourceEnd": null,
+      "heardText": null,
+      "status": "PENDING_HEARD_ALIGNMENT_AND_OWNER_ACCEPTANCE"
+    },
+    {
+      "lineId": "l0-review-intro-01",
+      "lesson": 0,
+      "role": "review-intro",
+      "intendedText": "[DRAFT — owner to approve] Vamos a repasar lo que aprendimos.",
+      "sourceStart": null,
+      "sourceEnd": null,
+      "heardText": null,
+      "status": "PENDING_HEARD_ALIGNMENT_AND_OWNER_ACCEPTANCE"
+    },
+    {
+      "lineId": "l0-review-intro-02",
+      "lesson": 0,
+      "role": "review-intro",
+      "intendedText": "[DRAFT — owner to approve] Ahora repasamos juntos.",
+      "sourceStart": null,
+      "sourceEnd": null,
+      "heardText": null,
+      "status": "PENDING_HEARD_ALIGNMENT_AND_OWNER_ACCEPTANCE"
+    },
+    {
+      "lineId": "l0-closing-01",
+      "lesson": 0,
+      "role": "closing",
+      "intendedText": "[DRAFT — owner to approve] ¡Muy bien! Terminamos por hoy.",
+      "sourceStart": null,
+      "sourceEnd": null,
+      "heardText": null,
+      "status": "PENDING_HEARD_ALIGNMENT_AND_OWNER_ACCEPTANCE"
+    },
+    {
+      "lineId": "l0-closing-02",
+      "lesson": 0,
+      "role": "closing",
+      "intendedText": "[DRAFT — owner to approve] ¡Gran trabajo! Nos vemos en la próxima lección.",
+      "sourceStart": null,
+      "sourceEnd": null,
+      "heardText": null,
+      "status": "PENDING_HEARD_ALIGNMENT_AND_OWNER_ACCEPTANCE"
+    },
+    {
+      "lineId": "l0-closing-03",
+      "lesson": 0,
+      "role": "closing",
+      "intendedText": "[DRAFT — owner to approve] Adiós. ¡Hasta pronto!",
+      "sourceStart": null,
+      "sourceEnd": null,
+      "heardText": null,
+      "status": "PENDING_HEARD_ALIGNMENT_AND_OWNER_ACCEPTANCE"
+    },
+    {
+      "lineId": "l0-idle-end-01",
+      "lesson": 0,
+      "role": "idle-end",
+      "intendedText": "[DRAFT — owner to approve] Descansa un poco. Nos vemos pronto.",
+      "sourceStart": null,
+      "sourceEnd": null,
+      "heardText": null,
+      "status": "PENDING_HEARD_ALIGNMENT_AND_OWNER_ACCEPTANCE"
+    },
+    {
+      "lineId": "l0-vowel-model-a",
+      "lesson": 0,
+      "role": "vowel-model",
+      "intendedText": "[DRAFT — owner to approve] a",
+      "sourceStart": null,
+      "sourceEnd": null,
+      "heardText": null,
+      "status": "PENDING_HEARD_ALIGNMENT_AND_OWNER_ACCEPTANCE"
+    },
+    {
+      "lineId": "l0-vowel-model-e",
+      "lesson": 0,
+      "role": "vowel-model",
+      "intendedText": "[DRAFT — owner to approve] e",
+      "sourceStart": null,
+      "sourceEnd": null,
+      "heardText": null,
+      "status": "PENDING_HEARD_ALIGNMENT_AND_OWNER_ACCEPTANCE"
+    },
+    {
+      "lineId": "l0-vowel-model-i",
+      "lesson": 0,
+      "role": "vowel-model",
+      "intendedText": "[DRAFT — owner to approve] i",
+      "sourceStart": null,
+      "sourceEnd": null,
+      "heardText": null,
+      "status": "PENDING_HEARD_ALIGNMENT_AND_OWNER_ACCEPTANCE"
+    },
+    {
+      "lineId": "l0-vowel-model-o",
+      "lesson": 0,
+      "role": "vowel-model",
+      "intendedText": "[DRAFT — owner to approve] o",
+      "sourceStart": null,
+      "sourceEnd": null,
+      "heardText": null,
+      "status": "PENDING_HEARD_ALIGNMENT_AND_OWNER_ACCEPTANCE"
+    },
+    {
+      "lineId": "l0-vowel-model-u",
+      "lesson": 0,
+      "role": "vowel-model",
+      "intendedText": "[DRAFT — owner to approve] u",
+      "sourceStart": null,
+      "sourceEnd": null,
+      "heardText": null,
+      "status": "PENDING_HEARD_ALIGNMENT_AND_OWNER_ACCEPTANCE"
+    }
+  ]
+}

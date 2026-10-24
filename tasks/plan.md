@@ -60,3 +60,7 @@ Printed Workbook pages **86 and 87 are not blank pages that still need conversio
 ## Definition of this plan being complete
 
 This plan is complete only when all real gaps against `PROJECT_FINISH_DEFINITION.md` are closed with objective evidence. Merged PRs, completed Jules sessions, a successful build, or a clean issue list alone do not equal product completion.
+
+## Gretel Tutor — PR #1073 (2026-10-21)
+
+Continue the existing draft branch `feat/gretel-tutor-l1-3`; do not dispatch a duplicate implementation. Current Tutor-only GRT-01…11 implementation/evidence and remaining owner/device gates are maintained in [docs/tutor/REMAINING-WORK.md](../docs/tutor/REMAINING-WORK.md). Original master audio was recovered and hash-checked; pending text/utterance alignment remains unverified. Production/release, new art/voice activation, privacy policy and real-student rollout remain held.

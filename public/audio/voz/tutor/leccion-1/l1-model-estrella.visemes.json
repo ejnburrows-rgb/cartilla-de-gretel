@@ -1,0 +1,67 @@
+{
+  "metadata": {
+    "soundFile": "/audio/voz/vocabulario/estrella.mp3",
+    "duration": 1.77,
+    "rhubarbVersion": "1.14.0",
+    "recognizer": "phonetic",
+    "extendedShapes": "GX",
+    "sourceSha256": "d6efdf026fc5da58adb1adaa8405150c731f1b3c3e11f5042130e2c463cf7e63"
+  },
+  "mouthCues": [
+    {
+      "start": 0,
+      "end": 0.21,
+      "value": "X"
+    },
+    {
+      "start": 0.21,
+      "end": 0.34,
+      "value": "E"
+    },
+    {
+      "start": 0.34,
+      "end": 0.66,
+      "value": "F"
+    },
+    {
+      "start": 0.66,
+      "end": 0.72,
+      "value": "B"
+    },
+    {
+      "start": 0.72,
+      "end": 0.92,
+      "value": "C"
+    },
+    {
+      "start": 0.92,
+      "end": 1.13,
+      "value": "B"
+    },
+    {
+      "start": 1.13,
+      "end": 1.2,
+      "value": "E"
+    },
+    {
+      "start": 1.2,
+      "end": 1.27,
+      "value": "C"
+    },
+    {
+      "start": 1.27,
+      "end": 1.41,
+      "value": "E"
+    },
+    {
+      "start": 1.41,
+      "end": 1.48,
+      "value": "C"
+    },
+    {
+      "start": 1.48,
+      "end": 1.77,
+      "value": "X"
+    }
+  ]
+}

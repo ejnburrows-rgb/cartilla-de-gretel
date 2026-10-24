@@ -1,0 +1,52 @@
+{
+  "metadata": {
+    "soundFile": "/audio/voz/vocabulario/uvas.mp3",
+    "duration": 1.78,
+    "rhubarbVersion": "1.14.0",
+    "recognizer": "phonetic",
+    "extendedShapes": "GX",
+    "sourceSha256": "86904e566b5ef218808735418e8517df2d41d90e156f663341cd3a4201061c7a"
+  },
+  "mouthCues": [
+    {
+      "start": 0,
+      "end": 0.24,
+      "value": "X"
+    },
+    {
+      "start": 0.24,
+      "end": 0.31,
+      "value": "B"
+    },
+    {
+      "start": 0.31,
+      "end": 0.52,
+      "value": "E"
+    },
+    {
+      "start": 0.52,
+      "end": 0.6,
+      "value": "A"
+    },
+    {
+      "start": 0.6,
+      "end": 1,
+      "value": "C"
+    },
+    {
+      "start": 1,
+      "end": 1.28,
+      "value": "G"
+    },
+    {
+      "start": 1.28,
+      "end": 1.42,
+      "value": "B"
+    },
+    {
+      "start": 1.42,
+      "end": 1.78,
+      "value": "X"
+    }
+  ]
+}
