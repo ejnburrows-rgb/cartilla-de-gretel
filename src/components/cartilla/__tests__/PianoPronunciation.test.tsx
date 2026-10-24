@@ -5,11 +5,22 @@ import { describe, it, expect, vi, beforeEach, afterEach } from "vitest";
 import { render, cleanup, screen, fireEvent, act } from "@testing-library/react";
 import React from "react";
 import { PianoPronunciation, PIANO_DESIGN_STORAGE_KEY } from "../PianoPronunciation";
-import { CONFIRMED_GREEN, RAMP_STOPS, rampColor } from "../piano/piano-keyboard";
+import { CONFIRMED_GREEN, GROUP_RED, GROUP_YELLOW } from "../piano/piano-keyboard";
+import {
+  FEEDBACK_GUARD_MS,
+  RELEASE_AFTER_MS,
+  TRY_AGAIN,
+  WELL_DONE,
+  YELLOW_AFTER_MS,
+} from "../piano/usePianoGroups";
 import { MELODY_STEP_MS, SPARKLE_MS } from "../piano/usePianoSession";
 
 // --- Microphone: the piano's own listening hook, driven by the test --------
-type Listen = { onFinal: (t: string) => void; onInterim?: (t: string) => void };
+type Listen = {
+  onFinal: (t: string) => void;
+  onInterim?: (t: string) => void;
+  onSound?: (active: boolean) => void;
+};
 let lastListen: Listen | null = null;
 let mockStatus: "idle" | "starting" | "listening" | "hearing" = "idle";
 let mockProblem: string | null = null;
@@ -93,6 +104,32 @@ function hear(transcript: string) {
   });
 }
 
+/** The microphone picks up sound (true) or the sound stops (false). */
+function sound(active: boolean) {
+  act(() => {
+    lastListen?.onSound?.(active);
+  });
+}
+
+function interim(transcript: string) {
+  act(() => {
+    lastListen?.onInterim?.(transcript);
+  });
+}
+
+/** Let the piano finish its own spoken feedback before the child talks again. */
+async function settle() {
+  await act(async () => {
+    await vi.advanceTimersByTimeAsync(FEEDBACK_GUARD_MS + 10);
+  });
+}
+
+function groupState(group: number) {
+  return screen.getByTestId(`piano-group-${group}`).getAttribute("data-group-state");
+}
+
+const PALETA = [{ word: "paleta", syllables: ["pa", "le", "ta"] }];
+
 function keyState(index: number) {
   return screen
     .getByTestId(`piano-key-${index}`)
@@ -125,25 +162,175 @@ describe.each([["piano"], ["cancionero"]] as const)("PianoPronunciation (%s desi
     window.localStorage.clear();
   });
 
-  if (design === "piano") {
-    it("colors the syllables left to right red → orange → yellow, then green only when said", () => {
-      render(<PianoPronunciation syllables={["ma", "me", "mi"]} />);
-      expect(keyColor(0)).toBe(RAMP_STOPS[0]);
-      expect(keyColor(1)).toBe(RAMP_STOPS[1]);
-      expect(keyColor(2)).toBe(RAMP_STOPS[2]);
-      expect(noteColor(0)).toBe(RAMP_STOPS[0]);
-      hear("pa"); // wrong: no color change
-      expect(keyColor(0)).toBe(RAMP_STOPS[0]);
-      hear("ma");
-      expect(keyColor(0)).toBe(CONFIRMED_GREEN);
-      expect(keyColor(1)).toBe(RAMP_STOPS[1]);
-      expect(keyColor(2)).toBe(RAMP_STOPS[2]);
-    });
+  /** Piano: syllable i lives on keys 3i..3i+2; Cancionero: one key each. */
+  const k = (syllable: number) => (design === "piano" ? syllable * 3 : syllable);
+  /** Say a whole word: syllable by syllable on the Piano, at once on the Cancionero. */
+  async function sayWord(word: string, syllables: string[]) {
+    if (design !== "piano") {
+      hear(word);
+      return;
+    }
+    for (const syllable of syllables) {
+      hear(syllable);
+      await settle();
+    }
+  }
 
-    it("a two-syllable word goes from red to yellow", () => {
-      expect(rampColor(0, 2)).toBe(RAMP_STOPS[0]);
-      expect(rampColor(1, 2)).toBe(RAMP_STOPS[2]);
-      expect(rampColor(0, 1)).toBe(RAMP_STOPS[0]);
+  if (design === "piano") {
+    describe("Nine keys, three groups of three", () => {
+      it("shows nine keys; a two-syllable word uses two groups and leaves the third free", () => {
+        render(<PianoPronunciation syllables={[]} words={SAPO} />);
+        expect(screen.getAllByTestId(/^piano-key-/)).toHaveLength(9);
+        expect(groupState(0)).toBe("next");
+        expect(groupState(1)).toBe("pending");
+        expect(groupState(2)).toBe("free");
+        expect(screen.getByTestId("piano-key-6").getAttribute("data-key-state")).toBeNull();
+      });
+
+      it("sound presses key 1 red, the voice continuing presses key 2 yellow, recognition turns the group green", () => {
+        render(<PianoPronunciation syllables={[]} words={PALETA} lessonId="lesson-12" />);
+        for (const key of [0, 1, 2]) expect(keyState(key)).toBe("next");
+
+        sound(true); // the first noise
+        expect(keyState(0)).toBe("red");
+        expect(keyColor(0)).toBe(GROUP_RED);
+        expect(keyState(1)).toBe("next");
+        expect(keyState(2)).toBe("next");
+        expect(groupState(1)).toBe("pending"); // only the current group reacts
+
+        act(() => {
+          vi.advanceTimersByTime(YELLOW_AFTER_MS);
+        });
+        expect(keyState(0)).toBe("red");
+        expect(keyState(1)).toBe("yellow");
+        expect(keyColor(1)).toBe(GROUP_YELLOW);
+        expect(keyState(2)).toBe("next"); // green needs recognition
+        expect(mockPlayNote).not.toHaveBeenCalled();
+
+        hear("pa");
+        for (const key of [0, 1, 2]) {
+          expect(keyState(key)).toBe("confirmed");
+          expect(keyColor(key)).toBe(CONFIRMED_GREEN);
+        }
+        expect(noteColor(0)).toBe(CONFIRMED_GREEN);
+        expect(screen.getAllByTestId("piano-sparkle")).toHaveLength(1);
+        expect(screen.getByTestId("piano-sparkle").getAttribute("data-sparkle-for")).toBe("0");
+        expect(screen.getByTestId("piano-message").textContent).toContain(WELL_DONE);
+        expect(mockSpeak).toHaveBeenCalledWith(WELL_DONE);
+        // Next group is up; the finished one stays green.
+        expect(groupState(1)).toBe("next");
+        act(() => {
+          vi.advanceTimersByTime(5000);
+        });
+        expect(screen.queryByTestId("piano-sparkle")).toBeNull();
+        expect(keyColor(0)).toBe(CONFIRMED_GREEN);
+        expect(keyColor(2)).toBe(CONFIRMED_GREEN);
+      });
+
+      it("recognizer text arriving presses red and yellow at once", () => {
+        render(<PianoPronunciation syllables={[]} words={PALETA} />);
+        interim("pa");
+        expect(keyState(0)).toBe("red");
+        expect(keyState(1)).toBe("yellow");
+        expect(keyState(2)).toBe("next");
+      });
+
+      it("wrong syllable: «Tratemos otra vez», only this group restarts, earlier groups stay green", async () => {
+        render(<PianoPronunciation syllables={[]} words={PALETA} />);
+        hear("pa");
+        await settle();
+        mockSpeak.mockClear();
+        mockPlayNote.mockClear();
+
+        sound(true);
+        act(() => {
+          vi.advanceTimersByTime(YELLOW_AFTER_MS);
+        });
+        expect(keyState(3)).toBe("red");
+        expect(keyState(4)).toBe("yellow");
+        hear("pato");
+        expect(screen.getByTestId("piano-message").textContent).toContain(TRY_AGAIN);
+        expect(mockSpeak).toHaveBeenCalledWith(TRY_AGAIN);
+        for (const key of [3, 4, 5]) expect(keyState(key)).toBe("next");
+        for (const key of [0, 1, 2]) expect(keyState(key)).toBe("confirmed");
+        expect(document.querySelector('[data-sparkle-for="1"]')).toBeNull();
+        expect(mockPlayNote).not.toHaveBeenCalled();
+        expect(mockPlayWrongBuzz).not.toHaveBeenCalled();
+
+        await settle();
+        hear("le");
+        for (const key of [3, 4, 5]) expect(keyState(key)).toBe("confirmed");
+        expect(groupState(2)).toBe("next");
+      });
+
+      it("sound alone never turns anything green, and the keys lift when it stops", () => {
+        render(<PianoPronunciation syllables={[]} words={PALETA} />);
+        sound(true);
+        act(() => {
+          vi.advanceTimersByTime(10000);
+        });
+        expect(keyState(1)).toBe("yellow");
+        expect(keyState(2)).toBe("next");
+        sound(false);
+        act(() => {
+          vi.advanceTimersByTime(RELEASE_AFTER_MS);
+        });
+        for (const key of [0, 1, 2]) expect(keyState(key)).toBe("next");
+        expect(screen.queryByTestId("piano-sparkle")).toBeNull();
+        expect(mockPlayCorrectChord).not.toHaveBeenCalled();
+      });
+
+      it("one syllable at a time: the whole word or a containing word does not skip a group", () => {
+        render(<PianoPronunciation syllables={[]} words={PALETA} />);
+        for (const wrong of ["paleta", "papa", "pala", "casa"]) hear(wrong);
+        expect(groupState(0)).toBe("next");
+        expect(keyColor(2)).not.toBe(CONFIRMED_GREEN);
+      });
+
+      it("ignores what the microphone hears while the piano says «¡Muy bien!»", async () => {
+        render(<PianoPronunciation syllables={[]} words={PALETA} />);
+        hear("pa");
+        hear("le"); // still speaking its own feedback: ignored
+        sound(true);
+        expect(groupState(1)).toBe("next");
+        await settle();
+        hear("le");
+        expect(groupState(1)).toBe("confirmed");
+      });
+
+      it("finishing the third group celebrates once and records only the outcome", async () => {
+        render(<PianoPronunciation syllables={[]} words={PALETA} lessonId="lesson-12" />);
+        await sayWord("paleta", ["pa", "le", "ta"]);
+        expect(groupState(0)).toBe("confirmed");
+        expect(groupState(1)).toBe("confirmed");
+        expect(groupState(2)).toBe("confirmed");
+        expect(mockPlayCorrectChord).toHaveBeenCalledTimes(1);
+        expect(screen.getByTestId("piano-success")).toBeTruthy();
+        act(() => {
+          vi.advanceTimersByTime(700);
+        });
+        expect(mockGretelSpeak).toHaveBeenCalledTimes(1);
+        expect(mockRecordEvent).toHaveBeenCalledTimes(1);
+        expect(JSON.stringify(mockRecordEvent.mock.calls[0])).not.toMatch(/transcript|audio|blob/i);
+      });
+
+      it("the switch chooses Palabras (book words) or Sílabas (lesson syllables, three at a time)", () => {
+        render(<PianoPronunciation syllables={["pa", "pe", "pi", "po", "pu"]} words={PALETA} />);
+        expect(screen.getByTestId("piano-mode-palabras").getAttribute("aria-pressed")).toBe("true");
+        expect(screen.getByTestId("piano-note-1").textContent).toContain("le");
+        fireEvent.click(screen.getByTestId("piano-mode-silabas"));
+        expect(screen.getByTestId("piano-mode-silabas").getAttribute("aria-pressed")).toBe("true");
+        expect(screen.getByTestId("piano-note-0").textContent).toContain("pa");
+        expect(screen.getByTestId("piano-note-1").textContent).toContain("pe");
+        expect(screen.getByTestId("piano-note-2").textContent).toContain("pi");
+        expect(screen.getByText(/Ronda 1 de 2/)).toBeTruthy();
+        expect(groupState(0)).toBe("next");
+      });
+
+      it("shows no switch when only one kind of practice exists", () => {
+        render(<PianoPronunciation syllables={[]} words={PALETA} />);
+        expect(screen.queryByTestId("piano-mode-silabas")).toBeNull();
+      });
     });
   }
 
@@ -217,6 +404,7 @@ describe.each([["piano"], ["cancionero"]] as const)("PianoPronunciation (%s desi
   });
 
   describe("Word mode (Sapo = SA–PO)", () => {
+    if (design === "cancionero") {
     it("turns SA green with one sparkle, keeps it green, then PO turns green with one sparkle and one Gretel message", () => {
       render(<PianoPronunciation syllables={["sa"]} words={SAPO} lessonId="lesson-9" />);
       expect(keyState(0)).toBe("next");
@@ -284,30 +472,34 @@ describe.each([["piano"], ["cancionero"]] as const)("PianoPronunciation (%s desi
       expect(keyColor(0)).toBe(CONFIRMED_GREEN);
       expect(keyColor(1)).toBe(CONFIRMED_GREEN);
     });
+    }
 
     it("never confirms a key from words that merely contain the syllable", () => {
       render(<PianoPronunciation syllables={["sa"]} words={SAPO} />);
       for (const wrong of ["casa", "papo", "sopa", "esa", "pasó", "masa"]) hear(wrong);
-      expect(keyState(0)).toBe("next");
-      expect(keyState(1)).toBe("pending");
+      expect(keyState(k(0))).toBe("next");
+      expect(keyState(k(1))).toBe("pending");
       expect(mockPlayCorrectChord).not.toHaveBeenCalled();
       expect(mockPlayWrongBuzz).not.toHaveBeenCalled();
       // No fake recognition: no green, no sparkle.
-      expect(keyColor(0)).not.toBe(CONFIRMED_GREEN);
+      expect(keyColor(k(0) + (design === "piano" ? 2 : 0))).not.toBe(CONFIRMED_GREEN);
       expect(screen.queryByTestId("piano-sparkle")).toBeNull();
     });
 
-    it("moves to the next verified word and celebrates it separately", () => {
+    it("moves to the next verified word and celebrates it separately", async () => {
       render(<PianoPronunciation syllables={["sa"]} words={TWO_WORDS} />);
-      hear("sapo");
+      await sayWord("sapo", ["sa", "po"]);
       expect(mockPlayCorrectChord).toHaveBeenCalledTimes(1);
       fireEvent.click(screen.getByTestId("piano-next"));
       expect(screen.getByTestId("piano-key-0").getAttribute("data-key-state")).toBe(
         "next",
       );
       expect(keyState(0)).toBe("next");
+      act(() => {
+        vi.advanceTimersByTime(SPARKLE_MS);
+      });
       expect(screen.queryByTestId("piano-sparkle")).toBeNull();
-      hear("masa");
+      await sayWord("masa", ["ma", "sa"]);
       expect(mockPlayCorrectChord).toHaveBeenCalledTimes(2);
     });
 
@@ -342,8 +534,8 @@ describe.each([["piano"], ["cancionero"]] as const)("PianoPronunciation (%s desi
       expect(screen.queryByTestId("piano-touch-mode")).toBeNull();
       fireEvent.click(screen.getByTestId("piano-key-0"));
       fireEvent.keyDown(window, { key: "a" });
-      expect(keyState(0)).toBe("next");
-      expect(keyState(1)).toBe("pending");
+      expect(keyState(k(0))).toBe("next");
+      expect(keyState(k(1))).toBe("pending");
       expect(mockPlayCorrectChord).not.toHaveBeenCalled();
     });
 
@@ -382,9 +574,9 @@ describe.each([["piano"], ["cancionero"]] as const)("PianoPronunciation (%s desi
       expect(mic.disabled).toBe(true);
       expect(screen.queryByTestId("piano-touch-mode")).toBeNull();
       fireEvent.click(screen.getByTestId("piano-key-0"));
-      fireEvent.click(screen.getByTestId("piano-key-1"));
-      expect(keyState(0)).toBe("next");
-      expect(keyState(1)).toBe("pending");
+      fireEvent.click(screen.getByTestId(`piano-key-${k(1)}`));
+      expect(keyState(k(0))).toBe("next");
+      expect(keyState(k(1))).toBe("pending");
       expect(mockPlayCorrectChord).not.toHaveBeenCalled();
       expect(mockStart).not.toHaveBeenCalled();
     });
@@ -474,7 +666,7 @@ describe("PianoPronunciation design choice", () => {
     render(<PianoPronunciation syllables={["a", "e", "i", "o", "u", "ma"]} />);
     expect(designShown()).toBe("piano");
     expect(screen.queryByTestId("piano-design-cancionero")).toBeNull();
-    expect(screen.getAllByTestId(/^piano-key-/)).toHaveLength(8);
+    expect(screen.getAllByTestId(/^piano-key-/)).toHaveLength(9);
     expect(screen.queryByRole("button", { name: /^Tecla / })).toBeNull();
   });
 });

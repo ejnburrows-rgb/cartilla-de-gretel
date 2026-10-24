@@ -116,3 +116,32 @@ export const STATE_LABEL = {
   confirmed: "lista",
 } as const;
 
+/**
+ * Design A ("Piano") — owner-approved 2026-10-23: nine white keys in three
+ * groups of three, one group per syllable, left to right. For the group being
+ * practiced: the first key presses RED as soon as the microphone picks up
+ * sound, the second presses YELLOW while the voice continues, and the third
+ * presses GREEN only when the syllable is recognized — then all three keys of
+ * that group turn green and stay green.
+ */
+export const GROUP_SIZE = 3;
+export const GROUP_COUNT = 3;
+export const GROUP_RED = "#ef4444";
+export const GROUP_YELLOW = "#facc15";
+
+/** Nine white keys, do → re alto (C4 → D5), three per syllable group. */
+export const NINE_WHITE: WhiteKey[] = [
+  ...OCTAVE_WHITE,
+  { id: "D5", name: "re alto", freq: 587.33 },
+];
+
+export type GroupKeyState = "pending" | "next" | "red" | "yellow" | "confirmed";
+
+/** Accessible state words for a syllable group. */
+export const GROUP_STATE_LABEL = {
+  pending: "después",
+  next: "tu turno",
+  red: "te oigo",
+  yellow: "escuchando",
+  confirmed: "lista",
+} as const;

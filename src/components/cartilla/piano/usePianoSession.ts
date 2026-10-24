@@ -59,7 +59,7 @@ export const MELODY_STEP_MS = 170;
 export const SPARKLE_MS = 900;
 
 /** One example at a time; resolves when it finishes or is interrupted. */
-function playExample(text: string, recording: string | undefined): Promise<void> {
+export function playExample(text: string, recording: string | undefined): Promise<void> {
   if (!recording || typeof Audio === "undefined") return speak(text);
   return new Promise<void>((resolve) => {
     const token = claimSpeech("reading");
