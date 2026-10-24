@@ -1,4 +1,6 @@
+import { sourceActivityGeometry, sourceWordStyle } from "@/lib/workbook-source-geometry";
 import "@/styles/native-lesson.css";
+import sourceGeometry from "@/data/workbook-middle-source-geometry.json";
 import { Lesson16GardenText } from "./lesson16/Lesson16Text";
 import type { ReactNode } from "react";
 import { GretelActivity } from "@/components/gretel/GretelActivity";
@@ -308,6 +310,7 @@ function RegionView({
   siblingCells,
   native,
   pageNumber,
+  sightWords,
 }: {
   region: PageRegion;
   interactive?: boolean;
@@ -323,12 +326,14 @@ function RegionView({
   siblingCells?: PageGridCell[];
   native?: boolean;
   pageNumber?: number;
+  sightWords?: string[];
 }) {
   // Host chosen once so Colorea never silently becomes tap-select, and
   // Encierra uses the approved pencil circle and Une uses pencil lines.
   const host = interactive
     ? resolveFaithfulHost(region.regionType, precedingInstruction)
     : "static";
+  const sourceLayout = Boolean(native && pageNumber && pageNumber >= 23 && pageNumber <= 66);
 
   switch (region.regionType) {
     case "illustration-slot":
@@ -423,11 +428,12 @@ function RegionView({
         <VowelMatchAll region={region} />
       );
     case "syllable-match":
-      return interactive ? <SyllableWordCircle region={region} lessonId={lessonId} />
+      return interactive ? <SyllableWordCircle region={region} lessonId={lessonId} sourceWords={sourceLayout ? sourceActivityGeometry(pageNumber)?.circles?.[region.id] : undefined} />
         : <SyllableMatch region={region} />;
     case "fill-in-blank":
       return interactive ? (
         <InteractiveFillInBlank
+          sourceItems={sourceLayout ? sourceActivityGeometry(pageNumber)?.fills : undefined}
           region={region}
           accent={accent ?? "hsl(230 75% 58%)"}
           lessonId={lessonId}
@@ -437,7 +443,7 @@ function RegionView({
       );
     case "instruction": {
       const instructionText =
-        lessonNumber === 16 && region.text ? (
+        lessonNumber === 16 && region.text && !(pageNumber && pageNumber >= 23 && pageNumber <= 66) ? (
           // Lesson 16 wide-screen design: garden-palette instruction letters.
           <Lesson16GardenText text={region.text} />
         ) : pageNumber === 17 && region.text ? (
@@ -450,6 +456,8 @@ function RegionView({
               part
             ),
           )
+        ) : sourceLayout && region.text?.startsWith("Haz un dibujo") ? (
+          region.text.split(/(\p{L}{1,2})(\.)$/u).map((part, index) => index === 1 ? <strong key={index} style={{ color: "#269e92" }}>{part}</strong> : part)
         ) : (
           region.text
         );
@@ -464,6 +472,15 @@ function RegionView({
       );
     }
     case "writing-line": {
+      // A blank printed practice line is writing space, not a second
+      // printed model. Keep the original activity id and saved canvas.
+      if (interactive && native && pageNumber && pageNumber >= 23 && pageNumber <= 66 && !region.modelText) {
+        return (
+          <div className="fp-writing-line fp-writing-line--freehand">
+            <DibujaHost pageKey={region.id} lessonId={lessonId} initialMode="draw" verb="Escribe" sourceLayout />
+          </div>
+        );
+      }
       // Student workbook (interactive) + a faithful stroke template for this
       // model letter → real tracing exercise. The "trace it again" blank
       // line (no modelText of its own) inherits its letter from the
@@ -475,7 +492,8 @@ function RegionView({
       // line and printed model. The learner can still use the workbook page.
       if (interactive && hasTemplate) {
         return (
-          <div className="fp-writing-line fp-writing-line--trace">
+          <div className="fp-writing-line fp-writing-line--trace" tabIndex={sourceLayout ? 0 : undefined}>
+            {sourceLayout && <span className="fp-writing-line__model fp-writing-line__printed-model" aria-hidden="true">{traceLetter}</span>}
             <WorkbookLetterTrace
               modelText={traceLetter as string}
               accent={accent}
@@ -487,7 +505,7 @@ function RegionView({
       if (interactive && native) return (
         <div className="fp-writing-line fp-writing-line--freehand">
           {traceLetter && <span className="fp-writing-line__model">{traceLetter}</span>}
-          <DibujaHost pageKey={region.id} hint={traceLetter} lessonId={lessonId} initialMode="draw" verb="Escribe" />
+          <DibujaHost pageKey={region.id} hint={traceLetter} lessonId={lessonId} initialMode="draw" verb="Escribe" sourceLayout={sourceLayout} />
         </div>
       );
       return (
@@ -500,7 +518,7 @@ function RegionView({
       );
     }
     case "writing-response":
-      return <WorkbookWritingResponse pageNumber={Number(region.id.match(/^p(\d+)/)?.[1] ?? 0)} interactive={Boolean(interactive)} />;
+      return <WorkbookWritingResponse pageNumber={Number(region.id.match(/^p(\d+)/)?.[1] ?? 0)} interactive={Boolean(interactive)} sourceLayout={sourceLayout} />;
     case "draw-box":
       return interactive ? (
         <DibujaFromRegion
@@ -509,20 +527,24 @@ function RegionView({
           lessonNumber={lessonNumber}
           siblingCells={siblingCells}
           drawOnly={native}
+          sourceLayout={sourceLayout}
         />
       ) : (
         <div className="fp-draw-box" aria-label={region.text ?? "Espacio para dibujar"}>
           {region.text ? <span className="fp-draw-box__hint">{region.text}</span> : null}
         </div>
       );
-    case "reading-sentences":
+    case "reading-sentences": {
+      const measured = sourceLayout ? sourceActivityGeometry(pageNumber)?.readingWords : undefined;
+      if(measured) return <div className="fp-region--reading-sentences fp-source-story">{(region.sentences ?? []).map((sentence,line)=><p key={line}>{measured[line].map((word,index)=><span key={index} style={sourceWordStyle(word)}>{word.text}{index<measured[line].length-1 ? ' ' : ''}</span>)}</p>)}</div>;
       return (
         <div className="fp-region--reading-sentences">
           {(region.sentences ?? []).map((sentence, i) => (
-            <p key={i}>{sentence}</p>
+            <p key={i}>{sourceLayout && sightWords?.length ? sentence.split(/(\s+)/).map((word, index) => sightWords.includes(word.replace(/[^\p{L}]/gu, "").toLocaleLowerCase("es")) ? <strong key={index}>{word}</strong> : word) : sentence}</p>
           ))}
         </div>
       );
+    }
     case "title":
       return native ? (
         <h2 className="fp-native-title">{region.text}</h2>
@@ -539,20 +561,23 @@ function RegionView({
       ) : (
         <p className="fp-region--syllable-bubble">{region.text}</p>
       );
-    case "vocab-grid":
+    case "vocab-grid": {
+      const measured = sourceLayout && pageNumber ? (sourceGeometry.pages as Record<string, { vocabulary?: { text: string; left: number; top: number; fontSize: number; scaleX: number }[] }>)[String(pageNumber)]?.vocabulary : undefined;
       return native ? (
-        <div className="fp-native-vocab" style={{ gridTemplateColumns: `repeat(${region.columns ?? 3}, minmax(0, 1fr))` }}>
-          {(region.text ?? "").split(/\u00c2?\u00b7/).map((word) => word.trim()).filter(Boolean).map((word) => (
-            <span key={word}>{word}</span>
-          ))}
+        <div className={`fp-native-vocab${measured ? " fp-native-vocab--source" : ""}`} style={measured ? undefined : { gridTemplateColumns: `repeat(${region.columns ?? 3}, minmax(0, 1fr))` }}>
+          {(region.text ?? "").split(/\u00c2?\u00b7/).map((word) => word.trim()).filter(Boolean).map((word, index) => {
+            const position = measured?.[index];
+            return <span key={`${index}-${word}`} style={position ? { position: "absolute", left: `${position.left}%`, top: `${position.top}%`, fontSize: `${position.fontSize}cqw`, lineHeight: 1.3, transform: `scaleX(${position.scaleX})`, transformOrigin: "left top", whiteSpace: "nowrap" } : undefined}>{word}</span>;
+          })}
         </div>
       ) : (
         <p className="fp-region--vocab-grid">{region.text}</p>
       );
+    }
     case "sentence-line":
-      // Lesson 16 page 57 has no sight word on the source page: skip the
-      // empty box rather than rendering a blank frame.
-      if (lessonNumber === 16 && !region.text?.trim()) return null;
+      // The source includes an empty sight-word frame on page 57.
+      // Preserve the older non-source presentation outside this lane.
+      if (lessonNumber === 16 && !sourceLayout && !region.text?.trim()) return null;
       return native ? (
         <div className="fp-native-sight-word" aria-label="Palabra de enlace">{region.text}</div>
       ) : (
@@ -664,6 +689,7 @@ export function FaithfulPageRenderer({
       className={[
         letterReadingPage ? "fp-native-letter-page" : "",
         pageNumber === 17 ? "faithful-page--archetype4-p17" : "",
+        native && pageNumber >= 23 && pageNumber <= 66 ? "faithful-page--lane-b" : "",
         ...archetypeClasses,
       ].filter(Boolean).join(" ") || undefined}
     >
@@ -689,6 +715,7 @@ export function FaithfulPageRenderer({
             siblingCells={siblingCells}
             native={native}
             pageNumber={pageNumber}
+            sightWords={ordered.find((r) => r.regionType === "sentence-line")?.text?.toLocaleLowerCase("es").split(/\s+/).filter(Boolean)}
           />
           </GretelActivity>
         );

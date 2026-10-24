@@ -29,6 +29,7 @@ export interface WorkbookWritingResponseProps {
   pageNumber: number;
   interactive: boolean;
   prompt?: string;
+  sourceLayout?: boolean;
 }
 
 /** Open-ended writing stays open-ended; no guessed grading or answer key. */
@@ -37,7 +38,7 @@ export function WorkbookWritingResponse(props: WorkbookWritingResponseProps) {
   return <LearnerWritingResponse key={`${scope}:${props.pageNumber}`} {...props} />;
 }
 
-function LearnerWritingResponse({ pageNumber, interactive, prompt }: WorkbookWritingResponseProps) {
+function LearnerWritingResponse({ pageNumber, interactive, prompt, sourceLayout = false }: WorkbookWritingResponseProps) {
   const { emit: gretelEvent } = useActivityEvents();
   const storagePrefix = `cartilla-writing-page-${pageNumber}`;
   const keyTyped = learnerStorageKey(`${storagePrefix}-typed`);
@@ -319,9 +320,9 @@ function LearnerWritingResponse({ pageNumber, interactive, prompt }: WorkbookWri
   }
 
   return (
-    <div className="fp-writing-response" data-mode={mode}>
+    <div className={`fp-writing-response${sourceLayout ? " wb-source-tools" : ""}`} data-mode={mode}>
       <div className="flex items-center justify-between gap-2 mb-2">
-        <span className="font-bold text-teal-800 text-base">{prompt ?? "Mis oraciones"}</span>
+        {!sourceLayout && <span className="font-bold text-teal-800 text-base">{prompt ?? "Mis oraciones"}</span>}
 
         {/* Mode Toggle & Actions */}
         <div className="flex items-center gap-2">
@@ -390,11 +391,11 @@ function LearnerWritingResponse({ pageNumber, interactive, prompt }: WorkbookWri
             value={value}
             onChange={(e) => handleTextChange(e.target.value)}
             className="relative z-10 w-full min-h-[170px] resize-vertical bg-transparent p-4 text-stone-800 font-medium text-xl leading-[42px] focus:outline-none focus:ring-2 focus:ring-teal-600 rounded-2xl"
-            placeholder="Escribe tus oraciones aquí..."
+            placeholder={sourceLayout ? "" : "Escribe tus oraciones aquí..."}
           />
         </div>
       ) : (
-        <div className="relative w-full rounded-2xl border border-teal-200/80 overflow-hidden bg-[#fffdf9] p-2 flex flex-col gap-2">
+        <div className={`relative w-full rounded-2xl border border-teal-200/80 overflow-hidden bg-[#fffdf9] p-2 flex flex-col gap-2${sourceLayout ? " wb-source-freehand" : ""}`}>
           <div className="relative w-full h-[180px] rounded-xl border border-teal-100 bg-[#fffdf9]">
             {/* Handwriting lines background */}
             <div className="absolute inset-0 pointer-events-none flex flex-col justify-around py-3 px-4 opacity-30">
@@ -405,6 +406,7 @@ function LearnerWritingResponse({ pageNumber, interactive, prompt }: WorkbookWri
 
             <canvas
               ref={canvasRef}
+              tabIndex={sourceLayout ? 0 : undefined}
               className="absolute inset-0 w-full h-full touch-none z-10"
               onPointerDown={onPointerDown}
               onPointerMove={onPointerMove}

@@ -23,6 +23,10 @@ export function useFitToPage(rootRef: RefObject<HTMLElement | null>, key: unknow
     const fitBody = (body: HTMLElement) => {
       body.style.setProperty("--lc-fit", "1");
       body.removeAttribute("data-lc-fit-overflow");
+      // These source-positioned pages scale as a single logical sheet.
+      // Hidden, focus-revealed drawing toolbars must not be mistaken for
+      // overflowing printed content and stretch the sheet to screen height.
+      if (body.closest(".faithful-page--lane-b")) return;
       if (fits(body)) return;
       let lo = MIN_FIT;
       let hi = 1;

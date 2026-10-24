@@ -1,0 +1,2829 @@
+[
+  {
+    "page": 23,
+    "lesson": 8,
+    "url": "http://127.0.0.1:5173/cartilla/leccion/8",
+    "viewport": {
+      "width": 390,
+      "height": 844
+    },
+    "errors": [],
+    "paper": {
+      "x": 10,
+      "y": 44,
+      "width": 370,
+      "height": 478.8125
+    },
+    "text": "Escribe con tu mejor letra.\n\nP\np\n\nHaz un dibujo que represente una palabra que comienza con p.\n\n23\nLección 8",
+    "subjectImages": 0,
+    "documentWidth": 390,
+    "viewportWidth": 390,
+    "fontFamily": "\"Workbook Gothic\", sans-serif",
+    "fontLoaded": true,
+    "blocks": [
+      {
+        "id": "page-23-p23-instr1",
+        "x": 12.03125,
+        "y": 36.75,
+        "width": 301.75,
+        "height": 28.59375
+      },
+      {
+        "id": "page-23-p23-write-U",
+        "x": 12.03125,
+        "y": 82.046875,
+        "width": 51.515625,
+        "height": 47.671875
+      },
+      {
+        "id": "page-23-p23-write-U2",
+        "x": 63.546875,
+        "y": 82.046875,
+        "width": 250.234375,
+        "height": 47.671875
+      },
+      {
+        "id": "page-23-p23-write-l",
+        "x": 12.03125,
+        "y": 148.796875,
+        "width": 51.515625,
+        "height": 47.671875
+      },
+      {
+        "id": "page-23-p23-write-l2",
+        "x": 63.546875,
+        "y": 148.796875,
+        "width": 250.234375,
+        "height": 47.671875
+      },
+      {
+        "id": "page-23-p23-instr2",
+        "x": 8.359375,
+        "y": 234.625,
+        "width": 305.4375,
+        "height": 28.59375
+      },
+      {
+        "id": "page-23-p23-draw",
+        "x": 8.359375,
+        "y": 272.78125,
+        "width": 305.4375,
+        "height": 171.640625
+      }
+    ]
+  },
+  {
+    "page": 24,
+    "lesson": 8,
+    "url": "http://127.0.0.1:5173/cartilla/leccion/8",
+    "viewport": {
+      "width": 390,
+      "height": 844
+    },
+    "errors": [],
+    "paper": {
+      "x": 10,
+      "y": 44,
+      "width": 370,
+      "height": 478.8125
+    },
+    "text": "Encierra en un círculo la sílaba correspondiente.\n\npa\npapá\npupa\nmapa\nPapo\n¡upa!\npala\n\n0 de 6 respuestas correctas\n\npe\nPepe\npelo\ntapete\npesa\npelota\nchupete\n\n0 de 6 respuestas correctas\n\npi\npipo\nPupi\nMupi\npapi\nMapi\npío\n\n0 de 6 respuestas correctas\n\npo\npomo\npolo\nsapo\nmapo\ntapo\nPepo\n\n0 de 6 respuestas correctas\n\npu\npuso\nPupa\npuma\napura\nPupi\npúa\n\n0 de 6 respuestas correctas\n\n24\nLección 8",
+    "subjectImages": 0,
+    "documentWidth": 390,
+    "viewportWidth": 390,
+    "fontFamily": "\"Workbook Gothic\", sans-serif",
+    "fontLoaded": true,
+    "blocks": [
+      {
+        "id": "page-24-p24-instr",
+        "x": 59.875,
+        "y": 41.515625,
+        "width": 283.359375,
+        "height": 23.828125
+      },
+      {
+        "id": "page-24-p24-pa",
+        "x": 59.875,
+        "y": 82.046875,
+        "width": 272.3125,
+        "height": 52.4375
+      },
+      {
+        "id": "page-24-p24-pe",
+        "x": 59.875,
+        "y": 153.578125,
+        "width": 272.3125,
+        "height": 52.4375
+      },
+      {
+        "id": "page-24-p24-pi",
+        "x": 59.875,
+        "y": 225.09375,
+        "width": 272.3125,
+        "height": 52.4375
+      },
+      {
+        "id": "page-24-p24-po",
+        "x": 59.875,
+        "y": 296.609375,
+        "width": 272.3125,
+        "height": 52.4375
+      },
+      {
+        "id": "page-24-p24-pu",
+        "x": 59.875,
+        "y": 368.140625,
+        "width": 272.3125,
+        "height": 52.4375
+      }
+    ]
+  },
+  {
+    "page": 25,
+    "lesson": 8,
+    "url": "http://127.0.0.1:5173/cartilla/leccion/8",
+    "viewport": {
+      "width": 390,
+      "height": 844
+    },
+    "errors": [],
+    "paper": {
+      "x": 10,
+      "y": 44,
+      "width": 370,
+      "height": 478.8125
+    },
+    "text": "Pp\npa\npe\npi\npo\npu\npu\npo\npa\npe\npi\npapá\nmapo\nMapi\npapi\npuma\npie\nPepe\nMupi\npúa\npipo\nmapa\npomo\nPupi\n¡upa!\nPepo\nyo\n\nPapá y Pepe aman a mamá.\n\nPupi ama a papá.\n\nYo amo a mamá y a papá.\n\nMi papá ama a Pupi.\n\nPapá y mamá me aman.\n\n25\nLección 8",
+    "subjectImages": 0,
+    "documentWidth": 390,
+    "viewportWidth": 390,
+    "fontFamily": "\"Workbook Gothic\", sans-serif",
+    "fontLoaded": true,
+    "blocks": [
+      {
+        "id": "page-25-p25-title",
+        "x": 19.390625,
+        "y": 39.140625,
+        "width": 77.265625,
+        "height": 81.046875
+      },
+      {
+        "id": "page-25-p25-syl1",
+        "x": 105.875,
+        "y": 51.0625,
+        "width": 209.75,
+        "height": 22.40625
+      },
+      {
+        "id": "page-25-p25-syl2",
+        "x": 105.875,
+        "y": 96.359375,
+        "width": 209.75,
+        "height": 22.40625
+      },
+      {
+        "id": "page-25-p25-words",
+        "x": 26.75,
+        "y": 148.796875,
+        "width": 287.03125,
+        "height": 100.125
+      },
+      {
+        "id": "page-25-p25-sight",
+        "x": 124.265625,
+        "y": 272.78125,
+        "width": 66.234375,
+        "height": 22.40625
+      },
+      {
+        "id": "page-25-p25-story",
+        "x": 28.59375,
+        "y": 313.296875,
+        "width": 287.03125,
+        "height": 126.34375
+      }
+    ]
+  },
+  {
+    "page": 26,
+    "lesson": 8,
+    "url": "http://127.0.0.1:5173/cartilla/leccion/8",
+    "viewport": {
+      "width": 390,
+      "height": 844
+    },
+    "errors": [],
+    "paper": {
+      "x": 10,
+      "y": 44,
+      "width": 370,
+      "height": 478.8125
+    },
+    "text": "Completa las palabras con la sílaba correcta.\n\npapá\npa ___\npa\npá\nmapa\nma ___\npa\npo\npuma\n___ ma\npe\npu\nMapi\nMa ___\npi\npo\npío\n___ o\npí\npo\nPepe\n___ pe\nPe\npe\n\nEscribe oraciones. Usa las sílabas que aprendiste.\n\n26\nLección 8",
+    "subjectImages": 0,
+    "documentWidth": 390,
+    "viewportWidth": 390,
+    "fontFamily": "\"Workbook Gothic\", sans-serif",
+    "fontLoaded": true,
+    "blocks": [
+      {
+        "id": "page-26-p26-instr",
+        "x": 54.359375,
+        "y": 27.21875,
+        "width": 301.75,
+        "height": 23.828125
+      },
+      {
+        "id": "page-26-p26-fill",
+        "x": 56.1875,
+        "y": 58.203125,
+        "width": 301.75,
+        "height": 214.5625
+      },
+      {
+        "id": "page-26-p26-instr2",
+        "x": 56.1875,
+        "y": 296.609375,
+        "width": 301.75,
+        "height": 23.828125
+      },
+      {
+        "id": "page-26-p26-write",
+        "x": 59.875,
+        "y": 330,
+        "width": 298.078125,
+        "height": 109.65625
+      }
+    ]
+  },
+  {
+    "page": 27,
+    "lesson": 9,
+    "url": "http://127.0.0.1:5173/cartilla/leccion/9",
+    "viewport": {
+      "width": 390,
+      "height": 844
+    },
+    "errors": [],
+    "paper": {
+      "x": 10,
+      "y": 44,
+      "width": 370,
+      "height": 478.8125
+    },
+    "text": "Escribe con tu mejor letra.\n\nS\ns\n\nHaz un dibujo que represente una palabra que comienza con s.\n\n27\nLección 9",
+    "subjectImages": 0,
+    "documentWidth": 390,
+    "viewportWidth": 390,
+    "fontFamily": "\"Workbook Gothic\", sans-serif",
+    "fontLoaded": true,
+    "blocks": [
+      {
+        "id": "page-27-p27-instr1",
+        "x": 12.03125,
+        "y": 36.75,
+        "width": 301.75,
+        "height": 28.59375
+      },
+      {
+        "id": "page-27-p27-write-U",
+        "x": 12.03125,
+        "y": 82.046875,
+        "width": 51.515625,
+        "height": 47.671875
+      },
+      {
+        "id": "page-27-p27-write-U2",
+        "x": 63.546875,
+        "y": 82.046875,
+        "width": 250.234375,
+        "height": 47.671875
+      },
+      {
+        "id": "page-27-p27-write-l",
+        "x": 12.03125,
+        "y": 148.796875,
+        "width": 51.515625,
+        "height": 47.671875
+      },
+      {
+        "id": "page-27-p27-write-l2",
+        "x": 63.546875,
+        "y": 148.796875,
+        "width": 250.234375,
+        "height": 47.671875
+      },
+      {
+        "id": "page-27-p27-instr2",
+        "x": 8.359375,
+        "y": 234.625,
+        "width": 305.4375,
+        "height": 28.59375
+      },
+      {
+        "id": "page-27-p27-draw",
+        "x": 8.359375,
+        "y": 272.78125,
+        "width": 305.4375,
+        "height": 171.640625
+      }
+    ]
+  },
+  {
+    "page": 28,
+    "lesson": 9,
+    "url": "http://127.0.0.1:5173/cartilla/leccion/9",
+    "viewport": {
+      "width": 390,
+      "height": 844
+    },
+    "errors": [],
+    "paper": {
+      "x": 10,
+      "y": 44,
+      "width": 370,
+      "height": 478.8125
+    },
+    "text": "Encierra en un círculo la sílaba correspondiente.\n\nsa\nmasa\ncasa\npesa\nsala\nmesa\nsapo\n\n0 de 6 respuestas correctas\n\nse\nsello\npase\ncaseta\nseca\nsemilla\nsecante\n\n0 de 6 respuestas correctas\n\nsi\nsilla\ncasita\ncosita\npasito\nosito\nsitio\n\n0 de 6 respuestas correctas\n\nso\npaso\nsopa\nsoga\noso\ntoso\npuso\n\n0 de 6 respuestas correctas\n\nsu\nsuyo\nsuma\nSusi\nsupo\nsube\nsudor\n\n0 de 6 respuestas correctas\n\n28\nLección 9",
+    "subjectImages": 0,
+    "documentWidth": 390,
+    "viewportWidth": 390,
+    "fontFamily": "\"Workbook Gothic\", sans-serif",
+    "fontLoaded": true,
+    "blocks": [
+      {
+        "id": "page-28-p28-instr",
+        "x": 59.875,
+        "y": 41.515625,
+        "width": 283.359375,
+        "height": 23.828125
+      },
+      {
+        "id": "page-28-p28-sa",
+        "x": 59.875,
+        "y": 82.046875,
+        "width": 272.3125,
+        "height": 52.4375
+      },
+      {
+        "id": "page-28-p28-se",
+        "x": 59.875,
+        "y": 153.578125,
+        "width": 272.3125,
+        "height": 52.4375
+      },
+      {
+        "id": "page-28-p28-si",
+        "x": 59.875,
+        "y": 225.09375,
+        "width": 272.3125,
+        "height": 52.4375
+      },
+      {
+        "id": "page-28-p28-so",
+        "x": 59.875,
+        "y": 296.609375,
+        "width": 272.3125,
+        "height": 52.4375
+      },
+      {
+        "id": "page-28-p28-su",
+        "x": 59.875,
+        "y": 368.140625,
+        "width": 272.3125,
+        "height": 52.4375
+      }
+    ]
+  },
+  {
+    "page": 29,
+    "lesson": 9,
+    "url": "http://127.0.0.1:5173/cartilla/leccion/9",
+    "viewport": {
+      "width": 390,
+      "height": 844
+    },
+    "errors": [],
+    "paper": {
+      "x": 10,
+      "y": 44,
+      "width": 370,
+      "height": 478.8125
+    },
+    "text": "Ss\nsa\nse\nsi\nso\nsu\nsu\nso\nsa\nse\nsi\nmasa\nmesa\nsuma\nsapo\nseso\nSusi\nasí\nsopa\npaso\npuso\nsupo\nsupe\nSisi\nese\nesa\nes  de  un  está  en  la  el\n\nLa mesa es de Susi.\n\nLa sopa está en la mesa.\n\nPapá pasa la sopa a Susi.\n\nSisi pasa la sopa a mamá.\n\nEse sapo es de Sisi. Es el sapo Samapo.\n\nSisi pasa el sapo a Pepe.\n\nPepe puso un sapo en la mesa.\n\n29\nLección 9",
+    "subjectImages": 0,
+    "documentWidth": 390,
+    "viewportWidth": 390,
+    "fontFamily": "\"Workbook Gothic\", sans-serif",
+    "fontLoaded": true,
+    "blocks": [
+      {
+        "id": "page-29-p29-title",
+        "x": 19.390625,
+        "y": 39.140625,
+        "width": 77.265625,
+        "height": 81.046875
+      },
+      {
+        "id": "page-29-p29-syl1",
+        "x": 105.875,
+        "y": 51.0625,
+        "width": 209.75,
+        "height": 22.40625
+      },
+      {
+        "id": "page-29-p29-syl2",
+        "x": 105.875,
+        "y": 96.359375,
+        "width": 209.75,
+        "height": 22.40625
+      },
+      {
+        "id": "page-29-p29-words",
+        "x": 26.75,
+        "y": 148.796875,
+        "width": 287.03125,
+        "height": 100.125
+      },
+      {
+        "id": "page-29-p29-sight",
+        "x": 19.390625,
+        "y": 272.78125,
+        "width": 294.390625,
+        "height": 22.40625
+      },
+      {
+        "id": "page-29-p29-story",
+        "x": 28.59375,
+        "y": 313.296875,
+        "width": 287.03125,
+        "height": 126.34375
+      }
+    ]
+  },
+  {
+    "page": 30,
+    "lesson": 9,
+    "url": "http://127.0.0.1:5173/cartilla/leccion/9",
+    "viewport": {
+      "width": 390,
+      "height": 844
+    },
+    "errors": [],
+    "paper": {
+      "x": 10,
+      "y": 44,
+      "width": 370,
+      "height": 478.8125
+    },
+    "text": "Completa las palabras con la sílaba correcta.\n\nsapo\n___ po\nsa\nsá\npuso\npu ___\nso\nse\nmasa\nma ___\nsa\nsu\nasí\na ___\nsí\nso\nsupo\n___ po\nsu\nsa\npase\npa ___\nse\nsi\n\nEscribe oraciones. Usa las sílabas que aprendiste.\n\n30\nLección 9",
+    "subjectImages": 0,
+    "documentWidth": 390,
+    "viewportWidth": 390,
+    "fontFamily": "\"Workbook Gothic\", sans-serif",
+    "fontLoaded": true,
+    "blocks": [
+      {
+        "id": "page-30-p30-instr",
+        "x": 54.359375,
+        "y": 27.21875,
+        "width": 301.75,
+        "height": 23.828125
+      },
+      {
+        "id": "page-30-p30-fill",
+        "x": 56.1875,
+        "y": 58.203125,
+        "width": 301.75,
+        "height": 214.5625
+      },
+      {
+        "id": "page-30-p30-instr2",
+        "x": 56.1875,
+        "y": 296.609375,
+        "width": 301.75,
+        "height": 23.828125
+      },
+      {
+        "id": "page-30-p30-write",
+        "x": 59.875,
+        "y": 330,
+        "width": 298.078125,
+        "height": 109.65625
+      }
+    ]
+  },
+  {
+    "page": 31,
+    "lesson": 10,
+    "url": "http://127.0.0.1:5173/cartilla/leccion/10",
+    "viewport": {
+      "width": 390,
+      "height": 844
+    },
+    "errors": [],
+    "paper": {
+      "x": 10,
+      "y": 44,
+      "width": 370,
+      "height": 478.8125
+    },
+    "text": "Escribe con tu mejor letra.\n\nT\nt\n\nHaz un dibujo que represente una palabra que comienza con t.\n\n31\nLección 10",
+    "subjectImages": 0,
+    "documentWidth": 390,
+    "viewportWidth": 390,
+    "fontFamily": "\"Workbook Gothic\", sans-serif",
+    "fontLoaded": true,
+    "blocks": [
+      {
+        "id": "page-31-p31-instr1",
+        "x": 12.03125,
+        "y": 36.75,
+        "width": 301.75,
+        "height": 28.59375
+      },
+      {
+        "id": "page-31-p31-write-U",
+        "x": 12.03125,
+        "y": 82.046875,
+        "width": 51.515625,
+        "height": 47.671875
+      },
+      {
+        "id": "page-31-p31-write-U2",
+        "x": 63.546875,
+        "y": 82.046875,
+        "width": 250.234375,
+        "height": 47.671875
+      },
+      {
+        "id": "page-31-p31-write-l",
+        "x": 12.03125,
+        "y": 148.796875,
+        "width": 51.515625,
+        "height": 47.671875
+      },
+      {
+        "id": "page-31-p31-write-l2",
+        "x": 63.546875,
+        "y": 148.796875,
+        "width": 250.234375,
+        "height": 47.671875
+      },
+      {
+        "id": "page-31-p31-instr2",
+        "x": 8.359375,
+        "y": 234.625,
+        "width": 305.4375,
+        "height": 28.59375
+      },
+      {
+        "id": "page-31-p31-draw",
+        "x": 8.359375,
+        "y": 272.78125,
+        "width": 305.4375,
+        "height": 171.640625
+      }
+    ]
+  },
+  {
+    "page": 32,
+    "lesson": 10,
+    "url": "http://127.0.0.1:5173/cartilla/leccion/10",
+    "viewport": {
+      "width": 390,
+      "height": 844
+    },
+    "errors": [],
+    "paper": {
+      "x": 10,
+      "y": 44,
+      "width": 370,
+      "height": 478.8125
+    },
+    "text": "Encierra en un círculo la sílaba correspondiente.\n\nta\ntapa\nMota\nTota\nseta\npeseta\npata\n\n0 de 6 respuestas correctas\n\nte\ntema\ntomate\nmete\nteme\nTeté\ntapete\n\n0 de 6 respuestas correctas\n\nti\nTito\nPiti\ntimón\ntina\nPoti\ntipi\n\n0 de 6 respuestas correctas\n\nto\ntopo\nmoto\ntomate\npato\ntoma\nsapito\n\n0 de 6 respuestas correctas\n\ntu\ntupe\ntubo\ntulipán\ntuna\ntuba\nMatute\n\n0 de 6 respuestas correctas\n\n32\nLección 10",
+    "subjectImages": 0,
+    "documentWidth": 390,
+    "viewportWidth": 390,
+    "fontFamily": "\"Workbook Gothic\", sans-serif",
+    "fontLoaded": true,
+    "blocks": [
+      {
+        "id": "page-32-p32-instr",
+        "x": 59.875,
+        "y": 41.515625,
+        "width": 283.359375,
+        "height": 23.828125
+      },
+      {
+        "id": "page-32-p32-ta",
+        "x": 59.875,
+        "y": 82.046875,
+        "width": 272.3125,
+        "height": 52.4375
+      },
+      {
+        "id": "page-32-p32-te",
+        "x": 59.875,
+        "y": 153.578125,
+        "width": 272.3125,
+        "height": 52.4375
+      },
+      {
+        "id": "page-32-p32-ti",
+        "x": 59.875,
+        "y": 225.09375,
+        "width": 272.3125,
+        "height": 52.4375
+      },
+      {
+        "id": "page-32-p32-to",
+        "x": 59.875,
+        "y": 296.609375,
+        "width": 272.3125,
+        "height": 52.4375
+      },
+      {
+        "id": "page-32-p32-tu",
+        "x": 59.875,
+        "y": 368.140625,
+        "width": 272.3125,
+        "height": 52.4375
+      }
+    ]
+  },
+  {
+    "page": 33,
+    "lesson": 10,
+    "url": "http://127.0.0.1:5173/cartilla/leccion/10",
+    "viewport": {
+      "width": 390,
+      "height": 844
+    },
+    "errors": [],
+    "paper": {
+      "x": 10,
+      "y": 44,
+      "width": 370,
+      "height": 478.8125
+    },
+    "text": "Tt\nta\nte\nti\nto\ntu\ntu\nto\nta\nte\nti\ntoma\nteme\nseta\ntute\nTiti\npata\nSoto\ntupe\ntapa\nmete\nMota\nPiti\ntopo\nsapito\npeseta\ntomate\nPoti\npato\ntiene  patio  no\n\nLa mesa tiene un tapete.\n\nEl pomo está en la mesa.\n\nLa mesa está en el patio.\n\nEl pomo tiene sopa. El pomo tiene tapa.\n\nTito tapa el pomo.\n\n–¡No Tito, no, no tapes el pomo!\n\nPapá tapa la sopa.\n\n33\nLección 10",
+    "subjectImages": 0,
+    "documentWidth": 390,
+    "viewportWidth": 390,
+    "fontFamily": "\"Workbook Gothic\", sans-serif",
+    "fontLoaded": true,
+    "blocks": [
+      {
+        "id": "page-33-p33-title",
+        "x": 19.390625,
+        "y": 39.140625,
+        "width": 77.265625,
+        "height": 81.046875
+      },
+      {
+        "id": "page-33-p33-syl1",
+        "x": 105.875,
+        "y": 51.0625,
+        "width": 209.75,
+        "height": 22.40625
+      },
+      {
+        "id": "page-33-p33-syl2",
+        "x": 105.875,
+        "y": 96.359375,
+        "width": 209.75,
+        "height": 22.40625
+      },
+      {
+        "id": "page-33-p33-words",
+        "x": 26.75,
+        "y": 148.796875,
+        "width": 287.03125,
+        "height": 100.125
+      },
+      {
+        "id": "page-33-p33-sight",
+        "x": 19.390625,
+        "y": 272.78125,
+        "width": 294.390625,
+        "height": 22.40625
+      },
+      {
+        "id": "page-33-p33-story",
+        "x": 28.59375,
+        "y": 313.296875,
+        "width": 287.03125,
+        "height": 126.34375
+      }
+    ]
+  },
+  {
+    "page": 34,
+    "lesson": 10,
+    "url": "http://127.0.0.1:5173/cartilla/leccion/10",
+    "viewport": {
+      "width": 390,
+      "height": 844
+    },
+    "errors": [],
+    "paper": {
+      "x": 10,
+      "y": 44,
+      "width": 370,
+      "height": 478.8125
+    },
+    "text": "Completa las palabras con la sílaba correcta.\n\ntoma\n___ ma\nto\nta\nmata\nma ___\nta\nti\ntopo\n___ po\ntu\nto\ntomate\n___ mate\nto\ntu\ntupe\n___ pe\nti\ntu\ntipi\n___ pi\nto\nti\n\nEscribe oraciones. Usa las sílabas que aprendiste.\n\n34\nLección 10",
+    "subjectImages": 0,
+    "documentWidth": 390,
+    "viewportWidth": 390,
+    "fontFamily": "\"Workbook Gothic\", sans-serif",
+    "fontLoaded": true,
+    "blocks": [
+      {
+        "id": "page-34-p34-instr",
+        "x": 54.359375,
+        "y": 27.21875,
+        "width": 301.75,
+        "height": 23.828125
+      },
+      {
+        "id": "page-34-p34-fill",
+        "x": 56.1875,
+        "y": 58.203125,
+        "width": 301.75,
+        "height": 214.5625
+      },
+      {
+        "id": "page-34-p34-instr2",
+        "x": 56.1875,
+        "y": 296.609375,
+        "width": 301.75,
+        "height": 23.828125
+      },
+      {
+        "id": "page-34-p34-write",
+        "x": 59.875,
+        "y": 330,
+        "width": 298.078125,
+        "height": 109.65625
+      }
+    ]
+  },
+  {
+    "page": 35,
+    "lesson": 11,
+    "url": "http://127.0.0.1:5173/cartilla/leccion/11",
+    "viewport": {
+      "width": 390,
+      "height": 844
+    },
+    "errors": [],
+    "paper": {
+      "x": 10,
+      "y": 44,
+      "width": 370,
+      "height": 478.8125
+    },
+    "text": "Escribe con tu mejor letra.\n\nD\nd\n\nHaz un dibujo que represente una palabra que comienza con d.\n\n35\nLección 11",
+    "subjectImages": 0,
+    "documentWidth": 390,
+    "viewportWidth": 390,
+    "fontFamily": "\"Workbook Gothic\", sans-serif",
+    "fontLoaded": true,
+    "blocks": [
+      {
+        "id": "page-35-p35-instr1",
+        "x": 12.03125,
+        "y": 36.75,
+        "width": 301.75,
+        "height": 28.59375
+      },
+      {
+        "id": "page-35-p35-write-U",
+        "x": 12.03125,
+        "y": 82.046875,
+        "width": 51.515625,
+        "height": 47.671875
+      },
+      {
+        "id": "page-35-p35-write-U2",
+        "x": 63.546875,
+        "y": 82.046875,
+        "width": 250.234375,
+        "height": 47.671875
+      },
+      {
+        "id": "page-35-p35-write-l",
+        "x": 12.03125,
+        "y": 148.796875,
+        "width": 51.515625,
+        "height": 47.671875
+      },
+      {
+        "id": "page-35-p35-write-l2",
+        "x": 63.546875,
+        "y": 148.796875,
+        "width": 250.234375,
+        "height": 47.671875
+      },
+      {
+        "id": "page-35-p35-instr2",
+        "x": 8.359375,
+        "y": 234.625,
+        "width": 305.4375,
+        "height": 28.59375
+      },
+      {
+        "id": "page-35-p35-draw",
+        "x": 8.359375,
+        "y": 272.78125,
+        "width": 305.4375,
+        "height": 171.640625
+      }
+    ]
+  },
+  {
+    "page": 36,
+    "lesson": 11,
+    "url": "http://127.0.0.1:5173/cartilla/leccion/11",
+    "viewport": {
+      "width": 390,
+      "height": 844
+    },
+    "errors": [],
+    "paper": {
+      "x": 10,
+      "y": 44,
+      "width": 370,
+      "height": 478.8125
+    },
+    "text": "Encierra en un círculo la sílaba correspondiente.\n\nda\ndame\nAda\nMade\nduda\ndado\npoda\n\n0 de 5 respuestas correctas\n\nde\ndedo\nademás\ndeme\nmodelo\npide\ndebajo\n\n0 de 6 respuestas correctas\n\ndi\ndime\nAdi\ndice\ndinero\ndía\nDidi\n\n0 de 6 respuestas correctas\n\ndo\ndado\npodo\ndoce\ndedo\nmodo\nmudo\n\n0 de 6 respuestas correctas\n\ndu\nDuma\nduro\nduda\ndurazno\nmaduro\nducha\n\n0 de 6 respuestas correctas\n\n36\nLección 11",
+    "subjectImages": 0,
+    "documentWidth": 390,
+    "viewportWidth": 390,
+    "fontFamily": "\"Workbook Gothic\", sans-serif",
+    "fontLoaded": true,
+    "blocks": [
+      {
+        "id": "page-36-p36-instr",
+        "x": 59.875,
+        "y": 41.515625,
+        "width": 283.359375,
+        "height": 23.828125
+      },
+      {
+        "id": "page-36-p36-da",
+        "x": 59.875,
+        "y": 82.046875,
+        "width": 272.3125,
+        "height": 52.4375
+      },
+      {
+        "id": "page-36-p36-de",
+        "x": 59.875,
+        "y": 153.578125,
+        "width": 272.3125,
+        "height": 52.4375
+      },
+      {
+        "id": "page-36-p36-di",
+        "x": 59.875,
+        "y": 225.09375,
+        "width": 272.3125,
+        "height": 52.4375
+      },
+      {
+        "id": "page-36-p36-do",
+        "x": 59.875,
+        "y": 296.609375,
+        "width": 272.3125,
+        "height": 52.4375
+      },
+      {
+        "id": "page-36-p36-du",
+        "x": 59.875,
+        "y": 368.140625,
+        "width": 272.3125,
+        "height": 52.4375
+      }
+    ]
+  },
+  {
+    "page": 37,
+    "lesson": 11,
+    "url": "http://127.0.0.1:5173/cartilla/leccion/11",
+    "viewport": {
+      "width": 390,
+      "height": 844
+    },
+    "errors": [],
+    "paper": {
+      "x": 10,
+      "y": 44,
+      "width": 370,
+      "height": 478.8125
+    },
+    "text": "Dd\nda\nde\ndi\ndo\ndu\ndu\ndo\nda\nde\ndi\ndedo\ndónde\ndeme\ndame\nDuma\nde\ndía\ndime\nduda\nAda\npide\nmudo\nmoneda\nmide\nDunia\nson  están\n\nDime si Ada tiene dados.\n\nLos dados son de Dunia.\n\n– ¿Dónde están los dados?\n\nDunia pone los dados en el pomo.\n\n– Dunia dame el pomo.\n\nEl pomo de Dunia está en la mesa.\n\n– Ada, ¿Dónde está Dunia?\n\n37\nLección 11",
+    "subjectImages": 0,
+    "documentWidth": 390,
+    "viewportWidth": 390,
+    "fontFamily": "\"Workbook Gothic\", sans-serif",
+    "fontLoaded": true,
+    "blocks": [
+      {
+        "id": "page-37-p37-title",
+        "x": 19.390625,
+        "y": 39.140625,
+        "width": 77.265625,
+        "height": 81.046875
+      },
+      {
+        "id": "page-37-p37-syl1",
+        "x": 105.875,
+        "y": 51.0625,
+        "width": 209.75,
+        "height": 22.40625
+      },
+      {
+        "id": "page-37-p37-syl2",
+        "x": 105.875,
+        "y": 96.359375,
+        "width": 209.75,
+        "height": 22.40625
+      },
+      {
+        "id": "page-37-p37-words",
+        "x": 26.75,
+        "y": 148.796875,
+        "width": 287.03125,
+        "height": 100.125
+      },
+      {
+        "id": "page-37-p37-sight",
+        "x": 19.390625,
+        "y": 272.78125,
+        "width": 294.390625,
+        "height": 22.40625
+      },
+      {
+        "id": "page-37-p37-story",
+        "x": 28.59375,
+        "y": 313.296875,
+        "width": 287.03125,
+        "height": 126.34375
+      }
+    ]
+  },
+  {
+    "page": 38,
+    "lesson": 11,
+    "url": "http://127.0.0.1:5173/cartilla/leccion/11",
+    "viewport": {
+      "width": 390,
+      "height": 844
+    },
+    "errors": [],
+    "paper": {
+      "x": 10,
+      "y": 44,
+      "width": 370,
+      "height": 478.8125
+    },
+    "text": "Completa las palabras con la sílaba correcta.\n\ndedo\n___ do\ndi\nde\nmide\nmi ___\ndi\nde\nmudo\nmu ___\ndo\ndu\nAda\nA ___\nde\nda\npide\npi ___\nde\ndi\nDuma\n___ ma\nDu\ndo\n\nEscribe oraciones. Usa las sílabas que aprendiste.\n\n38\nLección 11",
+    "subjectImages": 0,
+    "documentWidth": 390,
+    "viewportWidth": 390,
+    "fontFamily": "\"Workbook Gothic\", sans-serif",
+    "fontLoaded": true,
+    "blocks": [
+      {
+        "id": "page-38-p38-instr",
+        "x": 54.359375,
+        "y": 27.21875,
+        "width": 301.75,
+        "height": 23.828125
+      },
+      {
+        "id": "page-38-p38-fill",
+        "x": 56.1875,
+        "y": 58.203125,
+        "width": 301.75,
+        "height": 214.5625
+      },
+      {
+        "id": "page-38-p38-instr2",
+        "x": 56.1875,
+        "y": 296.609375,
+        "width": 301.75,
+        "height": 23.828125
+      },
+      {
+        "id": "page-38-p38-write",
+        "x": 59.875,
+        "y": 330,
+        "width": 298.078125,
+        "height": 109.65625
+      }
+    ]
+  },
+  {
+    "page": 39,
+    "lesson": 12,
+    "url": "http://127.0.0.1:5173/cartilla/leccion/12",
+    "viewport": {
+      "width": 390,
+      "height": 844
+    },
+    "errors": [],
+    "paper": {
+      "x": 10,
+      "y": 44,
+      "width": 370,
+      "height": 478.8125
+    },
+    "text": "Escribe con tu mejor letra.\n\nL\nl\n\nHaz un dibujo que represente una palabra que comienza con l.\n\n39\nLección 12",
+    "subjectImages": 0,
+    "documentWidth": 390,
+    "viewportWidth": 390,
+    "fontFamily": "\"Workbook Gothic\", sans-serif",
+    "fontLoaded": true,
+    "blocks": [
+      {
+        "id": "page-39-p39-instr1",
+        "x": 12.03125,
+        "y": 36.75,
+        "width": 301.75,
+        "height": 28.59375
+      },
+      {
+        "id": "page-39-p39-write-U",
+        "x": 12.03125,
+        "y": 82.046875,
+        "width": 51.515625,
+        "height": 47.671875
+      },
+      {
+        "id": "page-39-p39-write-U2",
+        "x": 63.546875,
+        "y": 82.046875,
+        "width": 250.234375,
+        "height": 47.671875
+      },
+      {
+        "id": "page-39-p39-write-l",
+        "x": 12.03125,
+        "y": 148.796875,
+        "width": 51.515625,
+        "height": 47.671875
+      },
+      {
+        "id": "page-39-p39-write-l2",
+        "x": 63.546875,
+        "y": 148.796875,
+        "width": 250.234375,
+        "height": 47.671875
+      },
+      {
+        "id": "page-39-p39-instr2",
+        "x": 8.359375,
+        "y": 234.625,
+        "width": 305.4375,
+        "height": 28.59375
+      },
+      {
+        "id": "page-39-p39-draw",
+        "x": 8.359375,
+        "y": 272.78125,
+        "width": 305.4375,
+        "height": 171.640625
+      }
+    ]
+  },
+  {
+    "page": 40,
+    "lesson": 12,
+    "url": "http://127.0.0.1:5173/cartilla/leccion/12",
+    "viewport": {
+      "width": 390,
+      "height": 844
+    },
+    "errors": [],
+    "paper": {
+      "x": 10,
+      "y": 44,
+      "width": 370,
+      "height": 478.8125
+    },
+    "text": "Encierra en un círculo la sílaba correspondiente.\n\nla\nlata\nmala\npala\nLamas\nmula\npila\n\n0 de 6 respuestas correctas\n\nle\nLeo\naleta\nsaleta\nmaleta\nsale\npaleta\n\n0 de 6 respuestas correctas\n\nli\nlima\nLila\nalita\nliso\npalito\nlimón\n\n0 de 6 respuestas correctas\n\nlo\npelota\npalo\nLolo\nPolo\nLola\npaloma\n\n0 de 6 respuestas correctas\n\nlu\nlupa\npelusa\nLuli\nluna\nsaluda\nLupe\n\n0 de 6 respuestas correctas\n\n40\nLección 12",
+    "subjectImages": 0,
+    "documentWidth": 390,
+    "viewportWidth": 390,
+    "fontFamily": "\"Workbook Gothic\", sans-serif",
+    "fontLoaded": true,
+    "blocks": [
+      {
+        "id": "page-40-p40-instr",
+        "x": 59.875,
+        "y": 41.515625,
+        "width": 283.359375,
+        "height": 23.828125
+      },
+      {
+        "id": "page-40-p40-la",
+        "x": 59.875,
+        "y": 82.046875,
+        "width": 272.3125,
+        "height": 52.4375
+      },
+      {
+        "id": "page-40-p40-le",
+        "x": 59.875,
+        "y": 153.578125,
+        "width": 272.3125,
+        "height": 52.4375
+      },
+      {
+        "id": "page-40-p40-li",
+        "x": 59.875,
+        "y": 225.09375,
+        "width": 272.3125,
+        "height": 52.4375
+      },
+      {
+        "id": "page-40-p40-lo",
+        "x": 59.875,
+        "y": 296.609375,
+        "width": 272.3125,
+        "height": 52.4375
+      },
+      {
+        "id": "page-40-p40-lu",
+        "x": 59.875,
+        "y": 368.140625,
+        "width": 272.3125,
+        "height": 52.4375
+      }
+    ]
+  },
+  {
+    "page": 41,
+    "lesson": 12,
+    "url": "http://127.0.0.1:5173/cartilla/leccion/12",
+    "viewport": {
+      "width": 390,
+      "height": 844
+    },
+    "errors": [],
+    "paper": {
+      "x": 10,
+      "y": 44,
+      "width": 370,
+      "height": 478.8125
+    },
+    "text": "Ll\nla\nle\nli\nlo\nlu\nlu\nlo\nla\nle\nli\nlima\nlata\naleta\nmaleta\nlupa\nsale\npaloma\npala\nlomo\npelusa\nLilo\nLola\nLuli\ntela\nTula\ntambién\n\nLa maleta de Luli está en la mesa.\n\nLa tela de la maleta tiene pelusas.\n\nLa maleta de Polo es de tela.\n\nMamá le da la maleta a Polo.\n\nPolo toma su maleta de tela.\n\nLalo tiene una maleta de tela también.\n\n41\nLección 12",
+    "subjectImages": 0,
+    "documentWidth": 390,
+    "viewportWidth": 390,
+    "fontFamily": "\"Workbook Gothic\", sans-serif",
+    "fontLoaded": true,
+    "blocks": [
+      {
+        "id": "page-41-p41-title",
+        "x": 19.390625,
+        "y": 39.140625,
+        "width": 77.265625,
+        "height": 81.046875
+      },
+      {
+        "id": "page-41-p41-syl1",
+        "x": 105.875,
+        "y": 51.0625,
+        "width": 209.75,
+        "height": 22.40625
+      },
+      {
+        "id": "page-41-p41-syl2",
+        "x": 105.875,
+        "y": 96.359375,
+        "width": 209.75,
+        "height": 22.40625
+      },
+      {
+        "id": "page-41-p41-words",
+        "x": 26.75,
+        "y": 148.796875,
+        "width": 287.03125,
+        "height": 100.125
+      },
+      {
+        "id": "page-41-p41-sight",
+        "x": 19.390625,
+        "y": 272.78125,
+        "width": 294.390625,
+        "height": 22.40625
+      },
+      {
+        "id": "page-41-p41-story",
+        "x": 28.59375,
+        "y": 313.296875,
+        "width": 287.03125,
+        "height": 126.34375
+      }
+    ]
+  },
+  {
+    "page": 42,
+    "lesson": 12,
+    "url": "http://127.0.0.1:5173/cartilla/leccion/12",
+    "viewport": {
+      "width": 390,
+      "height": 844
+    },
+    "errors": [],
+    "paper": {
+      "x": 10,
+      "y": 44,
+      "width": 370,
+      "height": 478.8125
+    },
+    "text": "Completa las palabras con la sílaba correcta.\n\npaleta\npa ___ ta\nle\nlo\nsolo\nso ___\nli\nlo\npala\npa ___\nla\nlu\nlata\n___ ta\nla\nle\nmaleta\nma ___ ta\nle\nli\nlupa\n___ pa\nlu\nla\n\nEscribe oraciones. Usa las sílabas que aprendiste.\n\n42\nLección 12",
+    "subjectImages": 0,
+    "documentWidth": 390,
+    "viewportWidth": 390,
+    "fontFamily": "\"Workbook Gothic\", sans-serif",
+    "fontLoaded": true,
+    "blocks": [
+      {
+        "id": "page-42-p42-instr",
+        "x": 54.359375,
+        "y": 27.21875,
+        "width": 301.75,
+        "height": 23.828125
+      },
+      {
+        "id": "page-42-p42-fill",
+        "x": 56.1875,
+        "y": 58.203125,
+        "width": 301.75,
+        "height": 214.5625
+      },
+      {
+        "id": "page-42-p42-instr2",
+        "x": 56.1875,
+        "y": 296.609375,
+        "width": 301.75,
+        "height": 23.828125
+      },
+      {
+        "id": "page-42-p42-write",
+        "x": 59.875,
+        "y": 330,
+        "width": 298.078125,
+        "height": 109.65625
+      }
+    ]
+  },
+  {
+    "page": 43,
+    "lesson": 13,
+    "url": "http://127.0.0.1:5173/cartilla/leccion/13",
+    "viewport": {
+      "width": 390,
+      "height": 844
+    },
+    "errors": [],
+    "paper": {
+      "x": 10,
+      "y": 44,
+      "width": 370,
+      "height": 478.8125
+    },
+    "text": "Escribe con tu mejor letra.\n\nN\nn\n\nHaz un dibujo que represente una palabra que comienza con n.\n\n43\nLección 13",
+    "subjectImages": 0,
+    "documentWidth": 390,
+    "viewportWidth": 390,
+    "fontFamily": "\"Workbook Gothic\", sans-serif",
+    "fontLoaded": true,
+    "blocks": [
+      {
+        "id": "page-43-p43-instr1",
+        "x": 12.03125,
+        "y": 36.75,
+        "width": 301.75,
+        "height": 28.59375
+      },
+      {
+        "id": "page-43-p43-write-U",
+        "x": 12.03125,
+        "y": 82.046875,
+        "width": 51.515625,
+        "height": 47.671875
+      },
+      {
+        "id": "page-43-p43-write-U2",
+        "x": 63.546875,
+        "y": 82.046875,
+        "width": 250.234375,
+        "height": 47.671875
+      },
+      {
+        "id": "page-43-p43-write-l",
+        "x": 12.03125,
+        "y": 148.796875,
+        "width": 51.515625,
+        "height": 47.671875
+      },
+      {
+        "id": "page-43-p43-write-l2",
+        "x": 63.546875,
+        "y": 148.796875,
+        "width": 250.234375,
+        "height": 47.671875
+      },
+      {
+        "id": "page-43-p43-instr2",
+        "x": 8.359375,
+        "y": 234.625,
+        "width": 305.4375,
+        "height": 28.59375
+      },
+      {
+        "id": "page-43-p43-draw",
+        "x": 8.359375,
+        "y": 272.78125,
+        "width": 305.4375,
+        "height": 171.640625
+      }
+    ]
+  },
+  {
+    "page": 44,
+    "lesson": 13,
+    "url": "http://127.0.0.1:5173/cartilla/leccion/13",
+    "viewport": {
+      "width": 390,
+      "height": 844
+    },
+    "errors": [],
+    "paper": {
+      "x": 10,
+      "y": 44,
+      "width": 370,
+      "height": 478.8125
+    },
+    "text": "Encierra en un círculo la sílaba correspondiente.\n\nna\nnata\nnariz\ntina\nnada\nNapi\nlana\n\n0 de 6 respuestas correctas\n\nne\nNena\nnegro\nNela\ntenedor\nnegar\nNenita\n\n0 de 6 respuestas correctas\n\nni\nnido\nniño\nponi\nsonido\nanida\nNino\n\n0 de 6 respuestas correctas\n\nno\nmono\nNora\npino\nNono\nnoche\nmano\n\n0 de 6 respuestas correctas\n\nnu\nnudo\nmenudo\nnulo\nAnuca\nanudo\nnube\n\n0 de 6 respuestas correctas\n\n44\nLección 13",
+    "subjectImages": 0,
+    "documentWidth": 390,
+    "viewportWidth": 390,
+    "fontFamily": "\"Workbook Gothic\", sans-serif",
+    "fontLoaded": true,
+    "blocks": [
+      {
+        "id": "page-44-p44-instr",
+        "x": 59.875,
+        "y": 41.515625,
+        "width": 283.359375,
+        "height": 23.828125
+      },
+      {
+        "id": "page-44-p44-na",
+        "x": 59.875,
+        "y": 82.046875,
+        "width": 272.3125,
+        "height": 52.4375
+      },
+      {
+        "id": "page-44-p44-ne",
+        "x": 59.875,
+        "y": 153.578125,
+        "width": 272.3125,
+        "height": 52.4375
+      },
+      {
+        "id": "page-44-p44-ni",
+        "x": 59.875,
+        "y": 225.09375,
+        "width": 272.3125,
+        "height": 52.4375
+      },
+      {
+        "id": "page-44-p44-no",
+        "x": 59.875,
+        "y": 296.609375,
+        "width": 272.3125,
+        "height": 52.4375
+      },
+      {
+        "id": "page-44-p44-nu",
+        "x": 59.875,
+        "y": 368.140625,
+        "width": 272.3125,
+        "height": 52.4375
+      }
+    ]
+  },
+  {
+    "page": 45,
+    "lesson": 13,
+    "url": "http://127.0.0.1:5173/cartilla/leccion/13",
+    "viewport": {
+      "width": 390,
+      "height": 844
+    },
+    "errors": [],
+    "paper": {
+      "x": 10,
+      "y": 44,
+      "width": 370,
+      "height": 478.8125
+    },
+    "text": "Nn\nna\nne\nni\nno\nnu\nnu\nno\nna\nne\nni\nnido\ntina\nnada\nnené\nmano\nnulo\nNono\nTono\nAlina\nponi\nNena\nnata\nmono\nluna\nNeli\nesa  a\n\nTomás dame esa tina. La tina es de Napi.\n\nTono y Alina aman a Napi.\n\nNapi tiene pelo.\n\nTono le pone la tina a Napi en el piso.\n\nNono no le pone nada a esa tina.\n\nEsa tina no tiene nada.\n\n45\nLección 13",
+    "subjectImages": 0,
+    "documentWidth": 390,
+    "viewportWidth": 390,
+    "fontFamily": "\"Workbook Gothic\", sans-serif",
+    "fontLoaded": true,
+    "blocks": [
+      {
+        "id": "page-45-p45-title",
+        "x": 19.390625,
+        "y": 39.140625,
+        "width": 77.265625,
+        "height": 81.046875
+      },
+      {
+        "id": "page-45-p45-syl1",
+        "x": 105.875,
+        "y": 51.0625,
+        "width": 209.75,
+        "height": 22.40625
+      },
+      {
+        "id": "page-45-p45-syl2",
+        "x": 105.875,
+        "y": 96.359375,
+        "width": 209.75,
+        "height": 22.40625
+      },
+      {
+        "id": "page-45-p45-words",
+        "x": 26.75,
+        "y": 148.796875,
+        "width": 287.03125,
+        "height": 100.125
+      },
+      {
+        "id": "page-45-p45-sight",
+        "x": 19.390625,
+        "y": 272.78125,
+        "width": 294.390625,
+        "height": 22.40625
+      },
+      {
+        "id": "page-45-p45-story",
+        "x": 28.59375,
+        "y": 313.296875,
+        "width": 287.03125,
+        "height": 126.34375
+      }
+    ]
+  },
+  {
+    "page": 46,
+    "lesson": 13,
+    "url": "http://127.0.0.1:5173/cartilla/leccion/13",
+    "viewport": {
+      "width": 390,
+      "height": 844
+    },
+    "errors": [],
+    "paper": {
+      "x": 10,
+      "y": 44,
+      "width": 370,
+      "height": 478.8125
+    },
+    "text": "Completa las palabras con la sílaba correcta.\n\nnido\n___ do\nno\nni\ntina\nti ___\nnu\nna\nsuena\nsue ___\nni\nna\nmono\nmo ___\nno\nne\nsano\nsa ___\nno\nnu\npone\npo ___\nne\nni\n\nEscribe oraciones. Usa las sílabas que aprendiste.\n\n46\nLección 13",
+    "subjectImages": 0,
+    "documentWidth": 390,
+    "viewportWidth": 390,
+    "fontFamily": "\"Workbook Gothic\", sans-serif",
+    "fontLoaded": true,
+    "blocks": [
+      {
+        "id": "page-46-p46-instr",
+        "x": 54.359375,
+        "y": 27.21875,
+        "width": 301.75,
+        "height": 23.828125
+      },
+      {
+        "id": "page-46-p46-fill",
+        "x": 56.1875,
+        "y": 58.203125,
+        "width": 301.75,
+        "height": 214.5625
+      },
+      {
+        "id": "page-46-p46-instr2",
+        "x": 56.1875,
+        "y": 296.609375,
+        "width": 301.75,
+        "height": 23.828125
+      },
+      {
+        "id": "page-46-p46-write",
+        "x": 59.875,
+        "y": 330,
+        "width": 298.078125,
+        "height": 109.65625
+      }
+    ]
+  },
+  {
+    "page": 47,
+    "lesson": 14,
+    "url": "http://127.0.0.1:5173/cartilla/leccion/14",
+    "viewport": {
+      "width": 390,
+      "height": 844
+    },
+    "errors": [],
+    "paper": {
+      "x": 10,
+      "y": 44,
+      "width": 370,
+      "height": 478.8125
+    },
+    "text": "Escribe con tu mejor letra.\n\nÑ\nñ\n\nHaz un dibujo que represente una palabra que comienza con ñ.\n\n47\nLección 14",
+    "subjectImages": 0,
+    "documentWidth": 390,
+    "viewportWidth": 390,
+    "fontFamily": "\"Workbook Gothic\", sans-serif",
+    "fontLoaded": true,
+    "blocks": [
+      {
+        "id": "page-47-p47-instr1",
+        "x": 12.03125,
+        "y": 36.75,
+        "width": 301.75,
+        "height": 28.59375
+      },
+      {
+        "id": "page-47-p47-write-U",
+        "x": 12.03125,
+        "y": 82.046875,
+        "width": 51.515625,
+        "height": 47.671875
+      },
+      {
+        "id": "page-47-p47-write-U2",
+        "x": 63.546875,
+        "y": 82.046875,
+        "width": 250.234375,
+        "height": 47.671875
+      },
+      {
+        "id": "page-47-p47-write-l",
+        "x": 12.03125,
+        "y": 148.796875,
+        "width": 51.515625,
+        "height": 47.671875
+      },
+      {
+        "id": "page-47-p47-write-l2",
+        "x": 63.546875,
+        "y": 148.796875,
+        "width": 250.234375,
+        "height": 47.671875
+      },
+      {
+        "id": "page-47-p47-instr2",
+        "x": 8.359375,
+        "y": 234.625,
+        "width": 305.4375,
+        "height": 28.59375
+      },
+      {
+        "id": "page-47-p47-draw",
+        "x": 8.359375,
+        "y": 272.78125,
+        "width": 305.4375,
+        "height": 171.640625
+      }
+    ]
+  },
+  {
+    "page": 48,
+    "lesson": 14,
+    "url": "http://127.0.0.1:5173/cartilla/leccion/14",
+    "viewport": {
+      "width": 390,
+      "height": 844
+    },
+    "errors": [],
+    "paper": {
+      "x": 10,
+      "y": 44,
+      "width": 370,
+      "height": 478.8125
+    },
+    "text": "Encierra en un círculo la sílaba correspondiente.\n\nña\nmaña\nmañana\nmontaña\nñame\naraña\ncaña\n\n0 de 6 respuestas correctas\n\nñe\nMeñe\nañejo\nsueñe\nadueñe\ncañengo\napañe\n\n0 de 6 respuestas correctas\n\nñi\nañico\npañito\ncañita\nniñito\narañita\nreñido\n\n0 de 6 respuestas correctas\n\nño\nmoño\nniño\nsueño\nÑoña\naño\nÑuco\n\n0 de 5 respuestas correctas\n\nñu\nÑuto\ncañuto\nmoñudo\nceñudo\npañuelo\npuño\n\n0 de 5 respuestas correctas\n\n48\nLección 14",
+    "subjectImages": 0,
+    "documentWidth": 390,
+    "viewportWidth": 390,
+    "fontFamily": "\"Workbook Gothic\", sans-serif",
+    "fontLoaded": true,
+    "blocks": [
+      {
+        "id": "page-48-p48-instr",
+        "x": 59.875,
+        "y": 41.515625,
+        "width": 283.359375,
+        "height": 23.828125
+      },
+      {
+        "id": "page-48-p48-ña",
+        "x": 59.875,
+        "y": 82.046875,
+        "width": 272.3125,
+        "height": 52.4375
+      },
+      {
+        "id": "page-48-p48-ñe",
+        "x": 59.875,
+        "y": 153.578125,
+        "width": 272.3125,
+        "height": 52.4375
+      },
+      {
+        "id": "page-48-p48-ñi",
+        "x": 59.875,
+        "y": 225.09375,
+        "width": 272.3125,
+        "height": 52.4375
+      },
+      {
+        "id": "page-48-p48-ño",
+        "x": 59.875,
+        "y": 296.609375,
+        "width": 272.3125,
+        "height": 52.4375
+      },
+      {
+        "id": "page-48-p48-ñu",
+        "x": 59.875,
+        "y": 368.140625,
+        "width": 272.3125,
+        "height": 52.4375
+      }
+    ]
+  },
+  {
+    "page": 49,
+    "lesson": 14,
+    "url": "http://127.0.0.1:5173/cartilla/leccion/14",
+    "viewport": {
+      "width": 390,
+      "height": 844
+    },
+    "errors": [],
+    "paper": {
+      "x": 10,
+      "y": 44,
+      "width": 370,
+      "height": 478.8125
+    },
+    "text": "Ññ\nña\nñe\nñi\nño\nñu\nñu\nño\nña\nñe\nñi\nñame\naño\nmoñudo\nmoño\nniña\nsueña\nMeñe\npaño\npiña\nniñito\nsueño\npuño\nuña\nañitos\npañuelo\ndel\n\nMeñe es dueña de esa piñata.\n\nLa piñata es del año pasado.\n\nLa piñata está en el patio.\n\nNoña tiene una niña.\n\nLa niña tiene sueño.\n\nNoña le pone el pañal a la niña.\n\n49\nLección 14",
+    "subjectImages": 0,
+    "documentWidth": 390,
+    "viewportWidth": 390,
+    "fontFamily": "\"Workbook Gothic\", sans-serif",
+    "fontLoaded": true,
+    "blocks": [
+      {
+        "id": "page-49-p49-title",
+        "x": 19.390625,
+        "y": 39.140625,
+        "width": 77.265625,
+        "height": 81.046875
+      },
+      {
+        "id": "page-49-p49-syl1",
+        "x": 105.875,
+        "y": 51.0625,
+        "width": 209.75,
+        "height": 22.40625
+      },
+      {
+        "id": "page-49-p49-syl2",
+        "x": 105.875,
+        "y": 96.359375,
+        "width": 209.75,
+        "height": 22.40625
+      },
+      {
+        "id": "page-49-p49-words",
+        "x": 26.75,
+        "y": 148.796875,
+        "width": 287.03125,
+        "height": 100.125
+      },
+      {
+        "id": "page-49-p49-sight",
+        "x": 19.390625,
+        "y": 272.78125,
+        "width": 294.390625,
+        "height": 22.40625
+      },
+      {
+        "id": "page-49-p49-story",
+        "x": 28.59375,
+        "y": 313.296875,
+        "width": 287.03125,
+        "height": 126.34375
+      }
+    ]
+  },
+  {
+    "page": 50,
+    "lesson": 14,
+    "url": "http://127.0.0.1:5173/cartilla/leccion/14",
+    "viewport": {
+      "width": 390,
+      "height": 844
+    },
+    "errors": [],
+    "paper": {
+      "x": 10,
+      "y": 44,
+      "width": 370,
+      "height": 478.8125
+    },
+    "text": "Completa las palabras con la sílaba correcta.\n\nmaña\nma ___\nñe\nña\npañito\npa ___ to\nño\nñi\nniño\nni ___\nñi\nño\nmoño\nmo ___\nño\nñe\naño\na ___\nña\nño\npuño\npu ___\nño\nñu\n\nEscribe oraciones. Usa las sílabas que aprendiste.\n\n50\nLección 14",
+    "subjectImages": 0,
+    "documentWidth": 390,
+    "viewportWidth": 390,
+    "fontFamily": "\"Workbook Gothic\", sans-serif",
+    "fontLoaded": true,
+    "blocks": [
+      {
+        "id": "page-50-p50-instr",
+        "x": 54.359375,
+        "y": 27.21875,
+        "width": 301.75,
+        "height": 23.828125
+      },
+      {
+        "id": "page-50-p50-fill",
+        "x": 56.1875,
+        "y": 58.203125,
+        "width": 301.75,
+        "height": 214.5625
+      },
+      {
+        "id": "page-50-p50-instr2",
+        "x": 56.1875,
+        "y": 296.609375,
+        "width": 301.75,
+        "height": 23.828125
+      },
+      {
+        "id": "page-50-p50-write",
+        "x": 59.875,
+        "y": 330,
+        "width": 298.078125,
+        "height": 109.65625
+      }
+    ]
+  },
+  {
+    "page": 51,
+    "lesson": 15,
+    "url": "http://127.0.0.1:5173/cartilla/leccion/15",
+    "viewport": {
+      "width": 390,
+      "height": 844
+    },
+    "errors": [],
+    "paper": {
+      "x": 10,
+      "y": 44,
+      "width": 370,
+      "height": 478.8125
+    },
+    "text": "Escribe con tu mejor letra.\n\nB\nb\n\nHaz un dibujo que represente una palabra que comienza con b.\n\n51\nLección 15",
+    "subjectImages": 0,
+    "documentWidth": 390,
+    "viewportWidth": 390,
+    "fontFamily": "\"Workbook Gothic\", sans-serif",
+    "fontLoaded": true,
+    "blocks": [
+      {
+        "id": "page-51-p51-instr1",
+        "x": 12.03125,
+        "y": 36.75,
+        "width": 301.75,
+        "height": 28.59375
+      },
+      {
+        "id": "page-51-p51-write-U",
+        "x": 12.03125,
+        "y": 82.046875,
+        "width": 51.515625,
+        "height": 47.671875
+      },
+      {
+        "id": "page-51-p51-write-U2",
+        "x": 63.546875,
+        "y": 82.046875,
+        "width": 250.234375,
+        "height": 47.671875
+      },
+      {
+        "id": "page-51-p51-write-l",
+        "x": 12.03125,
+        "y": 148.796875,
+        "width": 51.515625,
+        "height": 47.671875
+      },
+      {
+        "id": "page-51-p51-write-l2",
+        "x": 63.546875,
+        "y": 148.796875,
+        "width": 250.234375,
+        "height": 47.671875
+      },
+      {
+        "id": "page-51-p51-instr2",
+        "x": 8.359375,
+        "y": 234.625,
+        "width": 305.4375,
+        "height": 28.59375
+      },
+      {
+        "id": "page-51-p51-draw",
+        "x": 8.359375,
+        "y": 272.78125,
+        "width": 305.4375,
+        "height": 171.640625
+      }
+    ]
+  },
+  {
+    "page": 52,
+    "lesson": 15,
+    "url": "http://127.0.0.1:5173/cartilla/leccion/15",
+    "viewport": {
+      "width": 390,
+      "height": 844
+    },
+    "errors": [],
+    "paper": {
+      "x": 10,
+      "y": 44,
+      "width": 370,
+      "height": 478.8125
+    },
+    "text": "Encierra en un círculo la sílaba correspondiente.\n\nba\nbaño\nbala\nbatir\nbatea\nabanico\nloba\n\n0 de 6 respuestas correctas\n\nbe\nsube\nBebo\nbebé\nabeja\nnube\ncubeta\n\n0 de 6 respuestas correctas\n\nbi\nbebida\ncabito\nbicicleta\nbisagra\nbisonte\ncubito\n\n0 de 6 respuestas correctas\n\nbo\nlobo\nbonita\ntubo\nbodega\nbola\nbotella\n\n0 de 6 respuestas correctas\n\nbu\nburro\naburre\naburrido\nbulla\nabuso\nbuche\n\n0 de 6 respuestas correctas\n\n52\nLección 15",
+    "subjectImages": 0,
+    "documentWidth": 390,
+    "viewportWidth": 390,
+    "fontFamily": "\"Workbook Gothic\", sans-serif",
+    "fontLoaded": true,
+    "blocks": [
+      {
+        "id": "page-52-p52-instr",
+        "x": 59.875,
+        "y": 41.515625,
+        "width": 283.359375,
+        "height": 23.828125
+      },
+      {
+        "id": "page-52-p52-ba",
+        "x": 59.875,
+        "y": 82.046875,
+        "width": 272.3125,
+        "height": 52.4375
+      },
+      {
+        "id": "page-52-p52-be",
+        "x": 59.875,
+        "y": 153.578125,
+        "width": 272.3125,
+        "height": 52.4375
+      },
+      {
+        "id": "page-52-p52-bi",
+        "x": 59.875,
+        "y": 225.09375,
+        "width": 272.3125,
+        "height": 52.4375
+      },
+      {
+        "id": "page-52-p52-bo",
+        "x": 59.875,
+        "y": 296.609375,
+        "width": 272.3125,
+        "height": 52.4375
+      },
+      {
+        "id": "page-52-p52-bu",
+        "x": 59.875,
+        "y": 368.140625,
+        "width": 272.3125,
+        "height": 52.4375
+      }
+    ]
+  },
+  {
+    "page": 53,
+    "lesson": 15,
+    "url": "http://127.0.0.1:5173/cartilla/leccion/15",
+    "viewport": {
+      "width": 390,
+      "height": 844
+    },
+    "errors": [],
+    "paper": {
+      "x": 10,
+      "y": 44,
+      "width": 370,
+      "height": 478.8125
+    },
+    "text": "Bb\nba\nbe\nbi\nbo\nbu\nbu\nbo\nba\nbe\nbi\nbaño\nbota\nbolo\nbebé\nBebo\nbonito\nbueno\nlobo\nbate\nbonita\nsube\nbatea\ncubito\nbote\nnube\nalto  con  bueno\n\nLa nube sube y sube. Es una nube bonita.\n\nBebo, batea la bola de Pepito.\n\nLa bola sube y sube alto.\n\nLa bola sube a la nube.\n\nPepito batea la bola con el bate.\n\nLa bola sube y sube alto también.\n\nPepito es bueno en la pelota.\n\n53\nLección 15",
+    "subjectImages": 0,
+    "documentWidth": 390,
+    "viewportWidth": 390,
+    "fontFamily": "\"Workbook Gothic\", sans-serif",
+    "fontLoaded": true,
+    "blocks": [
+      {
+        "id": "page-53-p53-title",
+        "x": 19.390625,
+        "y": 39.140625,
+        "width": 77.265625,
+        "height": 81.046875
+      },
+      {
+        "id": "page-53-p53-syl1",
+        "x": 105.875,
+        "y": 51.0625,
+        "width": 209.75,
+        "height": 22.40625
+      },
+      {
+        "id": "page-53-p53-syl2",
+        "x": 105.875,
+        "y": 96.359375,
+        "width": 209.75,
+        "height": 22.40625
+      },
+      {
+        "id": "page-53-p53-words",
+        "x": 26.75,
+        "y": 148.796875,
+        "width": 287.03125,
+        "height": 100.125
+      },
+      {
+        "id": "page-53-p53-sight",
+        "x": 19.390625,
+        "y": 272.78125,
+        "width": 294.390625,
+        "height": 22.40625
+      },
+      {
+        "id": "page-53-p53-story",
+        "x": 28.59375,
+        "y": 313.296875,
+        "width": 287.03125,
+        "height": 126.34375
+      }
+    ]
+  },
+  {
+    "page": 54,
+    "lesson": 15,
+    "url": "http://127.0.0.1:5173/cartilla/leccion/15",
+    "viewport": {
+      "width": 390,
+      "height": 844
+    },
+    "errors": [],
+    "paper": {
+      "x": 10,
+      "y": 44,
+      "width": 370,
+      "height": 478.8125
+    },
+    "text": "Completa las palabras con la sílaba correcta.\n\ncubo\ncu ___\nbu\nbo\nbolo\n___ lo\nbo\nbe\ncubito\ncu ___ to\nbo\nbi\nbatido\n___ tido\nbe\nba\nburro\n___ rro\nba\nbu\nnube\nnu ___\nbe\nbi\n\nEscribe oraciones. Usa las sílabas que aprendiste.\n\n54\nLección 15",
+    "subjectImages": 0,
+    "documentWidth": 390,
+    "viewportWidth": 390,
+    "fontFamily": "\"Workbook Gothic\", sans-serif",
+    "fontLoaded": true,
+    "blocks": [
+      {
+        "id": "page-54-p54-instr",
+        "x": 54.359375,
+        "y": 27.21875,
+        "width": 301.75,
+        "height": 23.828125
+      },
+      {
+        "id": "page-54-p54-fill",
+        "x": 56.1875,
+        "y": 58.203125,
+        "width": 301.75,
+        "height": 214.5625
+      },
+      {
+        "id": "page-54-p54-instr2",
+        "x": 56.1875,
+        "y": 296.609375,
+        "width": 301.75,
+        "height": 23.828125
+      },
+      {
+        "id": "page-54-p54-write",
+        "x": 59.875,
+        "y": 330,
+        "width": 298.078125,
+        "height": 109.65625
+      }
+    ]
+  },
+  {
+    "page": 55,
+    "lesson": 16,
+    "url": "http://127.0.0.1:5173/cartilla/leccion/16",
+    "viewport": {
+      "width": 390,
+      "height": 844
+    },
+    "errors": [],
+    "paper": {
+      "x": 10,
+      "y": 44,
+      "width": 370,
+      "height": 478.8125
+    },
+    "text": "Escribe con tu mejor letra.\n\nV\nv\n\nHaz un dibujo que represente una palabra que comienza con v.\n\n55\nLección 16",
+    "subjectImages": 0,
+    "documentWidth": 390,
+    "viewportWidth": 390,
+    "fontFamily": "\"Workbook Gothic\", sans-serif",
+    "fontLoaded": true,
+    "blocks": [
+      {
+        "id": "page-55-p55-instr1",
+        "x": 12.03125,
+        "y": 36.75,
+        "width": 301.75,
+        "height": 28.59375
+      },
+      {
+        "id": "page-55-p55-write-U",
+        "x": 12.03125,
+        "y": 82.046875,
+        "width": 51.515625,
+        "height": 47.671875
+      },
+      {
+        "id": "page-55-p55-write-U2",
+        "x": 63.546875,
+        "y": 82.046875,
+        "width": 250.234375,
+        "height": 47.671875
+      },
+      {
+        "id": "page-55-p55-write-l",
+        "x": 12.03125,
+        "y": 148.796875,
+        "width": 51.515625,
+        "height": 47.671875
+      },
+      {
+        "id": "page-55-p55-write-l2",
+        "x": 63.546875,
+        "y": 148.796875,
+        "width": 250.234375,
+        "height": 47.671875
+      },
+      {
+        "id": "page-55-p55-instr2",
+        "x": 8.359375,
+        "y": 234.625,
+        "width": 305.4375,
+        "height": 28.59375
+      },
+      {
+        "id": "page-55-p55-draw",
+        "x": 8.359375,
+        "y": 272.78125,
+        "width": 305.4375,
+        "height": 171.640625
+      }
+    ]
+  },
+  {
+    "page": 56,
+    "lesson": 16,
+    "url": "http://127.0.0.1:5173/cartilla/leccion/16",
+    "viewport": {
+      "width": 390,
+      "height": 844
+    },
+    "errors": [],
+    "paper": {
+      "x": 10,
+      "y": 44,
+      "width": 370,
+      "height": 478.8125
+    },
+    "text": "Encierra en un círculo la sílaba correspondiente.\n\nva\nvaso\nlavamos\nvámonos\nlava\nnieva\nlavamanos\n\n0 de 6 respuestas correctas\n\nve\nvenado\nave\nvela\nvenas\nvelo\nnave\n\n0 de 6 respuestas correctas\n\nvi\nvino\nvivo\nvidente\nvine\naviso\nvitamina\n\n0 de 6 respuestas correctas\n\nvo\nlavo\nvivo\npavo\nclavo\nvolar\nTavo\n\n0 de 6 respuestas correctas\n\nvu\nvuela\nvuelta\nvuelan\nvuelo\nrevuelta\nrevuelo\n\n0 de 6 respuestas correctas\n\n56\nLección 16",
+    "subjectImages": 0,
+    "documentWidth": 390,
+    "viewportWidth": 390,
+    "fontFamily": "\"Workbook Gothic\", sans-serif",
+    "fontLoaded": true,
+    "blocks": [
+      {
+        "id": "page-56-p56-instr",
+        "x": 59.875,
+        "y": 41.515625,
+        "width": 283.359375,
+        "height": 23.828125
+      },
+      {
+        "id": "page-56-p56-va",
+        "x": 59.875,
+        "y": 82.046875,
+        "width": 272.3125,
+        "height": 52.4375
+      },
+      {
+        "id": "page-56-p56-ve",
+        "x": 59.875,
+        "y": 153.578125,
+        "width": 272.3125,
+        "height": 52.4375
+      },
+      {
+        "id": "page-56-p56-vi",
+        "x": 59.875,
+        "y": 225.09375,
+        "width": 272.3125,
+        "height": 52.4375
+      },
+      {
+        "id": "page-56-p56-vo",
+        "x": 59.875,
+        "y": 296.609375,
+        "width": 272.3125,
+        "height": 52.4375
+      },
+      {
+        "id": "page-56-p56-vu",
+        "x": 59.875,
+        "y": 368.140625,
+        "width": 272.3125,
+        "height": 52.4375
+      }
+    ]
+  },
+  {
+    "page": 57,
+    "lesson": 16,
+    "url": "http://127.0.0.1:5173/cartilla/leccion/16",
+    "viewport": {
+      "width": 390,
+      "height": 844
+    },
+    "errors": [],
+    "paper": {
+      "x": 10,
+      "y": 44,
+      "width": 370,
+      "height": 478.8125
+    },
+    "text": "Vv\nva\nve\nvi\nvo\nvu\nvu\nvo\nva\nve\nvi\nvaso\navena\nvivo\nvela\nventana\nvive\nvale\npavo\nvine\nvino\nlava\nVuli\nvenas\nlavamanos\nven\n\nLa nieve se va. Vita se lava\n\nlas manos en el lavamanos.\n\nMamá lava las mesas del patio.\n\nMamá pone unos manteles nuevos.\n\nEl viento mueve los manteles de mamá y\n\nmueve el papalote de Valentín.\n\nEl papalote vuela y vuela.\n\n57\nLección 16",
+    "subjectImages": 0,
+    "documentWidth": 390,
+    "viewportWidth": 390,
+    "fontFamily": "\"Workbook Gothic\", sans-serif",
+    "fontLoaded": true,
+    "blocks": [
+      {
+        "id": "page-57-p57-title",
+        "x": 19.390625,
+        "y": 39.140625,
+        "width": 77.265625,
+        "height": 81.046875
+      },
+      {
+        "id": "page-57-p57-syl1",
+        "x": 105.875,
+        "y": 51.0625,
+        "width": 209.75,
+        "height": 22.40625
+      },
+      {
+        "id": "page-57-p57-syl2",
+        "x": 105.875,
+        "y": 96.359375,
+        "width": 209.75,
+        "height": 22.40625
+      },
+      {
+        "id": "page-57-p57-words",
+        "x": 26.75,
+        "y": 148.796875,
+        "width": 287.03125,
+        "height": 100.125
+      },
+      {
+        "id": "page-57-p57-sight",
+        "x": 19.390625,
+        "y": 272.78125,
+        "width": 294.390625,
+        "height": 22.40625
+      },
+      {
+        "id": "page-57-p57-story",
+        "x": 28.59375,
+        "y": 313.296875,
+        "width": 287.03125,
+        "height": 126.34375
+      }
+    ]
+  },
+  {
+    "page": 58,
+    "lesson": 16,
+    "url": "http://127.0.0.1:5173/cartilla/leccion/16",
+    "viewport": {
+      "width": 390,
+      "height": 844
+    },
+    "errors": [],
+    "paper": {
+      "x": 10,
+      "y": 44,
+      "width": 370,
+      "height": 478.8125
+    },
+    "text": "Completa las palabras con la sílaba correcta.\n\nnave\nna ___\nve\nvu\nvaso\n___ so\nva\nvo\nvela\n___ la\nvi\nve\npavo\npa ___\nvo\nvu\nvine\n___ ne\nva\nvi\naviso\na ___ so\nvi\nvo\n\nEscribe oraciones. Usa las sílabas que aprendiste.\n\n58\nLección 16",
+    "subjectImages": 0,
+    "documentWidth": 390,
+    "viewportWidth": 390,
+    "fontFamily": "\"Workbook Gothic\", sans-serif",
+    "fontLoaded": true,
+    "blocks": [
+      {
+        "id": "page-58-p58-instr",
+        "x": 54.359375,
+        "y": 27.21875,
+        "width": 301.75,
+        "height": 23.828125
+      },
+      {
+        "id": "page-58-p58-fill",
+        "x": 56.1875,
+        "y": 58.203125,
+        "width": 301.75,
+        "height": 214.5625
+      },
+      {
+        "id": "page-58-p58-instr2",
+        "x": 56.1875,
+        "y": 296.609375,
+        "width": 301.75,
+        "height": 23.828125
+      },
+      {
+        "id": "page-58-p58-write",
+        "x": 59.875,
+        "y": 330,
+        "width": 298.078125,
+        "height": 109.65625
+      }
+    ]
+  },
+  {
+    "page": 59,
+    "lesson": 17,
+    "url": "http://127.0.0.1:5173/cartilla/leccion/17",
+    "viewport": {
+      "width": 390,
+      "height": 844
+    },
+    "errors": [],
+    "paper": {
+      "x": 10,
+      "y": 44,
+      "width": 370,
+      "height": 478.8125
+    },
+    "text": "Escribe con tu mejor letra.\n\nR\nr\n\nHaz un dibujo que represente una palabra que comienza con r.\n\n59\nLección 17",
+    "subjectImages": 0,
+    "documentWidth": 390,
+    "viewportWidth": 390,
+    "fontFamily": "\"Workbook Gothic\", sans-serif",
+    "fontLoaded": true,
+    "blocks": [
+      {
+        "id": "page-59-p59-instr1",
+        "x": 12.03125,
+        "y": 36.75,
+        "width": 301.75,
+        "height": 28.59375
+      },
+      {
+        "id": "page-59-p59-write-U",
+        "x": 12.03125,
+        "y": 82.046875,
+        "width": 51.515625,
+        "height": 47.671875
+      },
+      {
+        "id": "page-59-p59-write-U2",
+        "x": 63.546875,
+        "y": 82.046875,
+        "width": 250.234375,
+        "height": 47.671875
+      },
+      {
+        "id": "page-59-p59-write-l",
+        "x": 12.03125,
+        "y": 148.796875,
+        "width": 51.515625,
+        "height": 47.671875
+      },
+      {
+        "id": "page-59-p59-write-l2",
+        "x": 63.546875,
+        "y": 148.796875,
+        "width": 250.234375,
+        "height": 47.671875
+      },
+      {
+        "id": "page-59-p59-instr2",
+        "x": 8.359375,
+        "y": 234.625,
+        "width": 305.4375,
+        "height": 28.59375
+      },
+      {
+        "id": "page-59-p59-draw",
+        "x": 8.359375,
+        "y": 272.78125,
+        "width": 305.4375,
+        "height": 171.640625
+      }
+    ]
+  },
+  {
+    "page": 60,
+    "lesson": 17,
+    "url": "http://127.0.0.1:5173/cartilla/leccion/17",
+    "viewport": {
+      "width": 390,
+      "height": 844
+    },
+    "errors": [],
+    "paper": {
+      "x": 10,
+      "y": 44,
+      "width": 370,
+      "height": 478.8125
+    },
+    "text": "Encierra en un círculo la sílaba correspondiente.\n\nra\nrana\nrama\nratón\nrata\nraso\nrama\n\n0 de 6 respuestas correctas\n\nre\nremo\nreloj\nrelevo\nrezo\nrevista\nrema\n\n0 de 6 respuestas correctas\n\nri\nriña\nrima\nrimamos\nRita\nrisa\nrizo\n\n0 de 6 respuestas correctas\n\nro\nrosa\nroto\nRolo\nroca\nrota\nRoberto\n\n0 de 6 respuestas correctas\n\nru\nruta\nRufino\nrubio\nruso\nrutina\nrudo\n\n0 de 6 respuestas correctas\n\n60\nLección 17",
+    "subjectImages": 0,
+    "documentWidth": 390,
+    "viewportWidth": 390,
+    "fontFamily": "\"Workbook Gothic\", sans-serif",
+    "fontLoaded": true,
+    "blocks": [
+      {
+        "id": "page-60-p60-instr",
+        "x": 59.875,
+        "y": 41.515625,
+        "width": 283.359375,
+        "height": 23.828125
+      },
+      {
+        "id": "page-60-p60-ra",
+        "x": 59.875,
+        "y": 82.046875,
+        "width": 272.3125,
+        "height": 52.4375
+      },
+      {
+        "id": "page-60-p60-re",
+        "x": 59.875,
+        "y": 153.578125,
+        "width": 272.3125,
+        "height": 52.4375
+      },
+      {
+        "id": "page-60-p60-ri",
+        "x": 59.875,
+        "y": 225.09375,
+        "width": 272.3125,
+        "height": 52.4375
+      },
+      {
+        "id": "page-60-p60-ro",
+        "x": 59.875,
+        "y": 296.609375,
+        "width": 272.3125,
+        "height": 52.4375
+      },
+      {
+        "id": "page-60-p60-ru",
+        "x": 59.875,
+        "y": 368.140625,
+        "width": 272.3125,
+        "height": 52.4375
+      }
+    ]
+  },
+  {
+    "page": 61,
+    "lesson": 17,
+    "url": "http://127.0.0.1:5173/cartilla/leccion/17",
+    "viewport": {
+      "width": 390,
+      "height": 844
+    },
+    "errors": [],
+    "paper": {
+      "x": 10,
+      "y": 44,
+      "width": 370,
+      "height": 478.8125
+    },
+    "text": "Rr\nra\nre\nri\nro\nru\nru\nro\nra\nre\nri\nramo\nremo\nropa\nrosa\nrana\nrosado\nrisa\nruta\nrulo\nrata\nRita\nRolo\nroto\nRoma\nrebaño\nbien\n\nLa bola de Roberto rueda bien.\n\nRolo patea la bola. La bola rueda y\n\nle da a un bolo. El bolo se rompe y\n\nRoberto se ríe. Rolo se ríe también.\n\nRita le da al bolo. Rita se ríe.\n\nRolo y Roberto se ríen también.\n\n61\nLección 17",
+    "subjectImages": 0,
+    "documentWidth": 390,
+    "viewportWidth": 390,
+    "fontFamily": "\"Workbook Gothic\", sans-serif",
+    "fontLoaded": true,
+    "blocks": [
+      {
+        "id": "page-61-p61-title",
+        "x": 19.390625,
+        "y": 39.140625,
+        "width": 77.265625,
+        "height": 81.046875
+      },
+      {
+        "id": "page-61-p61-syl1",
+        "x": 105.875,
+        "y": 51.0625,
+        "width": 209.75,
+        "height": 22.40625
+      },
+      {
+        "id": "page-61-p61-syl2",
+        "x": 105.875,
+        "y": 96.359375,
+        "width": 209.75,
+        "height": 22.40625
+      },
+      {
+        "id": "page-61-p61-words",
+        "x": 26.75,
+        "y": 148.796875,
+        "width": 287.03125,
+        "height": 100.125
+      },
+      {
+        "id": "page-61-p61-sight",
+        "x": 19.390625,
+        "y": 272.78125,
+        "width": 294.390625,
+        "height": 22.40625
+      },
+      {
+        "id": "page-61-p61-story",
+        "x": 28.59375,
+        "y": 313.296875,
+        "width": 287.03125,
+        "height": 126.34375
+      }
+    ]
+  },
+  {
+    "page": 62,
+    "lesson": 17,
+    "url": "http://127.0.0.1:5173/cartilla/leccion/17",
+    "viewport": {
+      "width": 390,
+      "height": 844
+    },
+    "errors": [],
+    "paper": {
+      "x": 10,
+      "y": 44,
+      "width": 370,
+      "height": 478.8125
+    },
+    "text": "Completa las palabras con la sílaba correcta.\n\nrana\n___ na\nru\nra\nRita\n___ ta\nRi\nre\nruta\n___ ta\nru\nra\nremo\n___ mo\nre\nro\nrosa\n___ sa\nro\nri\nrubio\n___ bio\nre\nru\n\nEscribe oraciones. Usa las sílabas que aprendiste.\n\n62\nLección 17",
+    "subjectImages": 0,
+    "documentWidth": 390,
+    "viewportWidth": 390,
+    "fontFamily": "\"Workbook Gothic\", sans-serif",
+    "fontLoaded": true,
+    "blocks": [
+      {
+        "id": "page-62-p62-instr",
+        "x": 54.359375,
+        "y": 27.21875,
+        "width": 301.75,
+        "height": 23.828125
+      },
+      {
+        "id": "page-62-p62-fill",
+        "x": 56.1875,
+        "y": 58.203125,
+        "width": 301.75,
+        "height": 214.5625
+      },
+      {
+        "id": "page-62-p62-instr2",
+        "x": 56.1875,
+        "y": 296.609375,
+        "width": 301.75,
+        "height": 23.828125
+      },
+      {
+        "id": "page-62-p62-write",
+        "x": 59.875,
+        "y": 330,
+        "width": 298.078125,
+        "height": 109.65625
+      }
+    ]
+  },
+  {
+    "page": 63,
+    "lesson": 18,
+    "url": "http://127.0.0.1:5173/cartilla/leccion/18",
+    "viewport": {
+      "width": 390,
+      "height": 844
+    },
+    "errors": [],
+    "paper": {
+      "x": 10,
+      "y": 44,
+      "width": 370,
+      "height": 478.8125
+    },
+    "text": "Escribe con tu mejor letra.\n\nrr\n\nHaz un dibujo que represente una palabra que contenga la letra rr.\n\n63\nLección 18",
+    "subjectImages": 0,
+    "documentWidth": 390,
+    "viewportWidth": 390,
+    "fontFamily": "\"Workbook Gothic\", sans-serif",
+    "fontLoaded": true,
+    "blocks": [
+      {
+        "id": "page-63-p63-instr1",
+        "x": 12.03125,
+        "y": 36.75,
+        "width": 301.75,
+        "height": 28.59375
+      },
+      {
+        "id": "page-63-p63-write-1",
+        "x": 12.03125,
+        "y": 82.046875,
+        "width": 51.515625,
+        "height": 47.671875
+      },
+      {
+        "id": "page-63-p63-write-2",
+        "x": 63.546875,
+        "y": 82.046875,
+        "width": 250.234375,
+        "height": 47.671875
+      },
+      {
+        "id": "page-63-p63-write-3",
+        "x": 12.03125,
+        "y": 148.796875,
+        "width": 51.515625,
+        "height": 47.671875
+      },
+      {
+        "id": "page-63-p63-write-4",
+        "x": 63.546875,
+        "y": 148.796875,
+        "width": 250.234375,
+        "height": 47.671875
+      },
+      {
+        "id": "page-63-p63-instr2",
+        "x": 8.359375,
+        "y": 234.625,
+        "width": 305.4375,
+        "height": 28.59375
+      },
+      {
+        "id": "page-63-p63-draw",
+        "x": 8.359375,
+        "y": 272.78125,
+        "width": 305.4375,
+        "height": 171.640625
+      }
+    ]
+  },
+  {
+    "page": 64,
+    "lesson": 18,
+    "url": "http://127.0.0.1:5173/cartilla/leccion/18",
+    "viewport": {
+      "width": 390,
+      "height": 844
+    },
+    "errors": [],
+    "paper": {
+      "x": 10,
+      "y": 44,
+      "width": 370,
+      "height": 478.8125
+    },
+    "text": "Encierra en un círculo la sílaba correspondiente.\n\nrra\nbarra\namarra\npizarra\nPorra\narrasar\nperra\n\n0 de 6 respuestas correctas\n\nrre\ntorre\namarre\narrebatado\nbarre\narrebatar\narrepiente\n\n0 de 6 respuestas correctas\n\nrri\narriba\narrima\nparrilla\nperrita\nbarril\ncarrito\n\n0 de 6 respuestas correctas\n\nrro\ncarro\narroyo\nburro\nperro\namarro\ntarro\n\n0 de 6 respuestas correctas\n\nrru\narruga\narrugado\narrullo\nverruga\narrullar\narrullador\n\n0 de 6 respuestas correctas\n\n64\nLección 18",
+    "subjectImages": 0,
+    "documentWidth": 390,
+    "viewportWidth": 390,
+    "fontFamily": "\"Workbook Gothic\", sans-serif",
+    "fontLoaded": true,
+    "blocks": [
+      {
+        "id": "page-64-p64-instr",
+        "x": 59.875,
+        "y": 41.515625,
+        "width": 283.359375,
+        "height": 23.828125
+      },
+      {
+        "id": "page-64-p64-rra",
+        "x": 59.875,
+        "y": 82.046875,
+        "width": 272.3125,
+        "height": 52.4375
+      },
+      {
+        "id": "page-64-p64-rre",
+        "x": 59.875,
+        "y": 153.578125,
+        "width": 272.3125,
+        "height": 52.4375
+      },
+      {
+        "id": "page-64-p64-rri",
+        "x": 59.875,
+        "y": 225.09375,
+        "width": 272.3125,
+        "height": 52.4375
+      },
+      {
+        "id": "page-64-p64-rro",
+        "x": 59.875,
+        "y": 296.609375,
+        "width": 272.3125,
+        "height": 52.4375
+      },
+      {
+        "id": "page-64-p64-rru",
+        "x": 59.875,
+        "y": 368.140625,
+        "width": 272.3125,
+        "height": 52.4375
+      }
+    ]
+  },
+  {
+    "page": 65,
+    "lesson": 18,
+    "url": "http://127.0.0.1:5173/cartilla/leccion/18",
+    "viewport": {
+      "width": 390,
+      "height": 844
+    },
+    "errors": [],
+    "paper": {
+      "x": 10,
+      "y": 44,
+      "width": 370,
+      "height": 478.8125
+    },
+    "text": "rr\nrra\nrre\nrri\nrro\nrru\nrru\nrro\nrra\nrre\nrri\ntarro\nburro\ntierra\nperro\namarro\ncarrusel\nbarro\narrebato\ntorre\narroba\nparra\nburrito\narriba\narruina\ncarro\n\nRode tiene un perro. Es un perro alemán.\n\nEl perro de Rode tiene una tina de barro.\n\nLa tina de barro está en el piso.\n\nRosi amarra el perro en la mata.\n\nEl perro no muerde. El perro Tito mueve el\n\nrabo. Tito arruinó el carro de rosas.\n\n65\nLección 18",
+    "subjectImages": 0,
+    "documentWidth": 390,
+    "viewportWidth": 390,
+    "fontFamily": "\"Workbook Gothic\", sans-serif",
+    "fontLoaded": true,
+    "blocks": [
+      {
+        "id": "page-65-p65-title",
+        "x": 19.390625,
+        "y": 39.140625,
+        "width": 77.265625,
+        "height": 81.046875
+      },
+      {
+        "id": "page-65-p65-syl1",
+        "x": 105.875,
+        "y": 51.0625,
+        "width": 209.75,
+        "height": 22.40625
+      },
+      {
+        "id": "page-65-p65-syl2",
+        "x": 105.875,
+        "y": 96.359375,
+        "width": 209.75,
+        "height": 22.40625
+      },
+      {
+        "id": "page-65-p65-words",
+        "x": 26.75,
+        "y": 148.796875,
+        "width": 287.03125,
+        "height": 100.125
+      },
+      {
+        "id": "page-65-p65-sight",
+        "x": 19.390625,
+        "y": 272.78125,
+        "width": 294.390625,
+        "height": 22.40625
+      },
+      {
+        "id": "page-65-p65-story",
+        "x": 28.59375,
+        "y": 313.296875,
+        "width": 287.03125,
+        "height": 126.34375
+      }
+    ]
+  },
+  {
+    "page": 66,
+    "lesson": 18,
+    "url": "http://127.0.0.1:5173/cartilla/leccion/18",
+    "viewport": {
+      "width": 390,
+      "height": 844
+    },
+    "errors": [],
+    "paper": {
+      "x": 10,
+      "y": 44,
+      "width": 370,
+      "height": 478.8125
+    },
+    "text": "Completa las palabras con la sílaba correcta.\n\nperro\npe ___\nrra\nrro\nbarre\nba ___\nrre\nrri\ntorre\nto ___\nrro\nrre\nburro\nbu ___\nrro\nrru\ncarro\nca ___\nrro\nrru\namarro\nama ___\nrru\nrro\n\nEscribe oraciones. Usa las sílabas que aprendiste.\n\n66\nLección 18",
+    "subjectImages": 0,
+    "documentWidth": 390,
+    "viewportWidth": 390,
+    "fontFamily": "\"Workbook Gothic\", sans-serif",
+    "fontLoaded": true,
+    "blocks": [
+      {
+        "id": "page-66-p66-instr",
+        "x": 54.359375,
+        "y": 27.21875,
+        "width": 301.75,
+        "height": 23.828125
+      },
+      {
+        "id": "page-66-p66-fill",
+        "x": 56.1875,
+        "y": 58.203125,
+        "width": 301.75,
+        "height": 214.5625
+      },
+      {
+        "id": "page-66-p66-instr2",
+        "x": 56.1875,
+        "y": 296.609375,
+        "width": 301.75,
+        "height": 23.828125
+      },
+      {
+        "id": "page-66-p66-write",
+        "x": 59.875,
+        "y": 330,
+        "width": 298.078125,
+        "height": 109.65625
+      }
+    ]
+  }
+]

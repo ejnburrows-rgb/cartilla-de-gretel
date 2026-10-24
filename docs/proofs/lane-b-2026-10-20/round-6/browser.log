@@ -1,0 +1,17 @@
+PASS touch: wrong occurrence erased, correct occurrence saved after reload
+PASS normal motion: shared pencil and eraser execute wrong-answer cycle
+PASS drawing: real canvas ink, eraser, undo, save/reload
+PASS completion page: real sentence input and saved work
+PASS source-guided uppercase: actual pointer trace completes and restores
+PASS six fill choices: wrong retry, all correct, sentence completion unlocks next
+PASS navigation: reading page advances with existing next control
+PASS adjacent page 19: source styles excluded
+PASS adjacent page 67: source styles excluded
+PASS 844x390: page 23 fits
+PASS 844x390: page 24 fits
+PASS 844x390: page 25 fits
+PASS 844x390: page 26 fits
+PASS 1366x768: page 23 fits
+PASS 1366x768: page 24 fits
+PASS 1366x768: page 25 fits
+PASS 1366x768: page 26 fits

@@ -128,6 +128,21 @@ describe("SyllableWordCircle", () => {
     }));
   });
 
+  it("grades the printed letter when a centered word has wide button margins", () => {
+    render(<SyllableWordCircle region={region} lessonId="9" />);
+    const button = screen.getByRole("button", { name: "sala" });
+    mockWordRect(button, 400);
+    button.querySelectorAll(".native-syllable__letter").forEach((letter, index) => {
+      vi.spyOn(letter, "getBoundingClientRect").mockReturnValue({
+        left: 180 + index * 10, width: 10,
+      } as DOMRect);
+    });
+    // First letter is at x185, despite the whole button's second half.
+    fireEvent.pointerUp(button, { clientX: 185, pointerId: 1 });
+    act(() => vi.advanceTimersByTime(3000));
+    expect(button.getAttribute("aria-pressed")).toBe("true");
+  });
+
   it("lets pointer position select either repeated occurrence in the same word", () => {
     const repeat = {
       id: "repeat-pa",

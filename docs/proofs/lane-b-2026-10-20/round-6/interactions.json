@@ -1,0 +1,70 @@
+[
+  {
+    "name": "touch: wrong occurrence erased, correct occurrence saved after reload",
+    "pass": true
+  },
+  {
+    "name": "normal motion: shared pencil and eraser execute wrong-answer cycle",
+    "pass": true
+  },
+  {
+    "name": "drawing: real canvas ink, eraser, undo, save/reload",
+    "pass": true
+  },
+  {
+    "name": "completion page: real sentence input and saved work",
+    "pass": true
+  },
+  {
+    "name": "source-guided uppercase: actual pointer trace completes and restores",
+    "pass": true
+  },
+  {
+    "name": "six fill choices: wrong retry, all correct, sentence completion unlocks next",
+    "pass": true
+  },
+  {
+    "name": "navigation: reading page advances with existing next control",
+    "pass": true
+  },
+  {
+    "name": "adjacent page 19: source styles excluded",
+    "pass": true
+  },
+  {
+    "name": "adjacent page 67: source styles excluded",
+    "pass": true
+  },
+  {
+    "name": "844x390: page 23 fits",
+    "pass": true
+  },
+  {
+    "name": "844x390: page 24 fits",
+    "pass": true
+  },
+  {
+    "name": "844x390: page 25 fits",
+    "pass": true
+  },
+  {
+    "name": "844x390: page 26 fits",
+    "pass": true
+  },
+  {
+    "name": "1366x768: page 23 fits",
+    "pass": true
+  },
+  {
+    "name": "1366x768: page 24 fits",
+    "pass": true
+  },
+  {
+    "name": "1366x768: page 25 fits",
+    "pass": true
+  },
+  {
+    "name": "1366x768: page 26 fits",
+    "pass": true
+  }
+]

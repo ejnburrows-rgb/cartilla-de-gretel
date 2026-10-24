@@ -1,3 +1,4 @@
+import { sourceWordStyle, type SourceWord } from "@/lib/workbook-source-geometry";
 import { learnerStorageKey } from "@/lib/learner-storage";
 import { loadLassoProgress } from "@/lib/activity-canvas-store";
 import { useEffect, useState } from "react";
@@ -27,7 +28,7 @@ function clampMarkStart(word: string, syllable: string, start: number): number {
   return Math.max(0, Math.min(start, Math.max(0, word.length - span)));
 }
 
-export function SyllableWordCircle({ region, lessonId }: { region: PageRegion; lessonId?: string }) {
+export function SyllableWordCircle({ region, lessonId, sourceWords }: { region: PageRegion; lessonId?: string; sourceWords?: SourceWord[] }) {
   const { emit: gretelEvent, record: recordEvent } = useActivityEvents();
   const words = (region.matchRows ?? []).flat();
   const isTarget = (i: number) => words[i]?.correct !== false;
@@ -159,7 +160,18 @@ export function SyllableWordCircle({ region, lessonId }: { region: PageRegion; l
     const rect = event.currentTarget.getBoundingClientRect();
     const width = Math.max(1, rect.width);
     const ratio = Math.max(0, Math.min(0.9999, (event.clientX - rect.left) / width));
-    const charIndex = Math.min(word.length - 1, Math.floor(ratio * word.length));
+    // The printed word may occupy only part of its button. Grade the actual
+    // letter under the pointer, not the button's surrounding whitespace.
+    const letters = Array.from(event.currentTarget.querySelectorAll(".native-syllable__letter"));
+    const boxes = letters.map((letter) => letter.getBoundingClientRect());
+    const measured = boxes.some((box) => box.width > 0);
+    const charIndex = measured
+      ? boxes.reduce((best, box, index) => {
+          const distance = Math.abs(event.clientX - (box.left + box.width / 2));
+          const previous = boxes[best];
+          return distance < Math.abs(event.clientX - (previous.left + previous.width / 2)) ? index : best;
+        }, 0)
+      : Math.min(word.length - 1, Math.floor(ratio * word.length));
     const starts = validSyllableStarts(word, syllable);
     const occurrence = starts.find(
       (start) => charIndex >= start && charIndex < start + Math.max(1, syllable.length),
@@ -215,7 +227,7 @@ export function SyllableWordCircle({ region, lessonId }: { region: PageRegion; l
   };
 
   return (
-    <section className="native-syllable" aria-label={`Busca ${syllable} en cada palabra`}>
+    <section className={`native-syllable${sourceWords ? " native-syllable--source" : ""}`} aria-label={`Busca ${syllable} en cada palabra`}>
       <h2>{syllable}</h2>
       <div className="native-syllable__words">
         {words.map((entry, i) => {
@@ -223,6 +235,7 @@ export function SyllableWordCircle({ region, lessonId }: { region: PageRegion; l
           return (
             <button
               key={`${i}-${entry.word}`}
+              style={sourceWordStyle(sourceWords?.[i])}
               type="button"
               className={`native-syllable__word${retrying ? " is-retrying" : ""}`}
               aria-label={entry.word}

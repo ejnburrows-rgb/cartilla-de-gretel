@@ -1,0 +1,23 @@
+{
+  "src/cartilla/interactions/DibujaHost.tsx": "4e21ca18e354e9400c410ca80188aabe084dd3425e178ca292bb0d4aa6821877",
+  "src/cartilla/interactions/SyllableWordCircle.tsx": "f33660bb62ad27cc6553a80f4318a5756addff2e7ea497546077b67a37222267",
+  "src/cartilla/interactions/__tests__/SyllableWordCircle.test.tsx": "4eb34e5f0b5dde0e4b0d150baa40f79225af4efd7e06c28f9b43ee6f576e6176",
+  "src/cartilla/interactions/faithfulAdapters.tsx": "cb034c116c99e6c2d02ec257d3db94ea9bed1665a9c34fad7409a45d22ded75c",
+  "src/components/cartilla/FaithfulPageRenderer.tsx": "c115a6b3fde49f6e01bf705603801a809c547d6bc7bc7dd9663c3547a0131d3d",
+  "src/components/cartilla/PageFrame.tsx": "f53becc38fb81d54b653cd5578d74d8d36cc3c1b885df8d304eeba0ab97a4903",
+  "src/components/cartilla/WorkbookWritingResponse.tsx": "6791a6666758f60e132faef360cc50aa18abce234bda9ada6a68748fdd0e9f33",
+  "src/lib/use-fit-to-page.ts": "1f30f99f99528bf38ee9d15d689df928c97f587894dfb1d2bec7eb3777c3c94a",
+  "src/styles/workbook-middle-lessons.css": "df7fd839ebf87cecd20e17c30ebece5b6f5a7fe71e3e123244e4ecc670121385",
+  "scripts/capture-lane-b.mjs": "2ad9e5e61b6f4e8a0e2db62dcce555774f1059bcfb7e903eca8ab53bd39f2d20",
+  "scripts/verify-lane-b.mjs": "ce6c6d6fd912ca3c2336a9f232b330b8ca209f6c6e6d7ef20ab26a3522a8fa4b",
+  "scripts/package-lane-b-proof.py": "0f76e9932e2acb85495e7edc9d14e785e57f4a0d475c995b06a40f58ec4397d7",
+  "public/fonts/workbook-gothic-400.woff": "4dc8ed96bb87c422a6d28c3bacebc005ac1bdda6022036ab70f0c01795ea1059",
+  "public/fonts/workbook-gothic-700.woff": "eeaf6a347e870c28ddecbf09dbc97314848e0a290d660fd324982c7d9b38515d",
+  "public/fonts/workbook-gothic-LICENSE.txt": "1315a62758a603a3e6e87a79b8389563789c59c1740b9db8bc2b20e2e2145458",
+  "public/fonts/source/URWGothic-Book.otf": "04318316cee29950805110c9c8949eea189ef5575132881f4d4d7e03e5299903",
+  "public/fonts/source/URWGothic-Demi.otf": "5b009410cf5231dcb1e45b155c1afedcfc63d82042fd8c414d0dd7705c9fbbae",
+  "public/fonts/source/README.txt": "53558f97ae1b0ce4b67a71b86d602604739e660ed7ab1bf15f09f7bbd5f2d0ce",
+  "src/routes/cartilla/-leccion-view.tsx": "ebce2c6bb51378938ebcc03aa863a3a058e5aa876817b1c0ecf24bb1b9f9fd80",
+  "src/data/page-layouts.json": "d44721456d1617d17028802a27a0ae56a97cb298ce57cd44a955b6adc0da10f0",
+  "src/lib/workbook-pages.ts": "157806d43e68c2cf27a92fd59f4f421ce0e434f34ed704b37dd4dfa9c7374f72"
+}

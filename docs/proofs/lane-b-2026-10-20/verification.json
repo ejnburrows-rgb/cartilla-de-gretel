@@ -1,0 +1,37 @@
+{
+  "runtime_commit": "1bb08d96a090b052073d48255eaf115d6351b417",
+  "base": "ba4e6ff3d4e62c56b6c0d6f4ee5384abc3629e16",
+  "draft_branch": "draft/lane-b-workbook-lessons-8-18",
+  "runtime_checks": {
+    "typecheck_exit": 0,
+    "unit_files": 8,
+    "unit_tests": 175,
+    "unit_exit": 0,
+    "browser_cases": 17,
+    "browser_exit": 0,
+    "phone_pages": 44,
+    "capture_exit": 0,
+    "worker_build_exit": 0
+  },
+  "utc_recorded": "2026-10-20T09:34:07.834906+00:00",
+  "file_git_blobs": {
+    "src/cartilla/interactions/DibujaHost.tsx": "a039201ee3eb5ef57117c6d00d2ec87f68135f6c",
+    "src/cartilla/interactions/SyllableWordCircle.tsx": "bd8689fbb57bd4f203330a892effff27c203e2fd",
+    "src/cartilla/interactions/__tests__/SyllableWordCircle.test.tsx": "7331365b410d4652f26b11ca5556e3618735d4c3",
+    "src/cartilla/interactions/faithfulAdapters.tsx": "42c15fdd1665f548fd851a44227e0ff6cfee8586",
+    "src/components/cartilla/FaithfulPageRenderer.tsx": "f48e8d40492bbfa9a29c81313a4d1ee6d3dc81eb",
+    "src/components/cartilla/PageFrame.tsx": "905070d23c01d6cd78b280e5839c2c8c1791f325",
+    "src/components/cartilla/WorkbookWritingResponse.tsx": "7888df50f054e92d79beeb3944fc9fc7e08533ad",
+    "src/lib/use-fit-to-page.ts": "82fac3215c25123cfd4a2b0f506254bce8f66c37",
+    "src/styles/workbook-middle-lessons.css": "618a6e3e07bd8c38af029157655b31a5a2843875",
+    "scripts/capture-lane-b.mjs": "f0dd1a5d8854d91689d38299a77de6cf6d78fbf3",
+    "scripts/verify-lane-b.mjs": "43c3f12641ad4f4205aa41f4d5ad11ed430029ef",
+    "scripts/package-lane-b-proof.py": "1d17f50aa347b3f49f6e784e23aa6fafb7a3954a",
+    "public/fonts/workbook-gothic-400.woff": "308dfe571333a23ffae94005f571724c0020f57a",
+    "public/fonts/workbook-gothic-700.woff": "7b44e132b68a5d9ffbf8b83cdd93d1765d488561",
+    "public/fonts/workbook-gothic-LICENSE.txt": "5f22ef0e895961c286d04830a37c10ca79d93500",
+    "public/fonts/source/URWGothic-Book.otf": "70dcc99031a1628bdca3bd2366b3cf8e130692cd",
+    "public/fonts/source/URWGothic-Demi.otf": "14a4d40a8f4f7e24edfda6cdde4ad9a1a258911e",
+    "public/fonts/source/README.txt": "792bb44d9f60facd6825d246f9ae74cbf0a6b728"
+  }
+}
