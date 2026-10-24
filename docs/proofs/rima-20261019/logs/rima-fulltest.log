@@ -1,0 +1,140 @@
+
+> cartilla-de-gretel-platform@ test /home/sandbox/cartilla
+> vitest run
+
+
+[1m[30m[46m RUN [49m[39m[22m [36mv4.1.8 [39m[90m/home/sandbox/cartilla[39m
+
+[90mstderr[2m | src/components/cartilla/__tests__/FlipchartHdPanel.test.tsx[2m > [22m[2mFlipchartHdPanel — CRM-grade presenter board[2m > [22m[2mignores keyboard shortcuts from editable inputs and already-handled events
+[22m[39mA component is `contentEditable` and contains `children` managed by React. It is now your responsibility to guarantee that none of those nodes are unexpectedly modified or duplicated. This is probably not intentional.
+
+Not implemented: HTMLMediaElement's play() method
+Not implemented: HTMLMediaElement's play() method
+Not implemented: HTMLMediaElement's play() method
+ [32m✓[39m src/components/cartilla/__tests__/FlipchartHdPanel.test.tsx [2m([22m[2m22 tests[22m[2m)[22m[33m 2856[2mms[22m[39m
+     [33m[2m✓[22m[39m renders every lesson plate as a native HTML board with standalone artwork [33m 1065[2mms[22m[39m
+ [32m✓[39m src/lib/__tests__/teacher.functions.test.ts [2m([22m[2m30 tests[22m[2m)[22m[32m 59[2mms[22m[39m
+ [32m✓[39m src/components/cartilla/__tests__/PianoPronunciation.test.tsx [2m([22m[2m32 tests[22m[2m)[22m[33m 1363[2mms[22m[39m
+ [32m✓[39m src/components/cartilla/__tests__/letter-stroke-templates.test.ts [2m([22m[2m44 tests[22m[2m)[22m[32m 31[2mms[22m[39m
+Not implemented: HTMLMediaElement's play() method
+Not implemented: HTMLMediaElement's play() method
+Not implemented: HTMLMediaElement's play() method
+Not implemented: HTMLMediaElement's play() method
+Not implemented: HTMLMediaElement's play() method
+Not implemented: HTMLMediaElement's play() method
+Not implemented: HTMLMediaElement's play() method
+Not implemented: HTMLMediaElement's play() method
+Not implemented: HTMLMediaElement's play() method
+Not implemented: HTMLMediaElement's play() method
+Not implemented: HTMLMediaElement's play() method
+ [32m✓[39m src/components/StudentBook/__tests__/NativeLessonViewer.turn.test.tsx [2m([22m[2m10 tests[22m[2m)[22m[33m 526[2mms[22m[39m
+ [32m✓[39m src/lib/__tests__/live-admin-attention.test.ts [2m([22m[2m15 tests[22m[2m)[22m[32m 98[2mms[22m[39m
+ [32m✓[39m src/cartilla/interactions/__tests__/PencilConnector.test.tsx [2m([22m[2m10 tests[22m[2m)[22m[33m 1271[2mms[22m[39m
+     [33m[2m✓[22m[39m tapping correct target (uniforme) connects line and plays correct chord [33m 370[2mms[22m[39m
+[90mstderr[2m | src/lib/__tests__/speak.test.ts[2m > [22m[2mSpeak API - Voice Caching and Offline Support[2m > [22m[2mshould select the online-preferred voice when online and cache it
+[22m[39m[TTS] No neutral Latin American Spanish voice (es-MX/es-US/es-419) found on this device. Falling back to "Google español" (es-ES).
+
+ [32m✓[39m src/lib/__tests__/speak.test.ts [2m([22m[2m7 tests[22m[2m)[22m[33m 3210[2mms[22m[39m
+     [33m[2m✓[22m[39m logs a distinct warning and falls back to an es-MX lang hint with NO voice object when the device has zero Spanish voices installed [33m 1515[2mms[22m[39m
+     [33m[2m✓[22m[39m speakVowel also falls back to an es-MX lang hint (no voice object) when the device has zero Spanish voices [33m 1515[2mms[22m[39m
+ [32m✓[39m src/hooks/__tests__/usePianoListening.test.ts [2m([22m[2m18 tests[22m[2m)[22m[32m 74[2mms[22m[39m
+ [32m✓[39m src/components/cartilla/__tests__/WorkbookWritingResponse.persistence.test.tsx [2m([22m[2m13 tests[22m[2m)[22m[33m 1143[2mms[22m[39m
+     [33m[2m✓[22m[39m erasing an empty canvas never qualifies as work [33m 314[2mms[22m[39m
+Not implemented: Window's scrollTo() method
+[90mstderr[2m | src/routes/__tests__/student-routing.test.tsx[2m > [22m[2mStudent-Teacher Routing Isolation[2m > [22m[2m(a) student login lands on /cartilla/lecciones
+[22m[39mWarning: A notFoundError was encountered on the route with ID "__root__", but a notFoundComponent option was not configured, nor was a router level defaultNotFoundComponent configured. Consider configuring at least one of these to avoid TanStack Router's overly generic defaultNotFoundComponent (<p>Not Found</p>)
+
+Not implemented: Window's scrollTo() method
+Not implemented: Window's scrollTo() method
+Not implemented: Window's scrollTo() method
+[90mstderr[2m | src/routes/__tests__/student-routing.test.tsx[2m > [22m[2mStudent-Teacher Routing Isolation[2m > [22m[2mSession reset on cross-login[2m > [22m[2m(c) student login clears teacher session
+[22m[39mWarning: A notFoundError was encountered on the route with ID "__root__", but a notFoundComponent option was not configured, nor was a router level defaultNotFoundComponent configured. Consider configuring at least one of these to avoid TanStack Router's overly generic defaultNotFoundComponent (<p>Not Found</p>)
+
+ [32m✓[39m src/routes/__tests__/student-routing.test.tsx [2m([22m[2m10 tests[22m[2m)[22m[33m 1235[2mms[22m[39m
+     [33m[2m✓[22m[39m (a) student login lands on /cartilla/lecciones [33m 330[2mms[22m[39m
+     [33m[2m✓[22m[39m shows anonymous progress without a login or a permanent loading screen [33m 563[2mms[22m[39m
+ [32m✓[39m src/cartilla/interactions/__tests__/listbox-keyboard-navigation.test.tsx [2m([22m[2m7 tests[22m[2m)[22m[33m 428[2mms[22m[39m
+ [32m✓[39m src/content/games/__tests__/taught-order.test.ts [2m([22m[2m35 tests[22m[2m)[22m[32m 18[2mms[22m[39m
+ [32m✓[39m src/components/living/__tests__/LivingIllustration.test.tsx [2m([22m[2m13 tests[22m[2m)[22m[33m 523[2mms[22m[39m
+ [32m✓[39m src/lib/__tests__/book-fidelity-lessons-08-24.test.ts [2m([22m[2m73 tests[22m[2m)[22m[32m 57[2mms[22m[39m
+Not implemented: HTMLMediaElement's play() method
+Not implemented: HTMLMediaElement's play() method
+ [32m✓[39m src/lib/__tests__/activity-completion-foundation.test.tsx [2m([22m[2m11 tests[22m[2m)[22m[33m 1934[2mms[22m[39m
+     [33m[2m✓[22m[39m starts with ola as example and requires exactly five learner answers [33m 659[2mms[22m[39m
+     [33m[2m✓[22m[39m wrong attempts and Ayuda lead to completion that survives follow-up, return and remount [33m 654[2mms[22m[39m
+ [32m✓[39m src/lib/__tests__/lesson-grading.test.ts [2m([22m[2m370 tests[22m[2m)[22m[32m 69[2mms[22m[39m
+ [32m✓[39m src/test/setup-helpers.test.ts [2m([22m[2m10 tests[22m[2m)[22m[32m 29[2mms[22m[39m
+ [32m✓[39m tests/owner-art-intake.test.mjs [2m([22m[2m6 tests[22m[2m)[22m[32m 148[2mms[22m[39m
+Not implemented: HTMLMediaElement's play() method
+ [32m✓[39m src/lib/__tests__/feedback-progress-semantics.test.tsx [2m([22m[2m8 tests[22m[2m)[22m[33m 442[2mms[22m[39m
+   [33m[2m✓[22m[39m picture grids use source-faithful pencil/eraser, retain correct marks and do not reveal missing targets [33m 314[2mms[22m[39m
+ [32m✓[39m src/components/cartilla/__tests__/letter-trace-tap-mode.test.ts [2m([22m[2m19 tests[22m[2m)[22m[32m 22[2mms[22m[39m
+ [32m✓[39m src/lib/__tests__/book-fidelity-lessons-01-07.test.ts [2m([22m[2m25 tests[22m[2m)[22m[32m 24[2mms[22m[39m
+Not implemented: HTMLMediaElement's play() method
+Not implemented: HTMLMediaElement's play() method
+Not implemented: HTMLMediaElement's play() method
+Not implemented: HTMLMediaElement's play() method
+ [32m✓[39m src/lib/__tests__/page-completion-gate.test.tsx [2m([22m[2m12 tests[22m[2m)[22m[33m 2545[2mms[22m[39m
+     [33m[2m✓[22m[39m page 24: circling every syllable word with the real component unlocks Siguiente [33m 2012[2mms[22m[39m
+ [32m✓[39m src/components/cartilla/__tests__/DrawBoxCanvas.resize.test.tsx [2m([22m[2m2 tests[22m[2m)[22m[32m 181[2mms[22m[39m
+ [32m✓[39m src/lib/__tests__/picture-audio.test.tsx [2m([22m[2m10 tests[22m[2m)[22m[32m 230[2mms[22m[39m
+ [32m✓[39m src/components/gretel/__tests__/GretelSceneMedia.test.tsx [2m([22m[2m16 tests[22m[2m)[22m[32m 131[2mms[22m[39m
+ [32m✓[39m src/lib/__tests__/folder-assignments.functions.test.ts [2m([22m[2m11 tests[22m[2m)[22m[32m 22[2mms[22m[39m
+ [32m✓[39m src/lib/__tests__/gretel-voice.test.ts [2m([22m[2m12 tests[22m[2m)[22m[33m 1218[2mms[22m[39m
+     [33m[2m✓[22m[39m handles native speech API throw gracefully [33m 1203[2mms[22m[39m
+ [32m✓[39m src/cartilla/interactions/__tests__/PencilConnectorProgress.test.tsx [2m([22m[2m9 tests[22m[2m)[22m[32m 274[2mms[22m[39m
+ [32m✓[39m src/lib/__tests__/progress-calculation.test.ts [2m([22m[2m23 tests[22m[2m)[22m[32m 12[2mms[22m[39m
+ [32m✓[39m src/lib/__tests__/exercise-stats.test.ts [2m([22m[2m16 tests[22m[2m)[22m[32m 29[2mms[22m[39m
+ [32m✓[39m src/lib/__tests__/student.functions.test.ts [2m([22m[2m11 tests[22m[2m)[22m[32m 16[2mms[22m[39m
+ [32m✓[39m src/components/teacher/__tests__/ClassRoster.test.tsx [2m([22m[2m6 tests[22m[2m)[22m[32m 266[2mms[22m[39m
+ [32m✓[39m src/lib/__tests__/teacher-review.test.ts [2m([22m[2m7 tests[22m[2m)[22m[33m 802[2mms[22m[39m
+   [33m[2m✓[22m[39m updates local class and student lists immediately after creation [33m 744[2mms[22m[39m
+ [32m✓[39m src/routes/cartilla/__tests__/learner-resume-isolation.test.tsx [2m([22m[2m10 tests[22m[2m)[22m[33m 659[2mms[22m[39m
+     [33m[2m✓[22m[39m saves and restores independently on remount, A→B→A and anonymous return [33m 351[2mms[22m[39m
+ [32m✓[39m src/components/cartilla/__tests__/WorkbookPencilMark.test.tsx [2m([22m[2m10 tests[22m[2m)[22m[32m 259[2mms[22m[39m
+ [32m✓[39m src/cartilla/interactions/__tests__/faithful-mechanic-routing.test.ts [2m([22m[2m7 tests[22m[2m)[22m[32m 16[2mms[22m[39m
+ [32m✓[39m src/components/cartilla/__tests__/FaithfulPageRenderer.mechanics.test.tsx [2m([22m[2m5 tests[22m[2m)[22m[33m 374[2mms[22m[39m
+ [32m✓[39m src/components/cartilla/games/__tests__/PayasoChano.test.tsx [2m([22m[2m3 tests[22m[2m)[22m[33m 1253[2mms[22m[39m
+     [33m[2m✓[22m[39m does not earn completion by skipping to the final word [33m 339[2mms[22m[39m
+     [33m[2m✓[22m[39m earns completion exactly once when all words are completed [33m 444[2mms[22m[39m
+     [33m[2m✓[22m[39m does not allow repeated checking while incorrect answer feedback is active [33m 467[2mms[22m[39m
+ [32m✓[39m src/components/cartilla/games/__tests__/SyllableBuilder.test.tsx [2m([22m[2m3 tests[22m[2m)[22m[33m 461[2mms[22m[39m
+ [32m✓[39m src/lib/games/__tests__/syllable-builder.test.ts [2m([22m[2m19 tests[22m[2m)[22m[32m 15[2mms[22m[39m
+ [32m✓[39m src/cartilla/interactions/__tests__/PaintCanvas.test.tsx [2m([22m[2m5 tests[22m[2m)[22m[33m 422[2mms[22m[39m
+ [32m✓[39m src/lib/__tests__/native-workbook-coverage.test.tsx [2m([22m[2m7 tests[22m[2m)[22m[32m 29[2mms[22m[39m
+ [31m❯[39m src/lib/__tests__/production-art-audit.test.ts [2m([22m[2m6 tests[22m[2m | [22m[31m1 failed[39m[2m)[22m[33m 8082[2mms[22m[39m
+     [32m✓[39m keeps the five owner-approved Page-1 assets present on disk[32m 2[2mms[22m[39m
+     [32m✓[39m keeps missing mono and sapo blink slots explicitly pending instead of inventing files[32m 1[2mms[22m[39m
+     [32m✓[39m certifies native Flip Chart artwork only from a deterministic crop match[32m 17[2mms[22m[39m
+     [32m✓[39m never approves a native row merely because its declared metadata is present[32m 0[2mms[22m[39m
+[31m     [31m×[31m reproduces the committed audit and locks the native evidence schema[39m[33m 8056[2mms[22m[39m
+     [32m✓[39m does not misclassify backfilled source crops as verified color transfers[32m 1[2mms[22m[39m
+[90mstderr[2m | src/components/rewards/__tests__/KeyboardRewards.test.tsx[2m > [22m[2mKeyboard Rewards and Pipeline Board Interactions[2m > [22m[2mLearner Scoping[2m > [22m[2mscopes stickers and badges to the active learner
+[22m[39mAn update to TestComponent inside a test was not wrapped in act(...).
+
+When testing, code that causes React state updates should be wrapped into act(...):
+
+act(() => {
+  /* fire events that update state */
+});
+/* assert on the output */
+
+This ensures that you're testing the behavior the user would see in the browser. Learn more at https://react.dev/link/wrap-tests-with-act
+An update to TestComponent inside a test was not wrapped in act(...).
+
+When testing, code that causes React state updates should be wrapped into act(...):
+
+act(() => {
+  /* fire events that update state */
+});
+/* assert on the output */
+
+This ensures that you're testing the behavior the user would see in the browser. Learn more at https://react.dev/link/wrap-tests-with-act
+
+ [32m✓[39m src/components/rewards/__tests__/KeyboardRewards.test.tsx [2m([22m[2m6 tests[22m[2m)[22m[33m 357[2mms[22m[39m
+[90mstderr[2m | src/lib/__tests__/progress-events.test.ts[2m > [22m[2mprogress-events[2m > [22m[2mkeeps an event queued when logProgress rejects (real retry, not fire-and-forget)
+[22m[39mNo se pudo sincronizar el ejercicio; se conserva para reintentar.
+
+ [32m✓[39m src/lib/__tests__/progress-events.test.ts [2m([22m[2m8 tests[22m[2m)[22m[32m 118[2mms[22m[39m
+Not implemented: Window's scrollTo() method
+Not implemented: Window's scrollTo() method

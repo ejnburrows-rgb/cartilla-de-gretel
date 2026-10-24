@@ -1,0 +1,27 @@
+{
+  "source": "approved-scene.jpg",
+  "sourceReceived": "2026-10-19T14:41:43-04:00",
+  "artMethod": "Single undistorted approved source background on phone, HTML text/cards/fields, flood-masked source bee rigid cutout. No generated or painted illustration.",
+  "audio": {
+    "rhyme": null,
+    "instruction": null,
+    "correct": null,
+    "retry": null,
+    "wordCards": null,
+    "uiTap": "Uses existing piano-audio playUiTick/playNote: original feel tap/chime paths are text stubs.",
+    "uiChime": "Uses existing piano-audio playCorrectChord/playWrongBuzz, no voice"
+  },
+  "artGaps": [
+    "No clean mother/child layers or background plate for breathing.",
+    "No independent bee, butterfly wings or leaf layers. Flat scene intentionally stays still; no fake wave animation."
+  ],
+  "content": "Approved Mm poem is initial screen. Next round preserves main's existing P rhyme-pair content and scoring. No other letter poems supplied.",
+  "music": {
+    "file": "meadow-thoughts.mp3",
+    "source": "https://opengameart.org/content/meadow-thoughts",
+    "license": "CC0 (parent sourced)",
+    "volume": 0.12,
+    "starts": "first user action",
+    "mute": "scene music control"
+  }
+}

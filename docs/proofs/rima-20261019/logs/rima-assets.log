@@ -1,0 +1,15 @@
+
+> cartilla-de-gretel-platform@ verify:assets /home/sandbox/cartilla
+> node scripts/verify-production-assets.mjs
+
+{
+  "workbook": 72,
+  "flipchart": 167,
+  "gretel": 1,
+  "backgrounds": 148,
+  "delivery": 106,
+  "sourceScans": 88,
+  "checked": 582,
+  "location": "local",
+  "errors": []
+}
