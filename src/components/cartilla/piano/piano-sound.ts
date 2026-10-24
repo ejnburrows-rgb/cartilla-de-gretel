@@ -4,8 +4,9 @@
  * Only the Piano Hablador uses this (both designs). Every other activity keeps
  * the shared synthesized `@/lib/piano-audio` sounds unchanged.
  *
- * Sound: recorded notes of a real concert grand (Salamander Grand Piano,
- * CC BY 3.0 — see PIANO_SAMPLES_CREDITS.md), one sample every three
+ * Sound: recorded notes of a real Steinway grand (University of Iowa Musical
+ * Instrument Samples — free for any use, no credit required; see
+ * piano-samples.ts), one sample every three
  * semitones; a note in between re-pitches the nearest sample by at most
  * ±1.5 semitones. Each note goes through a warm tone filter, a soft damper
  * release, a generated small-hall reverb (no extra file) and a gentle limiter.

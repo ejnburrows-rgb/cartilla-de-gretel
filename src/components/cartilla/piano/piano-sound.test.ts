@@ -25,7 +25,7 @@ afterEach(() => {
 });
 
 describe("Piano Hablador grand piano sound", () => {
-  it("ships every sample it uses as a real MP3, with its license credit", async () => {
+  it("ships every sample it uses as a real MP3 from an unrestricted source", async () => {
     const { PIANO_SAMPLE_DATA } = await import("./piano-samples");
     for (const name of Object.keys(PIANO_SAMPLES)) {
       const bytes = Buffer.from(PIANO_SAMPLE_DATA[name] ?? "", "base64");
@@ -35,13 +35,14 @@ describe("Piano Hablador grand piano sound", () => {
       const sync = bytes[0] === 0xff && (bytes[1] & 0xe0) === 0xe0;
       expect(id3 || sync).toBe(true);
     }
-    const credits = fs.readFileSync(
-      path.join(process.cwd(), "src/components/cartilla/piano/PIANO_SAMPLES_CREDITS.md"),
+    // Unrestricted source: no credit or license file is needed.
+    const source = fs.readFileSync(
+      path.join(process.cwd(), "src/components/cartilla/piano/piano-samples.ts"),
       "utf8",
     );
-    expect(credits).toMatch(/Salamander Grand Piano/);
-    expect(credits).toMatch(/Alexander Holm/);
-    expect(credits).toMatch(/Attribution 3\.0/);
+    expect(source).toMatch(/University of Iowa/);
+    expect(source).toMatch(/without restrictions/);
+    expect(source).not.toMatch(/Salamander|CC BY/);
   });
 
   it("covers the nine piano keys (do → re alto) re-pitching at most 1.5 semitones", () => {
