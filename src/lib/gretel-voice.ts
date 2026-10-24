@@ -26,8 +26,8 @@ export const GRETEL_PRIMARY_VOICE = "Leda";
 export const GRETEL_FALLBACK_VOICE = "Sulafat";
 
 const DEFAULT_PROVIDER_CONFIG: GretelVoiceProviderConfig = {
-  type: "browser-tts",
-  name: "Browser Native TTS (Neutral LatAm Spanish)",
+  type: "recorded-audio",
+  name: "Recorded Audio",
   primaryVoiceName: GRETEL_PRIMARY_VOICE,
   fallbackVoiceName: GRETEL_FALLBACK_VOICE,
   pitch: 1.1,

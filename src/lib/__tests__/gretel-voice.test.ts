@@ -61,7 +61,7 @@ describe("provider config seam & speech abstraction", () => {
     } = await import("../gretel-voice");
 
     const initial = getGretelVoiceProviderConfig();
-    expect(initial.type).toBe("browser-tts");
+    expect(initial.type).toBe("recorded-audio");
 
     setGretelVoiceProviderConfig({
       type: "cloud-tts",
@@ -75,7 +75,7 @@ describe("provider config seam & speech abstraction", () => {
 
     resetGretelVoiceProviderConfig();
     const reset = getGretelVoiceProviderConfig();
-    expect(reset.type).toBe("browser-tts");
+    expect(reset.type).toBe("recorded-audio");
   });
 
   it("executes custom speakFn provider and fires start/stop handlers & events", async () => {
