@@ -1,4 +1,11 @@
 {
+  "/cartilla/art/faithful/leccion-1/wb-p1/abeja.svg": {
+    "name": "abeja",
+    "currentSha256": "4943f73101edebd566fb464d693777031ba55825d1ead20cca7b510861e1d351",
+    "builtFromSha256": "6f759e1b8dce95df661c1c943a83e34ca66831676ff7405e277ca25f97f6dca8",
+    "blockedAlive": "/cartilla/art/faithful/leccion-1/wb-p1/abeja-alive.svg",
+    "motionStatus": "NOT VERIFIED - still replaced since motion was built"
+  },
   "/cartilla/art/optimized/workbook/leccion-1/elefante.svg": {
     "name": "elefante",
     "currentSha256": "3b1e99c87d48172855d0d009e030b9311157353d0aef000f373f6dfaf1f80c98",
@@ -6,11 +13,32 @@
     "blockedAlive": "/cartilla/art/optimized/workbook/leccion-1/elefante-alive.svg",
     "motionStatus": "NOT VERIFIED - still replaced since motion was built"
   },
+  "/cartilla/art/optimized/flipchart-native/p004-oveja.png": {
+    "name": "fc_p004_oveja",
+    "currentSha256": "b21572a982e491df6f306201980b5dd840e7fd9a004d07bf07826d57c8e3d3f8",
+    "builtFromSha256": "aeac518a652d12d4b107eb65c7c7b44e82119498eada647f3d0b12ffe2d1bb1a",
+    "blockedAlive": "/cartilla/art/optimized/flipchart-native/p004-oveja-alive.svg",
+    "motionStatus": "NOT VERIFIED - still replaced since motion was built"
+  },
   "/cartilla/art/optimized/flipchart-native/p006-elefante.png": {
     "name": "fc_p006_elefante",
     "currentSha256": "c79cd5920de38e1230df82d432184870e7e90a1cd1342d8513eff17ba6216662",
     "builtFromSha256": "8b9e451845f51044424339ea14dbacf4873b7954d5877e46d721c212a463a3c6",
     "blockedAlive": "/cartilla/art/optimized/flipchart-native/p006-elefante-alive.svg",
+    "motionStatus": "NOT VERIFIED - still replaced since motion was built"
+  },
+  "/cartilla/art/optimized/workbook/leccion-1/oveja.svg": {
+    "name": "oveja",
+    "currentSha256": "956e2ad1290b9303213789c1066c4fb8272365fd0a956e5868ab0126a98868ff",
+    "builtFromSha256": "8d20aa159109a8eda4075995e1fa3a048f80f9e301d66da21299cd57f8947ccc",
+    "blockedAlive": "/cartilla/art/optimized/workbook/leccion-1/oveja-alive.svg",
+    "motionStatus": "NOT VERIFIED - still replaced since motion was built"
+  },
+  "/cartilla/art/faithful/vocal-a/abeja.webp": {
+    "name": "vocal-a-abeja",
+    "currentSha256": "4bf3d73b48d4fa7fa6bb38f8d16844134386be986a6028f4bb6f0f55a9386dd1",
+    "builtFromSha256": "1f03f92afdf3005ffffccae6aff6cfdd37314ebe016012e8634a102078bca5ef",
+    "blockedAlive": "/cartilla/art/faithful/vocal-a/abeja-alive.svg",
     "motionStatus": "NOT VERIFIED - still replaced since motion was built"
   },
   "/cartilla/art/faithful/vocal-e/elefante.webp": {

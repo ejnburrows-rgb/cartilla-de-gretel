@@ -8,7 +8,7 @@ export function motionArtFreshness(){
  const stale={};
  for(const [name,m] of Object.entries(manifest)){
   const p=path.join(root,m.still);const current=fs.existsSync(p)?crypto.createHash('sha256').update(fs.readFileSync(p)).digest('hex'):null;
-  if(current!==m.stillSha256)stale['/'+m.still.replace(/^public\//,'')]={name,currentSha256:current,builtFromSha256:m.stillSha256,blockedAlive:'/'+m.alive.replace(/^public\//,''),motionStatus:'NOT VERIFIED - still replaced since motion was built'};
+  if(current!==m.stillSha256)stale['/'+m.still.replace(/^public\//,'')]={name,currentSha256:current,builtFromSha256:m.stillSha256,blockedAlive:'/'+m.alive.replace(/^public\//,''),motionStatus:m.motionStatus||'NOT VERIFIED - still replaced since motion was built'};
  }
  return stale;
 }
