@@ -16,6 +16,8 @@ import { sCopy } from "@/content/student-copy";
 import { useLearnerScope } from "@/lib/learner-storage";
 import { readLearnerResume, saveLearnerResume } from "@/lib/learner-resume";
 import { gretelEvent } from "@/lib/gretel-bus";
+import { getLesson } from "@/content/lesson-meta";
+import { LessonNarrationPlayer } from "@/components/audio/LessonNarrationPlayer";
 
 import { NativeLessonViewer } from "@/components/StudentBook/NativeLessonViewer";
 import "@/styles/lesson-fit.css";
@@ -42,6 +44,7 @@ export function Leccion() {
   const demo = getDemoStudentSession();
   const scope = useLearnerScope();
   const entry = useMemo<CatalogEntry | undefined>(() => CATALOG.find((e) => e.n === n), [n]);
+  const lessonMeta = useMemo(() => getLesson(n), [n]);
 
   // Build this lesson from the canonical structured workbook page data.
   // All instructional pages render through the native learning surface.
@@ -216,10 +219,11 @@ export function Leccion() {
       </header>
       {saveFailed && <p role="alert" className="mx-3 rounded-xl bg-amber-100 p-3 text-amber-950">No se pudo guardar tu trabajo. Mantén esta página abierta y libera espacio en este navegador antes de salir.</p>}
       <main className="lc-lesson-main flex-1 px-3 pb-6 max-w-7xl w-full mx-auto flex flex-col items-center">
-        <div className="lc-lesson-main__intro w-full max-w-3xl text-left mb-4">
+        <div className="lc-lesson-main__intro w-full max-w-3xl text-left mb-4 flex items-center justify-between">
           <div className="text-xs font-bold uppercase tracking-wide text-foreground/50">
             {t.leccion[lang]} {n} · {t.paginas[lang].toLowerCase()} {entry.pages}
           </div>
+          {lessonMeta?.audioPath && <LessonNarrationPlayer audioPath={lessonMeta.audioPath} />}
         </div>
 
         {/* Native workbook pages remain in the canonical lesson order. */}
