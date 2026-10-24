@@ -8,7 +8,6 @@ const ALIVE: Record<string, string> = {
   oso: "/cartilla/art/faithful/vocal-o/oso-alive.svg",
   olla: "/cartilla/art/faithful/vocal-o/olla-alive.svg",
   avión: "/cartilla/art/faithful/vocal-a/avion-alive.svg",
-  abeja: "/cartilla/art/faithful/vocal-a/abeja-alive.svg",
   abanico: "/cartilla/art/faithful/vocal-a/abanico-alive.svg",
   imán: "/cartilla/art/faithful/vocal-i/iman-alive.svg",
 };
@@ -19,6 +18,8 @@ const ALIVE: Record<string, string> = {
 const STALE: Record<string, string> = {
   oveja: "/cartilla/art/faithful/vocal-o/oveja.webp",
   elefante: "/cartilla/art/faithful/vocal-e/elefante.webp",
+  // Owner-approved abeja master (#1158) replaced the still the motion was built from.
+  abeja: "/cartilla/art/faithful/vocal-a/abeja.webp",
 };
 // Owner-approved replacement art installed on specific lessons: it is the
 // correct still for that page and has no approved motion yet. Keyed by lesson

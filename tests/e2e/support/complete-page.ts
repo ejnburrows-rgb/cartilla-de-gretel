@@ -92,8 +92,14 @@ export async function completePage(page: Page, number: number) {
         const target = pencil.locator(`.am-direct-pencil__target[aria-label="${link.target}"]`).first();
         // The printed example line (e.g. Oo→ola) is already drawn.
         if (((await target.getAttribute('class')) ?? '').includes('is-connected')) continue;
-        if (await left.isEnabled()) await left.click();
-        await target.click();
+        // Held drawing (#1152): press on the start, drag the pencil line, and
+        // release inside the target. Tap-tap no longer connects.
+        const a = await left.boundingBox();
+        const b = await target.boundingBox();
+        await page.mouse.move(a!.x + a!.width / 2, a!.y + a!.height / 2);
+        await page.mouse.down();
+        await page.mouse.move(b!.x + b!.width / 2, b!.y + b!.height / 2, { steps: 12 });
+        await page.mouse.up();
         await page.waitForTimeout(150);
       }
       await expect(pencil).toHaveAttribute('data-complete', 'true', { timeout: 10000 });
