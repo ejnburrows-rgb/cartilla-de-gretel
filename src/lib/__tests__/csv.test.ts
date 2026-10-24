@@ -59,4 +59,25 @@ describe("toCSV", () => {
       "leccion,titulo,completada,nota\n1,Lección 1,sí,-10\n2,Matemáticas - Nivel 2,no,",
     );
   });
+
+  it("handles empty strings", () => {
+    expect(toCSV([{ v: "" }])).toBe('v\n""');
+    expect(toCSV([{ v: "" }, { v: "" }])).toBe('v\n""\n""');
+    expect(toCSV([{ v: "" }, { v: "next" }, { v: "" }])).toBe('v\n""\nnext\n""');
+    expect(toCSV([{ v: null }, { v: undefined }])).toBe('v\n""\n""');
+    expect(toCSV([{ a: "", b: "" }])).toBe("a,b\n,");
+    expect(toCSV([])).toBe("");
+    expect(toCSV([], ["v"])).toBe("");
+  });
+
+  it("handles carriage returns", () => {
+    expect(toCSV([{ v: "a\rb" }])).toBe('v\n"a\rb"');
+    expect(toCSV([{ v: "a\r\nb" }])).toBe('v\n"a\r\nb"');
+  });
+
+  it("handles non-string inputs like objects, arrays and booleans", () => {
+    expect(toCSV([{ obj: { a: 1 } }])).toBe('obj\n[object Object]');
+    expect(toCSV([{ arr: [1, 2, 3] }])).toBe('arr\n"1,2,3"');
+    expect(toCSV([{ bool: true, bool2: false }])).toBe('bool,bool2\ntrue,false');
+  });
 });
