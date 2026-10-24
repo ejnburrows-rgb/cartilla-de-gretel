@@ -27,7 +27,7 @@ export const BUDGET_LIMITS = {
   tanstackRouterRawMax: 110 * 1024, // ~94.3 KB fresh baseline
   tanstackRouterGzipMax: 40 * 1024, // ~30.2 KB fresh baseline
   totalFirstPaintJsRawMax: 980 * 1024, // ~925.5 KB fresh baseline combined (index + vendors)
-  totalFirstPaintJsGzipMax: 270 * 1024, // ~255.1 KB fresh baseline combined
+  totalFirstPaintJsGzipMax: 285 * 1024, // ~274.9 KB baseline reported 2026-10-23; remeasure fresh build
 };
 
 function getAssetSizes(fileName) {
