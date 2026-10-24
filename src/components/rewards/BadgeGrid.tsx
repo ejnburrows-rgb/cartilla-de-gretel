@@ -1,6 +1,7 @@
 import { BADGES, type Badge } from "@/lib/rewards";
 import { Lock, Award } from "lucide-react";
 import { feelBus } from "@/lib/feel-bus";
+import { speakGretelPhrase } from "@/lib/gretel-tts";
 
 interface BadgeGridProps {
   earnedIds: string[];
@@ -10,15 +11,7 @@ export function BadgeGrid({ earnedIds }: BadgeGridProps) {
   const handleBadgeClick = (badge: Badge, isEarned: boolean) => {
     if (isEarned) {
       feelBus.emit("chime");
-      if ("speechSynthesis" in window) {
-        const utterance = new SpeechSynthesisUtterance(
-          `¡Insignia ${badge.name}! ${badge.description}`,
-        );
-        utterance.lang = "es-ES";
-        utterance.rate = 1.0;
-        window.speechSynthesis.cancel();
-        window.speechSynthesis.speak(utterance);
-      }
+      speakGretelPhrase(`¡Insignia ${badge.name}! ${badge.description}`);
     } else {
       feelBus.emit("tap");
     }

@@ -1,0 +1,476 @@
+{
+  "version": 2,
+  "source": "ARCHIVED / NOT APPROVED FOR PLAYBACK: owner rejected stitched short-clip examples Oct 15, 2026 due to stuttering and music. Correct source candidates are original unstitched M4A masters; exact phrase and page transcripts still require verification.",
+  "assets": [
+    {
+      "id": "gretel_01",
+      "phrase_es": "¡Hola! ¡Qué alegría verte otra vez!",
+      "duration_s": 2.976,
+      "path": "/audio/gretel/clips/rec_gretel_01.mp3",
+      "playback_status": "rejected_wrong_source"
+    },
+    {
+      "id": "gretel_02",
+      "phrase_es": "Soy Gretel, y hoy vamos a aprender juntos.",
+      "duration_s": 3.624,
+      "path": "/audio/gretel/clips/rec_gretel_02.mp3",
+      "playback_status": "rejected_wrong_source"
+    },
+    {
+      "id": "gretel_03",
+      "phrase_es": "¿Sabes qué? ¡Tengo algo muy bonito que enseñarte!",
+      "duration_s": 4.32,
+      "path": "/audio/gretel/clips/rec_gretel_03.mp3",
+      "playback_status": "rejected_wrong_source"
+    },
+    {
+      "id": "gretel_04",
+      "phrase_es": "¡Mira cuántas cosas nuevas podemos descubrir!",
+      "duration_s": 3.192,
+      "path": "/audio/gretel/clips/rec_gretel_04.mp3",
+      "playback_status": "rejected_wrong_source"
+    },
+    {
+      "id": "gretel_05",
+      "phrase_es": "¿Estás listo? ¡Pues vamos a comenzar!",
+      "duration_s": 3.672,
+      "path": "/audio/gretel/clips/rec_gretel_05.mp3",
+      "playback_status": "rejected_wrong_source"
+    },
+    {
+      "id": "gretel_06",
+      "phrase_es": "¡Me encanta aprender contigo!",
+      "duration_s": 3.024,
+      "path": "/audio/gretel/clips/rec_gretel_06.mp3",
+      "playback_status": "rejected_wrong_source"
+    },
+    {
+      "id": "gretel_07",
+      "phrase_es": "Escucha con atención. Esta es la letra A.",
+      "duration_s": 4.704,
+      "path": "/audio/gretel/clips/rec_gretel_07.mp3",
+      "playback_status": "rejected_wrong_source"
+    },
+    {
+      "id": "gretel_08",
+      "phrase_es": "A... E... I... O... U. ¡Son las cinco vocales!",
+      "duration_s": 5.472,
+      "path": "/audio/gretel/clips/rec_gretel_08.mp3",
+      "playback_status": "rejected_wrong_source"
+    },
+    {
+      "id": "gretel_09",
+      "phrase_es": "Ahora, vamos a decirlas juntos, despacito.",
+      "duration_s": 4.272,
+      "path": "/audio/gretel/clips/rec_gretel_09.mp3",
+      "playback_status": "rejected_wrong_source"
+    },
+    {
+      "id": "gretel_10",
+      "phrase_es": "Mira la letra. Escucha su sonido. Ahora repítelo tú.",
+      "duration_s": 4.944,
+      "path": "/audio/gretel/clips/rec_gretel_10.mp3",
+      "playback_status": "rejected_wrong_source"
+    },
+    {
+      "id": "gretel_11",
+      "phrase_es": "La letra M con la vocal A forman la sílaba ma.",
+      "duration_s": 6.168,
+      "path": "/audio/gretel/clips/rec_gretel_11.mp3",
+      "playback_status": "rejected_wrong_source"
+    },
+    {
+      "id": "gretel_12",
+      "phrase_es": "Ma... me... mi... mo... mu. ¡Excelente!",
+      "duration_s": 8.736,
+      "path": "/audio/gretel/clips/rec_gretel_12.mp3",
+      "playback_status": "rejected_wrong_source"
+    },
+    {
+      "id": "gretel_13",
+      "phrase_es": "Escucha las dos palabras: mamá... mapa.",
+      "duration_s": 8.76,
+      "path": "/audio/gretel/clips/rec_gretel_13.mp3",
+      "playback_status": "rejected_wrong_source"
+    },
+    {
+      "id": "gretel_14",
+      "phrase_es": "¿Qué sonido escuchas al principio?",
+      "duration_s": 3.24,
+      "path": "/audio/gretel/clips/rec_gretel_14.mp3",
+      "playback_status": "rejected_wrong_source"
+    },
+    {
+      "id": "gretel_15",
+      "phrase_es": "Prepara tu lápiz. Vamos a escribir una letra.",
+      "duration_s": 5.232,
+      "path": "/audio/gretel/clips/rec_gretel_15.mp3",
+      "playback_status": "rejected_wrong_source"
+    },
+    {
+      "id": "gretel_16",
+      "phrase_es": "Escucha primero. Después, escribe lo que escuchaste.",
+      "duration_s": 4.944,
+      "path": "/audio/gretel/clips/rec_gretel_16.mp3",
+      "playback_status": "rejected_wrong_source"
+    },
+    {
+      "id": "gretel_17",
+      "phrase_es": "Voy a repetirlo más despacio.",
+      "duration_s": 3.192,
+      "path": "/audio/gretel/clips/rec_gretel_17.mp3",
+      "playback_status": "rejected_wrong_source"
+    },
+    {
+      "id": "gretel_18",
+      "phrase_es": "Escucha esta sílaba: pa.",
+      "duration_s": 2.304,
+      "path": "/audio/gretel/clips/rec_gretel_18.mp3",
+      "playback_status": "rejected_wrong_source"
+    },
+    {
+      "id": "gretel_19",
+      "phrase_es": "Ahora escribe la sílaba que acabas de escuchar.",
+      "duration_s": 6.432,
+      "path": "/audio/gretel/clips/rec_gretel_19.mp3",
+      "playback_status": "rejected_wrong_source"
+    },
+    {
+      "id": "gretel_20",
+      "phrase_es": "Muy bien. Vamos a escucharla una vez más.",
+      "duration_s": 4.272,
+      "path": "/audio/gretel/clips/rec_gretel_20.mp3",
+      "playback_status": "rejected_wrong_source"
+    },
+    {
+      "id": "gretel_21",
+      "phrase_es": "Observa la palabra: mesa. Me-sa. Tiene dos sílabas.",
+      "duration_s": 6.816,
+      "path": "/audio/gretel/clips/rec_gretel_21.mp3",
+      "playback_status": "rejected_wrong_source"
+    },
+    {
+      "id": "gretel_22",
+      "phrase_es": "Ahora intenta leerla tú solito.",
+      "duration_s": 3.408,
+      "path": "/audio/gretel/clips/rec_gretel_22.mp3",
+      "playback_status": "rejected_wrong_source"
+    },
+    {
+      "id": "gretel_23",
+      "phrase_es": "¡Sí! ¡Lo hiciste muy bien!",
+      "duration_s": 3.216,
+      "path": "/audio/gretel/clips/rec_gretel_23.mp3",
+      "playback_status": "rejected_wrong_source"
+    },
+    {
+      "id": "gretel_24",
+      "phrase_es": "¡Exactamente! ¡Esa es la respuesta!",
+      "duration_s": 3.792,
+      "path": "/audio/gretel/clips/rec_gretel_24.mp3",
+      "playback_status": "rejected_wrong_source"
+    },
+    {
+      "id": "gretel_25",
+      "phrase_es": "¡Qué bien estás aprendiendo!",
+      "duration_s": 2.904,
+      "path": "/audio/gretel/clips/rec_gretel_25.mp3",
+      "playback_status": "rejected_wrong_source"
+    },
+    {
+      "id": "gretel_26",
+      "phrase_es": "¡Lo descubriste! ¡Sabía que podías hacerlo!",
+      "duration_s": 3.816,
+      "path": "/audio/gretel/clips/rec_gretel_26.mp3",
+      "playback_status": "rejected_wrong_source"
+    },
+    {
+      "id": "gretel_27",
+      "phrase_es": "¡Cada vez lo haces mejor!",
+      "duration_s": 2.424,
+      "path": "/audio/gretel/clips/rec_gretel_27.mp3",
+      "playback_status": "rejected_wrong_source"
+    },
+    {
+      "id": "gretel_28",
+      "phrase_es": "¡Fantástico! ¡Estoy muy contenta!",
+      "duration_s": 3.456,
+      "path": "/audio/gretel/clips/rec_gretel_28.mp3",
+      "playback_status": "rejected_wrong_source"
+    },
+    {
+      "id": "gretel_29",
+      "phrase_es": "Casi lo tienes. Vamos a intentarlo otra vez.",
+      "duration_s": 4.056,
+      "path": "/audio/gretel/clips/rec_gretel_29.mp3",
+      "playback_status": "rejected_wrong_source"
+    },
+    {
+      "id": "gretel_30",
+      "phrase_es": "No pasa nada. Aprender también significa practicar.",
+      "duration_s": 4.632,
+      "path": "/audio/gretel/clips/rec_gretel_30.mp3",
+      "playback_status": "rejected_wrong_source"
+    },
+    {
+      "id": "gretel_31",
+      "phrase_es": "Escuchemos el sonido una vez más.",
+      "duration_s": 3.048,
+      "path": "/audio/gretel/clips/rec_gretel_31.mp3",
+      "playback_status": "rejected_wrong_source"
+    },
+    {
+      "id": "gretel_32",
+      "phrase_es": "¡Buen intento! Te voy a dar una pequeña pista.",
+      "duration_s": 4.2,
+      "path": "/audio/gretel/clips/rec_gretel_32.mp3",
+      "playback_status": "rejected_wrong_source"
+    },
+    {
+      "id": "gretel_33",
+      "phrase_es": "Mira con atención. Hay algo que podemos corregir.",
+      "duration_s": 4.392,
+      "path": "/audio/gretel/clips/rec_gretel_33.mp3",
+      "playback_status": "rejected_wrong_source"
+    },
+    {
+      "id": "gretel_34",
+      "phrase_es": "Vamos despacito. Yo te ayudo.",
+      "duration_s": 2.712,
+      "path": "/audio/gretel/clips/rec_gretel_34.mp3",
+      "playback_status": "rejected_wrong_source"
+    },
+    {
+      "id": "gretel_35",
+      "phrase_es": "¡Ahora viene mi parte favorita!",
+      "duration_s": 2.736,
+      "path": "/audio/gretel/clips/rec_gretel_35.mp3",
+      "playback_status": "rejected_wrong_source"
+    },
+    {
+      "id": "gretel_36",
+      "phrase_es": "Toca la letra que escuches.",
+      "duration_s": 2.064,
+      "path": "/audio/gretel/clips/rec_gretel_36.mp3",
+      "playback_status": "rejected_wrong_source"
+    },
+    {
+      "id": "gretel_37",
+      "phrase_es": "Busca el dibujo que comienza con este sonido.",
+      "duration_s": 3.864,
+      "path": "/audio/gretel/clips/rec_gretel_37.mp3",
+      "playback_status": "rejected_wrong_source"
+    },
+    {
+      "id": "gretel_38",
+      "phrase_es": "Cuando estés listo, toca el micrófono y habla.",
+      "duration_s": 3.24,
+      "path": "/audio/gretel/clips/rec_gretel_38.mp3",
+      "playback_status": "rejected_wrong_source"
+    },
+    {
+      "id": "gretel_39",
+      "phrase_es": "¡Te escucho! Di la palabra en voz alta.",
+      "duration_s": 4.128,
+      "path": "/audio/gretel/clips/rec_gretel_39.mp3",
+      "playback_status": "rejected_wrong_source"
+    },
+    {
+      "id": "gretel_40",
+      "phrase_es": "Usa tu lápiz para completar la actividad.",
+      "duration_s": 3,
+      "path": "/audio/gretel/clips/rec_gretel_40.mp3",
+      "playback_status": "rejected_wrong_source"
+    },
+    {
+      "id": "gretel_41",
+      "phrase_es": "¡Terminaste esta página! Vamos a la siguiente.",
+      "duration_s": 3.744,
+      "path": "/audio/gretel/clips/rec_gretel_41.mp3",
+      "playback_status": "rejected_wrong_source"
+    },
+    {
+      "id": "gretel_42",
+      "phrase_es": "¡Oh! ¿Viste lo que acaba de pasar?",
+      "duration_s": 3.288,
+      "path": "/audio/gretel/clips/rec_gretel_42.mp3",
+      "playback_status": "rejected_wrong_source"
+    },
+    {
+      "id": "gretel_43",
+      "phrase_es": "¡Tengo una sorpresa para ti!",
+      "duration_s": 2.376,
+      "path": "/audio/gretel/clips/rec_gretel_43.mp3",
+      "playback_status": "rejected_wrong_source"
+    },
+    {
+      "id": "gretel_44",
+      "phrase_es": "Mmm... ¿qué crees que significa esta palabra?",
+      "duration_s": 4.032,
+      "path": "/audio/gretel/clips/rec_gretel_44.mp3",
+      "playback_status": "rejected_wrong_source"
+    },
+    {
+      "id": "gretel_45",
+      "phrase_es": "¡Qué interesante! Vamos a descubrirlo.",
+      "duration_s": 3.672,
+      "path": "/audio/gretel/clips/rec_gretel_45.mp3",
+      "playback_status": "rejected_wrong_source"
+    },
+    {
+      "id": "gretel_46",
+      "phrase_es": "Había una vez un pequeño gato que quería aprender a leer.",
+      "duration_s": 4.224,
+      "path": "/audio/gretel/clips/rec_gretel_46.mp3",
+      "playback_status": "rejected_wrong_source"
+    },
+    {
+      "id": "gretel_47",
+      "phrase_es": "¿Quieres saber qué ocurrió después?",
+      "duration_s": 2.184,
+      "path": "/audio/gretel/clips/rec_gretel_47.mp3",
+      "playback_status": "rejected_wrong_source"
+    },
+    {
+      "id": "gretel_48",
+      "phrase_es": "¡Entonces escucha con mucha atención!",
+      "duration_s": 3.552,
+      "path": "/audio/gretel/clips/rec_gretel_48.mp3",
+      "playback_status": "rejected_wrong_source"
+    },
+    {
+      "id": "01_oh",
+      "phrase_es": "¡Oh!",
+      "duration_s": 0.72,
+      "path": "/audio/gretel/clips/rec_01_oh.mp3",
+      "playback_status": "rejected_wrong_source"
+    },
+    {
+      "id": "02_viste",
+      "phrase_es": "¿Viste lo que acaba de pasar?",
+      "duration_s": 1.728,
+      "path": "/audio/gretel/clips/rec_02_viste.mp3",
+      "playback_status": "rejected_wrong_source"
+    },
+    {
+      "id": "03_sorpresa",
+      "phrase_es": "Tengo una sorpresa para ti.",
+      "duration_s": 2.184,
+      "path": "/audio/gretel/clips/rec_03_sorpresa.mp3",
+      "playback_status": "rejected_wrong_source"
+    },
+    {
+      "id": "04_hmm",
+      "phrase_es": "Mmm.",
+      "duration_s": 0.888,
+      "path": "/audio/gretel/clips/rec_04_hmm.mp3",
+      "playback_status": "rejected_wrong_source"
+    },
+    {
+      "id": "05_que_crees",
+      "phrase_es": "¿Qué crees que significa esta palabra?",
+      "duration_s": 2.328,
+      "path": "/audio/gretel/clips/rec_05_que_crees.mp3",
+      "playback_status": "rejected_wrong_source"
+    },
+    {
+      "id": "06_que_interesante",
+      "phrase_es": "¡Qué interesante!",
+      "duration_s": 1.584,
+      "path": "/audio/gretel/clips/rec_06_que_interesante.mp3",
+      "playback_status": "rejected_wrong_source"
+    },
+    {
+      "id": "07_descubrirlo",
+      "phrase_es": "Vamos a descubrirlo.",
+      "duration_s": 1.416,
+      "path": "/audio/gretel/clips/rec_07_descubrirlo.mp3",
+      "playback_status": "rejected_wrong_source"
+    },
+    {
+      "id": "08_gato",
+      "phrase_es": "Había una vez un pequeño gato que quería aprender a leer.",
+      "duration_s": 3.432,
+      "path": "/audio/gretel/clips/rec_08_gato.mp3",
+      "playback_status": "rejected_wrong_source"
+    },
+    {
+      "id": "09_despues",
+      "phrase_es": "¿Quieres saber qué ocurrió después?",
+      "duration_s": 2.4,
+      "path": "/audio/gretel/clips/rec_09_despues.mp3",
+      "playback_status": "rejected_wrong_source"
+    },
+    {
+      "id": "10_atencion",
+      "phrase_es": "Entonces escucha con mucha atención.",
+      "duration_s": 2.592,
+      "path": "/audio/gretel/clips/rec_10_atencion.mp3",
+      "playback_status": "rejected_wrong_source"
+    },
+    {
+      "id": "11_favorita",
+      "phrase_es": "Ahora viene mi parte favorita.",
+      "duration_s": 2.184,
+      "path": "/audio/gretel/clips/rec_11_favorita.mp3",
+      "playback_status": "rejected_wrong_source"
+    },
+    {
+      "id": "12_toca_letra",
+      "phrase_es": "Toca la letra que escuches.",
+      "duration_s": 1.8,
+      "path": "/audio/gretel/clips/rec_12_toca_letra.mp3",
+      "playback_status": "rejected_wrong_source"
+    },
+    {
+      "id": "13_busca_dibujo",
+      "phrase_es": "Busca el dibujo que comienza con este sonido.",
+      "duration_s": 3.384,
+      "path": "/audio/gretel/clips/rec_13_busca_dibujo.mp3",
+      "playback_status": "rejected_wrong_source"
+    },
+    {
+      "id": "14_microfono",
+      "phrase_es": "Cuando estés listo, toca el micrófono y habla.",
+      "duration_s": 3.432,
+      "path": "/audio/gretel/clips/rec_14_microfono.mp3",
+      "playback_status": "rejected_wrong_source"
+    },
+    {
+      "id": "15_te_escucho",
+      "phrase_es": "Te escucho.",
+      "duration_s": 0.96,
+      "path": "/audio/gretel/clips/rec_15_te_escucho.mp3",
+      "playback_status": "rejected_wrong_source"
+    },
+    {
+      "id": "16_voz_alta",
+      "phrase_es": "Di la palabra en voz alta.",
+      "duration_s": 1.896,
+      "path": "/audio/gretel/clips/rec_16_voz_alta.mp3",
+      "playback_status": "rejected_wrong_source"
+    },
+    {
+      "id": "17_lapiz",
+      "phrase_es": "Usa tu lápiz para completar la actividad.",
+      "duration_s": 3,
+      "path": "/audio/gretel/clips/rec_17_lapiz.mp3",
+      "playback_status": "rejected_wrong_source"
+    },
+    {
+      "id": "18_terminaste",
+      "phrase_es": "Terminaste esta página.",
+      "duration_s": 1.704,
+      "path": "/audio/gretel/clips/rec_18_terminaste.mp3",
+      "playback_status": "rejected_wrong_source"
+    },
+    {
+      "id": "19_siguiente",
+      "phrase_es": "Vamos a la siguiente.",
+      "duration_s": 1.92,
+      "path": "/audio/gretel/clips/rec_19_siguiente.mp3",
+      "playback_status": "rejected_wrong_source"
+    }
+  ],
+  "owner_feedback": "2026-10-15: The stitching is wrong. It stutters. It has music in the background. That's not the one that you're supposed to use."
+}

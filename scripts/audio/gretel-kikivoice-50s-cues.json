@@ -1,0 +1,130 @@
+{
+  "source_note": "User-supplied KikiVoice MP3 from 2026-10-14; private source not included. Timing map is source-specific; inspect each cut before releasing to students.",
+  "segments": [
+    {
+      "id": "01_oh",
+      "start": 0,
+      "end": 0.67,
+      "text": "¡Oh!"
+    },
+    {
+      "id": "02_viste",
+      "start": 1.02,
+      "end": 2.69,
+      "text": "¿Viste lo que acaba de pasar?"
+    },
+    {
+      "id": "03_sorpresa",
+      "start": 3.21,
+      "end": 5.33,
+      "text": "Tengo una sorpresa para ti."
+    },
+    {
+      "id": "04_hmm",
+      "start": 6.16,
+      "end": 6.99,
+      "text": "Mmm."
+    },
+    {
+      "id": "05_que_crees",
+      "start": 7.94,
+      "end": 10.22,
+      "text": "¿Qué crees que significa esta palabra?"
+    },
+    {
+      "id": "06_que_interesante",
+      "start": 10.85,
+      "end": 12.38,
+      "text": "¡Qué interesante!"
+    },
+    {
+      "id": "07_descubrirlo",
+      "start": 12.97,
+      "end": 14.33,
+      "text": "Vamos a descubrirlo."
+    },
+    {
+      "id": "08_gato",
+      "start": 14.7,
+      "end": 18.07,
+      "text": "Había una vez un pequeño gato que quería aprender a leer."
+    },
+    {
+      "id": "09_despues",
+      "start": 19.03,
+      "end": 21.37,
+      "text": "¿Quieres saber qué ocurrió después?"
+    },
+    {
+      "id": "10_atencion",
+      "start": 21.63,
+      "end": 24.17,
+      "text": "Entonces escucha con mucha atención."
+    },
+    {
+      "id": "11_favorita",
+      "start": 25.19,
+      "end": 27.32,
+      "text": "Ahora viene mi parte favorita."
+    },
+    {
+      "id": "12_toca_letra",
+      "start": 28.28,
+      "end": 30.02,
+      "text": "Toca la letra que escuches."
+    },
+    {
+      "id": "13_busca_dibujo",
+      "start": 30.59,
+      "end": 33.91,
+      "text": "Busca el dibujo que comienza con este sonido."
+    },
+    {
+      "id": "14_microfono",
+      "start": 34.32,
+      "end": 37.69,
+      "text": "Cuando estés listo, toca el micrófono y habla."
+    },
+    {
+      "id": "15_te_escucho",
+      "start": 38.48,
+      "end": 39.39,
+      "text": "Te escucho."
+    },
+    {
+      "id": "16_voz_alta",
+      "start": 40.35,
+      "end": 42.19,
+      "text": "Di la palabra en voz alta."
+    },
+    {
+      "id": "17_lapiz",
+      "start": 42.64,
+      "end": 45.58,
+      "text": "Usa tu lápiz para completar la actividad."
+    },
+    {
+      "id": "18_terminaste",
+      "start": 46.42,
+      "end": 48.07,
+      "text": "Terminaste esta página."
+    },
+    {
+      "id": "19_siguiente",
+      "start": 48.3,
+      "end": 50.17,
+      "text": "Vamos a la siguiente."
+    }
+  ],
+  "playlist": [
+    "11_favorita",
+    "12_toca_letra",
+    "13_busca_dibujo",
+    "15_te_escucho",
+    "06_que_interesante",
+    "07_descubrirlo",
+    "17_lapiz",
+    "18_terminaste",
+    "19_siguiente"
+  ]
+}

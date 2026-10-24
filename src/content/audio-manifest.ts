@@ -1,11 +1,8 @@
-// audio-manifest.ts — manifest of expected kid-voice audio assets.
-// The audio engine (other lane) consults this manifest to know which files
-// exist on disk and to fall back gracefully when a file is missing.
-//
-// Files live under public/audio/voz/<letter>/<slug>.mp3 once recorded.
-// Until real recordings arrive, the engine returns silence (NOT TTS).
-//
-// Per locked spec: NO synthesized voices. Real kid recordings only.
+// audio-manifest.ts — metadata for existing recordings and approved audio policies.
+// Legacy recorded assets still live in public/audio/voz/<letter>/<slug>.mp3.
+// Owner's current requirement is a SINGLE custom Gretel TTS for new Spanish text.
+// A configured custom engine is allowed; an arbitrary browser voice is NOT
+// an acceptable substitute. No custom model has yet passed real voice proof.
 
 export type AudioAsset = {
   key: string; // canonical key, e.g. "m-mama"
@@ -60,10 +57,13 @@ export function voiceSrc(letter: string, wordSlug: string): string {
   return audioPathFor(letter, wordSlug);
 }
 
-// Locked policy reminder embedded in source so future agents do not forget.
+// Owner's October 2026 decision supersedes the former all-synthesis ban:
+// use ONLY the approved custom Gretel model, never arbitrary browser voices
+// as a substitution for missing recordings.
 export const AUDIO_POLICY = {
-  allowTts: false,
-  allowSynthesizedVoice: false,
-  allowAiVoiceClone: false,
-  note: "Per locked spec: real kid-voice recordings only. Engine returns silence when an asset is missing.",
+  allowTts: false, // Generic browser TTS remains disallowed for picture/instruction audio.
+  allowCustomGretelTts: true, // Enabled only when a real custom engine is configured.
+  allowSynthesizedVoice: true,
+  allowAiVoiceClone: true,
+  note: "Owner approved a single Gretel custom TTS voice. No generic browser voice substitution.",
 } as const;

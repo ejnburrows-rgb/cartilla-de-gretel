@@ -78,3 +78,7 @@ public/cartilla/art/test-overlays/
 .cartilla-art-backup/
 verification-screenshots/
 verification-screenshots-fresh/
+
+# Gretel private reference, model downloads, synthetic candidates and QC checkpoints
+/artifacts/gretel/
+/private-gretel/
