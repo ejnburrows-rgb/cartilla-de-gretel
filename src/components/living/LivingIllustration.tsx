@@ -64,7 +64,6 @@ export function LivingIllustration({
   const ambientProfile = actor?.action ?? null;
   const phase = useMemo(() => phaseFor(src), [src]);
   const canBlink = Boolean(actor?.blinkFrame) && !forceStatic;
-  const isCreature = Boolean(actor?.creature) && !forceStatic;
   const blinkMode = trueBlink && canBlink ? "frame" : "none";
 
   useEffect(() => {
@@ -162,7 +161,6 @@ export function LivingIllustration({
         "living-illustration",
         blinkActive ? "living-illustration--alive" : "",
         reacting ? "living-illustration--reacting" : "",
-        isCreature && ambientActive ? "living-illustration--creature-life" : "",
         ambientActive ? "living-illustration--ambient" : "",
         wholeActionActive && ambientProfile ? `living-illustration--${ambientProfile}` : "",
         partBased && ambientActive ? "living-illustration--part-rigged" : "",

@@ -572,6 +572,18 @@
   max-height: 100%;
   object-fit: contain;
 }
+/* Card pictures render through LivingIllustration so registered, owner-approved
+   natural part motion plays on the real page; unregistered art stays still. */
+.am-direct-pencil__card > .living-illustration {
+  /* Keep the picture box exactly as before: the art stays the card's direct
+     flex child, sized by the card rule above. */
+  display: contents;
+}
+.am-direct-pencil__card > .living-illustration > .living-illustration__art {
+  width: auto;
+  height: auto;
+  pointer-events: none;
+}
 .am-direct-pencil__target-text {
   font-weight: 700;
   font-size: 0.9rem;

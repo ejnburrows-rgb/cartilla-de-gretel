@@ -90,11 +90,6 @@
   --living-delay: -3.4s;
 }
 
-.living-illustration--creature-life {
-  animation: living-creature-micro 7.8s ease-in-out var(--living-delay) infinite;
-  transform-origin: 50% 82%;
-}
-
 .living-illustration--breathe .living-illustration__art {
   animation: living-breathe var(--living-duration) ease-in-out var(--living-delay) infinite;
   transform-origin: 50% 86%;
@@ -107,13 +102,6 @@
 .living-illustration--sway .living-illustration__art {
   animation: living-sway var(--living-duration) ease-in-out var(--living-delay) infinite;
   transform-origin: 50% 92%;
-}
-
-@keyframes living-creature-micro {
-  0%, 72%, 100% { transform: translateY(0) rotate(0deg); }
-  78% { transform: translateY(-1px) rotate(-0.35deg); }
-  84% { transform: translateY(0) rotate(0.28deg); }
-  90% { transform: translateY(-0.5px) rotate(-0.12deg); }
 }
 
 @keyframes living-breathe {
@@ -320,7 +308,6 @@
 
 @media (prefers-reduced-motion: reduce) {
   .living-illustration--alive,
-  .living-illustration--creature-life,
   .living-illustration--ambient .living-illustration__art,
   .living-flipchart-face,
   .gretel-grounded__shadow,
