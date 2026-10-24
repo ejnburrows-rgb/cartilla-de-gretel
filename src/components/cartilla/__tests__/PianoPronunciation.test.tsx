@@ -64,6 +64,13 @@ vi.mock("@/lib/piano-audio", () => ({
   },
 }));
 
+// The Piano Hablador's own grand piano sound (real samples + reverb).
+vi.mock("@/components/cartilla/piano/piano-sound", () => ({
+  playNote: (...args: unknown[]) => mockPlayNote(...args),
+  playCorrectChord: (...args: unknown[]) => mockPlayCorrectChord(...args),
+  preloadPianoSound: () => Promise.resolve(),
+}));
+
 const mockSpeak = vi.fn().mockResolvedValue(undefined);
 vi.mock("@/lib/speak", () => ({
   speak: (s: string) => mockSpeak(s),

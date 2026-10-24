@@ -20,7 +20,7 @@
  */
 import { useCallback, useEffect, useMemo, useRef, useState } from "react";
 import { usePianoListening } from "@/hooks/usePianoListening";
-import { playNote, playCorrectChord } from "@/lib/piano-audio";
+import { playNote, playCorrectChord, preloadPianoSound } from "./piano-sound";
 import { advanceSyllables } from "@/lib/piano-word-tracker";
 import type { PianoWord } from "@/lib/piano-words";
 import { approvedPictureRecording } from "@/lib/picture-vocabulary";
@@ -131,6 +131,11 @@ export function usePianoGroups({
   }, [onComplete]);
 
   const done = keys.length > 0 && confirmed >= keys.length;
+
+  // Real grand piano samples start loading as soon as the piano appears.
+  useEffect(() => {
+    void preloadPianoSound();
+  }, []);
   const isLastItem = itemIndex >= items.length - 1;
 
   const clearListenTimers = () => {
@@ -435,6 +440,7 @@ export function usePianoGroups({
       return;
     }
     stopSpeech();
+    void preloadPianoSound();
     startListening();
   };
 
