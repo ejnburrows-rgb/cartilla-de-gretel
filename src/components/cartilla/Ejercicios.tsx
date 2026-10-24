@@ -41,8 +41,9 @@ export function WordMatch({
     if (withArt.length >= 2) return withArt;
     return words.filter((w) => w.word?.trim()).slice(0, 4);
   }, [words]);
-  const [picked, setPicked] = useState<string | null>(null);
-  const [matched, setMatched] = useState<Set<string>>(new Set());
+  const [picked, setPicked] = useState<number | null>(null);
+  const [matchedWords, setMatchedWords] = useState<Set<number>>(new Set());
+  const [matchedPictures, setMatchedPictures] = useState<Set<number>>(new Set());
   const [attempts, setAttempts] = useState(0);
   const [hits, setHits] = useState(0);
   const [feedback, setFeedback] = useState<{
@@ -50,23 +51,26 @@ export function WordMatch({
     word: string;
   } | null>(null);
   const loggedRound = useRef(false);
-  const shuffled = useMemo(() => shuffle(items), [items]);
+  const shuffled = useMemo(() => shuffle(items.map((w, i) => ({ ...w, originalIndex: i }))), [items]);
 
   if (items.length < 2) return null;
 
-  const onWord = (w: string) => {
-    if (matched.has(w)) return;
-    setPicked(w);
+  const onWord = (idx: number) => {
+    if (matchedWords.has(idx)) return;
+    setPicked(idx);
     setFeedback(null);
   };
-  const onPicture = (target: string) => {
-    if (!picked) return;
+  const onPicture = (targetIdx: number, targetWord: string) => {
+    if (picked === null) return;
     setAttempts((a) => a + 1);
-    if (picked === target) {
+    const pickedIdx = picked;
+    const pickedWord = items[picked].word;
+    if (pickedWord === targetWord) {
       setHits((h) => h + 1);
-      setMatched((m) => {
-        const next = new Set(m).add(target);
-        if (next.size === items.length && !loggedRound.current && lessonId) {
+
+      setMatchedWords((mw) => {
+        const nextW = new Set(mw).add(pickedIdx);
+        if (nextW.size === items.length && !loggedRound.current && lessonId) {
           loggedRound.current = true;
           recordEvent({
             lessonId,
@@ -76,21 +80,23 @@ export function WordMatch({
             meta: { exercise: "word_match", completed: true, items: items.length },
           });
         }
-        return next;
+        return nextW;
       });
+      setMatchedPictures((mp) => new Set(mp).add(targetIdx));
+
       gretelEvent("answer:correct");
-      setFeedback({ kind: "ok", word: picked });
-      play(target);
+      setFeedback({ kind: "ok", word: pickedWord });
+      play(targetWord);
       setPicked(null);
       setTimeout(
-        () => setFeedback((f) => (f?.kind === "ok" && f.word === target ? null : f)),
+        () => setFeedback((f) => (f?.kind === "ok" && f.word === targetWord ? null : f)),
         1800,
       );
     } else {
       gretelEvent("answer:wrong");
       setFeedback({
         kind: "no",
-        word: picked,
+        word: pickedWord,
       });
       setPicked(null);
     }
@@ -105,14 +111,15 @@ export function WordMatch({
         meta: { exercise: "word_match", completed: false },
       });
     }
-    setMatched(new Set());
+    setMatchedWords(new Set());
+    setMatchedPictures(new Set());
     setPicked(null);
     setAttempts(0);
     setHits(0);
     setFeedback(null);
     loggedRound.current = false;
   };
-  const allDone = matched.size === items.length;
+  const allDone = matchedWords.size === items.length;
   const acc = attempts > 0 ? Math.round((hits / attempts) * 100) : null;
 
   return (
@@ -141,21 +148,21 @@ export function WordMatch({
       </div>
       <div className="grid grid-cols-2 gap-3">
         <div className="space-y-2">
-          {items.map((w) => (
+          {items.map((w, i) => (
             <button
-              key={w.word}
-              disabled={matched.has(w.word)}
-              onClick={() => onWord(w.word)}
+              key={`${w.word}-${i}`}
+              disabled={matchedWords.has(i)}
+              onClick={() => onWord(i)}
               className={cn(
                 "w-full px-3 py-2 rounded-xl border-2 font-bold text-left transition",
-                matched.has(w.word)
+                matchedWords.has(i)
                   ? "opacity-40 line-through"
-                  : picked === w.word
+                  : picked === i
                     ? "scale-[1.02]"
                     : "hover:bg-secondary",
                 playingText === w.word && "animate-pulse ring-4 ring-current",
               )}
-              style={{ borderColor: color, color: matched.has(w.word) ? undefined : color }}
+              style={{ borderColor: color, color: matchedWords.has(i) ? undefined : color }}
             >
               {w.word}
             </button>
@@ -164,16 +171,16 @@ export function WordMatch({
         <div className="space-y-2">
           {shuffled.map((w) => (
             <button
-              key={w.word}
+              key={`${w.word}-${w.originalIndex}`}
               type="button"
-              disabled={matched.has(w.word)}
-              onClick={() => onPicture(w.word)}
+              disabled={matchedPictures.has(w.originalIndex)}
+              onClick={() => onPicture(w.originalIndex, w.word)}
               aria-label={
                 w.illustrationSrc ? `Dibujo de ${w.word}` : `Ilustración pendiente: ${w.word}`
               }
               className={cn(
                 "w-full min-h-[3.25rem] rounded-xl border-2 transition overflow-hidden flex items-center justify-center bg-white",
-                matched.has(w.word)
+                matchedPictures.has(w.originalIndex)
                   ? "opacity-40"
                   : "border-foreground/10 hover:bg-secondary active:scale-95",
               )}
