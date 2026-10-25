@@ -561,7 +561,18 @@ export function TeacherDailyHome() {
                           </form>
                         )}
                         <div className="mt-4 space-y-2">
-                          {assignmentRows.length === 0 ? (
+                          {assignmentsQuery.isError ? (
+                            <div role="alert" className="text-center py-6 px-4 flex flex-col items-center">
+                              <p className="text-sm font-bold text-red-500 mb-2">Error al cargar asignaciones</p>
+                              <button
+                                onClick={() => assignmentsQuery.refetch()}
+                                disabled={assignmentsQuery.isFetching}
+                                className="text-xs bg-red-100 text-red-700 px-4 py-2 rounded-lg hover:bg-red-200"
+                              >
+                                {assignmentsQuery.isFetching ? "Reintentando…" : "Reintentar"}
+                              </button>
+                            </div>
+                          ) : assignmentRows.length === 0 ? (
                             <p className="text-sm font-semibold text-stone-500">
                               No hay lecciones asignadas a esta clase.
                             </p>
