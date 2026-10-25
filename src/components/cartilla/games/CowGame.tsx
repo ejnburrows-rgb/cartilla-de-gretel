@@ -438,7 +438,8 @@ export function CowGame({ content }: { content: GameContent }) {
           const box = moving && active.phase !== "back" ? fieldSpot(active.slot, i) : spots[i];
           const slotBox = L.slots[slot];
           const x = isDropped ? slotBox.x + slotBox.w / 2 : box.x + box.w * (flips[i] === 1 ? 0.34 : 0.66);
-          const y = isDropped ? slotBox.y + slotBox.h * 0.52 : box.y + box.h * 0.48;
+          const leanOffset = moving && active.phase === 'lean' ? L.W * 0.16 : 0;
+          const y = isDropped ? slotBox.y + slotBox.h * 0.52 : box.y + box.h * 0.48 + leanOffset;
           return (
             <span
               key={i}
