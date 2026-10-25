@@ -4,17 +4,14 @@
   "sourceManifestSha256": "ecb846c1ab37a7313eeb2112f318b36dd51f3d697d65d30adf7513a2028b81fc",
   "visualCoverageManifest": "tests/e2e/recovery-visual-coverage.json",
   "visualCoverageSha256": "e797c31924ac122290e60445a459b316ebe88b9e8c8214cc732fff6b2284ff02",
-  "assetSetSha256": "68e82753f538123aef358d247095497e5d28bbab79fa8cec9dab2dcc9a28227f",
+  "assetSetSha256": "2c11092dcfee3aa8df5fd4825a61207d8ac1de76555ea25cca4610cebd04932e",
   "counts": {
     "referencedProductionAssets": 108,
     "manifestEntries": 158,
     "unreferencedManifestEntries": 50,
-    "errors": 2
+    "errors": 0
   },
-  "errors": [
-    "Referenced faithful asset is absent from manifest: /cartilla/art/faithful/flipchart/${slot}.webp",
-    "Referenced faithful asset is missing: /cartilla/art/faithful/flipchart/${slot}.webp"
-  ],
+  "errors": [],
   "unreferencedManifestEntries": [
     "/cartilla/art/optimized/flipchart-native/p009-amo.png",
     "/cartilla/art/optimized/flipchart-native/p009-mama.png",
@@ -83,10 +80,10 @@
         "width": 440,
         "height": 520
       },
-      "hasAlpha": false,
+      "hasAlpha": true,
       "aspectRatio": 0.846154,
       "provenanceStatus": "VERIFIED-EXACT-WORKBOOK-CROP-2026-08-08",
-      "sha256": "03cafdb0b52172796d7cfd99a19ec0650d157db95f11fe70e5d1599b4f0a41e2",
+      "sha256": "3f8fccb32a3020a88fb213b1015d9e048237e2a19a43175c298c0d31ccf4b2f6",
       "referenceCount": 3,
       "referenceLocations": [
         "src/data/conversion-status.json:353",
@@ -142,7 +139,7 @@
       "hasAlpha": true,
       "aspectRatio": 0.916955,
       "provenanceStatus": null,
-      "sha256": "9a185cb57412c5d000dc763c84dcb75a840343bfa61da0c6895b3cf219aa032a",
+      "sha256": "a5e7643eb42589909b2fdf3089e7d8dcd430c216971f14289463b1e364dc6112",
       "referenceCount": 12,
       "referenceLocations": [
         "src/content/picture-vocabulary.json:1347",
@@ -172,12 +169,12 @@
       "assetClass": "cutout",
       "dimensions": {
         "width": 870,
-        "height": 597
+        "height": 870
       },
       "hasAlpha": true,
-      "aspectRatio": 1.457286,
+      "aspectRatio": 1,
       "provenanceStatus": "PASS-VERIFIED-2026-QA",
-      "sha256": "9a6c158c497843da73d981cd017761434029df313524404d7bd59683ae10e140",
+      "sha256": "078775360dc035d2ff50637c78466e484df4f99e83cbc6ff190abc362eb7af4f",
       "referenceCount": 3,
       "referenceLocations": [
         "src/content/picture-vocabulary.json:215",
@@ -226,10 +223,10 @@
         "width": 580,
         "height": 515
       },
-      "hasAlpha": false,
+      "hasAlpha": true,
       "aspectRatio": 1.126214,
       "provenanceStatus": "VERIFIED-EXACT-WORKBOOK-CROP-2026-08-08",
-      "sha256": "d2105fc2c8dfe42fcd3c5637371f355ccf821e104d396a2b62f8649b6d61d109",
+      "sha256": "72bdcecf4b17468e5c66568e479b45d71a89360632c165d9de86c668f6eb18f9",
       "referenceCount": 3,
       "referenceLocations": [
         "src/content/picture-vocabulary.json:481",
@@ -275,13 +272,13 @@
       "pageNumber": null,
       "assetClass": "cutout",
       "dimensions": {
-        "width": 799,
-        "height": 870
+        "width": 757,
+        "height": 765
       },
       "hasAlpha": true,
-      "aspectRatio": 0.918391,
+      "aspectRatio": 0.989542,
       "provenanceStatus": null,
-      "sha256": "3ba3071ba13ad179b7e72c5d01631efe5600e2311f8b052675a8443c17e33d72",
+      "sha256": "07e222071ca66538ada081ec0cefe7e97b94090dd793f9d282ff6aa9b06c3848",
       "referenceCount": 10,
       "referenceLocations": [
         "src/content/picture-vocabulary.json:745",
@@ -334,14 +331,14 @@
       "pageNumber": null,
       "assetClass": "cutout",
       "dimensions": {
-        "width": 677,
-        "height": 377
+        "width": 1354,
+        "height": 754
       },
-      "hasAlpha": true,
+      "hasAlpha": false,
       "aspectRatio": 1.795756,
       "provenanceStatus": "RECOVERED-2026-FROM-GIT-HISTORY-BLOB-cf0d6c7d",
-      "sha256": "cd45239f16e938c055a773e8690f0cb3f744721d09e37d7e6437883e0e835ee9",
-      "referenceCount": 9,
+      "sha256": "544e927bbd805d3940287c030abe9afc44b1fd2a6179e2d3ff4a6d9e56c30324",
+      "referenceCount": 8,
       "referenceLocations": [
         "src/content/lessons.json:254",
         "src/content/picture-vocabulary.json:924",
@@ -350,8 +347,7 @@
         "src/data/conversion-status.json:227",
         "src/data/faithful-art-manifest.json:440",
         "src/data/page-layouts.json:639",
-        "src/data/page-layouts.json:676",
-        "src/data/page-layouts.json:837"
+        "src/data/page-layouts.json:676"
       ]
     },
     {
@@ -366,13 +362,13 @@
       "pageNumber": null,
       "assetClass": "cutout",
       "dimensions": {
-        "width": 870,
-        "height": 557
+        "width": 613,
+        "height": 522
       },
       "hasAlpha": true,
-      "aspectRatio": 1.561939,
+      "aspectRatio": 1.17433,
       "provenanceStatus": "BACKFILLED-2026-FROM-FLIPCHART-PAGE-003",
-      "sha256": "fcfc800fc3bfbcb675ede388cdbc88eca15253d9e1d0775020e8ebdf9883ed7c",
+      "sha256": "c50536c816edb2f9e5cdd188240b42028a7df5c7af457de0cb08606c62e5bdef",
       "referenceCount": 3,
       "referenceLocations": [
         "src/content/picture-vocabulary.json:1074",
@@ -424,7 +420,7 @@
       "hasAlpha": true,
       "aspectRatio": 1.175385,
       "provenanceStatus": null,
-      "sha256": "9f5abb0b60661e476ed9351d678e9a2fa876d4584e5cf0602da8b2da25e57243",
+      "sha256": "10120e06c2314c1e0b771fc144d458ad7568b6de9429251bed0784edb12705c4",
       "referenceCount": 11,
       "referenceLocations": [
         "src/content/picture-vocabulary.json:125",
@@ -484,7 +480,7 @@
       "hasAlpha": true,
       "aspectRatio": 0.844828,
       "provenanceStatus": "RECOLORED-FROM-FLIPCHART-2026",
-      "sha256": "a869ce67afc82e23eeceb8b16f89c6f4b497c1a1b56790027415d3f8d2dbb406",
+      "sha256": "1afba797e3dc5ddc792e87e34f37f43075b94ba0614312c330f8f63d140be680",
       "referenceCount": 12,
       "referenceLocations": [
         "src/content/lessons.json:343",
@@ -826,7 +822,7 @@
       "hasAlpha": true,
       "aspectRatio": 1.178862,
       "provenanceStatus": "QA-PASS-SOURCE-PAGE-NOT-RECORDED",
-      "sha256": "96391879b3291f02a639ffd869fcdad8fe3b532be12fe54b2a3ee9ecf66448b0",
+      "sha256": "7aa54f0ae9825ade37a13249c00ce02790e13e9b0bc975fbdb6dde7d647a0b91",
       "referenceCount": 3,
       "referenceLocations": [
         "src/content/consonants.json:1073",
@@ -904,7 +900,7 @@
       "hasAlpha": true,
       "aspectRatio": 0.998851,
       "provenanceStatus": "QA-PASS-SOURCE-PAGE-NOT-RECORDED",
-      "sha256": "8c9be585ca8ae6241c3a45e89a684a8efb7f846e0545a268e4383105d91f3d0b",
+      "sha256": "6416b18584c1b740c9b1b84182a7bf0141b31d780498c49e56852748ce61d697",
       "referenceCount": 3,
       "referenceLocations": [
         "src/content/consonants.json:1093",
@@ -1036,7 +1032,7 @@
       "hasAlpha": true,
       "aspectRatio": 1.099874,
       "provenanceStatus": null,
-      "sha256": "0cf2ea9a57e27dc415322e29d782b62b17c07f2f888a07dd6d70aa9eb21f8994",
+      "sha256": "d4eda551bbd9e4064aad6313d29e144260a8bfecff1525e719969c8a1c92d432",
       "referenceCount": 3,
       "referenceLocations": [
         "src/content/consonants.json:1452",
@@ -1165,7 +1161,7 @@
       "hasAlpha": true,
       "aspectRatio": 1.537102,
       "provenanceStatus": null,
-      "sha256": "a892afd68c68a3dc8bd719b45b37355148036c97d30121c7303b9c494b22ce69",
+      "sha256": "b6b05ab599b09833132967075658380d9332bdbe7505595c1518e6b5c629426d",
       "referenceCount": 3,
       "referenceLocations": [
         "src/content/consonants.json:1183",
@@ -1399,7 +1395,7 @@
       "hasAlpha": true,
       "aspectRatio": 0.905747,
       "provenanceStatus": null,
-      "sha256": "59d34b9aa8c580a29d4ffc56203944ccae1ea0278baa0b240af8fb0cb3b95c12",
+      "sha256": "c06f923c01f413171fb0a2db9d7253ccc8d48f046d1c95b55a850b7951d9a87a",
       "referenceCount": 3,
       "referenceLocations": [
         "src/content/consonants.json:1363",
@@ -1893,7 +1889,7 @@
       "hasAlpha": true,
       "aspectRatio": 1.286982,
       "provenanceStatus": null,
-      "sha256": "94e5563da676bc38116693b26365340f33bc380150fac8d5322d859b4f574c28",
+      "sha256": "17361d40463e3b298040ada84020a58042a70666bbd9a4ebcbcbe1a46031ae58",
       "referenceCount": 2,
       "referenceLocations": [
         "src/content/picture-vocabulary.json:1184",
@@ -1941,13 +1937,13 @@
       "pageNumber": 7,
       "assetClass": "cutout",
       "dimensions": {
-        "width": 462,
-        "height": 495
+        "width": 924,
+        "height": 990
       },
       "hasAlpha": false,
       "aspectRatio": 0.933333,
       "provenanceStatus": "VERIFIED-EXACT-WORKBOOK-CROP-2026-08-08",
-      "sha256": "1f03f92afdf3005ffffccae6aff6cfdd37314ebe016012e8634a102078bca5ef",
+      "sha256": "4bf3d73b48d4fa7fa6bb38f8d16844134386be986a6028f4bb6f0f55a9386dd1",
       "referenceCount": 20,
       "referenceLocations": [
         "src/content/picture-vocabulary.json:23",
@@ -1968,8 +1964,8 @@
         "src/data/page-layouts.json:1103",
         "src/data/page-layouts.json:1341",
         "src/data/page-layouts.json:1476",
-        "src/data/page-layouts.json:803",
-        "src/data/page-layouts.json:895"
+        "src/data/page-layouts.json:895",
+        "src/data/stale-motion-art.json:37"
       ]
     },
     {
@@ -1987,10 +1983,10 @@
         "width": 1254,
         "height": 1254
       },
-      "hasAlpha": false,
+      "hasAlpha": true,
       "aspectRatio": 1,
       "provenanceStatus": "VERIFIED-EXACT-WORKBOOK-CROP-2026-08-08",
-      "sha256": "7b0088d07a6e47feba046445aa70ac8f9f1d9d8b324c0790a4eb8d709000f324",
+      "sha256": "a45da3dad8e0c93f54f0a02b915b276a6698edc862c2838b70f73a0650bb2980",
       "referenceCount": 8,
       "referenceLocations": [
         "src/content/picture-vocabulary.json:44",
@@ -2113,7 +2109,7 @@
       "hasAlpha": true,
       "aspectRatio": 1.169355,
       "provenanceStatus": null,
-      "sha256": "e313f0ec62619e0f8498a7f84baf3f74b27e24cd46435a214b23301e6e040ff3",
+      "sha256": "00cdde731ea499ffb946313632e8908084d11ee8ee763e52a9621e44081f538f",
       "referenceCount": 8,
       "referenceLocations": [
         "src/content/lessons.json:14",
@@ -2169,10 +2165,10 @@
         "width": 780,
         "height": 660
       },
-      "hasAlpha": false,
+      "hasAlpha": true,
       "aspectRatio": 1.181818,
       "provenanceStatus": "VERIFIED-AUTHENTIC-FLIPCHART-2026-08-08",
-      "sha256": "c0ce78535ac9b93efcc4a5fafa77f427f975fe592685f751c38287c9ac5a2c4b",
+      "sha256": "a6d0c9c5a1f29c53e34c4f3af19ad3d136ab0dd276ed5b5aac84b3718e7b8cfb",
       "referenceCount": 6,
       "referenceLocations": [
         "src/content/picture-vocabulary.json:109",
@@ -2229,8 +2225,8 @@
       "hasAlpha": true,
       "aspectRatio": 1.075402,
       "provenanceStatus": null,
-      "sha256": "f54e533c6a33b901fcfc79da83b2f7a38977defc47662f6cf29ca948d1cfd28a",
-      "referenceCount": 12,
+      "sha256": "27e76b480a87f6c6df4bb08c20f21b7b6b55edf493b39e90073070c56a81d370",
+      "referenceCount": 13,
       "referenceLocations": [
         "src/content/animal-gallery.ts:69",
         "src/content/lessons.json:92",
@@ -2243,7 +2239,8 @@
         "src/data/page-layouts.json:1097",
         "src/data/page-layouts.json:1451",
         "src/data/page-layouts.json:812",
-        "src/data/page-layouts.json:990"
+        "src/data/page-layouts.json:990",
+        "src/data/stale-motion-art.json:44"
       ]
     },
     {
@@ -2264,7 +2261,7 @@
       "hasAlpha": true,
       "aspectRatio": 1.010453,
       "provenanceStatus": null,
-      "sha256": "5f3a27b85db1ba6178ca9bc22c3aad28146d1d45f95aabc80caeaa71cd7b892d",
+      "sha256": "2e673864a6612f0c6577c01adf7bcdbbc2de6b46e069c10a1d1ab2298021306c",
       "referenceCount": 7,
       "referenceLocations": [
         "src/content/animal-gallery.ts:75",
@@ -2468,10 +2465,10 @@
         "width": 600,
         "height": 570
       },
-      "hasAlpha": false,
+      "hasAlpha": true,
       "aspectRatio": 1.052632,
       "provenanceStatus": "VERIFIED-AUTHENTIC-FLIPCHART-2026-08-08",
-      "sha256": "bfc0ab830718b9d1dd37163800ce64aadc5b9df1d487d89e071cdbb1afa3ee6f",
+      "sha256": "23463185e7a6cfe386854eacd0a59fdc0f72e9be3d6ebb78fcd1b4c2f72b4ba0",
       "referenceCount": 15,
       "referenceLocations": [
         "src/content/lessons.json:170",
@@ -2503,13 +2500,13 @@
       "pageNumber": null,
       "assetClass": "cutout",
       "dimensions": {
-        "width": 870,
-        "height": 687
+        "width": 856,
+        "height": 482
       },
       "hasAlpha": true,
-      "aspectRatio": 1.266376,
+      "aspectRatio": 1.775934,
       "provenanceStatus": "PROVENANCE-UNKNOWN",
-      "sha256": "22dd1c51277b2ae1a236677758a836567626f4b84660c45dee5deb6c19f3fb4a",
+      "sha256": "1404f51a491aff775d91ee4df54069776ab196df6d983ce416a30d480ea99d42",
       "referenceCount": 6,
       "referenceLocations": [
         "src/content/picture-vocabulary.json:534",
@@ -2538,7 +2535,7 @@
       "hasAlpha": true,
       "aspectRatio": 1.158455,
       "provenanceStatus": "PROVENANCE-UNKNOWN",
-      "sha256": "2d54a211628f6d479dc15e55cb705170e5e295fa724d10f08334b7c7f9b9e491",
+      "sha256": "3d6a09256e46e209f8c7b0cf7865aae0ff5163e6a796f2f3e4dfa08a20417f3c",
       "referenceCount": 8,
       "referenceLocations": [
         "src/content/animal-gallery.ts:81",
@@ -2838,10 +2835,10 @@
         "width": 580,
         "height": 570
       },
-      "hasAlpha": false,
+      "hasAlpha": true,
       "aspectRatio": 1.017544,
       "provenanceStatus": "VERIFIED-EXACT-WORKBOOK-CROP-2026-08-08",
-      "sha256": "69977ee19c874c68a1e82d0f7747b4fae8e79640cd961e23c3d4ea9ec3046ead",
+      "sha256": "8f1c008aad2483c4c331a9b4f28d6cf467748d41bb955b8a87e670754953e524",
       "referenceCount": 6,
       "referenceLocations": [
         "src/content/picture-vocabulary.json:957",
@@ -2956,8 +2953,8 @@
       "hasAlpha": true,
       "aspectRatio": 1.055825,
       "provenanceStatus": null,
-      "sha256": "6835094e54b0ea0e5082792e1ae8cdde452ab4bd8be265d170f99d74e7f22d59",
-      "referenceCount": 11,
+      "sha256": "5ba07a1511c28e7a3ad3db869970a37d8656716367a3c18d10394a29def46a32",
+      "referenceCount": 12,
       "referenceLocations": [
         "src/content/animal-gallery.ts:93",
         "src/content/picture-vocabulary.json:987",
@@ -2969,7 +2966,8 @@
         "src/data/page-layouts.json:1421",
         "src/data/page-layouts.json:589",
         "src/data/page-layouts.json:671",
-        "src/data/page-layouts.json:797"
+        "src/data/page-layouts.json:797",
+        "src/data/stale-motion-art.json:51"
       ]
     },
     {
@@ -3048,7 +3046,7 @@
       "hasAlpha": true,
       "aspectRatio": 0.787356,
       "provenanceStatus": null,
-      "sha256": "8c0156ea857c533d85e701e51ff923e0ab6cc1e85f2368528ad2f6f896fee0c4",
+      "sha256": "42f6f4229b42246a577518f59e0ad7c95348d564bbf98fac27f4b96c679d55a1",
       "referenceCount": 3,
       "referenceLocations": [
         "src/content/picture-vocabulary.json:1308",
@@ -3115,7 +3113,7 @@
       "hasAlpha": true,
       "aspectRatio": 1.438017,
       "provenanceStatus": null,
-      "sha256": "2413df1fb07b25b5f40edf0bb96d0a636020eb65ff5c8637f2bf9695735a3c41",
+      "sha256": "b46584e6c352008d6ca90669f55e8828d2aec395cac1a8121855dd906045c17c",
       "referenceCount": 9,
       "referenceLocations": [
         "src/content/lessons.json:328",
