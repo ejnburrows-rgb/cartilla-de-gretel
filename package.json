@@ -32,7 +32,9 @@
     "verify:platform": "node scripts/verify-platform-completeness.mjs",
     "verify:assets": "node scripts/verify-production-assets.mjs",
     "verify:worker": "pnpm audit:art && pnpm verify:assets && pnpm typecheck",
-    "verify:policy": "node --test scripts/__tests__/check-merge-policy.test.mjs && node scripts/check-merge-policy.mjs --docs"
+    "verify:policy": "pnpm artwork:mapping:check && node --test scripts/__tests__/check-merge-policy.test.mjs scripts/__tests__/artwork-mapping.test.mjs && node scripts/check-merge-policy.mjs --docs",
+    "artwork:mapping:check": "node scripts/artwork-mapping.mjs",
+    "artwork:mapping:update": "node scripts/artwork-mapping.mjs --write"
   },
   "dependencies": {
     "@dnd-kit/core": "^6.3.1",

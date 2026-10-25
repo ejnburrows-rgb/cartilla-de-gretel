@@ -18,7 +18,7 @@ This plan defines the sequence of work required to satisfy `PROJECT_FINISH_DEFIN
 ## Consolidated Execution Checkpoint
 
 **Evidence already obtained — DO NOT REDO:**
-- Four completed broad artwork audits. PR #751 provides the canonical 201 drawing groups/330 placements reconciliation (draft evidence only).
+- Four completed broad artwork audits. Use [the canonical artwork authority](../docs/ARTWORK_MAPPING_CANONICAL.md) and its master CSV on main. PR #751 is historical provenance; the generated master view provides totals. Availability is not current owner approval or runtime verification.
 - Merged #733 Piano Hablador designs/logic, #743 Workbook physical page turn, #744 printed 60-sheet Flip Chart top-bound page turn, #726 approved pencil/eraser.
 - Verification PRs merged: #641 (full assembled Workbook regression, closed #450), #642 (keyboard/pointer access, closed #457), #643 (living motion bounds, closed #560), #646/648 (artwork intake tooling, closed #579), #636 (Gretel voice abstract, closed #570).
 - #713 authorization-gate reconciliations into `WORKBOOK_ARCHETYPE_STANDARD.md` and `STUDENT_INTERACTION_STANDARD.md` already merged.

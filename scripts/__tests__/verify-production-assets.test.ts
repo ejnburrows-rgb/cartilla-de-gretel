@@ -6,6 +6,19 @@ import os from "node:os";
 
 const scriptPath = path.resolve(__dirname, "../verify-production-assets.mjs");
 
+function copyMappingFixture(mockRoot: string) {
+  const repoRoot = path.resolve(__dirname, "../..");
+  for (const name of [
+    "docs/artwork-reconciliation/mapping/MASTER-MAPPING.csv",
+    "docs/artwork-reconciliation/mapping/MASTER-MAPPING.md",
+    "AGENTS.md", "PROJECT_SOURCE_OF_TRUTH.md", "README.md", "tasks/plan.md",
+  ]) {
+    fs.mkdirSync(path.dirname(path.join(mockRoot, name)), { recursive: true });
+    fs.copyFileSync(path.join(repoRoot, name), path.join(mockRoot, name));
+  }
+}
+
+
 describe("verify-production-assets.mjs", () => {
   it("fails fatally when a manifest is missing or unparseable", () => {
     // create empty temp dir
@@ -19,6 +32,8 @@ describe("verify-production-assets.mjs", () => {
     expect(error).not.toBeNull();
     expect(error.status).toBe(1);
     expect(error.stderr.toString()).toContain("ENOENT");
+
+    copyMappingFixture(mockRoot);
 
     // Create unparseable manifest
     fs.mkdirSync(path.join(mockRoot, "src/data"), { recursive: true });
@@ -38,6 +53,7 @@ describe("verify-production-assets.mjs", () => {
 
   it("fails if a valid runtime Workbook source scan is missing", () => {
     const mockRoot = fs.mkdtempSync(path.join(os.tmpdir(), "verify-test2-"));
+    copyMappingFixture(mockRoot);
     fs.mkdirSync(path.join(mockRoot, "src/data"), { recursive: true });
     fs.writeFileSync(path.join(mockRoot, "src/data/page-layouts.json"), "[]");
     fs.writeFileSync(path.join(mockRoot, "src/data/flipchart-production-art.json"), "[]");

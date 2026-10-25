@@ -40,13 +40,12 @@ Student-facing lesson flow: **Lección 23 = pages 83 → 84 → 85, then normal 
 **Curriculum discussion order (owner, 2026-10-14):** first GrillMe/brainstorm HOW each already-built practice activity works for the learner/teacher within a session, including sequencing and completion. **Only afterward discuss Piano Hablador's specific lesson placement.** Piano inside lessons is approved in principle; its details have not yet been chosen.
 
 
-## Current artwork reconciliation routing — 2026-10-14
+## Current artwork reconciliation routing
 
-The **current source-evidenced artwork reconciliation** is in [PR #751](https://github.com/ejnburrows-rgb/cartilla-de-gretel/pull/751), [MASTER-MAPPING.md](https://github.com/ejnburrows-rgb/cartilla-de-gretel/blob/evidence/artwork-coverage-20261014/docs/proofs/artwork-coverage-2026-10-14/MASTER-MAPPING.md), and its 330-row CSV/201-group JSON. **The PR is a draft evidence branch, not installed on `main`, not deployed, and not a production-art approval.** Every agent, including Muse/Jules/controller/reviewer, must read the current PR head and its evidence **before** making artwork availability, candidate or owner-missing claims; do not restart the four completed artwork audits. No automatic Jules job is created by this pointer.
+The single editable artwork-to-slot record is [MASTER-MAPPING.csv](docs/artwork-reconciliation/mapping/MASTER-MAPPING.csv) on `main`. Read [the canonical authority](docs/ARTWORK_MAPPING_CANONICAL.md) before artwork work. The companion Markdown is generated from that CSV; do not maintain separate counts, selections or approval claims in summaries.
 
-90 faithful optimized drawing masters available by group (186 placements), 108 groups need actual optimization (141 placements), 3 unresolved frontmatter composite groups (3 placements). **115 exact placement matches** recorded; **71 READY group placements** have no individually selected exact master. **Eight** selected candidate files are documented only inside owner-local archives; they are not live GitHub assets. **50** withheld hashes cannot be associated with specific drawings. Ownership approval, runtime integration, book fidelity and release checks remain separate gates.
+PR #751 and its October 14 evidence branch are historical provenance, not a competing current master. Historical availability labels do not establish latest owner approval, current installation or runtime correctness. Preserve stable placement IDs and reuse the existing mapping. `DRAW-WB-10-1` depicts avión despite legacy PEZ filenames. Do not infer approval, missing artwork or production selection from an old report.
 
-**Visual identity override:** `DRAW-WB-10-1` depicts **avión (airplane)** despite five legacy `PEZ` IDs/filenames. Real source image and proposed match were directly inspected; never rename it *pez* based on filename, nor alter legacy placement IDs. Optimize/restore only source-faithful originals, preserve all approved assets, and remove no evidence or app dependency without a specific negative reference/dependency check. Older summaries or locally generated copies cannot supersede the cited live GitHub evidence.
 
 ## STOP — OWNER CREDIT / ANTIGRAVITY DENY-BY-DEFAULT GATE (2026-10-11)
 

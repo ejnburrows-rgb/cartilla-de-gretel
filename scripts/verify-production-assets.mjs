@@ -2,9 +2,12 @@ import fs from "node:fs";
 import path from "node:path";
 import { createHash } from "node:crypto";
 import sharp from "sharp";
+import { checkMapping } from "./artwork-mapping.mjs";
 
 const argRoot = process.argv.find((arg) => arg.startsWith("--root="))?.slice(7);
 const root = argRoot ? path.resolve(argRoot) : path.resolve(import.meta.dirname, "..");
+const mappingCheck = checkMapping(root);
+if (!mappingCheck.ok) throw new Error(mappingCheck.errors.join("\n"));
 const read = (name) => {
   return JSON.parse(fs.readFileSync(path.join(root, name), "utf8"));
 };
