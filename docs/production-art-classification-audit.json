@@ -1,5 +1,15 @@
 {
-  "timestamp": "2026-10-22T07:50:51.172Z",
+  "_canonicalMapping": {
+    "note": "Canonical artwork-to-slot mapping. Do NOT ask the owner to re-map. Do NOT regenerate it.",
+    "csv": "docs/artwork-reconciliation/mapping/MASTER-MAPPING.csv",
+    "md": "docs/artwork-reconciliation/mapping/MASTER-MAPPING.md",
+    "evidence": "docs/proofs/artwork-coverage-2026-10-14/",
+    "pointer": "docs/ARTWORK_MAPPING_CANONICAL.md",
+    "placements": 330,
+    "drawingGroups": 201,
+    "engravedOnMain": "2026-10-15"
+  },
+  "timestamp": "2026-10-23T15:22:26.620Z",
   "counts": {
     "faithfulWired": 110,
     "flipchartNativeWired": 167,
@@ -741,8 +751,8 @@
       "classification": "PASS",
       "provenance": "VERIFIED-EXACT-WORKBOOK-CROP-2026-08-08",
       "qaVerdict": "PASS",
-      "dimensions": "462x495",
-      "bytes": 40196,
+      "dimensions": "924x990",
+      "bytes": 119868,
       "isQuarantined": false
     },
     {
@@ -1854,18 +1864,18 @@
         222
       ],
       "classification": "PENDING NO VERIFIED SOURCE",
-      "dimensions": "320x320",
-      "bytes": 35084,
+      "dimensions": "640x640",
+      "bytes": 291230,
       "exists": true,
       "verified": false,
       "sourcePageMatches": true,
       "hasCropEvidence": true,
       "cropMatch": false,
       "aspectMatch": true,
-      "matchScore": 22,
-      "meanDiff": 52,
+      "matchScore": 25,
+      "meanDiff": 55.5,
       "evidence": null,
-      "pendingReason": "no deterministic crop correspondence (ncc 0.216, mean diff 52.0, aspectMatch true)"
+      "pendingReason": "no deterministic crop correspondence (ncc 0.254, mean diff 55.5, aspectMatch true)"
     },
     {
       "src": "/cartilla/art/optimized/flipchart-native/p007-indio.png",
