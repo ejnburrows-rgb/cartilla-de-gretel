@@ -39,6 +39,8 @@ export interface DibujaHostProps {
   onComplete?: () => void;
   className?: string;
   verb?: "Dibuja" | "Escribe";
+  /** Keep the printed surface clear; reveal the existing tools on focus. */
+  sourceLayout?: boolean;
 }
 
 const MIN_STROKE_POINTS = 12;
@@ -52,6 +54,7 @@ export function DibujaHost({
   onComplete,
   className,
   verb = "Dibuja",
+  sourceLayout = false,
 }: DibujaHostProps) {
   const { emit: gretelEvent, record: recordEvent } = useActivityEvents();
   const [mode, setMode] = useActivityState<InputModeDefault>("drawingMode", initialMode ?? defaultDibujaMode());
@@ -379,7 +382,7 @@ export function DibujaHost({
 
   return (
     <div
-      className={`am-dibuja${className ? ` ${className}` : ""}${done ? " is-done" : ""}`}
+      className={`am-dibuja${sourceLayout ? " wb-source-tools" : ""}${className ? ` ${className}` : ""}${done ? " is-done" : ""}`}
       data-mode={mode}
       data-verb={verb}
     >
@@ -417,6 +420,7 @@ export function DibujaHost({
             <canvas
               data-gretel-target="primary"
               ref={canvasRef}
+              tabIndex={sourceLayout ? 0 : undefined}
               className="am-dibuja__canvas"
               style={{ touchAction: "none" }}
               onPointerDown={onPointerDown}
