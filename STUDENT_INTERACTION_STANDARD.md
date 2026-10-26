@@ -51,7 +51,7 @@ Pencil, eraser and feedback motion must be polished and seamless: one purposeful
 
 When a learner makes an incorrect mark/selection:
 1. The learner's mark is visible.
-2. The pencil draws the mark in **red** from the first line, then travels back out past the right edge of the screen, over everything on the way (owner decisions 2026-10-06 and 2026-10-08).
+2. The pencil draws the mark in ash pencil (gray) and turns red, then travels back out past the right edge of the screen, over everything on the way (owner decisions 2026-10-06 and 2026-10-08).
 3. The same big, solid pencil turned around — its pink eraser and silver band at the picture, its body running off the edge of the screen — comes in from off the right edge of the screen, passing over everything on the way, rubs back and forth along the mark while a few small, realistic eraser crumbs, the size and color a real pink eraser leaves, fall and fade — never large, bright or cartoon-like (owner decision 2026-10-11) — and leaves past the right edge of the screen once the mark is gone. It never pops up inside the picture's box.
 4. The eraser visibly removes the incorrect mark completely.
 5. Gretel says: **“Inténtalo otra vez.”**
@@ -68,7 +68,7 @@ Owner decision 2026-10-06 (replaces the earlier ~3 second neutral hold), amended
 1. The learner taps the picture/answer.
 2. A big, solid, full pencil (never faded, never cut off) whose body is long enough to run right off the edge of the screen, so near the picture only its tip is seen, like a real pencil held from off-screen (owner 2026-10-08). It is drawn in realistic HD detail (fine wood grain, lacquer highlights and a crimped band), with no printed stamp, grade mark, serial number or brand name (owner decision 2026-10-11). Its movement is subtle and lifelike, like a real hand: never bouncy, exaggerated or rushed. It is sized so it never hides the picture, the line, the rubbing or the crumbs. The line is crisp and solid. It starts **completely off the right edge of the screen** and travels in like a real hand, passing over the page and the neighbouring pictures. It is never cut off at the picture's or the page's edge and never pops up inside a box. It draws the circle in about **2 seconds**. The line is about as thick as before.
    **Close-up zoom (owner decision 2026-10-08, softened by owner decision 2026-10-11):** when the learner taps, the page eases in slowly and subtly (about 1 second) toward the tapped picture, at most about 1.5×, just enough that the pencil, the line and the eraser are clearly visible. The page zooms back out after a right answer's green circle has been seen for about a second, or once the eraser has left after a wrong answer. Reduced motion never zooms.
-3. The circle is **green from the first line** when the answer is right and **red from the first line** when it is wrong. There is no gray waiting period.
+3. The circle starts in ash pencil (gray). A correct answer slowly turns green with Gretel's voice. A wrong answer turns red, then erases. (This rule also applies to 'Marca con una X' exercises across all 24 lessons where the exercise type applies.)
 4. After drawing, the pencil travels back out the same way, past the right edge of the screen.
 5. If correct, the green circle stays and Gretel says: **“Buen trabajo.”**
 6. If incorrect, use the Pencil Retry behavior above: the eraser erases the red circle and Gretel says “Inténtalo otra vez.”
@@ -175,16 +175,7 @@ During active handwriting/drawing/answering, Gretel should remain visually quiet
 
 ## Voice/TTS status
 
-The final Gretel voice/TTS direction is **NOT YET LOCKED**.
-
-Do not treat the older real-recording-only policy, browser TTS voice selection, or any particular provider as the final owner decision.
-
-Until the owner explicitly finalizes the voice direction:
-- do not create a new paid voice dependency;
-- do not generate a final voice library;
-- do not replace the current voice system merely to satisfy this interaction standard.
-
-The owner has stated that the eventual target is a premium natural little-girl voice that matches Gretel and does not sound robotic or corny. Final implementation is deferred pending explicit owner approval.
+The ONLY permitted voice is the owner's own recordings (no generated/AI voice).
 
 ## Scope protection
 
