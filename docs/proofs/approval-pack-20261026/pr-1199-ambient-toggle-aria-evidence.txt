@@ -1,0 +1,21 @@
+commit cee5606b966c6f7db765cc46bc83fe38c755e1ba
+Author: ejnburrows-rgb <246579318+ejnburrows-rgb@users.noreply.github.com>
+Date:   Mon Oct 26 09:48:40 2026 +0000
+
+    🎨 Palette: Enhance AmbientToggle accessibility and stability
+
+    Added `aria-pressed` states to communicate visual toggle state (active/inactive) to screen readers. Added `type="button"` attributes to explicitly define the elements as buttons and prevent potential default form submissions if wrapped in a `<form>`.
+
+diff --git a/src/components/audio/AmbientToggle.tsx b/src/components/audio/AmbientToggle.tsx
+index 4b92bdf..88cfd3f 100644
+--- a/src/components/audio/AmbientToggle.tsx
++++ b/src/components/audio/AmbientToggle.tsx
+@@ -23,6 +23,8 @@ export function AmbientToggle() {
+   return (
+     <button
++      type="button"
+       onClick={() => setMuted(!isMuted)}
+       className={`ambient-toggle ${isMuted ? 'is-muted' : ''}`}
+       aria-label={isMuted ? 'Activar sonido de ambiente' : 'Silenciar ambiente'}
++      aria-pressed={!isMuted}
+     >
