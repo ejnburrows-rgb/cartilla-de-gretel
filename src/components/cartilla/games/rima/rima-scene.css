@@ -1,0 +1,654 @@
+.rima-scene {
+  position: fixed;
+  inset: 0;
+  z-index: 100;
+  width: 100vw;
+  height: 100dvh;
+  overflow: hidden;
+  isolation: isolate;
+  background: #75c6e5 url("/cartilla/games/rima/approved-scene.jpg") center top/cover no-repeat;
+  color: #071448;
+  font-family: "Arial Rounded MT Bold", "Nunito", sans-serif;
+}
+.rima-scene * {
+  box-sizing: border-box;
+}
+.rima-top {
+  position: absolute;
+  inset: 0 0 49%;
+}
+.rima-panel {
+  position: absolute;
+  inset: 51% 0 0;
+}
+.rima-top-art,
+.rima-panel-art {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  user-select: none;
+}
+.rima-title {
+  display: none;
+}
+.rima-card,
+.rima-audio {
+  position: absolute;
+  border: 0;
+  background: transparent;
+  cursor: pointer;
+  padding: 0;
+  border-radius: 16px;
+  touch-action: manipulation;
+}
+.rima-card {
+  width: 25.8%;
+  height: 29%;
+  font-size: clamp(20px, 4vw, 53px);
+  font-weight: 1000;
+  transition:
+    box-shadow 0.2s,
+    transform 0.2s;
+}
+.rima-card:not(.dynamic) span {
+  visibility: hidden;
+}
+.rima-card-0 {
+  left: 4.8%;
+  top: 37.4%;
+}
+.rima-card-1 {
+  left: 4.8%;
+  top: 70.7%;
+}
+.rima-card-2 {
+  left: 72%;
+  top: 37.4%;
+}
+.rima-card-3 {
+  left: 72%;
+  top: 70.7%;
+}
+.rima-card:hover {
+  box-shadow: 0 0 0 3px #fff7;
+}
+.rima-card.is-selected {
+  box-shadow:
+    0 0 0 4px #fff6af,
+    0 0 0 7px #136d71;
+  transform: translateY(-2px);
+}
+.rima-card:focus-visible,
+.rima-slot:focus-visible,
+.rima-audio:focus-visible {
+  outline: 4px solid #052f65;
+  outline-offset: 2px;
+}
+.rima-audio {
+  left: 88%;
+  top: 4%;
+  width: 10.4%;
+  height: 29%;
+  border-radius: 50%;
+}
+.rima-audio svg {
+  display: none;
+}
+.rima-line {
+  position: absolute;
+  left: 27.2%;
+  width: 25.1%;
+  height: 15.4%;
+}
+.rima-line-0 {
+  top: 6.8%;
+}
+.rima-line-1 {
+  top: 25.5%;
+}
+.rima-line-2 {
+  top: 44.2%;
+}
+.rima-line-3 {
+  top: 62.9%;
+}
+.rima-slot {
+  border: 0;
+  background: transparent;
+  border-radius: 12px;
+  width: 100%;
+  height: 100%;
+  font-size: clamp(16px, 3vw, 40px);
+  font-weight: 900;
+  color: #071448;
+  cursor: pointer;
+}
+.rima-slot.is-correct {
+  background: #d3f5c6eb;
+  box-shadow: inset 0 0 0 3px #239b56;
+}
+.rima-slot.is-wrong {
+  background: #ffe1dfd9;
+  box-shadow: inset 0 0 0 3px #d5282d;
+}
+.rima-slot.just-correct {
+  animation: rima-place 0.35s ease-out;
+}
+.rima-controls {
+  position: absolute;
+  bottom: max(4px, env(safe-area-inset-bottom));
+  right: 1%;
+  display: flex;
+  gap: 5px;
+}
+.rima-controls button,
+.rima-controls a {
+  min-height: 34px;
+  min-width: 36px;
+  display: grid;
+  place-items: center;
+  background: #fff6dc;
+  color: #092754;
+  border: 2px solid #e3aa2e;
+  border-radius: 12px;
+  font-size: 23px;
+  font-weight: 900;
+  cursor: pointer;
+  text-decoration: none;
+}
+.rima-controls .rima-next {
+  font-size: 15px;
+  padding: 3px 12px;
+}
+.rima-feedback {
+  position: absolute;
+  bottom: 4px;
+  left: 18%;
+  max-width: 58%;
+  font-weight: 800;
+  font-size: clamp(12px, 1.6vw, 20px);
+  text-align: center;
+  background: #fff9e9e8;
+  border-radius: 8px;
+  padding: 2px 7px;
+  pointer-events: none;
+}
+.rima-feedback:empty {
+  display: none;
+}
+.rima-feedback.wrong {
+  color: #9a1721;
+}
+.rima-feedback.ok {
+  color: #126539;
+}
+.rima-sr {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip-path: inset(50%);
+  white-space: nowrap;
+}
+.rima-card.dynamic {
+  background: #fff8e5;
+  border: 3px solid #2c9bbc;
+  border-radius: 20px;
+}
+.rima-card.dynamic.rima-card-1 {
+  border-color: #ed3676;
+}
+.rima-card.dynamic.rima-card-2 {
+  border-color: #60ae33;
+}
+.rima-card.dynamic.rima-card-3 {
+  border-color: #ecc33a;
+}
+.rima-unused {
+  pointer-events: none;
+}
+.rima-pair-board {
+  position: absolute;
+  inset: 3% 10% 12% 26%;
+  background: #fff8e7;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  gap: 8px;
+  border-radius: 14px;
+}
+.rima-pair-board p {
+  margin: 0;
+  font-size: clamp(15px, 2.2vw, 28px);
+}
+.rima-pair-board strong {
+  font-size: clamp(24px, 4vw, 48px);
+}
+@keyframes rima-place {
+  from {
+    transform: translateY(-5px);
+  }
+  to {
+    transform: translateY(0);
+  }
+}
+/* Phone reflow: one undistorted approved background, real text and controls.
+   Opaque HTML plates cover baked-in text; no stitched artwork panels. */
+@media (orientation: portrait), (min-aspect-ratio: 1.79) {
+  .rima-top-art,
+  .rima-panel-art {
+    display: none;
+  }
+  .rima-title {
+    position: absolute;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin: 0;
+    left: 4%;
+    top: 2%;
+    width: 29%;
+    height: 31%;
+    background: #ffe6a5;
+    border: 3px solid #bb722c;
+    border-radius: 22px;
+    box-shadow:
+      inset 0 0 0 4px #fff2cc,
+      0 3px 3px #66402066;
+    font-weight: 1000;
+    line-height: 0.95;
+    font-size: clamp(22px, 4vw, 45px);
+    color: #0b5892;
+    text-shadow: 1px 2px #fff6;
+  }
+  .rima-title span:nth-child(2) {
+    color: #1b9d54;
+  }
+  .rima-title i {
+    font-style: normal;
+    color: #f84a76;
+  }
+  .rima-audio {
+    background: #0ab7ed;
+    color: white;
+    border: 4px solid #ffd849;
+    box-shadow: 0 1px 4px #102e4b;
+    border-radius: 50%;
+    aspect-ratio: 1;
+    height: auto;
+    max-height: 80px;
+    max-width: 80px;
+  }
+  .rima-audio svg {
+    display: block;
+    width: 100%;
+    height: 100%;
+    padding: 12%;
+  }
+  .rima-card,
+  .rima-card.dynamic {
+    background: #fff9e8;
+    border: 4px solid #25b4de;
+    border-radius: 19px;
+    box-shadow:
+      inset 0 0 0 3px white,
+      0 3px 3px #3c672b66;
+  }
+  .rima-card span,
+  .rima-card:not(.dynamic) span {
+    visibility: visible;
+  }
+  .rima-card-1,
+  .rima-card.dynamic.rima-card-1 {
+    border-color: #e53c7c;
+  }
+  .rima-card-2,
+  .rima-card.dynamic.rima-card-2 {
+    border-color: #65b63b;
+  }
+  .rima-card-3,
+  .rima-card.dynamic.rima-card-3 {
+    border-color: #f3bd35;
+  }
+  .rima-panel::before {
+    content: "";
+    position: absolute;
+    inset: 0 5% 10%;
+    background: #fff8e8;
+    border: 10px solid #ffd139;
+    border-radius: 32px;
+    box-shadow: 0 2px 3px #755c3266;
+  }
+  .rima-panel::after {
+    content: "";
+    position: absolute;
+    left: 9%;
+    top: 9%;
+    width: 17%;
+    height: 39%;
+    background: url("/cartilla/games/rima/bee.webp") center/contain no-repeat;
+    mask-image: radial-gradient(ellipse, black 42%, transparent 72%);
+    pointer-events: none;
+  }
+  .rima-line::after {
+    content: attr(data-ending);
+    position: absolute;
+    left: 110%;
+    top: 0;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    font-size: clamp(20px, 4vw, 36px);
+    font-weight: 1000;
+    white-space: nowrap;
+  }
+  .rima-slot {
+    background: #d1efff;
+    border: 2px dashed #399abf;
+    font-size: clamp(15px, 2.6vw, 25px);
+  }
+}
+@media (orientation: portrait) {
+  .rima-top {
+    bottom: 47%;
+  }
+  .rima-panel {
+    top: 53%;
+  }
+  .rima-title {
+    left: 3%;
+    top: 1%;
+    width: 64%;
+    height: 19%;
+    font-size: 32px;
+  }
+  .rima-audio {
+    left: 79%;
+    top: 2%;
+    width: 18%;
+  }
+  .rima-card {
+    width: 44%;
+    height: 13%;
+    font-size: 28px;
+  }
+  .rima-card-0 {
+    left: 4%;
+    top: 69%;
+  }
+  .rima-card-1 {
+    left: 4%;
+    top: 84%;
+  }
+  .rima-card-2 {
+    left: 52%;
+    top: 69%;
+  }
+  .rima-card-3 {
+    left: 52%;
+    top: 84%;
+  }
+  .rima-panel::before {
+    inset: 0 2% 14%;
+    border-width: 8px;
+  }
+  .rima-panel::after {
+    left: 1%;
+    top: 3%;
+    width: 21%;
+    height: 29%;
+  }
+  .rima-line {
+    left: 23%;
+    width: 33%;
+    height: 13%;
+  }
+  .rima-line-0 {
+    top: 7%;
+  }
+  .rima-line-1 {
+    top: 26%;
+  }
+  .rima-line-2 {
+    top: 45%;
+  }
+  .rima-line-3 {
+    top: 64%;
+  }
+  .rima-line::after {
+    font-size: 25px;
+  }
+  .rima-controls button,
+  .rima-controls a {
+    min-height: 44px;
+    min-width: 44px;
+  }
+  .rima-feedback {
+    bottom: 52px;
+    left: 7%;
+    max-width: 86%;
+    font-size: 13px;
+  }
+  .rima-pair-board {
+    inset: 8% 8% 19% 22%;
+  }
+}
+@media (min-aspect-ratio: 1.79) {
+  .rima-top {
+    bottom: 48%;
+  }
+  .rima-panel {
+    top: 52%;
+  }
+  .rima-card {
+    height: 29%;
+    font-size: 32px;
+  }
+  .rima-card-0,
+  .rima-card-2 {
+    top: 35%;
+  }
+  .rima-card-1,
+  .rima-card-3 {
+    top: 68%;
+  }
+  .rima-line {
+    left: 29%;
+    width: 27%;
+    height: 16%;
+  }
+  .rima-line-0 {
+    top: 7%;
+  }
+  .rima-line-1 {
+    top: 26%;
+  }
+  .rima-line-2 {
+    top: 45%;
+  }
+  .rima-line-3 {
+    top: 64%;
+  }
+  .rima-panel::after {
+    height: 55%;
+    top: 8%;
+    left: 10%;
+    width: 18%;
+  }
+  .rima-feedback {
+    font-size: 12px;
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .rima-scene * {
+    animation: none !important;
+    transition: none !important;
+  }
+}
+.rima-bee {
+  position: absolute;
+  left: 12%;
+  top: 59%;
+  width: clamp(45px, 9vw, 115px);
+  height: auto;
+  z-index: 10;
+  pointer-events: none;
+  will-change: transform;
+}
+.rima-bee img {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+.rima-bee span {
+  display: block;
+  position: absolute;
+  top: 74%;
+  left: 40%;
+  background: #fff8e5;
+  border: 2px solid #e5ac37;
+  border-radius: 8px;
+  padding: 2px 8px;
+  font-weight: 900;
+  font-size: clamp(15px, 2vw, 25px);
+  white-space: nowrap;
+}
+@media (orientation: portrait), (min-aspect-ratio: 1.79) {
+  .rima-panel::after {
+    display: none;
+  }
+  .rima-panel::before {
+    inset: 0 0 0;
+    border-radius: 27px;
+  }
+  .rima-scene {
+    background-size: auto 105%;
+  }
+}
+@media (orientation: portrait) {
+  .rima-bee {
+    left: 1%;
+    top: 56%;
+    width: 76px;
+  }
+  .rima-panel {
+    bottom: 0;
+  }
+  .rima-title {
+    top: 0;
+  }
+  .rima-audio {
+    top: 0;
+  }
+}
+@media (min-aspect-ratio: 1.79) {
+  .rima-bee {
+    left: 10%;
+    top: 57%;
+    width: 90px;
+  }
+  .rima-title {
+    top: 0;
+    height: 35%;
+  }
+  .rima-card-0,
+  .rima-card-2 {
+    top: 37%;
+  }
+  .rima-card-1,
+  .rima-card-3 {
+    top: 70%;
+  }
+}
+@media (min-aspect-ratio: 1.22) and (max-aspect-ratio: 1.78) {
+  .rima-bee {
+    left: 12%;
+    top: 59%;
+  }
+  .rima-panel::after {
+    content: "";
+    display: block;
+    position: absolute;
+    left: 12%;
+    top: 8%;
+    width: 15%;
+    height: 40%;
+    background: #fff8e8;
+    border-radius: 50%;
+  }
+  .rima-line {
+    z-index: 1;
+  }
+}
+.rima-slot.just-correct {
+  animation: rima-drop 0.7s ease-out;
+}
+@keyframes rima-drop {
+  0% {
+    transform: scale(0.94);
+    box-shadow: 0 0 0 3px #73bd4c;
+  }
+  45% {
+    transform: scale(1.06) translateY(-3px);
+    box-shadow: 0 0 18px 5px #c8ed6a;
+  }
+  100% {
+    transform: scale(1);
+    box-shadow: inset 0 0 0 3px #239b56;
+  }
+}
+.rima-celebration {
+  position: fixed;
+  left: 35%;
+  top: 42%;
+  font-size: clamp(30px, 6vw, 70px);
+  color: #ffd43b;
+  text-shadow: 0 2px #a63b59;
+  animation: rima-celebrate 1.2s ease-out forwards;
+  pointer-events: none;
+}
+@keyframes rima-celebrate {
+  from {
+    transform: translateY(20px) scale(0.6);
+    opacity: 0;
+  }
+  30% {
+    opacity: 1;
+  }
+  to {
+    transform: translateY(-50px) scale(1.15);
+    opacity: 0;
+  }
+}
+@media (min-aspect-ratio: 1.79) {
+  .rima-scene {
+    background-size: cover;
+  }
+  .rima-top::before,
+  .rima-top::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    width: 33%;
+    background: #fff7e8ef;
+    pointer-events: none;
+  }
+  .rima-top::before {
+    left: 0;
+  }
+  .rima-top::after {
+    right: 0;
+  }
+  .rima-title,
+  .rima-card,
+  .rima-audio {
+    z-index: 1;
+  }
+}
+@media (min-aspect-ratio:1.22) and (max-aspect-ratio:1.78) {.rima-panel::after {left:12.6%;top:7%;width:13.4%;height:39%;border-radius:0;background:#fff8e8;}}
