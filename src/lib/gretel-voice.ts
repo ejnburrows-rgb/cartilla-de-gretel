@@ -1,4 +1,5 @@
 import { claimSpeech, registerSpeechCleanup, releaseSpeech, speechIsCurrent, stopSpeech } from "./speech-playback";
+import { AUDIO_POLICY } from "../content/audio-manifest";
 
 /**
  * Gretel voice — neutral, child-friendly Spanish browser TTS with pluggable provider architecture.
@@ -148,6 +149,10 @@ export function cancelGretelSpeech(): void {
 }
 
 export async function speakAsGretel(text: string, handlers: GretelVoiceHandlers = {}): Promise<void> {
+  if (!AUDIO_POLICY.allowTts) {
+    handlers.onEnd?.();
+    return;
+  }
   if (!text?.trim() || isGretelVoiceMuted()) {
     handlers.onEnd?.();
     return;

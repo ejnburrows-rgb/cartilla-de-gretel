@@ -34,7 +34,7 @@ export const LESSONS: LessonMeta[] = [
     teacherBgClass: "",
     syllables: [],
     keywords: [],
-    audioPath: "/audio/lecciones/leccion-1.mp3",
+    audioPath: "/cartilla/audio/silent.mp3",
   },
   {
     n: 2,
@@ -48,7 +48,7 @@ export const LESSONS: LessonMeta[] = [
     teacherBgClass: "cartilla-teacher-bg-2",
     syllables: ["o"],
     keywords: ["oso", "ojo", "oso"],
-    audioPath: "/audio/lecciones/leccion-2.mp3",
+    audioPath: "/cartilla/audio/silent.mp3",
   },
   {
     n: 3,
@@ -62,7 +62,7 @@ export const LESSONS: LessonMeta[] = [
     teacherBgClass: "cartilla-teacher-bg-3",
     syllables: ["a"],
     keywords: ["ala", "ave", "agua"],
-    audioPath: "/audio/lecciones/leccion-3.mp3",
+    audioPath: "/cartilla/audio/silent.mp3",
   },
   {
     n: 4,
@@ -76,7 +76,7 @@ export const LESSONS: LessonMeta[] = [
     teacherBgClass: "cartilla-teacher-bg-4",
     syllables: ["e"],
     keywords: ["elefante", "escoba"],
-    audioPath: "/audio/lecciones/leccion-4.mp3",
+    audioPath: "/cartilla/audio/silent.mp3",
   },
   {
     n: 5,
@@ -90,7 +90,7 @@ export const LESSONS: LessonMeta[] = [
     teacherBgClass: "cartilla-teacher-bg-5",
     syllables: ["i"],
     keywords: ["iguana", "isla"],
-    audioPath: "/audio/lecciones/leccion-5.mp3",
+    audioPath: "/cartilla/audio/silent.mp3",
   },
   {
     n: 6,
@@ -104,7 +104,7 @@ export const LESSONS: LessonMeta[] = [
     teacherBgClass: "cartilla-teacher-bg-6",
     syllables: ["u"],
     keywords: ["uvas", "uno"],
-    audioPath: "/audio/lecciones/leccion-6.mp3",
+    audioPath: "/cartilla/audio/silent.mp3",
   },
   {
     n: 7,
@@ -118,7 +118,7 @@ export const LESSONS: LessonMeta[] = [
     teacherBgClass: "cartilla-teacher-bg-7",
     syllables: ["ma", "me", "mi", "mo", "mu"],
     keywords: ["mam\u00e1", "mesa", "mi", "mono", "mula"],
-    audioPath: "/audio/lecciones/leccion-7.mp3",
+    audioPath: "/cartilla/audio/silent.mp3",
   },
   {
     n: 8,
@@ -132,7 +132,7 @@ export const LESSONS: LessonMeta[] = [
     teacherBgClass: "cartilla-teacher-bg-8",
     syllables: ["pa", "pe", "pi", "po", "pu"],
     keywords: ["papá", "pelo", "pino", "polo", "puma"],
-    audioPath: "/audio/lecciones/leccion-8.mp3",
+    audioPath: "/cartilla/audio/silent.mp3",
   },
   {
     n: 9,
@@ -146,7 +146,7 @@ export const LESSONS: LessonMeta[] = [
     teacherBgClass: "cartilla-teacher-bg-9",
     syllables: ["sa", "se", "si", "so", "su"],
     keywords: ["sapo", "sed", "silla", "sol", "susto"],
-    audioPath: "/audio/lecciones/leccion-9.mp3",
+    audioPath: "/cartilla/audio/silent.mp3",
   },
   {
     n: 10,
@@ -160,7 +160,7 @@ export const LESSONS: LessonMeta[] = [
     teacherBgClass: "cartilla-teacher-bg-10",
     syllables: ["ta", "te", "ti", "to", "tu"],
     keywords: ["tapa", "tela", "tipo", "topo", "tubo"],
-    audioPath: "/audio/lecciones/leccion-10.mp3",
+    audioPath: "/cartilla/audio/silent.mp3",
   },
   {
     n: 11,
@@ -174,7 +174,7 @@ export const LESSONS: LessonMeta[] = [
     teacherBgClass: "cartilla-teacher-bg-11",
     syllables: ["da", "de", "di", "do", "du"],
     keywords: ["dado", "dedo", "dime", "dona", "duro"],
-    audioPath: "/audio/lecciones/leccion-11.mp3",
+    audioPath: "/cartilla/audio/silent.mp3",
   },
   {
     n: 12,
@@ -188,7 +188,7 @@ export const LESSONS: LessonMeta[] = [
     teacherBgClass: "cartilla-teacher-bg-12",
     syllables: ["la", "le", "li", "lo", "lu"],
     keywords: ["lata", "lema", "lima", "lobo", "lupa"],
-    audioPath: "/audio/lecciones/leccion-12.mp3",
+    audioPath: "/cartilla/audio/silent.mp3",
   },
   {
     n: 13,
@@ -202,7 +202,7 @@ export const LESSONS: LessonMeta[] = [
     teacherBgClass: "cartilla-teacher-bg-13",
     syllables: ["na", "ne", "ni", "no", "nu"],
     keywords: ["nata", "negro", "nido", "mono", "nudo"],
-    audioPath: "/audio/lecciones/leccion-13.mp3",
+    audioPath: "/cartilla/audio/silent.mp3",
   },
   {
     n: 14,
@@ -216,7 +216,7 @@ export const LESSONS: LessonMeta[] = [
     teacherBgClass: "cartilla-teacher-bg-14",
     syllables: ["\u00f1a", "\u00f1e", "\u00f1i", "\u00f1o", "\u00f1u"],
     keywords: ["caña", "muñeca", "moño", "ñu"],
-    audioPath: "/audio/lecciones/leccion-14.mp3",
+    audioPath: "/cartilla/audio/silent.mp3",
   },
   {
     n: 15,
@@ -230,7 +230,7 @@ export const LESSONS: LessonMeta[] = [
     teacherBgClass: "cartilla-teacher-bg-15",
     syllables: ["ba", "be", "bi", "bo", "bu"],
     keywords: ["bata", "beso", "bici", "bota", "buho"],
-    audioPath: "/audio/lecciones/leccion-15.mp3",
+    audioPath: "/cartilla/audio/silent.mp3",
   },
   {
     n: 16,
@@ -244,7 +244,7 @@ export const LESSONS: LessonMeta[] = [
     teacherBgClass: "cartilla-teacher-bg-16",
     syllables: ["va", "ve", "vi", "vo", "vu"],
     keywords: ["vaca", "vela", "vino", "voto", "vuelo"],
-    audioPath: "/audio/lecciones/leccion-16.mp3",
+    audioPath: "/cartilla/audio/silent.mp3",
   },
   // keywords = Flip Chart vocabulary-plate words (consonants.json vocab, source: flipchart)
   {
@@ -259,7 +259,7 @@ export const LESSONS: LessonMeta[] = [
     teacherBgClass: "cartilla-teacher-bg-17",
     syllables: ["ra", "re", "ri", "ro", "ru"],
     keywords: ["rana", "remos", "Rita", "rosa", "rueda"],
-    audioPath: "/audio/lecciones/leccion-17.mp3",
+    audioPath: "/cartilla/audio/silent.mp3",
   },
   {
     n: 18,
@@ -273,7 +273,7 @@ export const LESSONS: LessonMeta[] = [
     teacherBgClass: "cartilla-teacher-bg-18",
     syllables: ["rra", "rre", "rri", "rro", "rru"],
     keywords: ["burro", "carrusel", "torre", "barril", "Tierra"],
-    audioPath: "/audio/lecciones/leccion-18.mp3",
+    audioPath: "/cartilla/audio/silent.mp3",
   },
   {
     n: 19,
@@ -287,7 +287,7 @@ export const LESSONS: LessonMeta[] = [
     teacherBgClass: "cartilla-teacher-bg-19",
     syllables: ["ga", "gue", "gui", "go", "gu"],
     keywords: ["gaveta", "gusano", "Goloso", "gorra", "mago"],
-    audioPath: "/audio/lecciones/leccion-19.mp3",
+    audioPath: "/cartilla/audio/silent.mp3",
   },
   {
     n: 20,
@@ -301,7 +301,7 @@ export const LESSONS: LessonMeta[] = [
     teacherBgClass: "cartilla-teacher-bg-20",
     syllables: ["fa", "fe", "fi", "fo", "fu"],
     keywords: ["foto", "fideos", "familia", "Felo", "funda"],
-    audioPath: "/audio/lecciones/leccion-20.mp3",
+    audioPath: "/cartilla/audio/silent.mp3",
   },
   {
     n: 21,
@@ -315,7 +315,7 @@ export const LESSONS: LessonMeta[] = [
     teacherBgClass: "cartilla-teacher-bg-21",
     syllables: ["ja", "je", "ji", "jo", "ju"],
     keywords: ["jicotea", "jugo", "Jesús", "ajo", "jarra"],
-    audioPath: "/audio/lecciones/leccion-21.mp3",
+    audioPath: "/cartilla/audio/silent.mp3",
   },
   {
     n: 22,
@@ -329,7 +329,7 @@ export const LESSONS: LessonMeta[] = [
     teacherBgClass: "cartilla-teacher-bg-22",
     syllables: ["ca", "que", "qui", "co", "cu"],
     keywords: ["cuna", "conejo", "casa", "cubo", "Catalina"],
-    audioPath: "/audio/lecciones/leccion-22.mp3",
+    audioPath: "/cartilla/audio/silent.mp3",
   },
   {
     n: 23,
@@ -343,7 +343,7 @@ export const LESSONS: LessonMeta[] = [
     teacherBgClass: "cartilla-teacher-bg-23",
     syllables: ["ya", "ye", "yi", "yo", "yu"],
     keywords: ["yate", "yema", "Yayita", "mayúscula", "yoyo"],
-    audioPath: "/audio/lecciones/leccion-23.mp3",
+    audioPath: "/cartilla/audio/silent.mp3",
   },
   {
     n: 24,
@@ -357,7 +357,7 @@ export const LESSONS: LessonMeta[] = [
     teacherBgClass: "cartilla-teacher-bg-24",
     syllables: ["za", "ce", "ci", "zo", "zu"],
     keywords: ["zapato", "zig-zag", "zorro", "zepelín", "Zulema"],
-    audioPath: "/audio/lecciones/leccion-24.mp3",
+    audioPath: "/cartilla/audio/silent.mp3",
   },
 ];
 

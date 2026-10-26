@@ -10,15 +10,6 @@ export function BadgeGrid({ earnedIds }: BadgeGridProps) {
   const handleBadgeClick = (badge: Badge, isEarned: boolean) => {
     if (isEarned) {
       feelBus.emit("chime");
-      if ("speechSynthesis" in window) {
-        const utterance = new SpeechSynthesisUtterance(
-          `¡Insignia ${badge.name}! ${badge.description}`,
-        );
-        utterance.lang = "es-ES";
-        utterance.rate = 1.0;
-        window.speechSynthesis.cancel();
-        window.speechSynthesis.speak(utterance);
-      }
     } else {
       feelBus.emit("tap");
     }
