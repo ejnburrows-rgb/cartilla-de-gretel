@@ -461,3 +461,15 @@
  .lc-lesson-shell--fit .native-lesson-viewer__content .fp-ix-grid--paged { grid-template-columns:repeat(2,minmax(0,1fr)); grid-template-rows:auto repeat(4,minmax(0,1fr)); gap:10px; }
  .lc-lesson-shell--fit .native-lesson-viewer__content .fp-ix-grid--paged .fp-ix-cell { width:auto; height:100%; max-width:100%; }
 }
+
+/* Issue #989: move page-number diamond inward on phone screens for Lesson 17 */
+@media (max-width: 600px) {
+  .lc-lesson-17 .faithful-page--edge-left .faithful-page__pagenum { left: 11%; }
+  .lc-lesson-17 .faithful-page--edge-right .faithful-page__pagenum { right: 11%; }
+}
+
+/* Issue #990: move page-number diamond inward on phone screens for Lesson 20 */
+@media (max-width: 600px) {
+  .lc-lesson-20 .faithful-page--edge-left .faithful-page__pagenum { left: 11%; }
+  .lc-lesson-20 .faithful-page--edge-right .faithful-page__pagenum { right: 11%; }
+}
