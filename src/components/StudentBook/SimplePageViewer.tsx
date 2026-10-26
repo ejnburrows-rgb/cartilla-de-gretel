@@ -142,7 +142,8 @@ export function SimplePageViewer({
   const current = pages[currentIndex];
 
   return (
-    <div className="relative mx-auto flex w-full max-w-4xl flex-col items-center">
+    // Explicit overflow-y-auto added because a fixed-height wrapper can fight .faithful-page's aspect-ratio sizing and produce a stray native scrollbar (see singleAspectRatio docstring).
+    <div className="relative mx-auto flex w-full max-w-4xl flex-col items-center overflow-y-auto">
       <div className="workbook-container" style={{ aspectRatio: singleAspectRatio ?? "3 / 4" }}>
         {/* Static base page */}
         <div className="w-full h-full relative overflow-hidden rounded-b-xl">
