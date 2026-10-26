@@ -54,8 +54,7 @@ export function SpeechRecognitionExercise({
           gretelEvent("answer:wrong");
         }
       };
-      rec.onerror = (e: SpeechRecognitionErrorEventLike) => {
-        console.error("Speech Recognition Error:", e);
+      rec.onerror = () => {
         setIsListening(false);
       };
       rec.onend = () => setIsListening(false);
