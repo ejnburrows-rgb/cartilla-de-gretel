@@ -26,6 +26,7 @@ export type GameContent = {
   type: GameArchetype;
   letter: string;
   instructions: string[]; // verbatim Spanish, in order
+  instructionAudioUrls?: string[];
   words: WordItem[];
   tiles?: string[]; // syllable tray bank, verbatim casing preserved
   assets?: {
