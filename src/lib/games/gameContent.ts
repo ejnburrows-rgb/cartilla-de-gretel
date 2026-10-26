@@ -11,7 +11,6 @@ export type GameArchetype =
   | "lectura-silabas"
   | "lectura-rima"
   | "palabras-por-minuto"
-  | "cow-game"
   | "dibujos";
 
 export type WordItem = {
