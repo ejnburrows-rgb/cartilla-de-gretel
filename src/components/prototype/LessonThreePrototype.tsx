@@ -222,7 +222,7 @@ export function LessonThreePrototype() {
                               role="group"
                               aria-label={`Renglón ${lineIndex + 1}`}
                             >
-                              <DrawBoxCanvas regionId={`prototype-${line.id}`} />
+                              <DrawBoxCanvas regionId={`prototype-${line.id}`} retainCompletedImage />
                             </div>
                           </LocalActivity>
                         )}
@@ -236,7 +236,7 @@ export function LessonThreePrototype() {
                         onComplete={markDone}
                       >
                         <div className="prototype-drawing">
-                          <DrawBoxCanvas regionId="prototype-p9-draw" />
+                          <DrawBoxCanvas regionId="prototype-p9-draw" retainCompletedImage />
                         </div>
                       </LocalActivity>
                     </>

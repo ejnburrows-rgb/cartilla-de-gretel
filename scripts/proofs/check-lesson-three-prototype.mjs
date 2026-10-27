@@ -1,9 +1,334 @@
-import{chromium}from'playwright';import{spawn}from'node:child_process';import fs from'node:fs/promises';const dir=process.env.PROTOTYPE_PROOF_DIR??'/tmp/cartilla-lesson-three-proof';await fs.mkdir(dir,{recursive:true});const server=spawn('node',['node_modules/vite/bin/vite.js','--mode','worker','--host','127.0.0.1','--port','5183'],{env:{...process.env,VITE_SUPABASE_URL:'http://127.0.0.1:54321',VITE_SUPABASE_PUBLISHABLE_KEY:'sb_publishable_e2e_not_a_real_key'}});let b,c,p;const results=[];
-async function screen(name){await p.screenshot({path:dir+'/'+name+'.png',fullPage:true});}
-async function line(name){const center=p.getByRole('button',{name:'Vocal central Aa',exact:true}),target=p.locator('.prototype-leaf[aria-hidden="false"]').getByRole('button',{name,exact:true});await center.scrollIntoViewIfNeeded();const a=await center.boundingBox(),z=await target.boundingBox();await p.mouse.move(a.x+a.width/2,a.y+a.height/2);await p.mouse.down();await p.mouse.move(z.x+z.width/2,z.y+z.height/2,{steps:20});await p.mouse.up();}
-async function stroke(canvas,points){await canvas.scrollIntoViewIfNeeded();const box=await canvas.boundingBox();await p.mouse.move(box.x+points[0][0]*box.width,box.y+points[0][1]*box.height);await p.mouse.down();for(const[x,y]of points.slice(1))await p.mouse.move(box.x+x*box.width,box.y+y*box.height,{steps:8});await p.mouse.up();await p.evaluate(()=>new Promise(resolve=>requestAnimationFrame(()=>requestAnimationFrame(resolve))));}
-try{for(let i=0;i<100;i++){try{if((await fetch('http://127.0.0.1:5183')).ok)break}catch{}await new Promise(r=>setTimeout(r,200));}for(const width of[375,768,1280]){b=await chromium.launch({executablePath:process.env.PLAYWRIGHT_CHROMIUM_PATH,headless:true,args:['--no-sandbox','--disable-gpu','--disable-software-rasterizer','--no-zygote','--single-process']});c=await b.newContext({viewport:{width,height:900},hasTouch:width===375,isMobile:width===375,reducedMotion:width===375?'no-preference':'reduce',recordVideo:width===375?{dir,size:{width,height:900}}:undefined});p=await c.newPage();const errors=[],mutations=[];p.on('pageerror',e=>errors.push(e.message));p.on('request',r=>{if(!['GET','HEAD','OPTIONS'].includes(r.method()))mutations.push({method:r.method(),url:r.url()});});await p.addInitScript(()=>{localStorage.setItem('cartilla.lesson-progress.v1','[1]');localStorage.setItem('prototype-existing-learner-work','keep');window.__bus=[];window.addEventListener('gretel:bus',e=>window.__bus.push(e.detail));const original=Storage.prototype.setItem;window.__writes=[];Storage.prototype.setItem=function(k,v){window.__writes.push(k);return original.call(this,k,v);};});await p.goto('http://127.0.0.1:5183/prototype/lesson-3-a');await p.locator('.prototype-picture').first().waitFor();await screen(width+'-p7-start');if(!await p.getByRole('button',{name:'Siguiente',exact:true}).isDisabled())throw Error('Next ungated');const initial=await p.evaluate(()=>JSON.stringify({...localStorage}));const bootstrapStorageWrites=await p.evaluate(()=>{const keys=window.__writes;window.__writes=[];return keys;});
-if(width===375){await p.getByRole('button',{name:'oruga',exact:true}).click();await p.waitForTimeout(2850);await screen('375-p7-wrong-red');await p.waitForTimeout(1700);await screen('375-p7-eraser');await p.waitForFunction(()=>!document.querySelector('.prototype-picture-grid button:disabled:not([data-marked="true"])'),{},{timeout:10000});if(!await p.getByRole('button',{name:'Siguiente',exact:true}).isDisabled())throw Error('Wrong mark completed page');}
-for(const name of['abanico','aro','abeja','árbol','alas','ardilla','avión','aguja']){await p.locator('.prototype-picture-grid').getByRole('button',{name,exact:true}).click();await p.waitForFunction(name=>document.querySelector(`.prototype-picture-grid button[aria-label="${name}"]`)?.getAttribute('data-marked')==='true',name,{timeout:6000});}await screen(width+'-p7-complete');await p.getByRole('button',{name:'Siguiente',exact:true}).click();if(width===375){await p.waitForTimeout(900);await screen('375-page-curl');}await p.waitForFunction(()=>document.querySelector('[data-prototype-page]')?.getAttribute('data-prototype-page')==='8');await screen(width+'-p8-start');if(!await p.getByRole('button',{name:'Siguiente',exact:true}).isDisabled())throw Error('Page8 ungated');if(width===375){await line('oso');await p.waitForTimeout(200);await screen('375-p8-wrong-line');await p.waitForTimeout(4200);if(await p.getByRole('button',{name:'oso',exact:true}).getAttribute('aria-pressed')==='true')throw Error('Wrong connection retained');}
-for(const name of['alas','aguja','avión','aro']){await line(name);await p.waitForTimeout(width===375?600:150);}await p.getByRole('button',{name:'Siguiente',exact:true}).waitFor({state:'visible'});await p.waitForFunction(()=>!document.querySelector('.prototype-navigation button:last-child')?.disabled);await screen(width+'-p8-complete');await p.getByRole('button',{name:'Siguiente',exact:true}).click();await p.waitForFunction(()=>document.querySelector('[data-prototype-page]')?.getAttribute('data-prototype-page')==='9');await screen(width+'-p9-start');if(!await p.locator('.prototype-navigation').getByRole('button',{name:'Listo',exact:true}).isDisabled())throw Error('Page9 ungated');
-for(let i=0;i<4;i++){const group=p.getByRole('group',{name:'Renglón '+(i+1),exact:true});await stroke(group.locator('canvas'),i<2?[[.15,.8],[.25,.2],[.35,.8],[.2,.55],[.3,.55]]:[[.3,.4],[.22,.35],[.15,.5],[.2,.7],[.3,.65],[.3,.35],[.3,.75]]);await group.getByRole('button',{name:'Listo',exact:true}).click();}const drawing=p.locator('.prototype-drawing');await stroke(drawing.locator('canvas'),[[.25,.7],[.25,.4],[.3,.3],[.35,.4],[.35,.7],[.25,.7],[.15,.7],[.45,.7]]);await drawing.getByRole('button',{name:'Listo',exact:true}).click();await p.locator('.prototype-navigation').getByRole('button',{name:'Listo',exact:true}).click();await p.getByRole('status').filter({hasText:'¡Terminaste la lección!'}).waitFor();await screen(width+'-p9-complete');const inkBeforeReturn=await p.locator('.prototype-leaf[aria-hidden="false"] canvas').evaluateAll(cs=>cs.map(c=>{const d=c.getContext('2d').getImageData(0,0,c.width,c.height).data;let n=0;for(let j=3;j<d.length;j+=4)if(d[j])n++;return n;}));if(inkBeforeReturn.some(n=>n===0))throw Error('Ink disappeared after completion/viewport capture '+inkBeforeReturn);await p.getByRole('button',{name:'Anterior',exact:true}).click();await p.waitForFunction(()=>document.querySelector('[data-prototype-page]')?.getAttribute('data-prototype-page')==='8');if(await p.locator('.am-direct-pencil__target.is-connected').count()!==5)throw Error('Lost connections on return');await p.getByRole('button',{name:'Siguiente',exact:true}).click();await p.waitForFunction(()=>document.querySelector('[data-prototype-page]')?.getAttribute('data-prototype-page')==='9');if(await p.locator('.prototype-leaf[aria-hidden="false"] .fp-draw-box__done').count()!==5)throw Error('Lost writing or drawing on return');const inkAfterReturn=await p.locator('.prototype-leaf[aria-hidden="false"] canvas').evaluateAll(cs=>cs.map(c=>{const d=c.getContext('2d').getImageData(0,0,c.width,c.height).data;let n=0;for(let j=3;j<d.length;j+=4)if(d[j])n++;return n;}));if(inkAfterReturn.some(n=>n===0))throw Error('Ink disappeared on return');const state=await p.evaluate(()=>({storage:JSON.stringify({...localStorage}),writes:window.__writes,bus:window.__bus}));if(state.storage!==initial||state.writes.length||state.bus.length||mutations.length||errors.length)throw Error('Isolation/Runtime violation '+JSON.stringify({state,mutations,errors}));if(await p.evaluate(()=>document.documentElement.scrollWidth>innerWidth))throw Error('Horizontal overflow');results.push({width,completed:true,errors,mutatingRequests:mutations,storageUnchanged:true,inkBeforeReturn,inkAfterReturn,storageWrites:state.writes,bootstrapStorageWrites,globalActivityEvents:state.bus});console.log('PASS',width,'full walkthrough; storage untouched; no mutating request/global event');if(width===375){const v=p.video();await c.close();c=null;await v.saveAs(dir+'/375-walkthrough.webm');}else{await c.close();c=null;}await b.close();b=null;}await fs.writeFile(dir+'/checks.json',JSON.stringify(results,null,2));}catch(e){console.error(e);await p?.screenshot({path:dir+'/failure.png',fullPage:true});console.log('URL',p?.url(),(await p?.locator('body').innerText())?.slice(0,1800));process.exitCode=1}finally{await c?.close();await b?.close();server.kill('SIGTERM')}
+import { chromium } from "playwright";
+import { spawn } from "node:child_process";
+import fs from "node:fs/promises";
+const dir = process.env.PROTOTYPE_PROOF_DIR ?? "/tmp/cartilla-lesson-three-proof";
+await fs.mkdir(dir, { recursive: true });
+const server = spawn(
+  "node",
+  ["node_modules/vite/bin/vite.js", "--mode", "worker", "--host", "127.0.0.1", "--port", "5183"],
+  {
+    env: {
+      ...process.env,
+      VITE_SUPABASE_URL: "http://127.0.0.1:54321",
+      VITE_SUPABASE_PUBLISHABLE_KEY: "sb_publishable_e2e_not_a_real_key",
+    },
+  },
+);
+let b, c, p;
+const results = [];
+async function screen(name) {
+  await p.screenshot({ path: dir + "/" + name + ".png", fullPage: true });
+}
+async function line(name) {
+  const center = p.getByRole("button", { name: "Vocal central Aa", exact: true }),
+    target = p
+      .locator('.prototype-leaf[aria-hidden="false"]')
+      .getByRole("button", { name, exact: true });
+  await center.scrollIntoViewIfNeeded();
+  const a = await center.boundingBox(),
+    z = await target.boundingBox();
+  await p.mouse.move(a.x + a.width / 2, a.y + a.height / 2);
+  await p.mouse.down();
+  await p.mouse.move(z.x + z.width / 2, z.y + z.height / 2, { steps: 20 });
+  await p.mouse.up();
+}
+async function stroke(canvas, points) {
+  await canvas.scrollIntoViewIfNeeded();
+  const box = await canvas.boundingBox();
+  await p.mouse.move(box.x + points[0][0] * box.width, box.y + points[0][1] * box.height);
+  await p.mouse.down();
+  for (const [x, y] of points.slice(1))
+    await p.mouse.move(box.x + x * box.width, box.y + y * box.height, { steps: 8 });
+  await p.mouse.up();
+  await p.evaluate(
+    () => new Promise((resolve) => requestAnimationFrame(() => requestAnimationFrame(resolve))),
+  );
+}
+try {
+  for (let i = 0; i < 100; i++) {
+    try {
+      if ((await fetch("http://127.0.0.1:5183")).ok) break;
+    } catch {}
+    await new Promise((r) => setTimeout(r, 200));
+  }
+  const requestedWidths = process.argv.slice(2).map(Number);
+  for (const width of requestedWidths.length ? requestedWidths : [375, 768, 1280]) {
+    b = await chromium.launch({
+      executablePath: process.env.PLAYWRIGHT_CHROMIUM_PATH,
+      headless: true,
+      args: [
+        "--no-sandbox",
+        "--disable-gpu",
+        "--disable-accelerated-2d-canvas",
+        "--disable-software-rasterizer",
+        "--no-zygote",
+        "--single-process",
+      ],
+    });
+    c = await b.newContext({
+      viewport: { width, height: 900 },
+      hasTouch: width === 375,
+      isMobile: width === 375,
+      reducedMotion: width === 375 ? "no-preference" : "reduce",
+      recordVideo: { dir, size: { width, height: 900 } },
+    });
+    p = await c.newPage();
+    const errors = [],
+      mutations = [];
+    p.on("pageerror", (e) => errors.push(e.message));
+    p.on("request", (r) => {
+      if (!["GET", "HEAD", "OPTIONS"].includes(r.method()))
+        mutations.push({ method: r.method(), url: r.url() });
+    });
+    await p.addInitScript(() => {
+      localStorage.setItem("cartilla.lesson-progress.v1", "[1]");
+      localStorage.setItem("prototype-existing-learner-work", "keep");
+      window.__bus = [];
+      window.addEventListener("gretel:bus", (e) => window.__bus.push(e.detail));
+      const original = Storage.prototype.setItem;
+      window.__writes = [];
+      Storage.prototype.setItem = function (k, v) {
+        window.__writes.push(k);
+        return original.call(this, k, v);
+      };
+    });
+    await p.goto("http://127.0.0.1:5183/prototype/lesson-3-a");
+    await p.locator(".prototype-picture").first().waitFor();
+    await screen(width + "-p7-start");
+    if (!(await p.getByRole("button", { name: "Siguiente", exact: true }).isDisabled()))
+      throw Error("Next ungated");
+    const initial = await p.evaluate(() => JSON.stringify({ ...localStorage }));
+    const bootstrapStorageWrites = await p.evaluate(() => {
+      const keys = window.__writes;
+      window.__writes = [];
+      return keys;
+    });
+    if (width === 375) {
+      await p.getByRole("button", { name: "oruga", exact: true }).click();
+      await p.waitForTimeout(2850);
+      await screen("375-p7-wrong-red");
+      await p.waitForTimeout(1700);
+      await screen("375-p7-eraser");
+      await p.waitForFunction(
+        () =>
+          !document.querySelector(
+            '.prototype-picture-grid button:disabled:not([data-marked="true"])',
+          ),
+        {},
+        { timeout: 10000 },
+      );
+      if (!(await p.getByRole("button", { name: "Siguiente", exact: true }).isDisabled()))
+        throw Error("Wrong mark completed page");
+    }
+    for (const name of ["abanico", "aro", "abeja", "árbol", "alas", "ardilla", "avión", "aguja"]) {
+      await p.waitForFunction(
+        () => !document.documentElement.classList.contains("workbook-close-up-zooming"),
+      );
+      console.log("MARK", width, name);
+      const picture = p.locator(".prototype-picture-grid").getByRole("button", { name, exact: true });
+      if (width === 375) await picture.press("Enter"); else await picture.click();
+      await p.waitForFunction(
+        (name) =>
+          document
+            .querySelector(`.prototype-picture-grid button[aria-label="${name}"]`)
+            ?.getAttribute("data-marked") === "true",
+        name,
+        { timeout: 12000 },
+      );
+      await p.waitForFunction(
+        () => !document.documentElement.classList.contains("workbook-close-up-zooming"),
+      );
+    }
+    await screen(width + "-p7-complete");
+    await p.getByRole("button", { name: "Siguiente", exact: true }).click();
+    if (width === 375) {
+      await p.waitForTimeout(900);
+      await screen("375-page-curl");
+    }
+    await p.waitForFunction(
+      () =>
+        document.querySelector("[data-prototype-page]")?.getAttribute("data-prototype-page") ===
+        "8",
+    );
+    await screen(width + "-p8-start");
+    if (!(await p.getByRole("button", { name: "Siguiente", exact: true }).isDisabled()))
+      throw Error("Page8 ungated");
+    if (width === 375) {
+      await line("oso");
+      await p.waitForTimeout(200);
+      await screen("375-p8-wrong-line");
+      await p.waitForTimeout(4200);
+      if (
+        (await p.getByRole("button", { name: "oso", exact: true }).getAttribute("aria-pressed")) ===
+        "true"
+      )
+        throw Error("Wrong connection retained");
+    }
+    for (const name of ["alas", "aguja", "avión", "aro"]) {
+      await line(name);
+      await p.waitForTimeout(width === 375 ? 600 : 150);
+    }
+    await p.getByRole("button", { name: "Siguiente", exact: true }).waitFor({ state: "visible" });
+    await p.waitForFunction(
+      () => !document.querySelector(".prototype-navigation button:last-child")?.disabled,
+    );
+    await screen(width + "-p8-complete");
+    await p.getByRole("button", { name: "Siguiente", exact: true }).click();
+    await p.waitForFunction(
+      () =>
+        document.querySelector("[data-prototype-page]")?.getAttribute("data-prototype-page") ===
+        "9",
+    );
+    await screen(width + "-p9-start");
+    if (
+      !(await p
+        .locator(".prototype-navigation")
+        .getByRole("button", { name: "Listo", exact: true })
+        .isDisabled())
+    )
+      throw Error("Page9 ungated");
+    for (let i = 0; i < 4; i++) {
+      const group = p.getByRole("group", { name: "Renglón " + (i + 1), exact: true });
+      await stroke(
+        group.locator("canvas"),
+        i < 2
+          ? [
+              [0.15, 0.8],
+              [0.25, 0.2],
+              [0.35, 0.8],
+              [0.2, 0.55],
+              [0.3, 0.55],
+            ]
+          : [
+              [0.3, 0.4],
+              [0.22, 0.35],
+              [0.15, 0.5],
+              [0.2, 0.7],
+              [0.3, 0.65],
+              [0.3, 0.35],
+              [0.3, 0.75],
+            ],
+      );
+      await group.getByRole("button", { name: "Listo", exact: true }).click();
+    }
+    const drawing = p.locator(".prototype-drawing");
+    await stroke(drawing.locator("canvas"), [
+      [0.25, 0.7],
+      [0.25, 0.4],
+      [0.3, 0.3],
+      [0.35, 0.4],
+      [0.35, 0.7],
+      [0.25, 0.7],
+      [0.15, 0.7],
+      [0.45, 0.7],
+    ]);
+    await drawing.getByRole("button", { name: "Listo", exact: true }).click();
+    await p
+      .locator(".prototype-navigation")
+      .getByRole("button", { name: "Listo", exact: true })
+      .click();
+    await p.getByRole("status").filter({ hasText: "¡Terminaste la lección!" }).waitFor();
+    await screen(width + "-p9-complete");
+    const inkBeforeReturn = await p
+      .locator('.prototype-leaf[aria-hidden="false"] .fp-draw-box__canvas')
+      .evaluateAll((cs) =>
+        cs.map((c) => {
+          if (c.tagName === "IMG") {
+            const image = c;
+            c = document.createElement("canvas");
+            c.width = image.naturalWidth;
+            c.height = image.naturalHeight;
+            c.getContext("2d").drawImage(image, 0, 0);
+          }
+          const d = c.getContext("2d").getImageData(0, 0, c.width, c.height).data;
+          let n = 0;
+          for (let j = 3; j < d.length; j += 4) if (d[j]) n++;
+          return n;
+        }),
+      );
+    if (inkBeforeReturn.some((n) => n === 0))
+      throw Error("Ink disappeared after completion/viewport capture " + inkBeforeReturn);
+    await p.getByRole("button", { name: "Anterior", exact: true }).click();
+    await p.waitForFunction(
+      () =>
+        document.querySelector("[data-prototype-page]")?.getAttribute("data-prototype-page") ===
+        "8",
+    );
+    if ((await p.locator(".am-direct-pencil__target.is-connected").count()) !== 5)
+      throw Error("Lost connections on return");
+    await p.getByRole("button", { name: "Siguiente", exact: true }).click();
+    await p.waitForFunction(
+      () =>
+        document.querySelector("[data-prototype-page]")?.getAttribute("data-prototype-page") ===
+        "9",
+    );
+    if ((await p.locator('.prototype-leaf[aria-hidden="false"] .fp-draw-box__done').count()) !== 5)
+      throw Error("Lost writing or drawing on return");
+    const inkAfterReturn = await p
+      .locator('.prototype-leaf[aria-hidden="false"] .fp-draw-box__canvas')
+      .evaluateAll((cs) =>
+        cs.map((c) => {
+          if (c.tagName === "IMG") {
+            const image = c;
+            c = document.createElement("canvas");
+            c.width = image.naturalWidth;
+            c.height = image.naturalHeight;
+            c.getContext("2d").drawImage(image, 0, 0);
+          }
+          const d = c.getContext("2d").getImageData(0, 0, c.width, c.height).data;
+          let n = 0;
+          for (let j = 3; j < d.length; j += 4) if (d[j]) n++;
+          return n;
+        }),
+      );
+    if (inkAfterReturn.some((n) => n === 0)) throw Error("Ink disappeared on return");
+    const state = await p.evaluate(() => ({
+      storage: JSON.stringify({ ...localStorage }),
+      writes: window.__writes,
+      bus: window.__bus,
+    }));
+    if (
+      state.storage !== initial ||
+      state.writes.length ||
+      state.bus.length ||
+      mutations.length ||
+      errors.length
+    )
+      throw Error("Isolation/Runtime violation " + JSON.stringify({ state, mutations, errors }));
+    if (await p.evaluate(() => document.documentElement.scrollWidth > innerWidth))
+      throw Error("Horizontal overflow");
+    results.push({
+      width,
+      completed: true,
+      errors,
+      mutatingRequests: mutations,
+      storageUnchanged: true,
+      inkBeforeReturn,
+      inkAfterReturn,
+      storageWrites: state.writes,
+      bootstrapStorageWrites,
+      globalActivityEvents: state.bus,
+    });
+    console.log(
+      "PASS",
+      width,
+      "full walkthrough; storage untouched; no mutating request/global event",
+    );
+    const v = p.video();
+    await c.close();
+    c = null;
+    await v.saveAs(dir + `/${width}-walkthrough.webm`);
+    await b.close();
+    b = null;
+  }
+  await fs.writeFile(dir + "/checks.json", JSON.stringify(results, null, 2));
+} catch (e) {
+  console.error(e);
+  await p?.screenshot({ path: dir + "/failure.png", fullPage: true });
+  console.log("URL", p?.url(), (await p?.locator("body").innerText())?.slice(0, 1800));
+  process.exitCode = 1;
+} finally {
+  await c?.close();
+  await b?.close();
+  server.kill("SIGTERM");
+}

@@ -184,7 +184,7 @@
   padding: 0 52px 0 32px;
   gap: 0;
 }
-.lesson-prototype .prototype-writing-input canvas {
+.lesson-prototype .prototype-writing-input .fp-draw-box__canvas {
   min-height: 0;
   height: 100%;
   background: transparent;
@@ -218,7 +218,7 @@
   padding: 10px;
   gap: 12px;
 }
-.lesson-prototype .prototype-drawing canvas {
+.lesson-prototype .prototype-drawing .fp-draw-box__canvas {
   height: 210px;
   min-height: 210px;
 }
@@ -294,7 +294,15 @@
   min-height: 44px;
 }
 /* Both turning leaves determine the paper stage, keeping navigation below it. */
-.lesson-prototype .prototype-book {display:grid;}
-.lesson-prototype .prototype-leaf {grid-area:1 / 1;}
-.lesson-prototype .prototype-paper {min-height:100%;}
-.lesson-prototype .prototype-drawing canvas {flex:none;}
+.lesson-prototype .prototype-book {
+  display: grid;
+}
+.lesson-prototype .prototype-leaf {
+  grid-area: 1 / 1;
+}
+.lesson-prototype .prototype-paper {
+  min-height: 100%;
+}
+.lesson-prototype .prototype-drawing .fp-draw-box__canvas {
+  flex: none;
+}
