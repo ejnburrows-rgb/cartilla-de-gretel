@@ -14,6 +14,7 @@
  * Pinned to the node environment (above) because pixel decoding uses sharp.
  */
 import { describe, it, expect } from "vitest";
+import { readFileSync } from "node:fs";
 import {
   findGrayscaleArt,
   findUntriagedGaps,
@@ -52,6 +53,13 @@ describe("art completeness guard — no silent emoji-only gaps", () => {
 });
 
 describe("new exact-workbook provenance", () => {
+  it("serves the source-restored symbol through both responsive delivery copies", () => {
+    const original = readFileSync("public/cartilla/art/faithful/vocal-i/igual.webp");
+    for (const tier of [384, 768]) {
+      expect(readFileSync(`public/cartilla/art/delivery/faithful/${tier}/vocal-i/igual.webp`)).toEqual(original);
+    }
+  });
+
   it("requires matching source and installed-file fingerprints", async () => {
     const { hasExactWorkbookEvidence } = await import("../../../scripts/validate-art-color.mjs");
     const { default: manifest } = await import("../../../public/cartilla/art/faithful/manifest.json");
