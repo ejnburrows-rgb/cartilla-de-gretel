@@ -10,7 +10,7 @@ let browser, context;
 const results=[];
 try {
  for(let i=0;i<100;i++){try{if((await fetch('http://127.0.0.1:5183')).ok)break}catch{}await new Promise(r=>setTimeout(r,200));}
- for(const width of [375,1280]){
+ for(const width of (process.argv.slice(2).length ? process.argv.slice(2).map(Number) : [375,1280])){
   browser=await chromium.launch({headless:true,...(process.env.PLAYWRIGHT_CHROMIUM_PATH?{executablePath:process.env.PLAYWRIGHT_CHROMIUM_PATH}:{}),args:['--no-sandbox','--disable-gpu','--disable-software-rasterizer','--no-zygote','--single-process']});
   context=await browser.newContext({viewport:{width,height:width===375?844:900},recordVideo:{dir,size:{width,height:width===375?844:900}}});
   const page=await context.newPage();await page.goto('http://127.0.0.1:5183/cartilla/juego/cow-game-m');
@@ -20,8 +20,15 @@ try {
   await page.waitForFunction(()=>document.querySelector('[aria-label="Vaca mu"]')?.style.transitionDuration==='0s');
   const after=await page.locator('.cg-card').first().boundingBox();if(Math.abs(before.y-after.y)>8)throw Error('Wrong answer lost the mouth card');
   for(const [i,s]of ['mu','mo','me','ma','mi'].entries()){
+   const sample=i===0?page.evaluate(()=>new Promise((resolve,reject)=>{
+    let seen;const start=performance.now();
+    function tick(now){const card=document.querySelector('.cg-card-lean'),bob=document.querySelector('.cg-lean .cg-bob');
+     if(card&&bob){seen??=now;if(now-seen>=180){const cs=getComputedStyle(card),bs=getComputedStyle(bob);resolve({cardDy:new DOMMatrixReadOnly(cs.transform).m42+card.offsetHeight*.1+(parseFloat(cs.translate.split(" ")[1])||0),cowDy:new DOMMatrixReadOnly(bs.transform).m42+(parseFloat(bs.translate.split(" ")[1])||0),cardDuration:cs.transitionDuration,cowDuration:bs.transitionDuration});return;}}
+     if(now-start>10000){reject(new Error('Lean sample timed out'));return;}requestAnimationFrame(tick);
+    }requestAnimationFrame(tick);
+   })):null;
    await cow(s).click();await slot(s).click();
-   if(i===0){await page.locator('.cg-card-lean').waitFor();await page.waitForTimeout(300);const geometry=await page.evaluate(()=>{const card=document.querySelector('.cg-card-lean');const bob=document.querySelector('.cg-lean .cg-bob');if(!card||!bob)throw Error('Lean phase missing');const cs=getComputedStyle(card),bs=getComputedStyle(bob);return {cardDy:new DOMMatrixReadOnly(cs.transform).m42+card.offsetHeight*.1,cowDy:new DOMMatrixReadOnly(bs.transform).m42,cardDuration:cs.transitionDuration,cowDuration:bs.transitionDuration}});if(Math.abs(geometry.cardDy-geometry.cowDy)>2)throw Error('Card/cow lean desynchronized '+JSON.stringify(geometry));if(geometry.cardDuration!=='0.6s'||geometry.cowDuration!=='0.6s')throw Error('Lean timing mismatch '+JSON.stringify(geometry));results.push({width,...geometry});console.log('SYNC',width,JSON.stringify(geometry));await page.screenshot({path:`${dir}/${width}-lean.png`});}
+   if(sample){const geometry=await sample;if(geometry.cowDy<.5||Math.abs(geometry.cardDy-geometry.cowDy)>2)throw Error('Card/cow lean desynchronized '+JSON.stringify(geometry));if(geometry.cardDuration!=='0.6s'||geometry.cowDuration!=='0.6s')throw Error('Lean timing mismatch '+JSON.stringify(geometry));results.push({width,...geometry});console.log('SYNC',width,JSON.stringify(geometry));await page.screenshot({path:`${dir}/${width}-lean.png`});}
    await page.waitForFunction(label=>document.querySelector(`[aria-label="${label}"]`)?.style.transitionDuration==='0s','Vaca '+s);
   }
   await page.getByRole('dialog',{name:'Juego completado'}).waitFor();await page.screenshot({path:`${dir}/${width}-complete.png`});await page.getByRole('button',{name:'Jugar otra vez',exact:true}).click();await page.getByRole('dialog',{name:'Juego completado'}).waitFor({state:'hidden'});await page.screenshot({path:`${dir}/${width}-reset.png`});
