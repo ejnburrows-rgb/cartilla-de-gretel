@@ -123,6 +123,7 @@ function fieldSpot(slot: number, cow: number): Box {
 
 // Walk time through the field (out to the fence and back home).
 const WALK_MS = 1600;
+const LEAN_MS = 600;
 // Time the physical card takes to fall from the mouth into the slot.
 const FLY_MS = 900;
 
@@ -241,7 +242,7 @@ export function CowGame({ content }: { content: GameContent }) {
         if (right) {
           // Lean over the fence before releasing the physical mouth card.
           setActive({ cow, slot, phase: "lean", to: { slot } });
-          later(600, () => {
+          later(LEAN_MS, () => {
             setActive({ cow, slot, phase: "drop", to: { slot } });
             later(FLY_MS, () => {
               // "ma ma": silent until the owner's recording exists (gap manifest).
@@ -317,12 +318,17 @@ export function CowGame({ content }: { content: GameContent }) {
   };
 
   const spots = L.home;
+  const stageWidth = `min(100vw, calc(100vh * ${L.W} / ${L.H}))`;
 
   return (
     <main className="cg-root" aria-label="Juego de la vaca">
       <div
         className="cg-stage"
-        style={{ width: `min(100vw, calc(100vh * ${L.W} / ${L.H}))`, aspectRatio: `${L.W}/${L.H}` }}
+        style={{
+          width: stageWidth,
+          aspectRatio: `${L.W}/${L.H}`,
+          ["--cg-lean-offset" as string]: `calc(${stageWidth} * ${L.home[0].w * 0.16 / L.W})`,
+        }}
       >
         <img
           className="cg-scene"
@@ -454,7 +460,9 @@ export function CowGame({ content }: { content: GameContent }) {
                 width: px(76),
                 height: py(49),
                 transitionDuration:
-                  moving && active.phase === "drop" ? `${FLY_MS}ms` : `${WALK_MS}ms`,
+                  moving && active.phase === "lean"
+                    ? `${LEAN_MS}ms`
+                    : moving && active.phase === "drop" ? `${FLY_MS}ms` : `${WALK_MS}ms`,
                 transitionTimingFunction:
                   moving && active.phase === "drop" ? "cubic-bezier(.45,0,.9,.6)" : "ease-in-out",
               }}
@@ -517,8 +525,9 @@ const CSS = `
 .cg-sprite{transform-origin:50% 90%}
 .cg-p{position:absolute;inset:0;width:100%;height:100%;object-fit:fill;pointer-events:none}
 .cg-card{position:absolute;z-index:65;display:flex;align-items:center;justify-content:center;box-sizing:border-box;border:.3cqw solid #74401d;border-radius:.8cqw;background:#fff4d6;color:#3a1a0e;font:900 3.1cqw/1 ui-rounded,system-ui,sans-serif;transform:translate(-50%,-10%);pointer-events:none;transition-property:left,top,transform}
-.cg-card-lean{transform:translate(-50%, calc(-10% + 16cqw)) !important; transition:transform 0.5s}
-.cg-lean .cg-bob{transform:translateY(16cqw);transition:transform 0.5s} .cg-lean .cg-bob{transform:translateY(16cqw);transition:transform 0.5s} .cg-lean .cg-head{animation:none;transform:rotate(-5deg);transition:transform .5s}
+.cg-card-lean{transform:translate(-50%,calc(-10% + var(--cg-lean-offset)));transition:transform ${LEAN_MS}ms ease-in-out}
+.cg-lean .cg-bob{transform:translateY(var(--cg-lean-offset));transition:transform ${LEAN_MS}ms ease-in-out}
+.cg-lean .cg-head{animation:none;transform:rotate(-5deg);transition:transform ${LEAN_MS}ms ease-in-out}
 .cg-label{position:absolute;left:52%;top:58%;font:900 19cqw/1 "Fredoka",ui-rounded,system-ui,sans-serif;color:#3a1a0e;padding:4cqw 7cqw;background:radial-gradient(ellipse,rgba(255,244,214,.95) 55%,rgba(255,244,214,0) 72%);pointer-events:none;z-index:5}
 .cg-selected{filter:drop-shadow(0 0 1.6cqw #fff3a0) drop-shadow(0 0 .8cqw #ffd54a)}
 .cg-selected{outline:2px solid #ffe27a}
