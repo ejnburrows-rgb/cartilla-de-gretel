@@ -19,6 +19,7 @@ import { Route as ClassroomRouteImport } from './routes/classroom'
 import { Route as BookRouteImport } from './routes/book'
 import { Route as IndexRouteImport } from './routes/index'
 import { Route as CartillaIndexRouteImport } from './routes/cartilla/index'
+import { Route as PrototypeLesson3ARouteImport } from './routes/prototype.lesson-3-a'
 import { Route as CartillaVocesRouteImport } from './routes/cartilla/voces'
 import { Route as CartillaUnirseRouteImport } from './routes/cartilla/unirse'
 import { Route as CartillaStudentLoginRouteImport } from './routes/cartilla/student-login'
@@ -111,6 +112,11 @@ const IndexRoute = IndexRouteImport.update({
 const CartillaIndexRoute = CartillaIndexRouteImport.update({
   id: '/cartilla/',
   path: '/cartilla/',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const PrototypeLesson3ARoute = PrototypeLesson3ARouteImport.update({
+  id: '/prototype/lesson-3-a',
+  path: '/prototype/lesson-3-a',
   getParentRoute: () => rootRouteImport,
 } as any)
 const CartillaVocesRoute = CartillaVocesRouteImport.update({
@@ -405,6 +411,7 @@ export interface FileRoutesByFullPath {
   '/cartilla/student-login': typeof CartillaStudentLoginRoute
   '/cartilla/unirse': typeof CartillaUnirseRoute
   '/cartilla/voces': typeof CartillaVocesRoute
+  '/prototype/lesson-3-a': typeof PrototypeLesson3ARoute
   '/cartilla/': typeof CartillaIndexRoute
   '/cartilla/imprimir/$n': typeof CartillaImprimirNRoute
   '/cartilla/imprimir/all': typeof CartillaImprimirAllRoute
@@ -457,6 +464,7 @@ export interface FileRoutesByTo {
   '/cartilla/student-login': typeof CartillaStudentLoginRoute
   '/cartilla/unirse': typeof CartillaUnirseRoute
   '/cartilla/voces': typeof CartillaVocesRoute
+  '/prototype/lesson-3-a': typeof PrototypeLesson3ARoute
   '/cartilla': typeof CartillaIndexRoute
   '/cartilla/imprimir/$n': typeof CartillaImprimirNRoute
   '/cartilla/imprimir/all': typeof CartillaImprimirAllRoute
@@ -508,6 +516,7 @@ export interface FileRoutesById {
   '/cartilla/student-login': typeof CartillaStudentLoginRoute
   '/cartilla/unirse': typeof CartillaUnirseRoute
   '/cartilla/voces': typeof CartillaVocesRoute
+  '/prototype/lesson-3-a': typeof PrototypeLesson3ARoute
   '/cartilla/': typeof CartillaIndexRoute
   '/cartilla/imprimir/$n': typeof CartillaImprimirNRoute
   '/cartilla/imprimir/all': typeof CartillaImprimirAllRoute
@@ -563,6 +572,7 @@ export interface FileRouteTypes {
     | '/cartilla/student-login'
     | '/cartilla/unirse'
     | '/cartilla/voces'
+    | '/prototype/lesson-3-a'
     | '/cartilla/'
     | '/cartilla/imprimir/$n'
     | '/cartilla/imprimir/all'
@@ -615,6 +625,7 @@ export interface FileRouteTypes {
     | '/cartilla/student-login'
     | '/cartilla/unirse'
     | '/cartilla/voces'
+    | '/prototype/lesson-3-a'
     | '/cartilla'
     | '/cartilla/imprimir/$n'
     | '/cartilla/imprimir/all'
@@ -665,6 +676,7 @@ export interface FileRouteTypes {
     | '/cartilla/student-login'
     | '/cartilla/unirse'
     | '/cartilla/voces'
+    | '/prototype/lesson-3-a'
     | '/cartilla/'
     | '/cartilla/imprimir/$n'
     | '/cartilla/imprimir/all'
@@ -719,6 +731,7 @@ export interface RootRouteChildren {
   CartillaStudentLoginRoute: typeof CartillaStudentLoginRoute
   CartillaUnirseRoute: typeof CartillaUnirseRoute
   CartillaVocesRoute: typeof CartillaVocesRoute
+  PrototypeLesson3ARoute: typeof PrototypeLesson3ARoute
   CartillaIndexRoute: typeof CartillaIndexRoute
   CartillaImprimirNRoute: typeof CartillaImprimirNRoute
   CartillaImprimirAllRoute: typeof CartillaImprimirAllRoute
@@ -798,6 +811,13 @@ declare module '@tanstack/react-router' {
       path: '/cartilla'
       fullPath: '/cartilla/'
       preLoaderRoute: typeof CartillaIndexRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/prototype/lesson-3-a': {
+      id: '/prototype/lesson-3-a'
+      path: '/prototype/lesson-3-a'
+      fullPath: '/prototype/lesson-3-a'
+      preLoaderRoute: typeof PrototypeLesson3ARouteImport
       parentRoute: typeof rootRouteImport
     }
     '/cartilla/voces': {
@@ -1203,6 +1223,7 @@ const rootRouteChildren: RootRouteChildren = {
   CartillaStudentLoginRoute: CartillaStudentLoginRoute,
   CartillaUnirseRoute: CartillaUnirseRoute,
   CartillaVocesRoute: CartillaVocesRoute,
+  PrototypeLesson3ARoute: PrototypeLesson3ARoute,
   CartillaIndexRoute: CartillaIndexRoute,
   CartillaImprimirNRoute: CartillaImprimirNRoute,
   CartillaImprimirAllRoute: CartillaImprimirAllRoute,

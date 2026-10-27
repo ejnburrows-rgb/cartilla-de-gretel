@@ -3,7 +3,12 @@ import { createContext, useCallback, useContext, useEffect, useState, type Dispa
 import { gretelEvent, type GretelBusDetail, type GretelBusEvent } from './gretel-bus';
 import { recordEvent } from './student-session';
 
-export type ActivityContextValue = GretelBusDetail & { isCurrent: () => boolean };
+export type ActivityContextValue = GretelBusDetail & {
+  isCurrent: () => boolean;
+  /** An isolated preview keeps all work and feedback inside its own React tree. */
+  isolated?: boolean;
+  onEvent?: (type: GretelBusEvent, detail?: GretelBusDetail) => void;
+};
 export const ActivityContext = createContext<ActivityContextValue | null>(null);
 
 /** Bind delayed answers and reports to their originating activity, never focus. */
@@ -12,12 +17,13 @@ export function useActivityEvents() {
   const emit = useCallback((type: GretelBusEvent, detail?: GretelBusDetail) => {
     if (!context) { if (detail) gretelEvent(type, detail); else gretelEvent(type); return; }
     if (!context.isCurrent()) return;
-    const { isCurrent: _isCurrent, ...identity } = context;
+    if (context.isolated) { context.onEvent?.(type, detail); return; }
+    const { isCurrent: _isCurrent, isolated: _isolated, onEvent: _onEvent, ...identity } = context;
     gretelEvent(type, { ...detail, ...identity });
   }, [context]);
   const record = useCallback((input: Parameters<typeof recordEvent>[0]) => {
-    if (context && !context.isCurrent()) return;
-    const { isCurrent: _isCurrent, ...identity } = context ?? {};
+    if (context && (context.isolated || !context.isCurrent())) return;
+    const { isCurrent: _isCurrent, isolated: _isolated, onEvent: _onEvent, ...identity } = context ?? {};
     recordEvent({ ...input, meta: { ...input.meta, ...identity } });
   }, [context]);
   return { emit, record, context };
@@ -26,7 +32,7 @@ export function useActivityEvents() {
 /** Preserve the existing control's state across page remounts, including Sets. */
 export function useActivityState<T>(field: string, initial: T): [T, Dispatch<SetStateAction<T>>] {
   const context = useContext(ActivityContext);
-  const key = context?.activityId ? learnerStorageKey(`cartilla.activity-state.v1:${context.activityId}:${field}`) : undefined;
+  const key = context?.activityId && !context.isolated ? learnerStorageKey(`cartilla.activity-state.v1:${context.activityId}:${field}`) : undefined;
   const [value, setValue] = useState<T>(() => {
     if (!key) return initial;
     try {
