@@ -120,13 +120,13 @@
   191
  ],
  "/cartilla/art/optimized/flipchart-native/p005-ana.png": [
-  320,
-  320,
-  66,
-  66,
-  214,
-  196
- ],
+620,
+644,
+0,
+0,
+620,
+644
+],
  "/cartilla/art/optimized/flipchart-native/p005-anillo.png": [
   320,
   320,
@@ -168,13 +168,13 @@
   271
  ],
  "/cartilla/art/optimized/flipchart-native/p006-ema.png": [
-  320,
-  320,
-  78,
-  45,
-  163,
-  221
- ],
+467,
+608,
+0,
+0,
+467,
+608
+],
  "/cartilla/art/optimized/flipchart-native/p006-erizo.png": [
   320,
   320,
@@ -232,13 +232,13 @@
   198
  ],
  "/cartilla/art/optimized/flipchart-native/p007-indio.png": [
-  320,
-  320,
-  69,
-  45,
-  182,
-  227
- ],
+516,
+735,
+0,
+0,
+516,
+735
+],
  "/cartilla/art/optimized/flipchart-native/p007-insecto.png": [
   320,
   320,
@@ -248,13 +248,13 @@
   204
  ],
  "/cartilla/art/optimized/flipchart-native/p007-irma.png": [
-  320,
-  320,
-  44,
-  50,
-  228,
-  228
- ],
+601,
+700,
+0,
+0,
+601,
+700
+],
  "/cartilla/art/optimized/flipchart-native/p007-isla.png": [
   320,
   320,
@@ -328,13 +328,13 @@
   212
  ],
  "/cartilla/art/optimized/flipchart-native/p009-amo.png": [
-  320,
-  320,
-  29,
-  28,
-  252,
-  256
- ],
+689,
+728,
+0,
+0,
+689,
+728
+],
  "/cartilla/art/optimized/flipchart-native/p009-mama.png": [
   344,
   344,
@@ -344,29 +344,29 @@
   296
  ],
  "/cartilla/art/optimized/flipchart-native/p009-meme.png": [
-  320,
-  320,
-  94,
-  46,
-  132,
-  235
- ],
+383,
+789,
+0,
+0,
+383,
+789
+],
  "/cartilla/art/optimized/flipchart-native/p009-mima.png": [
-  328,
-  328,
-  24,
-  30,
-  277,
-  259
- ],
+776,
+777,
+0,
+0,
+776,
+777
+],
  "/cartilla/art/optimized/flipchart-native/p009-mumi.png": [
-  320,
-  320,
-  32,
-  48,
-  246,
-  232
- ],
+717,
+755,
+0,
+0,
+717,
+755
+],
  "/cartilla/art/optimized/flipchart-native/p009-scene.png": [
   530,
   530,
@@ -392,13 +392,13 @@
   220
  ],
  "/cartilla/art/optimized/flipchart-native/p012-pepe.png": [
-  320,
-  320,
-  34,
-  45,
-  261,
-  220
- ],
+779,
+781,
+0,
+0,
+779,
+781
+],
  "/cartilla/art/optimized/flipchart-native/p012-pie.png": [
   320,
   320,
@@ -416,13 +416,13 @@
   239
  ],
  "/cartilla/art/optimized/flipchart-native/p012-puma.png": [
-  320,
-  320,
-  42,
-  36,
-  226,
-  256
- ],
+695,
+753,
+0,
+0,
+695,
+753
+],
  "/cartilla/art/optimized/flipchart-native/p012-scene.png": [
   560,
   560,
@@ -432,21 +432,21 @@
   474
  ],
  "/cartilla/art/optimized/flipchart-native/p014-scene.png": [
-  654,
-  654,
-  24,
-  72,
-  598,
-  511
- ],
+1709,
+1391,
+0,
+0,
+1709,
+1391
+],
  "/cartilla/art/optimized/flipchart-native/p015-pisa.png": [
-  320,
-  320,
-  80,
-  92,
-  160,
-  134
- ],
+815,
+562,
+0,
+0,
+815,
+562
+],
  "/cartilla/art/optimized/flipchart-native/p015-sapo.png": [
   320,
   320,
@@ -480,13 +480,13 @@
   211
  ],
  "/cartilla/art/optimized/flipchart-native/p015-susi.png": [
-  320,
-  320,
-  64,
-  44,
-  187,
-  239
- ],
+587,
+786,
+0,
+0,
+587,
+786
+],
  "/cartilla/art/optimized/flipchart-native/p017-scene.png": [
   645,
   645,
@@ -512,13 +512,13 @@
   1015
  ],
  "/cartilla/art/optimized/flipchart-native/p018-tipi.webp": [
-  1536,
-  1464,
-  184,
-  394,
-  1033,
-  1070
- ],
+868,
+732,
+0,
+0,
+868,
+732
+],
  "/cartilla/art/optimized/flipchart-native/p018-tomate.webp": [
   1536,
   1395,
@@ -536,21 +536,21 @@
   1312
  ],
  "/cartilla/art/optimized/flipchart-native/p018-tuto.webp": [
-  1536,
-  1482,
-  179,
-  101,
-  1183,
-  1381
- ],
+804,
+817,
+0,
+0,
+804,
+817
+],
  "/cartilla/art/optimized/flipchart-native/p020-scene.png": [
-  658,
-  658,
-  24,
-  96,
-  610,
-  474
- ],
+1684,
+1345,
+0,
+0,
+1684,
+1345
+],
  "/cartilla/art/optimized/flipchart-native/p021-dados.webp": [
   1536,
   1440,
@@ -664,21 +664,21 @@
   512
  ],
  "/cartilla/art/optimized/flipchart-native/p027-mono.png": [
-  320,
-  320,
-  80,
-  41,
-  160,
-  229
- ],
+485,
+753,
+0,
+0,
+485,
+753
+],
  "/cartilla/art/optimized/flipchart-native/p027-napi.png": [
-  320,
-  320,
-  39,
-  39,
-  242,
-  248
- ],
+765,
+715,
+0,
+0,
+765,
+715
+],
  "/cartilla/art/optimized/flipchart-native/p027-nido.png": [
   320,
   320,
@@ -704,13 +704,13 @@
   512
  ],
  "/cartilla/art/optimized/flipchart-native/p027-tenedor.png": [
-  320,
-  320,
-  135,
-  25,
-  50,
-  270
- ],
+195,
+830,
+0,
+0,
+195,
+830
+],
  "/cartilla/art/optimized/flipchart-native/p029-scene.png": [
   665,
   665,
@@ -720,13 +720,13 @@
   503
  ],
  "/cartilla/art/optimized/flipchart-native/p030-mene.png": [
-  320,
-  320,
-  73,
-  25,
-  175,
-  270
- ],
+536,
+811,
+0,
+0,
+536,
+811
+],
  "/cartilla/art/optimized/flipchart-native/p030-mono.png": [
   320,
   320,
@@ -736,29 +736,29 @@
   260
  ],
  "/cartilla/art/optimized/flipchart-native/p030-ninito.png": [
-  320,
-  320,
-  72,
-  43,
-  177,
-  226
- ],
+523,
+669,
+0,
+0,
+523,
+669
+],
  "/cartilla/art/optimized/flipchart-native/p030-nuno.png": [
-  320,
-  320,
-  71,
-  46,
-  177,
-  234
- ],
+536,
+778,
+0,
+0,
+536,
+778
+],
  "/cartilla/art/optimized/flipchart-native/p030-pinata.png": [
-  320,
-  320,
-  60,
-  44,
-  201,
-  226
- ],
+574,
+575,
+0,
+0,
+574,
+575
+],
  "/cartilla/art/optimized/flipchart-native/p030-scene.png": [
   545,
   545,
@@ -792,13 +792,13 @@
   205
  ],
  "/cartilla/art/optimized/flipchart-native/p033-bebita.png": [
-  320,
-  320,
-  33,
-  25,
-  245,
-  270
- ],
+766,
+801,
+0,
+0,
+766,
+801
+],
  "/cartilla/art/optimized/flipchart-native/p033-bota.png": [
   320,
   320,
@@ -832,13 +832,13 @@
   505
  ],
  "/cartilla/art/optimized/flipchart-native/p036-pavo.png": [
-  320,
-  320,
-  54,
-  53,
-  212,
-  222
- ],
+613,
+664,
+0,
+0,
+613,
+664
+],
  "/cartilla/art/optimized/flipchart-native/p036-scene.png": [
   526,
   526,
@@ -904,29 +904,29 @@
   215
  ],
  "/cartilla/art/optimized/flipchart-native/p039-rita.png": [
-  324,
-  324,
-  30,
-  52,
-  262,
-  218
- ],
+715,
+595,
+0,
+0,
+715,
+595
+],
  "/cartilla/art/optimized/flipchart-native/p039-rosa.png": [
-  320,
-  320,
-  72,
-  55,
-  176,
-  217
- ],
+524,
+625,
+0,
+0,
+524,
+625
+],
  "/cartilla/art/optimized/flipchart-native/p039-rueda.png": [
-  320,
-  320,
-  25,
-  48,
-  261,
-  231
- ],
+843,
+654,
+0,
+0,
+843,
+654
+],
  "/cartilla/art/optimized/flipchart-native/p039-scene.png": [
   519,
   519,
@@ -992,13 +992,13 @@
   217
  ],
  "/cartilla/art/optimized/flipchart-native/p044-scene.png": [
-  653,
-  653,
-  106,
-  70,
-  514,
-  512
- ],
+1355,
+1391,
+0,
+0,
+1355,
+1391
+],
  "/cartilla/art/optimized/flipchart-native/p045-gaveta.png": [
   321,
   321,
@@ -1008,13 +1008,13 @@
   216
  ],
  "/cartilla/art/optimized/flipchart-native/p045-goloso.png": [
-  320,
-  320,
-  43,
-  33,
-  233,
-  246
- ],
+618,
+689,
+0,
+0,
+618,
+689
+],
  "/cartilla/art/optimized/flipchart-native/p045-gorra.png": [
   320,
   320,
@@ -1032,13 +1032,13 @@
   127
  ],
  "/cartilla/art/optimized/flipchart-native/p045-mago.png": [
-  320,
-  320,
-  45,
-  45,
-  229,
-  237
- ],
+607,
+695,
+0,
+0,
+607,
+695
+],
  "/cartilla/art/optimized/flipchart-native/p045-scene.png": [
   557,
   557,
@@ -1056,21 +1056,21 @@
   506
  ],
  "/cartilla/art/optimized/flipchart-native/p048-familia.png": [
-  323,
-  323,
-  82,
-  24,
-  158,
-  265
- ],
+447,
+840,
+0,
+0,
+447,
+840
+],
  "/cartilla/art/optimized/flipchart-native/p048-felo.png": [
-  321,
-  321,
-  32,
-  50,
-  265,
-  228
- ],
+766,
+753,
+0,
+0,
+766,
+753
+],
  "/cartilla/art/optimized/flipchart-native/p048-fideos.png": [
   325,
   325,
@@ -1088,29 +1088,29 @@
   246
  ],
  "/cartilla/art/optimized/flipchart-native/p048-funda.png": [
-  320,
-  320,
-  46,
-  65,
-  227,
-  198
- ],
+623,
+626,
+0,
+0,
+623,
+626
+],
  "/cartilla/art/optimized/flipchart-native/p048-scene.png": [
-  552,
-  552,
-  109,
-  24,
-  331,
-  495
- ],
+873,
+1368,
+0,
+0,
+873,
+1368
+],
  "/cartilla/art/optimized/flipchart-native/p050-scene.png": [
-  644,
-  644,
-  93,
-  66,
-  519,
-  507
- ],
+1373,
+1378,
+0,
+0,
+1373,
+1378
+],
  "/cartilla/art/optimized/flipchart-native/p051-ajo.png": [
   320,
   320,
@@ -1128,13 +1128,13 @@
   238
  ],
  "/cartilla/art/optimized/flipchart-native/p051-jesus.png": [
-  320,
-  320,
-  51,
-  40,
-  227,
-  229
- ],
+638,
+705,
+0,
+0,
+638,
+705
+],
  "/cartilla/art/optimized/flipchart-native/p051-jicotea.png": [
   322,
   322,
@@ -1168,29 +1168,29 @@
   512
  ],
  "/cartilla/art/optimized/flipchart-native/p054-casa.png": [
-  339,
-  339,
-  24,
-  60,
-  283,
-  210
- ],
+748,
+649,
+0,
+0,
+748,
+649
+],
  "/cartilla/art/optimized/flipchart-native/p054-catalina.png": [
-  320,
-  320,
-  92,
-  25,
-  134,
-  270
- ],
+376,
+789,
+0,
+0,
+376,
+789
+],
  "/cartilla/art/optimized/flipchart-native/p054-conejo.png": [
-  320,
-  320,
-  77,
-  53,
-  165,
-  204
- ],
+439,
+631,
+0,
+0,
+439,
+631
+],
  "/cartilla/art/optimized/flipchart-native/p054-cubo.png": [
   320,
   320,
@@ -1208,13 +1208,13 @@
   184
  ],
  "/cartilla/art/optimized/flipchart-native/p054-scene.png": [
-  561,
-  561,
-  65,
-  31,
-  470,
-  389
- ],
+1284,
+1013,
+0,
+0,
+1284,
+1013
+],
  "/cartilla/art/optimized/flipchart-native/p056-caramelos.webp": [
   1034,
   1536,
@@ -1224,13 +1224,13 @@
   1463
  ],
  "/cartilla/art/optimized/flipchart-native/p057-mayuscula.png": [
-  320,
-  320,
-  50,
-  52,
-  219,
-  224
- ],
+584,
+646,
+0,
+0,
+584,
+646
+],
  "/cartilla/art/optimized/flipchart-native/p057-scene.png": [
   560,
   560,
@@ -1264,13 +1264,13 @@
   96
  ],
  "/cartilla/art/optimized/flipchart-native/p057-yoyo.png": [
-  320,
-  320,
-  43,
-  46,
-  232,
-  236
- ],
+641,
+679,
+0,
+0,
+641,
+679
+],
  "/cartilla/art/optimized/flipchart-native/p059-scene.png": [
   567,
   567,
@@ -1280,13 +1280,13 @@
   512
  ],
  "/cartilla/art/optimized/flipchart-native/p060-scene.png": [
-  505,
-  505,
-  48,
-  24,
-  416,
-  449
- ],
+1212,
+1219,
+0,
+0,
+1212,
+1219
+],
  "/cartilla/art/optimized/flipchart-native/p060-zapato.png": [
   320,
   320,
@@ -1296,29 +1296,29 @@
   217
  ],
  "/cartilla/art/optimized/flipchart-native/p060-zepelin.png": [
-  362,
-  362,
-  32,
-  78,
-  298,
-  214
- ],
+792,
+618,
+0,
+0,
+792,
+618
+],
  "/cartilla/art/optimized/flipchart-native/p060-zigzag.png": [
-  344,
-  344,
-  67,
-  24,
-  209,
-  290
- ],
+552,
+630,
+0,
+0,
+552,
+630
+],
  "/cartilla/art/optimized/flipchart-native/p060-zorro.png": [
-  320,
-  320,
-  57,
-  49,
-  207,
-  213
- ],
+567,
+666,
+0,
+0,
+567,
+666
+],
  "/cartilla/art/optimized/flipchart-native/p060-zulema.png": [
   320,
   320,
