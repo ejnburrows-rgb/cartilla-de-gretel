@@ -50,3 +50,15 @@ describe("art completeness guard — no silent emoji-only gaps", () => {
     );
   });
 });
+
+describe("new exact-workbook provenance", () => {
+  it("requires matching source and installed-file fingerprints", async () => {
+    const { hasExactWorkbookEvidence } = await import("../../../scripts/validate-art-color.mjs");
+    const { default: manifest } = await import("../../../public/cartilla/art/faithful/manifest.json");
+    const entry = manifest.find((item) => item.slug === "igual")!;
+    expect(hasExactWorkbookEvidence(entry)).toBe(true);
+    expect(hasExactWorkbookEvidence({ ...entry, sourceSha256: "0".repeat(64) })).toBe(false);
+    expect(hasExactWorkbookEvidence({ ...entry, sha256: "0".repeat(64) })).toBe(false);
+    expect(hasExactWorkbookEvidence({ ...entry, provenanceStatus: "PROVENANCE-UNKNOWN" })).toBe(false);
+  });
+});
