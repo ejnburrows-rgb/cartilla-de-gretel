@@ -76,9 +76,14 @@ export function TaskList({ classId }: TaskListProps) {
         </h3>
         <button
           onClick={() => setIsCreating(!isCreating)}
-          className="bg-[#4f46e5] text-white p-2 rounded-xl hover:bg-[#4338ca] hover:scale-105 active:scale-95 transition-all shadow-md"
+          aria-label={isCreating ? "Cancelar nueva asignación" : "Crear nueva asignación"}
+          aria-expanded={isCreating}
+          title={isCreating ? "Cancelar" : "Asignar tarea"}
+          className="bg-[#4f46e5] text-white p-2 rounded-xl hover:bg-[#4338ca] hover:scale-105 active:scale-95 transition-all shadow-md focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#4f46e5]"
         >
-          <Plus className="w-5 h-5" />
+          <Plus
+            className={`w-5 h-5 transition-transform duration-300 ${isCreating ? "rotate-45" : "rotate-0"}`}
+          />
         </button>
       </div>
 
@@ -202,9 +207,13 @@ export function TaskList({ classId }: TaskListProps) {
                   <button
                     onClick={() => deleteMut.mutate(task.id)}
                     disabled={deleteMut.isPending}
-                    className="text-stone-300 hover:text-red-500 opacity-0 group-hover:opacity-100 transition-opacity"
+                    aria-label={`Eliminar asignación de ${task.title || (entry ? `L${entry.n} — ${entry.title}` : "tarea")}`}
+                    title="Eliminar asignación"
+                    className="text-stone-300 hover:text-red-500 opacity-0 group-hover:opacity-100 transition-opacity focus-visible:opacity-100 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-red-500 rounded p-1"
                   >
-                    <Trash2 className="w-4 h-4" />
+                    <Trash2
+                      className={`w-4 h-4 ${deleteMut.isPending && deleteMut.variables === task.id ? "animate-pulse text-red-500" : ""}`}
+                    />
                   </button>
                 </div>
               </div>
