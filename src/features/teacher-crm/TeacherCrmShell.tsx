@@ -245,6 +245,7 @@ export function TeacherCrmShell() {
       }
     } catch (err) {
       showMessage(err instanceof Error ? err.message : "Error guardando cambios", "error");
+      throw err;
     }
   };
 
@@ -450,15 +451,15 @@ export function TeacherCrmShell() {
                 lessonsCompletedThisWeek={totalCompletedLessons}
               />
 
-              <div className="crm-grid">
-                <div className="space-y-6">
+              <div className="crm-grid !grid-cols-1 lg:!grid-cols-[minmax(0,1fr)_300px]">
+                <div className="space-y-6 min-w-0">
                   <PipelineBoard
                     students={dashboardStudents}
                     selectedStudentId={selectedStudentId}
                     onSelectStudent={setSelectedStudentId}
                   />
                 </div>
-                <div className="space-y-6">
+                <div className="space-y-6 min-w-0">
                   <AccountPanel student={selectedStudent} onUpdate={handleUpdateStudent} />
                   {isSeed ? (
                     <div className="bg-white rounded-3xl border border-stone-100 p-6 text-sm font-bold text-stone-400 text-center">

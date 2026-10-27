@@ -49,3 +49,22 @@ describe("#715 active source-equivalent Flip Chart reading order", () => {
     ]);
   });
 });
+
+// Exact source scan stanza boundaries and literal wording, checked 2026-10-23.
+describe("#715 source-confirmed residual details", () => {
+  it.each([
+    [29, "Nada, nada mi patito"],
+    [47, "–Gatita gordita"],
+  ] as const)("preserves source stanza boundary on sheet %i", (page, start) => {
+    const verse = getReplicaSheet(page)!.tokens.filter(t => t.kind === "verse");
+    const i = verse.findIndex(t => t.text.trim() === start);
+    expect(i).toBeGreaterThan(0);
+    const regular = verse[1]!.base - verse[0]!.base;
+    expect(verse[i]!.base - verse[i - 1]!.base).toBeGreaterThan(regular * 1.2);
+  });
+  it("preserves the final period on 44 and existing accented zepelín on 60/61", () => {
+    expect(getReplicaSheet(44)!.tokens.some(t => t.text.trim() === "arrebatado.")).toBe(true);
+    expect(getReplicaSheet(60)!.tokens.some(t => t.text.trim() === "zepelín")).toBe(true);
+    expect(getReplicaSheet(61)!.tokens.some(t => t.text.trim() === "zepelín")).toBe(true);
+  });
+});

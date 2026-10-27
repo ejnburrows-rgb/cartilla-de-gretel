@@ -1,5 +1,7 @@
 # End-to-End Delivery Plan — Cartilla de Gretel (Workbook Proof)
 
+> **MANDATORY OWNER DIRECTIVES (2026-10-22, every agent / Muse / Instinct / Jules):** Read [PERMANENT_PROJECT_INTEGRITY_WORKFLOW.md](../PERMANENT_PROJECT_INTEGRITY_WORKFLOW.md) and [ARTWORK_REPORT_VERIFICATION_AND_SINGLE_SOURCE_CLEANUP.md](../ARTWORK_REPORT_VERIFICATION_AND_SINGLE_SOURCE_CLEANUP.md) before investigating, changing, certifying or dispatching artwork work. Only the latest authentic owner-approved updated art may be used; delete proven obsolete wrong crops from current production after switching and verifying all references. Do not create competing inventories, silently relax tests, or report file presence as correct rendered art. Existing owner-only merge/deploy gates remain in force. These Markdown directives define the obligation; actual implementation and tests are required before claiming enforcement.
+
 **Date Updated:** 2026-10-16
 
 This plan defines the sequence of work required to satisfy `PROJECT_FINISH_DEFINITION.md` specifically for the interactive Student Workbook and Teacher Flip Chart proof.
@@ -11,7 +13,7 @@ This plan defines the sequence of work required to satisfy `PROJECT_FINISH_DEFIN
 3. **Show exact visual evidence.** The owner demands source-faithful render proof in chat (screenshot/video/direct reproduction URL) when artwork or layout is changed. GitHub PR diffs or `playwright.config.ts` console output are not acceptance proof for visual tasks.
 4. **Follow `PROJECT_SOURCE_OF_TRUTH.md`.** Do not reconstruct source-blocked pages. Do not hallucinate missing book content.
 5. **No active Supabase connection yet.** Do not expand real user data until authorized (post-pilot).
-6. **Sonar is advisory.** Do not block execution on warnings. True regressions block; theoretical quality gate drops do not.
+6. **Sonar is advisory and non-blocking.** Do not block execution on warnings. True regressions block; theoretical quality gate drops do not.
 
 ## Consolidated Execution Checkpoint
 

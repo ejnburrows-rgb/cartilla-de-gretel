@@ -304,6 +304,20 @@ export function LetterTracing({ letter, color }: { letter: string; color: string
 }
 
 // --- 3. Audio Multiple Choice ---
+
+function secureShuffle<T>(array: T[]): T[] {
+  const shuffled = [...array];
+  for (let i = shuffled.length - 1; i > 0; i--) {
+    const randomBuffer = new Uint32Array(1);
+    window.crypto.getRandomValues(randomBuffer);
+    const j = Math.floor((randomBuffer[0] / (0xffffffff + 1)) * (i + 1));
+    const temp = shuffled[i];
+    shuffled[i] = shuffled[j];
+    shuffled[j] = temp;
+  }
+  return shuffled;
+}
+
 export function AudioMultipleChoice({
   targetWord,
   options,
@@ -318,7 +332,7 @@ export function AudioMultipleChoice({
   const [picked, setPicked] = useState<string | null>(null);
 
   // Scramble options once
-  const scrambled = useRef([...options].sort(() => 0.5 - Math.random())).current;
+  const scrambled = useRef(secureShuffle(options)).current;
 
   const handlePick = (word: string) => {
     setPicked(word);
