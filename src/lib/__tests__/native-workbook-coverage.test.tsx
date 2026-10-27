@@ -16,6 +16,7 @@ import { allLessonExercises, lessonExercisesFor } from "@/data/lesson-exercises"
 import transcription from "@/data/book-transcription/lessons-08-24.json";
 import { getPageLayout } from "@/lib/book-faithful";
 import { pageCompletionState, requiredActivitiesForPage } from "@/lib/page-completion";
+import { getPageBinding } from "@/hooks/usePageBinding";
 
 describe("native workbook coverage", () => {
   it("has structured native coverage for all 90 instructional pages", () => {
@@ -89,6 +90,8 @@ describe("native workbook coverage", () => {
 
   it("SOURCE_BLOCKED pages 86–87 render no inferred regions and require no completion", () => {
     for (const page of SOURCE_BLOCKED_WORKBOOK_PAGES) {
+      expect(getPageBinding(page)).toBeNull();
+      expect((pageLayouts.pages as Record<string, { sourceBlocked?: boolean }>)[String(page)].sourceBlocked).toBe(true);
       expect(getPageLayout(page)).toEqual([]);
       expect(requiredActivitiesForPage(page)).toEqual([]);
       expect(pageCompletionState(page, undefined, []).complete).toBe(true);
@@ -104,6 +107,7 @@ describe("native workbook coverage", () => {
   it("omits unavailable leaves from learner lessons without losing printed page identities", () => {
     expect(buildPageArray(23).map((p) => p.pageNumber)).toEqual([83, 84, 85]);
     expect(buildPageArray(24).map((p) => p.pageNumber)).toEqual([88, 89, 90, undefined]);
+    expect(buildPageArray(24, false).map((p) => p.pageNumber)).toEqual([88, 89, 90]);
   });
 
   it("lessons 8–24 run in authoritative book order with book-verified page content", () => {

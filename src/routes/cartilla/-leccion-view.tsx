@@ -23,6 +23,7 @@ import "@/styles/lesson-fit.css";
 import "@/styles/lesson-cutoff-fixes.css";
 import { exitLessonFullscreen, requestLessonFullscreen } from "@/lib/lesson-fullscreen";
 import { buildPageArray } from "@/utils/buildPageArray";
+import { usePianoListening } from "@/hooks/usePianoListening";
 import { GretelCinematic } from "@/components/gretel/GretelCinematic";
 import { getCompletionCinematic, getLessonCinematic, type GretelCinematic as GretelCinematicSpec } from "@/content/gretel-cinematics";
 import { GardenScene } from "@/components/cartilla/GardenScene";
@@ -45,7 +46,11 @@ export function Leccion() {
 
   // Build this lesson from the canonical structured workbook page data.
   // All instructional pages render through the native learning surface.
-  const pages = useMemo(() => buildPageArray(n), [n]);
+  // A hidden Piano must not leave an empty leaf after the last printed page.
+  const { supported: pianoSupported } = usePianoListening({ lang: "es-MX", onFinal: () => {} });
+  const pages = useMemo(() => buildPageArray(n, pianoSupported), [n, pianoSupported]);
+  const printedPages = pages.map((page) => page.pageNumber).filter((page): page is number => typeof page === "number");
+  const pageRange = printedPages.length ? `${printedPages[0]}-${printedPages.at(-1)}` : entry?.pages;
 
   const fetchAssignments = useServerFn(listMyAssignments);
   const { data: assignments } = useQuery({
@@ -218,7 +223,7 @@ export function Leccion() {
       <main className="lc-lesson-main flex-1 px-3 pb-6 max-w-7xl w-full mx-auto flex flex-col items-center">
         <div className="lc-lesson-main__intro w-full max-w-3xl text-left mb-4">
           <div className="text-xs font-bold uppercase tracking-wide text-foreground/50">
-            {t.leccion[lang]} {n} · {t.paginas[lang].toLowerCase()} {entry.pages}
+            {t.leccion[lang]} {n} · {t.paginas[lang].toLowerCase()} {pageRange}
           </div>
         </div>
 
