@@ -1,6 +1,6 @@
 // exercise-seed.ts — Spanish exercise instructions + seed word lists per lesson.
 // All copy is professional, student-level, neutral Spanish.
-// Used by PageExercisePane; Codex CRM may read for assignment templates.
+// Exported as content data; teacher assignment templates may read these seeds.
 
 import { LESSONS, type LessonMeta } from "./lesson-meta";
 
