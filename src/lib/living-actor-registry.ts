@@ -149,10 +149,9 @@ export const LIVING_ACTORS: Readonly<Record<string, LivingActor>> = Object.freez
 
   [`${A}/leccion-1/aguila.webp`]: { src: `${A}/leccion-1/aguila.webp`, action: "flutter", creature: true, parts: [{ name: "wings", clipPath: "inset(8% 4% 42% 4%)", transformOrigin: "50% 62%" }], reducedMotion: "static", meaning: "aleteo breve de águila" },
   [`${A}/leccion-1/pajaro.webp`]: { src: `${A}/leccion-1/pajaro.webp`, action: "flutter", creature: true, parts: [{ name: "wings", clipPath: "inset(10% 6% 44% 6%)", transformOrigin: "50% 60%" }], reducedMotion: "static", meaning: "aleteo breve de pájaro" },
-  // leccion-1/pez.webp is the Workbook's AIRPLANE (book pages 8, 13, 16; see
-  // book-transcription notes "picture-identity"); the file name is historical.
+  // leccion-1/avion.webp is the Workbook's airplane (book pages 8, 13, 16).
   // A flying airplane is the one thing that may travel gently as a whole.
-  [`${A}/leccion-1/pez.webp`]: { src: `${A}/leccion-1/pez.webp`, action: "glide", creature: false, reducedMotion: "static", meaning: "avión que vuela" },
+  [`${A}/leccion-1/avion.webp`]: { src: `${A}/leccion-1/avion.webp`, action: "glide", creature: false, reducedMotion: "static", meaning: "avión que vuela" },
   [`${A}/leccion-1/carro.webp`]: { src: `${A}/leccion-1/carro.webp`, action: "roll", creature: false, reducedMotion: "static", meaning: "rodar corto" },
   [`${A}/leccion-1/globo.webp`]: { src: `${A}/leccion-1/globo.webp`, action: "float", creature: false, reducedMotion: "static", meaning: "flotación de globo" },
 
