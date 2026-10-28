@@ -2,11 +2,11 @@ import { describe, expect, it } from "vitest";
 import { PAYASO_CHANO_SS } from "../payaso-chano-ss";
 import { SYLLABLE_BUILDER_PILOT } from "../syllable-builder-pilot";
 import { CORE_THEMED_GAMES } from "../core-games";
+import { LIVE_GAMES } from "@/routes/cartilla/juego.$gameId";
 import type { GameArchetype } from "@/lib/games/gameContent";
 
 const REQUIRED: GameArchetype[] = [
   "payaso-chano",
-  "mariposas",
   "juego-vocal",
   "fonetica-completar",
   "lectura-silabas",
@@ -18,6 +18,11 @@ const REQUIRED: GameArchetype[] = [
 const ALL = [PAYASO_CHANO_SS, ...SYLLABLE_BUILDER_PILOT, ...CORE_THEMED_GAMES];
 
 describe("complete themed game set", () => {
+  it("does not register the owner-rejected Mariposas game", () => {
+    expect(ALL.some((game) => game.id === "mariposas-p")).toBe(false);
+    expect(LIVE_GAMES.some((game) => game.id === "mariposas-p")).toBe(false);
+  });
+
   it("ships every declared archetype with playable content", () => {
     const types = new Set(ALL.map((game) => game.type));
     expect(REQUIRED.every((type) => types.has(type))).toBe(true);
