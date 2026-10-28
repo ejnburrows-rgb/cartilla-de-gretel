@@ -86,31 +86,11 @@ The route `/cartilla/voces` serves as the owner's audition page:
 
 ---
 
-## 6. Archived historical provider options — not an active decision
+## 6. Current owner decision — recover the supplied original recording
 
-These options describe the old architecture discussion only. The later owner direction already selected recovery of supplied original recordings for #769. Do **not** request another provider choice, commission recordings, or generate TTS. Continue authentic-source recovery and audible phrase mapping; a missing master is an access blocker for that recording, not a reason to pause unrelated lanes. Historical options follow:
+Existing [audio PR #769](https://github.com/ejnburrows-rgb/cartilla-de-gretel/pull/769) remains the assigned implementation. Recover `Gretel_558674_Original.m4a` with expected SHA256 `239e3518f364adfcefab39f4220a4b2b85a6e3987679af823d7ef0f26f76935d` or source-verified original segments; listen to actual words, transcribe with timestamps, and map only authentic speech to matching page/events. Segment numbers are acoustic boundaries, **not** GR script IDs. Verify real audible playback, mute, interruption, page-change cleanup and non-overlap; keep private originals private and publish only allowed excerpts.
 
-### Option A: Free Browser-Native Web Speech TTS (Current Default)
-- **Description:** Uses built-in browser/OS Spanish voice engines (e.g. Google, Microsoft, Apple voices).
-- **Pros:** $0 cost, offline capable, no external dependencies, zero latency.
-- **Cons:** Built-in voices are adult female voices. Pitch tuning makes them lighter, but they do not sound like a genuine young girl.
-
-### Option B: Cloud Neural TTS (Google Cloud Text-to-Speech / Azure Speech / AWS Polly)
-- **Description:** Server/API-backed neural text-to-speech with high naturalness.
-- **Pros:** Natural pronunciation, neural quality, highly reliable.
-- **Cons:** Character-based usage fees (~$4–$16 USD per 1M characters), requires API key management / backend proxy.
-
-### Option C: Paid Premium Child Voice Provider (e.g. ElevenLabs)
-- **Description:** Dedicated AI voice synthesis with realistic child voice profiles.
-- **Pros:** Expressive, authentic young child voice tone.
-- **Cons:** Monthly subscription cost ($5–$22+ USD/mo), potential network latency for dynamic synthesis, requires API key.
-
-### Option D: Studio Pre-recorded Audio Clips (Real Child Voice Actor)
-- **Description:** High-quality studio audio files recorded by a real young voice actor for all lesson instructions and feedback phrases.
-- **Pros:** 100% natural, ideal pedagogical quality for early childhood literacy, $0 recurring API cost once recorded.
-- **Cons:** Requires recording session and asset management for all required phrases.
-
----
+The rejected 67 music/stutter clips are quarantined. Do not select or add browser/cloud TTS, new recordings, cloned voice, paid provider or replacement generator. Where an original phrase cannot be recovered or verified, mark it unavailable rather than fabricating or forcing a new voice. Source-access block holds **that phrase**, not other eligible assigned work. Historical provider auditions remain in Git history, not active decision options.
 
 ## 7. Confirmation of Non-Intervention
 
