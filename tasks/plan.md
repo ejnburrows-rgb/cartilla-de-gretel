@@ -1,5 +1,7 @@
 # End-to-End Delivery Plan — Cartilla de Gretel (Workbook Proof)
 
+> **CURRENT EXECUTION PRECEDENCE — October 28, 2026:** [AGENTS.md](../AGENTS.md) (or root AGENTS.md for root documents) and live [#877](https://github.com/ejnburrows-rgb/cartilla-de-gretel/issues/877) govern continuation. After a blocked task, continue the next eligible existing assignment in the same run. Historical 15-lane refill, routine owner waits, audio-"moot" statements and Mariposas removal do not govern. No new dispatch/duplicate job, no unauthorized merge, deletion, spending, permission change or deployment.
+
 > **LATEST OWNER EXECUTION / PROVISIONAL APPROVAL — October 28, 2026.** Owner: “Go ahead and approve everything for now until you finish. Then anything that I want to change, I will change.” Treat remaining routine visual and implementation decisions within the existing Cartilla completion scope as provisionally approved, including the shown Lesson 3 direction (card E); A–D are already accepted. Continue material work without returning routine approval cards or making the owner repeatedly say continue. Keep versioned proof and present the assembled result for later changes. Preserve explicit rejections, authentic workbook/art/voice decisions, existing assignments and destructive/security/cost holds; this does not authorize new services or reviewer access, bypass protected-main review, or authorize production deployment. Merge/release authorization remains separately scoped.
 
 
@@ -18,7 +20,7 @@ This plan defines the sequence of work required to satisfy `PROJECT_FINISH_DEFIN
 
 ## Core Rules
 
-1. **Follow `AGENTS.md` and the 2026-10-13 autonomous controller directive:** The ChatGPT/Codex controller may refill up to 15 useful active Jules lanes with independent, ready work supported by a real gap without re-requesting owner approval per issue, provided no owner-only gates (release, payment, unapproved redesign, artwork approval) are crossed.
+1. **Follow the current `AGENTS.md` continuation rule and #877:** Continue existing assignments without new dispatch or routine approval pauses. A held lane does not halt another eligible existing lane. Historical 15-lane capacity authorization is not a new-job instruction; all formal merge, release, cost and security gates remain.
 2. **Never duplicate work.** Inspect actual GitHub branches, existing PRs, and live provider sessions. If another agent is assigned a task, do not dispatch a duplicate to another worker. Reuse proof (Vitest/Playwright/types) when valid. A test run is needed only for *new* changes or *missing* final release bounds.
 3. **Show exact visual evidence.** The owner demands source-faithful render proof in chat (screenshot/video/direct reproduction URL) when artwork or layout is changed. GitHub PR diffs or `playwright.config.ts` console output are not acceptance proof for visual tasks.
 4. **Follow `PROJECT_SOURCE_OF_TRUTH.md`.** Do not reconstruct source-blocked pages. Do not hallucinate missing book content.
@@ -37,12 +39,12 @@ This plan defines the sequence of work required to satisfy `PROJECT_FINISH_DEFIN
 - PR #739 (one-native-page whole Workbook plus student resume/handwriting).
 - PR #735 (motion of 8 Workbook images).
 - PR #737 (5 Flip Chart images).
-- PR #769 (DRAFT, owner-gated — voice work MOOT per owner 2026-10-15: voice research stopped, the 48 recorded Gretel clips locked FINAL (commit e7d3bf2c). The 67 local MP3 cues are REJECTED stuttering/music source — archival evidence only, never map, replay, restitch, or deploy them. Audio recovery uses only `Gretel_558674_Original.m4a` with auditory/transcript/page verification per the repo AGENTS.md audio corrections; playback stays held until verification is complete.)
+- PR #769 (DRAFT, owner-gated — voice generator/provider research stopped; **existing #769 authentic audio recovery, audible transcription, page/event mapping and runtime verification remain active**. Historical 48-clip claims do not prove playable mapped audio. The 67 local MP3 cues are REJECTED stuttering/music source — archival evidence only, never map, replay, restitch, or deploy them. Audio recovery uses only `Gretel_558674_Original.m4a` with auditory/transcript/page verification per the repo AGENTS.md audio corrections; playback stays held until verification is complete.)
 
 ## Final Gates & Execution Order
 
 1. **Advance existing candidates; do not restart merged lanes**
-   - The ChatGPT/Codex controller reconciles live specialist assignments and active Jules sessions. Recover unfinished #739/#735/#737 lanes, no duplicate PRs. (#769 voice work is moot per owner 2026-10-15 — do not recover or restart it.)
+   - The ChatGPT/Codex controller reconciles live specialist assignments and active Jules sessions. Recover unfinished #739/#735/#737 lanes, no duplicate PRs. (#769 remains the existing lane for original-source recovery and verification; do not duplicate it.)
    - Opus continues assigned difficult cross-component Workbook implementation (reader, erase persistence, turns).
    - Jules completes or validates existing #735/#737 and installs exact approved masters once authorized by the owner.
    - For audio: no new voice discussion, generation, or provider selection — the owner already supplied finished audio (2026-10-15) and prohibited revisiting it. The 67 MP3 cues are rejected/archival-only; do not map or replay them. Recovery = `Gretel_558674_Original.m4a` only, with auditory/transcript/page verification per the repo AGENTS.md audio corrections; keep playback held until verification is complete.
@@ -51,7 +53,7 @@ This plan defines the sequence of work required to satisfy `PROJECT_FINISH_DEFIN
    - Owner-gated: integrate final supplied owner foreground art drop using the verified intake tool from #579.
 
 3. **#589 — Gretel voice: RESOLVED by owner 2026-10-15**
-   - Owner locked the 48 recorded Gretel clips as FINAL (commit e7d3bf2c) and stopped all voice research; generator/provider selection is not to be revisited. This gate now tracks recovery, mapping, and verification of the existing assets only — no local-neural vs cloud-TTS decision pending.
+   - Owner stopped new voice generation/provider research. The existing original recording still requires access, transcript/page matching and audible verification in #769. This gate now tracks recovery, mapping, and verification of the existing assets only — no local-neural vs cloud-TTS decision pending.
 
 4. **#587 — Current clean-main Jules release baseline**
    - Reuse existing acknowledged session; require actual output.
@@ -60,7 +62,7 @@ This plan defines the sequence of work required to satisfy `PROJECT_FINISH_DEFIN
 
 5. **#458 — Assembled-product proof and release**
    - Exact integrated head; full release gate; final Student and teacher regressions.
-   - Required owner-visible archetype and assembled-product approvals remain open until actual rendered evidence is shown.
+   - Owner visual acceptances A–E and routine in-scope choices are settled. Final assembled-product verification and exact merge/deployment authorizations remain separate.
    - Deploy only after intentional final owner authorization.
 
 ## Printed pages 86–87 — resolved source status
