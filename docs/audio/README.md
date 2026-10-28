@@ -20,7 +20,7 @@ Gretel's character voice across all lessons and activities uses a unified provid
 - **Default Baseline:** Local/free Web Speech API browser TTS (`browser-tts`) with neutral LatAm Spanish voice selection and adult female fallback.
 - **Mute & Cancellation Control:** Unified mute persistence (`cartilla.gretel.voice.muted`) and global speech cancellation token integration via `src/lib/speech-playback.ts`.
 
-### Owner Choice Options
-1. **Option A: Free Browser Native TTS (Current Default)** — $0/mo. Uses local device voice synthesizers.
-2. **Option B: Premium Cloud Neural TTS (ElevenLabs / Google Cloud / Azure Neural TTS)** — Requires subscription or usage API key. Plugs directly into `setGretelVoiceProviderConfig({ type: 'cloud-tts', speakFn: ... })` without changing lesson code.
-3. **Option C: Studio Recorded Audio Assets** — Girl's recorded voice audio files mapped per line/prompt. Plugs directly into `setGretelVoiceProviderConfig({ type: 'recorded-audio', speakFn: ... })`.
+### Historical provider options — NOT current work
+1. **Historical Option A: Free Browser Native TTS** — describes existing abstraction only; not approved Gretel content playback or a new selection.
+2. **Historical Option B: Paid cloud TTS** — prohibited as a new provider or spending decision without explicit authorization.
+3. **Current owner direction: recover original Gretel recordings in existing #769.** Align authentic heard words with real pages/events; rejected 67 clips remain quarantined. Missing master and unproven audible playback are unresolved, not a reason to generate or rerecord. Picture-name recordings are a separate catalog.
