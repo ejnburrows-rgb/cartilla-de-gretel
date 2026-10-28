@@ -10,11 +10,11 @@ This is a **non-authoritative index**. The current `AGENTS.md`, `PROJECT_FINISH_
 
 ## Real finish dependencies — not free worker slots
 
-- Final owner foreground art [#588](https://github.com/ejnburrows-rgb/cartilla-de-gretel/issues/588) and final selected Gretel voice [#589](https://github.com/ejnburrows-rgb/cartilla-de-gretel/issues/589) remain owner-gated.
+- Final authentic art provenance and original Gretel recording recovery/mapping remain source-gated on the existing lanes. Routine A–E approvals are settled; do not request another voice-provider choice or default rerecording. Keep actual missing source decisions held.
 - Final assembled product proof and authorized release [#458](https://github.com/ejnburrows-rgb/cartilla-de-gretel/issues/458) depends on integrated tested work, valid Student and Teacher/Flip Chart evidence, owner approvals, and intentional release authorization.
 - Historical [controller issue #545](https://github.com/ejnburrows-rgb/cartilla-de-gretel/issues/545), PRs #552/#554, and Neon/OpenHands branches are **not active Cartilla product-dispatch work**. Do not dispatch or merge them based on old labels/descriptions.
 - Real-student-data auth/privacy risks #387/#388/#390 remain scoped to any future real-child-data use; demo-only testing with non-real student data is not clearance for production use of real student records.
 
 ## Coordination rule
 
-The current owner policy is **Jules-first, continuous implementation + focused QA + real visual proof without duplicate work**. The controller refreshes actual Jules task status and independently ready real gaps whenever a lane completes or fails (read-only); new Jules tasks start only on explicit owner approval. Never count bot acknowledgements, old branch names, empty PRs, idle labels or scheduled-job exit code as completed implementation. SonarCloud remains advisory and non-blocking. No GitHub Actions, paid service, production deployment, new database or replacement controller.
+**Current October 28 continuation:** Reuse existing Jules/specialist assignments and evidence; do not dispatch new tasks, and do not stop independent eligible work for a blocked lane. Historical note (superseded): new Jules tasks start only on explicit owner approval. Never count bot acknowledgements, old branch names, empty PRs, idle labels or scheduled-job exit code as completed implementation. SonarCloud remains advisory and non-blocking. No GitHub Actions, paid service, production deployment, new database or replacement controller.
