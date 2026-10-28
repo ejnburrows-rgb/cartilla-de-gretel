@@ -1,6 +1,6 @@
 // lesson-meta.ts — canonical runtime lesson metadata for the 24 lessons; it is not curriculum authority.
 // Authoritative curriculum/content comes from the physical source PDFs under the canonical instruction hierarchy.
-// Used by: PageExercisePane, PolishedPage (color), Codex teacher CRM, Antigravity print.
+// Used by teacher-facing CRM and print flows.
 // Do not edit lesson order, page ranges, or colors without updating page-bindings.json in lockstep.
 
 export type LessonKind = "intro" | "vowel" | "consonant";
@@ -13,7 +13,7 @@ export type LessonMeta = {
   letter: string; // e.g. "M", "Mm", "O", or "—" for intro
   kind: LessonKind;
   pages: [number, number]; // inclusive
-  accent: string; // hex, used by PolishedPage
+  accent: string; // hex, teacher-facing color metadata
   studentBgClass: string; // pastel class from cartilla-polish.css
   teacherBgClass: string; // vibrant class from cartilla-polish.css
   syllables: string[]; // syllables introduced (empty for intro)

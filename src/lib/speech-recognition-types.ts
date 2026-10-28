@@ -1,7 +1,7 @@
 /**
  * Minimal structural types for the (non-standard) Web Speech API recognition
  * surface, which is absent from the TypeScript DOM lib. Shared by
- * useSpeechRecognition and InteractiveMiniGames so neither needs `any`.
+ * useSpeechRecognition so it does not need `any`.
  */
 
 export type SpeechRecognitionEventLike = {
