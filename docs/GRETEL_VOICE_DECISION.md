@@ -86,9 +86,9 @@ The route `/cartilla/voces` serves as the owner's audition page:
 
 ---
 
-## 6. Exact Owner Decision Choices & Trade-Offs
+## 6. Archived historical provider options — not an active decision
 
-The final premium Gretel voice selection remains **100% gated by EJN (Owner)**. The remaining options are:
+These options describe the old architecture discussion only. The later owner direction already selected recovery of supplied original recordings for #769. Do **not** request another provider choice, commission recordings, or generate TTS. Continue authentic-source recovery and audible phrase mapping; a missing master is an access blocker for that recording, not a reason to pause unrelated lanes. Historical options follow:
 
 ### Option A: Free Browser-Native Web Speech TTS (Current Default)
 - **Description:** Uses built-in browser/OS Spanish voice engines (e.g. Google, Microsoft, Apple voices).
