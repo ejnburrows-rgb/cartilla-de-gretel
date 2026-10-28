@@ -116,7 +116,7 @@ Recover the original worker/branch/PR and still-valid evidence before editing. N
 
 ### Ownership uncertainty is FILE-LOCAL, not a blanket execution stop — owner correction 2026-10-13
 
-**Applies to an ALREADY AUTHORIZED implementation session (Opus, Jules or other worker).** The pre-dispatch controller capacity/ownership check above determines whether the ChatGPT/Codex controller may start a **new Jules task**; it is **not** an additional requirement that every existing worker must personally authenticate to Jules before editing any disjoint file. A missing provider connector, unverified old session status, broad issue title, historic branch, or closed/zero-diff PR must not be treated as proof that every file in a multi-part task is locked.
+**Applies to an ALREADY AUTHORIZED existing implementation session (Opus, Jules or other worker).** Ownership uncertainty about one file does not require a new Jules task, a new approval, or authentication to an unrelated provider before continuing disjoint safe work. A missing provider connector, unverified old session status, broad issue title, historic branch, or closed/zero-diff PR must not be treated as proof that every file in a multi-part task is locked.
 
 1. **Split the assigned deliverable by actual files and dependencies.** Compare current code, active PR changed-file lists, explicit live ownership/handoffs, and existing agent reservations. Mark each part `CLEAR` (no evidenced collision), `CONFLICT` (same files or state truly owned), or `UNCERTAIN` (specific possible overlap). Do not claim definitive provider status from GitHub alone.
 2. **Continue `CLEAR` implementation immediately in the EXISTING authorized session**: make a focused code change, add/run directly affected regression tests, and persist the material patch/PR where allowed. A potential conflict in another part does not cancel independent work. Do not create another agent, issue, session, or duplicate scope to get around the check.
@@ -134,8 +134,8 @@ Recover the original worker/branch/PR and still-valid evidence before editing. N
 
 - **Historical owner clarification, October 10, 2026 — superseded scheduler authority.** The old local Windows `CartillaJulesAutoRunner` script and its Vercel/Neon/OpenHands paths remain retired, disabled and forbidden. The separate hourly ChatGPT cloud coordination task was briefly enabled in October, but is now verified disabled; ChatGPT/Codex is the current authorized controller and dispatcher. Historical enabled states are not evidence of active sessions or an instruction to restart.
 - **No invented continuity.** A saved prompt, plugin skill, watcher label, enabled check, completed task, or successful exit code is not proof that autonomous work is happening. Only actual current GitHub changes, authorized official Jules provider receipts, relevant test evidence and real PR outcomes count. Do not claim background dispatch, a working webhook, or occupied agent capacity without live independent evidence.
-- **Current means current.** Before acting, read today's owner directives and the current `main` versions of this file and its canonical instructions. Superseded issue text, stale branch `AGENTS.md`, old Engram entries and historic assumptions do not regain authority. Do not use outdated tools or workflow instructions.
-- **Resume current Jules specialist assignments only; do not proactively start new jobs in this continuation.** Check current main, existing PR/issue ownership, actual Jules provider sessions and remaining quota; recover existing work first; then dispatch nonoverlapping implementation, debugging, focused QA and relevant visual polish up to 15 actual productive sessions through the authorized GitHub/Jules integration. A label is not a running worker. Do not revive any retired scheduler or deploy production without approval.
+- **Current means current.** Read the latest owner direction and #877, and the current source branch; while #1212 remains unmerged, use its latest corrected instructions over stale older copies of `main` guidance. Old Engram, archival and superseded task instructions do not regain authority. Do not use outdated tools or workflow instructions.
+- **Resume current Jules/specialist assignments only.** Verify current work, existing ownership and real provider receipts where relevant; do not dispatch replacement jobs, refill idle slots or mistake a label for an active worker. A label is not a running worker. Do not revive any retired scheduler or deploy production without approval.
 - Historical uses of **controller, supervisor and watchdog** below describe review/coordination responsibilities only; they **do not authorize** resurrection or invocation of the retired infrastructure. This owner directive takes precedence over any older execution language while preserving the existing product acceptance and security rules.
 
 ## CANONICAL INSTRUCTION HIERARCHY
@@ -298,7 +298,7 @@ EJN should not have to choose or manually invoke engineering tools. When the cur
 - For bugs, use root-cause debugging before changing code.
 - For security-sensitive work, use the available security/hardening specialist.
 - For measurable performance problems, use the available performance specialist.
-- For visible UI work, rely on current Jules-produced real-browser proof, and assign missing or invalidated rendered checks to Jules; code inspection alone is not sufficient. Do not duplicate an existing valid screenshot/test run.
+- For visible UI work, reuse existing Jules-produced real-browser proof and verify only new or invalidated behavior on its existing assigned lane; code inspection alone is not sufficient. Do not duplicate an existing valid screenshot/test run.
 - Independently review meaningful diffs and existing exact-head evidence as required; this does not authorize duplicate test/browser execution by coordinators.
 - Run at most 3 genuinely independent **read-only specialist investigations** when they do not share mutable state or sequential dependencies. Implementation-worker concurrency is governed only by the Execution Control Contract above.
 - Reuse still-valid evidence instead of repeating unchanged audits, tests, reviews, or browser checks.
@@ -316,10 +316,10 @@ Jules is a worker, not the project controller. The controller owns scope selecti
 #### Continue existing Jules assignments
 
 - Prefer Jules for concrete implementation, bug fixes, focused refactors, targeted tests, and narrow UI work that can run independently in its own environment.
-- Run multiple Jules sessions in parallel when their file ownership and dependencies are genuinely isolated.
+- Continue previously assigned Jules sessions in parallel only when their actual file ownership and dependencies are genuinely isolated.
 - One session = one bounded deliverable. Do not combine unrelated lanes or a long dependency chain into one session.
-- **Persist progress early:** after the first material implementation change passes its narrow targeted check, commit/push that material checkpoint and open or update the task PR immediately. Do not wait until the end of the session to create the PR. Continue subsequent work on that same branch/PR so a later session failure cannot erase useful progress.
-- **Supervisor export checkpoint:** Jules supports exporting work to GitHub before a task finishes. When a substantial Jules session has produced its first material, targeted-checked change and no remote branch/PR exists yet, the controller/supervisor must use Jules' **Export at any time** GitHub control to publish that checkpoint immediately. Do not depend on end-of-session export for substantial work.
+- **Persist progress early:** after the first material implementation change passes its narrow targeted check, commit/push to the existing task branch/PR immediately; do not create duplicate branches, jobs or PRs. Do not wait until the end of the session to create the PR. Continue subsequent work on that same branch/PR so a later session failure cannot erase useful progress.
+- **Existing Jules export checkpoint:** where an existing session has material targeted-tested work not yet published, use its normal authorized export to save it on its original owned branch/PR. Do not create a duplicate task or new controller. Do not depend on end-of-session export for substantial work.
 - Reuse the existing issue/branch/PR when one already exists. Do not create duplicate competing work.
 - Give each session explicit owned files/behavior and explicit forbidden scope.
 - Read CURRENT `main` code, **latest owner instruction in #877**, and the current proposed instruction fixes in existing PR #1212 while that documentation PR is unmerged. Do not treat old `main` guidance or archived directives as an overriding policy. Older task snapshots and prior bot comments do not override current truth.
@@ -523,10 +523,10 @@ Until real-data security/privacy blockers are resolved, Cartilla may be tested a
 EJN does not review code or GitHub internals. Agents own the technical judgment and must show proof in chat.
 
 - Never put unfinished or unverified work into `main`.
-- One branch per active job. No backup, experiment, duplicate, or unrelated branches.
+- Continue the original branch/PR for each assigned job; no backup, experiment, duplicate, or unrelated branches.
 - Multiple coding-agent lanes may run in parallel when their scopes are genuinely isolated. Dependency chains that touch the same activity family remain sequential. Before merge, every parallel PR must be rechecked against current `main`; stale/conflicting work must be updated before merge.
 - Make normal technical choices yourself. Do not ask EJN to choose libraries, Git methods, file structure, or test methods unless it changes what he will actually see or use.
-- Before asking for approval, ensure Jules has supplied relevant focused tests, build results and actual feature/screen proof; assign only missing or invalidated checks to Jules. Fix obvious issues and address important review findings without rerunning valid evidence.
+- Before asking for a required held-action approval, reuse relevant existing focused tests and actual feature/screen proof; perform only missing or invalidated checks on the original assigned lane. Fix obvious issues and address important review findings without rerunning valid evidence.
 - Preserve unrelated working parts of the project. Do not reorganize or modernize outside the task.
 - Do not claim success without verification.
 
