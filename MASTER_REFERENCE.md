@@ -9,19 +9,19 @@
 >
 > The controller handles technical coordination through available tools. Report one concise dashboard: finished, confirmed active now, blocked, next, and owner decisions; distinguish verified evidence from reported status and development from production. Never imply background execution without confirmation. If access truly blocks progress, state the exact blocker and the single necessary owner action. Preserve source/workbook fidelity, existing approvals, independent review and branch protection. Merges require applicable exact-change owner authorization; deployment requires explicit owner authorization. No self-approval or bypass. Preserve all existing art, voice, privacy, security and spending gates.
 
-THE one source of truth for how this project is run. Everything else is a copy
-of something in here or a pointer to here.
-Version: Fri 2026-10-23, 2:40 PM EDT. Repo main checked today: ea8ee309.
+Controller responsibilities and recorded owner decisions. This is not a live status report.
+The finish requirements are in PROJECT_FINISH_DEFINITION.md; current approved scope is in
+PROJECT_SOURCE_OF_TRUTH.md; the existing execution queue is GitHub issue #877.
+Read live GitHub and actual app results before claiming current progress.
 Owner: Emilio (Nessun) — decisions only, non-technical. Controller: ChatGPT/Codex (owner override October 28, 2026).
 
 ## 1. THE PROJECT
 Spanish K-2 reading book + classroom app. Repo: ejnburrows-rgb/cartilla-de-gretel.
 Stack: Vite + React + TypeScript + TanStack Router + Supabase. Host: Vercel.
-Only 2 live addresses count: cartilla-de-gretel.vercel.app and
-lany-books-web-cyan.vercel.app. All other vercel.app addresses are old snapshots.
-Product specs (what the app must be) live in the repo: PROJECT_FINISH_DEFINITION.md,
-PROJECT_SOURCE_OF_TRUTH.md, CARTILLA_DIGITAL_DIRECTIVE.md — the directive wins
-over any contradicting file.
+Do not infer current deployment from historical URLs; inspect the live app and deployed
+revision directly when release state matters. Deployment is explicitly owner-gated.
+PROJECT_FINISH_DEFINITION.md defines completion; PROJECT_SOURCE_OF_TRUTH.md records
+scope and owner decisions; CARTILLA_DIGITAL_DIRECTIVE.md governs book fidelity.
 
 ## 2. WHO DOES WHAT (permissions — updated today)
 Chain: owner → ChatGPT/Codex controller → existing assigned workers and independent reviewer.
@@ -53,30 +53,12 @@ reports carry WORKS / DOES NOT WORK / NOT VERIFIED in that order; merges never d
 ## 4. HOW EMILIO IS TALKED TO
 - Proof or it didn't happen: a real picture attached to every claim, a video for
   anything that moves. No picture = NOT PROVEN.
-- Never send him PR numbers, SHAs, branch names, or GitHub links. Plain words:
-  name exactly which thing, what happened to it, and why it matters.
-- Message him ONLY for: (1) approval cards (picture + plain words + Yes/No taps),
-  (2) a true dead-end after everything was tried.
-- Status, when asked: one line per item, ✅ done / ❌ not done + brief why only.
-- Never report "partly done" — work until accomplished, then report DONE with proof.
+- Lead with what visibly changed and what still blocks completion. Include exact
+  evidence links when useful; do not make the owner navigate technical processes.
+- Do not reopen routine A–E decisions or request repeated approval cards.
+- Report verified states faithfully: built, tested, owner-accepted, reviewed,
+  merged and deployed are distinct. Clearly state partial, blocked or unknown work.
 - Never give out his personal information to anyone, for anything.
 
 ## 5. COORDINATION RULE (owner override October 28)
 The owner gives requests in the current ChatGPT/Codex conversation. The controller handles existing agent assignments and review through available tools, using the October 28 master completion plan. Do not require daily handout prompts or owner-managed agent routing. If a specific access limitation requires owner action, provide one concrete step and retain all technical details yourself. No automatic dispatch schedule or provider access is established merely by these instructions.
-
-## 6. WHERE THINGS STAND (today, ~3:05 PM)
-- ONE SOURCE OF TRUTH: the owner ordered the scattered agent papers erased
-  (today, 3:05 PM) — the separate Mission Board, Approval Ledger, permissions
-  file, and prompt index are gone from the repo and from Muse's folders.
-  This Master Reference is the only agent paper left. His memory, logs, and
-  the repo's product specs were kept, by his choice.
-- Picture-list fix (art audit): finished, checked, waiting on his Yes/No tap
-  (card sent today 2:36 PM). No visible change; unblocks one of two build gates.
-- Tree-picture fix: in the repo as a waiting change; its picture proof is still
-  owed, so it is NOT presented for a merge yes yet.
-- Árbol tiers: the "soft tree" claim did NOT reproduce — shipped tiers verified
-  sharp; no picture files were swapped.
-- Flip Chart fix, sound lane, roster, WordMatch, teacher pack, Cow game:
-  merge decisions still waiting, one card at a time.
-- Demo gates still blocked on: picture approvals (0 of 201 in the repo ledger)
-  and his phone approval of Lesson 3.
