@@ -1,5 +1,12 @@
 # End-to-End Delivery Plan — Cartilla de Gretel (Workbook Proof)
 
+> **OWNER OVERRIDE — October 28, 2026: controller ownership.** ChatGPT/Codex in the owner's current Cartilla conversation is the primary controller and single owner-facing entry point. Muse is a supporting source of history and records, not an independent controller or dispatcher. This supersedes all older Muse-only, Muse/Instinct dual-controller, and owner-carried prompt-routing instructions, including the October 13 controller allocation.
+>
+> Use the existing October 28 Cartilla Master Completion Plan; prioritize independent review and authorized integration of delivered fixes before new coding. Recover existing assignments and proof; do not duplicate work, reopen resolved issues, launch a new audit, or rebuild the workflow. Codex retains artwork ownership; Jules and other existing specialists retain their assigned work until the controller reconciles ownership. No new infrastructure or automatic schedules are authorized.
+>
+> The controller handles technical coordination through available tools. Report one concise dashboard: finished, confirmed active now, blocked, next, and owner decisions; distinguish verified evidence from reported status and development from production. Never imply background execution without confirmation. If access truly blocks progress, state the exact blocker and the single necessary owner action. Preserve source/workbook fidelity, existing approvals, independent review and branch protection. Merges require applicable exact-change owner authorization; deployment requires explicit owner authorization. No self-approval or bypass. Preserve all existing art, voice, privacy, security and spending gates.
+
+
 > **MANDATORY OWNER DIRECTIVES (2026-10-22, every agent / Muse / Instinct / Jules):** Read [PERMANENT_PROJECT_INTEGRITY_WORKFLOW.md](../PERMANENT_PROJECT_INTEGRITY_WORKFLOW.md) and [ARTWORK_REPORT_VERIFICATION_AND_SINGLE_SOURCE_CLEANUP.md](../ARTWORK_REPORT_VERIFICATION_AND_SINGLE_SOURCE_CLEANUP.md) before investigating, changing, certifying or dispatching artwork work. Only the latest authentic owner-approved updated art may be used; delete proven obsolete wrong crops from current production after switching and verifying all references. Do not create competing inventories, silently relax tests, or report file presence as correct rendered art. Existing owner-only merge/deploy gates remain in force. These Markdown directives define the obligation; actual implementation and tests are required before claiming enforcement.
 
 **Date Updated:** 2026-10-16
@@ -8,7 +15,7 @@ This plan defines the sequence of work required to satisfy `PROJECT_FINISH_DEFIN
 
 ## Core Rules
 
-1. **Follow `AGENTS.md` and the 2026-10-13 autonomous controller directive:** Autonomous controllers and dispatchers (Muse) may refill up to 15 useful active Jules lanes with independent, ready work supported by a real gap without re-requesting owner approval per issue, provided no owner-only gates (release, payment, unapproved redesign, artwork approval) are crossed.
+1. **Follow `AGENTS.md` and the 2026-10-13 autonomous controller directive:** The ChatGPT/Codex controller may refill up to 15 useful active Jules lanes with independent, ready work supported by a real gap without re-requesting owner approval per issue, provided no owner-only gates (release, payment, unapproved redesign, artwork approval) are crossed.
 2. **Never duplicate work.** Inspect actual GitHub branches, existing PRs, and live provider sessions. If another agent is assigned a task, do not dispatch a duplicate to another worker. Reuse proof (Vitest/Playwright/types) when valid. A test run is needed only for *new* changes or *missing* final release bounds.
 3. **Show exact visual evidence.** The owner demands source-faithful render proof in chat (screenshot/video/direct reproduction URL) when artwork or layout is changed. GitHub PR diffs or `playwright.config.ts` console output are not acceptance proof for visual tasks.
 4. **Follow `PROJECT_SOURCE_OF_TRUTH.md`.** Do not reconstruct source-blocked pages. Do not hallucinate missing book content.
@@ -32,7 +39,7 @@ This plan defines the sequence of work required to satisfy `PROJECT_FINISH_DEFIN
 ## Final Gates & Execution Order
 
 1. **Advance existing candidates; do not restart merged lanes**
-   - Muse reconciles live Opus assignments and active Jules sessions. Recover unfinished #739/#735/#737 lanes, no duplicate PRs. (#769 voice work is moot per owner 2026-10-15 — do not recover or restart it.)
+   - The ChatGPT/Codex controller reconciles live specialist assignments and active Jules sessions. Recover unfinished #739/#735/#737 lanes, no duplicate PRs. (#769 voice work is moot per owner 2026-10-15 — do not recover or restart it.)
    - Opus continues assigned difficult cross-component Workbook implementation (reader, erase persistence, turns).
    - Jules completes or validates existing #735/#737 and installs exact approved masters once authorized by the owner.
    - For audio: no new voice discussion, generation, or provider selection — the owner already supplied finished audio (2026-10-15) and prohibited revisiting it. The 67 MP3 cues are rejected/archival-only; do not map or replay them. Recovery = `Gretel_558674_Original.m4a` only, with auditory/transcript/page verification per the repo AGENTS.md audio corrections; keep playback held until verification is complete.

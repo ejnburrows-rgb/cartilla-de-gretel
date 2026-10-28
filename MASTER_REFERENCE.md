@@ -1,8 +1,15 @@
 # MASTER REFERENCE — La Cartilla de Gretel
+
+> **OWNER OVERRIDE — October 28, 2026: controller ownership.** ChatGPT/Codex in the owner's current Cartilla conversation is the primary controller and single owner-facing entry point. Muse is a supporting source of history and records, not an independent controller or dispatcher. This supersedes all older Muse-only, Muse/Instinct dual-controller, and owner-carried prompt-routing instructions, including the October 13 controller allocation.
+>
+> Use the existing October 28 Cartilla Master Completion Plan; prioritize independent review and authorized integration of delivered fixes before new coding. Recover existing assignments and proof; do not duplicate work, reopen resolved issues, launch a new audit, or rebuild the workflow. Codex retains artwork ownership; Jules and other existing specialists retain their assigned work until the controller reconciles ownership. No new infrastructure or automatic schedules are authorized.
+>
+> The controller handles technical coordination through available tools. Report one concise dashboard: finished, confirmed active now, blocked, next, and owner decisions; distinguish verified evidence from reported status and development from production. Never imply background execution without confirmation. If access truly blocks progress, state the exact blocker and the single necessary owner action. Preserve source/workbook fidelity, existing approvals, independent review and branch protection. Merges require applicable exact-change owner authorization; deployment requires explicit owner authorization. No self-approval or bypass. Preserve all existing art, voice, privacy, security and spending gates.
+
 THE one source of truth for how this project is run. Everything else is a copy
 of something in here or a pointer to here.
 Version: Fri 2026-10-23, 2:40 PM EDT. Repo main checked today: ea8ee309.
-Owner: Emilio (Nessun) — decisions only, non-technical. Controller: Muse.
+Owner: Emilio (Nessun) — decisions only, non-technical. Controller: ChatGPT/Codex (owner override October 28, 2026).
 
 ## 1. THE PROJECT
 Spanish K-2 reading book + classroom app. Repo: ejnburrows-rgb/cartilla-de-gretel.
@@ -14,29 +21,14 @@ PROJECT_SOURCE_OF_TRUTH.md, CARTILLA_DIGITAL_DIRECTIVE.md — the directive wins
 over any contradicting file.
 
 ## 2. WHO DOES WHAT (permissions — updated today)
-Chain: Emilio → Muse → Jules / ChatGPT / Antigravity / Freebuff / Opus (piano only).
-- JULES (Builder): phone layout, page curl (PageCurl.tsx), teacher
-  section, pencil pages, PencilConnector, build gate.
-  Never: games, audio files, art files.
-- CHATGPT (Audio): TTS fallback, audio wiring, broken audio references, narration fallbacks.
-  Never: layout, games, art.
-- ANTIGRAVITY (Games): Cow, Rima, Palabras por minuto, Chano. ACTIVE since the
-  owner lifted the old ban today (~2:00 PM). Never: layout, audio, art.
-- FREEBUFF (Backlog + Maintenance): added by the owner today. Prepares duplicate/junk
-  cleanup lists and maintenance work. Closes, deletes, merges NOTHING by itself.
-  Never: app code, games, audio, art, permission files.
-- OPUS (Piano Builder): builds the piano work ONLY (Piano Hablador / piano files).
-  Removed as Inspector today (~3:40 PM — "Opus can't check on its own"); role set
-  by the owner ~3:46 PM: it builds piano, Muse checks everything it makes.
-  Verifies nothing, merges nothing.
-- MUSE (Controller + Inspector): keeps this Master Reference (it holds the Mission Board and
-  the Approval Ledger as sections 3 and 6) and all starter prompts. Verifies,
-  reviews, and merges finished+tested work (owner ruling today: "I keep verifying"
-  — the Oct 13 controller contract stands). The independent checking job is
-  Muse's — no task is done until Muse verifies it against the real source.
-- Universal: one agent per file area; no agent merges its own work; recover existing
-  work before rebuilding; blockers go to Muse, never agent-to-agent; Codex owns
-  artwork identification/mapping/integration.
+Chain: owner → ChatGPT/Codex controller → existing assigned workers and independent reviewer.
+- CHATGPT/CODEX (Controller): maintains this reference and the October 28 master completion plan, sets priorities, coordinates existing assignments, reconciles evidence and approvals, and presents visible results. Codex retains artwork identification/mapping/integration.
+- JULES (Worker): retains existing assigned implementation and focused verification. Completed sessions are not integrated features; reuse delivered work before assigning new coding.
+- MUSE (Supporting records): supplies prior assignments, session history and controller records when accessible; no independent dispatch or competing queue.
+- EXISTING SPECIALISTS: retain their existing bounded assignments, including Piano/game work, subject to current owner approvals and access. This controller change creates no new agent or service authorization.
+- INDEPENDENT REVIEWER: reviews material changes where required; no worker approves its own work, and protected-main approval remains mandatory.
+- OWNER: makes essential product/visual decisions and authorizes consequential actions. Technical coordination stays with the controller; never require the owner to relay ordinary worker prompts.
+- Universal: one owner per task/file surface; recover existing work before rebuilding; report blockers to the ChatGPT/Codex controller. Preserve existing work, exact-change approvals and release gates.
 
 ## 3. DECISIONS ALREADY MADE (never ask again)
 GAMES: 4 only — Cow, Rima, Palabras por minuto, Chano. Mariposas OUT. Chano ruled
@@ -66,16 +58,8 @@ reports carry WORKS / DOES NOT WORK / NOT VERIFIED in that order; merges never d
 - Never report "partly done" — work until accomplished, then report DONE with proof.
 - Never give out his personal information to anyone, for anything.
 
-## 5. DAILY DISPATCH RULE (owner order today)
-When he asks for "today's handout prompts" or "agent dispatch": ONE complete
-Daily Dispatch Package, built fresh from the repo, this Master Reference,
-open work, and latest verified results. One finished copy-paste prompt per active
-agent, labeled SEND TO JULES / SEND TO CHATGPT / SEND TO ANTIGRAVITY /
-SEND TO FREEBUFF / SEND TO OPUS (piano only), in send order, each with the exact assignment,
-existing work to recover, file ownership, acceptance checks, required evidence,
-and a one-line "why." No duplicates, no blocked work, no unverified claims as done.
-An agent with nothing gets "NO DISPATCH NEEDED" + why. End with: who receives a
-prompt, who is waiting, what is blocked, what needs his decision.
+## 5. COORDINATION RULE (owner override October 28)
+The owner gives requests in the current ChatGPT/Codex conversation. The controller handles existing agent assignments and review through available tools, using the October 28 master completion plan. Do not require daily handout prompts or owner-managed agent routing. If a specific access limitation requires owner action, provide one concrete step and retain all technical details yourself. No automatic dispatch schedule or provider access is established merely by these instructions.
 
 ## 6. WHERE THINGS STAND (today, ~3:05 PM)
 - ONE SOURCE OF TRUTH: the owner ordered the scattered agent papers erased
