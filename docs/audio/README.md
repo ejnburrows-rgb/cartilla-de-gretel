@@ -6,7 +6,7 @@ Current inventory: **199 unique pronunciation keys, 161 approved recordings, 38 
 
 Active `src/content/audio-manifest.ts` policy has `allowTts: false`. No approved pilot exception was found. Device speech fallback remains disabled. Existing effects, ambient sound and silent.mp3 are not vocabulary recordings. No assets were created, renamed or removed.
 
-To supply a genuine recording, add the owner-approved audio file and an entry to `src/content/picture-name-recordings.json`: `{"key":"oso","src":"/audio/voz/vocabulario/oso.mp3","approval":"Owner approval reference"}`. The generator rejects unknown names, absent files, absent approval provenance and duplicate pronunciation entries. The runtime does not derive recording paths from filenames. The shipped list contains the 162 owner-approved Candidate B recordings (approved 2026-10-04; files merged in #503).
+To supply a genuine recording, add the owner-approved audio file and an entry to `src/content/picture-name-recordings.json`: `{"key":"oso","src":"/audio/voz/vocabulario/oso.mp3","approval":"Owner approval reference"}`. The generator rejects unknown names, absent files, absent approval provenance and duplicate pronunciation entries. The runtime does not derive recording paths from filenames. The current checked-in `src/content/picture-name-recordings.json` has **161** approved entries (owner Candidate B source; prior import #503). The earlier 162-count statement was stale. An approved manifest entry is not evidence of live audible output.
 
 The shared service prefers approved recordings. Its conditional device TTS path runs only if the active policy explicitly permits it. A missing recording under the current policy shows a gentle availability message. Names without an approved recording stay silent with the gentle availability message.
 
@@ -17,7 +17,7 @@ Gretel's character voice across all lessons and activities uses a unified provid
 ### Technical Seam (One-Config Replacement)
 - **Unified Function:** All lesson logic calls `speakAsGretel(text, handlers)` without knowing the underlying speech engine or provider.
 - **Provider Configuration:** Configured via `setGretelVoiceProviderConfig(config)`. Supports provider types `browser-tts`, `recorded-audio`, `cloud-tts`, and `custom`.
-- **Default Baseline:** Local/free Web Speech API browser TTS (`browser-tts`) with neutral LatAm Spanish voice selection and adult female fallback.
+- **Legacy abstraction:** browser TTS support exists in code, but `src/content/audio-manifest.ts` has `allowTts: false`; the current owner direction prohibits synthesized Gretel playback. Never treat the legacy code path as approved voice output.
 - **Mute & Cancellation Control:** Unified mute persistence (`cartilla.gretel.voice.muted`) and global speech cancellation token integration via `src/lib/speech-playback.ts`.
 
 ### Historical provider options — NOT current work
