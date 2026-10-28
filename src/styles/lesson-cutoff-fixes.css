@@ -410,3 +410,46 @@
     overflow: hidden;
   }
 }
+
+/* Phone repair (2026-10-28): do not hide drawing commands past a
+ * horizontal scroll edge. The earlier compact one-line strip made colors,
+ * undo, clear, and completion hard or impossible to reach on 390px phones.
+ * Retain the shared counter-zoom for true-size controls, but bound the
+ * toolbar's logical width to its parent's scaled page content and wrap.
+ * The existing fit hook uses full-page scrolling when extra rows are needed. */
+@media (max-width: 600px) {
+  .lc-lesson-shell--fit .native-lesson-viewer__content .gretel-activity:has(.am-dibuja__toolbar) .am-dibuja__toolbar {
+    width: calc(100% * var(--lc-fit, 1));
+    max-width: calc(100% * var(--lc-fit, 1));
+    min-width: 0;
+    flex-wrap: wrap;
+    overflow: visible;
+    align-content: flex-start;
+    gap: 6px;
+  }
+  .lc-lesson-shell--fit .native-lesson-viewer__content .gretel-activity:has(.am-dibuja__toolbar) .am-dibuja__swatches {
+    flex: 1 1 100%;
+    min-width: 0;
+    flex-wrap: wrap;
+    gap: 6px;
+  }
+  .lc-lesson-shell--fit .native-lesson-viewer__content .gretel-activity:has(.am-dibuja__toolbar) .am-dibuja__swatch {
+    width: 44px;
+    height: 44px;
+    min-width: 44px;
+    min-height: 44px;
+  }
+  .lc-lesson-shell--fit .native-lesson-viewer__content .gretel-activity:has(.am-dibuja__toolbar) :is(.am-dibuja__tool, .am-dibuja__done) {
+    order: 0;
+    height: auto;
+    min-height: 44px;
+    min-width: 44px;
+    padding: 6px 10px;
+    font-size: 0.85rem;
+    flex: 0 0 auto;
+    margin-left: 0;
+  }
+  .lc-lesson-shell--fit .native-lesson-viewer__content .gretel-activity:has(.am-dibuja__toolbar) .am-dibuja__done::after {
+    content: none;
+  }
+}
