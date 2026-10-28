@@ -14,16 +14,16 @@ This is a **routing index**, not a second master completion plan, dashboard or t
 
 | Order / lane | Work and required dependency |
 | --- | --- |
-| 1. Integration readiness | Recover delivered PR heads, targeted file conflicts, sequencing, formal review and exact merge prerequisites. No merge attempt as an access probe. |
+| 1. Integration readiness | Recover delivered PR heads, targeted file conflicts, sequencing, formal review and exact merge prerequisites. #1079 is conflict-free but GitHub reports blocked without eligible approving review; a direct merge attempt returned 405. No further access probes or bypass. |
 | 2. Artwork | Continue existing canonical `MASTER-MAPPING.csv`, exact latest approved authentic sources, scene isolation and served-file visual proof; #1097 before stacked #1205. |
 | 3. Audio | Continue existing #769 using original Gretel recordings, heard speech transcripts, exact phrase/page/event mapping, permitted excerpts and audible playback/cleanup; do not use rejected 67 clips or choose a provider. |
 | 4. Student | Continue existing #1206 and related learner correctness/persistence work on real production routes; preserve `DrawBoxCanvas` and `WorkbookPageRenderer`. |
 | 5. Games/Piano | Recover existing game/Chano proofs and latest accepted versions, preserve Mariposas, verify actual gameplay/microphone/acoustics and reduced motion. |
 | 6. Teacher/Flip Chart | Continue original mounted-route teacher and chart work, progress, reporting, print and classroom/device proof using non-real learners. |
 | 7. Assembled verification | **After permitted integration produces one frozen SHA**, verify all required 24 lessons and teacher/student journeys. Reuse proof for unchanged code; preserve untested Safari/physical-phone gaps. |
-| 8. Release | **After assembled verification and explicit owner deployment authorization**, present exact revision, deploy once, verify served revision/live critical flows and preserve rollback. |
+| 8. Release | Owner **explicitly requested merge and deploy on October 28**; authorization is recorded, not a deployment success. After valid review, passing build, authorized integrated SHA and assembled verification, deploy that revision once, verify served/live flows and preserve rollback; do not silently bypass protection. |
 
-Independent implementation lanes **2–6 proceed concurrently** within existing assignments; do not wait for Lane 1's GitHub approval blocker to clear before progressing them. Lane 7 requires an actually integrated frozen candidate. Lane 8 requires a verified candidate and separate explicit authorization.
+Independent implementation lanes **2–6 proceed concurrently** within existing assignments; do not wait for Lane 1's GitHub approval blocker to clear before progressing them. Lane 7 requires an actually integrated frozen candidate. Lane 8 requires a verified eligible candidate; the owner's October 28 merge/deploy authorization is already recorded, so do not ask again for the identical action.
 
 ## Decisions and holds that may not be reversed silently
 
@@ -35,6 +35,6 @@ Independent implementation lanes **2–6 proceed concurrently** within existing 
 - Routine owner acceptance is **not** eligible independent formal GitHub approval, exact-change merge authorization or deployment approval. Never self-approve or bypass protection.
 - Do not declare the product finished merely from a PR, test, static screenshot or docs policy.
 
-**Quality checks:** SonarCloud/SonarQube is **advisory and non-blocking**; actual confirmed defects remain blockers for their affected changes. Reuse valid targeted tests and source/render proof.
+**Quality checks:** SonarCloud/SonarQube is **advisory and non-blocking**; actual confirmed defects remain blockers for their affected changes. Reuse valid targeted tests and source/render proof. **Real existing release blocker:** Vercel preview from #1079 head `59c55e7` failed with one deterministic art-audit mismatch (1,902 unit tests passed, 1 failed, 2 expected failures); the corrective work is the EXISTING [#1043](https://github.com/ejnburrows-rgb/cartilla-de-gretel/issues/1043). Preserve artwork provenance and test strength; no baseline-skipping production deployment. Preview failure is not a game failure proof.
 
 **Required #877 checkpoint:** Existing lane and branch / actual change / exact SHA / tested behavior / linked proof / not yet verified / remaining blocked action / **next eligible executable task**. Then continue.
