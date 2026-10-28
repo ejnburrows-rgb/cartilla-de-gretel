@@ -1,8 +1,8 @@
 # Piano Hablador — existing implementation and held placement decision
 
-**Status:** Existing Piano work continues for microphone/acoustic correctness; exact lesson insertion remains an explicit curriculum-placement hold.  
+**Status:** Existing Piano work continues for microphone/acoustic correctness; exact lesson insertion remains an explicit curriculum-placement hold.
 **Historical October 14 discussion order:** Do not let a past discussion request pause existing Piano's permission, acoustic, pitch/recognition and cleanup verification. Exact unapproved insertion into specific printed lessons is still held; complete other authorized work.
-**Decided:** 2026-10-14 by the owner (EJN)  
+**Decided:** 2026-10-14 by the owner (EJN)
 **Owner will update:** which lessons, where in the lesson, and any other activities.
 
 ## Decision
