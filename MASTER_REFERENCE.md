@@ -34,7 +34,7 @@ Chain: owner → ChatGPT/Codex controller → existing assigned workers and inde
 - Universal: one owner per task/file surface; recover existing work before rebuilding; report blockers to the ChatGPT/Codex controller. Preserve existing work, exact-change approvals and release gates.
 
 ## 3. DECISIONS ALREADY MADE (never ask again)
-GAMES: 4 only — Cow, Rima, Palabras por minuto, Chano. Mariposas OUT. Chano ruled
+GAMES: Cow, Rima, Palabras por minuto, Chano, and owner-restored Mariposas (October 28). The existing Butterfly Garden source project is already imported intact on PR #1079 (33 image hashes verified), with the related scene candidate in PR #1010. Do not silently merge overlapping implementations; preserve both for reconciled review. Chano ruled
 DONE by the owner today (the finished "Chano's Word Circus").
 AUDIO: device TTS OFF; silence where no recording exists; rec_gretel_* recordings
 NEVER used; Gretel_558674_Original.m4a only with verified transcript match; lesson
@@ -49,7 +49,7 @@ DEPLOY: auto-deploy OFF; every deploy needs the owner's own "deploy it";
 vercel.json lock (git.deploymentEnabled:false) is never touched.
 MERGE: only finished + tested work, with screenshot proof (video if it moves);
 reports carry WORKS / DOES NOT WORK / NOT VERIFIED in that order; merges never deploy.
-CLOSED / PRESERVED (verified GitHub 2026-10-28): #1010 Mariposas scene (owner-rejected game); #1198 mobile page-number diamond change (owner-declined design); #1210 Lesson 3 'ojos' wording change (conflicts with the approved singular 'ojo'). All three PRs were closed without merge; original branches, commits and review history remain evidence, not tasks to revive. No source-content change, merge or deployment authorized by this record.
+GITHUB STATUS (verified 2026-10-28): #1079 Butterfly Garden import from ejnburrows-rgb/butterfly-garden-adventure-51 OPEN and UNMERGED; #1010 Mariposas scene OPEN and UNMERGED; #1208 removal candidate CLOSED and UNMERGED as contradicted by the owner's latest decision. #1198 page-number design and #1210 alternative eye wording are OPEN but not newly approved for merging. Preserve every original branch, commit and discussion. Integrate the winning implementation only after independent review and explicit merge authorization; no deployment.
 
 ## 4. HOW EMILIO IS TALKED TO
 - Proof or it didn't happen: a real picture attached to every claim, a video for
