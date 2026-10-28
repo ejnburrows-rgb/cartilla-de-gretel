@@ -1,5 +1,7 @@
 # Permanent Project Integrity Workflow
 
+> **CURRENT CONTINUATION PRECEDENCE — October 28, 2026:** The top of [AGENTS.md](AGENTS.md) and live [#877](https://github.com/ejnburrows-rgb/cartilla-de-gretel/issues/877) control execution. Continue eligible existing work in the same run when another item is blocked; old 15-lane refill, outdated owner-wait prompts, audio-as-moot, and Mariposas-removal instructions are historical, not active. Respect real independent review, exact merge authorization, original-source fidelity, destructive/security/cost holds, and explicit deployment permission. No new jobs or controller.
+
 > **LATEST OWNER EXECUTION / PROVISIONAL APPROVAL — October 28, 2026.** Owner: “Go ahead and approve everything for now until you finish. Then anything that I want to change, I will change.” Treat remaining routine visual and implementation decisions within the existing Cartilla completion scope as provisionally approved, including the shown Lesson 3 direction (card E); A–D are already accepted. Continue material work without returning routine approval cards or making the owner repeatedly say continue. Keep versioned proof and present the assembled result for later changes. Preserve explicit rejections, authentic workbook/art/voice decisions, existing assignments and destructive/security/cost holds; this does not authorize new services or reviewer access, bypass protected-main review, or authorize production deployment. Merge/release authorization remains separately scoped.
 
 
@@ -55,9 +57,11 @@ When an approved source changes:
 
 If animations cannot be corrected immediately, preserve the correct static illustration rather than display outdated moving artwork.
 
-### Phase 4 — Agent dispatch
+### Phase 4 — Existing agent work and historical dispatch criteria
 
-Before assigning work, the controller must confirm:
+**Current continuation does not authorize new assignments.** The following criteria apply only if a later explicit owner directive authorizes dispatch; first resume existing work. A held task never halts disjoint existing tasks.
+
+Before any separately authorized future assignment, the controller must confirm:
 
 - The issue remains unresolved.
 - No active worker already owns it.
