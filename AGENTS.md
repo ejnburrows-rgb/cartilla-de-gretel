@@ -92,15 +92,9 @@ The **current source-evidenced artwork reconciliation** is in [PR #751](https://
 
 **Visual identity override:** `DRAW-WB-10-1` depicts **avión (airplane)** despite five legacy `PEZ` IDs/filenames. Real source image and proposed match were directly inspected; never rename it *pez* based on filename, nor alter legacy placement IDs. Optimize/restore only source-faithful originals, preserve all approved assets, and remove no evidence or app dependency without a specific negative reference/dependency check. Older summaries or locally generated copies cannot supersede the cited live GitHub evidence.
 
-## HISTORICAL OCTOBER 13 CAPACITY AUTHORIZATION — NOT A CURRENT DISPATCH ORDER
+## Controller continuity
 
-Historical (October 13): ChatGPT/Codex was designated controller; this historical paragraph is superseded for dispatch by the October 28 continuation rule. Previously: inspect actual session capacity, existing PR/issue ownership, current main and finish gaps at every scheduled checkpoint; recover approved lanes, proactively dispatch distinct evidence-backed work toward 15 confirmed active Jules tasks, independently review and integrate eligible changes, and request owner input only for defined owner-gated decisions. Scheduling must be proven by real execution logs.
-
-Historical October 13 dispatch permission (not operative now) superseded prior new-task per-issue approval and ban on targeting 15 **within already approved Cartilla scope**. The ChatGPT/Codex controller may dispatch nonoverlapping, specific, verified tasks; the owner-only product/design/security/spending/release gates in the current documents remain binding.
-
-The previous ChatGPT Cartilla GitHub Controller was verified disabled on 2026-10-13; keep it disabled to avoid a second dispatcher. Muse is supporting historical evidence, not a current dispatcher. Do not assume any scheduler or worker ran without a live receipt.
-
-ChatGPT/Codex coordinates and dispatches existing work, reviews evidence and integrates only with required approvals; Jules implements and runs applicable tests. Muse supplies supporting records. No competing worker infrastructure is authorized.
+ChatGPT/Codex remains the sole owner-facing coordinator; Muse provides historical evidence only. Previously disabled controllers or schedulers must stay disabled. No running worker, provider capacity or background schedule may be inferred without a live receipt. See current #877 for exact assignments, heads and proof.
 
 ---
 
@@ -116,33 +110,9 @@ ChatGPT/Codex coordinates and dispatches existing work, reviews evidence and int
 - This repository rule **does not itself technically disable the laptop launcher**; verify the laptop execution path separately before claiming a technical block.
 
 
-## HISTORICAL OCTOBER 13 DISPATCH RULE — CURRENT CONTINUATION RULE ABOVE WINS
+## Existing-assignment gate — never a project-wide pause
 
-**Historical capacity direction only.** Current continuation uses existing assignments without new dispatch, per the October 28 top-of-file directive. All source/visual fidelity and safety restrictions below remain in force.
-
-1. **HISTORICAL OCTOBER 13 DISPATCH PERMISSION — NOT OPERATIVE TODAY.** Emilio confirms he has Pro access to 15 Jules lanes and explicitly authorizes ChatGPT/Codex, the designated primary controller and GitHub dispatcher, to seek up to **15 provider-confirmed productive sessions** with real unfinished Cartilla implementation, reproducible debugging, focused regression QA, responsive/accessibility polish, source-faithful UI work, and measured risk-reducing cleanup. The ChatGPT/Codex controller may start a NEW bounded task or apply the `jules` dispatch label without a second issue-by-issue permission request **only when** current main/source/finish-contract evidence proves a real gap; the task is not already fixed, assigned or duplicated; it has distinct file ownership, acceptance proof and cleared dependencies; and it remains inside already approved product, visual and infrastructure scope. Recover existing stalled/failed approved lanes first. The 15-lane goal is utilization, not proof of available provider quota or permission to invent filler. **Separate owner approval remains mandatory** for owner-gated art/voice selections, new or changed owner-locked visuals, held tasks, live student-data/Supabase changes, security/retention policy, spending, external account access, destructive/irreversible actions, new infrastructure and final production release. Removing a label does not confirm provider cancellation.
-2. **Only the LATEST expressly approved visuals and mechanics may be worked on or shown.** Compare the newest owner's instructions with current `main`, the original physical book and the canonical `WORKBOOK_ARCHETYPE_STANDARD.md` and `STUDENT_INTERACTION_STANDARD.md`. Stale branches, mockups, dev-only shapes, prior screenshots, old PRs and previous memories cannot override current approval. Never implement, display as current, dispatch or revive superseded/rejected visuals. Read historical files privately only to diagnose a current fault.
-3. **NO ROPE/LASSO — final explicit owner rejection (2026-10-11).** Use the approved source-faithful wooden pencil/green-or-red marks/physical pink eraser and correct line-matching mechanics. PR #692 removed the obsolete `LassoConnect.tsx` and rope CSS; PR #694 preserves legacy completed syllable selections under the new pencil circle. These are merged; DO NOT restore a rope, lasso, reel, arcade, fake red-X or unapproved alternative. Current components: `PencilConnector.tsx`, `WorkbookPencilMark.tsx`, `SyllableWordCircle.tsx`; these still require real screen validation.
-4. **No stale or fake approval evidence.** A merge, code review, unit test, Jules receipt or local dev fake does NOT prove visual approval. Fresh proof must depict the REAL source-faithful Student Workbook or Teacher/Flip Chart page at the exact verified commit/deployment, with the latest approved pencil/eraser, on the stated viewport/device; screenshots from `/dev-*`, old Vercel previews or synthetic demos are prohibited as owner approval evidence. Missing actual proof means **NOT APPROVAL-READY**; no historical substitution or unapproved release.
-5. **Historical precedence (superseded for dispatch):** the owner's October 13 permission to refill useful Jules capacity supersedes older 'never target 15', 'no automatic refill', and blanket new-task per-issue approval instructions. The latest source-faithful product designs, owner-only approval/release gates, credit/Antigravity prohibition and evidence standards remain fully binding. ChatGPT/Codex is the single primary dispatch controller; do not restore obsolete ChatGPT dispatch schedules, a rival controller, retired Windows/Neon/OpenHands infrastructure or paid systems.
-
-
-You are EJN's development team. EJN is the owner and the client, not the
-project manager — work out what needs doing and do it.
-
-## STOP — MANDATORY EVIDENCE-FIRST DISPATCH GATE (EVERY AGENT, EVERY SESSION)
-
-**This applies to EVERY coding agent, Jules worker, controller, supervisor, reviewer, and AI assistant reading or operating on this repository. Re-read this section from CURRENT `main` before creating an issue, task, prompt, session, test assignment or PR, and before reassigning any work. Do not rely on another agent remembering it.**
-
-**Historical 15-session limit is not a current task-dispatch or refill requirement.** Do not invent defects, generic cleanup/optimization/QA, made-up acceptance criteria, speculative tasks, or unnecessary research. **Prove there is valuable unfinished work BEFORE dispatching it.** In one focused existing-work check:
-
-1. **Compare against the actual finish requirements and current code.** Identify an observable user-facing defect, reproducible regression, real security/accessibility/performance problem, or explicit unfulfilled requirement, with exact file/source evidence and meaningful expected result.
-2. **Check existing ownership and proof FIRST:** current `main`, recent merged PRs, open issues/PR heads and diffs, Jules session/task receipts and review state, existing passing tests/screenshots, dependencies, owner decisions and exclusive file ownership. If already fixed, verified, assigned, under review, owner-gated or superseded, **DO NOT dispatch again**. A stale issue title is not evidence of unfinished work.
-3. **Prefer advancing the existing lane:** review real changed files, validate targeted results, request the *specific missing correction on the same issue/PR/session*, or integrate independently verified work when allowed. A new task requires a proven separate gap that cannot be completed in a currently owned lane, with a nonoverlapping file scope and concrete acceptance test.
-4. **New dispatch is not authorized for the current October 28 continuation.** If separately authorized in future, use the established GitHub trigger once; confirm the provider's bot task receipt, and later actual material code/tests/browser proof. A label, acknowledgement, new issue, prompt, completed-but-empty PR or activity report alone **does not count as accomplishment**.
-5. **Do not refill idle Jules capacity under current instructions.** If fewer than 15 such assignments exist, leave the remainder empty and report the exact reason, not a fabricated occupancy count. Never schedule duplicate, speculative, owner-held or dependency-blocked work.
-
-**Required pre-dispatch decision:** `REAL GAP + CURRENT EVIDENCE + NOT ALREADY OWNED/DONE + DISTINCT VALUE + CLEAR SCOPE + ACCEPTANCE PROOF + WITHIN OWNER AUTHORIZATION`; if any term is missing, do not issue a prompt or create/label a task. Historical category authorization is not an active new-dispatch gate; owner-only product, security, cost and release approvals remain binding.
+Recover the original worker/branch/PR and still-valid evidence before editing. No duplicate task/worker/audit/branch; old 15-Jules refill permission does not authorize new dispatch in this continuation. Continue all safe disjoint work immediately; hold only conflicting files or decisions. Respect latest source-approved visuals, no rope/lasso, approved wooden pencil/pink eraser, genuine current page proof, and settled A–E approvals. PR/issue status, a bot review or a fabricated screenshot is never proof.
 
 ### Ownership uncertainty is FILE-LOCAL, not a blanket execution stop — owner correction 2026-10-13
 
@@ -213,54 +183,25 @@ Anything under `docs/archive/` is historical reference only and must not overrid
 - **Verification-only Jules session** — counts as an implementation worker lane while actively running.
 - **One session = one bounded deliverable.** This is per-session scope, not a global concurrency limit.
 
-### Worker concurrency
+### Current worker utilization
 
-- **Historical 15-lane capacity goal is not an active refill mandate.** Owner confirms Pro/15-lane access; still verify live provider quota and count. Do not refill capacity in this continuation. Never invent work, bypass owner-only gates, upgrade plans or spend credits.
-- **Do not automatically refill idle slots during the current continuation; historical instruction was to refill from distinct eligible work** after inspecting actual Jules sessions, exact PRs/issues, dependencies and source evidence; resume existing valid sessions first. Future new-task decisions require separate applicable authorization; this continuation is for existing work only.
-- **Maximum concurrent independent read-only specialist investigations: 3.**
-- Controller, supervisor, and watchdog activity does not consume implementation-worker capacity.
-- Dependency chains and overlapping file ownership remain sequential even when Jules capacity exists.
-- A blocked, completed, owner-gated or dependency-waiting lane must not count as active Jules utilization. Reconcile provider state when authorized; continue existing nonoverlapping work without refilling slots. Do not dispatch against a held issue.
-- Historical 15-session target is superseded for dispatch; do not manufacture tasks. Only source-backed independent work qualifies.
-- Other active documents may describe current allocation or sequencing, but they must not define a competing numeric concurrency rule.
-
-
-### Historical Jules capacity/refill context — superseded October 28
-
-Historical October 13 record: the owner then restored refill toward 15; **current October 28 continuation permits existing assigned work only**. Superseded 2026-10-11 ban and blanket issue-by-issue new-task gate are no longer operative within authorized Cartilla implementation, bugfix, focused QA, accessibility and verified polish scope.
-
-Historical provider-account procedures (apply only when provider activity is relevant, never as a mandatory prerequisite to every existing-file fix):
-
-1. **Count actual provider states** from the authorized Jules account's real session/task listing, cross-checked with GitHub issues, receipts, branches, PRs and exact heads. A `jules` label, bot acknowledgement, open PR, old branch or numeric target is NOT evidence of a running worker.
-2. **Report any verified capacity truthfully, but do not dispatch into openings**; never infer available quota from a plan label, a scheduled observer or a GitHub `jules` label.
-3. **Recover stalled or failed work only on its EXISTING owner-approved lane/issue.** Do not open a competing session.
-4. **No new Jules task may be dispatched in the current continuation.** Only under a separate future authorization might a new task be created if the existing finish contract/current main proves a distinct unfinished requirement, no other lane owns it, it stays within the owner-authorized scope, and there is confirmed provider capacity. Document the exact source evidence, file boundaries and acceptance. Do not dispatch owner-gated/held work without specific owner permission.
-
-**Safety and finish boundary:** target utilization never bypasses owner-gated approvals, final-art/voice restrictions, merge/release verification, Jules-only normal tests, cost controls or the no-duplicate-work contract. Do not start purposeless audits, reopen verified merged work or delete historical branches to make a count look better.
+Keep specialist ownership and work on independent existing assignments in parallel when actual workers are available; do not create replacement sessions or refill capacity. A stale session, label or open PR does not prove a running worker. Hold only affected files when owners overlap; do not hold an entire workstream. Historical 15-lane targets, new-dispatch criteria, supervisor/watchdog terms and pre-dispatch quotas are superseded. No new paid provider, security-sensitive action or destructive change without required authorization.
 
 ### Continuous development, testing and visual polishing — JULES-FIRST, ZERO DUPLICATE WORK
 
 Every controller, supervisor, watchdog, dispatcher, reviewer and worker must **consider three streams** while planning, assigning and handing off material work: (1) implementation/repair; (2) focused tests of available implementation; (3) actual rendered UI proof and visual polishing when relevant. **Consider does not mean redo.** Check existing issue/PR evidence and its exact code revision FIRST; reuse completed, still-valid test results, screenshots, reviews and fixes without rerunning or redispatching them.
 
-**Jules is the default hands-on test/verification and UI-browser-check executor.** Jules tests its own changes; separate verified, nonoverlapping QA/device proof or polishing slices may run concurrently when independently useful and within the 2026-10-13 owner authorization. Other agents may inspect GitHub evidence, triage, coordinate and review but must not needlessly duplicate test runs. Avoid rerunning unchanged full audits. An unusually long distinct agentic test may use another authorized worker only when justified, approved and not duplicative.
+**Existing Jules specialists normally test their own changes.** Reuse still-valid recordings/tests; do not start new verification workers under the current continuation. Other agents may inspect GitHub evidence, triage, coordinate and review but must not needlessly duplicate test runs. Avoid rerunning unchanged full audits. An unusually long distinct agentic test may use another authorized worker only when justified, approved and not duplicative.
 
 **Act without delay, never repeat:** compare existing proof to its relevant code/fixtures/test/config/browser inputs, not blindly to the global main SHA. Unrelated docs-only commits or unrelated changes do NOT invalidate still-applicable focused evidence. If an affected behavior changed, a real failure emerged, or a distinct final release check is required, give only that missing test or UI-proof slice to Jules on its EXISTING lane with exact source commit, missing coverage, and a clear expected result. If existing valid focused test/screenshots cover it, record `DONE — REUSE PROOF` and move on; no duplicate session. A PR with zero material file changes or only a Jules 'done' claim is NOT implementation completion: reconcile the already-existing owner/work branch and demand actual diff or an explicit verified no-change finding.
 
-**Compact handoff for every material assignment:** state what is being built; what **already passed** with exact source/revision; what additional Jules test or UI polish (if any) remains; Jules task/owner and next action. Write `DONE — REUSE PROOF` or `NOT APPLICABLE` instead of scheduling redundant work. No three-agent mandate, no additional reviewer/test gate beyond the required evidence-first dispatch decision, no obsolete two-worker cap, no duplicated Jira/GitHub tasks, no mandatory full-suite run on every worker, no waiting for optional reviewers or tools.
+**Compact handoff for every material assignment:** state what is being built; what **already passed** with exact source/revision; what additional Jules test or UI polish (if any) remains; Jules task/owner and next action. Write `DONE — REUSE PROOF` or `NOT APPLICABLE` instead of scheduling redundant work. No three-agent mandate and no optional extra reviewer/test gate (formal GitHub branch-protection approval still applies), no obsolete two-worker cap, no duplicated Jira/GitHub tasks, no mandatory full-suite run on every worker, no waiting for optional reviewers or tools.
 
 **Fail fast without blocking:** if a non-Jules executor encounters repeated memory/time/browser failures, stop futile retries and give Jules the surviving work and concise reproduction/evidence. If Jules is unavailable, rate-limited or has a failed run, leave exactly one pending check on its existing lane, keep unrelated implementation/coordination moving, and do not present unverified work as tested or merge/release work whose required evidence is missing. Diagnose once and correct the existing task; do not create an endless redispatch loop. Only exceptionally long, specifically justified agentic tests may use another authorized test worker.
 
-### Early, nonduplicative QA and proactive refill — owner-authorized 2026-10-13
+### Non-stop continuation and verification
 
-**Historical concurrency target, not a current instruction to dispatch.** Do not manufacture activity. At session start, worker checkpoint, completion/failure, merge or dependency-unblock event, refresh current `main`, issues/PRs and actual provider sessions; recover original lane first, then dispatch available independent eligible work. Labels, acknowledged tasks, old branches or open PRs do not prove active utilization.
-
-At each refresh consider (1) implementation/repair; (2) focused code inspection and regression QA; (3) rendered UI/device proof, accessibility, and visual polish. Reuse valid completed proof FIRST. Historical policy (superseded for this continuation): controller could start a new independent task within the 2026-10-13 scope after documenting its distinct evidence and ownership; otherwise request specific owner approval. Do not duplicate existing lanes or weaken product tests.
-
-**Early handoff, not final-day QA:** as soon as Jules has a material, targeted-checked implementation checkpoint, publish its actual diff/PR and assess independent QA, code-quality, accessibility and rendered-proof slices. Existing owner work receives corrections on the same lane; independently proven disjoint tasks may be assigned concurrently under the 2026-10-13 authorization. True dependency chains remain sequential.
-
-**Empty slots do not authorize new tasks during this continuation.** If fewer than 15 qualified scopes exist, report the actual shortfall and owner/dependency reasons. Count only provider-confirmed running sessions and material progress.
-
-**Historical-branch safety:** every worker resuming a non-`main` branch must fetch **CURRENT `main` versions** of `AGENTS.md`, `PROJECT_FINISH_DEFINITION.md`, `PROJECT_SOURCE_OF_TRUTH.md`, and `tasks/plan.md` before work or merge. Old snapshots, issue bodies, controller branches, and saved memory never reinstate a SonarCloud-required merge gate, retired Neon/OpenHands dispatch architecture, obsolete two-worker caps, duplicate testing, or owner-blocked work. Preserve old branches as history; do not mass-merge/rebase them merely to modernize prompts.
+After a scoped change, run the affected checks, commit/push the result to its existing branch and update existing #877 with exact proof. Then immediately execute another eligible already-owned item in the same session. On one lane's failed tool, missing audio/art or reviewer gate, hold that action and continue independent work. Do not create new sessions, repeat valid evidence, rerun broad audits or stop for routine approvals. If the actual session ends, record the exact next command, commit, unverified paths and blocker; never promise unverified background execution.
 
 ### Precedence: two different questions
 
@@ -372,7 +313,7 @@ Jules is an approved primary implementation worker for Cartilla because the owne
 
 Jules is a worker, not the project controller. The controller owns scope selection, dependency ordering, review, release verification, merges, and recovery.
 
-#### How to assign Jules
+#### Continue existing Jules assignments
 
 - Prefer Jules for concrete implementation, bug fixes, focused refactors, targeted tests, and narrow UI work that can run independently in its own environment.
 - Run multiple Jules sessions in parallel when their file ownership and dependencies are genuinely isolated.
@@ -381,7 +322,7 @@ Jules is a worker, not the project controller. The controller owns scope selecti
 - **Supervisor export checkpoint:** Jules supports exporting work to GitHub before a task finishes. When a substantial Jules session has produced its first material, targeted-checked change and no remote branch/PR exists yet, the controller/supervisor must use Jules' **Export at any time** GitHub control to publish that checkpoint immediately. Do not depend on end-of-session export for substantial work.
 - Reuse the existing issue/branch/PR when one already exists. Do not create duplicate competing work.
 - Give each session explicit owned files/behavior and explicit forbidden scope.
-- Start from CURRENT `main` and current repo instructions. Older task snapshots, prior bot comments, and archived docs never override current truth.
+- Read CURRENT `main` code, **latest owner instruction in #877**, and the current proposed instruction fixes in existing PR #1212 while that documentation PR is unmerged. Do not treat old `main` guidance or archived directives as an overriding policy. Older task snapshots and prior bot comments do not override current truth.
 - For Student Workbook visual work, Jules must preserve the owner-approved clean digital-canvas distinction: dense learner exercises do not use full scenic wallpaper; existing scenic assets remain preserved on disk but are **not** default teacher Flip Chart backgrounds; the Flip Chart uses clean paper while retaining source instructional foreground scenes. Do not delete/regenerate assets or alter the Flip Chart as part of a Workbook UI task.
 - For Student Workbook visual realignment, Jules must read and obey `WORKBOOK_ARCHETYPE_STANDARD.md`. The owner has approved the eight recurring archetype designs as the visual system; the old Page-1-only golden gate is superseded. Page 1 remains the representative source for archetype 1, not a global blocker. Reuse one canonical implementation per archetype, preserve each exact physical source page, keep pages 86–87 source-blocked, and do not absorb #497 living-motion debugging or the closed historical #454 color-remediation work or the owner-gated final-art #588 lane into archetype work.
 
@@ -435,7 +376,7 @@ Jules is **not required to consume its session running the entire project releas
 - merge readiness and merge;
 - dependency activation and release.
 
-The controller assigns missing final or cross-lane verification to Jules as a dedicated bounded task, reuses all still-valid evidence, and does not mechanically append the full release suite to every coding session. A genuinely unusually long agentic test may be assigned to a suitable isolated runner only if Jules is impractical for that specific test.
+The controller recovers the existing final-verification assignment when its authorized integration prerequisite is met, reuses still-valid evidence, and does not mechanically append the full release suite to every coding session. A genuinely unusually long agentic test may be assigned to a suitable isolated runner only if Jules is impractical for that specific test.
 
 #### Failure handling
 
@@ -626,7 +567,7 @@ READY TO PUSH:
 Yes or No.
 ```
 
-For ad-hoc work without prior merge authorization, stop and wait. Merges to main need the owner's own explicit yes on his own channel; agents never merge on their own.
+For an ad-hoc **merge** without explicit authorization, hold the merge only, continue unrelated eligible work, and obtain the owner's own exact-change authorization plus any eligible formal GitHub review. Do not bypass branch protection.
 
 ### Meaning of "Push it"
 When EJN says **"Push it"**, put the completed, tested work into `main`, confirm it is there, let the finished branch be removed when safe, and report back. EJN should never have to merge, rebase, cherry-pick, resolve conflicts, or supervise GitHub.
@@ -639,7 +580,7 @@ Do not enable automatic merging. Do not depend on GitHub Actions or paid GitHub 
 
 If something goes wrong after "Push it", diagnose the cause, repair it if clearly within the approved task, verify the repair, and show the result without making EJN perform Git operations.
 
-Normal ad-hoc workflow: EJN asks → agent builds safely → agent tests → agent shows proof → EJN says "Push it" → agent puts finished work in `main` → agent confirms it.
+Normal ad-hoc workflow: EJN asks → agent builds safely on existing branch → agent tests and shows proof → authorized exact change meets formal GitHub review/protection → EJN authorizes merge → agent integrates → separately authorized deployment and live verification.
 
 Merges to main need the owner's own explicit yes on his own channel; agents never merge on their own.
 
