@@ -132,7 +132,6 @@ export const DIBUJOS_O: GameContent = {
 };
 
 export const CORE_THEMED_GAMES: GameContent[] = [
-  MARIPOSAS_P,
   VOCAL_A,
   FONETICA_P,
   RIMA_P,
