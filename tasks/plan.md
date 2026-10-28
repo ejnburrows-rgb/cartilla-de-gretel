@@ -1,74 +1,38 @@
-# End-to-End Delivery Plan — Cartilla de Gretel (Workbook Proof)
+# Cartilla — execution order (current continuation)
 
-> **CURRENT EXECUTION PRECEDENCE — October 28, 2026:** [AGENTS.md](../AGENTS.md) (or root AGENTS.md for root documents) and live [#877](https://github.com/ejnburrows-rgb/cartilla-de-gretel/issues/877) govern continuation. After a blocked task, continue the next eligible existing assignment in the same run. Historical 15-lane refill, routine owner waits, audio-"moot" statements and Mariposas removal do not govern. No new dispatch/duplicate job, no unauthorized merge, deletion, spending, permission change or deployment.
+This is a **routing index**, not a second master completion plan, dashboard or task list. The actual remaining work, owners, existing branches, exact commits, approvals and evidence are maintained in [GitHub issue #877](https://github.com/ejnburrows-rgb/cartilla-de-gretel/issues/877). The finished-product requirements are in [PROJECT_FINISH_DEFINITION.md](../PROJECT_FINISH_DEFINITION.md). Current global safety/continuation rules are in [AGENTS.md](../AGENTS.md).
 
-> **LATEST OWNER EXECUTION / PROVISIONAL APPROVAL — October 28, 2026.** Owner: “Go ahead and approve everything for now until you finish. Then anything that I want to change, I will change.” Treat remaining routine visual and implementation decisions within the existing Cartilla completion scope as provisionally approved, including the shown Lesson 3 direction (card E); A–D are already accepted. Continue material work without returning routine approval cards or making the owner repeatedly say continue. Keep versioned proof and present the assembled result for later changes. Preserve explicit rejections, authentic workbook/art/voice decisions, existing assignments and destructive/security/cost holds; this does not authorize new services or reviewer access, bypass protected-main review, or authorize production deployment. Merge/release authorization remains separately scoped.
+## Continue existing work, do not stop at each task
 
+1. Recover the exact current assignment/branch, evidence and ownership; do not start a duplicate audit, branch, job, dispatcher or service.
+2. Pick the highest-priority **eligible** unfinished step in the existing #877 lanes and make actual changes where needed. Routine in-scope visual/implementation decisions A–E are accepted; do not ask again.
+3. Test only affected behavior, reuse still-valid proof, save the actual change on the existing branch and document its exact commit and limitations in #877.
+4. If a task hits an ownership conflict, absent authentic source, access problem, GitHub review gate or other hold, **stop only that task** and immediately continue the next independent eligible task in the **same available session**.
+5. If actual execution capacity/session limits end the run, preserve an exact resumable checkpoint in #877. Do not imply that this Markdown started a worker or background process.
 
-> **OWNER OVERRIDE — October 28, 2026: controller ownership.** ChatGPT/Codex in the owner's current Cartilla conversation is the primary controller and single owner-facing entry point. Muse is a supporting source of history and records, not an independent controller or dispatcher. This supersedes all older Muse-only, Muse/Instinct dual-controller, and owner-carried prompt-routing instructions, including the October 13 controller allocation.
->
-> Continue actual unfinished work from the October 28 Master Completion Plan and live #877, preserving existing worker/branch ownership, tests and decisions. Advance the next eligible existing task after an item completes or becomes blocked; do not wait for routine owner confirmation, repeat audits or open duplicate jobs. Independent formal review and specific merge authorization are prerequisites for integrating affected changes, **not a blanket freeze on unrelated implementation**. Codex retains artwork ownership; Jules and specialists retain existing scopes. No new dispatches, controllers, infrastructure, services or automatic schedules.
->
-> The controller performs technical coordination through available tools. Report concise proof of actual changes and exact blocked actions in existing #877, then continue another eligible existing task during the same available session. An unavailable reviewer, recording, source file or tool does **not** end unrelated work. Never claim unverified worker activity or background execution. Preserve authentic book/art/voice, settled owner A–E decisions, formal independent GitHub review, branch protection, privacy/security/cost and destructive holds. Each merge requires its applicable exact-change authorization; deployment requires separate explicit authorization. No self-approval or protection bypass.
+## Eight existing completion lanes
 
+| Order / lane | Work and required dependency |
+| --- | --- |
+| 1. Integration readiness | Recover delivered PR heads, targeted file conflicts, sequencing, formal review and exact merge prerequisites. No merge attempt as an access probe. |
+| 2. Artwork | Continue existing canonical `MASTER-MAPPING.csv`, exact latest approved authentic sources, scene isolation and served-file visual proof; #1097 before stacked #1205. |
+| 3. Audio | Continue existing #769 using original Gretel recordings, heard speech transcripts, exact phrase/page/event mapping, permitted excerpts and audible playback/cleanup; do not use rejected 67 clips or choose a provider. |
+| 4. Student | Continue existing #1206 and related learner correctness/persistence work on real production routes; preserve `DrawBoxCanvas` and `WorkbookPageRenderer`. |
+| 5. Games/Piano | Recover existing game/Chano proofs and latest accepted versions, preserve Mariposas, verify actual gameplay/microphone/acoustics and reduced motion. |
+| 6. Teacher/Flip Chart | Continue original mounted-route teacher and chart work, progress, reporting, print and classroom/device proof using non-real learners. |
+| 7. Assembled verification | **After permitted integration produces one frozen SHA**, verify all required 24 lessons and teacher/student journeys. Reuse proof for unchanged code; preserve untested Safari/physical-phone gaps. |
+| 8. Release | **After assembled verification and explicit owner deployment authorization**, present exact revision, deploy once, verify served revision/live critical flows and preserve rollback. |
 
-> **MANDATORY OWNER DIRECTIVES (2026-10-22, every agent / Muse / Instinct / Jules):** Read [PERMANENT_PROJECT_INTEGRITY_WORKFLOW.md](../PERMANENT_PROJECT_INTEGRITY_WORKFLOW.md) and [ARTWORK_REPORT_VERIFICATION_AND_SINGLE_SOURCE_CLEANUP.md](../ARTWORK_REPORT_VERIFICATION_AND_SINGLE_SOURCE_CLEANUP.md) before investigating, changing, certifying or dispatching artwork work. Only the latest authentic owner-approved updated art may be used; delete proven obsolete wrong crops from current production after switching and verifying all references. Do not create competing inventories, silently relax tests, or report file presence as correct rendered art. Existing owner-only merge/deploy gates remain in force. These Markdown directives define the obligation; actual implementation and tests are required before claiming enforcement.
+Independent implementation lanes **2–6 proceed concurrently** within existing assignments; do not wait for Lane 1's GitHub approval blocker to clear before progressing them. Lane 7 requires an actually integrated frozen candidate. Lane 8 requires a verified candidate and separate explicit authorization.
 
-**Date Updated:** 2026-10-16
+## Decisions and holds that may not be reversed silently
 
-This plan defines the sequence of work required to satisfy `PROJECT_FINISH_DEFINITION.md` specifically for the interactive Student Workbook and Teacher Flip Chart proof.
+- Mariposas **is included**. Reconcile already existing #1079 and #1010; #1208 removal is rejected and closed.
+- Preserve singular `ojo` and `ojo.png`; do not adopt held #1210 without a later explicit owner decision.
+- #1211 destructive component deletions stay held; #1178 stays draft until its trace/toolbar hold is reconciled.
+- Source Workbook printed pages **86–87 are absent**. Lesson 23 ends at 85; Lesson 24 uses pages 88–90. Do not invent the missing pages.
+- Maintain final authentic artwork, original recorded voice, privacy/security and spending restrictions. No new paid providers or unapproved real student data.
+- Routine owner acceptance is **not** eligible independent formal GitHub approval, exact-change merge authorization or deployment approval. Never self-approve or bypass protection.
+- Do not declare the product finished merely from a PR, test, static screenshot or docs policy.
 
-## Core Rules
-
-1. **Follow the current `AGENTS.md` continuation rule and #877:** Continue existing assignments without new dispatch or routine approval pauses. A held lane does not halt another eligible existing lane. Historical 15-lane capacity authorization is not a new-job instruction; all formal merge, release, cost and security gates remain.
-2. **Never duplicate work.** Inspect actual GitHub branches, existing PRs, and live provider sessions. If another agent is assigned a task, do not dispatch a duplicate to another worker. Reuse proof (Vitest/Playwright/types) when valid. A test run is needed only for *new* changes or *missing* final release bounds.
-3. **Show exact visual evidence.** The owner demands source-faithful render proof in chat (screenshot/video/direct reproduction URL) when artwork or layout is changed. GitHub PR diffs or `playwright.config.ts` console output are not acceptance proof for visual tasks.
-4. **Follow `PROJECT_SOURCE_OF_TRUTH.md`.** Do not reconstruct source-blocked pages. Do not hallucinate missing book content.
-5. **No active Supabase connection yet.** Do not expand real user data until authorized (post-pilot).
-6. **Sonar is advisory and non-blocking.** Do not block execution on warnings. True regressions block; theoretical quality gate drops do not.
-
-## Consolidated Execution Checkpoint
-
-**Evidence already obtained — DO NOT REDO:**
-- Four completed broad artwork audits. PR #751 provides the canonical 201 drawing groups/330 placements reconciliation (draft evidence only).
-- Merged #733 Piano Hablador designs/logic, #743 Workbook physical page turn, #744 printed 60-sheet Flip Chart top-bound page turn, #726 approved pencil/eraser.
-- Verification PRs merged: #641 (full assembled Workbook regression, closed #450), #642 (keyboard/pointer access, closed #457), #643 (living motion bounds, closed #560), #646/648 (artwork intake tooling, closed #579), #636 (Gretel voice abstract, closed #570).
-- #713 authorization-gate reconciliations into `WORKBOOK_ARCHETYPE_STANDARD.md` and `STUDENT_INTERACTION_STANDARD.md` already merged.
-
-**Remaining integration (not yet independently proven complete):**
-- PR #739 (one-native-page whole Workbook plus student resume/handwriting).
-- PR #735 (motion of 8 Workbook images).
-- PR #737 (5 Flip Chart images).
-- PR #769 (DRAFT, owner-gated — voice generator/provider research stopped; **existing #769 authentic audio recovery, audible transcription, page/event mapping and runtime verification remain active**. Historical 48-clip claims do not prove playable mapped audio. The 67 local MP3 cues are REJECTED stuttering/music source — archival evidence only, never map, replay, restitch, or deploy them. Audio recovery uses only `Gretel_558674_Original.m4a` with auditory/transcript/page verification per the repo AGENTS.md audio corrections; playback stays held until verification is complete.)
-
-## Final Gates & Execution Order
-
-1. **Advance existing candidates; do not restart merged lanes**
-   - The ChatGPT/Codex controller reconciles live specialist assignments and active Jules sessions. Recover unfinished #739/#735/#737 lanes, no duplicate PRs. (#769 remains the existing lane for original-source recovery and verification; do not duplicate it.)
-   - Opus continues assigned difficult cross-component Workbook implementation (reader, erase persistence, turns).
-   - Jules completes or validates existing #735/#737 and installs exact approved masters once authorized by the owner.
-   - For audio: no new voice discussion, generation, or provider selection — the owner already supplied finished audio (2026-10-15) and prohibited revisiting it. The 67 MP3 cues are rejected/archival-only; do not map or replay them. Recovery = `Gretel_558674_Original.m4a` only, with auditory/transcript/page verification per the repo AGENTS.md audio corrections; keep playback held until verification is complete.
-
-2. **#588 — Final owner art drop**
-   - Owner-gated: integrate final supplied owner foreground art drop using the verified intake tool from #579.
-
-3. **#589 — Gretel voice: RESOLVED by owner 2026-10-15**
-   - Owner stopped new voice generation/provider research. The existing original recording still requires access, transcript/page matching and audible verification in #769. This gate now tracks recovery, mapping, and verification of the existing assets only — no local-neural vs cloud-TTS decision pending.
-
-4. **#587 — Current clean-main Jules release baseline**
-   - Reuse existing acknowledged session; require actual output.
-   - Cross-platform launcher verified on `main`.
-   - Records exact typecheck, Vitest, build, and Playwright execution counts without mutating release assets.
-
-5. **#458 — Assembled-product proof and release**
-   - Exact integrated head; full release gate; final Student and teacher regressions.
-   - Owner visual acceptances A–E and routine in-scope choices are settled. Final assembled-product verification and exact merge/deployment authorizations remain separate.
-   - Deploy only after intentional final owner authorization.
-
-## Printed pages 86–87 — resolved source status
-
-Printed Workbook pages **86 and 87 are not blank pages that still need conversion**. They are absent from the authoritative supplied Student Workbook scan. Keep printed pages 86–87 as `SOURCE_BLOCKED` with no inferred text, artwork, regions, or archetype. Do **not** reconstruct them.
-
-## Definition of this plan being complete
-
-This plan is complete only when all real gaps against `PROJECT_FINISH_DEFINITION.md` are closed with objective evidence. Merged PRs, completed Jules sessions, a successful build, or a clean issue list alone do not equal product completion.
+**Required #877 checkpoint:** Existing lane and branch / actual change / exact SHA / tested behavior / linked proof / not yet verified / remaining blocked action / **next eligible executable task**. Then continue.
