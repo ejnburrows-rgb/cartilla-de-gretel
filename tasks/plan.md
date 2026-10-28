@@ -35,6 +35,6 @@ Independent implementation lanes **2–6 proceed concurrently** within existing 
 - Routine owner acceptance is **not** eligible independent formal GitHub approval, exact-change merge authorization or deployment approval. Never self-approve or bypass protection.
 - Do not declare the product finished merely from a PR, test, static screenshot or docs policy.
 
-**Quality checks:** SonarCloud/SonarQube is **advisory and non-blocking**; actual confirmed defects remain blockers for their affected changes. Reuse valid targeted tests and source/render proof. 
+**Quality checks:** SonarCloud/SonarQube is **advisory and non-blocking**; actual confirmed defects remain blockers for their affected changes. Reuse valid targeted tests and source/render proof.
 
 **Required #877 checkpoint:** Existing lane and branch / actual change / exact SHA / tested behavior / linked proof / not yet verified / remaining blocked action / **next eligible executable task**. Then continue.
