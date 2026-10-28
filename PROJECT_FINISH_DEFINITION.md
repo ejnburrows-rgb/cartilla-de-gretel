@@ -14,20 +14,9 @@
 
 > **MANDATORY OWNER DIRECTIVES (2026-10-22, every agent / Muse / Instinct / Jules):** Read [PERMANENT_PROJECT_INTEGRITY_WORKFLOW.md](PERMANENT_PROJECT_INTEGRITY_WORKFLOW.md) and [ARTWORK_REPORT_VERIFICATION_AND_SINGLE_SOURCE_CLEANUP.md](ARTWORK_REPORT_VERIFICATION_AND_SINGLE_SOURCE_CLEANUP.md) before investigating, changing, certifying or dispatching artwork work. Only the latest authentic owner-approved updated art may be used; delete proven obsolete wrong crops from current production after switching and verifying all references. Do not create competing inventories, silently relax tests, or report file presence as correct rendered art. Existing owner-only merge/deploy gates remain in force. These Markdown directives define the obligation; actual implementation and tests are required before claiming enforcement.
 
-## HISTORICAL OCTOBER 13 JULES CAPACITY DIRECTIVE — SUPERSEDED FOR DISPATCH
+## Current October 28 execution and approval rule
 
-**Historical (October 13) capacity permission, not current dispatch instruction.** The current October 28 AGENTS.md and #877 direct continuation of existing assignments only. Preserve the safety, source/visual and finish requirements below.
-
-1. **HISTORICAL JULES CAPACITY PERMISSION — superseded October 28 for dispatch.** Emilio confirms he has Pro access to 15 Jules lanes and explicitly authorizes ChatGPT/Codex, the designated primary controller and GitHub dispatcher, to seek up to **15 provider-confirmed productive sessions** with real unfinished Cartilla implementation, reproducible debugging, focused regression QA, responsive/accessibility polish, source-faithful UI work, and measured risk-reducing cleanup. The ChatGPT/Codex controller may start a NEW bounded task or apply the `jules` dispatch label without a second issue-by-issue permission request **only when** current main/source/finish-contract evidence proves a real gap; the task is not already fixed, assigned or duplicated; it has distinct file ownership, acceptance proof and cleared dependencies; and it remains inside already approved product, visual and infrastructure scope. Recover existing stalled/failed approved lanes first. The 15-lane goal is utilization, not proof of available provider quota or permission to invent filler. **Separate owner approval remains mandatory** for owner-gated art/voice selections, new or changed owner-locked visuals, held tasks, live student-data/Supabase changes, security/retention policy, spending, external account access, destructive/irreversible actions, new infrastructure and final production release. Removing a label does not confirm provider cancellation.
-2. **Only the LATEST expressly approved visuals and mechanics may be worked on or shown.** Compare the newest owner's instructions with current `main`, the original physical book and the canonical `WORKBOOK_ARCHETYPE_STANDARD.md` and `STUDENT_INTERACTION_STANDARD.md`. Stale branches, mockups, dev-only shapes, prior screenshots, old PRs and previous memories cannot override current approval. Never implement, display as current, dispatch or revive superseded/rejected visuals. Read historical files privately only to diagnose a current fault.
-3. **NO ROPE/LASSO — final explicit owner rejection (2026-10-11).** Use the approved source-faithful wooden pencil/green-or-red marks/physical pink eraser and correct line-matching mechanics. PR #692 removed the obsolete `LassoConnect.tsx` and rope CSS; PR #694 preserves legacy completed syllable selections under the new pencil circle. These are merged; DO NOT restore a rope, lasso, reel, arcade, fake red-X or unapproved alternative. Current components: `PencilConnector.tsx`, `WorkbookPencilMark.tsx`, `SyllableWordCircle.tsx`; these still require real screen validation.
-4. **No stale or fake approval evidence.** A merge, code review, unit test, Jules receipt or local dev fake does NOT prove visual approval. Fresh proof must depict the REAL source-faithful Student Workbook or Teacher/Flip Chart page at the exact verified commit/deployment, with the latest approved pencil/eraser, on the stated viewport/device; screenshots from `/dev-*`, old Vercel previews or synthetic demos are prohibited as owner approval evidence. Missing actual proof means **NOT APPROVAL-READY**; no historical substitution or unapproved release.
-5. **Precedence:** October 28 forbids new dispatch in this continuation, superseding older October 13 proactive-refill and owner-card instructions. The latest source-faithful product designs, owner-only approval/release gates, credit/Antigravity prohibition and evidence standards remain fully binding. ChatGPT/Codex is the single primary dispatch controller; do not restore obsolete ChatGPT dispatch schedules, a rival controller, retired Windows/Neon/OpenHands infrastructure or paid systems.
-
-
-**Owner-locked:** 2026-10-05  
-**Scope:** entire La Cartilla de Gretel product  
-**Authority:** this file defines what "project finished" means. It is not a task list or changelog.
+Continue existing specialist assignments under `AGENTS.md` and GitHub #877. When any task is held, advance another independent eligible task in the same session. No new jobs, duplicate branches, controller or automatic dispatch. Routine decisions A–E are settled. Authentic source, independent formal GitHub review, exact-change merge authorization, security/cost/destructive holds and separate deployment approval remain mandatory for their affected actions. October 13 concurrency/refill instructions are historical in Git history, not active orders.
 
 ## Mandatory rule for every agent
 
@@ -211,12 +200,12 @@ Before either required owner approval in this finish contract can count:
 
 ## 11. Owner approvals — REQUIRED
 
-Two owner-visible approvals are required:
+Owner-visible decisions for the finished product (do not repeat already accepted A–E):
 
 1. **Workbook archetype implementation proof:** the eight recurring visual directions are already owner-locked in `WORKBOOK_ARCHETYPE_STANDARD.md`; each implemented family must visibly match that standard and its exact physical source before whole-family rollout. The numbered teal title bars on the owner's reference board are annotation labels only and must not appear in production.
 2. **Final assembled-product approval** before the intentional final production release.
 
-The owner is not required to approve ordinary technical merges individually when the authorized controller can verify them safely.
+**Merge authorization is separate:** owner acceptances A–E and routine implementation choices are settled, but any merge requires the applicable explicit exact-change authorization and eligible formal GitHub approval under the effective branch-protection rules. Technical review alone does not meet those rules. Hold an unauthorized merge, not unrelated work.
 
 ## 12. Production release and final declaration — REQUIRED
 
