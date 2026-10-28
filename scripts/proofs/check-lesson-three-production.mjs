@@ -1,7 +1,9 @@
 import { chromium } from 'playwright';
 import assert from 'node:assert/strict';
 import { mkdir, writeFile } from 'node:fs/promises';
-const root='docs/proofs/lesson-3-prototype-2026-10-27/production-continuation';
+const activityIndex=Number(process.argv[2]??0);
+assert.ok(Number.isInteger(activityIndex)&&activityIndex>=0&&activityIndex<=2);
+const root='docs/proofs/lesson-3-prototype-2026-10-27/production-continuation'+(activityIndex?`/activity-${activityIndex}`:'');
 await mkdir(root,{recursive:true});
 const browser=await chromium.launch({executablePath:process.env.PLAYWRIGHT_CHROMIUM_PATH||'/usr/bin/chromium',args:['--no-sandbox','--disable-accelerated-2d-canvas']});
 const results=[];
@@ -18,7 +20,7 @@ for(const width of [375,768,1280]) {
  const select=async s=>page.evaluate(async s=>{const api=await import('/src/lib/demo-student-session.ts');api.startDemoStudentSession(s.classId,s.studentId);},s);
  await select(learners[0]);await page.goto('http://127.0.0.1:5173/cartilla/leccion/3');
  const viewer=page.locator('[data-native-page="9"]');await viewer.waitFor();
- const activity=viewer.locator('.am-dibuja').first();const canvas=activity.locator('canvas');
+ const activity=viewer.locator('.am-dibuja').nth(activityIndex);const canvas=activity.locator('canvas');
  const ink=()=>canvas.evaluate(c=>{const d=c.getContext('2d').getImageData(0,0,c.width,c.height).data;let n=0;for(let i=3;i<d.length;i+=4)if(d[i]>0)n++;return n;});
  const waitInk=async present=>{for(let i=0;i<50;i++){if((await ink()>0)===present)return;await page.waitForTimeout(100);}assert.fail(`expected ink ${present}`);};
  const draw=async(end=true)=>{await canvas.scrollIntoViewIfNeeded();await page.waitForTimeout(250);const b=await canvas.boundingBox();await page.mouse.move(b.x+b.width*.2,b.y+b.height*.5);await page.mouse.down();await page.mouse.move(b.x+b.width*.7,b.y+b.height*.5,{steps:20});if(end)await page.mouse.up();};
