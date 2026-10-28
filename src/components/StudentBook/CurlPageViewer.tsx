@@ -83,30 +83,11 @@ export function expectedTurnIndex(
   pageCount: number,
   spread: boolean,
   direction: "next" | "prev",
-  pages?: { pageNumber?: number }[],
+  _pages?: { pageNumber?: number }[],
 ): number {
   const delta = spread ? 2 : 1;
   const logicalIndex = logicalPageIndex(currentIndex, pageCount, spread);
-
-  if (pages && pages.length === pageCount) {
-    const currentPageNumber = pages[logicalIndex]?.pageNumber;
-    if (currentPageNumber !== undefined) {
-      const targetPageNumber = direction === "next" ? currentPageNumber + delta : currentPageNumber - delta;
-
-      const targetIndex = pages.findIndex(p => p.pageNumber !== undefined && p.pageNumber >= targetPageNumber);
-      if (targetIndex !== -1) {
-        if (direction === "prev" && pages[targetIndex].pageNumber! > targetPageNumber) {
-          const reversedIndex = [...pages].reverse().findIndex(p => p.pageNumber !== undefined && p.pageNumber <= targetPageNumber);
-          if (reversedIndex !== -1) {
-            const prevIndex = pages.length - 1 - reversedIndex;
-            return logicalPageIndex(prevIndex, pageCount, spread);
-          }
-        }
-        return logicalPageIndex(targetIndex, pageCount, spread);
-      }
-    }
-  }
-
+  // Printed numbers label pages; available entries determine adjacent leaves.
   return logicalPageIndex(
     direction === "next" ? logicalIndex + delta : logicalIndex - delta,
     pageCount,
