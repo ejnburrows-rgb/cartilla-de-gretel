@@ -1,5 +1,7 @@
 # MASTER REFERENCE — La Cartilla de Gretel
 
+> **CURRENT CONTINUATION PRECEDENCE — October 28, 2026:** The top of [AGENTS.md](AGENTS.md) and live [#877](https://github.com/ejnburrows-rgb/cartilla-de-gretel/issues/877) control execution. Continue eligible existing work in the same run when another item is blocked; old 15-lane refill, outdated owner-wait prompts, audio-as-moot, and Mariposas-removal instructions are historical, not active. Respect real independent review, exact merge authorization, original-source fidelity, destructive/security/cost holds, and explicit deployment permission. No new jobs or controller.
+
 > **LATEST OWNER EXECUTION / PROVISIONAL APPROVAL — October 28, 2026.** Owner: “Go ahead and approve everything for now until you finish. Then anything that I want to change, I will change.” Treat remaining routine visual and implementation decisions within the existing Cartilla completion scope as provisionally approved, including the shown Lesson 3 direction (card E); A–D are already accepted. Continue material work without returning routine approval cards or making the owner repeatedly say continue. Keep versioned proof and present the assembled result for later changes. Preserve explicit rejections, authentic workbook/art/voice decisions, existing assignments and destructive/security/cost holds; this does not authorize new services or reviewer access, bypass protected-main review, or authorize production deployment. Merge/release authorization remains separately scoped.
 
 
@@ -34,16 +36,15 @@ Chain: owner → ChatGPT/Codex controller → existing assigned workers and inde
 - Universal: one owner per task/file surface; recover existing work before rebuilding; report blockers to the ChatGPT/Codex controller. Preserve existing work, exact-change approvals and release gates.
 
 ## 3. DECISIONS ALREADY MADE (never ask again)
-GAMES: Cow, Rima, Palabras por minuto, Chano, and owner-restored Mariposas (October 28). The existing Butterfly Garden source project is already imported intact on PR #1079 (33 image hashes verified), with the related scene candidate in PR #1010. Do not silently merge overlapping implementations; preserve both for reconciled review. Chano ruled
-DONE by the owner today (the finished "Chano's Word Circus").
+GAMES: Cow, Rima, Palabras por minuto, Chano, and owner-restored Mariposas (October 28). The existing Butterfly Garden source project is already imported intact on PR #1079 (33 image hashes verified), with the related scene candidate in PR #1010. Do not silently merge overlapping implementations; preserve both for reconciled review. Chano's latest owner design direction is accepted, but its exact delivered version and intended-route gameplay must still be reconciled before integration.
 AUDIO: device TTS OFF; silence where no recording exists; rec_gretel_* recordings
 NEVER used; Gretel_558674_Original.m4a only with verified transcript match; lesson
-narrations silent fallback until the owner records them; no agent generates voice.
+narrations stay silent where verified authentic phrases are unavailable; recover existing recordings in #769, not a default owner rerecording or generated voice.
 ART: no new art generation, ever; no original modified/replaced/regenerated; the
 original book art is the only truth; every picture shown side-by-side vs the
 original for the owner's yes before it enters a page. 7 flip-chart fixes approved
 Oct 20, files in the repo, wiring still pending. OJOS: DECIDED + DONE today —
-single approved eye in both spots (owner ruling today confirmed: "Ojos stays done").
+approved singular `ojo` with `ojo.png` in both spots; #1210 proposed `ojos` wording remains held without a later explicit owner reversal.
 Background: CREAM. Pencil pages 7–8 always separate.
 DEPLOY: auto-deploy OFF; every deploy needs the owner's own "deploy it";
 vercel.json lock (git.deploymentEnabled:false) is never touched.
