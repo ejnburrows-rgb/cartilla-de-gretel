@@ -215,13 +215,13 @@ Anything under `docs/archive/` is historical reference only and must not overrid
 
 ### Worker concurrency
 
-- **Historical 15-lane capacity goal is not an active refill mandate.** Owner confirms Pro/15-lane access; still verify live provider quota and count. Refill only with unique, proven, dependency-ready work within the 2026-10-13 dispatch authorization. Never invent work, bypass owner-only gates, upgrade plans or spend credits.
-- **Do not automatically refill idle slots during the current continuation; historical instruction was to refill from distinct eligible work** after inspecting actual Jules sessions, exact PRs/issues, dependencies and source evidence; resume existing valid sessions first. A new task needs a documented current gap and nonoverlapping bounded acceptance, but does NOT require repeat issue-specific permission when within the owner's 2026-10-13 approved scope.
+- **Historical 15-lane capacity goal is not an active refill mandate.** Owner confirms Pro/15-lane access; still verify live provider quota and count. Do not refill capacity in this continuation. Never invent work, bypass owner-only gates, upgrade plans or spend credits.
+- **Do not automatically refill idle slots during the current continuation; historical instruction was to refill from distinct eligible work** after inspecting actual Jules sessions, exact PRs/issues, dependencies and source evidence; resume existing valid sessions first. Future new-task decisions require separate applicable authorization; this continuation is for existing work only.
 - **Maximum concurrent independent read-only specialist investigations: 3.**
 - Controller, supervisor, and watchdog activity does not consume implementation-worker capacity.
 - Dependency chains and overlapping file ownership remain sequential even when Jules capacity exists.
-- A blocked, completed, owner-gated or dependency-waiting lane must not count as active Jules utilization. Reconcile/cancel provider state when authorized, then fill available capacity only with distinct eligible work. Do not dispatch against a held issue.
-- Seek 15 productive sessions by surfacing real code/finish-contract gaps, not by manufacturing tasks. Only source-backed independent work qualifies.
+- A blocked, completed, owner-gated or dependency-waiting lane must not count as active Jules utilization. Reconcile provider state when authorized; continue existing nonoverlapping work without refilling slots. Do not dispatch against a held issue.
+- Historical 15-session target is superseded for dispatch; do not manufacture tasks. Only source-backed independent work qualifies.
 - Other active documents may describe current allocation or sequencing, but they must not define a competing numeric concurrency rule.
 
 
@@ -229,10 +229,10 @@ Anything under `docs/archive/` is historical reference only and must not overrid
 
 Historical October 13 record: the owner then restored refill toward 15; **current October 28 continuation permits existing assigned work only**. Superseded 2026-10-11 ban and blanket issue-by-issue new-task gate are no longer operative within authorized Cartilla implementation, bugfix, focused QA, accessibility and verified polish scope.
 
-Mandatory controller actions (provider verification first):
+Historical provider-account procedures (apply only when provider activity is relevant, never as a mandatory prerequisite to every existing-file fix):
 
 1. **Count actual provider states** from the authorized Jules account's real session/task listing, cross-checked with GitHub issues, receipts, branches, PRs and exact heads. A `jules` label, bot acknowledgement, open PR, old branch or numeric target is NOT evidence of a running worker.
-2. **Report available capacity honestly and fill qualified openings**; never infer available quota from a plan label, a scheduled observer or a GitHub `jules` label.
+2. **Report any verified capacity truthfully, but do not dispatch into openings**; never infer available quota from a plan label, a scheduled observer or a GitHub `jules` label.
 3. **Recover stalled or failed work only on its EXISTING owner-approved lane/issue.** Do not open a competing session.
 4. **No new Jules task may be dispatched in the current continuation.** Only under a separate future authorization might a new task be created if the existing finish contract/current main proves a distinct unfinished requirement, no other lane owns it, it stays within the owner-authorized scope, and there is confirmed provider capacity. Document the exact source evidence, file boundaries and acceptance. Do not dispatch owner-gated/held work without specific owner permission.
 
