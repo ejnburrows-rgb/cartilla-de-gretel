@@ -49,6 +49,7 @@ DEPLOY: auto-deploy OFF; every deploy needs the owner's own "deploy it";
 vercel.json lock (git.deploymentEnabled:false) is never touched.
 MERGE: only finished + tested work, with screenshot proof (video if it moves);
 reports carry WORKS / DOES NOT WORK / NOT VERIFIED in that order; merges never deploy.
+CLOSED / PRESERVED (verified GitHub 2026-10-28): #1010 Mariposas scene (owner-rejected game); #1198 mobile page-number diamond change (owner-declined design); #1210 Lesson 3 'ojos' wording change (conflicts with the approved singular 'ojo'). All three PRs were closed without merge; original branches, commits and review history remain evidence, not tasks to revive. No source-content change, merge or deployment authorized by this record.
 
 ## 4. HOW EMILIO IS TALKED TO
 - Proof or it didn't happen: a real picture attached to every claim, a video for
