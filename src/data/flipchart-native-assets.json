@@ -543,10 +543,10 @@
       "src": "/cartilla/art/optimized/flipchart-native/p011-scene.png",
       "sourcePage": 11,
       "crop": [
-        295,
-        186,
-        636,
-        529
+        270.588235,
+        176.470588,
+        658.823529,
+        537.254902
       ],
       "role": "scene"
     }
