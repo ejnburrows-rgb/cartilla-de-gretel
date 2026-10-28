@@ -1,12 +1,14 @@
 import { test, expect } from "@playwright/test";
 
-for (const { lesson, printedPage } of [
+for (const { lesson, printedPage, width = 390, height = 844 } of [
   { lesson: 17, printedPage: 59 },
   { lesson: 20, printedPage: 71 },
+  { lesson: 20, printedPage: 71, width: 375, height: 844 },
+  { lesson: 17, printedPage: 59, width: 844, height: 390 },
 ]) {
-  test(`phone drawing tools stay visible and touch-sized on lesson ${lesson}, page ${printedPage}`, async ({ browser }) => {
+  test(`phone drawing tools stay visible and touch-sized on lesson ${lesson}, page ${printedPage} at ${width}x${height}`, async ({ browser }) => {
     const context = await browser.newContext({
-      viewport: { width: 390, height: 844 },
+      viewport: { width, height },
       hasTouch: true,
       isMobile: true,
     });

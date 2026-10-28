@@ -416,8 +416,9 @@
  * undo, clear, and completion hard or impossible to reach on 390px phones.
  * Retain the shared counter-zoom for true-size controls, but bound the
  * toolbar's logical width to its parent's scaled page content and wrap.
+ * Include short landscape phones without relying on browser pointer detection; width alone misses them.
  * The existing fit hook uses full-page scrolling when extra rows are needed. */
-@media (max-width: 600px) {
+@media (max-width: 600px), (max-width: 950px) and (max-height: 600px) {
   .lc-lesson-shell--fit .native-lesson-viewer__content .gretel-activity:has(.am-dibuja__toolbar) .am-dibuja__toolbar {
     width: calc(100% * var(--lc-fit, 1));
     max-width: calc(100% * var(--lc-fit, 1));
