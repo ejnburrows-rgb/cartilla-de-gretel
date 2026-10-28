@@ -95,7 +95,8 @@ export const COLOR_MIN_SPREAD = 6;
  * future real grayscale-only drawing has a home instead of someone lowering the
  * threshold for everything.
  */
-export const DUOTONE_ALLOWLIST = new Set([]);
+// Igual is a mathematical two-bar gray symbol, not a colorable object.
+export const DUOTONE_ALLOWLIST = new Set(["/cartilla/art/faithful/vocal-i/igual.webp"]);
 
 /**
  * Exact student-book drawings that do not have an identical counterpart in the
@@ -139,7 +140,7 @@ export async function findGrayscaleArt() {
           .split("/")
           .pop()
           ?.replace(/\.\w+$/, "") ?? rel;
-      if (DUOTONE_ALLOWLIST.has(slug) || VERIFIED_WORKBOOK_CROPS.has(rel)) return;
+      if (DUOTONE_ALLOWLIST.has(rel) || VERIFIED_WORKBOOK_CROPS.has(rel)) return;
       const spread = await meanColorSpread(rel);
       if (spread < COLOR_MIN_SPREAD) gray.push({ rel, spread });
     }),

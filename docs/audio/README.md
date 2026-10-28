@@ -2,7 +2,7 @@
 
 The picture-name catalog comes from authored Workbook/Flip Chart content and verified art labels, never inferred filenames. Corrected page labels take priority over legacy art labels. Unknown or ambiguous names are not spoken. Run `python scripts/build-picture-vocabulary.py` to regenerate the catalog and missing list.
 
-Current inventory: **199 unique pronunciation keys, 162 approved recordings, 37 missing recordings**. Every Workbook picture name and every plain vocabulary word has an approved recording. The 37 missing entries are Flip Chart letter-tagged pictures (for example `ternero n`, `toro m`, `serpiente s`) and scene labels; they stay silent until recordings are supplied.
+Current inventory: **199 unique pronunciation keys, 161 approved recordings, 38 missing recordings**. Every Workbook picture name and every plain vocabulary word has an approved recording. The 38 missing entries are Flip Chart letter-tagged pictures (for example `ternero n`, `toro m`, `serpiente s`) and scene labels, including `niña distraída`: its old recording said "sordita" and was retired when the owner renamed her on 2026-10-22 (`nina-sordita.mp3` stays on disk, unused). They stay silent until recordings are supplied.
 
 Active `src/content/audio-manifest.ts` policy has `allowTts: false`. No approved pilot exception was found. Device speech fallback remains disabled. Existing effects, ambient sound and silent.mp3 are not vocabulary recordings. No assets were created, renamed or removed.
 

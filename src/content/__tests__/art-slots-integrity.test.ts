@@ -2,6 +2,7 @@
  * Workbook art slots: every illustrationSrc must exist and be non-empty.
  * Empty stubs must not be referenced (honest pendiente instead).
  */
+import { createHash } from "node:crypto";
 import { describe, it, expect } from "vitest";
 import { existsSync, statSync, readFileSync } from "node:fs";
 import { join } from "node:path";
@@ -16,6 +17,12 @@ function checkSrc(src: string | undefined, where: string) {
   const abs = join(publicRoot, src.replace(/^\//, ""));
   expect(existsSync(abs), `${where} missing file ${src}`).toBe(true);
   const bytes = statSync(abs).size;
+  if (src === "/cartilla/art/faithful/vocal-i/igual.webp") {
+    // The verified two-bar symbol compresses below the generic stub threshold.
+    expect(createHash("sha256").update(readFileSync(abs)).digest("hex"))
+      .toBe("1404f51a491aff775d91ee4df54069776ab196df6d983ce416a30d480ea99d42");
+    return;
+  }
   expect(bytes, `${where} empty/stub ${src} (${bytes}b)`).toBeGreaterThanOrEqual(MIN_BYTES);
 }
 

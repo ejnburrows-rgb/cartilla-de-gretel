@@ -11,6 +11,7 @@ import { BLINK_HOLD_MS, nextBlinkDelayMs, prefersReducedMotion } from "@/lib/liv
 import { resolveTrueBlinkFrame } from "@/lib/living-blink-map";
 import { getLivingActor } from "@/lib/living-actor-registry";
 import { getFaithfulDeliverySrcSet } from "@/lib/art-delivery";
+import staleMotionArt from "@/data/stale-motion-art.json";
 import approvedMotion from "@/content/approved-art-motion.json";
 
 export interface LivingIllustrationProps {
@@ -44,10 +45,11 @@ export function LivingIllustration({
   const [insideControl, setInsideControl] = useState(true);
   useLayoutEffect(() => { setInsideControl(Boolean(pictureRef.current?.parentElement?.closest("button, a, [role=button], [draggable=true], [aria-hidden=true], [inert]"))); }, [src]);
   const actor = useMemo(() => (forceStatic ? null : getLivingActor(src)), [forceStatic, src]);
-  const trueBlink = actor?.blinkFrame ?? resolveTrueBlinkFrame(src);
+  const motionStale = Object.prototype.hasOwnProperty.call(staleMotionArt, src);
+  const trueBlink = motionStale ? null : actor?.blinkFrame ?? resolveTrueBlinkFrame(src);
   const [reduced, setReduced] = useState(prefersReducedMotion);
   const videoRef = useRef<HTMLVideoElement>(null);
-  const approvedClip = clipSrc ?? (approvedMotion as Record<string, string>)[src];
+  const approvedClip = motionStale ? undefined : clipSrc ?? (approvedMotion as Record<string, string>)[src];
   const [finishedClip, setFinishedClip] = useState<string | null>(null);
   const clipActive = Boolean(approvedClip) && finishedClip !== approvedClip && !forceStatic && !reduced;
   useEffect(() => {
@@ -170,6 +172,7 @@ export function LivingIllustration({
         .filter(Boolean)
         .join(" ")}
       data-ambient-motion={ambientActive ? ambientProfile ?? "none" : "none"}
+      data-motion-status={motionStale ? "NOT VERIFIED - current still displayed" : undefined}
       data-natural-motion={selfAnimated ? "true" : "false"}
       data-part-based={partBased ? "true" : "false"}
       data-blink-mode={blinkMode}

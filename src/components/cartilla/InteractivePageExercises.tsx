@@ -76,10 +76,15 @@ export function InteractivePictureGrid({
   lessonId,
   precise = false,
   mark = "circle",
-}: ExerciseProps & { precise?: boolean; mark?: PictureMark }) {
+  pageSize,
+}: ExerciseProps & { precise?: boolean; mark?: PictureMark; pageSize?: number }) {
   const { emit: gretelEvent, record: recordEvent } = useActivityEvents();
   const cells = region.cells ?? [];
   const columns = region.columns ?? 4;
+  const [pictureScreen, setPictureScreen] = useState(0);
+  const screenCount = pageSize ? Math.ceil(cells.length / pageSize) : 1;
+  const firstCell = pageSize ? pictureScreen * pageSize : 0;
+  const visibleCells = pageSize ? cells.slice(firstCell, firstCell + pageSize) : cells;
   const [solved, setSolved] = useActivityState("solved", false);
   const [validated, setValidated] = useActivityState<Set<number>>("validated", new Set());
   const [attempts, setAttempts] = useState(0);
@@ -150,8 +155,8 @@ export function InteractivePictureGrid({
   };
 
   const rows: PageGridCell[][] = [];
-  for (let i = 0; i < cells.length; i += columns)
-    rows.push(cells.slice(i, i + columns));
+  for (let i = 0; i < visibleCells.length; i += columns)
+    rows.push(visibleCells.slice(i, i + columns));
 
   const exactColumns = precise && region.gridColumnFracs?.length === columns
     ? region.gridColumnFracs.map((fraction) => `${fraction * 100}%`).join(" ")
@@ -161,7 +166,12 @@ export function InteractivePictureGrid({
     : undefined;
 
   return (
-    <div className={`fp-ix-grid${precise ? " fp-ix-grid--precise" : ""}`} style={{ ["--ix-accent" as string]: accent, gridTemplateRows: exactRows }}>
+    <div className={`fp-ix-grid${precise ? " fp-ix-grid--precise" : ""}${pageSize ? " fp-ix-grid--paged" : ""}`} style={{ ["--ix-accent" as string]: accent, gridTemplateRows: exactRows }}>
+      {pageSize && screenCount > 1 && <div className="fp-ix-grid__screens" aria-label="Grupos de dibujos">
+        {Array.from({length: screenCount}, (_, screen) => <button type="button" key={screen}
+          aria-pressed={pictureScreen === screen} disabled={markingCells.size > 0}
+          onClick={() => setPictureScreen(screen)}>Dibujos {screen * pageSize + 1}-{Math.min(cells.length, (screen + 1) * pageSize)}</button>)}
+      </div>}
       {rows.map((row, r) => (
         <div
           key={r}
@@ -169,7 +179,7 @@ export function InteractivePictureGrid({
           style={{ gridTemplateColumns: exactColumns ?? `repeat(${columns}, minmax(0, 1fr))` }}
         >
           {row.map((cell, c) => {
-            const i = r * columns + c;
+            const i = firstCell + r * columns + c;
             const isMarking = markingCells.has(i);
             const isVal = validated.has(i);
             const isCorrect = isMarking ? markingCells.get(i) : isVal;

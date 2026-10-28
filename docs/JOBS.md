@@ -1,5 +1,7 @@
 # JOBS.md — job board (owner standing orders 2026-10-16)
 
+> **MANDATORY OWNER DIRECTIVES (2026-10-22, every agent / Muse / Instinct / Jules):** Read [PERMANENT_PROJECT_INTEGRITY_WORKFLOW.md](../PERMANENT_PROJECT_INTEGRITY_WORKFLOW.md) and [ARTWORK_REPORT_VERIFICATION_AND_SINGLE_SOURCE_CLEANUP.md](../ARTWORK_REPORT_VERIFICATION_AND_SINGLE_SOURCE_CLEANUP.md) before investigating, changing, certifying or dispatching artwork work. Only the latest authentic owner-approved updated art may be used; delete proven obsolete wrong crops from current production after switching and verifying all references. Do not create competing inventories, silently relax tests, or report file presence as correct rendered art. Existing owner-only merge/deploy gates remain in force. These Markdown directives define the obligation; actual implementation and tests are required before claiming enforcement.
+
 Shared coordination board for both controllers (Muse and Instinct). Kept current on GitHub after every lane event: dispatch, report, merge, block.
 
 One PR per lane. Lanes push branch + report only, never merge. Picture changes are never merged without owner approval. "Done" is never claimed without a link that proves it.
