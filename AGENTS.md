@@ -181,7 +181,7 @@ Anything under `docs/archive/` is historical reference only and must not overrid
 - **PR** — persisted candidate work. An open PR does not equal an active worker lane.
 - **Ready for review / completed Jules session** — not an active worker lane.
 - **Verification-only Jules session** — counts as an implementation worker lane while actively running.
-- **One session = one bounded deliverable.** This is per-session scope, not a global concurrency limit.
+- **One active assignment = one bounded deliverable; not one session.** On completing an assignment, save/checkpoint the existing PR and immediately proceed to another eligible, already-authorized existing assignment **within the same available session**. Preserve each assignment's own branch/file ownership; do not duplicate or combine overlapping work.
 
 ### Current worker utilization
 
@@ -285,7 +285,7 @@ Empty commits, timestamp-only changes, metadata churn, repeated test reruns, bot
 - New sessions must treat live GitHub issue/PR evidence as newer than a stale `tasks/plan.md` line and must reconcile the file when coordination materially changed.
 
 ### No silent session exit
-A worker or coordinator may not finish a session after material work without leaving the GitHub handoff above.
+A worker or coordinator must save a GitHub handoff after material work, **but publishing the handoff is not an instruction to stop**. If eligible existing work and tool capacity remain, continue immediately; when no safe assigned task remains or the external session ends, checkpoint the exact next step instead of inventing progress.
 If no material work occurred, say so explicitly on the existing lane when a prior dispatch/acknowledgement could otherwise be mistaken for progress.
 
 ## AVAILABLE DEVELOPMENT TOOLS — USE THEM AUTOMATICALLY
@@ -317,7 +317,7 @@ Jules is a worker, not the project controller. The controller owns scope selecti
 
 - Prefer Jules for concrete implementation, bug fixes, focused refactors, targeted tests, and narrow UI work that can run independently in its own environment.
 - Continue previously assigned Jules sessions in parallel only when their actual file ownership and dependencies are genuinely isolated.
-- One session = one bounded deliverable. Do not combine unrelated lanes or a long dependency chain into one session.
+- **Each assignment remains bounded and owns its existing branch, but a session may complete multiple sequential eligible assignments.** Do not mix unrelated changes into one PR or work simultaneously on overlapping files. After saving and verifying one assignment, select the next eligible existing assignment without requesting another "continue".
 - **Persist progress early:** after the first material implementation change passes its narrow targeted check, commit/push to the existing task branch/PR immediately; do not create duplicate branches, jobs or PRs. Do not wait until the end of the session to create the PR. Continue subsequent work on that same branch/PR so a later session failure cannot erase useful progress.
 - **Existing Jules export checkpoint:** where an existing session has material targeted-tested work not yet published, use its normal authorized export to save it on its original owned branch/PR. Do not create a duplicate task or new controller. Do not depend on end-of-session export for substantial work.
 - Reuse the existing issue/branch/PR when one already exists. Do not create duplicate competing work.
@@ -328,7 +328,7 @@ Jules is a worker, not the project controller. The controller owns scope selecti
 
 #### Early checkpoint and recovery contract
 
-A Jules session must establish viability early before spending most of its run:
+For each distinct bounded assignment handled in a Jules session, establish viability before spending most of its allocated work:
 
 1. confirm the target branch/PR and CURRENT `main`;
 2. confirm the required files are accessible;
@@ -604,6 +604,6 @@ For visible UI work, the owning Jules worker publishes needed milestone browser 
 - Use Jules account **EJNRCGPLm / ejnrcgplm@gmail.com** exclusively. Never use **EJnRCG / ejnrcg@gmail.com**. A browser tab index, GitHub login, Markdown file, or bot reaction does not establish the Jules account identity.
 - Prefer direct authenticated Jules API/MCP, native GitHub tools, repository commands, and authoritative API documentation. Do not use Playwright or browser automation to operate accounts or external services. Do not use Desktop Commander unless EJN explicitly requests it.
 - Jules implements and runs focused tests; GitHub is the primary dispatch surface; the watchdog/controller performs essential integration and real-evidence checks. Antigravity is prohibited without new, task-specific owner authorization; it is not an available fallback. Sonar is advisory; controller technical review does not replace any eligible independent formal GitHub approval required by protected-branch rules. Preserve important product tests and final release proof.
-- A Markdown instruction does not start a Jules session. Dispatch through an authenticated API/MCP or existing authorized GitHub Jules workflow, and distinguish delivery, acknowledgement, running, and verified completion.
+- A Markdown instruction does not start, extend, or restart a Jules session. Resume existing authorized provider sessions through their actual provider connection when available; distinguish task receipt, provider running status and verified results. Session quotas remain real limits; a single blocked job is not a reason to stop other eligible work.
 - Do not claim a direct Jules connection until credentials are securely configured and a harmless authenticated request succeeds. Never commit API keys or request secrets in chat.
 - Reuse unchanged exact-head evidence. On unchanged state, exit without repeated tests, browser tours, new artifacts, or duplicate workers. Review changed heads and report precise remaining gaps.
