@@ -72,7 +72,7 @@ export interface GretelVoiceProviderConfig {
 }
 ```
 
-By default, the application runs on `"browser-tts"` using free, offline-capable neutral Latin American Spanish voices (`Leda` / `Sulafat` / `es-MX`).
+The legacy provider abstraction contains a `browser-tts` default code path, **but this is not authorization to use synthesized Gretel speech**. The owner-approved active content policy is original recorded audio only, and unverified/missing phrases must remain silent. No current audible playback success is implied.
 
 ---
 
@@ -98,4 +98,4 @@ The rejected 67 music/stutter clips are quarantined. Do not select or add browse
 - **No money** has been spent.
 - **No voice clone** or external AI service key was added.
 - **No owner preference** has been altered.
-- **Default fallback** remains fully operational.
+- **Legacy fallback code exists**, but its audible behavior is not newly verified and synthesized Gretel playback is not approved by the current source policy.
