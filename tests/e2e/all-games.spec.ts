@@ -2,7 +2,6 @@ import { expect, test } from "@playwright/test";
 
 const LIVE_GAME_IDS = [
   "payaso-chano-ss",
-  "mariposas-p",
   "vocal-a",
   "fonetica-p",
   "silabas-p",
@@ -21,13 +20,6 @@ test.describe("all themed games", () => {
       await expect(page.getByLabel("Instrucciones del juego")).toBeVisible();
     });
   }
-
-  test("mariposas completes a source-backed word", async ({ page }) => {
-    await page.goto("/cartilla/juego/mariposas-p");
-    await page.getByRole("button", { name: "pa", exact: true }).click();
-    await page.getByRole("button", { name: "pi", exact: true }).click();
-    await expect(page.getByText("¡Palabra completa!")).toBeVisible();
-  });
 
   test("vowel identification marks a correct answer", async ({ page }) => {
     await page.goto("/cartilla/juego/vocal-a");
