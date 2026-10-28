@@ -1,5 +1,7 @@
 # JOBS.md — job board (owner standing orders 2026-10-16)
 
+> **CURRENT EXECUTION PRECEDENCE — October 28, 2026:** [AGENTS.md](../AGENTS.md) (or root AGENTS.md for root documents) and live [#877](https://github.com/ejnburrows-rgb/cartilla-de-gretel/issues/877) govern continuation. After a blocked task, continue the next eligible existing assignment in the same run. Historical 15-lane refill, routine owner waits, audio-"moot" statements and Mariposas removal do not govern. No new dispatch/duplicate job, no unauthorized merge, deletion, spending, permission change or deployment.
+
 > **LATEST OWNER EXECUTION / PROVISIONAL APPROVAL — October 28, 2026.** Owner: “Go ahead and approve everything for now until you finish. Then anything that I want to change, I will change.” Treat remaining routine visual and implementation decisions within the existing Cartilla completion scope as provisionally approved, including the shown Lesson 3 direction (card E); A–D are already accepted. Continue material work without returning routine approval cards or making the owner repeatedly say continue. Keep versioned proof and present the assembled result for later changes. Preserve explicit rejections, authentic workbook/art/voice decisions, existing assignments and destructive/security/cost holds; this does not authorize new services or reviewer access, bypass protected-main review, or authorize production deployment. Merge/release authorization remains separately scoped.
 
 
@@ -12,9 +14,9 @@
 
 > **MANDATORY OWNER DIRECTIVES (2026-10-22, every agent / Muse / Instinct / Jules):** Read [PERMANENT_PROJECT_INTEGRITY_WORKFLOW.md](../PERMANENT_PROJECT_INTEGRITY_WORKFLOW.md) and [ARTWORK_REPORT_VERIFICATION_AND_SINGLE_SOURCE_CLEANUP.md](../ARTWORK_REPORT_VERIFICATION_AND_SINGLE_SOURCE_CLEANUP.md) before investigating, changing, certifying or dispatching artwork work. Only the latest authentic owner-approved updated art may be used; delete proven obsolete wrong crops from current production after switching and verifying all references. Do not create competing inventories, silently relax tests, or report file presence as correct rendered art. Existing owner-only merge/deploy gates remain in force. These Markdown directives define the obligation; actual implementation and tests are required before claiming enforcement.
 
-Existing coordination history, maintained by the ChatGPT/Codex controller. Historical lane statuses below require current provider confirmation before reuse. Kept current on GitHub after every lane event: dispatch, report, merge, block.
+**HISTORICAL OCTOBER 16 LANE SNAPSHOT — NOT AN ACTIVE JOB QUEUE.** GitHub #877 contains the current assignments, A–E approvals, Mariposas inclusion, exact heads and blockers. The outdated October 16 owner-decision requests, failed-session statuses and look-choice waits in the table below are archival context, not reasons to pause current eligible work.
 
-One PR per lane. Lanes push branch + report only, never merge. Picture changes are never merged without owner approval. "Done" is never claimed without a link that proves it.
+Continue existing PRs/branches without enforcing a duplicate one-PR-per-lane rule. No merge without required eligible review, exact merge authorization, and relevant proof. Artwork acceptance and truthful evidence requirements remain mandatory.
 
 | JOB | STATUS | PR LINK | PROVEN | NOT PROVEN | NEEDS FROM OWNER |
 |---|---|---|---|---|---|
