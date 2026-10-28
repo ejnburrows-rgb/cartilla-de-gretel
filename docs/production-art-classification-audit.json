@@ -121,8 +121,8 @@
       "classification": "PASS",
       "provenance": "RECOVERED-2026-FROM-GIT-HISTORY-BLOB-cf0d6c7d",
       "qaVerdict": "PASS",
-      "dimensions": "677x377",
-      "bytes": 22742,
+      "dimensions": "1354x754",
+      "bytes": 94534,
       "isQuarantined": false
     },
     {
@@ -751,8 +751,8 @@
       "classification": "PASS",
       "provenance": "VERIFIED-EXACT-WORKBOOK-CROP-2026-08-08",
       "qaVerdict": "PASS",
-      "dimensions": "462x495",
-      "bytes": 40196,
+      "dimensions": "924x990",
+      "bytes": 119868,
       "isQuarantined": false
     },
     {

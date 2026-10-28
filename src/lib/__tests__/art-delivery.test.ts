@@ -25,4 +25,16 @@ describe("faithful art delivery paths", () => {
     expect(getFaithfulDeliverySrc(gretel, 384)).toBe(gretel);
     expect(getFaithfulDeliverySrcSet(gretel)).toBeUndefined();
   });
+
+  it("serves the owner-approved bee and single eye from their canonical masters, never stale derivatives", () => {
+    for (const approved of [
+      "/cartilla/art/faithful/vocal-a/abeja.webp",
+      "/cartilla/art/faithful/leccion-1/ojos.webp",
+    ]) {
+      expect(isFaithfulCanonicalArt(approved)).toBe(true);
+      expect(getFaithfulDeliverySrc(approved, 384)).toBe(approved);
+      expect(getFaithfulDeliverySrc(approved, 768)).toBe(approved);
+      expect(getFaithfulDeliverySrcSet(approved)).toBeUndefined();
+    }
+  });
 });
