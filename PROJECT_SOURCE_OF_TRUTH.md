@@ -2,7 +2,7 @@
 
 This document governs approved product content and presentation, not agent orchestration.
 
-> **Owner scope, 2026-10-29: organization only.** References below to parallel active product work describe preserved requirements and historical execution, **not permission to develop, dispatch, integrate or deploy** in the current mission. Current authority for work scope is [issue #877](https://github.com/ejnburrows-rgb/cartilla-de-gretel/issues/877) and current agent rules are [AGENTS.md](AGENTS.md). Current work, active ownership and next steps are in [GitHub #877](https://github.com/ejnburrows-rgb/cartilla-de-gretel/issues/877); execution rules are in [AGENTS.md](AGENTS.md). Historical work references below are context only.
+> **Owner scope, 2026-10-29: existing Tutor #1073 development and qualification only.** The preceding organization-only cleanup phase is superseded. The owner resumed the existing Tutor branch to prove the Lección 1 phone-width experience; other product lanes and parallel-work references below remain preserved history/backlog, **not permission to dispatch, merge or deploy**. Current task authority and live proof are in [GitHub #877](https://github.com/ejnburrows-rgb/cartilla-de-gretel/issues/877); execution safeguards are in [AGENTS.md](AGENTS.md). No approval for Tutor production release is implied.
 
 ## Goal
 
