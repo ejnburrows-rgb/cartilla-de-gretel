@@ -42,7 +42,7 @@ export function useActivityState<T>(field: string, initial: T): [T, Dispatch<Set
       if (initial instanceof Set) {
         return Array.isArray(parsed) && parsed.every(item => typeof item === "string" || typeof item === "number") ? new Set(parsed) as T : initial;
       }
-      if (parsed !== null && typeof parsed === typeof initial && (Array.isArray(initial) === Array.isArray(parsed))) return parsed as T;
+      if (parsed !== null && (initial === null || (typeof parsed === typeof initial && (Array.isArray(initial) === Array.isArray(parsed))))) return parsed as T;
     } catch { /* unavailable storage must not block the activity */ }
     return initial;
   });
