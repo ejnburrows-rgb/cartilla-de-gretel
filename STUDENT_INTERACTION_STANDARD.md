@@ -1,10 +1,20 @@
 # STUDENT INTERACTION STANDARD — La Cartilla de Gretel
 
-## STOP — CURRENT JULES DISPATCH POLICY + LATEST-APPROVAL-ONLY VISUAL GATE (2026-10-13)
+> **LATEST OWNER EXECUTION / PROVISIONAL APPROVAL — October 28, 2026.** Owner: “Go ahead and approve everything for now until you finish. Then anything that I want to change, I will change.” Treat remaining routine visual and implementation decisions within the existing Cartilla completion scope as provisionally approved, including the shown Lesson 3 direction (card E); A–D are already accepted. Continue material work without returning routine approval cards or making the owner repeatedly say continue. Keep versioned proof and present the assembled result for later changes. Preserve explicit rejections, authentic workbook/art/voice decisions, existing assignments and destructive/security/cost holds; this does not authorize new services or reviewer access, bypass protected-main review, or authorize production deployment. Merge/release authorization remains separately scoped.
 
-**HIGHEST PRIORITY FOR ALL AGENTS, JULES, DISPATCHERS, WATCHERS, REVIEWERS, SUPERVISORS, AUTOMATIONS AND REPORTS. Overrides older instructions anywhere in the repository, issues, PRs, historical screenshots, memories or prompts.**
 
-1. **Jules dispatch follows current `AGENTS.md` (owner directive 2026-10-13).** Muse alone may recover approved work or dispatch specific new, proven, nonoverlapping Cartilla implementation, focused QA, accessibility and polish tasks toward up to 15 provider-confirmed useful sessions without repeating issue-by-issue permission requests. Verify current main, exact task ownership, dependencies, real provider capacity, and acceptance evidence first. Owner-only visual/design/creative/security/spending/release gates and holds remain binding. A label is not a running session.
+> **OWNER OVERRIDE — October 28, 2026: controller ownership.** ChatGPT/Codex in the owner's current Cartilla conversation is the primary controller and single owner-facing entry point. Muse is a supporting source of history and records, not an independent controller or dispatcher. This supersedes all older Muse-only, Muse/Instinct dual-controller, and owner-carried prompt-routing instructions, including the October 13 controller allocation.
+>
+> Continue actual unfinished work from the October 28 Master Completion Plan and live #877, preserving existing worker/branch ownership, tests and decisions. Advance the next eligible existing task after an item completes or becomes blocked; do not wait for routine owner confirmation, repeat audits or open duplicate jobs. Independent formal review and specific merge authorization are prerequisites for integrating affected changes, **not a blanket freeze on unrelated implementation**. Codex retains artwork ownership; Jules and specialists retain existing scopes. No new dispatches, controllers, infrastructure, services or automatic schedules.
+>
+> The controller performs technical coordination through available tools. Report concise proof of actual changes and exact blocked actions in existing #877, then continue another eligible existing task during the same available session. An unavailable reviewer, recording, source file or tool does **not** end unrelated work. Never claim unverified worker activity or background execution. Preserve authentic book/art/voice, settled owner A–E decisions, formal independent GitHub review, branch protection, privacy/security/cost and destructive holds. Each merge requires its applicable exact-change authorization; deployment requires separate explicit authorization. No self-approval or protection bypass.
+
+
+## Historical October 13 Jules dispatch policy — superseded by current AGENTS.md
+
+**Historical record only for capacity/dispatch.** The current October 28 AGENTS.md continuation rule takes precedence. Original-book fidelity, accepted visuals, accessibility and safety requirements below remain active.
+
+1. **Continue existing assignments per current `AGENTS.md` and #877; no new dispatch in this continuation.** The October 13 capacity permission is historical. Verify current main, exact task ownership, dependencies, real provider capacity, and acceptance evidence first. Owner-only visual/design/creative/security/spending/release gates and holds remain binding. A label is not a running session.
 2. **Only the LATEST expressly approved visuals and mechanics may be worked on or shown.** Compare the newest owner's instructions with current `main`, the original physical book and the canonical `WORKBOOK_ARCHETYPE_STANDARD.md` and `STUDENT_INTERACTION_STANDARD.md`. Stale branches, mockups, dev-only shapes, prior screenshots, old PRs and previous memories cannot override current approval. Never implement, display as current, dispatch or revive superseded/rejected visuals. Read historical files privately only to diagnose a current fault.
 3. **NO ROPE/LASSO — final explicit owner rejection (2026-10-11).** Use the approved source-faithful wooden pencil/green-or-red marks/physical pink eraser and correct line-matching mechanics. PR #692 removed the obsolete `LassoConnect.tsx` and rope CSS; PR #694 preserves legacy completed syllable selections under the new pencil circle. These are merged; DO NOT restore a rope, lasso, reel, arcade, fake red-X or unapproved alternative. Current components: `PencilConnector.tsx`, `WorkbookPencilMark.tsx`, `SyllableWordCircle.tsx`; these still require real screen validation.
 4. **No stale or fake approval evidence.** A merge, code review, unit test, Jules receipt or local dev fake does NOT prove visual approval. Fresh proof must depict the REAL source-faithful Student Workbook or Teacher/Flip Chart page at the exact verified commit/deployment, with the latest approved pencil/eraser, on the stated viewport/device; screenshots from `/dev-*`, old Vercel previews or synthetic demos are prohibited as owner approval evidence. Missing actual proof means **NOT APPROVAL-READY**; no historical substitution or unapproved release.
@@ -175,16 +185,7 @@ During active handwriting/drawing/answering, Gretel should remain visually quiet
 
 ## Voice/TTS status
 
-The final Gretel voice/TTS direction is **NOT YET LOCKED**.
-
-Do not treat the older real-recording-only policy, browser TTS voice selection, or any particular provider as the final owner decision.
-
-Until the owner explicitly finalizes the voice direction:
-- do not create a new paid voice dependency;
-- do not generate a final voice library;
-- do not replace the current voice system merely to satisfy this interaction standard.
-
-The owner has stated that the eventual target is a premium natural little-girl voice that matches Gretel and does not sound robotic or corny. Final implementation is deferred pending explicit owner approval.
+The owner has selected recovery and mapping of the **already supplied authentic Gretel recordings**. Continue existing #769: recover original `Gretel_558674_Original.m4a` or verified original-source segments, listen, transcribe and map heard phrases to actual page/event instructions; test audible output and cleanup. The rejected 67 music/stutter clips must never play. Do not choose/generate/clone another provider or ask for a default rerecording. Keep unavailable/unverified phrases silent; source availability and formal review/integration remain distinct gates. This audio work is active, not a pending voice-provider decision.
 
 ## Scope protection
 

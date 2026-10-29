@@ -44,6 +44,11 @@ function mockWordRect(button: HTMLElement, width = 400) {
     height: 64,
     toJSON: () => ({}),
   } as DOMRect);
+  const letters = [...button.querySelectorAll(".native-syllable__letter")];
+  letters.forEach((letter, index) => vi.spyOn(letter, "getBoundingClientRect").mockReturnValue({
+    left: index * width / letters.length, right: (index + 1) * width / letters.length,
+    top: 0, bottom: 64, width: width / letters.length, height: 64,
+  } as DOMRect));
 }
 
 describe("SyllableWordCircle", () => {

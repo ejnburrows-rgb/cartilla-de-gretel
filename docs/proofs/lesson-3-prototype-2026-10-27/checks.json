@@ -1,0 +1,80 @@
+[
+  {
+    "width": 375,
+    "completed": true,
+    "errors": [],
+    "mutatingRequests": [],
+    "storageUnchanged": true,
+    "inkBeforeReturn": [
+      881,
+      881,
+      609,
+      609,
+      1212
+    ],
+    "inkAfterReturn": [
+      881,
+      881,
+      609,
+      609,
+      1212
+    ],
+    "storageWrites": [],
+    "bootstrapStorageWrites": [
+      "lswt-0.61686467911343410.031105848261823388"
+    ],
+    "globalActivityEvents": []
+  },
+  {
+    "width": 768,
+    "completed": true,
+    "errors": [],
+    "mutatingRequests": [],
+    "storageUnchanged": true,
+    "inkBeforeReturn": [
+      1549,
+      1549,
+      1078,
+      1078,
+      1752
+    ],
+    "inkAfterReturn": [
+      1549,
+      1549,
+      1078,
+      1078,
+      1752
+    ],
+    "storageWrites": [],
+    "bootstrapStorageWrites": [
+      "lswt-0.197135208469308760.7274010202174064"
+    ],
+    "globalActivityEvents": []
+  },
+  {
+    "width": 1280,
+    "completed": true,
+    "errors": [],
+    "mutatingRequests": [],
+    "storageUnchanged": true,
+    "inkBeforeReturn": [
+      1697,
+      1697,
+      1196,
+      1196,
+      1878
+    ],
+    "inkAfterReturn": [
+      1697,
+      1697,
+      1196,
+      1196,
+      1878
+    ],
+    "storageWrites": [],
+    "bootstrapStorageWrites": [
+      "lswt-0.36155370005585850.6358363992796505"
+    ],
+    "globalActivityEvents": []
+  }
+]

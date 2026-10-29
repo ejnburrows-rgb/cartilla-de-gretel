@@ -194,6 +194,9 @@ export function WorkbookLetterTrace({
         if (nextStrokeIdx < strokes.length) {
           setStrokeIdx(nextStrokeIdx);
           setPointIdx(0);
+          setStatus("idle");
+          offActiveRef.current = false;
+          setOffFlash(false);
         } else {
           finish();
         }
@@ -230,13 +233,19 @@ export function WorkbookLetterTrace({
   const isTap = inputMode === "tap";
   const shownCompleted = finishedWork ? strokes : isTap ? tap.completedStrokes : completed;
   const shownCurrent = finishedWork ? [] : isTap ? tap.currentStrokePoints : current;
-  const shownStatus: Status = finishedWork ? "done" : isTap
-    ? tap.finished
-      ? "done"
-      : shownCompleted.length || shownCurrent.length
-        ? "tracing"
-        : "idle"
-    : status;
+  const shownStatus: Status = finishedWork
+    ? "done"
+    : isTap
+      ? tap.finished
+        ? "done"
+        : shownCompleted.length || shownCurrent.length
+          ? "tracing"
+          : "idle"
+      : status === "done"
+        ? "done"
+        : status === "tracing" || completed.length > 0 || current.length > 0
+          ? "tracing"
+          : "idle";
   const shownSlips = isTap ? tap.wrongCheckpoints : slips;
   const shownOff = isTap ? tap.wrongFlash : offFlash;
   const shownDone = shownCompleted.reduce((n, s) => n + s.length, 0) + shownCurrent.length;
@@ -381,7 +390,7 @@ export function WorkbookLetterTrace({
         )}
 
         {/* Drag mode: next-checkpoint indicator (unchanged) */}
-        {!isTap && status !== "done" && nextCheckpoint && (
+        {!isTap && shownStatus !== "done" && nextCheckpoint && (
           <circle
             cx={nextCheckpoint.x}
             cy={nextCheckpoint.y}

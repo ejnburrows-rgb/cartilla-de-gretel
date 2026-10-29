@@ -1,4 +1,4 @@
-import { useMemo } from "react";
+import { useMemo, type ReactNode } from "react";
 import { CATALOG } from "@/lib/lesson-catalog";
 import { MonochromeDrawing } from "./MonochromeDrawings";
 
@@ -25,12 +25,13 @@ const solidTextClass = "fill-stone-800 font-black";
 interface SVGWorkbookLineProps {
   text: string;
   dotted?: boolean;
+  practice?: boolean;
 }
 
-export function SVGWorkbookLine({ text, dotted = false }: SVGWorkbookLineProps) {
+export function SVGWorkbookLine({ text, dotted = false, practice = false }: SVGWorkbookLineProps) {
   return (
     <svg
-      viewBox="0 0 400 45"
+      viewBox={practice ? "0 0 400 100" : "0 0 400 45"}
       className="w-full h-12 overflow-visible select-none"
       style={bookFrameStyle}
     >
@@ -39,22 +40,22 @@ export function SVGWorkbookLine({ text, dotted = false }: SVGWorkbookLineProps) 
       {/* Dashed middle guideline */}
       <line
         x1="0"
-        y1="22"
+        y1={practice ? 50 : 22}
         x2="400"
-        y2="22"
+        y2={practice ? 50 : 22}
         stroke="#bae6fd"
         strokeWidth="1"
         strokeDasharray="4 4"
         fill="none"
       />
       {/* Bottom baseline */}
-      <line x1="0" y1="34" x2="400" y2="34" {...baseStroke} />
+      <line x1="0" y1={practice ? 90 : 34} x2="400" y2={practice ? 90 : 34} {...baseStroke} />
 
       {/* Renders text within the guidelines */}
       <text
         x="15"
-        y="32"
-        fontSize="22"
+        y={practice ? 86 : 32}
+        fontSize={practice ? 82 : 22}
         fontFamily="Andika, 'Gill Sans', 'Trebuchet MS', sans-serif"
         className={dotted ? dottedTextClass : solidTextClass}
         letterSpacing="4"
@@ -136,9 +137,12 @@ export function SVGTracingLetter({ letter }: SVGTracingLetterProps) {
 
 interface WorkbookPageRendererProps {
   pageNumber: number;
+  /** Source writing lines for isolated previews; the legacy renderer is unchanged. */
+  sourceWritingLines?: readonly { id: string; modelText?: string }[];
+  renderWritingInput?: (line: { id: string; modelText?: string }, index: number) => ReactNode;
 }
 
-export function WorkbookPageRenderer({ pageNumber }: WorkbookPageRendererProps) {
+export function WorkbookPageRenderer({ pageNumber, sourceWritingLines, renderWritingInput }: WorkbookPageRendererProps) {
   // Helper to map page number to exact catalog entry
   const entry = useMemo(() => {
     return CATALOG.find((e) => {
@@ -155,6 +159,17 @@ export function WorkbookPageRenderer({ pageNumber }: WorkbookPageRendererProps) 
     const start = parseInt(entry.pages.split("-")[0] || "1", 10);
     return pageNumber - start;
   }, [entry, pageNumber]);
+
+  if (sourceWritingLines) return (
+    <div className="workbook-source-writing">
+      {sourceWritingLines.map((line, index) => (
+        <div className="workbook-source-writing__line" key={line.id}>
+          <SVGWorkbookLine text={line.modelText ?? ""} practice />
+          {renderWritingInput?.(line, index)}
+        </div>
+      ))}
+    </div>
+  );
 
   // 1. Render Cover & Intro pages (pages 1 to 3)
   if (pageNumber <= 3) {

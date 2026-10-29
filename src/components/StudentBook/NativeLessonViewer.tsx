@@ -551,7 +551,7 @@ export function NativeLessonViewer({
         {/* Destination page rendered underneath during turn */}
         {turning && underPage && (
           <div className="native-lesson-viewer__underneath" aria-hidden="true">
-            <div className="native-lesson-viewer__content">{underPage.content}</div>
+            <div className="native-lesson-viewer__content" key={underPage.id}>{underPage.content}</div>
           </div>
         )}
 
@@ -567,7 +567,7 @@ export function NativeLessonViewer({
               : undefined
           }
         >
-          <div className="native-lesson-viewer__content">{leafPage.content}</div>
+          <div className="native-lesson-viewer__content" key={leafPage.id}>{leafPage.content}</div>
 
           {/* Corner Hotspot - Bottom Right (Next) */}
           {index < pages.length - 1 && (

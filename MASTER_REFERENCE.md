@@ -1,95 +1,66 @@
 # MASTER REFERENCE — La Cartilla de Gretel
-THE one source of truth for how this project is run. Everything else is a copy
-of something in here or a pointer to here.
-Version: Fri 2026-10-23, 2:40 PM EDT. Repo main checked today: ea8ee309.
-Owner: Emilio (Nessun) — decisions only, non-technical. Controller: Muse.
+
+> **CURRENT CONTINUATION PRECEDENCE — October 28, 2026:** The top of [AGENTS.md](AGENTS.md) and live [#877](https://github.com/ejnburrows-rgb/cartilla-de-gretel/issues/877) control execution. Continue eligible existing work in the same run when another item is blocked; old 15-lane refill, outdated owner-wait prompts, audio-as-moot, and Mariposas-removal instructions are historical, not active. Respect real independent review, exact merge authorization, original-source fidelity, destructive/security/cost holds, and explicit deployment permission. No new jobs or controller.
+
+> **LATEST OWNER EXECUTION / PROVISIONAL APPROVAL — October 28, 2026.** Owner: “Go ahead and approve everything for now until you finish. Then anything that I want to change, I will change.” Treat remaining routine visual and implementation decisions within the existing Cartilla completion scope as provisionally approved, including the shown Lesson 3 direction (card E); A–D are already accepted. Continue material work without returning routine approval cards or making the owner repeatedly say continue. Keep versioned proof and present the assembled result for later changes. Preserve explicit rejections, authentic workbook/art/voice decisions, existing assignments and destructive/security/cost holds; this does not authorize new services or reviewer access, bypass protected-main review, or authorize production deployment. Merge/release authorization remains separately scoped.
+
+
+> **OWNER OVERRIDE — October 28, 2026: controller ownership.** ChatGPT/Codex in the owner's current Cartilla conversation is the primary controller and single owner-facing entry point. Muse is a supporting source of history and records, not an independent controller or dispatcher. This supersedes all older Muse-only, Muse/Instinct dual-controller, and owner-carried prompt-routing instructions, including the October 13 controller allocation.
+>
+> Continue actual unfinished work from the October 28 Master Completion Plan and live #877, preserving existing worker/branch ownership, tests and decisions. Advance the next eligible existing task after an item completes or becomes blocked; do not wait for routine owner confirmation, repeat audits or open duplicate jobs. Independent formal review and specific merge authorization are prerequisites for integrating affected changes, **not a blanket freeze on unrelated implementation**. Codex retains artwork ownership; Jules and specialists retain existing scopes. No new dispatches, controllers, infrastructure, services or automatic schedules.
+>
+> The controller performs technical coordination through available tools. Report concise proof of actual changes and exact blocked actions in existing #877, then continue another eligible existing task during the same available session. An unavailable reviewer, recording, source file or tool does **not** end unrelated work. Never claim unverified worker activity or background execution. Preserve authentic book/art/voice, settled owner A–E decisions, formal independent GitHub review, branch protection, privacy/security/cost and destructive holds. Each merge requires its applicable exact-change authorization; deployment requires separate explicit authorization. No self-approval or protection bypass.
+
+Controller responsibilities and recorded owner decisions. This is not a live status report.
+The finish requirements are in PROJECT_FINISH_DEFINITION.md; current approved scope is in
+PROJECT_SOURCE_OF_TRUTH.md; the existing execution queue is GitHub issue #877.
+Read live GitHub and actual app results before claiming current progress.
+Owner: Emilio (Nessun) — decisions only, non-technical. Controller: ChatGPT/Codex (owner override October 28, 2026).
 
 ## 1. THE PROJECT
 Spanish K-2 reading book + classroom app. Repo: ejnburrows-rgb/cartilla-de-gretel.
 Stack: Vite + React + TypeScript + TanStack Router + Supabase. Host: Vercel.
-Only 2 live addresses count: cartilla-de-gretel.vercel.app and
-lany-books-web-cyan.vercel.app. All other vercel.app addresses are old snapshots.
-Product specs (what the app must be) live in the repo: PROJECT_FINISH_DEFINITION.md,
-PROJECT_SOURCE_OF_TRUTH.md, CARTILLA_DIGITAL_DIRECTIVE.md — the directive wins
-over any contradicting file.
+Do not infer current deployment from historical URLs; inspect the live app and deployed
+revision directly when release state matters. Deployment is explicitly owner-gated.
+PROJECT_FINISH_DEFINITION.md defines completion; PROJECT_SOURCE_OF_TRUTH.md records
+scope and owner decisions; CARTILLA_DIGITAL_DIRECTIVE.md governs book fidelity.
 
 ## 2. WHO DOES WHAT (permissions — updated today)
-Chain: Emilio → Muse → Jules / ChatGPT / Antigravity / Freebuff / Opus (piano only).
-- JULES (Builder): phone layout, page curl (PageCurl.tsx), teacher
-  section, pencil pages, PencilConnector, build gate.
-  Never: games, audio files, art files.
-- CHATGPT (Audio): TTS fallback, audio wiring, broken audio references, narration fallbacks.
-  Never: layout, games, art.
-- ANTIGRAVITY (Games): Cow, Rima, Palabras por minuto, Chano. ACTIVE since the
-  owner lifted the old ban today (~2:00 PM). Never: layout, audio, art.
-- FREEBUFF (Backlog + Maintenance): added by the owner today. Prepares duplicate/junk
-  cleanup lists and maintenance work. Closes, deletes, merges NOTHING by itself.
-  Never: app code, games, audio, art, permission files.
-- OPUS (Piano Builder): builds the piano work ONLY (Piano Hablador / piano files).
-  Removed as Inspector today (~3:40 PM — "Opus can't check on its own"); role set
-  by the owner ~3:46 PM: it builds piano, Muse checks everything it makes.
-  Verifies nothing, merges nothing.
-- MUSE (Controller + Inspector): keeps this Master Reference (it holds the Mission Board and
-  the Approval Ledger as sections 3 and 6) and all starter prompts. Verifies,
-  reviews, and merges finished+tested work (owner ruling today: "I keep verifying"
-  — the Oct 13 controller contract stands). The independent checking job is
-  Muse's — no task is done until Muse verifies it against the real source.
-- Universal: one agent per file area; no agent merges its own work; recover existing
-  work before rebuilding; blockers go to Muse, never agent-to-agent; Codex owns
-  artwork identification/mapping/integration.
+Chain: owner → ChatGPT/Codex controller → existing assigned workers and independent reviewer.
+- CHATGPT/CODEX (Controller): maintains this reference and the October 28 master completion plan, sets priorities, coordinates existing assignments, reconciles evidence and approvals, and presents visible results. Codex retains artwork identification/mapping/integration.
+- JULES (Worker): retains existing assigned implementation and focused verification. Completed sessions are not integrated features; reuse delivered work before assigning new coding.
+- MUSE (Supporting records): supplies prior assignments, session history and controller records when accessible; no independent dispatch or competing queue.
+- EXISTING SPECIALISTS: retain their existing bounded assignments, including Piano/game work, subject to current owner approvals and access. This controller change creates no new agent or service authorization.
+- INDEPENDENT REVIEWER: reviews material changes where required; no worker approves its own work, and protected-main approval remains mandatory.
+- OWNER: makes essential product/visual decisions and authorizes consequential actions. Technical coordination stays with the controller; never require the owner to relay ordinary worker prompts.
+- Universal: one owner per task/file surface; recover existing work before rebuilding; report blockers to the ChatGPT/Codex controller. Preserve existing work, exact-change approvals and release gates.
 
 ## 3. DECISIONS ALREADY MADE (never ask again)
-GAMES: 4 only — Cow, Rima, Palabras por minuto, Chano. Mariposas OUT. Chano ruled
-DONE by the owner today (the finished "Chano's Word Circus").
+GAMES: Cow, Rima, Palabras por minuto, Chano, and owner-restored Mariposas (October 28). The existing Butterfly Garden source project is already imported intact on PR #1079 (33 image hashes verified), with the related scene candidate in PR #1010. Do not silently merge overlapping implementations; preserve both for reconciled review. Chano's latest owner design direction is accepted, but its exact delivered version and intended-route gameplay must still be reconciled before integration.
 AUDIO: device TTS OFF; silence where no recording exists; rec_gretel_* recordings
 NEVER used; Gretel_558674_Original.m4a only with verified transcript match; lesson
-narrations silent fallback until the owner records them; no agent generates voice.
+narrations stay silent where verified authentic phrases are unavailable; recover existing recordings in #769, not a default owner rerecording or generated voice.
 ART: no new art generation, ever; no original modified/replaced/regenerated; the
 original book art is the only truth; every picture shown side-by-side vs the
 original for the owner's yes before it enters a page. 7 flip-chart fixes approved
 Oct 20, files in the repo, wiring still pending. OJOS: DECIDED + DONE today —
-single approved eye in both spots (owner ruling today confirmed: "Ojos stays done").
+approved singular `ojo` with `ojo.png` in both spots; #1210 proposed `ojos` wording remains held without a later explicit owner reversal.
 Background: CREAM. Pencil pages 7–8 always separate.
 DEPLOY: auto-deploy OFF; every deploy needs the owner's own "deploy it";
 vercel.json lock (git.deploymentEnabled:false) is never touched.
 MERGE: only finished + tested work, with screenshot proof (video if it moves);
 reports carry WORKS / DOES NOT WORK / NOT VERIFIED in that order; merges never deploy.
+GITHUB STATUS (verified 2026-10-28): #1079 Butterfly Garden import from ejnburrows-rgb/butterfly-garden-adventure-51 OPEN and UNMERGED; #1010 Mariposas scene OPEN/DRAFT and UNMERGED; #1208 removal candidate CLOSED and UNMERGED after the owner's restoration. #1198 page-number design and #1210 eye-wording proposal are OPEN but not newly accepted for merging. All original branches, commits and discussions stay preserved. The owner explicitly authorized MERGE AND DEPLOY on October 28, but actual GitHub #1079 merge is blocked by required review and a merge attempt returned HTTP 405. Existing Vercel preview `dpl_AxXmktCCVuFoF24DA928qKADhwDY` FAILED the known art-audit reproducibility test (1,902 passed / 1 failed / 2 expected failures), separately tracked by existing #1043. No passing preview, production merge, or production deployment has occurred. Reconcile #1010 overlap before integration; do not change branch protection, bypass tests, regenerate original artwork or represent the request as a finished release.
 
 ## 4. HOW EMILIO IS TALKED TO
 - Proof or it didn't happen: a real picture attached to every claim, a video for
   anything that moves. No picture = NOT PROVEN.
-- Never send him PR numbers, SHAs, branch names, or GitHub links. Plain words:
-  name exactly which thing, what happened to it, and why it matters.
-- Message him ONLY for: (1) approval cards (picture + plain words + Yes/No taps),
-  (2) a true dead-end after everything was tried.
-- Status, when asked: one line per item, ✅ done / ❌ not done + brief why only.
-- Never report "partly done" — work until accomplished, then report DONE with proof.
+- Lead with what visibly changed and what still blocks completion. Include exact
+  evidence links when useful; do not make the owner navigate technical processes.
+- Do not reopen routine A–E decisions or request repeated approval cards.
+- Report verified states faithfully: built, tested, owner-accepted, reviewed,
+  merged and deployed are distinct. Clearly state partial, blocked or unknown work.
 - Never give out his personal information to anyone, for anything.
 
-## 5. DAILY DISPATCH RULE (owner order today)
-When he asks for "today's handout prompts" or "agent dispatch": ONE complete
-Daily Dispatch Package, built fresh from the repo, this Master Reference,
-open work, and latest verified results. One finished copy-paste prompt per active
-agent, labeled SEND TO JULES / SEND TO CHATGPT / SEND TO ANTIGRAVITY /
-SEND TO FREEBUFF / SEND TO OPUS (piano only), in send order, each with the exact assignment,
-existing work to recover, file ownership, acceptance checks, required evidence,
-and a one-line "why." No duplicates, no blocked work, no unverified claims as done.
-An agent with nothing gets "NO DISPATCH NEEDED" + why. End with: who receives a
-prompt, who is waiting, what is blocked, what needs his decision.
-
-## 6. WHERE THINGS STAND (today, ~3:05 PM)
-- ONE SOURCE OF TRUTH: the owner ordered the scattered agent papers erased
-  (today, 3:05 PM) — the separate Mission Board, Approval Ledger, permissions
-  file, and prompt index are gone from the repo and from Muse's folders.
-  This Master Reference is the only agent paper left. His memory, logs, and
-  the repo's product specs were kept, by his choice.
-- Picture-list fix (art audit): finished, checked, waiting on his Yes/No tap
-  (card sent today 2:36 PM). No visible change; unblocks one of two build gates.
-- Tree-picture fix: in the repo as a waiting change; its picture proof is still
-  owed, so it is NOT presented for a merge yes yet.
-- Árbol tiers: the "soft tree" claim did NOT reproduce — shipped tiers verified
-  sharp; no picture files were swapped.
-- Flip Chart fix, sound lane, roster, WordMatch, teacher pack, Cow game:
-  merge decisions still waiting, one card at a time.
-- Demo gates still blocked on: picture approvals (0 of 201 in the repo ledger)
-  and his phone approval of Lesson 3.
+## 5. COORDINATION RULE (owner override October 28)
+The owner gives requests in the current ChatGPT/Codex conversation. The controller handles existing agent assignments and review through available tools, using the October 28 master completion plan. Do not require daily handout prompts or owner-managed agent routing. If a specific access limitation requires owner action, provide one concrete step and retain all technical details yourself. No automatic dispatch schedule or provider access is established merely by these instructions.

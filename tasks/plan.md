@@ -1,62 +1,40 @@
-# End-to-End Delivery Plan — Cartilla de Gretel (Workbook Proof)
+# Cartilla — execution order (current continuation)
 
-> **MANDATORY OWNER DIRECTIVES (2026-10-22, every agent / Muse / Instinct / Jules):** Read [PERMANENT_PROJECT_INTEGRITY_WORKFLOW.md](../PERMANENT_PROJECT_INTEGRITY_WORKFLOW.md) and [ARTWORK_REPORT_VERIFICATION_AND_SINGLE_SOURCE_CLEANUP.md](../ARTWORK_REPORT_VERIFICATION_AND_SINGLE_SOURCE_CLEANUP.md) before investigating, changing, certifying or dispatching artwork work. Only the latest authentic owner-approved updated art may be used; delete proven obsolete wrong crops from current production after switching and verifying all references. Do not create competing inventories, silently relax tests, or report file presence as correct rendered art. Existing owner-only merge/deploy gates remain in force. These Markdown directives define the obligation; actual implementation and tests are required before claiming enforcement.
+This is a **routing index**, not a second master completion plan, dashboard or task list. The actual remaining work, owners, existing branches, exact commits, approvals and evidence are maintained in [GitHub issue #877](https://github.com/ejnburrows-rgb/cartilla-de-gretel/issues/877). The finished-product requirements are in [PROJECT_FINISH_DEFINITION.md](../PROJECT_FINISH_DEFINITION.md). Current global safety/continuation rules are in [AGENTS.md](../AGENTS.md).
 
-**Date Updated:** 2026-10-16
+## Continue existing work, do not stop at each task
 
-This plan defines the sequence of work required to satisfy `PROJECT_FINISH_DEFINITION.md` specifically for the interactive Student Workbook and Teacher Flip Chart proof.
+1. Recover the exact current assignment/branch, evidence and ownership; do not start a duplicate audit, branch, job, dispatcher or service.
+2. Pick the highest-priority **eligible** unfinished step in the existing #877 lanes and make actual changes where needed. Routine in-scope visual/implementation decisions A–E are accepted; do not ask again.
+3. Test only affected behavior, reuse still-valid proof, save the actual change on the existing branch and document its exact commit and limitations in #877.
+4. If a task hits an ownership conflict, absent authentic source, access problem, GitHub review gate or other hold, **stop only that task** and immediately continue the next independent eligible task in the **same available session**.
+5. If actual execution capacity/session limits end the run, preserve an exact resumable checkpoint in #877. Do not imply that this Markdown started a worker or background process.
 
-## Core Rules
+## Eight existing completion lanes
 
-1. **Follow `AGENTS.md` and the 2026-10-13 autonomous controller directive:** Autonomous controllers and dispatchers (Muse) may refill up to 15 useful active Jules lanes with independent, ready work supported by a real gap without re-requesting owner approval per issue, provided no owner-only gates (release, payment, unapproved redesign, artwork approval) are crossed.
-2. **Never duplicate work.** Inspect actual GitHub branches, existing PRs, and live provider sessions. If another agent is assigned a task, do not dispatch a duplicate to another worker. Reuse proof (Vitest/Playwright/types) when valid. A test run is needed only for *new* changes or *missing* final release bounds.
-3. **Show exact visual evidence.** The owner demands source-faithful render proof in chat (screenshot/video/direct reproduction URL) when artwork or layout is changed. GitHub PR diffs or `playwright.config.ts` console output are not acceptance proof for visual tasks.
-4. **Follow `PROJECT_SOURCE_OF_TRUTH.md`.** Do not reconstruct source-blocked pages. Do not hallucinate missing book content.
-5. **No active Supabase connection yet.** Do not expand real user data until authorized (post-pilot).
-6. **Sonar is advisory and non-blocking.** Do not block execution on warnings. True regressions block; theoretical quality gate drops do not.
+| Order / lane | Work and required dependency |
+| --- | --- |
+| 1. Integration readiness | Recover delivered PR heads, targeted file conflicts, sequencing, formal review and exact merge prerequisites. #1079, #1097, #1197, #1205, #1204 and #1206 are integrated through normal protected merges; exact current main is recorded in #877. Effective protection has zero required approving reviews and requires conversation resolution. Obtain independent material review and inspect each actual gate; do not revive the old 405 assumption or bypass protection. |
+| 2. Artwork | Continue existing canonical `MASTER-MAPPING.csv`, exact latest approved authentic sources, scene isolation and served-file visual proof; #1097 and #1205 are merged with source-pixel, independent-review and rendered-placement proof. Missing authentic masters remain source-local holds. |
+| 3. Audio | Continue existing #769 using original Gretel recordings, heard speech transcripts, exact phrase/page/event mapping, permitted excerpts and audible playback/cleanup; do not use rejected 67 clips or choose a provider. |
+| 4. Student | #1206 is merged after independent review of repair 45208d4: delivered Lesson 3, vowel/syllable and accessibility work; wrong-syllable credit is rejected, with 41 affected checks and three-width touch proof. Preserve `DrawBoxCanvas` and `WorkbookPageRenderer`. |
+| 5. Games/Piano | Mariposas is integrated and live-verified. Recover other existing game/Chano proofs and latest accepted versions; actual microphone/acoustics remain separately unverified. #1204 is merged with 16 checks, six pixel-identical original bases and 24 normal/reduced-motion placement checks. |
+| 6. Teacher/Flip Chart | Continue original mounted-route teacher and chart work, progress, reporting, print and classroom/device proof using non-real learners. |
+| 7. Assembled verification | **After permitted integration produces one frozen SHA**, verify all required 24 lessons and teacher/student journeys. Reuse proof for unchanged code; preserve untested Safari/physical-phone gaps. |
+| 8. Release | The October 28 **Mariposas-only** authorization is fulfilled: deployed source c670ff0, READY dpl_6CEbskHgdB61sDJZkxpcm6mHQfYt, six live journeys and all 33 original image hashes pass. Published teacher baseline is preserved; main was not deployed. Full Cartilla release still requires frozen assembled verification and separately scoped authorization. Keep rollback and protection intact. |
 
-## Consolidated Execution Checkpoint
+Independent implementation lanes **2–6 proceed concurrently** within existing assignments; do not wait for Lane 1's GitHub approval blocker to clear before progressing them. Lane 7 requires an actually integrated frozen candidate. Lane 8 requires a verified eligible candidate; the owner's October 28 merge/deploy authorization is already recorded, so do not ask again for the identical action.
 
-**Evidence already obtained — DO NOT REDO:**
-- Four completed broad artwork audits. PR #751 provides the canonical 201 drawing groups/330 placements reconciliation (draft evidence only).
-- Merged #733 Piano Hablador designs/logic, #743 Workbook physical page turn, #744 printed 60-sheet Flip Chart top-bound page turn, #726 approved pencil/eraser.
-- Verification PRs merged: #641 (full assembled Workbook regression, closed #450), #642 (keyboard/pointer access, closed #457), #643 (living motion bounds, closed #560), #646/648 (artwork intake tooling, closed #579), #636 (Gretel voice abstract, closed #570).
-- #713 authorization-gate reconciliations into `WORKBOOK_ARCHETYPE_STANDARD.md` and `STUDENT_INTERACTION_STANDARD.md` already merged.
+## Decisions and holds that may not be reversed silently
 
-**Remaining integration (not yet independently proven complete):**
-- PR #739 (one-native-page whole Workbook plus student resume/handwriting).
-- PR #735 (motion of 8 Workbook images).
-- PR #737 (5 Flip Chart images).
-- PR #769 (DRAFT, owner-gated — voice work MOOT per owner 2026-10-15: voice research stopped, the 48 recorded Gretel clips locked FINAL (commit e7d3bf2c). The 67 local MP3 cues are REJECTED stuttering/music source — archival evidence only, never map, replay, restitch, or deploy them. Audio recovery uses only `Gretel_558674_Original.m4a` with auditory/transcript/page verification per the repo AGENTS.md audio corrections; playback stays held until verification is complete.)
+- Mariposas **is included**. Reconcile already existing #1079 and #1010; #1208 removal is rejected and closed.
+- Preserve singular `ojo` and `ojo.png`; do not adopt held #1210 without a later explicit owner decision.
+- #1211 destructive component deletions stay held; #1178 stays draft until its trace/toolbar hold is reconciled.
+- Source Workbook printed pages **86–87 are absent**. Lesson 23 ends at 85; Lesson 24 uses pages 88–90. Do not invent the missing pages.
+- Maintain final authentic artwork, original recorded voice, privacy/security and spending restrictions. No new paid providers or unapproved real student data.
+- Routine owner acceptance is **not** eligible independent formal GitHub approval, exact-change merge authorization or deployment approval. Never self-approve or bypass protection.
+- Do not declare the product finished merely from a PR, test, static screenshot or docs policy.
 
-## Final Gates & Execution Order
+**Quality checks:** SonarCloud/SonarQube is **advisory and non-blocking**; actual confirmed defects remain blockers for their affected changes. Reuse valid targeted tests and source/render proof. **Historical #1079 preview failure is repaired:** existing #1043/#1166 fixes were recovered without artwork substitution. Main qualification passed 203 suites / 2,065 tests; the scoped production baseline passed 119 suites / 1,507 tests (each retains two existing expected failures), TypeScript/assets/build and six local plus six live browser journeys. [Versioned scoped release proof](https://github.com/ejnburrows-rgb/cartilla-de-gretel/blob/be3c9d399c990fd4a4d3c6c37e452d85dcf68ce3/docs/proofs/mariposas-2026-10-29/live/PUBLISH.md). This is not full-product qualification.
 
-1. **Advance existing candidates; do not restart merged lanes**
-   - Muse reconciles live Opus assignments and active Jules sessions. Recover unfinished #739/#735/#737 lanes, no duplicate PRs. (#769 voice work is moot per owner 2026-10-15 — do not recover or restart it.)
-   - Opus continues assigned difficult cross-component Workbook implementation (reader, erase persistence, turns).
-   - Jules completes or validates existing #735/#737 and installs exact approved masters once authorized by the owner.
-   - For audio: no new voice discussion, generation, or provider selection — the owner already supplied finished audio (2026-10-15) and prohibited revisiting it. The 67 MP3 cues are rejected/archival-only; do not map or replay them. Recovery = `Gretel_558674_Original.m4a` only, with auditory/transcript/page verification per the repo AGENTS.md audio corrections; keep playback held until verification is complete.
-
-2. **#588 — Final owner art drop**
-   - Owner-gated: integrate final supplied owner foreground art drop using the verified intake tool from #579.
-
-3. **#589 — Gretel voice: RESOLVED by owner 2026-10-15**
-   - Owner locked the 48 recorded Gretel clips as FINAL (commit e7d3bf2c) and stopped all voice research; generator/provider selection is not to be revisited. This gate now tracks recovery, mapping, and verification of the existing assets only — no local-neural vs cloud-TTS decision pending.
-
-4. **#587 — Current clean-main Jules release baseline**
-   - Reuse existing acknowledged session; require actual output.
-   - Cross-platform launcher verified on `main`.
-   - Records exact typecheck, Vitest, build, and Playwright execution counts without mutating release assets.
-
-5. **#458 — Assembled-product proof and release**
-   - Exact integrated head; full release gate; final Student and teacher regressions.
-   - Required owner-visible archetype and assembled-product approvals remain open until actual rendered evidence is shown.
-   - Deploy only after intentional final owner authorization.
-
-## Printed pages 86–87 — resolved source status
-
-Printed Workbook pages **86 and 87 are not blank pages that still need conversion**. They are absent from the authoritative supplied Student Workbook scan. Keep printed pages 86–87 as `SOURCE_BLOCKED` with no inferred text, artwork, regions, or archetype. Do **not** reconstruct them.
-
-## Definition of this plan being complete
-
-This plan is complete only when all real gaps against `PROJECT_FINISH_DEFINITION.md` are closed with objective evidence. Merged PRs, completed Jules sessions, a successful build, or a clean issue list alone do not equal product completion.
+**Required #877 checkpoint:** Existing lane and branch / actual change / exact SHA / tested behavior / linked proof / not yet verified / remaining blocked action / **next eligible executable task**. Then continue.

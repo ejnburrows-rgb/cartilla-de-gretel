@@ -1,0 +1,70 @@
+[WebServer] (node:20164) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+[WebServer] (Use `node --trace-warnings ...` to show where the warning was created)
+[WebServer] (node:20164) [DEP0205] DeprecationWarning: `module.register()` is deprecated. Use `module.registerHooks()` instead.
+
+Running 3 tests using 1 worker
+
+(node:30464) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ok 1 tests\e2e\butterfly-garden.spec.ts:140:1 › keyboard syllable controls retain a visible focus outline (2.0s)
+  x  2 tests\e2e\butterfly-garden.spec.ts:153:1 › instructions trap keyboard focus, close with Escape and restore the trigger (6.0s)
+(node:29564) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  x  3 tests\e2e\butterfly-garden.spec.ts:175:1 › rotating during delivery and retrieval returns the butterfly to its current home (4.0s)
+
+
+  1) tests\e2e\butterfly-garden.spec.ts:153:1 › instructions trap keyboard focus, close with Escape and restore the trigger 
+
+    Error: expect(locator).toBeVisible() failed
+
+    Locator: getByRole('dialog', { name: 'Instrucciones:' })
+    Expected: visible
+    Timeout: 5000ms
+    Error: element(s) not found
+
+    Call log:
+      - Expect "toBeVisible" getByRole('dialog', { name: 'Instrucciones:' }) with timeout 5000ms
+      - waiting for getByRole('dialog', { name: 'Instrucciones:' })
+
+
+      158 |   await page.keyboard.press("Enter");
+      159 |   const dialog = page.getByRole("dialog", { name: "Instrucciones:" });
+    > 160 |   await expect(dialog).toBeVisible();
+          |                        ^
+      161 |   for (let i = 0; i < 8; i++) {
+      162 |     expect(await dialog.evaluate((el) => el.contains(document.activeElement))).toBe(true);
+      163 |     await page.keyboard.press("Tab");
+        at C:\Users\EJN\Documents\Codex\2026-10-29\la-cartilla-de-gretel-continue-to\work\cartilla\tests\e2e\butterfly-garden.spec.ts:160:24
+
+    attachment #1: video (video/webm) ──────────────────────────────────────────────────────────────
+    test-results\butterfly-garden-instructi-71f3e-ape-and-restore-the-trigger\video.webm
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    Error Context: test-results\butterfly-garden-instructi-71f3e-ape-and-restore-the-trigger\error-context.md
+
+  2) tests\e2e\butterfly-garden.spec.ts:175:1 › rotating during delivery and retrieval returns the butterfly to its current home 
+
+    Error: expect(received).toBeLessThan(expected)
+
+    Expected: < 390
+    Received:   520.8939819335938
+
+      185 |   let box = (await butterfly.boundingBox())!;
+      186 |   expect(box.x + box.width / 2).toBeGreaterThanOrEqual(0);
+    > 187 |   expect(box.x + box.width / 2).toBeLessThan(390);
+          |                                 ^
+      188 |   expect(box.y + box.height / 2).toBeLessThan(844);
+      189 |   await page.getByTestId("check").click();
+      190 |   await expect(page.getByTestId("slot-0")).not.toHaveText("pi");
+        at C:\Users\EJN\Documents\Codex\2026-10-29\la-cartilla-de-gretel-continue-to\work\cartilla\tests\e2e\butterfly-garden.spec.ts:187:33
+
+    attachment #1: video (video/webm) ──────────────────────────────────────────────────────────────
+    test-results\butterfly-garden-rotating--57a66-tterfly-to-its-current-home\video.webm
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    Error Context: test-results\butterfly-garden-rotating--57a66-tterfly-to-its-current-home\error-context.md
+
+  2 failed
+    tests\e2e\butterfly-garden.spec.ts:153:1 › instructions trap keyboard focus, close with Escape and restore the trigger 
+    tests\e2e\butterfly-garden.spec.ts:175:1 › rotating during delivery and retrieval returns the butterfly to its current home 
+  1 passed (17.3s)

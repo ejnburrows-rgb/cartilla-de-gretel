@@ -1,0 +1,12 @@
+Reusing existing Vite server on port 5179
+
+--- Running verification at viewport 375px ---
+[VERIFIED] Viewport 375px complete.
+
+--- Running verification at viewport 768px ---
+[VERIFIED] Viewport 768px complete.
+
+--- Running verification at viewport 1280px ---
+[VERIFIED] Viewport 1280px complete.
+
+Successfully wrote proofs to docs/proofs/lesson-3-prototype-2026-10-27/assembled-rollout-2026-10-29/vowels/results.json and docs/proofs/lesson-3-prototype-2026-10-27/assembled-rollout-2026-10-29/vowels/REPORT.md
