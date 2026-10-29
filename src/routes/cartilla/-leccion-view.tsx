@@ -47,7 +47,7 @@ export function Leccion() {
   // Build this lesson from the canonical structured workbook page data.
   // All instructional pages render through the native learning surface.
   // A hidden Piano must not leave an empty leaf after the last printed page.
-  const { supported: pianoSupported } = usePianoListening({ lang: "es-MX", onFinal: () => {} });
+  const { supported: pianoSupported, processing: pianoProcessing } = usePianoListening({ lang: "es-MX", onFinal: () => {} });
   const pages = useMemo(() => buildPageArray(n, pianoSupported), [n, pianoSupported]);
   const printedPages = pages.map((page) => page.pageNumber).filter((page): page is number => typeof page === "number");
   const pageRange = printedPages.length ? `${printedPages[0]}-${printedPages.at(-1)}` : entry?.pages;
@@ -91,20 +91,25 @@ export function Leccion() {
   });
   // Without a session, render immediately. With a session, wait until the
   // query settles (success OR error) so a dead backend can't blank the page.
-  const progressReady = !session || isFetched || isError;
+  const progressReady = pianoProcessing !== "checking" && (!session || isFetched || isError);
   const initialPage = useMemo(() => {
     // Old lesson-24 bookmarks numbered the missing page 87 at index 0. New
     // bookmarks carry the printed page, so this fallback migration runs once.
-    const resolveSavedIndex = (savedIndex: number, printedPage?: number) => {
+    const resolveSavedIndex = (savedIndex: number, printedPage?: number, pageId?: string) => {
       if (typeof printedPage === "number" && Number.isInteger(printedPage)) {
         const matching = pages.findIndex((page) => page.pageNumber === printedPage);
         if (matching >= 0) return matching;
       }
+      const identified = pageId ? pages.findIndex((page) => page.id === pageId) : -1;
+      if (identified >= 0) return identified;
+      // Piano has no printed number; a current trailing bookmark is not the
+      // older missing-page-87 offset. New saves carry its explicit identity.
+      if (pages[savedIndex]?.id === `piano-lesson-${n}`) return savedIndex;
       const migrated = n === 24 ? Math.max(0, savedIndex - 1) : savedIndex;
       return Math.min(Math.max(0, migrated), Math.max(0, pages.length - 1));
     };
     const local = readLearnerResume(n);
-    if (local) return resolveSavedIndex(local.page, local.printedPage);
+    if (local) return resolveSavedIndex(local.page, local.printedPage, local.pageId);
     if (!session) return 0;
     const lessonProgress =
       (
@@ -118,7 +123,7 @@ export function Leccion() {
   // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [scope, session, progressData, n, pages.length]);
 
-  useEffect(() => { if (progressReady) saveLearnerResume(n, initialPage, pages[initialPage]?.pageNumber); }, [scope, n, progressReady, initialPage, pages]);
+  useEffect(() => { if (progressReady) saveLearnerResume(n, initialPage, pages[initialPage]?.pageNumber, pages[initialPage]?.id); }, [scope, n, progressReady, initialPage, pages]);
   // Laptop full screen (owner decision 2026-10-12). Opening a lesson from the
   // lesson list already asks for it; if the lesson was opened another way,
   // the first tap on the page paper (not on an activity) asks once. Leaving
@@ -154,7 +159,7 @@ export function Leccion() {
     // the workbook and its interactive flip never re-render. CSS caps + eases
     // it and disables it under prefers-reduced-motion (garden-scene.css).
     gardenRef.current?.style.setProperty("--garden-parallax", String(index));
-    saveLearnerResume(n, index, pages[index]?.pageNumber);
+    saveLearnerResume(n, index, pages[index]?.pageNumber, pages[index]?.id);
     if (!session) return;
     void saveLastPageFn({
       data: {
@@ -242,6 +247,7 @@ export function Leccion() {
             />
           )}
           <GardenScene ref={gardenRef}>
+            {!progressReady && <p role="status" className="p-6 text-center">Preparando las páginas…</p>}
             {progressReady && (
               <NativeLessonViewer
                 key={`${n}:${scope}`}

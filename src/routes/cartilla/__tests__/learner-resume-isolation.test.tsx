@@ -6,13 +6,16 @@ import { readLearnerResume, saveLearnerResume } from "@/lib/learner-resume";
 
 const identity = vi.hoisted(() => ({
   demo: null as null | { classId: string; studentId: string },
+  lesson: 3,
+  pianoSupported: false,
+  pianoProcessing: "unavailable",
 }));
 vi.mock("@/lib/demo-student-session", () => ({ getDemoStudentSession: () => identity.demo }));
 vi.mock("@tanstack/react-router", () => ({
   createFileRoute: () => (options: unknown) => ({ options }),
   lazyRouteComponent: (load: () => Promise<Record<string, React.ComponentType>>, name: string) =>
     lazy(async () => ({ default: (await load())[name] })),
-  useParams: () => ({ n: "3" }),
+  useParams: () => ({ n: String(identity.lesson) }),
   useNavigate: () => vi.fn(),
   Link: ({ children }: { children: React.ReactNode }) => <a>{children}</a>,
 }));
@@ -30,8 +33,13 @@ vi.mock("@/lib/lesson-progress", () => ({
 }));
 vi.mock("@/lib/seed-data", () => ({ listSeedStudentAssignments: () => [] }));
 vi.mock("@/context/LanguageContext", () => ({ useLanguage: () => ({ lang: "es" }) }));
+vi.mock("@/hooks/usePianoListening", () => ({
+  usePianoListening: () => ({ supported: identity.pianoSupported, processing: identity.pianoProcessing }),
+}));
 vi.mock("@/utils/buildPageArray", () => ({
-  buildPageArray: () => [1, 2, 3].map((pageNumber) => ({ id: String(pageNumber), pageNumber })),
+  buildPageArray: (lesson: number, includePiano = true) => lesson === 24
+    ? [...[88, 89, 90].map((pageNumber) => ({ id: String(pageNumber), pageNumber })), ...(includePiano ? [{ id: "piano-lesson-24" }] : [])]
+    : [1, 2, 3].map((pageNumber) => ({ id: String(pageNumber), pageNumber })),
 }));
 vi.mock("@/components/cartilla/DemoStudentBanner", () => ({ DemoStudentBanner: () => null }));
 vi.mock("@/components/cartilla/GardenScene", () => ({
@@ -50,12 +58,12 @@ function Viewer({
 }: {
   initialPage?: number;
   onPageChange?: (n: number) => void;
-  pages: { pageNumber: number }[];
+  pages: { pageNumber?: number; id: string }[];
 }) {
   const [index, setIndex] = useState(initialPage);
   return (
     <>
-      <output>{pages[index]?.pageNumber}</output>
+      <output>{pages[index]?.pageNumber ?? pages[index]?.id}</output>
       <button
         onClick={() => {
           setIndex(index + 1);
@@ -90,9 +98,46 @@ beforeEach(() => {
   cleanup();
   localStorage.clear();
   identity.demo = null;
+  identity.lesson = 3;
+  identity.pianoSupported = false;
+  identity.pianoProcessing = "unavailable";
 });
 afterEach(cleanup);
 describe("lesson learner resume", () => {
+  it("preserves the Piano bookmark during delayed capability detection and reopening", async () => {
+    identity.lesson = 24;
+    identity.pianoProcessing = "checking";
+    saveLearnerResume(24, 3);
+    let view = render(<Leccion />);
+    expect(readLearnerResume(24)?.page).toBe(3);
+    expect(screen.queryByText("Next")).toBeNull();
+    identity.pianoSupported = true;
+    identity.pianoProcessing = "on-device";
+    view.rerender(<Leccion />);
+    expect((await screen.findByRole("status")).textContent).toBe("piano-lesson-24");
+    expect(readLearnerResume(24)).toMatchObject({ page: 3, pageId: "piano-lesson-24" });
+    cleanup();
+    identity.pianoSupported = false;
+    identity.pianoProcessing = "checking";
+    view = render(<Leccion />);
+    expect(readLearnerResume(24)).toMatchObject({ page: 3, pageId: "piano-lesson-24" });
+    identity.pianoSupported = true;
+    identity.pianoProcessing = "on-device";
+    view.rerender(<Leccion />);
+    expect((await screen.findByRole("status")).textContent).toBe("piano-lesson-24");
+  });
+
+  it("omits an unavailable Piano leaf only after detection settles", async () => {
+    identity.lesson = 24;
+    identity.pianoProcessing = "checking";
+    saveLearnerResume(24, 3);
+    const view = render(<Leccion />);
+    expect(readLearnerResume(24)?.page).toBe(3);
+    identity.pianoProcessing = "unavailable";
+    view.rerender(<Leccion />);
+    expect((await screen.findByRole("status")).textContent).toBe("90");
+    expect(readLearnerResume(24)).toMatchObject({ page: 2, printedPage: 90 });
+  });
   it("A page 2 → B page 1 → A page 2, without overwriting B's bookmark", async () => {
     select("A");
     saveLearnerResume(3, 1);
