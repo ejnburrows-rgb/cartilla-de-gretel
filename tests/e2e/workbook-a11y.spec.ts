@@ -3,15 +3,15 @@ import path from "node:path";
 import fs from "node:fs";
 import { seedCompletedPages } from "./support/completion";
 
-const PROOF_DIR = path.resolve("docs/proofs/viewport-a11y");
+const PROOF_DIR = path.resolve(process.env.PROOF_DIR ?? "docs/proofs/viewport-a11y");
 
-test.beforeAll(async () => {
+test.beforeAll(async ({ baseURL }) => {
   if (!fs.existsSync(PROOF_DIR)) {
     fs.mkdirSync(PROOF_DIR, { recursive: true });
   }
   // Warm up dev server so initial on-demand bundling doesn't block the first test
   try {
-    const res = await fetch("http://127.0.0.1:5173/cartilla/leccion/7");
+    const res = await fetch(new URL("/cartilla/leccion/7", baseURL));
     await res.text();
   } catch {
     /* server may still be initializing */

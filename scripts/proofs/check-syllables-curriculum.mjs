@@ -3,7 +3,7 @@ import assert from 'node:assert/strict';
 import { mkdir, writeFile } from 'node:fs/promises';
 
 const port = Number(process.env.TEST_PORT || 5185);
-const root = 'docs/proofs/syllables-curriculum';
+const root = process.env.PROOF_DIR || 'docs/proofs/syllables-curriculum';
 await mkdir(root, { recursive: true });
 
 const browser = await chromium.launch({
@@ -21,6 +21,7 @@ try {
       hasTouch: true,
       recordVideo: { dir: root, size: { width, height: 900 } }
     });
+    context.setDefaultTimeout(30_000);
     const page = await context.newPage();
     page.on('console', (msg) => console.log('BROWSER LOG:', msg.text()));
     const errors = [];
@@ -43,8 +44,8 @@ try {
 
     const selectLearner = async (s) =>
       page.evaluate(async (s) => {
-        const api = await import('/src/lib/demo-student-session.ts');
-        api.startDemoStudentSession(s.classId, s.studentId);
+        sessionStorage.setItem('cartilla.demo-student-session.v1', JSON.stringify(s));
+        window.dispatchEvent(new Event('cartilla:student-session'));
       }, s);
 
     const setReaderPage = async (pageNumber, learner) => {

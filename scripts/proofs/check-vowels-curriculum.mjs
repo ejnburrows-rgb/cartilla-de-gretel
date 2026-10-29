@@ -5,7 +5,7 @@ import { spawn } from 'node:child_process';
 import http from 'node:http';
 
 const port = Number(process.env.TEST_PORT || 5180);
-const root = 'docs/proofs/vowels-curriculum';
+const root = process.env.PROOF_DIR || 'docs/proofs/vowels-curriculum';
 await mkdir(root, { recursive: true });
 
 // Check if server is already responding on port, else spawn Vite
@@ -27,11 +27,9 @@ let serverProcess = null;
 if (!(await isServerUp(port))) {
   console.log(`Starting Vite dev server on port ${port}...`);
   serverProcess = spawn(
-    process.platform === 'win32' ? 'cmd.exe' : 'npx',
-    process.platform === 'win32'
-      ? ['/c', 'node_modules\\.bin\\vite.cmd', 'dev', '--port', String(port), '--host', '127.0.0.1']
-      : ['vite', 'dev', '--port', String(port), '--host', '127.0.0.1'],
-    { stdio: 'ignore' }
+    process.execPath,
+    ['node_modules/vite/bin/vite.js', 'dev', '--port', String(port), '--host', '127.0.0.1'],
+    { stdio: 'ignore', windowsHide: true }
   );
 
   // Poll until server is ready (up to 30s)
@@ -69,6 +67,7 @@ try {
       hasTouch: true,
       recordVideo: { dir: root, size: { width, height: 900 } }
     });
+    context.setDefaultTimeout(30_000);
     const page = await context.newPage();
     const errors = [];
     page.on('pageerror', e => errors.push(e.message));
@@ -90,8 +89,8 @@ try {
     assert.equal(learners.length, 2, 'Expected at least 2 demo students');
 
     const selectLearner = async s => page.evaluate(async s => {
-      const api = await import('/src/lib/demo-student-session.ts');
-      api.startDemoStudentSession(s.classId, s.studentId);
+      sessionStorage.setItem('cartilla.demo-student-session.v1', JSON.stringify(s));
+      window.dispatchEvent(new Event('cartilla:student-session'));
     }, s);
 
     // ── 2. Vowel Line Matching: Lesson 2 Page 5 (Vocal O) ──
