@@ -64,6 +64,28 @@ export function validatePolicy(docs) {
   return {ok:errors.length===0,errors};
 }
 
+// Routing/reference documents must defer to #877 and must not carry their own
+// dated GitHub status snapshot or a second plan. Historical memory stays labelled.
+export const ROUTING_FILES = ['MASTER_REFERENCE.md','docs/JOBS.md','tasks/todo.md','.agents/PROJECT_MEMORY.md'];
+export function validateRouting(docs) {
+  const errors = [];
+  const stale = [
+    [/GITHUB STATUS\s*\(verified/i, 'dated GitHub status snapshot (use #877)'],
+    [/maintains[^.\n]{0,80}master completion plan/i, 'reference to a separate master completion plan'],
+    [/using the [^.\n]{0,40}master completion plan/i, 'reference to a separate master completion plan'],
+    [/protected-main approval remains mandatory/i, 'merge-gate wording that diverges from AGENTS.md'],
+  ];
+  for (const name of ROUTING_FILES) {
+    const text = docs?.[name];
+    if (typeof text !== 'string' || !text.trim()) { errors.push(`${name}: missing or empty`); continue; }
+    if (!/#877/.test(text)) errors.push(`${name}: missing canonical issue #877`);
+    for (const [pattern, label] of stale) if (pattern.test(text)) errors.push(`${name}: ${label}`);
+  }
+  const memory = docs?.['.agents/PROJECT_MEMORY.md'];
+  if (typeof memory === 'string' && !/not live instructions/i.test(memory)) errors.push('.agents/PROJECT_MEMORY.md: missing historical "not live instructions" banner');
+  return {ok:errors.length===0,errors};
+}
+
 const documentationPath = f => typeof f==='string' && (/\.(md|mdx|txt)$/i.test(f) || /^docs\//i.test(f));
 
 export function assessMerge(receipt) {
@@ -89,8 +111,9 @@ function cli() {
   const [flag,arg]=process.argv.slice(2);
   let result;
   if (flag==='--docs' && !arg) {
-    const docs=Object.fromEntries(POLICY_FILES.map(name=>[name,fs.existsSync(name)?fs.readFileSync(name,'utf8'):'']));
-    result=validatePolicy(docs);
+    const docs=Object.fromEntries([...POLICY_FILES,...ROUTING_FILES].map(name=>[name,fs.existsSync(name)?fs.readFileSync(name,'utf8'):'']));
+    const policy=validatePolicy(docs), routing=validateRouting(docs);
+    result={ok:policy.ok&&routing.ok,errors:[...policy.errors,...routing.errors]};
   } else if (flag==='--evidence' && arg) {
     result=assessMerge(JSON.parse(fs.readFileSync(path.resolve(arg),'utf8')));
   } else {
