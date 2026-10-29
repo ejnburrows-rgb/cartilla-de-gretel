@@ -1,10 +1,11 @@
 import { chromium } from "playwright";
 import { spawn } from "node:child_process";
 import fs from "node:fs/promises";
-const dir = process.env.PROTOTYPE_PROOF_DIR ?? "/tmp/cartilla-lesson-three-proof";
+import path from "node:path";
+const dir = path.resolve(process.env.PROTOTYPE_PROOF_DIR ?? "docs/proofs/lesson-3-prototype-2026-10-27/recheck");
 await fs.mkdir(dir, { recursive: true });
 const server = spawn(
-  "node",
+  process.execPath,
   ["node_modules/vite/bin/vite.js", "--mode", "worker", "--host", "127.0.0.1", "--port", "5183"],
   {
     env: {

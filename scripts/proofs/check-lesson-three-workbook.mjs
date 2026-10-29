@@ -3,7 +3,8 @@ import assert from 'node:assert/strict';
 import { mkdir, writeFile } from 'node:fs/promises';
 
 const port = Number(process.env.TEST_PORT || 5180);
-const root = 'docs/proofs/lesson-3-prototype-2026-10-27/production-continuation/workbook-activities';
+const baseURL = process.env.TEST_BASE_URL || `http://localhost:${port}`;
+const root = process.env.PROOF_DIR || 'docs/proofs/lesson-3-prototype-2026-10-27/production-continuation/workbook-activities';
 await mkdir(root, { recursive: true });
 
 const browser = await chromium.launch({
@@ -20,6 +21,7 @@ try {
       hasTouch: true,
       recordVideo: { dir: root, size: { width, height: 900 } }
     });
+    context.setDefaultTimeout(30_000);
     const page = await context.newPage();
     const errors = [];
     page.on('pageerror', e => errors.push(e.message));
@@ -28,7 +30,7 @@ try {
     await page.route('**/auth/v1/**', r => r.abort());
 
     // 1. CRM Setup to get two real demo students
-    await page.goto(`http://localhost:${port}/cartilla/teacher/crm`);
+    await page.goto(`${baseURL}/cartilla/teacher/crm`);
     await page.getByRole('heading', { name: 'Hoy en tu clase' }).waitFor();
     const learners = await page.evaluate(() => {
       const d = JSON.parse(localStorage.getItem('cartilla.seed.state.v1'));
@@ -39,9 +41,10 @@ try {
     });
     assert.equal(learners.length, 2);
 
-    const selectLearner = async s => page.evaluate(async s => {
-      const api = await import('/src/lib/demo-student-session.ts');
-      api.startDemoStudentSession(s.classId, s.studentId);
+    // Synthetic session fixture only; no answers or completion are seeded.
+    const selectLearner = async s => page.evaluate(s => {
+      sessionStorage.setItem('cartilla.demo-student-session.v1', JSON.stringify(s));
+      window.dispatchEvent(new Event('cartilla:student-session'));
     }, s);
 
     // Start with Learner 0 on Lesson 3 Page 8 (Pencil line matching)
@@ -52,7 +55,7 @@ try {
     }, learners);
 
     await selectLearner(learners[0]);
-    await page.goto(`http://localhost:${port}/cartilla/leccion/3`);
+    await page.goto(`${baseURL}/cartilla/leccion/3`);
 
     const p8Viewer = page.locator('[data-native-page="8"]');
     await p8Viewer.waitFor();
@@ -93,7 +96,7 @@ try {
     await page.evaluate(s => {
       localStorage.setItem(`cartilla.learner-resume.v1:3:demo:${s.classId}:${s.studentId}`, JSON.stringify({ lesson: 3, page: 2, printedPage: 9 }));
     }, learners[0]);
-    await page.goto(`http://localhost:${port}/cartilla/leccion/3`);
+    await page.goto(`${baseURL}/cartilla/leccion/3`);
 
     const p9Viewer = page.locator('[data-native-page="9"]');
     await p9Viewer.waitFor();

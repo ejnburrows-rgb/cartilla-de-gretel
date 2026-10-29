@@ -3,22 +3,25 @@ import assert from 'node:assert/strict';
 import { mkdir, writeFile } from 'node:fs/promises';
 const activityIndex=Number(process.argv[2]??0);
 assert.ok(Number.isInteger(activityIndex)&&activityIndex>=0&&activityIndex<=2);
-const root='docs/proofs/lesson-3-prototype-2026-10-27/production-continuation'+(activityIndex?`/activity-${activityIndex}`:'');
+const baseURL=process.env.TEST_BASE_URL||'http://127.0.0.1:5173';
+const root=process.env.PROOF_DIR||('docs/proofs/lesson-3-prototype-2026-10-27/production-continuation'+(activityIndex?`/activity-${activityIndex}`:''));
 await mkdir(root,{recursive:true});
-const browser=await chromium.launch({executablePath:process.env.PLAYWRIGHT_CHROMIUM_PATH||'/usr/bin/chromium',args:['--no-sandbox','--disable-accelerated-2d-canvas']});
+const browser=await chromium.launch({executablePath:process.env.PLAYWRIGHT_CHROMIUM_PATH||(process.platform==='win32'?chromium.executablePath():'/usr/bin/chromium'),args:['--no-sandbox','--disable-accelerated-2d-canvas']});
 const results=[];
 try {
 for(const width of [375,768,1280]) {
  const context=await browser.newContext({viewport:{width,height:900},hasTouch:true,recordVideo:{dir:root,size:{width,height:900}}});
+ context.setDefaultTimeout(30_000);
  const page=await context.newPage();const errors=[];page.on('pageerror',e=>errors.push(e.message));
  await page.route('**/rest/v1/**',r=>r.abort());await page.route('**/auth/v1/**',r=>r.abort());
- await page.goto('http://127.0.0.1:5173/cartilla/teacher/crm');
+ await page.goto(`${baseURL}/cartilla/teacher/crm`);
  await page.getByRole('heading',{name:'Hoy en tu clase'}).waitFor();
  const learners=await page.evaluate(()=>{const d=JSON.parse(localStorage.getItem('cartilla.seed.state.v1'));return d.students.filter(s=>s.class_id===d.classes[0].id).slice(0,2).map(s=>({classId:s.class_id,studentId:s.id}));});
  assert.equal(learners.length,2);
  await page.evaluate(ls=>{for(const s of ls)localStorage.setItem(`cartilla.learner-resume.v1:3:demo:${s.classId}:${s.studentId}`,JSON.stringify({lesson:3,page:2,printedPage:9}));},learners);
- const select=async s=>page.evaluate(async s=>{const api=await import('/src/lib/demo-student-session.ts');api.startDemoStudentSession(s.classId,s.studentId);},s);
- await select(learners[0]);await page.goto('http://127.0.0.1:5173/cartilla/leccion/3');
+ // Synthetic session fixture only; learner work is produced by pointer input.
+ const select=async s=>page.evaluate(s=>{sessionStorage.setItem('cartilla.demo-student-session.v1',JSON.stringify(s));window.dispatchEvent(new Event('cartilla:student-session'));},s);
+ await select(learners[0]);await page.goto(`${baseURL}/cartilla/leccion/3`);
  const viewer=page.locator('[data-native-page="9"]');await viewer.waitFor();
  const activity=viewer.locator('.am-dibuja').nth(activityIndex);const canvas=activity.locator('canvas');
  const ink=()=>canvas.evaluate(c=>{const d=c.getContext('2d').getImageData(0,0,c.width,c.height).data;let n=0;for(let i=3;i<d.length;i+=4)if(d[i]>0)n++;return n;});
@@ -39,7 +42,7 @@ for(const width of [375,768,1280]) {
  await activity.getByRole('button',{name:'Borrador de goma'}).click();await draw();await waitInk(false);assert.equal(await finish().isEnabled(),false);assert.equal(await completed(),false);await shot('erased-completion-revoked');
  await draw();assert.equal(await finish().isEnabled(),false);
  await activity.getByRole('button',{name:'Borrador de goma'}).click();await draw(false);await page.reload();await page.mouse.up();await waitInk(true);assert.equal(await finish().isEnabled(),true);await shot('interrupted-reload');
- await page.goto('http://127.0.0.1:5173/cartilla/lecciones');await page.goto('http://127.0.0.1:5173/cartilla/leccion/3');await waitInk(true);
+ await page.goto(`${baseURL}/cartilla/lecciones`);await page.goto(`${baseURL}/cartilla/leccion/3`);await waitInk(true);
  await select(learners[1]);await waitInk(false);await select(learners[0]);await waitInk(true);
  assert.deepEqual(errors,[]);await shot('returned-learner-a');
  const video=page.video();await context.close();await video.saveAs(`${root}/${width}-production.webm`);await video.delete();
