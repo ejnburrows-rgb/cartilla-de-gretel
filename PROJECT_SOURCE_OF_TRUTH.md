@@ -1,6 +1,8 @@
 # PROJECT SOURCE OF TRUTH — La Cartilla de Gretel
 
-This document governs approved product content and presentation, not agent orchestration. Current work, active ownership and next steps are in [GitHub #877](https://github.com/ejnburrows-rgb/cartilla-de-gretel/issues/877); execution rules are in [AGENTS.md](AGENTS.md). Historical work references below are context only.
+This document governs approved product content and presentation, not agent orchestration.
+
+> **Owner scope, 2026-10-29: organization only.** References below to parallel active product work describe preserved requirements and historical execution, **not permission to develop, dispatch, integrate or deploy** in the current mission. Current authority for work scope is [issue #877](https://github.com/ejnburrows-rgb/cartilla-de-gretel/issues/877) and current agent rules are [AGENTS.md](AGENTS.md). Current work, active ownership and next steps are in [GitHub #877](https://github.com/ejnburrows-rgb/cartilla-de-gretel/issues/877); execution rules are in [AGENTS.md](AGENTS.md). Historical work references below are context only.
 
 ## Goal
 
