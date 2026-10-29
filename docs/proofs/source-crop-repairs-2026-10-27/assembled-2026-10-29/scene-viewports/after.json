@@ -1,0 +1,74 @@
+[
+  {
+    "name": "phone",
+    "viewport": {
+      "width": 390,
+      "height": 844
+    },
+    "phase": "after",
+    "state": {
+      "currentSrc": "http://127.0.0.1:5179/cartilla/art/optimized/flipchart-native/p011-scene.png",
+      "width": 1680,
+      "height": 1370,
+      "rect": {
+        "x": 150.96875,
+        "y": 199.453125,
+        "width": 217.1875,
+        "height": 177.109375,
+        "top": 199.453125,
+        "right": 368.15625,
+        "bottom": 376.5625,
+        "left": 150.96875
+      }
+    },
+    "sha256": "ae79bd23a93e8d0c8fb8df6daf9eebe0b966100d6867c0df1568916582a41251"
+  },
+  {
+    "name": "laptop",
+    "viewport": {
+      "width": 1366,
+      "height": 900
+    },
+    "phase": "after",
+    "state": {
+      "currentSrc": "http://127.0.0.1:5179/cartilla/art/optimized/flipchart-native/p011-scene.png",
+      "width": 1680,
+      "height": 1370,
+      "rect": {
+        "x": 624.359375,
+        "y": 148.609375,
+        "width": 289.21875,
+        "height": 235.84375,
+        "top": 148.609375,
+        "right": 913.578125,
+        "bottom": 384.453125,
+        "left": 624.359375
+      }
+    },
+    "sha256": "ae79bd23a93e8d0c8fb8df6daf9eebe0b966100d6867c0df1568916582a41251"
+  },
+  {
+    "name": "projector",
+    "viewport": {
+      "width": 1920,
+      "height": 1080
+    },
+    "phase": "after",
+    "state": {
+      "currentSrc": "http://127.0.0.1:5179/cartilla/art/optimized/flipchart-native/p011-scene.png",
+      "width": 1680,
+      "height": 1370,
+      "rect": {
+        "x": 886.203125,
+        "y": 157.3125,
+        "width": 364.09375,
+        "height": 296.90625,
+        "top": 157.3125,
+        "right": 1250.296875,
+        "bottom": 454.21875,
+        "left": 886.203125
+      }
+    },
+    "sha256": "ae79bd23a93e8d0c8fb8df6daf9eebe0b966100d6867c0df1568916582a41251"
+  }
+]
