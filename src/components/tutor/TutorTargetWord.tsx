@@ -8,7 +8,6 @@ export function TutorTargetWord({ word, playing }: TutorTargetWordProps) {
     <p
       data-tutor-target-word=""
       data-playing={playing ? "true" : "false"}
-      data-playing={playing}
       aria-label={word}
       className="tutor-word flex flex-wrap justify-center font-black leading-none tracking-wide text-stone-800"
     >
