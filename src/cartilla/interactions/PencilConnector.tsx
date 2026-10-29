@@ -53,7 +53,7 @@ export function DirectPencilConnector({
   className,
 }: PencilConnectorProps) {
   const shadowUid = `pencil-shadow-${useId().replace(/[^a-zA-Z0-9_-]/g, "")}`;
-  const { emit: gretelEvent, record: recordEvent } = useActivityEvents();
+  const { emit: gretelEvent, record: recordEvent, context } = useActivityEvents();
   const [incorrectAttempts, setIncorrectAttempts] = useActivityState("incorrectAttempts", 0);
   const incorrectRef = useRef(incorrectAttempts);
   incorrectRef.current = incorrectAttempts;
@@ -150,7 +150,7 @@ export function DirectPencilConnector({
   );
 
   const [marked, setMarked] = useState<Set<string>>(() => {
-    const saved = loadLassoProgress(pageKey)?.completedIds ?? [];
+    const saved = context?.isolated ? [] : loadLassoProgress(pageKey)?.completedIds ?? [];
     return validateProgressKeys(saved);
   });
 
@@ -197,9 +197,9 @@ export function DirectPencilConnector({
 
   const persist = useCallback(
     (ids: string[]) => {
-      saveLassoProgress(pageKey, ids);
+      if (!context?.isolated) saveLassoProgress(pageKey, ids);
     },
-    [pageKey],
+    [pageKey, context?.isolated],
   );
 
   const finishIfDone = useCallback(
