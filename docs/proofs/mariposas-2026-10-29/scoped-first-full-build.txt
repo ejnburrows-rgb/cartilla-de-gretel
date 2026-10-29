@@ -1,0 +1,73 @@
+
+> cartilla-de-gretel-platform@ build C:\Users\EJN\Documents\Codex\2026-10-29\la-cartilla-de-gretel-continue-to\work\cartilla-release
+> pnpm prepare:art && pnpm verify:assets && pnpm typecheck && pnpm test && vite build
+
+
+> cartilla-de-gretel-platform@ prepare:art C:\Users\EJN\Documents\Codex\2026-10-29\la-cartilla-de-gretel-continue-to\work\cartilla-release
+> node scripts/prepare-art-assets.mjs
+
+FINISHED_ART_PRESERVED 108 canonical groups
+
+> cartilla-de-gretel-platform@ verify:assets C:\Users\EJN\Documents\Codex\2026-10-29\la-cartilla-de-gretel-continue-to\work\cartilla-release
+> node scripts/verify-production-assets.mjs
+
+{
+  "workbook": 54,
+  "flipchart": 167,
+  "backgrounds": 148,
+  "delivery": 108,
+  "checked": 477,
+  "location": "local",
+  "errors": []
+}
+
+> cartilla-de-gretel-platform@ typecheck C:\Users\EJN\Documents\Codex\2026-10-29\la-cartilla-de-gretel-continue-to\work\cartilla-release
+> tsc --noEmit
+
+
+> cartilla-de-gretel-platform@ test C:\Users\EJN\Documents\Codex\2026-10-29\la-cartilla-de-gretel-continue-to\work\cartilla-release
+> vitest run
+
+
+ RUN  v4.1.8 C:/Users/EJN/Documents/Codex/2026-10-29/la-cartilla-de-gretel-continue-to/work/cartilla-release
+
+Not implemented: Window's scrollTo() method
+Not implemented: Window's scrollTo() method
+Not implemented: Window's scrollTo() method
+ ❯ src/routes/__tests__/student-routing.test.tsx (10 tests | 1 failed) 13746ms
+     × shows anonymous progress without a login or a permanent loading screen 11318ms
+Not implemented: Window's scrollTo() method
+Not implemented: Window's scrollTo() method
+Not implemented: Window's scrollTo() method
+Not implemented: Window's scrollTo() method
+Not implemented: Window's scrollTo() method
+Not implemented: Window's scrollTo() method
+Not implemented: Window's scrollTo() method
+Not implemented: Window's scrollTo() method
+Not implemented: Window's scrollTo() method
+Not implemented: Window's scrollTo() method
+Not implemented: Window's scrollTo() method
+
+⎯⎯⎯⎯⎯⎯⎯ Failed Tests 1 ⎯⎯⎯⎯⎯⎯⎯
+
+ FAIL  src/routes/__tests__/student-routing.test.tsx > Student-Teacher Routing Isolation > shows anonymous progress without a login or a permanent loading screen
+Error: Test timed out in 10000ms.
+If this is a long-running test, pass a timeout value as the last argument or configure it globally with "testTimeout".
+ ❯ src/routes/__tests__/student-routing.test.tsx:248:3
+    246|   });
+    247|
+    248|   it("shows anonymous progress without a login or a permanent loading …
+       |   ^
+    249|     vi.stubEnv("VITE_CRM_REVIEW", "true");
+    250|     const { Route: ProgressRoute } = await import("../cartilla/mi-prog…
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/1]⎯
+
+
+ Test Files  1 failed | 118 passed (119)
+      Tests  1 failed | 1506 passed | 2 expected fail (1509)
+   Start at  04:27:12
+   Duration  267.57s (transform 22.66s, setup 123.46s, import 87.90s, tests 94.06s, environment 612.91s)
+
+ ELIFECYCLE  Test failed. See above for more details.
+ ELIFECYCLE  Command failed with exit code 1.

@@ -88,6 +88,8 @@ import {
 import { Route as LoginRoute } from "../login";
 import { Route as UnirseRoute } from "../cartilla/unirse";
 import { Route as PresentarRoute } from "../cartilla/presentar.$n";
+// @ts-expect-error The router plugin supplies this virtual module at transform time.
+import { component as ProgressPage } from "../cartilla/mi-progreso?tsr-split=component";
 
 function renderWithRouter(initialEntries: string[]) {
   const history = createMemoryHistory({ initialEntries });
@@ -250,7 +252,7 @@ describe("Student-Teacher Routing Isolation", () => {
     const { Route: ProgressRoute } = await import("../cartilla/mi-progreso");
     await ProgressRoute.options.beforeLoad!({} as never);
     const root = createRootRouteWithContext<{ queryClient: unknown }>()({ component: Outlet });
-    const progress = createRoute({ getParentRoute: () => root, path: "/cartilla/mi-progreso", component: ProgressRoute.options.component });
+    const progress = createRoute({ getParentRoute: () => root, path: "/cartilla/mi-progreso", component: ProgressPage });
     const history = createMemoryHistory({ initialEntries: ["/cartilla/mi-progreso"] });
     const router = createRouter({ routeTree: root.addChildren([progress]), history, context: { queryClient: {} } });
     render(<RouterProvider router={router} />);

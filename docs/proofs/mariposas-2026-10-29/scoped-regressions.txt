@@ -1,0 +1,13 @@
+
+ RUN  v4.1.8 C:/Users/EJN/Documents/Codex/2026-10-29/la-cartilla-de-gretel-continue-to/work/cartilla-release
+
+Not implemented: Window's scrollTo() method
+Not implemented: Window's scrollTo() method
+Not implemented: Window's scrollTo() method
+Not implemented: Window's scrollTo() method
+
+ Test Files  2 passed (2)
+      Tests  14 passed (14)
+   Start at  04:34:31
+   Duration  13.53s (transform 3.59s, setup 1.58s, import 10.92s, tests 4.41s, environment 7.27s)
+
