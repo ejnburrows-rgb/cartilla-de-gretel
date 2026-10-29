@@ -1,0 +1,49 @@
+(node:28372) [DEP0205] DeprecationWarning: `module.register()` is deprecated. Use `module.registerHooks()` instead.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+
+ RUN  v4.1.8 C:/Users/EJN/Documents/Codex/2026-10-29/la-cartilla-de-gretel-continue-to/work/cartilla
+
+ ❯ src/cartilla/interactions/__tests__/SyllableWordCircle.rollout.test.tsx (12 tests | 2 failed) 653ms
+       × retries a wrong syllable inside a word without awarding credit 41ms
+       × uses rendered letter bounds and ignores button padding 22ms
+
+⎯⎯⎯⎯⎯⎯⎯ Failed Tests 2 ⎯⎯⎯⎯⎯⎯⎯
+
+ FAIL  src/cartilla/interactions/__tests__/SyllableWordCircle.rollout.test.tsx > SyllableWordCircle Rollout: Consonants Curriculum (Lessons 6–10) > Deliverable 2: Approved Pencil Marks Overlay & Responsive Geometry > retries a wrong syllable inside a word without awarding credit
+AssertionError: expected 'true' to be 'false' // Object.is equality
+
+Expected: "false"
+Received: "true"
+
+ ❯ src/cartilla/interactions/__tests__/SyllableWordCircle.rollout.test.tsx:213:52
+    211|       act(() => vi.advanceTimersByTime(3000));
+    212|
+    213|       expect(mamiBtn.getAttribute("aria-pressed")).toBe("false");
+       |                                                    ^
+    214|       expect(mamiBtn.querySelector(".native-syllable__mark")).toBeNull…
+    215|       expect(screen.getByRole("status").textContent).toContain("0 de 6…
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/2]⎯
+
+ FAIL  src/cartilla/interactions/__tests__/SyllableWordCircle.rollout.test.tsx > SyllableWordCircle Rollout: Consonants Curriculum (Lessons 6–10) > Deliverable 2: Approved Pencil Marks Overlay & Responsive Geometry > uses rendered letter bounds and ignores button padding
+AssertionError: expected 'true' to be 'false' // Object.is equality
+
+Expected: "false"
+Received: "true"
+
+ ❯ src/cartilla/interactions/__tests__/SyllableWordCircle.rollout.test.tsx:232:49
+    230|       fireEvent.pointerUp(word, { clientX: 20, clientY: 25, pointerId:…
+    231|       act(() => vi.advanceTimersByTime(3000));
+    232|       expect(word.getAttribute("aria-pressed")).toBe("false");
+       |                                                 ^
+    233|       expect(word.querySelector(".native-syllable__mark")).toBeNull();
+    234|
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[2/2]⎯
+
+
+ Test Files  1 failed (1)
+      Tests  2 failed | 10 passed (12)
+   Start at  05:42:34
+   Duration  3.30s (transform 438ms, setup 358ms, import 475ms, tests 653ms, environment 1.48s)
+

@@ -1,0 +1,1 @@
+SOURCE_CROP_RUNTIME_PASS 60 rendered placements and served image hashes

@@ -744,44 +744,46 @@
       "lessonNumber": null,
       "pageNumber": null,
       "sourcePage": "i-page-6.jpg",
-      "sourceAsset": "i-page-6.jpg",
+      "sourceAsset": "public/cartilla/art/hd/flipchart/page-007.jpg",
       "canonicalSrc": "/cartilla/art/faithful/vocal-i/indio.webp",
       "canonical": {
-        "width": 831,
-        "height": 870,
-        "bytes": 72626,
+        "width": 516,
+        "height": 735,
+        "bytes": 146934,
         "format": "webp",
-        "hasAlpha": true,
-        "sha256": "5a51e6c5d9fe0c04c9be33c4d171774970063e1873eb66f4ecc557d7620bd542"
+        "hasAlpha": false,
+        "sha256": "8cb311d527e3ec83c1c6c2804d593d51d94f60d27b04feef094a3c4621954343"
       },
       "cropBox": [
-        1570,
-        1526,
-        773,
-        472
+        1815,
+        1484,
+        516,
+        735
       ],
-      "provenanceStatus": null,
+      "provenanceStatus": "VERIFIED-EXACT-COLORED-COUNTERPART-2026-10-27",
       "cleanup": {
         "backgroundRemoved": false,
         "transparentPaddingTrimmed": false,
-        "normalizedWidth": 831,
-        "normalizedHeight": 870,
-        "note": "Delivery resized directly from current canonical. No background removal, recoloring or crop."
+        "normalizedWidth": 516,
+        "normalizedHeight": 735,
+        "note": "Lossless copies of the source-verified canonical crop. No enlargement, background removal, recoloring or crop."
       },
       "derivatives": [
         {
           "widthTier": 384,
           "path": "/cartilla/art/delivery/faithful/384/vocal-i/indio.webp",
-          "width": 384,
-          "height": 402,
-          "bytes": 44892
+          "width": 516,
+          "height": 735,
+          "bytes": 146934,
+          "sha256": "8cb311d527e3ec83c1c6c2804d593d51d94f60d27b04feef094a3c4621954343"
         },
         {
           "widthTier": 768,
           "path": "/cartilla/art/delivery/faithful/768/vocal-i/indio.webp",
-          "width": 768,
-          "height": 804,
-          "bytes": 111048
+          "width": 516,
+          "height": 735,
+          "bytes": 146934,
+          "sha256": "8cb311d527e3ec83c1c6c2804d593d51d94f60d27b04feef094a3c4621954343"
         }
       ],
       "warnings": [],
@@ -1440,39 +1442,46 @@
       "lessonNumber": null,
       "pageNumber": null,
       "sourcePage": null,
-      "sourceAsset": null,
+      "sourceAsset": "public/cartilla/art/source/workbook/page-003.jpg",
       "canonicalSrc": "/cartilla/art/faithful/vocal-i/iglesia.webp",
       "canonical": {
-        "width": 473,
-        "height": 407,
-        "bytes": 26076,
+        "width": 200,
+        "height": 196,
+        "bytes": 22944,
         "format": "webp",
-        "hasAlpha": true,
-        "sha256": "3747101ccd2e49b823f43da39ccb3171eeb213dbbc99ef0d7d0b4d1d39c5392b"
+        "hasAlpha": false,
+        "sha256": "9b2d5be2adf49cc64905316b5b84d22b909a98964c288d09e010543f65960207"
       },
-      "cropBox": null,
-      "provenanceStatus": "PROVENANCE-UNKNOWN",
+      "cropBox": [
+        47,
+        293,
+        200,
+        196
+      ],
+      "provenanceStatus": "VERIFIED-EXACT-WORKBOOK-CROP-2026-10-27",
       "cleanup": {
         "backgroundRemoved": false,
         "transparentPaddingTrimmed": false,
-        "normalizedWidth": 473,
-        "normalizedHeight": 407,
-        "note": "Delivery resized directly from current canonical. No background removal, recoloring or crop."
+        "normalizedWidth": 200,
+        "normalizedHeight": 196,
+        "note": "Lossless copies of the source-verified canonical crop. No enlargement, background removal, recoloring or crop."
       },
       "derivatives": [
         {
           "widthTier": 384,
           "path": "/cartilla/art/delivery/faithful/384/vocal-i/iglesia.webp",
-          "width": 384,
-          "height": 330,
-          "bytes": 36564
+          "width": 200,
+          "height": 196,
+          "bytes": 22944,
+          "sha256": "9b2d5be2adf49cc64905316b5b84d22b909a98964c288d09e010543f65960207"
         },
         {
           "widthTier": 768,
           "path": "/cartilla/art/delivery/faithful/768/vocal-i/iglesia.webp",
-          "width": 768,
-          "height": 661,
-          "bytes": 91164
+          "width": 200,
+          "height": 196,
+          "bytes": 22944,
+          "sha256": "9b2d5be2adf49cc64905316b5b84d22b909a98964c288d09e010543f65960207"
         }
       ],
       "warnings": [],
@@ -2078,44 +2087,46 @@
       "lessonNumber": null,
       "pageNumber": null,
       "sourcePage": "i-page-13.jpg",
-      "sourceAsset": "i-page-13.jpg",
+      "sourceAsset": "public/cartilla/art/source/workbook/page-013.jpg",
       "canonicalSrc": "/cartilla/art/faithful/vocal-i/invierno.webp",
       "canonical": {
-        "width": 270,
-        "height": 414,
-        "bytes": 24158,
+        "width": 188,
+        "height": 181,
+        "bytes": 37614,
         "format": "webp",
-        "hasAlpha": true,
-        "sha256": "35e515beb0bda63c986e7741b9460b5f96ac226286926e9af8cc95c03aad50ee"
+        "hasAlpha": false,
+        "sha256": "f2fab1b415b3776a84f514438bbeac3a7b71523a2da2ef7454fba743d6eb7a92"
       },
       "cropBox": [
-        941,
-        581,
-        140,
-        237
+        607,
+        444,
+        188,
+        181
       ],
-      "provenanceStatus": null,
+      "provenanceStatus": "VERIFIED-EXACT-WORKBOOK-CROP-2026-10-27",
       "cleanup": {
         "backgroundRemoved": false,
         "transparentPaddingTrimmed": false,
-        "normalizedWidth": 270,
-        "normalizedHeight": 414,
-        "note": "Delivery resized directly from current canonical. No background removal, recoloring or crop."
+        "normalizedWidth": 188,
+        "normalizedHeight": 181,
+        "note": "Lossless copies of the source-verified canonical crop. No enlargement, background removal, recoloring or crop."
       },
       "derivatives": [
         {
           "widthTier": 384,
           "path": "/cartilla/art/delivery/faithful/384/vocal-i/invierno.webp",
-          "width": 384,
-          "height": 589,
-          "bytes": 63548
+          "width": 188,
+          "height": 181,
+          "bytes": 37614,
+          "sha256": "f2fab1b415b3776a84f514438bbeac3a7b71523a2da2ef7454fba743d6eb7a92"
         },
         {
           "widthTier": 768,
           "path": "/cartilla/art/delivery/faithful/768/vocal-i/invierno.webp",
-          "width": 768,
-          "height": 1178,
-          "bytes": 150434
+          "width": 188,
+          "height": 181,
+          "bytes": 37614,
+          "sha256": "f2fab1b415b3776a84f514438bbeac3a7b71523a2da2ef7454fba743d6eb7a92"
         }
       ],
       "warnings": [],
