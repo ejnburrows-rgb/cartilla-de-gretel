@@ -185,15 +185,19 @@ function LearnerSyllableWordCircle({ region, lessonId }: { region: PageRegion; l
     if (pending) return;
     const word = words[wordIndex]?.word ?? "";
     if (!word) return;
-    const rect = event.currentTarget.getBoundingClientRect();
-    const width = Math.max(1, rect.width);
-    const ratio = Math.max(0, Math.min(0.9999, (event.clientX - rect.left) / width));
-    const charIndex = Math.min(word.length - 1, Math.floor(ratio * word.length));
+    const letters = [...event.currentTarget.querySelectorAll(".native-syllable__letter")];
+    const charIndex = letters.findIndex((letter) => {
+      const rect = letter.getBoundingClientRect();
+      return event.clientX >= rect.left && event.clientX < rect.right &&
+        event.clientY >= rect.top && event.clientY < rect.bottom;
+    });
+    // Button padding is not an answer. Grade only the printed letters touched.
+    if (charIndex < 0) return;
     const starts = validSyllableStarts(word, syllable);
     const occurrence =
       starts.find(
         (start) => charIndex >= start && charIndex < start + Math.max(1, syllable.length),
-      ) ?? (isTarget(wordIndex) && starts.length === 1 ? starts[0] : undefined);
+      );
     const correct = isTarget(wordIndex) && occurrence !== undefined;
     attempt(wordIndex, occurrence ?? charIndex, correct);
   };

@@ -47,6 +47,11 @@ function mockWordRect(button: HTMLElement, width = 300) {
     height: 48,
     toJSON: () => ({}),
   } as DOMRect);
+  const letters = [...button.querySelectorAll(".native-syllable__letter")];
+  letters.forEach((letter, index) => vi.spyOn(letter, "getBoundingClientRect").mockReturnValue({
+    left: index * width / letters.length, right: (index + 1) * width / letters.length,
+    top: 0, bottom: 48, width: width / letters.length, height: 48,
+  } as DOMRect));
 }
 
 describe("SyllableWordCircle Rollout: Consonants Curriculum (Lessons 6–10)", () => {
@@ -193,7 +198,7 @@ describe("SyllableWordCircle Rollout: Consonants Curriculum (Lessons 6–10)", (
       expect(pencilMark?.getAttribute("data-mark-type")).toBe("circle");
     });
 
-    it("single-occurrence word circles reliably when tapped anywhere on the button hit target", () => {
+    it("retries a wrong syllable inside a word without awarding credit", () => {
       const regions = getRegionsForPage(20);
       const maRegion = regions.find((r) => r.syllable === "ma")!;
       render(<SyllableWordCircle region={maRegion} />);
@@ -204,12 +209,34 @@ describe("SyllableWordCircle Rollout: Consonants Curriculum (Lessons 6–10)", (
       // Tap on the right side of "mami" (e.g. clientX: 180) where 'mi' is
       fireEvent.pointerUp(mamiBtn, { clientX: 180, pointerId: 1 });
       act(() => vi.advanceTimersByTime(3000));
+      act(() => vi.advanceTimersByTime(100));
 
-      // Because "mami" has only 1 "ma", it successfully circles "ma" at index 0
-      expect(mamiBtn.getAttribute("aria-pressed")).toBe("true");
-      const mark = mamiBtn.querySelector(".native-syllable__mark") as HTMLElement;
-      expect(mark.style.left).toBe("0%");
-      expect(mark.style.width).toBe("50%");
+      expect(mamiBtn.getAttribute("aria-pressed")).toBe("false");
+      expect(mamiBtn.querySelector(".native-syllable__mark")).toBeNull();
+      expect(screen.getByRole("status").textContent).toContain("0 de 6");
+      expect(recordEvent).not.toHaveBeenCalled();
+    });
+
+    it("uses rendered letter bounds and ignores button padding", () => {
+      const maRegion = getRegionsForPage(20).find((r) => r.syllable === "ma")!;
+      render(<SyllableWordCircle region={maRegion} />);
+      const word = screen.getByRole("button", { name: "mami" });
+      mockWordRect(word, 500);
+      const bounds = [[350, 375], [375, 395], [395, 420], [420, 430]];
+      word.querySelectorAll(".native-syllable__letter").forEach((letter, index) => {
+        vi.spyOn(letter, "getBoundingClientRect").mockReturnValue({
+          left: bounds[index][0], right: bounds[index][1], top: 10, bottom: 40,
+        } as DOMRect);
+      });
+      fireEvent.pointerUp(word, { clientX: 20, clientY: 25, pointerId: 1 });
+      act(() => vi.advanceTimersByTime(3000));
+      expect(word.getAttribute("aria-pressed")).toBe("false");
+      expect(word.querySelector(".native-syllable__mark")).toBeNull();
+
+      // This is the actual m, even though button-relative division would call it mi.
+      fireEvent.pointerUp(word, { clientX: 360, clientY: 25, pointerId: 2 });
+      act(() => vi.advanceTimersByTime(3000));
+      expect(word.getAttribute("aria-pressed")).toBe("true");
     });
 
     it("multi-occurrence word allows tapping either occurrence to circle it", () => {
@@ -324,14 +351,14 @@ describe("SyllableWordCircle Rollout: Consonants Curriculum (Lessons 6–10)", (
       const masaBtn = screen.getByRole("button", { name: "masa" });
       mockWordRect(masaBtn, 200);
 
-      // Circle "masa"
-      fireEvent.pointerUp(masaBtn, { clientX: 20, pointerId: 1 });
+      // Circle the actual "sa" in "masa".
+      fireEvent.pointerUp(masaBtn, { clientX: 150, pointerId: 1 });
       act(() => vi.advanceTimersByTime(3000));
       expect(masaBtn.getAttribute("aria-pressed")).toBe("true");
       expect(screen.getByRole("status").textContent).toContain("1 de 6 respuestas correctas");
 
       // Tap again to erase
-      fireEvent.pointerUp(masaBtn, { clientX: 20, pointerId: 2 });
+      fireEvent.pointerUp(masaBtn, { clientX: 150, pointerId: 2 });
       expect(masaBtn.getAttribute("aria-pressed")).toBe("false");
       expect(screen.getByRole("status").textContent).toContain("0 de 6 respuestas correctas");
       expect(gretelEvent).toHaveBeenCalledWith("activity:retry", { reason: "work-cleared" });

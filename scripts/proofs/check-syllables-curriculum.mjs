@@ -63,7 +63,11 @@ try {
 
     const clickAndAwaitMark = async (btn) => {
       await btn.scrollIntoViewIfNeeded();
-      await btn.click();
+      const { word, syllable } = await btn.evaluate(el => ({ word: el.getAttribute('aria-label'), syllable: el.closest('.native-syllable').querySelector('h2').textContent }));
+      const normalize = value => value.normalize('NFD').replace(/[\u0300-\u036f]/g, '').toLocaleLowerCase('es');
+      const occurrence = normalize(word).indexOf(normalize(syllable));
+      assert.ok(occurrence >= 0);
+      await btn.locator('.native-syllable__letter').nth(occurrence).tap();
       await page.waitForFunction(
         (el) => el.getAttribute('aria-pressed') === 'true',
         await btn.elementHandle(),
@@ -86,6 +90,16 @@ try {
 
     // Click "mami" and "Coloma" under "ma"
     const mamiBtn = p20.locator('button.native-syllable__word[aria-label="mami"]');
+    await mamiBtn.tap({ position: { x: 2, y: 2 } });
+    assert.equal(await mamiBtn.getAttribute('aria-pressed'), 'false');
+    assert.equal(await mamiBtn.locator('.native-syllable__mark').count(), 0);
+    // The actual mi must retry without credit when the exercise asks for ma.
+    await mamiBtn.locator('.native-syllable__letter').nth(2).tap();
+    assert.equal(await mamiBtn.getAttribute('aria-pressed'), 'false');
+    await page.waitForFunction(el => !el.disabled, await mamiBtn.elementHandle());
+    assert.equal(await mamiBtn.getAttribute('aria-pressed'), 'false');
+    assert.equal(await mamiBtn.locator('.native-syllable__mark').count(), 0);
+    await page.screenshot({ path: `${root}/${width}-wrong-mi-no-credit.png`, fullPage: true });
     await clickAndAwaitMark(mamiBtn);
 
     const colomaBtn = p20.locator('button.native-syllable__word[aria-label="Coloma"]');
@@ -226,6 +240,7 @@ try {
       width,
       height: 900,
       checks: [
+        'Pointer grading: tapping mi in mami when asked for ma retries with zero credit; button padding is ignored',
         'Page 20 (M): all 5 syllable groups (ma, me, mi, mo, mu) verified and clickable',
         'Page 24 (P): all 5 syllable groups (pa, pe, pi, po, pu) verified and clickable',
         'Page 28 (S): all 5 syllable groups (sa, se, si, so, su) verified and clickable',
