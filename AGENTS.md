@@ -1,6 +1,12 @@
 # AGENTS.md — La Cartilla de Gretel (active operating rules)
 Updated 2026-10-29. This is the short, controlling agent instruction. Historical AGENTS.md instructions remain recoverable from Git history, but do not govern new work.
 
+## Active owner scope — organization only (2026-10-29)
+
+The owner's latest instruction is to **organize and reconcile source-of-truth records and active agent instructions, not to develop or finish product features**. Until the owner explicitly resumes product work, do not start or continue Tutor, Workbook, art/audio, games, teacher/Flip Chart implementation, product worker dispatch, PR integration or production deployment. Existing assignments and proofs remain saved; do not delete, close or recreate product work to enforce this pause.
+
+Current authority and operational checkpoint: [Cartilla issue #877](https://github.com/ejnburrows-rgb/cartilla-de-gretel/issues/877). All "next Tutor" and "continue another eligible lane" directions **below** are deferred product instructions, not exceptions to this active scope. This organization task permits non-destructive documentation/status reconciliation and verification only. Keep merge protections, independent-review and exact-release authorization unchanged; do not merge documentation if it triggers an unauthorized deployment.
+
 ## Authority and current facts
 1. **Different sources answer different questions.** Latest explicit owner decisions govern approved scope. `PROJECT_FINISH_DEFINITION.md` sets the finish bar. The original physical Workbook/Flip Chart and their authorized asset policies control curriculum, pages, wording and source art. `AGENTS.md` governs execution/safety. GitHub [#877](https://github.com/ejnburrows-rgb/cartilla-de-gretel/issues/877) holds current assignments and decisions. Verified `main`, exact PR heads and running deployments establish **what currently exists**, not what is correct. Older reports are historical.
 2. This file governs **how** agents operate, not what the workbook teaches. `tasks/plan.md` is a routing index, never an independent task board. Other Markdown files are scoped product specifications, not competing controllers. A stale task description does not override a verified current PR, source file or deployment.
