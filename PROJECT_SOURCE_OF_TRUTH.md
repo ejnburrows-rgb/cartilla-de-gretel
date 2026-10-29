@@ -1,4 +1,8 @@
-# PROJECT SOURCE OF TRUTH — La Cartilla de Gretel\n\nThis document governs approved product content and presentation, not agent orchestration. Current work, active ownership and next steps are in [GitHub #877](https://github.com/ejnburrows-rgb/cartilla-de-gretel/issues/877); execution rules are in [AGENTS.md](AGENTS.md). Historical work references below are context only.\n\n## Goal
+# PROJECT SOURCE OF TRUTH — La Cartilla de Gretel
+
+This document governs approved product content and presentation, not agent orchestration. Current work, active ownership and next steps are in [GitHub #877](https://github.com/ejnburrows-rgb/cartilla-de-gretel/issues/877); execution rules are in [AGENTS.md](AGENTS.md). Historical work references below are context only.
+
+## Goal
 
 Finish La Cartilla de Gretel as a **school-pilot-ready e-learning platform** based directly on the physical Student Workbook and teacher Flip Chart.
 
