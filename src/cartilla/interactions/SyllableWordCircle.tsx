@@ -1,6 +1,6 @@
 import { learnerStorageKey, useLearnerScope } from "@/lib/learner-storage";
 import { loadLassoProgress } from "@/lib/activity-canvas-store";
-import { useEffect, useState } from "react";
+import { useEffect, useMemo, useState } from "react";
 import type { PointerEvent as ReactPointerEvent } from "react";
 import type { PageRegion } from "@/lib/book-faithful";
 import { useActivityEvents, useActivityState } from "@/lib/activity-events";
@@ -85,20 +85,22 @@ function LearnerSyllableWordCircle({ region, lessonId }: { region: PageRegion; l
     }
   }, [key, marked]);
 
+  const initialStarts = useMemo(() => {
+    try {
+      const raw = localStorage.getItem(startsKey);
+      if (raw) {
+        const parsed = JSON.parse(raw);
+        if (parsed && typeof parsed === "object" && !Array.isArray(parsed)) {
+          return parsed as Record<number, number>;
+        }
+      }
+    } catch {}
+    return {};
+  }, [startsKey]);
+
   const [selectedStarts, setSelectedStarts] = useActivityState<Record<number, number>>(
     "syllableStarts",
-    () => {
-      try {
-        const raw = localStorage.getItem(startsKey);
-        if (raw) {
-          const parsed = JSON.parse(raw);
-          if (parsed && typeof parsed === "object" && !Array.isArray(parsed)) {
-            return parsed as Record<number, number>;
-          }
-        }
-      } catch {}
-      return {};
-    },
+    initialStarts,
   );
   const [pending, setPending] = useState<PendingMark | null>(null);
   const syllable = region.syllable ?? "";
