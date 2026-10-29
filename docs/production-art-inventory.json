@@ -1,10 +1,10 @@
 {
   "schemaVersion": 1,
   "sourceManifest": "public/cartilla/art/faithful/manifest.json",
-  "sourceManifestSha256": "ecb846c1ab37a7313eeb2112f318b36dd51f3d697d65d30adf7513a2028b81fc",
+  "sourceManifestSha256": "94438b25a673fd978af82d60c0dc4d14ea1b439fc79fdeac56b6ad125f581c7a",
   "visualCoverageManifest": "tests/e2e/recovery-visual-coverage.json",
   "visualCoverageSha256": "e797c31924ac122290e60445a459b316ebe88b9e8c8214cc732fff6b2284ff02",
-  "assetSetSha256": "2c11092dcfee3aa8df5fd4825a61207d8ac1de76555ea25cca4610cebd04932e",
+  "assetSetSha256": "3e982afdfb0c051dfa5024638c60ad6f65f4194d31fcdd88ec6112608aa41923",
   "counts": {
     "referencedProductionAssets": 108,
     "manifestEntries": 158,
@@ -116,7 +116,7 @@
         "src/content/picture-vocabulary.json:1472",
         "src/data/conversion-status.json:319",
         "src/data/conversion-status.json:500",
-        "src/data/faithful-art-manifest.json:1043",
+        "src/data/faithful-art-manifest.json:1047",
         "src/data/page-layouts.json:1046",
         "src/data/page-layouts.json:1472"
       ]
@@ -148,7 +148,7 @@
         "src/data/conversion-status.json:442",
         "src/data/conversion-status.json:492",
         "src/data/conversion-status.json:532",
-        "src/data/faithful-art-manifest.json:1029",
+        "src/data/faithful-art-manifest.json:1033",
         "src/data/page-layouts.json:1264",
         "src/data/page-layouts.json:1331",
         "src/data/page-layouts.json:1431",
@@ -178,7 +178,7 @@
       "referenceCount": 3,
       "referenceLocations": [
         "src/content/picture-vocabulary.json:215",
-        "src/data/faithful-art-manifest.json:1402",
+        "src/data/faithful-art-manifest.json:1406",
         "src/data/page-layouts.json:402"
       ]
     },
@@ -315,7 +315,7 @@
       "referenceCount": 3,
       "referenceLocations": [
         "src/content/picture-vocabulary.json:729",
-        "src/data/faithful-art-manifest.json:642",
+        "src/data/faithful-art-manifest.json:646",
         "src/data/page-layouts.json:285"
       ]
     },
@@ -399,7 +399,7 @@
       "referenceCount": 3,
       "referenceLocations": [
         "src/content/picture-vocabulary.json:1018",
-        "src/data/faithful-art-manifest.json:652",
+        "src/data/faithful-art-manifest.json:656",
         "src/data/page-layouts.json:366"
       ]
     },
@@ -431,7 +431,7 @@
         "src/data/conversion-status.json:419",
         "src/data/conversion-status.json:491",
         "src/data/conversion-status.json:508",
-        "src/data/faithful-art-manifest.json:728",
+        "src/data/faithful-art-manifest.json:732",
         "src/data/page-layouts.json:1209",
         "src/data/page-layouts.json:1426",
         "src/data/page-layouts.json:910"
@@ -459,7 +459,7 @@
       "referenceCount": 3,
       "referenceLocations": [
         "src/content/picture-vocabulary.json:1220",
-        "src/data/faithful-art-manifest.json:662",
+        "src/data/faithful-art-manifest.json:666",
         "src/data/page-layouts.json:348"
       ]
     },
@@ -490,7 +490,7 @@
         "src/data/conversion-status.json:321",
         "src/data/conversion-status.json:495",
         "src/data/conversion-status.json:527",
-        "src/data/faithful-art-manifest.json:1018",
+        "src/data/faithful-art-manifest.json:1022",
         "src/data/page-layouts.json:1056",
         "src/data/page-layouts.json:1447",
         "src/data/page-layouts.json:1481",
@@ -520,7 +520,7 @@
       "referenceCount": 2,
       "referenceLocations": [
         "src/content/picture-vocabulary.json:284",
-        "src/data/faithful-art-manifest.json:770"
+        "src/data/faithful-art-manifest.json:774"
       ]
     },
     {
@@ -545,7 +545,7 @@
       "referenceCount": 2,
       "referenceLocations": [
         "src/content/picture-vocabulary.json:823",
-        "src/data/faithful-art-manifest.json:784"
+        "src/data/faithful-art-manifest.json:788"
       ]
     },
     {
@@ -570,7 +570,7 @@
       "referenceCount": 2,
       "referenceLocations": [
         "src/content/picture-vocabulary.json:901",
-        "src/data/faithful-art-manifest.json:798"
+        "src/data/faithful-art-manifest.json:802"
       ]
     },
     {
@@ -595,7 +595,7 @@
       "referenceCount": 2,
       "referenceLocations": [
         "src/content/picture-vocabulary.json:164",
-        "src/data/faithful-art-manifest.json:814"
+        "src/data/faithful-art-manifest.json:818"
       ]
     },
     {
@@ -620,7 +620,7 @@
       "referenceCount": 2,
       "referenceLocations": [
         "src/content/picture-vocabulary.json:171",
-        "src/data/faithful-art-manifest.json:828"
+        "src/data/faithful-art-manifest.json:832"
       ]
     },
     {
@@ -645,7 +645,7 @@
       "referenceCount": 2,
       "referenceLocations": [
         "src/content/picture-vocabulary.json:1364",
-        "src/data/faithful-art-manifest.json:842"
+        "src/data/faithful-art-manifest.json:846"
       ]
     },
     {
@@ -672,7 +672,7 @@
         "src/content/animal-gallery.ts:113",
         "src/content/consonants.json:977",
         "src/content/picture-vocabulary.json:1081",
-        "src/data/faithful-art-manifest.json:856"
+        "src/data/faithful-art-manifest.json:860"
       ]
     },
     {
@@ -698,7 +698,7 @@
       "referenceLocations": [
         "src/content/consonants.json:982",
         "src/content/picture-vocabulary.json:1103",
-        "src/data/faithful-art-manifest.json:884"
+        "src/data/faithful-art-manifest.json:888"
       ]
     },
     {
@@ -724,7 +724,7 @@
       "referenceLocations": [
         "src/content/consonants.json:987",
         "src/content/picture-vocabulary.json:1117",
-        "src/data/faithful-art-manifest.json:1413"
+        "src/data/faithful-art-manifest.json:1417"
       ]
     },
     {
@@ -750,7 +750,7 @@
       "referenceLocations": [
         "src/content/consonants.json:992",
         "src/content/picture-vocabulary.json:1125",
-        "src/data/faithful-art-manifest.json:870"
+        "src/data/faithful-art-manifest.json:874"
       ]
     },
     {
@@ -776,7 +776,7 @@
       "referenceLocations": [
         "src/content/consonants.json:997",
         "src/content/picture-vocabulary.json:1140",
-        "src/data/faithful-art-manifest.json:1422"
+        "src/data/faithful-art-manifest.json:1426"
       ]
     },
     {
@@ -802,7 +802,7 @@
       "referenceLocations": [
         "src/content/consonants.json:1088",
         "src/content/picture-vocabulary.json:135",
-        "src/data/faithful-art-manifest.json:912"
+        "src/data/faithful-art-manifest.json:916"
       ]
     },
     {
@@ -828,7 +828,7 @@
       "referenceLocations": [
         "src/content/consonants.json:1073",
         "src/content/picture-vocabulary.json:193",
-        "src/data/faithful-art-manifest.json:1431"
+        "src/data/faithful-art-manifest.json:1435"
       ]
     },
     {
@@ -854,7 +854,7 @@
       "referenceLocations": [
         "src/content/consonants.json:1078",
         "src/content/picture-vocabulary.json:236",
-        "src/data/faithful-art-manifest.json:1440"
+        "src/data/faithful-art-manifest.json:1444"
       ]
     },
     {
@@ -880,7 +880,7 @@
       "referenceLocations": [
         "src/content/animal-gallery.ts:119",
         "src/content/picture-vocabulary.json:1025",
-        "src/data/faithful-art-manifest.json:1449"
+        "src/data/faithful-art-manifest.json:1453"
       ]
     },
     {
@@ -906,7 +906,7 @@
       "referenceLocations": [
         "src/content/consonants.json:1093",
         "src/content/picture-vocabulary.json:1241",
-        "src/data/faithful-art-manifest.json:1458"
+        "src/data/faithful-art-manifest.json:1462"
       ]
     },
     {
@@ -932,7 +932,7 @@
       "referenceLocations": [
         "src/content/consonants.json:1083",
         "src/content/picture-vocabulary.json:1277",
-        "src/data/faithful-art-manifest.json:898"
+        "src/data/faithful-art-manifest.json:902"
       ]
     },
     {
@@ -985,7 +985,7 @@
       "referenceLocations": [
         "src/content/consonants.json:1457",
         "src/content/picture-vocabulary.json:252",
-        "src/data/faithful-art-manifest.json:1312"
+        "src/data/faithful-art-manifest.json:1316"
       ]
     },
     {
@@ -1012,7 +1012,7 @@
         "src/content/animal-gallery.ts:143",
         "src/content/consonants.json:1442",
         "src/content/picture-vocabulary.json:260",
-        "src/data/faithful-art-manifest.json:1282"
+        "src/data/faithful-art-manifest.json:1286"
       ]
     },
     {
@@ -1038,7 +1038,7 @@
       "referenceLocations": [
         "src/content/consonants.json:1452",
         "src/content/picture-vocabulary.json:268",
-        "src/data/faithful-art-manifest.json:1297"
+        "src/data/faithful-art-manifest.json:1301"
       ]
     },
     {
@@ -1064,7 +1064,7 @@
       "referenceLocations": [
         "src/content/consonants.json:1437",
         "src/content/picture-vocabulary.json:276",
-        "src/data/faithful-art-manifest.json:926"
+        "src/data/faithful-art-manifest.json:930"
       ]
     },
     {
@@ -1089,7 +1089,7 @@
       "referenceCount": 2,
       "referenceLocations": [
         "src/content/picture-vocabulary.json:459",
-        "src/data/faithful-art-manifest.json:1467"
+        "src/data/faithful-art-manifest.json:1471"
       ]
     },
     {
@@ -1115,7 +1115,7 @@
       "referenceLocations": [
         "src/content/consonants.json:1168",
         "src/content/picture-vocabulary.json:473",
-        "src/data/faithful-art-manifest.json:1057"
+        "src/data/faithful-art-manifest.json:1061"
       ]
     },
     {
@@ -1141,7 +1141,7 @@
       "referenceLocations": [
         "src/content/consonants.json:1178",
         "src/content/picture-vocabulary.json:488",
-        "src/data/faithful-art-manifest.json:1087"
+        "src/data/faithful-art-manifest.json:1091"
       ]
     },
     {
@@ -1167,7 +1167,7 @@
       "referenceLocations": [
         "src/content/consonants.json:1183",
         "src/content/picture-vocabulary.json:496",
-        "src/data/faithful-art-manifest.json:1102"
+        "src/data/faithful-art-manifest.json:1106"
       ]
     },
     {
@@ -1194,7 +1194,7 @@
         "src/content/animal-gallery.ts:125",
         "src/content/consonants.json:1173",
         "src/content/picture-vocabulary.json:504",
-        "src/data/faithful-art-manifest.json:1072"
+        "src/data/faithful-art-manifest.json:1076"
       ]
     },
     {
@@ -1220,7 +1220,7 @@
       "referenceLocations": [
         "src/content/consonants.json:1188",
         "src/content/picture-vocabulary.json:706",
-        "src/data/faithful-art-manifest.json:1117"
+        "src/data/faithful-art-manifest.json:1121"
       ]
     },
     {
@@ -1246,7 +1246,7 @@
       "referenceLocations": [
         "src/content/consonants.json:1259",
         "src/content/picture-vocabulary.json:398",
-        "src/data/faithful-art-manifest.json:1162"
+        "src/data/faithful-art-manifest.json:1166"
       ]
     },
     {
@@ -1272,7 +1272,7 @@
       "referenceLocations": [
         "src/content/consonants.json:1264",
         "src/content/picture-vocabulary.json:406",
-        "src/data/faithful-art-manifest.json:1177"
+        "src/data/faithful-art-manifest.json:1181"
       ]
     },
     {
@@ -1298,7 +1298,7 @@
       "referenceLocations": [
         "src/content/consonants.json:1254",
         "src/content/picture-vocabulary.json:414",
-        "src/data/faithful-art-manifest.json:1147"
+        "src/data/faithful-art-manifest.json:1151"
       ]
     },
     {
@@ -1323,7 +1323,7 @@
       "referenceCount": 2,
       "referenceLocations": [
         "src/content/picture-vocabulary.json:422",
-        "src/data/faithful-art-manifest.json:1476"
+        "src/data/faithful-art-manifest.json:1480"
       ]
     },
     {
@@ -1349,7 +1349,7 @@
       "referenceLocations": [
         "src/content/consonants.json:1249",
         "src/content/picture-vocabulary.json:436",
-        "src/data/faithful-art-manifest.json:1132"
+        "src/data/faithful-art-manifest.json:1136"
       ]
     },
     {
@@ -1375,7 +1375,7 @@
       "referenceLocations": [
         "src/content/consonants.json:1269",
         "src/content/picture-vocabulary.json:444",
-        "src/data/faithful-art-manifest.json:1192"
+        "src/data/faithful-art-manifest.json:1196"
       ]
     },
     {
@@ -1401,7 +1401,7 @@
       "referenceLocations": [
         "src/content/consonants.json:1363",
         "src/content/picture-vocabulary.json:597",
-        "src/data/faithful-art-manifest.json:1267"
+        "src/data/faithful-art-manifest.json:1271"
       ]
     },
     {
@@ -1427,7 +1427,7 @@
       "referenceLocations": [
         "src/content/consonants.json:1354",
         "src/content/picture-vocabulary.json:605",
-        "src/data/faithful-art-manifest.json:1252"
+        "src/data/faithful-art-manifest.json:1256"
       ]
     },
     {
@@ -1454,7 +1454,7 @@
         "src/content/animal-gallery.ts:137",
         "src/content/consonants.json:1344",
         "src/content/picture-vocabulary.json:613",
-        "src/data/faithful-art-manifest.json:1222"
+        "src/data/faithful-art-manifest.json:1226"
       ]
     },
     {
@@ -1480,7 +1480,7 @@
       "referenceLocations": [
         "src/content/animal-gallery.ts:131",
         "src/content/picture-vocabulary.json:628",
-        "src/data/faithful-art-manifest.json:1207"
+        "src/data/faithful-art-manifest.json:1211"
       ]
     },
     {
@@ -1506,7 +1506,7 @@
       "referenceLocations": [
         "src/content/consonants.json:1349",
         "src/content/picture-vocabulary.json:642",
-        "src/data/faithful-art-manifest.json:1237"
+        "src/data/faithful-art-manifest.json:1241"
       ]
     },
     {
@@ -1532,7 +1532,7 @@
       "referenceLocations": [
         "src/content/consonants.json:1530",
         "src/content/picture-vocabulary.json:736",
-        "src/data/faithful-art-manifest.json:1342"
+        "src/data/faithful-art-manifest.json:1346"
       ]
     },
     {
@@ -1558,7 +1558,7 @@
       "referenceLocations": [
         "src/content/consonants.json:1515",
         "src/content/picture-vocabulary.json:1393",
-        "src/data/faithful-art-manifest.json:956"
+        "src/data/faithful-art-manifest.json:960"
       ]
     },
     {
@@ -1584,7 +1584,7 @@
       "referenceLocations": [
         "src/content/consonants.json:1525",
         "src/content/picture-vocabulary.json:1408",
-        "src/data/faithful-art-manifest.json:1327"
+        "src/data/faithful-art-manifest.json:1331"
       ]
     },
     {
@@ -1610,7 +1610,7 @@
       "referenceLocations": [
         "src/content/consonants.json:1520",
         "src/content/picture-vocabulary.json:1416",
-        "src/data/faithful-art-manifest.json:971"
+        "src/data/faithful-art-manifest.json:975"
       ]
     },
     {
@@ -1636,7 +1636,7 @@
       "referenceLocations": [
         "src/content/consonants.json:1535",
         "src/content/picture-vocabulary.json:1424",
-        "src/data/faithful-art-manifest.json:941"
+        "src/data/faithful-art-manifest.json:945"
       ]
     },
     {
@@ -1662,7 +1662,7 @@
       "referenceLocations": [
         "src/content/consonants.json:1611",
         "src/content/picture-vocabulary.json:1432",
-        "src/data/faithful-art-manifest.json:986"
+        "src/data/faithful-art-manifest.json:990"
       ]
     },
     {
@@ -1688,7 +1688,7 @@
       "referenceLocations": [
         "src/content/consonants.json:1626",
         "src/content/picture-vocabulary.json:1440",
-        "src/data/faithful-art-manifest.json:1372"
+        "src/data/faithful-art-manifest.json:1376"
       ]
     },
     {
@@ -1714,7 +1714,7 @@
       "referenceLocations": [
         "src/content/consonants.json:1616",
         "src/content/picture-vocabulary.json:1448",
-        "src/data/faithful-art-manifest.json:1357"
+        "src/data/faithful-art-manifest.json:1361"
       ]
     },
     {
@@ -1741,7 +1741,7 @@
         "src/content/animal-gallery.ts:149",
         "src/content/consonants.json:1621",
         "src/content/picture-vocabulary.json:1456",
-        "src/data/faithful-art-manifest.json:1001"
+        "src/data/faithful-art-manifest.json:1005"
       ]
     },
     {
@@ -1767,7 +1767,7 @@
       "referenceLocations": [
         "src/content/consonants.json:1631",
         "src/content/picture-vocabulary.json:1464",
-        "src/data/faithful-art-manifest.json:1387"
+        "src/data/faithful-art-manifest.json:1391"
       ]
     },
     {
@@ -1792,7 +1792,7 @@
       "referenceCount": 2,
       "referenceLocations": [
         "src/content/picture-vocabulary.json:721",
-        "src/data/faithful-art-manifest.json:686"
+        "src/data/faithful-art-manifest.json:690"
       ]
     },
     {
@@ -1818,7 +1818,7 @@
       "referenceLocations": [
         "src/content/animal-gallery.ts:101",
         "src/content/picture-vocabulary.json:794",
-        "src/data/faithful-art-manifest.json:700"
+        "src/data/faithful-art-manifest.json:704"
       ]
     },
     {
@@ -1843,7 +1843,7 @@
       "referenceCount": 2,
       "referenceLocations": [
         "src/content/picture-vocabulary.json:996",
-        "src/data/faithful-art-manifest.json:714"
+        "src/data/faithful-art-manifest.json:718"
       ]
     },
     {
@@ -1869,7 +1869,7 @@
       "referenceLocations": [
         "src/content/animal-gallery.ts:107",
         "src/content/picture-vocabulary.json:1155",
-        "src/data/faithful-art-manifest.json:742"
+        "src/data/faithful-art-manifest.json:746"
       ]
     },
     {
@@ -1894,7 +1894,7 @@
       "referenceCount": 2,
       "referenceLocations": [
         "src/content/picture-vocabulary.json:1184",
-        "src/data/faithful-art-manifest.json:756"
+        "src/data/faithful-art-manifest.json:760"
       ]
     },
     {
@@ -2059,7 +2059,7 @@
       "referenceCount": 3,
       "referenceLocations": [
         "src/content/picture-vocabulary.json:86",
-        "src/data/faithful-art-manifest.json:632",
+        "src/data/faithful-art-manifest.json:636",
         "src/data/page-layouts.json:276"
       ]
     },
@@ -2492,23 +2492,23 @@
     },
     {
       "src": "/cartilla/art/faithful/vocal-i/igual.webp",
-      "source": null,
+      "source": "docs/proofs/artwork-coverage-2026-10-14/crops/WB-S019-OBJ14-IGUAL.png",
       "derivative": {
         "canonical": "/cartilla/art/faithful/vocal-i/igual.webp",
         "width384": "/cartilla/art/delivery/faithful/384/vocal-i/igual.webp",
         "width768": "/cartilla/art/delivery/faithful/768/vocal-i/igual.webp"
       },
-      "lessonNumber": null,
-      "pageNumber": null,
+      "lessonNumber": 5,
+      "pageNumber": 13,
       "assetClass": "cutout",
       "dimensions": {
-        "width": 856,
-        "height": 482
+        "width": 106,
+        "height": 61
       },
-      "hasAlpha": true,
-      "aspectRatio": 1.775934,
-      "provenanceStatus": "PROVENANCE-UNKNOWN",
-      "sha256": "1404f51a491aff775d91ee4df54069776ab196df6d983ce416a30d480ea99d42",
+      "hasAlpha": false,
+      "aspectRatio": 1.737705,
+      "provenanceStatus": "VERIFIED-EXACT-WORKBOOK-CROP-2026-10-27",
+      "sha256": "4154199071049f91459ac78dc7b715ea9f96f24f7c59edbd9f0dca2486742979",
       "referenceCount": 6,
       "referenceLocations": [
         "src/content/picture-vocabulary.json:534",
@@ -2545,7 +2545,7 @@
         "src/content/picture-vocabulary.json:541",
         "src/data/conversion-status.json:400",
         "src/data/conversion-status.json:443",
-        "src/data/faithful-art-manifest.json:594",
+        "src/data/faithful-art-manifest.json:598",
         "src/data/page-layouts.json:1213",
         "src/data/page-layouts.json:1335"
       ]
@@ -2668,7 +2668,7 @@
       "referenceLocations": [
         "src/content/picture-vocabulary.json:574",
         "src/data/conversion-status.json:405",
-        "src/data/faithful-art-manifest.json:604",
+        "src/data/faithful-art-manifest.json:608",
         "src/data/page-layouts.json:1238"
       ]
     },
@@ -2873,7 +2873,7 @@
       "referenceCount": 3,
       "referenceLocations": [
         "src/content/picture-vocabulary.json:973",
-        "src/data/faithful-art-manifest.json:1485",
+        "src/data/faithful-art-manifest.json:1489",
         "src/lib/living-blink-map.ts:7"
       ]
     },
@@ -2920,7 +2920,7 @@
         "src/data/conversion-status.json:529",
         "src/data/conversion-status.json:540",
         "src/data/faithful-art-manifest.json:104",
-        "src/data/faithful-art-manifest.json:1486",
+        "src/data/faithful-art-manifest.json:1490",
         "src/data/page-layouts.json:1092",
         "src/data/page-layouts.json:1223",
         "src/data/page-layouts.json:1310",
@@ -2996,7 +2996,7 @@
         "src/content/lessons.json:333",
         "src/content/lessons.json:382",
         "src/content/picture-vocabulary.json:1348",
-        "src/data/faithful-art-manifest.json:618"
+        "src/data/faithful-art-manifest.json:622"
       ]
     },
     {
@@ -3052,7 +3052,7 @@
       "referenceCount": 3,
       "referenceLocations": [
         "src/content/picture-vocabulary.json:1308",
-        "src/data/faithful-art-manifest.json:672",
+        "src/data/faithful-art-manifest.json:676",
         "src/data/page-layouts.json:420"
       ]
     },

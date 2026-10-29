@@ -1985,42 +1985,44 @@
     {
       "slug": "igual",
       "word": "igual",
-      "lessonNumber": null,
-      "pageNumber": null,
+      "lessonNumber": 5,
+      "pageNumber": 13,
       "sourcePage": null,
-      "sourceAsset": null,
+      "sourceAsset": "docs/proofs/artwork-coverage-2026-10-14/crops/WB-S019-OBJ14-IGUAL.png",
       "canonicalSrc": "/cartilla/art/faithful/vocal-i/igual.webp",
       "canonical": {
-        "width": 856,
-        "height": 482,
-        "bytes": 1368,
+        "width": 106,
+        "height": 61,
+        "bytes": 3836,
         "format": "webp",
-        "hasAlpha": true,
-        "sha256": "1404f51a491aff775d91ee4df54069776ab196df6d983ce416a30d480ea99d42"
+        "hasAlpha": false,
+        "sha256": "4154199071049f91459ac78dc7b715ea9f96f24f7c59edbd9f0dca2486742979"
       },
       "cropBox": null,
-      "provenanceStatus": "PROVENANCE-UNKNOWN",
+      "provenanceStatus": "VERIFIED-EXACT-WORKBOOK-CROP-2026-10-27",
       "cleanup": {
         "backgroundRemoved": false,
         "transparentPaddingTrimmed": false,
-        "normalizedWidth": 856,
-        "normalizedHeight": 482,
-        "note": "Delivery resized directly from current canonical. No background removal, recoloring or crop."
+        "normalizedWidth": 106,
+        "normalizedHeight": 61,
+        "note": "Lossless copies of the source-verified canonical crop. No enlargement, background removal, recoloring or crop."
       },
       "derivatives": [
         {
           "widthTier": 384,
           "path": "/cartilla/art/delivery/faithful/384/vocal-i/igual.webp",
-          "width": 384,
-          "height": 216,
-          "bytes": 10774
+          "width": 106,
+          "height": 61,
+          "bytes": 3836,
+          "sha256": "4154199071049f91459ac78dc7b715ea9f96f24f7c59edbd9f0dca2486742979"
         },
         {
           "widthTier": 768,
           "path": "/cartilla/art/delivery/faithful/768/vocal-i/igual.webp",
-          "width": 768,
-          "height": 432,
-          "bytes": 42876
+          "width": 106,
+          "height": 61,
+          "bytes": 3836,
+          "sha256": "4154199071049f91459ac78dc7b715ea9f96f24f7c59edbd9f0dca2486742979"
         }
       ],
       "warnings": [],

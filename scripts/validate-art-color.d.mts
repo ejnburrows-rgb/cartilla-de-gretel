@@ -11,3 +11,4 @@ export function findGrayscaleArt(): Promise<Array<{ rel: string; spread: number 
 export const CONFIRMED_ABSENT: Set<string>;
 export function findUntriagedGaps(): string[];
 export function findStaleAbsent(): string[];
+export function hasExactWorkbookEvidence(entry: Record<string, unknown>): boolean;
