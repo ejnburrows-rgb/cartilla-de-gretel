@@ -678,7 +678,7 @@ function TutorSessionScreen() {
         >
           <div className="flex flex-col items-center gap-4">
             {item ? (
-              <TutorTargetWord word={item.text} playing={brain?.phase === "MODEL" && linePlaying} />
+              <TutorTargetWord word={item.text} playing={linePlaying && (brain?.phase === "MODEL" || replaying)} />
             ) : (
               <span aria-hidden="true" className="text-6xl font-black text-stone-300">
                 ·
