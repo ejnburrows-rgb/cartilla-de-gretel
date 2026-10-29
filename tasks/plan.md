@@ -1,5 +1,7 @@
 # Cartilla — execution order (current continuation)
 
+> **Active owner scope, 2026-10-29: ORGANIZATION ONLY.** Product implementation and dispatch described below are paused until the owner explicitly resumes them. Cartilla issue [#877](https://github.com/ejnburrows-rgb/cartilla-de-gretel/issues/877) is the one current assignment/status authority. Keep all existing work as backlog; reconcile instructions and verified status only. Do not treat the historical "Next visible product checkpoint" as a current execution order.
+
 This is a **routing index**, not a second master completion plan, dashboard or task list. The actual remaining work, owners, existing branches, exact commits, approvals and evidence are maintained in [GitHub issue #877](https://github.com/ejnburrows-rgb/cartilla-de-gretel/issues/877). The finished-product requirements are in [PROJECT_FINISH_DEFINITION.md](../PROJECT_FINISH_DEFINITION.md). Current global safety/continuation rules are in [AGENTS.md](../AGENTS.md).
 
 ## Continue existing work, do not stop at each task
