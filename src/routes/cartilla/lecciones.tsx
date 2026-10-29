@@ -52,7 +52,17 @@ function Lecciones() {
         </div>
       </header>
 
-      {resume && <Link to="/cartilla/leccion/$n" params={{ n: String(resume.lesson) }} onClick={requestLessonFullscreen} className="inline-flex items-center rounded-xl bg-white px-5 py-3 mb-5 font-bold border border-stone-200">Continuar lección {resume.lesson}</Link>}
+      <div className="mb-5 flex flex-wrap items-center gap-3">
+        {resume && <Link to="/cartilla/leccion/$n" params={{ n: String(resume.lesson) }} onClick={requestLessonFullscreen} className="inline-flex items-center rounded-xl bg-white px-5 py-3 font-bold border border-stone-200">Continuar lección {resume.lesson}</Link>}
+        <Link
+          to="/tutor"
+          className="inline-flex items-center gap-2 rounded-xl bg-teal-600 px-5 py-3 font-bold text-white shadow-sm hover:bg-teal-700 transition"
+          aria-label="Tutor interactivo de Gretel"
+          data-testid="link-tutor-gretel"
+        >
+          Practicar con Gretel (Tutor)
+        </Link>
+      </div>
       <p className="mb-4 text-sm text-stone-600">Tu escritura y tus dibujos se conservan en este navegador. Vuelve desde el mismo dispositivo y navegador.</p>
       <section className="lc-lesson-grid" aria-label="24 lecciones">
         {CATALOG.map((entry) => {
