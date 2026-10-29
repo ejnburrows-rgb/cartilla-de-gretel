@@ -1,5 +1,17 @@
 # Permanent Project Integrity Workflow
 
+> **CURRENT CONTINUATION PRECEDENCE — October 28, 2026:** The top of [AGENTS.md](AGENTS.md) and live [#877](https://github.com/ejnburrows-rgb/cartilla-de-gretel/issues/877) control execution. Continue eligible existing work in the same run when another item is blocked; old 15-lane refill, outdated owner-wait prompts, audio-as-moot, and Mariposas-removal instructions are historical, not active. Respect real independent review, exact merge authorization, original-source fidelity, destructive/security/cost holds, and explicit deployment permission. No new jobs or controller.
+
+> **LATEST OWNER EXECUTION / PROVISIONAL APPROVAL — October 28, 2026.** Owner: “Go ahead and approve everything for now until you finish. Then anything that I want to change, I will change.” Treat remaining routine visual and implementation decisions within the existing Cartilla completion scope as provisionally approved, including the shown Lesson 3 direction (card E); A–D are already accepted. Continue material work without returning routine approval cards or making the owner repeatedly say continue. Keep versioned proof and present the assembled result for later changes. Preserve explicit rejections, authentic workbook/art/voice decisions, existing assignments and destructive/security/cost holds; this does not authorize new services or reviewer access, bypass protected-main review, or authorize production deployment. Merge/release authorization remains separately scoped.
+
+
+> **OWNER OVERRIDE — October 28, 2026: controller ownership.** ChatGPT/Codex in the owner's current Cartilla conversation is the primary controller and single owner-facing entry point. Muse is a supporting source of history and records, not an independent controller or dispatcher. This supersedes all older Muse-only, Muse/Instinct dual-controller, and owner-carried prompt-routing instructions, including the October 13 controller allocation.
+>
+> Continue actual unfinished work from the October 28 Master Completion Plan and live #877, preserving existing worker/branch ownership, tests and decisions. Advance the next eligible existing task after an item completes or becomes blocked; do not wait for routine owner confirmation, repeat audits or open duplicate jobs. Independent formal review and specific merge authorization are prerequisites for integrating affected changes, **not a blanket freeze on unrelated implementation**. Codex retains artwork ownership; Jules and specialists retain existing scopes. No new dispatches, controllers, infrastructure, services or automatic schedules.
+>
+> The controller performs technical coordination through available tools. Report concise proof of actual changes and exact blocked actions in existing #877, then continue another eligible existing task during the same available session. An unavailable reviewer, recording, source file or tool does **not** end unrelated work. Never claim unverified worker activity or background execution. Preserve authentic book/art/voice, settled owner A–E decisions, formal independent GitHub review, branch protection, privacy/security/cost and destructive holds. Each merge requires its applicable exact-change authorization; deployment requires separate explicit authorization. No self-approval or protection bypass.
+
+
 ## Universal Agent Enforcement Specification — Version 1
 
 **Owner order — 2026-10-22. Mandatory for all agents, workers, controllers, reviewers and dispatchers.** Read `AGENTS.md` and the [artwork-specific execution directive](ARTWORK_REPORT_VERIFICATION_AND_SINGLE_SOURCE_CLEANUP.md). This is a policy, not a second inventory.
@@ -45,9 +57,11 @@ When an approved source changes:
 
 If animations cannot be corrected immediately, preserve the correct static illustration rather than display outdated moving artwork.
 
-### Phase 4 — Agent dispatch
+### Phase 4 — Existing agent work and historical dispatch criteria
 
-Before assigning work, the controller must confirm:
+**Current continuation does not authorize new assignments.** The following criteria apply only if a later explicit owner directive authorizes dispatch; first resume existing work. A held task never halts disjoint existing tasks.
+
+Before any separately authorized future assignment, the controller must confirm:
 
 - The issue remains unresolved.
 - No active worker already owns it.
