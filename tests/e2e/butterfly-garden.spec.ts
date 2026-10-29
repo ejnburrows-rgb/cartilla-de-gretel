@@ -10,6 +10,12 @@ test.use({ video: "on" });
 // Include cold Chromium/video fixture startup in the same journey budget.
 test.setTimeout(90_000);
 
+async function keepVideo(page: import("@playwright/test").Page, name: string) {
+  const video = page.video();
+  await page.close();
+  await video!.saveAs(path.join(proof, name));
+}
+
 async function openGame(page: import("@playwright/test").Page) {
   const errors: string[] = [];
   page.on("pageerror", (error) => errors.push(error.message));
@@ -71,6 +77,7 @@ test("desktop reduced motion: round result, wrong answer, focus and reload persi
   await expect(page.getByTestId("word")).toHaveText("mapa");
   expect((await saved()).completedRounds).toBe(1);
   expect(errors).toEqual([]);
+  await keepVideo(page, "desktop-round.webm");
 });
 
 test("phone touch: animated delivery, wrong return, correct word and help", async ({ browser }) => {
@@ -93,6 +100,7 @@ test("phone touch: animated delivery, wrong return, correct word and help", asyn
   await page.getByTestId("help").tap();
   await expect(page.getByRole("heading", { name: "Instrucciones:" })).toBeVisible();
   await page.getByRole("button", { name: "¡A jugar!" }).tap();
+  await expect(page.getByRole("dialog")).toBeHidden();
   // Tap the moving congratulation control as a touchscreen user does; waiting
   // for CSS bounce to become stationary would never activate the real button.
   const canBox = (await page.getByTestId("can").boundingBox())!;
@@ -135,4 +143,68 @@ test("tablet and projector: original images load and game controls fit", async (
     expect(errors).toEqual([]);
   }
   fs.writeFileSync(path.join(proof, "served-original-image-hashes.json"), JSON.stringify([...served], null, 2));
+  await keepVideo(page, "device-fit.webm");
+});
+
+test("keyboard syllable controls retain a visible focus outline", async ({ page }) => {
+  await page.emulateMedia({ reducedMotion: "reduce" });
+  await openGame(page);
+  await page.getByTestId("help").focus();
+  await page.keyboard.press("Tab");
+  const butterfly = page.getByTestId("bf-ma");
+  await expect(butterfly).toBeFocused();
+  await page.screenshot({ path: path.join(proof, "keyboard-focus.png") });
+  const outline = await butterfly.evaluate((el) => ({ style: getComputedStyle(el).outlineStyle, width: parseFloat(getComputedStyle(el).outlineWidth) }));
+  expect(outline.style).not.toBe("none");
+  expect(outline.width).toBeGreaterThanOrEqual(2);
+  await keepVideo(page, "keyboard-focus.webm");
+});
+
+test("instructions trap keyboard focus, close with Escape and restore the trigger", async ({ page }) => {
+  await page.emulateMedia({ reducedMotion: "reduce" });
+  await openGame(page);
+  const help = page.getByTestId("help");
+  await help.focus();
+  await page.keyboard.press("Enter");
+  const dialog = page.getByRole("dialog", { name: "Instrucciones:" });
+  await expect(dialog).toBeVisible();
+  for (let i = 0; i < 8; i++) {
+    expect(await dialog.evaluate((el) => el.contains(document.activeElement))).toBe(true);
+    await page.keyboard.press("Tab");
+  }
+  await page.screenshot({ path: path.join(proof, "keyboard-instructions.png") });
+  await page.keyboard.press("Escape");
+  await expect(dialog).toBeHidden();
+  await expect(help).toBeFocused();
+  await page.keyboard.press("Tab");
+  await expect(page.getByTestId("bf-ma")).toBeFocused();
+  await page.keyboard.press("Enter");
+  await expect(page.getByTestId("slot-0")).toHaveText("ma");
+  await keepVideo(page, "keyboard-instructions.webm");
+});
+
+test("rotating during delivery and retrieval returns the butterfly to its current home", async ({ page }) => {
+  await page.setViewportSize({ width: 844, height: 390 });
+  await openGame(page);
+  const butterfly = page.getByTestId("bf-pi");
+  await butterfly.click();
+  await expect(page.getByTestId("slot-0")).toHaveText("pi");
+  await page.waitForTimeout(450);
+  await page.setViewportSize({ width: 390, height: 844 });
+  await expect(butterfly.locator(".bfg-anim-flutter-fly")).toHaveCount(0);
+  await page.screenshot({ path: path.join(proof, "rotated-delivery.png") });
+  let box = (await butterfly.boundingBox())!;
+  expect(box.x + box.width / 2).toBeGreaterThanOrEqual(0);
+  expect(box.x + box.width / 2).toBeLessThan(390);
+  expect(box.y + box.height / 2).toBeLessThan(844);
+  await page.getByTestId("check").click();
+  await expect(page.getByTestId("slot-0")).not.toHaveText("pi");
+  await page.waitForTimeout(400);
+  await page.setViewportSize({ width: 844, height: 390 });
+  await expect(butterfly.locator(".bfg-anim-flutter-fly")).toHaveCount(0);
+  box = (await butterfly.boundingBox())!;
+  expect(box.x + box.width / 2).toBeLessThan(844);
+  expect(box.y + box.height / 2).toBeLessThan(390);
+  await page.screenshot({ path: path.join(proof, "rotated-retrieval.png") });
+  await keepVideo(page, "rotation-flights.webm");
 });

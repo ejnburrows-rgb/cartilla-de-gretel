@@ -83,4 +83,19 @@ describe("Butterfly Garden review regressions", () => {
     expect(document.activeElement).toBe(can);
     expect(recordEvent).not.toHaveBeenCalled();
   });
+
+  it("opens instructions as a modal and restores help focus after Escape", async () => {
+    render(<ButterflyGarden />);
+    const help = screen.getByTestId("help");
+    help.focus();
+    await tap("help");
+    const dialog = screen.getByRole("dialog", { name: "Instrucciones:" });
+    expect(dialog.contains(document.activeElement)).toBe(true);
+    await act(async () => {
+      fireEvent.keyDown(document.activeElement!, { key: "Escape" });
+      await vi.runAllTimersAsync();
+    });
+    expect(screen.queryByRole("dialog")).toBeNull();
+    expect(document.activeElement).toBe(help);
+  });
 });

@@ -1,6 +1,7 @@
 // Butterfly Garden (Jardín de Mariposas) — original-art game for "mariposas-p".
 // Rules: src/lib/games/butterflyGarden.ts. Audio hooks: src/lib/games/butterflyGardenAudio.ts (empty by owner decision).
 import { useCallback, useLayoutEffect, useRef, useState } from "react";
+import { Dialog, DialogClose, DialogContent, DialogTitle, DialogTrigger } from "@/components/ui/dialog";
 import { recordEvent } from "@/lib/student-session";
 import garden from "@/assets/games/butterfly-garden/garden.jpg";
 import grass from "@/assets/games/butterfly-garden/grass.png";
@@ -232,7 +233,7 @@ export function ButterflyGarden({ backSlot }: { backSlot?: React.ReactNode } = {
     });
     setReady(true);
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [layout]);
+  }, [layout, flyingId]);
 
   // ---- flight -------------------------------------------------------------
   const fly = (i: number, to: Pt, ms: number) =>
@@ -597,18 +598,42 @@ export function ButterflyGarden({ backSlot }: { backSlot?: React.ReactNode } = {
                 />
               </button>
             )}
-            <button
-              type="button"
-              onClick={() => {
-                setHelp(true);
-                playInstructions();
-              }}
-              data-testid="help"
-              aria-label="Instrucciones"
-              className={`${iconBtn} grid place-items-center rounded-full bg-primary text-xl font-bold text-primary-foreground shadow-md`}
-            >
-              ?
-            </button>
+            <Dialog open={help} onOpenChange={setHelp}>
+              <DialogTrigger asChild>
+                <button
+                  type="button"
+                  onClick={playInstructions}
+                  data-testid="help"
+                  aria-label="Instrucciones"
+                  className={`${iconBtn} grid place-items-center rounded-full bg-primary text-xl font-bold text-primary-foreground shadow-md`}
+                >
+                  ?
+                </button>
+              </DialogTrigger>
+              <DialogContent
+                aria-describedby={undefined}
+                className="max-h-[calc(100dvh-1.5rem)] w-[calc(100vw-1.5rem)] max-w-2xl overflow-auto rounded-2xl border-4 border-bfg-wood bg-card p-4 text-card-foreground [&>button:last-child]:hidden"
+              >
+                <DialogTitle className="mb-3 inline-block rounded-full bg-accent px-4 text-2xl font-extrabold text-accent-foreground">
+                  Instrucciones:
+                </DialogTitle>
+                <ol className="grid gap-x-6 gap-y-2 text-base sm:grid-cols-2 sm:text-lg">
+                  {INSTRUCTIONS.map((t, k) => (
+                    <li key={k} className="flex gap-2">
+                      <span className="grid h-7 w-7 shrink-0 place-items-center rounded-full bg-primary text-sm font-bold text-primary-foreground">
+                        {k + 1}
+                      </span>
+                      <span>{t}</span>
+                    </li>
+                  ))}
+                </ol>
+                <DialogClose asChild>
+                  <button type="button" className="bfg-leaf-board mt-4 w-full rounded-xl py-2 text-xl font-bold text-bfg-leaf-foreground">
+                    ¡A jugar!
+                  </button>
+                </DialogClose>
+              </DialogContent>
+            </Dialog>
           </div>
         </div>
         {done && (
@@ -634,7 +659,7 @@ export function ButterflyGarden({ backSlot }: { backSlot?: React.ReactNode } = {
             data-card={cards[i] ? "yes" : "no"}
             aria-label={`Mariposa ${b.syllable}`}
             onClick={() => deliver(i)}
-            className="pointer-events-auto absolute top-0 left-0 will-change-transform focus:outline-none"
+            className="pointer-events-auto absolute top-0 left-0 will-change-transform"
             style={{ width: portrait ? sw : (art.w * b.aw) / 100 }}
           >
             <span
@@ -668,38 +693,6 @@ export function ButterflyGarden({ backSlot }: { backSlot?: React.ReactNode } = {
         ))}
       </div>
 
-      {help && (
-        <div
-          className="absolute inset-0 z-30 grid place-items-center overflow-auto bg-foreground/50 p-3"
-          onClick={() => setHelp(false)}
-        >
-          <div
-            className="w-full max-w-2xl rounded-2xl border-4 border-bfg-wood bg-card p-4 text-card-foreground shadow-xl"
-            onClick={(e) => e.stopPropagation()}
-          >
-            <h2 className="mb-3 inline-block rounded-full bg-accent px-4 text-2xl font-extrabold text-accent-foreground">
-              Instrucciones:
-            </h2>
-            <ol className="grid gap-x-6 gap-y-2 text-base sm:grid-cols-2 sm:text-lg">
-              {INSTRUCTIONS.map((t, k) => (
-                <li key={k} className="flex gap-2">
-                  <span className="grid h-7 w-7 shrink-0 place-items-center rounded-full bg-primary text-sm font-bold text-primary-foreground">
-                    {k + 1}
-                  </span>
-                  <span>{t}</span>
-                </li>
-              ))}
-            </ol>
-            <button
-              type="button"
-              onClick={() => setHelp(false)}
-              className="bfg-leaf-board mt-4 w-full rounded-xl py-2 text-xl font-bold text-bfg-leaf-foreground"
-            >
-              ¡A jugar!
-            </button>
-          </div>
-        </div>
-      )}
     </div>
   );
 }
