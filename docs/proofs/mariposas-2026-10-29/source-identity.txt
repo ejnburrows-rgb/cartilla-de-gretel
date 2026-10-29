@@ -1,0 +1,2 @@
+REVIEWED_GAME_SOURCE_EQUAL 36 files; original image bytes exact
+SOURCE_SCOPE_PASS; all teacher source files unchanged from deployed 3c9d391

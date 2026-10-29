@@ -1,0 +1,16 @@
+[WebServer] (node:3152) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+[WebServer] (Use `node --trace-warnings ...` to show where the warning was created)
+[WebServer] (node:3152) [DEP0205] DeprecationWarning: `module.register()` is deprecated. Use `module.registerHooks()` instead.
+
+Running 6 tests using 1 worker
+
+(node:9844) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ok 1 ..\cartilla\tests\e2e\butterfly-garden.spec.ts:38:1 › desktop reduced motion: round result, wrong answer, focus and reload persistence (9.5s)
+  ok 2 ..\cartilla\tests\e2e\butterfly-garden.spec.ts:83:1 › phone touch: animated delivery, wrong return, correct word and help (19.0s)
+  ok 3 ..\cartilla\tests\e2e\butterfly-garden.spec.ts:115:1 › tablet and projector: original images load and game controls fit (5.3s)
+  ok 4 ..\cartilla\tests\e2e\butterfly-garden.spec.ts:149:1 › keyboard syllable controls retain a visible focus outline (1.5s)
+  ok 5 ..\cartilla\tests\e2e\butterfly-garden.spec.ts:163:1 › instructions trap keyboard focus, close with Escape and restore the trigger (1.3s)
+  ok 6 ..\cartilla\tests\e2e\butterfly-garden.spec.ts:186:1 › rotating during delivery and retrieval returns the butterfly to its current home (8.2s)
+
+  6 passed (1.1m)

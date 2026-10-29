@@ -1,0 +1,1670 @@
+
+ RUN  v4.1.8 C:/Users/EJN/Documents/Codex/2026-10-29/la-cartilla-de-gretel-continue-to/work/cartilla-release
+
+ ✓ src/utils/__tests__/buildPageArray.render.test.tsx (24 tests) 5323ms
+     ✓ Lección 2 (Vocal O o) — every real page renders cleanly  3078ms
+stderr | src/lib/__tests__/activity-completion-foundation.test.tsx > actual Workbook p5 completion > starts with ola as example and requires exactly five learner answers
+[GretelMachine] Illegal transition from 'settling' with event 'CHEER'. Healing to 'idle'.
+
+stderr | src/lib/__tests__/activity-completion-foundation.test.tsx > actual Workbook p5 completion > starts with ola as example and requires exactly five learner answers
+[GretelMachine] Illegal transition from 'exiting' with event 'CHEER'. Healing to 'idle'.
+
+stderr | src/lib/__tests__/activity-completion-foundation.test.tsx > actual Workbook p5 completion > starts with ola as example and requires exactly five learner answers
+[GretelMachine] Illegal transition from 'exiting' with event 'CHEER'. Healing to 'idle'.
+
+stderr | src/lib/__tests__/activity-completion-foundation.test.tsx > actual Workbook p5 completion > starts with ola as example and requires exactly five learner answers
+[GretelMachine] Illegal transition from 'exiting' with event 'CHEER'. Healing to 'idle'.
+
+stderr | src/lib/__tests__/activity-completion-foundation.test.tsx > actual Workbook p5 completion > starts with ola as example and requires exactly five learner answers
+[GretelMachine] Illegal transition from 'exiting' with event 'CHEER'. Healing to 'idle'.
+
+stderr | src/lib/__tests__/activity-completion-foundation.test.tsx > actual Workbook p5 completion > wrong attempts and Ayuda lead to completion that survives follow-up, return and remount
+[GretelMachine] Illegal transition from 'settling' with event 'TEACH'. Healing to 'idle'.
+
+stderr | src/lib/__tests__/activity-completion-foundation.test.tsx > actual Workbook p5 completion > wrong attempts and Ayuda lead to completion that survives follow-up, return and remount
+[GretelMachine] Illegal transition from 'exiting' with event 'TEACH'. Healing to 'idle'.
+
+stderr | src/lib/__tests__/activity-completion-foundation.test.tsx > actual Workbook p5 completion > wrong attempts and Ayuda lead to completion that survives follow-up, return and remount
+[GretelMachine] Illegal transition from 'teaching' with event 'TEACH'. Healing to 'idle'.
+
+stderr | src/lib/__tests__/activity-completion-foundation.test.tsx > actual Workbook p5 completion > wrong attempts and Ayuda lead to completion that survives follow-up, return and remount
+[GretelMachine] Illegal transition from 'exiting' with event 'TEACH'. Healing to 'idle'.
+
+stderr | src/lib/__tests__/activity-completion-foundation.test.tsx > restores partial p5 work and leaves the remaining answers reachable
+[GretelMachine] Illegal transition from 'settling' with event 'CHEER'. Healing to 'idle'.
+
+stderr | src/lib/__tests__/activity-completion-foundation.test.tsx > restores partial p5 work and leaves the remaining answers reachable
+[GretelMachine] Illegal transition from 'exiting' with event 'CHEER'. Healing to 'idle'.
+
+stderr | src/lib/__tests__/activity-completion-foundation.test.tsx > restores partial p5 work and leaves the remaining answers reachable
+[GretelMachine] Illegal transition from 'exiting' with event 'CHEER'. Healing to 'idle'.
+
+ ✓ src/lib/__tests__/activity-completion-foundation.test.tsx (11 tests) 3727ms
+     ✓ starts with ola as example and requires exactly five learner answers  885ms
+     ✓ wrong attempts and Ayuda lead to completion that survives follow-up, return and remount  1886ms
+ ✓ src/lib/__tests__/page-completion-gate.test.tsx (12 tests) 2157ms
+     ✓ an incomplete page cannot advance and shows navigation guidance without counting it as a Gretel hint  532ms
+     ✓ page 24: circling every syllable word with the real component unlocks Siguiente  1111ms
+ ✓ src/lib/__tests__/teacher-review.test.ts (7 tests) 5584ms
+   ✓ updates local class and student lists immediately after creation  5339ms
+ ✓ src/components/cartilla/__tests__/FlipchartHdPanel.test.tsx (12 tests) 2296ms
+     ✓ renders every lesson plate as a native HTML board with standalone artwork  1205ms
+     ✓ under reduced motion, advances instantly with no flip layer  365ms
+stderr | src/lib/__tests__/speak.test.ts > Speak API - Voice Caching and Offline Support > should select the online-preferred voice when online and cache it
+[TTS] No neutral Latin American Spanish voice (es-MX/es-US/es-419) found on this device. Falling back to "Google español" (es-ES).
+
+ ✓ src/lib/__tests__/speak.test.ts (7 tests) 3354ms
+     ✓ logs a distinct warning and falls back to an es-MX lang hint with NO voice object when the device has zero Spanish voices installed  1535ms
+     ✓ speakVowel also falls back to an es-MX lang hint (no voice object) when the device has zero Spanish voices  1536ms
+ ✓ src/components/cartilla/games/__tests__/ButterflyGarden.test.tsx (4 tests) 1258ms
+     ✓ records one result only after all six words, and allows a fresh round  830ms
+ ✓ src/lib/__tests__/final-backgrounds.test.tsx (4 tests) 1918ms
+   ✓ all 148 delivered registry assets exist with unchanged manifest bytes  1792ms
+Not implemented: Window's scrollTo() method
+stderr | src/routes/__tests__/student-routing.test.tsx > Student-Teacher Routing Isolation > (a) student login lands on /cartilla/lecciones
+Warning: A notFoundError was encountered on the route with ID "__root__", but a notFoundComponent option was not configured, nor was a router level defaultNotFoundComponent configured. Consider configuring at least one of these to avoid TanStack Router's overly generic defaultNotFoundComponent (<p>Not Found</p>)
+
+Not implemented: Window's scrollTo() method
+Not implemented: Window's scrollTo() method
+Not implemented: Window's scrollTo() method
+stderr | src/routes/__tests__/student-routing.test.tsx > Student-Teacher Routing Isolation > Session reset on cross-login > (c) student login clears teacher session
+Warning: A notFoundError was encountered on the route with ID "__root__", but a notFoundComponent option was not configured, nor was a router level defaultNotFoundComponent configured. Consider configuring at least one of these to avoid TanStack Router's overly generic defaultNotFoundComponent (<p>Not Found</p>)
+
+ ✓ src/routes/__tests__/student-routing.test.tsx (10 tests) 2368ms
+     ✓ (a) student login lands on /cartilla/lecciones  564ms
+     ✓ opens both print views without authenticating and keeps lesson validation  395ms
+     ✓ shows anonymous progress without a login or a permanent loading screen  578ms
+       ✓ (c) teacher login clears student session  576ms
+ ✓ src/cartilla/interactions/__tests__/LassoConnect.test.tsx (6 tests) 2408ms
+     ✓ correct target gives visual and sound feedback without repetitive Gretel speech  888ms
+     ✓ wrong target → reel-back + retry VO path  603ms
+     ✓ pair mode links two items with settled rope path (not straight line)  740ms
+ ✓ src/cartilla/interactions/__tests__/DibujaHost.test.tsx (7 tests) 815ms
+     ✓ a prior wrong-answer timer cannot erase the subsequent correct choice  405ms
+ ✓ src/components/cartilla/__tests__/WorkbookHandwriting.source.test.tsx (56 tests) 2638ms
+     ✓ Z and its inherited practice line use real freehand canvases  474ms
+ ✓ src/components/gretel/__tests__/GretelLiveAvatar.interaction.test.tsx (3 tests) 1776ms
+     ✓ keeps spoken guidance visible in a real speech bubble long enough to read  1632ms
+ ✓ src/cartilla/interactions/__tests__/PaintCanvas.test.tsx (5 tests) 1060ms
+     ✓ renders without crashing with Colorea label  360ms
+     ✓ pointer painting produces strokes and enables Listo  383ms
+ ✓ src/components/cartilla/__tests__/workbook-recovery.test.tsx (3 tests) 3495ms
+     ✓ lets a child correct an incomplete selection without recording mastery  2437ms
+     ✓ requires listening and a correct answer for each sound, with no double-click credit  449ms
+     ✓ supports matching with buttons and reports one accurate result even after a parent rerender  592ms
+Not implemented: Window's scrollTo() method
+Not implemented: Window's scrollTo() method
+Not implemented: Window's scrollTo() method
+Not implemented: Window's scrollTo() method
+ ✓ src/routes/cartilla/teacher/__tests__/ayuda.test.tsx (4 tests) 2083ms
+     ✓ renders the page title  1268ms
+     ✓ covers all 10 required sections as h2 headings  513ms
+ ✓ src/lib/__tests__/feedback-progress-semantics.test.tsx (8 tests) 814ms
+   ✓ preserves validated selections, marks wrong choices and reports remaining count without reveal-all  649ms
+ ✓ src/content/__tests__/art-color-completeness.test.ts (4 tests) 845ms
+     ✓ every wired grayscale illustrationSrc has audited exact-workbook provenance  824ms
+ ✓ src/components/gretel/__tests__/GretelPresence.page-guide.test.tsx (1 test) 527ms
+     ✓ shows and speaks the revealed page instruction through the live avatar  520ms
+ ✓ src/lib/__tests__/picture-audio.test.tsx (10 tests) 846ms
+   ✓ one click still selects an answer; keyboard activation hears the same picture without a second gesture  666ms
+ ✓ src/features/teacher-crm/components/__tests__/LessonCatalog.test.tsx (1 test) 1021ms
+     ✓ shows every canonical lesson with matching workbook, presenter, and guide routes  1015ms
+stderr | src/components/gretel/__tests__/GretelActivity.policy.test.tsx > page-aware exercise help > demonstrates one target without disabling distractors; recovery remains assisted
+[GretelMachine] Illegal transition from 'exiting' with event 'TEACH'. Healing to 'idle'.
+[GretelMachine] Illegal transition from 'teaching' with event 'TEACH'. Healing to 'idle'.
+[GretelMachine] Illegal transition from 'teaching' with event 'TEACH'. Healing to 'idle'.
+
+ ✓ src/components/gretel/__tests__/GretelActivity.policy.test.tsx (5 tests) 447ms
+stderr | src/routes/__tests__/-entrar.test.tsx > Entrar ("/entrar") — same approved single welcome screen > renders the approved welcome with the two entry choices
+An update to Transitioner inside a test was not wrapped in act(...).
+
+When testing, code that causes React state updates should be wrapped into act(...):
+
+act(() => {
+  /* fire events that update state */
+});
+/* assert on the output */
+
+This ensures that you're testing the behavior the user would see in the browser. Learn more at https://react.dev/link/wrap-tests-with-act
+An update to Transitioner inside a test was not wrapped in act(...).
+
+When testing, code that causes React state updates should be wrapped into act(...):
+
+act(() => {
+  /* fire events that update state */
+});
+/* assert on the output */
+
+This ensures that you're testing the behavior the user would see in the browser. Learn more at https://react.dev/link/wrap-tests-with-act
+An update to Transitioner inside a test was not wrapped in act(...).
+
+When testing, code that causes React state updates should be wrapped into act(...):
+
+act(() => {
+  /* fire events that update state */
+});
+/* assert on the output */
+
+This ensures that you're testing the behavior the user would see in the browser. Learn more at https://react.dev/link/wrap-tests-with-act
+An update to Transitioner inside a test was not wrapped in act(...).
+
+When testing, code that causes React state updates should be wrapped into act(...):
+
+act(() => {
+  /* fire events that update state */
+});
+/* assert on the output */
+
+This ensures that you're testing the behavior the user would see in the browser. Learn more at https://react.dev/link/wrap-tests-with-act
+An update to Transitioner inside a test was not wrapped in act(...).
+
+When testing, code that causes React state updates should be wrapped into act(...):
+
+act(() => {
+  /* fire events that update state */
+});
+/* assert on the output */
+
+This ensures that you're testing the behavior the user would see in the browser. Learn more at https://react.dev/link/wrap-tests-with-act
+An update to Transitioner inside a test was not wrapped in act(...).
+
+When testing, code that causes React state updates should be wrapped into act(...):
+
+act(() => {
+  /* fire events that update state */
+});
+/* assert on the output */
+
+This ensures that you're testing the behavior the user would see in the browser. Learn more at https://react.dev/link/wrap-tests-with-act
+An update to Transitioner inside a test was not wrapped in act(...).
+
+When testing, code that causes React state updates should be wrapped into act(...):
+
+act(() => {
+  /* fire events that update state */
+});
+/* assert on the output */
+
+This ensures that you're testing the behavior the user would see in the browser. Learn more at https://react.dev/link/wrap-tests-with-act
+An update to Transitioner inside a test was not wrapped in act(...).
+
+When testing, code that causes React state updates should be wrapped into act(...):
+
+act(() => {
+  /* fire events that update state */
+});
+/* assert on the output */
+
+This ensures that you're testing the behavior the user would see in the browser. Learn more at https://react.dev/link/wrap-tests-with-act
+An update to Transitioner inside a test was not wrapped in act(...).
+
+When testing, code that causes React state updates should be wrapped into act(...):
+
+act(() => {
+  /* fire events that update state */
+});
+/* assert on the output */
+
+This ensures that you're testing the behavior the user would see in the browser. Learn more at https://react.dev/link/wrap-tests-with-act
+An update to Transitioner inside a test was not wrapped in act(...).
+
+When testing, code that causes React state updates should be wrapped into act(...):
+
+act(() => {
+  /* fire events that update state */
+});
+/* assert on the output */
+
+This ensures that you're testing the behavior the user would see in the browser. Learn more at https://react.dev/link/wrap-tests-with-act
+
+stderr | src/routes/__tests__/-entrar.test.tsx > Entrar ("/entrar") — same approved single welcome screen > renders the approved welcome with the two entry choices
+An update to Transitioner inside a test was not wrapped in act(...).
+
+When testing, code that causes React state updates should be wrapped into act(...):
+
+act(() => {
+  /* fire events that update state */
+});
+/* assert on the output */
+
+This ensures that you're testing the behavior the user would see in the browser. Learn more at https://react.dev/link/wrap-tests-with-act
+An update to Transitioner inside a test was not wrapped in act(...).
+
+When testing, code that causes React state updates should be wrapped into act(...):
+
+act(() => {
+  /* fire events that update state */
+});
+/* assert on the output */
+
+This ensures that you're testing the behavior the user would see in the browser. Learn more at https://react.dev/link/wrap-tests-with-act
+
+Not implemented: Window's scrollTo() method
+stderr | src/routes/__tests__/-entrar.test.tsx > Entrar ("/entrar") — same approved single welcome screen > renders the approved welcome with the two entry choices
+An update to Transitioner inside a test was not wrapped in act(...).
+
+When testing, code that causes React state updates should be wrapped into act(...):
+
+act(() => {
+  /* fire events that update state */
+});
+/* assert on the output */
+
+This ensures that you're testing the behavior the user would see in the browser. Learn more at https://react.dev/link/wrap-tests-with-act
+An update to Transitioner inside a test was not wrapped in act(...).
+
+When testing, code that causes React state updates should be wrapped into act(...):
+
+act(() => {
+  /* fire events that update state */
+});
+/* assert on the output */
+
+This ensures that you're testing the behavior the user would see in the browser. Learn more at https://react.dev/link/wrap-tests-with-act
+An update to MatchesInner inside a test was not wrapped in act(...).
+
+When testing, code that causes React state updates should be wrapped into act(...):
+
+act(() => {
+  /* fire events that update state */
+});
+/* assert on the output */
+
+This ensures that you're testing the behavior the user would see in the browser. Learn more at https://react.dev/link/wrap-tests-with-act
+An update to MatchesInner inside a test was not wrapped in act(...).
+
+When testing, code that causes React state updates should be wrapped into act(...):
+
+act(() => {
+  /* fire events that update state */
+});
+/* assert on the output */
+
+This ensures that you're testing the behavior the user would see in the browser. Learn more at https://react.dev/link/wrap-tests-with-act
+An update to Transitioner inside a test was not wrapped in act(...).
+
+When testing, code that causes React state updates should be wrapped into act(...):
+
+act(() => {
+  /* fire events that update state */
+});
+/* assert on the output */
+
+This ensures that you're testing the behavior the user would see in the browser. Learn more at https://react.dev/link/wrap-tests-with-act
+An update to Transitioner inside a test was not wrapped in act(...).
+
+When testing, code that causes React state updates should be wrapped into act(...):
+
+act(() => {
+  /* fire events that update state */
+});
+/* assert on the output */
+
+This ensures that you're testing the behavior the user would see in the browser. Learn more at https://react.dev/link/wrap-tests-with-act
+An update to MatchesInner inside a test was not wrapped in act(...).
+
+When testing, code that causes React state updates should be wrapped into act(...):
+
+act(() => {
+  /* fire events that update state */
+});
+/* assert on the output */
+
+This ensures that you're testing the behavior the user would see in the browser. Learn more at https://react.dev/link/wrap-tests-with-act
+An update to Transitioner inside a test was not wrapped in act(...).
+
+When testing, code that causes React state updates should be wrapped into act(...):
+
+act(() => {
+  /* fire events that update state */
+});
+/* assert on the output */
+
+This ensures that you're testing the behavior the user would see in the browser. Learn more at https://react.dev/link/wrap-tests-with-act
+
+stderr | src/routes/__tests__/-entrar.test.tsx > Entrar ("/entrar") — same approved single welcome screen > shows no fabricated captions or legacy credits
+An update to Transitioner inside a test was not wrapped in act(...).
+
+When testing, code that causes React state updates should be wrapped into act(...):
+
+act(() => {
+  /* fire events that update state */
+});
+/* assert on the output */
+
+This ensures that you're testing the behavior the user would see in the browser. Learn more at https://react.dev/link/wrap-tests-with-act
+An update to Transitioner inside a test was not wrapped in act(...).
+
+When testing, code that causes React state updates should be wrapped into act(...):
+
+act(() => {
+  /* fire events that update state */
+});
+/* assert on the output */
+
+This ensures that you're testing the behavior the user would see in the browser. Learn more at https://react.dev/link/wrap-tests-with-act
+An update to Transitioner inside a test was not wrapped in act(...).
+
+When testing, code that causes React state updates should be wrapped into act(...):
+
+act(() => {
+  /* fire events that update state */
+});
+/* assert on the output */
+
+This ensures that you're testing the behavior the user would see in the browser. Learn more at https://react.dev/link/wrap-tests-with-act
+An update to Transitioner inside a test was not wrapped in act(...).
+
+When testing, code that causes React state updates should be wrapped into act(...):
+
+act(() => {
+  /* fire events that update state */
+});
+/* assert on the output */
+
+This ensures that you're testing the behavior the user would see in the browser. Learn more at https://react.dev/link/wrap-tests-with-act
+An update to Transitioner inside a test was not wrapped in act(...).
+
+When testing, code that causes React state updates should be wrapped into act(...):
+
+act(() => {
+  /* fire events that update state */
+});
+/* assert on the output */
+
+This ensures that you're testing the behavior the user would see in the browser. Learn more at https://react.dev/link/wrap-tests-with-act
+An update to Transitioner inside a test was not wrapped in act(...).
+
+When testing, code that causes React state updates should be wrapped into act(...):
+
+act(() => {
+  /* fire events that update state */
+});
+/* assert on the output */
+
+This ensures that you're testing the behavior the user would see in the browser. Learn more at https://react.dev/link/wrap-tests-with-act
+An update to Transitioner inside a test was not wrapped in act(...).
+
+When testing, code that causes React state updates should be wrapped into act(...):
+
+act(() => {
+  /* fire events that update state */
+});
+/* assert on the output */
+
+This ensures that you're testing the behavior the user would see in the browser. Learn more at https://react.dev/link/wrap-tests-with-act
+An update to Transitioner inside a test was not wrapped in act(...).
+
+When testing, code that causes React state updates should be wrapped into act(...):
+
+act(() => {
+  /* fire events that update state */
+});
+/* assert on the output */
+
+This ensures that you're testing the behavior the user would see in the browser. Learn more at https://react.dev/link/wrap-tests-with-act
+An update to Transitioner inside a test was not wrapped in act(...).
+
+When testing, code that causes React state updates should be wrapped into act(...):
+
+act(() => {
+  /* fire events that update state */
+});
+/* assert on the output */
+
+This ensures that you're testing the behavior the user would see in the browser. Learn more at https://react.dev/link/wrap-tests-with-act
+An update to Transitioner inside a test was not wrapped in act(...).
+
+When testing, code that causes React state updates should be wrapped into act(...):
+
+act(() => {
+  /* fire events that update state */
+});
+/* assert on the output */
+
+This ensures that you're testing the behavior the user would see in the browser. Learn more at https://react.dev/link/wrap-tests-with-act
+
+stderr | src/routes/__tests__/-entrar.test.tsx > Entrar ("/entrar") — same approved single welcome screen > shows no fabricated captions or legacy credits
+An update to Transitioner inside a test was not wrapped in act(...).
+
+When testing, code that causes React state updates should be wrapped into act(...):
+
+act(() => {
+  /* fire events that update state */
+});
+/* assert on the output */
+
+This ensures that you're testing the behavior the user would see in the browser. Learn more at https://react.dev/link/wrap-tests-with-act
+An update to Transitioner inside a test was not wrapped in act(...).
+
+When testing, code that causes React state updates should be wrapped into act(...):
+
+act(() => {
+  /* fire events that update state */
+});
+/* assert on the output */
+
+This ensures that you're testing the behavior the user would see in the browser. Learn more at https://react.dev/link/wrap-tests-with-act
+
+Not implemented: Window's scrollTo() method
+stderr | src/routes/__tests__/-entrar.test.tsx > Entrar ("/entrar") — same approved single welcome screen > shows no fabricated captions or legacy credits
+An update to Transitioner inside a test was not wrapped in act(...).
+
+When testing, code that causes React state updates should be wrapped into act(...):
+
+act(() => {
+  /* fire events that update state */
+});
+/* assert on the output */
+
+This ensures that you're testing the behavior the user would see in the browser. Learn more at https://react.dev/link/wrap-tests-with-act
+An update to Transitioner inside a test was not wrapped in act(...).
+
+When testing, code that causes React state updates should be wrapped into act(...):
+
+act(() => {
+  /* fire events that update state */
+});
+/* assert on the output */
+
+This ensures that you're testing the behavior the user would see in the browser. Learn more at https://react.dev/link/wrap-tests-with-act
+An update to MatchesInner inside a test was not wrapped in act(...).
+
+When testing, code that causes React state updates should be wrapped into act(...):
+
+act(() => {
+  /* fire events that update state */
+});
+/* assert on the output */
+
+This ensures that you're testing the behavior the user would see in the browser. Learn more at https://react.dev/link/wrap-tests-with-act
+An update to MatchesInner inside a test was not wrapped in act(...).
+
+When testing, code that causes React state updates should be wrapped into act(...):
+
+act(() => {
+  /* fire events that update state */
+});
+/* assert on the output */
+
+This ensures that you're testing the behavior the user would see in the browser. Learn more at https://react.dev/link/wrap-tests-with-act
+An update to Transitioner inside a test was not wrapped in act(...).
+
+When testing, code that causes React state updates should be wrapped into act(...):
+
+act(() => {
+  /* fire events that update state */
+});
+/* assert on the output */
+
+This ensures that you're testing the behavior the user would see in the browser. Learn more at https://react.dev/link/wrap-tests-with-act
+An update to Transitioner inside a test was not wrapped in act(...).
+
+When testing, code that causes React state updates should be wrapped into act(...):
+
+act(() => {
+  /* fire events that update state */
+});
+/* assert on the output */
+
+This ensures that you're testing the behavior the user would see in the browser. Learn more at https://react.dev/link/wrap-tests-with-act
+An update to Transitioner inside a test was not wrapped in act(...).
+
+When testing, code that causes React state updates should be wrapped into act(...):
+
+act(() => {
+  /* fire events that update state */
+});
+/* assert on the output */
+
+This ensures that you're testing the behavior the user would see in the browser. Learn more at https://react.dev/link/wrap-tests-with-act
+
+ ✓ src/routes/__tests__/-entrar.test.tsx (2 tests) 511ms
+     ✓ renders the approved welcome with the two entry choices  479ms
+ ✓ src/components/cartilla/__tests__/InteractivePageExercises.dragmatch.test.tsx (3 tests) 419ms
+     ✓ uses the vowel as a label and lets the child tap the matching picture directly  305ms
+ ✓ src/components/living/__tests__/LivingIllustration.test.tsx (8 tests) 600ms
+ ✓ src/components/cartilla/__tests__/FaithfulPageRenderer.mechanics.test.tsx (4 tests) 825ms
+     ✓ paint-box → PaintCanvas with Colorea verb (not tap)  655ms
+stderr | src/routes/__tests__/-index.test.tsx > Approved single welcome ("/") > shows the approved title, greeting, and two entry choices
+An update to Transitioner inside a test was not wrapped in act(...).
+
+When testing, code that causes React state updates should be wrapped into act(...):
+
+act(() => {
+  /* fire events that update state */
+});
+/* assert on the output */
+
+This ensures that you're testing the behavior the user would see in the browser. Learn more at https://react.dev/link/wrap-tests-with-act
+An update to Transitioner inside a test was not wrapped in act(...).
+
+When testing, code that causes React state updates should be wrapped into act(...):
+
+act(() => {
+  /* fire events that update state */
+});
+/* assert on the output */
+
+This ensures that you're testing the behavior the user would see in the browser. Learn more at https://react.dev/link/wrap-tests-with-act
+An update to Transitioner inside a test was not wrapped in act(...).
+
+When testing, code that causes React state updates should be wrapped into act(...):
+
+act(() => {
+  /* fire events that update state */
+});
+/* assert on the output */
+
+This ensures that you're testing the behavior the user would see in the browser. Learn more at https://react.dev/link/wrap-tests-with-act
+An update to Transitioner inside a test was not wrapped in act(...).
+
+When testing, code that causes React state updates should be wrapped into act(...):
+
+act(() => {
+  /* fire events that update state */
+});
+/* assert on the output */
+
+This ensures that you're testing the behavior the user would see in the browser. Learn more at https://react.dev/link/wrap-tests-with-act
+An update to Transitioner inside a test was not wrapped in act(...).
+
+When testing, code that causes React state updates should be wrapped into act(...):
+
+act(() => {
+  /* fire events that update state */
+});
+/* assert on the output */
+
+This ensures that you're testing the behavior the user would see in the browser. Learn more at https://react.dev/link/wrap-tests-with-act
+An update to Transitioner inside a test was not wrapped in act(...).
+
+When testing, code that causes React state updates should be wrapped into act(...):
+
+act(() => {
+  /* fire events that update state */
+});
+/* assert on the output */
+
+This ensures that you're testing the behavior the user would see in the browser. Learn more at https://react.dev/link/wrap-tests-with-act
+An update to Transitioner inside a test was not wrapped in act(...).
+
+When testing, code that causes React state updates should be wrapped into act(...):
+
+act(() => {
+  /* fire events that update state */
+});
+/* assert on the output */
+
+This ensures that you're testing the behavior the user would see in the browser. Learn more at https://react.dev/link/wrap-tests-with-act
+An update to Transitioner inside a test was not wrapped in act(...).
+
+When testing, code that causes React state updates should be wrapped into act(...):
+
+act(() => {
+  /* fire events that update state */
+});
+/* assert on the output */
+
+This ensures that you're testing the behavior the user would see in the browser. Learn more at https://react.dev/link/wrap-tests-with-act
+An update to Transitioner inside a test was not wrapped in act(...).
+
+When testing, code that causes React state updates should be wrapped into act(...):
+
+act(() => {
+  /* fire events that update state */
+});
+/* assert on the output */
+
+This ensures that you're testing the behavior the user would see in the browser. Learn more at https://react.dev/link/wrap-tests-with-act
+An update to Transitioner inside a test was not wrapped in act(...).
+
+When testing, code that causes React state updates should be wrapped into act(...):
+
+act(() => {
+  /* fire events that update state */
+});
+/* assert on the output */
+
+This ensures that you're testing the behavior the user would see in the browser. Learn more at https://react.dev/link/wrap-tests-with-act
+
+stderr | src/routes/__tests__/-index.test.tsx > Approved single welcome ("/") > shows the approved title, greeting, and two entry choices
+An update to Transitioner inside a test was not wrapped in act(...).
+
+When testing, code that causes React state updates should be wrapped into act(...):
+
+act(() => {
+  /* fire events that update state */
+});
+/* assert on the output */
+
+This ensures that you're testing the behavior the user would see in the browser. Learn more at https://react.dev/link/wrap-tests-with-act
+An update to Transitioner inside a test was not wrapped in act(...).
+
+When testing, code that causes React state updates should be wrapped into act(...):
+
+act(() => {
+  /* fire events that update state */
+});
+/* assert on the output */
+
+This ensures that you're testing the behavior the user would see in the browser. Learn more at https://react.dev/link/wrap-tests-with-act
+
+Not implemented: Window's scrollTo() method
+stderr | src/routes/__tests__/-index.test.tsx > Approved single welcome ("/") > shows the approved title, greeting, and two entry choices
+An update to Transitioner inside a test was not wrapped in act(...).
+
+When testing, code that causes React state updates should be wrapped into act(...):
+
+act(() => {
+  /* fire events that update state */
+});
+/* assert on the output */
+
+This ensures that you're testing the behavior the user would see in the browser. Learn more at https://react.dev/link/wrap-tests-with-act
+An update to Transitioner inside a test was not wrapped in act(...).
+
+When testing, code that causes React state updates should be wrapped into act(...):
+
+act(() => {
+  /* fire events that update state */
+});
+/* assert on the output */
+
+This ensures that you're testing the behavior the user would see in the browser. Learn more at https://react.dev/link/wrap-tests-with-act
+An update to MatchesInner inside a test was not wrapped in act(...).
+
+When testing, code that causes React state updates should be wrapped into act(...):
+
+act(() => {
+  /* fire events that update state */
+});
+/* assert on the output */
+
+This ensures that you're testing the behavior the user would see in the browser. Learn more at https://react.dev/link/wrap-tests-with-act
+An update to MatchesInner inside a test was not wrapped in act(...).
+
+When testing, code that causes React state updates should be wrapped into act(...):
+
+act(() => {
+  /* fire events that update state */
+});
+/* assert on the output */
+
+This ensures that you're testing the behavior the user would see in the browser. Learn more at https://react.dev/link/wrap-tests-with-act
+An update to Transitioner inside a test was not wrapped in act(...).
+
+When testing, code that causes React state updates should be wrapped into act(...):
+
+act(() => {
+  /* fire events that update state */
+});
+/* assert on the output */
+
+This ensures that you're testing the behavior the user would see in the browser. Learn more at https://react.dev/link/wrap-tests-with-act
+An update to Transitioner inside a test was not wrapped in act(...).
+
+When testing, code that causes React state updates should be wrapped into act(...):
+
+act(() => {
+  /* fire events that update state */
+});
+/* assert on the output */
+
+This ensures that you're testing the behavior the user would see in the browser. Learn more at https://react.dev/link/wrap-tests-with-act
+An update to MatchesInner inside a test was not wrapped in act(...).
+
+When testing, code that causes React state updates should be wrapped into act(...):
+
+act(() => {
+  /* fire events that update state */
+});
+/* assert on the output */
+
+This ensures that you're testing the behavior the user would see in the browser. Learn more at https://react.dev/link/wrap-tests-with-act
+An update to Transitioner inside a test was not wrapped in act(...).
+
+When testing, code that causes React state updates should be wrapped into act(...):
+
+act(() => {
+  /* fire events that update state */
+});
+/* assert on the output */
+
+This ensures that you're testing the behavior the user would see in the browser. Learn more at https://react.dev/link/wrap-tests-with-act
+
+stderr | src/routes/__tests__/-index.test.tsx > Approved single welcome ("/") > keeps title and greeting as real HTML text
+An update to Transitioner inside a test was not wrapped in act(...).
+
+When testing, code that causes React state updates should be wrapped into act(...):
+
+act(() => {
+  /* fire events that update state */
+});
+/* assert on the output */
+
+This ensures that you're testing the behavior the user would see in the browser. Learn more at https://react.dev/link/wrap-tests-with-act
+An update to Transitioner inside a test was not wrapped in act(...).
+
+When testing, code that causes React state updates should be wrapped into act(...):
+
+act(() => {
+  /* fire events that update state */
+});
+/* assert on the output */
+
+This ensures that you're testing the behavior the user would see in the browser. Learn more at https://react.dev/link/wrap-tests-with-act
+An update to Transitioner inside a test was not wrapped in act(...).
+
+When testing, code that causes React state updates should be wrapped into act(...):
+
+act(() => {
+  /* fire events that update state */
+});
+/* assert on the output */
+
+This ensures that you're testing the behavior the user would see in the browser. Learn more at https://react.dev/link/wrap-tests-with-act
+An update to Transitioner inside a test was not wrapped in act(...).
+
+When testing, code that causes React state updates should be wrapped into act(...):
+
+act(() => {
+  /* fire events that update state */
+});
+/* assert on the output */
+
+This ensures that you're testing the behavior the user would see in the browser. Learn more at https://react.dev/link/wrap-tests-with-act
+An update to Transitioner inside a test was not wrapped in act(...).
+
+When testing, code that causes React state updates should be wrapped into act(...):
+
+act(() => {
+  /* fire events that update state */
+});
+/* assert on the output */
+
+This ensures that you're testing the behavior the user would see in the browser. Learn more at https://react.dev/link/wrap-tests-with-act
+An update to Transitioner inside a test was not wrapped in act(...).
+
+When testing, code that causes React state updates should be wrapped into act(...):
+
+act(() => {
+  /* fire events that update state */
+});
+/* assert on the output */
+
+This ensures that you're testing the behavior the user would see in the browser. Learn more at https://react.dev/link/wrap-tests-with-act
+An update to Transitioner inside a test was not wrapped in act(...).
+
+When testing, code that causes React state updates should be wrapped into act(...):
+
+act(() => {
+  /* fire events that update state */
+});
+/* assert on the output */
+
+This ensures that you're testing the behavior the user would see in the browser. Learn more at https://react.dev/link/wrap-tests-with-act
+An update to Transitioner inside a test was not wrapped in act(...).
+
+When testing, code that causes React state updates should be wrapped into act(...):
+
+act(() => {
+  /* fire events that update state */
+});
+/* assert on the output */
+
+This ensures that you're testing the behavior the user would see in the browser. Learn more at https://react.dev/link/wrap-tests-with-act
+An update to Transitioner inside a test was not wrapped in act(...).
+
+When testing, code that causes React state updates should be wrapped into act(...):
+
+act(() => {
+  /* fire events that update state */
+});
+/* assert on the output */
+
+This ensures that you're testing the behavior the user would see in the browser. Learn more at https://react.dev/link/wrap-tests-with-act
+An update to Transitioner inside a test was not wrapped in act(...).
+
+When testing, code that causes React state updates should be wrapped into act(...):
+
+act(() => {
+  /* fire events that update state */
+});
+/* assert on the output */
+
+This ensures that you're testing the behavior the user would see in the browser. Learn more at https://react.dev/link/wrap-tests-with-act
+
+stderr | src/routes/__tests__/-index.test.tsx > Approved single welcome ("/") > keeps title and greeting as real HTML text
+An update to Transitioner inside a test was not wrapped in act(...).
+
+When testing, code that causes React state updates should be wrapped into act(...):
+
+act(() => {
+  /* fire events that update state */
+});
+/* assert on the output */
+
+This ensures that you're testing the behavior the user would see in the browser. Learn more at https://react.dev/link/wrap-tests-with-act
+An update to Transitioner inside a test was not wrapped in act(...).
+
+When testing, code that causes React state updates should be wrapped into act(...):
+
+act(() => {
+  /* fire events that update state */
+});
+/* assert on the output */
+
+This ensures that you're testing the behavior the user would see in the browser. Learn more at https://react.dev/link/wrap-tests-with-act
+
+Not implemented: Window's scrollTo() method
+stderr | src/routes/__tests__/-index.test.tsx > Approved single welcome ("/") > keeps title and greeting as real HTML text
+An update to Transitioner inside a test was not wrapped in act(...).
+
+When testing, code that causes React state updates should be wrapped into act(...):
+
+act(() => {
+  /* fire events that update state */
+});
+/* assert on the output */
+
+This ensures that you're testing the behavior the user would see in the browser. Learn more at https://react.dev/link/wrap-tests-with-act
+An update to Transitioner inside a test was not wrapped in act(...).
+
+When testing, code that causes React state updates should be wrapped into act(...):
+
+act(() => {
+  /* fire events that update state */
+});
+/* assert on the output */
+
+This ensures that you're testing the behavior the user would see in the browser. Learn more at https://react.dev/link/wrap-tests-with-act
+An update to MatchesInner inside a test was not wrapped in act(...).
+
+When testing, code that causes React state updates should be wrapped into act(...):
+
+act(() => {
+  /* fire events that update state */
+});
+/* assert on the output */
+
+This ensures that you're testing the behavior the user would see in the browser. Learn more at https://react.dev/link/wrap-tests-with-act
+An update to MatchesInner inside a test was not wrapped in act(...).
+
+When testing, code that causes React state updates should be wrapped into act(...):
+
+act(() => {
+  /* fire events that update state */
+});
+/* assert on the output */
+
+This ensures that you're testing the behavior the user would see in the browser. Learn more at https://react.dev/link/wrap-tests-with-act
+An update to Transitioner inside a test was not wrapped in act(...).
+
+When testing, code that causes React state updates should be wrapped into act(...):
+
+act(() => {
+  /* fire events that update state */
+});
+/* assert on the output */
+
+This ensures that you're testing the behavior the user would see in the browser. Learn more at https://react.dev/link/wrap-tests-with-act
+An update to Transitioner inside a test was not wrapped in act(...).
+
+When testing, code that causes React state updates should be wrapped into act(...):
+
+act(() => {
+  /* fire events that update state */
+});
+/* assert on the output */
+
+This ensures that you're testing the behavior the user would see in the browser. Learn more at https://react.dev/link/wrap-tests-with-act
+An update to MatchesInner inside a test was not wrapped in act(...).
+
+When testing, code that causes React state updates should be wrapped into act(...):
+
+act(() => {
+  /* fire events that update state */
+});
+/* assert on the output */
+
+This ensures that you're testing the behavior the user would see in the browser. Learn more at https://react.dev/link/wrap-tests-with-act
+An update to Transitioner inside a test was not wrapped in act(...).
+
+When testing, code that causes React state updates should be wrapped into act(...):
+
+act(() => {
+  /* fire events that update state */
+});
+/* assert on the output */
+
+This ensures that you're testing the behavior the user would see in the browser. Learn more at https://react.dev/link/wrap-tests-with-act
+
+stderr | src/routes/__tests__/-index.test.tsx > Approved single welcome ("/") > uses only the owner-approved Gretel master
+An update to Transitioner inside a test was not wrapped in act(...).
+
+When testing, code that causes React state updates should be wrapped into act(...):
+
+act(() => {
+  /* fire events that update state */
+});
+/* assert on the output */
+
+This ensures that you're testing the behavior the user would see in the browser. Learn more at https://react.dev/link/wrap-tests-with-act
+An update to Transitioner inside a test was not wrapped in act(...).
+
+When testing, code that causes React state updates should be wrapped into act(...):
+
+act(() => {
+  /* fire events that update state */
+});
+/* assert on the output */
+
+This ensures that you're testing the behavior the user would see in the browser. Learn more at https://react.dev/link/wrap-tests-with-act
+An update to Transitioner inside a test was not wrapped in act(...).
+
+When testing, code that causes React state updates should be wrapped into act(...):
+
+act(() => {
+  /* fire events that update state */
+});
+/* assert on the output */
+
+This ensures that you're testing the behavior the user would see in the browser. Learn more at https://react.dev/link/wrap-tests-with-act
+An update to Transitioner inside a test was not wrapped in act(...).
+
+When testing, code that causes React state updates should be wrapped into act(...):
+
+act(() => {
+  /* fire events that update state */
+});
+/* assert on the output */
+
+This ensures that you're testing the behavior the user would see in the browser. Learn more at https://react.dev/link/wrap-tests-with-act
+An update to Transitioner inside a test was not wrapped in act(...).
+
+When testing, code that causes React state updates should be wrapped into act(...):
+
+act(() => {
+  /* fire events that update state */
+});
+/* assert on the output */
+
+This ensures that you're testing the behavior the user would see in the browser. Learn more at https://react.dev/link/wrap-tests-with-act
+An update to Transitioner inside a test was not wrapped in act(...).
+
+When testing, code that causes React state updates should be wrapped into act(...):
+
+act(() => {
+  /* fire events that update state */
+});
+/* assert on the output */
+
+This ensures that you're testing the behavior the user would see in the browser. Learn more at https://react.dev/link/wrap-tests-with-act
+An update to Transitioner inside a test was not wrapped in act(...).
+
+When testing, code that causes React state updates should be wrapped into act(...):
+
+act(() => {
+  /* fire events that update state */
+});
+/* assert on the output */
+
+This ensures that you're testing the behavior the user would see in the browser. Learn more at https://react.dev/link/wrap-tests-with-act
+An update to Transitioner inside a test was not wrapped in act(...).
+
+When testing, code that causes React state updates should be wrapped into act(...):
+
+act(() => {
+  /* fire events that update state */
+});
+/* assert on the output */
+
+This ensures that you're testing the behavior the user would see in the browser. Learn more at https://react.dev/link/wrap-tests-with-act
+An update to Transitioner inside a test was not wrapped in act(...).
+
+When testing, code that causes React state updates should be wrapped into act(...):
+
+act(() => {
+  /* fire events that update state */
+});
+/* assert on the output */
+
+This ensures that you're testing the behavior the user would see in the browser. Learn more at https://react.dev/link/wrap-tests-with-act
+An update to Transitioner inside a test was not wrapped in act(...).
+
+When testing, code that causes React state updates should be wrapped into act(...):
+
+act(() => {
+  /* fire events that update state */
+});
+/* assert on the output */
+
+This ensures that you're testing the behavior the user would see in the browser. Learn more at https://react.dev/link/wrap-tests-with-act
+
+stderr | src/routes/__tests__/-index.test.tsx > Approved single welcome ("/") > uses only the owner-approved Gretel master
+An update to Transitioner inside a test was not wrapped in act(...).
+
+When testing, code that causes React state updates should be wrapped into act(...):
+
+act(() => {
+  /* fire events that update state */
+});
+/* assert on the output */
+
+This ensures that you're testing the behavior the user would see in the browser. Learn more at https://react.dev/link/wrap-tests-with-act
+An update to Transitioner inside a test was not wrapped in act(...).
+
+When testing, code that causes React state updates should be wrapped into act(...):
+
+act(() => {
+  /* fire events that update state */
+});
+/* assert on the output */
+
+This ensures that you're testing the behavior the user would see in the browser. Learn more at https://react.dev/link/wrap-tests-with-act
+
+Not implemented: Window's scrollTo() method
+stderr | src/routes/__tests__/-index.test.tsx > Approved single welcome ("/") > uses only the owner-approved Gretel master
+An update to Transitioner inside a test was not wrapped in act(...).
+
+When testing, code that causes React state updates should be wrapped into act(...):
+
+act(() => {
+  /* fire events that update state */
+});
+/* assert on the output */
+
+This ensures that you're testing the behavior the user would see in the browser. Learn more at https://react.dev/link/wrap-tests-with-act
+An update to Transitioner inside a test was not wrapped in act(...).
+
+When testing, code that causes React state updates should be wrapped into act(...):
+
+act(() => {
+  /* fire events that update state */
+});
+/* assert on the output */
+
+This ensures that you're testing the behavior the user would see in the browser. Learn more at https://react.dev/link/wrap-tests-with-act
+An update to MatchesInner inside a test was not wrapped in act(...).
+
+When testing, code that causes React state updates should be wrapped into act(...):
+
+act(() => {
+  /* fire events that update state */
+});
+/* assert on the output */
+
+This ensures that you're testing the behavior the user would see in the browser. Learn more at https://react.dev/link/wrap-tests-with-act
+An update to MatchesInner inside a test was not wrapped in act(...).
+
+When testing, code that causes React state updates should be wrapped into act(...):
+
+act(() => {
+  /* fire events that update state */
+});
+/* assert on the output */
+
+This ensures that you're testing the behavior the user would see in the browser. Learn more at https://react.dev/link/wrap-tests-with-act
+An update to Transitioner inside a test was not wrapped in act(...).
+
+When testing, code that causes React state updates should be wrapped into act(...):
+
+act(() => {
+  /* fire events that update state */
+});
+/* assert on the output */
+
+This ensures that you're testing the behavior the user would see in the browser. Learn more at https://react.dev/link/wrap-tests-with-act
+An update to Transitioner inside a test was not wrapped in act(...).
+
+When testing, code that causes React state updates should be wrapped into act(...):
+
+act(() => {
+  /* fire events that update state */
+});
+/* assert on the output */
+
+This ensures that you're testing the behavior the user would see in the browser. Learn more at https://react.dev/link/wrap-tests-with-act
+An update to MatchesInner inside a test was not wrapped in act(...).
+
+When testing, code that causes React state updates should be wrapped into act(...):
+
+act(() => {
+  /* fire events that update state */
+});
+/* assert on the output */
+
+This ensures that you're testing the behavior the user would see in the browser. Learn more at https://react.dev/link/wrap-tests-with-act
+An update to Transitioner inside a test was not wrapped in act(...).
+
+When testing, code that causes React state updates should be wrapped into act(...):
+
+act(() => {
+  /* fire events that update state */
+});
+/* assert on the output */
+
+This ensures that you're testing the behavior the user would see in the browser. Learn more at https://react.dev/link/wrap-tests-with-act
+
+stderr | src/routes/__tests__/-index.test.tsx > Approved single welcome ("/") > contains no generated or garden art reference
+An update to Transitioner inside a test was not wrapped in act(...).
+
+When testing, code that causes React state updates should be wrapped into act(...):
+
+act(() => {
+  /* fire events that update state */
+});
+/* assert on the output */
+
+This ensures that you're testing the behavior the user would see in the browser. Learn more at https://react.dev/link/wrap-tests-with-act
+An update to Transitioner inside a test was not wrapped in act(...).
+
+When testing, code that causes React state updates should be wrapped into act(...):
+
+act(() => {
+  /* fire events that update state */
+});
+/* assert on the output */
+
+This ensures that you're testing the behavior the user would see in the browser. Learn more at https://react.dev/link/wrap-tests-with-act
+An update to Transitioner inside a test was not wrapped in act(...).
+
+When testing, code that causes React state updates should be wrapped into act(...):
+
+act(() => {
+  /* fire events that update state */
+});
+/* assert on the output */
+
+This ensures that you're testing the behavior the user would see in the browser. Learn more at https://react.dev/link/wrap-tests-with-act
+An update to Transitioner inside a test was not wrapped in act(...).
+
+When testing, code that causes React state updates should be wrapped into act(...):
+
+act(() => {
+  /* fire events that update state */
+});
+/* assert on the output */
+
+This ensures that you're testing the behavior the user would see in the browser. Learn more at https://react.dev/link/wrap-tests-with-act
+An update to Transitioner inside a test was not wrapped in act(...).
+
+When testing, code that causes React state updates should be wrapped into act(...):
+
+act(() => {
+  /* fire events that update state */
+});
+/* assert on the output */
+
+This ensures that you're testing the behavior the user would see in the browser. Learn more at https://react.dev/link/wrap-tests-with-act
+An update to Transitioner inside a test was not wrapped in act(...).
+
+When testing, code that causes React state updates should be wrapped into act(...):
+
+act(() => {
+  /* fire events that update state */
+});
+/* assert on the output */
+
+This ensures that you're testing the behavior the user would see in the browser. Learn more at https://react.dev/link/wrap-tests-with-act
+An update to Transitioner inside a test was not wrapped in act(...).
+
+When testing, code that causes React state updates should be wrapped into act(...):
+
+act(() => {
+  /* fire events that update state */
+});
+/* assert on the output */
+
+This ensures that you're testing the behavior the user would see in the browser. Learn more at https://react.dev/link/wrap-tests-with-act
+An update to Transitioner inside a test was not wrapped in act(...).
+
+When testing, code that causes React state updates should be wrapped into act(...):
+
+act(() => {
+  /* fire events that update state */
+});
+/* assert on the output */
+
+This ensures that you're testing the behavior the user would see in the browser. Learn more at https://react.dev/link/wrap-tests-with-act
+An update to Transitioner inside a test was not wrapped in act(...).
+
+When testing, code that causes React state updates should be wrapped into act(...):
+
+act(() => {
+  /* fire events that update state */
+});
+/* assert on the output */
+
+This ensures that you're testing the behavior the user would see in the browser. Learn more at https://react.dev/link/wrap-tests-with-act
+An update to Transitioner inside a test was not wrapped in act(...).
+
+When testing, code that causes React state updates should be wrapped into act(...):
+
+act(() => {
+  /* fire events that update state */
+});
+/* assert on the output */
+
+This ensures that you're testing the behavior the user would see in the browser. Learn more at https://react.dev/link/wrap-tests-with-act
+
+stderr | src/routes/__tests__/-index.test.tsx > Approved single welcome ("/") > contains no generated or garden art reference
+An update to Transitioner inside a test was not wrapped in act(...).
+
+When testing, code that causes React state updates should be wrapped into act(...):
+
+act(() => {
+  /* fire events that update state */
+});
+/* assert on the output */
+
+This ensures that you're testing the behavior the user would see in the browser. Learn more at https://react.dev/link/wrap-tests-with-act
+An update to Transitioner inside a test was not wrapped in act(...).
+
+When testing, code that causes React state updates should be wrapped into act(...):
+
+act(() => {
+  /* fire events that update state */
+});
+/* assert on the output */
+
+This ensures that you're testing the behavior the user would see in the browser. Learn more at https://react.dev/link/wrap-tests-with-act
+
+Not implemented: Window's scrollTo() method
+stderr | src/routes/__tests__/-index.test.tsx > Approved single welcome ("/") > contains no generated or garden art reference
+An update to Transitioner inside a test was not wrapped in act(...).
+
+When testing, code that causes React state updates should be wrapped into act(...):
+
+act(() => {
+  /* fire events that update state */
+});
+/* assert on the output */
+
+This ensures that you're testing the behavior the user would see in the browser. Learn more at https://react.dev/link/wrap-tests-with-act
+An update to Transitioner inside a test was not wrapped in act(...).
+
+When testing, code that causes React state updates should be wrapped into act(...):
+
+act(() => {
+  /* fire events that update state */
+});
+/* assert on the output */
+
+This ensures that you're testing the behavior the user would see in the browser. Learn more at https://react.dev/link/wrap-tests-with-act
+An update to MatchesInner inside a test was not wrapped in act(...).
+
+When testing, code that causes React state updates should be wrapped into act(...):
+
+act(() => {
+  /* fire events that update state */
+});
+/* assert on the output */
+
+This ensures that you're testing the behavior the user would see in the browser. Learn more at https://react.dev/link/wrap-tests-with-act
+An update to MatchesInner inside a test was not wrapped in act(...).
+
+When testing, code that causes React state updates should be wrapped into act(...):
+
+act(() => {
+  /* fire events that update state */
+});
+/* assert on the output */
+
+This ensures that you're testing the behavior the user would see in the browser. Learn more at https://react.dev/link/wrap-tests-with-act
+An update to Transitioner inside a test was not wrapped in act(...).
+
+When testing, code that causes React state updates should be wrapped into act(...):
+
+act(() => {
+  /* fire events that update state */
+});
+/* assert on the output */
+
+This ensures that you're testing the behavior the user would see in the browser. Learn more at https://react.dev/link/wrap-tests-with-act
+An update to Transitioner inside a test was not wrapped in act(...).
+
+When testing, code that causes React state updates should be wrapped into act(...):
+
+act(() => {
+  /* fire events that update state */
+});
+/* assert on the output */
+
+This ensures that you're testing the behavior the user would see in the browser. Learn more at https://react.dev/link/wrap-tests-with-act
+An update to Transitioner inside a test was not wrapped in act(...).
+
+When testing, code that causes React state updates should be wrapped into act(...):
+
+act(() => {
+  /* fire events that update state */
+});
+/* assert on the output */
+
+This ensures that you're testing the behavior the user would see in the browser. Learn more at https://react.dev/link/wrap-tests-with-act
+
+stderr | src/routes/__tests__/-index.test.tsx > Approved single welcome ("/") > is Spanish-only
+An update to Transitioner inside a test was not wrapped in act(...).
+
+When testing, code that causes React state updates should be wrapped into act(...):
+
+act(() => {
+  /* fire events that update state */
+});
+/* assert on the output */
+
+This ensures that you're testing the behavior the user would see in the browser. Learn more at https://react.dev/link/wrap-tests-with-act
+An update to Transitioner inside a test was not wrapped in act(...).
+
+When testing, code that causes React state updates should be wrapped into act(...):
+
+act(() => {
+  /* fire events that update state */
+});
+/* assert on the output */
+
+This ensures that you're testing the behavior the user would see in the browser. Learn more at https://react.dev/link/wrap-tests-with-act
+An update to Transitioner inside a test was not wrapped in act(...).
+
+When testing, code that causes React state updates should be wrapped into act(...):
+
+act(() => {
+  /* fire events that update state */
+});
+/* assert on the output */
+
+This ensures that you're testing the behavior the user would see in the browser. Learn more at https://react.dev/link/wrap-tests-with-act
+An update to Transitioner inside a test was not wrapped in act(...).
+
+When testing, code that causes React state updates should be wrapped into act(...):
+
+act(() => {
+  /* fire events that update state */
+});
+/* assert on the output */
+
+This ensures that you're testing the behavior the user would see in the browser. Learn more at https://react.dev/link/wrap-tests-with-act
+An update to Transitioner inside a test was not wrapped in act(...).
+
+When testing, code that causes React state updates should be wrapped into act(...):
+
+act(() => {
+  /* fire events that update state */
+});
+/* assert on the output */
+
+This ensures that you're testing the behavior the user would see in the browser. Learn more at https://react.dev/link/wrap-tests-with-act
+An update to Transitioner inside a test was not wrapped in act(...).
+
+When testing, code that causes React state updates should be wrapped into act(...):
+
+act(() => {
+  /* fire events that update state */
+});
+/* assert on the output */
+
+This ensures that you're testing the behavior the user would see in the browser. Learn more at https://react.dev/link/wrap-tests-with-act
+An update to Transitioner inside a test was not wrapped in act(...).
+
+When testing, code that causes React state updates should be wrapped into act(...):
+
+act(() => {
+  /* fire events that update state */
+});
+/* assert on the output */
+
+This ensures that you're testing the behavior the user would see in the browser. Learn more at https://react.dev/link/wrap-tests-with-act
+An update to Transitioner inside a test was not wrapped in act(...).
+
+When testing, code that causes React state updates should be wrapped into act(...):
+
+act(() => {
+  /* fire events that update state */
+});
+/* assert on the output */
+
+This ensures that you're testing the behavior the user would see in the browser. Learn more at https://react.dev/link/wrap-tests-with-act
+An update to Transitioner inside a test was not wrapped in act(...).
+
+When testing, code that causes React state updates should be wrapped into act(...):
+
+act(() => {
+  /* fire events that update state */
+});
+/* assert on the output */
+
+This ensures that you're testing the behavior the user would see in the browser. Learn more at https://react.dev/link/wrap-tests-with-act
+An update to Transitioner inside a test was not wrapped in act(...).
+
+When testing, code that causes React state updates should be wrapped into act(...):
+
+act(() => {
+  /* fire events that update state */
+});
+/* assert on the output */
+
+This ensures that you're testing the behavior the user would see in the browser. Learn more at https://react.dev/link/wrap-tests-with-act
+
+stderr | src/routes/__tests__/-index.test.tsx > Approved single welcome ("/") > is Spanish-only
+An update to Transitioner inside a test was not wrapped in act(...).
+
+When testing, code that causes React state updates should be wrapped into act(...):
+
+act(() => {
+  /* fire events that update state */
+});
+/* assert on the output */
+
+This ensures that you're testing the behavior the user would see in the browser. Learn more at https://react.dev/link/wrap-tests-with-act
+An update to Transitioner inside a test was not wrapped in act(...).
+
+When testing, code that causes React state updates should be wrapped into act(...):
+
+act(() => {
+  /* fire events that update state */
+});
+/* assert on the output */
+
+This ensures that you're testing the behavior the user would see in the browser. Learn more at https://react.dev/link/wrap-tests-with-act
+
+Not implemented: Window's scrollTo() method
+stderr | src/routes/__tests__/-index.test.tsx > Approved single welcome ("/") > is Spanish-only
+An update to Transitioner inside a test was not wrapped in act(...).
+
+When testing, code that causes React state updates should be wrapped into act(...):
+
+act(() => {
+  /* fire events that update state */
+});
+/* assert on the output */
+
+This ensures that you're testing the behavior the user would see in the browser. Learn more at https://react.dev/link/wrap-tests-with-act
+An update to Transitioner inside a test was not wrapped in act(...).
+
+When testing, code that causes React state updates should be wrapped into act(...):
+
+act(() => {
+  /* fire events that update state */
+});
+/* assert on the output */
+
+This ensures that you're testing the behavior the user would see in the browser. Learn more at https://react.dev/link/wrap-tests-with-act
+An update to MatchesInner inside a test was not wrapped in act(...).
+
+When testing, code that causes React state updates should be wrapped into act(...):
+
+act(() => {
+  /* fire events that update state */
+});
+/* assert on the output */
+
+This ensures that you're testing the behavior the user would see in the browser. Learn more at https://react.dev/link/wrap-tests-with-act
+An update to MatchesInner inside a test was not wrapped in act(...).
+
+When testing, code that causes React state updates should be wrapped into act(...):
+
+act(() => {
+  /* fire events that update state */
+});
+/* assert on the output */
+
+This ensures that you're testing the behavior the user would see in the browser. Learn more at https://react.dev/link/wrap-tests-with-act
+An update to Transitioner inside a test was not wrapped in act(...).
+
+When testing, code that causes React state updates should be wrapped into act(...):
+
+act(() => {
+  /* fire events that update state */
+});
+/* assert on the output */
+
+This ensures that you're testing the behavior the user would see in the browser. Learn more at https://react.dev/link/wrap-tests-with-act
+An update to Transitioner inside a test was not wrapped in act(...).
+
+When testing, code that causes React state updates should be wrapped into act(...):
+
+act(() => {
+  /* fire events that update state */
+});
+/* assert on the output */
+
+This ensures that you're testing the behavior the user would see in the browser. Learn more at https://react.dev/link/wrap-tests-with-act
+An update to MatchesInner inside a test was not wrapped in act(...).
+
+When testing, code that causes React state updates should be wrapped into act(...):
+
+act(() => {
+  /* fire events that update state */
+});
+/* assert on the output */
+
+This ensures that you're testing the behavior the user would see in the browser. Learn more at https://react.dev/link/wrap-tests-with-act
+An update to Transitioner inside a test was not wrapped in act(...).
+
+When testing, code that causes React state updates should be wrapped into act(...):
+
+act(() => {
+  /* fire events that update state */
+});
+/* assert on the output */
+
+This ensures that you're testing the behavior the user would see in the browser. Learn more at https://react.dev/link/wrap-tests-with-act
+
+ ✓ src/routes/__tests__/-index.test.tsx (5 tests) 716ms
+     ✓ shows the approved title, greeting, and two entry choices  578ms
+ ✓ src/components/__tests__/Downloads.test.tsx (2 tests) 432ms
+     ✓ renders the PDF download link correctly  329ms
+ ✓ src/cartilla/interactions/__tests__/SyllableWordCircle.test.tsx (2 tests) 857ms
+     ✓ rejects distractors instead of counting every word as correct  603ms
+ ✓ src/lib/__tests__/learner-activity-storage.test.tsx (4 tests) 579ms
+   ✓ writing and syllable controls restore only their learner's content  436ms
+ ✓ src/test/ui-features.test.tsx (3 tests) 786ms
+       ✓ persists theme to localStorage and applies class to document  714ms
+ ✓ src/components/gretel/__tests__/GretelSceneMedia.test.tsx (11 tests) 168ms
+ ✓ src/routes/cartilla/teacher/__tests__/-route.auth.test.ts (4 tests) 298ms
+ ✓ src/lib/__tests__/csv-export.test.ts (5 tests) 81ms
+ ✓ src/routes/cartilla/teacher/__tests__/-admin.auth.test.ts (6 tests) 699ms
+     ✓ lets the demo admin account in without asking the server  626ms
+ ✓ src/content/__tests__/art-slots-integrity.test.ts (5 tests) 153ms
+ ✓ src/components/living/__tests__/LivingIllustration.clip.test.tsx (3 tests) 104ms
+ ✓ src/components/gretel/__tests__/GretelMascot.live.test.tsx (1 test) 53ms
+ ✓ scripts/__tests__/recovery-quality-gates.test.ts (4 tests) 14ms
+ ✓ src/components/cartilla/__tests__/letter-stroke-templates.test.ts (44 tests) 67ms
+ ✓ src/lib/__tests__/student.functions.test.ts (11 tests) 49ms
+ ✓ src/lib/__tests__/lesson-grading.test.ts (370 tests) 229ms
+ ✓ src/lib/__tests__/living-art-policy.test.ts (1 test) 47ms
+ ✓ src/components/cartilla/__tests__/WordMatch.no-emoji.test.tsx (2 tests) 172ms
+stderr | src/lib/__tests__/progress-events.test.ts > progress-events > keeps an event queued when logProgress rejects (real retry, not fire-and-forget)
+No se pudo sincronizar el ejercicio; se conserva para reintentar.
+
+ ✓ src/lib/__tests__/progress-events.test.ts (7 tests) 131ms
+ ✓ src/components/gretel/__tests__/lessons-audit.test.ts (138 tests) 149ms
+ ✓ src/components/intro/__tests__/BookHeroGretel.test.tsx (2 tests) 174ms
+ ✓ src/lib/__tests__/flipchart-native-coverage.test.ts (8 tests) 137ms
+ ✓ src/lib/__tests__/book-fidelity-lessons-08-24.test.ts (73 tests) 98ms
+stderr | src/lib/__tests__/student-event-sync.test.ts > retains a failed answer and retries it on reconnection
+No se pudo sincronizar el progreso; se conserva para reintentar.
+
+ ✓ src/lib/__tests__/student-event-sync.test.ts (3 tests) 95ms
+ ✓ src/lib/__tests__/password-strength.test.ts (12 tests) 16ms
+ ✓ src/lib/__tests__/living-art-runtime.test.ts (5 tests) 45ms
+ ✓ src/lib/__tests__/book-fidelity-lessons-01-07.test.ts (25 tests) 31ms
+stderr | src/hooks/__tests__/useSpeechRecognition.test.ts > useSpeechRecognition Hook and MockSpeechRecognition > should handle error asynchronously, stop listening and populate error state
+[SpeechRecognition Error] no-speech
+
+ ✓ src/hooks/__tests__/useSpeechRecognition.test.ts (5 tests) 51ms
+ ✓ src/lib/__tests__/teacher.functions.test.ts (30 tests) 49ms
+ ✓ src/lib/__tests__/lesson-catalog.test.ts (11 tests) 18ms
+ ✓ src/lib/__tests__/seed-admin-overview.test.ts (5 tests) 39ms
+ ✓ src/lib/__tests__/native-workbook-coverage.test.tsx (2 tests) 18ms
+ ✓ src/lib/__tests__/live-admin-attention.test.ts (15 tests) 66ms
+ ✓ src/lib/__tests__/release-integration.test.ts (5 tests) 17ms
+ ✓ src/lib/__tests__/cartilla-art-factory.test.ts (8 tests) 26ms
+ ✓ src/test/setup-helpers.test.ts (10 tests) 46ms
+ ✓ src/lib/__tests__/demo-student-session.test.ts (3 tests) 33ms
+ ✓ src/lib/__tests__/random-with-seed.test.ts (13 tests) 16ms
+ ✓ src/lib/__tests__/lesson-verification.functions.test.ts (7 tests) 22ms
+ ✓ src/lib/__tests__/page-progress.test.ts (8 tests) 30ms
+ ✓ src/lib/__tests__/gretel-bus-detail.test.ts (3 tests) 14ms
+ ✓ src/lib/games/__tests__/syllable-builder.test.ts (19 tests) 79ms
+ ✓ src/content/__tests__/animal-gallery.test.ts (5 tests) 30ms
+ ✓ src/lib/__tests__/flipchart-plate-fidelity.test.ts (25 tests) 21ms
+ ✓ src/content/__tests__/consonants-vocab-integrity.test.ts (10 tests) 13ms
+ ✓ src/lib/__tests__/literacy-insights.test.ts (9 tests) 36ms
+ ✓ src/components/cartilla/__tests__/letter-trace-tap-mode.test.ts (17 tests) 28ms
+ ✓ src/cartilla/interactions/__tests__/colorization-pass.test.ts (25 tests) 27ms
+ ✓ src/lib/__tests__/living-motion.test.ts (5 tests) 12ms
+ ✓ src/lib/__tests__/assignments.functions.test.ts (9 tests) 42ms
+ ✓ src/lib/__tests__/date-helpers.test.ts (12 tests) 20ms
+ ✓ src/lib/__tests__/digital-pilot.test.ts (3 tests) 30ms
+ ✓ src/lib/__tests__/folder-assignments.functions.test.ts (10 tests) 36ms
+ ✓ src/lib/__tests__/profile.test.ts (6 tests) 12ms
+ ✓ src/content/__tests__/gretel-cinematics.test.ts (2 tests) 13ms
+ ✓ src/content/games/__tests__/taught-order.test.ts (32 tests) 37ms
+ ✓ src/lib/__tests__/progress-calculation.test.ts (23 tests) 20ms
+ ✓ src/lib/__tests__/phoneme-matcher.test.ts (8 tests) 7ms
+ ✓ src/lib/__tests__/book-faithful.test.ts (2 tests) 13ms
+ ✓ src/lib/__tests__/student-session.test.ts (7 tests) 10ms
+ ✓ src/lib/__tests__/cartilla-crm-theme.test.ts (10 tests) 9ms
+ ✓ src/lib/__tests__/gretel-voice.test.ts (6 tests) 11ms
+ ✓ src/lib/__tests__/error-page.test.ts (1 test) 12ms
+ ✓ src/lib/__tests__/utils.test.ts (5 tests) 17ms
+stderr | src/components/gretel/__tests__/gretelMachine.test.ts > GretelMachine > heals genuinely illegal transitions to idle
+[GretelMachine] Illegal transition from 'talking' with event 'WAVE'. Healing to 'idle'.
+
+ ✓ src/components/gretel/__tests__/gretelMachine.test.ts (8 tests) 13ms
+ ✓ src/components/gretel/__tests__/gretel-pose-library.test.ts (5 tests) 14ms
+ ✓ src/lib/__tests__/lesson-progress.test.ts (6 tests) 10ms
+ ✓ src/lib/__tests__/admin-teacher.functions.test.ts (6 tests) 16ms
+ ✓ src/content/guia/__tests__/loader.test.ts (10 tests) 13ms
+ ✓ src/cartilla/interactions/__tests__/faithful-mechanic-routing.test.ts (7 tests) 17ms
+ ✓ src/lib/__tests__/spanish-syllables.test.ts (8 tests) 8ms
+ ✓ src/lib/__tests__/exercise-stats.test.ts (11 tests) 11ms
+ ✓ src/components/gretel/__tests__/gretelLearning.test.ts (4 tests) 13ms
+ ✓ src/lib/__tests__/flipchart-hd.test.ts (5 tests) 9ms
+ ✓ src/lib/__tests__/activity-mechanics.test.ts (3 tests) 7ms
+ ✓ src/lib/__tests__/url-share.test.ts (7 tests) 11ms
+ ✓ src/components/StudentBook/__tests__/CurlPageViewer.contract.test.ts (8 tests) 8ms
+ ✓ src/lib/__tests__/audio-engine.test.ts (6 tests) 9ms
+ ✓ src/lib/__tests__/student-cursor.test.ts (6 tests) 7ms
+ ✓ src/lib/games/__tests__/butterflyGarden.test.ts (7 tests) 8ms
+ ✓ src/lib/__tests__/badges.test.ts (4 tests) 8ms
+ ✓ src/lib/__tests__/pointer-policy.test.ts (2 tests) 8ms
+ ✓ src/lib/__tests__/cartilla-routes.test.ts (6 tests) 9ms
+ ✓ src/lib/__tests__/csv.test.ts (5 tests) 12ms
+ ✓ src/lib/__tests__/bookImages.test.ts (4 tests) 17ms
+ ✓ src/lib/__tests__/adaptive.test.ts (7 tests) 17ms
+ ✓ src/content/games/__tests__/complete-game-set.test.ts (3 tests) 14ms
+ ✓ src/lib/__tests__/assets.test.ts (4 tests) 7ms
+ ✓ src/lib/__tests__/branding.test.ts (3 tests) 7ms
+ ✓ src/lib/__tests__/auth-role.test.ts (4 tests) 8ms
+ ✓ src/lib/__tests__/activity-routing.test.ts (2 tests) 10ms
+ ✓ src/lib/__tests__/art-delivery.test.ts (2 tests) 6ms
+ ✓ src/lib/__tests__/gretel-page-guide.test.ts (3 tests) 7ms
+
+ Test Files  119 passed (119)
+      Tests  1507 passed | 2 expected fail (1509)
+   Start at  04:51:10
+   Duration  557.83s (transform 13.31s, setup 63.58s, import 64.14s, tests 56.78s, environment 303.85s)
+

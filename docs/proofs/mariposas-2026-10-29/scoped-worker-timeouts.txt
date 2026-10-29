@@ -1,0 +1,116 @@
+
+> cartilla-de-gretel-platform@ build C:\Users\EJN\Documents\Codex\2026-10-29\la-cartilla-de-gretel-continue-to\work\cartilla-release
+> pnpm prepare:art && pnpm verify:assets && pnpm typecheck && pnpm test && vite build
+
+
+> cartilla-de-gretel-platform@ prepare:art C:\Users\EJN\Documents\Codex\2026-10-29\la-cartilla-de-gretel-continue-to\work\cartilla-release
+> node scripts/prepare-art-assets.mjs
+
+FINISHED_ART_PRESERVED 108 canonical groups
+
+> cartilla-de-gretel-platform@ verify:assets C:\Users\EJN\Documents\Codex\2026-10-29\la-cartilla-de-gretel-continue-to\work\cartilla-release
+> node scripts/verify-production-assets.mjs
+
+{
+  "workbook": 54,
+  "flipchart": 167,
+  "backgrounds": 148,
+  "delivery": 108,
+  "checked": 477,
+  "location": "local",
+  "errors": []
+}
+
+> cartilla-de-gretel-platform@ typecheck C:\Users\EJN\Documents\Codex\2026-10-29\la-cartilla-de-gretel-continue-to\work\cartilla-release
+> tsc --noEmit
+
+
+> cartilla-de-gretel-platform@ test C:\Users\EJN\Documents\Codex\2026-10-29\la-cartilla-de-gretel-continue-to\work\cartilla-release
+> vitest run
+
+
+ RUN  v4.1.8 C:/Users/EJN/Documents/Codex/2026-10-29/la-cartilla-de-gretel-continue-to/work/cartilla-release
+
+Not implemented: Window's scrollTo() method
+Not implemented: Window's scrollTo() method
+Not implemented: Window's scrollTo() method
+Not implemented: Window's scrollTo() method
+Not implemented: Window's scrollTo() method
+Not implemented: Window's scrollTo() method
+Not implemented: Window's scrollTo() method
+Not implemented: Window's scrollTo() method
+Not implemented: Window's scrollTo() method
+Not implemented: Window's scrollTo() method
+Not implemented: Window's scrollTo() method
+Not implemented: Window's scrollTo() method
+Not implemented: Window's scrollTo() method
+Not implemented: Window's scrollTo() method
+Not implemented: Window's scrollTo() method
+⎯⎯⎯⎯⎯⎯ Unhandled Errors ⎯⎯⎯⎯⎯⎯
+
+Vitest caught 4 unhandled errors during the test run.
+This might cause false positive tests. Resolve unhandled errors to make sure your tests are not affected.
+
+⎯⎯⎯⎯⎯⎯ Unhandled Error ⎯⎯⎯⎯⎯⎯⎯
+Error: [vitest-pool]: Failed to start forks worker for test files C:/Users/EJN/Documents/Codex/2026-10-29/la-cartilla-de-gretel-continue-to/work/cartilla-release/src/utils/__tests__/buildPageArray.render.test.tsx.
+ ❯ node_modules/.pnpm/vitest@4.1.8_@types+node@22_5d6e5504655f37a8209a39a4ce7a0c27/node_modules/vitest/dist/chunks/cli-api.BfdDOPPI.js:3449:94
+ ❯ runNextTicks node:internal/process/task_queues:65:5
+ ❯ listOnTimeout node:internal/timers:644:9
+ ❯ processTimers node:internal/timers:618:7
+ ❯ Pool.schedule node_modules/.pnpm/vitest@4.1.8_@types+node@22_5d6e5504655f37a8209a39a4ce7a0c27/node_modules/vitest/dist/chunks/cli-api.BfdDOPPI.js:3449:5
+
+Caused by: Error: [vitest-pool-runner]: Timeout waiting for worker to respond
+ ❯ Timeout.<anonymous> node_modules/.pnpm/vitest@4.1.8_@types+node@22_5d6e5504655f37a8209a39a4ce7a0c27/node_modules/vitest/dist/chunks/cli-api.BfdDOPPI.js:3029:58
+ ❯ listOnTimeout node:internal/timers:685:17
+ ❯ processTimers node:internal/timers:618:7
+
+
+⎯⎯⎯⎯⎯⎯ Unhandled Error ⎯⎯⎯⎯⎯⎯⎯
+Error: [vitest-pool]: Failed to start forks worker for test files C:/Users/EJN/Documents/Codex/2026-10-29/la-cartilla-de-gretel-continue-to/work/cartilla-release/src/lib/__tests__/activity-completion-foundation.test.tsx.
+ ❯ node_modules/.pnpm/vitest@4.1.8_@types+node@22_5d6e5504655f37a8209a39a4ce7a0c27/node_modules/vitest/dist/chunks/cli-api.BfdDOPPI.js:3449:94
+ ❯ runNextTicks node:internal/process/task_queues:65:5
+ ❯ listOnTimeout node:internal/timers:644:9
+ ❯ processTimers node:internal/timers:618:7
+ ❯ Pool.schedule node_modules/.pnpm/vitest@4.1.8_@types+node@22_5d6e5504655f37a8209a39a4ce7a0c27/node_modules/vitest/dist/chunks/cli-api.BfdDOPPI.js:3449:5
+
+Caused by: Error: [vitest-pool-runner]: Timeout waiting for worker to respond
+ ❯ Timeout.<anonymous> node_modules/.pnpm/vitest@4.1.8_@types+node@22_5d6e5504655f37a8209a39a4ce7a0c27/node_modules/vitest/dist/chunks/cli-api.BfdDOPPI.js:3029:58
+ ❯ listOnTimeout node:internal/timers:685:17
+ ❯ processTimers node:internal/timers:618:7
+
+
+⎯⎯⎯⎯⎯⎯ Unhandled Error ⎯⎯⎯⎯⎯⎯⎯
+Error: [vitest-pool]: Failed to start forks worker for test files C:/Users/EJN/Documents/Codex/2026-10-29/la-cartilla-de-gretel-continue-to/work/cartilla-release/src/lib/__tests__/teacher-review.test.ts.
+ ❯ node_modules/.pnpm/vitest@4.1.8_@types+node@22_5d6e5504655f37a8209a39a4ce7a0c27/node_modules/vitest/dist/chunks/cli-api.BfdDOPPI.js:3449:94
+ ❯ runNextTicks node:internal/process/task_queues:65:5
+ ❯ listOnTimeout node:internal/timers:644:9
+ ❯ processTimers node:internal/timers:618:7
+ ❯ Pool.schedule node_modules/.pnpm/vitest@4.1.8_@types+node@22_5d6e5504655f37a8209a39a4ce7a0c27/node_modules/vitest/dist/chunks/cli-api.BfdDOPPI.js:3449:5
+
+Caused by: Error: [vitest-pool-runner]: Timeout waiting for worker to respond
+ ❯ Timeout.<anonymous> node_modules/.pnpm/vitest@4.1.8_@types+node@22_5d6e5504655f37a8209a39a4ce7a0c27/node_modules/vitest/dist/chunks/cli-api.BfdDOPPI.js:3029:58
+ ❯ listOnTimeout node:internal/timers:685:17
+ ❯ processTimers node:internal/timers:618:7
+
+
+⎯⎯⎯⎯⎯⎯ Unhandled Error ⎯⎯⎯⎯⎯⎯⎯
+Error: [vitest-pool]: Failed to start forks worker for test files C:/Users/EJN/Documents/Codex/2026-10-29/la-cartilla-de-gretel-continue-to/work/cartilla-release/src/components/cartilla/__tests__/FlipchartHdPanel.test.tsx.
+ ❯ node_modules/.pnpm/vitest@4.1.8_@types+node@22_5d6e5504655f37a8209a39a4ce7a0c27/node_modules/vitest/dist/chunks/cli-api.BfdDOPPI.js:3449:94
+ ❯ Pool.schedule node_modules/.pnpm/vitest@4.1.8_@types+node@22_5d6e5504655f37a8209a39a4ce7a0c27/node_modules/vitest/dist/chunks/cli-api.BfdDOPPI.js:3449:5
+
+Caused by: Error: [vitest-pool-runner]: Timeout waiting for worker to respond
+ ❯ Timeout.<anonymous> node_modules/.pnpm/vitest@4.1.8_@types+node@22_5d6e5504655f37a8209a39a4ce7a0c27/node_modules/vitest/dist/chunks/cli-api.BfdDOPPI.js:3029:58
+ ❯ listOnTimeout node:internal/timers:685:17
+ ❯ processTimers node:internal/timers:618:7
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯
+
+
+ Test Files  115 passed (115)
+      Tests  1453 passed | 2 expected fail (1455)
+     Errors  4 errors
+   Start at  04:42:06
+   Duration  332.18s (transform 33.98s, setup 151.57s, import 103.79s, tests 54.26s, environment 646.25s)
+
+ ELIFECYCLE  Test failed. See above for more details.
+ ELIFECYCLE  Command failed with exit code 1.
