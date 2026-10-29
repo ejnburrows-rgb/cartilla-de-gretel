@@ -590,7 +590,30 @@ async function processEntry(entry, checkOnly) {
   };
 }
 
+export async function verifyFinishedArt() {
+  const manifest = readJson(deliveryManifestPath);
+  for (const item of manifest.assets) {
+    const canonical = path.join(publicDir, item.canonicalSrc.slice(1));
+    const hash = crypto.createHash("sha256").update(fs.readFileSync(canonical)).digest("hex");
+    if (hash !== item.canonical.sha256) throw new Error("Finished canonical changed: " + item.canonicalSrc);
+    for (const derivative of item.derivatives) {
+      const file = path.join(publicDir, derivative.path.slice(1));
+      const metadata = await sharp(file).metadata();
+      if (metadata.width !== derivative.width || metadata.height !== derivative.height ||
+          fs.statSync(file).size !== derivative.bytes) {
+        throw new Error("Finished delivery metadata mismatch: " + derivative.path);
+      }
+    }
+  }
+  const native = await prepareFlipchartNativeCrops(true);
+  if (native.errors.length) throw new Error(native.errors.join("; "));
+  console.log("FINISHED_ART_PRESERVED " + manifest.assets.length + " canonical groups");
+  return manifest;
+}
+
 export async function prepareArtAssets({ checkOnly = false } = {}) {
+  // Preserve this production baseline: approved art is an immutable build input.
+  if (!checkOnly) return verifyFinishedArt();
   const manifest = readJson(sourceManifestPath);
   if (!Array.isArray(manifest)) throw new Error("faithful manifest must be an array");
   const quarantine = fs.existsSync(quarantinePath) ? readJson(quarantinePath) : { assets: [] };

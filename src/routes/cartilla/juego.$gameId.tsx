@@ -3,6 +3,7 @@ import { ArrowLeft } from "lucide-react";
 import { GameShell } from "@/components/cartilla/games/GameShell";
 import { PayasoChano } from "@/components/cartilla/games/PayasoChano";
 import { SyllableBuilder } from "@/components/cartilla/games/SyllableBuilder";
+import { ButterflyGarden } from "@/components/cartilla/games/ButterflyGarden";
 import { CoreGame } from "@/components/cartilla/games/CoreGames";
 import { PAYASO_CHANO_SS } from "@/content/games/payaso-chano-ss";
 import { SYLLABLE_BUILDER_PILOT } from "@/content/games/syllable-builder-pilot";
@@ -55,6 +56,24 @@ function Juego() {
       </main>
     );
   }
+
+  // Original-art Butterfly Garden for mariposas-p. Other "mariposas" content keeps CoreGame.
+  if (content.id === "mariposas-p") {
+    return (
+      <ButterflyGarden
+        backSlot={
+          <Link
+            to="/cartilla/practica"
+            aria-label="Volver a práctica"
+            className="grid h-12 w-12 place-items-center rounded-full bg-card text-foreground shadow-md"
+          >
+            <ArrowLeft className="h-5 w-5" aria-hidden />
+          </Link>
+        }
+      />
+    );
+  }
+
 
   return (
     <GameShell content={content}>
