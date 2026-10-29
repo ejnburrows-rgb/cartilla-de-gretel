@@ -10,6 +10,10 @@ This is a **routing index**, not a second master completion plan, dashboard or t
 4. If a task hits an ownership conflict, absent authentic source, access problem, GitHub review gate or other hold, **stop only that task** and immediately continue the next independent eligible task in the **same available session**.
 5. If actual execution capacity/session limits end the run, preserve an exact resumable checkpoint in #877. Do not imply that this Markdown started a worker or background process.
 
+## Next visible product checkpoint
+
+Reuse Gretel Tutor #1073 (`feat/gretel-tutor-l1-3`) for the existing Lección 1 practice flow before speculative new activities. Verify the actual built route at phone width: start, present an item, correct/wrong response, retry, progress/return and offline-unavailable states. Label StubEars separately from real microphone/child-speech evidence; keep original audio/art/privacy holds. This is an existing assignment, not a new lane. Continue independent existing work below.
+
 ## Eight existing completion lanes
 
 | Order / lane | Work and required dependency |
