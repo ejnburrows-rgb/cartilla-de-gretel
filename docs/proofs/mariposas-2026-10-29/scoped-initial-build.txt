@@ -1,0 +1,13 @@
+
+> cartilla-de-gretel-platform@ build C:\Users\EJN\Documents\Codex\2026-10-29\la-cartilla-de-gretel-continue-to\work\cartilla-release
+> pnpm prepare:art && pnpm verify:assets && pnpm typecheck && pnpm test && vite build
+
+
+> cartilla-de-gretel-platform@ prepare:art C:\Users\EJN\Documents\Codex\2026-10-29\la-cartilla-de-gretel-continue-to\work\cartilla-release
+> node scripts/prepare-art-assets.mjs
+
+Error: Input file is missing: C:\Users\EJN\Documents\Codex\2026-10-29\la-cartilla-de-gretel-continue-to\work\cartilla-release\public\cartilla\art\delivery\faithful\768\leccion-23-z\zapato.webp
+    at Sharp.metadata (C:\Users\EJN\Documents\Codex\2026-10-29\la-cartilla-de-gretel-continue-to\work\cartilla-release\node_modules\.pnpm\sharp@0.34.5\node_modules\sharp\lib\input.js:637:17)
+    at verifyFinishedArt (file:///C:/Users/EJN/Documents/Codex/2026-10-29/la-cartilla-de-gretel-continue-to/work/cartilla-release/scripts/prepare-art-assets.mjs:601:42)
+ ELIFECYCLE  Command failed with exit code 1.
+ ELIFECYCLE  Command failed with exit code 1.

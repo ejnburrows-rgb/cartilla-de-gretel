@@ -1,0 +1,408 @@
+{
+  "sourceDeployment": "dpl_3Spzfw5iSzFPSYNvnuH6hrnYdy25",
+  "sourceCommit": "3c9d3911aa6ff97d45b7efb053127e6d271f51bf",
+  "files": [
+    {
+      "path": "/cartilla/art/delivery/faithful/768/leccion-23-z/zapato.webp",
+      "url": "https://cartilla-de-gretel-8xufh4fy2-ejn.vercel.app/cartilla/art/delivery/faithful/768/leccion-23-z/zapato.webp",
+      "bytes": 101214,
+      "sha256": "e600c4b2cbe4ef8da3fa0383f73452f15b808e93c27cdf9500f760d9695837a5"
+    },
+    {
+      "path": "/cartilla/art/delivery/faithful/384/leccion-23-z/zorro.webp",
+      "url": "https://cartilla-de-gretel-8xufh4fy2-ejn.vercel.app/cartilla/art/delivery/faithful/384/leccion-23-z/zorro.webp",
+      "bytes": 28810,
+      "sha256": "48c17f0479eedcd47d27d80c08b972a83e9f70bfee802daf7db74e0b302e81d0"
+    },
+    {
+      "path": "/cartilla/art/delivery/faithful/768/leccion-23-z/zorro.webp",
+      "url": "https://cartilla-de-gretel-8xufh4fy2-ejn.vercel.app/cartilla/art/delivery/faithful/768/leccion-23-z/zorro.webp",
+      "bytes": 39174,
+      "sha256": "2dae8354f6bf89b3d5f2f6d3f4df2dfdb359b73cd2abdaa97bc8f3c8a1dfb2a0"
+    },
+    {
+      "path": "/cartilla/art/delivery/faithful/384/leccion-19-g/gaveta.webp",
+      "url": "https://cartilla-de-gretel-8xufh4fy2-ejn.vercel.app/cartilla/art/delivery/faithful/384/leccion-19-g/gaveta.webp",
+      "bytes": 44754,
+      "sha256": "be9b6070ee7831ae356413a768ab7d6d7fdf06e7a4b3078f3dc705a7d6d4a404"
+    },
+    {
+      "path": "/cartilla/art/delivery/faithful/768/leccion-19-g/gaveta.webp",
+      "url": "https://cartilla-de-gretel-8xufh4fy2-ejn.vercel.app/cartilla/art/delivery/faithful/768/leccion-19-g/gaveta.webp",
+      "bytes": 158632,
+      "sha256": "304deb1a156bee35589655d898e3b8783b6f8df8334ac205e0d951e36534cdb0"
+    },
+    {
+      "path": "/cartilla/art/delivery/faithful/384/leccion-19-g/gusano.webp",
+      "url": "https://cartilla-de-gretel-8xufh4fy2-ejn.vercel.app/cartilla/art/delivery/faithful/384/leccion-19-g/gusano.webp",
+      "bytes": 17260,
+      "sha256": "71d6a2c3ed93597c88cc5b60ede551c3cb7ee8620ac3d15ead19d4ade37d91d9"
+    },
+    {
+      "path": "/cartilla/art/delivery/faithful/768/leccion-19-g/gusano.webp",
+      "url": "https://cartilla-de-gretel-8xufh4fy2-ejn.vercel.app/cartilla/art/delivery/faithful/768/leccion-19-g/gusano.webp",
+      "bytes": 50102,
+      "sha256": "e632820fde75ff91515d1b5f85429b31665496f39f2706b0cad269524dc7a31b"
+    },
+    {
+      "path": "/cartilla/art/delivery/faithful/384/leccion-19-g/goloso.webp",
+      "url": "https://cartilla-de-gretel-8xufh4fy2-ejn.vercel.app/cartilla/art/delivery/faithful/384/leccion-19-g/goloso.webp",
+      "bytes": 50874,
+      "sha256": "6bda17e07dbff76d673734c465339874304bdf34a43b09427b0aefdb9e8574ef"
+    },
+    {
+      "path": "/cartilla/art/delivery/faithful/768/leccion-19-g/goloso.webp",
+      "url": "https://cartilla-de-gretel-8xufh4fy2-ejn.vercel.app/cartilla/art/delivery/faithful/768/leccion-19-g/goloso.webp",
+      "bytes": 146338,
+      "sha256": "78ed82fbd5262492aba1becb28571caf02107e07963b31960d7c9537456d8571"
+    },
+    {
+      "path": "/cartilla/art/delivery/faithful/384/leccion-19-g/gorra.webp",
+      "url": "https://cartilla-de-gretel-8xufh4fy2-ejn.vercel.app/cartilla/art/delivery/faithful/384/leccion-19-g/gorra.webp",
+      "bytes": 28880,
+      "sha256": "0d0e87e3f773428506088de458a038fd4e2801530ca1474f26bbee3fd75cfe25"
+    },
+    {
+      "path": "/cartilla/art/delivery/faithful/768/leccion-19-g/gorra.webp",
+      "url": "https://cartilla-de-gretel-8xufh4fy2-ejn.vercel.app/cartilla/art/delivery/faithful/768/leccion-19-g/gorra.webp",
+      "bytes": 77756,
+      "sha256": "9e17fe6d12a9c3edd86b1803c929238fe055b3e40a43d2c2f1c84f0c0fa6497e"
+    },
+    {
+      "path": "/cartilla/art/delivery/faithful/384/leccion-19-g/mago.webp",
+      "url": "https://cartilla-de-gretel-8xufh4fy2-ejn.vercel.app/cartilla/art/delivery/faithful/384/leccion-19-g/mago.webp",
+      "bytes": 55814,
+      "sha256": "0fd58f5c779470faeddedfdf1a13401ff93dc829ef148a51f2ee9ed47e309306"
+    },
+    {
+      "path": "/cartilla/art/delivery/faithful/768/leccion-19-g/mago.webp",
+      "url": "https://cartilla-de-gretel-8xufh4fy2-ejn.vercel.app/cartilla/art/delivery/faithful/768/leccion-19-g/mago.webp",
+      "bytes": 165978,
+      "sha256": "3e5e3327e6a4ba0f2878d5a1f724d79650ed9c9b81125330c506d56ca9499e8d"
+    },
+    {
+      "path": "/cartilla/art/delivery/faithful/384/leccion-20-f/foto.webp",
+      "url": "https://cartilla-de-gretel-8xufh4fy2-ejn.vercel.app/cartilla/art/delivery/faithful/384/leccion-20-f/foto.webp",
+      "bytes": 54584,
+      "sha256": "098abd1eab6b9c827752a3ed2a3397019595ce22c56078c7a18ff47c00bcb4d8"
+    },
+    {
+      "path": "/cartilla/art/delivery/faithful/768/leccion-20-f/foto.webp",
+      "url": "https://cartilla-de-gretel-8xufh4fy2-ejn.vercel.app/cartilla/art/delivery/faithful/768/leccion-20-f/foto.webp",
+      "bytes": 163998,
+      "sha256": "ed40a6af5cfe3791ff1a2ba9fe41153ab5f4073b578a96e0c4a76e9415dd8dde"
+    },
+    {
+      "path": "/cartilla/art/delivery/faithful/384/leccion-20-f/fideos.webp",
+      "url": "https://cartilla-de-gretel-8xufh4fy2-ejn.vercel.app/cartilla/art/delivery/faithful/384/leccion-20-f/fideos.webp",
+      "bytes": 66118,
+      "sha256": "7cda026747f149f347a54383da555bea42b0a89ed3b062b7e60930af043df079"
+    },
+    {
+      "path": "/cartilla/art/delivery/faithful/768/leccion-20-f/fideos.webp",
+      "url": "https://cartilla-de-gretel-8xufh4fy2-ejn.vercel.app/cartilla/art/delivery/faithful/768/leccion-20-f/fideos.webp",
+      "bytes": 173740,
+      "sha256": "cd0fd3a62a8564c1c96d2568efeaad91ef53db9dfe27f44514aacada8d879e29"
+    },
+    {
+      "path": "/cartilla/art/delivery/faithful/384/leccion-20-f/familia.webp",
+      "url": "https://cartilla-de-gretel-8xufh4fy2-ejn.vercel.app/cartilla/art/delivery/faithful/384/leccion-20-f/familia.webp",
+      "bytes": 62936,
+      "sha256": "c45930a3585e30b1b8cd20738e3cb56a9e95cf1a7a21ae56274a4705b7aedf0f"
+    },
+    {
+      "path": "/cartilla/art/delivery/faithful/768/leccion-20-f/familia.webp",
+      "url": "https://cartilla-de-gretel-8xufh4fy2-ejn.vercel.app/cartilla/art/delivery/faithful/768/leccion-20-f/familia.webp",
+      "bytes": 154432,
+      "sha256": "1eaf4e6d7aaeb68c93db7a5dbde7e51486ff438bda097235bd502caddf72c0a7"
+    },
+    {
+      "path": "/cartilla/art/delivery/faithful/384/leccion-20-f/felo.webp",
+      "url": "https://cartilla-de-gretel-8xufh4fy2-ejn.vercel.app/cartilla/art/delivery/faithful/384/leccion-20-f/felo.webp",
+      "bytes": 30310,
+      "sha256": "4b9adbbbb40941b0c77bfb1eb2a1e5237fd352759426f1ab49261d1533550d89"
+    },
+    {
+      "path": "/cartilla/art/delivery/faithful/768/leccion-20-f/felo.webp",
+      "url": "https://cartilla-de-gretel-8xufh4fy2-ejn.vercel.app/cartilla/art/delivery/faithful/768/leccion-20-f/felo.webp",
+      "bytes": 85350,
+      "sha256": "05a41490dcdaae49c1f310d9aaded1171b033c0cf428230003ec24521c9c099b"
+    },
+    {
+      "path": "/cartilla/art/delivery/faithful/384/leccion-20-f/funda.webp",
+      "url": "https://cartilla-de-gretel-8xufh4fy2-ejn.vercel.app/cartilla/art/delivery/faithful/384/leccion-20-f/funda.webp",
+      "bytes": 30044,
+      "sha256": "4a113293d1169c676a2179f91e8ce4953867504a1e3730aa74580618d8016881"
+    },
+    {
+      "path": "/cartilla/art/delivery/faithful/768/leccion-20-f/funda.webp",
+      "url": "https://cartilla-de-gretel-8xufh4fy2-ejn.vercel.app/cartilla/art/delivery/faithful/768/leccion-20-f/funda.webp",
+      "bytes": 80458,
+      "sha256": "560b8e6731d3b2d946d898e3f58b83c4609cb848920565d3122499e6119b0c27"
+    },
+    {
+      "path": "/cartilla/art/delivery/faithful/384/leccion-21-j/jirafa.webp",
+      "url": "https://cartilla-de-gretel-8xufh4fy2-ejn.vercel.app/cartilla/art/delivery/faithful/384/leccion-21-j/jirafa.webp",
+      "bytes": 66766,
+      "sha256": "0a8b97430c09ef47646330dc4625e8a51a0e51ed472968411703d61e40f002a4"
+    },
+    {
+      "path": "/cartilla/art/delivery/faithful/768/leccion-21-j/jirafa.webp",
+      "url": "https://cartilla-de-gretel-8xufh4fy2-ejn.vercel.app/cartilla/art/delivery/faithful/768/leccion-21-j/jirafa.webp",
+      "bytes": 201598,
+      "sha256": "863ee618f19551a6ed26ea07c946c6d4b07d29f9f7a6ada335000a3428f97c24"
+    },
+    {
+      "path": "/cartilla/art/delivery/faithful/384/leccion-21-j/jicotea.webp",
+      "url": "https://cartilla-de-gretel-8xufh4fy2-ejn.vercel.app/cartilla/art/delivery/faithful/384/leccion-21-j/jicotea.webp",
+      "bytes": 47878,
+      "sha256": "f49c93fd71b222761903294fff36b17eb9c4a6411611788fe77c88c3264a0f7a"
+    },
+    {
+      "path": "/cartilla/art/delivery/faithful/768/leccion-21-j/jicotea.webp",
+      "url": "https://cartilla-de-gretel-8xufh4fy2-ejn.vercel.app/cartilla/art/delivery/faithful/768/leccion-21-j/jicotea.webp",
+      "bytes": 185610,
+      "sha256": "81cf81fc032e759b04ecd7996c5efa5c5739e43bb08b2eb5793ce45b897c20bc"
+    },
+    {
+      "path": "/cartilla/art/delivery/faithful/384/leccion-21-j/jugo.webp",
+      "url": "https://cartilla-de-gretel-8xufh4fy2-ejn.vercel.app/cartilla/art/delivery/faithful/384/leccion-21-j/jugo.webp",
+      "bytes": 36904,
+      "sha256": "457dd1846edaa03d48e305f98a7431821002900b81a0685069204445f165d945"
+    },
+    {
+      "path": "/cartilla/art/delivery/faithful/768/leccion-21-j/jugo.webp",
+      "url": "https://cartilla-de-gretel-8xufh4fy2-ejn.vercel.app/cartilla/art/delivery/faithful/768/leccion-21-j/jugo.webp",
+      "bytes": 94188,
+      "sha256": "47979223f694043c46cb3be42a2a7ffb519d47b129a170c21168166b2a240ad9"
+    },
+    {
+      "path": "/cartilla/art/delivery/faithful/384/leccion-21-j/jesus.webp",
+      "url": "https://cartilla-de-gretel-8xufh4fy2-ejn.vercel.app/cartilla/art/delivery/faithful/384/leccion-21-j/jesus.webp",
+      "bytes": 53136,
+      "sha256": "65ce11e14ca94c1dbea6216d3fe75474970f0f88a4c2d1c06cefd7fa9f81996b"
+    },
+    {
+      "path": "/cartilla/art/delivery/faithful/768/leccion-21-j/jesus.webp",
+      "url": "https://cartilla-de-gretel-8xufh4fy2-ejn.vercel.app/cartilla/art/delivery/faithful/768/leccion-21-j/jesus.webp",
+      "bytes": 118998,
+      "sha256": "3aaf6a6b077c19814d48f56fb509144606f5724d83086ddc7e2b2f3233792605"
+    },
+    {
+      "path": "/cartilla/art/delivery/faithful/384/leccion-21-j/jarra.webp",
+      "url": "https://cartilla-de-gretel-8xufh4fy2-ejn.vercel.app/cartilla/art/delivery/faithful/384/leccion-21-j/jarra.webp",
+      "bytes": 36870,
+      "sha256": "8332c7423b01c748dd26d7e139ee4598fd99134d310c48327a509b63d42d358a"
+    },
+    {
+      "path": "/cartilla/art/delivery/faithful/768/leccion-21-j/jarra.webp",
+      "url": "https://cartilla-de-gretel-8xufh4fy2-ejn.vercel.app/cartilla/art/delivery/faithful/768/leccion-21-j/jarra.webp",
+      "bytes": 100032,
+      "sha256": "eb0071c223f6e4659f6e198ee92858a2f18358043e3c617d1b819d5acc13a820"
+    },
+    {
+      "path": "/cartilla/art/delivery/faithful/384/leccion-19-c/conejo.webp",
+      "url": "https://cartilla-de-gretel-8xufh4fy2-ejn.vercel.app/cartilla/art/delivery/faithful/384/leccion-19-c/conejo.webp",
+      "bytes": 50528,
+      "sha256": "2af507facd09ea04e9b676c71c96c80d4a6772dc979c20149ad29dbdac7c2405"
+    },
+    {
+      "path": "/cartilla/art/delivery/faithful/768/leccion-19-c/conejo.webp",
+      "url": "https://cartilla-de-gretel-8xufh4fy2-ejn.vercel.app/cartilla/art/delivery/faithful/768/leccion-19-c/conejo.webp",
+      "bytes": 105974,
+      "sha256": "39e5c4b2f49cb3834a8f3a87e04be84ba18fb4d08b4a97eb6dc7e7629e6b266a"
+    },
+    {
+      "path": "/cartilla/art/delivery/faithful/384/leccion-19-c/cubo.webp",
+      "url": "https://cartilla-de-gretel-8xufh4fy2-ejn.vercel.app/cartilla/art/delivery/faithful/384/leccion-19-c/cubo.webp",
+      "bytes": 35220,
+      "sha256": "5604b3b599034793ca28bf2f9ff5b80038e21a1d59086851395e2c7cb9e5ee66"
+    },
+    {
+      "path": "/cartilla/art/delivery/faithful/768/leccion-19-c/cubo.webp",
+      "url": "https://cartilla-de-gretel-8xufh4fy2-ejn.vercel.app/cartilla/art/delivery/faithful/768/leccion-19-c/cubo.webp",
+      "bytes": 112284,
+      "sha256": "603946b1dadee28b86aaec60e6db28afbccad78a15a51374009863aa25982e90"
+    },
+    {
+      "path": "/cartilla/art/delivery/faithful/384/leccion-19-c/catalina.webp",
+      "url": "https://cartilla-de-gretel-8xufh4fy2-ejn.vercel.app/cartilla/art/delivery/faithful/384/leccion-19-c/catalina.webp",
+      "bytes": 66776,
+      "sha256": "23ba6a40383fa16e6a4e08d4f5e26e1b8f7643327fd2956984e9c95c5b8c35c0"
+    },
+    {
+      "path": "/cartilla/art/delivery/faithful/768/leccion-19-c/catalina.webp",
+      "url": "https://cartilla-de-gretel-8xufh4fy2-ejn.vercel.app/cartilla/art/delivery/faithful/768/leccion-19-c/catalina.webp",
+      "bytes": 95282,
+      "sha256": "aca9c71774e28a6484c4f9a6b126d8f36ce0903959cf372b30fd55c2416aee41"
+    },
+    {
+      "path": "/cartilla/art/delivery/faithful/384/leccion-22-y/yayita.webp",
+      "url": "https://cartilla-de-gretel-8xufh4fy2-ejn.vercel.app/cartilla/art/delivery/faithful/384/leccion-22-y/yayita.webp",
+      "bytes": 57210,
+      "sha256": "762fd2507415cf44a96821eb5214029ad29f40670a9bd81ab5725b7958454a0e"
+    },
+    {
+      "path": "/cartilla/art/delivery/faithful/768/leccion-22-y/yayita.webp",
+      "url": "https://cartilla-de-gretel-8xufh4fy2-ejn.vercel.app/cartilla/art/delivery/faithful/768/leccion-22-y/yayita.webp",
+      "bytes": 179470,
+      "sha256": "0c650057a55638ccfe81c4538595fa2264b9a4fd0142e03e7aab9fdb8b819f4e"
+    },
+    {
+      "path": "/cartilla/art/delivery/faithful/384/leccion-22-y/mayuscula.webp",
+      "url": "https://cartilla-de-gretel-8xufh4fy2-ejn.vercel.app/cartilla/art/delivery/faithful/384/leccion-22-y/mayuscula.webp",
+      "bytes": 37856,
+      "sha256": "3ef4fec5ef8a49054d701a26ebbe05816bca2a0aa2b0ffa6e90b7a4ba1758ae9"
+    },
+    {
+      "path": "/cartilla/art/delivery/faithful/768/leccion-22-y/mayuscula.webp",
+      "url": "https://cartilla-de-gretel-8xufh4fy2-ejn.vercel.app/cartilla/art/delivery/faithful/768/leccion-22-y/mayuscula.webp",
+      "bytes": 111526,
+      "sha256": "10c5958422416cac206afda428c4c7fb0cfcb87bddc41bf6a15c8e99211cd349"
+    },
+    {
+      "path": "/cartilla/art/delivery/faithful/384/leccion-23-z/zigzag.webp",
+      "url": "https://cartilla-de-gretel-8xufh4fy2-ejn.vercel.app/cartilla/art/delivery/faithful/384/leccion-23-z/zigzag.webp",
+      "bytes": 28668,
+      "sha256": "56bc6be5f01930c913f605b7c6df28bd09024d5c76c23db0af1cac78fbcd3a93"
+    },
+    {
+      "path": "/cartilla/art/delivery/faithful/768/leccion-23-z/zigzag.webp",
+      "url": "https://cartilla-de-gretel-8xufh4fy2-ejn.vercel.app/cartilla/art/delivery/faithful/768/leccion-23-z/zigzag.webp",
+      "bytes": 82114,
+      "sha256": "9504d10d05db016ad8b88dcd21eee1dc8a5c44fdd38dbc1b35c71d861d23e2a3"
+    },
+    {
+      "path": "/cartilla/art/delivery/faithful/384/leccion-23-z/zepelin.webp",
+      "url": "https://cartilla-de-gretel-8xufh4fy2-ejn.vercel.app/cartilla/art/delivery/faithful/384/leccion-23-z/zepelin.webp",
+      "bytes": 28684,
+      "sha256": "dc8045fd634cdaf044b1159807b810f4408da6b416b4fb32f1c42774871ab3e9"
+    },
+    {
+      "path": "/cartilla/art/delivery/faithful/768/leccion-23-z/zepelin.webp",
+      "url": "https://cartilla-de-gretel-8xufh4fy2-ejn.vercel.app/cartilla/art/delivery/faithful/768/leccion-23-z/zepelin.webp",
+      "bytes": 99302,
+      "sha256": "e5c775f066ec31a7e5cc7ab28faf4467074034386542f7abb2de3efb0cb943ca"
+    },
+    {
+      "path": "/cartilla/art/delivery/faithful/384/leccion-23-z/zulema.webp",
+      "url": "https://cartilla-de-gretel-8xufh4fy2-ejn.vercel.app/cartilla/art/delivery/faithful/384/leccion-23-z/zulema.webp",
+      "bytes": 56290,
+      "sha256": "277b4e593c88f943044e97ba0c6caad7f216328560cef6da46002775f5931229"
+    },
+    {
+      "path": "/cartilla/art/delivery/faithful/768/leccion-23-z/zulema.webp",
+      "url": "https://cartilla-de-gretel-8xufh4fy2-ejn.vercel.app/cartilla/art/delivery/faithful/768/leccion-23-z/zulema.webp",
+      "bytes": 125464,
+      "sha256": "cebf68aabfc06a8b3300f779937d48f1e3ccf0a334e632da21419ff80241ab13"
+    },
+    {
+      "path": "/cartilla/art/delivery/faithful/384/leccion-17-r/rita.webp",
+      "url": "https://cartilla-de-gretel-8xufh4fy2-ejn.vercel.app/cartilla/art/delivery/faithful/384/leccion-17-r/rita.webp",
+      "bytes": 34540,
+      "sha256": "f5462197f058d5095ae7beec833b4656d206ebdaa2c1cacca2c4ec82782329d4"
+    },
+    {
+      "path": "/cartilla/art/delivery/faithful/768/leccion-17-r/rita.webp",
+      "url": "https://cartilla-de-gretel-8xufh4fy2-ejn.vercel.app/cartilla/art/delivery/faithful/768/leccion-17-r/rita.webp",
+      "bytes": 86602,
+      "sha256": "41bbfe0959f1695bdfdc357795fc4ebaaa27d13a378223a75407bd0e1faefbee"
+    },
+    {
+      "path": "/cartilla/art/delivery/faithful/384/leccion-17-r/rueda.webp",
+      "url": "https://cartilla-de-gretel-8xufh4fy2-ejn.vercel.app/cartilla/art/delivery/faithful/384/leccion-17-r/rueda.webp",
+      "bytes": 43452,
+      "sha256": "84b6b6f59d0584d6b9ccef99c77ec608fd7d82053c8cc1233a5169d7f9044ae8"
+    },
+    {
+      "path": "/cartilla/art/delivery/faithful/768/leccion-17-r/rueda.webp",
+      "url": "https://cartilla-de-gretel-8xufh4fy2-ejn.vercel.app/cartilla/art/delivery/faithful/768/leccion-17-r/rueda.webp",
+      "bytes": 110276,
+      "sha256": "0cf84eeb93cbdd1618e053e56067e221285a3575de27e9aea74a99452b9f0486"
+    },
+    {
+      "path": "/cartilla/art/delivery/faithful/384/leccion-18-rr/burro.webp",
+      "url": "https://cartilla-de-gretel-8xufh4fy2-ejn.vercel.app/cartilla/art/delivery/faithful/384/leccion-18-rr/burro.webp",
+      "bytes": 34392,
+      "sha256": "46174c5979070efd87d883ac98e7c4cf1171b9f0d0f0b7df5e1db849a7e90dc6"
+    },
+    {
+      "path": "/cartilla/art/delivery/faithful/768/leccion-18-rr/burro.webp",
+      "url": "https://cartilla-de-gretel-8xufh4fy2-ejn.vercel.app/cartilla/art/delivery/faithful/768/leccion-18-rr/burro.webp",
+      "bytes": 115318,
+      "sha256": "dd4618a94349c8eef9d87090ec2285f855623b4be631087cf805f7fff333bd9d"
+    },
+    {
+      "path": "/cartilla/art/delivery/faithful/384/leccion-18-rr/carrusel.webp",
+      "url": "https://cartilla-de-gretel-8xufh4fy2-ejn.vercel.app/cartilla/art/delivery/faithful/384/leccion-18-rr/carrusel.webp",
+      "bytes": 58042,
+      "sha256": "a30e0dc344ff1e6a289d6748c2b9b3317c463401dd97413d56838b9a4cef5795"
+    },
+    {
+      "path": "/cartilla/art/delivery/faithful/768/leccion-18-rr/carrusel.webp",
+      "url": "https://cartilla-de-gretel-8xufh4fy2-ejn.vercel.app/cartilla/art/delivery/faithful/768/leccion-18-rr/carrusel.webp",
+      "bytes": 189006,
+      "sha256": "8d574747da23198cb1326cce26195c7e69502909fb7ff56b412e6285e6da165a"
+    },
+    {
+      "path": "/cartilla/art/delivery/faithful/384/leccion-18-rr/perro.webp",
+      "url": "https://cartilla-de-gretel-8xufh4fy2-ejn.vercel.app/cartilla/art/delivery/faithful/384/leccion-18-rr/perro.webp",
+      "bytes": 75026,
+      "sha256": "21908450a0e5aae65a439c5a42d4204434e09c63c99af8210d2394b16c27b4ed"
+    },
+    {
+      "path": "/cartilla/art/delivery/faithful/768/leccion-18-rr/perro.webp",
+      "url": "https://cartilla-de-gretel-8xufh4fy2-ejn.vercel.app/cartilla/art/delivery/faithful/768/leccion-18-rr/perro.webp",
+      "bytes": 266756,
+      "sha256": "6d6255f8b6657c7d8f0717f56ee409c79bbd26fefce4032ae6c7de7229790b32"
+    },
+    {
+      "path": "/cartilla/art/delivery/faithful/384/leccion-18-rr/tierra.webp",
+      "url": "https://cartilla-de-gretel-8xufh4fy2-ejn.vercel.app/cartilla/art/delivery/faithful/384/leccion-18-rr/tierra.webp",
+      "bytes": 46884,
+      "sha256": "9ccca9d05530eabb9e868c7c1ef9d1ef58e9d3620bd93f94b63b276ff3013d18"
+    },
+    {
+      "path": "/cartilla/art/delivery/faithful/768/leccion-18-rr/tierra.webp",
+      "url": "https://cartilla-de-gretel-8xufh4fy2-ejn.vercel.app/cartilla/art/delivery/faithful/768/leccion-18-rr/tierra.webp",
+      "bytes": 168294,
+      "sha256": "773f695d2b54895dd8264f6063a14112025a8377171b27a9dec628a94ea5a7bc"
+    },
+    {
+      "path": "/cartilla/art/delivery/faithful/384/leccion-19-g/gato.webp",
+      "url": "https://cartilla-de-gretel-8xufh4fy2-ejn.vercel.app/cartilla/art/delivery/faithful/384/leccion-19-g/gato.webp",
+      "bytes": 48432,
+      "sha256": "1237e0af8bf5664b729b30ec90ea2c039fb9ee352226b83bd177b7c9d30e833a"
+    },
+    {
+      "path": "/cartilla/art/delivery/faithful/768/leccion-19-g/gato.webp",
+      "url": "https://cartilla-de-gretel-8xufh4fy2-ejn.vercel.app/cartilla/art/delivery/faithful/768/leccion-19-g/gato.webp",
+      "bytes": 150322,
+      "sha256": "65b1f61cf272322ef7f76e214e492156c88a25eb05b04a7b5f80fd35742b5caa"
+    },
+    {
+      "path": "/cartilla/art/delivery/faithful/384/leccion-20-f/fiesta.webp",
+      "url": "https://cartilla-de-gretel-8xufh4fy2-ejn.vercel.app/cartilla/art/delivery/faithful/384/leccion-20-f/fiesta.webp",
+      "bytes": 63152,
+      "sha256": "fe68bcf55b6a5975c06610cd16b53001e6fdc2199c0ad23c6cefe67cc5211eec"
+    },
+    {
+      "path": "/cartilla/art/delivery/faithful/768/leccion-20-f/fiesta.webp",
+      "url": "https://cartilla-de-gretel-8xufh4fy2-ejn.vercel.app/cartilla/art/delivery/faithful/768/leccion-20-f/fiesta.webp",
+      "bytes": 205332,
+      "sha256": "bb2e45e448184fd84bcc09d011fdaf304a80a8294999158aff6790b1c3ebb0db"
+    },
+    {
+      "path": "/cartilla/art/delivery/faithful/384/vocal-o/oso-blink.webp",
+      "url": "https://cartilla-de-gretel-8xufh4fy2-ejn.vercel.app/cartilla/art/delivery/faithful/384/vocal-o/oso-blink.webp",
+      "bytes": 41110,
+      "sha256": "b3a18368a455f1b8d381837a92637659cc644bb9313f3b288907e2b6e20643e4"
+    },
+    {
+      "path": "/cartilla/art/delivery/faithful/768/vocal-o/oso-blink.webp",
+      "url": "https://cartilla-de-gretel-8xufh4fy2-ejn.vercel.app/cartilla/art/delivery/faithful/768/vocal-o/oso-blink.webp",
+      "bytes": 96786,
+      "sha256": "ecb02946d26a66e255fdcba32c70e173ea0a7297303bfae892e73976831e7073"
+    }
+  ]
+}
