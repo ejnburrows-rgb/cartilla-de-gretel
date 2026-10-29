@@ -579,12 +579,16 @@
   {
     "slug": "igual",
     "word": "igual",
-    "lessonNumber": null,
-    "pageNumber": null,
+    "lessonNumber": 5,
+    "pageNumber": 13,
     "src": "/cartilla/art/faithful/vocal-i/igual.webp",
     "sourceFlipchartPage": null,
     "cropBox": null,
-    "provenanceStatus": "PROVENANCE-UNKNOWN"
+    "provenanceStatus": "VERIFIED-EXACT-WORKBOOK-CROP-2026-10-27",
+    "source": "docs/proofs/artwork-coverage-2026-10-14/crops/WB-S019-OBJ14-IGUAL.png",
+    "sourceSha256": "e38f3b2c1447b8ba0c67fbdb149160fd45c38a824d6591f05b38ac3e292f06fc",
+    "sha256": "4154199071049f91459ac78dc7b715ea9f96f24f7c59edbd9f0dca2486742979",
+    "note": "Lossless encoding of the existing canonical workbook crop WB-S019-OBJ14-IGUAL. Original bars and scan pixels preserved; no redrawing, recoloring, inferred source, or path/hash exception."
   },
   {
     "slug": "iguana",
