@@ -136,7 +136,7 @@
       ],
       "provenanceStatus": "OWNER-OPTIMIZED-COLOR-2026-10-05",
       "treatment": "border-connected white background made transparent; edge pixels un-blended from white; no recolouring or redrawing",
-      "embeddedPngSha256": "f811cb3f01cb50b718ec664534a963fcc42760f8503ba29623edde5336783343"
+      "embeddedPngSha256": "618c1db809c3d8e5e81662f157d8cf31dba2ff8aa0c05bf23d98aaa5e829d46f"
     },
     {
       "src": "/cartilla/art/optimized/workbook/leccion-1/escalera.svg",
@@ -210,7 +210,7 @@
       "lessonNumber": 1,
       "pageNumber": 1,
       "source": "/cartilla/art/optimized/flipchart-native/p008-uniforme.png",
-      "sourceSha256": "b14372701f3674057aa7e6b1e2f00b985bdfaccde32d8fd52569de4509942436",
+      "sourceSha256": "3c74710bb95cd9e5831a76d1c885b6562c6c78a375724f9772aa26cdf13ae140",
       "fragmentCrop": null,
       "trimBox": [
         77,
@@ -224,7 +224,7 @@
       ],
       "provenanceStatus": "OWNER-OPTIMIZED-COLOR-2026-10-05",
       "treatment": "border-connected white background made transparent; edge pixels un-blended from white; no recolouring or redrawing",
-      "embeddedPngSha256": "c3868daa3c9a5e5f184a9a0c4baca2d82c50d42a8a456988d0c80e5aad810157"
+      "embeddedPngSha256": "b009d28141e71787893df7d6a8607b93c9a65f22a0115946504d46186d0843e0"
     },
     {
       "src": "/cartilla/art/optimized/workbook/leccion-1/una.svg",
@@ -232,7 +232,7 @@
       "lessonNumber": 1,
       "pageNumber": 1,
       "source": "/cartilla/art/optimized/flipchart-native/p003-una.png",
-      "sourceSha256": "0bbcaec007c0924fe61e027a745def0ce5b9651af2d1b0d8d5229b4816138776",
+      "sourceSha256": "fd0028e8ec00aad77983509aa620b02c05b3c5c9d351d518b78f4fe47e861adb",
       "fragmentCrop": [
         0,
         90,
@@ -281,7 +281,7 @@
       "lessonNumber": 1,
       "pageNumber": 1,
       "source": "/cartilla/art/optimized/flipchart-native/p006-elefante.png",
-      "sourceSha256": "8b9e451845f51044424339ea14dbacf4873b7954d5877e46d721c212a463a3c6",
+      "sourceSha256": "c79cd5920de38e1230df82d432184870e7e90a1cd1342d8513eff17ba6216662",
       "fragmentCrop": null,
       "trimBox": [
         48,
@@ -295,7 +295,7 @@
       ],
       "provenanceStatus": "OWNER-OPTIMIZED-COLOR-2026-10-05",
       "treatment": "border-connected white background made transparent; edge pixels un-blended from white; no recolouring or redrawing",
-      "embeddedPngSha256": "bb0a73a54c4d340eab40ecadb27f264ecacdc6271406a0dbfa6828815228960a"
+      "embeddedPngSha256": "914da0f2711305f87996bcba44e4d0b74f5c2dad3b6500e1b100020fead823a3"
     },
     {
       "src": "/cartilla/art/optimized/workbook/leccion-1/olla.svg",
@@ -325,7 +325,7 @@
       "lessonNumber": 1,
       "pageNumber": 1,
       "source": "/cartilla/art/optimized/workbook/leccion-1/abrigo.png",
-      "sourceSha256": "44d7deb17425c4e1f8d63061a2b066223b698b2835b2293aa99bf993579b2592",
+      "sourceSha256": "c4e121ef1897d61259accbc791199411c8fbb688d3b69d10a42d9637af643eb2",
       "fragmentCrop": null,
       "trimBox": null,
       "size": [
@@ -376,7 +376,7 @@
       "lessonNumber": 1,
       "pageNumber": 1,
       "source": "/cartilla/art/optimized/workbook/leccion-1/maiz.png",
-      "sourceSha256": "8290ba30df1ab92e450f86581b7238c28c29365ea03142b9d1f3656c06d0cfe8",
+      "sourceSha256": "a215900f8fa4e8030ca612cd5deeafb941e3e5e816fcc3b6ef4a761bc0ac2301",
       "fragmentCrop": null,
       "trimBox": null,
       "size": [
@@ -393,7 +393,7 @@
       "lessonNumber": 1,
       "pageNumber": 1,
       "source": "/cartilla/art/optimized/workbook/leccion-1/abeja.png",
-      "sourceSha256": "33703aed2e4de2eb3315b6e535372b2e9a3221b5152b8e52235c47463d3df5b9",
+      "sourceSha256": "74754a7dfa90300a159e70885cf9e9611a55a1cbd5d17383bb220135b8b05e65",
       "fragmentCrop": null,
       "trimBox": null,
       "size": [
@@ -402,7 +402,7 @@
       ],
       "provenanceStatus": "OWNER-APPROVED-COLOR-2026-10-06",
       "treatment": "owner-approved regenerated color asset matching the exact Workbook drawing; Flip Chart color treatment; transparent background; optimized 1024px PNG",
-      "embeddedPngSha256": "33703aed2e4de2eb3315b6e535372b2e9a3221b5152b8e52235c47463d3df5b9"
+      "embeddedPngSha256": "74754a7dfa90300a159e70885cf9e9611a55a1cbd5d17383bb220135b8b05e65"
     }
   ],
   "printedUntilColor": []

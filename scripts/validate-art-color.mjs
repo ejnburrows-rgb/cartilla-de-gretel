@@ -27,6 +27,7 @@
  * build).
  */
 import fs from "node:fs";
+import { createHash } from "node:crypto";
 import path from "node:path";
 import { fileURLToPath } from "node:url";
 import sharp from "sharp";
@@ -102,9 +103,18 @@ export const DUOTONE_ALLOWLIST = new Set([]);
  * separate 62-page flip chart. This set is derived from the audited manifest,
  * so a filename alone can never bypass the color gate.
  */
+export function hasExactWorkbookEvidence(entry) {
+  if (!/^VERIFIED-EXACT-WORKBOOK-CROP-\d{4}-\d{2}-\d{2}$/.test(entry.provenanceStatus ?? "")) return false;
+  if (!entry.source || !entry.sourceSha256 || !entry.src || !entry.sha256) return false;
+  try {
+    const sha = (rel) => createHash("sha256").update(fs.readFileSync(path.join(rootDir, rel))).digest("hex");
+    return sha(entry.source) === entry.sourceSha256 && sha(`public${entry.src}`) === entry.sha256;
+  } catch { return false; }
+}
+
 export const VERIFIED_WORKBOOK_CROPS = new Set(
   readJson("public/cartilla/art/faithful/manifest.json")
-    .filter((entry) => entry.provenanceStatus === "VERIFIED-EXACT-WORKBOOK-CROP-2026-08-08")
+    .filter((entry) => entry.provenanceStatus === "VERIFIED-EXACT-WORKBOOK-CROP-2026-08-08" || hasExactWorkbookEvidence(entry))
     .map((entry) => entry.src),
 );
 
@@ -139,7 +149,7 @@ export async function findGrayscaleArt() {
           .split("/")
           .pop()
           ?.replace(/\.\w+$/, "") ?? rel;
-      if (DUOTONE_ALLOWLIST.has(slug) || VERIFIED_WORKBOOK_CROPS.has(rel)) return;
+      if (DUOTONE_ALLOWLIST.has(rel) || VERIFIED_WORKBOOK_CROPS.has(rel)) return;
       const spread = await meanColorSpread(rel);
       if (spread < COLOR_MIN_SPREAD) gray.push({ rel, spread });
     }),

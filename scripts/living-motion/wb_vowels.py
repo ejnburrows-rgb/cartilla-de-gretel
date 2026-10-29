@@ -19,9 +19,12 @@ from build import STILLS, ROOT
 # Page 1 still -> vowel still: x' = a*x - b*y + tx, y' = b*x + a*y + ty, after an
 # optional left-right mirror of the Page 1 still (width W1).
 FITS = {
+    # Refit against the current approved stills; the elephant is no longer mirrored.
+    'elefante': dict(a=1.003247, b=0.0205402, tx=0.133588, ty=-7.751521, mirror=False, W1=222),
+    'oveja': dict(a=1, b=0, tx=0, ty=0, mirror=False, W1=216),
     'vocal-o-oso':      dict(a=3.8570, b=-0.0004, tx=8.14,  ty=7.95,   mirror=True,  W1=209),
-    'vocal-o-oveja':    dict(a=3.9953, b=0.0281,  tx=10.12, ty=6.33,   mirror=False, W1=216),
-    'vocal-e-elefante': dict(a=3.8405, b=-0.0006, tx=10.66, ty=-20.12, mirror=True,  W1=222),
+    'vocal-o-oveja':    dict(a=4.117768, b=0.125140, tx=8.452973, ty=-16.414147, mirror=False, W1=216),
+    'vocal-e-elefante': dict(a=3.706559, b=0.084929, tx=29.130916, ty=-7.543410, mirror=False, W1=222),
     'vocal-o-olla':     dict(a=4.0073, b=0.0002,  tx=6.41,  ty=7.90,   mirror=False, W1=213),
     'vocal-a-avion':    dict(a=3.9271, b=-0.0013, tx=9.48,  ty=189.56, mirror=False, W1=208),
     'vocal-a-abeja':    dict(a=2.8071, b=0.0087,  tx=27.65, ty=21.45,  mirror=True,  W1=158),

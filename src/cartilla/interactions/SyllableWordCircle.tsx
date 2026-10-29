@@ -1,6 +1,6 @@
-import { learnerStorageKey } from "@/lib/learner-storage";
+import { learnerStorageKey, useLearnerScope } from "@/lib/learner-storage";
 import { loadLassoProgress } from "@/lib/activity-canvas-store";
-import { useEffect, useState } from "react";
+import { useEffect, useMemo, useState } from "react";
 import type { PointerEvent as ReactPointerEvent } from "react";
 import type { PageRegion } from "@/lib/book-faithful";
 import { useActivityEvents, useActivityState } from "@/lib/activity-events";
@@ -27,12 +27,18 @@ function clampMarkStart(word: string, syllable: string, start: number): number {
   return Math.max(0, Math.min(start, Math.max(0, word.length - span)));
 }
 
-export function SyllableWordCircle({ region, lessonId }: { region: PageRegion; lessonId?: string }) {
+export function SyllableWordCircle(props: { region: PageRegion; lessonId?: string }) {
+  const scope = useLearnerScope();
+  return <LearnerSyllableWordCircle key={`${scope}:${props.region.id}`} {...props} />;
+}
+
+function LearnerSyllableWordCircle({ region, lessonId }: { region: PageRegion; lessonId?: string }) {
   const { emit: gretelEvent, record: recordEvent } = useActivityEvents();
   const words = (region.matchRows ?? []).flat();
   const isTarget = (i: number) => words[i]?.correct !== false;
   const correctCount = words.filter((entry) => entry.correct !== false).length;
   const key = learnerStorageKey(`cartilla-circle-${region.id}`);
+  const startsKey = learnerStorageKey(`cartilla-circle-starts-${region.id}`);
   const legacyKey = `${lessonId ?? "x"}:${region.id}`;
   const [marked, setMarked] = useState<Set<number>>(() => {
     try {
@@ -78,9 +84,23 @@ export function SyllableWordCircle({ region, lessonId }: { region: PageRegion; l
       // Storage can be disabled; in-memory exercise remains usable.
     }
   }, [key, marked]);
+
+  const initialStarts = useMemo(() => {
+    try {
+      const raw = localStorage.getItem(startsKey);
+      if (raw) {
+        const parsed = JSON.parse(raw);
+        if (parsed && typeof parsed === "object" && !Array.isArray(parsed)) {
+          return parsed as Record<number, number>;
+        }
+      }
+    } catch {}
+    return {};
+  }, [startsKey]);
+
   const [selectedStarts, setSelectedStarts] = useActivityState<Record<number, number>>(
     "syllableStarts",
-    {},
+    initialStarts,
   );
   const [pending, setPending] = useState<PendingMark | null>(null);
   const syllable = region.syllable ?? "";
@@ -99,12 +119,22 @@ export function SyllableWordCircle({ region, lessonId }: { region: PageRegion; l
     }
   };
 
+  const persistStarts = (next: Record<number, number>) => {
+    try {
+      localStorage.setItem(startsKey, JSON.stringify(next));
+    } catch {
+      /* storage can be disabled */
+    }
+  };
+
   const commitCorrect = (wordIndex: number, start: number) => {
     const next = new Set(marked);
     next.add(wordIndex);
-    setSelectedStarts((prev) => ({ ...prev, [wordIndex]: start }));
+    const nextStarts = { ...selectedStarts, [wordIndex]: start };
+    setSelectedStarts(nextStarts);
     setMarked(next);
     persistMarked(next);
+    persistStarts(nextStarts);
     setPending(null);
 
     if (correctCount > 0 && next.size === correctCount) {
@@ -126,11 +156,10 @@ export function SyllableWordCircle({ region, lessonId }: { region: PageRegion; l
     next.delete(wordIndex);
     setMarked(next);
     persistMarked(next);
-    setSelectedStarts((prev) => {
-      const copy = { ...prev };
-      delete copy[wordIndex];
-      return copy;
-    });
+    const nextStarts = { ...selectedStarts };
+    delete nextStarts[wordIndex];
+    setSelectedStarts(nextStarts);
+    persistStarts(nextStarts);
     gretelEvent("activity:retry", { reason: "work-cleared" });
   };
 
@@ -156,14 +185,19 @@ export function SyllableWordCircle({ region, lessonId }: { region: PageRegion; l
     if (pending) return;
     const word = words[wordIndex]?.word ?? "";
     if (!word) return;
-    const rect = event.currentTarget.getBoundingClientRect();
-    const width = Math.max(1, rect.width);
-    const ratio = Math.max(0, Math.min(0.9999, (event.clientX - rect.left) / width));
-    const charIndex = Math.min(word.length - 1, Math.floor(ratio * word.length));
+    const letters = [...event.currentTarget.querySelectorAll(".native-syllable__letter")];
+    const charIndex = letters.findIndex((letter) => {
+      const rect = letter.getBoundingClientRect();
+      return event.clientX >= rect.left && event.clientX < rect.right &&
+        event.clientY >= rect.top && event.clientY < rect.bottom;
+    });
+    // Button padding is not an answer. Grade only the printed letters touched.
+    if (charIndex < 0) return;
     const starts = validSyllableStarts(word, syllable);
-    const occurrence = starts.find(
-      (start) => charIndex >= start && charIndex < start + Math.max(1, syllable.length),
-    );
+    const occurrence =
+      starts.find(
+        (start) => charIndex >= start && charIndex < start + Math.max(1, syllable.length),
+      );
     const correct = isTarget(wordIndex) && occurrence !== undefined;
     attempt(wordIndex, occurrence ?? charIndex, correct);
   };
@@ -240,8 +274,8 @@ export function SyllableWordCircle({ region, lessonId }: { region: PageRegion; l
                     {letter}
                   </span>
                 ))}
+                {overlayFor(i)}
               </span>
-              {overlayFor(i)}
             </button>
           );
         })}

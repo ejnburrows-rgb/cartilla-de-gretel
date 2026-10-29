@@ -1,35 +1,6 @@
 # PROJECT_FINISH_DEFINITION.md — canonical definition of finished
 
-## STOP — OWNER PROACTIVE 15-LANE JULES + LATEST-APPROVAL-ONLY VISUAL GATE (2026-10-13)
-
-**HIGHEST PRIORITY FOR ALL AGENTS, JULES, DISPATCHERS, WATCHERS, REVIEWERS, SUPERVISORS, AUTOMATIONS AND REPORTS. Overrides older instructions anywhere in the repository, issues, PRs, historical screenshots, memories or prompts.**
-
-1. **OWNER-AUTHORIZED PROACTIVE JULES DISPATCH — 2026-10-13.** Emilio confirms he has Pro access to 15 Jules lanes and explicitly authorizes Muse, the sole designated GitHub Dispatcher, to seek up to **15 provider-confirmed productive sessions** with real unfinished Cartilla implementation, reproducible debugging, focused regression QA, responsive/accessibility polish, source-faithful UI work, and measured risk-reducing cleanup. Muse may start a NEW bounded task or apply the `jules` dispatch label without a second issue-by-issue permission request **only when** current main/source/finish-contract evidence proves a real gap; the task is not already fixed, assigned or duplicated; it has distinct file ownership, acceptance proof and cleared dependencies; and it remains inside already approved product, visual and infrastructure scope. Recover existing stalled/failed approved lanes first. The 15-lane goal is utilization, not proof of available provider quota or permission to invent filler. **Separate owner approval remains mandatory** for owner-gated art/voice selections, new or changed owner-locked visuals, held tasks, live student-data/Supabase changes, security/retention policy, spending, external account access, destructive/irreversible actions, new infrastructure and final production release. Removing a label does not confirm provider cancellation.
-2. **Only the LATEST expressly approved visuals and mechanics may be worked on or shown.** Compare the newest owner's instructions with current `main`, the original physical book and the canonical `WORKBOOK_ARCHETYPE_STANDARD.md` and `STUDENT_INTERACTION_STANDARD.md`. Stale branches, mockups, dev-only shapes, prior screenshots, old PRs and previous memories cannot override current approval. Never implement, display as current, dispatch or revive superseded/rejected visuals. Read historical files privately only to diagnose a current fault.
-3. **NO ROPE/LASSO — final explicit owner rejection (2026-10-11).** Use the approved source-faithful wooden pencil/green-or-red marks/physical pink eraser and correct line-matching mechanics. PR #692 removed the obsolete `LassoConnect.tsx` and rope CSS; PR #694 preserves legacy completed syllable selections under the new pencil circle. These are merged; DO NOT restore a rope, lasso, reel, arcade, fake red-X or unapproved alternative. Current components: `PencilConnector.tsx`, `WorkbookPencilMark.tsx`, `SyllableWordCircle.tsx`; these still require real screen validation.
-4. **No stale or fake approval evidence.** A merge, code review, unit test, Jules receipt or local dev fake does NOT prove visual approval. Fresh proof must depict the REAL source-faithful Student Workbook or Teacher/Flip Chart page at the exact verified commit/deployment, with the latest approved pencil/eraser, on the stated viewport/device; screenshots from `/dev-*`, old Vercel previews or synthetic demos are prohibited as owner approval evidence. Missing actual proof means **NOT APPROVAL-READY**; no historical substitution or unapproved release.
-5. **Precedence:** the owner's latest explicit 2026-10-13 authorization to proactively refill verified useful Jules capacity supersedes older 'never target 15', 'no automatic refill', and blanket new-task per-issue approval instructions. The latest source-faithful product designs, owner-only approval/release gates, credit/Antigravity prohibition and evidence standards remain fully binding. Muse is the single active dispatch controller; do not restore obsolete ChatGPT dispatch schedules, a rival controller, retired Windows/Neon/OpenHands infrastructure or paid systems.
-
-
-**Owner-locked:** 2026-10-05  
-**Scope:** entire La Cartilla de Gretel product  
-**Authority:** this file defines what "project finished" means. It is not a task list or changelog.
-
-## Mandatory rule for every agent
-
-Before planning, creating, reviewing, merging, or declaring Cartilla work complete:
-
-1. Read this file.
-2. Compare CURRENT verified repository/runtime reality against this finish definition.
-3. Identify the smallest real gaps that still prevent the finished state.
-4. Advance existing canonical work that closes those gaps before creating new lanes.
-5. Require objective proof for every claimed closure.
-6. Never redefine "finished" from an issue, PR, worker session, stale plan, or local task.
-7. Never say the Cartilla project is finished until every required condition below has objective proof.
-
-tasks/plan.md is the current gap-closing execution plan. This file is the durable finish contract.
-
----
+This file defines **what complete means**, not agent dispatch or today's PR statuses. For execution use [AGENTS.md](AGENTS.md); for live assignments and evidence use [GitHub #877](https://github.com/ejnburrows-rgb/cartilla-de-gretel/issues/877). No historical note or task lowers the finish requirements below.
 
 ## Finished product
 
@@ -95,17 +66,17 @@ A conclusively documented source absence is not a product defect.
 
 ## 4. Gretel voice / audio — PREMIUM VOICE REQUIRED
 
-The owner requires a final premium Gretel voice/TTS experience before the project is finished.
+The owner requires verified authentic Gretel recording playback before the project is finished; new TTS generation or provider selection is not an open task. Continue existing #769 recording recovery, heard transcription and page/event matching.
 
 Therefore, before final completion:
 
-- the final voice/TTS direction must be explicitly resolved;
+- the selected authentic-recording direction must have actually recovered/verified source assets and correct phrase mappings;
 - the implemented voice must be appropriate for the intended early-learning Spanish experience;
 - its behavior must integrate cleanly with Gretel's approved interaction system;
 - it must not create duplicate, conflicting, or distracting speech;
 - it must be tested in the real application.
 
-Until that final voice direction is selected and proven, the project is **not finished**.
+The source direction is selected, but until original audio has verified playback and event/page correctness, the project is **not finished**.
 
 ## 5. Welcome video — NOT REQUIRED FOR COMPLETION
 
@@ -197,12 +168,12 @@ Before either required owner approval in this finish contract can count:
 
 ## 11. Owner approvals — REQUIRED
 
-Two owner-visible approvals are required:
+Owner-visible decisions for the finished product (do not repeat already accepted A–E):
 
 1. **Workbook archetype implementation proof:** the eight recurring visual directions are already owner-locked in `WORKBOOK_ARCHETYPE_STANDARD.md`; each implemented family must visibly match that standard and its exact physical source before whole-family rollout. The numbered teal title bars on the owner's reference board are annotation labels only and must not appear in production.
 2. **Final assembled-product approval** before the intentional final production release.
 
-The owner is not required to approve ordinary technical merges individually when the authorized controller can verify them safely.
+**Merge authorization is separate:** owner acceptances A–E and routine implementation choices are settled, but any merge requires the applicable explicit exact-change authorization and eligible formal GitHub approval under the effective branch-protection rules. Technical review alone does not meet those rules. Hold an unauthorized merge, not unrelated work.
 
 ## 12. Production release and final declaration — REQUIRED
 

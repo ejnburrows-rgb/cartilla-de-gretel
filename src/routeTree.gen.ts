@@ -22,6 +22,7 @@ import { Route as IndexRouteImport } from './routes/index'
 import { Route as CartillaIndexRouteImport } from './routes/cartilla/index'
 import { Route as TutorNRouteImport } from './routes/tutor.$n'
 import { Route as PrivacyTutorRouteImport } from './routes/privacy.tutor'
+import { Route as PrototypeLesson3ARouteImport } from './routes/prototype.lesson-3-a'
 import { Route as CartillaVocesRouteImport } from './routes/cartilla/voces'
 import { Route as CartillaUnirseRouteImport } from './routes/cartilla/unirse'
 import { Route as CartillaStudentLoginRouteImport } from './routes/cartilla/student-login'
@@ -129,6 +130,11 @@ const TutorNRoute = TutorNRouteImport.update({
 const PrivacyTutorRoute = PrivacyTutorRouteImport.update({
   id: '/privacy/tutor',
   path: '/privacy/tutor',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const PrototypeLesson3ARoute = PrototypeLesson3ARouteImport.update({
+  id: '/prototype/lesson-3-a',
+  path: '/prototype/lesson-3-a',
   getParentRoute: () => rootRouteImport,
 } as any)
 const CartillaVocesRoute = CartillaVocesRouteImport.update({
@@ -426,6 +432,7 @@ export interface FileRoutesByFullPath {
   '/cartilla/voces': typeof CartillaVocesRoute
   '/privacy/tutor': typeof PrivacyTutorRoute
   '/tutor/$n': typeof TutorNRoute
+  '/prototype/lesson-3-a': typeof PrototypeLesson3ARoute
   '/cartilla/': typeof CartillaIndexRoute
   '/cartilla/imprimir/$n': typeof CartillaImprimirNRoute
   '/cartilla/imprimir/all': typeof CartillaImprimirAllRoute
@@ -481,6 +488,7 @@ export interface FileRoutesByTo {
   '/cartilla/voces': typeof CartillaVocesRoute
   '/privacy/tutor': typeof PrivacyTutorRoute
   '/tutor/$n': typeof TutorNRoute
+  '/prototype/lesson-3-a': typeof PrototypeLesson3ARoute
   '/cartilla': typeof CartillaIndexRoute
   '/cartilla/imprimir/$n': typeof CartillaImprimirNRoute
   '/cartilla/imprimir/all': typeof CartillaImprimirAllRoute
@@ -535,6 +543,7 @@ export interface FileRoutesById {
   '/cartilla/voces': typeof CartillaVocesRoute
   '/privacy/tutor': typeof PrivacyTutorRoute
   '/tutor/$n': typeof TutorNRoute
+  '/prototype/lesson-3-a': typeof PrototypeLesson3ARoute
   '/cartilla/': typeof CartillaIndexRoute
   '/cartilla/imprimir/$n': typeof CartillaImprimirNRoute
   '/cartilla/imprimir/all': typeof CartillaImprimirAllRoute
@@ -593,6 +602,7 @@ export interface FileRouteTypes {
     | '/cartilla/voces'
     | '/privacy/tutor'
     | '/tutor/$n'
+    | '/prototype/lesson-3-a'
     | '/cartilla/'
     | '/cartilla/imprimir/$n'
     | '/cartilla/imprimir/all'
@@ -648,6 +658,7 @@ export interface FileRouteTypes {
     | '/cartilla/voces'
     | '/privacy/tutor'
     | '/tutor/$n'
+    | '/prototype/lesson-3-a'
     | '/cartilla'
     | '/cartilla/imprimir/$n'
     | '/cartilla/imprimir/all'
@@ -701,6 +712,7 @@ export interface FileRouteTypes {
     | '/cartilla/voces'
     | '/privacy/tutor'
     | '/tutor/$n'
+    | '/prototype/lesson-3-a'
     | '/cartilla/'
     | '/cartilla/imprimir/$n'
     | '/cartilla/imprimir/all'
@@ -757,6 +769,7 @@ export interface RootRouteChildren {
   CartillaUnirseRoute: typeof CartillaUnirseRoute
   CartillaVocesRoute: typeof CartillaVocesRoute
   PrivacyTutorRoute: typeof PrivacyTutorRoute
+  PrototypeLesson3ARoute: typeof PrototypeLesson3ARoute
   CartillaIndexRoute: typeof CartillaIndexRoute
   CartillaImprimirNRoute: typeof CartillaImprimirNRoute
   CartillaImprimirAllRoute: typeof CartillaImprimirAllRoute
@@ -857,6 +870,13 @@ declare module '@tanstack/react-router' {
       path: '/privacy/tutor'
       fullPath: '/privacy/tutor'
       preLoaderRoute: typeof PrivacyTutorRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/prototype/lesson-3-a': {
+      id: '/prototype/lesson-3-a'
+      path: '/prototype/lesson-3-a'
+      fullPath: '/prototype/lesson-3-a'
+      preLoaderRoute: typeof PrototypeLesson3ARouteImport
       parentRoute: typeof rootRouteImport
     }
     '/cartilla/voces': {
@@ -1274,6 +1294,7 @@ const rootRouteChildren: RootRouteChildren = {
   CartillaUnirseRoute: CartillaUnirseRoute,
   CartillaVocesRoute: CartillaVocesRoute,
   PrivacyTutorRoute: PrivacyTutorRoute,
+  PrototypeLesson3ARoute: PrototypeLesson3ARoute,
   CartillaIndexRoute: CartillaIndexRoute,
   CartillaImprimirNRoute: CartillaImprimirNRoute,
   CartillaImprimirAllRoute: CartillaImprimirAllRoute,
@@ -1285,3 +1306,4 @@ const rootRouteChildren: RootRouteChildren = {
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
   ._addFileTypes<FileRouteTypes>()
+

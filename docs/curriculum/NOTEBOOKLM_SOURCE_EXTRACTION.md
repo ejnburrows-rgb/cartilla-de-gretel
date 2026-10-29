@@ -291,7 +291,7 @@
 
 ## Lesson 4 — E e
 - Flip Chart page 4.
-- Poem: **La niña sordita**
+- Poem: **La niña distraída**
 - Vocabulary: elefante, espejo, Ema, estrella, erizo, escalera.
 
 ## Lesson 5 — I i

@@ -1,3 +1,4 @@
+import staleMotionArt from "@/data/stale-motion-art.json";
 export type LivingActorAction =
   | "breathe"
   | "crawl"
@@ -175,5 +176,8 @@ export const LIVING_ACTORS: Readonly<Record<string, LivingActor>> = Object.freez
 });
 
 export function getLivingActor(src: string): LivingActor | null {
+  // A replaced still always wins over old embedded motion/blink pixels.
+  // No old-coordinate CSS part rig is allowed to move the new drawing either.
+  if (Object.prototype.hasOwnProperty.call(staleMotionArt, src)) return null;
   return LIVING_ACTORS[src] ?? null;
 }

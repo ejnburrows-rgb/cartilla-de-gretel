@@ -1,0 +1,50 @@
+[
+  {
+    "width": 375,
+    "height": 900,
+    "checks": [
+      "Page 20 (M): all 5 syllable groups (ma, me, mi, mo, mu) verified and clickable",
+      "Page 24 (P): all 5 syllable groups (pa, pe, pi, po, pu) verified and clickable",
+      "Page 28 (S): all 5 syllable groups (sa, se, si, so, su) verified and clickable",
+      "Page 32 (T): all 5 syllable groups (ta, te, ti, to, tu) verified and clickable",
+      "Page 40 (L): all 5 syllable groups (la, le, li, lo, lu) verified and clickable",
+      "Approved pencil marks: WorkbookPencilMark circle overlay renders correctly without clipping",
+      "Persistence: completed syllable circles survive page reload",
+      "Isolation: Student A and Student B workstreams strictly separated and restored upon return"
+    ],
+    "pageErrors": [],
+    "videoPath": "docs/proofs/syllables-curriculum/375-syllables-curriculum.webm"
+  },
+  {
+    "width": 768,
+    "height": 900,
+    "checks": [
+      "Page 20 (M): all 5 syllable groups (ma, me, mi, mo, mu) verified and clickable",
+      "Page 24 (P): all 5 syllable groups (pa, pe, pi, po, pu) verified and clickable",
+      "Page 28 (S): all 5 syllable groups (sa, se, si, so, su) verified and clickable",
+      "Page 32 (T): all 5 syllable groups (ta, te, ti, to, tu) verified and clickable",
+      "Page 40 (L): all 5 syllable groups (la, le, li, lo, lu) verified and clickable",
+      "Approved pencil marks: WorkbookPencilMark circle overlay renders correctly without clipping",
+      "Persistence: completed syllable circles survive page reload",
+      "Isolation: Student A and Student B workstreams strictly separated and restored upon return"
+    ],
+    "pageErrors": [],
+    "videoPath": "docs/proofs/syllables-curriculum/768-syllables-curriculum.webm"
+  },
+  {
+    "width": 1280,
+    "height": 900,
+    "checks": [
+      "Page 20 (M): all 5 syllable groups (ma, me, mi, mo, mu) verified and clickable",
+      "Page 24 (P): all 5 syllable groups (pa, pe, pi, po, pu) verified and clickable",
+      "Page 28 (S): all 5 syllable groups (sa, se, si, so, su) verified and clickable",
+      "Page 32 (T): all 5 syllable groups (ta, te, ti, to, tu) verified and clickable",
+      "Page 40 (L): all 5 syllable groups (la, le, li, lo, lu) verified and clickable",
+      "Approved pencil marks: WorkbookPencilMark circle overlay renders correctly without clipping",
+      "Persistence: completed syllable circles survive page reload",
+      "Isolation: Student A and Student B workstreams strictly separated and restored upon return"
+    ],
+    "pageErrors": [],
+    "videoPath": "docs/proofs/syllables-curriculum/1280-syllables-curriculum.webm"
+  }
+]

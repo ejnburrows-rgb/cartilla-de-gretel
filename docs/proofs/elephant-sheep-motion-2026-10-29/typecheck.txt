@@ -1,0 +1,4 @@
+
+> cartilla-de-gretel-platform@ typecheck C:\Users\EJN\Documents\Codex\2026-10-29\la-cartilla-de-gretel-continue-to\work\cartilla-release
+> tsc --noEmit
+

@@ -1126,3 +1126,84 @@ html.student-pencil.a11y-xlarge body {
 /* Tonight demo: approved lc-* system. */
 
 .picture-audio-status { position: fixed; left: 1rem; bottom: 1rem; z-index: 100; max-width: min(28rem, calc(100vw - 2rem)); padding: .65rem 1rem; border-radius: .75rem; background: #fffaf0; color: #413325; box-shadow: 0 2px 12px #0002; font-size: .95rem; }
+
+
+/* ===== Butterfly Garden (mariposas-p) — namespaced bfg-* tokens/utilities ===== */
+@theme inline {
+  --color-bfg-wood: var(--bfg-wood);
+  --color-bfg-wood-dark: var(--bfg-wood-dark);
+  --color-bfg-leaf: var(--bfg-leaf);
+  --color-bfg-leaf-foreground: var(--bfg-leaf-foreground);
+}
+:root {
+  --bfg-wood: oklch(0.48 0.09 55);
+  --bfg-wood-dark: oklch(0.36 0.07 50);
+  --bfg-wood-light: oklch(0.62 0.1 60);
+  --bfg-leaf: oklch(0.38 0.1 150);
+  --bfg-leaf-foreground: oklch(0.99 0 0);
+  --bfg-tag: oklch(0.96 0.06 120);
+  --bfg-tag-border: oklch(0.6 0.09 140);
+  --bfg-ink: oklch(0.25 0.04 150);
+}
+@utility bfg-wood-bar {
+  background:
+    repeating-linear-gradient(90deg, transparent 0 120px, oklch(0 0 0 / 0.06) 120px 124px),
+    linear-gradient(180deg, var(--bfg-wood-light), var(--bfg-wood) 35%, var(--bfg-wood-dark));
+  box-shadow: inset 0 3px 0 oklch(1 0 0 / 0.18), inset 0 -4px 0 oklch(0 0 0 / 0.25);
+}
+@utility bfg-slot-empty {
+  border: 3px dashed oklch(0.95 0.03 90 / 0.85);
+  background: oklch(0.38 0.08 50 / 0.6);
+}
+@utility bfg-tag-tile {
+  background: var(--bfg-tag);
+  border: 3px dashed var(--bfg-tag-border);
+  color: var(--bfg-ink);
+}
+@utility bfg-leaf-board {
+  background: linear-gradient(180deg, oklch(0.45 0.11 150), var(--bfg-leaf));
+  box-shadow: inset 0 2px 0 oklch(1 0 0 / 0.2), 0 4px 0 oklch(0.28 0.07 150);
+}
+
+@keyframes bfg-sway {
+  0%, 100% { transform: rotate(-2.2deg); }
+  50% { transform: rotate(2.2deg); }
+}
+@keyframes bfg-grass {
+  0%, 100% { transform: skewX(-1.6deg); }
+  50% { transform: skewX(1.6deg); }
+}
+@keyframes bfg-flutter-idle {
+  0%, 100% { transform: scaleX(1); }
+  50% { transform: scaleX(0.9); }
+}
+@keyframes bfg-flutter-fly {
+  0%, 100% { transform: scaleX(1); }
+  50% { transform: scaleX(0.68); }
+}
+@keyframes bfg-bob {
+  0%, 100% { translate: 0 0; }
+  50% { translate: 0 -6%; }
+}
+@keyframes bfg-shake {
+  0%, 100% { translate: 0 0; }
+  25% { translate: -8px 0; }
+  75% { translate: 8px 0; }
+}
+@keyframes bfg-pop-in {
+  0% { transform: scale(0.4); opacity: 0; }
+  70% { transform: scale(1.12); opacity: 1; }
+  100% { transform: scale(1); }
+}
+
+@utility bfg-anim-sway { animation: bfg-sway 4.5s ease-in-out infinite; transform-origin: 50% 95%; }
+@utility bfg-anim-grass { animation: bfg-grass 5s ease-in-out infinite; transform-origin: 50% 100%; }
+@utility bfg-anim-flutter-idle { animation: bfg-flutter-idle 1.6s ease-in-out infinite; transform-origin: 46% 50%; }
+@utility bfg-anim-flutter-fly { animation: bfg-flutter-fly 0.22s ease-in-out infinite; transform-origin: 46% 50%; }
+@utility bfg-anim-bob { animation: bfg-bob 3.2s ease-in-out infinite; }
+@utility bfg-anim-shake { animation: bfg-shake 0.35s ease-in-out 2; }
+@utility bfg-anim-pop { animation: bfg-pop-in 0.4s ease-out both; }
+
+@media (prefers-reduced-motion: reduce) {
+  .bfg-anim-sway, .bfg-anim-grass, .bfg-anim-bob, .bfg-anim-flutter-idle { animation: none; }
+}

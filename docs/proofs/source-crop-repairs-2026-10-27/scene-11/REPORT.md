@@ -1,0 +1,13 @@
+# FC-011-01 source-preserving scene isolation — October 28
+
+WORKS: The original page-011 scan contains the complete mother, child and flower border. The prior 630×630 asset retained a strip of the physical binding and cut off the lower flowers; before-laptop.png records that actual runtime failure. The replacement uses native LTRB [690,450,2370,1820] from that exact page, without resizing. Its upper-left 250×900 area contains only a neighboring Mm letter/halo, outside the scene foreground; only alpha is cleared there. Every RGB sample remains identical to the native source, and every other alpha sample is unchanged. The extraction checker pins the source SHA and verifies every decoded output sample.
+
+Actual /cartilla/presentar/7, third sheet (11), shows the full floral border and no duplicated binding/letter fragment at 390×844, 1366×900 and 1920×1080. See the before/after screenshots and before.json/after.json for real currentSrc hashes/dimensions. The responsive surfaces all select this same native PNG; this path has no srcSet or separate delivery tier. Source identity and exclusion geometry are recorded in source.json. Existing original scan and p009-mima remain unchanged; no borrowing of p009's different flower arrangement.
+
+The existing MASTER-MAPPING row FC-011-01 records the change without declaring main integration. Existing native crop, content bounds and placement metadata are updated only for this destination. Three relevant suites / 22 checks pass; TypeScript passes. Existing generic audit certification and tests are not relaxed to certify a masked crop.
+
+DOES NOT WORK: Before capture demonstrates the original clipped floral border and binding strip. Neither remains in the after captures. No other product failure observed in this scoped repair.
+
+NOT VERIFIED: Other unresolved scene isolations, ten remaining Workbook subjects, protected pumpkin/igloo master identity, independent approval, assembled integration, physical devices, Safari and deployment. Reduced motion was used for these static comparisons; no animation or exercise-completion claim.
+
+Reproduce extraction validation: `node scripts/proofs/isolate-flipchart-scene-11.mjs`. Regeneration requires explicit `--write`; source changes fail before extraction. Runtime capture: `node scripts/proofs/check-scene-11-runtime.mjs after`, against the worker app on localhost:5173. This follow-up is on existing #1205, stacked on #1097; original 50-destination/53-placement proof remains unchanged. This adds one destination and one historical placement, for 51 destinations / 54 placements across the two verified batches.
