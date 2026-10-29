@@ -160,12 +160,12 @@
       "sourceAsset": "public/cartilla/art/restored/workbook/page-009.png",
       "canonicalSrc": "/cartilla/art/faithful/vocal-a/abeja.webp",
       "canonical": {
-        "width": 462,
-        "height": 495,
-        "bytes": 40196,
+        "width": 924,
+        "height": 990,
+        "bytes": 119868,
         "format": "webp",
         "hasAlpha": false,
-        "sha256": "1f03f92afdf3005ffffccae6aff6cfdd37314ebe016012e8634a102078bca5ef"
+        "sha256": "4bf3d73b48d4fa7fa6bb38f8d16844134386be986a6028f4bb6f0f55a9386dd1"
       },
       "cropBox": [
         720,
@@ -177,26 +177,11 @@
       "cleanup": {
         "backgroundRemoved": false,
         "transparentPaddingTrimmed": false,
-        "normalizedWidth": 462,
-        "normalizedHeight": 495,
-        "note": "Delivery resized directly from current canonical. No background removal, recoloring or crop."
+        "normalizedWidth": 924,
+        "normalizedHeight": 990,
+        "note": "Current owner-approved master #1158; use canonical directly until source-matched responsive derivatives are verified. Previous derivatives intentionally not referenced."
       },
-      "derivatives": [
-        {
-          "widthTier": 384,
-          "path": "/cartilla/art/delivery/faithful/384/vocal-a/abeja.webp",
-          "width": 384,
-          "height": 411,
-          "bytes": 38862
-        },
-        {
-          "widthTier": 768,
-          "path": "/cartilla/art/delivery/faithful/768/vocal-a/abeja.webp",
-          "width": 768,
-          "height": 823,
-          "bytes": 92004
-        }
-      ],
+      "derivatives": [],
       "warnings": [
         "visible content touches canonical crop edge; source recrop may be required"
       ],
@@ -1511,38 +1496,23 @@
       "sourceAsset": null,
       "canonicalSrc": "/cartilla/art/faithful/leccion-1/ojos.webp",
       "canonical": {
-        "width": 677,
-        "height": 377,
-        "bytes": 22742,
+        "width": 1354,
+        "height": 754,
+        "bytes": 94534,
         "format": "webp",
         "hasAlpha": true,
-        "sha256": "cd45239f16e938c055a773e8690f0cb3f744721d09e37d7e6437883e0e835ee9"
+        "sha256": "544e927bbd805d3940287c030abe9afc44b1fd2a6179e2d3ff4a6d9e56c30324"
       },
       "cropBox": null,
       "provenanceStatus": "RECOVERED-2026-FROM-GIT-HISTORY-BLOB-cf0d6c7d",
       "cleanup": {
         "backgroundRemoved": false,
         "transparentPaddingTrimmed": false,
-        "normalizedWidth": 677,
-        "normalizedHeight": 377,
-        "note": "Delivery resized directly from current canonical. No background removal, recoloring or crop."
+        "normalizedWidth": 1354,
+        "normalizedHeight": 754,
+        "note": "Current owner-approved master #1160; use canonical directly until source-matched responsive derivatives are verified. Previous derivatives intentionally not referenced."
       },
-      "derivatives": [
-        {
-          "widthTier": 384,
-          "path": "/cartilla/art/delivery/faithful/384/leccion-1/ojos.webp",
-          "width": 384,
-          "height": 214,
-          "bytes": 20400
-        },
-        {
-          "widthTier": 768,
-          "path": "/cartilla/art/delivery/faithful/768/leccion-1/ojos.webp",
-          "width": 768,
-          "height": 428,
-          "bytes": 51902
-        }
-      ],
+      "derivatives": [],
       "warnings": [],
       "errors": []
     },
