@@ -1,4 +1,8 @@
-# PROJECT_FINISH_DEFINITION.md — canonical definition of finished\n\nThis file defines **what complete means**, not agent dispatch or today's PR statuses. For execution use [AGENTS.md](AGENTS.md); for live assignments and evidence use [GitHub #877](https://github.com/ejnburrows-rgb/cartilla-de-gretel/issues/877). No historical note or task lowers the finish requirements below.\n\n## Finished product
+# PROJECT_FINISH_DEFINITION.md — canonical definition of finished
+
+This file defines **what complete means**, not agent dispatch or today's PR statuses. For execution use [AGENTS.md](AGENTS.md); for live assignments and evidence use [GitHub #877](https://github.com/ejnburrows-rgb/cartilla-de-gretel/issues/877). No historical note or task lowers the finish requirements below.
+
+## Finished product
 
 The finished product is a **school-pilot-ready digital classroom edition of La Cartilla de Gretel** containing BOTH. Under the current deferred live-auth/Supabase scope, that finish line permits demo/pilot use only with non-real student data until real-data security/privacy blockers are resolved:
 
