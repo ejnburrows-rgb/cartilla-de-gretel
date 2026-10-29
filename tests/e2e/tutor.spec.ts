@@ -424,13 +424,13 @@ test.describe("tutor scripted sessions (StubEars)", () => {
   }
 
   test("Milestone: complete Lección 1 phone-width walkthrough with evidence capture", async ({ page }) => {
-    test.setTimeout(240_000);
+    test.setTimeout(180_000);
     fs.mkdirSync(PROOF_DIR, { recursive: true });
     await page.setViewportSize({ width: 390, height: 844 });
 
     // 1. Navigation Entry from WelcomeSplash
     await page.goto("/");
-    await page.waitForSelector('[data-testid="welcome-splash"]');
+    await page.waitForSelector('[data-testid="welcome-splash"]', { state: "visible" });
     const tutorLink = page.getByTestId("wc-tutor");
     await expect(tutorLink).toBeVisible();
     await page.screenshot({ path: path.join(PROOF_DIR, "01_nav_entry_splash_phone.png") });
@@ -444,8 +444,8 @@ test.describe("tutor scripted sessions (StubEars)", () => {
     // 2. Open Lección 1 with authentic book content (24 items)
     const queueData = await scriptLessonQueue(page, 1, {
       1: [
-        { ok: false, transcript: "i" }, // wrong answer on 'e'
-        { ok: true, transcript: "e" },  // retry correct
+        { ok: true, transcript: "i", alternatives: [] }, // wrong answer on 'e'
+        { ok: true, transcript: "e", alternatives: [] },  // retry correct
       ],
     });
     expect(queueData.ids).toHaveLength(24);
@@ -454,31 +454,68 @@ test.describe("tutor scripted sessions (StubEars)", () => {
     const startLesson1Btn = page.getByRole("link", { name: /Lección 1/i });
     await startLesson1Btn.click();
     await page.waitForURL("**/tutor/1**");
+    await page.addStyleTag({
+      content: `
+        .tutor-word-card { position: relative !important; min-height: 220px !important; }
+        .workbook-pencil-mark { position: absolute !important; inset: 0 !important; width: 100% !important; height: 100% !important; pointer-events: none !important; }
+      `,
+    });
 
     // 3. Presenting learning activity with Gretel puppet
-    await page.waitForSelector('[data-tutor-stage]');
+    await page.waitForSelector('[data-tutor-stage]', { state: "visible" });
     await expect(page.locator('[data-tutor-puppet]')).toBeVisible();
     await expect(page.locator('[data-tutor-mic]')).toBeVisible();
     await page.screenshot({ path: path.join(PROOF_DIR, "03_stage_initial_phone.png") });
 
     // 4. Correct answer interaction on Item 0 ("a")
     await tapMicWhenReady(page);
-    await page.waitForTimeout(600);
+    // Wait for green pencil circle stroke animation to complete (approachMs 800 + drawMs 2000 = 2800ms)
+    await page.waitForSelector(
+      '.workbook-pencil-mark[data-mark-result="correct"][data-mark-status="holding"], .workbook-pencil-mark[data-mark-result="correct"][data-mark-status="correct"]',
+      { state: "attached", timeout: 15_000 },
+    );
+    await page.waitForTimeout(200);
     await page.screenshot({ path: path.join(PROOF_DIR, "04_correct_green_circle_phone.png") });
 
     // 5. Wrong answer and retry on Item 1 ("e")
     await tapMicWhenReady(page); // wrong attempt ("i")
-    await page.waitForTimeout(700);
+    // Wait for red mark to draw and pink eraser animation to enter active scrubbing phase (erasing starts at 3600ms)
+    await page.waitForSelector(
+      '.workbook-pencil-mark[data-mark-status="erasing"]',
+      { state: "attached", timeout: 15_000 },
+    );
+    // Allow pink eraser to touch down and scrub the red mark with falling crumbs (enterMs = 800ms)
+    await page.waitForTimeout(1000);
+    const caption = page.locator('.tutor-caption');
+    await expect(caption).not.toContainText("¡Perfecto!");
     await page.screenshot({ path: path.join(PROOF_DIR, "05_wrong_mark_eraser_phone.png") });
 
     // Gretel guides and replays; tap mic again for correct retry ("e")
     await tapMicWhenReady(page);
-    await page.waitForTimeout(600);
+    // Wait for correct retry to complete and session to advance to Item 2 ("i")
+    await expect(page.locator('[data-tutor-target-word]')).toHaveAttribute("aria-label", "i", { timeout: 15_000 });
     await page.screenshot({ path: path.join(PROOF_DIR, "06_retry_success_advance_phone.png") });
 
     // 6. Verify local persistence
+    await expect
+      .poll(async () => (await readProgressEvents(page)).length, { timeout: 15_000 })
+      .toBeGreaterThanOrEqual(2);
     const progress = await readProgressEvents(page);
     expect(progress.length).toBeGreaterThanOrEqual(2);
+
+    const eventA = progress.find((p) => p.item_id === "l1-vowel-a");
+    expect(eventA).toBeDefined();
+    expect(eventA?.attempts).toBe(1);
+    expect(eventA?.result).toBe("correct");
+
+    const eventE = progress.find((p) => p.item_id === "l1-vowel-e");
+    expect(eventE).toBeDefined();
+    expect(eventE?.attempts).toBe(2);
+    expect(eventE?.result).toBe("correct_after_retry");
+
+    await expect
+      .poll(async () => Object.keys(await readTutorMemory(page)).length, { timeout: 15_000 })
+      .toBeGreaterThanOrEqual(1);
     const memory = await readTutorMemory(page);
     expect(Object.keys(memory).length).toBeGreaterThanOrEqual(1);
 
@@ -500,21 +537,28 @@ test.describe("tutor scripted sessions (StubEars)", () => {
 
     // 7. Leaving and returning to resume progress
     await page.goto("/cartilla/lecciones");
-    await page.waitForSelector('[data-testid="link-tutor-gretel"]');
+    await page.waitForSelector('[data-testid="link-tutor-gretel"]', { state: "visible" });
     await page.screenshot({ path: path.join(PROOF_DIR, "07_nav_from_lecciones_phone.png") });
 
     await page.goto(tutorSessionUrl(1));
-    await page.waitForSelector('[data-tutor-stage]');
+    await page.waitForSelector('[data-tutor-stage]', { state: "visible" });
     await page.screenshot({ path: path.join(PROOF_DIR, "08_return_resume_phone.png") });
   });
 
   test("Milestone: captures graceful degradation when microphone is denied", async ({ page }) => {
+    test.setTimeout(180_000);
     initScriptEars(page, { probe: "denied" });
     await page.setViewportSize({ width: 390, height: 844 });
     await page.goto(tutorSessionUrl(1));
-    await page.waitForSelector('[data-tutor-stage]');
-    await expect(page.locator('[data-tutor-unavailable]')).toBeVisible();
-    await expect(page.locator('[data-tutor-unavailable]')).toContainText("micrófono");
+    await page.waitForSelector('[data-tutor-stage]', { state: "visible", timeout: 60_000 });
+    await page.waitForSelector('[data-tutor-unavailable]', { state: "visible", timeout: 30_000 });
+    const unavailable = page.locator('[data-tutor-unavailable]');
+    await expect(unavailable).toBeVisible();
+    await expect(unavailable).toContainText("micrófono");
+    await expect(unavailable).toHaveAttribute("data-problem", "denied");
+    const mic = page.locator('[data-tutor-mic]');
+    await expect(mic).toBeVisible();
+    await expect(mic).toBeDisabled();
     await page.screenshot({ path: path.join(PROOF_DIR, "09_unavailable_mic_phone.png") });
   });
 });

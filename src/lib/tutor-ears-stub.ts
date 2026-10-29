@@ -131,6 +131,12 @@ function asScriptedItem(value: unknown): ScriptedItem | null {
   ) {
     return { holdMs, outcome: { ok: false, problem: record.problem as EarsProblem } };
   }
+  if (typeof console !== "undefined" && typeof console.warn === "function") {
+    console.warn(
+      "[StubEars] Discarding malformed queue item (expected ok:true with transcript, or ok:false with problem in SCRIPTED_PROBLEMS):",
+      value,
+    );
+  }
   return null;
 }
 
