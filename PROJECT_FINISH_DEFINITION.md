@@ -1,40 +1,4 @@
-# PROJECT_FINISH_DEFINITION.md — canonical definition of finished
-
-> **CURRENT CONTINUATION PRECEDENCE — October 28, 2026:** The top of [AGENTS.md](AGENTS.md) and live [#877](https://github.com/ejnburrows-rgb/cartilla-de-gretel/issues/877) control execution. Continue eligible existing work in the same run when another item is blocked; old 15-lane refill, outdated owner-wait prompts, audio-as-moot, and Mariposas-removal instructions are historical, not active. Respect real independent review, exact merge authorization, original-source fidelity, destructive/security/cost holds, and explicit deployment permission. No new jobs or controller.
-
-> **LATEST OWNER EXECUTION / PROVISIONAL APPROVAL — October 28, 2026.** Owner: “Go ahead and approve everything for now until you finish. Then anything that I want to change, I will change.” Treat remaining routine visual and implementation decisions within the existing Cartilla completion scope as provisionally approved, including the shown Lesson 3 direction (card E); A–D are already accepted. Continue material work without returning routine approval cards or making the owner repeatedly say continue. Keep versioned proof and present the assembled result for later changes. Preserve explicit rejections, authentic workbook/art/voice decisions, existing assignments and destructive/security/cost holds; this does not authorize new services or reviewer access, bypass protected-main review, or authorize production deployment. Merge/release authorization remains separately scoped.
-
-
-> **OWNER OVERRIDE — October 28, 2026: controller ownership.** ChatGPT/Codex in the owner's current Cartilla conversation is the primary controller and single owner-facing entry point. Muse is a supporting source of history and records, not an independent controller or dispatcher. This supersedes all older Muse-only, Muse/Instinct dual-controller, and owner-carried prompt-routing instructions, including the October 13 controller allocation.
->
-> Continue actual unfinished work from the October 28 Master Completion Plan and live #877, preserving existing worker/branch ownership, tests and decisions. Advance the next eligible existing task after an item completes or becomes blocked; do not wait for routine owner confirmation, repeat audits or open duplicate jobs. Independent formal review and specific merge authorization are prerequisites for integrating affected changes, **not a blanket freeze on unrelated implementation**. Codex retains artwork ownership; Jules and specialists retain existing scopes. No new dispatches, controllers, infrastructure, services or automatic schedules.
->
-> The controller performs technical coordination through available tools. Report concise proof of actual changes and exact blocked actions in existing #877, then continue another eligible existing task during the same available session. An unavailable reviewer, recording, source file or tool does **not** end unrelated work. Never claim unverified worker activity or background execution. Preserve authentic book/art/voice, settled owner A–E decisions, formal independent GitHub review, branch protection, privacy/security/cost and destructive holds. Each merge requires its applicable exact-change authorization; deployment requires separate explicit authorization. No self-approval or protection bypass.
-
-
-> **MANDATORY OWNER DIRECTIVES (2026-10-22, every agent / Muse / Instinct / Jules):** Read [PERMANENT_PROJECT_INTEGRITY_WORKFLOW.md](PERMANENT_PROJECT_INTEGRITY_WORKFLOW.md) and [ARTWORK_REPORT_VERIFICATION_AND_SINGLE_SOURCE_CLEANUP.md](ARTWORK_REPORT_VERIFICATION_AND_SINGLE_SOURCE_CLEANUP.md) before investigating, changing, certifying or dispatching artwork work. Only the latest authentic owner-approved updated art may be used; delete proven obsolete wrong crops from current production after switching and verifying all references. Do not create competing inventories, silently relax tests, or report file presence as correct rendered art. Existing owner-only merge/deploy gates remain in force. These Markdown directives define the obligation; actual implementation and tests are required before claiming enforcement.
-
-## Current October 28 execution and approval rule
-
-Continue existing specialist assignments under `AGENTS.md` and GitHub #877. When any task is held, advance another independent eligible task in the same session. No new jobs, duplicate branches, controller or automatic dispatch. Routine decisions A–E are settled. Authentic source, independent formal GitHub review, exact-change merge authorization, security/cost/destructive holds and separate deployment approval remain mandatory for their affected actions. October 13 concurrency/refill instructions are historical in Git history, not active orders.
-
-## Mandatory rule for every agent
-
-Before planning, creating, reviewing, merging, or declaring Cartilla work complete:
-
-1. Read this file.
-2. Compare CURRENT verified repository/runtime reality against this finish definition.
-3. Identify the smallest real gaps that still prevent the finished state.
-4. Advance existing canonical work that closes those gaps before creating new lanes.
-5. Require objective proof for every claimed closure.
-6. Never redefine "finished" from an issue, PR, worker session, stale plan, or local task.
-7. Never say the Cartilla project is finished until every required condition below has objective proof.
-
-tasks/plan.md is the current gap-closing execution plan. This file is the durable finish contract.
-
----
-
-## Finished product
+# PROJECT_FINISH_DEFINITION.md — canonical definition of finished\n\nThis file defines **what complete means**, not agent dispatch or today's PR statuses. For execution use [AGENTS.md](AGENTS.md); for live assignments and evidence use [GitHub #877](https://github.com/ejnburrows-rgb/cartilla-de-gretel/issues/877). No historical note or task lowers the finish requirements below.\n\n## Finished product
 
 The finished product is a **school-pilot-ready digital classroom edition of La Cartilla de Gretel** containing BOTH. Under the current deferred live-auth/Supabase scope, that finish line permits demo/pilot use only with non-real student data until real-data security/privacy blockers are resolved:
 
