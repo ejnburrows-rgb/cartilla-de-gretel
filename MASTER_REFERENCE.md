@@ -18,11 +18,11 @@ scope and owner decisions; CARTILLA_DIGITAL_DIRECTIVE.md governs book fidelity.
 
 ## 2. WHO DOES WHAT (permissions — updated today)
 Chain: owner → ChatGPT/Codex controller → existing assigned workers and independent reviewer.
-- CHATGPT/CODEX (Controller): uses #877 as the sole current execution record and this document as supporting reference, coordinates existing assignments, reconciles evidence and approvals, and presents visible results. Codex retains artwork identification/mapping/integration.
+- CHATGPT/CODEX (Controller): maintains this reference and the existing GitHub #877 queue (`tasks/plan.md` is only its routing index), sets priorities, coordinates existing assignments, reconciles evidence and approvals, and presents visible results. Codex retains artwork identification/mapping/integration.
 - JULES (Worker): retains existing assigned implementation and focused verification. Completed sessions are not integrated features; reuse delivered work before assigning new coding.
-- MUSE (Supporting records): supplies prior assignments, session history and controller records when accessible; no independent dispatch or competing queue.
+- MUSE (historical evidence only): earlier assignments, session history and controller records may be consulted as context when accessible; no dispatch, queue or current-status authority.
 - EXISTING SPECIALISTS: retain their existing bounded assignments, including Piano/game work, subject to current owner approvals and access. This controller change creates no new agent or service authorization.
-- INDEPENDENT REVIEWER: reviews material changes where required; no worker approves its own work, and protected-main approval remains mandatory.
+- INDEPENDENT REVIEWER: reviews material changes where required; no worker approves its own work; merges follow the AGENTS.md "Evidence and gates" rules and the actual effective `main` protection, never a bypass.
 - OWNER: makes essential product/visual decisions and authorizes consequential actions. Technical coordination stays with the controller; never require the owner to relay ordinary worker prompts.
 - Universal: one owner per task/file surface; recover existing work before rebuilding; report blockers to the ChatGPT/Codex controller. Preserve existing work, exact-change approvals and release gates.
 
@@ -34,14 +34,14 @@ narrations stay silent where verified authentic phrases are unavailable; recover
 ART: no new art generation, ever; no original modified/replaced/regenerated; the
 original book art is the only truth; every picture shown side-by-side vs the
 original for the owner's yes before it enters a page. 7 flip-chart fixes approved
-Oct 20, files in the repo, wiring still pending. OJOS: DECIDED + DONE today —
+Oct 20, files in the repo; their current wiring status is tracked in #877, not here. OJOS: DECIDED + DONE today —
 approved singular `ojo` with `ojo.png` in both spots; #1210 proposed `ojos` wording remains held without a later explicit owner reversal.
 Background: CREAM. Pencil pages 7–8 always separate.
 DEPLOY: auto-deploy OFF; every deploy needs the owner's own "deploy it";
 vercel.json lock (git.deploymentEnabled:false) is never touched.
 MERGE: only finished + tested work, with screenshot proof (video if it moves);
 reports use DONE and live / DONE but not live / WAITING / NOT TESTED; merges never deploy.
-GITHUB STATUS: use current GitHub PR records and #877. The former October 28 open/unmerged #1079 and HTTP 405 snapshot is superseded; it remains available in Git history, not as a current integration or release blocker. This document does not maintain a second deployment-status ledger.
+GITHUB STATUS: not maintained in this file. Use GitHub #877 and live GitHub for current PR, merge and deployment state. The October 28 snapshot formerly here (for example "#1079 OPEN and UNMERGED" and "no production deployment has occurred") is superseded: #1079 merged on 2026-10-29 at 454c15e and the separately authorized Mariposas-only deployment is recorded in #877. All original branches, commits and discussions stay preserved; do not change branch protection, bypass tests or regenerate original artwork.
 
 ## 4. HOW EMILIO IS TALKED TO
 - Proof or it didn't happen: a real picture attached to every claim, a video for
@@ -54,4 +54,4 @@ GITHUB STATUS: use current GitHub PR records and #877. The former October 28 ope
 - Never give out his personal information to anyone, for anything.
 
 ## 5. COORDINATION RULE (owner override October 28)
-The owner gives requests in the current ChatGPT/Codex conversation. The controller handles existing agent assignments and review through available tools, using the current authorized scope and existing #877 queue. Do not require daily handout prompts or owner-managed agent routing. If a specific access limitation requires owner action, provide one concrete step and retain all technical details yourself. No automatic dispatch schedule or provider access is established merely by these instructions.
+The owner gives requests in the current ChatGPT/Codex conversation. The controller handles existing agent assignments and review through available tools, using the existing GitHub #877 queue. Do not require daily handout prompts or owner-managed agent routing. If a specific access limitation requires owner action, provide one concrete step and retain all technical details yourself. No automatic dispatch schedule or provider access is established merely by these instructions.
