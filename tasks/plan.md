@@ -1,18 +1,18 @@
-# Cartilla — execution order (current continuation)
+# Cartilla — preserved product execution plan (PAUSED)
 
 > **Active owner scope, 2026-10-29: ORGANIZATION ONLY.** Product implementation and dispatch described below are paused until the owner explicitly resumes them. Cartilla issue [#877](https://github.com/ejnburrows-rgb/cartilla-de-gretel/issues/877) is the one current assignment/status authority. Keep all existing work as backlog; reconcile instructions and verified status only. Do not treat the historical "Next visible product checkpoint" as a current execution order.
 
 This is a **routing index**, not a second master completion plan, dashboard or task list. The actual remaining work, owners, existing branches, exact commits, approvals and evidence are maintained in [GitHub issue #877](https://github.com/ejnburrows-rgb/cartilla-de-gretel/issues/877). The finished-product requirements are in [PROJECT_FINISH_DEFINITION.md](../PROJECT_FINISH_DEFINITION.md). Current global safety/continuation rules are in [AGENTS.md](../AGENTS.md).
 
-## Continue existing work, do not stop at each task
+## Deferred product execution — use only after explicit owner resumption
 
 1. Recover the exact current assignment/branch, evidence and ownership; do not start a duplicate audit, branch, job, dispatcher or service.
-2. Pick the highest-priority **eligible** unfinished step in the existing #877 lanes and make actual changes where needed. Routine in-scope visual/implementation decisions A–E are accepted; do not ask again.
+2. **Only after owner resumes product development:** pick the highest-priority eligible unfinished step in the existing #877 lanes and make actual changes where needed. Routine in-scope visual/implementation decisions A–E are accepted; do not ask again.
 3. Test only affected behavior, reuse still-valid proof, save the actual change on the existing branch and document its exact commit and limitations in #877.
 4. If a task hits an ownership conflict, absent authentic source, access problem, GitHub review gate or other hold, **stop only that task** and immediately continue the next independent eligible task in the **same available session**.
 5. If actual execution capacity/session limits end the run, preserve an exact resumable checkpoint in #877. Do not imply that this Markdown started a worker or background process.
 
-## Next visible product checkpoint
+## Deferred product checkpoint — not a current assignment
 
 Reuse Gretel Tutor #1073 (`feat/gretel-tutor-l1-3`) for the existing Lección 1 practice flow before speculative new activities. Verify the actual built route at phone width: start, present an item, correct/wrong response, retry, progress/return and offline-unavailable states. Label StubEars separately from real microphone/child-speech evidence; keep original audio/art/privacy holds. This is an existing assignment, not a new lane. Continue independent existing work below.
 
@@ -29,7 +29,7 @@ Reuse Gretel Tutor #1073 (`feat/gretel-tutor-l1-3`) for the existing Lección 1 
 | 7. Assembled verification | **After permitted integration produces one frozen SHA**, verify all required 24 lessons and teacher/student journeys. Reuse proof for unchanged code; preserve untested Safari/physical-phone gaps. |
 | 8. Release | The October 28 **Mariposas-only** authorization is fulfilled: deployed source c670ff0, READY dpl_6CEbskHgdB61sDJZkxpcm6mHQfYt, six live journeys and all 33 original image hashes pass. Published teacher baseline is preserved; main was not deployed. Full Cartilla release still requires frozen assembled verification and separately scoped authorization. Keep rollback and protection intact. |
 
-Independent implementation lanes **2–6 proceed concurrently** within existing assignments; do not wait for Lane 1's GitHub approval blocker to clear before progressing them. Lane 7 requires an actually integrated frozen candidate. Lane 8 requires a verified eligible candidate; the owner's October 28 merge/deploy authorization is already recorded, so do not ask again for the identical action.
+Once owner explicitly resumes product implementation, independent lanes **2–6 may proceed concurrently** within existing assignments; do not wait for Lane 1's GitHub approval blocker to clear before progressing them. Lane 7 requires an actually integrated frozen candidate. Lane 8 requires a verified eligible candidate; the owner's October 28 merge/deploy authorization is already recorded, so do not ask again for the identical action.
 
 ## Decisions and holds that may not be reversed silently
 
