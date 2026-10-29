@@ -1,6 +1,7 @@
 // Butterfly Garden (Jardín de Mariposas) — original-art game for "mariposas-p".
 // Rules: src/lib/games/butterflyGarden.ts. Audio hooks: src/lib/games/butterflyGardenAudio.ts (empty by owner decision).
 import { useCallback, useLayoutEffect, useRef, useState } from "react";
+import { recordEvent } from "@/lib/student-session";
 import garden from "@/assets/games/butterfly-garden/garden.jpg";
 import grass from "@/assets/games/butterfly-garden/grass.png";
 import signImg from "@/assets/games/butterfly-garden/ui_sign.jpg";
@@ -95,6 +96,36 @@ const INSTRUCTIONS: React.ReactNode[] = [
 type Pt = { x: number; y: number };
 type Slot = { text: string; from: number } | null;
 
+const ArtButton = ({
+  x,
+  y,
+  w,
+  img,
+  label,
+  onClick,
+  testid,
+}: {
+  x: number;
+  y: number;
+  w: number;
+  img: string;
+  label: string;
+  onClick: () => void;
+  testid: string;
+}) => (
+  <button
+    type="button"
+    aria-label={label}
+    data-testid={testid}
+    onClick={onClick}
+    className="absolute z-[5] rounded-full focus-visible:outline-4 focus-visible:outline-ring"
+    style={{ left: `${x}%`, top: `${y}%`, width: `${w}%` }}
+  >
+    <img src={img} alt="" draggable={false} className="block w-full" />
+  </button>
+);
+
+
 export function ButterflyGarden({ backSlot }: { backSlot?: React.ReactNode } = {}) {
   const rootRef = useRef<HTMLDivElement>(null);
   const gardenRef = useRef<HTMLDivElement>(null);
@@ -103,6 +134,8 @@ export function ButterflyGarden({ backSlot }: { backSlot?: React.ReactNode } = {
   const pos = useRef<Pt[]>(BUTTERFLIES.map(() => ({ x: 0, y: 0 })));
   const homes = useRef<Pt[]>([]);
   const busyRef = useRef(false);
+  const completedWords = useRef(new Set<number>());
+  const roundRecorded = useRef(false);
   const slotsRef = useRef<Slot[]>(Array(SLOT_COUNT).fill(null));
   const [layout, setLayout] = useState({
     portrait: false,
@@ -204,6 +237,11 @@ export function ButterflyGarden({ backSlot }: { backSlot?: React.ReactNode } = {
   // ---- flight -------------------------------------------------------------
   const fly = (i: number, to: Pt, ms: number) =>
     new Promise<void>((resolve) => {
+      if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
+        place(i, to);
+        resolve();
+        return;
+      }
       const from = { ...pos.current[i]! };
       const dx = to.x - from.x;
       const dy = to.y - from.y;
@@ -217,6 +255,11 @@ export function ButterflyGarden({ backSlot }: { backSlot?: React.ReactNode } = {
       const start = performance.now();
       const ease = (t: number) => (t < 0.5 ? 4 * t * t * t : 1 - Math.pow(-2 * t + 2, 3) / 2);
       const step = (now: number) => {
+        if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
+          place(i, to);
+          resolve();
+          return;
+        }
         const raw = Math.min(1, (now - start) / ms);
         const t = ease(raw);
         const u = 1 - t;
@@ -304,6 +347,17 @@ export function ButterflyGarden({ backSlot }: { backSlot?: React.ReactNode } = {
     setVerdicts(v);
     if (isWordComplete(texts, word.syllables)) {
       playFeedback("complete");
+      completedWords.current.add(wordIdx);
+      if (completedWords.current.size === WORDS.length && !roundRecorded.current) {
+        roundRecorded.current = true;
+        recordEvent({
+          lessonId: "game:mariposas-p",
+          kind: "exercise",
+          score: WORDS.length,
+          total: WORDS.length,
+          meta: { exercise: "mariposas", completed: true, gameId: "mariposas-p" },
+        });
+      }
     } else {
       playFeedback("wrong");
       const wrong = v.map((x, k) => (x === "wrong" ? k : -1)).filter((k) => k >= 0);
@@ -326,6 +380,10 @@ export function ButterflyGarden({ backSlot }: { backSlot?: React.ReactNode } = {
   const nextWord = () => {
     if (busyRef.current) return;
     const n = nextWordIndex(wordIdx);
+    if (n === 0) {
+      completedWords.current.clear();
+      roundRecorded.current = false;
+    }
     setWordIdx(n);
     setSlots(Array(SLOT_COUNT).fill(null));
     setVerdicts(Array(SLOT_COUNT).fill(null));
@@ -341,34 +399,6 @@ export function ButterflyGarden({ backSlot }: { backSlot?: React.ReactNode } = {
   const signW = Math.min(gw * 0.27, gh * 0.3 * 0.75);
   const sunW = Math.min(gw * 0.26, gh * 0.24);
 
-  const ArtButton = ({
-    x,
-    y,
-    w,
-    img,
-    label,
-    onClick,
-    testid,
-  }: {
-    x: number;
-    y: number;
-    w: number;
-    img: string;
-    label: string;
-    onClick: () => void;
-    testid: string;
-  }) => (
-    <button
-      type="button"
-      aria-label={label}
-      data-testid={testid}
-      onClick={onClick}
-      className="absolute z-[5] rounded-full focus-visible:outline-4 focus-visible:outline-ring"
-      style={{ left: `${x}%`, top: `${y}%`, width: `${w}%` }}
-    >
-      <img src={img} alt="" draggable={false} className="block w-full" />
-    </button>
-  );
 
   return (
     <div
