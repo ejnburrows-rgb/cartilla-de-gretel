@@ -3,6 +3,7 @@ import { execFileSync } from "node:child_process";
 import { existsSync, mkdtempSync, readFileSync, rmSync } from "node:fs";
 import { tmpdir } from "node:os";
 import path from "node:path";
+import { createHash } from "node:crypto";
 
 const root = process.cwd();
 const auditPath = path.join(root, "docs/production-art-classification-audit.json");
@@ -14,7 +15,7 @@ const bySrc = new Map((audit?.faithfulAudit ?? []).map((item: any) => [item.src,
 
 // Rows whose optimized output is a deterministic pixel match to its declared
 // HD source-page crop. Every other row must stay PENDING.
-const deterministicallyVerifiedNative = [
+const previouslyVerifiedNative = [
   "/cartilla/art/optimized/flipchart-native/p018-tapa.webp",
   "/cartilla/art/optimized/flipchart-native/p018-tipi.webp",
   "/cartilla/art/optimized/flipchart-native/p018-tomate.webp",
@@ -26,7 +27,29 @@ const deterministicallyVerifiedNative = [
   "/cartilla/art/optimized/flipchart-native/p024-maleta.webp",
 ];
 
+type SourceRepair = { source: string; sourceSha256: string; destination: string; sha256: string };
+const sourceRepairs: SourceRepair[] = JSON.parse(readFileSync(path.join(root,
+  "docs/proofs/source-crop-repairs-2026-10-27/source-pixel-verification.json"), "utf8"));
+const isolatedScene: SourceRepair = JSON.parse(readFileSync(path.join(root,
+  "docs/proofs/source-crop-repairs-2026-10-27/scene-11/source.json"), "utf8"));
+const deterministicallyVerifiedNative = [...new Set([
+  ...previouslyVerifiedNative,
+  ...[...sourceRepairs, isolatedScene]
+    .filter((item) => item.destination.startsWith("public/cartilla/art/optimized/flipchart-native/"))
+    .map((item) => item.destination.replace(/^public/, "")),
+])];
+
 describe.skipIf(!audit)("production foreground art audit truthfulness", () => {
+  it("binds the source-repair evidence to exact original and installed bytes", () => {
+    expect(sourceRepairs).toHaveLength(50);
+    expect(deterministicallyVerifiedNative).toHaveLength(55);
+    const sha256 = (file: string) => createHash("sha256")
+      .update(readFileSync(path.join(root, file))).digest("hex");
+    for (const item of [...sourceRepairs, isolatedScene]) {
+      expect(sha256(item.source), item.source).toBe(item.sourceSha256);
+      expect(sha256(item.destination), item.destination).toBe(item.sha256);
+    }
+  });
   it("keeps the five owner-approved Page-1 assets present on disk", () => {
     const required = [
       "/cartilla/art/faithful/leccion-1/abrigo.webp",
