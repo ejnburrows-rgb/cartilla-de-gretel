@@ -1,5 +1,7 @@
 # Cartilla — active tasks pointer
 
+> **Active owner scope, 2026-10-29: ORGANIZATION ONLY.** All "Execute" and product-continuation language below is deferred until owner authorization to resume development; it is preserved solely as backlog guidance. Check [#877](https://github.com/ejnburrows-rgb/cartilla-de-gretel/issues/877) for the latest directive. Do not start new product work or dispatch.
+
 The **only current work queue** is [GitHub issue #877](https://github.com/ejnburrows-rgb/cartilla-de-gretel/issues/877), governed by [AGENTS.md](../AGENTS.md), the existing [tasks/plan.md](plan.md) execution order, and [PROJECT_FINISH_DEFINITION.md](../PROJECT_FINISH_DEFINITION.md). **Do not treat this file as a second queue, live worker census or dispatch authority.**
 
 The previous October 11 Jules task snapshots, issue #495/#587 worker assignments and historical controller references are available in Git history and original issue comments; they do not prove those workers are currently running or authorize reopening completed or overlapping work.
