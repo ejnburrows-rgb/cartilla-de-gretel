@@ -529,3 +529,86 @@
   color: #70263b;
   box-shadow: none;
 }
+
+
+/* ── Viewport Ergonomics & Minimum Touch Target Standards (375px–1280px) ── */
+.native-lesson-viewer {
+  max-width: 100%;
+  overflow-x: clip;
+}
+.native-lesson-viewer__stage,
+.native-lesson-viewer__leaf,
+.native-lesson-viewer__content {
+  max-width: 100%;
+}
+
+/* Touch target discipline: WCAG 2.5.5 / 2.5.8 >= 44px minimum touch targets */
+.native-lesson-viewer .am-dibuja__toolbar {
+  max-width: 100%;
+  box-sizing: border-box;
+}
+.native-lesson-viewer .am-dibuja__toolbar button,
+.native-lesson-viewer .am-dibuja__swatch,
+.native-lesson-viewer .am-dibuja__tool,
+.native-lesson-viewer .am-dibuja__done {
+  min-width: 44px;
+  min-height: 44px;
+  box-sizing: border-box;
+}
+.native-lesson-viewer .fp-trace__actions {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  flex-shrink: 0;
+}
+.native-lesson-viewer .fp-trace__mode-toggle {
+  min-width: 44px;
+  min-height: 44px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 8px 12px;
+  font-size: 13px;
+  font-weight: 700;
+  border-radius: 10px;
+  border: 1px solid #a5cec6;
+  background: #ffffff;
+  color: #126b62;
+  cursor: pointer;
+  touch-action: manipulation;
+  white-space: nowrap;
+  box-sizing: border-box;
+}
+.native-lesson-viewer .fp-trace__mode-toggle:hover {
+  background: #e8f8f3;
+}
+.native-lesson-viewer .fp-trace__mode-toggle:focus-visible {
+  outline: 3px solid #126b62;
+  outline-offset: 2px;
+}
+.native-lesson-viewer .fp-trace__reset {
+  min-width: 44px;
+  min-height: 44px;
+  box-sizing: border-box;
+}
+.native-lesson-viewer__navigation button {
+  min-width: 44px;
+  min-height: 48px;
+  box-sizing: border-box;
+}
+
+/* Accessibility: clean static rendering and immediate state transitions under prefers-reduced-motion */
+@media (prefers-reduced-motion: reduce) {
+  .native-lesson-viewer,
+  .native-lesson-viewer *,
+  .native-lesson-viewer *::before,
+  .native-lesson-viewer *::after {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
+  }
+  .native-lesson-viewer .native-page-curl,
+  .native-lesson-viewer .native-corner-peel {
+    display: none !important;
+  }
+}
