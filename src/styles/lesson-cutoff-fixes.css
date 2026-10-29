@@ -223,10 +223,10 @@
 .lc-lesson-shell--fit .native-lesson-viewer__content .gretel-activity[data-gretel-activity^="page-79-"] .am-dibuja__swatch,
 .lc-lesson-shell--fit .native-lesson-viewer__content .gretel-activity[data-gretel-activity^="page-83-"] .am-dibuja__swatch,
 .lc-lesson-shell--fit .native-lesson-viewer__content .gretel-activity[data-gretel-activity^="page-85-"] .am-dibuja__swatch {
-  width: 26px;
-  height: 26px;
-  min-width: 26px;
-  min-height: 26px;
+  width: 44px;
+  height: 44px;
+  min-width: 44px;
+  min-height: 44px;
 }
 /* Visual order: colors, eraser, done check — then undo and clear behind the
  * strip's right edge on the narrowest screens. The done button becomes a
@@ -247,10 +247,10 @@
 .lc-lesson-shell--fit .native-lesson-viewer__content .gretel-activity[data-gretel-activity^="page-83-"] .am-dibuja__done,
 .lc-lesson-shell--fit .native-lesson-viewer__content .gretel-activity[data-gretel-activity^="page-85-"] .am-dibuja__done {
   order: 1;
-  min-height: 26px;
-  min-width: 26px;
-  height: 26px;
-  padding: 0 6px;
+  min-height: 44px;
+  min-width: 44px;
+  height: 44px;
+  padding: 0 10px;
   font-size: 0;
 }
 .lc-lesson-shell--fit .native-lesson-viewer__content .gretel-activity[data-gretel-activity^="page-35-"] .am-dibuja__done::after,
@@ -288,10 +288,10 @@
 .lc-lesson-shell--fit .native-lesson-viewer__content .gretel-activity[data-gretel-activity^="page-83-"] .am-dibuja__tool,
 .lc-lesson-shell--fit .native-lesson-viewer__content .gretel-activity[data-gretel-activity^="page-85-"] .am-dibuja__tool {
   order: 2;
-  min-height: 26px;
-  min-width: 26px;
-  height: 26px;
-  padding: 2px 5px;
+  min-height: 44px;
+  min-width: 44px;
+  height: 44px;
+  padding: 4px 8px;
   font-size: 11px;
 }
 .lc-lesson-shell--fit .native-lesson-viewer__content .gretel-activity[data-gretel-activity^="page-35-"] .am-dibuja__tool--eraser,
@@ -408,5 +408,14 @@
     position: absolute;
     inset: 0;
     overflow: hidden;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .lc-lesson-shell--fit,
+  .lc-lesson-shell--fit * {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
   }
 }
