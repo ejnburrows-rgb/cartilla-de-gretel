@@ -54,13 +54,15 @@ export function visiblePageLabel(
   pages?: { pageNumber?: number }[],
 ): string {
   const logicalIndex = logicalPageIndex(currentIndex, pageCount, spread);
+  const total = pages && pages.length > 0 ? (pages[pages.length - 1].pageNumber ?? pageCount) : pageCount;
+
   if (!pages || pages.length === 0) {
-    if (!spread) return `Página ${logicalIndex + 1} de ${pageCount}`;
+    if (!spread) return `Página ${logicalIndex + 1} de ${total}`;
     const first = logicalIndex + 1;
     const last = Math.min(logicalIndex + 2, pageCount);
     return first === last
-      ? `Página ${first} de ${pageCount}`
-      : `Páginas ${first}–${last} de ${pageCount}`;
+      ? `Página ${first} de ${total}`
+      : `Páginas ${first}–${last} de ${total}`;
   }
 
   const firstEntry = pages[logicalIndex];
@@ -71,9 +73,9 @@ export function visiblePageLabel(
   const lastNum = lastEntry?.pageNumber ?? (lastIdx + 1);
 
   if (!spread || logicalIndex === lastIdx || firstNum === lastNum) {
-    return `Página ${firstNum} de ${pageCount}`;
+    return `Página ${firstNum} de ${total}`;
   }
-  return `Páginas ${firstNum}–${lastNum} de ${pageCount}`;
+  return `Páginas ${firstNum}–${lastNum} de ${total}`;
 }
 
 export function expectedTurnIndex(
@@ -81,9 +83,30 @@ export function expectedTurnIndex(
   pageCount: number,
   spread: boolean,
   direction: "next" | "prev",
+  pages?: { pageNumber?: number }[],
 ): number {
   const delta = spread ? 2 : 1;
   const logicalIndex = logicalPageIndex(currentIndex, pageCount, spread);
+
+  if (pages && pages.length === pageCount) {
+    const currentPageNumber = pages[logicalIndex]?.pageNumber;
+    if (currentPageNumber !== undefined) {
+      const targetPageNumber = direction === "next" ? currentPageNumber + delta : currentPageNumber - delta;
+
+      const targetIndex = pages.findIndex(p => p.pageNumber !== undefined && p.pageNumber >= targetPageNumber);
+      if (targetIndex !== -1) {
+        if (direction === "prev" && pages[targetIndex].pageNumber! > targetPageNumber) {
+          const reversedIndex = [...pages].reverse().findIndex(p => p.pageNumber !== undefined && p.pageNumber <= targetPageNumber);
+          if (reversedIndex !== -1) {
+            const prevIndex = pages.length - 1 - reversedIndex;
+            return logicalPageIndex(prevIndex, pageCount, spread);
+          }
+        }
+        return logicalPageIndex(targetIndex, pageCount, spread);
+      }
+    }
+  }
+
   return logicalPageIndex(
     direction === "next" ? logicalIndex + delta : logicalIndex - delta,
     pageCount,
@@ -313,6 +336,7 @@ export function CurlPageViewer({
       pages.length,
       spread,
       "prev",
+      pages,
     );
     if (!startTurn()) return;
     pendingDestinationRef.current = expectedIndex;
@@ -328,6 +352,7 @@ export function CurlPageViewer({
       pages.length,
       spread,
       "next",
+      pages,
     );
     if (!startTurn()) return;
     pendingDestinationRef.current = expectedIndex;
@@ -463,7 +488,7 @@ export function CurlPageViewer({
                         className="premium-book-page book-paper-surface flex h-full w-1/2 flex-col overflow-hidden"
                         data-leaf-side="left"
                       >
-                        <div className="h-full w-full flex-1 p-0">
+                        <div className="h-full w-full flex-1 p-0" key={(destLeftPage ?? currentLeftPage)?.id}>
                           {(destLeftPage ?? currentLeftPage)?.content}
                         </div>
                       </div>
@@ -471,7 +496,7 @@ export function CurlPageViewer({
                         className="premium-book-page book-paper-surface flex h-full w-1/2 flex-col overflow-hidden"
                         data-leaf-side="right"
                       >
-                        <div className="h-full w-full flex-1 p-0">
+                        <div className="h-full w-full flex-1 p-0" key={(destRightPage ?? currentRightPage)?.id}>
                           {(destRightPage ?? currentRightPage)?.content}
                         </div>
                       </div>
@@ -481,7 +506,7 @@ export function CurlPageViewer({
 
                 return (
                   <div className="premium-book-page book-paper-surface flex h-full w-full flex-col overflow-hidden">
-                    <div className="h-full w-full flex-1 p-0">
+                    <div className="h-full w-full flex-1 p-0" key={(destLeftPage ?? currentLeftPage)?.id}>
                       {(destLeftPage ?? currentLeftPage)?.content}
                     </div>
                   </div>
