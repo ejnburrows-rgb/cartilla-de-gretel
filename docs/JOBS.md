@@ -1,5 +1,7 @@
 # Cartilla job routing — use the existing live queue
 
+> **Current owner scope (2026-10-29): organization/source-of-truth reconciliation ONLY.** No Tutor, Workbook, art/audio, game, teacher feature implementation or product-agent dispatch until the owner explicitly resumes work. The previously listed eight lanes are preserved backlog, not active assignments. The [current directive in issue #877](https://github.com/ejnburrows-rgb/cartilla-de-gretel/issues/877) supersedes the older continuation language below.
+
 **Current owner-facing controller:** ChatGPT/Codex. **Live queue:** [GitHub issue #877](https://github.com/ejnburrows-rgb/cartilla-de-gretel/issues/877). **Execution rules:** [AGENTS.md](../AGENTS.md). **Finish criteria:** [PROJECT_FINISH_DEFINITION.md](../PROJECT_FINISH_DEFINITION.md). **Sequence:** [tasks/plan.md](../tasks/plan.md).
 
 This document **does not create another job board** and does not authorize new dispatch or another controller. The previous October 16 worker/session table, old Flip Chart look-choice wait, failed/empty Jules sessions and dated status entries are preserved in Git history and #877 history, **not current job instructions**. Do not revive them without a verified current gap and explicit authorization.
