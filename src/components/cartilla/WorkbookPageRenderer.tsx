@@ -1,5 +1,5 @@
 import { useMemo } from "react";
-import { CATALOG, type CatalogEntry } from "@/lib/lesson-catalog";
+import { CATALOG } from "@/lib/lesson-catalog";
 import { MonochromeDrawing } from "./MonochromeDrawings";
 
 // Layout constants for strict compliance with the JSX double-brace styling ban

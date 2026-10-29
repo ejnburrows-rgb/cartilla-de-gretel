@@ -1,0 +1,52 @@
+[
+  {
+    "path": "docs/curriculum/NOTEBOOKLM_SOURCE_EXTRACTION.md",
+    "occurrences": 1,
+    "action": "character name corrected"
+  },
+  {
+    "path": "public/cartilla/art/manifest.json",
+    "occurrences": 2,
+    "action": "character name corrected"
+  },
+  {
+    "path": "src/data/flipchart-production-art.json",
+    "occurrences": 1,
+    "action": "character name corrected"
+  },
+  {
+    "path": "src/data/flipchart-text-3-22.json",
+    "occurrences": 2,
+    "action": "character name corrected"
+  },
+  {
+    "path": "src/data/content-manifest.json",
+    "occurrences": 2,
+    "action": "character name corrected"
+  },
+  {
+    "path": "src/content/picture-vocabulary.json",
+    "occurrences": 2,
+    "action": "character name corrected"
+  },
+  {
+    "path": "src/content/guides/lesson-4.tsx",
+    "occurrences": 1,
+    "action": "character name corrected"
+  },
+  {
+    "path": "src/content/guia/lesson-4.json",
+    "occurrences": 1,
+    "action": "character name corrected"
+  },
+  {
+    "path": "src/content/guia/lesson-1.json",
+    "occurrences": 2,
+    "action": "character name corrected"
+  },
+  {
+    "path": "src/content/picture-name-recordings.json",
+    "occurrences": 2,
+    "action": "removed wrong spoken-name runtime mapping; original mp3 retained unchanged"
+  }
+]

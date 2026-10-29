@@ -1,4 +1,4 @@
-import { useState, useEffect, useRef, useCallback } from "react";
+import { useState, useEffect, useCallback } from "react";
 import { motion } from "framer-motion";
 import { playNote, playCorrectChord } from "@/lib/piano-audio";
 import { recordEvent } from "@/lib/student-session";

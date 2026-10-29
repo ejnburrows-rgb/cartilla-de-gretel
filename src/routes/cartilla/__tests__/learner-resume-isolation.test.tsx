@@ -74,8 +74,8 @@ vi.mock("@/components/StudentBook/CurlPageViewer", () => ({
   CurlPageViewer: (props: Parameters<typeof Viewer>[0]) => <Viewer {...props} />,
 }));
 import { Leccion } from "../-leccion-view";
-import { Route } from "../cuaderno";
-const Workbook = Route.options.component!;
+// @ts-expect-error The router plugin supplies this virtual module at transform time.
+import { component as Workbook } from "../cuaderno?tsr-split=component";
 async function show(element: React.ReactNode) {
   render(<Suspense fallback={<p>Loading</p>}>{element}</Suspense>);
   await screen.findByRole("status");
