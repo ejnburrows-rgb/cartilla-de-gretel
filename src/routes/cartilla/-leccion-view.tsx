@@ -123,7 +123,19 @@ export function Leccion() {
   // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [scope, session, progressData, n, pages.length]);
 
-  useEffect(() => { if (progressReady) saveLearnerResume(n, initialPage, pages[initialPage]?.pageNumber, pages[initialPage]?.id); }, [scope, n, progressReady, initialPage, pages]);
+  // A stored Piano bookmark must survive a reopen where Piano is currently
+  // unavailable: the lesson still opens on the last printed page, but the
+  // mount save below must not rewrite the bookmark to that fallback page,
+  // or a later reopen with Piano available would never return to Piano.
+  // Only explicit Piano identities (pageId) are preserved here; legacy
+  // bookmarks without an identity keep the existing migration behavior.
+  const storedPianoBookmarkUnavailable = useMemo(() => {
+    const local = readLearnerResume(n);
+    if (!local?.pageId || local.pageId !== `piano-lesson-${n}`) return false;
+    return pages.every((page) => page.id !== local.pageId);
+  }, [scope, n, pages]);
+
+  useEffect(() => { if (progressReady && !storedPianoBookmarkUnavailable) saveLearnerResume(n, initialPage, pages[initialPage]?.pageNumber, pages[initialPage]?.id); }, [scope, n, progressReady, initialPage, pages, storedPianoBookmarkUnavailable]);
   // Laptop full screen (owner decision 2026-10-12). Opening a lesson from the
   // lesson list already asks for it; if the lesson was opened another way,
   // the first tap on the page paper (not on an activity) asks once. Leaving

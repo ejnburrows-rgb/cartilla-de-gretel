@@ -127,6 +127,26 @@ describe("lesson learner resume", () => {
     expect((await screen.findByRole("status")).textContent).toBe("piano-lesson-24");
   });
 
+  it("keeps a stored Piano bookmark when Piano is unavailable after detection settles", async () => {
+    identity.lesson = 24;
+    identity.pianoProcessing = "checking";
+    saveLearnerResume(24, 3, undefined, "piano-lesson-24");
+    const view = render(<Leccion />);
+    expect(readLearnerResume(24)).toMatchObject({ page: 3, pageId: "piano-lesson-24" });
+    identity.pianoProcessing = "unavailable";
+    identity.pianoSupported = false;
+    view.rerender(<Leccion />);
+    // Display falls back to the last printed page, storage does not.
+    expect((await screen.findByRole("status")).textContent).toBe("90");
+    expect(readLearnerResume(24)).toMatchObject({ page: 3, pageId: "piano-lesson-24" });
+    cleanup();
+    identity.pianoSupported = true;
+    identity.pianoProcessing = "on-device";
+    render(<Leccion />);
+    expect((await screen.findByRole("status")).textContent).toBe("piano-lesson-24");
+    expect(readLearnerResume(24)).toMatchObject({ page: 3, pageId: "piano-lesson-24" });
+  });
+
   it("omits an unavailable Piano leaf only after detection settles", async () => {
     identity.lesson = 24;
     identity.pianoProcessing = "checking";
