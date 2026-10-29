@@ -45,7 +45,7 @@ For curriculum, wording, page order, exercise content, and source-page structure
 
 ## Current work
 
-Current product-completion execution remains intentionally parallel where scopes are isolated.
+Once the owner explicitly resumes product development, product-completion execution may remain parallel where scopes are isolated. Until then, only organization/source-of-truth reconciliation is in scope.
 
 Historical October 4 work snapshot (NOT a live open-PR list; check GitHub for today's open candidates):
 - #476 — shared student interaction kernel + Workbook p1/p2;
