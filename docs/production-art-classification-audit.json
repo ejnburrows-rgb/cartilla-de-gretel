@@ -9,7 +9,7 @@
     "drawingGroups": 201,
     "engravedOnMain": "2026-10-15"
   },
-  "timestamp": "2026-10-22T07:50:51.172Z",
+  "timestamp": "2026-10-29T07:03:14.941Z",
   "counts": {
     "faithfulWired": 110,
     "flipchartNativeWired": 167,
@@ -1864,18 +1864,18 @@
         222
       ],
       "classification": "PENDING NO VERIFIED SOURCE",
-      "dimensions": "320x320",
-      "bytes": 35084,
+      "dimensions": "640x640",
+      "bytes": 291230,
       "exists": true,
       "verified": false,
       "sourcePageMatches": true,
       "hasCropEvidence": true,
       "cropMatch": false,
       "aspectMatch": true,
-      "matchScore": 22,
-      "meanDiff": 52,
+      "matchScore": 25,
+      "meanDiff": 55.5,
       "evidence": null,
-      "pendingReason": "no deterministic crop correspondence (ncc 0.216, mean diff 52.0, aspectMatch true)"
+      "pendingReason": "no deterministic crop correspondence (ncc 0.254, mean diff 55.5, aspectMatch true)"
     },
     {
       "src": "/cartilla/art/optimized/flipchart-native/p007-indio.png",
