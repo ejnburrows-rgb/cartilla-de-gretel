@@ -12,7 +12,14 @@ const ROOT = resolve(__dirname, "../../..");
 const manifest: Record<string, { still: string; alive: string; stillSha256: string }> = JSON.parse(
   readFileSync(resolve(ROOT, "scripts/living-motion/manifest.json"), "utf8"),
 );
-const sha = (p: string) => createHash("sha256").update(readFileSync(resolve(ROOT, p))).digest("hex");
+const sha = (p: string) => {
+  const bytes = readFileSync(resolve(ROOT, p));
+  // Compare the canonical SVG text bytes, independent of Windows CRLF checkout.
+  const canonical = p.endsWith(".svg")
+    ? Buffer.from(bytes.toString("utf8").replace(/\r\n/g, "\n"), "utf8")
+    : bytes;
+  return createHash("sha256").update(canonical).digest("hex");
+};
 const HOW_TO_FIX =
   "Re-run `python3 scripts/living-motion/build.py <name>` (and re-check the motion coordinates in " +
   "scripts/living-motion/all.py for the new art), or remove that picture's aliveSrc line in " +

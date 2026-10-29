@@ -24,6 +24,43 @@ export function validatePolicy(docs) {
       errors.push(`${name}: mandatory Sonar language conflicts with owner policy`);
     }
   }
+  // Regression guard for known execution-policy contradictions. Keep this focused
+  // on the four active governing documents; archived notes are not instructions.
+  const required = {
+    'AGENTS.md': [
+      [/one active assignment\s*=\s*one bounded deliverable/i, 'task-bound (not session-bound) deliverables'],
+      [/\b(?:advance|continue|proceed)\b.{0,100}(?:next|another).{0,130}(?:eligible|authorized)/i, 'continue next eligible assignment'],
+      [/\bsame available session\b/i, 'same-session continuation'],
+      [/(?:formal.{0,40}GitHub|GitHub.{0,40}formal|eligible independent GitHub)/i, 'formal GitHub review gate'],
+      [/no self-approval/i, 'no self-approval guard'],
+      [/Mariposas is included/i, 'owner decision to retain Mariposas'],
+    ],
+    'PROJECT_SOURCE_OF_TRUTH.md': [[/#877/, 'canonical issue #877']],
+    'PROJECT_FINISH_DEFINITION.md': [[/#877/, 'canonical issue #877']],
+    'tasks/plan.md': [
+      [/#877/, 'canonical issue #877'],
+      [/immediately continue the next independent eligible task/i, 'continue independent work after a hold'],
+    ],
+  };
+  const obsolete = [
+    [/one session\s*=\s*one bounded deliverable/i, 'session-ending deliverable rule'],
+    [/automatically refill verified idle slots/i, 'obsolete automatic Jules refill'],
+    [/voice work is moot/i, 'incorrect cancellation of recording recovery'],
+    [/final voice\/TTS direction is deferred/i, 'obsolete voice-provider selection'],
+    [/the final Gretel voice\/TTS direction is \*\*NOT YET LOCKED\*\*/i, 'obsolete unresolved voice provider'],
+    [/owner is not required to approve ordinary technical merges/i, 'obsolete blanket merge authorization'],
+    [/no additional external reviewer is required/i, 'obsolete formal-review exemption'],
+  ];
+  for (const name of POLICY_FILES) {
+    const text = docs?.[name];
+    if (typeof text !== 'string') continue;
+    for (const [pattern, label] of required[name] ?? []) {
+      if (!pattern.test(text)) errors.push(name + ': missing ' + label);
+    }
+    for (const [pattern, label] of obsolete) {
+      if (pattern.test(text)) errors.push(name + ': obsolete ' + label);
+    }
+  }
   return {ok:errors.length===0,errors};
 }
 
