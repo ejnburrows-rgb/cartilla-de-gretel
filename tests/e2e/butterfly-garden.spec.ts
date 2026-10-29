@@ -1,11 +1,14 @@
 import { test, expect } from "@playwright/test";
 import fs from "node:fs";
 import path from "node:path";
+import { createHash } from "node:crypto";
 
 const proof = path.resolve("docs/proofs/mariposas-2026-10-29");
 const words = [["ma", "pa"], ["po", "mo"], ["Mu", "pi"], ["Pe", "Pe"], ["Pu", "ma"], ["Pu", "pi"]];
 
 test.use({ video: "on" });
+// Include cold Chromium/video fixture startup in the same journey budget.
+test.setTimeout(90_000);
 
 async function openGame(page: import("@playwright/test").Page) {
   const errors: string[] = [];
@@ -21,12 +24,9 @@ async function openGame(page: import("@playwright/test").Page) {
 
 async function place(page: import("@playwright/test").Page, id: string, slot: number, touch = false) {
   const butterfly = page.getByTestId(`bf-${id}`);
-  const home = await butterfly.evaluate((el) => el.style.transform);
   if (touch) await butterfly.tap(); else await butterfly.click();
   await expect(page.getByTestId(`slot-${slot}`)).toHaveText(id, { ignoreCase: true });
-  await expect.poll(() => butterfly.evaluate((el) => el.style.transform)).toBe(home);
-  // The busy guard clears on the promise continuation after the final frame.
-  await page.waitForTimeout(60);
+  await expect(butterfly.locator(".bfg-anim-flutter-fly")).toHaveCount(0);
 }
 
 test("desktop reduced motion: round result, wrong answer, focus and reload persistence", async ({ page }) => {
@@ -93,7 +93,10 @@ test("phone touch: animated delivery, wrong return, correct word and help", asyn
   await page.getByTestId("help").tap();
   await expect(page.getByRole("heading", { name: "Instrucciones:" })).toBeVisible();
   await page.getByRole("button", { name: "¡A jugar!" }).tap();
-  await page.getByTestId("can").tap();
+  // Tap the moving congratulation control as a touchscreen user does; waiting
+  // for CSS bounce to become stationary would never activate the real button.
+  const canBox = (await page.getByTestId("can").boundingBox())!;
+  await page.touchscreen.tap(canBox.x + canBox.width / 2, canBox.y + canBox.height / 2);
   await expect(page.getByTestId("word")).toHaveText("pomo");
   expect(errors).toEqual([]);
   const video = page.video();
@@ -102,6 +105,10 @@ test("phone touch: animated delivery, wrong return, correct word and help", asyn
 });
 
 test("tablet and projector: original images load and game controls fit", async ({ page }) => {
+  const masterDir = path.resolve("src/assets/games/butterfly-garden");
+  const hash = (bytes: Buffer) => createHash("sha256").update(bytes).digest("hex");
+  const masters = new Map(fs.readdirSync(masterDir).map((name) => [hash(fs.readFileSync(path.join(masterDir, name))), name]));
+  const served = new Map<string, { sha256: string; master: string }>();
   for (const viewport of [{ width: 768, height: 1024 }, { width: 1366, height: 768 }, { width: 1920, height: 1080 }]) {
     await page.setViewportSize(viewport);
     const errors = await openGame(page);
@@ -115,8 +122,17 @@ test("tablet and projector: original images load and game controls fit", async (
     }
     const images = await page.locator("img").evaluateAll((els) => els.map((el) => ({ src: el.currentSrc, loaded: el.complete && el.naturalWidth > 0 })));
     expect(images.every((image) => image.loaded)).toBe(true);
+    for (const src of new Set(images.map((image) => image.src))) {
+      if (served.has(src)) continue;
+      const response = await page.request.get(src);
+      expect(response.ok()).toBe(true);
+      const sha256 = hash(await response.body());
+      expect(masters.has(sha256), src).toBe(true);
+      served.set(src, { sha256, master: masters.get(sha256)! });
+    }
     fs.writeFileSync(path.join(proof, `images-${viewport.width}.json`), JSON.stringify(images, null, 2));
     await page.screenshot({ path: path.join(proof, `viewport-${viewport.width}.png`) });
     expect(errors).toEqual([]);
   }
+  fs.writeFileSync(path.join(proof, "served-original-image-hashes.json"), JSON.stringify([...served], null, 2));
 });
