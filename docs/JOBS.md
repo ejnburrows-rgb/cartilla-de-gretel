@@ -6,7 +6,7 @@
 
 This document **does not create another job board** and does not authorize new dispatch or another controller. The previous October 16 worker/session table, old Flip Chart look-choice wait, failed/empty Jules sessions and dated status entries are preserved in Git history and #877 history, **not current job instructions**. Do not revive them without a verified current gap and explicit authorization.
 
-The eight lanes in `tasks/plan.md` are **preserved product backlog while organization-only scope applies**. Do not execute or dispatch them now. After the owner explicitly resumes product development, recover already-owned specialist work rather than duplicating branches, PRs, sessions or audits. A status update by itself is not product progress.
+The eight lanes recorded in issue #877 are **preserved product backlog while organization-only scope applies**. Do not execute or dispatch them now. After the owner explicitly resumes product development, recover already-owned specialist work rather than duplicating branches, PRs, sessions or audits. A status update by itself is not product progress.
 
 **Settled:** owner visual/routine approvals A–E; Mariposas included via existing #1079/#1010 rather than rejected #1208 removal; single-eye `ojo` / `ojo.png`; no invented pages 86–87; authentic Gretel recording recovery on existing #769; no new voice provider.
 
