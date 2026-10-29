@@ -81,7 +81,7 @@ export function StudentTable({
                         if (e.key === "Enter") handleSaveRename(s.id);
                         if (e.key === "Escape") setEditingId(null);
                       }}
-                      autoFocus
+                      autoFocus readOnly={busy} aria-label="Nombre del alumno"
                       maxLength={50}
                       className="font-extrabold text-stone-800 text-sm px-2 py-1 rounded-lg border-2 border-vowel-a focus:outline-none w-40"
                     />
