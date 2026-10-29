@@ -66,7 +66,7 @@ Activities do not own a second Gretel instance.
 - correct selection after the pencil finishes drawing → kernel emits success; Gretel says “Buen trabajo”;
 - page/activity completion → one restrained completion reaction, then settle.
 
-Final voice/TTS provider remains deferred.
+No new voice/TTS provider is to be selected. Existing #769 original Gretel recording recovery, phrase/page matching and audible verification remain unfinished; where unavailable, do not invent speech or claim successful playback.
 
 ## 4. Workbook navigation/page turn
 

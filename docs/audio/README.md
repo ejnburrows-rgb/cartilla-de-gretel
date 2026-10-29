@@ -6,7 +6,7 @@ Current inventory: **199 unique pronunciation keys, 161 approved recordings, 38 
 
 Active `src/content/audio-manifest.ts` policy has `allowTts: false`. No approved pilot exception was found. Device speech fallback remains disabled. Existing effects, ambient sound and silent.mp3 are not vocabulary recordings. No assets were created, renamed or removed.
 
-To supply a genuine recording, add the owner-approved audio file and an entry to `src/content/picture-name-recordings.json`: `{"key":"oso","src":"/audio/voz/vocabulario/oso.mp3","approval":"Owner approval reference"}`. The generator rejects unknown names, absent files, absent approval provenance and duplicate pronunciation entries. The runtime does not derive recording paths from filenames. The shipped list contains the 162 owner-approved Candidate B recordings (approved 2026-10-04; files merged in #503).
+To supply a genuine recording, add the owner-approved audio file and an entry to `src/content/picture-name-recordings.json`: `{"key":"oso","src":"/audio/voz/vocabulario/oso.mp3","approval":"Owner approval reference"}`. The generator rejects unknown names, absent files, absent approval provenance and duplicate pronunciation entries. The runtime does not derive recording paths from filenames. The current checked-in `src/content/picture-name-recordings.json` has **161** approved entries (owner Candidate B source; prior import #503). The earlier 162-count statement was stale. An approved manifest entry is not evidence of live audible output.
 
 The shared service prefers approved recordings. Its conditional device TTS path runs only if the active policy explicitly permits it. A missing recording under the current policy shows a gentle availability message. Names without an approved recording stay silent with the gentle availability message.
 
@@ -17,10 +17,10 @@ Gretel's character voice across all lessons and activities uses a unified provid
 ### Technical Seam (One-Config Replacement)
 - **Unified Function:** All lesson logic calls `speakAsGretel(text, handlers)` without knowing the underlying speech engine or provider.
 - **Provider Configuration:** Configured via `setGretelVoiceProviderConfig(config)`. Supports provider types `browser-tts`, `recorded-audio`, `cloud-tts`, and `custom`.
-- **Default Baseline:** Local/free Web Speech API browser TTS (`browser-tts`) with neutral LatAm Spanish voice selection and adult female fallback.
+- **Legacy abstraction:** browser TTS support exists in code, but `src/content/audio-manifest.ts` has `allowTts: false`; the current owner direction prohibits synthesized Gretel playback. Never treat the legacy code path as approved voice output.
 - **Mute & Cancellation Control:** Unified mute persistence (`cartilla.gretel.voice.muted`) and global speech cancellation token integration via `src/lib/speech-playback.ts`.
 
-### Owner Choice Options
-1. **Option A: Free Browser Native TTS (Current Default)** — $0/mo. Uses local device voice synthesizers.
-2. **Option B: Premium Cloud Neural TTS (ElevenLabs / Google Cloud / Azure Neural TTS)** — Requires subscription or usage API key. Plugs directly into `setGretelVoiceProviderConfig({ type: 'cloud-tts', speakFn: ... })` without changing lesson code.
-3. **Option C: Studio Recorded Audio Assets** — Girl's recorded voice audio files mapped per line/prompt. Plugs directly into `setGretelVoiceProviderConfig({ type: 'recorded-audio', speakFn: ... })`.
+### Historical provider options — NOT current work
+1. **Historical Option A: Free Browser Native TTS** — describes existing abstraction only; not approved Gretel content playback or a new selection.
+2. **Historical Option B: Paid cloud TTS** — prohibited as a new provider or spending decision without explicit authorization.
+3. **Current owner direction: recover original Gretel recordings in existing #769.** Align authentic heard words with real pages/events; rejected 67 clips remain quarantined. Missing master and unproven audible playback are unresolved, not a reason to generate or rerecord. Picture-name recordings are a separate catalog.
