@@ -1,5 +1,7 @@
 # Project Memory — La Cartilla de Gretel
 
+> **Historical session notes — not live instructions.** Entries below record past agent work and may refer to obsolete staging branches, controllers, worker counts or merge rules. For current assignments and approval holds, use [GitHub issue #877](https://github.com/ejnburrows-rgb/cartilla-de-gretel/issues/877); follow root [AGENTS.md](../AGENTS.md) for active execution rules. Do not launch or resume a worker solely from this memory file.
+
 ## Swarm Dispatcher Checkpoint (2026-10-29)
 
 ### Architecture Decisions
