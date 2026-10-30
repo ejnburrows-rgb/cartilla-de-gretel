@@ -2,6 +2,7 @@ import { expect, test } from "@playwright/test";
 
 const LIVE_GAME_IDS = [
   "payaso-chano-ss",
+  "bubble-organ-m",
   "mariposas-p",
   "vocal-a",
   "fonetica-p",
@@ -21,6 +22,15 @@ test.describe("all themed games", () => {
       await expect(page.getByLabel("Instrucciones del juego")).toBeVisible();
     });
   }
+
+  test("bubble organ forms mamá without device TTS", async ({ page }) => {
+    await page.goto("/cartilla/juego/bubble-organ-m");
+    await page.getByRole("button", { name: "Tubo ma" }).click();
+    await page.getByRole("button", { name: "Tubo ma" }).click();
+    await expect(page.getByText("¡Formaste mamá!")).toBeVisible();
+    await page.getByRole("button", { name: "Formar otra palabra" }).click();
+    await expect(page.getByRole("button", { name: "Tubo ma" })).toBeEnabled();
+  });
 
   test("mariposas completes a source-backed word", async ({ page }) => {
     await page.goto("/cartilla/juego/mariposas-p");
