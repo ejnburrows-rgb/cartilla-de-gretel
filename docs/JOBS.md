@@ -1,10 +1,12 @@
 # Cartilla job routing — use the existing live queue
 
+> **Current owner scope (2026-10-29): organization/source-of-truth reconciliation ONLY.** No Tutor, Workbook, art/audio, game, teacher feature implementation or product-agent dispatch until the owner explicitly resumes work. The previously listed eight lanes are preserved backlog, not active assignments. The [current directive in issue #877](https://github.com/ejnburrows-rgb/cartilla-de-gretel/issues/877) supersedes the older continuation language below.
+
 **Current owner-facing controller:** ChatGPT/Codex. **Live queue:** [GitHub issue #877](https://github.com/ejnburrows-rgb/cartilla-de-gretel/issues/877). **Execution rules:** [AGENTS.md](../AGENTS.md). **Finish criteria:** [PROJECT_FINISH_DEFINITION.md](../PROJECT_FINISH_DEFINITION.md). **Sequence:** [tasks/plan.md](../tasks/plan.md).
 
 This document **does not create another job board** and does not authorize new dispatch or another controller. The previous October 16 worker/session table, old Flip Chart look-choice wait, failed/empty Jules sessions and dated status entries are preserved in Git history and #877 history, **not current job instructions**. Do not revive them without a verified current gap and explicit authorization.
 
-The current existing assignments are the eight completion lanes in `tasks/plan.md`. Continue the already-owned specialist work; never duplicate a branch, PR, inventory, provider session or audit. When one task is blocked, document the exact blocker and continue a disjoint eligible task in the same run. A status update is not a stopping point.
+The eight lanes recorded in issue #877 are **preserved product backlog while organization-only scope applies**. Do not execute or dispatch them now. After the owner explicitly resumes product development, recover already-owned specialist work rather than duplicating branches, PRs, sessions or audits. A status update by itself is not product progress.
 
 **Settled:** owner visual/routine approvals A–E; Mariposas included via existing #1079/#1010 rather than rejected #1208 removal; single-eye `ojo` / `ojo.png`; no invented pages 86–87; authentic Gretel recording recovery on existing #769; no new voice provider.
 
