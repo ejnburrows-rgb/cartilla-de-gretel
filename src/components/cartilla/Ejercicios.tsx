@@ -34,7 +34,7 @@ export function WordMatch({
   color: string;
   lessonId?: string;
 }) {
-  const { play, playingText } = useAudio();
+  const { play, playingText, isAvailable } = useAudio();
   // Prefer items with real art; fall back to word-only tiles (honest, no emoji)
   const items = useMemo(() => {
     const withArt = words.filter((w) => w.illustrationSrc).slice(0, 4);
@@ -213,12 +213,14 @@ export function WordMatch({
             <strong>«{feedback.word}»</strong> no es ese dibujo. Lee la palabra otra vez, separa sus
             sílabas y busca el dibujo que la representa.
           </p>
-          <button
-            onClick={() => play(feedback.word)}
-            className="mt-2 inline-flex items-center gap-1 text-xs font-bold text-primary"
-          >
-            <Volume2 className="w-3.5 h-3.5" /> Escuchar «{feedback.word}»
-          </button>
+          {feedback && isAvailable(feedback.word) && (
+            <button
+              onClick={() => play(feedback.word)}
+              className="mt-2 inline-flex items-center gap-1 text-xs font-bold text-primary"
+            >
+              <Volume2 className="w-3.5 h-3.5" /> Escuchar «{feedback.word}»
+            </button>
+          )}
         </div>
       )}
       {allDone && (
