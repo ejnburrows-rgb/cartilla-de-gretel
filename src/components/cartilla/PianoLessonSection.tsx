@@ -29,9 +29,10 @@ export const PIANO_LESSONS: ReadonlySet<number> = new Set([7, 8, 9, 10, 20, 24])
 
 export interface PianoLessonSectionProps {
   lessonNumber: number;
+  showAvailabilityMessage?: boolean;
 }
 
-export function PianoLessonSection({ lessonNumber }: PianoLessonSectionProps) {
+export function PianoLessonSection({ lessonNumber, showAvailabilityMessage = false }: PianoLessonSectionProps) {
   /**
    * Reuse the existing on-device microphone probe. We pass a no-op onFinal
    * because this hook instance never starts the microphone — it only
@@ -52,7 +53,16 @@ export function PianoLessonSection({ lessonNumber }: PianoLessonSectionProps) {
   // "checking" → mic probe still running; render nothing until the browser
   // gives its definitive answer so we never flash the Piano on a device that
   // will hide it. "unavailable" → no confirmed on-device mic, hide entirely.
-  if (processing !== "on-device") return null;
+  if (processing !== "on-device") {
+    if (!showAvailabilityMessage) return null;
+    return (
+      <p role="status" className="mx-auto max-w-xl rounded-2xl border border-amber-200 bg-white p-6 text-center font-semibold text-stone-700">
+        {processing === "checking"
+          ? "Comprobando si este dispositivo puede reconocer la voz sin conexión…"
+          : "El Piano Hablador necesita reconocimiento de voz dentro del dispositivo. Aquí permanece apagado."}
+      </p>
+    );
+  }
 
   return (
     <PianoPronunciation

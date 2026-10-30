@@ -1,6 +1,6 @@
 import { createFileRoute, Link, useNavigate } from "@tanstack/react-router";
 import { useEffect, useMemo, useRef, useState } from "react";
-import { ArrowLeft, Zap, RotateCcw, Trophy } from "lucide-react";
+import { ArrowLeft, Zap, RotateCcw, Trophy, Music } from "lucide-react";
 import { CATALOG, getCanonicalArtPool, type ActivityId } from "@/lib/lesson-catalog";
 import { getPracticePictureWords } from "@/lib/vocabulary-sources";
 import { canBuildSoundSearch } from "@/lib/activity-mechanics";
@@ -119,6 +119,33 @@ function shuffle<T>(arr: T[]): T[] {
   return a;
 }
 
+function PianoLessonPicker() {
+  return (
+    <main className="min-h-screen bg-[#f7f2e8] px-4 py-8">
+      <section className="mx-auto max-w-3xl rounded-3xl border border-[#eadfc8] bg-white p-6 shadow-sm">
+        <Link to="/cartilla" className="inline-flex min-h-11 items-center gap-2 font-bold text-stone-600">
+          <ArrowLeft className="h-4 w-4" /> Volver a la cartilla
+        </Link>
+        <h1 className="mt-5 flex items-center gap-2 text-3xl font-black text-stone-900">
+          <Music className="h-7 w-7" /> Cancionero / Piano
+        </h1>
+        <p className="mt-2 text-stone-600">Elige una lección para practicar sus sílabas y palabras auténticas.</p>
+        <div className="mt-6 grid gap-3 sm:grid-cols-2">
+          {CATALOG.map((lesson) => (
+            <a
+              key={lesson.n}
+              href={`/cartilla/practica?modo=piano&lesson=${lesson.n}`}
+              className="flex min-h-14 items-center rounded-2xl border border-stone-200 px-4 py-3 font-bold text-stone-800 hover:bg-amber-50 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2"
+            >
+              Lección {lesson.n}: {lesson.title}
+            </a>
+          ))}
+        </div>
+      </section>
+    </main>
+  );
+}
+
 const DURATIONS = [60, 90, 120] as const;
 
 function buildPool(useUnlockedOnly: boolean, isUnlocked: (n: number) => boolean): string[] {
@@ -154,19 +181,22 @@ function buildCards(pool: string[], n: number): Card[] {
 function Practica() {
   const familyQuery = useMemo(() => {
     if (typeof window === "undefined") {
-      return { familyMode: false, lessonNumber: Number.NaN, activity: "silabas" as ActivityId };
+      return { familyMode: false, pianoMode: false, lessonNumber: Number.NaN, activity: "silabas" as ActivityId };
     }
     const params = new URLSearchParams(window.location.search);
     const lessonNumber = Number(params.get("lesson"));
+    const pianoMode = params.get("modo") === "piano";
     return {
-      familyMode: params.get("family") === "1" && Number.isInteger(lessonNumber) && lessonNumber > 0,
+      familyMode: (params.get("family") === "1" || pianoMode) && Number.isInteger(lessonNumber) && lessonNumber > 0,
+      pianoMode,
       lessonNumber,
-      activity: normalizeActivityId(params.get("activity")),
+      activity: pianoMode ? "piano" as ActivityId : normalizeActivityId(params.get("activity")),
     };
   }, []);
   const familyMode = familyQuery.familyMode;
   const familyLesson = familyQuery.lessonNumber;
   const familyActivity = familyQuery.activity;
+  const pianoMode = familyQuery.pianoMode;
   const { lang } = useLanguage();
   const t = sCopy;
   const navigate = useNavigate();
@@ -252,6 +282,7 @@ function Practica() {
   if (familyMode) {
     return <FamilyPractice lessonNumber={familyLesson} requestedActivity={familyActivity} />;
   }
+  if (pianoMode) return <PianoLessonPicker />;
 
   return (
     <main className="min-h-screen px-4 py-6 max-w-2xl mx-auto relative">
@@ -360,7 +391,7 @@ function Practica() {
                 Lee la sílaba que aparece en cada tarjeta.
               </p>
               <div className="text-xs text-foreground font-bold uppercase tracking-wide">
-                {t.tocaSilaba[lang]}
+                Elige la sílaba que coincide con el modelo visual
               </div>
               <div className="grid grid-cols-2 gap-3 mt-5">
                 {current.options.map((opt) => (

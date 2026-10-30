@@ -205,15 +205,18 @@ export function PianoDesignA({ syllables, words, lessonId, onComplete, locale }:
       </div>
 
       <div className="pa__controls">
-        <button
-          type="button"
-          className="pa__control"
-          onClick={s.listenToWord}
-          disabled={s.exampleActive}
-          data-testid="piano-escuchar"
-        >
-          <Volume2 aria-hidden="true" /> Escuchar
-        </button>
+        {s.canListenToWord && (
+          <button
+            type="button"
+            className="pa__control"
+            onClick={s.listenToWord}
+            disabled={s.exampleActive}
+            data-testid="piano-escuchar"
+            aria-label={`Escuchar ${s.item.word}`}
+          >
+            <Volume2 aria-hidden="true" /> Escuchar
+          </button>
+        )}
         <div className="pa__mic-wrap">
           <button
             type="button"
@@ -248,7 +251,7 @@ export function PianoDesignA({ syllables, words, lessonId, onComplete, locale }:
 
       {s.done && (
         <div className="pa__success" data-testid="piano-success">
-          <GretelLiveAvatar ref={s.gretelRef} managed size="sm" bubblePosition="right" />
+          <GretelLiveAvatar managed size="sm" bubblePosition="right" />
           <button type="button" onClick={s.nextWord} className="pa__next" data-testid="piano-next">
             {s.isLastItem
               ? s.items.length > 1
