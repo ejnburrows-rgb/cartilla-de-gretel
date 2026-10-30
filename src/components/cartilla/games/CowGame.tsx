@@ -123,7 +123,6 @@ function fieldSpot(slot: number, cow: number): Box {
 
 // Walk time through the field (out to the fence and back home).
 const WALK_MS = 1600;
-const LEAN_MS = 600;
 // Time the physical card takes to fall from the mouth into the slot.
 const FLY_MS = 900;
 
@@ -242,7 +241,7 @@ export function CowGame({ content }: { content: GameContent }) {
         if (right) {
           // Lean over the fence before releasing the physical mouth card.
           setActive({ cow, slot, phase: "lean", to: { slot } });
-          later(LEAN_MS, () => {
+          later(600, () => {
             setActive({ cow, slot, phase: "drop", to: { slot } });
             later(FLY_MS, () => {
               // "ma ma": silent until the owner's recording exists (gap manifest).
@@ -318,17 +317,12 @@ export function CowGame({ content }: { content: GameContent }) {
   };
 
   const spots = L.home;
-  const stageWidth = `min(100vw, calc(100vh * ${L.W} / ${L.H}))`;
 
   return (
     <main className="cg-root" aria-label="Juego de la vaca">
       <div
         className="cg-stage"
-        style={{
-          width: stageWidth,
-          aspectRatio: `${L.W}/${L.H}`,
-          ["--cg-lean-offset" as string]: `calc(${stageWidth} * ${L.home[0].w * 0.16 / L.W})`,
-        }}
+        style={{ width: `min(100vw, calc(100vh * ${L.W} / ${L.H}))`, aspectRatio: `${L.W}/${L.H}` }}
       >
         <img
           className="cg-scene"
@@ -402,7 +396,7 @@ export function CowGame({ content }: { content: GameContent }) {
                   height: py(b.h + 12),
                 }}
               >
-                <span className="cg-door" />
+                <span className="cg-door" /><span className="cg-slot-text">{COW_SLOTS[s]}</span>
               </button>
             </div>
           );
@@ -460,9 +454,7 @@ export function CowGame({ content }: { content: GameContent }) {
                 width: px(76),
                 height: py(49),
                 transitionDuration:
-                  moving && active.phase === "lean"
-                    ? `${LEAN_MS}ms`
-                    : moving && active.phase === "drop" ? `${FLY_MS}ms` : `${WALK_MS}ms`,
+                  moving && active.phase === "drop" ? `${FLY_MS}ms` : `${WALK_MS}ms`,
                 transitionTimingFunction:
                   moving && active.phase === "drop" ? "cubic-bezier(.45,0,.9,.6)" : "ease-in-out",
               }}
@@ -522,13 +514,11 @@ const CSS = `
 .cg-cow{position:absolute;padding:0;border:0;background:none;cursor:pointer;container-type:inline-size;transition-property:left,top,width,height;transition-timing-function:ease-in-out}
 .cg-cow:focus-visible{outline:.5cqw solid #1f8fa6;outline-offset:2px}
 .cg-bob,.cg-sprite{position:absolute;inset:0;display:block}
-.cg-bob{translate:0 0;transition:translate ${LEAN_MS}ms ease-in-out}
 .cg-sprite{transform-origin:50% 90%}
 .cg-p{position:absolute;inset:0;width:100%;height:100%;object-fit:fill;pointer-events:none}
-.cg-card{position:absolute;z-index:65;display:flex;align-items:center;justify-content:center;box-sizing:border-box;border:.3cqw solid #74401d;border-radius:.8cqw;background:#fff4d6;color:#3a1a0e;font:900 3.1cqw/1 ui-rounded,system-ui,sans-serif;transform:translate(-50%,-10%);pointer-events:none;translate:0 0;transition-property:left,top,transform,translate}
-.cg-card-lean{translate:0 var(--cg-lean-offset)}
-.cg-lean .cg-bob{translate:0 var(--cg-lean-offset)}
-.cg-lean .cg-head{animation:none;transform:rotate(-5deg);transition:transform ${LEAN_MS}ms ease-in-out}
+.cg-card{position:absolute;z-index:65;display:flex;align-items:center;justify-content:center;box-sizing:border-box;border:.3cqw solid #74401d;border-radius:.8cqw;background:#fff4d6;color:#3a1a0e;font:900 3.1cqw/1 ui-rounded,system-ui,sans-serif;transform:translate(-50%,-10%);pointer-events:none;transition-property:left,top,transform}
+.cg-card-lean{transform:translate(-50%, calc(-10% + 16cqw)) !important; transition:transform 0.5s}
+.cg-lean .cg-bob{transform:translateY(16cqw);transition:transform 0.5s} .cg-lean .cg-bob{transform:translateY(16cqw);transition:transform 0.5s} .cg-lean .cg-head{animation:none;transform:rotate(-5deg);transition:transform .5s}
 .cg-label{position:absolute;left:52%;top:58%;font:900 19cqw/1 "Fredoka",ui-rounded,system-ui,sans-serif;color:#3a1a0e;padding:4cqw 7cqw;background:radial-gradient(ellipse,rgba(255,244,214,.95) 55%,rgba(255,244,214,0) 72%);pointer-events:none;z-index:5}
 .cg-selected{filter:drop-shadow(0 0 1.6cqw #fff3a0) drop-shadow(0 0 .8cqw #ffd54a)}
 .cg-selected{outline:2px solid #ffe27a}
@@ -557,6 +547,7 @@ const CSS = `
 .cg-walking .cg-tail{animation:cg-tail .5s ease-in-out infinite}
 .cg-walking .cg-tongue{animation:cg-tongue 1.8s ease-in-out infinite}
 
+.cg-slot-text{position:absolute;inset:0;display:flex;align-items:flex-start;padding-top:.5cqw;justify-content:center;font:700 4cqw/1 "Fredoka",ui-rounded,system-ui,sans-serif;color:#3a1a0e;letter-spacing:.3cqw;white-space:nowrap;z-index:4;pointer-events:none}
 .cg-cheer .cg-bob{animation:cg-cheer-hop .42s ease-in-out 3}
 .cg-cheer .cg-head{animation:cg-cheer-head .3s ease-in-out 5!important}
 .cg-cheer .cg-tongue{animation:cg-tongue-out 1.5s ease-in-out 1!important}
@@ -565,8 +556,7 @@ const CSS = `
 @keyframes cg-blink{0%,90%,100%{opacity:0}92%,96%{opacity:1}}
 @keyframes cg-bob{0%,50%,100%{transform:translateY(0)}25%,75%{transform:translateY(-1.8%)}}
 .cg-card-walking{animation:cg-card-stride .68s ease-in-out infinite}
-/* Reserve translate for the shared lean; walking must not override it. */
-@keyframes cg-card-stride{0%,50%,100%{transform:translate(-50%,-10%);rotate:0deg}25%{transform:translate(-50%,calc(-10% - .28cqw));rotate:-1deg}75%{transform:translate(-50%,calc(-10% - .28cqw));rotate:1deg}}
+@keyframes cg-card-stride{0%,50%,100%{translate:0 0;rotate:0deg}25%{translate:0 -.28cqw;rotate:-1deg}75%{translate:0 -.28cqw;rotate:1deg}}
 .cg-walking .cg-whole{animation:cg-roll .68s ease-in-out infinite}
 .cg-idle .cg-whole{animation:cg-breathe 3.4s ease-in-out infinite}
 @keyframes cg-ear{0%,80%,100%{transform:rotate(0)}86%{transform:rotate(-14deg)}92%{transform:rotate(5deg)}}
