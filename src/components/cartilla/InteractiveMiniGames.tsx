@@ -4,11 +4,12 @@ import {
   type SpeechRecognitionEventLike,
   type SpeechRecognitionLike,
 } from "@/lib/speech-recognition-types";
-import { useEffect, useState, useRef } from "react";
+import { useEffect, useState, useRef, useMemo } from "react";
 import { Mic, MicOff, Check, X, RotateCcw, Volume2 } from "lucide-react";
 import { useAudio } from "@/hooks/useAudio";
 import { cn } from "@/lib/utils";
 import { gretelEvent } from "@/lib/gretel-bus";
+import { CATALOG } from "@/lib/lesson-catalog";
 
 type Word = { word: string; emoji?: string };
 
@@ -511,5 +512,275 @@ export function DragDropMatch({ words, color }: { words: Word[]; color: string }
         </div>
       )}
     </div>
+  );
+}
+
+type MiniGameProps = {
+  lessonNumber?: number;
+  onComplete?: () => void;
+};
+
+type MiniWord = { word: string; emoji?: string; illustrationSrc?: string };
+type MiniGameContent = { syllables: string[]; words: MiniWord[]; color: string };
+
+const INTRO_VOWELS = ["a", "e", "i", "o", "u"];
+
+function contentForLesson(lessonNumber: number): MiniGameContent {
+  const entry = CATALOG.find((item) => item.n === lessonNumber) ?? CATALOG[0]!;
+  if (entry.kind === "consonant") {
+    return {
+      syllables: [...new Set(entry.data.syllables.filter((item) => item.trim()))],
+      words: entry.data.vocab.filter((item) => item.word.trim()),
+      color: entry.color,
+    };
+  }
+  if (entry.kind === "vowel") {
+    return {
+      syllables: [entry.vowel],
+      words: entry.lesson.vocab.filter((item) => item.word.trim()),
+      color: entry.color,
+    };
+  }
+  return { syllables: INTRO_VOWELS, words: [], color: entry.color };
+}
+
+function cumulativeSyllables(lessonNumber: number): string[] {
+  return CATALOG.filter((entry) => entry.n <= lessonNumber).flatMap((entry) => {
+    if (entry.kind === "consonant") return entry.data.syllables;
+    if (entry.kind === "vowel") return [entry.vowel];
+    return INTRO_VOWELS;
+  }).filter((item, index, all) => item.trim() && all.indexOf(item) === index);
+}
+
+function completeActivity(onComplete?: () => void) {
+  gretelEvent("activity:complete");
+  onComplete?.();
+}
+
+function shuffleItems<T>(items: T[]): T[] {
+  const result = [...items];
+  for (let i = result.length - 1; i > 0; i -= 1) {
+    const j = Math.floor(Math.random() * (i + 1));
+    [result[i], result[j]] = [result[j]!, result[i]!];
+  }
+  return result;
+}
+
+/** Silent syllable choice practice using only the selected lesson's canonical syllables. */
+export function SyllableTrain({ lessonNumber = 1, onComplete }: MiniGameProps) {
+  const { syllables, color } = useMemo(() => contentForLesson(lessonNumber), [lessonNumber]);
+  const [round, setRound] = useState(0);
+  const [feedback, setFeedback] = useState<"correct" | "try-again" | null>(null);
+  const completed = useRef(false);
+  const target = syllables[round];
+  const choices = useMemo(() => shuffleItems(syllables), [syllables, round]);
+
+  const answer = (value: string) => {
+    if (!target || completed.current || feedback === "correct") return;
+    const correct = value === target;
+    gretelEvent(correct ? "answer:correct" : "answer:wrong");
+    if (!correct) {
+      setFeedback("try-again");
+      return;
+    }
+    setFeedback("correct");
+    if (round === syllables.length - 1) {
+      completed.current = true;
+      completeActivity(onComplete);
+    }
+  };
+
+  const next = () => {
+    setRound((current) => Math.min(current + 1, syllables.length - 1));
+    setFeedback(null);
+  };
+
+  if (!target) return <p role="status">No hay sílabas disponibles para esta lección.</p>;
+  return (
+    <section className="rounded-2xl border-2 border-foreground/10 bg-card p-4 sm:p-6" aria-label="Tren de sílabas">
+      <header className="mb-4 flex items-center justify-between gap-3">
+        <h3 className="text-lg font-bold">Tren de sílabas</h3>
+        <span role="status" aria-live="polite" className="text-sm font-bold">{round + 1} de {syllables.length}</span>
+      </header>
+      <p className="mb-4 text-center text-sm font-semibold">Encuentra esta sílaba:</p>
+      <p className="mb-5 text-center text-5xl font-black" aria-label={`Sílaba ${target}`} style={{ color }}>{target}</p>
+      <div className="grid grid-cols-2 gap-3 sm:grid-cols-3">
+        {choices.map((syllable, index) => (
+          <button key={`${syllable}-${index}`} type="button" disabled={feedback === "correct"}
+            onClick={() => answer(syllable)} aria-label={`Elegir sílaba ${syllable}`}
+            className="min-h-12 rounded-xl border-2 bg-white px-4 py-3 text-xl font-bold focus-visible:outline focus-visible:outline-2"
+            style={{ borderColor: color }}>{syllable}</button>
+        ))}
+      </div>
+      {feedback === "try-again" && <p className="mt-4 text-center font-bold text-destructive" role="status">Inténtalo de nuevo.</p>}
+      {feedback === "correct" && (
+        <div className="mt-4 flex flex-wrap items-center justify-center gap-3" role="status">
+          <span className="font-bold text-success">¡Correcto!</span>
+          {round < syllables.length - 1 && <button type="button" onClick={next} className="min-h-11 rounded-lg px-4 font-bold text-white" style={{ backgroundColor: color }}>Siguiente</button>}
+          {round === syllables.length - 1 && <span className="font-bold text-success">¡Tren completo!</span>}
+        </div>
+      )}
+    </section>
+  );
+}
+
+/** Letter-bank puzzle over words authored in the current lesson catalog entry. */
+export function WordPuzzle({ lessonNumber = 1, onComplete }: MiniGameProps) {
+  const { words, color } = useMemo(() => contentForLesson(lessonNumber), [lessonNumber]);
+  const rounds = useMemo(() => words.slice(0, 8), [words]);
+  const [round, setRound] = useState(0);
+  const [picked, setPicked] = useState<number[]>([]);
+  const [feedback, setFeedback] = useState<"correct" | "try-again" | null>(null);
+  const completed = useRef(false);
+  const target = rounds[round]?.word ?? "";
+  const letters = useMemo(() => shuffleItems(Array.from(target)), [target]);
+
+  const submit = () => {
+    if (!target || completed.current) return;
+    const guess = picked.map((index) => letters[index]).join("");
+    const correct = guess.toLocaleLowerCase("es") === target.toLocaleLowerCase("es");
+    gretelEvent(correct ? "answer:correct" : "answer:wrong");
+    setFeedback(correct ? "correct" : "try-again");
+    if (correct && round === rounds.length - 1) {
+      completed.current = true;
+      completeActivity(onComplete);
+    }
+  };
+
+  const next = () => {
+    setRound((current) => current + 1);
+    setPicked([]);
+    setFeedback(null);
+  };
+
+  if (rounds.length === 0) return <p role="status">No hay palabras de esta lección para armar.</p>;
+  return (
+    <section className="rounded-2xl border-2 border-foreground/10 bg-card p-4 sm:p-6" aria-label="Rompecabezas de palabras">
+      <header className="mb-4 flex items-center justify-between gap-3">
+        <h3 className="text-lg font-bold">Rompecabezas de palabras</h3>
+        <span role="status" className="text-sm font-bold">{round + 1} de {rounds.length}</span>
+      </header>
+      <p className="mb-4 text-center text-sm font-semibold">Forma la palabra con sus letras:</p>
+      <p className="mb-5 min-h-12 text-center text-3xl font-black tracking-widest" aria-label="Letras seleccionadas" style={{ color }}>{picked.map((index) => letters[index]).join("") || "· · ·"}</p>
+      <div className="flex flex-wrap justify-center gap-2">
+        {letters.map((letter, index) => (
+          <button key={`${letter}-${index}`} type="button" disabled={picked.includes(index) || feedback === "correct"}
+            onClick={() => { setPicked((current) => [...current, index]); setFeedback(null); }}
+            aria-label={`Añadir letra ${letter}`} className="min-h-12 min-w-12 rounded-xl border-2 bg-white px-3 text-xl font-bold disabled:opacity-40"
+            style={{ borderColor: color }}>{letter}</button>
+        ))}
+      </div>
+      <div className="mt-5 flex flex-wrap justify-center gap-3">
+        <button type="button" disabled={picked.length !== letters.length || feedback === "correct"} onClick={submit}
+          className="min-h-11 rounded-lg px-4 font-bold text-white disabled:opacity-50" style={{ backgroundColor: color }}>Comprobar</button>
+        <button type="button" disabled={picked.length === 0 || feedback === "correct"} onClick={() => { setPicked([]); setFeedback(null); }}
+          className="min-h-11 rounded-lg border px-4 font-bold disabled:opacity-50">Borrar letras</button>
+      </div>
+      {feedback === "try-again" && <p className="mt-4 text-center font-bold text-destructive" role="status">Revisa el orden e inténtalo otra vez.</p>}
+      {feedback === "correct" && <div className="mt-4 text-center font-bold text-success" role="status">¡Palabra completa!{round < rounds.length - 1 && <button type="button" onClick={next} className="ml-3 min-h-11 rounded-lg px-4 text-white" style={{ backgroundColor: color }}>Siguiente</button>}</div>}
+    </section>
+  );
+}
+
+type MemoryCard = { id: string; pair: number; face: "word" | "emoji"; value: string };
+
+/** Pairs source-backed lesson words with their curriculum emoji labels. */
+export function MemoryMatch({ lessonNumber = 1, onComplete }: MiniGameProps) {
+  const { words, color } = useMemo(() => contentForLesson(lessonNumber), [lessonNumber]);
+  const pairs = useMemo(() => words.filter((word, index) => (word.emoji || word.illustrationSrc) && words.findIndex((other) => other.word === word.word) === index).slice(0, 6), [words]);
+  const cards = useMemo(() => shuffleItems(pairs.flatMap((item, pair): MemoryCard[] => [
+    { id: `${pair}-word`, pair, face: "word", value: item.word },
+    { id: `${pair}-emoji`, pair, face: "emoji", value: item.emoji ?? item.illustrationSrc! },
+  ])), [pairs]);
+  const [open, setOpen] = useState<string[]>([]);
+  const [matched, setMatched] = useState<number[]>([]);
+  const timer = useRef<number | null>(null);
+  const completed = useRef(false);
+
+  useEffect(() => () => { if (timer.current !== null) window.clearTimeout(timer.current); }, []);
+  const choose = (card: MemoryCard) => {
+    if (matched.includes(card.pair) || open.includes(card.id) || open.length === 2) return;
+    const nextOpen = [...open, card.id];
+    setOpen(nextOpen);
+    if (nextOpen.length !== 2) return;
+    const first = cards.find((item) => item.id === nextOpen[0]);
+    const second = cards.find((item) => item.id === nextOpen[1]);
+    if (!first || !second) return;
+    const correct = first.pair === second.pair && first.face !== second.face;
+    gretelEvent(correct ? "answer:correct" : "answer:wrong");
+    if (correct) {
+      const nextMatched = [...matched, first.pair];
+      setMatched(nextMatched);
+      setOpen([]);
+      if (nextMatched.length === pairs.length && !completed.current) {
+        completed.current = true;
+        completeActivity(onComplete);
+      }
+    } else {
+      timer.current = window.setTimeout(() => { setOpen([]); timer.current = null; }, 700);
+    }
+  };
+
+  if (pairs.length < 2) return <p role="status">Esta lección necesita más palabras para jugar memoria.</p>;
+  return (
+    <section className="rounded-2xl border-2 border-foreground/10 bg-card p-4 sm:p-6" aria-label="Memoria de palabras">
+      <header className="mb-4 flex items-center justify-between gap-3"><h3 className="text-lg font-bold">Memoria de palabras</h3><span role="status">Parejas: {matched.length} de {pairs.length}</span></header>
+      <div className="grid grid-cols-2 gap-3 sm:grid-cols-3">
+        {cards.map((card) => {
+          const visible = open.includes(card.id) || matched.includes(card.pair);
+          return <button key={card.id} type="button" onClick={() => choose(card)} disabled={matched.includes(card.pair)}
+            aria-label={visible ? `Carta ${card.face === "word" ? card.value : `dibujo ${pairs[card.pair]?.word}`}` : "Carta oculta"}
+            aria-pressed={visible} className="min-h-16 rounded-xl border-2 bg-white p-3 text-lg font-bold disabled:bg-success/10"
+            style={{ borderColor: matched.includes(card.pair) ? "#16a34a" : color }}>
+              {visible && card.face === "emoji" && pairs[card.pair]?.illustrationSrc ? <img src={pairs[card.pair]!.illustrationSrc} alt="" className="mx-auto h-12 w-12 object-contain" /> : visible ? card.value : "?"}
+            </button>;
+        })}
+      </div>
+      {matched.length === pairs.length && <p className="mt-4 text-center font-bold text-success" role="status">¡Todas las parejas encontradas!</p>}
+    </section>
+  );
+}
+
+/** Ten quick multiple-choice rounds drawn from taught canonical syllables. */
+export function RapidFire({ lessonNumber = 1, onComplete }: MiniGameProps) {
+  const pool = useMemo(() => cumulativeSyllables(lessonNumber), [lessonNumber]);
+  const { color } = useMemo(() => contentForLesson(lessonNumber), [lessonNumber]);
+  const rounds = 10;
+  const [round, setRound] = useState(0);
+  const [score, setScore] = useState(0);
+  const [feedback, setFeedback] = useState<"correct" | "try-again" | null>(null);
+  const completed = useRef(false);
+  const target = pool[round % Math.max(1, pool.length)];
+  const choices = useMemo(() => {
+    if (!target) return [];
+    return shuffleItems([target, ...shuffleItems(pool.filter((item) => item !== target)).slice(0, 3)]);
+  }, [pool, target]);
+
+  const answer = (value: string) => {
+    if (!target || feedback) return;
+    const correct = value === target;
+    gretelEvent(correct ? "answer:correct" : "answer:wrong");
+    setFeedback(correct ? "correct" : "try-again");
+    if (correct) setScore((current) => current + 1);
+    if (round === rounds - 1 && correct && !completed.current) {
+      completed.current = true;
+      completeActivity(onComplete);
+    }
+  };
+  const next = () => { setRound((current) => current + 1); setFeedback(null); };
+
+  if (!target) return <p role="status">No hay sílabas disponibles para esta lección.</p>;
+  return (
+    <section className="rounded-2xl border-2 border-foreground/10 bg-card p-4 sm:p-6" aria-label="Rápido y atento">
+      <header className="mb-4 flex items-center justify-between gap-3"><h3 className="text-lg font-bold">Rápido y atento</h3><span role="status">Aciertos: {score} · {round + 1} de {rounds}</span></header>
+      <p className="mb-2 text-center text-sm font-semibold">Busca esta sílaba:</p>
+      <p className="mb-5 text-center text-5xl font-black" aria-label={`Sílaba ${target}`} style={{ color }}>{target}</p>
+      <div className="grid grid-cols-2 gap-3 sm:grid-cols-4">
+        {choices.map((choice, index) => <button key={`${choice}-${index}`} type="button" disabled={Boolean(feedback)} onClick={() => answer(choice)}
+          aria-label={`Elegir ${choice}`} className="min-h-12 rounded-xl border-2 bg-white p-3 text-xl font-bold disabled:opacity-60" style={{ borderColor: color }}>{choice}</button>)}
+      </div>
+      {feedback === "try-again" && <p className="mt-4 text-center font-bold text-destructive" role="status">Inténtalo de nuevo.</p>}
+      {feedback === "correct" && <div className="mt-4 text-center font-bold text-success" role="status">¡Bien!{round < rounds - 1 && <button type="button" onClick={next} className="ml-3 min-h-11 rounded-lg px-4 text-white" style={{ backgroundColor: color }}>Siguiente</button>}{round === rounds - 1 && <span> Ronda terminada.</span>}</div>}
+    </section>
   );
 }

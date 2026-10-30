@@ -24,6 +24,8 @@ import "@/styles/lesson-cutoff-fixes.css";
 import { exitLessonFullscreen, requestLessonFullscreen } from "@/lib/lesson-fullscreen";
 import { buildPageArray } from "@/utils/buildPageArray";
 import { PIANO_LESSONS, PianoLessonSection } from "@/components/cartilla/PianoLessonSection";
+import { ActivityCarousel } from "@/components/cartilla/ActivityCarousel";
+import { getPracticePictureWords } from "@/lib/vocabulary-sources";
 import { usePianoListening } from "@/hooks/usePianoListening";
 import { GretelCinematic } from "@/components/gretel/GretelCinematic";
 import { getCompletionCinematic, getLessonCinematic, type GretelCinematic as GretelCinematicSpec } from "@/content/gretel-cinematics";
@@ -38,7 +40,8 @@ export function Leccion() {
   const navigate = useNavigate();
   const n = Number(nParam);
   const [showIntro, setShowIntro] = useState(false);
-  const [lessonTab, setLessonTab] = useState<"book" | "piano">("book");
+  const [lessonTab, setLessonTab] = useState<"book" | "piano" | "review">("book");
+  const [reviewStarted, setReviewStarted] = useState(false);
   const [completionCinematic, setCompletionCinematic] = useState<GretelCinematicSpec | null>(null);
   useLessonProgress();
   const session = useStudentSession();
@@ -138,7 +141,10 @@ export function Leccion() {
   }, [scope, n, pages]);
 
   useEffect(() => { if (progressReady && !storedPianoBookmarkUnavailable) saveLearnerResume(n, initialPage, pages[initialPage]?.pageNumber, pages[initialPage]?.id); }, [scope, n, progressReady, initialPage, pages, storedPianoBookmarkUnavailable]);
-  useEffect(() => setLessonTab("book"), [n]);
+  useEffect(() => {
+    setLessonTab("book");
+    setReviewStarted(false);
+  }, [n]);
   // Laptop full screen (owner decision 2026-10-12). Opening a lesson from the
   // lesson list already asks for it; if the lesson was opened another way,
   // the first tap on the page paper (not on an activity) asks once. Leaving
@@ -209,6 +215,13 @@ export function Leccion() {
 
   const isLast = n >= TOTAL_LESSONS;
   const pct = Math.round((n / TOTAL_LESSONS) * 100);
+  const reviewWords = getPracticePictureWords(n);
+  const reviewSyllables = entry.kind === "intro"
+    ? ["a", "e", "i", "o", "u"]
+    : entry.kind === "vowel"
+      ? [entry.vowel]
+      : entry.data.syllables;
+  const reviewLetter = entry.kind === "consonant" ? entry.letter : entry.kind === "vowel" ? entry.vowel : "";
 
   const advanceAfterCompletion = () => {
     setCompletionCinematic(null);
@@ -217,6 +230,11 @@ export function Leccion() {
   };
 
   const goNext = () => {
+    if (!reviewStarted) {
+      setReviewStarted(true);
+      setLessonTab("review");
+      return;
+    }
     markLessonCompleted(n);
     recordEvent({ lessonId: String(n), kind: "lesson_completed" });
     gretelEvent("lesson:complete");
@@ -247,7 +265,7 @@ export function Leccion() {
           </div>
         </div>
 
-        {PIANO_LESSONS.has(n) && (
+        {(PIANO_LESSONS.has(n) || reviewStarted) && (
           <nav className="mb-4 flex w-full max-w-3xl gap-2" aria-label="Vista de la lección">
             <button
               type="button"
@@ -257,14 +275,22 @@ export function Leccion() {
             >
               Vista Página Oficial
             </button>
-            <button
+            {PIANO_LESSONS.has(n) && <button
               type="button"
               aria-pressed={lessonTab === "piano"}
               onClick={() => setLessonTab("piano")}
               className={`min-h-11 flex-1 rounded-xl border px-3 py-2 text-sm font-bold ${lessonTab === "piano" ? "border-amber-700 bg-amber-50 text-amber-950" : "border-stone-300 bg-white text-stone-700"}`}
             >
               Cancionero / Piano
-            </button>
+            </button>}
+            {reviewStarted && <button
+              type="button"
+              aria-pressed={lessonTab === "review"}
+              onClick={() => setLessonTab("review")}
+              className={`min-h-11 flex-1 rounded-xl border px-3 py-2 text-sm font-bold ${lessonTab === "review" ? "border-amber-700 bg-amber-50 text-amber-950" : "border-stone-300 bg-white text-stone-700"}`}
+            >
+              Repaso final
+            </button>}
           </nav>
         )}
 
@@ -301,6 +327,25 @@ export function Leccion() {
               <div className="mx-auto w-full max-w-5xl rounded-3xl bg-[#FBF7EE] p-3 sm:p-6">
                 <PianoLessonSection lessonNumber={n} showAvailabilityMessage />
               </div>
+            )}
+            {progressReady && lessonTab === "review" && (
+              <section className="mx-auto w-full max-w-5xl space-y-4 rounded-3xl bg-[#FBF7EE] p-3 sm:p-6" aria-label="Repaso final de la lección">
+                <div className="rounded-2xl bg-white p-4 sm:p-6">
+                  <h2 className="text-xl font-black text-stone-900">Repaso final · {entry.title}</h2>
+                  <p className="mt-1 text-sm text-stone-600" data-vocab-source={reviewWords.book}>{reviewWords.sourceLabel}</p>
+                  <ActivityCarousel
+                    lessonNumber={n}
+                    syllables={reviewSyllables}
+                    words={reviewWords.items}
+                    letter={reviewLetter}
+                    color={entry.color}
+                    lessonId={String(n)}
+                  />
+                </div>
+                <button type="button" onClick={goNext} className="min-h-12 w-full rounded-xl bg-amber-700 px-5 py-3 font-black text-white">
+                  Terminar lección
+                </button>
+              </section>
             )}
           </GardenScene>
 

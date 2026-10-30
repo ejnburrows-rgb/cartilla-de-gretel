@@ -148,6 +148,37 @@ function PianoLessonPicker() {
 
 const DURATIONS = [60, 90, 120] as const;
 
+function PracticeMiniGames() {
+  const initialLesson = CATALOG.find((entry) => entry.kind === "consonant" && entry.data.vocab.length > 1)?.n ?? 1;
+  const [lessonNumber, setLessonNumber] = useState(initialLesson);
+  const entry = CATALOG.find((item) => item.n === lessonNumber) ?? CATALOG[0]!;
+  const syllables = entry.kind === "intro"
+    ? ["a", "e", "i", "o", "u"]
+    : entry.kind === "vowel"
+      ? [entry.vowel]
+      : entry.data.syllables;
+  const words = getPracticePictureWords(entry.n);
+  const letter = entry.kind === "consonant" ? entry.letter : entry.kind === "vowel" ? entry.vowel : "";
+
+  return (
+    <section className="mt-8 kid-card space-y-4 p-5" aria-label="Minijuegos de la cartilla">
+      <div>
+        <h2 className="text-xl font-black">Minijuegos de la cartilla</h2>
+        <p className="mt-1 text-sm text-foreground">Practica con sílabas y palabras auténticas de una lección.</p>
+      </div>
+      <label className="flex flex-wrap items-center gap-3 text-sm font-bold">
+        Lección
+        <select aria-label="Lección para los minijuegos" value={lessonNumber} onChange={(event) => setLessonNumber(Number(event.currentTarget.value))}
+          className="min-h-11 rounded-xl border border-foreground/20 bg-white px-3 py-2">
+          {CATALOG.map((lesson) => <option key={lesson.n} value={lesson.n}>Lección {lesson.n}: {lesson.title}</option>)}
+        </select>
+      </label>
+      <p className="text-xs font-bold text-foreground" data-vocab-source={words.book}>{words.sourceLabel}</p>
+      <ActivityCarousel lessonNumber={entry.n} syllables={syllables} words={words.items} letter={letter} color={entry.color} />
+    </section>
+  );
+}
+
 function buildPool(useUnlockedOnly: boolean, isUnlocked: (n: number) => boolean): string[] {
   const pool: string[] = [];
   CATALOG.forEach((e) => {
@@ -178,7 +209,7 @@ function buildCards(pool: string[], n: number): Card[] {
   return cards;
 }
 
-function Practica() {
+export function Practica() {
   const familyQuery = useMemo(() => {
     if (typeof window === "undefined") {
       return { familyMode: false, pianoMode: false, lessonNumber: Number.NaN, activity: "silabas" as ActivityId };
@@ -444,6 +475,8 @@ function Practica() {
             </div>
           </section>
         )}
+
+        <PracticeMiniGames />
       </div>
     </main>
   );

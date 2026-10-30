@@ -1,6 +1,7 @@
 import { act, cleanup, fireEvent, render, screen } from "@testing-library/react";
 import { afterEach, beforeEach, describe, expect, it, vi } from "vitest";
 import { lazy, Suspense, useState } from "react";
+import "@testing-library/jest-dom";
 import { learnerStorageKey } from "@/lib/learner-storage";
 import { readLearnerResume, saveLearnerResume } from "@/lib/learner-resume";
 
@@ -58,10 +59,12 @@ vi.mock("@/components/cartilla/FaithfulPageRenderer", () => ({ FaithfulPageRende
 function Viewer({
   initialPage = 0,
   onPageChange,
+  onFinish,
   pages,
 }: {
   initialPage?: number;
   onPageChange?: (n: number) => void;
+  onFinish?: () => void;
   pages: { pageNumber?: number; id: string }[];
 }) {
   const [index, setIndex] = useState(initialPage);
@@ -76,6 +79,7 @@ function Viewer({
       >
         Next
       </button>
+      <button onClick={onFinish}>Finish lesson</button>
     </>
   );
 }
@@ -110,6 +114,15 @@ beforeEach(() => {
 });
 afterEach(cleanup);
 describe("lesson learner resume", () => {
+  it("opens the source-backed end-of-lesson review with mini-game tabs", async () => {
+    await show(<Leccion />);
+    fireEvent.click(screen.getByText("Finish lesson"));
+    expect(screen.getByRole("region", { name: "Repaso final de la lección" })).toBeInTheDocument();
+    expect(screen.getByText(/Dibujos del/)).toBeInTheDocument();
+    fireEvent.click(screen.getByRole("button", { name: /Juegos/ }));
+    expect(await screen.findByRole("region", { name: "Tren de sílabas" })).toBeInTheDocument();
+    expect(screen.getByRole("button", { name: "Terminar lección" })).toBeInTheDocument();
+  });
   it("normalizes a backend Lesson 24 offset to the printed page before resolving Piano", async () => {
     identity.lesson = 24;
     identity.pianoSupported = true;
