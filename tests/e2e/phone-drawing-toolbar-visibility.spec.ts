@@ -41,8 +41,8 @@ for (const { lesson, printedPage, width = 390, height = 844 } of [
           const pageBox = await page.locator(".faithful-page").boundingBox();
           expect(box, "Every drawing button has a visible bounding box").not.toBeNull();
           expect(pageBox).not.toBeNull();
-          expect(box!.width, "Touch width should not be a miniature 26px control").toBeGreaterThanOrEqual(40);
-          expect(box!.height, "Touch height should not be a miniature 26px control").toBeGreaterThanOrEqual(40);
+          expect(box!.width, "Touch width must be at least 44px").toBeGreaterThanOrEqual(44);
+          expect(box!.height, "Touch height must be at least 44px").toBeGreaterThanOrEqual(44);
           expect(box!.x).toBeGreaterThanOrEqual(pageBox!.x - 1);
           expect(box!.x + box!.width).toBeLessThanOrEqual(pageBox!.x + pageBox!.width + 1);
         }
