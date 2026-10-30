@@ -102,9 +102,9 @@ export function Leccion() {
       }
       const identified = pageId ? pages.findIndex((page) => page.id === pageId) : -1;
       if (identified >= 0) return identified;
-      // Piano has no printed number; a current trailing bookmark is not the
-      // older missing-page-87 offset. New saves carry its explicit identity.
-      if (pages[savedIndex]?.id === `piano-lesson-${n}`) return savedIndex;
+      // Piano has no printed number. Current local Piano resumes use the explicit
+      // pageId above; legacy backend last_page values are printed-page offsets
+      // and must keep the page-87 migration below.
       const migrated = n === 24 ? Math.max(0, savedIndex - 1) : savedIndex;
       return Math.min(Math.max(0, migrated), Math.max(0, pages.length - 1));
     };
