@@ -92,15 +92,10 @@ describe("book fidelity — Lessons 1–7 (pages 1–22)", () => {
           const grid = r[1];
           const rows = f.rows as Pair[][];
           expect(grid.columns).toBe(rows[0].length);
-          // Owner replaced only p7's printed eye pair with a single eye
-          // (WhatsApp Oct 19 23:54, retained approved lesson-3 source).
-          // Keep the printed transcription intact and constrain this one override.
-          const expected = rows.flat().map(([caption, correct]) =>
-            [n === 7 && caption === "ojos" ? "ojo" : caption, correct],
-          );
+          const expected = rows.flat().map(([caption, correct]) => [caption, correct]);
           expect((grid.cells ?? []).map((c) => [c.caption, c.correct])).toEqual(expected);
           if (n === 7) {
-            expect(grid.cells?.find((c) => c.caption === "ojo")?.illustrationSrc)
+            expect(grid.cells?.find((c) => c.caption === "ojos")?.illustrationSrc)
               .toBe("/cartilla/art/approved/lesson-3/ojo.png");
           }
           for (const c of grid.cells ?? []) expect(c.illustrationSrc, `${c.caption} art`).toBeTruthy();
