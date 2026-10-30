@@ -282,11 +282,11 @@ function Practica() {
           <nav aria-label="Juegos de la Cartilla" className="mt-5 kid-card p-4 space-y-2">
             <h2 className="font-black text-lg">Juegos de la Cartilla</h2>
             <div className="flex flex-wrap gap-3">
-              <Link to="/cartilla/juego/payaso-chano-ss"
+              <Link to="/cartilla/juego/$gameId" params={{ gameId: "payaso-chano-ss" }}
                 className="inline-flex min-h-12 items-center rounded-xl border-2 border-primary/30 bg-white px-4 py-2 font-bold">
                 Payaso Chano
               </Link>
-              <Link to="/cartilla/juego/bubble-organ-m"
+              <Link to="/cartilla/juego/$gameId" params={{ gameId: "bubble-organ-m" }}
                 className="inline-flex min-h-12 items-center rounded-xl border-2 border-primary/30 bg-white px-4 py-2 font-bold">
                 Órgano de burbujas · Mm
               </Link>
