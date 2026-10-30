@@ -95,6 +95,10 @@
   .bo-stage { padding-inline: 8px; }
   .bo-pipe { border-width: 2px; }
 }
+@media (max-width: 370px) {
+  .bo-organ { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+  .bo-pipe { height: 110px; }
+}
 @media (prefers-reduced-motion: reduce) {
   .bo-bubble, .bo-complete { animation: none; }
   .bo-pipe { transition: none; }
