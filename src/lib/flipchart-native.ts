@@ -404,19 +404,19 @@ function classify(items: FlipchartTextItem[], pageNumber: number) {
   // The PDF extraction offsets glyphs within the same printed syllable row.
   // Group near-equal Y coordinates first, then read left-to-right within each row.
   const syllableRows: typeof syllables[] = [];
-  for (const item of [...syllables].sort((a, b) => a.y - b.y || a.x - b.x)) {
+  for (const item of [...syllables].sort((a, b) => a.x - b.x)) {
     const row = syllableRows.find((candidate) => Math.abs(candidate[0]!.y - item.y) < 18);
     if (row) row.push(item);
     else syllableRows.push([item]);
   }
+  syllableRows.sort((a, b) => a[0]!.y - b[0]!.y);
+  syllableRows.forEach((row) => row.sort((a, b) => a.x - b.x));
 
   return {
     title,
     body: readingBody,
     words,
-    syllables: syllableRows.flatMap((row) =>
-      row.sort((a, b) => a.x - b.x).map((item) => item.text),
-    ),
+    syllables: syllableRows.flatMap((row) => row.map((item) => item.text)),
   };
 }
 

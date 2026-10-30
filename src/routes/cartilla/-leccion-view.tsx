@@ -24,6 +24,7 @@ import "@/styles/lesson-cutoff-fixes.css";
 import { exitLessonFullscreen, requestLessonFullscreen } from "@/lib/lesson-fullscreen";
 import { buildPageArray } from "@/utils/buildPageArray";
 import { PIANO_LESSONS, PianoLessonSection } from "@/components/cartilla/PianoLessonSection";
+import { usePianoListening } from "@/hooks/usePianoListening";
 import { GretelCinematic } from "@/components/gretel/GretelCinematic";
 import { getCompletionCinematic, getLessonCinematic, type GretelCinematic as GretelCinematicSpec } from "@/content/gretel-cinematics";
 import { GardenScene } from "@/components/cartilla/GardenScene";
@@ -47,7 +48,11 @@ export function Leccion() {
 
   // Build this lesson from the canonical structured workbook page data.
   // All instructional pages render through the native learning surface.
-  const pages = useMemo(() => buildPageArray(n), [n]);
+  // A hidden Piano must not leave an empty leaf after the last printed page.
+  const { supported: pianoSupported, processing: pianoProcessing } = usePianoListening({ lang: "es-MX", onFinal: () => {} });
+  const pages = useMemo(() => buildPageArray(n, pianoSupported), [n, pianoSupported]);
+  const printedPages = pages.map((page) => page.pageNumber).filter((page): page is number => typeof page === "number");
+  const pageRange = printedPages.length ? `${printedPages[0]}-${printedPages.at(-1)}` : entry?.pages;
 
   const fetchAssignments = useServerFn(listMyAssignments);
   const { data: assignments } = useQuery({
@@ -88,20 +93,25 @@ export function Leccion() {
   });
   // Without a session, render immediately. With a session, wait until the
   // query settles (success OR error) so a dead backend can't blank the page.
-  const progressReady = !session || isFetched || isError;
+  const progressReady = pianoProcessing !== "checking" && (!session || isFetched || isError);
   const initialPage = useMemo(() => {
     // Old lesson-24 bookmarks numbered the missing page 87 at index 0. New
     // bookmarks carry the printed page, so this fallback migration runs once.
-    const resolveSavedIndex = (savedIndex: number, printedPage?: number) => {
+    const resolveSavedIndex = (savedIndex: number, printedPage?: number, pageId?: string, isLocalBookmark = false) => {
       if (typeof printedPage === "number" && Number.isInteger(printedPage)) {
         const matching = pages.findIndex((page) => page.pageNumber === printedPage);
         if (matching >= 0) return matching;
       }
+      const identified = pageId ? pages.findIndex((page) => page.id === pageId) : -1;
+      if (identified >= 0) return identified;
+      // Piano has no printed number. A legacy local bookmark uses a current
+      // page index, but backend last_page remains a printed-page offset.
+      if (isLocalBookmark && pages[savedIndex]?.id === "piano-lesson-" + n) return savedIndex;
       const migrated = n === 24 ? Math.max(0, savedIndex - 1) : savedIndex;
       return Math.min(Math.max(0, migrated), Math.max(0, pages.length - 1));
     };
     const local = readLearnerResume(n);
-    if (local) return resolveSavedIndex(local.page, local.printedPage);
+    if (local) return resolveSavedIndex(local.page, local.printedPage, local.pageId, true);
     if (!session) return 0;
     const lessonProgress =
       (
@@ -115,7 +125,19 @@ export function Leccion() {
   // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [scope, session, progressData, n, pages.length]);
 
-  useEffect(() => { if (progressReady) saveLearnerResume(n, initialPage, pages[initialPage]?.pageNumber); }, [scope, n, progressReady, initialPage, pages]);
+  // A stored Piano bookmark must survive a reopen where Piano is currently
+  // unavailable: the lesson still opens on the last printed page, but the
+  // mount save below must not rewrite the bookmark to that fallback page,
+  // or a later reopen with Piano available would never return to Piano.
+  // Only explicit Piano identities (pageId) are preserved here; legacy
+  // bookmarks without an identity keep the existing migration behavior.
+  const storedPianoBookmarkUnavailable = useMemo(() => {
+    const local = readLearnerResume(n);
+    if (!local?.pageId || local.pageId !== `piano-lesson-${n}`) return false;
+    return pages.every((page) => page.id !== local.pageId);
+  }, [scope, n, pages]);
+
+  useEffect(() => { if (progressReady && !storedPianoBookmarkUnavailable) saveLearnerResume(n, initialPage, pages[initialPage]?.pageNumber, pages[initialPage]?.id); }, [scope, n, progressReady, initialPage, pages, storedPianoBookmarkUnavailable]);
   useEffect(() => setLessonTab("book"), [n]);
   // Laptop full screen (owner decision 2026-10-12). Opening a lesson from the
   // lesson list already asks for it; if the lesson was opened another way,
@@ -152,7 +174,7 @@ export function Leccion() {
     // the workbook and its interactive flip never re-render. CSS caps + eases
     // it and disables it under prefers-reduced-motion (garden-scene.css).
     gardenRef.current?.style.setProperty("--garden-parallax", String(index));
-    saveLearnerResume(n, index, pages[index]?.pageNumber);
+    saveLearnerResume(n, index, pages[index]?.pageNumber, pages[index]?.id);
     if (!session) return;
     void saveLastPageFn({
       data: {
@@ -221,7 +243,7 @@ export function Leccion() {
       <main className="lc-lesson-main flex-1 px-3 pb-6 max-w-7xl w-full mx-auto flex flex-col items-center">
         <div className="lc-lesson-main__intro w-full max-w-3xl text-left mb-4">
           <div className="text-xs font-bold uppercase tracking-wide text-foreground/50">
-            {t.leccion[lang]} {n} · {t.paginas[lang].toLowerCase()} {entry.pages}
+            {t.leccion[lang]} {n} · {t.paginas[lang].toLowerCase()} {pageRange}
           </div>
         </div>
 
@@ -261,6 +283,7 @@ export function Leccion() {
             />
           )}
           <GardenScene ref={gardenRef}>
+            {!progressReady && <p role="status" className="p-6 text-center">Preparando las páginas…</p>}
             {progressReady && lessonTab === "book" && (
               <NativeLessonViewer
                 key={`${n}:${scope}`}

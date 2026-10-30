@@ -1,5 +1,7 @@
 # Permanent Project Integrity Workflow
 
+> **Execution policy:** [AGENTS.md](AGENTS.md). **Current assignments/status:** [GitHub #877](https://github.com/ejnburrows-rgb/cartilla-de-gretel/issues/877). Historical directives below are context, not independent controller instructions.
+
 ## Universal Agent Enforcement Specification — Version 1
 
 **Owner order — 2026-10-22. Mandatory for all agents, workers, controllers, reviewers and dispatchers.** Read `AGENTS.md` and the [artwork-specific execution directive](ARTWORK_REPORT_VERIFICATION_AND_SINGLE_SOURCE_CLEANUP.md). This is a policy, not a second inventory.
@@ -45,9 +47,11 @@ When an approved source changes:
 
 If animations cannot be corrected immediately, preserve the correct static illustration rather than display outdated moving artwork.
 
-### Phase 4 — Agent dispatch
+### Phase 4 — Existing agent work and historical dispatch criteria
 
-Before assigning work, the controller must confirm:
+**Current continuation does not authorize new assignments.** The following criteria apply only if a later explicit owner directive authorizes dispatch; first resume existing work. A held task never halts disjoint existing tasks.
+
+Before any separately authorized future assignment, the controller must confirm:
 
 - The issue remains unresolved.
 - No active worker already owns it.

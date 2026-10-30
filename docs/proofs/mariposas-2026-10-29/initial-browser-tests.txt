@@ -1,0 +1,54 @@
+[WebServer] (node:16044) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+[WebServer] (Use `node --trace-warnings ...` to show where the warning was created)
+[WebServer] (node:15888) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+[WebServer] (Use `node --trace-warnings ...` to show where the warning was created)
+[WebServer] (node:15888) [DEP0205] DeprecationWarning: `module.register()` is deprecated. Use `module.registerHooks()` instead.
+[WebServer] (node:22332) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+[WebServer] (Use `node --trace-warnings ...` to show where the warning was created)
+[WebServer] (node:20356) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+[WebServer] (Use `node --trace-warnings ...` to show where the warning was created)
+[WebServer] (node:20356) [DEP0205] DeprecationWarning: `module.register()` is deprecated. Use `module.registerHooks()` instead.
+
+Running 3 tests using 1 worker
+
+(node:17800) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  x  1 [chromium] › tests\e2e\butterfly-garden.spec.ts:32:1 › desktop reduced motion: round result, wrong answer, focus and reload persistence (42.4s)
+(node:20724) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  x  2 [chromium] › tests\e2e\butterfly-garden.spec.ts:76:1 › phone touch: animated delivery, wrong return, correct word and help (1.3m)
+(node:12060) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ok 3 [chromium] › tests\e2e\butterfly-garden.spec.ts:104:1 › tablet and projector: original images load and game controls fit (16.1s)
+
+
+  1) [chromium] › tests\e2e\butterfly-garden.spec.ts:32:1 › desktop reduced motion: round result, wrong answer, focus and reload persistence 
+
+    Test timeout of 30000ms exceeded while setting up "page".
+
+    attachment #1: video (video/webm) ──────────────────────────────────────────────────────────────
+    test-results\butterfly-garden-desktop-r-d9613-ocus-and-reload-persistence-chromium\video.webm
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    Error Context: test-results\butterfly-garden-desktop-r-d9613-ocus-and-reload-persistence-chromium\error-context.md
+
+  2) [chromium] › tests\e2e\butterfly-garden.spec.ts:76:1 › phone touch: animated delivery, wrong return, correct word and help 
+
+    Error: Timeout 5000ms exceeded while waiting on the predicate
+
+      25 |   const butterfly = page.getByTestId(`bf-${id}`);
+      26 |   const home = await butterfly.evaluate((el) => el.style.transform);
+    > 27 |   if (touch) await butterfly.tap(); else await butterfly.click();
+         |                                                                  ^
+      28 |   await expect(page.getByTestId(`slot-${slot}`)).toHaveText(id, { ignoreCase: true });
+      29 |   await expect.poll(() => butterfly.evaluate((el) => el.style.transform)).toBe(home);
+      30 |   // The busy guard clears on the promise continuation after the final frame.
+        at place (C:\Users\EJN\Documents\Codex\2026-10-29\la-cartilla-de-gretel-continue-to\work\cartilla\tests\e2e\butterfly-garden.spec.ts:27:75)
+        at C:\Users\EJN\Documents\Codex\2026-10-29\la-cartilla-de-gretel-continue-to\work\cartilla\tests\e2e\butterfly-garden.spec.ts:83:3
+
+    Error Context: test-results\butterfly-garden-phone-tou-c0186-eturn-correct-word-and-help-chromium\error-context.md
+
+  2 failed
+    [chromium] › tests\e2e\butterfly-garden.spec.ts:32:1 › desktop reduced motion: round result, wrong answer, focus and reload persistence 
+    [chromium] › tests\e2e\butterfly-garden.spec.ts:76:1 › phone touch: animated delivery, wrong return, correct word and help 
+  1 passed (4.9m)

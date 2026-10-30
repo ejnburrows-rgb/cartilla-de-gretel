@@ -1,5 +1,7 @@
 # Artwork report verification and permanent single-source cleanup
 
+> **Execution policy:** [AGENTS.md](AGENTS.md). **Current assignments/status:** [GitHub #877](https://github.com/ejnburrows-rgb/cartilla-de-gretel/issues/877). Historical directives below are context, not independent controller instructions.
+
 **Owner directive — October 22, 2026. Applies to Muse, Instinct, Jules, every image-handling agent, reviewer and controller.**
 **Mandatory related policy:** [PERMANENT_PROJECT_INTEGRITY_WORKFLOW.md](PERMANENT_PROJECT_INTEGRITY_WORKFLOW.md), `AGENTS.md`, `ASSET_FIDELITY_POLICY.md`.
 

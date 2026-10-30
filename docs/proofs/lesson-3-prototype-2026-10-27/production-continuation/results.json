@@ -1,0 +1,68 @@
+[
+  {
+    "width": 375,
+    "height": 900,
+    "route": "/cartilla/leccion/3",
+    "printedPage": 9,
+    "activityId": "page-9-p9-write-a",
+    "checks": [
+      "blank disabled",
+      "draw enables",
+      "undo-only-stroke disables",
+      "completed persists across reload",
+      "learner B starts empty",
+      "learner A restores",
+      "erase-all revokes completion",
+      "eraser-only movement cannot finish",
+      "interrupted reload restores",
+      "route return restores",
+      "A-B-A preserves separation"
+    ],
+    "pageErrors": [],
+    "input": "mouse pointer in touch-capable Chromium context; not a touch-only or physical-device claim"
+  },
+  {
+    "width": 768,
+    "height": 900,
+    "route": "/cartilla/leccion/3",
+    "printedPage": 9,
+    "activityId": "page-9-p9-write-a",
+    "checks": [
+      "blank disabled",
+      "draw enables",
+      "undo-only-stroke disables",
+      "completed persists across reload",
+      "learner B starts empty",
+      "learner A restores",
+      "erase-all revokes completion",
+      "eraser-only movement cannot finish",
+      "interrupted reload restores",
+      "route return restores",
+      "A-B-A preserves separation"
+    ],
+    "pageErrors": [],
+    "input": "mouse pointer in touch-capable Chromium context; not a touch-only or physical-device claim"
+  },
+  {
+    "width": 1280,
+    "height": 900,
+    "route": "/cartilla/leccion/3",
+    "printedPage": 9,
+    "activityId": "page-9-p9-write-a",
+    "checks": [
+      "blank disabled",
+      "draw enables",
+      "undo-only-stroke disables",
+      "completed persists across reload",
+      "learner B starts empty",
+      "learner A restores",
+      "erase-all revokes completion",
+      "eraser-only movement cannot finish",
+      "interrupted reload restores",
+      "route return restores",
+      "A-B-A preserves separation"
+    ],
+    "pageErrors": [],
+    "input": "mouse pointer in touch-capable Chromium context; not a touch-only or physical-device claim"
+  }
+]
