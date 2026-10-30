@@ -51,7 +51,7 @@ Enable all seven modes on `/cartilla/practica`:
 
 ### Curriculum Phonics & Flagship Games
 
-Preserve the live `mariposas-p` game and its original assets. Merge `cow-game-m` (#1081) and `payaso-chano-ss` (#1064), including the #1196 reduced-motion guard. Verify:
+Preserve the live `mariposas-p` game and its original assets. Integrate the existing `cow-game-m` work (#1081) and complete the `payaso-chano-ss` job (#1064), including reduced-motion behavior. Verify:
 
 - `silabas-o`
 - `silabas-m`
