@@ -26,7 +26,7 @@ The canonical #877 supplies individual J1–J13 scopes, tests, two-viewport real
 - ChatGPT/Codex is the single owner-facing coordinator for Cartilla. Jules and existing specialists keep their actual assignments. Muse is historical evidence only. Do not install new controllers, services, paid APIs or automations; do not invoke Antigravity without new explicit authorization.
 - **One active assignment = one bounded deliverable**, not one deliverable per session. Reuse the original session, PR, branch, original approved artwork and valid evidence. Do not duplicate jobs, branches, dashboards, audits, or prompt handoffs.
 - **Within each authorized Track A or Track B task:** inspect current code and exact PR head, fix only proven defects, run affected tests, attach real-route proof, then obtain independent review; do not create replacement work.
-- **If a step is blocked**, report its exact hold and continue a different authorized, non-overlapping step in the existing permitted session. Never claim unverified background activity or duplicate ownership.
+- **If a step is blocked**, report its exact hold; immediately continue the next independent eligible task in the same available session, strictly within the authorized non-overlapping tracks. Never claim unverified background activity or duplicate ownership.
 - Routine in-scope owner visual decisions A–E are already accepted. Do not ask again or expand those approvals to unapproved source changes, cost, deletion, security, merges or releases.
 
 ## Active tracks, integration and evidence
@@ -40,7 +40,7 @@ The canonical #877 supplies individual J1–J13 scopes, tests, two-viewport real
 - Use only **DONE and live / DONE but not live / WAITING / NOT TESTED**. Mark a feature working only with reproducible behavior in the actual built app and matching screenshot; motion, audio, gameplay and navigation require playable recording or equivalent observed run. A PR, commit, test count or code review alone does not prove deployed functionality.
 - Test proportionately: first run affected unit/integration/regression checks; run relevant Playwright/browser flows and visual/audio proof; before a full release, verify the integrated student and teacher paths across all required 24 lessons and devices. Reuse still-valid exact-version evidence rather than repeating clean tests for reassurance.
 - **SonarCloud/SonarQube is advisory and non-blocking**. Confirmed serious defects, missing relevant tests, source/art fidelity failures and required GitHub protections still block the affected merge or release.
-- **Independent exact-head material review** is required for every merge, as well as effective GitHub branch protections and the owner's **explicit yes for that specific PR**. No self-approval or bypass. A review is not an owner merge yes.
+- **Independent formal GitHub review of the exact head and independent material technical review** are required for every merge, as well as effective GitHub branch protections and the owner's **explicit yes for that specific PR**. No self-approval or bypass. A review is not an owner merge yes.
 - **Never deploy unless the owner says exactly "deploy it".** Keep `vercel.json` `git.deploymentEnabled:false` unchanged; never assume a permitted merge authorizes release. The prior Mariposas-only release is not blanket authorization.
 - No paid/credit-consuming tools, destructive deletions, real student data use, new authentication backend, security weakening, or unapproved visual/source replacement.
 
