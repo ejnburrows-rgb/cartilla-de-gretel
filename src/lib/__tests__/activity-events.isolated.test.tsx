@@ -78,4 +78,10 @@ describe("isolated activity boundary", () => {
     expect(gretelEvent).not.toHaveBeenCalled();
     expect(recordEvent).not.toHaveBeenCalled();
   });
+  it("recovers from JSON parse failure in useActivityState initialization", () => {
+    const key = learnerStorageKey("cartilla.activity-state.v1:corrupt:count");
+    localStorage.setItem(key, "{ invalid json }");
+    mount({ activityId: "corrupt", isCurrent: () => true, isolated: false });
+    expect(screen.getByRole("button", { name: "0" })).toBeTruthy();
+  });
 });
