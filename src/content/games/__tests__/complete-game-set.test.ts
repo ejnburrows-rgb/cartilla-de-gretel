@@ -1,11 +1,13 @@
 import { describe, expect, it } from "vitest";
 import { PAYASO_CHANO_SS } from "../payaso-chano-ss";
+import { BUBBLE_ORGAN_M } from "../bubble-organ-m";
 import { SYLLABLE_BUILDER_PILOT } from "../syllable-builder-pilot";
 import { CORE_THEMED_GAMES } from "../core-games";
 import type { GameArchetype } from "@/lib/games/gameContent";
 
 const REQUIRED: GameArchetype[] = [
   "payaso-chano",
+  "bubble-organ",
   "mariposas",
   "juego-vocal",
   "fonetica-completar",
@@ -15,7 +17,7 @@ const REQUIRED: GameArchetype[] = [
   "dibujos",
 ];
 
-const ALL = [PAYASO_CHANO_SS, ...SYLLABLE_BUILDER_PILOT, ...CORE_THEMED_GAMES];
+const ALL = [PAYASO_CHANO_SS, BUBBLE_ORGAN_M, ...SYLLABLE_BUILDER_PILOT, ...CORE_THEMED_GAMES];
 
 describe("complete themed game set", () => {
   it("ships every declared archetype with playable content", () => {
