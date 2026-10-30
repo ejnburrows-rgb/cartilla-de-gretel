@@ -1,10 +1,12 @@
 # La Cartilla de Gretel
 
+> **Execution policy:** [AGENTS.md](AGENTS.md). **Current assignments/status:** [GitHub #877](https://github.com/ejnburrows-rgb/cartilla-de-gretel/issues/877). Historical directives below are context, not independent controller instructions.
+
 Digital classroom edition of *La Cartilla de Gretel* by Leonor Lopetegui.
 
-## Artwork evidence (October 14, 2026)
+## Artwork evidence (historical, October 14, 2026)
 
-The source-faithful image availability reconciliation lives in [PR #751](https://github.com/ejnburrows-rgb/cartilla-de-gretel/pull/751) (still a **draft**, not `main`) and its [current master mapping](https://github.com/ejnburrows-rgb/cartilla-de-gretel/blob/evidence/artwork-coverage-20261014/docs/proofs/artwork-coverage-2026-10-14/MASTER-MAPPING.md). Existing evidence covers 201 drawing groups/330 placements: 90 groups with a faithful optimized master, 108 needing optimization, 3 unresolved frontmatter composites. These are not production approval or runtime integration. See `AGENTS.md` for precedence and do not restart the four completed audits. The `PEZ`-named source IDs in group `DRAW-WB-10-1` **depict an airplane**, not a fish.
+The original reconciliation [PR #751](https://github.com/ejnburrows-rgb/cartilla-de-gretel/pull/751) is **closed and unmerged**; its [mapping report](https://github.com/ejnburrows-rgb/cartilla-de-gretel/blob/evidence/artwork-coverage-20261014/docs/proofs/artwork-coverage-2026-10-14/MASTER-MAPPING.md) is historical evidence, not the current production inventory. Confirmed art repairs were integrated through [PR #1205](https://github.com/ejnburrows-rgb/cartilla-de-gretel/pull/1205). For current missing source art and verified placements, check [#877](https://github.com/ejnburrows-rgb/cartilla-de-gretel/issues/877) and the actual built app. Never use old report totals as a current completion score.
 
 ## Source of truth
 

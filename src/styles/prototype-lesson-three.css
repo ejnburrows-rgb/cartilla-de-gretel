@@ -1,0 +1,308 @@
+.lesson-prototype {
+  --book-paper: #fffdf7;
+  --book-teal: #159d95;
+  --book-teal-deep: #0f827b;
+  max-width: 860px;
+  margin: 0 auto;
+  padding: 18px 14px 30px;
+  color: #263c3d;
+  font-family: var(--font-book-faithful, Andika, sans-serif);
+}
+.prototype-heading {
+  display: flex;
+  justify-content: space-between;
+  gap: 16px;
+  margin: 0 4px 14px;
+  font-size: 14px;
+  font-weight: 700;
+  color: #147f7a;
+}
+.prototype-heading span:last-child {
+  font-size: 12px;
+  font-weight: 400;
+  color: #6b7671;
+}
+.prototype-book {
+  position: relative;
+  isolation: isolate;
+}
+.prototype-leaf {
+  top: 0;
+  left: 0;
+  width: 100%;
+}
+.lesson-prototype .prototype-paper {
+  aspect-ratio: auto;
+  overflow: visible;
+  border-radius: 9px;
+}
+.lesson-prototype .faithful-page__body {
+  position: relative;
+  padding: 24px 7% 72px;
+  overflow: visible;
+  display: block;
+}
+.lesson-prototype .faithful-page__sidebar {
+  width: 3%;
+  min-width: 12px;
+}
+.lesson-prototype .faithful-page--edge-left .faithful-page__body {
+  padding-left: 8%;
+  padding-right: 6%;
+}
+.lesson-prototype .faithful-page__lesson {
+  font-size: 14px;
+  bottom: 22px;
+}
+.lesson-prototype .faithful-page__pagenum {
+  width: 30px;
+  height: 30px;
+  bottom: 18px;
+}
+.lesson-prototype .faithful-page__pagenum span {
+  font-size: 16px;
+}
+.prototype-instruction {
+  font-size: clamp(15px, 2.3vw, 20px);
+  line-height: 1.55;
+  margin: 0 0 22px;
+  font-weight: 600;
+}
+.prototype-instruction strong {
+  color: #118b84;
+}
+.prototype-picture-grid {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: clamp(8px, 1.6vw, 18px);
+}
+.prototype-picture {
+  position: relative;
+  display: grid;
+  place-items: center;
+  aspect-ratio: 1;
+  border: 2px solid #22a29a;
+  border-radius: 12px;
+  background: white;
+  box-shadow: 0 3px 6px #147f7a18;
+  padding: 5%;
+  min-width: 0;
+  cursor: pointer;
+}
+.prototype-picture:disabled {
+  cursor: default;
+}
+.prototype-picture img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  min-height: 0;
+}
+.prototype-picture__mark {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+}
+.prototype-navigation {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 12px;
+  margin: 20px 0 10px;
+}
+.prototype-navigation button {
+  border: 1.5px solid #149b92;
+  background: #fffdf7;
+  color: #126e69;
+  border-radius: 24px;
+  padding: 11px 20px;
+  min-height: 46px;
+  font-weight: 700;
+  cursor: pointer;
+}
+.prototype-navigation button:last-child {
+  background: #138d84;
+  color: white;
+}
+.prototype-navigation button:disabled {
+  opacity: 0.4;
+  cursor: default;
+}
+.lesson-prototype button:focus-visible {
+  outline: 3px solid #e1ac4c;
+  outline-offset: 3px;
+}
+.prototype-navigation span,
+.prototype-progress {
+  font-size: 13px;
+  color: #536e69;
+  text-align: center;
+}
+.prototype-progress {
+  min-height: 24px;
+  line-height: 1.5;
+}
+.lesson-prototype .am-direct-pencil__stage {
+  max-width: none;
+  padding: 10px;
+  border: 0;
+  background: transparent;
+  box-shadow: none;
+  aspect-ratio: 1;
+}
+.lesson-prototype .am-direct-pencil__row {
+  gap: clamp(8px, 1.8vw, 18px);
+}
+.lesson-prototype .am-direct-pencil__target,
+.lesson-prototype .am-direct-pencil__center {
+  min-height: 58px;
+}
+.lesson-prototype .am-direct-pencil__toolbar {
+  margin-bottom: 12px;
+}
+.lesson-prototype .workbook-source-writing__line {
+  position: relative;
+  margin: 0 0 16px;
+  height: 100px;
+}
+.lesson-prototype .workbook-source-writing__line > svg {
+  position: absolute;
+  inset: 12px 0 0;
+  width: 100%;
+  height: 80px;
+  pointer-events: none;
+}
+.prototype-writing-input {
+  position: absolute;
+  inset: 0;
+}
+.lesson-prototype .prototype-writing-input .fp-draw-box {
+  height: 100%;
+  min-height: 0;
+  border: 0;
+  background: transparent;
+  padding: 0 52px 0 32px;
+  gap: 0;
+}
+.lesson-prototype .prototype-writing-input .fp-draw-box__canvas {
+  min-height: 0;
+  height: 100%;
+  background: transparent;
+}
+.lesson-prototype .prototype-writing-input .fp-draw-box__toolbar {
+  position: absolute;
+  right: 0;
+  bottom: 7px;
+  gap: 3px;
+  flex-direction: column;
+}
+.lesson-prototype .prototype-writing-input .fp-draw-box__colors {
+  display: none;
+}
+.lesson-prototype .prototype-writing-input .fp-draw-box__btn {
+  padding: 4px;
+  min-height: 30px;
+  font-size: 11px;
+}
+.lesson-prototype .prototype-writing-input .fp-draw-box__btn--done svg {
+  display: none;
+}
+.lesson-prototype .prototype-writing-input .fp-draw-box__done {
+  font-size: 12px;
+}
+.prototype-draw-instruction {
+  margin-top: 28px;
+}
+.lesson-prototype .prototype-drawing .fp-draw-box {
+  min-height: 260px;
+  padding: 10px;
+  gap: 12px;
+}
+.lesson-prototype .prototype-drawing .fp-draw-box__canvas {
+  height: 210px;
+  min-height: 210px;
+}
+.lesson-prototype .prototype-drawing .fp-draw-box__toolbar {
+  gap: 10px;
+  flex-wrap: wrap;
+}
+.lesson-prototype .prototype-drawing .fp-draw-box__colors {
+  gap: 6px;
+}
+.lesson-prototype .prototype-drawing .fp-draw-box__btn {
+  font-size: 14px;
+  min-height: 36px;
+}
+.lesson-prototype .native-page-curl {
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 5;
+  overflow: visible;
+  pointer-events: none;
+}
+@media (min-width: 768px) {
+  .lesson-prototype {
+    padding-top: 26px;
+  }
+  .lesson-prototype .faithful-page__body {
+    padding-top: 38px;
+  }
+  .prototype-picture-grid {
+    gap: 18px;
+  }
+  .lesson-prototype .workbook-source-writing__line {
+    height: 112px;
+  }
+  .lesson-prototype .prototype-writing-input .fp-draw-box {
+    padding-right: 68px;
+  }
+  .lesson-prototype .prototype-writing-input .fp-draw-box__toolbar {
+    flex-direction: row;
+  }
+  .lesson-prototype .prototype-writing-input .fp-draw-box__btn {
+    font-size: 13px;
+  }
+}
+/* The source's four handwriting bands stay large enough for a child's hand. */
+.lesson-prototype .workbook-source-writing__line > svg {
+  inset: 0;
+  height: 100%;
+}
+.lesson-prototype .workbook-source-writing__line > svg text {
+  fill: #168e86;
+}
+.lesson-prototype .workbook-source-writing__line > svg line {
+  stroke: #97c6c0;
+}
+.lesson-prototype .prototype-writing-input .fp-draw-box {
+  padding-left: 44px;
+}
+.lesson-prototype .prototype-writing-input .fp-draw-box__toolbar {
+  bottom: 4px;
+  gap: 4px;
+}
+.lesson-prototype .prototype-writing-input .fp-draw-box__btn {
+  min-width: 44px;
+  min-height: 44px;
+}
+.lesson-prototype .prototype-drawing .fp-draw-box__color-swatch {
+  width: 32px;
+  height: 32px;
+}
+.lesson-prototype .prototype-drawing .fp-draw-box__btn {
+  min-height: 44px;
+}
+/* Both turning leaves determine the paper stage, keeping navigation below it. */
+.lesson-prototype .prototype-book {
+  display: grid;
+}
+.lesson-prototype .prototype-leaf {
+  grid-area: 1 / 1;
+}
+.lesson-prototype .prototype-paper {
+  min-height: 100%;
+}
+.lesson-prototype .prototype-drawing .fp-draw-box__canvas {
+  flex: none;
+}

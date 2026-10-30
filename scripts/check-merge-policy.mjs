@@ -24,6 +24,65 @@ export function validatePolicy(docs) {
       errors.push(`${name}: mandatory Sonar language conflicts with owner policy`);
     }
   }
+  // Regression guard for known execution-policy contradictions. Keep this focused
+  // on the four active governing documents; archived notes are not instructions.
+  const required = {
+    'AGENTS.md': [
+      [/one active assignment\s*=\s*one bounded deliverable/i, 'task-bound (not session-bound) deliverables'],
+      [/\b(?:advance|continue|proceed)\b.{0,100}(?:next|another).{0,130}(?:eligible|authorized)/i, 'continue next eligible assignment'],
+      [/\bsame available session\b/i, 'same-session continuation'],
+      [/(?:formal.{0,40}GitHub|GitHub.{0,40}formal|eligible independent GitHub)/i, 'formal GitHub review gate'],
+      [/no self-approval/i, 'no self-approval guard'],
+      [/Mariposas is included/i, 'owner decision to retain Mariposas'],
+    ],
+    'PROJECT_SOURCE_OF_TRUTH.md': [[/#877/, 'canonical issue #877']],
+    'PROJECT_FINISH_DEFINITION.md': [[/#877/, 'canonical issue #877']],
+    'tasks/plan.md': [
+      [/#877/, 'canonical issue #877'],
+      [/immediately continue the next independent eligible task/i, 'continue independent work after a hold'],
+    ],
+  };
+  const obsolete = [
+    [/one session\s*=\s*one bounded deliverable/i, 'session-ending deliverable rule'],
+    [/automatically refill verified idle slots/i, 'obsolete automatic Jules refill'],
+    [/voice work is moot/i, 'incorrect cancellation of recording recovery'],
+    [/final voice\/TTS direction is deferred/i, 'obsolete voice-provider selection'],
+    [/the final Gretel voice\/TTS direction is \*\*NOT YET LOCKED\*\*/i, 'obsolete unresolved voice provider'],
+    [/owner is not required to approve ordinary technical merges/i, 'obsolete blanket merge authorization'],
+    [/no additional external reviewer is required/i, 'obsolete formal-review exemption'],
+  ];
+  for (const name of POLICY_FILES) {
+    const text = docs?.[name];
+    if (typeof text !== 'string') continue;
+    for (const [pattern, label] of required[name] ?? []) {
+      if (!pattern.test(text)) errors.push(name + ': missing ' + label);
+    }
+    for (const [pattern, label] of obsolete) {
+      if (pattern.test(text)) errors.push(name + ': obsolete ' + label);
+    }
+  }
+  return {ok:errors.length===0,errors};
+}
+
+// Routing/reference documents must defer to #877 and must not carry their own
+// dated GitHub status snapshot or a second plan. Historical memory stays labelled.
+export const ROUTING_FILES = ['MASTER_REFERENCE.md','docs/JOBS.md','tasks/todo.md','.agents/PROJECT_MEMORY.md'];
+export function validateRouting(docs) {
+  const errors = [];
+  const stale = [
+    [/GITHUB STATUS\s*\(verified/i, 'dated GitHub status snapshot (use #877)'],
+    [/maintains[^.\n]{0,80}master completion plan/i, 'reference to a separate master completion plan'],
+    [/using the [^.\n]{0,40}master completion plan/i, 'reference to a separate master completion plan'],
+    [/protected-main approval remains mandatory/i, 'merge-gate wording that diverges from AGENTS.md'],
+  ];
+  for (const name of ROUTING_FILES) {
+    const text = docs?.[name];
+    if (typeof text !== 'string' || !text.trim()) { errors.push(`${name}: missing or empty`); continue; }
+    if (!/#877/.test(text)) errors.push(`${name}: missing canonical issue #877`);
+    for (const [pattern, label] of stale) if (pattern.test(text)) errors.push(`${name}: ${label}`);
+  }
+  const memory = docs?.['.agents/PROJECT_MEMORY.md'];
+  if (typeof memory === 'string' && !/not live instructions/i.test(memory)) errors.push('.agents/PROJECT_MEMORY.md: missing historical "not live instructions" banner');
   return {ok:errors.length===0,errors};
 }
 
@@ -52,8 +111,9 @@ function cli() {
   const [flag,arg]=process.argv.slice(2);
   let result;
   if (flag==='--docs' && !arg) {
-    const docs=Object.fromEntries(POLICY_FILES.map(name=>[name,fs.existsSync(name)?fs.readFileSync(name,'utf8'):'']));
-    result=validatePolicy(docs);
+    const docs=Object.fromEntries([...POLICY_FILES,...ROUTING_FILES].map(name=>[name,fs.existsSync(name)?fs.readFileSync(name,'utf8'):'']));
+    const policy=validatePolicy(docs), routing=validateRouting(docs);
+    result={ok:policy.ok&&routing.ok,errors:[...policy.errors,...routing.errors]};
   } else if (flag==='--evidence' && arg) {
     result=assessMerge(JSON.parse(fs.readFileSync(path.resolve(arg),'utf8')));
   } else {

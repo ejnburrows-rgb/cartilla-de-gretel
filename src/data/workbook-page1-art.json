@@ -136,7 +136,7 @@
       ],
       "provenanceStatus": "OWNER-OPTIMIZED-COLOR-2026-10-05",
       "treatment": "border-connected white background made transparent; edge pixels un-blended from white; no recolouring or redrawing",
-      "embeddedPngSha256": "f811cb3f01cb50b718ec664534a963fcc42760f8503ba29623edde5336783343"
+      "embeddedPngSha256": "618c1db809c3d8e5e81662f157d8cf31dba2ff8aa0c05bf23d98aaa5e829d46f"
     },
     {
       "src": "/cartilla/art/optimized/workbook/leccion-1/escalera.svg",
@@ -393,7 +393,7 @@
       "lessonNumber": 1,
       "pageNumber": 1,
       "source": "/cartilla/art/optimized/workbook/leccion-1/abeja.png",
-      "sourceSha256": "33703aed2e4de2eb3315b6e535372b2e9a3221b5152b8e52235c47463d3df5b9",
+      "sourceSha256": "74754a7dfa90300a159e70885cf9e9611a55a1cbd5d17383bb220135b8b05e65",
       "fragmentCrop": null,
       "trimBox": null,
       "size": [
@@ -402,7 +402,7 @@
       ],
       "provenanceStatus": "OWNER-APPROVED-COLOR-2026-10-06",
       "treatment": "owner-approved regenerated color asset matching the exact Workbook drawing; Flip Chart color treatment; transparent background; optimized 1024px PNG",
-      "embeddedPngSha256": "33703aed2e4de2eb3315b6e535372b2e9a3221b5152b8e52235c47463d3df5b9"
+      "embeddedPngSha256": "74754a7dfa90300a159e70885cf9e9611a55a1cbd5d17383bb220135b8b05e65"
     }
   ],
   "printedUntilColor": []

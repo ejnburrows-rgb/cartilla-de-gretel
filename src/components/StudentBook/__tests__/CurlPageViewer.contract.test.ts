@@ -42,6 +42,14 @@ describe("CurlPageViewer physical contracts", () => {
     expect(expectedTurnIndex(4, 5, true, "next")).toBe(4);
   });
 
+  it("turns adjacent entries across missing printed pages", () => {
+    const pages = [83, 84, 85, 88, 89, 90].map((pageNumber) => ({ pageNumber }));
+    expect(expectedTurnIndex(2, pages.length, true, "next", pages)).toBe(4);
+    expect(expectedTurnIndex(4, pages.length, true, "prev", pages)).toBe(2);
+    expect(expectedTurnIndex(2, pages.length, false, "next", pages)).toBe(3);
+    expect(expectedTurnIndex(3, pages.length, false, "prev", pages)).toBe(2);
+  });
+
   it("normalizes odd event indices to logical spread boundaries", () => {
     expect(logicalPageIndex(1, 6, true)).toBe(0);
     expect(logicalPageIndex(3, 6, true)).toBe(2);
@@ -74,8 +82,8 @@ describe("CurlPageViewer physical contracts", () => {
       { pageNumber: 88 },
       { pageNumber: 89 },
     ];
-    expect(visiblePageLabel(1, 88, true, pages)).toBe("Páginas 84–85 de 88");
-    expect(visiblePageLabel(2, 88, true, pages)).toBe("Páginas 88–89 de 88");
-    expect(visiblePageLabel(2, 88, false, pages)).toBe("Página 88 de 88");
+    expect(visiblePageLabel(1, 88, true, pages)).toBe("Páginas 84–85 de 89");
+    expect(visiblePageLabel(2, 88, true, pages)).toBe("Páginas 88–89 de 89");
+    expect(visiblePageLabel(2, 88, false, pages)).toBe("Página 88 de 89");
   });
 });

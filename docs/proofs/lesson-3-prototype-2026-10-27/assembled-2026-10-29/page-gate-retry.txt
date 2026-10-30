@@ -1,0 +1,13 @@
+
+ RUN  v4.1.8 C:/Users/EJN/Documents/Codex/2026-10-29/la-cartilla-de-gretel-continue-to/work/cartilla
+
+Not implemented: HTMLMediaElement's play() method
+Not implemented: HTMLMediaElement's play() method
+Not implemented: HTMLMediaElement's play() method
+Not implemented: HTMLMediaElement's play() method
+
+ Test Files  1 passed (1)
+      Tests  12 passed (12)
+   Start at  05:04:51
+   Duration  19.20s (transform 2.87s, setup 778ms, import 1.95s, tests 13.25s, environment 2.58s)
+
