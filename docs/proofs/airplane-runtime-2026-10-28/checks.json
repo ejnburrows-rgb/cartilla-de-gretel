@@ -1,0 +1,228 @@
+{
+  "head": "2cc39fb7d5d81c4f9be2a7ef3b27b5d6e514e0ad",
+  "scope": "Seeded navigation only; no activity-completion or physical-device certification",
+  "results": [
+    {
+      "device": "phone",
+      "viewport": {
+        "width": 390,
+        "height": 844
+      },
+      "lesson": 3,
+      "printed": 8,
+      "state": {
+        "src": "/cartilla/art/faithful/leccion-1/avion.webp",
+        "currentSrc": "http://127.0.0.1:5173/cartilla/art/faithful/leccion-1/avion.webp",
+        "width": 764,
+        "height": 650,
+        "alt": "",
+        "printed": "8",
+        "phase": "idle"
+      },
+      "servedPath": "/cartilla/art/faithful/leccion-1/avion.webp",
+      "sha256": "10120e06c2314c1e0b771fc144d458ad7568b6de9429251bed0784edb12705c4",
+      "sourcePath": "public/cartilla/art/faithful/leccion-1/pez.webp",
+      "byteIdentical": true,
+      "screenshot": "phone-p8.png",
+      "renderedComparison": "phone-p8-rendered.png"
+    },
+    {
+      "device": "phone",
+      "viewport": {
+        "width": 390,
+        "height": 844
+      },
+      "lesson": 5,
+      "printed": 13,
+      "state": {
+        "src": "/cartilla/art/faithful/leccion-1/avion.webp",
+        "currentSrc": "http://127.0.0.1:5173/cartilla/art/delivery/faithful/384/leccion-1/avion.webp",
+        "width": 384,
+        "height": 327,
+        "alt": "avión",
+        "printed": "13",
+        "phase": "idle",
+        "wrapper": "<span data-picture-name=\"avión\" data-picture-src=\"/cartilla/art/faithful/leccion-1/avion.webp\" class=\"living-illustration living-illustration--ambient living-illustration--glide living-illustration--phase-0\" data-ambient-motion=\"glide\" data-natural-motion=\"false\" data-part-based=\"false\" data-blink-mode=\"none\" data-interactive=\"true\"><img alt=\"avión\" loading=\"lazy\" decoding=\"async\" draggable=\"false\" class=\"living-illustration__art\" srcset=\"/cartilla/art/delivery/faithful/384/leccion-1/avion.webp 1x, /cartilla/art/delivery/faithful/768/leccion-1/avion.webp 2x\" src=\"/cartilla/art/faithful/leccion-1/avion.webp\"></span>"
+      },
+      "servedPath": "/cartilla/art/delivery/faithful/384/leccion-1/avion.webp",
+      "sha256": "c4de3d292418d265ef86e49ba2f5554b7588ee3d49e0eb0984918a3c827eee75",
+      "sourcePath": "public/cartilla/art/delivery/faithful/384/leccion-1/pez.webp",
+      "byteIdentical": true,
+      "screenshot": "phone-p13.png",
+      "renderedComparison": "phone-p13-rendered.png"
+    },
+    {
+      "device": "phone",
+      "viewport": {
+        "width": 390,
+        "height": 844
+      },
+      "lesson": 6,
+      "printed": 16,
+      "state": {
+        "src": "/cartilla/art/faithful/leccion-1/avion.webp",
+        "currentSrc": "http://127.0.0.1:5173/cartilla/art/delivery/faithful/384/leccion-1/avion.webp",
+        "width": 384,
+        "height": 327,
+        "alt": "avión",
+        "printed": "16",
+        "phase": "idle",
+        "wrapper": "<span data-picture-name=\"avión\" data-picture-src=\"/cartilla/art/faithful/leccion-1/avion.webp\" class=\"living-illustration living-illustration--ambient living-illustration--glide living-illustration--phase-0\" data-ambient-motion=\"glide\" data-natural-motion=\"false\" data-part-based=\"false\" data-blink-mode=\"none\" data-interactive=\"true\"><img alt=\"avión\" loading=\"lazy\" decoding=\"async\" draggable=\"false\" class=\"living-illustration__art\" srcset=\"/cartilla/art/delivery/faithful/384/leccion-1/avion.webp 1x, /cartilla/art/delivery/faithful/768/leccion-1/avion.webp 2x\" src=\"/cartilla/art/faithful/leccion-1/avion.webp\"></span>"
+      },
+      "servedPath": "/cartilla/art/delivery/faithful/384/leccion-1/avion.webp",
+      "sha256": "c4de3d292418d265ef86e49ba2f5554b7588ee3d49e0eb0984918a3c827eee75",
+      "sourcePath": "public/cartilla/art/delivery/faithful/384/leccion-1/pez.webp",
+      "byteIdentical": true,
+      "screenshot": "phone-p16.png",
+      "renderedComparison": "phone-p16-rendered.png"
+    },
+    {
+      "device": "tablet",
+      "viewport": {
+        "width": 768,
+        "height": 1024
+      },
+      "lesson": 3,
+      "printed": 8,
+      "state": {
+        "src": "/cartilla/art/faithful/leccion-1/avion.webp",
+        "currentSrc": "http://127.0.0.1:5173/cartilla/art/faithful/leccion-1/avion.webp",
+        "width": 764,
+        "height": 650,
+        "alt": "",
+        "printed": "8",
+        "phase": "idle"
+      },
+      "servedPath": "/cartilla/art/faithful/leccion-1/avion.webp",
+      "sha256": "10120e06c2314c1e0b771fc144d458ad7568b6de9429251bed0784edb12705c4",
+      "sourcePath": "public/cartilla/art/faithful/leccion-1/pez.webp",
+      "byteIdentical": true,
+      "screenshot": "tablet-p8.png",
+      "renderedComparison": "tablet-p8-rendered.png"
+    },
+    {
+      "device": "tablet",
+      "viewport": {
+        "width": 768,
+        "height": 1024
+      },
+      "lesson": 5,
+      "printed": 13,
+      "state": {
+        "src": "/cartilla/art/faithful/leccion-1/avion.webp",
+        "currentSrc": "http://127.0.0.1:5173/cartilla/art/delivery/faithful/384/leccion-1/avion.webp",
+        "width": 384,
+        "height": 327,
+        "alt": "avión",
+        "printed": "13",
+        "phase": "idle",
+        "wrapper": "<span data-picture-name=\"avión\" data-picture-src=\"/cartilla/art/faithful/leccion-1/avion.webp\" class=\"living-illustration living-illustration--ambient living-illustration--glide living-illustration--phase-0\" data-ambient-motion=\"glide\" data-natural-motion=\"false\" data-part-based=\"false\" data-blink-mode=\"none\" data-interactive=\"true\"><img alt=\"avión\" loading=\"lazy\" decoding=\"async\" draggable=\"false\" class=\"living-illustration__art\" srcset=\"/cartilla/art/delivery/faithful/384/leccion-1/avion.webp 1x, /cartilla/art/delivery/faithful/768/leccion-1/avion.webp 2x\" src=\"/cartilla/art/faithful/leccion-1/avion.webp\"></span>"
+      },
+      "servedPath": "/cartilla/art/delivery/faithful/384/leccion-1/avion.webp",
+      "sha256": "c4de3d292418d265ef86e49ba2f5554b7588ee3d49e0eb0984918a3c827eee75",
+      "sourcePath": "public/cartilla/art/delivery/faithful/384/leccion-1/pez.webp",
+      "byteIdentical": true,
+      "screenshot": "tablet-p13.png",
+      "renderedComparison": "tablet-p13-rendered.png"
+    },
+    {
+      "device": "tablet",
+      "viewport": {
+        "width": 768,
+        "height": 1024
+      },
+      "lesson": 6,
+      "printed": 16,
+      "state": {
+        "src": "/cartilla/art/faithful/leccion-1/avion.webp",
+        "currentSrc": "http://127.0.0.1:5173/cartilla/art/delivery/faithful/384/leccion-1/avion.webp",
+        "width": 384,
+        "height": 327,
+        "alt": "avión",
+        "printed": "16",
+        "phase": "idle",
+        "wrapper": "<span data-picture-name=\"avión\" data-picture-src=\"/cartilla/art/faithful/leccion-1/avion.webp\" class=\"living-illustration living-illustration--ambient living-illustration--glide living-illustration--phase-0\" data-ambient-motion=\"glide\" data-natural-motion=\"false\" data-part-based=\"false\" data-blink-mode=\"none\" data-interactive=\"true\"><img alt=\"avión\" loading=\"lazy\" decoding=\"async\" draggable=\"false\" class=\"living-illustration__art\" srcset=\"/cartilla/art/delivery/faithful/384/leccion-1/avion.webp 1x, /cartilla/art/delivery/faithful/768/leccion-1/avion.webp 2x\" src=\"/cartilla/art/faithful/leccion-1/avion.webp\"></span>"
+      },
+      "servedPath": "/cartilla/art/delivery/faithful/384/leccion-1/avion.webp",
+      "sha256": "c4de3d292418d265ef86e49ba2f5554b7588ee3d49e0eb0984918a3c827eee75",
+      "sourcePath": "public/cartilla/art/delivery/faithful/384/leccion-1/pez.webp",
+      "byteIdentical": true,
+      "screenshot": "tablet-p16.png",
+      "renderedComparison": "tablet-p16-rendered.png"
+    },
+    {
+      "device": "desktop",
+      "viewport": {
+        "width": 1366,
+        "height": 900
+      },
+      "lesson": 3,
+      "printed": 8,
+      "state": {
+        "src": "/cartilla/art/faithful/leccion-1/avion.webp",
+        "currentSrc": "http://127.0.0.1:5173/cartilla/art/faithful/leccion-1/avion.webp",
+        "width": 764,
+        "height": 650,
+        "alt": "",
+        "printed": "8",
+        "phase": "idle"
+      },
+      "servedPath": "/cartilla/art/faithful/leccion-1/avion.webp",
+      "sha256": "10120e06c2314c1e0b771fc144d458ad7568b6de9429251bed0784edb12705c4",
+      "sourcePath": "public/cartilla/art/faithful/leccion-1/pez.webp",
+      "byteIdentical": true,
+      "screenshot": "desktop-p8.png",
+      "renderedComparison": "desktop-p8-rendered.png"
+    },
+    {
+      "device": "desktop",
+      "viewport": {
+        "width": 1366,
+        "height": 900
+      },
+      "lesson": 5,
+      "printed": 13,
+      "state": {
+        "src": "/cartilla/art/faithful/leccion-1/avion.webp",
+        "currentSrc": "http://127.0.0.1:5173/cartilla/art/delivery/faithful/384/leccion-1/avion.webp",
+        "width": 384,
+        "height": 327,
+        "alt": "avión",
+        "printed": "13",
+        "phase": "idle",
+        "wrapper": "<span data-picture-name=\"avión\" data-picture-src=\"/cartilla/art/faithful/leccion-1/avion.webp\" class=\"living-illustration living-illustration--ambient living-illustration--glide living-illustration--phase-0\" data-ambient-motion=\"glide\" data-natural-motion=\"false\" data-part-based=\"false\" data-blink-mode=\"none\" data-interactive=\"true\"><img alt=\"avión\" loading=\"lazy\" decoding=\"async\" draggable=\"false\" class=\"living-illustration__art\" srcset=\"/cartilla/art/delivery/faithful/384/leccion-1/avion.webp 1x, /cartilla/art/delivery/faithful/768/leccion-1/avion.webp 2x\" src=\"/cartilla/art/faithful/leccion-1/avion.webp\"></span>"
+      },
+      "servedPath": "/cartilla/art/delivery/faithful/384/leccion-1/avion.webp",
+      "sha256": "c4de3d292418d265ef86e49ba2f5554b7588ee3d49e0eb0984918a3c827eee75",
+      "sourcePath": "public/cartilla/art/delivery/faithful/384/leccion-1/pez.webp",
+      "byteIdentical": true,
+      "screenshot": "desktop-p13.png",
+      "renderedComparison": "desktop-p13-rendered.png"
+    },
+    {
+      "device": "desktop",
+      "viewport": {
+        "width": 1366,
+        "height": 900
+      },
+      "lesson": 6,
+      "printed": 16,
+      "state": {
+        "src": "/cartilla/art/faithful/leccion-1/avion.webp",
+        "currentSrc": "http://127.0.0.1:5173/cartilla/art/delivery/faithful/384/leccion-1/avion.webp",
+        "width": 384,
+        "height": 327,
+        "alt": "avión",
+        "printed": "16",
+        "phase": "idle",
+        "wrapper": "<span data-picture-name=\"avión\" data-picture-src=\"/cartilla/art/faithful/leccion-1/avion.webp\" class=\"living-illustration living-illustration--ambient living-illustration--glide living-illustration--phase-0\" data-ambient-motion=\"glide\" data-natural-motion=\"false\" data-part-based=\"false\" data-blink-mode=\"none\" data-interactive=\"true\"><img alt=\"avión\" loading=\"lazy\" decoding=\"async\" draggable=\"false\" class=\"living-illustration__art\" srcset=\"/cartilla/art/delivery/faithful/384/leccion-1/avion.webp 1x, /cartilla/art/delivery/faithful/768/leccion-1/avion.webp 2x\" src=\"/cartilla/art/faithful/leccion-1/avion.webp\"></span>"
+      },
+      "servedPath": "/cartilla/art/delivery/faithful/384/leccion-1/avion.webp",
+      "sha256": "c4de3d292418d265ef86e49ba2f5554b7588ee3d49e0eb0984918a3c827eee75",
+      "sourcePath": "public/cartilla/art/delivery/faithful/384/leccion-1/pez.webp",
+      "byteIdentical": true,
+      "screenshot": "desktop-p16.png",
+      "renderedComparison": "desktop-p16-rendered.png"
+    }
+  ]
+}
