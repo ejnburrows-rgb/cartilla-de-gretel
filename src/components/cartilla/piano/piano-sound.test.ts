@@ -57,6 +57,15 @@ describe("Piano Hablador grand piano sound", () => {
     expect(nearestSample(69, [69])!.rate).toBeCloseTo(1);
   });
 
+  it("never falls back to synthesized piano notes", () => {
+    const source = fs.readFileSync(
+      path.join(process.cwd(), "src/components/cartilla/piano/piano-sound.ts"),
+      "utf8",
+    );
+    expect(source).not.toMatch(/playSynthNote|@\/lib\/piano-audio/);
+    expect(source).toMatch(/preloadPianoSound/);
+  });
+
   it("stays silent when the app is muted", () => {
     muted.value = true;
     playNote(261.63);
