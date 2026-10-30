@@ -77,7 +77,8 @@ vi.mock("@/lib/speak", () => ({
 }));
 
 vi.mock("@/lib/picture-vocabulary", () => ({
-  approvedPictureRecording: () => undefined,
+  pictureNameKey: (label: string) => label.toLowerCase().normalize("NFD").replace(/[\u0300-\u036f]/g, ""),
+  approvedPictureRecording: (key: string) => ["paleta", "sapo", "masa"].includes(key) ? `/audio/gretel/${key}.mp3` : undefined,
 }));
 
 const mockRecordEvent = vi.fn();
@@ -223,7 +224,7 @@ describe.each([["piano"], ["cancionero"]] as const)("PianoPronunciation (%s desi
         expect(screen.getAllByTestId("piano-sparkle")).toHaveLength(1);
         expect(screen.getByTestId("piano-sparkle").getAttribute("data-sparkle-for")).toBe("0");
         expect(screen.getByTestId("piano-message").textContent).toContain(WELL_DONE);
-        expect(mockSpeak).toHaveBeenCalledWith(WELL_DONE);
+        expect(mockSpeak).not.toHaveBeenCalled();
         // Next group is up; the finished one stays green.
         expect(groupState(1)).toBe("next");
         act(() => {
@@ -257,7 +258,7 @@ describe.each([["piano"], ["cancionero"]] as const)("PianoPronunciation (%s desi
         expect(keyState(4)).toBe("yellow");
         hear("pato");
         expect(screen.getByTestId("piano-message").textContent).toContain(TRY_AGAIN);
-        expect(mockSpeak).toHaveBeenCalledWith(TRY_AGAIN);
+        expect(mockSpeak).not.toHaveBeenCalled();
         for (const key of [3, 4, 5]) expect(keyState(key)).toBe("next");
         for (const key of [0, 1, 2]) expect(keyState(key)).toBe("confirmed");
         expect(document.querySelector('[data-sparkle-for="1"]')).toBeNull();
@@ -294,15 +295,12 @@ describe.each([["piano"], ["cancionero"]] as const)("PianoPronunciation (%s desi
         expect(keyColor(2)).not.toBe(CONFIRMED_GREEN);
       });
 
-      it("ignores what the microphone hears while the piano says «¡Muy bien!»", async () => {
+      it("does not use spoken feedback after a correct syllable", async () => {
         render(<PianoPronunciation syllables={[]} words={PALETA} />);
         hear("pa");
-        hear("le"); // still speaking its own feedback: ignored
-        sound(true);
-        expect(groupState(1)).toBe("next");
-        await settle();
         hear("le");
         expect(groupState(1)).toBe("confirmed");
+        expect(mockSpeak).not.toHaveBeenCalled();
       });
 
       it("finishing the third group celebrates once and records only the outcome", async () => {
@@ -316,7 +314,7 @@ describe.each([["piano"], ["cancionero"]] as const)("PianoPronunciation (%s desi
         act(() => {
           vi.advanceTimersByTime(700);
         });
-        expect(mockGretelSpeak).toHaveBeenCalledTimes(1);
+        expect(mockGretelSpeak).not.toHaveBeenCalled();
         expect(mockRecordEvent).toHaveBeenCalledTimes(1);
         expect(JSON.stringify(mockRecordEvent.mock.calls[0])).not.toMatch(/transcript|audio|blob/i);
       });
@@ -412,7 +410,7 @@ describe.each([["piano"], ["cancionero"]] as const)("PianoPronunciation (%s desi
 
   describe("Word mode (Sapo = SA–PO)", () => {
     if (design === "cancionero") {
-    it("turns SA green with one sparkle, keeps it green, then PO turns green with one sparkle and one Gretel message", () => {
+    it("turns SA green with one sparkle, keeps it green, then PO turns green with one sparkle", () => {
       render(<PianoPronunciation syllables={["sa"]} words={SAPO} lessonId="lesson-9" />);
       expect(keyState(0)).toBe("next");
       expect(keyState(1)).toBe("pending");
@@ -455,7 +453,7 @@ describe.each([["piano"], ["cancionero"]] as const)("PianoPronunciation (%s desi
       act(() => {
         vi.advanceTimersByTime(700);
       });
-      expect(mockGretelSpeak).toHaveBeenCalledTimes(1);
+      expect(mockGretelSpeak).not.toHaveBeenCalled();
       // Only the outcome is recorded — no transcript or audio.
       expect(mockRecordEvent).toHaveBeenCalledTimes(1);
       const payload = JSON.stringify(mockRecordEvent.mock.calls[0]);
@@ -510,28 +508,16 @@ describe.each([["piano"], ["cancionero"]] as const)("PianoPronunciation (%s desi
       expect(mockPlayCorrectChord).toHaveBeenCalledTimes(2);
     });
 
-    it("does not start the microphone while an example is playing", async () => {
-      let finishSpeech: () => void = () => {};
-      mockSpeak.mockImplementationOnce(
-        () => new Promise<void>((resolve) => (finishSpeech = resolve)),
-      );
+    it("does not synthesize speech for word or syllable examples", async () => {
       render(<PianoPronunciation syllables={["sa"]} words={SAPO} />);
-      await act(async () => {
-        fireEvent.click(screen.getByTestId("piano-escuchar"));
-      });
-      expect(mockCancel).toHaveBeenCalled();
-      expect((screen.getByTestId("piano-mic") as HTMLButtonElement).disabled).toBe(true);
-      fireEvent.click(screen.getByTestId("piano-mic"));
-      expect(mockStart).not.toHaveBeenCalled();
-      await act(async () => {
-        finishSpeech();
-      });
-      act(() => {
-        vi.advanceTimersByTime(400);
-      });
-      expect((screen.getByTestId("piano-mic") as HTMLButtonElement).disabled).toBe(false);
-      fireEvent.click(screen.getByTestId("piano-mic"));
-      expect(mockStart).toHaveBeenCalledTimes(1);
+      fireEvent.click(screen.getByTestId("piano-escuchar"));
+      expect(mockSpeak).not.toHaveBeenCalled();
+      cleanup();
+      mockPlayNote.mockClear();
+      render(<PianoPronunciation syllables={["sa"]} />);
+      fireEvent.click(screen.getByRole("button", { name: "Escuchar sa" }));
+      expect(mockSpeak).not.toHaveBeenCalled();
+      expect(mockPlayNote).toHaveBeenCalled();
     });
 
     it("never confirms piano keys when the microphone is denied", () => {
@@ -606,14 +592,13 @@ describe.each([["piano"], ["cancionero"]] as const)("PianoPronunciation (%s desi
       expect(keyState(0)).toBe("next");
     });
 
-    it("activates separate Escuchar button without double-triggering key button", async () => {
+    it("activates the syllable Escuchar button with a piano sample and no speech synthesis", async () => {
       render(<PianoPronunciation syllables={["ma"]} />);
       await act(async () => {
         fireEvent.click(screen.getByRole("button", { name: "Escuchar ma" }));
       });
-      expect(mockPlayNote).not.toHaveBeenCalled();
-      expect(mockSpeak).toHaveBeenCalledTimes(1);
-      expect(mockSpeak).toHaveBeenCalledWith("ma");
+      expect(mockPlayNote).toHaveBeenCalledTimes(1);
+      expect(mockSpeak).not.toHaveBeenCalled();
     });
   });
 });
