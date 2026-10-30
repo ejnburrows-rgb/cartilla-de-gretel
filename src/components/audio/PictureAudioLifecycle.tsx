@@ -11,7 +11,7 @@ export function PictureAudioLifecycle() {
   useEffect(() => {
     const update = (event: Event) => {
       const status = (event as CustomEvent<PictureAudioStatus>).detail;
-      setMessage(status === 'missing-recording' ? 'El audio de este dibujo aún no está disponible.' : status === 'failed' ? 'No se pudo reproducir la grabación.' : status === 'muted' ? 'El sonido está silenciado.' : '');
+      setMessage(status === 'missing-recording' ? 'El audio de este dibujo aún no está disponible.' : status === 'muted' ? 'El sonido está silenciado.' : '');
     };
     window.addEventListener('cartilla:picture-audio-status', update);
     return () => window.removeEventListener('cartilla:picture-audio-status', update);
