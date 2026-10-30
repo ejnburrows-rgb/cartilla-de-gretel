@@ -32,7 +32,8 @@ export function SyllableTapGame({
   const choices = useMemo(() => {
     const result = [...sounds];
     for (let i = result.length - 1; i > 0; i--) {
-      const j = Math.floor(Math.random() * (i + 1));
+      const randomValue = crypto.getRandomValues(new Uint32Array(1))[0];
+      const j = Math.floor((randomValue! / (0xffffffff + 1)) * (i + 1));
       [result[i], result[j]] = [result[j], result[i]];
     }
     return result;

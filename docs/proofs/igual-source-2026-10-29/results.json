@@ -1,0 +1,51 @@
+{
+  "baseURL": "http://127.0.0.1:5179",
+  "expected": "4154199071049f91459ac78dc7b715ea9f96f24f7c59edbd9f0dca2486742979",
+  "results": [
+    {
+      "width": 390,
+      "printed": 13,
+      "entries": [
+        {
+          "src": "http://127.0.0.1:5179/cartilla/art/delivery/faithful/384/vocal-i/igual.webp",
+          "loaded": true,
+          "sha256": "4154199071049f91459ac78dc7b715ea9f96f24f7c59edbd9f0dca2486742979"
+        }
+      ]
+    },
+    {
+      "width": 390,
+      "printed": 14,
+      "entries": [
+        {
+          "src": "http://127.0.0.1:5179/cartilla/art/faithful/vocal-i/igual.webp",
+          "loaded": true,
+          "sha256": "4154199071049f91459ac78dc7b715ea9f96f24f7c59edbd9f0dca2486742979"
+        }
+      ]
+    },
+    {
+      "width": 1366,
+      "printed": 13,
+      "entries": [
+        {
+          "src": "http://127.0.0.1:5179/cartilla/art/delivery/faithful/384/vocal-i/igual.webp",
+          "loaded": true,
+          "sha256": "4154199071049f91459ac78dc7b715ea9f96f24f7c59edbd9f0dca2486742979"
+        }
+      ]
+    },
+    {
+      "width": 1366,
+      "printed": 14,
+      "entries": [
+        {
+          "src": "http://127.0.0.1:5179/cartilla/art/faithful/vocal-i/igual.webp",
+          "loaded": true,
+          "sha256": "4154199071049f91459ac78dc7b715ea9f96f24f7c59edbd9f0dca2486742979"
+        }
+      ]
+    }
+  ],
+  "errors": []
+}

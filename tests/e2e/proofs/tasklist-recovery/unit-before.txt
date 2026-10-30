@@ -1,0 +1,529 @@
+(node:21680) [DEP0205] DeprecationWarning: `module.register()` is deprecated. Use `module.registerHooks()` instead.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+
+ RUN  v4.1.8 C:/Users/EJN/Documents/Codex/2026-10-22/copy-paste-handoff-coding-agent-c/work/cartilla
+
+ ❯ src/features/teacher-crm/components/__tests__/TaskList.test.tsx (4 tests | 2 failed) 2293ms
+     × shows a fetch error instead of an empty classroom, then retries the actual query 1053ms
+     × shows a retryable error when refetch fails after a successful empty response 1039ms
+
+⎯⎯⎯⎯⎯⎯⎯ Failed Tests 2 ⎯⎯⎯⎯⎯⎯⎯
+
+ FAIL  src/features/teacher-crm/components/__tests__/TaskList.test.tsx > TaskList request recovery > shows a fetch error instead of an empty classroom, then retries the actual query
+TestingLibraryElementError: Unable to find role="alert"
+
+Ignored nodes: comments, script, style
+<body>
+  <div>
+    <div
+      class="bg-white rounded-3xl shadow-[0_10px_30px_rgb(0,0,0,0.05)] border border-stone-100 flex flex-col min-h-[300px] overflow-hidden"
+    >
+      <div
+        class="bg-gradient-to-r from-[#e0e7ff] to-[#c7d2fe] p-5 flex items-center justify-between border-b border-[#a5b4fc]"
+      >
+        <h3
+          class="text-xl font-black text-[#3730a3] flex items-center gap-2"
+        >
+          <svg
+            aria-hidden="true"
+            class="lucide lucide-rocket w-6 h-6 text-[#4f46e5]"
+            fill="none"
+            height="24"
+            stroke="currentColor"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            stroke-width="2"
+            viewBox="0 0 24 24"
+            width="24"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              d="M12 15v5s3.03-.55 4-2c1.08-1.62 0-5 0-5"
+            />
+            <path
+              d="M4.5 16.5c-1.5 1.26-2 5-2 5s3.74-.5 5-2c.71-.84.7-2.13-.09-2.91a2.18 2.18 0 0 0-2.91-.09"
+            />
+            <path
+              d="M9 12a22 22 0 0 1 2-3.95A12.88 12.88 0 0 1 22 2c0 2.72-.78 7.5-6 11a22.4 22.4 0 0 1-4 2z"
+            />
+            <path
+              d="M9 12H4s.55-3.03 2-4c1.62-1.08 5 .05 5 .05"
+            />
+          </svg>
+           Asignaciones
+        </h3>
+        <button
+          class="bg-[#4f46e5] text-white p-2 rounded-xl hover:bg-[#4338ca] hover:scale-105 active:scale-95 transition-all shadow-md"
+        >
+          <svg
+            aria-hidden="true"
+            class="lucide lucide-plus w-5 h-5"
+            fill="none"
+            height="24"
+            stroke="currentColor"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            stroke-width="2"
+            viewBox="0 0 24 24"
+            width="24"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              d="M5 12h14"
+            />
+            <path
+              d="M12 5v14"
+            />
+          </svg>
+        </button>
+      </div>
+      <div
+        class="flex-1 p-5 overflow-y-auto space-y-4 bg-[#f8fafc]"
+      >
+        <div
+          class="text-center py-8 px-4 space-y-3 flex flex-col items-center"
+        >
+          <div
+            class="w-16 h-16 bg-[#e0e7ff] rounded-full flex items-center justify-center text-[#6366f1] shadow-inner mb-2"
+          >
+            <svg
+              aria-hidden="true"
+              class="lucide lucide-calendar w-8 h-8"
+              fill="none"
+              height="24"
+              stroke="currentColor"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="2"
+              viewBox="0 0 24 24"
+              width="24"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                d="M8 2v4"
+              />
+              <path
+                d="M16 2v4"
+              />
+              <rect
+                height="18"
+                rx="2"
+                width="18"
+                x="3"
+                y="4"
+              />
+              <path
+                d="M3 10h18"
+              />
+            </svg>
+          </div>
+          <p
+            class="text-sm font-black text-[#1e293b]"
+          >
+            ¡No hay tareas!
+          </p>
+          <p
+            class="text-xs text-[#64748b] font-bold leading-relaxed max-w-[200px]"
+          >
+            Asigna una lección y establécele un límite de tiempo para retar a tus alumnos.
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</body>
+
+Ignored nodes: comments, script, style
+<body>
+  <div>
+    <div
+      class="bg-white rounded-3xl shadow-[0_10px_30px_rgb(0,0,0,0.05)] border border-stone-100 flex flex-col min-h-[300px] overflow-hidden"
+    >
+      <div
+        class="bg-gradient-to-r from-[#e0e7ff] to-[#c7d2fe] p-5 flex items-center justify-between border-b border-[#a5b4fc]"
+      >
+        <h3
+          class="text-xl font-black text-[#3730a3] flex items-center gap-2"
+        >
+          <svg
+            aria-hidden="true"
+            class="lucide lucide-rocket w-6 h-6 text-[#4f46e5]"
+            fill="none"
+            height="24"
+            stroke="currentColor"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            stroke-width="2"
+            viewBox="0 0 24 24"
+            width="24"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              d="M12 15v5s3.03-.55 4-2c1.08-1.62 0-5 0-5"
+            />
+            <path
+              d="M4.5 16.5c-1.5 1.26-2 5-2 5s3.74-.5 5-2c.71-.84.7-2.13-.09-2.91a2.18 2.18 0 0 0-2.91-.09"
+            />
+            <path
+              d="M9 12a22 22 0 0 1 2-3.95A12.88 12.88 0 0 1 22 2c0 2.72-.78 7.5-6 11a22.4 22.4 0 0 1-4 2z"
+            />
+            <path
+              d="M9 12H4s.55-3.03 2-4c1.62-1.08 5 .05 5 .05"
+            />
+          </svg>
+           Asignaciones
+        </h3>
+        <button
+          class="bg-[#4f46e5] text-white p-2 rounded-xl hover:bg-[#4338ca] hover:scale-105 active:scale-95 transition-all shadow-md"
+        >
+          <svg
+            aria-hidden="true"
+            class="lucide lucide-plus w-5 h-5"
+            fill="none"
+            height="24"
+            stroke="currentColor"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            stroke-width="2"
+            viewBox="0 0 24 24"
+            width="24"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              d="M5 12h14"
+            />
+            <path
+              d="M12 5v14"
+            />
+          </svg>
+        </button>
+      </div>
+      <div
+        class="flex-1 p-5 overflow-y-auto space-y-4 bg-[#f8fafc]"
+      >
+        <div
+          class="text-center py-8 px-4 space-y-3 flex flex-col items-center"
+        >
+          <div
+            class="w-16 h-16 bg-[#e0e7ff] rounded-full flex items-center justify-center text-[#6366f1] shadow-inner mb-2"
+          >
+            <svg
+              aria-hidden="true"
+              class="lucide lucide-calendar w-8 h-8"
+              fill="none"
+              height="24"
+              stroke="currentColor"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="2"
+              viewBox="0 0 24 24"
+              width="24"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                d="M8 2v4"
+              />
+              <path
+                d="M16 2v4"
+              />
+              <rect
+                height="18"
+                rx="2"
+                width="18"
+                x="3"
+                y="4"
+              />
+              <path
+                d="M3 10h18"
+              />
+            </svg>
+          </div>
+          <p
+            class="text-sm font-black text-[#1e293b]"
+          >
+            ¡No hay tareas!
+          </p>
+          <p
+            class="text-xs text-[#64748b] font-bold leading-relaxed max-w-[200px]"
+          >
+            Asigna una lección y establécele un límite de tiempo para retar a tus alumnos.
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</body>
+ ❯ waitForWrapper node_modules/.pnpm/@testing-library+dom@10.4.1/node_modules/@testing-library/dom/dist/wait-for.js:163:27
+ ❯ node_modules/.pnpm/@testing-library+dom@10.4.1/node_modules/@testing-library/dom/dist/query-helpers.js:86:33
+ ❯ src/features/teacher-crm/components/__tests__/TaskList.test.tsx:30:25
+     28|       .mockImplementationOnce(() => new Promise(resolve => { finishRet…
+     29|     mount();
+     30|     expect(await screen.findByRole("alert")).toHaveTextContent("Error …
+       |                         ^
+     31|     expect(screen.queryByText("¡No hay tareas!")).toBeNull();
+     32|     fireEvent.click(screen.getByRole("button", { name: "Reintentar" })…
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/2]⎯
+
+ FAIL  src/features/teacher-crm/components/__tests__/TaskList.test.tsx > TaskList request recovery > shows a retryable error when refetch fails after a successful empty response
+TestingLibraryElementError: Unable to find role="alert"
+
+Ignored nodes: comments, script, style
+<body>
+  <div>
+    <div
+      class="bg-white rounded-3xl shadow-[0_10px_30px_rgb(0,0,0,0.05)] border border-stone-100 flex flex-col min-h-[300px] overflow-hidden"
+    >
+      <div
+        class="bg-gradient-to-r from-[#e0e7ff] to-[#c7d2fe] p-5 flex items-center justify-between border-b border-[#a5b4fc]"
+      >
+        <h3
+          class="text-xl font-black text-[#3730a3] flex items-center gap-2"
+        >
+          <svg
+            aria-hidden="true"
+            class="lucide lucide-rocket w-6 h-6 text-[#4f46e5]"
+            fill="none"
+            height="24"
+            stroke="currentColor"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            stroke-width="2"
+            viewBox="0 0 24 24"
+            width="24"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              d="M12 15v5s3.03-.55 4-2c1.08-1.62 0-5 0-5"
+            />
+            <path
+              d="M4.5 16.5c-1.5 1.26-2 5-2 5s3.74-.5 5-2c.71-.84.7-2.13-.09-2.91a2.18 2.18 0 0 0-2.91-.09"
+            />
+            <path
+              d="M9 12a22 22 0 0 1 2-3.95A12.88 12.88 0 0 1 22 2c0 2.72-.78 7.5-6 11a22.4 22.4 0 0 1-4 2z"
+            />
+            <path
+              d="M9 12H4s.55-3.03 2-4c1.62-1.08 5 .05 5 .05"
+            />
+          </svg>
+           Asignaciones
+        </h3>
+        <button
+          class="bg-[#4f46e5] text-white p-2 rounded-xl hover:bg-[#4338ca] hover:scale-105 active:scale-95 transition-all shadow-md"
+        >
+          <svg
+            aria-hidden="true"
+            class="lucide lucide-plus w-5 h-5"
+            fill="none"
+            height="24"
+            stroke="currentColor"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            stroke-width="2"
+            viewBox="0 0 24 24"
+            width="24"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              d="M5 12h14"
+            />
+            <path
+              d="M12 5v14"
+            />
+          </svg>
+        </button>
+      </div>
+      <div
+        class="flex-1 p-5 overflow-y-auto space-y-4 bg-[#f8fafc]"
+      >
+        <div
+          class="text-center py-8 px-4 space-y-3 flex flex-col items-center"
+        >
+          <div
+            class="w-16 h-16 bg-[#e0e7ff] rounded-full flex items-center justify-center text-[#6366f1] shadow-inner mb-2"
+          >
+            <svg
+              aria-hidden="true"
+              class="lucide lucide-calendar w-8 h-8"
+              fill="none"
+              height="24"
+              stroke="currentColor"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="2"
+              viewBox="0 0 24 24"
+              width="24"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                d="M8 2v4"
+              />
+              <path
+                d="M16 2v4"
+              />
+              <rect
+                height="18"
+                rx="2"
+                width="18"
+                x="3"
+                y="4"
+              />
+              <path
+                d="M3 10h18"
+              />
+            </svg>
+          </div>
+          <p
+            class="text-sm font-black text-[#1e293b]"
+          >
+            ¡No hay tareas!
+          </p>
+          <p
+            class="text-xs text-[#64748b] font-bold leading-relaxed max-w-[200px]"
+          >
+            Asigna una lección y establécele un límite de tiempo para retar a tus alumnos.
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</body>
+
+Ignored nodes: comments, script, style
+<body>
+  <div>
+    <div
+      class="bg-white rounded-3xl shadow-[0_10px_30px_rgb(0,0,0,0.05)] border border-stone-100 flex flex-col min-h-[300px] overflow-hidden"
+    >
+      <div
+        class="bg-gradient-to-r from-[#e0e7ff] to-[#c7d2fe] p-5 flex items-center justify-between border-b border-[#a5b4fc]"
+      >
+        <h3
+          class="text-xl font-black text-[#3730a3] flex items-center gap-2"
+        >
+          <svg
+            aria-hidden="true"
+            class="lucide lucide-rocket w-6 h-6 text-[#4f46e5]"
+            fill="none"
+            height="24"
+            stroke="currentColor"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            stroke-width="2"
+            viewBox="0 0 24 24"
+            width="24"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              d="M12 15v5s3.03-.55 4-2c1.08-1.62 0-5 0-5"
+            />
+            <path
+              d="M4.5 16.5c-1.5 1.26-2 5-2 5s3.74-.5 5-2c.71-.84.7-2.13-.09-2.91a2.18 2.18 0 0 0-2.91-.09"
+            />
+            <path
+              d="M9 12a22 22 0 0 1 2-3.95A12.88 12.88 0 0 1 22 2c0 2.72-.78 7.5-6 11a22.4 22.4 0 0 1-4 2z"
+            />
+            <path
+              d="M9 12H4s.55-3.03 2-4c1.62-1.08 5 .05 5 .05"
+            />
+          </svg>
+           Asignaciones
+        </h3>
+        <button
+          class="bg-[#4f46e5] text-white p-2 rounded-xl hover:bg-[#4338ca] hover:scale-105 active:scale-95 transition-all shadow-md"
+        >
+          <svg
+            aria-hidden="true"
+            class="lucide lucide-plus w-5 h-5"
+            fill="none"
+            height="24"
+            stroke="currentColor"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            stroke-width="2"
+            viewBox="0 0 24 24"
+            width="24"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              d="M5 12h14"
+            />
+            <path
+              d="M12 5v14"
+            />
+          </svg>
+        </button>
+      </div>
+      <div
+        class="flex-1 p-5 overflow-y-auto space-y-4 bg-[#f8fafc]"
+      >
+        <div
+          class="text-center py-8 px-4 space-y-3 flex flex-col items-center"
+        >
+          <div
+            class="w-16 h-16 bg-[#e0e7ff] rounded-full flex items-center justify-center text-[#6366f1] shadow-inner mb-2"
+          >
+            <svg
+              aria-hidden="true"
+              class="lucide lucide-calendar w-8 h-8"
+              fill="none"
+              height="24"
+              stroke="currentColor"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="2"
+              viewBox="0 0 24 24"
+              width="24"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                d="M8 2v4"
+              />
+              <path
+                d="M16 2v4"
+              />
+              <rect
+                height="18"
+                rx="2"
+                width="18"
+                x="3"
+                y="4"
+              />
+              <path
+                d="M3 10h18"
+              />
+            </svg>
+          </div>
+          <p
+            class="text-sm font-black text-[#1e293b]"
+          >
+            ¡No hay tareas!
+          </p>
+          <p
+            class="text-xs text-[#64748b] font-bold leading-relaxed max-w-[200px]"
+          >
+            Asigna una lección y establécele un límite de tiempo para retar a tus alumnos.
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</body>
+ ❯ waitForWrapper node_modules/.pnpm/@testing-library+dom@10.4.1/node_modules/@testing-library/dom/dist/wait-for.js:163:27
+ ❯ node_modules/.pnpm/@testing-library+dom@10.4.1/node_modules/@testing-library/dom/dist/query-helpers.js:86:33
+ ❯ src/features/teacher-crm/components/__tests__/TaskList.test.tsx:63:25
+     61|     await screen.findByText("¡No hay tareas!");
+     62|     await client.refetchQueries({ queryKey: ["assignments", "synthetic…
+     63|     expect(await screen.findByRole("alert")).toBeVisible();
+       |                         ^
+     64|     expect(screen.queryByText("¡No hay tareas!")).toBeNull();
+     65|   });
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[2/2]⎯
+
+
+ Test Files  1 failed (1)
+      Tests  2 failed | 2 passed (4)
+   Start at  00:59:20
+   Duration  7.38s (transform 178ms, setup 338ms, import 2.93s, tests 2.29s, environment 1.49s)
+

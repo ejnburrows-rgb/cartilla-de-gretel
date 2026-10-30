@@ -1,5 +1,6 @@
 import os, sys; sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 from lib import *
+from wb_vowels import Fit, ring_color
 OUT = sys.argv[1] if len(sys.argv) > 1 and sys.argv[1].startswith('/') else '/data/proto/alive/out'
 ARGS = [a for a in sys.argv[1:] if not a.startswith('/')]
 os.environ['LIVING_OUT'] = OUT
@@ -7,19 +8,23 @@ from fc_natives import fc_p004_oso, fc_p004_oveja, fc_p004_olla, fc_p006_elefant
 
 # ---------- ELEFANTE: trunk swing, ears flap, both eyes blink ----------
 def elefante():
-    base = load('elefante'); size = base.size; svg = Svg(base)
-    trunk = soft_mask(size, [('poly', [(130, 78), (168, 80), (172, 110), (168, 150), (150, 162), (118, 158), (100, 145), (98, 122), (110, 112), (127, 108)])], 2.5)
-    ramp = np.clip((grid(size)[1] - 80) / 45, 0, 1)
-    vx, vy = field_rotate(size, trunk * ramp, (150, 80))
+    base = load('elefante'); size = base.size; t = Fit('elefante')
+    # Preserve the current still SVG's 5.5px top/bottom padding.
+    svg = Svg(base, pad=(0, 5.5, 0, 5.5))
+    trunk = soft_mask(size, [('poly', t.poly([(130, 78), (168, 80), (172, 110), (168, 150), (150, 162), (118, 158), (100, 145), (98, 122), (110, 112), (127, 108)]))], t.d(2.5))
+    ramp = np.clip((grid(size)[1] - t.p(150, 80)[1]) / t.d(45), 0, 1)
+    vx, vy = field_rotate(size, trunk * ramp, t.p(150, 80))
     svg.warp(vx, vy, [0, 0.055, 0, -0.055, 0], '4.6s')
-    ear_r = soft_mask(size, [('poly', [(189, 0), (222, 0), (222, 82), (182, 80), (177, 40), (186, 27)])], 2.5)
-    ear_l = soft_mask(size, [('poly', [(92, 4), (118, 2), (121, 58), (104, 62), (92, 50)])], 2.5)
-    vxr, vyr = field_scale(size, ear_r, (178, 40), 1, 0.15)
-    vxl, vyl = field_scale(size, ear_l, (121, 35), 1, 0.15)
+    ear_r = soft_mask(size, [('poly', t.poly([(189, 0), (222, 0), (222, 82), (182, 80), (177, 40), (186, 27)]))], t.d(2.5))
+    ear_l = soft_mask(size, [('poly', t.poly([(92, 4), (118, 2), (121, 58), (104, 62), (92, 50)]))], t.d(2.5))
+    vxr, vyr = field_scale(size, ear_r, t.p(178, 40), 1, 0.15)
+    vxl, vyl = field_scale(size, ear_l, t.p(121, 35), 1, 0.15)
     svg.warp(vxr + vxl, vyr + vyl, [0, -0.10, 0, 0.05, 0], '3.4s', '0;0.3;0.55;0.8;1')
-    lid = (64, 13, 72)
-    add_blink(svg, [lid_patch(base, (121.5, 49.5, 133.5, 69), lid, line=(12, 2, 16)),
-                    lid_patch(base, (149.5, 48, 163.5, 71), lid, line=(12, 2, 16))], 'blink', 4.8, -1.2)
+    lids = []
+    for bx in [(121.5, 49.5, 133.5, 69), (149.5, 48, 163.5, 71)]:
+        box = t.box(*bx)
+        lids.append(lid_patch(base, box, ring_color(base, box), line=(12, 2, 16), lash_w=t.d(1.4), pad=t.d(0.6)))
+    add_blink(svg, lids, 'blink', 4.8, -1.2)
     return svg.render(f'{OUT}/elefante-alive.svg')
 
 # ---------- OSO: breathing, blinking, bee buzzing around the head ----------

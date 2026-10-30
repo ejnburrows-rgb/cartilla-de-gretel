@@ -1,0 +1,19 @@
+{
+  "assetSha256": "e313f0ec62619e0f8498a7f84baf3f74b27e24cd46435a214b23301e6e040ff3",
+  "technicalStatus": "PASS",
+  "sharpness": {
+    "method": "contour-noise-screen-v1",
+    "reviewSize": 320,
+    "noiseToContour": 0.39856301939058175,
+    "threshold": 0.22,
+    "status": "FAIL",
+    "caveat": "Pair-calibrated sharpness screen; cannot prove picture identity, completeness, or book fidelity."
+  },
+  "lookCompared": false,
+  "fidelityStatus": "fidelity NOT verified",
+  "label": "Technical PASS; fidelity NOT verified",
+  "blockers": [
+    "Jagged/low-sharpness screen failed",
+    "Missing current-hash-bound look comparison evidence"
+  ]
+}

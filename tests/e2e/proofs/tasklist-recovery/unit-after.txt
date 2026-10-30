@@ -1,0 +1,11 @@
+(node:23336) [DEP0205] DeprecationWarning: `module.register()` is deprecated. Use `module.registerHooks()` instead.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+
+ RUN  v4.1.8 C:/Users/EJN/Documents/Codex/2026-10-22/copy-paste-handoff-coding-agent-c/work/cartilla
+
+
+ Test Files  1 passed (1)
+      Tests  4 passed (4)
+   Start at  01:00:22
+   Duration  3.04s (transform 170ms, setup 330ms, import 479ms, tests 322ms, environment 1.58s)
+

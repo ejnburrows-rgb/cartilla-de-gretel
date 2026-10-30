@@ -179,14 +179,20 @@ function letterPair(text: string) {
 
 /** Printed stanzas are evenly leaded; OCR baselines wobble. Re-space each
  * stanza's baselines at its median pitch, starting from its first line. */
-function evenLines(lines: ReplicaToken[]) {
+// These source pages visibly separate stanzas below the generic OCR threshold.
+const SOURCE_STANZA_STARTS: Record<number, string> = {
+  29: "Nada, nada mi patito",
+  47: "–Gatita gordita",
+};
+
+function evenLines(lines: ReplicaToken[], page: number) {
   const sorted = [...lines].sort((a, b) => a.base - b.base);
   if (sorted.length < 3) return;
   const gaps = sorted.slice(1).map((t, i) => t.base - sorted[i]!.base);
   const pitch = median(gaps);
   let start = 0;
   for (let i = 1; i <= sorted.length; i++) {
-    if (i === sorted.length || gaps[i - 1]! > pitch * 1.45) {
+    if (i === sorted.length || sorted[i]?.text.trim() === SOURCE_STANZA_STARTS[page] || gaps[i - 1]! > pitch * 1.45) {
       const stanza = sorted.slice(start, i);
       const local = stanza.length > 1 ? median(stanza.slice(1).map((t, k) => t.base - stanza[k]!.base)) : pitch;
       stanza.forEach((t, k) => {
@@ -402,10 +408,17 @@ export function getReplicaSheet(page: number): ReplicaSheet | null {
     if (panels.some((p) => overlap(p, d) >= 0.5 * d.w * d.h)) continue;
     panels.push({ id: panels.length, kind: "card", x: d.x, y: d.y, w: d.w, h: d.h, color: d.stops[3] ?? "#f4dbe4", tone: 0 });
   }
+  const seenPanels = new Map<string, boolean>();
   for (let i = panels.length - 1; i >= 0; i--) {
     const p = panels[i]!;
-    const underBar = dividers.some((d) => overlap(p, d) >= 0.6 * Math.min(p.w * p.h, d.w * d.h));
-    if (underBar && !printed.some((r) => inside(r.x + r.width / 2, r.y + r.height / 2, p))) panels.splice(i, 1);
+    const key = `${p.x},${p.y},${p.w},${p.h}`;
+    let shouldRemove = seenPanels.get(key);
+    if (shouldRemove === undefined) {
+      const underBar = dividers.some((d) => overlap(p, d) >= 0.6 * Math.min(p.w * p.h, d.w * d.h));
+      shouldRemove = underBar && !printed.some((r) => inside(r.x + r.width / 2, r.y + r.height / 2, p));
+      seenPanels.set(key, shouldRemove);
+    }
+    if (shouldRemove) panels.splice(i, 1);
   }
   panels.forEach((p, i) => (p.id = i));
 
@@ -542,7 +555,7 @@ export function getReplicaSheet(page: number): ReplicaSheet | null {
       const right = Math.max(panel.x + panel.w, ...members.map((t) => t.x + t.w + 24));
       panel.x = Math.max(8, left);
       panel.w = Math.min(REPLICA_WIDTH - 8, right) - panel.x;
-      evenLines(verse);
+      evenLines(verse, page);
       for (const t of titles) if (t.align === "center") t.x = panel.x + panel.w / 2 - t.w / 2;
       for (const t of verse) {
         t.fitCap = t.align === "center" ? panel.w - 56 : panel.x + panel.w - 26 - t.x;
@@ -716,7 +729,7 @@ export function getReplicaSheet(page: number): ReplicaSheet | null {
           if (full.includes(t) && t !== lines[lines.length - 1]) t.justifyW = widest;
         });
       }
-      evenLines(lines);
+      evenLines(lines, page);
     } else if (key === "columns" && gaps.length) {
       // The word lists are printed at one size; the text layer's sizes wobble.
       const size = median(members.map((t) => t.fontSize));

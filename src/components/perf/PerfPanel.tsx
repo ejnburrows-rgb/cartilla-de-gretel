@@ -85,6 +85,7 @@ function PerfPanelInner() {
         <button
           onClick={() => setIsOpen(false)}
           className="text-stone-400 hover:text-white font-bold ml-2 cursor-pointer"
+          aria-label="Cerrar panel de rendimiento"
         >
           [x]
         </button>

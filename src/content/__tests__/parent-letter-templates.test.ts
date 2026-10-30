@@ -109,4 +109,13 @@ describe("parent-letter-templates", () => {
     const result = fillTemplate(narrativeText, testVars);
     expect(result).toBe("The teacher gave a great lesson today at a high level.");
   });
+
+  it("does not leak Object.prototype properties when checking for missing keys", () => {
+    const text = "Testing {{toString}} and {{__proto__}} and {{constructor}}.";
+    const result = fillTemplate(text, {});
+    expect(result).toBe("Testing  and  and .");
+
+    const resultWithFallback = fillTemplate(text, {}, { fallback: "[MISSING]" });
+    expect(resultWithFallback).toBe("Testing [MISSING] and [MISSING] and [MISSING].");
+  });
 });

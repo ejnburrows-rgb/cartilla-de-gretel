@@ -105,11 +105,11 @@
 0.671
 ],
 "/cartilla/art/optimized/flipchart-native/p005-ana.png": [
-724.0,
-1034.0,
-218.0,
-200.0,
-0.97
+705.882353,
+1024.705882,
+243.137255,
+252.54902,
+1
 ],
 "/cartilla/art/optimized/flipchart-native/p005-anillo.png": [
 406.0,
@@ -147,11 +147,11 @@
 0.964
 ],
 "/cartilla/art/optimized/flipchart-native/p006-ema.png": [
-744.0,
-638.0,
-164.0,
-224.0,
-0.973
+732.941176,
+623.921569,
+183.137255,
+238.431373,
+1
 ],
 "/cartilla/art/optimized/flipchart-native/p006-erizo.png": [
 376.0,
@@ -203,11 +203,11 @@
 0.983
 ],
 "/cartilla/art/optimized/flipchart-native/p007-indio.png": [
-722.0,
-638.0,
-182.0,
-226.0,
-0.942
+711.764706,
+581.960784,
+202.352941,
+288.235294,
+1
 ],
 "/cartilla/art/optimized/flipchart-native/p007-insecto.png": [
 64.0,
@@ -217,11 +217,11 @@
 0.979
 ],
 "/cartilla/art/optimized/flipchart-native/p007-irma.png": [
-694.0,
-1002.0,
-230.0,
-230.0,
-0.988
+695.686275,
+993.72549,
+235.686275,
+274.509804,
+1
 ],
 "/cartilla/art/optimized/flipchart-native/p007-isla.png": [
 364.0,
@@ -287,11 +287,11 @@
 0.901
 ],
 "/cartilla/art/optimized/flipchart-native/p009-amo.png": [
-358.0,
-568.0,
-254.0,
-258.0,
-0.947
+350.980392,
+549.803922,
+270.196078,
+285.490196,
+1
 ],
 "/cartilla/art/optimized/flipchart-native/p009-mama.png": [
 56.0,
@@ -301,25 +301,25 @@
 0.971
 ],
 "/cartilla/art/optimized/flipchart-native/p009-meme.png": [
-242.0,
-970.0,
-128.0,
-230.0,
-0.921
+229.803922,
+957.647059,
+150.196078,
+309.411765,
+1
 ],
 "/cartilla/art/optimized/flipchart-native/p009-mima.png": [
-680.0,
-572.0,
-274.0,
-256.0,
-0.966
+660.784314,
+528.627451,
+304.313725,
+304.705882,
+1
 ],
 "/cartilla/art/optimized/flipchart-native/p009-mumi.png": [
-562.0,
-972.0,
-242.0,
-228.0,
-0.954
+532.941176,
+960.0,
+281.176471,
+296.078431,
+1
 ],
 "/cartilla/art/optimized/flipchart-native/p009-scene.png": [
 32.0,
@@ -329,11 +329,11 @@
 0.984
 ],
 "/cartilla/art/optimized/flipchart-native/p011-scene.png": [
-374.0,
-108.0,
-578.0,
-498.0,
-0.926
+378,
+70,
+602,
+490.916667,
+1
 ],
 "/cartilla/art/optimized/flipchart-native/p012-papa.png": [
 66.0,
@@ -343,11 +343,11 @@
 0.992
 ],
 "/cartilla/art/optimized/flipchart-native/p012-pepe.png": [
-696.0,
-592.0,
-262.0,
-220.0,
-0.963
+680.784314,
+514.901961,
+305.490196,
+306.27451,
+1
 ],
 "/cartilla/art/optimized/flipchart-native/p012-pie.png": [
 362.0,
@@ -364,11 +364,11 @@
 0.922
 ],
 "/cartilla/art/optimized/flipchart-native/p012-puma.png": [
-100.0,
-976.0,
-234.0,
-266.0,
-0.976
+68.627451,
+967.843137,
+272.54902,
+295.294118,
+1
 ],
 "/cartilla/art/optimized/flipchart-native/p012-scene.png": [
 14.0,
@@ -379,17 +379,17 @@
 ],
 "/cartilla/art/optimized/flipchart-native/p014-scene.png": [
 378.0,
-54.0,
+70,
 602.0,
-514.0,
+489.983616,
 0.97
 ],
 "/cartilla/art/optimized/flipchart-native/p015-pisa.png": [
-248.0,
-1032.0,
-158.0,
-132.0,
-0.98
+133.72549,
+1021.960784,
+319.607843,
+220.392157,
+1
 ],
 "/cartilla/art/optimized/flipchart-native/p015-sapo.png": [
 688.0,
@@ -420,11 +420,11 @@
 0.963
 ],
 "/cartilla/art/optimized/flipchart-native/p015-susi.png": [
-562.0,
-960.0,
-190.0,
-242.0,
-0.905
+554.901961,
+952.941176,
+230.196078,
+308.235294,
+1
 ],
 "/cartilla/art/optimized/flipchart-native/p017-scene.png": [
 390.0,
@@ -448,11 +448,11 @@
 0.95
 ],
 "/cartilla/art/optimized/flipchart-native/p018-tipi.webp": [
-134.0,
-974.0,
-212.0,
-220.0,
-0.947
+89.803922,
+960.0,
+340.392157,
+287.058824,
+1
 ],
 "/cartilla/art/optimized/flipchart-native/p018-tomate.webp": [
 44.0,
@@ -469,16 +469,16 @@
 0.979
 ],
 "/cartilla/art/optimized/flipchart-native/p018-tuto.webp": [
-576.0,
-930.0,
-244.0,
-286.0,
-0.986
+540.0,
+929.803922,
+315.294118,
+320.392157,
+1
 ],
 "/cartilla/art/optimized/flipchart-native/p020-scene.png": [
-380.0,
+388.265428,
 86.0,
-610.0,
+593.469145,
 474.0,
 0.992
 ],
@@ -581,18 +581,18 @@
 0.932
 ],
 "/cartilla/art/optimized/flipchart-native/p027-mono.png": [
-724.0,
-586.0,
-162.0,
-232.0,
-0.985
+709.803922,
+524.705882,
+190.196078,
+295.294118,
+1
 ],
 "/cartilla/art/optimized/flipchart-native/p027-napi.png": [
-130.0,
-976.0,
-248.0,
-254.0,
-0.97
+80.0,
+964.705882,
+300.0,
+280.392157,
+1
 ],
 "/cartilla/art/optimized/flipchart-native/p027-nido.png": [
 66.0,
@@ -616,11 +616,11 @@
 0.947
 ],
 "/cartilla/art/optimized/flipchart-native/p027-tenedor.png": [
-650.0,
-954.0,
-52.0,
-278.0,
-0.969
+636.862745,
+924.705882,
+76.470588,
+325.490196,
+1
 ],
 "/cartilla/art/optimized/flipchart-native/p029-scene.png": [
 514.0,
@@ -630,11 +630,11 @@
 0.987
 ],
 "/cartilla/art/optimized/flipchart-native/p030-mene.png": [
-580.0,
-928.0,
-168.0,
-260.0,
-0.855
+554.901961,
+900.0,
+210.196078,
+318.039216,
+1
 ],
 "/cartilla/art/optimized/flipchart-native/p030-mono.png": [
 132.0,
@@ -644,25 +644,25 @@
 0.847
 ],
 "/cartilla/art/optimized/flipchart-native/p030-ninito.png": [
-730.0,
-570.0,
-172.0,
-220.0,
-0.935
+714.901961,
+534.901961,
+205.098039,
+262.352941,
+1
 ],
 "/cartilla/art/optimized/flipchart-native/p030-nuno.png": [
-416.0,
-570.0,
-172.0,
-228.0,
-0.948
+400.0,
+494.901961,
+210.196078,
+305.098039,
+1
 ],
 "/cartilla/art/optimized/flipchart-native/p030-pinata.png": [
-56.0,
-572.0,
-198.0,
-222.0,
-0.994
+41.960784,
+569.803922,
+225.098039,
+225.490196,
+1
 ],
 "/cartilla/art/optimized/flipchart-native/p030-scene.png": [
 110.0,
@@ -693,11 +693,11 @@
 0.946
 ],
 "/cartilla/art/optimized/flipchart-native/p033-bebita.png": [
-558.0,
-936.0,
-250.0,
-276.0,
-0.88
+524.705882,
+914.901961,
+300.392157,
+314.117647,
+1
 ],
 "/cartilla/art/optimized/flipchart-native/p033-bota.png": [
 146.0,
@@ -728,11 +728,11 @@
 0.989
 ],
 "/cartilla/art/optimized/flipchart-native/p036-pavo.png": [
-162.0,
-988.0,
-208.0,
-218.0,
-0.834
+144.705882,
+974.901961,
+240.392157,
+260.392157,
+1
 ],
 "/cartilla/art/optimized/flipchart-native/p036-scene.png": [
 32.0,
@@ -791,25 +791,25 @@
 0.938
 ],
 "/cartilla/art/optimized/flipchart-native/p039-rita.png": [
-686.0,
-560.0,
-250.0,
-208.0,
-0.976
+669.803922,
+540.0,
+280.392157,
+233.333333,
+1
 ],
 "/cartilla/art/optimized/flipchart-native/p039-rosa.png": [
-162.0,
-942.0,
-168.0,
-208.0,
-0.995
+129.803922,
+934.901961,
+205.490196,
+245.098039,
+1
 ],
 "/cartilla/art/optimized/flipchart-native/p039-rueda.png": [
-558.0,
-926.0,
-252.0,
-224.0,
-0.933
+504.705882,
+924.705882,
+330.588235,
+256.470588,
+1
 ],
 "/cartilla/art/optimized/flipchart-native/p039-scene.png": [
 100.0,
@@ -868,10 +868,10 @@
 0.837
 ],
 "/cartilla/art/optimized/flipchart-native/p044-scene.png": [
-466.0,
-56.0,
-500.0,
-498.0,
+480.26312,
+70,
+471.47376,
+484.0,
 0.803
 ],
 "/cartilla/art/optimized/flipchart-native/p045-gaveta.png": [
@@ -882,11 +882,11 @@
 0.976
 ],
 "/cartilla/art/optimized/flipchart-native/p045-goloso.png": [
-708.0,
-550.0,
-228.0,
-240.0,
-0.916
+700.784314,
+523.921569,
+242.352941,
+270.196078,
+1
 ],
 "/cartilla/art/optimized/flipchart-native/p045-gorra.png": [
 134.0,
@@ -903,11 +903,11 @@
 0.968
 ],
 "/cartilla/art/optimized/flipchart-native/p045-mago.png": [
-568.0,
-928.0,
-224.0,
-232.0,
-0.877
+560.0,
+918.823529,
+238.039216,
+272.54902,
+1
 ],
 "/cartilla/art/optimized/flipchart-native/p045-scene.png": [
 142.0,
@@ -924,18 +924,18 @@
 0.921
 ],
 "/cartilla/art/optimized/flipchart-native/p048-familia.png": [
-736.0,
-568.0,
-158.0,
-264.0,
-0.919
+725.882353,
+509.803922,
+175.294118,
+329.411765,
+1
 ],
 "/cartilla/art/optimized/flipchart-native/p048-felo.png": [
-170.0,
-972.0,
-258.0,
-222.0,
-0.963
+157.647059,
+960.0,
+300.392157,
+295.294118,
+1
 ],
 "/cartilla/art/optimized/flipchart-native/p048-fideos.png": [
 438.0,
@@ -952,24 +952,24 @@
 0.959
 ],
 "/cartilla/art/optimized/flipchart-native/p048-funda.png": [
-600.0,
-1000.0,
-220.0,
-192.0,
-0.788
+587.843137,
+989.803922,
+244.313725,
+245.490196,
+1
 ],
 "/cartilla/art/optimized/flipchart-native/p048-scene.png": [
-140.0,
-46.0,
-332.0,
-496.0,
+155.394737,
+70,
+301.210526,
+472.0,
 0.869
 ],
 "/cartilla/art/optimized/flipchart-native/p050-scene.png": [
-444.0,
-42.0,
-520.0,
-508.0,
+464.870827,
+70,
+478.258345,
+480.0,
 0.915
 ],
 "/cartilla/art/optimized/flipchart-native/p051-ajo.png": [
@@ -987,11 +987,11 @@
 0.93
 ],
 "/cartilla/art/optimized/flipchart-native/p051-jesus.png": [
-738.0,
-560.0,
-224.0,
-226.0,
-0.98
+727.843137,
+509.803922,
+250.196078,
+276.470588,
+1
 ],
 "/cartilla/art/optimized/flipchart-native/p051-jicotea.png": [
 46.0,
@@ -1022,25 +1022,25 @@
 0.921
 ],
 "/cartilla/art/optimized/flipchart-native/p054-casa.png": [
-678.0,
-552.0,
-276.0,
-204.0,
-0.925
+666.666667,
+509.803922,
+293.333333,
+254.509804,
+1
 ],
 "/cartilla/art/optimized/flipchart-native/p054-catalina.png": [
-610.0,
-906.0,
-126.0,
-254.0,
-0.859
+598.823529,
+885.882353,
+147.45098,
+309.411765,
+1
 ],
 "/cartilla/art/optimized/flipchart-native/p054-conejo.png": [
-424.0,
-556.0,
-154.0,
-192.0,
-0.811
+414.901961,
+511.764706,
+172.156863,
+247.45098,
+1
 ],
 "/cartilla/art/optimized/flipchart-native/p054-cubo.png": [
 148.0,
@@ -1058,9 +1058,9 @@
 ],
 "/cartilla/art/optimized/flipchart-native/p054-scene.png": [
 48.0,
-54.0,
+70,
 450.0,
-374.0,
+355.023364,
 0.985
 ],
 "/cartilla/art/optimized/flipchart-native/p056-caramelos.webp": [
@@ -1071,11 +1071,11 @@
 0.909
 ],
 "/cartilla/art/optimized/flipchart-native/p057-mayuscula.png": [
-136.0,
-944.0,
-216.0,
-220.0,
-0.938
+130.980392,
+935.686275,
+229.019608,
+253.333333,
+1
 ],
 "/cartilla/art/optimized/flipchart-native/p057-scene.png": [
 60.0,
@@ -1106,11 +1106,11 @@
 0.948
 ],
 "/cartilla/art/optimized/flipchart-native/p057-yoyo.png": [
-562.0,
-932.0,
-228.0,
-232.0,
-0.933
+551.764706,
+920.784314,
+251.372549,
+266.27451,
+1
 ],
 "/cartilla/art/optimized/flipchart-native/p059-scene.png": [
 456.0,
@@ -1121,9 +1121,9 @@
 ],
 "/cartilla/art/optimized/flipchart-native/p060-scene.png": [
 92.0,
-46.0,
+70,
 410.0,
-444.0,
+412.367987,
 0.922
 ],
 "/cartilla/art/optimized/flipchart-native/p060-zapato.png": [
@@ -1134,25 +1134,25 @@
 0.93
 ],
 "/cartilla/art/optimized/flipchart-native/p060-zepelin.png": [
-114.0,
-974.0,
-292.0,
-210.0,
-0.981
+104.705882,
+964.705882,
+310.588235,
+242.352941,
+1
 ],
 "/cartilla/art/optimized/flipchart-native/p060-zigzag.png": [
-404.0,
-566.0,
-202.0,
-280.0,
-0.874
+391.764706,
+541.960784,
+216.470588,
+247.058824,
+1
 ],
 "/cartilla/art/optimized/flipchart-native/p060-zorro.png": [
-728.0,
-566.0,
-200.0,
-206.0,
-0.96
+716.862745,
+520.0,
+222.352941,
+261.176471,
+1
 ],
 "/cartilla/art/optimized/flipchart-native/p060-zulema.png": [
 584.0,

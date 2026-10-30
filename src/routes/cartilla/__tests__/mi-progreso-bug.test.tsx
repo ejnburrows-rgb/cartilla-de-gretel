@@ -41,8 +41,9 @@ vi.mock("@/lib/rewards", () => ({
   useRewards: () => mockRewards,
 }));
 
-import { Route } from "../mi-progreso";
-const MiProgreso = Route.options.component as React.ComponentType;
+// The route plugin generates this component-only module during the Vite transform.
+// @ts-expect-error Virtual split-module imports have no static TypeScript declaration.
+import { component as MiProgreso } from "../mi-progreso?tsr-split=component";
 
 describe("mi-progreso component", () => {
   it("only counts valid numeric lesson IDs toward completion total and keeps per-word exercises", async () => {
@@ -59,7 +60,6 @@ describe("mi-progreso component", () => {
     });
 
     render(<MiProgreso />);
-    
     const countElement = await screen.findByText(`2/${TOTAL_LESSONS}`);
     expect(countElement).toBeInTheDocument();
     
