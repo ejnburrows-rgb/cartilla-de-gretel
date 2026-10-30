@@ -6,10 +6,9 @@ import {
 } from "@/lib/speech-recognition-types";
 import { useEffect, useState, useRef } from "react";
 import { Mic, MicOff, Check, X, RotateCcw, Volume2 } from "lucide-react";
+import { useAudio } from "@/hooks/useAudio";
 import { cn } from "@/lib/utils";
 import { gretelEvent } from "@/lib/gretel-bus";
-import { approvedPictureRecording, resolvePictureNameByLabel } from "@/lib/picture-vocabulary";
-import { playPictureName } from "@/lib/picture-audio";
 
 type Word = { word: string; emoji?: string };
 
@@ -328,13 +327,20 @@ export function AudioMultipleChoice({
   options: Word[];
   color: string;
 }) {
+  const { play, playingText, isAvailable } = useAudio();
   const [feedback, setFeedback] = useState<"ok" | "no" | null>(null);
   const [picked, setPicked] = useState<string | null>(null);
-  const targetPicture = resolvePictureNameByLabel(targetWord);
-  const hasApprovedRecording = Boolean(targetPicture && approvedPictureRecording(targetPicture.key));
 
   // Scramble options once
   const scrambled = useRef(secureShuffle(options)).current;
+
+  if (!isAvailable(targetWord)) {
+    return (
+      <div className="rounded-2xl border-2 border-foreground/10 bg-card p-6" role="status">
+        Esta actividad de escucha no está disponible porque falta una grabación aprobada.
+      </div>
+    );
+  }
 
   const handlePick = (word: string) => {
     setPicked(word);
@@ -351,18 +357,17 @@ export function AudioMultipleChoice({
     <div className="rounded-2xl border-2 border-foreground/10 bg-card p-6 flex flex-col items-center">
       <h3 className="font-bold text-xl mb-6">Escucha y selecciona la imagen correcta</h3>
 
-      {targetPicture && hasApprovedRecording ? (
-        <button
-          onClick={() => playPictureName(targetPicture)}
-          aria-label={`Escuchar ${targetWord}`}
-          className="mb-8 inline-flex h-24 w-24 items-center justify-center rounded-full text-white shadow-xl transition-transform hover:scale-105 active:scale-95"
-          style={{ backgroundColor: color }}
-        >
-          <Volume2 className="w-12 h-12" />
-        </button>
-      ) : (
-        <p className="mb-8 text-sm font-semibold text-foreground">No hay una grabación aprobada para esta palabra.</p>
-      )}
+      <button
+        onClick={() => play(targetWord)}
+        aria-label="Escuchar palabra"
+        className={cn(
+          "w-24 h-24 rounded-full flex items-center justify-center text-white transition-all shadow-xl mb-8 active:scale-95",
+          playingText === targetWord ? "animate-pulse ring-8 ring-offset-4" : "hover:scale-105",
+        )}
+        style={{ backgroundColor: color, "--tw-ring-color": color } as React.CSSProperties}
+      >
+        <Volume2 className="w-12 h-12" />
+      </button>
 
       <div className="grid grid-cols-2 gap-4 w-full max-w-md">
         {scrambled.map((opt) => (

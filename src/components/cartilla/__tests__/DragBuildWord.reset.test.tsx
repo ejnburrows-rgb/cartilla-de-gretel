@@ -46,6 +46,7 @@ vi.mock("@/hooks/useAudio", () => ({
   useAudio: () => ({
     play: vi.fn(),
     playingText: null,
+    isAvailable: () => true,
   }),
 }));
 

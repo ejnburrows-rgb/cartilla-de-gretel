@@ -243,7 +243,7 @@ interface DragBuildWordProps {
 }
 
 export function DragBuildWord({ words, accent, lessonId, onComplete }: DragBuildWordProps) {
-  const { play, playingText } = useAudio();
+  const { play, playingText, isAvailable } = useAudio();
   // If no words provided, fallback
   const safeWords = words.length > 0 ? words : ["ola"];
 
@@ -252,7 +252,7 @@ export function DragBuildWord({ words, accent, lessonId, onComplete }: DragBuild
 
   const [state, dispatch] = useReducer(reducer, currentWord, initState);
   const [feedbackState, setFeedbackState] = useState<"ok" | "x" | null>(null);
-  
+
   const [completedIndices, setCompletedIndices] = useState<Set<number>>(new Set());
   const activityCompleteFired = useRef(false);
   const hasCalledComplete = useRef(false);
@@ -315,7 +315,7 @@ export function DragBuildWord({ words, accent, lessonId, onComplete }: DragBuild
           meta: { exercise: "drag_build_word", word: state.target, completed: true },
         });
       }
-      
+
       const newCompleted = new Set(completedIndices);
       newCompleted.add(wordIdx);
       setCompletedIndices(newCompleted);
@@ -416,13 +416,15 @@ export function DragBuildWord({ words, accent, lessonId, onComplete }: DragBuild
           <EscucharInstruccionButton text="Forma la palabra" />
         </div>
         <div className="flex gap-2">
-          <button
-            onClick={() => play(state.target)}
-            aria-label={`Escuchar "${state.target}"`}
-            className="lesson-focus-ring inline-flex items-center gap-1 text-xs font-bold px-2 py-1 rounded-lg border border-foreground/10 hover:bg-secondary"
-          >
-            <Volume2 className="w-3.5 h-3.5" /> Escuchar
-          </button>
+          {isAvailable(state.target) && (
+            <button
+              onClick={() => play(state.target)}
+              aria-label={`Escuchar "${state.target}"`}
+              className="lesson-focus-ring inline-flex items-center gap-1 text-xs font-bold px-2 py-1 rounded-lg border border-foreground/10 hover:bg-secondary"
+            >
+              <Volume2 className="w-3.5 h-3.5" /> Escuchar
+            </button>
+          )}
           <button
             onClick={reset}
             aria-label="Reiniciar palabra"
