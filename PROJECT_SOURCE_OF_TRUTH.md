@@ -2,7 +2,7 @@
 
 This document governs approved product content and presentation, not agent orchestration.
 
-> **Owner scope, 2026-10-29: existing Tutor #1073 development and qualification only.** The preceding organization-only cleanup phase is superseded. The owner resumed the existing Tutor branch to prove the Lección 1 phone-width experience; other product lanes and parallel-work references below remain preserved history/backlog, **not permission to dispatch, merge or deploy**. Current task authority and live proof are in [GitHub #877](https://github.com/ejnburrows-rgb/cartilla-de-gretel/issues/877); execution safeguards are in [AGENTS.md](AGENTS.md). No approval for Tutor production release is implied.
+> **Owner scope, 2026-10-30: TWO authorized tracks.** The October 29 organization-only and Tutor-only freezes are superseded. **Track A:** finish existing product PRs and authorized Jules J1–J13 lanes, with coordinator-owned art Yes/No wiring; **Track B:** Tutor #1073 continues only with its existing specialist on `feat/gretel-tutor-l1-3` (Track A never edits Tutor files). Current exact priority, owner approvals, dependency/merge order and safeguards live in [#877](https://github.com/ejnburrows-rgb/cartilla-de-gretel/issues/877) and [AGENTS.md](AGENTS.md). **#1218 first; independent review + explicit owner yes per merge; no deploy without “deploy it”; retain disabled auto-deployment.**
 
 ## Goal
 
@@ -36,16 +36,16 @@ For curriculum, wording, page order, exercise content, and source-page structure
    - Flip Chart/Presenter = teacher classroom presentation with the owner-approved rich, optimized presentation, faithful to the original book. Clean paper is the default page *background* (no default scenic wallpaper), not a direction to flatten or remove approved art, source scenes, composition, visual hierarchy, polished finish, or purposeful motion.
    - The **six visual manifestation guides presented and approved by the owner** remain the presentation references for their corresponding sections. Match the approved visual result for each applicable section; do not treat those guides as optional or redesign physical-book structure, text, artwork identity, relationships, sequence or educational meaning. Approved refinements in layout quality, typography, color/finish, layering, responsiveness, projector readability and restrained motion remain allowed within the source/asset fidelity contracts.
    - Preserve historic scenic assets on disk, but do not mount them as *default* Flip Chart wallpaper. This default does not revoke any **specifically approved** page/context background treatment under `repo.md`.
-7. Gretel uses the exact approved master identified by `src/data/gretel-approved-master.json` and the existing character system. Original Gretel recording recovery and page/event mapping continue in #769; the existing authentic voice direction is chosen. Do not request new voice-provider approval, synthesize/clone or use the rejected 67-clip source. Audible correctness remains unverified until tested.
+7. Gretel uses the exact approved master in `src/data/gretel-approved-master.json`. For newly wired audio use only `Gretel_558674_Original.m4a` with verified transcript match. Never use `rec_gretel_*`, synthetic/device TTS or invented recordings; missing audio remains silent/unavailable. Historical #769 recovery is not a license to substitute unapproved clips.
 8. Google Flow's current production scope is one owner-approved 5–6 second silent welcome loop from the exact approved final still. In-app lesson reactions use the existing Gretel state system; no 31-clip requirement remains.
-9. Automatic Vercel deployment stays off during active work. Do not use production deployment as a test runner.
+9. Automatic Vercel deployment stays off (`vercel.json` `git.deploymentEnabled:false`). Never deploy until the owner explicitly says "deploy it"; product PR merge permission is separate.
 10. Student activity families must reuse one shared interaction kernel rather than independently re-implementing pencil/eraser feedback, timing, Gretel feedback events, persistence, or reduced motion.
 11. Page advancement must use the owner-approved physical-paper transition system: Workbook pages turn side-bound across the spine; Flip Chart sheets flip upward over the top binding. The animation is presentation only and never bypasses completion/save/navigation logic.
 12. Do not reopen historical audits/branches unless current source or a failing test proves a current problem.
 
 ## Current work
 
-Once the owner explicitly resumes product development, product-completion execution may remain parallel where scopes are isolated. Until then, only organization/source-of-truth reconciliation is in scope.
+The owner explicitly authorized concurrent, non-overlapping Track A product-finishing and Track B Tutor work on 2026-10-30. The binding existing-PR and J1–J13 queue is #877. Do not convert this product specification into a second task board.
 
 Historical October 4 work snapshot (NOT a live open-PR list; check GitHub for today's open candidates):
 - #476 — shared student interaction kernel + Workbook p1/p2;
