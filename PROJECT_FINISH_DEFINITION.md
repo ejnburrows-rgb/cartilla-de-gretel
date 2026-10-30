@@ -173,7 +173,7 @@ Owner-visible decisions for the finished product (do not repeat already accepted
 1. **Workbook archetype implementation proof:** the eight recurring visual directions are already owner-locked in `WORKBOOK_ARCHETYPE_STANDARD.md`; each implemented family must visibly match that standard and its exact physical source before whole-family rollout. The numbered teal title bars on the owner's reference board are annotation labels only and must not appear in production.
 2. **Final assembled-product approval** before the intentional final production release.
 
-**Merge authorization is separate:** owner acceptances A–E and routine implementation choices are settled, but any merge requires the applicable explicit exact-change authorization and eligible formal GitHub approval under the effective branch-protection rules. Technical review alone does not meet those rules. Hold an unauthorized merge, not unrelated work.
+**Merge authorization is separate:** owner acceptances A–E and routine implementation choices are settled, but any merge requires the applicable explicit exact-change authorization, independent technical review, and adherence to the actual effective branch-protection rules under AGENTS.md (no worker self-approval, no protection bypass). Technical review alone does not authorize a merge without the owner's exact-change authorization. Hold an unauthorized merge, not unrelated work.
 
 ## 12. Production release and final declaration — REQUIRED
 
