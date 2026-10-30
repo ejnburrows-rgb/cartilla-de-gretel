@@ -1,0 +1,101 @@
+.bo-game {
+  color: #543728;
+  background: #fffaf0;
+  border: 2px solid #e7d1ac;
+  border-radius: 22px;
+  overflow: hidden;
+  box-shadow: 0 10px 28px #59351b12;
+}
+.bo-heading {
+  display: flex;
+  align-items: start;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 1rem;
+  padding: clamp(16px, 4vw, 24px);
+}
+.bo-heading h2 { font-size: clamp(1.4rem, 4vw, 2rem); font-weight: 900; color: #75452b; line-height: 1.2; }
+.bo-heading p { font-size: .95rem; line-height: 1.5; }
+.bo-heading .bo-eyebrow { font-size: .78rem; color: #8c5334; text-transform: uppercase; letter-spacing: .06em; font-weight: 800; }
+.bo-controls { display: flex; flex-wrap: wrap; gap: 8px; }
+.bo-control {
+  display: inline-flex; align-items: center; gap: 6px; justify-content: center;
+  border: 1px solid #bf9372; border-radius: 12px; background: #fff;
+  padding: 9px 12px; min-height: 48px; font-weight: 800;
+}
+.bo-control svg, .bo-play-again svg { height: 18px; width: 18px; }
+.bo-control:hover { background: #f9e5ca; }
+.bo-control:focus-visible, .bo-pipe:focus-visible, .bo-bubble:focus-visible, .bo-play-again:focus-visible {
+  outline: 4px solid #247b86; outline-offset: 3px;
+}
+.bo-progress {
+  display: flex; justify-content: space-between; gap: 8px; flex-wrap: wrap;
+  padding: 12px 24px; background: #f9e8c9; border-block: 1px solid #e7d1ac;
+  font-weight: 700;
+}
+.bo-stage { padding: 16px clamp(12px, 3vw, 24px) 24px; }
+.bo-feedback { min-height: 48px; text-align: center; font-size: clamp(.98rem, 2.5vw, 1.18rem); font-weight: 650; }
+.bo-feedback strong { color: #995237; }
+.bo-air {
+  position: relative; height: clamp(180px, 30vw, 245px);
+  background: #fffdf7; border: 1px solid #ebd7bd;
+  border-radius: 20px 20px 6px 6px;
+  overflow: hidden;
+}
+.bo-bubble {
+  position: absolute; transform: translate(-50%, 0);
+  width: clamp(56px, 12vw, 80px); height: clamp(56px, 12vw, 80px);
+  border-radius: 50%; border: 3px solid #72adbd;
+  background: #e7f5f5; color: #593b33;
+  display: grid; place-items: center;
+  font-weight: 900; font-size: clamp(1.25rem, 3vw, 1.8rem);
+  box-shadow: inset 7px 7px 0 #ffffffb8, 0 5px 7px #385b671c;
+  animation: bo-float 3s ease-in-out infinite alternate;
+  z-index: 2; cursor: pointer;
+}
+.bo-bubble:hover { border-color: #307d8e; }
+.bo-bubble:disabled { cursor: default; }
+.bo-complete {
+  position: absolute; inset: 0; display: grid; place-items: center;
+  font-weight: 900; font-size: clamp(2.6rem, 9vw, 5rem);
+  color: #874b38; animation: bo-appear .35s ease-out both;
+}
+.bo-organ { display: grid; grid-template-columns: repeat(5, minmax(0, 1fr)); gap: clamp(4px, 1.5vw, 14px); margin-top: 10px; align-items: end; }
+.bo-pipe {
+  min-width: 0; height: clamp(100px, 20vw, 162px);
+  display: flex; flex-direction: column; align-items: center; justify-content: space-between;
+  padding: 0 0 16px; border-radius: 18px 18px 10px 10px;
+  background: #e9b968; color: #523022;
+  border: 3px solid #a86c38; box-shadow: inset -6px 0 0 #99632934;
+  font-weight: 900; font-size: clamp(1.25rem, 4vw, 2.15rem);
+  touch-action: manipulation; cursor: pointer; transition: transform .12s;
+}
+.bo-pipe:nth-child(2) { background: #f3cb8a; }
+.bo-pipe:nth-child(3) { background: #dfac72; }
+.bo-pipe:nth-child(4) { background: #efd29a; }
+.bo-pipe:nth-child(5) { background: #dcae7d; }
+.bo-pipe-cap {
+  display: block; width: 100%; height: 18px; flex-shrink: 0;
+  background: #985a3f; border-radius: 14px 14px 4px 4px; border-bottom: 4px solid #67432e;
+}
+.bo-pipe:not(:disabled):active { transform: translateY(5px); }
+.bo-pipe:disabled { opacity: .65; cursor: default; }
+.bo-play-again {
+  display: flex; gap: 10px; align-items: center; justify-content: center;
+  min-height: 56px; width: calc(100% - 32px); margin: 0 16px 16px;
+  border-radius: 14px; background: #327a7f; color: white;
+  font-size: 1.1rem; font-weight: 900;
+}
+.bo-audio-note { padding: 0 20px 20px; color: #6d574b; font-size: .77rem; line-height: 1.4; }
+@keyframes bo-float { from { transform: translate(-50%, 0); } to { transform: translate(-50%, -13px); } }
+@keyframes bo-appear { from { transform: scale(.85); opacity: 0; } to { transform: scale(1); opacity: 1; } }
+@media (max-width: 420px) {
+  .bo-heading { padding: 14px; }
+  .bo-control { font-size: .78rem; padding: 7px 8px; }
+  .bo-stage { padding-inline: 8px; }
+  .bo-pipe { border-width: 2px; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .bo-bubble, .bo-complete { animation: none; }
+  .bo-pipe { transition: none; }
+}
