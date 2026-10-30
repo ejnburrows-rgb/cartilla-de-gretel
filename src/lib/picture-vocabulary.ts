@@ -11,6 +11,12 @@ export function resolvePictureName(src: string, authoredLabel = ''): VerifiedPic
   if (authoredLabel.trim()) return candidates.find(entry => entry.key === pictureNameKey(authoredLabel)) ?? null;
   return candidates.length === 1 ? candidates[0]! : null;
 }
+/** Resolve authored vocabulary by exact canonical label, never by free-form text. */
+export function resolvePictureNameByLabel(label: string): VerifiedPictureName | null {
+  const key = pictureNameKey(label);
+  const matches = vocabulary.filter(entry => entry.key === key);
+  return matches.length === 1 ? matches[0]! : null;
+}
 export function approvedPictureRecording(key: string): string | undefined {
   const approved = recordings.approved as Array<{ key: string; src: string; approval: string }>;
   return approved.find(entry => entry.key === key && entry.approval)?.src;
