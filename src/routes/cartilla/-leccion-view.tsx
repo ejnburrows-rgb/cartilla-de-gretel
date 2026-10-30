@@ -23,6 +23,7 @@ import "@/styles/lesson-fit.css";
 import "@/styles/lesson-cutoff-fixes.css";
 import { exitLessonFullscreen, requestLessonFullscreen } from "@/lib/lesson-fullscreen";
 import { buildPageArray } from "@/utils/buildPageArray";
+import { PIANO_LESSONS, PianoLessonSection } from "@/components/cartilla/PianoLessonSection";
 import { GretelCinematic } from "@/components/gretel/GretelCinematic";
 import { getCompletionCinematic, getLessonCinematic, type GretelCinematic as GretelCinematicSpec } from "@/content/gretel-cinematics";
 import { GardenScene } from "@/components/cartilla/GardenScene";
@@ -36,6 +37,7 @@ export function Leccion() {
   const navigate = useNavigate();
   const n = Number(nParam);
   const [showIntro, setShowIntro] = useState(false);
+  const [lessonTab, setLessonTab] = useState<"book" | "piano">("book");
   const [completionCinematic, setCompletionCinematic] = useState<GretelCinematicSpec | null>(null);
   useLessonProgress();
   const session = useStudentSession();
@@ -114,6 +116,7 @@ export function Leccion() {
   }, [scope, session, progressData, n, pages.length]);
 
   useEffect(() => { if (progressReady) saveLearnerResume(n, initialPage, pages[initialPage]?.pageNumber); }, [scope, n, progressReady, initialPage, pages]);
+  useEffect(() => setLessonTab("book"), [n]);
   // Laptop full screen (owner decision 2026-10-12). Opening a lesson from the
   // lesson list already asks for it; if the lesson was opened another way,
   // the first tap on the page paper (not on an activity) asks once. Leaving
@@ -222,6 +225,27 @@ export function Leccion() {
           </div>
         </div>
 
+        {PIANO_LESSONS.has(n) && (
+          <nav className="mb-4 flex w-full max-w-3xl gap-2" aria-label="Vista de la lección">
+            <button
+              type="button"
+              aria-pressed={lessonTab === "book"}
+              onClick={() => setLessonTab("book")}
+              className={`min-h-11 flex-1 rounded-xl border px-3 py-2 text-sm font-bold ${lessonTab === "book" ? "border-amber-700 bg-amber-50 text-amber-950" : "border-stone-300 bg-white text-stone-700"}`}
+            >
+              Vista Página Oficial
+            </button>
+            <button
+              type="button"
+              aria-pressed={lessonTab === "piano"}
+              onClick={() => setLessonTab("piano")}
+              className={`min-h-11 flex-1 rounded-xl border px-3 py-2 text-sm font-bold ${lessonTab === "piano" ? "border-amber-700 bg-amber-50 text-amber-950" : "border-stone-300 bg-white text-stone-700"}`}
+            >
+              Cancionero / Piano
+            </button>
+          </nav>
+        )}
+
         {/* Native workbook pages remain in the canonical lesson order. */}
         <div className="w-full">
           {progressReady && showIntro && (
@@ -237,7 +261,7 @@ export function Leccion() {
             />
           )}
           <GardenScene ref={gardenRef}>
-            {progressReady && (
+            {progressReady && lessonTab === "book" && (
               <NativeLessonViewer
                 key={`${n}:${scope}`}
                 pages={pages}
@@ -249,6 +273,11 @@ export function Leccion() {
                 autoTurn
                 swipe
               />
+            )}
+            {progressReady && lessonTab === "piano" && (
+              <div className="mx-auto w-full max-w-5xl rounded-3xl bg-[#FBF7EE] p-3 sm:p-6">
+                <PianoLessonSection lessonNumber={n} showAvailabilityMessage />
+              </div>
             )}
           </GardenScene>
 
