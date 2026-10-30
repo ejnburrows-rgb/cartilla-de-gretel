@@ -2,11 +2,13 @@ import { createFileRoute, Link } from "@tanstack/react-router";
 import { ArrowLeft } from "lucide-react";
 import { GameShell } from "@/components/cartilla/games/GameShell";
 import { PayasoChano } from "@/components/cartilla/games/PayasoChano";
+import { BubbleOrgan } from "@/components/cartilla/games/BubbleOrgan";
 import { SyllableBuilder } from "@/components/cartilla/games/SyllableBuilder";
 import { CoreGame } from "@/components/cartilla/games/CoreGames";
 import { CowGame } from "@/components/cartilla/games/CowGame";
 import { ButterflyGarden } from "@/components/cartilla/games/ButterflyGarden";
 import { PAYASO_CHANO_SS } from "@/content/games/payaso-chano-ss";
+import { BUBBLE_ORGAN_M } from "@/content/games/bubble-organ-m";
 import { SYLLABLE_BUILDER_PILOT } from "@/content/games/syllable-builder-pilot";
 import { CORE_THEMED_GAMES } from "@/content/games/core-games";
 import { COW_GAMES } from "@/content/games/cow-game";
@@ -21,6 +23,7 @@ export const Route = createFileRoute("/cartilla/juego/$gameId")({
 
 export const LIVE_GAMES: GameContent[] = [
   PAYASO_CHANO_SS,
+  BUBBLE_ORGAN_M,
   ...SYLLABLE_BUILDER_PILOT,
   ...CORE_THEMED_GAMES,
   COMPLETAR_PALABRAS_M,
@@ -35,6 +38,8 @@ function renderGame(content: GameContent) {
   switch (content.type) {
     case "payaso-chano":
       return <PayasoChano content={content} />;
+    case "bubble-organ":
+      return <BubbleOrgan content={content} />;
     case "completar-palabras":
       return <CompletarPalabras content={content as CompletarPalabrasContent} />;
     case "cow-game":
