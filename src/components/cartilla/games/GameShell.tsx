@@ -27,7 +27,7 @@ export function GameShell({
               <li key={i} className="flex items-start gap-2">
                 <span className="text-stone-400 font-black shrink-0">{i + 1}.</span>
                 <span className="flex-1">{line}</span>
-                <KidButton
+                {content.type !== "bubble-organ" && <KidButton
                   variant="outline"
                   accent="var(--book-teal)"
                   onClick={() => playInstruction()}
@@ -35,7 +35,7 @@ export function GameShell({
                   className="!p-2 !rounded-lg"
                 >
                   <Volume2 className="w-4 h-4" aria-hidden />
-                </KidButton>
+                </KidButton>}
               </li>
             ))}
           </ol>
