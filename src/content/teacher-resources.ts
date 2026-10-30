@@ -165,3 +165,34 @@ TEACHER_RESOURCES.push({
     ],
   },
 });
+
+
+// Mm Bubble Organ (Lovable source imported without AI credits; original artwork pending)
+TEACHER_RESOURCES.push({
+  id: "bubble-organ-m",
+  kind: "game",
+  route: "/cartilla/juego/bubble-organ-m",
+  title: { es: "Órgano de burbujas · Mm", en: "Bubble Organ · Mm" },
+  summary: {
+    es: "Actividad táctil para producir burbujas con ma, me, mi, mo, mu y unir dos toques de ma para formar mamá.",
+    en: "Touch game with ma, me, mi, mo and mu bubbles. Two ma taps combine into mamá.",
+  },
+  objective: {
+    es: "Reconocer las cinco sílabas con Mm y observar cómo se unen para formar mamá.",
+    en: "Recognize the five Mm syllables and see how they combine into mamá.",
+  },
+  lessonRange: "Lección 7 · Mm",
+  skills: ["sílabas", "conciencia silábica", "lectura inicial"],
+  whenToUse: {
+    es: ["Después de enseñar ma, me, mi, mo, mu.", "Como práctica corta e independiente."],
+    en: ["After teaching ma, me, mi, mo, mu.", "For short independent practice."],
+  },
+  howItWorks: {
+    es: ["Toca los cinco tubos para crear burbujas.", "Toca una burbuja para hacerla estallar.", "Toca ma dos veces para unirla y formar mamá.", "Usa Otra vez para reiniciar."],
+    en: ["Tap the five pipes to create bubbles.", "Tap a bubble to pop it.", "Tap ma twice to form mamá.", "Use Otra vez to restart."],
+  },
+  teacherTips: {
+    es: ["Invita al alumno a pronunciar las sílabas.", "Los sonidos disponibles son efectos, no voces; no hay TTS.", "La ilustración original debe recuperarse antes de la aprobación visual final."],
+    en: ["Invite children to pronounce each syllable.", "Current sounds are effects, not speech; no device TTS.", "Recover original art before final visual approval."],
+  },
+});
