@@ -8,7 +8,7 @@ vi.mock("@/lib/student-session", () => ({ recordEvent: vi.fn() }));
 
 describe("Bubble Organ", () => {
   beforeEach(() => { vi.useFakeTimers(); vi.clearAllMocks(); });
-  afterEach(() => { cleanup(); vi.runOnlyPendingTimers(); vi.useRealTimers(); });
+  afterEach(() => { cleanup(); vi.clearAllTimers(); vi.useRealTimers(); });
 
   const tap = (s: string) => fireEvent.click(screen.getByRole("button", { name: `Tubo ${s}` }));
 
@@ -41,6 +41,16 @@ describe("Bubble Organ", () => {
     expect(recordEvent).not.toHaveBeenCalled();
     tap("ma"); tap("ma");
     act(() => vi.advanceTimersByTime(1000));
+    expect(recordEvent).toHaveBeenCalledTimes(1);
+  });
+
+  it("allows a second ma near timeout without losing the merge", () => {
+    render(<BubbleOrgan content={BUBBLE_ORGAN_M} />);
+    tap("ma");
+    act(() => vi.advanceTimersByTime(8800));
+    tap("ma");
+    act(() => vi.advanceTimersByTime(1000));
+    expect(screen.getByText("¡Formaste mamá!")).toBeDefined();
     expect(recordEvent).toHaveBeenCalledTimes(1);
   });
 
