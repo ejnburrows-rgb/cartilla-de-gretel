@@ -133,7 +133,7 @@ export function PianoDesignB({ syllables, words, lessonId, onComplete, locale }:
         {s.done && (
           <div className="pb__success" data-testid="piano-success">
             {/* The message bar above is Gretel's words here; a bubble would cover it. */}
-            <GretelLiveAvatar ref={s.gretelRef} managed size="sm" showBubble={false} />
+            <GretelLiveAvatar managed size="sm" showBubble={false} />
             <button
               type="button"
               onClick={s.nextWord}
@@ -150,15 +150,18 @@ export function PianoDesignB({ syllables, words, lessonId, onComplete, locale }:
           </div>
         )}
         <div className="pb__controls">
-          <button
-            type="button"
-            className="pb__control"
-            onClick={s.listenToWord}
-            disabled={s.exampleActive}
-            data-testid="piano-escuchar"
-          >
-            <Volume2 aria-hidden="true" /> <span>Escuchar</span>
-          </button>
+          {s.canListenToWord && (
+            <button
+              type="button"
+              className="pb__control"
+              onClick={s.listenToWord}
+              disabled={s.exampleActive}
+              data-testid="piano-escuchar"
+              aria-label={`Escuchar ${s.item.word}`}
+            >
+              <Volume2 aria-hidden="true" /> <span>Escuchar</span>
+            </button>
+          )}
           <button
             type="button"
             onClick={s.toggleMic}
