@@ -1,0 +1,48 @@
+[WebServer] (node:19780) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+[WebServer] (Use `node --trace-warnings ...` to show where the warning was created)
+[WebServer] (node:19780) [DEP0205] DeprecationWarning: `module.register()` is deprecated. Use `module.registerHooks()` instead.
+
+Running 6 tests using 1 worker
+
+(node:35028) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ok 1 tests\e2e\butterfly-garden.spec.ts:32:1 › desktop reduced motion: round result, wrong answer, focus and reload persistence (7.9s)
+  x  2 tests\e2e\butterfly-garden.spec.ts:76:1 › phone touch: animated delivery, wrong return, correct word and help (20.1s)
+(node:31428) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ok 3 tests\e2e\butterfly-garden.spec.ts:107:1 › tablet and projector: original images load and game controls fit (3.3s)
+  ok 4 tests\e2e\butterfly-garden.spec.ts:140:1 › keyboard syllable controls retain a visible focus outline (957ms)
+  ok 5 tests\e2e\butterfly-garden.spec.ts:153:1 › instructions trap keyboard focus, close with Escape and restore the trigger (1.0s)
+  ok 6 tests\e2e\butterfly-garden.spec.ts:175:1 › rotating during delivery and retrieval returns the butterfly to its current home (7.7s)
+
+
+  1) tests\e2e\butterfly-garden.spec.ts:76:1 › phone touch: animated delivery, wrong return, correct word and help 
+
+    Error: expect(locator).toHaveText(expected) failed
+
+    Locator:  getByTestId('word')
+    Expected: "pomo"
+    Received: "mapa"
+    Timeout:  5000ms
+
+    Call log:
+      - Expect "toHaveText" getByTestId('word') with timeout 5000ms
+      - waiting for getByTestId('word')
+        14 × locator resolved to <span data-testid="word" class="font-extrabold tracking-wide text-2xl">mapa</span>
+           - unexpected value "mapa"
+
+
+       98 |   const canBox = (await page.getByTestId("can").boundingBox())!;
+       99 |   await page.touchscreen.tap(canBox.x + canBox.width / 2, canBox.y + canBox.height / 2);
+    > 100 |   await expect(page.getByTestId("word")).toHaveText("pomo");
+          |                                          ^
+      101 |   expect(errors).toEqual([]);
+      102 |   const video = page.video();
+      103 |   await context.close();
+        at C:\Users\EJN\Documents\Codex\2026-10-29\la-cartilla-de-gretel-continue-to\work\cartilla\tests\e2e\butterfly-garden.spec.ts:100:42
+
+    Error Context: test-results\butterfly-garden-phone-tou-c0186-eturn-correct-word-and-help\error-context.md
+
+  1 failed
+    tests\e2e\butterfly-garden.spec.ts:76:1 › phone touch: animated delivery, wrong return, correct word and help 
+  5 passed (46.3s)

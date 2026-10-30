@@ -79,6 +79,9 @@ it('both occurrences of pa in papá are valid, and the word is one hit target', 
   const view = render(<SyllableWordCircle region={{ id: 'repeat', regionType: 'syllable-match', order: 1, fontRole: 'body', syllable: 'pa', matchRows: [[{ word: 'papá', correct: true }]] }} />);
   const word = screen.getByRole('button', { name: 'papá' });
   vi.spyOn(word, 'getBoundingClientRect').mockReturnValue({ x: 0, y: 0, left: 0, top: 0, right: 400, bottom: 64, width: 400, height: 64, toJSON: () => ({}) } as DOMRect);
+  word.querySelectorAll('.native-syllable__letter').forEach((letter, index) => {
+    vi.spyOn(letter, 'getBoundingClientRect').mockReturnValue({ left: index * 100, right: (index + 1) * 100, top: 0, bottom: 64 } as DOMRect);
+  });
   expect(view.container.querySelector('.native-syllable__mark')).toBeNull();
   expect(screen.getAllByRole('button')).toHaveLength(1);
 

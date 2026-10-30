@@ -1,4 +1,4 @@
-import { useState, useEffect, useMemo } from "react";
+import { useState, useEffect, useMemo, useRef } from "react";
 import { GraduationCap, AlertCircle, PlusCircle, CheckCircle, Search, User } from "lucide-react";
 import { useQuery, useQueryClient } from "@tanstack/react-query";
 import {
@@ -41,6 +41,7 @@ export function ClassRoster() {
   const [showArchived, setShowArchived] = useState(false);
   const [editingId, setEditingId] = useState<string | null>(null);
   const [editingName, setEditingName] = useState("");
+  const renamePending = useRef(false);
 
   // Synchronously detect if we are using the local seed teacher session
   const isSeed = useMemo(() => isSeedSessionActive(), []);
@@ -208,9 +209,20 @@ export function ClassRoster() {
   };
 
   const handleSaveRename = async (studentId: string) => {
+    // Enter and blur can arrive before React commits the busy state.
+    if (renamePending.current || busy) return;
     const name = editingName.trim();
     if (!name) return;
-    setEditingId(null);
+
+    // Find the current student
+    const student = allStudents.find((s) => s.id === studentId);
+    if (student && student.display_name === name) {
+      setEditingId(null);
+      return;
+    }
+
+    renamePending.current = true;
+    setBusy(true);
     try {
       if (isSeed) {
         updateSeedStudent(studentId, { display_name: name });
@@ -218,9 +230,13 @@ export function ClassRoster() {
         await updateStudent({ data: { id: studentId, displayName: name } });
         await refetchRealStudents();
       }
+      setEditingId(null);
       showMessage("Nombre actualizado.", "success");
     } catch (err) {
       showMessage(err instanceof Error ? err.message : "Error renombrando alumno", "error");
+    } finally {
+      renamePending.current = false;
+      setBusy(false);
     }
   };
 
@@ -256,6 +272,7 @@ export function ClassRoster() {
       {/* Messages banner */}
       {msg && (
         <div
+          role={msg.type === "error" ? "alert" : "status"}
           className={`p-4 rounded-2xl border text-sm font-bold flex items-center gap-2 animate-in fade-in duration-200 ${
             msg.type === "success"
               ? "bg-[hsl(145,60%,97%)] border-[hsl(145,60%,90%)] text-[hsl(145,65%,25%)]"

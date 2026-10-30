@@ -2,9 +2,10 @@
  * @vitest-environment jsdom
  */
 import { describe, it, expect, vi, beforeEach } from "vitest";
-import { render, cleanup, screen } from "@testing-library/react";
+import { render, cleanup, screen, fireEvent } from "@testing-library/react";
 import { DirectPencilConnector, type PencilTarget } from "../PencilConnector";
 import { saveLassoProgress } from "@/lib/activity-canvas-store";
+import { ActivityContext } from "@/lib/activity-events";
 
 vi.mock("@/lib/piano-audio", () => ({
   playCorrectChord: vi.fn(),
@@ -24,6 +25,21 @@ vi.mock("@/hooks/useReducedMotion", () => ({
 }));
 
 describe("DirectPencilConnector stored progress validation", () => {
+  it("isolated previews ignore saved connections and never overwrite them", () => {
+    cleanup(); localStorage.clear();
+    saveLassoProgress("preview-collision", ["right"]);
+    const before = JSON.stringify({ ...localStorage });
+    const onEvent = vi.fn();
+    render(<ActivityContext.Provider value={{ activityId: "preview", isolated: true, isCurrent: () => true, onEvent }}>
+      <DirectPencilConnector pageKey="preview-collision" targets={[{ id: "right", label: "aro", correct: true }]} mode="mark" reducedMotion />
+    </ActivityContext.Provider>);
+    const target = screen.getByRole("button", { name: "aro" });
+    expect(target.getAttribute("aria-pressed")).toBe("false");
+    fireEvent.click(target);
+    expect(target.getAttribute("aria-pressed")).toBe("true");
+    expect(onEvent).toHaveBeenCalledWith("activity:complete", undefined);
+    expect(JSON.stringify({ ...localStorage })).toBe(before);
+  });
   const p17Targets = [
     { id: "0", label: "uniforme", correct: true, src: "/art/uniforme.webp" },
     { id: "1", label: "uno", correct: true, src: "/art/uno.webp" },

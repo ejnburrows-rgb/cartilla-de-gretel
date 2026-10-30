@@ -1,0 +1,30 @@
+{
+  "baseURL": "http://127.0.0.1:5179",
+  "results": [
+    {
+      "width": 390,
+      "route": "http://127.0.0.1:5179/cartilla/teacher/roster",
+      "checks": [
+        "mounted roster",
+        "failed save retains draft/error",
+        "retry updates actual row",
+        "reload persists",
+        "Escape leaves saved name unchanged"
+      ],
+      "syntheticOnly": true
+    },
+    {
+      "width": 1280,
+      "route": "http://127.0.0.1:5179/cartilla/teacher/roster",
+      "checks": [
+        "mounted roster",
+        "failed save retains draft/error",
+        "retry updates actual row",
+        "reload persists",
+        "Escape leaves saved name unchanged"
+      ],
+      "syntheticOnly": true
+    }
+  ],
+  "errors": []
+}
