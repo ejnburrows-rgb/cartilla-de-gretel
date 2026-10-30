@@ -9,6 +9,8 @@ const identity = vi.hoisted(() => ({
   lesson: 3,
   pianoSupported: false,
   pianoProcessing: "unavailable",
+  session: null as null | { studentId: string; studentCode: string; classId: string },
+  progress: null as null | { lessonProgress: Array<{ lesson_id: string; last_page?: number | null }> },
 }));
 vi.mock("@/lib/demo-student-session", () => ({ getDemoStudentSession: () => identity.demo }));
 vi.mock("@tanstack/react-router", () => ({
@@ -20,12 +22,14 @@ vi.mock("@tanstack/react-router", () => ({
   Link: ({ children }: { children: React.ReactNode }) => <a>{children}</a>,
 }));
 vi.mock("@tanstack/react-query", () => ({
-  useQuery: () => ({ data: null, isFetched: true, isError: false }),
+  useQuery: ({ queryKey }: { queryKey?: string[] }) => queryKey?.[0] === "my-progress"
+    ? ({ data: identity.progress, isFetched: true, isError: false })
+    : ({ data: null, isFetched: true, isError: false }),
 }));
 vi.mock("@/lib/useServerFn", () => ({ useServerFn: () => vi.fn() }));
 vi.mock("@/lib/assignments.functions", () => ({ listMyAssignments: vi.fn() }));
 vi.mock("@/lib/student.functions", () => ({ getMyProgress: vi.fn(), saveLastPage: vi.fn() }));
-vi.mock("@/lib/student-session", () => ({ useStudentSession: () => null, recordEvent: vi.fn() }));
+vi.mock("@/lib/student-session", () => ({ useStudentSession: () => identity.session, recordEvent: vi.fn() }));
 vi.mock("@/lib/lesson-progress", () => ({
   useLessonProgress: vi.fn(),
   isLessonUnlocked: () => true,
@@ -101,9 +105,22 @@ beforeEach(() => {
   identity.lesson = 3;
   identity.pianoSupported = false;
   identity.pianoProcessing = "unavailable";
+  identity.session = null;
+  identity.progress = null;
 });
 afterEach(cleanup);
 describe("lesson learner resume", () => {
+  it("normalizes a backend Lesson 24 offset to the printed page before resolving Piano", async () => {
+    identity.lesson = 24;
+    identity.pianoSupported = true;
+    identity.pianoProcessing = "on-device";
+    identity.session = { studentId: "student", studentCode: "123", classId: "class" };
+    identity.progress = { lessonProgress: [{ lesson_id: "24", last_page: 3 }] };
+    render(<Leccion />);
+    expect((await screen.findByRole("status")).textContent).toBe("90");
+    expect(readLearnerResume(24)).toMatchObject({ page: 2, printedPage: 90, pageId: "90" });
+  });
+
   it("preserves the Piano bookmark during delayed capability detection and reopening", async () => {
     identity.lesson = 24;
     identity.pianoProcessing = "checking";
