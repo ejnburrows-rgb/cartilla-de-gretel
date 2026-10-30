@@ -328,12 +328,20 @@ export function AudioMultipleChoice({
   options: Word[];
   color: string;
 }) {
-  const { play, playingText } = useAudio();
+  const { play, playingText, isAvailable } = useAudio();
   const [feedback, setFeedback] = useState<"ok" | "no" | null>(null);
   const [picked, setPicked] = useState<string | null>(null);
 
   // Scramble options once
   const scrambled = useRef(secureShuffle(options)).current;
+
+  if (!isAvailable(targetWord)) {
+    return (
+      <div className="rounded-2xl border-2 border-foreground/10 bg-card p-6" role="status">
+        Esta actividad de escucha no está disponible porque falta una grabación aprobada.
+      </div>
+    );
+  }
 
   const handlePick = (word: string) => {
     setPicked(word);
@@ -351,7 +359,7 @@ export function AudioMultipleChoice({
       <h3 className="font-bold text-xl mb-6">Escucha y selecciona la imagen correcta</h3>
 
       <button
-        onClick={() => play(targetWord, true)}
+        onClick={() => play(targetWord)}
         aria-label="Escuchar palabra"
         className={cn(
           "w-24 h-24 rounded-full flex items-center justify-center text-white transition-all shadow-xl mb-8 active:scale-95",

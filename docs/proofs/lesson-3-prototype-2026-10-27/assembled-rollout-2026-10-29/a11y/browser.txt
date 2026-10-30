@@ -1,0 +1,21 @@
+
+Running 14 tests using 1 worker
+
+(node:6692) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ok  1 tests\e2e\workbook-a11y.spec.ts:83:5 › Track C: Viewport Ergonomics & Zero Horizontal Page Scroll › Zero horizontal scroll across lessons at 375px-iphone-se (375x667) (1.5s)
+  ok  2 tests\e2e\workbook-a11y.spec.ts:83:5 › Track C: Viewport Ergonomics & Zero Horizontal Page Scroll › Zero horizontal scroll across lessons at 390px-iphone-13 (390x844) (1.2s)
+  ok  3 tests\e2e\workbook-a11y.spec.ts:83:5 › Track C: Viewport Ergonomics & Zero Horizontal Page Scroll › Zero horizontal scroll across lessons at 768px-ipad (768x1024) (1.3s)
+  ok  4 tests\e2e\workbook-a11y.spec.ts:83:5 › Track C: Viewport Ergonomics & Zero Horizontal Page Scroll › Zero horizontal scroll across lessons at 1280px-desktop (1280x800) (1.2s)
+  ok  5 tests\e2e\workbook-a11y.spec.ts:114:3 › Track C: Minimum Touch Target Discipline (>= 44px) › Drawing toolbar (.am-dibuja__toolbar) strictly maintains >= 44px touch targets (841ms)
+  ok  6 tests\e2e\workbook-a11y.spec.ts:170:3 › Track C: Minimum Touch Target Discipline (>= 44px) › Drawing toolbar in cutoff-fixes scope (Page 35) strictly maintains >= 44px touch targets (778ms)
+  ok  7 tests\e2e\workbook-a11y.spec.ts:209:3 › Track C: Minimum Touch Target Discipline (>= 44px) › Tracing mode toggle (.fp-trace__mode-toggle) strictly maintains >= 44px touch targets (766ms)
+  ok  8 tests\e2e\workbook-a11y.spec.ts:227:3 › Track C: Minimum Touch Target Discipline (>= 44px) › Navigation controls (.native-lesson-viewer__navigation button) strictly maintain >= 44px touch targets (764ms)
+  ok  9 tests\e2e\workbook-a11y.spec.ts:251:3 › Track C: Accessibility (a11y) & Reduced Motion › Clean static rendering and immediate state transitions under prefers-reduced-motion: reduce (4.0s)
+  ok 10 tests\e2e\workbook-a11y.spec.ts:282:3 › Track C: Accessibility (a11y) & Reduced Motion › Full keyboard accessibility: Enter/Space for activating buttons and Arrow keys for navigating exercise lists (8.3s)
+  ok 11 tests\e2e\workbook-a11y.spec.ts:346:3 › Track C: Accessibility (a11y) & Reduced Motion › Exercise word buttons in Lesson 8 activate via keyboard Enter/Space (8.7s)
+  ok 12 tests\e2e\workbook-a11y.spec.ts:382:5 › Track C: Recorded Video Proof across Viewports › Record comprehensive viewport proof for viewport-375px (375x667) (14.2s)
+  ok 13 tests\e2e\workbook-a11y.spec.ts:382:5 › Track C: Recorded Video Proof across Viewports › Record comprehensive viewport proof for viewport-768px (768x1024) (12.4s)
+  ok 14 tests\e2e\workbook-a11y.spec.ts:382:5 › Track C: Recorded Video Proof across Viewports › Record comprehensive viewport proof for viewport-1280px (1280x800) (13.5s)
+
+  14 passed (1.2m)

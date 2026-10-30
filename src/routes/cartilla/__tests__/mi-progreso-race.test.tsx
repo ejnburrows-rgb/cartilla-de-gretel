@@ -41,10 +41,11 @@ vi.mock("@/lib/rewards", () => ({
   useRewards: () => mockRewards,
 }));
 
-import { Route } from "../mi-progreso";
+// Exercise the actual split component directly; avoid a second lazy loader in
+// jsdom, where a cold Windows import can leave the test mounted as an empty div.
+// @ts-expect-error The router plugin supplies this virtual module at transform time.
+import { component as ProgressPage } from "../mi-progreso?tsr-split=component";
 vi.stubEnv("VITE_CRM_REVIEW", "false");
-
-const ProgressPage = Route.options.component as React.ComponentType;
 
 describe("MiProgreso race condition", () => {
   beforeEach(() => {

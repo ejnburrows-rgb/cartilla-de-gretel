@@ -27,6 +27,7 @@
  * build).
  */
 import fs from "node:fs";
+import { createHash } from "node:crypto";
 import path from "node:path";
 import { fileURLToPath } from "node:url";
 import sharp from "sharp";
@@ -95,17 +96,25 @@ export const COLOR_MIN_SPREAD = 6;
  * future real grayscale-only drawing has a home instead of someone lowering the
  * threshold for everything.
  */
-// Igual is a mathematical two-bar gray symbol, not a colorable object.
-export const DUOTONE_ALLOWLIST = new Set(["/cartilla/art/faithful/vocal-i/igual.webp"]);
+export const DUOTONE_ALLOWLIST = new Set([]);
 
 /**
  * Exact student-book drawings that do not have an identical counterpart in the
  * separate 62-page flip chart. This set is derived from the audited manifest,
  * so a filename alone can never bypass the color gate.
  */
+export function hasExactWorkbookEvidence(entry) {
+  if (!/^VERIFIED-EXACT-WORKBOOK-CROP-\d{4}-\d{2}-\d{2}$/.test(entry.provenanceStatus ?? "")) return false;
+  if (!entry.source || !entry.sourceSha256 || !entry.src || !entry.sha256) return false;
+  try {
+    const sha = (rel) => createHash("sha256").update(fs.readFileSync(path.join(rootDir, rel))).digest("hex");
+    return sha(entry.source) === entry.sourceSha256 && sha(`public${entry.src}`) === entry.sha256;
+  } catch { return false; }
+}
+
 export const VERIFIED_WORKBOOK_CROPS = new Set(
   readJson("public/cartilla/art/faithful/manifest.json")
-    .filter((entry) => entry.provenanceStatus === "VERIFIED-EXACT-WORKBOOK-CROP-2026-08-08")
+    .filter((entry) => entry.provenanceStatus === "VERIFIED-EXACT-WORKBOOK-CROP-2026-08-08" || hasExactWorkbookEvidence(entry))
     .map((entry) => entry.src),
 );
 

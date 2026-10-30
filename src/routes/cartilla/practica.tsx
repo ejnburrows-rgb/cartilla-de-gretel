@@ -418,6 +418,9 @@ export function Practica() {
                     : ""
               }`}
             >
+              <p className="mb-4 text-sm font-bold text-foreground" aria-live="polite">
+                Lee la sílaba que aparece en cada tarjeta.
+              </p>
               <div className="text-xs text-foreground font-bold uppercase tracking-wide">
                 Elige la sílaba que coincide con el modelo visual
               </div>
