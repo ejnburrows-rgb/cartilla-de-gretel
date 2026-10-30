@@ -4,6 +4,7 @@
 
 export type GameArchetype =
   | "payaso-chano"
+  | "bubble-organ"
   | "mariposas"
   | "juego-vocal"
   | "fonetica-completar"
