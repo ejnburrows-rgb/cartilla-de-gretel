@@ -1,5 +1,5 @@
 import { describe, expect, it } from 'vitest';
-import { pictureNameKey, resolvePictureName } from '../picture-vocabulary';
+import { pictureNameKey, resolvePictureName, resolvePictureNameByLabel } from '../picture-vocabulary';
 import vocabulary from '@/content/picture-vocabulary.json';
 
 describe('picture-vocabulary', () => {
@@ -51,6 +51,13 @@ describe('picture-vocabulary', () => {
       if (src) {
         expect(resolvePictureName(src, 'wrong label')).toBeNull();
       }
+    });
+  });
+
+  describe('resolvePictureNameByLabel', () => {
+    it('resolves exact canonical labels only', () => {
+      expect(resolvePictureNameByLabel('  abeja ')?.key).toBe('abeja');
+      expect(resolvePictureNameByLabel('arbitrary syllable')).toBeNull();
     });
   });
 });

@@ -1,11 +1,10 @@
 import { createFileRoute, Link, useNavigate } from "@tanstack/react-router";
 import { useEffect, useMemo, useRef, useState } from "react";
-import { ArrowLeft, Volume2, Zap, RotateCcw, Trophy } from "lucide-react";
+import { ArrowLeft, Zap, RotateCcw, Trophy } from "lucide-react";
 import { CATALOG, getCanonicalArtPool, type ActivityId } from "@/lib/lesson-catalog";
 import { getPracticePictureWords } from "@/lib/vocabulary-sources";
 import { canBuildSoundSearch } from "@/lib/activity-mechanics";
 import { normalizeActivityId } from "@/lib/activity-routing";
-import { speak } from "@/lib/speak";
 import { useLessonProgress } from "@/lib/lesson-progress";
 import { recordEvent } from "@/lib/student-session";
 import { useLanguage } from "@/context/LanguageContext";
@@ -224,7 +223,6 @@ function Practica() {
     setFeedback(null);
     startedAt.current = Date.now();
     setPhase("playing");
-    setTimeout(() => speak(initialCards[0].syllable), 100);
   };
 
   const choose = (option: string) => {
@@ -236,7 +234,6 @@ function Practica() {
         setFeedback(null);
         const next = idx + 1;
         setIdx(next);
-        if (cards[next]) speak(cards[next].syllable);
       }, 350);
     } else {
       setMisses((m) => m + 1);
@@ -245,7 +242,6 @@ function Practica() {
         setFeedback(null);
         const next = idx + 1;
         setIdx(next);
-        if (cards[next]) speak(cards[next].syllable);
       }, 700);
     }
   };
@@ -360,13 +356,9 @@ function Practica() {
                     : ""
               }`}
             >
-              <button
-                onClick={() => speak(current.syllable)}
-                aria-label="Reescuchar"
-                className="mb-4 inline-flex items-center gap-2 text-sm text-foreground hover:text-[#8a3611] font-bold"
-              >
-                <Volume2 className="w-4 h-4" /> {t.reescuchar[lang]}
-              </button>
+              <p className="mb-4 text-sm font-bold text-foreground" aria-live="polite">
+                Lee la sílaba que aparece en cada tarjeta.
+              </p>
               <div className="text-xs text-foreground font-bold uppercase tracking-wide">
                 {t.tocaSilaba[lang]}
               </div>
