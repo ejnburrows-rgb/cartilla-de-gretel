@@ -454,13 +454,6 @@ test.describe("tutor scripted sessions (StubEars)", () => {
     const startLesson1Btn = page.getByRole("link", { name: /Lección 1/i });
     await startLesson1Btn.click();
     await page.waitForURL("**/tutor/1**");
-    await page.addStyleTag({
-      content: `
-        .tutor-word-card { position: relative !important; min-height: 220px !important; }
-        .workbook-pencil-mark { position: absolute !important; inset: 0 !important; width: 100% !important; height: 100% !important; pointer-events: none !important; }
-      `,
-    });
-
     // 3. Presenting learning activity with Gretel puppet
     await page.waitForSelector('[data-tutor-stage]', { state: "visible" });
     await expect(page.locator('[data-tutor-puppet]')).toBeVisible();
