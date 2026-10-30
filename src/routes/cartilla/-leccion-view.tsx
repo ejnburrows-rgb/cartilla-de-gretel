@@ -95,21 +95,21 @@ export function Leccion() {
   const initialPage = useMemo(() => {
     // Old lesson-24 bookmarks numbered the missing page 87 at index 0. New
     // bookmarks carry the printed page, so this fallback migration runs once.
-    const resolveSavedIndex = (savedIndex: number, printedPage?: number, pageId?: string) => {
+    const resolveSavedIndex = (savedIndex: number, printedPage?: number, pageId?: string, isLocalBookmark = false) => {
       if (typeof printedPage === "number" && Number.isInteger(printedPage)) {
         const matching = pages.findIndex((page) => page.pageNumber === printedPage);
         if (matching >= 0) return matching;
       }
       const identified = pageId ? pages.findIndex((page) => page.id === pageId) : -1;
       if (identified >= 0) return identified;
-      // Piano has no printed number. Current local Piano resumes use the explicit
-      // pageId above; legacy backend last_page values are printed-page offsets
-      // and must keep the page-87 migration below.
+      // Piano has no printed number. A legacy local bookmark uses a current
+      // page index, but backend last_page remains a printed-page offset.
+      if (isLocalBookmark && pages[savedIndex]?.id === "piano-lesson-" + n) return savedIndex;
       const migrated = n === 24 ? Math.max(0, savedIndex - 1) : savedIndex;
       return Math.min(Math.max(0, migrated), Math.max(0, pages.length - 1));
     };
     const local = readLearnerResume(n);
-    if (local) return resolveSavedIndex(local.page, local.printedPage, local.pageId);
+    if (local) return resolveSavedIndex(local.page, local.printedPage, local.pageId, true);
     if (!session) return 0;
     const lessonProgress =
       (
