@@ -402,7 +402,7 @@ export function CowGame({ content }: { content: GameContent }) {
                   height: py(b.h + 12),
                 }}
               >
-                <span className="cg-door" /><span className="cg-slot-text">{COW_SLOTS[s]}</span>
+                <span className="cg-door" />
               </button>
             </div>
           );
@@ -557,7 +557,6 @@ const CSS = `
 .cg-walking .cg-tail{animation:cg-tail .5s ease-in-out infinite}
 .cg-walking .cg-tongue{animation:cg-tongue 1.8s ease-in-out infinite}
 
-.cg-slot-text{position:absolute;inset:0;display:flex;align-items:flex-start;padding-top:.5cqw;justify-content:center;font:700 4cqw/1 "Fredoka",ui-rounded,system-ui,sans-serif;color:#3a1a0e;letter-spacing:.3cqw;white-space:nowrap;z-index:4;pointer-events:none}
 .cg-cheer .cg-bob{animation:cg-cheer-hop .42s ease-in-out 3}
 .cg-cheer .cg-head{animation:cg-cheer-head .3s ease-in-out 5!important}
 .cg-cheer .cg-tongue{animation:cg-tongue-out 1.5s ease-in-out 1!important}
