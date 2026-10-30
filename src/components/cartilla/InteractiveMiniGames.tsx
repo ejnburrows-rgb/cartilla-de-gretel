@@ -6,9 +6,10 @@ import {
 } from "@/lib/speech-recognition-types";
 import { useEffect, useState, useRef } from "react";
 import { Mic, MicOff, Check, X, RotateCcw, Volume2 } from "lucide-react";
-import { useAudio } from "@/hooks/useAudio";
 import { cn } from "@/lib/utils";
 import { gretelEvent } from "@/lib/gretel-bus";
+import { approvedPictureRecording, resolvePictureNameByLabel } from "@/lib/picture-vocabulary";
+import { playPictureName } from "@/lib/picture-audio";`nimport { useAudio } from "@/hooks/useAudio";
 
 type Word = { word: string; emoji?: string };
 
@@ -330,6 +331,8 @@ export function AudioMultipleChoice({
   const { play, playingText, isAvailable } = useAudio();
   const [feedback, setFeedback] = useState<"ok" | "no" | null>(null);
   const [picked, setPicked] = useState<string | null>(null);
+  const targetPicture = resolvePictureNameByLabel(targetWord);
+  const hasApprovedRecording = Boolean(targetPicture && approvedPictureRecording(targetPicture.key));
 
   // Scramble options once
   const scrambled = useRef(secureShuffle(options)).current;
@@ -513,3 +516,5 @@ export function DragDropMatch({ words, color }: { words: Word[]; color: string }
     </div>
   );
 }
+
+

@@ -1,0 +1,55 @@
+(node:6944) [DEP0205] DeprecationWarning: `module.register()` is deprecated. Use `module.registerHooks()` instead.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+
+ RUN  v4.1.8 C:/Users/EJN/Documents/Codex/2026-10-29/la-cartilla-de-gretel-continue-to/work/cartilla
+
+ ❯ src/routes/cartilla/__tests__/learner-resume-isolation.test.tsx (12 tests | 2 failed) 453ms
+     × preserves the Piano bookmark during delayed capability detection and reopening 34ms
+     × omits an unavailable Piano leaf only after detection settles 6ms
+
+⎯⎯⎯⎯⎯⎯⎯ Failed Tests 2 ⎯⎯⎯⎯⎯⎯⎯
+
+ FAIL  src/routes/cartilla/__tests__/learner-resume-isolation.test.tsx > lesson learner resume > preserves the Piano bookmark during delayed capability detection and reopening
+AssertionError: expected 2 to be 3 // Object.is equality
+
+- Expected
++ Received
+
+- 3
++ 2
+
+ ❯ src/routes/cartilla/__tests__/learner-resume-isolation.test.tsx:112:41
+    110|     saveLearnerResume(24, 3);
+    111|     let view = render(<Leccion />);
+    112|     expect(readLearnerResume(24)?.page).toBe(3);
+       |                                         ^
+    113|     expect(screen.queryByText("Next")).toBeNull();
+    114|     identity.pianoSupported = true;
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/2]⎯
+
+ FAIL  src/routes/cartilla/__tests__/learner-resume-isolation.test.tsx > lesson learner resume > omits an unavailable Piano leaf only after detection settles
+AssertionError: expected 2 to be 3 // Object.is equality
+
+- Expected
++ Received
+
+- 3
++ 2
+
+ ❯ src/routes/cartilla/__tests__/learner-resume-isolation.test.tsx:135:41
+    133|     saveLearnerResume(24, 3);
+    134|     const view = render(<Leccion />);
+    135|     expect(readLearnerResume(24)?.page).toBe(3);
+       |                                         ^
+    136|     identity.pianoProcessing = "unavailable";
+    137|     view.rerender(<Leccion />);
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[2/2]⎯
+
+
+ Test Files  1 failed (1)
+      Tests  2 failed | 10 passed (12)
+   Start at  06:30:32
+   Duration  3.15s (transform 411ms, setup 356ms, import 532ms, tests 453ms, environment 1.44s)
+

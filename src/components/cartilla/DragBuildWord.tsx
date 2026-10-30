@@ -342,6 +342,8 @@ export function DragBuildWord({ words, accent, lessonId, onComplete }: DragBuild
 
   const handleDrop = useCallback(
     (slotIdx: number, trayIdx: number) => {
+      if (state.slots[slotIdx] !== null || state.usedTrayIdx.has(trayIdx)) return;
+
       const letter = state.tray[trayIdx];
       const correct = letter === state.target[slotIdx];
       if (correct) {
@@ -354,7 +356,7 @@ export function DragBuildWord({ words, accent, lessonId, onComplete }: DragBuild
       }
       dispatch({ type: "DROP", slotIdx, trayIdx });
     },
-    [state.tray, state.target],
+    [state.slots, state.usedTrayIdx, state.tray, state.target],
   );
 
   const nextWord = () => {

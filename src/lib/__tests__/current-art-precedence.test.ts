@@ -8,7 +8,10 @@ describe('current supplied still wins over stale embedded motion',()=>{
   expect(()=>execFileSync('node',['scripts/check-motion-art-freshness.mjs','--check'])).not.toThrow();
  });
  it('blocks all old picture overrides without altering originals',()=>{
-  expect(Object.keys(stale)).toHaveLength(8);
+  expect(Object.keys(stale)).toEqual([
+   '/cartilla/art/faithful/leccion-1/wb-p1/abeja.svg',
+   '/cartilla/art/faithful/vocal-a/abeja.webp',
+  ]);
   for(const src of Object.keys(stale)){
    expect(LIVING_ACTORS[src].aliveSrc).toBeTruthy();
    expect(getLivingActor(src)).toBeNull();

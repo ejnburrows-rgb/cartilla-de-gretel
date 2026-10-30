@@ -15,6 +15,12 @@ export function resolvePictureName(src: string, authoredLabel = ""): VerifiedPic
     return candidates.find((entry) => entry.key === pictureNameKey(authoredLabel)) ?? null;
   return candidates.length === 1 ? candidates[0]! : null;
 }
+/** Resolve authored vocabulary by exact canonical label, never by free-form text. */
+export function resolvePictureNameByLabel(label: string): VerifiedPictureName | null {
+  const key = pictureNameKey(label);
+  const matches = vocabulary.filter((entry) => entry.key === key);
+  return matches.length === 1 ? matches[0]! : null;
+}
 /** Resolve an exact authored word only when it maps to one approved vocabulary recording. */
 export function resolveRecordedPictureName(label: string): VerifiedPictureName | null {
   const normalized = pictureNameKey(label);

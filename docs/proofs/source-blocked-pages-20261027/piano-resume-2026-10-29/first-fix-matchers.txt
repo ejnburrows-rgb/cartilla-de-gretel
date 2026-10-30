@@ -1,0 +1,39 @@
+
+ RUN  v4.1.8 C:/Users/EJN/Documents/Codex/2026-10-29/la-cartilla-de-gretel-continue-to/work/cartilla
+
+ ❯ src/routes/cartilla/__tests__/learner-resume-isolation.test.tsx (12 tests | 2 failed) 482ms
+     × preserves the Piano bookmark during delayed capability detection and reopening 149ms
+     × omits an unavailable Piano leaf only after detection settles 17ms
+
+⎯⎯⎯⎯⎯⎯⎯ Failed Tests 2 ⎯⎯⎯⎯⎯⎯⎯
+
+ FAIL  src/routes/cartilla/__tests__/learner-resume-isolation.test.tsx > lesson learner resume > preserves the Piano bookmark during delayed capability detection and reopening
+Error: Invalid Chai property: toHaveTextContent
+ ❯ src/routes/cartilla/__tests__/learner-resume-isolation.test.tsx:117:45
+    115|     identity.pianoProcessing = "on-device";
+    116|     view.rerender(<Leccion />);
+    117|     expect(await screen.findByRole("status")).toHaveTextContent("piano…
+       |                                             ^
+    118|     expect(readLearnerResume(24)).toMatchObject({ page: 3, pageId: "pi…
+    119|     cleanup();
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/2]⎯
+
+ FAIL  src/routes/cartilla/__tests__/learner-resume-isolation.test.tsx > lesson learner resume > omits an unavailable Piano leaf only after detection settles
+Error: Invalid Chai property: toHaveTextContent
+ ❯ src/routes/cartilla/__tests__/learner-resume-isolation.test.tsx:138:45
+    136|     identity.pianoProcessing = "unavailable";
+    137|     view.rerender(<Leccion />);
+    138|     expect(await screen.findByRole("status")).toHaveTextContent("90");
+       |                                             ^
+    139|     expect(readLearnerResume(24)).toMatchObject({ page: 2, printedPage…
+    140|   });
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[2/2]⎯
+
+
+ Test Files  1 failed | 2 passed (3)
+      Tests  2 failed | 36 passed (38)
+   Start at  06:31:33
+   Duration  10.80s (transform 1.47s, setup 940ms, import 4.19s, tests 573ms, environment 4.18s)
+
