@@ -128,7 +128,11 @@ export function BubbleOrgan({ content }: BubbleOrganProps) {
 
     const id = spawn(syllable, pipe);
     if (syllable === "ma") pendingMa.current = id;
-    schedule(() => removeBubble(id), syllable === "ma" ? 9000 : 4200);
+    schedule(() => {
+      // A ma bubble already chosen for a merge must not expire mid-animation.
+      if (syllable === "ma" && pendingMa.current !== id) return;
+      removeBubble(id);
+    }, syllable === "ma" ? 9000 : 4200);
   };
 
   const pop = (id: number) => {
@@ -144,7 +148,7 @@ export function BubbleOrgan({ content }: BubbleOrganProps) {
         <div>
           <p className="bo-eyebrow">Lección 7 · Mm</p>
           <h2>Órgano de burbujas</h2>
-          <p>Escucha las sílabas con tus propios ojos: toca, une y lee.</p>
+          <p>Toca las sílabas, únelas y lee la palabra.</p>
         </div>
         <div className="bo-controls">
           <button type="button" className="bo-control" onClick={() => setSoundOn((on) => !on)}
@@ -198,7 +202,7 @@ export function BubbleOrgan({ content }: BubbleOrganProps) {
           <RotateCcw aria-hidden="true" /> Formar otra palabra
         </button>
       )}
-      <p className="bo-audio-note">Las voces grabadas de Gretel se incorporarán cuando estén aprobadas. No se usa voz del dispositivo.</p>
+      <p className="bo-audio-note">Di en voz alta cada sílaba que eliges.</p>
     </section>
   );
 }
