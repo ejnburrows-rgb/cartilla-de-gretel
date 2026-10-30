@@ -35,8 +35,8 @@ describe("faithful page layouts", () => {
         expect(region.regionType).toBeTruthy();
         expect(["heading", "body", "tracing"]).toContain(region.fontRole);
         if (region.regionType === "illustration-slot") {
-          // pilot uses legacy illustrationWord; faithful pages use illustrationSrc
-          expect(region.illustrationWord ?? region.illustrationSrc).toBeTruthy();
+          // pilot uses caption; faithful pages use illustrationSrc
+          expect(region.caption ?? region.illustrationSrc).toBeTruthy();
         } else {
           expect(region.text).toBeTruthy();
         }
