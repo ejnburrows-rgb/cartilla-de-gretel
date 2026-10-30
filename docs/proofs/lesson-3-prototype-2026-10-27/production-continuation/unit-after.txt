@@ -1,0 +1,9 @@
+
+ RUN  v4.1.8 /workspace/cartilla
+
+
+ Test Files  2 passed (2)
+      Tests  16 passed (16)
+   Start at  15:20:08
+   Duration  3.59s (transform 539ms, setup 254ms, import 737ms, tests 813ms, environment 1.39s)
+

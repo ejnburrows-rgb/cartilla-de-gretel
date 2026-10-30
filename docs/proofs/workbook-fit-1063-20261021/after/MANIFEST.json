@@ -1,0 +1,25 @@
+{
+ "capturedAt": "2026-10-21T23:55:00Z",
+ "set": "after",
+ "source": "controller local verification (hb-1905)",
+ "pr_branch_head": "68d8d00d2dfc961e33cd619bd61912e5afa71a19",
+ "main_head": "6637007d85b6",
+ "viewport": "390x844 @2x (phone)",
+ "method": "vite build + vite preview + headless chromium; lesson completion seeded via localStorage cartilla.lesson-progress.v1 (returning-student state; rendering unaffected)",
+ "pages": [
+  "lesson-13-page-43.png",
+  "lesson-14-page-47.png",
+  "lesson-15-page-51.png",
+  "lesson-17-page-59.png",
+  "lesson-18-page-63.png",
+  "lesson-19-page-67.png",
+  "lesson-19-page-69.png",
+  "lesson-20-page-71.png",
+  "lesson-21-page-75.png",
+  "lesson-22-page-79.png",
+  "lesson-23-page-83.png",
+  "lesson-23-page-85.png"
+ ],
+ "note": "before = main's lesson-cutoff-fixes.css (Wave 1 scope: pages 35/39/55/56); after = PR #1063 head (adds pages 43,47,51,59,63,67,69,71,75,79,83,85). Pages 69/85 are reading pages: identical before/after as expected.",
+ "total": 12
+}

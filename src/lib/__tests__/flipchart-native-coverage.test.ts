@@ -89,7 +89,7 @@ describe("native Flip Chart coverage", () => {
     expect(getNativeFlipchartPage(3)?.art.map((asset) => asset.word)).toEqual(["avión", "escoba", "imán", "olla", "uña"]);
     expect(getNativeFlipchartPage(15)?.art.map((asset) => asset.word)).toContain("Sesi");
     expect(getNativeFlipchartPage(41)?.body.some((line) => line.text === "La r para la rama")).toBe(true);
-    expect(getNativeFlipchartPage(44)?.body.some((line) => line.text === "arrebatado")).toBe(true);
+    expect(getNativeFlipchartPage(44)?.body.some((line) => line.text === "arrebatado.")).toBe(true);
   });
 
   it.each([

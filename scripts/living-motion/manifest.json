@@ -7,7 +7,8 @@
   "abeja": {
     "still": "public/cartilla/art/faithful/leccion-1/wb-p1/abeja.svg",
     "alive": "public/cartilla/art/faithful/leccion-1/wb-p1/abeja-alive.svg",
-    "stillSha256": "6f759e1b8dce95df661c1c943a83e34ca66831676ff7405e277ca25f97f6dca8"
+    "stillSha256": "6f759e1b8dce95df661c1c943a83e34ca66831676ff7405e277ca25f97f6dca8",
+    "motionStatus": "NOT VERIFIED - still replaced since motion was built"
   },
   "avion": {
     "still": "public/cartilla/art/optimized/workbook/leccion-1/avion.svg",
@@ -17,7 +18,7 @@
   "elefante": {
     "still": "public/cartilla/art/optimized/workbook/leccion-1/elefante.svg",
     "alive": "public/cartilla/art/optimized/workbook/leccion-1/elefante-alive.svg",
-    "stillSha256": "9609ded8255e090884ba3a10f514d81363b0721b97694390c7fd44c2d0fcbd94"
+    "stillSha256": "3b1e99c87d48172855d0d009e030b9311157353d0aef000f373f6dfaf1f80c98"
   },
   "fc_p004_olla": {
     "still": "public/cartilla/art/optimized/flipchart-native/p004-olla.png",
@@ -37,7 +38,7 @@
   "fc_p006_elefante": {
     "still": "public/cartilla/art/optimized/flipchart-native/p006-elefante.png",
     "alive": "public/cartilla/art/optimized/flipchart-native/p006-elefante-alive.svg",
-    "stillSha256": "8b9e451845f51044424339ea14dbacf4873b7954d5877e46d721c212a463a3c6"
+    "stillSha256": "c79cd5920de38e1230df82d432184870e7e90a1cd1342d8513eff17ba6216662"
   },
   "fc_p007_iman": {
     "still": "public/cartilla/art/optimized/flipchart-native/p007-iman.png",
@@ -77,7 +78,8 @@
   "vocal-a-abeja": {
     "still": "public/cartilla/art/faithful/vocal-a/abeja.webp",
     "alive": "public/cartilla/art/faithful/vocal-a/abeja-alive.svg",
-    "stillSha256": "1f03f92afdf3005ffffccae6aff6cfdd37314ebe016012e8634a102078bca5ef"
+    "stillSha256": "1f03f92afdf3005ffffccae6aff6cfdd37314ebe016012e8634a102078bca5ef",
+    "motionStatus": "NOT VERIFIED - still replaced since motion was built"
   },
   "vocal-a-avion": {
     "still": "public/cartilla/art/faithful/vocal-a/avion.webp",
@@ -87,7 +89,7 @@
   "vocal-e-elefante": {
     "still": "public/cartilla/art/faithful/vocal-e/elefante.webp",
     "alive": "public/cartilla/art/faithful/vocal-e/elefante-alive.svg",
-    "stillSha256": "f54e533c6a33b901fcfc79da83b2f7a38977defc47662f6cf29ca948d1cfd28a"
+    "stillSha256": "27e76b480a87f6c6df4bb08c20f21b7b6b55edf493b39e90073070c56a81d370"
   },
   "vocal-i-iman": {
     "still": "public/cartilla/art/faithful/vocal-i/iman.webp",
@@ -107,6 +109,6 @@
   "vocal-o-oveja": {
     "still": "public/cartilla/art/faithful/vocal-o/oveja.webp",
     "alive": "public/cartilla/art/faithful/vocal-o/oveja-alive.svg",
-    "stillSha256": "6835094e54b0ea0e5082792e1ae8cdde452ab4bd8be265d170f99d74e7f22d59"
+    "stillSha256": "5ba07a1511c28e7a3ad3db869970a37d8656716367a3c18d10394a29def46a32"
   }
 }

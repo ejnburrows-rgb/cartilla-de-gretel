@@ -214,10 +214,12 @@ export function PencilVowelLineMatch({
   region,
   lessonId,
   instruction,
+  wideWorkbook = false,
 }: {
   region: PageRegion;
   lessonId?: string;
   instruction?: string;
+  wideWorkbook?: boolean;
 }) {
   const cells = region.cells ?? [];
   const targets: PencilTarget[] = cells.map((cell, i) => ({
@@ -237,6 +239,7 @@ export function PencilVowelLineMatch({
         instruction={instruction}
         lessonId={lessonId}
         centerLabel={region.letterPair ?? "Uu"}
+        wideWorkbook={wideWorkbook}
       />
     </div>
   );

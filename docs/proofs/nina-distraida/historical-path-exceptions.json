@@ -1,0 +1,27 @@
+[
+  {
+    "path": "docs/proofs/artwork-coverage-2026-10-14/asset-library.html",
+    "occurrences": 1,
+    "reason": "verbatim historical archive member paths; not runtime content"
+  },
+  {
+    "path": "docs/proofs/artwork-coverage-2026-10-14/coverage-manifest.json",
+    "occurrences": 1,
+    "reason": "verbatim historical archive member paths; not runtime content"
+  },
+  {
+    "path": "docs/proofs/artwork-coverage-2026-10-14/file-register.json",
+    "occurrences": 2,
+    "reason": "verbatim historical archive member paths; not runtime content"
+  },
+  {
+    "path": "docs/proofs/artwork-coverage-2026-10-14/gallery.html",
+    "occurrences": 1,
+    "reason": "verbatim historical archive member paths; not runtime content"
+  },
+  {
+    "path": "docs/proofs/artwork-coverage-2026-10-14/source-enumeration.json",
+    "occurrences": 5,
+    "reason": "verbatim historical archive member paths; not runtime content"
+  }
+]

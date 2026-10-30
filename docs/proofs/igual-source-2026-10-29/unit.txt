@@ -1,0 +1,11 @@
+(node:25812) [DEP0205] DeprecationWarning: `module.register()` is deprecated. Use `module.registerHooks()` instead.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+
+ RUN  v4.1.8 C:/Users/EJN/Documents/Codex/2026-10-29/la-cartilla-de-gretel-continue-to/work/cartilla
+
+
+ Test Files  4 passed (4)
+      Tests  21 passed (21)
+   Start at  04:23:59
+   Duration  38.25s (transform 281ms, setup 5.43s, import 254ms, tests 16.62s, environment 39.43s)
+

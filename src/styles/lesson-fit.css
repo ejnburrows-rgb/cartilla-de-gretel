@@ -437,3 +437,27 @@
 }
 .lc-lesson-16 .native-lesson-viewer__navigation button[data-testid="button-next"] { background: #167a72; border-color: #167a72; color: #fffaf0; }
 .lc-lesson-16 :is(button, a, textarea):focus-visible { outline: 3px solid #167a72; outline-offset: 3px; }
+
+/* Printed7 retains its16ordered drawings in two groups of8, same page ID. */
+.lc-lesson-shell--fit .fp-ix-grid__screens { display:flex; flex:none; justify-content:center; gap:12px; }
+.lc-lesson-shell--fit .fp-ix-grid__screens button { min-height:44px; padding:6px 14px; border:1px solid #0d9488; border-radius:12px; background:#fffdf8; color:#087f78; }
+.lc-lesson-shell--fit .fp-ix-grid__screens button[aria-pressed="true"] { background:#087f78; color:white; }
+.lc-lesson-shell--fit .native-lesson-viewer__content .fp-ix-grid--paged .fp-ix-cell { width:100%; height:100%; max-height:100%; aspect-ratio:auto; }
+/* Printed8: same pictures/order, with a clear path from the left letter. */
+.lc-lesson-shell--fit .am-direct-pencil--wide-workbook .am-direct-pencil__stage { max-width:none; }
+.am-direct-pencil__wide-board { position:relative; z-index:3; height:100%; display:grid; grid-template-columns:20% minmax(0,1fr); column-gap:30%; align-items:center; }
+.am-direct-pencil__wide-board > .am-direct-pencil__center { width:100%; }
+.am-direct-pencil__wide-pictures { display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); grid-template-rows:repeat(4,minmax(0,1fr)); gap:12px; height:100%; min-height:0; }
+.am-direct-pencil__wide-pictures .am-direct-pencil__target { width:100%; height:100%; min-height:0; aspect-ratio:auto; }
+@media (orientation:portrait) {
+ .am-direct-pencil__wide-board { grid-template-columns:20% minmax(0,1fr); column-gap:14%; }
+ .am-direct-pencil__wide-pictures { gap:10px; }
+}
+.lc-lesson-shell--fit .native-lesson-viewer__content .fp-ix-grid--paged { display:grid; grid-template-columns:repeat(4,minmax(0,1fr)); grid-template-rows:auto repeat(2,minmax(0,1fr)); align-items:center; }
+.lc-lesson-shell--fit .fp-ix-grid--paged .fp-ix-grid__screens { grid-column:1 / -1; }
+.lc-lesson-shell--fit .native-lesson-viewer__content .fp-ix-grid--paged .fp-ix-row { display:contents; }
+.lc-lesson-shell--fit .native-lesson-viewer__content .fp-ix-grid--paged .fp-ix-cell { width:100%; height:auto; aspect-ratio:1; justify-self:center; }
+@media (orientation:portrait) {
+ .lc-lesson-shell--fit .native-lesson-viewer__content .fp-ix-grid--paged { grid-template-columns:repeat(2,minmax(0,1fr)); grid-template-rows:auto repeat(4,minmax(0,1fr)); gap:10px; }
+ .lc-lesson-shell--fit .native-lesson-viewer__content .fp-ix-grid--paged .fp-ix-cell { width:auto; height:100%; max-width:100%; }
+}

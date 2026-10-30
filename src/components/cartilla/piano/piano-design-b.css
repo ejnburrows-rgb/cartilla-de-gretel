@@ -461,7 +461,7 @@
     inset 0 -2px color-mix(in srgb, var(--c) 70%, black),
     0 0 22px var(--c),
     0 1px #041c19;
-  transform: scaleY(0.985);
+  transform: translateY(3px) scaleY(0.97);
 }
 .pb__white-check {
   position: absolute;
@@ -526,11 +526,13 @@
   outline-offset: 2px;
 }
 .pb__sparkle {
+  /* One small sparkle over the syllable key that was just recognized. */
   position: absolute;
-  top: -0.9rem;
-  right: 1.5rem;
-  width: 2.4rem;
-  height: 2.4rem;
+  top: 0.5rem;
+  left: 50%;
+  margin-left: -0.8rem;
+  width: 1.6rem;
+  height: 1.6rem;
   z-index: 4;
   border-radius: 999px;
   background:
@@ -547,7 +549,7 @@
       #facc15 85% 90%,
       transparent 90%
     );
-  animation: pb-sparkle 0.9s ease-out both;
+  animation: pb-sparkle 0.9s ease-out forwards;
   pointer-events: none;
 }
 @keyframes pb-sparkle {
@@ -560,8 +562,8 @@
     opacity: 1;
   }
   to {
-    transform: scale(1) rotate(45deg);
-    opacity: 1;
+    transform: scale(0.8) rotate(60deg);
+    opacity: 0;
   }
 }
 .pb__footer {

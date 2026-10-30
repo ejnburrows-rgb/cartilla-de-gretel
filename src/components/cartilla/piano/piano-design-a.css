@@ -261,27 +261,35 @@
     transform 0.12s ease;
   transform-origin: top;
 }
+/* Syllable keys wait in their warm ramp color (red → orange → yellow) until
+   the syllable is recognized by voice and the key turns green. */
+.pa__white--pending,
 .pa__white--next {
   background: linear-gradient(
     180deg,
     #f3f0e8,
-    #fffdf8 18%,
-    color-mix(in srgb, var(--c) 10%, #fbf8f0) 85%,
-    #e9e3d4
+    color-mix(in srgb, var(--c) 28%, #fffdf8) 22%,
+    color-mix(in srgb, var(--c) 55%, #fbf8f0) 85%,
+    color-mix(in srgb, var(--c) 70%, #e9e3d4)
   );
   box-shadow:
-    inset 0 -6px color-mix(in srgb, var(--c) 45%, #ddd5c2),
+    inset 0 -6px color-mix(in srgb, var(--c) 75%, #ddd5c2),
     inset 0 0 0 2px color-mix(in srgb, var(--c) 55%, transparent),
     0 2px #0c0a09;
 }
+/* While the child is speaking, the key brightens and glows in its own color. */
 .pa__white--provisional,
 .pa__white--hearing {
   background: linear-gradient(
     180deg,
-    #f3f0e8,
-    color-mix(in srgb, var(--c) 22%, white) 40%,
-    color-mix(in srgb, var(--c) 30%, white)
+    color-mix(in srgb, var(--c) 40%, white),
+    color-mix(in srgb, var(--c) 75%, white) 45%,
+    var(--c)
   );
+  box-shadow:
+    inset 0 -6px color-mix(in srgb, var(--c) 80%, black),
+    0 0 20px var(--c),
+    0 2px #0c0a09;
 }
 .pa__white--confirmed {
   background: linear-gradient(
@@ -301,7 +309,7 @@
     inset 0 -2px color-mix(in srgb, var(--c) 70%, black),
     0 0 26px var(--c),
     0 1px #0c0a09;
-  transform: scaleY(0.985);
+  transform: translateY(3px) scaleY(0.97);
 }
 .pa__note-listen:focus-visible,
 .pa__control:focus-visible,
@@ -371,11 +379,13 @@
   }
 }
 .pa__sparkle {
+  /* One small sparkle over the syllable key that was just recognized. */
   position: absolute;
-  top: -0.6rem;
-  right: 1.2rem;
-  width: 2.2rem;
-  height: 2.2rem;
+  top: 0.5rem;
+  left: 50%;
+  margin-left: -0.8rem;
+  width: 1.6rem;
+  height: 1.6rem;
   z-index: 3;
   background:
     radial-gradient(circle, #fde68a 0 28%, transparent 30%),
@@ -392,7 +402,7 @@
       transparent 90%
     );
   border-radius: 999px;
-  animation: pa-sparkle 0.9s ease-out both;
+  animation: pa-sparkle 0.9s ease-out forwards;
   pointer-events: none;
 }
 @keyframes pa-sparkle {
@@ -405,8 +415,8 @@
     opacity: 1;
   }
   to {
-    transform: scale(1) rotate(45deg);
-    opacity: 1;
+    transform: scale(0.8) rotate(60deg);
+    opacity: 0;
   }
 }
 .pa__controls {
@@ -681,5 +691,160 @@
     gap: 0.1rem;
     padding: 0.3rem 0.45rem;
     font-size: 0.72rem;
+  }
+}
+
+/* ---------------------------------------------------------------------------
+   Nine keys, three groups of three (owner-approved 2026-10-23).
+   The group being practiced: key 1 presses red at the first sound, key 2
+   presses yellow while the voice continues, key 3 presses green only when the
+   syllable is recognized — then the whole group is green and stays green.
+   ------------------------------------------------------------------------ */
+.pa__modes {
+  display: inline-flex;
+  gap: 0.25rem;
+  margin: 0 auto 0.75rem;
+  padding: 0.25rem;
+  border-radius: 999px;
+  background: #f5efe2;
+  border: 1px solid #e7dcc4;
+}
+.pa__mode {
+  min-height: 2.5rem;
+  padding: 0 1rem;
+  border: 0;
+  border-radius: 999px;
+  background: transparent;
+  font-weight: 800;
+  color: #78716c;
+  cursor: pointer;
+}
+.pa__mode[aria-pressed="true"] {
+  background: #fff;
+  color: #92400e;
+  box-shadow: 0 1px 3px #78350f33;
+}
+.pa__mode:focus-visible {
+  outline: 3px solid #2563eb;
+  outline-offset: 2px;
+}
+.pa__notes--groups {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  justify-items: center;
+}
+.pa__note--free {
+  min-height: 1px;
+}
+.pa__note--pending .pa__note-head {
+  opacity: 0.55;
+}
+.pa__note--red .pa__note-head {
+  border-color: #ef4444;
+  box-shadow: 0 0 0 5px #ef444433, 0 3px #ef444466;
+}
+.pa__note--yellow .pa__note-head {
+  border-color: #eab308;
+  box-shadow: 0 0 0 6px #facc1544, 0 3px #eab30866;
+}
+.pa__keys--groups {
+  --white-count: 3;
+  gap: 8px;
+  background: transparent;
+  padding: 0;
+  box-shadow: none;
+}
+.pa__group {
+  position: relative;
+  flex: 1 1 0;
+  min-width: 0;
+  display: flex;
+  gap: 3px;
+  padding: 6px;
+  border-radius: 0.5rem;
+  background: #1c1917;
+  box-shadow: 0 18px 36px -12px #00000080;
+  transition: box-shadow 0.3s ease, opacity 0.3s ease;
+}
+.pa__group--next,
+.pa__group--red,
+.pa__group--yellow {
+  box-shadow:
+    0 0 0 3px #fde68a,
+    0 18px 36px -12px #00000080;
+}
+.pa__group--pending {
+  opacity: 0.72;
+}
+.pa__group--free {
+  opacity: 0.35;
+}
+.pa__group .pa__white {
+  height: 12rem;
+}
+.pa__group .pa__black {
+  top: 6px;
+  --black-w: calc((100% - 12px) / 3 * 0.55);
+}
+.pa__black--g1 {
+  left: calc(6px + (100% - 12px) / 3 * 1 - var(--black-w) / 2);
+}
+.pa__black--g2 {
+  left: calc(6px + (100% - 12px) / 3 * 2 - var(--black-w) / 2);
+}
+/* Red and yellow: the key is pressed down and lit. */
+.pa__white--red,
+.pa__white--yellow {
+  background: linear-gradient(
+    180deg,
+    color-mix(in srgb, var(--c) 45%, white),
+    color-mix(in srgb, var(--c) 80%, white) 40%,
+    var(--c)
+  );
+  box-shadow:
+    inset 0 -2px color-mix(in srgb, var(--c) 70%, black),
+    0 0 22px var(--c),
+    0 1px #0c0a09;
+}
+.pa__white--pressed {
+  transform: translateY(4px) scaleY(0.96);
+}
+.pa__group .pa__white-check {
+  bottom: 1.4rem;
+}
+.pa__sparkle--group {
+  top: -0.9rem;
+  left: 50%;
+}
+@container (max-width: 520px) {
+  .pa__keys--groups {
+    gap: 5px;
+  }
+  .pa__group {
+    padding: 3px;
+    gap: 2px;
+  }
+  .pa__group .pa__white {
+    height: 9.5rem;
+  }
+  .pa__group .pa__black {
+    top: 3px;
+    --black-w: calc((100% - 6px) / 3 * 0.55);
+  }
+  .pa__black--g1 {
+    left: calc(3px + (100% - 6px) / 3 * 1 - var(--black-w) / 2);
+  }
+  .pa__black--g2 {
+    left: calc(3px + (100% - 6px) / 3 * 2 - var(--black-w) / 2);
+  }
+}
+@container (max-width: 480px) {
+  .pa__keys--groups .pa__key--extra {
+    display: block;
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .pa__white--pressed {
+    transform: none;
   }
 }

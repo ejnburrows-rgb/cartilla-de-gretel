@@ -1,0 +1,308 @@
+{
+  "baseURL": "http://127.0.0.1:5189",
+  "pixels": [
+    {
+      "name": "elefante",
+      "stillSha256": "3b1e99c87d48172855d0d009e030b9311157353d0aef000f373f6dfaf1f80c98",
+      "dimensions": [
+        222,
+        203
+      ],
+      "basePixelsEqual": true,
+      "sourcePaddingEqual": true
+    },
+    {
+      "name": "oveja",
+      "stillSha256": "956e2ad1290b9303213789c1066c4fb8272365fd0a956e5868ab0126a98868ff",
+      "dimensions": [
+        216,
+        203
+      ],
+      "basePixelsEqual": true,
+      "sourcePaddingEqual": true
+    },
+    {
+      "name": "vocal-o-oveja",
+      "stillSha256": "5ba07a1511c28e7a3ad3db869970a37d8656716367a3c18d10394a29def46a32",
+      "dimensions": [
+        870,
+        824
+      ],
+      "basePixelsEqual": true,
+      "sourcePaddingEqual": true
+    },
+    {
+      "name": "vocal-e-elefante",
+      "stillSha256": "27e76b480a87f6c6df4bb08c20f21b7b6b55edf493b39e90073070c56a81d370",
+      "dimensions": [
+        870,
+        809
+      ],
+      "basePixelsEqual": true,
+      "sourcePaddingEqual": true
+    },
+    {
+      "name": "fc_p004_oveja",
+      "stillSha256": "b21572a982e491df6f306201980b5dd840e7fd9a004d07bf07826d57c8e3d3f8",
+      "dimensions": [
+        320,
+        320
+      ],
+      "basePixelsEqual": true,
+      "sourcePaddingEqual": true
+    },
+    {
+      "name": "fc_p006_elefante",
+      "stillSha256": "c79cd5920de38e1230df82d432184870e7e90a1cd1342d8513eff17ba6216662",
+      "dimensions": [
+        320,
+        320
+      ],
+      "basePixelsEqual": true,
+      "sourcePaddingEqual": true
+    }
+  ],
+  "results": [
+    {
+      "name": "elefante",
+      "width": 222,
+      "mode": "no-preference",
+      "route": "http://127.0.0.1:5189/cartilla/leccion/1",
+      "src": "/cartilla/art/optimized/workbook/leccion-1/elefante-alive.svg",
+      "currentSrc": "http://127.0.0.1:5189/cartilla/art/optimized/workbook/leccion-1/elefante-alive.svg",
+      "height": 214,
+      "servedSha256": "b1ac723a7e0ab5db03f07fd9add188858d9a74a6ebd3baff12b3629260e4046d"
+    },
+    {
+      "name": "oveja",
+      "width": 216,
+      "mode": "no-preference",
+      "route": "http://127.0.0.1:5189/cartilla/leccion/1",
+      "src": "/cartilla/art/optimized/workbook/leccion-1/oveja-alive.svg",
+      "currentSrc": "http://127.0.0.1:5189/cartilla/art/optimized/workbook/leccion-1/oveja-alive.svg",
+      "height": 203,
+      "servedSha256": "e1bad1f5c89f689100af119ee5e408c4eaf0278e4dcf4f41407bf0cce79b50cd"
+    },
+    {
+      "name": "vocal-o-oveja",
+      "width": 870,
+      "mode": "no-preference",
+      "route": "http://127.0.0.1:5189/cartilla/leccion/2",
+      "src": "/cartilla/art/faithful/vocal-o/oveja-alive.svg",
+      "currentSrc": "http://127.0.0.1:5189/cartilla/art/faithful/vocal-o/oveja-alive.svg",
+      "height": 824,
+      "servedSha256": "2a5573be4ac1101a2d52f3ae0fed2f6e45af63051baa9bdaf7eec0134e768496"
+    },
+    {
+      "name": "vocal-e-elefante",
+      "width": 870,
+      "mode": "no-preference",
+      "route": "http://127.0.0.1:5189/cartilla/leccion/4",
+      "src": "/cartilla/art/faithful/vocal-e/elefante-alive.svg",
+      "currentSrc": "http://127.0.0.1:5189/cartilla/art/faithful/vocal-e/elefante-alive.svg",
+      "height": 809,
+      "servedSha256": "bf5dba91a43b38a6f31291e7fbdef28e7694142ea0ea4e941a928b98067cc18c"
+    },
+    {
+      "name": "fc_p004_oveja",
+      "width": 320,
+      "mode": "no-preference",
+      "route": "http://127.0.0.1:5189/cartilla/presentar/2",
+      "src": "/cartilla/art/optimized/flipchart-native/p004-oveja-alive.svg",
+      "currentSrc": "http://127.0.0.1:5189/cartilla/art/optimized/flipchart-native/p004-oveja-alive.svg",
+      "height": 320,
+      "servedSha256": "5129b73e514f8bd4fa68b8b85b0d8aea2462d135915853635383641ff810e791"
+    },
+    {
+      "name": "fc_p006_elefante",
+      "width": 320,
+      "mode": "no-preference",
+      "route": "http://127.0.0.1:5189/cartilla/presentar/4",
+      "src": "/cartilla/art/optimized/flipchart-native/p006-elefante-alive.svg",
+      "currentSrc": "http://127.0.0.1:5189/cartilla/art/optimized/flipchart-native/p006-elefante-alive.svg",
+      "height": 320,
+      "servedSha256": "fa8419d225fdf578b10c938f5e76ea8e2dcb5d024660bea6119ec4e844405223"
+    },
+    {
+      "name": "elefante",
+      "width": 222,
+      "mode": "reduce",
+      "route": "http://127.0.0.1:5189/cartilla/leccion/1",
+      "src": "/cartilla/art/optimized/workbook/leccion-1/elefante.svg",
+      "currentSrc": "http://127.0.0.1:5189/cartilla/art/optimized/workbook/leccion-1/elefante.svg",
+      "height": 214,
+      "servedSha256": "3b1e99c87d48172855d0d009e030b9311157353d0aef000f373f6dfaf1f80c98"
+    },
+    {
+      "name": "oveja",
+      "width": 216,
+      "mode": "reduce",
+      "route": "http://127.0.0.1:5189/cartilla/leccion/1",
+      "src": "/cartilla/art/optimized/workbook/leccion-1/oveja.svg",
+      "currentSrc": "http://127.0.0.1:5189/cartilla/art/optimized/workbook/leccion-1/oveja.svg",
+      "height": 203,
+      "servedSha256": "855d39eb6b42e58a2585717b0841db9438f6fc35bdb4fbee3ecdfa598b2af2b0"
+    },
+    {
+      "name": "vocal-o-oveja",
+      "width": 384,
+      "mode": "reduce",
+      "route": "http://127.0.0.1:5189/cartilla/leccion/2",
+      "src": "/cartilla/art/faithful/vocal-o/oveja.webp",
+      "currentSrc": "http://127.0.0.1:5189/cartilla/art/delivery/faithful/384/vocal-o/oveja.webp",
+      "height": 364,
+      "servedSha256": "5de9913bccf66200fc795f10aedcd361e550205b164ec57f1b760da6b1973e26"
+    },
+    {
+      "name": "vocal-e-elefante",
+      "width": 384,
+      "mode": "reduce",
+      "route": "http://127.0.0.1:5189/cartilla/leccion/4",
+      "src": "/cartilla/art/faithful/vocal-e/elefante.webp",
+      "currentSrc": "http://127.0.0.1:5189/cartilla/art/delivery/faithful/384/vocal-e/elefante.webp",
+      "height": 357,
+      "servedSha256": "b06c535f9ba3e529adf5840c694f7d9041c17eaf5fb9c62394eb877ce8d40082"
+    },
+    {
+      "name": "fc_p004_oveja",
+      "width": 320,
+      "mode": "reduce",
+      "route": "http://127.0.0.1:5189/cartilla/presentar/2",
+      "src": "/cartilla/art/optimized/flipchart-native/p004-oveja.png",
+      "currentSrc": "http://127.0.0.1:5189/cartilla/art/optimized/flipchart-native/p004-oveja.png",
+      "height": 320,
+      "servedSha256": "b21572a982e491df6f306201980b5dd840e7fd9a004d07bf07826d57c8e3d3f8"
+    },
+    {
+      "name": "fc_p006_elefante",
+      "width": 320,
+      "mode": "reduce",
+      "route": "http://127.0.0.1:5189/cartilla/presentar/4",
+      "src": "/cartilla/art/optimized/flipchart-native/p006-elefante.png",
+      "currentSrc": "http://127.0.0.1:5189/cartilla/art/optimized/flipchart-native/p006-elefante.png",
+      "height": 320,
+      "servedSha256": "c79cd5920de38e1230df82d432184870e7e90a1cd1342d8513eff17ba6216662"
+    },
+    {
+      "name": "elefante",
+      "width": 222,
+      "mode": "no-preference",
+      "route": "http://127.0.0.1:5189/cartilla/leccion/1",
+      "src": "/cartilla/art/optimized/workbook/leccion-1/elefante-alive.svg",
+      "currentSrc": "http://127.0.0.1:5189/cartilla/art/optimized/workbook/leccion-1/elefante-alive.svg",
+      "height": 214,
+      "servedSha256": "b1ac723a7e0ab5db03f07fd9add188858d9a74a6ebd3baff12b3629260e4046d"
+    },
+    {
+      "name": "oveja",
+      "width": 216,
+      "mode": "no-preference",
+      "route": "http://127.0.0.1:5189/cartilla/leccion/1",
+      "src": "/cartilla/art/optimized/workbook/leccion-1/oveja-alive.svg",
+      "currentSrc": "http://127.0.0.1:5189/cartilla/art/optimized/workbook/leccion-1/oveja-alive.svg",
+      "height": 203,
+      "servedSha256": "e1bad1f5c89f689100af119ee5e408c4eaf0278e4dcf4f41407bf0cce79b50cd"
+    },
+    {
+      "name": "vocal-o-oveja",
+      "width": 870,
+      "mode": "no-preference",
+      "route": "http://127.0.0.1:5189/cartilla/leccion/2",
+      "src": "/cartilla/art/faithful/vocal-o/oveja-alive.svg",
+      "currentSrc": "http://127.0.0.1:5189/cartilla/art/faithful/vocal-o/oveja-alive.svg",
+      "height": 824,
+      "servedSha256": "2a5573be4ac1101a2d52f3ae0fed2f6e45af63051baa9bdaf7eec0134e768496"
+    },
+    {
+      "name": "vocal-e-elefante",
+      "width": 870,
+      "mode": "no-preference",
+      "route": "http://127.0.0.1:5189/cartilla/leccion/4",
+      "src": "/cartilla/art/faithful/vocal-e/elefante-alive.svg",
+      "currentSrc": "http://127.0.0.1:5189/cartilla/art/faithful/vocal-e/elefante-alive.svg",
+      "height": 809,
+      "servedSha256": "bf5dba91a43b38a6f31291e7fbdef28e7694142ea0ea4e941a928b98067cc18c"
+    },
+    {
+      "name": "fc_p004_oveja",
+      "width": 320,
+      "mode": "no-preference",
+      "route": "http://127.0.0.1:5189/cartilla/presentar/2",
+      "src": "/cartilla/art/optimized/flipchart-native/p004-oveja-alive.svg",
+      "currentSrc": "http://127.0.0.1:5189/cartilla/art/optimized/flipchart-native/p004-oveja-alive.svg",
+      "height": 320,
+      "servedSha256": "5129b73e514f8bd4fa68b8b85b0d8aea2462d135915853635383641ff810e791"
+    },
+    {
+      "name": "fc_p006_elefante",
+      "width": 320,
+      "mode": "no-preference",
+      "route": "http://127.0.0.1:5189/cartilla/presentar/4",
+      "src": "/cartilla/art/optimized/flipchart-native/p006-elefante-alive.svg",
+      "currentSrc": "http://127.0.0.1:5189/cartilla/art/optimized/flipchart-native/p006-elefante-alive.svg",
+      "height": 320,
+      "servedSha256": "fa8419d225fdf578b10c938f5e76ea8e2dcb5d024660bea6119ec4e844405223"
+    },
+    {
+      "name": "elefante",
+      "width": 222,
+      "mode": "reduce",
+      "route": "http://127.0.0.1:5189/cartilla/leccion/1",
+      "src": "/cartilla/art/optimized/workbook/leccion-1/elefante.svg",
+      "currentSrc": "http://127.0.0.1:5189/cartilla/art/optimized/workbook/leccion-1/elefante.svg",
+      "height": 214,
+      "servedSha256": "3b1e99c87d48172855d0d009e030b9311157353d0aef000f373f6dfaf1f80c98"
+    },
+    {
+      "name": "oveja",
+      "width": 216,
+      "mode": "reduce",
+      "route": "http://127.0.0.1:5189/cartilla/leccion/1",
+      "src": "/cartilla/art/optimized/workbook/leccion-1/oveja.svg",
+      "currentSrc": "http://127.0.0.1:5189/cartilla/art/optimized/workbook/leccion-1/oveja.svg",
+      "height": 203,
+      "servedSha256": "855d39eb6b42e58a2585717b0841db9438f6fc35bdb4fbee3ecdfa598b2af2b0"
+    },
+    {
+      "name": "vocal-o-oveja",
+      "width": 384,
+      "mode": "reduce",
+      "route": "http://127.0.0.1:5189/cartilla/leccion/2",
+      "src": "/cartilla/art/faithful/vocal-o/oveja.webp",
+      "currentSrc": "http://127.0.0.1:5189/cartilla/art/delivery/faithful/384/vocal-o/oveja.webp",
+      "height": 364,
+      "servedSha256": "5de9913bccf66200fc795f10aedcd361e550205b164ec57f1b760da6b1973e26"
+    },
+    {
+      "name": "vocal-e-elefante",
+      "width": 384,
+      "mode": "reduce",
+      "route": "http://127.0.0.1:5189/cartilla/leccion/4",
+      "src": "/cartilla/art/faithful/vocal-e/elefante.webp",
+      "currentSrc": "http://127.0.0.1:5189/cartilla/art/delivery/faithful/384/vocal-e/elefante.webp",
+      "height": 357,
+      "servedSha256": "b06c535f9ba3e529adf5840c694f7d9041c17eaf5fb9c62394eb877ce8d40082"
+    },
+    {
+      "name": "fc_p004_oveja",
+      "width": 320,
+      "mode": "reduce",
+      "route": "http://127.0.0.1:5189/cartilla/presentar/2",
+      "src": "/cartilla/art/optimized/flipchart-native/p004-oveja.png",
+      "currentSrc": "http://127.0.0.1:5189/cartilla/art/optimized/flipchart-native/p004-oveja.png",
+      "height": 320,
+      "servedSha256": "b21572a982e491df6f306201980b5dd840e7fd9a004d07bf07826d57c8e3d3f8"
+    },
+    {
+      "name": "fc_p006_elefante",
+      "width": 320,
+      "mode": "reduce",
+      "route": "http://127.0.0.1:5189/cartilla/presentar/4",
+      "src": "/cartilla/art/optimized/flipchart-native/p006-elefante.png",
+      "currentSrc": "http://127.0.0.1:5189/cartilla/art/optimized/flipchart-native/p006-elefante.png",
+      "height": 320,
+      "servedSha256": "c79cd5920de38e1230df82d432184870e7e90a1cd1342d8513eff17ba6216662"
+    }
+  ],
+  "errors": []
+}

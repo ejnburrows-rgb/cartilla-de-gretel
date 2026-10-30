@@ -1,0 +1,2 @@
+import {defineConfig} from '@playwright/test';
+export default defineConfig({testDir:'./tests/e2e',timeout:40000,workers:1,use:{baseURL:'http://127.0.0.1:8790',viewport:{width:1280,height:900},launchOptions:{executablePath:'/usr/bin/google-chrome',args:['--no-sandbox']}},webServer:{command:'./node_modules/.bin/vite preview --host 127.0.0.1 --port 8790',url:'http://127.0.0.1:8790',reuseExistingServer:false}});

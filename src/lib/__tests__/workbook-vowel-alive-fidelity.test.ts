@@ -1,3 +1,4 @@
+import stale from "@/data/stale-motion-art.json";
 import { describe, it, expect } from "vitest";
 import { readFileSync } from "node:fs";
 import { resolve } from "node:path";
@@ -33,6 +34,10 @@ describe("Workbook vowel-review moving pictures keep the approved drawing", () =
     it(`${name}: embeds the faithful still byte-for-byte at its own size`, () => {
       const src = `/cartilla/art/faithful/${name}.webp`;
       const actor = getLivingActor(src);
+      if (Object.prototype.hasOwnProperty.call(stale, src)) {
+        expect(actor).toBeNull(); // Old embedded art must not override supplied still.
+        return;
+      }
       expect(actor?.aliveSrc).toBe(`/cartilla/art/faithful/${name}-alive.svg`);
       const still = readFileSync(resolve(ROOT, `public${src}`));
       const svg = readFileSync(resolve(ROOT, `public${actor!.aliveSrc}`), "utf8");

@@ -1,0 +1,653 @@
+{
+  "results": [
+    {
+      "artwork_ids": [
+        "FC-005-07"
+      ],
+      "currentSrc": "http://127.0.0.1:5183/cartilla/art/optimized/flipchart-native/p005-ana.png",
+      "sha256": "eb001cba1febabdce141a6a4da367ea03f5af4a1c23a09a0dcda70aa0f029446",
+      "dimensions": [
+        620,
+        644
+      ],
+      "route": "http://127.0.0.1:5183/cartilla/presentar/3"
+    },
+    {
+      "artwork_ids": [
+        "FC-009-03"
+      ],
+      "currentSrc": "http://127.0.0.1:5183/cartilla/art/optimized/flipchart-native/p009-amo.png",
+      "sha256": "2f860bc1a6d6b746bc24c28cb9bb86209b0c259a08de3cc21a1c1a2f8fdda4bb",
+      "dimensions": [
+        689,
+        728
+      ],
+      "route": "http://127.0.0.1:5183/cartilla/presentar/7"
+    },
+    {
+      "artwork_ids": [
+        "FC-009-04"
+      ],
+      "currentSrc": "http://127.0.0.1:5183/cartilla/art/optimized/flipchart-native/p009-mima.png",
+      "sha256": "746203325957c602b38e4bc1317da6bfeb3a3bf88b81105ca9d71d250823317f",
+      "dimensions": [
+        776,
+        777
+      ],
+      "route": "http://127.0.0.1:5183/cartilla/presentar/7"
+    },
+    {
+      "artwork_ids": [
+        "FC-009-05"
+      ],
+      "currentSrc": "http://127.0.0.1:5183/cartilla/art/optimized/flipchart-native/p009-meme.png",
+      "sha256": "a15733bb0b80963130e12de03f6152b3d7c9b9d17b26a9a4bbb8462c044c251c",
+      "dimensions": [
+        383,
+        789
+      ],
+      "route": "http://127.0.0.1:5183/cartilla/presentar/7"
+    },
+    {
+      "artwork_ids": [
+        "FC-009-06"
+      ],
+      "currentSrc": "http://127.0.0.1:5183/cartilla/art/optimized/flipchart-native/p009-mumi.png",
+      "sha256": "099b75d87e5971f18b0296cfdeedf86965026d267641aa455c3a06ab6d314159",
+      "dimensions": [
+        717,
+        755
+      ],
+      "route": "http://127.0.0.1:5183/cartilla/presentar/7"
+    },
+    {
+      "artwork_ids": [
+        "FC-006-04"
+      ],
+      "currentSrc": "http://127.0.0.1:5183/cartilla/art/optimized/flipchart-native/p006-ema.png",
+      "sha256": "b7bfa21fd4d69e1df405b8e78f22597b6f49198af69a86f4d6c422ad067c76a3",
+      "dimensions": [
+        467,
+        608
+      ],
+      "route": "http://127.0.0.1:5183/cartilla/presentar/4"
+    },
+    {
+      "artwork_ids": [
+        "FC-007-07"
+      ],
+      "currentSrc": "http://127.0.0.1:5183/cartilla/art/optimized/flipchart-native/p007-irma.png",
+      "sha256": "1ce2438b3e197b93e9fd62bad4bf1104a568d941fd958c03608459addf2f13ed",
+      "dimensions": [
+        601,
+        700
+      ],
+      "route": "http://127.0.0.1:5183/cartilla/presentar/5"
+    },
+    {
+      "artwork_ids": [
+        "FC-007-04"
+      ],
+      "currentSrc": "http://127.0.0.1:5183/cartilla/art/optimized/flipchart-native/p007-indio.png",
+      "sha256": "c68b83735787d64ddb79831d010693d932e28d33629c49388e2cb02460a3ec5a",
+      "dimensions": [
+        516,
+        735
+      ],
+      "route": "http://127.0.0.1:5183/cartilla/presentar/5"
+    },
+    {
+      "artwork_ids": [
+        "FC-012-04"
+      ],
+      "currentSrc": "http://127.0.0.1:5183/cartilla/art/optimized/flipchart-native/p012-pepe.png",
+      "sha256": "8909084b4fce1ff0d7319bdf7a0de38786f14b066c42b6b31af3e7d1137da605",
+      "dimensions": [
+        779,
+        781
+      ],
+      "route": "http://127.0.0.1:5183/cartilla/presentar/8"
+    },
+    {
+      "artwork_ids": [
+        "FC-012-05"
+      ],
+      "currentSrc": "http://127.0.0.1:5183/cartilla/art/optimized/flipchart-native/p012-puma.png",
+      "sha256": "ae802832f37b043706971f261b44f42364477874b92e39e358953d9885836249",
+      "dimensions": [
+        695,
+        753
+      ],
+      "route": "http://127.0.0.1:5183/cartilla/presentar/8"
+    },
+    {
+      "artwork_ids": [
+        "FC-015-05"
+      ],
+      "currentSrc": "http://127.0.0.1:5183/cartilla/art/optimized/flipchart-native/p015-pisa.png",
+      "sha256": "7ad0951b965f786497893b211279f4f74151c17116ffbb5df6717f15247c9c09",
+      "dimensions": [
+        815,
+        562
+      ],
+      "route": "http://127.0.0.1:5183/cartilla/presentar/9"
+    },
+    {
+      "artwork_ids": [
+        "FC-015-06"
+      ],
+      "currentSrc": "http://127.0.0.1:5183/cartilla/art/optimized/flipchart-native/p015-susi.png",
+      "sha256": "d022e6a971a3d7f61b66ffbe8c638a1a98d4948e92d587f77b5bc8cf9b9955a0",
+      "dimensions": [
+        587,
+        786
+      ],
+      "route": "http://127.0.0.1:5183/cartilla/presentar/9"
+    },
+    {
+      "artwork_ids": [
+        "FC-014-01"
+      ],
+      "currentSrc": "http://127.0.0.1:5183/cartilla/art/optimized/flipchart-native/p014-scene.png",
+      "sha256": "3db07c6232893a938c794c56769f362b9f92d144af09f86da9864322ff8216a5",
+      "dimensions": [
+        1709,
+        1391
+      ],
+      "route": "http://127.0.0.1:5183/cartilla/presentar/8"
+    },
+    {
+      "artwork_ids": [
+        "FC-018-05"
+      ],
+      "currentSrc": "http://127.0.0.1:5183/cartilla/art/optimized/flipchart-native/p018-tipi.webp",
+      "sha256": "e440681f679ca70d0e9917a8e8a9a9a9d71af00bbb2105c2ae69859b0345e77c",
+      "dimensions": [
+        868,
+        732
+      ],
+      "route": "http://127.0.0.1:5183/cartilla/presentar/10"
+    },
+    {
+      "artwork_ids": [
+        "FC-018-06"
+      ],
+      "currentSrc": "http://127.0.0.1:5183/cartilla/art/optimized/flipchart-native/p018-tuto.webp",
+      "sha256": "9f5c200ef6d026fbeb044cc2b22602a3d8de12df3d86c1b3fb9b563e5d02937f",
+      "dimensions": [
+        804,
+        817
+      ],
+      "route": "http://127.0.0.1:5183/cartilla/presentar/10"
+    },
+    {
+      "artwork_ids": [
+        "FC-020-01"
+      ],
+      "currentSrc": "http://127.0.0.1:5183/cartilla/art/optimized/flipchart-native/p020-scene.png",
+      "sha256": "6739adb47e09a33a6bdc1c93d99ed1d30f0cdda444afbf050d05db241ad1d115",
+      "dimensions": [
+        1684,
+        1345
+      ],
+      "route": "http://127.0.0.1:5183/cartilla/presentar/10"
+    },
+    {
+      "artwork_ids": [
+        "FC-027-04"
+      ],
+      "currentSrc": "http://127.0.0.1:5183/cartilla/art/optimized/flipchart-native/p027-mono.png",
+      "sha256": "7519919f8202a2cd7b7a97725bdd789f173c36f46f28ccb50fa8a3f12c7a3fe8",
+      "dimensions": [
+        485,
+        753
+      ],
+      "route": "http://127.0.0.1:5183/cartilla/presentar/13"
+    },
+    {
+      "artwork_ids": [
+        "FC-027-05"
+      ],
+      "currentSrc": "http://127.0.0.1:5183/cartilla/art/optimized/flipchart-native/p027-napi.png",
+      "sha256": "9f1cf99a3f899231a69bdbc73f185440b110f03e2ab7f7cc8a82dcc72654276b",
+      "dimensions": [
+        765,
+        715
+      ],
+      "route": "http://127.0.0.1:5183/cartilla/presentar/13"
+    },
+    {
+      "artwork_ids": [
+        "FC-027-06"
+      ],
+      "currentSrc": "http://127.0.0.1:5183/cartilla/art/optimized/flipchart-native/p027-tenedor.png",
+      "sha256": "cfd0a12b380a53ebd261ac574d6fe242bf9b37e7460ac4670f7fb6471bbf4e0d",
+      "dimensions": [
+        195,
+        830
+      ],
+      "route": "http://127.0.0.1:5183/cartilla/presentar/13"
+    },
+    {
+      "artwork_ids": [
+        "FC-030-02"
+      ],
+      "currentSrc": "http://127.0.0.1:5183/cartilla/art/optimized/flipchart-native/p030-pinata.png",
+      "sha256": "41aefd4f7670cc50ad707efaa0be9982976f4a8243e995bc49858adbd6825429",
+      "dimensions": [
+        574,
+        575
+      ],
+      "route": "http://127.0.0.1:5183/cartilla/presentar/14"
+    },
+    {
+      "artwork_ids": [
+        "FC-030-03"
+      ],
+      "currentSrc": "http://127.0.0.1:5183/cartilla/art/optimized/flipchart-native/p030-nuno.png",
+      "sha256": "7be8ce274506b279f3943c3ed366ebb8bdbd91818741f9b46fb1c4a1ff6e7ddf",
+      "dimensions": [
+        536,
+        778
+      ],
+      "route": "http://127.0.0.1:5183/cartilla/presentar/14"
+    },
+    {
+      "artwork_ids": [
+        "FC-030-04"
+      ],
+      "currentSrc": "http://127.0.0.1:5183/cartilla/art/optimized/flipchart-native/p030-ninito.png",
+      "sha256": "48f2c0d041222e4b79803854198e7bffa011c2100ecc628db2e8907c2e61b748",
+      "dimensions": [
+        523,
+        669
+      ],
+      "route": "http://127.0.0.1:5183/cartilla/presentar/14"
+    },
+    {
+      "artwork_ids": [
+        "FC-030-06"
+      ],
+      "currentSrc": "http://127.0.0.1:5183/cartilla/art/optimized/flipchart-native/p030-mene.png",
+      "sha256": "73e754632553355f3eb0d4bd468b9203cfb2b9e88cfe76636aa2b444cab8e289",
+      "dimensions": [
+        536,
+        811
+      ],
+      "route": "http://127.0.0.1:5183/cartilla/presentar/14"
+    },
+    {
+      "artwork_ids": [
+        "FC-033-06"
+      ],
+      "currentSrc": "http://127.0.0.1:5183/cartilla/art/optimized/flipchart-native/p033-bebita.png",
+      "sha256": "eeb212ef988ca8b2a2eef63ffea755027a42dabdca61d4abb6346e711abc18b6",
+      "dimensions": [
+        766,
+        801
+      ],
+      "route": "http://127.0.0.1:5183/cartilla/presentar/15"
+    },
+    {
+      "artwork_ids": [
+        "FC-036-05"
+      ],
+      "currentSrc": "http://127.0.0.1:5183/cartilla/art/optimized/flipchart-native/p036-pavo.png",
+      "sha256": "76131e07b18511963106f36738a27a9c009beb4fe31a136c870c382bbe7ae524",
+      "dimensions": [
+        613,
+        664
+      ],
+      "route": "http://127.0.0.1:5183/cartilla/presentar/16"
+    },
+    {
+      "artwork_ids": [
+        "FC-039-04"
+      ],
+      "currentSrc": "http://127.0.0.1:5183/cartilla/art/optimized/flipchart-native/p039-rita.png",
+      "sha256": "64052b6f26e1ee1b141199d290df30ecbc6cb0dd84adc455c03f98d073c989f7",
+      "dimensions": [
+        715,
+        595
+      ],
+      "route": "http://127.0.0.1:5183/cartilla/presentar/17"
+    },
+    {
+      "artwork_ids": [
+        "FC-039-05"
+      ],
+      "currentSrc": "http://127.0.0.1:5183/cartilla/art/optimized/flipchart-native/p039-rosa.png",
+      "sha256": "c1f2caf4929dc285d048373b355d3c0d765880c1f0478fe6baafa17900f6a423",
+      "dimensions": [
+        524,
+        625
+      ],
+      "route": "http://127.0.0.1:5183/cartilla/presentar/17"
+    },
+    {
+      "artwork_ids": [
+        "FC-039-06"
+      ],
+      "currentSrc": "http://127.0.0.1:5183/cartilla/art/optimized/flipchart-native/p039-rueda.png",
+      "sha256": "9ff5455f5a2af6ea870ce2880c700160989f8f8236b0bccb0d704e3aa8b1dd22",
+      "dimensions": [
+        843,
+        654
+      ],
+      "route": "http://127.0.0.1:5183/cartilla/presentar/17"
+    },
+    {
+      "artwork_ids": [
+        "FC-044-01"
+      ],
+      "currentSrc": "http://127.0.0.1:5183/cartilla/art/optimized/flipchart-native/p044-scene.png",
+      "sha256": "37fb82b30fd3b4ac7214bd5aa1df9d539043c080ba7ea4b7bbe256f8679833b8",
+      "dimensions": [
+        1355,
+        1391
+      ],
+      "route": "http://127.0.0.1:5183/cartilla/presentar/18"
+    },
+    {
+      "artwork_ids": [
+        "FC-045-04"
+      ],
+      "currentSrc": "http://127.0.0.1:5183/cartilla/art/optimized/flipchart-native/p045-goloso.png",
+      "sha256": "65a83984bd18250a9215782863961cf084ce788a5918493a71e4ef9e0202a796",
+      "dimensions": [
+        618,
+        689
+      ],
+      "route": "http://127.0.0.1:5183/cartilla/presentar/19"
+    },
+    {
+      "artwork_ids": [
+        "FC-045-06"
+      ],
+      "currentSrc": "http://127.0.0.1:5183/cartilla/art/optimized/flipchart-native/p045-mago.png",
+      "sha256": "f92ca04fd7e5325f7eba7f131b3a4acf3099b2cb434c2bae7c789eaa6afc90fe",
+      "dimensions": [
+        607,
+        695
+      ],
+      "route": "http://127.0.0.1:5183/cartilla/presentar/19"
+    },
+    {
+      "artwork_ids": [
+        "FC-048-01"
+      ],
+      "currentSrc": "http://127.0.0.1:5183/cartilla/art/optimized/flipchart-native/p048-scene.png",
+      "sha256": "28b65da15c24b6930747c0ba8937a4d2bd2c8fe9dbdb701783321b9ff508a26d",
+      "dimensions": [
+        873,
+        1368
+      ],
+      "route": "http://127.0.0.1:5183/cartilla/presentar/20"
+    },
+    {
+      "artwork_ids": [
+        "FC-048-04"
+      ],
+      "currentSrc": "http://127.0.0.1:5183/cartilla/art/optimized/flipchart-native/p048-familia.png",
+      "sha256": "49a451f9d9918998397f84a1b248fbfa847e727147e82d7aec82a073ea53bdcf",
+      "dimensions": [
+        447,
+        840
+      ],
+      "route": "http://127.0.0.1:5183/cartilla/presentar/20"
+    },
+    {
+      "artwork_ids": [
+        "FC-048-05"
+      ],
+      "currentSrc": "http://127.0.0.1:5183/cartilla/art/optimized/flipchart-native/p048-felo.png",
+      "sha256": "e0ff78b2b6f4b3abd58b8d97f9fab58c7595686d0d3008a163cef52507823a88",
+      "dimensions": [
+        766,
+        753
+      ],
+      "route": "http://127.0.0.1:5183/cartilla/presentar/20"
+    },
+    {
+      "artwork_ids": [
+        "FC-048-06"
+      ],
+      "currentSrc": "http://127.0.0.1:5183/cartilla/art/optimized/flipchart-native/p048-funda.png",
+      "sha256": "91562f480357c1b268d701452a71dadccea46c42b7abd69c6ae53adbbecb34a9",
+      "dimensions": [
+        623,
+        626
+      ],
+      "route": "http://127.0.0.1:5183/cartilla/presentar/20"
+    },
+    {
+      "artwork_ids": [
+        "FC-050-01"
+      ],
+      "currentSrc": "http://127.0.0.1:5183/cartilla/art/optimized/flipchart-native/p050-scene.png",
+      "sha256": "a9bc1d36e61cd0a696c9a05d82679af49ee2e588a80ccad19fceb63218c9a0db",
+      "dimensions": [
+        1373,
+        1378
+      ],
+      "route": "http://127.0.0.1:5183/cartilla/presentar/20"
+    },
+    {
+      "artwork_ids": [
+        "FC-051-04"
+      ],
+      "currentSrc": "http://127.0.0.1:5183/cartilla/art/optimized/flipchart-native/p051-jesus.png",
+      "sha256": "c1acd402fc8248391b0b1b35507ca7a075fe97541d44f6daba5b26f1960a7cbf",
+      "dimensions": [
+        638,
+        705
+      ],
+      "route": "http://127.0.0.1:5183/cartilla/presentar/21"
+    },
+    {
+      "artwork_ids": [
+        "FC-054-01"
+      ],
+      "currentSrc": "http://127.0.0.1:5183/cartilla/art/optimized/flipchart-native/p054-scene.png",
+      "sha256": "e666a15cc00ac6ac98911bd6402f61da7b8e016fe8ec059f2ddc24db8580a647",
+      "dimensions": [
+        1284,
+        1013
+      ],
+      "route": "http://127.0.0.1:5183/cartilla/presentar/22"
+    },
+    {
+      "artwork_ids": [
+        "FC-054-03"
+      ],
+      "currentSrc": "http://127.0.0.1:5183/cartilla/art/optimized/flipchart-native/p054-conejo.png",
+      "sha256": "b24d51eaac921bde7c98d017ac9e963cf17443576f53f388e1aa9c1185a95929",
+      "dimensions": [
+        439,
+        631
+      ],
+      "route": "http://127.0.0.1:5183/cartilla/presentar/22"
+    },
+    {
+      "artwork_ids": [
+        "FC-054-04"
+      ],
+      "currentSrc": "http://127.0.0.1:5183/cartilla/art/optimized/flipchart-native/p054-casa.png",
+      "sha256": "96bf38a9e442d4bad9612877c31384d0a9a4524175858e541b3409e682bd8eb1",
+      "dimensions": [
+        748,
+        649
+      ],
+      "route": "http://127.0.0.1:5183/cartilla/presentar/22"
+    },
+    {
+      "artwork_ids": [
+        "FC-054-06"
+      ],
+      "currentSrc": "http://127.0.0.1:5183/cartilla/art/optimized/flipchart-native/p054-catalina.png",
+      "sha256": "5930f53118b24d9284c049b5e3c734ce19867b79c924342df4887924535477fd",
+      "dimensions": [
+        376,
+        789
+      ],
+      "route": "http://127.0.0.1:5183/cartilla/presentar/22"
+    },
+    {
+      "artwork_ids": [
+        "FC-057-05"
+      ],
+      "currentSrc": "http://127.0.0.1:5183/cartilla/art/optimized/flipchart-native/p057-mayuscula.png",
+      "sha256": "c4cb5769f4c9b61fef908063d66a59e9f29e66535cd6aed3e22e0dc209f346de",
+      "dimensions": [
+        584,
+        646
+      ],
+      "route": "http://127.0.0.1:5183/cartilla/presentar/23"
+    },
+    {
+      "artwork_ids": [
+        "FC-057-06"
+      ],
+      "currentSrc": "http://127.0.0.1:5183/cartilla/art/optimized/flipchart-native/p057-yoyo.png",
+      "sha256": "0018e539758488953ea2cef76e246e743ce97de461f35a9049e529f335b065c4",
+      "dimensions": [
+        641,
+        679
+      ],
+      "route": "http://127.0.0.1:5183/cartilla/presentar/23"
+    },
+    {
+      "artwork_ids": [
+        "FC-060-01"
+      ],
+      "currentSrc": "http://127.0.0.1:5183/cartilla/art/optimized/flipchart-native/p060-scene.png",
+      "sha256": "4689cc91fa769e1501a3da76f23415499cf378bf9c71d7442dee0943b4aaf553",
+      "dimensions": [
+        1212,
+        1219
+      ],
+      "route": "http://127.0.0.1:5183/cartilla/presentar/24"
+    },
+    {
+      "artwork_ids": [
+        "FC-060-03"
+      ],
+      "currentSrc": "http://127.0.0.1:5183/cartilla/art/optimized/flipchart-native/p060-zigzag.png",
+      "sha256": "d2b8d092b39005e6c869cd7eedbc4b06c086b720ebc833585c2132d6821de73f",
+      "dimensions": [
+        552,
+        630
+      ],
+      "route": "http://127.0.0.1:5183/cartilla/presentar/24"
+    },
+    {
+      "artwork_ids": [
+        "FC-060-04"
+      ],
+      "currentSrc": "http://127.0.0.1:5183/cartilla/art/optimized/flipchart-native/p060-zorro.png",
+      "sha256": "8abdfa5d36defe557b6063520027d061bd8ed68dc924b059e63fc532a9b592c7",
+      "dimensions": [
+        567,
+        666
+      ],
+      "route": "http://127.0.0.1:5183/cartilla/presentar/24"
+    },
+    {
+      "artwork_ids": [
+        "FC-060-05"
+      ],
+      "currentSrc": "http://127.0.0.1:5183/cartilla/art/optimized/flipchart-native/p060-zepelin.png",
+      "sha256": "1c93b68a8b3665ec1dfc473fa6406a838c9104eee3c98b2e9fcfa209ed883cc4",
+      "dimensions": [
+        792,
+        618
+      ],
+      "route": "http://127.0.0.1:5183/cartilla/presentar/24"
+    },
+    {
+      "artwork_ids": [
+        "WB-S008-OBJ08-INDIO",
+        "WB-S016-OBJ04-INDIO",
+        "WB-S019-OBJ06-INDIO",
+        "WB-S020-OBJ05-INDIO"
+      ],
+      "currentSrc": "http://127.0.0.1:5183/cartilla/art/delivery/faithful/384/vocal-i/indio.webp",
+      "sha256": "8cb311d527e3ec83c1c6c2804d593d51d94f60d27b04feef094a3c4621954343",
+      "dimensions": [
+        516,
+        735
+      ],
+      "route": "http://127.0.0.1:5183/cartilla/leccion/1"
+    },
+    {
+      "artwork_ids": [
+        "WB-S009-OBJ01-IGLESIA"
+      ],
+      "currentSrc": "http://127.0.0.1:5183/cartilla/art/faithful/vocal-i/iglesia.webp",
+      "sha256": "9b2d5be2adf49cc64905316b5b84d22b909a98964c288d09e010543f65960207",
+      "dimensions": [
+        200,
+        196
+      ],
+      "route": "http://127.0.0.1:5183/cartilla/leccion/1"
+    },
+    {
+      "artwork_ids": [
+        "WB-S008-OBJ08-INDIO",
+        "WB-S016-OBJ04-INDIO",
+        "WB-S019-OBJ06-INDIO",
+        "WB-S020-OBJ05-INDIO"
+      ],
+      "currentSrc": "http://127.0.0.1:5183/cartilla/art/delivery/faithful/384/vocal-i/indio.webp",
+      "sha256": "8cb311d527e3ec83c1c6c2804d593d51d94f60d27b04feef094a3c4621954343",
+      "dimensions": [
+        516,
+        735
+      ],
+      "route": "http://127.0.0.1:5183/cartilla/leccion/4"
+    },
+    {
+      "artwork_ids": [
+        "WB-S008-OBJ08-INDIO",
+        "WB-S016-OBJ04-INDIO",
+        "WB-S019-OBJ06-INDIO",
+        "WB-S020-OBJ05-INDIO"
+      ],
+      "currentSrc": "http://127.0.0.1:5183/cartilla/art/delivery/faithful/384/vocal-i/indio.webp",
+      "sha256": "8cb311d527e3ec83c1c6c2804d593d51d94f60d27b04feef094a3c4621954343",
+      "dimensions": [
+        516,
+        735
+      ],
+      "route": "http://127.0.0.1:5183/cartilla/leccion/5"
+    },
+    {
+      "artwork_ids": [
+        "WB-S019-OBJ08-INVIERNO"
+      ],
+      "currentSrc": "http://127.0.0.1:5183/cartilla/art/delivery/faithful/384/vocal-i/invierno.webp",
+      "sha256": "f2fab1b415b3776a84f514438bbeac3a7b71523a2da2ef7454fba743d6eb7a92",
+      "dimensions": [
+        188,
+        181
+      ],
+      "route": "http://127.0.0.1:5183/cartilla/leccion/5"
+    },
+    {
+      "artwork_ids": [
+        "WB-S008-OBJ08-INDIO",
+        "WB-S016-OBJ04-INDIO",
+        "WB-S019-OBJ06-INDIO",
+        "WB-S020-OBJ05-INDIO"
+      ],
+      "currentSrc": "http://127.0.0.1:5183/cartilla/art/faithful/vocal-i/indio.webp",
+      "sha256": "8cb311d527e3ec83c1c6c2804d593d51d94f60d27b04feef094a3c4621954343",
+      "dimensions": [
+        516,
+        735
+      ],
+      "route": "http://127.0.0.1:5183/cartilla/leccion/5"
+    }
+  ],
+  "pageErrors": []
+}

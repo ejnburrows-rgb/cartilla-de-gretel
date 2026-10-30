@@ -1,8 +1,8 @@
-# Piano Hablador — lesson integration (owner decision, details pending)
+# Piano Hablador — existing implementation and held placement decision
 
-**Status:** DECIDED IN PRINCIPLE · DETAILS PENDING OWNER  
-**Owner discussion order (2026-10-14):** Finish GrillMe planning of existing practice activities, child interactions and teacher session flow BEFORE deciding Piano placement. Never infer those choices from suggestions.
-**Decided:** 2026-10-14 by the owner (EJN)  
+**Status:** Existing Piano work continues for microphone/acoustic correctness; exact lesson insertion remains an explicit curriculum-placement hold.
+**Historical October 14 discussion order:** Do not let a past discussion request pause existing Piano's permission, acoustic, pitch/recognition and cleanup verification. Exact unapproved insertion into specific printed lessons is still held; complete other authorized work.
+**Decided:** 2026-10-14 by the owner (EJN)
 **Owner will update:** which lessons, where in the lesson, and any other activities.
 
 ## Decision

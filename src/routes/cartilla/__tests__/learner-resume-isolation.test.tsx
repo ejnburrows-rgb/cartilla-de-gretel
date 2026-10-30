@@ -6,23 +6,30 @@ import { readLearnerResume, saveLearnerResume } from "@/lib/learner-resume";
 
 const identity = vi.hoisted(() => ({
   demo: null as null | { classId: string; studentId: string },
+  lesson: 3,
+  pianoSupported: false,
+  pianoProcessing: "unavailable",
+  session: null as null | { studentId: string; studentCode: string; classId: string },
+  progress: null as null | { lessonProgress: Array<{ lesson_id: string; last_page?: number | null }> },
 }));
 vi.mock("@/lib/demo-student-session", () => ({ getDemoStudentSession: () => identity.demo }));
 vi.mock("@tanstack/react-router", () => ({
   createFileRoute: () => (options: unknown) => ({ options }),
   lazyRouteComponent: (load: () => Promise<Record<string, React.ComponentType>>, name: string) =>
     lazy(async () => ({ default: (await load())[name] })),
-  useParams: () => ({ n: "3" }),
+  useParams: () => ({ n: String(identity.lesson) }),
   useNavigate: () => vi.fn(),
   Link: ({ children }: { children: React.ReactNode }) => <a>{children}</a>,
 }));
 vi.mock("@tanstack/react-query", () => ({
-  useQuery: () => ({ data: null, isFetched: true, isError: false }),
+  useQuery: ({ queryKey }: { queryKey?: string[] }) => queryKey?.[0] === "my-progress"
+    ? ({ data: identity.progress, isFetched: true, isError: false })
+    : ({ data: null, isFetched: true, isError: false }),
 }));
 vi.mock("@/lib/useServerFn", () => ({ useServerFn: () => vi.fn() }));
 vi.mock("@/lib/assignments.functions", () => ({ listMyAssignments: vi.fn() }));
 vi.mock("@/lib/student.functions", () => ({ getMyProgress: vi.fn(), saveLastPage: vi.fn() }));
-vi.mock("@/lib/student-session", () => ({ useStudentSession: () => null, recordEvent: vi.fn() }));
+vi.mock("@/lib/student-session", () => ({ useStudentSession: () => identity.session, recordEvent: vi.fn() }));
 vi.mock("@/lib/lesson-progress", () => ({
   useLessonProgress: vi.fn(),
   isLessonUnlocked: () => true,
@@ -30,8 +37,13 @@ vi.mock("@/lib/lesson-progress", () => ({
 }));
 vi.mock("@/lib/seed-data", () => ({ listSeedStudentAssignments: () => [] }));
 vi.mock("@/context/LanguageContext", () => ({ useLanguage: () => ({ lang: "es" }) }));
+vi.mock("@/hooks/usePianoListening", () => ({
+  usePianoListening: () => ({ supported: identity.pianoSupported, processing: identity.pianoProcessing }),
+}));
 vi.mock("@/utils/buildPageArray", () => ({
-  buildPageArray: () => [1, 2, 3].map((pageNumber) => ({ id: String(pageNumber), pageNumber })),
+  buildPageArray: (lesson: number, includePiano = true) => lesson === 24
+    ? [...[88, 89, 90].map((pageNumber) => ({ id: String(pageNumber), pageNumber })), ...(includePiano ? [{ id: "piano-lesson-24" }] : [])]
+    : [1, 2, 3].map((pageNumber) => ({ id: String(pageNumber), pageNumber })),
 }));
 vi.mock("@/components/cartilla/DemoStudentBanner", () => ({ DemoStudentBanner: () => null }));
 vi.mock("@/components/cartilla/GardenScene", () => ({
@@ -50,12 +62,12 @@ function Viewer({
 }: {
   initialPage?: number;
   onPageChange?: (n: number) => void;
-  pages: { pageNumber: number }[];
+  pages: { pageNumber?: number; id: string }[];
 }) {
   const [index, setIndex] = useState(initialPage);
   return (
     <>
-      <output>{pages[index]?.pageNumber}</output>
+      <output>{pages[index]?.pageNumber ?? pages[index]?.id}</output>
       <button
         onClick={() => {
           setIndex(index + 1);
@@ -74,8 +86,8 @@ vi.mock("@/components/StudentBook/CurlPageViewer", () => ({
   CurlPageViewer: (props: Parameters<typeof Viewer>[0]) => <Viewer {...props} />,
 }));
 import { Leccion } from "../-leccion-view";
-import { Route } from "../cuaderno";
-const Workbook = Route.options.component!;
+// @ts-expect-error The router plugin supplies this virtual module at transform time.
+import { component as Workbook } from "../cuaderno?tsr-split=component";
 async function show(element: React.ReactNode) {
   render(<Suspense fallback={<p>Loading</p>}>{element}</Suspense>);
   await screen.findByRole("status");
@@ -90,9 +102,79 @@ beforeEach(() => {
   cleanup();
   localStorage.clear();
   identity.demo = null;
+  identity.lesson = 3;
+  identity.pianoSupported = false;
+  identity.pianoProcessing = "unavailable";
+  identity.session = null;
+  identity.progress = null;
 });
 afterEach(cleanup);
 describe("lesson learner resume", () => {
+  it("normalizes a backend Lesson 24 offset to the printed page before resolving Piano", async () => {
+    identity.lesson = 24;
+    identity.pianoSupported = true;
+    identity.pianoProcessing = "on-device";
+    identity.session = { studentId: "student", studentCode: "123", classId: "class" };
+    identity.progress = { lessonProgress: [{ lesson_id: "24", last_page: 3 }] };
+    render(<Leccion />);
+    expect((await screen.findByRole("status")).textContent).toBe("90");
+    expect(readLearnerResume(24)).toMatchObject({ page: 2, printedPage: 90, pageId: "90" });
+  });
+
+  it("preserves the Piano bookmark during delayed capability detection and reopening", async () => {
+    identity.lesson = 24;
+    identity.pianoProcessing = "checking";
+    saveLearnerResume(24, 3);
+    let view = render(<Leccion />);
+    expect(readLearnerResume(24)?.page).toBe(3);
+    expect(screen.queryByText("Next")).toBeNull();
+    identity.pianoSupported = true;
+    identity.pianoProcessing = "on-device";
+    view.rerender(<Leccion />);
+    expect((await screen.findByRole("status")).textContent).toBe("piano-lesson-24");
+    expect(readLearnerResume(24)).toMatchObject({ page: 3, pageId: "piano-lesson-24" });
+    cleanup();
+    identity.pianoSupported = false;
+    identity.pianoProcessing = "checking";
+    view = render(<Leccion />);
+    expect(readLearnerResume(24)).toMatchObject({ page: 3, pageId: "piano-lesson-24" });
+    identity.pianoSupported = true;
+    identity.pianoProcessing = "on-device";
+    view.rerender(<Leccion />);
+    expect((await screen.findByRole("status")).textContent).toBe("piano-lesson-24");
+  });
+
+  it("keeps a stored Piano bookmark when Piano is unavailable after detection settles", async () => {
+    identity.lesson = 24;
+    identity.pianoProcessing = "checking";
+    saveLearnerResume(24, 3, undefined, "piano-lesson-24");
+    const view = render(<Leccion />);
+    expect(readLearnerResume(24)).toMatchObject({ page: 3, pageId: "piano-lesson-24" });
+    identity.pianoProcessing = "unavailable";
+    identity.pianoSupported = false;
+    view.rerender(<Leccion />);
+    // Display falls back to the last printed page, storage does not.
+    expect((await screen.findByRole("status")).textContent).toBe("90");
+    expect(readLearnerResume(24)).toMatchObject({ page: 3, pageId: "piano-lesson-24" });
+    cleanup();
+    identity.pianoSupported = true;
+    identity.pianoProcessing = "on-device";
+    render(<Leccion />);
+    expect((await screen.findByRole("status")).textContent).toBe("piano-lesson-24");
+    expect(readLearnerResume(24)).toMatchObject({ page: 3, pageId: "piano-lesson-24" });
+  });
+
+  it("omits an unavailable Piano leaf only after detection settles", async () => {
+    identity.lesson = 24;
+    identity.pianoProcessing = "checking";
+    saveLearnerResume(24, 3);
+    const view = render(<Leccion />);
+    expect(readLearnerResume(24)?.page).toBe(3);
+    identity.pianoProcessing = "unavailable";
+    view.rerender(<Leccion />);
+    expect((await screen.findByRole("status")).textContent).toBe("90");
+    expect(readLearnerResume(24)).toMatchObject({ page: 2, printedPage: 90 });
+  });
   it("A page 2 → B page 1 → A page 2, without overwriting B's bookmark", async () => {
     select("A");
     saveLearnerResume(3, 1);

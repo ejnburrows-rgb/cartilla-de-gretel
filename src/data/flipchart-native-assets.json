@@ -221,10 +221,10 @@
       "src": "/cartilla/art/optimized/flipchart-native/p005-ana.png",
       "sourcePage": 5,
       "crop": [
-        706,
-        1025,
-        243,
-        252
+        705.882353,
+        1024.705882,
+        243.137255,
+        252.54902
       ]
     }
   ],
@@ -268,10 +268,10 @@
       "src": "/cartilla/art/optimized/flipchart-native/p006-ema.png",
       "sourcePage": 6,
       "crop": [
-        733,
-        624,
-        183,
-        238
+        732.941176,
+        623.921569,
+        183.137255,
+        238.431373
       ]
     },
     {
@@ -348,10 +348,10 @@
       "src": "/cartilla/art/optimized/flipchart-native/p007-indio.png",
       "sourcePage": 7,
       "crop": [
-        712,
-        575,
-        202,
-        297
+        711.764706,
+        581.960784,
+        202.352941,
+        288.235294
       ]
     },
     {
@@ -381,10 +381,10 @@
       "src": "/cartilla/art/optimized/flipchart-native/p007-irma.png",
       "sourcePage": 7,
       "crop": [
-        696,
-        994,
-        235,
-        274
+        695.686275,
+        993.72549,
+        235.686275,
+        274.509804
       ]
     }
   ],
@@ -497,10 +497,10 @@
       "src": "/cartilla/art/optimized/flipchart-native/p009-amo.png",
       "sourcePage": 9,
       "crop": [
-        351,
-        550,
-        270,
-        285
+        350.980392,
+        549.803922,
+        270.196078,
+        285.490196
       ]
     },
     {
@@ -508,10 +508,10 @@
       "src": "/cartilla/art/optimized/flipchart-native/p009-mima.png",
       "sourcePage": 9,
       "crop": [
-        661,
-        529,
-        304,
-        304
+        660.784314,
+        528.627451,
+        304.313725,
+        304.705882
       ]
     },
     {
@@ -519,10 +519,10 @@
       "src": "/cartilla/art/optimized/flipchart-native/p009-meme.png",
       "sourcePage": 9,
       "crop": [
-        230,
-        958,
-        150,
-        309
+        229.803922,
+        957.647059,
+        150.196078,
+        309.411765
       ]
     },
     {
@@ -530,10 +530,10 @@
       "src": "/cartilla/art/optimized/flipchart-native/p009-mumi.png",
       "sourcePage": 9,
       "crop": [
-        533,
-        960,
-        281,
-        296
+        532.941176,
+        960.0,
+        281.176471,
+        296.078431
       ]
     }
   ],
@@ -543,10 +543,10 @@
       "src": "/cartilla/art/optimized/flipchart-native/p011-scene.png",
       "sourcePage": 11,
       "crop": [
-        295,
-        186,
-        636,
-        529
+        270.588235,
+        176.470588,
+        658.823529,
+        537.254902
       ],
       "role": "scene"
     }
@@ -591,10 +591,10 @@
       "src": "/cartilla/art/optimized/flipchart-native/p012-pepe.png",
       "sourcePage": 12,
       "crop": [
-        681,
-        515,
-        305,
-        306
+        680.784314,
+        514.901961,
+        305.490196,
+        306.27451
       ]
     },
     {
@@ -602,10 +602,10 @@
       "src": "/cartilla/art/optimized/flipchart-native/p012-puma.png",
       "sourcePage": 12,
       "crop": [
-        69,
-        968,
-        272,
-        295
+        68.627451,
+        967.843137,
+        272.54902,
+        295.294118
       ]
     },
     {
@@ -626,10 +626,10 @@
       "src": "/cartilla/art/optimized/flipchart-native/p014-scene.png",
       "sourcePage": 14,
       "crop": [
-        355,
-        63,
-        626,
-        523
+        329.803922,
+        44.705882,
+        670.196078,
+        545.490196
       ],
       "role": "scene"
     }
@@ -685,10 +685,10 @@
       "src": "/cartilla/art/optimized/flipchart-native/p015-pisa.png",
       "sourcePage": 15,
       "crop": [
-        134,
-        1022,
-        319,
-        220
+        133.72549,
+        1021.960784,
+        319.607843,
+        220.392157
       ]
     },
     {
@@ -696,10 +696,10 @@
       "src": "/cartilla/art/optimized/flipchart-native/p015-susi.png",
       "sourcePage": 15,
       "crop": [
-        555,
-        953,
-        230,
-        308
+        554.901961,
+        952.941176,
+        230.196078,
+        308.235294
       ]
     }
   ],
@@ -768,10 +768,10 @@
       "src": "/cartilla/art/optimized/flipchart-native/p018-tipi.webp",
       "sourcePage": 18,
       "crop": [
-        95,
-        890,
-        320,
-        305
+        89.803922,
+        960.0,
+        340.392157,
+        287.058824
       ]
     },
     {
@@ -779,10 +779,10 @@
       "src": "/cartilla/art/optimized/flipchart-native/p018-tuto.webp",
       "sourcePage": 18,
       "crop": [
-        540,
-        911,
-        315,
-        304
+        540.0,
+        929.803922,
+        315.294118,
+        320.392157
       ]
     }
   ],
@@ -792,10 +792,10 @@
       "src": "/cartilla/art/optimized/flipchart-native/p020-scene.png",
       "sourcePage": 20,
       "crop": [
-        340,
-        92,
-        660,
-        505
+        339.607843,
+        69.803922,
+        660.392157,
+        527.45098
       ],
       "role": "scene"
     }
@@ -1006,10 +1006,10 @@
       "src": "/cartilla/art/optimized/flipchart-native/p027-mono.png",
       "sourcePage": 27,
       "crop": [
-        714,
-        524,
-        181,
-        300
+        709.803922,
+        524.705882,
+        190.196078,
+        295.294118
       ]
     },
     {
@@ -1017,10 +1017,10 @@
       "src": "/cartilla/art/optimized/flipchart-native/p027-napi.png",
       "sourcePage": 27,
       "crop": [
-        122,
-        969,
-        264,
-        280
+        80.0,
+        964.705882,
+        300.0,
+        280.392157
       ]
     },
     {
@@ -1028,10 +1028,10 @@
       "src": "/cartilla/art/optimized/flipchart-native/p027-tenedor.png",
       "sourcePage": 27,
       "crop": [
-        642,
-        926,
-        69,
-        323
+        636.862745,
+        924.705882,
+        76.470588,
+        325.490196
       ]
     }
   ],
@@ -1067,10 +1067,10 @@
       "src": "/cartilla/art/optimized/flipchart-native/p030-pinata.png",
       "sourcePage": 30,
       "crop": [
-        46,
-        562,
-        217,
-        236
+        41.960784,
+        569.803922,
+        225.098039,
+        225.490196
       ]
     },
     {
@@ -1078,10 +1078,10 @@
       "src": "/cartilla/art/optimized/flipchart-native/p030-nuno.png",
       "sourcePage": 30,
       "crop": [
-        405,
-        510,
-        192,
-        288
+        400.0,
+        494.901961,
+        210.196078,
+        305.098039
       ]
     },
     {
@@ -1089,10 +1089,10 @@
       "src": "/cartilla/art/optimized/flipchart-native/p030-ninito.png",
       "sourcePage": 30,
       "crop": [
-        719,
-        535,
-        192,
-        261
+        714.901961,
+        534.901961,
+        205.098039,
+        262.352941
       ]
     },
     {
@@ -1111,10 +1111,10 @@
       "src": "/cartilla/art/optimized/flipchart-native/p030-mene.png",
       "sourcePage": 30,
       "crop": [
-        567,
-        906,
-        196,
-        315
+        554.901961,
+        900.0,
+        210.196078,
+        318.039216
       ]
     }
   ],
@@ -1194,10 +1194,10 @@
       "src": "/cartilla/art/optimized/flipchart-native/p033-bebita.png",
       "sourcePage": 33,
       "crop": [
-        535,
-        920,
-        279,
-        307
+        524.705882,
+        914.901961,
+        300.392157,
+        314.117647
       ]
     }
   ],
@@ -1266,10 +1266,10 @@
       "src": "/cartilla/art/optimized/flipchart-native/p036-pavo.png",
       "sourcePage": 36,
       "crop": [
-        149,
-        975,
-        231,
-        260
+        144.705882,
+        974.901961,
+        240.392157,
+        260.392157
       ]
     },
     {
@@ -1338,10 +1338,10 @@
       "src": "/cartilla/art/optimized/flipchart-native/p039-rita.png",
       "sourcePage": 39,
       "crop": [
-        675,
-        550,
-        270,
-        221
+        669.803922,
+        540.0,
+        280.392157,
+        233.333333
       ]
     },
     {
@@ -1349,10 +1349,10 @@
       "src": "/cartilla/art/optimized/flipchart-native/p039-rosa.png",
       "sourcePage": 39,
       "crop": [
-        152,
-        932,
-        187,
-        244
+        129.803922,
+        934.901961,
+        205.490196,
+        245.098039
       ]
     },
     {
@@ -1360,10 +1360,10 @@
       "src": "/cartilla/art/optimized/flipchart-native/p039-rueda.png",
       "sourcePage": 39,
       "crop": [
-        515,
-        932,
-        303,
-        249
+        504.705882,
+        924.705882,
+        330.588235,
+        256.470588
       ]
     }
   ],
@@ -1456,10 +1456,10 @@
       "src": "/cartilla/art/optimized/flipchart-native/p044-scene.png",
       "sourcePage": 44,
       "crop": [
-        452,
-        28,
-        531,
-        544
+        451.764706,
+        26.666667,
+        531.372549,
+        545.490196
       ],
       "role": "scene"
     }
@@ -1504,10 +1504,10 @@
       "src": "/cartilla/art/optimized/flipchart-native/p045-goloso.png",
       "sourcePage": 45,
       "crop": [
-        701,
-        524,
-        242,
-        270
+        700.784314,
+        523.921569,
+        242.352941,
+        270.196078
       ]
     },
     {
@@ -1526,10 +1526,10 @@
       "src": "/cartilla/art/optimized/flipchart-native/p045-mago.png",
       "sourcePage": 45,
       "crop": [
-        560,
-        919,
-        238,
-        272
+        560.0,
+        918.823529,
+        238.039216,
+        272.54902
       ]
     }
   ],
@@ -1553,10 +1553,10 @@
       "src": "/cartilla/art/optimized/flipchart-native/p048-scene.png",
       "sourcePage": 48,
       "crop": [
-        137,
-        28,
-        338,
-        522
+        132.941176,
+        13.72549,
+        342.352941,
+        536.470588
       ],
       "role": "scene"
     },
@@ -1587,10 +1587,10 @@
       "src": "/cartilla/art/optimized/flipchart-native/p048-familia.png",
       "sourcePage": 48,
       "crop": [
-        726,
-        510,
-        175,
-        329
+        725.882353,
+        509.803922,
+        175.294118,
+        329.411765
       ]
     },
     {
@@ -1598,10 +1598,10 @@
       "src": "/cartilla/art/optimized/flipchart-native/p048-felo.png",
       "sourcePage": 48,
       "crop": [
-        158,
-        960,
-        300,
-        295
+        157.647059,
+        960.0,
+        300.392157,
+        295.294118
       ]
     },
     {
@@ -1609,10 +1609,10 @@
       "src": "/cartilla/art/optimized/flipchart-native/p048-funda.png",
       "sourcePage": 48,
       "crop": [
-        588,
-        990,
-        244,
-        245
+        587.843137,
+        989.803922,
+        244.313725,
+        245.490196
       ]
     }
   ],
@@ -1622,10 +1622,10 @@
       "src": "/cartilla/art/optimized/flipchart-native/p050-scene.png",
       "sourcePage": 50,
       "crop": [
-        441,
-        28,
-        530,
-        529
+        436.862745,
+        21.960784,
+        538.431373,
+        540.392157
       ],
       "role": "scene"
     }
@@ -1670,10 +1670,10 @@
       "src": "/cartilla/art/optimized/flipchart-native/p051-jesus.png",
       "sourcePage": 51,
       "crop": [
-        728,
-        510,
-        250,
-        276
+        727.843137,
+        509.803922,
+        250.196078,
+        276.470588
       ]
     },
     {
@@ -1719,10 +1719,10 @@
       "src": "/cartilla/art/optimized/flipchart-native/p054-scene.png",
       "sourcePage": 54,
       "crop": [
-        36,
-        42,
-        503,
-        397
+        35.686275,
+        41.960784,
+        503.529412,
+        397.254902
       ],
       "role": "scene"
     },
@@ -1742,10 +1742,10 @@
       "src": "/cartilla/art/optimized/flipchart-native/p054-conejo.png",
       "sourcePage": 54,
       "crop": [
-        415,
-        512,
-        172,
-        247
+        414.901961,
+        511.764706,
+        172.156863,
+        247.45098
       ]
     },
     {
@@ -1753,10 +1753,10 @@
       "src": "/cartilla/art/optimized/flipchart-native/p054-casa.png",
       "sourcePage": 54,
       "crop": [
-        667,
-        510,
-        293,
-        254
+        666.666667,
+        509.803922,
+        293.333333,
+        254.509804
       ]
     },
     {
@@ -1775,10 +1775,10 @@
       "src": "/cartilla/art/optimized/flipchart-native/p054-catalina.png",
       "sourcePage": 54,
       "crop": [
-        599,
-        886,
-        147,
-        309
+        598.823529,
+        885.882353,
+        147.45098,
+        309.411765
       ]
     }
   ],
@@ -1847,10 +1847,10 @@
       "src": "/cartilla/art/optimized/flipchart-native/p057-mayuscula.png",
       "sourcePage": 57,
       "crop": [
-        131,
-        936,
-        229,
-        253
+        130.980392,
+        935.686275,
+        229.019608,
+        253.333333
       ]
     },
     {
@@ -1858,10 +1858,10 @@
       "src": "/cartilla/art/optimized/flipchart-native/p057-yoyo.png",
       "sourcePage": 57,
       "crop": [
-        556,
-        925,
-        243,
-        254
+        551.764706,
+        920.784314,
+        251.372549,
+        266.27451
       ]
     }
   ],
@@ -1885,10 +1885,10 @@
       "src": "/cartilla/art/optimized/flipchart-native/p060-scene.png",
       "sourcePage": 60,
       "crop": [
-        81,
-        28,
-        481,
-        472
+        80.784314,
+        21.960784,
+        475.294118,
+        478.039216
       ],
       "role": "scene"
     },
@@ -1908,10 +1908,10 @@
       "src": "/cartilla/art/optimized/flipchart-native/p060-zigzag.png",
       "sourcePage": 60,
       "crop": [
-        395,
-        545,
-        209,
-        238
+        391.764706,
+        541.960784,
+        216.470588,
+        247.058824
       ]
     },
     {
@@ -1919,10 +1919,10 @@
       "src": "/cartilla/art/optimized/flipchart-native/p060-zorro.png",
       "sourcePage": 60,
       "crop": [
-        717,
-        520,
-        222,
-        261
+        716.862745,
+        520.0,
+        222.352941,
+        261.176471
       ]
     },
     {
@@ -1930,10 +1930,10 @@
       "src": "/cartilla/art/optimized/flipchart-native/p060-zepelin.png",
       "sourcePage": 60,
       "crop": [
-        105,
-        965,
-        310,
-        242
+        104.705882,
+        964.705882,
+        310.588235,
+        242.352941
       ]
     },
     {

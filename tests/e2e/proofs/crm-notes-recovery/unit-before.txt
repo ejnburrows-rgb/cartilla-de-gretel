@@ -1,0 +1,315 @@
+(node:23468) [DEP0205] DeprecationWarning: `module.register()` is deprecated. Use `module.registerHooks()` instead.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+
+ RUN  v4.1.8 C:/Users/EJN/Documents/Codex/2026-10-22/copy-paste-handoff-coding-agent-c/work/cartilla
+
+ ❯ src/features/teacher-crm/__tests__/TeacherCrmShell.notes.test.tsx (2 tests | 1 failed) 1967ms
+     × retains the rejected draft and save button, retries unchanged text, and reads the saved note after remount 1774ms
+
+⎯⎯⎯⎯⎯⎯⎯ Failed Tests 1 ⎯⎯⎯⎯⎯⎯⎯
+
+ FAIL  src/features/teacher-crm/__tests__/TeacherCrmShell.notes.test.tsx > TeacherCrmShell + AccountPanel notes recovery > retains the rejected draft and save button, retries unchanged text, and reads the saved note after remount
+TestingLibraryElementError: Unable to find role="alert"
+
+Ignored nodes: comments, script, style
+<body>
+  <div>
+    <div
+      class="crm-app"
+      style="background: radial-gradient(circle at top left, rgb(253, 243, 224) 0%, rgb(245, 232, 200) 50%, rgb(236, 218, 170) 100%);"
+    >
+      <main
+        class="crm-main flex-1 flex flex-col h-screen overflow-hidden"
+      >
+        <header
+          class="crm-topbar"
+        >
+          <div
+            class="min-w-0 flex-1 max-w-md"
+          >
+            <div
+              class="relative"
+            >
+              <svg
+                aria-hidden="true"
+                class="lucide lucide-search w-4 h-4 absolute left-3 top-1/2 -translate-y-1/2 text-[#7a7065]"
+                fill="none"
+                height="24"
+                stroke="currentColor"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="2"
+                viewBox="0 0 24 24"
+                width="24"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="m21 21-4.34-4.34"
+                />
+                <circle
+                  cx="11"
+                  cy="11"
+                  r="8"
+                />
+              </svg>
+              <p
+                class="pl-9 text-sm font-bold"
+              >
+                Panel de la clase
+              </p>
+            </div>
+          </div>
+          <div
+            class="flex items-center gap-4"
+          >
+            <a
+              aria-label="Ver progreso de la clase"
+              class="relative p-2 text-[#7a7065] hover:bg-[#f6ecd7] rounded-full transition-colors"
+              href="/cartilla/teacher/progreso"
+            >
+              <svg
+                aria-hidden="true"
+                class="lucide lucide-bell w-5 h-5"
+                fill="none"
+                height="24"
+                stroke="currentColor"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="2"
+                viewBox="0 0 24 24"
+                width="24"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="M10.268 21a2 2 0 0 0 3.464 0"
+                />
+                <path
+                  d="M3.262 15.326A1 1 0 0 0 4 17h16a1 1 0 0 0 .74-1.673C19.41 13.956 18 12.499 18 8A6 6 0 0 0 6 8c0 4.499-1.411 5.956-2.738 7.326"
+                />
+              </svg>
+            </a>
+            <div
+              class="w-8 h-8 rounded-full bg-[#d4a373] text-white flex items-center justify-center font-bold text-sm"
+            >
+              M
+            </div>
+          </div>
+        </header>
+        <div
+          class="crm-content flex-1 overflow-y-auto p-6 space-y-6"
+        >
+          <section
+            class="rounded-3xl border-4 border-white bg-white/60 backdrop-blur-md p-6 shadow-[0_8px_30px_rgb(0,0,0,0.04)] relative overflow-hidden"
+          >
+            <div
+              class="absolute -right-10 -top-10 w-40 h-40 bg-[hsl(48,100%,80%)] rounded-full blur-3xl opacity-50 pointer-events-none"
+            />
+            <div
+              class="absolute right-20 -bottom-10 w-32 h-32 bg-[hsl(198,78%,80%)] rounded-full blur-3xl opacity-50 pointer-events-none"
+            />
+            <div
+              class="flex flex-wrap items-center justify-between gap-4 relative z-10"
+            >
+              <div>
+                <p
+                  class="text-xs font-black uppercase tracking-[0.2em] text-[#d97706]"
+                >
+                  Módulo para Profesores
+                </p>
+                <h1
+                  class="mt-1 text-4xl font-black text-[#3b2a12] font-fredoka drop-shadow-sm"
+                >
+                  Centro de Control
+                </h1>
+                <p
+                  class="mt-2 text-sm font-bold text-[#7a6040] max-w-lg"
+                >
+                  Gestiona clases, revisa el progreso del cuaderno y prepara reportes de aula de forma fácil y divertida.
+                </p>
+              </div>
+              <div
+                class="flex flex-wrap items-center gap-4"
+              >
+                <div
+                  class="flex items-center gap-3 bg-white/80 p-2 pl-4 rounded-2xl shadow-sm border border-stone-200"
+                >
+                  <span
+                    class="text-xs font-black text-stone-500 uppercase tracking-widest"
+                  >
+                    Tu Clase:
+                  </span>
+                  <select
+                    class="px-4 py-2 rounded-xl border-2 border-[hsl(28,30%,18%)]/10 bg-white text-stone-800 font-bold text-sm focus:outline-none focus:border-[#d97706] cursor-pointer transition-colors shadow-sm"
+                  >
+                    <option
+                      value="synthetic-class"
+                    >
+                      Clase sintética
+                    </option>
+                  </select>
+                </div>
+                <div
+                  class="flex gap-3"
+                >
+                  <a>
+                    Ver clase completa...
+
+Ignored nodes: comments, script, style
+<body>
+  <div>
+    <div
+      class="crm-app"
+      style="background: radial-gradient(circle at top left, rgb(253, 243, 224) 0%, rgb(245, 232, 200) 50%, rgb(236, 218, 170) 100%);"
+    >
+      <main
+        class="crm-main flex-1 flex flex-col h-screen overflow-hidden"
+      >
+        <header
+          class="crm-topbar"
+        >
+          <div
+            class="min-w-0 flex-1 max-w-md"
+          >
+            <div
+              class="relative"
+            >
+              <svg
+                aria-hidden="true"
+                class="lucide lucide-search w-4 h-4 absolute left-3 top-1/2 -translate-y-1/2 text-[#7a7065]"
+                fill="none"
+                height="24"
+                stroke="currentColor"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="2"
+                viewBox="0 0 24 24"
+                width="24"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="m21 21-4.34-4.34"
+                />
+                <circle
+                  cx="11"
+                  cy="11"
+                  r="8"
+                />
+              </svg>
+              <p
+                class="pl-9 text-sm font-bold"
+              >
+                Panel de la clase
+              </p>
+            </div>
+          </div>
+          <div
+            class="flex items-center gap-4"
+          >
+            <a
+              aria-label="Ver progreso de la clase"
+              class="relative p-2 text-[#7a7065] hover:bg-[#f6ecd7] rounded-full transition-colors"
+              href="/cartilla/teacher/progreso"
+            >
+              <svg
+                aria-hidden="true"
+                class="lucide lucide-bell w-5 h-5"
+                fill="none"
+                height="24"
+                stroke="currentColor"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="2"
+                viewBox="0 0 24 24"
+                width="24"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="M10.268 21a2 2 0 0 0 3.464 0"
+                />
+                <path
+                  d="M3.262 15.326A1 1 0 0 0 4 17h16a1 1 0 0 0 .74-1.673C19.41 13.956 18 12.499 18 8A6 6 0 0 0 6 8c0 4.499-1.411 5.956-2.738 7.326"
+                />
+              </svg>
+            </a>
+            <div
+              class="w-8 h-8 rounded-full bg-[#d4a373] text-white flex items-center justify-center font-bold text-sm"
+            >
+              M
+            </div>
+          </div>
+        </header>
+        <div
+          class="crm-content flex-1 overflow-y-auto p-6 space-y-6"
+        >
+          <section
+            class="rounded-3xl border-4 border-white bg-white/60 backdrop-blur-md p-6 shadow-[0_8px_30px_rgb(0,0,0,0.04)] relative overflow-hidden"
+          >
+            <div
+              class="absolute -right-10 -top-10 w-40 h-40 bg-[hsl(48,100%,80%)] rounded-full blur-3xl opacity-50 pointer-events-none"
+            />
+            <div
+              class="absolute right-20 -bottom-10 w-32 h-32 bg-[hsl(198,78%,80%)] rounded-full blur-3xl opacity-50 pointer-events-none"
+            />
+            <div
+              class="flex flex-wrap items-center justify-between gap-4 relative z-10"
+            >
+              <div>
+                <p
+                  class="text-xs font-black uppercase tracking-[0.2em] text-[#d97706]"
+                >
+                  Módulo para Profesores
+                </p>
+                <h1
+                  class="mt-1 text-4xl font-black text-[#3b2a12] font-fredoka drop-shadow-sm"
+                >
+                  Centro de Control
+                </h1>
+                <p
+                  class="mt-2 text-sm font-bold text-[#7a6040] max-w-lg"
+                >
+                  Gestiona clases, revisa el progreso del cuaderno y prepara reportes de aula de forma fácil y divertida.
+                </p>
+              </div>
+              <div
+                class="flex flex-wrap items-center gap-4"
+              >
+                <div
+                  class="flex items-center gap-3 bg-white/80 p-2 pl-4 rounded-2xl shadow-sm border border-stone-200"
+                >
+                  <span
+                    class="text-xs font-black text-stone-500 uppercase tracking-widest"
+                  >
+                    Tu Clase:
+                  </span>
+                  <select
+                    class="px-4 py-2 rounded-xl border-2 border-[hsl(28,30%,18%)]/10 bg-white text-stone-800 font-bold text-sm focus:outline-none focus:border-[#d97706] cursor-pointer transition-colors shadow-sm"
+                  >
+                    <option
+                      value="synthetic-class"
+                    >
+                      Clase sintética
+                    </option>
+                  </select>
+                </div>
+                <div
+                  class="flex gap-3"
+                >
+                  <a>
+                    Ver clase completa...
+ ❯ waitForWrapper node_modules/.pnpm/@testing-library+dom@10.4.1/node_modules/@testing-library/dom/dist/wait-for.js:163:27
+ ❯ node_modules/.pnpm/@testing-library+dom@10.4.1/node_modules/@testing-library/dom/dist/query-helpers.js:86:33
+ ❯ src/features/teacher-crm/__tests__/TeacherCrmShell.notes.test.tsx:50:25
+     48|     fireEvent.change(notes, { target: { value: "Nota nueva sintética" …
+     49|     fireEvent.click(screen.getByRole("button", { name: "Guardar Notas"…
+     50|     expect(await screen.findByRole("alert")).toHaveTextContent("No se …
+       |                         ^
+     51|     expect(notes).toHaveValue("Nota nueva sintética");
+     52|     expect(notes).toBeEnabled();
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/1]⎯
+
+
+ Test Files  1 failed (1)
+      Tests  1 failed | 1 passed (2)
+   Start at  01:07:26
+   Duration  6.71s (transform 479ms, setup 648ms, import 1.06s, tests 1.97s, environment 2.48s)

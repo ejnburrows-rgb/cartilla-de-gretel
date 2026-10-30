@@ -11,6 +11,20 @@ const quarantine = read("public/cartilla/art/faithful/quarantine.json");
 const flipchartNative = read("src/data/flipchart-native-assets.json");
 const flipchartFrames = read("src/data/flipchart-frames.json");
 
+// Owner-accepted mapping engraved by #797. Preserve these pointers when refreshing
+// measured asset evidence; do not regenerate the mapping or promote crop verdicts
+// from mapping metadata. See docs/ARTWORK_MAPPING_CANONICAL.md.
+const canonicalMapping = {
+  note: "Canonical artwork-to-slot mapping. Do NOT ask the owner to re-map. Do NOT regenerate it.",
+  csv: "docs/artwork-reconciliation/mapping/MASTER-MAPPING.csv",
+  md: "docs/artwork-reconciliation/mapping/MASTER-MAPPING.md",
+  evidence: "docs/proofs/artwork-coverage-2026-10-14/",
+  pointer: "docs/ARTWORK_MAPPING_CANONICAL.md",
+  placements: 330,
+  drawingGroups: 201,
+  engravedOnMain: "2026-10-15",
+};
+
 // Deterministic Flip Chart-native provenance check. Declared source-page/crop
 // metadata alone is not proof, so each output is compared pixel-for-pixel with
 // the crop of its declared HD source page. Only an affirmative match passes;
@@ -310,6 +324,7 @@ async function audit() {
     outputPath,
     JSON.stringify(
       {
+        _canonicalMapping: canonicalMapping,
         timestamp: new Date().toISOString(),
         counts: {
           faithfulWired: faithfulAudit.length,

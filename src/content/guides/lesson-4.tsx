@@ -88,7 +88,7 @@ export function Lesson4Guide() {
             <strong>Palabras que riman:</strong> Ee, revés, vez.
           </p>
           <div className="bg-blue-50 border border-blue-100 rounded-2xl p-6">
-            <p className="text-blue-900 font-bold italic">"La niña sordita"</p>
+            <p className="text-blue-900 font-bold italic">"La niña distraída"</p>
             <p className="text-stone-500 text-sm mt-2 not-italic">
               Título documentado en la Guía del profesor. El texto completo de la rima no aparece en
               la transcripción disponible — se agregará cuando se transcriba.

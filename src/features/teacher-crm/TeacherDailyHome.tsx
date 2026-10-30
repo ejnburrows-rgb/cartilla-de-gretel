@@ -45,13 +45,20 @@ function combineStudentProgressResults(
 }
 
 
+const CATALOG_MAP = new Map(CATALOG.map((item) => [String(item.n), item]));
+
 function lessonTitle(lessonId: string) {
-  const entry = CATALOG.find((item) => String(item.n) === lessonId);
+  const entry = CATALOG_MAP.get(lessonId);
   return entry ? `L${entry.n} · ${entry.title}` : `Lección ${lessonId}`;
 }
 
 function familyPracticeHref(lessonNumber: number, activity: string) {
-  return `/cartilla/practica?family=1&lesson=${lessonNumber}&activity=${activity}`;
+  const params = new URLSearchParams({
+    family: "1",
+    lesson: lessonNumber.toString(),
+    activity: activity,
+  });
+  return `/cartilla/practica?${params.toString()}`;
 }
 
 export function TeacherDailyHome() {
@@ -91,13 +98,14 @@ export function TeacherDailyHome() {
   }, [isSeed, seedVersion]);
 
   const classes = isSeed ? seedClasses : (realClasses.data ?? []);
+  const classesById = useMemo(() => new Map(classes.map((cls) => [cls.id, cls])), [classes]);
 
   useEffect(() => {
     if (!selectedClassId && classes[0]) setSelectedClassId(classes[0].id);
-    if (selectedClassId && !classes.some((item) => item.id === selectedClassId)) {
+    if (selectedClassId && !classesById.has(selectedClassId)) {
       setSelectedClassId(classes[0]?.id ?? "");
     }
-  }, [classes, selectedClassId]);
+  }, [classes, selectedClassId, classesById]);
 
   const realClass = useQuery({
     queryKey: ["daily-class", selectedClassId],
@@ -117,7 +125,7 @@ export function TeacherDailyHome() {
 
   const classData = isSeed ? seedClass : realClass.data;
   const students = classData?.students ?? [];
-  const activeClass = classes.find((item) => item.id === selectedClassId) ?? null;
+  const activeClass = classesById.get(selectedClassId) ?? null;
 
   const assignmentsQuery = useQuery({
     queryKey: ["daily-assignments", selectedClassId, isSeed, seedVersion],
@@ -190,7 +198,10 @@ export function TeacherDailyHome() {
     }));
   }, [assignments, studentLearning]);
 
-  const nextAction = attentionRows[0] ?? studentLearning.find((row) => row.insight?.recommendation);
+  const nextAction = useMemo(() => {
+    return attentionRows[0] ?? studentLearning.find((row) => row.insight?.recommendation);
+  }, [attentionRows, studentLearning]);
+
   const loading =
     (!isSeed && realClasses.isLoading) ||
     (!isSeed && Boolean(selectedClassId) && realClass.isLoading) ||

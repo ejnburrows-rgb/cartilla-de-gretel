@@ -1,0 +1,9 @@
+
+ RUN  v4.1.8 C:/Users/EJN/Documents/Codex/2026-10-29/la-cartilla-de-gretel-continue-to/work/cartilla
+
+
+ Test Files  2 passed (2)
+      Tests  22 passed (22)
+   Start at  05:14:36
+   Duration  7.47s (transform 909ms, setup 738ms, import 2.09s, tests 1.14s, environment 2.86s)
+
