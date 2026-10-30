@@ -6,6 +6,6 @@
 
 [AGENTS.md](../AGENTS.md) governs execution and approval boundaries. [PROJECT_FINISH_DEFINITION.md](../PROJECT_FINISH_DEFINITION.md) governs completion. Original physical books and approved scoped policies govern curriculum, artwork and voice. Historical plans, chat and memory cannot override them.
 
-Within the two authorized tracks, continue an independent, non-overlapping eligible step if one is blocked; do not create duplicate work. Follow the #877 sequence: #1218 first, then #1227, #1203/#1213/#1178, #1077/#1081, #1225, #1229, #1226, #1180, #1230, and Tutor #1073 only after owner's phone-mic test. Save a material checkpoint in #877; never invent worker activity.
+Within the two authorized tracks, if a step is blocked, immediately continue the next independent eligible task in the same available session; do not create duplicate work. Follow the #877 sequence: #1218 first, then #1227, #1203/#1213/#1178, #1077/#1081, #1225, #1229, #1226, #1180, #1230, and Tutor #1073 only after owner's phone-mic test. Save a material checkpoint in #877; never invent worker activity.
 
 SonarCloud/SonarQube is advisory and non-blocking; actual serious defects and applicable protections remain gates. Every merge needs independent exact-head review and the owner's explicit yes; release separately requires the exact words "deploy it". Keep `vercel.json` `git.deploymentEnabled:false`. Never self-approve or bypass protection.
