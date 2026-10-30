@@ -6,13 +6,26 @@ import { test, expect, type Page } from "@playwright/test";
 // pictures on the page stay still, and reduced motion shows the still drawing.
 const ALIVE: Record<string, string> = {
   oso: "/cartilla/art/faithful/vocal-o/oso-alive.svg",
-  oveja: "/cartilla/art/faithful/vocal-o/oveja-alive.svg",
   olla: "/cartilla/art/faithful/vocal-o/olla-alive.svg",
-  elefante: "/cartilla/art/faithful/vocal-e/elefante-alive.svg",
   avión: "/cartilla/art/faithful/vocal-a/avion-alive.svg",
-  abeja: "/cartilla/art/faithful/vocal-a/abeja-alive.svg",
   abanico: "/cartilla/art/faithful/vocal-a/abanico-alive.svg",
   imán: "/cartilla/art/faithful/vocal-i/iman-alive.svg",
+};
+// Stale derivatives, disabled on purpose: the oveja/elefante -alive.svg files
+// were built from stills that have since been replaced (src/data/stale-motion-art.json),
+// so the approved current still is served and the old motion stays blocked until
+// the owner approves new motion. Never expect the obsolete animation back.
+const STALE: Record<string, string> = {
+  oveja: "/cartilla/art/faithful/vocal-o/oveja.webp",
+  elefante: "/cartilla/art/faithful/vocal-e/elefante.webp",
+  // Owner-approved abeja master (#1158) replaced the still the motion was built from.
+  abeja: "/cartilla/art/faithful/vocal-a/abeja.webp",
+};
+// Owner-approved replacement art installed on specific lessons: it is the
+// correct still for that page and has no approved motion yet. Keyed by lesson
+// because the same word uses the faithful moving art on other lessons.
+const APPROVED_STILL: Record<number, Record<string, string>> = {
+  3: { abeja: "/cartilla/art/approved/lesson-3/abeja.jpg" },
 };
 const LESSONS: Array<[number, string[]]> = [
   [2, ["oso", "oveja", "olla"]],
@@ -36,6 +49,7 @@ async function pictures(page: Page) {
         src: img?.getAttribute("src") ?? "",
         natural: w.dataset.naturalMotion,
         ambient: w.dataset.ambientMotion,
+        motionStatus: w.dataset.motionStatus ?? "",
         width: img?.naturalWidth ?? 0,
         wholeMotion: [w, img, ...w.querySelectorAll(".living-illustration__part")].some(
           (el) => anim(el) !== "none",
@@ -75,10 +89,25 @@ for (const [viewport, size] of [
       const failed = await openLesson(page, lesson);
       const all = await pictures(page);
       for (const name of names) {
-        const pic = all.find((p) => p.name === name && p.src.includes("/faithful/vocal-"));
+        const approvedStill = APPROVED_STILL[lesson]?.[name];
+        // Approved replacement art is matched by src because it is not in the
+        // faithful vocabulary map (its data-picture-name stays unresolved).
+        const pic = approvedStill
+          ? all.find((p) => p.src === approvedStill)
+          : all.find((p) => p.name === name && p.src.includes("/faithful/vocal-"));
         expect(pic, `${name} is on Lesson ${lesson}`).toBeTruthy();
-        expect(pic!.src, `${name} plays its natural-motion SVG`).toBe(ALIVE[name]);
-        expect(pic!.natural).toBe("true");
+        if (approvedStill) {
+          expect(pic!.natural, `${name} approved still stays still`).toBe("false");
+        } else if (name in STALE) {
+          // Disabled stale derivative: the approved still shows, nothing moves,
+          // and the element is marked as intentionally not verified for motion.
+          expect(pic!.src, `${name} serves the approved still, not the stale motion`).toBe(STALE[name]);
+          expect(pic!.natural, `${name} stale motion stays off`).toBe("false");
+          expect(pic!.motionStatus, `${name} is marked stale`).toContain("NOT VERIFIED");
+        } else {
+          expect(pic!.src, `${name} plays its natural-motion SVG`).toBe(ALIVE[name]);
+          expect(pic!.natural).toBe("true");
+        }
         expect(pic!.width, `${name} decoded`).toBeGreaterThan(0);
         expect(pic!.wholeMotion, `${name} has no whole-picture CSS motion`).toBe(false);
         expect(pic!.parts).toBe(0);
@@ -121,7 +150,10 @@ test("reduced motion: vowel pictures show the still drawing and nothing moves", 
   await openLesson(page, 3);
   const all = await pictures(page);
   for (const name of ["oso", "oveja", "elefante", "avión", "abeja", "abanico", "imán"]) {
-    const pic = all.find((p) => p.name === name && p.src.includes("/faithful/vocal-"));
+    const approvedStill = APPROVED_STILL[3]?.[name];
+    const pic = approvedStill
+      ? all.find((p) => p.src === approvedStill)
+      : all.find((p) => p.name === name && p.src.includes("/faithful/vocal-"));
     expect(pic, name).toBeTruthy();
     expect(pic!.src, `${name} shows the still drawing`).not.toContain("-alive.svg");
     expect(pic!.natural).toBe("false");
