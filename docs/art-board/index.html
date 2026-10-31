@@ -87,4 +87,131 @@ let nextBatch=0;byId('publish').onclick=()=>{
  window.open(url,'_blank','noopener');nextBatch++;byId('message').textContent='Opened GitHub review batch '+(num+1)+' / '+total+'. Submit the GitHub issue to share these decisions with agents; click again for the next batch.';
 };
 render();
-</script></body></html>
+</script>
+<style id="replacement-intake-css">
+#replacement-intake{max-width:1500px;margin:12px auto;padding:14px;background:#f0f8f4;border:1px solid #9fb7a8;border-radius:12px;font-size:13px}
+#replacement-intake .buttons{display:flex;gap:8px;flex-wrap:wrap;margin-top:8px}
+#replacement-intake strong{font-size:16px}
+#replacement-intake p{margin:5px 0;line-height:1.5}
+.piece .replacement-tools{grid-column:1/-1;border-top:1px solid #d8cec0;padding-top:10px;display:flex;align-items:center;flex-wrap:wrap;gap:9px}
+.piece .replacement-tools .replacement-message{flex:1;min-width:180px;font-size:12px;overflow-wrap:anywhere}
+.piece .replacement-tools button{font-size:12px;padding:8px 10px}
+.piece .replacement-tools img{height:110px;width:110px;object-fit:contain;background:white;border:1px solid #ddd;border-radius:7px}
+.piece .replacement-tools label{display:flex;align-items:center;gap:4px;font-size:12px}
+.piece .replacement-tools label input{width:17px;height:17px}
+@media(max-width:780px){#replacement-intake{margin:8px}.piece .replacement-tools button{flex:1}}
+</style><script id="replacement-intake-js">
+(function(){
+ "use strict";
+ const element=document.getElementById("manifest");
+ const board=document.getElementById("board");
+ if(!element||!board||document.getElementById("replacement-intake"))return;
+ const data=JSON.parse(element.textContent);
+ const catalog=new Map(data.rows.map(x=>[x.id,x]));
+ const staged=new Map(),selected=new Set();
+ const el=(tag,txt)=>{const o=document.createElement(tag);if(txt!==undefined)o.textContent=txt;return o;};
+ const bar=el("section");bar.id="replacement-intake";
+ bar.append(el("strong","Choose existing artwork or attach your finished replacement"));
+ bar.append(el("p","Select individual or multiple pictures. Pictures on this board come from an older review snapshot; they are NOT verified live-demo images. Original-book source files remain protected."));
+ bar.append(el("p","This static page prepares replacement choices and files. It cannot write to GitHub, delete old crops, approve artwork or deploy. An authorized agent must install and verify selected replacements."));
+ const buttons=el("div");buttons.className="buttons";
+ const info=el("p","No replacements selected");info.id="replacement-intake-status";
+ function btn(name,cb,parent=buttons){const b=el("button",name);b.type="button";b.addEventListener("click",cb);parent.append(b);return b;}
+ const cards=()=>Array.from(board.querySelectorAll(".piece"));
+ function sync(){
+  cards().forEach(card=>{const check=card.querySelector("[data-batch]");if(check)check.checked=selected.has(check.dataset.batch);});
+  info.textContent=selected.size+" selected; "+staged.size+" choices staged. No GitHub files changed.";
+ }
+ btn("Select visible",()=>{cards().forEach(card=>{const id=card.querySelector("input[data-id]")?.dataset.id;if(id)selected.add(id);});sync();});
+ btn("Clear selections",()=>{selected.clear();sync();});
+ btn("Export selected replacement package",()=>exportPackage());
+ bar.append(buttons,info);board.parentNode.insertBefore(bar,board);
+ function refresh(){
+  cards().forEach(card=>{
+   const id=card.querySelector("input[data-id]")?.dataset.id;
+   const pane=card.querySelector(".replacement-tools");
+   if(!id||!pane)return;
+   const choice=staged.get(id),msg=pane.querySelector(".replacement-message"),pic=pane.querySelector(".replacement-preview");
+   if(!choice){msg.textContent="No replacement selected";pic.hidden=true;return;}
+   if(choice.kind==="skip"){msg.textContent="Skipped. No change requested.";pic.hidden=true;return;}
+   if(choice.kind==="existing"){msg.textContent="Repository candidate staged: "+choice.path+". Approval and runtime proof still required.";pic.hidden=true;return;}
+   if(choice.kind==="upload"){msg.textContent="Finished image attached: "+choice.file.name+" ("+choice.width+"×"+choice.height+"). Not installed.";pic.src=choice.url;pic.hidden=false;}
+  });
+ }
+ function stage(id,choice){
+  const prior=staged.get(id);
+  if(prior?.url)URL.revokeObjectURL(prior.url);
+  staged.set(id,choice);selected.add(id);refresh();sync();
+ }
+ function decorate(){
+  cards().forEach(card=>{
+   if(card.querySelector(".replacement-tools"))return;
+   const id=card.querySelector("input[data-id]")?.dataset.id;
+   const row=catalog.get(id);if(!row)return;
+   const pane=el("div");pane.className="replacement-tools";
+   const label=el("label"),check=el("input");check.type="checkbox";check.dataset.batch=id;check.checked=selected.has(id);
+   check.addEventListener("change",()=>{if(check.checked)selected.add(id);else selected.delete(id);sync();});
+   label.append(check,el("span","Include in batch"));pane.append(label);
+   btn("Use selected repo picture",()=>{
+    const v=card.querySelector("select[data-version]");
+    const path=v?.value||row.current;
+    if(!path){info.textContent="There is no existing image for "+row.label;return;}
+    stage(id,{kind:"existing",path});
+   },pane);
+   const file=el("input");file.type="file";file.accept="image/png,image/jpeg,image/webp";file.hidden=true;
+   btn("Upload my finished picture",()=>file.click(),pane);
+   file.addEventListener("change",()=>{
+    const f=file.files?.[0];if(!f)return;
+    if(!["image/png","image/jpeg","image/webp"].includes(f.type)){info.textContent="Only PNG, JPEG and WebP are supported.";return;}
+    const url=URL.createObjectURL(f),image=new Image();
+    image.onload=()=>{
+     if(image.naturalWidth<32||image.naturalHeight<32){URL.revokeObjectURL(url);info.textContent="Image too small for "+row.label;return;}
+     stage(id,{kind:"upload",file:f,url,width:image.naturalWidth,height:image.naturalHeight});
+    };
+    image.onerror=()=>{URL.revokeObjectURL(url);info.textContent="Unable to decode "+f.name;};
+    image.src=url;
+   });
+   pane.append(file);
+   btn("Show alternatives",()=>{
+    const picker=card.querySelector("select[data-version]");
+    if(picker){picker.scrollIntoView({block:"center",behavior:"smooth"});picker.focus();}
+    else info.textContent="No alternative repo file is recorded for "+row.label+".";
+   },pane);
+   btn("Skip",()=>stage(id,{kind:"skip"}),pane);
+   const message=el("span","No replacement selected");message.className="replacement-message";pane.append(message);
+   const preview=el("img");preview.className="replacement-preview";preview.alt="Your finished picture";preview.hidden=true;pane.append(preview);
+   card.append(pane);
+  });refresh();
+ }
+ async function exportPackage(){
+  const records=[],mapping=[],obsolete=[],files=[];
+  for(const id of selected){
+   const row=catalog.get(id),choice=staged.get(id);if(!row)continue;
+   const entry={asset_id:id,group:row.group,book:row.book,page:row.page,name:row.label,original_path:row.original,old_candidate:row.current,choice:choice?.kind||"UNSELECTED",approval_verified:false,live_verified:false,repository_updated:false};
+   if(choice?.kind==="existing")entry.replacement_path=choice.path;
+   if(choice?.kind==="upload"){
+    const suffix=choice.file.type==="image/png"?"png":choice.file.type==="image/jpeg"?"jpg":"webp";
+    const name="uploads/"+id.replace(/[^a-zA-Z0-9_-]/g,"_")+"."+suffix;
+    files.push({name,body:new Uint8Array(await choice.file.arrayBuffer())});
+    entry.replacement_path=name;entry.width=choice.width;entry.height=choice.height;
+    const destination=row.current?.startsWith("public/cartilla/art/faithful/")?row.current.slice(6):null;
+    if(destination)mapping.push({file:name,slot:destination});
+    else entry.needs_exact_destination_verification=true;
+   }
+   if(choice&&choice.kind!=="skip")obsolete.push({id,old_path:row.current,proposed_new:entry.replacement_path,delete_approved:false,reference_check_completed:false});
+   records.push(entry);
+  }
+  if(!records.length){info.textContent="First select the pictures you want in the package.";return;}
+  if(typeof zip!=="function"||typeof download!=="function"){info.textContent="Existing ZIP exporter is unavailable.";return;}
+  files.push({name:"REPLACEMENTS.json",body:JSON.stringify({source:data.commit,repository:data.repository,rows:records},null,2)});
+  files.push({name:"mapping.json",body:JSON.stringify({mappings:mapping},null,2)});
+  files.push({name:"OBSOLETE_CANDIDATES_NOT_APPROVED_FOR_DELETION.json",body:JSON.stringify(obsolete,null,2)});
+  files.push({name:"README.txt",body:"Selected owner replacement package. Not installed, merged, deleted or deployed. Agent: check latest owner approval, validate original correspondence and exact destination, import with existing artwork tools, regenerate verified derivatives, check live Workbook and Flip Chart, and request explicit approval before deleting old unreferenced copies."});
+  download(zip(files),"Gretel_Selected_Artwork_Replacements.zip");
+  info.textContent="Package exported for "+records.length+" pictures. "+records.filter(x=>x.choice==="upload").length+" finished images attached. GitHub remains unchanged.";
+ }
+ new MutationObserver(decorate).observe(board,{childList:true});
+ decorate();sync();
+})();
+</script>
+</body></html>
