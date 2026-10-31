@@ -142,7 +142,11 @@ interface WorkbookPageRendererProps {
   renderWritingInput?: (line: { id: string; modelText?: string }, index: number) => ReactNode;
 }
 
-export function WorkbookPageRenderer({ pageNumber, sourceWritingLines, renderWritingInput }: WorkbookPageRendererProps) {
+export function WorkbookPageRenderer({
+  pageNumber,
+  sourceWritingLines,
+  renderWritingInput,
+}: WorkbookPageRendererProps) {
   // Helper to map page number to exact catalog entry
   const entry = useMemo(() => {
     return CATALOG.find((e) => {
@@ -160,16 +164,17 @@ export function WorkbookPageRenderer({ pageNumber, sourceWritingLines, renderWri
     return pageNumber - start;
   }, [entry, pageNumber]);
 
-  if (sourceWritingLines) return (
-    <div className="workbook-source-writing">
-      {sourceWritingLines.map((line, index) => (
-        <div className="workbook-source-writing__line" key={line.id}>
-          <SVGWorkbookLine text={line.modelText ?? ""} practice />
-          {renderWritingInput?.(line, index)}
-        </div>
-      ))}
-    </div>
-  );
+  if (sourceWritingLines)
+    return (
+      <div className="workbook-source-writing">
+        {sourceWritingLines.map((line, index) => (
+          <div className="workbook-source-writing__line" key={line.id}>
+            <SVGWorkbookLine text={line.modelText ?? ""} practice />
+            {renderWritingInput?.(line, index)}
+          </div>
+        ))}
+      </div>
+    );
 
   // 1. Render Cover & Intro pages (pages 1 to 3)
   if (pageNumber <= 3) {
@@ -663,7 +668,7 @@ export function WorkbookPageRenderer({ pageNumber, sourceWritingLines, renderWri
       const mainSentence = sentences[0] || "";
       const secondarySentence = sentences[1] || "";
       // Find a vocabulary key that we have illustrations for
-      const illustrationWord =
+      const illustrationCaption =
         (data.examples ? Object.values(data.examples).flatMap((arr) => arr || [])[0] : null) ||
         "oso";
 
@@ -695,10 +700,10 @@ export function WorkbookPageRenderer({ pageNumber, sourceWritingLines, renderWri
           <div className="flex-1 flex items-center justify-center my-4">
             <div className="w-32 h-32 border border-stone-200 bg-white shadow-sm rounded-3xl p-3 flex flex-col items-center justify-center">
               <div className="w-20 h-20 opacity-90 flex items-center justify-center">
-                <MonochromeDrawing word={illustrationWord} size={80} />
+                <MonochromeDrawing word={illustrationCaption} size={80} />
               </div>
               <span className="text-[10px] font-black font-fredoka text-stone-500 uppercase mt-1 tracking-wider">
-                {illustrationWord}
+                {illustrationCaption}
               </span>
             </div>
           </div>
