@@ -1,0 +1,47 @@
+{
+  "metadata": {
+    "soundFile": "/audio/voz/vocabulario/árbol.mp3",
+    "duration": 1.59,
+    "rhubarbVersion": "1.14.0",
+    "recognizer": "phonetic",
+    "extendedShapes": "GX",
+    "sourceSha256": "2137cbbc136d54e9a1e32e889997fa056bba03c012bdbf04f661804ef8f7319c"
+  },
+  "mouthCues": [
+    {
+      "start": 0,
+      "end": 0.24,
+      "value": "X"
+    },
+    {
+      "start": 0.24,
+      "end": 0.38,
+      "value": "C"
+    },
+    {
+      "start": 0.38,
+      "end": 0.59,
+      "value": "B"
+    },
+    {
+      "start": 0.59,
+      "end": 0.77,
+      "value": "A"
+    },
+    {
+      "start": 0.77,
+      "end": 1.08,
+      "value": "C"
+    },
+    {
+      "start": 1.08,
+      "end": 1.22,
+      "value": "B"
+    },
+    {
+      "start": 1.22,
+      "end": 1.59,
+      "value": "X"
+    }
+  ]
+}

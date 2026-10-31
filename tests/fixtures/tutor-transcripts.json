@@ -1,0 +1,407 @@
+{
+  "_comment": "Tutor match fixtures (GRETEL-TUTOR-BUILD-SPEC §12). Each case runs matchTarget() on a real derived lesson item. 'distance' is asserted only where the number matters (thresholds, distractor near-misses).",
+  "cases": [
+    {
+      "name": "exact-word",
+      "lesson": 2,
+      "target": "oveja",
+      "transcript": "oveja",
+      "expect": { "pass": true, "rule": "contains" },
+      "distance": 0
+    },
+    {
+      "name": "capitalization-OSO",
+      "lesson": 1,
+      "target": "oso",
+      "transcript": "OSO",
+      "expect": { "pass": true, "rule": "contains" },
+      "distance": 0
+    },
+    {
+      "name": "with-article-la-ola",
+      "lesson": 2,
+      "target": "ola",
+      "transcript": "la ola",
+      "expect": { "pass": true, "rule": "contains" }
+    },
+    {
+      "name": "in-a-sentence",
+      "lesson": 2,
+      "target": "oso",
+      "transcript": "es un oso",
+      "expect": { "pass": true, "rule": "contains" }
+    },
+    {
+      "name": "in-a-sentence-with-article",
+      "lesson": 3,
+      "target": "abeja",
+      "transcript": "es una abeja",
+      "expect": { "pass": true, "rule": "contains" }
+    },
+    {
+      "name": "missing-final-consonant-arbo",
+      "lesson": 3,
+      "target": "árbol",
+      "transcript": "árbo",
+      "expect": { "pass": true, "rule": "edit-distance" },
+      "distance": 1
+    },
+    {
+      "name": "missing-final-consonant-avio",
+      "lesson": 3,
+      "target": "avión",
+      "transcript": "avió",
+      "expect": { "pass": true, "rule": "edit-distance" },
+      "distance": 1
+    },
+    {
+      "name": "missing-final-consonant-ima",
+      "lesson": 1,
+      "target": "imán",
+      "transcript": "imá",
+      "expect": { "pass": true, "rule": "edit-distance" },
+      "distance": 1
+    },
+    {
+      "name": "mn-confusion-iman-is-exact-after-normalize",
+      "lesson": 1,
+      "target": "imán",
+      "transcript": "iman",
+      "expect": { "pass": true, "rule": "contains" },
+      "distance": 0
+    },
+    {
+      "name": "mn-confusion-imam",
+      "lesson": 1,
+      "target": "imán",
+      "transcript": "imam",
+      "expect": { "pass": true, "rule": "edit-distance" },
+      "distance": 1
+    },
+    {
+      "name": "accent-free-arbol",
+      "lesson": 3,
+      "target": "árbol",
+      "transcript": "arbol",
+      "expect": { "pass": true, "rule": "contains" },
+      "distance": 0
+    },
+    {
+      "name": "capitalized-accented-ARBOL",
+      "lesson": 3,
+      "target": "árbol",
+      "transcript": "ÁRBOL",
+      "expect": { "pass": true, "rule": "contains" },
+      "distance": 0
+    },
+    {
+      "name": "initial-vowel-drop-bico-fails",
+      "lesson": 1,
+      "target": "abanico",
+      "transcript": "bico",
+      "expect": { "pass": false, "rule": "none" },
+      "distance": 3
+    },
+    {
+      "name": "syllable-swap-ajeba-fails",
+      "lesson": 3,
+      "target": "abeja",
+      "transcript": "ajeba",
+      "expect": { "pass": false, "rule": "none" },
+      "distance": 2
+    },
+    {
+      "name": "syllable-swap-ovaje-fails",
+      "lesson": 2,
+      "target": "oveja",
+      "transcript": "ovaje",
+      "expect": { "pass": false, "rule": "none" },
+      "distance": 2
+    },
+    {
+      "name": "ntilde-n-for-uña-locked-decision",
+      "lesson": 1,
+      "target": "uña",
+      "transcript": "una",
+      "expect": { "pass": true, "rule": "edit-distance" },
+      "distance": 1,
+      "note": "Distractor rule decision: 'una' is distance 1 from uña and also distance 1 from uno, but it equals no other item and no item is strictly closer, so it passes edit-distance (threshold 1 for 3 letters). Locked here per §12."
+    },
+    {
+      "name": "ntilde-extra-letter-unas",
+      "lesson": 1,
+      "target": "uña",
+      "transcript": "uñas",
+      "expect": { "pass": true, "rule": "edit-distance" },
+      "distance": 1
+    },
+    {
+      "name": "ntilde-exact-uña",
+      "lesson": 1,
+      "target": "uña",
+      "transcript": "uña",
+      "expect": { "pass": true, "rule": "contains" },
+      "distance": 0
+    },
+    {
+      "name": "empty-transcript",
+      "lesson": 1,
+      "target": "oso",
+      "transcript": "",
+      "expect": { "pass": false, "rule": "none" }
+    },
+    {
+      "name": "whitespace-only-transcript",
+      "lesson": 2,
+      "target": "ocho",
+      "transcript": "   ",
+      "expect": { "pass": false, "rule": "none" }
+    },
+    {
+      "name": "noise-word-mmm",
+      "lesson": 1,
+      "target": "oso",
+      "transcript": "mmm",
+      "expect": { "pass": false, "rule": "none" }
+    },
+    {
+      "name": "noise-word-eh-for-word-target-fails",
+      "lesson": 1,
+      "target": "oso",
+      "transcript": "eh",
+      "expect": { "pass": false, "rule": "none" },
+      "note": "Fails the distractor check: 'eh' is closer to the lesson-1 vowel item 'e' (distance 1) than to 'oso'."
+    },
+    {
+      "name": "same-lesson-distractor-oreja-for-oveja-fails",
+      "lesson": 2,
+      "target": "oveja",
+      "transcript": "oreja",
+      "expect": { "pass": false, "rule": "none" },
+      "distance": 1,
+      "note": "Distance 1 is within the edit threshold for a 5-letter target, but the distractor check runs first and wins."
+    },
+    {
+      "name": "same-lesson-distractor-olla-for-oveja-fails",
+      "lesson": 2,
+      "target": "oveja",
+      "transcript": "olla",
+      "expect": { "pass": false, "rule": "none" }
+    },
+    {
+      "name": "same-page-distractor-olla-for-ojos-fails",
+      "lesson": 1,
+      "target": "ojos",
+      "transcript": "olla",
+      "expect": { "pass": false, "rule": "none" },
+      "note": "ojos and olla are both printed on workbook page 1."
+    },
+    {
+      "name": "another-vowel-a-for-o-fails",
+      "lesson": 1,
+      "target": "o",
+      "transcript": "a",
+      "expect": { "pass": false, "rule": "none" }
+    },
+    {
+      "name": "wrong-vowel-not-an-item-still-fails",
+      "lesson": 2,
+      "target": "o",
+      "transcript": "a",
+      "expect": { "pass": false, "rule": "none" },
+      "note": "'a' is not a Lección 2 item, but no rule passes it either: single-letter targets never pass by edit distance."
+    },
+    {
+      "name": "vowel-o-alias-oh",
+      "lesson": 1,
+      "target": "o",
+      "transcript": "oh",
+      "expect": { "pass": true, "rule": "vowel-alias" },
+      "distance": 0
+    },
+    {
+      "name": "vowel-o-alias-ou",
+      "lesson": 1,
+      "target": "o",
+      "transcript": "ou",
+      "expect": { "pass": true, "rule": "vowel-alias" },
+      "distance": 0
+    },
+    {
+      "name": "vowel-o-accented-ó",
+      "lesson": 1,
+      "target": "o",
+      "transcript": "ó",
+      "expect": { "pass": true, "rule": "contains" },
+      "distance": 0
+    },
+    {
+      "name": "vowel-a-alias-ah",
+      "lesson": 1,
+      "target": "a",
+      "transcript": "ah",
+      "expect": { "pass": true, "rule": "vowel-alias" },
+      "distance": 0
+    },
+    {
+      "name": "vowel-a-alias-ha",
+      "lesson": 1,
+      "target": "a",
+      "transcript": "ha",
+      "expect": { "pass": true, "rule": "vowel-alias" },
+      "distance": 0
+    },
+    {
+      "name": "vowel-a-accented-á",
+      "lesson": 1,
+      "target": "a",
+      "transcript": "á",
+      "expect": { "pass": true, "rule": "contains" },
+      "distance": 0
+    },
+    {
+      "name": "vowel-e-alias-eh",
+      "lesson": 1,
+      "target": "e",
+      "transcript": "eh",
+      "expect": { "pass": true, "rule": "vowel-alias" },
+      "distance": 0
+    },
+    {
+      "name": "vowel-e-alias-he",
+      "lesson": 1,
+      "target": "e",
+      "transcript": "he",
+      "expect": { "pass": true, "rule": "vowel-alias" },
+      "distance": 0
+    },
+    {
+      "name": "vowel-i-alias-y",
+      "lesson": 1,
+      "target": "i",
+      "transcript": "y",
+      "expect": { "pass": true, "rule": "vowel-alias" },
+      "distance": 0
+    },
+    {
+      "name": "vowel-i-alias-hi",
+      "lesson": 1,
+      "target": "i",
+      "transcript": "hi",
+      "expect": { "pass": true, "rule": "vowel-alias" },
+      "distance": 0
+    },
+    {
+      "name": "vowel-i-alias-ii",
+      "lesson": 1,
+      "target": "i",
+      "transcript": "ii",
+      "expect": { "pass": true, "rule": "vowel-alias" },
+      "distance": 0
+    },
+    {
+      "name": "vowel-u-alias-uh",
+      "lesson": 1,
+      "target": "u",
+      "transcript": "uh",
+      "expect": { "pass": true, "rule": "vowel-alias" },
+      "distance": 0
+    },
+    {
+      "name": "vowel-u-alias-hu",
+      "lesson": 1,
+      "target": "u",
+      "transcript": "hu",
+      "expect": { "pass": true, "rule": "vowel-alias" },
+      "distance": 0
+    },
+    {
+      "name": "vowel-u-accented-ú",
+      "lesson": 1,
+      "target": "u",
+      "transcript": "ú",
+      "expect": { "pass": true, "rule": "contains" },
+      "distance": 0
+    },
+    {
+      "name": "vowel-exact-in-a-sentence",
+      "lesson": 1,
+      "target": "o",
+      "transcript": "la vocal o",
+      "expect": { "pass": true, "rule": "contains" },
+      "distance": 0
+    },
+    {
+      "name": "vowel-alias-in-a-sentence",
+      "lesson": 1,
+      "target": "a",
+      "transcript": "dije ah",
+      "expect": { "pass": true, "rule": "vowel-alias" },
+      "distance": 0
+    },
+    {
+      "name": "threshold-3-letter-distance-1-passes",
+      "lesson": 2,
+      "target": "oso",
+      "transcript": "eso",
+      "expect": { "pass": true, "rule": "edit-distance" },
+      "distance": 1
+    },
+    {
+      "name": "threshold-3-letter-distance-2-fails",
+      "lesson": 2,
+      "target": "oso",
+      "transcript": "osito",
+      "expect": { "pass": false, "rule": "none" },
+      "distance": 2
+    },
+    {
+      "name": "threshold-5-letter-distance-1-passes",
+      "lesson": 2,
+      "target": "oveja",
+      "transcript": "ovejo",
+      "expect": { "pass": true, "rule": "edit-distance" },
+      "distance": 1
+    },
+    {
+      "name": "threshold-7-letter-distance-2-passes",
+      "lesson": 1,
+      "target": "abanico",
+      "transcript": "anico",
+      "expect": { "pass": true, "rule": "edit-distance" },
+      "distance": 2
+    },
+    {
+      "name": "threshold-7-letter-distance-3-fails",
+      "lesson": 1,
+      "target": "abanico",
+      "transcript": "bico",
+      "expect": { "pass": false, "rule": "none" },
+      "distance": 3
+    },
+    {
+      "name": "alternatives-rescue",
+      "lesson": 2,
+      "target": "ojos",
+      "transcript": "mmm",
+      "alternatives": ["ojos"],
+      "expect": { "pass": true, "rule": "contains" },
+      "distance": 0
+    },
+    {
+      "name": "alternatives-all-fail",
+      "lesson": 2,
+      "target": "ocho",
+      "transcript": "mmm",
+      "alternatives": ["nnn"],
+      "expect": { "pass": false, "rule": "none" }
+    },
+    {
+      "name": "no-match-far-away-sentence",
+      "lesson": 2,
+      "target": "oso",
+      "transcript": "el perro",
+      "expect": { "pass": false, "rule": "none" }
+    }
+  ]
+}

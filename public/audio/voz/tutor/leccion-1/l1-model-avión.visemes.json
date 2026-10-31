@@ -1,0 +1,62 @@
+{
+  "metadata": {
+    "soundFile": "/audio/voz/vocabulario/avión.mp3",
+    "duration": 1.51,
+    "rhubarbVersion": "1.14.0",
+    "recognizer": "phonetic",
+    "extendedShapes": "GX",
+    "sourceSha256": "c6f4ea04b8eaed7a5314ea934c9d6a41b4e704f2dce4f68de882979c4eafb20a"
+  },
+  "mouthCues": [
+    {
+      "start": 0,
+      "end": 0.21,
+      "value": "X"
+    },
+    {
+      "start": 0.21,
+      "end": 0.29,
+      "value": "A"
+    },
+    {
+      "start": 0.29,
+      "end": 0.38,
+      "value": "C"
+    },
+    {
+      "start": 0.38,
+      "end": 0.46,
+      "value": "A"
+    },
+    {
+      "start": 0.46,
+      "end": 0.59,
+      "value": "B"
+    },
+    {
+      "start": 0.59,
+      "end": 0.8,
+      "value": "C"
+    },
+    {
+      "start": 0.8,
+      "end": 0.87,
+      "value": "E"
+    },
+    {
+      "start": 0.87,
+      "end": 0.94,
+      "value": "C"
+    },
+    {
+      "start": 0.94,
+      "end": 1.29,
+      "value": "B"
+    },
+    {
+      "start": 1.29,
+      "end": 1.51,
+      "value": "X"
+    }
+  ]
+}

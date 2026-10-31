@@ -1,0 +1,62 @@
+{
+  "metadata": {
+    "soundFile": "/audio/voz/vocabulario/aguja.mp3",
+    "duration": 1.64,
+    "rhubarbVersion": "1.14.0",
+    "recognizer": "phonetic",
+    "extendedShapes": "GX",
+    "sourceSha256": "cec6e62a75ea88aadf9851e76b0808968ee103d20d2caad54e3b0793b6bd502d"
+  },
+  "mouthCues": [
+    {
+      "start": 0,
+      "end": 0.21,
+      "value": "X"
+    },
+    {
+      "start": 0.21,
+      "end": 0.29,
+      "value": "A"
+    },
+    {
+      "start": 0.29,
+      "end": 0.43,
+      "value": "C"
+    },
+    {
+      "start": 0.43,
+      "end": 0.5,
+      "value": "E"
+    },
+    {
+      "start": 0.5,
+      "end": 0.71,
+      "value": "B"
+    },
+    {
+      "start": 0.71,
+      "end": 0.78,
+      "value": "F"
+    },
+    {
+      "start": 0.78,
+      "end": 1.06,
+      "value": "B"
+    },
+    {
+      "start": 1.06,
+      "end": 1.2,
+      "value": "C"
+    },
+    {
+      "start": 1.2,
+      "end": 1.41,
+      "value": "B"
+    },
+    {
+      "start": 1.41,
+      "end": 1.64,
+      "value": "X"
+    }
+  ]
+}

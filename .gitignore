@@ -78,3 +78,7 @@ public/cartilla/art/test-overlays/
 .cartilla-art-backup/
 verification-screenshots/
 verification-screenshots-fresh/
+
+# Vosk on-device speech model binary (scripts/fetch-vosk-model.mjs) — never committed
+public/models/vosk/
+.tools/

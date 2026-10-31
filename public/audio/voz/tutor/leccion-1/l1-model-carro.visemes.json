@@ -1,0 +1,37 @@
+{
+  "metadata": {
+    "soundFile": "/audio/voz/vocabulario/carro.mp3",
+    "duration": 1.38,
+    "rhubarbVersion": "1.14.0",
+    "recognizer": "phonetic",
+    "extendedShapes": "GX",
+    "sourceSha256": "9499110592d6b25611294dee6b2ee157d37a6d190e6687272bf62d0c30db5ebc"
+  },
+  "mouthCues": [
+    {
+      "start": 0,
+      "end": 0.26,
+      "value": "X"
+    },
+    {
+      "start": 0.26,
+      "end": 0.32,
+      "value": "B"
+    },
+    {
+      "start": 0.32,
+      "end": 0.73,
+      "value": "C"
+    },
+    {
+      "start": 0.73,
+      "end": 1.08,
+      "value": "B"
+    },
+    {
+      "start": 1.08,
+      "end": 1.38,
+      "value": "X"
+    }
+  ]
+}

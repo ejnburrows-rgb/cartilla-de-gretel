@@ -24,6 +24,7 @@ export function WelcomeSplash() {
           <p>¡Hola! Soy Gretel. Vamos a aprender a leer juntos.</p>
           <nav className="lc-welcome__actions" aria-label="Entrar">
             <Link to="/cartilla/lecciones" className="lc-button lc-button--primary" data-testid="wc-entrar">Comenzar</Link>
+            <Link to="/tutor" className="lc-button lc-button--tutor" data-testid="wc-tutor" aria-label="Tutor interactivo de Gretel">Tutor Gretel</Link>
             <Link to="/cartilla/teacher/crm" className="lc-button lc-button--teacher">Soy maestro</Link>
           </nav>
         </section>

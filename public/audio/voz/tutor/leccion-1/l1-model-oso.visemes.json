@@ -1,0 +1,62 @@
+{
+  "metadata": {
+    "soundFile": "/audio/voz/vocabulario/oso.mp3",
+    "duration": 1.49,
+    "rhubarbVersion": "1.14.0",
+    "recognizer": "phonetic",
+    "extendedShapes": "GX",
+    "sourceSha256": "49c2fd2c1336e1992e172d1f4232f68f5df9beb990bff96b38fbab34f9036b3c"
+  },
+  "mouthCues": [
+    {
+      "start": 0,
+      "end": 0.33,
+      "value": "X"
+    },
+    {
+      "start": 0.33,
+      "end": 0.39,
+      "value": "B"
+    },
+    {
+      "start": 0.39,
+      "end": 0.51,
+      "value": "E"
+    },
+    {
+      "start": 0.51,
+      "end": 0.58,
+      "value": "C"
+    },
+    {
+      "start": 0.58,
+      "end": 0.79,
+      "value": "B"
+    },
+    {
+      "start": 0.79,
+      "end": 0.93,
+      "value": "E"
+    },
+    {
+      "start": 0.93,
+      "end": 1,
+      "value": "F"
+    },
+    {
+      "start": 1,
+      "end": 1.1,
+      "value": "A"
+    },
+    {
+      "start": 1.1,
+      "end": 1.18,
+      "value": "B"
+    },
+    {
+      "start": 1.18,
+      "end": 1.49,
+      "value": "X"
+    }
+  ]
+}

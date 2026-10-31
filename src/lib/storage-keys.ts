@@ -59,6 +59,13 @@ export const KEYS = {
   a11yReducedMotion: "cartilla.a11y.reduced-motion.v1",
   a11yReadingRuler: "cartilla.a11y.reading-ruler.v1",
   a11yLargeText: "cartilla.a11y.large-text.v1",
+
+  // Tutor (Gretel tutor, Lecciones 1–3) — keys defined by the tutor modules:
+  // tutor-progress.ts (progress log), tutor-memory.ts (per-slot memory),
+  // tutor-offline-pack.ts (finished pack marker).
+  tutorProgress: "cartilla.tutor.progress.v1",
+  tutorMemory: "cartilla.tutor.memory.v1",
+  tutorPackMarker: "cartilla.tutor.pack.v1",
 } as const;
 
 export type StorageKey = keyof typeof KEYS;

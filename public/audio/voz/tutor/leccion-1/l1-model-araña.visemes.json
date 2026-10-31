@@ -1,0 +1,37 @@
+{
+  "metadata": {
+    "soundFile": "/audio/voz/vocabulario/araña.mp3",
+    "duration": 1.48,
+    "rhubarbVersion": "1.14.0",
+    "recognizer": "phonetic",
+    "extendedShapes": "GX",
+    "sourceSha256": "d35b8529dbb1e1c3c25efbda52866687cd2b075541e06cf08c7c1e841fbe93e8"
+  },
+  "mouthCues": [
+    {
+      "start": 0,
+      "end": 0.16,
+      "value": "X"
+    },
+    {
+      "start": 0.16,
+      "end": 0.24,
+      "value": "A"
+    },
+    {
+      "start": 0.24,
+      "end": 0.66,
+      "value": "C"
+    },
+    {
+      "start": 0.66,
+      "end": 1.22,
+      "value": "B"
+    },
+    {
+      "start": 1.22,
+      "end": 1.48,
+      "value": "X"
+    }
+  ]
+}
