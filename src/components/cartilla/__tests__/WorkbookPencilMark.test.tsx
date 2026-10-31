@@ -126,6 +126,35 @@ describe("WorkbookPencilMark shared feedback kernel", () => {
     }
   });
 
+
+  it("uses exactly one animated wooden pencil through both X strokes and restores the cursor", () => {
+    document.documentElement.classList.add("student-pencil");
+    const { container, unmount } = render(<WorkbookPencilMark markType="x" isCorrect itemId="p0-one-x" />);
+    const movingPencils = () => document.querySelectorAll(".workbook-pencil-flight .workbook-pencil__shape");
+    expect(movingPencils()).toHaveLength(1);
+    expect(container.querySelectorAll(".workbook-pencil-mark__svg .workbook-pencil-mark__stroke")).toHaveLength(2);
+    const motion = document.querySelector(".workbook-pencil-flight .workbook-pencil animateMotion");
+    expect(motion?.getAttribute("keyTimes")?.split(";")).toHaveLength(5);
+    expect(motion?.getAttribute("keyPoints")?.split(";")).toHaveLength(5);
+    expect(document.documentElement.classList.contains("workbook-pencil-active")).toBe(true);
+    act(() => vi.advanceTimersByTime(drawMs - 1));
+    expect(movingPencils()).toHaveLength(1);
+    act(() => vi.advanceTimersByTime(1));
+    expect(movingPencils()).toHaveLength(1);
+    act(() => vi.advanceTimersByTime(holdMs));
+    expect(document.documentElement.classList.contains("workbook-pencil-active")).toBe(false);
+    unmount();
+    document.documentElement.classList.remove("student-pencil");
+  });
+
+  it("keeps a single moving pencil for circle marks and no flight for restored marks", () => {
+    const { unmount } = render(<WorkbookPencilMark markType="circle" isCorrect itemId="p0-one-circle" />);
+    expect(document.querySelectorAll(".workbook-pencil-flight .workbook-pencil__shape")).toHaveLength(1);
+    unmount();
+    render(<WorkbookPencilMark markType="x" status="correct" itemId="p0-restored" />);
+    expect(document.querySelectorAll(".workbook-pencil-flight .workbook-pencil__shape")).toHaveLength(0);
+  });
+
   it("has no HB stamp on the pencil (#720 F03)", () => {
     const { container } = render(<ClassicWoodenPencil />);
     expect(container.querySelector("svg text")).toBeNull();
