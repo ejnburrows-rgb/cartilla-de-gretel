@@ -8,7 +8,7 @@ import { useActivityEvents, useActivityState } from "@/lib/activity-events";
 import { playCorrectChord } from "@/lib/piano-audio";
 import { loadLassoProgress, saveLassoProgress } from "@/lib/activity-canvas-store";
 import { useReducedMotion } from "@/hooks/useReducedMotion";
-import { PencilShape, WorkbookPencilMark, WORKBOOK_MARK_TIMING } from "@/components/cartilla/WorkbookPencilMark";
+import { PencilShape, WorkbookPencilMark, WORKBOOK_MARK_TIMING, useWorkbookPencilTurn } from "@/components/cartilla/WorkbookPencilMark";
 import type { WorkbookObject } from "@/content/workbook/types";
 import type { InteractionProps } from "./shared";
 import "@/styles/activity-mechanics.css";
@@ -160,7 +160,17 @@ export function DirectPencilConnector({
   const [dragStartId, setDragStartId] = useState<string | null>(null);
   const [dragPt, setDragPt] = useState<Pt | null>(null);
   const [hoverTargetId, setHoverTargetId] = useState<string | null>(null);
-  const [wrongLine, setWrongLine] = useState<{ from: Pt; to: Pt; targetId: string } | null>(null);
+  const retryId = useRef(0);
+  const [wrongLines, setWrongLines] = useState<{ from: Pt; to: Pt; targetId: string; retryId: number }[]>([]);
+  const wrongLine = wrongLines[0] ?? null;
+  const hasPencilTurn = useWorkbookPencilTurn(isDragging || wrongLine !== null);
+  // Retain attempts made during erasure; only one physical tool acts at once.
+  useEffect(() => {
+    if (!wrongLine || !hasPencilTurn) return;
+    const timer = window.setTimeout(() => setWrongLines((lines) => lines.slice(1)),
+      reducedMotion ? WORKBOOK_MARK_TIMING.reducedEraseMs : WORKBOOK_MARK_TIMING.eraseMs);
+    return () => window.clearTimeout(timer);
+  }, [wrongLine, hasPencilTurn, reducedMotion]);
   const [completed, setCompleted] = useState(false);
   const [isExpanded, setIsExpanded] = useState(false);
   const finishedRef = useRef(false);
@@ -413,11 +423,8 @@ export function DirectPencilConnector({
         recordWrong();
         const from = centerPt;
         const to = getTargetCenter(target.id);
-        setWrongLine({ from, to, targetId: target.id });
-        const retryDuration = reducedMotion
-          ? WORKBOOK_MARK_TIMING.reducedEraseMs
-          : WORKBOOK_MARK_TIMING.eraseMs;
-        setTimeout(() => setWrongLine(null), retryDuration);
+        const id = ++retryId.current;
+        setWrongLines((lines) => [...lines, { from, to, targetId: target.id, retryId: id }]);
         onResult?.({ objectId: target.id, result: "wrong" });
       }
     },
@@ -446,11 +453,8 @@ export function DirectPencilConnector({
         recordWrong();
         const from = getTargetCenter(left.id);
         const to = getTargetCenter(right.id);
-        setWrongLine({ from, to, targetId: right.id });
-        const retryDuration = reducedMotion
-          ? WORKBOOK_MARK_TIMING.reducedEraseMs
-          : WORKBOOK_MARK_TIMING.eraseMs;
-        setTimeout(() => setWrongLine(null), retryDuration);
+        const id = ++retryId.current;
+        setWrongLines((lines) => [...lines, { from, to, targetId: right.id, retryId: id }]);
         onResult?.({ objectId: right.id, result: "wrong" });
       }
     },
@@ -670,7 +674,7 @@ export function DirectPencilConnector({
               />
               <circle cx={dragPt.x} cy={dragPt.y} r={6} fill="#0f766e" />
               {/* Wooden Pencil at Tip */}
-              {(() => {
+              {hasPencilTurn && !wrongLine && !reducedMotion && (() => {
                 const angle =
                   Math.atan2(dragPt.y - activeStartPt.y, dragPt.x - activeStartPt.x) *
                   (180 / Math.PI);
@@ -687,8 +691,8 @@ export function DirectPencilConnector({
           )}
 
           {/* Wrong Retry Line with Pencil Rotating to Eraser (Shared Kernel Animation) */}
-          {wrongLine && (
-            <g className="am-direct-pencil__retry-group">
+          {wrongLine && hasPencilTurn && (
+            <g key={wrongLine.retryId} className="am-direct-pencil__retry-group">
               {reducedMotion ? (
                 <line
                   className="am-direct-pencil__retry-line"

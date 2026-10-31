@@ -224,6 +224,14 @@ html.student-pencil body {
     auto;
 }
 
+/* While a physical Workbook tool works, use the ordinary system arrow on
+ * page paper. Button, text, disabled and accessibility cursor rules below stay
+ * intact; the approved pencil cursor returns as soon as the tool is finished. */
+html.student-pencil[data-workbook-pencil-active],
+html.student-pencil[data-workbook-pencil-active] body {
+  cursor: auto;
+}
+
 /* Anything clickable still says "you can click me". */
 html.student-pencil a,
 html.student-pencil button,
