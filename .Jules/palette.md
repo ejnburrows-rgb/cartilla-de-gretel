@@ -1,0 +1,3 @@
+## 2026-10-31 - Added ARIA labels to teacher CRM assignment buttons
+**Learning:** Found that the main teacher assignment table in the CRM had some icon-only buttons for critical actions ("add task" and "delete task"). The delete task icon didn't even have a hover text so screen readers wouldn't know what it does or what assignment it deletes. Adding a dynamic aria-label containing the task name is a very useful pattern to avoid generic "Delete" announcements that lack context.
+**Action:** When adding ARIA labels for row-based or loop-based items, make sure to try to add contextual information to the label such as the title of the item, rather than just using generic labels like "Delete item".

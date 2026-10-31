@@ -76,6 +76,7 @@ export function TaskList({ classId }: TaskListProps) {
         </h3>
         <button
           onClick={() => setIsCreating(!isCreating)}
+          aria-label={isCreating ? "Cancelar asignación" : "Crear nueva asignación"}
           className="bg-[#4f46e5] text-white p-2 rounded-xl hover:bg-[#4338ca] hover:scale-105 active:scale-95 transition-all shadow-md"
         >
           <Plus className="w-5 h-5" />
@@ -202,6 +203,7 @@ export function TaskList({ classId }: TaskListProps) {
                   <button
                     onClick={() => deleteMut.mutate(task.id)}
                     disabled={deleteMut.isPending}
+                    aria-label={`Eliminar asignación ${task.title || (entry ? `L${entry.n} — ${entry.title}` : "Tarea")}`}
                     className="text-stone-300 hover:text-red-500 opacity-0 group-hover:opacity-100 transition-opacity"
                   >
                     <Trash2 className="w-4 h-4" />
