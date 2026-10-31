@@ -74,6 +74,8 @@ const AXIS: [number, number] = [
 ];
 /** Extra distance (mark units) past the screen's right edge, so no part of the tool shows before it enters. */
 const OFFSCREEN_MARGIN = 24;
+/** All Workbook flights share one cursor-visibility gate (including quick successive marks). */
+let activeWorkbookPencilFlights = 0;
 
 /**
  * A polished yellow school pencil: three lit hexagonal facets with a scalloped
@@ -680,6 +682,7 @@ function DrawingPencil({
   last,
   offscreen,
   stretch,
+  crossTiming,
 }: {
   path: string;
   begin?: number;
@@ -694,10 +697,18 @@ function DrawingPencil({
   offscreen: string;
   /** Extra body length so the pencil runs off the edge of the screen. */
   stretch: number;
+  /** One pencil travels both legs of an X, including the lifted repositioning. */
+  crossTiming?: { firstFraction: number; hopFraction: number; firstMs: number; hopMs: number };
 }) {
   const travel = approach + dur;
   const total = travel + lift;
   const a = (approach / travel).toFixed(4);
+  const motionKeyTimes = crossTiming
+    ? `0;${a};${((approach + crossTiming.firstMs) / travel).toFixed(4)};${((approach + crossTiming.firstMs + crossTiming.hopMs) / travel).toFixed(4)};1`
+    : `0;${a};1`;
+  const motionKeyPoints = crossTiming
+    ? `0;0;${crossTiming.firstFraction.toFixed(5)};${crossTiming.hopFraction.toFixed(5)};1`
+    : "0;0;1";
   const kApproach = (approach / total).toFixed(4);
   const kDone = (travel / total).toFixed(4);
   // Between the two strokes of an X the pencil only hops a little off the paper.
@@ -710,10 +721,10 @@ function DrawingPencil({
         begin={`${begin}ms`}
         dur={`${travel}ms`}
         fill="freeze"
-        calcMode="spline"
-        keyTimes={`0;${a};1`}
-        keyPoints="0;0;1"
-        keySplines={`0 0 1 1;${EASE}`}
+        calcMode={crossTiming ? "linear" : "spline"}
+        keyTimes={motionKeyTimes}
+        keyPoints={motionKeyPoints}
+        keySplines={crossTiming ? undefined : `0 0 1 1;${EASE}`}
         path={path}
       />
       <animate attributeName="opacity" begin={`${begin}ms`} dur={`${total}ms`} values="1;1" />
@@ -931,6 +942,18 @@ export function WorkbookPencilMark({
     !reducedMotion &&
     !externalStatus &&
     (currentStatus === "drawing" || currentStatus === "holding" || currentStatus === "erasing");
+  // During an animated mark, hide the decorative OS pencil cursor: the physical
+  // Workbook pencil is the only pointer-shaped tool visible. Restore on exit.
+  useEffect(() => {
+    if (!flying || typeof document === "undefined") return;
+    activeWorkbookPencilFlights += 1;
+    const root = document.documentElement;
+    root.classList.add("workbook-pencil-active");
+    return () => {
+      activeWorkbookPencilFlights = Math.max(0, activeWorkbookPencilFlights - 1);
+      if (activeWorkbookPencilFlights === 0) root.classList.remove("workbook-pencil-active");
+    };
+  }, [flying]);
   // Keep the close-up a moment on a right answer's green circle before zooming out.
   const [lingerDone, setLingerDone] = useState(false);
   useEffect(() => {
@@ -1041,6 +1064,27 @@ export function WorkbookPencilMark({
   const scrubPeriod = 220;
   const lastPath = strokes[strokes.length - 1];
   const lastPoints = strokePoints[strokePoints.length - 1];
+  // Join the two X strokes with a visible pencil lift/reposition, not a second pencil.
+  const crossPath =
+    markType === "x" && strokes.length === 2
+      ? `${strokes[0]} L ${f2(strokePoints[1][0][0])} ${f2(strokePoints[1][0][1])}${strokes[1].slice(strokes[1].indexOf(" C"))}`
+      : null;
+  const crossTiming = (() => {
+    if (!crossPath) return undefined;
+    const length = (points: Pt[]) =>
+      points.slice(1).reduce((sum, p, i) => sum + Math.hypot(p[0] - points[i][0], p[1] - points[i][1]), 0);
+    const firstLength = length(strokePoints[0]);
+    const firstEnd = strokePoints[0][strokePoints[0].length - 1];
+    const secondStart = strokePoints[1][0];
+    const hopLength = Math.hypot(firstEnd[0] - secondStart[0], firstEnd[1] - secondStart[1]);
+    const total = firstLength + hopLength + length(strokePoints[1]);
+    return {
+      firstFraction: firstLength / total,
+      hopFraction: (firstLength + hopLength) / total,
+      firstMs: strokeDur,
+      hopMs,
+    };
+  })();
 
   /**
    * Owner 2026-10-08: the pencil and the eraser come from off the right edge of the
@@ -1068,21 +1112,38 @@ export function WorkbookPencilMark({
           >
             {toolDefs}
             {!erasing &&
-              strokes.map((d, i) => (
+              (crossPath ? (
                 <DrawingPencil
-                  key={`p${i}`}
-                  path={d}
-                  begin={schedule[i].pencilBegin}
-                  approach={schedule[i].approach}
-                  dur={strokeDur}
-                  lift={i === strokes.length - 1 ? liftMs : hopMs}
+                  path={crossPath}
+                  begin={0}
+                  approach={approachMs}
+                  dur={drawMs - approachMs}
+                  lift={liftMs}
                   shadow={shadowId}
-                  uid={`${baseId}-d${i}`}
-                  first={i === 0}
-                  last={i === strokes.length - 1}
-                  offscreen={offscreenFrom(flightBox, height, strokePoints[i][0])}
+                  uid={`${baseId}-cross`}
+                  first
+                  last
+                  offscreen={offscreenFrom(flightBox, height, strokePoints[0][0])}
                   stretch={stretch}
+                  crossTiming={crossTiming}
                 />
+              ) : (
+                strokes.map((d, i) => (
+                  <DrawingPencil
+                    key={`p${i}`}
+                    path={d}
+                    begin={schedule[i].pencilBegin}
+                    approach={schedule[i].approach}
+                    dur={strokeDur}
+                    lift={i === strokes.length - 1 ? liftMs : hopMs}
+                    shadow={shadowId}
+                    uid={`${baseId}-d${i}`}
+                    first={i === 0}
+                    last={i === strokes.length - 1}
+                    offscreen={offscreenFrom(flightBox, height, strokePoints[i][0])}
+                    stretch={stretch}
+                  />
+                ))
               ))}
             {erasing &&
               (() => {

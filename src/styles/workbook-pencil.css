@@ -62,3 +62,20 @@ html.workbook-close-up-zooming,
 html.workbook-close-up-zooming body {
   overflow: hidden;
 }
+
+/* P0: never show the separate mouse-cursor pencil while the physical Workbook
+   pencil/eraser flies. Preserve normal pointers in accessibility/forced colors. */
+@media (hover: hover) and (pointer: fine) {
+  html.student-pencil.workbook-pencil-active:not(.a11y-contrast):not(.a11y-dyslexia):not(.a11y-large):not(.a11y-xlarge),
+  html.student-pencil.workbook-pencil-active:not(.a11y-contrast):not(.a11y-dyslexia):not(.a11y-large):not(.a11y-xlarge) body,
+  html.student-pencil.workbook-pencil-active:not(.a11y-contrast):not(.a11y-dyslexia):not(.a11y-large):not(.a11y-xlarge) body * {
+    cursor: none !important;
+  }
+}
+@media (forced-colors: active) {
+  html.student-pencil.workbook-pencil-active,
+  html.student-pencil.workbook-pencil-active body,
+  html.student-pencil.workbook-pencil-active body * {
+    cursor: auto !important;
+  }
+}
