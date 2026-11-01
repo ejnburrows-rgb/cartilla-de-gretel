@@ -76,8 +76,8 @@ html.student-pencil .native-lesson-viewer * {
   z-index: 10000;
   left: 0;
   top: 0;
-  width: 112px;
-  height: 112px;
+  width: 240px;
+  height: auto;
   opacity: 0;
   pointer-events: none;
   transition: opacity 90ms ease-out;

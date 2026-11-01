@@ -68,12 +68,10 @@ for (const viewport of [{ width: 390, height: 844 }, { width: 1366, height: 768 
       await openWorkbook(page, 2);
       const cell = page.locator('.fp-ix-cell[data-gretel-correct="true"]').first();
       await expect(cell).toBeVisible();
-      const cursorAsset = await page.evaluate(async () => {
-        const response = await fetch("/cartilla/pencil-tip-cursor.svg");
-        const svg = await response.text();
-        return { ok: response.ok, width: /width="112"/.test(svg), point: /M0 0/.test(svg) };
-      });
-      expect(cursorAsset).toEqual({ ok: true, width: true, point: true });
+      const cursorAsset = page.locator(".workbook-pencil-touch-cursor");
+      await expect(cursorAsset).toHaveAttribute("src", "/cartilla/images/ui/owner-pencil-tip.webp");
+      await expect(cursorAsset).toHaveCSS("width", "240px");
+      await expect.poll(() => cursorAsset.evaluate((image) => (image as HTMLImageElement).naturalWidth)).toBe(600);
       const visibleCursor = page.locator(".workbook-pencil-touch-cursor");
       if (device === "desktop") {
         await cell.hover();

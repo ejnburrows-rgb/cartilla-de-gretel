@@ -54,7 +54,7 @@ export function NativeLessonViewer({
 }) {
   useEffect(() => {
     const cursor = document.createElement("img");
-    cursor.src = "/cartilla/pencil-tip-cursor.svg";
+    cursor.src = "/cartilla/images/ui/owner-pencil-tip.webp";
     cursor.alt = "";
     cursor.setAttribute("aria-hidden", "true");
     cursor.className = "workbook-pencil-touch-cursor";
