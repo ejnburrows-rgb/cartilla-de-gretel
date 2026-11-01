@@ -216,20 +216,10 @@ html.a11y-contrast .kid-card {
  * barrel, warm wood, red eraser, with a white outer edge so it stays visible
  * on both the cream pages and the darker garden scenes. The hotspot sits on
  * the graphite tip at the pencil's lower-left. */
-html.student-pencil,
-html.student-pencil body {
-  cursor:
-    url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='28' height='28' viewBox='0 0 28 28'%3E%3Cg transform='rotate(45 14 14)' stroke='%232b2b2b' stroke-width='1.1' stroke-linejoin='round'%3E%3Cpath d='M10.5 5.2a3.5 3.5 0 0 1 7 0V8h-7z' fill='%23e35d4a'/%3E%3Crect x='10.5' y='8' width='7' height='2.2' fill='%23cbd5e1'/%3E%3Crect x='10.5' y='10.2' width='7' height='9.8' fill='%23e8a820'/%3E%3Cpath d='M10.5 20h7L14 25.6z' fill='%23f5d6a0'/%3E%3Cpath d='M12.4 23h3.2L14 25.6z' fill='%233a3a3a' stroke='none'/%3E%3C/g%3E%3C/svg%3E")
-      6 22,
-    auto;
-}
-
-/* While a physical Workbook tool works, use the ordinary system arrow on
- * page paper. Button, text, disabled and accessibility cursor rules below stay
- * intact; the approved pencil cursor returns as soon as the tool is finished. */
-html.student-pencil[data-workbook-pencil-active],
-html.student-pencil[data-workbook-pencil-active] body {
-  cursor: auto;
+/* The shared DOM pencil is the only visible cursor inside the workbook. */
+html.student-pencil .native-lesson-viewer,
+html.student-pencil .native-lesson-viewer * {
+  cursor: none !important;
 }
 
 /* Anything clickable still says "you can click me". */

@@ -296,18 +296,18 @@ describe("Approved wooden pencil connector — line and pair matching", () => {
       const original = container.querySelector(".am-direct-pencil__retry-group");
       const center = screen.getByRole("button", { name: "Vocal central Uu" });
       fireEvent.pointerDown(center, { clientX: 100, clientY: 100, pointerId: 1, button: 0 });
-      expect(container.querySelectorAll(".workbook-pencil__shape")).toHaveLength(1);
+      expect(container.querySelectorAll(".workbook-pencil__shape")).toHaveLength(0);
       // A second wrong attempt is queued, and cannot restart the first eraser.
       fireEvent.click(screen.getByRole("button", { name: "estrella" }));
       expect(container.querySelector(".am-direct-pencil__retry-group")).toBe(original);
       expect(onResult).toHaveBeenCalledTimes(2);
       act(() => vi.advanceTimersByTime(3000));
       expect(container.querySelector(".am-direct-pencil__retry-group")).not.toBe(original);
-      expect(container.querySelectorAll(".workbook-pencil__shape")).toHaveLength(1);
+      expect(container.querySelectorAll(".workbook-pencil__shape")).toHaveLength(0);
       act(() => vi.advanceTimersByTime(4000));
       expect(container.querySelector(".am-direct-pencil__retry-group")).toBeNull();
       // The input held during erasure resumes, rather than being discarded.
-      expect(container.querySelector(".am-direct-pencil__active-line .workbook-pencil__shape")).toBeTruthy();
+      expect(container.querySelector(".am-direct-pencil__active-line .workbook-pencil__shape")).toBeNull();
       fireEvent.pointerCancel(container.querySelector(".am-direct-pencil__stage")!);
       expect(document.documentElement.hasAttribute("data-workbook-pencil-active")).toBe(false);
     } finally {

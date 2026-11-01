@@ -55,9 +55,9 @@ export const LIVING_ACTORS: Readonly<Record<string, LivingActor>> = Object.freez
   // Flip Chart sheets (Láminas 4, 6, 7): same drawings as Workbook Page 1, same
   // approved part motion (scripts/living-motion/fc_natives.py).
   [`${FC_NATIVE}/p004-oso.png`]: { src: `${FC_NATIVE}/p004-oso.png`, aliveSrc: `${FC_NATIVE}/p004-oso-alive.svg`, action: "breathe", creature: true, reducedMotion: "static", meaning: "respiración, parpadeo y alas de la abeja" },
-  [`${FC_NATIVE}/p004-oveja.png`]: { src: `${FC_NATIVE}/p004-oveja.png`, aliveSrc: `${FC_NATIVE}/p004-oveja-alive.svg`, action: "nod", creature: true, reducedMotion: "static", meaning: "parpadeo y oreja que se mueve" },
+  [`${FC_NATIVE}/p004-oveja.png`]: { src: `${FC_NATIVE}/p004-oveja.png`, action: "nod", creature: true, reducedMotion: "static", meaning: "parpadeo y oreja que se mueve" },
   [`${FC_NATIVE}/p004-olla.png`]: { src: `${FC_NATIVE}/p004-olla.png`, aliveSrc: `${FC_NATIVE}/p004-olla-alive.svg`, action: "float", creature: false, reducedMotion: "static", meaning: "vapor que sube de la olla" },
-  [`${FC_NATIVE}/p006-elefante.png`]: { src: `${FC_NATIVE}/p006-elefante.png`, aliveSrc: `${FC_NATIVE}/p006-elefante-alive.svg`, action: "nod", creature: true, reducedMotion: "static", meaning: "trompa, orejas y parpadeo" },
+  [`${FC_NATIVE}/p006-elefante.png`]: { src: `${FC_NATIVE}/p006-elefante.png`, action: "nod", creature: true, reducedMotion: "static", meaning: "trompa, orejas y parpadeo" },
   [`${FC_NATIVE}/p007-iman.png`]: { src: `${FC_NATIVE}/p007-iman.png`, aliveSrc: `${FC_NATIVE}/p007-iman-alive.svg`, action: "float", creature: false, reducedMotion: "static", meaning: "clips atraídos por el imán, líneas del campo y chispas" },
   // Workbook Page 1 (owner color art / printed drawings): same meaning as the
   // faithful actors, whole-picture motion only (part rigs belong to other crops).
@@ -72,7 +72,6 @@ export const LIVING_ACTORS: Readonly<Record<string, LivingActor>> = Object.freez
   },
   [`${W1}/oveja.svg`]: {
     src: `${W1}/oveja.svg`,
-    aliveSrc: `${W1}/oveja-alive.svg`,
     action: "nod",
     creature: true,
     reducedMotion: "static",
@@ -96,7 +95,6 @@ export const LIVING_ACTORS: Readonly<Record<string, LivingActor>> = Object.freez
   },
   [`${W1}/elefante.svg`]: {
     src: `${W1}/elefante.svg`,
-    aliveSrc: `${W1}/elefante-alive.svg`,
     action: "nod",
     creature: true,
     blinkFrame: `${W1}/elefante-blink.svg`,
@@ -135,12 +133,12 @@ export const LIVING_ACTORS: Readonly<Record<string, LivingActor>> = Object.freez
     meaning: "vuelo suspendido de abeja",
   },
   [`${A}/vocal-o/oso.webp`]: { src: `${A}/vocal-o/oso.webp`, aliveSrc: `${A}/vocal-o/oso-alive.svg`, action: "breathe", creature: true, blinkFrame: `${A}/vocal-o/oso-blink.webp`, reducedMotion: "static", meaning: "respiración y mirada natural" },
-  [`${A}/vocal-o/oveja.webp`]: { src: `${A}/vocal-o/oveja.webp`, aliveSrc: `${A}/vocal-o/oveja-alive.svg`, action: "nod", creature: true, reducedMotion: "static", meaning: "gesto suave de oveja" },
+  [`${A}/vocal-o/oveja.webp`]: { src: `${A}/vocal-o/oveja.webp`, action: "nod", creature: true, reducedMotion: "static", meaning: "gesto suave de oveja" },
   [`${A}/vocal-o/olla.webp`]: { src: `${A}/vocal-o/olla.webp`, aliveSrc: `${A}/vocal-o/olla-alive.svg`, action: "float", creature: false, reducedMotion: "static", meaning: "vapor que sube de la olla" },
   [`${A}/vocal-a/abeja.webp`]: { src: `${A}/vocal-a/abeja.webp`, aliveSrc: `${A}/vocal-a/abeja-alive.svg`, action: "hover", creature: true, parts: [{ name: "wings", clipPath: "inset(8% 8% 48% 8%)", transformOrigin: "50% 58%" }], reducedMotion: "static", meaning: "vuelo suspendido con aleteo" },
   [`${A}/vocal-a/avion.webp`]: { src: `${A}/vocal-a/avion.webp`, aliveSrc: `${A}/vocal-a/avion-alive.svg`, action: "glide", creature: false, reducedMotion: "static", meaning: "desplazamiento de avión" },
   [`${A}/vocal-a/abanico.webp`]: { src: `${A}/vocal-a/abanico.webp`, aliveSrc: `${A}/vocal-a/abanico-alive.svg`, action: "sway", creature: false, reducedMotion: "static", meaning: "abanico que se mece" },
-  [`${A}/vocal-e/elefante.webp`]: { src: `${A}/vocal-e/elefante.webp`, aliveSrc: `${A}/vocal-e/elefante-alive.svg`, action: "nod", creature: true, parts: [{ name: "trunk", clipPath: "inset(20% 55% 18% 2%)", transformOrigin: "38% 45%" }], reducedMotion: "static", meaning: "trompa que se balancea con suavidad" },
+  [`${A}/vocal-e/elefante.webp`]: { src: `${A}/vocal-e/elefante.webp`, action: "nod", creature: true, parts: [{ name: "trunk", clipPath: "inset(20% 55% 18% 2%)", transformOrigin: "38% 45%" }], reducedMotion: "static", meaning: "trompa que se balancea con suavidad" },
   [`${A}/vocal-i/iman.webp`]: { src: `${A}/vocal-i/iman.webp`, aliveSrc: `${A}/vocal-i/iman-alive.svg`, action: "float", creature: false, reducedMotion: "static", meaning: "clips atraídos por el imán, líneas del campo y chispas" },
   // Held still (owner rule 2026-10-11: only the parts that really move may move;
   // whole pictures never bob, tilt, breathe or slide). Their old whole-picture

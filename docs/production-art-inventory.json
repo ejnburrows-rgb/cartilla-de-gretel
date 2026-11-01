@@ -1966,7 +1966,7 @@
         "src/data/page-layouts.json:1341",
         "src/data/page-layouts.json:1476",
         "src/data/page-layouts.json:895",
-        "src/data/stale-motion-art.json:37",
+        "src/data/stale-motion-art.json:9",
         "src/lib/art-delivery.ts:7"
       ]
     },
@@ -2228,7 +2228,7 @@
       "aspectRatio": 1.075402,
       "provenanceStatus": null,
       "sha256": "27e76b480a87f6c6df4bb08c20f21b7b6b55edf493b39e90073070c56a81d370",
-      "referenceCount": 13,
+      "referenceCount": 12,
       "referenceLocations": [
         "src/content/animal-gallery.ts:69",
         "src/content/lessons.json:92",
@@ -2241,8 +2241,7 @@
         "src/data/page-layouts.json:1097",
         "src/data/page-layouts.json:1451",
         "src/data/page-layouts.json:812",
-        "src/data/page-layouts.json:990",
-        "src/data/stale-motion-art.json:44"
+        "src/data/page-layouts.json:990"
       ]
     },
     {
@@ -2956,7 +2955,7 @@
       "aspectRatio": 1.055825,
       "provenanceStatus": null,
       "sha256": "5ba07a1511c28e7a3ad3db869970a37d8656716367a3c18d10394a29def46a32",
-      "referenceCount": 12,
+      "referenceCount": 11,
       "referenceLocations": [
         "src/content/animal-gallery.ts:93",
         "src/content/picture-vocabulary.json:987",
@@ -2968,8 +2967,7 @@
         "src/data/page-layouts.json:1421",
         "src/data/page-layouts.json:589",
         "src/data/page-layouts.json:671",
-        "src/data/page-layouts.json:797",
-        "src/data/stale-motion-art.json:51"
+        "src/data/page-layouts.json:797"
       ]
     },
     {

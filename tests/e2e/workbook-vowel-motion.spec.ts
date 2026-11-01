@@ -6,9 +6,7 @@ import { test, expect, type Page } from "@playwright/test";
 // pictures on the page stay still, and reduced motion shows the still drawing.
 const ALIVE: Record<string, string> = {
   oso: "/cartilla/art/faithful/vocal-o/oso-alive.svg",
-  oveja: "/cartilla/art/faithful/vocal-o/oveja-alive.svg",
   olla: "/cartilla/art/faithful/vocal-o/olla-alive.svg",
-  elefante: "/cartilla/art/faithful/vocal-e/elefante-alive.svg",
   avión: "/cartilla/art/faithful/vocal-a/avion-alive.svg",
   abeja: "/cartilla/art/faithful/vocal-a/abeja-alive.svg",
   abanico: "/cartilla/art/faithful/vocal-a/abanico-alive.svg",
@@ -77,11 +75,17 @@ for (const [viewport, size] of [
       for (const name of names) {
         const pic = all.find((p) => p.name === name && p.src.includes("/faithful/vocal-"));
         expect(pic, `${name} is on Lesson ${lesson}`).toBeTruthy();
-        expect(pic!.src, `${name} plays its natural-motion SVG`).toBe(ALIVE[name]);
-        expect(pic!.natural).toBe("true");
+        if (!ALIVE[name]) {
+          expect(pic!.src, `${name} uses the approved still image`).not.toContain("-alive.svg");
+          expect(pic!.natural).toBe("false");
+          expect(pic!.wholeMotion, `${name} stays still`).toBe(false);
+        } else {
+          expect(pic!.src, `${name} plays its natural-motion SVG`).toBe(ALIVE[name]);
+          expect(pic!.natural).toBe("true");
+          expect(pic!.parts).toBe(0);
+        }
         expect(pic!.width, `${name} decoded`).toBeGreaterThan(0);
         expect(pic!.wholeMotion, `${name} has no whole-picture CSS motion`).toBe(false);
-        expect(pic!.parts).toBe(0);
       }
       for (const p of all.filter((x) => STILL.includes(x.name))) {
         expect(p.wholeMotion, `${p.name} stays still`).toBe(false);

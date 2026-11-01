@@ -14,23 +14,19 @@
 }
 .workbook-pencil-mark__stroke {
   fill: none;
-  stroke: #46464d;
+  stroke: #3a3a38;
   stroke-width: 3.2;
   stroke-linecap: round;
   stroke-linejoin: round;
   stroke-opacity: 1;
-  /* Owner 2026-10-08: a crisp, solid line like the close-up reference. */
   shape-rendering: geometricPrecision;
+  transition: stroke 400ms ease;
 }
-/* Owner 2026-10-06: green from the first line when right, red when wrong. */
-.workbook-pencil-mark[data-mark-result="correct"] .workbook-pencil-mark__stroke,
 .workbook-pencil-mark[data-mark-status="correct"] .workbook-pencil-mark__stroke {
-  stroke: #16a34a;
-  stroke-opacity: 1;
+  stroke: #258351;
 }
-.workbook-pencil-mark[data-mark-result="wrong"] .workbook-pencil-mark__stroke {
-  stroke: #dc2626;
-  stroke-opacity: 1;
+.workbook-pencil-mark[data-mark-status="erasing"] .workbook-pencil-mark__stroke {
+  stroke: #c4320a;
 }
 .workbook-pencil-svg {
   width: 24px;
@@ -61,4 +57,44 @@
 html.workbook-close-up-zooming,
 html.workbook-close-up-zooming body {
   overflow: hidden;
+}
+
+/* Use the single page-following pencil image instead of a native cursor. */
+html.student-pencil .native-lesson-viewer,
+html.student-pencil .native-lesson-viewer * {
+  cursor: none !important;
+}
+
+/* Student answers use the pointer-tip cursor; autonomous flying pencil actors are disabled. */
+.am-direct-pencil__active-line .workbook-pencil__shape,
+.am-direct-pencil__retry-group .workbook-pencil__shape {
+  display: none !important;
+}
+
+.workbook-pencil-touch-cursor {
+  position: fixed;
+  z-index: 10000;
+  left: 0;
+  top: 0;
+  width: 240px;
+  height: auto;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 90ms ease-out;
+  will-change: transform, opacity;
+}
+
+@keyframes workbook-connection-correct {
+  from { stroke: #3a3a38; }
+  to { stroke: #258351; }
+}
+@keyframes workbook-connection-wrong {
+  from { stroke: #3a3a38; }
+  to { stroke: #c4320a; }
+}
+.workbook-connection--correct .workbook-connection-ink {
+  animation: workbook-connection-correct 400ms ease 400ms forwards;
+}
+.am-direct-pencil__retry-ink {
+  animation: workbook-connection-wrong 400ms ease forwards;
 }

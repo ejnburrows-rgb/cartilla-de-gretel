@@ -50,7 +50,7 @@ export const WORKBOOK_MARK_TIMING = {
   /** Pencil travels back out past the right edge of the screen after the mark is drawn. */
   liftMs: 800,
   /** Mark finished → result (the pencil has left the screen). */
-  holdMs: 800,
+  holdMs: 400,
   /** Eraser comes in, rubs the mark out with crumbs, leaves. */
   eraseMs: 4000,
   /** Eraser travel in from off the right edge of the screen (part of eraseMs). */
@@ -590,8 +590,8 @@ export const CLOSE_UP_ZOOM_MS = 1000;
 const CLOSE_UP_LINGER_MS = 1100;
 /** Close-up zoom (owner 2026-10-08): the tapped picture grows to about this many CSS px wide. */
 const CLOSE_UP_TARGET_PX = 220;
-/** Close-up zoom cap (#720 F04 conformance). Exported for the conformance test. */
-export const CLOSE_UP_MAX = 1.5;
+/** Keep answer focus in place; the worksheet region itself provides the 1.02× lift. */
+export const CLOSE_UP_MAX = 1.02;
 const CLOSE_UP_CLASS = "workbook-close-up-zooming";
 let closeUpOwner: symbol | null = null;
 let closeUpReset = 0;
@@ -669,112 +669,23 @@ function offscreenFrom(box: FlightBox, height: number, from: Pt): string {
   return `${f2(dx)} ${f2(-10)}`;
 }
 
-/**
- * Draw phase. The big pencil starts completely off the right edge of the screen,
- * travels in over everything on the way and touches down on the starting point
- * (`approach`), travels the mark exactly as the stroke is revealed (`dur`) with
- * the small wrist turns of a real hand, then travels back out past the right
- * edge of the screen (`lift`). Nothing clips it: it flies in its own layer.
- */
-function DrawingPencil({
-  paths,
-  points,
-  strokeDur,
-  hopMs,
-  shadow,
-  uid,
-  offscreen,
-  exit,
-  stretch,
-}: {
-  paths: string[];
-  points: Pt[][];
-  strokeDur: number;
-  hopMs: number;
-  shadow: string;
-  uid: string;
-  offscreen: string;
-  exit: string;
-  stretch: number;
-}) {
-  const { approachMs, drawMs, liftMs } = WORKBOOK_MARK_TIMING;
-  const total = drawMs + liftMs;
-  const kApproach = (approachMs / total).toFixed(6);
-  const kDone = (drawMs / total).toFixed(6);
+function PinkEraserBlock() {
   return (
-    <g className="workbook-pencil" opacity="0" filter={`url(#${shadow})`}>
-      {/* One physical shape for the entire mark. Later motion segments replace
-          the frozen previous segment on this SAME group, never another pencil. */}
-      {paths.map((path, i) => {
-        const begin = i === 0 ? 0 : approachMs + i * (strokeDur + hopMs);
-        const travel = i === 0 ? approachMs + strokeDur : strokeDur;
-        return (
-          <animateMotion
-            key={`stroke-${i}`}
-            begin={`${begin}ms`}
-            dur={`${travel}ms`}
-            fill="freeze"
-            calcMode="spline"
-            path={path}
-            keyTimes={i === 0 ? `0;${(approachMs / travel).toFixed(6)};1` : "0;1"}
-            keyPoints={i === 0 ? "0;0;1" : "0;1"}
-            keySplines={i === 0 ? `0 0 1 1;${EASE}` : EASE}
-          />
-        );
-      })}
-      {points.slice(1).map((next, i) => {
-        const from = points[i][points[i].length - 1];
-        const to = next[0];
-        // Lift gently while moving from the end of one diagonal to the start
-        // of the other. The mark paths stay separate, so this leaves no ink.
-        const bridge = `M ${f2(from[0])} ${f2(from[1])} Q ${f2((from[0] + to[0]) / 2 + AXIS[0] * 12)} ${f2((from[1] + to[1]) / 2 + AXIS[1] * 12)} ${f2(to[0])} ${f2(to[1])}`;
-        return (
-          <animateMotion
-            key={`hop-${i}`}
-            begin={`${approachMs + (i + 1) * strokeDur + i * hopMs}ms`}
-            dur={`${hopMs}ms`}
-            fill="freeze"
-            path={bridge}
-            calcMode="spline"
-            keyTimes="0;1"
-            keyPoints="0;1"
-            keySplines={EASE}
-          />
-        );
-      })}
-      <animate attributeName="opacity" dur={`${total}ms`} values="1;1" />
-      <g>
-        <animateTransform
-          attributeName="transform"
-          type="translate"
-          dur={`${total}ms`}
-          fill="freeze"
-          calcMode="spline"
-          values={`${offscreen};0 0;0 0;${exit}`}
-          keyTimes={`0;${kApproach};${kDone};1`}
-          keySplines="0.3 0 0.25 1;0 0 1 1;0.55 0 0.7 1"
-        />
-        <g>
-          <animateTransform
-            attributeName="transform"
-            type="rotate"
-            dur={`${total}ms`}
-            fill="freeze"
-            calcMode="spline"
-            values="2;0;-3;2;0;0"
-            keyTimes={`0;${kApproach};${((approachMs + (drawMs - approachMs) * 0.35) / total).toFixed(6)};${((approachMs + (drawMs - approachMs) * 0.75) / total).toFixed(6)};${kDone};1`}
-            keySplines={`0.3 0 0.4 1;${EASE};${EASE};${EASE};0 0 1 1`}
-          />
-          <g transform={PENCIL_POSE}>
-            <PencilShape uid={uid} stretch={stretch} />
-          </g>
-        </g>
-      </g>
+    <g className="workbook-pencil__eraser-only">
+      <defs>
+        <linearGradient id="pink-school-eraser" x1="0" y1="0" x2="1" y2="1">
+          <stop stopColor="#ffc4d0" />
+          <stop offset=".48" stopColor="#ef8da3" />
+          <stop offset="1" stopColor="#c95e78" />
+        </linearGradient>
+      </defs>
+      <rect x="-7" y="-8" width="14" height="16" rx="2.6" fill="url(#pink-school-eraser)" stroke="#a64b63" strokeWidth=".8" />
+      <path d="M-4 -5 Q0 -7 4 -5" fill="none" stroke="#fff4f6" strokeWidth="1" opacity=".8" />
+      <path d="M-5 5 Q0 7 5 5" fill="none" stroke="#a64b63" strokeWidth=".7" opacity=".45" />
     </g>
   );
 }
 
-/** One pencil stroke, revealed exactly as the pencil tip travels it. */
 function MarkStroke({
   path,
   animate,
@@ -1112,7 +1023,7 @@ export function WorkbookPencilMark({
    */
   const stretch = flightBox ? stretchToScreenEdge(flightBox, height) : 0;
   const flightLayer =
-    flying && flightBox && typeof document !== "undefined"
+    erasing && flying && flightBox && typeof document !== "undefined"
       ? createPortal(
           <svg
             key={erasing ? "erase-flight" : "draw-flight"}
@@ -1129,22 +1040,10 @@ export function WorkbookPencilMark({
             }}
           >
             {toolDefs}
-            {!erasing && (
-              <DrawingPencil
-                paths={strokes}
-                points={strokePoints}
-                strokeDur={strokeDur}
-                hopMs={hopMs}
-                shadow={shadowId}
-                uid={`${baseId}-d`}
-                offscreen={offscreenFrom(flightBox, height, strokePoints[0][0])}
-                exit={offscreenFrom(flightBox, height, lastPoints[lastPoints.length - 1])}
-                stretch={stretch}
-              />
-            )}
             {erasing &&
               (() => {
-                const off = offscreenFrom(flightBox, height, lastPoints[lastPoints.length - 1]);
+                const eraserBox = flightBox!;
+                const off = offscreenFrom(eraserBox, height, lastPoints[lastPoints.length - 1]);
                 return (
                   <g
                     className="workbook-pencil workbook-pencil--eraser"
@@ -1183,7 +1082,7 @@ export function WorkbookPencilMark({
                         />
                         <g transform={ERASER_POSE}>
                           <g transform={`rotate(180 0 ${f2(PENCIL_CENTER_Y - stretch / 2)})`}>
-                            <PencilShape uid={`${baseId}-e`} stretch={stretch} />
+                            <PinkEraserBlock />
                           </g>
                         </g>
                       </g>
