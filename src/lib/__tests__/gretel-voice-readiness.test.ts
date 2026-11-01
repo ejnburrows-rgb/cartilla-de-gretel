@@ -89,7 +89,7 @@ describe("Gretel Voice Readiness Architecture", () => {
     expect(() => cancelGretelSpeech()).not.toThrow();
   });
 
-  it("proves custom voice provider delegation", async () => {
+  it("keeps custom voice providers silent while TTS is disabled", async () => {
     const customSpeakFn = vi.fn().mockImplementation((text, handlers) => {
       handlers.onStart?.();
       handlers.onEnd?.();
@@ -112,38 +112,36 @@ describe("Gretel Voice Readiness Architecture", () => {
 
     await speakAsGretel("Hola niños", { onStart, onEnd });
 
-    expect(customSpeakFn).toHaveBeenCalledWith("Hola niños", expect.any(Object));
-    expect(onStart).toHaveBeenCalledTimes(1);
+    expect(customSpeakFn).not.toHaveBeenCalled();
+    expect(onStart).not.toHaveBeenCalled();
     expect(onEnd).toHaveBeenCalledTimes(1);
-    expect(startListener).toHaveBeenCalledTimes(1);
-    expect(stopListener).toHaveBeenCalledTimes(1);
+    expect(startListener).not.toHaveBeenCalled();
+    expect(stopListener).not.toHaveBeenCalled();
 
     window.removeEventListener("gretel:speak_start", startListener);
     window.removeEventListener("gretel:speak_stop", stopListener);
   });
 
-  it("ends interrupted custom speech exactly once", async () => {
-    let finishProvider = () => {};
-    const providerDone = new Promise<void>((resolve) => { finishProvider = () => resolve(); });
+  it("finishes a missing recording immediately so the next session step runs", async () => {
+    const customSpeakFn = vi.fn();
     setGretelVoiceProviderConfig({
       type: "custom",
       name: "Interruptible provider",
-      speakFn: async () => providerDone,
+      speakFn: customSpeakFn,
     });
     const onEnd = vi.fn();
     const stopListener = vi.fn();
     window.addEventListener("gretel:speak_stop", stopListener);
-    const pending = speakAsGretel("Interrumpir", { onEnd });
-    claimSpeech("picture");
+    const nextStep = vi.fn();
+    await speakAsGretel("No hay grabación aprobada", { onEnd }).then(nextStep);
     expect(onEnd).toHaveBeenCalledTimes(1);
-    finishProvider();
-    await pending;
-    expect(onEnd).toHaveBeenCalledTimes(1);
-    expect(stopListener).toHaveBeenCalledTimes(1);
+    expect(nextStep).toHaveBeenCalledOnce();
+    expect(customSpeakFn).not.toHaveBeenCalled();
+    expect(stopListener).not.toHaveBeenCalled();
     window.removeEventListener("gretel:speak_stop", stopListener);
   });
 
-  it("proves speakGretelPhrase in gretel-tts routes through speakAsGretel pipeline", async () => {
+  it("keeps tutor feedback silent when no approved recording is mapped", async () => {
     const customSpeakFn = vi.fn().mockResolvedValue(undefined);
     setGretelVoiceProviderConfig({
       type: "custom",
@@ -153,7 +151,7 @@ describe("Gretel Voice Readiness Architecture", () => {
 
     speakGretelPhrase("¡Muy bien!");
 
-    expect(customSpeakFn).toHaveBeenCalledWith("¡Muy bien!", expect.any(Object));
+    expect(customSpeakFn).not.toHaveBeenCalled();
   });
 
   it("handles voice filtering and scores", () => {

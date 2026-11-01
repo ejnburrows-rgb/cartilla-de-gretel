@@ -66,14 +66,16 @@ it('supports missing-recording TTS only when the audio policy explicitly permits
   expect(speech.cancel).toHaveBeenCalled();
   expect(speech.speak.mock.calls.map(([utterance]) => utterance.text.toLowerCase())).toEqual(['oso', 'olla']);
 });
-it('Gretel interrupts a recording and a picture invalidates delayed Gretel speech', async () => {
+it('a silent tutor line leaves approved picture playback alone; a later picture tap replaces it', async () => {
   vi.mocked(approvedPictureRecording).mockReturnValue('/test-approved/oso.mp3');
   playPictureName(oso);
   const recording = FakeAudio.instances[0]!;
   const pending = speakAsGretel('Una pista');
-  expect(recording.pause).toHaveBeenCalled();
-  playPictureName(olla);
   await pending;
+  expect(recording.pause).not.toHaveBeenCalled();
+  expect(recording.src).toBe('/test-approved/oso.mp3');
+  playPictureName(olla);
+  expect(recording.pause).toHaveBeenCalled();
   expect(speech.speak).not.toHaveBeenCalled();
 });
 it('both existing mute controls stop picture playback and prevent a new recording', () => {
