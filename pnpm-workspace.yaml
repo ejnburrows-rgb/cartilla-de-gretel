@@ -2,3 +2,5 @@ allowBuilds:
   esbuild: true
   sharp: true
   canvas: true
+overrides:
+  seroval: 1.6.8
