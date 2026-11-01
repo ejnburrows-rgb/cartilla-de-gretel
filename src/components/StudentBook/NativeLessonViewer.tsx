@@ -52,6 +52,57 @@ export function NativeLessonViewer({
   /** Require page completion before turning forward (lessons). The complete book browses freely. */
   gated?: boolean;
 }) {
+  useEffect(() => {
+    const cursor = document.createElement("img");
+    cursor.src = "/cartilla/pencil-tip-cursor.svg";
+    cursor.alt = "";
+    cursor.setAttribute("aria-hidden", "true");
+    cursor.className = "workbook-pencil-touch-cursor";
+    document.body.append(cursor);
+    let hideTimer = 0;
+    const insideWorkbook = (target: EventTarget | null) =>
+      target instanceof Element && Boolean(target.closest(".native-lesson-viewer"));
+    const showAt = (event: PointerEvent) => {
+      window.clearTimeout(hideTimer);
+      cursor.style.transform = "translate3d(" + event.clientX + "px, " + event.clientY + "px, 0)";
+      cursor.style.opacity = "1";
+      document.documentElement.classList.add("workbook-pencil-cursor-active");
+    };
+    const hide = () => {
+      cursor.style.opacity = "0";
+      document.documentElement.classList.remove("workbook-pencil-cursor-active");
+    };
+    const onDown = (event: PointerEvent) => {
+      if (event.pointerType === "touch" && insideWorkbook(event.target)) showAt(event);
+    };
+    const onMove = (event: PointerEvent) => {
+      if (event.pointerType === "touch") {
+        if (cursor.style.opacity === "1") showAt(event);
+        return;
+      }
+      if (insideWorkbook(event.target)) showAt(event);
+      else if (cursor.style.opacity === "1") hide();
+    };
+    const onUp = (event: PointerEvent) => {
+      if (event.pointerType === "touch") {
+        hideTimer = window.setTimeout(hide, 450);
+      }
+    };
+    document.addEventListener("pointerdown", onDown, true);
+    document.addEventListener("pointermove", onMove, true);
+    document.addEventListener("pointerup", onUp, true);
+    document.addEventListener("pointercancel", onUp, true);
+    return () => {
+      window.clearTimeout(hideTimer);
+      document.removeEventListener("pointerdown", onDown, true);
+      document.removeEventListener("pointermove", onMove, true);
+      document.removeEventListener("pointerup", onUp, true);
+      document.removeEventListener("pointercancel", onUp, true);
+      document.documentElement.classList.remove("workbook-pencil-cursor-active");
+      cursor.remove();
+    };
+  }, []);
+
   const [index, setIndex] = useState(() =>
     Math.min(Math.max(0, initialPage), pages.length - 1),
   );
@@ -621,6 +672,13 @@ export function NativeLessonViewer({
           turnMs={LESSON_PAGE_TURN_MS}
           liftMs={LESSON_PAGE_LIFT_MS}
         />
+      </div>
+
+      <div className="native-pencil-tray" aria-label="Herramientas de escritura">
+        <span className="native-pencil-tray__state"><span className="native-pencil-tray__dot" aria-hidden="true" /> Grafito activo <span aria-hidden="true">·</span> borrador rosa listo</span>
+        <span className={`native-pencil-tray__turn ${completion.complete ? "is-ready" : "is-locked"}`} aria-live="polite">
+          {completion.complete ? "Esquina inferior derecha disponible" : "Completa la página para pasar"}
+        </span>
       </div>
 
       <div className="native-lesson-viewer__footer">

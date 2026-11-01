@@ -1,0 +1,28 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="112" height="112" viewBox="0 0 112 112">
+<defs>
+  <linearGradient id="graphite" x1="0" y1="0" x2=".9" y2="1"><stop stop-color="#171715"/><stop offset=".38" stop-color="#3a3a38"/><stop offset=".72" stop-color="#686862"/><stop offset="1" stop-color="#262624"/></linearGradient>
+  <linearGradient id="cedar" x1=".1" y1=".2" x2=".9" y2=".8"><stop stop-color="#fff0cc"/><stop offset=".34" stop-color="#d7a369"/><stop offset=".67" stop-color="#f1d19a"/><stop offset="1" stop-color="#a96839"/></linearGradient>
+  <linearGradient id="barrel" x1="0" y1="0" x2=".9" y2=".9"><stop stop-color="#f6d65a"/><stop offset=".24" stop-color="#d79b20"/><stop offset=".48" stop-color="#f7da6e"/><stop offset=".76" stop-color="#c58a19"/><stop offset="1" stop-color="#8d5a16"/></linearGradient>
+  <filter id="cedar-tooth" x="0" y="0" width="1" height="1"><feTurbulence type="fractalNoise" baseFrequency=".72" numOctaves="2" seed="9" result="grain"/><feColorMatrix in="grain" type="saturate" values="0" result="gray"/><feComponentTransfer><feFuncA type="table" tableValues="0 .13"/></feComponentTransfer><feBlend in="SourceGraphic" mode="multiply"/></filter>
+  <filter id="soft-shadow" x="-30%" y="-30%" width="170%" height="170%"><feGaussianBlur stdDeviation="1.1"/></filter>
+</defs>
+<path d="M1 1 22 13 73 64 63 74 12 23Z" fill="#25221d" opacity=".2" filter="url(#soft-shadow)"/>
+<!-- sharpened graphite point: cursor hotspot is the first vertex -->
+<path d="M0 0 17 13 13 17Z" fill="url(#graphite)" stroke="#252522" stroke-width=".75"/>
+<path d="M0 0 13 17 6 10Z" fill="#8b8b82" opacity=".55"/>
+<!-- shaved cedar collar, with visible cut facets -->
+<path d="M2 2 13 17 24 28 35 17 17 12Z" fill="url(#cedar)" stroke="#91603d" stroke-width=".9" filter="url(#cedar-tooth)"/>
+<path d="M3 3 14 14 26 26 22 30 12 18Z" fill="#fff2d4" opacity=".65"/>
+<path d="M13 17 24 28 32 20 17 12Z" fill="#a76d43" opacity=".42"/>
+<path d="M21 14 36 22 43 29 30 42 24 35 18 28Z" fill="#c58e5a" stroke="#865b39" stroke-width=".8"/>
+<path d="M23 16 36 23 40 28" fill="none" stroke="#fff0cf" stroke-width="1.3" opacity=".78"/>
+<!-- only the leading section of the hexagonal cedar barrel -->
+<path d="M36 22 44 27 78 61 68 71 33 37 30 31Z" fill="url(#barrel)" stroke="#80551b" stroke-width="1.1"/>
+<path d="M39 24 46 29 75 59 72 63 41 33 35 29Z" fill="#fff1a6" opacity=".72"/>
+<path d="M35 36 41 30 72 62 67 68Z" fill="#875315" opacity=".34"/>
+<path d="M48 35 67 54" fill="none" stroke="#fff4b8" stroke-width="1.3" opacity=".75"/>
+<path d="M52 33l3-2M57 38l3-2M62 43l3-2" stroke="#8b5a28" stroke-width=".8" opacity=".7"/>
+<!-- short beveled cut edge signals the barrel continues into the hand -->
+<path d="M68 71 78 61 84 67 74 77Z" fill="#b87920" stroke="#815319" stroke-width=".8"/>
+<path d="M71 70 78 63 81 66 74 73Z" fill="#f8d86a" opacity=".82"/>
+</svg>

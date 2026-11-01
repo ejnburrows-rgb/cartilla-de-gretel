@@ -8,7 +8,7 @@ import { useActivityEvents, useActivityState } from "@/lib/activity-events";
 import { playCorrectChord } from "@/lib/piano-audio";
 import { loadLassoProgress, saveLassoProgress } from "@/lib/activity-canvas-store";
 import { useReducedMotion } from "@/hooks/useReducedMotion";
-import { PencilShape, WorkbookPencilMark, WORKBOOK_MARK_TIMING, useWorkbookPencilTurn } from "@/components/cartilla/WorkbookPencilMark";
+import { WorkbookPencilMark, WORKBOOK_MARK_TIMING, useWorkbookPencilTurn } from "@/components/cartilla/WorkbookPencilMark";
 import type { WorkbookObject } from "@/content/workbook/types";
 import type { InteractionProps } from "./shared";
 import "@/styles/activity-mechanics.css";
@@ -597,11 +597,11 @@ export function DirectPencilConnector({
         <svg className="am-direct-pencil__svg-layer" aria-hidden="true">
           <defs>
             <filter id={shadowUid} x="-20%" y="-20%" width="140%" height="140%">
-              <feDropShadow dx="1" dy="2" stdDeviation="1.5" floodColor="#0f766e" floodOpacity="0.25" />
+              <feDropShadow dx="1" dy="2" stdDeviation="1.5" floodColor="#3a3a38" floodOpacity="0.25" />
             </filter>
             <linearGradient id={`${shadowUid}-grad`} x1="0%" y1="0%" x2="100%" y2="100%">
-              <stop offset="0%" stopColor="#0d9488" />
-              <stop offset="100%" stopColor="#0f766e" />
+              <stop offset="0%" stopColor="#3a3a38" />
+              <stop offset="100%" stopColor="#3a3a38" />
             </linearGradient>
           </defs>
 
@@ -614,20 +614,21 @@ export function DirectPencilConnector({
               const targetPt = getTargetCenter(t.id);
               const isExample = t.example;
               return (
-                <g key={`line-${t.id}`} className="am-direct-pencil__line-group">
+                <g key={`line-${t.id}`} className={`am-direct-pencil__line-group${isExample ? "" : " workbook-connection--correct"}`}>
                   <line
                     x1={centerPt.x}
                     y1={centerPt.y}
                     x2={targetPt.x}
                     y2={targetPt.y}
-                    stroke="#0d9488"
+                    className={isExample ? undefined : "workbook-connection-ink"}
+                    stroke="#3a3a38"
                     strokeWidth={isExample ? 3 : 4.5}
                     strokeDasharray={isExample ? "6 4" : undefined}
                     strokeLinecap="round"
                     filter={`url(#${shadowUid})`}
                   />
-                  <circle cx={targetPt.x} cy={targetPt.y} r={isExample ? 4 : 5.5} fill="#0d9488" />
-                  <circle cx={centerPt.x} cy={centerPt.y} r={4} fill="#0d9488" />
+                  <circle cx={targetPt.x} cy={targetPt.y} r={isExample ? 4 : 5.5} fill="#3a3a38" />
+                  <circle cx={centerPt.x} cy={centerPt.y} r={4} fill="#3a3a38" />
                 </g>
               );
             })}
@@ -642,19 +643,20 @@ export function DirectPencilConnector({
               const ptA = getTargetCenter(leftId);
               const ptB = getTargetCenter(rightId);
               return (
-                <g key={`pair-line-${pairKey}`} className="am-direct-pencil__line-group">
+                <g key={`pair-line-${pairKey}`} className="am-direct-pencil__line-group workbook-connection--correct">
                   <line
                     x1={ptA.x}
                     y1={ptA.y}
                     x2={ptB.x}
                     y2={ptB.y}
-                    stroke="#0d9488"
+                    className="workbook-connection-ink"
+                    stroke="#3a3a38"
                     strokeWidth={4.5}
                     strokeLinecap="round"
                     filter={`url(#${shadowUid})`}
                   />
-                  <circle cx={ptA.x} cy={ptA.y} r={5} fill="#0d9488" />
-                  <circle cx={ptB.x} cy={ptB.y} r={5} fill="#0d9488" />
+                  <circle cx={ptA.x} cy={ptA.y} r={5} fill="#3a3a38" />
+                  <circle cx={ptB.x} cy={ptB.y} r={5} fill="#3a3a38" />
                 </g>
               );
             })}
@@ -667,26 +669,12 @@ export function DirectPencilConnector({
                 y1={activeStartPt.y}
                 x2={dragPt.x}
                 y2={dragPt.y}
-                stroke="#0d9488"
+                stroke="#3a3a38"
                 strokeWidth={5}
                 strokeLinecap="round"
                 filter={`url(#${shadowUid})`}
               />
-              <circle cx={dragPt.x} cy={dragPt.y} r={6} fill="#0f766e" />
-              {/* Wooden Pencil at Tip */}
-              {hasPencilTurn && !wrongLine && !reducedMotion && (() => {
-                const angle =
-                  Math.atan2(dragPt.y - activeStartPt.y, dragPt.x - activeStartPt.x) *
-                  (180 / Math.PI);
-                return (
-                  <g
-                    transform={`translate(${dragPt.x}, ${dragPt.y}) rotate(${angle + 30}) scale(0.65)`}
-                    style={{ pointerEvents: "none" }}
-                  >
-                    <PencilShape uid={`${shadowUid}-drag-pencil`} />
-                  </g>
-                );
-              })()}
+              <circle cx={dragPt.x} cy={dragPt.y} r={6} fill="#3a3a38" />
             </g>
           )}
 
@@ -700,7 +688,7 @@ export function DirectPencilConnector({
                   y1={wrongLine.from.y}
                   x2={wrongLine.to.x}
                   y2={wrongLine.to.y}
-                  stroke="#0d9488"
+                  stroke="#3a3a38"
                   strokeWidth={4}
                   strokeLinecap="round"
                   opacity="0.6"
@@ -719,8 +707,9 @@ export function DirectPencilConnector({
                   return (
                     <>
                       <path
+                        className="am-direct-pencil__retry-ink"
                         d={linePath}
-                        stroke="#0d9488"
+                        stroke="#3a3a38"
                         strokeWidth={4}
                         strokeLinecap="round"
                         pathLength={100}
@@ -771,7 +760,15 @@ export function DirectPencilConnector({
                                 calcMode="spline"
                                 keySplines="0 0 1 1;0.45 0.05 0.55 0.95;0 0 1 1"
                               />
-                              <PencilShape uid={`${shadowUid}-retry-pencil`} />
+                              <g className="workbook-pencil__eraser-only" transform="translate(0 -76)">
+                                <defs>
+                                  <linearGradient id={`${shadowUid}-eraser-pink`} x1="0" y1="0" x2="1" y2="1">
+                                    <stop stopColor="#ffc4d0" /><stop offset=".48" stopColor="#ef8da3" /><stop offset="1" stopColor="#c95e78" />
+                                  </linearGradient>
+                                </defs>
+                                <rect x="-7" y="-7" width="14" height="14" rx="2.5" fill={`url(#${shadowUid}-eraser-pink)`} stroke="#a64b63" strokeWidth=".8" />
+                                <path d="M-4 -4 Q0 -6 4 -4" fill="none" stroke="#fff4f6" strokeWidth="1" />
+                              </g>
                             </g>
                           </g>
                         </g>

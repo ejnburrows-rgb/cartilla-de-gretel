@@ -12,15 +12,12 @@ import { Route as rootRouteImport } from './routes/__root'
 import { Route as LoginRouteImport } from './routes/login'
 import { Route as IntroRouteImport } from './routes/intro'
 import { Route as EntrarRouteImport } from './routes/entrar'
-import { Route as DevLivingWorkbookRouteImport } from './routes/dev-living-workbook'
-import { Route as DevGretelRouteImport } from './routes/dev-gretel'
 import { Route as CreditsRouteImport } from './routes/credits'
 import { Route as ClassroomRouteImport } from './routes/classroom'
 import { Route as BookRouteImport } from './routes/book'
 import { Route as IndexRouteImport } from './routes/index'
 import { Route as CartillaIndexRouteImport } from './routes/cartilla/index'
 import { Route as PrototypeLesson3ARouteImport } from './routes/prototype.lesson-3-a'
-import { Route as CartillaVocesRouteImport } from './routes/cartilla/voces'
 import { Route as CartillaUnirseRouteImport } from './routes/cartilla/unirse'
 import { Route as CartillaStudentLoginRouteImport } from './routes/cartilla/student-login'
 import { Route as CartillaRepasoRouteImport } from './routes/cartilla/repaso'
@@ -77,18 +74,6 @@ const EntrarRoute = EntrarRouteImport.update({
   path: '/entrar',
   getParentRoute: () => rootRouteImport,
 } as any)
-const DevLivingWorkbookRoute = DevLivingWorkbookRouteImport.update({
-  id: '/dev-living-workbook',
-  path: '/dev-living-workbook',
-  getParentRoute: () => rootRouteImport,
-} as any).lazy(() =>
-  import('./routes/dev-living-workbook.lazy').then((d) => d.Route),
-)
-const DevGretelRoute = DevGretelRouteImport.update({
-  id: '/dev-gretel',
-  path: '/dev-gretel',
-  getParentRoute: () => rootRouteImport,
-} as any)
 const CreditsRoute = CreditsRouteImport.update({
   id: '/credits',
   path: '/credits',
@@ -117,11 +102,6 @@ const CartillaIndexRoute = CartillaIndexRouteImport.update({
 const PrototypeLesson3ARoute = PrototypeLesson3ARouteImport.update({
   id: '/prototype/lesson-3-a',
   path: '/prototype/lesson-3-a',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const CartillaVocesRoute = CartillaVocesRouteImport.update({
-  id: '/cartilla/voces',
-  path: '/cartilla/voces',
   getParentRoute: () => rootRouteImport,
 } as any)
 const CartillaUnirseRoute = CartillaUnirseRouteImport.update({
@@ -393,8 +373,6 @@ export interface FileRoutesByFullPath {
   '/book': typeof BookRoute
   '/classroom': typeof ClassroomRoute
   '/credits': typeof CreditsRoute
-  '/dev-gretel': typeof DevGretelRoute
-  '/dev-living-workbook': typeof DevLivingWorkbookRoute
   '/entrar': typeof EntrarRoute
   '/intro': typeof IntroRoute
   '/login': typeof LoginRoute
@@ -410,7 +388,6 @@ export interface FileRoutesByFullPath {
   '/cartilla/repaso': typeof CartillaRepasoRoute
   '/cartilla/student-login': typeof CartillaStudentLoginRoute
   '/cartilla/unirse': typeof CartillaUnirseRoute
-  '/cartilla/voces': typeof CartillaVocesRoute
   '/prototype/lesson-3-a': typeof PrototypeLesson3ARoute
   '/cartilla/': typeof CartillaIndexRoute
   '/cartilla/imprimir/$n': typeof CartillaImprimirNRoute
@@ -447,8 +424,6 @@ export interface FileRoutesByTo {
   '/book': typeof BookRoute
   '/classroom': typeof ClassroomRoute
   '/credits': typeof CreditsRoute
-  '/dev-gretel': typeof DevGretelRoute
-  '/dev-living-workbook': typeof DevLivingWorkbookRoute
   '/entrar': typeof EntrarRoute
   '/intro': typeof IntroRoute
   '/login': typeof LoginRoute
@@ -463,7 +438,6 @@ export interface FileRoutesByTo {
   '/cartilla/repaso': typeof CartillaRepasoRoute
   '/cartilla/student-login': typeof CartillaStudentLoginRoute
   '/cartilla/unirse': typeof CartillaUnirseRoute
-  '/cartilla/voces': typeof CartillaVocesRoute
   '/prototype/lesson-3-a': typeof PrototypeLesson3ARoute
   '/cartilla': typeof CartillaIndexRoute
   '/cartilla/imprimir/$n': typeof CartillaImprimirNRoute
@@ -498,8 +472,6 @@ export interface FileRoutesById {
   '/book': typeof BookRoute
   '/classroom': typeof ClassroomRoute
   '/credits': typeof CreditsRoute
-  '/dev-gretel': typeof DevGretelRoute
-  '/dev-living-workbook': typeof DevLivingWorkbookRoute
   '/entrar': typeof EntrarRoute
   '/intro': typeof IntroRoute
   '/login': typeof LoginRoute
@@ -515,7 +487,6 @@ export interface FileRoutesById {
   '/cartilla/repaso': typeof CartillaRepasoRoute
   '/cartilla/student-login': typeof CartillaStudentLoginRoute
   '/cartilla/unirse': typeof CartillaUnirseRoute
-  '/cartilla/voces': typeof CartillaVocesRoute
   '/prototype/lesson-3-a': typeof PrototypeLesson3ARoute
   '/cartilla/': typeof CartillaIndexRoute
   '/cartilla/imprimir/$n': typeof CartillaImprimirNRoute
@@ -554,8 +525,6 @@ export interface FileRouteTypes {
     | '/book'
     | '/classroom'
     | '/credits'
-    | '/dev-gretel'
-    | '/dev-living-workbook'
     | '/entrar'
     | '/intro'
     | '/login'
@@ -571,7 +540,6 @@ export interface FileRouteTypes {
     | '/cartilla/repaso'
     | '/cartilla/student-login'
     | '/cartilla/unirse'
-    | '/cartilla/voces'
     | '/prototype/lesson-3-a'
     | '/cartilla/'
     | '/cartilla/imprimir/$n'
@@ -608,8 +576,6 @@ export interface FileRouteTypes {
     | '/book'
     | '/classroom'
     | '/credits'
-    | '/dev-gretel'
-    | '/dev-living-workbook'
     | '/entrar'
     | '/intro'
     | '/login'
@@ -624,7 +590,6 @@ export interface FileRouteTypes {
     | '/cartilla/repaso'
     | '/cartilla/student-login'
     | '/cartilla/unirse'
-    | '/cartilla/voces'
     | '/prototype/lesson-3-a'
     | '/cartilla'
     | '/cartilla/imprimir/$n'
@@ -658,8 +623,6 @@ export interface FileRouteTypes {
     | '/book'
     | '/classroom'
     | '/credits'
-    | '/dev-gretel'
-    | '/dev-living-workbook'
     | '/entrar'
     | '/intro'
     | '/login'
@@ -675,7 +638,6 @@ export interface FileRouteTypes {
     | '/cartilla/repaso'
     | '/cartilla/student-login'
     | '/cartilla/unirse'
-    | '/cartilla/voces'
     | '/prototype/lesson-3-a'
     | '/cartilla/'
     | '/cartilla/imprimir/$n'
@@ -713,8 +675,6 @@ export interface RootRouteChildren {
   BookRoute: typeof BookRoute
   ClassroomRoute: typeof ClassroomRoute
   CreditsRoute: typeof CreditsRoute
-  DevGretelRoute: typeof DevGretelRoute
-  DevLivingWorkbookRoute: typeof DevLivingWorkbookRoute
   EntrarRoute: typeof EntrarRoute
   IntroRoute: typeof IntroRoute
   LoginRoute: typeof LoginRoute
@@ -730,7 +690,6 @@ export interface RootRouteChildren {
   CartillaRepasoRoute: typeof CartillaRepasoRoute
   CartillaStudentLoginRoute: typeof CartillaStudentLoginRoute
   CartillaUnirseRoute: typeof CartillaUnirseRoute
-  CartillaVocesRoute: typeof CartillaVocesRoute
   PrototypeLesson3ARoute: typeof PrototypeLesson3ARoute
   CartillaIndexRoute: typeof CartillaIndexRoute
   CartillaImprimirNRoute: typeof CartillaImprimirNRoute
@@ -762,20 +721,6 @@ declare module '@tanstack/react-router' {
       path: '/entrar'
       fullPath: '/entrar'
       preLoaderRoute: typeof EntrarRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/dev-living-workbook': {
-      id: '/dev-living-workbook'
-      path: '/dev-living-workbook'
-      fullPath: '/dev-living-workbook'
-      preLoaderRoute: typeof DevLivingWorkbookRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/dev-gretel': {
-      id: '/dev-gretel'
-      path: '/dev-gretel'
-      fullPath: '/dev-gretel'
-      preLoaderRoute: typeof DevGretelRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/credits': {
@@ -818,13 +763,6 @@ declare module '@tanstack/react-router' {
       path: '/prototype/lesson-3-a'
       fullPath: '/prototype/lesson-3-a'
       preLoaderRoute: typeof PrototypeLesson3ARouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/cartilla/voces': {
-      id: '/cartilla/voces'
-      path: '/cartilla/voces'
-      fullPath: '/cartilla/voces'
-      preLoaderRoute: typeof CartillaVocesRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/cartilla/unirse': {
@@ -1205,8 +1143,6 @@ const rootRouteChildren: RootRouteChildren = {
   BookRoute: BookRoute,
   ClassroomRoute: ClassroomRoute,
   CreditsRoute: CreditsRoute,
-  DevGretelRoute: DevGretelRoute,
-  DevLivingWorkbookRoute: DevLivingWorkbookRoute,
   EntrarRoute: EntrarRoute,
   IntroRoute: IntroRoute,
   LoginRoute: LoginRoute,
@@ -1222,7 +1158,6 @@ const rootRouteChildren: RootRouteChildren = {
   CartillaRepasoRoute: CartillaRepasoRoute,
   CartillaStudentLoginRoute: CartillaStudentLoginRoute,
   CartillaUnirseRoute: CartillaUnirseRoute,
-  CartillaVocesRoute: CartillaVocesRoute,
   PrototypeLesson3ARoute: PrototypeLesson3ARoute,
   CartillaIndexRoute: CartillaIndexRoute,
   CartillaImprimirNRoute: CartillaImprimirNRoute,

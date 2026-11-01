@@ -129,9 +129,7 @@ describe("LivingIllustration faithful recovered art", () => {
   it("plays natural part motion for the Workbook vowel-review pictures, with no whole-picture CSS motion", () => {
     for (const [src, alive] of [
       ["/cartilla/art/faithful/vocal-o/oso.webp", "oso-alive.svg"],
-      ["/cartilla/art/faithful/vocal-o/oveja.webp", "oveja-alive.svg"],
       ["/cartilla/art/faithful/vocal-o/olla.webp", "olla-alive.svg"],
-      ["/cartilla/art/faithful/vocal-e/elefante.webp", "elefante-alive.svg"],
       ["/cartilla/art/faithful/vocal-a/avion.webp", "avion-alive.svg"],
       ["/cartilla/art/faithful/vocal-a/abeja.webp", "abeja-alive.svg"],
       ["/cartilla/art/faithful/vocal-a/abanico.webp", "abanico-alive.svg"],
@@ -187,6 +185,12 @@ describe("LivingIllustration faithful recovered art", () => {
     for (const name of ["oso", "elefante", "oveja", "abanico", "avion", "iman", "olla"]) {
       const { unmount } = render(<LivingIllustration src={`${W1}/${name}.svg`} alt={name} />);
       const image = screen.getByRole("img", { name });
+      if (["elefante", "oveja"].includes(name)) {
+        expect(image.getAttribute("src")).toBe(`${W1}/${name}.svg`);
+        expect(getLivingActor(`${W1}/${name}.svg`)?.aliveSrc).toBeUndefined();
+        unmount();
+        continue;
+      }
       if (!getLivingActor(`${W1}/${name}.svg`)) {
         expect(image.getAttribute("src")).toBe(`${W1}/${name}.svg`);
         expect(image.parentElement?.getAttribute("data-motion-status")).toContain("NOT VERIFIED");
