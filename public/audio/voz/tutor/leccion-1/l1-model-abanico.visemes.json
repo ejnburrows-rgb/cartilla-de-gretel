@@ -1,0 +1,57 @@
+{
+  "metadata": {
+    "soundFile": "/audio/voz/vocabulario/abanico.mp3",
+    "duration": 2.05,
+    "rhubarbVersion": "1.14.0",
+    "recognizer": "phonetic",
+    "extendedShapes": "GX",
+    "sourceSha256": "bf276de36789171dec29d8483243e1d054e00e801567ae65068becba7b2ecbfe"
+  },
+  "mouthCues": [
+    {
+      "start": 0,
+      "end": 0.34,
+      "value": "X"
+    },
+    {
+      "start": 0.34,
+      "end": 0.5,
+      "value": "C"
+    },
+    {
+      "start": 0.5,
+      "end": 0.58,
+      "value": "A"
+    },
+    {
+      "start": 0.58,
+      "end": 0.73,
+      "value": "C"
+    },
+    {
+      "start": 0.73,
+      "end": 1.25,
+      "value": "B"
+    },
+    {
+      "start": 1.25,
+      "end": 1.41,
+      "value": "E"
+    },
+    {
+      "start": 1.41,
+      "end": 1.62,
+      "value": "F"
+    },
+    {
+      "start": 1.62,
+      "end": 1.69,
+      "value": "B"
+    },
+    {
+      "start": 1.69,
+      "end": 2.05,
+      "value": "X"
+    }
+  ]
+}

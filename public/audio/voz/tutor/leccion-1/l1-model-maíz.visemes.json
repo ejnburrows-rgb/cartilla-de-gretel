@@ -1,0 +1,42 @@
+{
+  "metadata": {
+    "soundFile": "/audio/voz/vocabulario/maíz.mp3",
+    "duration": 1.85,
+    "rhubarbVersion": "1.14.0",
+    "recognizer": "phonetic",
+    "extendedShapes": "GX",
+    "sourceSha256": "a6ce00f0844ec304f5b9007aa767f188262772ba3f7ff59d6449c0890292cad5"
+  },
+  "mouthCues": [
+    {
+      "start": 0,
+      "end": 0.24,
+      "value": "X"
+    },
+    {
+      "start": 0.24,
+      "end": 0.32,
+      "value": "B"
+    },
+    {
+      "start": 0.32,
+      "end": 0.51,
+      "value": "A"
+    },
+    {
+      "start": 0.51,
+      "end": 0.71,
+      "value": "C"
+    },
+    {
+      "start": 0.71,
+      "end": 1.41,
+      "value": "B"
+    },
+    {
+      "start": 1.41,
+      "end": 1.85,
+      "value": "X"
+    }
+  ]
+}

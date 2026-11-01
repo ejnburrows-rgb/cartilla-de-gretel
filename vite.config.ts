@@ -5,6 +5,7 @@ import viteReact from "@vitejs/plugin-react";
 import tailwindcss from "@tailwindcss/vite";
 import { defineConfig, configDefaults } from "vitest/config";
 import tsConfigPaths from "vite-tsconfig-paths";
+import { tutorBuildId, tutorPackPlugin } from "./scripts/vite-tutor-pack";
 import { gzipSync, brotliCompressSync } from "zlib";
 
 function compressPlugin() {
@@ -53,8 +54,12 @@ function compressPlugin() {
   };
 }
 
+const tutorId = tutorBuildId();
+
 export default defineConfig(({ mode }) => ({
+  ...(process.env.VITE_CACHE_DIR ? { cacheDir: process.env.VITE_CACHE_DIR } : {}),
   define: {
+    "import.meta.env.VITE_TUTOR_BUILD_ID": JSON.stringify(tutorId),
     // Open access (no login) is the shipped product decision, so this stays
     // "true" by default for every build, including production. It is only
     // overridable so the E2E lane can boot a second, login-gated server and
@@ -79,6 +84,7 @@ export default defineConfig(({ mode }) => ({
     viteReact(),
     tailwindcss(),
     tsConfigPaths(),
+    tutorPackPlugin(tutorId),
     compressPlugin(),
   ],
   test: {

@@ -1,0 +1,9 @@
+
+ RUN  v4.1.8 /workspace/scratch/75c1eabe17d4/cartilla
+
+
+ Test Files  13 passed (13)
+      Tests  334 passed (334)
+   Start at  20:18:25
+   Duration  3.48s (transform 1.52s, setup 1.46s, import 1.82s, tests 3.15s, environment 8.92s)
+

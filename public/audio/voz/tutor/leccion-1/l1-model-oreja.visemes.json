@@ -1,0 +1,52 @@
+{
+  "metadata": {
+    "soundFile": "/audio/voz/vocabulario/oreja.mp3",
+    "duration": 1.84,
+    "rhubarbVersion": "1.14.0",
+    "recognizer": "phonetic",
+    "extendedShapes": "GX",
+    "sourceSha256": "2b8ba5853420bc069407949442d32f69dc7e5df8fa841aab5998cb3ef2a50cfd"
+  },
+  "mouthCues": [
+    {
+      "start": 0,
+      "end": 0.37,
+      "value": "X"
+    },
+    {
+      "start": 0.37,
+      "end": 0.58,
+      "value": "E"
+    },
+    {
+      "start": 0.58,
+      "end": 0.65,
+      "value": "B"
+    },
+    {
+      "start": 0.65,
+      "end": 0.79,
+      "value": "C"
+    },
+    {
+      "start": 0.79,
+      "end": 0.93,
+      "value": "B"
+    },
+    {
+      "start": 0.93,
+      "end": 1.14,
+      "value": "G"
+    },
+    {
+      "start": 1.14,
+      "end": 1.49,
+      "value": "C"
+    },
+    {
+      "start": 1.49,
+      "end": 1.84,
+      "value": "X"
+    }
+  ]
+}

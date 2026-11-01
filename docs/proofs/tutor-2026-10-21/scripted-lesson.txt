@@ -1,0 +1,16 @@
+[WebServer] (node:37) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+[WebServer] (Use `node --trace-warnings ...` to show where the warning was created)
+[WebServer] $ vite dev --mode worker --port 5175 --host 127.0.0.1
+[WebServer] (node:52) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+[WebServer] (Use `node --trace-warnings ...` to show where the warning was created)
+[WebServer] (node:52) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+[WebServer] (Use `node --trace-warnings ...` to show where the warning was created)
+
+Running 1 test using 1 worker
+
+(node:81) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+[tutor e2e] Lección 1 full run: 24 items, 24 mic taps, 90.0 s
+  ✓  1 [chromium-tutor] › tests/e2e/tutor.spec.ts:47:3 › tutor scripted sessions (StubEars) › full Lección 1 run reaches the ENDED screen (1.5m)
+
+  1 passed (1.6m)

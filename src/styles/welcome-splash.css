@@ -73,6 +73,7 @@
   transition:transform .14s ease, box-shadow .14s ease;
 }
 .lc-button--primary { background:var(--lc-red,#bf3040); color:#fff; box-shadow:0 6px 0 #8f2130; }
+.lc-button--tutor { background:var(--lc-teal,#1f9e94); color:#fff; box-shadow:0 6px 0 #156d66; }
 .lc-button--teacher { background:transparent; color:var(--lc-teal,#1f9e94); border-color:var(--lc-teal,#1f9e94); }
 .lc-button:focus-visible { outline:4px solid var(--lc-focus,#1668c7); outline-offset:4px; }
 .lc-button:hover { transform:translateY(-2px); }

@@ -1,0 +1,47 @@
+{
+  "metadata": {
+    "soundFile": "/audio/voz/vocabulario/ocho.mp3",
+    "duration": 1.37,
+    "rhubarbVersion": "1.14.0",
+    "recognizer": "phonetic",
+    "extendedShapes": "GX",
+    "sourceSha256": "2073854848b32d2935369e13a7c7e2b6a1fb2e3c0a3a73c7ed887b71e88f49e5"
+  },
+  "mouthCues": [
+    {
+      "start": 0,
+      "end": 0.25,
+      "value": "X"
+    },
+    {
+      "start": 0.25,
+      "end": 0.39,
+      "value": "E"
+    },
+    {
+      "start": 0.39,
+      "end": 0.76,
+      "value": "B"
+    },
+    {
+      "start": 0.76,
+      "end": 0.83,
+      "value": "E"
+    },
+    {
+      "start": 0.83,
+      "end": 0.9,
+      "value": "F"
+    },
+    {
+      "start": 0.9,
+      "end": 1.11,
+      "value": "B"
+    },
+    {
+      "start": 1.11,
+      "end": 1.37,
+      "value": "X"
+    }
+  ]
+}

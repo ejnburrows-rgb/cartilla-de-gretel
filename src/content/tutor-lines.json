@@ -1,0 +1,975 @@
+{
+  "approved": [
+    {
+      "lineId": "l1-model-abanico",
+      "lesson": 1,
+      "role": "word-model",
+      "text": "abanico",
+      "src": "/audio/voz/vocabulario/abanico.mp3",
+      "visemes": "/audio/voz/tutor/leccion-1/l1-model-abanico.visemes.json",
+      "emotion": "warm",
+      "approval": "picture-name-recordings.json (owner-approved 2026)"
+    },
+    {
+      "lineId": "l1-model-abeja",
+      "lesson": 1,
+      "role": "word-model",
+      "text": "abeja",
+      "src": "/audio/voz/vocabulario/abeja.mp3",
+      "visemes": "/audio/voz/tutor/leccion-1/l1-model-abeja.visemes.json",
+      "emotion": "warm",
+      "approval": "picture-name-recordings.json (owner-approved 2026)"
+    },
+    {
+      "lineId": "l1-model-abrigo",
+      "lesson": 1,
+      "role": "word-model",
+      "text": "abrigo",
+      "src": "/audio/voz/vocabulario/abrigo.mp3",
+      "visemes": "/audio/voz/tutor/leccion-1/l1-model-abrigo.visemes.json",
+      "emotion": "warm",
+      "approval": "picture-name-recordings.json (owner-approved 2026)"
+    },
+    {
+      "lineId": "l1-model-anillo",
+      "lesson": 1,
+      "role": "word-model",
+      "text": "anillo",
+      "src": "/audio/voz/vocabulario/anillo.mp3",
+      "visemes": "/audio/voz/tutor/leccion-1/l1-model-anillo.visemes.json",
+      "emotion": "warm",
+      "approval": "picture-name-recordings.json (owner-approved 2026)"
+    },
+    {
+      "lineId": "l1-model-araña",
+      "lesson": 1,
+      "role": "word-model",
+      "text": "araña",
+      "src": "/audio/voz/vocabulario/araña.mp3",
+      "visemes": "/audio/voz/tutor/leccion-1/l1-model-araña.visemes.json",
+      "emotion": "warm",
+      "approval": "picture-name-recordings.json (owner-approved 2026)"
+    },
+    {
+      "lineId": "l1-model-aro",
+      "lesson": 1,
+      "role": "word-model",
+      "text": "aro",
+      "src": "/audio/voz/vocabulario/aro.mp3",
+      "visemes": "/audio/voz/tutor/leccion-1/l1-model-aro.visemes.json",
+      "emotion": "warm",
+      "approval": "picture-name-recordings.json (owner-approved 2026)"
+    },
+    {
+      "lineId": "l1-model-avión",
+      "lesson": 1,
+      "role": "word-model",
+      "text": "avión",
+      "src": "/audio/voz/vocabulario/avión.mp3",
+      "visemes": "/audio/voz/tutor/leccion-1/l1-model-avión.visemes.json",
+      "emotion": "warm",
+      "approval": "picture-name-recordings.json (owner-approved 2026)"
+    },
+    {
+      "lineId": "l1-model-carro",
+      "lesson": 1,
+      "role": "word-model",
+      "text": "carro",
+      "src": "/audio/voz/vocabulario/carro.mp3",
+      "visemes": "/audio/voz/tutor/leccion-1/l1-model-carro.visemes.json",
+      "emotion": "warm",
+      "approval": "picture-name-recordings.json (owner-approved 2026)"
+    },
+    {
+      "lineId": "l1-model-casa",
+      "lesson": 1,
+      "role": "word-model",
+      "text": "casa",
+      "src": "/audio/voz/vocabulario/casa.mp3",
+      "visemes": "/audio/voz/tutor/leccion-1/l1-model-casa.visemes.json",
+      "emotion": "warm",
+      "approval": "picture-name-recordings.json (owner-approved 2026)"
+    },
+    {
+      "lineId": "l1-model-dulce",
+      "lesson": 1,
+      "role": "word-model",
+      "text": "dulce",
+      "src": "/audio/voz/vocabulario/dulce.mp3",
+      "visemes": "/audio/voz/tutor/leccion-1/l1-model-dulce.visemes.json",
+      "emotion": "warm",
+      "approval": "picture-name-recordings.json (owner-approved 2026)"
+    },
+    {
+      "lineId": "l1-model-elefante",
+      "lesson": 1,
+      "role": "word-model",
+      "text": "elefante",
+      "src": "/audio/voz/vocabulario/elefante.mp3",
+      "visemes": "/audio/voz/tutor/leccion-1/l1-model-elefante.visemes.json",
+      "emotion": "warm",
+      "approval": "picture-name-recordings.json (owner-approved 2026)"
+    },
+    {
+      "lineId": "l1-model-escalera",
+      "lesson": 1,
+      "role": "word-model",
+      "text": "escalera",
+      "src": "/audio/voz/vocabulario/escalera.mp3",
+      "visemes": "/audio/voz/tutor/leccion-1/l1-model-escalera.visemes.json",
+      "emotion": "warm",
+      "approval": "picture-name-recordings.json (owner-approved 2026)"
+    },
+    {
+      "lineId": "l1-model-escoba",
+      "lesson": 1,
+      "role": "word-model",
+      "text": "escoba",
+      "src": "/audio/voz/vocabulario/escoba.mp3",
+      "visemes": "/audio/voz/tutor/leccion-1/l1-model-escoba.visemes.json",
+      "emotion": "warm",
+      "approval": "picture-name-recordings.json (owner-approved 2026)"
+    },
+    {
+      "lineId": "l1-model-escuela",
+      "lesson": 1,
+      "role": "word-model",
+      "text": "escuela",
+      "src": "/audio/voz/vocabulario/escuela.mp3",
+      "visemes": "/audio/voz/tutor/leccion-1/l1-model-escuela.visemes.json",
+      "emotion": "warm",
+      "approval": "picture-name-recordings.json (owner-approved 2026)"
+    },
+    {
+      "lineId": "l1-model-estrella",
+      "lesson": 1,
+      "role": "word-model",
+      "text": "estrella",
+      "src": "/audio/voz/vocabulario/estrella.mp3",
+      "visemes": "/audio/voz/tutor/leccion-1/l1-model-estrella.visemes.json",
+      "emotion": "warm",
+      "approval": "picture-name-recordings.json (owner-approved 2026)"
+    },
+    {
+      "lineId": "l1-model-globo",
+      "lesson": 1,
+      "role": "word-model",
+      "text": "globo",
+      "src": "/audio/voz/vocabulario/globo.mp3",
+      "visemes": "/audio/voz/tutor/leccion-1/l1-model-globo.visemes.json",
+      "emotion": "warm",
+      "approval": "picture-name-recordings.json (owner-approved 2026)"
+    },
+    {
+      "lineId": "l1-model-iglesia",
+      "lesson": 1,
+      "role": "word-model",
+      "text": "iglesia",
+      "src": "/audio/voz/vocabulario/iglesia.mp3",
+      "visemes": "/audio/voz/tutor/leccion-1/l1-model-iglesia.visemes.json",
+      "emotion": "warm",
+      "approval": "picture-name-recordings.json (owner-approved 2026)"
+    },
+    {
+      "lineId": "l1-model-imán",
+      "lesson": 1,
+      "role": "word-model",
+      "text": "imán",
+      "src": "/audio/voz/vocabulario/imán.mp3",
+      "visemes": "/audio/voz/tutor/leccion-1/l1-model-imán.visemes.json",
+      "emotion": "warm",
+      "approval": "picture-name-recordings.json (owner-approved 2026)"
+    },
+    {
+      "lineId": "l1-model-indio",
+      "lesson": 1,
+      "role": "word-model",
+      "text": "indio",
+      "src": "/audio/voz/vocabulario/indio.mp3",
+      "visemes": "/audio/voz/tutor/leccion-1/l1-model-indio.visemes.json",
+      "emotion": "warm",
+      "approval": "picture-name-recordings.json (owner-approved 2026)"
+    },
+    {
+      "lineId": "l1-model-isla",
+      "lesson": 1,
+      "role": "word-model",
+      "text": "isla",
+      "src": "/audio/voz/vocabulario/isla.mp3",
+      "visemes": "/audio/voz/tutor/leccion-1/l1-model-isla.visemes.json",
+      "emotion": "warm",
+      "approval": "picture-name-recordings.json (owner-approved 2026)"
+    },
+    {
+      "lineId": "l1-model-libro",
+      "lesson": 1,
+      "role": "word-model",
+      "text": "libro",
+      "src": "/audio/voz/vocabulario/libro.mp3",
+      "visemes": "/audio/voz/tutor/leccion-1/l1-model-libro.visemes.json",
+      "emotion": "warm",
+      "approval": "picture-name-recordings.json (owner-approved 2026)"
+    },
+    {
+      "lineId": "l1-model-manzana",
+      "lesson": 1,
+      "role": "word-model",
+      "text": "manzana",
+      "src": "/audio/voz/vocabulario/manzana.mp3",
+      "visemes": "/audio/voz/tutor/leccion-1/l1-model-manzana.visemes.json",
+      "emotion": "warm",
+      "approval": "picture-name-recordings.json (owner-approved 2026)"
+    },
+    {
+      "lineId": "l1-model-maíz",
+      "lesson": 1,
+      "role": "word-model",
+      "text": "maíz",
+      "src": "/audio/voz/vocabulario/maíz.mp3",
+      "visemes": "/audio/voz/tutor/leccion-1/l1-model-maíz.visemes.json",
+      "emotion": "warm",
+      "approval": "picture-name-recordings.json (owner-approved 2026)"
+    },
+    {
+      "lineId": "l1-model-ocho",
+      "lesson": 1,
+      "role": "word-model",
+      "text": "ocho",
+      "src": "/audio/voz/vocabulario/ocho.mp3",
+      "visemes": "/audio/voz/tutor/leccion-1/l1-model-ocho.visemes.json",
+      "emotion": "warm",
+      "approval": "picture-name-recordings.json (owner-approved 2026)"
+    },
+    {
+      "lineId": "l1-model-ojos",
+      "lesson": 1,
+      "role": "word-model",
+      "text": "ojos",
+      "src": "/audio/voz/vocabulario/ojos.mp3",
+      "visemes": "/audio/voz/tutor/leccion-1/l1-model-ojos.visemes.json",
+      "emotion": "warm",
+      "approval": "picture-name-recordings.json (owner-approved 2026)"
+    },
+    {
+      "lineId": "l1-model-olla",
+      "lesson": 1,
+      "role": "word-model",
+      "text": "olla",
+      "src": "/audio/voz/vocabulario/olla.mp3",
+      "visemes": "/audio/voz/tutor/leccion-1/l1-model-olla.visemes.json",
+      "emotion": "warm",
+      "approval": "picture-name-recordings.json (owner-approved 2026)"
+    },
+    {
+      "lineId": "l1-model-oreja",
+      "lesson": 1,
+      "role": "word-model",
+      "text": "oreja",
+      "src": "/audio/voz/vocabulario/oreja.mp3",
+      "visemes": "/audio/voz/tutor/leccion-1/l1-model-oreja.visemes.json",
+      "emotion": "warm",
+      "approval": "picture-name-recordings.json (owner-approved 2026)"
+    },
+    {
+      "lineId": "l1-model-oso",
+      "lesson": 1,
+      "role": "word-model",
+      "text": "oso",
+      "src": "/audio/voz/vocabulario/oso.mp3",
+      "visemes": "/audio/voz/tutor/leccion-1/l1-model-oso.visemes.json",
+      "emotion": "warm",
+      "approval": "picture-name-recordings.json (owner-approved 2026)"
+    },
+    {
+      "lineId": "l1-model-oveja",
+      "lesson": 1,
+      "role": "word-model",
+      "text": "oveja",
+      "src": "/audio/voz/vocabulario/oveja.mp3",
+      "visemes": "/audio/voz/tutor/leccion-1/l1-model-oveja.visemes.json",
+      "emotion": "warm",
+      "approval": "picture-name-recordings.json (owner-approved 2026)"
+    },
+    {
+      "lineId": "l1-model-pera",
+      "lesson": 1,
+      "role": "word-model",
+      "text": "pera",
+      "src": "/audio/voz/vocabulario/pera.mp3",
+      "visemes": "/audio/voz/tutor/leccion-1/l1-model-pera.visemes.json",
+      "emotion": "warm",
+      "approval": "picture-name-recordings.json (owner-approved 2026)"
+    },
+    {
+      "lineId": "l1-model-pájaro",
+      "lesson": 1,
+      "role": "word-model",
+      "text": "pájaro",
+      "src": "/audio/voz/vocabulario/pájaro.mp3",
+      "visemes": "/audio/voz/tutor/leccion-1/l1-model-pájaro.visemes.json",
+      "emotion": "warm",
+      "approval": "picture-name-recordings.json (owner-approved 2026)"
+    },
+    {
+      "lineId": "l1-model-taza",
+      "lesson": 1,
+      "role": "word-model",
+      "text": "taza",
+      "src": "/audio/voz/vocabulario/taza.mp3",
+      "visemes": "/audio/voz/tutor/leccion-1/l1-model-taza.visemes.json",
+      "emotion": "warm",
+      "approval": "picture-name-recordings.json (owner-approved 2026)"
+    },
+    {
+      "lineId": "l1-model-uniforme",
+      "lesson": 1,
+      "role": "word-model",
+      "text": "uniforme",
+      "src": "/audio/voz/vocabulario/uniforme.mp3",
+      "visemes": "/audio/voz/tutor/leccion-1/l1-model-uniforme.visemes.json",
+      "emotion": "warm",
+      "approval": "picture-name-recordings.json (owner-approved 2026)"
+    },
+    {
+      "lineId": "l1-model-uno",
+      "lesson": 1,
+      "role": "word-model",
+      "text": "uno",
+      "src": "/audio/voz/vocabulario/uno.mp3",
+      "visemes": "/audio/voz/tutor/leccion-1/l1-model-uno.visemes.json",
+      "emotion": "warm",
+      "approval": "picture-name-recordings.json (owner-approved 2026)"
+    },
+    {
+      "lineId": "l1-model-uña",
+      "lesson": 1,
+      "role": "word-model",
+      "text": "uña",
+      "src": "/audio/voz/vocabulario/uña.mp3",
+      "visemes": "/audio/voz/tutor/leccion-1/l1-model-uña.visemes.json",
+      "emotion": "warm",
+      "approval": "picture-name-recordings.json (owner-approved 2026)"
+    },
+    {
+      "lineId": "l1-model-árbol",
+      "lesson": 1,
+      "role": "word-model",
+      "text": "árbol",
+      "src": "/audio/voz/vocabulario/árbol.mp3",
+      "visemes": "/audio/voz/tutor/leccion-1/l1-model-árbol.visemes.json",
+      "emotion": "warm",
+      "approval": "picture-name-recordings.json (owner-approved 2026)"
+    },
+    {
+      "lineId": "l2-model-alas",
+      "lesson": 2,
+      "role": "word-model",
+      "text": "alas",
+      "src": "/audio/voz/vocabulario/alas.mp3",
+      "visemes": "/audio/voz/tutor/leccion-2/l2-model-alas.visemes.json",
+      "emotion": "warm",
+      "approval": "picture-name-recordings.json (owner-approved 2026)"
+    },
+    {
+      "lineId": "l2-model-iglú",
+      "lesson": 2,
+      "role": "word-model",
+      "text": "iglú",
+      "src": "/audio/voz/vocabulario/iglú.mp3",
+      "visemes": "/audio/voz/tutor/leccion-2/l2-model-iglú.visemes.json",
+      "emotion": "warm",
+      "approval": "picture-name-recordings.json (owner-approved 2026)"
+    },
+    {
+      "lineId": "l2-model-ola",
+      "lesson": 2,
+      "role": "word-model",
+      "text": "ola",
+      "src": "/audio/voz/vocabulario/ola.mp3",
+      "visemes": "/audio/voz/tutor/leccion-2/l2-model-ola.visemes.json",
+      "emotion": "warm",
+      "approval": "picture-name-recordings.json (owner-approved 2026)"
+    },
+    {
+      "lineId": "l2-model-uvas",
+      "lesson": 2,
+      "role": "word-model",
+      "text": "uvas",
+      "src": "/audio/voz/vocabulario/uvas.mp3",
+      "visemes": "/audio/voz/tutor/leccion-2/l2-model-uvas.visemes.json",
+      "emotion": "warm",
+      "approval": "picture-name-recordings.json (owner-approved 2026)"
+    },
+    {
+      "lineId": "l3-model-aguja",
+      "lesson": 3,
+      "role": "word-model",
+      "text": "aguja",
+      "src": "/audio/voz/vocabulario/aguja.mp3",
+      "visemes": "/audio/voz/tutor/leccion-3/l3-model-aguja.visemes.json",
+      "emotion": "warm",
+      "approval": "picture-name-recordings.json (owner-approved 2026)"
+    },
+    {
+      "lineId": "l3-model-ardilla",
+      "lesson": 3,
+      "role": "word-model",
+      "text": "ardilla",
+      "src": "/audio/voz/vocabulario/ardilla.mp3",
+      "visemes": "/audio/voz/tutor/leccion-3/l3-model-ardilla.visemes.json",
+      "emotion": "warm",
+      "approval": "picture-name-recordings.json (owner-approved 2026)"
+    },
+    {
+      "lineId": "l3-model-oruga",
+      "lesson": 3,
+      "role": "word-model",
+      "text": "oruga",
+      "src": "/audio/voz/vocabulario/oruga.mp3",
+      "visemes": "/audio/voz/tutor/leccion-3/l3-model-oruga.visemes.json",
+      "emotion": "warm",
+      "approval": "picture-name-recordings.json (owner-approved 2026)"
+    }
+  ],
+  "pending": [
+    {
+      "lineId": "l1-greeting-first-01",
+      "lesson": 1,
+      "role": "greeting-first",
+      "text": "¡Hola! Vamos a conocer las vocales. (reuse: buildLessonIntroLines)",
+      "emotion": "warm"
+    },
+    {
+      "lineId": "l1-greeting-first-02",
+      "lesson": 1,
+      "role": "greeting-first",
+      "text": "[DRAFT — owner to approve] ¡Hola! Soy Gretel. Vamos a aprender las vocales: a, e, i, o, u.",
+      "emotion": "warm"
+    },
+    {
+      "lineId": "l1-greeting-first-03",
+      "lesson": 1,
+      "role": "greeting-first",
+      "text": "[DRAFT — owner to approve] ¡Hola, amiguito! Hoy empezamos con las vocales.",
+      "emotion": "warm"
+    },
+    {
+      "lineId": "l2-greeting-first-01",
+      "lesson": 2,
+      "role": "greeting-first",
+      "text": "¡Hola! Vamos a la lección de la vocal O. (reuse: buildLessonIntroLines)",
+      "emotion": "warm"
+    },
+    {
+      "lineId": "l2-greeting-first-02",
+      "lesson": 2,
+      "role": "greeting-first",
+      "text": "[DRAFT — owner to approve] ¡Hola! Hoy practicamos la vocal O.",
+      "emotion": "warm"
+    },
+    {
+      "lineId": "l2-greeting-first-03",
+      "lesson": 2,
+      "role": "greeting-first",
+      "text": "[DRAFT — owner to approve] ¡Qué bueno verte! Vamos a seguir con la vocal O.",
+      "emotion": "warm"
+    },
+    {
+      "lineId": "l3-greeting-first-01",
+      "lesson": 3,
+      "role": "greeting-first",
+      "text": "¡Hola! Vamos a la lección de la vocal A. (reuse: buildLessonIntroLines)",
+      "emotion": "warm"
+    },
+    {
+      "lineId": "l3-greeting-first-02",
+      "lesson": 3,
+      "role": "greeting-first",
+      "text": "[DRAFT — owner to approve] ¡Hola! Hoy practicamos la vocal A.",
+      "emotion": "warm"
+    },
+    {
+      "lineId": "l3-greeting-first-03",
+      "lesson": 3,
+      "role": "greeting-first",
+      "text": "[DRAFT — owner to approve] ¡Qué bueno verte! Vamos a seguir con la vocal A.",
+      "emotion": "warm"
+    },
+    {
+      "lineId": "l0-greeting-return-01",
+      "lesson": 0,
+      "role": "greeting-return",
+      "text": "Bienvenidos a la Cartilla de Gretel. Vamos a aprender a leer juntos. (reuse: HOME_GREETING)",
+      "emotion": "warm"
+    },
+    {
+      "lineId": "l0-greeting-return-02",
+      "lesson": 0,
+      "role": "greeting-return",
+      "text": "[DRAFT — owner to approve] ¡Hola otra vez! Seguimos aprendiendo a leer juntos.",
+      "emotion": "warm"
+    },
+    {
+      "lineId": "l0-greeting-return-03",
+      "lesson": 0,
+      "role": "greeting-return",
+      "text": "[DRAFT — owner to approve] ¡Qué bueno verte de nuevo! Vamos a continuar.",
+      "emotion": "warm"
+    },
+    {
+      "lineId": "l0-praise-01",
+      "lesson": 0,
+      "role": "praise",
+      "text": "¡Muy bien! (reuse: buildSuccessLine)",
+      "emotion": "excited"
+    },
+    {
+      "lineId": "l0-praise-02",
+      "lesson": 0,
+      "role": "praise",
+      "text": "¡Excelente! (reuse: buildSuccessLine)",
+      "emotion": "excited"
+    },
+    {
+      "lineId": "l0-praise-03",
+      "lesson": 0,
+      "role": "praise",
+      "text": "¡Lo lograste! (reuse: buildSuccessLine)",
+      "emotion": "excited"
+    },
+    {
+      "lineId": "l0-praise-04",
+      "lesson": 0,
+      "role": "praise",
+      "text": "¡Qué bien! (reuse: buildSuccessLine)",
+      "emotion": "excited"
+    },
+    {
+      "lineId": "l0-praise-05",
+      "lesson": 0,
+      "role": "praise",
+      "text": "Buen trabajo. (reuse: STUDENT_INTERACTION_STANDARD)",
+      "emotion": "excited"
+    },
+    {
+      "lineId": "l0-praise-06",
+      "lesson": 0,
+      "role": "praise",
+      "text": "[DRAFT — owner to approve] ¡Perfecto!",
+      "emotion": "excited"
+    },
+    {
+      "lineId": "l0-praise-07",
+      "lesson": 0,
+      "role": "praise",
+      "text": "[DRAFT — owner to approve] ¡Eso es!",
+      "emotion": "excited"
+    },
+    {
+      "lineId": "l0-praise-08",
+      "lesson": 0,
+      "role": "praise",
+      "text": "[DRAFT — owner to approve] ¡Muy bien hecho!",
+      "emotion": "excited"
+    },
+    {
+      "lineId": "l0-praise-09",
+      "lesson": 0,
+      "role": "praise",
+      "text": "[DRAFT — owner to approve] ¡Sigue así!",
+      "emotion": "excited"
+    },
+    {
+      "lineId": "l0-praise-10",
+      "lesson": 0,
+      "role": "praise",
+      "text": "[DRAFT — owner to approve] ¡Genial!",
+      "emotion": "excited"
+    },
+    {
+      "lineId": "l0-praise-11",
+      "lesson": 0,
+      "role": "praise",
+      "text": "[DRAFT — owner to approve] ¡Correcto!",
+      "emotion": "excited"
+    },
+    {
+      "lineId": "l0-praise-12",
+      "lesson": 0,
+      "role": "praise",
+      "text": "[DRAFT — owner to approve] ¡Tú sí puedes!",
+      "emotion": "excited"
+    },
+    {
+      "lineId": "l0-praise-streak-01",
+      "lesson": 0,
+      "role": "praise-streak",
+      "text": "[DRAFT — owner to approve] ¡Vas volando!",
+      "emotion": "excited"
+    },
+    {
+      "lineId": "l0-praise-streak-02",
+      "lesson": 0,
+      "role": "praise-streak",
+      "text": "[DRAFT — owner to approve] ¡Qué racha tan buena!",
+      "emotion": "excited"
+    },
+    {
+      "lineId": "l0-praise-streak-03",
+      "lesson": 0,
+      "role": "praise-streak",
+      "text": "[DRAFT — owner to approve] ¡Muchas correctas seguidas!",
+      "emotion": "excited"
+    },
+    {
+      "lineId": "l0-praise-streak-04",
+      "lesson": 0,
+      "role": "praise-streak",
+      "text": "[DRAFT — owner to approve] ¡Eres una estrella!",
+      "emotion": "excited"
+    },
+    {
+      "lineId": "l0-praise-after-retry-01",
+      "lesson": 0,
+      "role": "praise-after-retry",
+      "text": "[DRAFT — owner to approve] ¡Lo lograste! Lo intentaste otra vez y pudiste.",
+      "emotion": "warm"
+    },
+    {
+      "lineId": "l0-praise-after-retry-02",
+      "lesson": 0,
+      "role": "praise-after-retry",
+      "text": "[DRAFT — owner to approve] ¡Eso es! No te rendiste.",
+      "emotion": "warm"
+    },
+    {
+      "lineId": "l0-praise-after-retry-03",
+      "lesson": 0,
+      "role": "praise-after-retry",
+      "text": "[DRAFT — owner to approve] ¡Muy bien! Te costó, pero lo conseguiste.",
+      "emotion": "warm"
+    },
+    {
+      "lineId": "l0-praise-after-retry-04",
+      "lesson": 0,
+      "role": "praise-after-retry",
+      "text": "[DRAFT — owner to approve] ¡Bien por ti! Cada vez te sale mejor.",
+      "emotion": "warm"
+    },
+    {
+      "lineId": "l0-close-miss-01",
+      "lesson": 0,
+      "role": "close-miss",
+      "text": "[DRAFT — owner to approve] Casi casi.",
+      "emotion": "gentle"
+    },
+    {
+      "lineId": "l0-close-miss-02",
+      "lesson": 0,
+      "role": "close-miss",
+      "text": "[DRAFT — owner to approve] Uy, casi. Un poquito más.",
+      "emotion": "gentle"
+    },
+    {
+      "lineId": "l0-close-miss-03",
+      "lesson": 0,
+      "role": "close-miss",
+      "text": "[DRAFT — owner to approve] Tan cerquita.",
+      "emotion": "gentle"
+    },
+    {
+      "lineId": "l0-close-miss-04",
+      "lesson": 0,
+      "role": "close-miss",
+      "text": "[DRAFT — owner to approve] Por poquito.",
+      "emotion": "gentle"
+    },
+    {
+      "lineId": "l0-try-again-01",
+      "lesson": 0,
+      "role": "try-again",
+      "text": "Inténtalo otra vez. (reuse: STUDENT_INTERACTION_STANDARD)",
+      "emotion": "encouraging"
+    },
+    {
+      "lineId": "l0-try-again-02",
+      "lesson": 0,
+      "role": "try-again",
+      "text": "Casi. Prueba otra vez. (reuse: buildMissLine)",
+      "emotion": "encouraging"
+    },
+    {
+      "lineId": "l0-try-again-03",
+      "lesson": 0,
+      "role": "try-again",
+      "text": "Tú puedes. (reuse: buildMissLine)",
+      "emotion": "encouraging"
+    },
+    {
+      "lineId": "l0-try-again-04",
+      "lesson": 0,
+      "role": "try-again",
+      "text": "[DRAFT — owner to approve] No pasa nada. Inténtalo de nuevo.",
+      "emotion": "encouraging"
+    },
+    {
+      "lineId": "l0-try-again-05",
+      "lesson": 0,
+      "role": "try-again",
+      "text": "[DRAFT — owner to approve] Otra vez, con calma.",
+      "emotion": "encouraging"
+    },
+    {
+      "lineId": "l0-try-again-06",
+      "lesson": 0,
+      "role": "try-again",
+      "text": "[DRAFT — owner to approve] Una vez más, tú puedes.",
+      "emotion": "encouraging"
+    },
+    {
+      "lineId": "l0-confusion-a",
+      "lesson": 0,
+      "role": "confusion",
+      "text": "[DRAFT — owner to approve] Esa es la A.",
+      "emotion": "gentle"
+    },
+    {
+      "lineId": "l0-confusion-e",
+      "lesson": 0,
+      "role": "confusion",
+      "text": "[DRAFT — owner to approve] Esa es la E.",
+      "emotion": "gentle"
+    },
+    {
+      "lineId": "l0-confusion-i",
+      "lesson": 0,
+      "role": "confusion",
+      "text": "[DRAFT — owner to approve] Esa es la I.",
+      "emotion": "gentle"
+    },
+    {
+      "lineId": "l0-confusion-o",
+      "lesson": 0,
+      "role": "confusion",
+      "text": "[DRAFT — owner to approve] Esa es la O.",
+      "emotion": "gentle"
+    },
+    {
+      "lineId": "l0-confusion-u",
+      "lesson": 0,
+      "role": "confusion",
+      "text": "[DRAFT — owner to approve] Esa es la U.",
+      "emotion": "gentle"
+    },
+    {
+      "lineId": "l0-wrong-word-01",
+      "lesson": 0,
+      "role": "wrong-word",
+      "text": "[DRAFT — owner to approve] Ese no es. Escucha otra vez.",
+      "emotion": "gentle"
+    },
+    {
+      "lineId": "l0-wrong-word-02",
+      "lesson": 0,
+      "role": "wrong-word",
+      "text": "[DRAFT — owner to approve] Uy, no es esa palabra. Intenta de nuevo.",
+      "emotion": "gentle"
+    },
+    {
+      "lineId": "l0-wrong-word-03",
+      "lesson": 0,
+      "role": "wrong-word",
+      "text": "[DRAFT — owner to approve] Casi, pero no es esa.",
+      "emotion": "gentle"
+    },
+    {
+      "lineId": "l0-repeat-ack-01",
+      "lesson": 0,
+      "role": "repeat-ack",
+      "text": "[DRAFT — owner to approve] Muy bien dicho. Ahora otra vez.",
+      "emotion": "encouraging"
+    },
+    {
+      "lineId": "l0-repeat-ack-02",
+      "lesson": 0,
+      "role": "repeat-ack",
+      "text": "[DRAFT — owner to approve] ¡Otra vez, más fuerte!",
+      "emotion": "encouraging"
+    },
+    {
+      "lineId": "l0-dont-know-01",
+      "lesson": 0,
+      "role": "dont-know",
+      "text": "[DRAFT — owner to approve] No pasa nada. Escucha y repite conmigo.",
+      "emotion": "gentle"
+    },
+    {
+      "lineId": "l0-dont-know-02",
+      "lesson": 0,
+      "role": "dont-know",
+      "text": "[DRAFT — owner to approve] Tranquilo. Primero escucha la palabra.",
+      "emotion": "gentle"
+    },
+    {
+      "lineId": "l0-dont-know-03",
+      "lesson": 0,
+      "role": "dont-know",
+      "text": "[DRAFT — owner to approve] No te preocupes. La hacemos juntos.",
+      "emotion": "gentle"
+    },
+    {
+      "lineId": "l0-help-01",
+      "lesson": 0,
+      "role": "help",
+      "text": "[DRAFT — owner to approve] Escucha bien el sonido y repite.",
+      "emotion": "encouraging"
+    },
+    {
+      "lineId": "l0-help-02",
+      "lesson": 0,
+      "role": "help",
+      "text": "[DRAFT — owner to approve] Mírame. Di la palabra conmigo.",
+      "emotion": "encouraging"
+    },
+    {
+      "lineId": "l0-help-03",
+      "lesson": 0,
+      "role": "help",
+      "text": "[DRAFT — owner to approve] Primero escucha, luego repite despacio.",
+      "emotion": "encouraging"
+    },
+    {
+      "lineId": "l0-silence-nudge-01",
+      "lesson": 0,
+      "role": "silence-nudge",
+      "text": "[DRAFT — owner to approve] No te oigo. Acércate al micrófono.",
+      "emotion": "gentle"
+    },
+    {
+      "lineId": "l0-silence-nudge-02",
+      "lesson": 0,
+      "role": "silence-nudge",
+      "text": "[DRAFT — owner to approve] Habla un poquito más fuerte.",
+      "emotion": "gentle"
+    },
+    {
+      "lineId": "l0-silence-nudge-03",
+      "lesson": 0,
+      "role": "silence-nudge",
+      "text": "[DRAFT — owner to approve] ¿Estás ahí? Dime la palabra cuando quieras.",
+      "emotion": "gentle"
+    },
+    {
+      "lineId": "l0-noise-01",
+      "lesson": 0,
+      "role": "noise",
+      "text": "[DRAFT — owner to approve] Hay mucho ruido. Busquemos un lugar tranquilo.",
+      "emotion": "gentle"
+    },
+    {
+      "lineId": "l0-noise-02",
+      "lesson": 0,
+      "role": "noise",
+      "text": "[DRAFT — owner to approve] Escucho ruido. Vamos a un lugar más callado.",
+      "emotion": "gentle"
+    },
+    {
+      "lineId": "l0-redirect-01",
+      "lesson": 0,
+      "role": "redirect",
+      "text": "[DRAFT — owner to approve] Vamos a seguir con la siguiente palabra.",
+      "emotion": "gentle"
+    },
+    {
+      "lineId": "l0-redirect-02",
+      "lesson": 0,
+      "role": "redirect",
+      "text": "[DRAFT — owner to approve] Sigue con la siguiente.",
+      "emotion": "gentle"
+    },
+    {
+      "lineId": "l0-redirect-03",
+      "lesson": 0,
+      "role": "redirect",
+      "text": "[DRAFT — owner to approve] Dejemos esa y seguimos aprendiendo.",
+      "emotion": "gentle"
+    },
+    {
+      "lineId": "l0-review-intro-01",
+      "lesson": 0,
+      "role": "review-intro",
+      "text": "[DRAFT — owner to approve] Vamos a repasar lo que aprendimos.",
+      "emotion": "warm"
+    },
+    {
+      "lineId": "l0-review-intro-02",
+      "lesson": 0,
+      "role": "review-intro",
+      "text": "[DRAFT — owner to approve] Ahora repasamos juntos.",
+      "emotion": "warm"
+    },
+    {
+      "lineId": "l0-closing-01",
+      "lesson": 0,
+      "role": "closing",
+      "text": "[DRAFT — owner to approve] ¡Muy bien! Terminamos por hoy.",
+      "emotion": "warm"
+    },
+    {
+      "lineId": "l0-closing-02",
+      "lesson": 0,
+      "role": "closing",
+      "text": "[DRAFT — owner to approve] ¡Gran trabajo! Nos vemos en la próxima lección.",
+      "emotion": "warm"
+    },
+    {
+      "lineId": "l0-closing-03",
+      "lesson": 0,
+      "role": "closing",
+      "text": "[DRAFT — owner to approve] Adiós. ¡Hasta pronto!",
+      "emotion": "warm"
+    },
+    {
+      "lineId": "l0-idle-end-01",
+      "lesson": 0,
+      "role": "idle-end",
+      "text": "[DRAFT — owner to approve] Descansa un poco. Nos vemos pronto.",
+      "emotion": "calm"
+    },
+    {
+      "lineId": "l0-vowel-model-a",
+      "lesson": 0,
+      "role": "vowel-model",
+      "text": "[DRAFT — owner to approve] a",
+      "emotion": "warm"
+    },
+    {
+      "lineId": "l0-vowel-model-e",
+      "lesson": 0,
+      "role": "vowel-model",
+      "text": "[DRAFT — owner to approve] e",
+      "emotion": "warm"
+    },
+    {
+      "lineId": "l0-vowel-model-i",
+      "lesson": 0,
+      "role": "vowel-model",
+      "text": "[DRAFT — owner to approve] i",
+      "emotion": "warm"
+    },
+    {
+      "lineId": "l0-vowel-model-o",
+      "lesson": 0,
+      "role": "vowel-model",
+      "text": "[DRAFT — owner to approve] o",
+      "emotion": "warm"
+    },
+    {
+      "lineId": "l0-vowel-model-u",
+      "lesson": 0,
+      "role": "vowel-model",
+      "text": "[DRAFT — owner to approve] u",
+      "emotion": "warm"
+    }
+  ]
+}
