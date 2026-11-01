@@ -28,7 +28,7 @@ export default defineConfig({
   retries: process.env.CI ? 1 : 0,
   reporter: "list",
   use: {
-    trace: "off",
+    trace: "retain-on-failure",
   },
   projects: [
     {
