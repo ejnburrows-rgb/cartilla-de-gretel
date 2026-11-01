@@ -21,9 +21,7 @@ describe("literacy-insights timezone behavior", () => {
       [{ lesson_id: "8", due_at: dueAtStr }],
       localEndMs,
     );
-    expect(
-      notOverdue.attention.find((item) => item.key === "assignment-8"),
-    ).toBeUndefined();
+    expect(notOverdue.attention.find((item) => item.key === "assignment-8")).toBeUndefined();
 
     const overdue = buildStudentLearningInsight(
       [],
@@ -45,5 +43,36 @@ describe("literacy-insights timezone behavior", () => {
     expect([d.getFullYear(), d.getMonth(), d.getDate()]).toEqual([2026, 9, 16]);
     expect(d.getHours()).toBe(0);
     expect(d.getMinutes()).toBe(0);
+  });
+});
+
+describe("additional date-only parsing tests", () => {
+  it("buildStudentLearningInsight handles naive date strings", () => {
+    // A naive date string "2026-10-16" should be treated as local midnight,
+    // which means it lasts exactly 24 hours in local time.
+    const naiveDateStr = "2026-10-16";
+    // We expect it to act exactly as if it was parsed as local midnight
+    const localMidnightMs = new Date(naiveDateStr + "T00:00:00").getTime();
+    const localEndMs = localMidnightMs + 24 * 60 * 60 * 1000 - 1;
+
+    // Should NOT be overdue precisely at local end
+    const notOverdue = buildStudentLearningInsight(
+      [],
+      new Set(),
+      [{ lesson_id: "9", due_at: naiveDateStr }],
+      localEndMs,
+    );
+    expect(notOverdue.attention.find((item) => item.key === "assignment-9")).toBeUndefined();
+
+    // Should BE overdue 1 ms later
+    const overdue = buildStudentLearningInsight(
+      [],
+      new Set(),
+      [{ lesson_id: "9", due_at: naiveDateStr }],
+      localEndMs + 1,
+    );
+    const flag = overdue.attention.find((item) => item.key === "assignment-9");
+    expect(flag).toBeDefined();
+    expect(flag?.reason).toContain("vencida");
   });
 });
