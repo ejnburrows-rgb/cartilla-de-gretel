@@ -4,3 +4,8 @@ allowBuilds:
   canvas: true
 overrides:
   seroval: 1.6.8
+  "zod@^4.0.0": 4.6.6
+  "nanoid@^3.0.0": 3.3.18
+  source-map-js: 1.2.2
+  postcss: 8.5.23
+  vite: 7.3.7
