@@ -503,8 +503,8 @@ export function DirectPencilConnector({
     const candidates = isPairMode ? rightTargets : targets;
     const releasedTarget = candidates.find((target) => {
       const rect = targetEls.current.get(target.id)?.getBoundingClientRect();
-      return rect && e.clientX >= rect.left && e.clientX <= rect.right &&
-        e.clientY >= rect.top && e.clientY <= rect.bottom;
+      return rect && ((rect.width > 0 && e.clientX >= rect.left - 18 && e.clientX <= rect.right + 18 && e.clientY >= rect.top - 18 && e.clientY <= rect.bottom + 18) || (e.clientX >= rect.left && e.clientX <= rect.right && e.clientY >= rect.top && e.clientY <= rect.bottom));
+        true;
     });
     cancelDragState();
     if (!releasedTarget) return;

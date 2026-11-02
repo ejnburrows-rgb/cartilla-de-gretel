@@ -1,4 +1,5 @@
 import { createLazyFileRoute, Link } from "@tanstack/react-router";
+import { DemoControlCenter } from "@/components/cartilla/DemoControlCenter";
 import {
   GraduationCap,
   BookOpen,
@@ -109,7 +110,8 @@ const FOLDERS: DriveFolder[] = [
 
 function TeacherHub() {
   return (
-    <div className="w-full space-y-10 pb-16">
+    <div className="w-full space-y-8 pb-16">
+      <DemoControlCenter />
       <header>
         <h1 className="teacher-chrome__title text-3xl sm:text-4xl font-black">Panel del Docente</h1>
         <p className="text-[var(--tc-ink-soft)] font-bold mt-1">

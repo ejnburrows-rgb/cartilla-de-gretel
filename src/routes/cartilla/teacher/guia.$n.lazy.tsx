@@ -3,6 +3,7 @@ import { Printer, ChevronLeft, MonitorPlay, BookOpenCheck, FolderOpen } from "lu
 import { CATALOG } from "@/lib/lesson-catalog";
 import "@/styles/teacher-print.css";
 import { GuideLayout } from "@/content/guides/GuideLayout";
+import { DemoControlCenter } from "@/components/cartilla/DemoControlCenter";
 
 const guideModules = import.meta.glob("/src/content/guides/lesson-*.tsx", { eager: true });
 
@@ -28,6 +29,7 @@ function TeacherGuideLeccion() {
 
   return (
     <div className="space-y-4 max-w-[1400px] mx-auto min-h-[90vh] teacher-guide-page flex flex-col">
+      <DemoControlCenter currentLesson={n} />
       <div className="flex flex-wrap gap-3 items-center justify-between no-print shrink-0 px-2">
         <Link
           to="/cartilla/teacher/crm"

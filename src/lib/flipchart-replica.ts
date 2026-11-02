@@ -778,10 +778,10 @@ export function getReplicaSheet(page: number): ReplicaSheet | null {
     const w = nw * scale;
     const h = nh * scale;
     const clip: [number, number, number, number] = [
-      Math.max(0, bt * scale - 2),
-      Math.max(0, (nw - bl - bw) * scale - 2),
-      Math.max(0, (nh - bt - bh) * scale - 2),
-      Math.max(0, bl * scale - 2),
+      Math.max(0, bt * scale - 16),
+      Math.max(0, (nw - bl - bw) * scale - 16),
+      Math.max(0, (nh - bt - bh) * scale - 16),
+      Math.max(0, bl * scale - 16),
     ];
     return { ...base, x, y, w, h, clip };
   });

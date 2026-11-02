@@ -1,0 +1,910 @@
+{
+  "timestamp": "2026-11-02T15:36:01.024Z",
+  "baseURL": "http://127.0.0.1:4173",
+  "routes": [
+    {
+      "route": "/cartilla/leccion/1",
+      "name": "leccion_1",
+      "viewport": "desktop",
+      "screenshot": "desktop_leccion_1.png",
+      "metrics": {
+        "title": "La Cartilla de Gretel",
+        "htmlClasses": "student-pencil",
+        "bodyClasses": "",
+        "rootCursor": "auto",
+        "bodyCursor": "auto",
+        "pencilCursorElements": [],
+        "demoControlMetrics": null,
+        "imageCount": 33,
+        "brokenImages": 0,
+        "imagesSample": [
+          {
+            "src": "http://127.0.0.1:4173/cartilla/backgrounds/final/workbook/Workbook_Page_001.png",
+            "alt": "",
+            "naturalWidth": 1103,
+            "naturalHeight": 1426,
+            "renderedWidth": 0,
+            "renderedHeight": 0,
+            "objectFit": "contain",
+            "isBroken": false
+          },
+          {
+            "src": "http://127.0.0.1:4173/cartilla/art/optimized/workbook/leccion-1/abrigo.png",
+            "alt": "abrigo",
+            "naturalWidth": 1024,
+            "naturalHeight": 1024,
+            "renderedWidth": 125,
+            "renderedHeight": 92,
+            "objectFit": "contain",
+            "isBroken": false
+          },
+          {
+            "src": "http://127.0.0.1:4173/cartilla/art/optimized/workbook/leccion-1/abrigo.png",
+            "alt": "",
+            "naturalWidth": 1024,
+            "naturalHeight": 1024,
+            "renderedWidth": 125,
+            "renderedHeight": 92,
+            "objectFit": "contain",
+            "isBroken": false
+          },
+          {
+            "src": "http://127.0.0.1:4173/cartilla/art/optimized/workbook/leccion-1/iman-alive.svg",
+            "alt": "imán",
+            "naturalWidth": 215,
+            "naturalHeight": 206,
+            "renderedWidth": 125,
+            "renderedHeight": 92,
+            "objectFit": "contain",
+            "isBroken": false
+          },
+          {
+            "src": "http://127.0.0.1:4173/cartilla/art/optimized/workbook/leccion-1/abanico-alive.svg",
+            "alt": "abanico",
+            "naturalWidth": 220,
+            "naturalHeight": 221,
+            "renderedWidth": 125,
+            "renderedHeight": 92,
+            "objectFit": "contain",
+            "isBroken": false
+          },
+          {
+            "src": "http://127.0.0.1:4173/cartilla/art/optimized/workbook/leccion-1/oso-alive.svg",
+            "alt": "oso",
+            "naturalWidth": 209,
+            "naturalHeight": 239,
+            "renderedWidth": 125,
+            "renderedHeight": 92,
+            "objectFit": "contain",
+            "isBroken": false
+          },
+          {
+            "src": "http://127.0.0.1:4173/cartilla/art/optimized/workbook/leccion-1/isla.svg",
+            "alt": "isla",
+            "naturalWidth": 266,
+            "naturalHeight": 232,
+            "renderedWidth": 125,
+            "renderedHeight": 92,
+            "objectFit": "contain",
+            "isBroken": false
+          },
+          {
+            "src": "http://127.0.0.1:4173/cartilla/art/optimized/workbook/leccion-1/isla.svg",
+            "alt": "",
+            "naturalWidth": 266,
+            "naturalHeight": 232,
+            "renderedWidth": 125,
+            "renderedHeight": 92,
+            "objectFit": "contain",
+            "isBroken": false
+          }
+        ],
+        "flipchartMetrics": null,
+        "workbookMetrics": {
+          "width": 1161,
+          "height": 744,
+          "top": 12,
+          "left": 103
+        },
+        "viewport": {
+          "width": 1366,
+          "height": 768
+        }
+      }
+    },
+    {
+      "route": "/cartilla/leccion/3",
+      "name": "leccion_3",
+      "viewport": "desktop",
+      "screenshot": "desktop_leccion_3.png",
+      "metrics": {
+        "title": "La Cartilla de Gretel",
+        "htmlClasses": "student-pencil",
+        "bodyClasses": "",
+        "rootCursor": "auto",
+        "bodyCursor": "auto",
+        "pencilCursorElements": [],
+        "demoControlMetrics": null,
+        "imageCount": 13,
+        "brokenImages": 0,
+        "imagesSample": [
+          {
+            "src": "http://127.0.0.1:4173/cartilla/backgrounds/final/workbook/Workbook_Page_007.png",
+            "alt": "",
+            "naturalWidth": 1103,
+            "naturalHeight": 1426,
+            "renderedWidth": 0,
+            "renderedHeight": 0,
+            "objectFit": "contain",
+            "isBroken": false
+          },
+          {
+            "src": "http://127.0.0.1:4173/cartilla/art/faithful/vocal-a/abanico-alive.svg",
+            "alt": "abanico",
+            "naturalWidth": 870,
+            "naturalHeight": 842,
+            "renderedWidth": 223,
+            "renderedHeight": 223,
+            "objectFit": "contain",
+            "isBroken": false
+          },
+          {
+            "src": "http://127.0.0.1:4173/cartilla/art/delivery/faithful/384/vocal-o/oruga.webp",
+            "alt": "oruga",
+            "naturalWidth": 384,
+            "naturalHeight": 377,
+            "renderedWidth": 223,
+            "renderedHeight": 223,
+            "objectFit": "contain",
+            "isBroken": false
+          },
+          {
+            "src": "http://127.0.0.1:4173/cartilla/art/faithful/vocal-o/oruga.webp",
+            "alt": "",
+            "naturalWidth": 580,
+            "naturalHeight": 570,
+            "renderedWidth": 223,
+            "renderedHeight": 223,
+            "objectFit": "contain",
+            "isBroken": false
+          },
+          {
+            "src": "http://127.0.0.1:4173/cartilla/art/faithful/vocal-a/aro.webp",
+            "alt": "aro",
+            "naturalWidth": 780,
+            "naturalHeight": 660,
+            "renderedWidth": 223,
+            "renderedHeight": 223,
+            "objectFit": "contain",
+            "isBroken": false
+          },
+          {
+            "src": "http://127.0.0.1:4173/cartilla/art/faithful/vocal-a/aro.webp",
+            "alt": "",
+            "naturalWidth": 780,
+            "naturalHeight": 660,
+            "renderedWidth": 229,
+            "renderedHeight": 229,
+            "objectFit": "contain",
+            "isBroken": false
+          },
+          {
+            "src": "http://127.0.0.1:4173/cartilla/art/faithful/vocal-i/iman-alive.svg",
+            "alt": "imán",
+            "naturalWidth": 870,
+            "naturalHeight": 716,
+            "renderedWidth": 223,
+            "renderedHeight": 223,
+            "objectFit": "contain",
+            "isBroken": false
+          },
+          {
+            "src": "http://127.0.0.1:4173/cartilla/art/faithful/vocal-o/oveja-alive.svg",
+            "alt": "oveja",
+            "naturalWidth": 870,
+            "naturalHeight": 824,
+            "renderedWidth": 223,
+            "renderedHeight": 223,
+            "objectFit": "contain",
+            "isBroken": false
+          }
+        ],
+        "flipchartMetrics": null,
+        "workbookMetrics": {
+          "width": 1161,
+          "height": 744,
+          "top": 12,
+          "left": 103
+        },
+        "viewport": {
+          "width": 1366,
+          "height": 768
+        }
+      }
+    },
+    {
+      "route": "/cartilla/teacher/flipchart",
+      "name": "teacher_flipchart",
+      "viewport": "desktop",
+      "screenshot": "desktop_teacher_flipchart.png",
+      "metrics": {
+        "title": "La Cartilla de Gretel",
+        "htmlClasses": "",
+        "bodyClasses": "",
+        "rootCursor": "auto",
+        "bodyCursor": "auto",
+        "pencilCursorElements": [],
+        "demoControlMetrics": null,
+        "imageCount": 12,
+        "brokenImages": 0,
+        "imagesSample": [
+          {
+            "src": "http://127.0.0.1:4173/cartilla/art/optimized/flipchart-native/p003-scene.png",
+            "alt": "Ilustración de la página 3",
+            "naturalWidth": 539,
+            "naturalHeight": 539,
+            "renderedWidth": 211,
+            "renderedHeight": 211,
+            "objectFit": "contain",
+            "isBroken": false
+          },
+          {
+            "src": "http://127.0.0.1:4173/cartilla/art/optimized/flipchart-native/p003-scene.png",
+            "alt": "",
+            "naturalWidth": 539,
+            "naturalHeight": 539,
+            "renderedWidth": 211,
+            "renderedHeight": 211,
+            "objectFit": "contain",
+            "isBroken": false
+          },
+          {
+            "src": "http://127.0.0.1:4173/cartilla/art/optimized/flipchart-native/p003-avion.png",
+            "alt": "avión",
+            "naturalWidth": 320,
+            "naturalHeight": 320,
+            "renderedWidth": 122,
+            "renderedHeight": 122,
+            "objectFit": "contain",
+            "isBroken": false
+          },
+          {
+            "src": "http://127.0.0.1:4173/cartilla/art/optimized/flipchart-native/p003-avion.png",
+            "alt": "",
+            "naturalWidth": 320,
+            "naturalHeight": 320,
+            "renderedWidth": 122,
+            "renderedHeight": 122,
+            "objectFit": "contain",
+            "isBroken": false
+          },
+          {
+            "src": "http://127.0.0.1:4173/cartilla/art/optimized/flipchart-native/p003-escoba.png",
+            "alt": "escoba",
+            "naturalWidth": 320,
+            "naturalHeight": 320,
+            "renderedWidth": 123,
+            "renderedHeight": 123,
+            "objectFit": "contain",
+            "isBroken": false
+          },
+          {
+            "src": "http://127.0.0.1:4173/cartilla/art/optimized/flipchart-native/p003-escoba.png",
+            "alt": "",
+            "naturalWidth": 320,
+            "naturalHeight": 320,
+            "renderedWidth": 124,
+            "renderedHeight": 124,
+            "objectFit": "contain",
+            "isBroken": false
+          },
+          {
+            "src": "http://127.0.0.1:4173/cartilla/art/optimized/flipchart-native/p003-iman.png",
+            "alt": "imán",
+            "naturalWidth": 320,
+            "naturalHeight": 320,
+            "renderedWidth": 125,
+            "renderedHeight": 125,
+            "objectFit": "contain",
+            "isBroken": false
+          },
+          {
+            "src": "http://127.0.0.1:4173/cartilla/art/optimized/flipchart-native/p003-iman.png",
+            "alt": "",
+            "naturalWidth": 320,
+            "naturalHeight": 320,
+            "renderedWidth": 125,
+            "renderedHeight": 125,
+            "objectFit": "contain",
+            "isBroken": false
+          }
+        ],
+        "flipchartMetrics": {
+          "selector": "fc-board__easel",
+          "width": 1054,
+          "height": 531,
+          "viewportHeightRatio": "0.692",
+          "viewportWidthRatio": "0.772"
+        },
+        "workbookMetrics": {
+          "width": 1043,
+          "height": 524,
+          "top": 228,
+          "left": 162
+        },
+        "viewport": {
+          "width": 1366,
+          "height": 768
+        }
+      }
+    },
+    {
+      "route": "/cartilla/presentar/7",
+      "name": "presentar_7",
+      "viewport": "desktop",
+      "screenshot": "desktop_presentar_7.png",
+      "metrics": {
+        "title": "La Cartilla de Gretel",
+        "htmlClasses": "",
+        "bodyClasses": "",
+        "rootCursor": "auto",
+        "bodyCursor": "auto",
+        "pencilCursorElements": [],
+        "demoControlMetrics": null,
+        "imageCount": 18,
+        "brokenImages": 0,
+        "imagesSample": [
+          {
+            "src": "http://127.0.0.1:4173/cartilla/art/optimized/flipchart-native/p009-scene-alive.svg",
+            "alt": "Ilustración de la página 9",
+            "naturalWidth": 530,
+            "naturalHeight": 530,
+            "renderedWidth": 243,
+            "renderedHeight": 243,
+            "objectFit": "contain",
+            "isBroken": false
+          },
+          {
+            "src": "http://127.0.0.1:4173/cartilla/art/optimized/flipchart-native/p009-mama.png",
+            "alt": "mamá",
+            "naturalWidth": 344,
+            "naturalHeight": 344,
+            "renderedWidth": 159,
+            "renderedHeight": 159,
+            "objectFit": "contain",
+            "isBroken": false
+          },
+          {
+            "src": "http://127.0.0.1:4173/cartilla/art/optimized/flipchart-native/p009-mama.png",
+            "alt": "",
+            "naturalWidth": 344,
+            "naturalHeight": 344,
+            "renderedWidth": 159,
+            "renderedHeight": 159,
+            "objectFit": "contain",
+            "isBroken": false
+          },
+          {
+            "src": "http://127.0.0.1:4173/cartilla/art/optimized/flipchart-native/p009-amo.png",
+            "alt": "amo",
+            "naturalWidth": 689,
+            "naturalHeight": 728,
+            "renderedWidth": 125,
+            "renderedHeight": 132,
+            "objectFit": "contain",
+            "isBroken": false
+          },
+          {
+            "src": "http://127.0.0.1:4173/cartilla/art/optimized/flipchart-native/p009-amo.png",
+            "alt": "",
+            "naturalWidth": 689,
+            "naturalHeight": 728,
+            "renderedWidth": 125,
+            "renderedHeight": 132,
+            "objectFit": "contain",
+            "isBroken": false
+          },
+          {
+            "src": "http://127.0.0.1:4173/cartilla/art/optimized/flipchart-native/p009-mima.png",
+            "alt": "mima",
+            "naturalWidth": 776,
+            "naturalHeight": 777,
+            "renderedWidth": 141,
+            "renderedHeight": 141,
+            "objectFit": "contain",
+            "isBroken": false
+          },
+          {
+            "src": "http://127.0.0.1:4173/cartilla/art/optimized/flipchart-native/p009-mima.png",
+            "alt": "",
+            "naturalWidth": 776,
+            "naturalHeight": 777,
+            "renderedWidth": 141,
+            "renderedHeight": 141,
+            "objectFit": "contain",
+            "isBroken": false
+          },
+          {
+            "src": "http://127.0.0.1:4173/cartilla/art/optimized/flipchart-native/p009-meme.png",
+            "alt": "Meme",
+            "naturalWidth": 383,
+            "naturalHeight": 789,
+            "renderedWidth": 70,
+            "renderedHeight": 143,
+            "objectFit": "contain",
+            "isBroken": false
+          }
+        ],
+        "flipchartMetrics": {
+          "selector": "fc-board__easel",
+          "width": 1339,
+          "height": 635,
+          "viewportHeightRatio": "0.827",
+          "viewportWidthRatio": "0.980"
+        },
+        "workbookMetrics": {
+          "width": 1326,
+          "height": 626,
+          "top": 80,
+          "left": 20
+        },
+        "viewport": {
+          "width": 1366,
+          "height": 768
+        }
+      }
+    },
+    {
+      "route": "/cartilla/leccion/1",
+      "name": "leccion_1",
+      "viewport": "mobile",
+      "screenshot": "mobile_leccion_1.png",
+      "metrics": {
+        "title": "La Cartilla de Gretel",
+        "htmlClasses": "student-pencil",
+        "bodyClasses": "",
+        "rootCursor": "auto",
+        "bodyCursor": "auto",
+        "pencilCursorElements": [],
+        "demoControlMetrics": null,
+        "imageCount": 33,
+        "brokenImages": 0,
+        "imagesSample": [
+          {
+            "src": "http://127.0.0.1:4173/cartilla/backgrounds/final/workbook/Workbook_Page_001.png",
+            "alt": "",
+            "naturalWidth": 1103,
+            "naturalHeight": 1426,
+            "renderedWidth": 0,
+            "renderedHeight": 0,
+            "objectFit": "contain",
+            "isBroken": false
+          },
+          {
+            "src": "http://127.0.0.1:4173/cartilla/art/optimized/workbook/leccion-1/abrigo.png",
+            "alt": "abrigo",
+            "naturalWidth": 1024,
+            "naturalHeight": 1024,
+            "renderedWidth": 61,
+            "renderedHeight": 53,
+            "objectFit": "contain",
+            "isBroken": false
+          },
+          {
+            "src": "http://127.0.0.1:4173/cartilla/art/optimized/workbook/leccion-1/abrigo.png",
+            "alt": "",
+            "naturalWidth": 1024,
+            "naturalHeight": 1024,
+            "renderedWidth": 61,
+            "renderedHeight": 53,
+            "objectFit": "contain",
+            "isBroken": false
+          },
+          {
+            "src": "http://127.0.0.1:4173/cartilla/art/optimized/workbook/leccion-1/iman-alive.svg",
+            "alt": "imán",
+            "naturalWidth": 215,
+            "naturalHeight": 206,
+            "renderedWidth": 61,
+            "renderedHeight": 53,
+            "objectFit": "contain",
+            "isBroken": false
+          },
+          {
+            "src": "http://127.0.0.1:4173/cartilla/art/optimized/workbook/leccion-1/abanico-alive.svg",
+            "alt": "abanico",
+            "naturalWidth": 220,
+            "naturalHeight": 221,
+            "renderedWidth": 61,
+            "renderedHeight": 53,
+            "objectFit": "contain",
+            "isBroken": false
+          },
+          {
+            "src": "http://127.0.0.1:4173/cartilla/art/optimized/workbook/leccion-1/oso-alive.svg",
+            "alt": "oso",
+            "naturalWidth": 209,
+            "naturalHeight": 239,
+            "renderedWidth": 61,
+            "renderedHeight": 53,
+            "objectFit": "contain",
+            "isBroken": false
+          },
+          {
+            "src": "http://127.0.0.1:4173/cartilla/art/optimized/workbook/leccion-1/isla.svg",
+            "alt": "isla",
+            "naturalWidth": 266,
+            "naturalHeight": 232,
+            "renderedWidth": 61,
+            "renderedHeight": 53,
+            "objectFit": "contain",
+            "isBroken": false
+          },
+          {
+            "src": "http://127.0.0.1:4173/cartilla/art/optimized/workbook/leccion-1/isla.svg",
+            "alt": "",
+            "naturalWidth": 266,
+            "naturalHeight": 232,
+            "renderedWidth": 62,
+            "renderedHeight": 54,
+            "objectFit": "contain",
+            "isBroken": false
+          }
+        ],
+        "flipchartMetrics": null,
+        "workbookMetrics": {
+          "width": 370,
+          "height": 724,
+          "top": 44,
+          "left": 10
+        },
+        "viewport": {
+          "width": 390,
+          "height": 844
+        }
+      }
+    },
+    {
+      "route": "/cartilla/leccion/3",
+      "name": "leccion_3",
+      "viewport": "mobile",
+      "screenshot": "mobile_leccion_3.png",
+      "metrics": {
+        "title": "La Cartilla de Gretel",
+        "htmlClasses": "student-pencil",
+        "bodyClasses": "",
+        "rootCursor": "auto",
+        "bodyCursor": "auto",
+        "pencilCursorElements": [],
+        "demoControlMetrics": null,
+        "imageCount": 13,
+        "brokenImages": 0,
+        "imagesSample": [
+          {
+            "src": "http://127.0.0.1:4173/cartilla/backgrounds/final/workbook/Workbook_Page_007.png",
+            "alt": "",
+            "naturalWidth": 1103,
+            "naturalHeight": 1426,
+            "renderedWidth": 0,
+            "renderedHeight": 0,
+            "objectFit": "contain",
+            "isBroken": false
+          },
+          {
+            "src": "http://127.0.0.1:4173/cartilla/art/faithful/vocal-a/abanico-alive.svg",
+            "alt": "abanico",
+            "naturalWidth": 870,
+            "naturalHeight": 842,
+            "renderedWidth": 107,
+            "renderedHeight": 107,
+            "objectFit": "contain",
+            "isBroken": false
+          },
+          {
+            "src": "http://127.0.0.1:4173/cartilla/art/delivery/faithful/768/vocal-o/oruga.webp",
+            "alt": "oruga",
+            "naturalWidth": 384,
+            "naturalHeight": 377,
+            "renderedWidth": 107,
+            "renderedHeight": 107,
+            "objectFit": "contain",
+            "isBroken": false
+          },
+          {
+            "src": "http://127.0.0.1:4173/cartilla/art/faithful/vocal-o/oruga.webp",
+            "alt": "",
+            "naturalWidth": 580,
+            "naturalHeight": 570,
+            "renderedWidth": 107,
+            "renderedHeight": 107,
+            "objectFit": "contain",
+            "isBroken": false
+          },
+          {
+            "src": "http://127.0.0.1:4173/cartilla/art/faithful/vocal-a/aro.webp",
+            "alt": "aro",
+            "naturalWidth": 780,
+            "naturalHeight": 660,
+            "renderedWidth": 107,
+            "renderedHeight": 107,
+            "objectFit": "contain",
+            "isBroken": false
+          },
+          {
+            "src": "http://127.0.0.1:4173/cartilla/art/faithful/vocal-a/aro.webp",
+            "alt": "",
+            "naturalWidth": 780,
+            "naturalHeight": 660,
+            "renderedWidth": 109,
+            "renderedHeight": 109,
+            "objectFit": "contain",
+            "isBroken": false
+          },
+          {
+            "src": "http://127.0.0.1:4173/cartilla/art/faithful/vocal-i/iman-alive.svg",
+            "alt": "imán",
+            "naturalWidth": 870,
+            "naturalHeight": 716,
+            "renderedWidth": 107,
+            "renderedHeight": 107,
+            "objectFit": "contain",
+            "isBroken": false
+          },
+          {
+            "src": "http://127.0.0.1:4173/cartilla/art/faithful/vocal-o/oveja-alive.svg",
+            "alt": "oveja",
+            "naturalWidth": 870,
+            "naturalHeight": 824,
+            "renderedWidth": 107,
+            "renderedHeight": 107,
+            "objectFit": "contain",
+            "isBroken": false
+          }
+        ],
+        "flipchartMetrics": null,
+        "workbookMetrics": {
+          "width": 370,
+          "height": 724,
+          "top": 44,
+          "left": 10
+        },
+        "viewport": {
+          "width": 390,
+          "height": 844
+        }
+      }
+    },
+    {
+      "route": "/cartilla/teacher/flipchart",
+      "name": "teacher_flipchart",
+      "viewport": "mobile",
+      "screenshot": "mobile_teacher_flipchart.png",
+      "metrics": {
+        "title": "La Cartilla de Gretel",
+        "htmlClasses": "",
+        "bodyClasses": "",
+        "rootCursor": "auto",
+        "bodyCursor": "auto",
+        "pencilCursorElements": [],
+        "demoControlMetrics": null,
+        "imageCount": 12,
+        "brokenImages": 0,
+        "imagesSample": [
+          {
+            "src": "http://127.0.0.1:4173/cartilla/art/optimized/flipchart-native/p003-scene.png",
+            "alt": "Ilustración de la página 3",
+            "naturalWidth": 539,
+            "naturalHeight": 539,
+            "renderedWidth": 172,
+            "renderedHeight": 172,
+            "objectFit": "contain",
+            "isBroken": false
+          },
+          {
+            "src": "http://127.0.0.1:4173/cartilla/art/optimized/flipchart-native/p003-scene.png",
+            "alt": "",
+            "naturalWidth": 539,
+            "naturalHeight": 539,
+            "renderedWidth": 172,
+            "renderedHeight": 172,
+            "objectFit": "contain",
+            "isBroken": false
+          },
+          {
+            "src": "http://127.0.0.1:4173/cartilla/art/optimized/flipchart-native/p003-avion.png",
+            "alt": "avión",
+            "naturalWidth": 320,
+            "naturalHeight": 320,
+            "renderedWidth": 99,
+            "renderedHeight": 99,
+            "objectFit": "contain",
+            "isBroken": false
+          },
+          {
+            "src": "http://127.0.0.1:4173/cartilla/art/optimized/flipchart-native/p003-avion.png",
+            "alt": "",
+            "naturalWidth": 320,
+            "naturalHeight": 320,
+            "renderedWidth": 99,
+            "renderedHeight": 99,
+            "objectFit": "contain",
+            "isBroken": false
+          },
+          {
+            "src": "http://127.0.0.1:4173/cartilla/art/optimized/flipchart-native/p003-escoba.png",
+            "alt": "escoba",
+            "naturalWidth": 320,
+            "naturalHeight": 320,
+            "renderedWidth": 100,
+            "renderedHeight": 100,
+            "objectFit": "contain",
+            "isBroken": false
+          },
+          {
+            "src": "http://127.0.0.1:4173/cartilla/art/optimized/flipchart-native/p003-escoba.png",
+            "alt": "",
+            "naturalWidth": 320,
+            "naturalHeight": 320,
+            "renderedWidth": 101,
+            "renderedHeight": 101,
+            "objectFit": "contain",
+            "isBroken": false
+          },
+          {
+            "src": "http://127.0.0.1:4173/cartilla/art/optimized/flipchart-native/p003-iman.png",
+            "alt": "imán",
+            "naturalWidth": 320,
+            "naturalHeight": 320,
+            "renderedWidth": 102,
+            "renderedHeight": 102,
+            "objectFit": "contain",
+            "isBroken": false
+          },
+          {
+            "src": "http://127.0.0.1:4173/cartilla/art/optimized/flipchart-native/p003-iman.png",
+            "alt": "",
+            "naturalWidth": 320,
+            "naturalHeight": 320,
+            "renderedWidth": 102,
+            "renderedHeight": 102,
+            "objectFit": "contain",
+            "isBroken": false
+          }
+        ],
+        "flipchartMetrics": {
+          "selector": "fc-board__easel",
+          "width": 316,
+          "height": 598,
+          "viewportHeightRatio": "0.709",
+          "viewportWidthRatio": "0.810"
+        },
+        "workbookMetrics": {
+          "width": 308,
+          "height": 590,
+          "top": 327,
+          "left": 41
+        },
+        "viewport": {
+          "width": 390,
+          "height": 844
+        }
+      }
+    },
+    {
+      "route": "/cartilla/presentar/7",
+      "name": "presentar_7",
+      "viewport": "mobile",
+      "screenshot": "mobile_presentar_7.png",
+      "metrics": {
+        "title": "La Cartilla de Gretel",
+        "htmlClasses": "",
+        "bodyClasses": "",
+        "rootCursor": "auto",
+        "bodyCursor": "auto",
+        "pencilCursorElements": [],
+        "demoControlMetrics": null,
+        "imageCount": 18,
+        "brokenImages": 0,
+        "imagesSample": [
+          {
+            "src": "http://127.0.0.1:4173/cartilla/art/optimized/flipchart-native/p009-scene-alive.svg",
+            "alt": "Ilustración de la página 9",
+            "naturalWidth": 530,
+            "naturalHeight": 530,
+            "renderedWidth": 192,
+            "renderedHeight": 192,
+            "objectFit": "contain",
+            "isBroken": false
+          },
+          {
+            "src": "http://127.0.0.1:4173/cartilla/art/optimized/flipchart-native/p009-mama.png",
+            "alt": "mamá",
+            "naturalWidth": 344,
+            "naturalHeight": 344,
+            "renderedWidth": 125,
+            "renderedHeight": 125,
+            "objectFit": "contain",
+            "isBroken": false
+          },
+          {
+            "src": "http://127.0.0.1:4173/cartilla/art/optimized/flipchart-native/p009-mama.png",
+            "alt": "",
+            "naturalWidth": 344,
+            "naturalHeight": 344,
+            "renderedWidth": 125,
+            "renderedHeight": 125,
+            "objectFit": "contain",
+            "isBroken": false
+          },
+          {
+            "src": "http://127.0.0.1:4173/cartilla/art/optimized/flipchart-native/p009-amo.png",
+            "alt": "amo",
+            "naturalWidth": 689,
+            "naturalHeight": 728,
+            "renderedWidth": 99,
+            "renderedHeight": 104,
+            "objectFit": "contain",
+            "isBroken": false
+          },
+          {
+            "src": "http://127.0.0.1:4173/cartilla/art/optimized/flipchart-native/p009-amo.png",
+            "alt": "",
+            "naturalWidth": 689,
+            "naturalHeight": 728,
+            "renderedWidth": 99,
+            "renderedHeight": 105,
+            "objectFit": "contain",
+            "isBroken": false
+          },
+          {
+            "src": "http://127.0.0.1:4173/cartilla/art/optimized/flipchart-native/p009-mima.png",
+            "alt": "mima",
+            "naturalWidth": 776,
+            "naturalHeight": 777,
+            "renderedWidth": 111,
+            "renderedHeight": 111,
+            "objectFit": "contain",
+            "isBroken": false
+          },
+          {
+            "src": "http://127.0.0.1:4173/cartilla/art/optimized/flipchart-native/p009-mima.png",
+            "alt": "",
+            "naturalWidth": 776,
+            "naturalHeight": 777,
+            "renderedWidth": 112,
+            "renderedHeight": 112,
+            "objectFit": "contain",
+            "isBroken": false
+          },
+          {
+            "src": "http://127.0.0.1:4173/cartilla/art/optimized/flipchart-native/p009-meme.png",
+            "alt": "Meme",
+            "naturalWidth": 383,
+            "naturalHeight": 789,
+            "renderedWidth": 55,
+            "renderedHeight": 113,
+            "objectFit": "contain",
+            "isBroken": false
+          }
+        ],
+        "flipchartMetrics": {
+          "selector": "fc-board__easel",
+          "width": 379,
+          "height": 720,
+          "viewportHeightRatio": "0.853",
+          "viewportWidthRatio": "0.971"
+        },
+        "workbookMetrics": {
+          "width": 369,
+          "height": 710,
+          "top": 76,
+          "left": 11
+        },
+        "viewport": {
+          "width": 390,
+          "height": 844
+        }
+      }
+    }
+  ]
+}

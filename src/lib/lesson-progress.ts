@@ -2,6 +2,7 @@ import { learnerStorageKey } from "./learner-storage";
 import { useEffect, useState } from "react";
 
 const KEY = "cartilla.lesson-progress.v1";
+const SKIP_KEY = "cartilla.demo.skip-lessons";
 
 function read(): Set<number> {
   if (typeof window === "undefined") return new Set();
@@ -28,6 +29,30 @@ function write(set: Set<number>) {
 export function isLessonCompleted(n: number): boolean {
   return read().has(n);
 }
+
+/** In interactive demo sessions, allow skipping directly to any lesson 1–24 unless explicitly turned off. */
+export function isDemoSkipEnabled(): boolean {
+  if (typeof window === "undefined") return false;
+  if (import.meta.env.MODE === "test") return false;
+  try {
+    const val = localStorage.getItem(SKIP_KEY);
+    if (val === "false") return false;
+    return true;
+  } catch {
+    return true;
+  }
+}
+
+export function setDemoSkipEnabled(enabled: boolean) {
+  if (typeof window === "undefined") return;
+  try {
+    localStorage.setItem(SKIP_KEY, enabled ? "true" : "false");
+    window.dispatchEvent(new Event("cartilla:lesson-progress"));
+  } catch {
+    /* ignore */
+  }
+}
+
 /** Open access exposes every lesson; otherwise preserve the sequential rule. */
 export function isLessonUnlocked(n: number): boolean {
   if (
@@ -36,9 +61,11 @@ export function isLessonUnlocked(n: number): boolean {
   ) {
     return true;
   }
+  if (isDemoSkipEnabled()) return true;
   if (n <= 1) return true;
   return read().has(n - 1);
 }
+
 export function hydrateLessonProgress(completedLessons: number[]) {
   write(new Set(completedLessons.filter((n) => Number.isFinite(n) && n > 0)));
 }

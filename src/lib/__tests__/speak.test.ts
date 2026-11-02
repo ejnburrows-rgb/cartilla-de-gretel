@@ -5,6 +5,10 @@
 import { describe, it, expect, vi, beforeEach, afterEach } from "vitest";
 import { speak, speakVowel } from "../speak";
 
+vi.mock("@/content/audio-manifest", () => ({
+  AUDIO_POLICY: { allowTts: true, allowSynthesizedVoice: true },
+}));
+
 describe("Speak API - Voice Caching and Offline Support", () => {
   let originalSpeechSynthesis: typeof window.speechSynthesis;
   let originalSpeechSynthesisUtterance: typeof window.SpeechSynthesisUtterance;

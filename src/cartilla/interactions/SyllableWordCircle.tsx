@@ -164,7 +164,11 @@ function LearnerSyllableWordCircle({ region, lessonId }: { region: PageRegion; l
   };
 
   const attempt = (wordIndex: number, start: number, correct: boolean) => {
-    if (pending) return;
+    if (pending) {
+      if (pending.wordIndex === wordIndex) return;
+      if (pending.correct) commitCorrect(pending.wordIndex, pending.start);
+      else setPending(null);
+    }
     const normalizedStart = clampMarkStart(words[wordIndex]?.word ?? "", syllable, start);
     if (
       correct &&
@@ -182,16 +186,27 @@ function LearnerSyllableWordCircle({ region, lessonId }: { region: PageRegion; l
     event: ReactPointerEvent<HTMLButtonElement>,
     wordIndex: number,
   ) => {
-    if (pending) return;
+    if (pending) {
+      if (pending.wordIndex === wordIndex) return;
+      if (pending.correct) commitCorrect(pending.wordIndex, pending.start);
+      else setPending(null);
+    }
     const word = words[wordIndex]?.word ?? "";
     if (!word) return;
     const letters = [...event.currentTarget.querySelectorAll(".native-syllable__letter")];
-    const charIndex = letters.findIndex((letter) => {
+    let charIndex = letters.findIndex((letter) => {
       const rect = letter.getBoundingClientRect();
       return event.clientX >= rect.left && event.clientX < rect.right &&
         event.clientY >= rect.top && event.clientY < rect.bottom;
     });
     // Button padding is not an answer. Grade only the printed letters touched.
+    if (charIndex < 0) {
+      charIndex = letters.findIndex((letter) => {
+        const rect = letter.getBoundingClientRect();
+        return rect.width > 0 && event.clientX >= rect.left - 8 && event.clientX <= rect.right + 8 &&
+          event.clientY >= rect.top - 8 && event.clientY <= rect.bottom + 8;
+      });
+    }
     if (charIndex < 0) return;
     const starts = validSyllableStarts(word, syllable);
     const occurrence =
@@ -203,7 +218,11 @@ function LearnerSyllableWordCircle({ region, lessonId }: { region: PageRegion; l
   };
 
   const handleKeyboardActivate = (wordIndex: number) => {
-    if (pending) return;
+    if (pending) {
+      if (pending.wordIndex === wordIndex) return;
+      if (pending.correct) commitCorrect(pending.wordIndex, pending.start);
+      else setPending(null);
+    }
     const word = words[wordIndex]?.word ?? "";
     const starts = validSyllableStarts(word, syllable);
     const start = starts[0] ?? 0;

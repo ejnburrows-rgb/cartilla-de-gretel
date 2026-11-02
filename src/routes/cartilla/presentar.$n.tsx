@@ -7,6 +7,7 @@ import { hasTeacherOrAdminRole } from "@/lib/auth-role";
 import { isSeedSessionActive } from "@/lib/seed-data";
 import { TeacherPresentationShell } from "@/components/cartilla/TeacherPresentationShell";
 import { FlipchartHdPanel } from "@/components/cartilla/FlipchartHdPanel";
+
 import { getFlipchartPagesForLesson } from "@/lib/flipchart-hd";
 
 /**
