@@ -14,6 +14,7 @@ import {
 import { WelcomeSplash } from "../WelcomeSplash";
 import { GRETEL_APPROVED_MASTER_SRC } from "@/lib/gretel-master";
 import { GRETEL_CINEMATICS, getCinematicById } from "@/content/gretel-cinematics";
+import { audioEngine } from "@/lib/audio-engine";
 
 const preferences = vi.hoisted(() => ({ reduced: false }));
 vi.mock("framer-motion", () => ({ useReducedMotion: () => preferences.reduced }));
@@ -100,7 +101,8 @@ describe("WelcomeSplash", () => {
     await renderSplash();
     expect(screen.getByTestId("wc-entrar")).toHaveAttribute("href", "/cartilla/lecciones");
     expect(screen.getByRole("link", { name: "Soy maestro" })).toHaveAttribute(
-      "href", "/cartilla/teacher/crm",
+      "href",
+      "/cartilla/teacher/crm",
     );
   });
 
@@ -124,7 +126,8 @@ describe("WelcomeSplash", () => {
 
   it("immediately uses the still when data saving is enabled", async () => {
     Object.defineProperty(navigator, "connection", {
-      configurable: true, value: { saveData: true },
+      configurable: true,
+      value: { saveData: true },
     });
     registerTestClip();
     await renderSplash();
@@ -162,5 +165,36 @@ describe("WelcomeSplash", () => {
     expect(video.poster).toContain(GRETEL_APPROVED_MASTER_SRC);
     expect(video.querySelector('source[type="video/webm"]')).toHaveAttribute("src", testClip.webm);
     expect(video.querySelector('source[type="video/mp4"]')).toHaveAttribute("src", testClip.mp4);
+  });
+
+  it("keeps one authentic cover canvas without invented butterfly copies", async () => {
+    await renderSplash();
+    const splash = screen.getByTestId("welcome-splash");
+    expect(splash.querySelectorAll("canvas")).toHaveLength(1);
+    expect(splash.querySelectorAll("img")).toHaveLength(1);
+    expect(splash.querySelector(".lc-welcome__inner")).toBeNull();
+    expect(splash.querySelector(".lc-welcome__cover-link")).toHaveAttribute("href", "/cartilla/lecciones");
+  });
+
+  it("renders SVG viewBox-anchored eyelid overlay with skin gradient and biological easing support", async () => {
+    await renderSplash();
+    const splash = screen.getByTestId("welcome-splash");
+    const eyelids = splash.querySelector(".lc-welcome__eyelids");
+    expect(eyelids).not.toBeNull();
+    const svg = eyelids?.querySelector("svg.lc-welcome__eyelids-svg");
+    expect(svg).not.toBeNull();
+    expect(svg).toHaveAttribute("viewBox", "0 0 1086 1448");
+    expect(svg?.querySelector(".lc-welcome__eyelid--left")).not.toBeNull();
+    expect(svg?.querySelector(".lc-welcome__eyelid--right")).not.toBeNull();
+    expect(svg?.querySelector("#gretel-lid-left")).not.toBeNull();
+    expect(svg?.querySelector("#gretel-lid-right")).not.toBeNull();
+  });
+
+  it("triggers authentic page turn audio when clicking the living book cover", async () => {
+    const playSpy = vi.spyOn(audioEngine, "playPageTurn").mockImplementation(() => {});
+    await renderSplash();
+    const book = screen.getByRole("link", { name: "Abrir libro La Cartilla de Gretel" });
+    fireEvent.click(book);
+    expect(playSpy).toHaveBeenCalledWith(true);
   });
 });
