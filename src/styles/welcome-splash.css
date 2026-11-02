@@ -22,66 +22,197 @@
   width: min(1180px, calc(100% - clamp(64px, 9vw, 120px)));
   margin: 0 auto;
   display: grid;
-  grid-template-columns: minmax(250px, .9fr) minmax(320px, 1.1fr);
+  grid-template-columns: minmax(280px, 1.1fr) minmax(320px, 0.9fr);
   align-items: center;
-  gap: clamp(24px, 5vw, 72px);
+  gap: clamp(24px, 5vw, 64px);
   padding: clamp(24px, 5vw, 64px) 0;
 }
-.lc-welcome__gretel { display:flex; align-items:flex-end; justify-content:center; min-height: 0; }
-.lc-welcome__gretel img {
-  display:block;
-  width:auto;
-  height:min(76dvh, 720px);
-  max-width:100%;
-  object-fit:contain;
-  object-position:bottom center;
-  filter: drop-shadow(0 18px 18px rgba(37,49,58,.12));
+
+/* Stage holding the living book cover and Gretel companion */
+.lc-welcome__stage {
+  position: relative;
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+  min-height: 0;
+  perspective: 1200px;
 }
+
+.lc-welcome__book-wrapper {
+  position: relative;
+  width: min(320px, 42vw);
+  aspect-ratio: 1600 / 2560;
+  cursor: pointer;
+  transform-style: preserve-3d;
+  transform: perspective(1000px) rotateY(-8deg) rotateX(2deg);
+  transition: transform 0.4s cubic-bezier(0.22, 1, 0.36, 1), filter 0.4s ease;
+  animation: lc-book-breathe 6.2s ease-in-out infinite;
+  z-index: 2;
+  margin-right: -42px;
+  margin-bottom: 12px;
+}
+
+.lc-welcome__book-wrapper:hover {
+  transform: perspective(1000px) rotateY(-3deg) rotateX(0deg) translateY(-8px) scale(1.02);
+}
+
+.lc-welcome__book-cover {
+  width: 100%;
+  height: 100%;
+  border-radius: 8px 16px 16px 8px;
+  background-image: url("/cartilla/images/cover.png");
+  background-size: cover;
+  background-position: center;
+  box-shadow:
+    -6px 0 12px rgba(35, 25, 15, 0.28),
+    4px 12px 28px rgba(37, 49, 58, 0.22),
+    inset 0 0 0 1px rgba(255, 255, 255, 0.35);
+  position: relative;
+  overflow: hidden;
+}
+
+.lc-welcome__book-cover::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    90deg,
+    rgba(0, 0, 0, 0.22) 0%,
+    rgba(255, 255, 255, 0.15) 3.5%,
+    transparent 12%,
+    rgba(255, 255, 255, 0.05) 90%,
+    rgba(0, 0, 0, 0.08) 100%
+  );
+  pointer-events: none;
+}
+
+.lc-welcome__book-spine {
+  position: absolute;
+  top: 4%;
+  bottom: 4%;
+  left: -8px;
+  width: 14px;
+  border-radius: 4px;
+  background: linear-gradient(180deg, #c0392b 0%, #962d22 100%);
+  box-shadow: -2px 2px 6px rgba(0, 0, 0, 0.3);
+  z-index: -1;
+}
+
+.lc-welcome__book-shadow {
+  position: absolute;
+  bottom: -16px;
+  left: 5%;
+  right: 5%;
+  height: 22px;
+  border-radius: 50%;
+  background: radial-gradient(ellipse at center, rgba(37, 49, 58, 0.3) 0%, transparent 72%);
+  filter: blur(4px);
+  z-index: -2;
+  transition: transform 0.4s ease;
+}
+
+.lc-welcome__book-wrapper:hover .lc-welcome__book-shadow {
+  transform: scale(1.08) translateY(4px);
+  opacity: 0.8;
+}
+
+@keyframes lc-book-breathe {
+  0%, 100% {
+    transform: perspective(1000px) rotateY(-8deg) rotateX(2deg) translateY(0);
+  }
+  50% {
+    transform: perspective(1000px) rotateY(-4deg) rotateX(1deg) translateY(-6px);
+  }
+}
+
+.lc-welcome__gretel {
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+  min-height: 0;
+  z-index: 1;
+}
+.lc-welcome__gretel img {
+  display: block;
+  width: auto;
+  height: min(72dvh, 640px);
+  max-width: 100%;
+  object-fit: contain;
+  object-position: bottom center;
+  filter: drop-shadow(0 18px 18px rgba(37, 49, 58, 0.12));
+}
+
 .lc-welcome__copy { max-width: 620px; }
 .lc-welcome__copy h1 {
-  margin:0;
-  font-family:"Fredoka",ui-rounded,system-ui,sans-serif;
-  font-size:clamp(3rem,7vw,6.4rem);
-  line-height:.94;
-  letter-spacing:-.025em;
-  color:var(--lc-ink,#25313a);
-  text-wrap:balance;
+  margin: 0;
+  font-family: "Fredoka", ui-rounded, system-ui, sans-serif;
+  font-size: clamp(3rem, 7vw, 6.4rem);
+  line-height: .94;
+  letter-spacing: -.025em;
+  color: var(--lc-ink, #25313a);
+  text-wrap: balance;
 }
-.lc-welcome__copy h1 span { color:var(--lc-red,#bf3040); }
+.lc-welcome__copy h1 span { color: var(--lc-red, #bf3040); }
 .lc-welcome__copy p {
-  margin:clamp(20px,3vw,32px) 0 0;
+  margin: clamp(20px, 3vw, 32px) 0 0;
   max-width: 32ch;
-  font-size:clamp(1.3rem,2.3vw,2rem);
-  line-height:1.35;
-  font-weight:700;
-  color:var(--lc-ink-soft,#53616b);
+  font-size: clamp(1.3rem, 2.3vw, 2rem);
+  line-height: 1.35;
+  font-weight: 700;
+  color: var(--lc-ink-soft, #53616b);
 }
-.lc-welcome__actions { display:flex; flex-wrap:wrap; gap:14px; margin-top:clamp(28px,4vw,42px); }
+.lc-welcome__actions { display: flex; flex-wrap: wrap; gap: 14px; margin-top: clamp(28px, 4vw, 42px); }
 .lc-button {
-  min-height:64px;
-  min-width:180px;
-  padding:14px 28px;
-  border-radius:16px;
-  display:inline-flex;
-  align-items:center;
-  justify-content:center;
-  font-family:"Fredoka",ui-rounded,system-ui,sans-serif;
-  font-size:1.25rem;
-  font-weight:700;
-  text-decoration:none;
-  border:3px solid transparent;
-  transition:transform .14s ease, box-shadow .14s ease;
+  min-height: 64px;
+  min-width: 180px;
+  padding: 14px 28px;
+  border-radius: 16px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-family: "Fredoka", ui-rounded, system-ui, sans-serif;
+  font-size: 1.25rem;
+  font-weight: 700;
+  text-decoration: none;
+  border: 3px solid transparent;
+  transition: transform .14s ease, box-shadow .14s ease;
 }
-.lc-button--primary { background:var(--lc-red,#bf3040); color:#fff; box-shadow:0 6px 0 #8f2130; }
-.lc-button--teacher { background:transparent; color:var(--lc-teal,#1f9e94); border-color:var(--lc-teal,#1f9e94); }
-.lc-button:focus-visible { outline:4px solid var(--lc-focus,#1668c7); outline-offset:4px; }
-.lc-button:hover { transform:translateY(-2px); }
-@media (max-width:760px){
-  .lc-welcome__inner { width:calc(100% - 72px); grid-template-columns:1fr; align-content:center; gap:8px; text-align:center; }
-  .lc-welcome__gretel img { height:min(42dvh,360px); }
-  .lc-welcome__copy { margin-inline:auto; }
-  .lc-welcome__copy p { margin-inline:auto; }
-  .lc-welcome__actions { justify-content:center; }
-  .lc-button { width:min(100%,320px); }
+.lc-button--primary { background: var(--lc-red, #bf3040); color: #fff; box-shadow: 0 6px 0 #8f2130; }
+.lc-button--teacher { background: transparent; color: var(--lc-teal, #1f9e94); border-color: var(--lc-teal, #1f9e94); }
+.lc-button:focus-visible { outline: 4px solid var(--lc-focus, #1668c7); outline-offset: 4px; }
+.lc-button:hover { transform: translateY(-2px); }
+
+@media (max-width: 760px) {
+  .lc-welcome__inner {
+    width: calc(100% - 48px);
+    grid-template-columns: 1fr;
+    align-content: center;
+    gap: 16px;
+    text-align: center;
+    padding: 24px 0;
+  }
+  .lc-welcome__stage {
+    margin-inline: auto;
+  }
+  .lc-welcome__book-wrapper {
+    width: min(190px, 42vw);
+    margin-right: -24px;
+  }
+  .lc-welcome__gretel img {
+    height: min(34dvh, 280px);
+  }
+  .lc-welcome__copy { margin-inline: auto; }
+  .lc-welcome__copy p { margin-inline: auto; }
+  .lc-welcome__actions { justify-content: center; }
+  .lc-button { width: min(100%, 320px); }
 }
-@media (prefers-reduced-motion:reduce){ .lc-button{transition:none}.lc-button:hover{transform:none} }
+
+@media (prefers-reduced-motion: reduce) {
+  .lc-welcome__book-wrapper {
+    animation: none;
+    transform: perspective(1000px) rotateY(-4deg);
+    transition: none;
+  }
+  .lc-button { transition: none; }
+  .lc-button:hover { transform: none; }
+}

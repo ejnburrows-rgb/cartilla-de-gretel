@@ -1,6 +1,5 @@
 import { useMemo, type CSSProperties } from "react";
 import { CATALOG, type CatalogEntry } from "@/lib/lesson-catalog";
-import { speak } from "@/lib/speak";
 
 interface RingTabNavProps {
   currentPage: number;
@@ -57,7 +56,7 @@ export function RingTabNav({ currentPage, onSelect, className = "" }: RingTabNav
     onSelect(tab.start);
     // Hear the lesson when you jump to it (speak is SSR-guarded and a no-op
     // when speech synthesis is unavailable).
-    void speak(tab.title);
+    // Speech synthesis silenced per authentic audio policy
   };
 
   return (

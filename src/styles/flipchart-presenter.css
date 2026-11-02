@@ -56,7 +56,7 @@
   justify-content: space-between;
   gap: 0.75rem;
   flex-wrap: wrap;
-  padding: 0.65rem 1rem;
+  padding: 0.3rem 0.85rem;
   background: rgba(255, 248, 231, 0.88);
   border-bottom: 1px solid var(--fc-border);
   backdrop-filter: blur(14px);
@@ -175,12 +175,12 @@
   display: flex;
   flex-direction: column;
   /* Desktop presenter: content is dominant; thin safe margins only */
-  padding: 0.5rem 0.75rem 0.65rem;
+  padding: 0.25rem 0.6rem 0.25rem;
 }
 
 @media (min-width: 1280px) {
   .fc-presenter__main {
-    padding: 0.55rem 1.25rem 0.75rem;
+    padding: 0.25rem 0.85rem 0.3rem;
   }
 }
 
@@ -243,7 +243,8 @@
   width: 100%;
   height: 100%;
   min-height: 0;
-  gap: 0.55rem;
+  position: relative;
+  gap: 0.3rem;
 }
 
 .fc-board__easel {
@@ -347,12 +348,12 @@
   width: 100%;
   background: var(--fc-paper-soft);
   /* Inner matte so gray scan margins read less than the content */
-  padding: 0.35rem 0.45rem 0.55rem;
+  padding: 0.15rem 0.25rem 0.2rem;
 }
 
 @media (min-width: 1280px) {
   .fc-board__page {
-    padding: 0.45rem 0.75rem 0.65rem;
+    padding: 0.2rem 0.35rem 0.25rem;
   }
 }
 
@@ -443,7 +444,7 @@
   align-items: center;
   gap: 0.1rem;
   min-width: 7.5rem;
-  padding: 0.45rem 0.9rem;
+  padding: 0.25rem 0.75rem;
   border-radius: 999px;
   background: rgba(255, 255, 255, 0.92);
   border: 1.5px solid var(--fc-border);
@@ -566,7 +567,7 @@
   .fc-presenter__exit,
   .fc-presenter__btn {
     min-width: 44px;
-    min-height: 44px;
+    min-height: 36px;
     border-radius: 12px;
   }
 
@@ -1586,7 +1587,7 @@
 .fc-presenter__btn,
 .fc-board__nav {
   min-width: 44px;
-  min-height: 44px;
+  min-height: 36px;
   border-color: var(--lc-teal, #1f9e94);
   border-radius: 12px;
   background: var(--lc-paper, #fffdf9);
@@ -1655,7 +1656,7 @@
     grid-template-columns: auto minmax(0, 1fr) auto minmax(0, 1fr) auto;
     grid-template-rows: minmax(0, 1fr) auto;
     column-gap: 0.65rem;
-    row-gap: 0.5rem;
+    row-gap: 0.2rem;
   }
   .fc-board[data-chrome="full"]:has(> .fc-board__strip) > .fc-board__easel {
     grid-column: 1 / -1;
@@ -1685,6 +1686,6 @@
   }
   .fc-board[data-chrome="full"]:has(> .fc-board__strip) .fc-board__thumb {
     width: 40px;
-    height: 52px;
+    height: 38px;
   }
 }

@@ -9,6 +9,9 @@
 
 .fc-native-board__page:has(> .fc-replica) {
   position: relative;
+  width: 100%;
+  height: 100%;
+  margin: 0;
   padding: 0;
 }
 
@@ -25,13 +28,13 @@
   --u: calc(100cqw / 1000);
   position: relative;
   container-type: inline-size;
-  height: min(calc(100cqh - 18px), calc((100cqw - 8px) * var(--sheet-h) / 1000));
+  height: min(calc(100cqh - 4px), calc((100cqw - 4px) * var(--sheet-h) / 1000));
   aspect-ratio: 1000 / var(--sheet-h);
-  margin-top: 12px;
+  margin-top: 2px;
   border-radius: 6px 6px 10px 10px;
   background:
     radial-gradient(120% 90% at 50% 40%, rgba(255, 255, 255, 0.55), rgba(255, 255, 255, 0) 70%),
-    #faf6ee;
+    #fdfbf7;
   box-shadow:
     0 1px 0 rgba(255, 255, 255, 0.9) inset,
     0 0 0 1px rgba(120, 95, 60, 0.12),
@@ -192,6 +195,7 @@
 .fc-replica__art {
   /* The figure blends with the paper (white picture grounds disappear). */
   mix-blend-mode: multiply;
+  filter: contrast(1.04) saturate(1.08);
   clip-path: inset(
     calc(var(--clip-t, 0) * var(--u)) calc(var(--clip-r, 0) * var(--u))
       calc(var(--clip-b, 0) * var(--u)) calc(var(--clip-l, 0) * var(--u))

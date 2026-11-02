@@ -51,6 +51,7 @@ export function WorkbookLetterTrace({
   const [status, setStatus] = useState<Status>("idle");
   const [slips, setSlips] = useActivityState("traceSlips", 0);
   const [offFlash, setOffFlash] = useState(false);
+  const [livePoint, setLivePoint] = useState<Point | null>(null);
 
   const slipsRef = useRef(slips);
   const offActiveRef = useRef(false);
@@ -131,6 +132,7 @@ export function WorkbookLetterTrace({
 
   function finish() {
     setStatus("done");
+    setLivePoint(null);
     playCorrectChord();
     // Real score: clean trace = 1.0; each off-path excursion costs 0.25, min 0.
     report(slipsRef.current);
@@ -143,6 +145,7 @@ export function WorkbookLetterTrace({
       e.currentTarget.setPointerCapture(e.pointerId);
       offActiveRef.current = false;
       setOffFlash(false);
+      setLivePoint(p);
       // pressing exactly on the active checkpoint counts as reaching it
       setCurrent((prev) => (prev.length === 0 ? [nextCheckpoint] : prev));
       setPointIdx((i) => (i === 0 ? 1 : i));
@@ -177,6 +180,7 @@ export function WorkbookLetterTrace({
       offActiveRef.current = false;
       setOffFlash(false);
     }
+    setLivePoint(p);
 
     const cp = stroke[pointIdx];
     if (cp && Math.hypot(p.x - cp.x, p.y - cp.y) <= CHECKPOINT_TOL) {
@@ -191,6 +195,7 @@ export function WorkbookLetterTrace({
         const nextStrokeIdx = strokeIdx + 1;
         setCompleted((prev) => [...prev, nextCurrent]);
         setCurrent([]);
+        setLivePoint(null);
         if (nextStrokeIdx < strokes.length) {
           setStrokeIdx(nextStrokeIdx);
           setPointIdx(0);
@@ -208,6 +213,7 @@ export function WorkbookLetterTrace({
     if (status === "tracing") {
       // Retain the partial path and resume at its next checkpoint.
       setStatus("idle");
+      setLivePoint(null);
       offActiveRef.current = false;
     }
   }
@@ -222,6 +228,7 @@ export function WorkbookLetterTrace({
     setStatus("idle");
     setSlips(0);
     setOffFlash(false);
+    setLivePoint(null);
     slipsRef.current = 0;
     offActiveRef.current = false;
     reportedRef.current = false;
@@ -303,7 +310,7 @@ export function WorkbookLetterTrace({
             the correct formation and direction. */}
         {shownCurrent.length > 0 && (
           <path
-            d={shownCurrent.map((pt, i) => `${i === 0 ? "M" : "L"} ${pt.x} ${pt.y}`).join(" ")}
+            d={(status === "tracing" && !isTap && livePoint ? [...shownCurrent, livePoint] : shownCurrent).map((pt, i) => `${i === 0 ? "M" : "L"} ${pt.x} ${pt.y}`).join(" ")}
             fill="none"
             stroke={accent}
             strokeWidth="9"

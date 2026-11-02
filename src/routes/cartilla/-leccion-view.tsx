@@ -1,4 +1,5 @@
 import { DemoStudentBanner } from "@/components/cartilla/DemoStudentBanner";
+import { DemoControlCenter } from "@/components/cartilla/DemoControlCenter";
 import { getDemoStudentSession } from "@/lib/demo-student-session";
 import { listSeedStudentAssignments } from "@/lib/seed-data";
 import { useEffect, useMemo, useRef, useState } from "react";
@@ -249,14 +250,35 @@ export function Leccion() {
   return (
     <div className={`lc-lesson-shell lc-lesson-shell--fit ${n === 16 ? "lc-lesson-16" : ""} min-h-screen flex flex-col`}>
       <DemoStudentBanner />
-      <header className="lc-lesson-header">
+      <header className="lc-lesson-header flex flex-wrap items-center justify-between gap-3">
         <Link
           to="/cartilla/lecciones"
           className="lc-lesson-header__back"
         >
           <ArrowLeft className="w-5 h-5" /> Mis lecciones
         </Link>
+        <label className="no-print flex items-center gap-2 text-xs font-bold text-stone-700">
+          <span>Ir a lección:</span>
+          <select
+            aria-label="Cambiar de lección"
+            value={String(n)}
+            onChange={(e) => {
+              const targetN = e.target.value;
+              if (targetN) {
+                navigate({ to: "/cartilla/leccion/$n", params: { n: targetN } });
+              }
+            }}
+            className="rounded-xl border border-stone-300 bg-white px-2.5 py-1.5 text-xs font-bold text-stone-900 shadow-2xs"
+          >
+            {CATALOG.map((item) => (
+              <option key={item.n} value={String(item.n)}>
+                Lección {item.n} — {item.title}
+              </option>
+            ))}
+          </select>
+        </label>
       </header>
+      <DemoControlCenter currentLesson={n} floating />
       {saveFailed && <p role="alert" className="mx-3 rounded-xl bg-amber-100 p-3 text-amber-950">No se pudo guardar tu trabajo. Mantén esta página abierta y libera espacio en este navegador antes de salir.</p>}
       <main className="lc-lesson-main flex-1 px-3 pb-6 max-w-7xl w-full mx-auto flex flex-col items-center">
         <div className="lc-lesson-main__intro w-full max-w-3xl text-left mb-4">
