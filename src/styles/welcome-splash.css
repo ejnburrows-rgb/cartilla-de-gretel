@@ -28,7 +28,7 @@
   padding: clamp(24px, 5vw, 64px) 0;
 }
 
-/* Stage holding the living book cover and Gretel companion */
+/* Stage holding the living book cover, fluttering butterflies, and Gretel companion */
 .lc-welcome__stage {
   position: relative;
   display: flex;
@@ -38,100 +38,312 @@
   perspective: 1200px;
 }
 
+/* ── Fluttering Butterflies (Authentic Assets from Butterfly Garden) ── */
+.lc-welcome__butterflies {
+  position: absolute;
+  inset: -50px -70px -30px -50px;
+  pointer-events: none;
+  z-index: 4;
+}
+
+.lc-butterfly {
+  position: absolute;
+  width: 52px;
+  height: 52px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  filter: drop-shadow(0 8px 16px rgba(35, 25, 15, 0.22));
+  will-change: transform;
+}
+
+.lc-butterfly__wings {
+  display: block;
+  width: 100%;
+  height: 100%;
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+  animation: lc-butterfly-flap 1.5s ease-in-out infinite alternate;
+  transform-origin: center center;
+}
+
+.lc-butterfly--1 {
+  top: 5%;
+  left: -2%;
+  animation: lc-butterfly-flight-1 15s ease-in-out infinite;
+}
+.lc-butterfly--1 .lc-butterfly__wings {
+  background-image: url("/cartilla/images/butterflies/bt_ma.png");
+  animation-duration: 1.4s;
+}
+
+.lc-butterfly--2 {
+  top: 7%;
+  right: -3%;
+  width: 48px;
+  height: 48px;
+  animation: lc-butterfly-flight-2 17s ease-in-out infinite;
+}
+.lc-butterfly--2 .lc-butterfly__wings {
+  background-image: url("/cartilla/images/butterflies/bt_pa.png");
+  animation-duration: 1.65s;
+  animation-delay: -0.4s;
+}
+
+.lc-butterfly--3 {
+  bottom: 10%;
+  left: -4%;
+  width: 44px;
+  height: 44px;
+  animation: lc-butterfly-flight-3 14s ease-in-out infinite;
+}
+.lc-butterfly--3 .lc-butterfly__wings {
+  background-image: url("/cartilla/images/butterflies/bt_Pe.png");
+  animation-duration: 1.5s;
+  animation-delay: -0.7s;
+}
+
+.lc-butterfly--4 {
+  top: -5%;
+  left: 42%;
+  width: 42px;
+  height: 42px;
+  animation: lc-butterfly-flight-4 16s ease-in-out infinite;
+}
+.lc-butterfly--4 .lc-butterfly__wings {
+  background-image: url("/cartilla/images/butterflies/bt_mi.png");
+  animation-duration: 1.35s;
+  animation-delay: -0.3s;
+}
+
+@keyframes lc-butterfly-flap {
+  0% {
+    transform: perspective(400px) rotateY(0deg) scale(1);
+  }
+  50% {
+    transform: perspective(400px) rotateY(32deg) scale(0.96, 0.98);
+  }
+  100% {
+    transform: perspective(400px) rotateY(52deg) scale(0.9, 0.95);
+  }
+}
+
+@keyframes lc-butterfly-flight-1 {
+  0%, 100% {
+    transform: translate(0, 0) rotate(-6deg);
+  }
+  25% {
+    transform: translate(24px, -20px) rotate(8deg);
+  }
+  50% {
+    transform: translate(48px, 8px) rotate(-4deg);
+  }
+  75% {
+    transform: translate(18px, 26px) rotate(10deg);
+  }
+}
+
+@keyframes lc-butterfly-flight-2 {
+  0%, 100% {
+    transform: translate(0, 0) rotate(8deg);
+  }
+  30% {
+    transform: translate(-30px, 22px) rotate(-10deg);
+  }
+  60% {
+    transform: translate(-16px, -26px) rotate(6deg);
+  }
+  85% {
+    transform: translate(20px, -10px) rotate(-4deg);
+  }
+}
+
+@keyframes lc-butterfly-flight-3 {
+  0%, 100% {
+    transform: translate(0, 0) rotate(-4deg);
+  }
+  35% {
+    transform: translate(22px, -24px) rotate(12deg);
+  }
+  70% {
+    transform: translate(-14px, -36px) rotate(-8deg);
+  }
+}
+
+@keyframes lc-butterfly-flight-4 {
+  0%, 100% {
+    transform: translate(0, 0) rotate(5deg);
+  }
+  28% {
+    transform: translate(-32px, 16px) rotate(-12deg);
+  }
+  65% {
+    transform: translate(22px, 28px) rotate(8deg);
+  }
+}
+
+/* ── Living Grand Physical Book Cover ── */
 .lc-welcome__book-wrapper {
   position: relative;
-  width: min(320px, 42vw);
+  width: min(340px, 44vw);
   aspect-ratio: 1600 / 2560;
   cursor: pointer;
   transform-style: preserve-3d;
-  transform: perspective(1000px) rotateY(-8deg) rotateX(2deg);
-  transition: transform 0.4s cubic-bezier(0.22, 1, 0.36, 1), filter 0.4s ease;
-  animation: lc-book-breathe 6.2s ease-in-out infinite;
+  transform: perspective(1200px) rotateY(-8deg) rotateX(2deg);
+  transition: transform 0.5s cubic-bezier(0.22, 1, 0.36, 1), filter 0.4s ease;
+  animation: lc-book-breathe 6.8s ease-in-out infinite;
   z-index: 2;
-  margin-right: -42px;
+  margin-right: -48px;
   margin-bottom: 12px;
 }
 
 .lc-welcome__book-wrapper:hover {
-  transform: perspective(1000px) rotateY(-3deg) rotateX(0deg) translateY(-8px) scale(1.02);
+  transform: perspective(1200px) rotateY(-3deg) rotateX(0deg) translateY(-10px) scale(1.03);
+}
+
+.lc-welcome__book-glow {
+  position: absolute;
+  inset: -16%;
+  border-radius: 50%;
+  background: radial-gradient(circle at 45% 45%, rgba(254, 215, 170, 0.55) 0%, rgba(251, 191, 36, 0.22) 40%, rgba(245, 241, 232, 0) 72%);
+  filter: blur(28px);
+  z-index: -3;
+  pointer-events: none;
+  animation: lc-glow-pulse 6.8s ease-in-out infinite alternate;
+}
+
+@keyframes lc-glow-pulse {
+  0% {
+    opacity: 0.6;
+    transform: scale(0.96);
+  }
+  100% {
+    opacity: 0.95;
+    transform: scale(1.04);
+  }
 }
 
 .lc-welcome__book-cover {
   width: 100%;
   height: 100%;
-  border-radius: 8px 16px 16px 8px;
+  border-radius: 6px 18px 18px 6px;
   background-image: url("/cartilla/images/cover.png");
   background-size: cover;
   background-position: center;
   box-shadow:
-    -6px 0 12px rgba(35, 25, 15, 0.28),
-    4px 12px 28px rgba(37, 49, 58, 0.22),
-    inset 0 0 0 1px rgba(255, 255, 255, 0.35);
+    -6px 0 16px rgba(35, 25, 15, 0.32),
+    6px 16px 36px rgba(37, 49, 58, 0.25),
+    inset 0 0 0 1px rgba(255, 255, 255, 0.35),
+    inset 0 2px 4px rgba(255, 255, 255, 0.4);
   position: relative;
   overflow: hidden;
+  z-index: 2;
 }
 
-.lc-welcome__book-cover::after {
-  content: "";
+.lc-welcome__book-sheen {
   position: absolute;
   inset: 0;
   background: linear-gradient(
-    90deg,
-    rgba(0, 0, 0, 0.22) 0%,
-    rgba(255, 255, 255, 0.15) 3.5%,
-    transparent 12%,
-    rgba(255, 255, 255, 0.05) 90%,
-    rgba(0, 0, 0, 0.08) 100%
+    115deg,
+    rgba(255, 255, 255, 0.28) 0%,
+    rgba(255, 255, 255, 0.1) 16%,
+    transparent 36%,
+    rgba(255, 255, 255, 0.04) 75%,
+    rgba(0, 0, 0, 0.1) 100%
   );
   pointer-events: none;
 }
 
+.lc-welcome__book-bookmark {
+  position: absolute;
+  bottom: -16px;
+  right: 26%;
+  width: 20px;
+  height: 34px;
+  background: linear-gradient(180deg, #d97706 0%, #f59e0b 60%, #b45309 100%);
+  clip-path: polygon(0 0, 100% 0, 100% 100%, 50% 75%, 0 100%);
+  box-shadow: 2px 4px 8px rgba(0, 0, 0, 0.25);
+  z-index: 3;
+}
+
+.lc-welcome__book-pages {
+  position: absolute;
+  top: 6px;
+  right: -8px;
+  bottom: -6px;
+  left: 10px;
+  border-radius: 0 14px 14px 0;
+  background: repeating-linear-gradient(
+    180deg,
+    #faf6ee 0px,
+    #faf6ee 2px,
+    #ede3d2 2px,
+    #ede3d2 4px
+  );
+  box-shadow:
+    inset -2px 0 4px rgba(0, 0, 0, 0.12),
+    3px 6px 14px rgba(35, 25, 15, 0.22);
+  z-index: -1;
+}
+
 .lc-welcome__book-spine {
   position: absolute;
-  top: 4%;
-  bottom: 4%;
-  left: -8px;
-  width: 14px;
-  border-radius: 4px;
-  background: linear-gradient(180deg, #c0392b 0%, #962d22 100%);
-  box-shadow: -2px 2px 6px rgba(0, 0, 0, 0.3);
-  z-index: -1;
+  top: 1%;
+  bottom: 1%;
+  left: -12px;
+  width: 20px;
+  border-radius: 6px 0 0 6px;
+  background: linear-gradient(90deg, #6c1613 0%, #a8271e 30%, #c0392b 65%, #7e1d19 100%);
+  box-shadow: -4px 4px 14px rgba(35, 25, 15, 0.35), inset 1px 0 1px rgba(255, 255, 255, 0.25);
+  z-index: 1;
 }
 
 .lc-welcome__book-shadow {
   position: absolute;
-  bottom: -16px;
+  bottom: -20px;
   left: 5%;
   right: 5%;
-  height: 22px;
+  height: 26px;
   border-radius: 50%;
-  background: radial-gradient(ellipse at center, rgba(37, 49, 58, 0.3) 0%, transparent 72%);
-  filter: blur(4px);
+  background: radial-gradient(ellipse at center, rgba(37, 49, 58, 0.32) 0%, transparent 72%);
+  filter: blur(5px);
   z-index: -2;
-  transition: transform 0.4s ease;
+  transition: transform 0.5s ease, opacity 0.5s ease;
 }
 
 .lc-welcome__book-wrapper:hover .lc-welcome__book-shadow {
-  transform: scale(1.08) translateY(4px);
-  opacity: 0.8;
+  transform: scale(1.1) translateY(6px);
+  opacity: 0.85;
 }
 
 @keyframes lc-book-breathe {
   0%, 100% {
-    transform: perspective(1000px) rotateY(-8deg) rotateX(2deg) translateY(0);
+    transform: perspective(1200px) rotateY(-8deg) rotateX(2deg) translateY(0);
   }
   50% {
-    transform: perspective(1000px) rotateY(-4deg) rotateX(1deg) translateY(-6px);
+    transform: perspective(1200px) rotateY(-4deg) rotateX(1deg) translateY(-10px);
   }
 }
 
+/* ── Gretel Reading Companion with Soft Breathing & Natural Eyelid Blinking ── */
 .lc-welcome__gretel {
   display: flex;
   align-items: flex-end;
   justify-content: center;
   min-height: 0;
   z-index: 1;
+  animation: lc-gretel-breathe 5.8s ease-in-out infinite;
+  transform-origin: bottom center;
 }
+
+.lc-welcome__gretel-frame {
+  position: relative;
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+}
+
 .lc-welcome__gretel img {
   display: block;
   width: auto;
@@ -139,9 +351,75 @@
   max-width: 100%;
   object-fit: contain;
   object-position: bottom center;
-  filter: drop-shadow(0 18px 18px rgba(37, 49, 58, 0.12));
+  filter: drop-shadow(0 18px 24px rgba(37, 49, 58, 0.16));
 }
 
+.lc-welcome__eyelids {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  z-index: 5;
+}
+
+/* If video is playing, hide the eyelid overlay */
+[data-gretel-media="playing"] ~ .lc-welcome__eyelids {
+  display: none;
+}
+
+.lc-welcome__eyelid {
+  position: absolute;
+  background: #fcdab0;
+  border-top: 1.5px solid #4a2c1d;
+  border-radius: 50% 50% 40% 40% / 60% 60% 30% 30%;
+  transform-origin: top center;
+  transform: scaleY(0);
+  opacity: 0;
+  animation: lc-gretel-blink 5.6s ease-in-out infinite;
+}
+
+.lc-welcome__eyelid--left {
+  top: 18.4%;
+  left: 47.7%;
+  width: 3.4%;
+  height: 1.5%;
+}
+
+.lc-welcome__eyelid--right {
+  top: 18.1%;
+  left: 55.1%;
+  width: 3.6%;
+  height: 1.5%;
+}
+
+@keyframes lc-gretel-blink {
+  0%, 88%, 96%, 100% {
+    transform: scaleY(0);
+    opacity: 0;
+  }
+  90% {
+    transform: scaleY(0.7);
+    opacity: 0.95;
+  }
+  91%, 93% {
+    transform: scaleY(1);
+    opacity: 1;
+  }
+  94.5% {
+    transform: scaleY(0.2);
+    opacity: 0.5;
+  }
+}
+
+@keyframes lc-gretel-breathe {
+  0%, 100% {
+    transform: translateY(0) scale(1);
+  }
+  50% {
+    transform: translateY(-5px) scale(1.008, 1.012);
+  }
+}
+
+/* ── Typography & Actions ── */
 .lc-welcome__copy { max-width: 620px; }
 .lc-welcome__copy h1 {
   margin: 0;
@@ -195,8 +473,8 @@
     margin-inline: auto;
   }
   .lc-welcome__book-wrapper {
-    width: min(190px, 42vw);
-    margin-right: -24px;
+    width: min(210px, 46vw);
+    margin-right: -28px;
   }
   .lc-welcome__gretel img {
     height: min(34dvh, 280px);
@@ -205,6 +483,13 @@
   .lc-welcome__copy p { margin-inline: auto; }
   .lc-welcome__actions { justify-content: center; }
   .lc-button { width: min(100%, 320px); }
+  .lc-butterfly {
+    width: 36px;
+    height: 36px;
+  }
+  .lc-welcome__butterflies {
+    inset: -20px -24px -15px -20px;
+  }
 }
 
 @media (prefers-reduced-motion: reduce) {
@@ -212,6 +497,19 @@
     animation: none;
     transform: perspective(1000px) rotateY(-4deg);
     transition: none;
+  }
+  .lc-welcome__book-glow {
+    animation: none;
+  }
+  .lc-welcome__gretel {
+    animation: none;
+  }
+  .lc-welcome__eyelids {
+    display: none;
+  }
+  .lc-butterfly,
+  .lc-butterfly__wings {
+    animation: none;
   }
   .lc-button { transition: none; }
   .lc-button:hover { transform: none; }

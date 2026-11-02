@@ -1,5 +1,3 @@
-import { DemoStudentBanner } from "@/components/cartilla/DemoStudentBanner";
-import { DemoControlCenter } from "@/components/cartilla/DemoControlCenter";
 import { GRETEL_APPROVED_MASTER_SRC } from "@/lib/gretel-master";
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { ArrowLeft, Check, Play } from "lucide-react";
@@ -68,8 +66,6 @@ function Lecciones() {
 
   return (
     <main className="lc-lessons">
-      <DemoStudentBanner />
-      <DemoControlCenter />
       <header className="lc-lessons__header">
         <Link to="/cartilla" className="lc-lessons__back">
           <ArrowLeft size={20} /> Cartilla

@@ -216,3 +216,13 @@
 - **Merge Milestone**: PR #1244 merged into `main` (commit `8280dc6c`), delivering the complete 6-lane corrective action suite.
 - **Gate Re-Lock**: PR #1245 merged into `main` (commit `7d1326dd`), restoring `vercel.json` to `git.deploymentEnabled: false` per AGENTS.md invariant.
 - **Repository State**: `main` synchronized with `origin/main` at `7d1326dd`.
+
+## Boost: Clean Student Lessons & Living Animated Welcome Screen (2026-11-02 Review)
+
+### Architectural Decisions & Fixes
+- **Clean Student View on `/cartilla/lecciones`**: Removed teacher administrative bars (`<DemoControlCenter />` and `<DemoStudentBanner />`) from student lessons view. Maintained 24 workbook lesson tiles, progress tracking, and authentic table of contents.
+- **Living Physical Book Cover**: Centerpiece 3D tactile book cover (`/cartilla/images/cover.png`) with ambient glow, embossed spine, layered pages, and dangling silk bookmark ribbon (extracted from `overflow:hidden` cover to wrapper).
+- **Graceful Fluttering Butterflies**: 4 slow-moving authentic butterflies from Butterfly Garden fluttering in the ambient stage space around the book with 3D perspective wing rotation and natural flight paths (no squished 18% needle glitches).
+- **Gretel Reading Companion**: Natural eyelid blinking animation on Gretel's portrait (`lc-gretel-blink`) with companion breathing, strictly respecting the single-`<img>` test invariant (`gretel-approved-master.png`).
+- **Cross-Drive NTFS Junction Harmonization**: Fixed `vite.config.ts` path normalization (`realpathSync`) for root, alias (`@`), and `setupFiles`, resolving `npx vitest` execution and cross-drive relative import errors.
+
