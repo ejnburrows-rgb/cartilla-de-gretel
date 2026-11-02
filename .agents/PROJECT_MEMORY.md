@@ -210,3 +210,9 @@
 - `npx vite build`: PASSED (Production build succeeded in 1m 28s).
 - Automated Playwright browser verification: PASSED across Desktop (`1366x768`) and Mobile (`390x844`) on 4 routes (`/cartilla/leccion/1`, `/cartilla/leccion/3`, `/cartilla/teacher/flipchart`, `/cartilla/presentar/7`). Zero broken images, cursor `auto`, no orphan daemons.
 - Real-route visual proof screenshots saved to `docs/proofs/corrective-action-2026-11-02/`.
+
+### 3. Authorized Production Merge & Deployment Gate Seal
+- **Owner Trigger**: Explicit authorization received ("deploy it").
+- **Merge Milestone**: PR #1244 merged into `main` (commit `8280dc6c`), delivering the complete 6-lane corrective action suite.
+- **Gate Re-Lock**: PR #1245 merged into `main` (commit `7d1326dd`), restoring `vercel.json` to `git.deploymentEnabled: false` per AGENTS.md invariant.
+- **Repository State**: `main` synchronized with `origin/main` at `7d1326dd`.
