@@ -53,7 +53,28 @@
         ]
       },
       "status": "WAITING",
-      "acceptedForReplacement": false
+      "acceptedForReplacement": false,
+      "placementChoice": {
+        "status": "WAITING",
+        "recommendation": "complete-original-printed-sheet",
+        "preview": "source-placement-35.png",
+        "sourcePixelRectangle": [
+          0,
+          0,
+          3406,
+          4345
+        ],
+        "normalizedSourceRectangle": [
+          0,
+          0,
+          1,
+          1
+        ],
+        "placement": "Full page content surface; contain, centered horizontally and vertically, preserve source aspect ratio; no cropping or digital caption overlay.",
+        "preserves": "Entire source illustration, caption, story, letter halo, page border and original caption/ground relationship.",
+        "limits": "Static source preview, not an app screenshot or owner approval. Supplied scan color/compression not certified against approved master. Original lower-resolution/scan characteristics remain.",
+        "alternativeNeeded": "Untouched original full scene without printed caption if separate clean illustration plus digital text is required."
+      }
     },
     {
       "pdfPage": 41,
@@ -81,7 +102,28 @@
         ]
       },
       "status": "WAITING",
-      "acceptedForReplacement": false
+      "acceptedForReplacement": false,
+      "placementChoice": {
+        "status": "WAITING",
+        "recommendation": "complete-original-printed-sheet",
+        "preview": "source-placement-41.png",
+        "sourcePixelRectangle": [
+          0,
+          0,
+          3410,
+          4343
+        ],
+        "normalizedSourceRectangle": [
+          0,
+          0,
+          1,
+          1
+        ],
+        "placement": "Full page content surface; contain, centered horizontally and vertically, preserve source aspect ratio; no cropping or digital caption overlay.",
+        "preserves": "Entire source illustration, caption, story, letter halo, page border and original caption/ground relationship.",
+        "limits": "Static source preview, not an app screenshot or owner approval. Supplied scan color/compression not certified against approved master. Original lower-resolution/scan characteristics remain.",
+        "alternativeNeeded": "Untouched original full scene without printed caption if separate clean illustration plus digital text is required."
+      }
     },
     {
       "pdfPage": 47,
@@ -109,7 +151,28 @@
         ]
       },
       "status": "WAITING",
-      "acceptedForReplacement": false
+      "acceptedForReplacement": false,
+      "placementChoice": {
+        "status": "WAITING",
+        "recommendation": "complete-original-printed-sheet",
+        "preview": "source-placement-47.png",
+        "sourcePixelRectangle": [
+          0,
+          0,
+          3408,
+          4343
+        ],
+        "normalizedSourceRectangle": [
+          0,
+          0,
+          1,
+          1
+        ],
+        "placement": "Full page content surface; contain, centered horizontally and vertically, preserve source aspect ratio; no cropping or digital caption overlay.",
+        "preserves": "Entire source illustration, caption, story, letter halo, page border and original caption/ground relationship.",
+        "limits": "Static source preview, not an app screenshot or owner approval. Supplied scan color/compression not certified against approved master. Original lower-resolution/scan characteristics remain.",
+        "alternativeNeeded": "Untouched original full scene without printed caption if separate clean illustration plus digital text is required."
+      }
     },
     {
       "pdfPage": 53,
@@ -137,12 +200,40 @@
         ]
       },
       "status": "WAITING",
-      "acceptedForReplacement": false
+      "acceptedForReplacement": false,
+      "placementChoice": {
+        "status": "WAITING",
+        "recommendation": "complete-original-printed-sheet",
+        "preview": "source-placement-53.png",
+        "sourcePixelRectangle": [
+          0,
+          0,
+          3406,
+          4344
+        ],
+        "normalizedSourceRectangle": [
+          0,
+          0,
+          1,
+          1
+        ],
+        "placement": "Full page content surface; contain, centered horizontally and vertically, preserve source aspect ratio; no cropping or digital caption overlay.",
+        "preserves": "Entire source illustration, caption, story, letter halo, page border and original caption/ground relationship.",
+        "limits": "Static source preview, not an app screenshot or owner approval. Supplied scan color/compression not certified against approved master. Original lower-resolution/scan characteristics remain.",
+        "alternativeNeeded": "Untouched original full scene without printed caption if separate clean illustration plus digital text is required."
+      }
     }
   ],
   "limits": [
     "Bounded source search, not an exhaustive audit of every generic image in every Drive folder",
     "No production replacement, geometry approval, hidden-pixel recovery or runtime acceptance is claimed",
     "Separate-sheet PDFs contain flattened scans; higher raster dimensions do not establish cleaner provenance or source approval"
-  ]
+  ],
+  "placementComparisonReceipt": {
+    "baselineHead": "b324ecba33783bd859ca2f32447194a7b966313b",
+    "action": "Four concrete full-sheet placement decisions using existing originals only",
+    "newSourceSearch": false,
+    "productionFilesChanged": false,
+    "runtimeTested": false
+  }
 }
