@@ -1,0 +1,193 @@
+{
+  "repair": "97354ea934f47c4f2f4d91767d7f12977d42ba60",
+  "review": "4359aecef5294e3a43722c47ee73fc4efa9e9eb6",
+  "threads": [
+    {
+      "id": "PRRT_kwDOSfBV9s6zKT71",
+      "isResolved": true,
+      "isOutdated": true,
+      "comments": [
+        {
+          "id": 4455792852,
+          "author": "github-advanced-security",
+          "body": "## SonarCloud / Agentic workflows should not be vulnerable to argument injection attacks\n\n<!--SONAR_ISSUE_KEY:AaGhvxCLjPD7bRfDlYXv-->Command Argument Injection via faulty LLM-supplied CLI arguments <p>See more on <a href=\"https://sonarcloud.io/project/issues?id=ejnburrows-rgb_cartilla-de-gretel&issues=AaGhvxCLjPD7bRfDlYXv&open=AaGhvxCLjPD7bRfDlYXv&pullRequest=1247\">SonarQube Cloud</a></p>\n\n[Show more details](https://github.com/ejnburrows-rgb/cartilla-de-gretel/security/code-scanning/135)"
+        },
+        {
+          "id": 4456665434,
+          "author": "ejnburrows-rgb",
+          "body": "Implemented in exact commit `97354ea934f47c4f2f4d91767d7f12977d42ba60`. The alpha reporter now validates a full 40-character hexadecimal commit before invoking Git and separates the fixed show command with --end-of-options. Direct CLI regression rejects an option-shaped head before opening the PDF.\n\n[Repair and 8/8 focused boundary results](https://github.com/ejnburrows-rgb/cartilla-de-gretel/blob/97354ea934f47c4f2f4d91767d7f12977d42ba60/docs/proofs/m7-m8-m9-verification/continuation/HELPER-SECURITY-REPAIR.md); [independent exact-commit affected-delta review and alert mapping](https://github.com/ejnburrows-rgb/cartilla-de-gretel/blob/4359aecef5294e3a43722c47ee73fc4efa9e9eb6/docs/proofs/m7-m8-m9-verification/continuation/independent-review-helper-guards.md). This is remediation-based discussion resolution, not alert dismissal or formal PR approval. Hostile concurrent filesystem replacement and operator-selected executable integrity remain outside the demonstrated guarantee. Overall merge/release HOLD remains for separate performance, source, final-evidence and formal-review gates."
+        }
+      ]
+    },
+    {
+      "id": "PRRT_kwDOSfBV9s6zKT8I",
+      "isResolved": true,
+      "isOutdated": false,
+      "comments": [
+        {
+          "id": 4455792881,
+          "author": "github-advanced-security",
+          "body": "## SonarCloud / Agentic workflows should not be vulnerable to path injection attacks\n\n<!--SONAR_ISSUE_KEY:AaGhvxCLjPD7bRfDlYXw-->Path Traversal via faulty LLM-supplied CLI arguments <p>See more on <a href=\"https://sonarcloud.io/project/issues?id=ejnburrows-rgb_cartilla-de-gretel&issues=AaGhvxCLjPD7bRfDlYXw&open=AaGhvxCLjPD7bRfDlYXw&pullRequest=1247\">SonarQube Cloud</a></p>\n\n[Show more details](https://github.com/ejnburrows-rgb/cartilla-de-gretel/security/code-scanning/134)"
+        },
+        {
+          "id": 4456666310,
+          "author": "ejnburrows-rgb",
+          "body": "Implemented in exact commit `97354ea934f47c4f2f4d91767d7f12977d42ba60`. The alpha result reaches the shared report writer: output must remain beneath the fixed continuation directory, redirected destinations are rejected, and exclusive creation prevents overwriting existing evidence. Outside-path, existing-output and actual Windows junction checks passed.\n\n[Repair and 8/8 focused boundary results](https://github.com/ejnburrows-rgb/cartilla-de-gretel/blob/97354ea934f47c4f2f4d91767d7f12977d42ba60/docs/proofs/m7-m8-m9-verification/continuation/HELPER-SECURITY-REPAIR.md); [independent exact-commit affected-delta review and alert mapping](https://github.com/ejnburrows-rgb/cartilla-de-gretel/blob/4359aecef5294e3a43722c47ee73fc4efa9e9eb6/docs/proofs/m7-m8-m9-verification/continuation/independent-review-helper-guards.md). This is remediation-based discussion resolution, not alert dismissal or formal PR approval. Hostile concurrent filesystem replacement and operator-selected executable integrity remain outside the demonstrated guarantee. Overall merge/release HOLD remains for separate performance, source, final-evidence and formal-review gates."
+        }
+      ]
+    },
+    {
+      "id": "PRRT_kwDOSfBV9s6zKT8Z",
+      "isResolved": true,
+      "isOutdated": true,
+      "comments": [
+        {
+          "id": 4455792911,
+          "author": "github-advanced-security",
+          "body": "## SonarCloud / Agentic workflows should not be vulnerable to path injection attacks\n\n<!--SONAR_ISSUE_KEY:AaGhvxCLjPD7bRfDlYXx-->Path Traversal via faulty LLM-supplied CLI arguments <p>See more on <a href=\"https://sonarcloud.io/project/issues?id=ejnburrows-rgb_cartilla-de-gretel&issues=AaGhvxCLjPD7bRfDlYXx&open=AaGhvxCLjPD7bRfDlYXx&pullRequest=1247\">SonarQube Cloud</a></p>\n\n[Show more details](https://github.com/ejnburrows-rgb/cartilla-de-gretel/security/code-scanning/133)"
+        },
+        {
+          "id": 4456667266,
+          "author": "ejnburrows-rgb",
+          "body": "Implemented in exact commit `97354ea934f47c4f2f4d91767d7f12977d42ba60`. The alpha report write now uses the confined shared writer with exclusive creation. Destination ancestry must remain within the assigned continuation directory without redirection; outside-path, overwrite and actual Windows junction regressions passed.\n\n[Repair and 8/8 focused boundary results](https://github.com/ejnburrows-rgb/cartilla-de-gretel/blob/97354ea934f47c4f2f4d91767d7f12977d42ba60/docs/proofs/m7-m8-m9-verification/continuation/HELPER-SECURITY-REPAIR.md); [independent exact-commit affected-delta review and alert mapping](https://github.com/ejnburrows-rgb/cartilla-de-gretel/blob/4359aecef5294e3a43722c47ee73fc4efa9e9eb6/docs/proofs/m7-m8-m9-verification/continuation/independent-review-helper-guards.md). This is remediation-based discussion resolution, not alert dismissal or formal PR approval. Hostile concurrent filesystem replacement and operator-selected executable integrity remain outside the demonstrated guarantee. Overall merge/release HOLD remains for separate performance, source, final-evidence and formal-review gates."
+        }
+      ]
+    },
+    {
+      "id": "PRRT_kwDOSfBV9s6zKT8p",
+      "isResolved": true,
+      "isOutdated": true,
+      "comments": [
+        {
+          "id": 4455792931,
+          "author": "github-advanced-security",
+          "body": "## SonarCloud / Agentic workflows should not be vulnerable to argument injection attacks\n\n<!--SONAR_ISSUE_KEY:AaGhvxCMjPD7bRfDlYXy-->Command Argument Injection via faulty LLM-supplied CLI arguments <p>See more on <a href=\"https://sonarcloud.io/project/issues?id=ejnburrows-rgb_cartilla-de-gretel&issues=AaGhvxCMjPD7bRfDlYXy&open=AaGhvxCMjPD7bRfDlYXy&pullRequest=1247\">SonarQube Cloud</a></p>\n\n[Show more details](https://github.com/ejnburrows-rgb/cartilla-de-gretel/security/code-scanning/131)"
+        },
+        {
+          "id": 4456667897,
+          "author": "ejnburrows-rgb",
+          "body": "Implemented in exact commit `97354ea934f47c4f2f4d91767d7f12977d42ba60`. The provenance reporter now validates a full 40-character hexadecimal commit before invoking Git and uses show --end-of-options. Its direct CLI regression rejects an option-shaped head before opening the PDF.\n\n[Repair and 8/8 focused boundary results](https://github.com/ejnburrows-rgb/cartilla-de-gretel/blob/97354ea934f47c4f2f4d91767d7f12977d42ba60/docs/proofs/m7-m8-m9-verification/continuation/HELPER-SECURITY-REPAIR.md); [independent exact-commit affected-delta review and alert mapping](https://github.com/ejnburrows-rgb/cartilla-de-gretel/blob/4359aecef5294e3a43722c47ee73fc4efa9e9eb6/docs/proofs/m7-m8-m9-verification/continuation/independent-review-helper-guards.md). This is remediation-based discussion resolution, not alert dismissal or formal PR approval. Hostile concurrent filesystem replacement and operator-selected executable integrity remain outside the demonstrated guarantee. Overall merge/release HOLD remains for separate performance, source, final-evidence and formal-review gates."
+        }
+      ]
+    },
+    {
+      "id": "PRRT_kwDOSfBV9s6zKT82",
+      "isResolved": true,
+      "isOutdated": false,
+      "comments": [
+        {
+          "id": 4455792950,
+          "author": "github-advanced-security",
+          "body": "## SonarCloud / Agentic workflows should not be vulnerable to path injection attacks\n\n<!--SONAR_ISSUE_KEY:AaGhvxCMjPD7bRfDlYXz-->Path Traversal via faulty LLM-supplied CLI arguments <p>See more on <a href=\"https://sonarcloud.io/project/issues?id=ejnburrows-rgb_cartilla-de-gretel&issues=AaGhvxCMjPD7bRfDlYXz&open=AaGhvxCMjPD7bRfDlYXz&pullRequest=1247\">SonarQube Cloud</a></p>\n\n[Show more details](https://github.com/ejnburrows-rgb/cartilla-de-gretel/security/code-scanning/130)"
+        },
+        {
+          "id": 4456668616,
+          "author": "ejnburrows-rgb",
+          "body": "Implemented in exact commit `97354ea934f47c4f2f4d91767d7f12977d42ba60`. The provenance result reaches the shared report writer with confined nonredirected output and exclusive creation. Outside-path, existing-output and actual Windows junction regressions passed; accepted historical evidence remains untouched.\n\n[Repair and 8/8 focused boundary results](https://github.com/ejnburrows-rgb/cartilla-de-gretel/blob/97354ea934f47c4f2f4d91767d7f12977d42ba60/docs/proofs/m7-m8-m9-verification/continuation/HELPER-SECURITY-REPAIR.md); [independent exact-commit affected-delta review and alert mapping](https://github.com/ejnburrows-rgb/cartilla-de-gretel/blob/4359aecef5294e3a43722c47ee73fc4efa9e9eb6/docs/proofs/m7-m8-m9-verification/continuation/independent-review-helper-guards.md). This is remediation-based discussion resolution, not alert dismissal or formal PR approval. Hostile concurrent filesystem replacement and operator-selected executable integrity remain outside the demonstrated guarantee. Overall merge/release HOLD remains for separate performance, source, final-evidence and formal-review gates."
+        }
+      ]
+    },
+    {
+      "id": "PRRT_kwDOSfBV9s6zKT8_",
+      "isResolved": true,
+      "isOutdated": true,
+      "comments": [
+        {
+          "id": 4455792970,
+          "author": "github-advanced-security",
+          "body": "## SonarCloud / Agentic workflows should not be vulnerable to path injection attacks\n\n<!--SONAR_ISSUE_KEY:AaGhvxCMjPD7bRfDlYX0-->Path Traversal via faulty LLM-supplied CLI arguments <p>See more on <a href=\"https://sonarcloud.io/project/issues?id=ejnburrows-rgb_cartilla-de-gretel&issues=AaGhvxCMjPD7bRfDlYX0&open=AaGhvxCMjPD7bRfDlYX0&pullRequest=1247\">SonarQube Cloud</a></p>\n\n[Show more details](https://github.com/ejnburrows-rgb/cartilla-de-gretel/security/code-scanning/132)"
+        },
+        {
+          "id": 4456669424,
+          "author": "ejnburrows-rgb",
+          "body": "Implemented in exact commit `97354ea934f47c4f2f4d91767d7f12977d42ba60`. The provenance write now uses the shared confined writer and exclusive creation. Outside-path, overwrite and actual Windows junction regressions passed; callers cannot select arbitrary writable report paths.\n\n[Repair and 8/8 focused boundary results](https://github.com/ejnburrows-rgb/cartilla-de-gretel/blob/97354ea934f47c4f2f4d91767d7f12977d42ba60/docs/proofs/m7-m8-m9-verification/continuation/HELPER-SECURITY-REPAIR.md); [independent exact-commit affected-delta review and alert mapping](https://github.com/ejnburrows-rgb/cartilla-de-gretel/blob/4359aecef5294e3a43722c47ee73fc4efa9e9eb6/docs/proofs/m7-m8-m9-verification/continuation/independent-review-helper-guards.md). This is remediation-based discussion resolution, not alert dismissal or formal PR approval. Hostile concurrent filesystem replacement and operator-selected executable integrity remain outside the demonstrated guarantee. Overall merge/release HOLD remains for separate performance, source, final-evidence and formal-review gates."
+        }
+      ]
+    },
+    {
+      "id": "PRRT_kwDOSfBV9s6zKT9O",
+      "isResolved": true,
+      "isOutdated": false,
+      "comments": [
+        {
+          "id": 4455793001,
+          "author": "github-advanced-security",
+          "body": "## SonarCloud / Agentic workflows should not be vulnerable to path injection attacks\n\n<!--SONAR_ISSUE_KEY:AaGhvxCJjPD7bRfDlYXr-->Path Traversal via faulty LLM-supplied CLI arguments <p>See more on <a href=\"https://sonarcloud.io/project/issues?id=ejnburrows-rgb_cartilla-de-gretel&issues=AaGhvxCJjPD7bRfDlYXr&open=AaGhvxCJjPD7bRfDlYXr&pullRequest=1247\">SonarQube Cloud</a></p>\n\n[Show more details](https://github.com/ejnburrows-rgb/cartilla-de-gretel/security/code-scanning/138)"
+        },
+        {
+          "id": 4456670033,
+          "author": "ejnburrows-rgb",
+          "body": "Implemented in exact commit `97354ea934f47c4f2f4d91767d7f12977d42ba60`. Repository selection now resolves only to the checkout containing this helper (including Git worktrees). Both fixed asset destinations and the report are preflighted before mutations; an unrelated-repository direct CLI test confirms refusal without writes.\n\n[Repair and 8/8 focused boundary results](https://github.com/ejnburrows-rgb/cartilla-de-gretel/blob/97354ea934f47c4f2f4d91767d7f12977d42ba60/docs/proofs/m7-m8-m9-verification/continuation/HELPER-SECURITY-REPAIR.md); [independent exact-commit affected-delta review and alert mapping](https://github.com/ejnburrows-rgb/cartilla-de-gretel/blob/4359aecef5294e3a43722c47ee73fc4efa9e9eb6/docs/proofs/m7-m8-m9-verification/continuation/independent-review-helper-guards.md). This is remediation-based discussion resolution, not alert dismissal or formal PR approval. Hostile concurrent filesystem replacement and operator-selected executable integrity remain outside the demonstrated guarantee. Overall merge/release HOLD remains for separate performance, source, final-evidence and formal-review gates."
+        }
+      ]
+    },
+    {
+      "id": "PRRT_kwDOSfBV9s6zKT9a",
+      "isResolved": true,
+      "isOutdated": false,
+      "comments": [
+        {
+          "id": 4455793023,
+          "author": "github-advanced-security",
+          "body": "## SonarCloud / Agentic workflows should not be vulnerable to path injection attacks\n\n<!--SONAR_ISSUE_KEY:AaGhvxCJjPD7bRfDlYXt-->Path Traversal via faulty LLM-supplied CLI arguments <p>See more on <a href=\"https://sonarcloud.io/project/issues?id=ejnburrows-rgb_cartilla-de-gretel&issues=AaGhvxCJjPD7bRfDlYXt&open=AaGhvxCJjPD7bRfDlYXt&pullRequest=1247\">SonarQube Cloud</a></p>\n\n[Show more details](https://github.com/ejnburrows-rgb/cartilla-de-gretel/security/code-scanning/136)"
+        },
+        {
+          "id": 4456670900,
+          "author": "ejnburrows-rgb",
+          "body": "Implemented in exact commit `97354ea934f47c4f2f4d91767d7f12977d42ba60`. The fixed PNG destination now passes confinement/redirection preflight before any mutation. Both existing PNG and WebP must match the reviewed pre-restoration baseline, and the report must be absent. The shared destination guard has outside-path/junction coverage; restoration was not replayed against accepted artwork.\n\n[Repair and 8/8 focused boundary results](https://github.com/ejnburrows-rgb/cartilla-de-gretel/blob/97354ea934f47c4f2f4d91767d7f12977d42ba60/docs/proofs/m7-m8-m9-verification/continuation/HELPER-SECURITY-REPAIR.md); [independent exact-commit affected-delta review and alert mapping](https://github.com/ejnburrows-rgb/cartilla-de-gretel/blob/4359aecef5294e3a43722c47ee73fc4efa9e9eb6/docs/proofs/m7-m8-m9-verification/continuation/independent-review-helper-guards.md). This is remediation-based discussion resolution, not alert dismissal or formal PR approval. Hostile concurrent filesystem replacement and operator-selected executable integrity remain outside the demonstrated guarantee. Overall merge/release HOLD remains for separate performance, source, final-evidence and formal-review gates."
+        }
+      ]
+    },
+    {
+      "id": "PRRT_kwDOSfBV9s6zKT9o",
+      "isResolved": true,
+      "isOutdated": false,
+      "comments": [
+        {
+          "id": 4455793040,
+          "author": "github-advanced-security",
+          "body": "## SonarCloud / Agentic workflows should not be vulnerable to path injection attacks\n\n<!--SONAR_ISSUE_KEY:AaGhvxCJjPD7bRfDlYXq-->Path Traversal via faulty LLM-supplied CLI arguments <p>See more on <a href=\"https://sonarcloud.io/project/issues?id=ejnburrows-rgb_cartilla-de-gretel&issues=AaGhvxCJjPD7bRfDlYXq&open=AaGhvxCJjPD7bRfDlYXq&pullRequest=1247\">SonarQube Cloud</a></p>\n\n[Show more details](https://github.com/ejnburrows-rgb/cartilla-de-gretel/security/code-scanning/139)"
+        },
+        {
+          "id": 4456671686,
+          "author": "ejnburrows-rgb",
+          "body": "Implemented in exact commit `97354ea934f47c4f2f4d91767d7f12977d42ba60`. The fixed WebP destination is preflighted together with PNG/report before either asset write. Both current assets must match the reviewed baseline; redirection/outside paths are rejected by the tested shared guard. Accepted restored artwork was not modified.\n\n[Repair and 8/8 focused boundary results](https://github.com/ejnburrows-rgb/cartilla-de-gretel/blob/97354ea934f47c4f2f4d91767d7f12977d42ba60/docs/proofs/m7-m8-m9-verification/continuation/HELPER-SECURITY-REPAIR.md); [independent exact-commit affected-delta review and alert mapping](https://github.com/ejnburrows-rgb/cartilla-de-gretel/blob/4359aecef5294e3a43722c47ee73fc4efa9e9eb6/docs/proofs/m7-m8-m9-verification/continuation/independent-review-helper-guards.md). This is remediation-based discussion resolution, not alert dismissal or formal PR approval. Hostile concurrent filesystem replacement and operator-selected executable integrity remain outside the demonstrated guarantee. Overall merge/release HOLD remains for separate performance, source, final-evidence and formal-review gates."
+        }
+      ]
+    },
+    {
+      "id": "PRRT_kwDOSfBV9s6zKT9u",
+      "isResolved": true,
+      "isOutdated": true,
+      "comments": [
+        {
+          "id": 4455793053,
+          "author": "github-advanced-security",
+          "body": "## SonarCloud / Agentic workflows should not be vulnerable to path injection attacks\n\n<!--SONAR_ISSUE_KEY:AaGhvxCJjPD7bRfDlYXs-->Path Traversal via faulty LLM-supplied CLI arguments <p>See more on <a href=\"https://sonarcloud.io/project/issues?id=ejnburrows-rgb_cartilla-de-gretel&issues=AaGhvxCJjPD7bRfDlYXs&open=AaGhvxCJjPD7bRfDlYXs&pullRequest=1247\">SonarQube Cloud</a></p>\n\n[Show more details](https://github.com/ejnburrows-rgb/cartilla-de-gretel/security/code-scanning/137)"
+        },
+        {
+          "id": 4456672452,
+          "author": "ejnburrows-rgb",
+          "body": "Implemented in exact commit `97354ea934f47c4f2f4d91767d7f12977d42ba60`. The fixed restoration report is now preflighted and written through the confined exclusive-create writer. An existing accepted report refuses replay before any artwork write; outside/overwrite/junction boundary regressions passed.\n\n[Repair and 8/8 focused boundary results](https://github.com/ejnburrows-rgb/cartilla-de-gretel/blob/97354ea934f47c4f2f4d91767d7f12977d42ba60/docs/proofs/m7-m8-m9-verification/continuation/HELPER-SECURITY-REPAIR.md); [independent exact-commit affected-delta review and alert mapping](https://github.com/ejnburrows-rgb/cartilla-de-gretel/blob/4359aecef5294e3a43722c47ee73fc4efa9e9eb6/docs/proofs/m7-m8-m9-verification/continuation/independent-review-helper-guards.md). This is remediation-based discussion resolution, not alert dismissal or formal PR approval. Hostile concurrent filesystem replacement and operator-selected executable integrity remain outside the demonstrated guarantee. Overall merge/release HOLD remains for separate performance, source, final-evidence and formal-review gates."
+        }
+      ]
+    },
+    {
+      "id": "PRRT_kwDOSfBV9s6zKT90",
+      "isResolved": true,
+      "isOutdated": true,
+      "comments": [
+        {
+          "id": 4455793071,
+          "author": "github-advanced-security",
+          "body": "## SonarCloud / OS commands should not rely on PATH resolution\n\n<!--SONAR_ISSUE_KEY:AaGhvwrtjPD7bRfDlYXp-->Make sure the \"PATH\" variable only contains fixed, unwriteable directories. <p>See more on <a href=\"https://sonarcloud.io/project/issues?id=ejnburrows-rgb_cartilla-de-gretel&issues=AaGhvwrtjPD7bRfDlYXp&open=AaGhvwrtjPD7bRfDlYXp&pullRequest=1247\">SonarQube Cloud</a></p>\n\n[Show more details](https://github.com/ejnburrows-rgb/cartilla-de-gretel/security/code-scanning/140)"
+        },
+        {
+          "id": 4456673244,
+          "author": "ejnburrows-rgb",
+          "body": "Implemented in exact commit `97354ea934f47c4f2f4d91767d7f12977d42ba60`. Runtime Git selection now requires an explicit absolute existing Git file through GIT_EXECUTABLE and passes its resolved path to execFileSync. Bare PATH-based Git fails in a direct regression before output/browser launch. The selected binary's integrity remains an explicit operator trust assumption.\n\n[Repair and 8/8 focused boundary results](https://github.com/ejnburrows-rgb/cartilla-de-gretel/blob/97354ea934f47c4f2f4d91767d7f12977d42ba60/docs/proofs/m7-m8-m9-verification/continuation/HELPER-SECURITY-REPAIR.md); [independent exact-commit affected-delta review and alert mapping](https://github.com/ejnburrows-rgb/cartilla-de-gretel/blob/4359aecef5294e3a43722c47ee73fc4efa9e9eb6/docs/proofs/m7-m8-m9-verification/continuation/independent-review-helper-guards.md). This is remediation-based discussion resolution, not alert dismissal or formal PR approval. Hostile concurrent filesystem replacement and operator-selected executable integrity remain outside the demonstrated guarantee. Overall merge/release HOLD remains for separate performance, source, final-evidence and formal-review gates."
+        }
+      ]
+    }
+  ]
+}
