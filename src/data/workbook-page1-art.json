@@ -158,7 +158,15 @@
       ],
       "provenanceStatus": "OWNER-OPTIMIZED-COLOR-2026-10-05",
       "treatment": "border-connected white background made transparent; edge pixels un-blended from white; no recolouring or redrawing",
-      "embeddedPngSha256": "bcfb66807be6797f3ba481834670d2855c19caf81a8492fe7d0ba138578c992c"
+      "embeddedPngSha256": "bcfb66807be6797f3ba481834670d2855c19caf81a8492fe7d0ba138578c992c",
+      "sourceRevision": "5905dcadfa007a5aa630cd7816aafcb1af6d42e6",
+      "sourceArchive": "docs/proofs/m7-m8-m9-verification/continuation/superseded-sources/p006-escalera.png",
+      "supersededBy": {
+        "revision": "ab06a8b9",
+        "sha256": "d12189f53a8ffe2cae80dcc9f144c2fc5d6db6606aa3e4f0cfb6b521a3f12247",
+        "sourceEvidence": "docs/proofs/m7-m8-m9-verification/continuation/lesson4-source-provenance.json",
+        "status": "Independent visible-RGB derivative chain verified; original RGB not byte-exact and alpha processing not certified"
+      }
     },
     {
       "src": "/cartilla/art/optimized/workbook/leccion-1/uno.svg",
@@ -295,7 +303,15 @@
       ],
       "provenanceStatus": "OWNER-OPTIMIZED-COLOR-2026-10-05",
       "treatment": "border-connected white background made transparent; edge pixels un-blended from white; no recolouring or redrawing",
-      "embeddedPngSha256": "914da0f2711305f87996bcba44e4d0b74f5c2dad3b6500e1b100020fead823a3"
+      "embeddedPngSha256": "914da0f2711305f87996bcba44e4d0b74f5c2dad3b6500e1b100020fead823a3",
+      "sourceRevision": "5905dcadfa007a5aa630cd7816aafcb1af6d42e6",
+      "sourceArchive": "docs/proofs/m7-m8-m9-verification/continuation/superseded-sources/p006-elefante.png",
+      "supersededBy": {
+        "revision": "ab06a8b9",
+        "sha256": "d0c044b079af68d6e7ca87c65a3cfa75dd9883b50e138b24be25f9777975b8fa",
+        "sourceEvidence": "docs/proofs/m7-m8-m9-verification/continuation/lesson4-source-provenance.json",
+        "status": "Independent visible-RGB derivative chain verified; original RGB not byte-exact and alpha processing not certified"
+      }
     },
     {
       "src": "/cartilla/art/optimized/workbook/leccion-1/olla.svg",

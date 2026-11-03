@@ -82,7 +82,8 @@ describe("living-page-by-page-coverage contract test", () => {
       if (isStale) {
         expect(getLivingActor(src)).toBeNull();
       } else {
-        expect(getLivingActor(src)).toEqual(actor);
+        // Replaced stills must retain their quarantine, even with a registry entry.
+      expect(getLivingActor(src)).toEqual(Object.hasOwn(staleMotionArt, src) ? null : actor);
       }
     }
   });
@@ -97,7 +98,8 @@ describe("living-page-by-page-coverage contract test", () => {
       expect(actor?.reducedMotion).toBe("static");
       expect(typeof actor?.meaning).toBe("string");
       expect(actor?.meaning.length).toBeGreaterThan(0);
-      expect(getLivingActor(src)).toEqual(actor);
+      // Replaced stills must retain their quarantine, even with a registry entry.
+      expect(getLivingActor(src)).toEqual(Object.hasOwn(staleMotionArt, src) ? null : actor);
     }
   });
 
@@ -121,17 +123,28 @@ describe("living-page-by-page-coverage contract test", () => {
       expect(actor?.src).toBe(src);
       expect(ALLOWED_ACTIONS.has(actor!.action)).toBe(true);
       expect(actor?.reducedMotion).toBe("static");
-      expect(getLivingActor(src)).toEqual(actor);
+      // Replaced stills must retain their quarantine, even with a registry entry.
+      expect(getLivingActor(src)).toEqual(Object.hasOwn(staleMotionArt, src) ? null : actor);
     }
   });
 
   it("asserts 100% of physical native Flip Chart files resolve to an active living actor", () => {
     const nativeDir = path.resolve(__dirname, "../../../public/cartilla/art/optimized/flipchart-native");
     const nativeFiles = fs.readdirSync(nativeDir).filter((f) => /\.(png|webp)$/i.test(f) && !f.endsWith("-alive.svg"));
-    expect(nativeFiles.length).toBe(167);
+    // Seven retained pre-PDF WebP crops are archive files, not runtime placements.
+    const retainedArchives = new Set(["elefante", "ema", "erizo", "escalera", "espejo", "estrella", "scene"].map(word => `p006-${word}.webp`));
+    expect(nativeFiles.length).toBe(174);
+    const runtimeSources = new Set([
+      ...flipchartRows.map(row => row.current.replace(/^public/, "")),
+      ...Object.values(flipchartProductionArt as Record<string, {scene?: {src: string}; vocab?: Array<{src: string}>}>).flatMap(page => [page.scene?.src, ...(page.vocab ?? []).map(item => item.src)]),
+    ]);
 
     for (const file of nativeFiles) {
       const src = `/cartilla/art/optimized/flipchart-native/${file}`;
+      if (retainedArchives.has(file)) {
+        expect(runtimeSources.has(src), `Archived crop ${src} must not replace the full PDF crop`).toBe(false);
+        continue;
+      }
       const actor = LIVING_ACTORS[src];
       expect(actor, `Physical native file ${src} must resolve in LIVING_ACTORS`).toBeDefined();
       expect(actor?.src).toBe(src);

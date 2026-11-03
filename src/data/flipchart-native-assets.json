@@ -239,7 +239,8 @@
         414,
         545
       ],
-      "role": "scene"
+      "role": "scene",
+      "motionDisabled": true
     },
     {
       "word": "elefante",
@@ -250,7 +251,8 @@
         654,
         220,
         208
-      ]
+      ],
+      "motionDisabled": true
     },
     {
       "word": "espejo",
@@ -261,7 +263,8 @@
         638,
         216,
         224
-      ]
+      ],
+      "motionDisabled": true
     },
     {
       "word": "Ema",
@@ -272,7 +275,8 @@
         638,
         195,
         211
-      ]
+      ],
+      "motionDisabled": true
     },
     {
       "word": "estrella",
@@ -283,7 +287,8 @@
         1004,
         216,
         234
-      ]
+      ],
+      "motionDisabled": true
     },
     {
       "word": "erizo",
@@ -294,7 +299,8 @@
         998,
         210,
         263
-      ]
+      ],
+      "motionDisabled": true
     },
     {
       "word": "escalera",
@@ -305,7 +311,8 @@
         988,
         194,
         229
-      ]
+      ],
+      "motionDisabled": true
     }
   ],
   "7": [
