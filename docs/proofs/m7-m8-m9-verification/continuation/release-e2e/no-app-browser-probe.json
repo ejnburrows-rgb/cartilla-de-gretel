@@ -1,0 +1,24 @@
+{
+  "head": "57beceb255cfb60bebae0e662b47c192d2f46148",
+  "applicationFreeze": "649d0fd072cf50fe8580c8629376f9f6349af44a",
+  "probe": "one default Chromium launch,newPage,setContent,textContent; no app,no timeout override",
+  "playwright": "1.63.0",
+  "started": "2026-11-03T15:42:35.536Z",
+  "stages": [
+    {
+      "name": "launch",
+      "ms": 2671.6295
+    },
+    {
+      "name": "newPage",
+      "ms": 81647.06480000001
+    },
+    {
+      "name": "setContent/textContent",
+      "ms": 35528.624599999996,
+      "text": "Browser fixture probe"
+    }
+  ],
+  "passed": true,
+  "finished": "2026-11-03T15:44:48.459Z"
+}
