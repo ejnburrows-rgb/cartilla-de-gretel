@@ -1,0 +1,148 @@
+{
+  "baselineHead": "d613b78ba553c3c5786afdf7d589305a3080f1cf",
+  "workstream": "source-recovery",
+  "owner": "Codex source_recovery",
+  "productionFilesChanged": false,
+  "originalPdfSha256": "d7fb3dff4e63caf3443226e57a9ef700f8974acd4ad8f08f44e2792e13cc4930",
+  "archives": [
+    {
+      "name": "flipchart_all_separate_images_remastered.zip",
+      "sha256": "f87fb7843207a31072f86ad187780a2fc689d02753fc578f6d2537a8d507a43f",
+      "entryCount": 343
+    },
+    {
+      "name": "la_cartilla_de_gretel_complete_package.zip",
+      "sha256": "a57e4b24f3b98280ab64233e42f9ff690021bc5235d25d191281f7eec8db0b57",
+      "entryCount": 58
+    },
+    {
+      "name": "UNMATCHED-613-art-files.zip",
+      "sha256": "6d59a6f6e344666c3d21226d4bc3ac356e87165c2be60eefdc7be72c5beec63d",
+      "entryCount": 614
+    },
+    {
+      "name": "cartilla-gretel-assets.zip",
+      "sha256": "a9c6127db7a8224c8293f51ae93536440c3fc412a56e250ca3940b0a1e6d0e4f",
+      "entryCount": 152
+    }
+  ],
+  "pages": [
+    {
+      "pdfPage": 35,
+      "lesson": 15,
+      "separateSheet": {
+        "file": "33-Bb.pdf",
+        "url": "https://drive.google.com/file/d/1QKuUxQpUIWhSU1hedot2b1WHwb_9D1ay/view",
+        "sha256": "c9308b6ed3b870086005bf27a25293ef18159d7575a1938c5a9a2e6d47028295",
+        "embeddedRasterDimensions": [
+          [
+            3406,
+            4345
+          ]
+        ],
+        "textCharacters": 0,
+        "imageCount": 1
+      },
+      "archiveCrop": {
+        "archive": "flipchart_all_separate_images_remastered.zip",
+        "entry": "original_crops/p35_story_sube_la_bola_scene.png",
+        "sha256": "57359cee0d770f6b35bba4d68a5c064fa9cb924e732e7d5d821c138e6b475368",
+        "dimensions": [
+          666,
+          666
+        ]
+      },
+      "status": "WAITING",
+      "acceptedForReplacement": false
+    },
+    {
+      "pdfPage": 41,
+      "lesson": 17,
+      "separateSheet": {
+        "file": "39-Rr.pdf",
+        "url": "https://drive.google.com/file/d/1sMhHEV6mJb4sWgOva4WbL-bYxqZDb1zP/view",
+        "sha256": "bd81510469b624f17147b9a03d05fb74a6c4fe0a8d2fd61c0e30a45233feb44c",
+        "embeddedRasterDimensions": [
+          [
+            3410,
+            4343
+          ]
+        ],
+        "textCharacters": 0,
+        "imageCount": 1
+      },
+      "archiveCrop": {
+        "archive": "flipchart_all_separate_images_remastered.zip",
+        "entry": "original_crops/p41_story_rosca_manolo_scene.png",
+        "sha256": "7a087a586dcccc89d447c45c16cdc5160cccbe415442fdfd93ef5dd110d5e1a9",
+        "dimensions": [
+          586,
+          586
+        ]
+      },
+      "status": "WAITING",
+      "acceptedForReplacement": false
+    },
+    {
+      "pdfPage": 47,
+      "lesson": 19,
+      "separateSheet": {
+        "file": "45-Gg.pdf",
+        "url": "https://drive.google.com/file/d/1RVffrg7BDdrFqrpDJp9QtMbREITIPVJy/view",
+        "sha256": "ba04ddc6d1b6b76be58e259dc3ac8417b902846144e33793f6430c12b4a9e9a9",
+        "embeddedRasterDimensions": [
+          [
+            3408,
+            4343
+          ]
+        ],
+        "textCharacters": 0,
+        "imageCount": 1
+      },
+      "archiveCrop": {
+        "archive": "flipchart_all_separate_images_remastered.zip",
+        "entry": "original_crops/p47_story_gato_enamorado_scene.png",
+        "sha256": "43c9db8db01bf615e1602db85899139146c1587b1bf695e72f7a2056f5c8622e",
+        "dimensions": [
+          667,
+          667
+        ]
+      },
+      "status": "WAITING",
+      "acceptedForReplacement": false
+    },
+    {
+      "pdfPage": 53,
+      "lesson": 21,
+      "separateSheet": {
+        "file": "51-Jj.pdf",
+        "url": "https://drive.google.com/file/d/18FYAM369QkHG0nZC2C94EiNOQzbZNCwY/view",
+        "sha256": "c32089f6e6543fa0bf71f41a70a6b3ce6ba5a6a832d1bcb7df7d0527130db111",
+        "embeddedRasterDimensions": [
+          [
+            3406,
+            4344
+          ]
+        ],
+        "textCharacters": 0,
+        "imageCount": 1
+      },
+      "archiveCrop": {
+        "archive": "flipchart_all_separate_images_remastered.zip",
+        "entry": "original_crops/p53_story_jicotea_jabela_scene.png",
+        "sha256": "1bda84a82b1f513d9917d46cb95557052378fddeb5fed793f8a089364b3da421",
+        "dimensions": [
+          671,
+          671
+        ]
+      },
+      "status": "WAITING",
+      "acceptedForReplacement": false
+    }
+  ],
+  "limits": [
+    "Bounded source search, not an exhaustive audit of every generic image in every Drive folder",
+    "No production replacement, geometry approval, hidden-pixel recovery or runtime acceptance is claimed",
+    "Separate-sheet PDFs contain flattened scans; higher raster dimensions do not establish cleaner provenance or source approval"
+  ]
+}
