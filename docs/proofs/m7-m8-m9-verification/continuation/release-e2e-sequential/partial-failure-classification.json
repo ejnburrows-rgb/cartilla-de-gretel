@@ -17,14 +17,14 @@
     "reportedNumber": 3,
     "project": "chromium",
     "title": "\u203a tests\\e2e\\activity-completion-foundation.spec.ts:9:1 \u203a p2 uses shared pencil feedback, stays keyboard accessible, and restores completed answers",
-    "category": "observed_browser_page_crash",
+    "category": "observed_browser_page_or_target_crash",
     "rawBody": "Error: expect(locator).toHaveAttribute(expected) failed\n\n    Locator: locator('.native-lesson-viewer')\n    Expected: \"1\"\n    Error: element(s) not found\n\n    Call log:\n      - Expect \"toHaveAttribute\" locator('.native-lesson-viewer') with timeout 5000ms\n      - waiting for locator('.native-lesson-viewer')\n      - Page crashed\n\n\n      12 |   await page.goto('/cartilla/leccion/1');\n      13 |   const viewer = page.locator('.native-lesson-viewer');\n    > 14 |   await expect(viewer).toHaveAttribute('data-native-page', '1');\n         |                        ^\n      15 |   await viewer.getByTestId('button-next').click();\n      16 |   await expect(viewer).toHaveAttribute('data-native-page', '2');\n      17 |\n        at D:\\Downloads\\cartilla-1247-continuation-work\\test-repairs\\tests\\e2e\\activity-completion-foundation.spec.ts:14:24\n\n    Error Context: work\\release-e2e-sequential-artifacts\\activity-completion-founda-0ba0a--restores-completed-answers-chromium\\error-context.md"
   },
   {
     "reportedNumber": 4,
     "project": "chromium",
     "title": "\u203a tests\\e2e\\activity-completion-foundation.spec.ts:64:1 \u203a p5 example + five answers; a wrong try, reload and return never strand completed work",
-    "category": "observed_browser_page_crash",
+    "category": "observed_browser_page_or_target_crash",
     "rawBody": "Error: expect(locator).toHaveAttribute(expected) failed\n\n    Locator: locator('.native-lesson-viewer')\n    Expected: \"4\"\n    Error: element(s) not found\n\n    Call log:\n      - Expect \"toHaveAttribute\" locator('.native-lesson-viewer') with timeout 5000ms\n      - waiting for locator('.native-lesson-viewer')\n      - Protocol error (Runtime.callFunctionOn): Page crashed.\n\n\n      71 |   await page.goto('/cartilla/leccion/2');\n      72 |   const viewer = page.locator('.native-lesson-viewer');\n    > 73 |   await expect(viewer).toHaveAttribute('data-native-page', '4');\n         |                        ^\n      74 |   await viewer.getByTestId('button-next').click();\n      75 |   await expect(viewer).toHaveAttribute('data-native-page', '5');\n      76 |   const next = viewer.getByTestId('button-next');\n        at D:\\Downloads\\cartilla-1247-continuation-work\\test-repairs\\tests\\e2e\\activity-completion-foundation.spec.ts:73:24\n\n    Error Context: work\\release-e2e-sequential-artifacts\\activity-completion-founda-19bd5-never-strand-completed-work-chromium\\error-context.md"
   },
   {
@@ -45,231 +45,231 @@
     "reportedNumber": 7,
     "project": "chromium",
     "title": "\u203a tests\\e2e\\archetype-proof-1-2.spec.ts:32:9 \u203a Workbook Archetypes 1 and 2 Proof \u203a Viewport: phone (390x844) \u203a Family 1 (Picture Grid) - Printed Page 1",
-    "category": "observed_browser_page_crash",
+    "category": "observed_browser_page_or_target_crash",
     "rawBody": "Error: expect(locator).toBeVisible() failed\n\n    Locator: locator('.native-lesson-viewer')\n    Expected: visible\n    Error: element(s) not found\n\n    Call log:\n      - Expect \"toBeVisible\" locator('.native-lesson-viewer') with timeout 10000ms\n      - waiting for locator('.native-lesson-viewer')\n      - Protocol error (Runtime.callFunctionOn): Page crashed.\n\n\n      51 |           // Ensure native lesson viewer loaded\n      52 |           const viewer = page.locator(\".native-lesson-viewer\");\n    > 53 |           await expect(viewer).toBeVisible({ timeout: 10000 });\n         |                                ^\n      54 |\n      55 |           // Verify clean digital canvas: scenic wallpaper must NOT be displayed on dense workbook pages\n      56 |           const bgWallpaper = page.locator(\".final-page-background\");\n        at D:\\Downloads\\cartilla-1247-continuation-work\\test-repairs\\tests\\e2e\\archetype-proof-1-2.spec.ts:53:32\n\n    Error Context: work\\release-e2e-sequential-artifacts\\archetype-proof-1-2-Workbo-db000-cture-Grid---Printed-Page-1-chromium\\error-context.md"
   },
   {
     "reportedNumber": 8,
     "project": "chromium",
     "title": "\u203a tests\\e2e\\archetype-proof-1-2.spec.ts:32:9 \u203a Workbook Archetypes 1 and 2 Proof \u203a Viewport: phone (390x844) \u203a Family 1 (Picture Grid) - Printed Page 4",
-    "category": "observed_browser_page_crash",
+    "category": "observed_browser_page_or_target_crash",
     "rawBody": "Error: expect(locator).toBeVisible() failed\n\n    Locator: locator('.native-lesson-viewer')\n    Expected: visible\n    Error: element(s) not found\n\n    Call log:\n      - Expect \"toBeVisible\" locator('.native-lesson-viewer') with timeout 10000ms\n      - waiting for locator('.native-lesson-viewer')\n      - Protocol error (Runtime.callFunctionOn): Page crashed.\n\n\n      51 |           // Ensure native lesson viewer loaded\n      52 |           const viewer = page.locator(\".native-lesson-viewer\");\n    > 53 |           await expect(viewer).toBeVisible({ timeout: 10000 });\n         |                                ^\n      54 |\n      55 |           // Verify clean digital canvas: scenic wallpaper must NOT be displayed on dense workbook pages\n      56 |           const bgWallpaper = page.locator(\".final-page-background\");\n        at D:\\Downloads\\cartilla-1247-continuation-work\\test-repairs\\tests\\e2e\\archetype-proof-1-2.spec.ts:53:32\n\n    Error Context: work\\release-e2e-sequential-artifacts\\archetype-proof-1-2-Workbo-3234b-cture-Grid---Printed-Page-4-chromium\\error-context.md"
   },
   {
     "reportedNumber": 9,
     "project": "chromium",
     "title": "\u203a tests\\e2e\\archetype-proof-1-2.spec.ts:32:9 \u203a Workbook Archetypes 1 and 2 Proof \u203a Viewport: phone (390x844) \u203a Family 1 (Picture Grid) - Printed Page 7",
-    "category": "observed_browser_page_crash",
+    "category": "observed_browser_page_or_target_crash",
     "rawBody": "Error: expect(locator).toBeVisible() failed\n\n    Locator: locator('.native-lesson-viewer')\n    Expected: visible\n    Error: element(s) not found\n\n    Call log:\n      - Expect \"toBeVisible\" locator('.native-lesson-viewer') with timeout 10000ms\n      - waiting for locator('.native-lesson-viewer')\n      - Protocol error (Runtime.callFunctionOn): Page crashed.\n\n\n      51 |           // Ensure native lesson viewer loaded\n      52 |           const viewer = page.locator(\".native-lesson-viewer\");\n    > 53 |           await expect(viewer).toBeVisible({ timeout: 10000 });\n         |                                ^\n      54 |\n      55 |           // Verify clean digital canvas: scenic wallpaper must NOT be displayed on dense workbook pages\n      56 |           const bgWallpaper = page.locator(\".final-page-background\");\n        at D:\\Downloads\\cartilla-1247-continuation-work\\test-repairs\\tests\\e2e\\archetype-proof-1-2.spec.ts:53:32\n\n    Error Context: work\\release-e2e-sequential-artifacts\\archetype-proof-1-2-Workbo-62cf5-cture-Grid---Printed-Page-7-chromium\\error-context.md"
   },
   {
     "reportedNumber": 10,
     "project": "chromium",
     "title": "\u203a tests\\e2e\\archetype-proof-1-2.spec.ts:32:9 \u203a Workbook Archetypes 1 and 2 Proof \u203a Viewport: phone (390x844) \u203a Family 1 (Picture Grid) - Printed Page 10",
-    "category": "observed_browser_page_crash",
+    "category": "observed_browser_page_or_target_crash",
     "rawBody": "Error: expect(locator).toBeVisible() failed\n\n    Locator: locator('.native-lesson-viewer')\n    Expected: visible\n    Error: element(s) not found\n\n    Call log:\n      - Expect \"toBeVisible\" locator('.native-lesson-viewer') with timeout 10000ms\n      - waiting for locator('.native-lesson-viewer')\n      - Protocol error (Runtime.callFunctionOn): Page crashed.\n\n\n      51 |           // Ensure native lesson viewer loaded\n      52 |           const viewer = page.locator(\".native-lesson-viewer\");\n    > 53 |           await expect(viewer).toBeVisible({ timeout: 10000 });\n         |                                ^\n      54 |\n      55 |           // Verify clean digital canvas: scenic wallpaper must NOT be displayed on dense workbook pages\n      56 |           const bgWallpaper = page.locator(\".final-page-background\");\n        at D:\\Downloads\\cartilla-1247-continuation-work\\test-repairs\\tests\\e2e\\archetype-proof-1-2.spec.ts:53:32\n\n    Error Context: work\\release-e2e-sequential-artifacts\\archetype-proof-1-2-Workbo-cd951-ture-Grid---Printed-Page-10-chromium\\error-context.md"
   },
   {
     "reportedNumber": 11,
     "project": "chromium",
     "title": "\u203a tests\\e2e\\archetype-proof-1-2.spec.ts:32:9 \u203a Workbook Archetypes 1 and 2 Proof \u203a Viewport: phone (390x844) \u203a Family 1 (Picture Grid) - Printed Page 13",
-    "category": "observed_browser_page_crash",
+    "category": "observed_browser_page_or_target_crash",
     "rawBody": "Error: expect(locator).toBeVisible() failed\n\n    Locator: locator('.native-lesson-viewer')\n    Expected: visible\n    Error: element(s) not found\n\n    Call log:\n      - Expect \"toBeVisible\" locator('.native-lesson-viewer') with timeout 10000ms\n      - waiting for locator('.native-lesson-viewer')\n      - Protocol error (Runtime.callFunctionOn): Page crashed.\n\n\n      51 |           // Ensure native lesson viewer loaded\n      52 |           const viewer = page.locator(\".native-lesson-viewer\");\n    > 53 |           await expect(viewer).toBeVisible({ timeout: 10000 });\n         |                                ^\n      54 |\n      55 |           // Verify clean digital canvas: scenic wallpaper must NOT be displayed on dense workbook pages\n      56 |           const bgWallpaper = page.locator(\".final-page-background\");\n        at D:\\Downloads\\cartilla-1247-continuation-work\\test-repairs\\tests\\e2e\\archetype-proof-1-2.spec.ts:53:32\n\n    Error Context: work\\release-e2e-sequential-artifacts\\archetype-proof-1-2-Workbo-10fef-ture-Grid---Printed-Page-13-chromium\\error-context.md"
   },
   {
     "reportedNumber": 12,
     "project": "chromium",
     "title": "\u203a tests\\e2e\\archetype-proof-1-2.spec.ts:32:9 \u203a Workbook Archetypes 1 and 2 Proof \u203a Viewport: phone (390x844) \u203a Family 1 (Picture Grid) - Printed Page 16",
-    "category": "observed_browser_page_crash",
+    "category": "observed_browser_page_or_target_crash",
     "rawBody": "Error: expect(locator).toBeVisible() failed\n\n    Locator: locator('.native-lesson-viewer')\n    Expected: visible\n    Error: element(s) not found\n\n    Call log:\n      - Expect \"toBeVisible\" locator('.native-lesson-viewer') with timeout 10000ms\n      - waiting for locator('.native-lesson-viewer')\n      - Protocol error (Runtime.callFunctionOn): Page crashed.\n\n\n      51 |           // Ensure native lesson viewer loaded\n      52 |           const viewer = page.locator(\".native-lesson-viewer\");\n    > 53 |           await expect(viewer).toBeVisible({ timeout: 10000 });\n         |                                ^\n      54 |\n      55 |           // Verify clean digital canvas: scenic wallpaper must NOT be displayed on dense workbook pages\n      56 |           const bgWallpaper = page.locator(\".final-page-background\");\n        at D:\\Downloads\\cartilla-1247-continuation-work\\test-repairs\\tests\\e2e\\archetype-proof-1-2.spec.ts:53:32\n\n    Error Context: work\\release-e2e-sequential-artifacts\\archetype-proof-1-2-Workbo-8a2e7-ture-Grid---Printed-Page-16-chromium\\error-context.md"
   },
   {
     "reportedNumber": 13,
     "project": "chromium",
     "title": "\u203a tests\\e2e\\archetype-proof-1-2.spec.ts:108:9 \u203a Workbook Archetypes 1 and 2 Proof \u203a Viewport: phone (390x844) \u203a Family 2 (Vowel/Letter + Row Choices) - Printed Page 2",
-    "category": "observed_browser_page_crash",
+    "category": "observed_browser_page_or_target_crash",
     "rawBody": "Error: expect(locator).toBeVisible() failed\n\n    Locator: locator('.native-lesson-viewer')\n    Expected: visible\n    Error: element(s) not found\n\n    Call log:\n      - Expect \"toBeVisible\" locator('.native-lesson-viewer') with timeout 10000ms\n      - waiting for locator('.native-lesson-viewer')\n      - Protocol error (Runtime.callFunctionOn): Page crashed.\n\n\n      125 |\n      126 |           const viewer = page.locator(\".native-lesson-viewer\");\n    > 127 |           await expect(viewer).toBeVisible({ timeout: 10000 });\n          |                                ^\n      128 |\n      129 |           // Verify clean digital canvas: scenic wallpaper must NOT be displayed on dense workbook pages\n      130 |           const bgWallpaper = page.locator(\".final-page-background\");\n        at D:\\Downloads\\cartilla-1247-continuation-work\\test-repairs\\tests\\e2e\\archetype-proof-1-2.spec.ts:127:32\n\n    Error Context: work\\release-e2e-sequential-artifacts\\archetype-proof-1-2-Workbo-f1d43-ow-Choices---Printed-Page-2-chromium\\error-context.md"
   },
   {
     "reportedNumber": 14,
     "project": "chromium",
     "title": "\u203a tests\\e2e\\archetype-proof-1-2.spec.ts:32:9 \u203a Workbook Archetypes 1 and 2 Proof \u203a Viewport: tablet (820x1180) \u203a Family 1 (Picture Grid) - Printed Page 1",
-    "category": "observed_browser_page_crash",
+    "category": "observed_browser_page_or_target_crash",
     "rawBody": "Error: expect(locator).toBeVisible() failed\n\n    Locator: locator('.native-lesson-viewer')\n    Expected: visible\n    Error: element(s) not found\n\n    Call log:\n      - Expect \"toBeVisible\" locator('.native-lesson-viewer') with timeout 10000ms\n      - waiting for locator('.native-lesson-viewer')\n      - Protocol error (Runtime.callFunctionOn): Page crashed.\n\n\n      51 |           // Ensure native lesson viewer loaded\n      52 |           const viewer = page.locator(\".native-lesson-viewer\");\n    > 53 |           await expect(viewer).toBeVisible({ timeout: 10000 });\n         |                                ^\n      54 |\n      55 |           // Verify clean digital canvas: scenic wallpaper must NOT be displayed on dense workbook pages\n      56 |           const bgWallpaper = page.locator(\".final-page-background\");\n        at D:\\Downloads\\cartilla-1247-continuation-work\\test-repairs\\tests\\e2e\\archetype-proof-1-2.spec.ts:53:32\n\n    Error Context: work\\release-e2e-sequential-artifacts\\archetype-proof-1-2-Workbo-73b35-cture-Grid---Printed-Page-1-chromium\\error-context.md"
   },
   {
     "reportedNumber": 15,
     "project": "chromium",
     "title": "\u203a tests\\e2e\\archetype-proof-1-2.spec.ts:32:9 \u203a Workbook Archetypes 1 and 2 Proof \u203a Viewport: tablet (820x1180) \u203a Family 1 (Picture Grid) - Printed Page 4",
-    "category": "observed_browser_page_crash",
+    "category": "observed_browser_page_or_target_crash",
     "rawBody": "Error: expect(locator).toBeVisible() failed\n\n    Locator: locator('.native-lesson-viewer')\n    Expected: visible\n    Error: element(s) not found\n\n    Call log:\n      - Expect \"toBeVisible\" locator('.native-lesson-viewer') with timeout 10000ms\n      - waiting for locator('.native-lesson-viewer')\n      - Protocol error (Runtime.callFunctionOn): Page crashed.\n\n\n      51 |           // Ensure native lesson viewer loaded\n      52 |           const viewer = page.locator(\".native-lesson-viewer\");\n    > 53 |           await expect(viewer).toBeVisible({ timeout: 10000 });\n         |                                ^\n      54 |\n      55 |           // Verify clean digital canvas: scenic wallpaper must NOT be displayed on dense workbook pages\n      56 |           const bgWallpaper = page.locator(\".final-page-background\");\n        at D:\\Downloads\\cartilla-1247-continuation-work\\test-repairs\\tests\\e2e\\archetype-proof-1-2.spec.ts:53:32\n\n    Error Context: work\\release-e2e-sequential-artifacts\\archetype-proof-1-2-Workbo-8d76e-cture-Grid---Printed-Page-4-chromium\\error-context.md"
   },
   {
     "reportedNumber": 16,
     "project": "chromium",
     "title": "\u203a tests\\e2e\\archetype-proof-1-2.spec.ts:32:9 \u203a Workbook Archetypes 1 and 2 Proof \u203a Viewport: tablet (820x1180) \u203a Family 1 (Picture Grid) - Printed Page 7",
-    "category": "observed_browser_page_crash",
+    "category": "observed_browser_page_or_target_crash",
     "rawBody": "Error: expect(locator).toBeVisible() failed\n\n    Locator: locator('.native-lesson-viewer')\n    Expected: visible\n    Error: element(s) not found\n\n    Call log:\n      - Expect \"toBeVisible\" locator('.native-lesson-viewer') with timeout 10000ms\n      - waiting for locator('.native-lesson-viewer')\n      - Protocol error (Runtime.callFunctionOn): Page crashed.\n\n\n      51 |           // Ensure native lesson viewer loaded\n      52 |           const viewer = page.locator(\".native-lesson-viewer\");\n    > 53 |           await expect(viewer).toBeVisible({ timeout: 10000 });\n         |                                ^\n      54 |\n      55 |           // Verify clean digital canvas: scenic wallpaper must NOT be displayed on dense workbook pages\n      56 |           const bgWallpaper = page.locator(\".final-page-background\");\n        at D:\\Downloads\\cartilla-1247-continuation-work\\test-repairs\\tests\\e2e\\archetype-proof-1-2.spec.ts:53:32\n\n    Error Context: work\\release-e2e-sequential-artifacts\\archetype-proof-1-2-Workbo-4267d-cture-Grid---Printed-Page-7-chromium\\error-context.md"
   },
   {
     "reportedNumber": 17,
     "project": "chromium",
     "title": "\u203a tests\\e2e\\archetype-proof-1-2.spec.ts:32:9 \u203a Workbook Archetypes 1 and 2 Proof \u203a Viewport: tablet (820x1180) \u203a Family 1 (Picture Grid) - Printed Page 10",
-    "category": "observed_browser_page_crash",
+    "category": "observed_browser_page_or_target_crash",
     "rawBody": "Error: expect(locator).toBeVisible() failed\n\n    Locator: locator('.native-lesson-viewer')\n    Expected: visible\n    Error: element(s) not found\n\n    Call log:\n      - Expect \"toBeVisible\" locator('.native-lesson-viewer') with timeout 10000ms\n      - waiting for locator('.native-lesson-viewer')\n      - Protocol error (Runtime.callFunctionOn): Page crashed.\n\n\n      51 |           // Ensure native lesson viewer loaded\n      52 |           const viewer = page.locator(\".native-lesson-viewer\");\n    > 53 |           await expect(viewer).toBeVisible({ timeout: 10000 });\n         |                                ^\n      54 |\n      55 |           // Verify clean digital canvas: scenic wallpaper must NOT be displayed on dense workbook pages\n      56 |           const bgWallpaper = page.locator(\".final-page-background\");\n        at D:\\Downloads\\cartilla-1247-continuation-work\\test-repairs\\tests\\e2e\\archetype-proof-1-2.spec.ts:53:32\n\n    Error Context: work\\release-e2e-sequential-artifacts\\archetype-proof-1-2-Workbo-06975-ture-Grid---Printed-Page-10-chromium\\error-context.md"
   },
   {
     "reportedNumber": 18,
     "project": "chromium",
     "title": "\u203a tests\\e2e\\archetype-proof-1-2.spec.ts:32:9 \u203a Workbook Archetypes 1 and 2 Proof \u203a Viewport: tablet (820x1180) \u203a Family 1 (Picture Grid) - Printed Page 13",
-    "category": "observed_browser_page_crash",
+    "category": "observed_browser_page_or_target_crash",
     "rawBody": "Error: expect(locator).toBeVisible() failed\n\n    Locator: locator('.native-lesson-viewer')\n    Expected: visible\n    Error: element(s) not found\n\n    Call log:\n      - Expect \"toBeVisible\" locator('.native-lesson-viewer') with timeout 10000ms\n      - waiting for locator('.native-lesson-viewer')\n      - Protocol error (Runtime.callFunctionOn): Page crashed.\n\n\n      51 |           // Ensure native lesson viewer loaded\n      52 |           const viewer = page.locator(\".native-lesson-viewer\");\n    > 53 |           await expect(viewer).toBeVisible({ timeout: 10000 });\n         |                                ^\n      54 |\n      55 |           // Verify clean digital canvas: scenic wallpaper must NOT be displayed on dense workbook pages\n      56 |           const bgWallpaper = page.locator(\".final-page-background\");\n        at D:\\Downloads\\cartilla-1247-continuation-work\\test-repairs\\tests\\e2e\\archetype-proof-1-2.spec.ts:53:32\n\n    Error Context: work\\release-e2e-sequential-artifacts\\archetype-proof-1-2-Workbo-df413-ture-Grid---Printed-Page-13-chromium\\error-context.md"
   },
   {
     "reportedNumber": 19,
     "project": "chromium",
     "title": "\u203a tests\\e2e\\archetype-proof-1-2.spec.ts:32:9 \u203a Workbook Archetypes 1 and 2 Proof \u203a Viewport: tablet (820x1180) \u203a Family 1 (Picture Grid) - Printed Page 16",
-    "category": "observed_browser_page_crash",
+    "category": "observed_browser_page_or_target_crash",
     "rawBody": "Error: expect(locator).toBeVisible() failed\n\n    Locator: locator('.native-lesson-viewer')\n    Expected: visible\n    Error: element(s) not found\n\n    Call log:\n      - Expect \"toBeVisible\" locator('.native-lesson-viewer') with timeout 10000ms\n      - waiting for locator('.native-lesson-viewer')\n      - Protocol error (Runtime.callFunctionOn): Page crashed.\n\n\n      51 |           // Ensure native lesson viewer loaded\n      52 |           const viewer = page.locator(\".native-lesson-viewer\");\n    > 53 |           await expect(viewer).toBeVisible({ timeout: 10000 });\n         |                                ^\n      54 |\n      55 |           // Verify clean digital canvas: scenic wallpaper must NOT be displayed on dense workbook pages\n      56 |           const bgWallpaper = page.locator(\".final-page-background\");\n        at D:\\Downloads\\cartilla-1247-continuation-work\\test-repairs\\tests\\e2e\\archetype-proof-1-2.spec.ts:53:32\n\n    Error Context: work\\release-e2e-sequential-artifacts\\archetype-proof-1-2-Workbo-0cc66-ture-Grid---Printed-Page-16-chromium\\error-context.md"
   },
   {
     "reportedNumber": 20,
     "project": "chromium",
     "title": "\u203a tests\\e2e\\archetype-proof-1-2.spec.ts:108:9 \u203a Workbook Archetypes 1 and 2 Proof \u203a Viewport: tablet (820x1180) \u203a Family 2 (Vowel/Letter + Row Choices) - Printed Page 2",
-    "category": "observed_browser_page_crash",
+    "category": "observed_browser_page_or_target_crash",
     "rawBody": "Error: expect(locator).toBeVisible() failed\n\n    Locator: locator('.native-lesson-viewer')\n    Expected: visible\n    Error: element(s) not found\n\n    Call log:\n      - Expect \"toBeVisible\" locator('.native-lesson-viewer') with timeout 10000ms\n      - waiting for locator('.native-lesson-viewer')\n      - Protocol error (Runtime.callFunctionOn): Page crashed.\n\n\n      125 |\n      126 |           const viewer = page.locator(\".native-lesson-viewer\");\n    > 127 |           await expect(viewer).toBeVisible({ timeout: 10000 });\n          |                                ^\n      128 |\n      129 |           // Verify clean digital canvas: scenic wallpaper must NOT be displayed on dense workbook pages\n      130 |           const bgWallpaper = page.locator(\".final-page-background\");\n        at D:\\Downloads\\cartilla-1247-continuation-work\\test-repairs\\tests\\e2e\\archetype-proof-1-2.spec.ts:127:32\n\n    Error Context: work\\release-e2e-sequential-artifacts\\archetype-proof-1-2-Workbo-1a54a-ow-Choices---Printed-Page-2-chromium\\error-context.md"
   },
   {
     "reportedNumber": 21,
     "project": "chromium",
     "title": "\u203a tests\\e2e\\archetype-proof-1-2.spec.ts:32:9 \u203a Workbook Archetypes 1 and 2 Proof \u203a Viewport: laptop (1280x800) \u203a Family 1 (Picture Grid) - Printed Page 1",
-    "category": "observed_browser_page_crash",
+    "category": "observed_browser_page_or_target_crash",
     "rawBody": "Error: expect(locator).toBeVisible() failed\n\n    Locator: locator('.native-lesson-viewer')\n    Expected: visible\n    Error: element(s) not found\n\n    Call log:\n      - Expect \"toBeVisible\" locator('.native-lesson-viewer') with timeout 10000ms\n      - waiting for locator('.native-lesson-viewer')\n      - Protocol error (Runtime.callFunctionOn): Page crashed.\n\n\n      51 |           // Ensure native lesson viewer loaded\n      52 |           const viewer = page.locator(\".native-lesson-viewer\");\n    > 53 |           await expect(viewer).toBeVisible({ timeout: 10000 });\n         |                                ^\n      54 |\n      55 |           // Verify clean digital canvas: scenic wallpaper must NOT be displayed on dense workbook pages\n      56 |           const bgWallpaper = page.locator(\".final-page-background\");\n        at D:\\Downloads\\cartilla-1247-continuation-work\\test-repairs\\tests\\e2e\\archetype-proof-1-2.spec.ts:53:32\n\n    Error Context: work\\release-e2e-sequential-artifacts\\archetype-proof-1-2-Workbo-83c9c-cture-Grid---Printed-Page-1-chromium\\error-context.md"
   },
   {
     "reportedNumber": 22,
     "project": "chromium",
     "title": "\u203a tests\\e2e\\archetype-proof-1-2.spec.ts:32:9 \u203a Workbook Archetypes 1 and 2 Proof \u203a Viewport: laptop (1280x800) \u203a Family 1 (Picture Grid) - Printed Page 4",
-    "category": "observed_browser_page_crash",
+    "category": "observed_browser_page_or_target_crash",
     "rawBody": "Error: expect(locator).toBeVisible() failed\n\n    Locator: locator('.native-lesson-viewer')\n    Expected: visible\n    Error: element(s) not found\n\n    Call log:\n      - Expect \"toBeVisible\" locator('.native-lesson-viewer') with timeout 10000ms\n      - waiting for locator('.native-lesson-viewer')\n      - Protocol error (Runtime.callFunctionOn): Page crashed.\n\n\n      51 |           // Ensure native lesson viewer loaded\n      52 |           const viewer = page.locator(\".native-lesson-viewer\");\n    > 53 |           await expect(viewer).toBeVisible({ timeout: 10000 });\n         |                                ^\n      54 |\n      55 |           // Verify clean digital canvas: scenic wallpaper must NOT be displayed on dense workbook pages\n      56 |           const bgWallpaper = page.locator(\".final-page-background\");\n        at D:\\Downloads\\cartilla-1247-continuation-work\\test-repairs\\tests\\e2e\\archetype-proof-1-2.spec.ts:53:32\n\n    Error Context: work\\release-e2e-sequential-artifacts\\archetype-proof-1-2-Workbo-7e607-cture-Grid---Printed-Page-4-chromium\\error-context.md"
   },
   {
     "reportedNumber": 23,
     "project": "chromium",
     "title": "\u203a tests\\e2e\\archetype-proof-1-2.spec.ts:32:9 \u203a Workbook Archetypes 1 and 2 Proof \u203a Viewport: laptop (1280x800) \u203a Family 1 (Picture Grid) - Printed Page 7",
-    "category": "observed_browser_page_crash",
+    "category": "observed_browser_page_or_target_crash",
     "rawBody": "Error: expect(locator).toBeVisible() failed\n\n    Locator: locator('.native-lesson-viewer')\n    Expected: visible\n    Error: element(s) not found\n\n    Call log:\n      - Expect \"toBeVisible\" locator('.native-lesson-viewer') with timeout 10000ms\n      - waiting for locator('.native-lesson-viewer')\n      - Protocol error (Runtime.callFunctionOn): Page crashed.\n\n\n      51 |           // Ensure native lesson viewer loaded\n      52 |           const viewer = page.locator(\".native-lesson-viewer\");\n    > 53 |           await expect(viewer).toBeVisible({ timeout: 10000 });\n         |                                ^\n      54 |\n      55 |           // Verify clean digital canvas: scenic wallpaper must NOT be displayed on dense workbook pages\n      56 |           const bgWallpaper = page.locator(\".final-page-background\");\n        at D:\\Downloads\\cartilla-1247-continuation-work\\test-repairs\\tests\\e2e\\archetype-proof-1-2.spec.ts:53:32\n\n    Error Context: work\\release-e2e-sequential-artifacts\\archetype-proof-1-2-Workbo-099e8-cture-Grid---Printed-Page-7-chromium\\error-context.md"
   },
   {
     "reportedNumber": 24,
     "project": "chromium",
     "title": "\u203a tests\\e2e\\archetype-proof-1-2.spec.ts:32:9 \u203a Workbook Archetypes 1 and 2 Proof \u203a Viewport: laptop (1280x800) \u203a Family 1 (Picture Grid) - Printed Page 10",
-    "category": "observed_browser_page_crash",
+    "category": "observed_browser_page_or_target_crash",
     "rawBody": "Error: expect(locator).toBeVisible() failed\n\n    Locator: locator('.native-lesson-viewer')\n    Expected: visible\n    Error: element(s) not found\n\n    Call log:\n      - Expect \"toBeVisible\" locator('.native-lesson-viewer') with timeout 10000ms\n      - waiting for locator('.native-lesson-viewer')\n      - Protocol error (Runtime.callFunctionOn): Page crashed.\n\n\n      51 |           // Ensure native lesson viewer loaded\n      52 |           const viewer = page.locator(\".native-lesson-viewer\");\n    > 53 |           await expect(viewer).toBeVisible({ timeout: 10000 });\n         |                                ^\n      54 |\n      55 |           // Verify clean digital canvas: scenic wallpaper must NOT be displayed on dense workbook pages\n      56 |           const bgWallpaper = page.locator(\".final-page-background\");\n        at D:\\Downloads\\cartilla-1247-continuation-work\\test-repairs\\tests\\e2e\\archetype-proof-1-2.spec.ts:53:32\n\n    Error Context: work\\release-e2e-sequential-artifacts\\archetype-proof-1-2-Workbo-16927-ture-Grid---Printed-Page-10-chromium\\error-context.md"
   },
   {
     "reportedNumber": 25,
     "project": "chromium",
     "title": "\u203a tests\\e2e\\archetype-proof-1-2.spec.ts:32:9 \u203a Workbook Archetypes 1 and 2 Proof \u203a Viewport: laptop (1280x800) \u203a Family 1 (Picture Grid) - Printed Page 13",
-    "category": "observed_browser_page_crash",
+    "category": "observed_browser_page_or_target_crash",
     "rawBody": "Error: expect(locator).toBeVisible() failed\n\n    Locator: locator('.native-lesson-viewer')\n    Expected: visible\n    Error: element(s) not found\n\n    Call log:\n      - Expect \"toBeVisible\" locator('.native-lesson-viewer') with timeout 10000ms\n      - waiting for locator('.native-lesson-viewer')\n      - Protocol error (Runtime.callFunctionOn): Page crashed.\n\n\n      51 |           // Ensure native lesson viewer loaded\n      52 |           const viewer = page.locator(\".native-lesson-viewer\");\n    > 53 |           await expect(viewer).toBeVisible({ timeout: 10000 });\n         |                                ^\n      54 |\n      55 |           // Verify clean digital canvas: scenic wallpaper must NOT be displayed on dense workbook pages\n      56 |           const bgWallpaper = page.locator(\".final-page-background\");\n        at D:\\Downloads\\cartilla-1247-continuation-work\\test-repairs\\tests\\e2e\\archetype-proof-1-2.spec.ts:53:32\n\n    Error Context: work\\release-e2e-sequential-artifacts\\archetype-proof-1-2-Workbo-1b2a3-ture-Grid---Printed-Page-13-chromium\\error-context.md"
   },
   {
     "reportedNumber": 26,
     "project": "chromium",
     "title": "\u203a tests\\e2e\\archetype-proof-1-2.spec.ts:32:9 \u203a Workbook Archetypes 1 and 2 Proof \u203a Viewport: laptop (1280x800) \u203a Family 1 (Picture Grid) - Printed Page 16",
-    "category": "observed_browser_page_crash",
+    "category": "observed_browser_page_or_target_crash",
     "rawBody": "Error: expect(locator).toBeVisible() failed\n\n    Locator: locator('.native-lesson-viewer')\n    Expected: visible\n    Error: element(s) not found\n\n    Call log:\n      - Expect \"toBeVisible\" locator('.native-lesson-viewer') with timeout 10000ms\n      - waiting for locator('.native-lesson-viewer')\n      - Protocol error (Runtime.callFunctionOn): Page crashed.\n\n\n      51 |           // Ensure native lesson viewer loaded\n      52 |           const viewer = page.locator(\".native-lesson-viewer\");\n    > 53 |           await expect(viewer).toBeVisible({ timeout: 10000 });\n         |                                ^\n      54 |\n      55 |           // Verify clean digital canvas: scenic wallpaper must NOT be displayed on dense workbook pages\n      56 |           const bgWallpaper = page.locator(\".final-page-background\");\n        at D:\\Downloads\\cartilla-1247-continuation-work\\test-repairs\\tests\\e2e\\archetype-proof-1-2.spec.ts:53:32\n\n    Error Context: work\\release-e2e-sequential-artifacts\\archetype-proof-1-2-Workbo-42d79-ture-Grid---Printed-Page-16-chromium\\error-context.md"
   },
   {
     "reportedNumber": 27,
     "project": "chromium",
     "title": "\u203a tests\\e2e\\archetype-proof-1-2.spec.ts:108:9 \u203a Workbook Archetypes 1 and 2 Proof \u203a Viewport: laptop (1280x800) \u203a Family 2 (Vowel/Letter + Row Choices) - Printed Page 2",
-    "category": "observed_browser_page_crash",
+    "category": "observed_browser_page_or_target_crash",
     "rawBody": "Error: expect(locator).toBeVisible() failed\n\n    Locator: locator('.native-lesson-viewer')\n    Expected: visible\n    Error: element(s) not found\n\n    Call log:\n      - Expect \"toBeVisible\" locator('.native-lesson-viewer') with timeout 10000ms\n      - waiting for locator('.native-lesson-viewer')\n      - Protocol error (Runtime.callFunctionOn): Page crashed.\n\n\n      125 |\n      126 |           const viewer = page.locator(\".native-lesson-viewer\");\n    > 127 |           await expect(viewer).toBeVisible({ timeout: 10000 });\n          |                                ^\n      128 |\n      129 |           // Verify clean digital canvas: scenic wallpaper must NOT be displayed on dense workbook pages\n      130 |           const bgWallpaper = page.locator(\".final-page-background\");\n        at D:\\Downloads\\cartilla-1247-continuation-work\\test-repairs\\tests\\e2e\\archetype-proof-1-2.spec.ts:127:32\n\n    Error Context: work\\release-e2e-sequential-artifacts\\archetype-proof-1-2-Workbo-062b5-ow-Choices---Printed-Page-2-chromium\\error-context.md"
   },
   {
     "reportedNumber": 28,
     "project": "chromium",
     "title": "\u203a tests\\e2e\\archetype-proof-3-4.spec.ts:56:5 \u203a Workbook Archetypes 3 & 4 Proof Suite \u203a Archetype 3: Multi-pair matching / connect (Printed Page 3) \u203a Source order, labels, images, and Pencil Line presentation on Page 3",
-    "category": "observed_browser_page_crash",
+    "category": "observed_browser_page_or_target_crash",
     "rawBody": "Error: page.waitForSelector: Page crashed\n    Call log:\n      - waiting for locator('.native-lesson-viewer[data-native-page]') to be visible\n\n\n      22 |   );\n      23 |   await page.goto(`/cartilla/leccion/${lessonNumber}`, { waitUntil: \"domcontentloaded\" });\n    > 24 |   await page.waitForSelector(\".native-lesson-viewer[data-native-page]\", { timeout: 15000 });\n         |              ^\n      25 | }\n      26 |\n      27 | /** Verify that all img elements within a root container loaded successfully without broken image sources. */\n        at navigateToLessonPage (D:\\Downloads\\cartilla-1247-continuation-work\\test-repairs\\tests\\e2e\\archetype-proof-3-4.spec.ts:24:14)\n        at D:\\Downloads\\cartilla-1247-continuation-work\\test-repairs\\tests\\e2e\\archetype-proof-3-4.spec.ts:58:7\n\n    Error Context: work\\release-e2e-sequential-artifacts\\archetype-proof-3-4-Workbo-6a14a-Line-presentation-on-Page-3-chromium\\error-context.md"
   },
   {
     "reportedNumber": 29,
     "project": "chromium",
     "title": "\u203a tests\\e2e\\archetype-proof-3-4.spec.ts:90:5 \u203a Workbook Archetypes 3 & 4 Proof Suite \u203a Archetype 3: Multi-pair matching / connect (Printed Page 3) \u203a Completion compatibility for Archetype 3 (Page 3)",
-    "category": "other_timeout_or_missing_locator",
+    "category": "observed_browser_page_or_target_crash",
     "rawBody": "Error: page.waitForSelector: Target crashed \n    Call log:\n      - waiting for locator('.native-lesson-viewer[data-native-page]') to be visible\n\n\n      22 |   );\n      23 |   await page.goto(`/cartilla/leccion/${lessonNumber}`, { waitUntil: \"domcontentloaded\" });\n    > 24 |   await page.waitForSelector(\".native-lesson-viewer[data-native-page]\", { timeout: 15000 });\n         |              ^\n      25 | }\n      26 |\n      27 | /** Verify that all img elements within a root container loaded successfully without broken image sources. */\n        at navigateToLessonPage (D:\\Downloads\\cartilla-1247-continuation-work\\test-repairs\\tests\\e2e\\archetype-proof-3-4.spec.ts:24:14)\n        at D:\\Downloads\\cartilla-1247-continuation-work\\test-repairs\\tests\\e2e\\archetype-proof-3-4.spec.ts:92:7\n\n    Error Context: work\\release-e2e-sequential-artifacts\\archetype-proof-3-4-Workbo-1931b-ity-for-Archetype-3-Page-3--chromium\\error-context.md"
   },
   {
     "reportedNumber": 30,
     "project": "chromium",
     "title": "\u203a tests\\e2e\\archetype-proof-3-4.spec.ts:129:5 \u203a Workbook Archetypes 3 & 4 Proof Suite \u203a Archetype 3: Multi-pair matching / connect (Printed Page 3) \u203a Device viewports fit and visual integrity for Archetype 3 (Page 3)",
-    "category": "other_timeout_or_missing_locator",
+    "category": "observed_browser_page_or_target_crash",
     "rawBody": "Error: page.waitForSelector: Target crashed \n    Call log:\n      - waiting for locator('.native-lesson-viewer[data-native-page]') to be visible\n\n\n      22 |   );\n      23 |   await page.goto(`/cartilla/leccion/${lessonNumber}`, { waitUntil: \"domcontentloaded\" });\n    > 24 |   await page.waitForSelector(\".native-lesson-viewer[data-native-page]\", { timeout: 15000 });\n         |              ^\n      25 | }\n      26 |\n      27 | /** Verify that all img elements within a root container loaded successfully without broken image sources. */\n        at navigateToLessonPage (D:\\Downloads\\cartilla-1247-continuation-work\\test-repairs\\tests\\e2e\\archetype-proof-3-4.spec.ts:24:14)\n        at D:\\Downloads\\cartilla-1247-continuation-work\\test-repairs\\tests\\e2e\\archetype-proof-3-4.spec.ts:132:7\n\n    Error Context: work\\release-e2e-sequential-artifacts\\archetype-proof-3-4-Workbo-eccb4-ity-for-Archetype-3-Page-3--chromium\\error-context.md"
   },
   {
     "reportedNumber": 31,
     "project": "chromium",
     "title": "\u203a tests\\e2e\\archetype-proof-3-4.spec.ts:159:7 \u203a Workbook Archetypes 3 & 4 Proof Suite \u203a Archetype 4: Single central target + surrounding pictures \u203a Printed Page 5 (Central target Oo) rendered fidelity and fit",
-    "category": "observed_browser_page_crash",
+    "category": "observed_browser_page_or_target_crash",
     "rawBody": "Error: page.waitForSelector: Page crashed\n    Call log:\n      - waiting for locator('.native-lesson-viewer[data-native-page]') to be visible\n\n\n      22 |   );\n      23 |   await page.goto(`/cartilla/leccion/${lessonNumber}`, { waitUntil: \"domcontentloaded\" });\n    > 24 |   await page.waitForSelector(\".native-lesson-viewer[data-native-page]\", { timeout: 15000 });\n         |              ^\n      25 | }\n      26 |\n      27 | /** Verify that all img elements within a root container loaded successfully without broken image sources. */\n        at navigateToLessonPage (D:\\Downloads\\cartilla-1247-continuation-work\\test-repairs\\tests\\e2e\\archetype-proof-3-4.spec.ts:24:14)\n        at D:\\Downloads\\cartilla-1247-continuation-work\\test-repairs\\tests\\e2e\\archetype-proof-3-4.spec.ts:161:9\n\n    Error Context: work\\release-e2e-sequential-artifacts\\archetype-proof-3-4-Workbo-c5f6b-o-rendered-fidelity-and-fit-chromium\\error-context.md"
   },
   {
     "reportedNumber": 32,
     "project": "chromium",
     "title": "\u203a tests\\e2e\\archetype-proof-3-4.spec.ts:159:7 \u203a Workbook Archetypes 3 & 4 Proof Suite \u203a Archetype 4: Single central target + surrounding pictures \u203a Printed Page 8 (Central target Aa) rendered fidelity and fit",
-    "category": "other_timeout_or_missing_locator",
+    "category": "observed_browser_page_or_target_crash",
     "rawBody": "Error: page.waitForSelector: Target crashed \n    Call log:\n      - waiting for locator('.native-lesson-viewer[data-native-page]') to be visible\n\n\n      22 |   );\n      23 |   await page.goto(`/cartilla/leccion/${lessonNumber}`, { waitUntil: \"domcontentloaded\" });\n    > 24 |   await page.waitForSelector(\".native-lesson-viewer[data-native-page]\", { timeout: 15000 });\n         |              ^\n      25 | }\n      26 |\n      27 | /** Verify that all img elements within a root container loaded successfully without broken image sources. */\n        at navigateToLessonPage (D:\\Downloads\\cartilla-1247-continuation-work\\test-repairs\\tests\\e2e\\archetype-proof-3-4.spec.ts:24:14)\n        at D:\\Downloads\\cartilla-1247-continuation-work\\test-repairs\\tests\\e2e\\archetype-proof-3-4.spec.ts:161:9\n\n    Error Context: work\\release-e2e-sequential-artifacts\\archetype-proof-3-4-Workbo-9bc25-a-rendered-fidelity-and-fit-chromium\\error-context.md"
   },
   {
     "reportedNumber": 33,
     "project": "chromium",
     "title": "\u203a tests\\e2e\\archetype-proof-3-4.spec.ts:159:7 \u203a Workbook Archetypes 3 & 4 Proof Suite \u203a Archetype 4: Single central target + surrounding pictures \u203a Printed Page 11 (Central target Ee) rendered fidelity and fit",
-    "category": "other_timeout_or_missing_locator",
+    "category": "observed_browser_page_or_target_crash",
     "rawBody": "Error: page.waitForSelector: Target crashed \n    Call log:\n      - waiting for locator('.native-lesson-viewer[data-native-page]') to be visible\n\n\n      22 |   );\n      23 |   await page.goto(`/cartilla/leccion/${lessonNumber}`, { waitUntil: \"domcontentloaded\" });\n    > 24 |   await page.waitForSelector(\".native-lesson-viewer[data-native-page]\", { timeout: 15000 });\n         |              ^\n      25 | }\n      26 |\n      27 | /** Verify that all img elements within a root container loaded successfully without broken image sources. */\n        at navigateToLessonPage (D:\\Downloads\\cartilla-1247-continuation-work\\test-repairs\\tests\\e2e\\archetype-proof-3-4.spec.ts:24:14)\n        at D:\\Downloads\\cartilla-1247-continuation-work\\test-repairs\\tests\\e2e\\archetype-proof-3-4.spec.ts:161:9\n\n    Error Context: work\\release-e2e-sequential-artifacts\\archetype-proof-3-4-Workbo-094fe-e-rendered-fidelity-and-fit-chromium\\error-context.md"
   },
   {
     "reportedNumber": 34,
     "project": "chromium",
     "title": "\u203a tests\\e2e\\archetype-proof-3-4.spec.ts:159:7 \u203a Workbook Archetypes 3 & 4 Proof Suite \u203a Archetype 4: Single central target + surrounding pictures \u203a Printed Page 14 (Central target Ii) rendered fidelity and fit",
-    "category": "other_timeout_or_missing_locator",
+    "category": "observed_browser_page_or_target_crash",
     "rawBody": "Error: page.waitForSelector: Target crashed \n    Call log:\n      - waiting for locator('.native-lesson-viewer[data-native-page]') to be visible\n\n\n      22 |   );\n      23 |   await page.goto(`/cartilla/leccion/${lessonNumber}`, { waitUntil: \"domcontentloaded\" });\n    > 24 |   await page.waitForSelector(\".native-lesson-viewer[data-native-page]\", { timeout: 15000 });\n         |              ^\n      25 | }\n      26 |\n      27 | /** Verify that all img elements within a root container loaded successfully without broken image sources. */\n        at navigateToLessonPage (D:\\Downloads\\cartilla-1247-continuation-work\\test-repairs\\tests\\e2e\\archetype-proof-3-4.spec.ts:24:14)\n        at D:\\Downloads\\cartilla-1247-continuation-work\\test-repairs\\tests\\e2e\\archetype-proof-3-4.spec.ts:161:9\n\n    Error Context: work\\release-e2e-sequential-artifacts\\archetype-proof-3-4-Workbo-c0b58-i-rendered-fidelity-and-fit-chromium\\error-context.md"
   },
   {
     "reportedNumber": 35,
     "project": "chromium",
     "title": "\u203a tests\\e2e\\archetype-proof-3-4.spec.ts:159:7 \u203a Workbook Archetypes 3 & 4 Proof Suite \u203a Archetype 4: Single central target + surrounding pictures \u203a Printed Page 17 (Central target Uu) rendered fidelity and fit",
-    "category": "other_timeout_or_missing_locator",
+    "category": "observed_browser_page_or_target_crash",
     "rawBody": "Error: page.waitForSelector: Target crashed \n    Call log:\n      - waiting for locator('.native-lesson-viewer[data-native-page]') to be visible\n\n\n      22 |   );\n      23 |   await page.goto(`/cartilla/leccion/${lessonNumber}`, { waitUntil: \"domcontentloaded\" });\n    > 24 |   await page.waitForSelector(\".native-lesson-viewer[data-native-page]\", { timeout: 15000 });\n         |              ^\n      25 | }\n      26 |\n      27 | /** Verify that all img elements within a root container loaded successfully without broken image sources. */\n        at navigateToLessonPage (D:\\Downloads\\cartilla-1247-continuation-work\\test-repairs\\tests\\e2e\\archetype-proof-3-4.spec.ts:24:14)\n        at D:\\Downloads\\cartilla-1247-continuation-work\\test-repairs\\tests\\e2e\\archetype-proof-3-4.spec.ts:161:9\n\n    Error Context: work\\release-e2e-sequential-artifacts\\archetype-proof-3-4-Workbo-6b306-u-rendered-fidelity-and-fit-chromium\\error-context.md"
   },
   {
     "reportedNumber": 36,
     "project": "chromium",
     "title": "\u203a tests\\e2e\\archetype-proof-3-4.spec.ts:195:5 \u203a Workbook Archetypes 3 & 4 Proof Suite \u203a Archetype 4: Single central target + surrounding pictures \u203a Completion flow for Archetype 4 (Page 5 - Vocal Oo)",
-    "category": "other_timeout_or_missing_locator",
+    "category": "observed_browser_page_or_target_crash",
     "rawBody": "Error: page.waitForSelector: Target crashed \n    Call log:\n      - waiting for locator('.native-lesson-viewer[data-native-page]') to be visible\n\n\n      22 |   );\n      23 |   await page.goto(`/cartilla/leccion/${lessonNumber}`, { waitUntil: \"domcontentloaded\" });\n    > 24 |   await page.waitForSelector(\".native-lesson-viewer[data-native-page]\", { timeout: 15000 });\n         |              ^\n      25 | }\n      26 |\n      27 | /** Verify that all img elements within a root container loaded successfully without broken image sources. */\n        at navigateToLessonPage (D:\\Downloads\\cartilla-1247-continuation-work\\test-repairs\\tests\\e2e\\archetype-proof-3-4.spec.ts:24:14)\n        at D:\\Downloads\\cartilla-1247-continuation-work\\test-repairs\\tests\\e2e\\archetype-proof-3-4.spec.ts:197:7\n\n    Error Context: work\\release-e2e-sequential-artifacts\\archetype-proof-3-4-Workbo-7f23e-hetype-4-Page-5---Vocal-Oo--chromium\\error-context.md"
   },
   {
     "reportedNumber": 37,
     "project": "chromium",
     "title": "\u203a tests\\e2e\\archetype-proof-3-4.spec.ts:224:5 \u203a Workbook Archetypes 3 & 4 Proof Suite \u203a Archetype 4: Single central target + surrounding pictures \u203a Device viewports fit for Archetype 4 (Page 5)",
-    "category": "observed_browser_page_crash",
+    "category": "observed_browser_page_or_target_crash",
     "rawBody": "Error: page.waitForSelector: Page crashed\n    Call log:\n      - waiting for locator('.native-lesson-viewer[data-native-page]') to be visible\n\n\n      22 |   );\n      23 |   await page.goto(`/cartilla/leccion/${lessonNumber}`, { waitUntil: \"domcontentloaded\" });\n    > 24 |   await page.waitForSelector(\".native-lesson-viewer[data-native-page]\", { timeout: 15000 });\n         |              ^\n      25 | }\n      26 |\n      27 | /** Verify that all img elements within a root container loaded successfully without broken image sources. */\n        at navigateToLessonPage (D:\\Downloads\\cartilla-1247-continuation-work\\test-repairs\\tests\\e2e\\archetype-proof-3-4.spec.ts:24:14)\n        at D:\\Downloads\\cartilla-1247-continuation-work\\test-repairs\\tests\\e2e\\archetype-proof-3-4.spec.ts:227:7\n\n    Error Context: work\\release-e2e-sequential-artifacts\\archetype-proof-3-4-Workbo-681d6-fit-for-Archetype-4-Page-5--chromium\\error-context.md"
   },
   {
     "reportedNumber": 38,
     "project": "chromium",
     "title": "\u203a tests\\e2e\\archetype-proof-5-6.spec.ts:55:3 \u203a Workbook Archetype 5 & 6 Proof \u203a Archetype 5: Handwriting/tracing and freehand drawing, progressive fade, persistence, responsive fit, reduced motion",
-    "category": "observed_browser_page_crash",
+    "category": "observed_browser_page_or_target_crash",
     "rawBody": "Error: expect(locator).toBeVisible() failed\n\n    Locator: locator('.fp-trace:visible').first()\n    Expected: visible\n    Error: element(s) not found\n\n    Call log:\n      - Expect \"toBeVisible\" locator('.fp-trace:visible').first() with timeout 15000ms\n      - waiting for locator('.fp-trace:visible').first()\n      - Protocol error (Runtime.callFunctionOn): Page crashed.\n\n\n      61 |     // blank page and still pass the generic helpers (the old laptop proof PNG\n      62 |     // was an empty canvas).\n    > 63 |     await expect(page.locator(\".fp-trace:visible\").first()).toBeVisible({ timeout: 15000 });\n         |                                                             ^\n      64 |\n      65 |     await expectNoBrokenImages(page, \"Archetype 5 laptop\");\n      66 |     await checkNoClippingOrOverflow(page, \"Archetype 5 laptop\");\n        at D:\\Downloads\\cartilla-1247-continuation-work\\test-repairs\\tests\\e2e\\archetype-proof-5-6.spec.ts:63:61\n\n    Error Context: work\\release-e2e-sequential-artifacts\\archetype-proof-5-6-Workbo-1af37-sponsive-fit-reduced-motion-chromium\\error-context.md"
   },
   {
     "reportedNumber": 39,
     "project": "chromium",
     "title": "\u203a tests\\e2e\\archetype-proof-5-6.spec.ts:180:3 \u203a Workbook Archetype 5 & 6 Proof \u203a Issue #660: trace hint never intercepts taps (tap-through proof)",
-    "category": "observed_browser_page_crash",
+    "category": "observed_browser_page_or_target_crash",
     "rawBody": "Error: expect(locator).toBeVisible() failed\n\n    Locator: locator('.fp-trace:visible').first()\n    Expected: visible\n    Error: element(s) not found\n\n    Call log:\n      - Expect \"toBeVisible\" locator('.fp-trace:visible').first() with timeout 15000ms\n      - waiting for locator('.fp-trace:visible').first()\n      - Page crashed\n\n\n      185 |     await dismissCinematic(page);\n      186 |     const trace = page.locator(\".fp-trace:visible\").first();\n    > 187 |     await expect(trace).toBeVisible({ timeout: 15000 });\n          |                         ^\n      188 |\n      189 |     const hint = trace.locator(\".fp-trace__hint:visible\").first();\n      190 |     await expect(hint, \"trace hint is rendered\").toBeVisible({ timeout: 10000 });\n        at D:\\Downloads\\cartilla-1247-continuation-work\\test-repairs\\tests\\e2e\\archetype-proof-5-6.spec.ts:187:25\n\n    Error Context: work\\release-e2e-sequential-artifacts\\archetype-proof-5-6-Workbo-f73ea-pts-taps-tap-through-proof--chromium\\error-context.md"
   },
   {
@@ -297,147 +297,147 @@
     "reportedNumber": 43,
     "project": "chromium",
     "title": "\u203a tests\\e2e\\audio-preflight.spec.ts:150:3 \u203a Audio Preflight Verification \u203a direct answer tap hears the name path and still grades correctly even when muted",
-    "category": "observed_browser_page_crash",
+    "category": "observed_browser_page_or_target_crash",
     "rawBody": "Error: locator.click: Page crashed\n    Call log:\n      - waiting for locator('.native-lesson-viewer').getByRole('button', { name: 'Siguiente' }).first()\n\n\n      154 |     await page.goto('/cartilla/leccion/1');\n      155 |     const viewer = page.locator('.native-lesson-viewer');\n    > 156 |     await viewer.getByRole('button', { name: 'Siguiente' }).first().click();\n          |                                                                     ^\n      157 |     await viewer.getByRole('button', { name: 'anillo', exact: true }).click();\n      158 |     await expect(viewer.locator('[data-picture-name=\"anillo\"]')).toHaveAttribute('data-picture-audio-status', 'recorded');\n      159 |     await expect(viewer.locator('.graded-correct')).toHaveCount(1);\n        at D:\\Downloads\\cartilla-1247-continuation-work\\test-repairs\\tests\\e2e\\audio-preflight.spec.ts:156:69\n\n    Error Context: work\\release-e2e-sequential-artifacts\\audio-preflight-Audio-Pref-00c44-s-correctly-even-when-muted-chromium\\error-context.md"
   },
   {
     "reportedNumber": 44,
     "project": "chromium",
     "title": "\u203a tests\\e2e\\book-motion.spec.ts:9:3 \u203a native lesson and presenter motion \u203a student lesson uses native page navigation",
-    "category": "observed_browser_page_crash",
+    "category": "observed_browser_page_or_target_crash",
     "rawBody": "Error: expect(locator).toBeVisible() failed\n\n    Locator: locator('.native-lesson-viewer')\n    Expected: visible\n    Error: element(s) not found\n\n    Call log:\n      - Expect \"toBeVisible\" locator('.native-lesson-viewer') with timeout 5000ms\n      - waiting for locator('.native-lesson-viewer')\n      - Protocol error (Runtime.callFunctionOn): Page crashed.\n\n\n      12 |\n      13 |     const reader = page.locator(\".native-lesson-viewer\");\n    > 14 |     await expect(reader).toBeVisible();\n         |                          ^\n      15 |     await expect(page.getByTestId(\"physical-book-reader\")).toHaveCount(0);\n      16 |     await expect(reader.locator(\".native-lesson-viewer__content\")).toBeVisible();\n      17 |     await expect(reader.locator(\".native-lesson-viewer__navigation\")).toBeVisible();\n        at D:\\Downloads\\cartilla-1247-continuation-work\\test-repairs\\tests\\e2e\\book-motion.spec.ts:14:26\n\n    Error Context: work\\release-e2e-sequential-artifacts\\book-motion-native-lesson--23dce-uses-native-page-navigation-chromium\\error-context.md"
   },
   {
     "reportedNumber": 45,
     "project": "chromium",
     "title": "\u203a tests\\e2e\\book-pages7-8.spec.ts:44:1 \u203a page8 touch release reaches original target in phone layout",
-    "category": "other_assertion_or_runtime_failure",
+    "category": "spec_hardcoded_unconfigured_local_port",
     "rawBody": "Error: page.goto: net::ERR_CONNECTION_REFUSED at http://127.0.0.1:8790/\n    Call log:\n      - navigating to \"http://127.0.0.1:8790/\", waiting until \"load\"\n\n\n      44 | test('page8 touch release reaches original target in phone layout',async({browser})=>{\n      45 |  const context=await browser.newContext({viewport:{width:390,height:900},hasTouch:true,isMobile:true});const page=await context.newPage();\n    > 46 |  await page.goto('http://127.0.0.1:8790');await page.evaluate(()=>localStorage.setItem('cartilla.workbook-reader-page.v1','8'));await page.goto('http://127.0.0.1:8790/cartilla/cuaderno');\n         |             ^\n      47 |  const stage=page.locator('.am-direct-pencil__stage');const a=await stage.locator('.am-direct-pencil__center').boundingBox(),b=await stage.getByRole('button',{name:'alas',exact:true}).boundingBox();if(!a||!b)throw Error('Phone targets missing');\n      48 |  const cdp=await context.newCDPSession(page);await cdp.send('Input.dispatchTouchEvent',{type:'touchStart',touchPoints:[{x:a.x+a.width/2,y:a.y+a.height/2}]});await cdp.send('Input.dispatchTouchEvent',{type:'touchMove',touchPoints:[{x:b.x+b.width/2,y:b.y+b.height/2}]});await cdp.send('Input.dispatchTouchEvent',{type:'touchEnd',touchPoints:[]});\n      49 |  await expect(stage.locator('.am-direct-pencil__line-group')).toHaveCount(2);await context.close();\n        at D:\\Downloads\\cartilla-1247-continuation-work\\test-repairs\\tests\\e2e\\book-pages7-8.spec.ts:46:13\n\n    Error Context: work\\release-e2e-sequential-artifacts\\book-pages7-8-page8-touch--aeec3-inal-target-in-phone-layout-chromium\\error-context.md"
   },
   {
     "reportedNumber": 46,
     "project": "chromium",
     "title": "\u203a tests\\e2e\\classroom-readiness.spec.ts:35:1 \u203a partial handwriting, freehand work and typed sentences survive leaving, reloading and resizing",
-    "category": "observed_browser_page_crash",
+    "category": "observed_browser_page_or_target_crash",
     "rawBody": "Error: expect(locator).toBeVisible() failed\n\n    Locator: locator('.native-lesson-viewer')\n    Expected: visible\n    Error: element(s) not found\n\n    Call log:\n      - Expect \"toBeVisible\" locator('.native-lesson-viewer') with timeout 5000ms\n      - waiting for locator('.native-lesson-viewer')\n      - Page crashed\n\n\n       6 |   await page.evaluate(({ lesson, index }) => localStorage.setItem(`cartilla.learner-resume.v1:${lesson}`, JSON.stringify({lesson, page:index})), {lesson,index});\n       7 |   await page.goto(`/cartilla/leccion/${lesson}`);\n    >  8 |   await expect(page.locator('.native-lesson-viewer')).toBeVisible();\n         |                                                       ^\n       9 | }\n      10 | async function draw(page: Page, selector: string) {\n      11 |   const canvas = page.locator(selector).first();\n        at bookmark (D:\\Downloads\\cartilla-1247-continuation-work\\test-repairs\\tests\\e2e\\classroom-readiness.spec.ts:8:55)\n        at D:\\Downloads\\cartilla-1247-continuation-work\\test-repairs\\tests\\e2e\\classroom-readiness.spec.ts:36:3\n\n    Error Context: work\\release-e2e-sequential-artifacts\\classroom-readiness-partia-a79e2-ving-reloading-and-resizing-chromium\\error-context.md"
   },
   {
     "reportedNumber": 47,
     "project": "chromium",
     "title": "\u203a tests\\e2e\\classroom-readiness.spec.ts:75:3 \u203a student and teacher interface at laptop size",
-    "category": "observed_browser_page_crash",
+    "category": "observed_browser_page_or_target_crash",
     "rawBody": "Error: expect(locator).toBeVisible() failed\n\n    Locator: locator('.native-lesson-viewer')\n    Expected: visible\n    Error: element(s) not found\n\n    Call log:\n      - Expect \"toBeVisible\" locator('.native-lesson-viewer') with timeout 5000ms\n      - waiting for locator('.native-lesson-viewer')\n      - Protocol error (Runtime.callFunctionOn): Page crashed.\n\n\n       6 |   await page.evaluate(({ lesson, index }) => localStorage.setItem(`cartilla.learner-resume.v1:${lesson}`, JSON.stringify({lesson, page:index})), {lesson,index});\n       7 |   await page.goto(`/cartilla/leccion/${lesson}`);\n    >  8 |   await expect(page.locator('.native-lesson-viewer')).toBeVisible();\n         |                                                       ^\n       9 | }\n      10 | async function draw(page: Page, selector: string) {\n      11 |   const canvas = page.locator(selector).first();\n        at bookmark (D:\\Downloads\\cartilla-1247-continuation-work\\test-repairs\\tests\\e2e\\classroom-readiness.spec.ts:8:55)\n        at D:\\Downloads\\cartilla-1247-continuation-work\\test-repairs\\tests\\e2e\\classroom-readiness.spec.ts:78:5\n\n    Error Context: work\\release-e2e-sequential-artifacts\\classroom-readiness-studen-e18ad-er-interface-at-laptop-size-chromium\\error-context.md"
   },
   {
     "reportedNumber": 48,
     "project": "chromium",
     "title": "\u203a tests\\e2e\\classroom-readiness.spec.ts:75:3 \u203a student and teacher interface at tablet size",
-    "category": "observed_browser_page_crash",
+    "category": "observed_browser_page_or_target_crash",
     "rawBody": "Error: expect(locator).toBeVisible() failed\n\n    Locator: locator('.native-lesson-viewer')\n    Expected: visible\n    Error: element(s) not found\n\n    Call log:\n      - Expect \"toBeVisible\" locator('.native-lesson-viewer') with timeout 5000ms\n      - waiting for locator('.native-lesson-viewer')\n      - Page crashed\n\n\n       6 |   await page.evaluate(({ lesson, index }) => localStorage.setItem(`cartilla.learner-resume.v1:${lesson}`, JSON.stringify({lesson, page:index})), {lesson,index});\n       7 |   await page.goto(`/cartilla/leccion/${lesson}`);\n    >  8 |   await expect(page.locator('.native-lesson-viewer')).toBeVisible();\n         |                                                       ^\n       9 | }\n      10 | async function draw(page: Page, selector: string) {\n      11 |   const canvas = page.locator(selector).first();\n        at bookmark (D:\\Downloads\\cartilla-1247-continuation-work\\test-repairs\\tests\\e2e\\classroom-readiness.spec.ts:8:55)\n        at D:\\Downloads\\cartilla-1247-continuation-work\\test-repairs\\tests\\e2e\\classroom-readiness.spec.ts:78:5\n\n    Error Context: work\\release-e2e-sequential-artifacts\\classroom-readiness-studen-847b2-er-interface-at-tablet-size-chromium\\error-context.md"
   },
   {
     "reportedNumber": 49,
     "project": "chromium",
     "title": "\u203a tests\\e2e\\classroom-readiness.spec.ts:75:3 \u203a student and teacher interface at phone size",
-    "category": "observed_browser_page_crash",
+    "category": "observed_browser_page_or_target_crash",
     "rawBody": "Error: expect(locator).toBeVisible() failed\n\n    Locator: locator('.native-lesson-viewer')\n    Expected: visible\n    Error: element(s) not found\n\n    Call log:\n      - Expect \"toBeVisible\" locator('.native-lesson-viewer') with timeout 5000ms\n      - waiting for locator('.native-lesson-viewer')\n      - Page crashed\n\n\n       6 |   await page.evaluate(({ lesson, index }) => localStorage.setItem(`cartilla.learner-resume.v1:${lesson}`, JSON.stringify({lesson, page:index})), {lesson,index});\n       7 |   await page.goto(`/cartilla/leccion/${lesson}`);\n    >  8 |   await expect(page.locator('.native-lesson-viewer')).toBeVisible();\n         |                                                       ^\n       9 | }\n      10 | async function draw(page: Page, selector: string) {\n      11 |   const canvas = page.locator(selector).first();\n        at bookmark (D:\\Downloads\\cartilla-1247-continuation-work\\test-repairs\\tests\\e2e\\classroom-readiness.spec.ts:8:55)\n        at D:\\Downloads\\cartilla-1247-continuation-work\\test-repairs\\tests\\e2e\\classroom-readiness.spec.ts:78:5\n\n    Error Context: work\\release-e2e-sequential-artifacts\\classroom-readiness-studen-f6231-her-interface-at-phone-size-chromium\\error-context.md"
   },
   {
     "reportedNumber": 50,
     "project": "chromium",
     "title": "\u203a tests\\e2e\\classroom-readiness.spec.ts:75:3 \u203a student and teacher interface at projector size",
-    "category": "observed_browser_page_crash",
+    "category": "observed_browser_page_or_target_crash",
     "rawBody": "Error: expect(locator).toBeVisible() failed\n\n    Locator: locator('.native-lesson-viewer')\n    Expected: visible\n    Error: element(s) not found\n\n    Call log:\n      - Expect \"toBeVisible\" locator('.native-lesson-viewer') with timeout 5000ms\n      - waiting for locator('.native-lesson-viewer')\n      - Page crashed\n\n\n       6 |   await page.evaluate(({ lesson, index }) => localStorage.setItem(`cartilla.learner-resume.v1:${lesson}`, JSON.stringify({lesson, page:index})), {lesson,index});\n       7 |   await page.goto(`/cartilla/leccion/${lesson}`);\n    >  8 |   await expect(page.locator('.native-lesson-viewer')).toBeVisible();\n         |                                                       ^\n       9 | }\n      10 | async function draw(page: Page, selector: string) {\n      11 |   const canvas = page.locator(selector).first();\n        at bookmark (D:\\Downloads\\cartilla-1247-continuation-work\\test-repairs\\tests\\e2e\\classroom-readiness.spec.ts:8:55)\n        at D:\\Downloads\\cartilla-1247-continuation-work\\test-repairs\\tests\\e2e\\classroom-readiness.spec.ts:78:5\n\n    Error Context: work\\release-e2e-sequential-artifacts\\classroom-readiness-studen-df343-interface-at-projector-size-chromium\\error-context.md"
   },
   {
     "reportedNumber": 51,
     "project": "chromium",
     "title": "\u203a tests\\e2e\\crm-local-demo.spec.ts:13:2 \u203a local CRM demo completes student activity, notes, assignment and report at laptop size without Supabase",
-    "category": "observed_browser_page_crash",
+    "category": "observed_browser_page_or_target_crash",
     "rawBody": "Error: expect(locator).toContainText(expected) failed\n\n    Locator: getByRole('complementary', { name: 'Alumno de demostraci\u00f3n' })\n    Expected substring: \"Demo Ana\"\n    Error: element(s) not found\n\n    Call log:\n      - Expect \"toContainText\" getByRole('complementary', { name: 'Alumno de demostraci\u00f3n' }) with timeout 5000ms\n      - waiting for getByRole('complementary', { name: 'Alumno de demostraci\u00f3n' })\n      - Page crashed\n\n\n      63 |   await page.getByRole('button',{name:'Probar como alumno',exact:true}).click();\n      64 |   await expect(page).toHaveURL(/leccion\\/2/);\n    > 65 |   await expect(page.getByRole('complementary',{name:'Alumno de demostraci\u00f3n'})).toContainText('Demo Ana');\n         |                                                                                 ^\n      66 |   await noOverflow(page);\n      67 |   const viewer=page.locator('.native-lesson-viewer');\n      68 |   await expect(viewer).toHaveAttribute('data-native-page','4');\n        at D:\\Downloads\\cartilla-1247-continuation-work\\test-repairs\\tests\\e2e\\crm-local-demo.spec.ts:65:81\n\n    Error Context: work\\release-e2e-sequential-artifacts\\crm-local-demo-local-CRM-d-ae071-aptop-size-without-Supabase-chromium\\error-context.md"
   },
   {
     "reportedNumber": 52,
     "project": "chromium",
     "title": "\u203a tests\\e2e\\crm-local-demo.spec.ts:13:2 \u203a local CRM demo completes student activity, notes, assignment and report at tablet size without Supabase",
-    "category": "observed_browser_page_crash",
+    "category": "observed_browser_page_or_target_crash",
     "rawBody": "Error: expect(locator).toContainText(expected) failed\n\n    Locator: getByRole('complementary', { name: 'Alumno de demostraci\u00f3n' })\n    Expected substring: \"Demo Ana\"\n    Error: element(s) not found\n\n    Call log:\n      - Expect \"toContainText\" getByRole('complementary', { name: 'Alumno de demostraci\u00f3n' }) with timeout 5000ms\n      - waiting for getByRole('complementary', { name: 'Alumno de demostraci\u00f3n' })\n      - Protocol error (Runtime.callFunctionOn): Page crashed.\n\n\n      63 |   await page.getByRole('button',{name:'Probar como alumno',exact:true}).click();\n      64 |   await expect(page).toHaveURL(/leccion\\/2/);\n    > 65 |   await expect(page.getByRole('complementary',{name:'Alumno de demostraci\u00f3n'})).toContainText('Demo Ana');\n         |                                                                                 ^\n      66 |   await noOverflow(page);\n      67 |   const viewer=page.locator('.native-lesson-viewer');\n      68 |   await expect(viewer).toHaveAttribute('data-native-page','4');\n        at D:\\Downloads\\cartilla-1247-continuation-work\\test-repairs\\tests\\e2e\\crm-local-demo.spec.ts:65:81\n\n    Error Context: work\\release-e2e-sequential-artifacts\\crm-local-demo-local-CRM-d-b8c69-ablet-size-without-Supabase-chromium\\error-context.md"
   },
   {
     "reportedNumber": 53,
     "project": "chromium",
     "title": "\u203a tests\\e2e\\crm-local-demo.spec.ts:13:2 \u203a local CRM demo completes student activity, notes, assignment and report at phone size without Supabase",
-    "category": "observed_browser_page_crash",
+    "category": "observed_browser_page_or_target_crash",
     "rawBody": "Error: expect(locator).toContainText(expected) failed\n\n    Locator: getByRole('complementary', { name: 'Alumno de demostraci\u00f3n' })\n    Expected substring: \"Demo Ana\"\n    Error: element(s) not found\n\n    Call log:\n      - Expect \"toContainText\" getByRole('complementary', { name: 'Alumno de demostraci\u00f3n' }) with timeout 5000ms\n      - waiting for getByRole('complementary', { name: 'Alumno de demostraci\u00f3n' })\n      - Page crashed\n\n\n      63 |   await page.getByRole('button',{name:'Probar como alumno',exact:true}).click();\n      64 |   await expect(page).toHaveURL(/leccion\\/2/);\n    > 65 |   await expect(page.getByRole('complementary',{name:'Alumno de demostraci\u00f3n'})).toContainText('Demo Ana');\n         |                                                                                 ^\n      66 |   await noOverflow(page);\n      67 |   const viewer=page.locator('.native-lesson-viewer');\n      68 |   await expect(viewer).toHaveAttribute('data-native-page','4');\n        at D:\\Downloads\\cartilla-1247-continuation-work\\test-repairs\\tests\\e2e\\crm-local-demo.spec.ts:65:81\n\n    Error Context: work\\release-e2e-sequential-artifacts\\crm-local-demo-local-CRM-d-2419d-phone-size-without-Supabase-chromium\\error-context.md"
   },
   {
     "reportedNumber": 54,
     "project": "chromium",
     "title": "\u203a tests\\e2e\\crm-local-demo.spec.ts:13:2 \u203a local CRM demo completes student activity, notes, assignment and report at projector size without Supabase",
-    "category": "observed_browser_page_crash",
+    "category": "observed_browser_page_or_target_crash",
     "rawBody": "Error: expect(locator).toContainText(expected) failed\n\n    Locator: getByRole('complementary', { name: 'Alumno de demostraci\u00f3n' })\n    Expected substring: \"Demo Ana\"\n    Error: element(s) not found\n\n    Call log:\n      - Expect \"toContainText\" getByRole('complementary', { name: 'Alumno de demostraci\u00f3n' }) with timeout 5000ms\n      - waiting for getByRole('complementary', { name: 'Alumno de demostraci\u00f3n' })\n      - Page crashed\n\n\n      63 |   await page.getByRole('button',{name:'Probar como alumno',exact:true}).click();\n      64 |   await expect(page).toHaveURL(/leccion\\/2/);\n    > 65 |   await expect(page.getByRole('complementary',{name:'Alumno de demostraci\u00f3n'})).toContainText('Demo Ana');\n         |                                                                                 ^\n      66 |   await noOverflow(page);\n      67 |   const viewer=page.locator('.native-lesson-viewer');\n      68 |   await expect(viewer).toHaveAttribute('data-native-page','4');\n        at D:\\Downloads\\cartilla-1247-continuation-work\\test-repairs\\tests\\e2e\\crm-local-demo.spec.ts:65:81\n\n    Error Context: work\\release-e2e-sequential-artifacts\\crm-local-demo-local-CRM-d-997d4-ector-size-without-Supabase-chromium\\error-context.md"
   },
   {
     "reportedNumber": 55,
     "project": "chromium",
     "title": "\u203a tests\\e2e\\crm-local-demo.spec.ts:116:1 \u203a demo handwriting and drawings resume separately; reset preserves ordinary work",
-    "category": "observed_browser_page_crash",
+    "category": "observed_browser_page_or_target_crash",
     "rawBody": "Error: expect(locator).toHaveAttribute(expected) failed\n\n    Locator: locator('.native-lesson-viewer')\n    Expected: \"6\"\n    Error: element(s) not found\n\n    Call log:\n      - Expect \"toHaveAttribute\" locator('.native-lesson-viewer') with timeout 5000ms\n      - waiting for locator('.native-lesson-viewer')\n      - Page crashed\n\n\n      124 |   await page.evaluate(s=>localStorage.setItem(`cartilla.learner-resume.v1:2:demo:${s.classId}:${s.id}`,JSON.stringify({lesson:2,page:2})),student);\n      125 |   await page.goto('/cartilla/leccion/2');\n    > 126 |   await expect(page.locator('.native-lesson-viewer')).toHaveAttribute('data-native-page','6');\n          |                                                       ^\n      127 |  }\n      128 |  async function stroke(selector:string,offset:number) {\n      129 |   const canvas=page.locator(selector).first();await canvas.scrollIntoViewIfNeeded();\n        at openDrawing (D:\\Downloads\\cartilla-1247-continuation-work\\test-repairs\\tests\\e2e\\crm-local-demo.spec.ts:126:55)\n        at D:\\Downloads\\cartilla-1247-continuation-work\\test-repairs\\tests\\e2e\\crm-local-demo.spec.ts:135:2\n\n    Error Context: work\\release-e2e-sequential-artifacts\\crm-local-demo-demo-handwr-b43b5-set-preserves-ordinary-work-chromium\\error-context.md"
   },
   {
     "reportedNumber": 56,
     "project": "chromium",
     "title": "\u203a tests\\e2e\\feedback-progress-semantics.spec.ts:4:1 \u203a page 1 pencil feedback preserves correct work, erases wrong marks, and restores completion",
-    "category": "observed_browser_page_crash",
+    "category": "observed_browser_page_or_target_crash",
     "rawBody": "Error: expect(locator).toHaveAttribute(expected) failed\n\n    Locator: locator('.native-lesson-viewer')\n    Expected: \"1\"\n    Error: element(s) not found\n\n    Call log:\n      - Expect \"toHaveAttribute\" locator('.native-lesson-viewer') with timeout 5000ms\n      - waiting for locator('.native-lesson-viewer')\n      - Protocol error (Runtime.callFunctionOn): Page crashed.\n\n\n       6 |   await page.goto('/cartilla/leccion/1');\n       7 |   const viewer = page.locator('.native-lesson-viewer');\n    >  8 |   await expect(viewer).toHaveAttribute('data-native-page', '1');\n         |                        ^\n       9 |\n      10 |   const grid = viewer.locator('.fp-ix-grid');\n      11 |   const correctTargets = grid.locator('[data-gretel-correct=\"true\"]');\n        at D:\\Downloads\\cartilla-1247-continuation-work\\test-repairs\\tests\\e2e\\feedback-progress-semantics.spec.ts:8:24\n\n    Error Context: work\\release-e2e-sequential-artifacts\\feedback-progress-semantic-51c37-rks-and-restores-completion-chromium\\error-context.md"
   },
   {
     "reportedNumber": 57,
     "project": "chromium",
     "title": "\u203a tests\\e2e\\feedback-progress-semantics.spec.ts:51:1 \u203a repeated syllables are accepted and Completa responds immediately without revealing the answer",
-    "category": "other_timeout_or_missing_locator",
+    "category": "observed_browser_page_or_target_crash",
     "rawBody": "Error: locator.click: Target crashed \n    Call log:\n      - waiting for locator('.native-lesson-viewer').getByRole('button', { name: 'Siguiente' })\n\n\n      54 |   await page.goto('/cartilla/leccion/8');\n      55 |   const viewer = page.locator('.native-lesson-viewer');\n    > 56 |   await viewer.getByRole('button', { name: 'Siguiente' }).click();\n         |                                                           ^\n      57 |   await expect(viewer).toHaveAttribute('data-native-page', '24', { timeout: 6000 });\n      58 |   const paRow = viewer.locator('.native-syllable').first();\n      59 |   // \"pap\u00e1\" holds the syllable \"pa\" twice; it still counts as one right word.\n        at D:\\Downloads\\cartilla-1247-continuation-work\\test-repairs\\tests\\e2e\\feedback-progress-semantics.spec.ts:56:59\n\n    Error Context: work\\release-e2e-sequential-artifacts\\feedback-progress-semantic-97788-ithout-revealing-the-answer-chromium\\error-context.md"
   },
   {
     "reportedNumber": 58,
     "project": "chromium",
     "title": "\u203a tests\\e2e\\feedback-progress-semantics.spec.ts:88:1 \u203a independent completion has independent evidence and wrong attempts remain in accuracy",
-    "category": "other_assertion_or_runtime_failure",
+    "category": "observed_browser_page_or_target_crash",
     "rawBody": "Error: locator.click: Target crashed \n    Call log:\n      - waiting for locator('.native-lesson-viewer').getByRole('button', { name: 'Siguiente' })\n\n\n      91 |   await page.goto('/cartilla/leccion/1');\n      92 |   const viewer = page.locator('.native-lesson-viewer');\n    > 93 |   await viewer.getByRole('button', { name: 'Siguiente' }).click();\n         |                                                           ^\n      94 |   for (const name of ['anillo', 'estrella', 'indio', 'oso', 'uniforme']) await viewer.getByRole('button', { name, exact: true }).click();\n      95 |   await expect(viewer.getByRole('button', { name: 'Siguiente' })).not.toHaveAttribute('aria-disabled', 'true');\n      96 |   const stats = await page.evaluate(() => JSON.parse(localStorage.getItem('cartilla.exercise-stats.v1') || '{}'));\n        at D:\\Downloads\\cartilla-1247-continuation-work\\test-repairs\\tests\\e2e\\feedback-progress-semantics.spec.ts:93:59\n\n    Error Context: work\\release-e2e-sequential-artifacts\\feedback-progress-semantic-fb3e5-attempts-remain-in-accuracy-chromium\\error-context.md"
   },
   {
     "reportedNumber": 59,
     "project": "chromium",
     "title": "\u203a tests\\e2e\\final-backgrounds.spec.ts:7:3 \u203a Workbook phone: background behind working picture targets",
-    "category": "observed_browser_page_crash",
+    "category": "observed_browser_page_or_target_crash",
     "rawBody": "Error: locator.click: Page crashed\n    Call log:\n      - waiting for locator('.native-lesson-viewer').getByRole('button', { name: 'Siguiente' })\n\n\n      18 |     await page.goto(\"/cartilla/leccion/1\");\n      19 |     const viewer = page.locator(\".native-lesson-viewer\");\n    > 20 |     await viewer.getByRole(\"button\", { name: \"Siguiente\" }).click();\n         |                                                             ^\n      21 |     const bg = viewer.locator(\".final-page-background\");\n      22 |     await expect(bg).toHaveAttribute(\"data-background-printed-page\", \"2\");\n      23 |     await expect(bg).toHaveJSProperty(\"complete\", true);\n        at D:\\Downloads\\cartilla-1247-continuation-work\\test-repairs\\tests\\e2e\\final-backgrounds.spec.ts:20:61\n\n    Error Context: work\\release-e2e-sequential-artifacts\\final-backgrounds-Workbook-3d539-ind-working-picture-targets-chromium\\error-context.md"
   },
   {
     "reportedNumber": 60,
     "project": "chromium",
     "title": "\u203a tests\\e2e\\final-backgrounds.spec.ts:7:3 \u203a Workbook tablet: background behind working picture targets",
-    "category": "other_assertion_or_runtime_failure",
+    "category": "observed_browser_page_or_target_crash",
     "rawBody": "Error: locator.click: Target crashed \n    Call log:\n      - waiting for locator('.native-lesson-viewer').getByRole('button', { name: 'Siguiente' })\n\n\n      18 |     await page.goto(\"/cartilla/leccion/1\");\n      19 |     const viewer = page.locator(\".native-lesson-viewer\");\n    > 20 |     await viewer.getByRole(\"button\", { name: \"Siguiente\" }).click();\n         |                                                             ^\n      21 |     const bg = viewer.locator(\".final-page-background\");\n      22 |     await expect(bg).toHaveAttribute(\"data-background-printed-page\", \"2\");\n      23 |     await expect(bg).toHaveJSProperty(\"complete\", true);\n        at D:\\Downloads\\cartilla-1247-continuation-work\\test-repairs\\tests\\e2e\\final-backgrounds.spec.ts:20:61\n\n    Error Context: work\\release-e2e-sequential-artifacts\\final-backgrounds-Workbook-a7708-ind-working-picture-targets-chromium\\error-context.md"
   },
   {
     "reportedNumber": 61,
     "project": "chromium",
     "title": "\u203a tests\\e2e\\final-candidate.spec.ts:135:4 \u203a all teacher plates, final artwork and geometry \u2014 projector",
-    "category": "other_timeout_or_missing_locator",
+    "category": "teacher_plate_image_readiness_false",
     "rawBody": "Error: expect(received).toBe(expected) // Object.is equality\n\n    Expected: true\n    Received: false\n\n    Call Log:\n    - Timeout 5000ms exceeded while waiting on the predicate\n\n      148 |       await expect(stage.locator('[data-native-flipchart=\"true\"]')).toBeVisible();\n      149 |       await expect(stage.locator('.fc-native-board__pagenum')).toHaveText(String(pages[i].flipchartPage));\n    > 150 |       await expect.poll(() => stage.locator('img').evaluateAll(images => images.every(i => (i as HTMLImageElement).complete && (i as HTMLImageElement).naturalWidth > 0))).toBe(true);\n          |                                                                                                                                                                            ^\n      151 |       for (const asset of finalAssets[String(pages[i].flipchartPage)] ?? []) {\n      152 |         await expect(stage.locator(`img[src=\"${asset.src}\"]`)).toHaveCount(1);\n      153 |       }\n        at D:\\Downloads\\cartilla-1247-continuation-work\\test-repairs\\tests\\e2e\\final-candidate.spec.ts:150:172\n\n    Error Context: work\\release-e2e-sequential-artifacts\\final-candidate-all-teache-8f5b3-rk-and-geometry-\u2014-projector-chromium\\error-context.md"
   },
   {
     "reportedNumber": 62,
     "project": "chromium",
     "title": "\u203a tests\\e2e\\final-candidate.spec.ts:135:4 \u203a all teacher plates, final artwork and geometry \u2014 laptop",
-    "category": "other_timeout_or_missing_locator",
+    "category": "teacher_native_board_missing_locator",
     "rawBody": "Error: expect(locator).toBeVisible() failed\n\n    Locator: getByTestId('flipchart-stage').locator('[data-native-flipchart=\"true\"]')\n    Expected: visible\n    Timeout: 5000ms\n    Error: element(s) not found\n\n    Call log:\n      - Expect \"toBeVisible\" getByTestId('flipchart-stage').locator('[data-native-flipchart=\"true\"]') with timeout 5000ms\n      - waiting for getByTestId('flipchart-stage').locator('[data-native-flipchart=\"true\"]')\n\n\n      146 |     for (let i = 0; i < pages.length; i++) {\n      147 |       const stage = page.getByTestId('flipchart-stage');\n    > 148 |       await expect(stage.locator('[data-native-flipchart=\"true\"]')).toBeVisible();\n          |                                                                     ^\n      149 |       await expect(stage.locator('.fc-native-board__pagenum')).toHaveText(String(pages[i].flipchartPage));\n      150 |       await expect.poll(() => stage.locator('img').evaluateAll(images => images.every(i => (i as HTMLImageElement).complete && (i as HTMLImageElement).naturalWidth > 0))).toBe(true);\n      151 |       for (const asset of finalAssets[String(pages[i].flipchartPage)] ?? []) {\n        at D:\\Downloads\\cartilla-1247-continuation-work\\test-repairs\\tests\\e2e\\final-candidate.spec.ts:148:69\n\n    Error Context: work\\release-e2e-sequential-artifacts\\final-candidate-all-teache-9a855-twork-and-geometry-\u2014-laptop-chromium\\error-context.md"
   },
   {
     "reportedNumber": 63,
     "project": "chromium",
     "title": "\u203a tests\\e2e\\final-candidate.spec.ts:135:4 \u203a all teacher plates, final artwork and geometry \u2014 tablet",
-    "category": "other_timeout_or_missing_locator",
+    "category": "teacher_native_board_missing_locator",
     "rawBody": "Error: expect(locator).toBeVisible() failed\n\n    Locator: getByTestId('flipchart-stage').locator('[data-native-flipchart=\"true\"]')\n    Expected: visible\n    Timeout: 5000ms\n    Error: element(s) not found\n\n    Call log:\n      - Expect \"toBeVisible\" getByTestId('flipchart-stage').locator('[data-native-flipchart=\"true\"]') with timeout 5000ms\n      - waiting for getByTestId('flipchart-stage').locator('[data-native-flipchart=\"true\"]')\n\n\n      146 |     for (let i = 0; i < pages.length; i++) {\n      147 |       const stage = page.getByTestId('flipchart-stage');\n    > 148 |       await expect(stage.locator('[data-native-flipchart=\"true\"]')).toBeVisible();\n          |                                                                     ^\n      149 |       await expect(stage.locator('.fc-native-board__pagenum')).toHaveText(String(pages[i].flipchartPage));\n      150 |       await expect.poll(() => stage.locator('img').evaluateAll(images => images.every(i => (i as HTMLImageElement).complete && (i as HTMLImageElement).naturalWidth > 0))).toBe(true);\n      151 |       for (const asset of finalAssets[String(pages[i].flipchartPage)] ?? []) {\n        at D:\\Downloads\\cartilla-1247-continuation-work\\test-repairs\\tests\\e2e\\final-candidate.spec.ts:148:69\n\n    Error Context: work\\release-e2e-sequential-artifacts\\final-candidate-all-teache-a39c1-twork-and-geometry-\u2014-tablet-chromium\\error-context.md"
   }
 ]

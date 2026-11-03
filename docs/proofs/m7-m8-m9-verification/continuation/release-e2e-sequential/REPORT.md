@@ -14,13 +14,15 @@ Bounded classifications of the63 recorded reports:
 
 | Observed error category | Reports |
 | --- | ---: |
-| Browser `Page crashed` protocol/runtime failure | 42 |
-| Other timeout or missing locator | 16 |
-| Other assertion/runtime failure | 3 |
+| Browser `Page crashed` or `Target crashed` | 44 |
+| Other timeout or missing locator | 13 |
+| Spec hardcoded unconfigured localhost8790 | 1 |
 | Flip Chart ArrowRight page-counter mismatch | 1 |
 | Welcome heading selector-contract mismatch | 1 |
+| Teacher plate image-readiness predicate false | 1 |
+| Teacher native board locator missing | 2 |
 
-The welcome check sought `h1#lc-welcome-title`. Flip Chart keyboard navigation expected `Hoja 2 de 3` but retained `Hoja 1 de 3`. Workbook completion/archetype cases repeatedly reported page crashes. Additional audio, CRM and final teacher-plate assertions failed. Raw expected/received values, stack traces and contexts remain attached. Categories describe errors, not certified root causes; this attempt does not dismiss behavior failures or attribute all failures to host conditions, tests, or the performance change.
+The welcome check sought `h1#lc-welcome-title`. Flip Chart keyboard navigation expected `Hoja 2 de 3` but retained `Hoja 1 de 3`. Workbook completion/archetype cases repeatedly reported page crashes. Additional audio, CRM and final teacher-plate assertions failed. Raw expected/received values, stack traces and contexts remain attached. See `ACTIONABLE-FAILURE-GROUPS.md` for exact tests and bounded next actions. Categories describe errors, not certified root causes; this attempt does not dismiss behavior failures or attribute all failures to host conditions, tests, or the performance change.
 
 During execution the host temporarily had647,612KiB physical and1,912,468KiB commit free; a later reading recovered to1,389,508KiB physical/3,264,912KiB commit free. Only one current browser tree was observed; no browser swarm was established. Memory snapshots/top-process readings were retained without closing unrelated apps. These observations do not certify crash causality. The runner continued while advancing and resource conditions recovered, following the integration owner's instruction.
 

@@ -13,9 +13,11 @@
   "terminalReceiptForCorrectedRun": null,
   "failureClassificationCounts": {
     "flipchart_keyboard_page_counter_mismatch": 1,
-    "observed_browser_page_crash": 42,
-    "other_assertion_or_runtime_failure": 3,
-    "other_timeout_or_missing_locator": 16,
+    "observed_browser_page_or_target_crash": 52,
+    "other_timeout_or_missing_locator": 5,
+    "spec_hardcoded_unconfigured_local_port": 1,
+    "teacher_native_board_missing_locator": 2,
+    "teacher_plate_image_readiness_false": 1,
     "welcome_heading_selector_contract_mismatch": 1
   },
   "classificationLimits": "Bounded categories of recorded errors only. Selector/behavior failures and page crashes preserved. No blanket app/host/test root-cause attribution. Scheduled index is not completed/passed count.",
