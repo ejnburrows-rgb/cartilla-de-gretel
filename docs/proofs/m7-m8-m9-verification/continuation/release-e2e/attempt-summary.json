@@ -57,5 +57,7 @@
     "playwright.config.ts": "2f441f762f63c02e6227766d1d85f6ddfb2f55fb7e0eecbb3d623b015dcff2b3",
     "pnpm-lock.yaml": "2e4e1c26b2f344386fb17eac4d93ccac1e570c20f4a10ef03695b83e4ae5144e",
     "src/routes/cartilla/-practica-view.tsx": "2848c82bc7b03e5789e2fc9025ea9ac681f930a0ba0b9a4eea58bd7c549d666a"
-  }
+  },
+  "readinessForUnchanged30sPageFixture": "FAIL: no-app newPage took81647ms",
+  "nextProbeGate": "No E2E retry on current state; only materially removed concurrency or verified host correction justifies one new readiness probe"
 }
