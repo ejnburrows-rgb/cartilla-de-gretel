@@ -234,10 +234,10 @@
       "src": "/cartilla/art/optimized/flipchart-native/p006-scene.png",
       "sourcePage": 6,
       "crop": [
-        48,
-        46,
-        402,
-        506
+        62,
+        54,
+        414,
+        545
       ],
       "role": "scene"
     },
@@ -246,10 +246,10 @@
       "src": "/cartilla/art/optimized/flipchart-native/p006-elefante.png",
       "sourcePage": 6,
       "crop": [
-        50,
-        645,
-        235,
-        228
+        58,
+        654,
+        220,
+        208
       ]
     },
     {
@@ -257,10 +257,10 @@
       "src": "/cartilla/art/optimized/flipchart-native/p006-espejo.png",
       "sourcePage": 6,
       "crop": [
-        368,
-        630,
-        231,
-        236
+        376,
+        638,
+        216,
+        224
       ]
     },
     {
@@ -268,10 +268,10 @@
       "src": "/cartilla/art/optimized/flipchart-native/p006-ema.png",
       "sourcePage": 6,
       "crop": [
-        732.941176,
-        623.921569,
-        183.137255,
-        238.431373
+        730,
+        638,
+        195,
+        211
       ]
     },
     {
@@ -279,10 +279,10 @@
       "src": "/cartilla/art/optimized/flipchart-native/p006-estrella.png",
       "sourcePage": 6,
       "crop": [
-        55,
-        996,
-        225,
-        256
+        60,
+        1004,
+        216,
+        234
       ]
     },
     {
@@ -290,10 +290,10 @@
       "src": "/cartilla/art/optimized/flipchart-native/p006-erizo.png",
       "sourcePage": 6,
       "crop": [
-        369,
-        988,
-        237,
-        256
+        376,
+        998,
+        210,
+        263
       ]
     },
     {
@@ -301,10 +301,10 @@
       "src": "/cartilla/art/optimized/flipchart-native/p006-escalera.png",
       "sourcePage": 6,
       "crop": [
-        711,
-        977,
-        215,
-        286
+        722,
+        988,
+        194,
+        229
       ]
     }
   ],

@@ -345,7 +345,7 @@ export function FlipchartHdPanel({ lessonNumber, accentColor, chrome = "full" }:
     }
 
     if (!reducedMotion && state.soundPlayed) {
-      const angle = state.direction === "next" ? -180 * progress : -180 + 180 * progress;
+      const angle = state.direction === "next" ? 180 * progress : 180 - 180 * progress;
       setFlipTransform(`rotateX(${angle}deg)`);
     }
   };
@@ -389,12 +389,12 @@ export function FlipchartHdPanel({ lessonNumber, accentColor, chrome = "full" }:
 
     if (progress >= 0.5) {
       setFlipTransitionMs(400);
-      const finalAngle = direction === "next" ? "rotateX(-180deg)" : "rotateX(0deg)";
+      const finalAngle = direction === "next" ? "rotateX(180deg)" : "rotateX(0deg)";
       setFlipTransform(finalAngle);
       flipTimerRef.current = window.setTimeout(() => afterFlip(targetIndex, token), 400);
     } else {
       setFlipTransitionMs(350);
-      const springAngle = direction === "next" ? "rotateX(0deg)" : "rotateX(-180deg)";
+      const springAngle = direction === "next" ? "rotateX(0deg)" : "rotateX(180deg)";
       setFlipTransform(springAngle);
       flipTimerRef.current = window.setTimeout(() => {
         if (token === flipTokenRef.current) {
@@ -544,7 +544,7 @@ export function FlipchartHdPanel({ lessonNumber, accentColor, chrome = "full" }:
                   className="fc-turn__stage"
                   style={{
                     ...leafBox,
-                    perspective: leaf ? `${Math.round(leaf.height * 2.6)}px` : "2400px",
+                    perspective: leaf ? `${Math.round(leaf.height * 1.5)}px` : "1200px",
                     perspectiveOrigin: `50% ${hinge}px`,
                   }}
                 >
