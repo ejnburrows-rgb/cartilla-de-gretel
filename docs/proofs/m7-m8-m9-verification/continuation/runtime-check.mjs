@@ -9,9 +9,11 @@ const out = resolve('docs/proofs/m7-m8-m9-verification/continuation/runtime');
 mkdirSync(out, {recursive:true});
 const report = { head:execFileSync('git',['rev-parse','HEAD'],{encoding:'utf8'}).trim(), url:'http://127.0.0.1:4187', device:'Chromium touch emulation; no physical device', physicalPhone:'NOT TESTED', physicalProjector:'NOT TESTED', checks:[], consoleErrors:[], warnings:[] };
 const browser = await chromium.launch({headless:true});
-const check = (condition, message, detail={}) => { report.checks.push({result:condition?'PASS':'FAIL',message,...detail}); if (!condition) throw new Error(message); };
+const check = (condition, message, detail={}) => { report.checks.push({result:condition?'PASS':'FAIL',message,...detail}); console.log(condition?'PASS':'FAIL',message); if (!condition) throw new Error(message); };
 const context = await browser.newContext({ viewport:{width:390,height:844},isMobile:true,hasTouch:true,reducedMotion:'no-preference',recordVideo:{dir:out,size:{width:390,height:844}} });
 const page = await context.newPage();
+page.setDefaultTimeout(12_000);
+page.setDefaultNavigationTimeout(30_000);
 page.on('pageerror',e=>report.consoleErrors.push(String(e)));
 page.on('console',e=>{if(e.type()==='error')report.consoleErrors.push(e.text());if(e.type()==='warning')report.warnings.push(e.text());});
 await page.addInitScript(()=>{ window.__touch=[]; window.addEventListener('pointerdown', e=>window.__touch.push({pointerType:e.pointerType,isTrusted:e.isTrusted}),true); });
@@ -21,6 +23,7 @@ async function waitSheet(n){await page.waitForFunction(n=>document.querySelector
 async function clear(locator){return locator.evaluate(el=>{const b=el.getBoundingClientRect();const top=document.elementFromPoint(b.x+b.width/2,b.y+b.height/2);return{clear:!!top&&(top===el||el.contains(top)),box:{x:b.x,y:b.y,w:b.width,h:b.height},top:top?.outerHTML.slice(0,180)};});}
 async function dragCorner(testid,dy){const box=await page.getByTestId(testid).boundingBox();check(!!box,'corner visible',{testid});const x=box.x+box.width/2,y=box.y+box.height/2;const cdp=await context.newCDPSession(page);await cdp.send('Input.dispatchTouchEvent',{type:'touchStart',touchPoints:[{x,y,id:1}]});for(let step=1;step<=8;step++){await cdp.send('Input.dispatchTouchEvent',{type:'touchMove',touchPoints:[{x,y:y+dy*step/8,id:1}]});await page.waitForTimeout(35);}await cdp.send('Input.dispatchTouchEvent',{type:'touchEnd',touchPoints:[]});await cdp.detach();}
 try {
+ if (process.env.RUNTIME_ONLY !== 'remaining') {
   await go(12);
   const next=page.getByRole('button',{name:'Lámina siguiente',exact:true});
   const prev=page.getByRole('button',{name:'Lámina anterior',exact:true});
@@ -28,12 +31,21 @@ try {
   await next.tap();await waitSheet(2);check((await counter().innerText()).includes('Hoja 2 de'),'trusted touch forward');
   check((await clear(prev)).clear,'Previous touch target clear',await clear(prev));
   await prev.tap();await waitSheet(1);check((await counter().innerText()).includes('Hoja 1 de'),'trusted touch backward');
-  await dragCorner('flipchart-corner-right',-300);await waitSheet(2);check(true,'touch corner drag forward');
-  await dragCorner('flipchart-corner-left',300);await waitSheet(1);check(true,'touch corner drag backward');
+  // The shipped default hand mode is left: left advances, right returns.
+  report.handMode='left (shipped default; fresh browser context)';
+  await dragCorner('flipchart-corner-left',-300);await waitSheet(2);check(true,'touch corner drag forward');
+  await dragCorner('flipchart-corner-right',300);await waitSheet(1);check(true,'touch corner drag backward');
   const events=await page.evaluate(()=>window.__touch);check(events.length>=4&&events.every(e=>e.pointerType==='touch'&&e.isTrusted),'browser delivered trusted touch events',{events});
   await page.screenshot({path:resolve(out,'touch-navigation-390.png')});
+ } else {
+   const prior=JSON.parse(readFileSync(resolve(out,'navigation-results.json'),'utf8'));
+   if(prior.head!==report.head||prior.checks.length!==9||prior.checks.some(c=>c.result!=='PASS'))throw new Error('navigation evidence identity mismatch');
+   report.checks.push(...prior.checks.map(c=>({...c,reused:true,evidence:'navigation-results.json'})));
+   report.navigationVideo=prior.video;
+ }
   for(const [lesson,pdf] of [[12,26],[13,29],[14,32],[16,38],[24,62]]){
-    await go(lesson);await page.getByRole('tab',{name:'Ir a hoja 3',exact:true}).tap();await waitSheet(3);
+    // The thumbnail strip is hidden on phones; use the actual visible controls.
+    await go(lesson);await page.getByRole('button',{name:'Lámina siguiente',exact:true}).tap();await waitSheet(2);await page.getByRole('button',{name:'Lámina siguiente',exact:true}).tap();await waitSheet(3);
     const art=page.locator('[data-testid="flipchart-stage"] [data-replica-page="'+pdf+'"] .living-illustration').filter({has:page.locator('img[src*="p'+String(pdf).padStart(3,'0')+'-scene"]')}).first();
     await art.waitFor();const a=await art.evaluate(el=>({ambient:el.getAttribute('data-ambient-motion'),natural:el.getAttribute('data-natural-motion'),parts:el.querySelectorAll('.living-illustration__part').length,videos:el.querySelectorAll('video').length,animations:el.getAnimations({subtree:true}).filter(a=>a.playState==='running').length}));
     check(a.ambient==='none'&&a.natural==='false'&&a.videos===0&&a.animations===0,'restored scene remains static',{pdf,lesson,...a});

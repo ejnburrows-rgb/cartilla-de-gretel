@@ -1,0 +1,11 @@
+PASS restored scene remains static
+PASS restored scene remains static
+PASS restored scene remains static
+PASS restored scene remains static
+PASS restored scene remains static
+PASS presentation sheet fits viewport
+PASS presentation sheet fits viewport
+PASS presentation sheet fits viewport
+PASS seven Lesson4 replacement images held static
+PASS zero console errors
+{"head":"48dfec7d6a5ec3ac26171d745ea811621ad659db","checks":[{"result":"PASS","message":"Next touch target clear"},{"result":"PASS","message":"trusted touch forward"},{"result":"PASS","message":"Previous touch target clear"},{"result":"PASS","message":"trusted touch backward"},{"result":"PASS","message":"corner visible"},{"result":"PASS","message":"touch corner drag forward"},{"result":"PASS","message":"corner visible"},{"result":"PASS","message":"touch corner drag backward"},{"result":"PASS","message":"browser delivered trusted touch events"},{"result":"PASS","message":"restored scene remains static"},{"result":"PASS","message":"restored scene remains static"},{"result":"PASS","message":"restored scene remains static"},{"result":"PASS","message":"restored scene remains static"},{"result":"PASS","message":"restored scene remains static"},{"result":"PASS","message":"presentation sheet fits viewport"},{"result":"PASS","message":"presentation sheet fits viewport"},{"result":"PASS","message":"presentation sheet fits viewport"},{"result":"PASS","message":"seven Lesson4 replacement images held static"},{"result":"PASS","message":"zero console errors"}]}
