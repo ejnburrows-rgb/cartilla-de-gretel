@@ -4,6 +4,8 @@ Parent branch: `continuation/1247-test-repairs`, starting `36666181dbb29e64f857a
 
 **Current bounded result: DONE but not live.** Application repair head610727d749f018c49826e2b5f31f7df84953b453. Fresh original tablet all-lesson-plates check PASS1/1, exit0 (`runs/tablet-isolated`); original full CRM laptop journey PASS1/1, exit0 (`runs/crm-layout-replay`). CRM return uses a real pointer click, and the original persistence, identity separation, notes, report, CSV/PDF and zero-backend-request assertions remain. Rendered before/after images are in `rendered/`. No source art, text or voice was changed. No broad353 E2E or full unit-gate pass is claimed; those remain integration-owner work.
 
+**Current phone hold:** original CRM390x844 replay at3cfed7ad finished1FAIL/exit1 at2026-11-03T20:36:00Z on initial `Hoy en tu clase` heading readiness within unchanged5s. The later failure snapshot includes that heading and the CRM interface. The student/return/report portions were not reached, so no phone-layout pass is claimed. Existing phone outputs were byte-backed-up before the run; no new phone screenshot replaced the old dashboard. Opt-in readiness/module/resource diagnostics are prepared in the named spec, with original assertions/limits intact; the next instrumented run waits for root's execution-slot release.
+
 ## Completed evidence
 
 - Prior corrected353-test attempt still has no final JSON/terminal receipt. Its interruption cause remains unknown; the old16:33 exit file belongs to the reporter-argument failure.
