@@ -30,3 +30,13 @@ The separate-sheet PDFs have higher raster dimensions than the known full-PDF pa
 **DONE but not live:** additional source locations, hashes, page mapping and visual comparisons are recorded. **WAITING:** the four clean full illustrations or the precise placement decisions above. **NOT TESTED:** any replacement in the app; no replacement was made. This bounded search does not prove that no clean owner original exists elsewhere, and it does not repeat completed motion, page-fit or runtime audits.
 
 The integration owner should retain the existing four source holds and route only these exact missing-material/placement items to the artwork owner. No new art generation or broad screenshot recapture is justified by this finding.
+
+## Continuation delta receipt — 2026-11-03
+
+**WAITING**, unchanged. Reconciled source branch `cec30be6b72a6535cac64046e2517ccab43fac27` against its remote ref; the worktree was clean. The new continuation attachment contains only `Pasted text.txt`, not an image, PDF or source archive.
+
+One new connected-location check was limited to accessible Google Drive image/PDF/ZIP files modified after this source receipt's commit time, `2026-11-03T13:19:42Z`. Provider metadata search returned **zero results**. This is a bounded delta search, not proof that no clean original exists elsewhere. No prior flattened PDF, archive candidate or full-page audit was repeated.
+
+The four page-specific requests in **Precise remaining material** above remain the actionable handoff: complete Bebo/cloud-ball/ground (35), mouse/rose/wheel/lizard/flourish (41), both cats/flowers/dish/ground (47), and girl/turtle/bee/tub/ground (53), or an explicit source-specific placement decision preserving each genuine printed caption/ground relationship. A generic permission to proceed does not identify a clean source or settle placement.
+
+No replacement was accepted or installed. Changed files in this delta: this evidence document only. Existing Lesson-4 provenance, static-scene holds and Workbook 86–87 restrictions remain untouched. Next action: artwork owner supplies the specific clean original or the source-preserving placement decision for each page; implementation then requires explicit file assignment and comparison/runtime proof.
