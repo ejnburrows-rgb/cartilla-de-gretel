@@ -1726,3 +1726,8 @@
 }
 .fc-board__page,
 .fc-presenter.is-bare .fc-board__page { background: transparent; }
+
+/* Keep the demo launcher above the sheet navigation, including on phones. */
+.fc-presenter > .no-print.fixed:has(> button[aria-label="Abrir Panel de Control de Demostración"]) {
+  bottom: 4.5rem;
+}
