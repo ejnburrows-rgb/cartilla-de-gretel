@@ -1,0 +1,86 @@
+{
+  "reviewedDelivery": "226991ec775c51592be859d30bb8ee978bfcda0d",
+  "applicationIdentity": "49747c7ef5fdff5926d463f491fad7c186b69d26",
+  "helperIdentity": "97354ea934f47c4f2f4d91767d7f12977d42ba60",
+  "mainAncestor": "01e3168540ad5a90a57353e12f85420fe46a7358",
+  "decision": "HOLD",
+  "prState": "OPEN",
+  "mergeState": "CLEAN",
+  "currentChecks": [],
+  "reviewRequests": [],
+  "independentFinalHeadFormalReview": false,
+  "threads": [
+    {
+      "id": "PRRT_kwDOSfBV9s6zKT71",
+      "resolved": true,
+      "outdated": true,
+      "comments": 2
+    },
+    {
+      "id": "PRRT_kwDOSfBV9s6zKT8I",
+      "resolved": true,
+      "outdated": false,
+      "comments": 2
+    },
+    {
+      "id": "PRRT_kwDOSfBV9s6zKT8Z",
+      "resolved": true,
+      "outdated": true,
+      "comments": 2
+    },
+    {
+      "id": "PRRT_kwDOSfBV9s6zKT8p",
+      "resolved": true,
+      "outdated": true,
+      "comments": 2
+    },
+    {
+      "id": "PRRT_kwDOSfBV9s6zKT82",
+      "resolved": true,
+      "outdated": false,
+      "comments": 2
+    },
+    {
+      "id": "PRRT_kwDOSfBV9s6zKT8_",
+      "resolved": true,
+      "outdated": true,
+      "comments": 2
+    },
+    {
+      "id": "PRRT_kwDOSfBV9s6zKT9O",
+      "resolved": true,
+      "outdated": false,
+      "comments": 2
+    },
+    {
+      "id": "PRRT_kwDOSfBV9s6zKT9a",
+      "resolved": true,
+      "outdated": false,
+      "comments": 2
+    },
+    {
+      "id": "PRRT_kwDOSfBV9s6zKT9o",
+      "resolved": true,
+      "outdated": false,
+      "comments": 2
+    },
+    {
+      "id": "PRRT_kwDOSfBV9s6zKT9u",
+      "resolved": true,
+      "outdated": true,
+      "comments": 2
+    },
+    {
+      "id": "PRRT_kwDOSfBV9s6zKT90",
+      "resolved": true,
+      "outdated": true,
+      "comments": 2
+    },
+    {
+      "id": "PRRT_kwDOSfBV9s6zMfD2",
+      "resolved": true,
+      "outdated": false,
+      "comments": 2
+    }
+  ]
+}
