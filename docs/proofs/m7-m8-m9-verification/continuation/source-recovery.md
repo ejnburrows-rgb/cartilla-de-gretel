@@ -40,3 +40,28 @@ One new connected-location check was limited to accessible Google Drive image/PD
 The four page-specific requests in **Precise remaining material** above remain the actionable handoff: complete Bebo/cloud-ball/ground (35), mouse/rose/wheel/lizard/flourish (41), both cats/flowers/dish/ground (47), and girl/turtle/bee/tub/ground (53), or an explicit source-specific placement decision preserving each genuine printed caption/ground relationship. A generic permission to proceed does not identify a clean source or settle placement.
 
 No replacement was accepted or installed. Changed files in this delta: this evidence document only. Existing Lesson-4 provenance, static-scene holds and Workbook 86–87 restrictions remain untouched. Next action: artwork owner supplies the specific clean original or the source-preserving placement decision for each page; implementation then requires explicit file assignment and comparison/runtime proof.
+
+## Four concrete placement decisions — 2026-11-03 continuation
+
+The earlier vague placement request is now replaced by the four visible choices below. **Recommendation for each page:** use the complete original printed sheet as one static page surface. Its caption, story, letter halo and illustration remain together exactly as supplied. This is an owner decision preview, not an application screenshot or accepted replacement.
+
+Exact placement: source rectangle `[0, 0, sourceWidth, sourceHeight]`, normalized `[0, 0, 1, 1]`; fit the whole raster inside the page content area with `contain`, centered, with its aspect ratio unchanged. Do not crop, isolate the art, erase the title, redraw ground, animate the entire raster, or overlay a second visible digital caption/story. The printed page border/binding marks and scan appearance remain visible. The tradeoff is a smaller illustration than a separate large-art layout. These scans' color/compression are not certified against an approved clean master; Yes accepts the specific supplied-sheet appearance shown here, not a claim that it is a clean illustration master.
+
+| Page / story | Exact supplied source / pixel rectangle | Decision and preserved content | If No: exact alternative source needed |
+|---|---|---|---|
+| 35 / Sube la bola | `33-Bb.pdf`, `[0,0,3406,4345]` | Yes accepts the complete printed sheet: full Bebo, bat, cloud/ball region, feet and ground; original title/story in place. | Untouched full Bebo/bat/cloud-ball/ground illustration without printed caption, including the feet and all ground currently crossing the title region. |
+| 41 / La rosca de Manolo | `39-Rr.pdf`, `[0,0,3410,4343]` | Yes accepts the complete printed sheet: mouse, rose, wheel, lizard, yellow ground and both flourishes; original title/story in place. | Untouched full scene including mouse feet, lizard and lower red flourish/ground beneath the printed title. |
+| 47 / El gato enamorado | `45-Gg.pdf`, `[0,0,3408,4343]` | Yes accepts the complete printed sheet: both cats, flowers, food dish, feet and ground; original title/story in place. | Untouched full both-cat illustration including the large cat's face/feet, food dish and complete ground where the title meets the scene. |
+| 53 / La jicotea Jabela | `51-Jj.pdf`, `[0,0,3406,4344]` | Yes accepts the complete printed sheet: entire bee and upper dotted trail, girl, turtle, tub, feet and ground; original title/story in place. | Untouched complete scene from bee/upper trail through all feet/tub/ground, without the printed caption. |
+
+![Page 35 comparison and exact full-sheet proposal](source-placement-35.png)
+
+![Page 41 comparison and exact full-sheet proposal](source-placement-41.png)
+
+![Page 47 comparison and exact full-sheet proposal](source-placement-47.png)
+
+![Page 53 comparison and exact full-sheet proposal](source-placement-53.png)
+
+Left panels reuse the supplied `original_crops` candidates recorded above; they are **not claimed to be current served app screenshots**. Right panels decode each recorded PDF's single embedded source raster and uniformly scale it without trimming. Both source PDF and crop bytes match all eight existing SHA256 records. No new source location was searched. One local candidate with different bytes was rejected by the hash assertion; the already-recorded original copy was used. No source bytes, production file, caption, audio or motion behavior changed.
+
+**DONE but not live:** four owner-viewable comparisons and exact placement choices prepared. **WAITING:** a separate Yes/No for each shown full-sheet choice; a No routes only that page to the precise alternative original above. **NOT TESTED:** production integration, source-to-app layout, physical-device readability or motion. Root can continue software repairs while these choices wait. After a Yes, assign the bounded placement change, verify actual route/readability and source identity, and retain independent review before publication.
