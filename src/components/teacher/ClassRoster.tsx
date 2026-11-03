@@ -125,9 +125,12 @@ export function ClassRoster() {
   }, [isSeed, seedClassData, realClassData]);
 
   const studentsList = useMemo(() => {
-    const q = searchQuery.trim().toLowerCase();
+    const q = searchQuery.trim();
     if (!q) return allStudents;
-    return allStudents.filter((s) => s.display_name.toLowerCase().includes(q));
+
+    const escapedQ = q.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+    const regex = new RegExp(escapedQ, 'i');
+    return allStudents.filter((s) => regex.test(s.display_name));
   }, [allStudents, searchQuery]);
 
   const loadingStudents = !isSeed && loadingRealStudents;
