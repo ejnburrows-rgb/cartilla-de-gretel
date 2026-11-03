@@ -1,0 +1,4 @@
+
+  VITE v7.3.3   worker   ready in 5524 ms
+
+  ➜  Local:   http://127.0.0.1:5173/

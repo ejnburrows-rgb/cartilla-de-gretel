@@ -1,0 +1,1 @@
+{"legs":[{"name":"built-preview","assertion":"fail"},{"name":"development","assertion":"not-reached","error":"TimeoutError: page.goto: Timeout 30000ms exceeded.\nCall log:\n\u001b[2m  - navigating to \"http://127.0.0.1:5173/cartilla/teacher/crm\", waiting until \"load\"\u001b[22m\n"}],"builtArtifactsUnchanged":true}

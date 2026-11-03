@@ -1,0 +1,23 @@
+{
+  "schema_version": "1.0",
+  "event_id": "entry-readiness-compare",
+  "task_id": "1247-test-repairs",
+  "attempt_id": "entry-readiness-compare",
+  "action_kind": "targeted_test",
+  "action_scope_digest": "sha256:5c92a7f33192a63a9c2a139a1b311d5ec244d6ff023ddc79d2f9a8da41136a1f",
+  "requirements_digest": "sha256:550aacb5518c9c4c2ea428cc40c26c0ebae3a40fd1ab1bd8e2417dd3c2d5614c",
+  "candidate_digest": "sha256:a5491bc6557dd693e2ffa5d5abc157c4afada7690f10f061e91c5b40cfc9df83",
+  "dependency_digest": "sha256:2e4e1c26b2f344386fb17eac4d93ccac1e570c20f4a10ef03695b83e4ae5144e",
+  "policy_digest": "sha256:fe1fd764135a92b738e8d2049f8726ed7eeda032fadacf2f1b79c8814c3933f7",
+  "evaluator_digest": "sha256:021652200251ee1c7abf02e08b0597c692d288f98bba78c112e81189c7bb180b",
+  "material_progress": {
+    "status": "unknown",
+    "evidence_digest": null
+  },
+  "rate_telemetry": {
+    "state": "missing",
+    "effect": "advisory"
+  },
+  "metrics": [],
+  "environment_digest": "sha256:f7bff84b2429ca69b355b90b15643f5ffee80f55b6851a92d5ef03f9d1a02087"
+}
