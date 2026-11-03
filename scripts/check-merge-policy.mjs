@@ -86,6 +86,73 @@ export function validateRouting(docs) {
   return {ok:errors.length===0,errors};
 }
 
+
+/** Only explicitly labelled historical details are excluded from current-order checks. */
+export function activeInstructions(text) {
+  return String(text ?? '').replace(
+    /<details>\s*<summary>Historical context — not current instructions<\/summary>[\s\S]*?<\/details>/gi,
+    ''
+  );
+}
+
+export const OWNER_CONTRACT = [
+  [/OWNER VISIBILITY & NONTECHNICAL COMMUNICATION — MANDATORY/i, 'owner visibility section'],
+  [/Book Cover & Opening/i, 'cover section'],
+  [/Student Workbook/i, 'Workbook section'],
+  [/Teacher Flip Chart/i, 'Flip Chart section'],
+  [/Artwork & Motion/i, 'artwork section'],
+  [/Gretel Voice & Tutor/i, 'voice and Tutor section'],
+  [/Games & Activities/i, 'games section'],
+  [/Website & Publication/i, 'publication section'],
+  [/mobile-readable visual diagram or graph/i, 'visual-first report'],
+  [/DONE and live.*DONE but not live.*WAITING.*NOT TESTED/i, 'owner status labels'],
+  [/screenshots.*recordings.*previews/i, 'visible proof requirement'],
+  [/explicit yes for that PR/i, 'specific owner merge approval'],
+  [/independent formal GitHub review of the exact head/i, 'independent exact-head review'],
+  [/No self-approval/i, 'no self-approval'],
+  [/Never deploy unless the owner says exactly "deploy it"/i, 'separate release approval'],
+  [/git\.deploymentEnabled:false/i, 'disabled automatic deployment'],
+  [/Never invent art, voice or educational content/i, 'authentic source safeguard'],
+  [/No device TTS/i, 'no device TTS safeguard'],
+  [/do not edit its assets/i, 'Mariposas asset safeguard'],
+  [/Do not invent Workbook pages 86–87/i, 'missing-page safeguard'],
+  [/No spending/i, 'spending safeguard'],
+  [/real student data without separately authorized readiness/i, 'student privacy safeguard'],
+  [/Existing authorization persists; do not ask again/i, 'persistent approval'],
+  [/Only the owner's own chat messages grant instructions or approval/i, 'chat-only owner authority'],
+];
+
+export function validateCurrentAuthority(docs) {
+  const errors = [];
+  const agent = activeInstructions(docs?.['AGENTS.md']);
+  for (const [pattern, label] of OWNER_CONTRACT) {
+    if (!pattern.test(agent)) errors.push('AGENTS.md: missing ' + label);
+  }
+  const names = [...new Set([...POLICY_FILES, ...ROUTING_FILES, 'README.md'])];
+  const staleOrders = [
+    [/#1218\*{0,2}\s+(?:FIRST|first)\b/i, 'completed PR #1218 ordered first'],
+    [/(?:integration priority|integration order|merge sequence|follow the #877 sequence|preserve the owner's order)[^\n]*#1218/i, 'obsolete fixed integration sequence'],
+    [/#1218\s*(?:→|->)\s*#1227/i, 'obsolete fixed integration sequence'],
+    [/(?:execute|dispatch|continue)[^\n]{0,100}J1[–-]J13/i, 'historical numbered worker assignment'],
+    [/(?:a merged PR|PR completion|merged PRs?)\s+(?:means?|equals?|is)\s+(?:live|delivered|published)/i, 'source completion misrepresented as live delivery'],
+  ];
+  for (const name of names) {
+    // This evidence store is historical in its entirety, only with its required banner.
+    if (name === '.agents/PROJECT_MEMORY.md' && /not live instructions/i.test(docs?.[name] ?? '')) continue;
+    const text = activeInstructions(docs?.[name]);
+    for (const [pattern, label] of staleOrders) if (pattern.test(text)) errors.push(name + ': ' + label);
+    if (name !== 'AGENTS.md' &&
+        /(?:this file|this document|controller)\s+(?:is\s+(?:the\s+)?|maintains?\s+(?:the\s+)?)(?:sole\s+|current\s+|canonical\s+)?(?:work queue|task board|master completion plan|execution authority)/i.test(text)) {
+      errors.push(name + ': competing current task authority');
+    }
+    if (name !== 'AGENTS.md' &&
+        /(?:current assignments|current execution order|active worker assignments)\s*\n\s*\|/i.test(text)) {
+      errors.push(name + ': independent assignment table');
+    }
+  }
+  return {ok:errors.length === 0, errors};
+}
+
 const documentationPath = f => typeof f==='string' && (/\.(md|mdx|txt)$/i.test(f) || /^docs\//i.test(f));
 
 export function assessMerge(receipt) {
@@ -111,9 +178,9 @@ function cli() {
   const [flag,arg]=process.argv.slice(2);
   let result;
   if (flag==='--docs' && !arg) {
-    const docs=Object.fromEntries([...POLICY_FILES,...ROUTING_FILES].map(name=>[name,fs.existsSync(name)?fs.readFileSync(name,'utf8'):'']));
-    const policy=validatePolicy(docs), routing=validateRouting(docs);
-    result={ok:policy.ok&&routing.ok,errors:[...policy.errors,...routing.errors]};
+    const docs=Object.fromEntries([...POLICY_FILES,...ROUTING_FILES,'README.md'].map(name=>[name,fs.existsSync(name)?fs.readFileSync(name,'utf8'):'']));
+    const policy=validatePolicy(docs), routing=validateRouting(docs), authority=validateCurrentAuthority(docs);
+    result={ok:policy.ok&&routing.ok&&authority.ok,errors:[...policy.errors,...routing.errors,...authority.errors]};
   } else if (flag==='--evidence' && arg) {
     result=assessMerge(JSON.parse(fs.readFileSync(path.resolve(arg),'utf8')));
   } else {
