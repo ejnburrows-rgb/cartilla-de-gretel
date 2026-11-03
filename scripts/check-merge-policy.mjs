@@ -32,7 +32,7 @@ export function validatePolicy(docs) {
       [/one active assignment\s*=\s*one bounded deliverable/i, 'task-bound (not session-bound) deliverables'],
       [/\b(?:advance|continue|proceed)\b.{0,100}(?:next|another).{0,130}(?:eligible|authorized)/i, 'continue next eligible assignment'],
       [/\bsame available session\b/i, 'same-session continuation'],
-      [/(?:formal.{0,40}GitHub|GitHub.{0,40}formal|eligible independent GitHub)/i, 'formal GitHub review gate'],
+      [/independent\s+material\s+technical\s+review\s+of\s+the\s+exact\s+head/i, 'independent material technical exact-head review'],
       [/no self-approval/i, 'no self-approval guard'],
       [/Mariposas is included/i, 'owner decision to retain Mariposas'],
     ],
@@ -50,7 +50,7 @@ export function validatePolicy(docs) {
     [/final voice\/TTS direction is deferred/i, 'obsolete voice-provider selection'],
     [/the final Gretel voice\/TTS direction is \*\*NOT YET LOCKED\*\*/i, 'obsolete unresolved voice provider'],
     [/owner is not required to approve ordinary technical merges/i, 'obsolete blanket merge authorization'],
-    [/no additional external reviewer is required/i, 'obsolete formal-review exemption'],
+    [/no independent (?:material )?technical review is required/i, 'independent technical-review exemption'],
   ];
   for (const name of POLICY_FILES) {
     if (typeof docs?.[name] !== 'string') continue;
@@ -110,7 +110,8 @@ export const OWNER_CONTRACT = [
   [/DONE and live.*DONE but not live.*WAITING.*NOT TESTED/i, 'owner status labels'],
   [/screenshots.*recordings.*previews/i, 'visible proof requirement'],
   [/explicit yes for that PR/i, 'specific owner merge approval'],
-  [/independent formal GitHub review of the exact head/i, 'independent exact-head review'],
+  [/independent material technical review of the exact head/i, 'independent exact-head technical review'],
+  [/recorded controller review receipt/i, 'controller review receipt'],
   [/No self-approval/i, 'no self-approval'],
   [/Never deploy unless the owner says exactly "deploy it"/i, 'separate release approval'],
   [/git\.deploymentEnabled:false/i, 'disabled automatic deployment'],
@@ -138,6 +139,7 @@ export function validateCurrentAuthority(docs) {
     [/(?:integration priority|integration order|merge sequence)[^\n]*\n(?:[ \t]*\n)*[ \t]*(?:[-*]|\d+[.)])\s+\*{0,2}#1218\b/i, 'obsolete numbered integration sequence'],
     [/(?:execute|dispatch|continue)[^\n]{0,100}J1[–-]J13/i, 'historical numbered worker assignment'],
     [/(?:a merged PR|PR completion|merged PRs?)\s+(?:means?|equals?|is)\s+(?:live|delivered|published)/i, 'source completion misrepresented as live delivery'],
+    [/(?:mandatory|required)\s+formal\s+(?:(?:GitHub\s+)?approv(?:ing|ed|al)\s+(?:GitHub\s+)?review|GitHub\s+review)|(?:mandatory|required)\s+approving[- ]bot\s+(?:review|response|approval)/i, 'invented mandatory formal approval or bot gate'],
     [/(?:^|[.!?]\s+)\s*(?:[-*]\s+)?(?:Merge|(?:You|Agents|Workers) may merge)\s+(?:any|all|a|the|tested|approved)\b[^\n.]{0,100}\bwithout\s+(?:asking\s+the\s+owner|(?:the\s+)?owner(?:'s)?\s+(?:approval|permission|yes))/im, 'merge instruction bypasses owner approval'],
   ];
   for (const name of names) {
