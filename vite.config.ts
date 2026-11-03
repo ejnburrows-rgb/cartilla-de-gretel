@@ -68,6 +68,27 @@ export default defineConfig(({ mode }) => {
       fs: {
         allow: [process.cwd(), root],
       },
+      ...(mode === "worker"
+        ? {
+            watch: {
+              // Verification writes images, logs and helper archives while Vite
+              // runs. They are not app inputs; watching them can crash Windows
+              // with EBUSY and makes startup traverse historical proof archives.
+              ignored: (file: string) => {
+                const relative = path.relative(root, file).replaceAll("\\", "/");
+                return [
+                  "docs/proofs",
+                  "test-results",
+                  "playwright-report",
+                  "verification-screenshots",
+                  "output",
+                  "work",
+                  "tests/e2e/proofs",
+                ].some((directory) => relative === directory || relative.startsWith(`${directory}/`));
+              },
+            },
+          }
+        : {}),
     },
   define: {
     // Open access (no login) is the shipped product decision, so this stays
