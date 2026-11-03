@@ -77,6 +77,26 @@ describe("Practica route", () => {
     vi.useRealTimers();
   });
 
+  it("shows the target syllable and credits its matching answer", async () => {
+    renderComponent();
+    await act(async () => {});
+    fireEvent.click(screen.getByRole("button", { name: /empezar/i }));
+
+    const model = screen.getByTestId("practice-syllable-model");
+    expect(model).toBeVisible();
+    const syllable = model.textContent!.trim();
+    expect(syllable).toMatch(/^[a-záéíóú]+$/i);
+    expect(screen.getByText(/✓ 0/)).toBeVisible();
+
+    fireEvent.click(screen.getByRole("button", { name: syllable, exact: true }));
+    expect(screen.getByText(/✓ 1/)).toBeVisible();
+    expect(screen.getByText(/✗ 0/)).toBeVisible();
+    expect(SpeakMod.speak).not.toHaveBeenCalled();
+
+    vi.clearAllTimers();
+    vi.useRealTimers();
+  });
+
   it("opens the piano lesson picker at modo=piano", () => {
     window.history.pushState({}, "", "/?modo=piano");
     renderComponent();
