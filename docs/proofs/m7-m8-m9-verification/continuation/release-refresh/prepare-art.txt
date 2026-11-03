@@ -1,0 +1,5 @@
+
+> cartilla-de-gretel-platform@ prepare:art D:\Downloads\cartilla-1247-continuation-work\integration
+> node scripts/prepare-art-assets.mjs
+
+FINISHED_ART_PRESERVED 108 canonical groups

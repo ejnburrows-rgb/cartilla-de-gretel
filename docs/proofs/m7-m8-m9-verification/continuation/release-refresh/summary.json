@@ -1,0 +1,68 @@
+{
+  "checkedApplicationHead": "49747c7ef5fdff5926d463f491fad7c186b69d26",
+  "priorFullGateHead": "580e8ddb760a9574f4795410da2b5b658f6f0c86",
+  "fullDefaultRun": {
+    "exitCode": 1,
+    "recordedFiles": 218,
+    "passed": 2138,
+    "failed": 1,
+    "reportedSkipped": 0,
+    "missingFiles": [
+      {
+        "path": "tests/performance-budget.test.mjs",
+        "baselineCases": 7
+      },
+      {
+        "path": "scripts/__tests__/ardilla-tamper-resistance.test.ts",
+        "baselineCases": 5
+      },
+      {
+        "path": "src/lib/__tests__/production-art-audit.test.ts",
+        "baselineCases": 7
+      },
+      {
+        "path": "src/components/cartilla/__tests__/FlipchartHdPanel.test.tsx",
+        "baselineCases": 22
+      },
+      {
+        "path": "src/components/cartilla/__tests__/WorkbookWritingResponse.persistence.test.tsx",
+        "baselineCases": 13
+      }
+    ],
+    "status": "failed and incomplete; not a green full gate"
+  },
+  "targetedDefaultForkReplay": {
+    "exitCode": 1,
+    "files": 7,
+    "passed": 60,
+    "failed": 0,
+    "reportedSkipped": 0,
+    "runLevelError": "page-completion-gate fork worker did not start; timeout waiting for worker response",
+    "status": "60 assertions pass, process fails; not a green gate"
+  },
+  "oneFileThreadReplay": {
+    "exitCode": 0,
+    "passed": 12,
+    "failed": 0,
+    "reportedSkipped": 0,
+    "status": "alternate supported pool; does not replace default full-run failure"
+  },
+  "correctedReleaseE2E": {
+    "owner": "test_repairs",
+    "head": "c1e5e4c392c2c59a6404475a9677c2e6d8e2ef3f",
+    "status": "WAITING: current single-worker full attempt running; no final counts"
+  },
+  "sourcePagesWaiting": [
+    35,
+    41,
+    47,
+    53
+  ],
+  "physicalPhone": "NOT TESTED",
+  "physicalProjector": "NOT TESTED",
+  "mergeAuthorized": true,
+  "manualDeploymentAuthorized": true,
+  "automaticDeploymentEnabled": false,
+  "merged": false,
+  "deployed": false
+}
