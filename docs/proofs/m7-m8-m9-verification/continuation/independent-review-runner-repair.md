@@ -49,3 +49,17 @@ The completed output-preservation manifest reports 43 byte-copied and hash-verif
 Root separately reports a default-fork unit attempt that failed during worker startup after 60 seconds with zero tests. It is not an assertion result or passing unit evidence and does not establish a defect in this CSS repair. No repeat unit/browser/build job was launched by this reviewer.
 
 **WAITING:** actual repaired CRM browser proof, completed tablet observation and required integrated qualification. This remains bounded technical review, not formal final-head approval or release acceptance.
+
+## Completed selected replay acceptance at 0310d7c
+
+Exact evidence-only follow-up: `0310d7cbcc145641a73a3fd05ecac80835ad8023`, after application/test commit `610727d749f018c49826e2b5f31f7df84953b453`. **DONE but not live:** the previously pending original CRM laptop and tablet plate checks now have independently inspected completed passing evidence. The follow-up changes only proof/report files; no application or test expectations changed.
+
+The tablet-only raw JSON records one expected pass, zero failures/skips/flaky cases and no top-level errors; the terminal receipt records exit0 and finished time `2026-11-03T20:02:08Z`. Its results-file SHA-256 is `8f77e76427c0deeca894ffa9c2015649f7b3f0f9c4f62bdf8b1ffdb772c223ef`. The original all-teacher-plates tablet case completed under its unchanged existing limits. The prior resource-failed tablet attempt remains preserved and is not reclassified as passing or assigned a proven memory cause.
+
+The original CRM laptop raw JSON similarly records one pass, zero failures/skips/flaky cases and no top-level errors; the terminal receipt records exit0 and finished time `2026-11-03T20:04:55Z`. Its results-file SHA-256 is `ca7766d3ca2ed583090600e40e429116adf590de2f5793ffb839927260c09f8d`. Source inspection confirms the selected original test still uses an ordinary pointer click on `Volver al CRM` and checks activity persistence across reload, notes save/restore, separate learner identity/work, unaffected unrelated identity/work, CSV contents, a one-page PDF and zero captured backend calls. This is non-real-data demo proof, not live backend or actual printer proof.
+
+The reviewer ran only both stored Anti-Churn receipt verifiers: each returned PASS. The actual completion files hash to their accepted evidence digests (`c53a67f11fba5570e43079f5023c1d0d1be43a64a20ff2fa97f0c5c15020f352` for CRM; `7a2af3b7f01c0fca27f502c91d74e109e43242712b672393a12e1c6cd02792d8` for tablet), and the actual results bytes match the hashes recorded in those completion files. This verifies evidence linkage; the tests were not rerun by the reviewer.
+
+Direct image inspection confirms the CRM after-image shows the return control in its banner and the lesson selector on a separate row, with the complete workbook page visible; the report image shows Demo Ana's 8/8 event; the tablet plate62 image shows the scene and full caption/text. These are actual browser images, not physical-device or source-approval evidence.
+
+**WAITING:** complete integrated unit/browser gates, physical-device proof, outstanding source decisions and eligible exact-final-head formal review. Root's separately running Node24 worker-startup comparison is not a result in this review. No browser/build/test execution, merge or deployment was performed by the reviewer.
