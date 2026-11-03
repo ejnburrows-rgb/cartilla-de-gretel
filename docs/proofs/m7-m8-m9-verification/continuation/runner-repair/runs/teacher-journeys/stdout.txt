@@ -1,0 +1,40 @@
+
+
+
+
+Running 5 tests using 1 worker
+
+
+
+[1/5] [chromium] › tests\e2e\accessibility-preflight.spec.ts:275:3 › Non-Workbook Accessibility & Keyboard Preflight (#561 Excluded) › 5. Flip Chart presenter controls accessibility, ARIA labels, and keyboard navigation
+[2/5] [chromium] › tests\e2e\audio-preflight.spec.ts:41:3 › Audio Preflight Verification › mute controls consistently silence picture and Gretel playback
+[3/5] [chromium] › tests\e2e\audio-preflight.spec.ts:75:3 › Audio Preflight Verification › speech ownership prevents overlapping speech between Gretel and picture audio
+  1) [chromium] › tests\e2e\audio-preflight.spec.ts:75:3 › Audio Preflight Verification › speech ownership prevents overlapping speech between Gretel and picture audio 
+
+    Error: expect(received).toBe(expected) // Object.is equality
+
+    Expected: true
+    Received: false
+
+    Call Log:
+    - Timeout 5000ms exceeded while waiting on the predicate
+
+      94 |       const log = await page.evaluate(() => (window as any).audioPreflightLog.audio);
+      95 |       return log.some((item: any) => item.action === 'pause' && item.src === '/test-approved/oso.mp3');
+    > 96 |     }).toBe(true);
+         |        ^
+      97 |
+      98 |     await page.screenshot({ path: 'docs/proofs/audio-preflight/single-speech-owner.png', fullPage: true });
+      99 |   });
+        at D:\Downloads\cartilla-1247-continuation-work\test-repairs\tests\e2e\audio-preflight.spec.ts:96:8
+
+    Error Context: docs\proofs\m7-m8-m9-verification\continuation\runner-repair\runs\teacher-journeys\artifacts\audio-preflight-Audio-Pref-ce6b2-en-Gretel-and-picture-audio-chromium\error-context.md
+
+
+
+
+[4/5] [chromium] › tests\e2e\audio-preflight.spec.ts:128:3 › Audio Preflight Verification › page turn / navigation tears down pending audio playback
+[5/5] [chromium] › tests\e2e\final-candidate.spec.ts:155:4 › all teacher plates, final artwork and geometry — projector
+  1 failed
+    [chromium] › tests\e2e\audio-preflight.spec.ts:75:3 › Audio Preflight Verification › speech ownership prevents overlapping speech between Gretel and picture audio 
+  4 passed (1.3m)
