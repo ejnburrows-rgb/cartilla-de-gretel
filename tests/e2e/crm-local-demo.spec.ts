@@ -1,5 +1,43 @@
 import { test, expect, type Page } from '@playwright/test';
 import { readFile } from 'node:fs/promises';
+import { appendFileSync, writeFileSync } from 'node:fs';
+
+const readinessDiagnostic = process.env.PLAYWRIGHT_CRM_DIAGNOSTICS === '1';
+test.beforeEach(async ({ page }, testInfo) => {
+ if(!readinessDiagnostic) return;
+ const destination=testInfo.outputPath('crm-readiness-events.ndjson');
+ const log=(kind:string,detail:unknown)=>appendFileSync(destination,JSON.stringify({utc:new Date().toISOString(),kind,detail})+'\n');
+ const pathname=(url:string)=>{try{return new URL(url).pathname;}catch{return 'unparseable';}};
+ page.on('domcontentloaded',()=>log('domcontentloaded',pathname(page.url())));
+ page.on('load',()=>log('load',pathname(page.url())));
+ page.on('requestfailed',request=>log('requestfailed',{path:pathname(request.url()),failure:request.failure()?.errorText}));
+ page.on('response',response=>{if(response.status()>=400)log('http-error',{path:pathname(response.url()),status:response.status()});});
+ page.on('pageerror',error=>log('pageerror',{name:error.name,message:error.message.slice(0,400)}));
+ await page.exposeFunction('__crmReportReadiness',(state:unknown)=>log('heading-ready',state));
+ await page.addInitScript(()=>{
+  const state=(window as any).__crmReadiness={documentStarted:performance.now(),domReady:null,headingReady:null};
+  document.addEventListener('DOMContentLoaded',()=>{
+   state.domReady=performance.now();
+   const observe=()=>{
+    if(document.querySelector('h1')?.textContent?.trim()!=='Hoy en tu clase')return;
+    state.headingReady=performance.now();observer.disconnect();
+    void (window as any).__crmReportReadiness({...state}).catch(()=>{});
+   };
+   const observer=new MutationObserver(observe);
+   observer.observe(document.documentElement,{subtree:true,childList:true});observe();
+  });
+ });
+});
+test.afterEach(async ({ page },testInfo)=>{
+ if(!readinessDiagnostic)return;
+ const diagnostic=await page.evaluate(()=>({
+  readiness:(window as any).__crmReadiness,
+  navigation:performance.getEntriesByType('navigation').map(entry=>{const value=entry as PerformanceNavigationTiming;return {responseEnd:value.responseEnd,domContentLoadedEventEnd:value.domContentLoadedEventEnd,loadEventEnd:value.loadEventEnd,duration:value.duration};}),
+  resources:performance.getEntriesByType('resource').map(entry=>{const value=entry as PerformanceResourceTiming;return {path:new URL(value.name).pathname,start:value.startTime,responseEnd:value.responseEnd,duration:value.duration,bytes:value.transferSize};}),
+ })).catch(error=>({unavailable:String(error)}));
+ writeFileSync(testInfo.outputPath('crm-readiness.json'),JSON.stringify(diagnostic,null,2));
+ if(testInfo.status!==testInfo.expectedStatus)await page.screenshot({path:testInfo.outputPath('failure.png'),fullPage:true}).catch(()=>{});
+});
 
 async function noOverflow(page: Page) {
   expect(await page.evaluate(() => document.documentElement.scrollWidth-document.documentElement.clientWidth)).toBeLessThanOrEqual(1);
