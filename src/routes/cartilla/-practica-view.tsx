@@ -412,6 +412,14 @@ export function Practica() {
               <div className="text-xs text-foreground font-bold uppercase tracking-wide">
                 Elige la sílaba que coincide con el modelo visual
               </div>
+              <p
+                className="mt-3 text-5xl font-bold text-foreground"
+                data-testid="practice-syllable-model"
+                aria-live="polite"
+                aria-atomic="true"
+              >
+                {current.syllable}
+              </p>
               <div className="grid grid-cols-2 gap-3 mt-5">
                 {current.options.map((opt) => (
                   <button
