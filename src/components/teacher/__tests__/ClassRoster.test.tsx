@@ -3,7 +3,7 @@ import { cleanup, render, screen, fireEvent, waitFor } from "@testing-library/re
 import { afterEach, beforeEach, describe, expect, it, vi } from "vitest";
 import { ClassRoster } from "../ClassRoster";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
-import { listClasses, getClass } from "@/lib/teacher.functions";
+import { listClasses, getClass, deleteStudent } from "@/lib/teacher.functions";
 
 vi.mock("@/lib/teacher.functions", () => ({
   listClasses: vi.fn(),
@@ -212,5 +212,44 @@ describe("ClassRoster error handling", () => {
     });
     expect(screen.getByText("Miembros de la Clase")).toBeTruthy();
     expect(screen.getByText("Ana")).toBeTruthy();
+  });
+
+  it("displays error state when deleteStudent rejects", async () => {
+    const classData = {
+      class: {
+        id: "class-1",
+        name: "Class 1",
+        join_code: "1234",
+        created_at: "2024-01-01T00:00:00Z"
+      },
+      students: [{
+        id: "s-1",
+        display_name: "Ana",
+        student_code: "A1",
+        created_at: "2024-01-01T00:00:00Z",
+        archived_at: null,
+        teacher_notes: null,
+        events: 0,
+        lessons: 0,
+        lastSeen: null,
+        completionPercent: 0
+      }]
+    };
+    vi.mocked(listClasses).mockResolvedValueOnce([
+      { id: "class-1", name: "Class 1", join_code: "1234", student_count: 1, created_at: "2024-01-01T00:00:00Z" }
+    ]);
+    vi.mocked(getClass).mockResolvedValueOnce(classData);
+    vi.mocked(deleteStudent).mockRejectedValueOnce(new Error("Error sintético al eliminar"));
+    vi.spyOn(window, "confirm").mockImplementation(() => true);
+
+    renderComponent();
+
+    expect(await screen.findByText("Ana")).toBeTruthy();
+
+    const deleteButton = await screen.findByTitle("Eliminar Alumno");
+    fireEvent.click(deleteButton);
+
+    expect(await screen.findByText("Error sintético al eliminar")).toBeTruthy();
+    expect(deleteStudent).toHaveBeenCalledWith({ data: { id: "s-1" } });
   });
 });
