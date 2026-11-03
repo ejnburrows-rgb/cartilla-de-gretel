@@ -1,0 +1,22 @@
+{
+  "startedUtc": "2026-11-03T18:37:01.177Z",
+  "pid": 14692,
+  "mode": "default Chromium, zero Vite servers, unchanged timeouts",
+  "stages": [
+    {
+      "name": "launch",
+      "ms": 302.3981
+    },
+    {
+      "name": "newPage",
+      "ms": 688.1439
+    },
+    {
+      "name": "setContent/textContent",
+      "ms": 3797.3309000000004
+    }
+  ],
+  "text": "Browser fixture probe",
+  "pass": true,
+  "finishedUtc": "2026-11-03T18:37:06.645Z"
+}

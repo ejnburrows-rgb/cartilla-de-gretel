@@ -479,12 +479,20 @@ export function FlipchartHdPanel({ lessonNumber, accentColor, chrome = "full" }:
     : { inset: 0 };
   const hinge = leaf ? Math.round(leaf.width * HINGE_SHARE) : 0;
 
-  const leftCornerLabel =
+  const hasPrevious = safeIdx > 0;
+  const hasNext = safeIdx < pages.length - 1;
+  const leftCornerEnabled = handMode === "left" ? hasNext : hasPrevious;
+  const rightCornerEnabled = handMode === "left" ? hasPrevious : hasNext;
+  const leftCornerLabel = !leftCornerEnabled
+    ? `Lámina ${handMode === "left" ? "siguiente" : "anterior"} no disponible`
+    :
     handMode === "left"
       ? `Lámina siguiente (${safeIdx + 2} de ${pages.length})`
       : `Lámina anterior (${safeIdx} de ${pages.length})`;
 
-  const rightCornerLabel =
+  const rightCornerLabel = !rightCornerEnabled
+    ? `Lámina ${handMode === "left" ? "anterior" : "siguiente"} no disponible`
+    :
     handMode === "left"
       ? `Lámina anterior (${safeIdx} de ${pages.length})`
       : `Lámina siguiente (${safeIdx + 2} de ${pages.length})`;
@@ -588,7 +596,8 @@ export function FlipchartHdPanel({ lessonNumber, accentColor, chrome = "full" }:
                 <div
                   className={`fc-corner fc-corner--left${laserPointerActive ? " pointer-events-none" : ""}`}
                   role="button"
-                  tabIndex={laserPointerActive ? -1 : 0}
+                  tabIndex={leftCornerEnabled ? 0 : -1}
+                  aria-disabled={!leftCornerEnabled}
                   aria-label={leftCornerLabel}
                   data-testid="flipchart-corner-left"
                   onPointerDown={(e) => handleCornerPointerDown(e, "left")}
@@ -603,7 +612,8 @@ export function FlipchartHdPanel({ lessonNumber, accentColor, chrome = "full" }:
                 <div
                   className={`fc-corner fc-corner--right${laserPointerActive ? " pointer-events-none" : ""}`}
                   role="button"
-                  tabIndex={laserPointerActive ? -1 : 0}
+                  tabIndex={rightCornerEnabled ? 0 : -1}
+                  aria-disabled={!rightCornerEnabled}
                   aria-label={rightCornerLabel}
                   data-testid="flipchart-corner-right"
                   onPointerDown={(e) => handleCornerPointerDown(e, "right")}
@@ -659,9 +669,23 @@ export function FlipchartHdPanel({ lessonNumber, accentColor, chrome = "full" }:
               type="button"
               role="tab"
               aria-selected={index === safeIdx}
-              disabled={isFlipping || index === safeIdx}
+              aria-disabled={isFlipping || undefined}
+              tabIndex={index === safeIdx ? 0 : -1}
               className={`fc-board__thumb${index === safeIdx ? " is-active" : ""}`}
               onClick={() => goTo(index, index > safeIdx ? "next" : "prev")}
+              onKeyDown={(event) => {
+                const nextIndex = event.key === "ArrowRight" ? (index + 1) % pages.length
+                  : event.key === "ArrowLeft" ? (index + pages.length - 1) % pages.length
+                  : event.key === "Home" ? 0
+                  : event.key === "End" ? pages.length - 1
+                  : null;
+                if (nextIndex === null) return;
+                event.preventDefault();
+                event.stopPropagation();
+                if (isFlipping) return;
+                event.currentTarget.parentElement?.querySelectorAll<HTMLButtonElement>('[role="tab"]')[nextIndex]?.focus();
+                goTo(nextIndex, nextIndex > safeIdx ? "next" : "prev");
+              }}
               aria-label={`Ir a hoja ${index + 1}`}
             >
               <FlipchartNativeBoard page={page} decorative />

@@ -1,0 +1,32 @@
+{
+  "startedUtc": "2026-11-03T18:32:18.838592+00:00",
+  "wrapperPid": 12112,
+  "head": "36666181dbb29e64f857a6799e906a090deaa0a7",
+  "command": [
+    "pnpm.cmd",
+    "exec",
+    "playwright",
+    "test",
+    "tests/e2e/activity-completion-foundation.spec.ts",
+    "--grep",
+    "^p2 uses shared pencil",
+    "--project=chromium",
+    "--workers=1",
+    "--reporter=line,json",
+    "--output=D:\\Downloads\\cartilla-1247-continuation-work\\test-repairs\\docs\\proofs\\m7-m8-m9-verification\\continuation\\runner-repair\\crash-p2\\artifacts"
+  ],
+  "status": "finished",
+  "runnerPid": 40804,
+  "exitCode": 1,
+  "jsonPresent": true,
+  "jsonSha256": "177b9a96dcb2b76cefede0598df65416bdc713e4682a5191b2d0cd3143ef659b",
+  "stats": {
+    "startTime": "2026-11-03T18:32:24.891Z",
+    "duration": 87827.16900000001,
+    "expected": 0,
+    "skipped": 0,
+    "unexpected": 0,
+    "flaky": 0
+  },
+  "finishedUtc": "2026-11-03T18:33:52.797182+00:00"
+}
