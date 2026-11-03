@@ -1,5 +1,7 @@
 # Independent bounded runner and teacher-control review
 
+**Production artifact correction:** the earlier complete-unit section's description of the 324b1383 build as a production artifact is superseded by [the independent runtime correction](independent-review-production-runtime.md). Its unit results remain valid; its build inherited the test environment and contained development React/JSX.
+
 Exact reviewed worker commit: `267965c9c94a999fe0daa357bc5e0d43c32db39f`. Root reports the identical changed files integrated as `90ae9417`; this review's direct source identity is the worker commit. Reviewer: `independent_review`, review-only on the original review branch.
 
 ## Material conclusions
