@@ -1,0 +1,34 @@
+{
+  "status": "INCOMPLETE / RELEASE HOLD",
+  "worktreeHeadDuringRun": "c1e5e4c392c2c59a6404475a9677c2e6d8e2ef3f",
+  "rootMatchingAppHead": "49747c7ef5fdff5926d463f491fad7c186b69d26",
+  "command": "pnpm test:e2e --workers=1 '--reporter=line,json' --output=work/release-e2e-sequential-artifacts",
+  "jsonOutputEnv": "PLAYWRIGHT_JSON_OUTPUT_FILE=absolute work/release-e2e-sequential-results.json",
+  "plannedTests": 353,
+  "lastScheduledIndex": 100,
+  "lastScheduledTitle": "[chromium] \u203a tests\\e2e\\final-candidate.spec.ts:219:1 \u203a workbook lessons 1-12, page activities and Next gate",
+  "partialFailureReports": 63,
+  "completeCounts": null,
+  "finalJsonEmitted": false,
+  "terminalReceiptForCorrectedRun": null,
+  "failureClassificationCounts": {
+    "flipchart_keyboard_page_counter_mismatch": 1,
+    "observed_browser_page_crash": 42,
+    "other_assertion_or_runtime_failure": 3,
+    "other_timeout_or_missing_locator": 16,
+    "welcome_heading_selector_contract_mismatch": 1
+  },
+  "classificationLimits": "Bounded categories of recorded errors only. Selector/behavior failures and page crashes preserved. No blanket app/host/test root-cause attribution. Scheduled index is not completed/passed count.",
+  "interruptionCause": "Unknown. At later readback no owned runner/workers/servers or final JSON existed; unified exec session58005 was unavailable. Tool interruption observed in conversation, but causal termination link not established.",
+  "lastStdoutModifiedUtc": "2026-11-03T16:43:40.455986+00:00",
+  "correctionsFromPriorAttempt": [
+    "Root test/build/browser activity ended before execution",
+    "One worker instead of two",
+    "Idle readiness newPage~9s demonstrated by integration owner",
+    "Rapid practice existing-target display fix included",
+    "Line progress plus installed-supported JSON output file"
+  ],
+  "reporterArgumentRepair": "A separate initial invocation failed before collection/server startup because unquoted PowerShell comma became line json. Logs retained separately; intended quoted invocation then scheduled353tests.",
+  "noSourceAssertionBudgetTimeoutChangesDuringRun": true,
+  "retry": "NONE after interruption; do not restart broad gate unchanged"
+}
