@@ -19,10 +19,34 @@ def create_run_directory(root, label):
     target.mkdir(parents=True, exist_ok=False)
     return target
 
+def require_pending_reservation(path):
+    try:
+        receipt = json.loads(path.read_text(encoding='utf-8-sig'))
+    except (OSError, ValueError) as error:
+        raise ValueError('Missing or malformed reservation') from error
+    if (not isinstance(receipt, dict)
+        or receipt.get('decision') not in ('allow', 'allow_reexecution')
+        or receipt.get('outcome') != 'pending'
+        or receipt.get('evidence_accepted') is not False
+        or path.with_name('accepted.json').exists()):
+        raise ValueError('Action has no unaccepted pending execution reservation')
+    return receipt
+
+def launch_reserved(reservation, command, **options):
+    require_pending_reservation(reservation)
+    return subprocess.Popen(command, **options)
+
 def main(argv):
     root = checkout_root()
     if len(argv) < 2:
         raise ValueError('Provide a unique run label and selected test arguments')
+    if not re.fullmatch(r'[A-Za-z0-9][A-Za-z0-9_-]{0,63}', argv[0]):
+        raise ValueError('Use a simple unique run label')
+    base = (root / 'docs/proofs/m7-m8-m9-verification/continuation/runner-repair').resolve()
+    reservation = (base / argv[0] / 'reservation.json').resolve()
+    if not base.is_relative_to(root) or not reservation.is_relative_to(base):
+        raise ValueError('Reservation leaves the checkout')
+    require_pending_reservation(reservation)
     directory = create_run_directory(root, argv[0])
     command = ['pnpm.cmd' if os.name == 'nt' else 'pnpm', 'exec', 'playwright', 'test', *argv[1:], '--workers=1', '--reporter=line,json', '--output=' + str(directory / 'artifacts')]
     env = dict(os.environ, PLAYWRIGHT_JSON_OUTPUT_FILE=str(directory / 'results.json'))
@@ -35,7 +59,7 @@ def main(argv):
     save()
     try:
         with (directory / 'stdout.txt').open('x', encoding='utf-8') as out, (directory / 'stderr.txt').open('x', encoding='utf-8') as err:
-            process = subprocess.Popen(command, stdout=out, stderr=err, cwd=root, env=env)
+            process = launch_reserved(reservation, command, stdout=out, stderr=err, cwd=root, env=env)
             record['runnerPid'] = process.pid
             save()
             record['exitCode'] = process.wait()
