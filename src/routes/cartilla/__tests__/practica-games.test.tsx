@@ -19,7 +19,7 @@ vi.mock("@/components/cartilla/ActivityCarousel", () => ({
   ),
 }));
 
-import { Practica } from "../practica";
+import { Practica } from "../-practica-view";
 
 afterEach(() => {
   cleanup();
