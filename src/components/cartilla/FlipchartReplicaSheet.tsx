@@ -235,7 +235,7 @@ export function FlipchartReplicaSheet({ pageNumber, decorative = false }: { page
                 <LivingIllustration
                   src={item.art.src}
                   alt={decorative ? "" : item.art.word}
-                  static={decorative}
+                  static={decorative || item.art.motionDisabled}
                   loading={decorative ? "lazy" : "eager"}
                   className="fc-replica__living"
                 />

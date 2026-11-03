@@ -34,7 +34,7 @@ type RawItem = {
   spaced?: boolean;
 };
 
-type RawAsset = { word: string; src: string; crop: number[]; role?: string; labelInImage?: boolean };
+type RawAsset = { word: string; src: string; crop: number[]; role?: string; labelInImage?: boolean; motionDisabled?: boolean };
 
 const RAW_TEXT = { ...firstPages, ...middlePages, ...lastPages } as unknown as Record<string, RawItem[]>;
 const FRAMES = frames as Record<string, { width: number; height: number }>;
@@ -126,6 +126,8 @@ export type ReplicaCrescent = {
 };
 export type ReplicaDivider = { x: number; y: number; w: number; h: number; stops: string[] };
 export type ReplicaArt = {
+  /** Source repairs stay still until motion is checked against their new geometry. */
+  motionDisabled: boolean;
   /** Image element rect (sheet units) such that the drawn area fills the printed box. */
   x: number;
   y: number;
@@ -764,7 +766,7 @@ export function getReplicaSheet(page: number): ReplicaSheet | null {
   const art: ReplicaArt[] = (ASSETS[String(page)] ?? []).map((asset) => {
     const [cx, cy, cw, ch] = (asset.crop.map(Number) as [number, number, number, number]).map((v) => v * sx) as [number, number, number, number];
     const bounds = ART_BOUNDS[asset.src];
-    const base = { src: asset.src, word: asset.word, scene: asset.role === "scene", labelInImage: Boolean(asset.labelInImage) };
+    const base = { src: asset.src, word: asset.word, scene: asset.role === "scene", labelInImage: Boolean(asset.labelInImage), motionDisabled: Boolean(asset.motionDisabled) };
     if (!bounds) return { ...base, x: cx, y: cy, w: cw, h: ch, clip: [0, 0, 0, 0] as [number, number, number, number] };
     const [nw, nh, bl, bt, bw, bh] = bounds;
     // Where the drawing sits on the printed scan (template match); otherwise
