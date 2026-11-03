@@ -1,0 +1,152 @@
+{
+  "candidateHead": "4d73acf7647d04f4f02a4cf2cef4acae8dc14025",
+  "decision": "REUSE material review and bounded security triage; RECONCILE missing formal review; HOLD",
+  "threads": [
+    {
+      "id": "PRRT_kwDOSfBV9s6zKT71",
+      "path": "docs/proofs/m7-m8-m9-verification/continuation/independent-review-source-alpha.py",
+      "line": 23,
+      "isResolved": false,
+      "isOutdated": false,
+      "alert": "135",
+      "commentId": 4455792852
+    },
+    {
+      "id": "PRRT_kwDOSfBV9s6zKT8I",
+      "path": "docs/proofs/m7-m8-m9-verification/continuation/independent-review-source-alpha.py",
+      "line": 31,
+      "isResolved": false,
+      "isOutdated": false,
+      "alert": "134",
+      "commentId": 4455792881
+    },
+    {
+      "id": "PRRT_kwDOSfBV9s6zKT8Z",
+      "path": "docs/proofs/m7-m8-m9-verification/continuation/independent-review-source-alpha.py",
+      "line": 32,
+      "isResolved": false,
+      "isOutdated": false,
+      "alert": "133",
+      "commentId": 4455792911
+    },
+    {
+      "id": "PRRT_kwDOSfBV9s6zKT8p",
+      "path": "docs/proofs/m7-m8-m9-verification/continuation/lesson4-source-provenance.py",
+      "line": 27,
+      "isResolved": false,
+      "isOutdated": false,
+      "alert": "131",
+      "commentId": 4455792931
+    },
+    {
+      "id": "PRRT_kwDOSfBV9s6zKT82",
+      "path": "docs/proofs/m7-m8-m9-verification/continuation/lesson4-source-provenance.py",
+      "line": 34,
+      "isResolved": false,
+      "isOutdated": false,
+      "alert": "130",
+      "commentId": 4455792950
+    },
+    {
+      "id": "PRRT_kwDOSfBV9s6zKT8_",
+      "path": "docs/proofs/m7-m8-m9-verification/continuation/lesson4-source-provenance.py",
+      "line": 35,
+      "isResolved": false,
+      "isOutdated": false,
+      "alert": "132",
+      "commentId": 4455792970
+    },
+    {
+      "id": "PRRT_kwDOSfBV9s6zKT9O",
+      "path": "docs/proofs/m7-m8-m9-verification/continuation/restore-lesson4-ground.py",
+      "line": 15,
+      "isResolved": false,
+      "isOutdated": false,
+      "alert": "138",
+      "commentId": 4455793001
+    },
+    {
+      "id": "PRRT_kwDOSfBV9s6zKT9a",
+      "path": "docs/proofs/m7-m8-m9-verification/continuation/restore-lesson4-ground.py",
+      "line": 33,
+      "isResolved": false,
+      "isOutdated": false,
+      "alert": "136",
+      "commentId": 4455793023
+    },
+    {
+      "id": "PRRT_kwDOSfBV9s6zKT9o",
+      "path": "docs/proofs/m7-m8-m9-verification/continuation/restore-lesson4-ground.py",
+      "line": 33,
+      "isResolved": false,
+      "isOutdated": false,
+      "alert": "139",
+      "commentId": 4455793040
+    },
+    {
+      "id": "PRRT_kwDOSfBV9s6zKT9u",
+      "path": "docs/proofs/m7-m8-m9-verification/continuation/restore-lesson4-ground.py",
+      "line": 34,
+      "isResolved": false,
+      "isOutdated": false,
+      "alert": "137",
+      "commentId": 4455793053
+    },
+    {
+      "id": "PRRT_kwDOSfBV9s6zKT90",
+      "path": "docs/proofs/m7-m8-m9-verification/continuation/runtime-check.mjs",
+      "line": 10,
+      "isResolved": false,
+      "isOutdated": false,
+      "alert": "140",
+      "commentId": 4455793071
+    }
+  ],
+  "graphify": {
+    "repository": "ejnburrows-rgb/cartilla-de-gretel",
+    "pr_number": 1247,
+    "pr_title": "feat(welcome): living grand book cover with authentic butterflies, breathing Gretel and blink animations; clean student lessons route",
+    "pr_url": "https://github.com/ejnburrows-rgb/cartilla-de-gretel/pull/1247",
+    "pr_state": "open",
+    "head_sha": "61a6bd7b279f261254573ddc5a8ffef18df98283",
+    "status": "completed",
+    "superseded": false,
+    "created_at": "2026-11-02T17:11:58.650075+00:00",
+    "updated_at": "2026-11-02T17:31:05.705323+00:00",
+    "gate": "pass",
+    "blocking_count": 0,
+    "advisory_count": 1,
+    "findings_total": 0,
+    "top_findings": []
+  },
+  "reviewerIdentity": {
+    "currentGithubAccount": "ejnburrows-rgb",
+    "prAuthor": "ejnburrows-rgb",
+    "listedCollaborators": [
+      "ejnburrows-rgb"
+    ],
+    "eligibleDistinctHumanFound": false
+  },
+  "protection": {
+    "enforceAdmins": true,
+    "requiredConversationResolution": true,
+    "requiredApprovingReviewCount": 0,
+    "linearHistory": true,
+    "forcePushes": false,
+    "deletions": false
+  },
+  "formalReviews": [
+    {
+      "id": 5740426046,
+      "author": "graphify-labs[bot]",
+      "state": "COMMENTED",
+      "commit": "61a6bd7b279f261254573ddc5a8ffef18df98283"
+    },
+    {
+      "id": 5753596988,
+      "author": "github-advanced-security[bot]",
+      "state": "COMMENTED",
+      "commit": "4d73acf7647d04f4f02a4cf2cef4acae8dc14025"
+    }
+  ]
+}
