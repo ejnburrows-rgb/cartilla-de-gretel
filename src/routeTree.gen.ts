@@ -143,7 +143,9 @@ const CartillaPracticaRoute = CartillaPracticaRouteImport.update({
   id: '/cartilla/practica',
   path: '/cartilla/practica',
   getParentRoute: () => rootRouteImport,
-} as any)
+} as any).lazy(() =>
+  import('./routes/cartilla/practica.lazy').then((d) => d.Route),
+)
 const CartillaMiProgresoRoute = CartillaMiProgresoRouteImport.update({
   id: '/cartilla/mi-progreso',
   path: '/cartilla/mi-progreso',

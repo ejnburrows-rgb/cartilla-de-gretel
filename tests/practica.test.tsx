@@ -1,7 +1,7 @@
 import { describe, it, expect, vi, beforeEach, afterEach } from "vitest";
 import { render, screen, act, waitFor, fireEvent } from "@testing-library/react";
 import "@testing-library/jest-dom";
-import { Route } from "../src/routes/cartilla/practica";
+import { Practica } from "../src/routes/cartilla/-practica-view";
 import * as SpeakMod from "../src/lib/speak";
 import { LanguageProvider } from "../src/context/LanguageContext";
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
@@ -11,7 +11,7 @@ vi.mock("../src/lib/speak", () => ({
   speak: vi.fn(),
 }));
 
-const PracticaComponent = Route.options.component;
+const PracticaComponent = Practica;
 
 describe("Practica route", () => {
   let router;

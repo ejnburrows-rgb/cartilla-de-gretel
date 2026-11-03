@@ -1,6 +1,5 @@
 import { createFileRoute, redirect } from "@tanstack/react-router";
 import { isSeedAdmin, isSeedSessionActive } from "@/lib/seed-data";
-import { isCurrentUserLiveAdmin } from "@/lib/admin-overview.functions";
 
 export const Route = createFileRoute("/cartilla/teacher/admin")({
   beforeLoad: async () => {
@@ -8,6 +7,7 @@ export const Route = createFileRoute("/cartilla/teacher/admin")({
       if (!isSeedAdmin()) throw redirect({ to: "/cartilla/teacher/crm" });
       return;
     }
+    const { isCurrentUserLiveAdmin } = await import("@/lib/admin-overview.functions");
     if (!(await isCurrentUserLiveAdmin())) {
       throw redirect({ to: "/cartilla/teacher/crm" });
     }
