@@ -86,3 +86,25 @@ WAITING: clean full illustrations for **page 35 (Bebo with bat, cloud/ball and g
 - WAITING: owner yes/no for CC0 Freesound OwlStorm #151221 page-turn sound.
 - Deployment not authorized; `vercel.json` remains `git.deploymentEnabled:false`.
 - NOT TESTED: physical-phone cover performance, full artwork pixel matching and classroom projector enlargement. Authentic Gretel recording inventory and smoother student activities remain separate tasks.
+
+## Final built-browser verification
+
+Application source revision: `fc3ca94e5344dd4588b22ec3a35da257b0b7c732`. Later evidence-only commits do not change application code.
+
+- Typecheck exit 0. Six focused suites / **59 passed** after original UTF-8 Spanish labels were restored.
+- The full-suite performance check invokes a fresh `pnpm exec vite build`; its final build is the one served on `http://127.0.0.1:4173` for the following captures.
+- Actual built `/`, `/cartilla/lecciones`, `/cartilla/teacher/flipchart` and `/cartilla/presentar/4` captured at **1366x768** and **390x844**. Both the presentation link and actual browser fullscreen control worked. The entire presentation sheet stays inside the viewport; desktop sheet height exceeded 600 px. Portrait proportions necessarily leave side margins on wide screens. Normal phone classroom mode scrolls; the presentation route fits the whole sheet.
+- Source-restored pages 26/29/32/38/62 were opened in the built app with normal motion preferences; each showed `data-ambient-motion=none` and `data-natural-motion=false`. Old animation masks are disabled pending re-verification on the expanded art.
+- Cover video: [final-cover-motion.webm](final-cover-motion.webm). Two recorded frames differ within the cover artwork, bounding box `(519,209)-(823,551)`.
+- Page-turn video: [final-page-turn-verified.webm](final-page-turn-verified.webm). Normal clicks advanced to Hoja 2 and returned to Hoja 1. The floating Demo launcher had blocked Previous during the first attempt; commit 94423b6d moved it above the navigation. `final-outward-page-turn.webm` preserves the failed reproduction; it is not passing evidence.
+- [Desktop fullscreen](built-fullscreen-1366.png), [phone presentation](built-presentation-390.png), [desktop classroom](built-flipchart-1366.png), [phone classroom](built-flipchart-390.png), [phone lessons](built-lessons-390.png), [desktop cover](built-cover-1366.png).
+- Zero browser console errors in the verified flows. Warnings: missing Supabase configuration / demo mode, and a route export/code-splitting warning.
+- The [Freesound source page](https://freesound.org/people/OwlStorm/sounds/151221/) was read again on 2026-11-03: the author states CC0 and the page links Creative Commons 0. Owner sound acceptance is still WAITING.
+
+## Stable-revision full suite
+
+`fc3ca94e`: **2,154 passed / 30 failed / 7 skipped; 11 failed result files**. The same test counts reproduced on the final stable application revision. Full failing assertions are in [full-suite-results.json](full-suite-results.json). Untracked historical tests were intentionally preserved in the checkout and participated in this full run; they were not added to the PR. Seven performance-budget assertions were skipped after the suite hook failed; its JSON result does not include the hook error text. No performance-budget acceptance is claimed. A separate final production build is run outside the test hook.
+
+WAITING: repair/reconcile the existing asset provenance and motion coverage assertions (including the newly restored p006 assets), unrelated Workbook/hash checks, Windows child-process test paths and historical proof/stress tests. Their causes are not all resolved or proven pre-existing. Do not merge this PR on the strength of 59 focused passes.
+
+Final standalone `vite build` on application revision fc3ca94e: **exit 0**; see [final-build.txt](final-build.txt). Typecheck and 59 focused tests passed on the same application source. The preview listener on 4173 and task browser session were stopped. No deployment was made. This PR remains **DONE but not live** for verified changes and **WAITING** for unresolved sources, failing full-suite checks, independent review and owner acceptance.
