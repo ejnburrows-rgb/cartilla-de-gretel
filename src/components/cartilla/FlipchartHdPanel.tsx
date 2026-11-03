@@ -30,6 +30,7 @@ import { useTeacherPresentation } from "@/lib/teacher-presentation-context";
 import { FlipchartNativeBoard } from "./FlipchartNativeBoard";
 import "@/styles/flipchart-presenter.css";
 import "@/styles/flipchart-turn.css";
+import flipchartFrames from "@/data/flipchart-frames.json";
 
 /**
  * Easel page turn: the sheet lifts from the bottom, swings up toward the
@@ -38,7 +39,7 @@ import "@/styles/flipchart-turn.css";
  */
 const TURN_EASE = "cubic-bezier(0.6, 0.02, 0.28, 1)";
 /** The spiral's holes sit this far below the sheet's top edge (share of sheet width). */
-const HINGE_SHARE = 0.054;
+const HINGE_SHARE = 0.024;
 
 type LeafBox = { left: number; top: number; width: number; height: number; innerW: number; innerH: number };
 
@@ -179,6 +180,7 @@ export function FlipchartHdPanel({ lessonNumber, accentColor, chrome = "full" }:
 
   const safeIdx = pages.length === 0 ? 0 : Math.min(selectedIdx, pages.length - 1);
   const currentPage = pages[safeIdx];
+  const pageFrame = (flipchartFrames as Record<string, { width: number; height: number }>)[String(currentPage?.flipchartPage)];
 
   const triggerCinematicZoom = useCallback(() => {
     setIsCinematicZooming(true);
@@ -488,6 +490,7 @@ export function FlipchartHdPanel({ lessonNumber, accentColor, chrome = "full" }:
       : `Lámina siguiente (${safeIdx + 2} de ${pages.length})`;
 
   const boardStyle = {
+    ["--fc-sheet-ratio" as string]: pageFrame ? pageFrame.width / pageFrame.height : 0.73,
     ...(accentColor ? { ["--fc-accent" as string]: accentColor } : {}),
     ["--fc-turn-ms" as string]: `${FLIPCHART_FLIP_MS}ms`,
   } as CSSProperties;
