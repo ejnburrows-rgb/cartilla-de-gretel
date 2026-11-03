@@ -1,13 +1,22 @@
 import { createRequire } from 'node:module';
-import { writeFileSync, mkdirSync, readFileSync } from 'node:fs';
+import { writeFileSync, mkdirSync, readFileSync, realpathSync, statSync, existsSync } from 'node:fs';
 import { createHash } from 'node:crypto';
-import { resolve } from 'node:path';
+import { resolve, dirname, isAbsolute, basename } from 'node:path';
+import { fileURLToPath } from 'node:url';
 import { execFileSync } from 'node:child_process';
-const require = createRequire(resolve('package.json'));
+const evidenceRoot = dirname(fileURLToPath(import.meta.url));
+const repo = resolve(evidenceRoot, '../../../..');
+if (realpathSync(process.cwd()) !== realpathSync(repo)) throw new Error('Run from the checkout containing this helper');
+if (realpathSync(evidenceRoot).toLowerCase() !== evidenceRoot.toLowerCase()) throw new Error('Redirected evidence directories are not allowed');
+const git = process.env.GIT_EXECUTABLE;
+if (!git || !isAbsolute(git) || !/^git(?:\.exe)?$/i.test(basename(git)) || !statSync(git).isFile()) throw new Error('GIT_EXECUTABLE must explicitly select an absolute Git executable');
+// A fresh directory preserves the accepted historical runtime evidence.
+const out = resolve(evidenceRoot, 'runtime-new');
+if (existsSync(out)) throw new Error('runtime-new already exists; preserve accepted evidence');
+mkdirSync(out);
+const require = createRequire(resolve(repo, 'package.json'));
 const { chromium } = require('playwright');
-const out = resolve('docs/proofs/m7-m8-m9-verification/continuation/runtime');
-mkdirSync(out, {recursive:true});
-const report = { head:execFileSync('git',['rev-parse','HEAD'],{encoding:'utf8'}).trim(), url:'http://127.0.0.1:4187', device:'Chromium touch emulation; no physical device', physicalPhone:'NOT TESTED', physicalProjector:'NOT TESTED', checks:[], consoleErrors:[], warnings:[] };
+const report = { head:execFileSync(realpathSync(git),['rev-parse','HEAD'],{encoding:'utf8',cwd:repo}).trim(), url:'http://127.0.0.1:4187', device:'Chromium touch emulation; no physical device', physicalPhone:'NOT TESTED', physicalProjector:'NOT TESTED', checks:[], consoleErrors:[], warnings:[] };
 const browser = await chromium.launch({headless:true});
 const check = (condition, message, detail={}) => { report.checks.push({result:condition?'PASS':'FAIL',message,...detail}); console.log(condition?'PASS':'FAIL',message); if (!condition) throw new Error(message); };
 const context = await browser.newContext({ viewport:{width:390,height:844},isMobile:true,hasTouch:true,reducedMotion:'no-preference',recordVideo:{dir:out,size:{width:390,height:844}} });
