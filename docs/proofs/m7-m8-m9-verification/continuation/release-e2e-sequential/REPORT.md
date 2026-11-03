@@ -14,8 +14,8 @@ Bounded classifications of the63 recorded reports:
 
 | Observed error category | Reports |
 | --- | ---: |
-| Browser `Page crashed` or `Target crashed` | 44 |
-| Other timeout or missing locator | 13 |
+| Browser `Page crashed` or `Target crashed` | 52 |
+| Other timeout or missing locator | 5 |
 | Spec hardcoded unconfigured localhost8790 | 1 |
 | Flip Chart ArrowRight page-counter mismatch | 1 |
 | Welcome heading selector-contract mismatch | 1 |
