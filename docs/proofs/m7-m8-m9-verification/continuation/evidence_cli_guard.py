@@ -1,9 +1,22 @@
 """Local evidence CLI boundaries; never trust caller-selected Git refs or paths."""
+import hashlib
 import re
 from pathlib import Path
 
 EVIDENCE_ROOT = Path(__file__).resolve().parent
 REPO_ROOT = EVIDENCE_ROOT.parents[3]
+LESSON4_SOURCE_SHA256 = 'd7fb3dff4e63caf3443226e57a9ef700f8974acd4ad8f08f44e2792e13cc4930'
+
+
+def read_lesson4_source(value):
+    """Read an operator-selected original at any location; decode only verified bytes."""
+    source = Path(value).resolve(strict=True)
+    if not source.is_file():
+        raise ValueError('Lesson 4 source must be a regular file')
+    data = source.read_bytes()
+    if hashlib.sha256(data).hexdigest() != LESSON4_SOURCE_SHA256:
+        raise ValueError('Lesson 4 source does not match the verified original PDF')
+    return data
 
 
 def checked_repo(value):
