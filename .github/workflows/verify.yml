@@ -1,24 +1,29 @@
 name: Verify
 
-# HISTORICAL manual-only workflow: retained for reference, NOT authorized to run under current owner instructions.
-# Do not invoke GitHub Actions or hosted runners unless the owner explicitly authorizes them in a future directive.
-# Direct Jules exact-head verification defined by AGENTS.md remains the approved route.
+# Owner-authorized 2026-11-01: lightweight verification on public-repository PRs.
+# No automatic merges, deployment, paid runners, or secrets.
+# The full visual audit remains manual. SonarQube Cloud remains advisory.
 on:
+  pull_request:
+    branches: [main]
   workflow_dispatch:
 
 permissions:
   contents: read
 
 concurrency:
-  group: verify-${{ github.ref }}
+  group: verify-${{ github.event.pull_request.number || github.ref }}
   cancel-in-progress: true
 
 jobs:
   build:
+    name: build
     runs-on: ubuntu-latest
-    timeout-minutes: 15
+    timeout-minutes: 20
     steps:
       - uses: actions/checkout@v4
+        with:
+          persist-credentials: false
       - uses: pnpm/action-setup@v4
         with:
           version: 10.33.0
@@ -27,5 +32,22 @@ jobs:
         with:
           node-version: 22
           cache: pnpm
-      - run: pnpm install --frozen-lockfile
-      - run: pnpm build
+      - name: Install exact locked dependencies
+        run: pnpm install --frozen-lockfile
+      - name: Validate project policy
+        run: pnpm verify:policy
+      - name: Typecheck
+        run: pnpm typecheck
+      # The current main has four confirmed failures in the full performance
+      # budget suite. Keep that investigation visible; do not make unrelated
+      # PRs unmergeable because of a known pre-existing baseline.
+      - name: Focused student, teacher and content regression tests
+        run: >-
+          pnpm exec vitest run
+          src/routes/__tests__/student-routing.test.tsx
+          src/routes/cartilla/__tests__/learner-resume-isolation.test.tsx
+          src/lib/__tests__/auth-role.test.ts
+          src/lib/__tests__/lesson-grading.test.ts
+          tests/practica.test.tsx
+      - name: Verify production bundle compiles
+        run: pnpm exec vite build
