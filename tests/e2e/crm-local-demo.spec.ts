@@ -48,7 +48,7 @@ async function noOverflow(page: Page) {
   }).map(el=>el.getAttribute('aria-label')||el.textContent))).toEqual([]);
 }
 for (const [name,width,height] of [['laptop',1366,768],['tablet',768,1024],['phone',390,844],['projector',1920,1080]] as const) {
- test(`local CRM demo completes student activity, notes, assignment and report at ${name} size without Supabase`,async({page})=>{
+ test(`local CRM demo completes student activity, notes, assignment and report at ${name} size without Supabase`,async({page},testInfo)=>{
   test.setTimeout(120000);
   await page.setViewportSize({width,height});
   const backendRequests:string[]=[];
@@ -112,6 +112,16 @@ for (const [name,width,height] of [['laptop',1366,768],['tablet',768,1024],['pho
   await expect(viewer).toHaveAttribute('data-page-complete','true',{timeout:15000});
   await page.reload();
   await expect(viewer).toHaveAttribute('data-page-complete','true');
+  const pictures=viewer.locator('.fp-ix-cell img.living-illustration__art');
+  await expect(pictures).toHaveCount(16);
+  const pictureState=()=>pictures.evaluateAll(images=>images.map(node=>{
+   const image=node as HTMLImageElement;
+   return {alt:image.alt,src:new URL(image.currentSrc||image.src).pathname,complete:image.complete,naturalWidth:image.naturalWidth};
+  }));
+  if(readinessDiagnostic)writeFileSync(testInfo.outputPath('student-images-before.json'),JSON.stringify(await pictureState(),null,2));
+  await expect.poll(async()=> (await pictureState()).filter(image=>!image.complete||image.naturalWidth===0),{message:'All sixteen workbook pictures must load before visual proof'}).toEqual([]);
+  await pictures.evaluateAll(images=>Promise.all(images.map(node=>(node as HTMLImageElement).decode())));
+  if(readinessDiagnostic)writeFileSync(testInfo.outputPath('student-images-ready.json'),JSON.stringify(await pictureState(),null,2));
   await page.screenshot({path:`docs/proofs/crm-demo/student-${name}.png`,fullPage:true});
   await page.getByRole('link',{name:'Volver al CRM',exact:true}).click();
   await expect(page.getByRole('heading',{name:'Demo Ana',exact:true,level:1})).toBeVisible();
