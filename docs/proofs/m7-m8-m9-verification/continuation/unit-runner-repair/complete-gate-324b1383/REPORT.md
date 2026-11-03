@@ -15,3 +15,7 @@ Raw commands/PIDs/exits/timestamps and frozen-source checks are in `completion.j
 Earlier startup failures remain unexplained; instrumentation is observation, not a claimed permanent fix. The complete run now supplies finished, passing configured-unit evidence under the recorded evaluator. Existing CSS minifier warnings at lines 318/1374 also occur in the earlier model-build log; no new warning-based product defect is inferred or hidden.
 
 Complete browser qualification, affected phone readiness, four owner source choices, physical-device proof and eligible final-head formal review remain separate requirements. No merge, deployment, production audio approval or whole-product completion is claimed.
+
+## Existing production artifact for entry diagnosis
+
+`post-build-dist-manifest.json` records 456 index/assets file hashes captured after this gate, linked to the immutable completion/build-log hashes. No other build job occurred before capture; production source/configuration and the working source diff remain unchanged from 324b1383. This is post-build capture, not a claimed contemporaneous build-time attestation. The old static `dist/build-version.txt` is disclosed as non-authoritative and is not used to identify this build or a release. Later proof/test-diagnostic changes are outside production Tailwind inputs (`source(none)` plus explicit `../src`, with tests excluded).
