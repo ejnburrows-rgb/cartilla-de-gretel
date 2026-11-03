@@ -80,17 +80,18 @@ export default defineConfig(({ mode }) => {
     ),
   },
   plugins: [
-    // The tracked route tree is already committed. Worker/browser verification
-    // uses --mode worker so dev startup cannot rewrite tracked generated files.
-    ...(mode === "worker"
-      ? []
-      : [
-          TanStackRouterVite({
-            target: "react",
-            autoCodeSplitting: true,
-            routeFileIgnorePattern: "__tests__",
-          }),
-        ]),
+    // Keep the production code-splitting transform in worker mode too. Its
+    // generator supplies the route map used by the splitter; disabling the
+    // whole plugin eagerly loads unrelated student/game components in the CRM.
+    // Each worker lane writes its generated tree outside tracked source.
+    TanStackRouterVite({
+      target: "react",
+      autoCodeSplitting: true,
+      routeFileIgnorePattern: "__tests__",
+      ...(mode === "worker"
+        ? { generatedRouteTree: path.join(root, "work", "router-worker", process.env.VITE_CRM_REVIEW === "false" ? "gated" : "open", "routeTree.gen.ts") }
+        : {}),
+    }),
     viteReact(),
     tailwindcss(),
     tsConfigPaths(),
