@@ -3,7 +3,7 @@ import { cleanup, render, screen, fireEvent, waitFor } from "@testing-library/re
 import { afterEach, beforeEach, describe, expect, it, vi } from "vitest";
 import { ClassRoster } from "../ClassRoster";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
-import { listClasses, getClass } from "@/lib/teacher.functions";
+import { listClasses, getClass, createClass } from "@/lib/teacher.functions";
 
 vi.mock("@/lib/teacher.functions", () => ({
   listClasses: vi.fn(),
@@ -52,6 +52,27 @@ const renderComponent = () => {
 };
 
 describe("ClassRoster error handling", () => {
+  it("displays error message when createClass rejects", async () => {
+    vi.mocked(listClasses).mockResolvedValueOnce([]);
+    vi.mocked(createClass).mockRejectedValueOnce(new Error("Error de prueba al crear clase"));
+
+    renderComponent();
+
+    // Wait for the empty state or form to be available
+    expect(await screen.findByText("Aún no tienes clases creadas")).toBeTruthy();
+
+    // Find the input and button
+    const input = screen.getByLabelText(/Nueva clase/i);
+    const button = screen.getByRole("button", { name: "Crear clase" });
+
+    // Type and submit
+    fireEvent.change(input, { target: { value: "Nueva Clase 123" } });
+    fireEvent.click(button);
+
+    // Verify error message
+    expect(await screen.findByText("Error de prueba al crear clase")).toBeTruthy();
+  });
+
   it("displays error state when listClasses rejects", async () => {
     vi.mocked(listClasses).mockRejectedValueOnce(new Error("Network Error"));
 
