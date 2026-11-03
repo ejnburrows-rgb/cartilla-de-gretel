@@ -9,7 +9,7 @@
     "drawingGroups": 201,
     "engravedOnMain": "2026-10-15"
   },
-  "timestamp": "2026-10-29T09:26:15.283Z",
+  "timestamp": "2026-11-03T13:28:45.206Z",
   "counts": {
     "faithfulWired": 110,
     "flipchartNativeWired": 167,
@@ -1633,24 +1633,24 @@
       "page": "6",
       "sourcePage": 6,
       "crop": [
-        48,
-        46,
-        402,
-        506
+        62,
+        54,
+        414,
+        545
       ],
       "classification": "PENDING NO VERIFIED SOURCE",
-      "dimensions": "560x560",
-      "bytes": 200364,
+      "dimensions": "950x1250",
+      "bytes": 924624,
       "exists": true,
       "verified": false,
       "sourcePageMatches": true,
       "hasCropEvidence": true,
       "cropMatch": false,
-      "aspectMatch": false,
-      "matchScore": 42,
-      "meanDiff": 33.5,
+      "aspectMatch": true,
+      "matchScore": 72,
+      "meanDiff": 20.5,
       "evidence": null,
-      "pendingReason": "no deterministic crop correspondence (ncc 0.422, mean diff 33.5, aspectMatch false)"
+      "pendingReason": "no deterministic crop correspondence (ncc 0.719, mean diff 20.5, aspectMatch true)"
     },
     {
       "src": "/cartilla/art/optimized/flipchart-native/p006-elefante.png",
@@ -1658,24 +1658,24 @@
       "page": "6",
       "sourcePage": 6,
       "crop": [
-        50,
-        645,
-        235,
-        228
+        58,
+        654,
+        220,
+        208
       ],
       "classification": "PENDING NO VERIFIED SOURCE",
-      "dimensions": "320x320",
-      "bytes": 90015,
+      "dimensions": "570x540",
+      "bytes": 249197,
       "exists": true,
       "verified": false,
       "sourcePageMatches": true,
       "hasCropEvidence": true,
       "cropMatch": false,
-      "aspectMatch": false,
-      "matchScore": 85,
-      "meanDiff": 23.9,
+      "aspectMatch": true,
+      "matchScore": 68,
+      "meanDiff": 45.4,
       "evidence": null,
-      "pendingReason": "no deterministic crop correspondence (ncc 0.851, mean diff 23.9, aspectMatch false)"
+      "pendingReason": "no deterministic crop correspondence (ncc 0.676, mean diff 45.4, aspectMatch true)"
     },
     {
       "src": "/cartilla/art/optimized/flipchart-native/p006-espejo.png",
@@ -1683,24 +1683,24 @@
       "page": "6",
       "sourcePage": 6,
       "crop": [
-        368,
-        630,
-        231,
-        236
+        376,
+        638,
+        216,
+        224
       ],
       "classification": "PENDING NO VERIFIED SOURCE",
-      "dimensions": "320x320",
-      "bytes": 42808,
+      "dimensions": "520x540",
+      "bytes": 201738,
       "exists": true,
       "verified": false,
       "sourcePageMatches": true,
       "hasCropEvidence": true,
       "cropMatch": false,
-      "aspectMatch": false,
-      "matchScore": 52,
-      "meanDiff": 42.4,
+      "aspectMatch": true,
+      "matchScore": 66,
+      "meanDiff": 35.1,
       "evidence": null,
-      "pendingReason": "no deterministic crop correspondence (ncc 0.522, mean diff 42.4, aspectMatch false)"
+      "pendingReason": "no deterministic crop correspondence (ncc 0.662, mean diff 35.1, aspectMatch true)"
     },
     {
       "src": "/cartilla/art/optimized/flipchart-native/p006-ema.png",
@@ -1708,24 +1708,24 @@
       "page": "6",
       "sourcePage": 6,
       "crop": [
-        732.941176,
-        623.921569,
-        183.137255,
-        238.431373
+        730,
+        638,
+        195,
+        211
       ],
-      "classification": "PASS",
-      "dimensions": "467x608",
-      "bytes": 243166,
+      "classification": "PENDING NO VERIFIED SOURCE",
+      "dimensions": "500x540",
+      "bytes": 204194,
       "exists": true,
       "verified": false,
       "sourcePageMatches": true,
       "hasCropEvidence": true,
-      "cropMatch": true,
+      "cropMatch": false,
       "aspectMatch": true,
-      "matchScore": 100,
-      "meanDiff": 0,
-      "evidence": "deterministic crop correspondence (ncc 1.000, mean diff 0.0, aspect delta 0.0000)",
-      "pendingReason": null
+      "matchScore": 49,
+      "meanDiff": 45.3,
+      "evidence": null,
+      "pendingReason": "no deterministic crop correspondence (ncc 0.487, mean diff 45.3, aspectMatch true)"
     },
     {
       "src": "/cartilla/art/optimized/flipchart-native/p006-estrella.png",
@@ -1733,24 +1733,24 @@
       "page": "6",
       "sourcePage": 6,
       "crop": [
-        55,
-        996,
-        225,
-        256
+        60,
+        1004,
+        216,
+        234
       ],
       "classification": "PENDING NO VERIFIED SOURCE",
-      "dimensions": "320x320",
-      "bytes": 53872,
+      "dimensions": "600x650",
+      "bytes": 241772,
       "exists": true,
       "verified": false,
       "sourcePageMatches": true,
       "hasCropEvidence": true,
       "cropMatch": false,
-      "aspectMatch": false,
-      "matchScore": -2,
-      "meanDiff": 44.6,
+      "aspectMatch": true,
+      "matchScore": 3,
+      "meanDiff": 47.8,
       "evidence": null,
-      "pendingReason": "no deterministic crop correspondence (ncc -0.021, mean diff 44.6, aspectMatch false)"
+      "pendingReason": "no deterministic crop correspondence (ncc 0.027, mean diff 47.8, aspectMatch true)"
     },
     {
       "src": "/cartilla/art/optimized/flipchart-native/p006-erizo.png",
@@ -1758,24 +1758,24 @@
       "page": "6",
       "sourcePage": 6,
       "crop": [
-        369,
-        988,
-        237,
-        256
+        376,
+        998,
+        210,
+        263
       ],
       "classification": "PENDING NO VERIFIED SOURCE",
-      "dimensions": "320x320",
-      "bytes": 126830,
+      "dimensions": "520x650",
+      "bytes": 378354,
       "exists": true,
       "verified": false,
       "sourcePageMatches": true,
       "hasCropEvidence": true,
       "cropMatch": false,
-      "aspectMatch": false,
-      "matchScore": 71,
-      "meanDiff": 30.1,
+      "aspectMatch": true,
+      "matchScore": 66,
+      "meanDiff": 36.2,
       "evidence": null,
-      "pendingReason": "no deterministic crop correspondence (ncc 0.706, mean diff 30.1, aspectMatch false)"
+      "pendingReason": "no deterministic crop correspondence (ncc 0.663, mean diff 36.2, aspectMatch true)"
     },
     {
       "src": "/cartilla/art/optimized/flipchart-native/p006-escalera.png",
@@ -1783,24 +1783,24 @@
       "page": "6",
       "sourcePage": 6,
       "crop": [
-        711,
-        977,
-        215,
-        286
+        722,
+        988,
+        194,
+        229
       ],
       "classification": "PENDING NO VERIFIED SOURCE",
-      "dimensions": "320x320",
-      "bytes": 51385,
+      "dimensions": "550x650",
+      "bytes": 232630,
       "exists": true,
       "verified": false,
       "sourcePageMatches": true,
       "hasCropEvidence": true,
       "cropMatch": false,
-      "aspectMatch": false,
-      "matchScore": 18,
-      "meanDiff": 59,
+      "aspectMatch": true,
+      "matchScore": 56,
+      "meanDiff": 42.7,
       "evidence": null,
-      "pendingReason": "no deterministic crop correspondence (ncc 0.180, mean diff 59.0, aspectMatch false)"
+      "pendingReason": "no deterministic crop correspondence (ncc 0.557, mean diff 42.7, aspectMatch true)"
     },
     {
       "src": "/cartilla/art/optimized/flipchart-native/p007-scene.png",
@@ -3183,24 +3183,24 @@
       "page": "26",
       "sourcePage": 26,
       "crop": [
-        512,
-        220,
-        455,
-        396
+        485,
+        20,
+        480,
+        695
       ],
       "classification": "PENDING NO VERIFIED SOURCE",
-      "dimensions": "638x638",
-      "bytes": 189595,
+      "dimensions": "1006x1457",
+      "bytes": 1421564,
       "exists": true,
       "verified": false,
       "sourcePageMatches": true,
       "hasCropEvidence": true,
       "cropMatch": false,
-      "aspectMatch": false,
-      "matchScore": 11,
-      "meanDiff": 48.4,
+      "aspectMatch": true,
+      "matchScore": 93,
+      "meanDiff": 9.5,
       "evidence": null,
-      "pendingReason": "no deterministic crop correspondence (ncc 0.111, mean diff 48.4, aspectMatch false)"
+      "pendingReason": "no deterministic crop correspondence (ncc 0.928, mean diff 9.5, aspectMatch true)"
     },
     {
       "src": "/cartilla/art/optimized/flipchart-native/p027-scene.png",
@@ -3358,24 +3358,24 @@
       "page": "29",
       "sourcePage": 29,
       "crop": [
-        495,
-        28,
-        481,
-        544
+        501.7921,
+        20.1613,
+        479.3907,
+        678.7634
       ],
-      "classification": "PENDING NO VERIFIED SOURCE",
-      "dimensions": "665x665",
-      "bytes": 264645,
+      "classification": "PASS",
+      "dimensions": "1070x1515",
+      "bytes": 1569179,
       "exists": true,
       "verified": false,
       "sourcePageMatches": true,
       "hasCropEvidence": true,
-      "cropMatch": false,
-      "aspectMatch": false,
-      "matchScore": 39,
-      "meanDiff": 44.9,
-      "evidence": null,
-      "pendingReason": "no deterministic crop correspondence (ncc 0.392, mean diff 44.9, aspectMatch false)"
+      "cropMatch": true,
+      "aspectMatch": true,
+      "matchScore": 100,
+      "meanDiff": 2.1,
+      "evidence": "deterministic crop correspondence (ncc 0.998, mean diff 2.1, aspect delta 0.0005)",
+      "pendingReason": null
     },
     {
       "src": "/cartilla/art/optimized/flipchart-native/p030-scene.png",
@@ -3533,24 +3533,24 @@
       "page": "32",
       "sourcePage": 32,
       "crop": [
-        491,
-        28,
-        502,
-        511
+        505,
+        25,
+        480,
+        665
       ],
       "classification": "PENDING NO VERIFIED SOURCE",
-      "dimensions": "682x682",
-      "bytes": 231822,
+      "dimensions": "1003x1389",
+      "bytes": 1409401,
       "exists": true,
       "verified": false,
       "sourcePageMatches": true,
       "hasCropEvidence": true,
       "cropMatch": false,
       "aspectMatch": true,
-      "matchScore": 48,
-      "meanDiff": 25.8,
+      "matchScore": 79,
+      "meanDiff": 16.3,
       "evidence": null,
-      "pendingReason": "no deterministic crop correspondence (ncc 0.484, mean diff 25.8, aspectMatch true)"
+      "pendingReason": "no deterministic crop correspondence (ncc 0.787, mean diff 16.3, aspectMatch true)"
     },
     {
       "src": "/cartilla/art/optimized/flipchart-native/p033-scene.png",
@@ -3883,24 +3883,24 @@
       "page": "38",
       "sourcePage": 38,
       "crop": [
-        486,
-        28,
-        487,
-        522
+        500,
+        25,
+        470,
+        680
       ],
       "classification": "PENDING NO VERIFIED SOURCE",
-      "dimensions": "636x636",
-      "bytes": 209332,
+      "dimensions": "1008x1458",
+      "bytes": 1447700,
       "exists": true,
       "verified": false,
       "sourcePageMatches": true,
       "hasCropEvidence": true,
       "cropMatch": false,
-      "aspectMatch": false,
-      "matchScore": 14,
-      "meanDiff": 30.7,
+      "aspectMatch": true,
+      "matchScore": 71,
+      "meanDiff": 20,
       "evidence": null,
-      "pendingReason": "no deterministic crop correspondence (ncc 0.145, mean diff 30.7, aspectMatch false)"
+      "pendingReason": "no deterministic crop correspondence (ncc 0.714, mean diff 20.0, aspectMatch true)"
     },
     {
       "src": "/cartilla/art/optimized/flipchart-native/p039-scene.png",
@@ -5283,24 +5283,24 @@
       "page": "62",
       "sourcePage": 62,
       "crop": [
-        437,
-        28,
-        542,
-        568
+        435,
+        20,
+        545,
+        670
       ],
       "classification": "PENDING NO VERIFIED SOURCE",
-      "dimensions": "633x633",
-      "bytes": 350896,
+      "dimensions": "1081x1329",
+      "bytes": 1713992,
       "exists": true,
       "verified": false,
       "sourcePageMatches": true,
       "hasCropEvidence": true,
       "cropMatch": false,
-      "aspectMatch": false,
-      "matchScore": 25,
-      "meanDiff": 37.8,
+      "aspectMatch": true,
+      "matchScore": 85,
+      "meanDiff": 12.4,
       "evidence": null,
-      "pendingReason": "no deterministic crop correspondence (ncc 0.247, mean diff 37.8, aspectMatch false)"
+      "pendingReason": "no deterministic crop correspondence (ncc 0.847, mean diff 12.4, aspectMatch true)"
     }
   ]
 }
