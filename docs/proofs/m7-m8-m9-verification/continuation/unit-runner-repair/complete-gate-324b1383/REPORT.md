@@ -1,5 +1,7 @@
 # Complete combined unit qualification
 
+> Runtime qualification correction: see [BUILD-RUNTIME-QUALIFICATION-CORRECTION.md](../../BUILD-RUNTIME-QUALIFICATION-CORRECTION.md). The fresh build inherited the test runtime; the completed unit results remain valid.
+
 **DONE but not live.** Frozen candidate `324b1383224d3842a197d67a2469d9bebab647b6`; application repair identity `2a0fc1d8` (same app delta as worker `610727d7`). One complete run, default isolated forks, one worker, Node 26.2.0, with the reviewed safe parent-phase audit preload. No assertion, coverage, startup limit or test timeout changed.
 
 - Policy regressions and policy-doc checks: exit 0.

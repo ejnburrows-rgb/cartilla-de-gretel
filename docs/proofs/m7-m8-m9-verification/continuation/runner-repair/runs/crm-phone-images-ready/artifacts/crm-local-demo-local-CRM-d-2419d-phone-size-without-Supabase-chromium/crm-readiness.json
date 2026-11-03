@@ -1,0 +1,164 @@
+{
+  "readiness": {
+    "documentStarted": 42.09999996423721,
+    "domReady": 126.29999995231628,
+    "headingReady": null
+  },
+  "navigation": [
+    {
+      "responseEnd": 23.399999976158142,
+      "domContentLoadedEventEnd": 126.5,
+      "loadEventEnd": 126.59999996423721,
+      "duration": 126.59999996423721
+    }
+  ],
+  "resources": [
+    {
+      "path": "/assets/index.LUlFL5ps.js",
+      "start": 36.89999997615814,
+      "responseEnd": 91.79999995231628,
+      "duration": 54.89999997615814,
+      "bytes": 57550
+    },
+    {
+      "path": "/assets/react-vendor.D492bSYW.js",
+      "start": 37.19999998807907,
+      "responseEnd": 100,
+      "duration": 62.80000001192093,
+      "bytes": 60838
+    },
+    {
+      "path": "/assets/tanstack-router.D4LEfMkq.js",
+      "start": 37.299999952316284,
+      "responseEnd": 88,
+      "duration": 50.700000047683716,
+      "bytes": 28177
+    },
+    {
+      "path": "/assets/index.DHWVrbR5.css",
+      "start": 37.5,
+      "responseEnd": 98.59999996423721,
+      "duration": 61.09999996423721,
+      "bytes": 47737
+    },
+    {
+      "path": "/cartilla/art/manifest.json",
+      "start": 44.19999998807907,
+      "responseEnd": 90.69999998807907,
+      "duration": 46.5,
+      "bytes": 15074
+    },
+    {
+      "path": "/assets/route.lazy.B-RDQXS5.js",
+      "start": 132.5999999642372,
+      "responseEnd": 212.5999999642372,
+      "duration": 80,
+      "bytes": 1960
+    },
+    {
+      "path": "/assets/client.BKa7G59Y.js",
+      "start": 133,
+      "responseEnd": 251.5999999642372,
+      "duration": 118.59999996423721,
+      "bytes": 54636
+    },
+    {
+      "path": "/assets/tslib.es6.Du-meQkk.js",
+      "start": 133.29999995231628,
+      "responseEnd": 212.89999997615814,
+      "duration": 79.60000002384186,
+      "bytes": 842
+    },
+    {
+      "path": "/assets/admin-overview.functions.Ducwlg-C.js",
+      "start": 133.5,
+      "responseEnd": 215.89999997615814,
+      "duration": 82.39999997615814,
+      "bytes": 1743
+    },
+    {
+      "path": "/assets/lucide.Co_0L2OT.js",
+      "start": 134,
+      "responseEnd": 218.79999995231628,
+      "duration": 84.79999995231628,
+      "bytes": 9507
+    },
+    {
+      "path": "/assets/teacher-chrome.Be_YPX-O.css",
+      "start": 134.29999995231628,
+      "responseEnd": 215.5999999642372,
+      "duration": 81.30000001192093,
+      "bytes": 855
+    },
+    {
+      "path": "/assets/reportes.lazy.D113zXNC.js",
+      "start": 134.89999997615814,
+      "responseEnd": 243.0999999642372,
+      "duration": 108.19999998807907,
+      "bytes": 4552
+    },
+    {
+      "path": "/assets/useQuery.DVS9nIPr.js",
+      "start": 135.19999998807907,
+      "responseEnd": 245.0999999642372,
+      "duration": 109.89999997615814,
+      "bytes": 3573
+    },
+    {
+      "path": "/assets/teacher.functions.COK3QUbt.js",
+      "start": 135.5,
+      "responseEnd": 246.69999998807907,
+      "duration": 111.19999998807907,
+      "bytes": 3283
+    },
+    {
+      "path": "/assets/csv-export.BR2zh_3E.js",
+      "start": 135.79999995231628,
+      "responseEnd": 250,
+      "duration": 114.20000004768372,
+      "bytes": 963
+    },
+    {
+      "path": "/assets/csv.CrugNsGl.js",
+      "start": 136.29999995231628,
+      "responseEnd": 252.89999997615814,
+      "duration": 116.60000002384186,
+      "bytes": 891
+    },
+    {
+      "path": "/assets/teacher-print.BmM_lcBC.css",
+      "start": 136.79999995231628,
+      "responseEnd": 242.69999998807907,
+      "duration": 105.90000003576279,
+      "bytes": 957
+    },
+    {
+      "path": "/favicon.svg",
+      "start": 164.0999999642372,
+      "responseEnd": 276.5999999642372,
+      "duration": 112.5,
+      "bytes": 593
+    },
+    {
+      "path": "/fonts/andika-700-latin.woff2",
+      "start": 287.0999999642372,
+      "responseEnd": 303.19999998807907,
+      "duration": 16.100000023841858,
+      "bytes": 19772
+    },
+    {
+      "path": "/fonts/fredoka-latin.woff2",
+      "start": 288.0999999642372,
+      "responseEnd": 304.7999999523163,
+      "duration": 16.69999998807907,
+      "bytes": 30032
+    },
+    {
+      "path": "/fonts/andika-400-latin.woff2",
+      "start": 290.39999997615814,
+      "responseEnd": 305.5999999642372,
+      "duration": 15.199999988079071,
+      "bytes": 19508
+    }
+  ]
+}
