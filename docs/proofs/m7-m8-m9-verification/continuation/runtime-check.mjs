@@ -7,7 +7,8 @@ import { execFileSync } from 'node:child_process';
 const evidenceRoot = dirname(fileURLToPath(import.meta.url));
 const repo = resolve(evidenceRoot, '../../../..');
 if (realpathSync(process.cwd()) !== realpathSync(repo)) throw new Error('Run from the checkout containing this helper');
-if (realpathSync(evidenceRoot).toLowerCase() !== evidenceRoot.toLowerCase()) throw new Error('Redirected evidence directories are not allowed');
+const comparablePath = value => process.platform === 'win32' ? value.toLowerCase() : value;
+if (comparablePath(realpathSync(evidenceRoot)) !== comparablePath(evidenceRoot)) throw new Error('Redirected evidence directories are not allowed');
 const git = process.env.GIT_EXECUTABLE;
 if (!git || !isAbsolute(git) || !/^git(?:\.exe)?$/i.test(basename(git)) || !statSync(git).isFile()) throw new Error('GIT_EXECUTABLE must explicitly select an absolute Git executable');
 // A fresh directory preserves the accepted historical runtime evidence.
