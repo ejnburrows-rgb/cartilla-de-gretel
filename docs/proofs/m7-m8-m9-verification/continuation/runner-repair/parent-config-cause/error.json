@@ -1,0 +1,6 @@
+{
+  "name": "Error",
+  "message": "EEXIST: file already exists, open 'D:\\Downloads\\cartilla-1247-continuation-work\\test-repairs\\docs\\proofs\\m7-m8-m9-verification\\continuation\\runner-repair\\parent-config-cause\\fork-events.ndjson'",
+  "code": "EEXIST",
+  "stack": "Error: EEXIST: file already exists, open 'D:\\Downloads\\cartilla-1247-continuation-work\\test-repairs\\docs\\proofs\\m7-m8-m9-verification\\continuation\\runner-repair\\parent-config-cause\\fork-events.ndjson'\n    at Object.openSync (node:fs:556:18)\n    at Object.<anonymous> (D:\\Downloads\\cartilla-1247-continuation-work\\test-repairs\\work\\audit-vitest-fork.cjs:6:13)\n    at Module._compile (node:internal/modules/cjs/loader:1873:14)\n    at Object..js (node:internal/modules/cjs/loader:2013:10)\n    at Module.load (node:internal/modules/cjs/loader:1596:32)\n    at Module._load (node:internal/modules/cjs/loader:1398:12)\n    at wrapModuleLoad (node:internal/modules/cjs/loader:255:19)\n    at Module.require (node:internal/modules/cjs/loader:1619:12)\n    at node:internal/modules/cjs/loader:2174:12\n    at loadPreloadModules (node:internal/process/pre_execution:763:5)"
+}

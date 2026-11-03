@@ -1,0 +1,55 @@
+{
+  "startedUtc": "2026-11-03T20:16:32.591Z",
+  "scope": "actual installed forks.js plus minimal real start request; no app/test/setup imports",
+  "events": [
+    {
+      "ms": 2707.7401,
+      "message": {
+        "type": "started",
+        "__vitest_worker_response__": true
+      }
+    },
+    {
+      "ms": 2718.6681000000003,
+      "message": {
+        "type": "stopped",
+        "__vitest_worker_response__": true
+      }
+    }
+  ],
+  "stdout": "",
+  "stderr": "",
+  "startMessage": {
+    "__vitest_worker_request__": true,
+    "type": "start",
+    "poolId": 1,
+    "workerId": 1,
+    "options": {
+      "reportMemory": false
+    },
+    "context": {
+      "environment": {
+        "name": "jsdom",
+        "options": {}
+      },
+      "config": {
+        "name": "bounded-start-probe",
+        "root": "D:\\Downloads\\cartilla-1247-continuation-work\\test-repairs",
+        "experimental": {
+          "viteModuleRunner": true
+        },
+        "isAgent": false
+      },
+      "pool": "forks"
+    },
+    "traces": {
+      "enabled": false
+    }
+  },
+  "initialSendError": null,
+  "startedResponse": true,
+  "code": 0,
+  "signal": null,
+  "ms": 2780.2738000000004,
+  "finishedUtc": "2026-11-03T20:16:35.373Z"
+}
