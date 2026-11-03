@@ -12,8 +12,9 @@ export const POLICY_FILES = ['AGENTS.md','PROJECT_SOURCE_OF_TRUTH.md','PROJECT_F
 export function validatePolicy(docs) {
   const errors = [];
   for (const name of POLICY_FILES) {
-    const text = docs?.[name];
-    if (typeof text !== 'string' || !text.trim()) { errors.push(`${name}: missing or empty`); continue; }
+    const raw = docs?.[name];
+    const text = activeInstructions(raw);
+    if (typeof raw !== 'string' || !text.trim()) { errors.push(`${name}: missing or empty`); continue; }
     if (!/sonar(?:cloud|qube)?/i.test(text) || !/(advisory|optional)/i.test(text) || !/non[- ]blocking/i.test(text)) {
       errors.push(`${name}: missing explicit Sonar advisory/non-blocking policy`);
     }
@@ -52,8 +53,8 @@ export function validatePolicy(docs) {
     [/no additional external reviewer is required/i, 'obsolete formal-review exemption'],
   ];
   for (const name of POLICY_FILES) {
-    const text = docs?.[name];
-    if (typeof text !== 'string') continue;
+    if (typeof docs?.[name] !== 'string') continue;
+    const text = activeInstructions(docs[name]);
     for (const [pattern, label] of required[name] ?? []) {
       if (!pattern.test(text)) errors.push(name + ': missing ' + label);
     }
@@ -76,8 +77,9 @@ export function validateRouting(docs) {
     [/protected-main approval remains mandatory/i, 'merge-gate wording that diverges from AGENTS.md'],
   ];
   for (const name of ROUTING_FILES) {
-    const text = docs?.[name];
-    if (typeof text !== 'string' || !text.trim()) { errors.push(`${name}: missing or empty`); continue; }
+    const raw = docs?.[name];
+    const text = activeInstructions(raw);
+    if (typeof raw !== 'string' || !text.trim()) { errors.push(`${name}: missing or empty`); continue; }
     if (!/#877/.test(text)) errors.push(`${name}: missing canonical issue #877`);
     for (const [pattern, label] of stale) if (pattern.test(text)) errors.push(`${name}: ${label}`);
   }
@@ -133,16 +135,18 @@ export function validateCurrentAuthority(docs) {
     [/#1218\*{0,2}\s+(?:FIRST|first)\b/i, 'completed PR #1218 ordered first'],
     [/(?:integration priority|integration order|merge sequence|follow the #877 sequence|preserve the owner's order)[^\n]*#1218/i, 'obsolete fixed integration sequence'],
     [/#1218\s*(?:→|->)\s*#1227/i, 'obsolete fixed integration sequence'],
+    [/(?:integration priority|integration order|merge sequence)[^\n]*\n(?:[ \t]*\n)*[ \t]*(?:[-*]|\d+[.)])\s+\*{0,2}#1218\b/i, 'obsolete numbered integration sequence'],
     [/(?:execute|dispatch|continue)[^\n]{0,100}J1[–-]J13/i, 'historical numbered worker assignment'],
     [/(?:a merged PR|PR completion|merged PRs?)\s+(?:means?|equals?|is)\s+(?:live|delivered|published)/i, 'source completion misrepresented as live delivery'],
+    [/(?:^|[.!?]\s+)\s*(?:[-*]\s+)?(?:Merge|(?:You|Agents|Workers) may merge)\s+(?:any|all|a|the|tested|approved)\b[^\n.]{0,100}\bwithout\s+(?:asking\s+the\s+owner|(?:the\s+)?owner(?:'s)?\s+(?:approval|permission|yes))/im, 'merge instruction bypasses owner approval'],
   ];
   for (const name of names) {
     // This evidence store is historical in its entirety, only with its required banner.
     if (name === '.agents/PROJECT_MEMORY.md' && /not live instructions/i.test(docs?.[name] ?? '')) continue;
     const text = activeInstructions(docs?.[name]);
     for (const [pattern, label] of staleOrders) if (pattern.test(text)) errors.push(name + ': ' + label);
-    if (name !== 'AGENTS.md' &&
-        /(?:this file|this document|controller)\s+(?:is\s+(?:the\s+)?|maintains?\s+(?:the\s+)?)(?:sole\s+|current\s+|canonical\s+)?(?:work queue|task board|master completion plan|execution authority)/i.test(text)) {
+    if (/(?:this file|this document|controller)\s+(?:is\s+(?:the\s+)?|maintains?\s+(?:the\s+)?)(?:sole\s+|current\s+|canonical\s+)?(?:work queue|task board|master completion plan)/i.test(text) ||
+        (name !== 'AGENTS.md' && /(?:this file|this document|controller)\s+(?:is\s+(?:the\s+)?|maintains?\s+(?:the\s+)?)(?:sole\s+|current\s+|canonical\s+)?execution authority/i.test(text))) {
       errors.push(name + ': competing current task authority');
     }
     if (name !== 'AGENTS.md' &&
@@ -192,3 +196,4 @@ function cli() {
 }
 
 if (process.argv[1] && path.resolve(process.argv[1])===fileURLToPath(import.meta.url)) cli();
+

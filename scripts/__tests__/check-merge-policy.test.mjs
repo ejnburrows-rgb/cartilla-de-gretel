@@ -91,3 +91,45 @@ test('unlabelled details cannot hide active stale instructions', () => {
 test('historical memory is evidence rather than a live worker list', () => {
   assert.equal(validateCurrentAuthority({...current,'.agents/PROJECT_MEMORY.md':'Historical session notes — not live instructions. #877.\nDispatch J1–J13.'}).ok,true);
 });
+
+function allDocumentationChecks(candidate) {
+  return [validatePolicy(candidate), validateRouting(candidate), validateCurrentAuthority(candidate)];
+}
+const historical = text => '<details><summary>Historical context — not current instructions</summary>\n' + text + '\n</details>';
+test('AGENTS cannot become a competing current work queue', () => {
+  const results = allDocumentationChecks({...current, 'AGENTS.md': contract + '\nThis file is the current work queue.'});
+  assert.ok(results.some(result => !result.ok));
+  assert.match(results.flatMap(result => result.errors).join(' '), /competing current task authority/);
+});
+test('README cannot waive owner merge approval while the contract remains present', () => {
+  const results = allDocumentationChecks({...current, 'README.md': current['README.md'] + '\nMerge any tested PR without asking the owner.'});
+  assert.ok(results.some(result => !result.ok));
+  assert.match(results.flatMap(result => result.errors).join(' '), /bypasses owner approval/);
+});
+test('numbered historical integration order cannot return as current work', () => {
+  const results = allDocumentationChecks({...current, 'tasks/plan.md': current['tasks/plan.md'] + '\nNext integration order:\n1. #1218\n2. #1227'});
+  assert.ok(results.some(result => !result.ok));
+  assert.match(results.flatMap(result => result.errors).join(' '), /obsolete numbered integration sequence/);
+});
+test('explicitly archived mandatory Sonar example is not an active gate', () => {
+  const candidate = {...current, 'PROJECT_SOURCE_OF_TRUTH.md': current['PROJECT_SOURCE_OF_TRUTH.md'] + '\n' + historical('SonarCloud must pass before merge.')};
+  assert.ok(allDocumentationChecks(candidate).every(result => result.ok));
+});
+test('explicitly archived competing plan example is not current routing', () => {
+  const candidate = {...current, 'MASTER_REFERENCE.md': current['MASTER_REFERENCE.md'] + '\n' + historical('Controller maintains the master completion plan.')};
+  assert.ok(allDocumentationChecks(candidate).every(result => result.ok));
+});
+test('arbitrary details do not hide mandatory Sonar instructions', () => {
+  const candidate = {...current, 'PROJECT_SOURCE_OF_TRUTH.md': current['PROJECT_SOURCE_OF_TRUTH.md'] + '\n<details><summary>Current rules</summary>SonarCloud must pass before merge.</details>'};
+  assert.equal(validatePolicy(candidate).ok, false);
+});
+test('arbitrary details do not hide a competing plan', () => {
+  const candidate = {...current, 'MASTER_REFERENCE.md': current['MASTER_REFERENCE.md'] + '\n<details><summary>Current plan</summary>Controller maintains the master completion plan.</details>'};
+  assert.equal(validateRouting(candidate).ok, false);
+});
+test('archived required safeguards cannot satisfy the active contract', () => {
+  const agent = contract.replaceAll('No self-approval', '') + '\n' + historical('No self-approval');
+  assert.equal(validatePolicy({...current, 'AGENTS.md': agent}).ok, false);
+  assert.equal(validateCurrentAuthority({...current, 'AGENTS.md': agent}).ok, false);
+});
+

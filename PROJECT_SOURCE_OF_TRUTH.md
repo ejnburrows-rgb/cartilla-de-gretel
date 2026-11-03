@@ -38,10 +38,10 @@ For curriculum, wording, page order, exercise content, and source-page structure
    - Preserve historic scenic assets on disk, but do not mount them as *default* Flip Chart wallpaper. This default does not revoke any **specifically approved** page/context background treatment under `repo.md`.
 7. Gretel uses the exact approved master in `src/data/gretel-approved-master.json`. For newly wired audio use only `Gretel_558674_Original.m4a` with verified transcript match. Never use `rec_gretel_*`, synthetic/device TTS or invented recordings; missing audio remains silent/unavailable. Historical #769 recovery is not a license to substitute unapproved clips.
 8. Google Flow's current production scope is one owner-approved 5–6 second silent welcome loop from the exact approved final still. In-app lesson reactions use the existing Gretel state system; no 31-clip requirement remains.
-9. Automatic Vercel deployment stays off (`vercel.json` `git.deploymentEnabled:false`). Never deploy until the owner explicitly says "deploy it"; product PR merge permission is separate.
+9. Release and deployment approvals are governed only by [AGENTS.md](AGENTS.md), not by this product specification.
 10. Student activity families must reuse one shared interaction kernel rather than independently re-implementing pencil/eraser feedback, timing, Gretel feedback events, persistence, or reduced motion.
 11. Page advancement must use the owner-approved physical-paper transition system: Workbook pages turn side-bound across the spine; Flip Chart sheets flip upward over the top binding. The animation is presentation only and never bypasses completion/save/navigation logic.
-12. Do not reopen historical audits/branches unless current source or a failing test proves a current problem.
+12. Historical-work reuse and audit boundaries are governed only by [AGENTS.md](AGENTS.md).
 
 ## Approved Workbook visual system
 
@@ -75,3 +75,4 @@ These are product decisions, not current assignment or completion claims. Newer 
 - Wording: singular `ojo` with `ojo.png` in both approved positions; the conflicting `ojos` proposal requires an explicit owner reversal.
 - Presentation: cream background; pencil pages 7–8 stay separate.
 - Existing technical context is Vite, React, TypeScript, TanStack Router, Supabase and Vercel; verify current implementation rather than treating this list as a new technology mandate.
+
