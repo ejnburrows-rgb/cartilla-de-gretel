@@ -1,53 +1,58 @@
 {
-  "status": "pass",
-  "receipt": {
-    "schema_version": "1.0",
-    "receipt_id": "sha256:ddc2b52887d9271b02fe4d7f53116d3be3bb4490abb86ff19beac33b5deade09",
-    "event_id": "sha256:7705abbcad675ea90cfb44e05de621e2cecc806f4b2524b41a20a65012ef5c31",
-    "event_fingerprint": "sha256:f16c3d79db5d0700aa9cad128ee3dfb1e80ab581e0b72452a107fb595b237c38",
-    "task_id": "sha256:10a4d665fe63e49e9db9f4945259638c16afe009e079e6ea582d6c916ba60224",
-    "attempt_id": "sha256:f021ddfc48517fd47ff8735d1b6327d2f11bdd9c96476cfcfe89bf8f3b013d92",
-    "model_ref": null,
-    "action_kind": "targeted_test",
-    "policy_digest": "sha256:fe1fd764135a92b738e8d2049f8726ed7eeda032fadacf2f1b79c8814c3933f7",
-    "requirements_digest": "sha256:3985b04d471ed5047cc89986234c2c9d17d30757cdcd65d609b1f63a2987d179",
-    "candidate_digest": "sha256:4f974dc4eb5247a09402a2cfc825bc741cad99646cfc16183b81875c37ca4c91",
-    "dependency_digest": "sha256:2e4e1c26b2f344386fb17eac4d93ccac1e570c20f4a10ef03695b83e4ae5144e",
-    "evaluator_digest": "sha256:3519bbd04291b30f80fdf3f1e2869a02c3b9d5a4d568c3b4277eb899504d7d82",
-    "environment_digest": "sha256:2986658049d88c569190dbf884d4f1e6fe3b96b42cab62d12b8cb31daff73c3f",
-    "environment_independent": null,
-    "action_key": "sha256:64c698cb3544edda4fe403e9933428e2f7a9e958d3cfd255b95f68ed89d06b17",
-    "action_key_scope_digest": "sha256:5f589479f188695beecd398661d022945e00a0a7324fb133a3be3c739d7ffe49",
-    "work_key": "sha256:ed700a2baa20e4b5cee6c6916c366b79cd9c8d5c3599e8d3ac6fd5c3bfe52295",
-    "intervention_level": "enforce",
-    "decision": "local_fix_required",
-    "reason_code": "deterministic_local_failure",
-    "outcome": "local_failure",
-    "evidence_digest": "sha256:7af7da41ccd50c02378803ece57661886883f4b5c98745f47c5ac76c7564d51f",
-    "reservation_receipt_id": "sha256:3cb08258c49cc2c679806ba69b60f8c4d7ed396388720d4a19fa3556179c2344",
-    "invalidation_id": null,
-    "invalidation_reason_code": null,
-    "invalidation_target_receipt_id": null,
-    "invalidation_transition_id": null,
-    "consumed_invalidation_ids": [],
-    "evidence_accepted": true,
-    "fanout": null,
-    "material_progress": {
-      "status": "unknown",
-      "evidence_digest": null
-    },
-    "rate_advisories": [
-      {
-        "state": "missing",
-        "effect": "advisory"
-      }
-    ],
-    "metrics": [],
-    "validator_version": "0.1.0",
-    "fixture_corpus_version": "1"
+  "boundEvidenceCommit": "fde2be49961d1c1831e004d6da0671b92074c4d5",
+  "boundEvidencePath": "docs/proofs/m7-m8-m9-verification/continuation/release-e2e-sequential/attempt-summary.json",
+  "note": "Receipt records incomplete local_failure, not passing E2E. Later classification refinements are documentation only.",
+  "acceptance": {
+    "status": "pass",
+    "receipt": {
+      "schema_version": "1.0",
+      "receipt_id": "sha256:ddc2b52887d9271b02fe4d7f53116d3be3bb4490abb86ff19beac33b5deade09",
+      "event_id": "sha256:7705abbcad675ea90cfb44e05de621e2cecc806f4b2524b41a20a65012ef5c31",
+      "event_fingerprint": "sha256:f16c3d79db5d0700aa9cad128ee3dfb1e80ab581e0b72452a107fb595b237c38",
+      "task_id": "sha256:10a4d665fe63e49e9db9f4945259638c16afe009e079e6ea582d6c916ba60224",
+      "attempt_id": "sha256:f021ddfc48517fd47ff8735d1b6327d2f11bdd9c96476cfcfe89bf8f3b013d92",
+      "model_ref": null,
+      "action_kind": "targeted_test",
+      "policy_digest": "sha256:fe1fd764135a92b738e8d2049f8726ed7eeda032fadacf2f1b79c8814c3933f7",
+      "requirements_digest": "sha256:3985b04d471ed5047cc89986234c2c9d17d30757cdcd65d609b1f63a2987d179",
+      "candidate_digest": "sha256:4f974dc4eb5247a09402a2cfc825bc741cad99646cfc16183b81875c37ca4c91",
+      "dependency_digest": "sha256:2e4e1c26b2f344386fb17eac4d93ccac1e570c20f4a10ef03695b83e4ae5144e",
+      "evaluator_digest": "sha256:3519bbd04291b30f80fdf3f1e2869a02c3b9d5a4d568c3b4277eb899504d7d82",
+      "environment_digest": "sha256:2986658049d88c569190dbf884d4f1e6fe3b96b42cab62d12b8cb31daff73c3f",
+      "environment_independent": null,
+      "action_key": "sha256:64c698cb3544edda4fe403e9933428e2f7a9e958d3cfd255b95f68ed89d06b17",
+      "action_key_scope_digest": "sha256:5f589479f188695beecd398661d022945e00a0a7324fb133a3be3c739d7ffe49",
+      "work_key": "sha256:ed700a2baa20e4b5cee6c6916c366b79cd9c8d5c3599e8d3ac6fd5c3bfe52295",
+      "intervention_level": "enforce",
+      "decision": "local_fix_required",
+      "reason_code": "deterministic_local_failure",
+      "outcome": "local_failure",
+      "evidence_digest": "sha256:7af7da41ccd50c02378803ece57661886883f4b5c98745f47c5ac76c7564d51f",
+      "reservation_receipt_id": "sha256:3cb08258c49cc2c679806ba69b60f8c4d7ed396388720d4a19fa3556179c2344",
+      "invalidation_id": null,
+      "invalidation_reason_code": null,
+      "invalidation_target_receipt_id": null,
+      "invalidation_transition_id": null,
+      "consumed_invalidation_ids": [],
+      "evidence_accepted": true,
+      "fanout": null,
+      "material_progress": {
+        "status": "unknown",
+        "evidence_digest": null
+      },
+      "rate_advisories": [
+        {
+          "state": "missing",
+          "effect": "advisory"
+        }
+      ],
+      "metrics": [],
+      "validator_version": "0.1.0",
+      "fixture_corpus_version": "1"
+    }
+  },
+  "receiptVerification": {
+    "status": "pass",
+    "errors": []
   }
-}
-{
-  "status": "pass",
-  "errors": []
 }
