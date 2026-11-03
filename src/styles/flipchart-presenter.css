@@ -313,6 +313,12 @@
   border-bottom-left-radius: 12px;
 }
 
+/* A corner without a destination must not cover source-art audio targets. */
+.fc-corner[aria-disabled="true"] {
+  pointer-events: none;
+  visibility: hidden;
+}
+
 .fc-corner--right {
   right: 0;
   justify-content: flex-end;
