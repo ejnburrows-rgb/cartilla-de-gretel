@@ -1,0 +1,257 @@
+[
+  {
+    "sha256": "0c876fb20d28d78f49190c1a6e637435f6954b3b1f9423c6796ec8a6c0eb2ff2",
+    "backup": "work\\preserved-before-runs\\tablet-isolated\\tablet-flipchart-003.png",
+    "source": "test-results/final-candidate/tablet-flipchart-003.png"
+  },
+  {
+    "sha256": "3cefb3759df41f599ce35f5fb70ec1434a7ceb668eb9ef6270fa8d55ecf6e519",
+    "backup": "work\\preserved-before-runs\\tablet-isolated\\tablet-flipchart-004.png",
+    "source": "test-results/final-candidate/tablet-flipchart-004.png"
+  },
+  {
+    "sha256": "2487f556a425941c0acf0f5e9da7993710a042c5a04d8a57ffac9b483d504ae6",
+    "backup": "work\\preserved-before-runs\\tablet-isolated\\tablet-flipchart-005.png",
+    "source": "test-results/final-candidate/tablet-flipchart-005.png"
+  },
+  {
+    "sha256": "00a0d664362325030136a013540b2823f8e2f3772bf3d6e7c2eacb43773a35f3",
+    "backup": "work\\preserved-before-runs\\tablet-isolated\\tablet-flipchart-006.png",
+    "source": "test-results/final-candidate/tablet-flipchart-006.png"
+  },
+  {
+    "sha256": "538c9e205ad1c9abdc2d1efd2319b751203ddafa5f6ec30db79d847ffe8ebc76",
+    "backup": "work\\preserved-before-runs\\tablet-isolated\\tablet-flipchart-007.png",
+    "source": "test-results/final-candidate/tablet-flipchart-007.png"
+  },
+  {
+    "sha256": "56617dc19f57834b69872966492d29d4438f551d061aed3bace61b3ed3fc0754",
+    "backup": "work\\preserved-before-runs\\tablet-isolated\\tablet-flipchart-008.png",
+    "source": "test-results/final-candidate/tablet-flipchart-008.png"
+  },
+  {
+    "sha256": "f81b7d766daebc65c9c28f7221d2a2b040a1ee26ced31ce75b06de773942888f",
+    "backup": "work\\preserved-before-runs\\tablet-isolated\\tablet-flipchart-009.png",
+    "source": "test-results/final-candidate/tablet-flipchart-009.png"
+  },
+  {
+    "sha256": "cea6ef2f88eb826388d94736fe1dc888051b2fbd54aaf50d3c1b8451f16e8f43",
+    "backup": "work\\preserved-before-runs\\tablet-isolated\\tablet-flipchart-010.png",
+    "source": "test-results/final-candidate/tablet-flipchart-010.png"
+  },
+  {
+    "sha256": "23f0bfa35ff2774c5e8ac280b27f6b484afe306cc22026996f58da4e4ec72ff4",
+    "backup": "work\\preserved-before-runs\\tablet-isolated\\tablet-flipchart-011.png",
+    "source": "test-results/final-candidate/tablet-flipchart-011.png"
+  },
+  {
+    "sha256": "f38355c022518a63d6d509ea48088ee25cb1c4a3231a4cb71baad75eb484e676",
+    "backup": "work\\preserved-before-runs\\tablet-isolated\\tablet-flipchart-012.png",
+    "source": "test-results/final-candidate/tablet-flipchart-012.png"
+  },
+  {
+    "sha256": "2d9e250d18ef78e15a66e4eb9aca1b0855098531332ef7d50bb45801d264e347",
+    "backup": "work\\preserved-before-runs\\tablet-isolated\\tablet-flipchart-013.png",
+    "source": "test-results/final-candidate/tablet-flipchart-013.png"
+  },
+  {
+    "sha256": "e41a1452470e18df402910284d3514761eb1e986b65577fdaa7175d416a27c8e",
+    "backup": "work\\preserved-before-runs\\tablet-isolated\\tablet-flipchart-014.png",
+    "source": "test-results/final-candidate/tablet-flipchart-014.png"
+  },
+  {
+    "sha256": "158ee0e5bb96eedf8179fa25cacf70e548420d3ac6e3b5501cfdaf98bb954ba4",
+    "backup": "work\\preserved-before-runs\\tablet-isolated\\tablet-flipchart-015.png",
+    "source": "test-results/final-candidate/tablet-flipchart-015.png"
+  },
+  {
+    "sha256": "6f9213bdbfafaf89f7bb56fc944966750865b963a19ca5aff4c1f4295f46d6a6",
+    "backup": "work\\preserved-before-runs\\tablet-isolated\\tablet-flipchart-016.png",
+    "source": "test-results/final-candidate/tablet-flipchart-016.png"
+  },
+  {
+    "sha256": "b1f3c209966e310d4ebeeea8a38b7ad12ce0dc76eb02d412c4270b87093c9053",
+    "backup": "work\\preserved-before-runs\\tablet-isolated\\tablet-flipchart-017.png",
+    "source": "test-results/final-candidate/tablet-flipchart-017.png"
+  },
+  {
+    "sha256": "3efab1d41c734b60b55574f22bca272156d6aeac2bd35fe790b1511b276cb6b5",
+    "backup": "work\\preserved-before-runs\\tablet-isolated\\tablet-flipchart-018.png",
+    "source": "test-results/final-candidate/tablet-flipchart-018.png"
+  },
+  {
+    "sha256": "e6cad348662318c4cc1a8c906d285f8d0568e724b94d79406e1a002534cc093c",
+    "backup": "work\\preserved-before-runs\\tablet-isolated\\tablet-flipchart-019.png",
+    "source": "test-results/final-candidate/tablet-flipchart-019.png"
+  },
+  {
+    "sha256": "7430e9aaf998a443da99076f016244e213e98cb56a4720284707c6947af4c62d",
+    "backup": "work\\preserved-before-runs\\tablet-isolated\\tablet-flipchart-020.png",
+    "source": "test-results/final-candidate/tablet-flipchart-020.png"
+  },
+  {
+    "sha256": "9e9bf5a1a67d6c8844870822a6b408c53ce72593d0ffe61ed418a75990fce703",
+    "backup": "work\\preserved-before-runs\\tablet-isolated\\tablet-flipchart-021.png",
+    "source": "test-results/final-candidate/tablet-flipchart-021.png"
+  },
+  {
+    "sha256": "e01143c8bd6bf95a19eb19ffcb54128cfe23950a1ba24ac83202216c1ef98623",
+    "backup": "work\\preserved-before-runs\\tablet-isolated\\tablet-flipchart-022.png",
+    "source": "test-results/final-candidate/tablet-flipchart-022.png"
+  },
+  {
+    "sha256": "b4a8eab14de97904ced8d339ab257dd892951de5db03dc5f6d5e4597deeeafdf",
+    "backup": "work\\preserved-before-runs\\tablet-isolated\\tablet-flipchart-023.png",
+    "source": "test-results/final-candidate/tablet-flipchart-023.png"
+  },
+  {
+    "sha256": "1c4678ffeac9dd7088828724c08d82db8283cfe08112d6a9fc7da3e555a9074e",
+    "backup": "work\\preserved-before-runs\\tablet-isolated\\tablet-flipchart-024.png",
+    "source": "test-results/final-candidate/tablet-flipchart-024.png"
+  },
+  {
+    "sha256": "9a8765cab9c86d87af5bbfcdc466c00f737eed576e348a3d38c5fba2d0c95f92",
+    "backup": "work\\preserved-before-runs\\tablet-isolated\\tablet-flipchart-025.png",
+    "source": "test-results/final-candidate/tablet-flipchart-025.png"
+  },
+  {
+    "sha256": "c319b9bb3ac86646be2f5a7b29f72bdb64b59f824462d4180d04bf101340edd9",
+    "backup": "work\\preserved-before-runs\\tablet-isolated\\tablet-flipchart-026.png",
+    "source": "test-results/final-candidate/tablet-flipchart-026.png"
+  },
+  {
+    "sha256": "4909ead2246abfeac8a420c0a9e8960c771904fd4c8b8db21cc473ca4963aebd",
+    "backup": "work\\preserved-before-runs\\tablet-isolated\\tablet-flipchart-027.png",
+    "source": "test-results/final-candidate/tablet-flipchart-027.png"
+  },
+  {
+    "sha256": "51ac8d2b3e8c7fc51dcdb7f53a583924ee5d694584c0092718a86927000c645c",
+    "backup": "work\\preserved-before-runs\\tablet-isolated\\tablet-flipchart-028.png",
+    "source": "test-results/final-candidate/tablet-flipchart-028.png"
+  },
+  {
+    "sha256": "6ba520ecf31348e60281e331f1e724b12dacdf8212d7733e8e66592a3736e414",
+    "backup": "work\\preserved-before-runs\\tablet-isolated\\tablet-flipchart-029.png",
+    "source": "test-results/final-candidate/tablet-flipchart-029.png"
+  },
+  {
+    "sha256": "bedee58c77b946b882e58670a007795b3523460688cb3d2a585fcf6e4818d91c",
+    "backup": "work\\preserved-before-runs\\tablet-isolated\\tablet-flipchart-030.png",
+    "source": "test-results/final-candidate/tablet-flipchart-030.png"
+  },
+  {
+    "sha256": "744502ff5ae93514374aa8fe8771009468e15c479887f52fa2cf355a92e4eb7f",
+    "backup": "work\\preserved-before-runs\\tablet-isolated\\tablet-flipchart-031.png",
+    "source": "test-results/final-candidate/tablet-flipchart-031.png"
+  },
+  {
+    "sha256": "53a359b3a1019329299faa9c6064217d2c221a981d47f861cadfdeb6a9b9db8c",
+    "backup": "work\\preserved-before-runs\\tablet-isolated\\tablet-flipchart-032.png",
+    "source": "test-results/final-candidate/tablet-flipchart-032.png"
+  },
+  {
+    "sha256": "d1cd65527d08f18b714bf2f9e19b3885e4730cc67878e21fa17620646fad30d9",
+    "backup": "work\\preserved-before-runs\\tablet-isolated\\tablet-flipchart-033.png",
+    "source": "test-results/final-candidate/tablet-flipchart-033.png"
+  },
+  {
+    "sha256": "fdae4febdcb68c149bdac5c1e45c9f719c4b1e967c5c952ad7586093eb1c1d3e",
+    "backup": "work\\preserved-before-runs\\tablet-isolated\\tablet-flipchart-034.png",
+    "source": "test-results/final-candidate/tablet-flipchart-034.png"
+  },
+  {
+    "sha256": "08f4b60a2746fad69655fd655f3d8dd22571677dbaeb16f1bf1efd8c4deac64d",
+    "backup": "work\\preserved-before-runs\\tablet-isolated\\tablet-flipchart-035.png",
+    "source": "test-results/final-candidate/tablet-flipchart-035.png"
+  },
+  {
+    "sha256": "d68282320d550053d550ae42142c682f3f08a70e05f6d6847634d8c21962378c",
+    "backup": "work\\preserved-before-runs\\tablet-isolated\\tablet-flipchart-036.png",
+    "source": "test-results/final-candidate/tablet-flipchart-036.png"
+  },
+  {
+    "sha256": "b96bb0ebef503f957d6fd26f456515ded06f51a73f735a278d345918cb05154a",
+    "backup": "work\\preserved-before-runs\\tablet-isolated\\tablet-flipchart-037.png",
+    "source": "test-results/final-candidate/tablet-flipchart-037.png"
+  },
+  {
+    "sha256": "8180278b145c8daf2289f2747d043110b9862fb0dbe590f28ef50748200440f0",
+    "backup": "work\\preserved-before-runs\\tablet-isolated\\tablet-flipchart-038.png",
+    "source": "test-results/final-candidate/tablet-flipchart-038.png"
+  },
+  {
+    "sha256": "d85e9c29e109a6d4c60aeed839f3e1a14d3a033b14e7624b47eddfc84401d0d1",
+    "backup": "work\\preserved-before-runs\\tablet-isolated\\tablet-flipchart-039.png",
+    "source": "test-results/final-candidate/tablet-flipchart-039.png"
+  },
+  {
+    "sha256": "8f2f6879bfc982653c2686904411ccc0336bae36d1200da01b1d27ede2fd2f32",
+    "backup": "work\\preserved-before-runs\\tablet-isolated\\tablet-flipchart-040.png",
+    "source": "test-results/final-candidate/tablet-flipchart-040.png"
+  },
+  {
+    "sha256": "eee6ee0906160207cf8e7edcf4c7afcd4748944fb00fb43fc570693ef894afb0",
+    "backup": "work\\preserved-before-runs\\tablet-isolated\\tablet-flipchart-041.png",
+    "source": "test-results/final-candidate/tablet-flipchart-041.png"
+  },
+  {
+    "sha256": "7ee4594d795942f00ff1f857e9363b0b5462231ddf71ec417a1ce1d3cad97c3d",
+    "backup": "work\\preserved-before-runs\\tablet-isolated\\tablet-flipchart-042.png",
+    "source": "test-results/final-candidate/tablet-flipchart-042.png"
+  },
+  {
+    "sha256": "1ab20e8edcab4bebf127d68c48602bee6e3f25f83a487a23924aa9bf68d5e1a9",
+    "backup": "work\\preserved-before-runs\\tablet-isolated\\tablet-flipchart-043.png",
+    "source": "test-results/final-candidate/tablet-flipchart-043.png"
+  },
+  {
+    "sha256": "3febe7043d27732ce4e3b7a111172304b8ec9abbc5d0494397bec3e2e6f148d3",
+    "backup": "work\\preserved-before-runs\\tablet-isolated\\tablet-flipchart-044.png",
+    "source": "test-results/final-candidate/tablet-flipchart-044.png"
+  },
+  {
+    "sha256": "d5d7d31615b0b571a2fa1e26f9f6b7a657eee611eb6840b60415752e5d7d0c65",
+    "backup": "work\\preserved-before-runs\\tablet-isolated\\tablet-flipchart-045.png",
+    "source": "test-results/final-candidate/tablet-flipchart-045.png"
+  },
+  {
+    "sha256": "e1d7e1caa3c43b355fb542ca49148f5d98e0b901803f662de3acfda2c4af4fc4",
+    "backup": "work\\preserved-before-runs\\tablet-isolated\\tablet-flipchart-046.png",
+    "source": "test-results/final-candidate/tablet-flipchart-046.png"
+  },
+  {
+    "sha256": "f1b35a554ae8720f00fe1b0d421e529b9c11f53c9a998fd339389238462cb54e",
+    "backup": "work\\preserved-before-runs\\tablet-isolated\\tablet-flipchart-047.png",
+    "source": "test-results/final-candidate/tablet-flipchart-047.png"
+  },
+  {
+    "sha256": "7a58dbfbdd67e27b8deb6910332aea9e6dac1a6b2a2d72065b1f0b11e426ee48",
+    "backup": "work\\preserved-before-runs\\tablet-isolated\\tablet-flipchart-048.png",
+    "source": "test-results/final-candidate/tablet-flipchart-048.png"
+  },
+  {
+    "sha256": "5bb60e6d9ce4486b7bfa7a81fcc5d59d517697fda59c518b43a712a2f54764e3",
+    "backup": "work\\preserved-before-runs\\tablet-isolated\\tablet-flipchart-049.png",
+    "source": "test-results/final-candidate/tablet-flipchart-049.png"
+  },
+  {
+    "sha256": "64ab2c3058a85c41e3a8efcacec72864275090e5a50a9fe7147a39d5d989b96d",
+    "backup": "work\\preserved-before-runs\\tablet-isolated\\tablet-flipchart-050.png",
+    "source": "test-results/final-candidate/tablet-flipchart-050.png"
+  },
+  {
+    "sha256": "ef26c48febbfdb3bcb7196f0ed01736c7c01002a72b3a96e2be246565e2a3725",
+    "backup": "work\\preserved-before-runs\\tablet-isolated\\tablet-flipchart-051.png",
+    "source": "test-results/final-candidate/tablet-flipchart-051.png"
+  },
+  {
+    "sha256": "3231ddf590a1f0124b8ec9405e0af7f74a1609564a1870794c1cf865f7aa81f6",
+    "backup": "work\\preserved-before-runs\\tablet-isolated\\tablet-flipchart-052.png",
+    "source": "test-results/final-candidate/tablet-flipchart-052.png"
+  },
+  {
+    "sha256": "6400b4197204a5a84e99c2e6fe3b6325430f0efbde1f0afcab4318b7307d8d81",
+    "backup": "work\\preserved-before-runs\\tablet-isolated\\tablet-flipchart-053.png",
+    "source": "test-results/final-candidate/tablet-flipchart-053.png"
+  }
+]

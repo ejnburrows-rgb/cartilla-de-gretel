@@ -2,6 +2,8 @@
 
 Parent branch: `continuation/1247-test-repairs`, starting `36666181dbb29e64f857a6799e906a090deaa0a7`.
 
+**Current bounded result: DONE but not live.** Application repair head610727d749f018c49826e2b5f31f7df84953b453. Fresh original tablet all-lesson-plates check PASS1/1, exit0 (`runs/tablet-isolated`); original full CRM laptop journey PASS1/1, exit0 (`runs/crm-layout-replay`). CRM return uses a real pointer click, and the original persistence, identity separation, notes, report, CSV/PDF and zero-backend-request assertions remain. Rendered before/after images are in `rendered/`. No source art, text or voice was changed. No broad353 E2E or full unit-gate pass is claimed; those remain integration-owner work.
+
 ## Completed evidence
 
 - Prior corrected353-test attempt still has no final JSON/terminal receipt. Its interruption cause remains unknown; the old16:33 exit file belongs to the reporter-argument failure.
@@ -35,3 +37,11 @@ Finished2PASS/2FAIL, exit1 and JSON preserved. Recorded-provider arbitration fix
 Original CRM laptop case now completes student activity and persistence, then fails because fixed lesson selector covers `Volver al CRM`; unchanged120s timeout, no forced click. Screenshot retains the overlap. Two-file repair adds a stable demo-banner class and makes only its adjacent lesson header participate in normal flow, allowing the existing canvas container to measure remaining height. **Repair awaiting browser verification.**
 
 Before this run,43existing affected output files were copied byte-for-byte into `work/preserved-before-runs/teacher-images-crm-followup` and hash-verified; the committed manifest identifies each original and preserved hash, including the initially dirty CRM laptop dashboard. No initial bytes are silently discarded. Generated Python bytecode accidentally included in62049072 is untracked in the follow-up while retained locally; the proof folder now ignores bytecode.
+
+## Final selected replays at610727d7
+
+- Tablet-only fresh full Chromium/Vite:1PASS/0FAIL/0SKIP, exit0, finished2026-11-03T20:02:08Z. Original all-lesson-plates native-board, image readiness, asset identity and geometry assertions pass. Existing300s server and600s original test limits were retained. Slow startup is visible in raw duration; no timeout or assertion was extended. Before-run physical memory2956084KiB and virtual6553952KiB are observations, not a certified causal diagnosis of the prior failure. Previous tablet resource-failure JSON/screenshot remains intact.
+- CRM laptop original complete journey:1PASS/0FAIL/0SKIP, exit0, finished2026-11-03T20:04:55Z. The source CSS fix clears selector/return overlap. The rendered after-image was inspected: return control visible in its banner, selector in a separate row, entire original workbook page fits. No forced click, expectation removal, or replacement journey.
+- Existing tablet output bytes and CRM output bytes were separately preserved and hash-verified before the two replays; manifests are committed and backups remain under `work/preserved-before-runs/`. Matching owned browser/server/test processes were absent after completion; the execution slot was explicitly released to root for the independent unit-runner investigation.
+
+Teacher projector/laptop/tablet checks each have an actual passing original run; the earlier accumulated-job tablet failure is not erased. Audio arbitration remains a mocked recording-provider check, never a claim of heard authentic voice. Physical phone/projector verification, all353 E2E completion, the complete unit gate and final integrated release verification remain outside these selected results. Automatic deployment remains disabled; no merge or deployment was performed by this worker.
