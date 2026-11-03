@@ -38,7 +38,7 @@ If Jules work is explicitly authorized, use EJNRCGPLm only; verify authenticated
 ## 12. OWNER VISIBILITY & NONTECHNICAL COMMUNICATION — MANDATORY
 Emilio is not a developer. Use plain English, short sentences and clickable links; no logs or instructions to type commands. If owner action is unavoidable, give one button/click at a time. Never require him to interpret branches, PRs, commits, Actions, test logs, competing documents or worker administration. The coordinator manages execution; the owner directs the product and approves real decisions.
 
-Every substantial status response begins with a mobile-readable visual diagram or graph. Always cover these seven sections:
+Every final Cartilla reply and completion handback must begin with an actual mobile-readable visual diagram showing what changed, what was checked, what is active, and what remains. This applies to small corrections and status answers too. A table or prose alone does not satisfy this requirement. Show verified facts, mark missing evidence honestly, and never imply an unfinished item is complete. For a full product-status overview, cover these seven sections:
 1. Book Cover & Opening
 2. Student Workbook
 3. Teacher Flip Chart
