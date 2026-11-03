@@ -8,7 +8,12 @@ import { useActivityEvents, useActivityState } from "@/lib/activity-events";
 import { playCorrectChord } from "@/lib/piano-audio";
 import { loadLassoProgress, saveLassoProgress } from "@/lib/activity-canvas-store";
 import { useReducedMotion } from "@/hooks/useReducedMotion";
-import { PencilShape, WorkbookPencilMark, WORKBOOK_MARK_TIMING, useWorkbookPencilTurn } from "@/components/cartilla/WorkbookPencilMark";
+import {
+  PencilShape,
+  WorkbookPencilMark,
+  WORKBOOK_MARK_TIMING,
+  useWorkbookPencilTurn,
+} from "@/components/cartilla/WorkbookPencilMark";
 import type { WorkbookObject } from "@/content/workbook/types";
 import type { InteractionProps } from "./shared";
 import "@/styles/activity-mechanics.css";
@@ -65,6 +70,14 @@ export function DirectPencilConnector({
   const centerElRef = useRef<HTMLButtonElement>(null);
   const targetEls = useRef<Map<string, HTMLButtonElement>>(new Map());
 
+  const setTargetRef = useCallback(
+    (id: string) => (el: HTMLButtonElement | null) => {
+      if (el) targetEls.current.set(id, el);
+      else targetEls.current.delete(id);
+    },
+    [],
+  );
+
   const isPairMode = mode === "pair";
 
   const leftTargets = useMemo(
@@ -112,10 +125,12 @@ export function DirectPencilConnector({
         const usedLeft = new Set<string>();
         const usedRight = new Set<string>();
 
-        targets.filter((t) => t.example).forEach((t) => {
-          if (t.role === "left") usedLeft.add(t.id);
-          if (t.role === "right") usedRight.add(t.id);
-        });
+        targets
+          .filter((t) => t.example)
+          .forEach((t) => {
+            if (t.role === "left") usedLeft.add(t.id);
+            if (t.role === "right") usedRight.add(t.id);
+          });
 
         for (const key of rawKeys) {
           if (typeof key !== "string") continue;
@@ -150,7 +165,7 @@ export function DirectPencilConnector({
   );
 
   const [marked, setMarked] = useState<Set<string>>(() => {
-    const saved = context?.isolated ? [] : loadLassoProgress(pageKey)?.completedIds ?? [];
+    const saved = context?.isolated ? [] : (loadLassoProgress(pageKey)?.completedIds ?? []);
     return validateProgressKeys(saved);
   });
 
@@ -161,14 +176,18 @@ export function DirectPencilConnector({
   const [dragPt, setDragPt] = useState<Pt | null>(null);
   const [hoverTargetId, setHoverTargetId] = useState<string | null>(null);
   const retryId = useRef(0);
-  const [wrongLines, setWrongLines] = useState<{ from: Pt; to: Pt; targetId: string; retryId: number }[]>([]);
+  const [wrongLines, setWrongLines] = useState<
+    { from: Pt; to: Pt; targetId: string; retryId: number }[]
+  >([]);
   const wrongLine = wrongLines[0] ?? null;
   const hasPencilTurn = useWorkbookPencilTurn(isDragging || wrongLine !== null);
   // Retain attempts made during erasure; only one physical tool acts at once.
   useEffect(() => {
     if (!wrongLine || !hasPencilTurn) return;
-    const timer = window.setTimeout(() => setWrongLines((lines) => lines.slice(1)),
-      reducedMotion ? WORKBOOK_MARK_TIMING.reducedEraseMs : WORKBOOK_MARK_TIMING.eraseMs);
+    const timer = window.setTimeout(
+      () => setWrongLines((lines) => lines.slice(1)),
+      reducedMotion ? WORKBOOK_MARK_TIMING.reducedEraseMs : WORKBOOK_MARK_TIMING.eraseMs,
+    );
     return () => window.clearTimeout(timer);
   }, [wrongLine, hasPencilTurn, reducedMotion]);
   const [completed, setCompleted] = useState(false);
@@ -340,7 +359,8 @@ export function DirectPencilConnector({
   };
 
   const handlePointerDownLeft = (e: React.PointerEvent, leftTarget: PencilTarget) => {
-    if (completed || isLeftConnected(leftTarget.id) || (e.button !== undefined && e.button !== 0)) return;
+    if (completed || isLeftConnected(leftTarget.id) || (e.button !== undefined && e.button !== 0))
+      return;
     e.preventDefault();
     activePointerRef.current = e.pointerId;
     heldSourceRef.current = leftTarget.id;
@@ -428,7 +448,19 @@ export function DirectPencilConnector({
         onResult?.({ objectId: target.id, result: "wrong" });
       }
     },
-    [marked, completed, targets, centerPt, getTargetCenter, persist, finishIfDone, onResult, recordWrong, gretelEvent, reducedMotion],
+    [
+      marked,
+      completed,
+      targets,
+      centerPt,
+      getTargetCenter,
+      persist,
+      finishIfDone,
+      onResult,
+      recordWrong,
+      gretelEvent,
+      reducedMotion,
+    ],
   );
 
   const attemptPairConnect = useCallback(
@@ -458,7 +490,19 @@ export function DirectPencilConnector({
         onResult?.({ objectId: right.id, result: "wrong" });
       }
     },
-    [marked, completed, isLeftConnected, isRightConnected, getTargetCenter, persist, finishIfDone, onResult, recordWrong, gretelEvent, reducedMotion],
+    [
+      marked,
+      completed,
+      isLeftConnected,
+      isRightConnected,
+      getTargetCenter,
+      persist,
+      finishIfDone,
+      onResult,
+      recordWrong,
+      gretelEvent,
+      reducedMotion,
+    ],
   );
 
   const cancelDragState = useCallback(() => {
@@ -482,7 +526,9 @@ export function DirectPencilConnector({
     const onReleaseOutside = (event: PointerEvent) => {
       if (activePointerRef.current === event.pointerId) cancelDragState();
     };
-    const onVisibility = () => { if (document.hidden) cancelDragState(); };
+    const onVisibility = () => {
+      if (document.hidden) cancelDragState();
+    };
     window.addEventListener("pointerup", onReleaseOutside);
     window.addEventListener("pointercancel", onReleaseOutside);
     window.addEventListener("blur", cancelDragState);
@@ -503,8 +549,18 @@ export function DirectPencilConnector({
     const candidates = isPairMode ? rightTargets : targets;
     const releasedTarget = candidates.find((target) => {
       const rect = targetEls.current.get(target.id)?.getBoundingClientRect();
-      return rect && ((rect.width > 0 && e.clientX >= rect.left - 18 && e.clientX <= rect.right + 18 && e.clientY >= rect.top - 18 && e.clientY <= rect.bottom + 18) || (e.clientX >= rect.left && e.clientX <= rect.right && e.clientY >= rect.top && e.clientY <= rect.bottom));
-        true;
+      return (
+        rect &&
+        ((rect.width > 0 &&
+          e.clientX >= rect.left - 18 &&
+          e.clientX <= rect.right + 18 &&
+          e.clientY >= rect.top - 18 &&
+          e.clientY <= rect.bottom + 18) ||
+          (e.clientX >= rect.left &&
+            e.clientX <= rect.right &&
+            e.clientY >= rect.top &&
+            e.clientY <= rect.bottom))
+      );
     });
     cancelDragState();
     if (!releasedTarget) return;
@@ -597,7 +653,13 @@ export function DirectPencilConnector({
         <svg className="am-direct-pencil__svg-layer" aria-hidden="true">
           <defs>
             <filter id={shadowUid} x="-20%" y="-20%" width="140%" height="140%">
-              <feDropShadow dx="1" dy="2" stdDeviation="1.5" floodColor="#0f766e" floodOpacity="0.25" />
+              <feDropShadow
+                dx="1"
+                dy="2"
+                stdDeviation="1.5"
+                floodColor="#0f766e"
+                floodOpacity="0.25"
+              />
             </filter>
             <linearGradient id={`${shadowUid}-grad`} x1="0%" y1="0%" x2="100%" y2="100%">
               <stop offset="0%" stopColor="#0d9488" />
@@ -674,19 +736,22 @@ export function DirectPencilConnector({
               />
               <circle cx={dragPt.x} cy={dragPt.y} r={6} fill="#0f766e" />
               {/* Wooden Pencil at Tip */}
-              {hasPencilTurn && !wrongLine && !reducedMotion && (() => {
-                const angle =
-                  Math.atan2(dragPt.y - activeStartPt.y, dragPt.x - activeStartPt.x) *
-                  (180 / Math.PI);
-                return (
-                  <g
-                    transform={`translate(${dragPt.x}, ${dragPt.y}) rotate(${angle + 30}) scale(0.65)`}
-                    style={{ pointerEvents: "none" }}
-                  >
-                    <PencilShape uid={`${shadowUid}-drag-pencil`} />
-                  </g>
-                );
-              })()}
+              {hasPencilTurn &&
+                !wrongLine &&
+                !reducedMotion &&
+                (() => {
+                  const angle =
+                    Math.atan2(dragPt.y - activeStartPt.y, dragPt.x - activeStartPt.x) *
+                    (180 / Math.PI);
+                  return (
+                    <g
+                      transform={`translate(${dragPt.x}, ${dragPt.y}) rotate(${angle + 30}) scale(0.65)`}
+                      style={{ pointerEvents: "none" }}
+                    >
+                      <PencilShape uid={`${shadowUid}-drag-pencil`} />
+                    </g>
+                  );
+                })()}
             </g>
           )}
 
@@ -786,15 +851,23 @@ export function DirectPencilConnector({
 
         {wideWorkbook && !isPairMode && (
           <div className="am-direct-pencil__wide-board">
-            <button type="button" ref={centerElRef}
+            <button
+              type="button"
+              ref={centerElRef}
               className={`am-direct-pencil__center${selectedStart || isDragging ? " is-active" : ""}`}
               onPointerDown={handlePointerDownCenter}
-              onClick={(e) => { if (e.detail === 0) handleCenterClick(); }}
-              aria-label={`Vocal central ${centerLabel}`} aria-pressed={selectedStart || isDragging}>
+              onClick={(e) => {
+                if (e.detail === 0) handleCenterClick();
+              }}
+              aria-label={`Vocal central ${centerLabel}`}
+              aria-pressed={selectedStart || isDragging}
+            >
               <span className="am-direct-pencil__center-text">{centerLabel}</span>
               <span className="am-direct-pencil__center-halo" aria-hidden="true" />
             </button>
-            <div className="am-direct-pencil__wide-pictures">{targets.map(t => renderTargetCell(t))}</div>
+            <div className="am-direct-pencil__wide-pictures">
+              {targets.map((t) => renderTargetCell(t))}
+            </div>
           </div>
         )}
         {/* Default composition is unchanged for other pages and games. */}
@@ -814,7 +887,9 @@ export function DirectPencilConnector({
                 ref={centerElRef}
                 className={`am-direct-pencil__center${selectedStart || isDragging ? " is-active" : ""}`}
                 onPointerDown={handlePointerDownCenter}
-                onClick={(e) => { if (e.detail === 0) handleCenterClick(); }}
+                onClick={(e) => {
+                  if (e.detail === 0) handleCenterClick();
+                }}
                 aria-label={`Vocal central ${centerLabel}`}
                 aria-pressed={selectedStart || isDragging}
               >
@@ -843,10 +918,7 @@ export function DirectPencilConnector({
                   <button
                     key={t.id}
                     type="button"
-                    ref={(el) => {
-                      if (el) targetEls.current.set(t.id, el);
-                      else targetEls.current.delete(t.id);
-                    }}
+                    ref={setTargetRef(t.id)}
                     className={[
                       "am-direct-pencil__left-card",
                       connected ? "is-connected" : "",
@@ -856,7 +928,9 @@ export function DirectPencilConnector({
                       .join(" ")}
                     disabled={connected}
                     onPointerDown={(e) => handlePointerDownLeft(e, t)}
-                    onClick={(e) => { if (e.detail === 0) handleLeftClick(t); }}
+                    onClick={(e) => {
+                      if (e.detail === 0) handleLeftClick(t);
+                    }}
                     aria-label={`Vocal ${t.label}`}
                     aria-pressed={selected || connected}
                   >
@@ -875,10 +949,7 @@ export function DirectPencilConnector({
                   <button
                     key={t.id}
                     type="button"
-                    ref={(el) => {
-                      if (el) targetEls.current.set(t.id, el);
-                      else targetEls.current.delete(t.id);
-                    }}
+                    ref={setTargetRef(t.id)}
                     className={[
                       "am-direct-pencil__target",
                       connected ? "is-connected" : "",
@@ -888,7 +959,9 @@ export function DirectPencilConnector({
                       .filter(Boolean)
                       .join(" ")}
                     disabled={connected}
-                    onClick={(e) => { if (e.detail === 0) handleRightClick(t); }}
+                    onClick={(e) => {
+                      if (e.detail === 0) handleRightClick(t);
+                    }}
                     aria-label={t.label}
                     aria-pressed={connected}
                   >
@@ -918,10 +991,7 @@ export function DirectPencilConnector({
       <button
         key={t.id}
         type="button"
-        ref={(el) => {
-          if (el) targetEls.current.set(t.id, el);
-          else targetEls.current.delete(t.id);
-        }}
+        ref={setTargetRef(t.id)}
         className={[
           "am-direct-pencil__target",
           isMarked ? "is-connected" : "",
@@ -931,7 +1001,9 @@ export function DirectPencilConnector({
           .filter(Boolean)
           .join(" ")}
         disabled={isMarked}
-        onClick={(e) => { if (e.detail === 0) handleTargetClick(t); }}
+        onClick={(e) => {
+          if (e.detail === 0) handleTargetClick(t);
+        }}
         aria-label={t.label}
         aria-pressed={isMarked}
         data-correct={t.correct === undefined ? undefined : String(t.correct)}
@@ -951,28 +1023,75 @@ export function DirectPencilConnector({
 
 /** Preserve existing saved pair progress while presenting only approved pencil lines. */
 export function PencilConnectorFromWorkbook({
-  objects, onResult, onComplete, reducedMotion, pageKey, mode, instruction, lessonId,
-}: InteractionProps & { pageKey: string; mode: PencilMode; instruction?: string; lessonId?: string }) {
+  objects,
+  onResult,
+  onComplete,
+  reducedMotion,
+  pageKey,
+  mode,
+  instruction,
+  lessonId,
+}: InteractionProps & {
+  pageKey: string;
+  mode: PencilMode;
+  instruction?: string;
+  lessonId?: string;
+}) {
   const targets: PencilTarget[] = objects.map((o: WorkbookObject) => {
-    const d = (o.interaction?.data ?? {}) as { correct?: boolean; role?: "left" | "right"; pairId?: string };
-    return { id: o.id, label: o.alt ?? o.text ?? o.id, src: o.src, box: o.box,
-      correct: d.correct, role: d.role ?? "solo", pairId: d.pairId };
+    const d = (o.interaction?.data ?? {}) as {
+      correct?: boolean;
+      role?: "left" | "right";
+      pairId?: string;
+    };
+    return {
+      id: o.id,
+      label: o.alt ?? o.text ?? o.id,
+      src: o.src,
+      box: o.box,
+      correct: d.correct,
+      role: d.role ?? "solo",
+      pairId: d.pairId,
+    };
   });
-  return <DirectPencilConnector pageKey={pageKey} targets={targets} mode={mode}
-    instruction={instruction} lessonId={lessonId} reducedMotion={reducedMotion}
-    onResult={onResult} onComplete={onComplete} className="am-direct-pencil--workbook" />;
+  return (
+    <DirectPencilConnector
+      pageKey={pageKey}
+      targets={targets}
+      mode={mode}
+      instruction={instruction}
+      lessonId={lessonId}
+      reducedMotion={reducedMotion}
+      onResult={onResult}
+      onComplete={onComplete}
+      className="am-direct-pencil--workbook"
+    />
+  );
 }
 
 /** Source-page picture choices: circle each answer with the shared real pencil actor. */
 export function PencilMarkFromWorkbook({
-  objects, onResult, onComplete, pageKey,
+  objects,
+  onResult,
+  onComplete,
+  pageKey,
 }: InteractionProps & { pageKey: string }) {
-  const graded = objects.filter((o) => (o.interaction?.data as {correct?: boolean} | undefined)?.correct !== undefined);
-  const correct = objects.filter((o) =>
-    graded.length === 0 || (o.interaction?.data as {correct?: boolean} | undefined)?.correct === true);
-  const [marked, setMarked] = useState<Set<string>>(() =>
-    new Set((loadLassoProgress(pageKey)?.completedIds ?? []).filter(id => correct.some(o => o.id === id))));
-  const [pending, setPending] = useState<{id: string; correct: boolean} | null>(null);
+  const graded = objects.filter(
+    (o) => (o.interaction?.data as { correct?: boolean } | undefined)?.correct !== undefined,
+  );
+  const correct = objects.filter(
+    (o) =>
+      graded.length === 0 ||
+      (o.interaction?.data as { correct?: boolean } | undefined)?.correct === true,
+  );
+  const [marked, setMarked] = useState<Set<string>>(
+    () =>
+      new Set(
+        (loadLassoProgress(pageKey)?.completedIds ?? []).filter((id) =>
+          correct.some((o) => o.id === id),
+        ),
+      ),
+  );
+  const [pending, setPending] = useState<{ id: string; correct: boolean } | null>(null);
   const finished = useRef(false);
   useEffect(() => {
     if (correct.length > 0 && marked.size === correct.length && !finished.current) {
@@ -980,27 +1099,52 @@ export function PencilMarkFromWorkbook({
       onComplete?.();
     }
   }, [correct.length, marked, onComplete]);
-  return <div className="am-pencil-mark-grid">
-    {objects.map((object) => {
-      const isCorrect = correct.some((o) => o.id === object.id);
-      const done = marked.has(object.id);
-      const active = pending?.id === object.id;
-      return <button key={object.id} type="button" className="am-pencil-mark-grid__item"
-        aria-label={object.alt ?? object.text ?? object.id} aria-pressed={done || active}
-        disabled={done || (pending !== null && !active)}
-        onClick={() => setPending({id: object.id, correct: isCorrect})}>
-        {object.src ? <img src={object.src} alt="" draggable={false} /> : <span>{object.text ?? object.alt ?? object.id}</span>}
-        {(active || done) && <span className="am-pencil-mark-grid__overlay" aria-hidden="true">
-          <WorkbookPencilMark markType="circle" round itemId={object.id}
-            isCorrect={active ? isCorrect : true} status={done ? "correct" : undefined}
-            onSuccess={() => {
-              const next = new Set(marked).add(object.id);
-              setMarked(next); saveLassoProgress(pageKey, [...next]); setPending(null);
-              onResult?.({objectId: object.id, result: "correct"});
-            }}
-            onRetry={() => { setPending(null); onResult?.({objectId: object.id, result: "wrong"}); }} />
-        </span>}
-      </button>;
-    })}
-  </div>;
+  return (
+    <div className="am-pencil-mark-grid">
+      {objects.map((object) => {
+        const isCorrect = correct.some((o) => o.id === object.id);
+        const done = marked.has(object.id);
+        const active = pending?.id === object.id;
+        return (
+          <button
+            key={object.id}
+            type="button"
+            className="am-pencil-mark-grid__item"
+            aria-label={object.alt ?? object.text ?? object.id}
+            aria-pressed={done || active}
+            disabled={done || (pending !== null && !active)}
+            onClick={() => setPending({ id: object.id, correct: isCorrect })}
+          >
+            {object.src ? (
+              <img src={object.src} alt="" draggable={false} />
+            ) : (
+              <span>{object.text ?? object.alt ?? object.id}</span>
+            )}
+            {(active || done) && (
+              <span className="am-pencil-mark-grid__overlay" aria-hidden="true">
+                <WorkbookPencilMark
+                  markType="circle"
+                  round
+                  itemId={object.id}
+                  isCorrect={active ? isCorrect : true}
+                  status={done ? "correct" : undefined}
+                  onSuccess={() => {
+                    const next = new Set(marked).add(object.id);
+                    setMarked(next);
+                    saveLassoProgress(pageKey, [...next]);
+                    setPending(null);
+                    onResult?.({ objectId: object.id, result: "correct" });
+                  }}
+                  onRetry={() => {
+                    setPending(null);
+                    onResult?.({ objectId: object.id, result: "wrong" });
+                  }}
+                />
+              </span>
+            )}
+          </button>
+        );
+      })}
+    </div>
+  );
 }
