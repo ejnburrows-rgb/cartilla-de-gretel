@@ -51,7 +51,13 @@ describe('actual Workbook p5 completion', () => {
     await tap('iglú'); await tap('alas');
     fireEvent.click(screen.getByRole('button', { name: 'Ayuda' }));
     for (const word of ['oveja', 'ojos', 'oreja', 'olla', 'oso']) await tap(word);
-    await act(async () => { await vi.advanceTimersByTimeAsync(10000); });
+    // Each wrong mark and queued correct line owns a turn. Let React flush
+    // each timer/effect cycle rather than jumping past new timers in one step.
+    // This still fails if the real completion gate cannot open within 10s.
+    for (let i = 0; i < 20 && next().hasAttribute('aria-disabled'); i++) {
+      await act(async () => { await vi.advanceTimersByTimeAsync(500); });
+    }
+    expect(pageCompletionState(5).complete).toBe(true);
     expect(next().hasAttribute('aria-disabled')).toBe(false);
     fireEvent.click(next());
     await act(async () => { await vi.advanceTimersByTimeAsync(LESSON_PAGE_TURN_TOTAL_MS + 200); });
