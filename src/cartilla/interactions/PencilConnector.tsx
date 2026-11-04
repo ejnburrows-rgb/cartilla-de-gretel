@@ -435,19 +435,26 @@ export function DirectPencilConnector({
   };
 
   const attemptConnect = useCallback((target: PencilTarget, drawn = false) => {
-    if (marked.has(target.id) || completed || pendingLines.some(line => line.key === target.id)) return;
-    setPendingLines(lines => [...lines, { from: centerPt, to: getTargetCenter(target.id),
-      targetId: target.id, key: target.id, correct: Boolean(target.correct), drawn, retryId: ++retryId.current }]);
-  }, [marked, completed, pendingLines, centerPt, getTargetCenter]);
+    if (marked.has(target.id) || completed) return;
+    // Pointer release and its compatibility click can arrive before React
+    // finishes the first update. Deduplicate inside the state update itself.
+    setPendingLines(lines => {
+      if (lines.some(line => line.key === target.id)) return lines;
+      return [...lines, { from: centerPt, to: getTargetCenter(target.id),
+        targetId: target.id, key: target.id, correct: Boolean(target.correct), drawn, retryId: ++retryId.current }];
+    });
+  }, [marked, completed, centerPt, getTargetCenter]);
 
   const attemptPairConnect = useCallback((left: PencilTarget, right: PencilTarget, drawn = false) => {
-    if (isLeftConnected(left.id) || isRightConnected(right.id) || completed ||
-        pendingLines.some(line => line.key.startsWith(`${left.id}|`) || line.key.endsWith(`|${right.id}`))) return;
-    setPendingLines(lines => [...lines, { from: getTargetCenter(left.id), to: getTargetCenter(right.id),
-      targetId: right.id, key: `${left.id}|${right.id}`, correct: Boolean(left.pairId && right.pairId && left.pairId === right.pairId),
-      drawn, retryId: ++retryId.current }]);
+    if (isLeftConnected(left.id) || isRightConnected(right.id) || completed) return;
+    setPendingLines(lines => {
+      if (lines.some(line => line.key.startsWith(`${left.id}|`) || line.key.endsWith(`|${right.id}`))) return lines;
+      return [...lines, { from: getTargetCenter(left.id), to: getTargetCenter(right.id),
+        targetId: right.id, key: `${left.id}|${right.id}`, correct: Boolean(left.pairId && right.pairId && left.pairId === right.pairId),
+        drawn, retryId: ++retryId.current }];
+    });
     setSelectedStartId(null);
-  }, [completed, isLeftConnected, isRightConnected, pendingLines, getTargetCenter]);
+  }, [completed, isLeftConnected, isRightConnected, getTargetCenter]);
 
   // Commit learner progress and feedback only AFTER the complete charcoal hold.
   useEffect(() => {
@@ -554,6 +561,9 @@ export function DirectPencilConnector({
       // drag. Keep it selected so the next real tap on a picture connects it.
       if (isPairMode && sourceId && leftTargets.some((t) => t.id === sourceId)) {
         setSelectedStartId(sourceId);
+        // Browsers dispatch a click after the captured pointerup. Without this
+        // guard that click toggles the newly selected source back off.
+        justInitiatedLeftRef.current = sourceId;
       }
       return;
     }
