@@ -8,8 +8,8 @@
 <style>
 *{box-sizing:border-box;-webkit-tap-highlight-color:transparent;}
 html,body{margin:0;height:100%;overflow:hidden;background:radial-gradient(circle at 50% 8%,#1b7ac2,#06376f 58%,#04254b);font-family:system-ui,-apple-system,Segoe UI,Roboto,sans-serif;color:#fff;}
-body{display:flex;align-items:center;justify-content:center;}
-#app{position:relative;width:100vw;height:100vh;overflow:hidden;}
+body{display:flex; flex-direction: column; align-items:center;justify-content:center;}
+#app{position:relative;width:100vw;flex:1;overflow:hidden;}
 #frame{position:absolute;inset:0;overflow:hidden;}
 #stage{position:absolute;left:0;top:0;width:1152px;height:1536px;transform-origin:0 0;will-change:transform;user-select:none;-webkit-user-select:none;touch-action:none;}
 #backdrop{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;pointer-events:none;}
@@ -102,14 +102,14 @@ body{display:flex;align-items:center;justify-content:center;}
     </div>
   </div>
   <div id="hintWord">Toca una pelota para elegir una sílaba.</div>
+
+</div>
   <div class="controlbar">
-    <button class="btn blue" id="listenBtn" type="button">🔈 Palabra</button>
+    <button class="btn blue" id="listenBtn" type="button">🔈 Escuchar</button>
     <button class="btn green" id="checkBtn" type="button">✓ Comprobar</button>
     <button class="btn" id="resetBtn" type="button">↻ Borrar</button>
     <button class="btn" id="nextBtn" type="button">➜ Siguiente</button>
-    <button class="btn red" id="mute" type="button">🔇 Silenciar</button>
   </div>
-</div>
 <script>
 (() => {
   'use strict';
