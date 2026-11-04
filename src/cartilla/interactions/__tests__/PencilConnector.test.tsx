@@ -137,6 +137,22 @@ describe("Approved wooden pencil connector — line and pair matching", () => {
     } finally { cleanup(); vi.useRealTimers(); }
   });
 
+  it("records a single attempt when pointer release also produces a compatibility click", () => {
+    vi.useFakeTimers();
+    try {
+      const onResult = vi.fn();
+      render(<DirectPencilConnector pageKey="single-compatible-click" mode="mark"
+        targets={[{ id: "only", label: "única", correct: true }]}
+        reducedMotion onResult={onResult} />);
+      const answer = screen.getByRole("button", { name: "única" });
+      fireEvent.click(answer, { detail: 1 });
+      fireEvent.click(answer, { detail: 1 });
+      act(() => vi.advanceTimersByTime(500));
+      expect(onResult).toHaveBeenCalledTimes(1);
+      expect(answer.getAttribute("aria-pressed")).toBe("true");
+    } finally { cleanup(); vi.useRealTimers(); }
+  });
+
   it("selects the left letter with a finger tap and connects on the next picture tap", async () => {
     const targets = [
       { id: "left", label: "o", role: "left" as const, pairId: "o" },
