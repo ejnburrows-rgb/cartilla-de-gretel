@@ -77,13 +77,25 @@ def main(argv):
         raise ValueError('Provide a unique run label and selected test arguments')
     if not re.fullmatch(r'[A-Za-z0-9][A-Za-z0-9_-]{0,63}', argv[0]):
         raise ValueError('Use a simple unique run label')
+    selection = validate_selection(argv[1:])
+    # Windows batch launchers parse shell metacharacters even with list argv.
+    # Invoke the checkout CLI through an absolute native executable instead.
+    node = next((candidate for candidate in (
+        'C:/Program Files/nodejs/node.exe',
+        '/usr/bin/node', '/usr/local/bin/node', '/opt/homebrew/bin/node',
+    ) if Path(candidate).is_file()), None)
+    if node is None:
+        raise ValueError('Node executable not found at a fixed absolute location')
+    playwright = root / 'node_modules/@playwright/test/cli.js'
+    if not playwright.is_file():
+        raise ValueError('Checkout Playwright CLI is missing')
     base = (root / 'docs/proofs/m7-m8-m9-verification/continuation/runner-repair').resolve()
     reservation = (base / argv[0] / 'reservation.json').resolve()
     if not base.is_relative_to(root) or not reservation.is_relative_to(base):
         raise ValueError('Reservation leaves the checkout')
     require_pending_reservation(reservation)
     directory = create_run_directory(root, argv[0])
-    command = ['pnpm.cmd' if os.name == 'nt' else 'pnpm', 'exec', 'playwright', 'test', *validate_selection(argv[1:]), '--workers=1', '--reporter=line,json', '--output=' + str(directory / 'artifacts')]
+    command = [node, str(playwright.resolve(strict=True)), 'test', *selection, '--workers=1', '--reporter=line,json', '--output=' + str(directory / 'artifacts')]
     env = dict(os.environ, PLAYWRIGHT_JSON_OUTPUT_FILE=str(directory / 'results.json'))
     record = {'startedUtc': datetime.datetime.now(datetime.timezone.utc).isoformat(), 'wrapperPid': os.getpid(), 'head': subprocess.check_output(['git', 'rev-parse', 'HEAD'], cwd=root, text=True).strip(), 'command': command, 'status': 'running'}
     receipt = directory / 'completion.json'
