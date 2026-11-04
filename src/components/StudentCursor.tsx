@@ -19,8 +19,15 @@ export function StudentCursor() {
   useEffect(() => {
     if (!enabled) return;
     const move = (e: PointerEvent) => {
-      const editing = (e.target as Element | null)?.closest?.('input, textarea, [contenteditable="true"], :disabled');
-      hoverWorkbookPointer(e.clientX, e.clientY, e.pointerType !== "touch" && !editing);
+      const target = e.target as Element | null;
+      const editing = target?.closest?.('input, textarea, [contenteditable="true"], :disabled');
+      // The shared pencil must remain visible during a finger-drawn connector.
+      // The stage has captured the pointer and owns the tool until release.
+      const drawingWithTouch =
+        e.pointerType === "touch" &&
+        document.documentElement.hasAttribute("data-workbook-pencil-active") &&
+        Boolean(target?.closest?.(".am-direct-pencil__stage"));
+      hoverWorkbookPointer(e.clientX, e.clientY, !editing && (e.pointerType !== "touch" || drawingWithTouch));
     };
     const leave = () => { const at = getWorkbookPointer(); hoverWorkbookPointer(at.x, at.y, false); };
     const release = (e: PointerEvent) => { if (e.pointerType === "touch") leave(); };
