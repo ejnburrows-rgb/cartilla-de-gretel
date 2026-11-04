@@ -34,6 +34,10 @@ describe('actual Workbook p5 completion', () => {
     for (const word of ['oveja', 'ojos', 'oreja', 'olla']) await tap(word);
     expect(next().getAttribute('aria-disabled')).toBe('true');
     await tap('oso');
+    // Distinguish pencil feedback still pending from a broken page gate:
+    // each correct learner mark must be committed before Siguiente opens.
+    expect(screen.getByRole('button', { name: 'oso' }).getAttribute('aria-pressed')).toBe('true');
+    expect(pageCompletionState(5).complete).toBe(true);
     expect(next().hasAttribute('aria-disabled')).toBe(false);
   });
   it('restores completed answers and gate even when the old gate record is missing', () => {
