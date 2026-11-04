@@ -9,8 +9,9 @@ const builtRoot='D:/Downloads/cartilla-1247-continuation-work/integration';
 const base=path.join(root,'docs/proofs/m7-m8-m9-verification/continuation/runner-repair/built-crm-cpu-profile');
 fs.mkdirSync(base,{recursive:true});const out=path.join(base,'output');fs.mkdirSync(out);
 const raw=path.join(root,'work/built-crm-cpu-profile-raw');fs.mkdirSync(raw);
-const node='C:/Program Files/nodejs/node.exe';
+const node=process.execPath;
 const sha=file=>'sha256:'+crypto.createHash('sha256').update(fs.readFileSync(file)).digest('hex');
+const git=['C:/Program Files/Git/cmd/git.exe','C:/Program Files/Git/bin/git.exe','/usr/bin/git','/usr/local/bin/git','/opt/homebrew/bin/git'].find(c=>fs.existsSync(c));if(!git)throw Error('Git executable not found at a fixed absolute location');
 const manifestPath=path.join(builtRoot,'docs/proofs/m7-m8-m9-verification/continuation/unit-runner-repair/complete-gate-324b1383/post-build-dist-manifest.json');
 if(sha(manifestPath)!=='sha256:a5491bc6557dd693e2ffa5d5abc157c4afada7690f10f061e91c5b40cfc9df83')throw Error('Unexpected post-build manifest identity');
 const manifest=JSON.parse(fs.readFileSync(manifestPath,'utf8'));
@@ -19,11 +20,11 @@ for(const item of manifest.files){const file=path.resolve(dist,item.path);if(!fi
 fs.copyFileSync(manifestPath,path.join(out,'post-build-dist-manifest.json'),fs.constants.COPYFILE_EXCL);
 const artifactFiles=manifest.files.map(item=>'dist/'+item.path);
 const identity=()=>Object.fromEntries(artifactFiles.map(file=>[file,sha(path.join(builtRoot,file))]));
-const record={startedUtc:new Date().toISOString(),scope:'CPU-profile diagnosis of immutable 324b1383 built artifact only; profiling overhead prevents promotion as original journey pass',legacyStaticBuildMarker:fs.readFileSync(path.join(builtRoot,'dist/build-version.txt'),'utf8').trim(),indexModifiedUtc:fs.statSync(path.join(builtRoot,'dist/index.html')).mtime.toISOString(),builtArtifactsBefore:identity(),sourceDiff324:execFileSync('git',['diff','324b1383','HEAD','--','src','public','package.json','pnpm-lock.yaml'],{cwd:builtRoot,encoding:'utf8'}),legs:[]};
+const record={startedUtc:new Date().toISOString(),scope:'CPU-profile diagnosis of immutable 324b1383 built artifact only; profiling overhead prevents promotion as original journey pass',legacyStaticBuildMarker:fs.readFileSync(path.join(builtRoot,'dist/build-version.txt'),'utf8').trim(),indexModifiedUtc:fs.statSync(path.join(builtRoot,'dist/index.html')).mtime.toISOString(),builtArtifactsBefore:identity(),sourceDiff324:execFileSync(git,['diff','324b1383','HEAD','--','src','public','package.json','pnpm-lock.yaml'],{cwd:builtRoot,encoding:'utf8'}),legs:[]};
 const save=()=>fs.writeFileSync(path.join(out,'results.json'),JSON.stringify(record,null,2));save();
 if(record.sourceDiff324.trim())throw Error('Built checkout app/config differs from frozen324 source');
 record.manifestVerification={digest:sha(manifestPath),verifiedFiles:manifest.files.length,qualifiedSource:manifest.qualifiedSource,captureBoundary:manifest.captureBoundary};
-record.developmentSourceDiff324=execFileSync('git',['diff','324b1383','HEAD','--','src','public','package.json','pnpm-lock.yaml'],{cwd:root,encoding:'utf8'});
+record.developmentSourceDiff324=execFileSync(git,['diff','324b1383','HEAD','--','src','public','package.json','pnpm-lock.yaml'],{cwd:root,encoding:'utf8'});
 if(record.developmentSourceDiff324.trim())throw Error('Development app/config differs from frozen324 source');save();
 const now=()=>({utc:new Date().toISOString(),monotonicMs:performance.now()});
 async function startServer(leg,cwd,port,preview){

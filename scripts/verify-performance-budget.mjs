@@ -1,7 +1,7 @@
 import fs from "fs";
 import path from "path";
 import zlib from "zlib";
-import { execSync } from "child_process";
+import { execFileSync } from "child_process";
 import { fileURLToPath } from "url";
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
@@ -52,7 +52,7 @@ export function runPerformanceBudgetCheck(options = {}) {
     console.log("Building production assets for performance budget measurement...");
     // Vitest sets NODE_ENV=test. Vite preserves an explicitly inherited value,
     // so its child must select production without changing the test process.
-    execSync("pnpm exec vite build", {
+    execFileSync(process.execPath, [path.join(ROOT_DIR, "node_modules", "vite", "bin", "vite.js"), "build"], {
       cwd: ROOT_DIR,
       stdio: "inherit",
       env: { ...process.env, NODE_ENV: "production" },

@@ -36,6 +36,41 @@ def launch_reserved(reservation, command, **options):
     require_pending_reservation(reservation)
     return subprocess.Popen(command, **options)
 
+def validate_selection(arguments):
+    selected = []
+    spec_count = 0
+    index = 0
+    while index < len(arguments):
+        argument = arguments[index]
+        if argument.startswith('--'):
+            option, separator, value = argument.partition('=')
+            if option not in ('--project', '--config', '--grep'):
+                raise ValueError('Unsupported test selection option')
+            if not separator:
+                index += 1
+                if index >= len(arguments) or arguments[index].startswith('--'):
+                    raise ValueError('Missing test selection value')
+                value = arguments[index]
+            if option == '--project':
+                valid = re.fullmatch(r'[A-Za-z0-9][A-Za-z0-9_-]{0,63}', value)
+            elif option == '--config':
+                valid = re.fullmatch(r'(?:work/)?playwright(?:\.[A-Za-z0-9_-]+)*\.config\.ts', value)
+            else:
+                valid = 0 < len(value) <= 1024 and '\x00' not in value
+            if not valid:
+                raise ValueError('Invalid test selection value')
+            selected.append(option + '=' + value)
+        else:
+            if (not re.fullmatch(r'tests/e2e/[A-Za-z0-9_][A-Za-z0-9_./-]*\.spec\.ts', argument)
+                or '..' in argument.split('/')):
+                raise ValueError('Use a relative tests/e2e spec path')
+            selected.append(argument)
+            spec_count += 1
+        index += 1
+    if not spec_count:
+        raise ValueError('Select at least one spec path')
+    return selected
+
 def main(argv):
     root = checkout_root()
     if len(argv) < 2:
@@ -48,7 +83,7 @@ def main(argv):
         raise ValueError('Reservation leaves the checkout')
     require_pending_reservation(reservation)
     directory = create_run_directory(root, argv[0])
-    command = ['pnpm.cmd' if os.name == 'nt' else 'pnpm', 'exec', 'playwright', 'test', *argv[1:], '--workers=1', '--reporter=line,json', '--output=' + str(directory / 'artifacts')]
+    command = ['pnpm.cmd' if os.name == 'nt' else 'pnpm', 'exec', 'playwright', 'test', *validate_selection(argv[1:]), '--workers=1', '--reporter=line,json', '--output=' + str(directory / 'artifacts')]
     env = dict(os.environ, PLAYWRIGHT_JSON_OUTPUT_FILE=str(directory / 'results.json'))
     record = {'startedUtc': datetime.datetime.now(datetime.timezone.utc).isoformat(), 'wrapperPid': os.getpid(), 'head': subprocess.check_output(['git', 'rev-parse', 'HEAD'], cwd=root, text=True).strip(), 'command': command, 'status': 'running'}
     receipt = directory / 'completion.json'

@@ -12,10 +12,11 @@ const root=process.cwd();
 const output=path.join(root,'docs/proofs/m7-m8-m9-verification/continuation/runner-repair/worker-split-repair-final');
 fs.mkdirSync(output,{recursive:false});
 const sha=bytes=>crypto.createHash('sha256').update(bytes).digest('hex');
+const git=['C:/Program Files/Git/cmd/git.exe','C:/Program Files/Git/bin/git.exe','/usr/bin/git','/usr/local/bin/git','/opt/homebrew/bin/git'].find(c=>fs.existsSync(c));if(!git)throw Error('Git executable not found at a fixed absolute location');
 const require=createRequire(import.meta.url);
 const lexerPath=require.resolve('es-module-lexer',{paths:[path.dirname(require.resolve('vitest/package.json'))]});
 const {init,parse}=await import(pathToFileURL(lexerPath).href);await init;
-const tracked=execFileSync('git',['ls-files','-z','--','src/routes','src/routeTree.gen.ts'],{encoding:'utf8'}).split('\0').filter(Boolean);
+const tracked=execFileSync(git,['ls-files','-z','--','src/routes','src/routeTree.gen.ts'],{encoding:'utf8'}).split('\0').filter(Boolean);
 const capture=()=>Object.fromEntries(tracked.map(name=>{
  const file=path.join(root,name);
  return [name,{sha256:sha(fs.readFileSync(file)),mtimeMs:fs.statSync(file).mtimeMs}];
@@ -23,7 +24,7 @@ const capture=()=>Object.fromEntries(tracked.map(name=>{
 const before=capture();
 const ids=text=>[...text.matchAll(/\bid:\s*['"]([^'"]+)['"]/g)].map(match=>match[1]).sort();
 const committedTree=fs.readFileSync(path.join(root,'src/routeTree.gen.ts'),'utf8');
-const record={head:execFileSync('git',['rev-parse','HEAD'],{encoding:'utf8'}).trim(),startedUtc:new Date().toISOString(),before,lanes:[]};
+const record={head:execFileSync(git,['rev-parse','HEAD'],{encoding:'utf8'}).trim(),startedUtc:new Date().toISOString(),before,lanes:[]};
 const save=()=>fs.writeFileSync(path.join(output,'result.json'),JSON.stringify(record,null,2)+'\n');save();
 for(const lane of ['open','gated']){
  process.env.VITE_CRM_REVIEW=lane==='gated'?'false':'true';
