@@ -133,7 +133,7 @@ describe("Approved wooden pencil connector — line and pair matching", () => {
       expect(onComplete).not.toHaveBeenCalled();
       act(() => vi.advanceTimersByTime(1));
       expect(onComplete).toHaveBeenCalledTimes(1);
-      expect(screen.getByRole("button", { name: "correcto" })).toHaveAttribute("aria-pressed", "true");
+      expect(screen.getByRole("button", { name: "correcto" }).getAttribute("aria-pressed")).toBe("true");
     } finally { cleanup(); vi.useRealTimers(); }
   });
 
@@ -148,11 +148,11 @@ describe("Approved wooden pencil connector — line and pair matching", () => {
     const stage = container.querySelector(".am-direct-pencil__stage")!;
     fireEvent.pointerDown(left, { pointerId: 9, pointerType: "touch", clientX: 100, clientY: 100, button: 0 });
     fireEvent.pointerUp(stage, { pointerId: 9, pointerType: "touch", clientX: 100, clientY: 100 });
-    expect(left).toHaveAttribute("aria-pressed", "true");
+    expect(left.getAttribute("aria-pressed")).toBe("true");
     fireEvent.click(screen.getByRole("button", { name: "oso" }), { detail: 1 });
     await flushAnim(450);
     expect(gretelEvent).toHaveBeenCalledWith("answer:correct", { itemId: "left|right" });
-    expect(screen.getByRole("button", { name: "oso" })).toHaveAttribute("aria-pressed", "true");
+    expect(screen.getByRole("button", { name: "oso" }).getAttribute("aria-pressed")).toBe("true");
   });
 
   it("toggling focus mode expands stage for precision drawing", () => {
