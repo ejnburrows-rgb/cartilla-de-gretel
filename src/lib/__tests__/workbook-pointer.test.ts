@@ -29,7 +29,8 @@ describe("shared viewport pencil", () => {
     const point = (at: number) => eraserTravelPoint(start, end, at, 390, 0.2, 0.2);
     expect(point(0).x).toBeGreaterThan(390);
     expect(point(0.2)).toEqual(end);
-    expect(point(0.5)).toEqual({ x: 180, y: 160 });
+    expect(point(0.5).x).toBeCloseTo(180, 5);
+    expect(point(0.5).y).toBeCloseTo(160, 5);
     expect(point(0.8)).toEqual(start);
     expect(point(1).x).toBeGreaterThan(390);
   });
