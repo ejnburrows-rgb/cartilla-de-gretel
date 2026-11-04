@@ -120,6 +120,41 @@ describe("Approved wooden pencil connector — line and pair matching", () => {
     expect(screen.getByRole("button", { name: "oso" }).classList.contains("is-retry")).toBe(false);
   });
 
+  it("accepts an actual pointer click and unlocks completion after the neutral hold", () => {
+    vi.useFakeTimers();
+    try {
+      const onComplete = vi.fn();
+      render(<DirectPencilConnector pageKey="real-click-hold" mode="mark"
+        targets={[{ id: "yes", label: "correcto", correct: true }]}
+        reducedMotion onComplete={onComplete} />);
+      fireEvent.click(screen.getByRole("button", { name: "correcto" }), { detail: 1 });
+      expect(onComplete).not.toHaveBeenCalled();
+      act(() => vi.advanceTimersByTime(399));
+      expect(onComplete).not.toHaveBeenCalled();
+      act(() => vi.advanceTimersByTime(1));
+      expect(onComplete).toHaveBeenCalledTimes(1);
+      expect(screen.getByRole("button", { name: "correcto" })).toHaveAttribute("aria-pressed", "true");
+    } finally { cleanup(); vi.useRealTimers(); }
+  });
+
+  it("selects the left letter with a finger tap and connects on the next picture tap", async () => {
+    const targets = [
+      { id: "left", label: "o", role: "left" as const, pairId: "o" },
+      { id: "right", label: "oso", role: "right" as const, pairId: "o" },
+    ];
+    const { container } = render(<DirectPencilConnector pageKey="real-pair-taps"
+      mode="pair" targets={targets} reducedMotion />);
+    const left = screen.getByRole("button", { name: "Vocal o" });
+    const stage = container.querySelector(".am-direct-pencil__stage")!;
+    fireEvent.pointerDown(left, { pointerId: 9, pointerType: "touch", clientX: 100, clientY: 100, button: 0 });
+    fireEvent.pointerUp(stage, { pointerId: 9, pointerType: "touch", clientX: 100, clientY: 100 });
+    expect(left).toHaveAttribute("aria-pressed", "true");
+    fireEvent.click(screen.getByRole("button", { name: "oso" }), { detail: 1 });
+    await flushAnim(450);
+    expect(gretelEvent).toHaveBeenCalledWith("answer:correct", { itemId: "left|right" });
+    expect(screen.getByRole("button", { name: "oso" })).toHaveAttribute("aria-pressed", "true");
+  });
+
   it("toggling focus mode expands stage for precision drawing", () => {
     const { container } = render(
       <DirectPencilConnector
