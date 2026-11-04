@@ -20,6 +20,30 @@ export function pencilProgress(time: number) {
   for (let i = 0; i < 16; i++) { const mid = (lo + hi) / 2; if (cubic(mid, 0.45, 0.55) < time) lo = mid; else hi = mid; }
   return cubic((lo + hi) / 2, 0.05, 0.95);
 }
+/** Match the eraser's approach, backward rubbing and departure to the SVG ink timeline. */
+export function eraserTravelPoint(
+  start: PencilPoint,
+  end: PencilPoint,
+  progress: number,
+  viewportWidth: number,
+  enterShare: number,
+  leaveShare: number,
+): PencilPoint {
+  const t = Math.max(0, Math.min(1, progress));
+  const offscreenX = Math.max(viewportWidth + 260, start.x + 260, end.x + 260);
+  const lerp = (a: number, b: number, amount: number) => a + (b - a) * amount;
+  if (t < enterShare) {
+    return { x: lerp(offscreenX, end.x, t / enterShare), y: end.y };
+  }
+  const rubEnd = 1 - leaveShare;
+  if (t < rubEnd) {
+    const rub = (t - enterShare) / (rubEnd - enterShare);
+    return { x: lerp(end.x, start.x, rub), y: lerp(end.y, start.y, rub) };
+  }
+  const leave = (t - rubEnd) / leaveShare;
+  return { x: lerp(start.x, offscreenX, leave), y: start.y };
+}
+
 /** Keep the SAME screen-sized tool on the ink path; caller retains semantic timing. */
 export function animateWorkbookPointer(pointAt: (progress: number) => PencilPoint | null, duration: number, eraser = false) {
   const me = Symbol('cursor-motion'); owner = me;
