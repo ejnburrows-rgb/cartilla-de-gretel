@@ -1,12 +1,12 @@
 {
   "route": "/cartilla/teacher/paginas/1",
-  "lcpMs": 2348,
-  "totalLoadTimeMs": 3235,
+  "lcpMs": 1004,
+  "totalLoadTimeMs": 1804,
   "imageCount": 1,
   "imageStats": [
     {
       "name": "http://127.0.0.1:5173/src/assets/autora-portrait.png?import",
-      "duration": 320.80000000004657,
+      "duration": 108.29999999981374,
       "size": 707
     }
   ]
