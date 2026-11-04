@@ -14,7 +14,7 @@ import {
   WORKBOOK_MARK_TIMING,
   useWorkbookPencilTurn,
 } from "@/components/cartilla/WorkbookPencilMark";
-import { animateWorkbookPointer, graphiteWidth, hoverWorkbookPointer, pencilProgress, screenPointOnPath } from "@/lib/workbook-pointer";
+import { animateWorkbookPointer, eraserTravelPoint, graphiteWidth, hoverWorkbookPointer, pencilProgress, screenPointOnPath } from "@/lib/workbook-pointer";
 import type { WorkbookObject } from "@/content/workbook/types";
 import type { InteractionProps } from "./shared";
 import "@/styles/activity-mechanics.css";
@@ -476,8 +476,14 @@ export function DirectPencilConnector({
     if (!hasPencilTurn || reducedMotion) return;
     if (wrongLine) return animateWorkbookPointer(progress => {
       const path = stageRef.current?.querySelector<SVGPathElement>(".am-direct-pencil__retry-line");
-      const point = screenPointOnPath(path ?? undefined, 1 - progress);
-      return point ? { x: point.x + Math.sin(progress * Math.PI * 36) * 4, y: point.y } : null;
+      const start = screenPointOnPath(path ?? undefined, 0);
+      const end = screenPointOnPath(path ?? undefined, 1);
+      if (!start || !end) return null;
+      return eraserTravelPoint(
+        start, end, progress, window.innerWidth,
+        WORKBOOK_MARK_TIMING.eraseFlipMs / WORKBOOK_MARK_TIMING.eraseMs,
+        WORKBOOK_MARK_TIMING.eraseLiftMs / WORKBOOK_MARK_TIMING.eraseMs,
+      );
     }, WORKBOOK_MARK_TIMING.eraseMs, true);
     if (pendingLine && !pendingLine.drawn) return animateWorkbookPointer(progress => {
       const path = stageRef.current?.querySelector<SVGPathElement>(".am-direct-pencil__pending-line");
