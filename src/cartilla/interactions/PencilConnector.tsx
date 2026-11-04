@@ -549,7 +549,14 @@ export function DirectPencilConnector({
       );
     });
     cancelDragState();
-    if (!releasedTarget) return;
+    if (!releasedTarget) {
+      // A normal finger tap on the left letter is a selection, not a failed
+      // drag. Keep it selected so the next real tap on a picture connects it.
+      if (isPairMode && sourceId && leftTargets.some((t) => t.id === sourceId)) {
+        setSelectedStartId(sourceId);
+      }
+      return;
+    }
     if (isPairMode && sourceId) {
       const left = targets.find((target) => target.id === sourceId);
       if (left) attemptPairConnect(left, releasedTarget, true);
