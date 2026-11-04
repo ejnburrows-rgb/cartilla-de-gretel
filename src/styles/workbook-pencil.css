@@ -14,22 +14,22 @@
 }
 .workbook-pencil-mark__stroke {
   fill: none;
-  stroke: #3a3a38;
-  stroke-width: 3.3;
+  stroke: #46464d;
+  stroke-width: 3.2;
   stroke-linecap: round;
   stroke-linejoin: round;
   stroke-opacity: 1;
-  /* SVG paper grain is shared with connector ink. */
+  /* Owner 2026-10-08: a crisp, solid line like the close-up reference. */
   shape-rendering: geometricPrecision;
 }
-/* November 1: neutral charcoal until drawing and the full 400ms hold finish. */
+/* Owner 2026-10-06: green from the first line when right, red when wrong. */
 .workbook-pencil-mark[data-mark-result="correct"] .workbook-pencil-mark__stroke,
 .workbook-pencil-mark[data-mark-status="correct"] .workbook-pencil-mark__stroke {
-  stroke: #258351;
+  stroke: #16a34a;
   stroke-opacity: 1;
 }
 .workbook-pencil-mark[data-mark-result="wrong"] .workbook-pencil-mark__stroke {
-  stroke: #c4320a;
+  stroke: #dc2626;
   stroke-opacity: 1;
 }
 .workbook-pencil-svg {
@@ -78,18 +78,4 @@ html.workbook-close-up-zooming body {
   html.student-pencil.workbook-pencil-active body * {
     cursor: auto !important;
   }
-}
-
-/* One screen-sized tool: graphite/eraser hotspot at its translated origin. */
-.workbook-pointer { position: fixed; left: 0; top: 0; width: 100vw; height: 100vh; overflow: visible; pointer-events: none; z-index: 1000; }
-html.student-pencil.workbook-pointer-visible,
-html.student-pencil.workbook-pointer-visible body,
-html.student-pencil.workbook-pointer-visible body * { cursor: none !important; }
-html:is(.a11y-contrast, .a11y-dyslexia, .a11y-large, .a11y-xlarge) .workbook-pointer { display: none; }
-html:is(.a11y-contrast, .a11y-dyslexia, .a11y-large, .a11y-xlarge).student-pencil.workbook-pointer-visible,
-html:is(.a11y-contrast, .a11y-dyslexia, .a11y-large, .a11y-xlarge).student-pencil.workbook-pointer-visible body,
-html:is(.a11y-contrast, .a11y-dyslexia, .a11y-large, .a11y-xlarge).student-pencil.workbook-pointer-visible body * { cursor: auto !important; }
-@media (forced-colors: active) {
- .workbook-pointer { display: none; }
- html.student-pencil.workbook-pointer-visible, html.student-pencil.workbook-pointer-visible body, html.student-pencil.workbook-pointer-visible body * { cursor: auto !important; }
 }

@@ -7,7 +7,7 @@ import {
   useState,
   useSyncExternalStore,
 } from "react";
-import { animateWorkbookPointer, pencilProgress, screenPointOnPath } from "@/lib/workbook-pointer";
+import { createPortal } from "react-dom";
 import { useReducedMotion } from "@/hooks/useReducedMotion";
 import { useActivityEvents } from "@/lib/activity-events";
 import "@/styles/workbook-pencil.css";
@@ -31,18 +31,26 @@ export interface WorkbookPencilMarkProps {
   onRetry?: () => void;
 }
 
-/** Shared timing: charcoal drawing, 400ms neutral hold, then result/erasure.
- * Reduced motion removes decorative movement while preserving the full hold.
+/**
+ * Semantic timing of the Real Workbook Mark — close-up pencil (owner 2026-10-06,
+ * motion amended 2026-10-08). The big pencil starts completely off the right edge
+ * of the screen, travels in over everything in its way, draws the mark in about
+ * two seconds (green when right, red when wrong), and travels back out off the
+ * right edge of the screen. A wrong mark is then rubbed out by the big eraser,
+ * which comes in from the right edge of the screen the same way, scrubs back and
+ * forth with crumbs falling, and leaves off the right edge again.
+ * Reduced motion removes only the decorative motion: the coloured mark appears
+ * at once and the result keeps the same timing.
  */
 export const WORKBOOK_MARK_TIMING = {
-  /** Same cursor approaches the first ink point from its hover position. */
-  approachMs: 200,
+  /** Pencil travels in from off the right edge of the screen and touches down (part of drawMs). */
+  approachMs: 800,
   /** Tap → mark finished (approach + the ~2 s drawn stroke). */
-  drawMs: 2000,
-  /** Kept for consumers of the shared timing shape; no offscreen departure. */
-  liftMs: 0,
-  /** Completed charcoal mark → visible result. */
-  holdMs: 400,
+  drawMs: 2800,
+  /** Pencil travels back out past the right edge of the screen after the mark is drawn. */
+  liftMs: 800,
+  /** Mark finished → result (the pencil has left the screen). */
+  holdMs: 800,
   /** Eraser comes in, rubs the mark out with crumbs, leaves. */
   eraseMs: 4000,
   /** Eraser travel in from off the right edge of the screen (part of eraseMs). */
@@ -56,6 +64,25 @@ const EASE = "0.45 0.05 0.55 0.95";
 /** Pencil geometry: tip at (0,0), body along -y. */
 const PENCIL_LENGTH = 79.5;
 const PENCIL_CENTER_Y = -PENCIL_LENGTH / 2;
+/** Close-up pose: body runs up and to the right, about 30° above horizontal. */
+const PENCIL_TILT = 60;
+/**
+ * Big close-up tool (owner reference 2026-10-06): the pencil is about a third of
+ * the box high, so it is always much longer than the box and only its front shows.
+ */
+const PENCIL_SCALE = 3.2;
+const PENCIL_POSE = `rotate(${PENCIL_TILT}) scale(${PENCIL_SCALE})`;
+/** The eraser lies a little flatter, its body running off to the right. */
+const ERASER_TILT = 66;
+const ERASER_POSE = `rotate(${ERASER_TILT}) scale(${PENCIL_SCALE})`;
+/** Unit vector along the pencil body (tip → eraser) in mark coordinates. */
+const AXIS: [number, number] = [
+  Math.sin((PENCIL_TILT * Math.PI) / 180),
+  -Math.cos((PENCIL_TILT * Math.PI) / 180),
+];
+/** Extra distance (mark units) past the screen's right edge, so no part of the tool shows before it enters. */
+const OFFSCREEN_MARGIN = 24;
+
 /**
  * A polished yellow school pencil: three lit hexagonal facets with a scalloped
  * sharpening edge, cedar cone with grain, dark graphite point, ribbed silver
@@ -497,6 +524,66 @@ function useCellBox(ref: React.RefObject<HTMLDivElement | null>): { aspect: numb
   return { aspect };
 }
 
+interface FlightBox {
+  left: number;
+  top: number;
+  width: number;
+  height: number;
+  /** Viewport width in CSS px. */
+  vw: number;
+  /** Viewport height in CSS px. */
+  vh: number;
+}
+
+/**
+ * Where the mark box sits on the screen while a tool is in flight. The tools fly
+ * in a fixed layer above the whole page (the page sheet clips its contents), so
+ * this layer is kept exactly over the mark box, following scrolls and resizes.
+ */
+function useFlightBox(
+  ref: React.RefObject<HTMLDivElement | null>,
+  active: boolean,
+): FlightBox | null {
+  const [box, setBox] = useState<FlightBox | null>(null);
+  useLayoutEffect(() => {
+    if (!active) {
+      setBox(null);
+      return;
+    }
+    const el = ref.current;
+    if (!el) return;
+    let frame = 0;
+    const measure = () => {
+      const r = el.getBoundingClientRect();
+      const vw = window.innerWidth || document.documentElement.clientWidth || 0;
+      const vh = window.innerHeight || document.documentElement.clientHeight || 0;
+      setBox((prev) =>
+        prev &&
+        prev.left === r.left &&
+        prev.top === r.top &&
+        prev.width === r.width &&
+        prev.height === r.height &&
+        prev.vw === vw &&
+        prev.vh === vh
+          ? prev
+          : { left: r.left, top: r.top, width: r.width, height: r.height, vw, vh },
+      );
+    };
+    // Follow the box every frame while a tool is in flight: the page zooms in and
+    // out (close-up), and may scroll or resize, while the pencil works.
+    const tick = () => {
+      measure();
+      frame = window.requestAnimationFrame(tick);
+    };
+    measure();
+    frame = window.requestAnimationFrame(tick);
+    return () => {
+      if (frame) window.cancelAnimationFrame(frame);
+    };
+  }, [ref, active]);
+  return box;
+}
+
 /** How long the page takes to zoom in to the picture, and back out. */
 export const CLOSE_UP_ZOOM_MS = 1000;
 /** After a right answer, the close-up stays a moment on the green circle before zooming out. */
@@ -559,6 +646,134 @@ function usePageCloseUp(ref: React.RefObject<HTMLDivElement | null>, active: boo
   }, [ref, active]);
 }
 
+/**
+ * How much longer than a stock pencil the tool must be (shape units) so that, from
+ * the picture, its body always runs right off the edge of the screen.
+ */
+function stretchToScreenEdge(box: FlightBox, height: number): number {
+  const unit = box.width > 0 && box.height > 0 ? Math.min(box.width / 100, box.height / height) : 0;
+  if (unit <= 0) return 0;
+  const needed = Math.hypot(box.vw, box.vh) / unit / PENCIL_SCALE;
+  return Math.max(0, Math.ceil(needed - PENCIL_LENGTH));
+}
+
+/**
+ * Translation (mark units) that puts a tool resting at `from` completely past the
+ * right edge of the screen, a little higher than where it touches down.
+ */
+function offscreenFrom(box: FlightBox, height: number, from: Pt): string {
+  const unit = box.width > 0 && box.height > 0 ? Math.min(box.width / 100, box.height / height) : 0;
+  // Mark box is centred in its element (SVG "meet"); find the screen's right edge in mark units.
+  const edge = unit > 0 ? (box.vw - box.left - (box.width - 100 * unit) / 2) / unit : 140;
+  const dx = Math.max(edge, 100) + OFFSCREEN_MARGIN - from[0];
+  return `${f2(dx)} ${f2(-10)}`;
+}
+
+/**
+ * Draw phase. The big pencil starts completely off the right edge of the screen,
+ * travels in over everything on the way and touches down on the starting point
+ * (`approach`), travels the mark exactly as the stroke is revealed (`dur`) with
+ * the small wrist turns of a real hand, then travels back out past the right
+ * edge of the screen (`lift`). Nothing clips it: it flies in its own layer.
+ */
+function DrawingPencil({
+  paths,
+  points,
+  strokeDur,
+  hopMs,
+  shadow,
+  uid,
+  offscreen,
+  exit,
+  stretch,
+}: {
+  paths: string[];
+  points: Pt[][];
+  strokeDur: number;
+  hopMs: number;
+  shadow: string;
+  uid: string;
+  offscreen: string;
+  exit: string;
+  stretch: number;
+}) {
+  const { approachMs, drawMs, liftMs } = WORKBOOK_MARK_TIMING;
+  const total = drawMs + liftMs;
+  const kApproach = (approachMs / total).toFixed(6);
+  const kDone = (drawMs / total).toFixed(6);
+  return (
+    <g className="workbook-pencil" opacity="0" filter={`url(#${shadow})`}>
+      {/* One physical shape for the entire mark. Later motion segments replace
+          the frozen previous segment on this SAME group, never another pencil. */}
+      {paths.map((path, i) => {
+        const begin = i === 0 ? 0 : approachMs + i * (strokeDur + hopMs);
+        const travel = i === 0 ? approachMs + strokeDur : strokeDur;
+        return (
+          <animateMotion
+            key={`stroke-${i}`}
+            begin={`${begin}ms`}
+            dur={`${travel}ms`}
+            fill="freeze"
+            calcMode="spline"
+            path={path}
+            keyTimes={i === 0 ? `0;${(approachMs / travel).toFixed(6)};1` : "0;1"}
+            keyPoints={i === 0 ? "0;0;1" : "0;1"}
+            keySplines={i === 0 ? `0 0 1 1;${EASE}` : EASE}
+          />
+        );
+      })}
+      {points.slice(1).map((next, i) => {
+        const from = points[i][points[i].length - 1];
+        const to = next[0];
+        // Lift gently while moving from the end of one diagonal to the start
+        // of the other. The mark paths stay separate, so this leaves no ink.
+        const bridge = `M ${f2(from[0])} ${f2(from[1])} Q ${f2((from[0] + to[0]) / 2 + AXIS[0] * 12)} ${f2((from[1] + to[1]) / 2 + AXIS[1] * 12)} ${f2(to[0])} ${f2(to[1])}`;
+        return (
+          <animateMotion
+            key={`hop-${i}`}
+            begin={`${approachMs + (i + 1) * strokeDur + i * hopMs}ms`}
+            dur={`${hopMs}ms`}
+            fill="freeze"
+            path={bridge}
+            calcMode="spline"
+            keyTimes="0;1"
+            keyPoints="0;1"
+            keySplines={EASE}
+          />
+        );
+      })}
+      <animate attributeName="opacity" dur={`${total}ms`} values="1;1" />
+      <g>
+        <animateTransform
+          attributeName="transform"
+          type="translate"
+          dur={`${total}ms`}
+          fill="freeze"
+          calcMode="spline"
+          values={`${offscreen};0 0;0 0;${exit}`}
+          keyTimes={`0;${kApproach};${kDone};1`}
+          keySplines="0.3 0 0.25 1;0 0 1 1;0.55 0 0.7 1"
+        />
+        <g>
+          <animateTransform
+            attributeName="transform"
+            type="rotate"
+            dur={`${total}ms`}
+            fill="freeze"
+            calcMode="spline"
+            values="2;0;-3;2;0;0"
+            keyTimes={`0;${kApproach};${((approachMs + (drawMs - approachMs) * 0.35) / total).toFixed(6)};${((approachMs + (drawMs - approachMs) * 0.75) / total).toFixed(6)};${kDone};1`}
+            keySplines={`0.3 0 0.4 1;${EASE};${EASE};${EASE};0 0 1 1`}
+          />
+          <g transform={PENCIL_POSE}>
+            <PencilShape uid={uid} stretch={stretch} />
+          </g>
+        </g>
+      </g>
+    </g>
+  );
+}
+
 /** One pencil stroke, revealed exactly as the pencil tip travels it. */
 function MarkStroke({
   path,
@@ -571,18 +786,16 @@ function MarkStroke({
   begin?: number;
   dur: number;
 }) {
-  if (!animate) return <path className="workbook-pencil-mark__stroke" filter="url(#charcoal-paper-grain)" d={path} />;
+  if (!animate) return <path className="workbook-pencil-mark__stroke" d={path} />;
   return (
     <path
-      className="workbook-pencil-mark__stroke" filter="url(#charcoal-paper-grain)"
+      className="workbook-pencil-mark__stroke"
       d={path}
       pathLength={100}
       strokeDasharray="100 100"
       strokeDashoffset="100"
       opacity="0"
     >
-      <animate attributeName="stroke-width" begin={`${begin}ms`} dur={`${dur}ms`} fill="freeze"
-        values="6.4;5.2;3.3;5.2;6.4" keyTimes="0;0.2;0.5;0.8;1" />
       <animate
         attributeName="stroke-dashoffset"
         begin={`${begin}ms`}
@@ -611,7 +824,7 @@ const CRUMB_COLORS = ["#f3a9b8", "#ee93a7", "#f8c6d0", "#e59aa6", "#d98593"];
  * Eraser crumbs: rubber flakes that break off where the eraser rubs, tumble and
  * fall a little under gravity, and stay on the paper until the eraser leaves.
  */
-export function EraserCrumbs({
+function EraserCrumbs({
   points,
   seed,
   enterMs,
@@ -645,7 +858,7 @@ export function EraserCrumbs({
     }[] = [];
     // Few, small, realistic crumbs — a pink eraser leaves only a handful of
     // tiny flakes behind, not a shower of confetti (F05 conformance).
-    const n = 12;
+    const n = 7;
     for (let i = 0; i < n; i++) {
       // The eraser runs backwards along the mark, so crumbs break off from t=1 to 0.
       const t = 1 - (i + rnd() * 0.7) / n;
@@ -789,7 +1002,7 @@ export function WorkbookPencilMark({
   const closeUp =
     flying || (!reducedMotion && !externalStatus && currentStatus === "correct" && !lingerDone);
   usePageCloseUp(boxRef, closeUp);
-
+  const flightBox = useFlightBox(boxRef, flying);
   const height = Math.round(100 * aspect * 10) / 10;
   const seed = useMemo(() => hashSeed(itemId ?? "mark"), [itemId]);
   const strokePoints = useMemo(
@@ -798,32 +1011,15 @@ export function WorkbookPencilMark({
     [height, markType, seed, round],
   );
   const strokes = useMemo(() => strokePoints.map(smoothPath), [strokePoints]);
-  // Outcome is deliberately unknown to the visible mark until the neutral hold ends.
-  const result = currentStatus === "correct" ? "correct" : currentStatus === "erasing" ? "wrong" : undefined;
-
-  useEffect(() => {
-    if (!hasTurn || reducedMotion || externalStatus || (currentStatus !== "drawing" && currentStatus !== "erasing")) return;
-    const eraser = currentStatus === "erasing";
-    const duration = eraser ? WORKBOOK_MARK_TIMING.eraseMs : WORKBOOK_MARK_TIMING.drawMs;
-    return animateWorkbookPointer(progress => {
-      const paths = [...(boxRef.current?.querySelectorAll<SVGPathElement>("path.workbook-pencil-mark__stroke:not(.workbook-pencil-mark__ghost)") ?? [])];
-      if (eraser) {
-        const point = screenPointOnPath(paths[paths.length - 1], 1 - progress);
-        return point ? { x: point.x + Math.sin(progress * Math.PI * 36) * 4, y: point.y } : null;
-      }
-      const inkDuration = duration - WORKBOOK_MARK_TIMING.approachMs;
-      const elapsed = progress * inkDuration;
-      const strokeDur = markType === "circle" ? inkDuration : (inkDuration - 260) / 2;
-      if (markType === "x" && elapsed > strokeDur && elapsed < strokeDur + 260) {
-        const from = screenPointOnPath(paths[0], 1), to = screenPointOnPath(paths[1], 0);
-        const t = pencilProgress((elapsed - strokeDur) / 260);
-        return from && to ? { x: from.x + (to.x - from.x) * t, y: from.y + (to.y - from.y) * t } : null;
-      }
-      const index = markType === "circle" || elapsed < strokeDur + 260 ? 0 : 1;
-      const local = Math.min(1, Math.max(0, (elapsed - index * (strokeDur + 260)) / strokeDur));
-      return screenPointOnPath(paths[index], pencilProgress(local));
-    }, duration, eraser);
-  }, [hasTurn, reducedMotion, externalStatus, currentStatus, markType]);
+  // Green when right, red when wrong — from the first line the pencil draws.
+  const result =
+    externalStatus === "correct"
+      ? "correct"
+      : isCorrect == null
+        ? undefined
+        : isCorrect
+          ? "correct"
+          : "wrong";
 
   useEffect(() => {
     onSuccessRef.current = onSuccess;
@@ -876,7 +1072,7 @@ export function WorkbookPencilMark({
   const erasing = currentStatus === "erasing";
   // Restored/validated marks (external status) and reduced motion render the finished mark statically.
   const animateDraw = !reducedMotion && !externalStatus;
-  const { approachMs, drawMs } = WORKBOOK_MARK_TIMING;
+  const { approachMs, drawMs, liftMs } = WORKBOOK_MARK_TIMING;
   // Circle: one ~2 s loop. Cross: two strokes with a short hop between them.
   const hopMs = 260;
   const strokeDur = markType === "circle" ? drawMs - approachMs : (drawMs - approachMs - hopMs) / 2;
@@ -886,6 +1082,19 @@ export function WorkbookPencilMark({
     return { strokeBegin, pencilBegin: strokeBegin - approach, approach };
   });
   const viewBox = `0 0 100 ${height}`;
+  const toolDefs = (
+    <defs>
+      <filter id={shadowId} x="-50%" y="-50%" width="200%" height="200%">
+        <feDropShadow
+          dx="1.6"
+          dy="2.4"
+          stdDeviation="1.6"
+          floodColor="#3b2a14"
+          floodOpacity="0.24"
+        />
+      </filter>
+    </defs>
+  );
   const { eraseMs, eraseFlipMs, eraseLiftMs } = WORKBOOK_MARK_TIMING;
   const enterMs = eraseFlipMs;
   const rubMs = eraseMs - enterMs - eraseLiftMs;
@@ -895,6 +1104,97 @@ export function WorkbookPencilMark({
   const lastPath = strokes[strokes.length - 1];
   const lastPoints = strokePoints[strokePoints.length - 1];
 
+  /**
+   * Owner 2026-10-08: the pencil and the eraser come from off the right edge of the
+   * screen, pass over everything on the way, do their job and leave the same way.
+   * They fly in a fixed layer above the whole page, kept exactly over this mark box,
+   * so the page sheet (which clips its contents) never cuts them off.
+   */
+  const stretch = flightBox ? stretchToScreenEdge(flightBox, height) : 0;
+  const flightLayer =
+    flying && flightBox && typeof document !== "undefined"
+      ? createPortal(
+          <svg
+            key={erasing ? "erase-flight" : "draw-flight"}
+            className="workbook-pencil-flight"
+            data-mark-status={currentStatus}
+            data-mark-result={result}
+            viewBox={viewBox}
+            aria-hidden="true"
+            style={{
+              left: `${flightBox.left}px`,
+              top: `${flightBox.top}px`,
+              width: `${flightBox.width}px`,
+              height: `${flightBox.height}px`,
+            }}
+          >
+            {toolDefs}
+            {!erasing && (
+              <DrawingPencil
+                paths={strokes}
+                points={strokePoints}
+                strokeDur={strokeDur}
+                hopMs={hopMs}
+                shadow={shadowId}
+                uid={`${baseId}-d`}
+                offscreen={offscreenFrom(flightBox, height, strokePoints[0][0])}
+                exit={offscreenFrom(flightBox, height, lastPoints[lastPoints.length - 1])}
+                stretch={stretch}
+              />
+            )}
+            {erasing &&
+              (() => {
+                const off = offscreenFrom(flightBox, height, lastPoints[lastPoints.length - 1]);
+                return (
+                  <g
+                    className="workbook-pencil workbook-pencil--eraser"
+                    filter={`url(#${shadowId})`}
+                  >
+                    <animateMotion
+                      dur={`${eraseMs}ms`}
+                      fill="freeze"
+                      keyTimes={`0;${kTouch};${kRubbed};1`}
+                      keyPoints="1;1;0;0"
+                      calcMode="linear"
+                      path={lastPath}
+                    />
+                    <g>
+                      {/* Comes in from off the right edge of the screen, eraser first;
+                          leaves the same way once the mark is gone. */}
+                      <animateTransform
+                        attributeName="transform"
+                        type="translate"
+                        dur={`${eraseMs}ms`}
+                        fill="freeze"
+                        calcMode="spline"
+                        values={`${off};0 0;0 0;${off}`}
+                        keyTimes={`0;${kTouch};${kRubbed};1`}
+                        keySplines={`0.3 0 0.25 1;0 0 1 1;0.55 0 0.7 1`}
+                      />
+                      <g>
+                        {/* Firm back-and-forth rubbing, the way a child scrubs. */}
+                        <animateTransform
+                          attributeName="transform"
+                          type="translate"
+                          begin={`${enterMs}ms`}
+                          dur={`${scrubPeriod}ms`}
+                          repeatCount={Math.floor(rubMs / scrubPeriod)}
+                          values="0 0;5 -1.4;0 0;-4.5 1.2;0 0"
+                        />
+                        <g transform={ERASER_POSE}>
+                          <g transform={`rotate(180 0 ${f2(PENCIL_CENTER_Y - stretch / 2)})`}>
+                            <PencilShape uid={`${baseId}-e`} stretch={stretch} />
+                          </g>
+                        </g>
+                      </g>
+                    </g>
+                  </g>
+                );
+              })()}
+          </svg>,
+          document.body,
+        )
+      : null;
 
   return (
     <div
@@ -926,7 +1226,7 @@ export function WorkbookPencilMark({
               {strokes.map((d, i) => (
                 <path
                   key={`ghost${i}`}
-                  className="workbook-pencil-mark__stroke workbook-pencil-mark__ghost" filter="url(#charcoal-paper-grain)"
+                  className="workbook-pencil-mark__stroke workbook-pencil-mark__ghost"
                   d={d}
                   opacity="0"
                 >
@@ -942,7 +1242,7 @@ export function WorkbookPencilMark({
               {strokes.map((d, i) => (
                 <path
                   key={i}
-                  className="workbook-pencil-mark__stroke" filter="url(#charcoal-paper-grain)"
+                  className="workbook-pencil-mark__stroke"
                   d={d}
                   pathLength={100}
                   strokeDasharray="100 100"
@@ -967,6 +1267,7 @@ export function WorkbookPencilMark({
           )}
         </svg>
       )}
+      {flightLayer}
     </div>
   );
 }
