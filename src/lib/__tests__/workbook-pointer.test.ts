@@ -1,5 +1,5 @@
 import { afterEach, describe, expect, it, vi } from "vitest";
-import { animateWorkbookPointer, getWorkbookPointer, graphiteWidth, hoverWorkbookPointer, pencilProgress, screenPointOnPath } from "../workbook-pointer";
+import { animateWorkbookPointer, eraserTravelPoint, getWorkbookPointer, graphiteWidth, hoverWorkbookPointer, pencilProgress, screenPointOnPath } from "../workbook-pointer";
 
 afterEach(() => { vi.useRealTimers(); hoverWorkbookPointer(0, 0, false); });
 
@@ -22,6 +22,16 @@ describe("shared viewport pencil", () => {
     const path = { getTotalLength: () => 100, getPointAtLength: (n: number) => ({ x: n, y: 10 }),
       getScreenCTM: () => ({ a: 2, b: 0, c: 0, d: 2, e: 50, f: 75 }) } as unknown as SVGPathElement;
     expect(screenPointOnPath(path, 0.5)).toEqual({ x: 150, y: 95 });
+  });
+  it("moves the eraser from offscreen, backward with the disappearing ink, then offscreen", () => {
+    const start = { x: 80, y: 100 };
+    const end = { x: 280, y: 220 };
+    const point = (at: number) => eraserTravelPoint(start, end, at, 390, 0.2, 0.2);
+    expect(point(0).x).toBeGreaterThan(390);
+    expect(point(0.2)).toEqual(end);
+    expect(point(0.5)).toEqual({ x: 180, y: 160 });
+    expect(point(0.8)).toEqual(start);
+    expect(point(1).x).toBeGreaterThan(390);
   });
   it("returns the same tool to current hover and prevents a cancelled animation from overriding a new one", () => {
     vi.useFakeTimers();
