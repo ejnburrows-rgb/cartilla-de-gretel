@@ -554,6 +554,9 @@ export function DirectPencilConnector({
       // drag. Keep it selected so the next real tap on a picture connects it.
       if (isPairMode && sourceId && leftTargets.some((t) => t.id === sourceId)) {
         setSelectedStartId(sourceId);
+        // Browsers dispatch a click after the captured pointerup. Without this
+        // guard that click toggles the newly selected source back off.
+        justInitiatedLeftRef.current = sourceId;
       }
       return;
     }
