@@ -63,6 +63,20 @@ for (const viewport of [{width:390,height:844}, {width:1366,height:768}]) {
   const device = viewport.width === 390 ? 'phone' : 'desktop';
   test.describe(device, () => {
   test.use({viewport, hasTouch: device === 'phone', isMobile: device === 'phone'});
+  test(`real Workbook matching answer accepts a normal ${device} tap and persists`, async ({page}) => {
+    await openWorkbook(page, 2, 1);
+    const connector = page.locator('.am-direct-pencil').first();
+    await expect(connector).toBeVisible();
+    const answer = connector.locator('.am-direct-pencil__target[data-correct="true"]:not([data-example="true"])').first();
+    await expect(answer).toBeVisible();
+    if (device === 'phone') await answer.tap();
+    else await answer.click();
+    await expect(answer).toHaveAttribute('aria-pressed', 'true', {timeout: 7000});
+    await page.reload();
+    const restored = page.locator('.am-direct-pencil__target[data-correct="true"]:not([data-example="true"])').first();
+    await expect(restored).toHaveAttribute('aria-pressed', 'true', {timeout: 7000});
+  });
+
   test(`real Lesson 2 page 4 X has one pencil across both strokes`, async ({page}, testInfo) => {
     await page.setViewportSize(viewport);
     await fs.mkdir(proofDir, {recursive:true});
