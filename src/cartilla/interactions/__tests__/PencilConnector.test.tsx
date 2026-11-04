@@ -87,7 +87,7 @@ describe("Approved wooden pencil connector — line and pair matching", () => {
     );
 
     fireEvent.click(screen.getByRole("button", { name: "uniforme" }));
-    await flushAnim(300);
+    await flushAnim(450);
 
     expect(playCorrectChord).toHaveBeenCalled();
     expect(gretelEvent).toHaveBeenCalledWith("answer:correct", { itemId: "0" });
@@ -109,6 +109,8 @@ describe("Approved wooden pencil connector — line and pair matching", () => {
 
     expect(playWrongBuzz).not.toHaveBeenCalled();
     expect(speakGretelPhrase).not.toHaveBeenCalled();
+    expect(gretelEvent).not.toHaveBeenCalled();
+    await flushAnim(410);
     expect(gretelEvent).toHaveBeenCalledWith("answer:wrong", { itemId: "2" });
     expect(screen.getByRole("button", { name: "oso" }).classList.contains("is-connected")).toBe(false);
     expect(screen.getByRole("button", { name: "oso" }).classList.contains("is-retry")).toBe(true);
@@ -205,7 +207,7 @@ describe("Approved wooden pencil connector — line and pair matching", () => {
     expect(screen.getByRole("button", { name: "Vocal o" }).classList.contains("is-active")).toBe(true);
 
     fireEvent.click(screen.getByRole("button", { name: "ocho" }));
-    await flushAnim(200);
+    await flushAnim(450);
 
     expect(playCorrectChord).toHaveBeenCalled();
     expect(gretelEvent).toHaveBeenCalledWith("answer:correct", { itemId: "p3-L-0|p3-R-0" });
@@ -285,35 +287,33 @@ describe("Approved wooden pencil connector — line and pair matching", () => {
 
     expect(centerBtn.classList.contains("is-active")).toBe(true);
   });
-  it("keeps one tool while another line starts during wrong-answer erasure", () => {
+  it("holds each attempt in charcoal before feedback and serializes erasure before the next result", () => {
     vi.useFakeTimers();
     try {
       const onResult = vi.fn();
       const { container } = render(<DirectPencilConnector pageKey="single-tool-retry"
         targets={p17Targets} mode="mark" centerLabel="Uu" reducedMotion={false} onResult={onResult} />);
       fireEvent.click(screen.getByRole("button", { name: "oso" }));
-      act(() => vi.advanceTimersByTime(1000));
+      expect(container.querySelector(".am-direct-pencil__pending-line")?.getAttribute("stroke")).toBe("#3a3a38");
+      act(() => vi.advanceTimersByTime(2399));
+      expect(onResult).not.toHaveBeenCalled();
+      act(() => vi.advanceTimersByTime(1));
       const original = container.querySelector(".am-direct-pencil__retry-group");
-      const center = screen.getByRole("button", { name: "Vocal central Uu" });
-      fireEvent.pointerDown(center, { clientX: 100, clientY: 100, pointerId: 1, button: 0 });
-      expect(container.querySelectorAll(".workbook-pencil__shape")).toHaveLength(1);
-      // A second wrong attempt is queued, and cannot restart the first eraser.
+      expect(original).not.toBeNull();
+      expect(original?.querySelectorAll(".workbook-pencil__crumbs > g")).toHaveLength(12);
+      expect(original?.querySelector("path")?.getAttribute("stroke")).toBe("#c4320a");
       fireEvent.click(screen.getByRole("button", { name: "estrella" }));
+      act(() => vi.advanceTimersByTime(3999));
       expect(container.querySelector(".am-direct-pencil__retry-group")).toBe(original);
-      expect(onResult).toHaveBeenCalledTimes(2);
-      act(() => vi.advanceTimersByTime(3000));
-      expect(container.querySelector(".am-direct-pencil__retry-group")).not.toBe(original);
-      expect(container.querySelectorAll(".workbook-pencil__shape")).toHaveLength(1);
-      act(() => vi.advanceTimersByTime(4000));
+      expect(onResult).toHaveBeenCalledTimes(1);
+      act(() => vi.advanceTimersByTime(1));
       expect(container.querySelector(".am-direct-pencil__retry-group")).toBeNull();
-      // The input held during erasure resumes, rather than being discarded.
-      expect(container.querySelector(".am-direct-pencil__active-line .workbook-pencil__shape")).toBeTruthy();
-      fireEvent.pointerCancel(container.querySelector(".am-direct-pencil__stage")!);
-      expect(document.documentElement.hasAttribute("data-workbook-pencil-active")).toBe(false);
-    } finally {
-      cleanup();
-      vi.useRealTimers();
-    }
+      act(() => vi.advanceTimersByTime(2399));
+      expect(onResult).toHaveBeenCalledTimes(1);
+      act(() => vi.advanceTimersByTime(1));
+      expect(onResult).toHaveBeenCalledTimes(2);
+      expect(container.querySelectorAll(".workbook-pencil__shape")).toHaveLength(0);
+    } finally { cleanup(); vi.useRealTimers(); }
   });
 
 });

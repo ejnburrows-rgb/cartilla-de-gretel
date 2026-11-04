@@ -209,11 +209,9 @@ html.a11y-contrast .kid-card {
   box-shadow: 0 4px 0 hsl(0 0% 0%);
 }
 
-/* ─── Student screen cursor — normal system cursor (owner directive 2026-11-02) ─────
- * Toggled by src/components/StudentCursor.tsx via src/lib/student-cursor.ts.
- * The miniature SVG pencil cursor has been removed; the normal system cursor is
- * used everywhere, and the animated wooden pencil appears only during active
- * marking/drawing movements (WorkbookPencilMark). */
+/* Student screens use the root viewport pencil from StudentCursor.
+ * System cursor rules below remain the fallback for editing/accessibility;
+ * workbook-pencil.css hides them only while the shared tool is visible. */
 html.student-pencil,
 html.student-pencil body {
   cursor: auto;

@@ -11,6 +11,9 @@ import {
   WorkbookPencilMark,
 } from "../WorkbookPencilMark";
 
+import { StudentCursor } from "@/components/StudentCursor";
+vi.mock("@tanstack/react-router", () => ({ useRouterState: () => "/cartilla/cuaderno" }));
+
 const { drawMs, holdMs, eraseMs } = WORKBOOK_MARK_TIMING;
 import { gretelEvent } from "@/lib/gretel-bus";
 import { useReducedMotion } from "@/hooks/useReducedMotion";
@@ -24,6 +27,7 @@ describe("WorkbookPencilMark shared feedback kernel", () => {
     vi.useFakeTimers();
     vi.clearAllMocks();
     vi.mocked(useReducedMotion).mockReturnValue(false);
+    render(<StudentCursor />);
   });
 
   afterEach(() => {
@@ -35,11 +39,8 @@ describe("WorkbookPencilMark shared feedback kernel", () => {
   it("keeps the mark neutral for the full semantic hold before success", () => {
     const { container } = render(<WorkbookPencilMark isCorrect itemId="p1-0" />);
 
-    expect(
-      document.querySelector(
-        ".workbook-pencil-flight[data-mark-status='drawing'] .workbook-pencil",
-      ),
-    ).toBeTruthy();
+    expect(document.querySelectorAll(".workbook-pointer .workbook-pencil__shape")).toHaveLength(1);
+    expect(container.querySelector("[data-mark-result]")).toBeNull();
     act(() => vi.advanceTimersByTime(drawMs));
     expect(container.querySelector("[data-mark-status='holding']")).toBeTruthy();
 
@@ -84,7 +85,7 @@ describe("WorkbookPencilMark shared feedback kernel", () => {
     act(() => vi.advanceTimersByTime(drawMs + holdMs));
     expect(gretelEvent).toHaveBeenCalledWith("answer:wrong", { itemId: "p1-wrong" });
     expect(container.querySelector("[data-mark-status='erasing']")).toBeTruthy();
-    expect(document.querySelector(".workbook-pencil--eraser")).toBeTruthy();
+    expect(document.querySelectorAll(".workbook-pointer .workbook-pencil__shape")).toHaveLength(1);
     expect(onRetry).not.toHaveBeenCalled();
 
     act(() => vi.advanceTimersByTime(eraseMs));
@@ -102,7 +103,8 @@ describe("WorkbookPencilMark shared feedback kernel", () => {
     ).toMatch(/^M [\d.-]+ [\d.-]+ C /);
     expect(root?.querySelector("animate[attributeName='stroke-dashoffset']")).toBeTruthy();
     // The pencil flies in its own screen-wide layer (owner 2026-10-08), not inside the page.
-    expect(document.querySelector(".workbook-pencil-flight animateMotion")).toBeTruthy();
+    expect(document.querySelector(".workbook-pencil-flight")).toBeNull();
+    expect(document.querySelectorAll(".workbook-pointer .workbook-pencil__shape")).toHaveLength(1);
   });
 
   it("renders a validated mark statically without replaying the pencil", () => {
@@ -114,11 +116,12 @@ describe("WorkbookPencilMark shared feedback kernel", () => {
     expect(container.querySelector("animate")).toBeNull();
   });
   it("moves slowly enough for a child to see the pencil and the eraser (owner 2026-10-05)", () => {
-    expect(WORKBOOK_MARK_TIMING.drawMs).toBeGreaterThanOrEqual(2400);
+    expect(WORKBOOK_MARK_TIMING.drawMs).toBe(2000);
+    expect(WORKBOOK_MARK_TIMING.holdMs).toBe(400);
     expect(WORKBOOK_MARK_TIMING.eraseMs).toBeGreaterThanOrEqual(3000);
     render(<WorkbookPencilMark isCorrect={false} itemId="p1-1" />);
     const pencil = document.querySelector(
-      ".workbook-pencil-flight .workbook-pencil .workbook-pencil__shape",
+      ".workbook-pointer .workbook-pencil__shape",
     );
     // A classic wooden pencil: lacquered body, cedar cone, graphite point, metal ferrule, eraser.
     for (const part of ["lacq", "wood", "lead", "metal", "eraser"]) {
@@ -138,8 +141,7 @@ describe("WorkbookPencilMark shared feedback kernel", () => {
     );
     act(() => vi.advanceTimersByTime(drawMs + holdMs));
     const crumbs = container.querySelectorAll(".workbook-pencil__crumbs > g");
-    expect(crumbs.length).toBeGreaterThanOrEqual(5);
-    expect(crumbs.length).toBeLessThanOrEqual(8);
+    expect(crumbs.length).toBe(12);
     const ellipses = container.querySelectorAll(".workbook-pencil__crumbs ellipse");
     expect(ellipses.length).toBe(crumbs.length);
     for (const el of ellipses) {
@@ -151,15 +153,14 @@ describe("WorkbookPencilMark shared feedback kernel", () => {
     expect(CLOSE_UP_MAX).toBe(1.5);
     expect(CLOSE_UP_ZOOM_MS).toBe(1000);
     // Draw (~2 s) and erase (~3.5 s) timings stay untouched.
-    expect(WORKBOOK_MARK_TIMING.drawMs).toBe(2800);
+    expect(WORKBOOK_MARK_TIMING.drawMs).toBe(2000);
     expect(WORKBOOK_MARK_TIMING.eraseMs).toBe(4000);
   });
   it("uses exactly one physical pencil throughout the former 1670–1930ms X overlap", () => {
     render(<WorkbookPencilMark markType="x" isCorrect itemId="x-overlap" />);
-    const count = () => document.querySelectorAll(".workbook-pencil-flight .workbook-pencil__shape").length;
+    const count = () => document.querySelectorAll(".workbook-pointer .workbook-pencil__shape").length;
     expect(count()).toBe(1);
-    const motion = [...document.querySelectorAll(".workbook-pencil > animateMotion")];
-    expect(motion.map((el) => el.getAttribute("begin")).sort()).toEqual(["0ms", "1670ms", "1930ms"]);
+    expect(document.querySelectorAll(".workbook-pencil-flight")).toHaveLength(0);
     // The hop connects the existing diagonals without adding an ink stroke.
     expect(document.querySelectorAll(".workbook-pencil-mark__stroke")).toHaveLength(2);
     act(() => vi.advanceTimersByTime(1670));
@@ -168,7 +169,7 @@ describe("WorkbookPencilMark shared feedback kernel", () => {
       act(() => vi.advanceTimersByTime(10));
     }
     act(() => vi.advanceTimersByTime(drawMs + holdMs - 1940));
-    expect(count()).toBe(0);
+    expect(count()).toBe(1);
   });
 
   it("queues independent marks without grading or drawing the waiting answer early", () => {
@@ -178,15 +179,15 @@ describe("WorkbookPencilMark shared feedback kernel", () => {
       <WorkbookPencilMark markType="x" isCorrect itemId="first" onSuccess={first} />
       <WorkbookPencilMark isCorrect={false} itemId="second" onRetry={second} />
     </>);
-    expect(document.querySelectorAll(".workbook-pencil-flight .workbook-pencil__shape")).toHaveLength(1);
+    expect(document.querySelectorAll(".workbook-pointer .workbook-pencil__shape")).toHaveLength(1);
     expect(document.querySelectorAll("[data-pencil-waiting='true']")).toHaveLength(1);
     act(() => vi.advanceTimersByTime(drawMs + holdMs));
     expect(first).toHaveBeenCalledTimes(1);
     expect(gretelEvent).not.toHaveBeenCalledWith("answer:wrong", expect.anything());
-    expect(document.querySelectorAll(".workbook-pencil-flight .workbook-pencil__shape")).toHaveLength(1);
+    expect(document.querySelectorAll(".workbook-pointer .workbook-pencil__shape")).toHaveLength(1);
     act(() => vi.advanceTimersByTime(drawMs + holdMs));
     expect(gretelEvent).toHaveBeenCalledWith("answer:wrong", { itemId: "second" });
-    expect(document.querySelectorAll(".workbook-pencil__shape")).toHaveLength(1);
+    expect(document.querySelectorAll(".workbook-pointer .workbook-pencil__shape")).toHaveLength(1);
     act(() => vi.advanceTimersByTime(eraseMs));
     expect(second).toHaveBeenCalledTimes(1);
     expect(document.querySelectorAll(".workbook-pencil-flight")).toHaveLength(0);
@@ -199,7 +200,7 @@ describe("WorkbookPencilMark shared feedback kernel", () => {
     result.unmount();
     expect(document.documentElement.hasAttribute("data-workbook-pencil-active")).toBe(false);
     render(<WorkbookPencilMark isCorrect itemId="next" />);
-    expect(document.querySelectorAll(".workbook-pencil-flight .workbook-pencil__shape")).toHaveLength(1);
+    expect(document.querySelectorAll(".workbook-pointer .workbook-pencil__shape")).toHaveLength(1);
     act(() => vi.advanceTimersByTime(drawMs + holdMs));
     expect(gretelEvent).toHaveBeenCalledWith("answer:correct", { itemId: "next" });
     expect(gretelEvent).not.toHaveBeenCalledWith("answer:correct", { itemId: "cancelled" });

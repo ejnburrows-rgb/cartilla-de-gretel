@@ -2,7 +2,7 @@
  * @vitest-environment jsdom
  */
 import { describe, it, expect, vi, beforeEach } from "vitest";
-import { render, cleanup, screen, fireEvent } from "@testing-library/react";
+import { render, cleanup, screen, fireEvent, act } from "@testing-library/react";
 import { DirectPencilConnector, type PencilTarget } from "../PencilConnector";
 import { saveLassoProgress } from "@/lib/activity-canvas-store";
 import { ActivityContext } from "@/lib/activity-events";
@@ -25,7 +25,7 @@ vi.mock("@/hooks/useReducedMotion", () => ({
 }));
 
 describe("DirectPencilConnector stored progress validation", () => {
-  it("isolated previews ignore saved connections and never overwrite them", () => {
+  it("isolated previews ignore saved connections and never overwrite them", async () => {
     cleanup(); localStorage.clear();
     saveLassoProgress("preview-collision", ["right"]);
     const before = JSON.stringify({ ...localStorage });
@@ -36,6 +36,7 @@ describe("DirectPencilConnector stored progress validation", () => {
     const target = screen.getByRole("button", { name: "aro" });
     expect(target.getAttribute("aria-pressed")).toBe("false");
     fireEvent.click(target);
+    await act(async () => { await new Promise(resolve => setTimeout(resolve, 410)); });
     expect(target.getAttribute("aria-pressed")).toBe("true");
     expect(onEvent).toHaveBeenCalledWith("activity:complete", undefined);
     expect(JSON.stringify({ ...localStorage })).toBe(before);
