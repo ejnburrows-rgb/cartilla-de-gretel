@@ -148,6 +148,9 @@ for (const viewport of [{width:390,height:844}, {width:1366,height:768}]) {
     await down(); await move(b); await up();
     await expect(connector.locator('.am-direct-pencil__retry-group')).toHaveCount(1);
     await down(); await move({x:(c.x+g.x)/2,y:(c.y+g.y)/2});
+    // A visible SVG node is not enough: its CSS visibility must remain on
+    // during a captured finger movement (previous touch listener hid it).
+    await expect(page.locator('.workbook-pointer')).toHaveCSS('visibility', 'visible');
     await page.screenshot({path:`${proofDir}/${device}-line-during-erase.png`});
     expect(await page.locator('.workbook-pointer .workbook-pencil__shape').count()).toBe(1);
     expect(await connector.locator('.workbook-pencil__shape').count()).toBe(0);
