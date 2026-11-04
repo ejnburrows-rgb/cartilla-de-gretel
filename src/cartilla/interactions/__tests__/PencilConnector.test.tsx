@@ -145,8 +145,10 @@ describe("Approved wooden pencil connector — line and pair matching", () => {
         targets={[{ id: "only", label: "única", correct: true }]}
         reducedMotion onResult={onResult} />);
       const answer = screen.getByRole("button", { name: "única" });
-      fireEvent.click(answer, { detail: 1 });
-      fireEvent.click(answer, { detail: 1 });
+      act(() => {
+        fireEvent.click(answer, { detail: 1 });
+        fireEvent.click(answer, { detail: 1 });
+      });
       act(() => vi.advanceTimersByTime(500));
       expect(onResult).toHaveBeenCalledTimes(1);
       expect(answer.getAttribute("aria-pressed")).toBe("true");
