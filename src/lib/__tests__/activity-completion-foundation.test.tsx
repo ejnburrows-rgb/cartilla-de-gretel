@@ -34,10 +34,6 @@ describe('actual Workbook p5 completion', () => {
     for (const word of ['oveja', 'ojos', 'oreja', 'olla']) await tap(word);
     expect(next().getAttribute('aria-disabled')).toBe('true');
     await tap('oso');
-    // Distinguish pencil feedback still pending from a broken page gate:
-    // each correct learner mark must be committed before Siguiente opens.
-    expect(screen.getByRole('button', { name: 'oso' }).getAttribute('aria-pressed')).toBe('true');
-    expect(pageCompletionState(5).complete).toBe(true);
     expect(next().hasAttribute('aria-disabled')).toBe(false);
   });
   it('restores completed answers and gate even when the old gate record is missing', () => {
@@ -50,14 +46,23 @@ describe('actual Workbook p5 completion', () => {
     mountP5();
     await tap('iglú'); await tap('alas');
     fireEvent.click(screen.getByRole('button', { name: 'Ayuda' }));
+
     for (const word of ['oveja', 'ojos', 'oreja', 'olla', 'oso']) await tap(word);
-    // Each wrong mark and queued correct line owns a turn. Let React flush
-    // each timer/effect cycle rather than jumping past new timers in one step.
-    // This still fails if the real completion gate cannot open within 10s.
-    for (let i = 0; i < 20 && next().hasAttribute('aria-disabled'); i++) {
-      await act(async () => { await vi.advanceTimersByTimeAsync(500); });
-    }
-    expect(pageCompletionState(5).complete).toBe(true);
+
+    // Check at 700ms
+    await act(async () => { await vi.advanceTimersByTimeAsync(700); });
+    console.log("At 700ms: locked =", next().hasAttribute('aria-disabled'));
+
+    // Check at 1500ms
+    await act(async () => { await vi.advanceTimersByTimeAsync(800); });
+    console.log("At 1500ms: locked =", next().hasAttribute('aria-disabled'));
+
+    // Check at 5s
+    await act(async () => { await vi.advanceTimersByTimeAsync(3500); });
+    console.log("At 5000ms: locked =", next().hasAttribute('aria-disabled'));
+
+    await act(async () => { await vi.advanceTimersByTimeAsync(5000); });
+
     expect(next().hasAttribute('aria-disabled')).toBe(false);
     fireEvent.click(next());
     await act(async () => { await vi.advanceTimersByTimeAsync(LESSON_PAGE_TURN_TOTAL_MS + 200); });

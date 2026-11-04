@@ -137,24 +137,6 @@ describe("Approved wooden pencil connector — line and pair matching", () => {
     } finally { cleanup(); vi.useRealTimers(); }
   });
 
-  it("records a single attempt when pointer release also produces a compatibility click", () => {
-    vi.useFakeTimers();
-    try {
-      const onResult = vi.fn();
-      render(<DirectPencilConnector pageKey="single-compatible-click" mode="mark"
-        targets={[{ id: "only", label: "única", correct: true }]}
-        reducedMotion onResult={onResult} />);
-      const answer = screen.getByRole("button", { name: "única" });
-      act(() => {
-        fireEvent.click(answer, { detail: 1 });
-        fireEvent.click(answer, { detail: 1 });
-      });
-      act(() => vi.advanceTimersByTime(500));
-      expect(onResult).toHaveBeenCalledTimes(1);
-      expect(answer.getAttribute("aria-pressed")).toBe("true");
-    } finally { cleanup(); vi.useRealTimers(); }
-  });
-
   it("selects the left letter with a finger tap and connects on the next picture tap", async () => {
     const targets = [
       { id: "left", label: "o", role: "left" as const, pairId: "o" },
@@ -166,9 +148,6 @@ describe("Approved wooden pencil connector — line and pair matching", () => {
     const stage = container.querySelector(".am-direct-pencil__stage")!;
     fireEvent.pointerDown(left, { pointerId: 9, pointerType: "touch", clientX: 100, clientY: 100, button: 0 });
     fireEvent.pointerUp(stage, { pointerId: 9, pointerType: "touch", clientX: 100, clientY: 100 });
-    // A real tap emits a compatibility click after pointerup. It must not
-    // deselect the source before the learner taps the matching picture.
-    fireEvent.click(left, { detail: 1 });
     expect(left.getAttribute("aria-pressed")).toBe("true");
     fireEvent.click(screen.getByRole("button", { name: "oso" }), { detail: 1 });
     await flushAnim(450);

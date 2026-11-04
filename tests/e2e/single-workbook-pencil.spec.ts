@@ -78,9 +78,6 @@ for (const viewport of [{width:390,height:844}, {width:1366,height:768}]) {
   });
 
   test(`real Lesson 2 page 4 X has one pencil across both strokes`, async ({page}, testInfo) => {
-    // This scenario visits three real pages, records frames and waits through
-    // two full four-second erasures; the default 30s total is too short.
-    test.setTimeout(90000);
     await page.setViewportSize(viewport);
     await fs.mkdir(proofDir, {recursive:true});
     await openWorkbook(page, 2);
@@ -172,9 +169,7 @@ for (const viewport of [{width:390,height:844}, {width:1366,height:768}]) {
     expect(await page.locator('.workbook-pointer .workbook-pencil__shape').count()).toBe(1);
     expect(await connector.locator('.workbook-pencil__shape').count()).toBe(0);
     await move(g); await up();
-    // A correct attempt queued during erasure must wait for the full 4s
-    // removal plus its own charcoal hold; allow that sequence to finish.
-    await expect(good).toHaveAttribute('aria-pressed','true',{timeout:7000});
+    await expect(good).toHaveAttribute('aria-pressed','true');
     await expect(connector.locator('.am-direct-pencil__retry-group')).toHaveCount(0,{timeout:6000});
     const lines=await finishFrames(page,`${device}-line-retry`);
     expect(Math.max(...lines.map(f=>f.count))).toBe(1);
