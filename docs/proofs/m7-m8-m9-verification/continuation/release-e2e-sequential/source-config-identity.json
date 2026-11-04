@@ -1,0 +1,32 @@
+{
+  "rootHead": "49747c7ef5fdff5926d463f491fad7c186b69d26",
+  "testWorktreeHead": "c1e5e4c392c2c59a6404475a9677c2e6d8e2ef3f",
+  "sourceAndConfigPaths": [
+    "src",
+    "public",
+    "scripts",
+    "tests",
+    "vite.config.ts",
+    "playwright.config.ts",
+    "playwright.book.config.ts",
+    "package.json",
+    "pnpm-lock.yaml",
+    "tsconfig.json",
+    "vercel.json",
+    "index.html",
+    "pnpm-workspace.yaml"
+  ],
+  "sourceAndConfigDifferences": [],
+  "blobIdentity": {
+    "49747c7ef5fdff5926d463f491fad7c186b69d26": {
+      "blobListingSha256": "233ec74f27c94a5fac8fbdc14887340741699705729fcc144149eb36d9bb5af2",
+      "trackedEntries": 2404
+    },
+    "c1e5e4c392c2c59a6404475a9677c2e6d8e2ef3f": {
+      "blobListingSha256": "233ec74f27c94a5fac8fbdc14887340741699705729fcc144149eb36d9bb5af2",
+      "trackedEntries": 2404
+    }
+  },
+  "trackedWorkingDiff": "",
+  "assertions": "No app/test/config/package/lock blob differences; existing metadata working dirt normalizes to same content"
+}

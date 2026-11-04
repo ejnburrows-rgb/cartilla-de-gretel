@@ -44,6 +44,15 @@
 /* "Mis lecciones" stays as a small corner link. */
 .lc-lesson-shell--fit .lc-lesson-header { position: fixed; top: 4px; left: 8px; right: 8px; z-index: 60; width: auto; margin: 0; padding: 0; pointer-events: none; }
 .lc-lesson-shell--fit .lc-lesson-header > * { pointer-events: auto; }
+/* A sample learner has a return-to-CRM banner above the page. Keep its
+ * controls and the lesson selector in separate flow rows; the existing main
+ * container sizes the original page to the remaining space. */
+.lc-lesson-shell--fit > .lc-demo-student-banner + .lc-lesson-header {
+  position: static;
+  flex: none;
+  margin: 0;
+  padding: 4px 8px;
+}
 .lc-lesson-shell--fit .lc-lesson-header__back { font-size: 14px; gap: 6px; }
 .lc-lesson-shell--fit .lc-lesson-header__back svg { width: 18px; height: 18px; }
 

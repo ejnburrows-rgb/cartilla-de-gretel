@@ -1,0 +1,119 @@
+{
+  "head": "324b1383224d3842a197d67a2469d9bebab647b6",
+  "nodeVersion": "v26.2.0",
+  "startedUtc": "2026-11-03T20:40:43.134644+00:00",
+  "status": "finished",
+  "sourceDiffBeforeSha256": "sha256:e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+  "untrackedSourceBefore": [],
+  "checks": [
+    {
+      "name": "policy-tests",
+      "command": [
+        "C:\\Program Files\\nodejs\\node.exe",
+        "--test",
+        "scripts/__tests__/check-merge-policy.test.mjs"
+      ],
+      "startedUtc": "2026-11-03T20:40:43.137682+00:00",
+      "status": "finished",
+      "pid": 17412,
+      "exitCode": 0,
+      "finishedUtc": "2026-11-03T20:40:43.600941+00:00"
+    },
+    {
+      "name": "policy-docs",
+      "command": [
+        "C:\\Program Files\\nodejs\\node.exe",
+        "scripts/check-merge-policy.mjs",
+        "--docs"
+      ],
+      "startedUtc": "2026-11-03T20:40:43.604454+00:00",
+      "status": "finished",
+      "pid": 33568,
+      "exitCode": 0,
+      "finishedUtc": "2026-11-03T20:40:43.852059+00:00"
+    },
+    {
+      "name": "assets",
+      "command": [
+        "C:\\Program Files\\nodejs\\node.exe",
+        "scripts/verify-production-assets.mjs"
+      ],
+      "startedUtc": "2026-11-03T20:40:43.854606+00:00",
+      "status": "finished",
+      "pid": 33868,
+      "exitCode": 0,
+      "finishedUtc": "2026-11-03T20:41:07.399730+00:00"
+    },
+    {
+      "name": "typecheck",
+      "command": [
+        "C:\\Program Files\\nodejs\\node.exe",
+        "node_modules/typescript/bin/tsc",
+        "--noEmit"
+      ],
+      "startedUtc": "2026-11-03T20:41:07.402735+00:00",
+      "status": "finished",
+      "pid": 44024,
+      "exitCode": 0,
+      "finishedUtc": "2026-11-03T20:42:23.981800+00:00"
+    },
+    {
+      "name": "unit-discovery",
+      "command": [
+        "C:\\Program Files\\nodejs\\node.exe",
+        "node_modules/vitest/vitest.mjs",
+        "list",
+        "--filesOnly",
+        "--json"
+      ],
+      "startedUtc": "2026-11-03T20:42:23.984797+00:00",
+      "status": "finished",
+      "pid": 35196,
+      "exitCode": 0,
+      "finishedUtc": "2026-11-03T20:42:35.284832+00:00"
+    },
+    {
+      "name": "complete-unit",
+      "command": [
+        "C:\\Program Files\\nodejs\\node.exe",
+        "--require",
+        "D:\\Downloads\\cartilla-1247-continuation-work\\integration\\docs\\proofs\\m7-m8-m9-verification\\continuation\\runner-repair\\unit-bootstrap-probes\\audit-vitest-fork.cjs",
+        "node_modules/vitest/vitest.mjs",
+        "run",
+        "--pool",
+        "forks",
+        "--maxWorkers",
+        "1",
+        "--reporter=default",
+        "--reporter=json",
+        "--outputFile",
+        "C:\\Users\\EJN\\Documents\\Codex\\2026-11-03\\new-chat-2\\work\\combined-unit-gate\\results.json"
+      ],
+      "startedUtc": "2026-11-03T20:42:35.310158+00:00",
+      "status": "finished",
+      "pid": 32916,
+      "exitCode": 0,
+      "finishedUtc": "2026-11-03T21:02:53.355556+00:00"
+    }
+  ],
+  "coverage": {
+    "discoveredFiles": 223,
+    "reportedFiles": 223,
+    "missingFiles": [],
+    "unexpectedFiles": []
+  },
+  "tests": {
+    "numTotalTests": 2197,
+    "numPassedTests": 2197,
+    "numFailedTests": 0,
+    "numPendingTests": 0,
+    "success": true
+  },
+  "resultsSha256": "sha256:06b4ae56f3eac5cc80561d39752dc383b83d4773f5189568b895f078370262ed",
+  "unitComplete": true,
+  "headAfter": "324b1383224d3842a197d67a2469d9bebab647b6",
+  "sourceDiffAfterSha256": "sha256:e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+  "frozenSourcePreserved": true,
+  "finishedUtc": "2026-11-03T21:03:02.678998+00:00",
+  "passed": true
+}

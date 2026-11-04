@@ -1,0 +1,23 @@
+{
+  "schema_version": "1.0",
+  "event_id": "crm-layout-replay",
+  "task_id": "1247-test-repairs",
+  "attempt_id": "crm-layout-replay",
+  "action_kind": "targeted_test",
+  "action_scope_digest": "sha256:64935b6d2fbac7a9413f8d7fb9dd54e9b9db9ff8a4f18861de380e32a5e4737c",
+  "requirements_digest": "sha256:ff3fb75f1ae910c402543893da0292cf2328dfaca53454f238ab26dd32647ee5",
+  "candidate_digest": "sha256:7479f2401acad7edb9fe27b5cd0f548dafb5560266f9fc7378545b1c6e87e267",
+  "dependency_digest": "sha256:9d4581da8918da04474629e51ba1fd1a5c639c35931d1378bca25a232ff436cf",
+  "policy_digest": "sha256:fe1fd764135a92b738e8d2049f8726ed7eeda032fadacf2f1b79c8814c3933f7",
+  "evaluator_digest": "sha256:efc5e6d56fed8373ba1c304ebe71ddc0782dd0eeb073d724eb88877012c3c636",
+  "material_progress": {
+    "status": "unknown",
+    "evidence_digest": null
+  },
+  "rate_telemetry": {
+    "state": "missing",
+    "effect": "advisory"
+  },
+  "metrics": [],
+  "environment_digest": "sha256:74b4f504b5639028fe5cf021fcce4486d22dd35621b678f0e5ba23b980e4fd65"
+}

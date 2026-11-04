@@ -22,9 +22,9 @@ function TeacherFlipchartPage() {
 
       <section
         aria-label="Rotafolio de Aula en Vivo"
-        className="rounded-3xl border border-stone-200/90 bg-[#fdfbf7] p-3 sm:p-4 shadow-md"
+        className="fc-classroom rounded-3xl border border-stone-200/90 bg-[#fdfbf7] p-3 sm:p-4 shadow-md"
       >
-        <div className="mb-3 flex flex-wrap items-center justify-between gap-3 border-b border-stone-200/80 pb-2.5">
+        <div className="fc-classroom__toolbar mb-3 flex flex-wrap items-center justify-between gap-3 border-b border-stone-200/80 pb-2.5">
           <div>
             <span className="text-[11px] font-extrabold uppercase tracking-wider text-teal-800">
               Rotafolio Oficial del Maestro · Vista de Aula
@@ -61,7 +61,7 @@ function TeacherFlipchartPage() {
           </div>
         </div>
 
-        <div className="h-[78dvh] min-h-[560px] w-full overflow-hidden rounded-2xl bg-[#f5f1e8] p-2">
+        <div className="fc-classroom__chart">
           <FlipchartHdPanel
             lessonNumber={lessonNumber}
             accentColor={currentEntry.color}

@@ -1,0 +1,23 @@
+{
+  "schema_version": "1.0",
+  "event_id": "p2-browser-diagnostics",
+  "task_id": "1247-test-repairs",
+  "attempt_id": "p2-browser-diagnostics",
+  "action_kind": "targeted_test",
+  "action_scope_digest": "sha256:dc3a2093aa9971baee001a8cd6809d14134620d3596ba309306cf6fe62b94616",
+  "requirements_digest": "sha256:ff3fb75f1ae910c402543893da0292cf2328dfaca53454f238ab26dd32647ee5",
+  "candidate_digest": "sha256:ad3de3012aea1093203944b19269a1053ca24fe77850b1c2d9da7aea0892818f",
+  "dependency_digest": "sha256:9d4581da8918da04474629e51ba1fd1a5c639c35931d1378bca25a232ff436cf",
+  "policy_digest": "sha256:fe1fd764135a92b738e8d2049f8726ed7eeda032fadacf2f1b79c8814c3933f7",
+  "evaluator_digest": "sha256:53bc2cdd5a16b26dfbc1b3fe83e1987cfecca5a4f323534f4f4d11380a0bd2b0",
+  "material_progress": {
+    "status": "unknown",
+    "evidence_digest": null
+  },
+  "rate_telemetry": {
+    "state": "missing",
+    "effect": "advisory"
+  },
+  "metrics": [],
+  "environment_digest": "sha256:c019498f66bdd341088f05010f2552adab17a45b2c37ae04eac4b749ca321569"
+}

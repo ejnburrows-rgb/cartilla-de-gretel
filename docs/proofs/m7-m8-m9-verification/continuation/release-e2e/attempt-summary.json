@@ -1,0 +1,63 @@
+{
+  "status": "INCOMPLETE / NOT TESTED full release gate",
+  "attemptHead": "57beceb255cfb60bebae0e662b47c192d2f46148",
+  "applicationFreeze": "649d0fd072cf50fe8580c8629376f9f6349af44a",
+  "command": "pnpm test:e2e --workers=2 --reporter=json",
+  "playwrightVersion": "1.63.0",
+  "browserRevision": "Chromium/headless-shell1243 (installed matching browser)",
+  "config": "playwright.config.ts unchanged",
+  "servers": [
+    {
+      "port": 5173,
+      "mode": "worker/open access"
+    },
+    {
+      "port": 5174,
+      "mode": "worker/login gated"
+    }
+  ],
+  "backend": "Both configured servers pinned to http://127.0.0.1:54321 and fake publishable key; fake/demo test data only",
+  "fullResultCounts": null,
+  "completedJsonReport": false,
+  "partialArtifactDirectories": 11,
+  "observations": [
+    "Repeated30s page-fixture setup timeouts, with some context teardown timeouts before product assertions",
+    "Additional native viewer/all-games/archetype artifacts include protocol Page crashed and missing viewer assertions; browser/runtime failures preserved, not certified as product defects or dismissed"
+  ],
+  "interruption": "Integration owner stopped this owned attempt after repeated browser fixture failures; exact owned runner/server process trees cleaned. No full retry or timeout override. Exit4294967295 reflects interruption.",
+  "probe": {
+    "head": "57beceb255cfb60bebae0e662b47c192d2f46148",
+    "applicationFreeze": "649d0fd072cf50fe8580c8629376f9f6349af44a",
+    "probe": "one default Chromium launch,newPage,setContent,textContent; no app,no timeout override",
+    "playwright": "1.63.0",
+    "started": "2026-11-03T15:42:35.536Z",
+    "stages": [
+      {
+        "name": "launch",
+        "ms": 2671.6295
+      },
+      {
+        "name": "newPage",
+        "ms": 81647.06480000001
+      },
+      {
+        "name": "setContent/textContent",
+        "ms": 35528.624599999996,
+        "text": "Browser fixture probe"
+      }
+    ],
+    "passed": true,
+    "finished": "2026-11-03T15:44:48.459Z"
+  },
+  "sourceChangedDuringAttempt": false,
+  "buildRunDuringAttempt": false,
+  "headChangedDuringAttempt": false,
+  "fullSuiteRetry": "NOT RUN; wait for integration gate to finish and establish single-worker browser readiness before any corrected sequential attempt",
+  "identityHashes": {
+    "playwright.config.ts": "2f441f762f63c02e6227766d1d85f6ddfb2f55fb7e0eecbb3d623b015dcff2b3",
+    "pnpm-lock.yaml": "2e4e1c26b2f344386fb17eac4d93ccac1e570c20f4a10ef03695b83e4ae5144e",
+    "src/routes/cartilla/-practica-view.tsx": "2848c82bc7b03e5789e2fc9025ea9ac681f930a0ba0b9a4eea58bd7c549d666a"
+  },
+  "readinessForUnchanged30sPageFixture": "FAIL: no-app newPage took81647ms",
+  "nextProbeGate": "No E2E retry on current state; only materially removed concurrency or verified host correction justifies one new readiness probe"
+}

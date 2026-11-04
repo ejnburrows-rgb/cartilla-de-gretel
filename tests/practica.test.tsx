@@ -1,7 +1,7 @@
 import { describe, it, expect, vi, beforeEach, afterEach } from "vitest";
 import { render, screen, act, waitFor, fireEvent } from "@testing-library/react";
 import "@testing-library/jest-dom";
-import { Route } from "../src/routes/cartilla/practica";
+import { Practica } from "../src/routes/cartilla/-practica-view";
 import * as SpeakMod from "../src/lib/speak";
 import { LanguageProvider } from "../src/context/LanguageContext";
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
@@ -11,7 +11,7 @@ vi.mock("../src/lib/speak", () => ({
   speak: vi.fn(),
 }));
 
-const PracticaComponent = Route.options.component;
+const PracticaComponent = Practica;
 
 describe("Practica route", () => {
   let router;
@@ -73,6 +73,26 @@ describe("Practica route", () => {
     act(() => { vi.advanceTimersByTime(800); });
     expect(SpeakMod.speak).not.toHaveBeenCalled();
     
+    vi.clearAllTimers();
+    vi.useRealTimers();
+  });
+
+  it("shows the target syllable and credits its matching answer", async () => {
+    renderComponent();
+    await act(async () => {});
+    fireEvent.click(screen.getByRole("button", { name: /empezar/i }));
+
+    const model = screen.getByTestId("practice-syllable-model");
+    expect(model).toBeVisible();
+    const syllable = model.textContent!.trim();
+    expect(syllable).toMatch(/^[a-záéíóú]+$/i);
+    expect(screen.getByText(/✓ 0/)).toBeVisible();
+
+    fireEvent.click(screen.getByRole("button", { name: syllable, exact: true }));
+    expect(screen.getByText(/✓ 1/)).toBeVisible();
+    expect(screen.getByText(/✗ 0/)).toBeVisible();
+    expect(SpeakMod.speak).not.toHaveBeenCalled();
+
     vi.clearAllTimers();
     vi.useRealTimers();
   });

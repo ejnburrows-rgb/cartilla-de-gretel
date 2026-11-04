@@ -1,0 +1,42 @@
+[
+  {
+    "path": "docs/proofs/crm-demo/dashboard-laptop.png",
+    "sha256": "1abefb8990499b890240d48cf8fb9beba561dd386bd45ca96ad886027890f5ab",
+    "bytes": 188143
+  },
+  {
+    "path": "docs/proofs/crm-demo/dashboard-phone.png",
+    "sha256": "ea702aea302bb4bee7f0f9e5faeb0787323585d885ea6873a7cf070d1516a6b7",
+    "bytes": 142805
+  },
+  {
+    "path": "docs/proofs/crm-demo/dashboard-projector.png",
+    "sha256": "52194d3ff61fabf40d2911b834d100a70e5cbc3bce117fd003fcb5ebe4b5b371",
+    "bytes": 213269
+  },
+  {
+    "path": "docs/proofs/crm-demo/dashboard-tablet.png",
+    "sha256": "cdbba691e423518f53d2c5b43f22f803d405c40c0c273dfd128a91c84f6e54ca",
+    "bytes": 171646
+  },
+  {
+    "path": "docs/proofs/crm-demo/report-laptop.png",
+    "sha256": "31505d41ae860a6bd8d4f094a825a3a8df53697293bee5c9135d92c4e6f67a4b",
+    "bytes": 119282
+  },
+  {
+    "path": "docs/proofs/crm-demo/report.pdf",
+    "sha256": "6ee4216ae052352c8094f1507c378eecbb66525333ee918b72fd3c28ae65384f",
+    "bytes": 133876
+  },
+  {
+    "path": "docs/proofs/crm-demo/student-laptop.png",
+    "sha256": "70d5df3afb11d7e62583d8885b46bf3d4296c4fc8fabf2c734381a63303a6a31",
+    "bytes": 301240
+  },
+  {
+    "path": "docs/proofs/crm-demo/teacher-laptop.png",
+    "sha256": "2132f9a5f0a70efaea8da03dca2168b1e1607e68bca8f79e88ff61abaa855fd7",
+    "bytes": 301174
+  }
+]

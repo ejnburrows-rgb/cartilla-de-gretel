@@ -1,10 +1,14 @@
-import { execSync } from "node:child_process";
-import { describe, it, expect } from "vitest";
+import { execFileSync } from "node:child_process";
+import { afterAll, describe, it, expect } from "vitest";
 import fs from "node:fs";
 import path from "node:path";
 import os from "node:os";
 
-const scriptPath = path.resolve(__dirname, "../verify-production-assets.mjs");
+// Exercise the Windows regression even when the checkout itself has no spaces.
+const scriptDir = fs.mkdtempSync(path.join(__dirname, "verify script path "));
+const scriptPath = path.join(scriptDir, "verify-production-assets.mjs");
+fs.copyFileSync(path.resolve(__dirname, "../verify-production-assets.mjs"), scriptPath);
+afterAll(() => fs.rmSync(scriptDir, { recursive: true, force: true }));
 
 describe("verify-production-assets.mjs", () => {
   it("fails fatally when a manifest is missing or unparseable", () => {
@@ -12,7 +16,7 @@ describe("verify-production-assets.mjs", () => {
     const mockRoot = fs.mkdtempSync(path.join(os.tmpdir(), "verify-test-"));
     let error: any = null;
     try {
-      execSync(`node ${scriptPath} --root=${mockRoot}`, { stdio: "pipe" });
+      execFileSync(process.execPath, [scriptPath, `--root=${mockRoot}`], { stdio: "pipe" });
     } catch (e) {
       error = e;
     }
@@ -25,7 +29,7 @@ describe("verify-production-assets.mjs", () => {
     fs.writeFileSync(path.join(mockRoot, "src/data/page-layouts.json"), "{ invalid }");
     let parseError: any = null;
     try {
-      execSync(`node ${scriptPath} --root=${mockRoot}`, { stdio: "pipe" });
+      execFileSync(process.execPath, [scriptPath, `--root=${mockRoot}`], { stdio: "pipe" });
     } catch (e) {
       parseError = e;
     }
@@ -47,7 +51,7 @@ describe("verify-production-assets.mjs", () => {
 
     let error: any = null;
     try {
-      execSync(`node ${scriptPath} --root=${mockRoot}`, { stdio: "pipe" });
+      execFileSync(process.execPath, [scriptPath, `--root=${mockRoot}`], { stdio: "pipe" });
     } catch (e) {
       error = e;
     }

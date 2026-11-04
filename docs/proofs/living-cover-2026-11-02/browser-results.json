@@ -1,0 +1,99 @@
+[
+  {
+    "label": "desktop",
+    "route": "/",
+    "state": {
+      "width": 1366,
+      "scrollWidth": 1366,
+      "height": 768,
+      "scrollHeight": 768,
+      "canvas": "true",
+      "cover": {
+        "x": 462.5,
+        "y": 64.15625,
+        "width": 441,
+        "height": 588,
+        "bottom": 652.15625
+      },
+      "imgs": 1
+    }
+  },
+  {
+    "label": "desktop",
+    "route": "/cartilla",
+    "state": {
+      "width": 1366,
+      "scrollWidth": 1366,
+      "height": 768,
+      "scrollHeight": 768,
+      "canvas": "true",
+      "cover": {
+        "x": 462.5,
+        "y": 64.15625,
+        "width": 441,
+        "height": 588,
+        "bottom": 652.15625
+      },
+      "imgs": 1
+    }
+  },
+  {
+    "label": "desktop",
+    "fps": 52,
+    "audio": 2,
+    "navigation": "cover and ribbon passed",
+    "errors": []
+  },
+  {
+    "label": "phone",
+    "route": "/",
+    "state": {
+      "width": 390,
+      "scrollWidth": 390,
+      "height": 844,
+      "scrollHeight": 844,
+      "canvas": "true",
+      "cover": {
+        "x": 8,
+        "y": 146.515625,
+        "width": 374,
+        "height": 498.65625,
+        "bottom": 645.171875
+      },
+      "imgs": 1
+    }
+  },
+  {
+    "label": "phone",
+    "route": "/cartilla",
+    "state": {
+      "width": 390,
+      "scrollWidth": 390,
+      "height": 844,
+      "scrollHeight": 844,
+      "canvas": "true",
+      "cover": {
+        "x": 8,
+        "y": 146.515625,
+        "width": 374,
+        "height": 498.65625,
+        "bottom": 645.171875
+      },
+      "imgs": 1
+    }
+  },
+  {
+    "label": "phone",
+    "fps": 60,
+    "audio": 2,
+    "navigation": "cover and ribbon passed",
+    "errors": []
+  },
+  {
+    "reducedMotion": true,
+    "runningAnimations": 0
+  },
+  {
+    "missingCoverFallback": "navigation passed"
+  }
+]

@@ -1,0 +1,40 @@
+{
+  "head": "48dfec7d6a5ec3ac26171d745ea811621ad659db",
+  "node": "v26.2.0",
+  "pnpm": "10.33.0",
+  "runner": "Windows; Vitest threads; maxWorkers=2",
+  "checks": [
+    {
+      "name": "policy",
+      "exitCode": 0,
+      "elapsedSeconds": 1.75,
+      "log": "final-policy.txt"
+    },
+    {
+      "name": "assets",
+      "exitCode": 0,
+      "elapsedSeconds": 25.1,
+      "log": "final-assets.txt"
+    },
+    {
+      "name": "typecheck",
+      "exitCode": 0,
+      "elapsedSeconds": 61.37,
+      "log": "final-typecheck.txt"
+    },
+    {
+      "name": "full-suite",
+      "exitCode": -1073741819,
+      "elapsedSeconds": 145.28,
+      "log": "final-full-suite.txt"
+    },
+    {
+      "name": "full-suite-forks",
+      "exitCode": 1,
+      "log": "final-full-suite-forks.txt",
+      "invalidation": "The first threads runner exited0xC0000005 before JSON. Only incomplete suite rerun with repository-default isolated forks; unchanged policy/assets/typecheck reused."
+    }
+  ],
+  "headAfter": "48dfec7d6a5ec3ac26171d745ea811621ad659db",
+  "trackedChanges": ""
+}
