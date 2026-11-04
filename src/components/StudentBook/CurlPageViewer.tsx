@@ -35,6 +35,8 @@ export const SINGLE_PAGE_ASPECT_RATIO = `${PRINTED_PAGE_WIDTH} / ${PRINTED_PAGE_
 export const SPREAD_ASPECT_RATIO = `${PRINTED_PAGE_WIDTH * 2} / ${PRINTED_PAGE_HEIGHT}`;
 
 export function clampPageIndex(index: number, pageCount: number): number {
+  if (Number.isNaN(index) || !Number.isFinite(index)) index = 0;
+  if (Number.isNaN(pageCount) || !Number.isFinite(pageCount)) pageCount = 0;
   return Math.min(Math.max(0, index), Math.max(0, pageCount - 1));
 }
 

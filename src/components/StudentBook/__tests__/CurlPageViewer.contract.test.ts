@@ -24,6 +24,15 @@ describe("CurlPageViewer physical contracts", () => {
     expect(SPREAD_BREAKPOINT_PX).toBe(760);
   });
 
+
+  it("handles non-finite and NaN values gracefully in clampPageIndex", () => {
+    expect(clampPageIndex(NaN, 4)).toBe(0);
+    expect(clampPageIndex(Infinity, 4)).toBe(0);
+    expect(clampPageIndex(-Infinity, 4)).toBe(0);
+    expect(clampPageIndex(2, NaN)).toBe(0);
+    expect(clampPageIndex(2, Infinity)).toBe(0);
+  });
+
   it("clamps stale saved progress to a real page", () => {
     expect(clampPageIndex(-4, 4)).toBe(0);
     expect(clampPageIndex(99, 4)).toBe(3);
@@ -48,6 +57,15 @@ describe("CurlPageViewer physical contracts", () => {
     expect(expectedTurnIndex(4, pages.length, true, "prev", pages)).toBe(2);
     expect(expectedTurnIndex(2, pages.length, false, "next", pages)).toBe(3);
     expect(expectedTurnIndex(3, pages.length, false, "prev", pages)).toBe(2);
+  });
+
+
+  it("handles non-finite and NaN values gracefully in logicalPageIndex", () => {
+    expect(logicalPageIndex(NaN, 6, true)).toBe(0);
+    expect(logicalPageIndex(Infinity, 6, true)).toBe(0);
+    expect(logicalPageIndex(-Infinity, 6, true)).toBe(0);
+    expect(logicalPageIndex(3, NaN, true)).toBe(0);
+    expect(logicalPageIndex(3, Infinity, true)).toBe(0);
   });
 
   it("normalizes odd event indices to logical spread boundaries", () => {
