@@ -1032,9 +1032,11 @@ export function PencilMarkFromWorkbook({
                   isCorrect={active ? isCorrect : true}
                   status={done ? "correct" : undefined}
                   onSuccess={() => {
-                    const next = new Set(marked).add(object.id);
-                    setMarked(next);
-                    saveLassoProgress(pageKey, [...next]);
+                    setMarked((prev) => {
+                      const next = new Set(prev).add(object.id);
+                      saveLassoProgress(pageKey, [...next]);
+                      return next;
+                    });
                     setPending(null);
                     onResult?.({ objectId: object.id, result: "correct" });
                   }}
