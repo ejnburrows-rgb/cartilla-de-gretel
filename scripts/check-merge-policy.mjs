@@ -4,6 +4,7 @@
  * Call with --docs (from repo root) or --evidence path/to/receipt.json.
  */
 import fs from 'node:fs';
+import { execFileSync } from 'node:child_process';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 
@@ -128,11 +129,16 @@ export const OWNER_CONTRACT = [
 
 export function validateCurrentAuthority(docs) {
   const errors = [];
+  for (const name of [...POLICY_FILES,...ROUTING_FILES,'README.md']) {
+    if (typeof docs?.[name] !== 'string' || !docs[name].trim()) {
+      errors.push(name + ': missing or empty current authority document');
+    }
+  }
   const agent = activeInstructions(docs?.['AGENTS.md']);
   for (const [pattern, label] of OWNER_CONTRACT) {
     if (!pattern.test(agent)) errors.push('AGENTS.md: missing ' + label);
   }
-  const names = [...new Set([...POLICY_FILES, ...ROUTING_FILES, 'README.md'])];
+  const names = Object.keys(docs ?? {}).filter(name => documentationRole(name) === 'active');
   const staleOrders = [
     [/#1218\*{0,2}\s+(?:FIRST|first)\b/i, 'completed PR #1218 ordered first'],
     [/(?:integration priority|integration order|merge sequence|follow the #877 sequence|preserve the owner's order)[^\n]*#1218/i, 'obsolete fixed integration sequence'],
@@ -160,6 +166,71 @@ export function validateCurrentAuthority(docs) {
   return {ok:errors.length === 0, errors};
 }
 
+/** Discover repository documentation, not generated dependencies or arbitrary scratch files.
+ * Evidence remains discoverable/countable but is not treated as current instructions.
+ * Source excerpts and specialized standards stay in scope: a whole file is not
+ * exempt merely because it mentions history or contains a forbidden word.
+ */
+export function documentationRole(name) {
+  if (!/\.(md|mdx|txt)$/i.test(name)) return 'other';
+  if (/^(?:docs\/(?:archive|proofs|artwork-reconciliation)\/|tests\/|public\/)/i.test(name) ||
+      name === 'CHANGELOG.md' || name === '.agents/PROJECT_MEMORY.md') return 'evidence';
+  return 'active';
+}
+
+export function discoverDocumentation(root = '.') {
+  return execFileSync('git', ['ls-files', '-z'], {cwd:root, encoding:'utf8'})
+    .split('\0').filter(name => documentationRole(name) !== 'other').sort();
+}
+
+// Bounded regression guards for confirmed owner-policy contradictions. These
+// detect explicit instructions; they do not claim to understand arbitrary prose.
+export function validateActiveDocumentation(docs) {
+  const errors = [];
+  const rules = [
+    [/(?:required\s+Sonar(?:Cloud|Qube)?\s+(?:review|gate|status)|mandatory\s+[^.\n]{0,80}Sonar(?:Cloud|Qube)?|Sonar(?:Cloud|Qube)?\s+(?:must|shall)\s+pass)/i, 'mandatory Sonar language conflicts with owner policy'],
+    [/one session\s*=\s*one bounded deliverable/i, 'obsolete session-ending deliverable rule'],
+    [/no independent (?:material )?technical review is required/i, 'independent technical-review exemption'],
+    [/owner is not required to approve ordinary technical merges/i, 'obsolete blanket merge authorization'],
+    [/(?:^|[.!?]\s+)\s*(?:[-*]\s+)?(?:Use|Enable|Select|Add)\s+(?:browser|device|cloud)[ -](?:TTS|text.to.speech)\b[^.\n]{0,100}(?:Gretel|missing|phrase|voice)/im, 'synthesized Gretel speech authorization'],
+    [/(?:^|[.!?]\s+)\s*(?:[-*]\s+)?(?:Create|Invent|Generate|Reconstruct)\s+(?:the\s+)?Workbook pages?\s+86[–—-]87\b/im, 'invented missing Workbook pages'],
+    [/(?:small|brief|status|minor)[^.\n]{0,60}(?:answers?|replies|handbacks?)[^.\n]{0,50}(?:do not need|need not include|do not require|may omit)[^.\n]{0,30}(?:visual|diagram)/i, 'every-final visual exemption'],
+    [/(?:a table|prose)\s+alone\s+(?:satisfies|fulfills|is sufficient for)[^.\n]{0,60}(?:visual|diagram|handback)/i, 'table-only visual exemption'],
+  ];
+  for (const [name,raw] of Object.entries(docs ?? {})) {
+    if (documentationRole(name) !== 'active') continue;
+    const text = activeInstructions(raw);
+    for (const [pattern,label] of rules) if (pattern.test(text)) errors.push(name + ': ' + label);
+  }
+  return {ok:errors.length===0,errors};
+}
+
+export function validateDeploymentConfig(config) {
+  const errors = config?.git?.deploymentEnabled === false ? [] :
+    ['vercel.json: automatic Git deployment must remain explicitly disabled'];
+  return {ok:errors.length===0,errors};
+}
+
+/** Fail closed when a tracked document is unavailable, including evidence files.
+ * Coverage describes the tracked documentation inventory, not semantic proof.
+ */
+export function validateRepositoryDocumentation(root = '.') {
+  const discovered = discoverDocumentation(root);
+  const names = [...new Set([...discovered,...POLICY_FILES,...ROUTING_FILES,'README.md'])];
+  const docs = {}, errors = [];
+  for (const name of names) {
+    try { docs[name] = fs.readFileSync(path.join(root,name),'utf8'); }
+    catch { errors.push(`${name}: missing or unreadable documentation`); }
+  }
+  for (const check of [validatePolicy,validateRouting,validateCurrentAuthority,validateActiveDocumentation]) {
+    errors.push(...check(docs).errors);
+  }
+  try {
+    errors.push(...validateDeploymentConfig(JSON.parse(fs.readFileSync(path.join(root,'vercel.json'),'utf8'))).errors);
+  } catch { errors.push('vercel.json: missing, unreadable, or invalid deployment configuration'); }
+  return {ok:errors.length===0,errors,coverage:{documentation:discovered.length,active:discovered.filter(name=>documentationRole(name)==='active').length,evidence:discovered.filter(name=>documentationRole(name)==='evidence').length}};
+}
+
 const documentationPath = f => typeof f==='string' && (/\.(md|mdx|txt)$/i.test(f) || /^docs\//i.test(f));
 
 export function assessMerge(receipt) {
@@ -185,9 +256,7 @@ function cli() {
   const [flag,arg]=process.argv.slice(2);
   let result;
   if (flag==='--docs' && !arg) {
-    const docs=Object.fromEntries([...POLICY_FILES,...ROUTING_FILES,'README.md'].map(name=>[name,fs.existsSync(name)?fs.readFileSync(name,'utf8'):'']));
-    const policy=validatePolicy(docs), routing=validateRouting(docs), authority=validateCurrentAuthority(docs);
-    result={ok:policy.ok&&routing.ok&&authority.ok,errors:[...policy.errors,...routing.errors,...authority.errors]};
+    result=validateRepositoryDocumentation();
   } else if (flag==='--evidence' && arg) {
     result=assessMerge(JSON.parse(fs.readFileSync(path.resolve(arg),'utf8')));
   } else {

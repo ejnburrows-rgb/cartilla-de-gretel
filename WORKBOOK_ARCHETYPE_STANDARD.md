@@ -31,6 +31,8 @@ Flipchart presentation statements below. Reference title bars are annotations.
 
 This file is the durable source of truth for how repeated Student Workbook exercise families must look. It complements the physical Workbook source, `CARTILLA_DIGITAL_DIRECTIVE.md`, `STUDENT_INTERACTION_STANDARD.md`, `DESIGN.md`, and `UX-CONTRACT.md`.
 
+These eight exercise families are distinct from the two official Workbook view formats recorded in `docs/ops/WORKBOOK_ARCHETYPE_STANDARD.md` by the later October 30 owner selection ([PR #1224](https://github.com/ejnburrows-rgb/cartilla-de-gretel/pull/1224)). The official-page/guided-view formats do not replace these source-faithful exercise families; preserve both standards within their respective scope.
+
 ## Non-negotiable interpretation
 
 The physical Workbook page remains authoritative for **content and page identity**.

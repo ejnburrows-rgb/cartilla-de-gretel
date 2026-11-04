@@ -1,6 +1,10 @@
 import test from 'node:test';
 import assert from 'node:assert/strict';
-import { assessMerge, validatePolicy, validateRouting, validateCurrentAuthority } from '../check-merge-policy.mjs';
+import fs from 'node:fs';
+import os from 'node:os';
+import path from 'node:path';
+import { execFileSync } from 'node:child_process';
+import { assessMerge, validatePolicy, validateRouting, validateCurrentAuthority, validateActiveDocumentation, documentationRole, discoverDocumentation, validateRepositoryDocumentation, validateDeploymentConfig } from '../check-merge-policy.mjs';
 
 const docs = {
  'AGENTS.md': 'SonarQube is OPTIONAL and NON-BLOCKING. GitHub #877. One active assignment = one bounded deliverable. Continue the next eligible already-assigned task in the same available session. Independent material technical review of the exact head required. No self-approval. Mariposas is included. Before merge, record exact head SHA, material changed-file list, applicable test command/results.',
@@ -94,7 +98,7 @@ test('historical memory is evidence rather than a live worker list', () => {
 });
 
 function allDocumentationChecks(candidate) {
-  return [validatePolicy(candidate), validateRouting(candidate), validateCurrentAuthority(candidate)];
+  return [validatePolicy(candidate), validateRouting(candidate), validateCurrentAuthority(candidate), validateActiveDocumentation(candidate)];
 }
 const historical = text => '<details><summary>Historical context — not current instructions</summary>\n' + text + '\n</details>';
 test('AGENTS cannot become a competing current work queue', () => {
@@ -173,4 +177,113 @@ test('the required visual must show actual changes and verification', () => {
  const result=validateCurrentAuthority({...current, 'AGENTS.md':weakened});
  assert.equal(result.ok,false);
  assert.match(result.errors.join(' '),/actual changes and verification/);
+});
+
+// These mutations preserve the governing contract. Contradictory instructions in
+// another active document must still fail; checking only the contract is insufficient.
+for (const [name, statement, expected] of [
+ ['CONTRIBUTING.md','Integration order: #1218 first → #1227.',/obsolete|completed/],
+ ['CONTRIBUTING.md','Merge any tested PR without asking the owner.',/bypasses owner approval/],
+ ['CONTRIBUTING.md','SonarCloud must pass before merge.',/mandatory Sonar/],
+ ['docs/OWNER_ART_INTAKE.md','This document is the current work queue.',/competing current task authority/],
+ ['README.md','Small replies may omit the visual diagram.',/every-final visual exemption/],
+ ['docs/VOICE_GUIDE.md','Use browser TTS for missing Gretel phrases.',/synthesized Gretel speech authorization/],
+ ['docs/WORKBOOK_GUIDE.md','Invent Workbook pages 86–87.',/invented missing Workbook pages/],
+]) {
+ test(`active document regression: ${name}: ${statement}`, () => {
+  const candidate={...current,[name]:(current[name]??'')+'\n'+statement};
+  const errors=allDocumentationChecks(candidate).flatMap(check=>check.errors);
+  assert.match(errors.join('\n'),expected);
+  assert.ok(errors.some(error=>error.startsWith(name+':')));
+ });
+}
+
+test('specialized documents need no duplicate global contract', () => {
+ assert.ok(allDocumentationChecks({...current,'docs/OWNER_ART_INTAKE.md':'Artwork intake follows AGENTS.md. Missing source artwork stays missing.'}).every(check=>check.ok));
+});
+test('positive speech and missing-page rules do not reject protective wording', () => {
+ const candidate={...current,'docs/VOICE_GUIDE.md':'Do not use browser TTS for missing Gretel phrases. Never invent Workbook pages 86–87. Use only owner recordings.'};
+ assert.ok(allDocumentationChecks(candidate).every(check=>check.ok));
+});
+test('historical details exempt only the explicitly labelled block', () => {
+ const candidate={...current,'CONTRIBUTING.md':historical('SonarCloud must pass before merge.')+'\nSonarCloud must pass before merge.'};
+ assert.equal(validateActiveDocumentation(candidate).ok,false);
+ assert.equal(validateActiveDocumentation({...candidate,'CONTRIBUTING.md':historical('SonarCloud must pass before merge.')}).ok,true);
+});
+test('a mention of history cannot exempt active instructions', () => {
+ const candidate={...current,'CONTRIBUTING.md':'Historical context informs our current rules.\nUse browser TTS for missing Gretel phrases.'};
+ assert.equal(validateActiveDocumentation(candidate).ok,false);
+});
+test('unlabelled details cannot hide speech authorization', () => {
+ const candidate={...current,'docs/VOICE_GUIDE.md':'<details><summary>Voice rules</summary>\nUse browser TTS for missing Gretel phrases.\n</details>'};
+ assert.equal(validateActiveDocumentation(candidate).ok,false);
+});
+test('a table alone cannot replace the required visual', () => {
+ assert.equal(validateActiveDocumentation({'README.md':'A table alone satisfies the visual handback requirement.'}).ok,false);
+});
+test('documentation roles keep source standards active and evidence bounded', () => {
+ for (const name of ['CONTRIBUTING.md','docs/OWNER_ART_INTAKE.md','docs/WORKBOOK_GUIDE.mdx','guide.TXT','docs/history-guide.md']) assert.equal(documentationRole(name),'active',name);
+ for (const name of ['docs/archive/old.md','docs/proofs/review.md','docs/artwork-reconciliation/receipt.txt','tests/fixtures/README.md','public/art/README.md','CHANGELOG.md','.agents/PROJECT_MEMORY.md']) assert.equal(documentationRole(name),'evidence',name);
+ assert.equal(documentationRole('src/main.ts'),'other');
+});
+test('historical evidence remains outside current instruction guards', () => {
+ const evidence='SonarCloud must pass before merge.\nIntegration order: #1218 first → #1227.';
+ const candidate={...current,'docs/archive/old.md':evidence,'docs/proofs/review.md':evidence};
+ assert.ok(allDocumentationChecks(candidate).every(check=>check.ok));
+});
+
+function repositoryFixture(t) {
+ const root=fs.mkdtempSync(path.join(os.tmpdir(),'cartilla-policy-'));
+ t.after(()=>fs.rmSync(root,{recursive:true,force:true}));
+ execFileSync('git',['init','--quiet'],{cwd:root});
+ const files={...current,'vercel.json':JSON.stringify({git:{deploymentEnabled:false}}),'docs/proofs/receipt.txt':'Historical evidence.','docs/special.MDX':'Source standard.','untracked.md':'Not indexed.'};
+ for (const [name,text] of Object.entries(files)) {
+  fs.mkdirSync(path.dirname(path.join(root,name)),{recursive:true});
+  fs.writeFileSync(path.join(root,name),text);
+ }
+ execFileSync('git',['add','--',...Object.keys(files).filter(name=>name!=='untracked.md')],{cwd:root});
+ return root;
+}
+test('discovery inventories tracked documentation including uppercase extensions', t => {
+ const root=repositoryFixture(t), names=discoverDocumentation(root);
+ assert.ok(names.includes('docs/special.MDX'));
+ assert.ok(names.includes('docs/proofs/receipt.txt'));
+ assert.ok(!names.includes('vercel.json'));
+ assert.ok(!names.includes('untracked.md'));
+ assert.deepEqual(names,[...names].sort());
+ const result=validateRepositoryDocumentation(root);
+ assert.equal(result.ok,true,result.errors.join('\n'));
+ assert.equal(result.coverage.documentation,names.length);
+ assert.equal(result.coverage.active+result.coverage.evidence,names.length);
+});
+for (const name of ['docs/special.MDX','docs/proofs/receipt.txt']) {
+ test('missing tracked documentation fails closed: '+name, t => {
+  const root=repositoryFixture(t);
+  fs.unlinkSync(path.join(root,name));
+  const result=validateRepositoryDocumentation(root);
+  assert.equal(result.ok,false);
+  assert.ok(result.errors.includes(name+': missing or unreadable documentation'));
+ });
+}
+for (const config of [{},{git:{}},{git:{deploymentEnabled:true}},{git:{deploymentEnabled:'false'}}]) {
+ test('automatic deployment guard requires literal false: '+JSON.stringify(config),()=>assert.equal(validateDeploymentConfig(config).ok,false));
+}
+test('literal false preserves the automatic deployment safeguard',()=>assert.equal(validateDeploymentConfig({git:{deploymentEnabled:false}}).ok,true));
+test('repository check rejects enabled automatic Git deployment',t=>{
+ const root=repositoryFixture(t);
+ fs.writeFileSync(path.join(root,'vercel.json'),JSON.stringify({git:{deploymentEnabled:true}}));
+ assert.match(validateRepositoryDocumentation(root).errors.join('\n'),/automatic Git deployment/);
+});
+test('repository check fails closed for invalid deployment configuration',t=>{
+ const root=repositoryFixture(t);
+ fs.writeFileSync(path.join(root,'vercel.json'),'{');
+ assert.match(validateRepositoryDocumentation(root).errors.join('\n'),/invalid deployment configuration/);
+});
+
+test('expanding discovery retains the required governing and routing documents',()=>{
+ for (const name of ['AGENTS.md','PROJECT_SOURCE_OF_TRUTH.md','PROJECT_FINISH_DEFINITION.md','tasks/plan.md','MASTER_REFERENCE.md','docs/JOBS.md','tasks/todo.md','.agents/PROJECT_MEMORY.md','README.md']) {
+  const candidate={...current};
+  delete candidate[name];
+  assert.ok(validateCurrentAuthority(candidate).errors.includes(name+': missing or empty current authority document'),name);
+ }
 });

@@ -150,11 +150,13 @@ For the page-turn system, proof must include:
 Final regression remains responsible for end-to-end confirmation across the assembled product.
 
 
-## 9. Issue ownership
+## 9. Historical implementation references
 
-- #445 owns the shared student interaction kernel reference implementation plus p1/p2.
-- #446–#449 own activity-family adapters only.
-- #455 owns Gretel behavior as a consumer of shared kernel events.
-- #470 owns the physical Workbook + Flip Chart page-turn implementation.
-- #450 verifies the assembled Workbook including #470 integration.
-- #457 verifies the assembled teacher/Flip Chart experience including #470 integration.
+The issue roles below record the original implementation split, not current assignments or authority to restart work. Use `AGENTS.md` and [GitHub #877](https://github.com/ejnburrows-rgb/cartilla-de-gretel/issues/877) for current verified ownership, remaining work and proof. Reuse still-valid implementation evidence.
+
+- #445 recorded the shared student interaction kernel reference implementation plus p1/p2.
+- #446–#449 recorded activity-family adapters only.
+- #455 recorded Gretel behavior as a consumer of shared kernel events.
+- #470 recorded the physical Workbook + Flip Chart page-turn implementation.
+- #450 recorded assembled Workbook verification including #470 integration.
+- #457 recorded assembled teacher/Flip Chart verification including #470 integration.

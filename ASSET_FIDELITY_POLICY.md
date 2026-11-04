@@ -9,6 +9,10 @@
 **Two narrow source-safe exceptions exist:** verified source-preserving color transfer for eligible Workbook foreground art, and background-only generation under `repo.md`.
 It replaces `IMAGE_GENERATION_BAN.md` and `docs/GOOGLE_FLOW_PROMPTS.md`, which are kept only as history and must not guide any agent.
 
+## Approval prerequisite for cleanup
+
+The cleanup obligation above does not authorize deletion or overwrite. Under [AGENTS.md](AGENTS.md), obtain the owner's explicit approval for the exact paths and cleanup package before a destructive operation. First record replacement provenance, affected references and source-faithful rendered proof; replacement acceptance alone is not deletion permission. Preserve originals and unique evidence. This policy review deletes no assets.
+
 ## The one-line rule
 
 **Keep the approved art. Preserve the source drawing. Verified color transfer may add only source-backed color; Google Flow is for MOTION, not redesign.**
