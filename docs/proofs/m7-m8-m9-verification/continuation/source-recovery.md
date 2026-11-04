@@ -1,6 +1,6 @@
 # Four unresolved Flip Chart scenes — bounded source recovery
 
-Owner: Codex source_recovery. Baseline: `d613b78ba553c3c5786afdf7d589305a3080f1cf`, existing PR #1247. **WAITING** for clean source or a source-specific placement decision. No production assets, metadata, text, audio or motion changed.
+Owner: Codex source_recovery. Baseline: `d613b78ba553c3c5786afdf7d589305a3080f1cf`, existing PR #1247. **Historical receipt. November 4 source recovery and approved full-sheet choices supersede the source/decision holds; see the continuation below.** No production assets, metadata, text, audio or motion changed.
 
 This extends the existing [completion checkpoint](../COMPLETION-CHECK.md); its full original PDF, archive-hero and rendered-page findings are reused. It does not restart the 62-page audit. The full PDF hash remains `d7fb3dff4e63caf3443226e57a9ef700f8974acd4ad8f08f44e2792e13cc4930`.
 
@@ -95,3 +95,14 @@ Existing source extraction map (all four PDFs contain one embedded JPEG at **xre
 The earlier separate-sheet PDF SHA256 records still identify the containing PDFs; the table above separately identifies the JPEG bytes inside them. Source rectangle remains `[0,0,width,height]`, with no alpha/crop/template-match bounds. Existing scene crop boxes in `flipchart-native-assets.json` are respectively `[474,193,498,315]`, `[444,28,531,504]`, `[473,29,506,532]`, `[481,28,504,562]`; these are **not** full-sheet coordinates and must not be applied to the new image.
 
 Affected verification after implementation: add focused renderer checks that exactly one visible approved sheet and no duplicate caption/medallion/spiral/old scene mount for accepted pages; keep the transcription accessible and the whole source visible at all target sizes. Existing `flipchart-native-coverage.test.ts` explicitly describes every instructional plate as scan-free; a later owner-approved full-sheet mode requires an exact four-page source/approval assertion alongside the unchanged scan-free requirements for all other plates, rather than pretending the old test proves the new raster surface. Reuse existing reading-order, static-art and page-turn evidence only where unchanged. Source-byte identity, loading/error behavior, actual-route screenshots/readability and required independent review remain to be checked on the implemented commit. No build, browser run, image regeneration, replacement install or approval occurred while preparing this map.
+
+
+## November 4 — accepted full-sheet implementation
+
+Owner viewed all four existing comparison PNGs and explicitly approved their right-hand complete original sheets for pages 35, 41, 47 and 53, superseding the earlier keep-open answer. Decision: [#877 comment 6630382439](https://github.com/ejnburrows-rgb/cartilla-de-gretel/issues/877#issuecomment-6630382439). This approves image placement, not release.
+
+Authenticated Drive recovery returned all four recorded PDFs with exact PDF SHA256 matches. Direct extraction of original DCTDecode image streams, without rendering/recompression, matches every original JPEG hash/dimension in the implementation map above. An initial high-level image-export attempt re-encoded JPEGs; those intermediate files were rejected and are not production assets.
+
+The existing production manifest records fullSheet source, dimensions, original JPEG/PDF hashes, URL and approval. The replica model/renderer/CSS preserve whole-source proportions and accessible transcription, suppress separate visible replica layers and report load errors without clipped-scene fallback. Original scene records remain historical/inactive in this mode. No four-value PDF rectangle was inserted into five-value placement or six-value bounds records.
+
+Fresh focused suite: 51/51 across five files, including six new mounted renderer checks for four exact-source sheets, decorative thumbnails and load-error/page-change recovery. Additional validation and real-route evidence belong in #877. Independent changed-head review, full assembled release qualification and physical-device acceptance remain required. No merge or deployment is implied.

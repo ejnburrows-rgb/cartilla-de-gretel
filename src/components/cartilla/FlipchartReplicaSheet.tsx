@@ -1,4 +1,4 @@
-import { useLayoutEffect, useMemo, useRef, type CSSProperties } from "react";
+import { useLayoutEffect, useMemo, useRef, useState, type CSSProperties } from "react";
 import { LivingIllustration } from "@/components/living/LivingIllustration";
 import { getReplicaSheet, replicaReadingOrder, type ReplicaToken } from "@/lib/flipchart-replica";
 import sourceColors from "@/data/flipchart-source-colors.json";
@@ -7,6 +7,15 @@ import "@/styles/flipchart-replica.css";
 
 type SourcePageColors = { panel?: string; crescentLight?: string; crescentEdge?: string };
 const SOURCE_COLORS = (sourceColors as { pages: Record<string, SourcePageColors> }).pages;
+
+function OriginalSheet({ src, width, height, decorative }: { src: string; width: number; height: number; decorative: boolean }) {
+  const [failed, setFailed] = useState(false);
+  // Never silently fall back to the rejected clipped scene on a missing source.
+  return failed ? <p role={decorative ? undefined : "status"} className="fc-replica__source-error">La lámina original no está disponible.</p> : (
+    <img className="fc-replica__full-source" src={src} width={width} height={height}
+      alt="" loading={decorative ? "lazy" : "eager"} decoding="async" onError={() => setFailed(true)} />
+  );
+}
 
 function box(x: number, y: number, w: number, h: number, extra?: Record<string, string | number>) {
   return { "--x": x, "--y": y, "--w": w, "--h": h, ...extra } as CSSProperties;
@@ -134,6 +143,22 @@ export function FlipchartReplicaSheet({ pageNumber, decorative = false }: { page
   const gradientId = `fc-replica-crescent-${pageNumber}${decorative ? "-thumb" : ""}`;
   const fadeId = `${gradientId}-fade`;
   const fade = sheet.crescent?.fade;
+
+  if (sheet.fullSheet) {
+    const original = sheet.fullSheet;
+    return (
+      <div className="fc-replica" data-replica-page={pageNumber} aria-hidden={decorative || undefined}>
+        <div ref={sheetRef} className="fc-replica__sheet fc-replica__sheet--full-source"
+          data-testid="flipchart-replica-sheet" data-source-sha256={original.sha256}
+          style={{ "--sheet-h": sheet.height } as CSSProperties}>
+          <OriginalSheet key={original.src} {...original} decorative={decorative} />
+          {!decorative && <div className="sr-only" data-source-transcript="true">
+            {sheet.tokens.map(token => <p key={token.id}>{token.text}</p>)}
+          </div>}
+        </div>
+      </div>
+    );
+  }
 
   return (
     <div className="fc-replica" data-replica-page={pageNumber}>
